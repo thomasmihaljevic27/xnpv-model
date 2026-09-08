@@ -47,16 +47,24 @@ STALENESS
 Runs on the read-only project mirror, two sessions behind. Indicative only.
 """
 
+import os
 import numpy as np
 import pandas as pd
 import re
 import warnings
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 warnings.filterwarnings("ignore")
 
-SPINE = "C:/Users/thoma/OneDrive/Desktop/xNPV Data/contract_season_spine.csv"
-SKATER_WAR = "C:/Users/thoma/OneDrive/Desktop/xNPV Data/WAR_with_age.csv"
-GOALIE_WAR = "C:/Users/thoma/OneDrive/Desktop/xNPV Data/Goalies_WAR.csv"
+# Source (vendor) vs output (generated) split -- see .env.example.
+# contract_season_spine.csv (join_clauses_to_spine.py) and WAR_with_age.csv
+# (age_join.py) are generated; Goalies_WAR.csv is a vendor input.
+SPINE = os.path.join(os.environ["OUTPUT_DIR"], "contract_season_spine.csv")
+SKATER_WAR = os.path.join(os.environ["OUTPUT_DIR"], "WAR_with_age.csv")
+GOALIE_WAR = os.path.join(os.environ["SOURCE_DIR"], "Goalies_WAR.csv")
 MIN_GP = 20                      # same qualifying filter the hazard uses
 
 

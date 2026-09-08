@@ -74,6 +74,7 @@ Outputs: ep_ages.db            SQLite cache (resumable source of truth)
 
 import argparse
 import datetime
+import os
 import re
 import sqlite3
 import sys
@@ -82,15 +83,23 @@ import unicodedata
 
 import pandas as pd
 import requests
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # ----------------------------------------------------------------------------
-# CONFIG
+# CONFIG -- paths from .env (see .env.example). MISSES_PATH is age_join.py's
+# diagnostic output (read here); everything this scraper produces lands in the
+# generated EP subtree OUTPUT_DIR/ep_out/ so nothing is written to the CWD.
+# EP_AGES_DB has its own var (a resumable SQLite cache).
 # ----------------------------------------------------------------------------
-MISSES_PATH = "age_join_misses.csv"
-DB_PATH = "ep_ages.db"
-OUT_BIRTHDATES = "ep_birthdates.csv"
-OUT_REVIEW = "ep_ages_review.csv"
-LOG_PATH = "ep_age_scraper_log.txt"
+EP_OUT_DIR = os.path.join(os.environ["OUTPUT_DIR"], "ep_out")
+
+MISSES_PATH = os.path.join(os.environ["OUTPUT_DIR"], "age_join_misses.csv")
+DB_PATH = os.environ["EP_AGES_DB"]
+OUT_BIRTHDATES = os.path.join(EP_OUT_DIR, "ep_birthdates.csv")
+OUT_REVIEW = os.path.join(EP_OUT_DIR, "ep_ages_review.csv")
+LOG_PATH = os.path.join(EP_OUT_DIR, "ep_age_scraper_log.txt")
 
 AUTOCOMPLETE_URL = "https://autocomplete.eliteprospects.com/all"
 PLAYER_URL = "https://www.eliteprospects.com/player/{id}/{slug}"
@@ -269,6 +278,8 @@ def main():
                     help="only process the first N un-done names (smoke test)")
     args = ap.parse_args()
 
+    os.makedirs(EP_OUT_DIR, exist_ok=True)
+    os.makedirs(os.path.dirname(DB_PATH) or ".", exist_ok=True)
     misses = pd.read_csv(MISSES_PATH)
     conn = sqlite3.connect(DB_PATH)
     init_cache(conn)

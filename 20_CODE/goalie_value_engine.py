@@ -119,11 +119,10 @@
  This corrects a league-wide mechanical artifact only -- games a goalie
  missed within a normal-length season still count against him.
 
- HOW TO RUN (Windows):  python goalie_value_engine.py
- Inputs (same folder or XNPV_DATA): Goalies_WAR.csv,
-   contract_season_spine.csv, goalie_value_spine.csv (the parity oracle),
-   PuckPedia_Player_Contract_Export_May_22_2026__CONFIDENTIAL.xlsx
- Outputs: goalie_value_spine_v2.csv, goalie_value_engine_run_log.txt
+ HOW TO RUN (Windows):  python 20_CODE/goalie_value_engine.py  (needs .env)
+ Inputs -- SOURCE_DIR: Goalies_WAR.csv;  OUTPUT_DIR: contract_season_spine.csv,
+   goalie_value_spine.csv (the parity oracle);  PUCKPEDIA_CONTRACTS_XLSX
+ Outputs (OUTPUT_DIR): goalie_value_spine_v2.csv, goalie_value_engine_run_log.txt
 =============================================================================
 """
 
@@ -136,13 +135,18 @@ import numpy as np
 import pandas as pd
 import statsmodels.api as sm
 
-DATA_DIR = Path(os.environ.get("XNPV_DATA", "."))
-F_GOALIE_WAR   = DATA_DIR / "Goalies_WAR.csv"
-F_SEASON_SPINE = DATA_DIR / "contract_season_spine.csv"
-F_LOCKED_SPINE = DATA_DIR / "goalie_value_spine.csv"      # parity oracle
-F_CONTRACT_XLSX = DATA_DIR / "PuckPedia_Player_Contract_Export_May_22_2026__CONFIDENTIAL.xlsx"
-OUT_SPINE_V2 = DATA_DIR / "goalie_value_spine_v2.csv"
-OUT_LOG      = DATA_DIR / "goalie_value_engine_run_log.txt"
+from dotenv import load_dotenv
+
+load_dotenv()
+
+SOURCE_DIR = Path(os.environ["SOURCE_DIR"])   # vendor inputs, read-only
+OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])   # generated spines / logs
+F_GOALIE_WAR   = SOURCE_DIR / "Goalies_WAR.csv"
+F_SEASON_SPINE = OUTPUT_DIR / "contract_season_spine.csv"
+F_LOCKED_SPINE = OUTPUT_DIR / "goalie_value_spine.csv"      # parity oracle
+F_CONTRACT_XLSX = Path(os.environ["PUCKPEDIA_CONTRACTS_XLSX"])
+OUT_SPINE_V2 = OUTPUT_DIR / "goalie_value_spine_v2.csv"
+OUT_LOG      = OUTPUT_DIR / "goalie_value_engine_run_log.txt"
 
 # ---------------------------------------------------------------------------
 # LOCKED CONSTANTS (raw regime -- the parity target)

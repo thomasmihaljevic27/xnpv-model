@@ -110,18 +110,23 @@ same tables. Expected full-run time: roughly 10-20 minutes for ~11,800 games.
 
 import argparse
 import csv
+import os
 import sqlite3
 import sys
 from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 # ---------------------------------------------------------------------------
-# CONFIG -- update DB_PATH to wherever nhl_gamelogs.sqlite lives on your
-# machine (the database the v2 scraper wrote -- the one that contains the
-# shifts and shot_events tables).
+# CONFIG -- GAMELOG_DB comes from .env (see .env.example). It must point at
+# the database the v2 scraper wrote -- the one that contains the shifts and
+# shot_events tables.
 # ---------------------------------------------------------------------------
-DB_PATH = Path(r"C:\Users\thoma\OneDrive\Desktop\test\nhl_gamelogs.sqlite")
+DB_PATH = Path(os.environ["GAMELOG_DB"])
 OUT_DIR = DB_PATH.parent          # summary CSV + run log land next to the DB
 
 RUNLOG = []                        # collected lines, written to disk at the end
@@ -165,7 +170,7 @@ def main() -> None:
 
     if not DB_PATH.exists():
         print(f"Database not found at:\n  {DB_PATH}\n"
-              f"Update DB_PATH at the top of this script.", file=sys.stderr)
+              f"Set GAMELOG_DB in .env (see .env.example).", file=sys.stderr)
         raise SystemExit(1)
 
     conn = sqlite3.connect(DB_PATH)

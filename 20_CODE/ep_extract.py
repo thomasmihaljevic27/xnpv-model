@@ -61,6 +61,9 @@ import sys
 import time
 
 import pandas as pd
+from dotenv import load_dotenv
+
+load_dotenv()
 
 import TopDownHockey_Scraper.TopDownHockey_EliteProspects_Scraper as tdhepscrape
 
@@ -100,12 +103,14 @@ FIRST_SEASON_START = 2010
 LAST_SEASON_START = 2025
 SEASONS = [f"{y}-{y+1}" for y in range(FIRST_SEASON_START, LAST_SEASON_START + 1)]
 
-# --- 3. Paths -----------------------------------------------------------------
-CACHE_DIR = r"C:\Users\thoma\OneDrive\Desktop\xNPV Model\outputs\ep_out\ep_cache"
-DB_PATH = r"C:\Users\thoma\OneDrive\Desktop\xNPV Model\outputs\ep_out\ep_prospects.db"
-# The PuckPedia trade export (drives the trade-asset filter). Set to the local
-# path of the export on the machine running this script.
-TRADE_EXPORT_PATH = r"C:\Users\thoma\OneDrive\Desktop\xNPV Model\data_sources\data\puckpedia\PuckPedia_Trades_Contract_Export_May_22_2026__CONFIDENTIAL.xlsx"
+# --- 3. Paths (from .env; see .env.example) ----------------------------------
+EP_OUT_DIR = os.path.join(os.environ["OUTPUT_DIR"], "ep_out")   # generated EP subtree
+CACHE_DIR = os.path.join(EP_OUT_DIR, "ep_cache")
+AUDIT_NO_PROD_PATH = os.path.join(EP_OUT_DIR, "audit_assets_without_production.csv")
+DB_PATH = os.environ["EP_PROSPECTS_DB"]
+# The PuckPedia trade export (drives the trade-asset filter). Set
+# PUCKPEDIA_TRADES_XLSX in .env to the local path of the export.
+TRADE_EXPORT_PATH = os.environ["PUCKPEDIA_TRADES_XLSX"]
 TRADE_EXPORT_SHEET = "trade_export"
 
 # --- 4. Politeness ------------------------------------------------------------
@@ -497,8 +502,9 @@ def run_audit(conn: sqlite3.Connection, asset_filter: bool) -> None:
                   f"{FIRST_SEASON_START} juniors). Sample:")
             for _, r in no_prod.head(25).iterrows():
                 print(f"     {r['player_name']}  ep_player_id={r['ep_player_id']}")
-            no_prod.to_csv("audit_assets_without_production.csv", index=False)
-            print("     full list written to audit_assets_without_production.csv")
+            os.makedirs(EP_OUT_DIR, exist_ok=True)
+            no_prod.to_csv(AUDIT_NO_PROD_PATH, index=False)
+            print(f"     full list written to {AUDIT_NO_PROD_PATH}")
 
 
 # =============================================================================

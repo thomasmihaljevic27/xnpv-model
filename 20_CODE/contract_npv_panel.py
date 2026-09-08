@@ -69,14 +69,19 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+from dotenv import load_dotenv
+
 # The engine is the single source of valuation truth. Importing it (rather
 # than re-implementing) guarantees the panel can never silently drift from
 # the back-test's pricing -- same rates, same curve, same survival, same
 # D20/D21 fixes.
-from contract_npv import NPVEngine, DATA_DIR
+from contract_npv import NPVEngine
 
-OUT_PANEL = DATA_DIR / "contract_npv_panel.csv"
-OUT_LOG   = DATA_DIR / "contract_npv_panel_run_log.txt"
+load_dotenv()
+
+OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])   # panel + log are generated outputs
+OUT_PANEL = OUTPUT_DIR / "contract_npv_panel.csv"
+OUT_LOG   = OUTPUT_DIR / "contract_npv_panel_run_log.txt"
 
 PANEL_FIRST, PANEL_LAST = 2018, 2025      # league-years to lay out as pages
 

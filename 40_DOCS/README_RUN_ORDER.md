@@ -1,7 +1,11 @@
 # xNPV Package — Run Order (Windows, `python` or `py -3.14`)
 
 Everything from the D20/D21 build **plus** the new year-by-year panel, in one drop.
-Drop all files into your data folder (or set `XNPV_DATA`), overwriting old versions.
+Overwrite the old script versions in `20_CODE/`. Paths come from `.env` (copy
+`.env.example`): set `SOURCE_DIR` for the vendor inputs (`WAR.csv`, `Goalies_WAR.csv`,
+`draft_slot_baseline.csv`, …, read-only) and `OUTPUT_DIR` for everything generated
+(`WAR_with_age.csv`, every `*_spine.csv`, the panel, the run logs). The old flat
+`XNPV_DATA` folder is retired. Run from the repo root.
 
 ## What changed since your last local run
 - **D20** — COVID schedule proration (2019-20 ×82/70, 2020-21 ×82/56) at every anchor path; both rates refit on prorated inputs; goalie λ re-estimated (stays 0.65).
@@ -25,17 +29,17 @@ Reference outputs from my run, for parity diffing: `contract_npv_spine.csv`,
 `goalie_value_spine_v2.csv`, `contract_npv_panel.csv`. Re-upload `PROJECT_STATE.md` (v2.0) to the project.
 
 ## Run order — each step's guards must PASS before the next
-1. `python skater_value_engine.py`
-   → Stage 0a raw guard, 0b raw-continuity + D20-rate guards; writes `skater_value_spine.csv`.
-2. `python goalie_value_engine.py`
+1. `python 20_CODE/skater_value_engine.py`
+   → Stage 0a raw guard, 0b raw-continuity + D20-rate guards; writes `skater_value_spine.csv` to `OUTPUT_DIR`.
+2. `python 20_CODE/goalie_value_engine.py`
    → **Stage P parity gate** (must reproduce your existing `goalie_value_spine.csv` to the cent) → rate guard → λ re-estimation → writes `goalie_value_spine_v2.csv`.
-3. `python skater_forward_projection.py`
+3. `python 20_CODE/skater_forward_projection.py`
    → battery; **k=0 consistency must be $0.00**.
-4. `python contract_npv.py`
+4. `python 20_CODE/contract_npv.py`
    → full sweep; writes `contract_npv_spine.csv` (the back-test input).
-5. `python contract_npv_panel.py`
+5. `python 20_CODE/contract_npv_panel.py`
    → writes `contract_npv_panel.csv` (the validation panel). Depends on steps 1–4 having produced clean spines on this machine.
-6. *(optional report)* `python exit_hazard.py` — now runs standalone.
+6. *(optional report)* `python 20_CODE/exit_hazard.py` — now runs standalone.
 
 **No re-run needed:** `age_join.py` / `aging_curve.py` / `WAR_with_age.csv` — the curve works in per-82 units internally, untouched by proration.
 

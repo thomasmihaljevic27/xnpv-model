@@ -20,12 +20,18 @@ Everything printed is also written to run_stale_anchor_fix_log.txt. Send me
 that one file.
 """
 
+import os
 import shutil
 import subprocess
 import sys
 from pathlib import Path
 
-HERE = Path(__file__).resolve().parent
+from dotenv import load_dotenv
+
+load_dotenv()
+
+HERE = Path(__file__).resolve().parent          # 20_CODE -- the scripts to patch/run
+OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])      # where the generated CSVs / logs live
 
 F_ENG = HERE / "goalie_value_engine.py"
 F_NPV = HERE / "contract_npv.py"
@@ -57,10 +63,10 @@ def say(msg=""):
 
 
 def finish(code):
-    (HERE / "run_stale_anchor_fix_log.txt").write_text(
+    (OUTPUT_DIR / "run_stale_anchor_fix_log.txt").write_text(
         "\n".join(LOG), encoding="utf-8")
     say()
-    print("log written: run_stale_anchor_fix_log.txt")
+    print(f"log written: {OUTPUT_DIR / 'run_stale_anchor_fix_log.txt'}")
     sys.exit(code)
 
 
@@ -76,7 +82,7 @@ say("=" * 74)
 say("\n[0] checking no output file is open in Excel")
 locked = []
 for name in LOCKABLE:
-    p = HERE / name
+    p = OUTPUT_DIR / name
     if not p.exists():
         continue
     try:

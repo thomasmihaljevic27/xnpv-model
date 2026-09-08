@@ -49,7 +49,7 @@ filenames inside them are load-bearing. This is a documented deviation from the 
     git clone <repo-url>
     cd xnpv-model
     cp .env.example .env      # then fill in real paths
-    pip install pandas numpy statsmodels scipy requests
+    pip install pandas numpy statsmodels scipy requests python-dotenv
 
 Run order for each pillar is documented in `CLAUDE.md`.
 

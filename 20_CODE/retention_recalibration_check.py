@@ -85,9 +85,14 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-DATA_DIR = Path(os.environ.get("XNPV_DATA", "."))
-OUT_ROWS = DATA_DIR / "retention_recalibration_rows.csv"
-OUT_LOG = DATA_DIR / "retention_recalibration_runlog.txt"
+from dotenv import load_dotenv
+
+load_dotenv()
+
+CODE_DIR = Path(os.environ["CODE_DIR"])       # sibling scripts imported as modules
+OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])   # generated rows / summary / log
+OUT_ROWS = OUTPUT_DIR / "retention_recalibration_rows.csv"
+OUT_LOG = OUTPUT_DIR / "retention_recalibration_runlog.txt"
 
 # ---------------------------------------------------------------------------
 # THE THREE PRICE REGIMES, in cap share.
@@ -125,7 +130,7 @@ def main():
     log("retention_recalibration_check.py v1.0 (2026-07-27)")
     log("Review item 4.2. Measures only; adopts nothing.\n")
 
-    sys.path.insert(0, str(DATA_DIR))
+    sys.path.insert(0, str(CODE_DIR))
     try:
         import rfa_terminal_value as RTV
     except Exception as e:
@@ -306,7 +311,7 @@ def main():
 
     df.to_csv(OUT_ROWS, index=False)
     pd.DataFrame(summary).to_csv(
-        DATA_DIR / "retention_recalibration_summary.csv", index=False)
+        OUTPUT_DIR / "retention_recalibration_summary.csv", index=False)
     log(f"\n  wrote {OUT_ROWS.name} and retention_recalibration_summary.csv")
     OUT_LOG.write_text("\n".join(LOG), encoding="utf-8")
     log(f"  wrote {OUT_LOG.name}")

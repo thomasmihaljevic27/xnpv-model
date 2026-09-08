@@ -148,16 +148,21 @@ from rfa_terminal_value import TerminalValuer, qualifying_offer
 from exit_hazard import (build_transitions, build_hazard_table, bucket,
                          age_group, report_item_14)
 
-DATA_DIR = Path(os.environ.get("XNPV_DATA", "."))
-F_GOALIE_WAR = DATA_DIR / "Goalies_WAR.csv"
+from dotenv import load_dotenv
+
+load_dotenv()
+
+SOURCE_DIR = Path(os.environ["SOURCE_DIR"])   # vendor inputs, read-only
+OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])   # generated spines / logs
+F_GOALIE_WAR = SOURCE_DIR / "Goalies_WAR.csv"
 # D20 (2026-07-05): constants self-calibrate from the PRORATED goalie
 # spine. Run goalie_value_engine.py first -- it writes the v2 file after
 # its parity gate + rate refit. Pointing at the old spine would silently
 # price goalies at the pre-D20 rate.
-F_GOALIE_SPINE = DATA_DIR / "goalie_value_spine_v2.csv"
-F_SEASON_SPINE = DATA_DIR / "contract_season_spine.csv"
-OUT_SPINE = DATA_DIR / "contract_npv_spine.csv"
-OUT_LOG = DATA_DIR / "contract_npv_run_log.txt"
+F_GOALIE_SPINE = OUTPUT_DIR / "goalie_value_spine_v2.csv"
+F_SEASON_SPINE = OUTPUT_DIR / "contract_season_spine.csv"
+OUT_SPINE = OUTPUT_DIR / "contract_npv_spine.csv"
+OUT_LOG = OUTPUT_DIR / "contract_npv_run_log.txt"
 
 # ---- locked goalie constants (P2 close-out, 2026-06-30) --------------------
 # The documented narrative values (alpha 1.398% cap, beta 1.097%/WAR, league
@@ -322,8 +327,8 @@ class NPVEngine:
 
         # ---- skater exit-hazard table (shared builder, same numbers as ----
         # ---- the standalone exit_hazard.py report) -------------------------
-        d_sk = build_transitions(DATA_DIR / "WAR.csv",
-                                 DATA_DIR / "WAR_with_age.csv")
+        d_sk = build_transitions(SOURCE_DIR / "WAR.csv",
+                                 OUTPUT_DIR / "WAR_with_age.csv")
         self.h_sk = build_hazard_table(d_sk)
 
         # ---- goalie panel + hazard -----------------------------------------
@@ -542,7 +547,7 @@ def validate():
     log("=" * 74)
 
     # ---- 1. k=0 consistency, both positions ---------------------------------
-    l1 = pd.read_csv(DATA_DIR / "skater_value_spine.csv")
+    l1 = pd.read_csv(OUTPUT_DIR / "skater_value_spine.csv")
     l1 = l1[l1["trailing_war"].notna() & l1["season_start"].between(2018, 2025)]
     diffs, checked, worst = [], 0, None
     for _, r in l1.sample(200, random_state=11).iterrows():

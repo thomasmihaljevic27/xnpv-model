@@ -154,8 +154,12 @@ def price(projected_war, posgrp, ceiling):
     beta = BETA_D if str(posgrp).upper().startswith("D") else BETA_F
     return (ALPHA + beta * projected_war) * ceiling
 
-DATA_DIR = Path(os.environ.get("XNPV_DATA", "."))
-OUT_LOG = DATA_DIR / "rfa_terminal_value_run_log.txt"
+from dotenv import load_dotenv
+
+load_dotenv()
+
+OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])   # generated logs land here
+OUT_LOG = OUTPUT_DIR / "rfa_terminal_value_run_log.txt"
 
 LOG = []
 def log(msg=""):

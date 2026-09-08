@@ -57,6 +57,7 @@ OUTPUTS
 """
 
 import argparse
+import os
 import re
 import sqlite3
 import sys
@@ -67,28 +68,32 @@ import numpy as np
 import pandas as pd
 import statsmodels.api as sm
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 SCRIPT_VERSION = "v1.0 (2026-07-27)"
 
 # ===========================================================================
 # CONFIG
 # ===========================================================================
-# Project data folder. The default assumes the script sits alongside the data;
-# override with the XNPV_DATA environment variable if it does not.
-import os
-DATA_DIR = Path(os.environ.get("XNPV_DATA", "."))
+# Split source (vendor inputs, read-only) from output (generated files).
+# Both come from .env (see .env.example).
+SOURCE_DIR = Path(os.environ["SOURCE_DIR"])
+OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 
-F_CONTRACT_XLSX = DATA_DIR / "PuckPedia_Player_Contract_Export_May_22_2026__CONFIDENTIAL.xlsx"
-F_WAR_SKATERS   = DATA_DIR / "WAR.csv"
+F_CONTRACT_XLSX = Path(os.environ["PUCKPEDIA_CONTRACTS_XLSX"])
+F_WAR_SKATERS   = SOURCE_DIR / "WAR.csv"
 
-# CANONICAL game-log database (PROJECT_STATE v2.3): the Desktop\test copy is
-# the only one holding `gv_adjusted` and `player_game_value_repl`. The old
-# `new_scrape` path is superseded and must not be used here.
-DB_PATH = Path(r"C:\Users\thoma\OneDrive\Desktop\test\nhl_gamelogs.sqlite")
+# CANONICAL game-log database (PROJECT_STATE v2.3): the copy holding
+# `gv_adjusted` and `player_game_value_repl`. Set GAMELOG_DB in .env to that
+# copy -- the superseded `new_scrape` output must not be used here.
+DB_PATH = Path(os.environ["GAMELOG_DB"])
 
-OUT_SAMPLE = DATA_DIR / "term_premium_test_sample.csv"
-OUT_RESULT = DATA_DIR / "term_premium_test_results.csv"
-OUT_DIAG   = DATA_DIR / "term_premium_test_diagnostics.csv"
-OUT_LOG    = DATA_DIR / "term_premium_test_runlog.txt"
+OUT_SAMPLE = OUTPUT_DIR / "term_premium_test_sample.csv"
+OUT_RESULT = OUTPUT_DIR / "term_premium_test_results.csv"
+OUT_DIAG   = OUTPUT_DIR / "term_premium_test_diagnostics.csv"
+OUT_LOG    = OUTPUT_DIR / "term_premium_test_runlog.txt"
 
 # ===========================================================================
 # LOCKED CONSTANTS -- fixed by the signed specification. Do not edit these
@@ -455,9 +460,9 @@ def stage2_outcome():
     log("=" * 74)
     if not DB_PATH.exists():
         die(f"game-log database not found at:\n  {DB_PATH}\n"
-            "Update DB_PATH at the top of this script. The canonical copy is "
-            "the Desktop\\test one; the new_scrape copy is superseded and does "
-            "not hold gv_adjusted.")
+            "Set GAMELOG_DB in .env (see .env.example) to the canonical copy "
+            "that holds gv_adjusted; the superseded new_scrape output does "
+            "not hold it.")
     conn = sqlite3.connect(DB_PATH)
     tabs = print_schema(conn)
 
@@ -715,7 +720,8 @@ def main():
 
     log(f"term_premium_test.py {SCRIPT_VERSION}")
     log(f"Review item 2.1. Design fixed by term_premium_test_specification_v1.md.")
-    log(f"data dir: {DATA_DIR.resolve()}")
+    log(f"source dir: {SOURCE_DIR.resolve()}")
+    log(f"output dir: {OUTPUT_DIR.resolve()}")
     log("")
 
     if args.schema:

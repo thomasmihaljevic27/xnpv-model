@@ -37,14 +37,20 @@ HOW TO RUN
 Writes stale_anchor_agreement2.txt. Send me that.
 """
 
+import os
 import sys
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
-HERE = Path(__file__).resolve().parent
+from dotenv import load_dotenv
+
+load_dotenv()
+
+HERE = Path(__file__).resolve().parent   # 20_CODE -- for importing contract_npv
 sys.path.insert(0, str(HERE))
+OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])   # generated spine in, diagnostic txt out
 
 OUT = []
 
@@ -55,9 +61,9 @@ def say(msg=""):
 
 
 def dump():
-    (HERE / "stale_anchor_agreement2.txt").write_text(
+    (OUTPUT_DIR / "stale_anchor_agreement2.txt").write_text(
         "\n".join(OUT), encoding="utf-8")
-    print("\nwrote stale_anchor_agreement2.txt")
+    print(f"\nwrote {OUTPUT_DIR / 'stale_anchor_agreement2.txt'}")
 
 
 say("=" * 78)
@@ -77,7 +83,7 @@ say(f"GOALIE_LEAGUE_AVG={C.GOALIE_LEAGUE_AVG:.9f}")
 
 eng = C.NPVEngine()
 gp = eng.gp_spine.copy()
-v2 = pd.read_csv(HERE / "goalie_value_spine_v2.csv")
+v2 = pd.read_csv(OUTPUT_DIR / "goalie_value_spine_v2.csv")
 
 # --------------------------------------------------------------------------
 # Ask contract_npv for its own projection on every goalie row.

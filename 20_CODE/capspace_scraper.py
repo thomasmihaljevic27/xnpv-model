@@ -85,15 +85,18 @@ import time
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # ----------------------------------------------------------------------------
-# CONFIG -- edit these
+# CONFIG -- PuckPedia export paths and OUTPUT_DIR come from .env (.env.example)
 # ----------------------------------------------------------------------------
-INPUT_CONTRACTS_XLSX = r"C:\Users\thoma\OneDrive\Desktop\xNPV Model\data_sources\data\puckpedia\PuckPedia_Player_Contract_Export_May_22_2026__CONFIDENTIAL.xlsx"
-INPUT_TRADES_XLSX    = r"C:\Users\thoma\OneDrive\Desktop\xNPV Model\data_sources\data\puckpedia\PuckPedia_Trades_Contract_Export_May_22_2026__CONFIDENTIAL.xlsx"
+INPUT_CONTRACTS_XLSX = os.environ["PUCKPEDIA_CONTRACTS_XLSX"]
+INPUT_TRADES_XLSX    = os.environ["PUCKPEDIA_TRADES_XLSX"]
 WINDOW_START         = "2018-01-01"   # back-test sample window
 
-OUTPUT_DIR  = r"C:\Users\thoma\OneDrive\Desktop\xNPV Model\outputs\capspace_out"
+OUTPUT_DIR  = os.path.join(os.environ["OUTPUT_DIR"], "capspace_out")
 CACHE_DIR   = os.path.join(OUTPUT_DIR, "html_cache")   # resume-safe HTML cache
 OUT_CSV     = os.path.join(OUTPUT_DIR, "capspace_clauses.csv")
 OUT_DB      = os.path.join(OUTPUT_DIR, "capspace_clauses.db")

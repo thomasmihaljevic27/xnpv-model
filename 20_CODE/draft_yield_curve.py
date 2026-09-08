@@ -116,19 +116,26 @@ import unicodedata
 import numpy as np
 import pandas as pd
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 SCRIPT_VERSION = "1.1"
 print(f"draft_yield_curve.py SCRIPT_VERSION {SCRIPT_VERSION}")
 rng = np.random.default_rng(31415)          # fixed seed: reproducible bootstrap
 
 # ----------------------------------------------------------------------------
-# CONFIG
+# CONFIG -- paths from .env (see .env.example). SOURCE_DIR: vendor WAR files +
+# draft_slot_baseline.csv (read-only). OUTPUT_DIR: generated tree -- the step-1
+# linkage this reads, and the panel + curve this writes.
 # ----------------------------------------------------------------------------
-DATA_DIR     = "."
-LINKAGE_PATH = os.path.join(DATA_DIR, "draft_pick_linkage.csv")
-WAR_PATH     = os.path.join(DATA_DIR, "WAR.csv")
-GW_PATH      = os.path.join(DATA_DIR, "Goalies_WAR.csv")
-OUT_PANEL    = "draft_pick_outcomes.csv"
-OUT_CURVE    = "draft_yield_curve.csv"
+SOURCE_DIR   = os.environ["SOURCE_DIR"]
+OUTPUT_DIR   = os.environ["OUTPUT_DIR"]
+LINKAGE_PATH = os.path.join(OUTPUT_DIR, "draft_pick_linkage.csv")
+WAR_PATH     = os.path.join(SOURCE_DIR, "WAR.csv")
+GW_PATH      = os.path.join(SOURCE_DIR, "Goalies_WAR.csv")
+OUT_PANEL    = os.path.join(OUTPUT_DIR, "draft_pick_outcomes.csv")
+OUT_CURVE    = os.path.join(OUTPUT_DIR, "draft_yield_curve.csv")
 
 FIT_LO, FIT_HI = 2007, 2017     # complete-window cohorts under D+9 (see header)
 WINDOW_LEN     = 9              # D+1..D+9: season_start in [year, year+8]
@@ -410,7 +417,7 @@ if not mono_ok:
 
 # Smoke test 2: shape vs Bacon's independent per-slot NHLer probabilities.
 try:
-    base = pd.read_csv(os.path.join(DATA_DIR, "draft_slot_baseline.csv"))
+    base = pd.read_csv(os.path.join(SOURCE_DIR, "draft_slot_baseline.csv"))
     per_slot = panel.groupby("overall")["share_total_A"].mean().rename("mean_A")
     m = base.merge(per_slot, left_on="draft_pick", right_index=True)
     r = np.corrcoef(m["p_nhler"], m["mean_A"])[0, 1]

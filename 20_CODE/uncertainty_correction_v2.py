@@ -59,9 +59,14 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-DATA_DIR = Path(os.environ.get("XNPV_DATA", "."))
-OUT_ROWS = DATA_DIR / "uncertainty_correction_v2_rows.csv"
-OUT_LOG = DATA_DIR / "uncertainty_correction_v2_runlog.txt"
+from dotenv import load_dotenv
+
+load_dotenv()
+
+CODE_DIR = Path(os.environ["CODE_DIR"])       # sibling scripts imported as modules
+OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])   # generated rows / log
+OUT_ROWS = OUTPUT_DIR / "uncertainty_correction_v2_rows.csv"
+OUT_LOG = OUTPUT_DIR / "uncertainty_correction_v2_runlog.txt"
 
 # v1 results, measured at the OLD rate, for the before-and-after.
 V1_MEAN_PER_CONTRACT = 68_200.0
@@ -85,7 +90,7 @@ def main():
     log("Re-measures review item 3.6 against the corrected rate.")
     log("Reads the patch's own columns; reconstructs nothing.\n")
 
-    sys.path.insert(0, str(DATA_DIR))
+    sys.path.insert(0, str(CODE_DIR))
     try:
         import contract_npv as CN
     except Exception as e:
@@ -111,7 +116,7 @@ def main():
     except Exception as e:
         die(f"could not build the NPV engine: {type(e).__name__}: {e}")
 
-    spine = pd.read_csv(DATA_DIR / "contract_npv_spine.csv")
+    spine = pd.read_csv(OUTPUT_DIR / "contract_npv_spine.csv")
     log(f"  contracts in the NPV spine: {len(spine)}")
 
     rows, n_goalie, n_fail = [], 0, 0

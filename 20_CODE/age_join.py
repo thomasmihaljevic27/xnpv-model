@@ -77,16 +77,26 @@ from datetime import date
 
 import pandas as pd
 
-# ----------------------------------------------------------------------------
-# CONFIG -- paths and the age convention. Nothing magic is hidden below this.
-# ----------------------------------------------------------------------------
-WAR_PATH = "WAR.csv"
-PUCKPEDIA_PATH = "PuckPedia_Player_Contract_Export_May_22_2026__CONFIDENTIAL.xlsx"
+from dotenv import load_dotenv
 
-OUT_WAR_AGE = "WAR_with_age.csv"
-OUT_MISSES = "age_join_misses.csv"
-OUT_LOG = "age_join_log.txt"
-OUT_ID_CONFLICTS = "age_join_id_conflicts.csv"   # review item 1.8
+load_dotenv()
+
+# ----------------------------------------------------------------------------
+# CONFIG -- paths from .env (see .env.example). WAR.csv is a vendor input
+# (SOURCE_DIR, read-only); everything this script produces -- WAR_with_age.csv
+# above all, plus the miss/conflict diagnostics and the log -- is generated
+# and lands in OUTPUT_DIR so nothing is ever written to the working directory.
+# ----------------------------------------------------------------------------
+SOURCE_DIR = os.environ["SOURCE_DIR"]
+OUTPUT_DIR = os.environ["OUTPUT_DIR"]
+
+WAR_PATH = os.path.join(SOURCE_DIR, "WAR.csv")
+PUCKPEDIA_PATH = os.environ["PUCKPEDIA_CONTRACTS_XLSX"]
+
+OUT_WAR_AGE = os.path.join(OUTPUT_DIR, "WAR_with_age.csv")
+OUT_MISSES = os.path.join(OUTPUT_DIR, "age_join_misses.csv")
+OUT_LOG = os.path.join(OUTPUT_DIR, "age_join_log.txt")
+OUT_ID_CONFLICTS = os.path.join(OUTPUT_DIR, "age_join_id_conflicts.csv")   # review item 1.8
 
 
 # ---------------------------------------------------------------------------
@@ -149,8 +159,9 @@ def join_on_id_and_name(left, right, id_col="player_id", name_col="Player",
 # Optional SECOND birthdate source: the Elite Prospects scrape (ep_age_scraper.py)
 # that recovers pre-2018 retirees PuckPedia never had. If this file is absent the
 # script still runs; those players just stay unmatched. Keyed on the exact WAR
-# `Player` string. Applied in Pass 4, after the PuckPedia passes.
-EP_BIRTHDATES_PATH = "ep_birthdates.csv"
+# `Player` string. Applied in Pass 4, after the PuckPedia passes. Written by
+# ep_age_scraper.py to OUTPUT_DIR/ep_out/, so it is read from there.
+EP_BIRTHDATES_PATH = os.path.join(OUTPUT_DIR, "ep_out", "ep_birthdates.csv")
 
 # Corrections for the EP rows the scraper resolved to the WRONG person (its
 # review pile). Each was re-checked against Elite Prospects by hand. These

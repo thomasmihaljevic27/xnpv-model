@@ -52,12 +52,17 @@ HOW TO RUN:
   (from the folder containing skater_value_spine.csv)
 """
 
+import os
 import sqlite3
 import sys
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
+
+from dotenv import load_dotenv
+
+load_dotenv()
 
 try:
     from scipy import stats as scipy_stats
@@ -68,11 +73,14 @@ except ImportError:
           "skipped (Pearson + OLS still run).")
 
 # ---------------------------------------------------------------------------
-# PATHS -- same conventions as the primary script.
+# PATHS -- same conventions as the primary script. All from .env: GAMELOG_DB
+# is the game-log store; skater_value_spine.csv is a generated deliverable;
+# gv_4b_outputs is a generated subtree.
 # ---------------------------------------------------------------------------
-DB_PATH = Path(r"C:\Users\thoma\OneDrive\Desktop\test\nhl_gamelogs.sqlite")
-SPINE_PATH = Path("skater_value_spine.csv")
-OUT_DIR = Path("gv_4b_outputs")
+DB_PATH = Path(os.environ["GAMELOG_DB"])
+OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
+SPINE_PATH = OUTPUT_DIR / "skater_value_spine.csv"
+OUT_DIR = OUTPUT_DIR / "gv_4b_outputs"
 
 # ---------------------------------------------------------------------------
 # LOCKED CONSTANTS -- identical to the primary run. Not tunable.
@@ -150,7 +158,7 @@ def load_bacon_side() -> pd.DataFrame:
 # ---------------------------------------------------------------------------
 def load_gv_raw_side() -> pd.DataFrame:
     if not DB_PATH.exists():
-        fail(f"Database not found at {DB_PATH}. Edit DB_PATH at the top.")
+        fail(f"Database not found at {DB_PATH}. Set GAMELOG_DB in .env (see .env.example).")
 
     uri = f"file:{DB_PATH.as_posix()}?mode=ro"
     con = sqlite3.connect(uri, uri=True)
@@ -279,7 +287,7 @@ def run_variant(bacon: pd.DataFrame, gv: pd.DataFrame,
     results.append(r)
 
     # save row-level file for this variant
-    OUT_DIR.mkdir(exist_ok=True)
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
     same.to_csv(OUT_DIR / f"gv_4b_robust_{tag}_matched_rows.csv", index=False)
     return results
 

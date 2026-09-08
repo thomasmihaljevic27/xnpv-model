@@ -71,21 +71,29 @@ import sqlite3
 import numpy as np
 import pandas as pd
 
-# -----------------------------------------------------------------------------
-# CONFIG  -- edit these paths to match your local layout, then run once.
-# -----------------------------------------------------------------------------
-PUCKPEDIA_XLSX = "PuckPedia_Player_Contract_Export_May_22_2026__CONFIDENTIAL.xlsx"
+from dotenv import load_dotenv
 
-# cap-space clauses: read from CSV by default. If you prefer to read from your
-# local SQLite DB instead, set CLAUSES_DB to the .db path and CLAUSES_TABLE to
-# the table name; the CSV path is then ignored.
-CLAUSES_CSV   = "capspace_clauses.csv"
-CLAUSES_DB    = None          # e.g. "capspace_clauses.db"
+load_dotenv()
+
+# -----------------------------------------------------------------------------
+# CONFIG -- all paths come from .env (see .env.example). OUTPUT_DIR is the
+# generated tree; contract_*_spine.csv are the deliverables this script writes.
+# The one vendor input has its own var, PUCKPEDIA_CONTRACTS_XLSX.
+# -----------------------------------------------------------------------------
+OUTPUT_DIR = os.environ["OUTPUT_DIR"]
+
+PUCKPEDIA_XLSX = os.environ["PUCKPEDIA_CONTRACTS_XLSX"]
+
+# cap-space clauses: read from CSV by default (the capspace_scraper.py output).
+# If you prefer to read from the SQLite DB instead, set CLAUSES_DB to the .db
+# path and CLAUSES_TABLE to the table name; the CSV path is then ignored.
+CLAUSES_CSV   = os.path.join(OUTPUT_DIR, "capspace_out", "capspace_clauses.csv")
+CLAUSES_DB    = None          # e.g. os.path.join(OUTPUT_DIR, "capspace_out", "capspace_clauses.db")
 CLAUSES_TABLE = "clauses"     # only used if CLAUSES_DB is set
 
-OUT_SEASON   = "contract_season_spine.csv"
-OUT_CONTRACT = "contract_level_spine.csv"
-OUT_LOG      = "join_clauses_runlog.txt"
+OUT_SEASON   = os.path.join(OUTPUT_DIR, "contract_season_spine.csv")
+OUT_CONTRACT = os.path.join(OUTPUT_DIR, "contract_level_spine.csv")
+OUT_LOG      = os.path.join(OUTPUT_DIR, "join_clauses_runlog.txt")
 
 # -----------------------------------------------------------------------------
 # small run-log helper: print to console AND collect for the .txt file

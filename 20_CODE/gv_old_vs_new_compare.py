@@ -30,11 +30,16 @@ WHAT IT REPORTS (all at the season x team x player "stint" level, reg season)
      names low-minute/replacement types?).
 """
 
+import os
 import sqlite3
 from pathlib import Path
 import numpy as np
 
-DB_PATH = r"C:\Users\thoma\OneDrive\Desktop\test\nhl_gamelogs.sqlite"   # <-- SAME shared path
+from dotenv import load_dotenv
+
+load_dotenv()
+
+DB_PATH = os.environ["GAMELOG_DB"]   # <-- SAME shared path, from .env
 
 def rankcorr(a, b):
     """Spearman-style: Pearson correlation of the ranks (no scipy needed)."""
@@ -43,7 +48,7 @@ def rankcorr(a, b):
 
 def main():
     if not Path(DB_PATH).exists():
-        raise SystemExit(f"DB not found at {DB_PATH} -- fix DB_PATH.")
+        raise SystemExit(f"DB not found at {DB_PATH} -- set GAMELOG_DB in .env.")
     conn = sqlite3.connect(DB_PATH); conn.row_factory = sqlite3.Row
     cur = conn.cursor()
     if not cur.execute("""SELECT name FROM sqlite_master

@@ -90,19 +90,28 @@ import urllib.request
 
 import pandas as pd
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 SCRIPT_VERSION = "1.1"
 print(f"draft_pick_linkage.py SCRIPT_VERSION {SCRIPT_VERSION}")
 
 # ----------------------------------------------------------------------------
-# CONFIG -- edit paths for your machine. Everything else should not need edits.
+# CONFIG -- all paths come from .env (see .env.example). SOURCE_DIR holds the
+# vendor WAR files (read-only); OUTPUT_DIR is the generated tree. WAR_with_age
+# (age_join.py) and draft_pick_linkage.csv are generated; the draft-API JSON
+# cache lands under OUTPUT_DIR too so nothing is written to the working dir.
 # ----------------------------------------------------------------------------
-DATA_DIR   = "."                      # folder holding WAR.csv etc.
-CACHE_DIR  = "draft_raw"              # per-year JSON cache lands here
-OUT_PATH   = "draft_pick_linkage.csv"
+SOURCE_DIR = os.environ["SOURCE_DIR"]
+OUTPUT_DIR = os.environ["OUTPUT_DIR"]
 
-WAR_PATH   = os.path.join(DATA_DIR, "WAR.csv")
-WAGE_PATH  = os.path.join(DATA_DIR, "WAR_with_age.csv")
-GW_PATH    = os.path.join(DATA_DIR, "Goalies_WAR.csv")
+CACHE_DIR  = os.path.join(OUTPUT_DIR, "draft_raw")   # per-year JSON cache lands here
+OUT_PATH   = os.path.join(OUTPUT_DIR, "draft_pick_linkage.csv")
+
+WAR_PATH   = os.path.join(SOURCE_DIR, "WAR.csv")
+WAGE_PATH  = os.path.join(OUTPUT_DIR, "WAR_with_age.csv")
+GW_PATH    = os.path.join(SOURCE_DIR, "Goalies_WAR.csv")
 
 PULL_YEARS = range(2005, 2027)        # full pull; the CURVE fits on 2007-2019
 FIT_LO, FIT_HI = 2007, 2019           # fitting window for the diagnostics

@@ -35,13 +35,18 @@ IDENTIFICATION GUARDS (pre-registered):
 Outputs: table gv_adjusted (player_id, season, components, gv_adj, toi_5v5)
          + gv_adjusted.csv + plaintext runlog lines to stdout.
 """
-import sqlite3, math, sys, time
+import os, sqlite3, math, sys, time
 from collections import defaultdict
+from pathlib import Path
 import numpy as np
 from scipy import sparse
 from scipy.sparse.linalg import cg
 
-DB_PATH = r"C:\Users\thoma\OneDrive\Desktop\test\nhl_gamelogs.sqlite"
+from dotenv import load_dotenv
+
+load_dotenv()
+
+DB_PATH = os.environ["GAMELOG_DB"]
 SCRIPT_VERSION = "v1.0 (2026-07-04)"
 MIN_STINT_SEC = 4          # segments shorter than this are boundary noise
 LAMBDA_GRID = [100.0, 300.0, 1000.0, 3000.0, 10000.0, 30000.0]
@@ -386,7 +391,7 @@ def main():
 
     # export CSV
     import csv as _csv
-    with open(r'C:\Users\thoma\OneDrive\Desktop\test\gv_adjusted.csv', 'w', newline='') as f:
+    with open(Path(DB_PATH).parent / 'gv_adjusted.csv', 'w', newline='') as f:
         wcsv = _csv.writer(f)
         wcsv.writerow(['player_id','season','toi_5v5_min','ev_rapm','nonev5',
                        'penalty','finishing','gv_adj','off60','def60'])

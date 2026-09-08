@@ -37,13 +37,19 @@ Read-only. It opens the database, runs two counts, and prints a verdict. It
 writes nothing and changes nothing.
 """
 
+import os
 import re
 import sqlite3
 import sys
 from pathlib import Path
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 # Canonical game-log database, same path term_premium_test.py uses.
-DB_PATH = Path(r"C:\Users\thoma\OneDrive\Desktop\test\nhl_gamelogs.sqlite")
+# GAMELOG_DB comes from .env (see .env.example).
+DB_PATH = Path(os.environ["GAMELOG_DB"])
 
 # A single game's expected five-on-five player-minutes: about 48-50 minutes of
 # five-on-five play, times ten skaters on the ice. The band is deliberately
@@ -68,7 +74,7 @@ def parse_season(v):
 
 def main():
     if not DB_PATH.exists():
-        print(f"Database not found at:\n  {DB_PATH}\nEdit DB_PATH and re-run.")
+        print(f"Database not found at:\n  {DB_PATH}\nSet GAMELOG_DB in .env and re-run.")
         sys.exit(1)
 
     conn = sqlite3.connect(DB_PATH)

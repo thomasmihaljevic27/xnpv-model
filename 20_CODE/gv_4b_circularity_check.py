@@ -37,12 +37,17 @@ HOW TO RUN:
   python gv_4b_circularity_check.py
 """
 
+import os
 import sqlite3
 import sys
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
+
+from dotenv import load_dotenv
+
+load_dotenv()
 
 try:
     from scipy import stats as scipy_stats
@@ -54,11 +59,14 @@ except ImportError:
           "the full report.")
 
 # ---------------------------------------------------------------------------
-# PATHS -- edit these two lines if your files live somewhere else.
+# PATHS -- all from .env (see .env.example). GAMELOG_DB is the game-log store;
+# skater_value_spine.csv is a generated deliverable; the gv_4b_outputs folder
+# is a generated subtree.
 # ---------------------------------------------------------------------------
-DB_PATH = Path(r"C:\Users\thoma\OneDrive\Desktop\test\nhl_gamelogs.sqlite")
-SPINE_PATH = Path("skater_value_spine.csv")
-OUT_DIR = Path("gv_4b_outputs")
+DB_PATH = Path(os.environ["GAMELOG_DB"])
+OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
+SPINE_PATH = OUTPUT_DIR / "skater_value_spine.csv"
+OUT_DIR = OUTPUT_DIR / "gv_4b_outputs"
 
 # ---------------------------------------------------------------------------
 # LOCKED CONSTANTS -- do not tune these to improve the result. They come
@@ -175,8 +183,8 @@ def load_gv_side() -> pd.DataFrame:
     script only ever SELECTs, never writes.
     """
     if not DB_PATH.exists():
-        fail(f"Database not found at {DB_PATH}. Edit DB_PATH at the top "
-             "of this script.")
+        fail(f"Database not found at {DB_PATH}. Set GAMELOG_DB in .env "
+             "(see .env.example).")
 
     uri = f"file:{DB_PATH.as_posix()}?mode=ro"
     con = sqlite3.connect(uri, uri=True)
@@ -270,7 +278,7 @@ def main() -> None:
     print("\nLoading GV-adj (local database, read-only)...")
     gv = load_gv_side()
 
-    OUT_DIR.mkdir(exist_ok=True)
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
 
     # -----------------------------------------------------------------
     # PRIMARY TEST: same-season.

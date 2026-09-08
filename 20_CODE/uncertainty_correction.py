@@ -99,10 +99,16 @@ import pandas as pd
 from scipy import stats
 
 SCRIPT_VERSION = "v1.0 (2026-07-27)"
-DATA_DIR = Path(os.environ.get("XNPV_DATA", "."))
-OUT_ROWS = DATA_DIR / "uncertainty_correction_rows.csv"
-OUT_SUM = DATA_DIR / "uncertainty_correction_summary.csv"
-OUT_LOG = DATA_DIR / "uncertainty_correction_runlog.txt"
+
+from dotenv import load_dotenv
+
+load_dotenv()
+
+CODE_DIR = Path(os.environ["CODE_DIR"])       # contract_npv.py imported as a module
+OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])   # generated rows / summary / log
+OUT_ROWS = OUTPUT_DIR / "uncertainty_correction_rows.csv"
+OUT_SUM = OUTPUT_DIR / "uncertainty_correction_summary.csv"
+OUT_LOG = OUTPUT_DIR / "uncertainty_correction_runlog.txt"
 
 # ---------------------------------------------------------------------------
 # The spread of the projection range, from the projection script's own backcast
@@ -154,17 +160,18 @@ def expected_floored_value(point_value, sd_dollars, floor_dollars):
 def main():
     log(f"uncertainty_correction.py {SCRIPT_VERSION}")
     log("Review item 3.6. Measures only; changes nothing in the chain.")
-    log(f"data dir: {DATA_DIR.resolve()}\n")
+    log(f"output dir: {OUTPUT_DIR.resolve()}")
+    log(f"code dir:   {CODE_DIR.resolve()}\n")
 
     # The valuation chain lives in contract_npv.py, which already assembles the
     # projections, the survival chain, and the discounting. Rather than rebuild
     # any of that, this script drives the existing engine and recomputes the
     # value column two ways for each contract-season.
-    sys.path.insert(0, str(DATA_DIR))
+    sys.path.insert(0, str(CODE_DIR))
     try:
         import contract_npv as CN
     except Exception as e:
-        die(f"could not import contract_npv.py from {DATA_DIR}: "
+        die(f"could not import contract_npv.py from {CODE_DIR}: "
             f"{type(e).__name__}: {e}")
 
     try:
@@ -173,7 +180,7 @@ def main():
         die(f"could not build the NPV engine: {type(e).__name__}: {e}. "
             "Run contract_npv.py on its own first and make sure it completes.")
 
-    spine = pd.read_csv(DATA_DIR / "contract_npv_spine.csv")
+    spine = pd.read_csv(OUTPUT_DIR / "contract_npv_spine.csv")
     log(f"  contracts in the NPV spine: {len(spine)}")
 
     # The rate in force. Read from the projection module so this script cannot

@@ -172,6 +172,7 @@ every run; re-running never double-writes.
 
 import csv
 import math
+import os
 import sqlite3
 import sys
 from collections import defaultdict
@@ -182,13 +183,17 @@ import numpy as np
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import roc_auc_score
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 SCRIPT_VERSION = "v1.0 (2026-07-03) -- initial xG model"
 
 # ---------------------------------------------------------------------------
-# CONFIG -- update DB_PATH to wherever nhl_gamelogs.sqlite lives (the same
-# database Script 1 wrote its on_ice_* tables into).
+# CONFIG -- GAMELOG_DB comes from .env (see .env.example). It must be the same
+# database Script 1 wrote its on_ice_* tables into.
 # ---------------------------------------------------------------------------
-DB_PATH = Path(r"C:\Users\thoma\OneDrive\Desktop\test\nhl_gamelogs.sqlite")
+DB_PATH = Path(os.environ["GAMELOG_DB"])
 OUT_DIR = DB_PATH.parent
 
 # Holdout seasons for honest out-of-sample validation (regular season only).
@@ -248,7 +253,7 @@ def main() -> None:
     print(f"xg_model.py {SCRIPT_VERSION}")
     if not DB_PATH.exists():
         print(f"Database not found at:\n  {DB_PATH}\n"
-            f"Update DB_PATH at the top of this script.", file=sys.stderr)
+            f"Set GAMELOG_DB in .env (see .env.example).", file=sys.stderr)
         raise SystemExit(1)
 
     conn = sqlite3.connect(DB_PATH)

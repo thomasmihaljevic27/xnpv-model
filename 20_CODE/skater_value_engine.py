@@ -49,10 +49,10 @@
 
  HOW TO RUN (Windows)
  --------------------
-   1. Put this file in the folder that contains the four input files
-      listed in CONFIG below (or set the XNPV_DATA environment variable).
-   2. Run:  python skater_value_engine.py
-   3. Outputs land next to the inputs:
+   1. Copy .env.example to .env and fill in SOURCE_DIR / OUTPUT_DIR
+      (and PUCKPEDIA_CONTRACTS_XLSX). See CONFIG below.
+   2. Run from the repo root:  python 20_CODE/skater_value_engine.py
+   3. Outputs land in OUTPUT_DIR:
         skater_value_spine.csv     the deliverable
         skater_value_run_log.txt   guard results + validation battery
 =============================================================================
@@ -71,15 +71,20 @@ import statsmodels.api as sm
 # ---------------------------------------------------------------------------
 # CONFIG -- file locations
 # ---------------------------------------------------------------------------
-DATA_DIR = Path(os.environ.get("XNPV_DATA", "."))
+from dotenv import load_dotenv
 
-F_CONTRACT_XLSX = DATA_DIR / "PuckPedia_Player_Contract_Export_May_22_2026__CONFIDENTIAL.xlsx"
-F_WAR_SKATERS   = DATA_DIR / "WAR.csv"          # Bacon skater WAR, raw season totals
-F_WAR_GOALIES   = DATA_DIR / "Goalies_WAR.csv"  # needed ONLY for the Stage-0a guard
-F_SEASON_SPINE  = DATA_DIR / "contract_season_spine.csv"
+load_dotenv()
 
-OUT_SPINE = DATA_DIR / "skater_value_spine.csv"
-OUT_LOG   = DATA_DIR / "skater_value_run_log.txt"
+SOURCE_DIR = Path(os.environ["SOURCE_DIR"])   # vendor inputs, read-only
+OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])   # generated spines / panels / logs
+
+F_CONTRACT_XLSX = Path(os.environ["PUCKPEDIA_CONTRACTS_XLSX"])
+F_WAR_SKATERS   = SOURCE_DIR / "WAR.csv"          # Bacon skater WAR, raw season totals
+F_WAR_GOALIES   = SOURCE_DIR / "Goalies_WAR.csv"  # needed ONLY for the Stage-0a guard
+F_SEASON_SPINE  = OUTPUT_DIR / "contract_season_spine.csv"
+
+OUT_SPINE = OUTPUT_DIR / "skater_value_spine.csv"
+OUT_LOG   = OUTPUT_DIR / "skater_value_run_log.txt"
 
 # ---------------------------------------------------------------------------
 # LOCKED CONSTANTS -- do not edit without a logged decision

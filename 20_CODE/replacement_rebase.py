@@ -93,6 +93,7 @@ Run AFTER metric_assembly.py.
 """
 
 import csv
+import os
 import sqlite3
 import sys
 from collections import defaultdict
@@ -100,9 +101,13 @@ from pathlib import Path
 
 import numpy as np
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 # db_inventory.py -- lists which chain tables exist + row counts. Read-only.
 import sqlite3
-DB_PATH = r"C:\Users\thoma\OneDrive\Desktop\test\nhl_gamelogs.sqlite"
+DB_PATH = os.environ["GAMELOG_DB"]
 con = sqlite3.connect(DB_PATH)
 have = {r[0] for r in con.execute("SELECT name FROM sqlite_master WHERE type='table'")}
 # the chain, in dependency order: raw scrape -> Script1 -> 2 -> 3 -> 4
@@ -117,13 +122,14 @@ for t in chain:
 con.close()
 
 # ===========================================================================
-# CONFIG  --  EDIT DB_PATH so it matches the SHARED path used by Scripts 1-4.
-# (A past incident had Script 1 pointing at a pre-reorg folder; all five
-#  scripts must share one DB_PATH. Confirm this string equals the one in
-#  metric_assembly.py before running.)
+# CONFIG  --  GAMELOG_DB is the SHARED path used by Scripts 1-4, read from
+# .env (see .env.example). All five scripts in the chain resolve it the same
+# way now, so the pre-reorg "Script 1 pointing at the wrong folder" incident
+# cannot recur. Secondary CSVs + runlog land next to the DB, matching the
+# other four chain scripts (OUT_DIR = DB_PATH.parent).
 # ===========================================================================
-DB_PATH = r"C:\Users\thoma\OneDrive\Desktop\test\nhl_gamelogs.sqlite"   # <-- CONFIRM THIS
-OUT_DIR = Path(".")                                          # CSVs land here
+DB_PATH = os.environ["GAMELOG_DB"]
+OUT_DIR = Path(DB_PATH).parent                               # CSVs land next to the DB
 
 TOP_F = 13     # forwards ranked 1..13 by TOI are "roster"; 14+ are replacement
 TOP_D = 7      # defencemen ranked 1..7 are "roster"; 8+ are replacement
@@ -143,7 +149,7 @@ def main():
     # G1: connect and confirm the tables we depend on are present.
     # -----------------------------------------------------------------------
     if not Path(DB_PATH).exists():
-        sys.exit(f"FATAL: DB not found at {DB_PATH}. Fix DB_PATH to the shared path.")
+        sys.exit(f"FATAL: DB not found at {DB_PATH}. Set GAMELOG_DB in .env to the shared path.")
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     cur = conn.cursor()

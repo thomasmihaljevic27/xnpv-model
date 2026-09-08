@@ -116,6 +116,7 @@ score_state_factors, penalty_events).
 """
 
 import csv
+import os
 import sqlite3
 import sys
 from collections import defaultdict
@@ -124,12 +125,16 @@ from pathlib import Path
 
 import numpy as np
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 SCRIPT_VERSION = "v1.0 (2026-07-03) -- initial metric assembly"
 
 # ---------------------------------------------------------------------------
-# CONFIG -- same database Scripts 1-3 wrote into.
+# CONFIG -- same database Scripts 1-3 wrote into. GAMELOG_DB comes from .env.
 # ---------------------------------------------------------------------------
-DB_PATH = Path(r"C:\Users\thoma\OneDrive\Desktop\test\nhl_gamelogs.sqlite")
+DB_PATH = Path(os.environ["GAMELOG_DB"])
 OUT_DIR = DB_PATH.parent
 
 RUNLOG = []
@@ -143,7 +148,7 @@ def main() -> None:
     print(f"metric_assembly.py {SCRIPT_VERSION}")
     if not DB_PATH.exists():
         print(f"Database not found at:\n  {DB_PATH}\n"
-            f"Update DB_PATH at the top of this script.", file=sys.stderr)
+            f"Set GAMELOG_DB in .env (see .env.example).", file=sys.stderr)
         raise SystemExit(1)
 
     conn = sqlite3.connect(DB_PATH)

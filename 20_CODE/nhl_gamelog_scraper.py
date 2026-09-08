@@ -148,6 +148,7 @@ requests ~= roughly 70-90 minutes. Run locally.
 
 import argparse
 import json
+import os
 import re
 import sqlite3
 import sys
@@ -157,6 +158,9 @@ from datetime import datetime, timezone, date, timedelta
 from pathlib import Path
 
 import requests
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # ----------------------------------------------------------------------------
 # Configuration
@@ -164,7 +168,7 @@ import requests
 API_BASE = "https://api-web.nhle.com/v1"
 SHIFT_API_BASE = "https://api.nhle.com/stats/rest/en"   # separate host -- see design note 9
 SCRIPT_VERSION = "v2.4 (2026-07-03) -- foreign-team shift filter; OUT_DIR corrected to new_scrape"
-OUT_DIR = Path(r"C:\Users\thoma\OneDrive\Desktop\xNPV Model\new_scrape")          # all outputs live here
+OUT_DIR = Path(os.environ["SCRAPE_OUT_DIR"])          # all outputs live here (from .env)
 RAW_DIR = OUT_DIR / "raw"                    # cached API JSON, one file per call
 DB_PATH = OUT_DIR / "nhl_gamelogs.sqlite"
 REQUEST_SPACING_S = 0.35                     # polite rate limit between requests

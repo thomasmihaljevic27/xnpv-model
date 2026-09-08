@@ -51,16 +51,19 @@ import unicodedata
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
+from dotenv import load_dotenv
 from openpyxl import Workbook
 from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.datavalidation import DataValidation
 
+load_dotenv()
+
 # ---------------------------------------------------------------------------
-# CONFIG
+# CONFIG -- capspace outputs live under OUTPUT_DIR/capspace_out (see .env.example).
 # ---------------------------------------------------------------------------
-CLAUSES_CSV   = r"C:\Users\thoma\OneDrive\Desktop\xNPV Model\outputs\capspace_out\capspace_clauses.csv"
-OUT_DIR       = r"C:\Users\thoma\OneDrive\Desktop\xNPV Model\outputs\capspace_out"
+OUT_DIR       = os.path.join(os.environ["OUTPUT_DIR"], "capspace_out")
+CLAUSES_CSV   = os.path.join(OUT_DIR, "capspace_clauses.csv")
 CACHE_DIR     = os.path.join(OUT_DIR, "capwages_cache")
 OUT_XLSX      = os.path.join(OUT_DIR, "clause_disagreements.xlsx")
 OUT_CSV       = os.path.join(OUT_DIR, "clause_disagreements.csv")
