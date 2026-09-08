@@ -1,0 +1,66 @@
+# ---------------------------------------------------------------------------
+# xNPV Model .gitignore
+#
+# This repo is PUBLIC. Two rules carry the weight here:
+#   1. Nothing confidential or machine-specific goes in.
+#   2. 30_OUTPUT regenerates from code, so it never gets committed.
+#
+# 10_SOURCE uses an allowlist: ignore everything, then re-include the four
+# small vendor CSVs that were explicitly approved for commit. The hard deny
+# on *CONFIDENTIAL* sits at the very bottom because git applies last-match-
+# wins, so nothing above it can accidentally re-include those files.
+# ---------------------------------------------------------------------------
+
+# --- Secrets and machine-specific config ---
+.env
+.env.local
+.claude/
+
+# --- Generated output. Regenerable from code, drifts every run ---
+30_OUTPUT/
+Work/
+90_ARCHIVE/
+
+# --- Source data: ignore everything by default ---
+10_SOURCE/*
+
+# ...then re-include only the four approved vendor CSVs.
+# These are third-party licensed data (TopDownHockey / hockeystats).
+# See 10_SOURCE/README.md for provenance and attribution.
+!10_SOURCE/WAR.csv
+!10_SOURCE/Goalies_WAR.csv
+!10_SOURCE/nhle_temporal.csv
+!10_SOURCE/draft_slot_baseline.csv
+!10_SOURCE/README.md
+
+# --- Databases and large binaries, wherever they appear ---
+*.sqlite
+*.sqlite3
+*.db
+*.zip
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# --- OS and editor cruft ---
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+
+# --- Sync-conflict copies. These have bitten this project before:
+#     "aging_curve (1).py", "age_join (2).py" and nine others were found
+#     in a stale competing script set during the 2026-07-30 audit. ---
+*conflicted copy*
+* (1).*
+* (2).*
+
+# ---------------------------------------------------------------------------
+# HARD DENY. Must remain the last matching rule in this file.
+# The PuckPedia player and trades exports are confidential vendor data.
+# ---------------------------------------------------------------------------
+*CONFIDENTIAL*
