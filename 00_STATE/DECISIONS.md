@@ -118,6 +118,9 @@
 
 ## Change log (state files)
 
+- **2026-09-09 repository review:** Added `40_DOCS/Repository_Review_and_Doc_1_Edits.md` and `sessions/2026-09-09c.md`. Recorded two source-code findings (Rule B position mismatch; target inclusion through aging globals), a proposed review of the surplus-ratio statistic/null, and narrower Game Value validation language in STANDING_FLAGS and WORK_QUEUE. Added report to inventory/manifest. No locked decision, production code, or open user document changed. Findings distinguish confirmed mechanisms from unmeasured aggregate effects.
+
+
 - **2026-09-09 editorial session:** Edited the supplied Circularity and Game Value explainer into `40_DOCS/Doc_1_Circularity_and_Game_Value.docx` (1,762 to 1,231 words). Added draft availability to the project inventory and work queue and registered the artifact in MANIFEST. Clarified validation limits and corrected the unrun-extension attribution to the separate contract-length test. No model decisions or results changed. DOCX structure verified; visual QA unavailable because the renderer is missing. Details: `sessions/2026-09-09b.md`.
 
 

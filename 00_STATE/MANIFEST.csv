@@ -77,3 +77,4 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 30_OUTPUT,WAR_with_age.csv,age,hashable,2026-09-09a,LOCAL_RUN,3763307,2026-09-09,yes,dropbox,age_join.py output; ID pollution flag: 23 IDs / 217 rows / 47 players
 10_SOURCE,nhl_gamelogs.sqlite,xg,binary,2026-09-09a,LOCAL_RUN,2319740928,2026-09-09,yes,dropbox,2.3 GB. Dropbox-only (over GitHub's 100 MB cap). 2026-07-14 copy is canonical per Thomas; holds gv_adjusted + player_game_value_repl
 40_DOCS,Doc_1_Circularity_and_Game_Value.docx,doc,rendition,2026-09-09b,5b1db113337a476e8964847c83be4770cdc95736,10803,2026-09-09,partial,git,Editorial copy; text and XML checked; page rendering unavailable
+40_DOCS,Repository_Review_and_Doc_1_Edits.md,doc,hashable,2026-09-09c,891e2beec04ca9137e6684c48015ef8e74d1c371,19453,2026-09-09,yes,git,Source-linked repository review and proposed Doc 1 edits; no model changes

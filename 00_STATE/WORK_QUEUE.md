@@ -72,3 +72,6 @@ Reproducible on both machines (Thomas's local run matches: `[1a] max diff $0.00`
 
 **Phase 6 — documentation**
 - [x] Efficient-market null stated in Open Questions as a possible finding. **DONE 2026-07-28.** Written out in full: the null itself (the market prices all three asset classes correctly on average, so measured surplus differences are noise around zero with no systematic pattern by asset class, contract length, player age, or team competitive position), the conditions under which it holds (surplus ratios averaging 1.0 with no category deviation surviving correction for the number of categories tested), why a null result stays publishable (the contribution is the common surplus-dollar currency across three asset classes, which stands either way), and the power caveat (failing to reject is weaker evidence than rejecting, and the power analysis has not been re-run since Phase 3 opened).
+
+
+**Review follow-ups (2026-09-09, not a queue reorder).** Assess the Rule B defence-cost slope mismatch and aging global self-inclusion described in `40_DOCS/Repository_Review_and_Doc_1_Edits.md`; review the proposed Doc 1 passages and the signed allocation rule. A change to the locked surplus-ratio statistic requires a deliberate revisit. No code or model changes made in this review.

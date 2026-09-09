@@ -114,3 +114,13 @@ rate-adjacent, since the anchor feeds the projection that feeds the price equati
 *Remaining housekeeping (refreshed 2026-07-28):*
 - The items (a)-(d) below this line as of v2.5 were all applied to Craft successfully on 2026-07-27 (the "Craft connection issue" session reconnected and pushed the full Stage 1 update set across seven hubs). That entry is now historical.
 - **Craft is unreachable again this session (2026-07-28)** — same intermittent failure mode noted in at least three prior sessions (2026-07-03, 2026-07-05, 2026-07-27 before reconnecting). Craft therefore does not yet carry the Stages 2-5 closure (new rate, retention fix, rebuilt draft curve) documented in this file's v2.6 update. A paste-ready `CRAFT_UPDATE_2026-07-28.md` has been prepared covering: Decision Log (Stages 2-5 close-out entry), Player Model Progress Log (item-by-item narrative), Standing Flags (local-verification-gap flag), Open Questions (verification gap + script staleness, both new Important items), Work Queue (review roadmap fully closed), Regression Results (new skater rate), and the Draft Picks Progress Log (rebuilt curve). Apply next time the connector is reachable.
+
+
+## Repository review follow-ups recorded 2026-09-09
+
+These are newly identified review items, not changes to locked decisions. Detailed evidence and proposed document language are in `40_DOCS/Repository_Review_and_Doc_1_Edits.md`; scope and checks are in `sessions/2026-09-09c.md`.
+
+- **Draft Rule B position mismatch:** `draft_yield_curve.py` uses the position-specific slope for value but the forward slope for trailing cost. Source mismatch confirmed; aggregate effect unmeasured. The primary Rule A curve is separate. Review and rerun the sensitivity comparison before citing its small difference as settled.
+- **Aging self-exclusion is incomplete at the global layer:** target-player direct comparable weights are zero, but global levels/deltas include all careers and enter shrinkage. Actual-method synthetic check confirms the dependency. Real-panel materiality is unmeasured; Docs 2/5 should not claim no own-future contribution anywhere.
+- **Surplus ratios and the null need deliberate review:** common gross-value changes do not generally cancel after subtracting fixed costs; near-zero/negative denominators are problematic; exchangeable positive sides do not imply ratios average 1. The locked comparison statistic remains unchanged pending a deliberate decision.
+- **Game Value validation wording:** construction without Bacon differs from validation on unseen games. Final xG refits on all regular seasons. Raw and adjusted validators share source data. Midseason allocation remains unimplemented and needs a signed/near-zero-total rule.
