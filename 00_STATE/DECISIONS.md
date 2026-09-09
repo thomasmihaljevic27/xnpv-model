@@ -118,6 +118,9 @@
 
 ## Change log (state files)
 
+- **2026-09-09 new Doc 1 draft:** Incorporated the user-provided editorial feedback into the circularity explainer (1,295 words). Restored the expected-goals versus scoreboard explanation, retained the verified mechanics and defensive caveat, and removed rejected jargon and citation instructions. Previous local draft archived. Formatting/package parts preserved; text/XML checks passed, schema/page-render tooling unavailable. Updated manifest, document status, and AGENTS editorial rules. No model change; see `sessions/2026-09-09d.md`.
+
+
 - **2026-09-09 repository review:** Added `40_DOCS/Repository_Review_and_Doc_1_Edits.md` and `sessions/2026-09-09c.md`. Recorded two source-code findings (Rule B position mismatch; target inclusion through aging globals), a proposed review of the surplus-ratio statistic/null, and narrower Game Value validation language in STANDING_FLAGS and WORK_QUEUE. Added report to inventory/manifest. No locked decision, production code, or open user document changed. Findings distinguish confirmed mechanisms from unmeasured aggregate effects.
 
 
