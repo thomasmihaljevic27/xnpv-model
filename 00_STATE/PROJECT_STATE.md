@@ -4,10 +4,17 @@
      which remains the living source of truth. This file exists so that every new chat starts from
      the current state rather than from dated project files. -->
 
-**Generated:** 2026-07-30
-**Refresh due:** 2026-08-06 (7-day cadence)
+**Generated:** 2026-09-08
+**Refresh due:** 2026-09-15 (7-day cadence)
 **Maintained by:** Claude, mirroring the Craft xNPV workspace
 **File version:** 3.0
+
+> **Refresh note (2026-09-08).** The previous snapshot was v2.9, generated 2026-07-29 and due
+> 2026-08-05. It ran six weeks stale. Two sessions in that window went unrecorded on every
+> surface: the 2026-08-28 supervisor meeting and the 2026-09-08 repository migration. Both are
+> written up in the new section below and applied to Craft in the same pass. **Every model
+> figure in this file still dates from the 2026-07-28 runs and has not been reproduced since
+> the migration.** See the compounded verification flag before citing any of them.
 
 ---
 
@@ -237,6 +244,18 @@ Put all three trade-asset classes — rostered players, draft picks, non-roster 
 
 ## Work queue — RE-SEQUENCED 2026-06-30 into phases (matches Roadmap & Phases in Craft, replaces the old flat P1-P8 order)
 
+**TOP OF QUEUE (2026-09-08), gating everything below.** Run the player chain and verify against
+the recorded numbers before any new work. Nothing has run end to end since the path migration.
+Targets from the 2026-07-28 runs: `[1a] max diff $0.00`, 2,909 contracts priced, 6,892 priced
+skater-seasons, NPV panel 6,939 rows, median contract NPV +0.29M, p10 -7.80. If these reproduce,
+the migration is clean. If they do not, stop before anything builds on top.
+
+**SECOND (2026-08-28).** Write the nineteen explainer documents per `Explainer_Document_Plan.docx`.
+Order: Doc 1 (independent benchmark and circularity) first as the only explicit outstanding ask,
+then Docs 2, 3, 4, 7 as the player-pillar spine, then 5, 6, 8, 9 to complete it, then Doc 10 for
+the draft pillar, then 16 and 19 which are cheap once the pillar documents exist, then 12 to 15
+last because they describe designs rather than results.
+
 **Rationale:** the first power analysis (below) showed the real bottleneck is the unwired skater NPV engine and the never-estimated discount rate — not the back-test items (old P4-P6) the queue previously prioritized. Phase 1 now sits ahead of everything else.
 
 **Phase 0 — closed items**
@@ -404,7 +423,90 @@ performance. One small honest note: for negative anchors at k=1 the curve now tr
 
 ---
 
+## Sessions since the last refresh (2026-08-28 and 2026-09-08)
+
+### 2026-08-28 — supervisor meeting and the explainer plan
+
+Feedback was consistent: too much of the model happens under the hood without written explanation.
+**Circularity was raised explicitly and repeatedly and is the only specific unresolved ask.** The
+meeting ran out of time partway through Step 2, so most of the model has never been walked through.
+
+**Deliverable:** `Explainer_Document_Plan.docx`, nineteen documents across five tiers, outlines only,
+full drafts to follow one at a time. Coverage rule adopted: every document states how the component
+works, why it was built that way with alternatives tested and rejected, what it deliberately does not
+do, and what has not been tested or is known wrong and unfixed. The fourth is the one that gets
+skipped under time pressure and the one a reviewer finds.
+
+An earlier version of the plan covered only the Status Report's seven sections. That was too narrow.
+The Status Report is itself a summary and omits an entire completed pillar (draft picks), both
+headline contributions, the back-test design, and several standalone engines. The nineteen-document
+version covers everything built, everything designed but unbuilt, and every open decision.
+
+**New open question, raised verbally and previously unlogged:** lambda = 0.55 is applied universally,
+with no test of whether the blend weight should vary by player quality or type. Full entry below.
+
+**Correction recorded:** the Granola auto-summary misattributed the clause scrape to CapFriendly. The
+clause data comes from cap-space.com, cross-checked against CapWages. CapFriendly is the unrelated
+`trades.db` contingency set. Worth stating in writing because the error was inherited from my own
+meeting notes rather than from any source document.
+
+`WAR_AAV_Regression_Report_v2.pdf` confirmed superseded and flagged for deletion. **It still sits in
+the Claude project knowledge files** and needs separate removal there. A second meeting is planned
+once the term resumes.
+
+### 2026-09-08 — repository migration
+
+The project moved onto git. Public repo `thomasmihaljevic27/xnpv-model`, carrying `20_CODE`,
+`00_STATE`, `40_DOCS`, and the four small vendor CSVs (`WAR.csv`, `Goalies_WAR.csv`,
+`nhle_temporal.csv`, `draft_slot_baseline.csv`), committed for reproducibility with provenance stated
+in `10_SOURCE/README.md`. Excluded and gitignored: `30_OUTPUT`, `90_ARCHIVE`, the 2.3 GB game-log
+database, and both PuckPedia exports, denied by a name rule placed last so no later include can
+override it.
+
+Every hardcoded absolute Windows path was removed from the scripts and routed through `.env`, loaded
+by `python-dotenv`. **`XNPV_DATA` was retired** and replaced by a `SOURCE_DIR` / `OUTPUT_DIR` /
+`CODE_DIR` split, because the old variable assumed one flat folder holding source and generated files
+together, which contradicts the 2026-07-30 tree.
+
+**Four findings, each a real defect rather than tidying:**
+
+1. Every `DB_PATH` in the game-chain scripts pointed at a `OneDrive\Desktop\test` path that exists on
+   neither machine. Those scripts could not have run as committed.
+2. Four scripts (`join_clauses_to_spine.py`, `draft_pick_linkage.py`, `draft_yield_curve.py`,
+   `age_join.py`) resolved paths against the current working directory. `age_join.py` writes
+   `WAR_with_age.csv` and `join_clauses_to_spine.py` writes both contract spines, so this is the
+   mechanism behind the duplicate outputs scattered across the disk.
+3. `check_stale_anchor_agreement2.py` and `run_stale_anchor_fix.py` were reading and writing inside
+   `20_CODE`, which holds code only.
+4. Three byte-identical copies of `nhl_gamelogs.sqlite` exist (`10_SOURCE`, a stray `Work` folder,
+   and `Documents\Delete\test`), all seventeen tables with `gv_adjusted` and `player_game_value`
+   present. Roughly 6.5 GB of duplication to collapse.
+
+The desktop was set up as a second machine by clone plus a Dropbox data copy. **Workflow:** `git pull`
+at session start, commit and push at close. `30_OUTPUT` and the heavy `10_SOURCE` data do **not**
+travel through git, and Dropbox remains the only channel for them. `.env` is gitignored and is
+per-machine, so each machine needs its own with its own paths.
+
+---
+
 ## Standing flags (Karl's identification axes — watch on every design choice)
+
+- **VERIFICATION GAP, NOW COMPOUNDED (updated 2026-09-08).** The Stage 2-5 changes were never run
+  locally or cross-checked the way Stage 1 was, and that gap is still open. It is now compounded:
+  every script had its paths replaced on 2026-09-08 and nothing has been run end to end since. The
+  2026-07-28 figures are carried on the reasoning that only paths changed, which is exactly the
+  class of reasoning the reproduce-before-extending rule exists to reject. Until the player chain
+  is re-run, treat every figure in this file as unverified on the current codebase.
+- **Scripts wrote to the current working directory (found and fixed 2026-09-08).** Six scripts
+  resolved paths relative to wherever they were launched, two of them writing load-bearing
+  artifacts. This is the mechanism behind the stale duplicates found on disk, some predating the
+  2026-07-28 rebuild by three weeks. Standing lesson: a stale duplicate is usually created by a
+  script with a relative path, not by a person copying a file.
+- **This file now lives on three surfaces (new 2026-09-08).** Local working folder (git-tracked),
+  Dropbox `00_STATE`, and the Claude project. Local is authoritative and is now the git copy, so an
+  edit made anywhere else is lost on the next pull. Update local first, refresh Dropbox from it,
+  then replace the Claude project copy by hand. The project copy does not update itself and has
+  already been found serving stale files twice.
 
 - **NEW 2026-07-28 — the yield-curve tail versus the minimum tradeable unit.** The curve prices a pick in the 151-224 band at 0.00853 of the cap, roughly $0.81M. That number is the mean of a lottery: **the median outcome is zero, 74.5% of those picks produce nothing, and the top 5% hold 42% of the band's entire value across eleven cohorts** (round 1, for contrast: median $4.74M, 7.1% produce nothing, top 5% hold 16.3%). The same pick is also the *smallest unit of consideration a club can add to a trade*, since cash cannot be traded. Two readings are observationally equivalent in the pure-pick sample: either the tail is overvalued relative to what clubs treat it as worth, or the curve is right and clubs systematically undervalue late picks. Approximating the rebuilt steeper curve moves the implied discount only from 0.486 to 0.503, so **staleness is not the explanation**. This touches every back-test trade containing a small makeweight, which is most of them.
 - **NEW 2026-07-28 — short first seasons lose the age−1 curve base.** Supersedes the Samoskevich note. The MIN_GP=20 panel filter excludes a short rookie cameo, so a player whose first season was (say) 7 games has no age-21 observation and any valuation basing at 21 falls through to flat. Direction is conservative, but it hits precisely the population the young-extension negative-NPV finding lives in. Needs a materiality count before the paper.
@@ -429,6 +531,17 @@ performance. One small honest note: for negative anchors at k=1 the curve now tr
 ---
 
 ## Open questions (triaged)
+
+**IMPORTANT — should the mean-reversion blend weight vary by player type? (new 2026-08-28.)**
+Lambda is locked at 0.55 and applied universally to every skater. It was recovered by player-split
+cross-validation on the pooled panel, so it is the single weight minimising average held-out error,
+not a weight tested for whether it should differ by quality tier, position, age, or career stage.
+Raised verbally in the supervisor meeting and previously unlogged anywhere. The question has real
+content: a star with a long stable record arguably warrants less shrinkage toward the comparable
+norm than a fringe player with two noisy seasons, and the current design gives them the same.
+Resolving it means re-running the cross-validation within strata rather than pooled. Any change is
+rate-adjacent, since the anchor feeds the projection that feeds the price equation. Not started.
+
 
 **Fatal**
 - *(none open)* — the discount rate r, the sole Fatal item since 2026-06-30, was **estimated and locked 2026-07-05** (Phase 1a; D15-D18). Structure: survival-weighted value + 3% cap-growth denominator, fundamentals-only, exit hazard estimated from the panel. See Resolved Decisions D15-D19 and the Work Queue Phase 1 block. No Fatal-tier open questions remain.
@@ -485,6 +598,18 @@ performance. One small honest note: for negative anchors at k=1 the curve now tr
 
 ## File management protocol (adopted 2026-07-30)
 
+### Amendment (2026-09-08): git is now the code channel
+
+The tree below is unchanged and still governs. What changed is how code and state move between
+machines. `20_CODE`, `00_STATE`, `40_DOCS`, and the four small vendor CSVs travel through the
+GitHub repo. `10_SOURCE` heavy data and all of `30_OUTPUT` do not, because GitHub caps files at
+100 MB and the game-log database alone is 2.3 GB. **Dropbox is therefore no longer the working
+channel for code, but remains the only channel for data.** Local stays authoritative throughout.
+The practical trap: generate a spine on one machine and the other goes stale silently, because git
+will not tell you. Either re-run the chain or sync `30_OUTPUT` through Dropbox, and treat the most
+recent run as canonical.
+
+
 ### Where things live, and which copy is authoritative
 
 The local working folder on Thomas's machine is the source of truth. OneDrive backs it up continuously at no effort. Dropbox is the working channel, which is the only cloud surface Claude can read and write. Google Drive is retired. When Dropbox and local disagree, local wins and Dropbox is refreshed from it; a stale Dropbox never means work was lost.
@@ -527,6 +652,8 @@ Both report exceptions only. Two operational notes from the migration. Dropbox m
 Only files that change on a decision cadence: `PROJECT_STATE.md`, the four sequence documents, the two review documents, the Research Brief, the WAR/AAV regression report, and the frozen vendor sources. No scripts, no spines, no panels, no curves, no run logs. Outputs change every run while project files change only when Thomas clicks, so any output kept there drifts by construction. Scripts and outputs are attached per message when being worked on, or read from Dropbox.
 
 ## Change log (this file)
+
+- **v3.0 (2026-09-08): SIX-WEEK GAP CLOSED. Two unrecorded sessions written up, and the verification gap compounded rather than closed.** The v2.9 snapshot ran from 2026-07-29 to today without a refresh, the longest drift in the project's history and the fourth time the workspace has gone stale between sessions. Two sessions were missing from every surface. **2026-08-28, supervisor meeting:** feedback consistent that too much happens under the hood without written explanation, circularity raised explicitly and repeatedly as the only specific unresolved ask, meeting ran out of time partway through Step 2. Produced `Explainer_Document_Plan.docx`, nineteen documents across five tiers, outlines only. New open question logged on universal lambda. Granola auto-summary correction recorded (Capspace, not CapFriendly). `WAR_AAV_Regression_Report_v2.pdf` confirmed superseded and still live in the Claude project. **2026-09-08, repository migration:** public repo created, all hardcoded paths routed through `.env` via `python-dotenv`, `XNPV_DATA` retired for a `SOURCE_DIR`/`OUTPUT_DIR`/`CODE_DIR` split, second machine set up. Four defects found en route, the two substantive ones being that every game-chain `DB_PATH` pointed at a location existing on neither machine, and that six scripts resolved paths against the current working directory, which is the mechanism behind the stale duplicates this project keeps tripping over. **The verification gap is now larger, not smaller:** nothing has run end to end since the migration, so every figure in this file is carried on the reasoning that only paths changed. That reasoning is exactly what reproduce-before-extending exists to reject, and the player-chain re-run is now the top of the work queue. Craft updated in the same pass: Decision Log, Open Questions, Standing Flags x3, Work Queue x3.
 
 - **v3.0 (2026-07-30): FILE SYSTEM MIGRATED FROM GOOGLE DRIVE TO DROPBOX; SIX STALE FILES REMOVED FROM THE CLAUDE PROJECT.** New tree (`00_STATE` / `10_SOURCE` / `20_CODE` / `30_OUTPUT` / `40_DOCS` / `90_ARCHIVE`), a manifest, and an `audit files` protocol, all recorded in the new File management protocol section above. **The audit found worse than staleness.** The cloud held two competing script sets: a current one and a July 2-20 set containing Dropbox conflict copies, whose `aging_curve.py` was 13,617 bytes against the live 23,313 and predated the entire Stage 1 review. Eleven conflict copies were archived. **Six Claude-project files were stale and four were wrong rather than merely old:** `goalie_value_spine_v2.csv` carried the literal string `no_observed_war_history` in `trailing_war` on 748 rows with zero `stale_anchor_carry` rows, making it output from the patch v2.9 records as rejected; `draft_yield_curve.csv` and `draft_pick_outcomes.csv` were the 2026-07-20 pre-rebuild versions; `contract_season_spine.csv` and `contract_level_spine.csv` carried pre-fix `True`/`False` booleans against the post-fix `1`/`0`, differing in eight and four columns respectively with identical row and column counts. **29 files deleted** (17 lossy Google conversions, `__pycache__`, eight dated backups, `files.zip`, a duplicate `check.py`, and `patch_goalie_stale_anchor_v2.py`, the last deleted on purpose so that nobody runs it). `data work/` was archived whole, but only after rescuing eleven files for which it held the only cloud copy, including `draft_pick_linkage.py`, `ep_extract.py`, `join_clauses_to_spine.py`, and `capspace_scraper.py`; archiving it wholesale as first proposed would have buried the prospect and clause codebases. **Three corrections to the audit's own first pass, recorded because the pattern matters:** two files reported missing were present in an un-enumerated folder, and two PDFs reported as version conflicts were identical documents, mis-flagged because the Claude project stores PDFs as page-image renditions rather than as files. **`NHL_Trade_Model_Build_Roadmap.docx` deleted, and `NHL_Trade_Market_Efficiency_Paper_v6.docx` deleted and removed from the project**, the latter is not a manuscript and never was, but an outdated status document whose filename had already caused at least one confident misreading. **UNRESOLVED, flagged for Thomas:** two copies of `nhl_gamelogs.sqlite` now exist, 2,338,762,752 bytes dated 2026-07-03 in `10_SOURCE/` and 2,319,740,928 bytes dated 2026-07-14 in `xNPV Data/`. Newer is smaller, which is consistent with a VACUUM and not evidence of loss, but the canonical copy has not been established and neither was touched.
 
