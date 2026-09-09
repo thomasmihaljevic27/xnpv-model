@@ -298,7 +298,7 @@ The local working folder on Thomas's machine is the source of truth. OneDrive ba
 
 ### The tree
 
-- `00_STATE/`, holding `PROJECT_STATE.md`, the four sequence documents, and `MANIFEST.csv`.
+- `00_STATE/`, holding the four state files (`PROJECT_STATE.md`, `WORK_QUEUE.md`, `DECISIONS.md`, `STANDING_FLAGS.md`), the `sessions/` per-session log, the four sequence documents, and `MANIFEST.csv`.
 - `10_SOURCE/`, vendor and scraped source data. Our code reads it and never writes it.
 - `20_CODE/`, flat. Every script, current version only.
 - `30_OUTPUT/`, flat. Every spine, panel, curve, diagnostic, and run log.
@@ -315,17 +315,23 @@ A `<pillar>_<name>` convention was considered and **rejected for code and output
 
 ### MANIFEST.csv
 
-One row per file, in `00_STATE/`. Columns: `path`, `filename`, `pillar`, `class`, `session_id`, `dbx_content_hash`, `size_bytes`, `handoff_date`, `verified_locally`, `note`.
+One row per file, in `00_STATE/`. Columns: `path`, `filename`, `pillar`, `class`, `session_id`, `dbx_content_hash`, `size_bytes`, `handoff_date`, `verified_locally`, `channel`, `note`. **Reconciled 2026-09-09 (v3.2) into a complete inventory** — 77 rows: every git-tracked file under `20_CODE` / `00_STATE` / `10_SOURCE` / `40_DOCS`, plus the load-bearing `30_OUTPUT` working set and the game-log DB. Before then it listed only the 2026-07-30 handoff set (~13 scripts + spines) and was never complete.
 
-`class` governs how a file is audited, and it is load-bearing. `hashable` covers csv, md, txt, py, and xlsx, which the Claude project stores verbatim, so a hash comparison is exact. `rendition` covers pdf and docx, which the Claude project does **not** store as files: a PDF becomes a zip of page images plus per-page text, and a docx becomes a markdown extraction. Comparing a rendition to its source produces a guaranteed false mismatch. Omitting this distinction generated two spurious version conflicts during the 2026-07-30 audit.
+`channel` (new 2026-09-09) says how the file moves and therefore how it is audited:
+- **`git`** — the `dbx_content_hash` column holds the **git blob SHA** (from `git ls-files -s`), not a Dropbox hash. The audit for these files is `git status` (clean tree = every row verified) and `git log`. `verified_locally` is `yes` whenever the working tree is clean.
+- **`dropbox`** — `30_OUTPUT` outputs and the 2.3 GB `nhl_gamelogs.sqlite`, which do not travel through git. `dbx_content_hash` is `LOCAL_RUN` (they regenerate; the most recent local run is canonical) or an actual Dropbox content hash after a handoff. These are the only rows the Dropbox-hash audit still applies to.
+
+`class` governs how a file is compared when it IS hash-audited. `hashable` covers csv, md, txt, py, and xlsx. `rendition` covers pdf and docx, which the Claude project stores as page-image/markdown extractions, not as files — comparing a rendition to its source produces a guaranteed false mismatch (this caused two spurious conflicts in the 2026-07-30 audit). `binary` covers png and sqlite.
 
 `session_id` is `YYYY-MM-DD` plus a letter where a date carries more than one session.
 
 ### The audit, on the trigger phrase "audit files"
 
+Scope is now `channel = dropbox` rows only — `channel = git` files are audited by `git status` / `git log`, not by hash comparison against a listing.
+
 Direction one asks whether a handoff landed: compare the Dropbox content hash, which any listing returns at no cost, against the manifest row. Match means fine, differ means Thomas edited or reran it and Claude asks which, absent means the handoff never arrived.
 
-Direction two asks whether the Claude project is serving stale files: the same comparison against the project copies, restricted to `class = hashable`.
+Direction two asks whether the Claude project is serving stale files: the same comparison against the project copies, restricted to `class = hashable`. (Largely moot since 2026-07-30 — the Claude project no longer holds scripts or outputs.)
 
 Both report exceptions only. Two operational notes from the migration. Dropbox move jobs can report `internal_error` on every entry while having actually succeeded, so completion is confirmed by listing the destination rather than by trusting the job result. And file size alone is not an integrity check: the pre-rebuild and post-rebuild `draft_yield_curve.csv` are both exactly 845 bytes with different contents.
 
