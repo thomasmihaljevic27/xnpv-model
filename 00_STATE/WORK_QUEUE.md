@@ -24,15 +24,14 @@ v2.9 updated the median/p10/panel figures but not the contract total. Inputs all
 git tree clean, so the pipeline is sound. Rebuilt draft curve also reproduced this session
 (matches to the cent). See the Change log v3.1 entry.
 
-**SECOND (2026-08-28, consolidated 2026-09-09).** Write the five explainer documents per
-`Explainer_Document_Plan.docx` (condensed from the original nineteen-document plan — same
-coverage, fewer delivery units; see the Change log v3.4 entry). Order: Doc 1 (Circularity and
-Game Value) first as the only explicit outstanding ask, then Doc 2 and Doc 3 (Player Pillar I
-and II) as the player-pillar spine. Then Doc 4 (Drafting, Prospects, and Unbuilt Components):
-draft §4.1–4.2 (the draft pillar, built and locked) as soon as Docs 2–3 are done, hold
-§4.3–4.6 (prospects, retention, clauses, back-test — designed, not built) until those
-components are more settled. Doc 5 (Cross-Cutting) last — §5.1 and §5.4 are cheap once the
-pillar documents exist, §5.2 and §5.3 should still wait on Doc 4.
+**SECOND (2026-08-28, consolidated 2026-09-09) — DONE 2026-09-09.** Write the five explainer
+documents per `Explainer_Document_Plan.docx`. All five drafted and placed in `40_DOCS/`:
+`Doc_1_Circularity_and_Game_Value.docx`, `Doc_2_Player_Pillar_I.docx`,
+`Doc_3_Player_Pillar_II.docx`, `Doc_4_Drafting_Prospects_Unbuilt.docx`,
+`Doc_5_Cross_Cutting.docx`. Written in the humanizer voice, each section carrying its four
+required elements (how it works, why built that way, what it doesn't do, what's untested).
+See the Change log v3.5 entry for sourcing and the open items each document surfaced.
+Thomas's read-through and any correction pass are the next step, not a re-write.
 
 **Rationale:** the first power analysis (below) showed the real bottleneck is the unwired skater NPV engine and the never-estimated discount rate — not the back-test items (old P4-P6) the queue previously prioritized. Phase 1 now sits ahead of everything else.
 
