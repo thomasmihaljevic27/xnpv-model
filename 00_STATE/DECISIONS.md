@@ -118,6 +118,9 @@
 
 ## Change log (state files)
 
+- **2026-09-09 Doc 1 voice pass:** Restored the MoneyPuck reference with explicit comparison limits and the win-units explanation, simplified remaining formal prose, and replaced en dashes with hyphens. Draft now 1370 words; text/package integrity checked, visual QA unavailable. No other explainer or model code changed. See `sessions/2026-09-09e.md`.
+
+
 - **2026-09-09 new Doc 1 draft:** Incorporated the user-provided editorial feedback into the circularity explainer (1,295 words). Restored the expected-goals versus scoreboard explanation, retained the verified mechanics and defensive caveat, and removed rejected jargon and citation instructions. Previous local draft archived. Formatting/package parts preserved; text/XML checks passed, schema/page-render tooling unavailable. Updated manifest, document status, and AGENTS editorial rules. No model change; see `sessions/2026-09-09d.md`.
 
 

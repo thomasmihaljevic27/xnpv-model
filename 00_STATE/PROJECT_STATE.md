@@ -102,7 +102,7 @@ Moved 2026-09-09 (v3.2). The locked decision record (D1-D27, the Phase-1b/1c/1d 
 
 - `40_DOCS/Repository_Review_and_Doc_1_Edits.md` — GitHub/source review dated 2026-09-09, with proposed Doc 1 passages and newly recorded follow-ups. Does not revise locked model results; see STANDING_FLAGS and `sessions/2026-09-09c.md`.
 
-- `40_DOCS/Doc_1_Circularity_and_Game_Value.docx` — new 1,295-word draft incorporating user-provided editorial feedback, 2026-09-09. Text and XML checked; schema and visual pagination QA unavailable in the current runtime. See `sessions/2026-09-09d.md`.
+- `40_DOCS/Doc_1_Circularity_and_Game_Value.docx` — new 1370-word draft incorporating user-provided editorial feedback, 2026-09-09. Text and XML checked; schema and visual pagination QA unavailable in the current runtime. See `sessions/2026-09-09e.md`.
 - **There is no paper manuscript.** The file labelled `NHL_..._Paper_v6.docx` is the model **overview / scoping document** — it states what the model will do and what the back-test looks for, not written-up findings. It is out of date and slated for replacement. **No paper is written until the model is built.**
 - The `Model_Open_Questions_v3` doc has been **removed from the project** (canonical open questions live in `00_STATE/STANDING_FLAGS.md`).
 - `NHL_Trade_Model_Build_Roadmap.docx` — **CORRECTION (2026-07-03): located.** It sat in the cloud root (created 2026-07-02); v1.5 wrongly recorded it as not locatable. Content is superseded by the re-sequenced Work Queue and by the four sequence documents. DELETED 2026-07-30 during the file-system migration; recoverable from Dropbox trash.

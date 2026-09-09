@@ -122,3 +122,5 @@ Every time I get corrected on something, add a rule here so it doesn't repeat.
 
 - Do not reintroduce terminology the user has removed, including “convergent validity,” or instructions to future writers such as “that difference must accompany the pooled figure.” State the meaning and limitation directly in plain language.
 - When shortening the Game Value explainer, preserve the explanation that expected-goal credit differs from actual scoreboard goals. Their association is informative because the accounting identity does not force it; distinguish this from claiming validation on wholly unseen data.
+
+- Keep the units of a validation comparison explicit where they explain what it can establish. When retaining an external benchmark, state material differences in its outcome or sample; never present it as a performance ceiling. Use ordinary hyphens for season and numerical ranges in the five explainers.

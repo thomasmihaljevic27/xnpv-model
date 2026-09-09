@@ -24,7 +24,7 @@ v2.9 updated the median/p10/panel figures but not the contract total. Inputs all
 git tree clean, so the pipeline is sound. Rebuilt draft curve also reproduced this session
 (matches to the cent). See the Change log v3.1 entry.
 
-**Editorial update (2026-09-09).** Doc 1 has a new 1,295-word draft incorporating the user-provided editorial feedback at `40_DOCS/Doc_1_Circularity_and_Game_Value.docx`. User reading and visual pagination verification remain; broader repository-review work is deferred for now.
+**Editorial update (2026-09-09).** Doc 1 has a new 1370-word draft incorporating the user-provided editorial feedback at `40_DOCS/Doc_1_Circularity_and_Game_Value.docx`. User reading and visual pagination verification remain; broader repository-review work is deferred for now.
 
 **SECOND (2026-08-28, consolidated 2026-09-09) — DONE 2026-09-09.** Write the five explainer
 documents per `Explainer_Document_Plan.docx`. All five drafted and placed in `40_DOCS/`:
