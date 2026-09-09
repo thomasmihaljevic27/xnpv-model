@@ -99,6 +99,8 @@ Moved 2026-09-09 (v3.2). The locked decision record (D1-D27, the Phase-1b/1c/1d 
 - Research Brief (PDF); `WAR_AAV_Regression_Report` **v2** (v1 superseded and removed from the project).
 
 **Document framing (read carefully)**
+
+- `40_DOCS/Doc_1_Circularity_and_Game_Value.docx` — edited copy of the supplied explainer, 2026-09-09. Prose and structure checked; visual pagination QA pending renderer availability. See `sessions/2026-09-09b.md`.
 - **There is no paper manuscript.** The file labelled `NHL_..._Paper_v6.docx` is the model **overview / scoping document** — it states what the model will do and what the back-test looks for, not written-up findings. It is out of date and slated for replacement. **No paper is written until the model is built.**
 - The `Model_Open_Questions_v3` doc has been **removed from the project** (canonical open questions live in `00_STATE/STANDING_FLAGS.md`).
 - `NHL_Trade_Model_Build_Roadmap.docx` — **CORRECTION (2026-07-03): located.** It sat in the cloud root (created 2026-07-02); v1.5 wrongly recorded it as not locatable. Content is superseded by the re-sequenced Work Queue and by the four sequence documents. DELETED 2026-07-30 during the file-system migration; recoverable from Dropbox trash.

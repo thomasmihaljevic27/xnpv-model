@@ -118,6 +118,9 @@
 
 ## Change log (state files)
 
+- **2026-09-09 editorial session:** Edited the supplied Circularity and Game Value explainer into `40_DOCS/Doc_1_Circularity_and_Game_Value.docx` (1,762 to 1,231 words). Added draft availability to the project inventory and work queue and registered the artifact in MANIFEST. Clarified validation limits and corrected the unrun-extension attribution to the separate contract-length test. No model decisions or results changed. DOCX structure verified; visual QA unavailable because the renderer is missing. Details: `sessions/2026-09-09b.md`.
+
+
 <!-- Was 'Change log (this file)' in PROJECT_STATE.md; now covers all four state files
      (PROJECT_STATE.md, WORK_QUEUE.md, DECISIONS.md, STANDING_FLAGS.md) and the sessions/ log. -->
 
