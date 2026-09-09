@@ -106,6 +106,15 @@ Draft pillar:
 - **Don't commit the PuckPedia exports.** They are confidential vendor data, gitignored by name.
 - **Don't read or write Google Drive.** Retired. Local is source of truth, OneDrive backs it up,
   Dropbox is the sync channel.
+- **Don't describe a mechanism you haven't read the code for.** Any document explaining how a
+  component works is written from the script that implements it, not from `00_STATE/`, the
+  Status Report, or a prior explainer. Those summaries are lossy and they go stale: the first
+  pass of the `40_DOCS/` explainer set was written from summaries and got Game Value's inputs
+  wrong (expected goals, not actual goals), quoted the aging curve's validation against the
+  wrong baseline, reported the draft bootstrap at 10,000 resamples when the code runs 2,000,
+  and described a fixed defect (the projection ratio floor) as live and unfixed. Read the
+  script's docstring and the constants it actually uses. Where a figure is a run output rather
+  than a code constant, cite it from the locked decision record and say so.
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised
