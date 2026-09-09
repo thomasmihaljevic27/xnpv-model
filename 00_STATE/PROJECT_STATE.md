@@ -7,7 +7,7 @@
 **Generated:** 2026-09-08
 **Refresh due:** 2026-09-15 (7-day cadence)
 **Maintained by:** Claude, mirroring the Craft xNPV workspace
-**File version:** 3.0
+**File version:** 3.1 (v3.1 is a targeted post-migration verification update; the weekly refresh protocol was not run — Generated/Refresh-due dates below are unchanged from v3.0)
 
 > **Refresh note (2026-09-08).** The previous snapshot was v2.9, generated 2026-07-29 and due
 > 2026-08-05. It ran six weeks stale. Two sessions in that window went unrecorded on every
@@ -167,9 +167,10 @@ Put all three trade-asset classes — rostered players, draft picks, non-roster 
   - **The Stage 3 position-split rate is in force.** `alpha=0.01324782`, `beta_F=0.02123229`, `beta_D=0.02410257`, resolved through the projection module's own `skater_slope()` helper. The rate change genuinely landed in `skater_forward_projection.py` on 2026-07-27 (line 195 of that file records the supersession).
   - **The Stage 4 retention fix reproduces exactly.** Walk-away rate 21.3% (n=1,231) pre-fix to 27.0% (n=2,270) fixed, with the star, regular, and fringe rates unmoved at 100.0 / 93.2 / 79.3 — which is precisely the check the review said would confirm the fix landed where intended.
   - **Item 1.10** reports 1,084 real salaries against 355 substitutes (documented: 1,083 / 356; the one-contract difference is the highest-salary rule working).
-  - **The full NPV sweep** prices 2,909 contracts with the skater k=0 identity exact at $0.00.
+  - **The full NPV sweep** prices 2,909 contracts with the skater k=0 identity exact at $0.00. *(2026-09-09: the sweep now prices 2,981 — the goalie count rose 318 → 390 with the 2026-07-29 flat-carry fix; skater count 2,591 and k=0 $0.00 both unchanged and reproduced post-migration.)*
   - **CAVEAT ON WHAT THIS PROVES.** `rfa_terminal_value.py` was rebuilt this session from the verified 2026-07-06 cloud copy, because the local file was damaged mid-session by a non-runnable code sketch. The Stage 4 fix inside it is therefore a **reimplementation**. It matches the documented behaviour on all four buckets and both sample sizes, which is strong evidence of functional identity, but it is not guaranteed byte-identical to whatever was originally written.
-  - **STILL UNVERIFIED:** two Stage 2-5 items live in scripts that were not run in this pass. (1) The **Stage 2 length-term null test**, which sits in the price-equation work. (2) The **rebuilt draft curve** (review item 4.3), which has never been reproduced locally. The second is the one that bites: until it closes, `draft_yield_curve.csv` on disk is the pre-rebuild version, so any pick pricing that reads it uses the shallower curve.
+  - **STILL UNVERIFIED (as of 2026-07-28):** two Stage 2-5 items live in scripts that were not run in this pass. (1) The **Stage 2 length-term null test**, which sits in the price-equation work. (2) The **rebuilt draft curve** (review item 4.3), which has never been reproduced locally. The second is the one that bites: until it closes, `draft_yield_curve.csv` on disk is the pre-rebuild version, so any pick pricing that reads it uses the shallower curve.
+  - **UPDATE 2026-09-09:** item (2) CLOSED — `draft_pick_linkage.py` and `draft_yield_curve.py` re-run on the desktop machine, the rebuilt curve reproduces to the cent (pick 1 $13.65M … pick 151-224 $0.61M), monotone, `draft_pick_outcomes.csv` 2,324 picks. `draft_yield_curve.csv` on disk is now the rebuilt version. Item (1), the Stage 2 length-term null test, is the only Stage 2-5 verification item still outstanding.
 
 **2026-07-28 (evening) — three results that are now closed, and two decisions that are not.**
 
@@ -244,11 +245,19 @@ Put all three trade-asset classes — rostered players, draft picks, non-roster 
 
 ## Work queue — RE-SEQUENCED 2026-06-30 into phases (matches Roadmap & Phases in Craft, replaces the old flat P1-P8 order)
 
-**TOP OF QUEUE (2026-09-08), gating everything below.** Run the player chain and verify against
-the recorded numbers before any new work. Nothing has run end to end since the path migration.
-Targets from the 2026-07-28 runs: `[1a] max diff $0.00`, 2,909 contracts priced, 6,892 priced
-skater-seasons, NPV panel 6,939 rows, median contract NPV +0.29M, p10 -7.80. If these reproduce,
-the migration is clean. If they do not, stop before anything builds on top.
+**TOP OF QUEUE (2026-09-08) — DONE 2026-09-09. Migration verified clean.** The full player chain
+(`skater_value_engine` → `skater_forward_projection` → `rfa_terminal_value` → `exit_hazard` →
+`contract_npv` → `contract_npv_panel`) plus `goalie_value_engine` all re-run on the desktop
+machine post-migration. Every recorded figure reproduced: `[1a]` skater k=0 max diff $0.00,
+6,892 priced skater-seasons, median contract NPV +0.29M, p10 -7.80, NPV panel 6,939 rows,
+`[1b]` 776 goalie k=0 rows / 13 divergences (< 19 assert), goalie parity gate $0.000284,
+`goalie_value_spine_v2.csv` byte-identical (MD5 `55c935dd…`). **One target figure in the old
+version of this line was stale and is now corrected: the sweep prices 2,981 contracts (2,591
+skater + 390 goalie), not 2,909.** The 2,909 was a 2026-07-05 number; the 2026-07-29 goalie
+stale-anchor / flat-carry fix (v2.9 change log) made ~72 more goalie contracts priceable and
+v2.9 updated the median/p10/panel figures but not the contract total. Inputs all byte-identical,
+git tree clean, so the pipeline is sound. Rebuilt draft curve also reproduced this session
+(matches to the cent). See the Change log v3.1 entry.
 
 **SECOND (2026-08-28).** Write the nineteen explainer documents per `Explainer_Document_Plan.docx`.
 Order: Doc 1 (independent benchmark and circularity) first as the only explicit outstanding ask,
@@ -287,9 +296,9 @@ Reproducible on both machines (Thomas's local run matches: `[1a] max diff $0.00`
 **Player-model review — Stages 1-5 [ALL CLOSED 2026-07-28]**
 - Stage 1: **CLOSED 2026-07-27** (all ten items; see the Stage 1 section above).
 - Stages 2-5: **CLOSED 2026-07-28** (every numbered item across all four remaining stages; see the "Player Model Review — Stages 2-5" block in Resolved Decisions for the full item-by-item record — the price equation rebuilt (censored, position-interaction, no length term), the retention calibration's selection bias fixed, the draft curve rebuilt on the new rate, and all seven Stage 5 documentation items closed).
-- **Verification gap — largely closed 2026-07-28 (evening);** see the detailed entry in Resolved Decisions. Two items remain: the Stage 2 length-term null test and the rebuilt draft curve, neither of which lives in the scripts that were run.
-- **NEW — regenerate the downstream spines.** The 2026-07-28 evening run rewrote `contract_npv_spine.csv` on the Stage 3 rate and the Stage 4 gate. Every artifact built off the old spine is now stale, including `contract_npv_panel.csv` and anything in the Phase 4b circularity outputs keyed on contract-level NPV. Check what actually consumes the spine before assuming the list is short.
-- Review roadmap is now fully worked. Next substantive work reverts to the Work Queue's Phase 3b/4 items below (Elite Prospects pull, mid-season allocation application, standalone retention pricing, traded-pick pricing) once the verification gap above is closed.
+- **Verification gap — largely closed 2026-07-28 (evening), effectively closed 2026-09-09;** see the detailed entry in Resolved Decisions. Only the Stage 2 length-term null test is still unrun. The rebuilt draft curve and the goalie spine both reproduced post-migration on 2026-09-09.
+- **Regenerate the downstream spines — DONE 2026-09-09.** `contract_npv_spine.csv` (2,981 contracts) and `contract_npv_panel.csv` (6,939 rows) rebuilt on the desktop machine after the path migration; both are current. The Phase 4b circularity outputs are NOT keyed on contract-level NPV (v2.9 change-log correction) — they correlate skater trailing projections against the GV yardstick at player-season level and did not need regeneration.
+- Review roadmap is now fully worked. Next substantive work reverts to the Work Queue's Phase 3b/4 items below (Elite Prospects pull, mid-season allocation application, standalone retention pricing, traded-pick pricing).
 
 **Phase 6 — documentation**
 - [x] Efficient-market null stated in Open Questions as a possible finding. **DONE 2026-07-28.** Written out in full: the null itself (the market prices all three asset classes correctly on average, so measured surplus differences are noise around zero with no systematic pattern by asset class, contract length, player age, or team competitive position), the conditions under which it holds (surplus ratios averaging 1.0 with no category deviation surviving correction for the number of categories tested), why a null result stays publishable (the contribution is the common surplus-dollar currency across three asset classes, which stands either way), and the power caveat (failing to reject is weaker evidence than rejecting, and the power analysis has not been re-run since Phase 3 opened).
@@ -652,6 +661,8 @@ Both report exceptions only. Two operational notes from the migration. Dropbox m
 Only files that change on a decision cadence: `PROJECT_STATE.md`, the four sequence documents, the two review documents, the Research Brief, the WAR/AAV regression report, and the frozen vendor sources. No scripts, no spines, no panels, no curves, no run logs. Outputs change every run while project files change only when Thomas clicks, so any output kept there drifts by construction. Scripts and outputs are attached per message when being worked on, or read from Dropbox.
 
 ## Change log (this file)
+
+- **v3.1 (2026-09-09): MIGRATION VERIFIED — the top-of-queue player-chain re-run is done and the pipeline reproduces.** Targeted update, not a full weekly refresh (no chat scan, no Craft reconciliation; Generated/Refresh-due dates unchanged). Ran the full player chain plus `goalie_value_engine.py` on the desktop machine post-migration. **Skater side reproduces digit-for-digit:** Stage 0a/0b rate guards PASS, 6,892 priced skater-seasons, 2,591 skater contracts, `[1a]` k=0 max diff $0.00, Stage 4 retention 21.3%→27.0% with buckets unmoved, pooled median NPV +0.29M / p10 −7.80, panel 6,939 rows. **Goalie side reproduces against the v2.9 figures**, not the stale top-of-queue target: `goalie_value_spine_v2.csv` rebuilt byte-identical (MD5 `55c935dd47627517c0b32c30f4771e11`, parity gate $0.000284, λ=0.65), `[1b]` 776 rows / 13 divergences (< 19 assert). **The one stale number:** the top-of-queue block and the verification-gap entry both said the sweep prices "2,909 contracts" — a 2026-07-05 figure. It prices **2,981** (2,591 skater + 390 goalie). The 2026-07-29 goalie stale-anchor / flat-carry fix (documented in v2.9, which updated median/p10/panel but not the contract total) made ~72 more goalie contracts priceable; that is the entire difference. Both spots corrected. **Also verified this session:** the rebuilt draft curve (`draft_pick_linkage.py` + `draft_yield_curve.py`) reproduces to the cent (pick 1 $13.65M … 151-224 $0.61M, monotone, 2,324-pick outcomes panel), closing the second of the two outstanding verification-gap items — only the Stage 2 length-term null test is still unrun. `contract_npv_spine.csv` and `contract_npv_panel.csv` regenerated and current. All inputs byte-identical, `git status` clean throughout. Migration is clean; work can proceed to Phase 3b/4. Craft NOT synced this session.
 
 - **v3.0 (2026-09-08): SIX-WEEK GAP CLOSED. Two unrecorded sessions written up, and the verification gap compounded rather than closed.** The v2.9 snapshot ran from 2026-07-29 to today without a refresh, the longest drift in the project's history and the fourth time the workspace has gone stale between sessions. Two sessions were missing from every surface. **2026-08-28, supervisor meeting:** feedback consistent that too much happens under the hood without written explanation, circularity raised explicitly and repeatedly as the only specific unresolved ask, meeting ran out of time partway through Step 2. Produced `Explainer_Document_Plan.docx`, nineteen documents across five tiers, outlines only. New open question logged on universal lambda. Granola auto-summary correction recorded (Capspace, not CapFriendly). `WAR_AAV_Regression_Report_v2.pdf` confirmed superseded and still live in the Claude project. **2026-09-08, repository migration:** public repo created, all hardcoded paths routed through `.env` via `python-dotenv`, `XNPV_DATA` retired for a `SOURCE_DIR`/`OUTPUT_DIR`/`CODE_DIR` split, second machine set up. Four defects found en route, the two substantive ones being that every game-chain `DB_PATH` pointed at a location existing on neither machine, and that six scripts resolved paths against the current working directory, which is the mechanism behind the stale duplicates this project keeps tripping over. **The verification gap is now larger, not smaller:** nothing has run end to end since the migration, so every figure in this file is carried on the reasoning that only paths changed. That reasoning is exactly what reproduce-before-extending exists to reject, and the player-chain re-run is now the top of the work queue. Craft updated in the same pass: Decision Log, Open Questions, Standing Flags x3, Work Queue x3.
 
