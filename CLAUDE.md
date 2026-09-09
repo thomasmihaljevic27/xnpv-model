@@ -11,16 +11,32 @@ is the contribution. Audience is an econometrics supervisor who weighs identific
 
 ## Current state, and how stale it is
 
-`00_STATE/PROJECT_STATE.md` is the current-state anchor. It was generated 2026-07-29 with a
-7-day refresh cadence and has not been refreshed since the 2026-07-30 file migration.
-**Treat it as unverified beyond 2026-07-30.** Refreshing it is the first task in this repo.
-Known open items as of that date: regenerate the downstream spines after the 2026-07-28
-rebuild, and close two remaining verification items (Stage 2 length-term null test, rebuilt
-draft curve).
+State lives in four version-controlled files in `00_STATE/`, plus a per-session log:
 
-Detail beyond the state file lives in the Craft "xNPV" workspace. Precedence when sources
-conflict: PROJECT_STATE.md and Craft > the scoping document > the Research Brief.
+- **`PROJECT_STATE.md`** — the anchor: objective, model spec, current build state, the
+  data/scripts inventory, locked regression results, per-pillar status, file-management protocol.
+- **`WORK_QUEUE.md`** — the phase-sequenced list of yet-to-do work.
+- **`DECISIONS.md`** — the locked decision record (D1–D27 and the review-stage items) and the
+  running change log for all four state files.
+- **`STANDING_FLAGS.md`** — Karl's identification axes, the triaged open questions, the
+  original-conflicts resolution record.
+- **`sessions/YYYY-MM-DD[letter].md`** — one file per working session, beat-by-beat: what was
+  discussed, decided, done, which artifacts were touched, and any thread left without a
+  follow-up. `git log 00_STATE/ 20_CODE/` is the mechanical second copy of that history.
+
+All four share `PROJECT_STATE.md`'s Generated / Refresh-due dates and its staleness trigger.
+As of the 2026-09-09 session the full pipeline was re-run post-migration and reproduces
+(migration verified clean); the only open verification item is the Stage 2 length-term null test.
+
+**Craft is retired as a canonical surface (2026-09-09).** Do not read it, reconcile against it,
+or sync to it. "How it works" explainers live in `40_DOCS/`. Precedence when sources conflict:
+the four `00_STATE/` files + the `sessions/` log > the scoping document > the Research Brief.
 There is no paper manuscript. Writing begins once the model is built.
+
+**Session-close ritual.** When a session has changed state or run work: write/append the
+`sessions/` file for today, update whichever of the four state files each change touches, append
+a `DECISIONS.md` change-log entry, and commit + push it all in one commit. The session is not
+done until that commit exists.
 
 ## Stack
 
@@ -29,7 +45,8 @@ No virtualenv convention is established yet. Stata or R on request only.
 
 ## Folder map
 
-    00_STATE/     PROJECT_STATE.md, four sequence docs, MANIFEST.csv
+    00_STATE/     PROJECT_STATE.md + WORK_QUEUE.md + DECISIONS.md + STANDING_FLAGS.md,
+                  sessions/ (per-session log), four sequence docs, MANIFEST.csv
     10_SOURCE/    vendor and scraped source data. Code reads it, never writes it
     20_CODE/      flat. Every script, current version only
     30_OUTPUT/    flat. Every spine, panel, curve, diagnostic, run log. Gitignored
