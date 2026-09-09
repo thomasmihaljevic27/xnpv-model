@@ -106,6 +106,12 @@ Draft pillar:
 - **Don't commit the PuckPedia exports.** They are confidential vendor data, gitignored by name.
 - **Don't read or write Google Drive.** Retired. Local is source of truth, OneDrive backs it up,
   Dropbox is the sync channel.
+- **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
+  explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
+  or frame itself as a response to specific feedback ("this document answers...," "raised
+  twice"). Session logs and meeting notes are source material for facts, not for framing. Write
+  every reader-facing document as if it stood on its own, explaining how the model works, not
+  as a reply to a conversation the reader was already in.
 
 ## Working style
 
