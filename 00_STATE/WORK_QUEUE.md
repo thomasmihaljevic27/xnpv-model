@@ -33,7 +33,7 @@ documents per `Explainer_Document_Plan.docx`. All five drafted and placed in `40
 `Doc_5_Cross_Cutting.docx`. Written in the humanizer voice, each section carrying its four
 required elements (how it works, why built that way, what it doesn't do, what's untested).
 See the Change log v3.5 entry for sourcing and the open items each document surfaced.
-Thomas's read-through and any correction pass are the next step, not a re-write.
+Docs 2-5 were rewritten and checked against implementing code on 2026-09-09 at the user's request (see `sessions/2026-09-09f.md`). Text and core WordprocessingML schema checks pass. User reading and visual pagination verification remain; rendering is unavailable in the current runtime. No model changes or queue reordering resulted.
 
 **Rationale:** the first power analysis (below) showed the real bottleneck is the unwired skater NPV engine and the never-estimated discount rate — not the back-test items (old P4-P6) the queue previously prioritized. Phase 1 now sits ahead of everything else.
 

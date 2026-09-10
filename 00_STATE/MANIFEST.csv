@@ -3,11 +3,11 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 00_STATE,01_Draft_Model_Sequence.md,state,hashable,2026-09-09a,b5b9e109b745ecb44c37a8dd50c5635db8f7fd61,9713,2026-09-09,yes,git,matches Claude project copy
 00_STATE,02_Prospect_Model_Sequence.md,state,hashable,2026-09-09a,12b3f5047f0214fa3fd11f72f2cf6c6a63be8ea5,10544,2026-09-09,yes,git,matches Claude project copy
 00_STATE,03_Player_Market_Model_Sequence.md,state,hashable,2026-09-09a,2f68c554cca2f422235e3baa6e17a0996e8412e7,18477,2026-09-09,yes,git,matches Claude project copy
-00_STATE,DECISIONS.md,state,hashable,2026-09-09a,30829ef914b22490a6d16f8b1382a973998fb887,87171,2026-09-09,yes,git,"NEW v3.2. Locked decision record D1-D27 + review-stage items + the state-file change log, split out of PROJECT_STATE.md."
+00_STATE,DECISIONS.md,state,hashable,2026-09-09f,b01441b31109bab87d3f9f27e07ee02954698e2e,112931,2026-09-09,yes,git,Docs 2-5 rewrite and code-audit record; no model changes
 00_STATE,MANIFEST.csv,state,hashable,2026-09-09a,66d3201b2fc22f946fa0de1bb2c0f364c6600a13,8389,2026-09-09,yes,git,this file
-00_STATE,PROJECT_STATE.md,state,hashable,2026-09-09a,f78bfaed5a2580080750b5153833a8b0d2a562ee,52836,2026-09-09,yes,git,"v3.2. Split into four state files this session; now the anchor only (objective, model spec, build state, inventory, regression results, pillar status, file-mgmt protocol). Channel is git, not Dropbox hash."
-00_STATE,STANDING_FLAGS.md,state,hashable,2026-09-09a,efaa73f3e8eb77bc7c73a4618194f0c385a92f34,21989,2026-09-09,yes,git,"NEW v3.2. Karl's identification axes + triaged open questions + resolution record, split out of PROJECT_STATE.md."
-00_STATE,WORK_QUEUE.md,state,hashable,2026-09-09a,3fc0be7bf2cf90181b67e76a53e990c31aa40d1f,10660,2026-09-09,yes,git,"NEW v3.2. Phase-sequenced yet-to-do work, split out of PROJECT_STATE.md."
+00_STATE,PROJECT_STATE.md,state,hashable,2026-09-09f,989232027ebc6dd6abfda33098b55229ec8a9a6a,55010,2026-09-09,yes,git,Docs 2-5 rewrite and code-audit record; no model changes
+00_STATE,STANDING_FLAGS.md,state,hashable,2026-09-09f,08311e626b621421bd2ffde0cf4017bce17cde19,23819,2026-09-09,yes,git,Docs 2-5 rewrite and code-audit record; no model changes
+00_STATE,WORK_QUEUE.md,state,hashable,2026-09-09f,748f7246a70b7d09ff6b754f06c1833df37ed9e7,12019,2026-09-09,yes,git,Docs 2-5 rewrite and code-audit record; no model changes
 00_STATE/sessions,2026-08-28.md,state,hashable,2026-09-09a,921a8eae623bb0d7ac4d1d181f6b862aa51a9e62,2193,2026-09-09,yes,git,git-tracked; audited via `git status`
 00_STATE/sessions,2026-09-08.md,state,hashable,2026-09-09a,1b31b43e8ed30fefd98ded8df5f5a431e79f323b,2422,2026-09-09,yes,git,git-tracked; audited via `git status`
 00_STATE/sessions,2026-09-09.md,state,hashable,2026-09-09a,4487b28a677beb42c3eb436841ab284f2b761fdc,6953,2026-09-09,yes,git,git-tracked; audited via `git status`
@@ -78,3 +78,8 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 10_SOURCE,nhl_gamelogs.sqlite,xg,binary,2026-09-09a,LOCAL_RUN,2319740928,2026-09-09,yes,dropbox,2.3 GB. Dropbox-only (over GitHub's 100 MB cap). 2026-07-14 copy is canonical per Thomas; holds gv_adjusted + player_game_value_repl
 40_DOCS,Doc_1_Circularity_and_Game_Value.docx,doc,rendition,2026-09-09e,846fb3f4b5c3ff242409407d1899a49bde823c27,15523,2026-09-09,partial,git,Benchmark and voice revision; text/XML verified; visual QA unavailable
 40_DOCS,Repository_Review_and_Doc_1_Edits.md,doc,hashable,2026-09-09c,891e2beec04ca9137e6684c48015ef8e74d1c371,19453,2026-09-09,yes,git,Source-linked repository review and proposed Doc 1 edits; no model changes
+00_STATE/sessions,2026-09-09f.md,state,hashable,2026-09-09f,04d65ae182496210fc28698dc37764441729005b,5289,2026-09-09,yes,git,Docs 2-5 rewrite and code-audit record; no model changes
+40_DOCS,Doc_2_Player_Pillar_I.docx,doc,rendition,2026-09-09f,f0eb59fd8ef870a944c1b6d4145a3a976b6e7578,11810,2026-09-09,partial,git,Code-checked rewrite; text and core WML schema verified; visual QA unavailable
+40_DOCS,Doc_3_Player_Pillar_II.docx,doc,rendition,2026-09-09f,bc902f42053863cb191a5cfc723781f111620c47,12147,2026-09-09,partial,git,Code-checked rewrite; text and core WML schema verified; visual QA unavailable
+40_DOCS,Doc_4_Drafting_Prospects_Unbuilt.docx,doc,rendition,2026-09-09f,51c411d0b19e502417c95e8c4c1b1182337b3342,12095,2026-09-09,partial,git,Code-checked rewrite; text and core WML schema verified; visual QA unavailable
+40_DOCS,Doc_5_Cross_Cutting.docx,doc,rendition,2026-09-09f,ec46234d090e19e9ba1d681b8bea89edba5f263d,12633,2026-09-09,partial,git,Code-checked rewrite; text and core WML schema verified; visual QA unavailable

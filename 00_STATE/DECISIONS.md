@@ -118,6 +118,8 @@
 
 ## Change log (state files)
 
+- **2026-09-09 (Docs 2-5 editorial/code audit):** Rewrote all four remaining explainers at the user's request after updating to PR #9. Cut combined text from 11,308 to 5,160 words; preserved the implementing mechanics, current pricing constants, and material limitations. Corrected aging self-exclusion, survivor/exit interpretation, qualifying-offer cost claims, draft build status and omitted-surplus bias, and ratio cancellation/null claims. Recorded the draft cameo cost/value asymmetry and unequal uncertainty-floor treatment across components as review items, not model changes. Archived prior files under original names; all four new DOCX pass ZIP/XML, paragraph comparison, and core WordprocessingML schema checks. Visual rendering unavailable (missing bundled soffice). Updated document status, flags, manifest, and `sessions/2026-09-09f.md`. No code, model outputs, or locked decisions changed.
+
 - **2026-09-09 Doc 1 voice pass:** Restored the MoneyPuck reference with explicit comparison limits and the win-units explanation, simplified remaining formal prose, and replaced en dashes with hyphens. Draft now 1370 words; text/package integrity checked, visual QA unavailable. No other explainer or model code changed. See `sessions/2026-09-09e.md`.
 
 

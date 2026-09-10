@@ -100,6 +100,8 @@ Moved 2026-09-09 (v3.2). The locked decision record (D1-D27, the Phase-1b/1c/1d 
 
 **Document framing (read carefully)**
 
+- Docs 2-5 in `40_DOCS/` were rewritten against implementing code on 2026-09-09. They distinguish built components from plans, qualify retrospective information exposure, and correct surplus-ratio and bias interpretations. Text, ZIP/XML, and core WordprocessingML schema checks pass; visual pagination remains unverified because the bundled renderer is unavailable. See `sessions/2026-09-09f.md`. No model specification or locked result changed.
+
 - `40_DOCS/Repository_Review_and_Doc_1_Edits.md` — GitHub/source review dated 2026-09-09, with proposed Doc 1 passages and newly recorded follow-ups. Does not revise locked model results; see STANDING_FLAGS and `sessions/2026-09-09c.md`.
 
 - `40_DOCS/Doc_1_Circularity_and_Game_Value.docx` — new 1370-word draft incorporating user-provided editorial feedback, 2026-09-09. Text and XML checked; schema and visual pagination QA unavailable in the current runtime. See `sessions/2026-09-09e.md`.
