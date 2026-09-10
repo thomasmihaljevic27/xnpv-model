@@ -100,6 +100,8 @@ Moved 2026-09-09 (v3.2). The locked decision record (D1-D27, the Phase-1b/1c/1d 
 
 **Document framing (read carefully)**
 
+- **Doc 2 follow-up (2026-09-10b):** current supervisor copy clarifies the evidential status of projection safeguards, negative-baseline math, and exit-model pooling. The similarity-weight passage remains for the user's own rewrite after an explanation in chat. Other edits preserved; no model changes. See `sessions/2026-09-10b.md`.
+
 - **Doc 2 aging revision (2026-09-10):** `40_DOCS/Supervisor_Drafts/Doc_2_Player_Pillar_I.docx` incorporates the user's edited Downloads copy and replaces only Section 3 with a calculation-ordered explanation addressing four annotations. Other user edits preserved exactly. Text/core schema and worked examples checked; Word pagination remains unavailable. See `sessions/2026-09-10.md`.
 
 - **Current supervisor review copies:** `40_DOCS/Supervisor_Drafts/Doc_2_Player_Pillar_I.docx`, `Doc_3_Player_Pillar_II.docx`, `Doc_4_Drafting_Prospects_Unbuilt.docx`, and `Doc_5_Cross_Cutting.docx`. Created 2026-09-09 after the user found the earlier rewrite too compressed. Restore explanatory depth, evidence, and examples while retaining factual qualifications; parent-directory shorter copies left unchanged. Text/core schema checked, Word pagination unverified. See `sessions/2026-09-09g.md`.

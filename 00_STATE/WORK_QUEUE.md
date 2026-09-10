@@ -39,6 +39,8 @@ Docs 2-5 were rewritten and checked against implementing code on 2026-09-09 at t
 
 **Doc 2 annotations addressed 2026-09-10:** Section 3 now explains the aging calculation step by step with defined inputs and one worked example; other edits in the user's Downloads copy are preserved. Latest review copy remains in `Supervisor_Drafts`. User read-through and unavailable visual pagination check remain. See `sessions/2026-09-10.md`.
 
+**Second annotation pass (2026-09-10b):** comments 2-6 edited; similarity weighting explained in chat for the user's own rewrite, with that paragraph unchanged. Projection safeguards and exit-model explanation clarified. See `sessions/2026-09-10b.md`.
+
 **Rationale:** the first power analysis (below) showed the real bottleneck is the unwired skater NPV engine and the never-estimated discount rate — not the back-test items (old P4-P6) the queue previously prioritized. Phase 1 now sits ahead of everything else.
 
 **Phase 0 — closed items**
