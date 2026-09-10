@@ -35,6 +35,8 @@ required elements (how it works, why built that way, what it doesn't do, what's 
 See the Change log v3.5 entry for sourcing and the open items each document surfaced.
 Docs 2-5 were rewritten and checked against implementing code on 2026-09-09 at the user's request (see `sessions/2026-09-09f.md`). Text and core WordprocessingML schema checks pass. User reading and visual pagination verification remain; rendering is unavailable in the current runtime. No model changes or queue reordering resulted.
 
+**Subsequent user correction:** that pass cut too much explanation for the supervisor. Fuller review copies now live in `40_DOCS/Supervisor_Drafts/` under the same filenames. These are the Docs 2-5 versions for the next read-through; see `sessions/2026-09-09g.md`. Preserve full explanations when removing AI prose. Qualifying-offer effective-date review added to flags, without changing the model or queue order.
+
 **Rationale:** the first power analysis (below) showed the real bottleneck is the unwired skater NPV engine and the never-estimated discount rate — not the back-test items (old P4-P6) the queue previously prioritized. Phase 1 now sits ahead of everything else.
 
 **Phase 0 — closed items**

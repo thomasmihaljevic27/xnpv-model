@@ -118,6 +118,8 @@ rate-adjacent, since the anchor feeds the projection that feeds the price equati
 
 ## Repository review follow-ups recorded 2026-09-09
 
+- **Qualifying-offer effective-date mismatch (supervisor-detail pass):** the official 2025 NHL/NHLPA MOU item 1 starts September 16, 2026; item 32's revised QO bands state no earlier start. `rfa_terminal_value.py:qualifying_offer()` switches on `offseason_year >= 2026`, i.e. summer 2026, before that date. Review/correct the timing or document a transitional basis before describing it as verified legal implementation. Fuller Doc 3 records the discrepancy; no code or locked decision changed. Primary source and checks in `sessions/2026-09-09g.md`.
+
 These are newly identified review items, not changes to locked decisions. Detailed evidence and proposed document language are in `40_DOCS/Repository_Review_and_Doc_1_Edits.md`; scope and checks are in `sessions/2026-09-09c.md`.
 
 - **Draft Rule B position mismatch:** `draft_yield_curve.py` uses the position-specific slope for value but the forward slope for trailing cost. Source mismatch confirmed; aggregate effect unmeasured. The primary Rule A curve is separate. Review and rerun the sensitivity comparison before citing its small difference as settled.

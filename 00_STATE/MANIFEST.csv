@@ -3,11 +3,11 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 00_STATE,01_Draft_Model_Sequence.md,state,hashable,2026-09-09a,b5b9e109b745ecb44c37a8dd50c5635db8f7fd61,9713,2026-09-09,yes,git,matches Claude project copy
 00_STATE,02_Prospect_Model_Sequence.md,state,hashable,2026-09-09a,12b3f5047f0214fa3fd11f72f2cf6c6a63be8ea5,10544,2026-09-09,yes,git,matches Claude project copy
 00_STATE,03_Player_Market_Model_Sequence.md,state,hashable,2026-09-09a,2f68c554cca2f422235e3baa6e17a0996e8412e7,18477,2026-09-09,yes,git,matches Claude project copy
-00_STATE,DECISIONS.md,state,hashable,2026-09-09f,b01441b31109bab87d3f9f27e07ee02954698e2e,112931,2026-09-09,yes,git,Docs 2-5 rewrite and code-audit record; no model changes
+00_STATE,DECISIONS.md,state,hashable,2026-09-09g,50372c27aea18face258279016986f5f302eb16f,113728,2026-09-09,yes,git,Supervisor-detail correction and QO timing review; no model changes
 00_STATE,MANIFEST.csv,state,hashable,2026-09-09a,66d3201b2fc22f946fa0de1bb2c0f364c6600a13,8389,2026-09-09,yes,git,this file
-00_STATE,PROJECT_STATE.md,state,hashable,2026-09-09f,989232027ebc6dd6abfda33098b55229ec8a9a6a,55010,2026-09-09,yes,git,Docs 2-5 rewrite and code-audit record; no model changes
-00_STATE,STANDING_FLAGS.md,state,hashable,2026-09-09f,08311e626b621421bd2ffde0cf4017bce17cde19,23819,2026-09-09,yes,git,Docs 2-5 rewrite and code-audit record; no model changes
-00_STATE,WORK_QUEUE.md,state,hashable,2026-09-09f,748f7246a70b7d09ff6b754f06c1833df37ed9e7,12019,2026-09-09,yes,git,Docs 2-5 rewrite and code-audit record; no model changes
+00_STATE,PROJECT_STATE.md,state,hashable,2026-09-09g,aaca7bf6b77880707a2319b105c57950f5e82ea2,55510,2026-09-09,yes,git,Supervisor-detail correction and QO timing review; no model changes
+00_STATE,STANDING_FLAGS.md,state,hashable,2026-09-09g,14dcf893168a364f56daae3aa713e5427c4c0eda,24370,2026-09-09,yes,git,Supervisor-detail correction and QO timing review; no model changes
+00_STATE,WORK_QUEUE.md,state,hashable,2026-09-09g,3859b0bac708b35f5e5a215e771b195893f2e2b4,12434,2026-09-09,yes,git,Supervisor-detail correction and QO timing review; no model changes
 00_STATE/sessions,2026-08-28.md,state,hashable,2026-09-09a,921a8eae623bb0d7ac4d1d181f6b862aa51a9e62,2193,2026-09-09,yes,git,git-tracked; audited via `git status`
 00_STATE/sessions,2026-09-08.md,state,hashable,2026-09-09a,1b31b43e8ed30fefd98ded8df5f5a431e79f323b,2422,2026-09-09,yes,git,git-tracked; audited via `git status`
 00_STATE/sessions,2026-09-09.md,state,hashable,2026-09-09a,4487b28a677beb42c3eb436841ab284f2b761fdc,6953,2026-09-09,yes,git,git-tracked; audited via `git status`
@@ -83,3 +83,9 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 40_DOCS,Doc_3_Player_Pillar_II.docx,doc,rendition,2026-09-09f,bc902f42053863cb191a5cfc723781f111620c47,12147,2026-09-09,partial,git,Code-checked rewrite; text and core WML schema verified; visual QA unavailable
 40_DOCS,Doc_4_Drafting_Prospects_Unbuilt.docx,doc,rendition,2026-09-09f,51c411d0b19e502417c95e8c4c1b1182337b3342,12095,2026-09-09,partial,git,Code-checked rewrite; text and core WML schema verified; visual QA unavailable
 40_DOCS,Doc_5_Cross_Cutting.docx,doc,rendition,2026-09-09f,ec46234d090e19e9ba1d681b8bea89edba5f263d,12633,2026-09-09,partial,git,Code-checked rewrite; text and core WML schema verified; visual QA unavailable
+.,AGENTS.md,state,hashable,2026-09-09g,955d20a6b24055485fa52cccb05b2e4e04bb7ced,7885,2026-09-09,yes,git,Supervisor-detail correction and QO timing review; no model changes
+00_STATE/sessions,2026-09-09g.md,state,hashable,2026-09-09g,ce6f1e72226edf4bc6b2ccdf5158d35064bb0a99,5437,2026-09-09,yes,git,Supervisor-detail correction and QO timing review; no model changes
+40_DOCS/Supervisor_Drafts,Doc_2_Player_Pillar_I.docx,doc,rendition,2026-09-09g,f8a67cc4f3d993ab3236283f090c16d970deac89,14982,2026-09-09,partial,git,Full supervisor review copy; explanations and evidence restored; text/core WML schema pass; visual QA unavailable
+40_DOCS/Supervisor_Drafts,Doc_3_Player_Pillar_II.docx,doc,rendition,2026-09-09g,7e2e9bd5fc9e213e8e7f7e67fed99255cf168173,15560,2026-09-09,partial,git,Full supervisor review copy; explanations and evidence restored; text/core WML schema pass; visual QA unavailable
+40_DOCS/Supervisor_Drafts,Doc_4_Drafting_Prospects_Unbuilt.docx,doc,rendition,2026-09-09g,2328fa6a84b894261cc390833cc1a715b3fb1255,15560,2026-09-09,partial,git,Full supervisor review copy; explanations and evidence restored; text/core WML schema pass; visual QA unavailable
+40_DOCS/Supervisor_Drafts,Doc_5_Cross_Cutting.docx,doc,rendition,2026-09-09g,f0b8cf9c6d3a8da3ae2c08f44773ea8295398b55,14800,2026-09-09,partial,git,Full supervisor review copy; explanations and evidence restored; text/core WML schema pass; visual QA unavailable
