@@ -76,6 +76,8 @@ Put all three trade-asset classes — rostered players, draft picks, non-roster 
 ---
 ## Resolved decisions & change log → DECISIONS.md
 
+**Aging yardstick test (2026-09-10):** `20_CODE/aging_bandwidth_test.py` compared the shared scale with each target's median distance to eligible comparables. Whole-career holdout and historical training windows both gave slightly larger errors for the target-specific alternative (about 0.10%-0.18% across rate and season-total proxy outcomes). Production unchanged. Report: `40_DOCS/Aging_Yardstick_Comparison.md`; five generated `30_OUTPUT/aging_bandwidth_test_*` artifacts. Test-only exclusion of the merged Erik Gustafsson career needs a separate identity review. See `sessions/2026-09-10c.md` for scope and limitations.
+
 Moved 2026-09-09 (v3.2). The locked decision record (D1-D27, the Phase-1b/1c/1d blocks, the Phase 3a D22-D27 draft-curve block, and the Player Model Review Stages 2-5 item-by-item record) and the running change log for the state files now live in **`00_STATE/DECISIONS.md`**. `git log 00_STATE/` is the second, mechanical copy of that history. Per-session detail is in `00_STATE/sessions/`.
 
 ---

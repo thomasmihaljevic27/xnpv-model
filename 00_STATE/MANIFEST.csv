@@ -3,11 +3,11 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 00_STATE,01_Draft_Model_Sequence.md,state,hashable,2026-09-09a,b5b9e109b745ecb44c37a8dd50c5635db8f7fd61,9713,2026-09-09,yes,git,matches Claude project copy
 00_STATE,02_Prospect_Model_Sequence.md,state,hashable,2026-09-09a,12b3f5047f0214fa3fd11f72f2cf6c6a63be8ea5,10544,2026-09-09,yes,git,matches Claude project copy
 00_STATE,03_Player_Market_Model_Sequence.md,state,hashable,2026-09-09a,2f68c554cca2f422235e3baa6e17a0996e8412e7,18477,2026-09-09,yes,git,matches Claude project copy
-00_STATE,DECISIONS.md,state,hashable,2026-09-10b,5bf0fa21a279e5d077ded47e44cf5a38b3db2a86,114843,2026-09-10,yes,git,Second Doc 2 annotations; no model changes
+00_STATE,DECISIONS.md,state,hashable,2026-09-10c,c4f026874a466eb6231de3d1f71a5b8f67fcb435,115682,2026-09-10,yes,git,Target-specific yardstick comparison; production unchanged
 00_STATE,MANIFEST.csv,state,hashable,2026-09-09a,66d3201b2fc22f946fa0de1bb2c0f364c6600a13,8389,2026-09-09,yes,git,this file
-00_STATE,PROJECT_STATE.md,state,hashable,2026-09-10b,a107a84f42cbfb9ab82b2a80567db18ef8d3b6c0,56233,2026-09-10,yes,git,Second Doc 2 annotations; no model changes
-00_STATE,STANDING_FLAGS.md,state,hashable,2026-09-09g,14dcf893168a364f56daae3aa713e5427c4c0eda,24370,2026-09-09,yes,git,Supervisor-detail correction and QO timing review; no model changes
-00_STATE,WORK_QUEUE.md,state,hashable,2026-09-10b,861f63c194687d5dd3e06f3829f49f6a46efc35d,13037,2026-09-10,yes,git,Second Doc 2 annotations; no model changes
+00_STATE,PROJECT_STATE.md,state,hashable,2026-09-10c,378acbb864522e1799fcdace416ad77bd47ec581,56859,2026-09-10,yes,git,Target-specific yardstick comparison; production unchanged
+00_STATE,STANDING_FLAGS.md,state,hashable,2026-09-10c,ff15b7d8bfbf4977252d8bf01fefca5aa55628c4,25133,2026-09-10,yes,git,Target-specific yardstick comparison; production unchanged
+00_STATE,WORK_QUEUE.md,state,hashable,2026-09-10c,0a11081c07a746e8513abe5892988670e0de622a,13626,2026-09-10,yes,git,Target-specific yardstick comparison; production unchanged
 00_STATE/sessions,2026-08-28.md,state,hashable,2026-09-09a,921a8eae623bb0d7ac4d1d181f6b862aa51a9e62,2193,2026-09-09,yes,git,git-tracked; audited via `git status`
 00_STATE/sessions,2026-09-08.md,state,hashable,2026-09-09a,1b31b43e8ed30fefd98ded8df5f5a431e79f323b,2422,2026-09-09,yes,git,git-tracked; audited via `git status`
 00_STATE/sessions,2026-09-09.md,state,hashable,2026-09-09a,4487b28a677beb42c3eb436841ab284f2b761fdc,6953,2026-09-09,yes,git,git-tracked; audited via `git status`
@@ -91,3 +91,11 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 40_DOCS/Supervisor_Drafts,Doc_5_Cross_Cutting.docx,doc,rendition,2026-09-09g,f0b8cf9c6d3a8da3ae2c08f44773ea8295398b55,14800,2026-09-09,partial,git,Full supervisor review copy; explanations and evidence restored; text/core WML schema pass; visual QA unavailable
 00_STATE/sessions,2026-09-10.md,state,hashable,2026-09-10,3ef0cc5a0638619aaec5ab7b603bc1747fc5efe0,3883,2026-09-10,yes,git,Aging-section annotation pass; no model changes
 00_STATE/sessions,2026-09-10b.md,state,hashable,2026-09-10b,c1e3b5afef176ba67c8164648d4545a1f9e76b16,2622,2026-09-10,yes,git,Second Doc 2 annotations; no model changes
+00_STATE/sessions,2026-09-10c.md,state,hashable,2026-09-10c,3eb307c7d6269b8d5f2b3b458567b38f832696c2,2879,2026-09-10,yes,git,Target-specific yardstick comparison; production unchanged
+20_CODE,aging_bandwidth_test.py,age,hashable,2026-09-10c,2ab3fa4472f6f5b2ae8618e5f39877b58d1a5690,14271,2026-09-10,yes,git,Target-specific yardstick comparison; production unchanged
+40_DOCS,Aging_Yardstick_Comparison.md,age,hashable,2026-09-10c,d4ff697acac5de5b3d94360fcb871d5d0f9dc39e,9369,2026-09-10,yes,git,Target-specific yardstick comparison; production unchanged
+30_OUTPUT,aging_bandwidth_test_design.json,age,hashable,2026-09-10c,51f2e646aced04c5bdb349abf4d7c2170e0abc14,1406,2026-09-10,yes,local,Target-specific yardstick comparison; production unchanged; generated and gitignored
+30_OUTPUT,aging_bandwidth_test_origins.csv,age,hashable,2026-09-10c,84c201deeb48ebfb16b7d2e4a1e104bd86f442ce,1301366,2026-09-10,yes,local,Target-specific yardstick comparison; production unchanged; generated and gitignored
+30_OUTPUT,aging_bandwidth_test_predictions.csv,age,hashable,2026-09-10c,4064497e9bca627133ff18e114cb35cfc43261dd,11788154,2026-09-10,yes,local,Target-specific yardstick comparison; production unchanged; generated and gitignored
+30_OUTPUT,aging_bandwidth_test_run.json,age,hashable,2026-09-10c,3c2b4b4b10036c8301fc6a9186f0292235c778d8,1505,2026-09-10,yes,local,Target-specific yardstick comparison; production unchanged; generated and gitignored
+30_OUTPUT,aging_bandwidth_test_summary.csv,age,hashable,2026-09-10c,b07118483be2c307931fdc1072abea075c152e21,14976,2026-09-10,yes,local,Target-specific yardstick comparison; production unchanged; generated and gitignored

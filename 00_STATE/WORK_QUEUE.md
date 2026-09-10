@@ -9,6 +9,8 @@
 
 ## Work queue
 
+**Target-specific aging yardstick comparison completed (2026-09-10).** The tested median-target-distance rule slightly increased errors in whole-career holdout and historical training windows. Retain the shared production scale; no broader claim that it is optimal. See `40_DOCS/Aging_Yardstick_Comparison.md`. New follow-up: review the Erik Gustafsson / Erik Gustafsson 88 career-key collision in the aging input and implement an identity correction only after checking downstream effects. The comparison excluded that career equally from both alternatives; production remains unchanged.
+
 
 **TOP OF QUEUE (2026-09-08) — DONE 2026-09-09. Migration verified clean.** The full player chain
 (`skater_value_engine` → `skater_forward_projection` → `rfa_terminal_value` → `exit_hazard` →

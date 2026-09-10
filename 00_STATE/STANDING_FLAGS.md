@@ -9,6 +9,8 @@
 
 ## Standing flags (Karl's identification axes — watch on every design choice)
 
+- **Aging identity and yardstick test (2026-09-10).** The target-specific median-distance experiment found a career-key collision between Erik Gustafsson and Erik Gustafsson 88, including two qualifying seasons at age 23. Test-only exclusion from training and evaluation; production identity handling still needs review. The alternative slightly worsened errors. This is exploratory evidence from current reconstructed data and existing settings, with evaluation conditional on observed >=20-GP seasons. The full-era test admits other players' future seasons; a historical-window check removes those and reaches the same direction. It does not validate survival, dollar values, or the complete contract pipeline. Details: `40_DOCS/Aging_Yardstick_Comparison.md`.
+
 
 - **VERIFICATION GAP, NOW COMPOUNDED (updated 2026-09-08).** The Stage 2-5 changes were never run
   locally or cross-checked the way Stage 1 was, and that gap is still open. It is now compounded:
