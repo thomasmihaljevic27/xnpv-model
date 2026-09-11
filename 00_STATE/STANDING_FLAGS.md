@@ -124,6 +124,16 @@ rate-adjacent, since the anchor feeds the projection that feeds the price equati
 
 These are newly identified review items, not changes to locked decisions. Detailed evidence and proposed document language are in `40_DOCS/Repository_Review_and_Doc_1_Edits.md`; scope and checks are in `sessions/2026-09-09c.md`.
 
+- **The split-sample stability check runs one leg, not two (recorded 2026-09-11):**
+  `aging_split_sample.py`'s docstring says it compares both the raw within-player age-delta curve
+  and the model's own global age profile, built as "two era-specific AgingModel instances." Only
+  the delta comparison is implemented - `aging_curve` is never imported in the file. The recorded
+  result (forwards 0 of 16 ages, defence 1 of 16, against ~1.6 expected by chance) therefore
+  speaks to the raw aging signal, not to the fitted projection, which is consistent with the
+  DECISIONS entry's own wording. `Doc_5_Cross_Cutting.docx` describes the two-leg version as fact
+  and needs correcting whichever way this resolves. Decide whether to implement the second
+  comparison or to correct the docstring to what runs; the locked result itself is unaffected.
+
 - **Draft Rule B position mismatch:** `draft_yield_curve.py` uses the position-specific slope for value but the forward slope for trailing cost. Source mismatch confirmed; aggregate effect unmeasured. The primary Rule A curve is separate. Review and rerun the sensitivity comparison before citing its small difference as settled.
 - **Aging self-exclusion is incomplete at the global layer:** target-player direct comparable weights are zero, but global levels/deltas include all careers and enter shrinkage. Actual-method synthetic check confirms the dependency. Real-panel materiality is unmeasured; Docs 2/5 should not claim no own-future contribution anywhere.
 - **Surplus ratios and the null need deliberate review:** common gross-value changes do not generally cancel after subtracting fixed costs; near-zero/negative denominators are problematic; exchangeable positive sides do not imply ratios average 1. The locked comparison statistic remains unchanged pending a deliberate decision.
