@@ -1,1 +1,0 @@
-git add -A; git commit -m "Session sync"; git pull --rebase; git push
