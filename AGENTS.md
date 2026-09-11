@@ -116,6 +116,7 @@ inline comments flagging every baked-in assumption: join keys, dedupe rules, whi
 vintage is in use, how a curve is applied.
 
 Every time I get corrected on something, add a rule here so it doesn't repeat.
+<<<<<<< HEAD
 
 
 ## Document editing corrections
@@ -127,3 +128,5 @@ Every time I get corrected on something, add a rule here so it doesn't repeat.
 - Supervisor-facing explainers must explain the model fully. Removing AI prose is not a mandate to compress: preserve the reasoning behind choices, definitions, worked examples, supporting results with their samples, and unresolved tests. Cut repetition and empty framing rather than explanatory substance; do not use a word-reduction target as the measure of a successful edit.
 - Explain calculations in their actual order. Define the quantity, units, and season before discussing distances, smoothing, weights, or ratios. For the aging curve, distinguish the season-total baseline, the per-82 comparison profile, the stabilized comparable estimate, and the final percentage adjustment. Carry one numerical example through the steps; explain why each intermediate result is needed rather than introducing unexplained numbers.
 - Keep the production explanation self-contained rather than invoking the salary equation to justify intermediate steps. Label thresholds as fitted estimates, chosen safeguards, or evidence-backed rules as appropriate. Explain statistical pooling using observed groups and an example before using phrases such as "shares information across cells." If the user asks to rewrite a particular passage themselves, explain that passage in chat and leave it unchanged.
+=======
+>>>>>>> 1817012 (Session sync)
