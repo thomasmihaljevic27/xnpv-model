@@ -85,3 +85,5 @@ Reproducible on both machines (Thomas's local run matches: `[1a] max diff $0.00`
 **Review follow-ups (2026-09-09, not a queue reorder).** Assess the Rule B defence-cost slope mismatch and aging global self-inclusion described in `40_DOCS/Repository_Review_and_Doc_1_Edits.md`; review the proposed Doc 1 passages and the signed allocation rule. A change to the locked surplus-ratio statistic requires a deliberate revisit. No code or model changes made in this review.
 
 **Doc 2/5 review completed (2026-09-10d):** Agreed corrections applied to supervisor copies; user read-through and visual pagination remain. Source-description follow-up: aging_split_sample.py advertises a fitted-profile comparison that main() does not implement. Its published 0/16 and 1/16 counts concern observed within-player deltas only. No new test or production change in this session.
+
+- **2026-09-10e Doc 2 formatting:** User-edited Downloads copy incorporated into Supervisor_Drafts with consistent fonts, heading hierarchy, and spacing. Text preserved exactly; core checks pass; visual pagination remains unverified. See `sessions/2026-09-10e.md`.
