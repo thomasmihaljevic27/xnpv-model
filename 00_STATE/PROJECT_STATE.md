@@ -356,3 +356,5 @@ Only files that change on a decision cadence: `PROJECT_STATE.md`, the four seque
 **Supervisor review applied (2026-09-10d):** Doc 2 and Doc 5 in `40_DOCS/Supervisor_Drafts/` incorporate the agreed factual and prose corrections. Doc 5 now distinguishes the completed raw within-player era comparison from the unimplemented fitted-profile leg described in the source docstring. Doc 2 retains full explanations and adds the yardstick test. ZIP/XML and core WML checks pass; visual pagination remains unverified. See `sessions/2026-09-10d.md`.
 
 - **2026-09-10e Doc 2 formatting:** User-edited Downloads copy incorporated into Supervisor_Drafts with consistent fonts, heading hierarchy, and spacing. Text preserved exactly; core checks pass; visual pagination remains unverified. See `sessions/2026-09-10e.md`.
+
+- **2026-09-10f:** Supervisor Docs 3-5 reviewed against code and run logs. Clarified tests and calculations; restored the forward term-test result and separate draft intervals, and documented terminal qualification survival starting a new chain. Production unchanged. Report: `40_DOCS/Docs_3_4_5_Review_Notes.md`.
