@@ -3,11 +3,11 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 00_STATE,01_Draft_Model_Sequence.md,state,hashable,2026-09-09a,b5b9e109b745ecb44c37a8dd50c5635db8f7fd61,9713,2026-09-09,yes,git,matches Claude project copy
 00_STATE,02_Prospect_Model_Sequence.md,state,hashable,2026-09-09a,12b3f5047f0214fa3fd11f72f2cf6c6a63be8ea5,10544,2026-09-09,yes,git,matches Claude project copy
 00_STATE,03_Player_Market_Model_Sequence.md,state,hashable,2026-09-09a,2f68c554cca2f422235e3baa6e17a0996e8412e7,18477,2026-09-09,yes,git,matches Claude project copy
-00_STATE,DECISIONS.md,state,hashable,2026-09-10c,c4f026874a466eb6231de3d1f71a5b8f67fcb435,115682,2026-09-10,yes,git,Target-specific yardstick comparison; production unchanged
+00_STATE,DECISIONS.md,state,hashable,2026-09-10d,243cd2ea2f38801618ce1af7ca16c048be44f6bb,116150,2026-09-10,yes,git,Agreed Doc 2/5 review; production unchanged
 00_STATE,MANIFEST.csv,state,hashable,2026-09-09a,66d3201b2fc22f946fa0de1bb2c0f364c6600a13,8389,2026-09-09,yes,git,this file
-00_STATE,PROJECT_STATE.md,state,hashable,2026-09-10c,378acbb864522e1799fcdace416ad77bd47ec581,56859,2026-09-10,yes,git,Target-specific yardstick comparison; production unchanged
-00_STATE,STANDING_FLAGS.md,state,hashable,2026-09-10c,ff15b7d8bfbf4977252d8bf01fefca5aa55628c4,25133,2026-09-10,yes,git,Target-specific yardstick comparison; production unchanged
-00_STATE,WORK_QUEUE.md,state,hashable,2026-09-10c,0a11081c07a746e8513abe5892988670e0de622a,13626,2026-09-10,yes,git,Target-specific yardstick comparison; production unchanged
+00_STATE,PROJECT_STATE.md,state,hashable,2026-09-10d,3cd9c5fe698d55ffc0e9e2aead70f773ca986bbd,57321,2026-09-10,yes,git,Agreed Doc 2/5 review; production unchanged
+00_STATE,STANDING_FLAGS.md,state,hashable,2026-09-10d,c9205c0cedaa12eeab23ea2d34115d7ea7da345c,25545,2026-09-10,yes,git,Agreed Doc 2/5 review; production unchanged
+00_STATE,WORK_QUEUE.md,state,hashable,2026-09-10d,0d99e4408570619e7940ec5abbf337c0c0af47e1,14022,2026-09-10,yes,git,Agreed Doc 2/5 review; production unchanged
 00_STATE/sessions,2026-08-28.md,state,hashable,2026-09-09a,921a8eae623bb0d7ac4d1d181f6b862aa51a9e62,2193,2026-09-09,yes,git,git-tracked; audited via `git status`
 00_STATE/sessions,2026-09-08.md,state,hashable,2026-09-09a,1b31b43e8ed30fefd98ded8df5f5a431e79f323b,2422,2026-09-09,yes,git,git-tracked; audited via `git status`
 00_STATE/sessions,2026-09-09.md,state,hashable,2026-09-09a,4487b28a677beb42c3eb436841ab284f2b761fdc,6953,2026-09-09,yes,git,git-tracked; audited via `git status`
@@ -85,10 +85,10 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 40_DOCS,Doc_5_Cross_Cutting.docx,doc,rendition,2026-09-09f,ec46234d090e19e9ba1d681b8bea89edba5f263d,12633,2026-09-09,partial,git,Code-checked rewrite; text and core WML schema verified; visual QA unavailable
 .,AGENTS.md,state,hashable,2026-09-10b,b7b8f7f7c644cb133aabed18dd9164f60705dbb3,8795,2026-09-10,yes,git,Second Doc 2 annotations; no model changes
 00_STATE/sessions,2026-09-09g.md,state,hashable,2026-09-09g,ce6f1e72226edf4bc6b2ccdf5158d35064bb0a99,5437,2026-09-09,yes,git,Supervisor-detail correction and QO timing review; no model changes
-40_DOCS/Supervisor_Drafts,Doc_2_Player_Pillar_I.docx,doc,rendition,2026-09-10b,972361ccad0d06c62b3a33376f40616d1f09a260,21562,2026-09-10,partial,git,"Second Doc 2 comment pass; text/schema verified, visual QA unavailable"
+40_DOCS/Supervisor_Drafts,Doc_2_Player_Pillar_I.docx,doc,rendition,2026-09-10d,8ed891d9cd2c025a96bfd31336e44d4a64380e30,21716,2026-09-10,partial,git,Agreed Doc 2/5 review; production unchanged; core WML pass; visual QA unavailable
 40_DOCS/Supervisor_Drafts,Doc_3_Player_Pillar_II.docx,doc,rendition,2026-09-09g,7e2e9bd5fc9e213e8e7f7e67fed99255cf168173,15560,2026-09-09,partial,git,Full supervisor review copy; explanations and evidence restored; text/core WML schema pass; visual QA unavailable
 40_DOCS/Supervisor_Drafts,Doc_4_Drafting_Prospects_Unbuilt.docx,doc,rendition,2026-09-09g,2328fa6a84b894261cc390833cc1a715b3fb1255,15560,2026-09-09,partial,git,Full supervisor review copy; explanations and evidence restored; text/core WML schema pass; visual QA unavailable
-40_DOCS/Supervisor_Drafts,Doc_5_Cross_Cutting.docx,doc,rendition,2026-09-09g,f0b8cf9c6d3a8da3ae2c08f44773ea8295398b55,14800,2026-09-09,partial,git,Full supervisor review copy; explanations and evidence restored; text/core WML schema pass; visual QA unavailable
+40_DOCS/Supervisor_Drafts,Doc_5_Cross_Cutting.docx,doc,rendition,2026-09-10d,f08627ef05986329e052720548dca219d8c8ce6f,14878,2026-09-10,partial,git,Agreed Doc 2/5 review; production unchanged; core WML pass; visual QA unavailable
 00_STATE/sessions,2026-09-10.md,state,hashable,2026-09-10,3ef0cc5a0638619aaec5ab7b603bc1747fc5efe0,3883,2026-09-10,yes,git,Aging-section annotation pass; no model changes
 00_STATE/sessions,2026-09-10b.md,state,hashable,2026-09-10b,c1e3b5afef176ba67c8164648d4545a1f9e76b16,2622,2026-09-10,yes,git,Second Doc 2 annotations; no model changes
 00_STATE/sessions,2026-09-10c.md,state,hashable,2026-09-10c,3eb307c7d6269b8d5f2b3b458567b38f832696c2,2879,2026-09-10,yes,git,Target-specific yardstick comparison; production unchanged
@@ -99,3 +99,4 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 30_OUTPUT,aging_bandwidth_test_predictions.csv,age,hashable,2026-09-10c,4064497e9bca627133ff18e114cb35cfc43261dd,11788154,2026-09-10,yes,local,Target-specific yardstick comparison; production unchanged; generated and gitignored
 30_OUTPUT,aging_bandwidth_test_run.json,age,hashable,2026-09-10c,3c2b4b4b10036c8301fc6a9186f0292235c778d8,1505,2026-09-10,yes,local,Target-specific yardstick comparison; production unchanged; generated and gitignored
 30_OUTPUT,aging_bandwidth_test_summary.csv,age,hashable,2026-09-10c,b07118483be2c307931fdc1072abea075c152e21,14976,2026-09-10,yes,local,Target-specific yardstick comparison; production unchanged; generated and gitignored
+00_STATE/sessions,2026-09-10d.md,state,hashable,2026-09-10d,c901532f0cdd752f9052e9df3693720dc7a035f7,2371,2026-09-10,yes,git,Agreed Doc 2/5 review; production unchanged
