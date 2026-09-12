@@ -306,6 +306,28 @@ The practical trap: generate a spine on one machine and the other goes stale sil
 will not tell you. Either re-run the chain or sync `30_OUTPUT` through Dropbox, and treat the most
 recent run as canonical.
 
+### Amendment (2026-09-11): the sync is scripted, and it refuses to run on a broken repo
+
+Two machines now sync through one script, `sync.ps1` at the repo root, launched by
+`Sync-Desktop.cmd` or `Sync-Laptop.cmd`. The script commits every local change, pulls whatever is
+on GitHub and not local, and pushes, in that order. It takes the repo location from its own folder
+rather than a hardcoded user path, because the two Windows accounts differ (`Thomas` on the
+desktop, `thoma` on the laptop); the two `.cmd` launchers carry the machine-specific path so they
+can be pinned outside the folder, and fall back to their own directory if that path is wrong.
+
+Two design points are load-bearing, both of them consequences of a real stall on 2026-09-11 that
+left the desktop in detached HEAD with an interactive rebase half-applied. **The pull is
+`--no-rebase`, deliberately.** Rebase rewrites local commits onto the remote's and strands you off
+the branch when it stops partway, which is what happened; a merge pull leaves you on the branch
+whatever else goes wrong, and a merge commit costs nothing on a single-author repo. **The script
+refuses to run at all** when `rebase-merge`, `rebase-apply`, `MERGE_HEAD`, or `CHERRY_PICK_HEAD`
+exists, or when HEAD is detached: in those states an `add`/`commit`/`pull` sequence compounds the
+problem rather than fixing it, so it prints the resolving commands and exits without touching
+anything.
+
+The sync moves tracked files only. `30_OUTPUT` is gitignored and does not travel, so the stale-spine
+trap above is unchanged: a spine generated on one machine still goes silently stale on the other.
+
 ### Where things live, and which copy is authoritative
 
 The local working folder on Thomas's machine is the source of truth. OneDrive backs it up continuously at no effort. Dropbox is the working channel, which is the only cloud surface Claude can read and write. Google Drive is retired. When Dropbox and local disagree, local wins and Dropbox is refreshed from it; a stale Dropbox never means work was lost.
