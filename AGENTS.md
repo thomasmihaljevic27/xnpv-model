@@ -130,3 +130,5 @@ Every time I get corrected on something, add a rule here so it doesn't repeat.
 - Keep the production explanation self-contained rather than invoking the salary equation to justify intermediate steps. Label thresholds as fitted estimates, chosen safeguards, or evidence-backed rules as appropriate. Explain statistical pooling using observed groups and an example before using phrases such as "shares information across cells." If the user asks to rewrite a particular passage themselves, explain that passage in chat and leave it unchanged.
 =======
 >>>>>>> 1817012 (Session sync)
+
+- In pricing explainers, omit unused 2026 CBA implementation details when they do not affect the study sample. Lead the goalie explanation with lower year-to-year performance stability. When incorporating replacement prose, remove the superseded explanation instead of retaining both.
