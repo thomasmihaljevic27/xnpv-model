@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>xNPV player explorer</title>
+<!-- Template for 20_CODE/player_dashboard.py. The built page
+     (30_OUTPUT/player_dashboard.html) embeds confidential PuckPedia data:
+     keep it local. This template itself holds no data. -->
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink2: #52514e;
+  --muted: #898781; --grid: #e1e0d9; --axis: #c3c2b7; --ring: rgba(11,11,11,.10);
+  --s1: #2a78d6; --s1wash: rgba(42,120,214,.10); --dim: #d3d2cb;
+  --sel: #eef4fc; --hover: rgba(11,11,11,.04);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink2: #c3c2b7;
+    --muted: #898781; --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,.10);
+    --s1: #3987e5; --s1wash: rgba(57,135,229,.16); --dim: #45453f;
+    --sel: #1c2a3b; --hover: rgba(255,255,255,.05);
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink);
+  font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+.wrap { max-width: 1240px; margin: 0 auto; padding: 20px 20px 48px; }
+h1 { font-size: 20px; margin: 0; font-weight: 650; }
+h2 { font-size: 15px; margin: 0 0 10px; font-weight: 650; }
+h3 { font-size: 13px; margin: 18px 0 2px; font-weight: 600; color: var(--ink2); }
+.sub, .cap, .note { color: var(--muted); font-size: 12.5px; margin: 2px 0 0; }
+.filters { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: end;
+  margin: 16px 0; padding: 12px 14px; background: var(--surface);
+  border: 1px solid var(--ring); border-radius: 10px; }
+.filters label { display: flex; flex-direction: column; gap: 3px; font-size: 12px; color: var(--ink2); }
+.filters input { font: inherit; color: var(--ink); background: var(--page);
+  border: 1px solid var(--axis); border-radius: 6px; padding: 6px 8px; }
+#player { width: 320px; max-width: 70vw; }
+button { font: inherit; font-size: 13px; color: var(--ink); background: var(--page);
+  border: 1px solid var(--axis); border-radius: 6px; padding: 6px 10px; cursor: pointer; }
+button:hover { background: var(--hover); }
+.filters .note { flex-basis: 100%; margin: 0; }
+.grid2 { display: grid; grid-template-columns: minmax(260px, 1fr) 2fr; gap: 14px; margin-bottom: 14px; }
+.grid2b { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 14px; margin-bottom: 14px; }
+@media (max-width: 860px) { .grid2 { grid-template-columns: 1fr; } }
+@media (max-width: 1100px) { .grid2b { grid-template-columns: 1fr; } }
+.card { background: var(--surface); border: 1px solid var(--ring); border-radius: 10px;
+  padding: 16px; margin-bottom: 14px; min-width: 0; }
+.grid2 .card, .grid2b .card { margin-bottom: 0; }
+dl.kv { display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; margin: 10px 0 0; }
+dl.kv dt { color: var(--muted); font-size: 12.5px; }
+dl.kv dd { margin: 0; }
+.pname { font-size: 20px; font-weight: 650; margin: 0; }
+.hero { font-size: 48px; font-weight: 650; line-height: 1.05; margin: 4px 0 2px; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-top: 14px; }
+.tile { border-top: 1px solid var(--grid); padding-top: 8px; }
+.tile .l { font-size: 12px; color: var(--muted); }
+.tile .v { font-size: 17px; font-weight: 600; }
+.tile .d { font-size: 12px; color: var(--ink2); }
+.badge { display: inline-block; font-size: 11px; padding: 1px 6px; border-radius: 4px;
+  border: 1px solid var(--axis); color: var(--ink2); margin-left: 6px; vertical-align: 2px; }
+.chart { width: 100%; position: relative; }
+.chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 12px; color: var(--ink2); margin-top: 6px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.tablewrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th { text-align: left; font-weight: 600; color: var(--muted); font-size: 12px;
+  border-bottom: 1px solid var(--axis); padding: 5px 8px; white-space: nowrap; }
+td { border-bottom: 1px solid var(--grid); padding: 5px 8px; white-space: nowrap; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+tr.click { cursor: pointer; }
+tr.click:hover td { background: var(--hover); }
+tr.click:focus-visible { outline: 2px solid var(--s1); outline-offset: -2px; }
+tr.sel td { background: var(--sel); }
+tr.total td { font-weight: 650; border-top: 1px solid var(--axis); border-bottom: none; }
+.tlist { display: flex; flex-direction: column; }
+.titem { display: grid; grid-template-columns: 96px 1fr auto; gap: 10px; padding: 7px 8px;
+  border-bottom: 1px solid var(--grid); cursor: pointer; border-radius: 4px; }
+.titem:hover { background: var(--hover); }
+.titem.sel { background: var(--sel); }
+.titem:focus-visible { outline: 2px solid var(--s1); }
+.titem .dt { color: var(--ink2); font-variant-numeric: tabular-nums; }
+.titem .v { font-variant-numeric: tabular-nums; }
+.empty { color: var(--muted); font-style: italic; }
+.side { margin: 10px 0 4px; font-weight: 600; }
+ul.assets { margin: 0 0 8px; padding-left: 18px; }
+ul.assets li { margin: 3px 0; }
+.linkish { color: var(--s1); cursor: pointer; text-decoration: underline; text-underline-offset: 2px; background: none; border: 0; padding: 0; font: inherit; }
+.me { font-weight: 650; }
+.notes p { margin: 6px 0; color: var(--ink2); max-width: 90ch; }
+.warn { border-left: 3px solid var(--axis); padding: 6px 10px; margin: 10px 0; color: var(--ink2); background: var(--page); border-radius: 0 6px 6px 0; }
+.tip { position: fixed; z-index: 10; pointer-events: none; background: var(--surface);
+  color: var(--ink); border: 1px solid var(--ring); border-radius: 8px; padding: 8px 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.14); font-size: 12.5px; max-width: 320px; }
+.tip .tv { font-size: 15px; font-weight: 650; }
+.tip .tl { color: var(--ink2); }
+details summary { cursor: pointer; font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>xNPV player explorer</h1>
+    <p class="sub" id="meta"></p>
+  </header>
+
+  <div class="filters" role="search">
+    <label>Player
+      <input id="player" list="playerlist" placeholder="Type a name…" autocomplete="off">
+    </label>
+    <datalist id="playerlist"></datalist>
+    <label>Value as of
+      <input id="date" type="date">
+    </label>
+    <button id="latest" type="button">Latest page</button>
+    <p class="note" id="dateNote"></p>
+  </div>
+
+  <div class="grid2">
+    <section class="card" id="bio"></section>
+    <section class="card" id="valuation"></section>
+  </div>
+
+  <section class="card">
+    <h2>xNPV by valuation page</h2>
+    <p class="cap">Each step is one valuation page, in force from July 1 of its season until the next page. Circles mark contract signings, triangles mark trades. Click anywhere on the chart to value the player on that date.</p>
+    <div id="npvChart" class="chart"></div>
+    <div class="legend" id="npvLegend"></div>
+    <h3>Bacon WAR by season</h3>
+    <p class="cap" id="warCap"></p>
+    <div id="warChart" class="chart"></div>
+    <div class="legend" id="warLegend"></div>
+  </section>
+
+  <div class="grid2b">
+    <section class="card"><h2>Contract history</h2><div class="tablewrap"><table id="contracts"></table></div></section>
+    <section class="card"><h2>Trade history</h2><div id="trades" class="tlist"></div></section>
+  </div>
+
+  <section class="card" id="eventDetail" hidden></section>
+
+  <section class="card">
+    <h2 id="bdTitle">What makes up this xNPV</h2>
+    <p class="cap">Contract seasons: present value = (survival × projected value − cap hit) × discount, with discount = 1.03<sup>−k</sup> and survival 1 in the valuation season. RFA control rows come from rfa_terminal_value.py: projected value against the qualifying-offer cost, carried by the qualify-rate chain shown in the survival column (goalies: no qualify gates, survival 1), then discounted.</p>
+    <div class="tablewrap" id="breakdown"></div>
+  </section>
+
+  <section class="card">
+    <details><summary>All pages for this player, as a table</summary>
+      <div class="tablewrap"><table id="pagesTable"></table></div>
+    </details>
+  </section>
+
+  <section class="card notes">
+    <h2>How to read this</h2>
+    <p><strong>The model re-values once per season.</strong> The page for a season reads only seasons that finished before it: the two prior seasons of WAR for skaters, the 50/30/20 blend of the three prior seasons for goalies. All of those are complete by July 1, so a page is in force from July 1 of its season to June 30 of the next. Picking a date picks the page in force that day. Production in the current season is not used until the following July, so a February trade is valued on the page built before that season began. Mid-season proration is not built yet.</p>
+    <p><strong>Why a signing date can show the old contract.</strong> An extension signed during a season does not start until the next one. On the signing date, the page in force still values the contract being played out, including its RFA control years where they apply. The new contract's first page reads the season in which it was signed, so that page knows more than the team did at signing. The contract panel flags these cases.</p>
+    <p><strong>What the line is and is not.</strong> The pages come from the validation panel (contract_npv_panel.csv). Every page is an ex-ante valuation. The sequence shows how the model's view of a player updates as production arrives. It is a diagnostic, not a score for historical trades.</p>
+    <p><strong>Not shown.</strong> Draft-pick and non-roster-prospect values are not priced here. Players without a priced page from 2018-19 to 2025-26 are not listed. Skater WAR bars come from WAR_with_age.csv, with team splits summed. Goalie WAR comes from Goalies_WAR.csv, matched by cleaned name. The WAR chart is context; the projection's own inputs are in the breakdown table.</p>
+    <p><strong>Confidential.</strong> This file embeds PuckPedia contract and trade data. Keep it on this machine.</p>
+  </section>
+</div>
+<div id="tip" class="tip" hidden></div>
+
+<script>const DATA = /*__XNPV_DATA__*/null;</script>
+<script>
+"use strict";
+const P = DATA.players, TR = DATA.trades, META = DATA.meta;
+const DOM_START = 2015, DOM_END = 2026;     // x-domain: Jul 1 2015 .. Jul 1 2026
+const $ = id => document.getElementById(id);
+
+// ---------- tiny DOM helpers (all text goes through textContent) ----------
+function el(tag, attrs, ...kids) {
+  const e = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs || {})) {
+    if (v == null) continue;
+    if (k === "class") e.className = v;
+    else if (k === "text") e.textContent = v;
+    else if (k.startsWith("on")) e.addEventListener(k.slice(2), v);
+    else e.setAttribute(k, v);
+  }
+  for (const k of kids) if (k != null) e.append(k instanceof Node ? k : document.createTextNode(String(k)));
+  return e;
+}
+function sv(tag, attrs) {
+  const e = document.createElementNS("http://www.w3.org/2000/svg", tag);
+  for (const [k, v] of Object.entries(attrs || {})) e.setAttribute(k, v);
+  return e;
+}
+
+// ---------- formatting ----------
+const MINUS = "−";
+const fmtM = v => v == null ? "—" : (v < 0 ? MINUS : "") + "$" + (Math.abs(v) / 1e6).toFixed(2) + "M";
+const fmtD = v => v == null ? "—" : (v < 0 ? MINUS : "") + "$" + Math.round(Math.abs(v)).toLocaleString("en-US");
+const fmtAxis = v => {
+  if (v === 0) return "$0";
+  const a = Math.abs(v), s = v < 0 ? MINUS : "";
+  if (a >= 1e6) return s + "$" + (a / 1e6).toFixed(a % 1e6 ? 1 : 0) + "M";
+  return s + "$" + Math.round(a / 1e3) + "K";
+};
+const fmtNum = (v, n) => v == null ? "—" : (v < 0 ? MINUS : "") + Math.abs(v).toFixed(n);
+const seasonLbl = t => `${t}-${String((t + 1) % 100).padStart(2, "0")}`;
+const parseISO = s => { const [y, m, d] = s.split("-").map(Number); return Date.UTC(y, m - 1, d); };
+const fmtDate = s => s ? new Date(parseISO(s)).toLocaleDateString("en-CA",
+  { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" }) : "—";
+const isoOf = ms => new Date(ms).toISOString().slice(0, 10);
+// The date rule: the latest page whose inputs were all known on this date.
+const pageFor = s => { const [y, m] = s.split("-").map(Number); return m >= 7 ? y : y - 1; };
+const levelLbl = l => ({ entry_level: "ELC", standard_level: "Standard" }[l] || (l ? l.replace(/_/g, " ") : "—"));
+const heightLbl = h => h ? `${Math.floor(h / 12)}′${h % 12}″` : "—";
+const ordinal = n => n + (["th","st","nd","rd"][((n % 100) - 20) % 10] || ["th","st","nd","rd"][n % 100] || "th");
+
+// Projection-path labels, glossed from skater_forward_projection.ratio_path()
+// and contract_npv._npv_goalie().
+const PATH_GLOSS = {
+  curve: "Aging-curve path applied to the trailing-WAR anchor.",
+  flat_no_curve: "No aging-curve match for this player and age, so the anchor is held flat.",
+  flat_low_curve_base: "Curve base at or below the ratio-construction floor, so the anchor is held flat.",
+  replacement_reversion: "Negative anchor: the D12 v3 replacement-reversion multiplier applies.",
+  goalie_flat_503020: "Goalie: 50/30/20 trailing WAR, shrunk toward league average, held flat.",
+  goalie_flat_6040: "Goalie: 60/40 trailing WAR (two prior seasons), shrunk, held flat.",
+  goalie_flat_t1_only: "Goalie: one prior season only (low confidence), shrunk, held flat.",
+  goalie_flat_stale_anchor: "Goalie with a stale anchor: survival starts at the materialisation gate.",
+};
+
+// ---------- state ----------
+const state = { pid: null, date: null, event: null };
+const player = () => P[state.pid];
+const pagesOf = pl => Object.keys(pl.pages).map(Number).sort((a, b) => a - b);
+
+function currentPage() {
+  const t0 = pageFor(state.date);
+  return { t0, pg: player().pages[t0] || null };
+}
+
+// ---------- tooltip ----------
+const tip = $("tip");
+function showTip(nodes, x, y) {
+  tip.textContent = "";
+  nodes.forEach(n => tip.append(n));
+  tip.hidden = false;
+  const r = tip.getBoundingClientRect();
+  let left = x + 14, top = y + 14;
+  if (left + r.width > window.innerWidth - 8) left = x - r.width - 14;
+  if (top + r.height > window.innerHeight - 8) top = y - r.height - 14;
+  tip.style.left = left + "px"; tip.style.top = top + "px";
+}
+const hideTip = () => { tip.hidden = true; };
+const tipFor = node => { const b = node.getBoundingClientRect(); return [b.left + b.width / 2, b.top]; };
+
+// ---------- scales ----------
+function niceTicks(lo, hi, n) {
+  const span = hi - lo || 1, step0 = span / n;
+  const mag = Math.pow(10, Math.floor(Math.log10(step0))), err = step0 / mag;
+  const step = (err >= 7.5 ? 10 : err >= 3.5 ? 5 : err >= 1.5 ? 2 : 1) * mag;
+  const out = [];
+  for (let v = Math.floor(lo / step) * step; v <= Math.ceil(hi / step) * step + step / 2; v += step)
+    out.push(Math.round(v / step) * step);
+  return out;
+}
+function xScale(W, m) {
+  const x0 = Date.UTC(DOM_START, 6, 1), x1 = Date.UTC(DOM_END, 6, 1);
+  const X = ms => m.l + (ms - x0) / (x1 - x0) * (W - m.l - m.r);
+  X.inv = px => x0 + (px - m.l) / (W - m.l - m.r) * (x1 - x0);
+  X.x0 = x0; X.x1 = x1;
+  return X;
+}
+function drawXAxis(svg, X, y, W) {
+  for (let s = DOM_START; s < DOM_END; s++) {
+    const xa = X(Date.UTC(s, 6, 1));
+    svg.append(sv("line", { x1: xa, x2: xa, y1: y, y2: y + 4, stroke: "var(--axis)" }));
+    const t = sv("text", { x: X(Date.UTC(s + 1, 0, 1)), y: y + 16, "text-anchor": "middle",
+      "font-size": 11, fill: "var(--muted)" });
+    t.textContent = W < 640 ? `’${String(s % 100).padStart(2, "0")}` : seasonLbl(s);
+    svg.append(t);
+  }
+}
+
+// ---------- chart 1: xNPV step line + event lane ----------
+function drawNPV() {
+  const box = $("npvChart"); box.textContent = "";
+  const pl = player(), ts = pagesOf(pl);
+  const W = Math.max(box.clientWidth, 320), H = 320;
+  const m = { l: 60, r: 14, t: 16, b: 78 };
+  const X = xScale(W, m), plotB = H - m.b;
+  const vals = ts.map(t => pl.pages[t].npv);
+  let ticks = niceTicks(Math.min(0, ...vals), Math.max(0, ...vals, 1), 5);
+  const lo = ticks[0], hi = ticks[ticks.length - 1];
+  const Y = v => m.t + (hi - v) / (hi - lo) * (plotB - m.t);
+  const svg = sv("svg", { viewBox: `0 0 ${W} ${H}`, role: "img",
+    "aria-label": `xNPV of ${pl.name} by valuation page` });
+
+  // recessive grid + y labels
+  for (const v of ticks) {
+    svg.append(sv("line", { x1: m.l, x2: W - m.r, y1: Y(v), y2: Y(v),
+      stroke: v === 0 ? "var(--axis)" : "var(--grid)", "stroke-width": 1 }));
+    const t = sv("text", { x: m.l - 8, y: Y(v) + 4, "text-anchor": "end", "font-size": 11,
+      fill: "var(--muted)", style: "font-variant-numeric: tabular-nums" });
+    t.textContent = fmtAxis(v); svg.append(t);
+  }
+  drawXAxis(svg, X, plotB, W);
+
+  // step runs (a gap where a season has no page)
+  const runs = []; let cur = [];
+  ts.forEach((t, i) => { if (i && t !== ts[i - 1] + 1) { runs.push(cur); cur = []; } cur.push(t); });
+  if (cur.length) runs.push(cur);
+  for (const run of runs) {
+    let d = "";
+    run.forEach((t, i) => {
+      const xa = X(Date.UTC(t, 6, 1)), xb = X(Date.UTC(t + 1, 6, 1)), y = Y(pl.pages[t].npv);
+      d += `${i ? "L" : "M"}${xa},${y}L${xb},${y}`;
+    });
+    const xs = X(Date.UTC(run[0], 6, 1)), xe = X(Date.UTC(run[run.length - 1] + 1, 6, 1));
+    svg.append(sv("path", { d: `M${xs},${Y(0)}` + d.replace(/^M/, "L") + `L${xe},${Y(0)}Z`,
+      fill: "var(--s1wash)", stroke: "none" }));
+    svg.append(sv("path", { d, fill: "none", stroke: "var(--s1)", "stroke-width": 2,
+      "stroke-linejoin": "round", "stroke-linecap": "round" }));
+  }
+
+  // selected-date rule
+  const { t0: selT } = currentPage();
+  const dx = X(parseISO(state.date));
+  if (dx >= m.l && dx <= W - m.r) {
+    svg.append(sv("line", { x1: dx, x2: dx, y1: m.t - 6, y2: plotB + 58, stroke: "var(--ink2)", "stroke-width": 1 }));
+  }
+
+  // hover / click layer over the plot (crosshair snaps to the page in force)
+  const hair = sv("line", { y1: m.t, y2: plotB, stroke: "var(--muted)", "stroke-width": 1, visibility: "hidden" });
+  svg.append(hair);
+  const overlay = sv("rect", { x: m.l, y: m.t, width: W - m.l - m.r, height: plotB - m.t,
+    fill: "transparent", style: "cursor: crosshair" });
+  svg.append(overlay);
+
+  // page dots (surface ring, focusable)
+  const dotByT = {};
+  for (const t of ts) {
+    const pg = pl.pages[t], sel = t === selT;
+    const g = sv("g", { tabindex: 0, role: "button", style: "cursor: pointer; outline: none",
+      "aria-label": `${seasonLbl(t)} page: ${fmtM(pg.npv)}` });
+    g.append(sv("circle", { cx: X(Date.UTC(t, 6, 1)), cy: Y(pg.npv), r: 12, fill: "transparent" }));
+    const c = sv("circle", { cx: X(Date.UTC(t, 6, 1)), cy: Y(pg.npv), r: sel ? 6 : 4,
+      fill: "var(--s1)", stroke: "var(--surface)", "stroke-width": 2 });
+    g.append(c); dotByT[t] = c;
+    const show = (x, y) => showTip(pageTip(t), x, y);
+    g.addEventListener("pointerenter", e => show(e.clientX, e.clientY));
+    g.addEventListener("pointermove", e => show(e.clientX, e.clientY));
+    g.addEventListener("pointerleave", hideTip);
+    g.addEventListener("focus", () => show(...tipFor(c)));
+    g.addEventListener("blur", hideTip);
+    g.addEventListener("click", () => setDate(`${t}-10-01`));
+    g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setDate(`${t}-10-01`); } });
+    svg.append(g);
+  }
+  overlay.addEventListener("pointermove", e => {
+    const r = svg.getBoundingClientRect(), px = (e.clientX - r.left) * W / r.width;
+    const ms = X.inv(px), t = pageFor(isoOf(ms));
+    hair.setAttribute("x1", px); hair.setAttribute("x2", px); hair.setAttribute("visibility", "visible");
+    showTip(pl.pages[t] ? pageTip(t, isoOf(ms)) : [el("div", { class: "tl", text: `${fmtDate(isoOf(ms))}: no page (${seasonLbl(t)})` })], e.clientX, e.clientY);
+  });
+  overlay.addEventListener("pointerleave", () => { hair.setAttribute("visibility", "hidden"); hideTip(); });
+  overlay.addEventListener("click", e => {
+    const r = svg.getBoundingClientRect(), px = (e.clientX - r.left) * W / r.width;
+    setDate(isoOf(X.inv(px)));
+  });
+
+  // event lane: contract signings (circles) and trades (triangles)
+  const laneC = plotB + 38, laneT = plotB + 56;
+  const lbl = (y, text) => { const t = sv("text", { x: m.l - 8, y: y + 4, "text-anchor": "end", "font-size": 11, fill: "var(--muted)" }); t.textContent = text; svg.append(t); };
+  lbl(laneC, "Signed"); lbl(laneT, "Traded");
+  const inDom = ms => ms >= X.x0 && ms <= X.x1;
+  for (const c of pl.contracts) {
+    if (!c.signed || !inDom(parseISO(c.signed))) continue;
+    const x = X(parseISO(c.signed)), sel = state.event && state.event.type === "contract" && state.event.id === c.id;
+    const g = sv("g", { tabindex: 0, role: "button", style: "cursor: pointer; outline: none",
+      "aria-label": `Contract signed ${fmtDate(c.signed)}` });
+    g.append(sv("rect", { x: x - 12, y: laneC - 12, width: 24, height: 24, fill: "transparent" }));
+    g.append(sv("circle", { cx: x, cy: laneC, r: sel ? 6 : 5, fill: sel ? "var(--ink)" : "var(--surface)",
+      stroke: "var(--ink2)", "stroke-width": 1.5 }));
+    wireEvent(g, () => contractTip(c), () => selectContract(c));
+    svg.append(g);
+  }
+  pl.trades.forEach((tr, i) => {
+    if (!tr.date || !inDom(parseISO(tr.date))) return;
+    const x = X(parseISO(tr.date)), sel = state.event && state.event.type === "trade" && state.event.i === i;
+    const s = sel ? 7 : 6;
+    const g = sv("g", { tabindex: 0, role: "button", style: "cursor: pointer; outline: none",
+      "aria-label": `Traded ${tr.from} to ${tr.to}, ${fmtDate(tr.date)}` });
+    g.append(sv("rect", { x: x - 12, y: laneT - 12, width: 24, height: 24, fill: "transparent" }));
+    g.append(sv("path", { d: `M${x},${laneT - s}L${x + s},${laneT + s * 0.8}L${x - s},${laneT + s * 0.8}Z`,
+      fill: sel ? "var(--ink)" : "var(--surface)", stroke: "var(--ink2)", "stroke-width": 1.5, "stroke-linejoin": "round" }));
+    wireEvent(g, () => [el("div", { class: "tv", text: `${tr.from} → ${tr.to}` }), el("div", { class: "tl", text: fmtDate(tr.date) })], () => selectTrade(i));
+    svg.append(g);
+  });
+  box.append(svg);
+
+  const lg = $("npvLegend"); lg.textContent = "";
+  const key = (svgInner, text) => { const s = sv("svg", { width: 18, height: 12 }); svgInner.forEach(n => s.append(n)); return el("span", {}, s, text); };
+  lg.append(
+    key([sv("line", { x1: 1, x2: 17, y1: 6, y2: 6, stroke: "var(--s1)", "stroke-width": 2 })], "xNPV (contract + RFA control years)"),
+    key([sv("line", { x1: 9, x2: 9, y1: 0, y2: 12, stroke: "var(--ink2)", "stroke-width": 1 })], "Selected date"),
+    key([sv("circle", { cx: 9, cy: 6, r: 4.5, fill: "var(--surface)", stroke: "var(--ink2)", "stroke-width": 1.5 })], "Contract signed"),
+    key([sv("path", { d: "M9,1L14,10L4,10Z", fill: "var(--surface)", stroke: "var(--ink2)", "stroke-width": 1.5 })], "Trade"),
+  );
+}
+function wireEvent(g, tipNodes, onPick) {
+  const node = g.lastChild;
+  g.addEventListener("pointerenter", e => showTip(tipNodes(), e.clientX, e.clientY));
+  g.addEventListener("pointermove", e => showTip(tipNodes(), e.clientX, e.clientY));
+  g.addEventListener("pointerleave", hideTip);
+  g.addEventListener("focus", () => showTip(tipNodes(), ...tipFor(node)));
+  g.addEventListener("blur", hideTip);
+  g.addEventListener("click", onPick);
+  g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onPick(); } });
+}
+function pageTip(t, hoverIso) {
+  const pg = player().pages[t];
+  return [
+    el("div", { class: "tv", text: fmtM(pg.npv) }),
+    el("div", { class: "tl", text: `${seasonLbl(t)} page` + (hoverIso ? ` · in force on ${fmtDate(hoverIso)}` : "") }),
+    el("div", { class: "tl", text: `Contract seasons ${fmtM(pg.c)} · RFA control ${fmtM(pg.t)}` }),
+    el("div", { class: "tl", text: `${pg.rem} season${pg.rem === 1 ? "" : "s"} left · ${pg.path}` }),
+  ];
+}
+function contractTip(c) {
+  return [el("div", { class: "tv", text: `${c.len} × ${fmtM(c.cap)}` }),
+    el("div", { class: "tl", text: `Signed ${fmtDate(c.signed)} · ${levelLbl(c.level)} · ${c.team || ""}` })];
+}
+
+// ---------- chart 2: WAR bars, anchor seasons emphasised ----------
+function barPath(x, w, y0, y1, r) {
+  // 4px rounded data-end, square at the baseline
+  const h = Math.abs(y1 - y0); r = Math.min(r, h, w / 2);
+  if (y1 <= y0) return `M${x},${y0}V${y1 + r}Q${x},${y1} ${x + r},${y1}H${x + w - r}Q${x + w},${y1} ${x + w},${y1 + r}V${y0}Z`;
+  return `M${x},${y0}V${y1 - r}Q${x},${y1} ${x + r},${y1}H${x + w - r}Q${x + w},${y1} ${x + w},${y1 - r}V${y0}Z`;
+}
+function drawWAR() {
+  const box = $("warChart"); box.textContent = "";
+  const pl = player(), lg = $("warLegend"); lg.textContent = "";
+  const { t0 } = currentPage();
+  const isG = pl.grp === "goalie";
+  const anchors = isG ? [t0 - 1, t0 - 2, t0 - 3] : [t0 - 1, t0 - 2];
+  $("warCap").textContent = pl.war
+    ? `Blue bars are the seasons the ${seasonLbl(t0)} page reads (${isG ? "50/30/20 over the three prior seasons" : "the two prior seasons"}).` +
+      (pl.war.src === "name" ? " Matched by cleaned name." : "")
+    : "No WAR history found for this player.";
+  if (!pl.war) return;
+  const seasons = Object.keys(pl.war.s).map(Number).filter(s => s >= DOM_START && s < DOM_END);
+  if (!seasons.length) return;
+  const W = Math.max(box.clientWidth, 320), H = 170, m = { l: 60, r: 14, t: 10, b: 24 };
+  const X = xScale(W, m), plotB = H - m.b;
+  const vals = seasons.map(s => pl.war.s[s][0]);
+  const ticks = niceTicks(Math.min(0, ...vals), Math.max(0, ...vals, 0.5), 3);
+  const lo = ticks[0], hi = ticks[ticks.length - 1];
+  const Y = v => m.t + (hi - v) / (hi - lo) * (plotB - m.t);
+  const svg = sv("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": `Bacon WAR by season for ${pl.name}` });
+  for (const v of ticks) {
+    svg.append(sv("line", { x1: m.l, x2: W - m.r, y1: Y(v), y2: Y(v), stroke: v === 0 ? "var(--axis)" : "var(--grid)" }));
+    const t = sv("text", { x: m.l - 8, y: Y(v) + 4, "text-anchor": "end", "font-size": 11, fill: "var(--muted)", style: "font-variant-numeric: tabular-nums" });
+    t.textContent = fmtNum(v, Number.isInteger(v) ? 0 : 1); svg.append(t);
+  }
+  drawXAxis(svg, X, plotB, W);
+  const yr = X(Date.UTC(2021, 0, 1)) - X(Date.UTC(2020, 0, 1));
+  const bw = Math.min(24, yr * 0.55);
+  for (const s of seasons) {
+    const [w, gp] = pl.war.s[s], cx = X(Date.UTC(s + 1, 0, 1)), on = anchors.includes(s);
+    const g = sv("g", { tabindex: 0, role: "img", style: "outline: none", "aria-label": `${seasonLbl(s)}: ${w} WAR in ${gp} games` });
+    g.append(sv("rect", { x: cx - Math.max(bw, 24) / 2, y: m.t, width: Math.max(bw, 24), height: plotB - m.t, fill: "transparent" }));
+    const bar = sv("path", { d: barPath(cx - bw / 2, bw, Y(0), Y(w), 4), fill: on ? "var(--s1)" : "var(--dim)" });
+    g.append(bar);
+    const nodes = () => [el("div", { class: "tv", text: `${fmtNum(w, 2)} WAR` }), el("div", { class: "tl", text: `${seasonLbl(s)} · ${gp} GP${on ? " · read by the selected page" : ""}` })];
+    g.addEventListener("pointerenter", e => { bar.setAttribute("opacity", .8); showTip(nodes(), e.clientX, e.clientY); });
+    g.addEventListener("pointermove", e => showTip(nodes(), e.clientX, e.clientY));
+    g.addEventListener("pointerleave", () => { bar.removeAttribute("opacity"); hideTip(); });
+    g.addEventListener("focus", () => showTip(nodes(), ...tipFor(bar)));
+    g.addEventListener("blur", hideTip);
+    svg.append(g);
+  }
+  const dx = X(parseISO(state.date));
+  if (dx >= m.l && dx <= W - m.r) svg.append(sv("line", { x1: dx, x2: dx, y1: m.t, y2: plotB, stroke: "var(--ink2)", "stroke-width": 1, "pointer-events": "none" }));
+  box.append(svg);
+  const sw = c => { const s = sv("svg", { width: 12, height: 12 }); s.append(sv("rect", { x: 0, y: 0, width: 12, height: 12, rx: 3, fill: c })); return s; };
+  lg.append(el("span", {}, sw("var(--s1)"), "Read by the selected page"), el("span", {}, sw("var(--dim)"), "Other seasons"));
+}
+
+// ---------- bio ----------
+function ageOn(born, iso) {
+  if (!born) return null;
+  const [by, bm, bd] = born.split("-").map(Number), [y, m, d] = iso.split("-").map(Number);
+  return y - by - ((m < bm || (m === bm && d < bd)) ? 1 : 0);
+}
+function renderBio() {
+  const pl = player(), b = pl.bio, box = $("bio"); box.textContent = "";
+  box.append(el("p", { class: "pname", text: pl.name }));
+  const bits = [b.pos, b.shoots ? `shoots ${b.shoots}` : null, b.jersey != null ? `#${b.jersey}` : null, b.team].filter(Boolean);
+  box.append(el("p", { class: "sub", text: bits.join(" · ") }));
+  const dl = el("dl", { class: "kv" });
+  const row = (k, v) => dl.append(el("dt", { text: k }), el("dd", { text: v ?? "—" }));
+  const age = ageOn(b.born, state.date);
+  row("Born", b.born ? `${fmtDate(b.born)}${age != null ? ` (age ${age} on the selected date)` : ""}` : "—");
+  row("Birthplace", [b.city, b.state, b.country].filter(Boolean).join(", ") || "—");
+  row("Height / weight", `${heightLbl(b.height)} · ${b.weight ? b.weight + " lb" : "—"}`);
+  if (pl.draft.length) {
+    row("Draft", pl.draft.map(d => `${d.year} · round ${d.round} · ${ordinal(d.overall)} overall (${d.team})`).join("; "));
+  } else {
+    row("Draft", b.draft_year ? `${b.draft_year} (pick not in the 2005-2026 linkage)` : "Not in the draft linkage (undrafted, or drafted before 2005)");
+  }
+  row("UFA year", b.ufa != null ? String(b.ufa) : "—");
+  row("IDs", `PuckPedia ${state.pid}${b.nhl_id ? ` · NHL ${b.nhl_id}` : ""}`);
+  box.append(dl);
+}
+
+// ---------- valuation card ----------
+function contractById(id) { return player().contracts.find(c => c.id === id); }
+function renderValuation() {
+  const box = $("valuation"); box.textContent = "";
+  const { t0, pg } = currentPage();
+  box.append(el("div", { class: "sub", text: `xNPV as of ${fmtDate(state.date)}` }));
+  if (!pg) {
+    box.append(el("div", { class: "hero", text: "—" }));
+    box.append(el("p", { class: "note", text: noPageReason(t0) }));
+    return;
+  }
+  box.append(el("div", { class: "hero", text: fmtM(pg.npv) }));
+  const c = contractById(pg.cid);
+  const head = el("div", { class: "tl" }, `${seasonLbl(t0)} page · values contract #${pg.cid}`,
+    c ? ` (${c.len} × ${fmtM(c.cap)}, ${seasonLbl(c.start)} to ${seasonLbl(c.start + c.len - 1)})` : "");
+  if (pg.elc) head.append(el("span", { class: "badge", text: "ELC season" }));
+  box.append(head);
+  const tiles = el("div", { class: "tiles" });
+  const tile = (l, v, d) => tiles.append(el("div", { class: "tile" }, el("div", { class: "l", text: l }), el("div", { class: "v", text: v }), d ? el("div", { class: "d", text: d }) : null));
+  tile("Contract seasons", fmtM(pg.c), `${pg.rem} season${pg.rem === 1 ? "" : "s"} left from ${seasonLbl(t0)}`);
+  tile("RFA control years", fmtM(pg.t), pg.t ? "Terminal value at expiry" : "None (UFA expiry, or not qualified)");
+  if (pg.anchor != null) tile("Anchor WAR", fmtNum(pg.anchor, 2), `Source: ${pg.src ?? "—"}`);
+  if (pg.age != null) tile("Age at valuation", String(pg.age), "Feb 1 of the valuation season");
+  tile("Projection path", pg.path, PATH_GLOSS[pg.path] || "");
+  box.append(tiles);
+}
+function noPageReason(t0) {
+  if (t0 > META.last) return `The ${seasonLbl(t0)} page is not built. The panel ends at ${seasonLbl(META.last)}.`;
+  if (t0 < META.first) return `The panel starts at ${seasonLbl(META.first)}. Nothing is valued before that.`;
+  return `No priced contract for this player in ${seasonLbl(t0)}. He may have been unsigned, outside the NHL, or without a trailing-WAR anchor.`;
+}
+
+// ---------- contracts ----------
+function renderContracts() {
+  const tb = $("contracts"); tb.textContent = "";
+  const pl = player();
+  const hdr = ["Signed", "Seasons", "Yrs", "Cap hit", "Total", "Type", "Signed as", "Expiry", "Clause", "Team"];
+  const num = new Set(["Yrs", "Cap hit", "Total"]);
+  tb.append(el("thead", {}, el("tr", {}, ...hdr.map(h => el("th", { class: num.has(h) ? "num" : null, text: h })))));
+  const body = el("tbody");
+  if (!pl.contracts.length) body.append(el("tr", {}, el("td", { colspan: hdr.length, class: "empty", text: "No contracts on file." })));
+  for (const c of pl.contracts) {
+    const sel = state.event && state.event.type === "contract" && state.event.id === c.id;
+    const tr = el("tr", { class: "click" + (sel ? " sel" : ""), tabindex: 0 },
+      el("td", { text: c.signed ? fmtDate(c.signed) : "—" }),
+      el("td", { text: c.start != null ? `${seasonLbl(c.start)} → ${seasonLbl(c.start + c.len - 1)}` : "—" }),
+      el("td", { class: "num", text: c.len ?? "—" }),
+      el("td", { class: "num", text: fmtM(c.cap) }),
+      el("td", { class: "num", text: fmtM(c.value) }),
+      el("td", { text: levelLbl(c.level) }),
+      el("td", { text: c.sstatus || "—" }),
+      el("td", { text: c.expiry || "—" }),
+      el("td", { text: c.clause || "—" }),
+      el("td", { text: c.team || "—" }));
+    tr.addEventListener("click", () => selectContract(c));
+    tr.addEventListener("keydown", e => { if (e.key === "Enter") selectContract(c); });
+    body.append(tr);
+  }
+  tb.append(body);
+}
+
+// ---------- trades ----------
+function renderTrades() {
+  const box = $("trades"); box.textContent = "";
+  const pl = player();
+  if (!pl.trades.length) { box.append(el("p", { class: "empty", text: "No trades in the 2018-2026 export." })); return; }
+  pl.trades.forEach((tr, i) => {
+    const sel = state.event && state.event.type === "trade" && state.event.i === i;
+    const t0 = tr.date ? pageFor(tr.date) : null, pg = t0 != null ? pl.pages[t0] : null;
+    const item = el("div", { class: "titem" + (sel ? " sel" : ""), tabindex: 0, role: "button" },
+      el("span", { class: "dt", text: fmtDate(tr.date) }),
+      el("span", {}, `${tr.from} → ${tr.to}`, tr.ret ? el("span", { class: "badge", text: `${fmtM(tr.ret)} retained` }) : null),
+      el("span", { class: "v", text: pg ? fmtM(pg.npv) : "—" }));
+    item.addEventListener("click", () => selectTrade(i));
+    item.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); selectTrade(i); } });
+    box.append(item);
+  });
+  box.append(el("p", { class: "note", text: "Right column: xNPV on the page in force on the trade date." }));
+}
+
+// ---------- event detail (contract or trade) ----------
+function selectContract(c) {
+  state.event = { type: "contract", id: c.id };
+  state.date = c.signed || `${c.start}-07-01`;
+  render();
+  $("eventDetail").scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+function selectTrade(i) {
+  state.event = { type: "trade", i };
+  state.date = player().trades[i].date;
+  render();
+  $("eventDetail").scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+function renderEvent() {
+  const box = $("eventDetail"); box.textContent = "";
+  if (!state.event) { box.hidden = true; return; }
+  box.hidden = false;
+  const close = el("button", { type: "button", style: "float:right", text: "Close" });
+  close.addEventListener("click", () => { state.event = null; render(); });
+  box.append(close);
+  if (state.event.type === "contract") contractDetail(box, contractById(state.event.id));
+  else tradeDetail(box, player().trades[state.event.i]);
+}
+function contractDetail(box, c) {
+  const pl = player();
+  box.append(el("h2", { text: `Contract #${c.id}: ${c.len} × ${fmtM(c.cap)}, ${seasonLbl(c.start)} to ${seasonLbl(c.start + c.len - 1)}` }));
+  const dl = el("dl", { class: "kv" });
+  const row = (k, v) => dl.append(el("dt", { text: k }), el("dd", { text: v ?? "—" }));
+  row("Signed", c.signed ? `${fmtDate(c.signed)}${c.team ? " with " + c.team : ""}` : "Signing date not on file");
+  row("Type", `${levelLbl(c.level)}${c.sstatus ? " · signed as " + c.sstatus : ""} · expires ${c.expiry || "—"}`);
+  row("Total value", fmtM(c.value));
+  row("Clause", c.clause || "None recorded");
+  box.append(dl);
+
+  const tSign = pageFor(state.date), pgSign = pl.pages[tSign];
+  const p1 = el("p");
+  if (!c.signed) p1.append(`No signing date is on file, so the date is set to July 1 of the first season.`);
+  else if (pgSign) {
+    p1.append(`On the signing date, the page in force is ${seasonLbl(tSign)}. It values `,
+      el("strong", { text: pgSign.cid === c.id ? "this contract" : `contract #${pgSign.cid}, the one being played out` }),
+      ` at ${fmtM(pgSign.npv)}.`);
+  } else p1.append(noPageReason(tSign));
+  box.append(p1);
+
+  // the first page that prices THIS contract, and whether it post-dates signing
+  const own = pagesOf(pl).filter(t => pl.pages[t].cid === c.id);
+  if (own.length) {
+    const tf = own[0], pf = pl.pages[tf];
+    if (c.signed && tf > tSign) {
+      const w = el("div", { class: "warn" },
+        `This contract is first priced on the ${seasonLbl(tf)} page, at ${fmtM(pf.npv)}. That page reads the ${seasonLbl(tf - 1)} season, which had not finished when the deal was signed. It knows more than the team did, so it is not a signing-date valuation. `);
+      const b = el("button", { type: "button", class: "linkish", text: `Show the ${seasonLbl(tf)} page` });
+      b.addEventListener("click", () => setDate(`${tf}-10-01`, true));
+      w.append(b); box.append(w);
+    } else if (tf === tSign) {
+      box.append(el("p", { class: "note", text: "The page in force on the signing date prices this contract, so it is a signing-date valuation." }));
+    }
+  } else {
+    box.append(el("p", { class: "note", text: "No page in the 2018-19 to 2025-26 panel prices this contract." }));
+  }
+}
+function tradeDetail(box, leg) {
+  const g = TR[leg.g], t0 = pageFor(leg.date);
+  box.append(el("h2", { text: `Trade: ${fmtDate(leg.date)}` }));
+  for (const d of g.details) box.append(el("p", { text: d }));
+  box.append(el("p", { class: "note", text: `Player values are xNPV on the ${seasonLbl(t0)} page, the one in force on the trade date. Draft picks and non-roster prospects are not priced here.` }));
+  const byTeam = {};
+  for (const a of g.assets) (byTeam[a.to] = byTeam[a.to] || []).push(a);
+  for (const [team, list] of Object.entries(byTeam)) {
+    box.append(el("div", { class: "side", text: `To ${team}` }));
+    const ul = el("ul", { class: "assets" });
+    for (const a of list) {
+      const li = el("li");
+      if (a.k === "P") {
+        const other = P[a.pid], pg = other ? other.pages[t0] : null;
+        if (String(a.pid) === state.pid) li.append(el("span", { class: "me", text: a.name }));
+        else if (other) { const b = el("button", { type: "button", class: "linkish", text: a.name }); b.addEventListener("click", () => selectPlayer(String(a.pid), true)); li.append(b); }
+        else li.append(a.name);
+        li.append(` from ${a.from}`, a.cap ? ` · cap hit ${fmtM(a.cap)}` : "", a.ret ? ` · ${fmtM(a.ret)} retained` : "",
+          " · ", pg ? `xNPV ${fmtM(pg.npv)}` : "no page");
+      } else {
+        li.append(`${a.year ?? "?"} ${a.round ? ordinal(a.round) + "-round" : ""} pick`,
+          a.orig ? ` (originally ${a.orig})` : "", a.overall ? `, ${ordinal(a.overall)} overall` : "", ` from ${a.from}`);
+        if (a.cond) li.append(el("div", { class: "note", text: `Condition: ${a.cond}` }));
+      }
+      ul.append(li);
+    }
+    box.append(ul);
+  }
+}
+
+// ---------- breakdown for the selected page ----------
+function renderBreakdown() {
+  const box = $("breakdown"); box.textContent = "";
+  const { t0, pg } = currentPage();
+  $("bdTitle").textContent = pg ? `What makes up the ${seasonLbl(t0)} page's xNPV` : "What makes up this xNPV";
+  if (!pg) { box.append(el("p", { class: "empty", text: noPageReason(t0) })); return; }
+  const tb = el("table");
+  const hdr = ["Season", "k", "Row", "Proj. WAR", "Value", "Cost", "Survival", "Discount", "Present value"];
+  tb.append(el("thead", {}, el("tr", {}, ...hdr.map((h, i) => el("th", { class: i === 0 || i === 2 ? null : "num", text: h })))));
+  const body = el("tbody");
+  for (const [s, k, rt, w, v, c, sv_, d, pv] of pg.rows) {
+    body.append(el("tr", {},
+      el("td", { text: seasonLbl(s) }), el("td", { class: "num", text: k }),
+      el("td", { text: rt === "C" ? "Contract" : "RFA control (QO)" }),
+      el("td", { class: "num", text: fmtNum(w, 2) }), el("td", { class: "num", text: fmtD(v) }),
+      el("td", { class: "num", text: fmtD(c) }), el("td", { class: "num", text: fmtNum(sv_, 3) }),
+      el("td", { class: "num", text: fmtNum(d, 3) }), el("td", { class: "num", text: fmtD(pv) })));
+  }
+  body.append(el("tr", { class: "total" }, el("td", { colspan: 8, text: "xNPV (sum of present values)" }), el("td", { class: "num", text: fmtD(pg.npv) })));
+  tb.append(body); box.append(tb);
+}
+
+// ---------- all pages table (the chart's table twin) ----------
+function renderPagesTable() {
+  const tb = $("pagesTable"); tb.textContent = "";
+  const pl = player(), { t0: selT } = currentPage();
+  const hdr = ["Page", "In force from", "Contract", "Seasons left", "Path", "Contract part", "RFA part", "xNPV"];
+  tb.append(el("thead", {}, el("tr", {}, ...hdr.map((h, i) => el("th", { class: i >= 5 || i === 3 ? "num" : null, text: h })))));
+  const body = el("tbody");
+  for (const t of pagesOf(pl)) {
+    const pg = pl.pages[t];
+    const tr = el("tr", { class: "click" + (t === selT ? " sel" : ""), tabindex: 0 },
+      el("td", { text: seasonLbl(t) }), el("td", { text: fmtDate(`${t}-07-01`) }),
+      el("td", { text: `#${pg.cid}${pg.elc ? " (ELC)" : ""}` }), el("td", { class: "num", text: pg.rem }),
+      el("td", { text: pg.path }), el("td", { class: "num", text: fmtM(pg.c) }),
+      el("td", { class: "num", text: fmtM(pg.t) }), el("td", { class: "num", text: fmtM(pg.npv) }));
+    tr.addEventListener("click", () => setDate(`${t}-10-01`));
+    tr.addEventListener("keydown", e => { if (e.key === "Enter") setDate(`${t}-10-01`); });
+    body.append(tr);
+  }
+  tb.append(body);
+}
+
+// ---------- orchestration ----------
+function render() {
+  const pl = player();
+  $("player").value = labelOf(state.pid);
+  $("date").value = state.date;
+  const { t0, pg } = currentPage();
+  $("dateNote").textContent = pg
+    ? `${fmtDate(state.date)} uses the ${seasonLbl(t0)} page, built from seasons through ${seasonLbl(t0 - 1)}.`
+    : noPageReason(t0);
+  renderBio(); renderValuation(); drawNPV(); drawWAR();
+  renderContracts(); renderTrades(); renderEvent(); renderBreakdown(); renderPagesTable();
+  document.title = `${pl.name} · xNPV player explorer`;
+  history.replaceState(null, "", `#pid=${state.pid}&date=${state.date}`);
+}
+function latestDate(pid) { const ts = pagesOf(P[pid]); return `${ts[ts.length - 1]}-10-01`; }
+function setDate(iso, keepEvent) {
+  if (!iso) return;
+  state.date = iso;
+  if (!keepEvent) state.event = null;
+  render();
+}
+function selectPlayer(pid, keepDate) {
+  if (!P[pid]) return;
+  state.pid = pid; state.event = null;
+  if (!keepDate || !state.date) state.date = latestDate(pid);
+  render();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+// player search: datalist of "Name · position · team · #id"
+const LABEL = {}, BY_LABEL = {};
+function labelOf(pid) { return LABEL[pid]; }
+(function initSearch() {
+  const dlist = $("playerlist");
+  const ids = Object.keys(P).sort((a, b) => P[a].name.localeCompare(P[b].name));
+  const counts = {};
+  ids.forEach(id => { counts[P[id].name] = (counts[P[id].name] || 0) + 1; });
+  for (const id of ids) {
+    const p = P[id], b = p.bio || {};
+    const lab = `${p.name} · ${b.pos || p.grp}${b.team ? " · " + b.team : ""}` + (counts[p.name] > 1 ? ` · #${id}` : "");
+    LABEL[id] = lab; BY_LABEL[lab] = id;
+    dlist.append(el("option", { value: lab }));
+  }
+  const inp = $("player");
+  const pick = () => { const id = BY_LABEL[inp.value]; if (id && id !== state.pid) selectPlayer(id, true); };
+  inp.addEventListener("change", pick);
+  inp.addEventListener("input", pick);
+  inp.addEventListener("focus", () => inp.select());
+  $("date").addEventListener("change", e => setDate(e.target.value));
+  $("latest").addEventListener("click", () => setDate(latestDate(state.pid)));
+  let rt; window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { drawNPV(); drawWAR(); }, 120); });
+  $("meta").textContent = `${META.n_players.toLocaleString()} players · pages ${seasonLbl(META.first)} to ${seasonLbl(META.last)} · built ${META.built} · ${META.version}`;
+
+  const h = new URLSearchParams(location.hash.slice(1));
+  const start = P[h.get("pid")] ? h.get("pid") : (ids.find(id => P[id].name === "Auston Matthews") || ids[0]);
+  state.pid = start;
+  state.date = /^\d{4}-\d{2}-\d{2}$/.test(h.get("date") || "") ? h.get("date") : latestDate(start);
+  render();
+})();
+</script>
+</body>
+</html>
