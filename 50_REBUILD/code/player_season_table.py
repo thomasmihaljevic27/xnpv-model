@@ -232,28 +232,58 @@ def build(birthdate_csv: Path | None = None, verbose: bool = True) -> pd.DataFra
 
 
 def _attach_age(a: pd.DataFrame, path: Path) -> pd.DataFrame:
-    """Join birthdates if a table is available. Age convention follows
-    age_join.py: age on 1 February of the season's ENDING year, so
-    consecutive seasons differ by exactly one year of age -- which is what a
-    within-player delta aging curve needs. Unmatched players keep a missing
-    age; nothing is imputed here."""
+    """Join birthdates if a table is available.
+
+    Age convention follows `20_CODE/age_join.py`: age on 1 February of the
+    season's ENDING year, so consecutive seasons differ by exactly one year of
+    age -- which is what a within-player delta aging curve needs.
+
+    THE JOIN KEY. `ep_birthdates.csv` carries the raw WAR.csv player name and
+    the F/D position it was scraped against, so the join is on `pkey` (cleaned
+    name + position), the precise key. Falling back to a name-only join would
+    give the two Elias Petterssons one birthdate. A file with no position
+    column joins on `career_key` instead and says so.
+
+    Unmatched players keep a missing age. Nothing is imputed, and no player is
+    dropped for being ageless -- an aging panel built only on players whose
+    birthdate happened to be scraped is selected on exactly the thing the
+    curve is trying to measure.
+    """
     if not path.exists():
         C.log(f"  [age] {path} not found -- ages left missing")
         return a
-    bd = pd.read_csv(path)
-    col = next((c for c in bd.columns if c.lower() in ("birthdate", "dob", "birth_date")), None)
-    key = next((c for c in bd.columns if c.lower() in ("career_key", "nkey", "player")), None)
-    if col is None or key is None:
-        C.log(f"  [age] {path} has no usable birthdate/key columns -- ages left missing")
+    bd = pd.read_csv(path).dropna(how="all")
+    cols = {c.lower(): c for c in bd.columns}
+    col = next((cols[c] for c in ("birthdate", "dob", "birth_date") if c in cols), None)
+    name = next((cols[c] for c in ("war_name", "player", "name") if c in cols), None)
+    pos = next((cols[c] for c in ("war_position", "position", "pos") if c in cols), None)
+    if col is None or name is None:
+        C.log(f"  [age] {path} has no usable birthdate/name columns -- ages left missing")
         return a
-    bd["career_key"] = bd[key] if key == "career_key" else bd[key].map(career_key)
-    bd = bd.dropna(subset=[col]).drop_duplicates("career_key")
-    m = a.merge(bd[["career_key", col]], on="career_key", how="left")
+    bd = bd.dropna(subset=[col])
+
+    if pos is not None:
+        bd["_k"] = bd[name].map(norm_name) + "|" + bd[pos].astype(str)
+        on, how = "pkey", "pkey + position"
+    else:
+        bd["_k"] = bd[name].map(career_key)
+        on, how = "career_key", "career_key (name only -- no position column)"
+    # A key claiming two different birthdates is a name collision, not a
+    # birthdate. Drop both rather than pick one: a wrong birthdate is a wrong
+    # age for every season of that career.
+    n_before = bd["_k"].nunique()
+    good = bd.groupby("_k")[col].nunique() == 1
+    dropped = int((~good).sum())
+    bd = bd[bd["_k"].map(good).fillna(False)].drop_duplicates("_k")
+
+    m = a.merge(bd[["_k", col]].rename(columns={"_k": on}), on=on, how="left")
     b = pd.to_datetime(m[col], errors="coerce")
     ref = pd.to_datetime(dict(year=m["syr"] + 1, month=2, day=1))
     m["age_exact"] = ((ref - b).dt.days / 365.25).round(2)
     m["age"] = np.floor(m["age_exact"])
     m["has_age"] = m["age_exact"].notna()
+    C.log(f"  [age] {path.name}: {n_before} keys on {how}"
+          + (f", {dropped} dropped for conflicting birthdates" if dropped else ""))
     return m.drop(columns=[col])
 
 

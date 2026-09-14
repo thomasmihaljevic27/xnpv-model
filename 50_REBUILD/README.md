@@ -65,9 +65,20 @@ tree so far comes from development pages.
 
 ## What this tree needs that it does not have
 
-- **Birthdates.** They come from the PuckPedia export via `20_CODE/age_join.py`. Age
-  coverage in this checkout is 0%, so the aging work in Phase 3 and the age-and-position
-  norm in Phase 1 are running on position alone. The season table takes a birthdate CSV
-  through `REBUILD_BIRTHDATES` when one is available.
-- **Contracts.** Phase 4 needs signing dates, cap hits and contract state.
-  `information_set.contracts_known_at()` raises rather than returning an empty frame.
+The vendor inputs all exist in the Dropbox sync channel. The obstacle is transport: the
+direct download host is refused by this environment's egress policy, and the connector's
+text extraction of an `.xlsx` collapses interior empty cells, so columns shift per row and
+the result cannot be realigned honestly. A real `.csv` crosses that path losslessly.
+
+- **Birthdates.** `10_SOURCE/ep_birthdates.csv` is recovered and wired in
+  (`REBUILD_BIRTHDATES=10_SOURCE/ep_birthdates.csv`), joining on name + position. It raises
+  coverage to 29.1% of season rows but is **not usable for aging**: Elite Prospects was the
+  second source, scraped for the players PuckPedia could not match, so coverage runs 83.5%
+  in 2007 down to 0.0% from 2018 onward and falls with player quality. No model uses an age.
+  Needs the PuckPedia birthdates or a completed EP pull.
+- **Contracts.** Phase 4 needs signing dates, cap hits and contract state — the workbook as
+  bytes, not as extracted text. `information_set.contracts_known_at()` raises rather than
+  returning an empty frame.
+
+**Cheapest unblock for both: a CSV export of the PuckPedia workbook in the Dropbox
+`10_SOURCE/` folder.**

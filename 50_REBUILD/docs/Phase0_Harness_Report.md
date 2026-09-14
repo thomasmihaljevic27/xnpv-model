@@ -214,15 +214,42 @@ r = 0.35, even-strength offence r = 0.66).
 
 - **A1 versus A2 is open.** It is decidable only once the aging curve exists. Running it
   again after Phase 3 is the plan's own sequence, not a concession.
-- **Ages are missing entirely.** 0% coverage in this checkout, because birthdates come from
-  the confidential PuckPedia export. The positional norm A2 shrinks toward is therefore
-  position-only rather than the age-and-position norm the plan specifies, and no age band
-  appears in any table above. Finishing the Elite Prospects pull is Phase 0 item 4 and is
-  still open.
+- **Ages are effectively missing, and the reason is sharper than "the file is absent".**
+  The vendor inputs do exist in the Dropbox sync channel; what does not work is getting the
+  PuckPedia workbook into a working container intact. The direct download host
+  (`dl.dropboxusercontent.com`) is refused by the environment's egress policy, and the
+  connector's text extraction of an `.xlsx` **collapses interior empty cells**, so columns
+  shift per row: the value `standard_level` sits at index 30 in a full-width row and at
+  index 25 in a 35-cell row, and only 1,398 of 6,851 rows (20%) are full width. A
+  contracts table realigned by guesswork is not a contracts table, so none was built.
+
+  `ep_birthdates.csv` *did* come through losslessly — it is a real CSV, so there are no
+  empty cells to collapse — and it is now in `10_SOURCE/`. It raises age coverage from 0%
+  to 29.1% of season rows. **It is not usable for the aging work, and the measurement says
+  why.** Elite Prospects was the project's *second* birthdate source, scraped for the
+  players PuckPedia could not match, so the coverage it provides is the complement of what
+  is needed:
+
+  | season | 2007 | 2010 | 2013 | 2016 | 2017 | 2018 onward |
+  |---|---:|---:|---:|---:|---:|---:|
+  | age coverage | 83.5% | 70.6% | 48.2% | 16.9% | 7.2% | **0.0%** |
+
+  Coverage also falls with quality — 35.2% of below-replacement seasons carry an age
+  against 10.3% of 3+ seasons. An aging curve fitted on this panel would be fitted entirely
+  on pre-2018 seasons and weighted toward weak players, which is precisely the selection
+  the plan's Phase 0 item 4 exists to prevent. The join is wired and tested (on name +
+  position, so the two Elias Petterssons cannot share a birthdate, with conflicting
+  birthdates dropped rather than picked between), and it is waiting on a birthdate source
+  that covers the modern game. **No model in this report uses an age.**
 - **Participation is a placeholder** — everyone plays. Its cost is visible in the Brier
   scores (0.278 at h0 rising to 0.595 at h5) and it is Phase 2's job.
 - **Aging is a flat carry-forward.** Phase 3.
-- **Both market models are unbuilt** and blocked on contract data. Phase 4.
+- **Both market models are unbuilt.** Phase 4 needs signing dates, cap hits and contract
+  state, which means the PuckPedia workbook as bytes rather than as extracted text. The
+  cheapest unblock is a **CSV export of the same workbook** placed in the Dropbox
+  `10_SOURCE/` folder: `ep_birthdates.csv` proves a real CSV crosses this path intact,
+  while an `.xlsx` does not. Allowing `dl.dropboxusercontent.com` through the egress policy
+  would work equally well.
 - **Experience is left-censored** for 30.1% of season rows — players who debuted in or
   before 2007-08, the first season in the source. The flag travels with the number and the
   models use it, but the censoring is real and is a limitation of any experience term.
