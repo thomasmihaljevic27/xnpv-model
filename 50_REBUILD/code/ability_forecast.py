@@ -55,18 +55,67 @@ class BaseModel:
     """
     name = "base"
 
+    # HOW MANY TRAILING SEASONS the anchor reads, and how fast older ones are
+    # discounted. The defaults reproduce the locked 60/40 two-season rule
+    # exactly (a decay of 0.667 over two seasons IS 60/40), so a model that
+    # overrides nothing behaves as it always did.
+    N_SEASONS = 2
+    DECAY = W_T2 / W_T1
+    FIT_DECAY = False
+
+    # Candidate decay rates. 1.0 means "weight all seasons in the window
+    # equally"; 0.4 means last season carries more than twice the one before.
+    # The grid stops at 1.0 on purpose: a rate above it would trust a
+    # three-year-old season more than last year's, which is not a hypothesis
+    # worth spending a degree of freedom on.
+    DECAY_GRID = np.array([0.40, 0.50, 0.60, 0.667, 0.75, 0.85, 1.00])
+
     def fit(self, table: pd.DataFrame, before: int) -> None:
         self.before = before
+        self.decay_ = self.DECAY
+        if self.FIT_DECAY:
+            self.decay_ = self._fit_decay(table, before)
+
+    def _fit_decay(self, table: pd.DataFrame, before: int) -> float:
+        """Pick the decay rate on the rolling window, by the job it does.
+
+        For each candidate rate, build the anchor as of each past valuation
+        season and score its blended per-82 rate against what the player
+        actually did that season. Only outcomes that completed before the
+        decision date are used, so the rate is chosen without seeing anything
+        the forecast has not lived through.
+
+        Errors are weighted by the OUTCOME season's games, because a rate
+        measured over eighty games is a sharper target than one measured over
+        twelve, and an unweighted fit would let the noisiest seasons choose
+        the shape of the window.
+        """
+        s = table[table["GP"] >= C.MIN_GP]
+        act = s.set_index(["career_key", "syr"])
+        best, best_sse = self.DECAY, np.inf
+        for d in self.DECAY_GRID:
+            a = _anchors(s, self.N_SEASONS, float(d))
+            a = a[a["t0"] < before]
+            ix = pd.MultiIndex.from_arrays([a["career_key"], a["t0"]])
+            y = act["WAR_82"].reindex(ix).to_numpy()
+            gp = act["GP"].reindex(ix).to_numpy()
+            ok = np.isfinite(y) & np.isfinite(a["tr_WAR"].to_numpy())
+            if ok.sum() < 200:
+                continue
+            e = a["tr_WAR"].to_numpy()[ok] - y[ok]
+            sse = float((gp[ok] * e ** 2).sum())
+            if sse < best_sse:
+                best, best_sse = float(d), sse
+        return best
 
     def predict(self, iset, subs, horizons) -> pd.DataFrame:
         raise NotImplementedError
 
-    @staticmethod
-    def _training_pairs(table: pd.DataFrame, before: int, horizons) -> pd.DataFrame:
+    def _training_pairs(self, table: pd.DataFrame, before: int, horizons) -> pd.DataFrame:
         """Every (inputs at t, outcome at t+h) pair whose OUTCOME completed
         before `before`. One row per player-anchor-horizon."""
         s = table[table["GP"] >= C.MIN_GP]
-        anchors = _anchors(s)
+        anchors = _anchors(s, self.N_SEASONS, self.decay_)
         out = []
         for h in horizons:
             a = anchors.copy()
@@ -87,7 +136,8 @@ class BaseModel:
         return pairs
 
 
-def _anchors(played: pd.DataFrame) -> pd.DataFrame:
+def _anchors(played: pd.DataFrame, n_seasons: int = 2,
+             decay: float = W_T2 / W_T1) -> pd.DataFrame:
     """For every player and every season t0 he could have been valued at, the
     trailing facts from t0-1 and t0-2 only.
 
@@ -100,49 +150,90 @@ def _anchors(played: pd.DataFrame) -> pd.DataFrame:
     keep = ["career_key", "pkey", "pos", "syr", "GP", "gp_share", "toi_pg",
             "exp_seasons", "exp_censored", "age", "has_age"] + cols + rate_cols
     s = played[keep]
+    lags = list(range(1, n_seasons + 1))
 
-    t1 = s.assign(t0=s["syr"] + 1)
-    t2 = s.assign(t0=s["syr"] + 2)
-    m = t1.merge(t2, on=["career_key", "t0"], how="outer", suffixes=("_1", "_2"))
+    # One frame per lag, aligned on (player, valuation season). Structurally
+    # incapable of seeing season t0: every part is built by adding a POSITIVE
+    # lag to the season it came from, so nothing at or after t0 can enter.
+    parts = []
+    for lag in lags:
+        q = s.assign(t0=s["syr"] + lag).set_index(["career_key", "t0"])
+        parts.append(q.add_suffix(f"_{lag}"))
+    m = pd.concat(parts, axis=1).reset_index()
+
+    # THE WEIGHTS. Geometric decay: the most recent season gets 1, the one
+    # before it `decay`, the one before that `decay` squared. One number
+    # controls the whole shape, which is the point -- a three-season window
+    # with three free weights is three chances to overfit, while a decay rate
+    # is one, and it cannot produce the nonsense of trusting a three-year-old
+    # season more than last year's. The locked 60/40 rule is exactly this with
+    # two seasons and a decay of 0.667, so the production baseline remains a
+    # special case of the general form rather than a different code path.
+    w = np.array([decay ** (i - 1) for i in lags], dtype=float)
+
+    avail = np.column_stack([m[f"GP_{lag}"].notna().to_numpy() for lag in lags])
 
     out = pd.DataFrame({"career_key": m["career_key"], "t0": m["t0"]})
-    out["pkey"] = m["pkey_1"].fillna(m["pkey_2"])
-    out["pos"] = m["pos_1"].fillna(m["pos_2"])
-    out["n_seasons"] = m["GP_1"].notna().astype(int) + m["GP_2"].notna().astype(int)
+    out["n_seasons"] = avail.sum(axis=1)
     out["one_season"] = (out["n_seasons"] == 1).astype(float)
+    out["pkey"] = _first_available(m, "pkey", lags)
+    out["pos"] = _first_available(m, "pos", lags)
     out["is_D"] = (out["pos"] == "D").astype(float)
     for c in ["exp_seasons", "exp_censored", "has_age", "toi_pg"]:
-        out[c] = m[c + "_1"].fillna(m[c + "_2"])
+        out[c] = _first_available(m, c, lags)
+
     # AGE AT THE VALUATION SEASON, not at the trailing season the anchor came
-    # from. The anchor may be two years old; the player is not. `age` on a
-    # season row is his age in that season, so stepping it forward to t0 is
-    # what puts him on the right point of the curve.
-    a1 = m["age_1"] + 1.0
-    a2 = m["age_2"] + 2.0
-    out["age"] = a1.fillna(a2)
+    # from. The anchor may be three years old; the player is not. `age` on a
+    # season row is his age in that season, so each lag is stepped forward by
+    # its own distance before the most recent available one is taken.
+    aged = [m[f"age_{lag}"] + float(lag) for lag in lags]
+    age = aged[0]
+    for nxt in aged[1:]:
+        age = age.fillna(nxt)
+    out["age"] = age
     # Centred at 27, roughly the peak, so the linear term reads as "per year
     # either side of prime" and the square is small and well conditioned.
     out["age_c"] = out["age"] - 27.0
     out["age_c2"] = out["age_c"] ** 2
 
-    # THE BLEND. 60/40 when both seasons qualify, the single season alone when
-    # only one does -- the locked rule. Applied identically to the totals, the
-    # per-82 rates and the games share, so A0 and A2 differ ONLY in what they
-    # blend, never in how.
     def blend(col):
-        a, b = m[col + "_1"], m[col + "_2"]
-        both = a * W_T1 + b * W_T2
-        return both.fillna(a).fillna(b)
+        """Weighted average over the seasons the player actually has.
+
+        Renormalised over what is AVAILABLE, so a player with one qualifying
+        season gets that season rather than a fraction of it. That is the
+        locked rule generalised, and it is what keeps a short history from
+        being silently pulled toward zero by the missing years.
+        """
+        vals = np.column_stack([m[f"{col}_{lag}"].to_numpy(float) for lag in lags])
+        ok = np.isfinite(vals)
+        ww = np.where(ok, w[None, :], 0.0)
+        tot = ww.sum(axis=1)
+        num = np.where(ok, np.nan_to_num(vals) * ww, 0.0).sum(axis=1)
+        return np.where(tot > 0, num / np.where(tot > 0, tot, 1.0), np.nan)
 
     for c in cols:
         out["tw_" + c] = blend(c)              # trailing weighted TOTAL
         out["tr_" + c] = blend(c + "_82")      # trailing weighted RATE
+
     out["tr_gp_share"] = blend("gp_share")
-    # Exposure: how many games the evidence rests on. A nine-game season is
-    # weak evidence, not a missing one -- this is what lets A2 shrink by
-    # evidence rather than by a games threshold.
-    out["exposure_gp"] = m["GP_1"].fillna(0) * W_T1 + m["GP_2"].fillna(0) * W_T2
+
+    # Exposure: how much evidence the anchor rests on, in games. NOT
+    # renormalised, deliberately -- unlike the blend above. A missing season
+    # contributes zero games, so a player with one season of history has
+    # genuinely less evidence behind his number than one with three, and the
+    # shrinkage should pull him harder. Renormalising here would erase exactly
+    # the distinction the shrinkage exists to act on.
+    gp = np.column_stack([m[f"GP_{lag}"].fillna(0).to_numpy(float) for lag in lags])
+    out["exposure_gp"] = (gp * w[None, :]).sum(axis=1) / w.sum()
     return out.dropna(subset=["tw_WAR"]).reset_index(drop=True)
+
+
+def _first_available(m: pd.DataFrame, col: str, lags) -> pd.Series:
+    """The value from the most recent lag that has one."""
+    out = m[f"{col}_{lags[0]}"]
+    for lag in lags[1:]:
+        out = out.fillna(m[f"{col}_{lag}"])
+    return out
 
 
 def _placeholder_participation(subs: pd.DataFrame, h) -> np.ndarray:
@@ -162,7 +253,8 @@ class A0Production(BaseModel):
     name = "today's model (trailing 60/40, carried flat)"
 
     def predict(self, iset, subs, horizons):
-        a = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP])
+        a = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP],
+                     self.N_SEASONS, self.decay_)
         a = a[a["t0"] == iset.t0].set_index("career_key")
         rows = []
         for h in horizons:
@@ -207,7 +299,8 @@ class A1Calibrated(BaseModel):
                                     s["y_gp_share"]) if len(s) > 50 else None
 
     def predict(self, iset, subs, horizons):
-        a = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP])
+        a = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP],
+                     self.N_SEASONS, self.decay_)
         a = a[a["t0"] == iset.t0].set_index("career_key").reindex(subs["career_key"])
         rows = []
         for h in horizons:
@@ -400,7 +493,8 @@ class A2Component(A1Calibrated):
         return d
 
     def predict(self, iset, subs, horizons):
-        a = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP])
+        a = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP],
+                     self.N_SEASONS, self.decay_)
         a = self._shrink(a[a["t0"] == iset.t0]).set_index("career_key").reindex(
             subs["career_key"])
         rows = []
@@ -546,7 +640,8 @@ class A2PerHorizonTrust(A2Component):
         return d
 
     def predict(self, iset, subs, horizons):
-        base = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP])
+        base = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP],
+                     self.N_SEASONS, self.decay_)
         base = base[base["t0"] == iset.t0]
         rows = []
         for h in horizons:
@@ -573,3 +668,136 @@ class A2PerHorizonTrustNoAge(A2PerHorizonTrust):
     name = "component model, per-horizon trust, age in the norm only"
     RATE_FEATURES = ["sh_" + c for c in C.COMPONENTS_MODEL] + [
         "tr_gp_share", "one_season", "is_D", "exp_seasons"]
+
+
+# ---------------------------------------------------------------------------
+# THREE-SEASON WINDOW. The rebuild plan specifies "weights over three or more
+# seasons ... fitted, not fixed", and until now every model here read only the
+# last two through the locked 60/40 blend. More evidence behind the anchor
+# should matter most at the long horizons, which is exactly where the
+# component model has been losing -- so this is the test that could change the
+# standing, and it is applied to BOTH models so the comparison stays fair.
+# ---------------------------------------------------------------------------
+
+class A1Calibrated3(A1Calibrated):
+    """The calibrated total, reading three seasons with a fitted decay rate."""
+    name = "calibrated total, three-season window"
+    N_SEASONS = 3
+    FIT_DECAY = True
+
+
+class A2PerHorizonTrust3(A2PerHorizonTrust):
+    """The component model with per-horizon trust, reading three seasons.
+
+    Two mechanisms that should compound. A third season is more evidence, so
+    the shrinkage has more to work with and pulls less hard toward the norm;
+    and the components that needed the most pulling -- shooting, penalty kill --
+    are precisely the noisy ones a longer window helps most, because averaging
+    three seasons of finishing luck leaves less luck in the number than
+    averaging two.
+    """
+    name = "component model, per-horizon trust, three-season window"
+    N_SEASONS = 3
+    FIT_DECAY = True
+
+
+class A2PerHorizonTrust4(A2PerHorizonTrust):
+    """Four seasons. Included to find where the window stops paying rather
+    than assuming three is the answer because three was the number in the
+    plan. A window that keeps helping is telling us something; one that turns
+    over tells us the anchor has all the evidence it can use."""
+    name = "component model, per-horizon trust, four-season window"
+    N_SEASONS = 4
+    FIT_DECAY = True
+
+
+class A2PerHorizonAll3(A2PerHorizonTrust3):
+    """The component model with BOTH window settings fitted per horizon.
+
+    Per-horizon trust is already in. This adds the symmetric half: how fast to
+    discount older seasons is also allowed to differ by how far ahead the
+    forecast reaches. The reasoning is the same as for trust. Last season is
+    the most informative thing about next season, so a short-horizon forecast
+    should lean on it; but five seasons out, last season's particular bounces
+    matter less than a stable read on what the player is, so the window should
+    flatten. A single decay rate chosen against next season cannot say that.
+    """
+    name = "component model, trust and window both fitted per horizon"
+
+    def fit(self, table, before):
+        super().fit(table, before)
+        s = table[table["GP"] >= C.MIN_GP]
+        act = s.set_index(["career_key", "syr"])
+        self.decay_by_h_ = {}
+        for h in range(6):
+            self.decay_by_h_[h] = self._fit_decay_at(s, act, before, h)
+
+    def _fit_decay_at(self, s, act, before, h):
+        """Same criterion as the shared decay fit, but scored against the
+        season h ahead rather than the valuation season. Falls back to the
+        shared rate where a horizon has too few completed outcomes."""
+        best, best_sse = self.decay_, np.inf
+        for d in self.DECAY_GRID:
+            a = _anchors(s, self.N_SEASONS, float(d))
+            a = a[a["t0"] + h < before]
+            ix = pd.MultiIndex.from_arrays([a["career_key"], a["t0"] + h])
+            y = act["WAR_82"].reindex(ix).to_numpy()
+            gp = act["GP"].reindex(ix).to_numpy()
+            ok = np.isfinite(y) & np.isfinite(a["tr_WAR"].to_numpy())
+            if ok.sum() < 200:
+                continue
+            e = a["tr_WAR"].to_numpy()[ok] - y[ok]
+            sse = float((gp[ok] * e ** 2).sum())
+            if sse < best_sse:
+                best, best_sse = float(d), sse
+        return best
+
+    def predict(self, iset, subs, horizons):
+        played = iset.seasons[iset.seasons["GP"] >= C.MIN_GP]
+        rows = []
+        for h in horizons:
+            # This horizon's own window shape AND its own trust settings.
+            base = _anchors(played, self.N_SEASONS, self.decay_by_h_.get(h, self.decay_))
+            base = base[base["t0"] == iset.t0]
+            a = self._shrink_with(base, self.k_by_h_.get(h, self.k_)) \
+                    .set_index("career_key").reindex(subs["career_key"])
+            r = subs.copy()
+            fb = a[["sh_" + c for c in C.COMPONENTS_MODEL]].sum(axis=1)
+            r["rate_82"] = _apply(self.coef_.get(h), a[self.RATE_FEATURES], fb)
+            gp = _apply(self.gp_coef_.get(h),
+                        a[["tr_gp_share", "is_D", "exp_seasons", "age_c"]], a["tr_gp_share"])
+            r["gp_share"] = np.clip(gp, 0.05, 1.0)
+            r["p_play"] = _placeholder_participation(r, h)
+            r["h"] = h
+            rows.append(r[["career_key", "h", "rate_82", "gp_share", "p_play"]])
+        return pd.concat(rows, ignore_index=True)
+
+
+class A1Calibrated3PerHorizon(A1Calibrated3):
+    """The control arm: the same per-horizon window, on the simple model. If
+    per-horizon windows help both, it is a general fix and says nothing about
+    which anchor is better."""
+    name = "calibrated total, window fitted per horizon"
+
+    def fit(self, table, before):
+        super().fit(table, before)
+        s = table[table["GP"] >= C.MIN_GP]
+        act = s.set_index(["career_key", "syr"])
+        self.decay_by_h_ = {h: A2PerHorizonAll3._fit_decay_at(self, s, act, before, h)
+                            for h in range(6)}
+
+    def predict(self, iset, subs, horizons):
+        played = iset.seasons[iset.seasons["GP"] >= C.MIN_GP]
+        rows = []
+        for h in horizons:
+            a = _anchors(played, self.N_SEASONS, self.decay_by_h_.get(h, self.decay_))
+            a = a[a["t0"] == iset.t0].set_index("career_key").reindex(subs["career_key"])
+            r = subs.copy()
+            r["rate_82"] = _apply(self.coef_.get(h), a[self.FEATURES], a["tw_WAR"])
+            gp = _apply(self.gp_coef_.get(h),
+                        a[["tr_gp_share", "is_D", "exp_seasons", "age_c"]], a["tr_gp_share"])
+            r["gp_share"] = np.clip(gp, 0.05, 1.0)
+            r["p_play"] = _placeholder_participation(r, h)
+            r["h"] = h
+            rows.append(r[["career_key", "h", "rate_82", "gp_share", "p_play"]])
+        return pd.concat(rows, ignore_index=True)

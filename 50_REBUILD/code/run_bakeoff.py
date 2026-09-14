@@ -33,17 +33,20 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 import forecast_harness as H
-from ability_forecast import (A0Production, A1Calibrated, A1NoAgeTerms, A2Raw,
-                              A2Component, A2NoAgeTerms, A2PerHorizonTrust,
+from ability_forecast import (A0Production, A1Calibrated, A1Calibrated3, A1NoAgeTerms,
+                              A2Raw, A2Component, A2NoAgeTerms, A2PerHorizonTrust,
+                              A2PerHorizonTrust3, A2PerHorizonTrust4, A2PerHorizonAll3,
+                              A1Calibrated3PerHorizon,
                               A2PerHorizonTrustNoAge)
 from player_season_table import build as build_table
 
 SCRIPT_VERSION = "1.0"
 REGISTER = C.DOCS_DIR / "variant_register.csv"
 
-# The line every variant is measured against. The calibrated total is the
-# plan's mandatory benchmark and is currently ahead, so it is the bar.
-BENCHMARK = A1Calibrated
+# The line every variant is measured against: the best model found so far, so
+# a new idea has to beat the standing leader rather than an old one. It moved
+# here from the two-season calibrated total once the three-season window won.
+BENCHMARK = A1Calibrated3
 
 CANDIDATES = [
     A0Production,          # what the chain does today -- the floor
@@ -54,6 +57,11 @@ CANDIDATES = [
     A2NoAgeTerms,          # repair 1: age carried only by the shrinkage target
     A2PerHorizonTrust,     # repair 2: trust fitted per season forecast
     A2PerHorizonTrustNoAge,  # both repairs together
+    A1Calibrated3,           # the benchmark, reading three seasons
+    A2PerHorizonTrust3,      # the leading component model, reading three seasons
+    A2PerHorizonTrust4,      # and four, to find where the window stops paying
+    A2PerHorizonAll3,        # trust AND window both fitted per horizon
+    A1Calibrated3PerHorizon,  # control: per-horizon window on the simple model
 ]
 
 SEASON_LABEL = {0: "valuation season", 1: "+1 season", 2: "+2 seasons",
