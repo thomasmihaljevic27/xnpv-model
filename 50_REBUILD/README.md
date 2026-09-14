@@ -44,13 +44,13 @@ No `.env` is required — paths fall back to the repo layout. From the repo root
 
 | Phase | What it is | State |
 |---|---|---|
-| 0 | dates, identities, harness | **built, acceptance PASS**; item 4 (ages) closed at 98.3% coverage |
-| 1 | ability forecast (A0/A1/A2) | run with ages. **A2 fails the plan's gate; A1 is ahead** |
-| 2 | participation and exit | not started — placeholder in the harness |
+| 0 | dates, identities, the scoreboard | **built, acceptance PASS**; item 4 (ages) closed at 98.3% coverage |
+| 1 | how good will he be | run with ages. **The component model fails the plan's gate; the simpler calibrated total is ahead** |
+| 2 | will he be playing at all | not started — placeholder in the harness |
 | 3 | aging | not started — flat carry-forward in the harness |
-| 4 | contract price and production currency | **unblocked** — contracts CSV validated against the locked regression |
-| 5 | valuation by simulation | not started |
-| 6 | rebuild, confirm, lock | not started |
+| 4 | what the market pays, and what production is worth | **unblocked** — contracts CSV validated against the locked regression |
+| 5 | put a dollar value on the whole contract | not started |
+| 6 | rebuild the other pillars, confirm once, lock | not started |
 
 See `docs/Phase0_Harness_Report.md` for the findings, including two that were not expected:
 an undocumented break in the WAR export from 2023-24, and a first comparison that does not
@@ -78,4 +78,5 @@ Two notes for anyone re-running this elsewhere:
   are the join key to `WAR.csv`, and a failed name match drops a contract silently.
 
 Still missing: nothing that blocks Phases 1 through 4. The game-level SQLite store
-(`nhl_gamelogs.sqlite`, 2.3 GB) is needed only for A3's in-season Game Value update.
+(`nhl_gamelogs.sqlite`, 2.3 GB) is needed only for the in-season update that revalues a
+player at a trade deadline rather than at a season start.

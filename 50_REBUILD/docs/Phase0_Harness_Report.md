@@ -7,6 +7,35 @@ the confirmatory pages are sealed and untouched.
 Reproduce with `python 50_REBUILD/code/run_phase0_acceptance.py`. Input: `10_SOURCE/WAR.csv`,
 sha256 prefix `8406059a4db5a677`, 17,123 rows, 2007-08 to 2025-26.
 
+## 0. What the names mean
+
+Four models get compared in this report. They all answer the same question — **how good will
+this player be, and for how long?** — and they differ only in how they answer it.
+
+| short label | what it actually is |
+|---|---|
+| **today's model** | What the chain does now: blend the last two seasons of WAR 60/40, assume that is the player every year, assume he plays all 82. No aging. |
+| **calibrated total** | Same starting number, pulled toward league average by an amount fitted from history, because one big season is partly luck. Knows age and position. Forecasts games played instead of assuming a full season. |
+| **component model** | Splits WAR into its parts — even-strength offence and defence, power play, penalty kill, penalties, shooting — and trusts each part by how much it repeats year to year. Shooting bounces around, so it is discounted hard; even-strength offence is sticky, so it is taken closer to face value. Then adds the parts back up. This is the model the rebuild plan bet on. |
+| **component model, unshrunk** | The same split with the trusting step removed. A diagnostic, not a candidate: it exists to show whether the split or the trusting is doing the work. |
+
+**Horizons.** "One season out", "four seasons out" and so on mean how far ahead the forecast
+reaches. Season zero is the season being valued; season five is five years later. This matters
+because the model prices *contracts*: a six-year deal needs a guess for all six years, and the
+back end of a long deal is where money gets wasted.
+
+**How the misses are counted.** "MAE" is the average size of the miss, in wins, ignoring
+whether the model was high or low — a model that is a full win too high on one player and a
+full win too low on the next has an MAE of one win, not zero. Lower is better. "Bias" is the
+average miss *with* its sign, so it says whether a model runs high or low overall. Both are
+needed: bias alone hides a model that is wildly wrong in both directions, and MAE alone hides
+a model that is systematically too generous to stars.
+
+**Development and confirmatory pages.** A "page" is one decision date — one summer at which
+every player is valued. Seasons 2015 to 2021 are the development pages, used freely while
+models are being chosen. 2022 to 2025 are sealed and get looked at once, at the very end.
+Nothing in this report touches them.
+
 ## 1. What was built
 
 Four modules, in dependency order.
@@ -73,7 +102,7 @@ harness model, reproduces the tilt already measured on the chain. If the harness
 production starting point as unbiased at the top, the harness would be measuring something
 other than what the chain does, and every later comparison on it would be worthless.
 
-A0 — the locked 60/40 blend of trailing WAR totals, carried flat, everyone assumed to play a
+today's model — the locked 60/40 blend of trailing WAR totals, carried flat, everyone assumed to play a
 full season — scores as follows on 6,124 player-page rows per horizon across 1,516 careers:
 
 | tier (trailing WAR) | n | bias, wins | over-projection |
@@ -84,7 +113,7 @@ full season — scores as follows on 6,124 player-page rows per horizon across 1
 | 2 to 3 | 1,206 | +0.65 | +37% |
 | 3+ | 603 | +1.00 | +35% |
 
-Horizons 0 to 2. The tilt is reproduced: A0 over-projects stars by a full win. The
+Valuation season through two seasons out. The tilt is reproduced: today's model over-projects stars by a full win. The
 project's own measurement on the production chain was +24% at 3+ on 2020-25 pages; this is
 +35% on 2015-21 pages with non-participation scored as zeros, so the two are not the same
 statistic and are not expected to match to the point. Same sign, same tier ordering, same
@@ -169,8 +198,8 @@ the EP pull a Phase 0 task. Phase 0 item 4 is closed.
 
 ## 5. Phase 1 with ages: the plan's lead candidate is losing
 
-All four models rerun with ages available, which changes two things: A1 and A2 both get age
-terms (centred at 27, plus a square), and A2 shrinks toward an **age-and-position norm**
+All four models rerun with ages available, which changes two things: the calibrated total and the component model both get age
+terms (centred at 27, plus a square), and the component model shrinks toward an **age-and-position norm**
 rather than a position-only one, which is what the plan specifies. That second point matters
 on its own — shrinking a 35-year-old toward the average 27-year-old builds an aging curve
 into the shrinkage, in the wrong direction, before Phase 3 gets a say.
@@ -178,34 +207,34 @@ into the shrinkage, in the wrong direction, before Phase 3 gets a say.
 MAE of the season total, in wins, development pages 2015–2021, 6,124 rows per horizon across
 1,516 careers:
 
-| model | h0 | h1 | h2 | h3 | h4 | h5 |
+| model | valuation season | +1 season | +2 | +3 | +4 | +5 |
 |---|---:|---:|---:|---:|---:|---:|
-| A0 production | 0.654 | 0.706 | 0.724 | 0.741 | 0.744 | 0.739 |
-| **A1 calibrated** | 0.576 | **0.604** | **0.598** | **0.597** | **0.607** | **0.569** |
-| A2 component, shrunk | **0.575** | 0.607 | 0.602 | 0.610 | 0.656 | 0.614 |
-| A2-raw, no shrinkage | 0.592 | 0.623 | 0.626 | 0.622 | 0.661 | 0.592 |
+| today's model | 0.654 | 0.706 | 0.724 | 0.741 | 0.744 | 0.739 |
+| **calibrated total** | 0.576 | **0.604** | **0.598** | **0.597** | **0.607** | **0.569** |
+| component model | **0.575** | 0.607 | 0.602 | 0.610 | 0.656 | 0.614 |
+| component model, unshrunk | 0.592 | 0.623 | 0.626 | 0.622 | 0.661 | 0.592 |
 
-**The rebuild's central claim is confirmed and is large.** A1 beats the production baseline by
+**The rebuild's central claim is confirmed and is large.** The calibrated total beats today's model by
 11.9% at the valuation season, 17.4% at two seasons on, and 23.0% at five. Pricing and
 projecting a raw trailing total is the defect, and calibrating it is worth roughly a fifth of
 the forecast error at long horizons.
 
 **The plan's Phase 1 acceptance test fails, and more clearly than before ages.** Paired,
-clustered by career; positive favours A1:
+clustered by career; positive favours the calibrated total:
 
-| horizon | A2 vs A1 | 95% interval | verdict |
+| seasons ahead | component model vs calibrated total | 95% interval | verdict |
 |---|---:|---|---|
-| 0 | −0.16% | [−1.0%, +0.7%] | tie |
-| 1 | +0.57% | [−0.2%, +1.4%] | tie |
-| 2 | +0.67% | [−0.2%, +1.5%] | tie |
-| 3 | +2.19% | [+1.3%, +3.0%] | A1 better |
-| 4 | +8.18% | [+7.0%, +9.4%] | A1 better |
-| 5 | +7.80% | [+6.2%, +9.0%] | A1 better |
+| valuation season | −0.16% | [−1.0%, +0.7%] | tie |
+| +1 season | +0.57% | [−0.2%, +1.4%] | tie |
+| +2 seasons | +0.67% | [−0.2%, +1.5%] | tie |
+| +3 seasons | +2.19% | [+1.3%, +3.0%] | calibrated total better |
+| +4 seasons | +8.18% | [+7.0%, +9.4%] | calibrated total better |
+| +5 seasons | +7.80% | [+6.2%, +9.0%] | calibrated total better |
 
-Before ages, A2 won h0 outright and the long-horizon losses were confined to h4. With ages,
-A2 wins nothing and loses decisively at three horizons out of six. The honest reading is that
-**ages helped A1 more than they helped A2**: A1's h5 error fell from 0.595 to 0.569 while
-A2's rose from 0.597 to 0.614. A plausible mechanism is redundancy — once the age-and-position
+Before ages, the component model won the valuation season outright and the long-horizon losses were confined to four seasons out. With ages,
+The component model wins nothing and loses decisively at three of the six horizons. The honest reading is that
+**ages helped the calibrated total more than they helped the component model**: the calibrated total's five seasons out error fell from 0.595 to 0.569 while
+The component model's rose from 0.597 to 0.614. A plausible mechanism is redundancy — once the age-and-position
 norm already carries the age pattern, adding age terms to a regression over seven shrunk
 components gives the fit more ways to overfit at the horizons where the trailing signal has
 decayed. That is a hypothesis this report does not test.
@@ -215,18 +244,18 @@ percentage of the tier's mean outcome:
 
 | model | below 0 | 0 to 1 | 1 to 2 | 2 to 3 | 3+ |
 |---|---:|---:|---:|---:|---:|
-| A0 | −0.37 | +31% | +51% | +37% | +35% |
-| A1 | −0.12 | +10% | +5% | −8% | −11% |
-| A2 | −0.12 | +6% | +7% | −5% | −11% |
-| A2-raw | −0.26 | −4% | −6% | −16% | −21% |
+| today's model | −0.37 | +31% | +51% | +37% | +35% |
+| calibrated total | −0.12 | +10% | +5% | −8% | −11% |
+| component model | −0.12 | +6% | +7% | −5% | −11% |
+| component model, unshrunk | −0.26 | −4% | −6% | −16% | −21% |
 
 Both calibrated models cut the production chain's +35% star over-projection to −11%, and both
 are inside or near the plan's 5% target in the middle tiers, which they were not before ages.
 Neither reaches it at 3+. The residual is now an *under*-projection, and it is the same size
 for both, so it is not an argument for either model.
 
-**Shrinkage is still what makes the component structure work at all.** A2-raw — the same seven
-component rates, same regression, no shrinkage — is worse than A1 at every horizon, by 2.8% to
+**Shrinkage is still what makes the component structure work at all.** component model, unshrunk — the same seven
+component rates, same regression, no shrinkage — is worse than the calibrated total at every horizon, by 2.8% to
 9.0%. Splitting the total into components does not help on its own. The fitted reliability
 constants, in games of evidence needed before a player's own rate outweighs the norm (page
 2021):
@@ -248,9 +277,9 @@ carries no forecast signal.
 
 ## 6. What this means for the plan
 
-The plan named A2 the lead candidate and set "A2 beats A1 at every horizon" as the Phase 1
+The plan named the component model the lead candidate and set "the component model beats the calibrated total at every horizon" as the Phase 1
 gate. On the development pages, with the age panel the plan wanted and the shrinkage the plan
-specified, **A2 does not clear that gate and A1 is the better model.**
+specified, **the component model does not clear that gate and the calibrated total is the better model.**
 
 That is a result, not a failure of the rebuild. The rebuild's thesis — that the defect is
 pricing and projecting a raw trailing total — is confirmed at 12% to 23% of forecast error.
@@ -258,24 +287,24 @@ What is not confirmed is that the fix has to be component-wise.
 
 Three things would settle it, in the plan's own order:
 
-1. **Phase 3, the additive aging curve.** A2's losses are concentrated at horizons 3 to 5,
+1. **Phase 3, the additive aging curve.** the component model's losses are concentrated at three to five seasons out,
    where the age path dominates. The plan always said the anchor question is decidable only
    once aging exists. That argument is weaker now than it was before ages — both models
    already carry age terms — but the curve is still the right next test.
 2. **Per-horizon reliability constants.** The constants are fitted once per page against a
    one-season-ahead criterion and then reused at every horizon. A five-season-ahead forecast
-   should shrink harder than a one-season-ahead one, and A2 currently cannot express that.
-   This is the most likely repair for exactly the horizons where A2 loses.
-3. **Dropping the age terms from A2's regression** while keeping the age-and-position norm, to
+   should shrink harder than a one-season-ahead one, and the component model currently cannot express that.
+   This is the most likely repair for exactly the horizons where the component model loses.
+3. **Dropping the age terms from the component model's regression** while keeping the age-and-position norm, to
    test the redundancy hypothesis above.
 
-If none of those moves A2 ahead, the plan should adopt A1 and retire the component anchor —
+If none of those moves the component model ahead, the plan should adopt the calibrated total and retire the component anchor —
 keeping the reliability machinery, which is real, for the places it demonstrably helps.
 
 ## 7. What is not built
 
 - **Participation is a placeholder** — everyone plays. Its cost is visible in the Brier scores
-  (0.278 at h0 rising to 0.595 at h5) and it is Phase 2's job.
+  (0.278 at the valuation season rising to 0.595 at five seasons out) and it is Phase 2's job.
 - **Aging is a flat carry-forward.** Phase 3.
 - **The two market models are unbuilt.** They are no longer blocked: the contracts CSV is
   validated and `contract_source.load_contracts()` serves it. Decisions A and B in the plan's

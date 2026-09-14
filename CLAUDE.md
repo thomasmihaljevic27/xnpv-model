@@ -130,4 +130,13 @@ reasoning behind them. For code, explain each block in prose before or alongside
 inline comments flagging every baked-in assumption: join keys, dedupe rules, which coefficient
 vintage is in use, how a curve is applied.
 
+**Never use a codename as if it were a name.** Model labels (A0, A1, A2), horizon codes
+(h0-h5), phase numbers, decision IDs (D6, D20) and file prefixes are filing labels. They are
+useful for pointing at a row in a table; they carry no meaning on their own, and a sentence
+built out of them is unreadable. Lead with what the thing IS, in hockey English, and put the
+label in parentheses afterwards if it earns its place. "A2 loses to A1 at h4" says nothing;
+"the component model is 8% worse four seasons out" is the same sentence with the meaning left
+in. This applies to chat, commit messages, session logs and every document. A table may use
+short labels in its cells only if the column or a line above it says what each one means.
+
 Every time I get corrected on something, add a rule here so it doesn't repeat.
