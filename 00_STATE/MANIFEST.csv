@@ -3,11 +3,11 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 00_STATE,01_Draft_Model_Sequence.md,state,hashable,2026-09-09a,b5b9e109b745ecb44c37a8dd50c5635db8f7fd61,9713,2026-09-09,yes,git,matches Claude project copy
 00_STATE,02_Prospect_Model_Sequence.md,state,hashable,2026-09-09a,12b3f5047f0214fa3fd11f72f2cf6c6a63be8ea5,10544,2026-09-09,yes,git,matches Claude project copy
 00_STATE,03_Player_Market_Model_Sequence.md,state,hashable,2026-09-09a,2f68c554cca2f422235e3baa6e17a0996e8412e7,18477,2026-09-09,yes,git,matches Claude project copy
-00_STATE,DECISIONS.md,state,hashable,2026-09-10f,d952c937b229563bb2faae720a9d876080706b75,116923,2026-09-10,yes,git,Docs 3-5 review; production unchanged
+00_STATE,DECISIONS.md,state,hashable,2026-09-13b,46841810639072a092dc108763da10a5c158edcd,124074,2026-09-13,yes,git,Aging comparables-limit test; production unchanged
 00_STATE,MANIFEST.csv,state,hashable,2026-09-09a,66d3201b2fc22f946fa0de1bb2c0f364c6600a13,8389,2026-09-09,yes,git,this file
-00_STATE,PROJECT_STATE.md,state,hashable,2026-09-10f,1d3f1014b0f16dc079de0a86d3c4b87e57087dde,57906,2026-09-10,yes,git,Docs 3-5 review; production unchanged
-00_STATE,STANDING_FLAGS.md,state,hashable,2026-09-10f,b890b53d41db895a057b3f7508b27154ea14f4c1,26067,2026-09-10,yes,git,Docs 3-5 review; production unchanged
-00_STATE,WORK_QUEUE.md,state,hashable,2026-09-10f,868b66206d97db630b34be29818c5d695bac156c,14589,2026-09-10,yes,git,Docs 3-5 review; production unchanged
+00_STATE,PROJECT_STATE.md,state,hashable,2026-09-13b,2aed456c8cf7475349448e7bc4ec5d28f9cdf81d,62584,2026-09-13,yes,git,Aging comparables-limit test; production unchanged
+00_STATE,STANDING_FLAGS.md,state,hashable,2026-09-13b,758b2f1e54911742ffc3955721b60f66ada27ea9,31174,2026-09-13,yes,git,Aging comparables-limit test; production unchanged
+00_STATE,WORK_QUEUE.md,state,hashable,2026-09-13b,d0a6840706af4ab624f96a10efcb5061612aac59,16110,2026-09-13,yes,git,Aging comparables-limit test; production unchanged
 00_STATE/sessions,2026-08-28.md,state,hashable,2026-09-09a,921a8eae623bb0d7ac4d1d181f6b862aa51a9e62,2193,2026-09-09,yes,git,git-tracked; audited via `git status`
 00_STATE/sessions,2026-09-08.md,state,hashable,2026-09-09a,1b31b43e8ed30fefd98ded8df5f5a431e79f323b,2422,2026-09-09,yes,git,git-tracked; audited via `git status`
 00_STATE/sessions,2026-09-09.md,state,hashable,2026-09-09a,4487b28a677beb42c3eb436841ab284f2b761fdc,6953,2026-09-09,yes,git,git-tracked; audited via `git status`
@@ -107,3 +107,13 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 20_CODE,player_dashboard_template.html,npv,hashable,2026-09-13,e6888f0184bc689f9c9399663e077380be08616a,47666,2026-09-13,yes,git,template for player_dashboard.py; holds no data
 40_DOCS,Aging_Curve_Coverage_Audit.md,age,hashable,2026-09-13,a22d4cdd8087764b71efd65062a0f2a3a51e9787,6083,2026-09-13,yes,git,aging-curve coverage audit; production curve unchanged
 00_STATE/sessions,2026-09-13.md,state,hashable,2026-09-13,0de5589717396461d56c6e579ce50ec74459f43a,5595,2026-09-13,yes,git,session log
+00_STATE/sessions,2026-09-13b.md,state,hashable,2026-09-13b,aace4c0ee63ea61bd84d994452cc5cdfde38b766,4035,2026-09-13,yes,git,session log
+20_CODE,aging_comp_limit_test.py,age,hashable,2026-09-13b,16c14a85832fc902d51061e3cb9fcd627719316a,23602,2026-09-13,yes,git,Aging comparables-limit test; production unchanged
+40_DOCS,Aging_Comparable_Limit_Test.md,age,hashable,2026-09-13b,1d04f2052d5487f23ba71eeba2cd90a8e0a9e0d4,15820,2026-09-13,yes,git,Aging comparables-limit test; production unchanged
+30_OUTPUT,aging_comp_limit_test_design.json,age,hashable,2026-09-13b,7ea438ca4fa72db2b02a1afcadad9ed363cd32a0,1641,2026-09-13,yes,local,Aging comparables-limit test; production unchanged; generated and gitignored
+30_OUTPUT,aging_comp_limit_test_audit.csv,age,hashable,2026-09-13b,f48155b118246d00e9da474d886ddd61ed370672,4457,2026-09-13,yes,local,Aging comparables-limit test; production unchanged; generated and gitignored
+30_OUTPUT,aging_comp_limit_test_audit_rows.csv,age,hashable,2026-09-13b,fbfead88f514e13300ae88f35ac540181f16bc55,2772197,2026-09-13,yes,local,Aging comparables-limit test; production unchanged; generated and gitignored
+30_OUTPUT,aging_comp_limit_test_predictions.csv,age,hashable,2026-09-13b,adcf803af650330bb373271c31314aa85a9312a0,22337468,2026-09-13,yes,local,Aging comparables-limit test; production unchanged; generated and gitignored
+30_OUTPUT,aging_comp_limit_test_origins.csv,age,hashable,2026-09-13b,b3dfc9796d873af1cc2d2de6b569d1cac122b224,4575340,2026-09-13,yes,local,Aging comparables-limit test; production unchanged; generated and gitignored
+30_OUTPUT,aging_comp_limit_test_summary.csv,age,hashable,2026-09-13b,a513d269e3b072d4245fd0136cc0c9344aceabea,166184,2026-09-13,yes,local,Aging comparables-limit test; production unchanged; generated and gitignored
+30_OUTPUT,aging_comp_limit_test_run.json,age,hashable,2026-09-13b,57ca5203e7476fa732e1db327e31919aa182bcd2,1740,2026-09-13,yes,local,Aging comparables-limit test; production unchanged; generated and gitignored
