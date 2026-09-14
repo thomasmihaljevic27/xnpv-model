@@ -1,5 +1,7 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-14c:** Created `40_DOCS/Player_Model_Rebuild_Plan.md` at Thomas's request for a selectable plan that Claude would build. Added PROJECT_STATE pointer and session log. No implementation or locked-decision adoption; Claude's new scratch diagnostics remain attributed and unreproduced. Queue unchanged.
+
 **Change log, 2026-09-14b follow-up:** Compared Fable 5.1's user-supplied assessment with the ground-up review. Appended verified evidence, unverified scratch-result qualifications and revised UFA-reference recommendation to the review and session log. No production or locked-decision change.
 
 **Change log, 2026-09-14b:** Ground-up review requested with all locked assumptions open for discussion. Saved `40_DOCS/Ground_Up_Player_Model_Review.md`, added signing-date/uncertainty/remaining-term review flags and `sessions/2026-09-14b.md`. No statistical rerun, production change or decision adoption. Existing experiment results remain candidate evidence, not a fully historical whole-chain validation.

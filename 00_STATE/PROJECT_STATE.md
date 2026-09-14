@@ -56,6 +56,8 @@ Put all three trade-asset classes — rostered players, draft picks, non-roster 
 ---
 ## Model spec
 
+**Proposed rebuild plan (2026-09-14c; not adopted):** `40_DOCS/Player_Model_Rebuild_Plan.md` gives the staged plan requested for comparison, with Claude as intended builder. Thomas has not selected a plan. Existing production specification and work-queue order remain in force. See `sessions/2026-09-14c.md`.
+
 **Core NPV:** `NPV = sum_t (Value_t - Cost_t) / (1+r)^t + Terminal Value`
 
 - **Value_t** — projected production in dollars: a comparable-based aging curve x the cap-inflation-indexed dollars-per-win rate. Fit only on player-seasons observable at the valuation date.
