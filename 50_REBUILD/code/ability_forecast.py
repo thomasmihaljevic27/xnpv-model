@@ -159,7 +159,7 @@ def _placeholder_participation(subs: pd.DataFrame, h) -> np.ndarray:
 
 class A0Production(BaseModel):
     """The production chain's starting point. Nothing is fitted."""
-    name = "A0 production 60/40"
+    name = "today's model (trailing 60/40, carried flat)"
 
     def predict(self, iset, subs, horizons):
         a = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP])
@@ -192,7 +192,7 @@ class A1Calibrated(BaseModel):
     model learns that a four-year-ahead forecast should sit closer to average
     than a one-year-ahead one, which the production chain's flat carry cannot.
     """
-    name = "A1 calibrated total"
+    name = "calibrated total"
     FEATURES = ["tw_WAR", "one_season", "is_D", "exp_seasons", "age_c", "age_c2"]
 
     def fit(self, table, before):
@@ -232,7 +232,7 @@ class A2Raw(A1Calibrated):
     seven of them are seven times as noisy. That result is what makes the
     shrinkage in A2Component load-bearing rather than decorative.
     """
-    name = "A2-raw components, no shrinkage"
+    name = "component split, no shrinking (diagnostic)"
 
     @property
     def FEATURES(self):
@@ -270,13 +270,26 @@ class A2Component(A1Calibrated):
     one about level. A1 cannot express that. This is the whole argument for
     the component structure -- not the headline margin, which is small.
     """
-    name = "A2 component-wise, shrunk"
+    name = "component model"
 
-    # Candidate reliability constants, in games. Spans "trust the player
-    # almost fully after a few games" to "even two full seasons barely move
-    # him off the norm", so the grid cannot bind at either end unnoticed --
-    # the fit logs where each k_c lands and a k_c at a boundary is a flag.
-    K_GRID = np.array([1, 2, 5, 10, 20, 40, 80, 160, 320, 640, 1280], dtype=float)
+    # Candidate reliability constants, in games of evidence needed before a
+    # player's own rate outweighs the league norm.
+    #
+    # THE TOP OF THE GRID USED TO BIND. At 1280 the penalty-kill constant
+    # pinned at the ceiling for every horizon from three seasons out, and the
+    # unallocated residual pinned everywhere -- 9 of 42 cells, concentrated at
+    # exactly the horizons where the component model was losing. A pinned cell
+    # is the fit saying "shrink this harder than you are letting me", and
+    # answering that with a ceiling is a modelling choice made by an array
+    # literal rather than by the data.
+    #
+    # The grid now runs to 1e9, which is not a number of games but a way of
+    # spelling "ignore this player's own rate and use the norm": at that size
+    # the weighted average is the norm to seven decimal places. Some components
+    # genuinely carry no signal five seasons out, and the honest answer for
+    # those is the norm, not the norm plus a thousandth of a stale observation.
+    K_GRID = np.array([1, 2, 5, 10, 20, 40, 80, 160, 320, 640, 1280,
+                       2560, 5120, 10240, 1e9], dtype=float)
 
     RATE_FEATURES = ["sh_" + c for c in C.COMPONENTS_MODEL] + [
         "tr_gp_share", "one_season", "is_D", "exp_seasons", "age_c", "age_c2"]
@@ -436,3 +449,127 @@ def _apply(coef, X: pd.DataFrame, fallback: pd.Series) -> np.ndarray:
     out = fb.copy()
     out[ok] = beta[0] + M[ok] @ beta[1:]
     return out
+
+
+# ---------------------------------------------------------------------------
+# VARIANTS. Each isolates one design choice so the bake-off can attribute a
+# change in accuracy to that choice and nothing else. They are candidates, not
+# replacements: the rebuild plan's own sequence keeps every live candidate
+# running through aging, participation and pricing before anything is retired,
+# because a model can be behind on raw forecast accuracy and still win once
+# it is carrying dollars.
+# ---------------------------------------------------------------------------
+
+class A2NoAgeTerms(A2Component):
+    """The component model with age in the SHRINKAGE TARGET only.
+
+    The full component model knows a player's age twice: once because each
+    component is pulled toward the norm for his age and position, and again
+    because age enters the regression as its own term. That may be telling it
+    the same thing twice. Doubling up is not free -- the second copy gives the
+    fit another way to bend itself around the training seasons, and the place
+    that shows up is the far end of a contract, where the trailing evidence has
+    decayed and there is little left to constrain it.
+
+    This variant removes the second copy and keeps the first.
+    """
+    name = "component model, age in the norm only"
+    RATE_FEATURES = ["sh_" + c for c in C.COMPONENTS_MODEL] + [
+        "tr_gp_share", "one_season", "is_D", "exp_seasons"]
+
+
+class A1NoAgeTerms(A1Calibrated):
+    """The calibrated total with its age terms removed.
+
+    The control. Without it, a win for the variant above could mean either
+    "age terms hurt the component model specifically" or "age terms hurt every
+    model here", and those have opposite implications. Running both arms is
+    what makes the comparison a test rather than an anecdote.
+    """
+    name = "calibrated total, no age terms"
+    FEATURES = ["tw_WAR", "one_season", "is_D", "exp_seasons"]
+
+
+class A2PerHorizonTrust(A2Component):
+    """The component model that decides how far to trust a player SEPARATELY
+    for each season it is forecasting.
+
+    The reliability constant answers "how many games of evidence before this
+    player's own rate outweighs the league norm?". The base model fits it once,
+    against next season, and then reuses that answer for all six seasons of a
+    contract. That is the wrong shape: a rate that half-predicts next season
+    predicts the season after that less, and the season after that less again,
+    so a six-year-out forecast should sit closer to the norm than a one-year-out
+    forecast. The base model cannot say so, and the horizons where it loses are
+    exactly the ones where it should be shrinking harder.
+
+    Here the constant is fitted per horizon, on pairs the right distance apart,
+    still using only outcomes that completed before the decision date.
+    """
+    name = "component model, trust fitted per horizon"
+
+    def fit(self, table, before):
+        super().fit(table, before)
+        s = table[table["GP"] >= C.MIN_GP]
+        self.k_by_h_ = {}
+        for h in range(6):
+            self.k_by_h_[h] = self._fit_reliability_at(s, before, h + 1)
+
+    def _fit_reliability_at(self, s, before, gap):
+        """Same criterion as the base fit, but predicting `gap` seasons ahead
+        instead of always one. Falls back to the one-season constants when a
+        gap has too few completed pairs, which is what the early pages hit."""
+        pairs = s.merge(s.assign(syr=s["syr"] - gap), on=["career_key", "syr"],
+                        suffixes=("", "_n"))
+        pairs = pairs[pairs["syr"] + gap < before]
+        if len(pairs) < 100:
+            return dict(self.k_)
+        w = pairs["GP_n"].to_numpy(float)
+        k = {}
+        for c in C.COMPONENTS_MODEL:
+            obs = pairs[c + "_82"].to_numpy(float)
+            gp = pairs["GP"].to_numpy(float)
+            nxt = pairs[c + "_82_n"].to_numpy(float)
+            norm = self._norm_for(c, pairs["pos"], pairs["age"])
+            sse = [(w * ((gp * obs + kk * norm) / (gp + kk) - nxt) ** 2).sum()
+                   for kk in self.K_GRID]
+            k[c] = float(self.K_GRID[int(np.argmin(sse))])
+        return k
+
+    def _shrink_with(self, d, k):
+        d = d.copy()
+        gp = d["exposure_gp"].to_numpy(float)
+        for c in C.COMPONENTS_MODEL:
+            norm = self._norm_for(c, d["pos"], d["age"])
+            obs = d["tr_" + c].to_numpy(float)
+            d["sh_" + c] = (gp * obs + k[c] * norm) / (gp + k[c])
+        return d
+
+    def predict(self, iset, subs, horizons):
+        base = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP])
+        base = base[base["t0"] == iset.t0]
+        rows = []
+        for h in horizons:
+            # The whole point: this horizon's own trust constants, not the
+            # one-season-ahead ones.
+            a = self._shrink_with(base, self.k_by_h_.get(h, self.k_)) \
+                    .set_index("career_key").reindex(subs["career_key"])
+            r = subs.copy()
+            fb = a[["sh_" + c for c in C.COMPONENTS_MODEL]].sum(axis=1)
+            r["rate_82"] = _apply(self.coef_.get(h), a[self.RATE_FEATURES], fb)
+            gp = _apply(self.gp_coef_.get(h),
+                        a[["tr_gp_share", "is_D", "exp_seasons", "age_c"]], a["tr_gp_share"])
+            r["gp_share"] = np.clip(gp, 0.05, 1.0)
+            r["p_play"] = _placeholder_participation(r, h)
+            r["h"] = h
+            rows.append(r[["career_key", "h", "rate_82", "gp_share", "p_play"]])
+        return pd.concat(rows, ignore_index=True)
+
+
+class A2PerHorizonTrustNoAge(A2PerHorizonTrust):
+    """Both repairs at once: trust fitted per horizon AND age carried only by
+    the shrinkage target. If the two fixes address different parts of the same
+    problem, this is where that shows."""
+    name = "component model, per-horizon trust, age in the norm only"
+    RATE_FEATURES = ["sh_" + c for c in C.COMPONENTS_MODEL] + [
+        "tr_gp_share", "one_season", "is_D", "exp_seasons"]
