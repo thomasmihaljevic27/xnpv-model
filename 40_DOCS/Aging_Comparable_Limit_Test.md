@@ -231,6 +231,33 @@ selected for a high recent level keeps all of it at the valuation season. Held-o
 Changing the comparables removes about 0.1 of that. The evidence is conditional on players who
 kept playing 10+ games, and players who exited would not raise the realized figure.
 
+## Follow-up in the production chain
+
+The season-total outcome above mirrors the valuation path but does not run it.
+`20_CODE/npv_realized_by_tier.py` runs it. For all 2,591 skater contracts in the NPV spine, every
+contract season already played was priced two ways: as the engine prices it (survival times
+projected value), and at what the player produced, using the same price per win, the same
+forecast cap ceiling and the same league-minimum floor, with $0 if he had left the league.
+
+| Level at valuation (season-total WAR) | Contract seasons | Over (+) or under (−) per season | Share of realized value |
+|---|---:|---:|---:|
+| below 0 | 1,227 | −$0.32M | −25% |
+| 0 to 1 | 2,073 | −$0.13M | −7% |
+| 1 to 2 | 874 | +$0.49M | +16% |
+| 2 to 3 | 322 | +$0.68M | +15% |
+| 3+ | 181 | +$0.98M | +14% |
+| all | 4,677 | +$0.04M | +1% |
+
+The engine is not too generous overall; it spreads value too widely. Players valued after strong
+seasons are priced too high, and players valued after weak ones too low. At 3+, the 95% interval
+is +$0.24M to +$1.74M per season, and the result holds without Johnny Gaudreau's 2022 contract
+(+$0.82M, 11%). Players at 3+ in both of the two prior seasons are over-priced more (+$1.49M, 21%)
+than players who reached 3+ on one strong season (+$0.38M, 5%, interval including zero), so the
+tilt is not only short hot streaks fading. Their WAR miss is +0.43 in the valuation season and
++0.56 after it: most of it is the unadjusted starting level, with faster decline on top. The aging
+curve and exit table were fitted on these same seasons, so this check is in-sample and favours
+the model. It covers the contract seasons only, not RFA control years.
+
 ## Limits
 
 - The data are contemporary reconstructions, not vintage snapshots. Outcomes are observed

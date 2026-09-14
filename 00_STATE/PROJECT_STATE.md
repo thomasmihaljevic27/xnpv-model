@@ -80,6 +80,8 @@ Put all three trade-asset classes — rostered players, draft picks, non-roster 
 
 **Aging comparables-limit test (2026-09-13):** `20_CODE/aging_comp_limit_test.py` v1.0 audited the production blend on real ages (effective comparables ~92% of the eligible pool; the pooled weight of 10 takes ~5% for every tier) and scored 14 rules on held-out careers. Keeping only the 50 most similar comparables, pooled weight retained, lowered error 0.3%-0.8% in all four all-player comparisons and 1.3%-2.1% in season totals for 3+ WAR/82 players; removing the pooled weight alone did nothing, and removing it from a limited blend made things worse. Evidence-weighted lambda and no shrinkage both lost. Production unchanged (locked). Report: `40_DOCS/Aging_Comparable_Limit_Test.md`; generated `30_OUTPUT/aging_comp_limit_test_*` artifacts. See `sessions/2026-09-13b.md`.
 
+**Realized-vs-projected NPV by tier (2026-09-13b):** `20_CODE/npv_realized_by_tier.py` v1.0 compared the production chain's priced contract value with realized value on 4,677 played contract seasons. No overall bias, but a monotone tilt: under-projected below 1 WAR, over-projected above, +$0.98M per season (13.9%) at 3+ and +$1.49M (20.9%) for sustained stars. In-sample, contract part only. Generated `30_OUTPUT/npv_realized_by_tier_*` artifacts.
+
 Moved 2026-09-09 (v3.2). The locked decision record (D1-D27, the Phase-1b/1c/1d blocks, the Phase 3a D22-D27 draft-curve block, and the Player Model Review Stages 2-5 item-by-item record) and the running change log for the state files now live in **`00_STATE/DECISIONS.md`**. `git log 00_STATE/` is the second, mechanical copy of that history. Per-session detail is in `00_STATE/sessions/`.
 
 ---
