@@ -1,6 +1,16 @@
 """
 =============================================================================
- rfa_terminal_value.py   v1.2                       Phase 1c
+ rfa_terminal_value.py   v1.3                       Phase 1c
+
+ v1.3 (2026-09-13) the control years attach to the END of the contracts
+ the team holds on the as-of date, not to the contract being played. With
+ no signed extension that is the same contract as before, so nothing else
+ moves. With one, the extension's own expiry decides: a player extended
+ into his UFA years carries no RFA control value (he was being valued at
+ the qualifying offer for years he had already signed away), and a player
+ extended as an RFA carries control years after the extension, costed
+ off the extension's final salary. Chain rule and as-of window live in
+ skater_forward_projection.contract_chain / check_as_of.
 
  v1.2 (2026-07-28) rebuilt from the verified 2026-07-06 Drive copy, with:
    * a position-split price adapter (Stage 3) that detects what the
@@ -93,7 +103,8 @@ import pandas as pd
 
 import skater_forward_projection as _sfp
 from skater_forward_projection import (SkaterProjector, cap_path,
-                                       league_min_path)
+                                       league_min_path, contract_chain,
+                                       check_as_of)
 
 # ---------------------------------------------------------------------------
 # PRICE-RATE ADAPTER  (added 2026-07-28)
@@ -321,18 +332,23 @@ class TerminalValuer:
                 assert abs(self.qualify_p[b] - self.qualify_p_prefix[b]) < 1e-9, \
                     f"Stage 4 fix moved the {b} bucket, which it must not"
 
-    def terminal_value(self, player_id, valuation_season):
-        """RFA terminal value for the contract active at `valuation_season`,
-        from that season's standpoint (same information set as Layer 2).
+    def terminal_value(self, player_id, valuation_season, as_of=None):
+        """RFA terminal value at the end of the contracts held for this
+        player on `as_of` (v1.3; default July 1 of `valuation_season`), from
+        that season's standpoint (same information set as Layer 2). With no
+        signed extension this is the contract active at t0, as before.
         Returns (per-control-year DataFrame, summary dict)."""
         sp = self.sp
-        rows = sp.spine[(sp.spine["player_id"] == player_id)
-                        & (sp.spine["season_start"] >= valuation_season)]
-        active = rows[rows["season_start"] == valuation_season]
+        as_of = check_as_of(valuation_season, as_of)
+        chain = contract_chain(sp.spine, player_id, valuation_season,
+                               sp.signed, as_of)
         empty = pd.DataFrame()
-        if active.empty:
+        if not chain:
             return empty, {"status": "no_contract"}
-        cid = active.iloc[0]["contract_id"]
+        # v1.3: expiry status, UFA year, final salary and the 2020+ proxy
+        # all come from the LAST contract in the chain -- the one whose
+        # expiry the team actually faces.
+        cid = chain[-1]
         crows = (sp.spine[sp.spine["contract_id"] == cid]
                  .sort_values("season_start"))
         end = int(crows["season_start"].max())

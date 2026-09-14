@@ -1,6 +1,19 @@
 """
 =============================================================================
- contract_npv_panel.py   v1.0                    Validation exhibit (2026-07-05)
+ contract_npv_panel.py   v1.1                    Validation exhibit (2026-07-05)
+=============================================================================
+ WHAT CHANGED IN v1.1 (2026-09-13)
+ ---------------------------------
+ * The 2026-27 page is laid out (PANEL_LAST 2025 -> 2026). It reads the
+   completed 2025-26 season as t-1 and prices at the published $104.0M
+   ceiling. Its universe is whatever the May 21, 2026 PuckPedia export
+   holds: contracts signed after that date (all of July 2026 free agency)
+   are not on it until the export is refreshed.
+ * Each page is valued AS OF July 1 of its season, the date it comes into
+   force, and includes every extension signed by then (contract_npv v1.4).
+   Three new columns record it: as_of_date, n_extension_contracts,
+   extension_contract_ids. Extensions signed later in the season appear
+   as in-season variants in player_dashboard.py, not as extra panel rows.
 =============================================================================
  WHAT THIS PRODUCES (plain English)
  ----------------------------------
@@ -83,7 +96,9 @@ OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])   # panel + log are generated output
 OUT_PANEL = OUTPUT_DIR / "contract_npv_panel.csv"
 OUT_LOG   = OUTPUT_DIR / "contract_npv_panel_run_log.txt"
 
-PANEL_FIRST, PANEL_LAST = 2018, 2025      # league-years to lay out as pages
+PANEL_FIRST, PANEL_LAST = 2018, 2026      # league-years to lay out as pages
+                                          # (v1.1: 2026 added; needs the
+                                          # 2026 ceiling in CAP_CEILING)
 
 LOG = []
 def log(msg=""):
@@ -140,6 +155,11 @@ def build_panel():
             "is_elc_season": bool(j.cs_entry_level) if pd.notna(j.cs_entry_level) else False,
             "seasons_remaining": n_remaining,
             "path": s.get("path", ""),
+            # v1.1: the date this page is valued on (July 1 of t0) and the
+            # extensions signed by then that the valuation includes
+            "as_of_date": s["as_of"],
+            "n_extension_contracts": len(s["chain"]) - 1,
+            "extension_contract_ids": ";".join(str(c) for c in s["chain"][1:]),
             "npv_contract": s["npv_contract"],
             "npv_terminal": s["npv_terminal"],
             "npv_total": s["npv_total"],
@@ -165,7 +185,9 @@ def validate(panel):
     log("\n[1] contracts priced per league-year (page size):")
     for t0, g in panel.groupby("valuation_season"):
         med = g["npv_total"].median() / 1e6
-        log(f"    {t0}: {len(g):5,d} contracts   median NPV ${med:+.2f}M")
+        n_ext = int((g["n_extension_contracts"] > 0).sum())
+        log(f"    {t0}: {len(g):5,d} contracts   median NPV ${med:+.2f}M   "
+            f"incl. a signed extension: {n_ext:,}")
 
     # ---- 2. THE convergence exhibit ----------------------------------------
     # For the marquee young-star extensions that read as overpays at

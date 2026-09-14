@@ -1,7 +1,23 @@
 """
 =============================================================================
- contract_npv.py   v1.3                             Phase 1d
-                                     review items 1.2, 1.4 (2026-07-26)
+ contract_npv.py   v1.4                             Phase 1d
+                                  extensions by signing date (2026-09-13)
+=============================================================================
+ WHAT CHANGED IN v1.4 (signed extensions are part of the asset)
+ ---------------------------------------------------------------
+ npv(player_id, valuation_season, as_of=None). The valuation now covers
+ the contract being played PLUS every extension signed on or before the
+ as-of date (default July 1 of the valuation season, the date the page
+ comes into force; any date up to the following June 30 is accepted).
+ Extension seasons are contract seasons: survival x projected value minus
+ the real cap hit, discounted. The RFA terminal value attaches to the end
+ of that chain. The chain rule and the as-of window are defined once, in
+ skater_forward_projection (contract_chain / check_as_of), and used by
+ both the skater and the goalie branch here, so the two cannot disagree.
+ Before v1.4 an already-extended player was valued as if his next years
+ would be bought at the qualifying offer (Lane Hutson, any date after
+ 2025-10-13: $17.65M of RFA control value for years signed at $8.85M).
+ Pages with no extension signed by the as-of date are unchanged.
 =============================================================================
  WHAT CHANGED IN v1.2 (review item 1.2 -- the survival lookup was shifted
  one season forward on BOTH of its axes)
@@ -143,7 +159,8 @@ import pandas as pd
 
 from skater_forward_projection import (SkaterProjector, cap_path,
                                        league_min_path, norm_name,
-                                       ALPHA, BETA, CAP_GROWTH, CAP_CEILING)
+                                       ALPHA, BETA, CAP_GROWTH, CAP_CEILING,
+                                       contract_chain, check_as_of)
 from rfa_terminal_value import TerminalValuer, qualifying_offer
 from exit_hazard import (build_transitions, build_hazard_table, bucket,
                          age_group, report_item_14)
@@ -368,19 +385,21 @@ class NPVEngine:
         return table.get((b, g), table.get((b, "ALL"), 0.0))
 
     # ---- the main query -------------------------------------------------------
-    def npv(self, player_id, valuation_season):
-        """Full discounted contract NPV from `valuation_season`. Returns
-        (per-season detail DataFrame incl. terminal rows, summary dict)."""
+    def npv(self, player_id, valuation_season, as_of=None):
+        """Full discounted NPV from `valuation_season`, over the contract
+        being played plus every extension signed by `as_of` (v1.4; default
+        July 1 of valuation_season). Returns (per-season detail DataFrame
+        incl. terminal rows, summary dict)."""
         row = self.sp.spine[self.sp.spine["player_id"] == player_id]
         if not row.empty:
-            return self._npv_skater(player_id, valuation_season)
+            return self._npv_skater(player_id, valuation_season, as_of)
         row = self.gp_spine[self.gp_spine["player_id"] == player_id]
         if not row.empty:
-            return self._npv_goalie(player_id, valuation_season)
+            return self._npv_goalie(player_id, valuation_season, as_of)
         return pd.DataFrame(), {"status": "unknown_player"}
 
-    def _npv_skater(self, pid, t0):
-        pr = self.sp.project_contract(pid, t0)
+    def _npv_skater(self, pid, t0, as_of=None):
+        pr = self.sp.project_contract(pid, t0, as_of)
         if pr.empty:
             return pr, {"status": "unpriced_no_anchor"}
         age0 = pr.iloc[0]["age_at_valuation"]
@@ -410,7 +429,7 @@ class NPVEngine:
                         "discount": disc, "pv_dollars": pv})
         npv_contract = sum(d["pv_dollars"] for d in det)
 
-        tvd, tvs = self.tv.terminal_value(pid, t0)
+        tvd, tvs = self.tv.terminal_value(pid, t0, as_of)
         npv_tv = 0.0
         if tvs.get("status") == "ok":
             end = int(pr["season_start"].max())
@@ -431,6 +450,9 @@ class NPVEngine:
                             "discount": disc, "pv_dollars": pv})
         d = pd.DataFrame(det)
         return d, {"status": "ok", "position": "skater",
+                   # v1.4: the information date and the contracts valued
+                   "as_of": pr.iloc[0]["as_of"],
+                   "chain": [int(c) for c in dict.fromkeys(pr["contract_id"])],
                    "full_name": pr.iloc[0]["full_name"],
                    "path": pr.iloc[0]["path"],
                    "n_contract_seasons": len(pr),
@@ -440,16 +462,24 @@ class NPVEngine:
                        float(pr["surplus_dollars"].sum())
                        + tvs.get("tv_adjusted", 0.0)}
 
-    def _npv_goalie(self, pid, t0):
-        rows = self.gp_spine[(self.gp_spine["player_id"] == pid)
-                             & (self.gp_spine["season_start"] >= t0)]
-        active = rows[rows["season_start"] == t0]
-        if active.empty:
+    def _npv_goalie(self, pid, t0, as_of=None):
+        # v1.4: the same contract chain as the skater branch -- the contract
+        # being played plus every extension signed by `as_of`.
+        as_of = check_as_of(t0, as_of)
+        chain = contract_chain(self.gp_spine, pid, t0, self.sp.signed, as_of)
+        if not chain:
             return pd.DataFrame(), {"status": "no_contract"}
-        cid = active.iloc[0]["contract_id"]
-        crows = (self.gp_spine[self.gp_spine["contract_id"] == cid]
+        cid = chain[0]
+        crows = (self.gp_spine[self.gp_spine["contract_id"].isin(chain)]
                  .sort_values("season_start"))
         crows = crows[crows["season_start"] >= t0]
+        # GUARD: k is the row position, so one row per consecutive season
+        ss = crows["season_start"].to_numpy()
+        assert len(ss) and ss[0] == t0 and (np.diff(ss) == 1).all(), (
+            f"goalie {pid} t0={t0}: contract chain {chain} does not give one "
+            f"row per consecutive season: {list(ss)}")
+        # the contract whose expiry decides the terminal value: the chain end
+        lrows = crows[crows["contract_id"] == chain[-1]]
         nname = crows.iloc[0]["nname"]
         pw, src = self.g_proj.shrunk_projection(nname, t0)
         if pd.isna(pw):
@@ -484,7 +514,8 @@ class NPVEngine:
             disc = (1 + G) ** (-k)
             pv = (S * val - r["cost"]) * disc
             det.append({"player_id": pid, "full_name": r["full_name"],
-                        "contract_id": cid, "season_start": season, "k": k,
+                        "contract_id": int(r["contract_id"]),
+                        "season_start": season, "k": k,
                         "row_type": "contract", "projected_war": pw,
                         "value_dollars": val, "cost_dollars": r["cost"],
                         "surplus_dollars": val - r["cost"],
@@ -495,15 +526,17 @@ class NPVEngine:
         # ---- flat projection, NO D14c gates (flagged gap, see docstring) ---
         npv_tv = 0.0
         end = int(crows["season_start"].max())
-        expiry = crows.iloc[0]["pp_expiry"]
-        ufa_year = crows.iloc[0]["ufa_year"]
+        # v1.4: expiry, UFA year and the 2020+ proxy from the chain's END.
+        # With no extension lrows is exactly the old t0-filtered crows.
+        expiry = lrows.iloc[0]["pp_expiry"]
+        ufa_year = lrows.iloc[0]["ufa_year"]
         if expiry == "RFA" and pd.notna(ufa_year):
             final = crows[crows["season_start"] == end].iloc[0]
             sal = (float(final["cs_nhl_salary"])
                    if pd.notna(final["cs_nhl_salary"])
                    else float(final["pp_aav"]))
             cap_hit = float(final["cost"])
-            s20 = int(crows["season_start"].min()) >= 2020
+            s20 = int(lrows["season_start"].min()) >= 2020
             truncated = False
             for j, season in enumerate(range(end + 1, int(ufa_year)), 1):
                 k = (end - t0) + j
@@ -519,7 +552,7 @@ class NPVEngine:
                 disc = (1 + G) ** (-k)
                 npv_tv += surplus * disc
                 det.append({"player_id": pid, "full_name": final["full_name"],
-                            "contract_id": cid, "season_start": season,
+                            "contract_id": chain[-1], "season_start": season,
                             "k": k, "row_type": "terminal",
                             "projected_war": pw, "value_dollars": val,
                             "cost_dollars": qo, "surplus_dollars": surplus,
@@ -528,6 +561,7 @@ class NPVEngine:
                 sal, cap_hit = qo, qo
         d = pd.DataFrame(det)
         return d, {"status": "ok", "position": "goalie",
+                   "as_of": as_of.date().isoformat(), "chain": list(chain),
                    "full_name": crows.iloc[0]["full_name"],
                    "path": f"goalie_flat_{src}",
                    "n_contract_seasons": len(crows),

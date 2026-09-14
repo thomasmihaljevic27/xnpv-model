@@ -23,8 +23,8 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 20_CODE,capspace_scraper.py,clause,hashable,2026-09-09a,d43c9f8ff142c1bfe668e726431937889ab39db5,22468,2026-09-09,yes,git,git-tracked; audited via `git status`
 20_CODE,check.py,misc,hashable,2026-09-09a,6d47583d129eaaffd3c476ab13e9bb67340699b1,877,2026-09-09,yes,git,git-tracked; audited via `git status`
 20_CODE,check_stale_anchor_agreement2.py,misc,hashable,2026-09-09a,2ab890037853c6fa59eee63183163bdec405a886,9121,2026-09-09,yes,git,git-tracked; audited via `git status`
-20_CODE,contract_npv.py,npv,hashable,2026-09-09a,7b309862779972ba9c315fe35fe8240e88d38010,40400,2026-09-09,yes,git,imported as module; do not rename
-20_CODE,contract_npv_panel.py,npv,hashable,2026-09-09a,68385bc109f37366289347cd8402ffed3d7dbd44,10497,2026-09-09,yes,git,git-tracked; audited via `git status`
+20_CODE,contract_npv.py,npv,hashable,2026-09-13,901598fac7df7c0b5c2cbd91996efbc9b9782fc7,42810,2026-09-13,yes,git,imported as module; do not rename
+20_CODE,contract_npv_panel.py,npv,hashable,2026-09-13,54457f93e0c640b589da9f893b8f3253d800c27f,11944,2026-09-13,yes,git,git-tracked; audited via `git status`
 20_CODE,draft_pick_linkage.py,draft,hashable,2026-09-09a,3407afcc09d47360dee13a505ea65c181c62d55f,21489,2026-09-09,yes,git,rescued from data work; only cloud copy
 20_CODE,draft_yield_curve.py,draft,hashable,2026-09-09a,dcb1637d0a3684a4a4a7185223e2a6a92adbb15d,22235,2026-09-09,yes,git,git-tracked; audited via `git status`
 20_CODE,ep_age_scraper.py,prosp,hashable,2026-09-09a,c67adaa2471ebe1afc63627cb118e53bab0e5ef4,16036,2026-09-09,yes,git,git-tracked; audited via `git status`
@@ -44,10 +44,10 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 20_CODE,on_ice_reconstruction.py,xg,hashable,2026-09-09a,f5da9ef958a3714715653e80b88f1690981d6292,32217,2026-09-09,yes,git,git-tracked; audited via `git status`
 20_CODE,replacement_rebase.py,gv,hashable,2026-09-09a,9d2c81f6550b230d2485e16a4369f3db3fb2db79,25933,2026-09-09,yes,git,git-tracked; audited via `git status`
 20_CODE,retention_recalibration_check.py,npv,hashable,2026-09-09a,792f2ddb28884b346f2d32730f4af1506ca9e127,14052,2026-09-09,yes,git,git-tracked; audited via `git status`
-20_CODE,rfa_terminal_value.py,npv,hashable,2026-09-09a,3f75f46f9229528161db9a9c3f6e1f50ac06eba9,29895,2026-09-09,yes,git,imported as module; Stage 4 fix is a reimplementation
+20_CODE,rfa_terminal_value.py,npv,hashable,2026-09-13,1efaf1d9db569f270b014eb0eb4d7268dd6beb8e,30913,2026-09-13,yes,git,imported as module; Stage 4 fix is a reimplementation
 20_CODE,run_stale_anchor_fix.py,goal,hashable,2026-09-09a,c2bb4b47da36bd240b7262af9bb3f310427babf8,11623,2026-09-09,yes,git,git-tracked; audited via `git status`
 20_CODE,score_state.py,xg,hashable,2026-09-09a,81e3d540c713a014dc673a552b7d2465b79e73a5,17522,2026-09-09,yes,git,git-tracked; audited via `git status`
-20_CODE,skater_forward_projection.py,skat,hashable,2026-09-09a,ffc53a44ca6f22a34734f40c0ad051d3264f3342,42137,2026-09-09,yes,git,imported as module; duplicated WAR loader flag
+20_CODE,skater_forward_projection.py,skat,hashable,2026-09-13,78103ddfd6b5042f4de9664604d970b0f0282a40,49992,2026-09-13,yes,git,imported as module; duplicated WAR loader flag
 20_CODE,skater_value_engine.py,skat,hashable,2026-09-09a,bad20445153c30b0e5f542040ad60e1b8eba77ce,31232,2026-09-09,yes,git,imported as module; do not rename
 20_CODE,term_premium_test.py,skat,hashable,2026-09-09a,89ba8c3eb86b5397aa2c8768e5215eb323ecb861,39104,2026-09-09,yes,git,git-tracked; audited via `git status`
 20_CODE,uncertainty_correction.py,skat,hashable,2026-09-09a,c342406fd297d8e1c95faacbf4072d441cf21bb1,15736,2026-09-09,yes,git,git-tracked; audited via `git status`
@@ -103,3 +103,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 00_STATE/sessions,2026-09-10e.md,state,hashable,2026-09-10e,1c48565a7963177c35584098f7a2217f070bbe9e,816,2026-09-10,yes,git,Doc 2 formatting; user text preserved; visual QA unavailable
 00_STATE/sessions,2026-09-10f.md,state,hashable,2026-09-10f,4e95efc73035ce342897c513ae99e2a5e87118d4,2242,2026-09-10,yes,git,Docs 3-5 review; production unchanged
 40_DOCS,Docs_3_4_5_Review_Notes.md,doc,hashable,2026-09-10f,e12801647c69de2c728b4e4bcaeabf28fc953557,4457,2026-09-10,yes,git,Docs 3-5 review; production unchanged
+20_CODE,player_dashboard.py,npv,hashable,2026-09-13,54f0c2b1a53216486f139aa3096a72d22df4626b,23205,2026-09-13,yes,git,"viewer; builds 30_OUTPUT/player_dashboard.html (embeds confidential PuckPedia data, never commit the output)"
+20_CODE,player_dashboard_template.html,npv,hashable,2026-09-13,e6888f0184bc689f9c9399663e077380be08616a,47666,2026-09-13,yes,git,template for player_dashboard.py; holds no data
+40_DOCS,Aging_Curve_Coverage_Audit.md,age,hashable,2026-09-13,a22d4cdd8087764b71efd65062a0f2a3a51e9787,6083,2026-09-13,yes,git,aging-curve coverage audit; production curve unchanged
+00_STATE/sessions,2026-09-13.md,state,hashable,2026-09-13,0de5589717396461d56c6e579ce50ec74459f43a,5595,2026-09-13,yes,git,session log

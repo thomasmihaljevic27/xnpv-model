@@ -1,7 +1,43 @@
 """
 =============================================================================
- skater_forward_projection.py   v1.2            Phase 1b -- Layer 2
-                                          review item 1.3 (2026-07-26)
+ skater_forward_projection.py   v1.3            Phase 1b -- Layer 2
+                                  extensions + 2026-27 page (2026-09-13)
+=============================================================================
+ WHAT CHANGED IN v1.3 (extensions, the 2026-27 page, the path label)
+ -------------------------------------------------------------------
+ 1. EXTENSIONS COUNT FROM THEIR SIGNING DATE. project_contract() used to
+    value only the contract active in the valuation season and drop every
+    later contract. That was a look-ahead guard from before the spine
+    carried signing dates, and it priced a counterfactual: a player
+    already extended was valued as if his RFA years would be bought at
+    the qualifying offer. A signed extension is part of the asset a team
+    acquires, so it now joins the valuation once it is signed.
+    contract_chain() starts at the active contract and adds the contract
+    that begins the season after it ends, then repeats, but only through
+    contracts whose PuckPedia signing date is on or before the as-of
+    date. A contract with no signing date on file is never added
+    (conservative). The as-of date defaults to July 1 of the valuation
+    season, the date the page comes into force, and may be any date up
+    to June 30 of the next year -- never later, because by then the next
+    page's inputs exist and valuing on this page would ignore them.
+    Extension seasons are priced as contract seasons: projected value
+    against the real cap hit, carried by exit-hazard survival. The RFA
+    terminal value now attaches to the END of the chain.
+    NOT gated on signing date: the active contract itself. A deal signed
+    in August for the season about to start is on that season's page
+    from July 1. Unchanged behaviour, flagged rather than fixed here.
+ 2. 2026-27 CEILING. CAP_CEILING gains 2026 = $104.0M and 2027 = $113.5M,
+    the published 2025 MOU figures, matching goalie_value_engine.py. Only
+    CAP_CEILING[t0] is ever read (D11), so 2027 matters only to a 2027
+    page. Future seasons still grow at 3% from t0 (D11 unchanged).
+ 3. ONE-SEASON-LEFT PATH LABEL. With one contract season left, the curve
+    was asked for zero future years, the lag guard skipped both bases, and
+    the page was tagged flat_no_curve although the curve was available
+    (and was used for the RFA control years). 1,765 of the 1,976
+    flat_no_curve skater pages on the 2018-2025 panel were this.
+    ratio_path() now probes the curve at horizon 1 and returns only the
+    k=0 ratio, which is exactly 1.0 on every path, so no value can move --
+    only the tag does.
 =============================================================================
  WHAT CHANGED IN v1.2 (the multiplier had a ceiling but no floor)
  ----------------------------------------------------------------
@@ -182,6 +218,9 @@ CAP_CEILING = {             # realized ceilings -- used ONLY for t0 itself
     2015: 71.4e6, 2016: 73.0e6, 2017: 75.0e6, 2018: 79.5e6, 2019: 81.5e6,
     2020: 81.5e6, 2021: 81.5e6, 2022: 82.5e6, 2023: 83.5e6, 2024: 88.0e6,
     2025: 95.5e6,
+    2026: 104.0e6, 2027: 113.5e6,   # v1.3: published in the 2025 MOU; same
+                                    # figures as goalie_value_engine.py. Read
+                                    # only as the t0 ceiling of a 2026/2027 page.
 }
 CAP_GROWTH = 0.03           # D11: future ceilings grow 3%/yr from t0's ceiling
 
@@ -355,6 +394,73 @@ def league_min_path(season):
     return LEAGUE_MIN_SALARY[last] * (1 + MIN_GROWTH) ** (season - last)
 
 
+# ---------------------------------------------------------------------------
+# v1.3: the information date and the contract chain
+# ---------------------------------------------------------------------------
+# Confidential vendor file, read-only. The spine carries no signing date, so
+# it is joined from here by contract_id (the key player_dashboard.py uses).
+F_PP_CONTRACTS = Path(os.environ["PUCKPEDIA_CONTRACTS_XLSX"])
+
+
+def page_date(t0):
+    """The date a season-t0 page comes into force: July 1 of t0. Every input
+    the page reads (seasons t0-1 and earlier) is complete by then."""
+    return pd.Timestamp(year=int(t0), month=7, day=1)
+
+
+def check_as_of(t0, as_of):
+    """Default the as-of date to the page date, and refuse a date outside the
+    page's window [July 1 of t0, June 30 of t0+1]. Earlier, the page's own
+    inputs are not all complete; later, the next page's inputs exist and
+    valuing on this page would ignore them."""
+    as_of = page_date(t0) if as_of is None else pd.Timestamp(as_of)
+    assert page_date(t0) <= as_of < page_date(t0 + 1), (
+        f"as-of date {as_of.date()} is outside the {t0} page's window "
+        f"({page_date(t0).date()} to "
+        f"{(page_date(t0 + 1) - pd.Timedelta(days=1)).date()})")
+    return as_of
+
+
+def load_signing_dates():
+    """contract_id -> PuckPedia signing date (NaT where not on file)."""
+    pp = pd.read_excel(F_PP_CONTRACTS, usecols=["contract_id", "signing_date"])
+    assert pp["contract_id"].is_unique, "PuckPedia export: duplicate contract_id"
+    dates = pd.to_datetime(pp["signing_date"], errors="coerce")
+    return dict(zip(pp["contract_id"].astype(int), dates))
+
+
+def contract_chain(spine, player_id, t0, signed, as_of):
+    """The contracts a team holds for this player as of `as_of`, in order.
+
+    Starts at the contract with a spine row in season t0 (the one being
+    played; the first one found, exactly as before v1.3). Then repeatedly
+    adds the contract that STARTS the season after the chain ends -- an
+    extension -- provided its signing date is on or before `as_of`.
+      * join key: contract_id within this player's spine rows
+      * contiguity: an extension must start at end + 1; a later contract
+        after a gap is not an extension of this one and is never added
+      * missing signing date: never added (conservative, cannot be dated)
+      * two candidates starting the same season (duplicate records): the
+        lower contract_id, so the choice is deterministic
+    Returns [] when no contract is active in t0."""
+    rows = spine[spine["player_id"] == player_id]
+    active = rows[rows["season_start"] == t0]
+    if active.empty:
+        return []
+    first = rows.groupby("contract_id")["season_start"].min()
+    last = rows.groupby("contract_id")["season_start"].max()
+    chain = [int(active.iloc[0]["contract_id"])]
+    while True:
+        starts_next = first.index[first == last[chain[-1]] + 1]
+        nxt = sorted(int(c) for c in starts_next
+                     if int(c) not in chain
+                     and pd.notna(signed.get(int(c), pd.NaT))
+                     and signed[int(c)] <= as_of)
+        if not nxt:
+            return chain
+        chain.append(nxt[0])
+
+
 class SkaterProjector:
     """Builds everything once, then answers per-player projection queries."""
 
@@ -418,6 +524,9 @@ class SkaterProjector:
         sk["bd"] = pd.to_datetime(sk["birthdate"], errors="coerce")
         self.spine = sk
 
+        # ---- v1.3: signing dates, for deciding which extensions are known --
+        self.signed = load_signing_dates()
+
     # ---- building blocks ---------------------------------------------------
     def anchor(self, nk, t0):
         """Trailing 60/40 weighted raw WAR at season t0 (Layer 1 rule).
@@ -460,6 +569,17 @@ class SkaterProjector:
         information set the anchor already uses. The returned ratios are
         renormalized so k=0 (the t0 season) keeps ratio 1.0 exactly,
         preserving the k=0 == Layer 1 identity."""
+        # v1.3 ONE-SEASON-LEFT LABEL. With horizon 0 the lag guard below
+        # skips both bases (the walk cannot reach k=1), so the page used to
+        # be tagged flat_no_curve even when the curve was available. Probe
+        # at horizon 1 for the TAG only and return the k=0 ratio, which is
+        # exactly 1.0 on every path -- the value cannot change.
+        if horizon == 0:
+            ratios, path = self.ratio_path(nk, age, 1)
+            assert ratios[0] == 1.0, "k=0 ratio must be exactly 1.0"
+            self.last_ratio_floored = self.last_ratio_floored[:1]
+            self.last_raw_ratios = self.last_raw_ratios[:1]
+            return ratios[:1], path
         flat = [1.0] * (horizon + 1)
         self.last_ratio_floored = []      # item 1.3: cleared on every entry
         self.last_raw_ratios = []
@@ -544,18 +664,28 @@ class SkaterProjector:
         return 1.0 if k == 0 else 0.0
 
     # ---- the main query -----------------------------------------------------
-    def project_contract(self, player_id, valuation_season):
-        """All remaining contract seasons for this player, valued from the
-        standpoint of `valuation_season` (t0). Returns a DataFrame with one
-        row per season k = 0..end-of-contract."""
-        rows = self.spine[(self.spine["player_id"] == player_id)
-                          & (self.spine["season_start"] >= valuation_season)]
-        # the contract active AT t0 (guards against a future extension's rows)
-        active = rows[rows["season_start"] == valuation_season]
-        if active.empty:
+    def project_contract(self, player_id, valuation_season, as_of=None):
+        """All remaining seasons of the contract active at t0, plus every
+        extension signed on or before `as_of` (v1.3; default July 1 of t0),
+        valued from the standpoint of `valuation_season` (t0). Returns a
+        DataFrame with one row per season k = 0..end of the chain."""
+        as_of = check_as_of(valuation_season, as_of)
+        chain = contract_chain(self.spine, player_id, valuation_season,
+                               self.signed, as_of)
+        if not chain:
             return pd.DataFrame()
-        cid = active.iloc[0]["contract_id"]
-        rows = rows[rows["contract_id"] == cid].sort_values("season_start")
+        cid = chain[0]                    # the contract being played in t0
+        rows = (self.spine[self.spine["contract_id"].isin(chain)
+                           & (self.spine["season_start"] >= valuation_season)]
+                .sort_values("season_start"))
+        # GUARD: k is the row position, so the chain must give exactly one
+        # row per consecutive season. A duplicate season row would shift
+        # every later season's discount, survival and cap path by one.
+        ss = rows["season_start"].to_numpy()
+        assert len(ss) and ss[0] == valuation_season and (
+            np.diff(ss) == 1).all(), (
+            f"player {player_id} t0={valuation_season}: contract chain "
+            f"{chain} does not give one row per consecutive season: {list(ss)}")
 
         nk = rows.iloc[0]["nk"]
         a, src = self.anchor(nk, valuation_season)
@@ -599,7 +729,13 @@ class SkaterProjector:
             val = expected_floored_value(val_raw, _sd_val, lm)   # D10 floor
             out.append({
                 "player_id": player_id, "full_name": r["full_name"],
-                "contract_id": cid, "season_start": season, "k": k,
+                # v1.3: each row carries its own contract; the active one
+                # is kept alongside so callers can tell extension rows apart
+                "contract_id": int(r["contract_id"]),
+                "active_contract_id": cid,
+                "is_extension": int(r["contract_id"]) != cid,
+                "as_of": as_of.date().isoformat(),
+                "season_start": season, "k": k,
                 "valuation_season": valuation_season, "age_at_valuation": age,
                 "anchor_war": a, "anchor_source": src, "path": path,
                 "decay_ratio": ratios[k], "multiplier_applied": mult,

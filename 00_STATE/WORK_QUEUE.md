@@ -9,6 +9,12 @@
 
 ## Work queue
 
+**2026-09-13 — 2026-27 page, D28 extensions, aging-curve audit.** Done: the 2026-27 page is live in the panel and dashboard ($104.0M ceiling, reads 2025-26); signed extensions count from their signing date (D28), including in-season dashboard variants; the one-season-left curve label is fixed. Follow-ups, in order:
+1. **Refresh the PuckPedia contract export** (current one ends 2026-05-21) and re-run `contract_npv_panel.py` → `player_dashboard.py`. The 2026-27 page is missing all summer-2026 signings until then.
+2. **Aging-curve pool decision** (deliberate revisit of the locked curve): whether to admit first seasons to the comparables pool, base first-year players on their first qualifying season, and/or pool adjacent ages at the thin ends. Options and evidence required: `40_DOCS/Aging_Curve_Coverage_Audit.md`.
+3. **D11 vs the published cap schedule** for t0 ≥ 2025 (STANDING_FLAGS). Decide before any 2025-26 or 2026-27 valuation is cited.
+4. **Phase 4 trade scoring** must call `npv(pid, t0, as_of=trade_date)` so extensions signed before a trade are in the asset.
+
 **Target-specific aging yardstick comparison completed (2026-09-10).** The tested median-target-distance rule slightly increased errors in whole-career holdout and historical training windows. Retain the shared production scale; no broader claim that it is optimal. See `40_DOCS/Aging_Yardstick_Comparison.md`. New follow-up: review the Erik Gustafsson / Erik Gustafsson 88 career-key collision in the aging input and implement an identity correction only after checking downstream effects. The comparison excluded that career equally from both alternatives; production remains unchanged.
 
 

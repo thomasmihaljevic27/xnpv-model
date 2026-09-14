@@ -127,7 +127,7 @@ details summary { cursor: pointer; font-weight: 600; }
 
   <section class="card">
     <h2>xNPV by valuation page</h2>
-    <p class="cap">Each step is one valuation page, in force from July 1 of its season until the next page. Circles mark contract signings, triangles mark trades. Click anywhere on the chart to value the player on that date.</p>
+    <p class="cap">Each step is one valuation page, in force from July 1 of its season until the next page. An extension signed during a season starts a new step on its signing date. Circles mark contract signings, triangles mark trades. Click anywhere on the chart to value the player on that date.</p>
     <div id="npvChart" class="chart"></div>
     <div class="legend" id="npvLegend"></div>
     <h3>Bacon WAR by season</h3>
@@ -145,7 +145,7 @@ details summary { cursor: pointer; font-weight: 600; }
 
   <section class="card">
     <h2 id="bdTitle">What makes up this xNPV</h2>
-    <p class="cap">Contract seasons: present value = (survival × projected value − cap hit) × discount, with discount = 1.03<sup>−k</sup> and survival 1 in the valuation season. RFA control rows come from rfa_terminal_value.py: projected value against the qualifying-offer cost, carried by the qualify-rate chain shown in the survival column (goalies: no qualify gates, survival 1), then discounted.</p>
+    <p class="cap">Contract and extension seasons: present value = (survival × projected value − cap hit) × discount, with discount = 1.03<sup>−k</sup> and survival 1 in the valuation season. RFA control rows come from rfa_terminal_value.py: projected value against the qualifying-offer cost, carried by the qualify-rate chain shown in the survival column (goalies: no qualify gates, survival 1), then discounted.</p>
     <div class="tablewrap" id="breakdown"></div>
   </section>
 
@@ -158,9 +158,9 @@ details summary { cursor: pointer; font-weight: 600; }
   <section class="card notes">
     <h2>How to read this</h2>
     <p><strong>The model re-values once per season.</strong> The page for a season reads only seasons that finished before it: the two prior seasons of WAR for skaters, the 50/30/20 blend of the three prior seasons for goalies. All of those are complete by July 1, so a page is in force from July 1 of its season to June 30 of the next. Picking a date picks the page in force that day. Production in the current season is not used until the following July, so a February trade is valued on the page built before that season began. Mid-season proration is not built yet.</p>
-    <p><strong>Why a signing date can show the old contract.</strong> An extension signed during a season does not start until the next one. On the signing date, the page in force still values the contract being played out, including its RFA control years where they apply. The new contract's first page reads the season in which it was signed, so that page knows more than the team did at signing. The contract panel flags these cases.</p>
+    <p><strong>Extensions count from their signing date.</strong> A page is valued as of July 1 of its season and includes every extension signed by then. An extension signed later in the season takes effect on its signing date: from that day the page values the contract being played plus the extension, and any RFA control years move to the end of the extension (there are none if it runs into UFA years). The contract being played is not gated on its signing date, so a deal signed in August is on that season's page from July 1. The contract panel flags these cases.</p>
     <p><strong>What the line is and is not.</strong> The pages come from the validation panel (contract_npv_panel.csv). Every page is an ex-ante valuation. The sequence shows how the model's view of a player updates as production arrives. It is a diagnostic, not a score for historical trades.</p>
-    <p><strong>Not shown.</strong> Draft-pick and non-roster-prospect values are not priced here. Players without a priced page from 2018-19 to 2025-26 are not listed. Skater WAR bars come from WAR_with_age.csv, with team splits summed. Goalie WAR comes from Goalies_WAR.csv, matched by cleaned name. The WAR chart is context; the projection's own inputs are in the breakdown table.</p>
+    <p><strong>Not shown.</strong> Draft-pick and non-roster-prospect values are not priced here. Players without a priced page from 2018-19 to 2026-27 are not listed. Contracts come from the May 21, 2026 PuckPedia export, so deals signed in summer 2026 are not on the 2026-27 page yet. Skater WAR bars come from WAR_with_age.csv, with team splits summed. Goalie WAR comes from Goalies_WAR.csv, matched by cleaned name. The WAR chart is context; the projection's own inputs are in the breakdown table.</p>
     <p><strong>Confidential.</strong> This file embeds PuckPedia contract and trade data. Keep it on this machine.</p>
   </section>
 </div>
@@ -170,7 +170,7 @@ details summary { cursor: pointer; font-weight: 600; }
 <script>
 "use strict";
 const P = DATA.players, TR = DATA.trades, META = DATA.meta;
-const DOM_START = 2015, DOM_END = 2026;     // x-domain: Jul 1 2015 .. Jul 1 2026
+const DOM_START = 2015, DOM_END = 2027;     // x-domain: Jul 1 2015 .. Jul 1 2027
 const $ = id => document.getElementById(id);
 
 // ---------- tiny DOM helpers (all text goes through textContent) ----------
@@ -218,7 +218,7 @@ const ordinal = n => n + (["th","st","nd","rd"][((n % 100) - 20) % 10] || ["th",
 // and contract_npv._npv_goalie().
 const PATH_GLOSS = {
   curve: "Aging-curve path applied to the trailing-WAR anchor.",
-  flat_no_curve: "No aging-curve match for this player and age, so the anchor is held flat.",
+  flat_no_curve: "No aging-curve match: no 20+ GP season at age−1 or age−2, so the anchor is held flat.",
   flat_low_curve_base: "Curve base at or below the ratio-construction floor, so the anchor is held flat.",
   replacement_reversion: "Negative anchor: the D12 v3 replacement-reversion multiplier applies.",
   goalie_flat_503020: "Goalie: 50/30/20 trailing WAR, shrunk toward league average, held flat.",
@@ -232,9 +232,29 @@ const state = { pid: null, date: null, event: null };
 const player = () => P[state.pid];
 const pagesOf = pl => Object.keys(pl.pages).map(Number).sort((a, b) => a - b);
 
+// A page is valued as of July 1 of its season. An extension signed later in
+// that season starts a variant (in the page's "v" list, with a "from" date);
+// on any date the latest variant already signed is the one in force.
+function pageAt(pl, t0, iso) {
+  const base = pl.pages[t0];
+  if (!base) return null;
+  let pg = base;
+  for (const v of base.v || []) if (v.from <= iso) pg = v;
+  return pg;
+}
+// every page and variant in date order, as { t, from, pg }
+function pageList(pl) {
+  const out = [];
+  for (const t of pagesOf(pl)) {
+    const b = pl.pages[t];
+    out.push({ t, from: `${t}-07-01`, pg: b });
+    for (const v of b.v || []) out.push({ t, from: v.from, pg: v });
+  }
+  return out;
+}
 function currentPage() {
   const t0 = pageFor(state.date);
-  return { t0, pg: player().pages[t0] || null };
+  return { t0, pg: pageAt(player(), t0, state.date) };
 }
 
 // ---------- tooltip ----------
@@ -287,7 +307,7 @@ function drawNPV() {
   const W = Math.max(box.clientWidth, 320), H = 320;
   const m = { l: 60, r: 14, t: 16, b: 78 };
   const X = xScale(W, m), plotB = H - m.b;
-  const vals = ts.map(t => pl.pages[t].npv);
+  const entries = pageList(pl), vals = entries.map(e => e.pg.npv);
   let ticks = niceTicks(Math.min(0, ...vals), Math.max(0, ...vals, 1), 5);
   const lo = ticks[0], hi = ticks[ticks.length - 1];
   const Y = v => m.t + (hi - v) / (hi - lo) * (plotB - m.t);
@@ -311,8 +331,13 @@ function drawNPV() {
   for (const run of runs) {
     let d = "";
     run.forEach((t, i) => {
-      const xa = X(Date.UTC(t, 6, 1)), xb = X(Date.UTC(t + 1, 6, 1)), y = Y(pl.pages[t].npv);
-      d += `${i ? "L" : "M"}${xa},${y}L${xb},${y}`;
+      // one step per page, split where an in-season extension variant begins
+      const segs = entries.filter(e => e.t === t);
+      segs.forEach((e, j) => {
+        const xa = X(parseISO(e.from)), y = Y(e.pg.npv);
+        const xb = X(j + 1 < segs.length ? parseISO(segs[j + 1].from) : Date.UTC(t + 1, 6, 1));
+        d += `${i || j ? "L" : "M"}${xa},${y}L${xb},${y}`;
+      });
     });
     const xs = X(Date.UTC(run[0], 6, 1)), xe = X(Date.UTC(run[run.length - 1] + 1, 6, 1));
     svg.append(sv("path", { d: `M${xs},${Y(0)}` + d.replace(/^M/, "L") + `L${xe},${Y(0)}Z`,
@@ -322,7 +347,7 @@ function drawNPV() {
   }
 
   // selected-date rule
-  const { t0: selT } = currentPage();
+  const { pg: selPg } = currentPage();
   const dx = X(parseISO(state.date));
   if (dx >= m.l && dx <= W - m.r) {
     svg.append(sv("line", { x1: dx, x2: dx, y1: m.t - 6, y2: plotB + 58, stroke: "var(--ink2)", "stroke-width": 1 }));
@@ -336,30 +361,30 @@ function drawNPV() {
   svg.append(overlay);
 
   // page dots (surface ring, focusable)
-  const dotByT = {};
-  for (const t of ts) {
-    const pg = pl.pages[t], sel = t === selT;
+  // one dot per page and per in-season extension variant, at its start date
+  for (const { t, from, pg } of entries) {
+    const sel = pg === selPg, cx = X(parseISO(from)), cy = Y(pg.npv);
     const g = sv("g", { tabindex: 0, role: "button", style: "cursor: pointer; outline: none",
-      "aria-label": `${seasonLbl(t)} page: ${fmtM(pg.npv)}` });
-    g.append(sv("circle", { cx: X(Date.UTC(t, 6, 1)), cy: Y(pg.npv), r: 12, fill: "transparent" }));
-    const c = sv("circle", { cx: X(Date.UTC(t, 6, 1)), cy: Y(pg.npv), r: sel ? 6 : 4,
+      "aria-label": `${seasonLbl(t)} page${pg.from ? ` from ${fmtDate(pg.from)}` : ""}: ${fmtM(pg.npv)}` });
+    g.append(sv("circle", { cx, cy, r: 12, fill: "transparent" }));
+    const c = sv("circle", { cx, cy, r: sel ? 6 : 4,
       fill: "var(--s1)", stroke: "var(--surface)", "stroke-width": 2 });
-    g.append(c); dotByT[t] = c;
-    const show = (x, y) => showTip(pageTip(t), x, y);
+    g.append(c);
+    const show = (x, y) => showTip(pageTip(t, pg), x, y);
     g.addEventListener("pointerenter", e => show(e.clientX, e.clientY));
     g.addEventListener("pointermove", e => show(e.clientX, e.clientY));
     g.addEventListener("pointerleave", hideTip);
     g.addEventListener("focus", () => show(...tipFor(c)));
     g.addEventListener("blur", hideTip);
-    g.addEventListener("click", () => setDate(`${t}-10-01`));
-    g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setDate(`${t}-10-01`); } });
+    g.addEventListener("click", () => setDate(from));
+    g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setDate(from); } });
     svg.append(g);
   }
   overlay.addEventListener("pointermove", e => {
     const r = svg.getBoundingClientRect(), px = (e.clientX - r.left) * W / r.width;
-    const ms = X.inv(px), t = pageFor(isoOf(ms));
+    const ms = X.inv(px), iso = isoOf(ms), t = pageFor(iso), pg = pageAt(pl, t, iso);
     hair.setAttribute("x1", px); hair.setAttribute("x2", px); hair.setAttribute("visibility", "visible");
-    showTip(pl.pages[t] ? pageTip(t, isoOf(ms)) : [el("div", { class: "tl", text: `${fmtDate(isoOf(ms))}: no page (${seasonLbl(t)})` })], e.clientX, e.clientY);
+    showTip(pg ? pageTip(t, pg, iso) : [el("div", { class: "tl", text: `${fmtDate(iso)}: no page (${seasonLbl(t)})` })], e.clientX, e.clientY);
   });
   overlay.addEventListener("pointerleave", () => { hair.setAttribute("visibility", "hidden"); hideTip(); });
   overlay.addEventListener("click", e => {
@@ -400,7 +425,7 @@ function drawNPV() {
   const lg = $("npvLegend"); lg.textContent = "";
   const key = (svgInner, text) => { const s = sv("svg", { width: 18, height: 12 }); svgInner.forEach(n => s.append(n)); return el("span", {}, s, text); };
   lg.append(
-    key([sv("line", { x1: 1, x2: 17, y1: 6, y2: 6, stroke: "var(--s1)", "stroke-width": 2 })], "xNPV (contract + RFA control years)"),
+    key([sv("line", { x1: 1, x2: 17, y1: 6, y2: 6, stroke: "var(--s1)", "stroke-width": 2 })], "xNPV (contract + signed extensions + RFA control years)"),
     key([sv("line", { x1: 9, x2: 9, y1: 0, y2: 12, stroke: "var(--ink2)", "stroke-width": 1 })], "Selected date"),
     key([sv("circle", { cx: 9, cy: 6, r: 4.5, fill: "var(--surface)", stroke: "var(--ink2)", "stroke-width": 1.5 })], "Contract signed"),
     key([sv("path", { d: "M9,1L14,10L4,10Z", fill: "var(--surface)", stroke: "var(--ink2)", "stroke-width": 1.5 })], "Trade"),
@@ -416,14 +441,14 @@ function wireEvent(g, tipNodes, onPick) {
   g.addEventListener("click", onPick);
   g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onPick(); } });
 }
-function pageTip(t, hoverIso) {
-  const pg = player().pages[t];
+function pageTip(t, pg, hoverIso) {
   return [
     el("div", { class: "tv", text: fmtM(pg.npv) }),
-    el("div", { class: "tl", text: `${seasonLbl(t)} page` + (hoverIso ? ` · in force on ${fmtDate(hoverIso)}` : "") }),
+    el("div", { class: "tl", text: `${seasonLbl(t)} page` + (pg.from ? ` from ${fmtDate(pg.from)}` : "") + (hoverIso ? ` · in force on ${fmtDate(hoverIso)}` : "") }),
     el("div", { class: "tl", text: `Contract seasons ${fmtM(pg.c)} · RFA control ${fmtM(pg.t)}` }),
+    (pg.ext || []).length ? el("div", { class: "tl", text: `Includes extension #${pg.ext.join(", #")}` }) : null,
     el("div", { class: "tl", text: `${pg.rem} season${pg.rem === 1 ? "" : "s"} left · ${pg.path}` }),
-  ];
+  ].filter(Boolean);
 }
 function contractTip(c) {
   return [el("div", { class: "tv", text: `${c.len} × ${fmtM(c.cap)}` }),
@@ -530,9 +555,14 @@ function renderValuation() {
     c ? ` (${c.len} × ${fmtM(c.cap)}, ${seasonLbl(c.start)} to ${seasonLbl(c.start + c.len - 1)})` : "");
   if (pg.elc) head.append(el("span", { class: "badge", text: "ELC season" }));
   box.append(head);
+  for (const id of pg.ext || []) {
+    const e = contractById(id);
+    box.append(el("div", { class: "tl" }, `plus extension #${id}`,
+      e ? ` (${e.len} × ${fmtM(e.cap)}, ${seasonLbl(e.start)} to ${seasonLbl(e.start + e.len - 1)}, signed ${fmtDate(e.signed)})` : ""));
+  }
   const tiles = el("div", { class: "tiles" });
   const tile = (l, v, d) => tiles.append(el("div", { class: "tile" }, el("div", { class: "l", text: l }), el("div", { class: "v", text: v }), d ? el("div", { class: "d", text: d }) : null));
-  tile("Contract seasons", fmtM(pg.c), `${pg.rem} season${pg.rem === 1 ? "" : "s"} left from ${seasonLbl(t0)}`);
+  tile("Contract seasons", fmtM(pg.c), `${pg.rem} season${pg.rem === 1 ? "" : "s"} left from ${seasonLbl(t0)}${(pg.ext || []).length ? ", extension included" : ""}`);
   tile("RFA control years", fmtM(pg.t), pg.t ? "Terminal value at expiry" : "None (UFA expiry, or not qualified)");
   if (pg.anchor != null) tile("Anchor WAR", fmtNum(pg.anchor, 2), `Source: ${pg.src ?? "—"}`);
   if (pg.age != null) tile("Age at valuation", String(pg.age), "Feb 1 of the valuation season");
@@ -581,7 +611,7 @@ function renderTrades() {
   if (!pl.trades.length) { box.append(el("p", { class: "empty", text: "No trades in the 2018-2026 export." })); return; }
   pl.trades.forEach((tr, i) => {
     const sel = state.event && state.event.type === "trade" && state.event.i === i;
-    const t0 = tr.date ? pageFor(tr.date) : null, pg = t0 != null ? pl.pages[t0] : null;
+    const t0 = tr.date ? pageFor(tr.date) : null, pg = t0 != null ? pageAt(pl, t0, tr.date) : null;
     const item = el("div", { class: "titem" + (sel ? " sel" : ""), tabindex: 0, role: "button" },
       el("span", { class: "dt", text: fmtDate(tr.date) }),
       el("span", {}, `${tr.from} → ${tr.to}`, tr.ret ? el("span", { class: "badge", text: `${fmtM(tr.ret)} retained` }) : null),
@@ -627,31 +657,39 @@ function contractDetail(box, c) {
   row("Clause", c.clause || "None recorded");
   box.append(dl);
 
-  const tSign = pageFor(state.date), pgSign = pl.pages[tSign];
+  const tSign = pageFor(state.date), pgSign = pageAt(pl, tSign, state.date);
+  // a page prices this contract if it is the one being played or a signed extension
+  const pricesIt = pg => !!pg && (pg.cid === c.id || (pg.ext || []).includes(c.id));
   const p1 = el("p");
   if (!c.signed) p1.append(`No signing date is on file, so the date is set to July 1 of the first season.`);
   else if (pgSign) {
     p1.append(`On the signing date, the page in force is ${seasonLbl(tSign)}. It values `,
-      el("strong", { text: pgSign.cid === c.id ? "this contract" : `contract #${pgSign.cid}, the one being played out` }),
+      el("strong", { text: pgSign.cid === c.id ? "this contract"
+        : pricesIt(pgSign) ? `contract #${pgSign.cid} together with this extension`
+        : `contract #${pgSign.cid}, the one being played out` }),
       ` at ${fmtM(pgSign.npv)}.`);
   } else p1.append(noPageReason(tSign));
   box.append(p1);
 
-  // the first page that prices THIS contract, and whether it post-dates signing
-  const own = pagesOf(pl).filter(t => pl.pages[t].cid === c.id);
-  if (own.length) {
-    const tf = own[0], pf = pl.pages[tf];
-    if (c.signed && tf > tSign) {
-      const w = el("div", { class: "warn" },
-        `This contract is first priced on the ${seasonLbl(tf)} page, at ${fmtM(pf.npv)}. That page reads the ${seasonLbl(tf - 1)} season, which had not finished when the deal was signed. It knows more than the team did, so it is not a signing-date valuation. `);
-      const b = el("button", { type: "button", class: "linkish", text: `Show the ${seasonLbl(tf)} page` });
-      b.addEventListener("click", () => setDate(`${tf}-10-01`, true));
-      w.append(b); box.append(w);
-    } else if (tf === tSign) {
-      box.append(el("p", { class: "note", text: "The page in force on the signing date prices this contract, so it is a signing-date valuation." }));
-    }
+  // the first page (or in-season variant) that prices THIS contract
+  const own = pageList(pl).filter(e => pricesIt(e.pg));
+  if (!own.length) {
+    box.append(el("p", { class: "note", text: `No page in the ${seasonLbl(META.first)} to ${seasonLbl(META.last)} panel prices this contract.` }));
+  } else if (!c.signed) {
+    // nothing to compare the first page against
+  } else if (own[0].from < c.signed) {
+    box.append(el("div", { class: "warn", text: `This contract is on the ${seasonLbl(own[0].t)} page from ${fmtDate(own[0].from)}, before it was signed. The contract being played in a season is not gated on its signing date; only extensions are.` }));
+  } else if (pricesIt(pgSign)) {
+    box.append(el("p", { class: "note", text: pgSign.cid === c.id
+      ? "The page in force on the signing date prices this contract, so it is a signing-date valuation."
+      : "From its signing date, the page in force includes this contract as an extension, so it is a signing-date valuation." }));
   } else {
-    box.append(el("p", { class: "note", text: "No page in the 2018-19 to 2025-26 panel prices this contract." }));
+    const f = own[0];
+    const w = el("div", { class: "warn" },
+      `This contract is first priced on the ${seasonLbl(f.t)} page, at ${fmtM(f.pg.npv)}. That page reads the ${seasonLbl(f.t - 1)} season, which had not finished when the deal was signed. It knows more than the team did, so it is not a signing-date valuation. `);
+    const b = el("button", { type: "button", class: "linkish", text: `Show the ${seasonLbl(f.t)} page` });
+    b.addEventListener("click", () => setDate(f.from, true));
+    w.append(b); box.append(w);
   }
 }
 function tradeDetail(box, leg) {
@@ -667,7 +705,7 @@ function tradeDetail(box, leg) {
     for (const a of list) {
       const li = el("li");
       if (a.k === "P") {
-        const other = P[a.pid], pg = other ? other.pages[t0] : null;
+        const other = P[a.pid], pg = other ? pageAt(other, t0, leg.date) : null;
         if (String(a.pid) === state.pid) li.append(el("span", { class: "me", text: a.name }));
         else if (other) { const b = el("button", { type: "button", class: "linkish", text: a.name }); b.addEventListener("click", () => selectPlayer(String(a.pid), true)); li.append(b); }
         else li.append(a.name);
@@ -697,7 +735,7 @@ function renderBreakdown() {
   for (const [s, k, rt, w, v, c, sv_, d, pv] of pg.rows) {
     body.append(el("tr", {},
       el("td", { text: seasonLbl(s) }), el("td", { class: "num", text: k }),
-      el("td", { text: rt === "C" ? "Contract" : "RFA control (QO)" }),
+      el("td", { text: rt === "C" ? "Contract" : rt === "E" ? "Extension" : "RFA control (QO)" }),
       el("td", { class: "num", text: fmtNum(w, 2) }), el("td", { class: "num", text: fmtD(v) }),
       el("td", { class: "num", text: fmtD(c) }), el("td", { class: "num", text: fmtNum(sv_, 3) }),
       el("td", { class: "num", text: fmtNum(d, 3) }), el("td", { class: "num", text: fmtD(pv) })));
@@ -709,19 +747,19 @@ function renderBreakdown() {
 // ---------- all pages table (the chart's table twin) ----------
 function renderPagesTable() {
   const tb = $("pagesTable"); tb.textContent = "";
-  const pl = player(), { t0: selT } = currentPage();
+  const pl = player(), { pg: selPg } = currentPage();
   const hdr = ["Page", "In force from", "Contract", "Seasons left", "Path", "Contract part", "RFA part", "xNPV"];
   tb.append(el("thead", {}, el("tr", {}, ...hdr.map((h, i) => el("th", { class: i >= 5 || i === 3 ? "num" : null, text: h })))));
   const body = el("tbody");
-  for (const t of pagesOf(pl)) {
-    const pg = pl.pages[t];
-    const tr = el("tr", { class: "click" + (t === selT ? " sel" : ""), tabindex: 0 },
-      el("td", { text: seasonLbl(t) }), el("td", { text: fmtDate(`${t}-07-01`) }),
-      el("td", { text: `#${pg.cid}${pg.elc ? " (ELC)" : ""}` }), el("td", { class: "num", text: pg.rem }),
+  for (const { t, from, pg } of pageList(pl)) {
+    const ext = (pg.ext || []).length ? ` + #${pg.ext.join(", #")}` : "";
+    const tr = el("tr", { class: "click" + (pg === selPg ? " sel" : ""), tabindex: 0 },
+      el("td", { text: seasonLbl(t) + (pg.from ? " (extension signed)" : "") }), el("td", { text: fmtDate(from) }),
+      el("td", { text: `#${pg.cid}${pg.elc ? " (ELC)" : ""}${ext}` }), el("td", { class: "num", text: pg.rem }),
       el("td", { text: pg.path }), el("td", { class: "num", text: fmtM(pg.c) }),
       el("td", { class: "num", text: fmtM(pg.t) }), el("td", { class: "num", text: fmtM(pg.npv) }));
-    tr.addEventListener("click", () => setDate(`${t}-10-01`));
-    tr.addEventListener("keydown", e => { if (e.key === "Enter") setDate(`${t}-10-01`); });
+    tr.addEventListener("click", () => setDate(from));
+    tr.addEventListener("keydown", e => { if (e.key === "Enter") setDate(from); });
     body.append(tr);
   }
   tb.append(body);
@@ -734,14 +772,19 @@ function render() {
   $("date").value = state.date;
   const { t0, pg } = currentPage();
   $("dateNote").textContent = pg
-    ? `${fmtDate(state.date)} uses the ${seasonLbl(t0)} page, built from seasons through ${seasonLbl(t0 - 1)}.`
+    ? `${fmtDate(state.date)} uses the ${seasonLbl(t0)} page, built from seasons through ${seasonLbl(t0 - 1)}.` +
+      ((pg.ext || []).length ? ` It includes the extension${pg.ext.length > 1 ? "s" : ""} signed by then.` : "")
     : noPageReason(t0);
   renderBio(); renderValuation(); drawNPV(); drawWAR();
   renderContracts(); renderTrades(); renderEvent(); renderBreakdown(); renderPagesTable();
   document.title = `${pl.name} · xNPV player explorer`;
   history.replaceState(null, "", `#pid=${state.pid}&date=${state.date}`);
 }
-function latestDate(pid) { const ts = pagesOf(P[pid]); return `${ts[ts.length - 1]}-10-01`; }
+function latestDate(pid) {
+  // the last page, or its last in-season extension variant
+  const es = pageList(P[pid]), e = es[es.length - 1];
+  return e.pg.from ? e.from : `${e.t}-10-01`;
+}
 function setDate(iso, keepEvent) {
   if (!iso) return;
   state.date = iso;

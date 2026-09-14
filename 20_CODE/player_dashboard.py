@@ -1,6 +1,16 @@
 """
 =============================================================================
- player_dashboard.py   v1.0                        Viewer tool (2026-09-13)
+ player_dashboard.py   v1.1                        Viewer tool (2026-09-13)
+=============================================================================
+ v1.1 (2026-09-13): the 2026-27 page, and extensions from their signing
+ date. A page is valued as of July 1 of its season (contract_npv v1.4
+ includes every extension signed by then). An extension signed LATER in
+ the season changes what the team holds from that day, so the page gets
+ an in-season variant valued with as_of = the signing date, stored under
+ the page's "v" list with its "from" date. The template shows the latest
+ variant already signed on the selected date. Both the base page and
+ every variant pass guard (b); guard (a) applies to the base page, which
+ is the one the panel stores.
 =============================================================================
  WHAT THIS PRODUCES (plain English)
  ----------------------------------
@@ -29,7 +39,7 @@
  WHERE THE xNPV LINE COMES FROM
  ------------------------------
  contract_npv_panel.csv -- the validation panel. For every league-year t0
- from 2018 to 2025, the panel values every contract active that season
+ from 2018 to 2026, the panel values every contract active that season
  using only information available before it. Each "page" is therefore a
  clean ex-ante valuation; the sequence of pages is a diagnostic of how the
  model's view updates, NOT a back-test input (see contract_npv_panel.py).
@@ -43,7 +53,9 @@
      page = d.year      if d is on or after July 1
      page = d.year - 1  otherwise
 
- i.e. the latest page whose inputs were all known on d. A February trade
+ i.e. the latest page whose inputs were all known on d. Within that page,
+ the variant in force is the latest one whose extension was signed on or
+ before d (v1.1). A February trade
  therefore uses the page built at the start of that season, which ignores
  the half-season already played. That is conservative (no look-ahead) and
  is a documented gap: mid-season proration is Phase 4a-ii, not built.
@@ -77,9 +89,9 @@ from dotenv import load_dotenv
 # the page can never drift from the panel's pricing.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from contract_npv import NPVEngine                      # noqa: E402
-from skater_forward_projection import norm_name         # noqa: E402
+from skater_forward_projection import norm_name, page_date   # noqa: E402
 
-SCRIPT_VERSION = "player_dashboard.py v1.0 (2026-09-13)"
+SCRIPT_VERSION = "player_dashboard.py v1.1 (2026-09-13)"
 
 load_dotenv()
 SOURCE_DIR = Path(os.environ["SOURCE_DIR"])
@@ -158,10 +170,54 @@ def build_pages():
     log(f"duplicate player-season pages collapsed (identical values): {n_dup}")
 
     eng = NPVEngine()
-    pages = {}
+
+    def page_dict(d, s, r):
+        """One valuation page (or in-season variant) as the template reads it."""
+        # guard (b): the rows shown in the breakdown add up to the total
+        if abs(d["pv_dollars"].sum() - s["npv_total"]) > GUARD_TOL:
+            raise SystemExit(f"GUARD FAILED: {r.full_name} {int(r.valuation_season)} "
+                             f"(as of {s['as_of']}): detail rows do not sum to npv_total.")
+        first = d[d["row_type"] == "contract"].iloc[0]
+        # the contract the ENGINE is playing out on this page (skater and
+        # goalie branches both carry contract_id on every contract row)
+        cid = int(first["contract_id"])
+        rows = [[int(x.season_start), int(x.k),
+                 # C = contract being played, E = signed extension (v1.1),
+                 # T = RFA control year at the qualifying offer
+                 ("T" if x.row_type != "contract"
+                  else "C" if int(x.contract_id) == cid else "E"),
+                 rnd(x.projected_war, 3), rint(x.value_dollars),
+                 rint(x.cost_dollars), rnd(x.survival, 4),
+                 rnd(x.discount, 4), rint(x.pv_dollars)]
+                for x in d.itertuples(index=False)]
+        return {
+            "npv": rint(s["npv_total"]),
+            "c": rint(s["npv_contract"]),
+            "t": rint(s["npv_terminal"]),
+            "path": s.get("path", ""),
+            "rem": int(s["n_contract_seasons"]),     # includes extension seasons
+            "elc": bool(r.is_elc_season),
+            "cid": cid,
+            "ext": [int(c) for c in s["chain"][1:]],  # extensions included
+            "age": rint(first.get("age_at_valuation")),     # skaters only
+            "anchor": rnd(first.get("anchor_war"), 3),      # skaters only
+            "src": clean(first.get("anchor_source")),       # skaters only
+            "rows": rows,
+        }
+
+    # v1.1 in-season variants: which of a player's later contracts were
+    # signed inside a page's window, i.e. after July 1 of t0 and before
+    # July 1 of t0+1. Keyed on contract_id; first season from both spines.
+    cols = ["player_id", "contract_id", "season_start"]
+    spine_all = pd.concat([eng.sp.spine[cols], eng.gp_spine[cols]])
+    first_season = spine_all.groupby("contract_id")["season_start"].min()
+    contracts_of = spine_all.groupby("player_id")["contract_id"].unique()
+    signed = eng.sp.signed
+
+    pages, n_var = {}, 0
     for r in pages_df.itertuples(index=False):
         pid, t0 = int(r.player_id), int(r.valuation_season)
-        d, s = eng.npv(pid, t0)
+        d, s = eng.npv(pid, t0)                  # as of July 1 of t0
         # guard (a): the engine still prices this page the way the panel did
         if s.get("status") != "ok":
             raise SystemExit(f"GUARD FAILED: panel page {r.full_name} {t0} "
@@ -171,35 +227,31 @@ def build_pages():
             raise SystemExit(f"GUARD FAILED: {r.full_name} {t0}: engine "
                              f"{s['npv_total']:,.0f} vs panel {r.npv_total:,.0f}."
                              " The panel is stale -- re-run contract_npv_panel.py.")
-        # guard (b): the rows shown in the breakdown add up to the total
-        if abs(d["pv_dollars"].sum() - s["npv_total"]) > GUARD_TOL:
-            raise SystemExit(f"GUARD FAILED: {r.full_name} {t0}: detail rows "
-                             "do not sum to npv_total.")
+        base = page_dict(d, s, r)
 
-        first = d[d["row_type"] == "contract"].iloc[0]
-        rows = [[int(x.season_start), int(x.k),
-                 "C" if x.row_type == "contract" else "T",
-                 rnd(x.projected_war, 3), rint(x.value_dollars),
-                 rint(x.cost_dollars), rnd(x.survival, 4),
-                 rnd(x.discount, 4), rint(x.pv_dollars)]
-                for x in d.itertuples(index=False)]
-        pages.setdefault(pid, {})[t0] = {
-            "npv": rint(s["npv_total"]),
-            "c": rint(s["npv_contract"]),
-            "t": rint(s["npv_terminal"]),
-            "path": s.get("path", ""),
-            "rem": int(r.seasons_remaining),
-            "elc": bool(r.is_elc_season),
-            # the contract the ENGINE valued on this page (skater and goalie
-            # branches both carry contract_id on every contract row)
-            "cid": rint(first["contract_id"]),
-            "age": rint(first.get("age_at_valuation")),     # skaters only
-            "anchor": rnd(first.get("anchor_war"), 3),      # skaters only
-            "src": clean(first.get("anchor_source")),       # skaters only
-            "rows": rows,
-        }
+        lo, hi = page_date(t0), page_date(t0 + 1)
+        dates = sorted({signed[int(c)] for c in contracts_of.get(pid, [])
+                        if first_season[c] > t0
+                        and pd.notna(signed.get(int(c), pd.NaT))
+                        and lo < signed[int(c)] < hi})
+        chain_prev, variants = s["chain"], []
+        for dt in dates:
+            dv, sv_ = eng.npv(pid, t0, as_of=dt)
+            # a signing that does not extend the chain (e.g. a contract that
+            # starts after a gap) leaves the page unchanged: no variant
+            if sv_.get("status") != "ok" or sv_["chain"] == chain_prev:
+                continue
+            pv = page_dict(dv, sv_, r)
+            pv["from"] = dt.date().isoformat()
+            variants.append(pv)
+            chain_prev = sv_["chain"]
+        if variants:
+            base["v"] = variants
+            n_var += len(variants)
+        pages.setdefault(pid, {})[t0] = base
     log(f"pages re-run through the engine and matched the panel: "
         f"{sum(len(v) for v in pages.values()):,}")
+    log(f"in-season extension variants added: {n_var:,}")
     names = (pages_df.drop_duplicates("player_id")
              .set_index("player_id")[["full_name", "position"]])
     return pages, names, n_dup
