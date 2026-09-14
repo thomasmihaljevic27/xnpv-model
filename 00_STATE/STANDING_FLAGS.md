@@ -1,5 +1,13 @@
 # STANDING FLAGS & OPEN QUESTIONS — NHL Trade Market Efficiency
 
+## Ground-up review follow-ups (2026-09-14b; recommendations only)
+
+- Market experiment samples use contract start year rather than signing date (`anchor_shrink_test.rate_sample`, inherited by `market_line_search`). Early extensions can expose unavailable performance; quantify affected rows before treating results as signing-date out-of-sample evidence.
+- First forecast-season uncertainty is zero in `_proj_sd_war(0)`; later uncertainty is held flat beyond year three. Both need recalibration for a forecasting model.
+- Applying a new-signing term-price equation to remaining years on existing contracts requires separate validation.
+- The salary-informed forecast diagnostic is not an accuracy ceiling for statistics-only models or an identified private-information estimate. Recent rolling experiments retain full-history aging fits.
+- Full proposed architecture and qualifications: `40_DOCS/Ground_Up_Player_Model_Review.md`. No production decision changed.
+
 <!-- Extracted from PROJECT_STATE.md on 2026-09-09 (v3.2 restructure). Pure move, no content change. -->
 <!-- Karl's identification axes to watch on every design choice, the triaged open
      questions, and the original-conflicts resolution record. A flag is a standing

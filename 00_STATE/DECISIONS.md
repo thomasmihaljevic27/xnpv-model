@@ -1,5 +1,7 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-14b:** Ground-up review requested with all locked assumptions open for discussion. Saved `40_DOCS/Ground_Up_Player_Model_Review.md`, added signing-date/uncertainty/remaining-term review flags and `sessions/2026-09-14b.md`. No statistical rerun, production change or decision adoption. Existing experiment results remain candidate evidence, not a fully historical whole-chain validation.
+
 <!-- Extracted from PROJECT_STATE.md on 2026-09-09 (v3.2 restructure). Pure move, no content change. -->
 <!-- The locked decision record (D1-D27 and the review-stage items) plus the running
      change log for the state files. Precedence: this file and PROJECT_STATE.md are the
