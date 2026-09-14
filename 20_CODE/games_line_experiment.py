@@ -1,45 +1,42 @@
-"""games_line_experiment.py -- price availability, not only wins.
+"""games_line_experiment.py -- price availability and term, not only wins.
 
 Test only; nothing in production changes (engine patched in-process, hashes
-checked). Companion to pipeline_experiment.py and market_line_experiment.py.
+checked). Companion to pipeline_experiment.py and market_line_search.py.
 
 WHY
 ---
 market_line_experiment.py found that a cap-hit line with the player's games
-share alongside his two trailing seasons predicts signings 17% better out of
-sample than the production line, and that once games are in, the price per
-win falls from about $2.0M to about $0.8M. The production line therefore
-charges wins for what teams partly pay for availability. This script asks
-what that does inside the NPV chain.
+share predicts signings 17% better out of sample than the production line,
+and that once games are in, the price per win falls from about $2.0M to about
+$0.8M. market_line_search.py adds contract term. This script asks what those
+lines do inside the NPV chain, against a production line refitted the same
+rolling way, so the comparison is line against line and not in-sample
+against out-of-sample.
 
-THE GAMES-AWARE VALUE LINE (spec 'w1w2+age+gp' with the age terms dropped,
-because the chain's future seasons carry no age-varying price)
-    cap share = c + b x WAR_total + bD x D x WAR_total + g x games_share
-  fitted rolling on signings 2018..t0-1 (censored ML, as production). For
-  t0 = 2018 and 2019 the line is fitted on 2018-2019 signings (the first
-  years the production sample covers), which is the one place this test is
-  in sample; those pages are flagged and the results are reported with and
-  without them.
+THE LINES (all fitted rolling on signings 2018..t0-1 with the production
+censored estimator; for the 2018 and 2019 pages the fit uses 2018-2019
+signings and is in sample, so those pages are reported separately)
+  prod       the locked production line, fitted once on 2018-2025 (reference)
+  prod_roll  the production specification, refitted rolling
+  G          + games share
+  GT         + games share + term
+For the chain, "term" is the number of seasons left on the contract at the
+valuation (the length of the replacement deal under the remaining-term
+framing); in the fitting sample it is the contract length at signing. Term
+is the same on the projected and realised sides of a season, so it changes
+the level of value (and so surplus) but cancels out of the error except
+through the other coefficients it changes.
 
 PROJECTED GAMES SHARE per season: a rolling rule fitted on 2009..t0-1,
-    games_share_t = a + b x games_share blend (60/40, same seasons as the
-    anchor), by position and source,
-  held flat over the contract. Projected WAR per season comes from the rule
-  in force (raw production anchor, or the rolling L pull-back), walked by the
-  production aging ratios and survival exactly as npv() does.
+games_share_t = a + b x games-share blend, by position and source, held flat.
 
-SCORING: each played contract season, priced value S_k x line(WAR_k, games_k)
-against realised value line(WAR_real, games_real), $0 on exit -- the same
-line on both sides, so the dollar error is on that line's own currency and is
-NOT comparable to the production-line dollar errors in the other scripts.
-Comparable across scripts are: WAR error (line-free), the percentage bias by
-tier, and the tilt of dollar error on the starting level.
-
-VARIANTS
-  prod          production anchor, production line   (reference)
-  prod+G        production anchor, games-aware line
-  L             rolling L anchor, production line
-  L+G           rolling L anchor, games-aware line
+SCORING: each played contract season, S_k x line(WAR_k, games_k, term)
+against line(WAR_real, games_real, term), $0 on exit -- the same line on both
+sides, so each variant is on its own currency. Comparable across variants:
+WAR error (line-free), bias as a share of realised value, error as a share of
+realised value, and the tilt on the starting level. Anchors: production, and
+the rolling L pull-back.
+v1.1: prod_roll and GT added; the 2018-19 pages split out.
 """
 from pathlib import Path
 import json
@@ -52,22 +49,26 @@ import pandas as pd
 import skater_forward_projection as sfp
 from contract_npv import NPVEngine, G
 from npv_realized_by_tier import realized_lookup, tier_of, TIERS, LAST_OBS
-from pipeline_experiment import season_table, Features, Rules, ols, pred, CAL_FIRST, boot_ci
+from pipeline_experiment import season_table, Features, Rules, ols, pred, CAL_FIRST
 from market_line_experiment import censored_fit
 from anchor_shrink_test import rate_sample
 from aging_bandwidth_test import digest
 
-SCRIPT_VERSION = '1.0'
+SCRIPT_VERSION = '1.1'
 SEED = 20260914
 ROOT = Path(__file__).resolve().parents[1]
 OUT = Path(os.environ['OUTPUT_DIR'])
 PREFIX = 'games_line_experiment'
-VARS = ['prod', 'prod+G', 'L', 'L+G']
+LINES = {'prod': None, 'prod_roll': [], 'G': ['gp_b'], 'GT': ['gp_b', 'term']}
+ANCHORS = ['prod', 'L']
+CAP_SHOW = 95.5
 
 
-def games_design(d):
-    w, isd = d['wWAR'].to_numpy(float), d['is_d'].to_numpy(float)
-    return np.column_stack([np.ones(len(d)), w, isd * w, d['gp_b'].to_numpy(float)])
+def fit_line(tr, extras):
+    X = np.column_stack([np.ones(len(tr)), tr.wWAR, tr.is_d * tr.wWAR] + [tr[c].to_numpy(float) for c in extras])
+    b = censored_fit(X, tr.cap_pct.to_numpy(), tr.floor_pct.to_numpy())
+    return dict(c=float(b[0]), bF=float(b[1]), bD=float(b[1] + b[2]),
+                extra=dict(zip(extras, [float(x) for x in b[3:]])), n=len(tr))
 
 
 def main():
@@ -97,27 +98,30 @@ def main():
             gp_fit[(t0, pos, s2)] = ols(d[['gp_b']].to_numpy(), d.gp_real.to_numpy())
         return gp_fit[(t0, pos, s2)]
 
-    # ---- rolling games-aware line --------------------------------------------
+    # ---- rolling lines --------------------------------------------------------
     sk = rate_sample()
     F = pd.DataFrame([feats.get(nk, int(y)) for nk, y in zip(sk.nk, sk.start_yr)], index=sk.index)
     keep = F.anchor.notna() & F.gp_b.notna()
     sk, F = sk[keep].copy(), F[keep]
-    sk['gp_b'] = F.gp_b.to_numpy()
+    sk['gp_b'] = F.gp_b.to_numpy(); sk['term'] = sk['length'].astype(float)
     lines = {}
-    for t0 in range(2018, 2026):
-        tr = sk[sk.start_yr.between(2018, max(t0 - 1, 2019))]      # 2018/2019 pages: in sample
-        b = censored_fit(games_design(tr), tr.cap_pct.to_numpy(), tr.floor_pct.to_numpy())
-        lines[t0] = dict(c=float(b[0]), bF=float(b[1]), bD=float(b[1] + b[2]), g=float(b[3]),
-                         n=len(tr), in_sample=t0 <= 2019)
-    print('games-aware line by page ($M at $95.5M cap): ' + '; '.join(
-        f"{t0}: base {v['c']*95.5:.2f} + {v['bF']*95.5:.2f}/win F, {v['bD']*95.5:.2f}/win D, "
-        f"+{v['g']*95.5:.2f} x games (n={v['n']})" for t0, v in lines.items()))
+    for name, extras in LINES.items():
+        if extras is None:
+            continue
+        for t0 in range(2018, 2026):
+            tr = sk[sk.start_yr.between(2018, max(t0 - 1, 2019))]
+            lines[(name, t0)] = fit_line(tr, extras)
+    for name in ['prod_roll', 'G', 'GT']:
+        v = lines[(name, 2025)]
+        print(f"{name} line, 2025 page ($M at $95.5M cap): base {v['c']*CAP_SHOW:+.2f}, {v['bF']*CAP_SHOW:.2f}/win F, "
+              f"{v['bD']*CAP_SHOW:.2f}/win D" + ''.join(f", {k} {x*CAP_SHOW:+.2f}" for k, x in v['extra'].items()) + f" (n={v['n']})")
 
-    def price(t0, posgrp, war, gshare, ceil, lm, use_G):
-        if use_G:
-            L = lines[t0]; slope = L['bD'] if posgrp == 'D' else L['bF']
-            return max((L['c'] + slope * war + L['g'] * gshare) * ceil, lm)
-        return max((sfp.ALPHA + sfp.skater_slope(posgrp) * war) * ceil, lm)
+    def price(name, t0, posgrp, war, gshare, term, ceil, lm):
+        if name == 'prod':
+            return max((sfp.ALPHA + sfp.skater_slope(posgrp) * war) * ceil, lm)
+        L = lines[(name, t0)]; slope = L['bD'] if posgrp == 'D' else L['bF']
+        x = L['c'] + slope * war + L['extra'].get('gp_b', 0.0) * gshare + L['extra'].get('term', 0.0) * term
+        return max(x * ceil, lm)
 
     orig_anchor = sp.anchor
     def L_anchor(nk, t0):
@@ -129,10 +133,10 @@ def main():
     firsts = spine.sort_values('season_start').groupby('contract_id').head(1)
     firsts = firsts[firsts['season_start'].between(2018, 2025)]
     nk_of = spine.drop_duplicates('player_id').set_index('player_id')['nk'].to_dict()
-    seasons = []
+    seasons, contracts = [], []
     try:
-        for name in VARS:
-            use_G = name.endswith('+G'); sp.anchor = L_anchor if name.startswith('L') else orig_anchor
+        for anchor in ANCHORS:
+            sp.anchor = L_anchor if anchor == 'L' else orig_anchor
             for r in firsts.itertuples():
                 pid, t0 = int(r.player_id), int(r.season_start)
                 d, s = eng.npv(pid, t0)
@@ -141,54 +145,56 @@ def main():
                 nk = nk_of[pid]; pos = nk.rsplit('|', 1)[1]
                 raw_a, _ = orig_anchor(nk, t0)
                 f = feats.get(nk, t0)
-                gproj = pred(games_rule(t0, pos, f['src2']), [f['gp_b']]) if pd.notna(f['gp_b']) else np.nan
+                gproj = pred(games_rule(t0, pos, f['src2']), [f['gp_b']]) if pd.notna(f['gp_b']) else 0.669
                 c = d[d['row_type'] == 'contract']
-                for x in c.itertuples():
-                    season = int(x.season_start)
-                    if season > LAST_OBS:
-                        break
-                    war_r, gp_r = real.get((nk, season), (0.0, 0))
-                    g_r = gp_real.get((nk, season), 0.0)
-                    gp_use = gproj if pd.notna(gproj) else 0.669           # sample mean, rare
-                    # k=0 keeps the production anchor identity only for the production line;
-                    # the games line re-prices every season, k=0 included.
-                    pv = price(t0, pos, x.projected_war, gp_use, x.cap_ceiling_exante, x.league_min, use_G)
-                    pv = x.value_dollars if not use_G else pv          # production keeps item 3.6 correction
-                    val_r = price(t0, pos, war_r, g_r, x.cap_ceiling_exante, x.league_min, use_G) if gp_r > 0 else 0.0
-                    seasons.append(dict(variant=name, contract_id=int(r.contract_id), player_id=pid, t0=t0,
-                                        in_sample_line=use_G and t0 <= 2019, k=int(x.k), tier=tier_of(raw_a),
-                                        raw_anchor=raw_a, exp_war=x.survival * x.projected_war,
-                                        real_war=war_r if gp_r > 0 else 0.0, gproj=gp_use, greal=g_r,
-                                        exp_value=x.survival * pv, real_value=val_r,
-                                        err=x.survival * pv - val_r, disc=(1 + G) ** (-int(x.k))))
-            print(f'{name}: done ({time.time() - clock:.0f}s)', flush=True)
+                term = float(len(c))                      # seasons left at valuation
+                for name in LINES:
+                    vname = f'{anchor}|{name}'
+                    npv_c = 0.0
+                    for x in c.itertuples():
+                        season = int(x.season_start)
+                        pv = x.value_dollars if name == 'prod' else price(name, t0, pos, x.projected_war, gproj, term, x.cap_ceiling_exante, x.league_min)
+                        npv_c += (x.survival * pv - x.cost_dollars) * x.discount
+                        if season > LAST_OBS:
+                            continue
+                        war_r, gp_r = real.get((nk, season), (0.0, 0))
+                        g_r = gp_real.get((nk, season), 0.0)
+                        val_r = price(name, t0, pos, war_r, g_r, term, x.cap_ceiling_exante, x.league_min) if gp_r > 0 else 0.0
+                        seasons.append(dict(variant=vname, contract_id=int(r.contract_id), player_id=pid, t0=t0,
+                                            k=int(x.k), tier=tier_of(raw_a), raw_anchor=raw_a,
+                                            exp_war=x.survival * x.projected_war, real_war=war_r if gp_r > 0 else 0.0,
+                                            exp_value=x.survival * pv, real_value=val_r, err=x.survival * pv - val_r))
+                    contracts.append(dict(variant=vname, contract_id=int(r.contract_id), full_name=s['full_name'], t0=t0,
+                                          tier=tier_of(raw_a), npv_contract=npv_c, npv_terminal=s['npv_terminal'],
+                                          npv_total=npv_c + s['npv_terminal']))
+            print(f'anchor {anchor}: done ({time.time() - clock:.0f}s)', flush=True)
     finally:
         sp.anchor = orig_anchor
     S = pd.DataFrame(seasons); S.to_csv(OUT / f'{PREFIX}_seasons.csv', index=False)
-    rng = np.random.default_rng(SEED)
+    C = pd.DataFrame(contracts); C.to_csv(OUT / f'{PREFIX}_contracts.csv', index=False)
     out = []
-    for oos_only in (False, True):
+    for scope, sub in [('all pages', S), ('2020-25 pages', S[S.t0 >= 2020])]:
         for lab, tsel in [('all', None)] + [(t, t) for _, _, t in TIERS]:
-            for v in VARS:
-                g = S[S.variant == v]
+            for v in sorted(S.variant.unique(), key=lambda x: (ANCHORS.index(x.split('|')[0]), list(LINES).index(x.split('|')[1]))):
+                g = sub[sub.variant == v]
                 if tsel: g = g[g.tier == tsel]
-                if oos_only: g = g[g.t0 >= 2020]
-                base = S[(S.variant == ('prod' if not v.startswith('L') else 'L'))]
                 e = g.err; we = g.exp_war - g.real_war
-                out.append(dict(scope='2020-25 pages' if oos_only else 'all pages', group=lab, variant=v, seasons=len(g),
-                                war_bias=we.mean(), war_mae=we.abs().mean(),
-                                bias_pct=e.sum() / g.real_value.sum() * 100,
-                                mae_pct_of_real=e.abs().sum() / g.real_value.sum() * 100,
-                                mae_M=e.abs().mean() / 1e6, tilt_M_per_war=np.polyfit(g.raw_anchor, e, 1)[0] / 1e6,
-                                mean_real_value_M=g.real_value.mean() / 1e6,
-                                games_bias=(g.gproj - g.greal)[g.real_war != 0].mean()))
+                out.append(dict(scope=scope, group=lab, variant=v, seasons=len(g), war_mae=we.abs().mean(),
+                                bias_pct=e.sum() / g.real_value.sum() * 100, mae_pct_of_real=e.abs().sum() / g.real_value.sum() * 100,
+                                tilt_M_per_war=np.polyfit(g.raw_anchor, e, 1)[0] / 1e6, mean_real_value_M=g.real_value.mean() / 1e6,
+                                mean_exp_value_M=g.exp_value.mean() / 1e6))
     summ = pd.DataFrame(out); summ.to_csv(OUT / f'{PREFIX}_summary.csv', index=False)
+    P = C.pivot_table(index=['contract_id', 'tier', 't0'], columns='variant', values='npv_total').reset_index()
+    mv = pd.DataFrame({v: (P[v] - P['prod|prod']).groupby(P.tier).mean() / 1e6 for v in P.columns if '|' in v and v != 'prod|prod'})
+    mv.loc['net total $M'] = [(P[v] - P['prod|prod']).sum() / 1e6 for v in mv.columns]
+    mv.to_csv(OUT / f'{PREFIX}_npv_movement.csv')
     assert all(digest(ROOT / k) == v for k, v in hashes.items())
-    (OUT / f'{PREFIX}_run.json').write_text(json.dumps(dict(script_version=SCRIPT_VERSION, lines=lines,
-                                                            seasons=len(S), elapsed_seconds=time.time() - clock,
-                                                            input_hashes=hashes), indent=2))
-    pd.set_option('display.width', 250)
-    print(summ.round(3).to_string(index=False))
+    (OUT / f'{PREFIX}_run.json').write_text(json.dumps(dict(script_version=SCRIPT_VERSION,
+        lines={f'{k[0]}|{k[1]}': v for k, v in lines.items()}, seasons=len(S), elapsed_seconds=time.time() - clock,
+        input_hashes=hashes), indent=2))
+    pd.set_option('display.width', 300); pd.set_option('display.max_columns', 40)
+    print(summ[summ.scope == '2020-25 pages'].round(3).to_string(index=False))
+    print('\nmean NPV change vs production by tier ($M):'); print(mv.round(2).to_string())
     print(f'{time.time() - clock:.0f}s; production files unchanged.')
 
 

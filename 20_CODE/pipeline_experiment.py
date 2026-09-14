@@ -30,6 +30,9 @@ STARTING-POINT RULES (what replaces the raw 60/40 season-total blend)
         (curve anchor / curve smoothed level) at the base age. Production
         computes this and throws it away when it renormalises the ratio path.
         Falls back to L where the curve base is <= 0.25 or missing.
+  LA    L plus age and age^2 at the valuation season (the pull-back may differ
+        for a 22-year-old and a 33-year-old; the curve ages later seasons only)
+  LB3A  LB3 plus age and age^2
   M     market-informed: real ~ blend + implied WAR from the player's own cap
         hit, non-ELC contract seasons. DIAGNOSTIC ONLY: value built from cost
         makes surplus partly circular. It measures how much the market knows
@@ -55,6 +58,8 @@ LIMITS: the curve, its comparables pool and both hazard tables are fitted on
 all seasons (the same for every variant); contract seasons only; RFA control
 years move NPV but are not scored; ~19 variants are compared, so a single
 narrow win is weak evidence by itself.
+v1.1: main(variants, prefix) so a second sweep can reuse the harness; LA and
+LB3A rules. The v1.0 variant set is unchanged and remains the default.
 """
 from pathlib import Path
 import json
@@ -71,7 +76,7 @@ from exit_hazard import build_transitions, build_hazard_table
 from npv_realized_by_tier import realized_lookup, tier_of, TIERS, LAST_OBS
 from aging_bandwidth_test import digest
 
-SCRIPT_VERSION = '1.0'
+SCRIPT_VERSION = '1.1'
 SEED = 20260914
 BOOTSTRAPS = 2000
 CAL_FIRST = 2009
@@ -200,6 +205,18 @@ class Rules:
             for (pos, s2), g in d.groupby(['pos', 'src2']):
                 X = np.column_stack([g.rate_b, g.rate_b * g.gp_b])
                 out[(pos, s2)] = ols(X, g.real.to_numpy())
+        elif rule == 'LA':
+            for (pos, s2), g in d[d.age.notna()].groupby(['pos', 'src2']):
+                X = np.column_stack([g.anchor, g.age, g.age ** 2])
+                out[(pos, s2)] = ols(X, g.real.to_numpy())
+        elif rule == 'LB3A':
+            for (pos, src), g in d[d.age.notna()].groupby(['pos', 'src']):
+                cols = {'both': ['w1', 'w2'], 't1_only': ['w1'], 't2_only': ['w2']}[src]
+                X = np.column_stack([g[cols].to_numpy(), g.age, g.age ** 2])
+                out[(pos, src)] = ols(X, g.real.to_numpy())
+            for pos, g in d[(d.src == 'both') & d.w3.notna() & d.age.notna()].groupby('pos'):
+                X = np.column_stack([g[['w1', 'w2', 'w3']].to_numpy(), g.age, g.age ** 2])
+                out[(pos, 'all3')] = ols(X, g.real.to_numpy())
         elif rule == 'M':
             m = d[d.implied.notna() & ~d.elc]
             for (pos, s2), g in m.groupby(['pos', 'src2']):
@@ -222,6 +239,18 @@ class Rules:
             return self.predict(t0, 'LB', f, pos)
         if rule == 'RG':
             return pred(b[(pos, f['src2'])], [f['rate_b'], f['rate_b'] * f['gp_b']])
+        if rule == 'LA':
+            if f.get('age') is None:
+                return self.predict(t0, 'L', f, pos)
+            return pred(b[(pos, f['src2'])], [f['anchor'], f['age'], f['age'] ** 2])
+        if rule == 'LB3A':
+            if f.get('age') is None:
+                return self.predict(t0, 'LB3', f, pos)
+            a = f['age']
+            if f['src'] == 'both' and pd.notna(f['w3']):
+                return pred(b[(pos, 'all3')], [f['w1'], f['w2'], f['w3'], a, a ** 2])
+            cols = {'both': ['w1', 'w2'], 't1_only': ['w1'], 't2_only': ['w2']}[f['src']]
+            return pred(b[(pos, f['src'])], [f[c] for c in cols] + [a, a ** 2])
         if rule == 'M':
             if f.get('elc', True) or pd.isna(f.get('implied', np.nan)):
                 return self.predict(t0, 'L', f, pos)
@@ -264,7 +293,8 @@ def boot_ci(m, e0, e1, rng):
 
 
 # ---------------------------------------------------------------------------
-def main():
+def main(variants=VARIANTS, prefix=PREFIX):
+    VARIANTS_RUN = variants; PREFIX_RUN = prefix
     clock = time.time()
     hashes = {str(p.relative_to(ROOT)): digest(p) for p in [
         ROOT / '10_SOURCE/WAR.csv', OUT / 'WAR_with_age.csv',
@@ -304,7 +334,7 @@ def main():
             if r is None or r[1] <= 0:
                 continue                                  # exit is the hazard's job
             f.update(nk=nk, t=t, pos=pos, real=r[0], implied=implied(nk, t),
-                     elc=elc_at.get((nk, t), True))
+                     elc=elc_at.get((nk, t), True), age=sp.age_at(bd.get(nk), t))
             rows.append(f)
     cal = pd.DataFrame(rows)
     rules = Rules(cal)
@@ -349,6 +379,7 @@ def main():
             pos = nk.rsplit('|', 1)[1]
             f = feats.get(nk, t0)
             assert abs(f['anchor'] - a) < 1e-9
+            f['age'] = sp.age_at(bd.get(nk), t0)
             if rule == 'C':
                 fac = curve_factor(nk, t0)
                 return (a * fac, src) if fac is not None else (rules.predict(t0, 'L', f, pos), src)
@@ -364,7 +395,7 @@ def main():
     topk_m, orig_w = topk_weights(curve)
     seasons, contracts = [], []
     try:
-        for name, (rule, top, haz, s0) in VARIANTS.items():
+        for name, (rule, top, haz, s0) in VARIANTS_RUN.items():
             sp.anchor = orig_anchor if rule == 'prod' else make_anchor(rule)
             curve._weights = topk_m if top else orig_w
             eng.h_sk = h_table if haz == 'H' else prod_h
@@ -410,8 +441,8 @@ def main():
         sp.anchor = orig_anchor; curve._weights = orig_w; eng.h_sk = prod_h
 
     S = pd.DataFrame(seasons); C = pd.DataFrame(contracts)
-    S.to_csv(OUT / f'{PREFIX}_seasons.csv', index=False)
-    C.to_csv(OUT / f'{PREFIX}_contracts.csv', index=False)
+    S.to_csv(OUT / f'{PREFIX_RUN}_seasons.csv', index=False)
+    C.to_csv(OUT / f'{PREFIX_RUN}_contracts.csv', index=False)
 
     # ---- scoring --------------------------------------------------------------
     W = S.pivot_table(index=['contract_id', 'k', 'player_id', 'tier', 'raw_anchor', 'present', 'real_value', 'real_war'],
@@ -423,7 +454,7 @@ def main():
     groups = [('all', W)] + [(t, W[W.tier == t]) for _, _, t in TIERS] + \
              [('k=0', W[W.k == 0]), ('k>=1', W[W.k >= 1]), ('3+ k>=1', W[(W.tier == '3+') & (W.k >= 1)])]
     for lab, g in groups:
-        for v in VARIANTS:
+        for v in VARIANTS_RUN:
             e = g[f'err_{v}']; we = g[f'exp_war_{v}'] - g['real_war']
             pc = (e * g[f'disc_{v}']).groupby(g.contract_id).sum()
             row = dict(group=lab, variant=v, seasons=len(g), players=g.player_id.nunique(),
@@ -442,21 +473,21 @@ def main():
                            war_mae_change_pct=(we.abs().mean() / we0.abs().mean() - 1) * 100,
                            war_ci_low=wlo, war_ci_high=whi)
             out.append(row)
-    summ = pd.DataFrame(out); summ.to_csv(OUT / f'{PREFIX}_summary.csv', index=False)
+    summ = pd.DataFrame(out); summ.to_csv(OUT / f'{PREFIX_RUN}_summary.csv', index=False)
 
     P = C.pivot_table(index=['contract_id', 'full_name', 't0', 'tier', 'raw_anchor'],
                       columns='variant', values='npv_total').reset_index()
-    mv = pd.DataFrame({v: (P[v] - P['prod']).groupby(P.tier).mean() / 1e6 for v in VARIANTS if v != 'prod'})
-    mv.loc['net total $M'] = [(P[v] - P['prod']).sum() / 1e6 for v in VARIANTS if v != 'prod']
-    mv.to_csv(OUT / f'{PREFIX}_npv_movement.csv')
+    mv = pd.DataFrame({v: (P[v] - P['prod']).groupby(P.tier).mean() / 1e6 for v in VARIANTS_RUN if v != 'prod'})
+    mv.loc['net total $M'] = [(P[v] - P['prod']).sum() / 1e6 for v in VARIANTS_RUN if v != 'prod']
+    mv.to_csv(OUT / f'{PREFIX_RUN}_npv_movement.csv')
     named = P[P.full_name.isin(NAMED)].sort_values(['full_name', 't0'])
 
     assert all(digest(ROOT / k) == v for k, v in hashes.items()), 'input or production code changed during run'
-    run = dict(script_version=SCRIPT_VERSION, seed=SEED, variants=VARIANTS, rolling_L=drift,
+    run = dict(script_version=SCRIPT_VERSION, seed=SEED, variants=VARIANTS_RUN, rolling_L=drift,
                hazard=dict(n_all=n_all, n_contracted=n_cov, exit_all=ex_all, exit_contracted=ex_cov),
                contract_seasons_scored=len(W), contracts=int(P.shape[0]),
                elapsed_seconds=time.time() - clock, input_hashes=hashes)
-    (OUT / f'{PREFIX}_run.json').write_text(json.dumps(run, indent=2, default=str))
+    (OUT / f'{PREFIX_RUN}_run.json').write_text(json.dumps(run, indent=2, default=str))
 
     pd.set_option('display.width', 300); pd.set_option('display.max_columns', 40)
     cols = ['group', 'variant', 'war_bias', 'war_mae', 'war_mae_change_pct', 'war_ci_low', 'war_ci_high',
@@ -465,7 +496,7 @@ def main():
     for lab in ['all', 'below 0', '0 to 1', '1 to 2', '2 to 3', '3+', 'k=0', 'k>=1', '3+ k>=1']:
         print(f'\n=== {lab}'); print(summ[summ.group == lab][cols].round(3).to_string(index=False))
     print('\nmean NPV change vs production by tier ($M):'); print(mv.round(2).to_string())
-    show = ['prod', 'L', 'LB', 'C', 'L+all', 'LB+all']
+    show = list(VARIANTS_RUN)[:6]
     print('\nnamed contracts ($M):')
     print(named[['full_name', 't0', 'raw_anchor'] + show].assign(**{v: named[v] / 1e6 for v in show})
           .round(2).to_string(index=False))

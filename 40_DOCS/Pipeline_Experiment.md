@@ -1,9 +1,11 @@
 # Reducing the level tilt: a sweep of the whole player chain
 
 Test date: 2026-09-14. Production model unchanged. Scripts: `20_CODE/pipeline_experiment.py`
-v1.0, `20_CODE/market_line_experiment.py` v1.0, `20_CODE/games_line_experiment.py` v1.0. All
-three patch the production engine inside the test process and check production hashes before and
-after; none writes to a production file.
+v1.1 (with `pipeline_experiment2.py`), `20_CODE/market_line_experiment.py` v1.0,
+`20_CODE/market_line_search.py` v1.0, `20_CODE/games_line_experiment.py` v1.1. All of them patch
+the production engine inside the test process and check production hashes before and after; none
+writes to a production file. The second pass (the last section) was run the same day after the
+first pass was read.
 
 ## The problem
 
@@ -138,12 +140,12 @@ Rolling out of sample on 1,769 signings, 2020 to 2025, error in $M at a $95.5M c
 | production (WAR, position slope) | $1.177M | | yes |
 | + WAR² | $1.181M | +0.4% | yes |
 | + age, age² | $1.180M | +0.3% | yes |
-| + RFA flag | $1.176M | −0.1% | no: contract attribute (D7 stands) |
+| + RFA flag | $1.176M | −0.1% | a contract attribute; see the second pass |
 | one-season-anchor flag | $1.115M | −5.3% | yes |
 | two seasons weighted freely, one-season flag | $1.103M | −6.3% | yes |
 | the above + age | $1.091M | −7.2% | yes |
 | the above + games share | $0.980M | −16.8% | yes, but see below |
-| + contract length | $0.817M | −30.6% | no: prices the contract off its own term |
+| + contract length | $0.817M | −30.6% | a framing decision; see the second pass |
 
 Three things stand out. First, the market discounts a one-season record heavily: about $0.9M off
 at the same WAR. Second, the market's error is not tilted by level: +$0.20M at 3+, close to zero
@@ -151,9 +153,8 @@ in the middle. The production line is not over-paying stars; the over-valuation 
 projected production. Third, **games played carry a price of their own**. At the same WAR totals,
 a full season against half a season is worth about $2.1M, and once games are in the line the
 price per win falls from $2.03M to about $0.8M. The production line charges wins for what teams
-partly pay for availability. Contract length is the strongest predictor of all but cannot be used
-to value production; it is a candidate mispricing for the back-test to measure (item 2.1 found
-term buys no realized production).
+partly pay for availability. Contract length is the strongest predictor of all. Whether it belongs
+in a value line is a framing question, taken up in the second pass.
 
 ### The games-aware value line in the chain
 
@@ -202,6 +203,8 @@ MacKinnon 2023 −35.4 → −45.8; Karlsson 2019 +14.2 → +2.1; Seth Jones 202
 4. **Do not use the market-informed anchor**, but keep its result as the ceiling for stats-only
    accuracy.
 
+The second pass below revises 1 and 3.
+
 ## Limits
 
 - The aging curve, its comparables pool and both hazard tables are fitted on all seasons,
@@ -222,3 +225,119 @@ variants), `python 20_CODE/market_line_experiment.py` (15 seconds), `python
 20_CODE/games_line_experiment.py` (2.5 minutes). Outputs in `30_OUTPUT/` carry each script's
 name as prefix. The 2020-2025 page cut and the named-contract table were produced by an inline
 readout over `pipeline_experiment_seasons.csv` and `_contracts.csv`.
+
+## Second pass: the lowest-error combination, with locked decisions open
+
+The first pass kept contract term out of the value line on the grounds that a line reading the
+contract's own term prices the contract off itself. That was too strong. The value line asks what
+the free-agent market charges for a player of this quality, and there are two framings of that
+alternative: sign a one-year replacement each remaining season (term-free), or sign one replacement
+for the remaining term (term enters). Neither is privileged. What term carries is a mix of the
+market's price for commitment and the private information teams hold when they commit long, so a
+line with term moves the term premium from "mispricing to be measured" into "fair value". That is a
+decision about what the back-test tests, not a rule. Below, term is allowed, and every locked
+choice is open. Nothing here ships.
+
+### Contract prediction: what predicts cap hits best
+
+Forward stepwise selection over the candidate features, scored by rolling out-of-sample error on
+2020-2022 signings; the chosen line then scored, unchanged, on 2023-2025 signings (842). Error in
+$M at a $95.5M cap.
+
+| WAR block | Term allowed | Features chosen, in order | Held-out error | Change |
+|---|---|---|---:|---:|
+| production | | WAR, position slope | $1.235M | |
+| 60/40 blend | no | + games share, one-season flag, age² | $1.023M | −17% |
+| two seasons free | no | + games share, one-season flag, age² | $0.997M | −19% |
+| per-82 rate | no | + one-season flag, age² | $1.068M | −14% |
+| 60/40 blend | yes | + term, games, one-season flag, term², RFA, age×term | $0.760M | −38% |
+| **two seasons free** | **yes** | **+ term, games, one-season flag, RFA, term², age×term** | **$0.755M** | **−39%** |
+| per-82 rate | yes | + term, one-season flag, term×WAR, RFA, age×term | $0.774M | −37% |
+
+The best term-free line is unbiased within $0.1M at every level except the top (−$0.77M at 3+,
+where the players who sign are paid more than their two seasons say). The best line with term is
+unbiased overall (+$0.02M) and within $0.15M at every level except 2 to 3 (+$0.62M). Its
+coefficients, in $M at a $95.5M cap: each of the two trailing seasons about $0.47M per win, games
+share +$2.7M per unit, one-season record −$0.64M, RFA +$0.44M, term +$0.43M per season plus a small
+rising term², and a small age × term term. Read plainly: once term and games are in, a win is worth
+about $0.9M a year, a season of commitment about $0.45M a year, and a full season of availability
+about $2.7M against none.
+
+Age never enters on its own; a one-season record is always penalised; the RFA flag enters only once
+term is in (D7 found no RFA/UFA difference in a term-free line, and that still holds).
+
+### Performance prediction: age in the pull-back
+
+Second sweep, same harness, 2020-2025 pages (3,372 seasons). Bias is projected minus realized as a
+share of realized value; the tilt is the slope of dollar error on the starting level.
+
+| Rule | bias, all | bias 0-1 / 1-2 / 2-3 / 3+ | WAR error | dollar error | tilt | net NPV movement |
+|---|---:|---|---:|---:|---:|---:|
+| production | +3.5% | −2 / +15 / +19 / +24 | | | +$0.46M | |
+| L | −2.9% | +1 / −4 / −4 / −4 | −5.7% | −2.8% | 0 | −$1,186M |
+| LA (L + age) | +1.0% | +5 / +1 / −1 / −2 | −5.8% | −3.1% | 0 | −$274M |
+| LB3 | −5.1% | −2 / −7 / −6 / −6 | −6.9% | −4.1% | 0 | −$1,525M |
+| LB3A (LB3 + age) | +0.2% | +4 / −1 / −1 / −4 | −6.4% | −3.9% | 0 | −$382M |
+| L+H | −0.5% | +4 / −1 / −3 / −3 | −5.6% | −2.2% | 0 | −$645M |
+| LB3A+H | +2.5% | +7 / +1 / 0 / −4 | −6.3% | −3.2% | 0 | +$153M |
+| LB3A+H+top50 | +1.7% | +7 / −1 / −2 / −6 | −6.4% | −3.3% | 0 | +$71M |
+
+Age in the pull-back is the change that matters in the second pass. It lifts young players and
+lowers older ones at the starting point, which the pull-back without age had been treating alike,
+and it turns a package that moved total NPV by −$1.2B into one that moves it by −$0.3B (or about
+zero with the hazard fix), with the tilt gone. Its weak spot is the 0-1 WAR tier, which it
+over-projects by 4% to 7%; every other level is within 4%.
+
+The lowest-error stats-only rule for projected production is LB3A (three seasons weighted freely,
+plus age): 6.4% less WAR error than production. The market-informed diagnostic from the first pass
+is still about 2 points better, and remains the ceiling.
+
+### NPV: the lines through the chain
+
+The chain run with four lines, each refitted rolling on signings before the page (so the comparison
+is line against line, with the production specification also refitted): the production
+specification, plus games share (G), plus games share and remaining term (GT). Term for a page is
+the seasons left on the contract. It is identical on the projected and realized sides, so it
+raises the level of value on both and cancels out of the error; what changes the error is the
+lower price per win the line then carries ($0.89M against $2.03M), which makes a WAR miss cost
+less in market terms. The dollar errors below are on each line's own currency.
+
+| 2020-2025 pages | dollar error | bias | 3+ bias | 3+ dollar error | net NPV movement |
+|---|---:|---:|---:|---:|---:|
+| production line | $1.287M | +3.5% | +24% | $3.08M | |
+| production spec, refitted rolling | $1.307M | +0.8% | +24% | $3.14M | −$156M |
+| + games | $1.257M | −6.3% | +15% | $2.47M | +$186M |
+| + games + term | $0.831M | −3.7% | +8% | $1.55M | +$4,069M |
+| L pull-back, production line | $1.251M | −2.9% | −4% | $2.69M | −$1,186M |
+| L pull-back + games | $1.252M | −11.3% | −6% | $2.35M | −$833M |
+| L pull-back + games + term | $0.842M | −6.4% | −2% | $1.50M | +$3,342M |
+
+Two things to take from this. The refitted production specification behaves like the locked one,
+so the in-sample fit of the locked line is not what is holding it up. And the term line adds
+$3.3B to $4.1B of NPV across 2,591 contracts: every long contract is worth more once the market's
+price for commitment is counted as value. That is the framing choice made concrete. Under it, the
+pull-back plus the games-and-term line leaves stars close to their production NPVs (3+ moves
+−$0.05M on average) with the level tilt removed; under the term-free framing the same pull-back
+lowers stars by $9M to $10M each.
+
+### What the second pass recommends
+
+- **Lowest error on production:** LB3A (+ H, + top 50). WAR error −6.4%, tilt removed, within 4%
+  of unbiased everywhere except the 0-1 tier, and close to NPV-neutral in aggregate.
+- **Lowest error on contracts:** two seasons weighted freely + games share + one-season flag +
+  age² (−19%, term-free), or the same with term, RFA and their interactions (−39%). Which one is
+  the framing decision above.
+- **NPV:** the combination follows from those two choices. With term in the line, aggregate NPV
+  rises by about $3.3B and stars sit near their current values with the tilt gone; without it,
+  stars fall $9M to $10M each.
+- Every one of these changes a locked decision (the k=0 identity, D6-D9's definition of value,
+  the hazard population, the curve's comparables). None is a tuning; the point of this pass was to
+  see the ceiling before deciding which of them to open, and whether to do that before or after
+  the draft and prospect pillars are built.
+
+### Reproduction, second pass
+
+`python 20_CODE/market_line_search.py` (100 seconds), `python 20_CODE/pipeline_experiment2.py`
+(about 7 minutes; harness `pipeline_experiment.py` v1.1), `python 20_CODE/games_line_experiment.py`
+(2 minutes, v1.1). Outputs in `30_OUTPUT/` carry each script's prefix; the 2020-2025 page cuts
+were read from the `_seasons.csv` files inline.
