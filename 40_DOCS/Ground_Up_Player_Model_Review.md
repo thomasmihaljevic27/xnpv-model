@@ -27,7 +27,27 @@ Games and term coefficients are conditional associations, not isolated causal pr
 
 Build order: identity/date repair and evaluation harness; simple calibrated forecast; rate/workload/participation model; richer aging challengers; signing-date market model; joint uncertainty through contract and control years. Judge changes by predictive evidence, not aggregate NPV neutrality.
 
-## Primary references
+## Comparison with Fable 5.1 (same session, user-supplied response)
+
+Recommendation: combine Fable's concrete component-forecast and control-year work with the historical evaluation and valuation distinctions above. Neither proposed architecture is an empirically established winner.
+
+Verified against `00_STATE/03_Player_Market_Model_Sequence.md`: the July three-season forecast test is documented as winning 1,000/1,000 resamples on matched rows; control-year tender/participation omissions are documented, including a 13.1% conditional non-participation estimate. The live goalie terminal branch still writes survival 1.0. These deserve more explicit priority than my initial answer gave them. Existing estimates still need date-appropriate calibration and careful treatment of costs conditional on participation.
+
+Fable's new component table and 7.1% improvement are supplied as a scratch diagnostic without its code, sample or outputs. They are promising but not reproducible from the supplied material. They cannot establish superiority to the September 14 multi-horizon experiment: targets, sample, years and exposure/exit treatment must match. Correlations are not shrinkage coefficients; component variance shares require a covariance-aware definition.
+
+The sequence document supports the 94% own-club figure only for its specified 3.5+ trailing-WAR sample. It explicitly notes two open-market stars and sign-and-trade classification. Its $1.71M star-RFA effect is exploratory (34 stars, 2,468 contracts, unprorated anchors, unswept threshold, selection unresolved), not an identified causal CBA rent. Revise my initial UFA-reference preference: do not fit an independent open-market-star curve from such thin support. Use shared information across contract groups and label any standardized UFA prediction at the top as extrapolation.
+
+Refitting price on calibrated expected wins is coherent. A steeper slope after affine forecast shrinkage does not, on its own, identify measurement-error correction or the correct realized-value currency: slope/intercept can simply re-express unchanged fitted prices. Use the same declared mapping for expected and realized wins only after specifying its economic meaning and time horizon.
+
+Term should enter the contract-price candidate model. The 39% salary-error improvement does not identify a causal commitment premium or justify mechanically applying original-term prices to residual years. RFA surplus can be a real return to control rights and should not automatically be removed or labelled trade mispricing.
+
+Use additive smooth aging as the first challenger, as Fable proposes; neither a one-game threshold nor within-player differences eliminates dropout selection. A level-by-age term should use estimated ability rather than mechanically interpreting regression from extreme observed seasons as aging. Multiple WAR sources may help, but error correlation, scale and vintage must be tested; an independent outcome does not neutralize every identification concern.
+
+Accept Fable's published-cap-path recommendation conditional on announcement date: the January 31, 2025 NHL/NHLPA release made future ranges available subject to stated qualifications. `cap_path()` still applies 3% growth after the initial year. Those ranges cannot be inserted into valuations predating their announcement. Accept replacing surplus ratios with dollar differences, optionally normalized by positive gross value, with zero-denominator handling and a stated null.
+
+Revised first experiment: compare a simple age-aware three-season forecast against a component model on identical rolling dates and eligible rows, including short histories and zero seasons. Establish the forecast winner before comparing common-scale dollar errors. No model changes adopted.
+
+### Sources
 
 - Schuckers, Lopez and Macdonald, *What does not get observed can be used to make age curves stronger*: https://arxiv.org/abs/2110.14017 . Selection concerns both who plays and when they are observed; player-skill and imputation approaches are evaluated in simulations.
 - Cavan, Cao and Swartz, *NHL Aging Curves using Functional Principal Component Analysis*: https://www.sfu.ca/~tswartz/papers/aging.pdf . Individual smooth curves and selection-aware methodology provide a relevant challenger, not a proven winner for this dataset.

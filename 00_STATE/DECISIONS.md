@@ -1,5 +1,7 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-14b follow-up:** Compared Fable 5.1's user-supplied assessment with the ground-up review. Appended verified evidence, unverified scratch-result qualifications and revised UFA-reference recommendation to the review and session log. No production or locked-decision change.
+
 **Change log, 2026-09-14b:** Ground-up review requested with all locked assumptions open for discussion. Saved `40_DOCS/Ground_Up_Player_Model_Review.md`, added signing-date/uncertainty/remaining-term review flags and `sessions/2026-09-14b.md`. No statistical rerun, production change or decision adoption. Existing experiment results remain candidate evidence, not a fully historical whole-chain validation.
 
 <!-- Extracted from PROJECT_STATE.md on 2026-09-09 (v3.2 restructure). Pure move, no content change. -->
