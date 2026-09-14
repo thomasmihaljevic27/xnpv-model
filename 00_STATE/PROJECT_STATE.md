@@ -84,6 +84,8 @@ Put all three trade-asset classes — rostered players, draft picks, non-roster 
 
 **Starting-point and market-line fix test (2026-09-13b):** `20_CODE/anchor_shrink_test.py` v1.1. A 2009-2017 starting-point pull-back improves forecasts for most contracts but overshoots stars; refitting the market line on pulled-back WAR changes no prices and with the pull-back returns production NPVs. Whether stars are over-valued depends on the back-test's undecided realized-value currency. Production unchanged. Report `40_DOCS/Anchor_Shrink_Test.md`; generated `30_OUTPUT/anchor_shrink_test_*` artifacts.
 
+**Whole-chain sweep (2026-09-14):** `20_CODE/pipeline_experiment.py`, `market_line_experiment.py`, `games_line_experiment.py` v1.0. Rolling (pre-valuation) calibrations throughout. A rolling starting-point pull-back removes the level tilt on 2020-25 pages; the exit hazard is estimated on the wrong population (all seasons, not contracted ones) and over-predicts exits; the two together (L+H) are within 5% of unbiased at every level. Games played carry their own market price; a games-aware value line is a D6-D9 design question. Production unchanged. Report `40_DOCS/Pipeline_Experiment.md`; generated `30_OUTPUT/pipeline_experiment_*`, `market_line_experiment_*`, `games_line_experiment_*` artifacts.
+
 Moved 2026-09-09 (v3.2). The locked decision record (D1-D27, the Phase-1b/1c/1d blocks, the Phase 3a D22-D27 draft-curve block, and the Player Model Review Stages 2-5 item-by-item record) and the running change log for the state files now live in **`00_STATE/DECISIONS.md`**. `git log 00_STATE/` is the second, mechanical copy of that history. Per-session detail is in `00_STATE/sessions/`.
 
 ---

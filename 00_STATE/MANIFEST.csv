@@ -3,11 +3,11 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 00_STATE,01_Draft_Model_Sequence.md,state,hashable,2026-09-09a,b5b9e109b745ecb44c37a8dd50c5635db8f7fd61,9713,2026-09-09,yes,git,matches Claude project copy
 00_STATE,02_Prospect_Model_Sequence.md,state,hashable,2026-09-09a,12b3f5047f0214fa3fd11f72f2cf6c6a63be8ea5,10544,2026-09-09,yes,git,matches Claude project copy
 00_STATE,03_Player_Market_Model_Sequence.md,state,hashable,2026-09-09a,2f68c554cca2f422235e3baa6e17a0996e8412e7,18477,2026-09-09,yes,git,matches Claude project copy
-00_STATE,DECISIONS.md,state,hashable,2026-09-13b,cca90b5ef1cd82fac72c9519019de7570f87bf5c,125423,2026-09-13,yes,git,Starting-point and market-line fix test; production unchanged
+00_STATE,DECISIONS.md,state,hashable,2026-09-14,91734ae5260b193d88a1383cc4da4750d1084a60,125957,2026-09-14,yes,git,Whole-chain sweep; production unchanged
 00_STATE,MANIFEST.csv,state,hashable,2026-09-09a,66d3201b2fc22f946fa0de1bb2c0f364c6600a13,8389,2026-09-09,yes,git,this file
-00_STATE,PROJECT_STATE.md,state,hashable,2026-09-13b,86ffe970cb449cf2553a0e632b80b2600b433099,63553,2026-09-13,yes,git,Starting-point and market-line fix test; production unchanged
-00_STATE,STANDING_FLAGS.md,state,hashable,2026-09-13b,989ac770ffe50316dc32c2f9ada3a0e7ae04eb2f,32457,2026-09-13,yes,git,Starting-point and market-line fix test; production unchanged
-00_STATE,WORK_QUEUE.md,state,hashable,2026-09-13b,76914f1e002887bc38c575fdf823f3fe034acfd3,16875,2026-09-13,yes,git,Starting-point and market-line fix test; production unchanged
+00_STATE,PROJECT_STATE.md,state,hashable,2026-09-14,072b7eff37ac25075801f6fd3e9f50495b5494ae,63862,2026-09-14,yes,git,Whole-chain sweep; production unchanged
+00_STATE,STANDING_FLAGS.md,state,hashable,2026-09-14,cc34fc93c1736005a60a1e66296b398b9943a0f5,33618,2026-09-14,yes,git,Whole-chain sweep; production unchanged
+00_STATE,WORK_QUEUE.md,state,hashable,2026-09-14,871832045a9dff52cd5187a3832e19a176e4e36f,17256,2026-09-14,yes,git,Whole-chain sweep; production unchanged
 00_STATE/sessions,2026-08-28.md,state,hashable,2026-09-09a,921a8eae623bb0d7ac4d1d181f6b862aa51a9e62,2193,2026-09-09,yes,git,git-tracked; audited via `git status`
 00_STATE/sessions,2026-09-08.md,state,hashable,2026-09-09a,1b31b43e8ed30fefd98ded8df5f5a431e79f323b,2422,2026-09-09,yes,git,git-tracked; audited via `git status`
 00_STATE/sessions,2026-09-09.md,state,hashable,2026-09-09a,4487b28a677beb42c3eb436841ab284f2b761fdc,6953,2026-09-09,yes,git,git-tracked; audited via `git status`
@@ -128,3 +128,18 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 30_OUTPUT,anchor_shrink_test_summary.csv,npv,hashable,2026-09-13b,a51549883333b78a9c4433e1d44aa0ac716442f7,9637,2026-09-13,yes,local,Starting-point and market-line fix test; production unchanged; generated and gitignored
 30_OUTPUT,anchor_shrink_test_npv_movement.csv,npv,hashable,2026-09-13b,c1c8e2019161e4fc2379dd9bf8ee34aeedb5792c,862,2026-09-13,yes,local,Starting-point and market-line fix test; production unchanged; generated and gitignored
 30_OUTPUT,anchor_shrink_test_run.json,npv,hashable,2026-09-13b,43e9729a02fef662a6df1730df7d234ee53092e0,2629,2026-09-13,yes,local,Starting-point and market-line fix test; production unchanged; generated and gitignored
+00_STATE/sessions,2026-09-14.md,state,hashable,2026-09-14,6c2597d68678d5c10e56a96494e83629df32cec0,3785,2026-09-14,yes,git,session log
+40_DOCS,Pipeline_Experiment.md,npv,hashable,2026-09-14,75ce23649c515bbe40ab203e5578bc9075456802,13011,2026-09-14,yes,git,Whole-chain sweep; production unchanged
+20_CODE,pipeline_experiment.py,npv,hashable,2026-09-14,cea57f3c7fdeae54bff6f836e1eb0c427317453d,24307,2026-09-14,yes,git,Whole-chain sweep; production unchanged
+20_CODE,market_line_experiment.py,npv,hashable,2026-09-14,47c4335750d3b12d1096d4e8fd25730b4a52a4f5,8699,2026-09-14,yes,git,Whole-chain sweep; production unchanged
+20_CODE,games_line_experiment.py,npv,hashable,2026-09-14,88bcd2912d5ef07c9e1398b52d8852e42eca9fe2,10207,2026-09-14,yes,git,Whole-chain sweep; production unchanged
+30_OUTPUT,pipeline_experiment_seasons.csv,npv,hashable,2026-09-14,3acb0ce031658694d8073403c7aed36d43cc1d11,14292920,2026-09-14,yes,local,Whole-chain sweep; production unchanged; generated and gitignored
+30_OUTPUT,pipeline_experiment_contracts.csv,npv,hashable,2026-09-14,5c41da3631ac00a791e608e4d7201b9a1854e8d9,5139156,2026-09-14,yes,local,Whole-chain sweep; production unchanged; generated and gitignored
+30_OUTPUT,pipeline_experiment_summary.csv,npv,hashable,2026-09-14,2f82daf19dabeff2df230a5b65a2bc80ae0723fe,53072,2026-09-14,yes,local,Whole-chain sweep; production unchanged; generated and gitignored
+30_OUTPUT,pipeline_experiment_npv_movement.csv,npv,hashable,2026-09-14,0e6e8626e049f06030011974c4a3ec02ec399065,2233,2026-09-14,yes,local,Whole-chain sweep; production unchanged; generated and gitignored
+30_OUTPUT,pipeline_experiment_run.json,npv,hashable,2026-09-14,97ba32d83098d31d2161ce99061e249c20c76a63,3438,2026-09-14,yes,local,Whole-chain sweep; production unchanged; generated and gitignored
+30_OUTPUT,market_line_experiment_summary.csv,npv,hashable,2026-09-14,f254095e66c788dbe6f40764d6b72e12f29123e3,3602,2026-09-14,yes,local,Whole-chain sweep; production unchanged; generated and gitignored
+30_OUTPUT,market_line_experiment_run.json,npv,hashable,2026-09-14,ae1ca1b157b853c8369fc0dbb7b6cef11954367d,966,2026-09-14,yes,local,Whole-chain sweep; production unchanged; generated and gitignored
+30_OUTPUT,games_line_experiment_seasons.csv,npv,hashable,2026-09-14,603f1a4e94f16aa9d13d8a244b3bb284a58a65bd,3492626,2026-09-14,yes,local,Whole-chain sweep; production unchanged; generated and gitignored
+30_OUTPUT,games_line_experiment_summary.csv,npv,hashable,2026-09-14,a7217b863619800c8194b83299c540ca7acff0a6,8877,2026-09-14,yes,local,Whole-chain sweep; production unchanged; generated and gitignored
+30_OUTPUT,games_line_experiment_run.json,npv,hashable,2026-09-14,91d14a70b3a23aa92d09af9279c6e6a634585e78,2187,2026-09-14,yes,local,Whole-chain sweep; production unchanged; generated and gitignored
