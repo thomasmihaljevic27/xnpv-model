@@ -163,7 +163,7 @@ Moved 2026-09-09 (v3.2). The locked decision record (D1-D27, the Phase-1b/1c/1d 
 ---
 ## Work queue → WORK_QUEUE.md
 
-Moved 2026-09-09 (v3.2). The phase-sequenced list of yet-to-do work now lives in **`00_STATE/WORK_QUEUE.md`**. Pillar-level detail stays in `01_Draft_Model_Sequence.md`, `02_Prospect_Model_Sequence.md`, `03_Player_Market_Model_Sequence.md`.
+Moved 2026-09-09 (v3.2). The phase-sequenced list of yet-to-do work now lives in **`00_STATE/WORK_QUEUE.md`**. Pillar-level detail stays in `01_Draft_Model_Sequence.md`, `02_Prospect_Model_Sequence.md`, `03_Player_Market_Model_Sequence.md`, and `04_Discount_Heterogeneity_Sequence.md` (added 2026-09-14; a back-test extension rather than a pillar, and gated on 01 and 02).
 
 ---
 
