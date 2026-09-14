@@ -42,10 +42,36 @@ try:  # .env is optional; the fallbacks below are the documented default
 except ImportError:
     pass
 
-# Vendor inputs. Shared with production, READ ONLY from this tree. If .env
-# points SOURCE_DIR somewhere else on a given machine we honour it, so the
-# rebuild and the live model can never read two different WAR.csv files.
-SOURCE_DIR = Path(os.environ.get("SOURCE_DIR", REPO_ROOT / "10_SOURCE"))
+# Vendor inputs. Shared with production, READ ONLY from this tree.
+#
+# WHY THIS IS A FUNCTION AND NOT ONE LINE. The first version trusted
+# os.environ["SOURCE_DIR"] outright. On a machine whose .env still carried the
+# template's placeholder (XNPV_ROOT=C:/path/to/xnpv-model, which SOURCE_DIR
+# expands through) that produced a path no file has ever lived at, and the
+# first thing to touch it -- a hash, not a read -- died with a bare
+# FileNotFoundError pointing at C:\path\to\xnpv-model. The env var is a hint
+# about where the data might be, so it is CHECKED rather than believed, the
+# repo layout is the fallback, and the run log says which one won. A config
+# that cannot find its data should say what it tried.
+def _resolve_source_dir() -> tuple[Path, str, list[str]]:
+    tried: list[str] = []
+    candidates = []
+    env = os.environ.get("SOURCE_DIR")
+    if env:
+        candidates.append((Path(env), "SOURCE_DIR from the environment/.env"))
+    candidates.append((REPO_ROOT / "10_SOURCE", "the repo layout"))
+    for path, why in candidates:
+        # WAR.csv is the sentinel: it is committed, so it is present in every
+        # checkout, which makes it the one file whose absence means "this is
+        # not the source directory" rather than "this machine lacks the
+        # confidential extras".
+        if (path / "WAR.csv").exists():
+            return path, why, tried
+        tried.append(f"{path}  ({why}) -- no WAR.csv here")
+    return REPO_ROOT / "10_SOURCE", "the repo layout (nothing verified)", tried
+
+
+SOURCE_DIR, SOURCE_DIR_WHY, SOURCE_DIR_TRIED = _resolve_source_dir()
 
 # The rebuild's own output. NOT OUTPUT_DIR -- the live 30_OUTPUT tree is
 # never written to, never read as an input, and never cleaned by this code.
@@ -59,6 +85,15 @@ PROD_CODE_DIR = REPO_ROOT / "20_CODE"
 
 F_WAR_SKATERS = SOURCE_DIR / "WAR.csv"
 F_WAR_GOALIES = SOURCE_DIR / "Goalies_WAR.csv"
+
+# The PuckPedia exports, as CSV. Confidential vendor data, gitignored by the
+# repo-root hard deny on *CONFIDENTIAL*, never committed and never echoed row
+# by row into a log. The project's canonical copies are .xlsx; these CSVs are
+# the same export saved as text, which is what makes them readable outside a
+# machine with Excel. Their encodings differ and are detected per file -- see
+# contract_source.py -- because Excel wrote one as cp1252 and one as UTF-8.
+F_CONTRACTS_CSV = SOURCE_DIR / "PuckPedia_Player_Contract_Export_May_22_2026__CONFIDENTIAL.csv"
+F_TRADES_CSV = SOURCE_DIR / "PuckPedia_Trades_Contract_Export_May_22_2026__CONFIDENTIAL.csv"
 
 # --- Shared modelling constants -------------------------------------------
 # These are reproduced from the production engine rather than imported, so
@@ -161,9 +196,17 @@ def assert_read_only_source(path: Path) -> Path:
     generated file, which is how a look-ahead leak gets in unnoticed."""
     p = Path(path).resolve()
     if not p.exists():
-        raise FileNotFoundError(
-            f"{p} not found. Vendor inputs live in {SOURCE_DIR}; copy .env.example "
-            "to .env if this machine keeps them elsewhere.")
+        lines = [f"{p} not found.",
+                 f"SOURCE_DIR resolved to {SOURCE_DIR} via {SOURCE_DIR_WHY}."]
+        if SOURCE_DIR_TRIED:
+            lines.append("Already tried, and rejected:")
+            lines += [f"  {t}" for t in SOURCE_DIR_TRIED]
+        lines.append("Set SOURCE_DIR in .env to the folder holding WAR.csv, or run "
+                     "from a checkout where 10_SOURCE/ is populated.")
+        if "CONFIDENTIAL" in p.name:
+            lines.append("This one is confidential vendor data and is not in the repo: "
+                         "it has to be copied onto this machine by hand.")
+        raise FileNotFoundError("\n".join(lines))
     if not str(p).startswith(str(SOURCE_DIR.resolve())):
         raise ValueError(f"{p} is not under SOURCE_DIR ({SOURCE_DIR})")
     return p
@@ -192,6 +235,9 @@ def banner(script: str, version: str) -> None:
     log("=" * 74)
     log(f" {script}  v{version}   [EXPERIMENTAL -- 50_REBUILD, not production]")
     log(f" run {time.strftime('%Y-%m-%d %H:%M:%S')}   python {sys.version.split()[0]}")
+    log(f" source {SOURCE_DIR}  (via {SOURCE_DIR_WHY})")
+    for t in SOURCE_DIR_TRIED:
+        log(f"   skipped {t}")
     log("=" * 74)
 
 

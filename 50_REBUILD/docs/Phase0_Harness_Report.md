@@ -123,135 +123,170 @@ is unaffected; `component_persistence_test.py`'s covariance shares, which are co
 pairs including 2023-24 onward and are normalised to sum to one, carry the residual inside
 them. The effect on those shares is small and has not been quantified.
 
-## 4. First look at Phase 1: the plan's acceptance test is not met yet
+## 4. The contract exports, and what they unblocked
 
-Three candidates, same rows, same information sets, same placeholder participation (everyone
-plays — deliberately identical across candidates so it cancels from the comparison and its
-cost shows up honestly as a Brier score).
+The PuckPedia exports arrived as CSV part-way through this session, which closed two things
+the earlier draft of this report listed as blockers.
 
-- **A0** production 60/40, flat carry.
-- **A1** the mandatory benchmark: the blend pulled back toward the league by a fitted
-  coefficient, with position, a one-season flag and experience, plus availability forecast
-  from its own trailing share instead of assumed full.
-- **A2** the lead candidate: each of the seven components shrunk toward its positional norm
-  by its own fitted reliability constant, then regressed with component-specific
-  coefficients.
+**The CSVs are structurally intact**, where an earlier text extraction of the same workbooks
+was not. Contracts: 6,851 rows, every one exactly 40 columns. Trades: 2,615 rows, every one
+68 columns. Encodings differ between the two files and are detected per file rather than
+assumed — Excel wrote contracts as cp1252 and trades as UTF-8. That detail is not cosmetic:
+reading contracts as UTF-8 raises, and reading it with `errors='replace'` would silently
+mangle 32 accented surnames (Rosén, Strömgren, Räty, Moser), and those strings are the join
+key to `WAR.csv`. A name that fails to match does not error. It quietly drops a contract out
+of the market sample.
 
-MAE of the season total, in wins, and bias:
+**They reproduce the locked regression.** `contract_source.py` runs the production guard —
+`20_CODE/skater_value_engine.py` `stage0()` — with `read_excel` redirected to the CSV, so the
+real guard code path is exercised and production stays unedited.
+
+| | from the CSV | locked |
+|---|---:|---:|
+| Stage 0a UFA n / a / b | 1,618 / 0.020142 / 0.015340 | 1,616 / 0.020182 / 0.015337 |
+| Stage 0a RFA n / a / b | 1,305 / 0.020131 / 0.017060 | 1,301 / 0.020162 / 0.017049 |
+| Stage 0b raw n / α / β | 2,349 / 0.01844730 / 0.02021737 | 2,349 / 0.01845160 / 0.02021386 |
+| D20 Tobit α / β_F / β_D_add | 0.01324290 / 0.02123747 / 0.00286762 | 0.01324782 / 0.02123229 / 0.00287028 |
+
+Both stages PASS. The n differences of +2 and +4 are not new: the decision record already
+documents a "+2/+4 note" on the skater Stage-0a sample from name-variant edge cases. The CSV
+reproducing the known quirk as well as the headline coefficients is stronger evidence than
+matching the coefficients alone would be.
+
+**Ages are solved.** A birthdate table built from PuckPedia as primary and Elite Prospects as
+fallback — the precedence `age_join.py` already established — gives 4,343 keys and **98.3% age
+coverage of season rows, 97.7% of careers**. One key was dropped for claiming two different
+birthdates. Coverage is flat across the whole panel, 97% to 100% in every season from 2007 to
+2025, so the selection that made the EP-only table unusable is gone:
+
+| season | 2007 | 2012 | 2016 | 2020 | 2023 | 2025 |
+|---|---:|---:|---:|---:|---:|---:|
+| EP only | 83.5% | 54.1% | 16.9% | 0.0% | 0.0% | 0.0% |
+| PuckPedia + EP | 98% | 98% | 100% | 99% | 97% | 98% |
+
+This is better than the plan assumed — it put age coverage at roughly 60% and made finishing
+the EP pull a Phase 0 task. Phase 0 item 4 is closed.
+
+## 5. Phase 1 with ages: the plan's lead candidate is losing
+
+All four models rerun with ages available, which changes two things: A1 and A2 both get age
+terms (centred at 27, plus a square), and A2 shrinks toward an **age-and-position norm**
+rather than a position-only one, which is what the plan specifies. That second point matters
+on its own — shrinking a 35-year-old toward the average 27-year-old builds an aging curve
+into the shrinkage, in the wrong direction, before Phase 3 gets a say.
+
+MAE of the season total, in wins, development pages 2015–2021, 6,124 rows per horizon across
+1,516 careers:
 
 | model | h0 | h1 | h2 | h3 | h4 | h5 |
 |---|---:|---:|---:|---:|---:|---:|
-| A0 | 0.654 | 0.706 | 0.724 | 0.741 | 0.744 | 0.739 |
-| A1 | 0.577 | 0.603 | 0.604 | 0.603 | 0.621 | 0.595 |
-| A2 | **0.572** | 0.607 | 0.609 | 0.613 | 0.660 | 0.597 |
+| A0 production | 0.654 | 0.706 | 0.724 | 0.741 | 0.744 | 0.739 |
+| **A1 calibrated** | 0.576 | **0.604** | **0.598** | **0.597** | **0.607** | **0.569** |
+| A2 component, shrunk | **0.575** | 0.607 | 0.602 | 0.610 | 0.656 | 0.614 |
+| A2-raw, no shrinkage | 0.592 | 0.623 | 0.626 | 0.622 | 0.661 | 0.592 |
 
-**A1 and A2 both beat the production baseline decisively and by a lot** — 12% at the
-valuation season, 17% at two seasons on, 20% at five. That is the rebuild's central claim
-holding up: pricing and projecting a raw trailing total is the defect.
+**The rebuild's central claim is confirmed and is large.** A1 beats the production baseline by
+11.9% at the valuation season, 17.4% at two seasons on, and 23.0% at five. Pricing and
+projecting a raw trailing total is the defect, and calibrating it is worth roughly a fifth of
+the forecast error at long horizons.
 
-**A2 does not beat A1 at every horizon, which is what the plan's Phase 1 acceptance
-requires.** Paired, clustered by career:
+**The plan's Phase 1 acceptance test fails, and more clearly than before ages.** Paired,
+clustered by career; positive favours A1:
 
 | horizon | A2 vs A1 | 95% interval | verdict |
 |---|---:|---|---|
-| 0 | −0.96% | [−1.7%, −0.2%] | A2 better, interval excludes zero |
-| 1 | +0.63% | [−0.2%, +1.4%] | tie |
-| 2 | +0.87% | [+0.2%, +1.7%] | A1 better, marginally |
-| 3 | +1.60% | [+0.8%, +2.5%] | A1 better |
-| 4 | +6.30% | [+5.3%, +7.3%] | A1 better, clearly |
-| 5 | +0.38% | [−0.7%, +1.4%] | tie |
+| 0 | −0.16% | [−1.0%, +0.7%] | tie |
+| 1 | +0.57% | [−0.2%, +1.4%] | tie |
+| 2 | +0.67% | [−0.2%, +1.5%] | tie |
+| 3 | +2.19% | [+1.3%, +3.0%] | A1 better |
+| 4 | +8.18% | [+7.0%, +9.4%] | A1 better |
+| 5 | +7.80% | [+6.2%, +9.0%] | A1 better |
 
-A2 wins where the forecast is closest to the evidence and loses as the horizon lengthens.
-That pattern is what a missing aging curve looks like: at four seasons out, most of what
-separates a good forecast from a bad one is the age path, which neither model has yet, and
-A2 spends more parameters on a signal that has decayed. The plan puts the additive aging
-curve in Phase 3 for this reason, and the honest reading is that **the A1-versus-A2 question
-is not yet decidable** — not that A1 has won.
+Before ages, A2 won h0 outright and the long-horizon losses were confined to h4. With ages,
+A2 wins nothing and loses decisively at three horizons out of six. The honest reading is that
+**ages helped A1 more than they helped A2**: A1's h5 error fell from 0.595 to 0.569 while
+A2's rose from 0.597 to 0.614. A plausible mechanism is redundancy — once the age-and-position
+norm already carries the age pattern, adding age terms to a regression over seven shrunk
+components gives the fit more ways to overfit at the horizons where the trailing signal has
+decayed. That is a hypothesis this report does not test.
 
-Two results do favour A2 and are worth keeping:
-
-**The star tilt, horizons 0 to 2.** A2 has the smallest residual tilt at every tier above
-replacement and the lowest MAE at 3+ (1.408, against A1's 1.444 and A0's 1.678).
+**The star tilt is where the two now agree.** Horizons 0 to 2, bias in wins, and as a
+percentage of the tier's mean outcome:
 
 | model | below 0 | 0 to 1 | 1 to 2 | 2 to 3 | 3+ |
 |---|---:|---:|---:|---:|---:|
 | A0 | −0.37 | +31% | +51% | +37% | +35% |
-| A1 | −0.16 | −11% | −9% | −17% | −19% |
-| A2 | −0.17 | −12% | −6% | −14% | **−17%** |
+| A1 | −0.12 | +10% | +5% | −8% | −11% |
+| A2 | −0.12 | +6% | +7% | −5% | −11% |
+| A2-raw | −0.26 | −4% | −6% | −16% | −21% |
 
-The plan asks for every tier within 5%. No candidate is there. Every one of these residual
-tilts is *negative* — the calibrated models now under-project, where the production chain
-over-projected — and the under-projection is concentrated in the same tiers and grows with
-the horizon, which again points at the missing aging curve rather than at the anchor.
+Both calibrated models cut the production chain's +35% star over-projection to −11%, and both
+are inside or near the plan's 5% target in the middle tiers, which they were not before ages.
+Neither reaches it at 3+. The residual is now an *under*-projection, and it is the same size
+for both, so it is not an argument for either model.
 
-**The shrinkage is what makes the component structure work.** A diagnostic variant, A2-raw,
-feeds the same seven component rates to the same regression with no shrinkage, and it is
-*worse than A1 at every horizon* (by 1.1% to 8.1%). Splitting the total into components does
-not help on its own — a per-82 component rate is a far noisier regressor than a trailing
-total, and seven of them are seven times as noisy. Shrinking each by its own fitted
-reliability recovers all of that and more at short horizons. The argument for the component
-structure is that it is the only structure that can express "a forty-game season is the same
-number believed half as much"; it is not the headline margin, which is small.
-
-The fitted constants, in games of evidence needed before a player's own rate outweighs the
-norm (page 2021):
+**Shrinkage is still what makes the component structure work at all.** A2-raw — the same seven
+component rates, same regression, no shrinkage — is worse than A1 at every horizon, by 2.8% to
+9.0%. Splitting the total into components does not help on its own. The fitted reliability
+constants, in games of evidence needed before a player's own rate outweighs the norm (page
+2021):
 
 | component | k | reading |
 |---|---:|---|
 | even-strength offence | 40 | trusted quickly |
-| even-strength defence | 40 | trusted quickly |
 | power play | 40 | trusted quickly |
+| even-strength defence | 80 | |
 | penalties drawn/taken | 80 | |
-| shooting | 160 | pulled hard — two full seasons to half-trust |
+| shooting | 160 | pulled hard |
 | penalty kill | 320 | pulled very hard |
 | unallocated | 1280 | at the grid edge: no signal, shrunk to the norm |
 
-These are fitted per page on the rolling window, never carried across pages, and the ordering
-matches the persistence measured independently in `component_persistence_test.py` (shooting
-r = 0.35, even-strength offence r = 0.66).
+The ordering matches the persistence measured independently in
+`component_persistence_test.py` (shooting r = 0.35, even-strength offence r = 0.66), and the
+unallocated residual pinning at the grid edge is the data saying the 2023-24 export break
+carries no forecast signal.
 
-## 5. What is not settled, and what is not built
+## 6. What this means for the plan
 
-- **A1 versus A2 is open.** It is decidable only once the aging curve exists. Running it
-  again after Phase 3 is the plan's own sequence, not a concession.
-- **Ages are effectively missing, and the reason is sharper than "the file is absent".**
-  The vendor inputs do exist in the Dropbox sync channel; what does not work is getting the
-  PuckPedia workbook into a working container intact. The direct download host
-  (`dl.dropboxusercontent.com`) is refused by the environment's egress policy, and the
-  connector's text extraction of an `.xlsx` **collapses interior empty cells**, so columns
-  shift per row: the value `standard_level` sits at index 30 in a full-width row and at
-  index 25 in a 35-cell row, and only 1,398 of 6,851 rows (20%) are full width. A
-  contracts table realigned by guesswork is not a contracts table, so none was built.
+The plan named A2 the lead candidate and set "A2 beats A1 at every horizon" as the Phase 1
+gate. On the development pages, with the age panel the plan wanted and the shrinkage the plan
+specified, **A2 does not clear that gate and A1 is the better model.**
 
-  `ep_birthdates.csv` *did* come through losslessly — it is a real CSV, so there are no
-  empty cells to collapse — and it is now in `10_SOURCE/`. It raises age coverage from 0%
-  to 29.1% of season rows. **It is not usable for the aging work, and the measurement says
-  why.** Elite Prospects was the project's *second* birthdate source, scraped for the
-  players PuckPedia could not match, so the coverage it provides is the complement of what
-  is needed:
+That is a result, not a failure of the rebuild. The rebuild's thesis — that the defect is
+pricing and projecting a raw trailing total — is confirmed at 12% to 23% of forecast error.
+What is not confirmed is that the fix has to be component-wise.
 
-  | season | 2007 | 2010 | 2013 | 2016 | 2017 | 2018 onward |
-  |---|---:|---:|---:|---:|---:|---:|
-  | age coverage | 83.5% | 70.6% | 48.2% | 16.9% | 7.2% | **0.0%** |
+Three things would settle it, in the plan's own order:
 
-  Coverage also falls with quality — 35.2% of below-replacement seasons carry an age
-  against 10.3% of 3+ seasons. An aging curve fitted on this panel would be fitted entirely
-  on pre-2018 seasons and weighted toward weak players, which is precisely the selection
-  the plan's Phase 0 item 4 exists to prevent. The join is wired and tested (on name +
-  position, so the two Elias Petterssons cannot share a birthdate, with conflicting
-  birthdates dropped rather than picked between), and it is waiting on a birthdate source
-  that covers the modern game. **No model in this report uses an age.**
-- **Participation is a placeholder** — everyone plays. Its cost is visible in the Brier
-  scores (0.278 at h0 rising to 0.595 at h5) and it is Phase 2's job.
+1. **Phase 3, the additive aging curve.** A2's losses are concentrated at horizons 3 to 5,
+   where the age path dominates. The plan always said the anchor question is decidable only
+   once aging exists. That argument is weaker now than it was before ages — both models
+   already carry age terms — but the curve is still the right next test.
+2. **Per-horizon reliability constants.** The constants are fitted once per page against a
+   one-season-ahead criterion and then reused at every horizon. A five-season-ahead forecast
+   should shrink harder than a one-season-ahead one, and A2 currently cannot express that.
+   This is the most likely repair for exactly the horizons where A2 loses.
+3. **Dropping the age terms from A2's regression** while keeping the age-and-position norm, to
+   test the redundancy hypothesis above.
+
+If none of those moves A2 ahead, the plan should adopt A1 and retire the component anchor —
+keeping the reliability machinery, which is real, for the places it demonstrably helps.
+
+## 7. What is not built
+
+- **Participation is a placeholder** — everyone plays. Its cost is visible in the Brier scores
+  (0.278 at h0 rising to 0.595 at h5) and it is Phase 2's job.
 - **Aging is a flat carry-forward.** Phase 3.
-- **Both market models are unbuilt.** Phase 4 needs signing dates, cap hits and contract
-  state, which means the PuckPedia workbook as bytes rather than as extracted text. The
-  cheapest unblock is a **CSV export of the same workbook** placed in the Dropbox
-  `10_SOURCE/` folder: `ep_birthdates.csv` proves a real CSV crosses this path intact,
-  while an `.xlsx` does not. Allowing `dl.dropboxusercontent.com` through the egress policy
-  would work equally well.
-- **Experience is left-censored** for 30.1% of season rows — players who debuted in or
-  before 2007-08, the first season in the source. The flag travels with the number and the
-  models use it, but the censoring is real and is a limitation of any experience term.
+- **The two market models are unbuilt.** They are no longer blocked: the contracts CSV is
+  validated and `contract_source.load_contracts()` serves it. Decisions A and B in the plan's
+  section 2 have to be made first.
+- **The trades export is loaded and validated but unused.** 2,615 rows, 68 columns, including
+  `trade_date`, `cap_hit`, `retained_hit` and `expiry_status`. It is the back-test's input.
+- **`information_set.contracts_known_at()` still raises.** The contracts data exists now, but
+  the signing-date-aware contract state builder is Phase 4 work and has not been written.
+  Raising is still better than an empty frame that reads as "this player has no contract".
+- **Experience is left-censored** for 30.1% of season rows — players who debuted in or before
+  2007-08, the first season in the source.
 - **The 2023-24 export break has not been taken back to the vendor**, and its effect on the
   published component covariance shares has not been quantified.
+- **No confirmatory page has been touched.** Every number in this report is from 2015–2021.

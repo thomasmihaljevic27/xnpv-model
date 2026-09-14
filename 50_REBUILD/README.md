@@ -44,11 +44,11 @@ No `.env` is required — paths fall back to the repo layout. From the repo root
 
 | Phase | What it is | State |
 |---|---|---|
-| 0 | dates, identities, harness | **built, acceptance PASS** |
-| 1 | ability forecast (A0/A1/A2) | first comparison run; not settled |
+| 0 | dates, identities, harness | **built, acceptance PASS**; item 4 (ages) closed at 98.3% coverage |
+| 1 | ability forecast (A0/A1/A2) | run with ages. **A2 fails the plan's gate; A1 is ahead** |
 | 2 | participation and exit | not started — placeholder in the harness |
 | 3 | aging | not started — flat carry-forward in the harness |
-| 4 | contract price and production currency | blocked: needs the PuckPedia export |
+| 4 | contract price and production currency | **unblocked** — contracts CSV validated against the locked regression |
 | 5 | valuation by simulation | not started |
 | 6 | rebuild, confirm, lock | not started |
 
@@ -65,20 +65,17 @@ tree so far comes from development pages.
 
 ## What this tree needs that it does not have
 
-The vendor inputs all exist in the Dropbox sync channel. The obstacle is transport: the
-direct download host is refused by this environment's egress policy, and the connector's
-text extraction of an `.xlsx` collapses interior empty cells, so columns shift per row and
-the result cannot be realigned honestly. A real `.csv` crosses that path losslessly.
+The vendor inputs are present. `10_SOURCE/` carries the two PuckPedia exports as CSV and
+`ep_birthdates.csv`, all three gitignored as confidential and none committed.
 
-- **Birthdates.** `10_SOURCE/ep_birthdates.csv` is recovered and wired in
-  (`REBUILD_BIRTHDATES=10_SOURCE/ep_birthdates.csv`), joining on name + position. It raises
-  coverage to 29.1% of season rows but is **not usable for aging**: Elite Prospects was the
-  second source, scraped for the players PuckPedia could not match, so coverage runs 83.5%
-  in 2007 down to 0.0% from 2018 onward and falls with player quality. No model uses an age.
-  Needs the PuckPedia birthdates or a completed EP pull.
-- **Contracts.** Phase 4 needs signing dates, cap hits and contract state — the workbook as
-  bytes, not as extracted text. `information_set.contracts_known_at()` raises rather than
-  returning an empty frame.
+Two notes for anyone re-running this elsewhere:
 
-**Cheapest unblock for both: a CSV export of the PuckPedia workbook in the Dropbox
-`10_SOURCE/` folder.**
+- **The CSVs must be CSVs.** An `.xlsx` moved through a text extraction loses interior empty
+  cells and its columns shift per row; `contract_source.validate()` would catch that, but the
+  cheaper fix is to keep the CSV exports.
+- **Encodings differ per file** (contracts cp1252, trades UTF-8) and are detected, not
+  assumed. Never read them with `errors='replace'` — it corrupts the accented surnames that
+  are the join key to `WAR.csv`, and a failed name match drops a contract silently.
+
+Still missing: nothing that blocks Phases 1 through 4. The game-level SQLite store
+(`nhl_gamelogs.sqlite`, 2.3 GB) is needed only for A3's in-season Game Value update.

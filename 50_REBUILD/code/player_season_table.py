@@ -257,12 +257,22 @@ def _attach_age(a: pd.DataFrame, path: Path) -> pd.DataFrame:
     col = next((cols[c] for c in ("birthdate", "dob", "birth_date") if c in cols), None)
     name = next((cols[c] for c in ("war_name", "player", "name") if c in cols), None)
     pos = next((cols[c] for c in ("war_position", "position", "pos") if c in cols), None)
-    if col is None or name is None:
-        C.log(f"  [age] {path} has no usable birthdate/name columns -- ages left missing")
+    if col is None:
+        C.log(f"  [age] {path} has no birthdate column -- ages left missing")
         return a
     bd = bd.dropna(subset=[col])
 
-    if pos is not None:
+    # A table that already carries `pkey` was keyed by a builder that knows the
+    # convention (contract_source.birthdate_table does), so it is used as-is
+    # rather than re-derived from a name -- re-deriving would apply the name
+    # rules twice and could only lose matches.
+    if "pkey" in cols:
+        bd["_k"] = bd[cols["pkey"]]
+        on, how = "pkey", "a pre-built pkey"
+    elif name is None:
+        C.log(f"  [age] {path} has neither a pkey nor a name column -- ages left missing")
+        return a
+    elif pos is not None:
         bd["_k"] = bd[name].map(norm_name) + "|" + bd[pos].astype(str)
         on, how = "pkey", "pkey + position"
     else:

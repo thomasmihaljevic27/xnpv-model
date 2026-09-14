@@ -38,7 +38,13 @@ def main() -> None:
     C.log("")
 
     C.log("STEP 1  season table + reproduction guard against production")
-    table = build_table(verbose=True)
+    # Ages come from the PuckPedia/EP birthdate table that contract_source.py
+    # builds. Where it is absent the run still works and reports 0% coverage;
+    # it does not fail, because Phases 0-1 are defined without ages.
+    bd = C.OUT_DIR / "birthdates.csv"
+    if not bd.exists():
+        C.log(f"        note: {bd.name} absent -- run contract_source.py first for ages")
+    table = build_table(birthdate_csv=bd if bd.exists() else None, verbose=True)
     if not guard_against_production(table):
         C.log("  guard did not run; results below are NOT acceptance evidence")
     C.log("")

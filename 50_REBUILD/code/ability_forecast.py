@@ -111,8 +111,19 @@ def _anchors(played: pd.DataFrame) -> pd.DataFrame:
     out["n_seasons"] = m["GP_1"].notna().astype(int) + m["GP_2"].notna().astype(int)
     out["one_season"] = (out["n_seasons"] == 1).astype(float)
     out["is_D"] = (out["pos"] == "D").astype(float)
-    for c in ["exp_seasons", "exp_censored", "age", "has_age", "toi_pg"]:
+    for c in ["exp_seasons", "exp_censored", "has_age", "toi_pg"]:
         out[c] = m[c + "_1"].fillna(m[c + "_2"])
+    # AGE AT THE VALUATION SEASON, not at the trailing season the anchor came
+    # from. The anchor may be two years old; the player is not. `age` on a
+    # season row is his age in that season, so stepping it forward to t0 is
+    # what puts him on the right point of the curve.
+    a1 = m["age_1"] + 1.0
+    a2 = m["age_2"] + 2.0
+    out["age"] = a1.fillna(a2)
+    # Centred at 27, roughly the peak, so the linear term reads as "per year
+    # either side of prime" and the square is small and well conditioned.
+    out["age_c"] = out["age"] - 27.0
+    out["age_c2"] = out["age_c"] ** 2
 
     # THE BLEND. 60/40 when both seasons qualify, the single season alone when
     # only one does -- the locked rule. Applied identically to the totals, the
@@ -182,7 +193,7 @@ class A1Calibrated(BaseModel):
     than a one-year-ahead one, which the production chain's flat carry cannot.
     """
     name = "A1 calibrated total"
-    FEATURES = ["tw_WAR", "one_season", "is_D", "exp_seasons"]
+    FEATURES = ["tw_WAR", "one_season", "is_D", "exp_seasons", "age_c", "age_c2"]
 
     def fit(self, table, before):
         super().fit(table, before)
@@ -192,7 +203,7 @@ class A1Calibrated(BaseModel):
             r = g.dropna(subset=["y_rate"])           # rate fit: seasons played
             self.coef_[h] = _ols(r[self.FEATURES], r["y_rate"]) if len(r) > 50 else None
             s = g.dropna(subset=["y_gp_share"])
-            self.gp_coef_[h] = _ols(s[["tr_gp_share", "is_D", "exp_seasons"]],
+            self.gp_coef_[h] = _ols(s[["tr_gp_share", "is_D", "exp_seasons", "age_c"]],
                                     s["y_gp_share"]) if len(s) > 50 else None
 
     def predict(self, iset, subs, horizons):
@@ -202,7 +213,7 @@ class A1Calibrated(BaseModel):
         for h in horizons:
             r = subs.copy()
             r["rate_82"] = _apply(self.coef_.get(h), a[self.FEATURES], a["tw_WAR"])
-            gp = _apply(self.gp_coef_.get(h), a[["tr_gp_share", "is_D", "exp_seasons"]],
+            gp = _apply(self.gp_coef_.get(h), a[["tr_gp_share", "is_D", "exp_seasons", "age_c"]],
                         a["tr_gp_share"])
             r["gp_share"] = np.clip(gp, 0.05, 1.0)
             r["p_play"] = _placeholder_participation(r, h)
@@ -268,7 +279,7 @@ class A2Component(A1Calibrated):
     K_GRID = np.array([1, 2, 5, 10, 20, 40, 80, 160, 320, 640, 1280], dtype=float)
 
     RATE_FEATURES = ["sh_" + c for c in C.COMPONENTS_MODEL] + [
-        "tr_gp_share", "one_season", "is_D", "exp_seasons"]
+        "tr_gp_share", "one_season", "is_D", "exp_seasons", "age_c", "age_c2"]
 
     def fit(self, table, before):
         BaseModel.fit(self, table, before)
@@ -280,8 +291,7 @@ class A2Component(A1Calibrated):
         # Phase 3, once birthdates cover enough of the panel to support it;
         # with 0% age coverage in this checkout, position alone is the norm
         # and the harness reports it as such rather than silently degrading.
-        self.norm_ = {c: s.groupby("pos")[c + "_82"].mean().to_dict()
-                      for c in C.COMPONENTS_MODEL}
+        self.norm_ = self._fit_norms(s)
         self.k_ = self._fit_reliability(s, before)
 
         pairs = self._training_pairs(table, before, range(6))
@@ -291,8 +301,49 @@ class A2Component(A1Calibrated):
             r = g.dropna(subset=["y_rate"])
             self.coef_[h] = _ols(r[self.RATE_FEATURES], r["y_rate"]) if len(r) > 50 else None
             q = g.dropna(subset=["y_gp_share"])
-            self.gp_coef_[h] = _ols(q[["tr_gp_share", "is_D", "exp_seasons"]],
+            self.gp_coef_[h] = _ols(q[["tr_gp_share", "is_D", "exp_seasons", "age_c"]],
                                     q["y_gp_share"]) if len(q) > 50 else None
+
+    # A norm cell needs this many seasons before it is trusted on its own;
+    # thinner cells fall back to the position norm. Without the floor the
+    # 41-year-old cell would be three players and the shrinkage target for a
+    # 38-year-old would be noise dressed up as a norm.
+    MIN_NORM_CELL = 40
+    AGE_LO, AGE_HI = 19, 38
+
+    def _fit_norms(self, s: pd.DataFrame) -> dict:
+        """The AGE-AND-POSITION norm each component is shrunk toward.
+
+        The plan specifies age here and it matters: shrinking a 35-year-old
+        toward the average 27-year-old builds the aging curve into the
+        shrinkage, in the wrong direction, before Phase 3 gets a say. Ages are
+        clipped into a range where the cells are populated, so the oldest and
+        youngest players shrink toward the edge cell rather than toward a cell
+        of three people.
+
+        Computed on the training window only, so it is a fact about the league
+        as it was known on the decision date.
+        """
+        s = s.copy()
+        s["_ab"] = s["age"].clip(self.AGE_LO, self.AGE_HI).round()
+        norms = {}
+        for c in C.COMPONENTS_MODEL:
+            col = c + "_82"
+            by_pos = s.groupby("pos")[col].mean().to_dict()
+            g = s.groupby(["pos", "_ab"])[col].agg(["mean", "size"])
+            cell = {k: (v["mean"] if v["size"] >= self.MIN_NORM_CELL else by_pos.get(k[0]))
+                    for k, v in g.iterrows()}
+            norms[c] = {"cell": cell, "pos": by_pos}
+        return norms
+
+    def _norm_for(self, c: str, pos: pd.Series, age: pd.Series) -> np.ndarray:
+        """Look up the norm per row, falling back to the position norm where a
+        player has no age at all -- 1.7% of rows, and they must not be dropped."""
+        n = self.norm_[c]
+        ab = age.clip(self.AGE_LO, self.AGE_HI).round()
+        out = [n["cell"].get((p, a), n["pos"].get(p)) if pd.notna(a) else n["pos"].get(p)
+               for p, a in zip(pos, ab)]
+        return np.array([np.nan if v is None else v for v in out], dtype=float)
 
     def _fit_reliability(self, s: pd.DataFrame, before: int) -> dict:
         """Fit k_c per component on consecutive season pairs whose OUTCOME is
@@ -315,7 +366,7 @@ class A2Component(A1Calibrated):
             obs = pairs[c + "_82"].to_numpy(float)
             gp = pairs["GP"].to_numpy(float)
             nxt = pairs[c + "_82_n"].to_numpy(float)
-            norm = pairs["pos"].map(self.norm_[c]).to_numpy(float)
+            norm = self._norm_for(c, pairs["pos"], pairs["age"])
             sse = [(w * ((gp * obs + kk * norm) / (gp + kk) - nxt) ** 2).sum()
                    for kk in self.K_GRID]
             k[c] = float(self.K_GRID[int(np.argmin(sse))])
@@ -329,7 +380,7 @@ class A2Component(A1Calibrated):
         gp = d["exposure_gp"].to_numpy(float)
         pos = d["pos"]
         for c in C.COMPONENTS_MODEL:
-            norm = pos.map(self.norm_[c]).to_numpy(float)
+            norm = self._norm_for(c, pos, d["age"])
             obs = d["tr_" + c].to_numpy(float)
             kk = self.k_[c]
             d["sh_" + c] = (gp * obs + kk * norm) / (gp + kk)
@@ -347,7 +398,7 @@ class A2Component(A1Calibrated):
             # better than it is in early pages.
             fb = a[["sh_" + c for c in C.COMPONENTS_MODEL]].sum(axis=1)
             r["rate_82"] = _apply(self.coef_.get(h), a[self.RATE_FEATURES], fb)
-            gp = _apply(self.gp_coef_.get(h), a[["tr_gp_share", "is_D", "exp_seasons"]],
+            gp = _apply(self.gp_coef_.get(h), a[["tr_gp_share", "is_D", "exp_seasons", "age_c"]],
                         a["tr_gp_share"])
             r["gp_share"] = np.clip(gp, 0.05, 1.0)
             r["p_play"] = _placeholder_participation(r, h)
