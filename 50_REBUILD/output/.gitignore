@@ -1,0 +1,6 @@
+# Everything this tree produces is regenerable from 50_REBUILD/code/ and
+# drifts every run, so none of it is committed -- the same rule 30_OUTPUT
+# lives under. This file is local to the tree on purpose: the rebuild is
+# experimental and must not edit the repo-root .gitignore.
+*
+!.gitignore
