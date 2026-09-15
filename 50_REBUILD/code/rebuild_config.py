@@ -27,7 +27,7 @@ import sys
 import time
 from pathlib import Path
 
-SCRIPT_VERSION = "1.5"
+SCRIPT_VERSION = "1.6"
 
 # --- Tree layout ----------------------------------------------------------
 # resolve() first: __file__ can be relative depending on how python was
@@ -241,13 +241,35 @@ MIN_AGE_COVERAGE = 0.95
 # 2027-28 together, so a valuation from July 2025 may use all three and an
 # earlier one may use none of them.
 #
-# NOT ADDED HERE: the announced 2026-27 and 2027-28 figures themselves. They
-# are public and they belong in CAP_CEILING, but they are not in this
-# repository's source data and a thesis model should not carry a number typed
-# in from memory. Until they are entered from the source, a valuation dated
-# after 2025-01-31 extrapolates those two seasons at CAP_GROWTH like any other
-# unannounced year, which understates them. Recorded so it is a known gap
-# rather than a silent one.
+# 2026-27 IS NOW ENTERED, at $104.0M, confirmed by Thomas on 2026-09-15 and
+# matching the ceiling the production panel's 2026-27 page already prices
+# against. Before this it was extrapolated at CAP_GROWTH from the 2025-26
+# ceiling, which put it at $98.4M -- an understatement of $5.6M, or 5.4%, in
+# the denominator of every cap share for that season.
+#
+# 2027-28 IS DELIBERATELY STILL ABSENT. The figure in circulation, $113M, is
+# an estimate rather than a confirmed ceiling (Thomas, 2026-09-15), and a
+# model that carries an estimate in a slot reserved for an announced,
+# exogenous number cannot claim the cap path is free of its own judgement.
+# It stays out until the league sets it, and a valuation dated after
+# 2025-01-31 therefore extrapolates 2027-28 at CAP_GROWTH from the 2026-27
+# ceiling, as it does any other unannounced year. Recorded so the gap is
+# known rather than silent.
+#
+# THIS DISAGREES WITH PRODUCTION AND THE DISAGREEMENT IS NOT RESOLVED HERE.
+# `20_CODE/skater_forward_projection.py` and `20_CODE/goalie_value_engine.py`
+# both carry 2027 = $113.5M, commented as a published 2025 MOU figure and
+# therefore as an actual rather than an estimate. Under D11 only the ceiling
+# for the valuation season itself is ever read, and the production panel has
+# no 2027-28 page, so the entry is inert today and nothing currently priced
+# depends on it. It stops being inert the day a 2027-28 page is built. The
+# rebuild does not edit production, so the two tables now differ on one
+# season and the difference is in the flags for Thomas to settle.
+#
+# The 2027 entry below is kept and is inert: the filter in cap_path() reads
+# CAP_CEILING, so a year with an announcement date and no ceiling contributes
+# nothing. It is here so that entering the confirmed figure later is one line
+# in one place.
 CAP_ANNOUNCED_EARLY = {2025: "2025-01-31", 2026: "2025-01-31", 2027: "2025-01-31"}
 
 # Growth applied beyond the last announced ceiling, and the discount rate on
@@ -498,7 +520,7 @@ def write_log(name: str) -> Path:
 CAP_CEILING = {
     2015: 71.4e6, 2016: 73.0e6, 2017: 75.0e6, 2018: 79.5e6, 2019: 81.5e6,
     2020: 81.5e6, 2021: 81.5e6, 2022: 82.5e6, 2023: 83.5e6, 2024: 88.0e6,
-    2025: 95.5e6,
+    2025: 95.5e6, 2026: 104.0e6,
 }
 LEAGUE_MIN_SALARY = {
     2015: 575_000, 2016: 575_000, 2017: 650_000, 2018: 650_000,

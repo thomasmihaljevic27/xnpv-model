@@ -1,5 +1,21 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-15x (the 2026-27 ceiling, and what the birthdate file turned out to be):**
+`rebuild_config.CAP_CEILING` gains 2026 = $104.0M, confirmed by Thomas, with the 2025-01-31
+announcement date enforced; check 21 in `repair_checks.py` holds both halves of that (a
+valuation the day before must still extrapolate, one after must use the published figure, and
+2027-28 must still be grown from 2026-27). 2027-28 deliberately left out: the $113M in
+circulation is an estimate. **Recorded discrepancy:** production carries 2027 = $113.5M in
+`skater_forward_projection.py` and `goalie_value_engine.py` as a published MOU figure. It is
+inert under D11 until a 2027-28 page exists; flagged, not changed. Separately, Thomas supplied
+`ep_birthdates.csv`, which turns out to be the fallback half of the birthdate join rather than
+the whole of it — 1,285 keys, median birth year 1984, 4.6% coverage of the 2015-and-later pages
+every development result is scored on. `player_season_table.birthdate_source()` now names which
+half a machine has, and both new runners print it and the scored-page coverage before anything
+else, because ages that are present but concentrated on the wrong seasons read as a healthy
+join. The PuckPedia contract export is still what the age coverage is waiting on. No production
+code changed, no locked decision reopened, no reserved page unsealed.
+
 **Change log, 2026-09-15w (predictive uncertainty and the leakage battery):** Built
 `50_REBUILD/code/predictive_interval.py` -- a zero-inflated predictive distribution over a
 season's win total, with the scale fitted per horizon on a rolling replay of the model's own

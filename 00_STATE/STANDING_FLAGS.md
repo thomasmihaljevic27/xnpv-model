@@ -41,6 +41,16 @@ residuals and currency comparisons; fix and rerun development work before furthe
 
 ## Standing flags (Karl's identification axes — watch on every design choice)
 
+- **NEW 2026-09-15c — the 2027-28 ceiling: production calls it published, Thomas calls it an
+  estimate.** `20_CODE/skater_forward_projection.py` and `20_CODE/goalie_value_engine.py` both
+  carry 2027 = $113.5M, commented as a published 2025 MOU figure. Thomas's statement on
+  2026-09-15 is that 2027-28 is estimated at about $113M and is **not confirmed**. Under D11
+  only the valuation season's own ceiling is ever read and there is no 2027-28 page in the
+  panel, so nothing currently priced depends on it — it becomes live the day such a page is
+  built. The rebuild tree deliberately leaves 2027 out and extrapolates it at 3%, so the two
+  cap tables now differ on one season. **Decision owed before any 2027-28 valuation is built or
+  cited.** 2026-27 at $104.0M is confirmed and is in both.
+
 - **NEW 2026-09-15c — three open items carried by the new interval layer.** (a) The spread is
   fitted by replaying the model on pages inside its own training window, so it is flattered by
   being fitted in sample. The size of that gap is measured rather than assumed -- the middle 80%

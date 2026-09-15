@@ -58,7 +58,7 @@ import predictive_interval as PI
 from player_season_table import build as build_table
 from ability_forecast import A1HingeExposure
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 
 LEADER = A1HingeExposure
 PAGES = C.DEV_PAGES
@@ -72,18 +72,31 @@ EXACT = 1e-9
 
 
 def _load_table():
-    bd = C.OUT_DIR / "birthdates.csv"
-    if bd.exists():
-        return build_table(birthdate_csv=bd, verbose=False), True
-    C.log("!! NO BIRTHDATE TABLE ON THIS MACHINE. Ages are missing, so the")
-    C.log("!! aging walk and the participation fits degenerate. The leakage")
-    C.log("!! tests are still meaningful -- they compare two runs of the same")
-    C.log("!! model against each other, and a leak would show up in a crippled")
-    C.log("!! model as readily as in a healthy one. The SENSITIVITY figures in")
-    C.log("!! test 5 are not: they describe a model that is not the one on")
-    C.log("!! record.")
+    """Build the season table, and say plainly what the ages on this machine
+    are worth. There are two birthdate tables and they are not equivalent: the
+    merged one reaches the pages results are scored on, the Elite Prospects
+    scrape on its own reaches the players who left before those pages start.
+    Which one was used, and the coverage it produced, is printed rather than
+    inferred."""
+    from player_season_table import birthdate_source
+    path, how = birthdate_source()
+    table = build_table(birthdate_csv=path, verbose=False, allow_thin_ages=True)
+    dev = table[table["syr"] >= min(C.DEV_PAGES)]
+    cov_all = float(table["has_age"].mean())
+    cov_dev = float(dev["has_age"].mean()) if len(dev) else 0.0
+    C.log(f"  birthdates: {how}")
+    C.log(f"  age coverage {cov_all:.1%} of all season rows, "
+          f"{cov_dev:.1%} on {min(C.DEV_PAGES)} and later")
+    usable = cov_dev >= C.MIN_AGE_COVERAGE
+    if not usable:
+        C.log("")
+        C.log("!! AGE COVERAGE ON THE SCORED PAGES IS TOO THIN FOR A RESULT.")
+        C.log("!! The aging walk degenerates to a flat carry-forward and the")
+        C.log("!! participation fits collapse to a constant. The code paths")
+        C.log("!! below all run; the figures they produce are about a crippled")
+        C.log("!! model and must not be compared with anything on record.")
     C.log("")
-    return build_table(verbose=False, allow_thin_ages=True), False
+    return table, usable
 
 
 def _predict_at(table: pd.DataFrame, page: int, fit_table: pd.DataFrame | None = None,
@@ -277,8 +290,9 @@ def main() -> None:
     C.log(f"OVERALL: {'all four leakage tests pass' if verdict else 'A LEAKAGE TEST FAILED'}")
     if not real_ages:
         C.log("")
-        C.log("!! REMINDER: no birthdates on this machine. Tests 1-4 compare the")
-        C.log("!! model against itself and stand. Test 5's numbers describe a")
+        C.log("!! REMINDER: the ages on the scored pages were too thin for a")
+        C.log("!! result. Tests 1-4 compare the model against itself and stand")
+        C.log("!! whatever state it is in. Test 5's numbers describe a")
         C.log("!! degenerate model and are not evidence about the real one.")
     C.write_log("leakage_tests_run_log.txt")
     assert verdict, "a leakage test failed -- see the log"

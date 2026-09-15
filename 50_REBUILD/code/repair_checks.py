@@ -24,7 +24,7 @@ import forecast_harness as H
 import player_season_table as T
 from ability_forecast import A0Production
 
-SCRIPT_VERSION = "1.8"
+SCRIPT_VERSION = "1.9"
 
 PASS, FAIL, SKIP = "pass", "FAIL", "skip"
 results: list[tuple[str, str, str]] = []
@@ -653,6 +653,48 @@ def c20(table):
     return f"{len(cut.zs_)} replayed misses, identical with and without the future"
 
 
+def c21(table):
+    """The 2026-27 ceiling is used where it was known and nowhere earlier.
+
+    An announced ceiling is worth entering only if the date it became public
+    is enforced. The league and the players' association published 2025-26 and
+    2026-27 together on 2025-01-31, so a valuation from the day before must
+    still extrapolate 2026-27 and one from the following July must use the
+    published $104.0M exactly. Extrapolation from the 2025-26 ceiling puts it
+    at $98.4M, so the two answers differ by 5.4% and a filter that had quietly
+    stopped working would show up here rather than in a dollar figure nobody
+    could trace.
+
+    2027-28 is deliberately absent from the table -- the $113M in circulation
+    is an estimate, not a set ceiling -- so it must still be extrapolated from
+    2026-27 at the growth rate on every date.
+    """
+    announced = C.CAP_CEILING[2026]
+    assert announced == 104.0e6, f"the 2026-27 ceiling reads {announced:,.0f}"
+
+    before = C.cap_path("2025-01-30", [2026])[2026]
+    assert abs(before - announced) > 1e6, (
+        "a valuation dated the day before the announcement already knew the "
+        f"2026-27 ceiling ({before:,.0f})")
+
+    after = C.cap_path("2025-07-01", [2026])[2026]
+    assert after == announced, (
+        f"a valuation after the announcement used {after:,.0f} rather than "
+        f"the published {announced:,.0f}")
+
+    later = C.cap_path("2026-07-01", [2027])[2027]
+    grown = announced * (1.0 + C.CAP_GROWTH)
+    assert abs(later - grown) < 1.0, (
+        f"2027-28 came back as {later:,.0f}; it has no confirmed ceiling and "
+        f"must still be grown from 2026-27 to {grown:,.0f}")
+    assert 2027 not in C.CAP_CEILING, (
+        "2027-28 has an entry in the ceiling table. The figure in circulation "
+        "is an estimate and an estimate does not belong in a slot reserved "
+        "for an announced, exogenous number.")
+    return ("2026-27 at $104.0M from 2025-01-31, extrapolated before it; "
+            "2027-28 still unannounced")
+
+
 def main() -> None:
     warnings.filterwarnings("ignore")
     C.banner("repair_checks.py", SCRIPT_VERSION)
@@ -693,7 +735,8 @@ def main() -> None:
                      ("empty and all-rejected batches", c17),
                      ("interval arithmetic", c18),
                      ("a band on every row, forecast unmoved", c19),
-                     ("the band cannot see the future", c20)]:
+                     ("the band cannot see the future", c20),
+                     ("the 2026-27 ceiling", c21)]:
         check(name, lambda fn=fn: fn(table))
 
     width = max(len(n) for n, _, _ in results)

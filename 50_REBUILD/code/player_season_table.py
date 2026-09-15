@@ -63,7 +63,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 
-SCRIPT_VERSION = "1.2"
+SCRIPT_VERSION = "1.3"
 
 # --- Name normalisation ---------------------------------------------------
 # Reproduced from skater_value_engine.norm_name rather than imported, so this
@@ -182,6 +182,36 @@ def assert_season_identity(a: "pd.DataFrame", tol: float = 1e-9) -> None:
             f"Worst absolute gap {worst:.6f} WAR over {len(bad)} rows in "
             f"seasons {sorted(bad.unique().tolist())}. Median ratio of the "
             f"reconstruction to the total, by season:\n{by_season.to_string()}")
+
+
+def birthdate_source() -> tuple[Path | None, str]:
+    """Which birthdate table this machine actually has, and what it is worth.
+
+    THERE ARE TWO HALVES AND THEY ARE NOT INTERCHANGEABLE. The merged table at
+    `output/birthdates.csv` is PuckPedia first with an Elite Prospects scrape
+    behind it, and it reaches 98.3% of season rows. The scrape ON ITS OWN is
+    the fallback half: it was run to reach the players PuckPedia could not
+    match, which are the players who left the league early in the sample. On
+    the source file in this repository's layout it covers 84% of 2007 rows and
+    0% of anything from 2018 on -- 4.6% of the 2015-and-later pages that every
+    development result is scored on.
+
+    That second state is more dangerous than having nothing, because the ages
+    are present, plausible, and concentrated entirely on the seasons nobody is
+    forecasting. A runner that only asked "is there a birthdate file" would
+    report a healthy-looking join and score a model whose aging term is fitted
+    on the players who retired before the sample starts. So the answer comes
+    back with a label, and the caller is expected to print it.
+    """
+    merged = C.OUT_DIR / "birthdates.csv"
+    if merged.exists():
+        return merged, "merged (PuckPedia primary, Elite Prospects fallback)"
+    ep = C.SOURCE_DIR / "ep_birthdates.csv"
+    if ep.exists():
+        return ep, ("the Elite Prospects scrape ALONE -- this is the fallback "
+                    "half and it covers the players who left early, not the "
+                    "development pages")
+    return None, "none on this machine"
 
 
 def build(birthdate_csv: Path | None = None, verbose: bool = True,

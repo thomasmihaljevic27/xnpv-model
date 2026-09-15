@@ -24,9 +24,18 @@ participation probability, and eight of the twenty review checks skip. Next, in 
 3. **Separate bands for the rate and the games share, drawn jointly**, so an exit implies zero
    games on the path rather than a product of averages.
 4. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
-   the announced cap ceilings (the 2026-27 and 2027-28 figures are public but are not in the
-   repository's own sources and were not invented), contract-by-contract dollar reconciliation,
-   and the holdout policy.
+   contract-by-contract dollar reconciliation, and the holdout policy.
+
+**2026-09-15c — the 2026-27 ceiling is entered, 2027-28 is not, and production disagrees.**
+`rebuild_config.CAP_CEILING` gains 2026 = $104.0M (Thomas, confirmed), announced 2025-01-31 and
+enforced as such: a valuation dated the day before still extrapolates it, one dated the
+following July uses it exactly. Before this the rebuild grew it from the 2025-26 ceiling to
+$98.4M, understating the denominator of every 2026-27 cap share by 5.4%. 2027-28 stays out —
+the $113M in circulation is an estimate, not a set ceiling. **Production carries 2027 =
+$113.5M** in `skater_forward_projection.py` and `goalie_value_engine.py`, commented as a
+published 2025 MOU figure. Under D11 only the valuation season's own ceiling is read and there
+is no 2027-28 page, so nothing priced today depends on it; it stops being inert the day one is
+built. **Thomas's call**, in the flags. Production was not edited.
 
 **Fourth repair verification, 2026-09-15:** reviewed `4b9723a` in isolation. All 17 repair
 checks pass with no skips. Independent full-run audit confirms identical coefficients across

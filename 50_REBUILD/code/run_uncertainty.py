@@ -38,7 +38,7 @@ import predictive_interval as PI
 from player_season_table import build as build_table
 from ability_forecast import A1HingeExposure
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 
 # The adopted candidate, matching run_stress_tests.py. The uncertainty layer
 # wraps whatever model it is given, so this is the model under test rather
@@ -47,20 +47,31 @@ LEADER = A1HingeExposure
 
 
 def _load_table():
-    """Build the season table, and say plainly if this machine cannot support
-    a result. Ages come from a join the repository does not carry, so a
-    checkout without them runs the code and produces numbers that are not
-    evidence -- the aging walk and the participation fits both degenerate."""
-    bd = C.OUT_DIR / "birthdates.csv"
-    if bd.exists():
-        return build_table(birthdate_csv=bd, verbose=False), True
-    C.log("!! NO BIRTHDATE TABLE ON THIS MACHINE.")
-    C.log("!! Ages are missing, so the aging walk and the participation fits")
-    C.log("!! degenerate and every number below is about a crippled model.")
-    C.log("!! The code paths are exercised; the figures are not evidence and")
-    C.log("!! must not be compared with anything on record.")
+    """Build the season table, and say plainly what the ages on this machine
+    are worth. There are two birthdate tables and they are not equivalent: the
+    merged one reaches the pages results are scored on, the Elite Prospects
+    scrape on its own reaches the players who left before those pages start.
+    Which one was used, and the coverage it produced, is printed rather than
+    inferred."""
+    from player_season_table import birthdate_source
+    path, how = birthdate_source()
+    table = build_table(birthdate_csv=path, verbose=False, allow_thin_ages=True)
+    dev = table[table["syr"] >= min(C.DEV_PAGES)]
+    cov_all = float(table["has_age"].mean())
+    cov_dev = float(dev["has_age"].mean()) if len(dev) else 0.0
+    C.log(f"  birthdates: {how}")
+    C.log(f"  age coverage {cov_all:.1%} of all season rows, "
+          f"{cov_dev:.1%} on {min(C.DEV_PAGES)} and later")
+    usable = cov_dev >= C.MIN_AGE_COVERAGE
+    if not usable:
+        C.log("")
+        C.log("!! AGE COVERAGE ON THE SCORED PAGES IS TOO THIN FOR A RESULT.")
+        C.log("!! The aging walk degenerates to a flat carry-forward and the")
+        C.log("!! participation fits collapse to a constant. The code paths")
+        C.log("!! below all run; the figures they produce are about a crippled")
+        C.log("!! model and must not be compared with anything on record.")
     C.log("")
-    return build_table(verbose=False, allow_thin_ages=True), False
+    return table, usable
 
 
 def _coverage(d: pd.DataFrame, level: float) -> pd.Series:
@@ -231,8 +242,9 @@ def main() -> None:
           f"{C.out_path('uncertainty_coverage_by_subgroup.csv').name}")
     if not real_ages:
         C.log("")
-        C.log("!! REMINDER: this run had no birthdates. The reports above show")
-        C.log("!! that the machinery works, not what the model's spread is.")
+        C.log("!! REMINDER: the ages on the scored pages were too thin for a")
+        C.log("!! result. The reports above show that the machinery works, not")
+        C.log("!! what the model's spread is.")
     C.write_log("uncertainty_run_log.txt")
 
 

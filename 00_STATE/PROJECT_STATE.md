@@ -223,6 +223,11 @@ arithmetic, checked against a case whose answer is known by construction, the ze
 identity, and the four leakage results, none of which depends on the model being good. Report:
 `50_REBUILD/docs/Predictive_Uncertainty_and_Leakage.md`.
 
+**The cap path, 2026-09-15c.** The rebuild's ceiling table gains 2026-27 at $104.0M, confirmed,
+with the 2025-01-31 announcement date enforced in both directions. 2027-28 stays out because the
+figure in circulation is an estimate; production carries it as $113.5M and the discrepancy is in
+the flags, inert under D11 until a 2027-28 page exists.
+
 **Decisions taken inside the tree only.** Term-in for the production currency (Thomas,
 2026-09-15). One shared price line for restricted and unrestricted free agents — D7's locked answer
 survived a test on signing-dated forecasts. Neither is adopted into production.

@@ -89,11 +89,24 @@ is tagged, so a coverage figure that leans on one can say so.
 
 ## 4. What is established, and what is only demonstrated
 
-**This machine has no birthdate table.** The join that supplies ages needs a file the
-repository does not carry, so age coverage here is zero, the aging walk degenerates to a flat
-carry-forward and the participation fits collapse to a constant one-in-two. The code paths all
-run. **Every figure the run produced about hockey is about a crippled model and is not
-evidence.** The run log says so on its first line and again on its last.
+**This machine has ages for 4.6% of the pages that are scored.** The birthdate join has two
+halves and they are not interchangeable. The merged table is the PuckPedia contract export
+first, with an Elite Prospects scrape behind it, and it reaches 98.3% of season rows. The scrape
+**on its own** is the fallback half: it was run to reach the players PuckPedia could not match,
+which are the players who left the league early in the sample. Its median birth year is 1984. It
+covers 84% of 2007 season rows, 28% of 2015, and nothing at all from 2018 on.
+
+That state is more dangerous than having no ages, because the ages are present, plausible, and
+concentrated entirely on seasons nobody is forecasting. A runner that only asked whether a
+birthdate file exists would report a healthy join and score a model whose aging term was fitted
+on players who retired before the development window starts. So `player_season_table.
+birthdate_source()` returns which half it found along with the file, and both runners print the
+label and the coverage on the scored pages before anything else.
+
+With only the fallback half, the aging walk degenerates to a flat carry-forward and the
+participation fits collapse to a constant one-in-two — a Brier score of exactly 0.25 at every
+horizon. The code paths all run. **Every figure the run produced about hockey is about a crippled
+model and is not evidence.** The run log says so on its first line and again on its last.
 
 What that leaves is still substantial, because the checks that matter here do not depend on the
 model being good.
@@ -183,7 +196,8 @@ amplifies a single noisy season, which is the defect the rebuild set out to remo
 - **Nothing about dollars.** The band is on a season's win total. Turning it into a band on a
   contract's value is the joint simulation, which is the next piece and is not built.
 - **Nothing about the market side.** The contract export is not on this machine either, so
-  eight of the twenty checks in the review suite skip here rather than pass.
+  eight of the twenty-one checks in the review suite skip here rather than pass. It is also the
+  primary source of birthdates, so it is what the age coverage above is waiting on.
 - **The interval is on the season total only.** The rate, the games share and the participation
   probability do not carry separate bands, and the simulation will need the first two to be
   drawn jointly rather than through their product.
