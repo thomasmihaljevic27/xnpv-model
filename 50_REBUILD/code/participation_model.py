@@ -63,8 +63,9 @@ from player_season_table import norm_name
 
 SCRIPT_VERSION = "1.0"
 
-FEATURES = ["age", "age_sq", "level", "gp_share", "exp_seasons", "is_D",
-            "under_contract", "contract_unknown"]
+BASE_FEATURES = ["age", "age_sq", "level", "gp_share", "exp_seasons", "is_D"]
+CONTRACT_FEATURES = ["under_contract", "contract_unknown"]
+FEATURES = BASE_FEATURES + CONTRACT_FEATURES
 MIN_FIT_ROWS = 400
 
 
@@ -133,9 +134,19 @@ class ParticipationModel:
 
     def __init__(self, contracts: pd.DataFrame | None = None):
         self.spans = contract_spans(contracts) if contracts is not None else None
+        # WITHOUT CONTRACT DATA THE TWO CONTRACT COLUMNS ARE CONSTANTS -- zero
+        # and one for every row -- so `contract_unknown` is collinear with the
+        # intercept and the logistic fit is singular. The first version passed
+        # them anyway, every fit failed, and the model fell back to a single
+        # base rate for everyone. That is not "participation without contract
+        # data", it is no participation model at all, and it silently turned a
+        # contract ABLATION into a participation ablation.
+        self.features = list(BASE_FEATURES) + (
+            list(CONTRACT_FEATURES) if self.spans is not None else [])
         self.coef_: dict = {}
         self.base_: dict = {}
         self.coverage_: dict = {}
+        self.used_: dict = {}
 
     # -- features ----------------------------------------------------------
     def _rows(self, anchors: pd.DataFrame, h: int, as_of=None, table=None) -> pd.DataFrame:
@@ -206,13 +217,25 @@ class ParticipationModel:
             gp = act.reindex(ix).fillna(0.0).to_numpy()
             d["y"] = (gp >= C.MIN_GP).astype(float)
 
-            d = d.replace([np.inf, -np.inf], np.nan).dropna(subset=FEATURES + ["y"])
+            d = d.replace([np.inf, -np.inf], np.nan).dropna(subset=self.features + ["y"])
             self.base_[h] = float(d["y"].mean()) if len(d) else 0.5
-            self.coverage_[h] = float(1.0 - d["contract_unknown"].mean()) if len(d) else 0.0
+            self.coverage_[h] = (float(1.0 - d["contract_unknown"].mean())
+                                 if len(d) and "contract_unknown" in d else 0.0)
             if len(d) < MIN_FIT_ROWS:
                 self.coef_[h] = None
                 continue
-            X = sm.add_constant(d[FEATURES].to_numpy(float), has_constant="add")
+
+            # DROP NEAR-CONSTANT COLUMNS AT THIS HORIZON. On the early pages
+            # the contract export knows about 3% of the players five seasons
+            # out, so the contract columns are all-but-constant there, the
+            # design goes singular and the whole fit fails -- taking the age
+            # and level terms down with it and falling back to one base rate
+            # for everyone. The contract feature should be absent where it has
+            # nothing to say, not fatal. Which columns were used is recorded
+            # so a later run can see where the feature was live.
+            use = [f for f in self.features if d[f].std() > 1e-8]
+            self.used_[h] = list(use)
+            X = sm.add_constant(d[use].to_numpy(float), has_constant="add")
             try:
                 with warnings.catch_warnings():
                     warnings.simplefilter("ignore")
@@ -222,7 +245,12 @@ class ParticipationModel:
                     res = sm.Logit(d["y"].to_numpy(float), X).fit_regularized(
                         alpha=1e-4, disp=0, maxiter=200)
                 self.coef_[h] = np.asarray(res.params, dtype=float)
-            except Exception:                    # noqa: BLE001 -- fall back, never guess
+            except Exception as e:              # noqa: BLE001 -- fall back, never guess
+                # Loud, because a silent fallback to the base rate looks like a
+                # working model that simply has no opinion, and that is how the
+                # contract ablation went unnoticed.
+                C.log(f"  [participation] horizon {h}: fit failed "
+                      f"({e.__class__.__name__}), falling back to the base rate")
                 self.coef_[h] = None
         return self
 
@@ -235,7 +263,8 @@ class ParticipationModel:
         coef = self.coef_.get(h)
         if coef is None:
             return pd.Series(base, index=d["career_key"])
-        X = np.column_stack([np.ones(len(d)), d[FEATURES].to_numpy(float)])
+        use = self.used_.get(h, self.features)
+        X = np.column_stack([np.ones(len(d)), d[use].to_numpy(float)])
         ok = np.isfinite(X).all(axis=1)
         p = np.full(len(d), base)
         z = np.clip(X[ok] @ coef, -30, 30)

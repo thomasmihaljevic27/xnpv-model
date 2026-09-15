@@ -35,11 +35,12 @@ Average miss in wins, on identical rows:
 |---|---:|---:|---:|---:|---:|---:|
 | previous leader (no participation) | 0.5714 | 0.5954 | 0.5887 | 0.5884 | 0.5861 | 0.5705 |
 | aging walk, no participation | 0.5714 | 0.5909 | 0.5886 | 0.6025 | 0.6287 | 0.5893 |
-| **aging walk + participation** | **0.5508** | **0.5539** | **0.5311** | **0.5089** | 0.4861 | **0.4392** |
+| aging walk + participation (with contracts) | 0.5508 | 0.5539 | 0.5311 | 0.5089 | 0.4861 | 0.4392 |
+| **aging walk + participation (no contracts)** | **0.5501** | **0.5524** | **0.5274** | **0.5030** | **0.4668** | **0.4218** |
 | component model, aging + participation | 0.5490 | 0.5559 | 0.5333 | 0.5116 | 0.4901 | 0.4401 |
 | six regressions + participation | 0.5508 | 0.5580 | 0.5382 | 0.5160 | **0.4857** | 0.4502 |
 
-Against the previous leader that is **3.6% better at the valuation season and 23.0% better five
+Against the previous leader that is **3.7% better at the valuation season and 26.1% better five
 seasons out** — the largest single improvement anything in this rebuild has produced, larger
 than the three-season window, the shrinkage, and the aging curve combined.
 
@@ -78,37 +79,75 @@ it was designed to sit on.
 This matters beyond the accuracy number. The walk is the form Phase 5's simulation needs — a
 career path drawn one step at a time — and it no longer costs anything to use it.
 
-## What rests on the contract data, and the risk in that
+## The contract data does not help. It hurts.
 
-Dropping the contract export and refitting on everything else:
+**This section replaces an earlier version of it that said the opposite. The earlier claim —
+that contract state was worth 5% to 13% — was wrong, and the error is worth recording because
+of how it hid.**
+
+With no contract data, both contract columns become constants: zero for `under_contract` and one
+for `contract_unknown` on every row. A constant column is collinear with the intercept, so the
+logistic design was singular, **every fit failed on every horizon, and the model fell back to a
+single base rate for everyone.** The ablation was therefore not comparing "participation with
+contracts" against "participation without contracts". It was comparing participation against no
+participation model at all, and reporting the difference as the value of the contract feature.
+
+The fallback was silent. A model returning one flat probability looks like a working model with
+no strong opinion, which is exactly what a participation model might legitimately be. What gave
+it away was the probability by tier: a flat 59% for every level of player, when in truth 44% of
+below-replacement players and 97% of 3+ win players go on to play. No fitted model produces
+that.
+
+Two fixes followed. The contract columns are now dropped from the design when there is no
+contract data, so the ablation removes the feature instead of the model. A failed fit is now
+logged loudly rather than falling back in silence. And because the contract columns are
+near-constant at long horizons on the early pages — the export knows about 3% of the players
+five seasons out from 2015 — any near-constant column is dropped at that horizon rather than
+being allowed to make the whole design singular and take the age and level terms down with it.
+
+Re-measured properly, on identical rows:
 
 | seasons ahead | valuation | +1 | +2 | +3 | +4 | +5 |
 |---|---:|---:|---:|---:|---:|---:|
-| worse without contracts | 5.1% | 6.0% | 8.8% | 11.0% | 12.0% | 12.9% |
+| effect of adding contract data | −0.12% | **−0.26%** | **−0.70%** | **−1.15%** | **−3.98%** | **−3.97%** |
 
-Contract state is carrying a large share of the gain, and rightly — a player under contract for
-a season is far more likely to play it, and that is knowable in advance.
+Negative means the contract feature makes the forecast **worse**, and every interval past the
+valuation season excludes zero. The best participation model in the register is the one that
+never sees a contract.
 
-**But its coverage is not uniform, and the asymmetry runs the wrong way for honest testing.**
-The share of players being valued whom the export knows, as of 1 July each year:
+The probability of playing by tier says why the feature has so little to add:
+
+| tier | with contracts | without | actually played |
+|---|---:|---:|---:|
+| below 0 | 53% | 48% | 44% |
+| 0 to 1 | 70% | 66% | 63% |
+| 1 to 2 | 92% | 89% | 91% |
+| 2 to 3 | 96% | 95% | 97% |
+| 3+ | 98% | 97% | 97% |
+
+Trailing level, age, games played and experience already carry almost all the signal about
+whether a player will be on the ice. Being good and being available are close to the same
+question, and the contract is largely a consequence of the first rather than independent
+evidence about the second.
+
+**Why it actively hurts is the coverage asymmetry.** The share of players being valued whom the
+export knows, as of 1 July each year:
 
 | 2015 | 2016 | 2017 | 2018 | 2019 | 2020 | 2021 | 2022–2025 (sealed) |
 |---:|---:|---:|---:|---:|---:|---:|---:|
 | 11% | 18% | 34% | 64% | 87% | 94% | 99% | 97% |
 
-This is decision D8's finding — the vendor's coverage of earlier years is thin and selected —
-showing up in a new place. Two consequences, both stated rather than managed away:
+This is decision D8's thin-early-coverage finding in a new place. On the early pages
+`contract_unknown` is true for most players, so it functions as an era indicator rather than as
+a fact about a player, and the model learns a relationship from those pages that does not hold
+on the later ones. A feature whose availability is correlated with the calendar is a feature
+that teaches the model about the calendar.
 
-1. **The development pages are the badly-covered ones.** Most of the measured contract gain
-   comes from 2019–2021, so the figures above rest on three pages rather than seven.
-2. **The confirmatory pages are well covered.** A model leaning on contract state should
-   therefore do *better* on the held-back seasons than on the development seasons. That is the
-   opposite of the usual direction, and it means a good confirmatory result would be partly a
-   data-coverage artifact rather than evidence the model generalises. It has to be reported that
-   way when the time comes.
-
-The no-contract variant stays in the register permanently for this reason: it is the floor the
-model is worth if the contract feature is judged unusable.
+**What this does not say.** It does not say contract state is irrelevant to hockey, or that it
+will be irrelevant in Phase 4, where the contract IS the object being priced. It says that for
+predicting whether a player suits up, on this panel, with this coverage, it adds nothing and
+costs a little. If the export is ever backfilled to cover the early 2010s evenly, this is worth
+retesting.
 
 ## One bug caught on the way
 
@@ -122,7 +161,7 @@ after the fix.
 ## Where it stands
 
 - **New leader: the calibrated total with a three-season window, the additive aging walk, and
-  participation.**
+  participation fitted WITHOUT contract data.**
 - The component model with the same layers is within 0.4% of it, ahead at the valuation season,
   behind from +1 out — still the closest it has been, and still the best on stars (−0.333
   against −0.385).
