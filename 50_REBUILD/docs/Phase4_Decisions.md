@@ -120,3 +120,80 @@ primary determines what the back-test is measuring.
   dollars on a declared reference market is the other half of Phase 4 and waits on decision A.
 - Goalies, and the 970 contracts whose players have no usable forecast (mostly players with too
   little NHL history at signing — an entry-level population the prospect pillar covers).
+
+---
+
+# The production currency, and the first dollar values
+
+Decision A settled **term-in** (Thomas, 2026-09-15), decision B settled **one line** by the test
+above. Both are now built. 2,309 contracts with 2018–2025 starts, each priced on a line fitted
+only to deals signed before its own start season.
+
+## What surplus means here
+
+The currency is the market's own price for forecast production. Because the line is fitted to
+observed contracts, the average contract prices at roughly zero surplus **by construction**, and
+a positive number means "this club paid less than the average club paid for a comparable
+forecast". It is deviation from the market, not profit. That is the circularity this project has
+always known about; it is bounded here, not removed, and every claim built on it inherits it.
+
+## Surplus by forecast production
+
+Over the whole deal, in millions:
+
+| forecast wins/season | n | mean | median | sd | share positive |
+|---|---:|---:|---:|---:|---:|
+| below 0 | 481 | −0.39 | 0.00 | 2.51 | 40% |
+| 0 to 0.5 | 1,267 | +0.35 | 0.00 | 3.48 | 52% |
+| 0.5 to 1 | 333 | +0.93 | +0.38 | 6.15 | 59% |
+| 1 to 2 | 191 | **+3.05** | +1.52 | 8.11 | **65%** |
+| 2+ | 37 | +3.00 | +1.28 | 11.50 | 57% |
+| all | 2,309 | +0.54 | 0.00 | 4.66 | 51% |
+
+**Surplus rises with forecast production.** Good players are systematically cheaper relative to
+what the average club pays for a comparable forecast. That is the shape the thesis went looking
+for, and it is the first time the rebuilt chain has produced it end to end.
+
+## The honest question about that gradient
+
+A rising residual against the very variable the line is fitted on is what you would also see if
+the price function were curved and the line were straight. The actual price paid:
+
+| forecast wins/season | n | mean forecast | mean cap share paid | implied share per win |
+|---|---:|---:|---:|---:|
+| 0 to 0.5 | 1,267 | 0.17 | 0.0203 | 0.1203 |
+| 0.5 to 1 | 333 | 0.72 | 0.0441 | 0.0609 |
+| 1 to 1.5 | 143 | 1.21 | 0.0585 | 0.0485 |
+| 1.5 to 2 | 48 | 1.71 | 0.0777 | 0.0454 |
+| 2 to 3 | 31 | 2.28 | 0.0963 | 0.0422 |
+| 3+ | 6 | 3.57 | 0.1085 | **0.0304** |
+
+If the market paid a constant price per forecast win the last column would be flat. It falls by
+a factor of four. **Clubs pay progressively less per win as production rises**, which is exactly
+what "stars are underpaid" means in this market — and it is also exactly what curvature in the
+price function looks like. The two are the same arithmetic described from different ends.
+
+The locked record already tested a curved price line and rejected it out of sample at Stage 3.
+That test was run on start-dated anchors. **It should be rerun on signing-dated forecasts before
+this gradient is presented as mispricing**, because the retest is cheap and the claim is the
+thesis's central one. Recorded as the next thing to do rather than assumed either way.
+
+Note also the 3+ cell is six contracts. Nothing at the very top of this market is estimated on
+enough data to carry a claim on its own.
+
+## Where the term decision does its work
+
+Mean surplus over the deal, in millions:
+
+| term | n | term-in (adopted) | term-free (sensitivity) | difference |
+|---|---:|---:|---:|---:|
+| 1 | 1,040 | −0.20 | −0.20 | 0.00 |
+| 2 | 652 | −0.07 | −1.15 | 1.08 |
+| 4 | 133 | +0.40 | −9.16 | 9.56 |
+| 6 | 64 | +4.11 | −21.79 | 25.91 |
+| 8 | 93 | **+8.32** | **−42.02** | 50.34 |
+
+Under term-free every long deal in the league is a large loss, because the production is priced
+at a one-year rate while the cost is the real multi-year commitment. Under term-in long deals for
+good players are the best value in the market. **The two currencies do not disagree about
+magnitude; they disagree about sign.** The sensitivity is reported in the paper, not discarded.
