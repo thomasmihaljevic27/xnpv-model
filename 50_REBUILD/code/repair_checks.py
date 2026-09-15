@@ -14,6 +14,7 @@ skipped rather than passed.
 from __future__ import annotations
 
 import warnings
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -23,7 +24,7 @@ import forecast_harness as H
 import player_season_table as T
 from ability_forecast import A0Production
 
-SCRIPT_VERSION = "1.7"
+SCRIPT_VERSION = "1.8"
 
 PASS, FAIL, SKIP = "pass", "FAIL", "skip"
 results: list[tuple[str, str, str]] = []
@@ -42,6 +43,15 @@ def check(name: str, fn) -> None:
         results.append((name, FAIL, f"{e.__class__.__name__}: {str(e)[:170]}"))
     except _Skip as e:
         results.append((name, SKIP, str(e)))
+    except FileNotFoundError as e:
+        # A CONFIDENTIAL VENDOR FILE THIS MACHINE DOES NOT HAVE is an absent
+        # environment, not an absent guard, and the docstring above has always
+        # said so. It did not behave that way: the first check to reach for the
+        # contract export took the whole suite down with it, so a checkout
+        # without the export could not run even the checks that need nothing
+        # but the WAR file. The file that was missing is named in the note, so
+        # a skip can never be read as a pass.
+        results.append((name, SKIP, f"missing input: {Path(str(e).splitlines()[0]).name}"))
 
 
 class _Skip(Exception):
@@ -556,6 +566,93 @@ def c17(table):
     return "an all-rejected batch and an empty batch both return empty rather than raising"
 
 
+# --- the 2026-09-15c uncertainty pass ---------------------------------------
+# These three are not repairs of a found defect. They are the guards that ship
+# WITH the interval layer, written before it was believed rather than after it
+# was doubted, and they are here rather than in their own file because this is
+# the suite a reviewer runs.
+
+def c18(table):
+    """The mixture arithmetic, against a case whose answer is known.
+
+    Seasons are drawn from a distribution this test chose; the same parameters
+    go into the quantile function; the stated ends must come back where the
+    simulated ones are. Nothing about hockey is involved, so a failure here is
+    an error in the arithmetic and cannot be anything else.
+    """
+    import predictive_interval as PI
+    PI.self_test(n=50_000, verbose=False)
+    return "stated ends match the simulated ones for five player types at three levels"
+
+
+def c19(table):
+    """A band beside the forecast, never instead of it, and never absent.
+
+    Two failures this rules out. One: a wrapper that moves a point forecast
+    invalidates every score already recorded for the model it wraps. Two: a
+    model that declines to state a band for the players it finds hard is
+    scored on coverage over an easier sample than the one it was asked about
+    -- the same forfeit the harness's completeness check already refuses for
+    the forecast itself.
+    """
+    import predictive_interval as PI
+    import information_set as ISET
+    from ability_forecast import A1HingeExposure
+
+    page = 2018
+    iset = ISET.build(table, ISET.decision_date_for_page(page), t0=page)
+    subs = H.subjects_at(iset)
+    hs = (0, 2, 4)
+
+    plain, banded = A1HingeExposure(), PI.WithIntervals(A1HingeExposure())
+    plain.fit(iset.seasons, before=page)
+    banded.fit(iset.seasons, before=page)
+    a = plain.predict(iset, subs, hs).sort_values(["career_key", "h"])
+    b = banded.predict(iset, subs, hs).sort_values(["career_key", "h"])
+
+    assert len(a) == len(b), "the wrapper changed how many rows come back"
+    for col in ("rate_82", "gp_share", "p_play"):
+        d = float(np.nanmax(np.abs(a[col].to_numpy() - b[col].to_numpy())))
+        assert d == 0.0, f"the wrapper moved {col} by {d:.3e}"
+    assert {"lo", "hi"}.issubset(b.columns), "no band was stated at all"
+    missing = int(b["lo"].isna().sum() + b["hi"].isna().sum())
+    assert not missing, f"{missing} rows came back without a band"
+    bad = int((b["hi"] < b["lo"]).sum())
+    assert not bad, f"{bad} rows have an upper end below their lower one"
+    return f"{len(b)} rows, band stated on every one, forecast unmoved"
+
+
+def c20(table):
+    """The band is fitted without sight of the season being valued.
+
+    The interval layer is the first thing in this tree that reads OUTCOMES at
+    fit time -- it learns how wrong the model tends to be by looking at what
+    happened. That makes it the most likely place in the rebuild for a leak,
+    so it gets its own check rather than relying on the one the forecast has.
+
+    Fitting on the whole source and fitting on a source truncated at the
+    decision date must produce the same spread, to the last digit.
+    """
+    import predictive_interval as PI
+    from ability_forecast import A1HingeExposure
+
+    page = 2018
+    model = A1HingeExposure()
+    model.fit(table[table["syr"] < page], before=page)
+
+    wide = PI.SpreadModel().fit(model, table, before=page,
+                                horizons=model.fitted_horizons_)
+    cut = PI.SpreadModel().fit(model, table[table["syr"] < page], before=page,
+                               horizons=model.fitted_horizons_)
+    assert len(wide.zs_) == len(cut.zs_), (
+        f"the spread learned from {len(wide.zs_)} misses with the future "
+        f"present and {len(cut.zs_)} with it removed")
+    d = float(np.max(np.abs(wide.zs_ - cut.zs_)))
+    assert d == 0.0, f"the fitted spread moved by {d:.3e} when the future was removed"
+    assert wide.scale_ == cut.scale_, "the fitted scale moved when the future was removed"
+    return f"{len(cut.zs_)} replayed misses, identical with and without the future"
+
+
 def main() -> None:
     warnings.filterwarnings("ignore")
     C.banner("repair_checks.py", SCRIPT_VERSION)
@@ -593,7 +690,10 @@ def main() -> None:
                      ("market target and discount dated at signing", c14),
                      ("long terms survive attachment", c15),
                      ("one price line for both columns", c16),
-                     ("empty and all-rejected batches", c17)]:
+                     ("empty and all-rejected batches", c17),
+                     ("interval arithmetic", c18),
+                     ("a band on every row, forecast unmoved", c19),
+                     ("the band cannot see the future", c20)]:
         check(name, lambda fn=fn: fn(table))
 
     width = max(len(n) for n, _, _ in results)

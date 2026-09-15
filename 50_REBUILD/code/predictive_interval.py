@@ -497,7 +497,8 @@ class WithIntervals:
 # ---------------------------------------------------------------------------
 # The self test
 # ---------------------------------------------------------------------------
-def self_test(n: int = 200_000, seed: int = 20260915) -> None:
+def self_test(n: int = 200_000, seed: int = 20260915,
+              verbose: bool = True) -> None:
     """Does the arithmetic do what it claims, on a case whose answer is known?
 
     WHY THIS EXISTS AND WHY IT IS SYNTHETIC. Coverage measured on real hockey
@@ -576,8 +577,9 @@ def self_test(n: int = 200_000, seed: int = 20260915) -> None:
     if failures:
         raise AssertionError("predictive_interval self test FAILED:\n  " +
                              "\n  ".join(failures))
-    print(f"predictive_interval self test PASSED "
-          f"({len(REPORT_LEVELS)} levels x 5 player types, {n:,} draws each)")
+    if verbose:
+        print(f"predictive_interval self test PASSED "
+              f"({len(REPORT_LEVELS)} levels x 5 player types, {n:,} draws each)")
 
 
 if __name__ == "__main__":
