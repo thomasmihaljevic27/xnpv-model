@@ -2,6 +2,13 @@
 
 ## Independent rebuild review (2026-09-15)
 
+**Repair follow-up:** `d651998` passes its twelve checks but its production adapter still omits
+D12 negative-anchor reversion and replaces production's exact t-1/t-2 anchor with the last two
+observed seasons. The revised improvement claim therefore remains unsupported. The new market
+date filter still admits targets normalized by future realized start caps; discounting omits
+the delay to an extension's start; extrapolated forecasts depend on the requested output grid.
+See `50_REBUILD/docs/Repair_Verification_Codex.md` for scoped reproductions and open tests.
+
 The earlier rebuild claims of improvement against the live chain and no leakage anywhere are
 superseded by `50_REBUILD/docs/Player_Rebuild_Candidate_Review_Codex.md`. The original stress runner
 reproduces its results, but it uses a flat comparator and a rate-only look-ahead check. Confirmed

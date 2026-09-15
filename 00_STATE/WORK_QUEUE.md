@@ -9,6 +9,13 @@
 
 ## Work queue
 
+**2026-09-15 repair-branch verification:** before accepting the `d651998` leaderboard, prove
+production-adapter parity for exact t-1/t-2 anchors and negative-anchor reversion; remove future
+start-cap information from market targets; discount from the stated valuation date; make
+extrapolation invariant to requested horizons/subjects; finish development runner wiring and
+propagate extrapolation tags. See `50_REBUILD/docs/Repair_Verification_Codex.md`. The repair
+branch remains separate from main, and its 13-17% headline is not verified.
+
 **2026-09-15 independent rebuild review: prerequisite before the experimental next steps below.**
 See `50_REBUILD/docs/Player_Rebuild_Candidate_Review_Codex.md`. Correct shortened-season rate/games units
 and the participation event; enforce eligible samples and fitted contract horizons; add the real

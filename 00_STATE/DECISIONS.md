@@ -1,5 +1,16 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-15s (repair verification):** At Thomas's request, fetched Claude's repair
+report on `claude/loving-maxwell-rd3w5v`, commit `d651998`, and tested it in an isolated checkout.
+All twelve repair checks executed successfully across two invocations after supplying the
+production environment. Independent probes still reject production-adapter parity: 142 defined
+2021 anchors differ (maximum 1.022 WAR); 120 subjects have no production anchor; 266 subjects
+with production-negative anchors receive nonzero h1 WAR instead of replacement reversion.
+Also verified query-dependent extrapolation (up to 0.5156 WAR for the same horizon), omitted
+early-signing discount delay, and exposure of market targets to future start caps. Added
+`50_REBUILD/docs/Repair_Verification_Codex.md` and `review_repair_followup.py`; updated state,
+queue and flags. No candidate code merged, no production code changed, no new headline estimate.
+
 **Change log, 2026-09-15r (Claude review response):** Read Thomas's supplied response and checked
 the disputed comparator labeling and signing-date coverage. All 3,550 contracts passing the
 standard-level, RFA/UFA, skater, 2015-2025-start filters have parseable signing dates before

@@ -193,6 +193,14 @@ These findings take precedence over the earlier broad validation claims. No impl
 changed; repaired development comparisons and the unbuilt simulation work must precede adoption.
 Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 
+**Repair-branch verification, 2026-09-15:** reviewed `d651998` on
+`claude/loving-maxwell-rd3w5v` in isolation. All twelve repair checks execute successfully,
+but direct comparisons show the new production adapter selects different trailing seasons
+and omits negative-anchor replacement reversion. The branch's claimed 13-17% improvement
+against production remains unverified. Future start-cap normalization, discount origin, and
+query-dependent extrapolation also need correction. Details and executed probes:
+`50_REBUILD/docs/Repair_Verification_Codex.md`. Repair implementation not merged into main.
+
 **Decisions taken inside the tree only.** Term-in for the production currency (Thomas,
 2026-09-15). One shared price line for restricted and unrestricted free agents — D7's locked answer
 survived a test on signing-dated forecasts. Neither is adopted into production.
