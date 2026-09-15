@@ -1179,3 +1179,48 @@ class A2AgingParticipation(_ParticipationMixin, A2ComponentAging):
             r["h"] = h
             rows.append(r[["career_key", "h", "rate_82", "gp_share", "p_play"]])
         return pd.concat(rows, ignore_index=True)
+
+
+# ---------------------------------------------------------------------------
+# SURVIVORSHIP-CORRECTED AGING. Step three of Phase 3. The aging curve is
+# fitted on players who played both seasons; the ones who declined hardest
+# stopped playing and are missing. Two corrections, run as competitors.
+# ---------------------------------------------------------------------------
+
+class A1AgingParticipationImputed(A1AgingParticipation):
+    """The leader, with the missing seasons put back at replacement level."""
+    name = "calibrated total, aging (survivorship-imputed), participation"
+    AGING_SELECTION = "impute"
+
+    def fit(self, table, before):
+        super().fit(table, before)
+        self.aging_ = AdditiveAging(level_mode=self.AGING_LEVEL_MODE,
+                                    selection=self.AGING_SELECTION).fit(table, before)
+        return self
+
+
+class A1AgingParticipationIPW(A1AgingParticipationImputed):
+    """The same with inverse-probability weighting instead. Registered so the
+    approach that does not work is on the record with a number against it,
+    rather than being dropped because it disagreed with expectation."""
+    name = "calibrated total, aging (survivorship-IPW), participation"
+    AGING_SELECTION = "ipw"
+
+
+class A1AgingParticipationImputedNC(A1AgingParticipationImputed):
+    """The standing leader's configuration -- no contract data -- plus the
+    survivorship correction. This is the like-for-like test."""
+    name = "calibrated total, aging (survivorship-imputed), participation (no contracts)"
+    USE_CONTRACTS = False
+
+
+class A2AgingParticipationImputed(A2AgingParticipation):
+    """The component model, likewise."""
+    name = "component model, aging (survivorship-imputed), participation"
+    AGING_SELECTION = "impute"
+
+    def fit(self, table, before):
+        super().fit(table, before)
+        self.aging_ = AdditiveAging(level_mode=self.AGING_LEVEL_MODE,
+                                    selection=self.AGING_SELECTION).fit(table, before)
+        return self

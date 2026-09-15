@@ -57,14 +57,35 @@ THE LEVEL TERM, AND THE TRAP IN IT (measured, not theorised)
     age-and-position curve rather than being dropped -- dropping them would
     select against players early in a career, which is its own bias.
 
-KNOWN AND UNCORRECTED, FOR NOW
+THE SURVIVORSHIP CORRECTION (level_mode aside, the other switch here)
     A year-over-year change can only be measured on a player who played both
     seasons. The players who decline hardest are the ones who stop playing, so
-    their worst year is never in the sample and this curve UNDERSTATES decline,
-    worst at the ages where it matters most. That is the survivorship problem,
-    it is real, and step three of Phase 3 addresses it. Until then every figure
-    from this curve should be read as an upper bound on how well old players
-    age.
+    their worst year is never in the sample: the curve is fitted on survivors
+    and UNDERSTATES decline, worst at the ages where it matters most.
+
+    The fix is inverse-probability weighting. Each observed change is weighted
+    by one over the probability that it would have been observed at all, so a
+    35-year-old whose decline we did get to see stands in for all the
+    35-year-olds like him, including the ones who never got a next season. If
+    only a fifth of players like him are still around to be measured, his
+    observed change counts five times, because it is the only evidence we have
+    about the four who left.
+
+    The probability comes from a retention model fitted here rather than
+    borrowed from `participation_model.py`. They are the same family, but IPW
+    needs the probability that THIS ROW is observed -- a player who played
+    season t having a qualifying season at t+1 -- and the participation model
+    answers a differently-conditioned question off a three-season anchor. Using
+    the wrong conditioning would put a plausible number in the denominator and
+    quietly reweight the panel toward nothing in particular.
+
+    Weights are floored and trimmed. A probability near zero would otherwise
+    hand one player's single observed season the weight of twenty careers, and
+    the estimate would be that player rather than the league.
+
+    WHAT TO EXPECT, WRITTEN DOWN BEFORE RUNNING IT: a steeper decline after
+    about 33. If the correction does not move the curve that way, the
+    correction is wrong rather than the expectation.
 """
 from __future__ import annotations
 
@@ -87,11 +108,18 @@ AGE_LO, AGE_HI = 19.0, 39.0
 CENTRE = 27.0          # roughly peak, so the linear term reads per year off prime
 MIN_PAIRS = 300        # below this the window cannot support a shape
 
+# Inverse-probability weights: floor the probability and trim the top of the
+# resulting weights. Without both, a handful of improbable survivors become the
+# entire old-age curve.
+SELECTION_FLOOR = 0.05
+SELECTION_TRIM_PCT = 99.0
+
 
 class AdditiveAging:
     """The yearly change in WAR per 82, as a smooth function of age."""
 
-    def __init__(self, level_mode: str = "lagged", use_experience: bool = False):
+    def __init__(self, level_mode: str = "lagged", use_experience: bool = False,
+                 selection: str = "none"):
         """level_mode:
              "lagged"  the player's rate one season before the change begins.
                        The default, and the only one that identifies aging
@@ -101,6 +129,11 @@ class AdditiveAging:
              "none"    age and position alone.
         """
         assert level_mode in ("lagged", "same", "none"), level_mode
+        assert selection in ("none", "ipw", "impute"), selection
+        self.selection = selection
+        self.retention_ = None
+        self.n_imputed_ = 0
+        self.mean_weight_ = 1.0
         self.level_mode = level_mode
         self.use_level = level_mode != "none"
         self.use_experience = use_experience
@@ -158,7 +191,49 @@ class AdditiveAging:
 
         y = (p[level_col + "_n"] - p[level_col]).to_numpy(float)
         X = self._design(p["age"], lvl, (p["pos"] == "D"), p["exp_seasons"])
+
+        if self.selection == "impute":
+            # THE MISSING SEASONS, PUT BACK EXPLICITLY. Every row above is a
+            # player who played both seasons. A player who played season t and
+            # then did not play t+1 contributes nothing, and he is the whole
+            # problem: he left BECAUSE of the season we never observed.
+            #
+            # The assumption, stated rather than hidden: a player who cannot
+            # hold an NHL job the following season would have been at about
+            # replacement level, which is zero on this scale by construction.
+            # That is not a measurement, it is an identifying assumption, and
+            # it is the one thing that makes the missing data informative. It
+            # is deliberately a hard case -- some of those players were injured
+            # and would have been fine -- so the corrected curve is a bound on
+            # decline rather than a point estimate of it.
+            miss = self._missing_next(s, before, level_col)
+            if len(miss):
+                lvl_m = miss["_lvl"] if self.level_mode == "lagged" else miss[level_col]
+                y = np.concatenate([y, (0.0 - miss[level_col]).to_numpy(float)])
+                X = np.vstack([X, self._design(miss["age"], lvl_m,
+                                               (miss["pos"] == "D"),
+                                               miss["exp_seasons"])])
+                w_extra = miss["GP"].to_numpy(float)
+                self.n_imputed_ = len(miss)
         w = np.minimum(p["GP"].to_numpy(float), p["GP_n"].to_numpy(float))
+        if self.selection == "impute" and getattr(self, "n_imputed_", 0):
+            w = np.concatenate([w, w_extra])
+
+        if self.selection == "ipw":
+            # THE CORRECTION. Every row in `p` is a pair that WAS observed, so
+            # the panel is already the survivors; reweighting by the inverse
+            # probability of surviving is what puts the missing players back
+            # in, in the only way the data allows.
+            pr = self._retention_probability(s, p, before)
+            inv = 1.0 / np.clip(pr, SELECTION_FLOOR, 1.0)
+            # Trim before use. One row at a probability of 0.02 would carry
+            # fifty times the weight of a typical row and the old-age curve
+            # would be that one player.
+            cap = np.nanpercentile(inv, SELECTION_TRIM_PCT)
+            inv = np.minimum(inv, cap)
+            self.mean_weight_ = float(np.nanmean(inv))
+            w = w * inv
+
         ok = np.isfinite(y) & np.isfinite(X).all(axis=1) & np.isfinite(w)
         Xw = X[ok] * np.sqrt(w[ok])[:, None]
         yw = y[ok] * np.sqrt(w[ok])
@@ -167,6 +242,74 @@ class AdditiveAging:
         except np.linalg.LinAlgError:
             self.coef_ = None
         return self
+
+    def _missing_next(self, s: pd.DataFrame, before: int, level_col: str) -> pd.DataFrame:
+        """Player-seasons that qualified but had no qualifying season after.
+
+        Restricted to seasons whose FOLLOW-UP had completed before the
+        decision date, so a player who simply has not played his next season
+        yet is not counted as gone. Without that, the most recent page would
+        treat every current player as retired.
+        """
+        cand = s[s["syr"] + 1 < before].copy()
+        nxt = s[["career_key", "syr"]].assign(syr=s["syr"] - 1, _has_next=1)
+        cand = cand.merge(nxt, on=["career_key", "syr"], how="left")
+        cand = cand[cand["_has_next"].isna() & cand["age"].notna()]
+        lag = s[["career_key", "syr", level_col]].rename(columns={level_col: "_lvl"})
+        lag["syr"] = lag["syr"] + 1
+        return cand.merge(lag, on=["career_key", "syr"], how="left")
+
+    def _retention_probability(self, s: pd.DataFrame, pairs: pd.DataFrame,
+                               before: int) -> np.ndarray:
+        """P(a player who played season t has a qualifying season at t+1).
+
+        Fitted on every qualifying player-season whose FOLLOW-UP season had
+        completed before the decision date, so the probability is estimated
+        from what was knowable and nothing else. Features are the same ones
+        that drive the curve -- age, level, games, experience, position --
+        because the selection we are correcting for is selection on exactly
+        those.
+        """
+        import statsmodels.api as sm
+
+        base = s[s["syr"] + 1 < before].copy()
+        if not len(base):
+            return np.ones(len(pairs))
+        nxt = s[["career_key", "syr"]].assign(syr=s["syr"] - 1, _played_next=1.0)
+        base = base.merge(nxt, on=["career_key", "syr"], how="left")
+        base["_played_next"] = base["_played_next"].fillna(0.0)
+        base = base[base["age"].notna()]
+
+        def design(d):
+            a = np.clip(d["age"].to_numpy(float), AGE_LO, AGE_HI) - CENTRE
+            return np.column_stack([a, a ** 2, d["WAR_82"].to_numpy(float),
+                                    d["gp_share"].to_numpy(float),
+                                    d["exp_seasons"].to_numpy(float),
+                                    (d["pos"] == "D").astype(float).to_numpy()])
+
+        X = design(base)
+        y = base["_played_next"].to_numpy(float)
+        ok = np.isfinite(X).all(axis=1) & np.isfinite(y)
+        if ok.sum() < MIN_PAIRS:
+            return np.ones(len(pairs))
+        try:
+            import warnings
+            with warnings.catch_warnings():
+                warnings.simplefilter("ignore")
+                res = sm.Logit(y[ok], sm.add_constant(X[ok], has_constant="add")
+                               ).fit_regularized(alpha=1e-4, disp=0, maxiter=200)
+            self.retention_ = np.asarray(res.params, dtype=float)
+        except Exception:                        # noqa: BLE001
+            C.log("  [aging] retention fit failed; survivorship correction skipped")
+            return np.ones(len(pairs))
+
+        Xp = design(pairs)
+        okp = np.isfinite(Xp).all(axis=1)
+        out = np.ones(len(pairs))
+        z = np.clip(np.column_stack([np.ones(okp.sum()), Xp[okp]]) @ self.retention_,
+                    -30, 30)
+        out[okp] = 1.0 / (1.0 + np.exp(-z))
+        return out
 
     # -- apply -------------------------------------------------------------
     def step(self, age, level, is_d, exp=0.0) -> np.ndarray:
