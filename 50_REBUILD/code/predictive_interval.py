@@ -95,7 +95,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 import information_set as ISET
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 
 # The stated interval. 80% is the plan's own wording ("interval coverage --
 # how often the stated 80% range contained the outcome"), and the harness
@@ -192,6 +192,43 @@ def _shape_quantile(u, zs: np.ndarray) -> np.ndarray:
     ends, which is precisely where an interval lives."""
     grid = np.linspace(0.0, 1.0, len(zs))
     return np.interp(np.clip(np.asarray(u, dtype=float), 0.0, 1.0), grid, zs)
+
+
+def _grid_mean(zs: np.ndarray) -> float:
+    """The mean of the piecewise-linear quantile function built on `zs`.
+
+    `_shape_quantile` interpolates linearly between the sorted misses on an
+    even probability grid, so the distribution it describes is a chain of
+    straight segments and its mean is the trapezoid rule over them -- which
+    gives the first and last miss half the weight the others get. The plain
+    sample mean answers a slightly different question and would leave a small
+    offset in the distribution that is actually sampled.
+    """
+    n = len(zs)
+    if n < 2:
+        return float(zs.mean()) if n else 0.0
+    return float(np.trapezoid(zs, dx=1.0 / (n - 1)))
+
+
+def mixture_mean(p_play, mu, sigma, zs: np.ndarray, grid: int = 2001) -> np.ndarray:
+    """The mean of the season-total distribution, by integrating its own
+    quantile function.
+
+    Deliberately NOT computed from the algebra. The algebra says the answer is
+    p_play * mu once the shape is centred, and that is exactly the claim being
+    checked; deriving the check from the claim would test nothing. This
+    integrates what `mixture_quantile` actually returns, over the whole
+    probability range, so it would catch a mistake in the inversion, in the
+    handling of the lump, or in the centring, none of which the algebra can
+    see.
+    """
+    u = np.linspace(0.0, 1.0, grid)
+    acc = np.zeros(len(np.atleast_1d(mu)), dtype=float)
+    for i, q in enumerate(u):
+        x = mixture_quantile(float(q), p_play, mu, sigma, zs)
+        w = 0.5 if i in (0, grid - 1) else 1.0
+        acc += w * np.asarray(x, dtype=float)
+    return acc / (grid - 1)
 
 
 # ---------------------------------------------------------------------------
@@ -374,7 +411,45 @@ class SpreadModel:
             zi = g["r"].to_numpy() / s
             self.z_by_h_[int(h)] = np.sort(zi)
             z.append(zi)
-        self.zs_ = np.sort(np.concatenate(z))
+        zs = np.sort(np.concatenate(z))
+
+        # CENTRED, AND THIS IS NOT A DETAIL.
+        #
+        # The raw scaled misses do not average to zero. They average to about
+        # +0.10, because the shape has a long right tail and the mean of a
+        # right-skewed distribution sits above its middle. Left uncentred, the
+        # conditional distribution is mu + sigma * Z with expectation
+        # mu + sigma * E[Z], which is NOT mu -- so the distribution's own mean
+        # would sit roughly 0.09 wins above the point forecast for a one-win
+        # player at five seasons out, while the forecast columns beside it
+        # still read mu.
+        #
+        # That is the same silent move this wrapper exists to make impossible.
+        # It preserved the point-forecast COLUMNS and moved the expectation
+        # they stand for, which is worse than moving the columns, because
+        # nothing downstream would have noticed. The Phase 5 simulation
+        # averages priced paths, so it would have drawn its paths from a
+        # distribution whose mean disagreed with the harness's own integration
+        # rule, and every contract would have been revalued by an amount
+        # nobody put there on purpose.
+        #
+        # CENTRING IS THE COHERENT CHOICE, not the only conceivable one. The
+        # alternative is to treat the residual mean as a bias correction and
+        # move the point forecast to mu + sigma * E[Z]. That is a change to the
+        # FORECAST -- it would move every score in the variant register and it
+        # belongs in the forecast's own phase with its own test, not smuggled
+        # in through an interval. So the mean is removed here and reported as a
+        # measured quantity, which is what it is: evidence that the forecast
+        # runs low on the seasons that happened.
+        #
+        # The quantity removed is the mean of the piecewise-linear quantile
+        # function that _shape_quantile() actually interpolates, not the plain
+        # sample mean of the misses. The two differ because linear
+        # interpolation across the sorted misses gives the two extreme order
+        # statistics half the weight of the rest. Centring on the sample mean
+        # would leave a small residual offset in the thing being used.
+        self.shape_mean_raw_ = float(_grid_mean(zs))
+        self.zs_ = zs - self.shape_mean_raw_
 
     # -- use ----------------------------------------------------------------
     def sigma(self, h: int, mu) -> np.ndarray:
@@ -390,10 +465,19 @@ class SpreadModel:
     def quantile(self, h: int, mu, p_play, q: float) -> np.ndarray:
         return mixture_quantile(q, p_play, mu, self.sigma(h, mu), self.zs_)
 
+    def mean(self, h: int, mu, p_play) -> np.ndarray:
+        """What a simulation drawing from this distribution would average to.
+        It must equal the point forecast the harness scores, p_play * mu."""
+        return mixture_mean(p_play, mu, self.sigma(h, mu), self.zs_)
+
     # -- reporting ----------------------------------------------------------
     def report(self) -> list[str]:
         out = [f"  calibration pages {self.cal_pages_[0]}-{self.cal_pages_[-1]}"
-               f"  ({len(self.zs_)} replayed misses)"]
+               f"  ({len(self.zs_)} replayed misses)",
+               f"  shape centred by {self.shape_mean_raw_:+.4f}: that much of the"
+               f" average miss is the forecast running low",
+               f"  on the seasons that happened, and it is reported here rather"
+               f" than absorbed into the band"]
         out.append(f"  {'seasons ahead':<16}{'misses':>9}{'band at 0':>12}"
                    f"{'band at 2 wins':>17}   source")
         for h in sorted(self.scale_):
@@ -435,6 +519,7 @@ class WithIntervals:
         self.levels = tuple(levels)
         self.first_page = first_page
         self.spread_: SpreadModel | None = None
+        self.spreads_: dict[int, SpreadModel] = {}
 
     @property
     def name(self) -> str:
@@ -452,6 +537,13 @@ class WithIntervals:
         self.model.fit(table, before=before)
         self.spread_ = SpreadModel(self.first_page).fit(
             self.model, table, before=before, horizons=self.model.fitted_horizons_)
+        # EVERY PAGE'S CALIBRATOR IS KEPT, because `spread_` is overwritten on
+        # each page and after a harness run it holds the LAST page's fit. A
+        # diagnostic that divides a 2015 miss by the 2021 band is not dividing
+        # a miss by the band it was given -- the 2015 forecast was handed a
+        # different scale and a different shape. Reports that scale residuals
+        # look the page up here.
+        self.spreads_[int(before)] = self.spread_
         return self
 
     def predict(self, iset, subs, horizons) -> pd.DataFrame:
@@ -562,6 +654,44 @@ def self_test(n: int = 200_000, seed: int = 20260915,
             on_lump = abs(lo) < 1e-12 or abs(hi) < 1e-12
             if cov < level - 0.01 or (not on_lump and cov > level + 0.01):
                 failures.append(f"{label} at {level:.0%}: covered {cov:.1%}")
+
+    # THE MEAN OF THE DISTRIBUTION IS THE FORECAST, at nonzero uncertainty.
+    # The zero-spread identity below checks the case where the shape has been
+    # replaced by zeros, which cannot catch an off-centre shape because there
+    # is no shape left to be off centre. This is the test that can.
+    #
+    # IT IS RUN BOTH WAYS ON PURPOSE. The shape used everywhere else in this
+    # test was standardised when it was built, so it is centred already and a
+    # check run only on it would pass whatever the calibrator did -- a guard
+    # nobody has seen fail. So the first half feeds in a shape with a real mean
+    # (a raw Gumbel, mean about +0.58) and REQUIRES the gap to appear; the
+    # second half centres it the way the calibrator does and requires the gap
+    # to close. A change that stopped centring would fail the second half; a
+    # change that broke the integration, the inversion or the handling of the
+    # lump would fail the first.
+    raw = np.sort(rng.gumbel(0.0, 1.0, size=50_000))
+    centred = raw - _grid_mean(raw)
+    cases = [("a fringe player", 0.50, 0.40, 0.55),
+             ("a star", 0.99, 3.00, 1.10),
+             ("a negative forecast", 0.60, -0.30, 0.45),
+             ("a replacement-level forecast", 0.75, 0.00, 0.50)]
+    for label, p_play, mu, sigma in cases:
+        want = p_play * mu
+        off = float(mixture_mean(np.full(1, p_play), np.full(1, mu),
+                                 np.full(1, sigma), raw)[0])
+        # An uncentred shape must visibly move the mean, or this check is
+        # asleep. The expected gap is p_play * sigma * E[Z].
+        expect_gap = p_play * sigma * _grid_mean(raw)
+        if abs((off - want) - expect_gap) > 5e-3:
+            failures.append(
+                f"{label}: an uncentred shape should shift the mean by "
+                f"{expect_gap:+.4f}; it shifted it by {off - want:+.4f}")
+        on = float(mixture_mean(np.full(1, p_play), np.full(1, mu),
+                                np.full(1, sigma), centred)[0])
+        if abs(on - want) > 2e-3:
+            failures.append(
+                f"{label}: with the shape centred the distribution's mean is "
+                f"{on:+.4f} where the forecast it is built around is {want:+.4f}")
 
     # And the degenerate case that Phase 5 will lean on: with no spread and
     # certain participation, every quantile must collapse onto the point

@@ -24,7 +24,7 @@ import forecast_harness as H
 import player_season_table as T
 from ability_forecast import A0Production
 
-SCRIPT_VERSION = "1.9"
+SCRIPT_VERSION = "2.0"
 
 PASS, FAIL, SKIP = "pass", "FAIL", "skip"
 results: list[tuple[str, str, str]] = []
@@ -695,6 +695,60 @@ def c21(table):
             "2027-28 still unannounced")
 
 
+def c22(table):
+    """The predictive distribution's mean is the point forecast it surrounds.
+
+    Raised by the independent review of the uncertainty pass. The scaled
+    misses the shape is built from do not average to zero -- they average to
+    about +0.10, because the shape is right-skewed and the mean of a skewed
+    distribution sits above its middle. Left uncentred, the conditional
+    distribution is mu + sigma * Z with expectation mu + sigma * E[Z], so the
+    band's own mean sat above the forecast column printed beside it.
+
+    That is the failure mode this wrapper was written to prevent, arriving by
+    a route the existing guards could not see. The point-forecast columns were
+    untouched, so the "wrapper moves nothing" check passed. The zero-spread
+    identity passed too, because it replaces the shape with zeros and an
+    absent shape cannot be off centre. The simulation, which averages drawn
+    paths rather than reading a column, would have taken the shifted number.
+
+    Checked by integrating the quantile function the code actually returns,
+    not by re-deriving the algebra the fix is based on.
+    """
+    import predictive_interval as PI
+    import information_set as ISET
+    from ability_forecast import A1HingeExposure
+
+    page = 2018
+    iset = ISET.build(table, ISET.decision_date_for_page(page), t0=page)
+    subs = H.subjects_at(iset)
+    m = PI.WithIntervals(A1HingeExposure())
+    m.fit(iset.seasons, before=page)
+    pred = m.predict(iset, subs, (0, 3, 5)).head(1500)
+
+    mu = (pred["rate_82"] * pred["gp_share"]).to_numpy()
+    want = pred["p_play"].to_numpy() * mu
+    gaps = []
+    for hz in sorted(pred["h"].unique()):
+        k = (pred["h"] == hz).to_numpy()
+        got = m.spread_.mean(int(hz), mu[k], pred["p_play"].to_numpy()[k])
+        gaps.append(got - want[k])
+    worst = float(np.abs(np.concatenate(gaps)).max())
+    assert worst < 0.01, (
+        f"the distribution's mean is up to {worst:.4f} wins from the forecast "
+        "it is built around")
+
+    # And the centring is not a no-op dressed up as one: the shape it was
+    # applied to had a real mean, so a version that skipped it would fail the
+    # line above rather than pass it by luck.
+    removed = m.spread_.shape_mean_raw_
+    assert abs(removed) > 0.01, (
+        f"the shape was centred by only {removed:+.5f}, so this check cannot "
+        "tell a centred implementation from an uncentred one")
+    return (f"largest gap {worst:.2e} wins; the shape carried a mean of "
+            f"{removed:+.3f} before centring")
+
+
 def main() -> None:
     warnings.filterwarnings("ignore")
     C.banner("repair_checks.py", SCRIPT_VERSION)
@@ -736,7 +790,8 @@ def main() -> None:
                      ("interval arithmetic", c18),
                      ("a band on every row, forecast unmoved", c19),
                      ("the band cannot see the future", c20),
-                     ("the 2026-27 ceiling", c21)]:
+                     ("the 2026-27 ceiling", c21),
+                     ("the distribution's mean is the forecast", c22)]:
         check(name, lambda fn=fn: fn(table))
 
     width = max(len(n) for n, _, _ in results)

@@ -1,5 +1,31 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-15z (answering the uncertainty implementation review):** All three
+findings accepted and fixed, plus one stale figure of this branch's own. (1)
+`run_leakage_tests._predict_at()` refitted the model on perturbed data while the test said the fit
+was held fixed; it now takes an already-fitted model and forces the unperturbed subject list, and
+reports subject-horizons lost. **This reverses the reported result** -- pass-through falls with
+distance (0.23 to 0.15), so the "backwards sensitivity" flag raised earlier the same day is
+withdrawn. The refit response is retained under its own name. (2) Reports 5 and 6 of
+`run_uncertainty.py` used the last page's calibrator for every page; every page's calibrator is
+now kept and each miss scaled by its own, moving the star five-seasons-out figures from
++0.44/+3.41 to +0.51/+3.64 and adding the sharper statistic that 18.5% of played star seasons
+exceed their own page's 95th percentile. Report 6 is re-described as a page-by-page descriptive
+ratio (0.942 to 1.114), **not** an estimate of in-sample optimism, and no inflation is applied.
+(3) `SpreadModel._fit_shape()` left the scaled misses uncentred, so the distribution's mean sat up
+to 0.23 wins above the point forecast; the shape is now centred on the mean of the interpolated
+quantile function and the amount removed (+0.0968) is reported as a measured forecast bias rather
+than absorbed. **Centring rather than moving the point forecast is a deliberate choice**: treating
+the residual mean as a bias correction changes the forecast and every score in the variant
+register, and belongs in the forecast's own phase. New check 22 integrates the returned quantile
+function and requires its mean to equal the harness's expectation; it is written to fail both ways.
+(4) The placebo figure in the report was stale from the no-ages run and is corrected to 44-68%.
+Claims that horizon pooling "holds" and that most of the under-coverage is the forecast are
+softened to what the evidence supports. Suite: **20 passed, 2 skipped, 0 failed** here; the two
+skips need the PuckPedia .xlsx. Note: two entries this day carry the letter w, the review's and
+this branch's, distinguishable by their parentheticals. No production code changed, no locked
+decision reopened, no reserved page unsealed.
+
 **Change log, 2026-09-15w (uncertainty implementation review):** Reviewed `73b77ee` from
 Claude's new branch. Reproduced export guard, aggregate and subgroup interval coverage, and
 21/21 repair checks with the production workbook. Future-data tests return zero differences;

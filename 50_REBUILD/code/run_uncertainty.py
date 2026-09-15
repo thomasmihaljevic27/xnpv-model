@@ -21,7 +21,8 @@ Six reports, in the order a reader should want them:
   5. for an under-covered group, whether the band is too narrow or the
      forecast it is centred on is biased -- the fix is opposite in the two
      cases and the coverage number alone cannot tell them apart
-  6. how much the fitted spread is flattered by being fitted in sample
+  6. the fitted spread against the realized one, page by page
+  6b. the distribution's mean, which must be the point forecast
   7. the zero-spread identity: with no uncertainty, the band collapses onto
      the point forecast. The plan asks the Phase 5 simulation to satisfy the
      same identity; this is that check one layer down, where it is cheap.
@@ -41,7 +42,7 @@ import predictive_interval as PI
 from player_season_table import build as build_table
 from ability_forecast import A1HingeExposure
 
-SCRIPT_VERSION = "1.2"
+SCRIPT_VERSION = "1.3"
 
 # The adopted candidate, matching run_stress_tests.py. The uncertainty layer
 # wraps whatever model it is given, so this is the model under test rather
@@ -199,71 +200,117 @@ def main() -> None:
     C.log("fixing it. If the group's outcomes are genuinely more spread than the")
     C.log("pooled shape allows, the band itself is too narrow.")
     C.log("")
-    C.log("Each miss is divided by the band it was given. A shifted middle is")
-    C.log("the forecast being wrong. A stretched 5th-to-95th is the band being")
-    C.log("wrong. Players who played only, so participation is not in this.")
+    C.log("EACH MISS IS DIVIDED BY THE BAND ITS OWN PAGE GAVE IT. An earlier")
+    C.log("version used the last page's calibrator for every page while saying")
+    C.log("it did otherwise; a 2015 forecast was handed a different scale and a")
+    C.log("different shape from a 2021 one.")
+    C.log("")
+    C.log("This conditions on the player having played, so it says nothing about")
+    C.log("the participation half of the forecast, and the coverage table above")
+    C.log("includes both. It narrows where to look. It does not apportion the")
+    C.log("coverage gap between a low centre and a narrow band, and the share")
+    C.log("carried by each is NOT established here.")
     C.log("")
     pl = s_band[s_band["played"]].copy()
     pl["mu"] = pl["rate_82"] * pl["gp_share"]
-    sg = np.empty(len(pl))
-    for hz in sorted(pl["h"].unique()):
-        k = (pl["h"] == hz).to_numpy()
-        sg[k] = banded.spread_.sigma(int(hz), pl.loc[k, "mu"])
+    sg = np.full(len(pl), np.nan)
+    p95 = np.full(len(pl), np.nan)
+    for (pg, hz), idx in pl.groupby(["page", "h"]).groups.items():
+        sp = banded.spreads_[int(pg)]
+        k = pl.index.get_indexer(idx)
+        sg[k] = sp.sigma(int(hz), pl.loc[idx, "mu"])
+        p95[k] = float(np.quantile(sp.zs_, 0.95))
     pl["z"] = (pl["act_war"].fillna(0.0) - pl["mu"]).to_numpy() / np.maximum(sg, 1e-9)
-    ref = np.quantile(banded.spread_.zs_, [0.05, 0.5, 0.95])
+    pl["over95"] = pl["z"].to_numpy() > p95
     shape_rows = []
     for col, label in [("tier", "trailing level"), ("age_band", "age band")]:
         if s_band[col].isna().all():
             continue
         C.log(f"  by {label}:")
         C.log(f"    {'group':<12}{'h':>3}{'n':>7}{'middle':>9}{'5th':>8}"
-              f"{'95th':>8}{'5-95 span':>12}")
-        for grp in pl[col].dropna().unique().categories if hasattr(
-                pl[col].dropna(), "cat") else sorted(pl[col].dropna().unique()):
+              f"{'95th':>8}{'5-95 span':>12}{'over own 95th':>15}")
+        for grp in sorted(pl[col].dropna().unique()):
             for hz in (0, 3, 5):
                 g = pl[(pl[col] == grp) & (pl["h"] == hz)]
                 if len(g) < 30:
                     continue
                 q = np.quantile(g["z"], [0.05, 0.5, 0.95])
+                over = float(g["over95"].mean())
                 C.log(f"    {str(grp):<12}{hz:>3}{len(g):>7}{q[1]:>+9.2f}"
-                      f"{q[0]:>+8.2f}{q[2]:>+8.2f}{q[2] - q[0]:>12.2f}")
+                      f"{q[0]:>+8.2f}{q[2]:>+8.2f}{q[2] - q[0]:>12.2f}"
+                      f"{over:>14.1%}")
                 shape_rows.append({"by": label, "group": str(grp), "h": hz,
                                    "n": len(g), "med_z": q[1], "p05_z": q[0],
-                                   "p95_z": q[2], "span": q[2] - q[0]})
+                                   "p95_z": q[2], "span": q[2] - q[0],
+                                   "over_own_p95": over})
         C.log("")
-    C.log(f"    {'the band':<12}{'-':>3}{len(banded.spread_.zs_):>7}{ref[1]:>+9.2f}"
-          f"{ref[0]:>+8.2f}{ref[2]:>+8.2f}{ref[2] - ref[0]:>12.2f}")
+    C.log("  'over own 95th' is the share of played seasons above the 95th")
+    C.log("  percentile of the shape their own page was fitted with. It should")
+    C.log("  be 5%. It is the sharpest single number here, because it does not")
+    C.log("  depend on reading a median and a quantile together.")
     C.log("")
     pd.DataFrame(shape_rows).to_csv(
         C.out_path("uncertainty_shape_by_subgroup.csv"), index=False)
 
-    # ---- 6. in-sample optimism -------------------------------------------
-    C.log("REPORT 6  HOW MUCH THE SPREAD IS FLATTERED. The band is fitted by")
-    C.log("replaying the model on its own training pages, so the misses it")
-    C.log("learns from are slightly smaller than the misses it will make. The")
-    C.log("size of that gap is measured here rather than assumed small: the")
-    C.log("model's real misses, each divided by the band it was given, against")
-    C.log("the same figure for the misses the band was fitted on. A ratio of")
-    C.log("1.00 means the band is honest; above 1.00 it is too narrow by that")
-    C.log("factor.")
+    # ---- 6. how the fitted spread compares with the realized one -----------
+    C.log("REPORT 6  THE FITTED SPREAD AGAINST THE REALIZED ONE, PAGE BY PAGE.")
+    C.log("The band is fitted by replaying the model on pages inside its own")
+    C.log("training window, so the misses it learns from should be a little")
+    C.log("smaller than the misses it goes on to make.")
     C.log("")
-    played = s_band[s_band["played"]].copy()
-    mu = played["rate_82"] * played["gp_share"]
-    sig = np.concatenate([banded.spread_.sigma(int(hz), mu[played["h"] == hz])
-                          for hz in sorted(played["h"].unique())])
-    order = np.concatenate([np.flatnonzero((played["h"] == hz).to_numpy())
-                            for hz in sorted(played["h"].unique())])
-    z_out = np.empty(len(played))
-    z_out[order] = ((played["act_war"].fillna(0.0) - mu).to_numpy()[order]
-                    / np.maximum(sig, 1e-9))
-    q_out = np.quantile(z_out, [0.10, 0.90])
-    q_fit = np.quantile(banded.spread_.zs_, [0.10, 0.90])
-    ratio = float((q_out[1] - q_out[0]) / (q_fit[1] - q_fit[0]))
-    C.log(f"    middle 80% of the fitted misses   {q_fit[0]:+.2f} to {q_fit[1]:+.2f}"
-          f"   width {q_fit[1] - q_fit[0]:.2f}")
-    C.log(f"    middle 80% of the real misses     {q_out[0]:+.2f} to {q_out[1]:+.2f}"
-          f"   width {q_out[1] - q_out[0]:.2f}")
-    C.log(f"    the band is too narrow by a factor of {ratio:.3f}")
+    C.log("WHAT THIS IS NOT. It is not an experiment that isolates overfitting.")
+    C.log("Each page's fitted misses and its realized ones are different")
+    C.log("mixtures of seasons and players, so the ratio carries that difference")
+    C.log("as well as any optimism, and the two cannot be separated by looking")
+    C.log("at them. Reported as a descriptive spread of ratios, page by page, so")
+    C.log("the variation is visible rather than averaged into one number that")
+    C.log("would read as an estimate. NO INFLATION IS APPLIED ON THIS EVIDENCE.")
+    C.log("")
+    C.log(f"    {'page':<8}{'fitted 10-90':>14}{'realized 10-90':>16}{'ratio':>9}")
+    ratios = []
+    for pg in sorted(pl["page"].unique()):
+        g = pl[pl["page"] == pg]
+        q_out = np.quantile(g["z"], [0.10, 0.90])
+        q_fit = np.quantile(banded.spreads_[int(pg)].zs_, [0.10, 0.90])
+        r = float((q_out[1] - q_out[0]) / (q_fit[1] - q_fit[0]))
+        ratios.append(r)
+        C.log(f"    {int(pg):<8}{q_fit[1] - q_fit[0]:>14.2f}"
+              f"{q_out[1] - q_out[0]:>16.2f}{r:>9.3f}")
+    C.log(f"    {'range':<8}{'':>14}{'':>16}{min(ratios):>6.3f}-{max(ratios):.3f}")
+    C.log("")
+
+    # ---- 6b. the distribution's mean is the forecast ----------------------
+    C.log("REPORT 6b  THE DISTRIBUTION'S MEAN IS THE POINT FORECAST. The")
+    C.log("wrapper's promise is that it adds a band and moves nothing. Keeping")
+    C.log("the forecast COLUMNS unchanged is not enough to keep that promise: a")
+    C.log("distribution whose own mean sits above the number in the column has")
+    C.log("moved the forecast without moving the column, which is worse, because")
+    C.log("nothing downstream would notice. The simulation averages drawn paths,")
+    C.log("so its answer is this mean and not that column.")
+    C.log("")
+    C.log("Read by integrating the quantile function the wrapper actually")
+    C.log("returns, not from the algebra, so a mistake in the inversion or in")
+    C.log("the handling of the lump would show up here too.")
+    C.log("")
+    samp = s_band.sample(n=min(4000, len(s_band)), random_state=20260915)
+    gaps = []
+    for (pg, hz), g in samp.groupby(["page", "h"]):
+        sp = banded.spreads_[int(pg)]
+        mu = (g["rate_82"] * g["gp_share"]).to_numpy()
+        got = sp.mean(int(hz), mu, g["p_play"].to_numpy())
+        gaps.append(got - g["pred_war"].to_numpy())
+    gaps = np.concatenate(gaps)
+    C.log(f"    {len(gaps)} rows sampled: mean gap {gaps.mean():+.5f} wins, "
+          f"largest {np.abs(gaps).max():.5f}")
+    worst_mean = float(np.abs(gaps).max())
+    assert worst_mean < 0.01, (
+        f"the distribution's mean is up to {worst_mean:.4f} wins away from the "
+        "forecast it is supposed to be built around")
+    C.log(f"    centring removed {banded.spread_.shape_mean_raw_:+.4f} from the")
+    C.log("    shape. That is the average miss the forecast makes on seasons")
+    C.log("    that happened, and it is reported rather than absorbed: left in,")
+    C.log("    it would have shifted every drawn path upward while the forecast")
+    C.log("    column beside it read the old number.  [PASS]")
     C.log("")
 
     # ---- 7. the zero-spread identity --------------------------------------
@@ -274,7 +321,7 @@ def main() -> None:
     C.log("that mean, and the Phase 5 simulation will inherit whatever is wrong")
     C.log("here.")
     C.log("")
-    pt = (played["rate_82"] * played["gp_share"]).to_numpy()[:5000]
+    pt = (pl["rate_82"] * pl["gp_share"]).to_numpy()[:5000]
     zero = np.zeros(1001)
     worst_id = 0.0
     for q in (0.05, 0.10, 0.50, 0.90, 0.95):

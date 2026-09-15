@@ -33,26 +33,40 @@ calibration is good — 80% band holds 82-84%, 90% band holds 91% — and the su
 the work is. Next, in order:
 1. **The star residual, promoted: it now blocks two things rather than one.** It was already the
    forecast's largest known defect (top decile predicted 2.360 against 2.698 actual, hinge
-   variant recovered a fifth). It is also **most of why the 80% band delivers 60% for the 3+ tier
-   five seasons out** — the middle of the star misses sits at +0.44 where the band expects -0.11.
-   Widening the band would hide it. **Fixing the centre is the prerequisite for reading the
-   tails**, so this comes before any further interval work.
+   variant recovered a fifth). It is also visible in why the 80% band delivers 61% for the 3+ tier
+   five seasons out: the middle of the star misses sits at +0.51 where the band's own middle is
+   −0.11, and 18.5% of played star seasons finish above their own page's 95th percentile where 5%
+   is intended. **How much of the coverage gap is the centre and how much is the tail is not
+   established** — the diagnostic conditions on playing while coverage includes non-participation.
+   Widening the band would hide the bias, so it was not widened. **Fixing the centre is the
+   prerequisite for reading the tails**, and it comes before any further interval work.
 2. **The joint simulation** on the fitted spread, with the zero-uncertainty identity it already
    satisfies one layer down.
 3. **Separate bands for the rate and the games share, drawn jointly**, so an exit implies zero
    games on the path rather than a product of averages.
 4. **Only then** re-measure whether the shape of a miss needs a tier or age term of its own. The
-   star and young-player right tails reach +3.41 and +3.65 against a pooled +2.56, which is real,
-   but fitting a fatter tail around a biased centre is fitting the wrong thing.
+   star and young-player right tails reach +3.64 and +3.55 against a pooled +2.56, which is real,
+   but fitting a fatter tail around a biased centre is fitting the wrong thing. Settling the split
+   also needs the participation half assessed on the same footing, and a controlled comparison of
+   moving the centre against widening the band.
 5. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
    contract-by-contract dollar reconciliation, and the holdout policy.
 
-**Open question raised by the sensitivity test, not answered.** A shock to last season survives
-into the forecast at 0.45 at the valuation season and **0.65 five seasons out** — the share RISES
-with distance, when a distant season should revert further toward the league. Removing the oldest
-season in the window shows the same from the other side (-0.013 at the valuation season, -0.321
-five out). The long horizons lean harder on the trailing anchor than the short ones. A question
-for the forecast, recorded rather than guessed at.
+**WITHDRAWN, same day — the "rising sensitivity" open question.** It was raised on a test whose
+helper refitted the model on the perturbed data while claiming the fit was held fixed. With the
+fit frozen the pass-through **falls** with distance, 0.23 at the valuation season to 0.15 five
+seasons out, which is what theory expects. Corrected in `run_leakage_tests.py`; both the frozen
+and the refit responses are now reported, the second named as what it is.
+
+**2026-09-15c, after review — three fixes landed and one is worth carrying forward.** The
+independent review of `73b77ee` found the refitting sensitivity test above, a residual diagnostic
+that used the last page's calibrator for every page, and a predictive distribution whose mean sat
+up to 0.23 wins above the point forecast it surrounded because the shape was never centred. All
+three are fixed; the third is the one to remember, because **every existing guard passed while it
+was wrong** — the forecast columns were untouched and the zero-spread identity removes the shape
+it would have had to inspect. A simulation reads the distribution's mean, not the column. Check
+22 now integrates the returned quantile function and requires the two to agree, and it fails both
+ways so a version that stopped centring fails it.
 
 **2026-09-15c — the 2026-27 ceiling is entered, 2027-28 is not, and production disagrees.**
 `rebuild_config.CAP_CEILING` gains 2026 = $104.0M (Thomas, confirmed), announced 2025-01-31 and

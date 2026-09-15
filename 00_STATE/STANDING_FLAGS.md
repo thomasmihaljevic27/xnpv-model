@@ -64,34 +64,48 @@ residuals and currency comparisons; fix and rerun development work before furthe
   cap tables now differ on one season. **Decision owed before any 2027-28 valuation is built or
   cited.** 2026-27 at $104.0M is confirmed and is in both.
 
-- **NEW 2026-09-15c, measured on the full table — the band under-covers the two populations the
-  model is already worst at, and most of it is the forecast.** At the stated 80% the 3+ tier is
-  covered 0.596 five seasons out and the 22-and-unders 0.663, while the 34-and-overs reach 0.977.
-  The middle of the star misses sits at +0.44 where the band expects −0.11, so the dominant term
-  is the **star residual** — a correctly sized band around a centre that is too low misses high.
-  **Widening the band would hide a known bias behind a bigger interval and was not done.** The
-  smaller, genuine band term is that the star and young-player right tails reach +3.41 and +3.65
-  against a pooled +2.56, with their left tails in the normal place. Fix the centre first; the
-  tails are not readable until then.
-- **NEW 2026-09-15c — three open items carried by the interval layer.** (a) In-sample optimism
-  measures **4.5%** (the middle 80% of real misses spans 3.32 against 3.18 fitted) and is
-  **deliberately not applied**: the band is already slightly wide in aggregate, so inflating it
-  would move coverage further from the stated level, not closer. (b) The shape of a miss is
-  **pooled across horizons**, which the per-horizon table supports (5th/95th move from
-  −1.85/+2.46 at the valuation season to −1.55/+2.75 nine out, around a pooled −1.72/+2.56); it
-  is **not** poolable across tiers and ages, per the flag above. (c) The band is on the **season
-  total only**. The rate and the games share carry no separate bands, so the simulation cannot
-  yet draw them jointly and an exit on a path is still a product of averages rather than a zero.
-  This is the rebuild's answer to the existing production flag that first-season uncertainty is
-  zero and later uncertainty is held flat; that flag stays open until the simulation uses this
-  layer.
-- **NEW 2026-09-15c — a one-season shock matters MORE at long horizons, which is backwards.**
-  Pass-through of a half-win shock to the most recent per-82 rate runs 0.45 at the valuation
-  season and 0.65 five seasons out; removing the oldest season in the window moves the valuation
-  season by −0.013 and the fifth season out by −0.321. A distant forecast should revert further
-  toward the league, not lean harder on the trailing anchor. Unexplained, recorded, and a
-  question for the forecast rather than for the interval layer.
-
+- **NEW 2026-09-15c, revised after review — the band under-covers the two populations the model
+  is already worst at.** At the stated 80% the 3+ tier is covered 0.608 five seasons out and the
+  22-and-unders 0.663, while the 34-and-overs reach 0.977. The sharpest statement of it: **18.5%
+  of played star seasons at five out finish above the 95th percentile of the shape their own page
+  was fitted with**, where 5% is intended; 11.6% for the 22-and-unders. Two things are visible in
+  the misses and **the share carried by each is NOT established**: the star middle sits at +0.51
+  where the band's own middle is −0.11, which points at the star residual, and the star and young
+  right tails reach +3.64 and +3.55 against a pooled +2.56, which points at the band. The
+  diagnostic conditions on the player having played while coverage includes non-participation, so
+  a whole component is outside it. **The band was not widened**: doing so would hide a known bias
+  behind a bigger interval. Centre first, then re-measure the tails.
+- **NEW 2026-09-15c, revised after review — three open items carried by the interval layer.**
+  (a) The realized spread runs **0.94 to 1.11 times the fitted one across the seven development
+  pages**. This is a description, **not an estimate of in-sample optimism**: each page's fitted
+  and realized misses are different mixtures of seasons and players, and looking at the ratio
+  cannot separate that from overfitting. An earlier version of this flag called the pooled 1.045
+  a measured 4.5% of optimism, which it is not. **No inflation is applied and none should be**
+  until an experiment that isolates overfitting is run. (b) The shape of a miss is **pooled
+  across horizons**. The per-horizon table does not contradict it (5th/95th move from −1.85/+2.46
+  at the valuation season to −1.55/+2.75 nine out, around a pooled −1.72/+2.56) but that is one
+  sample's description, not a test. It is **not** poolable across tiers and ages, per the flag
+  above. (c) The band is on the **season total only**. The rate and the games share carry no
+  separate bands, so the simulation cannot yet draw them jointly and an exit on a path is still a
+  product of averages rather than a zero. That keeps the existing production flag open — first-
+  season uncertainty zero, later uncertainty flat — until the simulation uses this layer.
+- **NEW 2026-09-15c — the predictive distribution's mean must be the point forecast, and once was
+  not.** The scaled misses were kept uncentred and average about +0.10 because the shape is
+  right-skewed, so the distribution's own mean sat up to 0.23 wins above the forecast column
+  beside it. Every existing guard passed: the columns were untouched, and the zero-spread identity
+  cannot see an off-centre shape because it removes the shape. **A simulation reads the mean, not
+  the column.** Fixed by centring on the mean of the interpolated quantile function, with the
+  amount removed (+0.0968 on the last development page) reported as a measured forecast bias
+  rather than absorbed. Centring rather than moving the point forecast is a **choice**: treating
+  the residual mean as a bias correction would change the forecast and move every score in the
+  variant register, and belongs in the forecast's own phase. Revisit if the star-residual work
+  moves the centre.
+- **WITHDRAWN 2026-09-15c, the same day it was raised — "a one-season shock matters more at long
+  horizons".** Raised on a test whose helper refitted the model on the perturbed data while its
+  own text said the fit was held fixed, so it measured retraining and input response together.
+  With the fit frozen the pass-through **falls** with distance, 0.23 at the valuation season to
+  0.15 five seasons out, which is what theory expects. Recorded rather than deleted: the flag was
+  published and a reader of the earlier state files will have seen it.
 - **NEW 2026-09-15 — the elite tier is not identified, and the currency choice decides the
   headline.** Surplus at 2+ forecast wins a season is +$3.00M under a straight price line and
   −$0.78M under a log line, on 37 contracts (six above three wins). The log line beat the straight

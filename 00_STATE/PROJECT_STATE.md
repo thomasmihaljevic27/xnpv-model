@@ -230,20 +230,25 @@ forecast or band exactly zero, including the one the previous spot check could n
 the model the whole source and relying on its own outcome-window rule rather than on the
 harness's filter. Three guards (18-20) are added to the reviewer's suite, one of them on the
 interval layer itself, because it is the first component in the tree that reads outcomes at fit
-time. **Run on the full table** (98.3% age coverage, 32,946 replayed misses, 40,510 scored rows). The
-aggregate calibration is good: the 80% band holds 82-84% of seasons at every horizon and the 90%
-band holds 91%, both erring slightly wide. Pooling the shape of a miss across horizons survives
-the check. **Pooling it across tiers and ages does not, and the failure is on the two populations
-the project already knows are weakest.** At the stated 80%, the 3+ tier falls from 0.852 at the
-valuation season to 0.596 five seasons out, and the 22-and-under band runs 0.754 to 0.663, while
-the 34-and-over band over-covers to 0.977. The runner now separates the two possible causes:
-**most of the star under-coverage is the forecast's known bias, not the band.** The middle of the
-star misses sits at +0.44 where the band expects -0.11, so a correctly sized band around a centre
-that is too low misses high, and widening it would hide the star residual rather than fix it.
-Part is the band's own: the star and young right tails reach +3.41 and +3.65 against a pooled
-+2.56, with their left tails in the normal place. The order that follows is fix the centre, then
-re-measure the tails. Report:
-`50_REBUILD/docs/Predictive_Uncertainty_and_Leakage.md`.
+time. **Run on the full table** (98.3% age coverage, 32,946 replayed misses, 40,510 scored rows), then
+**revised after independent review**. The aggregate calibration is good: the 80% band holds 82-84%
+of seasons at every horizon and the 90% band holds 91-92%, both erring slightly wide. **The
+subgroups are where the work is, and they fail on the two populations the project already knows
+are weakest.** At the stated 80% the 3+ tier falls from 0.847 at the valuation season to 0.608
+five seasons out and the 22-and-under band runs 0.761 to 0.663, while the 34-and-over band
+over-covers to 0.977; 18.5% of played star seasons at five out finish above their own page's 95th
+percentile, where 5% is intended. Two causes are visible in the misses -- a star middle at +0.51
+against the band's own -0.11, which points at the star residual, and star and young right tails at
++3.64 and +3.55 against a pooled +2.56, which points at the band -- and **the share carried by
+each is not established**, because the diagnostic conditions on playing while coverage includes
+non-participation. **The band was not widened**: that would hide a known bias behind a bigger
+interval. The review also found and this branch fixed a sensitivity test that refitted while
+claiming not to (reversing its headline), a residual diagnostic that used the last page's
+calibrator for every page, and a predictive distribution whose mean sat up to 0.23 wins above the
+point forecast because the shape was never centred -- the last of these passed every existing
+guard. Report:
+`50_REBUILD/docs/Predictive_Uncertainty_and_Leakage.md`; review:
+`50_REBUILD/docs/Uncertainty_Implementation_Review_Codex.md`.
 
 **The cap path, 2026-09-15c.** The rebuild's ceiling table gains 2026-27 at $104.0M, confirmed,
 with the 2025-01-31 announcement date enforced in both directions. 2027-28 stays out because the

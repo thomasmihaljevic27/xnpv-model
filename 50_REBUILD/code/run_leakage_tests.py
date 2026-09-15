@@ -26,7 +26,8 @@ weight rests on a single input.
      confirm the skill disappears, which is what says the scoring join is
      joining what it claims to
   5. input sensitivity -- perturb one thing the model IS allowed to see and
-     measure how far the forecast moves
+     measure how far the forecast moves, with the fit held frozen so that
+     retraining is not counted as input response
 
 WHY 1 AND 2 ARE NOT THE SAME TEST
     Test 2 gives the model a table the harness has already filtered and then
@@ -58,7 +59,7 @@ import predictive_interval as PI
 from player_season_table import build as build_table
 from ability_forecast import A1HingeExposure
 
-SCRIPT_VERSION = "1.1"
+SCRIPT_VERSION = "1.2"
 
 LEADER = A1HingeExposure
 PAGES = C.DEV_PAGES
@@ -100,14 +101,32 @@ def _load_table():
 
 
 def _predict_at(table: pd.DataFrame, page: int, fit_table: pd.DataFrame | None = None,
-                banded: bool = False) -> pd.DataFrame:
-    """One page, one forecast. `fit_table` is what the model is allowed to fit
-    on and defaults to the information set's own seasons, which is what the
-    harness passes. Passing something wider is how test 1 works."""
+                banded: bool = False, model=None,
+                subs: pd.DataFrame | None = None) -> pd.DataFrame:
+    """One page, one forecast.
+
+    `fit_table` is what the model is allowed to fit on and defaults to the
+    information set's own seasons, which is what the harness passes. Passing
+    something wider is how test 1 works.
+
+    `model` TAKES AN ALREADY-FITTED MODEL and does not refit it. Without this
+    the helper fitted a fresh model on whatever table it was handed, so the
+    sensitivity test below perturbed the inputs AND retrained on the perturbed
+    data, while its own text claimed the fit was held fixed. Its numbers were
+    a mixture of two effects and its conclusion was an artifact of the one it
+    said it had excluded.
+
+    `subs` FORCES THE SUBJECT LIST. Deleting a season changes who is eligible,
+    so a run on a mutated table answers about a different population and the
+    comparison silently becomes a comparison of two samples. The caller passes
+    the unperturbed subjects and the count that come back finite is reported.
+    """
     iset = ISET.build(table, ISET.decision_date_for_page(page), t0=page)
-    subs = H.subjects_at(iset)
-    model = PI.WithIntervals(LEADER()) if banded else LEADER()
-    model.fit(fit_table if fit_table is not None else iset.seasons, before=page)
+    if subs is None:
+        subs = H.subjects_at(iset)
+    if model is None:
+        model = PI.WithIntervals(LEADER()) if banded else LEADER()
+        model.fit(fit_table if fit_table is not None else iset.seasons, before=page)
     hs = [h for h in HORIZONS if h in model.fitted_horizons_]
     p = model.predict(iset, subs, hs)
     return p.sort_values(["career_key", "h"]).reset_index(drop=True)
@@ -231,15 +250,22 @@ def main() -> None:
 
     # ---- 5. input sensitivity --------------------------------------------
     C.log("TEST 5  INPUT SENSITIVITY. Perturb something the model IS entitled")
-    C.log("to see, and measure how far the forecast moves. The fit is held")
-    C.log("fixed and only the inputs at the decision date are disturbed, so")
-    C.log("what is measured is the forecast's response and not the fit's.")
+    C.log("to see, and measure how far the forecast moves.")
+    C.log("")
+    C.log("THE FIT IS FROZEN, and that is the whole experiment. One model is")
+    C.log("fitted per page on the untouched table; the perturbed table is then")
+    C.log("handed to predict() on that same fitted object, with the same subject")
+    C.log("list. An earlier version of this test refitted on the perturbed data")
+    C.log("while claiming it did not, so what it measured was retraining and")
+    C.log("input response mixed together, and its headline reversed once they")
+    C.log("were separated. The refit version is still run, named as what it is,")
+    C.log("because the difference between the two is itself informative.")
     C.log("")
     C.log("PASS-THROUGH is the share of a shock to last season that survives")
-    C.log("into the forecast. The whole case for this rebuild is that one")
-    C.log("season is weak evidence, so a pass-through well under one is the")
-    C.log("shrinkage working. Above one would mean the model amplifies a single")
-    C.log("noisy season, which is the defect the rebuild set out to remove.")
+    C.log("into the forecast. The case for this rebuild is that one season is")
+    C.log("weak evidence, so a pass-through well under one is the shrinkage")
+    C.log("working. Above one would mean the model amplifies a single noisy")
+    C.log("season, which is the defect the rebuild set out to remove.")
     C.log("")
     # Half a win per 82 games, which is about a third of the spread between
     # one season and the next for a regular. Big enough to be visible against
@@ -247,39 +273,58 @@ def main() -> None:
     shock = 0.50
     rows = []
     for page in PAGES:
-        base = _predict_at(table, page)
-        latest = int(table[table["syr"] < page]["syr"].max())
+        iset0 = ISET.build(table, ISET.decision_date_for_page(page), t0=page)
+        subs0 = H.subjects_at(iset0)
+        frozen = LEADER()
+        frozen.fit(iset0.seasons, before=page)
+        base = _predict_at(table, page, model=frozen, subs=subs0)
+
         # The flag says whether the case is a known-sized shock to the rate,
         # which is the only one a pass-through can be computed for: removing a
         # season is a change of unknown size in the units of the input.
         for label, mutate, is_shock in [
             (f"last season's rate +{shock} wins per 82",
-             lambda t: _bump(t, latest, shock), True),
-            ("last season removed", lambda t: t[~((t["syr"] == latest))], False),
+             lambda t: _bump(t, int(table[table["syr"] < page]["syr"].max()), shock), True),
+            ("last season removed",
+             lambda t: t[t["syr"] != int(table[table["syr"] < page]["syr"].max())], False),
             ("oldest season in the window removed",
-             lambda t: t[~(t["syr"] == latest - 2)], False),
+             lambda t: t[t["syr"] != int(table[table["syr"] < page]["syr"].max()) - 2], False),
             ("games played cut by a tenth",
-             lambda t: _scale_gp(t, latest, 0.9), False),
+             lambda t: _scale_gp(t, int(table[table["syr"] < page]["syr"].max()), 0.9), False),
         ]:
-            alt = _predict_at(mutate(table.copy()), page)
-            j = base.merge(alt, on=["career_key", "h"], suffixes=("", "_alt"))
+            alt_table = mutate(table.copy())
+            alt = _predict_at(alt_table, page, model=frozen, subs=subs0)
+            refit = _predict_at(alt_table, page, subs=subs0)
+            j = (base.merge(alt, on=["career_key", "h"], suffixes=("", "_alt"))
+                     .merge(refit[["career_key", "h", "rate_82"]]
+                            .rename(columns={"rate_82": "rate_82_refit"}),
+                            on=["career_key", "h"]))
             for hz, g in j.groupby("h"):
-                rows.append({"page": page, "case": label,
-                             "is_shock": is_shock, "h": int(hz),
-                             "d_rate": float((g["rate_82_alt"] - g["rate_82"]).mean()),
-                             "abs_d_war": float(
-                                 ((g["rate_82_alt"] * g["gp_share_alt"] * g["p_play_alt"])
-                                  - (g["rate_82"] * g["gp_share"] * g["p_play"]))
-                                 .abs().mean())})
+                ok = g["rate_82_alt"].notna() & g["rate_82"].notna()
+                rows.append({
+                    "page": page, "case": label, "is_shock": is_shock, "h": int(hz),
+                    "requested": len(g), "answered": int(ok.sum()),
+                    "d_rate": float((g.loc[ok, "rate_82_alt"] - g.loc[ok, "rate_82"]).mean()),
+                    "d_rate_refit": float(
+                        (g.loc[ok, "rate_82_refit"] - g.loc[ok, "rate_82"]).mean()),
+                    "abs_d_war": float(
+                        ((g.loc[ok, "rate_82_alt"] * g.loc[ok, "gp_share_alt"]
+                          * g.loc[ok, "p_play_alt"])
+                         - (g.loc[ok, "rate_82"] * g.loc[ok, "gp_share"]
+                            * g.loc[ok, "p_play"])).abs().mean())})
     sens = pd.DataFrame(rows)
     for label, g in sens.groupby("case", sort=False):
-        C.log(f"  {label}:")
-        C.log(f"    {'seasons ahead':<16}{'mean rate move':>16}{'mean |wins move|':>19}")
+        req, ans = int(g["requested"].sum()), int(g["answered"].sum())
+        note = "" if req == ans else f"   [{req - ans} of {req} subject-horizons lost]"
+        C.log(f"  {label}:{note}")
+        C.log(f"    {'seasons ahead':<16}{'frozen fit':>12}{'refitted':>11}"
+              f"{'mean |wins|':>13}")
         for hz, gg in g.groupby("h"):
-            line = (f"    {int(hz):<16}{gg['d_rate'].mean():>+16.3f}"
-                    f"{gg['abs_d_war'].mean():>19.3f}")
+            line = (f"    {int(hz):<16}{gg['d_rate'].mean():>+12.3f}"
+                    f"{gg['d_rate_refit'].mean():>+11.3f}{gg['abs_d_war'].mean():>13.3f}")
             if bool(gg["is_shock"].iloc[0]):
-                line += f"   pass-through {gg['d_rate'].mean() / shock:>5.2f}"
+                line += (f"   pass-through {gg['d_rate'].mean() / shock:>5.2f}"
+                         f" / {gg['d_rate_refit'].mean() / shock:.2f}")
             C.log(line)
         C.log("")
 
