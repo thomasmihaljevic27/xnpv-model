@@ -128,11 +128,64 @@ pricing, not by average wins.
 - **Aging is still not built.** Both models carry a player forward flat. The horizons where the
   component model loses are the ones aging governs, and this is the plan's Phase 3.
 
+## A window per component: the thesis is right, and it buys almost nothing
+
+The one place the component idea had not been allowed to speak. Every model above reads the
+same number of trailing seasons, discounted at the same rate, for every skill — which is the
+assumption the component thesis denies. Shooting is the noisiest part of WAR, so averaging
+several seasons of finishing luck should leave less luck in the number; even-strength offence
+is the stickiest, so last season is already a good read and reaching back mostly adds stale
+information about a player who has since changed.
+
+Let each component fit its own window and it splits exactly that way, unprompted:
+
+| component | decay | weights across three seasons | year-to-year repeatability |
+|---|---:|---|---:|
+| even-strength offence | 0.500 | 57 / 29 / 14 | 0.66 |
+| power play | 0.500 | 57 / 29 / 14 | 0.58 |
+| even-strength defence | 0.600 | 51 / 31 / 18 | 0.51 |
+| penalties | 0.750 | 43 / 32 / 24 | 0.49 |
+| shooting | 0.750 | 43 / 32 / 24 | 0.35 |
+| penalty kill | 0.850 | 39 / 33 / 28 | 0.20 |
+| unallocated | 1.000 | 33 / 33 / 33 | — |
+
+The right-hand column was measured independently, months earlier, in
+`component_persistence_test.py`. **The fitted window ordering is the repeatability ordering.**
+The stickier a skill is, the more the model leans on last season; the noisier it is, the further
+back it reaches; and the unallocated residual, which carries no signal at all, ends up weighting
+all three seasons equally because averaging is the only thing you can do with noise. Nothing
+told it to do that.
+
+**And it is worth almost nothing.** Against the same model with one shared window, per-component
+windows are better at four of six horizons by margins that are real but tiny — 0.30%, 0.14%,
+0.21%, 0.21%. On a 0.575-win error that is under two thousandths of a win per player-season,
+which at the market's own price of roughly $2.0M a win is about **$3,500**. Against the standing
+leader the component model still loses by 1.1% to 8.2%, unchanged.
+
+A fourth season, with each component free to ignore it, is the same story: no better.
+
+**What to take from this.** The component thesis is descriptively correct — different skills
+genuinely do repeat at different rates and genuinely do want different windows, and the model
+recovers that from the data without being told. It is just not where the forecasting money is.
+Summing seven parts with well-chosen windows reproduces very nearly what one well-chosen window
+on the total already does, because the errors in the parts are largely offsetting. That is a
+real finding about the structure of WAR, and it is a weak argument for the extra machinery.
+
+## Where it stands
+
+- **Leader: the calibrated total on a three-season window**, ahead at every horizon.
+- The component model's best form trails by 1.1% to 8.2%, widest at the back end of a long
+  contract, and none of the four repairs tried has closed the gap.
+- The longer window costs accuracy on stars, where the surplus value is, and that tension is
+  still unresolved.
+- **Aging is still not built.** Both models carry a player forward flat.
+
+Fifteen distinct variants have now been inspected on the development seasons. The register
+beside this file is the tally.
+
 ## What has not been tried
 
 - **Aging** (Phase 3), **participation** (Phase 2), **pricing** (Phase 4). All three sit under
-  these forecasts and all three can change the ranking.
-- **A window that differs by component.** Shooting is the noisiest part and should want the
-  longest window; even-strength offence the shortest. The window is currently shared, which is
-  the one place the component idea has not yet been allowed to express itself.
+  these forecasts and all three can change the ranking. Aging governs exactly the horizons where
+  the component model loses, so it is the next test.
 - **Goalies.** Everything here is skaters.

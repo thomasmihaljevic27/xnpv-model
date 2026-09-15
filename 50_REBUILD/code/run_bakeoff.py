@@ -156,7 +156,7 @@ def _append_register(rows, tilts, scored) -> None:
     today = date.today().isoformat()
     recs = []
     for name, mae in rows.items():
-        rec = {"date": today, "model": name,
+        rec = {"last_run": today, "model": name,
                "pages": f"{C.DEV_PAGES[0]}-{C.DEV_PAGES[-1]}",
                "n_rows": int(len(scored[name]))}
         for h in range(6):
@@ -166,6 +166,14 @@ def _append_register(rows, tilts, scored) -> None:
     new = pd.DataFrame(recs)
     if REGISTER.exists():
         new = pd.concat([pd.read_csv(REGISTER), new], ignore_index=True)
+        # One row per VARIANT, not per run. The register exists to count how
+        # many distinct models have been inspected on the development seasons,
+        # because that is the number that bears on selection bias. Re-running
+        # yesterday's variant today is not a new look at the data in the sense
+        # that matters, and counting it as one would inflate the tally --
+        # which sounds conservative but is not: an inflated denominator makes
+        # the eventual winner look more heavily vetted than it was.
+        new = new.drop_duplicates(subset=["model"], keep="last")
     REGISTER.parent.mkdir(parents=True, exist_ok=True)
     new.to_csv(REGISTER, index=False)
 
