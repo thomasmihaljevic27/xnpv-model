@@ -67,6 +67,8 @@ BASE_FEATURES = ["age", "age_sq", "level", "gp_share", "exp_seasons", "is_D"]
 CONTRACT_FEATURES = ["under_contract", "contract_unknown"]
 FEATURES = BASE_FEATURES + CONTRACT_FEATURES
 MIN_FIT_ROWS = 400
+# A binary feature needs this many rows on its rarer side to earn a coefficient.
+MIN_LEVEL_ROWS = 50
 
 
 # ---------------------------------------------------------------------------
@@ -225,32 +227,65 @@ class ParticipationModel:
                 self.coef_[h] = None
                 continue
 
-            # DROP NEAR-CONSTANT COLUMNS AT THIS HORIZON. On the early pages
-            # the contract export knows about 3% of the players five seasons
-            # out, so the contract columns are all-but-constant there, the
-            # design goes singular and the whole fit fails -- taking the age
-            # and level terms down with it and falling back to one base rate
-            # for everyone. The contract feature should be absent where it has
-            # nothing to say, not fatal. Which columns were used is recorded
-            # so a later run can see where the feature was live.
-            use = [f for f in self.features if d[f].std() > 1e-8]
+            # DROP COLUMNS THAT CANNOT SUPPORT A COEFFICIENT AT THIS HORIZON.
+            # On the early pages the contract export knows about 3% of the
+            # players five seasons out, so the contract columns are all but
+            # constant there, the design goes singular and the whole fit fails
+            # -- taking the age and level terms down with it and falling back
+            # to one base rate for everyone.
+            #
+            # A plain variance test is not enough, and the first version of
+            # this used one. A binary column that is true for 2% of rows has a
+            # perfectly healthy standard deviation and still cannot carry a
+            # coefficient; those fits kept failing at four and five seasons
+            # out, which is exactly where the contract feature was being judged
+            # worst. A feature has to have real support on BOTH sides to stay
+            # in: at least MIN_LEVEL_ROWS rows either way for a binary column,
+            # and non-trivial variation for a continuous one.
+            use = []
+            for f in self.features:
+                col = d[f]
+                if col.std() <= 1e-8:
+                    continue
+                uniq = col.unique()
+                if len(uniq) <= 2:               # binary
+                    lo = min((col == v).sum() for v in uniq)
+                    if lo < MIN_LEVEL_ROWS:
+                        continue
+                use.append(f)
             self.used_[h] = list(use)
-            X = sm.add_constant(d[use].to_numpy(float), has_constant="add")
-            try:
-                with warnings.catch_warnings():
-                    warnings.simplefilter("ignore")
-                    # Lightly regularised: the contract flags are near-perfect
-                    # predictors on some pages, and an unpenalised fit would
-                    # chase separation to an infinite coefficient.
-                    res = sm.Logit(d["y"].to_numpy(float), X).fit_regularized(
-                        alpha=1e-4, disp=0, maxiter=200)
-                self.coef_[h] = np.asarray(res.params, dtype=float)
-            except Exception as e:              # noqa: BLE001 -- fall back, never guess
+            # A CASCADE, not a cliff. If the full design will not fit, try the
+            # base features alone before giving up on the horizon entirely.
+            # Losing the contract terms costs a little; losing age and level
+            # costs everything, and that is what the old single-attempt fit
+            # did whenever one column misbehaved.
+            y = d["y"].to_numpy(float)
+            attempts = [use]
+            base_only = [f for f in use if f in BASE_FEATURES]
+            if base_only and base_only != use:
+                attempts.append(base_only)
+            for cols in attempts:
+                X = sm.add_constant(d[cols].to_numpy(float), has_constant="add")
+                try:
+                    with warnings.catch_warnings():
+                        warnings.simplefilter("ignore")
+                        # Lightly regularised: the contract flags are
+                        # near-perfect predictors on some pages, and an
+                        # unpenalised fit would chase separation to an infinite
+                        # coefficient.
+                        res = sm.Logit(y, X).fit_regularized(
+                            alpha=1e-4, disp=0, maxiter=200)
+                    self.coef_[h] = np.asarray(res.params, dtype=float)
+                    self.used_[h] = list(cols)
+                    break
+                except Exception as e:          # noqa: BLE001
+                    last = e
+            else:
                 # Loud, because a silent fallback to the base rate looks like a
                 # working model that simply has no opinion, and that is how the
                 # contract ablation went unnoticed.
-                C.log(f"  [participation] horizon {h}: fit failed "
-                      f"({e.__class__.__name__}), falling back to the base rate")
+                C.log(f"  [participation] horizon {h}: every fit failed "
+                      f"({last.__class__.__name__}); falling back to the base rate")
                 self.coef_[h] = None
         return self
 

@@ -98,22 +98,38 @@ it away was the probability by tier: a flat 59% for every level of player, when 
 below-replacement players and 97% of 3+ win players go on to play. No fitted model produces
 that.
 
-Two fixes followed. The contract columns are now dropped from the design when there is no
-contract data, so the ablation removes the feature instead of the model. A failed fit is now
-logged loudly rather than falling back in silence. And because the contract columns are
-near-constant at long horizons on the early pages — the export knows about 3% of the players
-five seasons out from 2015 — any near-constant column is dropped at that horizon rather than
-being allowed to make the whole design singular and take the age and level terms down with it.
+Fixing it took three passes, and the first two were not enough — recorded because each pass
+changed the number and the last one changed it by a factor of four.
 
-Re-measured properly, on identical rows:
+1. **Drop the contract columns when there is no contract data**, so the ablation removes the
+   feature instead of the model.
+2. **Log a failed fit loudly** instead of falling back in silence.
+3. **Require a feature to have real support before it earns a coefficient.** A variance test was
+   not enough: a binary column that is true for 2% of rows has a healthy standard deviation and
+   still cannot carry a coefficient. With only a variance test, the WITH-contract model was
+   still failing at four and five seasons out — precisely the horizons where the contract
+   feature was being judged worst — so the first re-measurement was comparing a working model
+   against a crippled one in the other direction. A binary feature now needs at least fifty rows
+   on its rarer side, and a fit that still fails retries on the base features alone before
+   giving up on the horizon. Zero fits now fail on any development page.
+
+Re-measured with every fit converged, on identical rows:
 
 | seasons ahead | valuation | +1 | +2 | +3 | +4 | +5 |
 |---|---:|---:|---:|---:|---:|---:|
-| effect of adding contract data | −0.12% | **−0.26%** | **−0.70%** | **−1.15%** | **−3.98%** | **−3.97%** |
+| effect of adding contract data | −0.12% | **−0.26%** | **−0.68%** | **−0.91%** | **−0.90%** | **−0.87%** |
 
 Negative means the contract feature makes the forecast **worse**, and every interval past the
-valuation season excludes zero. The best participation model in the register is the one that
-never sees a contract.
+valuation season excludes zero. The direction is robust across all three passes; the magnitude
+was not — an intermediate version of this document reported −3.98% at four seasons out, which
+was the broken fit rather than the feature. The honest number is about nine tenths of one
+percent. The best participation model in the register is still the one that never sees a
+contract, but it wins by a hair rather than by a mile.
+
+Where the feature survives the support test is itself informative: on the 2015 page it earns a
+coefficient only at the valuation season and one season out, on 2017 out to three seasons, and
+only from 2019 does it earn one at every horizon. That is the coverage table below, showing up
+as the model declining to use a feature it cannot support.
 
 The probability of playing by tier says why the feature has so little to add:
 
