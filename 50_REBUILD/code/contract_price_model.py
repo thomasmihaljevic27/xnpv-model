@@ -45,7 +45,7 @@ import information_set as ISET
 from contract_source import load_contracts, POSGRP
 from player_season_table import norm_name, build as build_table
 
-SCRIPT_VERSION = "1.3"
+SCRIPT_VERSION = "1.4"
 
 
 def contract_sample() -> pd.DataFrame:
@@ -180,7 +180,17 @@ def attach_forecasts(sample: pd.DataFrame, model_cls, table: pd.DataFrame,
         if verbose:
             C.log(f"  batch readable-through {L}: {len(grp)} contracts")
 
-    f = pd.DataFrame(out).set_index("idx")
+    # THE REJECTIONS ARE PUBLISHED BEFORE THE JOIN, and the empty case is built
+    # with its schema rather than inferred from rows that do not exist. When
+    # every submitted contract was rejected, `out` was empty, set_index("idx")
+    # raised a KeyError, and the caller got neither a result nor the rejection
+    # report this function had just promised. An empty batch is an ordinary
+    # no-history outcome, not an error.
+    cols = ["war_total", "war_per_season", "war_year1", "n_years_forecast",
+            "n_years_extrapolated"]
+    f = (pd.DataFrame(out).set_index("idx") if out
+         else pd.DataFrame(columns=cols, index=pd.Index([], name="idx")))
+    attach_forecasts.rejected_ = pd.DataFrame(rejected)
     joined = sample.join(f, how="inner")
     if rejected:
         rej = pd.DataFrame(rejected)
@@ -188,7 +198,6 @@ def attach_forecasts(sample: pd.DataFrame, model_cls, table: pd.DataFrame,
               f"(longest {int(rej['term'].max())} seasons); written to "
               "attach_forecasts_rejected.csv")
         rej.to_csv(C.out_path("attach_forecasts_rejected.csv"), index=False)
-    attach_forecasts.rejected_ = pd.DataFrame(rejected)
     return joined
 
 

@@ -20,6 +20,14 @@
 > which horizons were requested, and the horizon-eight ceiling was still in the attachment
 > interface. All three are now repaired and the suite is at 15. The forecast figures in this
 > report are unaffected and were independently reproduced. See the closing section.
+>
+> **Third correction, same day.** A third verification closed two of those three and found that
+> the rewritten named-player table fitted a SEPARATE price line to each forecast while its own
+> heading claimed one line served both. It did, in all 18 comparable quarters. One reference
+> currency is now fitted per signing quarter and applied to both columns; this moves the live
+> column by $8.26M on average and $19.18M at most, and leaves the rebuilt column unchanged to the
+> cent. An all-rejected attachment batch also crashed before publishing its rejection report, and
+> now returns cleanly. Suite at 17.
 
 Written 2026-09-15, closing the independent review of the experimental player rebuild. The
 review raised nine findings against commit `beb69a1`. Seven were accepted as written, two were
@@ -348,6 +356,42 @@ join with no record. The ceiling is gone, and contracts the forecast cannot cove
 a rejection file with a reason rather than disappearing. A stub that answers every requested
 season now returns a ten-year contract; on the previous commit it does not.
 
+## The Third Verification
+
+Two of the three issues from the second pass closed on the tested cases: the extrapolation is
+invariant to the requested horizons, subjects and row order, and a ten-year term survives
+attachment. One material issue remained, and it was in something I had written two passes
+earlier and repeated since.
+
+**The named table fitted two price lines while saying it fitted one.** The rewritten runner
+looped over the two forecast tables and called `ProductionCurrency` on each. Those tables carry
+different forecast regressors, so the two fits returned different coefficients, in all 18
+comparable quarters. The printed difference between the columns was therefore a forecast change
+and a price change added together, while the line above the table said it was the forecast alone.
+The claim was mine and it was wrong in the same way twice: the code changed underneath a sentence
+that did not.
+
+One currency is now fitted per signing quarter, on the rebuilt forecasts as the declared
+reference, and the same fitted object prices both columns. The effect is not small. The live
+column moves by $8.26M on average and by $19.18M at most, and the rebuilt column does not move at
+all, which is what fitting on the rebuilt table should do. Substantively the correction runs
+against the rebuild: priced on one line, the live chain values these players higher than the
+rebuilt chain does, so the rebuilt chain is the more conservative of the two and its surpluses are
+smaller. Nikita Kucherov's live surplus goes from $8.8M to $27.7M while his rebuilt surplus stays
+at $6.0M.
+
+Fitting a separate line to each forecast is a legitimate whole-model sensitivity, and it is a
+different question from the one this table asks. It is not reported here.
+
+**An all-rejected batch crashed before publishing its reasons.** The attachment built its result
+frame from rows that did not exist when every contract had been rejected, so the caller got a
+`KeyError` instead of either an empty result or the rejection report the function had just
+promised. An empty batch is an ordinary no-history outcome. Both cases now return cleanly, and
+the rejection report is published before the join rather than after it.
+
+The runner's opening docstring also still described the withdrawn method, and now describes the
+one the code runs.
+
 ## What Remains Open
 
 Nothing on the dollar side has been reconciled. The chain runs and prices 1,226 development
@@ -363,13 +407,13 @@ integration, and the goalie branch are all still unbuilt, as the review's adhere
 
     python 50_REBUILD/code/repair_checks.py
 
-Fifteen checks, each corresponding to a defect above. The first eight were demonstrated
+Seventeen checks, each corresponding to a defect above. The first eight were demonstrated
 failing against the commits that preceded them, by copying the suite into a checkout of the
 earlier code and running it there; against the original commit none of the first six passes. The
 rest guard code that did not exist before. Check 12 was rewritten after the verification pointed
 out that its original form, which asserted only that rates move with the horizon and survival
 falls below one, was true of an adapter wrong in two ways at once; it now compares the adapter
-against production's own methods row by row. All fifteen pass on the current tree, and the two checks added in the second pass fail on the commit that preceded them.
+against production's own methods row by row. All seventeen pass on the current tree. Each pair of checks added in a later pass fails on the commit that preceded it, which is the only evidence that a check is worth having.
 
 The suite builds its table with the coverage guard disabled and reports the coverage instead.
 That is deliberate: the guard exists to stop a silent degraded run, and this suite is the tool

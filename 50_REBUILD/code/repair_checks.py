@@ -23,7 +23,7 @@ import forecast_harness as H
 import player_season_table as T
 from ability_forecast import A0Production
 
-SCRIPT_VERSION = "1.6"
+SCRIPT_VERSION = "1.7"
 
 PASS, FAIL, SKIP = "pass", "FAIL", "skip"
 results: list[tuple[str, str, str]] = []
@@ -466,6 +466,96 @@ def c15(table):
     return "a ten-year term survives attachment when the model answers it"
 
 
+# -- 16. one price line serves both columns of the named comparison ---------
+def c16(table):
+    """The named table says its two columns differ by the forecast and not the
+    price line. It used to fit a currency to each forecast table separately,
+    and because the tables carry different forecast regressors the two fits
+    returned different coefficients, so the printed difference was a forecast
+    change and a price change added together."""
+    import run_player_comparison as RPC
+    from contract_price_model import contract_sample, attach_forecasts
+    from ability_forecast import A1HingeExposure
+    try:
+        from production_adapter import ProductionChain
+    except Exception as e:                        # noqa: BLE001
+        raise _Skip(f"production modules unavailable ({e.__class__.__name__})")
+    if float(table["has_age"].mean()) < C.MIN_AGE_COVERAGE:
+        raise _Skip("age coverage is too thin to attach forecasts")
+
+    sample = contract_sample()
+    dev = [y for y in sorted(sample["start_yr"].dropna().unique().astype(int))
+           if y not in C.CONFIRMATORY_START_YEARS]
+    sample = sample[sample["start_yr"].isin(dev)]
+    # One page is enough to prove the interface: the cheapest slice that still
+    # produces two priced tables for the same quarters.
+    sample = sample[sample["start_yr"] == max(dev)]
+    try:
+        rebuilt = RPC.prep(attach_forecasts(sample, A1HingeExposure, table, verbose=False))
+        live = RPC.prep(attach_forecasts(sample, ProductionChain, table, verbose=False))
+    except RuntimeError as e:
+        raise _Skip(str(e)[:90])
+    if rebuilt.empty or live.empty:
+        raise _Skip("no contracts attached on this page")
+
+    seen: dict = {}
+    real_value = RPC.ProductionCurrency.value
+
+    def spy(self, d):
+        seen.setdefault(id(self), []).append(np.asarray(self.coef_, float).copy())
+        return real_value(self, d)
+
+    RPC.ProductionCurrency.value = spy
+    try:
+        priced, coefs = RPC.price_on_one_currency(rebuilt, live)
+    finally:
+        RPC.ProductionCurrency.value = real_value
+
+    assert coefs, "no quarter produced a fitted currency"
+    # Each currency object priced both tables, so each recorded exactly one
+    # coefficient vector used more than once, and never two different ones.
+    for vecs in seen.values():
+        for v in vecs[1:]:
+            assert np.allclose(v, vecs[0], atol=0, rtol=0), (
+                "one currency object priced two different coefficient vectors")
+    n_both = sum(1 for v in seen.values() if len(v) > 1)
+    assert n_both, (
+        "no currency object was used for both forecast tables, so the two "
+        "columns are not sharing a fitted price line")
+    return (f"{len(coefs)} quarters fitted once each; {n_both} priced both "
+            "forecasts on the identical coefficient vector")
+
+
+# -- 17. an all-rejected or empty batch returns cleanly, with its reasons ----
+def c17(table):
+    """When every submitted contract was rejected the attachment raised a
+    KeyError before publishing the rejection report it had just promised."""
+    import contract_price_model as CPM
+    from ability_forecast import BaseModel
+
+    class Nobody(BaseModel):
+        """Answers for nobody, so every contract must be rejected."""
+        name = "answers nothing"
+        FITTED_HORIZONS = None
+
+        def fit(self, table, before):
+            super().fit(table, before)
+
+        def predict(self, iset, subs, horizons):
+            return pd.DataFrame(columns=["career_key", "h", "rate_82",
+                                         "gp_share", "p_play"])
+
+    real = CPM.contract_sample()
+    if real.empty:
+        raise _Skip("no contracts in the sample")
+    one = real.iloc[:1].copy()
+    got = CPM.attach_forecasts(one, Nobody, table, verbose=False)
+    assert got.empty, "a model that answers nothing still produced priced rows"
+    empty = CPM.attach_forecasts(real.iloc[:0].copy(), Nobody, table, verbose=False)
+    assert empty.empty, "an empty request did not return an empty result"
+    return "an all-rejected batch and an empty batch both return empty rather than raising"
+
+
 def main() -> None:
     warnings.filterwarnings("ignore")
     C.banner("repair_checks.py", SCRIPT_VERSION)
@@ -501,7 +591,9 @@ def main() -> None:
                      ("adapter matches production", c12),
                      ("extrapolation invariant to the query", c13),
                      ("market target and discount dated at signing", c14),
-                     ("long terms survive attachment", c15)]:
+                     ("long terms survive attachment", c15),
+                     ("one price line for both columns", c16),
+                     ("empty and all-rejected batches", c17)]:
         check(name, lambda fn=fn: fn(table))
 
     width = max(len(n) for n, _, _ in results)

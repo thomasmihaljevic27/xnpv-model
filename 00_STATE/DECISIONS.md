@@ -408,3 +408,12 @@ own last fitted horizon rather than the caller's, so it is invariant to the requ
 and serves a lone extrapolated year. Attachment horizon ceiling removed; uncoverable contracts
 written to `attach_forecasts_rejected.csv` with a reason. Suite at 15; both new checks fail on
 the preceding commit.
+
+**Change log 2026-09-15b (third verification) — one price line, and clean empty batches.**
+Named-player comparison now fits one reference currency per signing quarter, on the rebuilt
+forecasts, and applies it to both columns; previously it fitted separately per forecast table and
+differed in all 18 comparable quarters. **Effect: the live column moves $8.26M on average and
+$19.18M at most, the rebuilt column not at all, and the correction runs against the rebuild,
+which is the more conservative chain once both are priced on one line.** Attachment now returns
+an empty result with its rejection report for an all-rejected or empty batch instead of raising.
+Runner docstring corrected. Suite at 17; both new checks fail on the preceding commit.

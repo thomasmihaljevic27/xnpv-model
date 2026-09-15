@@ -294,3 +294,10 @@ horizon five in both of its requests, which was the one horizon that made the re
 invisible. Both passed while the defect stood. A check should be run against the code that
 preceded it before it is trusted, and where that is impossible it should be varied along the axis
 the fix acts on.
+
+**2026-09-15b — three passes running, a claim in prose outlived the code it described.** The
+comparator was called today's chain after it stopped being production's forecast; the adapter was
+said to import production's rules while it restated two of them; the named table said one price
+line while fitting two. Each time the code moved and the sentence stayed. The rule that follows:
+where a paragraph asserts a property of a calculation, name the check that holds that property in
+the paragraph, so the two are edited together or not at all.

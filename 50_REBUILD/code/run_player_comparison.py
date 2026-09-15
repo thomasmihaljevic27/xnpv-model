@@ -18,20 +18,29 @@ end of Phase 5. Several obvious cases -- Eichel to Vegas, the recent extensions
 WHAT IS COMPARED
     Production value over the contract term, in dollars, under two chains:
 
-    TODAY'S CHAIN. Trailing two seasons of WAR blended 60/40, carried flat
-    across the term, every player assumed to play every season, priced on the
-    locked D20 market rate (alpha 0.01324782, beta 0.02123229, defence premium
-    0.00287028), floored at the league minimum.
+    THE LIVE CHAIN. Production's own forecast, through production's locked aging
+    curve, its negative-anchor rule and its exit-hazard survival, by way of
+    production_adapter.ProductionChain. The earlier version of this file
+    compared against the flat benchmark and called it today's chain, which it
+    is not: the benchmark drops the aging path and the survival weighting.
 
-    THE REBUILT CHAIN. The adopted leader -- three-season window, additive
-    aging with the survivorship correction, participation -- priced on the
-    adopted log currency, floored at the same minimum.
+    THE REBUILT CHAIN. The adopted candidate from the variant register: three-
+    season window, additive aging with the survivorship correction,
+    participation, and the hinge-and-evidence interaction.
 
-    Values are in cap share per season summed over the term and converted at
-    each season's published ceiling. In cap-share units the cap's growth and
-    the discount rate largely cancel, which is the project's existing
-    convention; no separate discount factor is applied, and that is a
-    simplification rather than a claim.
+    BOTH PRICED ON ONE CURRENCY. A single censored price line is fitted per
+    signing quarter, on contracts signed strictly before that quarter, and the
+    same fitted line prices both forecasts. Fitting a line to each forecast
+    separately, which this file used to do, returns different coefficients and
+    makes the printed difference a forecast change and a price change added
+    together.
+
+    DATES AND DISCOUNTING. A valuation uses the cap ceilings announced by its
+    own signing date and grows the rest at 3%; value and cost are both
+    discounted from the signing rather than from the contract's first season.
+    The earlier version summed realised ceilings with no discounting at all and
+    described the cancellation of growth against discount as a reason it did
+    not need to.
 
     This is the VALUE side only. Cost, retention and trade-side accounting are
     not in it.
@@ -54,7 +63,7 @@ import information_set as ISET
 from player_season_table import build as build_table, norm_name
 from ability_forecast import A1HingeExposure
 
-SCRIPT_VERSION = "1.3"
+SCRIPT_VERSION = "1.4"
 
 # The locked production market rate (D20 Tobit, skaters, 2018-2025 starts).
 PROD_ALPHA, PROD_BETA_F, PROD_BETA_D_ADD = 0.01324782, 0.02123229, 0.00287028
@@ -100,6 +109,52 @@ CASES = [
 ]
 
 
+def price_on_one_currency(rebuilt: pd.DataFrame, live: pd.DataFrame):
+    """Price two forecast tables on ONE fitted currency per signing quarter.
+
+    The table above this says the difference between its two columns is the
+    forecast rather than the price line. The first version of this code did not
+    do that: it called ProductionCurrency separately on each forecast table, and
+    since the tables carry different forecast regressors the two fits returned
+    different coefficients in all 18 comparable quarters. The printed difference
+    was therefore a forecast change and a pricing change added together, while
+    the text claimed otherwise.
+
+    THE REFERENCE IS THE REBUILT TABLE, declared rather than implied. The
+    currency is the market's price for forecast production, and the rebuilt
+    forecast is the one whose production is being valued; fitting on it and then
+    applying the same fitted object to the live forecast asks what the market
+    would pay for each forecast at one price. Fitting on the live table instead
+    would answer the same question through a different reference and is a
+    sensitivity worth running, not a second answer to be averaged with this one.
+
+    Returns (priced, coefs): a dict of label to priced rows, and the fitted
+    coefficient vector per quarter, so a test can confirm that one vector
+    served both valuations.
+    """
+    ref = rebuilt.copy()
+    other = live.copy()
+    for d in (ref, other):
+        d["cut"] = d["signed"].dt.to_period("Q").dt.start_time
+
+    priced = {"rebuilt": [], "live": []}
+    coefs: dict = {}
+    for cut in sorted(set(ref["cut"]) | set(other["cut"])):
+        cur = ProductionCurrency("in").fit(ref, before_date=cut)
+        if cur.coef_ is None:
+            continue
+        coefs[cut] = np.asarray(cur.coef_, dtype=float).copy()
+        for label, d in (("rebuilt", ref), ("live", other)):
+            te = d[d["cut"] == cut].copy()
+            if te.empty:
+                continue
+            te["value"] = cur.value(te)
+            te["cost"] = cur.cost(te)
+            priced[label].append(te)
+    return ({k: (pd.concat(v, ignore_index=True) if v else pd.DataFrame())
+             for k, v in priced.items()}, coefs)
+
+
 def main() -> None:
     C.banner("run_player_comparison.py", SCRIPT_VERSION)
     C.log("  ROUTED THROUGH THE REPAIRED VALUATION PATH (2026-09-15).")
@@ -133,20 +188,7 @@ def main() -> None:
     rebuilt = prep(attach_forecasts(sample, A1HingeExposure, table, verbose=False))
     live = prep(attach_forecasts(sample, ProductionChain, table, verbose=False))
 
-    priced = {}
-    for label, d in (("rebuilt", rebuilt), ("live", live)):
-        d = d.copy()
-        d["cut"] = d["signed"].dt.to_period("Q").dt.start_time
-        rows = []
-        for cut, te in d.groupby("cut"):
-            cur = ProductionCurrency("in").fit(d, before_date=cut)
-            if cur.coef_ is None:
-                continue
-            te = te.copy()
-            te["value"] = cur.value(te)
-            te["cost"] = cur.cost(te)
-            rows.append(te)
-        priced[label] = pd.concat(rows, ignore_index=True) if rows else pd.DataFrame()
+    priced, coefs = price_on_one_currency(rebuilt, live)
 
     # The earliest quarter with enough prior signings to fit a currency on.
     # Dating the fit at the signing is what creates this boundary: before it
@@ -193,8 +235,10 @@ def main() -> None:
     r["surplus_live"] = r["live"] - r["cost"]
 
     C.log("  FORECAST PRODUCTION PRICED OVER THE TERM, $M, discounted to the")
-    C.log("  signing. Both columns use the same currency, so the difference is")
-    C.log("  the forecast and not the price line. Surplus is value minus the")
+    C.log("  signing. ONE currency is fitted per signing quarter, on the rebuilt")
+    C.log("  forecasts, and the same fitted line prices both columns, so the")
+    C.log("  difference between them is the forecast and not the price line.")
+    C.log("  Surplus is value minus the")
     C.log("  discounted cap hit, and is deviation from the market rather than")
     C.log("  profit: the line is fitted to observed contracts.")
     C.log("")
