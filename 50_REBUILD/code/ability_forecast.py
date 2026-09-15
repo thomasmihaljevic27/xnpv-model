@@ -225,6 +225,28 @@ def _anchors(played: pd.DataFrame, n_seasons: int = 2,
     # the distinction the shrinkage exists to act on.
     gp = np.column_stack([m[f"GP_{lag}"].fillna(0).to_numpy(float) for lag in lags])
     out["exposure_gp"] = (gp * w[None, :]).sum(axis=1) / w.sum()
+
+    # ELITE RELIEF TERMS. A straight pull-back toward the league is the best
+    # LINEAR predictor, and a linear predictor under-shoots at the top whenever
+    # the true relationship bends -- which it does here, because a high
+    # trailing number from a genuinely good player regresses less than the same
+    # number from a lucky one, and at the top of the distribution most of them
+    # are good. The stress test measured the cost: 0.279 wins low in the top
+    # decile, with all of it in the rate rather than participation.
+    #
+    # These terms let the pull weaken where the evidence is strongest. They are
+    # OFFERED, not imposed: a model that does not list them in FEATURES behaves
+    # exactly as before, and the bake-off decides whether they earn their place.
+    #
+    # Hinges rather than a square, because a square bends everywhere -- including
+    # among the below-replacement players, where there is no reason to think the
+    # relationship changes -- and because a hinge says exactly where the change
+    # is being claimed.
+    out["tw_hi1"] = np.clip(out["tw_WAR"] - 1.0, 0, None)
+    out["tw_hi2"] = np.clip(out["tw_WAR"] - 2.0, 0, None)
+    # Level interacted with the evidence behind it: a big number off a full
+    # season is worth more than the same number off half of one.
+    out["tw_x_exposure"] = out["tw_WAR"] * (out["exposure_gp"] / 82.0)
     return out.dropna(subset=["tw_WAR"]).reset_index(drop=True)
 
 
@@ -1258,3 +1280,38 @@ class A1ImputePlus25(_ImputeLevel, A1AgingParticipationImputedNC):
 class A1ImputeReturners(_ImputeLevel, A1AgingParticipationImputedNC):
     name = "leader, returners given their observed level on return"
     AGING_RETURNERS = True
+
+
+# ---------------------------------------------------------------------------
+# THE ELITE-RELIEF TEST. Stress test 1 located the star bias in the rate rather
+# than participation: the top decile is predicted at 2.360 against an actual
+# 2.698, while the probability of playing is almost exactly right. These
+# variants let the regression bend where the stress test says it should.
+# ---------------------------------------------------------------------------
+
+class A1Hinge(A1AgingParticipationImputedNC):
+    """The leader with a second slope above one win a season."""
+    name = "leader + a second slope above one win"
+    FEATURES = ["tw_WAR", "tw_hi1", "one_season", "is_D", "exp_seasons",
+                "age_c", "age_c2"]
+
+
+class A1HingeTwo(A1AgingParticipationImputedNC):
+    """Two hinges: above one win and above two."""
+    name = "leader + slopes above one and two wins"
+    FEATURES = ["tw_WAR", "tw_hi1", "tw_hi2", "one_season", "is_D",
+                "exp_seasons", "age_c", "age_c2"]
+
+
+class A1Exposure(A1AgingParticipationImputedNC):
+    """Level interacted with how many games stand behind it."""
+    name = "leader + level interacted with evidence"
+    FEATURES = ["tw_WAR", "tw_x_exposure", "one_season", "is_D", "exp_seasons",
+                "age_c", "age_c2"]
+
+
+class A1HingeExposure(A1AgingParticipationImputedNC):
+    """Both."""
+    name = "leader + hinge and evidence interaction"
+    FEATURES = ["tw_WAR", "tw_hi1", "tw_x_exposure", "one_season", "is_D",
+                "exp_seasons", "age_c", "age_c2"]

@@ -116,3 +116,48 @@ none of them is the kind of failure that invalidates a result.
 
 The first two are diagnosed rather than merely observed, which makes them fixable. The third is
 a caveat to carry into the confirmatory run.
+
+---
+
+# Acting on failure 1: letting the pull weaken at the top
+
+The stress test located the star bias in the rate rather than participation, and in a specific
+place: a straight pull-back toward the league is the best *linear* predictor, and a linear
+predictor undershoots at the top whenever the true relationship bends. It does bend here,
+because a high trailing number from a genuinely good player regresses less than the same number
+from a lucky one — and at the top of the distribution most of them are good.
+
+Four ways of letting it bend, all fitted on the rolling window like everything else:
+
+| model | valuation | +2 | +4 | +5 | top-decile miss | star bias |
+|---|---:|---:|---:|---:|---:|---:|
+| leader (current) | 0.5501 | 0.5260 | 0.4616 | 0.4171 | −0.279 | −0.418 |
+| + slope above one win | 0.5492 | 0.5248 | 0.4606 | 0.4164 | −0.262 | −0.375 |
+| **+ slopes above one and two** | **0.5483** | **0.5242** | **0.4602** | **0.4156** | **−0.226** | −0.435 |
+| + level × evidence | 0.5496 | 0.5257 | 0.4613 | 0.4167 | −0.262 | −0.393 |
+| **+ hinge and evidence** | 0.5490 | 0.5248 | 0.4607 | 0.4163 | −0.252 | **−0.365** |
+
+All four beat the current leader at every horizon. The two best, tested paired and clustered by
+career, improve at **6 of 6 horizons with every interval excluding zero** — the two-hinge version
+by 0.22% to 0.36%, the hinge-and-evidence version by 0.18% to 0.25%.
+
+**They are real and they are small.** A third of a percent on a 0.42-win error is about
+0.0015 wins, and no one should present that as the fix for anything. What is not small is the
+top-decile miss, which falls from 0.279 wins to 0.226 — a fifth of the calibration failure
+removed by letting one slope change.
+
+**The two leaders trade off in the direction this project cares about.** Two hinges give the best
+aggregate error and the best calibration at the top of the *prediction* distribution, but leave
+the 3-plus trailing tier slightly worse (−0.435 against −0.418). The hinge-and-evidence version
+gives up a little aggregate accuracy and is the only variant that improves the star tier
+materially, to −0.365 — a 13% reduction in how far the model under-rates the players who carry
+the surplus.
+
+**Adopted: hinge and evidence.** It improves aggregate error and the star tier together, where
+the alternative buys the first with the second. That is the same tension that has run through
+every round of this rebuild, and the same answer: on a project about surplus value, a variant
+that is better everywhere except the expensive players is not better.
+
+The change does not close the gap. The model still under-rates its best players by a third of a
+win over the first three seasons, and the remaining bias is now the clearest single target left
+in the player chain.

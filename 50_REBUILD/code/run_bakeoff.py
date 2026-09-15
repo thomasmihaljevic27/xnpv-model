@@ -43,6 +43,7 @@ from ability_forecast import (A0Production, A1Calibrated, A1Calibrated3, A1NoAge
                               A1ParticipationNoAging, A2AgingParticipation,
                               A1AgingParticipationImputed, A1AgingParticipationImputedNC,
                               A1AgingParticipationIPW, A2AgingParticipationImputed,
+                              A1Hinge, A1HingeTwo, A1Exposure, A1HingeExposure,
                               A2PerHorizonTrustNoAge)
 from player_season_table import build as build_table
 
@@ -81,6 +82,7 @@ CANDIDATES = [
     A1AgingParticipationImputedNC,  # the same in the leader's configuration
     A1AgingParticipationIPW,        # survivorship by reweighting -- does not work
     A2AgingParticipationImputed,    # the component model, corrected
+    A1Hinge, A1HingeTwo, A1Exposure, A1HingeExposure,  # elite-relief variants
 ]
 
 SEASON_LABEL = {0: "valuation season", 1: "+1 season", 2: "+2 seasons",
