@@ -39,7 +39,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 import information_set as ISET
 
-SCRIPT_VERSION = "1.1"
+SCRIPT_VERSION = "1.2"
 
 W_T1, W_T2 = 0.6, 0.4    # the locked recency weighting, reproduced for A0
 
@@ -157,15 +157,29 @@ class BaseModel:
         pairs["y_war"] = act["WAR"].reindex(ix).to_numpy()
         pairs["y_rate"] = act["WAR_82"].reindex(ix).to_numpy()
         pairs["y_gp_share"] = act["gp_share"].reindex(ix).to_numpy()
-        pairs["y_played"] = act["GP"].reindex(ix).fillna(0).to_numpy() >= C.MIN_GP
+        # THE SAME EVENT the participation model predicts. These two used to
+        # disagree: participation predicted a ten-game season while the rate
+        # and games targets were taken from any season with a number in it, so
+        # a cameo was simultaneously a played season for the rate and an
+        # unplayed one for participation, and their product was an expectation
+        # of nothing.
+        pairs["y_gp"] = act["GP"].reindex(ix).to_numpy()
+        pairs["y_played"] = np.nan_to_num(pairs["y_gp"]) >= C.PARTICIPATION_GP
         # A season that never happened is not a training row for the RATE, but
         # IS one for participation. Rate fits drop it; the participation
         # placeholder below uses the full frame.
         return pairs
 
 
+# HOW FAR BACK A STALE ANCHOR MAY REACH. Matches the harness's eligibility
+# window (forecast_harness.ACTIVE_WINDOW): a player the harness is willing to
+# ask about must be a player the models can answer about, or he is dropped from
+# scoring and the drop falls entirely on players who missed a season.
+STALE_LOOKBACK = 3
+
+
 def _anchors(played: pd.DataFrame, n_seasons: int = 2,
-             decay: float = W_T2 / W_T1) -> pd.DataFrame:
+             decay: float = W_T2 / W_T1, stale: bool = True) -> pd.DataFrame:
     """For every player and every season t0 he could have been valued at, the
     trailing facts from t0-1 and t0-2 only.
 
@@ -253,6 +267,29 @@ def _anchors(played: pd.DataFrame, n_seasons: int = 2,
     # the distinction the shrinkage exists to act on.
     gp = np.column_stack([m[f"GP_{lag}"].fillna(0).to_numpy(float) for lag in lags])
     out["exposure_gp"] = (gp * w[None, :]).sum(axis=1) / w.sum()
+
+    out["stale_history"] = 0.0
+
+    # RETURNING PLAYERS. A player whose most recent qualifying season is older
+    # than this model's window has no row above at all, because every row is
+    # built by adding a lag inside the window to a season inside it. The
+    # harness was willing to ask about him -- its eligibility window is three
+    # seasons -- so dropping him here does not make him disappear evenly: it
+    # removes exactly the players who missed a season and came back, which is
+    # the population the participation model exists to price.
+    #
+    # He gets an anchor from his most recent qualifying season alone, tagged so
+    # that a model, a report or a subgroup can treat a two-year-old number as
+    # what it is. Only pairs MISSING from the window above are added, so no
+    # existing anchor changes by a single digit.
+    if stale and n_seasons < STALE_LOOKBACK:
+        deep = _anchors(played, STALE_LOOKBACK, decay, stale=False)
+        have = pd.MultiIndex.from_arrays([out["career_key"], out["t0"]])
+        want = pd.MultiIndex.from_arrays([deep["career_key"], deep["t0"]])
+        add = deep[~want.isin(have)].copy()
+        if len(add):
+            add["stale_history"] = 1.0
+            out = pd.concat([out, add], ignore_index=True)
 
     # ELITE RELIEF TERMS. A straight pull-back toward the league is the best
     # LINEAR predictor, and a linear predictor under-shoots at the top whenever
@@ -349,7 +386,8 @@ class A1Calibrated(BaseModel):
         self.coef_, self.gp_coef_ = {}, {}
         for h, g in pairs.groupby("h"):
             r = g.dropna(subset=["y_rate"])           # rate fit: seasons played
-            self.coef_[h] = _ols(r[self.FEATURES], r["y_rate"]) if len(r) > 50 else None
+            self.coef_[h] = (_ols(r[self.FEATURES], r["y_rate"], _rate_weight(r))
+                             if len(r) > 50 else None)
             s = g.dropna(subset=["y_gp_share"])
             self.gp_coef_[h] = _ols(s[["tr_gp_share", "is_D", "exp_seasons", "age_c"]],
                                     s["y_gp_share"]) if len(s) > 50 else None
@@ -462,7 +500,8 @@ class A2Component(A1Calibrated):
         self.coef_, self.gp_coef_ = {}, {}
         for h, g in pairs.groupby("h"):
             r = g.dropna(subset=["y_rate"])
-            self.coef_[h] = _ols(r[self.RATE_FEATURES], r["y_rate"]) if len(r) > 50 else None
+            self.coef_[h] = (_ols(r[self.RATE_FEATURES], r["y_rate"], _rate_weight(r))
+                             if len(r) > 50 else None)
             q = g.dropna(subset=["y_gp_share"])
             self.gp_coef_[h] = _ols(q[["tr_gp_share", "is_D", "exp_seasons", "age_c"]],
                                     q["y_gp_share"]) if len(q) > 50 else None
@@ -572,20 +611,44 @@ class A2Component(A1Calibrated):
         return pd.concat(rows, ignore_index=True)
 
 
-def _ols(X: pd.DataFrame, y: pd.Series):
+def _ols(X: pd.DataFrame, y: pd.Series, w: pd.Series | None = None):
     """Least squares with an intercept, on complete rows only. Returns None if
     the design is rank-deficient or too thin -- the caller then falls back to
     the raw trailing value, which is the honest answer when the window has not
-    yet accumulated enough history to fit anything."""
-    d = pd.concat([X, y.rename("_y")], axis=1).replace([np.inf, -np.inf], np.nan).dropna()
+    yet accumulated enough history to fit anything.
+
+    `w` is a precision weight, in practice the games behind each rate. A rate
+    from a handful of games estimates the same quantity as a full season's
+    rate with far more noise, so weighting by games is what stops one cameo
+    from carrying a full season's authority in the fit. Rows are scaled by the
+    square root of the weight, which is the standard way of writing weighted
+    least squares as an ordinary one.
+    """
+    parts = [X, y.rename("_y")]
+    if w is not None:
+        parts.append(w.rename("_w"))
+    d = pd.concat(parts, axis=1).replace([np.inf, -np.inf], np.nan).dropna()
     if len(d) < 50:
         return None
     A = np.column_stack([np.ones(len(d)), d[X.columns].to_numpy(float)])
+    b = d["_y"].to_numpy(float)
+    if w is not None:
+        rw = np.sqrt(np.clip(d["_w"].to_numpy(float), 0.0, None))
+        if not rw.any():
+            return None
+        A, b = A * rw[:, None], b * rw
     try:
-        beta, *_ = np.linalg.lstsq(A, d["_y"].to_numpy(float), rcond=None)
+        beta, *_ = np.linalg.lstsq(A, b, rcond=None)
     except np.linalg.LinAlgError:
         return None
     return list(X.columns), beta
+
+
+def _rate_weight(g: pd.DataFrame) -> pd.Series | None:
+    """The games behind each rate observation, or None when weighting is off."""
+    if not C.RATE_WEIGHT_BY_GAMES or "y_gp" not in g.columns:
+        return None
+    return g["y_gp"].clip(lower=0.0)
 
 
 def _apply(coef, X: pd.DataFrame, fallback: pd.Series) -> np.ndarray:
@@ -988,7 +1051,9 @@ class A2PerComponentWindow(A2PerHorizonTrust3):
         pairs["y_war"] = act["WAR"].reindex(ix).to_numpy()
         pairs["y_rate"] = act["WAR_82"].reindex(ix).to_numpy()
         pairs["y_gp_share"] = act["gp_share"].reindex(ix).to_numpy()
-        pairs["y_played"] = act["GP"].reindex(ix).fillna(0).to_numpy() >= C.MIN_GP
+        # Same event as the other pair builder and as the participation model.
+        pairs["y_gp"] = act["GP"].reindex(ix).to_numpy()
+        pairs["y_played"] = np.nan_to_num(pairs["y_gp"]) >= C.PARTICIPATION_GP
         return pairs
 
     def predict(self, iset, subs, horizons):

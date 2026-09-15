@@ -226,3 +226,18 @@ reserving. Sealing the pages and not the cohorts was never a split sample. No ma
 a 2022 to 2025 start cohort can be presented as out-of-sample. The forecast holdout is believed
 intact on the evidence of the code and the reports, and is now recorded rather than
 reconstructed. See `50_REBUILD/docs/Holdout_Inventory.md` for the decision owed.
+
+**2026-09-15b — a published improvement figure that does not reproduce.** `Phase5_StressTests.md`
+reports the rebuild's error against the flat benchmark improving by 43.5% at five seasons out.
+Holding the model, the harness and the birthdates fixed and varying only the code state, the
+figure comes out at -24.0% before any repair, -24.3% after the units and guard work, and -23.6%
+after the participation and eligibility work. `run_stress_tests.py` on the repaired tree agrees
+with the harness at -23.6%. The repairs are therefore not the explanation for the gap. The
+likeliest cause is age coverage: the run on record had 98.3% of season rows aged and the
+environment these figures come from has 69.2%, because the Elite Prospects birthdate file that
+completes the join is not in the repository, and the aging model is exactly what a thin age
+join starves. **Nothing here establishes that the published figure is wrong.** It establishes
+that it is not currently reproducible and that the reason is not the defects the review found.
+Re-derive on a machine carrying the full birthdate join before quoting either number. The same
+caution applies to each subgroup improvement in that report, including the 34-and-over and
+long-experience figures, which are the ones a starved aging model would move most.

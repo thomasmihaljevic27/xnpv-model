@@ -27,7 +27,7 @@ import sys
 import time
 from pathlib import Path
 
-SCRIPT_VERSION = "1.1"
+SCRIPT_VERSION = "1.2"
 
 # --- Tree layout ----------------------------------------------------------
 # resolve() first: __file__ can be relative depending on how python was
@@ -163,6 +163,43 @@ UNALLOCATED_FIRST_SEASON = 2023
 FITTED_HORIZONS = tuple(range(6))
 
 MIN_GP = 10           # a season needs this many games to count as a signal
+
+# THE PARTICIPATION EVENT, which is a different question from the one MIN_GP
+# answers and had been sharing its number.
+#
+# MIN_GP asks whether a season carries enough evidence to be used as an INPUT.
+# Ten games is a reasonable answer to that. The participation model asks a
+# different question, whether the player is in the NHL at all in a future
+# season, and the rebuild plan specified one or more games for it. Using ten
+# for both made the two halves of the forecast condition on different events:
+# participation predicted the odds of a ten-game season, while the rate and
+# games targets were read from any season with a number in it, cameos
+# included. The forecast is participation multiplied by production, so the two
+# have to be the same event or the product is not an expectation of anything.
+#
+# Moving to one game brings 2,918 cameo seasons into the played state. They are
+# 17.1% of season rows and -0.10% of total WAR, and their per-82 rates run from
+# -8.4 to +41.5 because dividing by one to nine games and multiplying by 82
+# amplifies noise by up to eighty times. That is why RATE_WEIGHT_BY_GAMES below
+# exists: the conditioning is fixed by changing the event, and the noise the
+# change admits is handled by weighting rather than by quietly excluding the
+# seasons again.
+PARTICIPATION_GP = 1
+
+# WEIGHT RATE OBSERVATIONS BY GAMES PLAYED. A per-82 rate computed from a
+# handful of games is an estimate of the same quantity as a full season's rate,
+# but a far noisier one: its sampling variance scales roughly as one over the
+# games behind it, so games played IS the precision weight rather than a
+# convenient way of down-weighting inconvenient rows. Without it a single
+# one-game season carrying a rate of 41.5 sits in a least-squares fit with the
+# same authority as a full season.
+#
+# DECISION OWED. This is the choice the review left open: weight the cameo
+# seasons, or model short appearances as their own low-production state. The
+# weighting is the smaller change and it keeps the plan's one-game event
+# intact, so it is what ships here, and it is flagged rather than locked.
+RATE_WEIGHT_BY_GAMES = True
+
 PAIR_MIN_GP = 20      # the aging curve's own filter, for persistence pairs
 
 # WAR.csv coverage. Experience counted from this table is LEFT-CENSORED at

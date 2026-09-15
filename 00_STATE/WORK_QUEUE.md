@@ -142,11 +142,13 @@ until items 3 to 5 land and the chain is refit.
    Forecast holdout intact; market holdout spent. **Decision owed:** what the market holdout
    should be, given that the obvious candidate has already been consumed. Three routes are set
    out in that file. The enforced boundary mirrors the forecast pages as a proposal, not a lock.
-4. **Eligibility and the participation event — NEXT.** Move participation to the plan's
+4. **Eligibility and the participation event — DONE 2026-09-15b.** Decision owed: games
+   weighting of cameo rates versus a separate low-production state. Was: Move participation to the plan's
    one-game event, make the rate and games targets condition on the same event, keep returning
    players with an explicit stale-history tier, and define the age bands at the valuation date
    rather than the last observed season.
-5. **Market dating and dollars.** Date each market fit at the signing date and assert the
+5. **Market dating and dollars — NEXT.** Signing-date coverage verified independently at
+   3,550 of 3,550, so no fallback rule is needed. Date each market fit at the signing date and assert the
    latest training signing precedes the valuation; signing-date coverage is confirmed at 3,550
    of 3,550 on the eligible sample, so no fallback rule is needed. Build the date-aware cap
    path with the announcement cutoff, 3% extrapolation and the discount schedule.

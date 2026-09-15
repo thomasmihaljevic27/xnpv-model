@@ -61,7 +61,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 from player_season_table import norm_name
 
-SCRIPT_VERSION = "1.1"
+SCRIPT_VERSION = "1.2"
 
 BASE_FEATURES = ["age", "age_sq", "level", "gp_share", "exp_seasons", "is_D"]
 CONTRACT_FEATURES = ["under_contract", "contract_unknown"]
@@ -222,7 +222,11 @@ class ParticipationModel:
             d = self._rows(a, h)
             ix = pd.MultiIndex.from_arrays([d["career_key"], d["season"]])
             gp = act.reindex(ix).fillna(0.0).to_numpy()
-            d["y"] = (gp >= C.MIN_GP).astype(float)
+            # THE EVENT: did he play in the NHL at all that season. The
+            # anchors above still require MIN_GP, because that filter asks
+            # whether a PAST season is usable evidence, which is a different
+            # question from whether a FUTURE season happens.
+            d["y"] = (gp >= C.PARTICIPATION_GP).astype(float)
 
             d = d.replace([np.inf, -np.inf], np.nan).dropna(subset=self.features + ["y"])
             self.base_[h] = float(d["y"].mean()) if len(d) else 0.5

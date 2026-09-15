@@ -22,7 +22,7 @@ import forecast_harness as H
 import player_season_table as T
 from ability_forecast import A0Production
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 
 PASS, FAIL, SKIP = "pass", "FAIL", "skip"
 results: list[tuple[str, str, str]] = []
@@ -162,10 +162,61 @@ def c6(table):
     raise AssertionError("the reserved market cohorts were evaluated")
 
 
+# -- 7. participation and production condition on the same event ------------
+def c7(table):
+    """The forecast is participation multiplied by production, so the two have
+    to be the same event. Participation predicted a ten-game season while the
+    rate and games targets were read from any season with a number in it, so a
+    cameo was a played season for one half and an unplayed one for the other."""
+    from ability_forecast import A1Calibrated
+    # THE FULL TABLE, as the harness passes it. The anchors are filtered to
+    # qualifying seasons inside _training_pairs, but the OUTCOMES are looked up
+    # in the unfiltered table, which is where the cameo seasons live. Passing a
+    # pre-filtered table here hides the very rows the check is looking for.
+    m = A1Calibrated()
+    m.fit(table, before=2021)
+    pairs = m._training_pairs(table, 2021, C.FITTED_HORIZONS)
+    have_rate = pairs["y_rate"].notna()
+    disagree = int((have_rate & ~pairs["y_played"]).sum())
+    assert not disagree, (
+        f"{disagree} training pairs carry a rate target while being classified "
+        "as not played. The rate and the participation event disagree.")
+    # getattr, so this check still runs against a tree that predates the
+    # constant and fails on the disagreement itself rather than on an import.
+    ev = getattr(C, "PARTICIPATION_GP", C.MIN_GP)
+    return (f"{int(have_rate.sum())} rate targets, each on a season the "
+            f"participation event counts as played (>= {ev} game)")
+
+
+# -- 8. returning players are asked about, and answered ---------------------
+def c8(table):
+    """The eligibility window says three seasons and the trailing level stopped
+    at two, so a player whose only qualifying season was the oldest in the
+    window was dropped. The drop fell entirely on players who missed a season
+    and came back, which is the population the participation model prices."""
+    import information_set as ISET
+    from ability_forecast import A1Calibrated
+    iset = ISET.build(table, ISET.decision_date_for_page(2021), t0=2021)
+    subs = H.subjects_at(iset)
+    tiers = subs["history_tier"].value_counts()
+    stale = int(tiers.drop(index="current", errors="ignore").sum())
+    assert stale, "no returning players were admitted on the 2021 page"
+    m = A1Calibrated()
+    m.fit(iset.seasons, before=2021)
+    pred = m.predict(iset, subs, sorted(C.FITTED_HORIZONS))
+    blank = int(pred[["rate_82", "gp_share", "p_play"]].isna().sum().sum())
+    assert not blank, (
+        f"{blank} missing values in the forecast: admitting the returning "
+        "players has left some of them without an anchor to answer from")
+    return (f"{len(subs)} subjects, {stale} on stale history, "
+            f"{blank} missing values")
+
+
 def main() -> None:
     warnings.filterwarnings("ignore")
     C.banner("repair_checks.py", SCRIPT_VERSION)
-    table = T.build(verbose=False)
+    bd = C.OUT_DIR / "birthdates.csv"
+    table = T.build(birthdate_csv=bd if bd.exists() else None, verbose=False)
     if not int(table["has_age"].sum()):
         C.log("  NO AGE COVERAGE in this checkout: the birthdate join needs the")
         C.log("  confidential contract export. Age-dependent checks will skip.")
@@ -174,7 +225,9 @@ def main() -> None:
     for name, fn in [("season identity", c1), ("rate scale across seasons", c2),
                      ("games unit", c3), ("unfitted horizons refused", c4),
                      ("incomplete predictions refused", c5),
-                     ("reserved samples enforced", c6)]:
+                     ("reserved samples enforced", c6),
+                     ("one participation event", c7),
+                     ("returning players answered", c8)]:
         check(name, lambda fn=fn: fn(table))
 
     width = max(len(n) for n, _, _ in results)

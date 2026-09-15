@@ -315,3 +315,16 @@ phases as not started. New: `repair_checks.py`, `Holdout_Inventory.md`, `inspect
 No locked decision reopened, no production file touched, nothing refit, and each dollar figure
 in the candidate reports remains withdrawn. Files touched: PROJECT_STATE, WORK_QUEUE,
 STANDING_FLAGS, DECISIONS, `sessions/2026-09-15b.md`.
+
+**Change log 2026-09-15b (continued) — item 4, and a figure that needs re-deriving.**
+Vendor exports supplied; production reproduction guard passes. Participation event moved to the
+plan's one game, with rate and games targets conditioned on the same event and rate fits
+weighted by games played. **Open decision, flagged not locked:** games weighting versus modelling
+short appearances as their own low-production state. Eligibility now admits returning players
+with a recorded history tier and a deep-lookback anchor (+120 careers on the 2021 page, as the
+review predicted); age bands defined at the valuation season. Adopted leader's existing
+predictions unchanged to 8.9e-16; the two-season benchmark moves 1.5e-02 on a legitimately
+larger training sample. **The published -43.5% improvement at five seasons out does not
+reproduce here, on repaired or unrepaired code, and the repairs are not the cause; age coverage
+is 69.2% against the 98.3% on record because the Elite Prospects birthdate file is absent.
+Re-derive before quoting either number.** Items 5 to 7 remain open.
