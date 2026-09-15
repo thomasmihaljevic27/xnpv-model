@@ -121,6 +121,8 @@ Every time I get corrected on something, add a rule here so it doesn't repeat.
 
 ## Document editing corrections
 
+- Store player-model rebuild plans, reviews, diagnostic reports, and future rebuild documentation in `50_REBUILD/docs/`. Keep the project-wide state and session records in `00_STATE/`, with references to the rebuild documents at their current paths.
+
 - Do not reintroduce terminology the user has removed, including “convergent validity,” or instructions to future writers such as “that difference must accompany the pooled figure.” State the meaning and limitation directly in plain language.
 - When shortening the Game Value explainer, preserve the explanation that expected-goal credit differs from actual scoreboard goals. Their association is informative because the accounting identity does not force it; distinguish this from claiming validation on wholly unseen data.
 

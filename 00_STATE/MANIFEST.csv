@@ -105,11 +105,11 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 40_DOCS,Docs_3_4_5_Review_Notes.md,doc,hashable,2026-09-10f,e12801647c69de2c728b4e4bcaeabf28fc953557,4457,2026-09-10,yes,git,Docs 3-5 review; production unchanged
 20_CODE,player_dashboard.py,npv,hashable,2026-09-13,54f0c2b1a53216486f139aa3096a72d22df4626b,23205,2026-09-13,yes,git,"viewer; builds 30_OUTPUT/player_dashboard.html (embeds confidential PuckPedia data, never commit the output)"
 20_CODE,player_dashboard_template.html,npv,hashable,2026-09-13,e6888f0184bc689f9c9399663e077380be08616a,47666,2026-09-13,yes,git,template for player_dashboard.py; holds no data
-40_DOCS,Aging_Curve_Coverage_Audit.md,age,hashable,2026-09-13,a22d4cdd8087764b71efd65062a0f2a3a51e9787,6083,2026-09-13,yes,git,aging-curve coverage audit; production curve unchanged
+50_REBUILD/docs,Aging_Curve_Coverage_Audit.md,age,hashable,2026-09-13,a22d4cdd8087764b71efd65062a0f2a3a51e9787,6083,2026-09-13,yes,git,aging-curve coverage audit; production curve unchanged
 00_STATE/sessions,2026-09-13.md,state,hashable,2026-09-13,0de5589717396461d56c6e579ce50ec74459f43a,5595,2026-09-13,yes,git,session log
 00_STATE/sessions,2026-09-13b.md,state,hashable,2026-09-13b,4abd8ec7cf105702727c3a9320f4fb0a79ef31da,7985,2026-09-13,yes,git,session log
 20_CODE,aging_comp_limit_test.py,age,hashable,2026-09-13b,16c14a85832fc902d51061e3cb9fcd627719316a,23602,2026-09-13,yes,git,Aging comparables-limit test; production unchanged
-40_DOCS,Aging_Comparable_Limit_Test.md,age,hashable,2026-09-13b,4f0c06532c9a340e589d99bd9189bd6fcc3bc787,17510,2026-09-13,yes,git,Aging comparables-limit test and realized-vs-projected NPV by tier; production unchanged
+50_REBUILD/docs,Aging_Comparable_Limit_Test.md,age,hashable,2026-09-13b,4f0c06532c9a340e589d99bd9189bd6fcc3bc787,17510,2026-09-13,yes,git,Aging comparables-limit test and realized-vs-projected NPV by tier; production unchanged
 30_OUTPUT,aging_comp_limit_test_design.json,age,hashable,2026-09-13b,7ea438ca4fa72db2b02a1afcadad9ed363cd32a0,1641,2026-09-13,yes,local,Aging comparables-limit test; production unchanged; generated and gitignored
 30_OUTPUT,aging_comp_limit_test_audit.csv,age,hashable,2026-09-13b,f48155b118246d00e9da474d886ddd61ed370672,4457,2026-09-13,yes,local,Aging comparables-limit test; production unchanged; generated and gitignored
 30_OUTPUT,aging_comp_limit_test_audit_rows.csv,age,hashable,2026-09-13b,fbfead88f514e13300ae88f35ac540181f16bc55,2772197,2026-09-13,yes,local,Aging comparables-limit test; production unchanged; generated and gitignored
@@ -121,7 +121,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 30_OUTPUT,npv_realized_by_tier_seasons.csv,npv,hashable,2026-09-13b,36ce162d499a8992208fb3fb05e70e5a593211d8,1331005,2026-09-13,yes,local,Aging comparables-limit test and realized-vs-projected NPV by tier; production unchanged; generated and gitignored
 30_OUTPUT,npv_realized_by_tier_summary.csv,npv,hashable,2026-09-13b,32970ea025d550cf01f2761e54a35b144aad6351,7561,2026-09-13,yes,local,Aging comparables-limit test and realized-vs-projected NPV by tier; production unchanged; generated and gitignored
 30_OUTPUT,npv_realized_by_tier_run.json,npv,hashable,2026-09-13b,8d151bb9166bfab872eb99e08c4b719a2e2aedc8,795,2026-09-13,yes,local,Aging comparables-limit test and realized-vs-projected NPV by tier; production unchanged; generated and gitignored
-40_DOCS,Anchor_Shrink_Test.md,npv,hashable,2026-09-13b,f9e421ff8d10261c46d1cfa8259d56499f29113a,11841,2026-09-13,yes,git,Starting-point and market-line fix test; production unchanged
+50_REBUILD/docs,Anchor_Shrink_Test.md,npv,hashable,2026-09-13b,f9e421ff8d10261c46d1cfa8259d56499f29113a,11841,2026-09-13,yes,git,Starting-point and market-line fix test; production unchanged
 20_CODE,anchor_shrink_test.py,npv,hashable,2026-09-13b,887dbe220a0a5bcb3a440ff19fa08de0cbc4b1b1,18110,2026-09-13,yes,git,Starting-point and market-line fix test; production unchanged
 30_OUTPUT,anchor_shrink_test_seasons.csv,npv,hashable,2026-09-13b,982c3a18876f161cee437ab234ee3e9105dcd39f,2626575,2026-09-13,yes,local,Starting-point and market-line fix test; production unchanged; generated and gitignored
 30_OUTPUT,anchor_shrink_test_contracts.csv,npv,hashable,2026-09-13b,d627bf26a7ec75def6ee9e2aa9299605ec182d99,1061252,2026-09-13,yes,local,Starting-point and market-line fix test; production unchanged; generated and gitignored
@@ -129,7 +129,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 30_OUTPUT,anchor_shrink_test_npv_movement.csv,npv,hashable,2026-09-13b,c1c8e2019161e4fc2379dd9bf8ee34aeedb5792c,862,2026-09-13,yes,local,Starting-point and market-line fix test; production unchanged; generated and gitignored
 30_OUTPUT,anchor_shrink_test_run.json,npv,hashable,2026-09-13b,43e9729a02fef662a6df1730df7d234ee53092e0,2629,2026-09-13,yes,local,Starting-point and market-line fix test; production unchanged; generated and gitignored
 00_STATE/sessions,2026-09-14.md,state,hashable,2026-09-14b,eca1f8bd05ee24b53a7bcadd2b73a9c7dc9ecb42,6440,2026-09-14,yes,git,session log
-40_DOCS,Pipeline_Experiment.md,npv,hashable,2026-09-14b,dcf86aaba0bc3a7f5ef835d7c313c39c9ab0431c,20913,2026-09-14,yes,git,"Whole-chain sweep, second pass; production unchanged"
+50_REBUILD/docs,Pipeline_Experiment.md,npv,hashable,2026-09-14b,dcf86aaba0bc3a7f5ef835d7c313c39c9ab0431c,20913,2026-09-14,yes,git,"Whole-chain sweep, second pass; production unchanged"
 20_CODE,pipeline_experiment.py,npv,hashable,2026-09-14b,8fb01954b8fe2a84abed3347349b1787cd2703a3,26287,2026-09-14,yes,git,"Whole-chain sweep, second pass; production unchanged"
 20_CODE,market_line_experiment.py,npv,hashable,2026-09-14,47c4335750d3b12d1096d4e8fd25730b4a52a4f5,8699,2026-09-14,yes,git,Whole-chain sweep; production unchanged
 20_CODE,games_line_experiment.py,npv,hashable,2026-09-14b,4be3ac2415f76ff74d2b516ca04d37f119c6ad30,10967,2026-09-14,yes,git,"Whole-chain sweep, second pass; production unchanged"
@@ -154,7 +154,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 30_OUTPUT,market_line_search_run.json,npv,hashable,2026-09-14b,c009b534f322159ddd3a7959387886243c244ec6,11039,2026-09-14,yes,local,"Whole-chain sweep, second pass; production unchanged; generated and gitignored"
 30_OUTPUT,games_line_experiment_contracts.csv,npv,hashable,2026-09-14b,f8482612ba5bbe8f0152f2a471cc484b1f4015c0,1700351,2026-09-14,yes,local,"Whole-chain sweep, second pass; production unchanged; generated and gitignored"
 30_OUTPUT,games_line_experiment_npv_movement.csv,npv,hashable,2026-09-14b,dc267ab98549cd179330157a6bb085d02a8d4a69,927,2026-09-14,yes,local,"Whole-chain sweep, second pass; production unchanged; generated and gitignored"
-40_DOCS,Player_Model_Rebuild_Plan_Fable.md,player,hashable,2026-09-14d,2ebe50a93f8d574597a2c3a1068a52864be568e9,18565,2026-09-14,yes,git,"Rebuild plan, Fable version, proposal only; competing plan at Player_Model_Rebuild_Plan.md"
+50_REBUILD/docs,Player_Model_Rebuild_Plan_Fable.md,player,hashable,2026-09-14d,2ebe50a93f8d574597a2c3a1068a52864be568e9,18565,2026-09-14,yes,git,"Rebuild plan, Fable version, proposal only; competing plan at Player_Model_Rebuild_Plan.md"
 00_STATE,2026-09-14d.md,state,hashable,2026-09-14d,c84de39eaece07e99f757a4f2604a8e9b94e97c0,4326,2026-09-14,yes,git,Session log: rebuild plan and the two diagnostics
 20_CODE,signing_date_audit.py,player,hashable,2026-09-14d,f775a952dd550f0a707bff02aead76ac6c315be2,6003,2026-09-14,yes,git,Test only; quantifies the signing-date look-ahead in the locked rate sample
 20_CODE,component_persistence_test.py,player,hashable,2026-09-14d,ad81daafb80ed95b39954da4dd55e4ae1c30186e,9577,2026-09-14,yes,git,"Test only; component persistence and component-wise rolling anchor, horizons 0-2"
