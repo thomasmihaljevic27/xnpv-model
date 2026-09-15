@@ -78,6 +78,10 @@ forecast page or a market cohort: the timestamp, the runner, what was consumed, 
 keys are reserved, and the reason given for any unsealing. It is committed rather than
 generated, because a record that regenerates is not a record.
 
+Its first three lines are the guard suite scoring development page 2021 on 2026-09-15,
+once per run of `repair_checks.py`. They consume nothing reserved and select nothing; they are
+there because the ledger records what ran rather than what was interesting.
+
 It starts empty today. It is not a reconstruction of the history above, which is written from
 the reports and the code and is stated as such. From here the two are meant to converge: the
 narrative covers what happened before the ledger existed, and the ledger covers everything
