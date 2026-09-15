@@ -69,7 +69,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 import information_set as ISET
 
-SCRIPT_VERSION = "1.2"
+SCRIPT_VERSION = "1.3"
 
 DEFAULT_HORIZONS = (0, 1, 2, 3, 4, 5)   # h=0 is the valuation season itself
 
@@ -215,8 +215,16 @@ def _score_rows(pred: pd.DataFrame) -> pd.DataFrame:
     if {"lo", "hi"}.issubset(d.columns):
         d["covered"] = ((d["act_war"] >= d["lo"]) & (d["act_war"] <= d["hi"])).astype(float)
         d.loc[d["lo"].isna(), "covered"] = np.nan
+        # WIDTH, reported beside coverage and never apart from it. Coverage on
+        # its own can always be bought: a band from minus infinity to plus
+        # infinity holds every outcome. The pair is the statement -- this
+        # model covers 80% of seasons within this many wins -- and a model
+        # that hits its coverage with a band twice as wide as another's is
+        # the worse of the two.
+        d["width"] = d["hi"] - d["lo"]
     else:
         d["covered"] = np.nan
+        d["width"] = np.nan
     return d
 
 
@@ -233,6 +241,7 @@ def _summarise(d: pd.DataFrame, by: list[str]) -> pd.DataFrame:
         "brier": g["brier"].mean(),
         "play_rate": g["played"].mean(),
         "coverage": g["covered"].mean(),
+        "width": g["width"].mean(),
     })
     return out.reset_index()
 

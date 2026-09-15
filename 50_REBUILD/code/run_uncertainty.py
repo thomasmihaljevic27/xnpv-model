@@ -1,0 +1,240 @@
+"""run_uncertainty.py -- does the model know how wrong it is?
+
+EXPERIMENTAL (50_REBUILD). Development pages only; the confirmatory seal is
+not touched.
+
+Every score this project has published for a forecast is an error: how far the
+number was from what happened. That answers one question and hides another.
+A model that says "1.2 wins" and is off by 0.6 is doing well if 0.6 is the
+kind of miss it warned about, and badly if it claimed to be sure. The second
+question is calibration of the spread, and until this run nothing in the tree
+could answer it, because no model stated a range.
+
+Six reports, in the order a reader should want them:
+
+  1. the wrapper changes nothing -- the point forecast is bit-identical with
+     and without the interval, so no score already on record moves
+  2. what the spread was fitted to be
+  3. coverage and width, by horizon, at three stated levels and both tails
+  4. coverage by subgroup WITHIN horizon -- an average is a place for a
+     failure to hide, and that applies to a band as much as to an error
+  5. how much the fitted spread is flattered by being fitted in sample
+  6. the zero-spread identity: with no uncertainty, the band collapses onto
+     the point forecast. The plan asks the Phase 5 simulation to satisfy the
+     same identity; this is that check one layer down, where it is cheap.
+"""
+from __future__ import annotations
+
+import sys
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import rebuild_config as C
+import forecast_harness as H
+import predictive_interval as PI
+from player_season_table import build as build_table
+from ability_forecast import A1HingeExposure
+
+SCRIPT_VERSION = "1.0"
+
+# The adopted candidate, matching run_stress_tests.py. The uncertainty layer
+# wraps whatever model it is given, so this is the model under test rather
+# than a property of the layer.
+LEADER = A1HingeExposure
+
+
+def _load_table():
+    """Build the season table, and say plainly if this machine cannot support
+    a result. Ages come from a join the repository does not carry, so a
+    checkout without them runs the code and produces numbers that are not
+    evidence -- the aging walk and the participation fits both degenerate."""
+    bd = C.OUT_DIR / "birthdates.csv"
+    if bd.exists():
+        return build_table(birthdate_csv=bd, verbose=False), True
+    C.log("!! NO BIRTHDATE TABLE ON THIS MACHINE.")
+    C.log("!! Ages are missing, so the aging walk and the participation fits")
+    C.log("!! degenerate and every number below is about a crippled model.")
+    C.log("!! The code paths are exercised; the figures are not evidence and")
+    C.log("!! must not be compared with anything on record.")
+    C.log("")
+    return build_table(verbose=False, allow_thin_ages=True), False
+
+
+def _coverage(d: pd.DataFrame, level: float) -> pd.Series:
+    """Coverage and both tails at one stated level, from the quantile columns
+    the wrapper carries. Reported as three numbers, not one: a band can hold
+    the right share of outcomes while being wrong at both ends, and a model
+    that misses low twice as often as it misses high is telling us something
+    an aggregate coverage figure cannot."""
+    tail = (1 - level) / 2
+    lo = d[f"q{int(round(tail * 100)):02d}"]
+    hi = d[f"q{int(round((1 - tail) * 100)):02d}"]
+    y = d["act_war"].fillna(0.0)
+    return pd.Series({
+        "n": len(d),
+        "covered": float(((y >= lo) & (y <= hi)).mean()),
+        "below": float((y < lo).mean()),
+        "above": float((y > hi).mean()),
+        "width": float((hi - lo).mean()),
+    })
+
+
+def main() -> None:
+    C.banner("run_uncertainty.py", SCRIPT_VERSION)
+    table, real_ages = _load_table()
+
+    h = H.Harness(table)
+    plain = LEADER()
+    banded = PI.WithIntervals(LEADER())
+
+    C.log("Scoring the leading model twice: once as it stands, once with a")
+    C.log("stated range around every forecast.")
+    C.log("")
+    s_plain = h.run(plain)
+    s_band = h.run(banded)
+
+    # ---- 1. the wrapper moves nothing ------------------------------------
+    C.log("REPORT 1  THE WRAPPER CHANGES NOTHING. The interval is added beside")
+    C.log("the forecast, never instead of it. If this fails, every score")
+    C.log("already on record for this model would have to be re-run.")
+    C.log("")
+    key = ["career_key", "page", "h"]
+    j = s_plain.merge(s_band, on=key, suffixes=("_a", "_b"))
+    worst = max(float(np.nanmax(np.abs(j[f"{c}_a"] - j[f"{c}_b"])))
+                for c in ("rate_82", "gp_share", "p_play", "pred_war"))
+    assert len(j) == len(s_plain) == len(s_band), "the two runs scored different rows"
+    assert worst < 1e-12, f"the wrapper moved a point forecast by {worst:.3e}"
+    C.log(f"  {len(j)} rows, largest change to any point forecast {worst:.1e}  [PASS]")
+    C.log("")
+
+    # ---- 2. what the spread was fitted to be ------------------------------
+    C.log("REPORT 2  THE FITTED SPREAD, as it stood at the last development")
+    C.log("page. The band is a straight line in the size of the forecast, so")
+    C.log("it is shown at a replacement-level forecast and at two wins.")
+    C.log("")
+    for line in banded.spread_.report():
+        C.log(line)
+    ext = sorted(banded.spread_.extended_)
+    if ext:
+        share = float(s_band["band_extended"].mean())
+        C.log(f"  {share:.1%} of scored rows carry a band extended rather than")
+        C.log(f"  fitted (horizons {ext} at one or more pages).")
+    C.log("")
+
+    # ---- 3. coverage by horizon -------------------------------------------
+    C.log("REPORT 3  COVERAGE AND WIDTH BY HORIZON. 'covered' should sit on the")
+    C.log("stated level. Below it the model is overconfident -- the honest")
+    C.log("reading is that it knows less than it says. Above it the band is")
+    C.log("wider than it needs to be, which is a different kind of wrong and a")
+    C.log("cheaper one. 'below' and 'above' are the two tails separately.")
+    C.log("")
+    rows = []
+    for level in PI.REPORT_LEVELS:
+        for hz, g in s_band.groupby("h"):
+            r = _coverage(g, level)
+            r["level"], r["h"] = level, int(hz)
+            rows.append(r)
+    cov_h = pd.DataFrame(rows)
+    for level in PI.REPORT_LEVELS:
+        C.log(f"  stated {level:.0%}:")
+        C.log(f"    {'seasons ahead':<16}{'n':>8}{'covered':>10}{'below':>9}"
+              f"{'above':>9}{'width':>9}")
+        for _, r in cov_h[cov_h["level"] == level].iterrows():
+            flag = "   <-- overconfident" if r["covered"] < level - 0.03 else ""
+            C.log(f"    {int(r['h']):<16}{int(r['n']):>8}{r['covered']:>10.3f}"
+                  f"{r['below']:>9.3f}{r['above']:>9.3f}{r['width']:>9.2f}{flag}")
+        C.log("")
+
+    # ---- 4. coverage by subgroup within horizon ---------------------------
+    C.log("REPORT 4  COVERAGE BY SUBGROUP, WITHIN HORIZON. The forecast's")
+    C.log("errors have already been shown to differ by tier and by age; there")
+    C.log("is no reason its spread would not. A band fitted on everybody can")
+    C.log("be right on average and wrong on the players who carry the money.")
+    C.log("")
+    sub_rows = []
+    for col, label in [("tier", "trailing level"), ("pos", "position"),
+                       ("exp_band", "experience"), ("age_band", "age band")]:
+        if s_band[col].isna().all():
+            C.log(f"  by {label}: no rows classified on this machine, skipped")
+            C.log("")
+            continue
+        C.log(f"  by {label}, at the stated 80%:")
+        C.log(f"    {'group':<16}" + "".join(f"{f'h{k}':>9}" for k in
+                                             sorted(s_band['h'].unique())))
+        for grp, g in s_band.groupby(col, observed=True):
+            cells = []
+            for hz in sorted(s_band["h"].unique()):
+                gg = g[g["h"] == hz]
+                c = _coverage(gg, 0.80) if len(gg) else None
+                cells.append(f"{c['covered']:>9.3f}" if c is not None else f"{'-':>9}")
+                if c is not None:
+                    sub_rows.append({"by": label, "group": str(grp), "h": int(hz),
+                                     **c.to_dict(), "level": 0.80})
+            C.log(f"    {str(grp):<16}" + "".join(cells))
+        C.log("")
+
+    # ---- 5. in-sample optimism -------------------------------------------
+    C.log("REPORT 5  HOW MUCH THE SPREAD IS FLATTERED. The band is fitted by")
+    C.log("replaying the model on its own training pages, so the misses it")
+    C.log("learns from are slightly smaller than the misses it will make. The")
+    C.log("size of that gap is measured here rather than assumed small: the")
+    C.log("model's real misses, each divided by the band it was given, against")
+    C.log("the same figure for the misses the band was fitted on. A ratio of")
+    C.log("1.00 means the band is honest; above 1.00 it is too narrow by that")
+    C.log("factor.")
+    C.log("")
+    played = s_band[s_band["played"]].copy()
+    mu = played["rate_82"] * played["gp_share"]
+    sig = np.concatenate([banded.spread_.sigma(int(hz), mu[played["h"] == hz])
+                          for hz in sorted(played["h"].unique())])
+    order = np.concatenate([np.flatnonzero((played["h"] == hz).to_numpy())
+                            for hz in sorted(played["h"].unique())])
+    z_out = np.empty(len(played))
+    z_out[order] = ((played["act_war"].fillna(0.0) - mu).to_numpy()[order]
+                    / np.maximum(sig, 1e-9))
+    q_out = np.quantile(z_out, [0.10, 0.90])
+    q_fit = np.quantile(banded.spread_.zs_, [0.10, 0.90])
+    ratio = float((q_out[1] - q_out[0]) / (q_fit[1] - q_fit[0]))
+    C.log(f"    middle 80% of the fitted misses   {q_fit[0]:+.2f} to {q_fit[1]:+.2f}"
+          f"   width {q_fit[1] - q_fit[0]:.2f}")
+    C.log(f"    middle 80% of the real misses     {q_out[0]:+.2f} to {q_out[1]:+.2f}"
+          f"   width {q_out[1] - q_out[0]:.2f}")
+    C.log(f"    the band is too narrow by a factor of {ratio:.3f}")
+    C.log("")
+
+    # ---- 6. the zero-spread identity --------------------------------------
+    C.log("REPORT 6  THE ZERO-SPREAD IDENTITY. Set the spread to nothing and")
+    C.log("make participation certain, and every quantile must land exactly on")
+    C.log("the point forecast. A distribution that does not collapse to its own")
+    C.log("mean when the uncertainty is removed is not a distribution around")
+    C.log("that mean, and the Phase 5 simulation will inherit whatever is wrong")
+    C.log("here.")
+    C.log("")
+    pt = (played["rate_82"] * played["gp_share"]).to_numpy()[:5000]
+    zero = np.zeros(1001)
+    worst_id = 0.0
+    for q in (0.05, 0.10, 0.50, 0.90, 0.95):
+        x = PI.mixture_quantile(q, np.ones_like(pt), pt, np.full_like(pt, 1e-12), zero)
+        worst_id = max(worst_id, float(np.max(np.abs(x - pt))))
+    assert worst_id < 1e-6, f"the zero-spread identity fails by {worst_id:.3e}"
+    C.log(f"    largest gap across five quantiles and {len(pt)} rows: "
+          f"{worst_id:.1e}  [PASS]")
+    C.log("")
+
+    cov_h.to_csv(C.out_path("uncertainty_coverage_by_horizon.csv"), index=False)
+    pd.DataFrame(sub_rows).to_csv(
+        C.out_path("uncertainty_coverage_by_subgroup.csv"), index=False)
+    C.log(f"  wrote {C.out_path('uncertainty_coverage_by_horizon.csv').name} and "
+          f"{C.out_path('uncertainty_coverage_by_subgroup.csv').name}")
+    if not real_ages:
+        C.log("")
+        C.log("!! REMINDER: this run had no birthdates. The reports above show")
+        C.log("!! that the machinery works, not what the model's spread is.")
+    C.write_log("uncertainty_run_log.txt")
+
+
+if __name__ == "__main__":
+    main()
