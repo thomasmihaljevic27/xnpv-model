@@ -61,7 +61,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 from player_season_table import norm_name
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 
 BASE_FEATURES = ["age", "age_sq", "level", "gp_share", "exp_seasons", "is_D"]
 CONTRACT_FEATURES = ["under_contract", "contract_unknown"]
@@ -201,7 +201,8 @@ class ParticipationModel:
         return d.drop(columns=["t0"])
 
     # -- fit ---------------------------------------------------------------
-    def fit(self, table: pd.DataFrame, before: int, anchors_fn, horizons=range(6)):
+    def fit(self, table: pd.DataFrame, before: int, anchors_fn,
+            horizons=C.FITTED_HORIZONS):
         """Fit on every (player, valuation season, horizon) whose OUTCOME
         season completed before `before`."""
         import statsmodels.api as sm
@@ -210,6 +211,10 @@ class ParticipationModel:
         act = table.set_index(["career_key", "syr"])["GP"]
         all_anchors = anchors_fn(played)
 
+        # Recorded so predict() can tell a horizon whose fit was attempted
+        # and failed, which falls back to the base rate on purpose and
+        # says so, from a horizon nobody ever fitted, which must refuse.
+        self.horizons_ = tuple(int(h) for h in horizons)
         for h in horizons:
             a = all_anchors[all_anchors["t0"] + h < before]
             if not len(a):
@@ -293,6 +298,16 @@ class ParticipationModel:
     def predict(self, anchors: pd.DataFrame, h: int, as_of=None) -> pd.Series:
         """P(plays a ten-game season), indexed by career_key. Contract state is
         dated from each row's own valuation season, as in the fit."""
+        # REFUSE a horizon that was never fitted. The old behaviour returned
+        # 0.6 for every player, because neither a coefficient nor a base rate
+        # was ever stored for such a horizon, and a flat 0.6 tail is what the
+        # market fits were reading for years seven and eight of a long deal.
+        if hasattr(self, "horizons_") and int(h) not in self.horizons_:
+            raise ValueError(
+                f"participation was asked for horizon {int(h)} but was fitted "
+                f"only to {sorted(self.horizons_)}. There is no coefficient "
+                "and no base rate for that horizon, so any number returned "
+                "here would be invented. Fit it, or declare an extrapolation.")
         d = self._rows(anchors, h)
         base = self.base_.get(h, 0.6)
         coef = self.coef_.get(h)

@@ -52,7 +52,7 @@ import information_set as ISET
 from player_season_table import build as build_table, norm_name
 from ability_forecast import A0Production, A1HingeExposure
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 
 # The locked production market rate (D20 Tobit, skaters, 2018-2025 starts).
 PROD_ALPHA, PROD_BETA_F, PROD_BETA_D_ADD = 0.01324782, 0.02123229, 0.00287028
@@ -144,7 +144,21 @@ def main() -> None:
             rows.append({"player": raw, "note": note, "year": yr, "miss": True})
             continue
 
-        hs = list(range(min(term, 8)))
+        # THE WHOLE TERM, or nothing. This used to be min(term, 8), which
+        # silently repriced Shea Weber's ten remaining years as eight and
+        # reported the result in a column headed by the truncated number. The
+        # truncation did not tilt the comparison, because the benchmark below
+        # is priced over the same count, but it answered a question nobody
+        # asked and it hid that years seven and eight were already being
+        # served by an unfitted participation probability.
+        hs = list(range(term))
+        unfitted = [h for h in hs if h not in set(C.FITTED_HORIZONS)]
+        assert not unfitted, (
+            f"{raw} has {term} years of term, so pricing him needs horizons "
+            f"{unfitted} that no model is fitted to. Extend the fitted range "
+            "to the terms this table prices, or declare and test an "
+            "extrapolation, or drop the player from the table and say so. "
+            "Do not reprice a ten-year contract as an eight-year one.")
         new = A1HingeExposure()
         new.fit(iset.seasons, before=yr)
         pn = new.predict(iset, sub, hs)

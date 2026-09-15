@@ -32,7 +32,7 @@ from contract_price_model import (contract_sample, attach_forecasts, tobit,
 from player_season_table import build as build_table
 from ability_forecast import A1AgingParticipationImputedNC
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 
 FEATURES = ["war_per_season", "length", "is_RFA", "rfa_x_war", "is_D",
             "one_year", "war_year1"]
@@ -49,7 +49,10 @@ def prep(d: pd.DataFrame) -> pd.DataFrame:
 def rolling_price_eval(d: pd.DataFrame, split: bool) -> pd.DataFrame:
     """Price each season's contracts using only contracts signed before it."""
     rows = []
-    for yr in range(2018, 2026):
+    # The cohorts this evaluation is allowed to see, checked and recorded
+    # before any of them is read. The sweep used to run to 2025 and select
+    # on each year it touched, including the reserved ones.
+    for yr in C.check_market_cohorts(range(2018, 2026), "run_phase4_decisions"):
         tr = d[d["start_yr"] < yr]
         te = d[d["start_yr"] == yr]
         if len(tr) < 200 or not len(te):

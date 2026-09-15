@@ -301,3 +301,17 @@ scored. Review artifacts and state are committed together under the session-clos
 - **2026-09-11c editorial pass:** Edited Doc_3_Player_Pillar_II_2.docx for repetition, flow and direct wording; matched Data, Production, and Aging formatting. Preserved results and limitations. Package/style checks pass; renderer unavailable. No model changes. See sessions/2026-09-11c.md.
 
 - **2026-09-11d draft explainer rewrite:** Rewrote Doc_4_Drafting_Prospects_Unbuilt.docx for sequential explanations of historical yields, cost rules, sampling uncertainty, future picks, prospects and trade components. Preserved numerical results and implementation limitations; no model changes. See sessions/2026-09-11d.md.
+
+**Change log 2026-09-15b — rebuild repair pass, items 1 to 3.**
+Answered the independent review in `50_REBUILD/docs/Player_Rebuild_Candidate_Review_Response.md`
+after checking each finding against the code: seven accepted as written, two accepted in
+substance with the framing disputed, none found wrong. The reviewer accepted the response and
+tightened four points, each adopted. Repaired the shortened-season units (rate built from the
+raw total, D20 applied after aggregation, identity asserted, D20 unchanged in substance),
+the games scoring unit, and four silent-default guards; brought the holdout inventory forward
+and added enforcement on the market cohorts plus a committed inspection ledger. Nine scripts
+bumped to 1.1; the `50_REBUILD/README.md` status table corrected where it described built
+phases as not started. New: `repair_checks.py`, `Holdout_Inventory.md`, `inspection_ledger.csv`.
+No locked decision reopened, no production file touched, nothing refit, and each dollar figure
+in the candidate reports remains withdrawn. Files touched: PROJECT_STATE, WORK_QUEUE,
+STANDING_FLAGS, DECISIONS, `sessions/2026-09-15b.md`.

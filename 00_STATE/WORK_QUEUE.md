@@ -127,3 +127,35 @@ Reproducible on both machines (Thomas's local run matches: `[1a] max diff $0.00`
 - **2026-09-10e Doc 2 formatting:** User-edited Downloads copy incorporated into Supervisor_Drafts with consistent fonts, heading hierarchy, and spacing. Text preserved exactly; core checks pass; visual pagination remains unverified. See `sessions/2026-09-10e.md`.
 
 - **2026-09-10f:** Supervisor Docs 3-5 edits complete; user read-through and visual pagination remain. Review the effect of terminal qualification probabilities restarting at one without signed-contract survival carried into control years. Existing QO timing and Rule B slope issues remain open.
+
+**Rebuild repair sequence (opened 2026-09-15b, after the independent review and the response to it).**
+Agreed order, with the holdout item pulled forward at the reviewer's request. Items 1 and 2 are
+done and demonstrated by `50_REBUILD/code/repair_checks.py`, which fails on the pre-repair code
+and passes on the repaired tree. Each dollar figure in the candidate reports stays withdrawn
+until items 3 to 5 land and the chain is refit.
+1. **Units — DONE.** Per-82 rates now built from the raw total with D20 applied after the
+   aggregation, so the season identity holds on all 17,050 played rows; games scored on the
+   outcome season's own schedule.
+2. **Guards — DONE.** Unfitted horizons refused, the fitted range named once, the harness
+   validates the exact requested grid, the named-player runner requests the whole term.
+3. **Holdout inventory and enforcement — DONE.** See `50_REBUILD/docs/Holdout_Inventory.md`.
+   Forecast holdout intact; market holdout spent. **Decision owed:** what the market holdout
+   should be, given that the obvious candidate has already been consumed. Three routes are set
+   out in that file. The enforced boundary mirrors the forecast pages as a proposal, not a lock.
+4. **Eligibility and the participation event — NEXT.** Move participation to the plan's
+   one-game event, make the rate and games targets condition on the same event, keep returning
+   players with an explicit stale-history tier, and define the age bands at the valuation date
+   rather than the last observed season.
+5. **Market dating and dollars.** Date each market fit at the signing date and assert the
+   latest training signing precedes the valuation; signing-date coverage is confirmed at 3,550
+   of 3,550 on the eligible sample, so no fallback rule is needed. Build the date-aware cap
+   path with the announcement cutoff, 3% extrapolation and the discount schedule.
+6. **The production adapter, and the corrections that do not wait for it.** The false
+   attribution appears in the reports, in model labels, and in executable log output, so a
+   rerun regenerates it. The adapter is validated by agreement with production's individual
+   forecast rows under the same settings, not by reproducing 24% on a different population.
+7. **Refit and rerun the development comparisons**, then revisit the star and young-player
+   residuals. The stress battery and the confirmatory work follow the refit.
+**Coverage decision owed alongside item 4:** the fitted range is six seasons and real contracts
+run longer. The guards refuse the gap rather than filling it, so pricing a seven- or eight-year
+deal needs either fits extended to those horizons or a declared and tested extrapolation.

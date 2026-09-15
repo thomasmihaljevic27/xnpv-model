@@ -435,3 +435,20 @@ Only files that change on a decision cadence: `PROJECT_STATE.md`, the four seque
 **2026-09-11c document update:** Current user-supplied pricing draft is 40_DOCS/Doc_3_Player_Pillar_II_2.docx, edited for flow and consistent formatting. Numerical results and model settings unchanged. Visual pagination unverified because the bundled renderer lacks LibreOffice.
 
 **2026-09-11d document update:** 40_DOCS/Doc_4_Drafting_Prospects_Unbuilt.docx rewritten for comprehension and matched to the preceding explainer's formatting. Built/proposed distinctions and numerical findings retained. Structural checks pass; visual pagination remains unverified.
+
+**2026-09-15b rebuild status, and what may be quoted from it.** The experimental player rebuild
+in `50_REBUILD/` was independently reviewed, answered, and has had its first repair pass. What
+is established today: the experimental forecast beats a flat-carry benchmark reproducibly. What
+is not established: that it beats the live chain, that the chain is clean of look-ahead through
+the market stage, or that any of its dollar figures can be used. **Each dollar figure in the
+candidate reports is withdrawn** until the participation event, the market dating and the cap
+path with discounting are repaired and the chain is refit. The comparator those reports call
+the production chain is a flat trailing anchor with no aging path and no survival weighting, so
+each improvement quoted against production is an improvement against a simpler rule; the
+attribution appears in report prose, model labels and log output, and is corrected in none of
+them yet. Two defects are repaired and asserted: the shortened-season units, and four silent
+defaults that returned fabricated numbers rather than refusing. The market holdout is spent
+(see STANDING_FLAGS and `50_REBUILD/docs/Holdout_Inventory.md`); the forecast holdout is
+believed intact and is now recorded rather than reconstructed. Nothing in production changed
+and no locked decision was reopened. Repair sequence and the two decisions owed are in
+WORK_QUEUE.

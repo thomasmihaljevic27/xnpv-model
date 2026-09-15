@@ -27,7 +27,7 @@ import sys
 import time
 from pathlib import Path
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 
 # --- Tree layout ----------------------------------------------------------
 # resolve() first: __file__ can be relative depending on how python was
@@ -148,6 +148,20 @@ COMPONENTS_MODEL = COMPONENTS + [UNALLOCATED]
 # The season from which the residual appears. Before this the identity holds.
 UNALLOCATED_FIRST_SEASON = 2023
 
+# THE HORIZONS EVERY FITTED MODEL ESTIMATES, named once so that the fitted
+# range and the requested range cannot drift apart. The rebuild plan specified
+# a harness over six forecast seasons and that is what is fitted here.
+#
+# A contract can run longer than this, and the market and named-player runners
+# used to request horizons 6, 7 and 8 against models fitted only to 5. Nothing
+# refused them: participation returned a flat 0.6 for every player and the
+# rate and games fits returned the trailing value, so the tail of any long
+# contract was priced on numbers no fit had produced. The guards now refuse
+# those horizons. Covering real contract terms needs either fits extended to
+# the horizons a contract actually reaches or a declared and tested
+# extrapolation, which is a modelling decision and not this constant's job.
+FITTED_HORIZONS = tuple(range(6))
+
 MIN_GP = 10           # a season needs this many games to count as a signal
 PAIR_MIN_GP = 20      # the aging curve's own filter, for persistence pairs
 
@@ -164,6 +178,79 @@ LAST_SOURCE_SEASON = 2025
 # is enforced in code by forecast_harness.py, not by discipline.
 DEV_PAGES = tuple(range(2015, 2022))          # 2015-2021 valuation seasons
 CONFIRMATORY_PAGES = tuple(range(2022, 2026))  # 2022-2025, sealed
+
+# THE MARKET SIDE OF THE SAME RESERVATION, by contract start year. The page
+# seal above covered forecast scoring only, so both market runners swept start
+# years 2018 through 2025 on every development run and selected a price
+# specification on cohorts the project was describing as untouched. Sealing the
+# pages and not the cohorts is not a split sample.
+#
+# The boundary mirrors the forecast pages because that is the conservative
+# reading, NOT because it has been decided: where the market holdout should sit
+# is a decision owed, and until it is taken this constant is the proposal being
+# enforced rather than a locked line.
+CONFIRMATORY_START_YEARS = tuple(range(2022, 2026))
+
+# THE INSPECTION LEDGER. Every evaluation that consumes a page or a cohort
+# appends one line here, so what has been looked at is a record rather than a
+# reconstruction from session logs after the fact.
+#
+# This is the one file written outside 50_REBUILD/output/, and deliberately:
+# an output regenerates and is gitignored, while the point of this file is that
+# it accumulates and is committed. It is a record of what was done, not a model
+# artifact, so out_path()'s rule does not apply to it and it gets its own
+# writer below rather than a way around that rule.
+INSPECTION_LEDGER = REBUILD_ROOT / "docs" / "inspection_ledger.csv"
+
+
+def record_inspection(runner: str, kind: str, keys, reason: str = "") -> None:
+    """Append one line recording what an evaluation just consumed.
+
+    Never raises into the caller. A ledger that can break a run would get
+    switched off the first time it did, and a record nobody keeps is worse
+    than one that occasionally misses a line on a read-only checkout.
+    """
+    import csv
+    try:
+        keys = sorted(int(k) for k in keys)
+        sealed = [k for k in keys
+                  if k in CONFIRMATORY_PAGES or k in CONFIRMATORY_START_YEARS]
+        new_file = not INSPECTION_LEDGER.exists()
+        INSPECTION_LEDGER.parent.mkdir(parents=True, exist_ok=True)
+        with open(INSPECTION_LEDGER, "a", newline="", encoding="utf-8") as fh:
+            w = csv.writer(fh)
+            if new_file:
+                w.writerow(["utc", "runner", "kind", "keys", "reserved_keys",
+                            "reason"])
+            w.writerow([time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+                        runner, kind,
+                        " ".join(str(k) for k in keys),
+                        " ".join(str(k) for k in sealed), reason])
+    except Exception as e:                      # noqa: BLE001
+        log(f"  [ledger] could not record this inspection ({e.__class__.__name__})")
+
+
+def check_market_cohorts(cohorts, runner: str, unseal: bool = False,
+                         reason: str = ""):
+    """The market twin of the harness page seal, and the same contract.
+
+    A start-year cohort in CONFIRMATORY_START_YEARS may not be evaluated during
+    development. Selecting a price specification on a cohort is selection on
+    that cohort whether or not a forecast page was involved.
+    """
+    cohorts = tuple(int(c) for c in cohorts)
+    sealed = [c for c in cohorts if c in CONFIRMATORY_START_YEARS]
+    if sealed and not unseal:
+        raise ConfirmatorySealBroken(
+            f"contract start years {sealed} are reserved and may not be "
+            f"evaluated during development. Development cohorts run to "
+            f"{CONFIRMATORY_START_YEARS[0] - 1}. Pass unseal=True with a "
+            "reason to spend them, which is logged and is not repeatable.")
+    if sealed:
+        log(f"  *** MARKET SEAL BROKEN for start years {sealed}: "
+            f"{reason or '(no reason given)'}")
+    record_inspection(runner, "market cohort", cohorts, reason)
+    return cohorts
 
 
 class ConfirmatorySealBroken(RuntimeError):

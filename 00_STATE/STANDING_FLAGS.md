@@ -209,3 +209,20 @@ These are newly identified review items, not changes to locked decisions. Detail
 **Stability-test scope clarified (2026-09-10d):** The 0/16 forward and 1/16 defence era counts come only from observed within-player WAR/82 changes. aging_split_sample.py's docstring also describes comparing fitted pooled profiles, but that leg is unimplemented. Supervisor Docs 2 and 5 now state the implemented scope; the results do not measure the effect of full-panel estimation on historical valuations.
 
 - **2026-09-10f:** Control-year qualification survival starts at one in rfa_terminal_value.py; contract_npv.py adds discounted adjusted terminal surplus without multiplying by signed-contract survival. D14(c) deliberately avoids using both annual gates in control years, but the effect of departure before expiry has not been isolated. Docs 3 and 5 now explain this behavior; no model change. The pooled term-test null also coexists with a small positive forward-subgroup coefficient, now preserved in both explainers.
+
+**2026-09-15b — two flags from the rebuild review, one closed and one open.**
+
+*Closed.* The shortened-season units defect in the rebuild tree: the per-82 rate was taken from
+the D20-scaled total and so carried the schedule adjustment twice, which broke the season
+identity by 82/70 in 2019-20 and 82/56 in 2020-21 and, more damagingly, put rates from those
+two seasons on a different scale from the rest, contaminating every trailing anchor that blends
+across the boundary. Repaired and asserted. This was a rebuild-tree defect only; the production
+chain does not build a per-82 rate this way.
+
+*Open, and it is an identification flag rather than a bug.* The rebuild's market holdout is
+spent. Both market runners swept contract start years 2018 through 2025 on every development
+run and selected on each year they touched, including the years the forecast side was
+reserving. Sealing the pages and not the cohorts was never a split sample. No market result on
+a 2022 to 2025 start cohort can be presented as out-of-sample. The forecast holdout is believed
+intact on the evidence of the code and the reports, and is now recorded rather than
+reconstructed. See `50_REBUILD/docs/Holdout_Inventory.md` for the decision owed.

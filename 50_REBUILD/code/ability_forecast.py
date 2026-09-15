@@ -39,7 +39,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 import information_set as ISET
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 
 W_T1, W_T2 = 0.6, 0.4    # the locked recency weighting, reproduced for A0
 
@@ -69,6 +69,34 @@ class BaseModel:
     # three-year-old season more than last year's, which is not a hypothesis
     # worth spending a degree of freedom on.
     DECAY_GRID = np.array([0.40, 0.50, 0.60, 0.667, 0.75, 0.85, 1.00])
+
+    # WHICH HORIZONS THIS MODEL HAS ACTUALLY FITTED. None means unrestricted,
+    # which is true only of a model that carries a trailing number flat and
+    # therefore has nothing to fit.
+    FITTED_HORIZONS = C.FITTED_HORIZONS
+
+    def _guard_horizons(self, horizons) -> None:
+        """Refuse a horizon this model never fitted.
+
+        Returning something for an unfitted horizon is worse than failing,
+        because the something looks like a forecast. Before this guard a
+        request for year seven got a flat 0.6 participation and the player's
+        trailing rate and games share, and that fabricated tail went into the
+        long-contract averages and from there into the fitted price line.
+        Refusing is the first repair and not the whole one: a contract that
+        runs past the fitted range still needs either a fit that reaches it or
+        a declared extrapolation, and this raise is what forces that choice to
+        be made rather than defaulted into.
+        """
+        if self.FITTED_HORIZONS is None:
+            return
+        missing = sorted({int(h) for h in horizons} - set(self.FITTED_HORIZONS))
+        if missing:
+            raise ValueError(
+                f"{self.name} was asked for horizon(s) {missing} but is fitted "
+                f"only to {sorted(self.FITTED_HORIZONS)}. Fit the horizons the "
+                "caller needs, or declare and test an extrapolation. Do not "
+                "let the caller take the fallback value silently.")
 
     def fit(self, table: pd.DataFrame, before: int) -> None:
         self.before = before
@@ -272,9 +300,15 @@ def _placeholder_participation(subs: pd.DataFrame, h) -> np.ndarray:
 
 class A0Production(BaseModel):
     """The production chain's starting point. Nothing is fitted."""
+
+    # Unrestricted, because nothing is fitted: this model carries one trailing
+    # number flat at every horizon. That is why it is valid at any horizon and
+    # also why it is a benchmark rather than a forecast.
+    FITTED_HORIZONS = None
     name = "today's model (trailing 60/40, carried flat)"
 
     def predict(self, iset, subs, horizons):
+        self._guard_horizons(horizons)
         a = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP],
                      self.N_SEASONS, self.decay_)
         a = a[a["t0"] == iset.t0].set_index("career_key")
@@ -311,7 +345,7 @@ class A1Calibrated(BaseModel):
 
     def fit(self, table, before):
         super().fit(table, before)
-        pairs = self._training_pairs(table, before, range(6))
+        pairs = self._training_pairs(table, before, C.FITTED_HORIZONS)
         self.coef_, self.gp_coef_ = {}, {}
         for h, g in pairs.groupby("h"):
             r = g.dropna(subset=["y_rate"])           # rate fit: seasons played
@@ -321,6 +355,7 @@ class A1Calibrated(BaseModel):
                                     s["y_gp_share"]) if len(s) > 50 else None
 
     def predict(self, iset, subs, horizons):
+        self._guard_horizons(horizons)
         a = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP],
                      self.N_SEASONS, self.decay_)
         a = a[a["t0"] == iset.t0].set_index("career_key").reindex(subs["career_key"])
@@ -422,7 +457,7 @@ class A2Component(A1Calibrated):
         self.norm_ = self._fit_norms(s)
         self.k_ = self._fit_reliability(s, before)
 
-        pairs = self._training_pairs(table, before, range(6))
+        pairs = self._training_pairs(table, before, C.FITTED_HORIZONS)
         pairs = self._shrink(pairs)
         self.coef_, self.gp_coef_ = {}, {}
         for h, g in pairs.groupby("h"):
@@ -515,6 +550,7 @@ class A2Component(A1Calibrated):
         return d
 
     def predict(self, iset, subs, horizons):
+        self._guard_horizons(horizons)
         a = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP],
                      self.N_SEASONS, self.decay_)
         a = self._shrink(a[a["t0"] == iset.t0]).set_index("career_key").reindex(
@@ -628,7 +664,7 @@ class A2PerHorizonTrust(A2Component):
         super().fit(table, before)
         s = table[table["GP"] >= C.MIN_GP]
         self.k_by_h_ = {}
-        for h in range(6):
+        for h in C.FITTED_HORIZONS:
             self.k_by_h_[h] = self._fit_reliability_at(s, before, h + 1)
 
     def _fit_reliability_at(self, s, before, gap):
@@ -662,6 +698,7 @@ class A2PerHorizonTrust(A2Component):
         return d
 
     def predict(self, iset, subs, horizons):
+        self._guard_horizons(horizons)
         base = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP],
                      self.N_SEASONS, self.decay_)
         base = base[base["t0"] == iset.t0]
@@ -751,7 +788,7 @@ class A2PerHorizonAll3(A2PerHorizonTrust3):
         s = table[table["GP"] >= C.MIN_GP]
         act = s.set_index(["career_key", "syr"])
         self.decay_by_h_ = {}
-        for h in range(6):
+        for h in C.FITTED_HORIZONS:
             self.decay_by_h_[h] = self._fit_decay_at(s, act, before, h)
 
     def _fit_decay_at(self, s, act, before, h):
@@ -775,6 +812,7 @@ class A2PerHorizonAll3(A2PerHorizonTrust3):
         return best
 
     def predict(self, iset, subs, horizons):
+        self._guard_horizons(horizons)
         played = iset.seasons[iset.seasons["GP"] >= C.MIN_GP]
         rows = []
         for h in horizons:
@@ -806,9 +844,10 @@ class A1Calibrated3PerHorizon(A1Calibrated3):
         s = table[table["GP"] >= C.MIN_GP]
         act = s.set_index(["career_key", "syr"])
         self.decay_by_h_ = {h: A2PerHorizonAll3._fit_decay_at(self, s, act, before, h)
-                            for h in range(6)}
+                            for h in C.FITTED_HORIZONS}
 
     def predict(self, iset, subs, horizons):
+        self._guard_horizons(horizons)
         played = iset.seasons[iset.seasons["GP"] >= C.MIN_GP]
         rows = []
         for h in horizons:
@@ -953,6 +992,7 @@ class A2PerComponentWindow(A2PerHorizonTrust3):
         return pairs
 
     def predict(self, iset, subs, horizons):
+        self._guard_horizons(horizons)
         played = iset.seasons[iset.seasons["GP"] >= C.MIN_GP]
         base = self._anchor_frame(played)
         base = base[base["t0"] == iset.t0]
@@ -1032,6 +1072,7 @@ class A1Calibrated3Aging(_AgingMixin, A1Calibrated3):
     name = "calibrated total, three seasons, additive aging"
 
     def predict(self, iset, subs, horizons):
+        self._guard_horizons(horizons)
         a = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP],
                      self.N_SEASONS, self.decay_)
         a = a[a["t0"] == iset.t0].set_index("career_key").reindex(subs["career_key"])
@@ -1054,6 +1095,7 @@ class A2ComponentAging(_AgingMixin, A2PerComponentWindow):
     name = "component model, per-component window, additive aging"
 
     def predict(self, iset, subs, horizons):
+        self._guard_horizons(horizons)
         played = iset.seasons[iset.seasons["GP"] >= C.MIN_GP]
         base = self._anchor_frame(played)
         base = base[base["t0"] == iset.t0]
@@ -1129,6 +1171,7 @@ class A1AgingParticipation(_ParticipationMixin, A1Calibrated3Aging):
     name = "calibrated total, aging, participation"
 
     def predict(self, iset, subs, horizons):
+        self._guard_horizons(horizons)
         a = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP],
                      self.N_SEASONS, self.decay_)
         a = a[a["t0"] == iset.t0].set_index("career_key").reindex(subs["career_key"])
@@ -1162,6 +1205,7 @@ class A1ParticipationNoAging(_ParticipationMixin, A1Calibrated3):
     name = "calibrated total, participation, no aging walk"
 
     def predict(self, iset, subs, horizons):
+        self._guard_horizons(horizons)
         a = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP],
                      self.N_SEASONS, self.decay_)
         a = a[a["t0"] == iset.t0].set_index("career_key").reindex(subs["career_key"])
@@ -1183,6 +1227,7 @@ class A2AgingParticipation(_ParticipationMixin, A2ComponentAging):
     name = "component model, aging, participation"
 
     def predict(self, iset, subs, horizons):
+        self._guard_horizons(horizons)
         played = iset.seasons[iset.seasons["GP"] >= C.MIN_GP]
         base = self._anchor_frame(played)
         base = base[base["t0"] == iset.t0]

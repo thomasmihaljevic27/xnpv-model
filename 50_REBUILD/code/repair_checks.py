@@ -1,0 +1,192 @@
+"""repair_checks.py -- the guards from the 2026-09-15 repair pass, run as tests.
+
+EXPERIMENTAL, and deliberately a separate entry point. Each check here
+corresponds to a defect the independent review found, and each one is written
+so that it FAILS on the code as it stood before the repair. That is the point:
+a guard nobody has seen fail is a guard nobody has tested.
+
+    python 50_REBUILD/code/repair_checks.py
+
+Checks 1 and 2 need only the vendor WAR file. Checks 3 to 6 need the age join,
+so on a checkout without the confidential contract export they are reported as
+skipped rather than passed.
+"""
+from __future__ import annotations
+
+import warnings
+
+import pandas as pd
+
+import rebuild_config as C
+import forecast_harness as H
+import player_season_table as T
+from ability_forecast import A0Production
+
+SCRIPT_VERSION = "1.0"
+
+PASS, FAIL, SKIP = "pass", "FAIL", "skip"
+results: list[tuple[str, str, str]] = []
+
+
+def check(name: str, fn) -> None:
+    try:
+        note = fn()
+        results.append((name, PASS, note or ""))
+    except AssertionError as e:
+        results.append((name, FAIL, str(e)[:200]))
+    except (AttributeError, TypeError, ValueError, KeyError) as e:
+        # A guard that does not exist yet fails this suite rather than
+        # crashing it: that is what running the checks against the
+        # pre-repair code is for.
+        results.append((name, FAIL, f"{e.__class__.__name__}: {str(e)[:170]}"))
+    except _Skip as e:
+        results.append((name, SKIP, str(e)))
+
+
+class _Skip(Exception):
+    pass
+
+
+# -- 1. the season identity -------------------------------------------------
+def c1(table):
+    """WAR == WAR_82 * gp_share, in every season including the two shortened
+    ones. Before the repair this failed by 82/70 in 2019-20 and 82/56 in
+    2020-21, because the per-82 rate was taken from the already-scaled total."""
+    # Computed here rather than delegated to the table builder's own
+    # assertion, so that this check runs unchanged against the code as it
+    # stood before the repair. A check that imports the fix cannot witness
+    # the bug.
+    played = table[(table["GP"] > 0) & table["WAR"].notna() & table["WAR_82"].notna()]
+    sched = played["syr"].map(C.SEASON_LEN).fillna(float(C.FULL_SEASON))
+    n_clip = int((played["GP"] > sched).sum())
+    played = played[played["GP"] <= sched]
+    ratio = (played["WAR_82"] * played["gp_share"] / played["WAR"])
+    by_season = ratio.groupby(played["syr"]).median()
+    off = by_season[(by_season - 1.0).abs() > 1e-9]
+    assert off.empty, (
+        "WAR does not equal WAR_82 * gp_share. Median reconstruction ratio by "
+        "season: " + ", ".join(f"{int(y)}: {v:.6f}" for y, v in off.items()))
+    return f"{len(played)} played rows, {n_clip} excluded by the games-share clip"
+
+
+# -- 2. rates are on one scale across seasons -------------------------------
+def c2(table):
+    """The deeper half of the same defect. A rate inflated in one season is not
+    comparable with the next, and the trailing anchors blend two seasons, so a
+    scale break inside the window contaminates every anchor that spans it."""
+    med = table[table["GP"] >= C.MIN_GP].groupby("syr")["WAR_82"].median()
+    short = [y for y in C.SEASON_LEN if y in med.index]
+    normal = med.drop(index=short)
+    lo, hi = float(normal.min()), float(normal.max())
+    for y in short:
+        v = float(med.loc[y])
+        assert lo * 0.75 <= v <= hi * 1.25, (
+            f"the {y} median rate {v:.4f} sits outside the range of the "
+            f"full-length seasons ({lo:.4f} to {hi:.4f}), which is the scale "
+            "break the identity check is meant to prevent")
+    return ", ".join(f"{y}: {float(med.loc[y]):.4f}" for y in short) + \
+        f" against full-season {lo:.4f} to {hi:.4f}"
+
+
+# -- 3. the games unit ------------------------------------------------------
+def c3(_table):
+    """Predicted games are converted on the outcome season's own schedule. A
+    player available for all 56 games of 2020-21 used to be charged a 26-game
+    error for a season he did not miss."""
+    d = pd.DataFrame({"p_play": [1.0], "rate_82": [2.0], "gp_share": [1.0],
+                      "season": [2020], "act_war": [2.0], "act_gp": [56.0],
+                      "act_rate_82": [2.0], "act_gp_share": [1.0]})
+    e = float(H._score_rows(d)["e_gp"].iloc[0])
+    assert abs(e) < 1e-9, f"a fully available 2020-21 season scores {e:+.1f} games of error"
+    return "a full 2020-21 season scores zero games of error"
+
+
+# -- 4. no model may answer a horizon it never fitted -----------------------
+def c4(table):
+    """Before the repair a request for year seven returned a flat 0.6
+    participation and the trailing rate, and that fabricated tail went into the
+    long-contract averages and from there into the fitted price line."""
+    from ability_forecast import A1Calibrated
+    import information_set as ISET
+    iset = ISET.build(table, ISET.decision_date_for_page(2021), t0=2021)
+    subs = H.subjects_at(iset).head(20)
+    if subs.empty:
+        raise _Skip("no eligible subjects on the 2021 page in this checkout")
+    m = A1Calibrated()
+    m.fit(iset.seasons, before=2021)
+    beyond = max(C.FITTED_HORIZONS) + 1
+    try:
+        m.predict(iset, subs, [beyond])
+    except ValueError:
+        return f"horizon {beyond} refused; fitted range is {sorted(C.FITTED_HORIZONS)}"
+    raise AssertionError(f"horizon {beyond} was answered despite never being fitted")
+
+
+# -- 5. no model may answer a question it was not asked ---------------------
+def c5(table):
+    """The harness validated the contents of whatever frame came back and never
+    that the frame answered the question, so a model returning one player for a
+    page of hundreds passed every assertion and was scored on its own sample."""
+    class OneRow(A0Production):
+        name = "returns one player only"
+
+        def predict(self, iset, subs, horizons):
+            return super().predict(iset, subs, horizons).head(1)
+
+    h = H.Harness(table)
+    try:
+        h.run(OneRow(), pages=[2021], horizons=[0, 1])
+    except AssertionError:
+        return "a model returning one row of the requested grid is refused"
+    raise AssertionError("the one-row model was scored")
+
+
+# -- 6. both reserved samples are enforced ----------------------------------
+def c6(table):
+    """The page seal covered forecast scoring only, so both market runners swept
+    reserved start cohorts on every development run, and the page seal itself
+    accepted an unseal with no reason."""
+    h = H.Harness(table)
+    page = C.CONFIRMATORY_PAGES[0]
+    for kw in ({}, {"unseal": True, "reason": ""}):
+        try:
+            h.run(A0Production(), pages=[page], horizons=[0], **kw)
+        except C.ConfirmatorySealBroken:
+            continue
+        raise AssertionError(f"page {page} was scored with {kw or 'no unseal'}")
+    try:
+        C.check_market_cohorts(range(2018, 2026), "repair_checks")
+    except C.ConfirmatorySealBroken:
+        return (f"pages {list(C.CONFIRMATORY_PAGES)} and start years "
+                f"{list(C.CONFIRMATORY_START_YEARS)} both refuse")
+    raise AssertionError("the reserved market cohorts were evaluated")
+
+
+def main() -> None:
+    warnings.filterwarnings("ignore")
+    C.banner("repair_checks.py", SCRIPT_VERSION)
+    table = T.build(verbose=False)
+    if not int(table["has_age"].sum()):
+        C.log("  NO AGE COVERAGE in this checkout: the birthdate join needs the")
+        C.log("  confidential contract export. Age-dependent checks will skip.")
+    C.log("")
+
+    for name, fn in [("season identity", c1), ("rate scale across seasons", c2),
+                     ("games unit", c3), ("unfitted horizons refused", c4),
+                     ("incomplete predictions refused", c5),
+                     ("reserved samples enforced", c6)]:
+        check(name, lambda fn=fn: fn(table))
+
+    width = max(len(n) for n, _, _ in results)
+    for name, status, note in results:
+        C.log(f"  {status:<5} {name:<{width}}  {note}")
+    bad = [n for n, s, _ in results if s == FAIL]
+    C.log("")
+    C.log(f"  {sum(s == PASS for _, s, _ in results)} passed, "
+          f"{sum(s == SKIP for _, s, _ in results)} skipped, {len(bad)} failed")
+    if bad:
+        raise SystemExit(f"failed: {bad}")
+
+
+if __name__ == "__main__":
+    main()
