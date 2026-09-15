@@ -1060,3 +1060,122 @@ class A1Calibrated3AgingNaive(A1Calibrated3Aging):
     rather than repeating."""
     name = "calibrated total, aging fitted the naive way (diagnostic)"
     AGING_LEVEL_MODE = "same"
+
+
+# ---------------------------------------------------------------------------
+# PARTICIPATION. Replaces the placeholder in which everyone plays forever.
+# The diagnosis from the aging work was that the walk's long-horizon deficit
+# was a participation deficit: at five seasons out among the 34-and-overs it
+# predicted below zero for 99% of them while 98% had already stopped playing.
+# These variants are the test of that diagnosis.
+# ---------------------------------------------------------------------------
+
+from participation_model import ParticipationModel  # noqa: E402
+
+
+class _ParticipationMixin:
+    """Fit a participation model alongside, and use it instead of the
+    placeholder. `USE_CONTRACTS` is the switch that says how much of the
+    answer rests on the contract export, whose coverage on the development
+    seasons runs from 11% in 2015 to 99% in 2021 -- so a variant that leans on
+    it is being judged mostly on its late pages."""
+    USE_CONTRACTS = True
+
+    def fit(self, table, before):
+        super().fit(table, before)
+        contracts = None
+        if self.USE_CONTRACTS:
+            try:
+                from contract_source import load_contracts
+                contracts, _ = load_contracts()
+            except Exception:                     # noqa: BLE001
+                contracts = None
+        n, d = self.N_SEASONS, self.decay_
+        self.part_ = ParticipationModel(contracts).fit(
+            table, before, anchors_fn=lambda p: _anchors(p, n, d))
+        return self
+
+    def _p_play(self, a, subs, h):
+        p = self.part_.predict(a.reset_index(), h)
+        p = p[~p.index.duplicated()]
+        return p.reindex(subs["career_key"]).fillna(
+            self.part_.base_.get(h, 0.6)).to_numpy()
+
+
+class A1AgingParticipation(_ParticipationMixin, A1Calibrated3Aging):
+    """The calibrated total with the aging walk AND participation."""
+    name = "calibrated total, aging, participation"
+
+    def predict(self, iset, subs, horizons):
+        a = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP],
+                     self.N_SEASONS, self.decay_)
+        a = a[a["t0"] == iset.t0].set_index("career_key").reindex(subs["career_key"])
+        rate0 = _apply(self.coef_.get(0), a[self.FEATURES], a["tw_WAR"])
+        rows = []
+        for h in horizons:
+            r = subs.copy()
+            r["rate_82"] = self._walk(r, rate0, a, h)
+            gp = _apply(self.gp_coef_.get(h),
+                        a[["tr_gp_share", "is_D", "exp_seasons", "age_c"]], a["tr_gp_share"])
+            r["gp_share"] = np.clip(gp, 0.05, 1.0)
+            r["p_play"] = self._p_play(a, subs, h)
+            r["h"] = h
+            rows.append(r[["career_key", "h", "rate_82", "gp_share", "p_play"]])
+        return pd.concat(rows, ignore_index=True)
+
+
+class A1AgingParticipationNoContracts(A1AgingParticipation):
+    """The same without the contract export, so the register carries how much
+    of the participation gain rests on a feature whose coverage differs
+    sharply between the development and the confirmatory seasons."""
+    name = "calibrated total, aging, participation (no contract data)"
+    USE_CONTRACTS = False
+
+
+class A1ParticipationNoAging(_ParticipationMixin, A1Calibrated3):
+    """Participation WITHOUT the aging walk -- the six free regressions again.
+    Isolates how much participation is worth on its own, so the aging result
+    can be read against a like-for-like baseline rather than against a model
+    that changed two things at once."""
+    name = "calibrated total, participation, no aging walk"
+
+    def predict(self, iset, subs, horizons):
+        a = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP],
+                     self.N_SEASONS, self.decay_)
+        a = a[a["t0"] == iset.t0].set_index("career_key").reindex(subs["career_key"])
+        rows = []
+        for h in horizons:
+            r = subs.copy()
+            r["rate_82"] = _apply(self.coef_.get(h), a[self.FEATURES], a["tw_WAR"])
+            gp = _apply(self.gp_coef_.get(h),
+                        a[["tr_gp_share", "is_D", "exp_seasons", "age_c"]], a["tr_gp_share"])
+            r["gp_share"] = np.clip(gp, 0.05, 1.0)
+            r["p_play"] = self._p_play(a, subs, h)
+            r["h"] = h
+            rows.append(r[["career_key", "h", "rate_82", "gp_share", "p_play"]])
+        return pd.concat(rows, ignore_index=True)
+
+
+class A2AgingParticipation(_ParticipationMixin, A2ComponentAging):
+    """The best component model, with aging and participation."""
+    name = "component model, aging, participation"
+
+    def predict(self, iset, subs, horizons):
+        played = iset.seasons[iset.seasons["GP"] >= C.MIN_GP]
+        base = self._anchor_frame(played)
+        base = base[base["t0"] == iset.t0]
+        a = self._shrink_with(base, self.k_by_h_.get(0, self.k_)) \
+                .set_index("career_key").reindex(subs["career_key"])
+        fb = a[["sh_" + c for c in C.COMPONENTS_MODEL]].sum(axis=1)
+        rate0 = _apply(self.coef_.get(0), a[self.RATE_FEATURES], fb)
+        rows = []
+        for h in horizons:
+            r = subs.copy()
+            r["rate_82"] = self._walk(r, rate0, a, h)
+            gp = _apply(self.gp_coef_.get(h),
+                        a[["tr_gp_share", "is_D", "exp_seasons", "age_c"]], a["tr_gp_share"])
+            r["gp_share"] = np.clip(gp, 0.05, 1.0)
+            r["p_play"] = self._p_play(a, subs, h)
+            r["h"] = h
+            rows.append(r[["career_key", "h", "rate_82", "gp_share", "p_play"]])
+        return pd.concat(rows, ignore_index=True)

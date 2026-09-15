@@ -39,6 +39,8 @@ from ability_forecast import (A0Production, A1Calibrated, A1Calibrated3, A1NoAge
                               A1Calibrated3PerHorizon, A2PerComponentWindow,
                               A2PerComponentWindow4, A1Calibrated3Aging,
                               A2ComponentAging, A1Calibrated3AgingNaive,
+                              A1AgingParticipation, A1AgingParticipationNoContracts,
+                              A1ParticipationNoAging, A2AgingParticipation,
                               A2PerHorizonTrustNoAge)
 from player_season_table import build as build_table
 
@@ -48,7 +50,7 @@ REGISTER = C.DOCS_DIR / "variant_register.csv"
 # The line every variant is measured against: the best model found so far, so
 # a new idea has to beat the standing leader rather than an old one. It moved
 # here from the two-season calibrated total once the three-season window won.
-BENCHMARK = A1Calibrated3
+BENCHMARK = A1AgingParticipation
 
 CANDIDATES = [
     A0Production,          # what the chain does today -- the floor
@@ -69,6 +71,10 @@ CANDIDATES = [
     A1Calibrated3Aging,      # the leader, reaching later seasons by aging
     A2ComponentAging,        # the best component model, likewise
     A1Calibrated3AgingNaive,  # diagnostic: the same with the biased aging curve
+    A1ParticipationNoAging,  # participation on its own, no aging walk
+    A1AgingParticipation,    # aging AND participation
+    A1AgingParticipationNoContracts,  # how much of it rests on the contract export
+    A2AgingParticipation,    # the component model, aging and participation
 ]
 
 SEASON_LABEL = {0: "valuation season", 1: "+1 season", 2: "+2 seasons",
