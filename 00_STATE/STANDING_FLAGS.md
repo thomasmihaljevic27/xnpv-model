@@ -2,14 +2,16 @@
 
 ## Independent rebuild review (2026-09-15)
 
-**Second repair follow-up:** `0e70d4b` passes all 14 checks. Independent comparisons find
-zero rate/survival discrepancy across 5,196 adapter rows, invariant historical cap targets,
-and correct early-signing cost offsets. Revised development headline reproduces: 14.4% lower
-error at h0, about 8-9% later. Still open: named-player dollars use the old flat/full-sample
-method; tail forecasts move by up to 0.5049 WAR when the requested endpoint changes; the h8
-attachment ceiling drops longer terms. Plan completion and dollar reconciliation remain open.
-See `50_REBUILD/docs/Latest_Repair_Verification_Codex.md`. These findings supersede the
-`d651998` repair assessment below; neither repair implementation is merged into main.
+**Third repair verification, 2026-09-15:** reviewed `54b6253` in isolation. All 15 checks
+pass. Independent probes close the endpoint-dependent extrapolation and h8 attachment defects.
+The named-player runner now uses dated fits and discounting, but fits separate price equations
+for its two forecasts while claiming a common currency. All 18 comparable quarters differ;
+repricing the 12 displayed live forecasts on the rebuilt equation changes values by $8.26M
+mean absolute and $19.19M maximum. An all-rejected attachment request crashes before reporting
+rejections. See `50_REBUILD/docs/Third_Repair_Verification_Codex.md`. Full simulation, A3,
+control/goalie, dollar reconciliation and final validation remain incomplete. The earlier
+verified development headline is unchanged; it was not rerun this pass. Implementation remains
+on Claude's branch, unmerged; production code is unchanged.
 
 The earlier rebuild claims of improvement against the live chain and no leakage anywhere are
 superseded by `50_REBUILD/docs/Player_Rebuild_Candidate_Review_Codex.md`. The original stress runner

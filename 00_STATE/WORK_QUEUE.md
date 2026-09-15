@@ -9,13 +9,16 @@
 
 ## Work queue
 
-**2026-09-15 second repair verification:** `0e70d4b` fixes the production anchor/reversion,
-cap-target timing and discount-origin defects on the tested paths. All 14 checks pass and the
-revised development MAEs reproduce. Remaining: route or withdraw the named-player dollar
-comparison; fix extrapolation when the requested endpoint changes; remove the upstream h8
-attachment ceiling and record rejected terms. Complete the plan's distributions, simulation,
-A3, control/goalie and dollar checks before adoption. See
-`50_REBUILD/docs/Latest_Repair_Verification_Codex.md`. Repair implementation remains on its branch.
+**Third repair verification, 2026-09-15:** reviewed `54b6253` in isolation. All 15 checks
+pass. Independent probes close the endpoint-dependent extrapolation and h8 attachment defects.
+The named-player runner now uses dated fits and discounting, but fits separate price equations
+for its two forecasts while claiming a common currency. All 18 comparable quarters differ;
+repricing the 12 displayed live forecasts on the rebuilt equation changes values by $8.26M
+mean absolute and $19.19M maximum. An all-rejected attachment request crashes before reporting
+rejections. See `50_REBUILD/docs/Third_Repair_Verification_Codex.md`. Full simulation, A3,
+control/goalie, dollar reconciliation and final validation remain incomplete. The earlier
+verified development headline is unchanged; it was not rerun this pass. Implementation remains
+on Claude's branch, unmerged; production code is unchanged.
 
 **2026-09-15 independent rebuild review: prerequisite before the experimental next steps below.**
 See `50_REBUILD/docs/Player_Rebuild_Candidate_Review_Codex.md`. Correct shortened-season rate/games units

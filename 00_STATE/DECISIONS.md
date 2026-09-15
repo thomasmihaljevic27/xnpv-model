@@ -1,5 +1,14 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-15u (third repair verification):** Reviewed `54b6253` at Thomas's
+request. All 15 repair checks pass; prior endpoint and h8 attachment defects close. Executed
+the named-player runner and captured pricing calls: 18 comparable quarters use different
+coefficients across forecasts despite the common-currency claim. Repricing 12 named live
+forecasts on the rebuilt equation moves values by $8.26M mean absolute/$19.19M maximum.
+All-rejected attachment also raises KeyError before reporting reasons. Added third verification
+report and reproducible currency audit; updated state, queue, flags and session. No candidate
+implementation merged, no production edits, no reserved evaluation or locked decision changed.
+
 **Change log, 2026-09-15t (second repair verification):** Reviewed `0e70d4b` in isolation.
 All 14 checks pass. Independently verified adapter method parity on 5,196 rows, historical
 cap-target invariance and actual early-signing discounted costs. Reran development pages

@@ -193,15 +193,16 @@ These findings take precedence over the earlier broad validation claims. No impl
 changed; repaired development comparisons and the unbuilt simulation work must precede adoption.
 Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 
-**Second repair verification, 2026-09-15:** reviewed `0e70d4b` on
-`claude/loving-maxwell-rd3w5v` in isolation. All 14 repair checks pass. Independent probes
-confirm production anchor/reversion and rate/survival method parity, cap-target timing isolation,
-and the annual discount origin. The corrected development MAEs reproduce: 14.4% lower error at
-h0 and about 8-9% at h1-5 on production-answerable rows. The named-player dollar method remains
-obsolete; extrapolation still depends on the requested endpoint; the upstream h8 attachment
-ceiling remains. Full plan implementation, holdout policy and dollar reconciliation remain open.
-See `50_REBUILD/docs/Latest_Repair_Verification_Codex.md`. This supersedes the prior `d651998`
-assessment. Candidate implementation remains unmerged; production code is unchanged.
+**Third repair verification, 2026-09-15:** reviewed `54b6253` in isolation. All 15 checks
+pass. Independent probes close the endpoint-dependent extrapolation and h8 attachment defects.
+The named-player runner now uses dated fits and discounting, but fits separate price equations
+for its two forecasts while claiming a common currency. All 18 comparable quarters differ;
+repricing the 12 displayed live forecasts on the rebuilt equation changes values by $8.26M
+mean absolute and $19.19M maximum. An all-rejected attachment request crashes before reporting
+rejections. See `50_REBUILD/docs/Third_Repair_Verification_Codex.md`. Full simulation, A3,
+control/goalie, dollar reconciliation and final validation remain incomplete. The earlier
+verified development headline is unchanged; it was not rerun this pass. Implementation remains
+on Claude's branch, unmerged; production code is unchanged.
 
 **Decisions taken inside the tree only.** Term-in for the production currency (Thomas,
 2026-09-15). One shared price line for restricted and unrestricted free agents — D7's locked answer
