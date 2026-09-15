@@ -25,3 +25,7 @@ last_run,model,pages,n_rows,mae_plus0,mae_plus1,mae_plus2,mae_plus3,mae_plus4,ma
 2026-09-15,"calibrated total, aging (survivorship-imputed), participation (no contracts)",2015-2021,35878,0.5501,0.552,0.526,0.5001,0.4616,0.4171,-0.4178
 2026-09-15,"calibrated total, aging (survivorship-IPW), participation",2015-2021,35878,0.5508,0.555,0.5326,0.509,0.4703,0.4218,-0.3618
 2026-09-15,"component model, aging (survivorship-imputed), participation",2015-2021,35878,0.549,0.5543,0.5297,0.5043,0.4646,0.4183,-0.3629
+2026-09-15,leader + a second slope above one win,2015-2021,35878,0.5492,0.5509,0.5248,0.4992,0.4606,0.4164,-0.375
+2026-09-15,leader + slopes above one and two wins,2015-2021,35878,0.5483,0.5504,0.5242,0.499,0.4602,0.4156,-0.4345
+2026-09-15,leader + level interacted with evidence,2015-2021,35878,0.5496,0.5512,0.5257,0.4995,0.4613,0.4167,-0.3935
+2026-09-15,leader + hinge and evidence interaction,2015-2021,35878,0.549,0.5506,0.5248,0.499,0.4607,0.4163,-0.3646
