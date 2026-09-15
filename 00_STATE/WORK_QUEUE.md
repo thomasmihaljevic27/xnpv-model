@@ -9,6 +9,27 @@
 
 ## Work queue
 
+**2026-09-15 — experimental rebuild (`50_REBUILD/`), next steps in order.** Phases 0-4 are built
+and reported; nothing is adopted into production. In priority order:
+1. **The elite tier is not identified, and it is the thesis's headline.** Surplus at 2+ forecast
+   wins a season flips sign between the straight and log currencies (+$3.00M against −$0.78M) on
+   37 contracts, and the named-player check makes it concrete: the log currency says McDavid at
+   $12.5M was overpaid by $51M. Options: pool the goalie and prospect pillars to widen the top of
+   the sample, extend the panel back, or state in the paper that the top is not identified. **No
+   back-test result about stars should be cited until this is settled.**
+2. **The star residual in the forecast.** The model still under-rates its best players by about a
+   third of a win over the first three seasons, located in the rate rather than participation
+   (top decile predicts 2.360 against 2.698 actual). The hinge variant recovered a fifth of it.
+3. **Young players** (aged 20 and under: error 1.034, bias −0.346, the worst population in the
+   model by a factor of two). The fix is probably a prior from the prospect pillar rather than
+   more machinery in the player chain.
+4. **Draft and prospect pillars onto the rebuilt currency**, then the back-test.
+5. **The confirmatory run**, once and once only, at the end. Prediction on record: the advantage
+   will be nearer 20% than 40%, because it narrows monotonically across the development window
+   (−38.1% in 2015 to −22.3% in 2021).
+6. **Goalies are untouched** by the rebuild.
+
+
 **2026-09-14d — player model rebuild plan, Fable version (proposal, awaiting Thomas's choice).** `40_DOCS/Player_Model_Rebuild_Plan_Fable.md`: Phase 0 dates, identities and a frozen-information harness; Phase 1 the ability forecast (component-wise reliability shrinkage, rate and games separate, in-season update at trade dates); Phase 2 participation with returns and control-year gates; Phase 3 additive aging on the shrunk rate with selection weights; Phase 4 a contract-price model and a production currency, both dated at the signing; Phase 5 valuation by simulation; Phase 6 rebuild, one confirmatory run, lock. Six decisions (term framing, reference market, second provider, holdout policy, locks opened, comparables fate) are needed before Phase 4, none before. Two test scripts now carry the evidence: `signing_date_audit.py` (30% of the rate sample signed before its trailing seasons were complete, 58% at 3+) and `component_persistence_test.py`. Nothing adopted; the competing plan (09-14c) is `40_DOCS/Player_Model_Rebuild_Plan.md` and its review `40_DOCS/Ground_Up_Player_Model_Review.md`.
 
 **2026-09-13 — 2026-27 page, D28 extensions, aging-curve audit.** Done: the 2026-27 page is live in the panel and dashboard ($104.0M ceiling, reads 2025-26); signed extensions count from their signing date (D28), including in-season dashboard variants; the one-season-left curve label is fixed. Follow-ups, in order:

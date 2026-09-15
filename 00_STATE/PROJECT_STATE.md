@@ -167,6 +167,35 @@ Moved 2026-09-09 (v3.2). The locked decision record (D1-D27, the Phase-1b/1c/1d 
 - ~~Data-quality note: `puckpedia_player_id` 17422~~ — **RESOLVED 2026-07-28.** It is **Stanislav Demin**, age 19, traded Vegas to Chicago on 2020-02-24 in the three-way Robin Lehner deal with Toronto. He is a non-roster prospect with no PuckPedia contract, which is why a contract-keyed export carries no name or EP id for him. Genuinely a one-off: of 1,503 trade rows carrying a `player_id`, exactly one has no name. Not a data defect — the prospect pillar showing up before the prospect pillar exists. Resolves itself at Phase 3b.
 
 ---
+## Experimental player-model rebuild → `50_REBUILD/` (2026-09-14/15)
+
+**Status: experimental, isolated, nothing adopted into production.** The live chain in `20_CODE/`
+is untouched and every locked decision stands. The rebuild lives in its own tree with its own
+output and its own gitignore; writes are refused outside it by a path guard, so the separation is
+enforced rather than promised.
+
+**Built and guarded.** A frozen-information harness (`forecast_harness.py`, `information_set.py`),
+one shared season table with a reproduction guard that matches the production loader on all 14,193
+keys at zero difference (`player_season_table.py`), an ability forecast with a three-season window
+and fitted decay (`ability_forecast.py`), an additive aging curve with a survivorship correction
+(`aging_additive.py`), a participation model (`participation_model.py`), a signing-dated contract
+price model and production currency (`contract_price_model.py`, `production_currency.py`), and the
+runners that produced the reports in `50_REBUILD/docs/`.
+
+**Where it stands against the live chain**, on development seasons 2015-2021 (2022-2025 sealed and
+untouched): 16.0% lower forecast error at the valuation season, 43.6% five seasons out, and the
+star over-projection moves from **+0.999 wins to −0.365**. Thirty variants are registered in
+`50_REBUILD/docs/variant_register.csv`; none has been retired.
+
+**Decisions taken inside the tree only.** Term-in for the production currency (Thomas,
+2026-09-15). One shared price line for restricted and unrestricted free agents — D7's locked answer
+survived a test on signing-dated forecasts. Neither is adopted into production.
+
+**The two candidate anchors have not been separated.** The calibrated total and the component model
+are within 1.1% at every horizon, tie at the valuation season, and are within 0.002 wins of each
+other on the star tier. The criterion that would separate them is dollar error on a contract, which
+needs the back-test.
+
 ## Work queue → WORK_QUEUE.md
 
 Moved 2026-09-09 (v3.2). The phase-sequenced list of yet-to-do work now lives in **`00_STATE/WORK_QUEUE.md`**. Pillar-level detail stays in `01_Draft_Model_Sequence.md`, `02_Prospect_Model_Sequence.md`, `03_Player_Market_Model_Sequence.md`.

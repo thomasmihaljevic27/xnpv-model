@@ -155,13 +155,42 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 30_OUTPUT,games_line_experiment_contracts.csv,npv,hashable,2026-09-14b,f8482612ba5bbe8f0152f2a471cc484b1f4015c0,1700351,2026-09-14,yes,local,"Whole-chain sweep, second pass; production unchanged; generated and gitignored"
 30_OUTPUT,games_line_experiment_npv_movement.csv,npv,hashable,2026-09-14b,dc267ab98549cd179330157a6bb085d02a8d4a69,927,2026-09-14,yes,local,"Whole-chain sweep, second pass; production unchanged; generated and gitignored"
 40_DOCS,Player_Model_Rebuild_Plan_Fable.md,player,hashable,2026-09-14d,2ebe50a93f8d574597a2c3a1068a52864be568e9,18565,2026-09-14,yes,git,"Rebuild plan, Fable version, proposal only; competing plan at Player_Model_Rebuild_Plan.md"
-00_STATE,2026-09-14d.md,state,hashable,2026-09-14d,c84de39eaece07e99f757a4f2604a8e9b94e97c0,4326,2026-09-14,yes,git,"Session log: rebuild plan and the two diagnostics"
-20_CODE,signing_date_audit.py,player,hashable,2026-09-14d,f775a952dd550f0a707bff02aead76ac6c315be2,6003,2026-09-14,yes,git,"Test only; quantifies the signing-date look-ahead in the locked rate sample"
+00_STATE,2026-09-14d.md,state,hashable,2026-09-14d,c84de39eaece07e99f757a4f2604a8e9b94e97c0,4326,2026-09-14,yes,git,Session log: rebuild plan and the two diagnostics
+20_CODE,signing_date_audit.py,player,hashable,2026-09-14d,f775a952dd550f0a707bff02aead76ac6c315be2,6003,2026-09-14,yes,git,Test only; quantifies the signing-date look-ahead in the locked rate sample
 20_CODE,component_persistence_test.py,player,hashable,2026-09-14d,ad81daafb80ed95b39954da4dd55e4ae1c30186e,9577,2026-09-14,yes,git,"Test only; component persistence and component-wise rolling anchor, horizons 0-2"
-30_OUTPUT,signing_date_audit_by_tier.csv,player,hashable,2026-09-14d,aff54154182e2176f2daa8122a7d1f10a6a2e7a9,369,2026-09-14,yes,local,"Diagnostic output; production unchanged; generated and gitignored"
-30_OUTPUT,signing_date_audit_run.json,player,hashable,2026-09-14d,d43eaf50fa5103f9134a9aa48bd3ff1f645fa2b9,1287,2026-09-14,yes,local,"Diagnostic output; production unchanged; generated and gitignored"
-30_OUTPUT,component_persistence_test_persistence.csv,player,hashable,2026-09-14d,181c62d1dfac2ee900c713f6a5ff69909f9d3f4d,574,2026-09-14,yes,local,"Diagnostic output; production unchanged; generated and gitignored"
-30_OUTPUT,component_persistence_test_rolling.csv,player,hashable,2026-09-14d,2c06a46fbc5fb65aa4d2a2c8b52c94f76616ead7,5310,2026-09-14,yes,local,"Diagnostic output; production unchanged; generated and gitignored"
-30_OUTPUT,component_persistence_test_summary.csv,player,hashable,2026-09-14d,3ed6cdfb946600ca3c8fb67585339b02b08e9ac5,593,2026-09-14,yes,local,"Diagnostic output; production unchanged; generated and gitignored"
-30_OUTPUT,component_persistence_test_run.json,player,hashable,2026-09-14d,fc4273ce10c170c71309a4c6b804d8140ee5bdb5,701,2026-09-14,yes,local,"Diagnostic output; production unchanged; generated and gitignored"
+30_OUTPUT,signing_date_audit_by_tier.csv,player,hashable,2026-09-14d,aff54154182e2176f2daa8122a7d1f10a6a2e7a9,369,2026-09-14,yes,local,Diagnostic output; production unchanged; generated and gitignored
+30_OUTPUT,signing_date_audit_run.json,player,hashable,2026-09-14d,d43eaf50fa5103f9134a9aa48bd3ff1f645fa2b9,1287,2026-09-14,yes,local,Diagnostic output; production unchanged; generated and gitignored
+30_OUTPUT,component_persistence_test_persistence.csv,player,hashable,2026-09-14d,181c62d1dfac2ee900c713f6a5ff69909f9d3f4d,574,2026-09-14,yes,local,Diagnostic output; production unchanged; generated and gitignored
+30_OUTPUT,component_persistence_test_rolling.csv,player,hashable,2026-09-14d,2c06a46fbc5fb65aa4d2a2c8b52c94f76616ead7,5310,2026-09-14,yes,local,Diagnostic output; production unchanged; generated and gitignored
+30_OUTPUT,component_persistence_test_summary.csv,player,hashable,2026-09-14d,3ed6cdfb946600ca3c8fb67585339b02b08e9ac5,593,2026-09-14,yes,local,Diagnostic output; production unchanged; generated and gitignored
+30_OUTPUT,component_persistence_test_run.json,player,hashable,2026-09-14d,fc4273ce10c170c71309a4c6b804d8140ee5bdb5,701,2026-09-14,yes,local,Diagnostic output; production unchanged; generated and gitignored
 30_OUTPUT,signing_date_audit_rows.csv,player,hashable,2026-09-14d,5fb4e421822fe9ae1e0ea6fb4bdd9e7ed7cfcd8c,220784,2026-09-14,yes,local,"Row-level audit; CONFIDENTIAL PuckPedia contract data; gitignored, never committed"
+50_REBUILD/code,ability_forecast.py,player,code,2026-09-14e,15038e1ae9bc44c06b2d971bcd229f7d552f3c23,63166,2026-09-15,yes,git,experimental rebuild tree; not production
+50_REBUILD/code,aging_additive.py,player,code,2026-09-14e,9fb89cdcf7e1c3bb608ddefe6e10186ec42f9f5f,19745,2026-09-15,yes,git,experimental rebuild tree; not production
+50_REBUILD/code,contract_price_model.py,player,code,2026-09-14e,230db9d21d0868a96822cacce8ab9357695862bf,7293,2026-09-15,yes,git,experimental rebuild tree; not production
+50_REBUILD/code,contract_source.py,player,code,2026-09-14e,f1ba3997e4f110b1735a4f81d279dd2a1dfdad9e,11185,2026-09-15,yes,git,experimental rebuild tree; not production
+50_REBUILD/code,forecast_harness.py,player,code,2026-09-14e,c1fe4412718dca61f2f92f525f88fd890ecc2285,14902,2026-09-15,yes,git,experimental rebuild tree; not production
+50_REBUILD/code,information_set.py,player,code,2026-09-14e,c509cf46c6e21771c48532af428d44892d54833e,9339,2026-09-15,yes,git,experimental rebuild tree; not production
+50_REBUILD/code,participation_model.py,player,code,2026-09-14e,562dc8467c78b72a3f5f71cf687366d2af1d59d4,15635,2026-09-15,yes,git,experimental rebuild tree; not production
+50_REBUILD/code,player_season_table.py,player,code,2026-09-14e,3075846685a3f3f61ca982b8e853d8b108adb44f,20410,2026-09-15,yes,git,experimental rebuild tree; not production
+50_REBUILD/code,production_currency.py,player,code,2026-09-14e,36d210c5f69496c1457e73f279922c3f730f4450,4608,2026-09-15,yes,git,experimental rebuild tree; not production
+50_REBUILD/code,rebuild_config.py,player,code,2026-09-14e,eb0ef99402ca38c9125cab0d141d0aa40a2898a5,12191,2026-09-15,yes,git,experimental rebuild tree; not production
+50_REBUILD/code,run_bakeoff.py,player,code,2026-09-14e,975c8ce5a3849fd4f48f200c8dc9e89e559c16e7,10052,2026-09-15,yes,git,experimental rebuild tree; not production
+50_REBUILD/code,run_curvature_test.py,player,code,2026-09-14e,b46a8c9cced2d1dd0b0bd0d3867ad76cffb5ab01,5801,2026-09-15,yes,git,experimental rebuild tree; not production
+50_REBUILD/code,run_phase0_acceptance.py,player,code,2026-09-14e,573dce8d45dd64e16c6d07be829d29dc8a7e8463,6293,2026-09-15,yes,git,experimental rebuild tree; not production
+50_REBUILD/code,run_phase4_decisions.py,player,code,2026-09-14e,0b874517961969a19b462957e320e4e3d16609af,8840,2026-09-15,yes,git,experimental rebuild tree; not production
+50_REBUILD/code,run_player_comparison.py,player,code,2026-09-14e,c85c7de98dd2bea34ab3af6428b903274c1e46fc,11543,2026-09-15,yes,git,experimental rebuild tree; not production
+50_REBUILD/code,run_stress_tests.py,player,code,2026-09-14e,624e874abef927990c9b8477069cdb8a9e645694,8035,2026-09-15,yes,git,experimental rebuild tree; not production
+50_REBUILD/code,run_surplus.py,player,code,2026-09-14e,61ce4347e10a15622471ee8cc5aa4b802680a7fb,3732,2026-09-15,yes,git,experimental rebuild tree; not production
+50_REBUILD/docs,Aging_Design.md,player,doc,2026-09-14e,0a76298d9b16cee73022ece111401158280993e6,7195,2026-09-15,yes,git,experimental rebuild tree; not production
+50_REBUILD/docs,Phase0_Harness_Report.md,player,doc,2026-09-14e,15bdea31c5864f69f1d5696f97cbbba0a994451b,20550,2026-09-15,yes,git,experimental rebuild tree; not production
+50_REBUILD/docs,Phase1_Bakeoff.md,player,doc,2026-09-14e,ef66ed35a9ee28929159f23f020faa4257eb6154,11525,2026-09-15,yes,git,experimental rebuild tree; not production
+50_REBUILD/docs,Phase2_Participation.md,player,doc,2026-09-14e,ab01404c87254cc375648001bbc38daa5a754cfe,10676,2026-09-15,yes,git,experimental rebuild tree; not production
+50_REBUILD/docs,Phase3_Aging.md,player,doc,2026-09-14e,dfc8fb26c4c3da9c2abd3ba475d57ca99a9dcdeb,8079,2026-09-15,yes,git,experimental rebuild tree; not production
+50_REBUILD/docs,Phase3_Survivorship.md,player,doc,2026-09-14e,932a6d9203260a23e62940e5109ea4ae1ddb4f66,7748,2026-09-15,yes,git,experimental rebuild tree; not production
+50_REBUILD/docs,Phase4_Curvature.md,player,doc,2026-09-14e,b0f7fb5f54a41545914146fcfff1a29af09e203d,4307,2026-09-15,yes,git,experimental rebuild tree; not production
+50_REBUILD/docs,Phase4_Decisions.md,player,doc,2026-09-14e,fad21129906227e2e6b2b25072cb864da7151f82,10182,2026-09-15,yes,git,experimental rebuild tree; not production
+50_REBUILD/docs,Phase5_StressTests.md,player,doc,2026-09-14e,7ea75e3343f79866f67747b4ab508d14f3a7f075,8453,2026-09-15,yes,git,experimental rebuild tree; not production
+50_REBUILD/docs,Player_Comparison.md,player,doc,2026-09-14e,de2fc43fffa24e7e60a53e185c4a688f33bc9763,6765,2026-09-15,yes,git,experimental rebuild tree; not production
+50_REBUILD/docs,variant_register.csv,player,doc,2026-09-14e,771b454fbac32cf0bde3988aedf7775054294e6d,3831,2026-09-15,yes,git,experimental rebuild tree; not production
+50_REBUILD,README.md,player,doc,2026-09-14e,2eadf035859339874cfd5df12f62a99b9f647bef,4525,2026-09-15,yes,git,experimental rebuild tree; not production

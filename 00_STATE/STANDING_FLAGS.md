@@ -19,6 +19,51 @@
 
 ## Standing flags (Karl's identification axes — watch on every design choice)
 
+- **NEW 2026-09-15 — the elite tier is not identified, and the currency choice decides the
+  headline.** Surplus at 2+ forecast wins a season is +$3.00M under a straight price line and
+  −$0.78M under a log line, on 37 contracts (six above three wins). The log line beat the straight
+  line out of sample by 0.81%, about $6,000 a contract, so the data marginally prefers the
+  specification that reverses the finding. A named-player check makes the consequence concrete:
+  under the log currency Connor McDavid at $12.5M is overpaid by $51M, and Kucherov, Marchand and
+  MacKinnon are all bad contracts. **The straight line is primary for valuation on face-validity
+  grounds and the log line is retained for price prediction, and that reversal is domain evidence
+  overriding a marginal statistical preference, not a statistical result.** What can be claimed is
+  that clubs get more surplus from good-but-not-elite players (half a win to two wins a season, 524
+  contracts, holding under both currencies). What cannot is that elite production is underpaid.
+- **NEW 2026-09-15 — the Stage 3 rejection of a curved price line was right for the wrong reason.**
+  Curvature does appear once the market sample is dated at the signing rather than the contract
+  start, which is exactly where the signing-date audit found the sample worst (58% of 3+ contracts
+  signed before their trailing seasons finished). Any future curvature claim must use signing-dated
+  forecasts.
+- **NEW 2026-09-15 — inverse-probability weighting cannot fix the aging curve's survivorship.**
+  A player retires because of the season we never observe, so the outcome causes the missingness
+  and reweighting the survivors corrects the wrong thing; it moved the curve the wrong way at every
+  age. The imputation approach states the assumption instead (a departing player was at about
+  replacement) and works, but the result is a **bound on decline, not a point estimate**, and
+  should be reported as one. The assumption matters enormously for fringe players (0.51 wins of
+  curve movement across the sweep) and barely for stars (0.094), which is the right way round.
+- **NEW 2026-09-15 — the aging level term is 89% measurement error if fitted naively.** Regressing
+  the change from t to t+1 on the rate at t puts the same noise on both sides; the yearly change
+  correlates −0.447 with the same-season level and −0.052 with the level one season earlier. Fitted
+  naively the curve claims a 3-win 27-year-old loses 0.8 wins a year. The lagged level identifies
+  it, and the effect that survives is real: a 3-win player at 35 declines nearly twice as fast as a
+  0.5-win player. **Any level term in any curve in this project needs the same check.**
+- **NEW 2026-09-15 — contract-export coverage tracks the calendar, and using it as a predictor
+  teaches the model about the era.** Coverage of the players being valued runs 11% (2015) to 99%
+  (2021) and 97% on the sealed pages. In the participation model the contract feature costs
+  0.26%-0.91% rather than helping, because on early pages the unknown flag is an era indicator. It
+  also means **a model leaning on contract state would do better on the confirmatory pages than the
+  development ones**, the opposite of the usual direction, so a good confirmatory result would be
+  partly a coverage artifact. Does not bear on Phase 4, where the contract is the object priced.
+- **NEW 2026-09-15 — the WAR export's six components stop summing to the total from 2023-24.**
+  Exact through 2022-23; from 2023-24, 97.9% of rows carry a residual that grows with the player's
+  WAR (r = 0.79 forwards), about 2% of WAR at the median, largest 0.332 wins. Cause is vendor-side
+  and unknown. The rebuild carries it as a seventh unallocated component, which the fit then shrinks
+  entirely to the norm as carrying no signal. **Production reads the total so its levels are
+  unaffected, but `component_persistence_test.py`'s covariance shares are computed over pairs
+  including 2023-24 onward and carry the residual inside them; effect unquantified.** Not taken back
+  to the vendor.
+
 - **NEW 2026-09-13 — aging-curve coverage audit.** Full write-up: `40_DOCS/Aging_Curve_Coverage_Audit.md`. (1) 1,765 of 1,976 `flat_no_curve` skater pages were a labelling bug on one-season-left pages, value-neutral, fixed in `skater_forward_projection.py` v1.3; the D21 path-mix figures overstate curve misses. (2) Real misses are 211 pages (about 3%): 99 pages / 82 players rookie cameo (the short-first-season flag below, now counted), 68 / 41 never a 20+ GP season, 44 / 37 injury or demotion gap. (3) **Selection issue:** a player's first qualifying season never enters the comparables pool, so at age 20 only 34 of 87 defencemen with a 20+ GP season are eligible comparables (Q. Hughes, Seider, Sanderson, Letang absent), and at 21 Makar, Fox, Josi, Subban are absent. The young pool is selected on early arrival; direction of bias unmeasured. (4) The pool is thin where young contracts are priced: the league-wide position curve carries 78% of a 19-year-old defenceman's estimate, 31% at 20, 49% at 37. Three options listed in the doc; each changes the locked curve and needs a deliberate revisit with held-out error, a λ re-test and full-chain movement.
 - **NEW 2026-09-14 — whole-chain sweep (`40_DOCS/Pipeline_Experiment.md`).** (1) A rolling pull-back of the starting point (fitted on seasons before each valuation) removes the level tilt on 2020-25 pages: bias +3.5% → −2.9% overall, +24% → −4% at 3+, WAR error −5.7%. The 09-13b star overshoot was the 2018-19 pages, where stars held their level. (2) **The exit hazard is estimated on the wrong population**: 10.6%/yr on all 10+ GP seasons against 5.3% among players holding a contract for next season, and the chain prices only the latter; it over-predicts exits at k≥1 (11.7% vs 7.0%). Fixing it alone worsens error because it had been offsetting over-projection; with the pull-back (L+H) every level is within 5% of unbiased and net NPV moves −$645M instead of −$1.2B. (3) Games played carry their own market price (~$2.1M for a full vs half season at the same WAR); with games in the line the price per win falls from $2.03M to ~$0.8M, so the production line charges wins for availability. A games-aware value line cuts relative error 6-12 points above 1 WAR but redefines value (D6-D9). (4) The market line is not tilted by level; contract length predicts cap hit strongly (−31% error alone, −39% in the best line with term, games, one-season flag and RFA; `market_line_search.py`). **Whether term enters the value line is a framing decision (corrected 2026-09-14):** one-year replacements each season (term-free; the term premium is a mispricing to measure) or one replacement for the remaining term (term in the line; the premium becomes fair value and aggregate NPV rises $3.3-4.1B). (5) Age in the starting-point pull-back (LB3A) keeps the tilt at zero and makes the package near NPV-neutral. All locked; nothing adopted.
 - **NEW 2026-09-13b — the comparables blend is nearly an age-group average, and the best players are over-projected in season totals.** Effective comparables are ~92% of the eligible pool; a 3+ WAR/82 player's at-level comparables carry 8% of the weight. The pooled weight of 10 is not the cause (~5% share, every tier). Top 50 comparables with the pooled weight kept improved held-out error modestly and consistently; locked, so a candidate for the curve revisit only. On held-out careers, 3+ players' season-total projections run +0.46 to +0.62 WAR per season high (conditional on survival); the curve explains ~0.1 of it, the raw trailing valuation anchor the rest. **Confirmed in dollars in the production chain** (`npv_realized_by_tier.py`, in-sample, contract part only): no overall bias (+$0.04M per season), but value is over-projected for players valued at 1+ WAR and under-projected below 1, rising to +$0.98M per season (13.9%) for 3+ and +$1.49M (20.9%) for sustained stars; +$0.82M / +$1.21M without Gaudreau 2022. This is the production (value) side of NPV, not the salary regression: it overstates the best players' NPV. Back-test consequence: a trade of a star for lesser assets would be scored in the star side's favour by construction. **Fix test (same session, `40_DOCS/Anchor_Shrink_Test.md`):** pulling the starting point back (calibrated 2009-2017) removes the tilt and helps the middle of the league but overshoots stars, because forwards and newly signed stars have held their level better since 2018 (contract-start stars kept 89% vs 72% in 2009-17). Refitting the market line on pulled-back WAR changes nothing (the market already discounts recent runs) and together with the pull-back returns today's NPVs. **The star over-valuation is currency-dependent:** it holds when realized wins are priced at today's line, and largely disappears if they are priced per delivered win. The back-test's realized-value currency must be decided first. `40_DOCS/Aging_Comparable_Limit_Test.md`, `sessions/2026-09-13b.md`.
