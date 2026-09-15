@@ -1,5 +1,23 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-15x (third-party agent skill added to tooling):** Thomas asked for the
+TypeSafe skill to be installed and used on this project. Read it before installing rather than
+running the supplied commands blind. The name suggests a TypeScript or type-checking tool; it is
+instead a vendor integration guide for a commercial hosted service returning typed
+classifications and probabilities over natural-language input. The repository is 71 Python files
+with no TypeScript and no natural-language step in the valuation chain, and the skill directs the
+agent to read the vendor's live documentation as the source of truth on every task, against
+standing single-provider discipline. Reported the mismatch; Thomas chose to commit it rather than
+skip it, a home-directory install having no persistence past the container. Added
+`.claude/settings.json` declaring the marketplace source and enabling its one plugin, with key
+names taken from the installed tool's own settings schema and identifiers from the upstream
+manifest. Narrowed the `.gitignore` rule hiding `.claude/` so the shared settings file is tracked
+while per-machine settings stay ignored, verified by test. **The install was never executed and
+the skill has never loaded:** the marketplace fetch was refused as an untrusted code integration,
+so the configuration is declarative and unverified end to end, and the source is unpinned against
+the upstream default branch. No model code, locked decision, state figure, source data or output
+changed, and the skill was not used for any project work.
+
 **Change log, 2026-09-15w (uncertainty implementation review):** Reviewed `73b77ee` from
 Claude's new branch. Reproduced export guard, aggregate and subgroup interval coverage, and
 21/21 repair checks with the production workbook. Future-data tests return zero differences;

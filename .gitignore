@@ -14,7 +14,12 @@
 # --- Secrets and machine-specific config ---
 .env
 .env.local
-.claude/
+.claude/*
+# ...except the shared, checked-in Claude Code settings. This file carries the
+# plugin/marketplace sources every machine needs; it holds no secrets and no
+# machine-specific paths. `.claude/settings.local.json` (local permission
+# grants, per-machine config) stays ignored by the rule above.
+!.claude/settings.json
 
 # --- Generated output. Regenerable from code, drifts every run ---
 30_OUTPUT/
