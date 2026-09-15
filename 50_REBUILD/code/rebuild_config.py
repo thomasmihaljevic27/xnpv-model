@@ -27,7 +27,7 @@ import sys
 import time
 from pathlib import Path
 
-SCRIPT_VERSION = "1.2"
+SCRIPT_VERSION = "1.3"
 
 # --- Tree layout ----------------------------------------------------------
 # resolve() first: __file__ can be relative depending on how python was
@@ -185,6 +185,18 @@ MIN_GP = 10           # a season needs this many games to count as a signal
 # change admits is handled by weighting rather than by quietly excluding the
 # seasons again.
 PARTICIPATION_GP = 1
+
+# MINIMUM AGE COVERAGE the season table will proceed on without being told to.
+#
+# The birthdate join reads PuckPedia plus an Elite Prospects file, and the
+# Elite Prospects file is not in the repository. Without it coverage falls from
+# 98.3% of season rows to 69.2%, and nothing fails: the aging model simply has
+# far less to work with, so the rebuild's improvement over the benchmark at
+# five seasons out reads 23.6% instead of 43.5%. A missing input that silently
+# shrinks a headline result is worse than one that stops the run, because the
+# shrunken number looks like a finding. The threshold sits below the known-good
+# 98.3% and far above the degraded 69.2%.
+MIN_AGE_COVERAGE = 0.95
 
 # WEIGHT RATE OBSERVATIONS BY GAMES PLAYED. A per-82 rate computed from a
 # handful of games is an estimate of the same quantity as a full season's rate,

@@ -328,3 +328,13 @@ larger training sample. **The published -43.5% improvement at five seasons out d
 reproduce here, on repaired or unrepaired code, and the repairs are not the cause; age coverage
 is 69.2% against the 98.3% on record because the Elite Prospects birthdate file is absent.
 Re-derive before quoting either number.** Items 5 to 7 remain open.
+
+**Change log 2026-09-15b (continued) — the age flag resolved, and a coverage guard.**
+`ep_birthdates.csv` supplied; coverage 98.346%, matching the record. The published -15.8% and
+-43.5% improvements reproduce exactly on pre-repair code at full coverage, so no published
+figure was wrong; the earlier flag is rewritten as resolved in STANDING_FLAGS rather than left
+standing. On identical rows the repairs move the five-season figure from -43.5% to -43.4%;
+admitting the returning players moves it to -46.1%, because the flat benchmark handles that
+population especially badly. All figures remain against the flat benchmark, not the live chain.
+Added `MIN_AGE_COVERAGE` and a refusal in the season table for a starved age join, with an
+explicit override.

@@ -63,7 +63,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 
-SCRIPT_VERSION = "1.1"
+SCRIPT_VERSION = "1.2"
 
 # --- Name normalisation ---------------------------------------------------
 # Reproduced from skater_value_engine.norm_name rather than imported, so this
@@ -184,7 +184,8 @@ def assert_season_identity(a: "pd.DataFrame", tol: float = 1e-9) -> None:
             f"reconstruction to the total, by season:\n{by_season.to_string()}")
 
 
-def build(birthdate_csv: Path | None = None, verbose: bool = True) -> pd.DataFrame:
+def build(birthdate_csv: Path | None = None, verbose: bool = True,
+          allow_thin_ages: bool = False) -> pd.DataFrame:
     """Build the season table. Order of operations matters and is fixed:
 
       1. parse the season to a start year
@@ -301,6 +302,22 @@ def build(birthdate_csv: Path | None = None, verbose: bool = True) -> pd.DataFra
     a["has_age"] = False
     if birthdate_csv is not None:
         a = _attach_age(a, Path(birthdate_csv))
+
+        # AGE COVERAGE, checked rather than reported. See C.MIN_AGE_COVERAGE:
+        # the Elite Prospects half of this join is not in the repository, and
+        # without it nothing fails, the aging model is simply starved.
+        cov = float(a["has_age"].mean())
+        if cov < C.MIN_AGE_COVERAGE and not allow_thin_ages:
+            raise AssertionError(
+                f"age coverage is {cov:.1%} of season rows, below the "
+                f"{C.MIN_AGE_COVERAGE:.0%} this table proceeds on. The birthdate "
+                "join needs the Elite Prospects file at "
+                f"{C.SOURCE_DIR / 'ep_birthdates.csv'} alongside the PuckPedia "
+                "export; with it, coverage is 98.3%. Running without it does not "
+                "fail, it quietly starves the aging model and shrinks every "
+                "improvement figure: the rebuild's gain over the benchmark five "
+                "seasons out reads 23.6% at 69.2% coverage and 43.5% at 98.3%. "
+                "Pass allow_thin_ages=True to proceed anyway.")
 
     a = a.sort_values(["career_key", "syr", "pkey"]).reset_index(drop=True)
 
