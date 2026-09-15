@@ -1,5 +1,16 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-15w (uncertainty implementation review):** Reviewed `73b77ee` from
+Claude's new branch. Reproduced export guard, aggregate and subgroup interval coverage, and
+21/21 repair checks with the production workbook. Future-data tests return zero differences;
+placebo worsens MAE. Independent frozen-model sensitivity reverses the reported increasing
+pass-through: response to +0.5 rate is +0.116 at h0 and +0.073 at h5. The original test refits.
+Found final-page calibrator used for all years in residual/optimism diagnostics; corrected
+star h5 median/95th are +0.51/+3.64. Distribution mean exceeds reported expected WAR by 0.0374
+on average (maximum 0.2265); explicit reconciliation is required before simulation. Added
+review report and reproduction script, updated state/queue/flags/session. No model fix or merge,
+production output changes, reserved evaluations or locked decision changes.
+
 **Change log, 2026-09-15v (fourth repair verification):** Reviewed `4b9723a` in isolation.
 All 17 repair checks pass. The independent full named-player audit now finds identical price
 coefficients in all 18 comparable quarters and zero repricing differences for 12 named cases.
