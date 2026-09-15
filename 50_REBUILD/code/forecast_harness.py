@@ -247,6 +247,19 @@ class Harness:
             assert not missing, f"{model.name} predict() is missing {missing}"
             assert pred["p_play"].between(0, 1).all(), f"{model.name} returned a p_play outside [0,1]"
             assert pred["gp_share"].between(0, 1).all(), f"{model.name} returned a gp_share outside [0,1]"
+            # NO MODEL MAY DECLINE TO PREDICT. A missing forecast is dropped by
+            # every mean taken downstream, so a model that returns NaN for the
+            # players it finds hard is scored on an easier sample than its
+            # rivals and wins by forfeit. This fired for real: the first aging
+            # walk returned NaN for the 0.6% of rows with no birthdate, and its
+            # error was computed on 210 fewer rows than everyone else's.
+            for col in ("rate_82", "gp_share", "p_play"):
+                bad = int(pred[col].isna().sum())
+                assert not bad, (
+                    f"{model.name} returned {bad} missing {col} values on page "
+                    f"{t0}. Every model is scored on the same rows; a model "
+                    "that cannot predict a player must fall back to something, "
+                    "not decline.")
 
             act = outcomes(self.table, t0, horizons)
             m = (pred.merge(subs, on="career_key", how="left", suffixes=("", "_s"))

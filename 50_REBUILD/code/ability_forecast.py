@@ -987,10 +987,21 @@ class _AgingMixin:
         return self
 
     def _walk(self, r, rate0, a, h):
+        """Walk the level forward, carrying it FLAT where the player has no age.
+
+        An aging curve cannot age a player whose birthdate is unknown. The
+        honest fallback is no aging at all -- the status quo before this curve
+        existed -- rather than a guessed age, which would put a real number on
+        a made-up position on the curve. It is 0.6% of rows here and every one
+        of them is still scored, because a model that declines to predict its
+        hard cases is scored on an easier sample than its rivals.
+        """
+        rate0 = np.asarray(rate0, dtype=float)
         if h == 0:
             return rate0
-        return self.aging_.walk(rate0, a["age"].to_numpy(float),
-                                a["is_D"].to_numpy(float), h)
+        age = a["age"].to_numpy(float)
+        walked = self.aging_.walk(rate0, age, a["is_D"].to_numpy(float), h)
+        return np.where(np.isfinite(age) & np.isfinite(walked), walked, rate0)
 
 
 class A1Calibrated3Aging(_AgingMixin, A1Calibrated3):
