@@ -801,3 +801,159 @@ class A1Calibrated3PerHorizon(A1Calibrated3):
             r["h"] = h
             rows.append(r[["career_key", "h", "rate_82", "gp_share", "p_play"]])
         return pd.concat(rows, ignore_index=True)
+
+
+# ---------------------------------------------------------------------------
+# A WINDOW PER COMPONENT. The one place the component idea has not yet been
+# allowed to speak. Every model so far reads the same number of trailing
+# seasons, discounted at the same rate, for every skill -- which is exactly
+# the assumption the component thesis denies. Shooting is the noisiest part of
+# WAR, so averaging three or four seasons of finishing luck should leave less
+# luck in the number; even-strength offence is the stickiest, so last season
+# is already a good read and reaching further back mostly adds stale
+# information about a player who has since changed.
+#
+# If the component thesis is right anywhere, it should be right here: this is
+# a claim a single blended total is structurally incapable of making.
+# ---------------------------------------------------------------------------
+
+def _anchors_per_component(played: pd.DataFrame, n_seasons: int,
+                           decays: dict, default_decay: float) -> pd.DataFrame:
+    """Anchors where each component is blended over its OWN window shape.
+
+    Built by assembling anchors at each distinct decay rate and taking each
+    component's column from the build that used its own rate. Splicing rather
+    than rewriting the anchor builder is deliberate: the shared builder stays
+    the single definition of how a window is formed, so this variant cannot
+    drift away from it, and the regression guard that pins the two-season path
+    keeps covering both.
+
+    Exposure is spliced per component too. Exposure is the count of evidence
+    behind a number, and if a component is blended over a different window it
+    rests on a different amount of evidence -- carrying one shared exposure
+    would tell the shrinkage the wrong thing about six of the seven parts.
+    """
+    base = _anchors(played, n_seasons, default_decay).set_index(["career_key", "t0"])
+    built = {d: _anchors(played, n_seasons, d).set_index(["career_key", "t0"])
+             for d in set(decays.values())}
+    for c, d in decays.items():
+        src = built[d]
+        base["tr_" + c] = src["tr_" + c].reindex(base.index)
+        base["exp_" + c] = src["exposure_gp"].reindex(base.index)
+    return base.reset_index()
+
+
+class A2PerComponentWindow(A2PerHorizonTrust3):
+    """The component model with a window fitted separately for each skill.
+
+    Everything else is the standing best component model: trust fitted per
+    horizon, three seasons available, age in both the norm and the regression.
+    The only change is that each of the seven components chooses how fast to
+    discount older seasons for itself.
+    """
+    name = "component model, window fitted per component"
+
+    def fit(self, table, before):
+        # ORDER MATTERS. The inherited fit builds training pairs through
+        # _anchor_frame, which needs the per-component windows to already
+        # exist, so they are fitted first. The shared decay is settled before
+        # that because it is this fit's fallback when a component has too few
+        # completed outcomes to choose for itself.
+        BaseModel.fit(self, table, before)
+        s = table[table["GP"] >= C.MIN_GP]
+        self.comp_decay_ = self._fit_component_decays(s, before)
+        super().fit(table, before)
+
+    def _fit_component_decays(self, s: pd.DataFrame, before: int) -> dict:
+        """One decay rate per component, on the rolling window.
+
+        Criterion matches what the number is for: blend component c over the
+        window, then see how well it predicts the SAME component next season.
+        Errors weighted by the outcome season's games, so a rate measured over
+        eighty games counts for more than one measured over twelve.
+        """
+        act = s.set_index(["career_key", "syr"])
+        cache = {d: _anchors(s, self.N_SEASONS, float(d)) for d in self.DECAY_GRID}
+        out = {}
+        for c in C.COMPONENTS_MODEL:
+            best, best_sse = self.decay_, np.inf
+            for d in self.DECAY_GRID:
+                a = cache[float(d)]
+                a = a[a["t0"] < before]
+                ix = pd.MultiIndex.from_arrays([a["career_key"], a["t0"]])
+                y = act[c + "_82"].reindex(ix).to_numpy()
+                gp = act["GP"].reindex(ix).to_numpy()
+                x = a["tr_" + c].to_numpy()
+                ok = np.isfinite(y) & np.isfinite(x)
+                if ok.sum() < 200:
+                    continue
+                sse = float((gp[ok] * (x[ok] - y[ok]) ** 2).sum())
+                if sse < best_sse:
+                    best, best_sse = float(d), sse
+            out[c] = best
+        return out
+
+    def _shrink_with(self, d, k):
+        """As the parent, but each component is shrunk against the evidence
+        behind ITS OWN window rather than a single shared exposure."""
+        d = d.copy()
+        for c in C.COMPONENTS_MODEL:
+            gp = d["exp_" + c].to_numpy(float) if ("exp_" + c) in d.columns \
+                else d["exposure_gp"].to_numpy(float)
+            norm = self._norm_for(c, d["pos"], d["age"])
+            obs = d["tr_" + c].to_numpy(float)
+            d["sh_" + c] = (gp * obs + k[c] * norm) / (gp + k[c])
+        return d
+
+    def _anchor_frame(self, played):
+        return _anchors_per_component(played, self.N_SEASONS, self.comp_decay_,
+                                      self.decay_)
+
+    def _training_pairs(self, table, before, horizons):
+        """Same outcome-window rule as every other model; only the anchor
+        construction differs, so the pairs are still built from anchors that
+        cannot see the season they predict."""
+        s = table[table["GP"] >= C.MIN_GP]
+        anchors = self._anchor_frame(s)
+        out = []
+        for h in horizons:
+            a = anchors.copy()
+            a["season"] = a["t0"] + h
+            a["h"] = h
+            out.append(a[a["season"] < before])
+        pairs = pd.concat(out, ignore_index=True)
+        act = table.set_index(["career_key", "syr"])
+        ix = pd.MultiIndex.from_arrays([pairs["career_key"], pairs["season"]])
+        pairs["y_war"] = act["WAR"].reindex(ix).to_numpy()
+        pairs["y_rate"] = act["WAR_82"].reindex(ix).to_numpy()
+        pairs["y_gp_share"] = act["gp_share"].reindex(ix).to_numpy()
+        pairs["y_played"] = act["GP"].reindex(ix).fillna(0).to_numpy() >= C.MIN_GP
+        return pairs
+
+    def predict(self, iset, subs, horizons):
+        played = iset.seasons[iset.seasons["GP"] >= C.MIN_GP]
+        base = self._anchor_frame(played)
+        base = base[base["t0"] == iset.t0]
+        rows = []
+        for h in horizons:
+            a = self._shrink_with(base, self.k_by_h_.get(h, self.k_)) \
+                    .set_index("career_key").reindex(subs["career_key"])
+            r = subs.copy()
+            fb = a[["sh_" + c for c in C.COMPONENTS_MODEL]].sum(axis=1)
+            r["rate_82"] = _apply(self.coef_.get(h), a[self.RATE_FEATURES], fb)
+            gp = _apply(self.gp_coef_.get(h),
+                        a[["tr_gp_share", "is_D", "exp_seasons", "age_c"]], a["tr_gp_share"])
+            r["gp_share"] = np.clip(gp, 0.05, 1.0)
+            r["p_play"] = _placeholder_participation(r, h)
+            r["h"] = h
+            rows.append(r[["career_key", "h", "rate_82", "gp_share", "p_play"]])
+        return pd.concat(rows, ignore_index=True)
+
+
+class A2PerComponentWindow4(A2PerComponentWindow):
+    """Four seasons available, so a noisy component can reach further back
+    than three if the fit wants it to. With a shared window a fourth season
+    was a null; the question is whether it is still a null once the
+    components that cannot use it are free to ignore it."""
+    name = "component model, window per component, four seasons available"
+    N_SEASONS = 4
