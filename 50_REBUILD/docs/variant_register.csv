@@ -21,3 +21,7 @@ last_run,model,pages,n_rows,mae_plus0,mae_plus1,mae_plus2,mae_plus3,mae_plus4,ma
 2026-09-15,"calibrated total, aging, participation",2015-2021,35878,0.5508,0.5539,0.5311,0.5076,0.471,0.4255,-0.387
 2026-09-15,"calibrated total, aging, participation (no contract data)",2015-2021,35878,0.5501,0.5524,0.5274,0.503,0.4668,0.4218,-0.3927
 2026-09-15,"component model, aging, participation",2015-2021,35878,0.549,0.5559,0.5333,0.5103,0.4733,0.4257,-0.3352
+2026-09-15,"calibrated total, aging (survivorship-imputed), participation",2015-2021,35878,0.5508,0.5533,0.5292,0.5037,0.4643,0.4191,-0.4122
+2026-09-15,"calibrated total, aging (survivorship-imputed), participation (no contracts)",2015-2021,35878,0.5501,0.552,0.526,0.5001,0.4616,0.4171,-0.4178
+2026-09-15,"calibrated total, aging (survivorship-IPW), participation",2015-2021,35878,0.5508,0.555,0.5326,0.509,0.4703,0.4218,-0.3618
+2026-09-15,"component model, aging (survivorship-imputed), participation",2015-2021,35878,0.549,0.5543,0.5297,0.5043,0.4646,0.4183,-0.3629
