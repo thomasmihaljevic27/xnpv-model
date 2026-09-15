@@ -47,12 +47,14 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
+from production_currency import ProductionCurrency
+from run_phase4_decisions import prep
 import forecast_harness as H
 import information_set as ISET
 from player_season_table import build as build_table, norm_name
-from ability_forecast import A0Production, A1HingeExposure
+from ability_forecast import A1HingeExposure
 
-SCRIPT_VERSION = "1.2"
+SCRIPT_VERSION = "1.3"
 
 # The locked production market rate (D20 Tobit, skaters, 2018-2025 starts).
 PROD_ALPHA, PROD_BETA_F, PROD_BETA_D_ADD = 0.01324782, 0.02123229, 0.00287028
@@ -98,158 +100,128 @@ CASES = [
 ]
 
 
-def prod_value(war_per_season, is_d, years, start_yr):
-    """Today's chain: the flat trailing anchor on the locked linear rate."""
-    share = PROD_ALPHA + PROD_BETA_F * war_per_season + (
-        PROD_BETA_D_ADD * war_per_season if is_d else 0.0)
-    total = 0.0
-    for k in range(years):
-        y = start_yr + k
-        floor = (C.LEAGUE_MIN_SALARY.get(y, 775_000)
-                 / C.CAP_CEILING.get(y, C.CAP_CEILING[2025]))
-        total += max(share, floor) * C.CAP_CEILING.get(y, C.CAP_CEILING[2025])
-    return total
-
-
 def main() -> None:
     C.banner("run_player_comparison.py", SCRIPT_VERSION)
-    C.log("  Valuation dates are 1 July of the stated year. All within the")
-    C.log("  development window 2015-2021; the confirmatory seasons are sealed.")
+    C.log("  ROUTED THROUGH THE REPAIRED VALUATION PATH (2026-09-15).")
+    C.log("  The previous version fitted its price line on the whole contract")
+    C.log("  sample including signings after the dates it illustrated, compared")
+    C.log("  against the flat benchmark while calling it today's chain, and summed")
+    C.log("  realised cap ceilings with no discounting. Every one of those is a")
+    C.log("  defect the rest of the tree has already had repaired, so the table")
+    C.log("  now uses the same API as run_surplus: a currency fitted only on deals")
+    C.log("  signed before each contract's own signing quarter, a cap path known")
+    C.log("  at the signing, discounting from the signing, and the LIVE CHAIN as")
+    C.log("  the comparator rather than the flat benchmark.")
     C.log("")
+
     table = build_table(birthdate_csv=C.OUT_DIR / "birthdates.csv", verbose=False)
 
-    # the log currency, fitted once on contracts before 2015 is not possible,
-    # so it is fitted on the whole contract sample and that is stated.
-    from contract_price_model import contract_sample, attach_forecasts, tobit, predict_tobit
-    from run_phase4_decisions import prep
-    from run_curvature_test import add_shapes, BASE
-    d = add_shapes(prep(attach_forecasts(contract_sample(), A1HingeExposure,
-                                         table, verbose=False)))
-    cur_b, _, _ = tobit(d[["war_log"] + BASE].to_numpy(float),
-                        d["cap_share"].to_numpy(float),
-                        d["floor_share"].to_numpy(float))
-    C.log(f"  log currency fitted on {len(d)} signing-dated contracts")
-    C.log("")
+    # BOTH SIDES PRICED ON THE SAME CURRENCY. The question this table asks is
+    # what the two FORECASTS are worth, so the price line has to be held
+    # constant across them or the difference mixes a forecast change with a
+    # pricing change. The live chain's forecast is attached the same way the
+    # rebuilt one is, through the same harness and the same contract sample.
+    from contract_price_model import contract_sample, attach_forecasts
+    from production_adapter import ProductionChain
 
-    rows = []
+    sample = contract_sample()
+    dev = [y for y in sorted(sample["start_yr"].dropna().unique().astype(int))
+           if y not in C.CONFIRMATORY_START_YEARS]
+    sample = sample[sample["start_yr"].isin(C.check_market_cohorts(
+        dev, "run_player_comparison"))]
+
+    rebuilt = prep(attach_forecasts(sample, A1HingeExposure, table, verbose=False))
+    live = prep(attach_forecasts(sample, ProductionChain, table, verbose=False))
+
+    priced = {}
+    for label, d in (("rebuilt", rebuilt), ("live", live)):
+        d = d.copy()
+        d["cut"] = d["signed"].dt.to_period("Q").dt.start_time
+        rows = []
+        for cut, te in d.groupby("cut"):
+            cur = ProductionCurrency("in").fit(d, before_date=cut)
+            if cur.coef_ is None:
+                continue
+            te = te.copy()
+            te["value"] = cur.value(te)
+            te["cost"] = cur.cost(te)
+            rows.append(te)
+        priced[label] = pd.concat(rows, ignore_index=True) if rows else pd.DataFrame()
+
+    # The earliest quarter with enough prior signings to fit a currency on.
+    # Dating the fit at the signing is what creates this boundary: before it
+    # there is no market to have learned from yet.
+    first_priced = min(
+        (d["signed"].min() for d in priced.values() if len(d)), default=None)
+
+    rows, missing = [], []
     for raw, pos, yr, term, note in CASES:
-        pkey = norm_name(raw) + "|" + pos
-        if pkey not in set(table["pkey"]):
-            rows.append({"player": raw, "note": note, "year": yr, "miss": True})
+        pk = norm_name(raw) + "|" + pos
+        got = {}
+        for label, d in priced.items():
+            m = d[(d["pkey"] == pk) & (d["start_yr"] == yr)]
+            if len(m):
+                got[label] = m.iloc[0]
+        if len(got) < 2:
+            in_sample = ((sample["pkey"] == pk) & (sample["start_yr"] == yr)).any()
+            sgn = sample.loc[(sample["pkey"] == pk) & (sample["start_yr"] == yr), "signed"]
+            if in_sample and first_priced is not None and len(sgn) and sgn.iloc[0] < first_priced:
+                why = "signed before the market has enough history to fit a price line"
+            elif in_sample:
+                why = "no full-term forecast on its page"
+            else:
+                why = "not in the repaired contract sample"
+            missing.append((raw, note, yr, why))
             continue
-        iset = ISET.build(table, ISET.decision_date_for_page(yr), t0=yr)
-        subs = H.subjects_at(iset)
-        sub = subs[subs["pkey"] == pkey]
-        if sub.empty:
-            rows.append({"player": raw, "note": note, "year": yr, "miss": True})
-            continue
+        r_new, r_old = got["rebuilt"], got["live"]
+        rows.append({
+            "player": raw, "note": note, "year": int(yr),
+            "term": int(r_new["length"]),
+            "war_new": float(r_new["war_total"]),
+            "war_live": float(r_old["war_total"]),
+            "new": float(r_new["value"]) / 1e6,
+            "live": float(r_old["value"]) / 1e6,
+            "cost": float(r_new["cost"]) / 1e6,
+            "extrap": int(r_new.get("n_years_extrapolated", 0)),
+        })
 
-        # THE WHOLE TERM, or nothing. This used to be min(term, 8), which
-        # silently repriced Shea Weber's ten remaining years as eight and
-        # reported the result in a column headed by the truncated number. The
-        # truncation did not tilt the comparison, because the benchmark below
-        # is priced over the same count, but it answered a question nobody
-        # asked and it hid that years seven and eight were already being
-        # served by an unfitted participation probability.
-        hs = list(range(term))
-        new = A1HingeExposure()
-        new.fit(iset.seasons, before=yr)
-        # THE PAGE'S OWN RANGE, checked after the fit rather than against the
-        # global constant. The previous version tested the six-horizon default
-        # before fitting anything, so it refused a seven-year term on a page
-        # that supports nine, and it never reached the declared extrapolation
-        # path. predict_beyond_fit serves what the page fitted and carries the
-        # rest on the declared rule, tagging each extrapolated season.
-        pn = new.predict_beyond_fit(iset, sub, hs)
-        n_ex = int(pn["extrapolated"].sum())
-        if n_ex:
-            C.log(f"  {raw}: {n_ex} of {term} seasons are beyond what the "
-                  f"{yr} page fitted ({max(new.fitted_horizons_)}) and are "
-                  "extrapolated on the declared rule")
-        pn["war"] = pn["p_play"] * pn["rate_82"] * pn["gp_share"]
+    if not rows:
+        C.log("  no named case survived the repaired sample; nothing to show")
+        return
+    r = pd.DataFrame(rows).sort_values("year")
+    r["surplus_new"] = r["new"] - r["cost"]
+    r["surplus_live"] = r["live"] - r["cost"]
 
-        old = A0Production()
-        old.fit(iset.seasons, before=yr)
-        po = old.predict(iset, sub, hs)
-        po["war"] = po["p_play"] * po["rate_82"] * po["gp_share"]
-
-        anchor = float(po["rate_82"].iloc[0])      # the flat trailing anchor
-        v_old = prod_value(anchor, pos == "D", len(hs), yr)
-
-        # NEW CHAIN. Price each season's forecast production on the log
-        # currency, WITH TERM HELD NEUTRAL.
-        #
-        # This is a correction. The first version passed each contract's actual
-        # term into the price line, which put the term coefficient into what
-        # was labelled a production value -- and the term coefficient is a
-        # PRICE fact, not a production one. It priced Brent Seabrook's 0.20
-        # forecast wins at $47.2M, because an eight-year deal carries eight
-        # years of term premium whether or not the player produces anything.
-        #
-        # Term-in does not mean a premium added per season. It means the
-        # replacement counterfactual is a player signed for the remaining term
-        # rather than re-signed each year, which belongs in the replacement
-        # baseline and in the contract-price model. Today's chain has no term
-        # term at all, so a like-for-like production comparison has to hold
-        # term neutral on both sides. The premium is reported separately below,
-        # where it can be seen rather than smuggled.
-        v_new = 0.0
-        for k, w in enumerate(pn["war"].to_numpy(float)):
-            X = np.array([[np.log1p(max(w, 0)), 1.0, 0.0, 0.0,
-                           1.0 if pos == "D" else 0.0, 1.0,
-                           float(pn["war"].iloc[0])]])
-            y = yr + k
-            floor = (C.LEAGUE_MIN_SALARY.get(y, 775_000)
-                     / C.CAP_CEILING.get(y, C.CAP_CEILING[2025]))
-            v_new += max(float(predict_tobit(cur_b, X)[0]), floor) * \
-                C.CAP_CEILING.get(y, C.CAP_CEILING[2025])
-
-        # the term premium, priced separately so it is visible
-        Xt = np.array([[np.log1p(max(float(pn["war"].mean()), 0)), float(term),
-                        0.0, 0.0, 1.0 if pos == "D" else 0.0,
-                        1.0 if term == 1 else 0.0, float(pn["war"].iloc[0])]])
-        X1 = Xt.copy(); X1[0, 1] = 1.0; X1[0, 5] = 1.0
-        prem = (float(predict_tobit(cur_b, Xt)[0]) - float(predict_tobit(cur_b, X1)[0])) \
-            * sum(C.CAP_CEILING.get(yr + k, C.CAP_CEILING[2025]) for k in range(len(hs)))
-
-        rows.append({"player": raw, "note": note, "year": yr, "term": len(hs),
-                     "premium": prem / 1e6,
-                     "anchor": anchor, "war_new": float(pn["war"].sum()),
-                     "old": v_old / 1e6, "new": v_new / 1e6,
-                     "diff": (v_new - v_old) / 1e6, "miss": False})
-
-    r = pd.DataFrame(rows)
-    got, missed = r[~r["miss"]], r[r["miss"]]
-    C.log("  PRODUCTION VALUE OVER THE TERM, $M. 'anchor' is the flat trailing")
-    C.log("  number today's chain carries forward; 'new wins' is the rebuilt")
-    C.log("  chain's total forecast production over the same years.")
+    C.log("  FORECAST PRODUCTION PRICED OVER THE TERM, $M, discounted to the")
+    C.log("  signing. Both columns use the same currency, so the difference is")
+    C.log("  the forecast and not the price line. Surplus is value minus the")
+    C.log("  discounted cap hit, and is deviation from the market rather than")
+    C.log("  profit: the line is fitted to observed contracts.")
     C.log("")
-    C.log(f"  {'player':<22}{'yr':>5}{'yrs':>4}{'anchor':>8}{'new wins':>10}"
-          f"{'TODAY $M':>10}{'NEW $M':>9}{'diff':>9}{'term':>8}  what it was")
-    for grp, lab in [(got.iloc[:10], "CONTRACTS THE MARKET REGRETTED"),
-                     (got.iloc[10:17], "CONTRACTS THAT LOOKED LIKE BARGAINS"),
-                     (got.iloc[17:25], "THE TOP OF THE MARKET"),
-                     (got.iloc[25:], "MEMORABLE TRADES")]:
-        if grp.empty:
-            continue
-        C.log("")
-        C.log(f"  -- {lab} --")
-        for x in grp.itertuples():
-            C.log(f"  {x.player:<22}{x.year:>5}{int(x.term):>4}{x.anchor:>8.2f}"
-                  f"{x.war_new:>10.2f}{x.old:>10.1f}{x.new:>9.1f}"
-                  f"{x.diff:>+9.1f}{x.premium:>8.1f}  {x.note}")
+    C.log(f"  {'player':<22}{'yr':>5}{'tm':>4}{'live $M':>9}{'new $M':>9}"
+          f"{'cost $M':>9}{'surp live':>11}{'surp new':>10}")
+    for x in r.itertuples():
+        C.log(f"  {x.player:<22}{x.year:>5}{x.term:>4}{x.live:>9.1f}{x.new:>9.1f}"
+              f"{x.cost:>9.1f}{x.surplus_live:>11.1f}{x.surplus_new:>10.1f}")
     C.log("")
-    if len(missed):
-        C.log(f"  not valued ({len(missed)}): "
-              + ", ".join(f"{m.player} ({m.year})" for m in missed.itertuples()))
-        C.log("  -- no qualifying NHL history at that date, or a goalie, which this")
-        C.log("     skater chain does not price.")
+    n_ex = int(r["extrap"].sum())
+    if n_ex:
+        C.log(f"  {n_ex} contract seasons in this table are extrapolated beyond")
+        C.log("  what their page fitted. See predict_beyond_fit for the rule and")
+        C.log("  its measured bias.")
+    if missing:
+        C.log(f"  {len(missing)} of {len(CASES)} named cases are NOT shown, and they")
+        C.log("  are not missing at random. Dating the price line at the signing")
+        C.log("  means the earliest contracts have no market to have learned from:")
+        C.log(f"  the first signing this tree can price is {first_priced.date()}, so the")
+        C.log("  whole 2016 group goes, and those are the most familiar cases in the")
+        C.log("  list. That is the honest cost of removing the look-ahead rather")
+        C.log("  than a gap to be filled by widening the training window again.")
+        for raw, note, yr, why in missing:
+            C.log(f"    {raw} ({yr}, {note}): {why}")
     C.log("")
-    C.log(f"  across {len(got)} players the rebuilt chain values production "
-          f"${got['diff'].mean():+,.1f}M differently on average, "
-          f"${got['diff'].abs().mean():,.1f}M in absolute terms")
-    got.to_csv(C.out_path("player_comparison.csv"), index=False)
-    C.write_log("player_comparison_run_log.txt")
+    C.log("  wrote " + str(C.out_path("named_player_comparison.csv")))
+    r.to_csv(C.out_path("named_player_comparison.csv"), index=False)
 
 
 if __name__ == "__main__":

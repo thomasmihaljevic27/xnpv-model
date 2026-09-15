@@ -280,3 +280,17 @@ early extensions lives in.
 were the same mistake: reimplementing a production rule that could have been called. The adapter
 restated the anchor and the multiplier, and both restatements were wrong. Where a comparison
 against production is the point, call production.
+
+**2026-09-15b — dating the market at the signing costs the first two years of the sample.** A
+price line fitted only on earlier signings needs earlier signings to exist. The first quarter
+with enough of them is 2017-10-01, so 275 contracts signed before that cannot be priced at all,
+and every named illustration from 2016 is gone with them. This is the repair working rather than
+failing, and it is a real restriction on what the dollar side can speak about. Any future request
+to "get the 2016 cases back" is a request to reintroduce the look-ahead.
+
+**2026-09-15b — twice now a check has been written too close to the fix to fail on it.** Check 12
+asserted the two properties a broken adapter still had. The extrapolation invariance check kept
+horizon five in both of its requests, which was the one horizon that made the remaining defect
+invisible. Both passed while the defect stood. A check should be run against the code that
+preceded it before it is trusted, and where that is impossible it should be varied along the axis
+the fix acts on.

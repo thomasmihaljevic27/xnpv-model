@@ -397,3 +397,14 @@ invariant to the requested horizons and subjects, entry points made runnable, ma
 requires a written reason. Check suite 12 rewritten as a row-by-row parity check against
 production's methods; suite now 14 of 14. **The rebuild is an old-player fix and should be
 described as one.**
+
+**Change log 2026-09-15b (final, second verification) — three more repaired.**
+Reviewed at `0e70d4b`; forecast results and production parity reproduced independently, so the
+corrected headline stands. Named-player runner rewritten onto the repaired valuation path (dated
+currency, signing-dated cap path, discounting from the signing, live chain as comparator);
+**20 of 32 named cases are no longer showable because the first priceable signing is 2017-10-02
+under signing-dated training, the 2016 group included.** Extrapolation now runs from the model's
+own last fitted horizon rather than the caller's, so it is invariant to the requested endpoint
+and serves a lone extrapolated year. Attachment horizon ceiling removed; uncoverable contracts
+written to `attach_forecasts_rejected.csv` with a reason. Suite at 15; both new checks fail on
+the preceding commit.

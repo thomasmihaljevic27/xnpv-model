@@ -45,7 +45,7 @@ import information_set as ISET
 from contract_source import load_contracts, POSGRP
 from player_season_table import norm_name, build as build_table
 
-SCRIPT_VERSION = "1.2"
+SCRIPT_VERSION = "1.3"
 
 
 def contract_sample() -> pd.DataFrame:
@@ -116,6 +116,9 @@ def attach_forecasts(sample: pd.DataFrame, model_cls, table: pd.DataFrame,
     import forecast_harness as H
 
     out = []
+    # Contracts the forecast cannot cover, kept so the loss is reportable
+    # rather than a silent thinning of the sample in the join at the end.
+    rejected: list[dict] = []
     for L, grp in sample.groupby("latest_complete"):
         t0 = int(L) + 1
         if t0 < C.FIRST_SOURCE_SEASON + 3:
@@ -130,9 +133,15 @@ def attach_forecasts(sample: pd.DataFrame, model_cls, table: pd.DataFrame,
             continue
         # Horizons needed: from the contract's first season to its last,
         # measured from t0. A deal signed a year early reaches further out.
+        # NO CEILING ON THE REQUEST. This used to stop at horizon eight, so a
+        # term reaching nine was never asked about, then failed the full-term
+        # requirement below and vanished in the join with no record. The model
+        # refuses or extrapolates a horizon on its own terms; clipping the
+        # question here decided for it, invisibly. Negative offsets are still
+        # excluded: a season before the valuation is not a forecast.
         hs = sorted({int(s - t0) for r in grp.itertuples()
                      for s in range(int(r.start_yr), int(r.end_yr) + 1)
-                     if 0 <= s - t0 <= 8})
+                     if s - t0 >= 0})
         if not hs:
             continue
         # A contract can outrun what its own page supports. predict() refuses
@@ -154,6 +163,12 @@ def attach_forecasts(sample: pd.DataFrame, model_cls, table: pd.DataFrame,
             # skipped entirely, which is visible; a term silently shortened is
             # not.
             if not all(np.isfinite(v) for v in vals):
+                # RECORDED, not merely skipped. A contract dropped here
+                # disappears in the join below, so without this the sample
+                # silently loses exactly the terms the model cannot cover.
+                rejected.append({"idx": r.Index, "pkey": r.pkey, "page": t0,
+                                 "term": len(hh),
+                                 "reason": "no forecast for every season of the term"})
                 continue
             n_ex = int(sum(float(ex.get((r.pkey, x), 0.0)) for x in hh))
             out.append({"idx": r.Index, "war_total": float(np.sum(vals)),
@@ -166,7 +181,15 @@ def attach_forecasts(sample: pd.DataFrame, model_cls, table: pd.DataFrame,
             C.log(f"  batch readable-through {L}: {len(grp)} contracts")
 
     f = pd.DataFrame(out).set_index("idx")
-    return sample.join(f, how="inner")
+    joined = sample.join(f, how="inner")
+    if rejected:
+        rej = pd.DataFrame(rejected)
+        C.log(f"  {len(rej)} contracts dropped for want of a full-term forecast "
+              f"(longest {int(rej['term'].max())} seasons); written to "
+              "attach_forecasts_rejected.csv")
+        rej.to_csv(C.out_path("attach_forecasts_rejected.csv"), index=False)
+    attach_forecasts.rejected_ = pd.DataFrame(rejected)
+    return joined
 
 
 # ---------------------------------------------------------------------------

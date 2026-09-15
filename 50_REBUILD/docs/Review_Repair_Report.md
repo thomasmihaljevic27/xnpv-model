@@ -13,6 +13,13 @@
 > repaired and the check suite is at 14. The full corrected tables are in
 > `Repaired_Chain_Development_Results.md`, and the verification itself is
 > `Repair_Verification_Codex.md`.
+>
+> **Second correction, same day.** A further verification found three more issues and judged the
+> claim that all six earlier findings were repaired too broad, which it was: the named-player
+> dollar table still ran on the withdrawn valuation method, the extrapolation still depended on
+> which horizons were requested, and the horizon-eight ceiling was still in the attachment
+> interface. All three are now repaired and the suite is at 15. The forecast figures in this
+> report are unaffected and were independently reproduced. See the closing section.
 
 Written 2026-09-15, closing the independent review of the experimental player rebuild. The
 review raised nine findings against commit `beb69a1`. Seven were accepted as written, two were
@@ -94,7 +101,8 @@ The review was right that refusing is the first repair and not the whole one. 28
 development contracts, which is 1.5%, still need a horizon their page cannot reach, and each of
 them is a long deal. Those use a declared extrapolation, described under finding 8 below,
 through a separate explicitly-called method so that nothing extrapolates silently. The
-named-player runner no longer reprices a ten-year contract as an eight-year one.
+named-player runner no longer reprices a ten-year contract as an eight-year one, and is now
+routed through the repaired valuation path entirely.
 
 **4. Market training windows were not frozen at the signing.** Accepted. `ProductionCurrency.fit`
 now takes a date, refuses a season outright, and asserts that the latest training signing
@@ -299,6 +307,47 @@ The verification also notes that the ledger records inspections without enforcin
 That is correct and is not repaired here: enforcement needs the holdout policy decided first,
 which is the open decision recorded in `Holdout_Inventory.md`.
 
+## The Second Verification, and the Three Issues It Found
+
+The repair report was reviewed again at commit `0e70d4b`. The forecast results reproduced, the
+production parity held across 5,196 rows, and the cap-timing and discount repairs passed
+independent tests. Three implementation issues remained, and the judgement that "all six prior
+findings are repaired" was too broad. It was.
+
+**The named-player dollar table still used the withdrawn method.** The earlier pass repaired its
+horizon guard and stopped there, which made the runner reach a dollar calculation without making
+that calculation valid. It still fitted its price line on the whole contract sample, still
+compared against the flat benchmark while calling it today's chain, and still summed realised
+ceilings without discounting. It is now routed through the same API as the surplus runner: a
+currency fitted only on deals signed before each contract's own signing quarter, a cap path known
+at the signing, discounting from the signing, and the live chain as the comparator. Both columns
+are priced on the same currency, so the difference between them is the forecast rather than the
+price line.
+
+That rewrite costs most of the table, and the reason is worth stating rather than hiding. Dating
+the price line at the signing means the earliest contracts have no market to have learned from:
+the first signing this tree can price is 2017-10-02, because before that there are fewer than 200
+prior signings to fit on. **20 of the 32 named cases are therefore no longer showable, including
+the whole 2016 group**, which holds the most familiar names in the list. Each absent case is
+listed with its reason. This is the price of removing the look-ahead, and widening the training
+window to get those cases back would be reintroducing exactly what was removed.
+
+**The extrapolation still depended on the requested endpoint.** The decay rate was measured on a
+fixed population, which fixed the subject-batching half, but it was applied from the last fitted
+horizon the CALLER requested rather than the last the model fitted. Asking for horizons 3, 4, and
+6 therefore differed from 4, 5, and 6. My own check could not see it, because both of its
+requests kept horizon five. The final fitted season is now always computed internally, every
+extrapolation runs from it, and only the requested rows are returned, so a request for an
+extrapolated year alone works where it used to raise. The check now varies the endpoint and asks
+for a lone extrapolated year, and it fails on the previous commit.
+
+**The horizon-eight ceiling was still in the attachment interface.** The full-term requirement
+added in the previous pass stopped the interface shortening a contract silently, but the request
+itself was still clipped at eight, so a longer term was never asked about and then dropped in the
+join with no record. The ceiling is gone, and contracts the forecast cannot cover are written to
+a rejection file with a reason rather than disappearing. A stub that answers every requested
+season now returns a ten-year contract; on the previous commit it does not.
+
 ## What Remains Open
 
 Nothing on the dollar side has been reconciled. The chain runs and prices 1,226 development
@@ -314,13 +363,13 @@ integration, and the goalie branch are all still unbuilt, as the review's adhere
 
     python 50_REBUILD/code/repair_checks.py
 
-Fourteen checks, each corresponding to a defect above. The first eight were demonstrated
+Fifteen checks, each corresponding to a defect above. The first eight were demonstrated
 failing against the commits that preceded them, by copying the suite into a checkout of the
 earlier code and running it there; against the original commit none of the first six passes. The
 rest guard code that did not exist before. Check 12 was rewritten after the verification pointed
 out that its original form, which asserted only that rates move with the horizon and survival
 falls below one, was true of an adapter wrong in two ways at once; it now compares the adapter
-against production's own methods row by row. All fourteen pass on the current tree.
+against production's own methods row by row. All fifteen pass on the current tree, and the two checks added in the second pass fail on the commit that preceded them.
 
 The suite builds its table with the coverage guard disabled and reports the coverage instead.
 That is deliberate: the guard exists to stop a silent degraded run, and this suite is the tool

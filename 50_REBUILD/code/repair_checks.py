@@ -23,7 +23,7 @@ import forecast_harness as H
 import player_season_table as T
 from ability_forecast import A0Production
 
-SCRIPT_VERSION = "1.5"
+SCRIPT_VERSION = "1.6"
 
 PASS, FAIL, SKIP = "pass", "FAIL", "skip"
 results: list[tuple[str, str, str]] = []
@@ -377,19 +377,29 @@ def c13(table):
         raise _Skip("age coverage is too thin to fit the model this check uses")
     m.fitted_horizons_ = (0, 1, 2, 3, 4, 5)       # hold the page to a short range
     subs = H.subjects_at(iset)
-    a = m.predict_beyond_fit(iset, subs, [4, 5, 6]).query("h == 6").set_index("career_key")
-    b = m.predict_beyond_fit(iset, subs, [3, 5, 6]).query("h == 6").set_index("career_key")
-    d1 = float((a["rate_82"] - b["rate_82"].reindex(a.index)).abs().max())
-    assert d1 < 1e-9, f"asking for a different horizon subset moves horizon six by {d1:.4f}"
+
+    def h6(hs):
+        return (m.predict_beyond_fit(iset, subs, hs).query("h == 6")
+                .set_index("career_key")["rate_82"])
+
+    # THE ENDPOINT HAS TO VARY. The first version of this check compared
+    # [4,5,6] with [3,5,6], which both end their fitted run at horizon five, so
+    # it could not see that the decay was being applied from the last horizon
+    # the CALLER requested rather than the last one the model fitted. Varying
+    # the endpoint is what exposes that, and it was worth 0.505 WAR.
+    base = h6([4, 5, 6])
+    for hs in ([3, 5, 6], [3, 4, 6], [2, 3, 6], [6]):
+        d = float((base - h6(hs).reindex(base.index)).abs().max())
+        assert d < 1e-9, f"requesting {hs} moves horizon six by {d:.4f} WAR"
+
     one = subs.head(1)
     ck = one["career_key"].iloc[0]
     c_one = float(m.predict_beyond_fit(iset, one, [0, 1, 2, 3, 4, 5, 6])
                   .query("h == 6")["rate_82"].iloc[0])
-    c_all = float(m.predict_beyond_fit(iset, subs, [0, 1, 2, 3, 4, 5, 6])
-                  .query("h == 6").set_index("career_key").loc[ck, "rate_82"])
-    d2 = abs(c_one - c_all)
+    d2 = abs(c_one - float(base.loc[ck]))
     assert d2 < 1e-9, f"asking about one player alone moves his forecast by {d2:.4f}"
-    return "invariant to horizon subset and to subject subset, exactly"
+    return ("invariant to the requested endpoint, to horizon subsets including "
+            "a lone extrapolated year, and to subject subsets, exactly")
 
 
 # -- 14. the market target and the discount are both dated at the signing ---
@@ -411,6 +421,49 @@ def c14(_table):
         "the discount origin is still the contract start rather than the signing")
     return (f"{len(early)} early-signed contracts, {int(moved)} with a "
             "signing-dated denominator; discount origin is the signing")
+
+
+# -- 15. a long contract is not dropped by the attachment interface ---------
+def c15(table):
+    """The forecast attachment clipped its request at horizon eight, so a term
+    reaching nine was never asked about, then failed the full-term requirement
+    and vanished in the join with no record. No eligible source contract
+    currently reaches that far, so this was latent rather than live, which is
+    exactly the kind of defect a stub can pin down and a sample cannot."""
+    import contract_price_model as CPM
+    from ability_forecast import BaseModel
+
+    class Always(BaseModel):
+        """Answers every requested horizon, so only the interface is on trial."""
+        name = "deterministic stub"
+        FITTED_HORIZONS = None
+
+        def fit(self, table, before):
+            super().fit(table, before)
+
+        def predict(self, iset, subs, horizons):
+            rows = []
+            for h in sorted(int(x) for x in horizons):
+                r = subs[["career_key"]].copy()
+                r["h"] = h
+                r["rate_82"], r["gp_share"], r["p_play"] = 1.0, 1.0, 1.0
+                rows.append(r)
+            return pd.concat(rows, ignore_index=True)
+
+    real = CPM.contract_sample().iloc[:1].copy()
+    if real.empty:
+        raise _Skip("no contracts in the sample")
+    base = real.iloc[0]
+    t0 = int(base["latest_complete"]) + 1
+    two = base.copy(); two["start_yr"], two["end_yr"], two["length"] = t0, t0 + 1, 2
+    ten = base.copy(); ten["start_yr"], ten["end_yr"], ten["length"] = t0, t0 + 9, 10
+    pair = pd.DataFrame([two, ten]).reset_index(drop=True)
+    got = CPM.attach_forecasts(pair, Always, table, verbose=False)
+    terms = sorted(int(x) for x in got["length"])
+    assert terms == [2, 10], (
+        f"attachment returned terms {terms} where a stub answered every season "
+        "of both; the ten-year contract is being dropped by the interface")
+    return "a ten-year term survives attachment when the model answers it"
 
 
 def main() -> None:
@@ -447,7 +500,8 @@ def main() -> None:
                      ("extrapolation declared and bounded", c11),
                      ("adapter matches production", c12),
                      ("extrapolation invariant to the query", c13),
-                     ("market target and discount dated at signing", c14)]:
+                     ("market target and discount dated at signing", c14),
+                     ("long terms survive attachment", c15)]:
         check(name, lambda fn=fn: fn(table))
 
     width = max(len(n) for n, _, _ in results)

@@ -39,7 +39,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 import information_set as ISET
 
-SCRIPT_VERSION = "1.5"
+SCRIPT_VERSION = "1.6"
 
 W_T1, W_T2 = 0.6, 0.4    # the locked recency weighting, reproduced for A0
 
@@ -119,36 +119,41 @@ class BaseModel:
         Every extrapolated row is tagged, so a total built on one can say how
         much of itself was extrapolated.
         """
-        fitted = sorted(getattr(self, "fitted_horizons_", None) or self.FITTED_HORIZONS)
+        raw_fitted = getattr(self, "fitted_horizons_", None) or self.FITTED_HORIZONS
         want = sorted(int(h) for h in horizons)
+        if raw_fitted is None:
+            # A model with no fitted range answers every horizon by
+            # construction, which is true of anything that carries a rule
+            # forward rather than estimating one. There is nothing to
+            # extrapolate past, so this path is a plain predict with the tag
+            # attached for a consistent frame.
+            out = self.predict(iset, subs, want)
+            out["extrapolated"] = 0.0
+            return out
+        fitted = sorted(raw_fitted)
         inside = [h for h in want if h in fitted]
         beyond = [h for h in want if h not in fitted]
-        if not inside:
-            raise ValueError(
-                f"{self.name} has no fitted horizon among {want}; there is "
-                "nothing to carry forward from.")
         if beyond and len(fitted) < 2:
             raise ValueError(
                 f"{self.name} needs two fitted horizons to measure a decay "
                 f"rate from, and has {len(fitted)}.")
-        out = self.predict(iset, subs, inside)
-        out["extrapolated"] = 0.0
+
+        # THE ENDPOINT IS THE MODEL'S, NOT THE CALLER'S. The decay rate was
+        # already measured on a fixed population, but it was applied to the
+        # last fitted horizon the CALLER HAPPENED TO REQUEST, so asking for
+        # horizons 3, 4 and 6 still answered differently from 4, 5 and 6, by
+        # 0.505 WAR at horizon six. The check that was meant to catch this kept
+        # horizon five in both of its requests and so could not.
+        #
+        # The final fitted season is now always computed internally, whether or
+        # not it was asked for, every extrapolation runs from it, and only the
+        # requested rows are returned. A request for an extrapolated year alone
+        # therefore works too, where it used to raise.
+        need = sorted(set(inside) | ({fitted[-1]} if beyond else set()))
+        full = self.predict(iset, subs, need)
+        full["extrapolated"] = 0.0
+        out = full[full["h"].isin(inside)].copy()
         if beyond:
-            # THE RATE COMES FROM THE MODEL, NOT FROM THE QUESTION. It used to
-            # be measured between the last two REQUESTED horizons on the mean
-            # of the REQUESTED subjects, so asking for horizons 3, 5 and 6
-            # returned a different horizon-six forecast than asking for 4, 5
-            # and 6, by up to 0.52 WAR, and asking about one player alone
-            # differed from asking about him inside the population. Those are
-            # interface failures rather than modelling ones: one fitted model
-            # at one decision date has to answer the same question the same
-            # way however the question is batched.
-            #
-            # The rate is measured between the two highest FITTED horizons,
-            # which are adjacent by construction rather than whatever the
-            # caller happened to ask for, on a fixed reference population,
-            # which is every subject eligible on this page. _tail_decay caches
-            # it per page so repeated calls cannot drift either.
             g_prod, g_play = self._tail_decay(iset, fitted[-1], fitted[-2])
             # The ratio is measured on the PRODUCT, which is the quantity that
             # has to decay correctly, and then split between the two parts.
@@ -159,10 +164,9 @@ class BaseModel:
             # observed rate so it stays interpretable, and the rate carries
             # whatever is left over.
             g_rate = float(np.clip(g_prod / g_play, 0.5, 1.05))
-            base_h = max(inside)
-            last = out[out["h"] == base_h]
+            last = full[full["h"] == fitted[-1]]
             for h in beyond:
-                k = h - base_h
+                k = h - fitted[-1]
                 nxt = last.copy()
                 nxt["h"] = h
                 nxt["rate_82"] = last["rate_82"] * g_rate ** k

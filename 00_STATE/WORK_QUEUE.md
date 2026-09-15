@@ -162,3 +162,11 @@ until items 3 to 5 land and the chain is refit.
 **Coverage decision owed alongside item 4:** the fitted range is six seasons and real contracts
 run longer. The guards refuse the gap rather than filling it, so pricing a seven- or eight-year
 deal needs either fits extended to those horizons or a declared and tested extrapolation.
+
+**Rebuild repair, second verification closed (2026-09-15b).** Named-player runner routed through
+the repaired valuation path; extrapolation made endpoint-invariant; attachment horizon ceiling
+removed with rejections recorded. Suite at 15. Still open and unchanged: predictive distributions
+and interval coverage, subgroup reporting by horizon, the trade-date update, joint simulation,
+control-year treatment, goalies, end-to-end dollar reconciliation, the full-chain leakage and
+export-break tests, once-only ledger enforcement, the announced later cap ceilings, and the market
+holdout policy.
