@@ -245,3 +245,19 @@ def write_log(name: str) -> Path:
     p = out_path(name)
     p.write_text("\n".join(_LOG) + "\n", encoding="utf-8")
     return p
+
+
+# --- Exogenous CBA and league constants -------------------------------------
+# Reproduced from the production engine. Both are set outside the model -- the
+# NHL and NHLPA publish the ceiling, the CBA sets the minimum -- so neither can
+# introduce circularity, look-ahead or selection: they never use outcome data.
+CAP_CEILING = {
+    2015: 71.4e6, 2016: 73.0e6, 2017: 75.0e6, 2018: 79.5e6, 2019: 81.5e6,
+    2020: 81.5e6, 2021: 81.5e6, 2022: 82.5e6, 2023: 83.5e6, 2024: 88.0e6,
+    2025: 95.5e6,
+}
+LEAGUE_MIN_SALARY = {
+    2015: 575_000, 2016: 575_000, 2017: 650_000, 2018: 650_000,
+    2019: 700_000, 2020: 700_000, 2021: 750_000, 2022: 750_000,
+    2023: 775_000, 2024: 775_000, 2025: 775_000,
+}
