@@ -1,5 +1,13 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-15r (Claude review response):** Read Thomas's supplied response and checked
+the disputed comparator labeling and signing-date coverage. All 3,550 contracts passing the
+standard-level, RFA/UFA, skater, 2015-2025-start filters have parseable signing dates before
+date-validity filtering; no missing-date fallback is needed for this sample. Added the scoped
+result to the rebuild review. The six-season forecast specification explains the implemented
+range but does not validate callers' longer contracts. Weber's old and new illustrations both
+use eight years; the term truncation is symmetric. No model implementation or decision changed.
+
 **Change log, 2026-09-15q (documentation location correction):** At Thomas's request, moved both
 rebuild plans, the ground-up review, the independent candidate review, and four supporting
 diagnostics from `40_DOCS/` into `50_REBUILD/docs/`. Updated references throughout tracked text,

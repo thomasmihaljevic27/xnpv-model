@@ -52,6 +52,11 @@ The named-player runner is more explicit: it fits its currency on the entire con
 
 **Required:** date each market fit at the decision/signing date and assert that the maximum training signing date precedes it. Re-evaluate pooled versus split markets and curvature on identical date-valid rows.
 
+Follow-up after Claude's response, 2026-09-15: all 3,550 contracts meeting the standard-level,
+RFA/UFA, skater, 2015-2025-start filters have parseable signing dates before the date-validity
+filter is applied. Missing dates therefore do not require a fallback in this sample. This
+checks presence and parsing, not independent historical accuracy of the vendor dates.
+
 ### 5. P1: dollar outputs use future actual caps without present-value discounting
 
 `production_currency.py:95-96` sums historical realized cap ceilings across the future contract and substitutes the 2025 cap for later years. There is no decision date, announcement cutoff, 3% extrapolation, or discount factor. `run_player_comparison.py` does the same.
