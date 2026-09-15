@@ -9,16 +9,15 @@
 
 ## Work queue
 
-**Third repair verification, 2026-09-15:** reviewed `54b6253` in isolation. All 15 checks
-pass. Independent probes close the endpoint-dependent extrapolation and h8 attachment defects.
-The named-player runner now uses dated fits and discounting, but fits separate price equations
-for its two forecasts while claiming a common currency. All 18 comparable quarters differ;
-repricing the 12 displayed live forecasts on the rebuilt equation changes values by $8.26M
-mean absolute and $19.19M maximum. An all-rejected attachment request crashes before reporting
-rejections. See `50_REBUILD/docs/Third_Repair_Verification_Codex.md`. Full simulation, A3,
-control/goalie, dollar reconciliation and final validation remain incomplete. The earlier
-verified development headline is unchanged; it was not rerun this pass. Implementation remains
-on Claude's branch, unmerged; production code is unchanged.
+**Fourth repair verification, 2026-09-15:** reviewed `4b9723a` in isolation. All 17 repair
+checks pass with no skips. Independent full-run audit confirms identical coefficients across
+18 comparable quarters and zero shared-currency repricing differences for all 12 named cases.
+The all-rejected request returns zero rows and one rejection record; empty input also passes.
+The two preceding findings are closed. See `50_REBUILD/docs/Fourth_Repair_Verification_Codex.md`.
+No new blocking defect found in the changed paths. Next milestone is the remaining simulation,
+A3, control/goalie, uncertainty, dollar reconciliation and final-validation work. Rejection
+CSV reporting still is not a complete per-run sample audit. Candidate implementation remains
+unmerged; production code and the previously verified forecast specification are unchanged.
 
 **2026-09-15 independent rebuild review: prerequisite before the experimental next steps below.**
 See `50_REBUILD/docs/Player_Rebuild_Candidate_Review_Codex.md`. Correct shortened-season rate/games units

@@ -1,5 +1,13 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-15v (fourth repair verification):** Reviewed `4b9723a` in isolation.
+All 17 repair checks pass. The independent full named-player audit now finds identical price
+coefficients in all 18 comparable quarters and zero repricing differences for 12 named cases.
+All-rejected input returns zero rows and one rejection record; empty input also passes. Closed
+the prior two findings. Added fourth verification report and updated state, queue, flags and
+session. Remaining plan work and rejection-report limitations are explicitly retained.
+No candidate implementation merged, no production code changed, no reserved evaluation unsealed.
+
 **Change log, 2026-09-15u (third repair verification):** Reviewed `54b6253` at Thomas's
 request. All 15 repair checks pass; prior endpoint and h8 attachment defects close. Executed
 the named-player runner and captured pricing calls: 18 comparable quarters use different
