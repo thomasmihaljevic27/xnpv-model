@@ -87,29 +87,10 @@ every coverage figure. This is the same device the forecast itself already uses 
 eight-year deal from a page that reaches five, with the same caveat: every row produced by it
 is tagged, so a coverage figure that leans on one can say so.
 
-## 4. What is established, and what is only demonstrated
+## 4. What the checks establish
 
-**This machine has ages for 4.6% of the pages that are scored.** The birthdate join has two
-halves and they are not interchangeable. The merged table is the PuckPedia contract export
-first, with an Elite Prospects scrape behind it, and it reaches 98.3% of season rows. The scrape
-**on its own** is the fallback half: it was run to reach the players PuckPedia could not match,
-which are the players who left the league early in the sample. Its median birth year is 1984. It
-covers 84% of 2007 season rows, 28% of 2015, and nothing at all from 2018 on.
-
-That state is more dangerous than having no ages, because the ages are present, plausible, and
-concentrated entirely on seasons nobody is forecasting. A runner that only asked whether a
-birthdate file exists would report a healthy join and score a model whose aging term was fitted
-on players who retired before the development window starts. So `player_season_table.
-birthdate_source()` returns which half it found along with the file, and both runners print the
-label and the coverage on the scored pages before anything else.
-
-With only the fallback half, the aging walk degenerates to a flat carry-forward and the
-participation fits collapse to a constant one-in-two — a Brier score of exactly 0.25 at every
-horizon. The code paths all run. **Every figure the run produced about hockey is about a crippled
-model and is not evidence.** The run log says so on its first line and again on its last.
-
-What that leaves is still substantial, because the checks that matter here do not depend on the
-model being good.
+Three of these do not depend on the model being any good, which is why they were written first
+and run on a machine that at the time had no ages at all.
 
 ### The arithmetic, against an answer known by construction
 
@@ -169,35 +150,119 @@ misses are **identical to the last digit** and so is every fitted scale. This is
 suite a reviewer runs, not only in the battery, because the interval layer is the one component
 here that reads outcomes at fit time.
 
+## 4a. What the band is actually worth
+
+Run on the full table: 98.3% age coverage, 98.4% on the pages that are scored, 32,946 replayed
+misses across calibration pages 2009–2020, 40,510 scored rows on the seven development pages.
+
+**The aggregate is good and the subgroups are where the work is.**
+
+| stated | horizon 0 | 1 | 2 | 3 | 4 | 5 |
+|---|---:|---:|---:|---:|---:|---:|
+| 50% | 0.563 | 0.580 | 0.610 | 0.637 | 0.667 | 0.693 |
+| **80%** | **0.829** | **0.828** | **0.825** | **0.816** | **0.836** | **0.832** |
+| 90% | 0.915 | 0.913 | 0.914 | 0.909 | 0.921 | 0.913 |
+
+The 80% band holds 82–84% of seasons at every horizon and the 90% band holds 91%. Both err
+slightly wide, which is the cheaper direction. The 50% band is the exception and the reason is
+structural rather than a defect: at long horizons a large share of players have a real chance of
+not playing at all, the lump on zero is wide enough to swallow the middle half of the
+distribution, and a band whose ends both sit on zero necessarily holds more than half the
+outcomes.
+
+**Pooling the shape across horizons holds.** The 5th and 95th percentiles of a scaled miss move
+from −1.85/+2.46 at the valuation season to −1.55/+2.75 nine seasons out — the right tail
+lengthens slightly with distance and the left one shortens, but the shape is recognisably one
+shape, and the pooled figure (−1.72/+2.56) sits inside the range at every horizon. That was the
+assumption most likely to be wrong and it survives.
+
+**Pooling it across tiers and ages does not.** Coverage at the stated 80%:
+
+| trailing level | h0 | h1 | h2 | h3 | h4 | h5 |
+|---|---:|---:|---:|---:|---:|---:|
+| below 0 | 0.875 | 0.870 | 0.864 | 0.858 | 0.874 | 0.882 |
+| 0 to 1 | 0.817 | 0.826 | 0.831 | 0.816 | 0.841 | 0.841 |
+| 1 to 2 | 0.764 | 0.771 | 0.751 | 0.757 | 0.775 | 0.761 |
+| 2 to 3 | 0.794 | 0.735 | 0.762 | 0.744 | 0.757 | 0.751 |
+| **3+** | 0.852 | 0.823 | 0.768 | 0.734 | 0.764 | **0.596** |
+
+| age band | h0 | h1 | h2 | h3 | h4 | h5 |
+|---|---:|---:|---:|---:|---:|---:|
+| **22 and under** | 0.754 | 0.747 | 0.705 | 0.653 | 0.677 | **0.663** |
+| 23–26 | 0.816 | 0.806 | 0.805 | 0.790 | 0.807 | 0.784 |
+| 27–30 | 0.833 | 0.826 | 0.817 | 0.809 | 0.824 | 0.825 |
+| 31–33 | 0.836 | 0.856 | 0.855 | 0.838 | 0.865 | 0.882 |
+| 34 and over | 0.873 | 0.887 | 0.910 | 0.938 | 0.966 | 0.977 |
+
+A band that claims 80% and delivers 60% five seasons out, for the players who carry the money,
+is not a detail. It lands on the two populations the project already knows are its weakest: the
+stars and the twenty-and-unders.
+
+## 4b. Which half is wrong, and why the obvious fix is the wrong one
+
+A band can miss too often for two different reasons and the repair is opposite in the two cases.
+If the forecast is centred too low for a group, a correctly sized band around it misses high. If
+the group's outcomes are genuinely more spread out than the pooled shape allows, the band itself
+is too narrow. Coverage alone cannot tell them apart, so the runner now divides each miss by the
+band it was given and reports the middle and the ends separately, for players who played.
+
+| group, five seasons out | n | middle | 5th | 95th | 5–95 span |
+|---|---:|---:|---:|---:|---:|
+| the band, as fitted | 32,946 | −0.11 | −1.72 | +2.56 | 4.28 |
+| 3+ trailing wins | 151 | **+0.44** | −1.62 | **+3.41** | 5.03 |
+| aged 22 and under | 389 | +0.18 | −1.72 | **+3.65** | 5.37 |
+| 1 to 2 wins | 516 | +0.20 | −1.80 | +2.84 | 4.64 |
+
+**Most of the star under-coverage is the forecast, not the band.** The middle of the star misses
+sits at +0.44 where the band expects −0.11: the model is centred too low for them, which is the
+star residual already on the queue as an open item and already measured in wins (top decile
+predicted at 2.360 against 2.698 actual). A band centred on a number that is too low misses high,
+and **widening it would hide a known bias behind a bigger interval rather than fix it.** That is
+the wrong repair and it is not made here.
+
+**Some of it is the band.** The star and young-player right tails are genuinely longer than the
+pooled shape — +3.41 and +3.65 against +2.56 — and that is not a shift, because their left tails
+sit almost exactly where the pooled one does. So the shape is not one shape across tiers and
+ages, whatever it is across horizons. That is the interval layer's own limitation and it is
+recorded as one.
+
+The order that follows is: fix the centre first, then re-measure the tails. Fitting a fatter
+tail for stars while the forecast for stars is biased would be fitting the wrong thing.
+
 ## 5. Two things the run measured that are worth recording anyway
 
-Both are properties of the machinery rather than claims about hockey, and both would need
-rerunning with ages before they are quoted as findings.
+Both are properties of the machinery rather than claims about hockey.
 
-**Being fitted in sample flatters the band by about 3%.** The spread is learned by replaying
+**Being fitted in sample flatters the band by about 4.5%.** The spread is learned by replaying
 the model on pages inside its own training window, so the misses it learns from are slightly
 smaller than the misses it will make. That gap is measured rather than assumed small: the
 model's real misses, each divided by the band it was given, against the same figure for the
-misses the band was fitted on. The middle 80% of the real misses is 3.3% wider than the middle
-80% of the fitted ones. Small, in the direction expected, and worth re-measuring on a full
-table before deciding whether to correct for it.
+misses the band was fitted on. The middle 80% of the real misses is 4.5% wider than the middle
+80% of the fitted ones (3.32 against 3.18 in units of the band). Small, in the direction
+expected, and **not corrected for** -- a 4.5% inflation would raise the aggregate 80% coverage
+from 0.83 to a little over 0.84, which is further from the stated level, not closer. The band is
+already slightly wide in aggregate; correcting the optimism on top of that would make it wider
+still. Recorded as measured rather than applied.
 
-**About 30% of a one-season shock survives into the forecast.** Raising every player's most
-recent per-82 rate by half a win moves the forecast by 0.148. That number is the shrinkage the
-entire rebuild rests on, stated for the first time as a single figure: one season is weak
-evidence and the model treats it as such. A pass-through above one would mean the model
-amplifies a single noisy season, which is the defect the rebuild set out to remove.
+**Between 45% and 65% of a one-season shock survives into the forecast, and the share RISES
+with distance.** Raising every player's most recent per-82 rate by half a win moves the
+valuation-season forecast by 0.226 and the five-seasons-out forecast by 0.325 — a pass-through
+of 0.45 climbing to 0.65. The level is the shrinkage the whole rebuild rests on, stated for the
+first time as a single figure: one season is weak evidence and the model treats it as such, and
+a pass-through above one would be the amplification the rebuild set out to remove.
+
+**The slope is the surprising part and it is not explained here.** A shock to last season ought
+to matter less the further out the forecast reaches, not more, because a distant season should
+revert further toward the league. It does the opposite. Removing the oldest season in the window
+shows the same pattern from the other side: it moves the valuation season by −0.013 and the
+fifth season out by −0.321. The long horizons lean harder on the trailing anchor than the short
+ones do. That is a question for the forecast, not for the interval layer, and it is recorded as
+one rather than guessed at.
 
 ## 6. What this does not establish
 
-- **Nothing about the calibration of the real model.** Coverage, width and the subgroup tables
-  all ran, and all of them describe a model with no ages and a constant participation
-  probability. They show the report's shape. They are not results.
 - **Nothing about dollars.** The band is on a season's win total. Turning it into a band on a
   contract's value is the joint simulation, which is the next piece and is not built.
-- **Nothing about the market side.** The contract export is not on this machine either, so
-  eight of the twenty-one checks in the review suite skip here rather than pass. It is also the
-  primary source of birthdates, so it is what the age coverage above is waiting on.
 - **The interval is on the season total only.** The rate, the games share and the participation
   probability do not carry separate bands, and the simulation will need the first two to be
   drawn jointly rather than through their product.
@@ -206,20 +271,23 @@ amplifies a single noisy season, which is the defect the rebuild set out to remo
 
 The band is the input the joint simulation needs. The order that follows from this run:
 
-1. rerun everything here on a machine with the birthdate join, and read the coverage and
-   subgroup tables as results rather than as a demonstration
+1. **the star residual, which is now blocking two things rather than one.** It was already the
+   forecast's largest known defect; it is also most of why the band under-covers the players who
+   carry the money. Fixing the centre is the prerequisite for reading the tails.
 2. build the path simulation on the fitted spread, with the zero-uncertainty identity it
    already has to satisfy one layer down
 3. separate bands for the rate and the games share, drawn jointly, so an exit implies zero
    games on the path rather than a product of averages
+4. then, and only then, re-measure whether the shape needs a tier or age term of its own
 
 ## Files
 
     50_REBUILD/code/predictive_interval.py     the mixture, the calibrator, the wrapper
     50_REBUILD/code/run_uncertainty.py         coverage and width by horizon and subgroup
     50_REBUILD/code/run_leakage_tests.py       the five-part battery
-    50_REBUILD/code/repair_checks.py           three new guards (18-20) in the reviewer's suite
+    50_REBUILD/code/repair_checks.py           four new guards (18-21) in the reviewer's suite
 
 Outputs, all ignored under `50_REBUILD/output/`: `uncertainty_run_log.txt`,
 `uncertainty_coverage_by_horizon.csv`, `uncertainty_coverage_by_subgroup.csv`,
+`uncertainty_shape_by_subgroup.csv`,
 `leakage_tests_run_log.txt`, `leakage_sensitivity.csv`.

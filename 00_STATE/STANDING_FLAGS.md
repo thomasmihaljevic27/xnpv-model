@@ -51,18 +51,33 @@ residuals and currency comparisons; fix and rerun development work before furthe
   cap tables now differ on one season. **Decision owed before any 2027-28 valuation is built or
   cited.** 2026-27 at $104.0M is confirmed and is in both.
 
-- **NEW 2026-09-15c — three open items carried by the new interval layer.** (a) The spread is
-  fitted by replaying the model on pages inside its own training window, so it is flattered by
-  being fitted in sample. The size of that gap is measured rather than assumed -- the middle 80%
-  of the real misses ran 3.3% wider than the middle 80% of the fitted ones on a degraded run --
-  and it is **not corrected for**. Re-measure on a full table before deciding whether to. (b) The
-  shape of a miss is **pooled across horizons**; the per-horizon shapes are printed beside the
-  pooled one so the assumption is checked rather than trusted, but the pooling itself is a
-  choice. (c) The band is on the **season total only**. The rate and the games share carry no
-  separate bands, so the simulation cannot yet draw them jointly, and an exit on a path is
-  therefore still a product of averages rather than a zero. This is the rebuild's answer to the
-  existing production flag that first-season uncertainty is zero and later uncertainty is held
-  flat; that flag stays open until the simulation uses this layer.
+- **NEW 2026-09-15c, measured on the full table — the band under-covers the two populations the
+  model is already worst at, and most of it is the forecast.** At the stated 80% the 3+ tier is
+  covered 0.596 five seasons out and the 22-and-unders 0.663, while the 34-and-overs reach 0.977.
+  The middle of the star misses sits at +0.44 where the band expects −0.11, so the dominant term
+  is the **star residual** — a correctly sized band around a centre that is too low misses high.
+  **Widening the band would hide a known bias behind a bigger interval and was not done.** The
+  smaller, genuine band term is that the star and young-player right tails reach +3.41 and +3.65
+  against a pooled +2.56, with their left tails in the normal place. Fix the centre first; the
+  tails are not readable until then.
+- **NEW 2026-09-15c — three open items carried by the interval layer.** (a) In-sample optimism
+  measures **4.5%** (the middle 80% of real misses spans 3.32 against 3.18 fitted) and is
+  **deliberately not applied**: the band is already slightly wide in aggregate, so inflating it
+  would move coverage further from the stated level, not closer. (b) The shape of a miss is
+  **pooled across horizons**, which the per-horizon table supports (5th/95th move from
+  −1.85/+2.46 at the valuation season to −1.55/+2.75 nine out, around a pooled −1.72/+2.56); it
+  is **not** poolable across tiers and ages, per the flag above. (c) The band is on the **season
+  total only**. The rate and the games share carry no separate bands, so the simulation cannot
+  yet draw them jointly and an exit on a path is still a product of averages rather than a zero.
+  This is the rebuild's answer to the existing production flag that first-season uncertainty is
+  zero and later uncertainty is held flat; that flag stays open until the simulation uses this
+  layer.
+- **NEW 2026-09-15c — a one-season shock matters MORE at long horizons, which is backwards.**
+  Pass-through of a half-win shock to the most recent per-82 rate runs 0.45 at the valuation
+  season and 0.65 five seasons out; removing the oldest season in the window moves the valuation
+  season by −0.013 and the fifth season out by −0.321. A distant forecast should revert further
+  toward the league, not lean harder on the trailing anchor. Unexplained, recorded, and a
+  question for the forecast rather than for the interval layer.
 
 - **NEW 2026-09-15 — the elite tier is not identified, and the currency choice decides the
   headline.** Surplus at 2+ forecast wins a season is +$3.00M under a straight price line and

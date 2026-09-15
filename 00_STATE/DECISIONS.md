@@ -1,5 +1,24 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-15y (the uncertainty work, rerun on the full table):** Thomas supplied
+both PuckPedia exports; the contract CSV reproduces the locked coefficients (alpha 0.01324290
+against 0.01324782 locked, both beta terms in range) and age coverage comes back at 98.3% of
+season rows, 98.4% on 2015+, matching the figure on record. Review suite: **19 passed, 2 skipped,
+0 failed**; the two skips need the PuckPedia .xlsx rather than the CSV, because the production
+loader uses `read_excel`. All four leakage tests still pass at exactly zero change with real
+ages. **Aggregate interval calibration is good** — the 80% band holds 0.816-0.836 at every
+horizon, the 90% band 0.909-0.921, both slightly wide. Pooling the shape of a miss across
+horizons survives; **pooling it across tiers and ages fails**, at 0.596 for the 3+ tier five
+seasons out and 0.663 for the 22-and-unders, against 0.977 for the 34-and-overs. Added report 5
+to `run_uncertainty.py`, which separates a biased centre from a too-narrow band: **most of the
+star under-coverage is the known star residual, not the interval**, so the band was deliberately
+NOT widened. In-sample optimism measures 4.5% and is deliberately not applied, because the band
+is already slightly wide in aggregate and correcting it would move coverage further from the
+stated level. Input sensitivity: pass-through 0.45 at the valuation season rising to 0.65 five
+seasons out, a rise that is recorded as an open question about the forecast. The star residual is
+promoted in the queue: it now blocks the interval work as well as the forecast. No production
+code changed, no locked decision reopened, no reserved page unsealed.
+
 **Change log, 2026-09-15x (the 2026-27 ceiling, and what the birthdate file turned out to be):**
 `rebuild_config.CAP_CEILING` gains 2026 = $104.0M, confirmed by Thomas, with the 2025-01-31
 announcement date enforced; check 21 in `repair_checks.py` holds both halves of that (a

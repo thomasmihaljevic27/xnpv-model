@@ -18,8 +18,11 @@ Six reports, in the order a reader should want them:
   3. coverage and width, by horizon, at three stated levels and both tails
   4. coverage by subgroup WITHIN horizon -- an average is a place for a
      failure to hide, and that applies to a band as much as to an error
-  5. how much the fitted spread is flattered by being fitted in sample
-  6. the zero-spread identity: with no uncertainty, the band collapses onto
+  5. for an under-covered group, whether the band is too narrow or the
+     forecast it is centred on is biased -- the fix is opposite in the two
+     cases and the coverage number alone cannot tell them apart
+  6. how much the fitted spread is flattered by being fitted in sample
+  7. the zero-spread identity: with no uncertainty, the band collapses onto
      the point forecast. The plan asks the Phase 5 simulation to satisfy the
      same identity; this is that check one layer down, where it is cheap.
 """
@@ -38,7 +41,7 @@ import predictive_interval as PI
 from player_season_table import build as build_table
 from ability_forecast import A1HingeExposure
 
-SCRIPT_VERSION = "1.1"
+SCRIPT_VERSION = "1.2"
 
 # The adopted candidate, matching run_stress_tests.py. The uncertainty layer
 # wraps whatever model it is given, so this is the model under test rather
@@ -187,8 +190,55 @@ def main() -> None:
             C.log(f"    {str(grp):<16}" + "".join(cells))
         C.log("")
 
-    # ---- 5. in-sample optimism -------------------------------------------
-    C.log("REPORT 5  HOW MUCH THE SPREAD IS FLATTERED. The band is fitted by")
+    # ---- 5. is an under-covering group the band's fault or the forecast's? --
+    C.log("REPORT 5  WHEN A GROUP IS UNDER-COVERED, WHICH HALF IS WRONG? A band")
+    C.log("can miss too often for two quite different reasons, and the fix is")
+    C.log("opposite in the two cases. If the forecast is centred too low for a")
+    C.log("group, a correctly sized band around it misses high -- and widening")
+    C.log("the band would hide a known bias behind a bigger interval instead of")
+    C.log("fixing it. If the group's outcomes are genuinely more spread than the")
+    C.log("pooled shape allows, the band itself is too narrow.")
+    C.log("")
+    C.log("Each miss is divided by the band it was given. A shifted middle is")
+    C.log("the forecast being wrong. A stretched 5th-to-95th is the band being")
+    C.log("wrong. Players who played only, so participation is not in this.")
+    C.log("")
+    pl = s_band[s_band["played"]].copy()
+    pl["mu"] = pl["rate_82"] * pl["gp_share"]
+    sg = np.empty(len(pl))
+    for hz in sorted(pl["h"].unique()):
+        k = (pl["h"] == hz).to_numpy()
+        sg[k] = banded.spread_.sigma(int(hz), pl.loc[k, "mu"])
+    pl["z"] = (pl["act_war"].fillna(0.0) - pl["mu"]).to_numpy() / np.maximum(sg, 1e-9)
+    ref = np.quantile(banded.spread_.zs_, [0.05, 0.5, 0.95])
+    shape_rows = []
+    for col, label in [("tier", "trailing level"), ("age_band", "age band")]:
+        if s_band[col].isna().all():
+            continue
+        C.log(f"  by {label}:")
+        C.log(f"    {'group':<12}{'h':>3}{'n':>7}{'middle':>9}{'5th':>8}"
+              f"{'95th':>8}{'5-95 span':>12}")
+        for grp in pl[col].dropna().unique().categories if hasattr(
+                pl[col].dropna(), "cat") else sorted(pl[col].dropna().unique()):
+            for hz in (0, 3, 5):
+                g = pl[(pl[col] == grp) & (pl["h"] == hz)]
+                if len(g) < 30:
+                    continue
+                q = np.quantile(g["z"], [0.05, 0.5, 0.95])
+                C.log(f"    {str(grp):<12}{hz:>3}{len(g):>7}{q[1]:>+9.2f}"
+                      f"{q[0]:>+8.2f}{q[2]:>+8.2f}{q[2] - q[0]:>12.2f}")
+                shape_rows.append({"by": label, "group": str(grp), "h": hz,
+                                   "n": len(g), "med_z": q[1], "p05_z": q[0],
+                                   "p95_z": q[2], "span": q[2] - q[0]})
+        C.log("")
+    C.log(f"    {'the band':<12}{'-':>3}{len(banded.spread_.zs_):>7}{ref[1]:>+9.2f}"
+          f"{ref[0]:>+8.2f}{ref[2]:>+8.2f}{ref[2] - ref[0]:>12.2f}")
+    C.log("")
+    pd.DataFrame(shape_rows).to_csv(
+        C.out_path("uncertainty_shape_by_subgroup.csv"), index=False)
+
+    # ---- 6. in-sample optimism -------------------------------------------
+    C.log("REPORT 6  HOW MUCH THE SPREAD IS FLATTERED. The band is fitted by")
     C.log("replaying the model on its own training pages, so the misses it")
     C.log("learns from are slightly smaller than the misses it will make. The")
     C.log("size of that gap is measured here rather than assumed small: the")
@@ -216,8 +266,8 @@ def main() -> None:
     C.log(f"    the band is too narrow by a factor of {ratio:.3f}")
     C.log("")
 
-    # ---- 6. the zero-spread identity --------------------------------------
-    C.log("REPORT 6  THE ZERO-SPREAD IDENTITY. Set the spread to nothing and")
+    # ---- 7. the zero-spread identity --------------------------------------
+    C.log("REPORT 7  THE ZERO-SPREAD IDENTITY. Set the spread to nothing and")
     C.log("make participation certain, and every quantile must land exactly on")
     C.log("the point forecast. A distribution that does not collapse to its own")
     C.log("mean when the uncertainty is removed is not a distribution around")

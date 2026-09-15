@@ -13,18 +13,33 @@
 range (`predictive_interval.py`), the harness's coverage column is no longer empty, and the
 look-ahead spot check is now a five-part battery (`run_leakage_tests.py`). All four leakage tests
 pass at exactly zero change. Report: `50_REBUILD/docs/Predictive_Uncertainty_and_Leakage.md`.
-**Blocked on data, not on work:** this machine has no birthdate file and no contract export, so
-the coverage, width and subgroup tables describe a model with no ages and a constant
-participation probability, and eight of the twenty review checks skip. Next, in order:
-1. **Rerun `run_uncertainty.py` and `run_leakage_tests.py` on a machine with the birthdate
-   join**, and read the coverage and subgroup tables as results rather than as a demonstration.
-   Nothing else in the uncertainty work should be built on figures from this run.
+**Run on the full table once Thomas supplied the vendor exports:** 98.3% age coverage, review
+suite 19 passed / 2 skipped / 0 failed (the two skips need the PuckPedia **.xlsx**, which the
+production loader opens with `read_excel`; the CSV will not substitute). The aggregate
+calibration is good — 80% band holds 82-84%, 90% band holds 91% — and the subgroups are where
+the work is. Next, in order:
+1. **The star residual, promoted: it now blocks two things rather than one.** It was already the
+   forecast's largest known defect (top decile predicted 2.360 against 2.698 actual, hinge
+   variant recovered a fifth). It is also **most of why the 80% band delivers 60% for the 3+ tier
+   five seasons out** — the middle of the star misses sits at +0.44 where the band expects -0.11.
+   Widening the band would hide it. **Fixing the centre is the prerequisite for reading the
+   tails**, so this comes before any further interval work.
 2. **The joint simulation** on the fitted spread, with the zero-uncertainty identity it already
    satisfies one layer down.
 3. **Separate bands for the rate and the games share, drawn jointly**, so an exit implies zero
    games on the path rather than a product of averages.
-4. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
+4. **Only then** re-measure whether the shape of a miss needs a tier or age term of its own. The
+   star and young-player right tails reach +3.41 and +3.65 against a pooled +2.56, which is real,
+   but fitting a fatter tail around a biased centre is fitting the wrong thing.
+5. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
    contract-by-contract dollar reconciliation, and the holdout policy.
+
+**Open question raised by the sensitivity test, not answered.** A shock to last season survives
+into the forecast at 0.45 at the valuation season and **0.65 five seasons out** — the share RISES
+with distance, when a distant season should revert further toward the league. Removing the oldest
+season in the window shows the same from the other side (-0.013 at the valuation season, -0.321
+five out). The long horizons lean harder on the trailing anchor than the short ones. A question
+for the forecast, recorded rather than guessed at.
 
 **2026-09-15c — the 2026-27 ceiling is entered, 2027-28 is not, and production disagrees.**
 `rebuild_config.CAP_CEILING` gains 2026 = $104.0M (Thomas, confirmed), announced 2025-01-31 and
