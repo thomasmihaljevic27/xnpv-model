@@ -957,3 +957,95 @@ class A2PerComponentWindow4(A2PerComponentWindow):
     components that cannot use it are free to ignore it."""
     name = "component model, window per component, four seasons available"
     N_SEASONS = 4
+
+
+# ---------------------------------------------------------------------------
+# AGING. Until now every model reached each horizon through its own separate
+# regression: six independent maps from the anchor to six future seasons, each
+# free to fit its own age coefficients. That is a REDUCED FORM. It can imitate
+# an aging curve, but it never states one, it cannot be audited as one, and it
+# cannot be walked forward a year at a time -- which is what Phase 5's
+# simulation needs, because a career path is drawn step by step.
+#
+# These variants replace it with a STRUCTURAL form: map the anchor to the
+# valuation season once, then walk that level forward on an explicit aging
+# curve. Fewer parameters, an auditable curve, and the shape Phase 5 needs.
+# The test is whether the structure costs accuracy against the six free
+# regressions it replaces.
+# ---------------------------------------------------------------------------
+
+from aging_additive import AdditiveAging  # noqa: E402
+
+
+class _AgingMixin:
+    """Walk the valuation-season rate forward on the fitted aging curve."""
+    AGING_LEVEL_MODE = "lagged"
+
+    def fit(self, table, before):
+        super().fit(table, before)
+        self.aging_ = AdditiveAging(level_mode=self.AGING_LEVEL_MODE).fit(table, before)
+        return self
+
+    def _walk(self, r, rate0, a, h):
+        if h == 0:
+            return rate0
+        return self.aging_.walk(rate0, a["age"].to_numpy(float),
+                                a["is_D"].to_numpy(float), h)
+
+
+class A1Calibrated3Aging(_AgingMixin, A1Calibrated3):
+    """The standing leader, reaching later seasons by aging rather than by a
+    separate regression per horizon."""
+    name = "calibrated total, three seasons, additive aging"
+
+    def predict(self, iset, subs, horizons):
+        a = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP],
+                     self.N_SEASONS, self.decay_)
+        a = a[a["t0"] == iset.t0].set_index("career_key").reindex(subs["career_key"])
+        rate0 = _apply(self.coef_.get(0), a[self.FEATURES], a["tw_WAR"])
+        rows = []
+        for h in horizons:
+            r = subs.copy()
+            r["rate_82"] = self._walk(r, rate0, a, h)
+            gp = _apply(self.gp_coef_.get(h),
+                        a[["tr_gp_share", "is_D", "exp_seasons", "age_c"]], a["tr_gp_share"])
+            r["gp_share"] = np.clip(gp, 0.05, 1.0)
+            r["p_play"] = _placeholder_participation(r, h)
+            r["h"] = h
+            rows.append(r[["career_key", "h", "rate_82", "gp_share", "p_play"]])
+        return pd.concat(rows, ignore_index=True)
+
+
+class A2ComponentAging(_AgingMixin, A2PerComponentWindow):
+    """The best component model, likewise."""
+    name = "component model, per-component window, additive aging"
+
+    def predict(self, iset, subs, horizons):
+        played = iset.seasons[iset.seasons["GP"] >= C.MIN_GP]
+        base = self._anchor_frame(played)
+        base = base[base["t0"] == iset.t0]
+        a = self._shrink_with(base, self.k_by_h_.get(0, self.k_)) \
+                .set_index("career_key").reindex(subs["career_key"])
+        fb = a[["sh_" + c for c in C.COMPONENTS_MODEL]].sum(axis=1)
+        rate0 = _apply(self.coef_.get(0), a[self.RATE_FEATURES], fb)
+        rows = []
+        for h in horizons:
+            r = subs.copy()
+            r["rate_82"] = self._walk(r, rate0, a, h)
+            gp = _apply(self.gp_coef_.get(h),
+                        a[["tr_gp_share", "is_D", "exp_seasons", "age_c"]], a["tr_gp_share"])
+            r["gp_share"] = np.clip(gp, 0.05, 1.0)
+            r["p_play"] = _placeholder_participation(r, h)
+            r["h"] = h
+            rows.append(r[["career_key", "h", "rate_82", "gp_share", "p_play"]])
+        return pd.concat(rows, ignore_index=True)
+
+
+class A1Calibrated3AgingNaive(A1Calibrated3Aging):
+    """The SAME model with the biased aging curve -- level measured from the
+    season the change starts from. Kept as a candidate so the register carries
+    the cost of the bias in forecast error, not just in a correlation. It
+    should lose; if it does not, the identification argument needs rechecking
+    rather than repeating."""
+    name = "calibrated total, aging fitted the naive way (diagnostic)"
+    AGING_LEVEL_MODE = "same"

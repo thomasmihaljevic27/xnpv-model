@@ -37,7 +37,8 @@ from ability_forecast import (A0Production, A1Calibrated, A1Calibrated3, A1NoAge
                               A2Raw, A2Component, A2NoAgeTerms, A2PerHorizonTrust,
                               A2PerHorizonTrust3, A2PerHorizonTrust4, A2PerHorizonAll3,
                               A1Calibrated3PerHorizon, A2PerComponentWindow,
-                              A2PerComponentWindow4,
+                              A2PerComponentWindow4, A1Calibrated3Aging,
+                              A2ComponentAging, A1Calibrated3AgingNaive,
                               A2PerHorizonTrustNoAge)
 from player_season_table import build as build_table
 
@@ -65,6 +66,9 @@ CANDIDATES = [
     A1Calibrated3PerHorizon,  # control: per-horizon window on the simple model
     A2PerComponentWindow,    # a window fitted separately for each skill
     A2PerComponentWindow4,   # the same, with a fourth season available
+    A1Calibrated3Aging,      # the leader, reaching later seasons by aging
+    A2ComponentAging,        # the best component model, likewise
+    A1Calibrated3AgingNaive,  # diagnostic: the same with the biased aging curve
 ]
 
 SEASON_LABEL = {0: "valuation season", 1: "+1 season", 2: "+2 seasons",
