@@ -182,10 +182,16 @@ and fitted decay (`ability_forecast.py`), an additive aging curve with a survivo
 price model and production currency (`contract_price_model.py`, `production_currency.py`), and the
 runners that produced the reports in `50_REBUILD/docs/`.
 
-**Where it stands against the live chain**, on development seasons 2015-2021 (2022-2025 sealed and
-untouched): 16.0% lower forecast error at the valuation season, 43.6% five seasons out, and the
-star over-projection moves from **+0.999 wins to −0.365**. Thirty variants are registered in
-`50_REBUILD/docs/variant_register.csv`; none has been retired.
+**Review correction, 2026-09-15:** the reported 16.0%/43.6% error improvements and +0.999 to
+-0.365 star-bias comparison use a flat 60/40 benchmark, not the live chain's aging and survival.
+The original stress runner reproduces, but the independent review confirmed inconsistent
+shortened-season rate/games units, unfitted participation horizons after year six, market fits
+split by contract starts rather than signings, and incomplete harness sample guards. Historical
+dollar illustrations also use future actual caps without discounting. The forecast-page seal
+does not cover the market-selection runners. See `40_DOCS/Player_Rebuild_Candidate_Review_Codex.md`.
+These findings take precedence over the earlier broad validation claims. No implementation was
+changed; repaired development comparisons and the unbuilt simulation work must precede adoption.
+Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 
 **Decisions taken inside the tree only.** Term-in for the production currency (Thomas,
 2026-09-15). One shared price line for restricted and unrestricted free agents — D7's locked answer

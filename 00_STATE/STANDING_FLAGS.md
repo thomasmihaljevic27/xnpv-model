@@ -1,5 +1,17 @@
 # STANDING FLAGS & OPEN QUESTIONS — NHL Trade Market Efficiency
 
+## Independent rebuild review (2026-09-15)
+
+The earlier rebuild claims of improvement against the live chain and no leakage anywhere are
+superseded by `40_DOCS/Player_Rebuild_Candidate_Review_Codex.md`. The original stress runner
+reproduces its results, but it uses a flat comparator and a rate-only look-ahead check. Confirmed
+defects include rate/games unit mismatch in shortened seasons, a 60% participation fallback after
+the sixth forecast year, market windows dated by starts instead of signings, inconsistent
+participation conditioning, and missing sample-completeness enforcement. Dollar illustrations
+read future actual caps without discounting. Forecast-page protection does not seal market
+selection. These issues affect the basis for interpreting the previously reported star/young
+residuals and currency comparisons; fix and rerun development work before further selection.
+
 ## Ground-up review follow-ups (2026-09-14b; recommendations only)
 
 - Market experiment samples use contract start year rather than signing date (`anchor_shrink_test.rate_sample`, inherited by `market_line_search`). Early extensions can expose unavailable performance. **QUANTIFIED 2026-09-14d (`signing_date_audit.py`):** of the locked 2,349 contracts, 85 (3.6%) were signed before the t-1 season began and 616 (26.2%) during it, so 30% read some production the signing team had not seen. Concentrated at the top: 19.2% of 3+ contracts and 11.8% of 2-3 signed before t-1 began, against 1-2% below 1 WAR; early signers are paid more at the same trailing WAR in every tier. The production rate itself (`skater_value_engine.stage0`) is built the same way. Until the sample is dated at the signing, the September 14 market-line figures are not signing-date out-of-sample evidence.

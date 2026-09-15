@@ -9,6 +9,15 @@
 
 ## Work queue
 
+**2026-09-15 independent rebuild review: prerequisite before the experimental next steps below.**
+See `40_DOCS/Player_Rebuild_Candidate_Review_Codex.md`. Correct shortened-season rate/games units
+and the participation event; enforce eligible samples and fitted contract horizons; add the real
+production comparator; date market fits at signings; implement consistent ex-ante caps and
+discounting. Then rerun development comparisons before tuning the remaining star residual.
+Complete the missing predictive distributions, A3 update, control-year/goalie gates and simulation;
+record market versus forecast holdout exposure before final confirmation. Review only: no fixes
+adopted and no locked decision reopened.
+
 **2026-09-15 — experimental rebuild (`50_REBUILD/`), next steps in order.** Phases 0-4 are built
 and reported; nothing is adopted into production. In priority order:
 1. **The elite tier is not identified, and it is the thesis's headline.** Surplus at 2+ forecast
