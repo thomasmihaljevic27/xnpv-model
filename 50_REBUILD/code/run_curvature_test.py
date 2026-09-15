@@ -44,7 +44,7 @@ from player_season_table import build as build_table
 from ability_forecast import A1AgingParticipationImputedNC
 from run_phase4_decisions import prep
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.3"
 
 BASE = ["length", "is_RFA", "rfa_x_war", "is_D", "one_year", "war_year1"]
 
@@ -74,8 +74,18 @@ SPECS = {
 
 def rolling(d: pd.DataFrame, cols) -> tuple[float, int, dict]:
     err, n, by_yr = [], 0, {}
-    for yr in range(2018, 2026):
-        tr, te = d[d["start_yr"] < yr], d[d["start_yr"] == yr]
+    # The cohorts this evaluation is allowed to see, checked and recorded
+    # before any of them is read. The sweep used to run to 2025 and select
+    # on each year it touched, including the reserved ones.
+    # DEVELOPMENT COHORTS ONLY, chosen here rather than handed to the guard
+    # as a range it has to refuse. Sealing the reserved years is right; an
+    # entry point that cannot run without tripping the seal is not.
+    _dev = [y for y in range(2018, 2026) if y not in C.CONFIRMATORY_START_YEARS]
+    for yr in C.check_market_cohorts(_dev, "run_curvature_test"):
+        # Trained on contracts SIGNED before the test contract, not merely
+        # starting before it. See run_phase4_decisions for the same change.
+        te = d[d["start_yr"] == yr]
+        tr = d[d["signed"] < te["signed"].min()] if len(te) else d.iloc[:0]
         if len(tr) < 200 or not len(te):
             continue
         b, _, _ = tobit(tr[cols + BASE].to_numpy(float),

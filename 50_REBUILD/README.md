@@ -57,11 +57,11 @@ No `.env` is required — paths fall back to the repo layout. From the repo root
 
 | Phase | What it is | State |
 |---|---|---|
-| 0 | dates, identities, the scoreboard | **built, acceptance PASS**; item 4 (ages) closed at 98.3% coverage |
+| 0 | dates, identities, the scoreboard | built, with the season identity now asserted rather than assumed; ages closed at 98.3% coverage. The acceptance run compares against a flat-carry benchmark, not the live chain |
 | 1 | how good will he be | run with ages. **The component model fails the plan's gate; the simpler calibrated total is ahead** |
-| 2 | will he be playing at all | not started — placeholder in the harness |
-| 3 | aging | not started — flat carry-forward in the harness |
-| 4 | what the market pays, and what production is worth | **unblocked** — contracts CSV validated against the locked regression |
+| 2 | will he be playing at all | built: per-horizon participation probabilities, fitted over six seasons and refusing any horizon beyond them. The ten-game event differs from the plan's one game |
+| 3 | aging | built: an additive curve on the shrunk anchor, carried by the adopted candidate. The current comparables ratio path is not yet on the harness |
+| 4 | what the market pays, and what production is worth | experiments run, results not usable: market windows are dated by contract start rather than by signing, and the dollar figures have no discounting |
 | 5 | put a dollar value on the whole contract | not started |
 | 6 | rebuild the other pillars, confirm once, lock | not started |
 

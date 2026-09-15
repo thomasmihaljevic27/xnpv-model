@@ -27,7 +27,7 @@ import sys
 import time
 from pathlib import Path
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.5"
 
 # --- Tree layout ----------------------------------------------------------
 # resolve() first: __file__ can be relative depending on how python was
@@ -148,7 +148,171 @@ COMPONENTS_MODEL = COMPONENTS + [UNALLOCATED]
 # The season from which the residual appears. Before this the identity holds.
 UNALLOCATED_FIRST_SEASON = 2023
 
+# THE HORIZONS EVERY FITTED MODEL ESTIMATES, named once so that the fitted
+# range and the requested range cannot drift apart. The rebuild plan specified
+# a harness over six forecast seasons and that is what is fitted here.
+#
+# A contract can run longer than this, and the market and named-player runners
+# used to request horizons 6, 7 and 8 against models fitted only to 5. Nothing
+# refused them: participation returned a flat 0.6 for every player and the
+# rate and games fits returned the trailing value, so the tail of any long
+# contract was priced on numbers no fit had produced. The guards now refuse
+# those horizons. Covering real contract terms needs either fits extended to
+# the horizons a contract actually reaches or a declared and tested
+# extrapolation, which is a modelling decision and not this constant's job.
+FITTED_HORIZONS = tuple(range(6))
+
+# HOW FAR OUT A FIT MAY BE ATTEMPTED, and how much evidence a horizon needs
+# before it counts as fitted.
+#
+# The six above is not arbitrary and it is not a free choice: it is what the
+# EARLIEST development page can support. A training pair at horizon h needs an
+# anchor at t0 and an outcome at t0+h completed before the valuation season, and
+# the source starts in 2007, so at the 2015 page horizon 6 has 270 pairs and
+# horizon 7 has none at all. At the 2021 page horizon 7 has 1,246 and the range
+# reaches 11.
+#
+# A contract, meanwhile, does not care: an eight-year deal needs eight seasons
+# priced wherever it was signed. So the fitted range is decided per page from
+# the evidence actually available, rather than fixed at the worst page's answer
+# and then quietly extrapolated past it. Beyond what a page supports the models
+# refuse, which is the point: the alternative that was in place returned a flat
+# 0.6 and the trailing rate.
+#
+# MIN_HORIZON_PAIRS is a judgement and worth revisiting. 200 league-wide pairs
+# is thin for the tail of a long deal; it is set above the rate fit's own floor
+# of 50 so that a horizon can be declared fitted only on more than the bare
+# minimum that lets least squares return a number.
+MAX_HORIZON = 12
+CANDIDATE_HORIZONS = tuple(range(MAX_HORIZON + 1))
+MIN_HORIZON_PAIRS = 200
+
 MIN_GP = 10           # a season needs this many games to count as a signal
+
+# THE PARTICIPATION EVENT, which is a different question from the one MIN_GP
+# answers and had been sharing its number.
+#
+# MIN_GP asks whether a season carries enough evidence to be used as an INPUT.
+# Ten games is a reasonable answer to that. The participation model asks a
+# different question, whether the player is in the NHL at all in a future
+# season, and the rebuild plan specified one or more games for it. Using ten
+# for both made the two halves of the forecast condition on different events:
+# participation predicted the odds of a ten-game season, while the rate and
+# games targets were read from any season with a number in it, cameos
+# included. The forecast is participation multiplied by production, so the two
+# have to be the same event or the product is not an expectation of anything.
+#
+# Moving to one game brings 2,918 cameo seasons into the played state. They are
+# 17.1% of season rows and -0.10% of total WAR, and their per-82 rates run from
+# -8.4 to +41.5 because dividing by one to nine games and multiplying by 82
+# amplifies noise by up to eighty times. That is why RATE_WEIGHT_BY_GAMES below
+# exists: the conditioning is fixed by changing the event, and the noise the
+# change admits is handled by weighting rather than by quietly excluding the
+# seasons again.
+PARTICIPATION_GP = 1
+
+# MINIMUM AGE COVERAGE the season table will proceed on without being told to.
+#
+# The birthdate join reads PuckPedia plus an Elite Prospects file, and the
+# Elite Prospects file is not in the repository. Without it coverage falls from
+# 98.3% of season rows to 69.2%, and nothing fails: the aging model simply has
+# far less to work with, so the rebuild's improvement over the benchmark at
+# five seasons out reads 23.6% instead of 43.5%. A missing input that silently
+# shrinks a headline result is worse than one that stops the run, because the
+# shrunken number looks like a finding. The threshold sits below the known-good
+# 98.3% and far above the degraded 69.2%.
+MIN_AGE_COVERAGE = 0.95
+
+
+# --- THE CAP PATH AS IT WAS KNOWN AT A DECISION DATE ----------------------
+#
+# A valuation may use a ceiling only once it has been announced. The code this
+# replaces summed the REALISED ceiling for each contract season and substituted
+# the 2025 ceiling for anything later, so a 2017 valuation of a 2019-start
+# contract already knew the flat-cap years that the pandemic had not yet
+# caused. That is not a small look-ahead: the flat cap is the single largest
+# surprise in the sample period and it sits directly in the denominator of
+# every cap share.
+#
+# WHEN A CEILING BECOMES KNOWN. The upper limit for a season is normally set in
+# the June before it starts, so a 1 July valuation in year Y knows year Y and
+# not year Y+1. The exception on the record is 2025-01-31, when the league and
+# the players' association published the ceilings for 2025-26, 2026-27 and
+# 2027-28 together, so a valuation from July 2025 may use all three and an
+# earlier one may use none of them.
+#
+# NOT ADDED HERE: the announced 2026-27 and 2027-28 figures themselves. They
+# are public and they belong in CAP_CEILING, but they are not in this
+# repository's source data and a thesis model should not carry a number typed
+# in from memory. Until they are entered from the source, a valuation dated
+# after 2025-01-31 extrapolates those two seasons at CAP_GROWTH like any other
+# unannounced year, which understates them. Recorded so it is a known gap
+# rather than a silent one.
+CAP_ANNOUNCED_EARLY = {2025: "2025-01-31", 2026: "2025-01-31", 2027: "2025-01-31"}
+
+# Growth applied beyond the last announced ceiling, and the discount rate on
+# future dollars. Equal by design, following locked decision D24: in cap-share
+# terms a 3% growth path and a 3% discount cancel exactly, so the primitive is
+# the plain sum of cap shares and pricing is one multiplication. They are kept
+# as two separate constants rather than cancelled in the algebra so that the
+# cancellation is something the code demonstrates rather than assumes.
+CAP_GROWTH = 0.03
+DISCOUNT_RATE = 0.03
+
+
+def cap_announced_on(year: int) -> "object":
+    """The date the ceiling for a season became public knowledge."""
+    import datetime as _dt
+    if year in CAP_ANNOUNCED_EARLY:
+        return _dt.date.fromisoformat(CAP_ANNOUNCED_EARLY[year])
+    return _dt.date(year, 7, 1)
+
+
+def cap_path(decision_date, years):
+    """The ceiling for each season, as knowable on `decision_date`.
+
+    Announced ceilings are used as published. Everything later grows from the
+    last announced one at CAP_GROWTH. A valuation therefore cannot see a cap
+    shock that had not been announced when it was made.
+    """
+    import datetime as _dt
+    import pandas as _pd
+    d = decision_date
+    if isinstance(d, str):
+        d = _dt.date.fromisoformat(d)
+    elif isinstance(d, _pd.Timestamp):
+        d = d.date()
+    elif isinstance(d, _dt.datetime):
+        d = d.date()
+
+    known = {y: c for y, c in CAP_CEILING.items() if cap_announced_on(y) <= d}
+    if not known:
+        # Before the first announcement in the table there is nothing to stand
+        # on, so the earliest ceiling is the only defensible anchor and the
+        # caller is told rather than handed a silent guess.
+        raise ValueError(
+            f"no cap ceiling had been announced by {d}; the table starts at "
+            f"{min(CAP_CEILING)}. A valuation this early cannot be priced.")
+    last_yr = max(known)
+    last_cap = known[last_yr]
+    return {int(y): (known[y] if y in known
+                     else last_cap * (1.0 + CAP_GROWTH) ** (int(y) - last_yr))
+            for y in years}
+
+# WEIGHT RATE OBSERVATIONS BY GAMES PLAYED. A per-82 rate computed from a
+# handful of games is an estimate of the same quantity as a full season's rate,
+# but a far noisier one: its sampling variance scales roughly as one over the
+# games behind it, so games played IS the precision weight rather than a
+# convenient way of down-weighting inconvenient rows. Without it a single
+# one-game season carrying a rate of 41.5 sits in a least-squares fit with the
+# same authority as a full season.
+#
+# DECISION OWED. This is the choice the review left open: weight the cameo
+# seasons, or model short appearances as their own low-production state. The
+# weighting is the smaller change and it keeps the plan's one-game event
+# intact, so it is what ships here, and it is flagged rather than locked.
+RATE_WEIGHT_BY_GAMES = True
+
 PAIR_MIN_GP = 20      # the aging curve's own filter, for persistence pairs
 
 # WAR.csv coverage. Experience counted from this table is LEFT-CENSORED at
@@ -164,6 +328,86 @@ LAST_SOURCE_SEASON = 2025
 # is enforced in code by forecast_harness.py, not by discipline.
 DEV_PAGES = tuple(range(2015, 2022))          # 2015-2021 valuation seasons
 CONFIRMATORY_PAGES = tuple(range(2022, 2026))  # 2022-2025, sealed
+
+# THE MARKET SIDE OF THE SAME RESERVATION, by contract start year. The page
+# seal above covered forecast scoring only, so both market runners swept start
+# years 2018 through 2025 on every development run and selected a price
+# specification on cohorts the project was describing as untouched. Sealing the
+# pages and not the cohorts is not a split sample.
+#
+# The boundary mirrors the forecast pages because that is the conservative
+# reading, NOT because it has been decided: where the market holdout should sit
+# is a decision owed, and until it is taken this constant is the proposal being
+# enforced rather than a locked line.
+CONFIRMATORY_START_YEARS = tuple(range(2022, 2026))
+
+# THE INSPECTION LEDGER. Every evaluation that consumes a page or a cohort
+# appends one line here, so what has been looked at is a record rather than a
+# reconstruction from session logs after the fact.
+#
+# This is the one file written outside 50_REBUILD/output/, and deliberately:
+# an output regenerates and is gitignored, while the point of this file is that
+# it accumulates and is committed. It is a record of what was done, not a model
+# artifact, so out_path()'s rule does not apply to it and it gets its own
+# writer below rather than a way around that rule.
+INSPECTION_LEDGER = REBUILD_ROOT / "docs" / "inspection_ledger.csv"
+
+
+def record_inspection(runner: str, kind: str, keys, reason: str = "") -> None:
+    """Append one line recording what an evaluation just consumed.
+
+    Never raises into the caller. A ledger that can break a run would get
+    switched off the first time it did, and a record nobody keeps is worse
+    than one that occasionally misses a line on a read-only checkout.
+    """
+    import csv
+    try:
+        keys = sorted(int(k) for k in keys)
+        sealed = [k for k in keys
+                  if k in CONFIRMATORY_PAGES or k in CONFIRMATORY_START_YEARS]
+        new_file = not INSPECTION_LEDGER.exists()
+        INSPECTION_LEDGER.parent.mkdir(parents=True, exist_ok=True)
+        with open(INSPECTION_LEDGER, "a", newline="", encoding="utf-8") as fh:
+            w = csv.writer(fh)
+            if new_file:
+                w.writerow(["utc", "runner", "kind", "keys", "reserved_keys",
+                            "reason"])
+            w.writerow([time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+                        runner, kind,
+                        " ".join(str(k) for k in keys),
+                        " ".join(str(k) for k in sealed), reason])
+    except Exception as e:                      # noqa: BLE001
+        log(f"  [ledger] could not record this inspection ({e.__class__.__name__})")
+
+
+def check_market_cohorts(cohorts, runner: str, unseal: bool = False,
+                         reason: str = ""):
+    """The market twin of the harness page seal, and the same contract.
+
+    A start-year cohort in CONFIRMATORY_START_YEARS may not be evaluated during
+    development. Selecting a price specification on a cohort is selection on
+    that cohort whether or not a forecast page was involved.
+    """
+    cohorts = tuple(int(c) for c in cohorts)
+    sealed = [c for c in cohorts if c in CONFIRMATORY_START_YEARS]
+    if sealed and not unseal:
+        raise ConfirmatorySealBroken(
+            f"contract start years {sealed} are reserved and may not be "
+            f"evaluated during development. Development cohorts run to "
+            f"{CONFIRMATORY_START_YEARS[0] - 1}. Pass unseal=True with a "
+            "reason to spend them, which is logged and is not repeatable.")
+    if sealed:
+        # A REASON IS REQUIRED, as it is on the page seal. Accepting an empty
+        # one spends a reserved cohort and leaves no record of what it was
+        # spent on, which is the same hole the page seal had.
+        if not (reason or "").strip():
+            raise ConfirmatorySealBroken(
+                f"start years {sealed} are reserved and unseal=True was passed "
+                "with no reason. The run is not repeatable, so what it was "
+                "spent on has to be written down before it is spent.")
+        log(f"  *** MARKET SEAL BROKEN for start years {sealed}: {reason}")
+    record_inspection(runner, "market cohort", cohorts, reason)
+    return cohorts
 
 
 class ConfirmatorySealBroken(RuntimeError):

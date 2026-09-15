@@ -2,7 +2,8 @@
 
 EXPERIMENTAL (50_REBUILD). Rebuild plan, Phase 0 acceptance:
 
-    "the production chain's own forecast, re-expressed as a model, scores on
+    "the FLAT BENCHMARK, which is the production chain with its aging path and
+    survival weighting removed, scores on
      the harness and reproduces the tilt already measured (+24% at 3+ on
      2020-25 pages). That is the reproduction guard for the harness itself."
 
@@ -28,7 +29,7 @@ import forecast_harness as H
 from ability_forecast import A0Production, A1Calibrated, A2Raw, A2Component
 from player_season_table import build as build_table, guard_against_production
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 pd.set_option("display.width", 200, "display.max_columns", 50)
 
 
@@ -61,7 +62,9 @@ def main() -> None:
         C.log("        refused, as designed")
     C.log("")
 
-    C.log("STEP 3  A0, the production chain's forecast, scored on the harness")
+    C.log("STEP 3  the flat benchmark, scored on the harness. This is NOT the")
+    C.log("        live chain: it drops the aging path and the survival")
+    C.log("        weighting. production_adapter.ProductionChain is the chain.")
     a0 = harness.run(A0Production())
     C.log(f"        {len(a0)} scored rows, {a0['career_key'].nunique()} careers, "
           f"{a0['page'].nunique()} pages")

@@ -1,5 +1,17 @@
 # Stress-testing the player model
 
+> **Correction, 2026-09-15.** Every comparison in this report is against the FLAT BENCHMARK,
+> which is the production chain with its aging path and its exit-hazard survival weighting
+> removed, and not against the live chain. Where the text below says "the production chain" or
+> "today's model" about a comparator, read the flat benchmark. The live chain is now available
+> on the harness as `production_adapter.ProductionChain`, and against it the rebuild's lead is
+> 16.4% at the valuation season narrowing to 13.2% five seasons out, where the figures here
+> read 17.6% widening to 46.1%. The improvement is real and it does not grow with the horizon
+> the way this report implies. By age band against the live chain: 2.6% at 22 and under, 16.6%
+> at 27-30, and 53.8% at 34 and over, so the old-player result survives the correct comparator
+> at roughly half the size. The numbers below are not wrong for what they measure; what they
+> measure was mislabelled.
+
 Run 2026-09-15 in `50_REBUILD/`. Development seasons 2015–2021 only; the confirmatory seal is
 untouched. Leading model: calibrated total, three-season window, survivorship-corrected aging,
 participation.

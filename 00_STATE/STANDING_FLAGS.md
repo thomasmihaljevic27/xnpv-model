@@ -219,3 +219,95 @@ These are newly identified review items, not changes to locked decisions. Detail
 **Stability-test scope clarified (2026-09-10d):** The 0/16 forward and 1/16 defence era counts come only from observed within-player WAR/82 changes. aging_split_sample.py's docstring also describes comparing fitted pooled profiles, but that leg is unimplemented. Supervisor Docs 2 and 5 now state the implemented scope; the results do not measure the effect of full-panel estimation on historical valuations.
 
 - **2026-09-10f:** Control-year qualification survival starts at one in rfa_terminal_value.py; contract_npv.py adds discounted adjusted terminal surplus without multiplying by signed-contract survival. D14(c) deliberately avoids using both annual gates in control years, but the effect of departure before expiry has not been isolated. Docs 3 and 5 now explain this behavior; no model change. The pooled term-test null also coexists with a small positive forward-subgroup coefficient, now preserved in both explainers.
+
+**2026-09-15b — two flags from the rebuild review, one closed and one open.**
+
+*Closed.* The shortened-season units defect in the rebuild tree: the per-82 rate was taken from
+the D20-scaled total and so carried the schedule adjustment twice, which broke the season
+identity by 82/70 in 2019-20 and 82/56 in 2020-21 and, more damagingly, put rates from those
+two seasons on a different scale from the rest, contaminating every trailing anchor that blends
+across the boundary. Repaired and asserted. This was a rebuild-tree defect only; the production
+chain does not build a per-82 rate this way.
+
+*Open, and it is an identification flag rather than a bug.* The rebuild's market holdout is
+spent. Both market runners swept contract start years 2018 through 2025 on every development
+run and selected on each year they touched, including the years the forecast side was
+reserving. Sealing the pages and not the cohorts was never a split sample. No market result on
+a 2022 to 2025 start cohort can be presented as out-of-sample. The forecast holdout is believed
+intact on the evidence of the code and the reports, and is now recorded rather than
+reconstructed. See `50_REBUILD/docs/Holdout_Inventory.md` for the decision owed.
+
+**2026-09-15b — a published improvement figure that did not reproduce, and now does. RESOLVED
+the same day.** Raised when the rebuild's improvement over the flat benchmark at five seasons
+out came out at -23.6% against the -43.5% published in `Phase5_StressTests.md`, and recorded
+then as not reproducible rather than as a correction, with age coverage named as the likeliest
+cause. That was right. The birthdate join takes PuckPedia plus an Elite Prospects file, the
+Elite Prospects file was missing, and coverage was 69.2% against the 98.3% on record. With the
+file in place coverage is 98.346% and the published figures reproduce exactly: **-15.8% at the
+valuation season and -43.5% five seasons out**, both to the decimal. No published figure was
+wrong and nothing needs re-deriving.
+
+Two things worth keeping from it. First, a thin age join starves the aging model specifically,
+so a coverage shortfall shows up as a shrunken improvement rather than as an error, which is
+the kind of failure that looks like a finding. Second, and this is the standing part: **the
+rebuild tree has a silent dependency on a source file that is not in the repository and whose
+absence degrades results without failing anything.** The birthdate builder takes the Elite
+Prospects file when it exists and proceeds without it when it does not. It should say which
+coverage it achieved and refuse to proceed quietly at a materially lower one, in the same way
+the horizon and grid guards now refuse rather than default.
+
+**Still open, and unchanged by the above: every one of these figures is measured against the
+flat-carry benchmark, not the live chain.** The comparator finding stands in full.
+
+**2026-09-15b — the star residual is inverted, not repaired.** Measured against the live chain
+on development pages, production over-projects a three-win player by 0.68 wins a season and the
+rebuilt chain under-projects him by 0.57. The magnitude is 16% smaller and the sign has flipped.
+Under-projection is the safer direction for a surplus estimate on an expensive player, but any
+claim about star contracts still rests on a forecast wrong by more than half a win a season.
+Earlier reports describe this residual as an over-projection, which it no longer is. Do not add
+model flexibility to chase it without re-reading the sign first.
+
+**2026-09-15b — young players are where the rebuild does least.** Both chains under-project
+players 22 and under, production by 0.39 wins a season and the rebuilt chain by 0.25, and the
+rebuild's error advantage on that band is 2.6% against 53.8% at 34 and over. The negative-NPV
+finding on early extensions lives in exactly this population, and the direction of the error
+pushes against that finding rather than supporting it.
+
+**2026-09-15b — the below-replacement gain was an artifact, and is withdrawn.** The rebuild was
+reported as improving on production by 28.6% for below-replacement players. That figure came from
+a production adapter that multiplied negative anchors along a decay path, where locked decision
+D12 projects them to replacement. Against production's actual rule the improvement is 2.6%. Any
+claim that the rebuild fixes the pricing of below-replacement players should be treated as
+withdrawn until something re-establishes it.
+
+**2026-09-15b — on young players the rebuild is now slightly behind production.** Against the
+corrected comparator, players 22 and under show a 0.4% increase in mean absolute error, against
+the 2.4% improvement reported earlier. Both chains under-project that band, production by 0.34
+wins a season and the rebuilt chain by 0.25. This is the population the negative-NPV finding on
+early extensions lives in.
+
+**2026-09-15b — a general lesson worth keeping.** Two of the four P1 defects in the verification
+were the same mistake: reimplementing a production rule that could have been called. The adapter
+restated the anchor and the multiplier, and both restatements were wrong. Where a comparison
+against production is the point, call production.
+
+**2026-09-15b — dating the market at the signing costs the first two years of the sample.** A
+price line fitted only on earlier signings needs earlier signings to exist. The first quarter
+with enough of them is 2017-10-01, so 275 contracts signed before that cannot be priced at all,
+and every named illustration from 2016 is gone with them. This is the repair working rather than
+failing, and it is a real restriction on what the dollar side can speak about. Any future request
+to "get the 2016 cases back" is a request to reintroduce the look-ahead.
+
+**2026-09-15b — twice now a check has been written too close to the fix to fail on it.** Check 12
+asserted the two properties a broken adapter still had. The extrapolation invariance check kept
+horizon five in both of its requests, which was the one horizon that made the remaining defect
+invisible. Both passed while the defect stood. A check should be run against the code that
+preceded it before it is trusted, and where that is impossible it should be varied along the axis
+the fix acts on.
+
+**2026-09-15b — three passes running, a claim in prose outlived the code it described.** The
+comparator was called today's chain after it stopped being production's forecast; the adapter was
+said to import production's rules while it restated two of them; the named table said one price
+line while fitting two. Each time the code moved and the sentence stayed. The rule that follows:
+where a paragraph asserts a property of a calculation, name the check that holds that property in
+the paragraph, so the two are edited together or not at all.

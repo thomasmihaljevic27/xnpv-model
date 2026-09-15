@@ -346,3 +346,119 @@ scored. Review artifacts and state are committed together under the session-clos
 - **2026-09-11c editorial pass:** Edited Doc_3_Player_Pillar_II_2.docx for repetition, flow and direct wording; matched Data, Production, and Aging formatting. Preserved results and limitations. Package/style checks pass; renderer unavailable. No model changes. See sessions/2026-09-11c.md.
 
 - **2026-09-11d draft explainer rewrite:** Rewrote Doc_4_Drafting_Prospects_Unbuilt.docx for sequential explanations of historical yields, cost rules, sampling uncertainty, future picks, prospects and trade components. Preserved numerical results and implementation limitations; no model changes. See sessions/2026-09-11d.md.
+
+**Change log 2026-09-15b — rebuild repair pass, items 1 to 3.**
+Answered the independent review in `50_REBUILD/docs/Player_Rebuild_Candidate_Review_Response.md`
+after checking each finding against the code: seven accepted as written, two accepted in
+substance with the framing disputed, none found wrong. The reviewer accepted the response and
+tightened four points, each adopted. Repaired the shortened-season units (rate built from the
+raw total, D20 applied after aggregation, identity asserted, D20 unchanged in substance),
+the games scoring unit, and four silent-default guards; brought the holdout inventory forward
+and added enforcement on the market cohorts plus a committed inspection ledger. Nine scripts
+bumped to 1.1; the `50_REBUILD/README.md` status table corrected where it described built
+phases as not started. New: `repair_checks.py`, `Holdout_Inventory.md`, `inspection_ledger.csv`.
+No locked decision reopened, no production file touched, nothing refit, and each dollar figure
+in the candidate reports remains withdrawn. Files touched: PROJECT_STATE, WORK_QUEUE,
+STANDING_FLAGS, DECISIONS, `sessions/2026-09-15b.md`.
+
+**Change log 2026-09-15b (continued) — item 4, and a figure that needs re-deriving.**
+Vendor exports supplied; production reproduction guard passes. Participation event moved to the
+plan's one game, with rate and games targets conditioned on the same event and rate fits
+weighted by games played. **Open decision, flagged not locked:** games weighting versus modelling
+short appearances as their own low-production state. Eligibility now admits returning players
+with a recorded history tier and a deep-lookback anchor (+120 careers on the 2021 page, as the
+review predicted); age bands defined at the valuation season. Adopted leader's existing
+predictions unchanged to 8.9e-16; the two-season benchmark moves 1.5e-02 on a legitimately
+larger training sample. **The published -43.5% improvement at five seasons out does not
+reproduce here, on repaired or unrepaired code, and the repairs are not the cause; age coverage
+is 69.2% against the 98.3% on record because the Elite Prospects birthdate file is absent.
+Re-derive before quoting either number.** Items 5 to 7 remain open.
+
+**Change log 2026-09-15b (continued) — the age flag resolved, and a coverage guard.**
+`ep_birthdates.csv` supplied; coverage 98.346%, matching the record. The published -15.8% and
+-43.5% improvements reproduce exactly on pre-repair code at full coverage, so no published
+figure was wrong; the earlier flag is rewritten as resolved in STANDING_FLAGS rather than left
+standing. On identical rows the repairs move the five-season figure from -43.5% to -43.4%;
+admitting the returning players moves it to -46.1%, because the flat benchmark handles that
+population especially badly. All figures remain against the flat benchmark, not the live chain.
+Added `MIN_AGE_COVERAGE` and a refusal in the season table for a starved age join, with an
+explicit override.
+
+**Change log 2026-09-15b (continued) — item 5, and the horizon coverage decision.**
+Cameo rate weighting SETTLED by Thomas: games-weighted. Fitted horizon range is now decided per
+page from the available training pairs, because the six-horizon limit was the earliest page's
+constraint rather than a choice; models refuse past their own range. Contracts outrunning their
+page use a declared extrapolation, continuing the decay observed at the end of the fitted range:
++3.0%/+10.0%/+19.8% mean bias at one/two/three seasons past, +32% worst page, rows tagged,
+residual bias up and uncorrected. Hold-flat was tested and rejected at +36%/+88%/+170%. Market
+fits are dated at the signing with an assertion, in the currency and in all three runners.
+`cap_path()` gives ceilings as knowable at a decision date with 3% growth beyond; value and cost
+both discounted at 3%; the D24 cancellation is demonstrated in the check suite. **Known gap:**
+the announced 2026-27 and 2027-28 ceilings are absent from source and extrapolate instead.
+Check suite 11 of 11. Items 6 and 7 remain.
+
+**Change log 2026-09-15b (continued) — item 6, the production comparator.**
+`production_adapter.ProductionChain` added: imports production's locked aging curve, decay path,
+hazard table and survival convention rather than reimplementing them; built through `__new__` to
+skip the contract-spine read the projection path never uses. Requires `.env` and
+`30_OUTPUT/WAR_with_age.csv` from `age_join.py`, and refuses rather than falling back. **The
+rebuild beats the live chain by 13.2% to 16.4% in mean absolute season-WAR error, against 17.6%
+to 46.1% versus the flat benchmark. The advantage narrows with the horizon rather than growing;
+the growth was the benchmark's missing aging path.** Old-player result survives: 53.8% at 34 and
+over against the live chain. Benchmark renamed "flat benchmark"; the Phase 0 log line, the
+module docstring and both affected reports corrected with dated notes. No production file
+changed. Check suite 12 of 12.
+
+**Change log 2026-09-15b (continued) — item 7, the development rerun.**
+Three forecasts scored on identical development rows; results in
+`50_REBUILD/docs/Repaired_Chain_Development_Results.md`. Gain over the live chain is 13.2% to
+16.4% by horizon, concentrated by age (2.6% at 22 and under, 53.8% at 34 and over) and by level
+(28.7% below replacement, 10.9% at three wins). **Two residuals recorded as open: the star
+residual is INVERTED rather than fixed, from +0.68 over-projection on the live chain to -0.57
+under-projection on the rebuilt one, 16% smaller and opposite in sign; the young-player
+under-projection is improved from -0.39 to -0.25 with a 2.6% error advantage that is close to
+nothing.** Do not add flexibility to chase the star residual without re-reading its sign. Repair
+items 1 to 7 complete; check suite 12 of 12.
+
+**Change log 2026-09-15b (final) — the repair report.**
+`50_REBUILD/docs/Review_Repair_Report.md` written, closing the nine findings. Two corrections it
+forced: the stress battery and the item 7 rerun both used the earlier leader while the register
+records the hinge-and-evidence variant as adopted, now corrected in both (agreement to the third
+decimal, no conclusion changed); and the new age-coverage guard would have aborted
+`repair_checks.py` on a thin checkout, so the suite now builds with the guard disabled, reports
+coverage, and skips the extrapolation check when the age join is too thin to measure a decay
+rate. Verified at 11 passed 1 skipped on the thin join and 12 of 12 on the full one.
+
+**Change log 2026-09-15b (final) — the verification, and a reversed subgroup claim.**
+The repair report was reviewed; six further defects found, four P1, all repaired. Adapter now
+calls production's `anchor()` and `multiplier()` rather than reimplementing them (266 negative
+anchors, 120 unanswerable subjects, both reproducing the verification). **Corrected headline: the
+rebuilt chain beats the live chain by 14.4% at the valuation season and 8% to 9% from one season
+out, not 16.5% to 13.3%. The 28.6% below-replacement gain was the adapter's own defect and is
+2.6% correctly measured; young players move from a 2.4% gain to a 0.4% loss; the old-player
+result holds at 43.1%.** Also repaired: cap-share denominator dated at signing (31 pre-table
+signings dropped and counted), discounting from the signing on both sides, extrapolation made
+invariant to the requested horizons and subjects, entry points made runnable, market seal
+requires a written reason. Check suite 12 rewritten as a row-by-row parity check against
+production's methods; suite now 14 of 14. **The rebuild is an old-player fix and should be
+described as one.**
+
+**Change log 2026-09-15b (final, second verification) — three more repaired.**
+Reviewed at `0e70d4b`; forecast results and production parity reproduced independently, so the
+corrected headline stands. Named-player runner rewritten onto the repaired valuation path (dated
+currency, signing-dated cap path, discounting from the signing, live chain as comparator);
+**20 of 32 named cases are no longer showable because the first priceable signing is 2017-10-02
+under signing-dated training, the 2016 group included.** Extrapolation now runs from the model's
+own last fitted horizon rather than the caller's, so it is invariant to the requested endpoint
+and serves a lone extrapolated year. Attachment horizon ceiling removed; uncoverable contracts
+written to `attach_forecasts_rejected.csv` with a reason. Suite at 15; both new checks fail on
+the preceding commit.
+
+**Change log 2026-09-15b (third verification) — one price line, and clean empty batches.**
+Named-player comparison now fits one reference currency per signing quarter, on the rebuilt
+forecasts, and applies it to both columns; previously it fitted separately per forecast table and
+differed in all 18 comparable quarters. **Effect: the live column moves $8.26M on average and
+$19.18M at most, the rebuilt column not at all, and the correction runs against the rebuild,
+which is the more conservative chain once both are priced on one line.** Attachment now returns
+an empty result with its rejection report for an all-rejected or empty batch instead of raising.
+Runner docstring corrected. Suite at 17; both new checks fail on the preceding commit.

@@ -1,5 +1,17 @@
 # Phase 0: the evaluation harness, and the first look at Phase 1
 
+> **Correction, 2026-09-15.** Every comparison in this report is against the FLAT BENCHMARK,
+> which is the production chain with its aging path and its exit-hazard survival weighting
+> removed, and not against the live chain. Where the text below says "the production chain" or
+> "today's model" about a comparator, read the flat benchmark. The live chain is now available
+> on the harness as `production_adapter.ProductionChain`, and against it the rebuild's lead is
+> 16.4% at the valuation season narrowing to 13.2% five seasons out, where the figures here
+> read 17.6% widening to 46.1%. The improvement is real and it does not grow with the horizon
+> the way this report implies. By age band against the live chain: 2.6% at 22 and under, 16.6%
+> at 27-30, and 53.8% at 34 and over, so the old-player result survives the correct comparator
+> at roughly half the size. The numbers below are not wrong for what they measure; what they
+> measure was mislabelled.
+
 Built 2026-09-14 in `50_REBUILD/`. Experimental. No production file was changed and no
 locked decision was opened. Every figure below comes from development pages 2015–2021;
 the confirmatory pages are sealed and untouched.
@@ -249,7 +261,7 @@ percentage of the tier's mean outcome:
 | component model | −0.12 | +6% | +7% | −5% | −11% |
 | component model, unshrunk | −0.26 | −4% | −6% | −16% | −21% |
 
-Both calibrated models cut the production chain's +35% star over-projection to −11%, and both
+Both calibrated models cut the flat benchmark's +35% star over-projection to −11%, and both
 are inside or near the plan's 5% target in the middle tiers, which they were not before ages.
 Neither reaches it at 3+. The residual is now an *under*-projection, and it is the same size
 for both, so it is not an argument for either model.

@@ -45,11 +45,25 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 from contract_price_model import tobit, predict_tobit
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.2"
 
 # One shared line; rights enter as features. Settled by the decision-B test.
 FEATURES = ["war_per_season", "length", "is_RFA", "rfa_x_war", "is_D",
             "one_year", "war_year1"]
+
+
+def _offset(signed, season_year: int) -> int:
+    """Seasons between the signing and a contract season.
+
+    The season year of a date is the year it falls in, or the year before when
+    it falls before 1 July, which is the same July-to-July convention the rest
+    of the tree uses for a valuation page. A deal signed on 1 July 2017 for a
+    2019 start therefore discounts its first season by two periods, and the
+    same deal signed a year later by one.
+    """
+    ts = pd.Timestamp(signed)
+    sign_year = ts.year if ts.month >= 7 else ts.year - 1
+    return max(0, int(season_year) - sign_year)
 
 
 class ProductionCurrency:
@@ -60,10 +74,30 @@ class ProductionCurrency:
         self.term_mode = term_mode
         self.coef_ = None
 
-    def fit(self, d: pd.DataFrame, before: int | None = None):
-        """Fit on contracts signed before `before`, so a valuation never sees
-        the market it is being judged against."""
-        tr = d if before is None else d[d["start_yr"] < before]
+    def fit(self, d: pd.DataFrame, before_date=None):
+        """Fit on contracts SIGNED before `before_date`.
+
+        This used to split on the contract's start year, which is not when the
+        market spoke. An extension signed in 2017 starts in 2019, so a fit
+        dated by start year trained a 2019 valuation on deals signed in 2018
+        and called it ex ante. Dating the player's forecast at his signing, as
+        attach_forecasts already does, does not make those later signings
+        available: the price line has to be frozen at the decision too.
+
+        The docstring on this module claimed signing-dated fits before this was
+        true of the fit. It is true now.
+        """
+        if isinstance(before_date, (int, np.integer)):
+            raise TypeError(
+                "fit() takes a signing DATE, not a season. A year was what "
+                "split the sample by contract start and let a valuation train "
+                "on contracts signed after it. Pass the decision date.")
+        tr = d if before_date is None else d[d["signed"] < pd.Timestamp(before_date)]
+        if before_date is not None and len(tr):
+            latest = tr["signed"].max()
+            assert latest < pd.Timestamp(before_date), (
+                f"the training sample reaches {latest.date()}, which is not "
+                f"before the decision date {pd.Timestamp(before_date).date()}")
         if len(tr) < 200:
             return self
         self.coef_, self.sigma_, self.ok_ = tobit(
@@ -86,16 +120,44 @@ class ProductionCurrency:
             X[:, FEATURES.index("one_year")] = 1.0
         share = np.maximum(predict_tobit(self.coef_, X),
                            d["floor_share"].to_numpy(float))
-        # Cap share times the ceiling in each contract season, summed. The
-        # ceiling is used season by season rather than at the start year,
-        # because a share of an 88M cap is not a share of a 95.5M one.
+        # Cap share times the ceiling in each contract season, DISCOUNTED, on
+        # the cap path as it was knowable at the signing. The previous version
+        # summed realised ceilings and substituted the 2025 ceiling for
+        # anything later, so a historical valuation knew the flat-cap years
+        # before they happened and no discounting was applied at all.
+        #
+        # Under locked decision D24 the 3% growth and the 3% discount cancel in
+        # cap-share terms, so for a fully extrapolated path this reduces to the
+        # sum of shares times one ceiling. That is asserted in repair_checks
+        # rather than assumed here, which is why both rates appear explicitly
+        # below instead of being cancelled away in the algebra.
         dollars = np.zeros(len(d))
         for i, r in enumerate(d.itertuples()):
-            yrs = range(int(r.start_yr), int(r.end_yr) + 1)
-            dollars[i] = share[i] * sum(C.CAP_CEILING.get(y, C.CAP_CEILING[2025])
-                                        for y in yrs)
+            yrs = list(range(int(r.start_yr), int(r.end_yr) + 1))
+            path = C.cap_path(r.signed, yrs)
+            # DISCOUNTED FROM THE SIGNING, not from the first contract season.
+            # The exponent used to be the season's position in the term, so a
+            # 2019-start deal was worth the same signed in 2017 as in 2018 and
+            # the wait between signing and start was free. Market and cap
+            # information are dated at the signing, so the discount origin has
+            # to be as well.
+            dollars[i] = share[i] * sum(
+                path[y] / (1.0 + C.DISCOUNT_RATE) ** _offset(r.signed, y)
+                for y in yrs)
         return pd.Series(dollars, index=d.index)
 
     def cost(self, d: pd.DataFrame) -> pd.Series:
-        """What the club actually committed: the cap hit across the term."""
-        return d["aav"] * d["length"]
+        """What the club actually committed: the cap hit across the term,
+        discounted on the same schedule as the value side.
+
+        Value and cost have to be dated and discounted identically or their
+        difference is not a surplus. The cap hit is a known nominal amount in
+        each contract season, so only the discount applies; there is no cap
+        path on this side because the commitment is in dollars, not in share.
+        """
+        out = np.zeros(len(d))
+        for i, r in enumerate(d.itertuples()):
+            yrs = range(int(r.start_yr), int(r.end_yr) + 1)
+            out[i] = sum(r.aav / (1.0 + C.DISCOUNT_RATE) ** _offset(r.signed, y)
+                         for y in yrs)
+        return pd.Series(out, index=d.index)
