@@ -17,3 +17,7 @@ last_run,model,pages,n_rows,mae_plus0,mae_plus1,mae_plus2,mae_plus3,mae_plus4,ma
 2026-09-15,"calibrated total, three seasons, additive aging",2015-2021,35878,0.5714,0.5909,0.5886,0.6025,0.6287,0.5893,-0.3442
 2026-09-15,"component model, per-component window, additive aging",2015-2021,35878,0.5754,0.6016,0.6022,0.6203,0.6507,0.6033,-0.2941
 2026-09-15,"calibrated total, aging fitted the naive way (diagnostic)",2015-2021,35878,0.5714,0.6231,0.6553,0.6728,0.6778,0.6249,-0.8591
+2026-09-15,"calibrated total, participation, no aging walk",2015-2021,35878,0.5508,0.558,0.5382,0.5148,0.4744,0.4353,-0.4155
+2026-09-15,"calibrated total, aging, participation",2015-2021,35878,0.5508,0.5539,0.5311,0.5076,0.471,0.4255,-0.387
+2026-09-15,"calibrated total, aging, participation (no contract data)",2015-2021,35878,0.5501,0.5524,0.5274,0.503,0.4668,0.4218,-0.3927
+2026-09-15,"component model, aging, participation",2015-2021,35878,0.549,0.5559,0.5333,0.5103,0.4733,0.4257,-0.3352
