@@ -39,7 +39,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 import information_set as ISET
 
-SCRIPT_VERSION = "1.4"
+SCRIPT_VERSION = "1.5"
 
 W_T1, W_T2 = 0.6, 0.4    # the locked recency weighting, reproduced for A0
 
@@ -127,19 +127,30 @@ class BaseModel:
             raise ValueError(
                 f"{self.name} has no fitted horizon among {want}; there is "
                 "nothing to carry forward from.")
-        if beyond and len(inside) < 2:
+        if beyond and len(fitted) < 2:
             raise ValueError(
                 f"{self.name} needs two fitted horizons to measure a decay "
-                f"rate from, and has {len(inside)}.")
+                f"rate from, and has {len(fitted)}.")
         out = self.predict(iset, subs, inside)
         out["extrapolated"] = 0.0
         if beyond:
-            hmax, prev = max(inside), sorted(inside)[-2]
-            a, b = out[out["h"] == prev], out[out["h"] == hmax]
-            # League-wide, and floored: a ratio at or above one would carry a
-            # rising tail out to year eight, and a very small one would zero
-            # the contract out on two noisy horizons.
-            # THE RATIO IS MEASURED ON THE PRODUCT, which is the quantity that
+            # THE RATE COMES FROM THE MODEL, NOT FROM THE QUESTION. It used to
+            # be measured between the last two REQUESTED horizons on the mean
+            # of the REQUESTED subjects, so asking for horizons 3, 5 and 6
+            # returned a different horizon-six forecast than asking for 4, 5
+            # and 6, by up to 0.52 WAR, and asking about one player alone
+            # differed from asking about him inside the population. Those are
+            # interface failures rather than modelling ones: one fitted model
+            # at one decision date has to answer the same question the same
+            # way however the question is batched.
+            #
+            # The rate is measured between the two highest FITTED horizons,
+            # which are adjacent by construction rather than whatever the
+            # caller happened to ask for, on a fixed reference population,
+            # which is every subject eligible on this page. _tail_decay caches
+            # it per page so repeated calls cannot drift either.
+            g_prod, g_play = self._tail_decay(iset, fitted[-1], fitted[-2])
+            # The ratio is measured on the PRODUCT, which is the quantity that
             # has to decay correctly, and then split between the two parts.
             # Measuring a ratio for each part separately and applying both
             # decays the product by their product, which double-counts the
@@ -147,13 +158,11 @@ class BaseModel:
             # 3% to 20% the product ratio leaves. Participation keeps its own
             # observed rate so it stays interpretable, and the rate carries
             # whatever is left over.
-            war = lambda x: (x["p_play"] * x["rate_82"] * x["gp_share"]).mean()
-            g_prod = float(np.clip(war(b) / war(a), 0.5, 1.0))
-            g_play = float(np.clip(b["p_play"].mean() / a["p_play"].mean(), 0.5, 1.0))
             g_rate = float(np.clip(g_prod / g_play, 0.5, 1.05))
-            last = b.copy()
+            base_h = max(inside)
+            last = out[out["h"] == base_h]
             for h in beyond:
-                k = h - hmax
+                k = h - base_h
                 nxt = last.copy()
                 nxt["h"] = h
                 nxt["rate_82"] = last["rate_82"] * g_rate ** k
@@ -161,6 +170,25 @@ class BaseModel:
                 nxt["extrapolated"] = 1.0
                 out = pd.concat([out, nxt], ignore_index=True)
         return out
+
+    def _tail_decay(self, iset, hmax: int, prev: int):
+        """League-wide decay between two fitted horizons, on a fixed reference
+        population and cached per page, so an extrapolated forecast does not
+        depend on which horizons or which players were asked about."""
+        key = (int(iset.t0), int(hmax), int(prev))
+        cache = getattr(self, "_decay_cache", None)
+        if cache is None:
+            cache = self._decay_cache = {}
+        if key not in cache:
+            import forecast_harness as _H          # lazy, to avoid a cycle
+            ref = _H.subjects_at(iset)
+            p = self.predict(iset, ref, [prev, hmax])
+            a, b = p[p["h"] == prev], p[p["h"] == hmax]
+            war = lambda x: (x["p_play"] * x["rate_82"] * x["gp_share"]).mean()
+            cache[key] = (
+                float(np.clip(war(b) / war(a), 0.5, 1.0)),
+                float(np.clip(b["p_play"].mean() / a["p_play"].mean(), 0.5, 1.0)))
+        return cache[key]
 
     def _guard_horizons(self, horizons) -> None:
         """Refuse a horizon this model never fitted.

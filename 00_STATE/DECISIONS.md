@@ -383,3 +383,17 @@ decimal, no conclusion changed); and the new age-coverage guard would have abort
 `repair_checks.py` on a thin checkout, so the suite now builds with the guard disabled, reports
 coverage, and skips the extrapolation check when the age join is too thin to measure a decay
 rate. Verified at 11 passed 1 skipped on the thin join and 12 of 12 on the full one.
+
+**Change log 2026-09-15b (final) — the verification, and a reversed subgroup claim.**
+The repair report was reviewed; six further defects found, four P1, all repaired. Adapter now
+calls production's `anchor()` and `multiplier()` rather than reimplementing them (266 negative
+anchors, 120 unanswerable subjects, both reproducing the verification). **Corrected headline: the
+rebuilt chain beats the live chain by 14.4% at the valuation season and 8% to 9% from one season
+out, not 16.5% to 13.3%. The 28.6% below-replacement gain was the adapter's own defect and is
+2.6% correctly measured; young players move from a 2.4% gain to a 0.4% loss; the old-player
+result holds at 43.1%.** Also repaired: cap-share denominator dated at signing (31 pre-table
+signings dropped and counted), discounting from the signing on both sides, extrapolation made
+invariant to the requested horizons and subjects, entry points made runnable, market seal
+requires a written reason. Check suite 12 rewritten as a row-by-row parity check against
+production's methods; suite now 14 of 14. **The rebuild is an old-player fix and should be
+described as one.**

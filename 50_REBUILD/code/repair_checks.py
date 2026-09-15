@@ -23,7 +23,7 @@ import forecast_harness as H
 import player_season_table as T
 from ability_forecast import A0Production
 
-SCRIPT_VERSION = "1.4"
+SCRIPT_VERSION = "1.5"
 
 PASS, FAIL, SKIP = "pass", "FAIL", "skip"
 results: list[tuple[str, str, str]] = []
@@ -307,14 +307,14 @@ def c11(table):
     return ", ".join(out) + f", worst page {max(got[8], key=abs):+.1f}% at h8"
 
 
-# -- 12. the comparator is the live chain, not a simpler rule ---------------
+# -- 12. the adapter agrees with production, method by method ---------------
 def c12(table):
-    """Every improvement figure was quoted against a benchmark that carries the
-    trailing anchor flat with participation at one. The live chain has an aging
-    path and exit-hazard survival, so the gap was widest exactly where those
-    two do the most work."""
+    """The first version of this check asserted only that rates move with the
+    horizon and survival falls below one. Both were true of an adapter that
+    reimplemented production's anchor and skipped its negative-anchor rule, so
+    the check passed while the comparator was wrong in two ways at once. It now
+    compares the adapter against production's own methods, row by row."""
     import information_set as ISET
-    from ability_forecast import A0Production
     try:
         from production_adapter import ProductionChain
     except Exception as e:                        # noqa: BLE001
@@ -327,23 +327,90 @@ def c12(table):
         live.fit(iset.seasons, before=page)
     except RuntimeError as e:
         raise _Skip(str(e)[:90])
-    flat = A0Production()
-    flat.fit(iset.seasons, before=page)
-    hs = [0, 5]
-    lp = live.predict(iset, subs, hs).set_index(["career_key", "h"])
-    fp = flat.predict(iset, subs, hs).set_index(["career_key", "h"])
+    hs = [0, 1, 5]
+    pred = live.predict(iset, subs, hs).set_index(["career_key", "h"])
 
-    # The two differences that define the live chain, each asserted.
-    moved = (lp.xs(5, level="h")["rate_82"] - lp.xs(0, level="h")["rate_82"]).abs().mean()
-    assert moved > 1e-6, (
-        "the adapter's rate does not change with the horizon, so the aging "
-        "path is not engaging and it is still the flat benchmark")
-    surv = lp.xs(5, level="h")["p_play"].mean()
-    assert surv < 0.95, f"survival at five seasons out is {surv:.3f}, effectively one"
-    flat_still = (fp.xs(5, level="h")["rate_82"] - fp.xs(0, level="h")["rate_82"]).abs().max()
-    assert flat_still < 1e-9, "the flat benchmark is no longer flat"
-    return (f"live chain: rate moves {moved:.3f} WAR by h5, survival {surv:.3f}; "
-            f"the flat benchmark does neither")
+    proj = live.proj_
+    n_neg = n_checked = 0
+    for r in subs.itertuples():
+        a, src = proj.anchor(r.pkey, page)
+        row0 = pred.loc[(r.career_key, 0)]
+        if pd.isna(a):
+            assert row0["outside_production"] == 1.0, (
+                f"{r.pkey}: production has no anchor, and the adapter did not "
+                "flag the row as outside production")
+            continue
+        assert row0["outside_production"] == 0.0
+        n_checked += 1
+        # THE ANCHOR ITSELF, against production's own method.
+        assert abs(row0["rate_82"] - a * proj.multiplier(a, 1.0, 0)) < 1e-9, (
+            f"{r.pkey}: horizon-zero forecast does not equal production's "
+            "anchor through its own multiplier")
+        # THE NEGATIVE-ANCHOR RULE, which is locked decision D12 v3: a negative
+        # anchor keeps its value at the valuation season and projects at
+        # replacement afterwards.
+        if a < 0:
+            n_neg += 1
+            for h in (1, 5):
+                v = float(pred.loc[(r.career_key, h), "rate_82"])
+                assert v == 0.0, (
+                    f"{r.pkey}: negative anchor projects {v:.4f} at horizon "
+                    f"{h}, where production requires replacement, which is 0")
+    assert n_neg, "no negative anchors on this page, so the rule is untested"
+    return (f"{n_checked} anchors match production's method, {n_neg} negative "
+            f"anchors project to replacement, {int(pred.xs(0, level='h')['outside_production'].sum())} "
+            "rows flagged outside production")
+
+
+# -- 13. an extrapolated forecast does not depend on the question -----------
+def c13(table):
+    """The tail decay was measured between the last two REQUESTED horizons on
+    the mean of the REQUESTED subjects, so the same fitted model at the same
+    date gave a different answer depending on how the question was batched."""
+    import information_set as ISET
+    from ability_forecast import A1HingeExposure as M
+    page = 2021
+    iset = ISET.build(table, ISET.decision_date_for_page(page), t0=page)
+    m = M()
+    m.fit(iset.seasons, before=page)
+    if float(table["has_age"].mean()) < C.MIN_AGE_COVERAGE:
+        raise _Skip("age coverage is too thin to fit the model this check uses")
+    m.fitted_horizons_ = (0, 1, 2, 3, 4, 5)       # hold the page to a short range
+    subs = H.subjects_at(iset)
+    a = m.predict_beyond_fit(iset, subs, [4, 5, 6]).query("h == 6").set_index("career_key")
+    b = m.predict_beyond_fit(iset, subs, [3, 5, 6]).query("h == 6").set_index("career_key")
+    d1 = float((a["rate_82"] - b["rate_82"].reindex(a.index)).abs().max())
+    assert d1 < 1e-9, f"asking for a different horizon subset moves horizon six by {d1:.4f}"
+    one = subs.head(1)
+    ck = one["career_key"].iloc[0]
+    c_one = float(m.predict_beyond_fit(iset, one, [0, 1, 2, 3, 4, 5, 6])
+                  .query("h == 6")["rate_82"].iloc[0])
+    c_all = float(m.predict_beyond_fit(iset, subs, [0, 1, 2, 3, 4, 5, 6])
+                  .query("h == 6").set_index("career_key").loc[ck, "rate_82"])
+    d2 = abs(c_one - c_all)
+    assert d2 < 1e-9, f"asking about one player alone moves his forecast by {d2:.4f}"
+    return "invariant to horizon subset and to subject subset, exactly"
+
+
+# -- 14. the market target and the discount are both dated at the signing ---
+def c14(_table):
+    """Dating the FIT at the signing while dividing the target by the realised
+    start-year ceiling leaves future cap information in the target itself, and
+    discounting from the contract start makes the wait between signing and
+    start free."""
+    from contract_price_model import contract_sample
+    from production_currency import _offset
+    d = contract_sample()
+    assert "cap_ceiling_at_signing" in d.columns, "the target still uses a realised ceiling"
+    early = d[d["signed"].dt.year < d["start_yr"]]
+    moved = (early["cap_ceiling_at_signing"]
+             != early["start_yr"].map(C.CAP_CEILING)).sum()
+    assert moved, "no early-signed contract has a denominator that differs from the realised one"
+    # The discount origin: the same contract signed a year earlier waits a year.
+    assert _offset("2017-07-01", 2019) == 2 and _offset("2018-07-01", 2019) == 1, (
+        "the discount origin is still the contract start rather than the signing")
+    return (f"{len(early)} early-signed contracts, {int(moved)} with a "
+            "signing-dated denominator; discount origin is the signing")
 
 
 def main() -> None:
@@ -378,7 +445,9 @@ def main() -> None:
                      ("market fits dated at signing", c9),
                      ("cap path and the D24 identity", c10),
                      ("extrapolation declared and bounded", c11),
-                     ("live chain available as comparator", c12)]:
+                     ("adapter matches production", c12),
+                     ("extrapolation invariant to the query", c13),
+                     ("market target and discount dated at signing", c14)]:
         check(name, lambda fn=fn: fn(table))
 
     width = max(len(n) for n, _, _ in results)

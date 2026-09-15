@@ -45,11 +45,25 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 from contract_price_model import tobit, predict_tobit
 
-SCRIPT_VERSION = "1.1"
+SCRIPT_VERSION = "1.2"
 
 # One shared line; rights enter as features. Settled by the decision-B test.
 FEATURES = ["war_per_season", "length", "is_RFA", "rfa_x_war", "is_D",
             "one_year", "war_year1"]
+
+
+def _offset(signed, season_year: int) -> int:
+    """Seasons between the signing and a contract season.
+
+    The season year of a date is the year it falls in, or the year before when
+    it falls before 1 July, which is the same July-to-July convention the rest
+    of the tree uses for a valuation page. A deal signed on 1 July 2017 for a
+    2019 start therefore discounts its first season by two periods, and the
+    same deal signed a year later by one.
+    """
+    ts = pd.Timestamp(signed)
+    sign_year = ts.year if ts.month >= 7 else ts.year - 1
+    return max(0, int(season_year) - sign_year)
 
 
 class ProductionCurrency:
@@ -121,8 +135,15 @@ class ProductionCurrency:
         for i, r in enumerate(d.itertuples()):
             yrs = list(range(int(r.start_yr), int(r.end_yr) + 1))
             path = C.cap_path(r.signed, yrs)
+            # DISCOUNTED FROM THE SIGNING, not from the first contract season.
+            # The exponent used to be the season's position in the term, so a
+            # 2019-start deal was worth the same signed in 2017 as in 2018 and
+            # the wait between signing and start was free. Market and cap
+            # information are dated at the signing, so the discount origin has
+            # to be as well.
             dollars[i] = share[i] * sum(
-                path[y] / (1.0 + C.DISCOUNT_RATE) ** k for k, y in enumerate(yrs))
+                path[y] / (1.0 + C.DISCOUNT_RATE) ** _offset(r.signed, y)
+                for y in yrs)
         return pd.Series(dollars, index=d.index)
 
     def cost(self, d: pd.DataFrame) -> pd.Series:
@@ -136,6 +157,7 @@ class ProductionCurrency:
         """
         out = np.zeros(len(d))
         for i, r in enumerate(d.itertuples()):
-            out[i] = sum(r.aav / (1.0 + C.DISCOUNT_RATE) ** k
-                         for k in range(int(r.length)))
+            yrs = range(int(r.start_yr), int(r.end_yr) + 1)
+            out[i] = sum(r.aav / (1.0 + C.DISCOUNT_RATE) ** _offset(r.signed, y)
+                         for y in yrs)
         return pd.Series(out, index=d.index)

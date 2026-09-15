@@ -27,7 +27,7 @@ import sys
 import time
 from pathlib import Path
 
-SCRIPT_VERSION = "1.4"
+SCRIPT_VERSION = "1.5"
 
 # --- Tree layout ----------------------------------------------------------
 # resolve() first: __file__ can be relative depending on how python was
@@ -397,8 +397,15 @@ def check_market_cohorts(cohorts, runner: str, unseal: bool = False,
             f"{CONFIRMATORY_START_YEARS[0] - 1}. Pass unseal=True with a "
             "reason to spend them, which is logged and is not repeatable.")
     if sealed:
-        log(f"  *** MARKET SEAL BROKEN for start years {sealed}: "
-            f"{reason or '(no reason given)'}")
+        # A REASON IS REQUIRED, as it is on the page seal. Accepting an empty
+        # one spends a reserved cohort and leaves no record of what it was
+        # spent on, which is the same hole the page seal had.
+        if not (reason or "").strip():
+            raise ConfirmatorySealBroken(
+                f"start years {sealed} are reserved and unseal=True was passed "
+                "with no reason. The run is not repeatable, so what it was "
+                "spent on has to be written down before it is spent.")
+        log(f"  *** MARKET SEAL BROKEN for start years {sealed}: {reason}")
     record_inspection(runner, "market cohort", cohorts, reason)
     return cohorts
 

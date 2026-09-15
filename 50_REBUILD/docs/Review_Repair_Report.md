@@ -1,5 +1,19 @@
 # Repairing the player rebuild: what the review found, and what was done
 
+> **Corrected 2026-09-15, after this report was itself reviewed.** The verification found six
+> further defects, four of them P1, and two of those invalidate figures this report published.
+> The production adapter reimplemented two of production's rules instead of calling them, and got
+> both wrong: it multiplied a negative anchor along a decay path where locked decision D12
+> projects it to replacement, and it read the two most recent qualifying seasons anywhere before
+> the valuation instead of exactly the two preceding ones. **The improvement over the live chain
+> is 8% to 9% from one season out and 14.4% in the valuation season, not the 13% to 17% reported
+> below, and the 28.6% gain on below-replacement players was almost entirely the adapter's own
+> defect and is 2.6% against the corrected comparator.** Each figure in this report has been
+> brought into line; the superseded ones are named where they mattered. All six new findings are
+> repaired and the check suite is at 14. The full corrected tables are in
+> `Repaired_Chain_Development_Results.md`, and the verification itself is
+> `Repair_Verification_Codex.md`.
+
 Written 2026-09-15, closing the independent review of the experimental player rebuild. The
 review raised nine findings against commit `beb69a1`. Seven were accepted as written, two were
 accepted in substance with the framing disputed, and none was found to be wrong. All nine have
@@ -11,8 +25,9 @@ pages remain unspent.
 
 ## Verdict, in One Paragraph
 
-The rebuilt chain is better than the live chain by 13% to 17% of mean absolute error on season
-WAR, at every horizon, on development pages. That improvement is real, it survives the repairs,
+The rebuilt chain is better than the live chain by 8% to 9% of mean absolute error on season
+WAR from one season out, and by 14.4% in the valuation season itself, on the development pages
+and on the rows production can price. That improvement is real, it survives the repairs,
 and it is the first figure in this project measured against production rather than against a
 simplified stand-in. Two things the earlier reports claimed do not survive. The improvement does
 not grow with the forecast horizon; that growth was an artifact of the comparator. And the star
@@ -38,8 +53,12 @@ and the module docstring are corrected; and both affected reports carry a dated 
 stating what their comparator actually was. A rerun no longer regenerates the claim.
 
 The adapter imports production's locked aging curve, its decay path with the age-1 basing, its
-hazard table, and its survival convention rather than restating any of them, because a second
-copy of a rule drifting from the first has already cost this project twice. Production's own
+hazard table, its anchor, its negative-anchor multiplier, and its survival convention, because a
+second copy of a rule drifting from the first has already cost this project twice. The first
+version of this paragraph claimed the adapter restated none of them, and that was not true: it
+restated the anchor and the multiplier, and got both wrong. That is the substance of the
+verification's first two findings, and it is why the parity check now compares the adapter
+against production's methods rather than against a description of them. Production's own
 documented limitations travel with it, including the curve being fitted on the whole panel,
 because repairing them would stop it being production.
 
@@ -168,11 +187,15 @@ decision still owed.
 Mean absolute error in season WAR on development pages 2015 to 2021, three forecasts scored on
 identical rows.
 
-| horizon | flat benchmark | live chain | rebuilt | against flat | against live |
-|---|---|---|---|---|---|
-| 0 | 0.6160 | 0.6078 | 0.5073 | -17.7% | -16.5% |
-| 3 | 0.6935 | 0.5310 | 0.4505 | -35.0% | -15.2% |
-| 5 | 0.6931 | 0.4304 | 0.3733 | -46.2% | **-13.3%** |
+| horizon | live chain | rebuilt | against live |
+|---|---|---|---|
+| 0 | 0.6534 | 0.5595 | **-14.4%** |
+| 3 | 0.5542 | 0.5038 | -9.1% |
+| 5 | 0.4575 | 0.4179 | -8.6% |
+
+Measured on the rows production can answer, which excludes the 120 subjects a page holds that
+production declines to anchor. The superseded version of this table read -16.5% to -13.3% and
+was measured against an adapter that was not production.
 
 The improvement is real and worth having. Its shape is not. Against the flat benchmark the
 advantage grows with the horizon, which reads as a model that gets relatively better the further
@@ -180,10 +203,13 @@ out it forecasts; against production it narrows. The growth was the benchmark's 
 path, since the further out a model without aging projects the more it loses, and none of that
 was the rebuild's doing.
 
-The gain is concentrated rather than general. Against the live chain it runs from -2.4% for
-players 22 and under to -53.9% for players 34 and over, and from -28.6% below replacement to
--11.1% for three-win players. The rebuild is an old-player and a below-replacement-player fix.
-On players 26 and under it is barely better than production.
+The gain is concentrated rather than general, and the corrected comparator narrows where it
+comes from. Against the live chain it runs from +0.4% for players 22 and under, where the
+rebuilt chain is slightly worse, to -43.1% for players 34 and over. By trailing level it runs
+from -2.6% below replacement to -10.4% for three-win players. The rebuild is an old-player fix.
+The below-replacement gain reported earlier was the adapter's defect rather than the rebuild's
+doing, since production projects those players to replacement and the broken adapter carried
+their negative anchors along a decay path instead.
 
 On the repairs themselves, holding the model and the harness fixed, the published -43.5%
 improvement at five seasons out against the flat benchmark moves to -43.4%. The units, guard,
@@ -193,15 +219,16 @@ not the repairs but the comparator.
 ## What the Repairs Turned Up That the Review Did Not Name
 
 **The star residual is inverted, not repaired.** Production over-projects a three-win player by
-0.68 wins a season; the rebuilt chain under-projects him by 0.55. The magnitude is 19% smaller
+0.67 wins a season; the rebuilt chain under-projects him by 0.57. The magnitude is 15% smaller
 and the sign has flipped. Under-projection is the safer direction for a surplus estimate on an
 expensive player, but any claim about star contracts rests on a forecast wrong by more than half
 a win a season, and the earlier reports describe this residual as an over-projection. The
 review's instruction to reassess it before adding more flexibility looks right, since chasing it
 now would be chasing an under-projection.
 
-**Young players are where the rebuild does least.** Both chains under-project players 22 and
-under, production by 0.39 wins and the rebuilt chain by 0.25, with an error advantage of 2.4%.
+**Young players are where the rebuild does least, and against the corrected comparator it is
+slightly worse than nothing.** Both chains under-project players 22 and under, production by 0.34
+wins and the rebuilt chain by 0.25, and on mean absolute error the rebuilt chain is 0.4% behind.
 The negative net-present-value finding on early extensions lives in exactly that population, and
 the direction of the error pushes against that finding rather than supporting it.
 
@@ -220,6 +247,58 @@ error as "no qualifying season", and each player came back on a flat path. The a
 have looked exactly like the benchmark it exists to replace, and the comparison would have shown
 production and the flat benchmark as the same thing.
 
+## The Verification, and What It Found
+
+This report was itself reviewed. The verification ran the check suite, reproduced the reported
+figures, and found six further defects, four of them P1. All six are repaired.
+
+**The adapter omitted production's negative-anchor rule.** Locked decision D12 projects a
+below-replacement player to replacement in each season after the valuation; the adapter
+multiplied his negative anchor along the decay path instead. 266 subjects on the 2021 page
+received a nonzero forecast where production requires zero, and the wrong level fed the hazard
+lookup as well. This is the finding that reversed a headline claim, since the 28.6% gain on
+below-replacement players was measuring the rebuilt chain against a bad forecast rather than
+against production's rule.
+
+**The adapter read different trailing seasons from production.** Production reads exactly the
+two preceding seasons and declines when neither exists. The adapter took the two most recent
+qualifying seasons anywhere before the valuation, which moved 142 anchors by up to 1.022 WAR and
+invented an answer for the 120 subjects production declines. Both now call production's own
+method. The 120 are still answered, because the harness requires an answer on every row, but
+they are tagged and excluded from the comparison, and reported separately.
+
+**Signing-date filtering still admitted future cap information through the target.** The fit was
+dated at the signing while the cap share was divided by the realised start-year ceiling, so an
+early-signed extension entered training with a denominator not yet announced. The denominator is
+now the start-year ceiling as knowable at the signing. 31 contracts signed before the cap table
+opens are dropped and counted, because inventing a pre-2015 ceiling would be inventing the
+number the constraint is about.
+
+**Discounting started at the contract start rather than the valuation date.** A one-year
+contract starting in 2019 cost the same whether signed in 2017 or 2018, so the wait between
+signing and start was free. Value and cost now discount from the signing, which is where the
+market and cap information are already dated.
+
+**Extrapolated forecasts depended on the question.** The tail decay was measured between the
+last two requested horizons on the mean of the requested subjects, so asking for horizons 3, 5,
+and 6 gave a different horizon-six answer than asking for 4, 5, and 6, by up to 0.52 WAR, and
+asking about one player alone differed from asking about him inside the population. The rate is
+now measured between the two highest fitted horizons on a fixed reference population and cached
+per page. Both invariances are now exactly zero. The extrapolation tag is also carried through
+to the contract table, which can now report how many of a contract's seasons came from beyond
+the fitted range.
+
+**Repaired entry points were not runnable.** The named-player runner checked the global
+six-horizon constant before fitting, so it refused a seven-year term on a page that supports
+nine and never reached the extrapolation path. The two rolling runners handed the cohort guard a
+range it had to refuse. The forecast attachment clipped at horizon eight and dropped missing
+years instead of asserting full-term coverage. Each is fixed, and the market seal now requires a
+written reason for an unseal, as the page seal already did.
+
+The verification also notes that the ledger records inspections without enforcing once-only use.
+That is correct and is not repaired here: enforcement needs the holdout policy decided first,
+which is the open decision recorded in `Holdout_Inventory.md`.
+
 ## What Remains Open
 
 Nothing on the dollar side has been reconciled. The chain runs and prices 1,226 development
@@ -235,10 +314,13 @@ integration, and the goalie branch are all still unbuilt, as the review's adhere
 
     python 50_REBUILD/code/repair_checks.py
 
-Twelve checks, each corresponding to a defect above. The first eight were demonstrated failing
-against the commits that preceded them, by copying the suite into a checkout of the earlier code
-and running it there; against the original commit none of the first six passes. The last four
-guard code that did not exist before. All twelve pass on the current tree.
+Fourteen checks, each corresponding to a defect above. The first eight were demonstrated
+failing against the commits that preceded them, by copying the suite into a checkout of the
+earlier code and running it there; against the original commit none of the first six passes. The
+rest guard code that did not exist before. Check 12 was rewritten after the verification pointed
+out that its original form, which asserted only that rates move with the horizon and survival
+falls below one, was true of an adapter wrong in two ways at once; it now compares the adapter
+against production's own methods row by row. All fourteen pass on the current tree.
 
 The suite builds its table with the coverage guard disabled and reports the coverage instead.
 That is deliberate: the guard exists to stop a silent degraded run, and this suite is the tool

@@ -262,3 +262,21 @@ players 22 and under, production by 0.39 wins a season and the rebuilt chain by 
 rebuild's error advantage on that band is 2.6% against 53.8% at 34 and over. The negative-NPV
 finding on early extensions lives in exactly this population, and the direction of the error
 pushes against that finding rather than supporting it.
+
+**2026-09-15b — the below-replacement gain was an artifact, and is withdrawn.** The rebuild was
+reported as improving on production by 28.6% for below-replacement players. That figure came from
+a production adapter that multiplied negative anchors along a decay path, where locked decision
+D12 projects them to replacement. Against production's actual rule the improvement is 2.6%. Any
+claim that the rebuild fixes the pricing of below-replacement players should be treated as
+withdrawn until something re-establishes it.
+
+**2026-09-15b — on young players the rebuild is now slightly behind production.** Against the
+corrected comparator, players 22 and under show a 0.4% increase in mean absolute error, against
+the 2.4% improvement reported earlier. Both chains under-project that band, production by 0.34
+wins a season and the rebuilt chain by 0.25. This is the population the negative-NPV finding on
+early extensions lives in.
+
+**2026-09-15b — a general lesson worth keeping.** Two of the four P1 defects in the verification
+were the same mistake: reimplementing a production rule that could have been called. The adapter
+restated the anchor and the multiplier, and both restatements were wrong. Where a comparison
+against production is the point, call production.

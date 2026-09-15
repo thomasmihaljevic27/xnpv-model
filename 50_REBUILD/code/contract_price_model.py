@@ -45,7 +45,7 @@ import information_set as ISET
 from contract_source import load_contracts, POSGRP
 from player_season_table import norm_name, build as build_table
 
-SCRIPT_VERSION = "1.1"
+SCRIPT_VERSION = "1.2"
 
 
 def contract_sample() -> pd.DataFrame:
@@ -63,11 +63,38 @@ def contract_sample() -> pd.DataFrame:
           & c["signing_status"].isin(["UFA", "RFA"])
           & c["pkey"].str.endswith(("|F", "|D"))]
     c = c[c["start_yr"].between(2015, 2025) & c["signed"].notna()]
-    c["cap_share"] = c["aav"] / c["start_yr"].map(C.CAP_CEILING)
+    # THE DENOMINATOR HAS TO BE KNOWABLE AT THE SIGNING TOO. Dating the fit at
+    # the signing while dividing by the REALISED start-year ceiling leaves
+    # future cap information in the target itself: an extension signed in
+    # January 2019 for a 2019 start entered training under its own signing
+    # date while its denominator was a ceiling not yet announced. The fix uses
+    # the start-year ceiling as it was knowable on the signing date, which for
+    # a deal signed the summer before the start is the published figure and for
+    # an early extension is the 3% extrapolation.
+    # A SIGNING THAT PREDATES THE CAP TABLE CANNOT BE PRICED THIS WAY. The
+    # earliest ceiling on record is the 2015-16 one, announced in June 2015, so
+    # a deal signed in November 2014 for a 2015 start genuinely did not know its
+    # own denominator. That is a real information constraint rather than an
+    # artifact, and inventing a pre-2015 ceiling to get around it would be
+    # inventing the very number the constraint is about. The 31 affected
+    # contracts, 0.9% of the eligible sample and all 2015 starts, are dropped
+    # and counted. Adding the published pre-2015 ceilings to CAP_CEILING from
+    # source would return them.
+    first_known = pd.Timestamp(f"{min(C.CAP_CEILING)}-07-01")
+    n_pre = int((c["signed"] < first_known).sum())
+    if n_pre:
+        C.log(f"  {n_pre} contracts signed before {first_known.date()} dropped: "
+              "the cap ceiling for their start year had not been announced and "
+              "this table holds no earlier one to project from")
+    c = c[c["signed"] >= first_known]
+    known_ceiling = np.array([
+        C.cap_path(sg, [int(sy)])[int(sy)]
+        for sg, sy in zip(c["signed"], c["start_yr"])])
+    c["cap_ceiling_at_signing"] = known_ceiling
+    c["cap_share"] = c["aav"] / known_ceiling
     # The censoring point: no contract prices below the league minimum, so the
     # bottom of the distribution is a pile-up at the floor rather than a tail.
-    c["floor_share"] = (c["start_yr"].map(C.LEAGUE_MIN_SALARY)
-                        / c["start_yr"].map(C.CAP_CEILING))
+    c["floor_share"] = c["start_yr"].map(C.LEAGUE_MIN_SALARY) / known_ceiling
     c = c[c["cap_share"].notna() & c["floor_share"].notna()]
     c["is_RFA"] = (c["signing_status"] == "RFA").astype(float)
     c["is_D"] = c["pkey"].str.endswith("|D").astype(float)
@@ -116,15 +143,25 @@ def attach_forecasts(sample: pd.DataFrame, model_cls, table: pd.DataFrame,
         pred["war"] = pred["p_play"] * pred["rate_82"] * pred["gp_share"]
         lut = pred.set_index(["pkey", "h"])["war"]
 
+        ex = pred.set_index(["pkey", "h"])["extrapolated"]
         for r in grp.itertuples():
             hh = [int(s - t0) for s in range(int(r.start_yr), int(r.end_yr) + 1)]
-            vals = [lut.get((r.pkey, x), np.nan) for x in hh if 0 <= x <= 8]
-            vals = [v for v in vals if np.isfinite(v)]
-            if not vals:
+            vals = [lut.get((r.pkey, x), np.nan) for x in hh]
+            # THE WHOLE TERM, OR NOTHING. This used to clip the horizon list at
+            # eight and then drop whatever came back missing, so a contract
+            # could be priced on part of itself and reported as though it were
+            # priced on all of it. A player the batch cannot answer for is
+            # skipped entirely, which is visible; a term silently shortened is
+            # not.
+            if not all(np.isfinite(v) for v in vals):
                 continue
+            n_ex = int(sum(float(ex.get((r.pkey, x), 0.0)) for x in hh))
             out.append({"idx": r.Index, "war_total": float(np.sum(vals)),
                         "war_per_season": float(np.mean(vals)),
-                        "war_year1": float(vals[0]), "n_years_forecast": len(vals)})
+                        "war_year1": float(vals[0]), "n_years_forecast": len(vals),
+                        # Carried so a dollar total can say how much of itself
+                        # came from beyond the fitted range.
+                        "n_years_extrapolated": n_ex})
         if verbose:
             C.log(f"  batch readable-through {L}: {len(grp)} contracts")
 
