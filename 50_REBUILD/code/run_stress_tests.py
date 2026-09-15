@@ -31,11 +31,16 @@ import rebuild_config as C
 import forecast_harness as H
 import information_set as ISET
 from player_season_table import build as build_table
-from ability_forecast import (A1AgingParticipationImputedNC, A0Production,
+from ability_forecast import (A1AgingParticipationImputedNC, A1HingeExposure, A0Production,
                               A2AgingParticipationImputed)
 
-SCRIPT_VERSION = "1.0"
-LEADER = A1AgingParticipationImputedNC
+SCRIPT_VERSION = "1.1"
+# THE ADOPTED CANDIDATE, which is the hinge-and-evidence variant. The battery
+# used to run the earlier leader while the register recorded a different model
+# as adopted, so the six-part suite was testing something nobody had chosen.
+# The two are within a third of a percent of each other at every horizon, so
+# this changes no conclusion; it changes what the suite is evidence ABOUT.
+LEADER = A1HingeExposure
 
 
 def fmt(x, n=3):

@@ -374,3 +374,12 @@ under-projection on the rebuilt one, 16% smaller and opposite in sign; the young
 under-projection is improved from -0.39 to -0.25 with a 2.6% error advantage that is close to
 nothing.** Do not add flexibility to chase the star residual without re-reading its sign. Repair
 items 1 to 7 complete; check suite 12 of 12.
+
+**Change log 2026-09-15b (final) — the repair report.**
+`50_REBUILD/docs/Review_Repair_Report.md` written, closing the nine findings. Two corrections it
+forced: the stress battery and the item 7 rerun both used the earlier leader while the register
+records the hinge-and-evidence variant as adopted, now corrected in both (agreement to the third
+decimal, no conclusion changed); and the new age-coverage guard would have aborted
+`repair_checks.py` on a thin checkout, so the suite now builds with the guard disabled, reports
+coverage, and skips the extrapolation check when the age join is too thin to measure a decay
+rate. Verified at 11 passed 1 skipped on the thin join and 12 of 12 on the full one.
