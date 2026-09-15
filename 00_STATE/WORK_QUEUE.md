@@ -147,12 +147,12 @@ until items 3 to 5 land and the chain is refit.
    one-game event, make the rate and games targets condition on the same event, keep returning
    players with an explicit stale-history tier, and define the age bands at the valuation date
    rather than the last observed season.
-5. **Market dating and dollars — NEXT.** Signing-date coverage verified independently at
+5. **Market dating and dollars — DONE 2026-09-15b.** Signing-date coverage verified independently at
    3,550 of 3,550, so no fallback rule is needed. Date each market fit at the signing date and assert the
    latest training signing precedes the valuation; signing-date coverage is confirmed at 3,550
    of 3,550 on the eligible sample, so no fallback rule is needed. Build the date-aware cap
    path with the announcement cutoff, 3% extrapolation and the discount schedule.
-6. **The production adapter, and the corrections that do not wait for it.** The false
+6. **The production adapter, and the corrections that do not wait for it — NEXT.** The false
    attribution appears in the reports, in model labels, and in executable log output, so a
    rerun regenerates it. The adapter is validated by agreement with production's individual
    forecast rows under the same settings, not by reproducing 24% on a different population.

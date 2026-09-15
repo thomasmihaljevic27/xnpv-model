@@ -39,7 +39,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 import information_set as ISET
 
-SCRIPT_VERSION = "1.2"
+SCRIPT_VERSION = "1.3"
 
 W_T1, W_T2 = 0.6, 0.4    # the locked recency weighting, reproduced for A0
 
@@ -75,6 +75,93 @@ class BaseModel:
     # therefore has nothing to fit.
     FITTED_HORIZONS = C.FITTED_HORIZONS
 
+    def predict_beyond_fit(self, iset, subs, horizons):
+        """Forecast horizons past the fitted range, by a DECLARED rule.
+
+        predict() refuses an unfitted horizon and will go on refusing it. This
+        is the separate, explicitly-called path for the case the refusal
+        exposed: a contract runs longer than its own page can support. At the
+        2014 page the fitted range reaches five seasons and an eight-year deal
+        needs eight, because a training pair at eight seasons out needs an
+        outcome that had not happened yet. 28 of 1,927 development contracts
+        are in this position, 1.5%, and every one of them is a long deal, which
+        is the population the thesis cares most about. Dropping them would
+        change the market sample in exactly the direction that flatters it.
+
+        THE RULE: continue the decay already visible at the end of the fitted
+        range. The league-wide ratio between the last two fitted horizons is
+        measured separately for the rate and for participation, and each is
+        applied once per extra season. Games share is carried forward.
+
+        WHY NOT SIMPLY HOLD FLAT, which was the first thing tried. Measured
+        against pages where these horizons ARE fitted, holding flat overstates
+        forecast production by 36% one season past the range, 88% two past and
+        170% three past. Production declines steeply out there and
+        participation declines with it, so flat is not conservative, it is
+        wrong. Continuing the observed decay leaves +3.0%, +10.0% and +19.8%
+        over four pages. A rule that tries to capture the ACCELERATION of the
+        decay overshoots the other way, and a log-linear trend is worse than
+        both, so the plain ratio is what ships. Those are means over four pages;
+        on the worst of them the three-season error is +32%, which is the real
+        cost of pricing an eight-year deal from a page that reaches five.
+
+        THE REMAINING BIAS IS UP, and it is not corrected. It could be divided
+        out using the figures above, but they are three constants tuned to
+        repair 1.5% of the sample, and that is not a trade worth making. The
+        direction is stated instead: an extrapolated tail is worth slightly
+        more than a fitted one would be, so a contract priced partly on
+        extrapolation is flattered, mildly and knowably.
+
+        A ratio is measured LEAGUE-WIDE rather than per player: per-player
+        ratios were tested and are worse, being a noisy quotient of two
+        forecasts for one man.
+
+        Every extrapolated row is tagged, so a total built on one can say how
+        much of itself was extrapolated.
+        """
+        fitted = sorted(getattr(self, "fitted_horizons_", None) or self.FITTED_HORIZONS)
+        want = sorted(int(h) for h in horizons)
+        inside = [h for h in want if h in fitted]
+        beyond = [h for h in want if h not in fitted]
+        if not inside:
+            raise ValueError(
+                f"{self.name} has no fitted horizon among {want}; there is "
+                "nothing to carry forward from.")
+        if beyond and len(inside) < 2:
+            raise ValueError(
+                f"{self.name} needs two fitted horizons to measure a decay "
+                f"rate from, and has {len(inside)}.")
+        out = self.predict(iset, subs, inside)
+        out["extrapolated"] = 0.0
+        if beyond:
+            hmax, prev = max(inside), sorted(inside)[-2]
+            a, b = out[out["h"] == prev], out[out["h"] == hmax]
+            # League-wide, and floored: a ratio at or above one would carry a
+            # rising tail out to year eight, and a very small one would zero
+            # the contract out on two noisy horizons.
+            # THE RATIO IS MEASURED ON THE PRODUCT, which is the quantity that
+            # has to decay correctly, and then split between the two parts.
+            # Measuring a ratio for each part separately and applying both
+            # decays the product by their product, which double-counts the
+            # decline: tested, it undershoots by 21% to 45% instead of the
+            # 3% to 20% the product ratio leaves. Participation keeps its own
+            # observed rate so it stays interpretable, and the rate carries
+            # whatever is left over.
+            war = lambda x: (x["p_play"] * x["rate_82"] * x["gp_share"]).mean()
+            g_prod = float(np.clip(war(b) / war(a), 0.5, 1.0))
+            g_play = float(np.clip(b["p_play"].mean() / a["p_play"].mean(), 0.5, 1.0))
+            g_rate = float(np.clip(g_prod / g_play, 0.5, 1.05))
+            last = b.copy()
+            for h in beyond:
+                k = h - hmax
+                nxt = last.copy()
+                nxt["h"] = h
+                nxt["rate_82"] = last["rate_82"] * g_rate ** k
+                nxt["p_play"] = (last["p_play"] * g_play ** k).clip(0.005, 0.995)
+                nxt["extrapolated"] = 1.0
+                out = pd.concat([out, nxt], ignore_index=True)
+        return out
+
     def _guard_horizons(self, horizons) -> None:
         """Refuse a horizon this model never fitted.
 
@@ -88,15 +175,24 @@ class BaseModel:
         a declared extrapolation, and this raise is what forces that choice to
         be made rather than defaulted into.
         """
-        if self.FITTED_HORIZONS is None:
+        # What THIS FIT managed, when it recorded it, rather than the class
+        # default: the range a page can support depends on how much history
+        # sits behind it, so a 2021 valuation legitimately reaches further than
+        # a 2015 one and should not be held to the earlier page's limit.
+        fitted = getattr(self, "fitted_horizons_", None)
+        if fitted is None:
+            fitted = self.FITTED_HORIZONS
+        if fitted is None:
             return
-        missing = sorted({int(h) for h in horizons} - set(self.FITTED_HORIZONS))
+        missing = sorted({int(h) for h in horizons} - set(fitted))
         if missing:
             raise ValueError(
                 f"{self.name} was asked for horizon(s) {missing} but is fitted "
-                f"only to {sorted(self.FITTED_HORIZONS)}. Fit the horizons the "
-                "caller needs, or declare and test an extrapolation. Do not "
-                "let the caller take the fallback value silently.")
+                f"only to {sorted(fitted)}. On this page the later horizons "
+                f"have fewer than {C.MIN_HORIZON_PAIRS} training pairs, so "
+                "there is nothing behind them. Price the contract from a page "
+                "that reaches far enough, or declare and test an "
+                "extrapolation. Do not take the fallback value silently.")
 
     def fit(self, table: pd.DataFrame, before: int) -> None:
         self.before = before
@@ -165,6 +261,11 @@ class BaseModel:
         # of nothing.
         pairs["y_gp"] = act["GP"].reindex(ix).to_numpy()
         pairs["y_played"] = np.nan_to_num(pairs["y_gp"]) >= C.PARTICIPATION_GP
+        # WHICH HORIZONS THIS PAGE CAN ACTUALLY CARRY, recorded on the model so
+        # the guard can refuse the rest by evidence rather than by a constant.
+        n = pairs.dropna(subset=["y_rate"]).groupby("h").size()
+        self.fitted_horizons_ = tuple(
+            sorted(int(h) for h, k in n.items() if k >= C.MIN_HORIZON_PAIRS))
         # A season that never happened is not a training row for the RATE, but
         # IS one for participation. Rate fits drop it; the participation
         # placeholder below uses the full frame.
@@ -382,7 +483,7 @@ class A1Calibrated(BaseModel):
 
     def fit(self, table, before):
         super().fit(table, before)
-        pairs = self._training_pairs(table, before, C.FITTED_HORIZONS)
+        pairs = self._training_pairs(table, before, C.CANDIDATE_HORIZONS)
         self.coef_, self.gp_coef_ = {}, {}
         for h, g in pairs.groupby("h"):
             r = g.dropna(subset=["y_rate"])           # rate fit: seasons played
@@ -495,7 +596,7 @@ class A2Component(A1Calibrated):
         self.norm_ = self._fit_norms(s)
         self.k_ = self._fit_reliability(s, before)
 
-        pairs = self._training_pairs(table, before, C.FITTED_HORIZONS)
+        pairs = self._training_pairs(table, before, C.CANDIDATE_HORIZONS)
         pairs = self._shrink(pairs)
         self.coef_, self.gp_coef_ = {}, {}
         for h, g in pairs.groupby("h"):
@@ -727,7 +828,7 @@ class A2PerHorizonTrust(A2Component):
         super().fit(table, before)
         s = table[table["GP"] >= C.MIN_GP]
         self.k_by_h_ = {}
-        for h in C.FITTED_HORIZONS:
+        for h in self.fitted_horizons_:
             self.k_by_h_[h] = self._fit_reliability_at(s, before, h + 1)
 
     def _fit_reliability_at(self, s, before, gap):
@@ -851,7 +952,7 @@ class A2PerHorizonAll3(A2PerHorizonTrust3):
         s = table[table["GP"] >= C.MIN_GP]
         act = s.set_index(["career_key", "syr"])
         self.decay_by_h_ = {}
-        for h in C.FITTED_HORIZONS:
+        for h in self.fitted_horizons_:
             self.decay_by_h_[h] = self._fit_decay_at(s, act, before, h)
 
     def _fit_decay_at(self, s, act, before, h):
@@ -907,7 +1008,7 @@ class A1Calibrated3PerHorizon(A1Calibrated3):
         s = table[table["GP"] >= C.MIN_GP]
         act = s.set_index(["career_key", "syr"])
         self.decay_by_h_ = {h: A2PerHorizonAll3._fit_decay_at(self, s, act, before, h)
-                            for h in C.FITTED_HORIZONS}
+                            for h in self.fitted_horizons_}
 
     def predict(self, iset, subs, horizons):
         self._guard_horizons(horizons)
@@ -1220,15 +1321,24 @@ class _ParticipationMixin:
             except Exception:                     # noqa: BLE001
                 contracts = None
         n, d = self.N_SEASONS, self.decay_
+        # THE SAME HORIZONS THE RATE WAS FITTED TO. Participation used to take
+        # its own default of six while the rate reached as far as the page
+        # allowed, so the two halves of the forecast could disagree about which
+        # seasons existed.
         self.part_ = ParticipationModel(contracts).fit(
-            table, before, anchors_fn=lambda p: _anchors(p, n, d))
+            table, before, anchors_fn=lambda p: _anchors(p, n, d),
+            horizons=self.fitted_horizons_)
         return self
 
     def _p_play(self, a, subs, h):
         p = self.part_.predict(a.reset_index(), h)
         p = p[~p.index.duplicated()]
-        return p.reindex(subs["career_key"]).fillna(
-            self.part_.base_.get(h, 0.6)).to_numpy()
+        # The horizon is guaranteed fitted by _guard_horizons, so this horizon
+        # HAS a base rate and the fallback is the league's own number for it
+        # rather than a hardcoded 0.6. It applies per player, to a subject the
+        # anchor frame has no row for, not to a whole unfitted horizon.
+        base = self.part_.base_[h]
+        return p.reindex(subs["career_key"]).fillna(base).to_numpy()
 
 
 class A1AgingParticipation(_ParticipationMixin, A1Calibrated3Aging):

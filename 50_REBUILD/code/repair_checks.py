@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import warnings
 
+import numpy as np
 import pandas as pd
 
 import rebuild_config as C
@@ -22,7 +23,7 @@ import forecast_harness as H
 import player_season_table as T
 from ability_forecast import A0Production
 
-SCRIPT_VERSION = "1.1"
+SCRIPT_VERSION = "1.2"
 
 PASS, FAIL, SKIP = "pass", "FAIL", "skip"
 results: list[tuple[str, str, str]] = []
@@ -114,11 +115,15 @@ def c4(table):
         raise _Skip("no eligible subjects on the 2021 page in this checkout")
     m = A1Calibrated()
     m.fit(iset.seasons, before=2021)
-    beyond = max(C.FITTED_HORIZONS) + 1
+    # The model's OWN range, not the class default: the fitted range is decided
+    # per page from the evidence, so this page reaches further than the default
+    # and asking for default+1 would be asking for a horizon it really has.
+    beyond = max(m.fitted_horizons_) + 1
     try:
         m.predict(iset, subs, [beyond])
     except ValueError:
-        return f"horizon {beyond} refused; fitted range is {sorted(C.FITTED_HORIZONS)}"
+        return (f"horizon {beyond} refused; this page fitted "
+                f"{min(m.fitted_horizons_)}-{max(m.fitted_horizons_)}")
     raise AssertionError(f"horizon {beyond} was answered despite never being fitted")
 
 
@@ -212,6 +217,88 @@ def c8(table):
             f"{blank} missing values")
 
 
+# -- 9. market fits are dated at the signing --------------------------------
+def c9(_table):
+    """The price line was fitted on contracts sharing a START year, so an
+    extension signed in 2017 could be priced on the 2018 market."""
+    from contract_price_model import contract_sample
+    from production_currency import ProductionCurrency
+    d = contract_sample()
+    d["war_per_season"] = 0.0
+    for col in ("length", "is_RFA", "rfa_x_war", "is_D", "one_year", "war_year1"):
+        if col not in d.columns:
+            d[col] = (d["length"] == 1).astype(float) if col == "one_year" else 0.0
+    try:
+        ProductionCurrency().fit(d, before_date=2019)
+    except TypeError:
+        pass
+    else:
+        raise AssertionError("fit() accepted a season where a date is required")
+    cut = pd.Timestamp("2019-07-01")
+    cur = ProductionCurrency().fit(d, before_date=cut)
+    tr = d[d["signed"] < cut]
+    assert tr["signed"].max() < cut
+    late = int((d["signed"] >= cut).sum())
+    return (f"{len(tr)} contracts signed before {cut.date()} train the line; "
+            f"the {late} signed after it are out of reach")
+
+
+# -- 10. the cap path, and the identity it has to satisfy -------------------
+def c10(_table):
+    """Dollars were built from realised ceilings with the 2025 ceiling
+    substituted for later years and no discounting, so a historical valuation
+    knew the flat-cap years before they were announced."""
+    seen_2017 = C.cap_path("2017-07-01", [2020, 2021])
+    assert seen_2017[2020] > C.CAP_CEILING[2020], (
+        "a 2017 valuation still lands on the realised 2020 ceiling, so it is "
+        "reading a cap freeze that had not been announced")
+    # D24: with growth and discount equal, a fully extrapolated path reduces to
+    # the sum of shares times one ceiling. Demonstrated, not assumed.
+    assert C.CAP_GROWTH == C.DISCOUNT_RATE
+    yrs = list(range(2030, 2035))              # all beyond any announcement
+    path = C.cap_path("2025-07-01", yrs)
+    disc = sum(path[y] / (1 + C.DISCOUNT_RATE) ** k for k, y in enumerate(yrs))
+    flat = path[yrs[0]] * len(yrs)
+    assert abs(disc - flat) < 1e-6 * flat, (
+        f"the D24 cancellation does not hold: {disc:,.0f} against {flat:,.0f}")
+    return (f"2020 ceiling seen from 2017 is {seen_2017[2020]/1e6:.1f}M against "
+            f"{C.CAP_CEILING[2020]/1e6:.1f}M realised; D24 identity holds")
+
+
+# -- 11. extrapolation past the fitted range is declared and bounded --------
+def c11(table):
+    """A contract can outrun its own page. The rule carries the last fitted
+    season forward on the decay observed at the end of the range, and every
+    extrapolated row says so."""
+    import information_set as ISET
+    from ability_forecast import A1AgingParticipationImputedNC as L
+    war = lambda x: x["p_play"] * x["rate_82"] * x["gp_share"]
+    got = {6: [], 7: [], 8: []}
+    for page in (2018, 2019, 2020, 2021):
+        iset = ISET.build(table, ISET.decision_date_for_page(page), t0=page)
+        m = L()
+        m.fit(iset.seasons, before=page)
+        subs = H.subjects_at(iset)
+        truth = m.predict(iset, subs, [6, 7, 8]).set_index(["career_key", "h"])
+        m.fitted_horizons_ = (0, 1, 2, 3, 4, 5)   # hold the page to a short range
+        ex = m.predict_beyond_fit(iset, subs, list(range(9))).set_index(["career_key", "h"])
+        assert ex["extrapolated"].sum() == 3 * len(subs), "extrapolated rows are not tagged"
+        for h in (6, 7, 8):
+            a, b = war(truth.xs(h, level="h")), war(ex.xs(h, level="h"))
+            got[h].append(100 * (b.reindex(a.index) - a).mean() / a.mean())
+    # The bound guards against regression and is not a claim of accuracy. The
+    # rule overstates, by about 3% one season past the fitted range and about
+    # 20% three past on average, and by 32% three past on the worst of these
+    # four pages. That is the documented cost of pricing a long deal from an
+    # early page, and it is why the rows are tagged.
+    out = []
+    for h in (6, 7, 8):
+        mean_b, worst = float(np.mean(got[h])), max(got[h], key=abs)
+        assert abs(worst) < 40, f"horizon {h} extrapolation is off by {worst:+.1f}%"
+        out.append(f"h{h} {mean_b:+.1f}% mean")
+    return ", ".join(out) + f", worst page {max(got[8], key=abs):+.1f}% at h8"
+
+
 def main() -> None:
     warnings.filterwarnings("ignore")
     C.banner("repair_checks.py", SCRIPT_VERSION)
@@ -227,7 +314,10 @@ def main() -> None:
                      ("incomplete predictions refused", c5),
                      ("reserved samples enforced", c6),
                      ("one participation event", c7),
-                     ("returning players answered", c8)]:
+                     ("returning players answered", c8),
+                     ("market fits dated at signing", c9),
+                     ("cap path and the D24 identity", c10),
+                     ("extrapolation declared and bounded", c11)]:
         check(name, lambda fn=fn: fn(table))
 
     width = max(len(n) for n, _, _ in results)

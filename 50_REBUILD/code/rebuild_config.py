@@ -27,7 +27,7 @@ import sys
 import time
 from pathlib import Path
 
-SCRIPT_VERSION = "1.3"
+SCRIPT_VERSION = "1.4"
 
 # --- Tree layout ----------------------------------------------------------
 # resolve() first: __file__ can be relative depending on how python was
@@ -162,6 +162,31 @@ UNALLOCATED_FIRST_SEASON = 2023
 # extrapolation, which is a modelling decision and not this constant's job.
 FITTED_HORIZONS = tuple(range(6))
 
+# HOW FAR OUT A FIT MAY BE ATTEMPTED, and how much evidence a horizon needs
+# before it counts as fitted.
+#
+# The six above is not arbitrary and it is not a free choice: it is what the
+# EARLIEST development page can support. A training pair at horizon h needs an
+# anchor at t0 and an outcome at t0+h completed before the valuation season, and
+# the source starts in 2007, so at the 2015 page horizon 6 has 270 pairs and
+# horizon 7 has none at all. At the 2021 page horizon 7 has 1,246 and the range
+# reaches 11.
+#
+# A contract, meanwhile, does not care: an eight-year deal needs eight seasons
+# priced wherever it was signed. So the fitted range is decided per page from
+# the evidence actually available, rather than fixed at the worst page's answer
+# and then quietly extrapolated past it. Beyond what a page supports the models
+# refuse, which is the point: the alternative that was in place returned a flat
+# 0.6 and the trailing rate.
+#
+# MIN_HORIZON_PAIRS is a judgement and worth revisiting. 200 league-wide pairs
+# is thin for the tail of a long deal; it is set above the rate fit's own floor
+# of 50 so that a horizon can be declared fitted only on more than the bare
+# minimum that lets least squares return a number.
+MAX_HORIZON = 12
+CANDIDATE_HORIZONS = tuple(range(MAX_HORIZON + 1))
+MIN_HORIZON_PAIRS = 200
+
 MIN_GP = 10           # a season needs this many games to count as a signal
 
 # THE PARTICIPATION EVENT, which is a different question from the one MIN_GP
@@ -197,6 +222,82 @@ PARTICIPATION_GP = 1
 # shrunken number looks like a finding. The threshold sits below the known-good
 # 98.3% and far above the degraded 69.2%.
 MIN_AGE_COVERAGE = 0.95
+
+
+# --- THE CAP PATH AS IT WAS KNOWN AT A DECISION DATE ----------------------
+#
+# A valuation may use a ceiling only once it has been announced. The code this
+# replaces summed the REALISED ceiling for each contract season and substituted
+# the 2025 ceiling for anything later, so a 2017 valuation of a 2019-start
+# contract already knew the flat-cap years that the pandemic had not yet
+# caused. That is not a small look-ahead: the flat cap is the single largest
+# surprise in the sample period and it sits directly in the denominator of
+# every cap share.
+#
+# WHEN A CEILING BECOMES KNOWN. The upper limit for a season is normally set in
+# the June before it starts, so a 1 July valuation in year Y knows year Y and
+# not year Y+1. The exception on the record is 2025-01-31, when the league and
+# the players' association published the ceilings for 2025-26, 2026-27 and
+# 2027-28 together, so a valuation from July 2025 may use all three and an
+# earlier one may use none of them.
+#
+# NOT ADDED HERE: the announced 2026-27 and 2027-28 figures themselves. They
+# are public and they belong in CAP_CEILING, but they are not in this
+# repository's source data and a thesis model should not carry a number typed
+# in from memory. Until they are entered from the source, a valuation dated
+# after 2025-01-31 extrapolates those two seasons at CAP_GROWTH like any other
+# unannounced year, which understates them. Recorded so it is a known gap
+# rather than a silent one.
+CAP_ANNOUNCED_EARLY = {2025: "2025-01-31", 2026: "2025-01-31", 2027: "2025-01-31"}
+
+# Growth applied beyond the last announced ceiling, and the discount rate on
+# future dollars. Equal by design, following locked decision D24: in cap-share
+# terms a 3% growth path and a 3% discount cancel exactly, so the primitive is
+# the plain sum of cap shares and pricing is one multiplication. They are kept
+# as two separate constants rather than cancelled in the algebra so that the
+# cancellation is something the code demonstrates rather than assumes.
+CAP_GROWTH = 0.03
+DISCOUNT_RATE = 0.03
+
+
+def cap_announced_on(year: int) -> "object":
+    """The date the ceiling for a season became public knowledge."""
+    import datetime as _dt
+    if year in CAP_ANNOUNCED_EARLY:
+        return _dt.date.fromisoformat(CAP_ANNOUNCED_EARLY[year])
+    return _dt.date(year, 7, 1)
+
+
+def cap_path(decision_date, years):
+    """The ceiling for each season, as knowable on `decision_date`.
+
+    Announced ceilings are used as published. Everything later grows from the
+    last announced one at CAP_GROWTH. A valuation therefore cannot see a cap
+    shock that had not been announced when it was made.
+    """
+    import datetime as _dt
+    import pandas as _pd
+    d = decision_date
+    if isinstance(d, str):
+        d = _dt.date.fromisoformat(d)
+    elif isinstance(d, _pd.Timestamp):
+        d = d.date()
+    elif isinstance(d, _dt.datetime):
+        d = d.date()
+
+    known = {y: c for y, c in CAP_CEILING.items() if cap_announced_on(y) <= d}
+    if not known:
+        # Before the first announcement in the table there is nothing to stand
+        # on, so the earliest ceiling is the only defensible anchor and the
+        # caller is told rather than handed a silent guess.
+        raise ValueError(
+            f"no cap ceiling had been announced by {d}; the table starts at "
+            f"{min(CAP_CEILING)}. A valuation this early cannot be priced.")
+    last_yr = max(known)
+    last_cap = known[last_yr]
+    return {int(y): (known[y] if y in known
+                     else last_cap * (1.0 + CAP_GROWTH) ** (int(y) - last_yr))
+            for y in years}
 
 # WEIGHT RATE OBSERVATIONS BY GAMES PLAYED. A per-82 rate computed from a
 # handful of games is an estimate of the same quantity as a full season's rate,

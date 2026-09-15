@@ -32,7 +32,7 @@ from contract_price_model import (contract_sample, attach_forecasts, tobit,
 from player_season_table import build as build_table
 from ability_forecast import A1AgingParticipationImputedNC
 
-SCRIPT_VERSION = "1.1"
+SCRIPT_VERSION = "1.2"
 
 FEATURES = ["war_per_season", "length", "is_RFA", "rfa_x_war", "is_D",
             "one_year", "war_year1"]
@@ -53,24 +53,34 @@ def rolling_price_eval(d: pd.DataFrame, split: bool) -> pd.DataFrame:
     # before any of them is read. The sweep used to run to 2025 and select
     # on each year it touched, including the reserved ones.
     for yr in C.check_market_cohorts(range(2018, 2026), "run_phase4_decisions"):
-        tr = d[d["start_yr"] < yr]
         te = d[d["start_yr"] == yr]
-        if len(tr) < 200 or not len(te):
+        if not len(te):
             continue
         pred = np.full(len(te), np.nan)
         groups = [("UFA", 0.0), ("RFA", 1.0)] if split else [("all", None)]
-        for _, flag in groups:
-            trg = tr if flag is None else tr[tr["is_RFA"] == flag]
-            teg = te if flag is None else te[te["is_RFA"] == flag]
-            if len(trg) < 150 or not len(teg):
+        # TRAINED ON SIGNINGS, NOT ON START YEARS. Splitting on the start year
+        # trained a 2019 valuation on contracts signed in 2018 whenever the
+        # 2019-start deal was an extension signed earlier. The cut is the
+        # quarter boundary at or before each test contract's own signing, so
+        # every training signing precedes every test signing in the group.
+        for cut, teq in te.groupby(te["signed"].dt.to_period("Q").dt.start_time):
+            tr = d[d["signed"] < cut]
+            if len(tr) < 200:
                 continue
-            cols = FEATURES if flag is None else FEATURES_SPLIT
-            b, _, ok = tobit(trg[cols].to_numpy(float),
-                             trg["cap_share"].to_numpy(float),
-                             trg["floor_share"].to_numpy(float))
-            p = predict_tobit(b, teg[cols].to_numpy(float))
-            p = np.maximum(p, teg["floor_share"].to_numpy(float))
-            pred[te.index.get_indexer(teg.index)] = p
+            assert tr["signed"].max() < cut <= teq["signed"].min(), (
+                f"training reaches {tr['signed'].max()} against a cut of {cut}")
+            for _, flag in groups:
+                trg = tr if flag is None else tr[tr["is_RFA"] == flag]
+                teg = teq if flag is None else teq[teq["is_RFA"] == flag]
+                if len(trg) < 150 or not len(teg):
+                    continue
+                cols = FEATURES if flag is None else FEATURES_SPLIT
+                b, _, ok = tobit(trg[cols].to_numpy(float),
+                                 trg["cap_share"].to_numpy(float),
+                                 trg["floor_share"].to_numpy(float))
+                pp = predict_tobit(b, teg[cols].to_numpy(float))
+                pp = np.maximum(pp, teg["floor_share"].to_numpy(float))
+                pred[te.index.get_indexer(teg.index)] = pp
         m = np.isfinite(pred)
         rows.append({"start_yr": yr, "n": int(m.sum()),
                      "mae": float(np.abs(pred[m] - te["cap_share"].to_numpy(float)[m]).mean())})

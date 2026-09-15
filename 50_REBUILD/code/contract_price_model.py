@@ -45,7 +45,7 @@ import information_set as ISET
 from contract_source import load_contracts, POSGRP
 from player_season_table import norm_name, build as build_table
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 
 
 def contract_sample() -> pd.DataFrame:
@@ -108,7 +108,10 @@ def attach_forecasts(sample: pd.DataFrame, model_cls, table: pd.DataFrame,
                      if 0 <= s - t0 <= 8})
         if not hs:
             continue
-        pred = model.predict(iset, subs, hs)
+        # A contract can outrun what its own page supports. predict() refuses
+        # an unfitted horizon; this is the declared path that carries the last
+        # fitted season forward, and it tags what it extrapolated.
+        pred = model.predict_beyond_fit(iset, subs, hs)
         pred = pred.merge(subs[["career_key", "pkey"]], on="career_key", how="left")
         pred["war"] = pred["p_play"] * pred["rate_82"] * pred["gp_share"]
         lut = pred.set_index(["pkey", "h"])["war"]

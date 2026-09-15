@@ -338,3 +338,16 @@ admitting the returning players moves it to -46.1%, because the flat benchmark h
 population especially badly. All figures remain against the flat benchmark, not the live chain.
 Added `MIN_AGE_COVERAGE` and a refusal in the season table for a starved age join, with an
 explicit override.
+
+**Change log 2026-09-15b (continued) — item 5, and the horizon coverage decision.**
+Cameo rate weighting SETTLED by Thomas: games-weighted. Fitted horizon range is now decided per
+page from the available training pairs, because the six-horizon limit was the earliest page's
+constraint rather than a choice; models refuse past their own range. Contracts outrunning their
+page use a declared extrapolation, continuing the decay observed at the end of the fitted range:
++3.0%/+10.0%/+19.8% mean bias at one/two/three seasons past, +32% worst page, rows tagged,
+residual bias up and uncorrected. Hold-flat was tested and rejected at +36%/+88%/+170%. Market
+fits are dated at the signing with an assertion, in the currency and in all three runners.
+`cap_path()` gives ceilings as knowable at a decision date with 3% growth beyond; value and cost
+both discounted at 3%; the D24 cancellation is demonstrated in the check suite. **Known gap:**
+the announced 2026-27 and 2027-28 ceilings are absent from source and extrapolate instead.
+Check suite 11 of 11. Items 6 and 7 remain.

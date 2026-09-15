@@ -15,7 +15,7 @@ from player_season_table import build as build_table
 from ability_forecast import A1AgingParticipationImputedNC
 from run_phase4_decisions import prep
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 
 
 def main() -> None:
@@ -24,27 +24,43 @@ def main() -> None:
     d = prep(attach_forecasts(contract_sample(), A1AgingParticipationImputedNC,
                               table, verbose=False))
 
-    # Rolling: each contract priced on a line fitted only to deals signed
-    # before its own start season.
+    # ROLLING ON THE SIGNING DATE. Each contract is priced on a line fitted
+    # only to deals signed before it, not before its start season: an extension
+    # signed two years early used to be priced on a market that had not spoken
+    # when it was signed. The cut is the quarter boundary at or before each
+    # signing, so the line is refitted four times a year rather than once per
+    # contract, and every training signing still precedes every test signing in
+    # the group. ProductionCurrency.fit asserts exactly that.
+    # DEVELOPMENT COHORTS ONLY, and chosen here rather than discovered from
+    # whatever the sample happens to contain. The sample runs to 2025 and the
+    # reserved years are not this runner's to spend.
+    dev = [int(y) for y in sorted(d["start_yr"].dropna().unique())
+           if int(y) not in C.CONFIRMATORY_START_YEARS]
+    cohorts = C.check_market_cohorts(dev, "run_surplus")
+    d = d[d["start_yr"].isin(cohorts)].copy()
+    d["cut"] = d["signed"].dt.to_period("Q").dt.start_time
+
     out = []
-    for yr in range(2018, 2026):
-        te = d[d["start_yr"] == yr]
-        if not len(te):
-            continue
+    for cut, te in d.groupby("cut"):
+        te = te.copy()
+        priced = False
         for mode in ("in", "free"):
-            cur = ProductionCurrency(mode).fit(d, before=yr)
+            cur = ProductionCurrency(mode).fit(d, before_date=cut)
             if cur.coef_ is None:
                 continue
-            v = cur.value(te)
-            te = te.assign(**{f"value_{mode}": v})
+            te[f"value_{mode}"] = cur.value(te)
+            priced = True
+        if not priced:
+            continue
         te["cost"] = ProductionCurrency("in").cost(te)
         out.append(te)
     r = pd.concat(out, ignore_index=True)
     r["surplus_in"] = r["value_in"] - r["cost"]
     r["surplus_free"] = r["value_free"] - r["cost"]
 
-    C.log(f"  {len(r)} contracts priced, 2018-2025 starts, each on a line fitted")
-    C.log("  only to deals signed before its own start season")
+    C.log(f"  {len(r)} contracts priced, development start years only, each on")
+    C.log("  a line fitted only to deals signed before the contract itself, and")
+    C.log("  discounted at 3% on a cap path known at the signing")
     C.log("")
     C.log("  SURPLUS UNDER THE ADOPTED CURRENCY (term-in), $M over the whole deal.")
     C.log("  Positive means the club paid less than the average club paid for a")
