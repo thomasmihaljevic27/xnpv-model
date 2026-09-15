@@ -1224,3 +1224,37 @@ class A2AgingParticipationImputed(A2AgingParticipation):
         self.aging_ = AdditiveAging(level_mode=self.AGING_LEVEL_MODE,
                                     selection=self.AGING_SELECTION).fit(table, before)
         return self
+
+
+class _ImputeLevel:
+    """Sensitivity arms: where a departing player is assumed to have been."""
+    AGING_IMPUTE_LEVEL = 0.0
+    AGING_RETURNERS = False
+
+    def fit(self, table, before):
+        super(A1AgingParticipationImputed, self).fit(table, before)
+        self.aging_ = AdditiveAging(level_mode=self.AGING_LEVEL_MODE,
+                                    selection="impute",
+                                    impute_level=self.AGING_IMPUTE_LEVEL,
+                                    impute_returners=self.AGING_RETURNERS).fit(table, before)
+        return self
+
+
+class A1ImputeMinus50(_ImputeLevel, A1AgingParticipationImputedNC):
+    name = "leader, departing players assumed half a win below replacement"
+    AGING_IMPUTE_LEVEL = -0.50
+
+
+class A1ImputeMinus25(_ImputeLevel, A1AgingParticipationImputedNC):
+    name = "leader, departing players assumed a quarter win below replacement"
+    AGING_IMPUTE_LEVEL = -0.25
+
+
+class A1ImputePlus25(_ImputeLevel, A1AgingParticipationImputedNC):
+    name = "leader, departing players assumed a quarter win above replacement"
+    AGING_IMPUTE_LEVEL = 0.25
+
+
+class A1ImputeReturners(_ImputeLevel, A1AgingParticipationImputedNC):
+    name = "leader, returners given their observed level on return"
+    AGING_RETURNERS = True

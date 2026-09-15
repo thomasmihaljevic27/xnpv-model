@@ -108,9 +108,39 @@ cannot be settled on wins; it is a dollars question.
 imputation, and participation without contract data.** Against the pre-participation leader it
 is 3.7% better at the valuation season and **26.9%** better five seasons out.
 
+## The sensitivity: how much rests on the assumption
+
+The replacement-level assumption is doing real work, so it is a dial with a sweep behind it
+rather than a constant buried in the fit.
+
+**On the curve, it matters enormously for fringe players and barely for stars.** Yearly change:
+
+| assumed level of a departing player | 3-win at 34 | 1.5-win at 34 | 0.5-win at 38 |
+|---|---:|---:|---:|
+| −0.75 | −0.516 | −0.400 | −0.594 |
+| −0.50 | −0.493 | −0.350 | −0.466 |
+| −0.25 | −0.469 | −0.300 | −0.339 |
+| **0.00 (replacement)** | **−0.445** | **−0.249** | **−0.212** |
+| +0.25 | −0.422 | −0.199 | −0.084 |
+
+The star curve moves across a range of 0.094 wins over the whole sweep; the fringe curve moves
+across 0.510. That asymmetry is the right way round for this project: the assumption is weakest
+exactly where the money is not.
+
+**On the forecast, it barely matters, and the natural anchor is also the best one.** Average miss
+five seasons out: 0.4338 at −0.50, 0.4221 at −0.25, **0.4171 at replacement**, 0.4200 at +0.25.
+Replacement level was chosen because a player who cannot hold an NHL job is worth about what a
+free replacement is worth — an argument made before any of this was run — and it turns out to be
+the shallow optimum. The whole sweep spans 4% of the forecast at the longest horizon.
+
+**Returners are now handled with data instead of an assumption.** A player absent at *t+1* who
+plays again at *t+2* or *t+3* was usually hurt rather than finished, and his rate on return is
+observed. Using that where it exists leaves the assumption carrying only the players who never
+appeared again — 291 of 1,695 absences are returners. It forecasts identically (0.4171) and
+carries a slightly better star bias (−0.412 against −0.418), so it is adopted: same accuracy,
+one less thing assumed.
+
 ## What this does not settle
 
-- The assumption that a departing player was at replacement is doing the work. A sensitivity
-  that imputes at, say, half a win below replacement, or that separates injury absences from
-  career ends, would say how much rests on it. Not yet run.
 - Everything here is skaters.
+- The correction is a bound, not a point estimate, and should be reported as one.

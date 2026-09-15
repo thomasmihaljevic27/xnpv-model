@@ -119,7 +119,8 @@ class AdditiveAging:
     """The yearly change in WAR per 82, as a smooth function of age."""
 
     def __init__(self, level_mode: str = "lagged", use_experience: bool = False,
-                 selection: str = "none"):
+                 selection: str = "none", impute_level: float = 0.0,
+                 impute_returners: bool = False):
         """level_mode:
              "lagged"  the player's rate one season before the change begins.
                        The default, and the only one that identifies aging
@@ -133,6 +134,19 @@ class AdditiveAging:
         self.selection = selection
         self.retention_ = None
         self.n_imputed_ = 0
+        self.n_returners_ = 0
+        # WHERE A DEPARTING PLAYER IS ASSUMED TO HAVE BEEN. Zero is
+        # replacement level, the default and the natural anchor: a player who
+        # cannot hold an NHL job is worth about what a free replacement is
+        # worth. It is an assumption doing real work, so it is a dial with a
+        # sweep behind it rather than a constant buried in the fit.
+        self.impute_level = float(impute_level)
+        # A player who is absent and then comes back was usually hurt, not
+        # finished, and we OBSERVE what he did on his return. Using that
+        # instead of an assumption replaces a guess with data for the cases
+        # where data exists, and leaves the assumption carrying only the
+        # players who never played again.
+        self.impute_returners = bool(impute_returners)
         self.mean_weight_ = 1.0
         self.level_mode = level_mode
         self.use_level = level_mode != "none"
@@ -209,7 +223,7 @@ class AdditiveAging:
             miss = self._missing_next(s, before, level_col)
             if len(miss):
                 lvl_m = miss["_lvl"] if self.level_mode == "lagged" else miss[level_col]
-                y = np.concatenate([y, (0.0 - miss[level_col]).to_numpy(float)])
+                y = np.concatenate([y, (miss["_impute_at"] - miss[level_col]).to_numpy(float)])
                 X = np.vstack([X, self._design(miss["age"], lvl_m,
                                                (miss["pos"] == "D"),
                                                miss["exp_seasons"])])
@@ -257,7 +271,28 @@ class AdditiveAging:
         cand = cand[cand["_has_next"].isna() & cand["age"].notna()]
         lag = s[["career_key", "syr", level_col]].rename(columns={level_col: "_lvl"})
         lag["syr"] = lag["syr"] + 1
-        return cand.merge(lag, on=["career_key", "syr"], how="left")
+        cand = cand.merge(lag, on=["career_key", "syr"], how="left")
+
+        # RETURNERS. A player absent at t+1 who plays again at t+2 or t+3 was
+        # usually injured rather than finished, and his rate on return is
+        # observed. Where that is available it replaces the assumption -- the
+        # level he actually came back at, rather than the level we suppose a
+        # departing player would have had. The assumption then carries only
+        # the players who never appeared again, which is what it was for.
+        cand["_impute_at"] = self.impute_level
+        cand["_returner"] = False
+        if self.impute_returners:
+            for gap in (2, 3):
+                ret = s[["career_key", "syr", level_col]].rename(
+                    columns={level_col: "_ret"})
+                ret["syr"] = ret["syr"] - gap
+                cand = cand.merge(ret, on=["career_key", "syr"], how="left")
+                hit = cand["_ret"].notna() & ~cand["_returner"]
+                cand.loc[hit, "_impute_at"] = cand.loc[hit, "_ret"]
+                cand.loc[hit, "_returner"] = True
+                cand = cand.drop(columns=["_ret"])
+        self.n_returners_ = int(cand["_returner"].sum())
+        return cand
 
     def _retention_probability(self, s: pd.DataFrame, pairs: pd.DataFrame,
                                before: int) -> np.ndarray:
