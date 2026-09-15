@@ -152,11 +152,11 @@ until items 3 to 5 land and the chain is refit.
    latest training signing precedes the valuation; signing-date coverage is confirmed at 3,550
    of 3,550 on the eligible sample, so no fallback rule is needed. Build the date-aware cap
    path with the announcement cutoff, 3% extrapolation and the discount schedule.
-6. **The production adapter, and the corrections that do not wait for it — NEXT.** The false
+6. **The production adapter, and the corrections — DONE 2026-09-15b.** The false
    attribution appears in the reports, in model labels, and in executable log output, so a
    rerun regenerates it. The adapter is validated by agreement with production's individual
    forecast rows under the same settings, not by reproducing 24% on a different population.
-7. **Refit and rerun the development comparisons**, then revisit the star and young-player
+7. **Refit and rerun the development comparisons — NEXT.**, then revisit the star and young-player
    residuals. The stress battery and the confirmatory work follow the refit.
 **Coverage decision owed alongside item 4:** the fitted range is six seasons and real contracts
 run longer. The guards refuse the gap rather than filling it, so pricing a seven- or eight-year

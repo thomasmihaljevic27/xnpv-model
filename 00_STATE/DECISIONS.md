@@ -351,3 +351,15 @@ fits are dated at the signing with an assertion, in the currency and in all thre
 both discounted at 3%; the D24 cancellation is demonstrated in the check suite. **Known gap:**
 the announced 2026-27 and 2027-28 ceilings are absent from source and extrapolate instead.
 Check suite 11 of 11. Items 6 and 7 remain.
+
+**Change log 2026-09-15b (continued) — item 6, the production comparator.**
+`production_adapter.ProductionChain` added: imports production's locked aging curve, decay path,
+hazard table and survival convention rather than reimplementing them; built through `__new__` to
+skip the contract-spine read the projection path never uses. Requires `.env` and
+`30_OUTPUT/WAR_with_age.csv` from `age_join.py`, and refuses rather than falling back. **The
+rebuild beats the live chain by 13.2% to 16.4% in mean absolute season-WAR error, against 17.6%
+to 46.1% versus the flat benchmark. The advantage narrows with the horizon rather than growing;
+the growth was the benchmark's missing aging path.** Old-player result survives: 53.8% at 34 and
+over against the live chain. Benchmark renamed "flat benchmark"; the Phase 0 log line, the
+module docstring and both affected reports corrected with dated notes. No production file
+changed. Check suite 12 of 12.

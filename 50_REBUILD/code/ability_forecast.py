@@ -39,7 +39,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 import information_set as ISET
 
-SCRIPT_VERSION = "1.3"
+SCRIPT_VERSION = "1.4"
 
 W_T1, W_T2 = 0.6, 0.4    # the locked recency weighting, reproduced for A0
 
@@ -443,7 +443,12 @@ class A0Production(BaseModel):
     # number flat at every horizon. That is why it is valid at any horizon and
     # also why it is a benchmark rather than a forecast.
     FITTED_HORIZONS = None
-    name = "today's model (trailing 60/40, carried flat)"
+    # NOT "today's model". This is the chain's STARTING POINT with the aging
+    # path and the survival weighting removed, and calling it today's model
+    # put a comparison against a simpler rule into every report as though it
+    # were a comparison against production. production_adapter.ProductionChain
+    # is the live chain; this is the flat benchmark.
+    name = "flat benchmark (trailing 60/40, carried flat)"
 
     def predict(self, iset, subs, horizons):
         self._guard_horizons(horizons)

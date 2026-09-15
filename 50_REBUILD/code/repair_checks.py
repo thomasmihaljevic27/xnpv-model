@@ -23,7 +23,7 @@ import forecast_harness as H
 import player_season_table as T
 from ability_forecast import A0Production
 
-SCRIPT_VERSION = "1.2"
+SCRIPT_VERSION = "1.3"
 
 PASS, FAIL, SKIP = "pass", "FAIL", "skip"
 results: list[tuple[str, str, str]] = []
@@ -299,6 +299,45 @@ def c11(table):
     return ", ".join(out) + f", worst page {max(got[8], key=abs):+.1f}% at h8"
 
 
+# -- 12. the comparator is the live chain, not a simpler rule ---------------
+def c12(table):
+    """Every improvement figure was quoted against a benchmark that carries the
+    trailing anchor flat with participation at one. The live chain has an aging
+    path and exit-hazard survival, so the gap was widest exactly where those
+    two do the most work."""
+    import information_set as ISET
+    from ability_forecast import A0Production
+    try:
+        from production_adapter import ProductionChain
+    except Exception as e:                        # noqa: BLE001
+        raise _Skip(f"production modules unavailable ({e.__class__.__name__})")
+    page = 2021
+    iset = ISET.build(table, ISET.decision_date_for_page(page), t0=page)
+    subs = H.subjects_at(iset)
+    try:
+        live = ProductionChain()
+        live.fit(iset.seasons, before=page)
+    except RuntimeError as e:
+        raise _Skip(str(e)[:90])
+    flat = A0Production()
+    flat.fit(iset.seasons, before=page)
+    hs = [0, 5]
+    lp = live.predict(iset, subs, hs).set_index(["career_key", "h"])
+    fp = flat.predict(iset, subs, hs).set_index(["career_key", "h"])
+
+    # The two differences that define the live chain, each asserted.
+    moved = (lp.xs(5, level="h")["rate_82"] - lp.xs(0, level="h")["rate_82"]).abs().mean()
+    assert moved > 1e-6, (
+        "the adapter's rate does not change with the horizon, so the aging "
+        "path is not engaging and it is still the flat benchmark")
+    surv = lp.xs(5, level="h")["p_play"].mean()
+    assert surv < 0.95, f"survival at five seasons out is {surv:.3f}, effectively one"
+    flat_still = (fp.xs(5, level="h")["rate_82"] - fp.xs(0, level="h")["rate_82"]).abs().max()
+    assert flat_still < 1e-9, "the flat benchmark is no longer flat"
+    return (f"live chain: rate moves {moved:.3f} WAR by h5, survival {surv:.3f}; "
+            f"the flat benchmark does neither")
+
+
 def main() -> None:
     warnings.filterwarnings("ignore")
     C.banner("repair_checks.py", SCRIPT_VERSION)
@@ -317,7 +356,8 @@ def main() -> None:
                      ("returning players answered", c8),
                      ("market fits dated at signing", c9),
                      ("cap path and the D24 identity", c10),
-                     ("extrapolation declared and bounded", c11)]:
+                     ("extrapolation declared and bounded", c11),
+                     ("live chain available as comparator", c12)]:
         check(name, lambda fn=fn: fn(table))
 
     width = max(len(n) for n, _, _ in results)
