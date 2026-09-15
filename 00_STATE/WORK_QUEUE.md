@@ -9,12 +9,13 @@
 
 ## Work queue
 
-**2026-09-15 repair-branch verification:** before accepting the `d651998` leaderboard, prove
-production-adapter parity for exact t-1/t-2 anchors and negative-anchor reversion; remove future
-start-cap information from market targets; discount from the stated valuation date; make
-extrapolation invariant to requested horizons/subjects; finish development runner wiring and
-propagate extrapolation tags. See `50_REBUILD/docs/Repair_Verification_Codex.md`. The repair
-branch remains separate from main, and its 13-17% headline is not verified.
+**2026-09-15 second repair verification:** `0e70d4b` fixes the production anchor/reversion,
+cap-target timing and discount-origin defects on the tested paths. All 14 checks pass and the
+revised development MAEs reproduce. Remaining: route or withdraw the named-player dollar
+comparison; fix extrapolation when the requested endpoint changes; remove the upstream h8
+attachment ceiling and record rejected terms. Complete the plan's distributions, simulation,
+A3, control/goalie and dollar checks before adoption. See
+`50_REBUILD/docs/Latest_Repair_Verification_Codex.md`. Repair implementation remains on its branch.
 
 **2026-09-15 independent rebuild review: prerequisite before the experimental next steps below.**
 See `50_REBUILD/docs/Player_Rebuild_Candidate_Review_Codex.md`. Correct shortened-season rate/games units

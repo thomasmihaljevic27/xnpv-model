@@ -2,12 +2,14 @@
 
 ## Independent rebuild review (2026-09-15)
 
-**Repair follow-up:** `d651998` passes its twelve checks but its production adapter still omits
-D12 negative-anchor reversion and replaces production's exact t-1/t-2 anchor with the last two
-observed seasons. The revised improvement claim therefore remains unsupported. The new market
-date filter still admits targets normalized by future realized start caps; discounting omits
-the delay to an extension's start; extrapolated forecasts depend on the requested output grid.
-See `50_REBUILD/docs/Repair_Verification_Codex.md` for scoped reproductions and open tests.
+**Second repair follow-up:** `0e70d4b` passes all 14 checks. Independent comparisons find
+zero rate/survival discrepancy across 5,196 adapter rows, invariant historical cap targets,
+and correct early-signing cost offsets. Revised development headline reproduces: 14.4% lower
+error at h0, about 8-9% later. Still open: named-player dollars use the old flat/full-sample
+method; tail forecasts move by up to 0.5049 WAR when the requested endpoint changes; the h8
+attachment ceiling drops longer terms. Plan completion and dollar reconciliation remain open.
+See `50_REBUILD/docs/Latest_Repair_Verification_Codex.md`. These findings supersede the
+`d651998` repair assessment below; neither repair implementation is merged into main.
 
 The earlier rebuild claims of improvement against the live chain and no leakage anywhere are
 superseded by `50_REBUILD/docs/Player_Rebuild_Candidate_Review_Codex.md`. The original stress runner

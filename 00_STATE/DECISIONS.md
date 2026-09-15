@@ -1,5 +1,14 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-15t (second repair verification):** Reviewed `0e70d4b` in isolation.
+All 14 checks pass. Independently verified adapter method parity on 5,196 rows, historical
+cap-target invariance and actual early-signing discounted costs. Reran development pages
+2015-2021 and reproduced the revised MAE table. Found remaining endpoint-dependent extrapolation
+(maximum 0.5049 WAR), an upstream h8 attachment ceiling, and the still-obsolete named-player
+dollar method. Added `50_REBUILD/docs/Latest_Repair_Verification_Codex.md` and
+`50_REBUILD/code/review_latest_pass.py`; updated state, queue, flags and session. No model
+implementation merged, no production edits, no reserved pages evaluated, no decision reopened.
+
 **Change log, 2026-09-15s (repair verification):** At Thomas's request, fetched Claude's repair
 report on `claude/loving-maxwell-rd3w5v`, commit `d651998`, and tested it in an isolated checkout.
 All twelve repair checks executed successfully across two invocations after supplying the
