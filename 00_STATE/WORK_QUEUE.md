@@ -9,6 +9,19 @@
 
 ## Work queue
 
+**Uncertainty implementation review, 2026-09-15:** reviewed `73b77ee` on
+`claude/amazing-johnson-cllbgl` in isolation. All 21 repair checks pass, including local
+production comparisons. Export guards and published interval coverage reproduce: overall 80%
+ranges cover 82-84%, but h5 star/young coverage is 59.6%/66.3%. The reported rising recent-season
+sensitivity is a diagnostic error: it refits on altered data. Holding parameters fixed changes
+the +0.5 rate shock response from +0.116 at h0 to +0.073 at h5, declining with distance.
+Residual-shape and optimism diagnostics also use the last page's calibrator across all pages.
+The predictive distribution has a positive mean offset from the reported point expectation
+(mean 0.0374 WAR, maximum 0.2265); reconcile before simulation. See
+`50_REBUILD/docs/Uncertainty_Implementation_Review_Codex.md`. Coverage and future-data checks
+are reproduced evidence; attribution to bias versus spread remains unresolved. Implementation
+is unmerged, and simulation/A3/control/goalie/dollar-validation work remains incomplete.
+
 **2026-09-15c — predictive uncertainty and the leakage battery, built.** The forecast states a
 range (`predictive_interval.py`), the harness's coverage column is no longer empty, and the
 look-ahead spot check is now a five-part battery (`run_leakage_tests.py`). All four leakage tests
@@ -51,7 +64,6 @@ $113.5M** in `skater_forward_projection.py` and `goalie_value_engine.py`, commen
 published 2025 MOU figure. Under D11 only the valuation season's own ceiling is read and there
 is no 2027-28 page, so nothing priced today depends on it; it stops being inert the day one is
 built. **Thomas's call**, in the flags. Production was not edited.
-
 **Fourth repair verification, 2026-09-15:** reviewed `4b9723a` in isolation. All 17 repair
 checks pass with no skips. Independent full-run audit confirms identical coefficients across
 18 comparable quarters and zero shared-currency repricing differences for all 12 named cases.
