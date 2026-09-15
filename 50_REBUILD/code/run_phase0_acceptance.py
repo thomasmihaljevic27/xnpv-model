@@ -29,7 +29,7 @@ import forecast_harness as H
 from ability_forecast import A0Production, A1Calibrated, A2Raw, A2Component
 from player_season_table import build as build_table, guard_against_production
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 pd.set_option("display.width", 200, "display.max_columns", 50)
 
 

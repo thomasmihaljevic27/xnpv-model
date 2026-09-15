@@ -248,3 +248,17 @@ the horizon and grid guards now refuse rather than default.
 
 **Still open, and unchanged by the above: every one of these figures is measured against the
 flat-carry benchmark, not the live chain.** The comparator finding stands in full.
+
+**2026-09-15b — the star residual is inverted, not repaired.** Measured against the live chain
+on development pages, production over-projects a three-win player by 0.68 wins a season and the
+rebuilt chain under-projects him by 0.57. The magnitude is 16% smaller and the sign has flipped.
+Under-projection is the safer direction for a surplus estimate on an expensive player, but any
+claim about star contracts still rests on a forecast wrong by more than half a win a season.
+Earlier reports describe this residual as an over-projection, which it no longer is. Do not add
+model flexibility to chase it without re-reading the sign first.
+
+**2026-09-15b — young players are where the rebuild does least.** Both chains under-project
+players 22 and under, production by 0.39 wins a season and the rebuilt chain by 0.25, and the
+rebuild's error advantage on that band is 2.6% against 53.8% at 34 and over. The negative-NPV
+finding on early extensions lives in exactly this population, and the direction of the error
+pushes against that finding rather than supporting it.

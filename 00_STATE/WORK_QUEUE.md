@@ -156,7 +156,8 @@ until items 3 to 5 land and the chain is refit.
    attribution appears in the reports, in model labels, and in executable log output, so a
    rerun regenerates it. The adapter is validated by agreement with production's individual
    forecast rows under the same settings, not by reproducing 24% on a different population.
-7. **Refit and rerun the development comparisons — NEXT.**, then revisit the star and young-player
+7. **Refit and rerun the development comparisons — DONE 2026-09-15b.** Star residual is
+   inverted, not fixed; young-player residual improved and still worst. Was:, then revisit the star and young-player
    residuals. The stress battery and the confirmatory work follow the refit.
 **Coverage decision owed alongside item 4:** the fitted range is six seasons and real contracts
 run longer. The guards refuse the gap rather than filling it, so pricing a seven- or eight-year

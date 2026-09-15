@@ -363,3 +363,14 @@ the growth was the benchmark's missing aging path.** Old-player result survives:
 over against the live chain. Benchmark renamed "flat benchmark"; the Phase 0 log line, the
 module docstring and both affected reports corrected with dated notes. No production file
 changed. Check suite 12 of 12.
+
+**Change log 2026-09-15b (continued) — item 7, the development rerun.**
+Three forecasts scored on identical development rows; results in
+`50_REBUILD/docs/Repaired_Chain_Development_Results.md`. Gain over the live chain is 13.2% to
+16.4% by horizon, concentrated by age (2.6% at 22 and under, 53.8% at 34 and over) and by level
+(28.7% below replacement, 10.9% at three wins). **Two residuals recorded as open: the star
+residual is INVERTED rather than fixed, from +0.68 over-projection on the live chain to -0.57
+under-projection on the rebuilt one, 16% smaller and opposite in sign; the young-player
+under-projection is improved from -0.39 to -0.25 with a 2.6% error advantage that is close to
+nothing.** Do not add flexibility to chase the star residual without re-reading its sign. Repair
+items 1 to 7 complete; check suite 12 of 12.
