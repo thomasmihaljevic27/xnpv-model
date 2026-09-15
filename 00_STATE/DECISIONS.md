@@ -1,5 +1,24 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-15w (predictive uncertainty and the leakage battery):** Built
+`50_REBUILD/code/predictive_interval.py` -- a zero-inflated predictive distribution over a
+season's win total, with the scale fitted per horizon on a rolling replay of the model's own
+earlier pages and the shape taken empirically from the scaled misses. Added
+`run_uncertainty.py` (coverage and width by horizon and by subgroup within horizon, the
+in-sample optimism measurement, the zero-spread identity) and `run_leakage_tests.py` (the
+model's own outcome-window rule, deleting the future, corrupting the future, a placebo on the
+scoring join, and an input-sensitivity measurement). Added interval width to the harness's
+scoring. Added checks 18-20 to `repair_checks.py`, including one that the fitted spread is
+identical with and without the future present. Fixed the check suite crashing rather than
+skipping on a checkout without the confidential contract export, which its own docstring said
+it would skip. All four leakage tests pass at exactly zero change on all seven development
+pages; the interval arithmetic matches a simulated answer known by construction; the band
+collapses onto the point forecast when the spread is set to nothing. **This machine has no
+birthdate file, so every hockey figure the run produced is about a model with no ages and a
+constant participation probability and is not evidence; the run logs say so.** Report:
+`50_REBUILD/docs/Predictive_Uncertainty_and_Leakage.md`. No production code changed, no locked
+decision reopened, no reserved page unsealed.
+
 **Change log, 2026-09-15v (fourth repair verification):** Reviewed `4b9723a` in isolation.
 All 17 repair checks pass. The independent full named-player audit now finds identical price
 coefficients in all 18 comparable quarters and zero repricing differences for 12 named cases.

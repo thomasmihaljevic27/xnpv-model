@@ -179,8 +179,9 @@ one shared season table with a reproduction guard that matches the production lo
 keys at zero difference (`player_season_table.py`), an ability forecast with a three-season window
 and fitted decay (`ability_forecast.py`), an additive aging curve with a survivorship correction
 (`aging_additive.py`), a participation model (`participation_model.py`), a signing-dated contract
-price model and production currency (`contract_price_model.py`, `production_currency.py`), and the
-runners that produced the reports in `50_REBUILD/docs/`.
+price model and production currency (`contract_price_model.py`, `production_currency.py`), a
+predictive-interval layer that turns any of those forecasts into a distribution over a season
+(`predictive_interval.py`), and the runners that produced the reports in `50_REBUILD/docs/`.
 
 **Review correction, 2026-09-15:** the reported 16.0%/43.6% error improvements and +0.999 to
 -0.365 star-bias comparison use a flat 60/40 benchmark, not the live chain's aging and survival.
@@ -202,6 +203,25 @@ No new blocking defect found in the changed paths. Next milestone is the remaini
 A3, control/goalie, uncertainty, dollar reconciliation and final-validation work. Rejection
 CSV reporting still is not a complete per-run sample audit. Candidate implementation remains
 unmerged; production code and the previously verified forecast specification are unchanged.
+
+**Predictive uncertainty and the leakage battery, 2026-09-15c.** The forecast now states a
+range, which the harness has been scoring since it was written and finding empty every run. The
+distribution is a mixture: a lump of probability on exactly zero for the seasons a player spends
+out of the league, and a fitted spread around the conditional forecast for the seasons he plays.
+The spread is fitted rolling, by replaying the model on pages whose outcome seasons had all
+finished before the decision date; scale is a line in the size of the forecast fitted per season
+ahead, shape is the empirical distribution of the scaled misses. `run_uncertainty.py` reports
+coverage and width by horizon and by subgroup within horizon; `run_leakage_tests.py` runs five
+tests, four of them about look-ahead. The new tests all pass with the largest change to any
+forecast or band exactly zero, including the one the previous spot check could not do: handing
+the model the whole source and relying on its own outcome-window rule rather than on the
+harness's filter. Three guards (18-20) are added to the reviewer's suite, one of them on the
+interval layer itself, because it is the first component in the tree that reads outcomes at fit
+time. **The machine this ran on has no birthdate table, so the hockey figures are about a model
+with no ages and a constant participation probability and are not evidence.** What stands is the
+arithmetic, checked against a case whose answer is known by construction, the zero-spread
+identity, and the four leakage results, none of which depends on the model being good. Report:
+`50_REBUILD/docs/Predictive_Uncertainty_and_Leakage.md`.
 
 **Decisions taken inside the tree only.** Term-in for the production currency (Thomas,
 2026-09-15). One shared price line for restricted and unrestricted free agents — D7's locked answer

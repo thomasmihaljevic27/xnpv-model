@@ -9,6 +9,25 @@
 
 ## Work queue
 
+**2026-09-15c — predictive uncertainty and the leakage battery, built.** The forecast states a
+range (`predictive_interval.py`), the harness's coverage column is no longer empty, and the
+look-ahead spot check is now a five-part battery (`run_leakage_tests.py`). All four leakage tests
+pass at exactly zero change. Report: `50_REBUILD/docs/Predictive_Uncertainty_and_Leakage.md`.
+**Blocked on data, not on work:** this machine has no birthdate file and no contract export, so
+the coverage, width and subgroup tables describe a model with no ages and a constant
+participation probability, and eight of the twenty review checks skip. Next, in order:
+1. **Rerun `run_uncertainty.py` and `run_leakage_tests.py` on a machine with the birthdate
+   join**, and read the coverage and subgroup tables as results rather than as a demonstration.
+   Nothing else in the uncertainty work should be built on figures from this run.
+2. **The joint simulation** on the fitted spread, with the zero-uncertainty identity it already
+   satisfies one layer down.
+3. **Separate bands for the rate and the games share, drawn jointly**, so an exit implies zero
+   games on the path rather than a product of averages.
+4. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
+   the announced cap ceilings (the 2026-27 and 2027-28 figures are public but are not in the
+   repository's own sources and were not invented), contract-by-contract dollar reconciliation,
+   and the holdout policy.
+
 **Fourth repair verification, 2026-09-15:** reviewed `4b9723a` in isolation. All 17 repair
 checks pass with no skips. Independent full-run audit confirms identical coefficients across
 18 comparable quarters and zero shared-currency repricing differences for all 12 named cases.

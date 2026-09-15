@@ -41,6 +41,19 @@ residuals and currency comparisons; fix and rerun development work before furthe
 
 ## Standing flags (Karl's identification axes — watch on every design choice)
 
+- **NEW 2026-09-15c — three open items carried by the new interval layer.** (a) The spread is
+  fitted by replaying the model on pages inside its own training window, so it is flattered by
+  being fitted in sample. The size of that gap is measured rather than assumed -- the middle 80%
+  of the real misses ran 3.3% wider than the middle 80% of the fitted ones on a degraded run --
+  and it is **not corrected for**. Re-measure on a full table before deciding whether to. (b) The
+  shape of a miss is **pooled across horizons**; the per-horizon shapes are printed beside the
+  pooled one so the assumption is checked rather than trusted, but the pooling itself is a
+  choice. (c) The band is on the **season total only**. The rate and the games share carry no
+  separate bands, so the simulation cannot yet draw them jointly, and an exit on a path is
+  therefore still a product of averages rather than a zero. This is the rebuild's answer to the
+  existing production flag that first-season uncertainty is zero and later uncertainty is held
+  flat; that flag stays open until the simulation uses this layer.
+
 - **NEW 2026-09-15 — the elite tier is not identified, and the currency choice decides the
   headline.** Surplus at 2+ forecast wins a season is +$3.00M under a straight price line and
   −$0.78M under a log line, on 37 contracts (six above three wins). The log line beat the straight
