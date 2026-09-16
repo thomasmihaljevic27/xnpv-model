@@ -2,6 +2,18 @@
 
 ## Independent rebuild review (2026-09-15)
 
+**Valuation sensitivity review, 2026-09-15:** reproduced `5e019ad` and 22/22 checks;
+also reproduced the component variant's missing-`fitted_horizons_` error. The reported
+top-tier reversal changes membership (18-68 contracts). On the candidate's same 18,
+all five means are negative. Reported participation removal also changes aging; a
+same-aging comparison retains fixed-group signs but does not establish calibration is
+irrelevant. Development attrition is 423 unmatched subjects, 241 insufficient earlier
+pricing contracts and 15 pre-forecast-term cases, leaving 1,217 of 1,896 priced.
+Extending horizons does not recover these losses. The production forecast is repriced
+with rebuild currency, not a full production-NPV comparison. See
+`50_REBUILD/docs/Valuation_Sensitivity_Review_Codex.md`. Continue planned evaluation
+with fixed groups and these limits; no model change or new thesis claim adopted.
+
 **Coverage diagnostic fact check, 2026-09-15:** reproduced `c4c41f4` in isolation.
 The participation discrepancies reproduce, but the report's oracle ceilings and causal
 attributions do not follow. Alternative one-parameter adjustments exceed its claimed

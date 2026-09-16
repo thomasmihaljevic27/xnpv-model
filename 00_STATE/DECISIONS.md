@@ -1,5 +1,13 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-15z (valuation sensitivity review):** Reproduced `5e019ad`'s
+valuation table and 22/22 checks, plus the component fit failure. Added independent
+fixed-group, same-aging participation, held-currency and contract-ID attrition checks.
+The elite sign reversal disappears on the candidate's fixed 18 contracts. Missing long
+deals predominantly fail the price-fit sample threshold, not forecast reach. Added audit
+script/report and updated state, queue, flags and session. No model fixes, candidate merge,
+reserved valuation evaluation or substantive thesis claim adopted.
+
 **Change log, 2026-09-15y (coverage diagnostic fact check):** Reproduced `c4c41f4`.
 Recorded valid subgroup participation errors and rejected unsupported oracle-ceiling and
 causal-attribution claims. Added independent counterexamples and exact, order-dependent WAR
