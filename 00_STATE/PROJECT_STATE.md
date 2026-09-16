@@ -193,6 +193,19 @@ These findings take precedence over the earlier broad validation claims. No impl
 changed; repaired development comparisons and the unbuilt simulation work must precede adoption.
 Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 
+**Uncertainty repair verification, 2026-09-15:** tested `9c27042` in isolation and
+closed all three findings from the preceding uncertainty review. All 22 repair checks pass
+with no skips, including production comparisons. Frozen-model sensitivity reproduces
++0.116 at h0 and +0.073 at h5; reports now use each evaluation year's calibrator.
+Distribution and point expectations agree within 2.60e-16 WAR across 40,510 rows.
+Disabling centring makes the new guard fail, detecting a 0.2228-win mismatch.
+Revised 80% coverage is 82.2-84.3% overall, but only 60.8% for stars and 66.3% for young
+players at h5; 28/151 played star seasons exceed their fitted 95th percentile.
+These remain model limitations, not unresolved instances of the three repaired bugs.
+See `50_REBUILD/docs/Uncertainty_Repair_Verification_Codex.md`. No new blocking defect found
+in these repairs; candidate remains unmerged and remaining plan work is incomplete.
+The preceding review paragraph records the superseded candidate's findings.
+
 **Uncertainty implementation review, 2026-09-15:** reviewed `73b77ee` on
 `claude/amazing-johnson-cllbgl` in isolation. All 21 repair checks pass, including local
 production comparisons. Export guards and published interval coverage reproduce: overall 80%
