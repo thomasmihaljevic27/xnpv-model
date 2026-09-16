@@ -298,6 +298,19 @@ guard. Report:
 `50_REBUILD/docs/Predictive_Uncertainty_and_Leakage.md`; review:
 `50_REBUILD/docs/Uncertainty_Implementation_Review_Codex.md`.
 
+**Phase 5, the joint simulation, built (2026-09-16d).** `npv_simulation.py` draws career paths --
+participation as an absorbing exit reproducing the model's marginals exactly, and the forecast's
+miss correlated across seasons through a Gaussian copula that leaves each season's fitted shape
+untouched. **The plan's replacement for the k=0 identity holds exactly**: with no spread and
+certain participation, 300 real contracts return the point valuation to $0.000000. Persistence is
+fitted for the first time at 0.253 permanent plus 0.263 fading at 0.66 a season. Averaging path
+values rather than valuing the average path is worth **+$0.18M on the average contract**,
+concentrated where the league minimum binds (short deals, low-production players) and vanishing for
+stars; no sign changes. An eight-year deal carries a standard deviation of $11.3M around a $5.3M
+mean and a 38% chance of losing money, and persistence widens a seven-year deal's spread by 44%
+against independent seasons. Absent and stated: the RFA walk-away on the path, returns after a
+missed season, goalies. Report: `50_REBUILD/docs/NPV_Simulation.md`. Suite 24/0/0. Nothing adopted.
+
 **Review stage closed, component variant repaired (2026-09-16c).** The independent reviewer closed
 the coverage-and-valuation review at `e14e873`. The first item on its next-work list is done:
 `A2AgingParticipationImputed` raised `AttributeError` because the component model's overriding

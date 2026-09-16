@@ -102,6 +102,20 @@ residuals and currency comparisons; fix and rerun development work before furthe
 
 ## Standing flags (Karl's identification axes — watch on every design choice)
 
+- **NEW 2026-09-16d — a misjudgement about a player does not wash out over the years of his
+  deal, and every point valuation in this project assumes it does.** Fitted on the replayed
+  misses: 0.253 of a standardised miss is permanent and a further 0.263 fades at 0.66 a season, so
+  adjacent seasons correlate 0.43 and distant ones settle near 0.26. Drawing the same contracts
+  with independent seasons — which is what averaging them implicitly assumes — understates a
+  seven-year deal's spread by **44%**. Any statement about how uncertain a long contract is that
+  was built on independent seasons is too narrow by roughly that much.
+- **NEW 2026-09-16d — the value of the average path is not the value of the contract, and the gap
+  is where the floor binds.** Averaging path values rather than valuing the average path is worth
+  +$0.18M on the average contract, +$0.23M on a one-year deal and +$0.22M for a player forecast
+  between nothing and half a win, falling to nothing for stars and long terms. It is the league
+  minimum and the censored price line, both convex from below, and it changes no sign on this
+  sample. The point valuation was approximating this quantity, not making an error.
+
 - **WITHDRAWN 2026-09-16b, the day it was raised — "the elite tier fails on a second independent
   axis".** It rested on each forecast cutting its own tiers, so the columns held 51, 68, 18, 19
   and 18 contracts and the spread across them was a change of population rather than the same
@@ -184,10 +198,15 @@ residuals and currency comparisons; fix and rerun development work before furthe
   across horizons**. The per-horizon table does not contradict it (5th/95th move from −1.85/+2.46
   at the valuation season to −1.55/+2.75 nine out, around a pooled −1.72/+2.56) but that is one
   sample's description, not a test. It is **not** poolable across tiers and ages, per the flag
-  above. (c) The band is on the **season total only**. The rate and the games share carry no
-  separate bands, so the simulation cannot yet draw them jointly and an exit on a path is still a
-  product of averages rather than a zero. That keeps the existing production flag open — first-
-  season uncertainty zero, later uncertainty flat — until the simulation uses this layer.
+  above. (c) **RESOLVED 2026-09-16d, and not the way this item expected.** It asked for separate
+  rate and games bands so the simulation could draw them jointly. They are not needed: the quantity
+  with a fitted spread is the season total GIVEN he played, and that miss already contains both a
+  player who was healthy but worse and one who was as good but hurt. The joint object the
+  simulation needs is (participation, conditional season total), and `npv_simulation.py` draws
+  exactly that, so an exit on a path is now a zero rather than a product of averages. The existing
+  production flag — first-season uncertainty zero, later uncertainty flat — is answered by this
+  layer for the rebuild tree; it stays open for production itself, which still carries the old
+  rule.
 - **NEW 2026-09-15c — the predictive distribution's mean must be the point forecast, and once was
   not.** The scaled misses were kept uncentred and average about +0.10 because the shape is
   right-skewed, so the distribution's own mean sat up to 0.23 wins above the forecast column

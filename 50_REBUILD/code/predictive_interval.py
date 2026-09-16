@@ -95,7 +95,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 import information_set as ISET
 
-SCRIPT_VERSION = "1.1"
+SCRIPT_VERSION = "1.2"
 
 # The stated interval. 80% is the plan's own wording ("interval coverage --
 # how often the stated 80% range contained the outcome"), and the harness
@@ -287,6 +287,11 @@ class SpreadModel:
         d = pd.concat(rows, ignore_index=True)
         self._fit_scale(d, horizons)
         self._fit_shape(d)
+        # KEPT for the path simulation, which fits the cross-season dependence
+        # of these same misses. Re-running the replay to get them a second time
+        # would be a second copy of the thing whose first copy is the reason
+        # this tree keeps warning about second copies.
+        self.pairs_ = d
         return self
 
     def _replay(self, model, table, page: int, horizons) -> pd.DataFrame | None:
@@ -316,7 +321,11 @@ class SpreadModel:
         # information about the spread of the seasons that DID happen and is
         # dropped one line below.
         pred["played"] = np.nan_to_num(pred["act_gp"]) >= C.PARTICIPATION_GP
-        out = pred.loc[pred["played"], ["h", "mu", "act_war"]].copy()
+        # career_key is carried so the joint simulation can ask a question the
+        # interval never had to: how much of one player's miss at one horizon
+        # comes back at the next. That needs the misses paired by player, which
+        # means keeping the player.
+        out = pred.loc[pred["played"], ["career_key", "h", "mu", "act_war"]].copy()
         out["r"] = out["act_war"].fillna(0.0) - out["mu"]
         out["page"] = page
         return out
@@ -452,6 +461,22 @@ class SpreadModel:
         self.zs_ = zs - self.shape_mean_raw_
 
     # -- use ----------------------------------------------------------------
+    def ensure_horizons(self, horizons) -> "SpreadModel":
+        """Extend the fitted scale to cover horizons it has not seen.
+
+        A contract can outrun the page that prices it -- the forecast has a
+        declared extrapolation rule for exactly that, and the band needs the
+        same. Rather than a second rule, this calls the one `_extend_scale`
+        already applies to a horizon with too little calibration evidence, so
+        an eight-year deal priced from a page reaching five gets a band
+        continued at the growth rate the fitted horizons show, and the rows are
+        already tagged as extrapolated by the forecast side.
+        """
+        want = [int(h) for h in horizons if int(h) not in self.scale_]
+        if want:
+            self._extend_scale(sorted(set(self.scale_) | set(want)))
+        return self
+
     def sigma(self, h: int, mu) -> np.ndarray:
         a, b, fl = self.scale_[int(h)]
         return np.maximum(fl, a + b * np.abs(np.asarray(mu, dtype=float)))

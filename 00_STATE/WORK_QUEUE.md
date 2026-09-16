@@ -100,6 +100,46 @@ the work is. Next, in order:
 5. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
    contract-by-contract dollar reconciliation, and the holdout policy.
 
+**2026-09-16d — Phase 5, the joint simulation, is built.** Every development contract is now
+valued twice on the same forecast, price line, cost and discounting: once as the chain does it
+(one production per season, averaged, through the price line) and once by drawing career paths and
+averaging their prices. Report: `50_REBUILD/docs/NPV_Simulation.md`. Suite: **24 passed, 0
+skipped, 0 failed**.
+
+**The identity the plan asked for holds exactly.** With no spread and certain participation, 300
+real contracts return the point valuation to **$0.000000**. That replaces the retired k=0 identity.
+
+**How much of a miss persists, fitted for the first time:** 0.253 permanent plus 0.263 fading at
+0.66 a season, so the same player's standardised miss correlates 0.43 between adjacent seasons and
+settles near 0.26. Measured on the replay's calibration pages, which is the sample the band itself
+is fitted on; the scored development pages alone give 0.394 at one season apart, a difference of
+sample rather than method.
+
+**What the paths are worth:** +$0.18M on the average contract, concentrated exactly where the
+league minimum binds -- +$0.23M on one-year deals and +$0.22M for players forecast between nothing
+and half a win, falling to zero for stars and long terms, whose paths never approach the floor.
+**No sign changes anywhere.** The average production per season is identical either way (0.3491
+against 0.3487), so the whole difference is the price line's curvature and the floor. This is not
+a correction to the point valuation; it is the quantity the point valuation was approximating.
+
+**The spread, which did not exist before:** an eight-year deal has a standard deviation of $11.3M
+around a mean of $5.3M and a 38% chance of losing money. **Persistence widens a seven-year deal's
+spread by 44%** against the same contract drawn with independent seasons -- measured within the
+contract, not across terms, and the one-year row comes back at exactly 0% as it must.
+
+**A standing flag is resolved rather than left open:** separate rate and games bands are not
+needed. The quantity with a fitted spread is the season total given he played, and its miss
+already contains both; the joint object the simulation needs is (participation, conditional
+season total), which is what it draws.
+
+**Absent and stated:** the RFA walk-away on the path, which would truncate the lower tail again,
+so the downside is overstated to that extent; returns after a missed season (no term in this
+sample asks for one); goalies.
+
+**Next:** valuation integration and contract-by-contract dollar reconciliation, then the back-test
+with its grouping rule and evaluation protocol declared in advance and the reserved evaluation
+sealed until those choices are fixed.
+
 **2026-09-16c — the review stage is closed and the first item after it is done.** The component
 variant's `AttributeError` is repaired and the suite now covers every registered variant:
 **23 passed, 0 skipped, 0 failed**, including all 34 variants fitting and answering the grid.

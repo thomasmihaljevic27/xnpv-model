@@ -24,7 +24,7 @@ import forecast_harness as H
 import player_season_table as T
 from ability_forecast import A0Production
 
-SCRIPT_VERSION = "2.1"
+SCRIPT_VERSION = "2.2"
 
 PASS, FAIL, SKIP = "pass", "FAIL", "skip"
 results: list[tuple[str, str, str]] = []
@@ -816,6 +816,30 @@ def c23(table):
     return f"all {len(variants)} registered variants fit and answer the grid on page {page}"
 
 
+def c24(table):
+    """The path simulation's own guards, on cases whose answers are known.
+
+    Four things, and the last is the one the plan asks for by name.
+
+    The copula must leave each season's distribution exactly as the interval
+    layer fitted it, because that distribution is the one with measured
+    coverage behind it and correlating the seasons is not licence to change it.
+    The dependence it imposes must actually be the dependence asked for. The
+    participation path must reproduce the model's marginal probabilities while
+    making an exit absorbing, which are two requirements in tension. And with
+    the spread set to nothing and participation certain, every path must be the
+    point forecast -- the identity that replaces the retired k=0 one.
+
+    Synthetic on purpose: the truth is constructed, so a failure is arithmetic
+    and cannot be anything else. The identity is also checked on 300 real
+    contracts by `run_npv_simulation.py`, where it comes back at exactly zero
+    dollars.
+    """
+    import npv_simulation as SIM
+    SIM.self_test(n_paths=3000)
+    return "marginals, dependence, absorbing exit and the zero-spread identity all hold"
+
+
 def main() -> None:
     warnings.filterwarnings("ignore")
     C.banner("repair_checks.py", SCRIPT_VERSION)
@@ -859,7 +883,8 @@ def main() -> None:
                      ("the band cannot see the future", c20),
                      ("the 2026-27 ceiling", c21),
                      ("the distribution's mean is the forecast", c22),
-                     ("every registered variant runs", c23)]:
+                     ("every registered variant runs", c23),
+                     ("the path simulation's guards", c24)]:
         check(name, lambda fn=fn: fn(table))
 
     width = max(len(n) for n, _, _ in results)

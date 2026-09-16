@@ -1,5 +1,26 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-16f (Phase 5: the joint simulation):** Built `npv_simulation.py` and
+`run_npv_simulation.py`. Career paths draw participation as an absorbing exit whose conditional
+survival is the ratio of the model's consecutive marginals, so the marginals are reproduced
+exactly while an exit sticks; and the forecast's miss through a Gaussian copula, which leaves each
+season's fitted shape untouched and imposes only the cross-season dependence. **Persistence is
+fitted for the first time** -- 0.253 permanent plus 0.263 fading at 0.66 a season, on the replay's
+calibration pages. **The plan's replacement for the retired k=0 identity holds exactly**: with no
+spread and certain participation, 300 real contracts return the point valuation to $0.000000.
+Averaging path values rather than valuing the average path is worth +$0.18M on the average
+contract, concentrated where the league minimum binds and vanishing for stars, with no sign change
+anywhere; average production per season is identical either way, so the whole difference is
+curvature and the floor. An eight-year deal carries an $11.3M standard deviation around a $5.3M
+mean and a 38% chance of losing money; persistence widens a seven-year deal's spread 44% against
+independent seasons, measured within the contract. **Standing flag resolved:** separate rate and
+games bands are not needed, because the fitted spread is on the season total given he played and
+already contains both. Added check 24 (copula marginals, imposed dependence, absorbing exit,
+zero-spread identity) with a Monte Carlo tolerance that scales with the draw count rather than a
+constant that passed at one sample size and failed at another. Suite: **24 passed, 0 skipped, 0
+failed**. Absent and stated: the RFA walk-away on the path, returns after a missed season, goalies.
+No production code changed, no locked decision reopened, no reserved cohort unsealed.
+
 **Change log, 2026-09-16e (review stage closed; component variant repaired):** The reviewer closed
 the coverage-and-valuation review at `e14e873` and listed the remaining build work. First item
 done. `A2PerComponentWindow._training_pairs`, which overrides the base builder to construct
