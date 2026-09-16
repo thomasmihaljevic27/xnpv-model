@@ -194,6 +194,18 @@ These findings take precedence over the earlier broad validation claims. No impl
 changed; repaired development comparisons and the unbuilt simulation work must precede adoption.
 Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 
+**Phase 5 simulation review, 2026-09-16:** reviewed `95750f5` in isolation.
+Standard suite passes 24/24, including all 34 variants on page 2018; independent
+300-contract deterministic currency comparison agrees within $7.45e-09. Phase 5 is
+not closed: all 1,217 historical simulations use the 2025 residual shape/persistence
+fit (outcomes through 2024), rank correlations are used as Gaussian correlations
+and the larger-sample self-test fails, and absorbing exits omit the plan's returns.
+Zero rising marginal probabilities does not establish zero returns. See
+`50_REBUILD/docs/NPV_Simulation_Review_Codex.md`. Correct dated calibration and
+copula mapping, resolve the return-capable path scope, then continue integration.
+RFA/control-year, goalie, joint-path design and dollar reconciliation remain open.
+The preceding valuation review stays closed; no model changes or merge in this review.
+
 **Valuation review closed, 2026-09-16:** verified `e14e873` by rerunning the corrected
 comparison and independently checking its CSV. All 1,217 contract IDs, costs and fixed
 groups match across columns; all five group means reproduce the prior audit and retain

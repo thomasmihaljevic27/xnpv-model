@@ -40,6 +40,14 @@ back-test with grouping rule and protocol declared in advance and the reserved e
 until they are fixed. No production code changed, no locked decision reopened, no reserved cohort
 unsealed.
 
+**Change log, 2026-09-16b (Phase 5 simulation review):** Reviewed `95750f5`.
+Reproduced 24/24 checks and simulation output approximately; independently verified
+deterministic pricing on 300 contracts. Found future calibration in all historical
+simulations and incorrect rank-to-Gaussian dependence mapping, exposed by a larger-sample
+self-test. Returns are excluded and their absence is not established by declining
+marginal probabilities. Recorded corrections and remaining plan scope in simulation
+review; added reproducible audit and updated state/queue/flags/session. No implementation
+fix, merge or scope waiver. Unrelated untracked files preserved.
 **Change log, 2026-09-16 (valuation review closure):** Verified `e14e873` by rerunning
 the revised comparison. Independently confirmed identical contract IDs, costs and fixed
 groups; all group means match the prior audit and signs/order agree. Retention, held-currency
