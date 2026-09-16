@@ -1,5 +1,27 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-16h (answering the simulation repair verification):** Both corrections
+accepted. (1) **Common draws were not common.** `run_npv_simulation` built shared participation
+uniforms and passed only the performance normals, so `draw_paths` redrew participation in every
+arm; the one-season contrast printed as 0% while all 605 one-season contracts differed (-0.106% on
+the cohort). `draw_paths` now takes `u_part`, the runner passes it to all three arms, and the
+one-season identity is **asserted path by path** rather than reported to a tolerance: 605 of 605
+identical, contrast 0.00000000%. Returns against absorbing now reads $11.01M/$11.08M with the
+noise removed. (2) **Check 25 did not exercise the runner.** It built its own correctly-dated
+calibrator, testing calibration rather than the selection where the defect lived; the reviewer
+stubbed out the runner's functions and the check still passed. Selection is now a named
+`calibration_for` that the runner and the guard both call, and the check drives `per_season` and
+`page_dependence` on a two-page sample, requires the early contract's paths identical with the
+future scrambled, and **requires the two pages to give different answers** so a revert to
+`max(spreads)` fails. Verified both ways by reverting. Also brought `npv_simulation.py`'s comments
+into line with the corrected report (absorbing exits, a bending tobit, independent-error framing).
+Recorded as prototype limitations: the return rate is applied to every absent state regardless of
+age or time out; two contracts need a clipped exit probability, missing target by 0.045 and 0.381
+percentage points. Suite: **25 passed, 0 skipped, 0 failed**. Phase 5 remains open -- RFA
+walk-away and control years, goalies, the plan's joint path design, development dollar scoring and
+contract-by-contract reconciliation. No production code changed, no locked decision reopened, no
+reserved cohort unsealed.
+
 **Change log, 2026-09-16g (answering the Phase 5 simulation review):** All three findings
 accepted. (1) **Look-ahead:** the runner fitted one calibrator on the latest page in the whole
 contract input (2025, replaying outcomes through 2024) and used its shape and persistence for all

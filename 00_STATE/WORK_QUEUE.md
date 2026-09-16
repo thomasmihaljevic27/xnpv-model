@@ -127,6 +127,34 @@ the work is. Next, in order:
 5. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
    contract-by-contract dollar reconciliation, and the holdout policy.
 
+**2026-09-16e — the two corrections from the repair verification are in.** Suite: **25 passed, 0
+skipped, 0 failed**.
+
+**The common draws were half common.** The runner built shared participation uniforms and never
+passed them, so performance draws were shared and participation was redrawn per arm. The one-season
+contrast printed as 0% while all 605 one-season contracts actually differed, by -0.106% on the
+cohort. Participation uniforms are now passed to every arm, and **the one-season identity is
+asserted path by path rather than reported**: 605 of 605 identical, contrast 0.00000000%. The
+returns-against-absorbing pair reads $11.01M against $11.08M on shared draws, where it previously
+read $11.02M against $11.09M without the noise removed.
+
+**The leakage guard did not test the runner.** Check 25 built its own correctly-dated calibrator,
+so it tested the calibration and not the SELECTION -- and selection was where the defect was. The
+reviewer proved it by stubbing the runner's functions out entirely; the check still passed. It now
+drives `per_season`, `page_dependence` and a named `calibration_for` that the runner itself calls,
+on a sample spanning two pages, and asserts that the two pages give DIFFERENT answers so a revert
+to latest-page selection cannot pass unnoticed. Verified by reverting: stubbing `page_dependence`
+fails it, and restoring `max(spreads)` selection fails it.
+
+**Source comments brought into line with the corrected report** -- absorbing exits, a bending
+tobit prediction and point valuations assuming independent errors were still described in
+`npv_simulation.py` after the report had withdrawn all three.
+
+**Carried as prototype limitations, not defects:** the return rate is estimated from recent
+absences and applied to every absent state regardless of age or how long the player has been out;
+two contracts (4921, 6809) need an exit probability clipped, missing their target playing
+probability by 0.045 and 0.381 percentage points.
+
 **2026-09-16d, revised after review — an aggregate contract simulator, and Phase 5 is NOT
 closed.** The review found two implementation defects and one scope claim; all three are fixed and
 the reporting is corrected. Report: `50_REBUILD/docs/NPV_Simulation.md`. Suite: **25 passed, 0

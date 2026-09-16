@@ -24,7 +24,7 @@ import forecast_harness as H
 import player_season_table as T
 from ability_forecast import A0Production
 
-SCRIPT_VERSION = "2.3"
+SCRIPT_VERSION = "2.4"
 
 PASS, FAIL, SKIP = "pass", "FAIL", "skip"
 results: list[tuple[str, str, str]] = []
@@ -841,63 +841,93 @@ def c24(table):
 
 
 def c25(table):
-    """THE SIMULATION CANNOT SEE THE FUTURE EITHER.
+    """THE RUNNER CANNOT SEE THE FUTURE, DRIVEN THROUGH THE RUNNER.
 
-    Required by the Phase 5 review, which found that it could. The runner
-    fitted one calibrator on the latest page in the whole contract input and
-    used its residual shape and its persistence for every contract, all of
-    which were earlier. Forecasts and price lines were dated correctly; the
-    uncertainty around them, the only part of the chain that reads outcomes,
-    was not.
+    The first version of this check built its own correctly-dated calibrator
+    and compared it before and after corrupting the future. That tests the
+    calibration and not the SELECTION, and the selection was where the defect
+    was: the runner reached for the latest page's calibration for every
+    contract. The review proved the gap by stubbing out the runner's own
+    functions -- this check still passed.
 
-    The existing leakage battery could not catch it, because it tests the
-    forecast and the band and this defect was in the runner that consumes them.
-    So the test is here, on the three things a simulation is calibrated from:
-    the shape of a miss, how much of one persists, and how often a player who
-    sat out comes back. Corrupt every season at or after the decision date and
-    all three must be identical to the last digit.
+    So it now runs the real consumption path. `per_season` and
+    `page_dependence` produce what the runner produces, `calibration_for`
+    picks as the runner picks, and the contract is priced on fixed draws.
+
+    Three things are asserted, and the third is what gives the check teeth:
+
+      1. more than one page is in play, or the test is vacuous
+      2. corrupting every season at or after the early contract's decision
+         date changes nothing it is given, and nothing it is worth
+      3. the LATEST page's calibration would give a DIFFERENT answer -- so a
+         revert to selecting by `max(spreads)` fails here rather than passing
+         unnoticed
     """
     import numpy as np
-    import information_set as ISET
-    import predictive_interval as PI
     import npv_simulation as SIM
-    from ability_forecast import A1HingeExposure
-    from run_npv_simulation import page_scale
+    from contract_price_model import contract_sample
+    from run_npv_simulation import per_season, page_dependence, calibration_for
 
-    page = 2018
-    rng = np.random.default_rng(11)
+    full = contract_sample()
+    batches = sorted(full["latest_complete"].dropna().unique())
+    keep = [batches[1], batches[-3]]        # one early page and a later one
+    sample = full[full["latest_complete"].isin(keep)]
+
+    def consume(t):
+        seasons, spreads = per_season(sample, t)
+        pers, rets = page_dependence(spreads, t)
+        return seasons, spreads, pers, rets
+
+    seasons, spreads, pers, rets = consume(table)
+    if len(spreads) < 2:
+        raise _Skip("only one forecast page in this sample; nothing to select between")
+    early = min(spreads)
+    late = max(spreads)
+    cid = next((c for c, v in seasons.items() if v[0] == early), None)
+    if cid is None:
+        raise _Skip("no contract sits on the early page")
+
+    page, mu, sg, pp = seasons[cid]
+    normals = np.random.default_rng(5).standard_normal((512, len(mu)))
+    u_part = np.random.default_rng(6).random((512, len(mu)))
+
+    def value_on(spreads_, pers_, rets_, which):
+        sp, pe, rr = calibration_for(which, spreads_, pers_, rets_)
+        return SIM.draw_paths(mu, sg, pp, sp.zs_, pe, 512, None,
+                              r_return=rr, normals=normals, u_part=u_part)
+
+    own = value_on(spreads, pers, rets, page)
+
+    # 3. the check must be able to SEE a revert to latest-page selection
+    latest = value_on(spreads, pers, rets, late)
+    assert not np.allclose(own, latest), (
+        f"pages {early} and {late} give the same paths, so this check could "
+        "not tell correct selection from selecting the latest page")
+
+    # 2. and the future must not move what the early contract is given
     bad = table.copy()
     m = (bad["syr"] >= page).to_numpy()
     idx = np.flatnonzero(m)
-    perm = rng.permutation(idx)
+    perm = np.random.default_rng(7).permutation(idx)
     for col in ("WAR", "WAR_82", "GP", "gp_share"):
         v = bad[col].to_numpy().copy()
         v[idx] = v[perm]
         bad[col] = v
+    seasons_b, spreads_b, pers_b, rets_b = consume(bad)
+    sp_a, pe_a, rr_a = calibration_for(page, spreads, pers, rets)
+    sp_b, pe_b, rr_b = calibration_for(page, spreads_b, pers_b, rets_b)
+    d = float(np.max(np.abs(sp_a.zs_ - sp_b.zs_))) if len(sp_a.zs_) == len(sp_b.zs_) else np.inf
+    assert d == 0.0, f"the shape the runner selected moved by {d:.3e}"
+    assert (pe_a.w_perm_, pe_a.w_fade_, pe_a.phi_) == (pe_b.w_perm_, pe_b.w_fade_, pe_b.phi_), \
+        "the persistence the runner selected moved"
+    assert rr_a == rr_b, "the return rate the runner selected moved"
+    after = value_on(spreads_b, pers_b, rets_b, page)
+    gap = float(np.max(np.abs(own - after)))
+    assert gap == 0.0, f"the simulated paths moved by {gap:.3e} when the future was scrambled"
 
-    def calibrate(t):
-        iset = ISET.build(t, ISET.decision_date_for_page(page), t0=page)
-        mod = PI.WithIntervals(A1HingeExposure())
-        mod.fit(iset.seasons, before=page)
-        pers = SIM.Persistence().fit(mod.spread_.pairs_, page_scale(mod.spread_))
-        return (mod.spread_.zs_, mod.spread_.scale_,
-                (pers.w_perm_, pers.w_fade_, pers.phi_),
-                SIM.return_rate(t, before=page))
-
-    a_zs, a_scale, a_pers, a_ret = calibrate(table)
-    b_zs, b_scale, b_pers, b_ret = calibrate(bad)
-
-    assert len(a_zs) == len(b_zs), (
-        f"the shape learned from {len(a_zs)} misses with the future present "
-        f"and {len(b_zs)} with it scrambled")
-    d = float(np.max(np.abs(a_zs - b_zs)))
-    assert d == 0.0, f"the shape of a miss moved by {d:.3e}"
-    assert a_scale == b_scale, "the fitted scale moved"
-    assert a_pers == b_pers, f"persistence moved: {a_pers} against {b_pers}"
-    assert a_ret == b_ret, f"the return rate moved: {a_ret} against {b_ret}"
-    return (f"shape, scale, persistence {a_pers[0]:.3f}/{a_pers[1]:.3f}/"
-            f"{a_pers[2]:.2f} and return rate {a_ret:.3f} all identical "
-            "with the future scrambled")
+    return (f"pages {early} and {late} both fitted; the {early} contract's paths are "
+            f"identical with the future scrambled and differ from the {late} "
+            "calibration, so a revert to latest-page selection would fail here")
 
 
 def main() -> None:

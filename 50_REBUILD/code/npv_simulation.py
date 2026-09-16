@@ -12,17 +12,24 @@ WHAT A POINT VALUATION CANNOT DO
     It is not a straight line, for two reasons that both matter here and both
     push the same way:
 
-    - THE LEAGUE MINIMUM. A club cannot pay less than the floor, so a season
-      where the player collapses costs the same as a season where he is merely
-      poor. The downside is truncated and the upside is not.
-    - THE CENSORED PRICE LINE. The market's own fit is censored at that floor,
-      so the price of forecast production bends near the bottom.
+    THE LEAGUE MINIMUM. A club cannot pay less than the floor, so a season
+    where the player collapses costs the same as a season where he is merely
+    poor. The downside is truncated and the upside is not, which makes the
+    value of a path convex from below in its production, so the average of the
+    values sits ABOVE the value of the average -- and by more for a player
+    whose paths straddle the floor than for one whose do not.
 
-    Both make the value of a path convex from below in its production, so the
-    average of the values sits ABOVE the value of the average, and by more for
-    a player whose paths straddle the floor than for one whose do not. That gap
-    is what this file computes. It is not a correction to the point valuation;
-    it is the quantity the point valuation was approximating.
+    THAT IS THE ONLY CONVEXITY HERE. An earlier version of this comment also
+    credited the censored price line with bending near the floor. It does not:
+    `predict_tobit` returns a linear predictor, and censoring changes the
+    fitted coefficients rather than the shape of the prediction. The floor that
+    is applied afterwards is the whole of it.
+
+    The gap is not a correction to the point valuation; it is the quantity the
+    point valuation was approximating. A point valuation is also not wrong to
+    average under dependence -- an expectation averages whatever the dependence
+    is. What dependence changes is the SPREAD, and the value of a path once the
+    price line stops being straight.
 
 WHAT IS DRAWN, AND WHAT MAKES IT JOINT
     Two things per season, and the second one is why the plan asked for this.
@@ -30,23 +37,25 @@ WHAT IS DRAWN, AND WHAT MAKES IT JOINT
     1. WHETHER HE IS IN THE LEAGUE AT ALL, as a path rather than a probability.
        The point chain multiplies each season's production by that season's
        probability of playing, which prices every player as a blend of himself
-       and a ghost who plays 78% of a season. On a path he either plays or he
-       does not, and an exit carries forward: a player gone in year three is
-       gone in years four and five. The marginal probabilities the
-       participation model reports are reproduced exactly by construction, so
-       nothing about the forecast changes -- what changes is that the zeros now
-       arrive together instead of being smeared across every season.
+       and a ghost who plays 78% of a season. On a path he plays or he does
+       not, a man who sits out may come back, and the model's own marginal
+       probabilities are reproduced exactly by construction -- so nothing about
+       the forecast changes, and what changes is that the zeros arrive together
+       instead of being smeared across every season.
 
-    2. HOW WRONG THE FORECAST IS, CORRELATED ACROSS SEASONS. This is the part
-       that decides everything about a long contract, and it had never been
-       measured. If the misses were independent, a six-year deal's total would
-       be six draws averaging out and its spread would scale as the square root
-       of the term. If a miss persisted entirely, the spread would scale with
-       the term itself. Measured on the replayed misses, the same player's
-       standardised miss correlates 0.39 between adjacent seasons, decaying to
-       a floor near 0.19 five seasons apart -- so neither. Some of being wrong
-       about a player is a permanent misjudgement and some of it washes out,
-       and the mix is fitted rather than assumed.
+    2. HOW WRONG THE FORECAST IS, CORRELATED ACROSS SEASONS. This decides how
+       uncertain a long contract is. If the misses were independent, a six-year
+       deal's total would be six draws averaging out and its spread would scale
+       as the square root of the term; if a miss persisted entirely it would
+       scale with the term. Measured on the replayed misses, the same player's
+       standardised miss correlates about 0.4 between adjacent seasons at every
+       page in the window, so neither.
+
+       THE SPLIT BETWEEN PERMANENT AND FADING IS A MODEL, NOT A MEASUREMENT.
+       It is fitted per page, it moves a great deal across pages while the
+       total adjacent correlation barely moves, and the parameters describe
+       rank dependence imposed through a copula. They are not identified
+       fractions of mistakes caused by permanent as against temporary things.
 
     ONE THING IS DELIBERATELY NOT DRAWN SEPARATELY. The rate per 82 and the
     share of the schedule are not given their own draws, because the quantity
@@ -305,7 +314,7 @@ def rising_marginals(p_play: np.ndarray) -> int:
 
 def draw_paths(mu, sigma, p_play, shape: np.ndarray, persistence: Persistence,
                n_paths: int = DEFAULT_PATHS, rng=None,
-               r_return: float = 0.0, normals=None) -> np.ndarray:
+               r_return: float = 0.0, normals=None, u_part=None) -> np.ndarray:
     """One player, one contract: `n_paths` draws of production per season.
 
     Returns an array of shape (n_paths, T) in wins, with a zero wherever the
@@ -334,7 +343,13 @@ def draw_paths(mu, sigma, p_play, shape: np.ndarray, persistence: Persistence,
         z = np.zeros_like(u)            # the zero-spread case, exactly
     cond = mu[None, :] + sigma[None, :] * z
 
-    played, _ = participation_path(p_play, rng.random((n_paths, T)), r_return)
+    # THE PARTICIPATION DRAWS ARE SHARED TOO WHEN THE CALLER SUPPLIES THEM.
+    # The runner built these and then never passed them, so two arms of a
+    # comparison shared their performance draws and redrew participation
+    # independently. That left avoidable sampling noise in every difference and
+    # made the one-season identity approximate when it should be exact.
+    u = rng.random((n_paths, T)) if u_part is None else u_part[:, :T]
+    played, _ = participation_path(p_play, u, r_return)
     return cond * played
 
 

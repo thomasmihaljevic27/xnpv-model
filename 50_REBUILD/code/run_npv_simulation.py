@@ -52,7 +52,7 @@ from player_season_table import build as build_table, birthdate_source
 from run_phase4_decisions import prep
 from ability_forecast import A1HingeExposure
 
-SCRIPT_VERSION = "2.0"
+SCRIPT_VERSION = "2.1"
 
 LEADER = A1HingeExposure
 KEY = "contract_id"
@@ -119,6 +119,23 @@ def page_scale(spread):
         return np.concatenate([spread.sigma(int(x), mu[h == x])
                                for x in np.unique(h)])[order]
     return f
+
+
+def calibration_for(page: int, spreads: dict, pers: dict, rets: dict):
+    """The shape, dependence and return rate a contract on `page` is entitled
+    to.
+
+    A THREE-LINE FUNCTION WITH ITS OWN NAME, because this selection is where
+    the look-ahead lived: the runner used to reach for the LATEST page's
+    calibration for every contract. The corrected indexing was inline, so a
+    guard could check the calibrators and still not touch the thing that picks
+    between them -- which is exactly what the first version of check 25 did,
+    and it went on passing when the runner was stubbed out entirely.
+
+    Now there is one place to pick, the runner calls it, and the guard drives
+    the runner. Reverting to `max(spreads)` here fails that guard.
+    """
+    return spreads[page], pers[page], rets[page]
 
 
 def page_dependence(spreads: dict, table: pd.DataFrame):
@@ -247,16 +264,15 @@ def main() -> None:
         r = pt[pt[KEY] == cid].iloc[0]
         page, mu, sg, pp = seasons[cid]
         k = SIM.dollar_factor(r)
-        shape = spreads[page].zs_
-        pers = pers_by_page[page]
-        r_ret = ret_by_page[page]
+        sp, pers, r_ret = calibration_for(page, spreads, pers_by_page, ret_by_page)
+        shape = sp.zs_
         # COMMON DRAWS across every variant of this contract, so a difference
         # between two of them is the design and not the luck of two samples.
         normals = rng.standard_normal((N_PATHS, len(mu)))
         u_part = rng.random((N_PATHS, len(mu)))
 
         paths = SIM.draw_paths(mu, sg, pp, shape, pers, N_PATHS, rng,
-                               r_return=r_ret, normals=normals)
+                               r_return=r_ret, normals=normals, u_part=u_part)
         wps = paths.mean(axis=1)
         val = SIM.contract_value(lines[r["cut"]], r, wps, paths[:, 0], k)
         sur = val - float(r["cost"])
@@ -266,18 +282,28 @@ def main() -> None:
         # seasons are NOT independent in this counterfactual and the label says
         # conditional-error dependence rather than independence.
         ind = SIM.draw_paths(mu, sg, pp, shape, INDEP, N_PATHS, rng,
-                             r_return=r_ret, normals=normals)
+                             r_return=r_ret, normals=normals, u_part=u_part)
         sur_ind = SIM.contract_value(lines[r["cut"]], r, ind.mean(axis=1),
                                      ind[:, 0], k) - float(r["cost"])
 
         # AND WHAT ALLOWING A RETURN IS WORTH, against the absorbing exit the
         # first version shipped as though it were free.
+        # Same uniforms here too, though the transition rules differ, so the
+        # indicators legitimately diverge where a return would have happened.
         abso = SIM.draw_paths(mu, sg, pp, shape, pers, N_PATHS, rng,
-                              r_return=0.0, normals=normals)
+                              r_return=0.0, normals=normals, u_part=u_part)
         sur_abs = SIM.contract_value(lines[r["cut"]], r, abso.mean(axis=1),
                                      abso[:, 0], k) - float(r["cost"])
 
         _, clipped = SIM.participation_path(pp, u_part, r_ret)
+        # A ONE-SEASON TERM HAS NO DEPENDENCE TO IMPOSE, so on shared draws the
+        # two arms must agree PATH BY PATH, not to a tolerance. Asserted rather
+        # than reported: it is an identity, and the previous version printed it
+        # as a rounded zero while the arms actually differed.
+        if len(mu) == 1:
+            assert np.array_equal(paths, ind), (
+                "a one-season term differs between the dependence arms on "
+                "shared draws, so the draws are not shared")
         out.append({KEY: cid, "page": page, "term": len(mu),
                     "war_per_season": r["war_per_season"],
                     "surplus_point": float(r["surplus_point"]),

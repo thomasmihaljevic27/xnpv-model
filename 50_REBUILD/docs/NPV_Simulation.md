@@ -4,9 +4,10 @@ Run 2026-09-16 in `50_REBUILD/`. Rebuild plan Phase 5, **prototype scope — not
 Experimental. Development start years only; the reserved market cohorts are refused by the guard.
 **Nothing adopted, and no production file changed.**
 
-**Revised after independent review** (`NPV_Simulation_Review_Codex.md`, reviewing `95750f5`).
-Two implementation defects and one scope claim, all accepted and fixed; several reporting claims
-withdrawn. Section 8 lists them. Every figure below comes from one run after the fixes.
+**Revised twice after independent review** — `NPV_Simulation_Review_Codex.md` on `95750f5` (two
+implementation defects and a scope claim) and `NPV_Simulation_Repair_Verification_Codex.md` on
+`8239d29` (two corrections to the repairs themselves). All accepted and fixed; section 8 lists the
+withdrawals. Every figure below comes from one run after all of them.
 
 ## 1. What a point valuation cannot do
 
@@ -66,11 +67,16 @@ whose replay contains outcomes through 2024 — and used its residual shape and 
 every contract, all of which are earlier. Forecasts and price lines were rolling. The uncertainty
 around them, the only part of this chain that reads outcomes, was not.
 
-Each contract now uses its own page's shape, persistence and return rate. **A new check
-corrupts every season at or after the decision date and requires the shape, the scale, the
-persistence and the return rate to be identical to the last digit.** The existing leakage battery
-could not have caught this: it tests the forecast and the band, and the defect was in the runner
-that consumes them.
+Each contract now uses its own page's shape, persistence and return rate. **A new check drives the runner's own consumption path** — `per_season`, `page_dependence` and
+a named `calibration_for` that both the runner and the guard call — corrupts every season at or
+after an early contract's decision date, and requires the shape, persistence, return rate and the
+simulated paths to be identical to the last digit.
+
+The first version of that check built its own correctly-dated calibrator instead, which tested the
+calibration and not the **selection** — and the selection was where the defect was. The reviewer
+proved the gap by stubbing out the runner's functions entirely: the check still passed. It now
+fails under that stub, and fails again if selection reverts to the latest page, which it asserts
+by requiring the two pages to give different answers in the first place.
 
 ### The copula imposed the wrong correlation
 
@@ -94,8 +100,8 @@ from 90% to 70% and one path in ten is a return. A falling marginal says nothing
 anyone comes back.
 
 Returns are now modelled. The absorbing version is kept beside them as the sensitivity it always
-was, and it turns out to cost little: the eight-year cohort's average within-contract standard
-deviation is $11.02M with returns against $11.09M absorbing. Small — but now measured instead of
+was, and on genuinely shared draws it costs little: the eight-year cohort's average
+within-contract standard deviation is $11.01M with returns against $11.08M absorbing. Small — but now measured instead of
 asserted. Two of 1,217 terms need an exit probability clipped to hold the marginal, so for those
 the model's own probability of playing is not reproduced exactly.
 
@@ -117,23 +123,23 @@ Monte Carlo difference, not an identity — so the difference below is the floor
 |---|---:|---:|---:|---:|
 | 1 yr | 605 | −0.07 | +0.16 | **+0.23** |
 | 2 yr | 324 | −0.09 | +0.15 | **+0.24** |
-| 3 yr | 109 | +0.14 | +0.19 | +0.05 |
-| 6 yr | 33 | +1.53 | +1.56 | +0.03 |
-| 8 yr | 22 | +5.44 | +5.51 | +0.07 |
-| **all** | 1,217 | +0.19 | +0.38 | **+0.19** |
+| 3 yr | 109 | +0.14 | +0.18 | +0.05 |
+| 6 yr | 33 | +1.53 | +1.53 | +0.00 |
+| 8 yr | 22 | +5.44 | +5.39 | −0.05 |
+| **all** | 1,217 | +0.19 | +0.37 | **+0.18** |
 
 | forecast | n | point $M | simulated | gap |
 |---|---:|---:|---:|---:|
-| below 0 | 174 | −0.41 | −0.19 | **+0.21** |
-| 0 to 0.5 | 735 | +0.10 | +0.31 | **+0.21** |
-| 0.5 to 1 | 199 | +0.56 | +0.70 | +0.14 |
-| 1 to 2 | 91 | +1.66 | +1.75 | +0.08 |
-| 2+ | 18 | −1.80 | −1.79 | +0.01 |
+| below 0 | 174 | −0.41 | −0.20 | **+0.21** |
+| 0 to 0.5 | 735 | +0.10 | +0.31 | **+0.22** |
+| 0.5 to 1 | 199 | +0.56 | +0.68 | +0.12 |
+| 1 to 2 | 91 | +1.66 | +1.71 | +0.05 |
+| 2+ | 18 | −1.80 | −1.86 | −0.05 |
 
 Concentrated where the floor binds — short deals and cheap players — and vanishing for stars whose
 paths never approach it.
 
-**228 of 1,217 individual contracts change sign** between the point valuation and the simulation.
+**223 of 1,217 individual contracts change sign** between the point valuation and the simulation.
 The first version of this report said there were none, which was read off the tier means and was
 false of the contracts. The fixed-tier means do keep their signs. Those are two different
 statements and they are reported apart.
@@ -145,17 +151,27 @@ one representative distribution:
 
 | term | n | mean $M | sd | 10th | 90th | chance it loses | sd without the miss's dependence | widened by |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
-| 1 yr | 605 | +0.16 | 0.87 | −0.38 | +1.17 | 37% | 0.87 | 0% |
-| 3 yr | 109 | +0.19 | 3.85 | −4.20 | +5.27 | 48% | 3.13 | 23% |
-| 7 yr | 27 | +3.69 | 10.06 | −7.81 | +16.83 | 39% | 7.14 | **41%** |
-| 8 yr | 22 | +5.51 | 11.02 | −7.09 | +19.93 | 38% | 8.01 | 38% |
+| 1 yr | 605 | +0.16 | 0.87 | −0.38 | +1.18 | 37% | 0.87 | **exactly 0%** |
+| 3 yr | 109 | +0.18 | 3.87 | −4.23 | +5.31 | 48% | 3.15 | 23% |
+| 7 yr | 27 | +3.77 | 10.00 | −7.68 | +16.84 | 39% | 7.12 | **40%** |
+| 8 yr | 22 | +5.39 | 11.01 | −7.28 | +19.85 | 38% | 7.96 | 38% |
 
-The last two columns redraw the same contracts **on the same random draws** with the cross-season
-dependence of the forecast's miss removed. **Participation is unchanged in both arms**, so the
-seasons are not independent there — this isolates the conditional performance error and nothing
-else, and is not an independence counterfactual. The one-year row comes back at 0% because a
-single season has no dependence to impose; on common draws that is now exact rather than a
-rounding.
+The last two columns redraw the same contracts **on the same random draws — performance and
+participation both** — with the cross-season dependence of the forecast's miss removed.
+**Participation is unchanged in both arms**, so the seasons are not independent there: this
+isolates the conditional performance error and nothing else, and is not an independence
+counterfactual.
+
+The one-year row is now **exactly** zero, and that is the check rather than a decoration. A
+one-season term has no dependence to impose, so on shared draws the two arms must agree path by
+path. All **605 of 605** one-season contracts have identical standard deviations, and the cohort
+contrast is 0.00000000%. The runner asserts it rather than printing it.
+
+The previous version reported this as 0% while the arms genuinely differed by −0.106%: it built
+shared participation draws and then never passed them, so performance was shared and
+participation was redrawn. Every difference in this table carried that avoidable noise, and the
+returns-against-absorbing comparison it previously reported ($11.02M against $11.09M) had not been
+separated from it. On shared draws the same pair reads $11.01M against $11.08M.
 
 ## 7. Scope: what this is and is not
 
@@ -192,6 +208,12 @@ It does **not** fulfil the plan's joint rate/games/participation design for late
    common draws.
 8. **Figures mixing two runs** (0.3487 against 0.3495, $5.39M against $5.34M). Everything above is
    from one run.
+9. **"On the same random draws."** Participation was redrawn in every arm — the shared uniforms
+   were built and never passed. The one-year contrast was −0.106% printing as zero, and all 605
+   one-season contracts differed. Now genuinely shared, exact, and asserted.
+10. **The first leakage guard did not test the runner.** It built its own calibrator, so it passed
+    with the runner stubbed out and would not have caught a revert to latest-page selection. It
+    now drives the real path.
 
 ## Files
 
