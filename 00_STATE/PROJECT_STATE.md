@@ -193,6 +193,17 @@ These findings take precedence over the earlier broad validation claims. No impl
 changed; repaired development comparisons and the unbuilt simulation work must precede adoption.
 Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 
+**Valuation review closed, 2026-09-16:** verified `e14e873` by rerunning the corrected
+comparison and independently checking its CSV. All 1,217 contract IDs, costs and fixed
+groups match across columns; all five group means reproduce the prior audit and retain
+their signs and ordering. Corrected retention and framing figures reproduce. The preceding
+valuation-comparison findings are resolved on tested paths. See
+`50_REBUILD/docs/Valuation_Review_Closure_Codex.md`. Ready to continue development:
+repair the known component-variant failure before using it, then continue simulation,
+valuation integration/reconciliation and the predefined back-test. Subgroup limitations,
+small samples and final-validation work remain; this is not a completed-model sign-off.
+Candidate implementation remains unmerged on main.
+
 **Valuation sensitivity review, 2026-09-15:** reproduced `5e019ad` and 22/22 checks;
 also reproduced the component variant's missing-`fitted_horizons_` error. The reported
 top-tier reversal changes membership (18-68 contracts). On the candidate's same 18,
