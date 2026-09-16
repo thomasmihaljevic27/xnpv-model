@@ -1,5 +1,20 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-16i (production chain runs; valuation integration built):** Thomas supplied
+`contract_season_spine.csv`. Production's chain runs in this container for the first time and
+reproduces its locked guards -- Stage 0a/0b PASS against the locked regression, 6,892 priced skater
+rows, k=0 identity $0.00 on 397 shared rows -- through `skater_value_engine`,
+`skater_forward_projection`, `rfa_terminal_value` and `exit_hazard`. Added
+`run_valuation_integration.py`, which writes `contract_valuation.csv`: one row per contract, 1,217
+contracts, 29 columns, join asserted, carrying cost, the adopted forecast's value and surplus, the
+surplus under all five forecasts, the simulated distribution around the adopted one, and the
+declared sensitivities. **Reconciliation against production's contract NPV remains blocked on
+`goalie_value_spine_v2.csv`** -- `contract_npv.py` prices both positions and reads it at startup,
+and `goalie_value_engine.py` cannot produce it here because its parity gate reads a previously
+locked `goalie_value_spine.csv` that is also absent. Also folded in the closure review's three
+qualifications. No production code changed, no locked decision reopened, no reserved cohort
+unsealed.
+
 **Change log, 2026-09-16h (answering the simulation repair verification):** Both corrections
 accepted. (1) **Common draws were not common.** `run_npv_simulation` built shared participation
 uniforms and passed only the performance normals, so `draw_paths` redrew participation in every

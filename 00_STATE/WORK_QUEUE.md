@@ -139,6 +139,29 @@ the work is. Next, in order:
 5. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
    contract-by-contract dollar reconciliation, and the holdout policy.
 
+**2026-09-16g — the production chain runs here, and valuation integration is built.** Thomas
+supplied `contract_season_spine.csv`, so production's own chain runs in this container for the
+first time. Its guards reproduce the locked record exactly: **Stage 0a and 0b PASS** against the
+locked regression, **6,892 priced skater rows**, and the **k=0 identity at $0.00** on 397 shared
+rows. `skater_value_engine`, `skater_forward_projection`, `rfa_terminal_value` and `exit_hazard`
+all complete.
+
+**`run_valuation_integration.py` writes `contract_valuation.csv`** -- one row per contract, 1,217
+contracts and 29 columns, with the join asserted rather than assumed: what the club committed
+(aav, length, discounted cost), what the adopted forecast says (production per season, value,
+surplus), the same surplus under all five forecasts, the distribution around the adopted one
+(mean, sd, 10th, 90th, chance of a loss), and the declared sensitivities (term-free, the miss's
+cross-season dependence, absorbing participation). Everything downstream should read this rather
+than joining the three runners' CSVs by hand.
+
+**ONE FILE STILL BLOCKS THE RECONCILIATION: `goalie_value_spine_v2.csv`.** `contract_npv.py` prices
+both positions and reads the goalie spine at startup, so the skater half cannot run without it.
+Running `goalie_value_engine.py` to produce it does not help: its Stage P parity gate reads a
+previously locked `goalie_value_spine.csv`, which is also absent. Either file unblocks it --
+`goalie_value_spine_v2.csv` directly, or `goalie_value_spine.csv` which lets the engine run and
+its parity gate be verified (the locked record puts that gate at $0.000284 and the v2 file's MD5
+at 55c935dd...). Every other production input is present and reproduces.
+
 **2026-09-16f — simulation review CLOSED; next is valuation integration, and reconciliation is
 blocked on one file.** Three qualifications from the closure folded in: the average-production
 sentence still carried 0.3495 against this run's 0.3487; the returns-against-absorbing pair is an
