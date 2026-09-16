@@ -65,6 +65,15 @@ back-test with grouping rule and protocol declared in advance and the reserved e
 until they are fixed. No production code changed, no locked decision reopened, no reserved cohort
 unsealed.
 
+**Change log, 2026-09-16c (simulation repair verification):** Verified `8239d29`.
+Full suite 25/25 and full simulation reproduced. Prior date-selection and correlation
+implementation defects repaired; returns implemented with two small disclosed clips.
+Found unshared participation draws behind the claimed common-draw comparisons and
+an ineffective runner-level regression guard: c25 passes with consumers disabled.
+Added repair-verification report and reproducible independent audit; updated state,
+queue, flags and session. Continue integration, but close these two narrow items before
+signing off this repair pass. No implementation merge, model patch or scope waiver.
+
 **Change log, 2026-09-16b (Phase 5 simulation review):** Reviewed `95750f5`.
 Reproduced 24/24 checks and simulation output approximately; independently verified
 deterministic pricing on 300 contracts. Found future calibration in all historical

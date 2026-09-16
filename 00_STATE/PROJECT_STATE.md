@@ -194,6 +194,21 @@ These findings take precedence over the earlier broad validation claims. No impl
 changed; repaired development comparisons and the unbuilt simulation work must precede adoption.
 Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 
+**Simulation repair verification, 2026-09-16:** reviewed `8239d29` in isolation.
+Reproduced 25/25 checks, 1,217 simulations, 228 contract sign changes and the
+$11.02M/$11.09M eight-year return/absorbing spread comparison. Dated calibration
+selection, rank-to-Gaussian conversion and return-capable participation are repaired.
+The 600,000-path self-test passes and restoring the conversion bug fails analytically.
+Two narrow items remain: participation draws are not shared between comparison arms
+(the one-year contrast is -0.1057%, not exactly zero), and check 25 bypasses the
+runner whose date selection caused the original leakage. Correct those and regenerate
+sensitivities; remaining valuation integration can proceed. Clipping affects two
+contracts by at most 0.381 percentage points of playing probability, documented as a
+small exception. Phase 5 remains an aggregate prototype with RFA/control-year, goalie,
+joint-path, dollar-scoring and reconciliation gates open. See
+`50_REBUILD/docs/NPV_Simulation_Repair_Verification_Codex.md`.
+No candidate implementation changed or merged; unrelated files preserved.
+
 **Phase 5 simulation review, 2026-09-16:** reviewed `95750f5` in isolation.
 Standard suite passes 24/24, including all 34 variants on page 2018; independent
 300-contract deterministic currency comparison agrees within $7.45e-09. Phase 5 is
