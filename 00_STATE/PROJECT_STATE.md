@@ -287,18 +287,20 @@ guard. Report:
 `50_REBUILD/docs/Predictive_Uncertainty_and_Leakage.md`; review:
 `50_REBUILD/docs/Uncertainty_Implementation_Review_Codex.md`.
 
-**Valuation sensitivity, and the live chain compared (2026-09-16).** Same 1,217 development
-contracts under five forecasts, from the production chain to the adopted candidate, each with its
-own price line. **Three of five categories are robust and the live chain agrees about them**:
-below-replacement always negative, 0-to-0.5 always positive, 1-to-2 wins always positive and the
-largest solid category. Contract by contract the rebuilt forecasts correlate 0.974-0.988 with the
-live chain and agree on sign for 88-97%. **The 2+ tier flips sign across forecasts** (-1.80 to
-+1.05 $M) on **18 contracts**, which is the same reversal the currency-shape work found on a
-different axis -- two independent design choices each flip the thesis's headline. **Removing the
-participation model changes almost nothing** (-1.74 to -1.68 at the top), so the calibration work
-of the previous two days does not move the valuation ordering. **The term framing dominates
-everything**: a $9-14M per-contract swing against a $2.9M spread across all five forecasts.
-Report: `50_REBUILD/docs/Valuation_Sensitivity.md`. Nothing adopted.
+**Valuation sensitivity on a declared fixed grouping (2026-09-16, revised after review).** Same
+1,217 development contracts under five forecasts, from production's own projection and survival
+(imported through the adapter and priced through THIS tree's currency, which is not the production
+contract-NPV chain's output) to the adopted candidate. Groups cut once on the candidate's forecast
+and applied to every column. **Every group keeps its sign in all five columns and the ordering is
+identical in all five**; contract by contract the models correlate 0.974-0.988 and agree on sign
+for 88-97%. The earlier report's "top tier flips sign" was an artifact of per-column tier
+membership (51, 68, 18, 19, 18 contracts) and is withdrawn. **The magnitude is still unsettled**:
+the top group runs -1.74 to -4.55 $M on 18 contracts with no uncertainty estimate. Participation,
+tested properly by pinning the probability of playing to one while holding the imputed aging,
+moves the top group to -1.910 or -1.592; signs and ordering survive, but "calibration is
+immaterial" is withdrawn. Sample loss is at the **price fit**, not the forecast horizon (438 at
+attachment, 241 at the price fit). Report: `50_REBUILD/docs/Valuation_Sensitivity.md`; review:
+`50_REBUILD/docs/Valuation_Sensitivity_Review_Codex.md`. Nothing adopted.
 
 **Subgroup miscalibration: measured, causes unresolved (2026-09-16, revised after fact check).**
 Nominal 80% ranges hold 82-84% of outcomes overall, **61% for the 3+ tier five seasons out and 66%

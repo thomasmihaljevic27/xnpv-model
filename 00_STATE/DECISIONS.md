@@ -1,5 +1,28 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-16d (answering the valuation sensitivity review):** All three findings
+accepted; every corrected figure reproduces the reviewer's. (1) The tiers were cut from each
+column's own forecast, so the top groups held 51, 68, 18, 19 and 18 contracts and the spread was
+read as a sign reversal. `run_valuation_sensitivity.py` now declares one grouping -- cut on the
+adopted candidate's forecast, joined by contract id -- and on it **every group keeps its sign in
+all five columns and the ordering is identical in all five**. The own-tier table is retained,
+second, labelled as descriptive, with per-column n. **The "top tier flips sign" headline and "a
+second independent reversal" are withdrawn.** (2) The participation comparison also swapped the
+imputed survivorship aging for the uncorrected curve; it is replaced by a variant that pins the
+probability of playing to one and holds everything else, run with the currency refitted (-1.910)
+and held (-1.592) against a baseline of -1.736. Signs and ordering survive, but "removing
+participation barely matters" and "calibration errors are not what threatens the conclusion" are
+withdrawn. (3) The sample loss was attributed to forecast horizon; the accounting is 1,896
+eligible, 438 lost at attachment, 241 lost because the signing quarter had too few earlier
+signings to fit a price line, 1,217 priced -- and 34 of 35 excluded six-year deals are lost at the
+price fit. **"Extending the forecast's reach is the cheapest gain" is withdrawn.** Also corrected:
+the production column is production's forecast priced through this tree's currency, not the
+production contract-NPV output, and it inherits production's full-panel aging fit; the term-framing
+ratio claim is withdrawn and the contrast restated on the fixed group ($8.76M-$9.70M); and the
+instruction to cite three categories and drop the elite one is **withdrawn** as the selection
+problem this project exists to avoid. Seven withdrawn claims are listed in the report's section 6.
+No production code changed, no locked decision reopened, no reserved cohort unsealed.
+
 **Change log, 2026-09-15z (valuation sensitivity review):** Reproduced `5e019ad`'s
 valuation table and 22/22 checks, plus the component fit failure. Added independent
 fixed-group, same-aging participation, held-currency and contract-ID attrition checks.

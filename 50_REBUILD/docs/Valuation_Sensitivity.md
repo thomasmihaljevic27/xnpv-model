@@ -1,142 +1,170 @@
-# Does the conclusion move when the forecast does, and how does the live chain compare?
+# Does the valuation hold when the forecast changes?
 
 Run 2026-09-16 in `50_REBUILD/`. Experimental. Development start years only; the reserved market
 cohorts are refused by the guard. **Nothing adopted, and no production file changed.**
 
-## Why this and not more diagnostics
+**Revised after independent review** (`Valuation_Sensitivity_Review_Codex.md`, reviewing
+`5e019ad`). Three findings, all accepted. One of them reverses this report's headline, and the
+corrected answer is the stronger one. The withdrawals are in section 6.
+
+## 1. Why this and not more diagnostics
 
 The forecast has measured errors concentrated on stars and on young players at long horizons, and
 three rounds of diagnostics could not separate their causes. That leaves one question worth
-asking, and it is not another diagnostic: **does any of it change the answer?**
+asking: **does any of it change the answer?**
 
-The thesis does not claim to forecast a player. It claims that certain categories of asset are
-systematically mispriced. If that claim holds under every forecast a reasonable person would
-accept — including the one the live model uses today — the forecast's errors are a limitation to
-state and the argument survives them. If it does not, that is a finding about the thesis.
+The thesis does not claim to forecast a player. It claims certain categories of asset are
+systematically mispriced. So the test is whether the valuation of **a fixed set of contracts**
+holds when the forecast under it is replaced.
 
-## What was held fixed and what varied
+## 2. The grouping is declared once, and the first version got that wrong
 
-Fixed: the contracts, the cost side, the signing-dated rolling protocol, the discounting, the cap
-path, the development seal. Varied: the forecast, across five, and the term framing.
+Every column used to cut its tiers from its own forecast. That answers a real question — what does
+each model say about the players *it* calls stars — but it is not a robustness test, because the
+columns then describe different populations. The top tiers held **51, 68, 18, 19 and 18**
+contracts, the report printed a single n row, and the spread across them was read as the same
+contracts changing sign. They are not the same contracts.
 
-Each forecast gets **its own price line**, because the currency is fitted on the forecast and a
-world with a different forecast has a different price of a forecast win. That makes each column a
-complete alternative model rather than one model's forecast priced on another's market. It also
-means the **level is not comparable across columns** — the line is fitted to observed contracts,
-so the average contract prices near zero surplus in every column by construction. The **gradient**
-is comparable, and the gradient is what the thesis rests on.
+The declared rule now: tiers are cut once on the adopted candidate's forecast production per
+season, fixed before any column is priced, and joined to every column by contract id. Any rule
+would do as long as it is one rule; this one is named so it can be objected to. The own-tier table
+is still reported, second, labelled as the descriptive question it answers, with its own n.
 
-This is not a back-test. Nothing is scored against a realised outcome and no trade is priced.
+## 3. Where the sample goes, and the first version blamed the wrong stage
 
-## Sample, and a caveat that is part of the result
+| | contracts |
+|---|---:|
+| eligible on development cohorts | 1,896 |
+| lost at forecast attachment | 438 |
+| lost because the price line could not be fitted | 241 |
+| **priced** | **1,217** |
 
-1,896 contracts eligible on the development cohorts, **1,217 priced (64%)**. A contract is priced
-only if the forecast reaches every season of its term, and the early pages do not reach as far as
-a long deal needs. The loss is not uniform:
+The earlier report attributed the losses to the forecast not reaching far enough for a long deal,
+and proposed extending its reach. **That is the wrong remedy.** The attachment path already
+extrapolates past its fitted horizons. The binding constraint is downstream: a contract is priced
+only if its signing quarter has enough *earlier* signings to fit a price line, and the early
+quarters do not. The independent audit traced it contract by contract — of 35 excluded six-year
+deals, **34 are lost at the price-fit threshold**, and 18 of 20 eight-year deals. Extending the
+forecast would restore none of them.
 
-| term | eligible | priced | kept |
-|---|---:|---:|---:|
-| 1 yr | 885 | 605 | 68% |
-| 2 yr | 548 | 324 | 59% |
-| 5 yr | 56 | 31 | 55% |
-| 6 yr | 68 | 33 | 49% |
-| 8 yr | 42 | 22 | 52% |
+The 842 rejections in the run log are against the full 3,519-contract input including reserved
+cohorts. Only 438 belong to the development sample. The earlier report conflated the two.
 
-Long contracts are under-represented by about a quarter relative to short ones, and **long
-contracts are where the top tier lives.** Every figure below inherits that.
+## 4. The result, on the declared fixed groups
 
-## The result
-
-Mean surplus, $M over the whole deal, term-in currency, same 1,217 contracts in every column:
+Mean surplus, $M over the whole deal, term-in currency, same 1,217 contracts, same membership in
+every column:
 
 | forecast | below 0 | 0 to 0.5 | 0.5 to 1 | 1 to 2 | 2+ |
 |---|---:|---:|---:|---:|---:|
-| today's live chain | −0.19 | +0.29 | −0.07 | +1.52 | **−0.19** |
-| trailing blend, carried flat | −0.31 | +0.25 | +0.21 | +0.75 | **+1.05** |
-| calibrated total + aging + participation | −0.42 | +0.11 | +0.60 | +1.76 | **−1.74** |
-| calibrated total + aging, no participation | −0.33 | +0.12 | +0.39 | +1.45 | **−1.68** |
-| the adopted candidate | −0.41 | +0.10 | +0.56 | +1.66 | **−1.80** |
-| **n (adopted candidate)** | 174 | 735 | 199 | 91 | **18** |
+| production's forecast, priced here | −0.30 | +0.21 | +0.36 | +1.21 | −3.93 |
+| trailing blend, carried flat | −0.49 | +0.25 | +0.50 | +0.84 | −4.55 |
+| calibrated total + aging + participation | −0.42 | +0.10 | +0.63 | +1.76 | −1.74 |
+| the same, participation pinned to one | −0.51 | +0.13 | +0.57 | +1.53 | −1.91 |
+| the adopted candidate | −0.41 | +0.10 | +0.56 | +1.66 | −1.80 |
+| **n** | 174 | 735 | 199 | 91 | **18** |
 
-### What holds
+**Every group keeps its sign in all five columns, and the ordering is identical in all five.**
+Worst to best: 2+ < below 0 < 0 to 0.5 < 0.5 to 1 < 1 to 2.
 
-**Three of the five tiers keep their sign under every forecast**, including the live chain:
+There is no sign reversal anywhere. The earlier report's headline — that the top tier flipped
+between bargain and overpay — was an artifact of letting each column choose its own membership.
 
-- below replacement is **always negative**, −0.19 to −0.42
-- 0 to 0.5 wins is **always positive**, +0.10 to +0.29
-- 1 to 2 wins is **always positive and the largest robust category**, +0.75 to +1.76
+**What does not follow from this.** The top group's *magnitude* still ranges from −1.74 to −4.55,
+so how overpaid is not settled even though the direction is. It is 18 contracts, on a development
+sample, with no uncertainty estimate attached and no realised outcome scored. Stable signs on
+model-generated valuations are a robustness check and nothing more.
 
-At the level of individual contracts the models agree closely with the live chain: correlation
-0.974 to 0.988, the same sign on 88 to 97% of contracts, mean absolute gap $0.24M to $0.47M on
-deals worth millions.
+At the contract level the models agree closely with production's forecast: correlation 0.974 to
+0.988, the same sign on 88 to 97%, mean absolute gap $0.24M to $0.47M on deals worth millions.
 
-### What does not hold
+### What each model says about its own stars, which is a different question
 
-**The top tier flips sign, and the flip is the thesis's headline.** The live chain says −0.19,
-the trailing blend says +1.05, the three rebuilt forecasts say −1.7 to −1.8. Range: −1.80 to
-+1.05. Whether elite contracts are bargains or overpays depends on which forecast is used.
+| forecast | 2+ | top-tier n |
+|---|---:|---:|
+| production's forecast, priced here | −0.19 | 51 |
+| trailing blend, carried flat | +1.05 | 68 |
+| calibrated total + aging + participation | −1.74 | 18 |
+| the adopted candidate | −1.80 | 18 |
 
-**It rests on 18 contracts**, after a term-selective loss that removes about half of the long
-deals. This is the same conclusion the queue already carries from the currency-shape work —
-surplus at the top flipped between a straight and a log price line there — reached independently
-down a second road. Two different design choices, each defensible, each reversing the sign of the
-headline on a sample this thin.
+The models disagree about **who the stars are** far more than about what a given contract is
+worth. That is worth knowing and it is not robustness.
 
-The 0.5-to-1 tier also flips (−0.07 to +0.60) but the magnitudes are small and the live chain is
-the only column below zero.
+## 5. What the participation half is worth
 
-### What barely matters
+The earlier comparison swapped `A1AgingParticipationImputedNC` for `A1Calibrated3Aging`, which
+also swaps the imputed survivorship aging for the uncorrected curve. Two things changed and the
+result was read as one.
 
-**Dropping the participation model changes almost nothing.** The column without it sits at −1.68
-against −1.74 with it at the top, −0.33 against −0.42 at the bottom, and correlates 0.977 with
-the live chain against 0.974. The participation miscalibration that took up most of the last two
-days does **not** move the valuation ordering. That is worth knowing before spending a phase on
-it.
+Corrected: the baseline against itself with the probability of playing pinned to one, everything
+else held including the imputed aging. Run twice, because refitting the currency lets the market
+slope absorb part of the change:
 
-### What matters far more than the forecast
-
-**The term framing.** Top-tier surplus, same contracts, same forecasts:
-
-| forecast | term-in | term-free | difference |
+| fixed group | baseline | pinned, currency refitted | pinned, currency held |
 |---|---:|---:|---:|
-| today's live chain | −0.19 | −13.77 | 13.58 |
-| the adopted candidate | −1.80 | −10.82 | 9.02 |
+| below 0 | −0.422 | −0.512 | −0.526 |
+| 0 to 0.5 | +0.101 | +0.132 | +0.266 |
+| 0.5 to 1 | +0.627 | +0.573 | +0.979 |
+| 1 to 2 | +1.756 | +1.531 | +2.053 |
+| 2+ | −1.736 | −1.910 | −1.592 |
 
-A $9M to $14M swing per contract, against a $2.9M spread across all five forecasts. The decision
-about whether the security of a long deal is something the club bought dominates every forecast
-choice here, and it is a judgement rather than an estimate.
+**Signs and ordering survive both.** The movement is larger than the earlier report's −1.74 to
+−1.68, which came from the confounded pair.
 
-## What this means for the thesis
+The defensible statement: *these valuation patterns survive the participation alternatives
+tested.* Not that calibration is immaterial. Pinning everyone to play is not a calibrated repair,
+and this says nothing about individual contracts, a path simulation, or a realised trade result.
 
-**Three of five categories are robust to the forecast, and the live chain agrees with the rebuild
-about them.** A back-test result built on the below-replacement, the cheap-regular and the
-one-to-two-win categories rests on ground that does not move when the forecast is varied across
-everything from the production chain to the adopted candidate.
+## 6. Claims withdrawn
 
-**The elite category is not identified and should not be cited.** It fails on two independent
-axes — the price line's shape and the choice of forecast — on 18 contracts, drawn from a sample
-that keeps only half the long deals. The queue already said no back-test result about stars
-should be cited until this is settled. This run says the same thing more strongly: it is not a
-matter of settling one design choice, because two separate ones each flip it.
+1. **"The top tier flips sign across forecasts."** An artifact of per-column tier membership. On
+   one declared grouping every column is negative. Withdrawn, and with it "a second independent
+   reversal of the headline" and "two design choices each flip it".
+2. **"Removing participation barely matters."** The pair used also changed the aging curve. The
+   corrected test moves the top group −1.736 → −1.910 or −1.592. Restated as: the patterns survive
+   the alternatives tested.
+3. **"The forecast's calibration errors are not what threatens the conclusion."** Too strong on
+   this evidence. Withdrawn.
+4. **"Extending the forecast's reach is the cheapest real gain."** Wrong stage: 34 of 35 excluded
+   six-year deals are lost at the price-fit threshold, not the horizon. Withdrawn.
+5. **"A framing judgement is worth three to five times any modelling difference."** The
+   denominator was the spread across own-tier columns, which was itself a change of population.
+   On the fixed top group the term contrast runs $8.76M to $9.70M across all five forecasts — it
+   is large and it reproduces, but it is a contrast between two declared framings on one group,
+   not a general measure of relative model uncertainty.
+6. **"Cite the three robust categories; do not cite the elite one."** Selecting categories by
+   their current development-sample signs is the selection problem this project exists to avoid.
+   The back-test should evaluate the predefined categories and report where conclusions are
+   sensitive.
+7. **"How does the live chain compare."** The production column is production's projection and
+   exit-survival imported through the adapter and then priced through **this tree's** currency. It
+   is not the production contract-NPV chain's output, and agreement with it is not parity with the
+   production spine. The adapter also inherits production's full-panel aging fit, so it carries a
+   parameter look-ahead the rolling price fits here do not remove.
 
-**The forecast's calibration errors are not what threatens the conclusion.** The participation
-half can be removed entirely and the ordering survives. What threatens the conclusion is thin
-data at the top and two framing choices that move it further than any modelling difference does.
+## 7. Limits
 
-## Limits
+- Not a back-test. Nothing scored against a realised outcome, no trade priced.
+- Development-sample means with no uncertainty estimates attached.
+- Each column refits its own currency, so levels are not comparable across columns.
+- 18 contracts in the top group.
+- The component-model variant is absent because it raises an `AttributeError` inside its own fit.
+  The 22 repair checks pass despite this, so they do not establish that every registered variant
+  runs.
 
-- Not a back-test, and no realised outcome is scored.
-- Each column refits its own currency, so levels are not comparable across columns by
-  construction; only the gradient is.
-- The 18-contract top tier is the binding constraint on everything said about it.
-- Term coverage is selective against long deals, as above.
-- The component-model variant is absent because it raises an `AttributeError` inside its own fit
-  before any contract is priced. That is a defect in a registered candidate, found here and
-  recorded rather than repaired in a runner about something else.
+## 8. What follows
+
+Finish the planned valuation and back-test work **with a declared grouping rule stated in
+advance**, evaluate the predefined categories, and report where conclusions are sensitive rather
+than dropping categories that look unstable. Agreement among model valuations is a robustness
+check; a back-test against realised outcomes is evidence about performance; systematic trade
+mispricing is the claim that still needs testing. Those three are different and the write-up
+should keep them apart.
 
 ## Files
 
     50_REBUILD/code/run_valuation_sensitivity.py
 
 Outputs, ignored under `50_REBUILD/output/`: `valuation_sensitivity_run_log.txt`,
-`valuation_sensitivity.csv`.
+`valuation_sensitivity.csv`. The reviewer's reproduction is
+`50_REBUILD/code/review_valuation_sensitivity.py`.

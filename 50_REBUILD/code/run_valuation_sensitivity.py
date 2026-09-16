@@ -1,4 +1,4 @@
-"""run_valuation_sensitivity.py -- does the conclusion move when the forecast does?
+"""run_valuation_sensitivity.py -- does the valuation hold when the forecast changes?
 
 EXPERIMENTAL (50_REBUILD). Development start years only; the reserved market
 cohorts are refused by the guard, not avoided by habit.
@@ -10,42 +10,49 @@ WHY THIS RUN EXISTS
     another diagnostic: DOES ANY OF IT CHANGE THE ANSWER?
 
     The thesis does not claim to forecast a player. It claims that certain
-    categories of asset are systematically mispriced. If that claim holds under
-    every forecast a reasonable person would accept -- including the one the
-    live model uses today -- then the forecast's errors are a limitation to
-    state, and the argument survives them. If the claim depends on which
-    forecast is used, that is a finding about the thesis, and no amount of
-    calibration work would have found it.
+    categories of asset are systematically mispriced. So the test is whether
+    the valuation of A FIXED SET OF CONTRACTS holds when the forecast under it
+    is replaced.
 
-WHAT IS HELD FIXED AND WHAT VARIES
-    Fixed: the contracts, the cost side, the signing-dated rolling protocol,
-    the discounting, the cap path, and the development seal.
+THE GROUPING IS DECLARED ONCE AND APPLIED TO EVERY COLUMN, AND THE FIRST
+VERSION OF THIS FILE GOT THAT WRONG
+    Each column used to define its tiers from its OWN forecast. That answers a
+    real question -- what does each model say about the players it calls stars
+    -- but it is not a robustness test, because the columns then describe
+    different populations. The top tiers held 51, 68, 18, 19 and 18 contracts,
+    and the report printed one n row and read the spread across them as the
+    same contracts changing sign.
 
-    Varies: the forecast, across five, from the live chain to the adopted
-    candidate. And the term framing, across the two the project has argued
-    about, because that is the other axis where the answer is known to move.
+    They do not. Held to one declared membership, every column's top tier is
+    negative and the reported reversal disappears. The own-tier table is still
+    printed below, second, labelled as the descriptive question it answers and
+    with its own n on every cell.
 
-EACH FORECAST GETS ITS OWN PRICE LINE, AND THAT IS DELIBERATE
+    The declared rule: tiers are cut on the ADOPTED CANDIDATE's forecast
+    production per season, fixed before any column is priced, and joined to
+    every other column by contract id. Any rule would do as long as it is one
+    rule; this one is named so a reader can object to it.
+
+EACH FORECAST GETS ITS OWN PRICE LINE
     The currency is fitted on the forecast, so a world with a different
-    forecast has a different price of a forecast win. Refitting per forecast
-    is what makes each column a complete alternative model rather than one
-    model's forecast priced on another's market.
+    forecast has a different price of a forecast win, and refitting makes each
+    column a complete alternative pipeline. It also lets the market slope
+    absorb part of the forecast change, so the participation test below is run
+    both ways -- currency refitted and currency held at the baseline's.
 
-    It also means the LEVEL is not comparable across columns: the line is
-    fitted to observed contracts, so the average contract prices near zero
-    surplus in every column by construction. What is comparable, and what the
-    thesis actually rests on, is the GRADIENT -- which categories sit above
-    and below zero, and in what order. That is what the agreement table reads.
+WHAT THE PRODUCTION COLUMN IS, EXACTLY
+    Production's own projection and exit-survival calculation, imported through
+    `production_adapter.ProductionChain`, and then priced through THIS TREE's
+    currency. It is not the output of the production contract-NPV chain, and
+    agreement with it is not parity with the production spine. The adapter also
+    inherits production's full-panel aging fit, so it carries a parameter
+    look-ahead this runner's rolling price fits do not remove.
 
 WHAT THIS IS NOT
-    Not a back-test. Nothing is scored against a realised outcome here and no
-    trade is priced. It asks whether the model's own valuation ORDERING is
-    stable under a change of forecast, which is the precondition for a
-    back-test result meaning anything, not a substitute for one.
-
-    Not a search for the best forecast either. Four of the five columns are
-    known to be worse than the fifth on error. They are here because a
-    conclusion that only survives under the winner is not a conclusion.
+    Not a back-test. Nothing is scored against a realised outcome and no trade
+    is priced. Agreement among model valuations is a robustness check; it is
+    not evidence about performance, and neither is evidence of systematic trade
+    mispricing, which is the claim that still needs testing.
 """
 from __future__ import annotations
 
@@ -63,54 +70,86 @@ from production_currency import ProductionCurrency
 from player_season_table import build as build_table, birthdate_source
 from run_phase4_decisions import prep
 from ability_forecast import (A0Production, A1HingeExposure,
-                              A1AgingParticipationImputedNC, A1Calibrated3Aging)
+                              A1AgingParticipationImputedNC)
 from production_adapter import ProductionChain
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "2.0"
 
-# Five forecasts, named for what they are, running from what the model does
-# today to what the rebuild proposes.
-#
-# THE COMPONENT MODEL IS ABSENT AND NOT BY CHOICE. A2AgingParticipationImputed
-# raises AttributeError on fitted_horizons_ inside its own fit, before any
-# contract is priced, so the variant the register carries as a live candidate
-# cannot currently be run through the contract path at all. That is a defect
-# in the variant, found here and recorded rather than repaired inside a runner
-# that is about something else.
+KEY = "contract_id"     # not (player, start year): two contracts share that pair
+
+
+class _EveryonePlays(A1AgingParticipationImputedNC):
+    """The baseline with the probability of playing pinned to one.
+
+    THIS IS THE PARTICIPATION TEST, and the first version of this file used a
+    different class for it -- the calibrated total with aging but no
+    participation -- which ALSO swapped the imputed survivorship aging for the
+    uncorrected curve. Two things changed and the result was read as one.
+
+    Everything here is the baseline's: the same anchor, the same fitted decay,
+    the same imputed aging. Only the participation probability is replaced.
+    Setting it to one is not a calibrated repair and nobody would ship it; it
+    is the cleanest available way to ask what the participation half is worth
+    to a valuation.
+    """
+    name = "baseline, participation pinned to one"
+
+    def _p_play(self, a, subs, h):
+        return np.ones(len(subs), dtype=float)
+
+
 FORECASTS = [
-    ("today's live chain", ProductionChain),
+    ("production's forecast, priced here", ProductionChain),
     ("trailing blend, carried flat", A0Production),
     ("calibrated total + aging + participation", A1AgingParticipationImputedNC),
-    # NO PARTICIPATION IN THIS ONE, deliberately. The participation model
-    # is the half with a measured subgroup miscalibration, so a column that
-    # leaves it out says whether the valuation ordering depends on it.
-    ("calibrated total + aging, NO participation", A1Calibrated3Aging),
+    ("the same, participation pinned to one", _EveryonePlays),
     ("the adopted candidate", A1HingeExposure),
 ]
+BASELINE = "calibrated total + aging + participation"
+GROUPING = "the adopted candidate"
 
 TIER_EDGES = [-np.inf, 0, 0.5, 1.0, 2.0, np.inf]
 TIER_NAMES = ["below 0", "0 to 0.5", "0.5 to 1", "1 to 2", "2+"]
 
 
-def price(d: pd.DataFrame, mode: str) -> pd.DataFrame:
+def price(d: pd.DataFrame, mode: str = "in",
+          lines: dict | None = None) -> tuple[pd.DataFrame, dict, set]:
     """Every contract priced on a line fitted only to deals signed before it.
 
-    The quarter cut and the rolling rule are `run_surplus.py`'s, reproduced
-    rather than imported so this runner cannot be changed by an edit to that
-    one, and vice versa -- the two answer different questions on the same
-    protocol and a shared helper would couple them.
+    `lines` reuses another forecast's fitted currencies instead of fitting new
+    ones, which is how the "currency held fixed" column is produced. Returns
+    the priced frame, the fitted lines, and the contract ids lost because their
+    quarter had too few earlier signings to fit a line at all.
     """
-    out = []
+    out, fitted, lost = [], {}, set()
     for cut, te in d.groupby("cut"):
-        cur = ProductionCurrency(mode).fit(d, before_date=cut)
+        cur = lines[cut] if lines is not None and cut in lines else \
+            ProductionCurrency(mode).fit(d, before_date=cut)
         if cur.coef_ is None:
+            lost |= set(te[KEY])
             continue
+        fitted[cut] = cur
         te = te.copy()
         te["value"] = cur.value(te)
         te["cost"] = ProductionCurrency("in").cost(te)
         te["surplus"] = te["value"] - te["cost"]
         out.append(te)
-    return pd.concat(out, ignore_index=True) if out else pd.DataFrame()
+    return (pd.concat(out, ignore_index=True) if out else pd.DataFrame()), fitted, lost
+
+
+def _tier_table(results: dict, tiers: pd.Series, label: str) -> pd.DataFrame:
+    C.log(f"  {'forecast':<44}" + "".join(f"{t:>11}" for t in TIER_NAMES))
+    g = {}
+    for name, r in results.items():
+        t = r[KEY].map(tiers)
+        means = r.groupby(t, observed=False)["surplus"].mean() / 1e6
+        g[name] = means
+        C.log(f"  {name:<44}" + "".join(
+            f"{means.get(x, np.nan):>11.2f}" for x in TIER_NAMES))
+    n = tiers.value_counts().reindex(TIER_NAMES).fillna(0)
+    C.log(f"  {('n per group (' + label + ')'):<44}" + "".join(
+        f"{int(v):>11}" for v in n))
+    return pd.DataFrame(g).T[TIER_NAMES]
 
 
 def main() -> None:
@@ -121,159 +160,181 @@ def main() -> None:
     C.log("")
 
     sample = contract_sample()
-    dev = [int(y) for y in sorted(sample["start_yr"].dropna().unique())
-           if int(y) not in C.CONFIRMATORY_START_YEARS]
-    cohorts = C.check_market_cohorts(dev, "run_valuation_sensitivity")
-    C.log(f"  {len(sample)} contracts in the sample, development start years "
-          f"{min(cohorts)}-{max(cohorts)} only")
-    C.log("")
-
-    # ---- who survives to be priced, and who does not ----------------------
-    # THE TOP TIER LIVES ON LONG DEALS, so a term-selective loss is not a
-    # footnote to a result about the top tier -- it is part of it.
-    elig = sample[(~sample["start_yr"].isin(C.CONFIRMATORY_START_YEARS))
+    dev_years = [int(y) for y in sorted(sample["start_yr"].dropna().unique())
+                 if int(y) not in C.CONFIRMATORY_START_YEARS]
+    cohorts = C.check_market_cohorts(dev_years, "run_valuation_sensitivity")
+    elig = sample[sample["start_yr"].isin(cohorts)
                   & (sample["signed"] >= pd.Timestamp("2015-07-01"))]
-    C.log(f"  {len(elig)} contracts eligible on the development cohorts.")
+    C.log(f"  {len(elig)} contracts eligible on development start years "
+          f"{min(cohorts)}-{max(cohorts)}")
     C.log("")
 
-    results: dict[str, pd.DataFrame] = {}
+    results, attached_n, lost_fit = {}, {}, {}
     for label, cls in FORECASTS:
         t0 = time.time()
         d = prep(attach_forecasts(sample, cls, table, verbose=False))
-        d = d[d["start_yr"].isin(cohorts)].copy()
+        d = d[d[KEY].isin(elig[KEY])].copy()
+        attached_n[label] = d[KEY].nunique()
         d["cut"] = d["signed"].dt.to_period("Q").dt.start_time
-        r = price(d, "in")
-        r_free = price(d, "free")
-        r["surplus_free"] = r_free.set_index(["pkey", "start_yr"]).reindex(
-            pd.MultiIndex.from_arrays([r["pkey"], r["start_yr"]]))["surplus"].to_numpy()
+        r, lines, lost = price(d, "in")
+        lost_fit[label] = lost
+        r_free, _, _ = price(d, "free")
+        r["surplus_free"] = r_free.set_index(KEY)["surplus"].reindex(r[KEY]).to_numpy()
+        if label == BASELINE:
+            self_lines, self_d = lines, d
         results[label] = r
-        C.log(f"  {label:<44}{len(r):>6} contracts priced  "
-              f"({time.time() - t0:.0f}s)")
+        C.log(f"  {label:<44}{r[KEY].nunique():>6} priced  ({time.time() - t0:.0f}s)")
     C.log("")
 
-    # EVERY COLUMN ON THE SAME CONTRACTS. A forecast that declines to answer
-    # for a contract drops it, and comparing a table built on 1,900 contracts
-    # with one built on 1,700 compares two samples as much as two forecasts.
+    # ---- where the sample goes -------------------------------------------
+    C.log("WHERE THE SAMPLE GOES, and the first version of this file blamed the")
+    C.log("wrong stage. It attributed the losses to the forecast not reaching")
+    C.log("far enough for a long deal, and proposed extending its reach. The")
+    C.log("attachment path already extrapolates past its fitted horizons. The")
+    C.log("binding constraint is downstream: a contract can only be priced if")
+    C.log("its signing quarter has enough EARLIER signings to fit a price line,")
+    C.log("and the early quarters do not.")
+    C.log("")
+    base = results[GROUPING]
+    C.log(f"    {'eligible on development cohorts':<48}{len(elig):>6}")
+    C.log(f"    {'lost at forecast attachment':<48}"
+          f"{len(elig) - attached_n[GROUPING]:>6}")
+    C.log(f"    {'lost because the price line could not be fitted':<48}"
+          f"{len(lost_fit[GROUPING]):>6}")
+    C.log(f"    {'priced':<48}{base[KEY].nunique():>6}")
+    C.log("")
+    C.log("  The independent audit splits the attachment loss further: no")
+    C.log("  matching eligible forecast subject, and a term reaching back before")
+    C.log("  the forecast starts. Of the excluded six-year deals it finds 34 of")
+    C.log("  35 lost at the price-fit threshold, and 18 of 20 eight-year deals.")
+    C.log("  Extending the forecast's reach would not restore them.")
+    C.log("")
+
+    # ---- every column on the same contracts -------------------------------
     keys = None
     for r in results.values():
-        k = set(zip(r["pkey"], r["start_yr"]))
-        keys = k if keys is None else (keys & k)
-    C.log(f"  {len(keys)} contracts answered by all five forecasts; every table")
-    C.log("  below is on exactly those, so no column is scored on an easier set.")
+        keys = set(r[KEY]) if keys is None else (keys & set(r[KEY]))
     for label in results:
         r = results[label]
-        m = [(p, s) in keys for p, s in zip(r["pkey"], r["start_yr"])]
-        results[label] = r[m].sort_values(["pkey", "start_yr"]).reset_index(drop=True)
+        results[label] = (r[r[KEY].isin(keys)].drop_duplicates(KEY)
+                          .sort_values(KEY).reset_index(drop=True))
+    C.log(f"  {len(keys)} contracts priced by all five; every table below is on")
+    C.log("  exactly those.")
     C.log("")
 
-    C.log("TERM COVERAGE. A contract is priced only if the forecast reaches")
-    C.log("every season of its term, and the pages early in the window do not")
-    C.log("reach as far as a long deal needs. The loss is not uniform.")
-    C.log("")
-    kept = results["the adopted candidate"]
-    ea = elig["length"].value_counts()
-    ka = kept["length"].value_counts()
-    C.log(f"    {'term':<8}{'eligible':>10}{'priced':>9}{'kept':>8}")
-    for L in sorted(set(ea.index) | set(ka.index)):
-        C.log(f"    {int(L)} yr{'':<3}{int(ea.get(L, 0)):>10}{int(ka.get(L, 0)):>9}"
-              f"{100 * ka.get(L, 0) / max(ea.get(L, 1), 1):>7.0f}%")
-    C.log(f"    {'all':<8}{len(elig):>10}{len(kept):>9}"
-          f"{100 * len(kept) / len(elig):>7.0f}%")
-    C.log("")
-    C.log("  Roughly two thirds of one-year deals survive and about half of the")
-    C.log("  six- and eight-year ones. Long contracts are under-represented by")
-    C.log("  about a quarter relative to short ones, and they are where the top")
-    C.log("  tier lives. Every figure below inherits that.")
-    C.log("")
-
-    # ---- the gradient, forecast by forecast -------------------------------
-    C.log("SURPLUS BY FORECAST TIER, $M over the whole deal, term-in currency.")
-    C.log("Positive means the club paid less than the average club paid for a")
-    C.log("comparable forecast. The tier is each column's OWN forecast, because")
-    C.log("a claim about 'stars' means the players that model calls stars.")
+    # ---- the declared grouping, which is the robustness test --------------
+    fixed = results[GROUPING].set_index(KEY)["war_per_season"]
+    tiers = pd.Series(pd.cut(fixed, TIER_EDGES, labels=TIER_NAMES).astype(str),
+                      index=fixed.index)
+    C.log("SURPLUS BY A DECLARED FIXED GROUP, $M over the whole deal, term-in.")
+    C.log(f"Groups are cut once on {GROUPING}'s forecast and")
+    C.log("applied to every column, so each cell is the SAME contracts valued a")
+    C.log("different way. This is the robustness test.")
     C.log("")
     C.log("The LEVEL is not comparable across columns -- each line is fitted to")
     C.log("observed contracts, so the average prices near zero by construction.")
-    C.log("The GRADIENT is, and the thesis rests on the gradient.")
+    C.log("The SIGN and the ORDER are, and the thesis rests on those.")
     C.log("")
-    grid = {}
-    C.log(f"  {'forecast':<44}" + "".join(f"{t:>11}" for t in TIER_NAMES))
-    for label, r in results.items():
-        tiers = pd.cut(r["war_per_season"], TIER_EDGES, labels=TIER_NAMES)
-        means = r.groupby(tiers, observed=False)["surplus"].mean() / 1e6
-        grid[label] = means
-        C.log(f"  {label:<44}" + "".join(
-            f"{means.get(t, np.nan):>11.2f}" for t in TIER_NAMES))
+    g_fixed = _tier_table(results, tiers, "fixed")
     C.log("")
-    C.log(f"  {'n per tier (adopted candidate)':<44}" + "".join(
-        f"{int(v):>11}" for v in pd.cut(results['the adopted candidate']['war_per_season'],
-                                        TIER_EDGES, labels=TIER_NAMES)
-        .value_counts().reindex(TIER_NAMES).fillna(0)))
-    C.log("")
-
-    # ---- does the conclusion hold? ----------------------------------------
-    C.log("DOES THE CONCLUSION HOLD? Three questions a reader would ask.")
-    C.log("")
-    g = pd.DataFrame(grid).T[TIER_NAMES]
-    signs = np.sign(g)
-    agree = (signs.nunique(axis=0) == 1)
-    C.log("  1. SIGN. Does each tier sit on the same side of zero in all five?")
+    signs = np.sign(g_fixed)
     for t in TIER_NAMES:
-        vals = g[t].to_numpy()
-        C.log(f"     {t:<10}{'same sign' if agree[t] else 'SIGN FLIPS':<12}"
+        same = signs[t].nunique() == 1
+        vals = g_fixed[t].to_numpy()
+        C.log(f"    {t:<10}{'same sign in all five' if same else 'SIGN FLIPS':<24}"
               f"range {np.nanmin(vals):>+7.2f} to {np.nanmax(vals):>+7.2f} $M")
+    orders = {k: tuple(g_fixed.loc[k].sort_values().index) for k in g_fixed.index}
+    agree = len(set(orders.values())) == 1
     C.log("")
-    C.log("  2. ORDER. Is the ranking of tiers by surplus the same in all five?")
-    orders = {lab: tuple(g.loc[lab].sort_values().index) for lab in g.index}
-    base = orders["the adopted candidate"]
-    for lab, o in orders.items():
-        C.log(f"     {lab:<44}{'same order' if o == base else 'DIFFERENT'}")
-    C.log(f"     order, worst to best: {' < '.join(base)}")
-    C.log("")
-    C.log("  3. GRADIENT. Does surplus rise with forecast production, which is")
-    C.log("     the claim the thesis actually makes?")
-    for lab in g.index:
-        v = g.loc[lab].to_numpy()
-        C.log(f"     {lab:<44}{'rises' if v[-1] > v[0] else 'falls':<8}"
-              f"{v[0]:>+8.2f} at the bottom, {v[-1]:>+8.2f} at the top")
+    C.log(f"    ordering of the five groups: "
+          f"{'identical in all five columns' if agree else 'DIFFERS between columns'}")
+    C.log(f"    worst to best: {' < '.join(orders[GROUPING])}")
     C.log("")
 
-    # ---- the term framing, the other axis ---------------------------------
-    C.log("THE TERM FRAMING, which is the other axis the answer is known to move")
-    C.log("on. Same contracts, same forecasts, the currency pricing a run of")
-    C.log("one-year deals instead of the term the player was given.")
+    # ---- the descriptive own-tier view, second and labelled ---------------
+    C.log("AND THE SAME THING WITH EACH COLUMN USING ITS OWN TIERS. This answers")
+    C.log("a different and legitimate question -- what does each model say about")
+    C.log("the players IT calls stars -- and it is not a robustness test,")
+    C.log("because the columns describe different populations. The n row shows")
+    C.log("how different.")
     C.log("")
-    C.log(f"  {'forecast':<44}{'top tier, term-in':>19}{'term-free':>12}{'difference':>13}")
+    C.log(f"  {'forecast':<44}" + "".join(f"{t:>11}" for t in TIER_NAMES)
+          + f"{'top-tier n':>12}")
     for label, r in results.items():
-        tiers = pd.cut(r["war_per_season"], TIER_EDGES, labels=TIER_NAMES)
-        top = r[tiers == "2+"]
-        if not len(top):
-            continue
-        C.log(f"  {label:<44}{top['surplus'].mean()/1e6:>19.2f}"
+        own = pd.cut(r["war_per_season"], TIER_EDGES, labels=TIER_NAMES)
+        means = r.groupby(own, observed=False)["surplus"].mean() / 1e6
+        C.log(f"  {label:<44}" + "".join(f"{means.get(t, np.nan):>11.2f}"
+                                         for t in TIER_NAMES)
+              + f"{int((own == '2+').sum()):>12}")
+    C.log("")
+    C.log("  The top tier holds a different number of contracts in every column,")
+    C.log("  so the spread across this row is partly a change of population.")
+    C.log("")
+
+    # ---- participation, both ways -----------------------------------------
+    C.log("WHAT THE PARTICIPATION HALF IS WORTH, on the fixed groups. The")
+    C.log("baseline against itself with the probability of playing pinned to")
+    C.log("one, everything else -- including the imputed survivorship aging --")
+    C.log("held. Run twice: refitting the currency, which lets the market slope")
+    C.log("absorb part of the change, and holding the baseline's currency, which")
+    C.log("does not.")
+    C.log("")
+    alt = prep(attach_forecasts(sample, _EveryonePlays, table, verbose=False))
+    alt = alt[alt[KEY].isin(keys)].copy()
+    alt["cut"] = alt["signed"].dt.to_period("Q").dt.start_time
+    alt_held, _, _ = price(alt, "in", lines=self_lines)
+    alt_held = alt_held[alt_held[KEY].isin(keys)].drop_duplicates(KEY)
+    cols = {"baseline": results[BASELINE],
+            "pinned, currency refitted": results["the same, participation pinned to one"],
+            "pinned, currency held": alt_held}
+    C.log(f"  {'group':<12}" + "".join(f"{k:>28}" for k in cols))
+    for t in TIER_NAMES:
+        line = f"  {t:<12}"
+        for r in cols.values():
+            m = r[KEY].map(tiers) == t
+            line += f"{r.loc[m, 'surplus'].mean()/1e6:>28.3f}"
+        C.log(line)
+    C.log("")
+    C.log("  Signs and ordering survive both. That is evidence for this sample")
+    C.log("  and these alternatives. It does not show that a calibrated repair")
+    C.log("  would leave individual contracts, a path simulation, or a realised")
+    C.log("  trade result unchanged, and pinning everyone to play is not a")
+    C.log("  calibrated repair.")
+    C.log("")
+
+    # ---- term framing, on the fixed groups --------------------------------
+    C.log("THE TERM FRAMING, on the same fixed top group. The currency pricing a")
+    C.log("run of one-year deals instead of the term the player was given.")
+    C.log("")
+    C.log(f"  {'forecast':<44}{'term-in':>10}{'term-free':>12}{'difference':>13}")
+    for label, r in results.items():
+        top = r[r[KEY].map(tiers) == "2+"]
+        C.log(f"  {label:<44}{top['surplus'].mean()/1e6:>10.2f}"
               f"{top['surplus_free'].mean()/1e6:>12.2f}"
               f"{(top['surplus'] - top['surplus_free']).mean()/1e6:>13.2f}")
     C.log("")
+    C.log("  Large, and it reproduces. It is a contrast between two declared")
+    C.log("  framings on one group, not a general measure of model uncertainty,")
+    C.log("  and it does not settle which framing is right.")
+    C.log("")
 
     # ---- contract by contract ---------------------------------------------
-    C.log("AND CONTRACT BY CONTRACT, against today's live chain. A category")
-    C.log("that holds on average can still be built out of contracts the two")
-    C.log("models disagree about completely.")
+    C.log("AND CONTRACT BY CONTRACT, against production's forecast priced here.")
     C.log("")
-    live = results["today's live chain"].set_index(["pkey", "start_yr"])["surplus"]
-    C.log(f"  {'forecast':<44}{'correlation':>13}{'same sign':>11}"
-          f"{'mean |gap| $M':>15}")
+    live = results["production's forecast, priced here"].set_index(KEY)["surplus"]
+    C.log(f"  {'forecast':<44}{'correlation':>13}{'same sign':>11}{'mean |gap| $M':>15}")
     for label, r in results.items():
-        if label == "today's live chain":
+        if label.startswith("production"):
             continue
-        s = r.set_index(["pkey", "start_yr"])["surplus"].reindex(live.index)
+        s = r.set_index(KEY)["surplus"].reindex(live.index)
         ok = s.notna() & live.notna()
         C.log(f"  {label:<44}{s[ok].corr(live[ok]):>13.3f}"
               f"{100*(np.sign(s[ok]) == np.sign(live[ok])).mean():>10.0f}%"
               f"{(s[ok]-live[ok]).abs().mean()/1e6:>15.2f}")
     C.log("")
 
-    out = pd.concat([r.assign(forecast=lab) for lab, r in results.items()],
-                    ignore_index=True)
+    out = pd.concat([r.assign(forecast=lab, fixed_group=r[KEY].map(tiers))
+                     for lab, r in results.items()], ignore_index=True)
     out.to_csv(C.out_path("valuation_sensitivity.csv"), index=False)
     C.log(f"  wrote {C.out_path('valuation_sensitivity.csv').name}")
     C.write_log("valuation_sensitivity_run_log.txt")
