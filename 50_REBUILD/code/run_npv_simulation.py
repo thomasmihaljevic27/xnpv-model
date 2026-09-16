@@ -52,7 +52,7 @@ from player_season_table import build as build_table, birthdate_source
 from run_phase4_decisions import prep
 from ability_forecast import A1HingeExposure
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "2.0"
 
 LEADER = A1HingeExposure
 KEY = "contract_id"
@@ -111,6 +111,37 @@ def per_season(sample: pd.DataFrame, table: pd.DataFrame):
     return rows, spreads
 
 
+def page_scale(spread):
+    """A spread's scale as a function of (horizon array, mu array)."""
+    def f(h, mu):
+        h = np.asarray(h)
+        order = np.argsort(np.argsort(h, kind="stable"), kind="stable")
+        return np.concatenate([spread.sigma(int(x), mu[h == x])
+                               for x in np.unique(h)])[order]
+    return f
+
+
+def page_dependence(spreads: dict, table: pd.DataFrame):
+    """One persistence fit and one return rate PER PAGE, from what that page
+    could see.
+
+    THIS IS THE REPAIR THE REVIEW REQUIRED. The first version fitted a single
+    calibrator on the latest page in the whole contract input -- 2025, whose
+    replay contains outcomes through 2024 -- and used its residual shape and
+    its persistence for every contract, all of which are earlier. The price
+    lines were rolling and the forecasts were dated; the uncertainty around
+    them was not, and it is the only part of this chain that reads outcomes.
+
+    It is not a harmless reuse of the same numbers either. Fitted on what 2015
+    could see, the permanent part of a miss is 0.00; on 2025 it is 0.25.
+    """
+    pers, rets = {}, {}
+    for page, sp in spreads.items():
+        pers[page] = SIM.Persistence().fit(sp.pairs_, page_scale(sp))
+        rets[page] = SIM.return_rate(table, before=page)
+    return pers, rets
+
+
 def main() -> None:
     C.banner("run_npv_simulation.py", SCRIPT_VERSION)
     path, how = birthdate_source()
@@ -143,29 +174,35 @@ def main() -> None:
     pt["surplus_point"] = pt["value_point"] - pt["cost"]
     C.log(f"  {len(pt)} contracts valued the existing way")
 
-    seasons, _ = per_season(sample, table)
+    seasons, spreads = per_season(sample, table)
     C.log(f"  {len(seasons)} contracts carry a season-by-season band")
     C.log("")
 
-    # ---- 1. persistence ---------------------------------------------------
+    # ---- 1. persistence, per page -----------------------------------------
     t0 = time.time()
-    anchor_page = max(s[0] for s in seasons.values())
-    anchor = PI.WithIntervals(LEADER())
-    iset = ISET.build(table, ISET.decision_date_for_page(anchor_page), t0=anchor_page)
-    anchor.fit(iset.seasons, before=anchor_page)
-    pers = SIM.Persistence().fit(
-        anchor.spread_.pairs_,
-        lambda h, mu: np.concatenate([
-            anchor.spread_.sigma(int(x), mu[h == x]) for x in np.unique(h)])[
-                np.argsort(np.argsort(h, kind="stable"), kind="stable")])
-    C.log("REPORT 1  HOW MUCH OF A MISS PERSISTS. If the seasons of a contract")
-    C.log("were independent misses, a six-year deal would average them out and")
-    C.log("its spread would scale as the square root of the term. If a miss")
-    C.log("persisted entirely, it would scale with the term. Neither is true and")
-    C.log("the mix is fitted, on the same replayed misses the band is fitted on.")
+    pers_by_page, ret_by_page = page_dependence(spreads, table)
+    C.log("REPORT 1  HOW MUCH OF A MISS PERSISTS, FITTED PER PAGE. If the")
+    C.log("seasons of a contract were independent misses, a six-year deal would")
+    C.log("average them out and its spread would scale as the square root of the")
+    C.log("term. If a miss persisted entirely it would scale with the term.")
+    C.log("Neither is true, and the mix is fitted on the same replayed misses the")
+    C.log("band is fitted on -- each page on its own, using only outcomes that")
+    C.log("page could see.")
     C.log("")
-    for line in pers.report():
-        C.log(line)
+    C.log(f"  {'page':<8}{'permanent':>11}{'fading':>9}{'fade rate':>11}"
+          f"{'rank rho at 1':>15}{'return rate':>13}")
+    for page in sorted(pers_by_page):
+        q = pers_by_page[page]
+        C.log(f"  {page:<8}{q.w_perm_:>11.3f}{q.w_fade_:>9.3f}{q.phi_:>11.2f}"
+              f"{float(q.rho(1)):>15.3f}{ret_by_page[page]:>13.3f}")
+    C.log("")
+    C.log("  The permanent part GROWS with the page, from nothing at the start of")
+    C.log("  the window to a quarter at the end, because an early page's replay")
+    C.log("  cannot reach far enough to tell a standing misjudgement from one")
+    C.log("  that fades. That is a fact about how much evidence each date had,")
+    C.log("  and using the last page's answer everywhere -- which is what the")
+    C.log("  first version of this runner did -- would hand a 2015 contract a")
+    C.log("  parameter fitted on outcomes through 2024.")
     C.log(f"  ({time.time() - t0:.0f}s)")
     C.log("")
 
@@ -182,18 +219,25 @@ def main() -> None:
     worst = 0.0
     for cid in ids[:300]:
         r = pt[pt[KEY] == cid].iloc[0]
-        t0_, mu, sg, pp = seasons[cid]
+        page, mu, sg, pp = seasons[cid]
         k = SIM.dollar_factor(r)
         flat = SIM.draw_paths(mu, np.zeros_like(sg), np.ones_like(pp),
-                              np.zeros(1001), pers, 8, rng)
+                              np.zeros(1001), pers_by_page[page], 8, rng)
         got = SIM.contract_value(lines[r["cut"]], r, flat.mean(axis=1),
                                  flat[:, 0], k)
-        want = SIM.contract_value(lines[r["cut"]], r,
-                                  np.array([float(np.mean(mu))]),
-                                  np.array([float(mu[0])]), k)[0]
+        # AGAINST THE CURRENCY'S OWN value(), not against this file's pricing
+        # helper on both sides. The first version called the same helper twice
+        # and would have passed with a shared pricing bug in it; the review
+        # made that point and it is right.
+        row = r.copy()
+        row["war_per_season"] = float(np.mean(mu))
+        row["war_year1"] = float(mu[0])
+        row["rfa_x_war"] = float(row["is_RFA"]) * float(np.mean(mu))
+        want = float(lines[r["cut"]].value(pd.DataFrame([row])).iloc[0])
         worst = max(worst, float(np.max(np.abs(got - want))))
-    assert worst < 1.0, f"the identity fails by ${worst:,.2f}"
-    C.log(f"    300 contracts, largest gap ${worst:.6f}  [PASS]")
+    assert worst < 1e-3, f"the identity fails by ${worst:,.6f}"
+    C.log(f"    300 contracts against ProductionCurrency.value, largest gap "
+          f"${worst:.2e}  [PASS]")
     C.log("")
 
     # ---- 3. simulate ------------------------------------------------------
@@ -203,29 +247,51 @@ def main() -> None:
         r = pt[pt[KEY] == cid].iloc[0]
         page, mu, sg, pp = seasons[cid]
         k = SIM.dollar_factor(r)
-        paths = SIM.draw_paths(mu, sg, pp, anchor.spread_.zs_, pers, N_PATHS, rng)
+        shape = spreads[page].zs_
+        pers = pers_by_page[page]
+        r_ret = ret_by_page[page]
+        # COMMON DRAWS across every variant of this contract, so a difference
+        # between two of them is the design and not the luck of two samples.
+        normals = rng.standard_normal((N_PATHS, len(mu)))
+        u_part = rng.random((N_PATHS, len(mu)))
+
+        paths = SIM.draw_paths(mu, sg, pp, shape, pers, N_PATHS, rng,
+                               r_return=r_ret, normals=normals)
         wps = paths.mean(axis=1)
         val = SIM.contract_value(lines[r["cut"]], r, wps, paths[:, 0], k)
         sur = val - float(r["cost"])
-        # THE SAME CONTRACT WITH THE SEASONS MADE INDEPENDENT, which is what a
-        # point valuation implicitly assumes when it averages them. Run on the
-        # same contract rather than compared across terms, because long deals
-        # go to better players with wider bands and a comparison across terms
-        # would be measuring that instead.
-        ind = SIM.draw_paths(mu, sg, pp, anchor.spread_.zs_, INDEP, N_PATHS, rng)
+
+        # WHAT THE CROSS-SEASON DEPENDENCE OF THE FORECAST'S MISS IS WORTH.
+        # Only that: participation stays exactly as it is in both arms, so the
+        # seasons are NOT independent in this counterfactual and the label says
+        # conditional-error dependence rather than independence.
+        ind = SIM.draw_paths(mu, sg, pp, shape, INDEP, N_PATHS, rng,
+                             r_return=r_ret, normals=normals)
         sur_ind = SIM.contract_value(lines[r["cut"]], r, ind.mean(axis=1),
                                      ind[:, 0], k) - float(r["cost"])
-        out.append({KEY: cid, "term": len(mu), "war_per_season": r["war_per_season"],
+
+        # AND WHAT ALLOWING A RETURN IS WORTH, against the absorbing exit the
+        # first version shipped as though it were free.
+        abso = SIM.draw_paths(mu, sg, pp, shape, pers, N_PATHS, rng,
+                              r_return=0.0, normals=normals)
+        sur_abs = SIM.contract_value(lines[r["cut"]], r, abso.mean(axis=1),
+                                     abso[:, 0], k) - float(r["cost"])
+
+        _, clipped = SIM.participation_path(pp, u_part, r_ret)
+        out.append({KEY: cid, "page": page, "term": len(mu),
+                    "war_per_season": r["war_per_season"],
                     "surplus_point": float(r["surplus_point"]),
                     "surplus_sim": float(sur.mean()),
                     "sim_sd": float(sur.std()),
                     "sim_p10": float(np.quantile(sur, 0.10)),
                     "sim_p90": float(np.quantile(sur, 0.90)),
                     "p_negative": float((sur < 0).mean()),
-                    "sd_independent": float(sur_ind.std()),
+                    "sd_indep_errors": float(sur_ind.std()),
+                    "surplus_absorbing": float(sur_abs.mean()),
+                    "sd_absorbing": float(sur_abs.std()),
                     "wps_point": float(r["war_per_season"]),
                     "wps_sim": float(wps.mean()),
-                    "rising_p": SIM.rising_marginals(pp)})
+                    "marginal_clipped": clipped})
     s = pd.DataFrame(out)
     s["gap"] = s["surplus_sim"] - s["surplus_point"]
     C.log(f"  {len(s)} contracts simulated, {N_PATHS} paths each "
@@ -273,23 +339,52 @@ def main() -> None:
         C.log(f"  {int(L)} yr{'':<3}{len(g):>6}{g['surplus_sim'].mean()/1e6:>10.2f}"
               f"{g['sim_sd'].mean()/1e6:>9.2f}{g['sim_p10'].mean()/1e6:>9.2f}"
               f"{g['sim_p90'].mean()/1e6:>9.2f}{100*g['p_negative'].mean():>16.0f}%"
-              f"{g['sd_independent'].mean()/1e6:>15.2f}"
-              f"{100*(g['sim_sd'].mean()/max(g['sd_independent'].mean(), 1) - 1):>11.0f}%")
+              f"{g['sd_indep_errors'].mean()/1e6:>15.2f}"
+              f"{100*(g['sim_sd'].mean()/max(g['sd_indep_errors'].mean(), 1) - 1):>11.0f}%")
     C.log("")
-    C.log("  WHAT PERSISTENCE IS WORTH, measured rather than asserted. The last")
-    C.log("  two columns redraw the SAME contracts with the seasons made")
-    C.log("  independent, which is what averaging them implicitly assumes. The")
-    C.log("  comparison is within a contract, not across terms: long deals go to")
-    C.log("  better players with wider bands, so a spread that grows with the")
-    C.log("  term says nothing on its own about whether misses persist.")
+    C.log("  WHAT THE MISS'S CROSS-SEASON DEPENDENCE IS WORTH. The last two")
+    C.log("  columns redraw the SAME contracts on the SAME random draws with")
+    C.log("  that dependence removed. PARTICIPATION IS UNCHANGED IN BOTH ARMS,")
+    C.log("  so the seasons are not independent there and the column is not an")
+    C.log("  independence counterfactual -- it isolates the conditional")
+    C.log("  performance error and nothing else. The comparison is within a")
+    C.log("  contract, because long deals go to better players with wider bands.")
+    C.log("")
+    C.log("  A point valuation is not wrong to average under dependence: an")
+    C.log("  expectation averages whatever the dependence is. What dependence")
+    C.log("  changes is the SPREAD, and the value of a path once the price line")
+    C.log("  stops being straight.")
     C.log("")
 
-    rise = int((s["rising_p"] > 0).sum())
-    C.log(f"  LIMITATION, counted rather than described: {rise} of {len(s)} terms")
-    C.log("  ask for a probability of playing that RISES from one season to the")
-    C.log("  next, which the absorbing exit cannot honour. Those paths keep the")
-    C.log("  player gone where the participation model would have let him come")
-    C.log("  back, so their spread is understated.")
+    clip = int((s["marginal_clipped"] > 0).sum())
+    C.log("  RETURNS, AND WHAT THE ABSORBING EXIT COST. The first version made")
+    C.log("  an absence permanent and argued that nothing was lost because no")
+    C.log("  term asks for a probability of playing that RISES. That does not")
+    C.log("  follow: a marginal can fall from 90% to 70% while one path in ten")
+    C.log("  is a man coming back. The path now allows a return at a rate")
+    C.log("  estimated from seasons before each decision date, and the absorbing")
+    C.log("  version is reported beside it as the sensitivity it always was.")
+    C.log("")
+    C.log(f"  {'term':<8}{'n':>6}{'mean, returns':>15}{'mean, absorbing':>17}"
+          f"{'sd, returns':>13}{'sd, absorbing':>15}")
+    for L, g in s.groupby("term"):
+        if len(g) < 15:
+            continue
+        C.log(f"  {int(L)} yr{'':<3}{len(g):>6}{g['surplus_sim'].mean()/1e6:>15.2f}"
+              f"{g['surplus_absorbing'].mean()/1e6:>17.2f}"
+              f"{g['sim_sd'].mean()/1e6:>13.2f}{g['sd_absorbing'].mean()/1e6:>15.2f}")
+    C.log("")
+    C.log(f"  {clip} of {len(s)} terms needed an exit probability clipped into")
+    C.log("  [0,1] to hold the marginal, so for those the model's own")
+    C.log("  probability of playing is not reproduced exactly.")
+    C.log("")
+
+    flips = int((np.sign(s["surplus_point"]) != np.sign(s["surplus_sim"])).sum())
+    C.log(f"  SIGN CHANGES: {flips} of {len(s)} individual contracts change sign")
+    C.log("  between the point valuation and the simulation. The first version of")
+    C.log("  this report said there were none, which was read off the tier means")
+    C.log("  and was false of the contracts. Group means are a different")
+    C.log("  statement from contracts and the two are reported apart.")
     C.log("")
 
     s.to_csv(C.out_path("npv_simulation.csv"), index=False)

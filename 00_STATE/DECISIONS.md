@@ -1,5 +1,30 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-16g (answering the Phase 5 simulation review):** All three findings
+accepted. (1) **Look-ahead:** the runner fitted one calibrator on the latest page in the whole
+contract input (2025, replaying outcomes through 2024) and used its shape and persistence for all
+1,217 earlier contracts. Each contract now uses its own page's shape, persistence and return rate;
+**check 25** corrupts every season at or after the decision date and requires the shape, scale,
+persistence and return rate identical to the last digit. The existing leakage battery tests the
+forecast and the band and could not have caught a defect in the runner consuming them. (2)
+**Copula:** fitted Spearman rank correlations were used directly as Gaussian correlations; a
+Gaussian copula with latent r delivers (6/pi)*arcsin(r/2), so 0.427 asked delivered 0.410. Inverted
+to r = 2*sin(pi*rho/6); the dependence test is now **analytic**, which catches the error at any
+sample size, with the simulated check retained at a tolerance derived from a rank correlation's
+sampling error. (3) **Returns:** the absorbing exit was justified by "no term has rising
+marginals", a non-sequitur; returns are now a two-state chain with a rate estimated before each
+decision date (~0.10), absorbing retained as the declared sensitivity, and its cost measured
+($11.02M against $11.09M of eight-year within-contract sd). Reporting corrected: 228 of 1,217
+contracts change sign (the "none" was read off tier means); the dependence contrast keeps
+participation correlated in both arms and isolates the conditional performance error; a point
+valuation does not assume independent errors; the league minimum is the convexity, not a bending
+tobit prediction; the one-year contrast runs on common draws; the identity is checked against
+`ProductionCurrency.value` rather than this file's helper on both sides ($1.49e-08); and every
+figure comes from one run. **"Phase 5 built" is withdrawn** -- this is a prototype aggregate
+simulator, and RFA walk-away/control years, goalies and dollar reconciliation remain. Eight claims
+are withdrawn in the report's section 8. Suite: **25 passed, 0 skipped, 0 failed**. No production
+code changed, no locked decision reopened, no reserved cohort unsealed.
+
 **Change log, 2026-09-16f (Phase 5: the joint simulation):** Built `npv_simulation.py` and
 `run_npv_simulation.py`. Career paths draw participation as an absorbing exit whose conditional
 survival is the ratio of the model's consecutive marginals, so the marginals are reproduced

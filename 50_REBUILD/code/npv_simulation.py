@@ -165,11 +165,42 @@ class Persistence:
         return np.where(gap == 0, 1.0,
                         self.w_perm_ + self.w_fade_ * self.phi_ ** gap)
 
+    @staticmethod
+    def gaussian_from_rank(rho_s):
+        """The latent Gaussian correlation that DELIVERS a given rank
+        correlation through a Gaussian copula.
+
+        THIS CONVERSION WAS MISSING AND THE OMISSION WAS THE BUG. The
+        persistence is measured as a Spearman rank correlation, which is the
+        right thing to measure on a long-tailed shape, and the fitted numbers
+        were then handed straight to the normal draws as if the two scales were
+        the same. They are not: a Gaussian copula with latent correlation r
+        produces rank correlation
+
+            rho_s = (6 / pi) * arcsin(r / 2)
+
+        which is always a little below r. Feeding 0.427 in as r delivered 0.410
+        of rank correlation -- close enough that a three-thousand-path check
+        could not see it, and far enough to be wrong. Inverting gives what to
+        ask the normals for:
+
+            r = 2 * sin(pi * rho_s / 6)
+        """
+        return 2.0 * np.sin(np.pi * np.asarray(rho_s, dtype=float) / 6.0)
+
+    @staticmethod
+    def rank_from_gaussian(r):
+        """The inverse, used by the self test to check the relationship holds
+        as arithmetic rather than only as a simulated average."""
+        return (6.0 / np.pi) * np.arcsin(np.asarray(r, dtype=float) / 2.0)
+
     def matrix(self, T: int) -> np.ndarray:
-        """The correlation matrix for a T-season term, nudged to the nearest
-        usable one if the fitted shape is not quite positive definite."""
+        """The LATENT GAUSSIAN correlation matrix for a T-season term, built so
+        that the RANK correlations it delivers are the fitted ones, and nudged
+        to the nearest usable matrix if that shape is not quite positive
+        definite."""
         i = np.arange(T)
-        R = self.rho(np.abs(i[:, None] - i[None, :]))
+        R = self.gaussian_from_rank(self.rho(np.abs(i[:, None] - i[None, :])))
         R[np.diag_indices(T)] = 1.0
         vals, vecs = np.linalg.eigh(R)
         if vals.min() < 1e-8:
@@ -188,31 +219,82 @@ class Persistence:
         return out
 
 
-def survival_path(p_play: np.ndarray, u: np.ndarray) -> np.ndarray:
-    """Whether he is in the league each season, as an absorbing path.
+def return_rate(table: pd.DataFrame, before: int, lookback: int = 2) -> float:
+    """How often a player who has just dropped out plays again the next season.
 
-    `p_play[h]` is the model's marginal probability of playing in season h.
-    The conditional chance of still being there given he was there last season
-    is the ratio of consecutive marginals, so drawing sequentially reproduces
-    those marginals exactly while making an exit stick.
+    Estimated on seasons that completed before `before`, so a path drawn at a
+    decision date uses only what that date could know.
 
-    RETURNS ARE NOT MODELLED HERE. The participation model allows a player to
-    come back after a missed season, and roughly one exiter in five does. On a
-    path that shows up as a marginal probability that RISES, which this rule
-    cannot honour -- the ratio is clipped at one and the player stays gone. The
-    effect is to understate how often a path recovers, and it is reported by
-    `rising_marginals()` rather than left silent.
+    The population is a FRESH absence: a player who appeared within the last
+    `lookback` seasons and did not appear this one. Counting every season after
+    a career ends instead would drive the answer to nearly zero, because a
+    retired player is absent forever and each of those seasons would be another
+    failure to return. The question is what happens after a man misses a year,
+    not what happens after he stops playing.
+    """
+    t = table[table["syr"] < before]
+    played = {(r.career_key, int(r.syr)) for r in
+              t[t["GP"] >= C.PARTICIPATION_GP].itertuples()}
+    seasons = sorted({int(x) for x in t["syr"].unique()})
+    if len(seasons) < 3:
+        return 0.0
+    careers = {k for k, _ in played}
+    out_n = back_n = 0
+    for yr in seasons[lookback:-1]:
+        for k in careers:
+            if (k, yr) in played:
+                continue
+            if not any((k, yr - j) in played for j in range(1, lookback + 1)):
+                continue                       # not a fresh absence
+            out_n += 1
+            back_n += (k, yr + 1) in played
+    return float(back_n / out_n) if out_n else 0.0
+
+
+def participation_path(p_play: np.ndarray, u: np.ndarray,
+                       r_return: float = 0.0) -> tuple[np.ndarray, int]:
+    """Whether he is in the league each season, as a path that allows a return.
+
+    THE ABSORBING VERSION WAS WRONG, AND THE ARGUMENT FOR IT WAS WORSE. It made
+    an absence permanent and justified that by observing that no term in the
+    sample asks for a probability of playing that RISES. That does not follow,
+    and the review's counterexample settles it: sixty per cent of players play
+    both seasons, thirty per cent only the first, ten per cent only the second.
+    The marginal falls from 90% to 70% and one path in ten is a return. A
+    falling marginal says nothing at all about whether anybody comes back.
+
+    So this is a two-state chain. `r_return` is the chance a player who sat out
+    plays again next season, estimated from seasons before the decision date.
+    The chance of dropping out is then solved season by season so that the
+    model's own marginals still come back exactly:
+
+        S[h] = S[h-1] * (1 - exit[h]) + (1 - S[h-1]) * r_return
+
+    Setting `r_return` to zero recovers the absorbing path, which is kept as
+    the declared sensitivity rather than as the default.
+
+    Returns the path and the number of seasons where the solved exit
+    probability had to be clipped into [0, 1] -- where it does, the marginal is
+    not reproduced exactly and the caller is told rather than not.
     """
     T = len(p_play)
-    q = np.empty(T)
-    q[0] = p_play[0]
-    q[1:] = np.clip(p_play[1:] / np.maximum(p_play[:-1], 1e-12), 0.0, 1.0)
-    alive = np.ones(u.shape[0], dtype=bool)
+    S = np.clip(np.asarray(p_play, dtype=float), 1e-9, 1.0)
+    e = np.empty(T)
+    clipped = 0
+    for h in range(1, T):
+        raw = 1.0 - (S[h] - (1.0 - S[h - 1]) * r_return) / max(S[h - 1], 1e-12)
+        e[h] = min(max(raw, 0.0), 1.0)
+        clipped += int(raw < -1e-9 or raw > 1 + 1e-9)
+
     out = np.empty(u.shape, dtype=float)
-    for h in range(T):
-        alive = alive & (u[:, h] < q[h])
+    alive = u[:, 0] < S[0]
+    out[:, 0] = alive
+    for h in range(1, T):
+        stay = u[:, h] < (1.0 - e[h])
+        come_back = u[:, h] < r_return
+        alive = np.where(alive, stay, come_back)
         out[:, h] = alive
-    return out
+    return out, clipped
 
 
 def rising_marginals(p_play: np.ndarray) -> int:
@@ -222,7 +304,8 @@ def rising_marginals(p_play: np.ndarray) -> int:
 
 
 def draw_paths(mu, sigma, p_play, shape: np.ndarray, persistence: Persistence,
-               n_paths: int = DEFAULT_PATHS, rng=None) -> np.ndarray:
+               n_paths: int = DEFAULT_PATHS, rng=None,
+               r_return: float = 0.0, normals=None) -> np.ndarray:
     """One player, one contract: `n_paths` draws of production per season.
 
     Returns an array of shape (n_paths, T) in wins, with a zero wherever the
@@ -237,8 +320,12 @@ def draw_paths(mu, sigma, p_play, shape: np.ndarray, persistence: Persistence,
     # THE COPULA. Correlated normals to uniforms to the empirical shape, so
     # every season keeps the distribution the interval layer fitted and only
     # their dependence is imposed.
+    # COMMON DRAWS when the caller supplies them, so two variants of the same
+    # contract can be compared on the same randomness instead of on two
+    # samples that differ by luck as well as by design.
     L = np.linalg.cholesky(persistence.matrix(T))
-    g = rng.standard_normal((n_paths, T)) @ L.T
+    raw = rng.standard_normal((n_paths, T)) if normals is None else normals[:, :T]
+    g = raw @ L.T
     u = stats.norm.cdf(g)
     if len(shape) and np.ptp(shape) > 0:
         grid = np.linspace(0.0, 1.0, len(shape))
@@ -247,7 +334,7 @@ def draw_paths(mu, sigma, p_play, shape: np.ndarray, persistence: Persistence,
         z = np.zeros_like(u)            # the zero-spread case, exactly
     cond = mu[None, :] + sigma[None, :] * z
 
-    played = survival_path(p_play, rng.random((n_paths, T)))
+    played, _ = participation_path(p_play, rng.random((n_paths, T)), r_return)
     return cond * played
 
 
@@ -295,17 +382,17 @@ def dollar_factor(row: pd.Series) -> float:
 
 def self_test(n_paths: int = 4000, seed: int = 20260916,
               verbose: bool = False) -> None:
-    """Three things the arithmetic has to do, on cases whose answers are known.
+    """What the arithmetic has to do, on cases whose answers are known.
 
-    1. THE MARGINALS SURVIVE THE COPULA. Correlating the seasons must not move
-       any season's own distribution, because that distribution is the one with
-       measured coverage behind it.
-    2. THE PARTICIPATION PATH REPRODUCES ITS MARGINALS, while making an exit
-       absorbing. Those two are in tension and the construction has to satisfy
-       both.
-    3. THE ZERO-UNCERTAINTY IDENTITY. With no spread and certain participation,
-       every path is the point forecast. This is the guard the plan asks for in
-       place of the retired k=0 identity.
+    THE DEPENDENCE IS CHECKED AS ARITHMETIC FIRST. A Monte Carlo check on a
+    correlation cannot tell a small systematic error from a small sampling one
+    without a very large sample, and the previous version of this test could
+    not: the rank-to-Gaussian conversion was missing, the delivered correlation
+    was 0.41 against a requested 0.43, and three thousand paths never saw it.
+    So the relationship is now checked in closed form, where the error is
+    either there or it is not, and the simulated check is a sanity test on top
+    with a tolerance derived from the sampling error of a rank correlation
+    rather than chosen to pass.
     """
     rng = np.random.default_rng(seed)
     shape = np.sort(rng.gumbel(0.0, 1.0, 20_000))
@@ -315,40 +402,56 @@ def self_test(n_paths: int = 4000, seed: int = 20260916,
     pers.w_perm_, pers.w_fade_, pers.phi_ = 0.19, 0.24, 0.60
 
     failures = []
+
+    # -- the conversion, in closed form ------------------------------------
+    for target in (0.05, 0.2, 0.4266, 0.6, 0.85):
+        r = Persistence.gaussian_from_rank(target)
+        back = float(Persistence.rank_from_gaussian(r))
+        if abs(back - target) > 1e-12:
+            failures.append(f"rank {target} maps to a matrix delivering {back}")
+    R = pers.matrix(4)
+    for gap in (1, 2, 3):
+        want = float(pers.rho(gap))
+        got = float(Persistence.rank_from_gaussian(R[0, gap]))
+        if abs(got - want) > 1e-10:
+            failures.append(f"matrix at gap {gap} delivers rank {got}, fitted {want}")
+
     mu = np.array([1.2, 1.1, 1.0, 0.9, 0.8, 0.7])
     sigma = np.array([0.7, 0.8, 0.85, 0.9, 0.95, 1.0])
-
-    # 1. marginals unchanged by the dependence
     paths = draw_paths(mu, sigma, np.ones(6), shape, pers, n_paths, rng)
+
+    # -- the marginals are untouched ---------------------------------------
     for h in range(6):
         want = mu[h] + sigma[h] * np.quantile(shape, [0.1, 0.5, 0.9])
         got = np.quantile(paths[:, h], [0.1, 0.5, 0.9])
-        # THE TOLERANCE SCALES WITH THE SAMPLE, because a sample quantile's own
-        # error does. It was a flat 0.12, which passed at four thousand paths
-        # and failed at three thousand on the ninetieth percentile -- not
-        # because anything was wrong but because the shape has a long right
-        # tail, the density out there is thin, and that quantile is the noisiest
-        # thing being checked. A constant tolerance on a Monte Carlo quantity is
-        # a check that passes or fails on the draw count.
-        tol = 10.0 * sigma[h] / np.sqrt(n_paths)
-        if np.max(np.abs(got - want)) > tol:
+        # Scales with the sample, because a sample quantile's error does.
+        if np.max(np.abs(got - want)) > 10.0 * sigma[h] / np.sqrt(n_paths):
             failures.append(f"season {h} marginal moved: {got} against {want}")
 
-    # and the dependence is actually there
-    got_rho = stats.spearmanr(paths[:, 0], paths[:, 1]).statistic
-    if abs(got_rho - pers.rho(1)) > 3.0 / np.sqrt(n_paths) + 0.01:
-        failures.append(f"adjacent correlation {got_rho:.3f}, asked for {float(pers.rho(1)):.3f}")
+    # -- and the dependence is the one asked for ---------------------------
+    want_rho = float(pers.rho(1))
+    got_rho = float(stats.spearmanr(paths[:, 0], paths[:, 1]).statistic)
+    # Four standard errors of a rank correlation at this sample size.
+    tol = 4.0 * (1.0 - want_rho ** 2) / np.sqrt(n_paths)
+    if abs(got_rho - want_rho) > tol:
+        failures.append(f"adjacent rank correlation {got_rho:.4f} against "
+                        f"{want_rho:.4f}, tolerance {tol:.4f}")
 
-    # 2. participation marginals, and exits that stick
+    # -- participation: marginals hold, and returns happen -----------------
     p = np.array([0.95, 0.90, 0.82, 0.73, 0.61, 0.48])
-    alive = survival_path(p, rng.random((40_000, 6)))
-    if np.max(np.abs(alive.mean(axis=0) - p)) > 0.01:
-        failures.append(f"participation marginals off: {alive.mean(axis=0)} against {p}")
-    revived = int(((alive[:, :-1] == 0) & (alive[:, 1:] == 1)).sum())
-    if revived:
-        failures.append(f"{revived} paths came back after leaving; exit must absorb")
+    for r_ret, label in ((0.0, "absorbing"), (0.18, "with returns")):
+        alive, clipped = participation_path(p, rng.random((60_000, 6)), r_ret)
+        if clipped:
+            failures.append(f"{label}: {clipped} seasons could not hold the marginal")
+        if np.max(np.abs(alive.mean(axis=0) - p)) > 4.0 / np.sqrt(60_000):
+            failures.append(f"{label}: marginals off, {alive.mean(axis=0)} against {p}")
+        came_back = int(((alive[:, :-1] == 0) & (alive[:, 1:] == 1)).sum())
+        if r_ret == 0.0 and came_back:
+            failures.append(f"absorbing path let {came_back} players return")
+        if r_ret > 0.0 and came_back == 0:
+            failures.append("return-capable path produced no returns at all")
 
-    # 3. the identity
+    # -- the identity ------------------------------------------------------
     flat = draw_paths(mu, np.zeros(6), np.ones(6), np.zeros(1001), pers, 64, rng)
     if np.max(np.abs(flat - mu[None, :])) > 1e-12:
         failures.append("zero-spread paths are not the point forecast")

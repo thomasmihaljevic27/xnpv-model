@@ -310,18 +310,23 @@ guard. Report:
 `50_REBUILD/docs/Predictive_Uncertainty_and_Leakage.md`; review:
 `50_REBUILD/docs/Uncertainty_Implementation_Review_Codex.md`.
 
-**Phase 5, the joint simulation, built (2026-09-16d).** `npv_simulation.py` draws career paths --
-participation as an absorbing exit reproducing the model's marginals exactly, and the forecast's
-miss correlated across seasons through a Gaussian copula that leaves each season's fitted shape
-untouched. **The plan's replacement for the k=0 identity holds exactly**: with no spread and
-certain participation, 300 real contracts return the point valuation to $0.000000. Persistence is
-fitted for the first time at 0.253 permanent plus 0.263 fading at 0.66 a season. Averaging path
-values rather than valuing the average path is worth **+$0.18M on the average contract**,
-concentrated where the league minimum binds (short deals, low-production players) and vanishing for
-stars; no sign changes. An eight-year deal carries a standard deviation of $11.3M around a $5.3M
-mean and a 38% chance of losing money, and persistence widens a seven-year deal's spread by 44%
-against independent seasons. Absent and stated: the RFA walk-away on the path, returns after a
-missed season, goalies. Report: `50_REBUILD/docs/NPV_Simulation.md`. Suite 24/0/0. Nothing adopted.
+**An aggregate contract simulator (2026-09-16d, revised after review). Phase 5 is NOT closed.**
+`npv_simulation.py` draws career paths: participation as a two-state chain that allows a return and
+reproduces the model's marginals exactly, and the forecast's miss correlated across seasons through
+a Gaussian copula that leaves each season's fitted shape untouched. The review found the runner
+using a 2025 calibration -- holding outcomes through 2024 -- for all 1,217 earlier contracts, a
+look-ahead in the only part of the chain that reads outcomes; each contract now uses its own page
+and **check 25** enforces it by corrupting the future and requiring every calibrated quantity to be
+bit-identical. It also found rank correlations handed to the normal draws without the
+rank-to-Gaussian conversion (0.427 asked, 0.410 delivered), now inverted and tested analytically
+rather than by Monte Carlo. Returns are modelled rather than excluded on a non-sequitur. Holding
+after the fixes: the identity at $1.49e-08 against `ProductionCurrency.value` on 300 contracts;
+averaging path values worth +$0.19M on the average contract, concentrated where the league minimum
+binds; an eight-year cohort averaging $11.0M of within-contract sd around $5.5M with a 38% chance
+of losing money. **228 of 1,217 contracts change sign**; the fixed-tier means do not. Still absent:
+RFA walk-away and control years, goalies, dollar reconciliation. Report:
+`50_REBUILD/docs/NPV_Simulation.md`; review: `50_REBUILD/docs/NPV_Simulation_Review_Codex.md`.
+Suite 25/0/0. Nothing adopted.
 
 **Review stage closed, component variant repaired (2026-09-16c).** The independent reviewer closed
 the coverage-and-valuation review at `e14e873`. The first item on its next-work list is done:

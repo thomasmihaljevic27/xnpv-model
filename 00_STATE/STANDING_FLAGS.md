@@ -114,13 +114,15 @@ residuals and currency comparisons; fix and rerun development work before furthe
 
 ## Standing flags (Karl's identification axes — watch on every design choice)
 
-- **NEW 2026-09-16d — a misjudgement about a player does not wash out over the years of his
-  deal, and every point valuation in this project assumes it does.** Fitted on the replayed
-  misses: 0.253 of a standardised miss is permanent and a further 0.263 fades at 0.66 a season, so
-  adjacent seasons correlate 0.43 and distant ones settle near 0.26. Drawing the same contracts
-  with independent seasons — which is what averaging them implicitly assumes — understates a
-  seven-year deal's spread by **44%**. Any statement about how uncertain a long contract is that
-  was built on independent seasons is too narrow by roughly that much.
+- **NEW 2026-09-16d, revised after review — a miss about a player does not wash out over the
+  years of his deal.** The same player's standardised miss correlates 0.39 to 0.43 between adjacent
+  seasons at every page in the window. How that splits between a permanent misjudgement and one
+  that fades is **weakly identified early** -- 0.00 permanent fitted on what 2015 could see against
+  0.25 on 2025 -- while the total adjacent correlation barely moves, so the split is a parameter of
+  a chosen dependence model and not a measured fraction of every forecast mistake. Removing that
+  dependence, on common draws with participation held, narrows a seven-year contract's value by
+  41%. Any statement about how uncertain a long contract is that was built on independent seasons
+  is too narrow by roughly that much.
 - **NEW 2026-09-16d — the value of the average path is not the value of the contract, and the gap
   is where the floor binds.** Averaging path values rather than valuing the average path is worth
   +$0.18M on the average contract, +$0.23M on a one-year deal and +$0.22M for a player forecast

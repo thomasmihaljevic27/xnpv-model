@@ -1,8 +1,12 @@
-# A contract's value as a distribution, and what the point valuation was approximating
+# An aggregate contract simulator: value as a distribution over careers
 
-Run 2026-09-16 in `50_REBUILD/`. Rebuild plan Phase 5. Experimental. Development start years only;
-the reserved market cohorts are refused by the guard. **Nothing adopted, and no production file
-changed.**
+Run 2026-09-16 in `50_REBUILD/`. Rebuild plan Phase 5, **prototype scope — not Phase 5 complete**.
+Experimental. Development start years only; the reserved market cohorts are refused by the guard.
+**Nothing adopted, and no production file changed.**
+
+**Revised after independent review** (`NPV_Simulation_Review_Codex.md`, reviewing `95750f5`).
+Two implementation defects and one scope claim, all accepted and fixed; several reporting claims
+withdrawn. Section 8 lists them. Every figure below comes from one run after the fixes.
 
 ## 1. What a point valuation cannot do
 
@@ -11,152 +15,188 @@ season, and pushing that number through the price line. That is the value of the
 A contract is worth the **average of the values**, and the two differ whenever the price of a path
 is not a straight line in the production on it.
 
-It is not a straight line, for two reasons that both push the same way. A club cannot pay less
-than the league minimum, so a season where the player collapses costs the same as a season where
-he is merely poor — the downside is truncated and the upside is not. And the market's own price
-line is censored at that floor, so it bends near the bottom.
+It is not straight, and **the operative reason is the league minimum**: a club cannot pay less
+than the floor, so a season where the player collapses costs the same as one where he is merely
+poor. The downside is truncated and the upside is not, which makes the value of a path convex from
+below, so the average of the values sits above the value of the average.
 
-Both make the value of a path convex from below in its production, so the average of the values
-sits above the value of the average. **The gap is not an error in the point valuation. It is the
-quantity the point valuation was approximating**, and this is the first time it has been measured.
+(An earlier version of this report also credited the censored price line with bending the curve.
+`predict_tobit` returns a linear predictor; censoring affects the fitted coefficients, not the
+shape of the prediction. The floor is the convexity.)
 
-## 2. What the paths carry that the average does not
+**The gap is not an error in the point valuation. It is the quantity it was approximating**, and a
+point valuation is not wrong to average under dependence either — an expectation averages whatever
+the dependence is. What dependence changes is the spread, and the value of a path once the price
+line stops being straight.
 
-**An exit that sticks.** The point chain multiplies each season's production by that season's
-probability of playing, which prices every player as a blend of himself and a ghost who plays 78%
-of a season. On a path he either plays or he does not, and an exit carries forward. The marginal
-probabilities the participation model reports are reproduced exactly by construction, so nothing
-about the forecast changes — the zeros now arrive together instead of being smeared across every
-season.
+## 2. What the paths carry
 
-**A miss that persists.** This decides everything about a long contract and had never been
-measured. If the misses were independent, a six-year deal's total would be six draws averaging out
-and its spread would scale as the square root of the term. If a miss persisted entirely, the
-spread would scale with the term.
+**An exit, as a path, with returns.** The point chain multiplies each season by its probability of
+playing, pricing every player as a blend of himself and a ghost. On a path he plays or he does
+not. The chain is two-state: a player who sits out can come back, at a rate estimated from seasons
+before each decision date (about 0.10 across the window), and the chance of dropping out is solved
+season by season so the model's own marginals still come back exactly.
 
-Fitted on the same replayed misses the band is fitted on, as a permanent part plus a part that
-fades:
+**A miss that persists.** Fitted per page, as a permanent part plus a fading one:
 
-| seasons apart | 1 | 2 | 3 | 4 | 5 | 6 |
-|---|---:|---:|---:|---:|---:|---:|
-| observed | 0.433 | 0.368 | 0.314 | 0.292 | 0.280 | 0.265 |
-| fitted | 0.427 | 0.368 | 0.329 | 0.303 | 0.286 | 0.275 |
+| page | permanent | fading | fade rate | rank correlation at one season | return rate |
+|---|---:|---:|---:|---:|---:|
+| 2015 | 0.000 | 0.483 | 0.82 | 0.396 | 0.102 |
+| 2018 | 0.198 | 0.367 | 0.56 | 0.404 | 0.096 |
+| 2021 | 0.250 | 0.320 | 0.49 | 0.406 | 0.101 |
+| 2025 | 0.253 | 0.263 | 0.66 | 0.427 | 0.106 |
 
-**0.253 of a miss is permanent, plus 0.263 fading at 0.66 a season.** Some of being wrong about a
-player is a standing misjudgement that does not go away; some is form, or a role, or an injury,
-and it passes. Neither dominates.
+The split between permanent and fading moves a great deal across pages and **the total adjacent
+correlation barely moves at all** — 0.39 to 0.43 throughout. An early page's replay cannot reach
+far enough to tell a standing misjudgement from one that fades, so the decomposition is weakly
+identified there even though the quantity it decomposes is stable. The permanent and fading
+weights are parameters of a chosen dependence model, not measured fractions of every forecast
+mistake.
 
-(Measured on the replay's calibration pages, which is the sample the band itself is fitted on and
-therefore the consistent choice. The same correlations computed on the scored development pages
-alone run a little lower — 0.394 at one season apart against 0.433 — which is a difference of
-sample, not of method.)
+**The marginals survive.** Dependence goes in through a Gaussian copula, so each season keeps
+exactly the distribution the interval layer fitted, whose coverage has been measured and reviewed;
+only the way seasons move together is new.
 
-**One thing is deliberately not drawn separately.** The rate per 82 and the share of the schedule
-get no separate draws, because the quantity with a fitted spread is the season total *given he
-played*, and that total's miss already contains both — a player who was healthy but worse and a
-player who was as good but hurt are both in it. Splitting them would need two spreads where the
-data supports one, and their product is what a dollar total reads anyway. This resolves the
-standing flag that asked for separate rate and games bands: the joint object the simulation needs
-is (participation, conditional season total), and that is what it draws.
+## 3. What the review found, and what it cost
 
-**How the marginals survive.** The dependence is imposed with a Gaussian copula — correlated
-normals, through the normal CDF to uniforms, then through the empirical shape the interval layer
-already fitted. Each season's own distribution is left exactly as it was, so the coverage that has
-been measured and reviewed carries over unchanged, and only the way the seasons move together is
-new. Adding a shared shock instead would have changed both at once, and the marginal it changed is
-the one with evidence behind it.
+### Historical contracts were using future information
 
-## 3. The identity the plan asked for
+The first version fitted **one** calibrator on the latest page in the whole contract input — 2025,
+whose replay contains outcomes through 2024 — and used its residual shape and its persistence for
+every contract, all of which are earlier. Forecasts and price lines were rolling. The uncertainty
+around them, the only part of this chain that reads outcomes, was not.
+
+Each contract now uses its own page's shape, persistence and return rate. **A new check
+corrupts every season at or after the decision date and requires the shape, the scale, the
+persistence and the return rate to be identical to the last digit.** The existing leakage battery
+could not have caught this: it tests the forecast and the band, and the defect was in the runner
+that consumes them.
+
+### The copula imposed the wrong correlation
+
+Persistence is measured as a Spearman rank correlation, which is right for a long-tailed shape,
+and the fitted numbers were handed straight to the normal draws as if the two scales were the
+same. A Gaussian copula with latent correlation r delivers rank correlation (6/π)·arcsin(r/2),
+always a little below r. Asking for 0.427 delivered 0.410.
+
+Fixed by inverting: r = 2·sin(π·ρ/6). **The test is now analytic** — the relationship either holds
+in closed form or it does not — with the simulated check kept as a sanity test at a tolerance
+derived from the sampling error of a rank correlation. The old code fails the new analytic test at
+every sample size; it passed the old Monte Carlo test at three thousand paths and failed only at
+six hundred thousand.
+
+### Returns were excluded, not shown to be absent
+
+The first version made an absence permanent and argued nothing was lost because no term asks for a
+probability of playing that **rises**. That does not follow, and the review's counterexample
+settles it: 60% play both seasons, 30% only the first, 10% only the second — the marginal falls
+from 90% to 70% and one path in ten is a return. A falling marginal says nothing about whether
+anyone comes back.
+
+Returns are now modelled. The absorbing version is kept beside them as the sensitivity it always
+was, and it turns out to cost little: the eight-year cohort's average within-contract standard
+deviation is $11.02M with returns against $11.09M absorbing. Small — but now measured instead of
+asserted. Two of 1,217 terms need an exit probability clipped to hold the marginal, so for those
+the model's own probability of playing is not reproduced exactly.
+
+## 4. The identity
 
 With the spread set to nothing and participation certain, every path is the same path, so the
-simulation must return the point valuation exactly. This replaces the k=0 identity the plan
-retired.
+simulation must return the point valuation. Checked on 300 real contracts **against
+`ProductionCurrency.value` rather than against this file's own pricing helper on both sides** —
+the first version did the latter and would have passed with a shared pricing bug in it.
 
-**300 contracts, largest gap $0.000000.** Checked on real contracts rather than a constructed
-case.
+**Largest gap $1.49e-08.**
 
-## 4. What the paths are worth
+## 5. What the paths are worth
 
-The average production per season is the same either way — 0.3491 against 0.3487 across 1,217
-contracts — so the whole of the difference below is the curvature and the floor.
+Average production per season is the same either way — 0.3491 point against 0.3495 simulated, a
+Monte Carlo difference, not an identity — so the difference below is the floor.
 
 | term | n | point $M | simulated | gap |
 |---|---:|---:|---:|---:|
 | 1 yr | 605 | −0.07 | +0.16 | **+0.23** |
-| 2 yr | 324 | −0.09 | +0.15 | **+0.25** |
+| 2 yr | 324 | −0.09 | +0.15 | **+0.24** |
 | 3 yr | 109 | +0.14 | +0.19 | +0.05 |
-| 4 yr | 66 | +0.54 | +0.55 | +0.01 |
-| 6 yr | 33 | +1.53 | +1.52 | −0.01 |
-| 8 yr | 22 | +5.44 | +5.39 | −0.05 |
-| **all** | 1,217 | +0.19 | +0.37 | **+0.18** |
+| 6 yr | 33 | +1.53 | +1.56 | +0.03 |
+| 8 yr | 22 | +5.44 | +5.51 | +0.07 |
+| **all** | 1,217 | +0.19 | +0.38 | **+0.19** |
 
 | forecast | n | point $M | simulated | gap |
 |---|---:|---:|---:|---:|
 | below 0 | 174 | −0.41 | −0.19 | **+0.21** |
-| 0 to 0.5 | 735 | +0.10 | +0.31 | **+0.22** |
-| 0.5 to 1 | 199 | +0.56 | +0.68 | +0.12 |
-| 1 to 2 | 91 | +1.66 | +1.71 | +0.05 |
-| 2+ | 18 | −1.80 | −1.86 | −0.05 |
+| 0 to 0.5 | 735 | +0.10 | +0.31 | **+0.21** |
+| 0.5 to 1 | 199 | +0.56 | +0.70 | +0.14 |
+| 1 to 2 | 91 | +1.66 | +1.75 | +0.08 |
+| 2+ | 18 | −1.80 | −1.79 | +0.01 |
 
-**The gap is concentrated exactly where the floor binds**, which is what the mechanism predicts:
-short deals and low-production players, whose paths straddle the league minimum. For a star the
-floor is never in reach, the price line is locally straight, and the gap vanishes. It is a real
-effect worth a fifth of a million on the average contract and it changes no sign anywhere.
+Concentrated where the floor binds — short deals and cheap players — and vanishing for stars whose
+paths never approach it.
 
-No percentage column is reported. The point surplus averages near zero by construction, because
-the price line is fitted to these same contracts, so a gap expressed as a share of it reads in the
-hundreds of percent and means nothing.
+**228 of 1,217 individual contracts change sign** between the point valuation and the simulation.
+The first version of this report said there were none, which was read off the tier means and was
+false of the contracts. The fixed-tier means do keep their signs. Those are two different
+statements and they are reported apart.
 
-## 5. The spread, which did not exist before
+## 6. The spread
 
-| term | n | mean $M | sd | 10th | 90th | chance it loses | sd if seasons independent | widened by |
+A **cohort summary**, averaging statistics across the contracts in each row rather than describing
+one representative distribution:
+
+| term | n | mean $M | sd | 10th | 90th | chance it loses | sd without the miss's dependence | widened by |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
-| 1 yr | 605 | +0.16 | 0.87 | −0.38 | +1.18 | 37% | 0.87 | **0%** |
-| 2 yr | 324 | +0.15 | 1.94 | −1.65 | +2.70 | 47% | 1.71 | 14% |
-| 3 yr | 109 | +0.21 | 3.90 | −4.22 | +5.36 | 48% | 3.14 | 24% |
-| 5 yr | 31 | −0.51 | 7.94 | −9.39 | +9.83 | 51% | 5.95 | 34% |
-| 7 yr | 27 | +3.75 | 10.30 | −8.00 | +17.15 | 40% | 7.18 | **44%** |
-| 8 yr | 22 | +5.34 | 11.31 | −7.60 | +20.05 | 38% | 8.02 | 41% |
+| 1 yr | 605 | +0.16 | 0.87 | −0.38 | +1.17 | 37% | 0.87 | 0% |
+| 3 yr | 109 | +0.19 | 3.85 | −4.20 | +5.27 | 48% | 3.13 | 23% |
+| 7 yr | 27 | +3.69 | 10.06 | −7.81 | +16.83 | 39% | 7.14 | **41%** |
+| 8 yr | 22 | +5.51 | 11.02 | −7.09 | +19.93 | 38% | 8.01 | 38% |
 
-A club signing an eight-year deal is not buying $5.3M of surplus. It is buying a distribution with
-a standard deviation of $11.3M and a better-than-a-third chance of losing money.
+The last two columns redraw the same contracts **on the same random draws** with the cross-season
+dependence of the forecast's miss removed. **Participation is unchanged in both arms**, so the
+seasons are not independent there — this isolates the conditional performance error and nothing
+else, and is not an independence counterfactual. The one-year row comes back at 0% because a
+single season has no dependence to impose; on common draws that is now exact rather than a
+rounding.
 
-**What persistence is worth, measured rather than asserted.** The last two columns redraw the same
-contracts with the seasons made independent, which is what averaging them implicitly assumes.
-Persistence widens the spread of a seven-year deal by **44%**. The comparison is within a
-contract, not across terms — long deals go to better players with wider bands, so a spread that
-grows with the term says nothing on its own. The one-year row coming back at exactly 0% is the
-check: with a single season there is no dependence to impose and the two draws must agree.
+## 7. Scope: what this is and is not
 
-## 6. Limits
+It is an **aggregate contract simulator** for the current price interface, which consumes average
+and first-season production. Its conditional-season-total draw already contains both rate and
+availability error, which is why they are not drawn separately.
 
-- **Not a back-test.** Nothing is scored against a realised outcome and no trade is priced.
-- **No RFA walk-away on the path.** A restricted player whose value collapses can be walked away
-  from, which truncates the club's downside again and would narrow the lower tail. The rebuild
-  tree has no terminal-value machinery yet, so this is absent and the downside is overstated to
-  that extent.
-- **Returns are not modelled.** The participation model lets a player come back after a missed
-  season and about one exiter in five does; the absorbing path cannot honour a probability of
-  playing that rises. On this sample **no term asks for one**, so nothing is lost here, but a
-  sample that did would have its spread understated.
-- **Goalies are untouched**, as everywhere else in the rebuild.
-- **The persistence fit is three parameters on a curve that is nearly flat past three seasons.**
-  Both weights are clipped at zero, which is what a three-parameter fit needs on a five-point
-  curve, and that clipping is a choice.
-- **2,000 paths** leaves Monte Carlo noise of a few hundredths of a win on an individual
-  contract's average production.
+It does **not** fulfil the plan's joint rate/games/participation design for later consumers, and
+**Phase 5 is not complete**. Still absent:
 
-## 7. What this unblocks
+- **The RFA walk-away and control years.** A restricted player whose value collapses can be walked
+  away from, which truncates the club's downside again. The lower tails here are too heavy to that
+  extent — and the absence of that option does not mean every signed-contract downside was
+  unavoidable.
+- **Goalies**, as everywhere in the rebuild.
+- **Contract-by-contract dollar reconciliation** against the production spine.
+- Not a back-test: nothing is scored against a realised outcome and no trade is priced.
 
-The valuation now produces a distribution, so the back-test statistic the plan asks for — a dollar
-difference scaled by a declared positive gross-value measure — has something to be computed
-against. Remaining before it: valuation integration and contract-by-contract dollar
-reconciliation, then the back-test with its grouping rule and evaluation protocol declared in
-advance.
+## 8. Claims withdrawn
+
+1. **"Phase 5 built."** Overstated against the written plan. This is a prototype aggregate
+   simulator.
+2. **"No sign changes anywhere."** 228 contracts change sign. Group means are a different
+   statement.
+3. **"The independent-seasons comparison."** Participation stays correlated in both arms; it
+   isolates the conditional performance error.
+4. **"A point valuation implicitly assumes independent errors."** It does not — expectations
+   average under any dependence. Dependence matters to the spread and to nonlinear path valuation.
+5. **"Nothing is lost by omitting returns, because no term has rising marginals."** A
+   non-sequitur. Returns are now modelled.
+6. **"The censored price line bends near the floor."** The floor is the convexity; the tobit
+   prediction is linear.
+7. **The one-year 0% was two random samples rounding to agreement**, not an identity. Now run on
+   common draws.
+8. **Figures mixing two runs** (0.3487 against 0.3495, $5.39M against $5.34M). Everything above is
+   from one run.
 
 ## Files
 
-    50_REBUILD/code/npv_simulation.py        the paths, the persistence fit, the self test
+    50_REBUILD/code/npv_simulation.py        paths, persistence, returns, the self test
     50_REBUILD/code/run_npv_simulation.py    the run and its reports
 
 Outputs, ignored under `50_REBUILD/output/`: `npv_simulation_run_log.txt`, `npv_simulation.csv`.
+The reviewer's reproduction is `50_REBUILD/code/review_npv_simulation.py`.

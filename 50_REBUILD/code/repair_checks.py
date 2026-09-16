@@ -24,7 +24,7 @@ import forecast_harness as H
 import player_season_table as T
 from ability_forecast import A0Production
 
-SCRIPT_VERSION = "2.2"
+SCRIPT_VERSION = "2.3"
 
 PASS, FAIL, SKIP = "pass", "FAIL", "skip"
 results: list[tuple[str, str, str]] = []
@@ -840,6 +840,66 @@ def c24(table):
     return "marginals, dependence, absorbing exit and the zero-spread identity all hold"
 
 
+def c25(table):
+    """THE SIMULATION CANNOT SEE THE FUTURE EITHER.
+
+    Required by the Phase 5 review, which found that it could. The runner
+    fitted one calibrator on the latest page in the whole contract input and
+    used its residual shape and its persistence for every contract, all of
+    which were earlier. Forecasts and price lines were dated correctly; the
+    uncertainty around them, the only part of the chain that reads outcomes,
+    was not.
+
+    The existing leakage battery could not catch it, because it tests the
+    forecast and the band and this defect was in the runner that consumes them.
+    So the test is here, on the three things a simulation is calibrated from:
+    the shape of a miss, how much of one persists, and how often a player who
+    sat out comes back. Corrupt every season at or after the decision date and
+    all three must be identical to the last digit.
+    """
+    import numpy as np
+    import information_set as ISET
+    import predictive_interval as PI
+    import npv_simulation as SIM
+    from ability_forecast import A1HingeExposure
+    from run_npv_simulation import page_scale
+
+    page = 2018
+    rng = np.random.default_rng(11)
+    bad = table.copy()
+    m = (bad["syr"] >= page).to_numpy()
+    idx = np.flatnonzero(m)
+    perm = rng.permutation(idx)
+    for col in ("WAR", "WAR_82", "GP", "gp_share"):
+        v = bad[col].to_numpy().copy()
+        v[idx] = v[perm]
+        bad[col] = v
+
+    def calibrate(t):
+        iset = ISET.build(t, ISET.decision_date_for_page(page), t0=page)
+        mod = PI.WithIntervals(A1HingeExposure())
+        mod.fit(iset.seasons, before=page)
+        pers = SIM.Persistence().fit(mod.spread_.pairs_, page_scale(mod.spread_))
+        return (mod.spread_.zs_, mod.spread_.scale_,
+                (pers.w_perm_, pers.w_fade_, pers.phi_),
+                SIM.return_rate(t, before=page))
+
+    a_zs, a_scale, a_pers, a_ret = calibrate(table)
+    b_zs, b_scale, b_pers, b_ret = calibrate(bad)
+
+    assert len(a_zs) == len(b_zs), (
+        f"the shape learned from {len(a_zs)} misses with the future present "
+        f"and {len(b_zs)} with it scrambled")
+    d = float(np.max(np.abs(a_zs - b_zs)))
+    assert d == 0.0, f"the shape of a miss moved by {d:.3e}"
+    assert a_scale == b_scale, "the fitted scale moved"
+    assert a_pers == b_pers, f"persistence moved: {a_pers} against {b_pers}"
+    assert a_ret == b_ret, f"the return rate moved: {a_ret} against {b_ret}"
+    return (f"shape, scale, persistence {a_pers[0]:.3f}/{a_pers[1]:.3f}/"
+            f"{a_pers[2]:.2f} and return rate {a_ret:.3f} all identical "
+            "with the future scrambled")
+
+
 def main() -> None:
     warnings.filterwarnings("ignore")
     C.banner("repair_checks.py", SCRIPT_VERSION)
@@ -884,7 +944,8 @@ def main() -> None:
                      ("the 2026-27 ceiling", c21),
                      ("the distribution's mean is the forecast", c22),
                      ("every registered variant runs", c23),
-                     ("the path simulation's guards", c24)]:
+                     ("the path simulation's guards", c24),
+                     ("the simulation cannot see the future", c25)]:
         check(name, lambda fn=fn: fn(table))
 
     width = max(len(n) for n, _, _ in results)
