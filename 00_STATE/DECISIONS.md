@@ -87,6 +87,14 @@ back-test with grouping rule and protocol declared in advance and the reserved e
 until they are fixed. No production code changed, no locked decision reopened, no reserved cohort
 unsealed.
 
+**Change log, 2026-09-16d (simulation review closure):** Verified `db0c6b2`.
+Reran full simulator and 25/25 checks. Independently confirmed all 605 one-year
+contracts agree exactly and both deliberate regressions fail check 25. Closed both
+preceding findings; proceed with integration, retaining remaining Phase 5 gates.
+Recorded minor reproduced-number differences and finite-path simulation limits.
+Added closure audit/report and updated state, queue, flags and session. No candidate
+implementation edits or merge, and no production/source changes.
+
 **Change log, 2026-09-16c (simulation repair verification):** Verified `8239d29`.
 Full suite 25/25 and full simulation reproduced. Prior date-selection and correlation
 implementation defects repaired; returns implemented with two small disclosed clips.

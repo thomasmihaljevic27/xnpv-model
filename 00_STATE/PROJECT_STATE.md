@@ -194,6 +194,18 @@ These findings take precedence over the earlier broad validation claims. No impl
 changed; repaired development comparisons and the unbuilt simulation work must precede adoption.
 Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 
+**Simulation repair review closed, 2026-09-16:** verified `db0c6b2` in isolation.
+Full suite passes 25/25. All 605 one-year contracts now have exact path/SD equality;
+shared participation uniforms reach all three arms. Check 25 passes normally and
+fails both with page_dependence disabled and with latest-page selection restored.
+Both preceding findings are closed; proceed with valuation integration. Full run:
+1,217 contracts, 223 sign changes, $182,944 mean uplift; eight-year average within-
+contract SD $11.012715M with returns versus $11.074470M absorbing. Shared draws reduce
+comparison noise but do not eliminate multi-year Monte Carlo error. Phase 5 remains
+open for RFA/control years, goalies, joint-path scope, dollar scoring and reconciliation.
+See `50_REBUILD/docs/Simulation_Review_Closure_Codex.md`. No model patch or merge;
+unrelated files preserved.
+
 **Simulation repair verification, 2026-09-16:** reviewed `8239d29` in isolation.
 Reproduced 25/25 checks, 1,217 simulations, 228 contract sign changes and the
 $11.02M/$11.09M eight-year return/absorbing spread comparison. Dated calibration
