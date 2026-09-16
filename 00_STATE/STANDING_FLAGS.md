@@ -79,25 +79,37 @@ residuals and currency comparisons; fix and rerun development work before furthe
 
 ## Standing flags (Karl's identification axes — watch on every design choice)
 
-- **NEW 2026-09-16 — the participation model is squeezed toward the middle, and no aggregate
-  number can see it.** Predicted probability of playing against the share who did, on development
-  pages: 22-and-unders 0.677 against 0.804 five seasons out and under-predicted at **every**
-  horizon; 3+ 0.781 against 0.883; 2-to-3 0.682 against 0.799; against 34-and-overs 0.491 against
-  0.373 at the valuation season and 31-to-33s 0.684 against 0.628. One-directional the whole
-  length of both the level and the age tables: the groups that survive are under-predicted and
-  the groups that do not are over-predicted. **In aggregate the errors cancel** (0.752/0.710 at
-  the valuation season, 0.352/0.383 five out) and the Brier score is flat at 0.126-0.138, which
-  is why nothing had flagged it. A survivorship correction built on this model inherits the
-  compression, and the aging curve's selection weights are joint with it, so this reaches further
-  than the interval.
-- **NEW 2026-09-16 — the young-player weakness is not what the queue assumed.** Correcting the
-  forecast centre for 22-and-unders makes their coverage **worse** at five of six horizons, and
-  their point bias at three seasons out is participation (−0.114) rather than rate (−0.072). The
-  queue's stated fix, a prior from the prospect pillar, addresses a centre that is not the problem
-  at the horizons where the gap opens. Evidence:
-  `50_REBUILD/docs/Coverage_Decomposition.md`. The stars are the opposite case and the rate
-  finding there stands: their bias is −0.921 in the rate five seasons out with participation near
-  zero at three.
+- **NEW 2026-09-16, revised after fact check — long-horizon subgroup miscalibration, causes
+  unresolved.** The measured statement, and the one for the write-up: nominal 80% ranges hold
+  82-84% of outcomes overall but **61% for the 3+ tier five seasons out and 66% for players 22 and
+  under**; 18.5% of played star seasons five out exceed their own page's 95th percentile against
+  an intended 5%; participation probabilities are miscalibrated for those same groups
+  (22-and-unders under-predicted at every horizon, 0.677 against 0.804 five out; 3+ 0.781 against
+  0.883; 34-and-overs over-predicted 0.491 against 0.373 at the valuation season). **The
+  respective roles of participation, games played, the rate forecast and selection are
+  unresolved**, and a calibration table cannot resolve them. Selection is a plausible contributor
+  but is not identified: the harness already keeps departed players as zero seasons rather than
+  dropping them, and the aging curve already attempts a correction, so this is not simply the
+  error from testing on survivors. Do not start another tuning cycle on this development sample.
+  `50_REBUILD/docs/Coverage_Decomposition.md`.
+- **NEW 2026-09-16 — the games forecast is a larger error source than anyone had noticed.** In a
+  common-unit accounting that closes, the share of the schedule is the largest single component of
+  the 22-and-unders' point bias three seasons out (-0.207 of -0.340) and the whole of the 3+
+  tier's bias at the valuation season (-0.178 of -0.172). It has been treated throughout the
+  rebuild as the quiet half of the rate-and-games pair. This is a measurement, not a ranking of
+  causes; the substitution order decides where interactions land.
+- **WITHDRAWN 2026-09-16, the day after it was raised — the causal reading of the coverage gap.**
+  Nine claims are withdrawn in `50_REBUILD/docs/Coverage_Decomposition.md` section 5, among them
+  that the three levers were ceilings (doubling the spread alone takes star coverage five out from
+  60.8% to 88.3%, past every figure reported as a bound), that the gap was therefore three
+  distinct defects, that the centre is the wrong lever for young players, that their bias was
+  almost entirely participation (it is mostly games, and the original table compared four
+  quantities in four different units), that the participation error was one-directional, that
+  participation helped every under-covered group (this branch's own output printed two
+  counterexamples while the sentence was being written), and that a flat Brier score shows
+  subgroup errors cancelling, which is not how a squared-error score behaves. The star rate
+  finding and the participation miscalibration survive. Recorded rather than deleted: the earlier
+  version was published and read.
 
 - **NEW 2026-09-15c — the 2027-28 ceiling: production calls it published, Thomas calls it an
   estimate.** `20_CODE/skater_forward_projection.py` and `20_CODE/goalie_value_engine.py` both

@@ -77,40 +77,38 @@ the work is. Next, in order:
 5. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
    contract-by-contract dollar reconciliation, and the holdout policy.
 
-**2026-09-16 — the subgroup coverage gap is decomposed, and it reorders this list.**
-`run_coverage_decomposition.py` sets three levers to the value the outcomes say they should have
-had (centre, spread, probability of playing), one at a time and together, and measures how much of
-each subgroup's coverage gap each one closes. Oracle ceilings on one sample, nothing adopted.
-Report: `50_REBUILD/docs/Coverage_Decomposition.md`. Four results:
-1. **No single lever closes the star gap.** Five seasons out the best single lever closes 36% of
-   it; all three together overshoot. It is a three-way defect, and which lever dominates changes
-   with distance (centre near the valuation season, spread and participation further out).
-2. **For players 22 and under the centre is the WRONG lever** — correcting it makes coverage worse
-   at five of six horizons. The spread carries 47-110% and participation 31-62%.
-3. **Participation is compressed toward the middle**, one-directionally, across both the level and
-   the age tables: it under-predicts survival for the groups that survive (22-and-unders by 3 to
-   13 points at every horizon; 3+ by 10 five out) and over-predicts it for those that do not (34+
-   by 12 at the valuation season). **The aggregate Brier score cannot see this** — the errors
-   cancel and it sits flat at 0.126-0.138.
-4. **The point bias agrees, from the other side.** The stars' bias is almost entirely rate
-   (-0.921 of -0.866 five out, participation near zero at three out). The 22-and-unders' bias at
-   three seasons out is NOT rate (-0.072) but participation (-0.114).
+**2026-09-16 — the diagnostic loop is closed. The limitation is measured; its causes are not.**
+The coverage decomposition was fact-checked and its tables reproduce, but most of the causal
+reading did not survive and is withdrawn (nine items, listed in
+`50_REBUILD/docs/Coverage_Decomposition.md` section 5). **Do not start another tuning cycle on
+this sample.** Repeated adjustments to a development sample that has already been inspected many
+times cannot separate these causes, and each pass spends credibility on a question the exercise
+is not built to answer.
 
-**Revised order, replacing the one below:**
-1. **The participation model.** Promoted from untouched Phase 2 work to first. It is the only
-   lever that helps every under-covered group, its defect is measured and one-directional, and
-   whatever separates a 22-year-old's survival from a 34-year-old's is under-weighted. Fixing the
-   compression is the task.
-2. **The star residual, scope narrowed.** Confirmed twice as a RATE defect worth about 0.9 wins a
-   season five years out for the players who carry the money. Keep it, but it closes at most a
-   quarter of the star coverage gap at that horizon and must not be sold as the whole of it.
-3. **A tier or age term in the band's spread.** Previously deferred until the centre was fixed.
-   For the young it is the largest single lever at every horizon, and a centre repair would not
-   help them, so the deferral was waiting for nothing.
-4. **Rewrite the young-player item below.** Its stated fix, a prior from the prospect pillar,
-   addresses a centre the decomposition says is not the problem at the horizons where the gap
-   opens.
-Then the joint simulation, separate rate and games bands, and the rest of the named milestone.
+**What is established and goes in the write-up as stated:**
+- Nominal 80% ranges hold 82-84% of outcomes overall, **61% for the 3+ tier five seasons out** and
+  **66% for players 22 and under**; 18.5% of played star seasons five out finish above their own
+  page's 95th percentile, where 5% is intended.
+- Participation probabilities are miscalibrated for those groups: 22-and-unders under-predicted at
+  every horizon (0.677 against 0.804 five out), 3+ at 0.781 against 0.883, 34-and-overs
+  over-predicted at 0.491 against 0.373 at the valuation season.
+- In a common-unit accounting that closes, the stars' bias is mostly **rate** (-0.680 of -0.866
+  five out) and **games played is a substantial error source nothing had remarked on** -- the
+  largest single component of the young players' bias three seasons out (-0.207 of -0.340) and the
+  whole of the stars' bias at the valuation season (-0.178 of -0.172).
+- **The respective roles of participation, games, rate and selection are unresolved.** Say that.
+
+**Next, and it is the question that decides whether any of this matters:** does the thesis's own
+conclusion move? Run the valuations and the trade-mispricing categories across reasonable
+forecast alternatives. If the categories survive, an imperfect forecast still supports the
+argument and the paragraph above is a limitation. If they do not, that is a finding about the
+thesis, not about calibration. Then the rest of the milestone: the joint simulation, separate rate
+and games bands, trade-date updates, control-year and goalie treatment, contract-by-contract
+dollar reconciliation, and the holdout policy.
+
+**Carried forward from the withdrawn reordering, because it is measured rather than inferred:**
+the games forecast deserves attention it has not had, and the star residual remains a rate defect.
+Neither is a ranking of causes.
 
 **WITHDRAWN, same day — the "rising sensitivity" open question.** It was raised on a test whose
 helper refitted the model on the perturbed data while claiming the fit was held fixed. With the

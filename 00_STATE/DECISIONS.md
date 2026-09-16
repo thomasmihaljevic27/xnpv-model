@@ -1,5 +1,27 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-16b (answering the coverage fact check, and closing the loop):** All three
+findings accepted. (1) The three levers were called oracle ceilings and are not -- they are
+arbitrary adjustments, and doubling the spread alone takes star coverage five seasons out from
+60.8% to 88.3%, past every figure reported as a bound. The framing is corrected in code and
+report, and the deduction that rested on it ("therefore three distinct defects", "the centre
+closes at most a quarter") is withdrawn. (2) The point-bias table compared four quantities in four
+units and was not a decomposition; it is replaced by an exact common-unit accounting that closes,
+which reproduces the reviewer's figures to three decimals and **reverses the young-player
+conclusion**: their bias three seasons out is mostly **games played** (-0.207) rather than
+participation (-0.061) or rate (-0.072). The stars' rate finding survives (-0.680 of -0.866 five
+out). New: games played is a substantial error source nothing had remarked on. (3) The diagnostic
+used the last page's residual shape for every page, under a comment asserting the pages differed
+by less than a hundredth -- a figure never measured, and wrong by 0.030. Each page now uses its
+own shape; the star five-seasons-out baseline corrects from 60.2% to 60.8%. Also corrected: the
+participation error is not uniformly one-directional, participation does not help every
+under-covered group (this branch's own output printed two counterexamples), and a flat Brier score
+does not show subgroup errors cancelling. **Nine withdrawn claims are listed in the report's
+section 5 rather than edited away.** The diagnostic loop is closed at Thomas's direction and the
+reviewer's recommendation; the measured limitation is recorded for the write-up and the next work
+is whether the thesis's own trade-mispricing conclusions move under reasonable forecast
+alternatives. No production code changed, no locked decision reopened, no reserved page unsealed.
+
 **Change log, 2026-09-15y (coverage diagnostic fact check):** Reproduced `c4c41f4`.
 Recorded valid subgroup participation errors and rejected unsupported oracle-ceiling and
 causal-attribution claims. Added independent counterexamples and exact, order-dependent WAR
