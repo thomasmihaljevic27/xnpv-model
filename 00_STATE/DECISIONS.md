@@ -1,5 +1,13 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-15x (uncertainty repair verification):** Tested `9c27042` in
+isolation. All 22 checks pass without skips. Independently reproduced frozen sensitivity,
+per-year residual diagnostics and revised coverage. Distribution mean matches the point
+expectation across all 40,510 rows; disabling centring trips the new guard. Closed the three
+prior uncertainty implementation findings. Star/young undercoverage remains unresolved model
+work. Added verification report and updated state, queue, flags and session. No candidate merge,
+production changes, reserved evaluation or locked-decision changes.
+
 **Change log, 2026-09-15z (answering the uncertainty implementation review):** All three
 findings accepted and fixed, plus one stale figure of this branch's own. (1)
 `run_leakage_tests._predict_at()` refitted the model on perturbed data while the test said the fit
@@ -25,7 +33,6 @@ softened to what the evidence supports. Suite: **20 passed, 2 skipped, 0 failed*
 skips need the PuckPedia .xlsx. Note: two entries this day carry the letter w, the review's and
 this branch's, distinguishable by their parentheticals. No production code changed, no locked
 decision reopened, no reserved page unsealed.
-
 **Change log, 2026-09-15w (uncertainty implementation review):** Reviewed `73b77ee` from
 Claude's new branch. Reproduced export guard, aggregate and subgroup interval coverage, and
 21/21 repair checks with the production workbook. Future-data tests return zero differences;
