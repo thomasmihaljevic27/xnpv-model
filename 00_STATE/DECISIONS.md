@@ -1,5 +1,13 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-15z (valuation sensitivity review):** Reproduced `5e019ad`'s
+valuation table and 22/22 checks, plus the component fit failure. Added independent
+fixed-group, same-aging participation, held-currency and contract-ID attrition checks.
+The elite sign reversal disappears on the candidate's fixed 18 contracts. Missing long
+deals predominantly fail the price-fit sample threshold, not forecast reach. Added audit
+script/report and updated state, queue, flags and session. No model fixes, candidate merge,
+reserved valuation evaluation or substantive thesis claim adopted.
+
 **Change log, 2026-09-16c (valuation sensitivity, and the live chain compared):** Built
 `50_REBUILD/code/run_valuation_sensitivity.py`. Same 1,217 development-cohort contracts priced
 under five forecasts -- today's live chain through `production_adapter.ProductionChain`, a
@@ -41,7 +49,6 @@ section 5 rather than edited away.** The diagnostic loop is closed at Thomas's d
 reviewer's recommendation; the measured limitation is recorded for the write-up and the next work
 is whether the thesis's own trade-mispricing conclusions move under reasonable forecast
 alternatives. No production code changed, no locked decision reopened, no reserved page unsealed.
-
 **Change log, 2026-09-15y (coverage diagnostic fact check):** Reproduced `c4c41f4`.
 Recorded valid subgroup participation errors and rejected unsupported oracle-ceiling and
 causal-attribution claims. Added independent counterexamples and exact, order-dependent WAR
