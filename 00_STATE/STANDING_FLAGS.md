@@ -67,6 +67,26 @@ residuals and currency comparisons; fix and rerun development work before furthe
 
 ## Standing flags (Karl's identification axes — watch on every design choice)
 
+- **NEW 2026-09-16 — the participation model is squeezed toward the middle, and no aggregate
+  number can see it.** Predicted probability of playing against the share who did, on development
+  pages: 22-and-unders 0.677 against 0.804 five seasons out and under-predicted at **every**
+  horizon; 3+ 0.781 against 0.883; 2-to-3 0.682 against 0.799; against 34-and-overs 0.491 against
+  0.373 at the valuation season and 31-to-33s 0.684 against 0.628. One-directional the whole
+  length of both the level and the age tables: the groups that survive are under-predicted and
+  the groups that do not are over-predicted. **In aggregate the errors cancel** (0.752/0.710 at
+  the valuation season, 0.352/0.383 five out) and the Brier score is flat at 0.126-0.138, which
+  is why nothing had flagged it. A survivorship correction built on this model inherits the
+  compression, and the aging curve's selection weights are joint with it, so this reaches further
+  than the interval.
+- **NEW 2026-09-16 — the young-player weakness is not what the queue assumed.** Correcting the
+  forecast centre for 22-and-unders makes their coverage **worse** at five of six horizons, and
+  their point bias at three seasons out is participation (−0.114) rather than rate (−0.072). The
+  queue's stated fix, a prior from the prospect pillar, addresses a centre that is not the problem
+  at the horizons where the gap opens. Evidence:
+  `50_REBUILD/docs/Coverage_Decomposition.md`. The stars are the opposite case and the rate
+  finding there stands: their bias is −0.921 in the rate five seasons out with participation near
+  zero at three.
+
 - **NEW 2026-09-15c — the 2027-28 ceiling: production calls it published, Thomas calls it an
   estimate.** `20_CODE/skater_forward_projection.py` and `20_CODE/goalie_value_engine.py` both
   carry 2027 = $113.5M, commented as a published 2025 MOU figure. Thomas's statement on

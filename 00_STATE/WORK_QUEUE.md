@@ -65,6 +65,41 @@ the work is. Next, in order:
 5. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
    contract-by-contract dollar reconciliation, and the holdout policy.
 
+**2026-09-16 — the subgroup coverage gap is decomposed, and it reorders this list.**
+`run_coverage_decomposition.py` sets three levers to the value the outcomes say they should have
+had (centre, spread, probability of playing), one at a time and together, and measures how much of
+each subgroup's coverage gap each one closes. Oracle ceilings on one sample, nothing adopted.
+Report: `50_REBUILD/docs/Coverage_Decomposition.md`. Four results:
+1. **No single lever closes the star gap.** Five seasons out the best single lever closes 36% of
+   it; all three together overshoot. It is a three-way defect, and which lever dominates changes
+   with distance (centre near the valuation season, spread and participation further out).
+2. **For players 22 and under the centre is the WRONG lever** — correcting it makes coverage worse
+   at five of six horizons. The spread carries 47-110% and participation 31-62%.
+3. **Participation is compressed toward the middle**, one-directionally, across both the level and
+   the age tables: it under-predicts survival for the groups that survive (22-and-unders by 3 to
+   13 points at every horizon; 3+ by 10 five out) and over-predicts it for those that do not (34+
+   by 12 at the valuation season). **The aggregate Brier score cannot see this** — the errors
+   cancel and it sits flat at 0.126-0.138.
+4. **The point bias agrees, from the other side.** The stars' bias is almost entirely rate
+   (-0.921 of -0.866 five out, participation near zero at three out). The 22-and-unders' bias at
+   three seasons out is NOT rate (-0.072) but participation (-0.114).
+
+**Revised order, replacing the one below:**
+1. **The participation model.** Promoted from untouched Phase 2 work to first. It is the only
+   lever that helps every under-covered group, its defect is measured and one-directional, and
+   whatever separates a 22-year-old's survival from a 34-year-old's is under-weighted. Fixing the
+   compression is the task.
+2. **The star residual, scope narrowed.** Confirmed twice as a RATE defect worth about 0.9 wins a
+   season five years out for the players who carry the money. Keep it, but it closes at most a
+   quarter of the star coverage gap at that horizon and must not be sold as the whole of it.
+3. **A tier or age term in the band's spread.** Previously deferred until the centre was fixed.
+   For the young it is the largest single lever at every horizon, and a centre repair would not
+   help them, so the deferral was waiting for nothing.
+4. **Rewrite the young-player item below.** Its stated fix, a prior from the prospect pillar,
+   addresses a centre the decomposition says is not the problem at the horizons where the gap
+   opens.
+Then the joint simulation, separate rate and games bands, and the rest of the named milestone.
+
 **WITHDRAWN, same day — the "rising sensitivity" open question.** It was raised on a test whose
 helper refitted the model on the perturbed data while claiming the fit was held fixed. With the
 fit frozen the pass-through **falls** with distance, 0.23 at the valuation season to 0.15 five

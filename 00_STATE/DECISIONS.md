@@ -1,5 +1,22 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-16a (decomposing the subgroup coverage gap):** Built
+`50_REBUILD/code/run_coverage_decomposition.py` to answer the question both independent reviews
+left open -- how much of the star and young-player under-coverage is a low forecast centre, a
+narrow band, or a wrong probability of playing. Three oracle levers, one at a time and together,
+plus two measurements with no hindsight in them. **No single lever closes the star gap** (36% at
+best five seasons out; all three together overshoot), and **for 22-and-unders the centre lever is
+negative at five of six horizons** while the spread closes 47-110%. Participation is compressed
+toward the middle, one-directionally across both the level and the age tables, and the aggregate
+Brier score cannot see it because the errors cancel. The point bias splits the same way: stars are
+a rate defect (-0.921 five out), 22-and-unders at three seasons out are a participation defect
+(-0.114 against a rate of -0.072). **Queue reordered: participation promoted to first**, the star
+residual kept with its scope narrowed to the rate and to at most a quarter of the star coverage
+gap, the band's tier/age term un-deferred, and the young-player item's stated fix marked as
+addressing the wrong component. Report: `50_REBUILD/docs/Coverage_Decomposition.md`. Everything
+here is an oracle ceiling on one development sample; nothing is fitted for use, nothing adopted,
+no production code changed, no locked decision reopened, no reserved page unsealed.
+
 **Change log, 2026-09-15x (uncertainty repair verification):** Tested `9c27042` in
 isolation. All 22 checks pass without skips. Independently reproduced frozen sensitivity,
 per-year residual diagnostics and revised coverage. Distribution mean matches the point

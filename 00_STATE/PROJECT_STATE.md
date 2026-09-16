@@ -263,6 +263,20 @@ guard. Report:
 `50_REBUILD/docs/Predictive_Uncertainty_and_Leakage.md`; review:
 `50_REBUILD/docs/Uncertainty_Implementation_Review_Codex.md`.
 
+**The subgroup coverage gap, decomposed (2026-09-16).** Three oracle levers -- forecast centre,
+band spread, probability of playing -- each set to what the outcomes say it should have been, one
+at a time and together. **No single lever closes the star gap** (36% at best five seasons out
+against an overshoot for all three), and **for players 22 and under the centre is the wrong lever
+entirely**, making coverage worse at five of six horizons while the spread carries 47-110%. Two
+measurements with no hindsight agree: the participation model under-predicts survival for the
+groups that survive and over-predicts it for those that do not, one-directionally down both the
+level and the age tables, while the aggregate Brier score stays flat and blind at 0.126-0.138;
+and the point bias is almost entirely rate for the stars (-0.921 five out) and almost entirely
+participation for the 22-and-unders at three seasons out (-0.114 against a rate of -0.072).
+Participation is promoted to first in the queue. Report:
+`50_REBUILD/docs/Coverage_Decomposition.md`. Nothing adopted; every lever is an oracle ceiling on
+one sample.
+
 **The cap path, 2026-09-15c.** The rebuild's ceiling table gains 2026-27 at $104.0M, confirmed,
 with the 2025-01-31 announcement date enforced in both directions. 2027-28 stays out because the
 figure in circulation is an estimate; production carries it as $113.5M and the discrepancy is in
