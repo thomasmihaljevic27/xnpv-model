@@ -77,6 +77,50 @@ the work is. Next, in order:
 5. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
    contract-by-contract dollar reconciliation, and the holdout policy.
 
+**2026-09-16b — the valuation sensitivity is run, and it answers the question the diagnostics
+could not.** Same 1,217 development contracts, same cost side, same signing-dated rolling
+protocol, five forecasts from today's live chain to the adopted candidate, each with its own
+price line. Report: `50_REBUILD/docs/Valuation_Sensitivity.md`.
+
+**Robust, and the live chain agrees:** below-replacement always negative (-0.19 to -0.42 $M),
+0-to-0.5 always positive (+0.10 to +0.29), **1-to-2 wins always positive and the largest solid
+category** (+0.75 to +1.76). Contract by contract the models correlate 0.974-0.988 with the live
+chain, same sign on 88-97%, mean gap $0.24-0.47M.
+
+**Not robust:** the **2+ tier flips sign** -- live chain -0.19, trailing blend +1.05, the three
+rebuilt forecasts -1.7 to -1.8 -- on **18 contracts**, from a sample that keeps only about half
+the six- and eight-year deals. This is the same reversal the currency-shape work already found
+down a different road. **Two independent design choices each flip the headline.** It is not one
+decision away from settled.
+
+**Barely matters:** removing the participation model entirely moves the top tier from -1.74 to
+-1.68 and the correlation with the live chain from 0.974 to 0.977. **The participation
+miscalibration does not move the valuation ordering**, which is worth knowing before spending a
+phase on it.
+
+**Matters far more than any forecast choice:** the term framing. Top-tier surplus swings $9M to
+$14M per contract between term-in and term-free, against a $2.9M spread across all five
+forecasts. That is a judgement, not an estimate, and it dominates.
+
+**What follows:**
+1. **Cite the three robust categories; do not cite the elite one.** The back-test can proceed on
+   the categories that survive. The 2+ tier needs either a wider sample (pooling goalies and
+   prospects, or extending the panel back) or an explicit statement in the paper that the top is
+   not identified. The queue's item 1 stands and is now doubly evidenced.
+2. **Term coverage is the cheapest real gain available.** 64% of eligible development contracts
+   are priced and the loss is selective against long deals, which is exactly where the top tier
+   lives. Extending the forecast's reach would widen the thinnest part of the sample.
+3. The participation work drops down the order on this evidence. Fix it for the forecast's own
+   sake, not for the thesis's.
+4. **New defect found in passing:** `A2AgingParticipationImputed` raises `AttributeError` on
+   `fitted_horizons_` inside its own fit, so a candidate the variant register carries cannot be
+   run through the contract path at all.
+
+**Environment note:** the two production-adapter checks now run here. The contract CSV was
+written to .xlsx (40 of 40 columns identical on nulls and values) so `20_CODE/age_join.py` can
+build `WAR_with_age.csv`, which is what the adapter needs. Suite is **22 passed, 0 skipped, 0
+failed**, matching the reviewer's environment.
+
 **2026-09-16 — the diagnostic loop is closed. The limitation is measured; its causes are not.**
 The coverage decomposition was fact-checked and its tables reproduce, but most of the causal
 reading did not survive and is withdrawn (nine items, listed in

@@ -79,6 +79,21 @@ residuals and currency comparisons; fix and rerun development work before furthe
 
 ## Standing flags (Karl's identification axes — watch on every design choice)
 
+- **NEW 2026-09-16b — the elite tier now fails on a second independent axis, and the evidence is
+  eighteen contracts.** The currency-shape work already showed surplus at the top flipping between
+  a straight and a log price line. Varying the FORECAST flips it too: today's live chain says
+  -0.19 $M, a trailing blend says +1.05, and the three rebuilt forecasts say -1.7 to -1.8, on the
+  same 18 contracts. Two defensible design choices, each reversing the headline. **This is not one
+  decision away from being settled**, and no back-test result about stars should be cited. The
+  sample also keeps only about half the six- and eight-year deals, which is where that tier lives.
+- **NEW 2026-09-16b — the forecast's calibration errors are not what threatens the conclusion.**
+  Removing the participation model from the valuation entirely moves the top tier from -1.74 to
+  -1.68 $M and the correlation with the live chain from 0.974 to 0.977. The subgroup
+  miscalibration that took two days to characterise does not move the valuation ordering. What
+  moves it is thin data at the top and the term framing, which swings top-tier surplus by $9-14M
+  a contract against a $2.9M spread across every forecast tested. **A framing judgement is worth
+  three to five times any modelling difference here**, and that ratio belongs in the write-up.
+
 - **NEW 2026-09-16, revised after fact check — long-horizon subgroup miscalibration, causes
   unresolved.** The measured statement, and the one for the write-up: nominal 80% ranges hold
   82-84% of outcomes overall but **61% for the 3+ tier five seasons out and 66% for players 22 and

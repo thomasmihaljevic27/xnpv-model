@@ -1,5 +1,25 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-16c (valuation sensitivity, and the live chain compared):** Built
+`50_REBUILD/code/run_valuation_sensitivity.py`. Same 1,217 development-cohort contracts priced
+under five forecasts -- today's live chain through `production_adapter.ProductionChain`, a
+trailing blend, the calibrated total with and without participation, and the adopted candidate --
+each with its own signing-dated rolling price line, plus both term framings. **Three of five
+surplus categories keep their sign under every forecast including the live chain**
+(below-replacement negative, 0-to-0.5 positive, 1-to-2 positive and largest), with contract-level
+correlation 0.974-0.988 against the live chain and 88-97% sign agreement. **The 2+ tier flips
+sign** (-1.80 to +1.05 $M) on 18 contracts -- a second independent reversal of the headline after
+the currency-shape one. **Removing participation changes almost nothing**, so the calibration work
+does not move the valuation ordering. **The term framing swings top-tier surplus $9-14M a
+contract** against a $2.9M spread across forecasts. Term coverage is 64% of eligible contracts and
+selective against long deals. Found in passing: `A2AgingParticipationImputed` raises
+AttributeError on `fitted_horizons_` in its own fit, so a registered candidate cannot be run
+through the contract path. Environment: the contract CSV was written to .xlsx (40 of 40 columns
+identical on nulls and values) so `age_join.py` can build `WAR_with_age.csv` for the production
+adapter; the suite now runs **22 passed, 0 skipped, 0 failed**. Report:
+`50_REBUILD/docs/Valuation_Sensitivity.md`. Nothing adopted, no production code changed, no locked
+decision reopened, no reserved cohort unsealed.
+
 **Change log, 2026-09-16b (answering the coverage fact check, and closing the loop):** All three
 findings accepted. (1) The three levers were called oracle ceilings and are not -- they are
 arbitrary adjustments, and doubling the spread alone takes star coverage five seasons out from
