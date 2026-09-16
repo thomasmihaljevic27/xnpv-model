@@ -298,6 +298,17 @@ guard. Report:
 `50_REBUILD/docs/Predictive_Uncertainty_and_Leakage.md`; review:
 `50_REBUILD/docs/Uncertainty_Implementation_Review_Codex.md`.
 
+**Review stage closed, component variant repaired (2026-09-16c).** The independent reviewer closed
+the coverage-and-valuation review at `e14e873`. The first item on its next-work list is done:
+`A2AgingParticipationImputed` raised `AttributeError` because the component model's overriding
+training-pair builder was a copy of the base one with the three lines recording the fitted
+horizons dropped. Those lines now live in one `_record_fitted_horizons` that both builders call,
+and `BaseModel.fit` initialises `fitted_horizons_ = None` -- the convention `_guard_horizons`
+already read -- so an unrecorded range fails visibly instead of downstream. New check 23 fits and
+queries **all 34 registered variants**; suite is **23 passed, 0 skipped, 0 failed**. Remaining
+work: the joint simulation, valuation integration and dollar reconciliation, then the back-test
+with its grouping rule and protocol declared in advance.
+
 **Valuation sensitivity on a declared fixed grouping (2026-09-16, revised after review).** Same
 1,217 development contracts under five forecasts, from production's own projection and survival
 (imported through the adapter and priced through THIS tree's currency, which is not the production

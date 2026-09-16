@@ -39,7 +39,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 import information_set as ISET
 
-SCRIPT_VERSION = "1.6"
+SCRIPT_VERSION = "1.7"
 
 W_T1, W_T2 = 0.6, 0.4    # the locked recency weighting, reproduced for A0
 
@@ -228,6 +228,18 @@ class BaseModel:
 
     def fit(self, table: pd.DataFrame, before: int) -> None:
         self.before = before
+        # UNRESTRICTED UNTIL A FIT NARROWS IT. None is the convention
+        # _guard_horizons already reads through a getattr default, and it means
+        # "this model fitted nothing, so no horizon is outside its range" --
+        # true of the flat benchmark and of the production adapter, which carry
+        # a number forward rather than estimating one.
+        #
+        # Setting it here rather than leaving the attribute absent is what
+        # stops a model that SHOULD have recorded a range from failing with
+        # AttributeError somewhere downstream instead of being caught. The
+        # component model did exactly that, and the error surfaced inside its
+        # own fit rather than anywhere that named the cause.
+        self.fitted_horizons_ = None
         self.decay_ = self.DECAY
         if self.FIT_DECAY:
             self.decay_ = self._fit_decay(table, before)
@@ -267,6 +279,27 @@ class BaseModel:
     def predict(self, iset, subs, horizons) -> pd.DataFrame:
         raise NotImplementedError
 
+    def _record_fitted_horizons(self, pairs: pd.DataFrame) -> None:
+        """WHICH HORIZONS THIS PAGE CAN ACTUALLY CARRY, recorded on the model so
+        the guard can refuse the rest by evidence rather than by a constant.
+
+        THIS LIVES IN ONE PLACE ON PURPOSE. It used to be three lines at the
+        end of the base pair builder, and the component model's own builder --
+        which had to override that method to construct its anchors differently
+        -- was written by copying the rest of it and dropping these. The result
+        was a registered candidate that raised AttributeError inside its own
+        fit, before it could price a single contract, because the horizons it
+        was about to be asked about had never been recorded.
+
+        That is the second-copy-of-a-rule failure this codebase has been bitten
+        by twice before and warns about in two other files. Adding the three
+        lines back to the second builder would have made a third copy. Any
+        builder that produces pairs calls this instead.
+        """
+        n = pairs.dropna(subset=["y_rate"]).groupby("h").size()
+        self.fitted_horizons_ = tuple(
+            sorted(int(h) for h, k in n.items() if k >= C.MIN_HORIZON_PAIRS))
+
     def _training_pairs(self, table: pd.DataFrame, before: int, horizons) -> pd.DataFrame:
         """Every (inputs at t, outcome at t+h) pair whose OUTCOME completed
         before `before`. One row per player-anchor-horizon."""
@@ -293,11 +326,7 @@ class BaseModel:
         # of nothing.
         pairs["y_gp"] = act["GP"].reindex(ix).to_numpy()
         pairs["y_played"] = np.nan_to_num(pairs["y_gp"]) >= C.PARTICIPATION_GP
-        # WHICH HORIZONS THIS PAGE CAN ACTUALLY CARRY, recorded on the model so
-        # the guard can refuse the rest by evidence rather than by a constant.
-        n = pairs.dropna(subset=["y_rate"]).groupby("h").size()
-        self.fitted_horizons_ = tuple(
-            sorted(int(h) for h, k in n.items() if k >= C.MIN_HORIZON_PAIRS))
+        self._record_fitted_horizons(pairs)
         # A season that never happened is not a training row for the RATE, but
         # IS one for participation. Rate fits drop it; the participation
         # placeholder below uses the full frame.
@@ -1192,6 +1221,7 @@ class A2PerComponentWindow(A2PerHorizonTrust3):
         # Same event as the other pair builder and as the participation model.
         pairs["y_gp"] = act["GP"].reindex(ix).to_numpy()
         pairs["y_played"] = np.nan_to_num(pairs["y_gp"]) >= C.PARTICIPATION_GP
+        self._record_fitted_horizons(pairs)
         return pairs
 
     def predict(self, iset, subs, horizons):

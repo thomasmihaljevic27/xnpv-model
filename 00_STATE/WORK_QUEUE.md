@@ -100,6 +100,35 @@ the work is. Next, in order:
 5. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
    contract-by-contract dollar reconciliation, and the holdout policy.
 
+**2026-09-16c — the review stage is closed and the first item after it is done.** The component
+variant's `AttributeError` is repaired and the suite now covers every registered variant:
+**23 passed, 0 skipped, 0 failed**, including all 34 variants fitting and answering the grid.
+
+**The cause was a second copy of a rule.** `A2PerComponentWindow` has to override the training-pair
+builder to construct its anchors differently, and it was written by copying the base builder and
+dropping the three lines that record which horizons the fit managed. The class then read
+`fitted_horizons_` a moment later and raised. That is the failure this codebase warns about in two
+other files, so the fix takes the lines out of both builders into one `_record_fitted_horizons`
+that each calls, rather than making a third copy.
+
+`BaseModel.fit` now also sets `fitted_horizons_ = None` up front. None already meant "fitted
+nothing, so no horizon is out of range" wherever `_guard_horizons` read it through a getattr
+default; making it explicit means a model that SHOULD have recorded a range fails where it can be
+seen rather than with an AttributeError somewhere downstream. No behaviour changes: the two
+unrestricted models already resolved to None.
+
+**Next, in the order the reviewer set:**
+1. **The joint simulation**, on the fitted spread, with the zero-uncertainty identity it already
+   satisfies one layer down and the distribution-mean guard it now has.
+2. **Remaining valuation integration and contract-by-contract dollar reconciliation.**
+3. **The back-test, with the grouping rule and evaluation protocol declared in advance**, all
+   predefined categories evaluated and sensitivity reported. Keep the reserved evaluation sealed
+   until those choices are fixed.
+
+**A wording distinction to preserve** (the reviewer's, and it is right): the ranking of GROUP
+AVERAGES is stable across forecasts. Individual contract rankings are not necessarily identical,
+and nothing here tested them.
+
 **2026-09-16b, revised after review — the valuation sensitivity, on a declared fixed grouping.**
 Same 1,217 development contracts, five forecasts from production's own through the adopted
 candidate, groups cut ONCE on the candidate's forecast and applied to every column. Report:

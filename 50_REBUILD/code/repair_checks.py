@@ -24,7 +24,7 @@ import forecast_harness as H
 import player_season_table as T
 from ability_forecast import A0Production
 
-SCRIPT_VERSION = "2.0"
+SCRIPT_VERSION = "2.1"
 
 PASS, FAIL, SKIP = "pass", "FAIL", "skip"
 results: list[tuple[str, str, str]] = []
@@ -749,6 +749,73 @@ def c22(table):
             f"{removed:+.3f} before centring")
 
 
+def c23(table):
+    """EVERY REGISTERED FORECAST VARIANT CAN BE FITTED AND ASKED A QUESTION.
+
+    The independent review made this point after the component model was found
+    raising AttributeError inside its own fit: the suite passed 22 checks while
+    a candidate the variant register carries as live could not be run at all.
+    Checks that all pass and still miss that are checks of the models somebody
+    happened to use.
+
+    So every model class in ability_forecast.py with a name of its own is
+    fitted on one page and asked for the horizons it says it fitted, and the
+    answer is held to the same contract the harness enforces: the complete
+    requested grid, nothing missing, probabilities and shares in range. It does
+    not test whether a variant is any GOOD -- that is the bake-off's job. It
+    tests that it runs, which is the part nothing was testing.
+    """
+    import inspect
+    import ability_forecast as AF
+    import information_set as ISET
+    from ability_forecast import BaseModel
+
+    page = 2018
+    iset = ISET.build(table, ISET.decision_date_for_page(page), t0=page)
+    subs = H.subjects_at(iset)
+
+    variants = sorted(
+        (n, c) for n, c in vars(AF).items()
+        if inspect.isclass(c) and issubclass(c, BaseModel) and c is not BaseModel
+        and "name" in c.__dict__ and c.__dict__["name"] != "base")
+    assert len(variants) >= 20, f"only {len(variants)} variants found; the sweep is not sweeping"
+
+    broken = []
+    for n, cls in variants:
+        try:
+            m = cls()
+            m.fit(iset.seasons, before=page)
+            # None means unrestricted, which is the convention _guard_horizons
+            # reads and which the flat benchmark legitimately uses: it fits
+            # nothing, so no horizon is outside its range.
+            fitted = m.fitted_horizons_
+            hs = [0, 2, 4] if fitted is None else [h for h in (0, 2, 4) if h in fitted]
+            if not hs:
+                broken.append(f"{n}: fitted no horizon this check could ask about")
+                continue
+            pred = m.predict(iset, subs, hs)
+            want = {(k, h) for k in subs["career_key"] for h in hs}
+            got = set(zip(pred["career_key"], pred["h"].astype(int)))
+            if want != got:
+                broken.append(f"{n}: answered {len(got)} of {len(want)} requested cells")
+                continue
+            for col in ("rate_82", "gp_share", "p_play"):
+                if pred[col].isna().any():
+                    broken.append(f"{n}: returned missing {col}")
+                    break
+            else:
+                if not pred["p_play"].between(0, 1).all():
+                    broken.append(f"{n}: p_play outside [0,1]")
+                elif not pred["gp_share"].between(0, 1).all():
+                    broken.append(f"{n}: gp_share outside [0,1]")
+        except Exception as e:                                    # noqa: BLE001
+            broken.append(f"{n}: {e.__class__.__name__}: {str(e)[:80]}")
+
+    assert not broken, (f"{len(broken)} of {len(variants)} variants cannot be run: "
+                        + "; ".join(broken[:4]))
+    return f"all {len(variants)} registered variants fit and answer the grid on page {page}"
+
+
 def main() -> None:
     warnings.filterwarnings("ignore")
     C.banner("repair_checks.py", SCRIPT_VERSION)
@@ -791,7 +858,8 @@ def main() -> None:
                      ("a band on every row, forecast unmoved", c19),
                      ("the band cannot see the future", c20),
                      ("the 2026-27 ceiling", c21),
-                     ("the distribution's mean is the forecast", c22)]:
+                     ("the distribution's mean is the forecast", c22),
+                     ("every registered variant runs", c23)]:
         check(name, lambda fn=fn: fn(table))
 
     width = max(len(n) for n, _, _ in results)

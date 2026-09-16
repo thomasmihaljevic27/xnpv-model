@@ -1,5 +1,24 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-16e (review stage closed; component variant repaired):** The reviewer closed
+the coverage-and-valuation review at `e14e873` and listed the remaining build work. First item
+done. `A2PerComponentWindow._training_pairs`, which overrides the base builder to construct
+component anchors, had been written by copying it and dropping the three lines that record which
+horizons the fit managed; the class read `fitted_horizons_` immediately afterwards and raised, so
+a registered candidate could not be fitted at all. Those lines are now a single
+`BaseModel._record_fitted_horizons` called by both builders -- a third copy would have repeated
+the failure this codebase warns about in two other files -- and `BaseModel.fit` initialises
+`fitted_horizons_ = None`, the unrestricted convention `_guard_horizons` already read through a
+getattr default, so an unrecorded range fails where it can be seen. No behaviour change for the
+two unrestricted models. Added check 23, which fits every model class in `ability_forecast.py`
+carrying its own name and holds the answer to the harness's grid contract: **all 34 run**. Suite
+is **23 passed, 0 skipped, 0 failed**. Preserved from the closure: the ranking of GROUP AVERAGES
+is stable across forecasts; individual contract rankings are not necessarily identical and were
+not tested. Next: joint simulation, valuation integration and dollar reconciliation, then the
+back-test with grouping rule and protocol declared in advance and the reserved evaluation sealed
+until they are fixed. No production code changed, no locked decision reopened, no reserved cohort
+unsealed.
+
 **Change log, 2026-09-16 (valuation review closure):** Verified `e14e873` by rerunning
 the revised comparison. Independently confirmed identical contract IDs, costs and fixed
 groups; all group means match the prior audit and signs/order agree. Retention, held-currency
