@@ -193,6 +193,18 @@ These findings take precedence over the earlier broad validation claims. No impl
 changed; repaired development comparisons and the unbuilt simulation work must precede adoption.
 Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 
+**Coverage diagnostic fact check, 2026-09-15:** reproduced `c4c41f4` in isolation.
+The participation discrepancies reproduce, but the report's oracle ceilings and causal
+attributions do not follow. Alternative one-parameter adjustments exceed its claimed
+ceilings. A common-unit accounting assigns young h3 error mainly to games in one stated
+replacement order, not almost exclusively participation. The new diagnostic substitutes
+the final year's residual shape, changing star h5 baseline from 60.8% to 60.2%.
+Prior uncertainty fixes remain closed. See
+`50_REBUILD/docs/Coverage_Decomposition_Review_Codex.md`. Record subgroup miscalibration
+as a limitation with unresolved causes; selection bias is plausible, not established.
+Recommendation is to continue remaining build and assess valuation robustness, without
+adopting the new queue priorities as proven diagnoses. No model changed or merged.
+
 **Uncertainty repair verification, 2026-09-15:** tested `9c27042` in isolation and
 closed all three findings from the preceding uncertainty review. All 22 repair checks pass
 with no skips, including production comparisons. Frozen-model sensitivity reproduces
