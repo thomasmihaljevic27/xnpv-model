@@ -1,5 +1,13 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-15y (coverage diagnostic fact check):** Reproduced `c4c41f4`.
+Recorded valid subgroup participation errors and rejected unsupported oracle-ceiling and
+causal-attribution claims. Added independent counterexamples and exact, order-dependent WAR
+accounting; documented the final-year shape substitution in this new diagnostic. Prior fixes
+remain closed. Added review/audit script and updated state, queue, flags and session. Suggested
+documenting measured subgroup limitations and proceeding to remaining build/valuation checks;
+no new model priority or causal explanation adopted, no model merged or holdout used.
+
 **Change log, 2026-09-16a (decomposing the subgroup coverage gap):** Built
 `50_REBUILD/code/run_coverage_decomposition.py` to answer the question both independent reviews
 left open -- how much of the star and young-player under-coverage is a low forecast centre, a
@@ -16,7 +24,6 @@ gap, the band's tier/age term un-deferred, and the young-player item's stated fi
 addressing the wrong component. Report: `50_REBUILD/docs/Coverage_Decomposition.md`. Everything
 here is an oracle ceiling on one development sample; nothing is fitted for use, nothing adopted,
 no production code changed, no locked decision reopened, no reserved page unsealed.
-
 **Change log, 2026-09-15x (uncertainty repair verification):** Tested `9c27042` in
 isolation. All 22 checks pass without skips. Independently reproduced frozen sensitivity,
 per-year residual diagnostics and revised coverage. Distribution mean matches the point
