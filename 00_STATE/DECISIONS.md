@@ -1,5 +1,22 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-16j (full-chain reconciliation against the production spine):** Thomas
+supplied `goalie_value_spine.csv`; the goalie engine's Stage P parity gate passes at $0.000284 and
+`contract_npv.py` prices 2,981 contracts (2,591 skater, 390 goalie) with median +0.29 and p10
+-7.80 -- every locked figure exactly, alongside Stage 0a/0b, 6,892 priced skater rows and the k=0
+identity at $0.00. `run_valuation_integration.py` now reconciles 1,141 contracts contract by
+contract. **The gap is monotone in term**, -$0.39M at one year to **+$33.63M at eight**, while
+rank correlation WITHIN each term stays 0.69-0.89 from three to eight years: the two systems agree
+about ordering and disagree about whether long contracts are worth signing. **Removing
+production's survival weighting explains -$0.58M of the $34.21M eight-year gap**, so the
+long-contract pessimism is on the value side, not the exit hazard -- which contradicts the
+standing note that the hazard was offsetting over-projection, now flagged. Recorded discrepancy:
+`goalie_value_spine_v2.csv` hashes to `7e481bf4...` against the record's `55c935dd...` while every
+content check passes; float formatting under a different pandas version is the likely cause and is
+**not verified**. Neither side is scored against an outcome, part of the level difference is
+definitional, and 22 eight-year contracts carry the largest gaps. No production code changed, no
+locked decision reopened, no reserved cohort unsealed.
+
 **Change log, 2026-09-16i (production chain runs; valuation integration built):** Thomas supplied
 `contract_season_spine.csv`. Production's chain runs in this container for the first time and
 reproduces its locked guards -- Stage 0a/0b PASS against the locked regression, 6,892 priced skater

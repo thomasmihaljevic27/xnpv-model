@@ -136,13 +136,101 @@ def main() -> None:
           f"{d['surplus_sim'].mean()/1e6:>11.2f}{d['gap'].mean()/1e6:>9.2f}"
           f"{d['sim_sd'].mean()/1e6:>9.2f}{100*d['p_negative'].mean():>16.0f}%")
     C.log("")
-    C.log("  THE RECONCILIATION IS NOT HERE. Production's own contract NPV is")
-    C.log("  what the plan asks this to be compared against, and building it")
-    C.log("  needs goalie_value_spine_v2.csv -- contract_npv.py prices both")
-    C.log("  positions and reads the goalie spine at startup, so the skater")
-    C.log("  half cannot run without it. Every other production input is")
-    C.log("  present and reproduces its locked guards.")
-    C.log("")
+    # ---- the reconciliation, contract by contract -------------------------
+    spine_f = Path(C.PROD_OUTPUT_DIR) / "contract_npv_spine.csv"
+    if not spine_f.exists():
+        C.log("  RECONCILIATION SKIPPED: production's contract_npv_spine.csv is not")
+        C.log("  present. Run the production chain to produce it.")
+        C.log("")
+    else:
+        spine = pd.read_csv(spine_f)
+        C.log("FULL-CHAIN MOVEMENT AGAINST THE PRODUCTION SPINE, contract by")
+        C.log("contract. This is the plan's Phase 5 acceptance item.")
+        C.log("")
+        C.log("WHAT IS AND IS NOT COMPARABLE. Both sides are a dollar surplus over")
+        C.log("the contract, discounted. They are NOT the same construct: production")
+        C.log("prices production on the locked censored regression and carries it")
+        C.log("with survival weights, while the rebuild prices a signing-dated")
+        C.log("forecast on a rolling currency with participation inside the")
+        C.log("forecast rather than as a weight on top. So the LEVELS are two")
+        C.log("different definitions of surplus and their difference is not an")
+        C.log("error in either. What is comparable is the MOVEMENT: whether the")
+        C.log("two order the same contracts the same way.")
+        C.log("")
+        j = out.merge(spine[["contract_id", "position", "npv_total",
+                             "surplus_no_survival"]],
+                      on=KEY, how="inner")
+        C.log(f"  {len(spine)} contracts in the production spine, {len(out)} in the")
+        C.log(f"  rebuild's development sample, {len(j)} in both.")
+        C.log("")
+        for label, col in (("production NPV (survival-weighted)", "npv_total"),
+                           ("production surplus, no survival", "surplus_no_survival")):
+            r = j[["surplus", col]].dropna()
+            C.log(f"  against {label}:")
+            C.log(f"    rank correlation        {r['surplus'].corr(r[col], method='spearman'):>8.3f}")
+            C.log(f"    linear correlation      {r['surplus'].corr(r[col]):>8.3f}")
+            C.log(f"    agree on sign           "
+                  f"{100*(np.sign(r['surplus'])==np.sign(r[col])).mean():>7.0f}%")
+            C.log(f"    median level, rebuild   {r['surplus'].median()/1e6:>8.2f} $M")
+            C.log(f"    median level, production{r[col].median()/1e6:>8.2f} $M")
+            C.log("")
+        C.log("  by the rebuild's own group, median $M on both definitions:")
+        C.log(f"    {'group':<12}{'n':>6}{'rebuild':>10}{'production':>13}"
+              f"{'rank corr':>12}{'same sign':>11}")
+        for g, k in j.groupby("fixed_group", observed=True):
+            if len(k) < 10:
+                continue
+            C.log(f"    {str(g):<12}{len(k):>6}{k['surplus'].median()/1e6:>10.2f}"
+                  f"{k['npv_total'].median()/1e6:>13.2f}"
+                  f"{k['surplus'].corr(k['npv_total'], method='spearman'):>12.3f}"
+                  f"{100*(np.sign(k['surplus'])==np.sign(k['npv_total'])).mean():>10.0f}%")
+        C.log("")
+        j["prod_gap"] = j["surplus"] - j["npv_total"]
+        # THE TOP-TEN LIST BELOW IS ALL EIGHT-YEAR DEALS, so the gap is
+        # measured against term before it is read as being about players.
+        C.log("  and by term, because the largest disagreements are all long deals:")
+        C.log(f"    {'term':<8}{'n':>6}{'rebuild $M':>13}{'production $M':>16}"
+              f"{'mean gap':>11}{'rank corr':>12}")
+        for L, k in j.groupby("length"):
+            if len(k) < 10:
+                continue
+            C.log(f"    {int(L)} yr{'':<3}{len(k):>6}{k['surplus'].mean()/1e6:>13.2f}"
+                  f"{k['npv_total'].mean()/1e6:>16.2f}"
+                  f"{(k['surplus']-k['npv_total']).mean()/1e6:>11.2f}"
+                  f"{k['surplus'].corr(k['npv_total'], method='spearman'):>12.3f}")
+        C.log("")
+        # HOW MUCH OF THAT GRADIENT IS THE SURVIVAL WEIGHT? The spine carries
+        # production's surplus with the weighting removed, so the two candidate
+        # explanations can be separated instead of argued about: the weight
+        # itself, or everything else production does to a long deal.
+        C.log("  and how much of the term gradient is production's survival weight,")
+        C.log("  which the spine lets us remove:")
+        C.log(f"    {'term':<8}{'n':>6}{'production':>13}{'no survival':>14}"
+              f"{'the weight':>13}{'rest of gap':>14}")
+        for L, k in j.groupby("length"):
+            if len(k) < 10:
+                continue
+            weight = (k["surplus_no_survival"] - k["npv_total"]).mean() / 1e6
+            rest = (k["surplus"] - k["surplus_no_survival"]).mean() / 1e6
+            C.log(f"    {int(L)} yr{'':<3}{len(k):>6}{k['npv_total'].mean()/1e6:>13.2f}"
+                  f"{k['surplus_no_survival'].mean()/1e6:>14.2f}"
+                  f"{weight:>13.2f}{rest:>14.2f}")
+        C.log("")
+        C.log("  the ten contracts the two systems disagree about most, in dollars:")
+        C.log(f"    {'player':<26}{'yr':>6}{'term':>6}{'rebuild':>10}"
+              f"{'production':>12}{'gap':>10}")
+        top = j.reindex(j["prod_gap"].abs().sort_values(ascending=False).index).head(10)
+        names = spine.set_index("contract_id")["full_name"]
+        for _, r in top.iterrows():
+            C.log(f"    {str(names.get(r[KEY], '?'))[:25]:<26}"
+                  f"{int(r['start_yr']):>6}{int(r['length']):>6}"
+                  f"{r['surplus']/1e6:>10.2f}{r['npv_total']/1e6:>12.2f}"
+                  f"{r['prod_gap']/1e6:>10.2f}")
+        C.log("")
+        out = out.merge(spine[["contract_id", "npv_total", "surplus_no_survival"]]
+                        .rename(columns={"npv_total": "production_npv",
+                                         "surplus_no_survival": "production_npv_no_survival"}),
+                        on=KEY, how="left")
 
     out.to_csv(C.out_path("contract_valuation.csv"), index=False)
     C.log(f"  wrote {C.out_path('contract_valuation.csv').name} "

@@ -141,6 +141,18 @@ residuals and currency comparisons; fix and rerun development work before furthe
 
 ## Standing flags (Karl's identification axes — watch on every design choice)
 
+- **NEW 2026-09-16 — production's long-contract pessimism is NOT the exit hazard, and the standing
+  note on record says it is.** Reconciled contract by contract against the production spine, the
+  gap between the rebuild and production is monotone in term and reaches **+$33.6M on an
+  eight-year deal**, where production says the average contract destroys $28M and the rebuild says
+  it creates $5M. Removing production's survival weighting explains **-$0.58M of that $34.21M**.
+  The disagreement is on the **value side** -- the aging path across a long term and the line it
+  is priced on. The note that "the exit hazard was quietly offsetting over-projection" should not
+  be carried into the write-up as the explanation for long-deal behaviour without this
+  decomposition beside it. Within each term the two systems still rank contracts alike (0.69-0.89
+  from three to eight years), so this is a level disagreement about long contracts, not a
+  reordering. Evidence: `50_REBUILD/docs/Production_Reconciliation.md`.
+
 - **NEW 2026-09-16d, revised after review — a miss about a player does not wash out over the
   years of his deal.** The same player's standardised miss correlates 0.39 to 0.43 between adjacent
   seasons at every page in the window. How that splits between a permanent misjudgement and one

@@ -139,6 +139,40 @@ the work is. Next, in order:
 5. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
    contract-by-contract dollar reconciliation, and the holdout policy.
 
+**2026-09-16h — the reconciliation is done, and it relocates the biggest movement in the project.**
+`goalie_value_spine.csv` arrived, the goalie engine's parity gate passes at **$0.000284** (the
+locked figure), and `contract_npv.py` prices **2,981 contracts (2,591 skater, 390 goalie)** with
+**median +0.29, p10 -7.80** -- every locked figure exactly. Report:
+`50_REBUILD/docs/Production_Reconciliation.md`.
+
+**The two systems agree about ranking and disagree about long contracts.** 1,141 contracts in
+both. Rank correlation 0.418 overall, but that hides everything: the gap is **monotone in term**,
+from -$0.39M on one-year deals to **+$33.63M on eight-year deals**, where production says the
+average contract destroys $28M and the rebuild says it creates $5M. **Within each term the two
+still agree about ordering** (rank correlation 0.69-0.89 from three to eight years). They agree
+which long contracts are better than which; they disagree about whether long contracts are worth
+signing.
+
+**IT IS NOT THE EXIT HAZARD, AND THIS PROJECT HAS BEEN ASSUMING IT WAS.** The standing note says
+the exit hazard was quietly offsetting over-projection. The spine carries production's surplus
+with the survival weighting removed, so the two candidates separate: at eight years the weight is
+worth **-$0.58M against a gap of $34.21M**; at six years, $0.76M against $15.09M. Removing
+production's exit hazard entirely would leave the disagreement where it is. **Production's
+long-contract pessimism lives on the value side** -- the aging path across a long term and the
+line it is priced on -- not in the survival margin. That is a different repair from the one on
+record.
+
+**One thing does not reproduce:** `goalie_value_spine_v2.csv` hashes to `7e481bf4...` against the
+record's `55c935dd...`. Every content check on it passes, including the parity gate and the 1,730
+priced rows, so float formatting under a different pandas version is the likely cause -- **a guess,
+not verified**, since the locked v2 is not here to compare against.
+
+**Caveats that stand:** neither side is scored against an outcome, so this is two models
+disagreeing and not evidence that either is right; part of the level difference is definitional
+because the two put participation in different places; 22 eight-year contracts carry the largest
+gaps; and the rebuild's long-horizon forecasts lean on a declared extrapolation that is flattered
+upward by a stated amount.
+
 **2026-09-16g — the production chain runs here, and valuation integration is built.** Thomas
 supplied `contract_season_spine.csv`, so production's own chain runs in this container for the
 first time. Its guards reproduce the locked record exactly: **Stage 0a and 0b PASS** against the
