@@ -1,5 +1,13 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-16 (valuation review closure):** Verified `e14e873` by rerunning
+the revised comparison. Independently confirmed identical contract IDs, costs and fixed
+groups; all group means match the prior audit and signs/order agree. Retention, held-currency
+participation and framing results reproduce. Closed preceding comparison findings and
+recorded readiness to proceed with remaining development. Known component failure and
+model limitations remain open. Added closure report/session and updated state/queue/flags.
+No implementation merge, production changes or reserved valuation evaluation.
+
 **Change log, 2026-09-16d (answering the valuation sensitivity review):** All three findings
 accepted; every corrected figure reproduces the reviewer's. (1) The tiers were cut from each
 column's own forecast, so the top groups held 51, 68, 18, 19 and 18 contracts and the spread was
@@ -22,7 +30,6 @@ ratio claim is withdrawn and the contrast restated on the fixed group ($8.76M-$9
 instruction to cite three categories and drop the elite one is **withdrawn** as the selection
 problem this project exists to avoid. Seven withdrawn claims are listed in the report's section 6.
 No production code changed, no locked decision reopened, no reserved cohort unsealed.
-
 **Change log, 2026-09-15z (valuation sensitivity review):** Reproduced `5e019ad`'s
 valuation table and 22/22 checks, plus the component fit failure. Added independent
 fixed-group, same-aging participation, held-currency and contract-ID attrition checks.
