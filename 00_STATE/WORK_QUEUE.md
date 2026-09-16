@@ -139,6 +139,38 @@ the work is. Next, in order:
 5. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
    contract-by-contract dollar reconciliation, and the holdout policy.
 
+**2026-09-16f — simulation review CLOSED; next is valuation integration, and reconciliation is
+blocked on one file.** Three qualifications from the closure folded in: the average-production
+sentence still carried 0.3495 against this run's 0.3487; the returns-against-absorbing pair is an
+**estimate, not an identity** (shared draws remove the difference between two independently drawn
+participation samples, not the Monte Carlo error of a comparison whose transition rules differ --
+an independent rerun gives $11.0127M against $11.0745M, which is the sampling wobble on a
+22-contract cohort at 2,000 paths); and check 25's docstring used pricing language for something
+that compares drawn production on a held forecast and does not reconcile dollars.
+
+**CONTRACT-BY-CONTRACT DOLLAR RECONCILIATION NEEDS `capspace_clauses.csv`.** The plan asks for
+full-chain movement against the production spine. `30_OUTPUT/contract_npv_spine.csv` is not in this
+container and building it means running the production chain, which reads
+`contract_season_spine.csv`, which `join_clauses_to_spine.py` builds by annotating the PuckPedia
+contracts with the cap-space.com clause scrape. That scrape is not in the repository and the
+builder hard-fails without it.
+
+**Verified, so the ask is precise:** the valuation path reads **no clause column at all** --
+nothing in `skater_value_engine.py`, `skater_forward_projection.py` or `contract_npv.py` touches
+`ntc_full`, `nmc_full`, `clause_*`, `has_any_clause` or the bonus fields. So a spine built with
+empty clause columns would be identical for the NPV path's purposes, and the locked figures on
+record (k=0 max diff $0.00, 6,892 priced skater-seasons, median NPV +0.29M, p10 -7.80, 2,981
+contracts) would confirm it. **That synthesis was not done**: fabricating an input to a production
+chain whose output is meant to BE the reconciliation reference is the wrong risk to take quietly,
+and a subtly wrong spine would be hard to detect from the reconciliation itself. Either
+`capspace_clauses.csv` or an already-built `contract_season_spine.csv` unblocks it; alternatively,
+an explicit decision to reconcile against a clause-free spine with the locked figures as the
+acceptance test.
+
+**Not blocked, and next:** valuation integration itself -- carrying the point valuation, the
+simulated distribution and the surplus through one contract-level artifact -- needs nothing that
+is missing.
+
 **2026-09-16e — the two corrections from the repair verification are in.** Suite: **25 passed, 0
 skipped, 0 failed**.
 

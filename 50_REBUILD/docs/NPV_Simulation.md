@@ -100,8 +100,15 @@ from 90% to 70% and one path in ten is a return. A falling marginal says nothing
 anyone comes back.
 
 Returns are now modelled. The absorbing version is kept beside them as the sensitivity it always
-was, and on genuinely shared draws it costs little: the eight-year cohort's average
-within-contract standard deviation is $11.01M with returns against $11.08M absorbing. Small — but now measured instead of
+was, and on shared draws it costs little: the eight-year cohort's average within-contract standard
+deviation is about $11.01M with returns against about $11.07M absorbing.
+
+**That pair is an estimate, not an identity.** Sharing the draws removes the difference between
+two independently drawn participation samples; it does not remove Monte Carlo error from a
+comparison whose transition rules differ, because the same uniform produces a different state
+under the two rules. Only the one-season dependence comparison is exact. An independent rerun of
+this cohort gives $11.0127M against $11.0745M, which is the size of the sampling wobble on a
+twenty-two-contract cohort at 2,000 paths. Small — but now measured instead of
 asserted. Two of 1,217 terms need an exit probability clipped to hold the marginal, so for those
 the model's own probability of playing is not reproduced exactly.
 
@@ -116,7 +123,7 @@ the first version did the latter and would have passed with a shared pricing bug
 
 ## 5. What the paths are worth
 
-Average production per season is the same either way — 0.3491 point against 0.3495 simulated, a
+Average production per season is the same either way — 0.3491 point against 0.3487 simulated, a
 Monte Carlo difference, not an identity — so the difference below is the floor.
 
 | term | n | point $M | simulated | gap |
