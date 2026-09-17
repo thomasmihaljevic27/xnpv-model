@@ -225,6 +225,20 @@ hashes to the locked `55c935dd...` in the reviewer's checkout, so the container-
 `50_REBUILD/docs/Valuation_Integration_Review_Codex.md` and
 `50_REBUILD/docs/Production_Reconciliation.md`. No production code or source input was changed.
 
+**Reconciliation repair verification, 2026-09-16:** reviewed `1a6ba0d` in isolation.
+Corrected hazard effects reproduce within $3.85e-09 per contract; wrong-ID, season,
+terminal and cost flags reproduce. All three prior integration mutations now fail.
+Two narrow items remain: the new reconciliation combines fresh engine detail with
+saved-spine total/terminal values; a +$1M saved-total mutation is accepted and produces
+1,043 negative hazard effects. Use the same call's summary and assert invariants.
+Also, 912 means passes the structural/cost screen, not every test: 217 fail the date
+flag; 695 pass both, still without proving same information dates. Rename the screen
+and retain the date limitation explicitly. Six-year screening loses two contracts;
+other four-to-eight-year cells survive the structural screen, not a same-date test.
+See `50_REBUILD/docs/Reconciliation_Repair_Verification_Codex.md`. Prior simulation
+closure remains valid. Further development can proceed; no model redesign requested.
+No candidate merge, implementation edit, or production/source changes.
+
 **Valuation integration review, 2026-09-16:** reviewed `bc724e5` including `1752a0e`.
 Production chain reproduces in isolated output: regression guards, 6,892 skater rows,
 $0.000284 goalie parity, 2,981 contracts and the recorded NPV distribution. Local
