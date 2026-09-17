@@ -218,6 +218,21 @@ hashes to the locked `55c935dd...` in the reviewer's checkout, so the container-
 `50_REBUILD/docs/Valuation_Integration_Review_Codex.md` and
 `50_REBUILD/docs/Production_Reconciliation.md`. No production code or source input was changed.
 
+**Valuation integration review, 2026-09-16:** reviewed `bc724e5` including `1752a0e`.
+Production chain reproduces in isolated output: regression guards, 6,892 skater rows,
+$0.000284 goalie parity, 2,981 contracts and the recorded NPV distribution. Local
+regenerated goalie v2 matches the locked MD5 exactly. Integration writes 1,217 x 31,
+with 1,141 production matches. Reconciliation is not closed. The claimed survival
+effect also removes discounting; holding discounting fixed gives +$1.69M at six years
+and +$2.29M at eight, not +$0.76M/-$0.58M. Ten joined production rows actually value
+another contract, 185 include terminal control value absent from the rebuild, dates
+differ, and cost-input discrepancies need explicit reconciliation. Consumer guards
+accept a mismatched simulation baseline, duplicate production IDs and reserved cohorts.
+See `50_REBUILD/docs/Valuation_Integration_Review_Codex.md`. Correct decomposition,
+reconcile identities/dates/costs/terminal scope and enforce artifact invariants before
+closing this acceptance item. Prior simulation repairs remain closed. No model patch,
+candidate merge or source changes; only isolated generated outputs and review records.
+
 **Simulation repair review closed, 2026-09-16:** verified `db0c6b2` in isolation.
 Full suite passes 25/25. All 605 one-year contracts now have exact path/SD equality;
 shared participation uniforms reach all three arms. Check 25 passes normally and
