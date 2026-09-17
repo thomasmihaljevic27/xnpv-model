@@ -246,6 +246,20 @@ hashes to the locked `55c935dd...` in the reviewer's checkout, so the container-
 `50_REBUILD/docs/Valuation_Integration_Review_Codex.md` and
 `50_REBUILD/docs/Production_Reconciliation.md`. No production code or source input was changed.
 
+**RFA control-year review, 2026-09-17:** reviewed `61c62bc` in isolation.
+Full suite passes 28/28 and main values reproduce on 252 contracts (declared $0.451M,
+informed $0.716M, oracle $0.950M). Item remains open: signing-date ownership excludes
+101 later no-QO outcomes; informed policy reads latent performance shocks during missed
+seasons (hidden-history intervention changes decisions in 188/252 contracts); future
+QO bands enter contract 6876's 2021 valuation; and the myopic stopping/point-price
+baseline comparison does not isolate information value or optimal continuation.
+Repair dated eligibility, observation conditioning and QO vintage; implement continuation
+or label a myopic policy, and compare like valuation rules before claiming an information
+premium. Correct salary-approximation direction language (155 above, 17 below; broader
+593-record sample). See `50_REBUILD/docs/Control_Years_Review_Codex.md`. Previous
+simulation/reconciliation closures remain in scope. No production/candidate model
+patch, adoption or merge; sources untouched and generated evidence ignored.
+
 **Reconciliation review closed, 2026-09-16:** verified `76730b6` in isolation.
 Actual runner prices 1,141 contracts; all hazard effects agree exactly with the
 independent per-season audit. Fresh engine summary now supplies total/terminal NPV.

@@ -193,6 +193,15 @@ back-test with grouping rule and protocol declared in advance and the reserved e
 until they are fixed. No production code changed, no locked decision reopened, no reserved cohort
 unsealed.
 
+**Change log, 2026-09-17a (RFA control-year review):** Reviewed `61c62bc`.
+Reproduced 28/28 checks and 252-contract control run. Identified future no-QO population
+selection, hidden missed-season shocks in the informed information set, undated future
+QO bands, and myopic/unequal-valuation-functional interpretation of the policy premium.
+Added independent audit and report, updated state/queue/flags/session. RFA/control-year
+item remains open; preceding closures stand. No implementation fixes, candidate merge,
+production writes or adoption. Existing vendor data remain read-only.
+
+
 **Change log, 2026-09-16g (reconciliation review closure):** Verified `76730b6`.
 Closed both remaining findings: same-call summary/detail arithmetic with working
 stale-spine and nonnegative-hazard guards, and accurate separate asset/date screening.
