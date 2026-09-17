@@ -171,7 +171,10 @@ residuals and currency comparisons; fix and rerun development work before furthe
   the price line, and because the two systems differ in ways that can themselves vary with term
   (production values from 1 July of the first contract season against the rebuild's signing date;
   production carries terminal control value on 185 rows; the two disagree about cost on 46; the
-  engine valued a different contract than the one requested on 10). It also does not test whether
+  engine valued a different contract than the one requested on 10). 912 of 1,141 pass the four
+  asset tests, but **217 of those have a valuation year away from the signing year, and 17 of the
+  22 eight-year contracts do** -- the dating difference bites hardest exactly where the
+  disagreement is largest, and no screen removes it. It also does not test whether
   the hazard historically offset over-projection against realised outcomes, which is what the
   standing note actually claims; that needs outcomes and there are none in this comparison. The
   first version's decomposition subtracted an undiscounted column and so removed the discounting

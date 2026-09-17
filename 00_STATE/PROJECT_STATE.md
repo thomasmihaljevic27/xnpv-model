@@ -207,11 +207,18 @@ explain the long-contract gap**; the earlier claim that the gap lives on the val
 withdrawn. (2) Contract IDs alone do not establish the same asset at the same date: production's
 sweep labels output with the ID it requested and its engine can value another (10 rows), and the
 two sides also differ on season count (3), terminal control value (185), cost by more than 10%
-(46) and valuation versus signing year (240); 912 of 1,141 are comparable on every test, with
-flags and reasons written per row. (3) The integration's guards accepted mutated inputs: a $1M
+(46) and valuation versus signing year (240); 912 of 1,141 pass the four asset tests, of which
+217 have a valuation year away from the signing year, leaving 695 -- not "comparable on every
+test", and 17 of the 22 eight-year contracts carry the date flag. Flags and reasons are written
+per row. (3) The integration's guards accepted mutated inputs: a $1M
 shift in every simulated point surplus, a duplicated production contract, and reserved start
 years all passed. `run_valuation_integration.py` v1.2 and the new
-`run_production_reconciliation.py` v1.1 close all three. Term-group means account for 84.8% of
+`run_production_reconciliation.py` close all three. A second review pass (`f452cd7`) confirmed
+the corrected hazard effects contract by contract to within $4e-09 and found two residual items,
+both now fixed in v1.2 of the reconciler: the hazard arithmetic mixed fresh engine details with
+saved spine totals (a $1M shift in the saved totals alone produced 1,043 negative effects, printed
+as a count and not failed), and the 912-row group was labelled "comparable on every test" when it
+does not include the date flag. Term-group means account for 84.8% of
 the squared variation in the dollar gap. The independently regenerated `goalie_value_spine_v2.csv`
 hashes to the locked `55c935dd...` in the reviewer's checkout, so the container-local
 `7e481bf4...` is unexplained and the float-formatting guess is withdrawn. See

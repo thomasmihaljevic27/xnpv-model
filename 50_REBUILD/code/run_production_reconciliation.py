@@ -56,7 +56,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 
-SCRIPT_VERSION = "1.1"
+SCRIPT_VERSION = "1.2"
 KEY = "contract_id"
 
 
@@ -99,10 +99,22 @@ def main() -> None:
         # THE IDENTITY CHECK the exported spine cannot support.
         chain = s.get("chain", [])
         identity_ok = int(getattr(r, KEY)) in [int(c) for c in chain]
+        # EVERY FIGURE IN THE HAZARD ARITHMETIC COMES FROM THIS CALL. An
+        # earlier version took the season details fresh from the engine but
+        # the totals from the exported spine. They agree while the spine is
+        # current, and silently mix two vintages the moment it is not: adding
+        # $1M to the saved totals alone produced 1,043 negative hazard effects
+        # and the runner printed the count without failing. The spine's own
+        # totals are now carried only to be CHECKED against these.
+        npv_total = float(s["npv_total"])
+        npv_terminal = float(s["npv_terminal"])
         # The isolated hazard effect: survival to one, everything else held.
+        # Production prices a season as (S * value - cost) * discount, so
+        # setting S to one and holding cost, discount and terminal value is
+        # exactly this, and the difference is sum((1 - S) * value * discount).
         nohaz_contract = float(((con["value_dollars"] - con["cost_dollars"])
                                 * con["discount"]).sum())
-        nohaz_total = nohaz_contract + float(r.npv_terminal)
+        nohaz_total = nohaz_contract + npv_terminal
         rows.append({
             KEY: int(getattr(r, KEY)),
             "status": "ok",
@@ -110,7 +122,7 @@ def main() -> None:
             "chain_len": len(chain),
             "prod_seasons": int(len(con)),
             "reb_term": int(r.length),
-            "has_terminal": abs(float(r.npv_terminal)) > 1.0,
+            "has_terminal": abs(npv_terminal) > 1.0,
             "prod_valuation_season": int(r.valuation_season),
             "reb_start_yr": int(r.start_yr),
             # THE SIGNING YEAR, not the start year. Comparing production's
@@ -123,23 +135,61 @@ def main() -> None:
                                  else pd.Timestamp(r.signed).year - 1),
             "prod_cost": float((con["cost_dollars"] * con["discount"]).sum()),
             "reb_cost": float(r.cost),
-            "npv_total": float(r.npv_total),
+            "npv_total": npv_total,
+            "npv_terminal": npv_terminal,
+            # the saved spine's own total, carried to be checked, never used
+            "spine_npv_total": float(r.npv_total),
+            "spine_gap": abs(npv_total - float(r.npv_total)),
+            "min_season_value": float(con["value_dollars"].min()),
             "nohaz_total": nohaz_total,
-            "hazard_effect": nohaz_total - float(r.npv_total),
+            "hazard_effect": nohaz_total - npv_total,
             "reb_surplus": float(r.surplus),
         })
     d = pd.DataFrame(rows)
     ok = d[d["status"] == "ok"].copy()
     C.log(f"  {len(ok)} priced by the engine on this call, "
           f"{len(d) - len(ok)} returned no usable detail")
+
+    # THE SAVED SPINE IS CHECKED, NOT TRUSTED. Every figure above is the
+    # engine's; this asserts the exported file still agrees with it, so a
+    # stale spine stops the run instead of quietly re-dating the comparison.
+    drift = ok.loc[ok["spine_gap"] > 1.0, KEY].tolist()
+    assert not drift, (f"the exported spine disagrees with the engine on "
+                       f"{len(drift)} contracts: {drift[:10]} -- it is stale, "
+                       f"regenerate contract_npv_spine.csv before reconciling")
+    C.log(f"  the saved spine agrees with the engine on all {len(ok)}, largest "
+          f"difference ${ok['spine_gap'].max():,.2f}")
+
+    # THE HAZARD EFFECT CANNOT BE NEGATIVE, and this is an assertion rather
+    # than a printed count. Removing a survival haircut raises value by
+    # sum((1 - S) * value * discount), which is nonnegative whenever every
+    # season's value is. The floor on the price line makes that true here,
+    # and it is checked rather than assumed.
+    assert float(ok["min_season_value"].min()) >= 0.0, (
+        "a contract season carries negative value, so the nonnegativity "
+        "argument for the hazard effect does not hold on this sample")
+    bad = ok.loc[ok["hazard_effect"] < -0.01, KEY].tolist()
+    assert not bad, (f"removing the exit hazard LOWERS value on {len(bad)} "
+                     f"contracts: {bad[:10]} -- something other than survival "
+                     f"is changing between the two totals")
+    C.log(f"  removing the hazard raises value on every one of the {len(ok)}; "
+          f"smallest effect ${ok['hazard_effect'].min():,.2f}")
     C.log("")
 
     # ---- who is actually comparable ---------------------------------------
     ok["cost_gap"] = (ok["prod_cost"] - ok["reb_cost"]).abs()
     ok["cost_ok"] = ok["cost_gap"] < 0.10 * ok["reb_cost"].abs().clip(lower=1e5)
     ok["term_ok"] = ok["prod_seasons"] == ok["reb_term"]
-    ok["clean"] = (ok["identity_ok"] & ok["term_ok"] & ok["cost_ok"]
-                   & ~ok["has_terminal"])
+    # THE DATE TEST IS SEPARATE, AND IT IS NOT A PASS MARK. Production values
+    # from 1 July of the first contract season and the rebuild values at the
+    # signing, so even rows whose YEARS agree are on different information
+    # dates. asset_ok says the two sides priced the same asset; it does NOT
+    # say they priced it on the same date, and calling it "comparable on every
+    # test" overstated it.
+    ok["date_ok"] = ok["prod_valuation_season"] == ok["reb_signed_yr"]
+    ok["asset_ok"] = (ok["identity_ok"] & ok["term_ok"] & ok["cost_ok"]
+                      & ~ok["has_terminal"])
+    ok["asset_and_date_ok"] = ok["asset_ok"] & ok["date_ok"]
 
     C.log("WHO IS COMPARABLE, and why the rest is not. Each test is reported")
     C.log("separately because they overlap and the reasons matter more than")
@@ -150,20 +200,31 @@ def main() -> None:
         ("production covers a different number of seasons", ~ok["term_ok"]),
         ("production carries terminal control value", ok["has_terminal"]),
         ("the two sides disagree about cost by >10%", ~ok["cost_ok"]),
-        ("the valuation year differs from the signing year",
-         ok["prod_valuation_season"] != ok["reb_signed_yr"]),
+        ("the valuation year differs from the signing year", ~ok["date_ok"]),
     ]:
         C.log(f"    {label:<52}{int(mask.sum()):>6}")
     C.log("")
-    C.log(f"    {'comparable on every test':<52}{int(ok['clean'].sum()):>6}"
-          f"   of {len(ok)}")
+    C.log(f"    {'the SAME ASSET (identity, seasons, cost, terminal)':<52}"
+          f"{int(ok['asset_ok'].sum()):>6}   of {len(ok)}")
+    C.log(f"    {'   of those, the valuation year differs':<52}"
+          f"{int((ok['asset_ok'] & ~ok['date_ok']).sum()):>6}")
+    C.log(f"    {'the same asset AND the years agree':<52}"
+          f"{int(ok['asset_and_date_ok'].sum()):>6}")
     C.log("")
-    C.log("  The date test is reported and NOT used to exclude: production")
-    C.log("  values from 1 July of the first contract season and the rebuild")
-    C.log("  values at the signing, so the two are on different information")
-    C.log("  dates even when the years agree. Equal years would not make them")
-    C.log("  the same date. That is a limitation of the whole comparison rather")
-    C.log("  than a property of particular rows.")
+    C.log("  NONE OF THESE IS 'comparable on every test'. The date test is")
+    C.log("  reported and not used to exclude, because excluding on it would")
+    C.log("  not fix the underlying difference: production values from 1 July")
+    C.log("  of the first contract season and the rebuild values at the")
+    C.log("  signing, so even the rows whose YEARS agree sit on different")
+    C.log("  information dates. That is a limitation of the whole comparison")
+    C.log("  rather than a property of particular rows, and it bites hardest")
+    C.log("  exactly where the disagreement is largest:")
+    for L in (7, 8):
+        k = ok[ok["reb_term"] == L]
+        if len(k):
+            C.log(f"    {int((~k['date_ok']).sum())} of the {len(k)} "
+                  f"{L}-year contracts have a valuation year away from the "
+                  f"signing year")
     C.log("")
 
     bad_ids = sorted(ok.loc[~ok["identity_ok"], KEY].tolist())
@@ -181,21 +242,30 @@ def main() -> None:
     C.log("cannot happen.")
     C.log("")
     for label, sub in (("all matched rows", ok),
-                       ("comparable rows only", ok[ok["clean"]])):
+                       ("the same asset on the four asset tests", ok[ok["asset_ok"]]),
+                       ("same asset, and the years agree too", ok[ok["asset_and_date_ok"]])):
         C.log(f"  {label}:")
         C.log(f"    {'term':<8}{'n':>6}{'production':>13}{'no hazard':>12}"
               f"{'hazard worth':>14}{'gap to rebuild':>16}")
+        dropped = []
         for L, k in sub.groupby("reb_term"):
             if len(k) < 8:
+                # A CELL TOO SMALL TO REPORT IS SAID SO, not left out in
+                # silence. On the strictest screen the eight-year cell falls
+                # below the threshold, and that absence is itself the finding.
+                dropped.append(f"{int(L)} yr ({len(k)})")
                 continue
             C.log(f"    {int(L)} yr{'':<3}{len(k):>6}{k['npv_total'].mean()/1e6:>13.2f}"
                   f"{k['nohaz_total'].mean()/1e6:>12.2f}"
                   f"{k['hazard_effect'].mean()/1e6:>14.2f}"
                   f"{(k['reb_surplus']-k['npv_total']).mean()/1e6:>16.2f}")
+        if dropped:
+            C.log(f"    too few contracts to report: {', '.join(dropped)}")
         C.log("")
-    neg = int((ok["hazard_effect"] < -1.0).sum())
-    C.log(f"  rows where removing the hazard LOWERS value: {neg} "
-          f"(should be none; value is nonnegative and all else is held)")
+    C.log("  That no row moves the wrong way is ASSERTED above, before any of")
+    C.log("  these tables are built, rather than printed as a count here. A")
+    C.log("  count that nothing reads is how the confounded version of this")
+    C.log("  calculation survived a run.")
     C.log("")
     C.log("  WHAT THIS SUPPORTS, AND ONLY THIS: the exit hazard alone does not")
     C.log("  explain the long-contract gap. It does NOT identify the aging path")
@@ -237,8 +307,8 @@ def main() -> None:
     C.log("")
 
     # ---- the flags go into the artifact, not just the log -------------------
-    flags = ok[[KEY, "cost_ok", "term_ok", "clean"]].copy()
-    flags["date_ok"] = (ok["prod_valuation_season"] == ok["reb_signed_yr"])
+    flags = ok[[KEY, "cost_ok", "term_ok", "date_ok", "asset_ok",
+                "asset_and_date_ok"]].copy()
     reasons = []
     for _, r in ok.iterrows():
         why = []

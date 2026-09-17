@@ -175,7 +175,12 @@ factor and terminal value all held:
 | 7 yr | 26 | -21.23 | -19.56 | **+1.67** | +24.61 | -0.17 |
 | 8 yr | 22 | -28.19 | -25.90 | **+2.29** | +33.63 | -0.58 |
 
-Every effect is positive, as it must be; zero of 1,141 rows now move the wrong way. **The
+Every effect is positive, as it must be, and **v1.2 asserts it** rather than printing a count.
+It also computes every figure from the engine's own summary and asserts the saved spine still
+agrees: the first version took details from the engine and totals from the spine, which agree
+only while the spine is current -- adding $1M to the saved totals alone produced 1,043 negative
+hazard effects and the runner printed the count without failing. Both assertions were tested by
+deliberately breaking them. **The
 supported statement is only that the exit hazard alone does not explain the long-contract gap** --
 roughly nine-tenths of it survives removing the hazard. It does **not** locate the disagreement on
 the value side, and the 09-16h entry saying it did is withdrawn.
@@ -185,9 +190,14 @@ Production's sweep labels its output with the ID it asked about; the engine foll
 can value another. Of 1,141 joined rows: **10** value a different contract, **3** cover a different
 number of seasons, **185** carry terminal control value the rebuild excludes, **46** disagree
 about cost by more than 10%, and **240** have a valuation year different from the signing year.
-**912 are comparable on every test.** Every row keeps its place in
-`production_reconciliation.csv` with flags and a written reason; nothing was dropped silently and
-no production input was changed. The attrition is almost all short contracts -- all 185
+**912 pass the four asset tests** -- the same asset, whatever the date. **[CORRECTED after a
+second review pass]** That is not "comparable on every test": **217 of those 912 have a valuation
+year away from the signing year**, leaving 695 that pass the asset tests and the date flag
+together, and even those are not on the same information date. The date flag falls hardest where
+the disagreement is largest -- **17 of the 22 eight-year contracts** -- so the strictest screen
+leaves five eight-year deals, too few to report. Excluding on the date would hide the dating
+difference rather than fix it. Every row keeps its place in `production_reconciliation.csv` with
+flags and a written reason; nothing was dropped silently and no production input was changed. The attrition is almost all short contracts -- all 185
 terminal-value rows are one- to three-year deals -- so four, five, seven and eight years lose
 nobody and the term gradient is unaffected. The largest cost disagreements are a **source
 inconsistency**: the supplied season spine carries a cap hit an order of magnitude from the

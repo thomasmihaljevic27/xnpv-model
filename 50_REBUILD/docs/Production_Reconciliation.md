@@ -1,6 +1,6 @@
 # Full-chain movement against the production spine, contract by contract
 
-Run 2026-09-17 in `50_REBUILD/`. The plan's Phase 5 acceptance item. Development start years only.
+Run 2026-09-17 in `50_REBUILD/` (v1.2, after a second review pass). The plan's Phase 5 acceptance item. Development start years only.
 **Nothing adopted, and no production file changed.**
 
 An earlier version of this report (2026-09-16) claimed the exit hazard had been ruled out as the
@@ -64,7 +64,18 @@ test below is reported separately, because they overlap and the reasons matter m
 | production carries terminal control value the rebuild excludes | 185 |
 | the two sides disagree about cost by more than 10% | 46 |
 | the valuation year differs from the signing year | 240 |
-| **comparable on every test** | **912 of 1,141** |
+
+Passing the first four — **the same asset**, whatever the date — leaves **912 of 1,141**. That is
+not "comparable on every test", and an earlier version of this report called it that. **217 of
+those 912 have a valuation year away from the signing year**, leaving **695** that pass the asset
+tests and the date flag together.
+
+Even those 695 are not valued on the same information date, which is why the date test is reported
+and not used to exclude. Excluding the 217 would not fix the underlying difference; it would only
+hide how unevenly it falls. It falls hardest exactly where the disagreement is largest: **17 of
+the 22 eight-year contracts** and 12 of the 26 seven-year contracts have a valuation year away
+from the signing year. On the strictest screen the eight-year cell drops to five contracts, too
+few to report at all — which is itself the finding, not a reason to quote the looser screen.
 
 The ten mislabelled contracts are 4334, 4336, 4453, 4547, 4798, 5598, 5627, 6364, 7010 and 7108.
 Nate Schmidt's requested 4798 is priced as 3632, one season against a six-year deal; Evander
@@ -87,11 +98,13 @@ contract's own AAV, and production prices the cap hit.
 | 5606 | 19.216 | 1.866 | 10.3 | no |
 
 No production input was changed, and no problem row was dropped silently: every contract keeps its
-row in `production_reconciliation.csv` with the flags and a written reason.
+row in `production_reconciliation.csv` with the flags — `identity_ok`, `term_ok`, `cost_ok`,
+`date_ok`, `has_terminal`, `asset_ok`, `asset_and_date_ok` — and a written reason.
 
-**The attrition falls almost entirely on short contracts.** All 185 terminal-value rows are one-
-to three-year deals. Four, five, seven and eight years lose nobody at all; six years loses two
-contracts on a cost disagreement, three years eleven, and one and two years together 216.
+**On the asset tests the attrition falls almost entirely on short contracts.** All 185
+terminal-value rows are one- to three-year deals. Four, five, seven and eight years lose nobody;
+six years loses two contracts on a cost disagreement, three years eleven, and one and two years
+together 216. The date flag is the opposite: it falls hardest on the longest deals, as above.
 
 ## They agree about ranking and disagree about long contracts
 
@@ -159,9 +172,19 @@ multiplier to one and holding cost, the discount factor and terminal value:
 | 7 yr | 26 | −21.23 | −19.56 | **+1.67** | +24.61 | −0.17 |
 | 8 yr | 22 | −28.19 | −25.90 | **+2.29** | +33.63 | −0.58 |
 
-Every effect is now positive, as it must be, and zero of the 1,141 rows have removing the hazard
-lower the value. The comparable-only subsample is identical at four, five, seven and eight years,
-because those cells lose nobody; at six years its 31 contracts give +1.76 against a gap of +16.96.
+Every effect is now positive, as it must be, and **that is asserted before any of these tables is
+built** rather than printed as a count. Production prices a season as `(S × value − cost) ×
+discount`, so setting survival to one moves the value by `sum((1 − S) × value × discount)`, which
+is nonnegative whenever every season's value is — and that, too, is checked on the sample rather
+than assumed. The same-asset subsample is identical at four, five, seven and eight years, because
+those cells lose nobody; at six years its 31 contracts give +1.76 against a gap of +16.96.
+
+**Every figure in this arithmetic comes from the same engine call.** An earlier version took the
+season details fresh from the engine but the totals from the exported spine. Those agree while the
+spine is current and silently mix two vintages the moment it is not: adding $1M to the saved
+totals alone produced 1,043 negative hazard effects, and the runner printed the count without
+failing. The runner now computes from the engine's own summary and asserts that the saved spine
+still agrees with it, so a stale spine stops the run instead of quietly re-dating the comparison.
 
 **What this supports, and only this: the exit hazard alone does not explain the long-contract
 gap.** At eight years it is worth $2.29M against a gap of $33.63M; at six years, $1.69M against
@@ -200,4 +223,7 @@ nothing out of it.
 The second imports production's own engine, prices each contract through it for the per-season
 detail and the chain of contract IDs actually valued, and writes `production_reconciliation.csv`:
 identity, season coverage, dates, costs, terminal-value flag, the isolated hazard, and a written
-reason for every row that fails a comparability test. Outputs ignored under `50_REBUILD/output/`.
+reason for every row that fails a comparability test. Two invariants are asserted before any table
+is built — that the saved spine still agrees with the engine to within a dollar, and that no
+contract's value falls when the hazard is removed — and both were tested by deliberately breaking
+them. Outputs ignored under `50_REBUILD/output/`.

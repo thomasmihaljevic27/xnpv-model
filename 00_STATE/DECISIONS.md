@@ -1,5 +1,23 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-17b (answering the reconciliation repair verification):** The corrected
+hazard effects reproduce contract by contract to within $4e-09 in an independent calculation and
+all three integration mutations are now rejected. Two residual items, both fixed in
+`run_production_reconciliation.py` v1.2. (1) The hazard arithmetic took season details from the
+engine but total and terminal NPVs from the exported spine. They agree while the spine is current;
+adding $1M to the saved totals alone produced **1,043 negative hazard effects**, which the runner
+printed as a count without failing. Every figure now comes from the engine's own summary, the
+saved spine is asserted to agree with it to within a dollar, and the nonnegative-hazard check is
+an assertion made before any table is built. Both were tested by deliberately breaking them.
+(2) **"912 comparable on every test" is withdrawn.** The 912 pass identity, season count, cost and
+terminal value -- the same asset, whatever the date. **217 of them have a valuation year away from
+the signing year**, leaving 695, and even those are not on the same information date. The date
+flag falls hardest where the disagreement is largest (**17 of the 22 eight-year contracts**, 12 of
+26 at seven), so the strictest screen leaves five eight-year deals, too few to report -- reported
+as such rather than dropped. The `clean` flag is renamed `asset_ok`, with `date_ok` and
+`asset_and_date_ok` beside it in the written artifact. Excluding on the date would hide the dating
+difference, not fix it. No production code changed, no locked decision reopened.
+
 **Change log, 2026-09-17 (correcting the reconciliation; answering the integration review):**
 The 09-16j survival decomposition is **withdrawn**. `contract_npv.py` builds `surplus_no_survival`
 as undiscounted contract surplus plus terminal value at its own reference date, so subtracting
