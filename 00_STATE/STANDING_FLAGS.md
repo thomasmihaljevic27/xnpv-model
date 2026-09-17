@@ -2,19 +2,23 @@
 
 ## Independent rebuild review (2026-09-15)
 
-**RFA control-year review, 2026-09-17:** reviewed `61c62bc` in isolation.
-Full suite passes 28/28 and main values reproduce on 252 contracts (declared $0.451M,
-informed $0.716M, oracle $0.950M). Item remains open: signing-date ownership excludes
-101 later no-QO outcomes; informed policy reads latent performance shocks during missed
-seasons (hidden-history intervention changes decisions in 188/252 contracts); future
-QO bands enter contract 6876's 2021 valuation; and the myopic stopping/point-price
-baseline comparison does not isolate information value or optimal continuation.
-Repair dated eligibility, observation conditioning and QO vintage; implement continuation
-or label a myopic policy, and compare like valuation rules before claiming an information
-premium. Correct salary-approximation direction language (155 above, 17 below; broader
-593-record sample). See `50_REBUILD/docs/Control_Years_Review_Codex.md`. Previous
-simulation/reconciliation closures remain in scope. No production/candidate model
-patch, adoption or merge; sources untouched and generated evidence ignored.
+**RFA control-year repair review, 2026-09-17:** verified `fc4190d` in isolation.
+Reproduced 28/28 checks and 398 contracts; declared/informed/oracle means
+$0.636647M/$0.704391M/$0.903579M. All four old-defect mutations are caught;
+hidden missed-season interventions now move nothing. Targeted filter, observation,
+historical-QO, and matched-pricing repairs are verified. Proceed with further
+prototype development, with scope corrected: the policy counts expected later
+profits but omits the option to learn and stop later. A Gaussian two-season example
+returns zero under the implemented rule versus 0.12336 under a feasible informed
+rule. The $67,745 gain is specific to these policies; $838 does not measure the
+full continuation option. Age-only sensitivity is $25,867 on common draws, close
+to the reported $26,318; 356 unchanged windows are now identical. It is not a bound
+on historical eligibility bias. Correct stale salary/front-loading prose and
+production-zero counts (97 no-QO plus 33 plain UFA, not 130 no-QO). Before adoption,
+resolve historically admissible eligibility, offer costs, and policy scope; retain
+remaining goalie/joint-path/dollar-scoring/back-test work. See
+`50_REBUILD/docs/Control_Years_Repair_Review_Codex.md`. No candidate merge,
+production edits or adoption. Earlier simulator/reconciliation closures stand.
 
 **Reconciliation review closed, 2026-09-16:** verified `76730b6` in isolation.
 Actual runner prices 1,141 contracts; all hazard effects agree exactly with the

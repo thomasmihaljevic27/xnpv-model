@@ -278,6 +278,24 @@ premium. Correct salary-approximation direction language (155 above, 17 below; b
 simulation/reconciliation closures remain in scope. No production/candidate model
 patch, adoption or merge; sources untouched and generated evidence ignored.
 
+**RFA control-year repair review, 2026-09-17:** verified `fc4190d` in isolation.
+Reproduced 28/28 checks and 398 contracts; declared/informed/oracle means
+$0.636647M/$0.704391M/$0.903579M. All four old-defect mutations are caught;
+hidden missed-season interventions now move nothing. Targeted filter, observation,
+historical-QO, and matched-pricing repairs are verified. Proceed with further
+prototype development, with scope corrected: the policy counts expected later
+profits but omits the option to learn and stop later. A Gaussian two-season example
+returns zero under the implemented rule versus 0.12336 under a feasible informed
+rule. The $67,745 gain is specific to these policies; $838 does not measure the
+full continuation option. Age-only sensitivity is $25,867 on common draws, close
+to the reported $26,318; 356 unchanged windows are now identical. It is not a bound
+on historical eligibility bias. Correct stale salary/front-loading prose and
+production-zero counts (97 no-QO plus 33 plain UFA, not 130 no-QO). Before adoption,
+resolve historically admissible eligibility, offer costs, and policy scope; retain
+remaining goalie/joint-path/dollar-scoring/back-test work. See
+`50_REBUILD/docs/Control_Years_Repair_Review_Codex.md`. No candidate merge,
+production edits or adoption. Earlier simulator/reconciliation closures stand.
+
 **Reconciliation review closed, 2026-09-16:** verified `76730b6` in isolation.
 Actual runner prices 1,141 contracts; all hazard effects agree exactly with the
 independent per-season audit. Fresh engine summary now supplies total/terminal NPV.

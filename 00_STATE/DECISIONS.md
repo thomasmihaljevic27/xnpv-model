@@ -217,6 +217,15 @@ back-test with grouping rule and protocol declared in advance and the reserved e
 until they are fixed. No production code changed, no locked decision reopened, no reserved cohort
 unsealed.
 
+**Change log, 2026-09-17b (RFA repair verification):** Reviewed `fc4190d`.
+Reproduced 28/28, 398 contracts, and the $67,745 policy information difference.
+Four regression mutations fail as expected. Added a feasible-policy counterexample
+to distinguish expected future profits from the full continuation option. Re-ran
+eligibility sensitivity with contract-specific common draws: $25,867; unchanged
+windows exact. Targeted repairs verified; next prototype work can proceed with
+explicit policy and eligibility limits. Added audit/report and updated state/session.
+No candidate merge, production writes, adoption, or full Phase 5 closure.
+
 **Change log, 2026-09-17a (RFA control-year review):** Reviewed `61c62bc`.
 Reproduced 28/28 checks and 252-contract control run. Identified future no-QO population
 selection, hidden missed-season shocks in the informed information set, undated future
