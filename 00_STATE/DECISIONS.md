@@ -1,5 +1,24 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-17f (the goalie branch opens):** Built `goalie_season_table.py` and
+`run_goalie_bakeoff.py` v1.0, the next declared item. The goalie panel is produced in the skater
+table's schema -- reusing its proration, rate, share, experience and birthdate rules rather than
+restating them -- so the information set, harness and scoring work unchanged: 1,560
+goaltender-seasons, 280 goaltenders, 82 a season. Six candidates on the same grid with one shared
+participation estimator. **Production's locked goalie rule carries a +0.218 WAR bias at every
+horizon**, because its league-average constant of 2.189 sits above the mean of the development
+window; measuring that average at each page removes most of the bias and 0.071 WAR of error in 100%
+of goaltender-resamples, and fitting the kept weight as the reliability it is meant to be gives
+**0.43 rather than the locked 0.35**, worth another 0.020. Weighting by workload does nothing
+(+0.003, 78%). An age term loses, and the finding is that it is **not identified on this panel**:
+the fitted average change runs +0.117 WAR a season on the 2015 page to -0.106 on 2021, a sign flip
+that is the Phase 3 survivorship problem on a twelfth of the sample. Production's flat carry is
+therefore defensible because ageing cannot be measured on this evidence, not because it has been
+ruled out. Also recorded: a goaltender's games share is a depth-chart role and not availability
+(median 0.44), and no goaltender in the panel has played 82 games. Suite 30 passed, 0 skipped, 0
+failed; the two new checks each verified by breaking the rule they guard. Nothing adopted, no price
+line, no dollars; no production code changed; no locked decision reopened.
+
 **Change log, 2026-09-17d (answering the control-year review):** Four findings, all real, all
 fixed; `control_years.py` and `run_control_years.py` v2.0. (1) **Ownership is eligibility alone.**
 The export's expiry status is an outcome -- "UFA no QO" is a club that declined to qualify the

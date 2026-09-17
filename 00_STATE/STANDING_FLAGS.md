@@ -200,6 +200,28 @@ residuals and currency comparisons; fix and rerun development work before furthe
 
 ## Standing flags (Karl's identification axes — watch on every design choice)
 
+- **NEW 2026-09-17 — a locked constant ages, and production's goalie average has.** Production
+  shrinks every goaltender 65% of the way toward a league average of **2.189**, a number recovered
+  once and carried since. Scored on development pages it sits above the window's own mean and
+  produces a **+0.218 WAR bias at every horizon**; measuring the average at each page removes most
+  of it and 0.071 WAR of error, in 100% of goaltender-resamples. The fitted kept weight is 0.43
+  rather than the locked 0.35. **The general form is what to watch:** every constant in this project
+  that was estimated once on a window and then carried -- the skater rate, the goalie average, the
+  replacement level, the discount rate's hazard -- is a claim about a league that keeps moving, and
+  a rolling refit is the test. Where a constant must stay locked, its drift belongs in the
+  robustness section as a measured number rather than an assumption. Evidence:
+  `50_REBUILD/docs/Goalie_Bakeoff.md`.
+
+- **NEW 2026-09-17 — how a goaltender ages is not identified on the available evidence.** The
+  fitted average season-to-season change in goalie WAR flips sign across the development pages,
+  +0.117 on 2015 through -0.106 on 2021. A within-player change is measured only on goaltenders who
+  played both seasons, and the ones who fall out are the ones who declined -- the same selection the
+  skater aging curve carries, on 82 goaltender-seasons a year instead of 700. So production's flat
+  carry for goaltenders is defensible **because ageing cannot be measured here**, which is a
+  different sentence from "goaltenders do not age" and the write-up must not promote one to the
+  other. Any goalie aging claim needs the selection correction first, and probably more data than
+  this project holds. Evidence: `50_REBUILD/docs/Goalie_Bakeoff.md`.
+
 - **NEW 2026-09-17, CORRECTED after review — a right priced as an obligation is priced wrong, and
   the correction is large where the contracts are short.** 398 development contracts leave the club
   holding the player's rights after expiry. Forced to take every control year, those rights are

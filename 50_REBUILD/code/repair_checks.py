@@ -1083,6 +1083,99 @@ def c28(table):
             "seasons he played move it at all four horizons")
 
 
+def c29(table):
+    """THE GOALIE PANEL IS THE SKATER PANEL'S SCHEMA, AND ITS ARITHMETIC HOLDS.
+
+    The information set, the harness and the scoring are written against a
+    schema rather than against skaters, so the goalie branch earns all of
+    them by producing that schema -- and has to produce it correctly. The
+    rate is built from the raw total before D20 so that the proration in the
+    total and the schedule in the games share cancel exactly, which is the
+    skater table's reason and holds here by the same arithmetic.
+
+    Also asserted: one row per goaltender-season after a traded goaltender's
+    team-halves are summed, and that the table carries goaltenders and only
+    goaltenders.
+    """
+    import goalie_season_table as GST
+
+    a = GST.build(verbose=False)
+    need = {"pkey", "career_key", "syr", "pos", "WAR", "WAR_82", "GP",
+            "gp_share", "exp_seasons", "exp_censored", "age", "has_age"}
+    assert need <= set(a.columns), need - set(a.columns)
+    assert (a["pos"] == "G").all()
+    assert not a.duplicated(["career_key", "syr"]).any()
+    # NO GOALTENDER IN THIS PANEL HAS EVER PLAYED 82 GAMES -- the busiest
+    # season on record is 77 -- so the identity is asserted on the rate
+    # itself rather than on a full season that does not exist. That absence
+    # is the point: a goaltender's games are a role, and no role is every
+    # game.
+    assert int(a["GP"].max()) < C.FULL_SEASON
+    plain = a[~a["syr"].isin(C.PRORATION)]
+    assert np.allclose(plain["WAR_82"],
+                       plain["WAR"] / plain["GP"] * C.FULL_SEASON, atol=1e-9)
+    # A shortened season's total is stated on an 82-game basis, and its rate
+    # is NOT prorated twice: the rate comes off the raw total.
+    for yr in C.PRORATION:
+        row = a[(a["syr"] == yr) & (a["GP"] > 20)].head(1)
+        if len(row):
+            r = row.iloc[0]
+            assert abs(r["WAR_82"] - r["WAR"] / C.PRORATION[yr] / r["GP"]
+                       * C.FULL_SEASON) < 1e-9, (yr, r["career_key"])
+    return (f"{len(a)} goalie-seasons, {a['career_key'].nunique()} "
+            f"goaltenders, schema and D20 arithmetic hold; busiest season "
+            f"{int(a['GP'].max())} games")
+
+
+def c30(table):
+    """EVERY GOALIE CANDIDATE ANSWERS THE SAME QUESTION ON THE SAME EVIDENCE.
+
+    Three things the bake-off rests on.
+
+    A candidate cannot see the page it stands on: the base class asserts it,
+    and the assertion is made to fire here rather than trusted.
+
+    Every candidate shares ONE participation estimator, so a difference
+    between two of them is about forecasting a goaltender and not about who
+    is still in the league.
+
+    And the participation estimator itself cannot see the future: it is built
+    only from pages whose outcome is already complete before the page.
+    """
+    import numpy as np
+    import goalie_season_table as GST
+    import run_goalie_bakeoff as B
+
+    a = GST.build(verbose=False)
+    page = 2019
+    past = a[a["syr"] < page]
+
+    fired = False
+    try:
+        B.ProductionRule().fit(a, page)          # the whole table, future and all
+    except AssertionError:
+        fired = True
+    assert fired, "a goalie candidate accepted seasons at or after its page"
+
+    fits = [c().fit(past, page) for c in B.CANDIDATES]
+    surv = [tuple(round(m.surv_[h], 12) for h in B.HORIZONS) for m in fits]
+    assert len(set(surv)) == 1, (
+        "the candidates do not share one participation estimator, so a "
+        "difference between them mixes ability with who is still playing")
+
+    # The estimator is unmoved when seasons at or after the page are changed,
+    # which is the only way it could reach the future.
+    rng = np.random.default_rng(5)
+    poisoned = a.copy()
+    m = poisoned["syr"] >= page
+    poisoned.loc[m, "WAR"] = rng.normal(size=int(m.sum()))
+    assert (B.survival_table(past, page)
+            == B.survival_table(poisoned[poisoned["syr"] < page], page)), \
+        "the participation estimator moved when the future was scrambled"
+    return (f"{len(B.CANDIDATES)} candidates share one participation "
+            f"estimator; the page guard fires; the estimator ignores the future")
+
+
 def main() -> None:
     warnings.filterwarnings("ignore")
     C.banner("repair_checks.py", SCRIPT_VERSION)
@@ -1131,7 +1224,9 @@ def main() -> None:
                      ("the simulation cannot see the future", c25),
                      ("control years: eligibility and the dated offer", c26),
                      ("a walk-away is final, in ceiling and policy", c27),
-                     ("the club sees what it was shown, and only that", c28)]:
+                     ("the club sees what it was shown, and only that", c28),
+                     ("the goalie panel's schema and arithmetic", c29),
+                     ("every goalie candidate answers the same question", c30)]:
         check(name, lambda fn=fn: fn(table))
 
     width = max(len(n) for n, _, _ in results)

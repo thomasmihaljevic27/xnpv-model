@@ -194,6 +194,23 @@ These findings take precedence over the earlier broad validation claims. No impl
 changed; repaired development comparisons and the unbuilt simulation work must precede adoption.
 Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 
+**The goalie branch opens, 2026-09-17f.** `goalie_season_table.py` and `run_goalie_bakeoff.py`
+v1.0. The goalie panel is built in the skater table's schema so the harness, information set and
+scoring work on it unchanged: **1,560 goaltender-seasons, 280 goaltenders**, 82 a season against
+roughly 700 skater-seasons, one WAR number with no component split, and a games share that measures
+ROLE rather than availability (median 0.44; no goaltender in the panel has played 82 games, the
+busiest being 77). Six candidates scored on the same grid with one shared participation estimator.
+**Production's locked rule (50/30/20, keep 0.35, league average 2.189, flat) carries a +0.218 WAR
+bias at every horizon**: the constant sits above the development window's own mean. Measuring the
+average at the page removes most of it and 0.071 of the error (100% of goaltender-resamples);
+fitting the kept weight gives 0.43 rather than 0.35 and another 0.020. Workload weighting does
+nothing (78%). The flat carry survives, but the age term it would replace is **not identified** --
+the fitted average change flips sign from +0.117 on the 2015 page to -0.106 on 2021, which is the
+Phase 3 survivorship problem on a twelfth of the sample, so flat is defensible because ageing
+cannot be measured here rather than because it was ruled out. Suite 30/30 with both new checks
+verified by deliberate breakage. Nothing adopted; no price, no dollars. See
+`50_REBUILD/docs/Goalie_Bakeoff.md`.
+
 **Control-year repair after review, 2026-09-17d.** Four findings, all fixed. Ownership now rests
 on **eligibility alone** rather than the export's realised expiry label, which records a club
 declining to qualify a player years after the signing being valued; the sample goes from 252

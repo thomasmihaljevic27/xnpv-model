@@ -198,6 +198,51 @@ the work is. Next, in order:
 5. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
    contract-by-contract dollar reconciliation, and the holdout policy.
 
+**2026-09-17f — the goalie branch starts, and production's goalie constant carries a bias.** The
+next declared item. The rebuild had no goaltenders in it at all, so the first question is whether
+forecasting one works on this evidence and whether the rule production uses survives being scored
+the way every skater candidate has been.
+
+**The panel.** `goalie_season_table.py` (new) builds the goalie season table in the skater table's
+schema, so the information set, the harness and the scoring work on it unchanged, reusing the
+skater rules rather than restating them. **1,560 goaltender-seasons, 280 goaltenders, 2007-2025 --
+82 a season against roughly 700 skater-seasons.** Three real differences: one WAR number and no
+component split, so the component forecast that won the skater bake-off has nothing to work on; a
+goaltender's games are a ROLE and not availability (median share 0.44, and 0.67 among 40-game
+goaltenders), which anything reading `gp_share` later has to say first; and **no goaltender in this
+panel has ever played 82 games**, the busiest season being 77.
+
+**The bake-off.** Six candidates on the same grid, sharing one participation estimator so the
+comparison is about ability, mean absolute error in season WAR on development pages:
+
+| rule | MAE | bias | beats production |
+|---|---:|---:|---:|
+| the league average | 1.634 | +0.092 | 3% |
+| production's rule (keep 0.35, flat, avg 2.189) | 1.582 | **+0.218** | -- |
+| the same, on the page's own average | 1.511 | +0.045 | **100%** |
+| the same, with the kept weight fitted (0.43) | **1.491** | +0.036 | **100%** |
+| shrunk by the games behind it | 1.585 | +0.164 | 78% |
+| the same, with a fitted age change | 1.624 | +0.232 | 0% |
+
+**The shrinkage is sound; the constant is not.** Production's rule beats the flat league average,
+so the trailing blend reads something real. But the locked league average of **2.189 is above the
+mean of the development window**, so every goaltender is pulled up toward a league that no longer
+exists: a **+0.218 WAR bias at every horizon**, of which measuring the average at the page removes
+most (+0.045) and 0.071 of the error, in 100% of goaltender-resamples. The kept weight fitted as
+the reliability it is meant to be comes out at **0.43, not 0.35**, worth another 0.020.
+
+**Production's flat carry survives, and the reason matters more than the result.** The age
+candidate loses (0% of resamples), but the quantity it rests on is **not identified on this panel**:
+the fitted average change flips sign across the pages, +0.117 WAR a season on 2015 through -0.106
+on 2021. A within-player change is measured only on goaltenders who played both seasons and the
+ones who fall out are the ones who declined -- the Phase 3 selection problem on a twelfth of the
+sample. So the flat carry is defensible because ageing cannot be measured here, not because it has
+been ruled out.
+
+Suite **30 passed, 0 skipped, 0 failed**; the two new checks each verified by breaking the rule they
+guard. Nothing adopted. Report: `50_REBUILD/docs/Goalie_Bakeoff.md`. Next in the branch: a goalie
+price line and a participation model, in that order, before the control-year gate the plan asks for.
+
 **2026-09-17d — the control-year pass is repaired; the information premium is $0.066M, not
 $0.27M.** Four findings from an independent review, all real, all now fixed.
 
