@@ -193,6 +193,18 @@ These findings take precedence over the earlier broad validation claims. No impl
 changed; repaired development comparisons and the unbuilt simulation work must precede adoption.
 Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 
+**Reconciliation review closed, 2026-09-16:** verified `76730b6` in isolation.
+Actual runner prices 1,141 contracts; all hazard effects agree exactly with the
+independent per-season audit. Fresh engine summary now supplies total/terminal NPV.
+Both negative tests fail: +$1M saved totals rejected on all 1,141; detail-only season
+value corruption rejected naming contract 3702. Revised asset/date flags reproduce
+912/217/695; strict eight-year cell has five and is explicitly flagged too small.
+Both preceding findings are closed. Proceed with remaining valuation development.
+This diagnostic still compares different information dates and does not validate
+outcomes or complete Phase 5. Input exceptions and remote goalie hash remain disclosed.
+See `50_REBUILD/docs/Reconciliation_Review_Closure_Codex.md`. No candidate merge,
+model edits or source changes; unrelated files preserved.
+
 **Reconciliation repair verification, 2026-09-16:** reviewed `1a6ba0d` in isolation.
 Corrected hazard effects reproduce within $3.85e-09 per contract; wrong-ID, season,
 terminal and cost flags reproduce. All three prior integration mutations now fail.

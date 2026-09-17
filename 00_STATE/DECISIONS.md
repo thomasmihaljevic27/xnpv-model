@@ -1,5 +1,14 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-16g (reconciliation review closure):** Verified `76730b6`.
+Closed both remaining findings: same-call summary/detail arithmetic with working
+stale-spine and nonnegative-hazard guards, and accurate separate asset/date screening.
+Actual runner and independent mutations pass expectations; all 1,141 effects agree
+exactly. Added closure report, extended audit and updated state/queue/flags/session.
+Proceed with remaining valuation development; no adoption, same-date validation claim,
+production edits or candidate merge. Existing limitations remain documented.
+
+
 **Change log, 2026-09-16f (reconciliation repair verification):** Reviewed `1a6ba0d`.
 Verified corrected hazard arithmetic and three integration guards. Retained two focused
 corrections: same-run production summary/detail consistency and accurate labelling of

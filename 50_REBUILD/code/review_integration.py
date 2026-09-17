@@ -9,7 +9,7 @@ import sys
 
 root = Path(__file__).resolve().parents[2]
 ap = argparse.ArgumentParser()
-ap.add_argument('mode', choices=['production', 'integration', 'audit', 'guards', 'reconciliation', 'repair-audit'])
+ap.add_argument('mode', choices=['production', 'integration', 'audit', 'guards', 'reconciliation', 'repair-audit', 'closure-audit'])
 ap.add_argument('--candidate-root', type=Path, default=root / '50_REBUILD/output/integration_review')
 args = ap.parse_args()
 candidate = args.candidate_root.resolve()
@@ -46,6 +46,74 @@ if args.mode == 'integration':
 if args.mode == 'reconciliation':
     import run_production_reconciliation as R
     R.main()
+    sys.exit()
+
+if args.mode == 'closure-audit':
+    import contextlib
+    import io
+    import run_production_reconciliation as R
+    engine, module = R.production_engine()
+    cache = {}
+    class RecordingEngine:
+        def npv(self, *key):
+            detail, summary = engine.npv(*key)
+            cache[key] = (detail.copy(deep=True), dict(summary))
+            return detail, summary
+    factory = R.production_engine
+    try:
+        R.production_engine = lambda: (RecordingEngine(), module)
+        R.main()
+    finally:
+        R.production_engine = factory
+    d = pd.read_csv(C.out_path('production_reconciliation.csv'))
+    reference = pd.read_csv(root/'50_REBUILD/output/integration_definition_audit.csv')
+    pair = d.merge(reference[['contract_id','hazard']],on='contract_id',validate='one_to_one')
+    assert int(d.asset_ok.sum()) == 912
+    assert int((d.asset_ok & ~d.date_ok).sum()) == 217
+    assert int(d.asset_and_date_ok.sum()) == 695
+    assert int((d.asset_and_date_ok & (d.reb_term==8)).sum()) == 5
+    assert 'clean' not in d.columns
+    assert d.hazard_effect.min() >= -.01
+    result = dict(n=len(d), asset_ok=int(d.asset_ok.sum()),
+        asset_date_fail=int((d.asset_ok & ~d.date_ok).sum()),
+        asset_and_date_ok=int(d.asset_and_date_ok.sum()),
+        strict_eight_year_n=int((d.asset_and_date_ok & (d.reb_term==8)).sum()),
+        max_hazard_difference=float((pair.hazard_effect-pair.hazard).abs().max()))
+    original_read, original_write = pd.read_csv, pd.DataFrame.to_csv
+    original_log, original_write_log = C.log, C.write_log
+    target = next(key for key, (_, summary) in cache.items() if 3702 in summary.get('chain', []))
+    for mutation in ['saved_total', 'detail_only']:
+        class ReplayEngine:
+            def npv(self, *key):
+                detail, summary = cache[key]
+                detail = detail.copy(deep=True)
+                if mutation == 'detail_only' and key == target:
+                    detail.loc[detail.row_type=='contract','value_dollars'] *= .5
+                return detail, dict(summary)
+        def read(path,*a,**kw):
+            frame = original_read(path,*a,**kw)
+            if mutation == 'saved_total' and Path(path).name == 'contract_npv_spine.csv':
+                frame['npv_total'] += 1e6
+            return frame
+        try:
+            R.production_engine = lambda: (ReplayEngine(), module)
+            pd.read_csv = read
+            pd.DataFrame.to_csv = lambda *a,**kw: None
+            C.log = C.write_log = lambda *a,**kw: None
+            with contextlib.redirect_stdout(io.StringIO()):
+                R.main()
+        except AssertionError as exc:
+            message = str(exc)
+            assert ('stale' in message if mutation == 'saved_total' else 'LOWERS' in message and '3702' in message)
+            result[mutation] = dict(rejected=True,message=message)
+        else:
+            raise AssertionError(f'The {mutation} regression was not caught')
+        finally:
+            R.production_engine = factory
+            pd.read_csv, pd.DataFrame.to_csv = original_read, original_write
+            C.log, C.write_log = original_log, original_write_log
+    print(json.dumps(result,indent=2))
+    (root/'50_REBUILD/output/reconciliation_closure_audit.json').write_text(json.dumps(result,indent=2))
     sys.exit()
 
 if args.mode == 'repair-audit':
