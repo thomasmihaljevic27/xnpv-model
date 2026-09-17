@@ -522,8 +522,52 @@ CAP_CEILING = {
     2020: 81.5e6, 2021: 81.5e6, 2022: 82.5e6, 2023: 83.5e6, 2024: 88.0e6,
     2025: 95.5e6, 2026: 104.0e6,
 }
-LEAGUE_MIN_SALARY = {
+def league_min_path(season: int, decision_date=None) -> float:
+    """The league minimum salary for a season, as knowable on a date.
+
+    Same discipline as `cap_path`: schedule entries published by the decision
+    date are used as published, and anything later grows from the last one the
+    date could see at MIN_GROWTH. A control year can sit well past the end of
+    what its own valuation date knew -- a 2019 contract whose club holds
+    rights into 2024 -- and holding the last published figure flat would price
+    those years off a minimum that has never once stayed flat for three years.
+
+    `decision_date` left out uses the whole table, which is what production's
+    `skater_forward_projection.league_min_path` does and what the cross-check
+    against its qualifying offers compares to. Anything that VALUES something
+    passes the date; only a mechanical comparison against production leaves it
+    out.
+    """
+    yr = int(season)
+    known = LEAGUE_MIN_SALARY
+    if decision_date is not None:
+        import pandas as _pd
+        d = _pd.Timestamp(decision_date)
+        known = {y: v for y, v in LEAGUE_MIN_SALARY.items()
+                 if MIN_PUBLISHED_FROM.get(y, y - 1) <= (d.year if d.month >= 7
+                                                         else d.year - 1)}
+        if not known:
+            known = {min(LEAGUE_MIN_SALARY):
+                     LEAGUE_MIN_SALARY[min(LEAGUE_MIN_SALARY)]}
+    if yr in known:
+        return float(known[yr])
+    last = max(known)
+    return float(known[last] * (1 + MIN_GROWTH) ** (yr - last))
+
+
+MIN_GROWTH = 0.03           # beyond the published schedule, as production does
+
+LEAGUE_MIN_SALARY = {       # CBA-published; 2026+ from the 2025 MOU schedule
     2015: 575_000, 2016: 575_000, 2017: 650_000, 2018: 650_000,
     2019: 700_000, 2020: 700_000, 2021: 750_000, 2022: 750_000,
-    2023: 775_000, 2024: 775_000, 2025: 775_000,
+    2023: 775_000, 2024: 775_000, 2025: 775_000, 2026: 850_000,
+    2027: 900_000, 2028: 950_000, 2029: 1_000_000,
 }
+# WHEN EACH FIGURE BECAME PUBLIC, by season year. The 2013 CBA set the
+# schedule through 2021-22; the 2020 memorandum extended it to 2025-26; the
+# 2026 CBA, agreed in the summer of 2025, set 2026-27 onward. A valuation
+# dated before one of those agreements could not have known the figures it
+# brought, which is the same constraint `cap_path` enforces on the ceiling.
+MIN_PUBLISHED_FROM = {y: 2013 for y in range(2015, 2022)}
+MIN_PUBLISHED_FROM.update({y: 2020 for y in range(2022, 2026)})
+MIN_PUBLISHED_FROM.update({y: 2025 for y in range(2026, 2030)})

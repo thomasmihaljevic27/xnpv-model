@@ -194,6 +194,27 @@ These findings take precedence over the earlier broad validation claims. No impl
 changed; repaired development comparisons and the unbuilt simulation work must precede adoption.
 Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 
+**The RFA walk-away and the control years, 2026-09-17.** `control_years.py` and
+`run_control_years.py` v1.0 price the seasons a club holds after a contract expires with the player
+still restricted: 252 of 1,217 development contracts, mostly one- and two-year deals. Control is a
+right, so it is priced as a stopping rule on drawn paths under four rules differing only in what the
+club may know -- take every year (-$0.556M on one control year), decide the whole schedule in
+advance off the point projection as production does (+$0.079M), decide each year on what the path
+has shown so far (+$0.190M), or know the whole path (+$0.367M). Across all 252: 0.136 / 0.451 /
+**0.716** / 0.950 $M. **Deciding as you go is worth $0.266M a contract over deciding in advance**,
+which is the part of the asset a point valuation cannot reach. The informed rule uses the
+simulation's own fitted persistence to update the forecast on realised misses, integrated through
+the empirical shape, and conditions participation on the current state; it is asserted to move not
+at all when every season from the decision onward is redrawn. The ceiling is the best prefix, not
+stopping at the first loss, because walking away is final. Offer bands reimplemented in this tree
+and checked against production's at $0.00 on 4,000 cases; the league minimum is now dated like the
+cap ceiling and carries the published 2026-29 schedule. Known approximation: the offer's base
+salary is the contract average rather than the final year's salary (155 of 593 measurable contracts
+have a higher final salary, 90th percentile 1.10), which makes the offer too cheap and the right too
+valuable. Suite 28/28, the three new checks each verified by deliberate breakage. Nothing adopted;
+the control value sits beside the contract's surplus rather than inside it. See
+`50_REBUILD/docs/Control_Years.md`.
+
 **Valuation integration and production reconciliation review, 2026-09-16 (repaired
 2026-09-17):** reviewed `bc724e5` in isolation. The integration table builds and the raw
 cross-model comparison reproduces; the reconciliation was not ready to close. Three findings,

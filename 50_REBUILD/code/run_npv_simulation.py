@@ -52,7 +52,7 @@ from player_season_table import build as build_table, birthdate_source
 from run_phase4_decisions import prep
 from ability_forecast import A1HingeExposure
 
-SCRIPT_VERSION = "2.1"
+SCRIPT_VERSION = "2.2"
 
 LEADER = A1HingeExposure
 KEY = "contract_id"
@@ -61,11 +61,26 @@ TIER_EDGES = [-np.inf, 0, 0.5, 1.0, 2.0, np.inf]
 TIER_NAMES = ["below 0", "0 to 0.5", "0.5 to 1", "1 to 2", "2+"]
 
 
-def per_season(sample: pd.DataFrame, table: pd.DataFrame):
-    """For every contract, the forecast for each season of its term AND the
-    band around it: the conditional total, its scale, and the probability of
+def term_seasons(r) -> list[int]:
+    """The seasons of a contract's own term. The default question asked of the
+    forecast, and the one the point valuation asks."""
+    return list(range(int(r.start_yr), int(r.end_yr) + 1))
+
+
+def forecast_blocks(sample: pd.DataFrame, table: pd.DataFrame,
+                    seasons_for=term_seasons):
+    """For every contract, the forecast for each season ASKED FOR and the band
+    around it: the conditional total, its scale, and the probability of
     playing. `attach_forecasts` collapses these into an average, which is all a
     point valuation needs and not enough to walk a path.
+
+    `seasons_for` decides which seasons are fetched. The default is the
+    contract's own term. The control-year work asks for the term PLUS the
+    seasons the club holds the player's rights for afterwards, which is the
+    same question at longer horizons, so it passes its own function rather
+    than getting a second copy of this routine. Returns the season list with
+    each block, because a caller asking for more than the term has to know
+    which row is which.
 
     Batched by the last season readable at the signing, exactly as
     `attach_forecasts` batches, so every contract sees the same information set
@@ -83,8 +98,7 @@ def per_season(sample: pd.DataFrame, table: pd.DataFrame):
         if subs.empty:
             continue
         hs = sorted({int(s - t0) for r in grp.itertuples()
-                     for s in range(int(r.start_yr), int(r.end_yr) + 1)
-                     if s - t0 >= 0})
+                     for s in seasons_for(r) if s - t0 >= 0})
         if not hs:
             continue
         model.spread_.ensure_horizons(hs)
@@ -98,7 +112,8 @@ def per_season(sample: pd.DataFrame, table: pd.DataFrame):
         lut = pred.set_index(["pkey", "h"])[["mu", "sigma", "p_play"]]
         spreads[t0] = model.spread_
         for r in grp.itertuples():
-            hh = [int(s - t0) for s in range(int(r.start_yr), int(r.end_yr) + 1)]
+            yrs = [s for s in seasons_for(r) if s - t0 >= 0]
+            hh = [int(s - t0) for s in yrs]
             try:
                 block = lut.loc[[(r.pkey, x) for x in hh]]
             except KeyError:
@@ -107,8 +122,16 @@ def per_season(sample: pd.DataFrame, table: pd.DataFrame):
                 continue
             rows[r.contract_id] = (t0, block["mu"].to_numpy(),
                                    block["sigma"].to_numpy(),
-                                   block["p_play"].to_numpy())
+                                   block["p_play"].to_numpy(), yrs)
     return rows, spreads
+
+
+def per_season(sample: pd.DataFrame, table: pd.DataFrame):
+    """`forecast_blocks` over each contract's own term, in the four-element
+    shape this runner and the review scripts read. One implementation, asked a
+    narrower question -- not a copy of it."""
+    rows, spreads = forecast_blocks(sample, table)
+    return {k: v[:4] for k, v in rows.items()}, spreads
 
 
 def page_scale(spread):

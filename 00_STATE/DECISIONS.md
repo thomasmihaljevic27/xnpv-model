@@ -1,5 +1,32 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-17c (the RFA walk-away and control years):** Built `control_years.py`
+and `run_control_years.py` v1.0, the first item of the remaining valuation work. 252 of 1,217
+development contracts expire with the player still restricted and so leave the club holding his
+rights; 133 of them are one-year deals. Priced as a **stopping rule on drawn paths**, because
+control is a right and walking away is final. Four rules on common draws, $M a contract over all
+252: take every year 0.136, decide in advance off the point projection (production's D13 rule)
+0.451, decide each year on what the path has shown 0.716, know the whole path 0.950. **Deciding as
+you go is worth $0.266M a contract over deciding in advance.** A club forced to take every control
+year LOSES money where it holds one or two. The informed rule's update is the simulation's own
+fitted persistence, integrated through the empirical shape on a Gauss-Hermite grid rather than
+substituted into it, with participation conditioned on the current state; it is asserted bit for
+bit not to move when the future is redrawn, and to move when the past is. The ceiling is the best
+prefix rather than stopping at the first loss -- an earlier draft used the myopic rule and it is not
+a ceiling. Offer bands reimplemented here and cross-checked against production's implementation
+($0.00 on 4,000 random cases). `rebuild_config.league_min_path` now dates the league minimum the way
+`cap_path` dates the ceiling and carries the published 2026-29 schedule; `npv_simulation.draw_paths`
+can return the latent normals and the played indicator; `exit_schedule` is factored out so the
+control-year work does not carry a second copy of the marginal solve; `per_season` is now a thin
+call on `forecast_blocks`, which answers for any seasons asked rather than the term only, so the
+review scripts' four-element shape is unchanged. Suite 28 passed, 0 skipped, 0 failed; the three new
+checks were each verified by deliberately breaking the rule they guard. Known approximation
+recorded: the offer's base salary is the contract average rather than the final year's salary, which
+understates the offer on front-loaded deals (155 of 593 measurable, 90th percentile ratio 1.10) and
+so overstates the right. **Nothing adopted** -- the control value is written beside the contract's
+surplus, never folded into it, because every comparison already run values a contract to its expiry.
+No production code changed, no locked decision reopened, no reserved cohort unsealed.
+
 **Change log, 2026-09-17b (answering the reconciliation repair verification):** The corrected
 hazard effects reproduce contract by contract to within $4e-09 in an independent calculation and
 all three integration mutations are now rejected. Two residual items, both fixed in

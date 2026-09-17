@@ -182,6 +182,19 @@ residuals and currency comparisons; fix and rerun development work before furthe
 
 ## Standing flags (Karl's identification axes — watch on every design choice)
 
+- **NEW 2026-09-17 — a right priced as an obligation is priced wrong, and the difference is
+  large where the contracts are short.** 252 development contracts leave the club holding the
+  player's rights after expiry. Forced to take every control year, those rights are worth
+  **-$0.556M** on the contracts holding one and -$0.038M on those holding two. With the right to
+  decline they are worth **+$0.190M and +$0.614M**. Deciding as the club goes rather than fixing
+  the schedule in advance is worth **$0.266M a contract** across all 252. Two things follow for the
+  write-up. First, any valuation of a control year, a club option, a buyout or an arbitration walk
+  that prices it as a stream rather than a stopping rule is biased downward, and by more where the
+  player is marginal. Second, **the size of that gap depends on what the club is assumed to know**,
+  which is a modelling choice and not a measurement: the informed rule here brackets between
+  deciding in advance and knowing the whole path, and where real clubs sit in that range is a
+  back-test question that has not been run. Evidence: `50_REBUILD/docs/Control_Years.md`.
+
 - **NEW 2026-09-16, CORRECTED AND NARROWED 2026-09-17 — the exit hazard alone does not explain
   production's long-contract pessimism.** Reconciled contract by contract against the production
   spine, the gap between the rebuild and production is monotone in term and reaches **+$33.6M on

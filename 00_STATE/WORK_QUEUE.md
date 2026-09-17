@@ -180,6 +180,56 @@ the work is. Next, in order:
 5. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
    contract-by-contract dollar reconciliation, and the holdout policy.
 
+**2026-09-17c — the walk-away and the control years are built, and the right is worth more
+than the stream.** The first item of the remaining valuation work. `control_years.py` and
+`run_control_years.py` (new) price the seasons a club still owns when a contract expires with the
+player still restricted. **252 of the 1,217 development contracts own at least one** -- 133 of them
+one-year deals, 86 two-year -- which is exactly the population where the rebuild sits below
+production in the reconciliation.
+
+**Control is a right, not an obligation, so it is a stopping rule and not a stream.** Four rules on
+the same draws, differing only in what the club knows when it decides, $M a contract:
+
+| control yrs | n | take every year | decide in advance | decide as you go | knew the path |
+|---|---:|---:|---:|---:|---:|
+| 1 | 88 | -0.556 | 0.079 | **0.190** | 0.367 |
+| 2 | 93 | -0.038 | 0.317 | **0.614** | 0.934 |
+| 3 | 55 | 1.117 | 1.111 | **1.453** | 1.628 |
+| all | 252 | 0.136 | 0.451 | **0.716** | 0.950 |
+
+A club **forced** to take every control year loses money on the deals with one or two of them. The
+same seasons with the right to decline are worth +$0.19M and +$0.61M. **Deciding as you go is worth
+$0.27M a contract over deciding in advance** (production's rule), and that gap is the part of the
+asset a point valuation cannot reach.
+
+**The club's decision cannot see the season it is deciding about.** It updates the forecast by the
+misses already realised on the path, through the persistence the simulator already fitted,
+integrated through the empirical shape rather than substituted into it, and it conditions the
+chance he plays on whether he is in the league now. Scrambling every season from the decision
+onward moves nothing, bit for bit; scrambling the past moves it at every horizon.
+
+**The ceiling was wrong in the first draft and is fixed.** Stopping at the first bad year is not
+what a club with perfect foresight would do, because the right dies when it walks away: on a path
+worth +5, -1, +10 it sits through the bad year. The ceiling is the best prefix, which is never
+below zero and never below any other rule.
+
+**Against production:** 241 in both; production's terminal value means $0.894M against $0.409M for
+the same declared rule here, on different information dates, rank correlation 0.547 declared and
+0.759 informed. The 57 contracts production prices at zero are the D13 truncation and not a
+disagreement about ownership -- the declared rule here gives zero on all 57 too.
+
+**The weak point is the offer's base salary.** The formula runs off the final year's base salary
+and this tree's source carries an average; measured against the season spine, 155 of 593 have a
+final salary above the average, 90th percentile ratio 1.10. The average makes the offer too cheap
+and the control year too valuable, and that is the direction.
+
+Also: the league minimum is now dated the way the cap ceiling already was (only figures published
+before the signing, 3% beyond), the published 2026-29 schedule is in the table, and the offer bands
+are checked against production's implementation on 4,000 random cases at $0.00. Suite: **28 passed,
+0 skipped, 0 failed**, the three new checks each verified by deliberately breaking them. Nothing
+adopted: the control value is written beside the contract's surplus, never folded into it. Report:
+`50_REBUILD/docs/Control_Years.md`.
+
 **2026-09-17 — the reconciliation is corrected, and the claim it supports is much narrower.**
 An independent review found the survival decomposition in the 2026-09-16h pass was not a
 decomposition at all. `contract_npv.py` builds `surplus_no_survival` as **undiscounted** contract

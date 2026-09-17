@@ -93,7 +93,7 @@ from scipy import stats
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 
 DEFAULT_PATHS = 2000        # matches the draft bootstrap's resample count
 MIN_PAIRS = 200             # a horizon pair needs this many players to count
@@ -260,6 +260,29 @@ def return_rate(table: pd.DataFrame, before: int, lookback: int = 2) -> float:
     return float(back_n / out_n) if out_n else 0.0
 
 
+def exit_schedule(p_play: np.ndarray, r_return: float = 0.0):
+    """The chance of dropping out in each season, solved so the model's own
+    marginal probability of playing still comes back exactly:
+
+        S[h] = S[h-1] * (1 - exit[h]) + (1 - S[h-1]) * r_return
+
+    Returned separately from the path because the control-year work needs it
+    for a different question -- what a club, standing at a control year and
+    knowing whether the player is in the league, should expect next season --
+    and a second copy of this solve is how a rule drifts.
+    """
+    S = np.clip(np.asarray(p_play, dtype=float), 1e-9, 1.0)
+    T = len(S)
+    e = np.empty(T)
+    e[0] = 0.0
+    clipped = 0
+    for h in range(1, T):
+        raw = 1.0 - (S[h] - (1.0 - S[h - 1]) * r_return) / max(S[h - 1], 1e-12)
+        e[h] = min(max(raw, 0.0), 1.0)
+        clipped += int(raw < -1e-9 or raw > 1 + 1e-9)
+    return e, clipped
+
+
 def participation_path(p_play: np.ndarray, u: np.ndarray,
                        r_return: float = 0.0) -> tuple[np.ndarray, int]:
     """Whether he is in the league each season, as a path that allows a return.
@@ -286,14 +309,9 @@ def participation_path(p_play: np.ndarray, u: np.ndarray,
     probability had to be clipped into [0, 1] -- where it does, the marginal is
     not reproduced exactly and the caller is told rather than not.
     """
-    T = len(p_play)
     S = np.clip(np.asarray(p_play, dtype=float), 1e-9, 1.0)
-    e = np.empty(T)
-    clipped = 0
-    for h in range(1, T):
-        raw = 1.0 - (S[h] - (1.0 - S[h - 1]) * r_return) / max(S[h - 1], 1e-12)
-        e[h] = min(max(raw, 0.0), 1.0)
-        clipped += int(raw < -1e-9 or raw > 1 + 1e-9)
+    T = len(S)
+    e, clipped = exit_schedule(p_play, r_return)
 
     out = np.empty(u.shape, dtype=float)
     alive = u[:, 0] < S[0]
@@ -314,11 +332,19 @@ def rising_marginals(p_play: np.ndarray) -> int:
 
 def draw_paths(mu, sigma, p_play, shape: np.ndarray, persistence: Persistence,
                n_paths: int = DEFAULT_PATHS, rng=None,
-               r_return: float = 0.0, normals=None, u_part=None) -> np.ndarray:
+               r_return: float = 0.0, normals=None, u_part=None,
+               return_parts: bool = False):
     """One player, one contract: `n_paths` draws of production per season.
 
     Returns an array of shape (n_paths, T) in wins, with a zero wherever the
     path has him out of the league.
+
+    `return_parts` also hands back the correlated normals behind the draws and
+    the played/not-played indicator. The control-year work needs both: a club
+    standing at a control year knows how wrong the forecast has been so far
+    (the normals) and whether the player is in the league (the indicator), and
+    a produced zero cannot stand in for the second because a player who plays
+    badly enough produces zero or less.
     """
     rng = np.random.default_rng() if rng is None else rng
     mu = np.asarray(mu, dtype=float)
@@ -350,6 +376,8 @@ def draw_paths(mu, sigma, p_play, shape: np.ndarray, persistence: Persistence,
     # made the one-season identity approximate when it should be exact.
     u = rng.random((n_paths, T)) if u_part is None else u_part[:, :T]
     played, _ = participation_path(p_play, u, r_return)
+    if return_parts:
+        return cond * played, g, played
     return cond * played
 
 
