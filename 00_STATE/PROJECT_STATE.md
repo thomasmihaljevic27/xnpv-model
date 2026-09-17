@@ -194,6 +194,24 @@ These findings take precedence over the earlier broad validation claims. No impl
 changed; repaired development comparisons and the unbuilt simulation work must precede adoption.
 Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 
+**Control-year repair after review, 2026-09-17d.** Four findings, all fixed. Ownership now rests
+on **eligibility alone** rather than the export's realised expiry label, which records a club
+declining to qualify a player years after the signing being valued; the sample goes from 252
+contracts to **398**, and the eligibility year is audited against the age-27 rule (89.3% exact, 130
+earlier via accrued seasons, none later) and bounded by pricing the whole sample again on the age
+rule alone (+$0.026M a contract). The informed rule now conditions only on the misses of seasons the
+player actually **played**, integrating the unobserved ones out; conditioning on all of them had
+moved the first control year's decision on 188 of 252 contracts. The qualifying-offer BANDS are now
+dated like the floor, so a 2021 signing pricing a 2026 control year sees the pre-2026 regime. And
+the rule set is now six rules differing one change at a time, so **the value of information is
+$0.068M a contract**, not the $0.266M first reported -- that figure compared pricing the mean
+against averaging the price, deciding in advance against deciding on the path, and stopping at the
+first loss against counting later years, all at once, and is withdrawn. Being able to walk away at
+all is worth **$0.419M**, six times the information. Production's own terminal value reads the same
+expiry label (130 of the 187 zero-terminal contracts carry it), which is flagged as a finding about
+production. Suite 28/28 with each defect reintroduced and caught. See
+`50_REBUILD/docs/Control_Years.md`.
+
 **The RFA walk-away and the control years, 2026-09-17.** `control_years.py` and
 `run_control_years.py` v1.0 price the seasons a club holds after a contract expires with the player
 still restricted: 252 of 1,217 development contracts, mostly one- and two-year deals. Control is a

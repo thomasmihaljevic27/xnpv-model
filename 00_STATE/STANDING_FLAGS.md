@@ -196,18 +196,34 @@ residuals and currency comparisons; fix and rerun development work before furthe
 
 ## Standing flags (Karl's identification axes — watch on every design choice)
 
-- **NEW 2026-09-17 — a right priced as an obligation is priced wrong, and the difference is
-  large where the contracts are short.** 252 development contracts leave the club holding the
-  player's rights after expiry. Forced to take every control year, those rights are worth
-  **-$0.556M** on the contracts holding one and -$0.038M on those holding two. With the right to
-  decline they are worth **+$0.190M and +$0.614M**. Deciding as the club goes rather than fixing
-  the schedule in advance is worth **$0.266M a contract** across all 252. Two things follow for the
-  write-up. First, any valuation of a control year, a club option, a buyout or an arbitration walk
-  that prices it as a stream rather than a stopping rule is biased downward, and by more where the
-  player is marginal. Second, **the size of that gap depends on what the club is assumed to know**,
-  which is a modelling choice and not a measurement: the informed rule here brackets between
-  deciding in advance and knowing the whole path, and where real clubs sit in that range is a
-  back-test question that has not been run. Evidence: `50_REBUILD/docs/Control_Years.md`.
+- **NEW 2026-09-17, CORRECTED after review — a right priced as an obligation is priced wrong, and
+  the correction is large where the contracts are short.** 398 development contracts leave the club
+  holding the player's rights after expiry. Forced to take every control year, those rights are
+  worth **-$0.217M** on the contracts holding one. With the right to decline they are worth
+  **+$0.268M**. **Being able to walk away is worth $0.419M a contract** across all 398. Any
+  valuation of a control year, a club option, a buyout or an arbitration walk that prices it as a
+  stream rather than a stopping rule is biased downward, and by more where the player is marginal.
+  **The value of the club's INFORMATION is a much smaller and separate thing: $0.068M**, measured
+  against a baseline that prices the same way and uses the same policy, so that only the
+  conditioning differs. The first version of this flag quoted $0.27M as the value of deciding as you
+  go; that number compared three changes at once and is withdrawn. Where real clubs sit between
+  deciding in advance and knowing the path is a back-test question and is not tested. Evidence:
+  `50_REBUILD/docs/Control_Years.md`.
+
+- **NEW 2026-09-17 — an outcome of the decision being priced was an input to pricing it, in this
+  tree AND in production.** The export's expiry status records what a club eventually did with its
+  rights: "UFA no QO" is a club that declined to qualify the player, years after the signing being
+  valued. The rebuild's first control-year pass read that column and gave those contracts no rights
+  at all, which is the model being told the answer to the question it is asking. Fixed here:
+  ownership is eligibility alone and the label is now an outcome kept for evaluation. **Production's
+  `rfa_terminal_value.py` reads the same column the same way** -- its docstring states that "UFA no
+  QO (team already declined to qualify) -> terminal value = 0" -- and of the 187 contracts where
+  production carries no terminal value while this tree finds a right, **130 are that label**. Any
+  claim about production's control-year value, and any back-test that uses it, has to carry this.
+  **The general form is the one to watch on every remaining design choice:** a status column in a
+  vendor export is usually a snapshot of the present, not of the decision date, and eligibility,
+  expiry, clause and status fields need dating before they are used as inputs. Evidence:
+  `50_REBUILD/docs/Control_Years.md`, `20_CODE/rfa_terminal_value.py`.
 
 - **NEW 2026-09-16, CORRECTED AND NARROWED 2026-09-17 — the exit hazard alone does not explain
   production's long-contract pessimism.** Reconciled contract by contract against the production

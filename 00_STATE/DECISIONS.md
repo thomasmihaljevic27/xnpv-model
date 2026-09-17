@@ -1,5 +1,29 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-17d (answering the control-year review):** Four findings, all real, all
+fixed; `control_years.py` and `run_control_years.py` v2.0. (1) **Ownership is eligibility alone.**
+The export's expiry status is an outcome -- "UFA no QO" is a club that declined to qualify the
+player years after the signing -- and reading it removed the right from 101 contracts and a plain
+"UFA" label from 45 more. `control_span` no longer takes the label and the suite asserts its
+signature. Sample 252 -> **398**. Eligibility audited against the age-27 rule (89.3% exact, 130
+earlier through accrued seasons, none later) and bounded by repricing the sample on the age rule
+alone: +$0.026M a contract. (2) **The club conditioned on misses it never saw**, including seasons
+the player spent out of the league; the review measured 188 of 252 first-year decisions moving and
+26,519 path decisions flipping. It now conditions on played seasons and integrates the rest out,
+which is exact because the joint law is Gaussian and participation is independent of it; the shape's
+monotonicity, which makes observing production the same as observing the miss, is asserted. (3)
+**The offer bands are dated** like the floor already was: the 2026 regime was ratified in the summer
+of 2025, so earlier signings price 2026 control years on the rules they could see. (4) **The
+headline compared three changes at once** and is withdrawn. Six rules now differ one change at a
+time: **the value of information is $0.068M** a contract (deciding as you go against a baseline with
+the same pricing and the same policy), counting the later years is worth $0.001M, and **being able
+to walk away at all is worth $0.419M** -- six times the information. The $0.266M first reported is
+the gap against production's rule, which differs in pricing, information and policy together. Also
+recorded: production's `rfa_terminal_value.py` reads the same expiry label, and 130 of the 187
+contracts where it carries no terminal value while this tree finds a right are that label. Suite 28
+passed, 0 skipped, 0 failed, with each of the four defects reintroduced and caught. Nothing adopted;
+no production code changed; no locked decision reopened.
+
 **Change log, 2026-09-17c (the RFA walk-away and control years):** Built `control_years.py`
 and `run_control_years.py` v1.0, the first item of the remaining valuation work. 252 of 1,217
 development contracts expire with the player still restricted and so leave the club holding his

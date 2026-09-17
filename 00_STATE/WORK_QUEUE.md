@@ -194,8 +194,59 @@ the work is. Next, in order:
 5. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
    contract-by-contract dollar reconciliation, and the holdout policy.
 
-**2026-09-17c — the walk-away and the control years are built, and the right is worth more
-than the stream.** The first item of the remaining valuation work. `control_years.py` and
+**2026-09-17d — the control-year pass is repaired; the information premium is $0.068M, not
+$0.27M.** Four findings from an independent review, all real, all now fixed.
+
+**(1) A future decision was removing the right.** The export's expiry status records what the club
+eventually did: "UFA no QO" is a club that declined to qualify the player, YEARS after the signing
+being valued, and it is the very decision the stopping rule exists to make. 101 contracts were
+dropped on that label and 45 more on a plain "UFA" label despite listing a later eligibility year.
+Ownership is now **eligibility alone**; `control_span` cannot see the label and the suite asserts
+it. The sample goes from 252 contracts to **398**. Eligibility itself is audited: the export's year
+matches the age-27 rule exactly on 89.3%, is earlier on 130 (the accrued-seasons route, which for a
+player short of seven runs partly through seasons not yet played), and is never later. The whole
+sample is priced again on the age rule alone, which needs only a birthdate: **+$0.026M a contract**,
+so that exposure is bounded at under 4%.
+
+**(2) The club was seeing shocks from seasons the player missed.** Those misses exist in the
+simulator and nobody ever observed them. The review measured it: changing only the hidden shocks
+moved the first control year's decision on 188 of 252 contracts and flipped 26,519 path decisions.
+The rule now conditions on the misses of **played** seasons and integrates the rest out, which is
+exact rather than approximate because the joint law is Gaussian and participation is independent of
+it. Seeing a played season's production is the same as seeing its miss because the shape is
+monotone, now asserted.
+
+**(3) A historical valuation was using future offer bands.** The floor was dated; the 2026 regime
+switch was not. The agreement was ratified in the summer of 2025, so a 2021 signing pricing a 2026
+control year sees $1.00M on a $1M salary, not $1.10M.
+
+**(4) The headline compared three changes at once.** The informed rule stopped at the first
+expected loss while the ceiling counted later years, and it averaged prices while its baseline
+priced the mean -- and the league-minimum floor makes those differ even with no information. Six
+rules now sit on the same draws, each differing from its neighbour in ONE thing, $M a contract over
+398: take every year 0.285, production's rule 0.443, decide in advance 0.637, myopic informed
+0.704, decide as you go 0.704, knew the path 0.904.
+
+| the comparison | what changes | $M |
+|---|---|---:|
+| decide as you go vs decide in advance | the information only | **+0.068** |
+| decide as you go vs myopic informed | counting later years only | +0.001 |
+| the right vs the obligation | being able to walk away | **+0.419** |
+| decide as you go vs production's rule | all three at once, NOT an option premium | +0.261 |
+
+**The largest number is not about information at all**: being able to walk away is worth $0.419M a
+contract, six times what the club's information is worth.
+
+**A finding about production, not only about this module.** Production's `rfa_terminal_value.py`
+reads the same expiry column the same way -- its docstring states that "UFA no QO (team already
+declined to qualify) -> terminal value = 0". Of the 187 contracts where production carries no
+terminal value while this tree finds a right, **130 are that label**. Flagged.
+
+Suite **28 passed, 0 skipped, 0 failed**, with each of the four defects reintroduced and caught.
+Report rewritten: `50_REBUILD/docs/Control_Years.md`.
+
+**2026-09-17c — the first control-year pass. ITS $0.27M HEADLINE IS WITHDRAWN; see the
+2026-09-17d entry above.** The first item of the remaining valuation work. `control_years.py` and
 `run_control_years.py` (new) price the seasons a club still owns when a contract expires with the
 player still restricted. **252 of the 1,217 development contracts own at least one** -- 133 of them
 one-year deals, 86 two-year -- which is exactly the population where the rebuild sits below
@@ -212,9 +263,10 @@ the same draws, differing only in what the club knows when it decides, $M a cont
 | all | 252 | 0.136 | 0.451 | **0.716** | 0.950 |
 
 A club **forced** to take every control year loses money on the deals with one or two of them. The
-same seasons with the right to decline are worth +$0.19M and +$0.61M. **Deciding as you go is worth
-$0.27M a contract over deciding in advance** (production's rule), and that gap is the part of the
-asset a point valuation cannot reach.
+same seasons with the right to decline are worth +$0.19M and +$0.61M. **[WITHDRAWN 2026-09-17d]** This entry called $0.27M the value of deciding as you go. It is the
+gap against production's rule, which differs in three things at once -- pricing the mean rather
+than averaging the price, deciding in advance, and stopping at the first loss. Against a baseline
+that changes only the information, the answer is **$0.068M**.
 
 **The club's decision cannot see the season it is deciding about.** It updates the forecast by the
 misses already realised on the path, through the persistence the simulator already fitted,

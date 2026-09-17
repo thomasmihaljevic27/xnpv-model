@@ -1,214 +1,242 @@
 # What a club still owns when the contract ends
 
-Run 2026-09-17 in `50_REBUILD/`. The plan's Phase 5 item on the restricted-free-agency walk-away
-and the control years. Development start years only. **Nothing adopted, and no production file
-changed.**
+Run 2026-09-17 in `50_REBUILD/` (v2.0, after an independent review). The plan's Phase 5 item on the
+restricted-free-agency walk-away and the control years. Development start years only. **Nothing
+adopted, and no production file changed.**
+
+The first version of this report (2026-09-17, v1.0) put the value of deciding as you go at $0.27M a
+contract. **That figure is withdrawn.** It compared two rules that differed in three things at
+once, and the comparison that isolates information gives **$0.068M**. The corrections are in
+`#what-the-first-version-got-wrong` at the end; the body below is the repaired work.
 
 ## The asset the simulator was leaving out
 
 A contract that expires into unrestricted free agency ends the relationship: the player walks and
 the club keeps nothing. A contract that expires with the player still **restricted** does not. The
-club holds his rights for every season until he becomes unrestricted, and it can keep him by
-tabling a **qualifying offer** — a one-year offer whose size the CBA fixes off his last salary, and
-which for a good young player sits far below what he is worth.
+club holds his rights until he becomes unrestricted, and can keep him by tabling a **qualifying
+offer** — a one-year offer the CBA sizes off his last salary, which for a good young player sits
+far below what he is worth.
 
-Those seasons are an asset, and the path simulator has been valuing them at zero.
+**398 of the 1,217 development contracts own at least one control year** — 148 own one, 153 two, 79
+three, 16 four, 2 five. They are short deals: 219 one-year contracts, 138 two-year, 39 three-year.
 
-| expiry | development contracts |
+### Ownership is eligibility, and nothing else
+
+A club holds the rights from the season after the contract until the season before the player is
+unrestricted. That is all this reads.
+
+It is not what the export records as the contract's expiry. That column is an **outcome**: of the
+398, it eventually recorded 252 as restricted expiries, **101 as "UFA no QO"** — a club that
+declined to qualify the player — and 45 as plain unrestricted. Declining to qualify happens years
+after the signing being valued, and it is *the very decision the stopping rule exists to make*.
+Reading it back into the setup tells the model the answer. `control_span` no longer takes the label
+as an argument at all, and the suite asserts that it cannot.
+
+**Where eligibility comes from.** A player is unrestricted at 27 on the age rule alone, which his
+birthdate fixes and a club knows the day it signs him. Seven accrued seasons can get him there
+sooner, and a season accrues by being played.
+
+| | contracts | |
+|---|---:|---|
+| the export's eligibility year matches the age rule exactly | 1,087 | 89.3% |
+| earlier than the age rule (the accrued-seasons route) | 130 | |
+| later than the age rule | 0 | |
+
+Never later, which is what the rule says: eligibility is the earlier of the two routes. The 130 are
+the exposure — for a player short of seven accrued seasons at the signing, that route runs partly
+through seasons not yet played. **So the whole sample is priced again on the age rule alone**, which
+needs nothing but a birthdate:
+
+| | eligibility | age rule alone |
+|---|---:|---:|
+| contracts owning control years | 398 | 405 |
+| control years each | 1.92 | 2.03 |
+| deciding as you go, $M | 0.704 | 0.718 |
+
+On the contracts in both, the difference is **+$0.026M a contract**. The age rule never brings
+eligibility forward, so it is an upper bound on the window rather than a neutral alternative; what
+it bounds is how much of the answer rests on an eligibility year the signing might not have known
+in full. It is 3.7% of the answer.
+
+## It is an option, and the walk-away is final
+
+Control is a right, not an obligation, and once the club declines the remaining years are gone —
+there is no skipping a year and re-qualifying later. So the value is the value of a **stopping
+rule**.
+
+And because the walk-away is final, "worth keeping" is not "does next season pay". A year that
+loses money is worth taking when the years behind it more than pay for it: on a path worth +5, −1,
++10, a club that stops at the first loss leaves 9 behind. That is true of the ceiling **and of the
+policy**. The first version fixed only the ceiling.
+
+## Six rules, each differing from its neighbour in one thing
+
+Priced on the same draws. Dollars a contract, discounted to the signing, 2,000 paths.
+
+| control yrs | n | take every year | production's rule | decide in advance | myopic, informed | decide as you go | knew the path |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| 1 | 148 | −0.217 | 0.143 | 0.224 | 0.268 | **0.268** | 0.411 |
+| 2 | 153 | 0.238 | 0.425 | 0.616 | 0.711 | **0.711** | 0.970 |
+| 3 | 79 | 1.041 | 0.934 | 1.250 | 1.306 | **1.308** | 1.488 |
+| 4 | 16 | 1.451 | 0.953 | 1.472 | 1.542 | **1.545** | 1.767 |
+| all | 398 | 0.285 | 0.443 | 0.637 | 0.704 | **0.704** | 0.904 |
+
+- **take every year** — the obligation, not the right.
+- **production's rule** — prices the mean projection and stops at the first loss. Production's D13.
+- **decide in advance** — expected price, no path seen, later years counted.
+- **myopic, informed** — the path's *observed* history, stop at the first expected loss.
+- **decide as you go** — the same history, later years counted.
+- **knew the path** — the ceiling: best stopping point in hindsight.
+
+### Two differences that mean something
+
+| | $M a contract |
 |---|---:|
-| still restricted, so the club holds rights | 254 |
-| unrestricted | 862 |
-| already declined to qualify | 101 |
+| seeing the path so far, with pricing and policy held | **+0.068** |
+| counting the later years, with information held | **+0.001** |
 
-**252 of the 1,217 development contracts own at least one control year** — 88 own one, 93 two, 55
-three, 14 four, 2 five. They are overwhelmingly short deals: 133 one-year contracts, 86 two-year,
-31 three-year, 2 four-year. That is exactly the population where the rebuild sits *below* the
-production chain in the reconciliation, and production's own terminal value appears on 185 rows,
-all one- to three-year contracts.
+**The value of information is $0.068M a contract**, one tenth of the way from deciding in advance
+($0.637M) to knowing the whole path ($0.904M). Counting the later years is worth almost nothing on
+average — it changes the value on 140 of the 398 contracts, but by $2,378 where it does, at most
+$31,518. The constructed case where it matters is real; this sample rarely presents it, because the
+offer escalates year over year and a control year that disappoints is usually followed by one that
+disappoints more.
 
-## It is an option, and an option is not a stream
+### And one that does not
 
-Control is a right, not an obligation. The club tables an offer while the player is worth more than
-the offer and walks away when he is not — and once it walks away the remaining control years are
-gone. There is no skipping a year and re-qualifying later.
+**Deciding as you go against production's rule is +$0.261M** — and that is the figure the first
+version reported as the value of deciding as you go. It is a mixture of three changes: pricing the
+mean versus averaging the price, deciding in advance versus on the path, and stopping at the first
+loss versus counting the later years. It is not an option premium and should not be quoted as one.
 
-So the value of the control years is the value of a **stopping rule**, and a stopping rule is worth
-more than the stream it stops. That is a quantity a point valuation cannot reach, because a point
-valuation has one path and nothing to decide. Production prices the same right (D13) by walking its
-single projected path and truncating at the first control year whose projected surplus goes
-negative, which is the best a single path can do.
+### What the right is worth against the obligation
 
-## What the club is allowed to know — the whole identification question
+The largest single number here is not about information at all. A club **forced** to take every
+control year loses money on the deals with one of them (−$0.217M); with the right to decline the
+same seasons are worth +$0.268M. **Being able to walk away is worth $0.419M a contract** across the
+398 — six times the value of the information the club brings to the decision.
 
-A stopping rule is only as honest as the information it stands on, and it is easy to write one that
-quietly reads the future. So four rules are priced **on the same draws**, differing only in what the
-club knows when it decides:
+Deciding on an expectation is not the same as not losing: the informed rule ends under water on 2
+of the 398 contracts and the declared rule on 1. That is what tendering on an expectation means,
+not a defect.
 
-- **committed** — the club takes every control year, good or bad. Not a right at all.
-- **declared** — the club fixes the whole schedule in advance off the point projection, before a
-  single path is drawn. This is production's rule, and it uses no path information whatsoever.
-- **informed** — at each control year the club decides on what it knows *then*: the forecast,
-  updated by how wrong the forecast has turned out so far on this path, and whether the player is
-  still in the league. It cannot see the season it is deciding about.
-- **hindsight** — the club knew the whole path and could only choose when to stop. The ceiling.
-
-The update is the simulation's own dependence, not a new model. The miss in each season is a
-standard normal before the empirical shape is applied, the fitted persistence gives their
-correlation matrix, so the club's expectation of next season is the linear projection of that
-normal onto the misses already seen, pushed through the shape. Nothing is fitted here that was not
-already fitted for the paths. The expectation is **integrated** through the shape on a
-Gauss–Hermite grid rather than substituted into it, which would be the club expecting the median.
-
-Whether he plays is conditioned too. A club standing at a control year knows whether the player is
-in the league, so the chance he plays next season is the participation chain's own transition — one
-minus the exit probability if he is in it, the return rate if he is not — rather than the
-unconditional marginal a point valuation uses.
-
-**The ceiling is not "take every year that turns out positive."** Because walking away is final, a
-club that wants a good third year must sit through a bad second one: on a path worth +5, −1, +10
-the myopic rule collects 5 and taking all three collects 14. The first version of this module used
-the myopic rule as its ceiling; it is not one. The ceiling is the best prefix, including the empty
-one, so it is never below zero and never below any other rule here — and that is asserted, not
-argued.
-
-## What the right is worth
-
-Dollars a contract, discounted to the signing, 2,000 paths.
-
-| control years | n | committed | declared | informed | hindsight | deciding as you go is worth |
-|---|---:|---:|---:|---:|---:|---:|
-| 1 | 88 | −0.556 | 0.079 | **0.190** | 0.367 | +0.111 |
-| 2 | 93 | −0.038 | 0.317 | **0.614** | 0.934 | +0.297 |
-| 3 | 55 | 1.117 | 1.111 | **1.453** | 1.628 | +0.343 |
-| 4 | 14 | 1.538 | 1.063 | **1.635** | 1.852 | +0.572 |
-| 5 | 2 | 1.851 | 0.583 | **1.932** | 2.373 | +1.349 |
-| all | 252 | 0.136 | 0.451 | **0.716** | 0.950 | **+0.266** |
-
-Three things in that table.
-
-**The obligation is worth less than the right, and sometimes less than nothing.** A club forced to
-take every control year loses money on the deals with one or two of them (−$0.56M, −$0.04M). The
-same seasons, with the right to decline, are worth +$0.19M and +$0.61M.
-
-**Deciding as you go is worth $0.27M a contract over deciding in advance**, and the gap widens with
-the number of control years, because there are more decisions to get right. This is the part of the
-asset that only exists over paths.
-
-**It does not beat hindsight**, and it must not: the informed rule sits between the declared
-schedule and the ceiling everywhere. Deciding on an expectation is not the same as not losing —
-the informed rule ends up under water on 2 of the 252 contracts, which is what tendering on an
-expectation means, not a defect.
-
-The club tables an offer in **1.18 of its 2.00 control years** on average, deciding as it goes.
+The club tables an offer in **1.25 of its 1.92 control years** on average.
 
 ## What it does to the contract
 
 Reported beside the contract's surplus, not folded into it. Every comparison already run in this
 tree values a contract to its expiry, and moving the headline would silently re-date all of them.
 
-| term | n | surplus $M | control years $M | together | control ÷ together |
-|---|---:|---:|---:|---:|---:|
-| 1 yr | 133 | −0.108 | +0.942 | +0.834 | 1.13 |
-| 2 yr | 86 | −0.012 | +0.547 | +0.535 | 1.02 |
-| 3 yr | 31 | +0.120 | +0.303 | +0.422 | 0.72 |
-| 4 yr | 2 | +2.327 | +0.086 | +2.413 | 0.04 |
+| term | n | surplus $M | control years $M | together |
+|---|---:|---:|---:|---:|
+| 1 yr | 219 | +0.015 | +0.851 | +0.865 |
+| 2 yr | 138 | +0.175 | +0.600 | +0.775 |
+| 3 yr | 39 | +0.543 | +0.286 | +0.829 |
 
-The last column is above one wherever the contract itself loses money: **on a one-year deal the
-right to keep the player afterwards is worth more than the season the club just bought.** A ratio
-above one is a statement about the contract being under water, not about the right being worth more
-than everything.
+On a one-year deal the right to keep the player afterwards ($0.851M) dwarfs the surplus on the
+season the club just bought ($0.015M). The ratio is not worth quoting — the denominator is a mean
+near zero — but the ordering is the point: for these contracts the asset is mostly the right.
 
 ## Against production's own terminal value
 
-Production prices the same right by truncating one projected path, which is the declared rule here
-and nothing else. The two are **not on the same information date** — production discounts to 1 July
-of the first contract season, this discounts to the signing — so the levels are not expected to
-agree and the comparison is about who carries the right and how they rank.
+Production prices the same right by truncating one projected path, which is the `production_point`
+rule here. The two are **not on the same information date** — production discounts to 1 July of the
+first contract season, this to the signing — so levels are not expected to agree.
 
 | | |
 |---|---:|
-| contracts in both | 241 of 252 |
-| production's terminal value, mean | $0.894M |
-| the declared rule here, mean | $0.409M |
-| deciding as it goes, mean | $0.684M |
-| rank correlation, production vs declared | 0.547 |
-| rank correlation, production vs informed | 0.759 |
+| contracts in both | 372 of 398 |
+| production's terminal value, mean | $0.580M |
+| production's own rule, rebuilt here | $0.424M |
+| deciding in advance, priced alike | $0.619M |
+| deciding as it goes | $0.691M |
+| rank correlation, production vs its own rule | 0.233 |
+| rank correlation, production vs deciding as you go | 0.380 |
 
-Production prices **57** of these contracts at exactly zero where this tree finds a right worth
-$0.13M on average — and the reason is the truncation itself, not a disagreement about who owns the
-right. Checked rather than assumed: the declared rule here gives **zero on all 57 of them too**,
-and on 56 of the 57 this tree's own point projection also has the first control year under water.
-Where the two rules both decide in advance, they decide the same way. The $0.13M is what the same
-57 rights are worth once the club is allowed to decide as it goes instead.
+**Production prices 187 of them at zero**, where this tree finds a right worth $0.53M on average.
+Broken down by the label production reads: **97 are "UFA no QO"**, 33 plain "UFA", and 57 restricted
+expiries. Production's own code sets terminal value to zero for the first two outright — the
+docstring says so, "team already declined to qualify" — so **130 of the 187 are the same future
+decision this version stopped reading**. The remaining 57 are the D13 truncation, and this tree's
+rebuild of production's rule gives zero on 147 of the 187, which is those 57 plus the cases where
+both rules truncate anyway.
 
-The reverse case is larger and is a value-side disagreement rather than a rule one: on 127
-contracts production carries a terminal value while this tree's point projection puts the first
-control year below zero.
-
-The rank correlation being *higher* against the informed rule than against the declared one is
-worth stating and not over-reading. It is one ordering comparison on 241 contracts between two
-models with different value sides, not evidence that clubs behave like the informed rule.
+That is a finding about production's terminal value and not only about this module: **production's
+control-year value uses the outcome of the decision it is pricing.** The rank correlations falling
+from the first version (0.547 → 0.233 on the matched rule) is the same thing seen from the other
+side — the two now disagree about who owns a right at all.
 
 ## The weak point: the offer's base salary
 
-The CBA formula runs off the final year's **base salary**. The PuckPedia contract export this tree
-reads carries one row per contract with an average annual value and no salary schedule, so the
-average is used. That is measurable rather than arguable, against the per-season salaries
-production joins from the clause feed:
-
-| | contracts |
-|---|---:|
-| final-year salary equals the average within 1% | 421 |
-| final salary **above** the average, so the offer is understated | 155 |
-| final salary below the average | 17 |
-
-Median ratio 1.000, 90th percentile 1.100. A front-loaded deal's last salary sits above its
-average, so the average makes the offer too cheap and the control year too valuable. **That is the
-direction of this approximation**, and it is why the qualifying-offer rule's 120%-of-cap-hit clause
-— which exists precisely to catch front-loading — bites less here than it should.
+The CBA formula runs off the final year's **base salary**. This tree's source carries one row per
+contract with an average annual value, so the average is used. Measured against the per-season
+salaries production joins from the clause feed: 421 of 593 agree within 1%, **155 have a final
+salary above the average**, 17 below; median ratio 1.000, 90th percentile 1.100. A front-loaded
+deal's last salary sits above its average, so the average makes the offer too cheap and the control
+year too valuable — and it switches off exactly the 120%-of-cap-hit clause that exists to catch
+front-loading.
 
 ## What is checked
 
-- The qualifying-offer bands are reimplemented in this tree rather than imported from production,
-  then **checked against production's implementation on 4,000 random cases: largest difference
-  $0.00.** The two cannot drift apart unnoticed.
-- The span: unrestricted or already-declined expiries own nothing; a restricted expiry runs from
-  the season after the contract to the season before eligibility; an export whose eligibility year
-  has already passed owns nothing.
-- The ceiling sits through a bad year to reach a good one, is never below zero, and nothing beats
-  it — on the worked case and on 500 random paths.
-- **The informed rule cannot see the season it is deciding about.** Every season from the decision
-  onward is redrawn and the club's expectation comes back bit for bit, at four horizons; scrambling
-  the *past* moves it at all four, so the rule is not vacuously ignoring everything.
+- **The expiry label cannot reach the span.** Asserted on the function's signature, so it cannot
+  come back quietly.
+- **The offer is dated twice over** — the league minimum it floors at, and the bands themselves. A
+  2021 signing pricing a 2026 control year sees $1.00M on a $1M salary; a 2025 signing sees $1.10M.
+- The bands are reimplemented in this tree and **checked against production's implementation on
+  4,000 random cases: largest difference $0.00.**
+- **Ceiling and policy both sit through a bad year to reach a good one**, on the worked case and on
+  500 random paths, where nothing beats the ceiling.
+- **The club sees what it was shown and only that.** Every season from the decision onward is
+  redrawn: the expectation comes back bit for bit. The misses of seasons he did not play are
+  redrawn: unmoved. The seasons he *did* play are redrawn: it moves at every horizon.
 
-All four were tested by deliberately breaking them: reverting the ceiling to the myopic rule,
-letting the club peek one season ahead, handing control years to unrestricted players, and freezing
-the offer schedule. Each break is caught.
+Each was verified by reintroducing the defect it guards — the label back in the span, conditioning
+on unseen misses, undated bands, and a myopic policy. All four breaks are caught.
 
 Suite: **28 passed, 0 skipped, 0 failed.**
 
 ## What this does not establish
 
-- **Nothing here is scored against an outcome.** Whether clubs actually exercise the right this
-  well is a back-test question, and the back-test has not run.
+- **Nothing here is scored against an outcome.** Whether clubs exercise the right this well is a
+  back-test question.
 - **The informed rule is a model of a club, not a measurement of one.** It brackets the answer
-  between deciding in advance and knowing the future; where real clubs sit in that range is not
-  tested.
-- **The forecast is extrapolated further here than anywhere else in the tree.** A control year sits
-  past the contract's own term, so the longest horizons lean on the declared extrapolation past the
-  fitted range.
-- **Goalies are not here.** This is the skater branch; the goalie control-year gate is still open.
-- The 2026 CBA's offer bands and league-minimum schedule were not public before the summer of 2025,
-  so a valuation dated earlier could not have known them. The league minimum is now dated the way
-  the cap ceiling already was — only figures published before the signing are used, and later
-  seasons grow at 3% from the last one the date could see.
+  between deciding in advance and knowing the future; where real clubs sit is not tested. The
+  realised expiry label is now available for exactly that test, having been removed from the setup.
+- **The forecast is extrapolated further here than anywhere else in the tree**, because a control
+  year sits past the contract's own term.
+- **Goalies are not here.** The goalie control-year gate is still open.
+- The $0.068M value of information is a sample mean over 398 contracts, and the rules it compares
+  share draws, so it is a paired difference — but it is still one sample and one dependence model.
+
+## What the first version got wrong
+
+Four things, all found by review:
+
+1. **It used a future decision to remove the right.** 101 contracts marked "UFA no QO" were given no
+   control years because the club had declined to qualify the player — years after the signing being
+   valued. 45 more were dropped on a plain "UFA" label despite listing a later eligibility year. The
+   sample was 252 contracts; on eligibility it is 398.
+2. **The club saw shocks from seasons the player missed.** Conditioning ran over every earlier
+   season's miss, including ones nobody observed. Changing only those hidden shocks moved the first
+   control year's decision on 188 of 252 contracts and flipped 26,519 path decisions. The
+   future-scramble test could not catch it, because those seasons are in the past.
+3. **A historical valuation used future qualifying-offer bands.** The floor was dated; the regime
+   switch at 2026 was not. Contract 6876, signed in 2021, was handed a $1.10M offer in 2026 where
+   the rules it could see gave $1.00M.
+4. **The headline compared three changes at once.** The informed rule stopped at the first expected
+   loss, ignoring the later years it would also lose; and it averaged prices across uncertain
+   production while the rule it was compared against priced the mean. With the floor bending the
+   price, those two calculations differ even when no information has arrived.
+
+The first three are corrected in the model. The fourth is corrected by adding the matched baseline,
+which is what moves the headline from $0.266M to $0.068M.
 
 ## Files
 
-    50_REBUILD/code/control_years.py        the offer, the span, the four rules
-    50_REBUILD/code/run_control_years.py    the run, the checks, the report
+    50_REBUILD/code/control_years.py        the offer, the span, the six rules
+    50_REBUILD/code/run_control_years.py    the run, the audit, the checks
 
 Writes `control_years.csv`: one row per contract with control years, carrying the number of them,
-the offer schedule, the point projection's first-year surplus, the mean and spread under each rule,
-and how many years the club tables an offer in when it decides as it goes. Outputs ignored under
+the offer schedule, the point and unconditional first-year surpluses, the mean under each rule, the
+spread under the informed one, and how many years the club tables an offer in. Outputs ignored under
 `50_REBUILD/output/`.

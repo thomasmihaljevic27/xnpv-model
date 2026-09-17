@@ -931,91 +931,115 @@ def c25(table):
 
 
 def c26(table):
-    """WHO OWNS CONTROL YEARS, AND WHAT THE OFFER COSTS.
+    """WHO OWNS CONTROL YEARS, AND WHAT THE OFFER COSTS -- BOTH DATED.
 
-    Two mechanical rules, on cases whose answers are CBA arithmetic rather
-    than model output. The span: a contract that expires into unrestricted
-    free agency leaves the club nothing, one the club has already declined to
-    qualify leaves it nothing either, and a restricted expiry runs from the
-    season after the contract to the season before unrestricted eligibility.
-    The offer: the bands, the escalation off last year's offer, and the
-    league-minimum floor as the season's own, which a control year past the
-    published schedule has to reach.
+    Mechanical rules, on cases whose answers are CBA arithmetic rather than
+    model output.
+
+    The span is decided by ELIGIBILITY and nothing else. The first version
+    read the export's expiry label and gave nothing to a contract marked "UFA
+    no QO" -- but that label records a club declining to qualify the player
+    years after the signing being valued, which is the very decision the
+    stopping rule exists to make. The function no longer takes the label at
+    all, so it cannot come back.
+
+    The offer is dated twice over: the league minimum it floors at, and the
+    BANDS themselves. The agreement carrying the 2026 bands was ratified in
+    the summer of 2025, so a 2021 signing pricing a 2026 control year sees
+    100% of a $1M salary, not 110%.
     """
     import control_years as CY
+    import inspect
 
-    assert CY.control_span("UFA", 2020, 2024) == []
-    assert CY.control_span("UFA no QO", 2020, 2024) == []
-    assert CY.control_span("RFA", 2020, 2024) == [2021, 2022, 2023]
-    assert CY.control_span("RFA", 2020, 2021) == []      # already eligible
-    assert CY.control_span("RFA", 2020, float("nan")) == []
+    assert "expiry" not in str(inspect.signature(CY.control_span)), (
+        "control_span can see the expiry label again, which is an outcome of "
+        "the decision it is supposed to be making")
+    assert CY.control_span(2020, 2024) == [2021, 2022, 2023]
+    assert CY.control_span(2020, 2021) == []            # already eligible
+    assert CY.control_span(2020, float("nan")) == []
 
-    # Escalation: a $925K salary qualifies at 105% ($971,250), and the NEXT
-    # offer escalates off that, hits the band cap and stays at $1.0M.
+    # The age rule needs a birthdate and nothing else: 27 on 30 June.
+    assert CY.ufa_year_by_age("1995-03-01") == 2022     # turns 27 before 30 June
+    assert CY.ufa_year_by_age("1995-09-01") == 2023     # turns 27 after it
+
     sched = CY.qo_schedule(925_000, 925_000, [2023, 2024, 2025], 2021)
-    assert abs(sched[0] - 971_250) < 1, sched
-    assert abs(sched[1] - 1_000_000) < 1, sched
+    assert abs(sched[0] - 971_250) < 1, sched           # 105%
+    assert abs(sched[1] - 1_000_000) < 1, sched         # escalates, band cap
     assert abs(sched[2] - 1_000_000) < 1, sched
-    # The floor is the season's, and a caller that knew less than the
-    # published schedule gets the minimum it hands over.
     assert abs(CY.qualifying_offer(500_000, 500_000, 2024, False)
-               - 775_000) < 1
-    assert abs(CY.qualifying_offer(500_000, 500_000, 2027, False,
-                                   floor=822_198) - 822_198) < 1
-    return (f"span and offer schedule hold; {len(sched)} offers escalate off "
-            f"one another and floor at the season's minimum")
+               - 775_000) < 1                           # league-minimum floor
+    old = CY.qo_schedule(1e6, 1e6, [2026], 2021, decision_date="2021-07-01")
+    new = CY.qo_schedule(1e6, 1e6, [2026], 2021, decision_date="2025-08-01")
+    assert abs(float(old[0]) - 1_000_000) < 1, old
+    assert abs(float(new[0]) - 1_100_000) < 1, new
+    return ("eligibility decides the span and the label cannot reach it; the "
+            "offer escalates, floors, and switches bands only once they exist")
 
 
 def c27(table):
-    """A WALK-AWAY IS FINAL, AND HINDSIGHT IS THE CEILING.
+    """A WALK-AWAY IS FINAL, IN HINDSIGHT AND IN THE POLICY.
 
-    The value of the control years is the value of a stopping rule, and two
-    things about it are arithmetic rather than empirical.
+    The right dies when the club declines, so a year that loses money is worth
+    taking when the years behind it more than pay for it. On a path worth
+    +5, -1, +10 a club that stops at the first loss collects 5 and one that
+    holds collects 14.
 
-    First, stopping at the first bad year is NOT the best a club with perfect
-    foresight could do, because the right dies when it walks away: on a path
-    worth +5, -1, +10 it has to sit through the bad year to reach the good
-    one. An earlier version of this module used the myopic rule as its
-    ceiling and it is not one.
-
-    Second, the ceiling includes walking away at once, so it is never below
-    zero, and no rule that decides on less information can beat it.
+    That is true of the CEILING, which is the best prefix rather than the
+    myopic rule -- and it is equally true of the POLICY, which is why the
+    informed rule asks whether any run of remaining seasons is worth keeping
+    rather than whether the next one is. The first version fixed the ceiling
+    and left the policy myopic, so part of what it reported as the value of
+    deciding as you go was really the value of counting the later years.
     """
     import control_years as CY
     import numpy as np
 
     d = np.array([[5.0, -1.0, 10.0], [-2.0, -1.0, -1.0], [1.0, 2.0, 3.0]])
     best = CY.best_stop(d)
-    assert abs(best[0] - 14.0) < 1e-9, best      # sit through the bad year
-    assert abs(best[1] - 0.0) < 1e-9, best       # walk away at once
-    assert abs(best[2] - 6.0) < 1e-9, best       # take everything
+    assert abs(best[0] - 14.0) < 1e-9, best
+    assert abs(best[1] - 0.0) < 1e-9, best
+    assert abs(best[2] - 6.0) < 1e-9, best
     myopic = (CY._run_while(d > 0) * d).sum(axis=1)
     assert myopic[0] == 5.0 and best[0] > myopic[0], (myopic, best)
 
-    # No rule can beat it, on random paths, including the rule that takes
-    # every year and the rule that stops at the first loss.
+    # The policy, on the same shape of case: the expected second year loses
+    # money and the third more than pays for it, so the club holds.
+    disc = np.ones(3)
+    exp = np.array([[5.0, -1.0, 10.0], [5.0, -1.0, -10.0]])
+    hold = CY.best_outlook(exp, disc, 0)
+    assert bool(hold[0]) and bool(hold[1])          # year one pays either way
+    assert bool(CY.best_outlook(exp[:1, 1:], disc, 1)[0]), (
+        "the policy walks away from a losing year the next one pays for")
+    assert not bool(CY.best_outlook(exp[1:, 1:], disc, 1)[0]), (
+        "the policy holds a losing year nothing pays for")
+
     rng = np.random.default_rng(20260917)
     x = rng.normal(size=(500, 5))
     b = CY.best_stop(x)
     for take in (np.ones_like(x), CY._run_while(x > 0)):
         assert ((take * x).sum(axis=1) <= b + 1e-9).all()
     assert (b >= -1e-12).all()
-    return ("the ceiling sits through a bad year to reach a good one, is "
-            "never below zero, and nothing beats it on 500 random paths")
+    return ("ceiling and policy both sit through a bad year to reach a good "
+            "one; nothing beats the ceiling on 500 random paths")
 
 
 def c28(table):
-    """THE CLUB CANNOT SEE THE SEASON IT IS DECIDING ABOUT.
+    """THE CLUB SEES WHAT IT WAS SHOWN, AND ONLY THAT.
 
-    The informed stopping rule is the one that carries the claim, and the
-    claim is that it uses only what a club standing at that control year
-    would know. It updates the forecast by the misses already realised on the
-    path, through the persistence the simulation already fitted.
+    Three things, and the middle one is what the first version got wrong.
 
-    So every season from the decision onward is replaced by different draws
-    and the club's expectation has to come back BIT FOR BIT. It is also
-    checked that the rule is not vacuous: with real dependence the
-    expectation does move when the PAST changes.
+    It cannot see the season it is deciding about: every season from the
+    decision onward is redrawn and the expectation comes back bit for bit.
+
+    It cannot see the misses of seasons the player spent out of the league.
+    Those exist inside the simulator and nobody ever observed them -- watching
+    a player miss a year tells you he missed it, not how well he would have
+    played. Conditioning on them was worth a decision change on 188 of 252
+    contracts.
+
+    It CAN see the misses of seasons he played, or the rule is vacuous. And
+    that observation is only the same as seeing his production because the
+    production shape is monotone, which is asserted rather than assumed.
     """
     import control_years as CY
     import npv_simulation as SIM
@@ -1027,23 +1051,36 @@ def c28(table):
     rng = np.random.default_rng(11)
     g = rng.standard_normal((400, 5)) @ np.linalg.cholesky(mat).T
     shape = np.sort(rng.standard_normal(200))
+    assert CY.shape_is_monotone(shape)
+    assert not CY.shape_is_monotone(np.array([0.0, 1.0, 0.5]))
+    played = (rng.random((400, 5)) < 0.7).astype(float)
     moved = 0
     for j in range(5):
-        base, _ = CY.conditional_nodes(g, mat, j, shape)
-        h = g.copy()
-        h[:, j:] = rng.standard_normal(h[:, j:].shape)
-        alt, _ = CY.conditional_nodes(h, mat, j, shape)
-        assert float(np.abs(base - alt).max()) == 0.0, (
+        base, _ = CY.conditional_nodes(g, mat, j, shape, played)
+        fut = g.copy()
+        fut[:, j:] = rng.standard_normal(fut[:, j:].shape)
+        assert float(np.abs(base - CY.conditional_nodes(
+            fut, mat, j, shape, played)[0]).max()) == 0.0, (
             f"the expectation at season {j} moves when the future is redrawn")
+        hid = g.copy()
+        mask = played[:, :j] == 0
+        if mask.any():
+            blk = hid[:, :j]
+            blk[mask] = rng.standard_normal(int(mask.sum()))
+            hid[:, :j] = blk
+            assert float(np.abs(base - CY.conditional_nodes(
+                hid, mat, j, shape, played)[0]).max()) == 0.0, (
+                f"the expectation at season {j} moves when the misses of "
+                f"seasons he did not play are redrawn")
         if j:
-            k = g.copy()
-            k[:, :j] = rng.standard_normal(k[:, :j].shape)
-            past, _ = CY.conditional_nodes(k, mat, j, shape)
-            moved += int(float(np.abs(base - past).max()) > 1e-9)
-    assert moved == 4, ("the expectation ignores the past too, so the rule "
-                        "is not using the information it claims to")
-    return ("scrambling every season from the decision onward moves nothing, "
-            "bit for bit; scrambling the past moves all four")
+            seen = g.copy()
+            seen[:, :j] = rng.standard_normal(seen[:, :j].shape)
+            moved += int(float(np.abs(base - CY.conditional_nodes(
+                seen, mat, j, shape, played)[0]).max()) > 1e-9)
+    assert moved == 4, ("the expectation ignores the seasons he played, so "
+                        "the rule is not using the information it claims to")
+    return ("the future and the unseen misses move nothing, bit for bit; the "
+            "seasons he played move it at all four horizons")
 
 
 def main() -> None:
@@ -1092,9 +1129,9 @@ def main() -> None:
                      ("every registered variant runs", c23),
                      ("the path simulation's guards", c24),
                      ("the simulation cannot see the future", c25),
-                     ("control years: who owns them, what the offer costs", c26),
-                     ("a walk-away is final, hindsight is the ceiling", c27),
-                     ("the club cannot see the season it decides about", c28)]:
+                     ("control years: eligibility and the dated offer", c26),
+                     ("a walk-away is final, in ceiling and policy", c27),
+                     ("the club sees what it was shown, and only that", c28)]:
         check(name, lambda fn=fn: fn(table))
 
     width = max(len(n) for n, _, _ in results)
