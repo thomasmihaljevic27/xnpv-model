@@ -204,10 +204,12 @@ residuals and currency comparisons; fix and rerun development work before furthe
   the correction is large where the contracts are short.** 398 development contracts leave the club
   holding the player's rights after expiry. Forced to take every control year, those rights are
   worth **-$0.217M** on the contracts holding one. With the right to decline they are worth
-  **+$0.268M**. **Being able to walk away is worth $0.419M a contract** across all 398. Any
+  **+$0.268M**. **Being able to walk away is worth $0.422M a contract** across all 398, and that figure is a lower
+  bound: the stopping policy priced here is an approximation to optimal stopping, so a club that
+  stopped optimally would do at least as well. Any
   valuation of a control year, a club option, a buyout or an arbitration walk that prices it as a
   stream rather than a stopping rule is biased downward, and by more where the player is marginal.
-  **The value of the club's INFORMATION is a much smaller and separate thing: $0.068M**, measured
+  **The value of the club's INFORMATION is a much smaller and separate thing: $0.066M**, measured
   against a baseline that prices the same way and uses the same policy, so that only the
   conditioning differs. The first version of this flag quoted $0.27M as the value of deciding as you
   go; that number compared three changes at once and is withdrawn. Where real clubs sit between
@@ -222,7 +224,7 @@ residuals and currency comparisons; fix and rerun development work before furthe
   ownership is eligibility alone and the label is now an outcome kept for evaluation. **Production's
   `rfa_terminal_value.py` reads the same column the same way** -- its docstring states that "UFA no
   QO (team already declined to qualify) -> terminal value = 0" -- and of the 187 contracts where
-  production carries no terminal value while this tree finds a right, **130 are that label**. Any
+  production carries no terminal value while this tree finds a right, **130 carry one of the two labels it zeroes outright** (97 "UFA no QO", 33 plain "UFA"). Any
   claim about production's control-year value, and any back-test that uses it, has to carry this.
   **The general form is the one to watch on every remaining design choice:** a status column in a
   vendor export is usually a snapshot of the present, not of the decision date, and eligibility,

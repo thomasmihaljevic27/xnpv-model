@@ -56,12 +56,17 @@ WHAT THE CLUB IS ASSUMED TO KNOW -- the whole identification question here
                          pricing AND the information AND the policy.
       declared           expected price, no path seen, later years counted.
       informed_myopic    the path's OBSERVED history, first loss.
-      informed           the same history, later years counted.
+      informed           the same history, with the later years' EXPECTED
+                         payoffs counted. An approximation to optimal
+                         stopping, not optimal stopping: it never values the
+                         decision the club will get to make next year, so a
+                         feasible policy can beat it. See `best_outlook`.
       hindsight          knew the whole path, best stopping point. The ceiling.
 
     informed - declared is the value of information, with pricing and policy
-    held. informed - informed_myopic is what counting the later years is
-    worth, with information held. Nothing beats hindsight, and the runner
+    held. informed - informed_myopic is the difference between two specified
+    policies with information held -- NOT the value of the continuation
+    option, which no rule here prices. Nothing beats hindsight, and the runner
     asserts it.
 
     THE EXPECTATION IS OF THE PRICE, NOT THE PRICE OF THE EXPECTATION. The
@@ -100,10 +105,13 @@ THE QUALIFYING OFFER
     export this tree reads carries one row per contract with an average annual
     value, not a salary schedule. So the average is used, and
     `qo_base_divergence` measures what that costs against the per-season
-    salaries production joins from the clause feed. The substitution matters
-    in one direction only: a front-loaded deal's final salary sits above its
-    average, so using the average UNDERSTATES the offer and overstates what
-    the control year is worth.
+    salaries production joins from the clause feed. A BACK-loaded deal pays
+    most at the end, so its final salary sits above its average and using the
+    average UNDERSTATES the offer and overstates what the control year is
+    worth; a front-loaded deal runs the other way. An earlier version of this
+    note had those reversed. The 120%-of-cap-hit clause caps the offer on
+    exactly the back-loaded deals where the gap runs the first way, and
+    substituting the average switches it off.
 """
 from __future__ import annotations
 
@@ -117,7 +125,7 @@ from scipy import stats
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 
-SCRIPT_VERSION = "2.0"
+SCRIPT_VERSION = "2.1"
 
 # How many Gauss-Hermite nodes the conditional expectation integrates over.
 # The club's expectation of next season is a normal pushed through the
@@ -465,7 +473,7 @@ def expected_surplus(currency, row: pd.Series, g: np.ndarray,
 
 
 def best_outlook(expected: np.ndarray, disc: np.ndarray, j: int) -> np.ndarray:
-    """Is there ANY number of further control years worth keeping?
+    """Is any run of remaining control years expected to pay?
 
     The club at control year `j` is not choosing whether this one season pays.
     It is choosing whether to hold the right at all, and holding it means
@@ -476,6 +484,23 @@ def best_outlook(expected: np.ndarray, disc: np.ndarray, j: int) -> np.ndarray:
 
     `expected[i]` is what the club expects season `i` to be worth, standing at
     `j`. Continue while the best run of seasons starting here is positive.
+
+    THIS IS AN APPROXIMATION TO OPTIMAL STOPPING AND NOT OPTIMAL STOPPING.
+    It compares runs of EXPECTED payoffs, which prices the future as though
+    the club had to commit to the whole run now. A real club keeps a player
+    through a disappointing year partly to SEE ANOTHER SEASON OF HIM and then
+    decide -- and that possibility is worth something this rule cannot
+    express, because the rule never values the decision it will get to make
+    later. A feasible policy using only information available at each decision
+    can therefore beat it, which the review demonstrated on this module's own
+    Gaussian setup.
+
+    So the gap between this rule and `informed_myopic` bounds the difference
+    between TWO SPECIFIED POLICIES. It does not bound the value of the
+    continuation option, and a small gap there is not evidence that the option
+    is small. Pricing that properly means backward induction over the
+    conditional law with the later decisions valued as decisions, which is not
+    built here.
     """
     run = np.cumsum(expected * disc[None, j:], axis=1)
     return run.max(axis=1) > 0

@@ -41,7 +41,9 @@ from run_npv_simulation import (LEADER, KEY, N_PATHS, birthdate_source,
                                 prep, term_seasons)
 from contract_price_model import attach_forecasts
 
-SCRIPT_VERSION = "2.0"
+SCRIPT_VERSION = "2.1"
+
+DRAW_SEED = 20260917
 
 
 def control_map(sample: pd.DataFrame, by_age: bool = False) -> dict:
@@ -96,7 +98,7 @@ def eligibility_audit(sample: pd.DataFrame, pt: pd.DataFrame,
     C.log("  Never later, which is what the rule says: eligibility is the")
     C.log("  earlier of the two routes. The early ones are the exposure, and")
     C.log("  the run prices the whole sample again on the age rule alone to")
-    C.log("  bound it.")
+    C.log("  say how much rests on it.")
     C.log("")
     # WHAT THE OLD LABEL WOULD HAVE DONE. Kept as a count, because the label
     # is an outcome and this is the only place it may be looked at.
@@ -114,7 +116,7 @@ def eligibility_audit(sample: pd.DataFrame, pt: pd.DataFrame,
     C.log("")
 
 
-def qo_base_divergence(sample: pd.DataFrame, cmap: dict) -> None:
+def qo_base_divergence(sample: pd.DataFrame, own) -> None:
     """What using the average annual value as the offer's base salary costs.
 
     The formula runs off the final year's base salary and this tree's source
@@ -130,7 +132,8 @@ def qo_base_divergence(sample: pd.DataFrame, cmap: dict) -> None:
         C.log("")
         return
     sp = pd.read_csv(f)
-    sp = sp[sp["contract_id"].isin(cmap)]
+    own = list(own)
+    sp = sp[sp["contract_id"].isin(own)]
     if sp.empty:
         return
     final = (sp.sort_values("season_start").groupby("contract_id").tail(1)
@@ -141,18 +144,22 @@ def qo_base_divergence(sample: pd.DataFrame, cmap: dict) -> None:
         return
     have["ratio"] = have["cs_nhl_salary"] / have["aav"]
     C.log(f"  measured against the season spine on {len(have)} of the "
-          f"{len(cmap)} contracts that own control years:")
+          f"{len(own)} development contracts that own control years:")
     C.log(f"    final-year salary equals the average within 1%      "
           f"{int((have['ratio'].between(0.99, 1.01)).sum()):>5}")
-    C.log(f"    final salary ABOVE the average (offer understated)  "
+    C.log(f"    final salary ABOVE the average, so the offer is too cheap here"
           f"{int((have['ratio'] > 1.01).sum()):>5}")
-    C.log(f"    final salary BELOW the average (offer overstated)   "
+    C.log(f"    final salary BELOW the average, so it is too dear         "
           f"{int((have['ratio'] < 0.99).sum()):>5}")
     C.log(f"    median ratio {have['ratio'].median():.3f}, "
           f"90th percentile {have['ratio'].quantile(0.9):.3f}")
-    C.log("  A front-loaded deal's last salary sits above its average, so the")
-    C.log("  average makes the offer too cheap and the control year too")
-    C.log("  valuable. That is the direction of this approximation.")
+    C.log("  A BACK-loaded deal pays most at the end, so its final salary sits")
+    C.log("  ABOVE its average and the average understates the offer, making")
+    C.log("  the control year look too valuable. A FRONT-loaded deal is the")
+    C.log("  other way round. An earlier version of this note had those two")
+    C.log("  reversed. The 120%-of-cap-hit clause exists to cap the offer on")
+    C.log("  exactly the back-loaded deals where the gap runs this way, and")
+    C.log("  substituting the average switches it off.")
     C.log("")
 
 
@@ -314,9 +321,16 @@ def price_span(span: dict, sample, table, pt, lines, label: str,
     C.log(f"  the control years together ({time.time() - t0:.0f}s)")
     C.log("")
 
-    rng = np.random.default_rng(20260917)
     rows, checked = [], not check_leakage
     for cid in [int(c) for c in pt[KEY] if int(c) in span]:
+        # THE DRAWS BELONG TO THE CONTRACT, NOT TO THE LOOP. One stream
+        # consumed in order makes every contract's draws depend on how many
+        # seasons the contracts before it asked for, so the eligibility
+        # sensitivity was re-rolling contracts whose window had not changed at
+        # all and reporting the wobble as part of the difference. Seeded per
+        # contract, a window that did not change is priced on identical
+        # randomness in both runs and the difference is the design alone.
+        rng = np.random.default_rng([DRAW_SEED, cid])
         if cid not in blocks:
             continue
         r = pt[pt[KEY] == cid].iloc[0]
@@ -416,7 +430,7 @@ def main() -> None:
     C.log("THE QUALIFYING OFFER. The CBA formula off the last salary, iterated,")
     C.log("floored at the league minimum, with the 2026 bands from 2026 on.")
     check_against_production()
-    qo_base_divergence(sample, cmap)
+    qo_base_divergence(sample, own)
 
     # ---- the forecast over the term AND the control years ------------------
     def wanted(r):
@@ -485,12 +499,23 @@ def main() -> None:
     C.log("")
     voi = (ok["ctrl_informed"] - ok["ctrl_declared"]).mean() / 1e6
     vcont = (ok["ctrl_informed"] - ok["ctrl_informed_myopic"]).mean() / 1e6
-    C.log("  TWO DIFFERENCES THAT MEAN SOMETHING, because only one thing")
-    C.log("  changes across each:")
-    C.log(f"    seeing the path so far, pricing and decision logic held"
+    C.log("  ONE DIFFERENCE THAT MEANS WHAT IT SAYS, because only one thing")
+    C.log("  changes across it:")
+    C.log(f"    seeing the path so far, pricing and policy held    "
           f"{voi:>10.3f} $M")
-    C.log(f"    counting the later years, information held         "
-          f"{vcont:>10.3f} $M")
+    C.log("")
+    C.log("  AND ONE THAT IS NARROWER THAN IT LOOKS:")
+    C.log(f"    counting the later years' expected payoffs, information held"
+          f"{vcont:>7.3f} $M")
+    C.log("  That is the gap between TWO SPECIFIED POLICIES, and not the value")
+    C.log("  of the continuation option. Neither rule values the decision the")
+    C.log("  club will get to make next year -- keeping a player through a")
+    C.log("  disappointing season in order to SEE ANOTHER ONE and then decide")
+    C.log("  is worth something that neither can express, and a feasible")
+    C.log("  policy using only what is available at each decision can beat")
+    C.log("  both. So a small number here is not evidence that the option is")
+    C.log("  small. Pricing it means backward induction with the later")
+    C.log("  decisions valued as decisions, which is not built.")
     C.log("")
     C.log("  AND ONE THAT DOES NOT, kept only because it is the comparison the")
     C.log("  first version of this runner reported as the value of deciding as")
@@ -532,8 +557,8 @@ def main() -> None:
     C.log("that year, so a club knows it the day it signs him. Seven accrued")
     C.log("seasons can get him there sooner, and for a player short of seven")
     C.log("at the signing that route runs partly through seasons not yet")
-    C.log("played. Pricing the whole sample again on the age rule alone bounds")
-    C.log("what the export's eligibility year is doing.")
+    C.log("played. Pricing the whole sample again on the age rule alone says")
+    C.log("how much the answer moves when that assumption is swapped.")
     C.log("")
     alt = price_span(control_map(sample, by_age=True), sample, table, pt,
                      lines, "age rule")
@@ -551,16 +576,32 @@ def main() -> None:
           f"{ok['ctrl_informed'].mean()/1e6:>6.3f}")
     C.log(f"    {'deciding as you go, age rule     $M':<50}"
           f"{alt_ok['ctrl_informed'].mean()/1e6:>6.3f}")
-    both = j.dropna(subset=["ctrl_informed", "ctrl_informed_age"])
+    both = j.dropna(subset=["ctrl_informed", "ctrl_informed_age",
+                            "n_ctrl", "n_ctrl_age"])
     C.log(f"    {'on the contracts in both, the difference $M':<50}"
           f"{(both['ctrl_informed_age'] - both['ctrl_informed']).mean()/1e6:>6.3f}")
     C.log("")
     C.log("  The age rule gives the club MORE years, because it never brings")
-    C.log("  eligibility forward, so it is an upper bound on the window rather")
-    C.log("  than a neutral alternative. What it bounds is how much of the")
-    C.log("  answer rests on an eligibility year the signing might not have")
-    C.log("  known in full.")
+    C.log("  eligibility forward, so it is not a neutral alternative. And it is")
+    C.log("  a SENSITIVITY, not a bound on bias: it says what changes when one")
+    C.log("  eligibility assumption is swapped for another, not that using the")
+    C.log("  export's year costs less than this much against the truth. The")
+    C.log("  truth would be each player's accrued seasons as they stood on his")
+    C.log("  signing date, which this tree does not hold.")
     C.log("")
+    same = both[both["n_ctrl"] == both["n_ctrl_age"]]
+    worst = float((same["ctrl_informed_age"] - same["ctrl_informed"]).abs().max())
+    C.log(f"  {len(same)} contracts have the same control window under both")
+    C.log(f"  rules. Largest difference between their two valuations: "
+          f"${worst:,.2f}.")
+    C.log("  It is zero because the draws are seeded per contract rather than")
+    C.log("  taken from one stream in loop order; before that they were")
+    C.log("  re-rolled and the wobble was being reported as part of the")
+    C.log("  sensitivity.")
+    C.log("")
+    assert worst == 0.0, (
+        f"contracts whose control window did not change are priced "
+        f"differently by ${worst:,.2f}: the two runs are not on the same draws")
 
     out.to_csv(C.out_path("control_years.csv"), index=False)
     C.log(f"  wrote {C.out_path('control_years.csv').name} "

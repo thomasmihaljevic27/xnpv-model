@@ -15,12 +15,13 @@ monotonicity, which makes observing production the same as observing the miss, i
 **The offer bands are dated** like the floor already was: the 2026 regime was ratified in the summer
 of 2025, so earlier signings price 2026 control years on the rules they could see. (4) **The
 headline compared three changes at once** and is withdrawn. Six rules now differ one change at a
-time: **the value of information is $0.068M** a contract (deciding as you go against a baseline with
-the same pricing and the same policy), counting the later years is worth $0.001M, and **being able
-to walk away at all is worth $0.419M** -- six times the information. The $0.266M first reported is
+time: **the value of information is $0.066M** a contract (deciding as you go against a baseline with
+the same pricing and the same policy), the gap between the two specified stopping policies is $0.001M -- which bounds those two
+policies and NOT the continuation option -- and **being able to walk away at all is worth $0.422M** -- six times the information. The $0.266M first reported is
 the gap against production's rule, which differs in pricing, information and policy together. Also
 recorded: production's `rfa_terminal_value.py` reads the same expiry label, and 130 of the 187
-contracts where it carries no terminal value while this tree finds a right are that label. Suite 28
+contracts where it carries no terminal value while this tree finds a right carry one of the two
+labels it zeroes outright (97 "UFA no QO", 33 plain "UFA"). Suite 28
 passed, 0 skipped, 0 failed, with each of the four defects reintroduced and caught. Nothing adopted;
 no production code changed; no locked decision reopened.
 

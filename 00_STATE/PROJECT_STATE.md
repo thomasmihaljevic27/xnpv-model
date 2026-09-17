@@ -204,11 +204,11 @@ player actually **played**, integrating the unobserved ones out; conditioning on
 moved the first control year's decision on 188 of 252 contracts. The qualifying-offer BANDS are now
 dated like the floor, so a 2021 signing pricing a 2026 control year sees the pre-2026 regime. And
 the rule set is now six rules differing one change at a time, so **the value of information is
-$0.068M a contract**, not the $0.266M first reported -- that figure compared pricing the mean
+$0.066M a contract**, not the $0.266M first reported -- that figure compared pricing the mean
 against averaging the price, deciding in advance against deciding on the path, and stopping at the
 first loss against counting later years, all at once, and is withdrawn. Being able to walk away at
-all is worth **$0.419M**, six times the information. Production's own terminal value reads the same
-expiry label (130 of the 187 zero-terminal contracts carry it), which is flagged as a finding about
+all is worth **$0.422M**, six times the information. Production's own terminal value reads the same
+expiry label (130 of the 187 zero-terminal contracts carry one of the two labels it zeroes outright: 97 "UFA no QO", 33 plain "UFA"), which is flagged as a finding about
 production. Suite 28/28 with each defect reintroduced and caught. See
 `50_REBUILD/docs/Control_Years.md`.
 

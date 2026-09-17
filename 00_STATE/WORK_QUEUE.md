@@ -198,7 +198,7 @@ the work is. Next, in order:
 5. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
    contract-by-contract dollar reconciliation, and the holdout policy.
 
-**2026-09-17d — the control-year pass is repaired; the information premium is $0.068M, not
+**2026-09-17d — the control-year pass is repaired; the information premium is $0.066M, not
 $0.27M.** Four findings from an independent review, all real, all now fixed.
 
 **(1) A future decision was removing the right.** The export's expiry status records what the club
@@ -228,23 +228,23 @@ control year sees $1.00M on a $1M salary, not $1.10M.
 expected loss while the ceiling counted later years, and it averaged prices while its baseline
 priced the mean -- and the league-minimum floor makes those differ even with no information. Six
 rules now sit on the same draws, each differing from its neighbour in ONE thing, $M a contract over
-398: take every year 0.285, production's rule 0.443, decide in advance 0.637, myopic informed
-0.704, decide as you go 0.704, knew the path 0.904.
+398: take every year 0.281, production's rule 0.442, decide in advance 0.637, myopic informed
+0.702, decide as you go 0.703, knew the path 0.901.
 
 | the comparison | what changes | $M |
 |---|---|---:|
-| decide as you go vs decide in advance | the information only | **+0.068** |
-| decide as you go vs myopic informed | counting later years only | +0.001 |
-| the right vs the obligation | being able to walk away | **+0.419** |
+| decide as you go vs decide in advance | the information only | **+0.066** |
+| decide as you go vs myopic informed | two specified policies, NOT the option | +0.001 |
+| the right vs the obligation | being able to walk away | **+0.422** |
 | decide as you go vs production's rule | all three at once, NOT an option premium | +0.261 |
 
-**The largest number is not about information at all**: being able to walk away is worth $0.419M a
+**The largest number is not about information at all**: being able to walk away is worth $0.422M a
 contract, six times what the club's information is worth.
 
 **A finding about production, not only about this module.** Production's `rfa_terminal_value.py`
 reads the same expiry column the same way -- its docstring states that "UFA no QO (team already
 declined to qualify) -> terminal value = 0". Of the 187 contracts where production carries no
-terminal value while this tree finds a right, **130 are that label**. Flagged.
+terminal value while this tree finds a right, **130 carry a label production zeroes outright: 97 "UFA no QO" and 33 plain "UFA"**. Flagged.
 
 Suite **28 passed, 0 skipped, 0 failed**, with each of the four defects reintroduced and caught.
 Report rewritten: `50_REBUILD/docs/Control_Years.md`.
@@ -270,7 +270,7 @@ A club **forced** to take every control year loses money on the deals with one o
 same seasons with the right to decline are worth +$0.19M and +$0.61M. **[WITHDRAWN 2026-09-17d]** This entry called $0.27M the value of deciding as you go. It is the
 gap against production's rule, which differs in three things at once -- pricing the mean rather
 than averaging the price, deciding in advance, and stopping at the first loss. Against a baseline
-that changes only the information, the answer is **$0.068M**.
+that changes only the information, the answer is **$0.066M**.
 
 **The club's decision cannot see the season it is deciding about.** It updates the forecast by the
 misses already realised on the path, through the persistence the simulator already fitted,

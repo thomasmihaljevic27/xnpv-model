@@ -1,13 +1,18 @@
 # What a club still owns when the contract ends
 
-Run 2026-09-17 in `50_REBUILD/` (v2.0, after an independent review). The plan's Phase 5 item on the
+Run 2026-09-17 in `50_REBUILD/` (v2.1, after two rounds of independent review). The plan's Phase 5 item on the
 restricted-free-agency walk-away and the control years. Development start years only. **Nothing
 adopted, and no production file changed.**
 
-The first version of this report (2026-09-17, v1.0) put the value of deciding as you go at $0.27M a
-contract. **That figure is withdrawn.** It compared two rules that differed in three things at
-once, and the comparison that isolates information gives **$0.068M**. The corrections are in
-`#what-the-first-version-got-wrong` at the end; the body below is the repaired work.
+The first version of this report (v1.0) put the value of deciding as you go at $0.27M a contract.
+**That figure is withdrawn.** It compared two rules that differed in three things at once, and the
+comparison that isolates information gives **$0.066M**. The corrections are listed at the end; the
+body below is the repaired work.
+
+**Two limitations stay attached to this result.** The stopping policy is an approximation to
+optimal stopping and not the option value, and the eligibility comparison is a sensitivity and not
+a bound on bias. Both are set out below where they arise. This is a prototype, not a solved
+component.
 
 ## The asset the simulator was leaving out
 
@@ -51,12 +56,18 @@ needs nothing but a birthdate:
 |---|---:|---:|
 | contracts owning control years | 398 | 405 |
 | control years each | 1.92 | 2.03 |
-| deciding as you go, $M | 0.704 | 0.718 |
+| deciding as you go, $M | 0.703 | 0.717 |
 
-On the contracts in both, the difference is **+$0.026M a contract**. The age rule never brings
-eligibility forward, so it is an upper bound on the window rather than a neutral alternative; what
-it bounds is how much of the answer rests on an eligibility year the signing might not have known
-in full. It is 3.7% of the answer.
+On the contracts in both, the difference is **+$0.026M a contract**, about 4% of the answer. The
+356 contracts whose control window is the same under both rules come back **identical to the cent**,
+because the draws are seeded per contract rather than taken from one stream in loop order — before
+that fix they were being re-rolled and the wobble was reported as part of the difference.
+
+**This is a sensitivity, not a bound on bias.** It says what changes when one eligibility
+assumption is swapped for another. It does not establish that using the export's eligibility year
+costs less than 4% against the truth, which would be each player's accrued seasons as they stood on
+his signing date — something this tree does not hold. The age rule also never brings eligibility
+forward, so it is not a neutral alternative.
 
 ## It is an option, and the walk-away is final
 
@@ -75,50 +86,60 @@ Priced on the same draws. Dollars a contract, discounted to the signing, 2,000 p
 
 | control yrs | n | take every year | production's rule | decide in advance | myopic, informed | decide as you go | knew the path |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| 1 | 148 | −0.217 | 0.143 | 0.224 | 0.268 | **0.268** | 0.411 |
-| 2 | 153 | 0.238 | 0.425 | 0.616 | 0.711 | **0.711** | 0.970 |
-| 3 | 79 | 1.041 | 0.934 | 1.250 | 1.306 | **1.308** | 1.488 |
-| 4 | 16 | 1.451 | 0.953 | 1.472 | 1.542 | **1.545** | 1.767 |
-| all | 398 | 0.285 | 0.443 | 0.637 | 0.704 | **0.704** | 0.904 |
+| 1 | 148 | −0.221 | 0.143 | 0.224 | 0.267 | **0.267** | 0.410 |
+| 2 | 153 | 0.235 | 0.424 | 0.615 | 0.709 | **0.709** | 0.967 |
+| 3 | 79 | 1.037 | 0.933 | 1.249 | 1.303 | **1.305** | 1.485 |
+| 4 | 16 | 1.472 | 0.949 | 1.498 | 1.561 | **1.565** | 1.787 |
+| all | 398 | 0.281 | 0.442 | 0.637 | 0.702 | **0.703** | 0.901 |
 
 - **take every year** — the obligation, not the right.
 - **production's rule** — prices the mean projection and stops at the first loss. Production's D13.
 - **decide in advance** — expected price, no path seen, later years counted.
 - **myopic, informed** — the path's *observed* history, stop at the first expected loss.
-- **decide as you go** — the same history, later years counted.
+- **decide as you go** — the same history, with the later years' *expected* payoffs counted.
 - **knew the path** — the ceiling: best stopping point in hindsight.
 
 ### Two differences that mean something
 
-| | $M a contract |
-|---|---:|
-| seeing the path so far, with pricing and policy held | **+0.068** |
-| counting the later years, with information held | **+0.001** |
+**The value of information is $0.066M a contract** — deciding as you go ($0.703M) against a
+baseline that prices the same way and uses the same policy ($0.637M), so that only the conditioning
+differs. That is a quarter of the way from deciding in advance to knowing the whole path ($0.901M).
 
-**The value of information is $0.068M a contract**, one tenth of the way from deciding in advance
-($0.637M) to knowing the whole path ($0.904M). Counting the later years is worth almost nothing on
-average — it changes the value on 140 of the 398 contracts, but by $2,378 where it does, at most
-$31,518. The constructed case where it matters is real; this sample rarely presents it, because the
-offer escalates year over year and a control year that disappoints is usually followed by one that
-disappoints more.
+### The policy is an approximation, and the second difference is narrower than it looks
+
+Counting the later years' expected payoffs is worth **+$0.001M** against the myopic version — it
+changes 142 of the 398 contracts, by $2,722 where it does.
+
+**That is the gap between two specified policies. It is not the value of the continuation option,
+and a small number there is no evidence the option is small.** Neither rule values the decision the
+club will get to make next year. A club that keeps a player through a disappointing season partly
+to *see another season of him* and then decide is doing something neither rule can express, because
+both price the future as though the club had to commit to the whole run now. A feasible policy
+using only information available at each decision can therefore beat the one implemented here,
+which the review demonstrated on this module's own setup.
+
+Pricing that properly means backward induction over the conditional law with the later decisions
+valued as decisions. It is not built. **So the informed rule is a declared approximation to optimal
+stopping, and the figures here are a lower bound on what an optimally-stopping club would get.**
 
 ### And one that does not
 
-**Deciding as you go against production's rule is +$0.261M** — and that is the figure the first
-version reported as the value of deciding as you go. It is a mixture of three changes: pricing the
+**Deciding as you go against production's rule is +$0.261M** — the figure the first version
+reported as the value of deciding as you go. It is a mixture of three changes: pricing the
 mean versus averaging the price, deciding in advance versus on the path, and stopping at the first
 loss versus counting the later years. It is not an option premium and should not be quoted as one.
 
 ### What the right is worth against the obligation
 
 The largest single number here is not about information at all. A club **forced** to take every
-control year loses money on the deals with one of them (−$0.217M); with the right to decline the
-same seasons are worth +$0.268M. **Being able to walk away is worth $0.419M a contract** across the
-398 — six times the value of the information the club brings to the decision.
+control year loses money on the deals with one of them (−$0.221M); with the right to decline the
+same seasons are worth +$0.267M. **Being able to walk away is worth $0.422M a contract** across the
+398 — six times the value of the information the club brings to the decision, and the one figure
+here that does not rest on the stopping policy being the right one, since an approximate policy can
+only understate it.
 
-Deciding on an expectation is not the same as not losing: the informed rule ends under water on 2
-of the 398 contracts and the declared rule on 1. That is what tendering on an expectation means,
-not a defect.
+Deciding on an expectation is not the same as not losing: the declared rule ends under water on 1
+of the 398 contracts. That is what tendering on an expectation means, not a defect.
 
 The club tables an offer in **1.25 of its 1.92 control years** on average.
 
@@ -129,11 +150,11 @@ tree values a contract to its expiry, and moving the headline would silently re-
 
 | term | n | surplus $M | control years $M | together |
 |---|---:|---:|---:|---:|
-| 1 yr | 219 | +0.015 | +0.851 | +0.865 |
-| 2 yr | 138 | +0.175 | +0.600 | +0.775 |
-| 3 yr | 39 | +0.543 | +0.286 | +0.829 |
+| 1 yr | 219 | +0.015 | +0.850 | +0.865 |
+| 2 yr | 138 | +0.175 | +0.599 | +0.774 |
+| 3 yr | 39 | +0.543 | +0.285 | +0.828 |
 
-On a one-year deal the right to keep the player afterwards ($0.851M) dwarfs the surplus on the
+On a one-year deal the right to keep the player afterwards ($0.850M) dwarfs the surplus on the
 season the club just bought ($0.015M). The ratio is not worth quoting — the denominator is a mean
 near zero — but the ordering is the point: for these contracts the asset is mostly the right.
 
@@ -147,13 +168,13 @@ first contract season, this to the signing — so levels are not expected to agr
 |---|---:|
 | contracts in both | 372 of 398 |
 | production's terminal value, mean | $0.580M |
-| production's own rule, rebuilt here | $0.424M |
-| deciding in advance, priced alike | $0.619M |
-| deciding as it goes | $0.691M |
-| rank correlation, production vs its own rule | 0.233 |
-| rank correlation, production vs deciding as you go | 0.380 |
+| production's own rule, rebuilt here | $0.423M |
+| deciding in advance, priced alike | $0.620M |
+| deciding as it goes | $0.690M |
+| rank correlation, production vs its own rule | 0.234 |
+| rank correlation, production vs deciding as you go | 0.382 |
 
-**Production prices 187 of them at zero**, where this tree finds a right worth $0.53M on average.
+**Production prices 187 of them at zero**, where this tree finds a right worth $0.528M on average.
 Broken down by the label production reads: **97 are "UFA no QO"**, 33 plain "UFA", and 57 restricted
 expiries. Production's own code sets terminal value to zero for the first two outright — the
 docstring says so, "team already declined to qualify" — so **130 of the 187 are the same future
@@ -163,18 +184,24 @@ both rules truncate anyway.
 
 That is a finding about production's terminal value and not only about this module: **production's
 control-year value uses the outcome of the decision it is pricing.** The rank correlations falling
-from the first version (0.547 → 0.233 on the matched rule) is the same thing seen from the other
-side — the two now disagree about who owns a right at all.
+from the first version (0.547 → 0.234 on the matched rule) is the same thing seen from the other
+side — the two now disagree about who owns a right at all. The docstring is production's own: it sets
+terminal value to zero for both "UFA" and "UFA no QO" expiries, and 97 + 33 = 130 of the 187 carry
+one of those two labels.
 
 ## The weak point: the offer's base salary
 
 The CBA formula runs off the final year's **base salary**. This tree's source carries one row per
 contract with an average annual value, so the average is used. Measured against the per-season
-salaries production joins from the clause feed: 421 of 593 agree within 1%, **155 have a final
-salary above the average**, 17 below; median ratio 1.000, 90th percentile 1.100. A front-loaded
-deal's last salary sits above its average, so the average makes the offer too cheap and the control
-year too valuable — and it switches off exactly the 120%-of-cap-hit clause that exists to catch
-front-loading.
+salaries production joins from the clause feed, on the 339 of these 398 contracts the feed covers:
+221 agree within 1%, **110 have a final salary above the average**, 8 below; median ratio 1.000,
+90th percentile 1.160.
+
+A **back**-loaded deal pays most at the end, so its final salary sits above its average: the
+average understates the offer and makes the control year look too valuable. A front-loaded deal
+runs the other way. (An earlier version of this section had those two reversed.) The
+120%-of-cap-hit clause caps the offer on exactly the back-loaded deals where the gap runs the first
+way, so substituting the average switches it off where it was meant to bind.
 
 ## What is checked
 
@@ -195,6 +222,19 @@ on unseen misses, undated bands, and a myopic policy. All four breaks are caught
 
 Suite: **28 passed, 0 skipped, 0 failed.**
 
+## Open limitations to carry into any adoption
+
+Three, and none of them is fixed by rerunning this:
+
+1. **The stopping policy is an approximation to optimal stopping**, so every informed figure is a
+   lower bound on what an optimally-stopping club would get. The $0.001M continuation difference
+   bounds two specified policies, not the option.
+2. **Eligibility is dated only as far as the export allows.** The age-rule comparison is a
+   sensitivity, not a bound on bias; the accrued-seasons route as it stood at each signing is not
+   held in this tree.
+3. **The offer's base salary is the contract average**, which understates the offer on back-loaded
+   deals and switches off the 120%-of-cap-hit clause where it was meant to bind.
+
 ## What this does not establish
 
 - **Nothing here is scored against an outcome.** Whether clubs exercise the right this well is a
@@ -205,7 +245,7 @@ Suite: **28 passed, 0 skipped, 0 failed.**
 - **The forecast is extrapolated further here than anywhere else in the tree**, because a control
   year sits past the contract's own term.
 - **Goalies are not here.** The goalie control-year gate is still open.
-- The $0.068M value of information is a sample mean over 398 contracts, and the rules it compares
+- The $0.066M value of information is a sample mean over 398 contracts, and the rules it compares
   share draws, so it is a paired difference — but it is still one sample and one dependence model.
 
 ## What the first version got wrong
@@ -229,7 +269,7 @@ Four things, all found by review:
    price, those two calculations differ even when no information has arrived.
 
 The first three are corrected in the model. The fourth is corrected by adding the matched baseline,
-which is what moves the headline from $0.266M to $0.068M.
+which is what moves the headline from $0.266M to $0.066M.
 
 ## Files
 
