@@ -8,7 +8,11 @@ import subprocess
 import sys
 
 root = Path(__file__).resolve().parents[2]
-candidate = root / '50_REBUILD/output/integration_review'
+ap = argparse.ArgumentParser()
+ap.add_argument('mode', choices=['production', 'integration', 'audit', 'guards', 'reconciliation', 'repair-audit'])
+ap.add_argument('--candidate-root', type=Path, default=root / '50_REBUILD/output/integration_review')
+args = ap.parse_args()
+candidate = args.candidate_root.resolve()
 prod = root / '50_REBUILD/output/integration_production'
 prod.mkdir(exist_ok=True)
 os.environ['SOURCE_DIR'] = str(root / '10_SOURCE')
@@ -18,9 +22,6 @@ os.environ['PUCKPEDIA_CONTRACTS_XLSX'] = str(root / '10_SOURCE/PuckPedia_Player_
 bundled = Path(sys.base_prefix) / 'Lib/site-packages'
 sys.path.append(str(bundled))
 os.environ['PYTHONPATH'] = str(Path(sys.prefix) / 'Lib/site-packages') + os.pathsep + str(bundled)
-ap = argparse.ArgumentParser()
-ap.add_argument('mode', choices=['production', 'integration', 'audit', 'guards'])
-args = ap.parse_args()
 
 if args.mode == 'production':
     for name in ['contract_season_spine.csv', 'WAR_with_age.csv', 'goalie_value_spine.csv']:
@@ -40,6 +41,51 @@ import rebuild_config as C
 if args.mode == 'integration':
     import run_valuation_integration as I
     I.main()
+    sys.exit()
+
+if args.mode == 'reconciliation':
+    import run_production_reconciliation as R
+    R.main()
+    sys.exit()
+
+if args.mode == 'repair-audit':
+    import contextlib
+    import io
+    import run_production_reconciliation as R
+    d = pd.read_csv(C.out_path('production_reconciliation.csv'))
+    reference = pd.read_csv(root/'50_REBUILD/output/integration_definition_audit.csv')
+    pair = d.merge(reference[['contract_id','hazard']], on='contract_id', validate='one_to_one')
+    result = dict(n=len(d), clean=int(d.clean.sum()), clean_but_date_fails=int((d.clean & ~d.date_ok).sum()),
+        clean_and_date_ok=int((d.clean & d.date_ok).sum()),
+        max_hazard_difference=float((pair.hazard_effect-pair.hazard).abs().max()),
+        counts_by_term=d.groupby('reb_term').agg(total=('contract_id','size'),clean=('clean','sum'),date_ok=('date_ok','sum')).to_dict('index'))
+    # The engine is unchanged; perturb only the separately loaded exported NPV.
+    original_read, original_write = pd.read_csv, pd.DataFrame.to_csv
+    original_log, original_write_log = C.log, C.write_log
+    captured = []
+    def stale_spine(path,*a,**kw):
+        frame = original_read(path,*a,**kw)
+        if Path(path).name == 'contract_npv_spine.csv':
+            frame['npv_total'] += 1e6
+        return frame
+    try:
+        pd.read_csv = stale_spine
+        pd.DataFrame.to_csv = lambda self,*a,**kw: captured.append(self.copy())
+        C.log = C.write_log = lambda *a,**kw: None
+        with contextlib.redirect_stdout(io.StringIO()):
+            R.main()
+        bad = captured[-1].merge(d[['contract_id','hazard_effect']],on='contract_id',suffixes=('_bad','_base'))
+        result['stale_spine_mutation'] = dict(accepted=True,
+            negative_hazard_effects=int((bad.hazard_effect_bad < -1).sum()),
+            mean_hazard_shift=float((bad.hazard_effect_bad-bad.hazard_effect_base).mean()))
+    except Exception as exc:
+        result['stale_spine_mutation'] = dict(accepted=False,error=str(exc))
+    finally:
+        pd.read_csv, pd.DataFrame.to_csv = original_read, original_write
+        C.log, C.write_log = original_log, original_write_log
+    dest = root/'50_REBUILD/output/reconciliation_repair_audit.json'
+    dest.write_text(json.dumps(result,indent=2))
+    print(json.dumps(result,indent=2))
     sys.exit()
 
 if args.mode == 'guards':

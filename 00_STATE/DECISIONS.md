@@ -1,5 +1,14 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-16f (reconciliation repair verification):** Reviewed `1a6ba0d`.
+Verified corrected hazard arithmetic and three integration guards. Retained two focused
+corrections: same-run production summary/detail consistency and accurate labelling of
+the 912-row screen, which ignores dates. Mutation of saved NPV accepted with 1,043
+negative effects; 217 screened rows fail the date flag. Added repair-verification report,
+extended independent audit, updated state/queue/flags/session. No production/model
+edits, candidate merge or new scope waiver. Prior simulator repairs remain closed.
+
+
 **Change log, 2026-09-16e (valuation integration review):** Reviewed `bc724e5`.
 Production chain and raw integration reproduce; reconciliation remains open. Identified
 confounded survival/discount contrast, ten incorrectly labelled production contract
