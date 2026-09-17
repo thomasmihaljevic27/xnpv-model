@@ -1,5 +1,14 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-16e (valuation integration review):** Reviewed `bc724e5`.
+Production chain and raw integration reproduce; reconciliation remains open. Identified
+confounded survival/discount contrast, ten incorrectly labelled production contract
+valuations plus date/terminal/cost differences, and missing consumer invariants.
+Added independent production/definition/mutation audit and review; updated state,
+queue, flags and session. Corrected no-hazard effects are +$1.69M and +$2.29M at
+six/eight years. No change to prior simulation closure, production code or source data.
+
+
 **Change log, 2026-09-16d (simulation review closure):** Verified `db0c6b2`.
 Reran full simulator and 25/25 checks. Independently confirmed all 605 one-year
 contracts agree exactly and both deliberate regressions fail check 25. Closed both
