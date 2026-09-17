@@ -1,5 +1,34 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-17 (correcting the reconciliation; answering the integration review):**
+The 09-16j survival decomposition is **withdrawn**. `contract_npv.py` builds `surplus_no_survival`
+as undiscounted contract surplus plus terminal value at its own reference date, so subtracting
+production's NPV from it removed the discounting along with the hazard; its negative hazard
+effects could not happen and were the tell. New `run_production_reconciliation.py` v1.1 imports
+production's engine, prices every contract through it, and rebuilds a no-hazard NPV from the
+per-season detail holding cost, discounting and terminal value: the hazard is worth **+$0.86M at
+four years, +$1.69M at six, +$1.67M at seven and +$2.29M at eight**, against gaps of $5.03M,
+$15.86M, $24.61M and $33.63M, with zero of 1,141 rows moving the wrong way. **The supported claim
+is only that the exit hazard alone does not explain the long-contract gap**; the 09-16j claim that
+the pessimism lives on the value side is withdrawn, since nothing here tests the aging path or the
+price line and the two systems also differ in dating, terminal value and cost. Contract-ID
+matching is now audited rather than assumed: production's sweep labels output with the ID it
+requested and its engine can value another (10 rows), season coverage differs on 3, terminal
+control value appears on 185, cost disagrees by more than 10% on 46 (the largest a cap hit an
+order of magnitude from the contract's own AAV in the supplied spine), and the valuation year
+differs from the signing year on 240; **912 of 1,141 are comparable on every test**, every row
+keeps its place with flags and a written reason, and no production input was changed. Two framings
+corrected: the two sides are not both discounted from the signing (production values from 1 July
+of the first contract season), and term-group means account for **84.8%** of the squared variation
+in the dollar gap rather than all of it. `run_valuation_integration.py` v1.2 renames the column
+honestly to `production_surplus_nominal_no_survival`, decomposes nothing out of it, and adds the
+guards that in-memory input mutations defeated (schema and duplicate-key checks, explicit merge
+cardinalities, a final uniqueness assertion, a reserved-cohort refusal, a cross-artifact point-
+surplus check to within $1, and named missing IDs). The `goalie_value_spine_v2.csv` float-
+formatting guess is **withdrawn**: an independent rerun regenerated the file to the locked
+`55c935dd...` exactly, so the container-local `7e481bf4...` is unexplained. No locked decision
+reopened, no reserved cohort unsealed.
+
 **Change log, 2026-09-16j (full-chain reconciliation against the production spine):** Thomas
 supplied `goalie_value_spine.csv`; the goalie engine's Stage P parity gate passes at $0.000284 and
 `contract_npv.py` prices 2,981 contracts (2,591 skater, 390 goalie) with median +0.29 and p10

@@ -141,17 +141,27 @@ residuals and currency comparisons; fix and rerun development work before furthe
 
 ## Standing flags (Karl's identification axes — watch on every design choice)
 
-- **NEW 2026-09-16 — production's long-contract pessimism is NOT the exit hazard, and the standing
-  note on record says it is.** Reconciled contract by contract against the production spine, the
-  gap between the rebuild and production is monotone in term and reaches **+$33.6M on an
-  eight-year deal**, where production says the average contract destroys $28M and the rebuild says
-  it creates $5M. Removing production's survival weighting explains **-$0.58M of that $34.21M**.
-  The disagreement is on the **value side** -- the aging path across a long term and the line it
-  is priced on. The note that "the exit hazard was quietly offsetting over-projection" should not
-  be carried into the write-up as the explanation for long-deal behaviour without this
-  decomposition beside it. Within each term the two systems still rank contracts alike (0.69-0.89
-  from three to eight years), so this is a level disagreement about long contracts, not a
-  reordering. Evidence: `50_REBUILD/docs/Production_Reconciliation.md`.
+- **NEW 2026-09-16, CORRECTED AND NARROWED 2026-09-17 — the exit hazard alone does not explain
+  production's long-contract pessimism.** Reconciled contract by contract against the production
+  spine, the gap between the rebuild and production is monotone in term and reaches **+$33.6M on
+  an eight-year deal**, where production says the average contract destroys $28M and the rebuild
+  says it creates $5M. Holding cost, discounting and terminal value and setting the survival
+  multiplier to one, the hazard is worth **+$2.29M of that $33.63M** at eight years and **+$1.69M
+  of $15.86M** at six: roughly nine-tenths of the long-term disagreement survives removing it.
+  Within each term the two systems still rank contracts substantially alike (0.69-0.89 from three
+  to eight years), so this is mostly a level disagreement about long contracts rather than a
+  reordering.
+  **What this does NOT establish**, and what the 2026-09-16 version of this flag wrongly claimed:
+  it does not put the disagreement on the value side, because nothing here tests the aging path or
+  the price line, and because the two systems differ in ways that can themselves vary with term
+  (production values from 1 July of the first contract season against the rebuild's signing date;
+  production carries terminal control value on 185 rows; the two disagree about cost on 46; the
+  engine valued a different contract than the one requested on 10). It also does not test whether
+  the hazard historically offset over-projection against realised outcomes, which is what the
+  standing note actually claims; that needs outcomes and there are none in this comparison. The
+  first version's decomposition subtracted an undiscounted column and so removed the discounting
+  along with the hazard, producing negative hazard effects that cannot occur; it is withdrawn.
+  Evidence: `50_REBUILD/docs/Production_Reconciliation.md`, `run_production_reconciliation.py`.
 
 - **NEW 2026-09-16d, revised after review — a miss about a player does not wash out over the
   years of his deal.** The same player's standardised miss correlates 0.39 to 0.43 between adjacent

@@ -139,7 +139,61 @@ the work is. Next, in order:
 5. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
    contract-by-contract dollar reconciliation, and the holdout policy.
 
-**2026-09-16h — the reconciliation is done, and it relocates the biggest movement in the project.**
+**2026-09-17 — the reconciliation is corrected, and the claim it supports is much narrower.**
+An independent review found the survival decomposition in the 2026-09-16h pass was not a
+decomposition at all. `contract_npv.py` builds `surplus_no_survival` as **undiscounted** contract
+surplus plus terminal value at its own reference date, so subtracting production's NPV from it
+removes the discounting along with the hazard. The tell was in the output and was missed: it
+produced **negative** hazard effects, and removing a survival haircut cannot lower a value when
+the value is nonnegative and everything else is held.
+
+**`run_production_reconciliation.py` (new)** imports production's own engine, prices each contract
+through it, and rebuilds the no-hazard value from the per-season detail with cost, the discount
+factor and terminal value all held:
+
+    no-hazard NPV = sum over seasons of (value - cost) x discount + the original terminal NPV
+
+| term | n | production $M | no hazard $M | the hazard is worth | gap to rebuild | claimed 09-16h |
+|---|---:|---:|---:|---:|---:|---:|
+| 4 yr | 66 | -4.49 | -3.63 | **+0.86** | +5.03 | +0.70 |
+| 6 yr | 33 | -14.32 | -12.64 | **+1.69** | +15.86 | +0.76 |
+| 7 yr | 26 | -21.23 | -19.56 | **+1.67** | +24.61 | -0.17 |
+| 8 yr | 22 | -28.19 | -25.90 | **+2.29** | +33.63 | -0.58 |
+
+Every effect is positive, as it must be; zero of 1,141 rows now move the wrong way. **The
+supported statement is only that the exit hazard alone does not explain the long-contract gap** --
+roughly nine-tenths of it survives removing the hazard. It does **not** locate the disagreement on
+the value side, and the 09-16h entry saying it did is withdrawn.
+
+**Matching on contract ID does not establish that the two sides priced the same asset.**
+Production's sweep labels its output with the ID it asked about; the engine follows a chain and
+can value another. Of 1,141 joined rows: **10** value a different contract, **3** cover a different
+number of seasons, **185** carry terminal control value the rebuild excludes, **46** disagree
+about cost by more than 10%, and **240** have a valuation year different from the signing year.
+**912 are comparable on every test.** Every row keeps its place in
+`production_reconciliation.csv` with flags and a written reason; nothing was dropped silently and
+no production input was changed. The attrition is almost all short contracts -- all 185
+terminal-value rows are one- to three-year deals -- so four, five, seven and eight years lose
+nobody and the term gradient is unaffected. The largest cost disagreements are a **source
+inconsistency**: the supplied season spine carries a cap hit an order of magnitude from the
+contract's own AAV (5606 at $19.216M against $1.866M; 6216 at $8.625M against $0.750M) and
+production prices the cap hit.
+
+**Two framings corrected.** The two sides are not both discounted from the signing: production
+values from **1 July of the first contract season**. And term-group means account for **84.8%** of
+the squared variation in the dollar gap -- strong, but not literally all of the disagreement, and
+the definitional differences above can themselves vary with term.
+
+**`run_valuation_integration.py` v1.2** drops the false decomposition, renames the column honestly
+to `production_surplus_nominal_no_survival`, and gains the guards that in-memory input mutations
+defeated: required-column schema checks, duplicate-key checks before every join, explicit merge
+cardinalities with a final uniqueness assertion, a reserved-cohort refusal in this consumer, a
+cross-artifact check that the simulation's point surplus equals the market comparison's adopted
+surplus to within $1, and named missing IDs instead of `min(n_sens, n_sim)` as evidence the two
+populations agree.
+
+**2026-09-16h — the first reconciliation pass. ITS SURVIVAL DECOMPOSITION IS WITHDRAWN; see the
+2026-09-17 entry above for the corrected arithmetic and the narrower claim it supports.**
 `goalie_value_spine.csv` arrived, the goalie engine's parity gate passes at **$0.000284** (the
 locked figure), and `contract_npv.py` prices **2,981 contracts (2,591 skater, 390 goalie)** with
 **median +0.29, p10 -7.80** -- every locked figure exactly. Report:
@@ -153,19 +207,18 @@ still agree about ordering** (rank correlation 0.69-0.89 from three to eight yea
 which long contracts are better than which; they disagree about whether long contracts are worth
 signing.
 
-**IT IS NOT THE EXIT HAZARD, AND THIS PROJECT HAS BEEN ASSUMING IT WAS.** The standing note says
-the exit hazard was quietly offsetting over-projection. The spine carries production's surplus
-with the survival weighting removed, so the two candidates separate: at eight years the weight is
-worth **-$0.58M against a gap of $34.21M**; at six years, $0.76M against $15.09M. Removing
-production's exit hazard entirely would leave the disagreement where it is. **Production's
-long-contract pessimism lives on the value side** -- the aging path across a long term and the
-line it is priced on -- not in the survival margin. That is a different repair from the one on
-record.
+**[WITHDRAWN 2026-09-17]** This entry claimed the exit hazard had been ruled out and the
+disagreement located on the value side, on a decomposition that subtracted an undiscounted column
+and so removed the discounting along with the hazard. Its figures (-$0.58M at eight years, $0.76M
+at six) are wrong and its conclusion was not earned. The corrected figures are +$2.29M and +$1.69M
+and they support only that the hazard alone does not explain the gap. See the 2026-09-17 entry.
 
 **One thing does not reproduce:** `goalie_value_spine_v2.csv` hashes to `7e481bf4...` against the
 record's `55c935dd...`. Every content check on it passes, including the parity gate and the 1,730
-priced rows, so float formatting under a different pandas version is the likely cause -- **a guess,
-not verified**, since the locked v2 is not here to compare against.
+priced rows. **[CORRECTED 2026-09-17]** The float-formatting explanation offered here was a guess
+and it is withdrawn: an independent rerun in a separate checkout regenerated the file and got
+`55c935dd...` exactly, with parsed values and missingness matching, so the difference is specific
+to this container and remains unexplained.
 
 **Caveats that stand:** neither side is scored against an outcome, so this is two models
 disagreeing and not evidence that either is right; part of the level difference is definitional

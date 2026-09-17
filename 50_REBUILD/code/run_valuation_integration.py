@@ -38,7 +38,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.2"
 
 KEY = "contract_id"
 ADOPTED = "the adopted candidate"
@@ -67,6 +67,52 @@ def main() -> None:
     sens = pd.read_csv(f_sens)
     sim = pd.read_csv(f_sim)
 
+    # ---- what this consumer refuses ---------------------------------------
+    # THREE MUTATIONS WENT THROUGH THE PREVIOUS VERSION UNTOUCHED: a dollar
+    # added to every simulated baseline, a duplicated production contract that
+    # came out as 1,218 rows with a repeated id, and a reserved 2022 cohort.
+    # A table that is meant to be the one everything downstream reads has to
+    # refuse its inputs, not average them.
+    for name, frame, need in (
+            ("the market comparison", sens,
+             {KEY, "forecast", "surplus", "cost", "start_yr", "length"}),
+            ("the path simulation", sim,
+             {KEY, "surplus_point", "surplus_sim", "term"})):
+        missing = need - set(frame.columns)
+        assert not missing, f"{name} is missing {sorted(missing)}"
+
+    # One row per contract per forecast, and one row per contract in the
+    # simulation. A duplicate here is what produced the extra row.
+    dup = sens.duplicated([KEY, "forecast"]).sum()
+    assert not dup, f"the market comparison has {dup} duplicate contract/forecast rows"
+    dup = sim.duplicated([KEY]).sum()
+    assert not dup, f"the path simulation has {dup} duplicate contracts"
+
+    # THE DEVELOPMENT SEAL, enforced HERE and not only upstream. A consumer
+    # that trusts its inputs to have been sealed is a consumer that will
+    # publish a reserved cohort the day one of them is not.
+    reserved = sorted(set(sens["start_yr"].dropna().astype(int))
+                      & set(C.CONFIRMATORY_START_YEARS))
+    assert not reserved, (
+        f"reserved start years {reserved} are in the market comparison; this "
+        "table is development-only and will not launder a sealed cohort")
+
+    # THE TWO ARTIFACTS MUST AGREE ABOUT WHAT THEY SHARE. The simulation
+    # carries the point surplus it was built around; it has to be the same
+    # number the market comparison calls the adopted forecast's surplus, or the
+    # two files are describing different runs and the join is meaningless.
+    shared = (sens[sens["forecast"] == ADOPTED][[KEY, "surplus"]]
+              .merge(sim[[KEY, "surplus_point"]], on=KEY, how="inner"))
+    gap = (shared["surplus"] - shared["surplus_point"]).abs()
+    assert len(shared), "no contract appears in both artifacts"
+    assert float(gap.max()) < 1.0, (
+        f"the two artifacts disagree about the adopted point surplus by up to "
+        f"${float(gap.max()):,.2f} on {int((gap >= 1.0).sum())} contracts; they "
+        "are not from the same run")
+    C.log(f"  input checks pass: {len(shared)} contracts agree on the adopted "
+          f"point surplus to ${float(gap.max()):.2e}")
+    C.log("")
+
     # ---- the adopted column, and every other forecast beside it -----------
     base = sens[sens["forecast"] == ADOPTED].copy()
     cols = [c for c in FROM_SENSITIVITY if c in base.columns]
@@ -75,11 +121,11 @@ def main() -> None:
     wide = sens.pivot_table(index=KEY, columns="forecast", values="surplus")
     wide.columns = ["surplus_" + c.replace("'", "").replace(" ", "_")
                     for c in wide.columns]
-    out = out.merge(wide.reset_index(), on=KEY, how="left")
+    out = out.merge(wide.reset_index(), on=KEY, how="left", validate="one_to_one")
 
     # ---- the distribution around the adopted one --------------------------
     keep = [c for c in FROM_SIMULATION if c in sim.columns]
-    out = out.merge(sim[[KEY] + keep], on=KEY, how="left")
+    out = out.merge(sim[[KEY] + keep], on=KEY, how="left", validate="one_to_one")
 
     # ---- the join is checked, not assumed ---------------------------------
     # A silent left-join loss here would look like a smaller sample rather than
@@ -91,9 +137,18 @@ def main() -> None:
     C.log(f"  {n_sens} contracts from the market comparison")
     C.log(f"  {n_sim} contracts from the path simulation")
     C.log(f"  {matched} carry both, {n_sens - matched} carry a point valuation only")
-    assert matched == min(n_sens, n_sim), (
-        f"only {matched} contracts joined against {min(n_sens, n_sim)} available; "
-        "the two runners disagree about which contracts exist")
+    # NOT min(n_sens, n_sim) AS PROOF THE POPULATIONS AGREE. If they differ,
+    # the missing ids are named rather than counted, because a count cannot be
+    # chased and an id can.
+    only_sens = sorted(set(base[KEY]) - set(sim[KEY]))
+    only_sim = sorted(set(sim[KEY]) - set(base[KEY]))
+    if only_sens or only_sim:
+        C.log(f"  {len(only_sens)} contracts have a point valuation and no "
+              f"simulation: {only_sens[:8]}{'...' if len(only_sens) > 8 else ''}")
+        C.log(f"  {len(only_sim)} the other way: "
+              f"{only_sim[:8]}{'...' if len(only_sim) > 8 else ''}")
+    assert matched == len(set(base[KEY]) & set(sim[KEY])), (
+        "the join lost contracts that are present in both inputs")
     C.log("")
 
     # ---- what is in the artifact ------------------------------------------
@@ -147,24 +202,39 @@ def main() -> None:
         C.log("FULL-CHAIN MOVEMENT AGAINST THE PRODUCTION SPINE, contract by")
         C.log("contract. This is the plan's Phase 5 acceptance item.")
         C.log("")
-        C.log("WHAT IS AND IS NOT COMPARABLE. Both sides are a dollar surplus over")
-        C.log("the contract, discounted. They are NOT the same construct: production")
-        C.log("prices production on the locked censored regression and carries it")
-        C.log("with survival weights, while the rebuild prices a signing-dated")
-        C.log("forecast on a rolling currency with participation inside the")
-        C.log("forecast rather than as a weight on top. So the LEVELS are two")
-        C.log("different definitions of surplus and their difference is not an")
-        C.log("error in either. What is comparable is the MOVEMENT: whether the")
-        C.log("two order the same contracts the same way.")
+        C.log("WHAT IS AND IS NOT COMPARABLE. Both sides are a dollar surplus")
+        C.log("over the contract, but they are NOT the same construct and they")
+        C.log("are not even dated alike. Production prices on the locked")
+        C.log("censored regression, carries survival weights on top, and values")
+        C.log("from 1 July of the first contract season; the rebuild prices a")
+        C.log("signing-dated forecast on a rolling currency with participation")
+        C.log("inside the forecast rather than as a weight over it. Production")
+        C.log("also carries terminal control value on contracts the rebuild")
+        C.log("stops at expiry. So the LEVELS are different definitions of")
+        C.log("surplus on different information dates, and their difference is")
+        C.log("not an error in either. What is comparable is the MOVEMENT:")
+        C.log("whether the two order the same contracts the same way. Which")
+        C.log("rows survive an identity, date, cost and terminal-value check is")
+        C.log("run_production_reconciliation.py, not this script.")
         C.log("")
         j = out.merge(spine[["contract_id", "position", "npv_total",
-                             "surplus_no_survival"]],
+                             "surplus_no_survival"]]
+                      .rename(columns={"surplus_no_survival":
+                                       "surplus_nominal_no_survival"}),
                       on=KEY, how="inner")
         C.log(f"  {len(spine)} contracts in the production spine, {len(out)} in the")
         C.log(f"  rebuild's development sample, {len(j)} in both.")
         C.log("")
+        # THE SECOND COLUMN IS NOT AN NPV. contract_npv.py builds
+        # surplus_no_survival as UNDISCOUNTED contract surplus plus terminal
+        # value at its own reference date, so it drops the discounting along
+        # with the hazard and is not comparable to npv_total. It is reported
+        # for what it is and nothing is decomposed out of it here; the
+        # hazard held against cost, discounting and terminal value is
+        # run_production_reconciliation.py.
         for label, col in (("production NPV (survival-weighted)", "npv_total"),
-                           ("production surplus, no survival", "surplus_no_survival")):
+                           ("production's nominal surplus (UNDISCOUNTED, no survival)",
+                            "surplus_nominal_no_survival")):
             r = j[["surplus", col]].dropna()
             C.log(f"  against {label}:")
             C.log(f"    rank correlation        {r['surplus'].corr(r[col], method='spearman'):>8.3f}")
@@ -199,22 +269,16 @@ def main() -> None:
                   f"{(k['surplus']-k['npv_total']).mean()/1e6:>11.2f}"
                   f"{k['surplus'].corr(k['npv_total'], method='spearman'):>12.3f}")
         C.log("")
-        # HOW MUCH OF THAT GRADIENT IS THE SURVIVAL WEIGHT? The spine carries
-        # production's surplus with the weighting removed, so the two candidate
-        # explanations can be separated instead of argued about: the weight
-        # itself, or everything else production does to a long deal.
-        C.log("  and how much of the term gradient is production's survival weight,")
-        C.log("  which the spine lets us remove:")
-        C.log(f"    {'term':<8}{'n':>6}{'production':>13}{'no survival':>14}"
-              f"{'the weight':>13}{'rest of gap':>14}")
-        for L, k in j.groupby("length"):
-            if len(k) < 10:
-                continue
-            weight = (k["surplus_no_survival"] - k["npv_total"]).mean() / 1e6
-            rest = (k["surplus"] - k["surplus_no_survival"]).mean() / 1e6
-            C.log(f"    {int(L)} yr{'':<3}{len(k):>6}{k['npv_total'].mean()/1e6:>13.2f}"
-                  f"{k['surplus_no_survival'].mean()/1e6:>14.2f}"
-                  f"{weight:>13.2f}{rest:>14.2f}")
+        # NO SURVIVAL DECOMPOSITION IS ATTEMPTED HERE. An earlier version of
+        # this script subtracted npv_total from surplus_no_survival and called
+        # the difference the survival weight. That subtraction removes the
+        # discounting too, and it produced negative weights, which cannot
+        # happen when value is nonnegative and everything else is held. The
+        # isolated hazard is computed from production's own season details in
+        # run_production_reconciliation.py.
+        C.log("  the exit hazard is NOT isolated in this table. Removing it while")
+        C.log("  holding cost, discounting and terminal value needs production's")
+        C.log("  per-season detail: see run_production_reconciliation.py.")
         C.log("")
         C.log("  the ten contracts the two systems disagree about most, in dollars:")
         C.log(f"    {'player':<26}{'yr':>6}{'term':>6}{'rebuild':>10}"
@@ -227,10 +291,16 @@ def main() -> None:
                   f"{r['surplus']/1e6:>10.2f}{r['npv_total']/1e6:>12.2f}"
                   f"{r['prod_gap']/1e6:>10.2f}")
         C.log("")
+        # production_surplus_nominal_no_survival is NOT an NPV and NOT
+        # production's value with the hazard switched off. It is undiscounted
+        # surplus plus terminal value at production's own reference date.
         out = out.merge(spine[["contract_id", "npv_total", "surplus_no_survival"]]
-                        .rename(columns={"npv_total": "production_npv",
-                                         "surplus_no_survival": "production_npv_no_survival"}),
-                        on=KEY, how="left")
+                        .rename(columns={
+                            "npv_total": "production_npv",
+                            "surplus_no_survival":
+                                "production_surplus_nominal_no_survival"}),
+                        on=KEY, how="left", validate="one_to_one")
+        assert out[KEY].is_unique, "the production merge duplicated contracts"
 
     out.to_csv(C.out_path("contract_valuation.csv"), index=False)
     C.log(f"  wrote {C.out_path('contract_valuation.csv').name} "

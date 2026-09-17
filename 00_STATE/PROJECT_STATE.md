@@ -194,6 +194,30 @@ These findings take precedence over the earlier broad validation claims. No impl
 changed; repaired development comparisons and the unbuilt simulation work must precede adoption.
 Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 
+**Valuation integration and production reconciliation review, 2026-09-16 (repaired
+2026-09-17):** reviewed `bc724e5` in isolation. The integration table builds and the raw
+cross-model comparison reproduces; the reconciliation was not ready to close. Three findings,
+all now repaired. (1) The reported "survival effect" also removed discounting, because
+production's `surplus_no_survival` is undiscounted surplus plus terminal value at its own
+reference date; the negative effects it produced were the warning. Rebuilt from production's
+per-season detail with cost, discounting and terminal value held, the hazard is worth +$0.86M at
+four years, +$1.69M at six, +$1.67M at seven and +$2.29M at eight, against gaps of $5.03M,
+$15.86M, $24.61M and $33.63M. **The supported claim is only that the exit hazard alone does not
+explain the long-contract gap**; the earlier claim that the gap lives on the value side is
+withdrawn. (2) Contract IDs alone do not establish the same asset at the same date: production's
+sweep labels output with the ID it requested and its engine can value another (10 rows), and the
+two sides also differ on season count (3), terminal control value (185), cost by more than 10%
+(46) and valuation versus signing year (240); 912 of 1,141 are comparable on every test, with
+flags and reasons written per row. (3) The integration's guards accepted mutated inputs: a $1M
+shift in every simulated point surplus, a duplicated production contract, and reserved start
+years all passed. `run_valuation_integration.py` v1.2 and the new
+`run_production_reconciliation.py` v1.1 close all three. Term-group means account for 84.8% of
+the squared variation in the dollar gap. The independently regenerated `goalie_value_spine_v2.csv`
+hashes to the locked `55c935dd...` in the reviewer's checkout, so the container-local
+`7e481bf4...` is unexplained and the float-formatting guess is withdrawn. See
+`50_REBUILD/docs/Valuation_Integration_Review_Codex.md` and
+`50_REBUILD/docs/Production_Reconciliation.md`. No production code or source input was changed.
+
 **Simulation repair review closed, 2026-09-16:** verified `db0c6b2` in isolation.
 Full suite passes 25/25. All 605 one-year contracts now have exact path/SD equality;
 shared participation uniforms reach all three arms. Check 25 passes normally and
