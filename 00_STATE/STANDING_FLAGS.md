@@ -2,23 +2,23 @@
 
 ## Independent rebuild review (2026-09-15)
 
-**RFA control-year repair review, 2026-09-17:** verified `fc4190d` in isolation.
-Reproduced 28/28 checks and 398 contracts; declared/informed/oracle means
-$0.636647M/$0.704391M/$0.903579M. All four old-defect mutations are caught;
-hidden missed-season interventions now move nothing. Targeted filter, observation,
-historical-QO, and matched-pricing repairs are verified. Proceed with further
-prototype development, with scope corrected: the policy counts expected later
-profits but omits the option to learn and stop later. A Gaussian two-season example
-returns zero under the implemented rule versus 0.12336 under a feasible informed
-rule. The $67,745 gain is specific to these policies; $838 does not measure the
-full continuation option. Age-only sensitivity is $25,867 on common draws, close
-to the reported $26,318; 356 unchanged windows are now identical. It is not a bound
-on historical eligibility bias. Correct stale salary/front-loading prose and
-production-zero counts (97 no-QO plus 33 plain UFA, not 130 no-QO). Before adoption,
-resolve historically admissible eligibility, offer costs, and policy scope; retain
-remaining goalie/joint-path/dollar-scoring/back-test work. See
-`50_REBUILD/docs/Control_Years_Repair_Review_Codex.md`. No candidate merge,
-production edits or adoption. Earlier simulator/reconciliation closures stand.
+**Goalie branch review, 2026-09-17:** reviewed `08731eb`, including `b36a738`.
+RFA corrections verified: 356 unchanged windows exactly equal; salary coverage
+339 with 221/110/8; approximate-policy and sensitivity limits disclosed. Prior
+RFA prototype clearance stands. Goalie panel and table reproduce: 1,560 seasons,
+280 goalies, six rules with 3,683 cells each, full suite 30/30. Three corrections
+precede forecast selection: the production-labelled rule excludes low-GP priors,
+changes gap handling, and omits the 0.650 stale-history target; bootstrap omits
+page and expands 3,683 pairs to 19,853; the aging challenger applies a common
+intercept drift and discards the age slope. Actual production projector through
+the shared participation estimator has MAE 1.48784 versus fitted candidate
+1.49123; difference +0.00339, goalie-cluster 95% interval [-0.01516,+0.02206].
+No decisive improvement over production. Corrected workload bootstrap win share
+37.5%, not 78%. Adding 20 years to subjects changes the age candidate by zero.
+Retain panel; correct benchmark/pairing and narrow aging claims before choosing
+what enters the goalie price line. See `50_REBUILD/docs/Goalie_Branch_Review_Codex.md`.
+No candidate merge, adoption, production edit, or confirmatory-page access. Earlier
+simulation/reconciliation closures and remaining Phase 5 limitations stand.
 
 **Reconciliation review closed, 2026-09-16:** verified `76730b6` in isolation.
 Actual runner prices 1,141 contracts; all hazard effects agree exactly with the

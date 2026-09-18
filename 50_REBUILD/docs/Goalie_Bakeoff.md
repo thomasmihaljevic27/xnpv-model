@@ -1,23 +1,23 @@
 # Forecasting a goaltender, and whether production's rule holds up
 
-Run 2026-09-17 in `50_REBUILD/`. The goalie branch of the plan's Phase 5, first step. Development
-pages only. **Nothing adopted, and no production file changed.**
+Run 2026-09-18 in `50_REBUILD/` (v2.0, after an independent review). The goalie branch of the
+plan's Phase 5, first step. Development pages only. **Nothing adopted, and no production file
+changed.**
+
+**The first version of this report claimed a candidate beat production's rule. It is withdrawn.**
+The thing it beat was not production's rule — it was a reimplementation of it, missing three
+mechanisms, built from a partial reading of the code. Against production's own projector, imported
+and called, **nothing here beats it**. What survives is a narrower and still useful result about
+bias. The corrections are listed at the end.
 
 ## Why this before anything else
 
-The rebuild has no goaltenders in it. Before a goalie control-year gate, a goalie price line or a
-goalie participation model can be built, one question has to be answered: does forecasting a
-goaltender work at all on this evidence, and does the rule production already uses survive being
-scored the way every skater candidate has been scored?
+The rebuild has no goaltenders in it. Before a goalie control-year gate, a price line or a
+participation model can be built, one question has to be answered: does forecasting a goaltender
+work at all on this evidence, and does the rule production already uses survive being scored the
+way every skater candidate has been scored?
 
-Production's rule, read from `20_CODE/contract_npv.py` rather than from any summary: a trailing
-**50/30/20** blend of the last three seasons' WAR, falling back to 60/40 with two seasons and to
-last season alone with one; shrunk by **keeping 35%** of it and putting 65% on a league average of
-**2.189**; then held **flat** across the whole contract, with no aging curve. That is a strong pair
-of claims — that two thirds of what a goaltender just did is noise, and that he then never ages —
-and neither had been scored on held-out pages in this tree.
-
-## The panel, and what is different about it
+## The panel
 
 `goalie_season_table.py` builds the goalie panel in the skater table's schema, so the information
 set, the harness and the scoring all work on it unchanged. It reuses the skater table's rules
@@ -26,134 +26,177 @@ against the schedule the season actually had, the per-82 rate built from the raw
 schedule adjustments cancel, experience with its left-censoring flag, and the birthdate join.
 
 **1,560 goaltender-seasons, 280 goaltenders, 2007–2025** — 82 a season against roughly 700
-skater-seasons. Everything below has to be read against that.
+skater-seasons.
 
 Three things are genuinely different and are not style choices:
 
-- **One number, not six.** The source carries a single WAR with no component split, so the
-  component-wise forecast that won the skater bake-off has nothing to work on. Every candidate here
-  is a total-WAR rule.
-- **Games are a role, not only availability.** A skater who plays 40 of 82 was hurt. A goaltender
-  who plays 40 of 82 may be a healthy starter in a tandem, a backup, or a starter who missed a
-  month, and the source cannot tell them apart. The median qualifying goaltender plays **0.44** of
-  the schedule; among those playing 40 games or more it is **0.67**. Anything that reads `gp_share`
-  as availability — the participation model, when it comes — has to say so first.
-- **No goaltender in this panel has ever played 82 games.** The busiest season on record is 77. The
-  schema's identity is therefore asserted on the rate itself rather than on a full season, and that
-  absence is the point.
+- **One number, not six.** No component split, so the component-wise forecast that won the skater
+  bake-off has nothing to work on.
+- **Games are a role, not only availability.** The median qualifying goaltender plays **0.44** of
+  the schedule; among those playing 40 games or more it is **0.67**. A team carries two
+  goaltenders, so a low share can be a backup role, a tandem, or an injury, and the source cannot
+  tell them apart. Anything that later reads `gp_share` as availability has to say so first.
+- **No goaltender in this panel has ever played 82 games.** The busiest season is 77.
 
-**Age coverage is 76%, not the skater table's 98%.** The birthdate table was built for skaters and
-its goalie keys are thinner. The age candidate below is fitted on three quarters of the panel; that
-is a limitation of this run, not a finding about goaltenders.
+Age coverage is **76%**, not the skater table's 98%, because the birthdate table was built for
+skaters. That is a limitation of this run.
+
+## The benchmark is production's own projector, imported
+
+Not a reimplementation. The first version rebuilt the cascade from a reading of
+`contract_npv.py` that stopped halfway through the method, and three mechanisms were missing:
+
+1. production's lookup table has **no games filter** — a two-game season is a prior like any other,
+   where the rebuilt one dropped anything under ten games;
+2. the cascade fills the t−1, t−2, t−3 slots **strictly**. A goaltender with no t−1 season does not
+   fall to a 60/40 of whatever else exists; he goes to a **stale anchor** computed at an earlier
+   standpoint, bounded three seasons back;
+3. a stale-anchor goaltender shrinks toward **0.650**, the conditional mean of goaltenders who came
+   back, not toward the league average.
+
+The third I had never read. The candidate now imports the class and calls it, the same way the
+qualifying-offer bands are checked against production's implementation rather than re-derived. The
+reimplementation is kept in the bake-off as "a simplified cascade", because the gap between it and
+the real thing is itself worth seeing: up to **2.28 WAR** on a single goaltender.
 
 ## What was scored
 
 The same harness, the same development pages, the same frozen information set. Every candidate
-answers the same grid of (goaltender, horizon) cells, so none can win by declining the hard ones,
-and **every candidate shares one participation estimator** fitted before each page — the question
-here is ability, and letting candidates differ on who is still in the league would mix the two.
+answers the same grid of (goaltender, horizon) cells, and **every candidate shares one participation
+estimator** fitted before each page — the question here is ability, and letting candidates differ on
+who is still in the league would mix the two. 3,683 forecasts per candidate.
 
 Mean absolute error in season WAR. Lower is better.
 
 | rule | all | h0 | h1 | h2 | h3 | h4 | h5 | bias |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | the league average | 1.634 | 1.899 | 1.863 | 1.694 | 1.565 | 1.394 | 1.351 | +0.092 |
-| **production's rule** (keep 0.35, flat) | 1.582 | 1.757 | 1.771 | 1.648 | 1.540 | 1.378 | 1.367 | **+0.218** |
-| the same, on the page's own average | 1.511 | 1.696 | 1.706 | 1.579 | 1.468 | 1.308 | 1.273 | +0.045 |
-| **the same, with the kept weight fitted** | **1.491** | 1.662 | 1.681 | 1.561 | 1.452 | 1.295 | 1.262 | **+0.036** |
+| **production's own projector** | **1.488** | 1.628 | 1.662 | 1.555 | 1.455 | 1.304 | 1.295 | +0.101 |
+| a simplified cascade, keep 0.35 | 1.582 | 1.757 | 1.771 | 1.648 | 1.540 | 1.378 | 1.367 | +0.218 |
+| the same on the page's own average | 1.511 | 1.696 | 1.706 | 1.579 | 1.468 | 1.308 | 1.273 | +0.045 |
+| the same, with the kept weight fitted | 1.491 | 1.662 | 1.681 | 1.561 | 1.452 | 1.295 | 1.262 | **+0.036** |
 | shrunk by the games behind it | 1.585 | 1.788 | 1.796 | 1.658 | 1.530 | 1.367 | 1.337 | +0.164 |
-| the same, with a fitted age change | 1.624 | 1.788 | 1.806 | 1.684 | 1.563 | 1.413 | 1.468 | +0.232 |
+| with a fitted age slope | 1.552 | 1.788 | 1.764 | 1.603 | 1.467 | 1.335 | 1.325 | +0.034 |
 
-Against production's rule, resampling **goaltenders** rather than rows — there are 280 of them and
-a goaltender's seasons are not independent draws:
+Against production's own projector, resampling **goaltenders** rather than rows, pairing on
+(page, goaltender, horizon):
 
 | rule | MAE gap | share of resamples it wins |
 |---|---:|---:|
-| the league average | +0.052 | 3% |
-| the same, on the page's own average | **−0.071** | **100%** |
-| the same, with the kept weight fitted | **−0.091** | **100%** |
-| shrunk by the games behind it | +0.003 | 78% |
-| the same, with a fitted age change | +0.042 | 0% |
+| the league average | +0.147 | 0% |
+| a simplified cascade, keep 0.35 | +0.094 | 0% |
+| the same on the page's own average | +0.023 | 1% |
+| the same, with the kept weight fitted | **+0.003** | **34%** |
+| shrunk by the games behind it | +0.097 | 0% |
+| with a fitted age slope | +0.065 | 0% |
 
 ## What this says
 
-**The shrinkage is sound. The constant is not.** Production's rule beats the flat league average,
-so the trailing blend is reading something real (3% of resamples say otherwise). But it carries a
-**+0.218 WAR bias** — it says goaltenders will be better than they turn out to be, at every horizon
-— and simply measuring the league average on what each page could see removes most of it (+0.045)
-and takes 0.071 WAR off the error, in 100% of resamples. The 2.189 constant is higher than the mean
-of the development window, so every goaltender is being pulled up toward a league that no longer
-exists.
+**Production's goalie projector is the best forecast here, and nothing in this bake-off beats it.**
+The closest candidate is 0.003 WAR worse and wins a third of resamples, which is a tie and not a
+loss for production. The claim in the first version of this report — that a fitted kept weight
+improved on production — was an artifact of comparing against a lookalike that was 0.094 WAR worse
+than the real thing.
 
-**The kept weight is nearer 0.43 than 0.35.** Fitted as the slope of next season's WAR on the
-trailing blend — the reliability the shrinkage is supposed to be — on 679 pairs the last
-development page could see. Worth another 0.020 WAR of error on top of the constant, 100% of
-resamples. That is in the same direction as the correction already recorded in production's own
-docstring, which established that the locked λ is the weight on the league average and not on
-trailing.
+**The bias result survives, and it is a different result.** Production's projector runs **+0.101
+WAR** high at every horizon; the fitted-weight candidate runs **+0.036**. Same error, a third of the
+bias. For a forecast that will be multiplied by a price line and summed over a contract, a standing
+positive bias is not the same kind of defect as noise — it does not average out over seasons or over
+a roster. That is worth carrying into the price-line decision even though the error is a tie.
 
-**Weighting by workload does not help.** A goaltender with 150 games behind him has told you more
-than one with 40, and the fitted half-point sits at 220 games, but the candidate lands on
-production's rule (+0.003, 78% of resamples — which is not a result).
+**The shrinkage reads something real.** Every cascade-based rule beats the flat league average
+comfortably (0% of resamples for the average), so a goaltender's trailing record is informative even
+after two thirds of it is shrunk away.
 
-**Production's flat carry survives, and the reason is worth more than the result.** The age
-candidate loses (0% of resamples). But the interesting part is that the quantity it is built on is
-**not identified on this panel**:
+**Weighting by workload does not help** (+0.097, 0% of resamples), which is the clearest negative
+result here: the fitted half-point sits at 220 games, and using it costs as much as the simplified
+cascade's other differences.
 
-| page | fitted average change in WAR a season |
-|---|---:|
-| 2015 | +0.117 |
-| 2016 | +0.147 |
-| 2017 | +0.079 |
-| 2018 | +0.117 |
-| 2019 | −0.002 |
-| 2020 | −0.057 |
-| 2021 | −0.106 |
+## How goaltenders age: the earlier claim is withdrawn
 
-It flips sign as the window moves, so the early pages walk a goaltender **up** and the late ones
-walk him down. A within-player change can only be measured on goaltenders who played both seasons,
-and the ones who fall out are the ones who declined — the same selection the skater side documents
-in Phase 3, on a twelfth of the sample. So this is not evidence that goaltenders do not age. It is
-evidence that **this panel cannot tell you how they age**, and that production's flat carry is
-defensible for that reason rather than because ageing has been ruled out.
+The first version reported that the fitted season-to-season change flips sign across pages and
+concluded that goalie ageing "is not identified on this panel". **That conclusion is withdrawn,
+because the candidate it rested on never used age.** It took the intercept of its own regression —
+the average change at the pivot age — and applied it to every goaltender alike. Adding twenty years
+to every subject moved the forecast by exactly zero.
+
+Fitted properly, the two coefficients behave differently and only one of them is about age:
+
+| page | change per year of age | the common drift at the pivot |
+|---|---:|---:|
+| 2015 | −0.0479 | +0.1167 |
+| 2016 | −0.0050 | +0.1467 |
+| 2017 | −0.0260 | +0.0792 |
+| 2018 | −0.0081 | +0.1167 |
+| 2019 | −0.0711 | −0.0019 |
+| 2020 | −0.0884 | −0.0574 |
+| 2021 | −0.0722 | −0.1057 |
+
+**The age slope is negative on every page.** An older goaltender's season-to-season change is worse
+than a younger one's, on every window this run has. What swings is the **drift** — the level the
+whole population moves by — from +0.117 WAR a season in 2015 to −0.106 in 2021, and that is not an
+age effect at all.
+
+So the honest statement is narrower in one direction and stronger in the other: this run gives no
+reason to say ageing is unidentified, and a stable negative age slope is what it actually found.
+Using it still does not beat production (+0.065, 0% of resamples), which is a statement about this
+implementation on 82 seasons a year, not about whether goaltenders age. The slope is fitted on
+within-goaltender changes, so it is measured only on goaltenders who played both seasons and the
+ones who fall out are the ones who declined — the same selection the skater aging curve carries,
+and untested here.
 
 ## What this does not establish
 
-- **Nothing here is a valuation.** No price line, no dollars, no contracts. This is the ability
-  forecast alone, and it is the input the rest of the goalie branch needs.
-- **The role forecast is held fixed across candidates**, deliberately, so this says nothing about
-  how well a goaltender's share of the schedule can be forecast — which for a goaltender is a
-  depth-chart question as much as a skill one.
+- **Nothing here is a valuation.** No price line, no dollars, no contracts.
+- **The role forecast is held fixed across candidates**, so this says nothing about forecasting a
+  goaltender's share of the schedule — which is a depth-chart question as much as a skill one.
 - **The participation estimator is a flat survival rate by horizon**, shared so the comparison is
-  clean. It is not a participation model and does not have the two-state structure the skater side
-  uses.
-- **82 seasons a year.** The two winning margins are 100% of resamples, but they are margins of
-  0.07 and 0.09 WAR on a 1.5 WAR error.
+  clean. It is not a participation model.
+- **Production's projector declines to price some goaltenders** (prospect-pillar territory there);
+  here the grid must be answered, so they take the page's average. That is a small courtesy to the
+  benchmark, not a handicap.
+- **82 seasons a year.** Every margin in the table is small against that.
 - **Development pages only**, and the confirmatory pages are sealed.
 
 ## What is checked
 
-- The panel is the skater panel's schema, one row per goaltender-season after a traded goaltender's
-  halves are summed, with the rate built from the raw total so proration is applied exactly once.
-  Verified by prorating the rate a second time, which the check catches.
-- Every candidate answers the same grid, cannot fit on the page it stands on, and **shares one
-  participation estimator** — each verified by breaking it: removing the page guard, and giving one
-  candidate its own survival numbers.
-- The participation estimator is unmoved when every season at or after the page is scrambled.
+- The panel is the skater panel's schema with one row per goaltender-season and proration applied
+  exactly once — verified by prorating the rate a second time.
+- Every candidate answers the same grid, cannot fit on the page it stands on, and shares one
+  participation estimator — verified by removing the page guard and by giving one candidate its own
+  survival numbers.
+- **The benchmark is production's own class**, it differs from the simplified cascade, and it
+  ignores every season from the page onward — verified by putting a lookalike in its place, by
+  making the two coincide, and by scrambling the future in its lookup table.
+- **One forecast is one (page, goaltender, horizon)**, and a candidate that says it uses age moves
+  when age moves and leaves h0 alone — verified by dropping the page from the pairing and by
+  reverting the age term to the intercept.
 
-Suite: **30 passed, 0 skipped, 0 failed.**
+Suite: **32 passed, 0 skipped, 0 failed.**
 
 ## Files
 
     50_REBUILD/code/goalie_season_table.py   the panel
-    50_REBUILD/code/run_goalie_bakeoff.py    the six candidates and the scoring
+    50_REBUILD/code/run_goalie_bakeoff.py    the seven candidates and the scoring
 
 Writes `goalie_bakeoff.csv`: every scored (rule, goaltender, page, horizon) cell with its error.
 Outputs ignored under `50_REBUILD/output/`.
 
+## What the first version got wrong
+
+1. **The benchmark was not production.** A reimplementation missing the games filter, the strict
+   slot rule and the 0.650 stale-anchor target. The claimed improvement over production is
+   withdrawn.
+2. **The bootstrap paired across years.** Joining on goaltender and horizon without the page turned
+   3,683 intended pairs into 19,853 rows and reweighted the comparison toward goaltenders who
+   appear on many pages. Workload weighting was reported at 78% of resamples; correctly paired
+   against the real benchmark it is 0%.
+3. **The ageing candidate never used age.** It applied one common drift to everyone, so the sign
+   flip it produced was in the drift, not in ageing. The "not identified" conclusion is withdrawn.
+
 ## Next in the goalie branch
 
 A price line and a participation model, in that order — the control-year gate the plan asks for
-needs both, and the tender decision for a goaltender is a depth-chart decision as much as a value
-one. On this evidence the ability forecast to carry forward is the trailing blend with the league
-average measured at the page and the kept weight fitted, not the locked constants.
+needs both, and a goaltender's tender decision is a depth-chart decision as much as a value one. On
+this evidence the forecast to carry forward is **production's own projector**, with its +0.101 bias
+recorded as a known defect to correct downstream rather than a reason to replace the rule.

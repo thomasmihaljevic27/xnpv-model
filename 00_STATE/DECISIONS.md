@@ -237,6 +237,17 @@ back-test with grouping rule and protocol declared in advance and the reserved e
 until they are fixed. No production code changed, no locked decision reopened, no reserved cohort
 unsealed.
 
+---
+
+**Change log, 2026-09-17c (goalie branch review):** Reviewed `08731eb` and RFA
+corrections `b36a738`. Verified RFA corrections and reproduced full 30-check suite
+and goalie table. Actual production projector comparison changes the headline:
+MAE 1.48784 versus fitted candidate 1.49123; paired difference inconclusive.
+Documented wrong production baseline, missing-page bootstrap join, and common-drift
+candidate presented as aging. Added independent audit/report, updated state/session.
+Correct those before selecting a goalie forecast for pricing. No production/model
+changes, candidate merge, adoption, or reserved forecast-page access.
+
 **Change log, 2026-09-17b (RFA repair verification):** Reviewed `fc4190d`.
 Reproduced 28/28, 398 contracts, and the $67,745 policy information difference.
 Four regression mutations fail as expected. Added a feasible-policy counterexample

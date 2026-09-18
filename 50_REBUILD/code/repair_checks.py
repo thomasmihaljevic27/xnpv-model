@@ -1176,6 +1176,135 @@ def c30(table):
             f"estimator; the page guard fires; the estimator ignores the future")
 
 
+def c31(table):
+    """A BENCHMARK LABELLED "PRODUCTION" HAS TO BE PRODUCTION.
+
+    The first goalie bake-off rebuilt production's cascade from a partial
+    reading of `contract_npv.py` and called the result production's rule. It
+    was missing the games filter, the strict slot rule, and the 0.650
+    shrinkage target for a goaltender returning after an absence, and the
+    conclusion drawn against that lookalike did not survive the real thing.
+
+    So two things are asserted. The candidate that carries production's name
+    calls production's own class, which is checked by breaking the import
+    rather than by reading the code again. And the simplified cascade, which
+    is kept for comparison, DISAGREES with it -- if the two ever coincided,
+    one of them would be mislabelled.
+
+    Also asserted: production's projector is dated by construction. Its
+    lookup table is built over the whole file, and it still answers a page
+    question with page information, which is proved by scrambling every
+    season from the page onward.
+    """
+    import run_goalie_bakeoff as B
+    import goalie_season_table as GST
+
+    try:
+        proj = B.production_projector()
+    except Exception as exc:                      # noqa: BLE001 - reported
+        return SKIP, (f"production's goalie projector did not import "
+                      f"({type(exc).__name__}); the benchmark cannot be "
+                      f"checked on this machine")
+    assert proj.__class__.__name__ == "GoalieProjector", proj.__class__
+    assert proj.__class__.__module__ == "contract_npv", (
+        "the candidate carrying production's name is not production's class")
+
+    page = 2019
+    a = GST.build(verbose=False)
+    past = a[a["syr"] < page]
+    subs = pd.DataFrame({"career_key": sorted(
+        past.loc[past["syr"] >= page - 3, "career_key"].unique())[:120]})
+    real = B.ProductionProjector().fit(past, page).war_for(subs)
+    mine = B.ProductionRule().fit(past, page).war_for(subs)
+    gap = float((real - mine).abs().max())
+    assert gap > 1e-6, ("the simplified cascade and production's projector "
+                        "agree exactly, so one of them is mislabelled")
+
+    # DATED BY CONSTRUCTION. The projector reads t0-1 and earlier, so a table
+    # holding the future still answers the page's question.
+    before = {k: proj.shrunk_projection(k, page)[0] for k in subs["career_key"]}
+    rng = np.random.default_rng(3)
+    keep = proj.lut.copy()
+    fut = proj.lut.index.get_level_values(1) >= page
+    proj.lut = proj.lut.copy()
+    proj.lut[fut] = rng.normal(size=int(fut.sum()))
+    after = {k: proj.shrunk_projection(k, page)[0] for k in subs["career_key"]}
+    proj.lut = keep
+    moved = [k for k in before
+             if not (pd.isna(before[k]) and pd.isna(after[k]))
+             and not np.isclose(before[k] or 0.0, after[k] or 0.0, equal_nan=True)]
+    assert not moved, (f"production's projector moved on {len(moved)} "
+                       f"goaltenders when seasons from the page onward were "
+                       f"scrambled")
+    return (f"the benchmark is production's own class, it differs from the "
+            f"simplified cascade by up to {gap:.3f} WAR, and it ignores every "
+            f"season from the page onward")
+
+
+def c32(table):
+    """ONE FORECAST IS ONE (PAGE, GOALTENDER, HORIZON), AND AN AGE TERM USES AGE.
+
+    Two defects the first goalie run shipped, both invisible to the tests it
+    came with.
+
+    The paired bootstrap joined on goaltender and horizon and left the page
+    out, so a 2015 forecast was matched against a 2021 one for the same
+    goaltender: 3,683 intended pairs became 19,853 rows and the weighting
+    moved toward goaltenders who appear on many pages. The pairing is now
+    one-to-one and the join asserts it.
+
+    And the candidate that claimed to age a goaltender took the INTERCEPT of
+    its own regression -- the average change at the pivot age -- and applied
+    it to everyone. Adding twenty years to every subject's age moved the
+    forecast by exactly nothing. A candidate that says it uses age has to
+    move when age moves.
+    """
+    import numpy as np
+    import goalie_season_table as GST
+    import run_goalie_bakeoff as B
+    from player_season_table import birthdate_source
+
+    # AGES ARE REQUIRED HERE, so the table is built with them: a panel with no
+    # birthdates would make the age half of this check vacuously pass by
+    # having nobody to age.
+    bd, _ = birthdate_source()
+    a = GST.build(birthdate_csv=bd, verbose=False, allow_thin_ages=True)
+    page = 2019
+    past = a[a["syr"] < page]
+
+    # The pairing is one-to-one, and a frame with repeated (goalie, horizon)
+    # across pages does not blow it up.
+    left = pd.DataFrame({"career_key": ["a", "a", "b", "b"],
+                         "page": [2015, 2016, 2015, 2016],
+                         "h": [1, 1, 1, 1], "e_war": [1.0, 2.0, 3.0, 4.0]})
+    right = left.copy(); right["e_war"] = [0.5, 0.5, 0.5, 0.5]
+    assert 0.0 <= B.paired_bootstrap(left, right, n=50) <= 1.0
+
+    # The age candidate moves when age moves.
+    m = B.WorkloadWeightedAging().fit(past, page)
+    import information_set as ISET
+    import forecast_harness as H
+    iset = ISET.build(a[a["syr"] < page], ISET.decision_date_for_page(page),
+                      t0=page)
+    subs = H.subjects_at(iset)
+    subs = subs[subs["has_age"]].head(80).copy()
+    assert len(subs) >= 20, ("too few aged goaltenders to test the age term; "
+                             "the check would pass vacuously")
+    young = m.predict(iset, subs, (0, 3, 5))
+    old = subs.copy(); old["age"] = old["age"] + 20
+    aged = m.predict(iset, old, (0, 3, 5))
+    far = aged[aged["h"] > 0]
+    gap = float((far["rate_82"].to_numpy()
+                 - young[young["h"] > 0]["rate_82"].to_numpy()).__abs__().max())
+    assert gap > 1e-9, ("the age candidate does not use age: twenty years "
+                        "changed nothing")
+    assert abs(float((aged[aged["h"] == 0]["rate_82"].to_numpy()
+                      - young[young["h"] == 0]["rate_82"].to_numpy()).max())) < 1e-9, \
+        "age moved the season the anchor already describes, which it must not"
+    return (f"the pairing is one-to-one; twenty years of age moves the "
+            f"forecast by up to {gap:.3f} and leaves h0 untouched")
+
+
 def main() -> None:
     warnings.filterwarnings("ignore")
     C.banner("repair_checks.py", SCRIPT_VERSION)
@@ -1226,7 +1355,9 @@ def main() -> None:
                      ("a walk-away is final, in ceiling and policy", c27),
                      ("the club sees what it was shown, and only that", c28),
                      ("the goalie panel's schema and arithmetic", c29),
-                     ("every goalie candidate answers the same question", c30)]:
+                     ("every goalie candidate answers the same question", c30),
+                     ("the production benchmark is production", c31),
+                     ("one forecast per page, and age that uses age", c32)]:
         check(name, lambda fn=fn: fn(table))
 
     width = max(len(n) for n, _, _ in results)

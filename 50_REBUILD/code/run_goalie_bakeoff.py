@@ -10,13 +10,15 @@ WHY THIS BEFORE ANYTHING ELSE
     this evidence, and does the rule production already uses hold up when it
     is scored the way every skater candidate has been scored?
 
-    Production's rule, read from `20_CODE/contract_npv.py`: a trailing
-    50/30/20 blend of the last three seasons' WAR, falling back to 60/40 and
-    then to last season alone; shrunk by KEEPING 35% of it and putting 65% on
-    a league average of 2.189; then held FLAT across the whole contract, with
-    no aging curve. That is a strong claim -- that two thirds of what a
-    goaltender just did is noise, and that he then never ages -- and it has
-    never been scored on held-out pages in this tree.
+    Production's rule is IMPORTED here and called, not reimplemented. The
+    first version of this bake-off rebuilt the cascade from a partial reading
+    of `contract_npv.py` and labelled the result "production's rule"; it was
+    missing production's games filter, its strict slot rule, and its 0.650
+    shrinkage target for goaltenders returning after an absence. The
+    conclusion drawn against that lookalike did not survive the real thing.
+    The reimplementation is kept in the bake-off as "a simplified cascade",
+    because the gap between it and the imported projector is itself worth
+    seeing.
 
 WHAT IS BEING SCORED
     The same harness, the same pages, the same frozen information set the
@@ -49,7 +51,7 @@ import forecast_harness as H
 import goalie_season_table as GST
 from player_season_table import birthdate_source
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "2.0"
 
 HORIZONS = (0, 1, 2, 3, 4, 5)
 
@@ -57,6 +59,32 @@ HORIZONS = (0, 1, 2, 3, 4, 5)
 # quoted here so the comparison is against what production actually does.
 PROD_KEEP = 0.35            # the weight on the goaltender's own trailing blend
 PROD_LEAGUE_AVG = 2.189172466
+
+
+def production_projector():
+    """Production's goalie projector, imported and built once.
+
+    Needs the season spine, which is a production output. Absent it, the
+    candidate cannot run and says so instead of standing in for production
+    with a lookalike -- which is the mistake this function exists to undo.
+    """
+    global _PROJ
+    if _PROJ is not None:
+        return _PROJ
+    import warnings
+    warnings.filterwarnings("ignore")
+    sys.path.insert(0, str(C.PROD_CODE_DIR))
+    import contract_npv as NPV
+    spine = pd.read_csv(Path(C.PROD_OUTPUT_DIR) / "contract_season_spine.csv")
+    spine["full_name"] = (spine["first_name"].astype(str) + " "
+                          + spine["last_name"].astype(str))
+    from player_season_table import norm_name
+    spine["nname"] = spine["full_name"].map(norm_name)
+    _PROJ = NPV.GoalieProjector(spine)
+    return _PROJ
+
+
+_PROJ = None
 
 
 # ---------------------------------------------------------------------------
@@ -175,6 +203,54 @@ class GoalieModel:
         return out
 
 
+class ProductionProjector(GoalieModel):
+    """PRODUCTION'S OWN PROJECTOR, IMPORTED, not a reimplementation of it.
+
+    The first version of this bake-off rebuilt the cascade from a reading of
+    `contract_npv.py` and labelled the result "production's rule". It was not.
+    Three things differ, and the review found all three:
+
+      * production's lookup table has NO games filter -- a two-game season is
+        a prior like any other -- while the rebuilt one dropped anything under
+        MIN_GP;
+      * production's cascade fills the t-1, t-2, t-3 slots STRICTLY, and a
+        goaltender with no t-1 season does not fall to a 60/40 of whatever
+        else exists: he goes to a STALE ANCHOR computed at an earlier
+        standpoint, bounded at three seasons back;
+      * a stale-anchor goaltender shrinks toward 0.650, the conditional mean
+        of goaltenders who came back, and not toward the league average.
+
+    The third of those I had never read: I read the first half of the method
+    and described the whole of it. So this candidate imports the class and
+    calls it, the same way the qualifying-offer bands are checked against
+    production's implementation rather than re-derived.
+
+    IT IS DATED BY CONSTRUCTION, and that is asserted rather than assumed.
+    `shrunk_projection(nname, t0)` reads seasons t0-1 and earlier only, so a
+    lookup table built over the whole file still answers a page question with
+    page information -- and the check scrambles every season from the page
+    onward to prove it.
+    """
+
+    name = "production's own projector (imported)"
+
+    def _fit(self, seasons, before):
+        self.proj_ = production_projector()
+
+    def war_for(self, subs):
+        keys = subs["career_key"].to_numpy()
+        out = []
+        for k in keys:
+            v, _src = self.proj_.shrunk_projection(k, self.t0_)
+            out.append(np.nan if v is None else float(v))
+        w = pd.Series(out, index=subs["career_key"])
+        # A goaltender production cannot price is prospect-pillar territory
+        # there. Here the grid must be answered, so he takes the page's own
+        # average and the count is reported rather than the row dropped.
+        self.unpriced_ = int(w.isna().sum())
+        return w.fillna(self.league_)
+
+
 class FlatAverage(GoalieModel):
     """Every goaltender is the league. Production's pre-2026 out-year
     placeholder, kept as the floor: any rule that cannot beat it is not
@@ -190,7 +266,7 @@ class ProductionRule(GoalieModel):
     """Production's locked rule: 50/30/20, keep 35% toward the league average,
     flat forever. The league average is the one production carries."""
 
-    name = "production's rule (keep 0.35, flat)"
+    name = "a simplified cascade, keep 0.35"
     keep = PROD_KEEP
     # Which league average the shrinkage pulls toward: production's own
     # constant, or the mean of what the page could actually see.
@@ -211,7 +287,7 @@ class ProductionRuleOwnAverage(ProductionRule):
     see, rather than the single number production carries from 2026. It
     separates the rule from the constant."""
 
-    name = "the same, on the page's own average"
+    name = "the same on the page's own average"
     use_prod_average = False
 
 
@@ -326,24 +402,40 @@ class WorkloadWeightedAging(WorkloadWeighted):
         d["dwar"] = d.groupby("career_key")["WAR"].diff()
         d["dage"] = d.groupby("career_key")["syr"].diff()
         d = d[(d["dage"] == 1) & d["dwar"].notna() & (d["syr"] < before)]
-        self.age_slope_ = 0.0
+        # BOTH COEFFICIENTS, AND THE SLOPE IS THE ONE THAT USES AGE. The
+        # first version took `polyfit(...)[1]`, which is the INTERCEPT -- the
+        # average change at the pivot age -- and applied it to every
+        # goaltender alike. Adding twenty years to every subject's age moved
+        # nothing, so what it tested was a common drift and not ageing at all.
+        self.age_slope_ = 0.0          # how the change varies with age
+        self.age_drift_ = 0.0          # the change at the pivot age
         self.age_pivot_ = float(d["age"].median()) if len(d) else 28.0
         if len(d) > 100:
             x = d["age"].to_numpy(float) - self.age_pivot_
             y = d["dwar"].to_numpy(float)
-            self.age_slope_ = float(np.polyfit(x, y, 1)[1])   # mean change
+            self.age_slope_, self.age_drift_ = (float(v) for v in np.polyfit(x, y, 1))
 
     def predict(self, iset, subs, horizons):
         base = super().predict(iset, subs, horizons)
-        # The change compounds over the horizon: a goaltender h seasons out is
-        # h years older than the one the anchor describes.
-        base["rate_82"] = base["rate_82"] + self.age_slope_ * base["h"] / \
-            base["gp_share"].clip(lower=0.05)
+        age = (subs.set_index("career_key")["age"]
+               .reindex(base["career_key"]).to_numpy(float))
+        age = np.where(np.isnan(age), self.age_pivot_, age)
+        # THE CHANGE ACCUMULATES OVER THE SEASONS HE AGES THROUGH, and each
+        # of those seasons has its own change because the change depends on
+        # his age then. A goaltender h seasons out has lived through the
+        # changes at ages a, a+1, ... a+h-1.
+        delta = np.zeros(len(base))
+        h = base["h"].to_numpy(int)
+        for step in range(1, int(h.max()) + 1):
+            at = age + step - 1 - self.age_pivot_
+            delta += np.where(h >= step, self.age_drift_ + self.age_slope_ * at, 0.0)
+        base["rate_82"] = base["rate_82"] + delta / base["gp_share"].clip(lower=0.05)
         return base
 
 
-CANDIDATES = (FlatAverage, ProductionRule, ProductionRuleOwnAverage,
-              FittedShrinkage, WorkloadWeighted, WorkloadWeightedAging)
+CANDIDATES = (FlatAverage, ProductionProjector, ProductionRule,
+              ProductionRuleOwnAverage, FittedShrinkage, WorkloadWeighted,
+              WorkloadWeightedAging)
 
 
 def paired_bootstrap(a: pd.DataFrame, b: pd.DataFrame, n: int = 2000,
@@ -351,9 +443,16 @@ def paired_bootstrap(a: pd.DataFrame, b: pd.DataFrame, n: int = 2000,
     """How often the second candidate beats the first on absolute WAR error,
     resampling GOALTENDERS rather than rows, because a goaltender's seasons
     are not independent draws and there are only 280 of him."""
-    j = (a[["career_key", "h", "e_war"]]
-         .merge(b[["career_key", "h", "e_war"]], on=["career_key", "h"],
-                suffixes=("_a", "_b")))
+    # THE PAGE IS PART OF THE KEY. Joining on goaltender and horizon alone
+    # matched a 2015 forecast to a 2021 one for the same goaltender, turning
+    # 3,683 intended pairs into 19,853 rows and silently reweighting the
+    # comparison toward goaltenders who appear on many pages. One forecast is
+    # one (page, goaltender, horizon).
+    keys = ["career_key", "page", "h"]
+    j = (a[keys + ["e_war"]]
+         .merge(b[keys + ["e_war"]], on=keys, suffixes=("_a", "_b"),
+                validate="one_to_one"))
+    assert len(j) <= min(len(a), len(b)), "the pairing duplicated forecasts"
     if j.empty:
         return float("nan")
     keys = j["career_key"].unique()
@@ -386,7 +485,11 @@ def main() -> None:
         m = cls()
         d = har.run(m, pages=C.DEV_PAGES, horizons=HORIZONS)
         scored[m.name] = d
-        C.log(f"  ran {m.name}: {len(d)} scored cells")
+        extra = ""
+        if getattr(m, "unpriced_", 0):
+            extra = (f"  ({m.unpriced_} goaltenders it declines to price on "
+                     f"the last page take the page average instead)")
+        C.log(f"  ran {m.name}: {len(d)} scored cells{extra}")
     C.log("")
 
     C.log("HOW WELL EACH RULE FORECASTS A GOALTENDER'S SEASON, mean absolute")
@@ -406,10 +509,13 @@ def main() -> None:
         C.log(line + f"{d['e_war'].mean():>9.3f}")
     C.log("")
 
-    base = scored["production's rule (keep 0.35, flat)"]
-    C.log("AGAINST PRODUCTION'S RULE, resampling GOALTENDERS rather than")
-    C.log("rows -- there are 280 of them and a goaltender's seasons are not")
-    C.log("independent draws.")
+    base = scored["production's own projector (imported)"]
+    C.log("AGAINST PRODUCTION'S OWN PROJECTOR, imported and called rather than")
+    C.log("reimplemented, resampling GOALTENDERS rather than rows -- there are")
+    C.log("280 of them and a goaltender's seasons are not independent draws.")
+    C.log("One forecast is one (page, goaltender, horizon); an earlier version")
+    C.log("paired on goaltender and horizon alone and matched a 2015 forecast")
+    C.log("to a 2021 one.")
     C.log("")
     C.log(f"  {'rule':<{width}}{'MAE gap':>10}{'beats it':>11}")
     for name, d in scored.items():
@@ -426,16 +532,32 @@ def main() -> None:
                                max(C.DEV_PAGES))
     ag = WorkloadWeightedAging().fit(table[table["syr"] < max(C.DEV_PAGES)],
                                      max(C.DEV_PAGES))
-    C.log("IS THE AGE TERM EVEN IDENTIFIED? The fitted average change, page")
-    C.log("by page. A quantity that flips sign as the window moves is not a")
-    C.log("measurement of how goaltenders age; it is what a within-player")
-    C.log("change looks like when only the goaltenders who kept playing are")
-    C.log("in the sample, on 82 seasons a year.")
+    C.log("WHAT THE AGE FIT ACTUALLY SAYS, page by page. Two coefficients,")
+    C.log("and the first version of this runner used the wrong one: it took")
+    C.log("the INTERCEPT, the average change at the pivot age, and applied it")
+    C.log("to every goaltender alike. Adding twenty years to every subject")
+    C.log("moved nothing, so what it tested was a common drift and not ageing.")
     C.log("")
-    C.log(f"    {'page':<8}{'fitted change in WAR a season':>32}")
+    C.log(f"    {'page':<8}{'per year of age':>18}{'at the pivot age':>20}"
+          f"{'pivot':>8}")
     for page in C.DEV_PAGES:
         a = WorkloadWeightedAging().fit(table[table["syr"] < page], page)
-        C.log(f"    {page:<8}{a.age_slope_:>32.3f}")
+        C.log(f"    {page:<8}{a.age_slope_:>18.4f}{a.age_drift_:>20.4f}"
+              f"{a.age_pivot_:>8.0f}")
+    C.log("")
+    C.log("  The two behave differently and only one of them is about age.")
+    C.log("  The slope is NEGATIVE on every page -- an older goaltender's")
+    C.log("  season-to-season change is worse than a younger one's, on every")
+    C.log("  window this run has. What swings is the DRIFT, from +0.117 WAR a")
+    C.log("  season on the 2015 page to -0.106 on 2021: the level the whole")
+    C.log("  population moves by, which is not an age effect at all.")
+    C.log("")
+    C.log("  So the earlier claim that ageing is unidentified on this panel is")
+    C.log("  WITHDRAWN. What is unstable is the common drift. Whether the age")
+    C.log("  slope is well estimated is a further question this run does not")
+    C.log("  answer -- it is fitted on within-goaltender changes, so it is")
+    C.log("  measured only on goaltenders who played both seasons, and the")
+    C.log("  ones who fall out are the ones who declined.")
     C.log("")
 
     C.log("WHAT THE FITS CAME OUT AT on the last development page, which is")
@@ -444,8 +566,9 @@ def main() -> None:
     C.log(f"    fitted on {m.n_pairs_} pairs, it keeps      {m.keep_:.2f}")
     C.log(f"    workload weighting's half-point        {w.k_:.0f} games "
           f"(a goaltender with that many games behind him keeps half)")
-    C.log(f"    the fitted age change                  {ag.age_slope_:+.3f} "
-          f"WAR a season, pivoting at age {ag.age_pivot_:.0f}")
+    C.log(f"    the age slope                          {ag.age_slope_:+.4f} "
+          f"WAR a season per year of age, pivoting at {ag.age_pivot_:.0f}")
+    C.log(f"    the common drift at that age           {ag.age_drift_:+.4f}")
     C.log("")
 
     out = pd.concat([d.assign(rule=n) for n, d in scored.items()],
