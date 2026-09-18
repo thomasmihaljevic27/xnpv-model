@@ -9,23 +9,21 @@
 
 ## Work queue
 
-**Goalie branch review, 2026-09-17:** reviewed `08731eb`, including `b36a738`.
-RFA corrections verified: 356 unchanged windows exactly equal; salary coverage
-339 with 221/110/8; approximate-policy and sensitivity limits disclosed. Prior
-RFA prototype clearance stands. Goalie panel and table reproduce: 1,560 seasons,
-280 goalies, six rules with 3,683 cells each, full suite 30/30. Three corrections
-precede forecast selection: the production-labelled rule excludes low-GP priors,
-changes gap handling, and omits the 0.650 stale-history target; bootstrap omits
-page and expands 3,683 pairs to 19,853; the aging challenger applies a common
-intercept drift and discards the age slope. Actual production projector through
-the shared participation estimator has MAE 1.48784 versus fitted candidate
-1.49123; difference +0.00339, goalie-cluster 95% interval [-0.01516,+0.02206].
-No decisive improvement over production. Corrected workload bootstrap win share
-37.5%, not 78%. Adding 20 years to subjects changes the age candidate by zero.
-Retain panel; correct benchmark/pairing and narrow aging claims before choosing
-what enters the goalie price line. See `50_REBUILD/docs/Goalie_Branch_Review_Codex.md`.
-No candidate merge, adoption, production edit, or confirmatory-page access. Earlier
-simulation/reconciliation closures and remaining Phase 5 limitations stand.
+**Goalie forecast review closed, 2026-09-17:** verified `e42f57c` in isolation.
+Full suite 32/32; seven candidates, 3,683 cells each. Imported projector agrees
+with the independent source-class calculation within 1.78e-15 WAR; replacing future
+WAR changes none of 629 goalie/page forecasts. Correct page pairing and responsive
+age term verified; all four reintroduced defects are caught. The preceding three
+findings are closed. Proceed to the goalie price-line prototype using production's
+projector provisionally. Its MAE is 1.48784 versus fitted weight 1.49123; the paired
+interval spans zero. Observed +.10062 WAR bias is a diagnostic, not an established
+price adjustment: goalie-cluster mean-error interval [-.12155,+.31314], and shared
+participation averages .64098 predicted versus .55254 observed. Assess any correction
+with participation and development scoring. Seasonal lookup dating does not date the
+locked production calibration constants for historical valuation. See
+`50_REBUILD/docs/Goalie_Repair_Closure_Codex.md`. RFA/simulator/reconciliation closures
+stand; goalie participation, control gate, dollars, and back-test remain open. No
+production/model edits, candidate merge, adoption, or confirmatory-page access.
 
 **Reconciliation review closed, 2026-09-16:** verified `76730b6` in isolation.
 Actual runner prices 1,141 contracts; all hazard effects agree exactly with the

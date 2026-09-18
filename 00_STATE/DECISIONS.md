@@ -1,5 +1,14 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-17d (goalie review closure):** Verified `e42f57c`.
+Reproduced 32/32, corrected table and bootstrap. Production parity within 1.78e-15,
+future intervention zero on 629 subjects, four negative tests caught. Closed three
+preceding findings; proceed to price-line prototype with production provisionally.
+Bias +.10062 is an observed diagnostic: cluster interval spans zero, and the scored
+forecast includes imperfect participation. No automatic dollar correction supported.
+Added closure report/audit and updated state/session. No model edits, merge, adoption,
+production writes, or confirmatory forecast-page inspection.
+
 **Change log, 2026-09-17c (goalie branch review):** Reviewed `08731eb` and RFA
 corrections `b36a738`. Verified RFA corrections and reproduced full 30-check suite
 and goalie table. Actual production projector comparison changes the headline:
