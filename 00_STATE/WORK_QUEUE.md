@@ -198,7 +198,60 @@ the work is. Next, in order:
 5. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
    contract-by-contract dollar reconciliation, and the holdout policy.
 
-**2026-09-17f — the goalie branch starts, and production's goalie constant carries a bias.** The
+**2026-09-18 — the goalie comparison is corrected, and production's own projector wins.** Three
+findings from review, all real.
+
+**(1) The benchmark was not production.** The first pass rebuilt production's cascade from a
+reading of `contract_npv.py` that stopped halfway through the method, and it was missing three
+mechanisms: production's lookup table has **no games filter**, its cascade fills the t-1/t-2/t-3
+slots **strictly** and sends a goaltender with no t-1 season to a **stale anchor** computed at an
+earlier standpoint, and that stale-anchor population shrinks toward **0.650** rather than the league
+average. The reimplementation is up to **2.28 WAR** away from the real thing on a single goaltender.
+The candidate now imports the class and calls it, as the qualifying-offer bands already do.
+
+**(2) The bootstrap paired across years.** Joining on goaltender and horizon without the page
+matched a 2015 forecast to a 2021 one: 3,683 intended pairs became 19,853 rows, reweighting toward
+goaltenders who appear on many pages.
+
+**(3) The ageing candidate never used age.** It took the INTERCEPT of its own regression -- the
+average change at the pivot age -- and applied it to everyone; adding twenty years to every subject
+moved nothing.
+
+**Corrected, mean absolute error in season WAR over 3,683 forecasts:**
+
+| rule | MAE | bias | beats production |
+|---|---:|---:|---:|
+| the league average | 1.634 | +0.092 | 0% |
+| **production's own projector (imported)** | **1.488** | +0.101 | -- |
+| a simplified cascade, keep 0.35 (the old "production") | 1.582 | +0.218 | 0% |
+| the same on the page's own average | 1.511 | +0.045 | 1% |
+| the same, kept weight fitted (0.43) | 1.491 | **+0.036** | 34% |
+| shrunk by the games behind it | 1.585 | +0.164 | 0% |
+| with a fitted age slope | 1.552 | +0.034 | 0% |
+
+**Nothing beats production's projector**, and the claimed improvement is withdrawn: the closest
+candidate is 0.003 WAR worse and wins a third of resamples, which is a tie. **The bias result
+survives as a separate finding**: production runs +0.101 WAR high at every horizon against +0.036
+for the fitted-weight rule -- same error, a third of the bias -- and a standing positive bias does
+not average out over a contract or a roster the way noise does. Weighting by workload is the clear
+negative result (+0.097, 0%).
+
+**On ageing, the earlier claim is withdrawn and replaced.** Fitted properly there are two
+coefficients and only one is about age. **The age slope is negative on every page** (-0.005 to
+-0.088 WAR a season per year of age): older goaltenders decline faster, on every window this run
+has. What flips sign is the **drift**, the level the whole population moves by, from +0.117 in 2015
+to -0.106 in 2021 -- not an age effect. So there is no basis for saying ageing is unidentified here.
+Using the slope still does not beat production (+0.065, 0%), which is a statement about this
+implementation on 82 seasons a year.
+
+Suite **32 passed, 0 skipped, 0 failed**; two new checks, and all four reintroduced defects caught
+(a lookalike in production's place, the two rules coinciding, the pairing dropping the page, and the
+age term reverted to the intercept). Report rewritten: `50_REBUILD/docs/Goalie_Bakeoff.md`. The
+forecast to carry into the price line is **production's own projector**, with its +0.101 bias
+recorded as a defect to correct downstream rather than a reason to replace the rule.
+
+**2026-09-17f — the first goalie pass. ITS COMPARISON WAS AGAINST A LOOKALIKE AND ITS
+IMPROVEMENT CLAIM IS WITHDRAWN; see the 2026-09-18 entry above.** The
 next declared item. The rebuild had no goaltenders in it at all, so the first question is whether
 forecasting one works on this evidence and whether the rule production uses survives being scored
 the way every skater candidate has been.
@@ -224,20 +277,14 @@ comparison is about ability, mean absolute error in season WAR on development pa
 | shrunk by the games behind it | 1.585 | +0.164 | 78% |
 | the same, with a fitted age change | 1.624 | +0.232 | 0% |
 
-**The shrinkage is sound; the constant is not.** Production's rule beats the flat league average,
-so the trailing blend reads something real. But the locked league average of **2.189 is above the
-mean of the development window**, so every goaltender is pulled up toward a league that no longer
-exists: a **+0.218 WAR bias at every horizon**, of which measuring the average at the page removes
-most (+0.045) and 0.071 of the error, in 100% of goaltender-resamples. The kept weight fitted as
-the reliability it is meant to be comes out at **0.43, not 0.35**, worth another 0.020.
+**[WITHDRAWN 2026-09-18]** The rule labelled "production's" in this table is a reimplementation
+missing three of production's mechanisms, and it is 0.094 WAR worse than the real projector. The
+improvement claimed here is against the lookalike, not against production. See the 2026-09-18
+entry for the corrected comparison.
 
-**Production's flat carry survives, and the reason matters more than the result.** The age
-candidate loses (0% of resamples), but the quantity it rests on is **not identified on this panel**:
-the fitted average change flips sign across the pages, +0.117 WAR a season on 2015 through -0.106
-on 2021. A within-player change is measured only on goaltenders who played both seasons and the
-ones who fall out are the ones who declined -- the Phase 3 selection problem on a twelfth of the
-sample. So the flat carry is defensible because ageing cannot be measured here, not because it has
-been ruled out.
+**[WITHDRAWN 2026-09-18]** The age candidate never used age -- it applied one common drift to
+everyone -- so the sign flip reported here is in the drift and says nothing about ageing. Fitted
+properly the age slope is negative on every page.
 
 Suite **30 passed, 0 skipped, 0 failed**; the two new checks each verified by breaking the rule they
 guard. Nothing adopted. Report: `50_REBUILD/docs/Goalie_Bakeoff.md`. Next in the branch: a goalie

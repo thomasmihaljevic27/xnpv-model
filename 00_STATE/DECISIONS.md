@@ -1,5 +1,29 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-18 (answering the goalie branch review):** Three findings, all real, all
+fixed; `run_goalie_bakeoff.py` v2.0. (1) **The benchmark was not production.** The first pass
+reimplemented the cascade from a reading of `contract_npv.py` that stopped halfway through the
+method and missed three mechanisms -- no games filter on the lookup table, strict t-1/t-2/t-3 slots
+with a stale anchor when t-1 is absent, and a **0.650** shrinkage target for that returning
+population -- putting it up to 2.28 WAR from the real thing. The candidate now imports
+`GoalieProjector` and calls it, the pattern the qualifying-offer check already used, and the
+reimplementation stays in the bake-off honestly labelled "a simplified cascade". (2) **The paired
+bootstrap joined across years**, on goaltender and horizon without the page: 3,683 intended pairs
+became 19,853 rows. Now one-to-one and asserted. (3) **The ageing candidate never used age**: it
+took the intercept of its own regression and applied one drift to every goaltender, so twenty extra
+years of age moved nothing. **Corrected result: production's own projector is the best forecast
+here (1.488 MAE) and nothing beats it**; the closest candidate is +0.003 and wins 34% of resamples,
+so the 2026-09-17f claim of an improvement over production is **withdrawn**. **The bias finding
+survives as a separate result**: production runs +0.101 WAR high at every horizon against +0.036 for
+the fitted-weight rule -- same error, a third of the bias -- and a standing positive bias does not
+average out over a contract the way noise does, so it is carried into the price-line decision as a
+known defect. Weighting by workload is the clear negative (+0.097, 0% of resamples). **The ageing
+claim is withdrawn and replaced**: the age slope is negative on every development page (-0.005 to
+-0.088 WAR a season per year of age) while the common DRIFT is what flips sign (+0.117 on 2015 to
+-0.106 on 2021), so nothing here says ageing is unidentified; the slope still loses to production
+(+0.065, 0%). Suite 32 passed, 0 skipped, 0 failed, with four reintroduced defects caught. Nothing
+adopted; no production code changed; no locked decision reopened.
+
 **Change log, 2026-09-17f (the goalie branch opens):** Built `goalie_season_table.py` and
 `run_goalie_bakeoff.py` v1.0, the next declared item. The goalie panel is produced in the skater
 table's schema -- reusing its proration, rate, share, experience and birthdate rules rather than

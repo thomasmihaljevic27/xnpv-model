@@ -194,6 +194,25 @@ These findings take precedence over the earlier broad validation claims. No impl
 changed; repaired development comparisons and the unbuilt simulation work must precede adoption.
 Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 
+**Goalie comparison corrected after review, 2026-09-18.** Three findings, all fixed.
+`run_goalie_bakeoff.py` v2.0 now **imports production's own `GoalieProjector`** rather than a
+reimplementation of it: the first pass was built from a partial reading of the method and missed
+production's absent games filter, its strict slot rule with a stale anchor for a goaltender with no
+t-1 season, and the **0.650** shrinkage target for that returning population -- up to 2.28 WAR away
+on a single goaltender. The paired bootstrap now keys on (page, goaltender, horizon); joining on
+goaltender and horizon alone turned 3,683 intended pairs into 19,853 rows. And the ageing candidate
+now uses age: it had taken the intercept of its own regression and applied one drift to everyone,
+so adding twenty years to every subject moved nothing. **Corrected: production's projector is the
+best forecast at 1.488 MAE and nothing beats it** -- the closest candidate is +0.003 and wins 34% of
+resamples, so the earlier improvement claim is withdrawn. **The bias finding survives separately**:
+production runs +0.101 WAR high at every horizon against +0.036 for the fitted-weight rule, same
+error and a third of the bias, which matters for a forecast that is multiplied by a price line and
+summed over a contract. Weighting by workload is the clear negative (+0.097, 0%). On ageing, the
+"not identified" claim is **withdrawn**: fitted properly the age slope is negative on every page
+(-0.005 to -0.088 per year of age) and it is the common DRIFT that flips sign (+0.117 to -0.106);
+the slope still does not beat production (+0.065, 0%). Suite 32/32 with four reintroduced defects
+caught. Nothing adopted. See `50_REBUILD/docs/Goalie_Bakeoff.md`.
+
 **The goalie branch opens, 2026-09-17f.** `goalie_season_table.py` and `run_goalie_bakeoff.py`
 v1.0. The goalie panel is built in the skater table's schema so the harness, information set and
 scoring work on it unchanged: **1,560 goaltender-seasons, 280 goaltenders**, 82 a season against

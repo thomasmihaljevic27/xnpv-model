@@ -200,27 +200,34 @@ residuals and currency comparisons; fix and rerun development work before furthe
 
 ## Standing flags (Karl's identification axes — watch on every design choice)
 
-- **NEW 2026-09-17 — a locked constant ages, and production's goalie average has.** Production
-  shrinks every goaltender 65% of the way toward a league average of **2.189**, a number recovered
-  once and carried since. Scored on development pages it sits above the window's own mean and
-  produces a **+0.218 WAR bias at every horizon**; measuring the average at each page removes most
-  of it and 0.071 WAR of error, in 100% of goaltender-resamples. The fitted kept weight is 0.43
-  rather than the locked 0.35. **The general form is what to watch:** every constant in this project
-  that was estimated once on a window and then carried -- the skater rate, the goalie average, the
-  replacement level, the discount rate's hazard -- is a claim about a league that keeps moving, and
-  a rolling refit is the test. Where a constant must stay locked, its drift belongs in the
-  robustness section as a measured number rather than an assumption. Evidence:
-  `50_REBUILD/docs/Goalie_Bakeoff.md`.
+- **NEW 2026-09-17, CORRECTED 2026-09-18 — a locked constant ages, and production's goalie
+  projector runs high.** Scored on development pages against its own imported implementation,
+  production's goalie forecast carries a **+0.101 WAR bias at every horizon**, while a rule that
+  measures the league average at each page and fits the kept weight carries **+0.036** at the same
+  error. The first version of this flag put the bias at +0.218 and claimed an improvement in error;
+  both came from comparing against a reimplementation of production rather than production, and the
+  error claim is withdrawn -- nothing in that bake-off beats the real projector. **What stands is
+  the bias**, and why it matters is the general point: a forecast that will be multiplied by a price
+  line and summed over eight seasons is hurt by a standing bias in a way it is not hurt by noise,
+  because noise averages out over a contract and a roster and a bias does not. **The general form to
+  watch:** every constant estimated once on a window and carried since -- the skater rate, the
+  goalie league average, the replacement level, the hazard -- is a claim about a league that keeps
+  moving, and a rolling refit is the test. Evidence: `50_REBUILD/docs/Goalie_Bakeoff.md`.
 
-- **NEW 2026-09-17 — how a goaltender ages is not identified on the available evidence.** The
-  fitted average season-to-season change in goalie WAR flips sign across the development pages,
-  +0.117 on 2015 through -0.106 on 2021. A within-player change is measured only on goaltenders who
-  played both seasons, and the ones who fall out are the ones who declined -- the same selection the
-  skater aging curve carries, on 82 goaltender-seasons a year instead of 700. So production's flat
-  carry for goaltenders is defensible **because ageing cannot be measured here**, which is a
-  different sentence from "goaltenders do not age" and the write-up must not promote one to the
-  other. Any goalie aging claim needs the selection correction first, and probably more data than
-  this project holds. Evidence: `50_REBUILD/docs/Goalie_Bakeoff.md`.
+- **NEW 2026-09-17, WITHDRAWN AND REPLACED 2026-09-18 — what is unstable about goalie ageing is the
+  drift, not the age slope.** The first version of this flag said how a goaltender ages "is not
+  identified on the available evidence", on a candidate that **never used age**: it applied the
+  average change at a pivot age to every goaltender alike, and adding twenty years to every subject
+  moved the forecast by exactly zero. Fitted properly, the age slope is **negative on every
+  development page** (-0.005 to -0.088 WAR a season per year of age): older goaltenders decline
+  faster, on every window this project holds. What flips sign is the **common drift**, the level the
+  whole population moves by, from +0.117 in 2015 to -0.106 in 2021 -- which is not an age effect and
+  is itself worth watching, because a rule carrying a fixed level assumption inherits it. The age
+  slope still does not improve the forecast (+0.065 WAR of error, 0% of resamples), which is a
+  statement about this implementation on 82 goaltender-seasons a year and not a finding about
+  ageing. The selection concern stands and is untested: the slope is fitted on within-goaltender
+  changes, so it is measured only on goaltenders who played both seasons. Evidence:
+  `50_REBUILD/docs/Goalie_Bakeoff.md`.
 
 - **NEW 2026-09-17, CORRECTED after review — a right priced as an obligation is priced wrong, and
   the correction is large where the contracts are short.** 398 development contracts leave the club
