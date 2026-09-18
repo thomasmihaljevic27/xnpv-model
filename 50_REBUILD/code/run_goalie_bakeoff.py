@@ -51,7 +51,7 @@ import forecast_harness as H
 import goalie_season_table as GST
 from player_season_table import birthdate_source
 
-SCRIPT_VERSION = "2.0"
+SCRIPT_VERSION = "2.1"
 
 HORIZONS = (0, 1, 2, 3, 4, 5)
 
@@ -466,6 +466,61 @@ def paired_bootstrap(a: pd.DataFrame, b: pd.DataFrame, n: int = 2000,
     return wins / n
 
 
+def bias_diagnostic(scored: dict, base: pd.DataFrame) -> None:
+    """How much of the pooled bias is the forecast, and how much is us.
+
+    A mean error is easy to quote and hard to attribute. Two things have to
+    be said beside it before it can be called a defect in anybody's forecast.
+
+    FIRST, HOW WELL IT IS MEASURED. Resampling whole careers, not rows, gives
+    an interval that has to be reported with the number.
+
+    SECOND, WHAT IT IS MADE OF. Every candidate here shares one participation
+    estimator, deliberately -- and if that estimator says a goaltender plays
+    more often than he does, every candidate's predicted WAR is too high for a
+    reason that has nothing to do with how it forecasts ability. The share of
+    the pooled bias that the participation gap alone would produce is computed
+    here, at the average production of a season actually played.
+    """
+    C.log("IS THE POOLED BIAS A DEFECT IN THE FORECAST? Not established here,")
+    C.log("and two things say why.")
+    C.log("")
+    keys = base["career_key"].unique()
+    g = {k: v for k, v in base.groupby("career_key")}
+    rng = np.random.default_rng(20260918)
+    means = [pd.concat([g[k] for k in rng.choice(keys, len(keys), True)])
+             ["e_war"].mean() for _ in range(2000)]
+    lo, hi = np.percentile(means, [2.5, 97.5])
+    C.log(f"  production's mean error is {base['e_war'].mean():+.3f} WAR, and")
+    C.log(f"  resampling whole careers puts it between {lo:+.3f} and {hi:+.3f}.")
+    C.log("  That interval contains zero, so this run does not establish that")
+    C.log("  the forecast runs high at all.")
+    C.log("")
+    played = float(base["played"].mean())
+    pred = float(base["p_play"].mean())
+    war_if_played = float(base.loc[base["played"], "act_war"].mean())
+    attributable = float(((base["p_play"] - base["played"].astype(float))
+                          * war_if_played).mean())
+    C.log(f"  and the shared participation estimator says {100 * pred:.1f}% of")
+    C.log(f"  these goaltender-seasons are played where {100 * played:.1f}% were.")
+    C.log(f"  At {war_if_played:.2f} WAR for a season actually played, that gap")
+    C.log(f"  alone would produce {attributable:+.3f} WAR of bias -- MORE than the")
+    C.log(f"  {base['e_war'].mean():+.3f} observed. Every candidate carries it,")
+    C.log("  because they were given the same estimator on purpose.")
+    C.log("")
+    C.log("  So the pooled mean error is a DIAGNOSTIC and not a defect in")
+    C.log("  anybody's ability forecast, and the difference between two")
+    C.log("  candidates' biases is the only part of it this run can speak to.")
+    C.log("  Nothing downstream should move a dollar price to cancel it. The")
+    C.log("  place to take it up is the goalie participation model, where the")
+    C.log("  larger term lives.")
+    C.log("")
+    C.log(f"    {'rule':<40}{'mean error':>12}")
+    for name, d in scored.items():
+        C.log(f"    {name:<40}{d['e_war'].mean():>12.3f}")
+    C.log("")
+
+
 def main() -> None:
     C.banner("run_goalie_bakeoff.py", SCRIPT_VERSION)
     path, how = birthdate_source()
@@ -532,6 +587,8 @@ def main() -> None:
                                max(C.DEV_PAGES))
     ag = WorkloadWeightedAging().fit(table[table["syr"] < max(C.DEV_PAGES)],
                                      max(C.DEV_PAGES))
+    bias_diagnostic(scored, base)
+
     C.log("WHAT THE AGE FIT ACTUALLY SAYS, page by page. Two coefficients,")
     C.log("and the first version of this runner used the wrong one: it took")
     C.log("the INTERCEPT, the average change at the pivot age, and applied it")

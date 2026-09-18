@@ -98,11 +98,23 @@ loss for production. The claim in the first version of this report — that a fi
 improved on production — was an artifact of comparing against a lookalike that was 0.094 WAR worse
 than the real thing.
 
-**The bias result survives, and it is a different result.** Production's projector runs **+0.101
-WAR** high at every horizon; the fitted-weight candidate runs **+0.036**. Same error, a third of the
-bias. For a forecast that will be multiplied by a price line and summed over a contract, a standing
-positive bias is not the same kind of defect as noise — it does not average out over seasons or over
-a roster. That is worth carrying into the price-line decision even though the error is a tie.
+**The bias is a diagnostic, not an established defect.** Production's projector runs **+0.101 WAR**
+high over these 3,683 forecasts and the fitted-weight candidate **+0.036**, and an earlier version of
+this report called that a defect for the price line to correct. It is not established, for two
+reasons.
+
+Resampling whole careers puts production's mean error between **−0.129 and +0.315**. That interval
+contains zero, so this run does not establish that the forecast runs high at all.
+
+And the bias is not only the forecast's. Every candidate shares one participation estimator by
+design, and that estimator says **64.1%** of these goaltender-seasons are played where **55.3%**
+were. At 1.89 WAR for a season actually played, that gap alone would produce **+0.167 WAR** of
+bias — more than the +0.101 observed. Every candidate carries it.
+
+So the pooled mean error cannot be attributed to anybody's ability forecast, and the only part of it
+this run can speak to is the *difference* between two candidates' biases. **Nothing downstream
+should move a dollar price to cancel it.** The place to take it up is the goalie participation
+model, where the larger term lives.
 
 **The shrinkage reads something real.** Every cascade-based rule beats the flat league average
 comfortably (0% of resamples for the average), so a goaltender's trailing record is informative even
@@ -151,7 +163,8 @@ and untested here.
 - **The role forecast is held fixed across candidates**, so this says nothing about forecasting a
   goaltender's share of the schedule — which is a depth-chart question as much as a skill one.
 - **The participation estimator is a flat survival rate by horizon**, shared so the comparison is
-  clean. It is not a participation model.
+  clean. It is not a participation model, and it over-predicts playing by nearly nine points, which
+  is the larger part of every candidate's pooled bias.
 - **Production's projector declines to price some goaltenders** (prospect-pillar territory there);
   here the grid must be answered, so they take the page's average. That is a small courtesy to the
   benchmark, not a handicap.
@@ -198,5 +211,6 @@ Outputs ignored under `50_REBUILD/output/`.
 
 A price line and a participation model, in that order — the control-year gate the plan asks for
 needs both, and a goaltender's tender decision is a depth-chart decision as much as a value one. On
-this evidence the forecast to carry forward is **production's own projector**, with its +0.101 bias
-recorded as a known defect to correct downstream rather than a reason to replace the rule.
+this evidence the forecast to carry forward is **production's own projector**. Its +0.101 mean error
+is recorded as a diagnostic to re-examine alongside the participation model — not as a defect for
+the price line to correct, and not as a reason to replace the rule.

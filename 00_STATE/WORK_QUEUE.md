@@ -198,6 +198,52 @@ the work is. Next, in order:
 5. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
    contract-by-contract dollar reconciliation, and the holdout policy.
 
+**2026-09-18b — a goalie win prices near a skater win, but a goaltender does not belong on the
+skaters' line unchanged.** The goalie branch's second step, and the question that decides whether
+goaltenders can sit on the project's single scale at all.
+
+One censored line over skaters and goaltenders together, with a goaltender indicator and an
+interaction, refitted at each signing quarter on contracts signed before it. **The interaction IS
+the difference in dollars per forecast win.** The forecast feeding it is production's own projector,
+the bake-off's winner; its +0.101 mean error is NOT corrected and no price is moved to cancel it.
+
+| fitted on contracts signed before | n | $ per skater win | $ per goalie win | ratio |
+|---|---:|---:|---:|---:|
+| 2018-07 | 365 | 0.212 | 0.264 | 1.25 |
+| 2019-10 | 947 | 1.316 | 1.321 | 1.00 |
+| 2021-01 | 1,270 | 0.899 | 1.047 | 1.16 |
+| **2022-01** | **1,657** | **0.820** | **0.965** | **1.18** |
+
+**A forecast win from a goaltender prices at $0.96M against $0.82M from a skater** on the last fit.
+The ratio runs 0.74 to 1.57 across the window, but the spread is almost all in the early fits: under
+about 600 contracts the interaction is not pinned down, and from 900 on it settles between 0.87 and
+1.22. **A conditional association and not the price of a win** -- nobody randomised who got which
+contract, and a goaltender's forecast is built by a different rule from a skater's (flat where the
+skater ages, shrunk far harder, 82 seasons a year), so part of any slope difference is that
+difference.
+
+**Held-out error on goaltender contracts, in cap share:**
+
+| line | goalie contracts | mean abs error | bias |
+|---|---:|---:|---:|
+| one line, no goaltender terms | 174 | 0.0103 | +0.0066 |
+| **one line with goaltender terms** | **174** | **0.0075** | **+0.0001** |
+| a goalie-only line | 5 | -- | never fittable |
+
+Adding the two goaltender terms **cuts held-out error by more than a quarter and takes the bias to
+nothing**. A goalie-only line needs 200 contracts signed before the decision and the development
+sample holds 266 in total, so it first becomes fittable in the last quarter and prices five
+contracts -- unavailable rather than unattractive. **The answer for goaltenders is one market with
+two terms**, not one line for everybody and not a separate market.
+
+`contract_price_model.contract_sample` now takes a position group rather than assuming skaters, so
+both samples come off one census with one set of rules for the denominator, the floor and the
+signing date. Suite **33 passed, 0 skipped, 0 failed**; the new check recovers a synthetic goalie
+slope (0.0049 against 0.0050 given) and refuses a contract signed after the decision, both verified
+by breaking them. Nothing adopted. Report: `50_REBUILD/docs/Goalie_Price_Line.md`. Next: the goalie
+participation model -- a goaltender's share of the schedule is a depth-chart question and both the
+forecast and this price line carry a flat survival rate in its place.
+
 **2026-09-18 — the goalie comparison is corrected, and production's own projector wins.** Three
 findings from review, all real.
 
@@ -230,11 +276,15 @@ moved nothing.
 | with a fitted age slope | 1.552 | +0.034 | 0% |
 
 **Nothing beats production's projector**, and the claimed improvement is withdrawn: the closest
-candidate is 0.003 WAR worse and wins a third of resamples, which is a tie. **The bias result
-survives as a separate finding**: production runs +0.101 WAR high at every horizon against +0.036
-for the fitted-weight rule -- same error, a third of the bias -- and a standing positive bias does
-not average out over a contract or a roster the way noise does. Weighting by workload is the clear
-negative result (+0.097, 0%).
+candidate is 0.003 WAR worse and wins a third of resamples, which is a tie. **The bias is a
+DIAGNOSTIC, not an established defect** [qualified 2026-09-18 after review]: production's +0.101
+mean error has a career-bootstrap interval of **-0.129 to +0.315**, which contains zero, and the
+shared participation estimator predicts **64.1%** of these seasons played against **55.3%**
+observed -- a gap worth **+0.167 WAR** on its own, more than the whole observed bias, and carried by
+every candidate. So the pooled error cannot be attributed to any ability forecast, only the
+difference between two candidates' biases can, and **nothing downstream should move a dollar price
+to cancel it**; it belongs with the participation model. Weighting by workload is the clear negative
+result (+0.097, 0%).
 
 **On ageing, the earlier claim is withdrawn and replaced.** Fitted properly there are two
 coefficients and only one is about age. **The age slope is negative on every page** (-0.005 to
@@ -247,8 +297,8 @@ implementation on 82 seasons a year.
 Suite **32 passed, 0 skipped, 0 failed**; two new checks, and all four reintroduced defects caught
 (a lookalike in production's place, the two rules coinciding, the pairing dropping the page, and the
 age term reverted to the intercept). Report rewritten: `50_REBUILD/docs/Goalie_Bakeoff.md`. The
-forecast to carry into the price line is **production's own projector**, with its +0.101 bias
-recorded as a defect to correct downstream rather than a reason to replace the rule.
+forecast to carry into the price line is **production's own projector**, with its +0.101 mean error
+recorded as a diagnostic to re-examine alongside the participation model.
 
 **2026-09-17f — the first goalie pass. ITS COMPARISON WAS AGAINST A LOOKALIKE AND ITS
 IMPROVEMENT CLAIM IS WITHDRAWN; see the 2026-09-18 entry above.** The

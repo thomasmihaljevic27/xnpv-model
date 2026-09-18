@@ -194,6 +194,23 @@ These findings take precedence over the earlier broad validation claims. No impl
 changed; repaired development comparisons and the unbuilt simulation work must precede adoption.
 Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 
+**The goalie price line, 2026-09-18b.** `run_goalie_price_line.py` v1.0 answers whether a goalie
+win prices like a skater win, which decides whether goaltenders can sit on the project's single
+scale. One censored line over both populations with a goaltender indicator and an interaction,
+refitted at each signing quarter on contracts signed before it. On the last fit **a forecast win
+from a goaltender prices at $0.96M against $0.82M from a skater, a ratio of 1.18**; across the
+window 0.74 to 1.57, with the spread almost entirely in fits under 600 contracts and the ratio
+settling between 0.87 and 1.22 from 900 on. Reported as a conditional association, never as the
+price of a win: the two forecasts are built by different rules, so part of any slope difference is
+that difference. **Held-out error on goaltender contracts says a goaltender does not belong on the
+skaters' line unchanged** -- 0.0103 cap share with no goaltender terms against **0.0075** with them,
+and the bias goes from +0.0066 to nothing. A goalie-only line is not fittable on 266 development
+contracts (200 needed before each decision), so it prices five and is unavailable rather than
+unattractive. The answer for goaltenders is **one market with two terms**.
+`contract_price_model.contract_sample` now takes a position group so both samples come off one
+census. Suite 33/33, the new check verified by breaking it. Nothing adopted. See
+`50_REBUILD/docs/Goalie_Price_Line.md`.
+
 **Goalie comparison corrected after review, 2026-09-18.** Three findings, all fixed.
 `run_goalie_bakeoff.py` v2.0 now **imports production's own `GoalieProjector`** rather than a
 reimplementation of it: the first pass was built from a partial reading of the method and missed
@@ -204,10 +221,12 @@ goaltender and horizon alone turned 3,683 intended pairs into 19,853 rows. And t
 now uses age: it had taken the intercept of its own regression and applied one drift to everyone,
 so adding twenty years to every subject moved nothing. **Corrected: production's projector is the
 best forecast at 1.488 MAE and nothing beats it** -- the closest candidate is +0.003 and wins 34% of
-resamples, so the earlier improvement claim is withdrawn. **The bias finding survives separately**:
-production runs +0.101 WAR high at every horizon against +0.036 for the fitted-weight rule, same
-error and a third of the bias, which matters for a forecast that is multiplied by a price line and
-summed over a contract. Weighting by workload is the clear negative (+0.097, 0%). On ageing, the
+resamples, so the earlier improvement claim is withdrawn. **The bias is a diagnostic and not an established defect**
+[qualified after review]: production's +0.101 mean error carries a career-bootstrap interval of
+-0.129 to +0.315 that contains zero, and the shared participation estimator predicts 64.1% of these
+seasons played against 55.3% observed, a gap worth +0.167 WAR on its own and carried by every
+candidate -- so the pooled error cannot be attributed to an ability forecast and no dollar price
+should be moved to cancel it. Weighting by workload is the clear negative (+0.097, 0%). On ageing, the
 "not identified" claim is **withdrawn**: fitted properly the age slope is negative on every page
 (-0.005 to -0.088 per year of age) and it is the common DRIFT that flips sign (+0.117 to -0.106);
 the slope still does not beat production (+0.065, 0%). Suite 32/32 with four reintroduced defects

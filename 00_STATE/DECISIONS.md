@@ -1,5 +1,27 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-18b (the goalie price line):** Built `run_goalie_price_line.py` v1.0, the
+goalie branch's second step and the question that decides whether goaltenders can sit on the single
+scale at all. One censored line over skaters and goaltenders together with a goaltender indicator
+and an interaction, refitted at each signing quarter on contracts signed before it, so the
+interaction IS the difference in dollars per forecast win. Fed by production's own projector, the
+bake-off's winner; **its +0.101 mean error is not corrected and no price is moved to cancel it.**
+**Result: a forecast win from a goaltender prices at $0.96M against $0.82M from a skater on the last
+fit (ratio 1.18)**, with the window running 0.74 to 1.57 and the spread almost entirely in fits
+under 600 contracts -- from 900 on the ratio sits between 0.87 and 1.22. Recorded as a conditional
+association in an unrandomised market and never as the price of a win, and with the standing caveat
+that the skater and goalie forecasts are built by different rules so part of any slope gap is that.
+**Held-out error decides the structural question**: pricing goaltenders on the skaters' line
+unchanged gives 0.0103 of cap share with a +0.0066 bias, adding the two goaltender terms gives
+0.0075 and no bias, and a goalie-only line cannot be fitted at all on 266 development contracts
+(200 are needed before each decision, so it prices five). **For goaltenders the answer is one market
+with two terms** -- not one line for everybody, not a separate market -- which is the open part of
+D7 settled for this position group on development evidence. `contract_price_model.contract_sample`
+now takes a position group rather than assuming skaters, so both samples come off one census with
+one denominator, floor and signing-date rule. Suite 33 passed, 0 skipped, 0 failed; the new check
+recovers a synthetic goalie slope and refuses a contract signed after the decision, both verified by
+breaking them. Nothing adopted; no production code changed; no locked decision reopened.
+
 **Change log, 2026-09-18 (answering the goalie branch review):** Three findings, all real, all
 fixed; `run_goalie_bakeoff.py` v2.0. (1) **The benchmark was not production.** The first pass
 reimplemented the cascade from a reading of `contract_npv.py` that stopped halfway through the
@@ -13,11 +35,14 @@ became 19,853 rows. Now one-to-one and asserted. (3) **The ageing candidate neve
 took the intercept of its own regression and applied one drift to every goaltender, so twenty extra
 years of age moved nothing. **Corrected result: production's own projector is the best forecast
 here (1.488 MAE) and nothing beats it**; the closest candidate is +0.003 and wins 34% of resamples,
-so the 2026-09-17f claim of an improvement over production is **withdrawn**. **The bias finding
-survives as a separate result**: production runs +0.101 WAR high at every horizon against +0.036 for
-the fitted-weight rule -- same error, a third of the bias -- and a standing positive bias does not
-average out over a contract the way noise does, so it is carried into the price-line decision as a
-known defect. Weighting by workload is the clear negative (+0.097, 0% of resamples). **The ageing
+so the 2026-09-17f claim of an improvement over production is **withdrawn**. **The bias is a diagnostic, not an
+established defect** (qualified the same day after review): production's +0.101 mean error has a
+career-bootstrap interval of -0.129 to +0.315 containing zero, and the shared participation
+estimator predicts 64.1% of these seasons played against 55.3% observed -- a gap worth +0.167 WAR
+by itself, more than the whole observed bias, and carried by every candidate by design. Only the
+DIFFERENCE between two candidates' biases is attributable here (+0.101 against +0.036), and no
+dollar price downstream may be moved to cancel a pooled error; it is re-examined with the goalie
+participation model. Weighting by workload is the clear negative (+0.097, 0% of resamples). **The ageing
 claim is withdrawn and replaced**: the age slope is negative on every development page (-0.005 to
 -0.088 WAR a season per year of age) while the common DRIFT is what flips sign (+0.117 on 2015 to
 -0.106 on 2021), so nothing here says ageing is unidentified; the slope still loses to production

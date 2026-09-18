@@ -48,8 +48,15 @@ from player_season_table import norm_name, build as build_table
 SCRIPT_VERSION = "1.4"
 
 
-def contract_sample() -> pd.DataFrame:
-    """Skater standard-level contracts with a usable price and signing date."""
+def contract_sample(positions: tuple = ("F", "D")) -> pd.DataFrame:
+    """Standard-level contracts with a usable price and signing date.
+
+    `positions` selects which position group the sample covers. The default
+    is the skaters this model was built for; the goalie branch passes ("G",)
+    rather than carrying a second copy of the census, the cap-share
+    denominator, the floor and the signing-date rules, all of which are the
+    same question asked of a different set of players.
+    """
     con, _ = load_contracts()
     c = con.copy()
     c["pkey"] = ((c["first_name"].astype(str).str.strip() + " "
@@ -61,7 +68,7 @@ def contract_sample() -> pd.DataFrame:
     c["signed"] = pd.to_datetime(c["signing_date"], errors="coerce")
     c = c[(c["contract_level"] == "standard_level")
           & c["signing_status"].isin(["UFA", "RFA"])
-          & c["pkey"].str.endswith(("|F", "|D"))]
+          & c["pkey"].str.endswith(tuple("|" + p for p in positions))]
     c = c[c["start_yr"].between(2015, 2025) & c["signed"].notna()]
     # THE DENOMINATOR HAS TO BE KNOWABLE AT THE SIGNING TOO. Dating the fit at
     # the signing while dividing by the REALISED start-year ceiling leaves

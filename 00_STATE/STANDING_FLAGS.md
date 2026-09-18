@@ -206,10 +206,16 @@ residuals and currency comparisons; fix and rerun development work before furthe
   measures the league average at each page and fits the kept weight carries **+0.036** at the same
   error. The first version of this flag put the bias at +0.218 and claimed an improvement in error;
   both came from comparing against a reimplementation of production rather than production, and the
-  error claim is withdrawn -- nothing in that bake-off beats the real projector. **What stands is
-  the bias**, and why it matters is the general point: a forecast that will be multiplied by a price
-  line and summed over eight seasons is hurt by a standing bias in a way it is not hurt by noise,
-  because noise averages out over a contract and a roster and a bias does not. **The general form to
+  error claim is withdrawn -- nothing in that bake-off beats the real projector. **What stands is a
+  DIAGNOSTIC rather than a defect** (qualified after a second review): the +0.101 has a
+  career-bootstrap interval of -0.129 to +0.315 that contains zero, and the shared participation
+  estimator predicts 64.1% of these seasons played against 55.3% observed -- worth +0.167 WAR by
+  itself, more than the whole observed bias, and carried by every candidate. Only the DIFFERENCE
+  between candidates' biases is attributable to their forecasts. The reason to keep watching it is
+  the general point: a forecast multiplied by a price line and summed over eight seasons is hurt by
+  a standing bias in a way it is not hurt by noise, because noise averages out over a contract and a
+  roster and a bias does not -- but a pooled error is not that bias until it has been separated from
+  the participation term, and no dollar price may be moved to cancel it before then. **The general form to
   watch:** every constant estimated once on a window and carried since -- the skater rate, the
   goalie league average, the replacement level, the hazard -- is a claim about a league that keeps
   moving, and a rolling refit is the test. Evidence: `50_REBUILD/docs/Goalie_Bakeoff.md`.

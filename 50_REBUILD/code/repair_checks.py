@@ -1305,6 +1305,72 @@ def c32(table):
             f"forecast by up to {gap:.3f} and leaves h0 untouched")
 
 
+def c33(table):
+    """THE POOLED PRICE LINE RECOVERS A GOALIE SLOPE IT WAS GIVEN, AND IT
+    CANNOT SEE A CONTRACT SIGNED AFTER THE DECISION.
+
+    The goalie price line's whole output is one coefficient -- the difference
+    in dollars per forecast win between a goaltender and a skater -- so the
+    first thing to establish is that the arithmetic reading it is right. On
+    synthetic contracts built with a known goalie slope, the fitted
+    interaction has to come back as that slope.
+
+    And the fit has to be dated: `fit_rolling` trains on contracts SIGNED
+    before the decision, so a contract signed after it cannot move a
+    coefficient. Both are asserted rather than described.
+    """
+    import numpy as np
+    import run_goalie_price_line as GPL
+    from production_currency import FEATURES
+
+    rng = np.random.default_rng(20260918)
+    n = 1200
+    war = rng.gamma(2.0, 0.8, n)
+    # FIRST-YEAR PRODUCTION IS DRAWN SEPARATELY AND PRICED AT NOTHING. Making
+    # it a copy of the season average would put two identical regressors in
+    # the line and the slope would split between them -- which is a fact about
+    # collinearity, not about the fit, and it would make this check fail for
+    # the wrong reason.
+    war1 = rng.gamma(2.0, 0.8, n)
+    is_g = (rng.random(n) < 0.25).astype(float)
+    # A goaltender's win is worth HALF AGAIN what a skater's is, by
+    # construction, on top of a level shift.
+    sk_slope, g_extra, level = 0.010, 0.005, -0.004
+    share = (0.006 + sk_slope * war + g_extra * is_g * war + level * is_g
+             + rng.normal(0, 0.002, n))
+    floor = np.full(n, 0.0075)
+    d = pd.DataFrame({
+        "war_per_season": war, "war_year1": war1, "length": 1.0,
+        "is_RFA": 0.0, "rfa_x_war": 0.0, "is_D": 0.0, "one_year": 1.0,
+        "is_G": is_g, "g_x_war": is_g * war,
+        "cap_share": np.maximum(share, floor), "floor_share": floor,
+        "signed": pd.to_datetime("2019-01-01")})
+    coef, n_fit = GPL.fit_rolling(d, GPL.POOLED, "2020-01-01")
+    assert coef is not None and n_fit == n
+    got_sk = float(coef[1:][GPL.POOLED.index("war_per_season")])
+    got_g = float(coef[1:][GPL.POOLED.index("g_x_war")])
+    assert abs(got_sk - sk_slope) < 0.0015, (got_sk, sk_slope)
+    assert abs(float(coef[1:][GPL.POOLED.index("war_year1")])) < 0.0015
+    assert abs(got_g - g_extra) < 0.0015, (got_g, g_extra)
+    # And the dollars helper adds the interaction rather than replacing it.
+    cap = 80e6
+    assert abs(GPL.dollars_per_win(coef, GPL.POOLED, cap)
+               - got_sk * cap) < 1.0
+    assert abs(GPL.dollars_per_win(coef, GPL.POOLED, cap, "g_x_war")
+               - (got_sk + got_g) * cap) < 1.0
+
+    # DATED. A contract signed after the decision cannot reach the fit.
+    later = d.copy()
+    later["signed"] = pd.to_datetime("2021-01-01")
+    later["cap_share"] = 0.05                      # wildly different price
+    both = pd.concat([d, later], ignore_index=True)
+    coef2, n2 = GPL.fit_rolling(both, GPL.POOLED, "2020-01-01")
+    assert n2 == n, f"the fit reached {n2} contracts where {n} were signed in time"
+    assert np.allclose(coef, coef2), "a contract signed after the decision moved the line"
+    return (f"the fitted goalie slope is {got_g:.4f} against {g_extra:.4f} "
+            f"given, and a later signing cannot move the line")
+
+
 def main() -> None:
     warnings.filterwarnings("ignore")
     C.banner("repair_checks.py", SCRIPT_VERSION)
@@ -1357,7 +1423,8 @@ def main() -> None:
                      ("the goalie panel's schema and arithmetic", c29),
                      ("every goalie candidate answers the same question", c30),
                      ("the production benchmark is production", c31),
-                     ("one forecast per page, and age that uses age", c32)]:
+                     ("one forecast per page, and age that uses age", c32),
+                     ("the pooled price line reads its own goalie slope", c33)]:
         check(name, lambda fn=fn: fn(table))
 
     width = max(len(n) for n, _, _ in results)
