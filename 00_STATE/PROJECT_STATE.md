@@ -371,6 +371,24 @@ what enters the goalie price line. See `50_REBUILD/docs/Goalie_Branch_Review_Cod
 No candidate merge, adoption, production edit, or confirmatory-page access. Earlier
 simulation/reconciliation closures and remaining Phase 5 limitations stand.
 
+---
+
+**Goalie forecast review closed, 2026-09-17:** verified `e42f57c` in isolation.
+Full suite 32/32; seven candidates, 3,683 cells each. Imported projector agrees
+with the independent source-class calculation within 1.78e-15 WAR; replacing future
+WAR changes none of 629 goalie/page forecasts. Correct page pairing and responsive
+age term verified; all four reintroduced defects are caught. The preceding three
+findings are closed. Proceed to the goalie price-line prototype using production's
+projector provisionally. Its MAE is 1.48784 versus fitted weight 1.49123; the paired
+interval spans zero. Observed +.10062 WAR bias is a diagnostic, not an established
+price adjustment: goalie-cluster mean-error interval [-.12155,+.31314], and shared
+participation averages .64098 predicted versus .55254 observed. Assess any correction
+with participation and development scoring. Seasonal lookup dating does not date the
+locked production calibration constants for historical valuation. See
+`50_REBUILD/docs/Goalie_Repair_Closure_Codex.md`. RFA/simulator/reconciliation closures
+stand; goalie participation, control gate, dollars, and back-test remain open. No
+production/model edits, candidate merge, adoption, or confirmatory-page access.
+
 **Reconciliation review closed, 2026-09-16:** verified `76730b6` in isolation.
 Actual runner prices 1,141 contracts; all hazard effects agree exactly with the
 independent per-season audit. Fresh engine summary now supplies total/terminal NPV.
