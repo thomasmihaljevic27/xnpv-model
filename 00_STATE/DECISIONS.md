@@ -334,6 +334,13 @@ unsealed.
 
 ---
 
+**Change log, 2026-09-22c (goalie participation review):** Reviewed `6e9286e`.
+34/34 passes; directional improvement survives, exact h2 results differ. Found
+signing-date status error in price integration (92/205 change under date-only
+correction), incomplete check-34 guard and unsupported bias attribution. Added
+review and audit; updated state/session. Prior closures stand; new review open.
+No candidate merge, adoption, model changes or canonical production writes.
+
 **Change log, 2026-09-22b (goalie price repairs closed):** Verified `af61f6c`.
 Reproduced 33/33, corrected level-only comparison, 263/205/174 counts and whole-path
 price responses. All 68 executed fits converge; independent equation checks and

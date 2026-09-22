@@ -425,6 +425,19 @@ Bias diagnostic is qualified, but its +.167 calculation is illustrative, not an
 identified decomposition. Prior forecast/RFA/simulator/reconciliation closures stand.
 No model edits, candidate merge, adoption, or confirmatory market scoring.
 
+**Goalie participation review open, 2026-09-22:** reviewed `6e9286e` in isolation.
+34/34 passes, and participation improves Brier and WAR error, but exact figures
+differ (Brier .2101 vs reported .2075; WAR MAE 1.446 vs 1.437, concentrated at h2).
+Contract price consumer uses July page status instead of actual signing-date
+status; correcting only prediction-date features changes 92/205 contracts.
+Check 34 misses a constant participation predictor and compares identical filtered
+inputs for share dating. Annual runner independently ignores future mutations.
+Withdraw the claim that remaining WAR bias is proven unrelated to participation.
+Repair the date path and guard, reconcile the numerical differences, then rerun
+price comparisons. Specification and D7 remain provisional; rate forecasting is
+an experiment, not adoption. See `50_REBUILD/docs/Goalie_Participation_Review_Codex.md`.
+Earlier review closures stand. No candidate merge or model edits.
+
 **Goalie price-line review closed, 2026-09-22:** verified `af61f6c` in isolation.
 Full suite 33/33; all 68 executed fits converge. Same 174 goalie contracts:
 no terms MAE .010318, level-only .007457, level-and-slope .007489. Additional
