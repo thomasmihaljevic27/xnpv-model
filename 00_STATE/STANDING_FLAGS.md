@@ -2,23 +2,19 @@
 
 ## Independent rebuild review (2026-09-15)
 
-**Goalie price-line review, 2026-09-22:** reviewed `16d1d5f` in isolation.
-Original run and 33/33 checks reproduce; all 52 captured executed fits converge,
-and both check-33 mutations are caught. Two corrections precede price-specification
-closure: the missing level-only challenger matches the gain on the same 174 goalie
-contracts (MAE .007456 versus .007489 with both terms), so a separate goalie slope
-is not established; reported dollar-per-win levels omit first-year and RFA effects.
-Last-fit UFA +1 expected win in each season changes latent annual price by
-$2.022M/$2.167M for skaters/goalies, versus the reported first-year-fixed partial
-slopes $.819M/$.964M. Interaction remains a conditional contrast; table levels and
-ratios need the forecast-change definition. Development goalie sample is 263
-eligible, 205 forecast-attached, 174 pooled-priced. All fits use expanding samples
-at quarterly cutoffs; goalie-only prices five under the chosen 200-row minimum.
-See `50_REBUILD/docs/Goalie_Price_Line_Review_Codex.md`. Participation work may
-proceed with price specification provisional; do not treat two terms as settled D7.
-Bias diagnostic is qualified, but its +.167 calculation is illustrative, not an
-identified decomposition. Prior forecast/RFA/simulator/reconciliation closures stand.
-No model edits, candidate merge, adoption, or confirmatory market scoring.
+**Goalie price-line review closed, 2026-09-22:** verified `af61f6c` in isolation.
+Full suite 33/33; all 68 executed fits converge. Same 174 goalie contracts:
+no terms MAE .010318, level-only .007457, level-and-slope .007489. Additional
+slope wins only 10% of career resamples; equality of slopes and D7 remain unsettled.
+Whole-path annual price responses reproduce ($2.022M/$2.167M UFA,
+$1.928M/$2.073M RFA), checked against direct equation changes and nonzero
+synthetic coefficients. Three check-33 mutations caught. Counts 263 eligible,
+205 forecast-attached, 174 priced; expanding quarterly fits verified. Bias
+illustration correctly qualified. All preceding price-line findings closed;
+proceed to participation with provisional price specification. Distinguish any-NHL
+participation from workload conditional on playing, and reassess pricing when the
+forecast changes. See `50_REBUILD/docs/Goalie_Price_Repair_Closure_Codex.md`.
+Earlier closures stand. No model edits, candidate merge, adoption or back-test.
 
 **Goalie forecast review closed, 2026-09-17:** verified `e42f57c` in isolation.
 Full suite 32/32; seven candidates, 3,683 cells each. Imported projector agrees
