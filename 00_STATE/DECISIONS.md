@@ -407,6 +407,14 @@ unsealed.
 
 ---
 
+**Change log, 2026-09-22f (goalie rate review):** Reviewed `0bec937`.
+36/36 and primary results reproduce. Found consumer/scored share-fallback mismatch;
+independent correction changes 8/165 contracts and barely changes price error.
+Require common fallback and parity guard; retain production point benchmark/rate
+sensitivity, squared error primary for means with dollar validation still required.
+Added review/audit and state/session. Prior closures stand. No candidate merge,
+model edit, source/output write or adoption.
+
 **Change log, 2026-09-22e (goalie participation repairs closed):** Verified
 `8d1efc6`: 35/35, corrected goalie and price results, three mutations, actual dates
 and full-rank optimizer inputs. Independent skater ablation agrees after repair;
