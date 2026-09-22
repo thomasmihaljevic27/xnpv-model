@@ -66,15 +66,25 @@ HOW IT IS FITTED, AND WHAT IT CANNOT SEE
     factor, not by this one.
 
     WHAT THE WEIGHTED FIT ESTIMATES. Weighting squared error by the games of
-    the outcome season targets an EXPOSURE-WEIGHTED rate -- WAR per 82 per game
-    played -- and not the plain average rate of a randomly chosen played
-    season. The two differ whenever games and performance move together, which
-    for goaltenders they do: the one playing well gets the starts. And the
-    product of a separately fitted rate and a separately fitted share is the
-    expected season only if rate and share are uncorrelated given the anchor;
-    in general E[rate x share] = E[rate] E[share] + their covariance. That is
-    a stated assumption of this decomposition, not an identity, and a joint
-    rate-and-workload path has to define its target explicitly.
+    the outcome season targets an EXPOSURE-WEIGHTED rate, E[G x R] / E[G] given
+    the record and that he plays -- and not the plain average rate E[R] of a
+    randomly chosen played season. The two differ whenever games and
+    performance move together, which for goaltenders they do.
+
+    That is also why the product works. With share S = G / L for a schedule of
+    length L, E[G R] / E[G] x E[S] = E[R S]: the exposure-weighted rate times
+    the mean share IS the expected season, with no assumption that rate and
+    workload are uncorrelated. The covariance term belongs to the unweighted
+    mean, E[R] E[S] = E[R S] - cov(R, S). (An earlier note here said the
+    product needed zero correlation; that was too strong for this target.)
+
+    What the identity does NOT give: it holds for the true conditional
+    quantities, on one conditioning set and one schedule length. The fitted
+    rate and share are separate specifications, each an approximation, and
+    seasons of different lengths are mixed. And an expected season is not a
+    distribution: a joint path that prices through a salary floor or a
+    control option still needs the joint distribution of rate and workload,
+    not their means.
 
     NO AGE, for the reason recorded in run_goalie_participation.py: a
     goaltender's birthdate is available mostly because he survived into the

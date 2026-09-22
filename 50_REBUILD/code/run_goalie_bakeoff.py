@@ -51,7 +51,7 @@ import forecast_harness as H
 import goalie_season_table as GST
 from player_season_table import birthdate_source
 
-SCRIPT_VERSION = "2.3"
+SCRIPT_VERSION = "2.4"
 
 HORIZONS = (0, 1, 2, 3, 4, 5)
 
@@ -173,6 +173,11 @@ class GoalieModel:
     the grid contract. A candidate supplies `war_for` and nothing else."""
 
     name = "goalie"
+    FITTED_HORIZONS = HORIZONS
+
+    @property
+    def fitted_horizons_(self):
+        return HORIZONS
 
     def fit(self, seasons: pd.DataFrame, before: int) -> "GoalieModel":
         # ROLLING, and asserted rather than promised: nothing whose OUTCOME
@@ -181,6 +186,7 @@ class GoalieModel:
             f"{self.name} was handed a season at or after the page it stands "
             f"on ({seasons['syr'].max()} >= {before})")
         self.t0_ = int(before)
+        self.fit_before_ = int(before)
         self.seasons_ = seasons
         self.qual_ = seasons[seasons["GP"] >= C.MIN_GP]
         self.league_ = float(self.qual_["WAR"].mean())
@@ -191,6 +197,54 @@ class GoalieModel:
     def _fit(self, seasons, before):
         pass
 
+    def _at_page(self, iset) -> None:
+        """PREDICT-TIME STATE COMES FROM THE PAGE ASKED ABOUT.
+
+        The page, the qualifying seasons and the league average a prediction
+        reads are set from the information set it is asked about, not left
+        at the page the model was fitted for. In the harness the two are the
+        same page and nothing changes. A calibrator that REPLAYS the fitted
+        model on earlier pages -- the predictive interval does, to learn how
+        wrong the model tends to be -- would otherwise have asked production's
+        projector about page `before` while scoring an outcome at an earlier
+        page plus h: the projection would have read the very season it was
+        being scored against. No goalie model was replayed before the control-
+        year work, so this never fired; it is closed before it can.
+
+        Fitted quantities (coefficients, the survival table) are kept: using
+        them on an earlier page is the in-sample optimism the interval module
+        already states, not look-ahead in the inputs.
+        """
+        t0 = int(iset.t0)
+        assert t0 <= self.fit_before_, (
+            f"{self.name} asked about page {t0}, after the page {self.fit_before_} "
+            "it was fitted for")
+        seasons = iset.seasons[iset.seasons["syr"] < t0]
+        self.t0_ = t0
+        self.qual_ = seasons[seasons["GP"] >= C.MIN_GP]
+        self.league_ = float(self.qual_["WAR"].mean())
+
+    def predict_beyond_fit(self, iset, subs, horizons) -> pd.DataFrame:
+        """Horizons past the fitted range HOLD THE LAST FITTED ONE.
+
+        The goalie rule, declared: production carries a goaltender's projection
+        flat for the whole term, and the participation, share and rate models
+        and the price runner all clamp at the last fitted horizon. The skater
+        side continues the decay instead, because holding flat overstated
+        skater production badly; for goaltenders participation at five seasons
+        out is already low, and this is stated as a limitation rather than
+        corrected here.
+        """
+        hs = [int(h) for h in horizons]
+        top = max(HORIZONS)
+        p = self.predict(iset, subs, sorted({min(h, top) for h in hs}))
+        out = []
+        for h in hs:
+            q = p[p["h"] == min(h, top)].copy()
+            q["h"] = h
+            out.append(q)
+        return pd.concat(out, ignore_index=True)
+
     def share_for(self, subs: pd.DataFrame) -> pd.Series:
         """The share of the schedule he plays. Trailing share, carried flat --
         the same rule for every candidate, because this bake-off is about how
@@ -198,6 +252,7 @@ class GoalieModel:
         return trailing_share(self.qual_, self.t0_, subs["career_key"])
 
     def predict(self, iset, subs: pd.DataFrame, horizons) -> pd.DataFrame:
+        self._at_page(iset)
         war = self.war_for(subs)                 # season WAR, per goaltender
         share = self.share_for(subs)
         rows = []

@@ -52,7 +52,7 @@ from player_season_table import build as build_table, birthdate_source
 from run_phase4_decisions import prep
 from ability_forecast import A1HingeExposure
 
-SCRIPT_VERSION = "2.2"
+SCRIPT_VERSION = "2.3"
 
 LEADER = A1HingeExposure
 KEY = "contract_id"
@@ -68,7 +68,7 @@ def term_seasons(r) -> list[int]:
 
 
 def forecast_blocks(sample: pd.DataFrame, table: pd.DataFrame,
-                    seasons_for=term_seasons):
+                    seasons_for=term_seasons, model_factory=None):
     """For every contract, the forecast for each season ASKED FOR and the band
     around it: the conditional total, its scale, and the probability of
     playing. `attach_forecasts` collapses these into an average, which is all a
@@ -85,6 +85,12 @@ def forecast_blocks(sample: pd.DataFrame, table: pd.DataFrame,
     Batched by the last season readable at the signing, exactly as
     `attach_forecasts` batches, so every contract sees the same information set
     its point valuation saw and the two are comparable row by row.
+
+    `model_factory` builds the forecast model; the default is the skater
+    leader. The goalie control-year runner passes its own goalie arms, so the
+    band, the replayed misses and the dependence fit are this routine's for
+    both positions rather than a goalie copy of it. `table` must then be the
+    goalie panel.
     """
     rows, spreads = {}, {}
     for L, grp in sample.groupby("latest_complete"):
@@ -92,7 +98,7 @@ def forecast_blocks(sample: pd.DataFrame, table: pd.DataFrame,
         if t0 < C.FIRST_SOURCE_SEASON + 3:
             continue
         iset = ISET.build(table, ISET.decision_date_for_page(t0), t0=t0)
-        model = PI.WithIntervals(LEADER())
+        model = PI.WithIntervals((model_factory or LEADER)())
         model.fit(iset.seasons, before=t0)
         subs = H.subjects_at(iset)
         if subs.empty:

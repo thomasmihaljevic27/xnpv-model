@@ -239,6 +239,22 @@ the work is. Next, in order:
 5. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
    contract-by-contract dollar reconciliation, and the holdout policy.
 
+**2026-09-22h -- goalie control years and contract dollars (awaiting review).**
+`run_goalie_control_years.py`; report `50_REBUILD/docs/Goalie_Control_Years.md`.
+- **Control years:** deciding as you go is worth $1.07M per owning contract on production's
+  forecast and $1.16M on the rate's (21 contracts; rank correlation 0.91). Production's rule values
+  the right at $0.13M, and seeing the path adds $0.04M.
+- **Selection:** of 74 development contracts that own control years, only 21 reach the simulation.
+  Goaltenders without an NHL record drop out.
+- **Against realised dollars** (133 ended terms): production's point valuation has the lowest
+  squared error (RMSE 6.859), but the forecasts are not separable at this sample size (64%). The
+  rate forecast's simulated value is the best calibrated (bias −0.07).
+- **Two shared defects fixed:** goalie replay dating (check 38) and the persistence fit (check 39).
+  Skaters are unchanged.
+- **Next goalie item: recalibrate the goalie band.** The contract-level 80% band covers 92–93%; at
+  season level the band covers 66% of played seasons and 100% of unplayed ones. No simulated goalie
+  dollar premium is cited until then.
+
 **2026-09-22f — the goalie rate forecast: a better rate, not a better season.** Built
 `run_goalie_rate.py` (report `50_REBUILD/docs/Goalie_Rate_Forecast.md`). A per-82 rate, pooled by
 games over three seasons and shrunk toward a norm, beats production's implied rate as a per-game
@@ -268,8 +284,10 @@ most 0.0076 WAR per season, and no conclusion changed. Suite 37/37.
 **Next (unchanged sequence):** the goalie control-year gate. It needs a goalie forecast per
 contract-season, so it runs on production's total (the default) and on the decomposition (the
 sensitivity), scored by the hierarchy above. It reports expected dollars, not only WAR. Any joint
-rate-and-workload path defines its target first: rate times share is the expected season only if the
-two are uncorrelated given the record.
+rate-and-workload path defines its target first. [CORRECTED 2026-09-22h: for the games-weighted rate,
+rate times mean share IS the expected season, with no zero-correlation requirement. The covariance
+term belongs to the unweighted mean. The requirement that stands: a path through a floor or an option
+needs the joint distribution of rate and workload, not their means.]
 
 **2026-09-22d — repairs for the goalie participation review (closed by review, `e8bedb4`).** All four
 requested items are done; the review stays open until it is independently re-checked.

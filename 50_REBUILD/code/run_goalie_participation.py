@@ -81,7 +81,7 @@ from ability_forecast import _anchors, W_T1, W_T2
 from participation_model import ParticipationModel
 from player_season_table import birthdate_source
 
-SCRIPT_VERSION = "1.2"
+SCRIPT_VERSION = "1.3"
 
 HORIZONS = GB.HORIZONS
 DECAY = W_T2 / W_T1            # the locked 60/40 recency weighting
@@ -197,6 +197,7 @@ class Arm(GB.ProductionProjector):
         return a.reindex(subs["career_key"])
 
     def predict(self, iset, subs, horizons):
+        self._at_page(iset)
         war = self.war_for(subs)
         trail = self.share_for(subs)
         # PRODUCTION'S SEASON TOTAL, DECOMPOSED. Divided by the trailing share

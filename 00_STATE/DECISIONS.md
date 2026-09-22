@@ -1,5 +1,34 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-22h (goalie control years and contract dollars):** Built
+`run_goalie_control_years.py` v1.0 on two forecasts declared in advance: production's total (the
+default) and the rate decomposition (the sensitivity). Squared dollar error is primary. It reuses
+`price_span` (new optional `blocks` and `extra` arguments), `rule_guards` (factored out of the
+skater runner), `forecast_blocks` (new `model_factory`), and the pooled level-only price line folded
+into the intercept for goaltenders (fold asserted exact). Participation in the band is dated at the
+signing; the simulated forecast's expected season is asserted equal to the priced forecast on every
+contract (gap 4.4e-16). **Two defects fixed.** (1) Goalie models read their page from the fit, so a
+replay on an earlier page would have scored production's projection against seasons it had read.
+It was latent, because no goalie model had been replayed. `GoalieModel._at_page` now dates
+predict-time state from the page asked about; goalie outputs byte-identical; check 38. (2)
+`npv_simulation.Persistence` searched on unconstrained error and clipped after, returning curves it
+never scored. The goalie 2018 page read 0.95 at one season against observed 0.25. The weights are
+now constrained inside the search (`_fit_curve`, NNLS with the sum held to one); check 39. The clip
+had bound on the skater 2015 page (0.396 -> 0.385), which prices no contract; skater simulation and
+control-year outputs agree to 1.2e-8 dollars. **Results.** 263 development goaltender contracts;
+137 simulated on both forecasts; 74 own control years, of which 21 reach the simulation (selection
+toward goaltenders with an NHL record). Control value, deciding as you go: $1.072M on production's
+forecast and $1.163M on the rate's (rank correlation 0.908); production's rule $0.129M; seeing the
+path adds $0.036M. Term, simulated against point value: +$0.914M and +$0.862M. Against realised
+dollars on 133 ended terms: production point RMSE 6.859 (lowest), production simulated 6.882, rate
+simulated 6.953, rate point 7.002. Rate against production, simulated: lower squared error in 36%,
+lower absolute error in 81%. Bias: rate simulated -0.069, production simulated +0.566. **The
+simulated band over-covers** (80% band 92-93%, 50% band 74-79%, on every page). The season band
+covers 81% overall, but 66% of played seasons and 100% of unplayed ones. The simulated goalie
+premium is not to be cited until the band is recalibrated. Production stays the default goalie
+forecast. Suite **39 passed, 0 skipped, 0 failed**. **Also corrected:** the rate x share wording
+(22g, marked). No production code changed; no locked decision reopened; D7 not settled.
+
 **Change log, 2026-09-22g (goalie rate review repair, and two decisions recorded):**
 (1) **One conditional forecast.** The price runner built its share of the schedule separately from
 the scored "rate, flat norm, share model" arm, and the two fell back differently where the share
@@ -19,7 +48,11 @@ calibration alone. (4) **Decided: squared error is the primary score** for point
 enter an expected-value sum, with mean absolute error and bias by horizon and role alongside, declared
 before the next comparison. (5) Recorded qualifications: the games-weighted rate fit targets an
 exposure-weighted rate. Rate times share equals the expected season only if the two are uncorrelated
-given the anchor, so a joint rate-and-workload path must define its target. And the lowest WAR error
+given the anchor, so a joint rate-and-workload path must define its target. [CORRECTED 2026-09-22h:
+too strong. The games-weighted rate is E[G R]/E[G], and times the mean share it equals E[R S] without
+zero correlation; the covariance term applies to the unweighted mean rate. What stands: the identity
+needs compatible conditioning and correct components, and a path through a floor or option needs the
+joint distribution.] And the lowest WAR error
 is not automatically the best dollar valuation, because the floor and control options are nonlinear,
 so candidates are also validated on expected dollars and simulated distributions. No production code
 changed; no locked decision reopened; D7 not settled.
@@ -1004,6 +1037,8 @@ scored. Review artifacts and state are committed together under the session-clos
 ---
 
 ## Change log (state files)
+
+- **2026-09-22h (goalie control years):** `run_goalie_control_years.py` v1.0 on production (default) and rate (sensitivity); control value deciding as you go $1.07M / $1.16M on 21 contracts; term valuations scored against realised dollars on 133 ended terms (production point RMSE 6.859 lowest; rate simulated best on bias); goalie band over-covers. Fixed goalie replay dating (check 38) and the persistence fit's clip-after-search (check 39; skaters unchanged to 1.2e-8). Rate x share wording corrected. Suite 39/39. State files and `sessions/2026-09-22.md` updated.
 
 - **2026-09-22g (goalie rate review repair):** `ConditionalSeason` shared by the scored arm and the price runner (8 contracts move, max 0.0076 WAR/season; conclusions unchanged); check 37 consumer parity on every page and horizon, mutation-tested; suite 37/37. Recorded: production's total is the default goalie season forecast with the rate decomposition as a sensitivity; squared error primary for expected-value forecasts with MAE and bias by horizon and role alongside; WAR accuracy is not dollar accuracy. State files and `sessions/2026-09-22.md` updated.
 

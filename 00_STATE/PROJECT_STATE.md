@@ -194,6 +194,23 @@ These findings take precedence over the earlier broad validation claims. No impl
 changed; repaired development comparisons and the unbuilt simulation work must precede adoption.
 Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 
+**Goalie control years, 2026-09-22h.** `run_goalie_control_years.py` v1.0 prices goaltender
+control years and contract terms as dollar distributions, on production's forecast (the default)
+and the rate decomposition (the sensitivity), reusing the skater control-year, band and simulation
+code.
+- **Control years:** deciding as you go is worth $1.07M / $1.16M per owning contract (21
+  contracts, selected toward goaltenders with an NHL record); production's rule gives $0.13M.
+- **Scored against realised dollars** on 133 ended terms: production's point valuation has the
+  lowest squared error (6.859; not decisive), and the rate forecast's simulated value is the best
+  calibrated.
+- **The goalie band over-covers** (80% band 92–93%) and needs recalibrating before any simulated
+  goalie premium is cited.
+- **Two shared defects fixed:** goalie models now read their page on replay (check 38); the
+  persistence fit is constrained inside its search (check 39). Skater outputs agree with their
+  baselines to 1.2e-8.
+
+Suite 39/39. See `50_REBUILD/docs/Goalie_Control_Years.md`.
+
 **Goalie rate review repaired, 2026-09-22g.** The scored decomposition and the price runner now
 share one conditional forecast, `ConditionalSeason` (`run_goalie_rate.py` v1.1,
 `run_goalie_price_line.py` v2.4). Before this, their share-model fallbacks differed. The repair moves 8

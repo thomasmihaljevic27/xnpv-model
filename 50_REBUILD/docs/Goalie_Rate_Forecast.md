@@ -55,15 +55,25 @@ the three seasons before the valuation season.
   horizon's fit. That happens only on the earliest pages.
 
 **What the weighted fit estimates.** Weighting each outcome season by its games targets an
-*exposure-weighted* rate: WAR per 82 per game played. That is not the plain average rate of a
-randomly chosen played season. The two differ whenever games and performance move together, and for
-goaltenders they do, because the one playing well gets the starts.
+*exposure-weighted* rate: total WAR over total games, given the record and that he plays. That is
+not the plain average rate of a randomly chosen played season. The two differ whenever games and
+performance move together, and for goaltenders they do, because the one playing well gets the
+starts.
 
-The same point limits the product. Multiplying a separately fitted rate by a separately fitted
-share gives the expected season only if rate and share are uncorrelated once the trailing record is
-known. In general the expected product is the product of the expectations *plus their covariance*.
-That is a stated assumption of this decomposition, not an identity. A joint rate-and-workload path
-has to define its target explicitly.
+That weighting is also what makes the product work. The exposure-weighted rate times the average
+share of the schedule *is* the expected season:
+- as a formula, E[games × rate] / E[games] × E[share] = E[rate × share];
+- no assumption that rate and workload are uncorrelated is needed;
+- the covariance correction belongs to the *unweighted* average rate, not to this one.
+
+An earlier version of this report said the product needed rate and share to be uncorrelated. That
+was too strong for a games-weighted rate and is withdrawn.
+
+What the identity does not give:
+- It holds for the true conditional quantities, on one set of information and one schedule length.
+  The fitted rate and share are separate approximations, and seasons of different lengths are mixed.
+- An expected season is not a distribution. A season-by-season path that runs through a salary floor
+  or a control option needs the joint distribution of rate and workload, not only their means.
 
 It is fitted only on seasons he played, so it answers "how good, given that he plays", which is
 exactly the factor the product needs. Whether he plays belongs to the participation model. **No

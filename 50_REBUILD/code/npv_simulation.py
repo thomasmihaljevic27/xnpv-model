@@ -93,7 +93,7 @@ from scipy import stats
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 
-SCRIPT_VERSION = "1.1"
+SCRIPT_VERSION = "1.2"
 
 DEFAULT_PATHS = 2000        # matches the draft bootstrap's resample count
 MIN_PAIRS = 200             # a horizon pair needs this many players to count
@@ -151,22 +151,45 @@ class Persistence:
 
         gaps = np.array(sorted(self.observed_))
         y = np.array([self.observed_[g] for g in gaps])
-        # phi is searched on a grid and the two weights solved in closed form
-        # for each candidate, which avoids an optimiser and its starting point.
+        return self._fit_curve(gaps, y)
+
+    def _fit_curve(self, gaps: np.ndarray, y: np.ndarray) -> "Persistence":
+        """The curve rho(gap) = w_perm + w_fade * phi ** gap through the
+        observed rank correlations. Separate from `fit` so the search can be
+        checked on a curve whose right answer is known."""
+        gaps = np.asarray(gaps, dtype=float)
+        y = np.asarray(y, dtype=float)
+        # phi is searched on a grid and the two weights solved for each
+        # candidate, which avoids an optimiser and its starting point.
+        #
+        # THE WEIGHTS ARE CONSTRAINED INSIDE THE SEARCH, NOT CLIPPED AFTER IT.
+        # A negative weight would say a miss reverses itself with distance, and
+        # the two together cannot exceed one. The first version solved each
+        # candidate unconstrained, kept the phi with the lowest UNCONSTRAINED
+        # error, and clipped the winner afterwards -- so the curve it returned
+        # was never one the search had scored. On the goalie 2018 page the
+        # observed correlations were 0.25, 0.21 and 0.06 at one, two and three
+        # seasons; the unconstrained winner had a negative permanent part and
+        # phi at the top of the grid, and clipping turned it into 0.95 ** gap:
+        # a miss that persists almost entirely, on data that says a quarter of
+        # it does. Now every candidate is fitted within the constraints
+        # (non-negative least squares, then the sum held to one), and phi is
+        # chosen on the error of the curve actually returned.
+        from scipy.optimize import nnls
         best = None
         for phi in np.linspace(0.05, 0.95, 91):
             X = np.column_stack([np.ones_like(gaps, dtype=float), phi ** gaps])
-            coef, *_ = np.linalg.lstsq(X, y, rcond=None)
+            coef, _ = nnls(X, y)
+            if coef.sum() > 1.0:
+                # On the boundary w_perm + w_fade = 1: y - phi**g =
+                # w_perm * (1 - phi**g), one parameter, held to [0, 1].
+                u = 1.0 - X[:, 1]
+                wp = float(np.clip((u @ (y - X[:, 1])) / max(u @ u, 1e-12), 0.0, 1.0))
+                coef = np.array([wp, 1.0 - wp])
             sse = float(((X @ coef - y) ** 2).sum())
             if best is None or sse < best[0]:
                 best = (sse, float(phi), float(coef[0]), float(coef[1]))
-        _, self.phi_, w_perm, w_fade = best
-        # A NEGATIVE WEIGHT IS REFUSED rather than carried. Either part going
-        # below zero would say a miss reverses itself with distance, which no
-        # pair in the table shows; it is what a three-parameter fit does to a
-        # five-point curve when the curve is nearly flat.
-        self.w_perm_ = float(np.clip(w_perm, 0.0, 1.0))
-        self.w_fade_ = float(np.clip(w_fade, 0.0, 1.0 - self.w_perm_))
+        self.sse_, self.phi_, self.w_perm_, self.w_fade_ = best
         return self
 
     def rho(self, gap) -> np.ndarray:

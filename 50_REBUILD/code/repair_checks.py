@@ -24,7 +24,7 @@ import forecast_harness as H
 import player_season_table as T
 from ability_forecast import A0Production
 
-SCRIPT_VERSION = "2.6"
+SCRIPT_VERSION = "2.7"
 
 PASS, FAIL, SKIP = "pass", "FAIL", "skip"
 results: list[tuple[str, str, str]] = []
@@ -1714,6 +1714,94 @@ def c37(table):
             f"fallback, {borrowed} on a borrowed rate horizon, {clamped} clamped")
 
 
+def c38(table):
+    """A GOALIE MODEL REPLAYED ON AN EARLIER PAGE READS THAT PAGE.
+
+    The predictive interval learns its spread by replaying the fitted model on
+    earlier pages. The goalie models used to read the page, the qualifying
+    seasons and the league average from the fit, so a model fitted for 2018
+    and asked about 2015 would have asked production's projector about 2018 --
+    whose projection reads the 2015-2017 seasons being scored. Asserted: fitted
+    at 2018 and asked about 2015, the production arm's season forecast is
+    production's projection AT 2015 for every subject, and it differs from the
+    projection at 2018 for most of them, so the check has teeth.
+    """
+    import numpy as np
+    import forecast_harness as H
+    import information_set as ISET
+    import goalie_season_table as GST
+    import run_goalie_bakeoff as GB
+    import run_goalie_rate as GR
+    from player_season_table import birthdate_source
+
+    bd, _ = birthdate_source()
+    g = GST.build(birthdate_csv=bd, verbose=False, allow_thin_ages=True)
+    fit_at, ask = 2018, 2015
+    m = GR.ProdTrail().fit(g[g["syr"] < fit_at], fit_at)
+    iset = ISET.build(g, ISET.decision_date_for_page(ask), t0=ask)
+    subs = H.subjects_at(iset)
+    pred = m.predict(iset, subs, [0])
+    mu = (pred["rate_82"] * pred["gp_share"]).to_numpy()
+    proj = GB.production_projector()
+    league = float(iset.seasons.loc[(iset.seasons["syr"] < ask)
+                                    & (iset.seasons["GP"] >= C.MIN_GP), "WAR"].mean())
+    at_ask = np.array([(lambda v: league if v is None else float(v))(
+        proj.shrunk_projection(k, ask)[0]) for k in subs["career_key"]])
+    at_fit = np.array([(lambda v: np.nan if v is None else float(v))(
+        proj.shrunk_projection(k, fit_at)[0]) for k in subs["career_key"]])
+    assert np.allclose(mu, at_ask, atol=1e-9), "the replay is not reading its own page"
+    differ = np.nanmean(np.abs(at_fit - at_ask) > 1e-6)
+    assert differ > 0.5, "the two pages agree anyway -- the check is vacuous"
+    return (f"fitted at {fit_at}, asked about {ask}: all {len(subs)} forecasts are "
+            f"production's projection at {ask}; {differ:.0%} would differ at {fit_at}")
+
+
+def c39(table):
+    """THE PERSISTENCE FIT RETURNS A CURVE IT SCORED.
+
+    The fit of how much of a miss persists searched its decay rate on the
+    error of an UNCONSTRAINED fit and clipped the winner's weights afterwards,
+    so it could return a curve the search never scored. On the goalie 2018 page
+    it turned observed correlations of 0.25, 0.21 and 0.06 into 0.95 at one
+    season. Asserted on that shape: the weights are non-negative and sum to at
+    most one, the returned curve's error is the smallest over the search, and
+    the one-season value sits near the observed one. And on a curve the
+    constraints do not bind, the fit is the unconstrained one.
+    """
+    import numpy as np
+    import npv_simulation as SIM
+
+    gaps = np.array([1.0, 2.0, 3.0])
+    y = np.array([0.249, 0.205, 0.058])            # the goalie 2018 page, observed
+    P = SIM.Persistence()._fit_curve(gaps, y)
+    assert P.w_perm_ >= 0 and P.w_fade_ >= 0 and P.w_perm_ + P.w_fade_ <= 1 + 1e-12
+    curve = P.w_perm_ + P.w_fade_ * P.phi_ ** gaps
+    assert abs(float(((curve - y) ** 2).sum()) - P.sse_) < 1e-12, (
+        "the returned curve is not the one the search scored")
+    assert abs(float(P.rho(1)) - y[0]) < 0.1, (
+        f"one-season persistence {float(P.rho(1)):.3f} against {y[0]:.3f} observed")
+    # NOT VACUOUS: the old recipe -- unconstrained search, clip the winner --
+    # goes badly wrong on exactly this curve.
+    best = None
+    for phi in np.linspace(0.05, 0.95, 91):
+        X = np.column_stack([np.ones(3), phi ** gaps])
+        c, *_ = np.linalg.lstsq(X, y, rcond=None)
+        e = float(((X @ c - y) ** 2).sum())
+        if best is None or e < best[0]:
+            best = (e, phi, c)
+    _, phi_old, c_old = best
+    wp = float(np.clip(c_old[0], 0, 1)); wf = float(np.clip(c_old[1], 0, 1 - wp))
+    old_rho1 = wp + wf * phi_old
+    assert old_rho1 > 0.5, "the old recipe was fine here -- the check is vacuous"
+    # And where the constraints do not bind, the answer is the unconstrained one.
+    y2 = 0.2 + 0.3 * 0.5 ** gaps
+    Q = SIM.Persistence()._fit_curve(gaps, y2)
+    assert abs(float(Q.rho(1)) - 0.35) < 1e-3 and Q.sse_ < 1e-6
+    return (f"on the goalie 2018 curve the fit returns {float(P.rho(1)):.3f} at one season "
+            f"against {y[0]:.3f} observed (the old recipe gave {old_rho1:.2f}); "
+            f"weights in bounds; an unconstrained curve is recovered exactly")
+
+
 def main() -> None:
     warnings.filterwarnings("ignore")
     C.banner("repair_checks.py", SCRIPT_VERSION)
@@ -1771,7 +1859,9 @@ def main() -> None:
                      ("goalie participation, exercised end to end", c34),
                      ("no participation fit sees a singular design", c35),
                      ("the goalie rate is a rate, and cannot see the page", c36),
-                     ("the forecast priced is the forecast tested", c37)]:
+                     ("the forecast priced is the forecast tested", c37),
+                     ("a replayed goalie model reads its own page", c38),
+                     ("the persistence fit returns a curve it scored", c39)]:
         check(name, lambda fn=fn: fn(table))
 
     width = max(len(n) for n, _, _ in results)

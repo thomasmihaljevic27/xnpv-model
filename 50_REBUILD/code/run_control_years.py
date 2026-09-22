@@ -41,7 +41,7 @@ from run_npv_simulation import (LEADER, KEY, N_PATHS, birthdate_source,
                                 prep, term_seasons)
 from contract_price_model import attach_forecasts
 
-SCRIPT_VERSION = "2.1"
+SCRIPT_VERSION = "2.2"
 
 DRAW_SEED = 20260917
 
@@ -303,19 +303,32 @@ def against_production(ok: pd.DataFrame) -> None:
 
 
 def price_span(span: dict, sample, table, pt, lines, label: str,
-               check_leakage: bool = False) -> pd.DataFrame:
+               check_leakage: bool = False, blocks=None,
+               extra=None) -> pd.DataFrame:
     """Price every contract's control years under one eligibility rule.
 
     Called twice: once on the export's own eligibility year, once on the age
     rule alone. The second uses nothing but a birthdate, so the difference
     between them is the whole exposure to eligibility that accrued seasons
     decide -- bounded rather than described.
+
+    `blocks` is an optional (blocks, spreads) pair built by the caller from
+    `forecast_blocks` -- the goalie runner builds its own on the goalie panel
+    and goalie arms. Omitted, the skater leader's are built here as before.
+
+    `extra(cid, row, paths)` is called with each contract's drawn WAR paths
+    (term and control years) and returns columns to add. The goalie runner
+    prices the contract's own term on the SAME paths through it rather than
+    re-running the draw recipe, which would be a second copy of it.
     """
     def wanted(r):
         return term_seasons(r) + span.get(int(r.contract_id), [])
 
     t0 = time.time()
-    blocks, spreads = forecast_blocks(sample, table, seasons_for=wanted)
+    if blocks is None:
+        blocks, spreads = forecast_blocks(sample, table, seasons_for=wanted)
+    else:
+        blocks, spreads = blocks
     pers_by_page, ret_by_page = page_dependence(spreads, table)
     C.log(f"  [{label}] {len(blocks)} contracts carry a band over the term and")
     C.log(f"  the control years together ({time.time() - t0:.0f}s)")
@@ -357,6 +370,20 @@ def price_span(span: dict, sample, table, pt, lines, label: str,
             C.log("CAN THE CLUB SEE WHAT IT HAS NOT BEEN SHOWN?")
             leakage_check(g, pers.matrix(T), shape, played)
             checked = True
+        if not ctrl:
+            # NO CONTROL YEARS: the term is drawn and handed to `extra`, and
+            # every rule is worth exactly zero. Only the goalie runner asks for
+            # this -- it simulates every priced contract's term -- and the
+            # skater control map never contains an empty span.
+            row = {KEY: cid, "status": "ok", "n_ctrl": 0,
+                   "term": int(r["length"]), "start_yr": int(r["start_yr"]),
+                   "page": int(page), "surplus_contract": float(r["surplus_point"])}
+            for rule in CY.RULES:
+                row[f"ctrl_{rule}"] = 0.0
+            if extra is not None:
+                row.update(extra(cid, r, paths))
+            rows.append(row)
+            continue
         vals = CY.value_paths(lines[r["cut"]], r, ctrl, mu, sg, pp, shape,
                               pers.matrix(T), paths, g, played, e_sched,
                               r_ret, offset=len(term))
@@ -371,8 +398,42 @@ def price_span(span: dict, sample, table, pt, lines, label: str,
         for rule in CY.RULES:
             row[f"ctrl_{rule}"] = float(vals[rule].mean())
         row["ctrl_informed_sd"] = float(vals["informed"].std(ddof=1))
+        row["ctrl_informed_q10"], row["ctrl_informed_q90"] = (
+            float(x) for x in np.percentile(vals["informed"], [10, 90]))
+        if extra is not None:
+            row.update(extra(cid, r, paths))
         rows.append(row)
     return pd.DataFrame(rows)
+
+
+def rule_guards(ok: pd.DataFrame) -> None:
+    """The guards every control-year run must pass before a table is read.
+    Shared with the goalie runner, so both positions are held to the same
+    ceiling by the same lines."""
+    # THE CEILING IS A CEILING. A club that knew the whole path and could only
+    # choose when to stop does at least as well as any rule here and at least
+    # as well as walking away at once. Anything that beat it would be reading
+    # the season it is deciding about. Asserted, not printed.
+    neg = ok.loc[ok["ctrl_hindsight"] < -1.0, KEY].tolist()
+    assert not neg, f"the ceiling is negative on {len(neg)}: {neg[:6]}"
+    for rule in ("committed", "production_point", "declared",
+                 "informed_myopic", "informed"):
+        worse = ok.loc[ok[f"ctrl_{rule}"] > ok["ctrl_hindsight"] + 1.0,
+                       KEY].tolist()
+        assert not worse, (f"the {rule} rule beats knowing the whole path on "
+                           f"{len(worse)} contracts: {worse[:6]}")
+    C.log("  nothing beats the club that knew the whole path, and that ceiling")
+    C.log("  is never below walking away at once. Asserted, not printed.")
+    C.log("")
+    # DECIDING WELL IS NOT THE SAME AS NOT LOSING. A club deciding on an
+    # expectation can tender a player who then disappoints, so these rules are
+    # allowed to come out negative and how often they do is reported rather
+    # than asserted away.
+    for rule in ("declared", "informed"):
+        n = int((ok[f"ctrl_{rule}"] < 0).sum())
+        C.log(f"  the {rule} rule loses money on {n} of {len(ok)} contracts, "
+              f"which is not a defect: it tenders on an expectation")
+    C.log("")
 
 
 def main() -> None:
@@ -444,31 +505,7 @@ def main() -> None:
           f"{skipped} skipped for a band that did not reach every one")
     C.log("")
 
-    # ---- the guards, before any table is read ------------------------------
-    # THE CEILING IS A CEILING. A club that knew the whole path and could only
-    # choose when to stop does at least as well as any rule here and at least
-    # as well as walking away at once. Anything that beat it would be reading
-    # the season it is deciding about. Asserted, not printed.
-    neg = ok.loc[ok["ctrl_hindsight"] < -1.0, KEY].tolist()
-    assert not neg, f"the ceiling is negative on {len(neg)}: {neg[:6]}"
-    for rule in ("committed", "production_point", "declared",
-                 "informed_myopic", "informed"):
-        worse = ok.loc[ok[f"ctrl_{rule}"] > ok["ctrl_hindsight"] + 1.0,
-                       KEY].tolist()
-        assert not worse, (f"the {rule} rule beats knowing the whole path on "
-                           f"{len(worse)} contracts: {worse[:6]}")
-    C.log("  nothing beats the club that knew the whole path, and that ceiling")
-    C.log("  is never below walking away at once. Asserted, not printed.")
-    C.log("")
-    # DECIDING WELL IS NOT THE SAME AS NOT LOSING. A club deciding on an
-    # expectation can tender a player who then disappoints, so these rules are
-    # allowed to come out negative and how often they do is reported rather
-    # than asserted away.
-    for rule in ("declared", "informed"):
-        n = int((ok[f"ctrl_{rule}"] < 0).sum())
-        C.log(f"  the {rule} rule loses money on {n} of {len(ok)} contracts, "
-              f"which is not a defect: it tenders on an expectation")
-    C.log("")
+    rule_guards(ok)
 
     # ---- what the right is worth ------------------------------------------
     C.log("WHAT THE CONTROL YEARS ARE WORTH, $M a contract. Each rule differs")

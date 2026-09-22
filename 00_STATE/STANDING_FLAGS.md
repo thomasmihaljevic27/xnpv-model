@@ -259,6 +259,22 @@ residuals and currency comparisons; fix and rerun development work before furthe
   mean dollars. Candidates that feed valuation are also scored on expected dollars and on the
   simulated distribution.
 
+- **NEW 2026-09-22h — a fit clipped after its search returns a curve nobody scored.** The
+  persistence fit chose its decay rate on the error of an unconstrained fit and then clipped the
+  winning weights into range, so the curve it returned was never compared with the data. On the
+  goalie 2018 page it turned correlations of 0.25, 0.21 and 0.06 into 0.95. The same pattern sits
+  behind the singular-design flag: a number that satisfies a constraint because it was forced to,
+  after the choice was made, is not an estimate. **The general form:** impose constraints inside the
+  search, choose on the error of what is returned, and check that the returned object is the one
+  scored. Evidence: check 39, `50_REBUILD/docs/Goalie_Control_Years.md`.
+
+- **NEW 2026-09-22h — a model that is only ever asked about its own page hides a dating bug.** The
+  goalie models took the page from the fit. That was harmless in the harness, where fit page and
+  asked page coincide, and wrong the first time a calibrator replayed them on earlier pages. **The
+  general form:** predict-time state is read from the information set passed in, never cached from
+  `fit`, and every model that can be replayed carries a test that asks it about an earlier page.
+  Evidence: check 38.
+
 - **NEW 2026-09-22g — one named forecast, one implementation.** The goalie price runner rebuilt the
   share of the schedule instead of calling the scored arm's rule. The two agreed wherever the share
   model had a fit and parted where it fell back, so every check passed while the priced forecast
