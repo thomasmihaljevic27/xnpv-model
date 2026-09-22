@@ -1,5 +1,12 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-22g (goalie rate repair closure):** Verified `f90e6fe`.
+37/37, exact consumer equality, both negative tests caught, prior forecast values
+preserved and corrected price results reproduced. Closed fallback finding; goalie
+control years next under benchmark/sensitivity defaults. Clarified weighted-rate
+covariance statement for joint-path work. Added closure/audit and state/session.
+No model edits, candidate merge, adoption or canonical production writes.
+
 **Change log, 2026-09-22f (goalie rate review):** Reviewed `0bec937`.
 36/36 and primary results reproduce. Found consumer/scored share-fallback mismatch;
 independent correction changes 8/165 contracts and barely changes price error.
