@@ -290,6 +290,15 @@ unsealed.
 
 ---
 
+**Change log, 2026-09-22 (goalie price-line review):** Reviewed `16d1d5f`.
+Reproduced 33/33, slope table and held-out errors. Independent level-only challenger
+MAE .007456 versus both terms .007489 on 174 identical contracts, difference
+inconclusive. Published dollar-per-win figures are partial UFA slopes holding first
+year fixed; complete forecast changes give different levels/ratios. Added audit,
+review, and state/session updates. Correct two conclusions before settling D7;
+participation may proceed with price specification provisional. No model changes,
+candidate merge, adoption, production writes, or confirmatory market scoring.
+
 **Change log, 2026-09-17d (goalie review closure):** Verified `e42f57c`.
 Reproduced 32/32, corrected table and bootstrap. Production parity within 1.78e-15,
 future intervention zero on 629 subjects, four negative tests caught. Closed three

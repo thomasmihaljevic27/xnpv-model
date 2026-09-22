@@ -1,0 +1,22 @@
+# Review of supervisor Docs 3, 4, and 5
+
+2026-09-10. Document edits only; no production changes or new statistical runs.
+
+## Changes that affect interpretation
+
+- **Contract length, Docs 3 and 5.** Replaced the broad null description with the actual question, sample, and alternatives. The main three-season test covers 1,781 contracts, with a coefficient of -0.0135 wins per season per additional year of term and a 95% interval of -0.0360 to +0.0089. The pooled value-side adjustment remains zero. The forward subgroup estimate is +0.0273, with an interval of +0.0028 to +0.0518; the documents now report it without treating it as an adopted forward adjustment. Evidence: `20_CODE/term_premium_test.py`, `30_OUTPUT/term_premium_test_results.csv`, and its run log. Raw-Game-Value variants remain unrun.
+- **Renewal cost, Doc 3.** Added the existing comparison of first modeled qualifying offers with next observed contracts: 1,439 deals, 48.3% with cap hit at least as large as the offer, median difference about -$0.01M, mean +$0.69M, and 355 salary substitutes. Specified that the salary fallback selects the highest recorded salary on the same contract. Evidence: `rfa_terminal_value.py:226` and `30_OUTPUT/rfa_terminal_value_run_log.txt`.
+- **Control-year survival, Docs 3 and 5.** The terminal calculation initializes qualification survival at one. The NPV calculation discounts its adjusted surplus without multiplying by contract-end survival. This is existing code behavior; the effect of departure before expiry should be reviewed separately. Evidence: `rfa_terminal_value.py:367` and `contract_npv.py:413`. No double-gating fix was inferred or implemented.
+- **Draft uncertainty, Doc 4.** Distinguished the yield script's 2,000-draw bootstrap standard errors from the separately recorded 10,000-draw percentile intervals. Restored the first-overall interval of $9.24M-$18.61M around a $13.65M mean. The interval is taken from DECISIONS item 5.5, not newly rerun. It holds pricing and cost assumptions fixed.
+- **Draft rules, Doc 4.** Restricted the short-appearance cost treatment to seasons before modeled entry-level years are exhausted. Added the default of three years when usable age information is missing. Explained that Rule B applies to skaters with trailing history; goalies and missing-history cases retain zero post-entry-level surplus. Preserved the unresolved defence value/cost slope mismatch. Evidence: `draft_yield_curve.py:285-359`.
+- **Validation scope, Doc 5.** Specified the primary comparison of trailing WAR for season t with adjusted Game Value in t, and the secondary t+1 comparison. This checks the baseline against later production, not the full multi-year projection or dollar valuation. Preserved the xG refit exposure and corrected aging-era scope. Distinguished the completed yardstick experiment from an unrun direct estimate of full-panel effects on contract values.
+
+## Legal timing and existing limits
+
+The qualifying-offer timing warning in Doc 3 remains. The code switches bands for offseasons numbered 2026 onward. The NHLPA's [official CBA page](https://www.nhlpa.com/cba/) confirms that the current agreement runs through September 15, 2026 and the new term begins September 16. The exact amendment is identified in the existing document as item 32 of the [2025 MOU](https://media.nhl.com/site/vasset/public/attachments/2025/07/19116/NHLPA-NHL-MOU-June-27-2025.pdf). The full PDF could not be freshly retrieved through the browsing tool because of its size; this pass does not claim a new full legal audit. No timing correction was made to code.
+
+## Writing and verification
+
+Defined quantities before formulas, explained what tests compared, and replaced repeated caveat endings with direct statements of assumptions and scope. Preserved examples, samples, supporting results, and unresolved issues. Removed repeated instructions to future writers and redundant implementation detail where it did not explain the model.
+
+Edited supervisor copies only. Prior files are archived in `90_ARCHIVE/2026-09-10/docs345-review/`. The resulting documents contain 2,950, 2,605, and 2,267 words, respectively. ZIP/XML integrity and core WordprocessingML schema checks passed. Untouched paragraphs and package parts were checked for exact preservation. Visual pagination remains unverified because the renderer is unavailable in this environment, as established in the preceding document passes.
