@@ -2,18 +2,20 @@
 
 ## Independent rebuild review (2026-09-15)
 
-**Goalie participation review open, 2026-09-22:** reviewed `6e9286e` in isolation.
-34/34 passes, and participation improves Brier and WAR error, but exact figures
-differ (Brier .2101 vs reported .2075; WAR MAE 1.446 vs 1.437, concentrated at h2).
-Contract price consumer uses July page status instead of actual signing-date
-status; correcting only prediction-date features changes 92/205 contracts.
-Check 34 misses a constant participation predictor and compares identical filtered
-inputs for share dating. Annual runner independently ignores future mutations.
-Withdraw the claim that remaining WAR bias is proven unrelated to participation.
-Repair the date path and guard, reconcile the numerical differences, then rerun
-price comparisons. Specification and D7 remain provisional; rate forecasting is
-an experiment, not adoption. See `50_REBUILD/docs/Goalie_Participation_Review_Codex.md`.
-Earlier review closures stand. No candidate merge or model edits.
+**Goalie participation review closed, 2026-09-22:** verified `8d1efc6` in isolation.
+35/35 passes; Brier .2056 and WAR MAE 1.432 reproduce. Signing dates flow through
+per-row prediction; reordered duplicate-player batches and future-contract tests
+pass. Three deliberate defects caught. All 32 goalie optimizer inputs full rank;
+three goalie and fifteen contract-using skater fits drop redundant columns, none
+without contracts. Corrected price level-only MAE .007017; extra slope wins 22%.
+Bias claim corrected. Close preceding findings; proceed to goalie rate experiment.
+Skater contract-data decision stays open: corrected Brier .1326 vs .1340 without,
+WAR gaps +.03% to +.27%, only h2 interval excludes zero. Keep current leader until
+its exact configuration is compared with/without contracts and valued downstream.
+Dropping unknown status imposes an extrapolation assumption on absent training
+categories; it does not identify their separate effects. Pricing and D7 provisional.
+See `50_REBUILD/docs/Goalie_Participation_Repair_Closure_Codex.md`. Earlier closures
+stand. No model edits, candidate merge or adoption.
 
 **Goalie price-line review closed, 2026-09-22:** verified `af61f6c` in isolation.
 Full suite 33/33; all 68 executed fits converge. Same 174 goalie contracts:

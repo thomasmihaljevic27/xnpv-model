@@ -454,6 +454,21 @@ price comparisons. Specification and D7 remain provisional; rate forecasting is
 an experiment, not adoption. See `50_REBUILD/docs/Goalie_Participation_Review_Codex.md`.
 Earlier review closures stand. No candidate merge or model edits.
 
+**Goalie participation review closed, 2026-09-22:** verified `8d1efc6` in isolation.
+35/35 passes; Brier .2056 and WAR MAE 1.432 reproduce. Signing dates flow through
+per-row prediction; reordered duplicate-player batches and future-contract tests
+pass. Three deliberate defects caught. All 32 goalie optimizer inputs full rank;
+three goalie and fifteen contract-using skater fits drop redundant columns, none
+without contracts. Corrected price level-only MAE .007017; extra slope wins 22%.
+Bias claim corrected. Close preceding findings; proceed to goalie rate experiment.
+Skater contract-data decision stays open: corrected Brier .1326 vs .1340 without,
+WAR gaps +.03% to +.27%, only h2 interval excludes zero. Keep current leader until
+its exact configuration is compared with/without contracts and valued downstream.
+Dropping unknown status imposes an extrapolation assumption on absent training
+categories; it does not identify their separate effects. Pricing and D7 provisional.
+See `50_REBUILD/docs/Goalie_Participation_Repair_Closure_Codex.md`. Earlier closures
+stand. No model edits, candidate merge or adoption.
+
 **Goalie price-line review closed, 2026-09-22:** verified `af61f6c` in isolation.
 Full suite 33/33; all 68 executed fits converge. Same 174 goalie contracts:
 no terms MAE .010318, level-only .007457, level-and-slope .007489. Additional
