@@ -225,7 +225,33 @@ the work is. Next, in order:
 5. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
    contract-by-contract dollar reconciliation, and the holdout policy.
 
-**2026-09-22d — repairs for the goalie participation review, awaiting verification.** All four
+**2026-09-22f — the goalie rate forecast: a better rate, not a better season.** Built
+`run_goalie_rate.py` (report `50_REBUILD/docs/Goalie_Rate_Forecast.md`). A per-82 rate, pooled by
+games over three seasons and shrunk toward a norm, beats production's implied rate as a per-game
+forecast (100%). Production's shrunk **season total is still the more accurate season forecast**
+(MAE 1.432 against 1.439 or more; RMSE 2.073 against 2.098 or more, rate arms losing in 98-99%) and
+ranks goaltenders better at every horizon. The **decomposition (rate x share x participation) is
+better calibrated**: bias +0.030 against +0.096, and flatter by role. With a real rate the share model
+helps squared error (lower in 66-70%) and still hurts absolute error. The role term in the norm
+earns nothing. The price line with the decomposed forecast: level-only error 0.008503 against
+0.008635 on 137 common contracts (68%); the slope still fails (28%); the UFA ratio moves again
+(0.73 -> 0.81 on the subset). Suite 36/36. Nothing adopted.
+
+**OPEN DECISION (Thomas) -- which goalie forecast does the model carry, and on what score?**
+- **Production's projector**: more accurate and better at ranking; pooled bias +0.096; it cannot take
+  a modelled share.
+- **Rate x share x participation**: best calibrated, overall and by role; horizon-specific; slightly
+  less accurate.
+
+This also asks a question the whole rebuild has answered implicitly with mean absolute error: when
+nearly half the outcomes are zero, absolute error rewards the median and squared error the mean, and
+a sum of expected dollars wants the mean. Recorded as a standing flag. Production stays the
+benchmark until decided.
+
+**Next (unchanged sequence):** the goalie control-year gate. It needs a goalie forecast per
+contract-season, so it should run on both forecasts if the decision above is still open.
+
+**2026-09-22d — repairs for the goalie participation review (closed by review, `e8bedb4`).** All four
 requested items are done; the review stays open until it is independently re-checked.
 
 1. **The numerical discrepancy is reconciled.** Singular participation designs (the two contract
@@ -248,7 +274,10 @@ WAR error at one to five seasons out; after it +0.03% to +0.27%, with only two s
 zero, and participation Brier better with contracts (0.1326 against 0.1340). The finding is withdrawn
 in conclusion. The leader fits without contracts, partly on that finding; with contracts is now a near
 tie on WAR and better on participation. Not changed here -- a leader change is a deliberate decision,
-and it would move every downstream skater number.
+and it would move every downstream skater number. **Review recommendation (2026-09-22, closure of `8d1efc6`):** keep the
+current leader, and test an otherwise identical leader with contract data, including downstream
+dollar values, before any switch. The ablation used a different ability configuration from the
+leader, so it corrects the historical evidence without choosing between versions of today's leader.
 
 **Next after verification:** the goalie rate forecast (per-82 shrunk toward a rate norm) so rate x
 share x participation decomposes, then the price comparison again, then the control-year gate.

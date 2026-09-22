@@ -24,7 +24,7 @@ import forecast_harness as H
 import player_season_table as T
 from ability_forecast import A0Production
 
-SCRIPT_VERSION = "2.4"
+SCRIPT_VERSION = "2.5"
 
 PASS, FAIL, SKIP = "pass", "FAIL", "skip"
 results: list[tuple[str, str, str]] = []
@@ -1574,6 +1574,74 @@ def c35(table):
             f"the 2019 page resolve identically every time")
 
 
+def c36(table):
+    """THE GOALIE RATE IS A RATE, AND IT CANNOT SEE THE PAGE.
+
+    run_goalie_rate forecasts WAR per 82 by pooling a goaltender's last three
+    seasons weighted by games and recency, then shrinking toward a norm by the
+    games behind it. Three things would break it silently:
+
+      * a trailing window that reached season t0 or beyond, or reached back
+        past three seasons -- asserted by scrambling every season outside the
+        window and requiring identical rates;
+      * pooling that averaged SEASONS rather than GAMES, which gives a 5-game
+        cameo a full season's say in a rate -- asserted on a synthetic
+        goaltender whose answer is known in closed form;
+      * a forecast that is not a shrinkage: on a real page every subject's
+        rate must lie between his own trailing rate and the norm, the fit must
+        refuse a table that holds the page, and a horizon too thin to fit must
+        borrow a SHORTER one.
+    """
+    import numpy as np
+    import goalie_season_table as GST
+    import run_goalie_rate as GR
+    from player_season_table import birthdate_source
+
+    bd, _ = birthdate_source()
+    g = GST.build(birthdate_csv=bd, verbose=False, allow_thin_ages=True)
+    t0 = 2019
+    ref = GR.trailing_rates(g, [t0]).set_index("career_key")
+    rng = np.random.default_rng(36)
+    bad = g.copy()
+    outside = ~bad["syr"].between(t0 - 3, t0 - 1)
+    for c in ("WAR_82", "GP", "gp_share"):
+        bad.loc[outside, c] = rng.permutation(bad.loc[outside, c].to_numpy())
+    got = GR.trailing_rates(bad, [t0]).set_index("career_key").reindex(ref.index)
+    assert np.allclose(got[["r_trail", "games", "s_trail"]].to_numpy(float),
+                       ref[["r_trail", "games", "s_trail"]].to_numpy(float)), (
+        "the trailing rate moved when seasons outside t0-3..t0-1 were scrambled")
+
+    syn = pd.DataFrame({"career_key": ["x", "x"], "syr": [2018, 2017],
+                        "GP": [60, 5], "WAR_82": [5.0, -20.0],
+                        "gp_share": [60 / 82, 5 / 82]})
+    r = GR.trailing_rates(syn, [2019]).iloc[0]
+    d = GR.DECAY
+    want = (60 * 5.0 + d * 5 * -20.0) / (60 + d * 5)
+    assert abs(r["r_trail"] - want) < 1e-12, (r["r_trail"], want)
+    assert abs(r["games"] - (60 + d * 5)) < 1e-12
+
+    try:
+        GR.RateModel().fit(g, t0)
+        raise AssertionError("the rate model accepted a table holding the page")
+    except AssertionError as e:
+        if "accepted" in str(e):
+            raise
+    past = g[g["syr"] < t0]
+    for role in (True, False):
+        m = GR.RateModel(role_norm=role).fit(past, t0)
+        a = GR.trailing_rates(past, [t0])
+        for h in GR.HORIZONS:
+            assert m.from_h_[h] <= h
+            f = m.predict(a, h)
+            lo = np.minimum(a["r_trail"], m.norm(a["s_trail"], h))
+            hi = np.maximum(a["r_trail"], m.norm(a["s_trail"], h))
+            assert ((f >= lo - 1e-9) & (f <= hi + 1e-9)).all(), (
+                f"h{h}: a forecast outside [trailing rate, norm]")
+    return (f"{len(ref)} goaltenders on the {t0} page, rates unmoved by every "
+            f"season outside the window; games pooling exact; the fit refuses "
+            f"the page; every forecast lies between his rate and the norm")
+
+
 def main() -> None:
     warnings.filterwarnings("ignore")
     C.banner("repair_checks.py", SCRIPT_VERSION)
@@ -1629,7 +1697,8 @@ def main() -> None:
                      ("one forecast per page, and age that uses age", c32),
                      ("the pooled price line reads its own goalie slope", c33),
                      ("goalie participation, exercised end to end", c34),
-                     ("no participation fit sees a singular design", c35)]:
+                     ("no participation fit sees a singular design", c35),
+                     ("the goalie rate is a rate, and cannot see the page", c36)]:
         check(name, lambda fn=fn: fn(table))
 
     width = max(len(n) for n, _, _ in results)

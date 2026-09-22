@@ -1,5 +1,36 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-22f (the goalie rate forecast):** Built `run_goalie_rate.py` v1.0. It
+forecasts WAR per 82 in a season he plays: his last three seasons pooled by games and recency,
+shrunk toward a norm by the games behind them, with k (the games at which his record and the norm
+weigh equally) fitted per horizon, and the norm flat or linear in trailing share. Fitted on outcome
+seasons strictly before the page, games-weighted, no age. **Results, development pages:**
+(1) As a per-game forecast it beats production's implied rate (season total over trailing share):
+games-weighted error 3.903 against 4.157, 100% of goaltender-resamples. (2) The shrinkage is heavy
+and grows fast: k is 120-160 games next season and 600 to "no weight at all" from three seasons
+out. (3) The role norm adds nothing (season MAE 1.439 against 1.441; rate error identical); the flat
+norm is carried. (4) **As a season forecast, production's shrunk total stays the most accurate on
+both scores**: MAE 1.432 against 1.439-1.466 and RMSE 2.073 against 2.098-2.105 (the rate arms lose
+on squared error in 98-99% of resamples). It ranks goaltenders better at every horizon (correlation
+0.431 against 0.395 next season, 0.220 against 0.151 four out). (5) The rate decomposition is
+better calibrated: pooled bias +0.096 -> +0.002 (trailing share) / +0.030 (share model). With the
+share model the mean absolute bias across role thirds is 0.079 against production's 0.142.
+(6) **The share model no longer hurts on squared error once the rate is real** (-0.020 to -0.027,
+lower in 66-70%) but still worsens MAE (+0.025, lower in 0-1%). The 22b diagnosis (production's
+total cannot take a modelled share) holds in part, not in full. (7) A season-loss fit (weight
+games squared) made everything worse (MAE 1.503, RMSE 2.120, bias +0.166) and is not in the runner.
+**Price line** (`run_goalie_price_line.py` v2.3, section 4): the decomposed forecast prices 165 of
+205 goaltender contracts (the rest have no 10-game season in the window). On the 137 both forecasts
+can price, level-only error is 0.008503 against 0.008635 (better in 68%, not decisive). With no
+goaltender terms it is 0.010026 against 0.011131 (99%). The slope still does not earn its place
+(28%). The whole-path UFA ratio is 0.81 against 0.73 on the same subset, so the slope remains
+unstable. **Which goalie forecast the model carries is a decision, not a result**: accuracy and
+ranking favour production's total, calibration favours the decomposition. Production's projector
+stays the benchmark and nothing is adopted. Check 36 added; mutation-tested with three mutants
+(window reaching the page, pooling by seasons, forecast overshooting its own rate). Suite **36
+passed, 0 skipped, 0 failed**. No production code changed; no locked decision reopened; D7 not
+settled.
+
 **Change log, 2026-09-22d (closing the goalie participation review):** Four repairs, one recorded
 result withdrawn, and the checks strengthened. **(1) Singular participation designs, the cause of the numerical
 discrepancy.** When every player the contract export knows about is also under contract,
@@ -934,6 +965,8 @@ scored. Review artifacts and state are committed together under the session-clos
 ---
 
 ## Change log (state files)
+
+- **2026-09-22f (goalie rate forecast):** `run_goalie_rate.py` v1.0 (per-82 rate pooled by games, shrunk toward a norm; better rate forecast, 100%); production's season total stays the more accurate season forecast (MAE 1.432, RMSE 2.073) while the rate x share x participation decomposition is better calibrated (bias +0.030, role-third bias 0.079 vs 0.142); share model helps squared error with a real rate, still hurts MAE; `run_goalie_price_line.py` v2.3 adds the decomposed forecast as a sensitivity (level-only 0.008503 vs 0.008635, 68%; UFA ratio 0.81); check 36; suite 36/36. Forecast choice left open. Skater contract-data entry updated with the review's matched-configuration test. State files and `sessions/2026-09-22.md` updated.
 
 - **2026-09-22d (goalie participation review repaired):** Singular participation designs fixed (`participation_model.py` v1.5, deterministic rank rule), explaining the cross-machine discrepancy (corrected goalie Brier 0.2056, WAR error 1.432); goalie price runner dates contract state at the signing (v2.2; 95/205 contracts move, first-season calibration gap recorded; ratio 0.79); Phase 2 "contract data hurts" withdrawn after re-measurement (`run_contract_ablation.py` v1.0); bias inference corrected; checks 34 rewritten and 35 added, mutation-tested; suite 35/35. All four state files and `sessions/2026-09-22.md` updated. No locked decision changed.
 

@@ -154,6 +154,12 @@ So **production's number cannot be split into a rate and a share**, and a better
 cannot be plugged into it. Using the share model needs a goalie **rate** forecast, a per-82 number
 shrunk toward a rate norm. That is the next thing to build.
 
+> **Tested since (`Goalie_Rate_Forecast.md`).** A per-82 rate forecast was built. With it, the share
+> model no longer worsens squared error (−0.020 to −0.027) and the combined forecast is the best
+> calibrated of every arm, overall and by role. But it still worsens mean absolute error, and
+> production's season total remains the more accurate season forecast on both scores. The diagnosis
+> above holds in part, not in full.
+
 ## The pooled bias is not eliminated, and its causes are unresolved
 
 The participation model improves accuracy and brings predicted participation much closer to the

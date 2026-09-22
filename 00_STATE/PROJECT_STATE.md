@@ -194,6 +194,19 @@ These findings take precedence over the earlier broad validation claims. No impl
 changed; repaired development comparisons and the unbuilt simulation work must precede adoption.
 Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 
+**Goalie rate forecast, 2026-09-22f.** `run_goalie_rate.py` v1.0; `run_goalie_price_line.py`
+v2.3. WAR per 82 in a season he plays: his last three seasons pooled by games and recency, shrunk
+toward a norm by the games behind them, k fitted per horizon (120-160 games next season; 600 to "no
+weight" from three seasons out). It beats production's implied rate as a per-game forecast (games-
+weighted error 3.903 against 4.157, 100%). **As a season forecast, production's shrunk total stays
+more accurate** (MAE 1.432, RMSE 2.073, against 1.439-1.466 and 2.098-2.105) and ranks better at every
+horizon. The rate x share x participation decomposition is **better calibrated** (bias +0.030 against
++0.096; mean absolute role-third bias 0.079 against 0.142). With a real rate the share model helps
+squared error and still hurts absolute error. The role term in the norm adds nothing. In the price
+line, the decomposed forecast gives level-only error 0.008503 against 0.008635 on 137 common contracts
+(68%); the slope still fails (28%); the UFA ratio reads 0.81 against 0.73. The forecast choice is an
+open decision; production stays the benchmark. Suite 36/36. See `50_REBUILD/docs/Goalie_Rate_Forecast.md`.
+
 **Goalie participation repaired after review, 2026-09-22d.** `participation_model.py` v1.5,
 `run_goalie_price_line.py` v2.2, new `run_contract_ablation.py` v1.0. **Singular designs:** when every
 player the contract export knows is under contract, the two contract columns mirror each other and

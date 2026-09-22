@@ -66,7 +66,7 @@ from player_season_table import birthdate_source, build as build_skater_table
 from participation_model import ParticipationModel
 from production_currency import FEATURES, ProductionCurrency, _offset
 
-SCRIPT_VERSION = "2.2"
+SCRIPT_VERSION = "2.3"
 
 # The pooled line's own features: the skater set, plus the two terms that
 # answer the question. `is_G` moves a goaltender's price up or down at zero
@@ -112,8 +112,56 @@ def participation_at_page(table: pd.DataFrame, t0: int):
     return p
 
 
+def rate_at_page(table: pd.DataFrame, t0: int):
+    """The decomposed ability-and-role forecast, fitted on what page t0 could
+    see: a per-82 rate shrunk toward a flat norm, times the share model's
+    share of the schedule. Returned as a function of (pkeys, horizon) giving
+    the expected season IF HE PLAYS; the caller multiplies by participation.
+
+    The flat norm, not the role norm: in run_goalie_rate the role term changed
+    nothing (1.466 against 1.464 season MAE, 3.903 against 3.907 rate error),
+    so the simpler target is the one carried. Horizons past the fitted range
+    take the last fitted one, the clamp every goalie forecast here uses.
+    """
+    import run_goalie_participation as GPM
+    import run_goalie_rate as GR
+    past = table[table["syr"] < t0]
+    rm = GR.RateModel(role_norm=False).fit(past, t0)
+    sm = GPM.ShareModel().fit(past, t0)
+    tr = GR.trailing_rates(past, [t0])
+    # THE JOIN RUNS THROUGH pkey (name|position), which the contract census
+    # carries; the rate is keyed on career_key, so the panel supplies the map.
+    keymap = (past[["pkey", "career_key"]].drop_duplicates("pkey")
+              .set_index("pkey")["career_key"])
+    tr = tr.set_index("career_key")
+    a = GPM.goalie_anchors(past[past["GP"] >= C.MIN_GP])
+    a = a[a["t0"] == t0].drop_duplicates("pkey").set_index("pkey")
+
+    def f(pkeys, h: int) -> np.ndarray:
+        hh = min(int(h), max(GB.HORIZONS))
+        ck = keymap.reindex(list(pkeys)).to_numpy()
+        rows = tr.reindex(ck).reset_index()
+        rate = np.full(len(rows), np.nan)
+        ok = rows["r_trail"].notna().to_numpy()
+        if ok.any():
+            rate[ok] = rm.predict(rows[ok], hh)
+        # Share: the share model where it has a fit and an anchor, else his
+        # trailing share (the rate frame's own), the stand-in it replaces.
+        share = rows["s_trail"].to_numpy(float).copy()
+        an = a.reindex(list(pkeys))
+        known = an["t0"].notna().to_numpy()
+        if known.any():
+            got = sm.predict(an[known].reset_index(), hh)
+            if got is not None:
+                sub = share[known]
+                share[known] = np.where(np.isfinite(got), got, sub)
+        return rate * np.clip(share, 0.02, 1.0)
+    return f
+
+
 def goalie_forecasts(sample: pd.DataFrame, table: pd.DataFrame,
-                     participation: str = "flat") -> pd.DataFrame:
+                     participation: str = "flat",
+                     ability: str = "production") -> pd.DataFrame:
     """Production's goalie projector, called at each contract's own page.
 
     One page per distinct `latest_complete`, exactly as the skater attachment
@@ -129,6 +177,14 @@ def goalie_forecasts(sample: pd.DataFrame, table: pd.DataFrame,
       "model_july"  the same model with contract state read at 1 July of the
                     page, which is what the first version did and is kept
                     only so the effect of the correction can be measured.
+
+    `ability` is one of:
+      "production"  production's projector, a season total carried flat;
+      "rate"        run_goalie_rate's per-82 rate times the share model, so
+                    the season forecast is rate x share x participation and
+                    varies by horizon. A contract whose goaltender has no
+                    trailing rate at the page is left out, and the caller
+                    compares forecasts only on contracts both can price.
     """
     proj = GB.production_projector()
     out = []
@@ -139,6 +195,7 @@ def goalie_forecasts(sample: pd.DataFrame, table: pd.DataFrame,
         surv = GB.survival_table(table[table["syr"] < t0], t0)
         pfun = (participation_at_page(table, t0)
                 if participation in ("model", "model_july") else None)
+        rfun = rate_at_page(table, t0) if ability == "rate" else None
         past = table[(table["syr"].between(t0 - 3, t0 - 1))
                      & (table["GP"] >= C.MIN_GP)]
         # KEYED ON THE NORMALISED NAME, which is what production's lookup
@@ -164,7 +221,11 @@ def goalie_forecasts(sample: pd.DataFrame, table: pd.DataFrame,
             continue
         # THE CHANCE HE PLAYS each contract season, for every contract at this
         # page at once, dated at the decision being priced.
-        pmat = {}
+        pmat, rmat = {}, {}
+        if rfun is not None:
+            pkeys = [str(r.pkey) for r, *_ in rows]
+            for h in sorted({h for *_, hs in rows for h in hs}):
+                rmat[h] = rfun(pkeys, h)
         if pfun is not None:
             pkeys = [str(r.pkey) for r, *_ in rows]
             dates = ([pd.Timestamp(r.signed) for r, *_ in rows]
@@ -181,6 +242,14 @@ def goalie_forecasts(sample: pd.DataFrame, table: pd.DataFrame,
             # A season's forecast is the flat projection times the chance he
             # is there to deliver it. The integration rule, applied once.
             per = [war * pr for pr in probs]
+            if rfun is not None:
+                # Or the decomposed season -- rate x share, if he plays -- times
+                # the same chance. A goaltender with no trailing rate is left
+                # out rather than given production's number under this label.
+                ifp = [float(rmat[h][i]) for h in hs]
+                if not np.isfinite(ifp).all():
+                    continue
+                per = [v * pr for v, pr in zip(ifp, probs)]
             out.append({"contract_id": int(r.contract_id),
                         "war_per_season": float(np.mean(per)),
                         "war_year1": float(per[0]),
@@ -539,9 +608,50 @@ def main() -> None:
     d2["cut"] = d2["signed"].dt.to_period("Q").dt.start_time
     compare_specs(d2)
     last_fit_responses(d2)
-    C.log("  The goaltender specification stays provisional: the rate forecast")
-    C.log("  the share model needs is not built yet, and it moves this input")
-    C.log("  again.")
+    # ---- 4. the decomposed forecast ----------------------------------------
+    C.log("THE SAME COMPARISON ON THE DECOMPOSED FORECAST. Rate x share x")
+    C.log("participation: run_goalie_rate's per-82 rate (flat norm), the share")
+    C.log("model, and the participation model dated at the signing. It is a")
+    C.log("SENSITIVITY, not a replacement: as a season forecast it is better")
+    C.log("calibrated than production's projector and ranks goaltenders less")
+    C.log("well (run_goalie_rate). Both forecasts are scored on the contracts")
+    C.log("both can price.")
+    C.log("")
+    gf3 = goalie_forecasts(go_s, g_table, participation="model", ability="rate")
+    go3 = go_s.merge(gf3, on="contract_id", how="inner")
+    go3 = go3[go3["start_yr"].isin(cohorts)].copy()
+    common = set(go3["contract_id"]) & set(go2["contract_id"])
+    C.log(f"  {len(go3)} goaltender contracts carry the decomposed forecast; "
+          f"{len(common)} of the {len(go2)} above are in both")
+    go2c = go2[go2["contract_id"].isin(common)]
+    go3c = go3[go3["contract_id"].isin(common)]
+    mv = go2c.merge(go3c[["contract_id", "war_per_season"]], on="contract_id",
+                    suffixes=("", "_rate"))
+    dv = mv["war_per_season_rate"] - mv["war_per_season"]
+    C.log(f"  against the production-projector forecast the season average moves "
+          f"{dv.mean():+.3f} WAR on average,")
+    C.log(f"  {dv.abs().mean():.3f} in absolute terms, up to {dv.abs().max():.3f}; "
+          f"correlation {mv[['war_per_season', 'war_per_season_rate']].corr().iloc[0, 1]:.3f}")
+    C.log("")
+    fr = {}
+    for lab, frame in (("production's projector, participation model", go2c),
+                       ("rate x share x participation", go3c)):
+        C.log(f"  {lab}:")
+        d = prep_pooled(sk, frame)
+        d["cut"] = d["signed"].dt.to_period("Q").dt.start_time
+        fr[lab] = compare_specs(d)
+        last_fit_responses(d)
+    C.log("  WHICH FORECAST PRICES GOALTENDERS BETTER, same contracts, same line:")
+    for spec in ("no goaltender terms", "goaltender level only"):
+        gap, share, n_c, n_g = paired_goalie_bootstrap(
+            fr["production's projector, participation model"][spec],
+            fr["rate x share x participation"][spec])
+        C.log(f"    {spec}: the decomposed forecast {gap:+.6f} of mean abs error,")
+        C.log(f"      better in {share:.0%} of resamples of the {n_g} goaltenders")
+    C.log("")
+    C.log("  The goaltender specification stays provisional, and D7 is not")
+    C.log("  settled: the price terms have now been read off four versions of")
+    C.log("  the goalie forecast.")
     C.log("")
 
     r.drop(columns=["coef"]).to_csv(C.out_path("goalie_price_line.csv"),

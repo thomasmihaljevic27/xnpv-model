@@ -227,6 +227,18 @@ residuals and currency comparisons; fix and rerun development work before furthe
 
 ## Standing flags (Karl's identification axes — watch on every design choice)
 
+- **NEW 2026-09-22f — the score decides the winner when half the outcomes are zero.** The rebuild
+  has ranked forecasts by mean absolute error in season WAR. Almost half the goalie cells, and many
+  skater cells, are seasons not played, scored as zero. There absolute error rewards the forecast
+  closest to the **median**, and squared error the one closest to the **mean**. The goalie share model
+  shows the difference directly: on a real rate it improves squared error (lower in 66-70% of
+  resamples) and worsens absolute error (lower in 0-1%). The NPV sums **expected** dollars, which is a
+  mean, so a forecast feeding it should also be judged on squared error and on calibration by
+  subgroup, not on absolute error alone. **Not a change to any recorded result**: every earlier
+  comparison stands as scored. From now on, report both scores and the bias by subgroup wherever a
+  candidate feeds dollars, and treat a split verdict as a decision to surface, not a win to claim.
+  Evidence: `50_REBUILD/docs/Goalie_Rate_Forecast.md`.
+
 - **NEW 2026-09-22d — a fit that "converged" on a singular design is not an estimate.** When every
   player the contract export knows is under contract, `under_contract` is exactly `1 - contract_unknown`
   and the participation design loses a rank. The regularised optimiser then either reported
@@ -239,6 +251,10 @@ residuals and currency comparisons; fix and rerun development work before furthe
   columns that can become complements on a subsample -- by page, by horizon, by position -- needs a rank
   check before the fit, and a result that differs between machines is a symptom to trace, not noise.**
   Evidence: `50_REBUILD/docs/Goalie_Participation.md`, `run_contract_ablation.py`.
+  **Qualification (review, 2026-09-22):** dropping the redundant column makes the fit reproducible;
+  it does not supply the missing information. Where training has no known-but-expired contracts,
+  which column is dropped decides how the model extrapolates to them. That is a modelling
+  assumption, stated, not an estimate.
 
 - **NEW 2026-09-22 — whether a join finds a record can itself be the outcome.** Goaltender
   birthdates come mostly from the contract export, so a goaltender HAS a birthdate largely because he
