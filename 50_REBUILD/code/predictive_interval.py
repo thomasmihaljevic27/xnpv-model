@@ -95,7 +95,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 import information_set as ISET
 
-SCRIPT_VERSION = "1.2"
+SCRIPT_VERSION = "1.3"
 
 # The stated interval. 80% is the plan's own wording ("interval coverage --
 # how often the stated 80% range contained the outcome"), and the harness
@@ -175,6 +175,51 @@ def mixture_quantile(q: float, p_play, mu, sigma, zs: np.ndarray) -> np.ndarray:
     x_hi = mu + sigma * _shape_quantile(hi_u, zs)
 
     return np.where(q <= below, x_lo, np.where(q <= above, 0.0, x_hi))
+
+
+def randomized_pit(draws: np.ndarray, outcome: float, u: float) -> float:
+    """Where an outcome falls in a forecast's own distribution, when that
+    distribution has lumps.
+
+    The probability integral transform of a continuous forecast is F(outcome),
+    and it is uniform on [0, 1] exactly when the forecast is calibrated. A
+    distribution with a point mass breaks that: the salary floor puts many
+    dollar paths at one value, non-participation puts a season at exactly
+    zero, and an outcome sitting on the lump has F jump across it. A nominal
+    80% interval whose end sits on the lump then contains the whole lump and
+    can honestly hold far more than 80%.
+
+    The randomized transform spreads an outcome on a lump uniformly across the
+    lump's share of probability,
+
+        PIT = F(outcome-) + u * (F(outcome) - F(outcome-)),   u ~ U(0, 1),
+
+    and is uniform again under calibration, lumps or no lumps. That is the
+    test used here instead of counting outcomes inside an interval.
+
+    `draws` are the forecast's own simulated values; F is their empirical
+    distribution.
+    """
+    d = np.asarray(draws, dtype=float)
+    below = float(np.mean(d < outcome))
+    at_or_below = float(np.mean(d <= outcome))
+    return below + float(u) * (at_or_below - below)
+
+
+def mixture_pit(x, p_play, mu, sigma, zs: np.ndarray, u) -> np.ndarray:
+    """The randomized transform for the season mixture `mixture_quantile`
+    inverts: a lump of (1 - p_play) at exactly zero, and p_play of the
+    conditional shape around mu. An unplayed season is an outcome of exactly
+    zero and is spread across the lump; a played season is not on the lump
+    (the conditional shape is continuous) and takes the ordinary value."""
+    x = np.asarray(x, dtype=float)
+    p = np.clip(np.asarray(p_play, dtype=float), 1e-9, 1.0)
+    sigma = np.maximum(np.asarray(sigma, dtype=float), 1e-9)
+    g = _shape_cdf((x - np.asarray(mu, dtype=float)) / sigma, zs)
+    lump = (1.0 - p) * (x >= 0.0)
+    below = p * g + (1.0 - p) * (x > 0.0)
+    at = p * g + lump
+    return below + np.asarray(u, dtype=float) * (at - below)
 
 
 def _shape_cdf(x, zs: np.ndarray) -> np.ndarray:

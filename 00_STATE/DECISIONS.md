@@ -1,5 +1,33 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-22i (goalie control-year review: scoring and calibration corrected):**
+`run_goalie_control_years.py` v1.1; `predictive_interval.py` v1.3; check 40. **(1) One scoring
+currency.** Version 1.0 priced each forecast's realised dollars on that forecast's own line, so the
+target moved with the forecast ($0.51M a contract on average, $5.57M at most). SCORING_LINE, the
+default forecast's line, is now declared. It prices both forecasts' valuations and the realised path,
+and the realised target is asserted identical across forecasts; the rate line is the sensitivity.
+Results on 133 ended terms: the rate forecast's simulated value has lower squared error in 44%
+(production's line) and 46% (rate's line) of goaltender-resamples, and lower absolute error in 100%.
+Point values: 27% and 32% on squared error, 96% and 98% on absolute. **Withdrawn: "production's
+simulated value beats the rate's in 64%."** On squared dollar error the forecasts cannot be
+separated. Production stays the provisional default without a dollar advantage. Own-line scoring is
+kept as a labelled sensitivity. **(2) Calibration with lumps.** **Withdrawn: "the simulated band is
+too wide" (93% in the 80% interval) and "the season band is too narrow on played seasons (66%)."**
+The floor puts about half of each contract's draws on one value, and the season has a lump at zero.
+Replaced by the randomized PIT (`randomized_pit`, `mixture_pit`) and coverage relative to the model's
+own draws. Contract level, production: PIT variance 0.078 [0.066, 0.088], central 80% 0.789,
+mean 0.438 [0.391, 0.486] (too high in location, not wrong in spread); excess over own-draw coverage
++3.7 [−0.7, +7.4] at 80% and +7.5 [+1.4, +13.2] at 50%. Rate: all PIT statistics within their
+intervals. Both under-predict floor-level outcomes: +13.9 [+6.4, +21.5] and +10.2 [+2.7, +17.8]
+points. Season level: the conditional band on played seasons is calibrated (central 80% 0.795,
+variance 0.083), and the whole mixture is calibrated. Participation is over-confident in its top
+fifth (0.95 predicted, 0.86 observed; +0.096 [+0.057, +0.141]). **The repair target is the
+participation model's top end, not the band width**; established as a calibration failure, not yet
+as a cause. Check 40 is a calibrated-by-construction lumpy forecast. Naive coverage is 89% and 84%;
+the randomized PIT is uniform. The check fails if either PIT stops randomizing (mean and full
+histogram held, since the central share alone passed an unrandomized PIT). Suite **40 passed, 0
+skipped, 0 failed**. No production code changed; no locked decision reopened.
+
 **Change log, 2026-09-22h (goalie control years and contract dollars):** Built
 `run_goalie_control_years.py` v1.0 on two forecasts declared in advance: production's total (the
 default) and the rate decomposition (the sensitivity). Squared dollar error is primary. It reuses
@@ -22,8 +50,11 @@ forecast and $1.163M on the rate's (rank correlation 0.908); production's rule $
 path adds $0.036M. Term, simulated against point value: +$0.914M and +$0.862M. Against realised
 dollars on 133 ended terms: production point RMSE 6.859 (lowest), production simulated 6.882, rate
 simulated 6.953, rate point 7.002. Rate against production, simulated: lower squared error in 36%,
-lower absolute error in 81%. Bias: rate simulated -0.069, production simulated +0.566. **The
-simulated band over-covers** (80% band 92-93%, 50% band 74-79%, on every page). The season band
+lower absolute error in 81%. [CORRECTED 22i: each forecast was scored on its own line and own target; in
+one currency the rate forecast wins 44-46% on squared error and 100% on absolute.] Bias: rate simulated -0.069, production simulated +0.566. **The
+simulated band over-covers** (80% band 92-93%, 50% band 74-79%, on every page). [WITHDRAWN 22i: the floor's lump inflates naive coverage;
+by randomized PIT the spread is not shown to be wrong, production's location is too high, and
+participation is over-confident at the top.] The season band
 covers 81% overall, but 66% of played seasons and 100% of unplayed ones. The simulated goalie
 premium is not to be cited until the band is recalibrated. Production stays the default goalie
 forecast. Suite **39 passed, 0 skipped, 0 failed**. **Also corrected:** the rate x share wording
@@ -1046,6 +1077,8 @@ scored. Review artifacts and state are committed together under the session-clos
 ---
 
 ## Change log (state files)
+
+- **2026-09-22i (goalie control-year review corrections):** One declared scoring currency (production's line; rate's as sensitivity), realised target asserted identical across forecasts: the forecasts are not separable on squared dollar error (rate 44-46%). Randomized-PIT calibration replaces naive coverage: "band too wide" withdrawn; production's contract distribution sits too high; floor outcomes under-predicted; conditional season band calibrated; participation over-confident in its top fifth. Check 40; suite 40/40. State files and `sessions/2026-09-22.md` updated.
 
 - **2026-09-22h (goalie control years):** `run_goalie_control_years.py` v1.0 on production (default) and rate (sensitivity); control value deciding as you go $1.07M / $1.16M on 21 contracts; term valuations scored against realised dollars on 133 ended terms (production point RMSE 6.859 lowest; rate simulated best on bias); goalie band over-covers. Fixed goalie replay dating (check 38) and the persistence fit's clip-after-search (check 39; skaters unchanged to 1.2e-8). Rate x share wording corrected. Suite 39/39. State files and `sessions/2026-09-22.md` updated.
 

@@ -251,6 +251,19 @@ the work is. Next, in order:
 5. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
    contract-by-contract dollar reconciliation, and the holdout policy.
 
+**2026-09-22i -- goalie control-year review corrected (awaiting verification).**
+- **One currency:** both forecasts and the realised path are priced on production's line (declared;
+  the rate line is the sensitivity). The forecasts are not separable on squared dollar error (rate
+  44-46%). The rate forecast is better on absolute error (100%) and bias. Production stays the
+  provisional default, without a dollar advantage.
+- **Calibration by randomized PIT:** "band too wide" is withdrawn. The contract spread is not shown
+  to be wrong, and the conditional season band is calibrated. Production's contract distribution
+  sits too high (mean PIT 0.44), and floor outcomes are under-predicted by 10-14 points.
+- **The component:** participation is over-confident in its top fifth (0.95 predicted against 0.86
+  observed).
+- **Next goalie item (replaces "recalibrate the band"):** diagnose the participation model's top
+  end, then re-test the contract location and the floor frequency. Do not narrow the band.
+
 **2026-09-22h -- goalie control years and contract dollars (awaiting review).**
 `run_goalie_control_years.py`; report `50_REBUILD/docs/Goalie_Control_Years.md`.
 - **Control years:** deciding as you go is worth $1.07M per owning contract on production's
@@ -265,7 +278,7 @@ the work is. Next, in order:
   Skaters are unchanged.
 - **Next goalie item: recalibrate the goalie band.** The contract-level 80% band covers 92–93%; at
   season level the band covers 66% of played seasons and 100% of unplayed ones. No simulated goalie
-  dollar premium is cited until then.
+  dollar premium is cited until then. [WITHDRAWN 22i: naive coverage with a floor lump; see the entry above.]
 
 **2026-09-22f — the goalie rate forecast: a better rate, not a better season.** Built
 `run_goalie_rate.py` (report `50_REBUILD/docs/Goalie_Rate_Forecast.md`). A per-82 rate, pooled by

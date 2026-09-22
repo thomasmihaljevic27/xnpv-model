@@ -24,7 +24,7 @@ import forecast_harness as H
 import player_season_table as T
 from ability_forecast import A0Production
 
-SCRIPT_VERSION = "2.7"
+SCRIPT_VERSION = "2.8"
 
 PASS, FAIL, SKIP = "pass", "FAIL", "skip"
 results: list[tuple[str, str, str]] = []
@@ -1802,6 +1802,70 @@ def c39(table):
             f"weights in bounds; an unconstrained curve is recovered exactly")
 
 
+def c40(table):
+    """A CALIBRATED FORECAST WITH A LUMP FAILS THE NAIVE COVERAGE TEST, AND
+    PASSES THE ONE USED INSTEAD.
+
+    Built so the right answer is known: the forecast and the outcomes come from
+    the SAME distribution, a contract value floored at the league minimum (a
+    lump at one value) and a season that is zero when he does not play (a lump
+    in the middle). Counting outcomes inside the 10th-90th percentile interval
+    must come out well above 80% here -- which is what the goalie runner once
+    read as "too wide". The randomized PIT must put 80% +- 2 points in its
+    central 80%, and the interval's coverage of outcomes must match its coverage
+    of the model's own draws. Both lumps are exercised: the contract floor with
+    `randomized_pit`, the season zero with `mixture_pit`.
+    """
+    import numpy as np
+    import predictive_interval as PI
+
+    rng = np.random.default_rng(40)
+    n_c, n_draw = 3000, 1500
+    naive, pit, own = [], [], []
+    for i in range(n_c):
+        loc = rng.normal(0.0, 1.0)
+        draws = np.maximum(rng.normal(loc, 1.0, n_draw), 0.0)      # floored at 0
+        y = max(rng.normal(loc, 1.0), 0.0)                          # same law
+        q10, q90 = np.percentile(draws, [10, 90])
+        naive.append(q10 <= y <= q90)
+        own.append(np.mean((draws >= q10) & (draws <= q90)))
+        pit.append(PI.randomized_pit(draws, y, rng.random()))
+    naive, own, pit = np.mean(naive), np.mean(own), np.array(pit)
+    assert naive > 0.85, f"the lump did not inflate naive coverage ({naive:.3f}) -- vacuous"
+    assert abs(np.mean((pit >= 0.1) & (pit <= 0.9)) - 0.80) < 0.02, "PIT not uniform"
+    # The central share alone can come out near 80% by accident -- a PIT that
+    # does not randomize across the lump does -- so the whole histogram and the
+    # mean are held too. Unrandomized, the mean is about 0.67 and one decile
+    # is off by about ten points.
+    hist = np.histogram(pit, bins=10, range=(0, 1))[0] / len(pit)
+    assert abs(pit.mean() - 0.5) < 0.02 and np.abs(hist - 0.1).max() < 0.025, (
+        f"PIT not uniform: mean {pit.mean():.3f}, worst decile off by "
+        f"{np.abs(hist - 0.1).max():.3f}")
+    assert abs(naive - own) < 0.02, "coverage does not match the model's own draws"
+
+    # the season mixture: lump at zero in the MIDDLE of a continuous shape
+    zs = np.sort(rng.standard_normal(4001)); zs = zs - zs.mean()
+    m = 20000
+    p_play = rng.uniform(0.3, 0.95, m)
+    mu = rng.normal(1.0, 1.0, m); sigma = rng.uniform(0.5, 1.5, m)
+    plays = rng.random(m) < p_play
+    y = np.where(plays, mu + sigma * np.interp(rng.random(m), np.linspace(0, 1, len(zs)), zs), 0.0)
+    q10 = PI.mixture_quantile(0.1, p_play, mu, sigma, zs)
+    q90 = PI.mixture_quantile(0.9, p_play, mu, sigma, zs)
+    naive_s = np.mean((y >= q10) & (y <= q90))
+    pits = PI.mixture_pit(y, p_play, mu, sigma, zs, rng.random(m))
+    assert naive_s > 0.83, f"the zero lump did not inflate naive coverage ({naive_s:.3f})"
+    assert abs(np.mean((pits >= 0.1) & (pits <= 0.9)) - 0.80) < 0.015, "mixture PIT not uniform"
+    hs = np.histogram(pits, bins=10, range=(0, 1))[0] / len(pits)
+    assert abs(pits.mean() - 0.5) < 0.01 and np.abs(hs - 0.1).max() < 0.012, (
+        f"mixture PIT not uniform: mean {pits.mean():.3f}, worst decile off by "
+        f"{np.abs(hs - 0.1).max():.3f}")
+    return (f"calibrated by construction: naive 80% coverage {100 * naive:.1f}% (floor) and "
+            f"{100 * naive_s:.1f}% (zero), randomized PIT central share "
+            f"{100 * np.mean((pit >= 0.1) & (pit <= 0.9)):.1f}% and "
+            f"{100 * np.mean((pits >= 0.1) & (pits <= 0.9)):.1f}%")
+
+
 def main() -> None:
     warnings.filterwarnings("ignore")
     C.banner("repair_checks.py", SCRIPT_VERSION)
@@ -1861,7 +1925,8 @@ def main() -> None:
                      ("the goalie rate is a rate, and cannot see the page", c36),
                      ("the forecast priced is the forecast tested", c37),
                      ("a replayed goalie model reads its own page", c38),
-                     ("the persistence fit returns a curve it scored", c39)]:
+                     ("the persistence fit returns a curve it scored", c39),
+                     ("a calibrated forecast with a lump passes the PIT", c40)]:
         check(name, lambda fn=fn: fn(table))
 
     width = max(len(n) for n, _, _ in results)

@@ -194,6 +194,19 @@ These findings take precedence over the earlier broad validation claims. No impl
 changed; repaired development comparisons and the unbuilt simulation work must precede adoption.
 Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 
+**Goalie control-year review corrected, 2026-09-22i.** `run_goalie_control_years.py` v1.1.
+- **Scoring:** both forecasts and the realised path are priced on one declared line (production's).
+  On squared dollar error the forecasts cannot be separated (rate 44-46%); the rate forecast is
+  better on absolute error and bias.
+- **Calibration:** the randomized PIT (`predictive_interval.randomized_pit` / `mixture_pit`, check 40)
+  replaces naive interval coverage, which the floor's lump inflates. "Band too wide" is withdrawn.
+  Production's contract distribution sits too high, floor outcomes are under-predicted, and the
+  conditional season band is calibrated.
+- **The component:** participation is over-confident in its top fifth (+0.096). It is the next goalie
+  repair target.
+
+Suite 40/40.
+
 **Goalie control years, 2026-09-22h.** `run_goalie_control_years.py` v1.0 prices goaltender
 control years and contract terms as dollar distributions, on production's forecast (the default)
 and the rate decomposition (the sensitivity), reusing the skater control-year, band and simulation

@@ -271,6 +271,23 @@ residuals and currency comparisons; fix and rerun development work before furthe
   mean dollars. Candidates that feed valuation are also scored on expected dollars and on the
   simulated distribution.
 
+- **NEW 2026-09-22i — coverage is not calibration when the distribution has a lump, and a score is
+  not a comparison unless the target is common.** Two errors in one runner:
+  - **The lump.** The salary floor put about half of each contract's simulated dollars on one value,
+    so an 80% interval honestly held about 90% of the model's own draws. Reading 93% as "too wide"
+    was wrong. The randomized PIT is uniform under calibration with or without lumps, and check 40
+    demonstrates both on a forecast calibrated by construction.
+  - **The moving target.** Each forecast was scored against realised dollars priced on its own line,
+    so the target moved with the forecast.
+
+  **The general form:**
+  - test distributions with a transform that handles ties, and compare interval coverage with the
+    model's own coverage, not the nominal level;
+  - declare one scoring currency before comparing, and assert that the target is identical across
+    arms.
+
+  Evidence: `50_REBUILD/docs/Goalie_Control_Years.md`.
+
 - **NEW 2026-09-22h — a fit clipped after its search returns a curve nobody scored.** The
   persistence fit chose its decay rate on the error of an unconstrained fit and then clipped the
   winning weights into range, so the curve it returned was never compared with the data. On the

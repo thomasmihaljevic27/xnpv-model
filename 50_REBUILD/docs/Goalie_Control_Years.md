@@ -1,6 +1,6 @@
 # A goaltender's control years, and his contract in dollars
 
-Run 2026-09-22 in `50_REBUILD/` (`run_goalie_control_years.py` v1.0). This is the fifth step of the
+Run 2026-09-22 in `50_REBUILD/` (`run_goalie_control_years.py` v1.1, after an independent review). This is the fifth step of the
 goalie branch in the plan's Phase 5. Development start years only. **Nothing adopted, and no
 production file changed.**
 
@@ -22,10 +22,10 @@ Three questions, each answered on two goalie forecasts declared before the run:
    actually delivered, on contracts whose term has ended.
 
 **The scoring rule was declared in advance.** The target is expected dollars, so squared dollar
-error is the primary score, with mean absolute error and bias beside it. The coverage of the
-simulated bands tests whether the spread is right. A lower WAR error was not assumed to carry
-through, because the league-minimum floor and the control options make dollars a bent function of
-the path.
+error is the primary score, with mean absolute error and bias beside it. Both forecasts are scored
+in one declared currency, and calibration is tested with a transform that allows for the floor's
+lump (both explained below). A lower WAR error was not assumed to carry through, because the
+league-minimum floor and the control options make dollars a bent function of the path.
 
 **Realised dollars** are the same signing-dated price line applied to the WAR he actually produced
 in each term season, with a season he did not play counting as zero. They answer "what the market
@@ -140,89 +140,165 @@ The price of the expected season (the point value) against the average price of 
 | rate | 6.898 | 7.759 | +0.862 | 6.328 | 5.524 | 12.653 |
 
 The two values differ because the price line has a floor: a bad path cannot price below the league
-minimum, so the average of the prices sits above the price of the average.
+minimum, so the average of the prices sits above the price of the average. These figures are each
+forecast on its own price line. Whether the gap is the right size is tested against what happened
+in the calibration section below.
 
-## Against what happened
+## Against what happened, in one currency
 
-Scored on the 133 ended contracts both forecasts price, in $M:
+**The first version scored each forecast against a different target.** Each forecast fits its own
+price line, and version 1.0 priced each forecast's realised dollars on that forecast's own line. So
+changing the forecast also changed the answer it was scored against: on the same 133 ended
+contracts the two realised targets differed by $0.51M a contract on average and $5.57M at most. Its
+headline was that production's simulated value beat the rate forecast's in 64% of resamples. That
+headline is **withdrawn**: it was not a comparison on one target.
 
-| forecast | valuation | **RMSE** | MAE | bias | 80% band covers | 50% band covers |
-|---|---|---:|---:|---:|---:|---:|
-| production | point | **6.859** | 3.496 | −0.376 | — | — |
-| production | simulated | 6.882 | 3.985 | +0.566 | 93.2% | 78.9% |
-| rate | point | 7.002 | 3.498 | −0.957 | — | — |
-| rate | simulated | 6.953 | 3.879 | −0.069 | 91.7% | 73.7% |
+**Now one currency is declared before the comparison: the default forecast's price line.** It prices
+both forecasts' valuations and the realised path. The realised target is computed from each
+forecast's own contract row and asserted identical. The rate forecast's line is the sensitivity.
+RMSE and the other errors are in $M:
 
-Comparisons, resampling goaltenders:
-- **Rate against production, simulated values:**
-  - the rate forecast has lower squared error in 36% of resamples, so production is ahead in 64%;
-  - it has lower absolute error in 81%.
-- **Simulated against point, within each forecast:**
-  - production: the simulated value beats the point value on squared error in 34%;
-  - rate: it beats the point value in 83%.
+| scoring line | forecast | valuation | **RMSE** | MAE | bias |
+|---|---|---|---:|---:|---:|
+| production's (primary) | production | point | **6.859** | 3.496 | −0.376 |
+| | production | simulated | 6.882 | 3.985 | +0.566 |
+| | rate | point | 7.022 | 3.305 | −1.169 |
+| | rate | simulated | 6.923 | 3.730 | −0.159 |
+| rate's (sensitivity) | production | point | 6.876 | 3.737 | −0.104 |
+| | production | simulated | 6.923 | 4.175 | +0.694 |
+| | rate | point | 7.002 | 3.498 | −0.957 |
+| | rate | simulated | 6.953 | 3.879 | −0.069 |
+
+Rate against production, resampling goaltenders:
+
+| scoring line | valuation | lower squared error in | lower absolute error in |
+|---|---|---:|---:|
+| production's | simulated | 44% | 100% |
+| production's | point | 27% | 96% |
+| rate's | simulated | 46% | 100% |
+| rate's | point | 32% | 98% |
 
 **Read by the declared hierarchy:**
+- **On squared error the two forecasts are not distinguishable.** Production's sample RMSE is a
+  little lower, but the rate forecast's simulated value wins 44–46% of resamples.
+- **On absolute error and on bias the rate forecast is ahead**, clearly on absolute error.
+- **Production stays the provisional default** because nothing here overturns it, **not because it
+  has a dollar-performance advantage.**
 
-- **On the primary score, production's forecast stays ahead, but not decisively.** Its point
-  valuation has the lowest squared error, and against the rate forecast's simulated value it wins
-  64% of resamples. The dollar-level test cannot separate the two forecasts: a single contract's
-  realised dollars are very noisy (RMSE about $6.9M against a mean cost of $6.3M), and there are 133
-  contracts.
-- **On bias, the rate forecast's simulated value is the best calibrated** (−$0.07M). Production's
-  simulated value runs $0.57M high while its point value runs $0.38M low.
-- **The two scores split again**, as they did on WAR. Absolute error favours the rate forecast;
-  squared error favours production.
+Each forecast on its own line against its own realised target (the 1.0 comparison) is kept as a
+labelled sensitivity. Its figures are production RMSE 6.882, bias +0.566; rate RMSE 6.953, bias
+−0.069. It is not a common-target test.
 
-## The simulated band is too wide for goaltender contract dollars
+## Is the contract distribution calibrated?
 
-The 80% band holds 92–93% of realised values, and the 50% band holds 74–79%. The over-coverage
-appears on every page with more than a handful of contracts (82–100% at 80%), so the persistence
-defect above is not its cause; fixing it narrowed the 2018 page's spread only a little (sd $5.43M →
-$5.17M).
+**The first version said the simulated band was too wide. That is withdrawn.** It read 93% of
+outcomes inside the 80% interval as "too wide", but the salary floor puts a lump of probability at
+one dollar value. About half of each contract's draws sit exactly there. An interval whose lower end
+sits on the lump contains the whole lump, so a correct forecast can hold far more than 80%. The same
+applies to a season, which is exactly zero when he does not play. Check 40 builds a forecast that is
+calibrated by construction:
+- the naive count gives 89% on the floor example and 84% on the zero example;
+- the test used below gives 80% on both.
 
-**The season-level band is mis-shaped rather than simply too wide.** Scored in the harness on
-development pages, the 80% band covers 81% of all goalie cells. That average combines:
-- 66% of played seasons, where the band is too narrow;
-- 100% of unplayed seasons, which always fall inside the band because it includes the zero.
+**The test used instead: the randomized PIT**, a probability integral transform with random
+tie-breaking.
+- It records where each outcome falls in the forecast's own distribution. An outcome sitting on a
+  lump is spread uniformly across the lump's probability.
+- It is uniform when the forecast is calibrated, lumps or not: 80% of values lie between 0.1 and
+  0.9, the mean is 0.5, and the variance is 1/12 (0.083).
+- Its variance separates the two failures. A variance below 1/12 means outcomes sit nearer the
+  middle than forecast (too wide); above 1/12, too narrow.
 
-The 50% band covers 62%.
+Beside it, each interval's coverage of outcomes is compared with its coverage of the model's own
+draws. That own-draw coverage is what a calibrated forecast would show. On the scoring line, 133
+ended contracts, with 95% intervals from resampling goaltenders:
 
-How that becomes a contract band that is too wide is not established here. The contract spread
-combines the season band, the dependence between seasons and the participation draws. **Until the
-goalie band is recalibrated, the simulated premium over the point value ($0.91M on production's
-forecast) should not be taken at face value.** Production's own bias pattern (point −$0.38M,
-simulated +$0.57M) is consistent with a premium larger than the realised dollars support. The rate
-forecast's premium ($0.86M) roughly closes its point bias (−$0.96M), so the pattern is not uniform.
+| | production | rate |
+|---|---:|---:|
+| 80% interval: outcomes / own draws | 93.2% / 89.6% | 91.0% / 89.6% |
+| excess over own draws | +3.7 [−0.7, +7.4] | +1.4 [−3.2, +5.6] |
+| 50% interval: outcomes / own draws | 78.9% / 71.5% | 76.7% / 71.6% |
+| excess over own draws | **+7.5 [+1.4, +13.2]** | +5.1 [−1.4, +11.7] |
+| PIT, central 80% share (0.80) | 0.789 [0.726, 0.852] | 0.782 [0.719, 0.847] |
+| PIT, central 50% share (0.50) | 0.474 [0.398, 0.546] | 0.481 [0.404, 0.559] |
+| PIT mean (0.50) | **0.438 [0.391, 0.486]** | 0.468 [0.421, 0.518] |
+| PIT variance (0.083) | 0.078 [0.066, 0.088] | 0.082 [0.071, 0.093] |
+| outcomes on the floor / own draws there | 59.4% / 45.5% | 59.4% / 49.2% |
+| excess on the floor | **+13.9 [+6.4, +21.5]** | **+10.2 [+2.7, +17.8]** |
+
+What this says:
+- **The spread is not shown to be wrong.** Both forecasts' PIT variances and central shares are
+  within their intervals of the calibrated values.
+- **Production's distribution sits too high.** Outcomes fall low in it (mean PIT 0.44, excluding
+  0.5), which is the same finding as its +$0.57M dollar bias. Its central 50% interval also holds more
+  outcomes than its own draws say it should. The rate forecast's location is within its interval.
+- **Both forecasts under-predict the floor.** 59% of ended contracts delivered floor-level value,
+  against 46–49% of the model's own draws.
+
+## Which component: participation, not the performance band
+
+At season level the distribution is a lump at zero (he does not play) and a conditional band (he
+plays). Tested apart, on every goaltender-season the harness scores on development pages:
+
+| | production | rate |
+|---|---:|---:|
+| conditional band on played seasons: PIT central 80% (0.80) | 0.795 [0.761, 0.826] | 0.813 [0.777, 0.847] |
+| conditional band: PIT central 50% (0.50) | 0.501 [0.458, 0.545] | 0.512 [0.470, 0.554] |
+| conditional band: PIT variance (0.083) | 0.083 [0.075, 0.090] | 0.081 [0.074, 0.088] |
+| whole season distribution: PIT central 80% (0.80) | 0.808 [0.780, 0.837] | 0.810 [0.783, 0.840] |
+| whole season distribution: PIT mean (0.50) | 0.492 [0.469, 0.517] | 0.500 [0.475, 0.526] |
+
+**The conditional performance band is calibrated**, and so is the season distribution as a whole.
+The first version's "66% of played seasons" tested the unconditional interval, built for the mixture
+of playing and not playing, on one group only. That does not measure the conditional band, and it
+is withdrawn.
+
+**Participation is where the miss is.** By fifth of the predicted chance of playing (predicted /
+observed): 0.27/0.26, 0.40/0.42, 0.52/0.56, 0.73/0.67, 0.95/0.86. In the top fifth the model is
++0.096 too confident [+0.057, +0.141]. The same fifths hold for both forecasts, which share the
+participation model. A goaltender forecast to be almost certain to play misses a season more often
+than forecast, which is what the excess of floor-level contracts shows in dollars.
+
+**So the repair is not to narrow the band.** The candidate is the top end of the participation
+model: a goaltender whose record makes him look nearly certain to play. That is established here as a
+calibration failure, not yet as a cause. The overall pooled season calibration is within its
+interval, because the top fifth's excess is offset elsewhere.
 
 ## What this settles and what it does not
 
 **Settled, on development contracts:**
-
 - The goalie control-year and contract-distribution machinery runs on the shared code. The forecast
   it simulates is asserted to be the forecast it prices.
-- Deciding as you go is worth much more than production's rule for goaltenders ($1.07M against
-  $0.13M on the default forecast), and seeing the path so far adds little ($0.04M).
-- The two goalie forecasts agree on ranking the control rights (0.91) and differ by about $0.09M in
-  level.
-- Two defects are fixed, each with a guard: the replay dating of goalie models, and the persistence
-  fit.
+- **Control years:** deciding as you go is worth far more than production's rule for goaltenders
+  ($1.07M against $0.13M on the default forecast, each forecast on its own line), and seeing the path
+  so far adds little ($0.04M).
+- **Dollar scoring:** in one currency, the two forecasts cannot be separated on squared dollar
+  error. The rate forecast is better on absolute error and bias.
+- **Calibration:** the spread of the contract distribution is not shown to be miscalibrated, and the
+  conditional season band is calibrated. Production's contract distribution sits too high, and
+  both forecasts under-predict floor-level outcomes.
+- **Participation** is over-confident in its top fifth.
+- **Two shared defects fixed**, each with a guard: the replay dating of goalie models and the
+  persistence fit.
 
 **Not settled:**
-
-- **Which forecast values goaltenders better in dollars.** Production is ahead on the primary score,
-  not decisively (64%); the rate forecast is better on bias and absolute error. Production stays the
-  default.
-- **The goalie band.** Too wide at contract level, mis-shaped at season level. Recalibrating it is the
-  next piece of goalie work before any simulated goalie dollar figure is cited.
+- **Which forecast values goaltenders better in dollars.** Production stays the provisional default;
+  the dollar test does not favour it.
+- **The participation model's top end:** why the most confident predictions miss, and whether fixing
+  it removes production's upward contract offset and the floor excess.
 - **Control values for goaltenders without an NHL record.** They are outside this sample by
   construction.
 
 ## What is checked
 
-Checks 38 and 39 are new, as above, and each is mutation-tested. The runner itself asserts:
+Checks 38, 39 and 40 are new, and each is mutation-tested. Check 40 is the calibrated-by-
+construction example above. It fails when either PIT function stops randomizing across the lump.
+Such a PIT can still put 80% in its central band by accident, so check 40 also holds the whole
+histogram and the mean. The runner itself asserts:
+- the realised-dollar target is identical across the two forecasts, contract by contract;
 - the folded price line equals the pooled line on every goaltender row;
 - the simulated forecast equals the priced forecast on every contract;
 - nothing beats hindsight;
 - the club's expectation does not move when the future or the unplayed seasons are redrawn.
 
-Suite: **39 passed, 0 skipped, 0 failed**.
+Suite: **40 passed, 0 skipped, 0 failed**.
