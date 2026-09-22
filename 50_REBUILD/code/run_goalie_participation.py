@@ -81,7 +81,7 @@ from ability_forecast import _anchors, W_T1, W_T2
 from participation_model import ParticipationModel
 from player_season_table import birthdate_source
 
-SCRIPT_VERSION = "1.1"
+SCRIPT_VERSION = "1.2"
 
 HORIZONS = GB.HORIZONS
 DECAY = W_T2 / W_T1            # the locked 60/40 recency weighting
@@ -152,6 +152,26 @@ class ShareModel:
         return np.clip(out, 0.02, 1.0)
 
 
+def role_share(share_model, anchors: pd.DataFrame, trail, h: int) -> np.ndarray:
+    """The share of the schedule he plays if he plays, h seasons out.
+
+    The share model's forecast where it has a fit at h and he has an anchor;
+    otherwise his trailing share (`GB.trailing_share`), the stand-in the model
+    replaces. Bounded to [0.02, 1]. `share_model=None` is the trailing share
+    throughout.
+
+    THE ONE FALLBACK RULE. The scored arms and the price runner both call this,
+    so a horizon the share model cannot fit falls back the same way in the
+    forecast that is tested and in the forecast that is priced.
+    """
+    share = np.asarray(trail, dtype=float).copy()
+    if share_model is not None:
+        sm = share_model.predict(anchors, int(h))
+        if sm is not None:
+            share = np.where(np.isfinite(sm), sm, share)
+    return np.clip(share, 0.02, 1.0)
+
+
 class Arm(GB.ProductionProjector):
     """Production's projector for ability, with participation and role each
     either the old stand-in or the new model. Four arms, and each pair that
@@ -193,14 +213,11 @@ class Arm(GB.ProductionProjector):
                 p = p.to_numpy(float)
             else:
                 p = np.full(len(subs), self.surv_[int(h)])
-            share = trail.to_numpy()
-            if self.share_model:
-                sm = self.share_.predict(a.reset_index(), int(h))
-                if sm is not None:
-                    share = np.where(np.isfinite(sm), sm, share)
+            share = role_share(self.share_ if self.share_model else None,
+                               a.reset_index(), trail.to_numpy(), int(h))
             rows.append(pd.DataFrame({
                 "career_key": subs["career_key"].to_numpy(), "h": int(h),
-                "rate_82": rate, "gp_share": np.clip(share, 0.02, 1.0),
+                "rate_82": rate, "gp_share": share,
                 "p_play": np.clip(p, 0.005, 0.995)}))
         return pd.concat(rows, ignore_index=True)
 

@@ -251,19 +251,25 @@ earns nothing. The price line with the decomposed forecast: level-only error 0.0
 0.008635 on 137 common contracts (68%); the slope still fails (28%); the UFA ratio moves again
 (0.73 -> 0.81 on the subset). Suite 36/36. Nothing adopted.
 
-**OPEN DECISION (Thomas) -- which goalie forecast does the model carry, and on what score?**
-- **Production's projector**: more accurate and better at ranking; pooled bias +0.096; it cannot take
-  a modelled share.
-- **Rate x share x participation**: best calibrated, overall and by role; horizon-specific; slightly
-  less accurate.
+**DECIDED 2026-09-22 -- which goalie forecast, and on what score.**
+- **Default:** production's season total, which is more accurate on both scores and ranks better.
+- **Sensitivity:** rate x share x participation, carried into the control-year work.
+- **Scoring hierarchy, declared before the next comparison:**
+  1. squared error is primary for forecasts of expected values;
+  2. mean absolute error is reported alongside;
+  3. so is bias by horizon and by role or tier.
+- **WAR accuracy is not dollar accuracy.** The floor and control options are nonlinear, so the
+  eventual choice is tested on expected dollars and simulated outcome distributions.
 
-This also asks a question the whole rebuild has answered implicitly with mean absolute error: when
-nearly half the outcomes are zero, absolute error rewards the median and squared error the mean, and
-a sum of expected dollars wants the mean. Recorded as a standing flag. Production stays the
-benchmark until decided.
+**2026-09-22g -- repair.** The price runner and the scored arm now share one conditional forecast
+(`ConditionalSeason`). Check 37 asserts they agree on every page and horizon. 8 contracts moved by at
+most 0.0076 WAR per season, and no conclusion changed. Suite 37/37.
 
 **Next (unchanged sequence):** the goalie control-year gate. It needs a goalie forecast per
-contract-season, so it should run on both forecasts if the decision above is still open.
+contract-season, so it runs on production's total (the default) and on the decomposition (the
+sensitivity), scored by the hierarchy above. It reports expected dollars, not only WAR. Any joint
+rate-and-workload path defines its target first: rate times share is the expected season only if the
+two are uncorrelated given the record.
 
 **2026-09-22d — repairs for the goalie participation review (closed by review, `e8bedb4`).** All four
 requested items are done; the review stays open until it is independently re-checked.

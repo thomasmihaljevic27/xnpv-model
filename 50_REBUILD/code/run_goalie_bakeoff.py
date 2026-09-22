@@ -51,7 +51,7 @@ import forecast_harness as H
 import goalie_season_table as GST
 from player_season_table import birthdate_source
 
-SCRIPT_VERSION = "2.2"
+SCRIPT_VERSION = "2.3"
 
 HORIZONS = (0, 1, 2, 3, 4, 5)
 
@@ -118,6 +118,27 @@ def trailing_blend(seasons: pd.DataFrame, t0: int, col: str = "WAR"):
     return blend, n
 
 
+def trailing_share(qual: pd.DataFrame, t0: int, keys) -> pd.Series:
+    """His trailing share of the schedule at page t0, for each of `keys`.
+
+    Qualifying seasons (the caller passes MIN_GP-filtered rows) in t0-3..t0-1,
+    averaged with linearly rising weights over the seasons he has, so the most
+    recent counts most. A goaltender with none takes the page's median, and the
+    result is bounded to [0.05, 1].
+
+    ONE RULE, WHEREVER A TRAILING SHARE IS NEEDED. The bake-off's candidates,
+    the participation runner's arms, the rate runner's arms and the price
+    runner's goalie forecast all call this, because a second implementation
+    with different filters or weights is a second forecast wearing the first
+    one's name -- which is what a review found in the price runner.
+    """
+    w = qual[qual["syr"].between(t0 - 3, t0 - 1)]
+    sh = (w.sort_values("syr").groupby("career_key")["gp_share"]
+          .apply(lambda s: float(np.average(
+              s.to_numpy(), weights=np.linspace(1, 2, len(s))))))
+    return sh.reindex(keys).fillna(sh.median()).clip(0.05, 1.0)
+
+
 def games_behind(seasons: pd.DataFrame, t0: int) -> pd.Series:
     """How many games the trailing window actually rests on. A goaltender's
     evidence is his workload, not the number of calendar seasons he appears
@@ -174,11 +195,7 @@ class GoalieModel:
         """The share of the schedule he plays. Trailing share, carried flat --
         the same rule for every candidate, because this bake-off is about how
         well a goaltender is forecast and not about who gets the starts."""
-        w = self.qual_[self.qual_["syr"].between(self.t0_ - 3, self.t0_ - 1)]
-        sh = (w.sort_values("syr").groupby("career_key")["gp_share"]
-              .apply(lambda s: float(np.average(
-                  s.to_numpy(), weights=np.linspace(1, 2, len(s))))))
-        return sh.reindex(subs["career_key"]).fillna(sh.median()).clip(0.05, 1.0)
+        return trailing_share(self.qual_, self.t0_, subs["career_key"])
 
     def predict(self, iset, subs: pd.DataFrame, horizons) -> pd.DataFrame:
         war = self.war_for(subs)                 # season WAR, per goaltender

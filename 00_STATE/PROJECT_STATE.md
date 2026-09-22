@@ -194,6 +194,16 @@ These findings take precedence over the earlier broad validation claims. No impl
 changed; repaired development comparisons and the unbuilt simulation work must precede adoption.
 Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 
+**Goalie rate review repaired, 2026-09-22g.** The scored decomposition and the price runner now
+share one conditional forecast, `ConditionalSeason` (`run_goalie_rate.py` v1.1,
+`run_goalie_price_line.py` v2.4). Before this, their share-model fallbacks differed. The repair moves 8
+contracts by at most 0.0076 WAR per season, and the price results are unchanged in conclusion
+(level-only 0.008503; decomposed against production 67%; UFA ratio 0.81). Check 37 asserts consumer
+parity on every development page and horizon 0-7. Suite 37/37. **Decided:** production's season
+total is the default goalie season forecast and the decomposition a sensitivity. Squared error is
+the primary score for expected-value forecasts, with MAE and bias by horizon and role alongside. WAR
+accuracy is to be confirmed in expected dollars.
+
 **Goalie rate forecast, 2026-09-22f.** `run_goalie_rate.py` v1.0; `run_goalie_price_line.py`
 v2.3. WAR per 82 in a season he plays: his last three seasons pooled by games and recency, shrunk
 toward a norm by the games behind them, k fitted per horizon (120-160 games next season; 600 to "no

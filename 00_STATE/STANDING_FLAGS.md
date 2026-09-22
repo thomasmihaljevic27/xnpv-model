@@ -252,6 +252,21 @@ residuals and currency comparisons; fix and rerun development work before furthe
   comparison stands as scored. From now on, report both scores and the bias by subgroup wherever a
   candidate feeds dollars, and treat a split verdict as a decision to surface, not a win to claim.
   Evidence: `50_REBUILD/docs/Goalie_Rate_Forecast.md`.
+  **DECIDED 2026-09-22g:** squared error is the primary score for point forecasts entering an
+  expected-value sum; mean absolute error and bias by horizon and role or tier are reported alongside.
+  The hierarchy is declared before each comparison. **And WAR is not dollars:** the salary floor and
+  control options make dollars nonlinear in the WAR path, so pricing the mean path need not give
+  mean dollars. Candidates that feed valuation are also scored on expected dollars and on the
+  simulated distribution.
+
+- **NEW 2026-09-22g — one named forecast, one implementation.** The goalie price runner rebuilt the
+  share of the schedule instead of calling the scored arm's rule. The two agreed wherever the share
+  model had a fit and parted where it fell back, so every check passed while the priced forecast
+  differed from the tested one in 435 cells. **The general form:** a consumer that prices, simulates
+  or reports a forecast must call the same code the scoring harness called, and a parity check must
+  compare consumer and scored arm on every page and horizon, including the fallback, borrowed and
+  clamped paths. Checks that test each side alone cannot see a split between them. Evidence:
+  check 37, `50_REBUILD/docs/Goalie_Rate_Forecast.md`.
 
 - **NEW 2026-09-22d — a fit that "converged" on a singular design is not an estimate.** When every
   player the contract export knows is under contract, `under_contract` is exactly `1 - contract_unknown`

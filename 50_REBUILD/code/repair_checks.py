@@ -24,7 +24,7 @@ import forecast_harness as H
 import player_season_table as T
 from ability_forecast import A0Production
 
-SCRIPT_VERSION = "2.5"
+SCRIPT_VERSION = "2.6"
 
 PASS, FAIL, SKIP = "pass", "FAIL", "skip"
 results: list[tuple[str, str, str]] = []
@@ -1642,6 +1642,78 @@ def c36(table):
             f"the page; every forecast lies between his rate and the norm")
 
 
+def c37(table):
+    """THE FORECAST THAT IS PRICED IS THE FORECAST THAT WAS TESTED.
+
+    The price runner's decomposed goalie forecast and the scored arm it is
+    named after ("rate, flat norm, share model") once built the share of the
+    schedule separately. Where the share model had a fit they agreed; where it
+    did not -- the long horizons of the early pages -- each fell back its own
+    way, and 435 cells differed by up to 1.6 WAR. Every other check passed,
+    because none compared the consumer with the arm.
+
+    Asserted on EVERY development page: the price runner's conditional season
+    (rate x share, before participation), reached through the contract
+    census's pkey join, equals the scored arm's rate_82 x gp_share for every
+    goaltender both can price and every horizon from 0 to 7. Horizons 6 and 7
+    must equal the arm's horizon 5 (the clamp). The check must meet at least
+    one cell where the share model falls back and one where the rate borrows a
+    shorter horizon, or it is not testing what failed.
+
+    Participation is left out on purpose: the price runner dates it at each
+    contract's signing, the harness at 1 July of the page, and check 34 covers
+    that difference.
+    """
+    import numpy as np
+    import forecast_harness as H
+    import goalie_season_table as GST
+    import run_goalie_rate as GR
+    import run_goalie_price_line as PL
+    from player_season_table import birthdate_source
+
+    bd, _ = birthdate_source()
+    g = GST.build(birthdate_csv=bd, verbose=False, allow_thin_ages=True)
+    arm = H.Harness(g).run(GR.FlatShare(), pages=C.DEV_PAGES, horizons=GR.HORIZONS)
+    arm["season"] = arm["rate_82"] * arm["gp_share"]
+    arm = arm.set_index(["page", "career_key", "h"])["season"]
+    cells = fallback = borrowed = clamped = 0
+    worst = 0.0
+    for page in C.DEV_PAGES:
+        f = PL.rate_at_page(g, page)
+        cs = f.conditional
+        # career_key -> pkey -> career_key must come back to itself; a namesake
+        # collision is not this check's question and is left out, counted.
+        ck = arm.xs(page, level="page").index.get_level_values("career_key").unique()
+        pk = (g[g["career_key"].isin(ck)].drop_duplicates("career_key")
+              .set_index("career_key")["pkey"].reindex(ck))
+        back = f.keymap.reindex(pk.to_numpy()).to_numpy()
+        keep = back == np.asarray(ck)
+        ck, pk = np.asarray(ck)[keep], pk.to_numpy()[keep]
+        for h in range(0, 8):
+            hh = min(h, max(GR.HORIZONS))
+            want = arm.reindex(pd.MultiIndex.from_arrays(
+                [np.full(len(ck), page), ck, np.full(len(ck), hh)])).to_numpy()
+            got = f(pk, h)
+            ok = np.isfinite(want)
+            assert np.isfinite(got[ok]).all(), f"{page} h{h}: consumer declined a scored cell"
+            d = float(np.abs(got[ok] - want[ok]).max()) if ok.any() else 0.0
+            assert d < 1e-10, f"page {page} h{h}: priced forecast differs by {d:.4f} WAR"
+            worst = max(worst, d)
+            cells += int(ok.sum())
+            clamped += int(ok.sum()) if h > hh else 0
+            if cs.sm is None or cs.sm.coef_.get(hh) is None:
+                fallback += int(ok.sum())
+            else:
+                fallback += int((~cs.anchors_.reindex(ck)["t0"].notna().to_numpy()
+                                 & ok).sum())
+            borrowed += int(ok.sum()) if cs.rm.from_h_[hh] != hh else 0
+    assert fallback > 0, "no share-model fallback met -- the check is vacuous"
+    assert borrowed > 0, "no borrowed rate horizon met -- the check is vacuous"
+    return (f"{cells} page-goaltender-horizon cells, the priced forecast equal to "
+            f"the scored arm (largest gap {worst:.1e}); {fallback} on the share "
+            f"fallback, {borrowed} on a borrowed rate horizon, {clamped} clamped")
+
+
 def main() -> None:
     warnings.filterwarnings("ignore")
     C.banner("repair_checks.py", SCRIPT_VERSION)
@@ -1698,7 +1770,8 @@ def main() -> None:
                      ("the pooled price line reads its own goalie slope", c33),
                      ("goalie participation, exercised end to end", c34),
                      ("no participation fit sees a singular design", c35),
-                     ("the goalie rate is a rate, and cannot see the page", c36)]:
+                     ("the goalie rate is a rate, and cannot see the page", c36),
+                     ("the forecast priced is the forecast tested", c37)]:
         check(name, lambda fn=fn: fn(table))
 
     width = max(len(n) for n, _, _ in results)

@@ -1,5 +1,29 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-22g (goalie rate review repair, and two decisions recorded):**
+(1) **One conditional forecast.** The price runner built its share of the schedule separately from
+the scored "rate, flat norm, share model" arm, and the two fell back differently where the share
+model had no fit (435 cells, up to 1.6 WAR before participation). Now `run_goalie_rate.py` v1.1 holds
+`ConditionalSeason`: the rate, the share, the fallback and the horizon clamp in one place. It is
+called by the scored arm and by `run_goalie_price_line.py` v2.4. `GB.trailing_share` and
+`GP.role_share` were extracted as the single share rules; the bake-off, participation and rate
+outputs are byte-identical before and after. Effect: 8 contracts change, at most 0.0076 WAR per
+season. Price figures: level-only 0.008503; level and slope 0.008626; no terms 0.010027; decomposed
+against production under the level, 67% (was 68%); UFA ratio 0.81; the slope still fails (28%).
+(2) **Check 37**: the consumer equals the scored arm on every development page and horizon 0-7
+(4,759 cells, gap 0; 1,235 on the share fallback, 1,235 on a borrowed rate horizon, 1,076 clamped).
+Mutation-tested with the old fallback and with a consumer-only wrong clamp. Suite **37 passed, 0
+skipped, 0 failed**. (3) **Decided: production's season total is the default goalie season forecast;
+the rate decomposition is carried as a sensitivity** into the control-year work and is not promoted on
+calibration alone. (4) **Decided: squared error is the primary score** for point forecasts that
+enter an expected-value sum, with mean absolute error and bias by horizon and role alongside, declared
+before the next comparison. (5) Recorded qualifications: the games-weighted rate fit targets an
+exposure-weighted rate. Rate times share equals the expected season only if the two are uncorrelated
+given the anchor, so a joint rate-and-workload path must define its target. And the lowest WAR error
+is not automatically the best dollar valuation, because the floor and control options are nonlinear,
+so candidates are also validated on expected dollars and simulated distributions. No production code
+changed; no locked decision reopened; D7 not settled.
+
 **Change log, 2026-09-22f (the goalie rate forecast):** Built `run_goalie_rate.py` v1.0. It
 forecasts WAR per 82 in a season he plays: his last three seasons pooled by games and recency,
 shrunk toward a norm by the games behind them, with k (the games at which his record and the norm
@@ -973,6 +997,8 @@ scored. Review artifacts and state are committed together under the session-clos
 ---
 
 ## Change log (state files)
+
+- **2026-09-22g (goalie rate review repair):** `ConditionalSeason` shared by the scored arm and the price runner (8 contracts move, max 0.0076 WAR/season; conclusions unchanged); check 37 consumer parity on every page and horizon, mutation-tested; suite 37/37. Recorded: production's total is the default goalie season forecast with the rate decomposition as a sensitivity; squared error primary for expected-value forecasts with MAE and bias by horizon and role alongside; WAR accuracy is not dollar accuracy. State files and `sessions/2026-09-22.md` updated.
 
 - **2026-09-22f (goalie rate forecast):** `run_goalie_rate.py` v1.0 (per-82 rate pooled by games, shrunk toward a norm; better rate forecast, 100%); production's season total stays the more accurate season forecast (MAE 1.432, RMSE 2.073) while the rate x share x participation decomposition is better calibrated (bias +0.030, role-third bias 0.079 vs 0.142); share model helps squared error with a real rate, still hurts MAE; `run_goalie_price_line.py` v2.3 adds the decomposed forecast as a sensitivity (level-only 0.008503 vs 0.008635, 68%; UFA ratio 0.81); check 36; suite 36/36. Forecast choice left open. Skater contract-data entry updated with the review's matched-configuration test. State files and `sessions/2026-09-22.md` updated.
 

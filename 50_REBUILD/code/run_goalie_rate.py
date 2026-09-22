@@ -65,6 +65,17 @@ HOW IT IS FITTED, AND WHAT IT CANNOT SEE
     rather than a bias: an unplayed season is priced at zero by the other
     factor, not by this one.
 
+    WHAT THE WEIGHTED FIT ESTIMATES. Weighting squared error by the games of
+    the outcome season targets an EXPOSURE-WEIGHTED rate -- WAR per 82 per game
+    played -- and not the plain average rate of a randomly chosen played
+    season. The two differ whenever games and performance move together, which
+    for goaltenders they do: the one playing well gets the starts. And the
+    product of a separately fitted rate and a separately fitted share is the
+    expected season only if rate and share are uncorrelated given the anchor;
+    in general E[rate x share] = E[rate] E[share] + their covariance. That is
+    a stated assumption of this decomposition, not an identity, and a joint
+    rate-and-workload path has to define its target explicitly.
+
     NO AGE, for the reason recorded in run_goalie_participation.py: a
     goaltender's birthdate is available mostly because he survived into the
     contract era, so age would carry the outcome in with it.
@@ -89,11 +100,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 import forecast_harness as H
 import goalie_season_table as GST
+import run_goalie_bakeoff as GB
 import run_goalie_participation as GP
 from ability_forecast import W_T1, W_T2
 from player_season_table import birthdate_source
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 
 HORIZONS = GP.HORIZONS
 LAGS = (1, 2, 3)
@@ -219,6 +231,57 @@ class RateModel:
         return w * a["r_trail"].to_numpy(float) + X @ self.coef_[h]
 
 
+class ConditionalSeason:
+    """E[season | he plays] = rate x share at one page: THE ONE IMPLEMENTATION.
+
+    The scored arms below and the price runner's goalie forecast both call
+    this, so the forecast that is tested and the forecast that is priced are
+    the same numbers. An earlier version gave the price runner its own share
+    fallback -- all recorded seasons, recency-decayed -- while the scored arm
+    fell back to `GB.trailing_share`, and 435 page-goaltender-horizon cells
+    differed by up to 1.6 WAR. Everything that decides the number lives here:
+
+      * the rate (`RateModel.predict` on `trailing_rates` at the page);
+      * the share, by `GP.role_share` over `GB.trailing_share`, so a horizon
+        the share model cannot fit falls back one way only;
+      * the horizon clamp: a horizon past the fitted range takes the last
+        fitted one, as every goalie forecast here does.
+
+    Built from seasons strictly before the page, asserted.
+    """
+
+    def __init__(self, seasons: pd.DataFrame, t0: int, rate_model: RateModel,
+                 share_model=None):
+        assert seasons["syr"].max() < t0, "conditional season handed the page"
+        self.t0, self.rm, self.sm = int(t0), rate_model, share_model
+        self.tr_ = trailing_rates(seasons, [t0]).set_index("career_key")
+        self.qual_ = seasons[seasons["GP"] >= C.MIN_GP]
+        a = GP.goalie_anchors(self.qual_)
+        self.anchors_ = (a[a["t0"] == t0].drop_duplicates("career_key")
+                         .set_index("career_key"))
+
+    @staticmethod
+    def clamp(h: int) -> int:
+        return min(int(h), max(HORIZONS))
+
+    def rate(self, keys, h: int) -> np.ndarray:
+        """WAR per 82 if he plays; NaN for a goaltender with no trailing rate."""
+        rows = self.tr_.reindex(list(keys)).reset_index()
+        out = np.full(len(rows), np.nan)
+        ok = rows["r_trail"].notna().to_numpy()
+        if ok.any():
+            out[ok] = self.rm.predict(rows[ok], self.clamp(h))
+        return out
+
+    def share(self, keys, h: int) -> np.ndarray:
+        trail = GB.trailing_share(self.qual_, self.t0, list(keys))
+        anchors = self.anchors_.reindex(list(keys)).reset_index()
+        return GP.role_share(self.sm, anchors, trail.to_numpy(), self.clamp(h))
+
+    def season(self, keys, h: int) -> np.ndarray:
+        return self.rate(keys, h) * self.share(keys, h)
+
+
 class RateArm(GP.Arm):
     """The participation runner's arm, with production's season total replaced
     by the rate forecast. Participation and share come from the parent, so
@@ -238,17 +301,22 @@ class RateArm(GP.Arm):
         if self.rate_model is None:
             return out
         assert subs["career_key"].is_unique
-        a = trailing_rates(iset.seasons[iset.seasons["syr"] < iset.t0], [iset.t0])
-        a = a.set_index("career_key").reindex(subs["career_key"])
-        # Every harness subject has a qualifying season in the window, so every
-        # one has a trailing rate. Asserted: a missing rate is a broken join.
-        assert a["r_trail"].notna().all(), "a subject has no trailing rate"
-        a = a.reset_index()
+        cs = ConditionalSeason(iset.seasons[iset.seasons["syr"] < iset.t0],
+                               iset.t0, self.rate_,
+                               self.share_ if self.share_model else None)
+        keys = subs["career_key"].to_numpy()
         for h in horizons:
-            rate = pd.Series(self.rate_.predict(a, int(h)),
-                             index=subs["career_key"].to_numpy())
-            m = out["h"] == int(h)
-            out.loc[m, "rate_82"] = rate.reindex(out.loc[m, "career_key"]).to_numpy()
+            rate = cs.rate(keys, int(h))
+            # Every harness subject has a qualifying season in the window, so
+            # every one has a trailing rate. A missing rate is a broken join.
+            assert np.isfinite(rate).all(), "a subject has no trailing rate"
+            m = (out["h"] == int(h)).to_numpy()
+            assert (out.loc[m, "career_key"].to_numpy() == keys).all()
+            # The parent computed the share by the same rule; asserted, so the
+            # two can never drift apart again inside one arm.
+            assert np.allclose(out.loc[m, "gp_share"].to_numpy(float),
+                               cs.share(keys, int(h))), "share rules diverged"
+            out.loc[m, "rate_82"] = rate
         return out
 
 

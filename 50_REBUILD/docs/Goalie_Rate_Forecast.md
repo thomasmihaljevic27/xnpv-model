@@ -1,7 +1,7 @@
 # How good is he per game? The goalie rate forecast
 
-Run 2026-09-22 in `50_REBUILD/` (`run_goalie_rate.py` v1.0; price comparison in
-`run_goalie_price_line.py` v2.3). This is the fourth step of the goalie branch in the plan's
+Run 2026-09-22 in `50_REBUILD/` (`run_goalie_rate.py` v1.1; price comparison in
+`run_goalie_price_line.py` v2.4). This is the fourth step of the goalie branch in the plan's
 Phase 5. Development pages only. **Nothing adopted, and no production file changed. The goaltender
 price specification stays provisional.**
 
@@ -53,6 +53,17 @@ the three seasons before the valuation season.
   ordinary weighted least squares, and the k with the lowest weighted squared error is kept.
 - **Thin horizons.** A horizon with fewer than 150 outcome seasons borrows the nearest shorter
   horizon's fit. That happens only on the earliest pages.
+
+**What the weighted fit estimates.** Weighting each outcome season by its games targets an
+*exposure-weighted* rate: WAR per 82 per game played. That is not the plain average rate of a
+randomly chosen played season. The two differ whenever games and performance move together, and for
+goaltenders they do, because the one playing well gets the starts.
+
+The same point limits the product. Multiplying a separately fitted rate by a separately fitted
+share gives the expected season only if rate and share are uncorrelated once the trailing record is
+known. In general the expected product is the product of the expectations *plus their covariance*.
+That is a stated assumption of this decomposition, not an identity. A joint rate-and-workload path
+has to define its target explicitly.
 
 It is fitted only on seasons he played, so it answers "how good, given that he plays", which is
 exactly the factor the product needs. Whether he plays belongs to the participation model. **No
@@ -178,21 +189,35 @@ Both forecasts are compared on the **137 contracts** both can price inside the d
 
 | line | production's projector | rate × share × participation |
 |---|---:|---:|
-| no goaltender terms | 0.011131 | **0.010026** |
+| no goaltender terms | 0.011131 | **0.010027** |
 | goaltender level only | 0.008635 | **0.008503** |
-| goaltender level and slope | 0.008787 | 0.008623 |
+| goaltender level and slope | 0.008787 | 0.008626 |
 | level beats no terms in | 100% of resamples | 99% |
 | slope beats level alone in | 28% | 28% |
 | whole-path response, UFA, skater / goalie | $2.074M / $1.514M (ratio 0.73) | $2.110M / $1.702M (ratio **0.81**) |
 
 Errors are mean absolute error in cap share.
 
+**One forecast, priced as tested.** The first version of this comparison built the share of the
+schedule for pricing separately from the scored forecast. Where the share model had a fit, the two
+agreed. Where it did not, which is the long horizons of the early pages, they fell back differently:
+- the price runner used a share pooled over all recorded seasons with recency decay;
+- the scored forecast used the qualifying-season trailing share.
+
+435 page-goaltender-horizon cells differed, by up to 1.6 WAR before participation.
+
+Both now call one implementation, `ConditionalSeason` in `run_goalie_rate.py`. It carries the rate,
+the share, the share model's fallback and the horizon clamp. The repair changes 8 contracts, by at
+most 0.0076 WAR per season after participation and averaging over the term. The price results move
+in the fourth decimal place or less, and no conclusion changes: the figures in this section are the
+repaired ones.
+
 **Which forecast prices goaltenders better, same contracts, same line.** Resampling the 82
 goaltenders:
 
 - With no goaltender terms, the decomposed forecast cuts mean absolute error by 0.001105, better in
   **99%** of resamples.
-- With the goaltender level, the difference is 0.000133, better in **68%**. That is not decisive.
+- With the goaltender level, the difference is 0.000132, better in **67%**. That is not decisive.
 
 Read plainly:
 
@@ -220,13 +245,28 @@ settled.**
 - With a real rate, the share model no longer damages squared error, and the combined forecast
   (rate × share × participation) is the best calibrated of every arm, overall and by role.
 
-**Not settled:**
+**Decided (2026-09-22):**
 
-- **Which goalie forecast the model should carry.** Production's shrunk season total is the more
-  accurate season forecast on both scores and ranks goaltenders better at every horizon. The
-  decomposition is better calibrated. For a sum of expected dollars, calibration matters and so does
-  ranking; neither forecast wins both. **This is a decision, not a result.** Production's projector
-  stays the goalie benchmark and nothing is adopted.
+- **Production's season total is the default goalie season forecast.** It has the lower season
+  error on both scores and ranks goaltenders better at every horizon. A smaller average bias does not
+  outweigh that on its own, because positive and negative errors can cancel.
+- **The decomposition (rate × share × participation) is carried as a sensitivity** into the
+  control-year work, because it is horizon-specific and the control-year step needs season-by-season
+  forecasts. It is not promoted on calibration alone.
+- **How forecasts are scored from here, declared before the next comparison:**
+  1. **Primary: squared error**, for any point forecast meant to enter an expected-value sum. It
+     targets the conditional mean, which is what a sum of expected dollars needs.
+  2. **Alongside it:** mean absolute error, for the size of a typical miss.
+  3. **Also alongside:** bias by horizon and by role or tier.
+
+  The hierarchy is fixed in advance so that a metric is not picked because a candidate happens to
+  win on it.
+- **The lowest WAR error is not automatically the best dollar valuation.** The salary floor and the
+  control options make dollars a nonlinear function of the WAR path, so pricing the mean path need
+  not give mean dollars. The eventual choice is tested on expected dollars and on the simulated
+  distribution of outcomes, not on WAR scores alone.
+
+**Not settled:**
 - **Why production's total ranks better.** Candidates, none tested here:
   - it keeps 35% of the trailing total at every horizon, where the fitted rate keeps almost nothing
     from three seasons out;
@@ -248,4 +288,21 @@ Check 36, "the goalie rate is a rate, and cannot see the page", asserts four thi
 
 Each has been broken on purpose to confirm the check catches it: a window that reaches the page,
 pooling by seasons instead of games, and a forecast that overshoots past his own rate. All three
-fail. Suite: **36 passed, 0 skipped, 0 failed**.
+fail.
+
+Check 37, "the forecast priced is the forecast tested", compares the price runner's conditional
+season (rate × share, before participation) with the scored arm's. The comparison runs through the
+contract census's name join, on every development page and every horizon from 0 to 7, where 6 and 7
+must equal the arm's clamped horizon 5.
+- It covers 4,759 cells, with a largest gap of exactly zero.
+- It meets 1,235 cells on the share model's fallback and 1,235 on a borrowed rate horizon, so it
+  tests the paths that failed.
+
+Two deliberate breaks both fail it:
+- restoring the old fallback (0.578 WAR apart at the 2015 page, four seasons out);
+- a wrong clamp in the price runner only (1.94 WAR apart at the 2017 page, six seasons out).
+
+Participation is left out of this check on purpose. The price runner dates it at each contract's
+signing and the harness at 1 July, and check 34 covers that.
+
+Suite: **37 passed, 0 skipped, 0 failed**.

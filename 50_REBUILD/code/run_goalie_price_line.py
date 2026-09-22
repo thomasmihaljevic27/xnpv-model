@@ -66,7 +66,7 @@ from player_season_table import birthdate_source, build as build_skater_table
 from participation_model import ParticipationModel
 from production_currency import FEATURES, ProductionCurrency, _offset
 
-SCRIPT_VERSION = "2.3"
+SCRIPT_VERSION = "2.4"
 
 # The pooled line's own features: the skater set, plus the two terms that
 # answer the question. `is_G` moves a goaltender's price up or down at zero
@@ -113,49 +113,35 @@ def participation_at_page(table: pd.DataFrame, t0: int):
 
 
 def rate_at_page(table: pd.DataFrame, t0: int):
-    """The decomposed ability-and-role forecast, fitted on what page t0 could
-    see: a per-82 rate shrunk toward a flat norm, times the share model's
-    share of the schedule. Returned as a function of (pkeys, horizon) giving
-    the expected season IF HE PLAYS; the caller multiplies by participation.
+    """The decomposed forecast at page t0, as a function of (pkeys, horizon)
+    giving the expected season IF HE PLAYS; the caller multiplies by
+    participation.
+
+    It is `run_goalie_rate.ConditionalSeason`, called, not re-implemented: the
+    rate, the share, the share model's fallback and the horizon clamp are the
+    scored arm's own. An earlier version rebuilt the share here with a
+    different fallback, so the forecast that was priced was not quite the one
+    that was tested; check 37 now asserts the two agree on every development
+    page and horizon.
 
     The flat norm, not the role norm: in run_goalie_rate the role term changed
     nothing (1.466 against 1.464 season MAE, 3.903 against 3.907 rate error),
-    so the simpler target is the one carried. Horizons past the fitted range
-    take the last fitted one, the clamp every goalie forecast here uses.
+    so the simpler target is the one carried.
     """
     import run_goalie_participation as GPM
     import run_goalie_rate as GR
     past = table[table["syr"] < t0]
-    rm = GR.RateModel(role_norm=False).fit(past, t0)
-    sm = GPM.ShareModel().fit(past, t0)
-    tr = GR.trailing_rates(past, [t0])
+    cs = GR.ConditionalSeason(past, t0, GR.RateModel(role_norm=False).fit(past, t0),
+                              GPM.ShareModel().fit(past, t0))
     # THE JOIN RUNS THROUGH pkey (name|position), which the contract census
-    # carries; the rate is keyed on career_key, so the panel supplies the map.
+    # carries; the forecast is keyed on career_key, so the panel supplies the map.
     keymap = (past[["pkey", "career_key"]].drop_duplicates("pkey")
               .set_index("pkey")["career_key"])
-    tr = tr.set_index("career_key")
-    a = GPM.goalie_anchors(past[past["GP"] >= C.MIN_GP])
-    a = a[a["t0"] == t0].drop_duplicates("pkey").set_index("pkey")
 
     def f(pkeys, h: int) -> np.ndarray:
-        hh = min(int(h), max(GB.HORIZONS))
-        ck = keymap.reindex(list(pkeys)).to_numpy()
-        rows = tr.reindex(ck).reset_index()
-        rate = np.full(len(rows), np.nan)
-        ok = rows["r_trail"].notna().to_numpy()
-        if ok.any():
-            rate[ok] = rm.predict(rows[ok], hh)
-        # Share: the share model where it has a fit and an anchor, else his
-        # trailing share (the rate frame's own), the stand-in it replaces.
-        share = rows["s_trail"].to_numpy(float).copy()
-        an = a.reindex(list(pkeys))
-        known = an["t0"].notna().to_numpy()
-        if known.any():
-            got = sm.predict(an[known].reset_index(), hh)
-            if got is not None:
-                sub = share[known]
-                share[known] = np.where(np.isfinite(got), got, sub)
-        return rate * np.clip(share, 0.02, 1.0)
+        return cs.season(keymap.reindex(list(pkeys)).to_numpy(), h)
+    f.conditional = cs
+    f.keymap = keymap
     return f
 
 
