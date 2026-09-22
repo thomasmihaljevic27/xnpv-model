@@ -1,5 +1,12 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-22b (goalie price repairs closed):** Verified `af61f6c`.
+Reproduced 33/33, corrected level-only comparison, 263/205/174 counts and whole-path
+price responses. All 68 executed fits converge; independent equation checks and
+three deliberate defects pass/catch as intended. Closed prior findings; participation
+next, pricing provisional and D7 unsettled. Added repair audit and closure report;
+updated state/session. No model edits, candidate merge, adoption or production writes.
+
 **Change log, 2026-09-22 (goalie price-line review):** Reviewed `16d1d5f`.
 Reproduced 33/33, slope table and held-out errors. Independent level-only challenger
 MAE .007456 versus both terms .007489 on 174 identical contracts, difference
