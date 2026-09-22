@@ -210,6 +210,44 @@ the work is. Next, in order:
 5. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
    contract-by-contract dollar reconciliation, and the holdout policy.
 
+**2026-09-22b — the goalie participation model, and a birthdate that encodes the future.** The
+next item. Whether a goaltender plays at all and how much he plays if he does are built and scored
+as separate problems, with ability held at production's projector throughout.
+
+**The main finding came from the first version failing.** Reused unchanged, the skater
+participation model drops rows with no age. A goaltender's birthdate comes mostly from the contract
+export, so having one means he was still playing in the contract era: on the 2019 page, goalie
+anchors WITH a birthdate play at **0.908 / 0.902 / 0.894** zero, three and five seasons out, those
+WITHOUT at **0.557 / 0.257 / 0.119**. The fit learned only from survivors, predicted about 0.87 at
+every horizon against 0.72 falling to 0.37, and lost badly to the flat rate. The first share model
+also carried a has-a-birthdate flag -- the future as a column. **Age is now excluded from both goalie
+models** (`ParticipationModel(exclude=...)`), experience from the panel stands in, and check 34
+asserts the fit keeps every anchor: its base rate equals the anchors' own played rate, which opens a
+0.53 gap if age goes back in. Skaters have 98% coverage and are barely affected.
+
+**Whether he plays:** predicted **0.580** against 0.553 observed (flat rate 0.641), Brier **0.2075**
+against 0.2470, lower in 100% of goaltender-resamples; almost all the gain is in the first three
+horizons. **How much, if he plays:** the share model beats the flat carry on the 2,035 played seasons
+(0.1686 against 0.1801, 100%). **The season:** participation model with trailing share improves WAR
+error from 1.488 to **1.437** (100%). **The share model makes season WAR worse** (1.581, 0%), and
+the reason is structural: production's projector gives a SEASON TOTAL shrunk toward a starter-level
+2.19, so dividing by a backup's small trailing share inflates his implied rate, and a correctly
+higher share forecast (0.22 -> 0.34 for backups) multiplies the inflation -- backup bias +0.13 ->
++0.54. **Production's number cannot be split into rate x share; using the share model needs a goalie
+RATE forecast**, which is next.
+
+**The pooled bias did not move** (+0.100 -> +0.104) even though participation is now roughly right,
+which answers the earlier question: the +0.167 was an illustration, and the remaining bias sits
+elsewhere.
+
+**Price line refitted on the updated forecast:** every line more accurate; the level still carries
+the improvement (100%); the slope is a coin flip (58%); and **the goaltender slope is unstable** --
+the average goalie forecast moved -0.003 WAR yet the whole-path UFA ratio went from 1.07 to **0.75**
+($2.128M skater, $1.603M goalie). Specification provisional; D7 not settled.
+
+Suite **34 passed, 0 skipped, 0 failed**. Nothing adopted. Report: `50_REBUILD/docs/Goalie_Participation.md`.
+**Next: a goalie rate forecast**, so rate x share x participation is a real decomposition.
+
 **2026-09-22 — the goalie price line, corrected: a level, not a slope, and a defined response.**
 Two conclusions from the 09-18b pass were ahead of the evidence, and the review was right about both.
 

@@ -63,9 +63,10 @@ import run_goalie_bakeoff as GB
 from contract_price_model import (contract_sample, attach_forecasts, tobit,
                                   predict_tobit)
 from player_season_table import birthdate_source, build as build_skater_table
+from participation_model import ParticipationModel
 from production_currency import FEATURES, ProductionCurrency, _offset
 
-SCRIPT_VERSION = "2.0"
+SCRIPT_VERSION = "2.1"
 
 # The pooled line's own features: the skater set, plus the two terms that
 # answer the question. `is_G` moves a goaltender's price up or down at zero
@@ -79,7 +80,34 @@ POOLED = FEATURES + ["is_G", "g_x_war"]
 LEVEL_ONLY = FEATURES + ["is_G"]
 
 
-def goalie_forecasts(sample: pd.DataFrame, table: pd.DataFrame) -> pd.DataFrame:
+def participation_at_page(table: pd.DataFrame, t0: int):
+    """The goalie participation model, fitted on what page t0 could see, as a
+    function of (pkey, horizon). Age is excluded for the reason given in
+    `run_goalie_participation`: a goaltender's birthdate is selected on his
+    survival. Horizons past the fitted range take the last fitted one, the
+    same clamp the flat survival rate has always used."""
+    import run_goalie_participation as GPM
+    from contract_source import load_contracts
+    contracts, _ = load_contracts()
+    past = table[table["syr"] < t0]
+    pm = ParticipationModel(contracts, exclude=GPM.PART_EXCLUDE).fit(
+        past, t0, anchors_fn=GPM.goalie_anchors, horizons=GB.HORIZONS)
+    a = GPM.goalie_anchors(past[past["GP"] >= C.MIN_GP])
+    a = a[a["t0"] == t0].drop_duplicates("pkey")
+    cache = {}
+
+    def p(pkey: str, h: int) -> float:
+        hh = min(int(h), max(GB.HORIZONS))
+        if hh not in cache:
+            s = pm.predict(a, hh)
+            cache[hh] = pd.Series(s.to_numpy(), index=a["pkey"].to_numpy())
+        v = cache[hh].get(pkey)
+        return float(v) if v is not None and np.isfinite(v) else float(pm.base_[hh])
+    return p
+
+
+def goalie_forecasts(sample: pd.DataFrame, table: pd.DataFrame,
+                     participation: str = "flat") -> pd.DataFrame:
     """Production's goalie projector, called at each contract's own page.
 
     One page per distinct `latest_complete`, exactly as the skater attachment
@@ -94,9 +122,13 @@ def goalie_forecasts(sample: pd.DataFrame, table: pd.DataFrame) -> pd.DataFrame:
         t0 = int(L) + 1
         if t0 < C.FIRST_SOURCE_SEASON + 3:
             continue
-        # The chance he is in the league, on the same estimator the bake-off
-        # shared, fitted before this page.
+        # The chance he is in the league: either the flat survival rate the
+        # bake-off shared, or the participation model, both fitted before
+        # this page. `participation` says which, so the price comparison can
+        # be run on each and the two read side by side.
         surv = GB.survival_table(table[table["syr"] < t0], t0)
+        pfun = (participation_at_page(table, t0)
+                if participation == "model" else None)
         past = table[(table["syr"].between(t0 - 3, t0 - 1))
                      & (table["GP"] >= C.MIN_GP)]
         # KEYED ON THE NORMALISED NAME, which is what production's lookup
@@ -118,8 +150,12 @@ def goalie_forecasts(sample: pd.DataFrame, table: pd.DataFrame) -> pd.DataFrame:
                 continue
             # A season's forecast is the flat projection times the chance he
             # is there to deliver it. The integration rule, applied once.
-            per = [float(war) * surv.get(min(h, max(GB.HORIZONS)), surv[max(GB.HORIZONS)])
-                   for h in hs]
+            if pfun is None:
+                per = [float(war) * surv.get(min(h, max(GB.HORIZONS)),
+                                             surv[max(GB.HORIZONS)])
+                       for h in hs]
+            else:
+                per = [float(war) * pfun(str(r.pkey), h) for h in hs]
             out.append({"contract_id": int(r.contract_id),
                         "war_per_season": float(np.mean(per)),
                         "war_year1": float(per[0]),
@@ -207,6 +243,70 @@ def paired_goalie_bootstrap(a: pd.DataFrame, b: pd.DataFrame, n: int = 2000,
         wins += int(s["e_b"].abs().mean() < s["e_a"].abs().mean())
     gap = float(j["e_b"].abs().mean() - j["e_a"].abs().mean())
     return gap, wins / n, len(j), len(keys)
+
+
+def compare_specs(d: pd.DataFrame) -> dict:
+    """Held-out error on the goaltender contracts under the four lines, each
+    refitted at every quarterly cutoff on the contracts signed before it, and
+    the two paired comparisons that matter. Returns the per-contract errors."""
+    specs = (("no goaltender terms", d, FEATURES),
+             ("goaltender level only", d, LEVEL_ONLY),
+             ("goaltender level and slope", d, POOLED),
+             ("a goalie-only line", d[d["is_G"] == 1.0], FEATURES))
+    errs = {name: [] for name, _, _ in specs}
+    for cut, te in d.groupby("cut"):
+        gte = te[te["is_G"] == 1.0]
+        if gte.empty:
+            continue
+        for name, frame, feats in specs:
+            coef, _n = fit_rolling(frame, feats, cut)
+            if coef is None:
+                continue
+            pred = np.maximum(predict_tobit(coef, gte[feats].to_numpy(float)),
+                              gte["floor_share"].to_numpy(float))
+            errs[name].append(pd.DataFrame({
+                "e": pred - gte["cap_share"].to_numpy(float),
+                "contract_id": gte["contract_id"].to_numpy(),
+                "pkey": gte["pkey"].to_numpy()}))
+    C.log(f"    {'line':<30}{'goalie contracts':>18}{'mean abs error':>17}"
+          f"{'bias':>11}")
+    frames = {}
+    for name, parts in errs.items():
+        if not parts:
+            C.log(f"    {name:<30}{'--':>18}     never fitted: too few contracts")
+            continue
+        e = pd.concat(parts, ignore_index=True)
+        frames[name] = e
+        note = "   <- too few to read" if len(e) < 30 else ""
+        C.log(f"    {name:<30}{len(e):>18}{e['e'].abs().mean():>17.6f}"
+              f"{e['e'].mean():>+11.6f}{note}")
+    C.log("")
+    for a_name, b_name in (("no goaltender terms", "goaltender level only"),
+                           ("goaltender level only", "goaltender level and slope")):
+        gap, share, n_c, n_g = paired_goalie_bootstrap(frames[a_name],
+                                                       frames[b_name])
+        C.log(f"  {b_name} against {a_name}: {gap:+.6f} of mean abs")
+        C.log(f"    error on {n_c} contracts, better in {share:.0%} of resamples "
+              f"of the {n_g} goaltenders")
+    C.log("")
+    return frames
+
+
+def last_fit_responses(d: pd.DataFrame) -> None:
+    """The defined whole-path response on the last fit, for the table that
+    has to say what changes and what stays fixed."""
+    cut = sorted(d["cut"].unique())[-1]
+    coef, n = fit_rolling(d, POOLED, cut)
+    cap = C.cap_path(cut, [int(pd.Timestamp(cut).year)])[int(pd.Timestamp(cut).year)]
+    C.log(f"    {'the change (last fit, ' + str(n) + ' contracts)':<46}"
+          f"{'skater $M':>11}{'goalie $M':>11}{'ratio':>8}")
+    for lab, rfa in (("one more win every season, UFA", False),
+                     ("one more win every season, RFA", True)):
+        sk_v = price_response(coef, POOLED, cap, False, rfa)
+        go_v = price_response(coef, POOLED, cap, True, rfa)
+        C.log(f"    {lab:<46}{sk_v / 1e6:>11.3f}{go_v / 1e6:>11.3f}"
+              f"{go_v / sk_v:>8.2f}")
+    C.log("")
 
 
 def main() -> None:
@@ -323,46 +423,7 @@ def main() -> None:
     C.log("earlier version of this note said the goalie-only line used a")
     C.log("different window, and it did not.")
     C.log("")
-    specs = (("no goaltender terms", d, FEATURES),
-             ("goaltender level only", d, LEVEL_ONLY),
-             ("goaltender level and slope", d, POOLED),
-             ("a goalie-only line", d[d["is_G"] == 1.0], FEATURES))
-    errs = {name: [] for name, _, _ in specs}
-    for cut, te in d.groupby("cut"):
-        gte = te[te["is_G"] == 1.0]
-        if gte.empty:
-            continue
-        for name, frame, feats in specs:
-            coef, _n = fit_rolling(frame, feats, cut)
-            if coef is None:
-                continue
-            pred = np.maximum(predict_tobit(coef, gte[feats].to_numpy(float)),
-                              gte["floor_share"].to_numpy(float))
-            errs[name].append(pd.DataFrame({
-                "e": pred - gte["cap_share"].to_numpy(float),
-                "contract_id": gte["contract_id"].to_numpy(),
-                "pkey": gte["pkey"].to_numpy()}))
-    C.log(f"    {'line':<30}{'goalie contracts':>18}{'mean abs error':>17}"
-          f"{'bias':>11}")
-    frames = {}
-    for name, parts in errs.items():
-        if not parts:
-            C.log(f"    {name:<30}{'--':>18}     never fitted: too few contracts")
-            continue
-        e = pd.concat(parts, ignore_index=True)
-        frames[name] = e
-        note = "   <- too few to read" if len(e) < 30 else ""
-        C.log(f"    {name:<30}{len(e):>18}{e['e'].abs().mean():>17.6f}"
-              f"{e['e'].mean():>+11.6f}{note}")
-    C.log("")
-    for a_name, b_name in (("no goaltender terms", "goaltender level only"),
-                           ("goaltender level only", "goaltender level and slope")):
-        gap, share, n_c, n_g = paired_goalie_bootstrap(frames[a_name],
-                                                       frames[b_name])
-        C.log(f"  {b_name} against {a_name}: {gap:+.6f} of mean abs")
-        C.log(f"    error on {n_c} contracts, better in {share:.0%} of resamples "
-              f"of the {n_g} goaltenders")
-    C.log("")
+    frames = compare_specs(d)
     C.log("  WHAT THIS SUPPORTS: goaltenders need an adjustment on the shared")
     C.log("  line, and a different LEVEL on the same win slope delivers all of")
     C.log("  the improvement. Adding a goaltender slope on top has not earned")
@@ -379,6 +440,39 @@ def main() -> None:
     C.log("")
     C.log("  Cap share, not dollars: 0.01 is a percentage point of the ceiling,")
     C.log("  about $0.8M on a 2021 cap.")
+    C.log("")
+
+    # ---- 3. the same comparison on the updated forecast -------------------
+    C.log("THE SAME COMPARISON ON THE UPDATED FORECAST. The goalie forecast")
+    C.log("above carries the flat survival rate the bake-off shared. The")
+    C.log("participation model replaces it here -- production's projector for")
+    C.log("ability, the participation model for whether he plays, his trailing")
+    C.log("share for how much -- and every line is refitted. The share model is")
+    C.log("NOT used: it forecasts share better but cannot be combined with")
+    C.log("production's season-total projector, for the reason set out in")
+    C.log("`run_goalie_participation`.")
+    C.log("")
+    gf2 = goalie_forecasts(go_s, g_table, participation="model")
+    go2 = go_s.merge(gf2, on="contract_id", how="inner")
+    go2 = go2[go2["start_yr"].isin(cohorts)].copy()
+    moved = go.merge(go2[["contract_id", "war_per_season"]], on="contract_id",
+                     suffixes=("", "_new"))
+    C.log(f"  {len(go2)} goaltender contracts carry the updated forecast; the")
+    C.log(f"  season-average forecast moves by "
+          f"{(moved['war_per_season_new'] - moved['war_per_season']).mean():+.3f} "
+          f"WAR on average")
+    C.log(f"  (mean {moved['war_per_season'].mean():.3f} -> "
+          f"{moved['war_per_season_new'].mean():.3f})")
+    C.log("")
+    d2 = prep_pooled(sk, go2)
+    d2["cut"] = d2["signed"].dt.to_period("Q").dt.start_time
+    compare_specs(d2)
+    last_fit_responses(d2)
+    C.log("  Read beside the first comparison: whether the level still carries")
+    C.log("  the improvement once participation is modelled, and whether the")
+    C.log("  goaltender gap in the whole-path response moves. The specification")
+    C.log("  stays provisional either way -- the rate forecast the share model")
+    C.log("  needs is not built yet, and it moves this input again.")
     C.log("")
 
     r.drop(columns=["coef"]).to_csv(C.out_path("goalie_price_line.csv"),

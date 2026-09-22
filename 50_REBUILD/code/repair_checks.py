@@ -1390,6 +1390,75 @@ def c33(table):
             f"enters; a later signing cannot move the line")
 
 
+def c34(table):
+    """THE GOALIE PARTICIPATION FIT LEARNS FROM EVERY GOALTENDER, NOT THE
+    SURVIVORS, AND CANNOT SEE THE PAGE IT STANDS ON.
+
+    A goaltender's birthdate comes mostly from the contract export, so having
+    one means he was still in the league in the contract era. The skater
+    participation model drops rows with no age, and run on goaltenders that
+    rule fitted only survivors: about 0.90 at every horizon against an
+    observed rate falling from 0.72 to 0.37. The goalie model excludes age, so
+    the fit keeps every anchor it is given, and its base rate at each horizon
+    must equal the empirical rate of those anchors -- which it cannot if rows
+    are being dropped on a variable selected by the outcome.
+
+    Also asserted: the participation fit and the share-of-schedule fit ignore
+    every season from the page onward, and the anchor builder's new `cols`
+    option leaves the skater default exactly as it was.
+    """
+    import numpy as np
+    import ability_forecast as AF
+    import goalie_season_table as GST
+    import run_goalie_participation as GPM
+    from participation_model import ParticipationModel
+    from contract_source import load_contracts
+    from player_season_table import birthdate_source
+
+    bd, _ = birthdate_source()
+    g = GST.build(birthdate_csv=bd, verbose=False, allow_thin_ages=True)
+    page = 2019
+    past = g[g["syr"] < page]
+    contracts, _ = load_contracts()
+    pm = ParticipationModel(contracts, exclude=GPM.PART_EXCLUDE).fit(
+        past, page, anchors_fn=GPM.goalie_anchors, horizons=GPM.HORIZONS)
+    assert not {"age", "age_sq"} & set(pm.features), pm.features
+
+    a = GPM.goalie_anchors(past[past["GP"] >= C.MIN_GP])
+    have = set(zip(past["career_key"], past["syr"]))
+    worst = 0.0
+    for h in GPM.HORIZONS:
+        ah = a[a["t0"] + h < page]
+        emp = float(np.mean([(k, t0 + h) in have
+                             for k, t0 in zip(ah["career_key"], ah["t0"])]))
+        worst = max(worst, abs(pm.base_[h] - emp))
+    assert worst < 1e-9, (
+        f"the participation fit's base rate differs from its anchors' own "
+        f"played rate by {worst:.3f}: it is dropping rows, and on goaltenders "
+        f"the rows it drops are the ones who left the league")
+
+    # DATED: scrambling every season from the page onward moves nothing.
+    rng = np.random.default_rng(7)
+    poisoned = g.copy()
+    fut = poisoned["syr"] >= page
+    poisoned.loc[fut, "GP"] = rng.integers(1, 80, int(fut.sum()))
+    poisoned.loc[fut, "gp_share"] = rng.random(int(fut.sum()))
+    sm_a = GPM.ShareModel().fit(past, page)
+    sm_b = GPM.ShareModel().fit(poisoned[poisoned["syr"] < page], page)
+    for h in GPM.HORIZONS:
+        ca, cb = sm_a.coef_[h], sm_b.coef_[h]
+        assert (ca is None and cb is None) or np.allclose(ca, cb)
+
+    # The skater anchors are untouched by the new option.
+    sk = table[table["GP"] >= C.MIN_GP]
+    x = AF._anchors(sk, 2, AF.W_T2 / AF.W_T1)
+    y = AF._anchors(sk, 2, AF.W_T2 / AF.W_T1, cols=C.COMPONENTS_MODEL + ["WAR"])
+    pd.testing.assert_frame_equal(x, y)
+    return (f"age excluded; the fit keeps every anchor (base rate matches the "
+            f"anchors' own played rate at all {len(GPM.HORIZONS)} horizons); "
+            f"future seasons move nothing; skater anchors unchanged")
+
+
 def main() -> None:
     warnings.filterwarnings("ignore")
     C.banner("repair_checks.py", SCRIPT_VERSION)
@@ -1443,7 +1512,8 @@ def main() -> None:
                      ("every goalie candidate answers the same question", c30),
                      ("the production benchmark is production", c31),
                      ("one forecast per page, and age that uses age", c32),
-                     ("the pooled price line reads its own goalie slope", c33)]:
+                     ("the pooled price line reads its own goalie slope", c33),
+                     ("goalie participation learns from every goaltender", c34)]:
         check(name, lambda fn=fn: fn(table))
 
     width = max(len(n) for n, _, _ in results)

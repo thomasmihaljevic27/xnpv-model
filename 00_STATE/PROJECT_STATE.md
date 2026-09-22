@@ -194,6 +194,24 @@ These findings take precedence over the earlier broad validation claims. No impl
 changed; repaired development comparisons and the unbuilt simulation work must precede adoption.
 Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 
+**Goalie participation, 2026-09-22b.** `run_goalie_participation.py` v1.1, with
+`participation_model.py` v1.4 (`exclude`) and `ability_forecast._anchors(cols=...)` (skater output
+byte-identical). Whether a goaltender plays and how much he plays if he does are modelled apart,
+ability held at production's projector. **Age is excluded from both goalie models because its
+availability is selected on the outcome**: goalie anchors with a birthdate play at 0.90 at every
+horizon, those without at 0.56/0.26/0.12 at zero/three/five seasons, so the skater rule of dropping
+ageless rows fitted survivors only and predicted about 0.87 everywhere. With age excluded:
+participation predicted 0.580 against 0.553 observed (flat rate 0.641), Brier 0.2075 against 0.2470
+(100% of goaltender-resamples); the share-of-schedule model beats the flat carry on played seasons
+(0.1686 against 0.1801); season WAR error 1.488 -> **1.437** with the participation model and
+trailing share. **The share model worsens season WAR** because production's projector is a season
+total shrunk toward a starter-level average and cannot be split into rate x share -- backup bias
++0.13 -> +0.54 -- so a goalie rate forecast is needed before it can be used. The pooled bias did not
+move (+0.100 -> +0.104). The price line refitted on the updated forecast keeps the level-only result
+(100%), makes the slope a coin flip (58%), and shows **the goaltender slope unstable**: whole-path
+UFA ratio 1.07 -> 0.75 on a -0.003 WAR move in the average forecast. Specification provisional.
+Suite 34/34. See `50_REBUILD/docs/Goalie_Participation.md`.
+
 **Goalie price line corrected after review, 2026-09-22.** `run_goalie_price_line.py` v2.0. Two
 conclusions withdrawn. (1) The first pass compared no goaltender terms against a goaltender level AND
 slope; on the same 174 contracts a **level alone** gives 0.007457 mean absolute error against 0.007489

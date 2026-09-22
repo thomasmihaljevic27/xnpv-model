@@ -1,5 +1,27 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-22b (the goalie participation model):** Built
+`run_goalie_participation.py` v1.1; `participation_model.py` v1.4 gains `exclude`; `_anchors` gains
+`cols` (skater anchors byte-identical, asserted). Participation (does he play at all) and share of the
+schedule given that he plays are modelled and scored separately, with ability held at production's
+projector. **Recorded as a finding: for goaltenders, birthdate availability is selected on the
+outcome.** Birthdates come mostly from the contract export, so goalie anchors with one play at
+about 0.90 at every horizon and those without at 0.56, 0.26 and 0.12 at zero, three and five seasons
+out. The skater model's rule of dropping ageless rows therefore fitted only survivors (about 0.87
+predicted everywhere against 0.72 falling to 0.37), and a has-a-birthdate flag in the first share
+model was a leak. Age is excluded from both goalie models; experience from the panel stands in.
+Results: participation Brier 0.2075 against the flat rate's 0.2470 (100% of goaltender-resamples),
+predicted 0.580 against 0.553 observed; share model better on played seasons (0.1686 against
+0.1801); season WAR error 1.488 -> 1.437 with participation and trailing share. The share model
+worsens season WAR (1.581) because production's season-total projector, shrunk toward a
+starter-level average, cannot be decomposed into rate x share; a goalie rate forecast is required
+before it can be used. The pooled WAR bias did not move (+0.100 -> +0.104), so it is not a
+participation artefact. The price line refitted on the updated forecast keeps the level-only result
+and shows the goaltender slope unstable (whole-path UFA ratio 1.07 -> 0.75 on a -0.003 WAR move in
+the mean forecast). Goaltender specification provisional; D7 not settled. Check 34 added and
+verified by putting age back in. Suite 34 passed, 0 skipped, 0 failed. Nothing adopted; no
+production code changed; no locked decision reopened.
+
 **Change log, 2026-09-22 (answering the goalie price-line review):** Two conclusions of 09-18b
 withdrawn, `run_goalie_price_line.py` v2.0. **(1) "Both the level and the slope differ; one market
 with two terms; the open part of D7 settled for goaltenders" is withdrawn.** The comparison omitted

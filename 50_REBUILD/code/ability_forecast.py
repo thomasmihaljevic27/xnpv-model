@@ -341,15 +341,22 @@ STALE_LOOKBACK = 3
 
 
 def _anchors(played: pd.DataFrame, n_seasons: int = 2,
-             decay: float = W_T2 / W_T1, stale: bool = True) -> pd.DataFrame:
+             decay: float = W_T2 / W_T1, stale: bool = True,
+             cols: list | None = None) -> pd.DataFrame:
     """For every player and every season t0 he could have been valued at, the
     trailing facts from t0-1 and t0-2 only.
 
     Structurally incapable of seeing season t0: it reads t0-1 and t0-2 by
     construction, the same property the production engine's lookup has. The
     caller is responsible for restricting t0 itself.
+
+    `cols` are the production columns blended into trailing totals and rates.
+    The default is the skater components plus WAR. The goalie branch passes
+    ["WAR"] alone, because a goaltender has one number and no components --
+    and passes it here rather than keeping a second copy of the blend, the
+    stale-history rule and the age stepping, which are the same for both.
     """
-    cols = C.COMPONENTS_MODEL + ["WAR"]
+    cols = list(C.COMPONENTS_MODEL + ["WAR"] if cols is None else cols)
     rate_cols = [c + "_82" for c in cols]
     keep = ["career_key", "pkey", "pos", "syr", "GP", "gp_share", "toi_pg",
             "exp_seasons", "exp_censored", "age", "has_age"] + cols + rate_cols
@@ -445,7 +452,7 @@ def _anchors(played: pd.DataFrame, n_seasons: int = 2,
     # what it is. Only pairs MISSING from the window above are added, so no
     # existing anchor changes by a single digit.
     if stale and n_seasons < STALE_LOOKBACK:
-        deep = _anchors(played, STALE_LOOKBACK, decay, stale=False)
+        deep = _anchors(played, STALE_LOOKBACK, decay, stale=False, cols=cols)
         have = pd.MultiIndex.from_arrays([out["career_key"], out["t0"]])
         want = pd.MultiIndex.from_arrays([deep["career_key"], deep["t0"]])
         add = deep[~want.isin(have)].copy()

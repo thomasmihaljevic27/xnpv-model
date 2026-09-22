@@ -155,7 +155,18 @@ samples come off one census with one set of rules.
    +0.167 WAR participation figure in the forecast report was read as a decomposition of the bias
    when it is an illustration of the participation term's scale.
 
+## Refitted on the participation model (2026-09-22, later the same day)
+
+With the goalie participation model replacing the flat survival rate in the forecast, every line is
+more accurate on the same 174 contracts (level only: 0.007292 against 0.007457). The level still
+carries the improvement, in 100% of resamples. The slope goes from losing to a coin flip (58%).
+
+But the goaltender slope is **not stable**. The average goalie forecast moved by only −0.003 WAR, yet
+the whole-path UFA ratio went from **1.07 to 0.75** ($2.128M skater against $1.603M goalie). The
+participation model reorders goaltenders without moving the mean, and the slope estimate follows the
+reordering. It is not identified robustly, and it will move again with the rate forecast. Full
+detail in `Goalie_Participation.md`.
+
 ## Next in the goalie branch
 
-The participation model. Both the forecast and this price line currently carry a flat survival rate
-where a goaltender's share of the schedule — a depth-chart question — should be.
+A goalie rate forecast, so that the share-of-schedule model can be used. Then this comparison again.

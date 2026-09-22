@@ -212,6 +212,18 @@ residuals and currency comparisons; fix and rerun development work before furthe
 
 ## Standing flags (Karl's identification axes — watch on every design choice)
 
+- **NEW 2026-09-22 — whether a join finds a record can itself be the outcome.** Goaltender
+  birthdates come mostly from the contract export, so a goaltender HAS a birthdate largely because he
+  was still playing in the contract era. Goalie anchors with one go on to play at about 0.90 at every
+  horizon; those without at 0.56, 0.26 and 0.12 at zero, three and five seasons out. A model that
+  drops rows missing age -- a routine and apparently neutral step, and the skater participation
+  model's rule -- therefore fits survivors only, and a "has a birthdate" flag is the future written as
+  a column. Skaters have 98% coverage and barely feel it; goaltenders have about half. **The general
+  form, to check on every join in this project:** when the coverage of a merged source varies, test
+  whether coverage predicts the outcome before dropping the uncovered rows or using coverage as a
+  feature. Anywhere a vendor file covers the players who stayed, the gaps are not missing at random.
+  Evidence: `50_REBUILD/docs/Goalie_Participation.md`.
+
 - **NEW 2026-09-22 — a coefficient is not a price until the change it prices is defined.** The
   goalie price line first reported the coefficient on the season-average forecast as "dollars per
   win". It is a partial slope: first-year production held fixed, the restricted interaction left out.
@@ -257,8 +269,11 @@ residuals and currency comparisons; fix and rerun development work before furthe
   is itself worth watching, because a rule carrying a fixed level assumption inherits it. The age
   slope still does not improve the forecast (+0.065 WAR of error, 0% of resamples), which is a
   statement about this implementation on 82 goaltender-seasons a year and not a finding about
-  ageing. The selection concern stands and is untested: the slope is fitted on within-goaltender
-  changes, so it is measured only on goaltenders who played both seasons. Evidence:
+  ageing. The selection concern is now partly measured (2026-09-22b): the slope is fitted on
+  within-goaltender changes among goaltenders WITH a birthdate, and that subsample is heavily
+  survivor-selected -- anchors with a birthdate play at about 0.90 at every horizon against 0.12 to
+  0.56 without. So the negative slope describes survivors, and nothing about goalie ageing should be
+  quoted from it without that qualification. Evidence:
   `50_REBUILD/docs/Goalie_Bakeoff.md`.
 
 - **NEW 2026-09-17, CORRECTED after review — a right priced as an obligation is priced wrong, and

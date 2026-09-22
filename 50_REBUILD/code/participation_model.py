@@ -61,7 +61,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 from player_season_table import norm_name
 
-SCRIPT_VERSION = "1.3"
+SCRIPT_VERSION = "1.4"
 
 BASE_FEATURES = ["age", "age_sq", "level", "gp_share", "exp_seasons", "is_D"]
 CONTRACT_FEATURES = ["under_contract", "contract_unknown"]
@@ -134,8 +134,21 @@ class ParticipationModel:
     regressor would force those two to share a slope on everything else.
     """
 
-    def __init__(self, contracts: pd.DataFrame | None = None):
+    def __init__(self, contracts: pd.DataFrame | None = None,
+                 exclude: tuple = ()):
+        """`exclude` removes features that cannot be used on a population.
+
+        The goalie branch excludes age, and the reason is the whole of why the
+        option exists. A goaltender's birthdate comes mostly from the contract
+        export, so having one means he was still in the league in the contract
+        era -- which is the outcome this model predicts. Among goalie anchors
+        WITH a birthdate the chance of playing three seasons later is 0.90;
+        WITHOUT one it is 0.26. A fit that drops the ageless rows learns from
+        survivors only and predicts about 0.90 at every horizon. Skaters have
+        98% coverage and do not need this; goaltenders have half.
+        """
         self.spans = contract_spans(contracts) if contracts is not None else None
+        self.exclude_ = tuple(exclude)
         # WITHOUT CONTRACT DATA THE TWO CONTRACT COLUMNS ARE CONSTANTS -- zero
         # and one for every row -- so `contract_unknown` is collinear with the
         # intercept and the logistic fit is singular. The first version passed
@@ -143,8 +156,9 @@ class ParticipationModel:
         # base rate for everyone. That is not "participation without contract
         # data", it is no participation model at all, and it silently turned a
         # contract ABLATION into a participation ablation.
-        self.features = list(BASE_FEATURES) + (
+        self.features = [f for f in list(BASE_FEATURES) + (
             list(CONTRACT_FEATURES) if self.spans is not None else [])
+            if f not in self.exclude_]
         self.coef_: dict = {}
         self.base_: dict = {}
         self.coverage_: dict = {}
