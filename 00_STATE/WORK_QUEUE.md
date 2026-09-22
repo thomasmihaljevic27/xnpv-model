@@ -214,8 +214,48 @@ the work is. Next, in order:
 5. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
    contract-by-contract dollar reconciliation, and the holdout policy.
 
-**2026-09-18b — a goalie win prices near a skater win, but a goaltender does not belong on the
-skaters' line unchanged.** The goalie branch's second step, and the question that decides whether
+**2026-09-22 — the goalie price line, corrected: a level, not a slope, and a defined response.**
+Two conclusions from the 09-18b pass were ahead of the evidence, and the review was right about both.
+
+**(1) The comparison left out the simpler answer.** It set no goaltender terms against a goaltender
+level AND slope, and credited the gain to both. On the same 174 contracts:
+
+| line | mean abs error | bias | better than the line above it |
+|---|---:|---:|---:|
+| no goaltender terms | 0.010318 | +0.006627 | -- |
+| **goaltender level only** | **0.007457** | +0.000145 | **100%** of goaltender-resamples |
+| goaltender level and slope | 0.007489 | +0.000140 | 10% |
+
+**A different goaltender price level on the same win slope delivers all of the improvement; a
+goaltender slope on top has not earned its place.** That is not evidence the slopes are equal -- 174
+contracts cannot tell a small difference from none -- and **it does not settle D7**. The goaltender
+specification is provisional while the participation model is built.
+
+**(2) "Dollars per win" was a partial slope.** The coefficient on the season average holds first-year
+production fixed and omits the restricted interaction. Defined explicitly on the last fit, as the
+change in fitted annual price before the league-minimum floor (not a contract value):
+
+| the change | skater $M | goalie $M | ratio |
+|---|---:|---:|---:|
+| partial slope, first year held (UFA) | 0.820 | 0.965 | 1.18 |
+| **one more win every season, UFA** | **2.022** | **2.167** | **1.07** |
+| one more win every season, RFA | 1.928 | 2.073 | 1.08 |
+
+The goaltender gap is one coefficient ($0.145M) in every row, so the ratio depends on which change is
+priced.
+
+**Smaller:** the sample is **263 eligible -> 205 with a forecast -> 174 priced**, not 266; every line
+uses the same expanding quarterly scheme, including the goalie-only one; and the +0.167 WAR
+participation figure is an **illustration** of that term's scale, not a decomposition of the bias --
+corrected in the forecast runner and its report.
+
+Suite **33 passed, 0 skipped, 0 failed**; check 33 now also tests that the whole-path response moves
+every term the forecast enters and that the level-only specification is its own line, verified by
+substituting the partial slope. Nothing adopted. Report rewritten: `50_REBUILD/docs/Goalie_Price_Line.md`.
+**Next: the goalie participation model**, with the price specification provisional.
+
+**2026-09-18b — the first goalie price-line pass. ITS TWO-TERM AND 1.18 CLAIMS ARE WITHDRAWN;
+see the 2026-09-22 entry above.** The goalie branch's second step, and the question that decides whether
 goaltenders can sit on the project's single scale at all.
 
 One censored line over skaters and goaltenders together, with a goaltender indicator and an
@@ -230,7 +270,9 @@ the bake-off's winner; its +0.101 mean error is NOT corrected and no price is mo
 | 2021-01 | 1,270 | 0.899 | 1.047 | 1.16 |
 | **2022-01** | **1,657** | **0.820** | **0.965** | **1.18** |
 
-**A forecast win from a goaltender prices at $0.96M against $0.82M from a skater** on the last fit.
+**[CORRECTED 2026-09-22: these are partial slopes with first-year production held fixed, not
+dollars per win; the whole-path ratio is 1.07]** A forecast win from a goaltender prices at $0.96M
+against $0.82M from a skater on the last fit.
 The ratio runs 0.74 to 1.57 across the window, but the spread is almost all in the early fits: under
 about 600 contracts the interaction is not pinned down, and from 900 on it settles between 0.87 and
 1.22. **A conditional association and not the price of a win** -- nobody randomised who got which
@@ -246,11 +288,10 @@ difference.
 | **one line with goaltender terms** | **174** | **0.0075** | **+0.0001** |
 | a goalie-only line | 5 | -- | never fittable |
 
-Adding the two goaltender terms **cuts held-out error by more than a quarter and takes the bias to
-nothing**. A goalie-only line needs 200 contracts signed before the decision and the development
-sample holds 266 in total, so it first becomes fittable in the last quarter and prices five
-contracts -- unavailable rather than unattractive. **The answer for goaltenders is one market with
-two terms**, not one line for everybody and not a separate market.
+**[WITHDRAWN 2026-09-22]** This entry credited the gain to both goaltender terms and called the
+result "one market with two terms". The comparison left out a goaltender LEVEL alone, which on the
+same 174 contracts delivers all of the improvement; the slope has not earned its place and D7 is not
+settled. The sample figure of 266 is also wrong (263 eligible, 205 with a forecast, 174 priced).
 
 `contract_price_model.contract_sample` now takes a position group rather than assuming skaters, so
 both samples come off one census with one set of rules for the denominator, the floor and the
@@ -296,8 +337,9 @@ candidate is 0.003 WAR worse and wins a third of resamples, which is a tie. **Th
 DIAGNOSTIC, not an established defect** [qualified 2026-09-18 after review]: production's +0.101
 mean error has a career-bootstrap interval of **-0.129 to +0.315**, which contains zero, and the
 shared participation estimator predicts **64.1%** of these seasons played against **55.3%**
-observed -- a gap worth **+0.167 WAR** on its own, more than the whole observed bias, and carried by
-every candidate. So the pooled error cannot be attributed to any ability forecast, only the
+observed -- a gap that, priced at a flat 1.89 WAR per played season, comes to **+0.167 WAR**: an
+ILLUSTRATION of the participation term's scale and not a decomposition of the bias [qualified
+2026-09-22] -- carried by every candidate. So the pooled error cannot be attributed to any ability forecast, only the
 difference between two candidates' biases can, and **nothing downstream should move a dollar price
 to cancel it**; it belongs with the participation model. Weighting by workload is the clear negative
 result (+0.097, 0%).

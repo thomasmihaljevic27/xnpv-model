@@ -1,5 +1,26 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-22 (answering the goalie price-line review):** Two conclusions of 09-18b
+withdrawn, `run_goalie_price_line.py` v2.0. **(1) "Both the level and the slope differ; one market
+with two terms; the open part of D7 settled for goaltenders" is withdrawn.** The comparison omitted
+the simpler specification. On the same 174 goaltender contracts, a goaltender price LEVEL on the
+shared win slope gives 0.007457 of cap share in mean absolute error (bias +0.000145) against 0.007489
+with a goaltender slope added; the level beats no goaltender terms in 100% of goaltender-resamples
+and the slope adds nothing (10%). Recorded as: goaltenders need an adjustment on the shared line and
+the level carries it; the slope has not earned its place; that is not evidence of equal slopes; D7 is
+**not** settled and the goaltender specification is provisional. **(2) "Dollars per win" is
+re-labelled** as the partial slope on the season-average forecast with first-year production held
+fixed, for an unrestricted player. The defined response -- one more expected win in every season,
+every term the forecast enters moving with it -- is $2.022M for a skater against $2.167M for a
+goaltender on the last fit (UFA; RFA $1.928M/$2.073M), a ratio of about 1.07 rather than 1.18, stated
+as a change in the fitted annual price before the league-minimum floor and never as a contract value.
+Also corrected: the development goaltender sample is 263 eligible -> 205 with a forecast -> 174 priced
+(not 266); all lines use expanding samples at quarterly cutoffs (the goalie-only line does not use a
+different window); and the bake-off's +0.167 WAR participation figure is an illustration of scale,
+not a decomposition of the bias. Check 33 extended to the whole-path response and the level-only
+specification and verified by substitution. Suite 33 passed, 0 skipped, 0 failed. Nothing adopted; no
+production code changed; no locked decision reopened.
+
 **Change log, 2026-09-18b (the goalie price line):** Built `run_goalie_price_line.py` v1.0, the
 goalie branch's second step and the question that decides whether goaltenders can sit on the single
 scale at all. One censored line over skaters and goaltenders together with a goaltender indicator
@@ -14,9 +35,9 @@ that the skater and goalie forecasts are built by different rules so part of any
 **Held-out error decides the structural question**: pricing goaltenders on the skaters' line
 unchanged gives 0.0103 of cap share with a +0.0066 bias, adding the two goaltender terms gives
 0.0075 and no bias, and a goalie-only line cannot be fitted at all on 266 development contracts
-(200 are needed before each decision, so it prices five). **For goaltenders the answer is one market
-with two terms** -- not one line for everybody, not a separate market -- which is the open part of
-D7 settled for this position group on development evidence. `contract_price_model.contract_sample`
+(200 are needed before each decision, so it prices five). [WITHDRAWN 2026-09-22: a goaltender level alone
+delivers the improvement; D7 is not settled] For goaltenders the answer was given as one market
+with two terms. `contract_price_model.contract_sample`
 now takes a position group rather than assuming skaters, so both samples come off one census with
 one denominator, floor and signing-date rule. Suite 33 passed, 0 skipped, 0 failed; the new check
 recovers a synthetic goalie slope and refuses a contract signed after the decision, both verified by
@@ -38,8 +59,9 @@ here (1.488 MAE) and nothing beats it**; the closest candidate is +0.003 and win
 so the 2026-09-17f claim of an improvement over production is **withdrawn**. **The bias is a diagnostic, not an
 established defect** (qualified the same day after review): production's +0.101 mean error has a
 career-bootstrap interval of -0.129 to +0.315 containing zero, and the shared participation
-estimator predicts 64.1% of these seasons played against 55.3% observed -- a gap worth +0.167 WAR
-by itself, more than the whole observed bias, and carried by every candidate by design. Only the
+estimator predicts 64.1% of these seasons played against 55.3% observed -- a gap illustrated at
++0.167 WAR (an illustration of scale, not a decomposition of the bias; qualified 2026-09-22) and
+carried by every candidate by design. Only the
 DIFFERENCE between two candidates' biases is attributable here (+0.101 against +0.036), and no
 dollar price downstream may be moved to cancel a pooled error; it is re-examined with the goalie
 participation model. Weighting by workload is the clear negative (+0.097, 0% of resamples). **The ageing

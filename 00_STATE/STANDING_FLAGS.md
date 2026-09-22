@@ -216,6 +216,19 @@ residuals and currency comparisons; fix and rerun development work before furthe
 
 ## Standing flags (Karl's identification axes — watch on every design choice)
 
+- **NEW 2026-09-22 — a coefficient is not a price until the change it prices is defined.** The
+  goalie price line first reported the coefficient on the season-average forecast as "dollars per
+  win". It is a partial slope: first-year production held fixed, the restricted interaction left out.
+  One more expected win in every season moves the fitted annual price by $2.022M for a skater and
+  $2.167M for a goaltender, a ratio of 1.07 against the partial slopes' 1.18. **Every price quoted in
+  the write-up must say what changes and what stays fixed**, and must say it is an annual price
+  before the floor rather than a contract value where that is what it is. The same review found the
+  specification comparison had skipped the simpler alternative: a goaltender LEVEL alone delivers
+  all of the held-out improvement, so the two-term result and the claim to have settled D7 for
+  goaltenders are withdrawn. **The general form: when a richer specification beats a poorer one, the
+  intermediate step has to be tested before the extra terms are credited.** Evidence:
+  `50_REBUILD/docs/Goalie_Price_Line.md`.
+
 - **NEW 2026-09-17, CORRECTED 2026-09-18 — a locked constant ages, and production's goalie
   projector runs high.** Scored on development pages against its own imported implementation,
   production's goalie forecast carries a **+0.101 WAR bias at every horizon**, while a rule that
@@ -225,8 +238,9 @@ residuals and currency comparisons; fix and rerun development work before furthe
   error claim is withdrawn -- nothing in that bake-off beats the real projector. **What stands is a
   DIAGNOSTIC rather than a defect** (qualified after a second review): the +0.101 has a
   career-bootstrap interval of -0.129 to +0.315 that contains zero, and the shared participation
-  estimator predicts 64.1% of these seasons played against 55.3% observed -- worth +0.167 WAR by
-  itself, more than the whole observed bias, and carried by every candidate. Only the DIFFERENCE
+  estimator predicts 64.1% of these seasons played against 55.3% observed -- a gap illustrated at
+  +0.167 WAR, which is a scale for the participation term and not a decomposition of the bias --
+  carried by every candidate. Only the DIFFERENCE
   between candidates' biases is attributable to their forecasts. The reason to keep watching it is
   the general point: a forecast multiplied by a price line and summed over eight seasons is hurt by
   a standing bias in a way it is not hurt by noise, because noise averages out over a contract and a

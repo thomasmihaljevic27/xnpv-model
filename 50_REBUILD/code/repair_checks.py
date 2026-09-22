@@ -1359,6 +1359,24 @@ def c33(table):
     assert abs(GPL.dollars_per_win(coef, GPL.POOLED, cap, "g_x_war")
                - (got_sk + got_g) * cap) < 1.0
 
+    # THE DEFINED RESPONSE moves every term the forecast enters. One more win
+    # in every season moves the season average AND the first year, the
+    # restricted interaction for a restricted player, and the goaltender
+    # interaction for a goaltender -- and nothing else. The first version
+    # reported the season-average coefficient alone as "dollars per win".
+    b = coef[1:]
+    base_v = (float(b[GPL.POOLED.index("war_per_season")])
+              + float(b[GPL.POOLED.index("war_year1")]))
+    assert abs(GPL.price_response(coef, GPL.POOLED, cap, False, False)
+               - base_v * cap) < 1.0
+    assert abs(GPL.price_response(coef, GPL.POOLED, cap, True, False)
+               - (base_v + got_g) * cap) < 1.0
+    assert abs(GPL.price_response(coef, GPL.POOLED, cap, False, True)
+               - (base_v + float(b[GPL.POOLED.index("rfa_x_war")])) * cap) < 1.0
+    # And the level-only specification is a real, separate line: it carries
+    # the goaltender level and no goaltender slope.
+    assert "is_G" in GPL.LEVEL_ONLY and "g_x_war" not in GPL.LEVEL_ONLY
+
     # DATED. A contract signed after the decision cannot reach the fit.
     later = d.copy()
     later["signed"] = pd.to_datetime("2021-01-01")
@@ -1368,7 +1386,8 @@ def c33(table):
     assert n2 == n, f"the fit reached {n2} contracts where {n} were signed in time"
     assert np.allclose(coef, coef2), "a contract signed after the decision moved the line"
     return (f"the fitted goalie slope is {got_g:.4f} against {g_extra:.4f} "
-            f"given, and a later signing cannot move the line")
+            f"given; the whole-path response moves every term the forecast "
+            f"enters; a later signing cannot move the line")
 
 
 def main() -> None:

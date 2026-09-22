@@ -5,7 +5,7 @@ step. Development start years only. Nothing adopted.
 
 WHY THIS QUESTION AND NOT ANOTHER
     The contribution of this project is putting three asset classes on ONE
-    scale. That scale is dollars per forecast win. So before a goaltender can
+    scale, and that scale runs through a forecast win. So before a goaltender can
     be valued beside a skater, one thing has to be settled: does the market
     pay the same for a win from a goaltender as it pays for a win from a
     skater?
@@ -31,12 +31,20 @@ WHAT FEEDS IT
     take up, not a defect to price around.
 
 WHAT IS THIN, AND SAID SO
-    266 development goalie contracts against 3,519 skater ones. The pooled
+    263 eligible development goaltender contracts, 205 with a forecast, 174
+    priced out of sample -- against thousands of skater contracts. The pooled
     fit has power because the skaters carry it; a goalie-only line does not,
-    and the quarterly rolling fit the skater currency uses cannot run on 266
-    contracts at all. So the goalie-only line is fitted on an expanding window
-    by signing date, which is still ex ante and is declared here rather than
-    presented as the same protocol.
+    and with 200 contracts needed before each decision it is fittable only at
+    the very end of the window. Every line here, the goalie-only one
+    included, is refitted at quarterly cutoffs on an expanding sample of the
+    contracts signed before the cutoff.
+
+WHAT IT DOES NOT SETTLE
+    A different goaltender LEVEL on the shared win slope delivers the whole
+    improvement in held-out error; a goaltender SLOPE on top has not earned
+    its place. That is not evidence the slopes are equal, and it does not
+    settle D7's single-market question. The specification is provisional
+    while the goaltender participation model is built.
 """
 from __future__ import annotations
 
@@ -57,13 +65,18 @@ from contract_price_model import (contract_sample, attach_forecasts, tobit,
 from player_season_table import birthdate_source, build as build_skater_table
 from production_currency import FEATURES, ProductionCurrency, _offset
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "2.0"
 
 # The pooled line's own features: the skater set, plus the two terms that
 # answer the question. `is_G` moves a goaltender's price up or down at zero
 # production; `g_x_war` is the difference in dollars per forecast win, which
 # is the coefficient this whole run exists to read.
 POOLED = FEATURES + ["is_G", "g_x_war"]
+# THE SIMPLER ALTERNATIVE the first version left out: a goaltender priced at a
+# different LEVEL on the same win slope. Comparing no goalie terms against
+# level AND slope skipped it, so the gain from the pair was credited to both
+# terms when the level alone may carry it.
+LEVEL_ONLY = FEATURES + ["is_G"]
 
 
 def goalie_forecasts(sample: pd.DataFrame, table: pd.DataFrame) -> pd.DataFrame:
@@ -139,17 +152,61 @@ def fit_rolling(d: pd.DataFrame, feats: list, cut) -> tuple:
 
 
 def dollars_per_win(coef, feats: list, cap: float, extra: str | None = None) -> float:
-    """What one more forecast win a season is worth, in dollars of cap.
+    """The PARTIAL slope on the season-average forecast, in dollars of cap.
 
-    The line is fitted in cap SHARE, so a slope becomes dollars by multiplying
-    by the ceiling. `extra` adds an interaction term's slope on top, which is
-    how the goaltender's own price per win is read off the pooled line.
+    What it holds fixed is the whole of what it means, so it is stated: this
+    is the change in the fitted annual price when the season-average forecast
+    rises by one win and FIRST-YEAR production does not move, for an
+    UNRESTRICTED player (the restricted interaction is not added). It is not
+    what a better player is worth, because a better player's first year moves
+    too. `price_response` is that quantity; this one is kept because it is
+    the coefficient the goaltender interaction is defined against.
     """
     b = coef[1:]
     v = float(b[feats.index("war_per_season")])
     if extra:
         v += float(b[feats.index(extra)])
     return v * cap
+
+
+def price_response(coef, feats: list, cap: float, goalie: bool,
+                   rfa: bool) -> float:
+    """The change in the fitted annual price, in dollars of cap, when a
+    player's expected production rises by ONE WIN IN EVERY SEASON.
+
+    Every term the forecast enters moves with it: the season average, the
+    first year, the restricted interaction if he is restricted, and the
+    goaltender interaction if he is a goaltender. Before the league-minimum
+    floor, and a change in an annual price rather than in a contract's value
+    -- it is not an NPV and must not be quoted as one.
+    """
+    b = coef[1:]
+    v = float(b[feats.index("war_per_season")]) + float(b[feats.index("war_year1")])
+    if rfa:
+        v += float(b[feats.index("rfa_x_war")])
+    if goalie and "g_x_war" in feats:
+        v += float(b[feats.index("g_x_war")])
+    return v * cap
+
+
+def paired_goalie_bootstrap(a: pd.DataFrame, b: pd.DataFrame, n: int = 2000,
+                            seed: int = 20260922) -> tuple:
+    """Is the second specification's error on goaltender contracts lower than
+    the first's, resampling GOALTENDERS -- one goaltender signs several of
+    these contracts and they are not independent draws. Returns the mean gap
+    in absolute error (second minus first) and the share of resamples in which
+    the second wins."""
+    j = a.merge(b, on=["contract_id", "pkey"], suffixes=("_a", "_b"),
+                validate="one_to_one")
+    g = {k: v for k, v in j.groupby("pkey")}
+    keys = list(g)
+    rng = np.random.default_rng(seed)
+    wins = 0
+    for _ in range(n):
+        s = pd.concat([g[k] for k in rng.choice(keys, len(keys), replace=True)])
+        wins += int(s["e_b"].abs().mean() < s["e_a"].abs().mean())
+    gap = float(j["e_b"].abs().mean() - j["e_a"].abs().mean())
+    return gap, wins / n, len(j), len(keys)
 
 
 def main() -> None:
@@ -172,25 +229,39 @@ def main() -> None:
 
     gf = goalie_forecasts(go_s, g_table)
     go = go_s.merge(gf, on="contract_id", how="inner")
-    C.log(f"  {len(sk)} skater and {len(go)} goaltender contracts carry a "
-          f"forecast")
 
     dev = [int(y) for y in sorted(sk["start_yr"].dropna().unique())
            if int(y) not in C.CONFIRMATORY_START_YEARS]
     cohorts = C.check_market_cohorts(dev, "run_goalie_price_line")
+    # THE ATTRITION, stage by stage, so the sample a figure rests on is never
+    # quoted from the wrong stage. The first version quoted 266, which was a
+    # count taken before the signing-date rule the census applies.
+    n_eligible = int(go_s["start_yr"].isin(cohorts).sum())
     sk = sk[sk["start_yr"].isin(cohorts)].copy()
     go = go[go["start_yr"].isin(cohorts)].copy()
-    C.log(f"  development starts only: {len(sk)} skater, {len(go)} goaltender")
+    n_forecast = len(go)
+    C.log("  development goaltender contracts, stage by stage:")
+    C.log(f"    eligible in the census                  {n_eligible:>6}")
+    C.log(f"    with a forecast from production's projector {n_forecast:>3}")
+    C.log("    priced out of sample on the pooled line: reported below")
+    C.log(f"  and {len(sk)} development skater contracts with a forecast")
     C.log("")
 
     d = prep_pooled(sk, go)
     d["cut"] = d["signed"].dt.to_period("Q").dt.start_time
 
-    # ---- 1. is a goalie win priced like a skater win? ---------------------
-    C.log("IS A GOALIE WIN PRICED LIKE A SKATER WIN? One censored line over")
+    # ---- 1. what the pooled line says a goalie win is priced at -------------
+    C.log("WHAT THE POOLED LINE SAYS ABOUT A GOALIE WIN. One censored line over")
     C.log("both, with a goaltender indicator and an interaction, refitted at")
-    C.log("each signing quarter on contracts signed before it. The interaction")
-    C.log("IS the difference in dollars per forecast win.")
+    C.log("each signing quarter on the contracts signed before it.")
+    C.log("")
+    C.log("  THE COLUMNS ARE A PARTIAL SLOPE, and what they hold fixed is the")
+    C.log("  whole of what they mean: the change in the fitted annual price when")
+    C.log("  the season-average forecast rises by one win, FIRST-YEAR production")
+    C.log("  held where it is, for an UNRESTRICTED player. An earlier version of")
+    C.log("  this table called that 'dollars per win', which it is not -- a")
+    C.log("  better player's first year moves too. The whole-path response is")
+    C.log("  the second table.")
     C.log("")
     rows = []
     for cut, te in d.groupby("cut"):
@@ -201,91 +272,117 @@ def main() -> None:
         rows.append({"cut": cut, "n_fit": n,
                      "skater": dollars_per_win(coef, POOLED, cap),
                      "goalie": dollars_per_win(coef, POOLED, cap, "g_x_war"),
-                     "g_level": float(coef[1:][POOLED.index("is_G")]) * cap})
+                     "g_level": float(coef[1:][POOLED.index("is_G")]) * cap,
+                     "coef": coef, "cap": cap})
     r = pd.DataFrame(rows)
-    C.log(f"    {'signed by':<12}{'fitted on':>10}{'$ per skater win':>19}"
-          f"{'$ per goalie win':>19}{'goalie / skater':>17}")
+    C.log(f"    {'signed by':<12}{'fitted on':>10}{'skater, partial':>17}"
+          f"{'goalie, partial':>17}{'ratio':>8}")
     for _, x in r.iterrows():
         C.log(f"    {str(x['cut'].date()):<12}{int(x['n_fit']):>10}"
-              f"{x['skater'] / 1e6:>19.3f}{x['goalie'] / 1e6:>19.3f}"
-              f"{x['goalie'] / x['skater']:>17.2f}")
-    C.log("")
-    last = r.iloc[-1]
-    C.log(f"  On the last fit, a forecast win from a goaltender prices at "
-          f"${last['goalie'] / 1e6:.2f}M against")
-    C.log(f"  ${last['skater'] / 1e6:.2f}M from a skater -- "
-          f"{last['goalie'] / last['skater']:.2f} times. Across the window the "
-          f"ratio runs")
-    C.log(f"  {r['goalie'].div(r['skater']).min():.2f} to "
-          f"{r['goalie'].div(r['skater']).max():.2f}.")
-    C.log("")
-    C.log("  A CONDITIONAL ASSOCIATION, NOT A PRICE OF A WIN. Nobody randomised")
-    C.log("  which players got which contracts, and a goaltender's forecast is")
-    C.log("  built by a different rule from a skater's -- flat where the skater")
-    C.log("  ages, shrunk far harder, and measured on 82 seasons a year. A")
-    C.log("  difference in the fitted slope is therefore a difference between")
-    C.log("  two priced objects, not proof that clubs value a goaltender's win")
-    C.log("  less. The forecast's own scale is part of what is being compared.")
+              f"{x['skater'] / 1e6:>17.3f}{x['goalie'] / 1e6:>17.3f}"
+              f"{x['goalie'] / x['skater']:>8.2f}")
     C.log("")
 
-    # ---- 2. does pooling cost anything? ------------------------------------
-    C.log("DOES A GOALTENDER BELONG ON THE SKATERS' LINE? Held-out error on")
-    C.log("the goaltender contracts, in cap share, under three lines. Each is")
-    C.log("fitted only on contracts signed before the one it prices.")
+    last = r.iloc[-1]
+    C.log("  THE DEFINED RESPONSE, on the last fit: one extra expected win in")
+    C.log("  EVERY season, so the season average, the first year and every")
+    C.log("  interaction the forecast enters all move with it. A change in the")
+    C.log("  fitted annual price before the league-minimum floor -- not a")
+    C.log("  contract's value, and not to be quoted as one.")
     C.log("")
-    errs = {"one line, no goalie terms": [], "one line with goalie terms": [],
-            "a goalie-only line": []}
+    C.log(f"    {'the change':<46}{'skater $M':>11}{'goalie $M':>11}{'ratio':>8}")
+    for lab, rfa, whole in (("partial slope, first year held (UFA)", False, False),
+                            ("one more win every season, UFA", False, True),
+                            ("one more win every season, RFA", True, True)):
+        if whole:
+            sk_v = price_response(last["coef"], POOLED, last["cap"], False, rfa)
+            go_v = price_response(last["coef"], POOLED, last["cap"], True, rfa)
+        else:
+            sk_v, go_v = last["skater"], last["goalie"]
+        C.log(f"    {lab:<46}{sk_v / 1e6:>11.3f}{go_v / 1e6:>11.3f}"
+              f"{go_v / sk_v:>8.2f}")
+    C.log("")
+    C.log("  The goaltender gap is the same in every row -- it is one")
+    C.log("  coefficient -- so the RATIO depends on which change is being")
+    C.log("  priced. Against the whole-path response it is near 1.07, not the")
+    C.log("  1.18 the partial slope gives.")
+    C.log("")
+    C.log("  A CONDITIONAL ASSOCIATION BETWEEN MATCHED CASES, NOT THE PRICE OF")
+    C.log("  A WIN. Nobody randomised which players got which contracts, and a")
+    C.log("  goaltender's forecast is built by a different rule from a")
+    C.log("  skater's -- flat where the skater ages, shrunk far harder, measured")
+    C.log("  on 82 seasons a year -- so part of any slope difference is the")
+    C.log("  difference between two priced objects.")
+    C.log("")
+
+    # ---- 2. which goaltender adjustment the evidence supports --------------
+    C.log("WHICH GOALTENDER ADJUSTMENT DOES THE EVIDENCE SUPPORT? Held-out")
+    C.log("error on the SAME goaltender contracts, in cap share. Every line")
+    C.log("is refitted at each quarterly cutoff on an expanding sample of the")
+    C.log("contracts signed before it -- the same scheme for all four; an")
+    C.log("earlier version of this note said the goalie-only line used a")
+    C.log("different window, and it did not.")
+    C.log("")
+    specs = (("no goaltender terms", d, FEATURES),
+             ("goaltender level only", d, LEVEL_ONLY),
+             ("goaltender level and slope", d, POOLED),
+             ("a goalie-only line", d[d["is_G"] == 1.0], FEATURES))
+    errs = {name: [] for name, _, _ in specs}
     for cut, te in d.groupby("cut"):
         gte = te[te["is_G"] == 1.0]
         if gte.empty:
             continue
-        plain, _ = fit_rolling(d, FEATURES, cut)
-        both, _ = fit_rolling(d, POOLED, cut)
-        gonly, n_g = fit_rolling(d[d["is_G"] == 1.0], FEATURES, cut)
-        for name, coef, feats in (("one line, no goalie terms", plain, FEATURES),
-                                  ("one line with goalie terms", both, POOLED),
-                                  ("a goalie-only line", gonly, FEATURES)):
+        for name, frame, feats in specs:
+            coef, _n = fit_rolling(frame, feats, cut)
             if coef is None:
                 continue
             pred = np.maximum(predict_tobit(coef, gte[feats].to_numpy(float)),
                               gte["floor_share"].to_numpy(float))
             errs[name].append(pd.DataFrame({
                 "e": pred - gte["cap_share"].to_numpy(float),
-                "contract_id": gte["contract_id"].to_numpy()}))
+                "contract_id": gte["contract_id"].to_numpy(),
+                "pkey": gte["pkey"].to_numpy()}))
     C.log(f"    {'line':<30}{'goalie contracts':>18}{'mean abs error':>17}"
-          f"{'bias':>9}")
+          f"{'bias':>11}")
+    frames = {}
     for name, parts in errs.items():
         if not parts:
             C.log(f"    {name:<30}{'--':>18}     never fitted: too few contracts")
             continue
-        e = pd.concat(parts)
-        note = ""
-        if len(e) < 30:
-            note = "   <- too few to read"
-        C.log(f"    {name:<30}{len(e):>18}{e['e'].abs().mean():>17.4f}"
-              f"{e['e'].mean():>9.4f}{note}")
+        e = pd.concat(parts, ignore_index=True)
+        frames[name] = e
+        note = "   <- too few to read" if len(e) < 30 else ""
+        C.log(f"    {name:<30}{len(e):>18}{e['e'].abs().mean():>17.6f}"
+              f"{e['e'].mean():>+11.6f}{note}")
+    C.log("")
+    for a_name, b_name in (("no goaltender terms", "goaltender level only"),
+                           ("goaltender level only", "goaltender level and slope")):
+        gap, share, n_c, n_g = paired_goalie_bootstrap(frames[a_name],
+                                                       frames[b_name])
+        C.log(f"  {b_name} against {a_name}: {gap:+.6f} of mean abs")
+        C.log(f"    error on {n_c} contracts, better in {share:.0%} of resamples "
+              f"of the {n_g} goaltenders")
+    C.log("")
+    C.log("  WHAT THIS SUPPORTS: goaltenders need an adjustment on the shared")
+    C.log("  line, and a different LEVEL on the same win slope delivers all of")
+    C.log("  the improvement. Adding a goaltender slope on top has not earned")
+    C.log("  its place in this comparison. That is NOT evidence the two slopes")
+    C.log("  are equal -- 174 contracts cannot tell a small slope difference")
+    C.log("  from none -- and it does NOT settle D7's single-market question.")
+    C.log("  The goaltender specification stays provisional.")
     C.log("")
     C.log("  THE GOALIE-ONLY LINE NEVER GETS OFF THE GROUND. It needs 200")
-    C.log("  contracts signed before the decision and the development sample")
-    C.log("  holds 266 in total, so it first becomes fittable in the last")
-    C.log("  quarter of the window and prices a handful of contracts. Its error")
-    C.log("  is not a result and is printed only to show that the option is")
-    C.log("  unavailable rather than unattractive.")
-    C.log("")
-    C.log("  WHAT IS A RESULT: a goaltender does not belong on the skaters'")
-    C.log("  line unchanged. Adding the two goaltender terms cuts held-out")
-    C.log("  error on goalie contracts by more than a quarter and takes the")
-    C.log("  bias to nothing, which says the level and the slope both differ.")
-    C.log("  One line with goaltender terms is the only one of the three this")
-    C.log("  sample can both fit and defend.")
+    C.log(f"  contracts signed before the decision; the development sample")
+    C.log(f"  holds {n_eligible} eligible goaltender contracts, {n_forecast} with a")
+    C.log("  forecast, so it becomes fittable only at the end of the window and")
+    C.log("  prices a handful. Unavailable rather than unattractive.")
     C.log("")
     C.log("  Cap share, not dollars: 0.01 is a percentage point of the ceiling,")
-    C.log("  about $0.9M on a 2021 cap. The goalie-only line is fitted on an")
-    C.log("  expanding window rather than the quarterly one the skater currency")
-    C.log("  uses, because 266 development contracts cannot support the latter.")
+    C.log("  about $0.8M on a 2021 cap.")
     C.log("")
 
-    r.to_csv(C.out_path("goalie_price_line.csv"), index=False)
+    r.drop(columns=["coef"]).to_csv(C.out_path("goalie_price_line.csv"),
+                                    index=False)
     C.log(f"  wrote {C.out_path('goalie_price_line.csv').name}")
     C.write_log("goalie_price_line_run_log.txt")
 

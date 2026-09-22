@@ -194,6 +194,21 @@ These findings take precedence over the earlier broad validation claims. No impl
 changed; repaired development comparisons and the unbuilt simulation work must precede adoption.
 Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 
+**Goalie price line corrected after review, 2026-09-22.** `run_goalie_price_line.py` v2.0. Two
+conclusions withdrawn. (1) The first pass compared no goaltender terms against a goaltender level AND
+slope; on the same 174 contracts a **level alone** gives 0.007457 mean absolute error against 0.007489
+with the slope as well, better than no terms in 100% of goaltender-resamples, while adding the slope
+wins only 10%. So goaltenders need a price adjustment, a different level delivers all of it, the
+slope has not earned its place -- which is not evidence the slopes are equal -- and **D7 is not
+settled**. (2) What was reported as dollars per win was the partial slope on the season average with
+first-year production held fixed; defined as one more expected win in every season it is **$2.022M
+for a skater against $2.167M for a goaltender** (UFA; $1.928M/$2.073M RFA), a ratio of 1.07 rather than
+1.18, as changes in the fitted annual price before the floor and not contract values. Sample
+corrected to 263 eligible -> 205 with a forecast -> 174 priced; every line uses the same expanding
+quarterly scheme; and the +0.167 WAR participation figure is re-labelled an illustration of scale,
+not a decomposition. Suite 33/33. **Goaltender price specification provisional**; participation next.
+See `50_REBUILD/docs/Goalie_Price_Line.md`.
+
 **The goalie price line, 2026-09-18b.** `run_goalie_price_line.py` v1.0 answers whether a goalie
 win prices like a skater win, which decides whether goaltenders can sit on the project's single
 scale. One censored line over both populations with a goaltender indicator and an interaction,
@@ -203,10 +218,11 @@ window 0.74 to 1.57, with the spread almost entirely in fits under 600 contracts
 settling between 0.87 and 1.22 from 900 on. Reported as a conditional association, never as the
 price of a win: the two forecasts are built by different rules, so part of any slope difference is
 that difference. **Held-out error on goaltender contracts says a goaltender does not belong on the
-skaters' line unchanged** -- 0.0103 cap share with no goaltender terms against **0.0075** with them,
-and the bias goes from +0.0066 to nothing. A goalie-only line is not fittable on 266 development
-contracts (200 needed before each decision), so it prices five and is unavailable rather than
-unattractive. The answer for goaltenders is **one market with two terms**.
+skaters' line unchanged** -- 0.0103 cap share with no goaltender terms against 0.0075 with them.
+**[CORRECTED 2026-09-22]** A goaltender LEVEL alone achieves the same (0.007457 against 0.007489 with
+the slope too), so the two-term claim and "one market with two terms" are withdrawn; D7 is not
+settled; the sample is 263 -> 205 -> 174, not 266; and the $0.96M/$0.82M figures are partial slopes,
+not dollars per win.
 `contract_price_model.contract_sample` now takes a position group so both samples come off one
 census. Suite 33/33, the new check verified by breaking it. Nothing adopted. See
 `50_REBUILD/docs/Goalie_Price_Line.md`.
@@ -224,8 +240,8 @@ best forecast at 1.488 MAE and nothing beats it** -- the closest candidate is +0
 resamples, so the earlier improvement claim is withdrawn. **The bias is a diagnostic and not an established defect**
 [qualified after review]: production's +0.101 mean error carries a career-bootstrap interval of
 -0.129 to +0.315 that contains zero, and the shared participation estimator predicts 64.1% of these
-seasons played against 55.3% observed, a gap worth +0.167 WAR on its own and carried by every
-candidate -- so the pooled error cannot be attributed to an ability forecast and no dollar price
+seasons played against 55.3% observed, a gap illustrated at +0.167 WAR (an illustration of scale,
+not a decomposition) and carried by every candidate -- so the pooled error cannot be attributed to an ability forecast and no dollar price
 should be moved to cancel it. Weighting by workload is the clear negative (+0.097, 0%). On ageing, the
 "not identified" claim is **withdrawn**: fitted properly the age slope is negative on every page
 (-0.005 to -0.088 per year of age) and it is the common DRIFT that flips sign (+0.117 to -0.106);

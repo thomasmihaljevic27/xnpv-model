@@ -108,8 +108,11 @@ contains zero, so this run does not establish that the forecast runs high at all
 
 And the bias is not only the forecast's. Every candidate shares one participation estimator by
 design, and that estimator says **64.1%** of these goaltender-seasons are played where **55.3%**
-were. At 1.89 WAR for a season actually played, that gap alone would produce **+0.167 WAR** of
-bias — more than the +0.101 observed. Every candidate carries it.
+were. Priced at a flat 1.89 WAR for every season actually played, that gap comes to **+0.167 WAR** —
+an **illustration of the participation term's scale, not a decomposition of the observed bias**. It
+gives every played season the same production, so it does not say how much of the +0.101
+participation caused; it says only that the term is large enough that the bias cannot be read as the
+ability forecast's alone. Every candidate carries it.
 
 So the pooled mean error cannot be attributed to anybody's ability forecast, and the only part of it
 this run can speak to is the *difference* between two candidates' biases. **Nothing downstream

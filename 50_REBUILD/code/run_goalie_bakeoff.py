@@ -51,7 +51,7 @@ import forecast_harness as H
 import goalie_season_table as GST
 from player_season_table import birthdate_source
 
-SCRIPT_VERSION = "2.1"
+SCRIPT_VERSION = "2.2"
 
 HORIZONS = (0, 1, 2, 3, 4, 5)
 
@@ -478,9 +478,13 @@ def bias_diagnostic(scored: dict, base: pd.DataFrame) -> None:
     SECOND, WHAT IT IS MADE OF. Every candidate here shares one participation
     estimator, deliberately -- and if that estimator says a goaltender plays
     more often than he does, every candidate's predicted WAR is too high for a
-    reason that has nothing to do with how it forecasts ability. The share of
-    the pooled bias that the participation gap alone would produce is computed
-    here, at the average production of a season actually played.
+    reason that has nothing to do with how it forecasts ability. The size of
+    that gap is shown by an ILLUSTRATIVE calculation: the average over-
+    prediction of playing, priced at the average production of a season that
+    was actually played. It assigns the same 1.89 WAR to every played season,
+    so it is a scale for the participation term and NOT a decomposition of the
+    observed bias -- it does not say how much of the +0.101 participation
+    caused, and an earlier version of this note read it as though it did.
     """
     C.log("IS THE POOLED BIAS A DEFECT IN THE FORECAST? Not established here,")
     C.log("and two things say why.")
@@ -499,21 +503,26 @@ def bias_diagnostic(scored: dict, base: pd.DataFrame) -> None:
     played = float(base["played"].mean())
     pred = float(base["p_play"].mean())
     war_if_played = float(base.loc[base["played"], "act_war"].mean())
-    attributable = float(((base["p_play"] - base["played"].astype(float))
+    illustrative = float(((base["p_play"] - base["played"].astype(float))
                           * war_if_played).mean())
     C.log(f"  and the shared participation estimator says {100 * pred:.1f}% of")
     C.log(f"  these goaltender-seasons are played where {100 * played:.1f}% were.")
-    C.log(f"  At {war_if_played:.2f} WAR for a season actually played, that gap")
-    C.log(f"  alone would produce {attributable:+.3f} WAR of bias -- MORE than the")
-    C.log(f"  {base['e_war'].mean():+.3f} observed. Every candidate carries it,")
-    C.log("  because they were given the same estimator on purpose.")
+    C.log(f"  As a SCALE for that gap and nothing more: priced at a flat")
+    C.log(f"  {war_if_played:.2f} WAR for every season actually played, it comes")
+    C.log(f"  to {illustrative:+.3f} WAR, against the {base['e_war'].mean():+.3f} "
+          f"observed. That")
+    C.log("  is an illustration, not a decomposition. It gives every played")
+    C.log("  season the same production, so it does not say how much of the")
+    C.log("  observed bias participation caused -- only that the participation")
+    C.log("  term is large enough that the bias cannot be read as the ability")
+    C.log("  forecast's alone. Every candidate carries it, because they were")
+    C.log("  given the same estimator on purpose.")
     C.log("")
     C.log("  So the pooled mean error is a DIAGNOSTIC and not a defect in")
     C.log("  anybody's ability forecast, and the difference between two")
     C.log("  candidates' biases is the only part of it this run can speak to.")
     C.log("  Nothing downstream should move a dollar price to cancel it. The")
-    C.log("  place to take it up is the goalie participation model, where the")
-    C.log("  larger term lives.")
+    C.log("  place to take it up is the goalie participation model.")
     C.log("")
     C.log(f"    {'rule':<40}{'mean error':>12}")
     for name, d in scored.items():
