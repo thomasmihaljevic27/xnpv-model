@@ -464,6 +464,15 @@ unsealed.
 
 ---
 
+**Change log, 2026-09-22h (goalie control-year review):** Reviewed `088546f` in
+isolation. All 39 checks pass; two restored defects rejected. Control/term run
+reproduced. Two P2 findings: forecast-specific realised-dollar targets and nominal
+coverage diagnosis ignoring point masses. Independent common-currency audit:
+production wins 53.7-55.6% of resamples; model's own 80% interval coverage is
+89.3-89.6%. Central production interval still warrants investigation. Review and
+audit in 50_REBUILD; four state files/session updated. No candidate merge,
+implementation change or adoption. Prior closures stand; this review stays open.
+
 **Change log, 2026-09-22g (goalie rate repair closure):** Verified `f90e6fe`.
 37/37, exact consumer equality, both negative tests caught, prior forecast values
 preserved and corrected price results reproduced. Closed fallback finding; goalie
