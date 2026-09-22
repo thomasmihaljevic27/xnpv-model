@@ -66,7 +66,7 @@ from player_season_table import birthdate_source, build as build_skater_table
 from participation_model import ParticipationModel
 from production_currency import FEATURES, ProductionCurrency, _offset
 
-SCRIPT_VERSION = "2.1"
+SCRIPT_VERSION = "2.2"
 
 # The pooled line's own features: the skater set, plus the two terms that
 # answer the question. `is_G` moves a goaltender's price up or down at zero
@@ -82,10 +82,14 @@ LEVEL_ONLY = FEATURES + ["is_G"]
 
 def participation_at_page(table: pd.DataFrame, t0: int):
     """The goalie participation model, fitted on what page t0 could see, as a
-    function of (pkey, horizon). Age is excluded for the reason given in
-    `run_goalie_participation`: a goaltender's birthdate is selected on his
-    survival. Horizons past the fitted range take the last fitted one, the
-    same clamp the flat survival rate has always used."""
+    vectorised function of (pkeys, horizon, decision dates).
+
+    Age is excluded for the reason given in `run_goalie_participation`: a
+    goaltender's birthdate is selected on his survival. Horizons past the
+    fitted range take the last fitted one, the same clamp the flat survival
+    rate has always used. A goaltender with no anchor at this page takes the
+    fitted base rate for that horizon.
+    """
     import run_goalie_participation as GPM
     from contract_source import load_contracts
     contracts, _ = load_contracts()
@@ -93,16 +97,18 @@ def participation_at_page(table: pd.DataFrame, t0: int):
     pm = ParticipationModel(contracts, exclude=GPM.PART_EXCLUDE).fit(
         past, t0, anchors_fn=GPM.goalie_anchors, horizons=GB.HORIZONS)
     a = GPM.goalie_anchors(past[past["GP"] >= C.MIN_GP])
-    a = a[a["t0"] == t0].drop_duplicates("pkey")
-    cache = {}
+    a = a[a["t0"] == t0].drop_duplicates("pkey").set_index("pkey")
 
-    def p(pkey: str, h: int) -> float:
+    def p(pkeys, h: int, as_of) -> np.ndarray:
         hh = min(int(h), max(GB.HORIZONS))
-        if hh not in cache:
-            s = pm.predict(a, hh)
-            cache[hh] = pd.Series(s.to_numpy(), index=a["pkey"].to_numpy())
-        v = cache[hh].get(pkey)
-        return float(v) if v is not None and np.isfinite(v) else float(pm.base_[hh])
+        rows = a.reindex(list(pkeys))
+        known = rows["t0"].notna().to_numpy()
+        out = np.full(len(rows), float(pm.base_[hh]))
+        if known.any():
+            got = pm.predict(rows[known].reset_index(), hh,
+                             as_of=np.asarray(as_of)[known])
+            out[known] = got.to_numpy(float)
+        return out
     return p
 
 
@@ -114,7 +120,15 @@ def goalie_forecasts(sample: pd.DataFrame, table: pd.DataFrame,
     batches, so every contract sees the information its signing saw. The
     projection is flat across the term -- production's rule and the one the
     bake-off could not beat -- so the forecast per season is that projection
-    and the first year is the same number.
+    times the chance he plays it.
+
+    `participation` is one of:
+      "flat"        the flat survival rate the bake-off shared;
+      "model"       the participation model, contract state read at the
+                    contract's SIGNING DATE -- the decision being priced;
+      "model_july"  the same model with contract state read at 1 July of the
+                    page, which is what the first version did and is kept
+                    only so the effect of the correction can be measured.
     """
     proj = GB.production_projector()
     out = []
@@ -122,13 +136,9 @@ def goalie_forecasts(sample: pd.DataFrame, table: pd.DataFrame,
         t0 = int(L) + 1
         if t0 < C.FIRST_SOURCE_SEASON + 3:
             continue
-        # The chance he is in the league: either the flat survival rate the
-        # bake-off shared, or the participation model, both fitted before
-        # this page. `participation` says which, so the price comparison can
-        # be run on each and the two read side by side.
         surv = GB.survival_table(table[table["syr"] < t0], t0)
         pfun = (participation_at_page(table, t0)
-                if participation == "model" else None)
+                if participation in ("model", "model_july") else None)
         past = table[(table["syr"].between(t0 - 3, t0 - 1))
                      & (table["GP"] >= C.MIN_GP)]
         # KEYED ON THE NORMALISED NAME, which is what production's lookup
@@ -140,6 +150,7 @@ def goalie_forecasts(sample: pd.DataFrame, table: pd.DataFrame,
                  .apply(lambda s: float(np.average(
                      s.to_numpy(), weights=np.linspace(1, 2, len(s))))))
         med = float(share.median()) if len(share) else 0.5
+        rows = []
         for r in grp.itertuples():
             nname = str(r.pkey).rsplit("|", 1)[0]
             war, _src = proj.shrunk_projection(nname, t0)
@@ -148,17 +159,33 @@ def goalie_forecasts(sample: pd.DataFrame, table: pd.DataFrame,
             hs = [int(s - t0) for s in range(int(r.start_yr), int(r.end_yr) + 1)]
             if min(hs) < 0:
                 continue
+            rows.append((r, nname, float(war), hs))
+        if not rows:
+            continue
+        # THE CHANCE HE PLAYS each contract season, for every contract at this
+        # page at once, dated at the decision being priced.
+        pmat = {}
+        if pfun is not None:
+            pkeys = [str(r.pkey) for r, *_ in rows]
+            dates = ([pd.Timestamp(r.signed) for r, *_ in rows]
+                     if participation == "model"
+                     else [pd.Timestamp(year=t0, month=7, day=1)] * len(rows))
+            for h in sorted({h for *_, hs in rows for h in hs}):
+                pmat[h] = pfun(pkeys, h, dates)
+        for i, (r, nname, war, hs) in enumerate(rows):
+            if pfun is None:
+                probs = [surv.get(min(h, max(GB.HORIZONS)), surv[max(GB.HORIZONS)])
+                         for h in hs]
+            else:
+                probs = [float(pmat[h][i]) for h in hs]
             # A season's forecast is the flat projection times the chance he
             # is there to deliver it. The integration rule, applied once.
-            if pfun is None:
-                per = [float(war) * surv.get(min(h, max(GB.HORIZONS)),
-                                             surv[max(GB.HORIZONS)])
-                       for h in hs]
-            else:
-                per = [float(war) * pfun(str(r.pkey), h) for h in hs]
+            per = [war * pr for pr in probs]
             out.append({"contract_id": int(r.contract_id),
                         "war_per_season": float(np.mean(per)),
                         "war_year1": float(per[0]),
+                        "p_first": float(probs[0]),
+                        "p_second": float(probs[1]) if len(probs) > 1 else np.nan,
                         "gp_share_fc": float(share.get(nname, med)),
                         "n_years_forecast": len(hs)})
     return pd.DataFrame(out)
@@ -444,35 +471,77 @@ def main() -> None:
 
     # ---- 3. the same comparison on the updated forecast -------------------
     C.log("THE SAME COMPARISON ON THE UPDATED FORECAST. The goalie forecast")
-    C.log("above carries the flat survival rate the bake-off shared. The")
-    C.log("participation model replaces it here -- production's projector for")
+    C.log("above carries the flat survival rate the bake-off shared. Here the")
+    C.log("participation model replaces it -- production's projector for")
     C.log("ability, the participation model for whether he plays, his trailing")
     C.log("share for how much -- and every line is refitted. The share model is")
     C.log("NOT used: it forecasts share better but cannot be combined with")
-    C.log("production's season-total projector, for the reason set out in")
-    C.log("`run_goalie_participation`.")
+    C.log("production's season-total projector (see run_goalie_participation).")
     C.log("")
+    C.log("  CONTRACT STATE IS READ AT THE SIGNING, the decision being priced.")
+    C.log("  The first version read it at 1 July of the page, so a deal signed")
+    C.log("  later in the summer was priced by a model that could not see it.")
+    C.log("")
+    gf_july = goalie_forecasts(go_s, g_table, participation="model_july")
     gf2 = goalie_forecasts(go_s, g_table, participation="model")
+    both = gf_july.merge(gf2, on="contract_id", suffixes=("_july", "_sign"))
+    both = both.merge(go_s[["contract_id", "start_yr", "signed", "pkey",
+                            "first_name", "last_name"]], on="contract_id")
+    both = both[both["start_yr"].isin(cohorts)]
+    moved_p = (both["p_first_july"] - both["p_first_sign"]).abs() > 1e-9
+    moved_any = moved_p | ((both["p_second_july"] - both["p_second_sign"]).abs() > 1e-9)
+    C.log(f"  participation changes on {int(moved_any.sum())} of {len(both)} "
+          f"goaltender contracts when contract state is dated at the signing")
+    gil = both[(both["last_name"].astype(str).str.lower() == "gillies")
+               & (both["signed"].dt.year == 2018)]
+    for _, x in gil.iterrows():
+        C.log(f"  e.g. Jon Gillies, signed {x['signed'].date()}: first season "
+              f"{x['p_first_july']:.1%} -> {x['p_first_sign']:.1%}, second "
+              f"{x['p_second_july']:.1%} -> {x['p_second_sign']:.1%}")
+    C.log("")
+
+    # ARE THE CORRECTED PROBABILITIES CALIBRATED? Moving a number because it is
+    # dated correctly does not make it right, so the priced contracts' first
+    # and second seasons are scored against whether he actually played them.
+    flat_f = goalie_forecasts(go_s, g_table, participation="flat")
+    cal = both.merge(flat_f[["contract_id", "p_first", "p_second"]],
+                     on="contract_id")
+    played = set(zip(g_table.loc[g_table["GP"] >= C.PARTICIPATION_GP, "pkey"],
+                     g_table.loc[g_table["GP"] >= C.PARTICIPATION_GP, "syr"]))
+    C.log("  calibration on the priced contracts' own seasons (season must be")
+    C.log("  complete in the source):")
+    C.log(f"    {'season':<8}{'contracts':>10}{'played':>9}{'flat':>8}"
+          f"{'1 July':>9}{'signing':>9}")
+    for k, off in (("first", 0), ("second", 1)):
+        yr = cal["start_yr"] + off
+        ok = (yr <= C.LAST_SOURCE_SEASON) & cal[f"p_{k}_sign"].notna()
+        sub = cal[ok]
+        obs = np.mean([(pk, int(y)) in played for pk, y in
+                       zip(sub["pkey"], sub["start_yr"] + off)])
+        C.log(f"    {k:<8}{len(sub):>10}{obs:>9.3f}{sub[f'p_{k}'].mean():>8.3f}"
+              f"{sub[f'p_{k}_july'].mean():>9.3f}{sub[f'p_{k}_sign'].mean():>9.3f}")
+    C.log("")
+
     go2 = go_s.merge(gf2, on="contract_id", how="inner")
     go2 = go2[go2["start_yr"].isin(cohorts)].copy()
     moved = go.merge(go2[["contract_id", "war_per_season"]], on="contract_id",
                      suffixes=("", "_new"))
-    C.log(f"  {len(go2)} goaltender contracts carry the updated forecast; the")
-    C.log(f"  season-average forecast moves by "
-          f"{(moved['war_per_season_new'] - moved['war_per_season']).mean():+.3f} "
-          f"WAR on average")
-    C.log(f"  (mean {moved['war_per_season'].mean():.3f} -> "
-          f"{moved['war_per_season_new'].mean():.3f})")
+    dw = moved["war_per_season_new"] - moved["war_per_season"]
+    C.log(f"  {len(go2)} goaltender contracts carry the updated forecast. Against")
+    C.log(f"  the flat-survival forecast the season average moves by "
+          f"{dw.mean():+.3f} WAR on average,")
+    C.log(f"  {dw.abs().mean():.3f} WAR on average in absolute terms, and up to "
+          f"{dw.abs().max():.3f}. The mean")
+    C.log("  hides the movement: this is a materially different forecast for")
+    C.log("  individual goaltenders, not a small perturbation of one.")
     C.log("")
     d2 = prep_pooled(sk, go2)
     d2["cut"] = d2["signed"].dt.to_period("Q").dt.start_time
     compare_specs(d2)
     last_fit_responses(d2)
-    C.log("  Read beside the first comparison: whether the level still carries")
-    C.log("  the improvement once participation is modelled, and whether the")
-    C.log("  goaltender gap in the whole-path response moves. The specification")
-    C.log("  stays provisional either way -- the rate forecast the share model")
-    C.log("  needs is not built yet, and it moves this input again.")
+    C.log("  The goaltender specification stays provisional: the rate forecast")
+    C.log("  the share model needs is not built yet, and it moves this input")
+    C.log("  again.")
     C.log("")
 
     r.drop(columns=["coef"]).to_csv(C.out_path("goalie_price_line.csv"),

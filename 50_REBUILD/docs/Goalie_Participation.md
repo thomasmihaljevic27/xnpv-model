@@ -1,6 +1,6 @@
 # Will he play, and how much? The goalie participation model
 
-Run 2026-09-22 in `50_REBUILD/`. The goalie branch of the plan's Phase 5, third step. Development
+Run 2026-09-22 in `50_REBUILD/` (v2, after an independent review). The goalie branch of the plan's Phase 5, third step. Development
 pages only. **Nothing adopted, and no production file changed. The goaltender price specification
 stays provisional.**
 
@@ -51,6 +51,37 @@ goalie branch uses it to drop age.
 every page, was fitted on within-goaltender changes among goaltenders **with** a birthdate. That is
 the survivor subsample just described. The standing flag on goalie ageing is updated to say so.
 
+## Why an independent rerun disagreed, and what fixed it
+
+The first version reported a Brier score of 0.2075 and a season-WAR error of 1.437. An independent
+rerun got 0.2101 and 1.446, concentrated at two seasons out (predicted participation 0.633 against
+0.577). Both runs were deterministic on their own machines, so the difference was between machines.
+
+**The cause is a singular design that the machine, not the data, resolved.** When every goaltender
+the contract export knows about is also under contract for the season, `under_contract` is exactly
+`1 - contract_unknown` and the logistic design loses a rank. On this machine the regularised fit
+reported convergence with an arbitrary split between the two columns on one such fit (+6.88 against
+−3.99, 2018 page, one season out) and raised a singular-Hessian error on another (2019 page, two
+seasons out), falling back to fewer features. Which of those happens depends on floating-point
+details that differ between platforms — so on a different machine the same rows can take the other
+branch, and the difference lands exactly at the horizons where the columns collide. That this is what
+happened on the reviewer's machine is inferred from where the difference sits; it could not be
+observed directly.
+
+`participation_model` v1.5 no longer lets a singular design reach the optimiser: redundant columns
+are dropped in a fixed order until the design has full rank, so every machine makes the same choice.
+Three goalie fits collide (2018 one out, 2019 one and two out) and now resolve identically every time.
+The corrected figures above are the ones from full-rank designs.
+
+**The same defect was in the skater model, and it changes a recorded result.** Fifteen skater fits in
+the contract-using variants were singular. There the arbitrary split reproduced the training rows and
+over-predicted participation on the page by up to fifteen points — 0.556 against an observed 0.406 on
+the 2019 page five seasons out. The standing leader fits participation without contract data and has
+no singular fits, so it is unaffected. But the Phase 2 finding that contract data *hurts* the forecast
+by about 0.9% was measured with this defect, and re-measured after the fix it is close to a tie on
+season WAR (+0.03% to +0.27%) with contract data better on participation itself. See the correction in
+`Phase2_Participation.md`.
+
 ## What the source cannot see
 
 The goalie source floors at about 100 minutes in net; the lightest season on record is two games.
@@ -64,13 +95,13 @@ skater side scores. The fit and the scoring use the same event, so the two halve
 | | predicted | observed | Brier score (lower is better) |
 |---|---:|---:|---:|
 | flat survival rate | 0.641 | 0.553 | 0.2470 |
-| **participation model** | **0.580** | 0.553 | **0.2075** |
+| **participation model** | **0.575** | 0.553 | **0.2056** |
 
 | horizon | observed | flat | model | Brier flat | Brier model |
 |---:|---:|---:|---:|---:|---:|
 | 0 | 0.723 | 0.815 | 0.782 | 0.2084 | **0.1488** |
-| 1 | 0.663 | 0.747 | 0.686 | 0.2306 | **0.1681** |
-| 2 | 0.585 | 0.657 | 0.577 | 0.2480 | **0.1897** |
+| 1 | 0.663 | 0.747 | 0.654 | 0.2306 | **0.1549** |
+| 2 | 0.585 | 0.657 | 0.578 | 0.2480 | **0.1919** |
 | 3 | 0.512 | 0.577 | 0.564 | 0.2544 | 0.2570 |
 | 4 | 0.437 | 0.506 | 0.475 | 0.2511 | 0.2494 |
 | 5 | 0.368 | 0.525 | 0.368 | 0.2965 | **0.2359** |
@@ -98,9 +129,9 @@ Season WAR, with ability held at production's projector in every arm:
 | arm | mean abs error | bias | beats the stand-ins |
 |---|---:|---:|---:|
 | flat survival, trailing share (the stand-ins) | 1.488 | +0.100 | — |
-| **participation model, trailing share** | **1.437** | +0.104 | **100%** |
+| **participation model, trailing share** | **1.432** | +0.096 | **100%** |
 | flat survival, share model | 1.581 | +0.234 | 0% |
-| participation model and share model | 1.499 | +0.192 | 16% |
+| participation model and share model | 1.492 | +0.183 | 36% |
 
 **The participation model improves the season forecast.** The share model forecasts share better and
 still makes season WAR worse. The reason is how production's number is split up, and it shows up
@@ -123,56 +154,83 @@ So **production's number cannot be split into a rate and a share**, and a better
 cannot be plugged into it. Using the share model needs a goalie **rate** forecast, a per-82 number
 shrunk toward a rate norm. That is the next thing to build.
 
-## The pooled bias did not move
+## The pooled bias is not eliminated, and its causes are unresolved
 
-Fixing participation brought predicted play from 64.1% to 58.0% against 55.3% observed, and
-**the pooled WAR bias stayed where it was** (+0.100 → +0.104). The model mostly lowers participation
-for goaltenders who contribute little WAR anyway. That settles the earlier question empirically:
-the +0.167 WAR figure in the bake-off report was an illustration of the participation term's size,
-not a breakdown of the bias, and the remaining +0.10 comes from somewhere other than participation.
+The participation model improves accuracy and brings predicted participation much closer to the
+observed rate, but it **does not eliminate the pooled WAR bias**. The first version of this report
+went further and said that, since participation was now roughly right, the remaining bias "comes
+from somewhere other than participation". That does not follow. Average participation can improve
+while errors for high-production and low-production goaltenders offset differently once they are
+weighted by WAR — a model that lowers the chance of playing for backups and raises it for starters
+can move the pooled bias in either direction or not at all. **What causes the remaining bias is not
+established here.**
 
 ## The price line, refitted on the updated forecast
 
-`run_goalie_price_line.py` now refits every line with the participation model in the goalie forecast
-(production's projector for ability, trailing share for role). On the same 174 contracts:
+`run_goalie_price_line.py` refits every line with the participation model in the goalie forecast
+(production's projector for ability, trailing share for role).
 
-| line | flat survival forecast | participation model forecast |
+**Contract state is now read at the signing.** The first version read it at 1 July of the page, so a
+deal signed later in the summer was priced by a model that could not see it. Dated at the signing,
+participation changes on **95 of 205** contracts. Jon Gillies, signed 16 July 2018: first season
+44.4% → 92.7%, second 41.2% → 99.5%.
+
+**Correctly dated is not the same as calibrated**, so the priced contracts' own seasons are scored
+against whether he actually played them:
+
+| season | contracts | played | flat rate | read at 1 July | read at the signing |
+|---|---:|---:|---:|---:|---:|
+| first | 205 | 0.761 | 0.803 | 0.749 | 0.822 |
+| second | 107 | 0.794 | 0.721 | 0.710 | **0.797** |
+
+Read at the signing, the second season is calibrated almost exactly; the first runs about six points
+high. A plausible reason, not tested here: the model was fitted on contract state as known at 1 July
+of each training page, and "under contract" for a deal known on 1 July is a different population
+from "just signed this contract". It is recorded as a known calibration gap rather than corrected.
+
+**The forecast moves materially, not slightly.** Against the flat-survival forecast the season
+average moves by +0.111 WAR on average, **0.223 WAR on average in absolute terms, and up to 1.235**.
+The first version quoted only the mean move (−0.003 at the time) and called the price-ratio change a
+response to a tiny perturbation; the mean hid the movement.
+
+On the same 174 contracts:
+
+| line | flat survival forecast | participation model, dated at the signing |
 |---|---:|---:|
-| no goaltender terms | 0.010318 | 0.009398 |
-| goaltender level only | 0.007457 | 0.007292 |
-| goaltender level and slope | 0.007489 | 0.007256 |
-| level and slope beats level only in | 10% of resamples | 58% of resamples |
+| no goaltender terms | 0.010318 | 0.010001 |
+| goaltender level only | 0.007457 | **0.007017** |
+| goaltender level and slope | 0.007489 | 0.007153 |
+| level and slope beats level only in | 10% of resamples | 22% of resamples |
 
-Every line is more accurate on the updated forecast, and **the level still carries the
-improvement**: level-only beats no goaltender terms in 100% of resamples either way. The slope moves
-from a clear loss to a coin flip, which is still not a result.
+**The level still carries the improvement**, in 100% of resamples either way, and the slope still
+has not earned its place.
 
-**The goaltender slope is not stable.** The whole-path response on the last fit:
-
-| one more win every season | skater $M | goalie $M | ratio |
+| one more win every season, last fit | skater $M | goalie $M | ratio |
 |---|---:|---:|---:|
 | UFA, flat survival forecast | 2.022 | 2.167 | 1.07 |
-| **UFA, participation model forecast** | **2.128** | **1.603** | **0.75** |
-| RFA, participation model forecast | 1.955 | 1.429 | 0.73 |
+| UFA, participation model dated at the signing | 2.079 | 1.642 | **0.79** |
+| RFA, participation model dated at the signing | 1.949 | 1.512 | 0.78 |
 
-The average goalie forecast moved by only −0.003 WAR (1.203 → 1.199), yet the goalie/skater ratio
-went from 1.07 to 0.75. The participation model reorders goaltenders — starters up, backups down —
-without moving the mean, and the goaltender slope estimate is sensitive to that reordering. That is
-a second reason the slope has not earned its place. It is not identified robustly on 174 contracts,
-and it will move again when the rate forecast is built. The skater response also moves slightly
-(2.022 → 2.128), because the first-year and restricted terms are shared between the two positions.
-
-**The goaltender specification stays provisional. Nothing here settles D7.**
+The goaltender slope changes a great deal under a materially different forecast, which is one more
+reason it is not identified on 174 contracts. **The goaltender specification stays provisional.
+Nothing here settles D7.**
 
 ## What is checked
 
-- **The fit learns from every goaltender, not only the survivors.** With age excluded, the fit keeps
-  every anchor it is given, so its base rate at each horizon equals those anchors' own played rate,
-  to the digit. Putting age back opens a **0.53** gap, which the check catches.
-- The participation fit and the share fit **ignore every season from the page onward**.
-- The anchor builder's new `cols` option leaves the skater anchors **byte-identical**.
-
-Suite: **34 passed, 0 skipped, 0 failed.**
+- **Every goaltender, not the survivors.** With age excluded the fit keeps every anchor, so its base
+  rate equals the anchors' own played rate at every horizon; putting age back opens a 0.53 gap.
+- **The future is ignored when it is handed over.** The whole table, future seasons included, goes
+  into the participation fit clean and scrambled, and the coefficients agree with each other and with
+  a fit on the truncated table. (The first version of this check removed the future before fitting,
+  so both fits saw identical inputs.) The share model refuses a table that reaches the page.
+- **The predictions are a fitted model.** In-sample they reproduce the base rate and they separate
+  goaltenders; a constant 99.9% predictor, which passed the first version, now fails.
+- **Contract state is read at the date asked for.** A deal signed 16 July is visible on 16 July and
+  not on 1 July; and the price runner asks at the signing — Gillies prices his first season higher
+  dated at the signing than at 1 July.
+- **No fit is handed a singular design.** The redundant column is dropped in a fixed order, a
+  full-rank design is left alone, and the colliding goalie fits resolve identically on every run.
+- The anchor builder's `cols` option leaves the skater anchors byte-identical.
 
 ## What this does not establish
 
@@ -182,6 +240,7 @@ Suite: **34 passed, 0 skipped, 0 failed.**
   minutes.
 - **No ageing term.** Age is excluded because its availability is selected on the outcome. That is a
   limit on what this panel can say about goalie ageing.
+- **The first season of a signing-dated forecast runs about six points high** on the priced contracts.
 - **Horizons three to five are thin.** Fits there rest on fewer pages, and the model roughly ties the
   flat rate.
 - **Development pages only.**

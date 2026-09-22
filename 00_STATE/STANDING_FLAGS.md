@@ -225,6 +225,19 @@ residuals and currency comparisons; fix and rerun development work before furthe
 
 ## Standing flags (Karl's identification axes — watch on every design choice)
 
+- **NEW 2026-09-22d — a fit that "converged" on a singular design is not an estimate.** When every
+  player the contract export knows is under contract, `under_contract` is exactly `1 - contract_unknown`
+  and the participation design loses a rank. The regularised optimiser then either reported
+  convergence with an arbitrary split between the two columns or raised an error and fell back, and
+  which one depended on the machine. The arbitrary split reproduces the training rows and extrapolates
+  wherever the columns stop mirroring each other -- on the page itself. It moved a recorded Phase 2
+  result (contract data "hurts", now withdrawn) and made two independent runs of the goalie model
+  disagree. Fixed by a deterministic rank rule and check 35. **The general form: a convergence flag
+  says the optimiser stopped, not that the parameters are identified. Any design built from indicator
+  columns that can become complements on a subsample -- by page, by horizon, by position -- needs a rank
+  check before the fit, and a result that differs between machines is a symptom to trace, not noise.**
+  Evidence: `50_REBUILD/docs/Goalie_Participation.md`, `run_contract_ablation.py`.
+
 - **NEW 2026-09-22 — whether a join finds a record can itself be the outcome.** Goaltender
   birthdates come mostly from the contract export, so a goaltender HAS a birthdate largely because he
   was still playing in the contract era. Goalie anchors with one go on to play at about 0.90 at every

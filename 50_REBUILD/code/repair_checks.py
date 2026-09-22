@@ -1391,27 +1391,39 @@ def c33(table):
 
 
 def c34(table):
-    """THE GOALIE PARTICIPATION FIT LEARNS FROM EVERY GOALTENDER, NOT THE
-    SURVIVORS, AND CANNOT SEE THE PAGE IT STANDS ON.
+    """THE GOALIE PARTICIPATION PATH, EXERCISED RATHER THAN DESCRIBED.
 
-    A goaltender's birthdate comes mostly from the contract export, so having
-    one means he was still in the league in the contract era. The skater
-    participation model drops rows with no age, and run on goaltenders that
-    rule fitted only survivors: about 0.90 at every horizon against an
-    observed rate falling from 0.72 to 0.37. The goalie model excludes age, so
-    the fit keeps every anchor it is given, and its base rate at each horizon
-    must equal the empirical rate of those anchors -- which it cannot if rows
-    are being dropped on a variable selected by the outcome.
+    Four things, each of which the first version of this check claimed and
+    did not test.
 
-    Also asserted: the participation fit and the share-of-schedule fit ignore
-    every season from the page onward, and the anchor builder's new `cols`
-    option leaves the skater default exactly as it was.
+    1. THE FIT LEARNS FROM EVERY GOALTENDER, NOT THE SURVIVORS. A goaltender's
+       birthdate is selected on his survival, so age is excluded and the fit
+       must keep every anchor it is given: its base rate at each horizon has
+       to equal those anchors' own played rate.
+
+    2. THE FIT IGNORES THE FUTURE WHEN IT IS HANDED THE FUTURE. The first
+       version scrambled future rows and then removed them before fitting, so
+       both fits saw identical inputs. Here the WHOLE table, future seasons
+       included, goes into the participation fit twice -- once clean, once
+       with every season from the page onward scrambled -- and the
+       coefficients must agree, and agree with a fit on the truncated table.
+       The share model refuses a table that reaches the page.
+
+    3. THE PREDICTIONS ARE A FITTED MODEL. On the rows it was fitted to, a
+       logistic fit with an intercept reproduces the base rate; and it
+       separates goaltenders rather than giving everyone one number. A
+       predictor replaced by a constant 99.9% passed the first version.
+
+    4. CONTRACT STATE IS READ AT THE DATE ASKED FOR. A deal signed on 16 July
+       is visible to a question asked on 16 July and invisible to one asked on
+       1 July. And the price runner asks at the signing: Jon Gillies's 2018
+       contract, signed 16 July, must price its first season higher dated at
+       the signing than at 1 July -- the review measured 44% against 93%.
     """
     import numpy as np
-    import ability_forecast as AF
     import goalie_season_table as GST
     import run_goalie_participation as GPM
-    from participation_model import ParticipationModel
+    import participation_model as PM
     from contract_source import load_contracts
     from player_season_table import birthdate_source
 
@@ -1420,43 +1432,146 @@ def c34(table):
     page = 2019
     past = g[g["syr"] < page]
     contracts, _ = load_contracts()
-    pm = ParticipationModel(contracts, exclude=GPM.PART_EXCLUDE).fit(
-        past, page, anchors_fn=GPM.goalie_anchors, horizons=GPM.HORIZONS)
+
+    def fit(tbl):
+        return PM.ParticipationModel(contracts, exclude=GPM.PART_EXCLUDE).fit(
+            tbl, page, anchors_fn=GPM.goalie_anchors, horizons=GPM.HORIZONS)
+
+    pm = fit(past)
     assert not {"age", "age_sq"} & set(pm.features), pm.features
 
+    # 1. every anchor kept
     a = GPM.goalie_anchors(past[past["GP"] >= C.MIN_GP])
     have = set(zip(past["career_key"], past["syr"]))
-    worst = 0.0
     for h in GPM.HORIZONS:
         ah = a[a["t0"] + h < page]
         emp = float(np.mean([(k, t0 + h) in have
                              for k, t0 in zip(ah["career_key"], ah["t0"])]))
-        worst = max(worst, abs(pm.base_[h] - emp))
-    assert worst < 1e-9, (
-        f"the participation fit's base rate differs from its anchors' own "
-        f"played rate by {worst:.3f}: it is dropping rows, and on goaltenders "
-        f"the rows it drops are the ones who left the league")
+        assert abs(pm.base_[h] - emp) < 1e-9, (
+            f"horizon {h}: base rate {pm.base_[h]:.3f} against the anchors' "
+            f"own {emp:.3f} -- the fit is dropping rows")
 
-    # DATED: scrambling every season from the page onward moves nothing.
+    # 2. handed the future, it ignores it
     rng = np.random.default_rng(7)
     poisoned = g.copy()
     fut = poisoned["syr"] >= page
-    poisoned.loc[fut, "GP"] = rng.integers(1, 80, int(fut.sum()))
+    poisoned.loc[fut, "GP"] = rng.integers(10, 80, int(fut.sum()))
+    poisoned.loc[fut, "WAR"] = rng.normal(0, 3, int(fut.sum()))
     poisoned.loc[fut, "gp_share"] = rng.random(int(fut.sum()))
-    sm_a = GPM.ShareModel().fit(past, page)
-    sm_b = GPM.ShareModel().fit(poisoned[poisoned["syr"] < page], page)
+    full, full_p = fit(g), fit(poisoned)
     for h in GPM.HORIZONS:
-        ca, cb = sm_a.coef_[h], sm_b.coef_[h]
-        assert (ca is None and cb is None) or np.allclose(ca, cb)
+        for other in (full, full_p):
+            ca, cb = pm.coef_.get(h), other.coef_.get(h)
+            assert (ca is None) == (cb is None)
+            if ca is not None:
+                assert np.allclose(ca, cb), f"horizon {h}: the future moved the fit"
+            assert abs(pm.base_[h] - other.base_[h]) < 1e-12
+    fired = False
+    try:
+        GPM.ShareModel().fit(g, page)
+    except AssertionError:
+        fired = True
+    assert fired, "the share model accepted seasons at or after its page"
 
-    # The skater anchors are untouched by the new option.
-    sk = table[table["GP"] >= C.MIN_GP]
-    x = AF._anchors(sk, 2, AF.W_T2 / AF.W_T1)
-    y = AF._anchors(sk, 2, AF.W_T2 / AF.W_T1, cols=C.COMPONENTS_MODEL + ["WAR"])
-    pd.testing.assert_frame_equal(x, y)
-    return (f"age excluded; the fit keeps every anchor (base rate matches the "
-            f"anchors' own played rate at all {len(GPM.HORIZONS)} horizons); "
-            f"future seasons move nothing; skater anchors unchanged")
+    # 3. the predictions are a fitted model, not a constant
+    for h in GPM.HORIZONS:
+        if pm.coef_.get(h) is None:
+            continue
+        ah = a[a["t0"] + h < page]
+        pr = pm.predict(ah, h)
+        assert abs(float(pr.mean()) - pm.base_[h]) < 0.02, (
+            f"horizon {h}: in-sample mean prediction {pr.mean():.3f} against a "
+            f"base rate of {pm.base_[h]:.3f}")
+        assert float(pr.std()) > 0.02, f"horizon {h}: one number for everyone"
+
+    # 4. contract state is dated -- synthetic first, then the real case
+    syn = pd.DataFrame({
+        "first_name": ["Test"], "last_name": ["Goalie"], "position": ["Goaltender"],
+        "contract_end": ["2019-2020"], "length": [2],
+        "signing_date": ["2018-07-16"], "contract_level": ["standard_level"],
+        "signing_status": ["RFA"]})
+    sm = PM.ParticipationModel(syn, exclude=GPM.PART_EXCLUDE)
+    anc = pd.DataFrame({"career_key": ["test goalie"], "pkey": ["test goalie|G"],
+                        "t0": [2018], "age": [np.nan], "tw_WAR": [1.0],
+                        "tr_gp_share": [0.3], "exp_seasons": [2.0], "is_D": [0.0]})
+    at_sign = sm._rows(anc, 0, as_of=pd.Timestamp("2018-07-16"))
+    at_july = sm._rows(anc, 0, as_of=None)
+    assert float(at_sign["under_contract"].iloc[0]) == 1.0
+    assert float(at_july["under_contract"].iloc[0]) == 0.0
+    assert float(at_july["contract_unknown"].iloc[0]) == 1.0
+
+    import run_goalie_price_line as GPL
+    from contract_price_model import contract_sample
+    gs = contract_sample(("G",))
+    gil = gs[(gs["last_name"].astype(str).str.lower() == "gillies")
+             & (gs["signed"] == pd.Timestamp("2018-07-16"))]
+    if len(gil):
+        july = GPL.goalie_forecasts(gil, g, participation="model_july")
+        sign = GPL.goalie_forecasts(gil, g, participation="model")
+        assert len(july) and len(sign)
+        pj, ps = float(july["p_first"].iloc[0]), float(sign["p_first"].iloc[0])
+        assert ps > pj + 0.2, (
+            f"the price runner does not read contract state at the signing: "
+            f"Gillies prices at {pj:.1%} on 1 July and {ps:.1%} at the signing")
+        note = f"Gillies first season {pj:.0%} at 1 July, {ps:.0%} at the signing"
+    else:
+        note = "the Gillies contract is not in this census"
+    return ("every anchor kept; the future ignored when handed it; the "
+            f"predictions are a fitted model; contract state dated -- {note}")
+
+
+def c35(table):
+    """NO PARTICIPATION FIT IS EVER HANDED A SINGULAR DESIGN.
+
+    When every player the contract export knows about is also under contract
+    for the season, the two contract columns are mirror images and the design
+    loses a rank. The regularised fit then did something that depended on the
+    machine: on one goalie fit it reported convergence with an arbitrary split
+    between the columns, on another it raised and fell back to fewer features.
+    That is why an independent rerun disagreed. On fifteen skater fits in the
+    contract-using variants the arbitrary split reproduced the training rows
+    and over-predicted participation on the page by up to fifteen points.
+
+    Asserted: the rank rule drops the redundant column, in the fixed order,
+    and leaves a full-rank design alone; the real goalie fits that collide are
+    resolved the same way every time; and fitting twice gives identical
+    coefficients.
+    """
+    import numpy as np
+    import participation_model as PM
+    import goalie_season_table as GST
+    import run_goalie_participation as GPM
+    from contract_source import load_contracts
+    from player_season_table import birthdate_source
+
+    rng = np.random.default_rng(3)
+    n = 300
+    uc = (rng.random(n) < 0.3).astype(float)
+    d = pd.DataFrame({"level": rng.normal(size=n), "gp_share": rng.random(n),
+                      "under_contract": uc, "contract_unknown": 1.0 - uc})
+    use, dropped = PM._full_rank(d, ["level", "gp_share", "under_contract",
+                                     "contract_unknown"])
+    assert dropped == ["contract_unknown"] and "under_contract" in use, (use, dropped)
+    d["contract_unknown"] = (rng.random(n) < 0.5).astype(float)
+    use2, dropped2 = PM._full_rank(d, ["level", "gp_share", "under_contract",
+                                       "contract_unknown"])
+    assert dropped2 == [] and len(use2) == 4, "a full-rank design was altered"
+
+    bd, _ = birthdate_source()
+    g = GST.build(birthdate_csv=bd, verbose=False, allow_thin_ages=True)
+    contracts, _ = load_contracts()
+    page = 2019
+    fits = [PM.ParticipationModel(contracts, exclude=GPM.PART_EXCLUDE).fit(
+        g[g["syr"] < page], page, anchors_fn=GPM.goalie_anchors,
+        horizons=GPM.HORIZONS) for _ in range(2)]
+    hit = {h: v for h, v in fits[0].rank_dropped_.items() if v}
+    assert hit, "no collision on the 2019 goalie page -- the check is vacuous"
+    for h in hit:
+        assert "contract_unknown" not in fits[0].used_[h]
+        assert np.allclose(fits[0].coef_[h], fits[1].coef_[h])
+    return (f"the redundant column is dropped in a fixed order, a full-rank "
+            f"design is untouched, and the {len(hit)} colliding goalie fits on "
+            f"the 2019 page resolve identically every time")
 
 
 def main() -> None:
@@ -1513,7 +1628,8 @@ def main() -> None:
                      ("the production benchmark is production", c31),
                      ("one forecast per page, and age that uses age", c32),
                      ("the pooled price line reads its own goalie slope", c33),
-                     ("goalie participation learns from every goaltender", c34)]:
+                     ("goalie participation, exercised end to end", c34),
+                     ("no participation fit sees a singular design", c35)]:
         check(name, lambda fn=fn: fn(table))
 
     width = max(len(n) for n, _, _ in results)

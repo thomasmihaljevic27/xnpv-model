@@ -61,7 +61,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 from player_season_table import norm_name
 
-SCRIPT_VERSION = "1.4"
+SCRIPT_VERSION = "1.5"
 
 BASE_FEATURES = ["age", "age_sq", "level", "gp_share", "exp_seasons", "is_D"]
 CONTRACT_FEATURES = ["under_contract", "contract_unknown"]
@@ -125,6 +125,36 @@ def players_with_any_contract(spans: pd.DataFrame, as_of: pd.Timestamp) -> set:
 # ---------------------------------------------------------------------------
 # The model
 # ---------------------------------------------------------------------------
+# The order redundant columns are dropped in when a design is rank-deficient:
+# the least informative first. `contract_unknown` goes before `under_contract`
+# because when the two collide, "the export knows him" and "he is under
+# contract" are the same fact, and it is the contract that carries it.
+DROP_ORDER = ("contract_unknown", "under_contract", "exp_seasons", "is_D",
+              "age_sq", "gp_share", "level", "age")
+
+
+def _full_rank(d: pd.DataFrame, use: list) -> tuple[list, list]:
+    """Drop columns, in DROP_ORDER, until [1, X] has full column rank.
+
+    Deterministic by construction: the rank is computed once per candidate
+    set with a fixed tolerance and the order never depends on the data, so two
+    machines given the same rows make the same choice."""
+    use = list(use)
+    dropped = []
+
+    def rank_ok(cols):
+        X = np.column_stack([np.ones(len(d))] + [d[c].to_numpy(float) for c in cols])
+        return np.linalg.matrix_rank(X, tol=1e-8) == X.shape[1]
+
+    for c in DROP_ORDER:
+        if rank_ok(use):
+            break
+        if c in use:
+            use.remove(c)
+            dropped.append(c)
+    return use, dropped
+
+
 class ParticipationModel:
     """One logistic fit per horizon, rolling.
 
@@ -163,6 +193,7 @@ class ParticipationModel:
         self.base_: dict = {}
         self.coverage_: dict = {}
         self.used_: dict = {}
+        self.rank_dropped_: dict = {}
 
     # -- features ----------------------------------------------------------
     def _rows(self, anchors: pd.DataFrame, h: int, as_of=None, table=None) -> pd.DataFrame:
@@ -192,11 +223,26 @@ class ParticipationModel:
         d["age"] = d["age"] - 27.0
 
         d["t0"] = anchors["t0"].to_numpy()
+        # THE DATE CONTRACT STATE IS READ AT. By default 1 July of each row's
+        # own valuation season, which is what every fit uses. A caller pricing
+        # a contract passes its SIGNING DATE instead: the goalie price runner
+        # first read contract state at 1 July, so a deal signed on 16 July was
+        # being priced by a model that could not see it -- Jon Gillies's 2018
+        # contract came out at 44% to play its first season where the state
+        # known at signing gives 93%. `as_of` may be one date or one per row;
+        # it is never allowed to be later than the decision being made, and
+        # that is the caller's contract to keep.
+        if as_of is None:
+            d["_asof"] = [pd.Timestamp(year=int(t), month=7, day=1) for t in d["t0"]]
+        elif np.ndim(as_of) == 0:
+            d["_asof"] = pd.Timestamp(as_of)
+        else:
+            d["_asof"] = pd.to_datetime(np.asarray(as_of))
         d["under_contract"] = 0.0
         d["contract_unknown"] = 1.0
         if self.spans is not None:
-            for t0, idx in d.groupby("t0").groups.items():
-                ts = pd.Timestamp(year=int(t0), month=7, day=1)
+            for ts, idx in d.groupby("_asof").groups.items():
+                ts = pd.Timestamp(ts)
                 blk = d.loc[idx]
                 uc = under_contract_at(self.spans, ts, sorted(blk["season"].unique()))
                 known = players_with_any_contract(self.spans, ts)
@@ -212,7 +258,7 @@ class ParticipationModel:
                 # concentrated in the early pages where coverage is thin.
                 d.loc[idx, "contract_unknown"] = (~blk["pkey"].isin(known)).astype(float).to_numpy()
             d.loc[d["contract_unknown"] > 0, "under_contract"] = 0.0
-        return d.drop(columns=["t0"])
+        return d.drop(columns=["t0", "_asof"])
 
     # -- fit ---------------------------------------------------------------
     def fit(self, table: pd.DataFrame, before: int, anchors_fn,
@@ -276,6 +322,21 @@ class ParticipationModel:
                     if lo < MIN_LEVEL_ROWS:
                         continue
                 use.append(f)
+            # A SINGULAR DESIGN IS NEVER HANDED TO THE OPTIMISER. When every
+            # player the contract export knows about is also under contract for
+            # the season, `under_contract` is exactly 1 - `contract_unknown`
+            # and the design loses a rank. What the regularised fit does then
+            # is not a property of the data: on the goalie pages it "converged"
+            # with an arbitrary split between the two columns on one fit
+            # (+6.88 against -3.99) and raised a singular-Hessian error on
+            # another, falling back to fewer features -- and which of those
+            # happens depends on floating-point details that differ between
+            # machines. That made an independent rerun disagree at exactly the
+            # horizons where the columns collide. So redundant columns are
+            # dropped here, in a FIXED order, until the design has full rank;
+            # a full-rank design is untouched.
+            use, dropped = _full_rank(d, use)
+            self.rank_dropped_[h] = dropped
             self.used_[h] = list(use)
             # A CASCADE, not a cliff. If the full design will not fit, try the
             # base features alone before giving up on the horizon entirely.
@@ -326,7 +387,7 @@ class ParticipationModel:
                 f"only to {sorted(self.horizons_)}. There is no coefficient "
                 "and no base rate for that horizon, so any number returned "
                 "here would be invented. Fit it, or declare an extrapolation.")
-        d = self._rows(anchors, h)
+        d = self._rows(anchors, h, as_of=as_of)
         base = self.base_.get(h, 0.6)
         coef = self.coef_.get(h)
         if coef is None:

@@ -223,6 +223,34 @@ the work is. Next, in order:
 5. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
    contract-by-contract dollar reconciliation, and the holdout policy.
 
+**2026-09-22d — repairs for the goalie participation review, awaiting verification.** All four
+requested items are done; the review stays open until it is independently re-checked.
+
+1. **The numerical discrepancy is reconciled.** Singular participation designs (the two contract
+   columns exact mirror images whenever every known player is under contract) were being resolved by
+   the optimiser in a platform-dependent way. `participation_model.py` v1.5 drops redundant columns in
+   a fixed order. Corrected goalie figures: Brier **0.2056** (flat 0.2470), season WAR error **1.432**
+   (stand-ins 1.488), pooled bias +0.096. The reviewer's machine is inferred, not observed, to have
+   taken the other branch.
+2. **Signing-date contract state** in the goalie price runner (v2.2): 95 of 205 contracts move;
+   Gillies 44.4% -> 92.7% and 41.2% -> 99.5%. **Known gap:** first season predicted 0.822 against
+   0.761 played (second season 0.797 against 0.794). Refitted: level only 0.007017 (beats none 100%),
+   slope 22%, whole-path UFA ratio **0.79**. Specification provisional; D7 not settled.
+3. **Checks 34 (rewritten) and 35 (new)**, each mutation-tested. Suite 35/35.
+4. **Bias claim corrected** in the 22b entries below.
+
+**OPEN DECISION (Thomas) -- should the skater leader fit participation with contract data?** The same
+rank defect sat in fifteen skater fits of the contract-using variants and is where Phase 2's "contract
+data hurts" came from. Re-measured (`run_contract_ablation.py`): before the fix +0.45% to +0.98% worse
+WAR error at one to five seasons out; after it +0.03% to +0.27%, with only two seasons out clear of
+zero, and participation Brier better with contracts (0.1326 against 0.1340). The finding is withdrawn
+in conclusion. The leader fits without contracts, partly on that finding; with contracts is now a near
+tie on WAR and better on participation. Not changed here -- a leader change is a deliberate decision,
+and it would move every downstream skater number.
+
+**Next after verification:** the goalie rate forecast (per-82 shrunk toward a rate norm) so rate x
+share x participation decomposes, then the price comparison again, then the control-year gate.
+
 **2026-09-22b — the goalie participation model, and a birthdate that encodes the future.** The
 next item. Whether a goaltender plays at all and how much he plays if he does are built and scored
 as separate problems, with ability held at production's projector throughout.
@@ -249,9 +277,11 @@ higher share forecast (0.22 -> 0.34 for backups) multiplies the inflation -- bac
 +0.54. **Production's number cannot be split into rate x share; using the share model needs a goalie
 RATE forecast**, which is next.
 
-**The pooled bias did not move** (+0.100 -> +0.104) even though participation is now roughly right,
-which answers the earlier question: the +0.167 was an illustration, and the remaining bias sits
-elsewhere.
+**The pooled bias did not move** (+0.100 -> +0.104). [CORRECTED after review: the entry said this
+showed the bias sits outside participation, which does not follow -- average participation can
+improve while errors for high- and low-production goaltenders offset differently in WAR. Supported:
+the participation model improves accuracy but does not eliminate the pooled bias; its causes are
+unresolved.]
 
 **Price line refitted on the updated forecast:** every line more accurate; the level still carries
 the improvement (100%); the slope is a coin flip (58%); and **the goaltender slope is unstable** --

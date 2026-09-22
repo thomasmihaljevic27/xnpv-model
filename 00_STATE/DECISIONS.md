@@ -1,5 +1,44 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-22d (closing the goalie participation review):** Four repairs, one recorded
+result withdrawn, and the checks strengthened. **(1) Singular participation designs, the cause of the numerical
+discrepancy.** When every player the contract export knows about is also under contract,
+`under_contract` equals `1 - contract_unknown` and the logistic design loses a rank; the regularised
+fit then either reported convergence with an arbitrary split (goalie 2018 page, one season out: +6.88
+against -3.99) or raised a singular-Hessian error and fell back to fewer features (2019, two out).
+Which branch runs depends on floating-point details, so two machines can differ on the same rows; that
+is the inferred mechanism for the review's 0.2101/1.446 against 0.2075/1.437, located at the colliding
+horizons but not observed on the reviewer's machine. `participation_model.py` v1.5 drops redundant
+columns in a fixed order until the design has full rank. Corrected goalie figures: participation Brier
+**0.2056** against the flat rate's 0.2470 (100%), predicted 0.575 against 0.553 observed; season WAR
+error 1.488 -> **1.432** (100%), pooled bias +0.100 -> +0.096. **(2) The same defect hit fifteen skater
+fits** in the contract-using variants (2015-2019 pages, one to five seasons out) and over-predicted
+participation on the page (0.556 against 0.406 at 2019, five out). `run_contract_ablation.py` v1.0
+re-measures the Phase 2 ablation on one harness: adding contract data changed WAR error by +0.45% to
++0.98% at one to five seasons out before the fix, and by +0.03% to +0.27% after it (intervals include
+zero at one, three, four and five seasons out; +0.27% [+0.13, +0.42] at two), with participation Brier
+0.1326 with contracts against 0.1340 without. **The Phase 2 finding that contract data hurts the
+forecast is withdrawn in conclusion**; the leader's choice to fit without contract data is an open
+question, not a locked result (WORK_QUEUE). **(3) Contract state in the goalie price runner dated at the
+signing**, not 1 July (`run_goalie_price_line.py` v2.2): 95 of 205 contracts change here (the review
+counted 92 with its training fit held fixed; the fits under this count changed with the rank fix, and
+the two counts are not separately reconciled). Gillies, signed 16 July 2018: 44.4% -> 92.7% first
+season, 41.2% -> 99.5% second. Calibration on the priced contracts' own seasons: first season
+predicted 0.822 against 0.761 played, second 0.797 against 0.794 -- a six-point gap in the first
+season, recorded, not corrected. The forecast moves +0.111 WAR on average, 0.223 in absolute terms, up
+to 1.235. Refitted: no goaltender terms 0.010001, level only **0.007017**, level and slope 0.007153;
+level beats none in 100%, slope beats level in 22%; last-fit whole-path UFA response $2.079M skater /
+$1.642M goaltender (ratio **0.79**; RFA 0.78). The ratio has now read 1.07, 0.75 and 0.79 across three
+versions of the forecast; **the goaltender slope is unstable, the specification provisional, D7 not
+settled.** **(4) The bias inference corrected** (see 2026-09-22b): the participation model improves
+accuracy but does not eliminate the pooled bias; its causes are unresolved. **(5) Checks.** Check 34
+rewritten to exercise the fit with future rows present (full table, poisoned full table and truncated
+table give identical coefficients), to require a fitted rather than constant predictor, and to test
+the signing date synthetically and on Gillies; check 35 added for the rank rule. Mutation-tested: a
+constant 0.999 predictor, an ignored signing date and the rank rule switched off each fail. Suite
+**35 passed, 0 skipped, 0 failed**. Nothing adopted; no production code changed; no locked decision
+reopened.
+
 **Change log, 2026-09-22b (the goalie participation model):** Built
 `run_goalie_participation.py` v1.1; `participation_model.py` v1.4 gains `exclude`; `_anchors` gains
 `cols` (skater anchors byte-identical, asserted). Participation (does he play at all) and share of the
@@ -15,8 +54,11 @@ predicted 0.580 against 0.553 observed; share model better on played seasons (0.
 0.1801); season WAR error 1.488 -> 1.437 with participation and trailing share. The share model
 worsens season WAR (1.581) because production's season-total projector, shrunk toward a
 starter-level average, cannot be decomposed into rate x share; a goalie rate forecast is required
-before it can be used. The pooled WAR bias did not move (+0.100 -> +0.104), so it is not a
-participation artefact. The price line refitted on the updated forecast keeps the level-only result
+before it can be used. The pooled WAR bias did not move (+0.100 -> +0.104). [CORRECTED after
+review: this was read as showing the bias is not a participation artefact, which does not follow --
+better average participation can leave errors for high- and low-production goaltenders offsetting
+differently in WAR. Supported: the participation model improves accuracy but does not eliminate the
+pooled bias, whose causes are unresolved.] The price line refitted on the updated forecast keeps the level-only result
 and shows the goaltender slope unstable (whole-path UFA ratio 1.07 -> 0.75 on a -0.003 WAR move in
 the mean forecast). Goaltender specification provisional; D7 not settled. Check 34 added and
 verified by putting age back in. Suite 34 passed, 0 skipped, 0 failed. Nothing adopted; no
@@ -884,6 +926,8 @@ scored. Review artifacts and state are committed together under the session-clos
 ---
 
 ## Change log (state files)
+
+- **2026-09-22d (goalie participation review repaired):** Singular participation designs fixed (`participation_model.py` v1.5, deterministic rank rule), explaining the cross-machine discrepancy (corrected goalie Brier 0.2056, WAR error 1.432); goalie price runner dates contract state at the signing (v2.2; 95/205 contracts move, first-season calibration gap recorded; ratio 0.79); Phase 2 "contract data hurts" withdrawn after re-measurement (`run_contract_ablation.py` v1.0); bias inference corrected; checks 34 rewritten and 35 added, mutation-tested; suite 35/35. All four state files and `sessions/2026-09-22.md` updated. No locked decision changed.
 
 - **2026-09-14d (rebuild plan, Fable version, and two diagnostics):** Added `50_REBUILD/docs/Player_Model_Rebuild_Plan_Fable.md` (six phases, acceptance tests, six decisions required, what stays; proposal only) and two test scripts: `signing_date_audit.py` v1.0 (30% of the locked rate sample signed before its trailing seasons were complete, 58% at 3+ WAR; closes the 09-14b "quantify" item) and `component_persistence_test.py` v1.0 (shooting 49% of WAR/82 covariance at r 0.35; component-wise rolling anchor −7.0/−8.1/−8.9% MAE at horizons 0/1/2). STANDING_FLAGS, WORK_QUEUE, PROJECT_STATE inventory, MANIFEST updated. No production change, no locked decision opened. `sessions/2026-09-14d.md`.
 

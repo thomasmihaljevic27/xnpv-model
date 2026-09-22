@@ -194,6 +194,22 @@ These findings take precedence over the earlier broad validation claims. No impl
 changed; repaired development comparisons and the unbuilt simulation work must precede adoption.
 Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 
+**Goalie participation repaired after review, 2026-09-22d.** `participation_model.py` v1.5,
+`run_goalie_price_line.py` v2.2, new `run_contract_ablation.py` v1.0. **Singular designs:** when every
+player the contract export knows is under contract, the two contract columns mirror each other and
+the regularised logistic fit resolved the lost rank arbitrarily and platform-dependently -- the
+inferred cause of the review's different figures. Redundant columns are now dropped in a fixed order.
+Corrected goalie figures: participation Brier **0.2056** against 0.2470 flat; season WAR error 1.488 ->
+**1.432**; pooled bias +0.096, not eliminated, causes unresolved. **Fifteen skater fits** in the
+contract-using variants had the same defect; re-measured, the Phase 2 result that contract data
+hurts the participation forecast shrinks from +0.45%..+0.98% to +0.03%..+0.27% of WAR error and is
+**withdrawn in conclusion**; whether the leader should use contract data is an open decision. The
+goalie price runner now **reads contract state at the signing** (95/205 contracts move; first season
+predicted 0.822 against 0.761 played, a recorded calibration gap). Refitted: level only 0.007017,
+slope wins 22%, whole-path UFA ratio 0.79 (it has read 1.07, 0.75, 0.79): specification provisional,
+D7 not settled. Checks 34 rewritten and 35 added, both mutation-tested. Suite 35/35. See
+`50_REBUILD/docs/Goalie_Participation.md` and the correction in `50_REBUILD/docs/Phase2_Participation.md`.
+
 **Goalie participation, 2026-09-22b.** `run_goalie_participation.py` v1.1, with
 `participation_model.py` v1.4 (`exclude`) and `ability_forecast._anchors(cols=...)` (skater output
 byte-identical). Whether a goaltender plays and how much he plays if he does are modelled apart,
@@ -201,13 +217,13 @@ ability held at production's projector. **Age is excluded from both goalie model
 availability is selected on the outcome**: goalie anchors with a birthdate play at 0.90 at every
 horizon, those without at 0.56/0.26/0.12 at zero/three/five seasons, so the skater rule of dropping
 ageless rows fitted survivors only and predicted about 0.87 everywhere. With age excluded:
-participation predicted 0.580 against 0.553 observed (flat rate 0.641), Brier 0.2075 against 0.2470
+participation predicted 0.580 against 0.553 observed (flat rate 0.641), Brier 0.2075 [0.2056 after the 22d rank fix] against 0.2470
 (100% of goaltender-resamples); the share-of-schedule model beats the flat carry on played seasons
 (0.1686 against 0.1801); season WAR error 1.488 -> **1.437** with the participation model and
 trailing share. **The share model worsens season WAR** because production's projector is a season
 total shrunk toward a starter-level average and cannot be split into rate x share -- backup bias
 +0.13 -> +0.54 -- so a goalie rate forecast is needed before it can be used. The pooled bias did not
-move (+0.100 -> +0.104). The price line refitted on the updated forecast keeps the level-only result
+move (+0.100 -> +0.104) [CORRECTED 22d: not evidence the bias lies outside participation; causes unresolved]. The price line refitted on the updated forecast keeps the level-only result
 (100%), makes the slope a coin flip (58%), and shows **the goaltender slope unstable**: whole-path
 UFA ratio 1.07 -> 0.75 on a -0.003 WAR move in the average forecast. Specification provisional.
 Suite 34/34. See `50_REBUILD/docs/Goalie_Participation.md`.

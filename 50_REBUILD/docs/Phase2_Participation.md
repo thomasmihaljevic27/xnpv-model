@@ -79,7 +79,42 @@ it was designed to sit on.
 This matters beyond the accuracy number. The walk is the form Phase 5's simulation needs — a
 career path drawn one step at a time — and it no longer costs anything to use it.
 
-## The contract data does not help. It hurts.
+## CORRECTION, 2026-09-22 — most of "it hurts" was a defect in the with-contract model
+
+**The finding below is withdrawn in its conclusion.** It was measured with a fourth defect in the
+with-contract model, found while building the goalie branch. When every player the contract export
+knows about is also under contract for the season, `under_contract` is exactly `1 - contract_unknown`
+and the logistic design loses a rank. The regularised fit then reported convergence with an
+arbitrary split between the two columns. That split reproduced the training rows exactly and
+extrapolated badly to the page itself, where the two columns stop mirroring each other: on the 2019
+page five seasons out it predicted 0.556 participation against an observed 0.406. It happened on
+fifteen skater fits, 2015–2019 pages, horizons one to five — exactly where contract data was judged
+worst. `participation_model` v1.5 now drops redundant columns in a fixed order until the design has
+full rank.
+
+Re-measured in one run, the with-contract model scored before and after the fix on identical rows
+(`run_contract_ablation.py`). Effect of adding contract data, % of mean absolute error in season WAR,
+**positive = worse**, 95% interval from resampling careers:
+
+| seasons ahead | before the fix | after the fix |
+|---|---:|---:|
+| valuation | +0.03% [−0.09, +0.16] | +0.03% [−0.09, +0.16] |
+| +1 | +0.45% [+0.30, +0.60] | +0.08% [−0.05, +0.21] |
+| +2 | +0.89% [+0.68, +1.10] | **+0.27% [+0.13, +0.42]** |
+| +3 | +0.98% [+0.75, +1.25] | +0.06% [−0.09, +0.22] |
+| +4 | +0.81% [+0.61, +1.01] | +0.12% [−0.01, +0.25] |
+| +5 | +0.90% [+0.67, +1.13] | +0.03% [−0.06, +0.12] |
+
+After the fix, contract data leaves season-WAR error **essentially unchanged** — only at two seasons
+out does the interval exclude zero, at +0.27% — and it **improves the participation forecast
+itself**: Brier score 0.1326 with contract data against 0.1340 without, lower at every horizon.
+
+So "the contract data does not help, it hurts" does not survive. The standing leader was chosen in
+part on it and fits participation without contract data. **That choice is now an open question
+rather than a supported result**: on season WAR the two are close to a tie, and on participation
+contract data is better. The leader is not changed here; the decision is recorded as open.
+
+## The contract data does not help. It hurts. [WITHDRAWN IN CONCLUSION, see the correction above]
 
 **This section replaces an earlier version of it that said the opposite. The earlier claim —
 that contract state was worth 5% to 13% — was wrong, and the error is worth recording because
