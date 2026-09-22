@@ -9,6 +9,18 @@
 
 ## Work queue
 
+**Goalie control-year review open, 2026-09-22:** independently reviewed `088546f`.
+39/39 checks pass; old replay and persistence mutants both fail. Control and term
+figures reproduce. Two evaluation corrections remain: common realised-dollar
+target across forecast arms (current targets differ by $0.514M on average), and
+coverage tests accounting for the salary-floor and non-participation masses.
+Matched-currency production bootstrap advantage is 53.7-55.6%, not 64%; its own
+simulated 80% intervals cover 89.55% of its draws versus 93.23% of outcomes.
+Production's central interval still merits investigation. Do not narrow bands
+from nominal coverage alone. Keep production default/rate sensitivity provisional.
+See `50_REBUILD/docs/Goalie_Control_Years_Review_Codex.md`. Prior closures stand;
+no implementation edits, merge or adoption. Phase 5 remains open.
+
 **Goalie rate review closed, 2026-09-22:** verified `f90e6fe` in isolation.
 37/37 passes. Consumer/scored equality is exact across 4,759 check-37 cells and
 5,032 independently requested forecast cells, including horizons 6-7. Both old
