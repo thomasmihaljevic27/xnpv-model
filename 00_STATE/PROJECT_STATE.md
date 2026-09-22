@@ -193,6 +193,20 @@ These findings take precedence over the earlier broad validation claims. No impl
 changed; repaired development comparisons and the unbuilt simulation work must precede adoption.
 Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 
+**Goalie rate review open, 2026-09-22:** reviewed `0bec937` in isolation.
+36/36 passes and published rate/season/price comparisons reproduce. One P2 repair:
+price consumer and scored FlatShare arm use different trailing-share fallbacks
+when a horizon has no share fit. 435 conditional forecast cells differ; aligning
+paths changes 8/165 contract forecasts, maximum .00760 WAR per season. Price
+level-only MAE .008503 becomes .008504 on the same 137 contracts; conclusion holds.
+Share a conditional-forecast rule and add consumer parity guard before closure.
+Production remains the stronger season point benchmark (RMSE 2.073 vs 2.099 for
+rate/share); carry rate as sensitivity. Squared error primary for means, alongside
+MAE, subgroup bias and dollar/distribution validation. Weighted rate targets and
+joint rate/workload assumptions need explicit definition. Pricing and D7 provisional.
+See `50_REBUILD/docs/Goalie_Rate_Review_Codex.md`. Prior closures stand; no adoption,
+model changes or candidate merge.
+
 **Goalie participation review closed, 2026-09-22:** verified `8d1efc6` in isolation.
 35/35 passes; Brier .2056 and WAR MAE 1.432 reproduce. Signing dates flow through
 per-row prediction; reordered duplicate-player batches and future-contract tests
