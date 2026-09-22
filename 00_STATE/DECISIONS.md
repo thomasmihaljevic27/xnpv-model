@@ -1,5 +1,13 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-22e (goalie participation repairs closed):** Verified
+`8d1efc6`: 35/35, corrected goalie and price results, three mutations, actual dates
+and full-rank optimizer inputs. Independent skater ablation agrees after repair;
+old singular results remain unreliable. Close prior findings, proceed to goalie
+rate experiment; keep current skater leader pending matched configuration/dollar
+comparison. Added closure/audit and state/session records. No model changes,
+merge, adoption or canonical production writes.
+
 **Change log, 2026-09-22c (goalie participation review):** Reviewed `6e9286e`.
 34/34 passes; directional improvement survives, exact h2 results differ. Found
 signing-date status error in price integration (92/205 change under date-only
