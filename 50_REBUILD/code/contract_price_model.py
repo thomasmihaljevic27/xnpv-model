@@ -45,7 +45,7 @@ import information_set as ISET
 from contract_source import load_contracts, POSGRP
 from player_season_table import norm_name, build as build_table
 
-SCRIPT_VERSION = "1.4"
+SCRIPT_VERSION = "1.5"
 
 
 def contract_sample(positions: tuple = ("F", "D")) -> pd.DataFrame:
@@ -112,14 +112,23 @@ def contract_sample(positions: tuple = ("F", "D")) -> pd.DataFrame:
 
 
 def attach_forecasts(sample: pd.DataFrame, model_cls, table: pd.DataFrame,
-                     verbose: bool = True) -> pd.DataFrame:
+                     verbose: bool = True,
+                     participation_date: str = "signing") -> pd.DataFrame:
     """For every contract, the forecast production over its term, built only
     from what was readable at the signing.
 
     Batched by `latest_complete`, the last season readable at the signing,
     because that is the only thing that changes the information set. Within a
     batch every contract sees the same seasons and the model is fitted once.
+
+    CONTRACT STATE IS READ AT THE SIGNING (`participation_date="signing"`,
+    the default) for any model whose participation reads contract data. The
+    page's 1 July was used before, so a deal signed in October was valued by a
+    model that did not know it had been signed. A model that reads no contract
+    data -- the skater leader -- is unaffected, bit for bit. "page" keeps the
+    old behaviour reachable for the check that compares the two.
     """
+    assert participation_date in ("signing", "page"), participation_date
     import forecast_harness as H
 
     out = []
@@ -158,11 +167,30 @@ def attach_forecasts(sample: pd.DataFrame, model_cls, table: pd.DataFrame,
         pred = pred.merge(subs[["career_key", "pkey"]], on="career_key", how="left")
         pred["war"] = pred["p_play"] * pred["rate_82"] * pred["gp_share"]
         lut = pred.set_index(["pkey", "h"])["war"]
+        cond = (pred.drop_duplicates(["pkey", "h"]).set_index(["pkey", "h"])
+                .eval("rate_82 * gp_share"))
+        p_page = pred.drop_duplicates(["pkey", "h"]).set_index(["pkey", "h"])["p_play"]
+        # SIGNING-DATED PARTICIPATION, one batch call per page. Rows are the
+        # contracts themselves, so a player signing twice in one batch gets
+        # each contract's own date.
+        signed = None
+        if (participation_date == "signing"
+                and getattr(model, "reads_contracts", False)):
+            ck = subs.drop_duplicates("pkey").set_index("pkey")["career_key"]
+            keys = ck.reindex(grp["pkey"]).to_numpy()
+            signed = model.p_play_signed(iset, keys, hs, grp["signed"].to_numpy())
+            pos = {ix: i for i, ix in enumerate(grp.index)}
 
         ex = pred.set_index(["pkey", "h"])["extrapolated"]
         for r in grp.itertuples():
             hh = [int(s - t0) for s in range(int(r.start_yr), int(r.end_yr) + 1)]
-            vals = [lut.get((r.pkey, x), np.nan) for x in hh]
+            if signed is None:
+                vals = [lut.get((r.pkey, x), np.nan) for x in hh]
+                ps = [p_page.get((r.pkey, x), np.nan) for x in hh]
+            else:
+                i = pos[r.Index]
+                ps = [float(signed[x][i]) if x in signed else np.nan for x in hh]
+                vals = [cond.get((r.pkey, x), np.nan) * pp for x, pp in zip(hh, ps)]
             # THE WHOLE TERM, OR NOTHING. This used to clip the horizon list at
             # eight and then drop whatever came back missing, so a contract
             # could be priced on part of itself and reported as though it were
@@ -181,6 +209,9 @@ def attach_forecasts(sample: pd.DataFrame, model_cls, table: pd.DataFrame,
             out.append({"idx": r.Index, "war_total": float(np.sum(vals)),
                         "war_per_season": float(np.mean(vals)),
                         "war_year1": float(vals[0]), "n_years_forecast": len(vals),
+                        "p_first": float(ps[0]),
+                        "participation_dated": ("signing" if signed is not None
+                                                else "page"),
                         # Carried so a dollar total can say how much of itself
                         # came from beyond the fitted range.
                         "n_years_extrapolated": n_ex})
@@ -194,7 +225,7 @@ def attach_forecasts(sample: pd.DataFrame, model_cls, table: pd.DataFrame,
     # report this function had just promised. An empty batch is an ordinary
     # no-history outcome, not an error.
     cols = ["war_total", "war_per_season", "war_year1", "n_years_forecast",
-            "n_years_extrapolated"]
+            "p_first", "participation_dated", "n_years_extrapolated"]
     f = (pd.DataFrame(out).set_index("idx") if out
          else pd.DataFrame(columns=cols, index=pd.Index([], name="idx")))
     attach_forecasts.rejected_ = pd.DataFrame(rejected)

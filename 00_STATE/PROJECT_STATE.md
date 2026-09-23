@@ -207,13 +207,22 @@ These findings take precedence over the earlier broad validation claims. No impl
 changed; repaired development comparisons and the unbuilt simulation work must precede adoption.
 Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 
+**Skater contract test corrected, 2026-09-23f.** Contract valuations now read contract state at
+the signing (`attach_forecasts`, check 42).
+- **The leader under-predicts priced contracts' first seasons by 12 points** (0.782 against 0.900).
+- **Visible contract status at the signing** halves that and wins contract dollars in 100% of
+  resamples ($3.533M -> $3.517M RMSE; bias -0.597 -> -0.549).
+- **Recommendation reversed:** adopt it for the skater leader, pending Thomas.
+
+Suite 42/42. See `50_REBUILD/docs/Skater_Contract_Test.md`.
+
 **Skater contract-data test, 2026-09-23e.** The leader was compared with four matched versions
 differing only in participation's contract inputs.
 - **The skater export carries survival too**, more mildly than the goaltender one.
 - **The period indicator does nothing** for skaters.
 - **Visible contract status helps, consistently but trivially:** season WAR RMSE -0.05% (100%),
   dollar RMSE -$5k of $3.5M (91%).
-- **Recommendation:** keep the leader without contract inputs, pending Thomas.
+- [WITHDRAWN 23f] **Recommendation:** keep the leader without contract inputs, pending Thomas.
 
 See `50_REBUILD/docs/Skater_Contract_Test.md`.
 

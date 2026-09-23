@@ -1,5 +1,33 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-23f (skater contract valuations read contract state at the signing):** Review of
+`1b7d9a7` merged (`150bca1`). The skater valuation caller, `attach_forecasts`, read participation's
+contract state at 1 July of the page. **Fixed:**
+- `contract_price_model.py` v1.5 reads it at each contract's signing for any model that reads
+  contract data;
+- `ability_forecast.py` v1.9 adds `p_play_signed`, with the beyond-fit tail on
+  `predict_beyond_fit`'s own rule, and `reads_contracts`;
+- the leader, which reads none, is unaffected bit for bit.
+
+**Check 42** drives the real caller. It reproduces Chara 2021 at 33.7% (1 July) against 58.9% (at
+signing). A 1 July copy must reproduce the page valuation exactly, including a seven-year deal's
+extrapolated tail, and the leader must be unmoved. It fails when the date is ignored or the tail's
+decay is dropped. Suite **42 passed, 0 skipped, 0 failed**.
+
+**Rerun** (`run_skater_contract_test.py` v1.1; season results unchanged):
+- **First-season participation on 1,458 priced contracts:** the leader predicts 0.782 against 0.900
+  played (-0.118 [-0.136, -0.101]); contract only 0.845 (-0.055); as known 0.902 (+0.002).
+- **Dollars on the leader's line:** leader $3.533M; contract only / observable $3.517M (100%, both
+  lines; bias -0.597 -> -0.549); as known $3.500M (100%, set aside on identification grounds);
+  period only 0%.
+
+**The 23e dollar table and its "keep the leader" recommendation are withdrawn.** Revised
+recommendation, pending Thomas: adopt visible contract status only for the skater leader's
+participation. The stated assumptions are vendor completeness from 2018, and training at 1 July
+against valuing at the signing (5.5 points still low). This skater result also bears on the goalie
+baseline (goalie observable $6.880M against none $6.932M on its fixed line); flagged, not reopened.
+No production code changed; no locked decision reopened.
+
 **Change log, 2026-09-23e (matched skater contract-data test):** `run_skater_contract_test.py`
 v1.0; `ability_forecast.py` v1.8 (the participation mixin carries `CONTRACT_STATE` and
 `PART_EXCLUDE`, with defaults that reproduce every recorded run). The leader (`A1HingeExposure`, no
@@ -22,7 +50,7 @@ The leader's and the old definition's figures reproduce the 2026-09-22 ablation 
 terms: RMSE is leader $3.533M, as known 3.525 (89%), observable 3.541 (12%), period only 3.537 (0%),
 contract only 3.528 (91%). The sensitivity line gives the same ordering.
 
-**Recommendation (not adopted; Thomas's decision): keep the leader without contract inputs.**
+[WITHDRAWN 2026-09-23f: valuations read contract state at 1 July, not the signing; see 23f.] **Recommendation (not adopted; Thomas's decision): keep the leader without contract inputs.**
 Visible contract status is the only input that helps on the declared scores, but by 0.05% of season
 WAR RMSE and $5k of $3.5M in dollar RMSE (91%, not 95%). It would rest on an unverified vendor
 completeness assumption, and the goalie baseline also reads none. Contract status only is recorded
@@ -1259,6 +1287,8 @@ scored. Review artifacts and state are committed together under the session-clos
 ---
 
 ## Change log (state files)
+
+- **2026-09-23f (skater signing-date fix):** attach_forecasts reads contract state at the signing; check 42; leader under-predicts priced contracts' first seasons by 12 points; contract status only now wins dollars in 100% ($16k RMSE, $48k bias); recommendation reversed to adopt it, pending Thomas. Suite 42/42.
 
 - **2026-09-23e (skater contract-data test):** matched test of the leader against four contract-input versions; visible contract status alone helps consistently but trivially (0.05% WAR RMSE, 91% in dollars); the period indicator does nothing for skaters; recommendation to keep the leader without contract inputs, pending Thomas.
 

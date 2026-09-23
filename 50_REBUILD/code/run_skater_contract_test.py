@@ -31,8 +31,10 @@ WHAT IS COMPARED -- THE LEADER AND FOUR MATCHED VARIANTS
 HOW IT IS SCORED, DECLARED BEFORE THE RUN
     1. Participation: Brier score, and the confident fifth's calibration.
     2. Season WAR: squared error PRIMARY, absolute error and bias beside it.
-    3. Contract dollars: every variant's point valuation, and the WAR each
-       player actually delivered, priced on ONE fixed line -- the leader's --
+    3. Contract dollars: every variant's point valuation -- participation read
+       at each contract's SIGNING, as `attach_forecasts` now does for any model
+       that reads contract data (version 1.0 read it at 1 July of the page) --
+       and the WAR each player actually delivered, priced on ONE fixed line -- the leader's --
        with the realised target asserted identical across variants. Squared
        dollar error primary. The observable variant's line is the sensitivity.
        Ended terms only; realised seasons are read only for scoring.
@@ -56,7 +58,7 @@ from player_season_table import build as build_table, birthdate_source
 from production_currency import ProductionCurrency
 from run_phase4_decisions import prep
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 HORIZONS = (0, 1, 2, 3, 4, 5)
 N_BOOT = 2000
 SEED = 20260924
@@ -191,6 +193,22 @@ def dollars(table: pd.DataFrame) -> None:
         d["cut"] = d["signed"].dt.to_period("Q").dt.start_time
         rows[k] = d.drop_duplicates("contract_id").set_index("contract_id")
     common = sorted(set.intersection(*[set(d.index) for d in rows.values()]))
+    # FIRST-SEASON PARTICIPATION ON THE PRICED CONTRACTS THEMSELVES. The harness
+    # scores every player at 1 July of a page; a contract is a player who has
+    # just signed, a different population. Each version's first-season
+    # participation, read at the signing, against whether he played it.
+    pl = set(zip(table.loc[table["GP"] >= C.PARTICIPATION_GP, "pkey"],
+                 table.loc[table["GP"] >= C.PARTICIPATION_GP, "syr"]))
+    C.log("FIRST-SEASON PARTICIPATION ON THE PRICED CONTRACTS, read at the signing,")
+    C.log("against whether the player played that season (started seasons only):")
+    for k, d in rows.items():
+        x = d.loc[[c for c in common if d.loc[c, "start_yr"] <= C.LAST_SOURCE_SEASON]]
+        obs = np.array([(pk, int(y)) in pl for pk, y in zip(x["pkey"], x["start_yr"])], float)
+        bt = Boot(x["pkey"])
+        v, lo, hi = bt.mean_ci(x["p_first"].to_numpy(float) - obs)
+        C.log(f"    {k:<16}predicted {x['p_first'].mean():.3f}   played {obs.mean():.3f}   "
+              f"gap {v:+.3f} [{lo:+.3f}, {hi:+.3f}]   n={len(x)}")
+    C.log("")
     played = table[table["GP"] >= C.PARTICIPATION_GP].groupby(["pkey", "syr"])["WAR"].sum()
 
     def lines_from(d: pd.DataFrame) -> dict:

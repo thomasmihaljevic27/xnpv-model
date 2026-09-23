@@ -39,7 +39,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 import information_set as ISET
 
-SCRIPT_VERSION = "1.8"
+SCRIPT_VERSION = "1.9"
 
 W_T1, W_T2 = 0.6, 0.4    # the locked recency weighting, reproduced for A0
 
@@ -1413,6 +1413,48 @@ class _ParticipationMixin:
             table, before, anchors_fn=lambda p: _anchors(p, n, d),
             horizons=self.fitted_horizons_)
         return self
+
+    @property
+    def reads_contracts(self) -> bool:
+        """Whether this model's participation depends on contract state, and
+        so on the date that state is read at."""
+        return bool(self.USE_CONTRACTS) and getattr(self.part_, "spans", None) is not None
+
+    def p_play_signed(self, iset, keys, horizons, dates) -> dict:
+        """Participation for each (player, date) row, contract state read at
+        that row's DATE -- a contract's signing -- instead of 1 July of the
+        page. Returns {h: array aligned with `keys`}.
+
+        WHY: a contract is valued at its signing, and a deal signed in October
+        is part of what the club knew when it signed it. The page-dated forecast
+        treats it as unknown, which moved participation from 34% to 59% for one
+        contract (Chara, October 2021) under visible contract status. The
+        harness scores pages at 1 July, where the page date is the right one;
+        a contract valuation is dated at its own decision.
+
+        Horizons past the fitted range follow `predict_beyond_fit`'s rule: the
+        last fitted horizon's participation times the model's own cached
+        league-wide decay per extra season, clipped as there. So the only
+        thing that changes is the date contract state is read at.
+        """
+        keys = list(keys)
+        dates = pd.to_datetime(np.asarray(dates))
+        a = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP],
+                     self.N_SEASONS, self.decay_)
+        a = a[a["t0"] == iset.t0].drop_duplicates("career_key").set_index("career_key")
+        rows = a.reindex(keys).reset_index()
+        fitted = sorted(getattr(self, "fitted_horizons_", None) or self.FITTED_HORIZONS)
+        out = {}
+        for h in sorted({int(x) for x in horizons}):
+            hh = h if h in fitted else fitted[-1]
+            base = self.part_.base_[hh]
+            p = self.part_.predict(rows, hh, as_of=dates).to_numpy(float)
+            p = np.where(np.isfinite(p), p, base)
+            if h not in fitted:
+                _g_prod, g_play = self._tail_decay(iset, fitted[-1], fitted[-2])
+                p = np.clip(p * g_play ** (h - fitted[-1]), 0.005, 0.995)
+            out[h] = p
+        return out
 
     def _p_play(self, a, subs, h):
         p = self.part_.predict(a.reset_index(), h)

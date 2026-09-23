@@ -1,6 +1,7 @@
 # Should the skater leader's participation use contract data? A matched test
 
-Run 2026-09-23 in `50_REBUILD/` (`run_skater_contract_test.py` v1.0; `ability_forecast.py` v1.8).
+Run 2026-09-23 in `50_REBUILD/` (`run_skater_contract_test.py` v1.1; `ability_forecast.py` v1.9;
+`contract_price_model.py` v1.5).
 Development pages and development start years only. **Nothing adopted.**
 
 ## The question
@@ -112,61 +113,107 @@ What this says:
 
 ## Contract dollars on one fixed line
 
-1,217 development contracts valued, 1,176 with an ended term scored. Every version's point
-valuation and the realised production are priced on the leader's line (primary). The observable
-version's line is the sensitivity.
+**Contract state is read at each contract's signing.** Version 1.0 of this test valued contracts
+with participation's contract state read at 1 July of the valuation page. So a deal signed later in
+the year was valued by a model that did not know it had been signed: under visible contract status,
+Chara's October 2021 contract came out at 34% to play its first season, against 59% with the state
+known at the signing. Its dollar table, and the conclusion drawn from it ("a trivial gain of $5,000,
+not decisive; keep the leader"), are **withdrawn**. `attach_forecasts` now reads contract state at
+the signing for any model whose participation reads contract data. The leader reads none and is
+unaffected, bit for bit. The season results above are scored at 1 July of each page by design, and
+are unchanged.
+
+**First, the population a valuation is about.** The harness scores every player on a page; a
+contract is a player who has just signed one. First-season participation on the priced contracts,
+read at the signing, against whether he played that season (1,458 started contracts,
+player-resampled intervals):
+
+| version | predicted | played | gap |
+|---|---:|---:|---:|
+| leader | 0.782 | 0.900 | −0.118 [−0.136, −0.101] |
+| as known | 0.902 | 0.900 | +0.002 [−0.014, +0.018] |
+| observable | 0.844 | 0.900 | −0.055 [−0.072, −0.039] |
+| period only | 0.760 | 0.900 | −0.140 [−0.158, −0.122] |
+| contract only | 0.845 | 0.900 | −0.055 [−0.072, −0.039] |
+
+- **The leader under-predicts a signed player's first season by 12 points.** It does not know he has
+  just signed, and a skater who has just signed plays that season nine times in ten.
+- **Visible contract status, read at the signing, closes about half the gap.** The rest is plausibly
+  the dating mismatch: the model is trained with contract state read at 1 July of each training
+  page, and applied at the signing. That explanation is not tested here.
+- **The old definition is on target, but that is not evidence it is right.** Its contract
+  coefficient was learned partly from early training rows where being under a visible contract meant
+  having survived.
+
+**The dollars.** 1,217 development contracts valued, 1,176 with an ended term scored. Every
+version's point valuation and the realised production are priced on the leader's line (primary);
+the observable version's line is the sensitivity.
 
 | version | moves contract value, mean abs | RMSE | MAE | bias | beats leader on squared error |
 |---|---:|---:|---:|---:|---:|
 | leader | — | $3.533M | $1.679M | −$0.597M | — |
-| as known | $0.060M | $3.525M | $1.681M | −$0.597M | 89% |
-| observable | $0.092M | $3.541M | $1.678M | −$0.655M | 12% |
+| as known | $0.113M | $3.500M | $1.686M | −$0.515M | 100% |
+| observable | $0.066M | $3.517M | $1.681M | −$0.550M | 100% |
 | period only | $0.018M | $3.537M | $1.678M | −$0.612M | 0% |
-| **contract only** | $0.021M | $3.528M | $1.679M | −$0.594M | **91%** |
+| **contract only** | $0.066M | **$3.517M** | $1.681M | **−$0.549M** | **100%** |
 
-The sensitivity line gives the same ordering: as known 88%, observable 11%, period only 0%,
-contract only 91%.
+The sensitivity line gives the same result: as known, observable and contract only each beat the
+leader in 100%, and period only in 0%.
 
 What this says:
-- **Two versions lean toward better dollars on the primary score:**
-  - contract only, 91% of resamples;
-  - the old definition, 89%, which also carries the survival signal.
-
-  Neither is decisive by a 95% standard, and both effects are tiny: contract only saves $5,000 of
-  RMSE on $3.5 million and moves an average contract's value by $21,000.
-- **The observable version is worse in dollars** (12%): for skaters, adding the period indicator to
-  contract status costs accuracy.
-- **Point valuations only.** The contract distributions from the path simulation were not rerun for
-  every version. The point values moved by $0.02–0.09M, so a simulated comparison is unlikely to
-  reorder them, but that is not shown here.
+- **Visible contract status, read at the signing, improves contract dollars on the declared primary
+  score in every resample**, on both lines. The gain is modest: $16,000 of RMSE on $3.5 million
+  (0.45%) and $48,000 of the leader's −$0.60M bias.
+- **Observable and contract only are the same here**, because the priced contracts' seasons are
+  nearly all from 2018 on, where the period indicator is zero.
+- **The old definition does best** ($3.500M), but it is set aside on identification grounds, not on
+  score. Its contract term carries the survival signal in the export's early rows.
+- **Point valuations only.** The contract distributions from the path simulation were not rerun per
+  version.
 
 ## What this settles and what it does not
 
 **Settled, on development pages:**
 - The skater contract export carries survival on early pages, more mildly than the goaltender one.
-- For skaters the before/after-2018 period indicator adds nothing, and adding it to contract status
-  costs dollar accuracy.
-- Visible contract status is the only contract input that improves the skater forecast on the
-  declared scores: participation, season WAR and point-valued dollars. The improvement is
-  consistent and very small.
+- For skaters the before/after-2018 period indicator adds nothing, in seasons or in dollars.
+- **The leader under-predicts the priced contracts' own first seasons by 12 points** (0.782 against
+  0.900), because it does not know the player has just signed.
+- Visible contract status, read at the signing, is the only contract input that improves the skater
+  forecast on every declared score without the survival signal. On participation and season WAR
+  the gain is consistent and very small (0.05% of RMSE). On contract dollars it wins every resample
+  (0.45% of RMSE, 8% of the bias), and it halves the first-season gap.
 
-**Recommendation: keep the leader as it is (no contract inputs).**
-- **The size is too small to matter.** The gain is 0.05% of season WAR RMSE and $5,000 of $3.5
-  million in dollar RMSE, and in dollars it clears 91%, not 95%.
-- **It would create a dependency on a vendor snapshot.** That snapshot's coverage has already
-  produced two defects in this rebuild, and the gain rests on an unverified completeness assumption.
-- **It keeps skaters and goaltenders on the same footing.** The goalie baseline adopted on
-  2026-09-23 also reads no contract inputs.
+**Recommendation (revised; the earlier "keep the leader" is withdrawn): adopt visible contract
+status only for the skater leader's participation.** This means `USE_CONTRACTS`, the observable
+definition and the period indicator excluded, read at the signing for contract valuation.
+- **It wins on the declared primary score.** It is the rule-consistent choice once the valuation
+  reads contract state at the right date.
+- **It carries two stated assumptions:** that the vendor snapshot is complete for contracts ending
+  from 2018, and that training at 1 July and valuing at the signing is acceptable (it still leaves
+  first seasons 5.5 points low).
+- **The goalie baseline should be looked at again in this light.** Goaltenders were adopted on no
+  contract inputs for simplicity, with the dollar trade-off recorded. On the goalie fixed line
+  (already dated at the signing) the observable specification's RMSE was $6.880M against $6.932M for
+  no contract inputs, a direction consistent with this skater result. Its paired share against no
+  contract inputs was not computed. Whether goaltenders should follow skaters is a separate, small
+  decision.
 
-Contract status only is recorded as the best-supported alternative, to revisit if a later stage,
-such as the matched path simulation or the back-test, shows it moving results. **This is a decision
-for Thomas; nothing is adopted.**
+**This is a decision for Thomas; nothing is adopted.** Adopting it would move the leader's forecasts
+everywhere they feed: the NPV simulation, control years and the skater side of every price line. All
+of those would be rerun.
 
 ## What is checked
 
-The suite covers the participation model's contract-state definition (check 41) and every
-registered skater variant (check 23). The skater mixin's two new settings default to the recorded
+The suite covers the participation model's contract-state definition (check 41), every registered
+skater variant (check 23), and, through the real caller, a skater contract valued with contract
+state read at its signing (check 42). Check 42:
+- reproduces Chara's 33.7% at 1 July against 58.9% at the signing;
+- requires a copy of the contract dated 1 July to reproduce the page-dated valuation exactly,
+  including a seven-year deal's extrapolated tail;
+- requires the leader to be unmoved by the date.
+
+It fails when the caller ignores the signing date, and when the tail's decay is dropped. The skater mixin's two new settings default to the recorded
 behaviour. The leader's Brier (0.1340) and the old definition's (0.1326) reproduce the 2026-09-22
 ablation exactly.
 
-Suite: **41 passed, 0 skipped, 0 failed**.
+Suite: **42 passed, 0 skipped, 0 failed**.

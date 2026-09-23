@@ -279,6 +279,16 @@ the work is. Next, in order:
 5. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
    contract-by-contract dollar reconciliation, and the holdout policy.
 
+**2026-09-23f -- skater contract test corrected (awaiting review and Thomas's decision).** Contract
+valuations now read contract state at the signing (check 42).
+- **The leader under-predicts a signed player's first season by 12 points:** 0.782 predicted
+  against 0.900 played.
+- **Visible contract status at the signing** halves that gap, and it beats the leader on contract
+  dollars in 100% of resamples ($16k of RMSE, $48k of bias).
+- **DECISION (Thomas): adopt visible contract status only for the skater leader's participation?**
+  Recommended yes. It would mean rerunning everything the leader feeds.
+- **Flagged:** the goalie baseline in the same light.
+
 **2026-09-23e -- skater contract-data test done (awaiting review and Thomas's decision).** Report
 `50_REBUILD/docs/Skater_Contract_Test.md`.
 - **The design:** the leader against four versions that differ only in participation's contract
@@ -286,7 +296,7 @@ the work is. Next, in order:
 - **Contract status only** helps on every declared score, consistently but trivially: season WAR
   RMSE 0.8155 -> 0.8151 (100%), dollar RMSE $3.533M -> $3.528M (91%).
 - **The period indicator** does nothing for skaters.
-- **Recommended:** keep the leader without contract inputs, and record contract status only as the
+- [WITHDRAWN 2026-09-23f] **Recommended:** keep the leader without contract inputs, and record contract status only as the
   best-supported alternative. This closes the open decision of 2026-09-22 if Thomas agrees.
 
 **Next toward closing the repair:**

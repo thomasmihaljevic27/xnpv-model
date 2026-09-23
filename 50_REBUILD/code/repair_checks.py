@@ -24,7 +24,7 @@ import forecast_harness as H
 import player_season_table as T
 from ability_forecast import A0Production
 
-SCRIPT_VERSION = "3.0"
+SCRIPT_VERSION = "3.1"
 
 PASS, FAIL, SKIP = "pass", "FAIL", "skip"
 results: list[tuple[str, str, str]] = []
@@ -1929,6 +1929,79 @@ def c41(table):
             f"definition still separates known from unknown players")
 
 
+def c42(table):
+    """A SKATER CONTRACT IS VALUED WITH CONTRACT STATE READ AT ITS SIGNING.
+
+    `attach_forecasts` read participation's contract state at 1 July of the
+    page, so a deal signed later was valued by a model that did not know it
+    existed: under visible contract status, Chara's October 2021 contract was
+    valued at 34% to play its first season where the state known at the
+    signing gives 59%. No check drove the skater caller, so the suite passed.
+
+    Driven through the caller itself, on that contract, with a copy of it
+    whose signing date is moved to 1 July of the page, in ONE batch:
+      * the 1 July copy in signing mode reproduces the page-dated valuation
+        exactly -- only the date changed, nothing else in the path;
+      * the real signing moves first-season participation materially;
+      * the leader, which reads no contract data, is unmoved by the date, bit
+        for bit.
+    """
+    import numpy as np
+    from contract_price_model import contract_sample, attach_forecasts
+    from ability_forecast import A1HingeExposure
+    from run_skater_contract_test import VARIANTS
+
+    tbl = table
+    cs = contract_sample()
+    row = cs[(cs["last_name"].astype(str).str.lower() == "chara")
+             & (cs["signed"].dt.year == 2021) & (cs["signed"].dt.month >= 8)]
+    if row.empty:
+        return "skip: the Chara 2021 contract is not in this census"
+    row = row.iloc[[0]]
+    t0 = int(row["latest_complete"].iloc[0]) + 1
+    july = row.copy()
+    july.index = july.index + 10_000_000
+    july["signed"] = pd.Timestamp(year=t0, month=7, day=1)
+    both = pd.concat([row, july])
+    cls = VARIANTS["contract_only"]
+    s_ = attach_forecasts(both, cls, tbl, verbose=False, participation_date="signing")
+    pg = attach_forecasts(row, cls, tbl, verbose=False, participation_date="page")
+    assert (s_["participation_dated"] == "signing").all()
+    real, moved = s_.loc[row.index[0]], s_.loc[july.index[0]]
+    base = pg.loc[row.index[0]]
+    for c in ("war_per_season", "war_year1", "p_first"):
+        assert abs(float(moved[c]) - float(base[c])) < 1e-12, (
+            f"{c}: the 1 July copy does not reproduce the page-dated valuation")
+    gap = float(real["p_first"]) - float(base["p_first"])
+    assert gap > 0.15, f"the signing date moved first-season participation by only {gap:+.3f}"
+    # THE TAIL. Chara's is a one-year deal, so the rule for horizons past the
+    # fitted range is not exercised above. A long contract signed after 1 July
+    # on an early page runs past it; its 1 July copy must still reproduce the
+    # page-dated valuation, whose tail is `predict_beyond_fit`'s.
+    long = cs[(cs["length"] >= 7) & (cs["signed"].dt.month.between(7, 12))
+              & (cs["latest_complete"] <= 2015)].sort_values("signed").iloc[[0]]
+    lt0 = int(long["latest_complete"].iloc[0]) + 1
+    lj = long.copy()
+    lj.index = lj.index + 10_000_000
+    lj["signed"] = pd.Timestamp(year=lt0, month=7, day=1)
+    lcls = VARIANTS["as_known"]
+    ls = attach_forecasts(pd.concat([long, lj]), lcls, tbl, verbose=False)
+    lp = attach_forecasts(long, lcls, tbl, verbose=False, participation_date="page")
+    assert float(ls.loc[lj.index[0], "n_years_extrapolated"]) > 0, "no extrapolated tail -- vacuous"
+    for c in ("war_per_season", "war_total"):
+        assert abs(float(ls.loc[lj.index[0], c]) - float(lp.loc[long.index[0], c])) < 1e-12, (
+            f"{c}: the long contract's 1 July copy does not reproduce the page valuation")
+    ld = attach_forecasts(both, A1HingeExposure, tbl, verbose=False)
+    assert (ld["participation_dated"] == "page").all()
+    assert np.array_equal(ld[["war_per_season", "war_year1"]].to_numpy(float)[0],
+                          ld[["war_per_season", "war_year1"]].to_numpy(float)[1]), \
+        "the leader's valuation moved with the signing date"
+    return (f"Chara 2021, contract status only: first season {float(base['p_first']):.1%} "
+            f"at 1 July, {float(real['p_first']):.1%} at the signing; the 1 July copy "
+            f"reproduces the page valuation exactly, a {int(long['length'].iloc[0])}-year "
+            f"deal's extrapolated tail included; the leader is unmoved")
+
+
 def main() -> None:
     warnings.filterwarnings("ignore")
     C.banner("repair_checks.py", SCRIPT_VERSION)
@@ -1990,7 +2063,8 @@ def main() -> None:
                      ("a replayed goalie model reads its own page", c38),
                      ("the persistence fit returns a curve it scored", c39),
                      ("a calibrated forecast with a lump passes the PIT", c40),
-                     ("contract state read only where the export can see it", c41)]:
+                     ("contract state read only where the export can see it", c41),
+                     ("a skater contract is valued at its signing", c42)]:
         check(name, lambda fn=fn: fn(table))
 
     width = max(len(n) for n, _, _ in results)
