@@ -1,5 +1,23 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**Status-adoption review repairs, 2026-09-23h.** The review of `7fee59b` (`acc4a33`) kept the
+provisional contract-status leader and found three things; all addressed.
+- **One model through the valuation chain.** The market comparison still valued on the old class by
+  name ("the adopted candidate"), so the integration refused the fresh artifacts ($1.06M apart on 948
+  contracts). It and five diagnostics now take `LEADER` from the one switch; both valuation artifacts
+  record their model class and the integration refuses a mismatch by name (check 44). Tiers are cut on
+  the adopted model (declared); the previous membership is printed beside it (29 of 1,217 contracts
+  move, all upward). Integration passes ($0.00 on 1,217); reconciliation rebuilt.
+- **Missing history.** The participation model raised `int(NaN)` for a subject with no anchor (both
+  leaders); now reported unanswered (check 45). Look-ahead tests: all four pass on the adopted leader,
+  and the full diagnostic completes. Stress, uncertainty and coverage rerun on it too.
+- **Clipping claim withdrawn.** 0.014 WAR a season was mostly simulation noise; the exact effect from
+  the chain's recursion is 0.000415 (max 0.000937). The cliff and the clipped rises are separate.
+- **Cliff sensitivity scored and not adopted.** Carrying status past its support removes 19 of 34
+  cliffs and no clipping, and is worse on both primary scores (dollars 119/2000 against the adopted
+  model; season WAR 2/2000). The adopted model stays the baseline, cliff stated.
+Checks 44 and 45 pass on their own; the full suite run follows. See `50_REBUILD/docs/Skater_Contract_Test.md`.
+
 **Contract-status adoption review remains open, 2026-09-23:** candidate `7fee59b`.
 43/43 checks and the new simulation/point dating guard pass; mean simulated
 surplus $0.43M on 1,217 contracts reproduces. Fresh integration fails: the

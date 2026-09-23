@@ -1602,3 +1602,23 @@ Keep the provisional model; score a named carry-forward-status sensitivity befor
 changing it. Previous signing-date and goalie closures stand. Review:
 `50_REBUILD/docs/Status_Adoption_Review_Codex.md`. No implementation/default change
 or candidate merge in this review. Phase 5 remains open.
+
+### Change log, 2026-09-23h (status-adoption review repairs)
+
+Review of `7fee59b` (`acc4a33`, merged): keep the provisional contract-status leader; repair the
+valuation chain, the missing-history diagnostic and the clipping claim; score the cliff sensitivity.
+- `run_valuation_sensitivity.py` v2.1 takes `LEADER`/`PRIOR_LEADER` from `run_npv_simulation`; tiers
+  cut on the adopted model (declared), previous membership printed beside it. `run_npv_simulation.py`
+  v2.5 and `run_valuation_integration.py` v1.3 record and check the model class by name. Leakage,
+  stress, uncertainty, coverage and player-comparison runners take `LEADER` from the switch.
+- `participation_model.py` v1.8: a subject without an anchor gets NaT, not `int(NaN)`; adds
+  `status_last_horizon` and `predict_carried`.
+- `ability_forecast.py` v2.1: `_part_predict` hook; `A1HingeExposureStatusCarry` (sensitivity).
+- `run_skater_contract_test.py` v1.2: scoring parameterised (defaults reproduce the recorded run);
+  exact resample counts. `run_status_carry_sensitivity.py` v1.0 (new).
+- `repair_checks.py` v3.3: checks 44 and 45 (full suite run follows).
+- Withdrawn: "every downstream runner was rerun" (the market comparison was not); the 0.014 WAR
+  clipping figure (simulation noise; exact 0.000415).
+- Not adopted: carrying status past its support (worse on both primary scores). Baseline unchanged.
+- CLAUDE.md: two rules (search for the old value by name when a default changes; exact effects, not
+  simulated gaps).

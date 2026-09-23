@@ -346,7 +346,66 @@ These describe the adopted model. They are not a matched scoring of it against t
 the dollar comparison on one fixed line above remains the adoption evidence, and a matched comparison
 of the simulated distributions is still outstanding.
 
-**The carried-status sensitivity**: scoring in progress at this commit; results follow.
+## The cliff: carrying contract status past its support, scored
+
+`run_status_carry_sensitivity.py` v1.0; the candidate is `A1HingeExposureStatusCarry`. Past the last
+horizon where contract status has support, it uses that horizon's fit with the player's features held
+there and his status read for the actual season, times the league's observed participation ratio
+between the last two supported horizons per extra season (0.84 on the 2021 page). On the 2017 and
+2018 pages, where status never enters, it is the adopted model exactly. Three versions, matched:
+the previous leader, the adopted leader, and the carried one. Shares are exact counts of 2,000
+player-resamples.
+
+**Season scores** (harness, 1 July, horizons 0–5, 40,510 forecasts each):
+
+| version | Brier | beats adopted | season WAR RMSE | beats adopted | WAR MAE | bias |
+|---|---:|---:|---:|---:|---:|---:|
+| previous | 0.1340 | 0/2000 | 0.8155 | 2/2000 | 0.4565 | −0.068 |
+| adopted | 0.1328 | — | 0.8151 | — | 0.4565 | −0.067 |
+| carried | 0.1328 | 329/2000 | 0.8154 | 2/2000 | 0.4566 | −0.067 |
+
+The harness reaches only five seasons ahead, so the carried version differs from the adopted one in
+one cell: five seasons ahead on the 2019 page (Brier 0.1326 against 0.1323). There it is worse.
+
+**Contract dollars** (1,176 ended terms; the realised target asserted identical across versions):
+
+| line | version | RMSE | MAE | bias | beats adopted on squared error |
+|---|---|---:|---:|---:|---:|
+| adopted's (primary) | previous | $3.529M | $1.674M | −$0.594M | 0/2000 |
+| | adopted | $3.513M | $1.675M | −$0.549M | — |
+| | carried | $3.518M | $1.676M | −$0.549M | 119/2000 |
+| previous leader's | previous | $3.533M | $1.679M | −$0.597M | 1/2000 |
+| | adopted | $3.517M | $1.681M | −$0.549M | — |
+| | carried | $3.522M | $1.682M | −$0.549M | 124/2000 |
+
+The previous leader's line reproduces the adoption evidence ($3.533M against $3.517M). First-season
+participation is identical for the adopted and carried versions (0.845 against 0.900 played),
+because a first season is always inside the supported range.
+
+**Path shape** (the participation `forecast_blocks` hands the simulation, 1,473 development terms,
+a wider set than the 1,217 priced):
+
+| version | terms with a cliff (fall > 0.25 in one season) | clipped terms | clipping, mean abs WAR/season | largest |
+|---|---:|---:|---:|---:|
+| adopted | 34 | 18 | 0.000744 | 0.005555 |
+| carried | 15 | 18 | 0.000751 | 0.005555 |
+
+Contract 6500's eighth season reads 0.773 instead of 0.449.
+
+**What this says:**
+- **Carrying status forward is worse on both declared primary scores.** It beats the adopted model in
+  119 of 2,000 resamples on the primary dollar line (124 on the sensitivity line), and in 2 of 2,000
+  on season WAR squared error. The differences are small ($5,000 of RMSE) but consistently against.
+- **It removes 19 of the 34 cliffs and none of the clipping** (18 terms either way). That confirms the
+  two are separate problems: smoothing the fall leaves the count of rises the chain cannot deliver
+  where it was.
+- **The smoother curve is not a better forecast here.** The assumption behind it (that being under
+  contract matters as much past the measurable range as at its edge, with the league's decay) is not
+  supported by these scores.
+
+**Result: the adopted model stays the baseline, cliff included.** The carried version is recorded
+as a scored sensitivity and is not adopted. The cliff is a stated property of the baseline: past
+the horizon where contract status can be measured, the forecast is the no-contract one.
 
 ## What is checked
 
@@ -360,7 +419,10 @@ state read at its signing (check 42). Check 42:
 
 It fails when the caller ignores the signing date, and when the tail's decay is dropped. Check 43
 requires the path simulation's season blocks to carry the same participation as the point valuation
-for the adopted leader (see above). The skater mixin's two new settings default to the recorded
+for the adopted leader (see above). Check 44 requires every contract-valuing runner and diagnostic to
+take the leader from the one switch, and the integration to refuse a pair of artifacts built on two
+different models, or one that does not name its model. Check 45 requires a subject whose history is
+removed to come back unanswered under both leaders rather than crash. The skater mixin's two new settings default to the recorded
 behaviour. The leader's Brier (0.1340) and the old definition's (0.1326) reproduce the 2026-09-22
 ablation exactly.
 
