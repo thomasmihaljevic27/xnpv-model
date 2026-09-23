@@ -58,7 +58,7 @@ from player_season_table import build as build_table, birthdate_source
 from production_currency import ProductionCurrency
 from run_phase4_decisions import prep
 
-SCRIPT_VERSION = "1.1"
+SCRIPT_VERSION = "1.2"
 HORIZONS = (0, 1, 2, 3, 4, 5)
 N_BOOT = 2000
 SEED = 20260924
@@ -79,6 +79,12 @@ VARIANTS = {
     "contract_only": _variant("contract_only", "leader, contract status only", True,
                               "observable", ("contract_unknown",)),
 }
+
+
+def _count(share: float) -> str:
+    """A resample share as an exact count. A rounded "100%" was read as "every
+    resample" when it was 1,999 of 2,000 (closure review, 2026-09-23)."""
+    return f"{int(round(share * N_BOOT))}/{N_BOOT}"
 
 
 class Boot:
@@ -132,8 +138,16 @@ def mechanism(table: pd.DataFrame, spans: pd.DataFrame) -> None:
         C.log("")
 
 
-def season_scores(runs: dict) -> None:
-    lead = runs["leader"]
+# The input-separating comparisons this test reports. Parameterised, with the
+# reference variant, so a later sensitivity (run_status_carry_sensitivity.py)
+# scores on this code rather than a copy of it; the defaults are the recorded run.
+SEASON_PAIRS = (("leader", "period_only"), ("leader", "contract_only"),
+                ("contract_only", "observable"), ("observable", "period_only"),
+                ("leader", "as_known"))
+
+
+def season_scores(runs: dict, ref: str = "leader", pairs=SEASON_PAIRS) -> None:
+    lead = runs[ref]
     keys = ["career_key", "page", "h"]
     for d in runs.values():
         assert len(d) == len(lead)
@@ -144,26 +158,24 @@ def season_scores(runs: dict) -> None:
         d["se"] = d["e_war"] ** 2
     C.log("PARTICIPATION AND SEASON WAR, development pages, horizons 0-5, "
           f"{len(lead)} forecasts each.")
-    C.log("'beats leader' is the share of player-resamples in which the variant's")
-    C.log("error is lower than the leader's. Squared error is the primary score.")
+    C.log(f"'beats' is the share of player-resamples in which the variant's error")
+    C.log(f"is lower than {ref}'s. Squared error is the primary score.")
     C.log("")
-    C.log(f"    {'variant':<16}{'Brier':>8}{'beats':>7}{'WAR RMSE':>10}{'beats':>7}"
+    C.log(f"    {'variant':<16}{'Brier':>8}{'beats':>10}{'WAR RMSE':>10}{'beats':>10}"
           f"{'WAR MAE':>9}{'bias':>8}")
     for k, d in al.items():
-        tail = ("" if k == "leader" else
-                f"{boot.lower_share(al['leader']['brier'], d['brier']):>7.0%}")
-        tail2 = ("" if k == "leader" else
-                 f"{boot.lower_share(al['leader']['se'], d['se']):>7.0%}")
-        C.log(f"    {k:<16}{d['brier'].mean():>8.4f}{tail or '--':>7}"
-              f"{np.sqrt(d['se'].mean()):>10.4f}{tail2 or '--':>7}"
+        tail = ("" if k == ref else
+                f"{_count(boot.lower_share(al[ref]['brier'], d['brier'])):>10}")
+        tail2 = ("" if k == ref else
+                 f"{_count(boot.lower_share(al[ref]['se'], d['se'])):>10}")
+        C.log(f"    {k:<16}{d['brier'].mean():>8.4f}{tail or '--':>10}"
+              f"{np.sqrt(d['se'].mean()):>10.4f}{tail2 or '--':>10}"
               f"{d['e_war'].abs().mean():>9.4f}{d['e_war'].mean():>+8.4f}")
     C.log("")
     C.log("  THE INPUTS SEPARATED (share in which the second is lower, Brier / WAR sq.):")
-    for a, b in (("leader", "period_only"), ("leader", "contract_only"),
-                 ("contract_only", "observable"), ("observable", "period_only"),
-                 ("leader", "as_known")):
-        C.log(f"    {b:<14} against {a:<14} {boot.lower_share(al[a]['brier'], al[b]['brier']):>5.0%}"
-              f"  /  {boot.lower_share(al[a]['se'], al[b]['se']):>5.0%}")
+    for a, b in pairs:
+        C.log(f"    {b:<14} against {a:<14} {_count(boot.lower_share(al[a]['brier'], al[b]['brier'])):>10}"
+              f"  /  {_count(boot.lower_share(al[a]['se'], al[b]['se'])):>10}")
     C.log("")
     C.log("  Brier by horizon:")
     C.log("    " + f"{'h':<4}" + "".join(f"{k:>15}" for k in al))
@@ -181,13 +193,18 @@ def season_scores(runs: dict) -> None:
     C.log("")
 
 
-def dollars(table: pd.DataFrame) -> None:
+def dollars(table: pd.DataFrame, variants: dict | None = None, ref: str = "leader",
+            line_tags=("leader", "observable")) -> None:
+    """Every variant's point valuation and the realised production on ONE
+    line per pass; the first of `line_tags` is primary. Defaults are the
+    recorded run."""
+    variants = VARIANTS if variants is None else variants
     sample = contract_sample()
     dev = [int(y) for y in sorted(sample["start_yr"].dropna().unique())
            if int(y) not in C.CONFIRMATORY_START_YEARS]
     cohorts = C.check_market_cohorts(dev, "run_skater_contract_test")
     rows = {}
-    for k, cls in VARIANTS.items():
+    for k, cls in variants.items():
         d = prep(attach_forecasts(sample, cls, table, verbose=False))
         d = d[d["start_yr"].isin(cohorts) & (d["signed"] >= pd.Timestamp("2015-07-01"))].copy()
         d["cut"] = d["signed"].dt.to_period("Q").dt.start_time
@@ -222,8 +239,8 @@ def dollars(table: pd.DataFrame) -> None:
     C.log("CONTRACT DOLLARS, every variant's point valuation and the realised")
     C.log(f"production priced on ONE line; {len(common)} contracts every variant prices.")
     C.log("")
-    lead = rows["leader"].loc[common]
-    for line_tag in ("leader", "observable"):
+    lead = rows[ref].loc[common]
+    for line_tag in line_tags:
         lines = lines_from(rows[line_tag].reset_index())
         ids = [c for c in common if lead.loc[c, "cut"] in lines]
         val = {k: [] for k in rows}
@@ -245,18 +262,18 @@ def dollars(table: pd.DataFrame) -> None:
             ended.append(int(lead.loc[c, "end_yr"]) <= C.LAST_SOURCE_SEASON)
             pk.append(lead.loc[c, "pkey"])
         real, ended = np.array(real), np.array(ended)
-        base = np.array(val["leader"])
+        base = np.array(val[ref])
         C.log(f"  on the {line_tag} variant's line "
-              f"({'PRIMARY' if line_tag == 'leader' else 'sensitivity'}); "
+              f"({'PRIMARY' if line_tag == line_tags[0] else 'sensitivity'}); "
               f"{len(ids)} contracts valued, {int(ended.sum())} with an ended term scored:")
         C.log(f"    {'variant':<16}{'moves value, mean abs $M':>26}{'RMSE $M':>10}"
-              f"{'MAE':>8}{'bias':>9}{'beats leader':>14}")
+              f"{'MAE':>8}{'bias':>9}{'beats ' + ref:>14}")
         boot = Boot(pd.Series(np.array(pk)[ended]))
         e_lead = (base[ended] - real[ended]) / 1e6
         for k in rows:
             v = np.array(val[k])
             e = (v[ended] - real[ended]) / 1e6
-            share = "--" if k == "leader" else f"{boot.lower_share(e_lead ** 2, e ** 2):.0%}"
+            share = "--" if k == ref else _count(boot.lower_share(e_lead ** 2, e ** 2))
             C.log(f"    {k:<16}{np.abs(v - base).mean() / 1e6:>26.3f}"
                   f"{np.sqrt((e ** 2).mean()):>10.3f}{np.abs(e).mean():>8.3f}"
                   f"{e.mean():>+9.3f}{share:>14}")

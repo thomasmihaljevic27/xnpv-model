@@ -57,11 +57,13 @@ import forecast_harness as H
 import information_set as ISET
 import predictive_interval as PI
 from player_season_table import build as build_table
-from ability_forecast import A1HingeExposure
 
-SCRIPT_VERSION = "1.2"
+SCRIPT_VERSION = "1.3"
 
-LEADER = A1HingeExposure
+# The adopted skater leader, from the one switch (run_npv_simulation.LEADER),
+# not a class named here: a copy pinned by name is how these diagnostics kept
+# testing the old leader after it changed on 2026-09-23.
+from run_npv_simulation import LEADER  # noqa: E402
 PAGES = C.DEV_PAGES
 HORIZONS = (0, 1, 2, 3, 4, 5)
 

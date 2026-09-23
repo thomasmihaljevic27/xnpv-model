@@ -52,7 +52,7 @@ from player_season_table import build as build_table, birthdate_source
 from run_phase4_decisions import prep
 from ability_forecast import A1HingeExposure, A1HingeExposureStatus
 
-SCRIPT_VERSION = "2.4"
+SCRIPT_VERSION = "2.5"
 
 # THE SKATER LEADER, adopted provisionally 2026-09-23: the previous leader with
 # visible contract status in its participation (Skater_Contract_Test.md).
@@ -466,6 +466,10 @@ def main() -> None:
     C.log("  statement from contracts and the two are reported apart.")
     C.log("")
 
+    # The model the paths were drawn from, by name, so the integration can
+    # refuse a market comparison built on a different one before comparing
+    # a single number (run_valuation_integration.py).
+    s["model_class"] = LEADER.__name__
     s.to_csv(C.out_path("npv_simulation.csv"), index=False)
     C.log(f"  wrote {C.out_path('npv_simulation.csv').name}")
     C.write_log("npv_simulation_run_log.txt")

@@ -69,11 +69,16 @@ from contract_price_model import contract_sample, attach_forecasts
 from production_currency import ProductionCurrency
 from player_season_table import build as build_table, birthdate_source
 from run_phase4_decisions import prep
-from ability_forecast import (A0Production, A1HingeExposure,
-                              A1AgingParticipationImputedNC)
+from ability_forecast import A0Production, A1AgingParticipationImputedNC
 from production_adapter import ProductionChain
+# THE ADOPTED MODEL COMES FROM THE ONE SWITCH, not a class named here. This file
+# used to import `A1HingeExposure` by name and call it "the adopted candidate";
+# when the skater leader changed on 2026-09-23 the simulation moved and this
+# column did not, and the integration guard refused the two artifacts (point
+# surplus apart by up to $1.06M on 948 contracts). Check 44 pins it.
+from run_npv_simulation import LEADER, PRIOR_LEADER
 
-SCRIPT_VERSION = "2.0"
+SCRIPT_VERSION = "2.1"
 
 KEY = "contract_id"     # not (player, start year): two contracts share that pair
 
@@ -103,10 +108,19 @@ FORECASTS = [
     ("trailing blend, carried flat", A0Production),
     ("calibrated total + aging + participation", A1AgingParticipationImputedNC),
     ("the same, participation pinned to one", _EveryonePlays),
-    ("the adopted candidate", A1HingeExposure),
+    ("the previous leader, no contract data", PRIOR_LEADER),
+    ("the adopted candidate", LEADER),
 ]
 BASELINE = "calibrated total + aging + participation"
-GROUPING = "the adopted candidate"
+ADOPTED = "the adopted candidate"
+PREVIOUS = "the previous leader, no contract data"
+# THE GROUPING IS REBUILT ON THE ADOPTED MODEL, declared 2026-09-23. The rule
+# has always been "tiers are cut on the adopted candidate's forecast"; the
+# adopted candidate changed, so the membership changes with it. The previous
+# membership (cut on the previous leader) is printed beside it as a
+# sensitivity, with the number of contracts that change group, so the two are
+# never read as the same category comparison.
+GROUPING = ADOPTED
 
 TIER_EDGES = [-np.inf, 0, 0.5, 1.0, 2.0, np.inf]
 TIER_NAMES = ["below 0", "0 to 0.5", "0.5 to 1", "1 to 2", "2+"]
@@ -218,7 +232,7 @@ def main() -> None:
         r = results[label]
         results[label] = (r[r[KEY].isin(keys)].drop_duplicates(KEY)
                           .sort_values(KEY).reset_index(drop=True))
-    C.log(f"  {len(keys)} contracts priced by all five; every table below is on")
+    C.log(f"  {len(keys)} contracts priced by all {len(results)}; every table below is on")
     C.log("  exactly those.")
     C.log("")
 
@@ -241,14 +255,40 @@ def main() -> None:
     for t in TIER_NAMES:
         same = signs[t].nunique() == 1
         vals = g_fixed[t].to_numpy()
-        C.log(f"    {t:<10}{'same sign in all five' if same else 'SIGN FLIPS':<24}"
+        C.log(f"    {t:<10}{f'same sign in all {len(g_fixed)}' if same else 'SIGN FLIPS':<24}"
               f"range {np.nanmin(vals):>+7.2f} to {np.nanmax(vals):>+7.2f} $M")
     orders = {k: tuple(g_fixed.loc[k].sort_values().index) for k in g_fixed.index}
     agree = len(set(orders.values())) == 1
     C.log("")
     C.log(f"    ordering of the five groups: "
-          f"{'identical in all five columns' if agree else 'DIFFERS between columns'}")
+          f"{f'identical in all {len(g_fixed)} columns' if agree else 'DIFFERS between columns'}")
     C.log(f"    worst to best: {' < '.join(orders[GROUPING])}")
+    C.log("")
+
+    # ---- the previous membership, as a declared sensitivity ---------------
+    prev = results[PREVIOUS].set_index(KEY)["war_per_season"]
+    tiers_prev = pd.Series(pd.cut(prev, TIER_EDGES, labels=TIER_NAMES).astype(str),
+                           index=prev.index)
+    moved = int((tiers_prev.reindex(tiers.index) != tiers).sum())
+    C.log("THE SAME TABLE ON THE PREVIOUS MEMBERSHIP, groups cut on the previous")
+    C.log("leader's forecast. A sensitivity for the change of adopted model, not")
+    C.log(f"the same category comparison: {moved} of {len(tiers)} contracts sit in a")
+    C.log("different group under the two memberships.")
+    C.log("")
+    C.log("  moved from (rows, previous) to (columns, adopted):")
+    xt = pd.crosstab(tiers_prev.reindex(tiers.index), tiers).reindex(
+        index=TIER_NAMES, columns=TIER_NAMES).fillna(0).astype(int)
+    C.log(f"  {'':<12}" + "".join(f"{t:>11}" for t in TIER_NAMES))
+    for t in TIER_NAMES:
+        C.log(f"  {t:<12}" + "".join(f"{int(v):>11}" for v in xt.loc[t]))
+    C.log("")
+    g_prev = _tier_table(results, tiers_prev, "previous")
+    C.log("")
+    for t in TIER_NAMES:
+        same = np.sign(g_prev[t]).nunique() == 1
+        vals = g_prev[t].to_numpy()
+        C.log(f"    {t:<10}{f'same sign in all {len(g_prev)}' if same else 'SIGN FLIPS':<24}"
+              f"range {np.nanmin(vals):>+7.2f} to {np.nanmax(vals):>+7.2f} $M")
     C.log("")
 
     # ---- the descriptive own-tier view, second and labelled ---------------
@@ -333,7 +373,13 @@ def main() -> None:
               f"{(s[ok]-live[ok]).abs().mean()/1e6:>15.2f}")
     C.log("")
 
-    out = pd.concat([r.assign(forecast=lab, fixed_group=r[KEY].map(tiers))
+    # The class behind every column is written with it, so a consumer can
+    # check that the adopted column is the model the simulation ran on, by
+    # name, before it compares a single number.
+    cls_of = {lab: cls.__name__ for lab, cls in FORECASTS}
+    out = pd.concat([r.assign(forecast=lab, model_class=cls_of[lab],
+                              fixed_group=r[KEY].map(tiers),
+                              previous_group=r[KEY].map(tiers_prev))
                      for lab, r in results.items()], ignore_index=True)
     out.to_csv(C.out_path("valuation_sensitivity.csv"), index=False)
     C.log(f"  wrote {C.out_path('valuation_sensitivity.csv').name}")

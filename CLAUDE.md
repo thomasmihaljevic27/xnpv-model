@@ -124,6 +124,16 @@ Draft pillar:
   price both and the outcome on one declared currency and assert that the target is identical. Each
   run's own price line gives a different realised target (corrected 2026-09-22i and caught again
   2026-09-23 before it was reported).
+- **Don't say "everything downstream was rerun" after changing a shared default until you have
+  searched for the old value by name.** A switch variable only moves the consumers that read it; a
+  script that imports the old class directly, or labels it "adopted", stays behind silently. When the
+  skater leader changed (2026-09-23), the market comparison still valued on the old class and the
+  integration refused the two artifacts ($1.06M apart). Grep for the old class name, not just the
+  switch, and make artifacts record which model built them.
+- **Don't report a simulated-minus-expected difference as a mechanism's effect.** A gap between 2,000
+  draws and the point forecast is mostly sampling noise. Where the mechanism has an exact form (the
+  participation chain's recursion), compute its effect exactly: clipping cost 0.000415 WAR a season,
+  not the 0.014 first reported (corrected 2026-09-23).
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised

@@ -24,7 +24,7 @@ import forecast_harness as H
 import player_season_table as T
 from ability_forecast import A0Production
 
-SCRIPT_VERSION = "3.2"
+SCRIPT_VERSION = "3.3"
 
 PASS, FAIL, SKIP = "pass", "FAIL", "skip"
 results: list[tuple[str, str, str]] = []
@@ -2071,6 +2071,104 @@ def c43(table):
             f"on a 1 July copy, in both callers")
 
 
+def c44(table):
+    """EVERY VALUATION CONSUMER USES THE ONE ADOPTED MODEL, AND THE JOIN
+    REFUSES TWO MODELS BY NAME.
+
+    When the skater leader changed on 2026-09-23 the path simulation moved and
+    the market comparison did not: it imported the old class by name and
+    labelled it "the adopted candidate". The integration's dollar guard caught
+    the fresh artifacts ($1.06M apart on 948 contracts), but only as a gap, and
+    only when someone ran it. This pins it twice:
+      * every runner that values contracts or tests the leader takes LEADER
+        from run_npv_simulation, and the market comparison's adopted column is
+        that class, with the previous leader beside it by its own label;
+      * the integration refuses a market comparison whose adopted column names
+        a different class from the simulation's, before comparing a number,
+        and refuses artifacts that do not record their class at all.
+    Driven on two tiny artifacts written to a scratch directory.
+    """
+    import tempfile
+    import importlib
+    import run_npv_simulation as RNS
+    import run_valuation_sensitivity as VS
+    import run_valuation_integration as VI
+    labels = dict(VS.FORECASTS)
+    assert labels[VS.ADOPTED] is RNS.LEADER, "the market comparison's adopted column is not LEADER"
+    assert labels[VS.PREVIOUS] is RNS.PRIOR_LEADER
+    assert VS.GROUPING == VS.ADOPTED
+    for m in ("run_control_years", "run_leakage_tests", "run_stress_tests",
+              "run_uncertainty", "run_coverage_decomposition", "run_player_comparison"):
+        mod = importlib.import_module(m)
+        assert getattr(mod, "LEADER", None) is RNS.LEADER, f"{m} tests a different leader"
+
+    def run(sens_cls, sim_cls, drop_col=False):
+        sens = pd.DataFrame({"contract_id": [1, 2], "forecast": VS.ADOPTED,
+                             "surplus": [1.0e6, 2.0e6], "cost": 1.0, "start_yr": 2018,
+                             "length": 1, "model_class": sens_cls})
+        sim = pd.DataFrame({"contract_id": [1, 2], "surplus_point": [1.0e6, 2.0e6],
+                            "surplus_sim": [1.1e6, 2.1e6], "term": 1,
+                            "model_class": sim_cls})
+        if drop_col:
+            sim = sim.drop(columns="model_class")
+        with tempfile.TemporaryDirectory() as tmp:
+            sens.to_csv(f"{tmp}/valuation_sensitivity.csv", index=False)
+            sim.to_csv(f"{tmp}/npv_simulation.csv", index=False)
+            orig = VI.C.out_path
+            VI.C.out_path = lambda name: Path(tmp) / name
+            try:
+                VI.main()
+                return "ran"
+            except AssertionError as e:
+                return str(e)
+            except Exception as e:                  # noqa: BLE001
+                return f"{type(e).__name__}"
+            finally:
+                VI.C.out_path = orig
+    new = RNS.LEADER.__name__
+    mism = run(RNS.PRIOR_LEADER.__name__, new)
+    assert "not the same model" in mism, f"a model mismatch got through: {mism}"
+    unnamed = run(new, new, drop_col=True)
+    assert "does not record its model" in unnamed, f"an unnamed artifact got through: {unnamed}"
+    same = run(new, new)
+    assert "not the same model" not in same and "record its model" not in same, same
+    return (f"the valuation chain and six diagnostics take {new} from the one switch; "
+            f"the integration refuses the {RNS.PRIOR_LEADER.__name__}/{new} pair and an "
+            f"artifact that does not name its model")
+
+
+def c45(table):
+    """A SUBJECT WHOSE HISTORY IS REMOVED IS REPORTED UNANSWERED, NOT A CRASH.
+
+    The leakage runner's input-sensitivity test removes a season and asks the
+    model about the original subject list. A player whose only usable season
+    was removed comes through with no anchor, and the participation model
+    raised `int(NaN)` building his contract-state date -- under both leaders --
+    so the diagnostic never reached its report. Now: every requested subject
+    comes back, the ones with no history are unanswered (missing rate), and
+    their participation is the base rate, not an error. Both leaders.
+    """
+    import information_set as I
+    import forecast_harness as H
+    import run_npv_simulation as RNS
+    page = 2015
+    base = I.build(table, I.decision_date_for_page(page), t0=page)
+    subs = H.subjects_at(base)
+    changed = I.build(table[table["syr"] != page - 1], I.decision_date_for_page(page), t0=page)
+    out = []
+    for cls in (RNS.PRIOR_LEADER, RNS.LEADER):
+        m = cls().fit(base.seasons, before=page)
+        p = m.predict(changed, subs, [0])
+        assert len(p) == len(subs), f"{cls.__name__}: {len(p)} rows for {len(subs)} subjects"
+        miss = int(p["rate_82"].isna().sum())
+        assert miss > 0, "no subject lost his history -- vacuous"
+        assert p["p_play"].notna().all(), f"{cls.__name__}: participation missing"
+        out.append(miss)
+    assert out[0] == out[1]
+    return (f"{len(subs)} subjects requested on the 2015 page with 2014 removed; "
+            f"{out[0]} unanswered under both leaders, none raising")
+
+
 def main() -> None:
     warnings.filterwarnings("ignore")
     C.banner("repair_checks.py", SCRIPT_VERSION)
@@ -2134,7 +2232,9 @@ def main() -> None:
                      ("a calibrated forecast with a lump passes the PIT", c40),
                      ("contract state read only where the export can see it", c41),
                      ("a skater contract is valued at its signing", c42),
-                     ("the paths read contract state where the valuation does", c43)]:
+                     ("the paths read contract state where the valuation does", c43),
+                     ("one adopted model through the valuation chain", c44),
+                     ("a subject with no history is unanswered, not a crash", c45)]:
         check(name, lambda fn=fn: fn(table))
 
     width = max(len(n) for n, _, _ in results)

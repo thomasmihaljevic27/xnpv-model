@@ -26,7 +26,8 @@ WHAT IS COMPARED
 
     THE REBUILT CHAIN. The adopted candidate from the variant register: three-
     season window, additive aging with the survivorship correction,
-    participation, and the hinge-and-evidence interaction.
+    participation, and the hinge-and-evidence interaction; since 2026-09-23 its
+    participation also reads visible contract status (run_npv_simulation.LEADER).
 
     BOTH PRICED ON ONE CURRENCY. A single censored price line is fitted per
     signing quarter, on contracts signed strictly before that quarter, and the
@@ -61,9 +62,10 @@ from run_phase4_decisions import prep
 import forecast_harness as H
 import information_set as ISET
 from player_season_table import build as build_table, norm_name
-from ability_forecast import A1HingeExposure
+# The adopted skater leader, from the one switch, not pinned by name.
+from run_npv_simulation import LEADER
 
-SCRIPT_VERSION = "1.4"
+SCRIPT_VERSION = "1.5"
 
 # The locked production market rate (D20 Tobit, skaters, 2018-2025 starts).
 PROD_ALPHA, PROD_BETA_F, PROD_BETA_D_ADD = 0.01324782, 0.02123229, 0.00287028
@@ -185,7 +187,7 @@ def main() -> None:
     sample = sample[sample["start_yr"].isin(C.check_market_cohorts(
         dev, "run_player_comparison"))]
 
-    rebuilt = prep(attach_forecasts(sample, A1HingeExposure, table, verbose=False))
+    rebuilt = prep(attach_forecasts(sample, LEADER, table, verbose=False))
     live = prep(attach_forecasts(sample, ProductionChain, table, verbose=False))
 
     priced, coefs = price_on_one_currency(rebuilt, live)

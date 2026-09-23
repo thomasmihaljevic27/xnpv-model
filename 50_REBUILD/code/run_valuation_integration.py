@@ -38,7 +38,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 
-SCRIPT_VERSION = "1.2"
+SCRIPT_VERSION = "1.3"
 
 KEY = "contract_id"
 ADOPTED = "the adopted candidate"
@@ -47,7 +47,8 @@ ADOPTED = "the adopted candidate"
 # the artifact is readable in one place.
 FROM_SENSITIVITY = ["term", "length", "is_RFA", "is_D", "start_yr", "end_yr",
                     "signed", "aav", "cap_share", "war_per_season", "war_year1",
-                    "cost", "value", "surplus", "surplus_free", "fixed_group"]
+                    "cost", "value", "surplus", "surplus_free", "fixed_group",
+                    "previous_group", "model_class"]
 FROM_SIMULATION = ["surplus_sim", "sim_sd", "sim_p10", "sim_p90", "p_negative",
                    "sd_indep_errors", "surplus_absorbing", "page"]
 
@@ -96,6 +97,20 @@ def main() -> None:
     assert not reserved, (
         f"reserved start years {reserved} are in the market comparison; this "
         "table is development-only and will not launder a sealed cohort")
+
+    # THE SAME MODEL, BY NAME, before any number is compared. On 2026-09-23
+    # the simulation moved to the new skater leader and the market comparison
+    # did not; the surplus guard below caught it, but only as a dollar gap.
+    # An artifact without the column predates this check and is refused.
+    for name, frame in (("the market comparison", sens), ("the path simulation", sim)):
+        assert "model_class" in frame.columns, (
+            f"{name} does not record its model; rerun it")
+    adopted_cls = set(sens.loc[sens["forecast"] == ADOPTED, "model_class"])
+    sim_cls = set(sim["model_class"])
+    assert len(adopted_cls) == 1 and adopted_cls == sim_cls, (
+        f"the market comparison's adopted column is {sorted(adopted_cls)} and the "
+        f"path simulation ran on {sorted(sim_cls)}; they are not the same model")
+    C.log(f"  both artifacts are built on {sim_cls.pop()}")
 
     # THE TWO ARTIFACTS MUST AGREE ABOUT WHAT THEY SHARE. The simulation
     # carries the point surplus it was built around; it has to be the same

@@ -40,14 +40,16 @@ import rebuild_config as C
 import forecast_harness as H
 import predictive_interval as PI
 from player_season_table import build as build_table
-from ability_forecast import A1HingeExposure
 
-SCRIPT_VERSION = "1.3"
+SCRIPT_VERSION = "1.4"
 
 # The adopted candidate, matching run_stress_tests.py. The uncertainty layer
 # wraps whatever model it is given, so this is the model under test rather
 # than a property of the layer.
-LEADER = A1HingeExposure
+# The adopted skater leader, from the one switch (run_npv_simulation.LEADER),
+# not a class named here: a copy pinned by name is how these diagnostics kept
+# testing the old leader after it changed on 2026-09-23.
+from run_npv_simulation import LEADER  # noqa: E402
 
 
 def _load_table():

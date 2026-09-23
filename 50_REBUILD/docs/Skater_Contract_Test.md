@@ -220,9 +220,19 @@ name (`A1HingeExposure`, `run_npv_simulation.PRIOR_LEADER`) as the no-contract s
 ## Downstream, after adoption
 
 The contract-status version is now the skater leader (`A1HingeExposureStatus`, the switch
-`run_npv_simulation.LEADER`; the no-contract model is kept as `PRIOR_LEADER`). Every runner that
-imports the leader was rerun. The previous outputs are kept beside the new ones, and each run below is
-compared with its own earlier run.
+`run_npv_simulation.LEADER`; the no-contract model is kept as `PRIOR_LEADER`). The previous outputs
+are kept beside the new ones, and each run below is compared with its own earlier run.
+
+**Correction: not every consumer moved at first.** The first pass reran the runners that import
+`LEADER`, and said everything downstream had been rerun. That was too broad. The market comparison
+(`run_valuation_sensitivity.py`) imported the old class by name and labelled it "the adopted
+candidate", so its point surplus and the simulation's disagreed by up to $1.06M on 948 contracts and
+the integration refused them. Five diagnostics (look-ahead, stress, uncertainty, coverage, the named
+players) pinned their own copy of the old class too. All now take the leader from the one switch;
+both valuation artifacts record the class they were built on, the integration refuses a mismatch by
+name, and check 44 pins it. The market comparison keeps the previous leader as a labelled column and
+cuts its tiers on the adopted model (declared; the previous membership is printed beside it with the
+number of contracts that change tier).
 
 **One more dating gap closed first.** The path simulation builds its season-by-season forecasts in
 `forecast_blocks`, a second caller that still read contract state at 1 July of the page. The paths
@@ -260,18 +270,28 @@ status therefore enters at:
 
 Past the supported range the forecast falls back to the no-contract fit. On an eight-year deal signed
 in 2021 participation reads about 0.93 through the seventh season and **0.45** in the eighth, which
-is exactly the old leader's number. Two consequences:
-- **The chance of playing sometimes rises from one season to the next** faster than the simulation's
-  return rate allows. That happens on 15 of 1,217 terms (2 under the old leader). There the path
-  cannot reproduce the model's marginal exactly; the average production per season differs by 0.014
-  WAR on average, at most 0.031.
-- **The coefficients at the edge of support are larger** (+1.9 to +2.3 against about +1.1) and rest
-  on few rows.
+is exactly the old leader's number. The coefficients at the edge of support are also larger (+1.9 to
++2.3 against about +1.1) and rest on few rows.
+
+**A separate issue: rises the simulation cannot deliver.** On 15 of 1,217 terms (2 under the old
+leader) the chance of playing rises from one season to the next faster than the simulation's return
+rate allows, and the exit probability that would deliver it has to be clipped. Its cost is small.
+Propagated exactly through the chain's own recursion, clipping moves expected production by **0.000415
+WAR a season** on average across the 15 (at most 0.000937; signed −0.000290). The largest probability
+discrepancy in any season is 0.025. **Withdrawn:** the first version of this section gave 0.014 WAR
+(at most 0.031), which was simulated production minus the point forecast, and so mostly the
+simulation's own sampling noise, not the clipping. These are production figures, not dollars through
+the floor.
+
+The cliff and the clipping are different problems. A steep fall is something the chain represents
+without difficulty (the adoption review's example, contract 6587, falls from 0.88 to 0.32 with no
+clipping); clipping comes from a rise, often earlier in the same term (contract 6500 clips on a rise at season six, then falls at
+season eight). Smoothing the fall does not by itself remove the rises.
 
 The matched test's dollar result (1,999 of 2,000) was scored on this same model, cliff included. So
-this is a property of what was adopted, not a new error in it. Whether to carry the last supported
-horizon's status effect forward (with the model's usual decay) is a modelling assumption and is left
-open.
+this is a property of what was adopted, not a new error in it. Carrying the last supported horizon's
+status effect forward is a modelling assumption; it is scored as a named sensitivity below, and the
+adopted model stays the baseline meanwhile.
 
 **Control years** (`run_control_years.py`, 398 contracts owning them): deciding as you go $0.691M a
 contract, against $0.703M; the value of seeing the path $0.063M against $0.066M; age-rule

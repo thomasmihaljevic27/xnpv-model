@@ -39,7 +39,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 import information_set as ISET
 
-SCRIPT_VERSION = "2.0"
+SCRIPT_VERSION = "2.1"
 
 W_T1, W_T2 = 0.6, 0.4    # the locked recency weighting, reproduced for A0
 
@@ -1448,7 +1448,7 @@ class _ParticipationMixin:
         for h in sorted({int(x) for x in horizons}):
             hh = h if h in fitted else fitted[-1]
             base = self.part_.base_[hh]
-            p = self.part_.predict(rows, hh, as_of=dates).to_numpy(float)
+            p = self._part_predict(rows, hh, as_of=dates).to_numpy(float)
             p = np.where(np.isfinite(p), p, base)
             if h not in fitted:
                 _g_prod, g_play = self._tail_decay(iset, fitted[-1], fitted[-2])
@@ -1456,8 +1456,14 @@ class _ParticipationMixin:
             out[h] = p
         return out
 
+    def _part_predict(self, rows, h, as_of=None):
+        """The one place participation is asked for a horizon, so a variant
+        that changes how a horizon is answered changes it for the harness,
+        the page-dated and the signing-dated callers alike."""
+        return self.part_.predict(rows, h, as_of=as_of)
+
     def _p_play(self, a, subs, h):
-        p = self.part_.predict(a.reset_index(), h)
+        p = self._part_predict(a.reset_index(), h)
         p = p[~p.index.duplicated()]
         # The horizon is guaranteed fitted by _guard_horizons, so this horizon
         # HAS a base rate and the fallback is the league's own number for it
@@ -1690,3 +1696,47 @@ class A1HingeExposureStatus(A1HingeExposure):
     USE_CONTRACTS = True
     CONTRACT_STATE = "observable"
     PART_EXCLUDE = ("contract_unknown",)
+
+
+class A1HingeExposureStatusCarry(A1HingeExposureStatus):
+    """SENSITIVITY, not adopted (2026-09-23): the adopted leader with contract
+    status CARRIED PAST ITS SUPPORT.
+
+    In the adopted leader, contract status enters participation only at
+    horizons where training rows support it (from the 2019 page, up to four
+    to six seasons ahead). Past that the fit is the no-contract one, so a
+    player under contract for eight seasons reads about 0.93 to play in
+    season seven and 0.45 in season eight: a cliff.
+
+    THE RULE, borrowed from `predict_beyond_fit`: at a horizon h past the last
+    supported one, L, use horizon L's fit with the player's features held at
+    L and his contract status read for season t0 + h, times a decay per extra
+    season. The decay is the league's observed participation ratio between
+    horizons L and L-1 in this fit's own training rows (`base_`), clipped to
+    [0.5, 1]. Where no horizon carries status (the 2017 and 2018 pages) the
+    model is the adopted leader exactly.
+
+    This is an assumption -- that being under contract matters past the
+    horizon where it can be measured about as much as it does at the last
+    one -- and it is scored before anything is adopted
+    (`run_status_carry_sensitivity.py`).
+    """
+    name = "adopted leader, contract status carried past its support"
+
+    def fit(self, table, before):
+        super().fit(table, before)
+        pm = self.part_
+        L = pm.status_last_horizon()
+        self.status_last_ = L
+        g = 1.0
+        if L is not None and (L - 1) in pm.base_ and pm.base_[L - 1] > 0:
+            g = float(np.clip(pm.base_[L] / pm.base_[L - 1], 0.5, 1.0))
+        self.status_decay_ = g
+        return self
+
+    def _part_predict(self, rows, h, as_of=None):
+        L = getattr(self, "status_last_", None)
+        if L is None or int(h) <= L:
+            return super()._part_predict(rows, h, as_of=as_of)
+        p = self.part_.predict_carried(rows, int(h), L, as_of=as_of)
+        return (p * self.status_decay_ ** (int(h) - L)).clip(0.005, 0.995)
