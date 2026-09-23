@@ -50,11 +50,17 @@ from contract_price_model import contract_sample, attach_forecasts
 from production_currency import ProductionCurrency
 from player_season_table import build as build_table, birthdate_source
 from run_phase4_decisions import prep
-from ability_forecast import A1HingeExposure
+from ability_forecast import A1HingeExposure, A1HingeExposureStatus
 
-SCRIPT_VERSION = "2.3"
+SCRIPT_VERSION = "2.4"
 
-LEADER = A1HingeExposure
+# THE SKATER LEADER, adopted provisionally 2026-09-23: the previous leader with
+# visible contract status in its participation (Skater_Contract_Test.md).
+# Every downstream runner imports LEADER from here, so this line is the switch.
+# The previous leader, which reads no contract data, is kept by name as the
+# sensitivity.
+LEADER = A1HingeExposureStatus
+PRIOR_LEADER = A1HingeExposure
 KEY = "contract_id"
 N_PATHS = 2000
 TIER_EDGES = [-np.inf, 0, 0.5, 1.0, 2.0, np.inf]
@@ -117,6 +123,21 @@ def forecast_blocks(sample: pd.DataFrame, table: pd.DataFrame,
                 np.argsort(np.argsort(pred["h"].to_numpy(), kind="stable"), kind="stable")]
         lut = pred.set_index(["pkey", "h"])[["mu", "sigma", "p_play"]]
         spreads[t0] = model.spread_
+        # SIGNING-DATED PARTICIPATION, exactly as `attach_forecasts` does it.
+        # A model whose participation reads contract state is asked at each
+        # contract's signing, not at 1 July of the page, so the paths and the
+        # point valuation carry the same probability of playing (the identity
+        # in report 2 depends on it). One call per batch; rows are the
+        # contracts themselves, so two signings by one player on one page get
+        # their own dates. A model reading no contract data skips this and is
+        # unchanged bit for bit.
+        inner = model.model
+        signed = None
+        if getattr(inner, "reads_contracts", False):
+            ck = subs.drop_duplicates("pkey").set_index("pkey")["career_key"]
+            keys = ck.reindex(grp["pkey"]).to_numpy()
+            signed = inner.p_play_signed(iset, keys, hs, grp["signed"].to_numpy())
+            pos = {ix: i for i, ix in enumerate(grp.index)}
         for r in grp.itertuples():
             yrs = [s for s in seasons_for(r) if s - t0 >= 0]
             hh = [int(s - t0) for s in yrs]
@@ -124,6 +145,9 @@ def forecast_blocks(sample: pd.DataFrame, table: pd.DataFrame,
                 block = lut.loc[[(r.pkey, x) for x in hh]]
             except KeyError:
                 continue
+            if signed is not None:
+                block = block.copy()
+                block["p_play"] = [float(signed[x][pos[r.Index]]) for x in hh]
             if block[["mu", "sigma", "p_play"]].isna().to_numpy().any():
                 continue
             rows[r.contract_id] = (t0, block["mu"].to_numpy(),

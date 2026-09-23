@@ -24,7 +24,7 @@ import forecast_harness as H
 import player_season_table as T
 from ability_forecast import A0Production
 
-SCRIPT_VERSION = "3.1"
+SCRIPT_VERSION = "3.2"
 
 PASS, FAIL, SKIP = "pass", "FAIL", "skip"
 results: list[tuple[str, str, str]] = []
@@ -1995,11 +1995,80 @@ def c42(table):
     assert (ld["participation_dated"] == "page").all()
     assert np.array_equal(ld[["war_per_season", "war_year1"]].to_numpy(float)[0],
                           ld[["war_per_season", "war_year1"]].to_numpy(float)[1]), \
-        "the leader's valuation moved with the signing date"
+        "the no-contract model's valuation moved with the signing date"
     return (f"Chara 2021, contract status only: first season {float(base['p_first']):.1%} "
             f"at 1 July, {float(real['p_first']):.1%} at the signing; the 1 July copy "
             f"reproduces the page valuation exactly, a {int(long['length'].iloc[0])}-year "
-            f"deal's extrapolated tail included; the leader is unmoved")
+            f"deal's extrapolated tail included; the no-contract model is unmoved")
+
+
+def c43(table):
+    """THE PATHS AND THE POINT VALUATION READ CONTRACT STATE AT THE SAME DATE.
+
+    The skater leader adopted 2026-09-23 reads visible contract status, so its
+    participation depends on the date that status is read at. `attach_forecasts`
+    reads it at the signing (check 42). The path simulation builds its season
+    blocks in `forecast_blocks`, a second caller; if that one read 1 July of
+    the page, the paths would carry a different probability of playing from the
+    point valuation, and the identity the simulation is checked against (no
+    spread, certain participation -> the point valuation) would no longer be
+    the same forecast.
+
+    Driven through both callers, on one batch holding the Chara 2021 contract
+    (signed in October) and a copy of it dated 1 July:
+      * the runner's LEADER is the contract-status model and reads contracts;
+      * for every contract, the block's expected season total (mu x p_play)
+        summed over the term equals the point valuation's war_total, and the
+        block's first p_play equals its p_first;
+      * the real signing and the 1 July copy differ in the block, as they do
+        in the point valuation -- so the block is not page-dated.
+    """
+    import numpy as np
+    from contract_price_model import contract_sample, attach_forecasts
+    import run_npv_simulation as RNS
+
+    assert RNS.LEADER.USE_CONTRACTS and RNS.LEADER.CONTRACT_STATE == "observable" \
+        and tuple(RNS.LEADER.PART_EXCLUDE) == ("contract_unknown",), \
+        "the runner's leader is not the contract-status model"
+    cs = contract_sample()
+    row = cs[(cs["last_name"].astype(str).str.lower() == "chara")
+             & (cs["signed"].dt.year == 2021) & (cs["signed"].dt.month >= 8)]
+    if row.empty:
+        return "skip: the Chara 2021 contract is not in this census"
+    row = row.iloc[[0]]
+    L = int(row["latest_complete"].iloc[0])
+    # A handful of same-batch contracts beside it, so the batch lookup (one
+    # call, rows aligned by position) is exercised on more than one row.
+    peers = cs[(cs["latest_complete"] == L) & (cs.index != row.index[0])]
+    peers = peers.sort_values("signed").iloc[::max(1, len(peers) // 12)].head(12)
+    july = row.copy()
+    july.index = july.index + 10_000_000
+    july["contract_id"] = july["contract_id"].astype(str) + "_july"
+    july["signed"] = pd.Timestamp(year=L + 1, month=7, day=1)
+    both = pd.concat([row, july, peers])
+    pt = attach_forecasts(both, RNS.LEADER, table, verbose=False)
+    assert (pt["participation_dated"] == "signing").all()
+    blocks, _ = RNS.forecast_blocks(both, table)
+    by_id = both["contract_id"].astype(str)
+    n = 0
+    for ix, r in pt.iterrows():
+        cid = both.loc[ix, "contract_id"]
+        if cid not in blocks:
+            continue
+        _t0, mu, _sig, pp, _yrs = blocks[cid]
+        assert abs(float(np.sum(mu * pp)) - float(r["war_total"])) < 1e-9, (
+            f"{cid}: the paths' expected term total differs from the point valuation")
+        assert abs(float(pp[0]) - float(r["p_first"])) < 1e-12, (
+            f"{cid}: the paths' first-season participation differs from the point valuation's")
+        n += 1
+    assert n >= 3, f"only {n} contracts compared -- vacuous"
+    real = blocks[row["contract_id"].iloc[0]][3][0]
+    moved = blocks[july["contract_id"].iloc[0]][3][0]
+    assert real - moved > 0.15, (
+        f"the block's participation moved only {real - moved:+.3f} with the signing -- page-dated")
+    return (f"{n} contracts: the paths' term total and first-season participation equal the "
+            f"point valuation's; Chara 2021 plays {real:.1%} at the signing, {moved:.1%} "
+            f"on a 1 July copy, in both callers")
 
 
 def main() -> None:
@@ -2064,7 +2133,8 @@ def main() -> None:
                      ("the persistence fit returns a curve it scored", c39),
                      ("a calibrated forecast with a lump passes the PIT", c40),
                      ("contract state read only where the export can see it", c41),
-                     ("a skater contract is valued at its signing", c42)]:
+                     ("a skater contract is valued at its signing", c42),
+                     ("the paths read contract state where the valuation does", c43)]:
         check(name, lambda fn=fn: fn(table))
 
     width = max(len(n) for n, _, _ in results)

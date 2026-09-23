@@ -39,7 +39,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 import information_set as ISET
 
-SCRIPT_VERSION = "1.9"
+SCRIPT_VERSION = "2.0"
 
 W_T1, W_T2 = 0.6, 0.4    # the locked recency weighting, reproduced for A0
 
@@ -1661,3 +1661,32 @@ class A1HingeExposure(A1AgingParticipationImputedNC):
     name = "leader + hinge and evidence interaction"
     FEATURES = ["tw_WAR", "tw_hi1", "tw_x_exposure", "one_season", "is_D",
                 "exp_seasons", "age_c", "age_c2"]
+
+
+class A1HingeExposureStatus(A1HingeExposure):
+    """The skater leader with VISIBLE CONTRACT STATUS in its participation
+    model. Adopted provisionally 2026-09-23 (Skater_Contract_Test.md).
+
+    Identical to `A1HingeExposure` in ability, aging, rate and games share.
+    Only participation changes:
+      - USE_CONTRACTS: participation reads the vendor contract export;
+      - CONTRACT_STATE "observable": status counts only deals covering seasons
+        from the export's earliest end year (2018), where a covering contract
+        must be in the export IF the vendor snapshot is complete -- assumed,
+        not verified. Before that, status is zero for everyone, so it cannot
+        encode having survived into the snapshot;
+      - PART_EXCLUDE ("contract_unknown",): the before/after-2018 period
+        indicator is dropped. Scored alone it added nothing for skaters.
+
+    Contract state is read at 1 July of each page when the harness scores it,
+    and at the SIGNING when a contract is valued (`attach_forecasts`,
+    `forecast_blocks`). The model is trained on the 1 July state, so priced
+    contracts' first seasons still run about 5.5 points low.
+
+    The previous leader, `A1HingeExposure`, stays importable as the
+    no-contract sensitivity.
+    """
+    name = "leader, visible contract status in participation"
+    USE_CONTRACTS = True
+    CONTRACT_STATE = "observable"
+    PART_EXCLUDE = ("contract_unknown",)
