@@ -564,3 +564,17 @@ scored. Review artifacts and state are committed together under the session-clos
 - **2026-09-11c editorial pass:** Edited Doc_3_Player_Pillar_II_2.docx for repetition, flow and direct wording; matched Data, Production, and Aging formatting. Preserved results and limitations. Package/style checks pass; renderer unavailable. No model changes. See sessions/2026-09-11c.md.
 
 - **2026-09-11d draft explainer rewrite:** Rewrote Doc_4_Drafting_Prospects_Unbuilt.docx for sequential explanations of historical yields, cost rules, sampling uncertainty, future picks, prospects and trade components. Preserved numerical results and implementation limitations; no model changes. See sessions/2026-09-11d.md.
+
+### Change log, 2026-09-23 (goalie adoption and skater contract review)
+
+**Goalie adoption verified; skater contract decision remains open, 2026-09-23:**
+Reviewed candidate `1b7d9a7` (goalie adoption `68b0e13`). Full suite 41/41;
+all five skater score rows and both dollar tables reproduce. The fresh default
+goalie control/scoring run reproduces 21 rights and 133 completed contracts,
+production simulated RMSE $7.111M and bias +$0.082M. No goalie adoption blocker.
+One skater finding: the contract attachment caller reads July contract status,
+not signing-date status. Chara contract 7041's status-only participation changes
+0.336686 to 0.589150 when only that date is corrected. The July season comparison
+stands; rerun signing-date dollar scores before closing the contract-input decision.
+Keep the existing leader meanwhile. No candidate merge or default change here.
+See `50_REBUILD/docs/Goalie_Adoption_Skater_Contract_Review_Codex.md`.
