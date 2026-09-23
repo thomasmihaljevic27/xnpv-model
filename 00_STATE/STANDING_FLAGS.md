@@ -351,7 +351,11 @@ residuals and currency comparisons; fix and rerun development work before furthe
   using a vendor field on historical rows, find the vendor's coverage rule (here, end year >= 2018)
   and state the feature only where that rule makes it observable for everyone, survivor or not.
   **Open for skaters:** the skater contract features read the same export and have not been
-  re-measured under the observable definition. Evidence: `50_REBUILD/docs/Goalie_Participation_Top.md`.
+  re-measured under the observable definition. **Correction 2026-09-23b:** the "observable" replacement carries a
+  before/after-2018 period indicator (the export's coverage year), and that indicator, not contract
+  status, carries its gain. A replacement for a coverage-contaminated feature must be scored input by
+  input, and a period term tied to a vendor's coverage year is a property of the source, not of the
+  sport. Evidence: `50_REBUILD/docs/Goalie_Participation_Top.md`.
 
 - **NEW 2026-09-22 — whether a join finds a record can itself be the outcome.** Goaltender
   birthdates come mostly from the contract export, so a goaltender HAS a birthdate largely because he

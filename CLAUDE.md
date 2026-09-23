@@ -115,6 +115,15 @@ Draft pillar:
   and described a fixed defect (the projection ratio floor) as live and unfixed. Read the
   script's docstring and the constants it actually uses. Where a figure is a run output rather
   than a code constant, cite it from the locked decision record and say so.
+- **Don't credit a multi-part change to one of its parts.** When a candidate adds more than one
+  input or term, score each alone and in combination before saying which one carries the gain. This
+  was corrected twice: the goalie price line credited a level-and-slope pair when the level alone
+  carried it (2026-09-22), and the goalie participation replacement credited contract status when its
+  before/after-2018 period indicator carried it (2026-09-23).
+- **Don't compare scores whose targets differ.** Before comparing two forecasts, or two runs of one,
+  price both and the outcome on one declared currency and assert that the target is identical. Each
+  run's own price line gives a different realised target (corrected 2026-09-22i and caught again
+  2026-09-23 before it was reported).
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised

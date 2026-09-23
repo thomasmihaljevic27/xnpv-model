@@ -1,8 +1,8 @@
 # Why the goalie participation model was too sure: a snapshot export
 
-Run 2026-09-23 in `50_REBUILD/` (`run_goalie_participation_top.py` v1.0; `participation_model.py`
-v1.6; the dollar effect from `run_goalie_control_years.py` v1.2 with and without `--participation
-observable`). Development pages only. **A diagnosis and a measured candidate. Nothing adopted.**
+Run 2026-09-23 in `50_REBUILD/` (`run_goalie_participation_top.py` v1.1, after an independent review;
+`participation_model.py` v1.6; the dollar effect from `run_goalie_control_years.py` v1.3 run with
+`--participation` set to each specification). Development pages only. **A diagnosis and a measured candidate. Nothing adopted.**
 
 ## The symptom
 
@@ -71,129 +71,149 @@ retired or not, 0.92–0.96.
 birthdate comes mostly from this export too. There, whether the join finds a record was the outcome;
 here, whether the export lists the goaltender is the outcome.
 
-## The candidate: contract state only where the export can see it
+## Replacing the export-membership signal: five specifications
 
-`ParticipationModel(contract_state="observable")`:
-- **Before 2018** (the export's earliest end year), contract state is not observable. Every row reads
-  "not observable" and "not under contract", whatever the export happens to hold.
-- **From 2018 on**, any contract covering the season must end in or after it, so it is in the export
-  whether or not the player lasted. "Under contract" is the true state, and no row is "unknown".
-- **The whole-population "known to the export" signal is gone.**
+The first version of this report proposed "contract state only where the export can see it"
+(`contract_state="observable"`) and credited its gain to contract information. **That attribution
+is withdrawn.** The proposal carries two new inputs, and they have to be scored apart:
 
-The assumption, stated: the vendor's snapshot is complete for contracts ending in or after its
-earliest end year. The default is unchanged; the candidate is opt-in.
+1. **A period indicator.** Under the observable definition, the "unknown" column is 1 exactly when
+   the target season is before 2018, the same for every goaltender targeting that season. It says
+   nothing about the player; it lets the fitted participation rate differ before and after 2018.
+2. **Visible contract status.** Whether a deal covering the season is in the export, stated only
+   from 2018. From 2018, any covering contract must be in the export, *assuming the vendor's
+   snapshot is complete from that year*. That assumption is not verified.
 
-## What it does to participation and the season
+Five specifications, named in one table (`run_goalie_participation.PART_VARIANTS`) that the scored
+arms and the price runner both read:
 
-Production's projector and trailing share are held fixed; only participation changes. Squared error
-is the primary score (declared 2026-09-22). "Beats current" is the share of goaltender-resamples in
-which the variant beats the current model.
+| name | inputs |
+|---|---|
+| current | export membership and contract status as known (every recorded run) |
+| none | no contract inputs |
+| observable | period indicator and visible contract status |
+| period only | the period indicator alone |
+| contract only | visible contract status alone |
 
-| participation | Brier | beats current | season WAR RMSE | beats current | WAR MAE | bias |
-|---|---:|---:|---:|---:|---:|---:|
-| current: contract state as known | 0.2056 | — | 2.073 | — | 1.432 | +0.096 |
-| no contract data | 0.1958 | 100% | 2.065 | 99% | 1.410 | +0.037 |
-| **contract state where observable** | **0.1940** | **100%** | **2.062** | **100%** | **1.409** | +0.043 |
+## Participation and the season
 
-- **Against no contract data**, the observable version has the lower Brier in 93% of resamples and
-  the lower WAR squared error in 97%. Contract state carries real information once it stops carrying
-  survival.
-- **By horizon** (Brier):
-  - no contract data is best next season (0.1337 against 0.1382);
-  - the observable version is best from three seasons out (0.2208 against 0.2242 at three).
+Production's projector and trailing share are held fixed; only participation changes. "Beats
+current" is the share of goaltender-resamples in which the specification beats the current one.
 
-**The confident fifth is fixed.** Calibration by fifth, predicted / observed:
+| specification | Brier | beats current | season WAR RMSE | beats current | WAR MAE | bias | top-fifth over-prediction |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| current | 0.2056 | — | 2.073 | — | 1.432 | +0.096 | +0.096 [+0.057, +0.141] |
+| none | 0.1958 | 100% | 2.065 | 99% | 1.410 | +0.037 | −0.003 [−0.039, +0.040] |
+| observable | 0.1940 | 100% | 2.062 | 100% | 1.409 | +0.043 | +0.005 [−0.032, +0.052] |
+| **period only** | **0.1927** | 100% | **2.062** | 100% | 1.411 | +0.048 | −0.001 [−0.038, +0.043] |
+| contract only | 0.1956 | 100% | 2.065 | 99% | 1.410 | +0.040 | +0.002 [−0.034, +0.046] |
 
-| participation | fifths | top-fifth over-prediction |
-|---|---|---:|
-| current | 0.27/0.26, 0.40/0.42, 0.52/0.56, 0.73/0.67, 0.95/0.86 | +0.096 [+0.057, +0.141] |
-| no contract data | 0.26/0.27, 0.38/0.39, 0.49/0.55, 0.66/0.65, 0.90/0.90 | −0.003 [−0.039, +0.040] |
-| observable | 0.25/0.25, 0.39/0.41, 0.50/0.56, 0.66/0.67, 0.90/0.90 | +0.005 [−0.032, +0.052] |
+**The inputs separated** (share of goaltender-resamples in which the first specification is lower):
 
-Bias in season WAR by trailing role (backup-ish / middle / starter-ish):
-- current: −0.068 / +0.207 / +0.152;
-- observable: −0.119 / +0.142 / +0.107.
-
-The spread across roles narrows, but backups now run lower.
-
-## What it does to contract dollars
-
-The goalie control-year runner was run twice: current participation, and `--participation
-observable`, which switches the scored arms and the priced forecast together.
-
-**Within each run** (each on its own lines), the contract-level calibration moves the right way.
-These are properties of each run's own distribution against its own target, so they can be set side
-by side; dollar errors cannot, which is the next point.
-
-| | current | observable |
+| comparison | Brier | WAR squared error |
 |---|---:|---:|
-| production: PIT mean (0.5 if calibrated) | 0.438 [0.391, 0.486] | 0.472 [0.426, 0.518] |
-| production: outcomes on the floor minus the model's share | +13.9 [+6.4, +21.5] | +7.1 [−0.2, +14.9] |
-| rate: outcomes on the floor minus the model's share | +10.2 [+2.7, +17.8] | +4.1 [−3.3, +12.0] |
+| period only against none | 100% | 99% |
+| contract only against none | 67% | 51% |
+| observable against contract only | 94% | 99% |
+| period only against observable | 91% | 55% |
 
-**Across runs, dollar error must be compared on one line**, because each run refits its price lines
-on its own forecasts. The two runs' printed RMSEs are against different targets and are not compared
-here. Both runs' drawn paths are repriced on the current run's production line (primary) and on the
-candidate run's (sensitivity). The realised target is asserted identical.
+What this says:
+- **Removing the export-membership signal is well supported.** Every replacement, including no
+  contract inputs at all, beats the current model on both scores, and every one removes the
+  confident fifth's over-prediction.
+- **The gain over no contract inputs is the period indicator's.** Adding it wins 99–100%; adding
+  visible contract status alone does not separate from none (67%, 51%). With the period indicator
+  already in, contract status makes the fit worse on Brier (91% favour leaving it out).
+- **These results do not establish that knowing a goaltender's contract adds information.** They do
+  not establish that it adds none, either.
 
-On the current run's production line (primary), 133 ended contracts, $M. "Candidate better in"
-is the share of goaltender-resamples in which observable participation has the lower squared dollar
-error:
+**What the period indicator is absorbing is not a simple level shift.** For the model with no
+contract inputs, which has no period term, observed minus predicted participation by target season
+sits within ±0.06 every year from 2015 to 2025, and every interval includes zero. There is no visible
+step at 2018. The indicator's gain therefore comes from inside the fits, by horizon and page, where
+it separates older training outcomes from recent ones, and not from a league-wide change in the
+playing rate at 2018. Two cautions:
+- **The boundary is the export's earliest end year**, a property of the data source, not of
+  goaltending. Nothing here says 2018 is the right place for a step.
+- **It acts only where training straddles 2018.** On pages up to 2018 no training outcome is after
+  it, so the indicator has no support and the fit is the no-contract one. Its gain sits at three to
+  five seasons out on the later pages (Brier 0.2242 → 0.2208 at three seasons out, 0.2359 → 0.2272
+  at five).
 
-| forecast | participation | RMSE | MAE | bias | candidate better in |
+A time adjustment that is not tied to the vendor's coverage year, such as recency weighting of the
+training rows, would test the same idea without that boundary. It is not run here.
+
+## Contract dollars
+
+Each specification was carried through the goalie control-year runner (`--participation`), which
+switches the scored arms and the priced forecast together. All runs' drawn paths are repriced on one
+fixed line, with the realised target asserted identical. On the current run's production line
+(primary), 133 ended contracts, $M:
+
+| forecast | participation | RMSE | MAE | bias | beats current on squared error |
 |---|---|---:|---:|---:|---:|
 | production | current | 6.882 | 3.985 | +0.566 | |
-| production | observable | 6.880 | 3.849 | **+0.187** | 51% |
+| production | observable | 6.880 | 3.849 | +0.187 | 51% |
+| production | period only | 6.932 | 3.766 | −0.064 | 33% |
 | rate | current | 6.923 | 3.730 | −0.159 | |
 | rate | observable | 6.961 | 3.619 | −0.475 | 24% |
+| rate | period only | 7.033 | 3.559 | −0.674 | 10% |
 
-On the candidate run's production line (sensitivity), the candidate is better in 58% (production) and
-30% (rate). The biases move the same way: production +0.673 → +0.280, rate −0.061 → −0.389.
+On the other two runs' lines (sensitivities) the shares are:
+- production: 56–58% (observable) and 37–38% (period only);
+- rate: 28–30% (observable) and 12% (period only).
 
-**How much correcting participation fixes the contract dollars:**
-- **Production's forecast:** its upward dollar bias falls by about two thirds (+$0.57M → +$0.19M),
-  its contract distribution's location is no longer outside its interval, and its excess of
-  floor-level outcomes roughly halves.
-- **Squared dollar error does not improve:** 51% and 58% of resamples, a tie. The primary score is
-  dominated by the noise of single contracts (RMSE about $6.9M against a mean cost of $6.3M), not by
-  this bias.
-- **The rate forecast:** squared error is slightly worse (24% and 30%), and its bias turns more
-  negative (−$0.16M → −$0.48M). Its contract location was already inside its interval. One reading,
-  not tested here: the over-confident participation was offsetting a downward lean elsewhere in the
-  rate forecast.
-- **So the correction fixes what it was aimed at**, participation's calibration and the bias it
-  carried into production's dollars. It is not a route to lower dollar error.
+Within each run, production's contract distribution moves inside its interval under the observable
+specification (PIT mean 0.438 → 0.472), and the excess of floor-level outcomes roughly halves
+(production +13.9 → +7.1 points, rate +10.2 → +4.1).
+
+What this says:
+- **On the primary score, no replacement improves contract dollars.** Observable ties for production
+  (51%) and is worse for the rate forecast. Period only is worse for both (33% and 10%), though
+  neither loss is decisive for production.
+- **On bias and absolute error, the replacements help production.** Its bias goes +$0.57M → +$0.19M
+  (observable) → −$0.06M (period only), and absolute error falls. For the rate forecast the bias
+  turns more negative.
+- **The dollar results and the participation results point different ways.** Participation and
+  season-WAR squared error favour period only. Contract-dollar squared error favours none of the
+  replacements, and period only least.
+- This experiment does not say why lower participation error does not carry into dollars. The
+  first version said the remaining error was "dominated by the noise of single contracts"; that
+  went further than the evidence and is withdrawn. What is shown is that this change does not
+  materially lower squared dollar error. Model error can remain elsewhere.
 
 ## What this settles and what it does not
 
 **Settled, on development pages:**
 - The confident fifth's over-prediction comes from the contract export being a snapshot. Its
-  contract columns carried survival in early training rows and were applied to everyone later. The
-  misses are mostly careers that had ended.
-- Stating contract state only where the export can see it removes the over-prediction (+0.096 →
-  +0.005). It improves participation Brier and season WAR squared error in every resample, and beats
-  dropping contract data (93% and 97%).
-- In contract dollars, on one fixed line, it cuts production's bias by about two thirds but leaves
-  squared dollar error unchanged (a tie). For the rate forecast it makes squared error slightly worse
-  and its bias more negative.
+  membership and contract columns carried survival in early training rows. The misses are mostly
+  careers that had ended.
+- Removing the export-membership signal is supported by every replacement tested, on participation
+  and season-WAR squared error, and each removes the over-prediction.
+- The gain of the proposed replacement over no contract inputs belongs to the period indicator, not
+  to contract information.
 
 **Not settled:**
-- **Adoption.** Every goalie result recorded so far uses the current participation: the price line,
-  the rate forecast's arms and the control years. The candidate would move them, and it goes to
-  review first.
-- **Skaters.** The skater contract features read the same export, so the same survival signal can
-  sit in them. The skater contract ablation and the open question of whether the leader should use
-  contract data were both measured with contract state as known. The matched comparison recommended
-  for that decision should use the observable definition. Not measured here.
-- **The vendor snapshot's completeness** for contracts ending from 2018 is an assumption.
+- **Which replacement.** Period only is best on participation and ties on season WAR, but it is
+  tied to the vendor's coverage year and is the worst of the three on contract-dollar squared error.
+  No contract inputs is the simplest and removes the over-prediction. Observable is in between.
+  **A decision, not a result; nothing is adopted.**
+- **Whether contract status carries information** once measured without the survival signal. It is
+  not separated from none here.
+- **Skaters.** The skater contract features read the same export. The skater contract ablation and
+  the open skater contract-data decision were measured with contract state as known, so the matched
+  skater test should separate the period indicator from contract status in the same way.
+- **The vendor snapshot's completeness** from 2018 is an assumption.
 
 ## What is checked
 
-Check 41 asserts the observable definition:
+Check 41 asserts the observable definition as implemented. It verifies the definition, not the
+vendor's completeness:
 - the coverage year is the export's own earliest end year;
 - before it, every row is not observable and not under contract, whether or not the export knows the
   player;
-- from it on, no row is unknown and "under contract" is the true state.
+- from it on, no row is unknown and "under contract" is the export's contract state (the true state
+  only if the snapshot is complete).
 
 It also shows the old definition still separates known from unknown players on the same rows. A
 mutant that ignores the option fails it.

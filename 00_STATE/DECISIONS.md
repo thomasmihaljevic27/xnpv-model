@@ -1,5 +1,47 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-23b (goalie participation: the period indicator separated from contract status):**
+Review of `c4ddcf0` (`9cddb43`) merged. `run_goalie_participation.PART_VARIANTS` names five
+participation specifications, read by the scored arms and the price runner together; the default is
+unchanged. `run_goalie_participation_top.py` v1.1 scores all five; `run_goalie_control_years.py`
+v1.3 takes `--participation <variant>`.
+
+**The correction.** Under `contract_state="observable"`, the "unknown" column is a before/after-2018
+period indicator, the same for every goaltender targeting a season. Scored apart:
+- **period only:** Brier 0.1927, season WAR RMSE 2.062;
+- **contract only:** 0.1956, 2.065;
+- **none:** 0.1958, 2.065;
+- **observable (both):** 0.1940, 2.062.
+
+In paired resamples:
+- period only beats none in 100% (Brier) and 99% (WAR);
+- contract only beats none in 67% and 51%;
+- period only beats observable in 91% on Brier, tied on WAR (55%).
+
+**The attribution of the gain to contract information (2026-09-23) is withdrawn.** Removing the
+export-membership signal stays supported: every replacement beats current in 99-100% and removes the
+confident-fifth over-prediction.
+
+**The period term is not a level step.** The no-contract model's observed-minus-predicted by target
+season is within +-0.06 every year with every interval including zero. The indicator's gain sits at
+three to five seasons out on the later pages, tied to the vendor's coverage year rather than to
+goaltending.
+
+**Contract dollars, one fixed line:**
+- **production:** squared error current 6.882, observable 6.880 (51%), period only 6.932 (33%);
+  bias +0.566 / +0.187 / -0.064;
+- **rate:** squared error 6.923 / 6.961 (24%) / 7.033 (10%).
+
+No replacement improves the primary dollar score; period only is worst on it and best on bias. **The
+2026-09-23 "noise dominates the dollar error" reading is withdrawn:** the experiment shows this change
+does not lower squared dollar error, not why.
+
+**Check 41 reworded:** contract state is the export's, true only under the completeness assumption.
+Suite **41 passed, 0 skipped, 0 failed**.
+
+**Which replacement is a decision, not a result; nothing adopted.** Skaters flagged the same way. No
+production code changed; no locked decision reopened.
+
 **Change log, 2026-09-23 (why the goalie participation model was too sure):** Closure of the
 control-year review recorded (`ea720e6`), with one wording correction applied: "calibrated" for the
 pooled season diagnostics is now "the pooled diagnostics did not detect miscalibration in the
@@ -23,7 +65,9 @@ the snapshot is complete for contracts ending from 2018.
 **Results:**
 - **Participation and season:** Brier 0.2056 -> 0.1940 and season WAR RMSE 2.073 -> 2.062 (both 100%
   of goaltender-resamples); bias +0.096 -> +0.043. The top fifth goes from +0.096 to +0.005 [-0.032,
-  +0.052]. It beats no contract data (Brier 93%, WAR squared error 97%).
+  +0.052]. It beats no contract data (Brier 93%, WAR squared error 97%). [CORRECTED 2026-09-23b: the
+  gain over no contract data belongs to the before/after-2018 period indicator the definition carries,
+  not to contract information; see 2026-09-23b.]
 - **Contract dollars, both runs repriced on one fixed line** (the current run's production line;
   realised target asserted identical): production's squared dollar error ties (51%, 58% on the
   sensitivity line) while its bias falls +0.566 -> +0.187. The rate forecast's squared error is
@@ -1139,6 +1183,8 @@ scored. Review artifacts and state are committed together under the session-clos
 ---
 
 ## Change log (state files)
+
+- **2026-09-23b (period indicator separated):** five participation specifications scored; the observable definition's gain is its before/after-2018 period indicator (period only best on Brier), not contract information; no replacement improves contract-dollar squared error; attribution and 'noise dominates' withdrawn; CLAUDE.md rules added. Suite 41/41. State files and `sessions/2026-09-23.md`.
 
 - **2026-09-23 (goalie participation over-confidence diagnosed):** the contract export is a snapshot (contracts ending 2018+), so early 'known'/'under contract' rows encode survival; candidate `contract_state="observable"` fixes the confident fifth (+0.096 -> +0.005), improves Brier and season WAR squared error (100%), cuts production's dollar bias by two thirds but leaves squared dollar error tied on one fixed line. Skater contract features flagged. Calibration wording corrected. Check 41. State files and `sessions/2026-09-23.md`.
 

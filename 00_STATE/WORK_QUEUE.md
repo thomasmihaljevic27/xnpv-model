@@ -264,6 +264,24 @@ the work is. Next, in order:
 5. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
    contract-by-contract dollar reconciliation, and the holdout policy.
 
+**2026-09-23b -- goalie participation replacement: the inputs separated (awaiting review).**
+- **Removing the export-membership signal is supported** by every replacement, on participation and
+  season WAR (99-100%), and each removes the confident-fifth over-prediction.
+- **The observable definition's gain is its before/after-2018 period indicator**, not contract
+  information. Period only is best on Brier (0.1927); contract status alone does not separate from
+  none.
+- **Contract dollars (one fixed line):** no replacement lowers squared dollar error. Period only is
+  worst there (production 33%, rate 10%) and best on bias (production -0.06).
+
+**DECISION (Thomas): which replacement, if any, for goalie participation.**
+- **None** (no contract inputs): simplest; removes the over-prediction.
+- **Period only:** best participation score, but tied to the vendor's coverage year and worst in
+  dollars.
+- **Observable:** in between.
+
+A time adjustment not tied to the coverage year (recency weighting of the training rows) is the
+untested alternative to a 2018 step. Nothing adopted.
+
 **2026-09-23 -- goalie participation over-confidence diagnosed (awaiting review).** Report
 `50_REBUILD/docs/Goalie_Participation_Top.md`.
 - **Cause:** the contract export is a snapshot (every contract ends 2018 or later), so the contract
@@ -278,6 +296,8 @@ the work is. Next, in order:
 - **DECISION (Thomas):** adopt the observable definition for goalie participation? It would move
   every recorded goalie result (price line, rate arms, control years), so they would be rerun on it.
   Recommended: adopt it for participation, where it clearly wins, and rerun the goalie chain.
+  [WITHDRAWN 2026-09-23b: its gain is the period indicator's, and no replacement improves contract-dollar
+  squared error; see the 2026-09-23b entry above.]
 - **Skaters:** the same export feeds the skater contract features. The matched skater contract-data
   test must use the observable definition.
 

@@ -194,12 +194,24 @@ These findings take precedence over the earlier broad validation claims. No impl
 changed; repaired development comparisons and the unbuilt simulation work must precede adoption.
 Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 
+**Goalie participation replacement, inputs separated, 2026-09-23b.** Five specifications are
+scored (`PART_VARIANTS`).
+- **Every replacement for the export-membership signal wins** on participation and season WAR, and
+  removes the confident-fifth over-prediction.
+- **The observable definition's gain is its before/after-2018 period indicator** (period only: Brier
+  0.1927, best); contract status alone does not separate from no contract inputs.
+- **In contract dollars on one fixed line**, no replacement lowers squared error. Period only is
+  worst there and best on bias.
+- **Which replacement is an open decision.** Suite 41/41. See
+  `50_REBUILD/docs/Goalie_Participation_Top.md`.
+
 **Goalie participation over-confidence diagnosed, 2026-09-23.**
 `run_goalie_participation_top.py` v1.0; `participation_model.py` v1.6 (`contract_state` option).
 - **Cause:** the vendor contract export is a snapshot (every contract ends 2018 or later), so on
   early pages the contract columns encode survival. The model then read "known to the export" as
   "will play" for retired goaltenders.
-- **Candidate, contract state only where observable:** it fixes the confident fifth (+0.096 ->
+- [CORRECTED 2026-09-23b: the gain is the before/after-2018 period indicator's, not contract
+  information.] **Candidate, contract state only where observable:** it fixes the confident fifth (+0.096 ->
   +0.005). Brier falls 0.2056 -> 0.1940 and season WAR RMSE 2.073 -> 2.062, both in 100% of
   resamples.
 - **In dollars, on one fixed line:** production's bias drops +0.57 -> +0.19 $M, but squared dollar
