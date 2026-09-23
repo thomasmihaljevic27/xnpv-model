@@ -39,7 +39,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 import information_set as ISET
 
-SCRIPT_VERSION = "1.7"
+SCRIPT_VERSION = "1.8"
 
 W_T1, W_T2 = 0.6, 0.4    # the locked recency weighting, reproduced for A0
 
@@ -1384,6 +1384,14 @@ class _ParticipationMixin:
     seasons runs from 11% in 2015 to 99% in 2021 -- so a variant that leans on
     it is being judged mostly on its late pages."""
     USE_CONTRACTS = True
+    # WHAT THE CONTRACT COLUMNS MEAN when contracts are used, and which of them
+    # are left out. The defaults reproduce every recorded run. The skater
+    # contract-data test (run_skater_contract_test.py) varies these to separate
+    # the export-membership signal, the before/after-2018 period indicator the
+    # "observable" definition carries, and visible contract status -- the same
+    # split the goalie branch needed (Goalie_Participation_Top.md).
+    CONTRACT_STATE = "as_known"
+    PART_EXCLUDE = ()
 
     def fit(self, table, before):
         super().fit(table, before)
@@ -1399,7 +1407,9 @@ class _ParticipationMixin:
         # its own default of six while the rate reached as far as the page
         # allowed, so the two halves of the forecast could disagree about which
         # seasons existed.
-        self.part_ = ParticipationModel(contracts).fit(
+        self.part_ = ParticipationModel(
+            contracts, exclude=tuple(self.PART_EXCLUDE),
+            contract_state=self.CONTRACT_STATE).fit(
             table, before, anchors_fn=lambda p: _anchors(p, n, d),
             horizons=self.fitted_horizons_)
         return self
