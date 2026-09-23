@@ -266,6 +266,21 @@ the work is. Next, in order:
 5. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
    contract-by-contract dollar reconciliation, and the holdout policy.
 
+**2026-09-23d -- GOALIE BRANCH CLOSED AND FROZEN.** Baseline adopted on Thomas's confirmation: production's
+ability forecast, participation with no contract inputs, trailing share, and the pooled price line
+with a goaltender level. Record: `50_REBUILD/docs/Goalie_Branch_Baseline.md`, which lists the
+figures on the baseline, the sensitivities kept, and the deferred items. None of those holds the
+repair open.
+
+**Next, toward closing the repair (see the 2026-09-23 estimate):**
+1. **Skater:** the matched test of whether the leader should use contract data, separating the period
+   indicator from contract status, on the same export caveat.
+2. **Skater:** the star forecast residual (top decile under-predicted).
+3. **Phase 5 acceptance:** dollar scoring on development pages; contract-by-contract reconciliation
+   against production.
+4. **Phase 6:** draft yield curve and prospect layer on the new currency; confirmatory pages once;
+   power analysis; lock.
+
 **2026-09-23b -- goalie participation replacement: the inputs separated (awaiting review).**
 - **Removing the export-membership signal is supported** by every replacement, on participation and
   season WAR (99-100%), and each removes the confident-fifth over-prediction.

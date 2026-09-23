@@ -1,5 +1,10 @@
 # A goaltender's control years, and his contract in dollars
 
+> **Adopted baseline, 2026-09-23.** The figures below were produced with the goalie participation
+> model reading contract state from the vendor export (the old specification). The adopted
+> baseline uses no contract inputs; the branch's figures on it, and the frozen status, are in
+> `Goalie_Branch_Baseline.md`.
+
 Run 2026-09-22 in `50_REBUILD/` (`run_goalie_control_years.py` v1.1, after an independent review). This is the fifth step of the
 goalie branch in the plan's Phase 5. Development start years only. **Nothing adopted, and no
 production file changed.**

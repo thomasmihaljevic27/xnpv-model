@@ -1,5 +1,10 @@
 # How good is he per game? The goalie rate forecast
 
+> **Adopted baseline, 2026-09-23.** The figures below were produced with the goalie participation
+> model reading contract state from the vendor export (the old specification). The adopted
+> baseline uses no contract inputs; the branch's figures on it, and the frozen status, are in
+> `Goalie_Branch_Baseline.md`.
+
 Run 2026-09-22 in `50_REBUILD/` (`run_goalie_rate.py` v1.1; price comparison in
 `run_goalie_price_line.py` v2.4). This is the fourth step of the goalie branch in the plan's
 Phase 5. Development pages only. **Nothing adopted, and no production file changed. The goaltender

@@ -1,5 +1,29 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-23d (goalie participation baseline adopted; goalie branch frozen):**
+**Adopted on Thomas's confirmation:** no contract inputs as the provisional goalie participation
+baseline (`run_goalie_participation.PART_VARIANT = "none"`, v1.6), with production's ability
+forecast. It is not the dollar-accuracy winner: on one fixed line it beats the old specification in
+32% on squared dollar error (RMSE 6.932 against 6.882; bias -0.007 against +0.566), and for the rate
+forecast in 10%. The trade-off is recorded at the switch.
+
+The other specifications stay runnable by name, and every control-year output now carries its
+specification's name (v1.4). Check 34's signing-date test is pinned to a contract-reading
+specification (`repair_checks.py` v3.0).
+
+**The goalie chain was rerun on the baseline:**
+- **participation:** Brier 0.1958 against 0.2470 flat; season WAR MAE 1.410;
+- **rate runner:** production's total stays the more accurate season forecast (RMSE 2.065, rate arms
+  1%);
+- **price line:** level only 0.006882, beats no terms in 100%; slope 33%; UFA ratio 0.77;
+  priced-contract participation now 5 and 11 points low in the first and second seasons;
+- **control years:** informed $1.051M / $1.091M on 21 contracts; contract PIT mean 0.486; floor
+  excess +5.0 [-2.3, +12.9].
+
+**The goalie branch is frozen as a sensitivity** (`50_REBUILD/docs/Goalie_Branch_Baseline.md`); the
+deferred items are listed there. Earlier goalie reports carry a pointer to it. Suite **41 passed, 0
+skipped, 0 failed**. No production code changed; no locked decision reopened; D7 not settled.
+
 **Change log, 2026-09-23c (goalie participation review closed; baseline recommendation recorded):**
 Closure `c2c57ef` merged. Qualification applied: no 2018 step is clearly detected in the annual
 residuals, which does not prove none exists (report reworded; 23b entry marked). The review added
@@ -1204,6 +1228,8 @@ scored. Review artifacts and state are committed together under the session-clos
 ---
 
 ## Change log (state files)
+
+- **2026-09-23d (goalie baseline adopted, branch frozen):** no contract inputs adopted for goalie participation; goalie chain rerun on it; branch frozen as a sensitivity (`Goalie_Branch_Baseline.md`). Suite 41/41.
 
 - **2026-09-23c (goalie participation review closed):** step wording qualified; the review's no-contract-inputs dollar arm recorded (RMSE 6.931, bias -0.006, 32%); no contract inputs recommended as the provisional baseline, pending Thomas's confirmation.
 

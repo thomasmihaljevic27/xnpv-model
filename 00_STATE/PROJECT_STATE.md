@@ -194,6 +194,18 @@ These findings take precedence over the earlier broad validation claims. No impl
 changed; repaired development comparisons and the unbuilt simulation work must precede adoption.
 Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 
+**Goalie branch closed and frozen, 2026-09-23d.** Baseline adopted: production's ability forecast;
+participation with no contract inputs (`PART_VARIANT = "none"`); trailing share; the pooled price
+line with a goaltender level; shared control-year code.
+- **On the baseline:** participation Brier 0.1958; price-line level 0.006882 (slope 33%); informed
+  control value $1.05M on 21 contracts.
+- **The dollar trade-off:** on one fixed line the baseline removes the dollar bias (-0.007) at a
+  small cost in squared dollar error (32%).
+- **The rest is sensitivities and deferred items**, all listed in
+  `50_REBUILD/docs/Goalie_Branch_Baseline.md`.
+
+Suite 41/41.
+
 **Goalie participation replacement, inputs separated, 2026-09-23b.** Five specifications are
 scored (`PART_VARIANTS`).
 - **Every replacement for the export-membership signal wins** on participation and season WAR, and
