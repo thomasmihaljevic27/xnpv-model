@@ -1,5 +1,22 @@
 # STANDING FLAGS & OPEN QUESTIONS — NHL Trade Market Efficiency
 
+**Contract-status adoption review remains open, 2026-09-23:** candidate `7fee59b`.
+43/43 checks and the new simulation/point dating guard pass; mean simulated
+surplus $0.43M on 1,217 contracts reproduces. Fresh integration fails: the
+valuation-sensitivity runner still labels A1HingeExposure as adopted, while
+simulation uses A1HingeExposureStatus. Point surplus differs by up to $1.061M
+on 948 rows. Update the shared model reference, declare grouping membership,
+and rebuild integration/reconciliation. Four leakage checks pass under the new
+leader; subsequent missing-history sensitivity crashes on int(NaN), reproduced
+with both leaders. Restore missing-anchor handling and finish the diagnostic.
+The 15 clipped terms have exact mean absolute clipping effect 0.000415 WAR/season;
+0.0142 includes simulation noise. The cliff and clipped rises are distinct.
+Keep the provisional model; score a named carry-forward-status sensitivity before
+changing it. Previous signing-date and goalie closures stand. Review:
+`50_REBUILD/docs/Status_Adoption_Review_Codex.md`. No implementation/default change
+or candidate merge in this review. Phase 5 remains open.
+
+
 **Skater signing-date repair closed, 2026-09-23:** candidate `d2be5b0` passes
 42/42 checks. Independent forced-page and removed-tail-decay mutations fail
 check 42; corrupting 3,184 later-signed contracts leaves Chara's attached forecast
