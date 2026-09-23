@@ -581,6 +581,15 @@ unsealed.
 
 ---
 
+**Change log, 2026-09-23 (goalie participation comparison closure):** Verified
+`b02a851`; close attribution finding. Full 41-check suite passes; five season
+forecasts match prior audit; period-only dollars reproduce. Independent no-input
+dollar extension: production bias -.006M, RMSE 6.931M, squared-error win 32%;
+rate bias -.632M, RMSE 7.035M, win 10%. Recommend no inputs as a simpler
+provisional baseline, not a dollar-accuracy winner; no adoption or default change.
+Period-step and missing-specification scope qualifications recorded. Review/audit
+in 50_REBUILD, state and new session updated. No candidate merge or production edit.
+
 **Change log, 2026-09-22j (goalie participation snapshot review):** Reviewed
 `c4ddcf0`. All 41 checks pass; ignored-option mutant rejected. Season scores,
 calibration and fixed-line dollar comparisons reproduce. Added two intermediate

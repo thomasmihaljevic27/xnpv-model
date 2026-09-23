@@ -573,6 +573,20 @@ a specification. Removing old export-membership bias remains supported. No
 candidate adopted; previous evaluation closures stand. See
 `50_REBUILD/docs/Goalie_Participation_Top_Review_Codex.md`.
 
+**Goalie participation comparison review closed, 2026-09-23:** verified `b02a851`.
+41/41 checks pass. All five specifications match the previous independent audit
+on 3,683 cells each; period-only dollar results reproduce. Earlier attribution
+finding closed. Review also priced the previously untested no-input alternative
+on common currency: production RMSE 6.931M versus current 6.882M, bias -.006M
+versus +.566M, squared-error win 32%; rate RMSE 7.035M, bias -.632M, win 10%.
+Recommendation only: no contract inputs as the simpler provisional participation
+baseline, explicitly accepting the measured dollar trade-off rather than claiming
+an accuracy win. Production ability arm stays provisional main. No adoption or
+candidate merge; choosing and rerunning a new default remains a model decision.
+No clearly detected aggregate 2018 step is not proof of no step. Prior closures
+stand; Phase 5 remains open. See
+`50_REBUILD/docs/Goalie_Participation_Split_Closure_Codex.md`.
+
 **Goalie control-year evaluation review closed, 2026-09-22:** verified `6c9ab2c`
 in isolation. Both findings from `088546f` are repaired: common-dollar scoring
 and calibration accounting for point masses. Suite 40/40, no skips; restored
