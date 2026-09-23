@@ -2,17 +2,19 @@
 
 ## Independent rebuild review (2026-09-15)
 
-**Goalie participation snapshot review open, 2026-09-22:** reviewed `c4ddcf0`.
-41/41 checks pass; season and fixed-currency dollar results reproduce. Default
-contract-dollar outputs match the preceding run exactly. One P2 finding before
-adoption: the replacement unknown flag is a before/after-2018 indicator. Keeping
-only that indicator yields Brier .192665 versus proposed .194038, and wins 91.2%
-of career resamples; WAR error is essentially tied. Contract status alone gives
-.195583 versus .195769 without either input. Add these intermediate comparisons
-and withdraw attribution of the extra gain to contract information before choosing
-a specification. Removing old export-membership bias remains supported. No
-candidate adopted; previous evaluation closures stand. See
-`50_REBUILD/docs/Goalie_Participation_Top_Review_Codex.md`.
+**Goalie participation comparison review closed, 2026-09-23:** verified `b02a851`.
+41/41 checks pass. All five specifications match the previous independent audit
+on 3,683 cells each; period-only dollar results reproduce. Earlier attribution
+finding closed. Review also priced the previously untested no-input alternative
+on common currency: production RMSE 6.931M versus current 6.882M, bias -.006M
+versus +.566M, squared-error win 32%; rate RMSE 7.035M, bias -.632M, win 10%.
+Recommendation only: no contract inputs as the simpler provisional participation
+baseline, explicitly accepting the measured dollar trade-off rather than claiming
+an accuracy win. Production ability arm stays provisional main. No adoption or
+candidate merge; choosing and rerunning a new default remains a model decision.
+No clearly detected aggregate 2018 step is not proof of no step. Prior closures
+stand; Phase 5 remains open. See
+`50_REBUILD/docs/Goalie_Participation_Split_Closure_Codex.md`.
 
 **Goalie control-year evaluation review closed, 2026-09-22:** verified `6c9ab2c`
 in isolation. Both findings from `088546f` are repaired: common-dollar scoring
