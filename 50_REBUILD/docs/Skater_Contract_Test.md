@@ -426,4 +426,4 @@ removed to come back unanswered under both leaders rather than crash. The skater
 behaviour. The leader's Brier (0.1340) and the old definition's (0.1326) reproduce the 2026-09-22
 ablation exactly.
 
-Suite: **43 passed, 0 skipped, 0 failed**.
+Suite: **45 passed, 0 skipped, 0 failed**.

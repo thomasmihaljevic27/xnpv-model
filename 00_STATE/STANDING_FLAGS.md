@@ -16,7 +16,7 @@ provisional contract-status leader and found three things; all addressed.
 - **Cliff sensitivity scored and not adopted.** Carrying status past its support removes 19 of 34
   cliffs and no clipping, and is worse on both primary scores (dollars 119/2000 against the adopted
   model; season WAR 2/2000). The adopted model stays the baseline, cliff stated.
-Checks 44 and 45 pass on their own; the full suite run follows. See `50_REBUILD/docs/Skater_Contract_Test.md`.
+Suite **45/45**. See `50_REBUILD/docs/Skater_Contract_Test.md`.
 
 **Contract-status adoption review remains open, 2026-09-23:** candidate `7fee59b`.
 43/43 checks and the new simulation/point dating guard pass; mean simulated

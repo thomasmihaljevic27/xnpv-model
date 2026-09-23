@@ -1616,7 +1616,7 @@ valuation chain, the missing-history diagnostic and the clipping claim; score th
 - `ability_forecast.py` v2.1: `_part_predict` hook; `A1HingeExposureStatusCarry` (sensitivity).
 - `run_skater_contract_test.py` v1.2: scoring parameterised (defaults reproduce the recorded run);
   exact resample counts. `run_status_carry_sensitivity.py` v1.0 (new).
-- `repair_checks.py` v3.3: checks 44 and 45 (full suite run follows).
+- `repair_checks.py` v3.3: checks 44 and 45. Suite 45/45.
 - Withdrawn: "every downstream runner was rerun" (the market comparison was not); the 0.014 WAR
   clipping figure (simulation noise; exact 0.000415).
 - Not adopted: carrying status past its support (worse on both primary scores). Baseline unchanged.
