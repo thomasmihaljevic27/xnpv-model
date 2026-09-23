@@ -1878,8 +1878,11 @@ def c41(table):
 
     Asserted: the coverage year is the export's own earliest end year; before
     it, every row -- known player or not -- reads not-observable and not under
-    contract; from it on, no row is "unknown" and `under_contract` is the true
-    state. Not vacuous: under the old definition the same rows still separate
+    contract; from it on, no row is "unknown" and `under_contract` is the
+    export's contract state -- the TRUE state only under the stated assumption
+    that the vendor snapshot is complete from that year. The check verifies the
+    definition as implemented; it cannot verify the vendor's completeness.
+    Not vacuous: under the old definition the same rows still separate
     a player the export knows from one it does not.
     """
     import numpy as np
@@ -1907,12 +1910,12 @@ def c41(table):
         assert (r.loc[~pre, "contract_unknown"] == 0).all()
         truth = old._rows(a, h)["under_contract"]
         assert np.array_equal(r.loc[~pre, "under_contract"], truth[~pre]), \
-            "from the coverage year, under_contract must be the true state"
+            "from the coverage year, under_contract must be the export's contract state"
         # the old definition separates known from unknown players on the same rows
         o = old._rows(a, h)
         assert o.groupby("pkey")["contract_unknown"].mean().nunique() > 1, "vacuous"
     return (f"export snapshot from {first}: before it every row is not-observable, "
-            f"from it no row is unknown and contract state is the true one; the old "
+            f"from it no row is unknown and contract state is the export's; the old "
             f"definition still separates known from unknown players")
 
 

@@ -66,7 +66,7 @@ from player_season_table import birthdate_source, build as build_skater_table
 from participation_model import ParticipationModel
 from production_currency import FEATURES, ProductionCurrency, _offset
 
-SCRIPT_VERSION = "2.4"
+SCRIPT_VERSION = "2.5"
 
 # The pooled line's own features: the skater set, plus the two terms that
 # answer the question. `is_G` moves a goaltender's price up or down at zero
@@ -94,8 +94,8 @@ def participation_at_page(table: pd.DataFrame, t0: int):
     from contract_source import load_contracts
     contracts, _ = load_contracts()
     past = table[table["syr"] < t0]
-    pm = ParticipationModel(contracts, exclude=GPM.PART_EXCLUDE,
-                            contract_state=GPM.PART_CONTRACT_STATE).fit(
+    state, exclude = GPM.part_settings()
+    pm = ParticipationModel(contracts, exclude=exclude, contract_state=state).fit(
         past, t0, anchors_fn=GPM.goalie_anchors, horizons=GB.HORIZONS)
     a = GPM.goalie_anchors(past[past["GP"] >= C.MIN_GP])
     a = a[a["t0"] == t0].drop_duplicates("pkey").set_index("pkey")

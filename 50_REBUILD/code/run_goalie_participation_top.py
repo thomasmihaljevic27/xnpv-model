@@ -18,12 +18,22 @@ WHAT THIS RUNNER ESTABLISHES, IN ORDER
        into its era -- survivors -- and the model's contract columns learned
        survival. On later pages nearly everyone is known, including goaltenders
        who have retired, and the model reads "known" as "will play".
-    3. The measured candidate: contract state stated only where the export can
-       see it (`ParticipationModel(contract_state="observable")`), against the
-       current model and against no contract data at all, scored on the
-       hierarchy declared on 2026-09-22 -- squared error primary, absolute error
-       and bias by horizon and role beside it -- plus the calibration of the
-       confident fifth that raised the question.
+    3. The replacements, scored on the hierarchy declared on 2026-09-22
+       (squared error primary; absolute error and bias beside it) and on the
+       confident fifth that raised the question. FIVE specifications, because
+       the "observable" definition carries TWO new inputs and they have to be
+       separated before either is credited:
+         current        export membership (every recorded run)
+         none           no contract inputs
+         observable     both new inputs
+         period_only    the before/after-2018 indicator alone
+         contract_only  visible contract status alone
+       Under "observable", `contract_unknown` is 1 exactly when the target
+       season is before 2018 -- the same for every goaltender targeting that
+       season. It is a PERIOD indicator, not information about the player.
+       Version 1.0 compared "observable" with "none" and credited the gain to
+       contract information; the intermediate specifications show the period
+       indicator carries it (see the report).
 
     The measured effect on contract dollars is a separate run: the goalie
     control-year runner with `--participation observable`.
@@ -46,26 +56,20 @@ from participation_model import (contract_spans, players_with_any_contract,
 from contract_source import load_contracts
 from player_season_table import birthdate_source
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 HORIZONS = GP.HORIZONS
 
 
-class Current(GP.PartOnly):
-    name = "current: contract state as known"
-    contract_state = "as_known"
+def _variant(name: str, label: str):
+    return type(f"V_{name}", (GP.PartOnly,), {"name": label, "part_variant": name})
 
 
-class NoContracts(GP.PartOnly):
-    name = "no contract data"
-    part_exclude = GP.PART_EXCLUDE + tuple(CONTRACT_FEATURES)
-
-
-class Observable(GP.PartOnly):
-    name = "contract state where observable"
-    contract_state = "observable"
-
-
-VARIANTS = (Current, NoContracts, Observable)
+Current = _variant("as_known", "current: export membership")
+NoContracts = _variant("none", "no contract inputs")
+Observable = _variant("observable", "period + contract status")
+PeriodOnly = _variant("period_only", "period indicator only")
+ContractOnly = _variant("contract_only", "contract status only")
+VARIANTS = (Current, NoContracts, Observable, PeriodOnly, ContractOnly)
 
 
 def ci(d: pd.DataFrame, stat, n: int = 2000, seed: int = 20260923) -> tuple:
@@ -153,6 +157,23 @@ def where(d: pd.DataFrame, table: pd.DataFrame) -> None:
     C.log("")
 
 
+def period_shape(d: pd.DataFrame) -> None:
+    """Is the post-2018 shift a step or a drift? Observed minus predicted
+    participation by target season, for the model with no contract inputs
+    (which has no period term), with a goaltender-resampled interval. A step
+    would sit flat on each side of 2018; a drift would slope through it."""
+    C.log("  WHAT THE PERIOD INDICATOR IS ABSORBING. Observed minus predicted")
+    C.log("  participation by target season, the model with no contract inputs:")
+    x = d.assign(t=d["page"] + d["h"], r=d["played"].astype(float) - d["p_play"])
+    for t, g in x.groupby("t"):
+        v, lo, hi = ci(g, lambda z: z["r"].mean())
+        C.log(f"    {int(t)}  {v:+.3f} [{lo:+.3f}, {hi:+.3f}]   n={len(g)}")
+    C.log("  The boundary is the export's earliest end year, not a fact about")
+    C.log("  goaltending. These rows say where the residual moves; they do not say")
+    C.log("  why, or that 2018 is the right place to put a step.")
+    C.log("")
+
+
 def dollars_across_runs() -> None:
     """How much the candidate moves contract-dollar error, on ONE fixed line.
 
@@ -166,9 +187,11 @@ def dollars_across_runs() -> None:
     """
     import pickle
     import npv_simulation as SIM
-    files = {"current": C.out_path("goalie_control_years.pkl"),
-             "observable": C.out_path("goalie_control_years_observable.pkl")}
-    if not all(Path(f).exists() for f in files.values()):
+    files = {"current": C.out_path("goalie_control_years.pkl")}
+    for v in ("observable", "period_only"):
+        files[v] = C.out_path(f"goalie_control_years_{v}.pkl")
+    files = {k: f for k, f in files.items() if Path(f).exists()}
+    if "current" not in files or len(files) < 2:
         C.log("  (contract dollars across runs skipped: run run_goalie_control_years.py")
         C.log("   with and without --participation observable first)")
         return
@@ -178,13 +201,13 @@ def dollars_across_runs() -> None:
     import run_goalie_control_years as GCY
     __main__.GoalieCurrency = GCY.GoalieCurrency
     runs = {k: pickle.load(open(f, "rb")) for k, f in files.items()}
-    common = sorted(set(runs["current"]["common"]) & set(runs["observable"]["common"]))
+    common = sorted(set.intersection(*[set(r["common"]) for r in runs.values()]))
     table = GST.build(verbose=False, allow_thin_ages=True)
     lut = table[table["GP"] >= C.PARTICIPATION_GP].groupby(["pkey", "syr"])["WAR"].sum()
-    C.log("CONTRACT DOLLARS, current against candidate participation, repriced on ONE")
+    C.log("CONTRACT DOLLARS BY PARTICIPATION SPECIFICATION, every run repriced on ONE")
     C.log(f"line; {len(common)} ended contracts both runs price. $M.")
     C.log("")
-    for line_run in ("current", "observable"):
+    for line_run in runs:
         lines = runs[line_run]["priced"]["production"][1]
         C.log(f"  on the {line_run} run's production line"
               f" ({'PRIMARY' if line_run == 'current' else 'sensitivity'}):")
@@ -198,7 +221,7 @@ def dollars_across_runs() -> None:
             w = np.array([float(lut.get((row0["pkey"], y), 0.0)) for y in yrs])
             r = {"contract_id": cid, "career_key": row0["pkey"]}
             tg = []
-            for run in ("current", "observable"):
+            for run in runs:
                 for fc in ("production", "rate"):
                     row = runs[run]["priced"][fc][0].set_index("contract_id").loc[cid].copy()
                     row["contract_id"] = cid
@@ -210,20 +233,24 @@ def dollars_across_runs() -> None:
             r["realised"] = tg[0]
             rec.append(r)
         d = pd.DataFrame(rec)
+        g = {kk: v for kk, v in d.assign(**{
+            f"se|{fc}|{run}": ((d[f"{fc}|{run}"] - d["realised"]) / 1e6) ** 2
+            for fc in ("production", "rate") for run in runs}).groupby("career_key")}
+        ks = list(g)
+        rng = np.random.default_rng(20260923)
+        draws = [rng.choice(ks, len(ks), replace=True) for _ in range(2000)]
         for fc in ("production", "rate"):
-            for run in ("current", "observable"):
+            for run in runs:
                 e = (d[f"{fc}|{run}"] - d["realised"]) / 1e6
-                d[f"se|{fc}|{run}"] = e ** 2
+                tail = ""
+                if run != "current":
+                    wins = 0
+                    for pick in draws:
+                        ss = pd.concat([g[kk] for kk in pick])
+                        wins += int(ss[f"se|{fc}|{run}"].mean() < ss[f"se|{fc}|current"].mean())
+                    tail = f"   beats current in {wins / 2000:.0%}"
                 C.log(f"    {fc:<12}{run:<14}{np.sqrt((e ** 2).mean()):>8.3f}"
-                      f"{e.abs().mean():>8.3f}{e.mean():>+9.3f}")
-            g = {kk: v for kk, v in d.groupby("career_key")}
-            ks = list(g)
-            rng = np.random.default_rng(20260923)
-            wins = sum(int(s[f"se|{fc}|observable"].mean() < s[f"se|{fc}|current"].mean())
-                       for s in (pd.concat([g[kk] for kk in rng.choice(ks, len(ks), replace=True)])
-                                 for _ in range(2000)))
-            C.log(f"    {fc}: the candidate participation has lower squared dollar error in "
-                  f"{wins / 2000:.0%} of goaltender-resamples")
+                      f"{e.abs().mean():>8.3f}{e.mean():>+9.3f}{tail}")
         C.log("")
 
 
@@ -260,11 +287,16 @@ def main() -> None:
         C.log(f"    {name:<34}{d['brier'].mean():>8.4f}{paired(cur, d, 'brier'):>10.0%}"
               f"{np.sqrt(d['se_war'].mean()):>10.3f}{paired(cur, d, 'se_war'):>10.0%}"
               f"{d['ae_war'].mean():>9.3f}{d['e_war'].mean():>+8.3f}")
-    obs, none = runs[Observable.name], runs[NoContracts.name]
-    C.log(f"  contract state where observable against no contract data: lower Brier in "
-          f"{paired(none, obs, 'brier'):.0%}, lower WAR squared error in "
-          f"{paired(none, obs, 'se_war'):.0%} of goaltender-resamples")
+    C.log("  THE INPUTS SEPARATED. Share of goaltender-resamples in which the second")
+    C.log("  specification has the lower Brier / the lower WAR squared error:")
+    for a, b in ((NoContracts, Observable), (NoContracts, PeriodOnly),
+                 (NoContracts, ContractOnly), (Observable, PeriodOnly),
+                 (ContractOnly, Observable)):
+        da, db = runs[a.name], runs[b.name]
+        C.log(f"    {b.name:<26} against {a.name:<26} Brier {paired(da, db, 'brier'):>5.0%}"
+              f"   WAR sq. error {paired(da, db, 'se_war'):>5.0%}")
     C.log("")
+    period_shape(runs[NoContracts.name])
     C.log("  Brier by horizon:")
     C.log("    " + f"{'h':<4}" + "".join(f"{n[:22]:>24}" for n in runs))
     for h in HORIZONS:

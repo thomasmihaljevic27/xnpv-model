@@ -81,7 +81,7 @@ from ability_forecast import _anchors, W_T1, W_T2
 from participation_model import ParticipationModel
 from player_season_table import birthdate_source
 
-SCRIPT_VERSION = "1.4"
+SCRIPT_VERSION = "1.5"
 
 HORIZONS = GB.HORIZONS
 DECAY = W_T2 / W_T1            # the locked 60/40 recency weighting
@@ -94,13 +94,29 @@ DECAY = W_T2 / W_T1            # the locked 60/40 recency weighting
 # it needs nothing but the seasons already played.
 SHARE_FEATURES = ["tr_gp_share", "tw_WAR", "exp_seasons"]
 PART_EXCLUDE = ("age", "age_sq")
-# WHICH CONTRACT STATE the goalie participation model reads, in ONE place: the
-# scored arms and the price runner's `participation_at_page` both read this, so
-# a run that switches it switches the forecast that is tested and the forecast
-# that is priced together. "as_known" is every run to date; "observable" is the
-# candidate from run_goalie_participation_top (contract state only where the
-# snapshot export can see it). Not adopted.
-PART_CONTRACT_STATE = "as_known"
+# THE PARTICIPATION SPECIFICATION, named, in ONE place: the scored arms and the
+# price runner's `participation_at_page` both read PART_VARIANT, so a run that
+# switches it switches the forecast that is tested and the forecast that is
+# priced together. Each name maps to (contract_state, extra excluded columns).
+# Under contract_state="observable", `contract_unknown` is not about the player:
+# it is 1 exactly when the target season is before the export's earliest end
+# year (2018) -- a before/after-2018 PERIOD indicator, the same for everyone
+# targeting that season -- and `under_contract` is visible contract status.
+# "as_known" is every recorded run; nothing else is adopted.
+PART_VARIANTS = {
+    "as_known": ("as_known", ()),                       # export membership (old)
+    "none": ("as_known", ("under_contract", "contract_unknown")),
+    "observable": ("observable", ()),                   # period + contract status
+    "period_only": ("observable", ("under_contract",)),
+    "contract_only": ("observable", ("contract_unknown",)),
+}
+PART_VARIANT = "as_known"
+
+
+def part_settings(variant: str | None = None) -> tuple:
+    """(contract_state, exclude) for a named participation specification."""
+    state, extra = PART_VARIANTS[variant or PART_VARIANT]
+    return state, PART_EXCLUDE + tuple(extra)
 MIN_SHARE_ROWS = 150
 
 
@@ -188,17 +204,16 @@ class Arm(GB.ProductionProjector):
     share_model = False
     # The participation model's settings, carried by the arm so a variant is a
     # subclass rather than a copy. Defaults are the ones every run has used.
-    part_exclude = PART_EXCLUDE
-    contract_state = None           # None: the module's PART_CONTRACT_STATE
+    part_variant = None             # None: the module's PART_VARIANT
 
     def _fit(self, seasons, before):
         super()._fit(seasons, before)
         if self.part_model:
             from contract_source import load_contracts
             contracts, _ = load_contracts()
+            state, exclude = part_settings(self.part_variant)
             self.part_ = ParticipationModel(
-                contracts, exclude=self.part_exclude,
-                contract_state=self.contract_state or PART_CONTRACT_STATE).fit(
+                contracts, exclude=exclude, contract_state=state).fit(
                 seasons, before, anchors_fn=goalie_anchors, horizons=HORIZONS)
         if self.share_model:
             self.share_ = ShareModel().fit(seasons, before)
