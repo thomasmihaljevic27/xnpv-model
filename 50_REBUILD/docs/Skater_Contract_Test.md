@@ -316,6 +316,38 @@ of its pooled price line is the leader). The goalie conclusions stand:
   in 17% of resamples (17%) and lower absolute error in 86% (87%);
 - calibration (randomized PIT) unchanged to the second decimal.
 
+## Verification reruns on the adopted model
+
+Every runner that values contracts or tests the leader, rerun after the scope correction above:
+
+- **Market comparison** (`run_valuation_sensitivity.py` v2.1), six forecasts on 1,217 contracts. On
+  groups cut on the adopted model, every group keeps its sign and the five groups keep their order in
+  all six columns. On the previous membership the same holds. 29 contracts change group between the
+  two memberships, all upward (24 from 0–0.5 into 0.5–1, 4 from 0.5–1 into 1–2, 1 from 0–0.5 to below
+  0). The top group is unchanged (18 contracts).
+- **Integration** (`run_valuation_integration.py` v1.3): both artifacts name `A1HingeExposureStatus`;
+  the point surplus agrees to $0.00 on all 1,217 contracts; the guard passes.
+- **Production reconciliation** (`run_production_reconciliation.py`, reading the integrated table):
+  completes. The rebuild's gap to production's long contracts moves by $0.1M–0.2M (eight-year deals
+  $33.63M to $33.82M), and term groups still account for 85% of the squared dollar gap.
+- **Look-ahead tests** (`run_leakage_tests.py` v1.3, the adopted leader): all four pass with a largest
+  change of exactly zero on all seven development pages. Its input-sensitivity section now completes;
+  it had crashed on a subject whose history was removed (`int(NaN)` in the participation model, under
+  both leaders). Unanswered subjects are reported, e.g. 4,764 of 41,496 subject-horizons when last
+  season is removed. Check 45 covers it.
+- **Stress tests** (`run_stress_tests.py` v1.2): the full-chain look-ahead passes; the leader beats
+  production's forecast on all seven pages and in every position, age, experience, level and horizon
+  group.
+- **Uncertainty and coverage** (`run_uncertainty.py` v1.4, `run_coverage_decomposition.py` v1.2): move
+  by about 0.01 at most. The clearest change is predicted participation for young players (23–26)
+  next season, 0.922 to 0.937 against 0.954 observed.
+
+These describe the adopted model. They are not a matched scoring of it against the previous leader:
+the dollar comparison on one fixed line above remains the adoption evidence, and a matched comparison
+of the simulated distributions is still outstanding.
+
+**The carried-status sensitivity**: scoring in progress at this commit; results follow.
+
 ## What is checked
 
 The suite covers the participation model's contract-state definition (check 41), every registered
