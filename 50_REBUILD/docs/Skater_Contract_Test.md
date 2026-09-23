@@ -286,7 +286,15 @@ leader). The goalie conclusions stand:
   restricted (0.76);
 - the skater price of one more win every season, on the last fit: $1.96M (was $2.02M).
 
-**Goalie control years** (`run_goalie_control_years.py`, skater side of its pooled line on the leader): rerun in progress; results follow.
+**Goalie control years** (`run_goalie_control_years.py`, no-contract goalie baseline; the skater side
+of its pooled price line is the leader). The goalie conclusions stand:
+- deciding as you go, the 21 contracts' control years: $1.051M on production's forecast (unchanged)
+  and $1.092M on the rate forecast ($1.091M);
+- against realised dollars, 133 ended terms, on this run's own production line: production's
+  simulated value RMSE $7.153M, bias +$0.082M (was $7.111M and +$0.082M on the previous run's own
+  line; the lines differ, so the RMSEs are not comparable); the rate forecast has lower squared error
+  in 17% of resamples (17%) and lower absolute error in 86% (87%);
+- calibration (randomized PIT) unchanged to the second decimal.
 
 ## What is checked
 

@@ -8,7 +8,8 @@ valuation. Switch: `run_npv_simulation.LEADER`; the no-contract model stays as `
   it now reads it at the signing. Check 43 (mutation-tested). Suite **43/43**.
 - **Downstream reruns** (each against its own earlier run, own price lines): simulated surplus $0.37M
   -> $0.43M a contract, only the 2019-21 pages moving; control years (deciding as you go) $0.703M ->
-  $0.691M; goalie price-line conclusions stand (level 0.006858, slope 32%, ratio 0.79).
+  $0.691M; goalie price-line and control-year conclusions stand (level 0.006858, slope 32%, ratio
+  0.79; goalie control value $1.051M unchanged).
 - **Finding:** contract status enters participation only where training rows support it (from the
   2019 page, up to four to six seasons out), so long terms fall back to the no-contract forecast
   past that range: an eight-year 2021 deal reads ~0.93 through season seven, 0.45 in season eight.
