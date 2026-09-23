@@ -81,7 +81,7 @@ from ability_forecast import _anchors, W_T1, W_T2
 from participation_model import ParticipationModel
 from player_season_table import birthdate_source
 
-SCRIPT_VERSION = "1.5"
+SCRIPT_VERSION = "1.6"
 
 HORIZONS = GB.HORIZONS
 DECAY = W_T2 / W_T1            # the locked 60/40 recency weighting
@@ -102,7 +102,14 @@ PART_EXCLUDE = ("age", "age_sq")
 # it is 1 exactly when the target season is before the export's earliest end
 # year (2018) -- a before/after-2018 PERIOD indicator, the same for everyone
 # targeting that season -- and `under_contract` is visible contract status.
-# "as_known" is every recorded run; nothing else is adopted.
+# ADOPTED 2026-09-23 (Thomas): "none" -- no contract inputs -- is the provisional
+# goalie baseline. It removes the export-membership signal (the vendor export
+# is a snapshot of contracts ending 2018 or later, so on early pages "known"
+# meant "survived") without a vendor-specific 2018 boundary or a completeness
+# assumption. It is NOT the winner on the declared dollar-accuracy score (32%
+# against the old specification on squared dollar error); that trade-off is
+# recorded. "as_known" was every run before that date; the others are
+# sensitivities. See 50_REBUILD/docs/Goalie_Participation_Top.md.
 PART_VARIANTS = {
     "as_known": ("as_known", ()),                       # export membership (old)
     "none": ("as_known", ("under_contract", "contract_unknown")),
@@ -110,7 +117,7 @@ PART_VARIANTS = {
     "period_only": ("observable", ("under_contract",)),
     "contract_only": ("observable", ("contract_unknown",)),
 }
-PART_VARIANT = "as_known"
+PART_VARIANT = "none"
 
 
 def part_settings(variant: str | None = None) -> tuple:

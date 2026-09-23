@@ -56,7 +56,7 @@ from participation_model import (contract_spans, players_with_any_contract,
 from contract_source import load_contracts
 from player_season_table import birthdate_source
 
-SCRIPT_VERSION = "1.1"
+SCRIPT_VERSION = "1.2"
 HORIZONS = GP.HORIZONS
 
 
@@ -187,8 +187,10 @@ def dollars_across_runs() -> None:
     """
     import pickle
     import npv_simulation as SIM
-    files = {"current": C.out_path("goalie_control_years.pkl")}
-    for v in ("observable", "period_only"):
+    # Every control-year output is named by its participation specification;
+    # "current" in this report is the pre-2026-09-23 specification, "as_known".
+    files = {"current": C.out_path("goalie_control_years_as_known.pkl")}
+    for v in ("observable", "period_only", "none"):
         files[v] = C.out_path(f"goalie_control_years_{v}.pkl")
     files = {k: f for k, f in files.items() if Path(f).exists()}
     if "current" not in files or len(files) < 2:

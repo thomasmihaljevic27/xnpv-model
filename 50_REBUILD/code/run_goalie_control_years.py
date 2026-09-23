@@ -115,7 +115,7 @@ from contract_price_model import contract_sample, attach_forecasts
 from player_season_table import birthdate_source, build as build_skater_table
 from production_currency import ProductionCurrency, FEATURES
 
-SCRIPT_VERSION = "1.3"
+SCRIPT_VERSION = "1.4"
 KEY = RCY.KEY
 
 # The two forecasts, declared before the run: the label, the harness arm the
@@ -342,11 +342,13 @@ def main() -> None:
     # scored arms and the priced forecast together (GP.PART_VARIANT).
     # Outputs carry a suffix so the default run's files are not overwritten.
     import run_goalie_participation as GPM
-    suffix = ""
     if "--participation" in sys.argv:
         GPM.PART_VARIANT = sys.argv[sys.argv.index("--participation") + 1]
         assert GPM.PART_VARIANT in GPM.PART_VARIANTS, GPM.PART_VARIANT
-        suffix = f"_{GPM.PART_VARIANT}"
+    # EVERY output carries its participation specification's name, the default
+    # included, so a file can never be read as the wrong specification after
+    # the default changes (it changed on 2026-09-23).
+    suffix = f"_{GPM.PART_VARIANT}"
     C.banner("run_goalie_control_years.py", SCRIPT_VERSION)
     C.log(f"  participation specification: {GPM.PART_VARIANT} "
           f"{GPM.PART_VARIANTS[GPM.PART_VARIANT]}")

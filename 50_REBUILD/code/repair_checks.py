@@ -24,7 +24,7 @@ import forecast_harness as H
 import player_season_table as T
 from ability_forecast import A0Production
 
-SCRIPT_VERSION = "2.9"
+SCRIPT_VERSION = "3.0"
 
 PASS, FAIL, SKIP = "pass", "FAIL", "skip"
 results: list[tuple[str, str, str]] = []
@@ -1506,8 +1506,18 @@ def c34(table):
     gil = gs[(gs["last_name"].astype(str).str.lower() == "gillies")
              & (gs["signed"] == pd.Timestamp("2018-07-16"))]
     if len(gil):
-        july = GPL.goalie_forecasts(gil, g, participation="model_july")
-        sign = GPL.goalie_forecasts(gil, g, participation="model")
+        # PINNED to a specification that reads contract state. The adopted
+        # goalie baseline (2026-09-23) uses no contract inputs, so under it the
+        # signing date cannot move participation at all; the dating MECHANISM is
+        # still what every contract-reading sensitivity uses, and this tests it.
+        import run_goalie_participation as GPP
+        was = GPP.PART_VARIANT
+        GPP.PART_VARIANT = "as_known"
+        try:
+            july = GPL.goalie_forecasts(gil, g, participation="model_july")
+            sign = GPL.goalie_forecasts(gil, g, participation="model")
+        finally:
+            GPP.PART_VARIANT = was
         assert len(july) and len(sign)
         pj, ps = float(july["p_first"].iloc[0]), float(sign["p_first"].iloc[0])
         assert ps > pj + 0.2, (
