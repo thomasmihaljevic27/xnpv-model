@@ -266,6 +266,22 @@ the work is. Next, in order:
 5. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
    contract-by-contract dollar reconciliation, and the holdout policy.
 
+**2026-09-23e -- skater contract-data test done (awaiting review and Thomas's decision).** Report
+`50_REBUILD/docs/Skater_Contract_Test.md`.
+- **The design:** the leader against four versions that differ only in participation's contract
+  inputs.
+- **Contract status only** helps on every declared score, consistently but trivially: season WAR
+  RMSE 0.8155 -> 0.8151 (100%), dollar RMSE $3.533M -> $3.528M (91%).
+- **The period indicator** does nothing for skaters.
+- **Recommended:** keep the leader without contract inputs, and record contract status only as the
+  best-supported alternative. This closes the open decision of 2026-09-22 if Thomas agrees.
+
+**Next toward closing the repair:**
+1. the star forecast residual;
+2. Phase 5 acceptance (dollar scoring on development pages; contract-by-contract reconciliation
+   against production);
+3. Phase 6.
+
 **2026-09-23d -- GOALIE BRANCH CLOSED AND FROZEN.** Baseline adopted on Thomas's confirmation: production's
 ability forecast, participation with no contract inputs, trailing share, and the pooled price line
 with a goaltender level. Record: `50_REBUILD/docs/Goalie_Branch_Baseline.md`, which lists the
@@ -404,7 +420,8 @@ requested items are done; the review stays open until it is independently re-che
 3. **Checks 34 (rewritten) and 35 (new)**, each mutation-tested. Suite 35/35.
 4. **Bias claim corrected** in the 22b entries below.
 
-**OPEN DECISION (Thomas) -- should the skater leader fit participation with contract data?** The same
+**OPEN DECISION (Thomas) -- should the skater leader fit participation with contract data?** [MEASURED 2026-09-23e: see `Skater_Contract_Test.md`; recommendation to keep the leader
+without contract inputs, pending Thomas.] The same
 rank defect sat in fifteen skater fits of the contract-using variants and is where Phase 2's "contract
 data hurts" came from. Re-measured (`run_contract_ablation.py`): before the fix +0.45% to +0.98% worse
 WAR error at one to five seasons out; after it +0.03% to +0.27%, with only two seasons out clear of

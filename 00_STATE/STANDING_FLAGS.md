@@ -353,7 +353,8 @@ residuals and currency comparisons; fix and rerun development work before furthe
   using a vendor field on historical rows, find the vendor's coverage rule (here, end year >= 2018)
   and state the feature only where that rule makes it observable for everyone, survivor or not.
   **Open for skaters:** the skater contract features read the same export and have not been
-  re-measured under the observable definition. **Correction 2026-09-23b:** the "observable" replacement carries a
+  re-measured under the observable definition. **Measured 2026-09-23e:** the skater export carries the same survival signal, more mildly
+  (under a visible contract, 97-100% played early against 90-92% from 2018); see `Skater_Contract_Test.md`. **Correction 2026-09-23b:** the "observable" replacement carries a
   before/after-2018 period indicator (the export's coverage year), and that indicator, not contract
   status, carries its gain. A replacement for a coverage-contaminated feature must be scored input by
   input, and a period term tied to a vendor's coverage year is a property of the source, not of the

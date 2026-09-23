@@ -1,5 +1,36 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-23e (matched skater contract-data test):** `run_skater_contract_test.py`
+v1.0; `ability_forecast.py` v1.8 (the participation mixin carries `CONTRACT_STATE` and
+`PART_EXCLUDE`, with defaults that reproduce every recorded run). The leader (`A1HingeExposure`, no
+contract inputs) is compared with four matched versions that differ only in participation's
+contract inputs: as known, observable, period only, contract only.
+
+**The skater export carries survival too, more mildly.** Under a visible contract, skaters played
+the next season 97-100% of the time on the 2010-2016 pages, against 90-92% from 2018.
+
+**Participation and season WAR** (40,510 forecasts each):
+- **leader:** 0.1340 / 0.8155;
+- **as known:** 0.1326 / 0.8147 (100%/100%);
+- **observable:** 0.1328 / 0.8150;
+- **period only:** 0.1340 / 0.8156 (29%/27%; no gain, unlike goaltenders);
+- **contract only:** 0.1328 / 0.8151 (100%/100%).
+
+The leader's and the old definition's figures reproduce the 2026-09-22 ablation exactly.
+
+**Contract dollars**, point valuations and realised production on the leader's line, 1,176 ended
+terms: RMSE is leader $3.533M, as known 3.525 (89%), observable 3.541 (12%), period only 3.537 (0%),
+contract only 3.528 (91%). The sensitivity line gives the same ordering.
+
+**Recommendation (not adopted; Thomas's decision): keep the leader without contract inputs.**
+Visible contract status is the only input that helps on the declared scores, but by 0.05% of season
+WAR RMSE and $5k of $3.5M in dollar RMSE (91%, not 95%). It would rest on an unverified vendor
+completeness assumption, and the goalie baseline also reads none. Contract status only is recorded
+as the best-supported alternative. Caveat: under the observable definition, visible status is zero
+for every pre-2018 row, so it is not fully separable from a period contrast; the period indicator
+alone doing nothing makes that unlikely to drive it. Point valuations only; the matched path
+simulation was not rerun. No production code changed; no locked decision reopened.
+
 **Change log, 2026-09-23d (goalie participation baseline adopted; goalie branch frozen):**
 **Adopted on Thomas's confirmation:** no contract inputs as the provisional goalie participation
 baseline (`run_goalie_participation.PART_VARIANT = "none"`, v1.6), with production's ability
@@ -1228,6 +1259,8 @@ scored. Review artifacts and state are committed together under the session-clos
 ---
 
 ## Change log (state files)
+
+- **2026-09-23e (skater contract-data test):** matched test of the leader against four contract-input versions; visible contract status alone helps consistently but trivially (0.05% WAR RMSE, 91% in dollars); the period indicator does nothing for skaters; recommendation to keep the leader without contract inputs, pending Thomas.
 
 - **2026-09-23d (goalie baseline adopted, branch frozen):** no contract inputs adopted for goalie participation; goalie chain rerun on it; branch frozen as a sensitivity (`Goalie_Branch_Baseline.md`). Suite 41/41.
 

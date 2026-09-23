@@ -194,6 +194,16 @@ These findings take precedence over the earlier broad validation claims. No impl
 changed; repaired development comparisons and the unbuilt simulation work must precede adoption.
 Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 
+**Skater contract-data test, 2026-09-23e.** The leader was compared with four matched versions
+differing only in participation's contract inputs.
+- **The skater export carries survival too**, more mildly than the goaltender one.
+- **The period indicator does nothing** for skaters.
+- **Visible contract status helps, consistently but trivially:** season WAR RMSE -0.05% (100%),
+  dollar RMSE -$5k of $3.5M (91%).
+- **Recommendation:** keep the leader without contract inputs, pending Thomas.
+
+See `50_REBUILD/docs/Skater_Contract_Test.md`.
+
 **Goalie branch closed and frozen, 2026-09-23d.** Baseline adopted: production's ability forecast;
 participation with no contract inputs (`PART_VARIANT = "none"`); trailing share; the pooled price
 line with a goaltender level; shared control-year code.
