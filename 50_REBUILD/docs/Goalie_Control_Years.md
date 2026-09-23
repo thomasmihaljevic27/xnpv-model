@@ -248,7 +248,11 @@ plays). Tested apart, on every goaltender-season the harness scores on developme
 | whole season distribution: PIT central 80% (0.80) | 0.808 [0.780, 0.837] | 0.810 [0.783, 0.840] |
 | whole season distribution: PIT mean (0.50) | 0.492 [0.469, 0.517] | 0.500 [0.475, 0.526] |
 
-**The conditional performance band is calibrated**, and so is the season distribution as a whole.
+**The pooled diagnostics did not detect miscalibration in the statistics tested**, for the
+conditional performance band or for the season distribution as a whole. That is weaker than saying
+they are calibrated. Passing pooled checks can coexist with errors inside subgroups, and the
+participation result just below is exactly such an error. (An earlier version of this report said
+"calibrated"; that was too strong.)
 The first version's "66% of played seasons" tested the unconditional interval, built for the mixture
 of playing and not playing, on one group only. That does not measure the conditional band, and it
 is withdrawn.
@@ -274,8 +278,9 @@ interval, because the top fifth's excess is offset elsewhere.
   so far adds little ($0.04M).
 - **Dollar scoring:** in one currency, the two forecasts cannot be separated on squared dollar
   error. The rate forecast is better on absolute error and bias.
-- **Calibration:** the spread of the contract distribution is not shown to be miscalibrated, and the
-  conditional season band is calibrated. Production's contract distribution sits too high, and
+- **Calibration:** the pooled tests did not detect miscalibration in the spread of the contract
+  distribution or in the conditional season band (a weaker statement than "calibrated"; subgroups can
+  still be off). Production's contract distribution sits too high, and
   both forecasts under-predict floor-level outcomes.
 - **Participation** is over-confident in its top fifth.
 - **Two shared defects fixed**, each with a guard: the replay dating of goalie models and the

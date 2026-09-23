@@ -24,7 +24,7 @@ import forecast_harness as H
 import player_season_table as T
 from ability_forecast import A0Production
 
-SCRIPT_VERSION = "2.8"
+SCRIPT_VERSION = "2.9"
 
 PASS, FAIL, SKIP = "pass", "FAIL", "skip"
 results: list[tuple[str, str, str]] = []
@@ -1866,6 +1866,56 @@ def c40(table):
             f"{100 * np.mean((pits >= 0.1) & (pits <= 0.9)):.1f}%")
 
 
+def c41(table):
+    """CONTRACT STATE IS READ ONLY WHERE THE EXPORT CAN SEE IT.
+
+    The contract export is a snapshot: every contract in it ends in or after
+    its earliest end year. So "the export knows this player" is survival on an
+    early page, and the goalie participation model learned it -- predicting
+    retired goaltenders near-certain to play. The candidate definition
+    (`contract_state="observable"`) states contract state only for seasons from
+    that year on, where any covering contract must be in the export.
+
+    Asserted: the coverage year is the export's own earliest end year; before
+    it, every row -- known player or not -- reads not-observable and not under
+    contract; from it on, no row is "unknown" and `under_contract` is the true
+    state. Not vacuous: under the old definition the same rows still separate
+    a player the export knows from one it does not.
+    """
+    import numpy as np
+    from participation_model import ParticipationModel, contract_spans
+    from contract_source import load_contracts
+
+    contracts, _ = load_contracts()
+    spans = contract_spans(contracts)
+    first = int(spans["end_yr"].min())
+    obs = ParticipationModel(contracts, contract_state="observable")
+    old = ParticipationModel(contracts, contract_state="as_known")
+    assert obs.coverage_from_ == first
+    known = spans.loc[spans["pkey"].str.endswith("|G"), "pkey"].iloc[0]
+    rows = []
+    for k in (known, "nobody at all|G"):
+        for t0 in (first - 6, first - 2, first + 2):
+            rows.append({"career_key": k, "pkey": k, "t0": t0, "age": 30.0,
+                         "tw_WAR": 1.0, "tr_gp_share": 0.5, "exp_seasons": 5.0,
+                         "is_D": 0.0})
+    a = pd.DataFrame(rows)
+    for h in (0, 3):
+        r = obs._rows(a, h)
+        pre = r["season"] < first
+        assert (r.loc[pre, "contract_unknown"] == 1).all() and (r.loc[pre, "under_contract"] == 0).all()
+        assert (r.loc[~pre, "contract_unknown"] == 0).all()
+        truth = old._rows(a, h)["under_contract"]
+        assert np.array_equal(r.loc[~pre, "under_contract"], truth[~pre]), \
+            "from the coverage year, under_contract must be the true state"
+        # the old definition separates known from unknown players on the same rows
+        o = old._rows(a, h)
+        assert o.groupby("pkey")["contract_unknown"].mean().nunique() > 1, "vacuous"
+    return (f"export snapshot from {first}: before it every row is not-observable, "
+            f"from it no row is unknown and contract state is the true one; the old "
+            f"definition still separates known from unknown players")
+
+
 def main() -> None:
     warnings.filterwarnings("ignore")
     C.banner("repair_checks.py", SCRIPT_VERSION)
@@ -1926,7 +1976,8 @@ def main() -> None:
                      ("the forecast priced is the forecast tested", c37),
                      ("a replayed goalie model reads its own page", c38),
                      ("the persistence fit returns a curve it scored", c39),
-                     ("a calibrated forecast with a lump passes the PIT", c40)]:
+                     ("a calibrated forecast with a lump passes the PIT", c40),
+                     ("contract state read only where the export can see it", c41)]:
         check(name, lambda fn=fn: fn(table))
 
     width = max(len(n) for n, _, _ in results)

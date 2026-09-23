@@ -252,13 +252,31 @@ the work is. Next, in order:
 5. Then the rest of the named milestone: trade-date updates, control-year and goalie treatment,
    contract-by-contract dollar reconciliation, and the holdout policy.
 
+**2026-09-23 -- goalie participation over-confidence diagnosed (awaiting review).** Report
+`50_REBUILD/docs/Goalie_Participation_Top.md`.
+- **Cause:** the contract export is a snapshot (every contract ends 2018 or later), so the contract
+  columns carried survival in early training rows. The confident fifth's misses are mostly ended
+  careers.
+- **Candidate:** contract state only where observable (`contract_state="observable"`). It fixes the
+  confident fifth (+0.096 -> +0.005), improves participation Brier and season WAR squared error in
+  100% of resamples, and beats dropping contract data.
+- **In contract dollars, on one fixed line:** production's bias falls by two thirds, but squared
+  dollar error ties (51%). For the rate forecast, squared error is slightly worse and its bias more
+  negative.
+- **DECISION (Thomas):** adopt the observable definition for goalie participation? It would move
+  every recorded goalie result (price line, rate arms, control years), so they would be rerun on it.
+  Recommended: adopt it for participation, where it clearly wins, and rerun the goalie chain.
+- **Skaters:** the same export feeds the skater contract features. The matched skater contract-data
+  test must use the observable definition.
+
 **2026-09-22i -- goalie control-year review corrected (awaiting verification).**
 - **One currency:** both forecasts and the realised path are priced on production's line (declared;
   the rate line is the sensitivity). The forecasts are not separable on squared dollar error (rate
   44-46%). The rate forecast is better on absolute error (100%) and bias. Production stays the
   provisional default, without a dollar advantage.
 - **Calibration by randomized PIT:** "band too wide" is withdrawn. The contract spread is not shown
-  to be wrong, and the conditional season band is calibrated. Production's contract distribution
+  to be wrong, and the conditional season band is calibrated [CORRECTED 2026-09-23: pooled diagnostics
+  did not detect miscalibration in the statistics tested]. Production's contract distribution
   sits too high (mean PIT 0.44), and floor outcomes are under-predicted by 10-14 points.
 - **The component:** participation is over-confident in its top fifth (0.95 predicted against 0.86
   observed).

@@ -61,7 +61,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 from player_season_table import norm_name
 
-SCRIPT_VERSION = "1.5"
+SCRIPT_VERSION = "1.6"
 
 BASE_FEATURES = ["age", "age_sq", "level", "gp_share", "exp_seasons", "is_D"]
 CONTRACT_FEATURES = ["under_contract", "contract_unknown"]
@@ -165,7 +165,7 @@ class ParticipationModel:
     """
 
     def __init__(self, contracts: pd.DataFrame | None = None,
-                 exclude: tuple = ()):
+                 exclude: tuple = (), contract_state: str = "as_known"):
         """`exclude` removes features that cannot be used on a population.
 
         The goalie branch excludes age, and the reason is the whole of why the
@@ -179,6 +179,32 @@ class ParticipationModel:
         """
         self.spans = contract_spans(contracts) if contracts is not None else None
         self.exclude_ = tuple(exclude)
+        # WHAT THE CONTRACT COLUMNS MEAN. "as_known" (the default, unchanged):
+        # `under_contract` is a deal covering the season signed by the decision
+        # date, and `contract_unknown` is "the export has never heard of him".
+        #
+        # "observable": the export is a SNAPSHOT -- every contract in it ends
+        # in or after its earliest end year (2018 in this export), so a deal
+        # that ended before then is simply absent. On an early page, then, the
+        # players the export knows are the ones who went on to sign a deal
+        # running into the export's era: the survivors. Goalie anchors valued
+        # in 2015 and under a visible contract played 100% of the time three
+        # seasons later, against 47% for known-but-unsigned goaltenders on the
+        # 2020 page. "Known to the export" learned survival and was then
+        # applied to retired goaltenders. The "observable" definition states
+        # contract state only where the export CAN see it: a contract covering
+        # a season in or after the earliest end year must end in or after it,
+        # so it is in the export whether or not the player lasted. Before that
+        # season `contract_unknown` is 1 -- meaning "not observable", a
+        # property of the season, not of the player -- and `under_contract` is
+        # 0; from it on, `contract_unknown` is 0 and `under_contract` is true
+        # contract state. The whole-population "known to the export" signal is
+        # gone. Assumed: the vendor's snapshot is complete for contracts ending
+        # in or after its earliest end year.
+        assert contract_state in ("as_known", "observable"), contract_state
+        self.contract_state = contract_state
+        self.coverage_from_ = (int(self.spans["end_yr"].min())
+                               if self.spans is not None and len(self.spans) else None)
         # WITHOUT CONTRACT DATA THE TWO CONTRACT COLUMNS ARE CONSTANTS -- zero
         # and one for every row -- so `contract_unknown` is collinear with the
         # intercept and the logistic fit is singular. The first version passed
@@ -257,6 +283,8 @@ class ParticipationModel:
                 # "not under contract" would be a false statement, and it is
                 # concentrated in the early pages where coverage is thin.
                 d.loc[idx, "contract_unknown"] = (~blk["pkey"].isin(known)).astype(float).to_numpy()
+            if self.contract_state == "observable":
+                d["contract_unknown"] = (d["season"] < self.coverage_from_).astype(float)
             d.loc[d["contract_unknown"] > 0, "under_contract"] = 0.0
         return d.drop(columns=["t0", "_asof"])
 

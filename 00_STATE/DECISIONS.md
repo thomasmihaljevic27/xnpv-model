@@ -1,5 +1,45 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-23 (why the goalie participation model was too sure):** Closure of the
+control-year review recorded (`ea720e6`), with one wording correction applied: "calibrated" for the
+pooled season diagnostics is now "the pooled diagnostics did not detect miscalibration in the
+statistics tested" (report rewritten; 22i entries marked). **Diagnosis**
+(`run_goalie_participation_top.py` v1.0):
+- **Where:** the confident fifth's over-prediction (0.95 predicted, 0.86 played) is concentrated on
+  the 2018-2020 pages and the 2023 target season (0.95 against 0.59). 81% of the missed cells are
+  careers that had ended, not a key break (1%).
+- **Mechanism:** the contract export is a snapshot. Every contract in it ends in 2018 or later, so on
+  early pages "known to the export" and "under a visible contract" mean the goaltender went on to
+  sign into the export's era; up to 2015 every goaltender under a visible contract played at
+  horizons 0 and 3. From 2019 nearly all are known, and the known-but-unsigned play about half the
+  time. Where the support rule dropped "under contract", "known" alone gave retired goaltenders
+  0.92-0.96. This is the same selection as the birthdate finding, from the same source.
+
+**Candidate** (`ParticipationModel(contract_state="observable")`, `participation_model.py` v1.6;
+opt-in, default unchanged): contract state only for seasons from the export's earliest end year, with
+before that season "not observable" for everyone, and the known-to-export signal dropped. Assumed:
+the snapshot is complete for contracts ending from 2018.
+
+**Results:**
+- **Participation and season:** Brier 0.2056 -> 0.1940 and season WAR RMSE 2.073 -> 2.062 (both 100%
+  of goaltender-resamples); bias +0.096 -> +0.043. The top fifth goes from +0.096 to +0.005 [-0.032,
+  +0.052]. It beats no contract data (Brier 93%, WAR squared error 97%).
+- **Contract dollars, both runs repriced on one fixed line** (the current run's production line;
+  realised target asserted identical): production's squared dollar error ties (51%, 58% on the
+  sensitivity line) while its bias falls +0.566 -> +0.187. The rate forecast's squared error is
+  slightly worse (24%, 30%) and its bias moves -0.159 -> -0.475.
+- **Within-run calibration:** production's contract PIT mean 0.438 -> 0.472 (now inside); floor
+  excess +13.9 -> +7.1 (production) and +10.2 -> +4.1 (rate).
+
+**Plumbing:** `GP.PART_CONTRACT_STATE` switches arms and price runner together; the control-year
+runner takes `--participation` and pickles draws for cross-run repricing. Check 41 added. Goalie
+outputs are byte-identical at default. Suite 41/41 (see session log).
+
+**Flagged:** the skater contract features read the same export, so the skater contract ablation and
+the open skater contract-data decision were measured with contract state as known; the matched
+skater test should use the observable definition. Nothing adopted; no production code changed; no
+locked decision reopened.
+
 **Change log, 2026-09-22i (goalie control-year review: scoring and calibration corrected):**
 `run_goalie_control_years.py` v1.1; `predictive_interval.py` v1.3; check 40. **(1) One scoring
 currency.** Version 1.0 priced each forecast's realised dollars on that forecast's own line, so the
@@ -20,7 +60,9 @@ mean 0.438 [0.391, 0.486] (too high in location, not wrong in spread); excess ov
 +3.7 [−0.7, +7.4] at 80% and +7.5 [+1.4, +13.2] at 50%. Rate: all PIT statistics within their
 intervals. Both under-predict floor-level outcomes: +13.9 [+6.4, +21.5] and +10.2 [+2.7, +17.8]
 points. Season level: the conditional band on played seasons is calibrated (central 80% 0.795,
-variance 0.083), and the whole mixture is calibrated. Participation is over-confident in its top
+variance 0.083), and the whole mixture is calibrated [CORRECTED 2026-09-23: too strong; the pooled
+diagnostics did not detect miscalibration in the statistics tested, which can coexist with subgroup
+errors]. Participation is over-confident in its top
 fifth (0.95 predicted, 0.86 observed; +0.096 [+0.057, +0.141]). **The repair target is the
 participation model's top end, not the band width**; established as a calibration failure, not yet
 as a cause. Check 40 is a calibrated-by-construction lumpy forecast. Naive coverage is 89% and 84%;
@@ -1088,7 +1130,9 @@ scored. Review artifacts and state are committed together under the session-clos
 
 ## Change log (state files)
 
-- **2026-09-22i (goalie control-year review corrections):** One declared scoring currency (production's line; rate's as sensitivity), realised target asserted identical across forecasts: the forecasts are not separable on squared dollar error (rate 44-46%). Randomized-PIT calibration replaces naive coverage: "band too wide" withdrawn; production's contract distribution sits too high; floor outcomes under-predicted; conditional season band calibrated; participation over-confident in its top fifth. Check 40; suite 40/40. State files and `sessions/2026-09-22.md` updated.
+- **2026-09-23 (goalie participation over-confidence diagnosed):** the contract export is a snapshot (contracts ending 2018+), so early 'known'/'under contract' rows encode survival; candidate `contract_state="observable"` fixes the confident fifth (+0.096 -> +0.005), improves Brier and season WAR squared error (100%), cuts production's dollar bias by two thirds but leaves squared dollar error tied on one fixed line. Skater contract features flagged. Calibration wording corrected. Check 41. State files and `sessions/2026-09-23.md`.
+
+- **2026-09-22i (goalie control-year review corrections):** One declared scoring currency (production's line; rate's as sensitivity), realised target asserted identical across forecasts: the forecasts are not separable on squared dollar error (rate 44-46%). Randomized-PIT calibration replaces naive coverage: "band too wide" withdrawn; production's contract distribution sits too high; floor outcomes under-predicted; conditional season band calibrated [CORRECTED 2026-09-23: "not detected as miscalibrated by the pooled tests"]; participation over-confident in its top fifth. Check 40; suite 40/40. State files and `sessions/2026-09-22.md` updated.
 
 - **2026-09-22h (goalie control years):** `run_goalie_control_years.py` v1.0 on production (default) and rate (sensitivity); control value deciding as you go $1.07M / $1.16M on 21 contracts; term valuations scored against realised dollars on 133 ended terms (production point RMSE 6.859 lowest; rate simulated best on bias); goalie band over-covers. Fixed goalie replay dating (check 38) and the persistence fit's clip-after-search (check 39; skaters unchanged to 1.2e-8). Rate x share wording corrected. Suite 39/39. State files and `sessions/2026-09-22.md` updated.
 

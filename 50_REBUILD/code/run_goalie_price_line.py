@@ -94,7 +94,8 @@ def participation_at_page(table: pd.DataFrame, t0: int):
     from contract_source import load_contracts
     contracts, _ = load_contracts()
     past = table[table["syr"] < t0]
-    pm = ParticipationModel(contracts, exclude=GPM.PART_EXCLUDE).fit(
+    pm = ParticipationModel(contracts, exclude=GPM.PART_EXCLUDE,
+                            contract_state=GPM.PART_CONTRACT_STATE).fit(
         past, t0, anchors_fn=GPM.goalie_anchors, horizons=GB.HORIZONS)
     a = GPM.goalie_anchors(past[past["GP"] >= C.MIN_GP])
     a = a[a["t0"] == t0].drop_duplicates("pkey").set_index("pkey")

@@ -331,6 +331,16 @@ residuals and currency comparisons; fix and rerun development work before furthe
   which column is dropped decides how the model extrapolates to them. That is a modelling
   assumption, stated, not an estimate.
 
+- **NEW 2026-09-23 — the contract export is a snapshot, and every feature built from it inherits
+  that.** Every contract in the PuckPedia export ends in 2018 or later. On any page before its era,
+  "the export knows him", "he is under a visible contract" and "he has a birthdate" all mean "he
+  went on to sign a deal that ran into 2018 or later": survival. The goalie participation model
+  learned it and predicted retired goaltenders near-certain to play. **The general form:** before
+  using a vendor field on historical rows, find the vendor's coverage rule (here, end year >= 2018)
+  and state the feature only where that rule makes it observable for everyone, survivor or not.
+  **Open for skaters:** the skater contract features read the same export and have not been
+  re-measured under the observable definition. Evidence: `50_REBUILD/docs/Goalie_Participation_Top.md`.
+
 - **NEW 2026-09-22 — whether a join finds a record can itself be the outcome.** Goaltender
   birthdates come mostly from the contract export, so a goaltender HAS a birthdate largely because he
   was still playing in the contract era. Goalie anchors with one go on to play at about 0.90 at every

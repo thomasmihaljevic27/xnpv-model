@@ -81,7 +81,7 @@ from ability_forecast import _anchors, W_T1, W_T2
 from participation_model import ParticipationModel
 from player_season_table import birthdate_source
 
-SCRIPT_VERSION = "1.3"
+SCRIPT_VERSION = "1.4"
 
 HORIZONS = GB.HORIZONS
 DECAY = W_T2 / W_T1            # the locked 60/40 recency weighting
@@ -94,6 +94,13 @@ DECAY = W_T2 / W_T1            # the locked 60/40 recency weighting
 # it needs nothing but the seasons already played.
 SHARE_FEATURES = ["tr_gp_share", "tw_WAR", "exp_seasons"]
 PART_EXCLUDE = ("age", "age_sq")
+# WHICH CONTRACT STATE the goalie participation model reads, in ONE place: the
+# scored arms and the price runner's `participation_at_page` both read this, so
+# a run that switches it switches the forecast that is tested and the forecast
+# that is priced together. "as_known" is every run to date; "observable" is the
+# candidate from run_goalie_participation_top (contract state only where the
+# snapshot export can see it). Not adopted.
+PART_CONTRACT_STATE = "as_known"
 MIN_SHARE_ROWS = 150
 
 
@@ -179,13 +186,19 @@ class Arm(GB.ProductionProjector):
 
     part_model = False
     share_model = False
+    # The participation model's settings, carried by the arm so a variant is a
+    # subclass rather than a copy. Defaults are the ones every run has used.
+    part_exclude = PART_EXCLUDE
+    contract_state = None           # None: the module's PART_CONTRACT_STATE
 
     def _fit(self, seasons, before):
         super()._fit(seasons, before)
         if self.part_model:
             from contract_source import load_contracts
             contracts, _ = load_contracts()
-            self.part_ = ParticipationModel(contracts, exclude=PART_EXCLUDE).fit(
+            self.part_ = ParticipationModel(
+                contracts, exclude=self.part_exclude,
+                contract_state=self.contract_state or PART_CONTRACT_STATE).fit(
                 seasons, before, anchors_fn=goalie_anchors, horizons=HORIZONS)
         if self.share_model:
             self.share_ = ShareModel().fit(seasons, before)

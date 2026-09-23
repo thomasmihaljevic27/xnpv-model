@@ -194,6 +194,21 @@ These findings take precedence over the earlier broad validation claims. No impl
 changed; repaired development comparisons and the unbuilt simulation work must precede adoption.
 Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 
+**Goalie participation over-confidence diagnosed, 2026-09-23.**
+`run_goalie_participation_top.py` v1.0; `participation_model.py` v1.6 (`contract_state` option).
+- **Cause:** the vendor contract export is a snapshot (every contract ends 2018 or later), so on
+  early pages the contract columns encode survival. The model then read "known to the export" as
+  "will play" for retired goaltenders.
+- **Candidate, contract state only where observable:** it fixes the confident fifth (+0.096 ->
+  +0.005). Brier falls 0.2056 -> 0.1940 and season WAR RMSE 2.073 -> 2.062, both in 100% of
+  resamples.
+- **In dollars, on one fixed line:** production's bias drops +0.57 -> +0.19 $M, but squared dollar
+  error ties.
+- **Not adopted;** a decision for Thomas. The skater contract features read the same export
+  (flagged).
+
+Suite 41/41.
+
 **Goalie control-year review corrected, 2026-09-22i.** `run_goalie_control_years.py` v1.1.
 - **Scoring:** both forecasts and the realised path are priced on one declared line (production's).
   On squared dollar error the forecasts cannot be separated (rate 44-46%); the rate forecast is
@@ -201,7 +216,8 @@ Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 - **Calibration:** the randomized PIT (`predictive_interval.randomized_pit` / `mixture_pit`, check 40)
   replaces naive interval coverage, which the floor's lump inflates. "Band too wide" is withdrawn.
   Production's contract distribution sits too high, floor outcomes are under-predicted, and the
-  conditional season band is calibrated.
+  conditional season band is calibrated [CORRECTED 2026-09-23: the pooled diagnostics did not detect
+  miscalibration in the statistics tested; subgroups can still be off].
 - **The component:** participation is over-confident in its top fifth (+0.096). It is the next goalie
   repair target.
 

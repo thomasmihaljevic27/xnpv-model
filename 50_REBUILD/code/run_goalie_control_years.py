@@ -115,7 +115,7 @@ from contract_price_model import contract_sample, attach_forecasts
 from player_season_table import birthdate_source, build as build_skater_table
 from production_currency import ProductionCurrency, FEATURES
 
-SCRIPT_VERSION = "1.1"
+SCRIPT_VERSION = "1.2"
 KEY = RCY.KEY
 
 # The two forecasts, declared before the run: the label, the harness arm the
@@ -338,7 +338,16 @@ def career_bootstrap(d: pd.DataFrame, a: str, b: str, n: int = 2000,
 
 
 def main() -> None:
+    # --participation observable: the candidate participation, switched for the
+    # scored arms and the priced forecast together (GP.PART_CONTRACT_STATE).
+    # Outputs carry a suffix so the default run's files are not overwritten.
+    import run_goalie_participation as GPM
+    suffix = ""
+    if "--participation" in sys.argv:
+        GPM.PART_CONTRACT_STATE = sys.argv[sys.argv.index("--participation") + 1]
+        suffix = f"_{GPM.PART_CONTRACT_STATE}"
     C.banner("run_goalie_control_years.py", SCRIPT_VERSION)
+    C.log(f"  participation contract state: {GPM.PART_CONTRACT_STATE}")
     path, how = birthdate_source()
     C.log(f"  birthdates: {how}")
     sk_table = build_skater_table(birthdate_csv=path, verbose=False)
@@ -599,12 +608,19 @@ def main() -> None:
 
     out = pd.concat([ok.assign(forecast=l) for l, ok in results.items()],
                     ignore_index=True)
-    out.to_csv(C.out_path("goalie_control_years.csv"), index=False)
+    out.to_csv(C.out_path("goalie_control_years" + suffix + ".csv"), index=False)
     sc = scored[SCORING_LINE].drop(columns=[c for c in scored[SCORING_LINE].columns
                                             if c.startswith("draws_")])
-    sc.to_csv(C.out_path("goalie_control_years_scored.csv"), index=False)
-    C.log(f"  wrote {C.out_path('goalie_control_years.csv').name} and the scored table")
-    C.write_log("goalie_control_years_run_log.txt")
+    sc.to_csv(C.out_path("goalie_control_years_scored" + suffix + ".csv"), index=False)
+    # THE DRAWS, the contract rows and the lines, kept so that a comparison
+    # ACROSS runs (two participation models, say) can reprice both on one
+    # fixed line. Each run's own lines differ, so comparing two runs' scores
+    # as printed would score them against different targets.
+    import pickle
+    with open(C.out_path(f"goalie_control_years{suffix}.pkl"), "wb") as fh:
+        pickle.dump({"priced": priced, "draws": draws, "common": common}, fh)
+    C.log(f"  wrote goalie_control_years{suffix}.csv and the scored table")
+    C.write_log(f"goalie_control_years{suffix}_run_log.txt")
 
 
 if __name__ == "__main__":
