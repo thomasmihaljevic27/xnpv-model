@@ -1,5 +1,15 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-22j (goalie participation snapshot review):** Reviewed
+`c4ddcf0`. All 41 checks pass; ignored-option mutant rejected. Season scores,
+calibration and fixed-line dollar comparisons reproduce. Added two intermediate
+arms: time-indicator-only Brier .192665 beats proposed .194038 in 91.2% of career
+resamples; under-contract-only .195583 adds little over no inputs .195769.
+One P2: gain cannot be credited to contract information without separating the
+new time effect. Adoption remains open for that comparison, prior closures stand.
+Review/audit in 50_REBUILD; state and session updated. No candidate merge,
+implementation change or adoption. Vendor completeness remains an assumption.
+
 **Change log, 2026-09-22i (goalie control-year repair closure):** Verified
 `6c9ab2c`; close both evaluation findings. Full 40-check suite passes; common
 currency scores, contract calibration and top-fifth participation gap reproduce.

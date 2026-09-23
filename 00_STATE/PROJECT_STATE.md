@@ -193,6 +193,18 @@ These findings take precedence over the earlier broad validation claims. No impl
 changed; repaired development comparisons and the unbuilt simulation work must precede adoption.
 Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 
+**Goalie participation snapshot review open, 2026-09-22:** reviewed `c4ddcf0`.
+41/41 checks pass; season and fixed-currency dollar results reproduce. Default
+contract-dollar outputs match the preceding run exactly. One P2 finding before
+adoption: the replacement unknown flag is a before/after-2018 indicator. Keeping
+only that indicator yields Brier .192665 versus proposed .194038, and wins 91.2%
+of career resamples; WAR error is essentially tied. Contract status alone gives
+.195583 versus .195769 without either input. Add these intermediate comparisons
+and withdraw attribution of the extra gain to contract information before choosing
+a specification. Removing old export-membership bias remains supported. No
+candidate adopted; previous evaluation closures stand. See
+`50_REBUILD/docs/Goalie_Participation_Top_Review_Codex.md`.
+
 **Goalie control-year evaluation review closed, 2026-09-22:** verified `6c9ab2c`
 in isolation. Both findings from `088546f` are repaired: common-dollar scoring
 and calibration accounting for point masses. Suite 40/40, no skips; restored
