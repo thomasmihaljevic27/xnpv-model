@@ -1,5 +1,23 @@
 # STANDING FLAGS & OPEN QUESTIONS — NHL Trade Market Efficiency
 
+**Skater leader: contract status adopted provisionally, 2026-09-23g.** On the closure review's
+recommendation, the skater leader is now `A1HingeExposureStatus`: the previous leader with visible
+contract status in its participation (period indicator excluded), read at the signing for contract
+valuation. Switch: `run_npv_simulation.LEADER`; the no-contract model stays as `PRIOR_LEADER`.
+- **Second dating gap closed:** the path simulation's `forecast_blocks` read contract state at 1 July;
+  it now reads it at the signing. Check 43 (mutation-tested). Suite **43/43**.
+- **Downstream reruns** (each against its own earlier run, own price lines): simulated surplus $0.37M
+  -> $0.43M a contract, only the 2019-21 pages moving; control years (deciding as you go) $0.703M ->
+  $0.691M; goalie price-line conclusions stand (level 0.006858, slope 32%, ratio 0.79).
+- **Finding:** contract status enters participation only where training rows support it (from the
+  2019 page, up to four to six seasons out), so long terms fall back to the no-contract forecast
+  past that range: an eight-year 2021 deal reads ~0.93 through season seven, 0.45 in season eight.
+  15 of 1,217 simulated terms cannot reproduce their marginals (2 before). Open decision whether to
+  carry the last supported effect forward.
+- Reporting qualifications applied: 1,999/2,000 (primary) and 2,000/2,000 (sensitivity), not
+  "every"; dollar MAE slightly worse ($1.681M vs $1.679M); goalie decision stays closed.
+See `50_REBUILD/docs/Skater_Contract_Test.md`, "Downstream, after adoption".
+
 **Skater signing-date repair closed, 2026-09-23:** candidate `d2be5b0` passes
 42/42 checks. Independent forced-page and removed-tail-decay mutations fail
 check 42; corrupting 3,184 later-signed contracts leaves Chara's attached forecast
@@ -293,6 +311,16 @@ residuals and currency comparisons; fix and rerun development work before furthe
 ---
 
 ## Standing flags (Karl's identification axes — watch on every design choice)
+
+- **NEW 2026-09-23g — a feature that exists only where it has support makes a cliff where it
+  stops.** The participation model keeps a contract column only at horizons where enough training
+  rows carry each value. Visible contract status is observable only for seasons from 2018, so on
+  development pages it enters for the first four to six seasons ahead and not beyond. Past that the
+  forecast silently becomes the no-contract one, and a player under contract for eight seasons is
+  forecast at 0.93 to play in season seven and 0.45 in season eight. The per-horizon support rule is
+  right for the fit; applied across a contract's term it produces paths no player follows.
+  **The general form:** when a feature's availability varies by horizon, check the forecast's shape
+  across horizons, not just each horizon's score. Evidence: `50_REBUILD/docs/Skater_Contract_Test.md`.
 
 - **NEW 2026-09-22f — the score decides the winner when half the outcomes are zero.** The rebuild
   has ranked forecasts by mean absolute error in season WAR. Almost half the goalie cells, and many

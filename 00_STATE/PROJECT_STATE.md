@@ -1,5 +1,23 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**Skater leader: contract status adopted provisionally, 2026-09-23g.** On the closure review's
+recommendation, the skater leader is now `A1HingeExposureStatus`: the previous leader with visible
+contract status in its participation (period indicator excluded), read at the signing for contract
+valuation. Switch: `run_npv_simulation.LEADER`; the no-contract model stays as `PRIOR_LEADER`.
+- **Second dating gap closed:** the path simulation's `forecast_blocks` read contract state at 1 July;
+  it now reads it at the signing. Check 43 (mutation-tested). Suite **43/43**.
+- **Downstream reruns** (each against its own earlier run, own price lines): simulated surplus $0.37M
+  -> $0.43M a contract, only the 2019-21 pages moving; control years (deciding as you go) $0.703M ->
+  $0.691M; goalie price-line conclusions stand (level 0.006858, slope 32%, ratio 0.79).
+- **Finding:** contract status enters participation only where training rows support it (from the
+  2019 page, up to four to six seasons out), so long terms fall back to the no-contract forecast
+  past that range: an eight-year 2021 deal reads ~0.93 through season seven, 0.45 in season eight.
+  15 of 1,217 simulated terms cannot reproduce their marginals (2 before). Open decision whether to
+  carry the last supported effect forward.
+- Reporting qualifications applied: 1,999/2,000 (primary) and 2,000/2,000 (sensitivity), not
+  "every"; dollar MAE slightly worse ($1.681M vs $1.679M); goalie decision stays closed.
+See `50_REBUILD/docs/Skater_Contract_Test.md`, "Downstream, after adoption".
+
 **Skater signing-date repair closed, 2026-09-23:** candidate `d2be5b0` passes
 42/42 checks. Independent forced-page and removed-tail-decay mutations fail
 check 42; corrupting 3,184 later-signed contracts leaves Chara's attached forecast
@@ -223,9 +241,9 @@ Thirty variants remain registered in `50_REBUILD/docs/variant_register.csv`.
 **Skater contract test corrected, 2026-09-23f.** Contract valuations now read contract state at
 the signing (`attach_forecasts`, check 42).
 - **The leader under-predicts priced contracts' first seasons by 12 points** (0.782 against 0.900).
-- **Visible contract status at the signing** halves that and wins contract dollars in 100% of
-  resamples ($3.533M -> $3.517M RMSE; bias -0.597 -> -0.549).
-- **Recommendation reversed:** adopt it for the skater leader, pending Thomas.
+- **Visible contract status at the signing** halves that and wins contract dollars in 1,999 of 2,000
+  resamples (MAE slightly worse) ($3.533M -> $3.517M RMSE; bias -0.597 -> -0.549).
+- **Recommendation reversed:** adopt it for the skater leader. [ADOPTED provisionally 2026-09-23g; see the entry at the top.]
 
 Suite 42/42. See `50_REBUILD/docs/Skater_Contract_Test.md`.
 

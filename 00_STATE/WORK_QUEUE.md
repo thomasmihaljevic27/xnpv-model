@@ -1,5 +1,23 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
+**Skater leader: contract status adopted provisionally, 2026-09-23g.** On the closure review's
+recommendation, the skater leader is now `A1HingeExposureStatus`: the previous leader with visible
+contract status in its participation (period indicator excluded), read at the signing for contract
+valuation. Switch: `run_npv_simulation.LEADER`; the no-contract model stays as `PRIOR_LEADER`.
+- **Second dating gap closed:** the path simulation's `forecast_blocks` read contract state at 1 July;
+  it now reads it at the signing. Check 43 (mutation-tested). Suite **43/43**.
+- **Downstream reruns** (each against its own earlier run, own price lines): simulated surplus $0.37M
+  -> $0.43M a contract, only the 2019-21 pages moving; control years (deciding as you go) $0.703M ->
+  $0.691M; goalie price-line conclusions stand (level 0.006858, slope 32%, ratio 0.79).
+- **Finding:** contract status enters participation only where training rows support it (from the
+  2019 page, up to four to six seasons out), so long terms fall back to the no-contract forecast
+  past that range: an eight-year 2021 deal reads ~0.93 through season seven, 0.45 in season eight.
+  15 of 1,217 simulated terms cannot reproduce their marginals (2 before). Open decision whether to
+  carry the last supported effect forward.
+- Reporting qualifications applied: 1,999/2,000 (primary) and 2,000/2,000 (sensitivity), not
+  "every"; dollar MAE slightly worse ($1.681M vs $1.679M); goalie decision stays closed.
+See `50_REBUILD/docs/Skater_Contract_Test.md`, "Downstream, after adoption".
+
 **Skater signing-date repair closed, 2026-09-23:** candidate `d2be5b0` passes
 42/42 checks. Independent forced-page and removed-tail-decay mutations fail
 check 42; corrupting 3,184 later-signed contracts leaves Chara's attached forecast
@@ -297,10 +315,25 @@ valuations now read contract state at the signing (check 42).
 - **The leader under-predicts a signed player's first season by 12 points:** 0.782 predicted
   against 0.900 played.
 - **Visible contract status at the signing** halves that gap, and it beats the leader on contract
-  dollars in 100% of resamples ($16k of RMSE, $48k of bias).
-- **DECISION (Thomas): adopt visible contract status only for the skater leader's participation?**
-  Recommended yes. It would mean rerunning everything the leader feeds.
-- **Flagged:** the goalie baseline in the same light.
+  dollars in 1,999 of 2,000 resamples ($16k of RMSE, $48k of bias; MAE slightly worse).
+- [RESOLVED 2026-09-23g] **DECISION: adopt visible contract status only for the skater leader's
+  participation?** Adopted provisionally on the closure review's recommendation; downstream rerun.
+- [CLOSED 2026-09-23g] ~~Flagged: the goalie baseline in the same light.~~ The goalie comparison was
+  already part of the recorded trade-off; the goalie decision stays closed.
+
+**2026-09-23g -- open after adoption:**
+- **DECISION (Thomas): the status cliff on long terms.** Contract status enters participation only at
+  horizons with training support (from the 2019 page, up to four to six seasons out); beyond, the
+  forecast drops to the no-contract fit (0.93 -> 0.45 in one eight-year deal's last season; 15 of
+  1,217 simulated terms cannot reproduce their marginals). Options: keep as is, or carry the last
+  supported horizon's status effect forward with the model's decay (an assumption; score it as a
+  sensitivity first).
+- **Rerun on the new leader:** the older diagnostics that pin their own copy of the old leader
+  (`run_leakage_tests.py`, `run_stress_tests.py`, `run_uncertainty.py`,
+  `run_coverage_decomposition.py`). The look-ahead tests matter most: the new leader reads the
+  vendor export.
+- **Training date vs valuation date:** trained at 1 July, applied at the signing; first seasons of
+  attached contracts still 5.5 points low.
 
 **2026-09-23e -- skater contract-data test done (awaiting review and Thomas's decision).** Report
 `50_REBUILD/docs/Skater_Contract_Test.md`.
@@ -456,7 +489,7 @@ requested items are done; the review stays open until it is independently re-che
 3. **Checks 34 (rewritten) and 35 (new)**, each mutation-tested. Suite 35/35.
 4. **Bias claim corrected** in the 22b entries below.
 
-**OPEN DECISION (Thomas) -- should the skater leader fit participation with contract data?** [MEASURED 2026-09-23e: see `Skater_Contract_Test.md`; recommendation to keep the leader
+**[RESOLVED 2026-09-23g: visible contract status adopted provisionally] DECISION -- should the skater leader fit participation with contract data?** [MEASURED 2026-09-23e: see `Skater_Contract_Test.md`; recommendation to keep the leader
 without contract inputs, pending Thomas.] The same
 rank defect sat in fifteen skater fits of the contract-using variants and is where Phase 2's "contract
 data hurts" came from. Re-measured (`run_contract_ablation.py`): before the fix +0.45% to +0.98% worse

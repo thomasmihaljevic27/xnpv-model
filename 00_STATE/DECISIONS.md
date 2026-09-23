@@ -1565,3 +1565,22 @@ Independent dollar rerun: leader RMSE $3.534M, status only $3.518M; bias
 primary and 2,000/2,000 sensitivity career resamples. The printed primary 100%
 is rounded, not literally every draw. Recommendation remains provisional
 status-only adoption on the declared squared-error score, followed by integration.
+
+### Change log, 2026-09-23g (skater leader: contract status adopted provisionally)
+
+**Adopted provisionally:** the skater leader is `A1HingeExposureStatus` (`ability_forecast.py`
+v2.0): the previous leader with visible contract status in participation, the period indicator
+excluded, contract state read at the signing for valuation. Basis: the matched test and its closure
+review (squared dollar error lower in 1,999/2,000 player-resamples on the primary line, 2,000/2,000
+on the sensitivity line; absolute dollar error slightly worse, $1.681M against $1.679M). Switch:
+`run_npv_simulation.LEADER` (v2.4); `PRIOR_LEADER` keeps the no-contract model. Reversible in one
+line. The goalie decision stays closed.
+- `forecast_blocks` now reads contract state at each signing, like `attach_forecasts`; check 43
+  (`repair_checks.py` v3.2) drives both callers; a page-dated mutant fails. Suite 43/43.
+- Downstream rerun: path simulation, control years, goalie price line, goalie control years.
+  Results in `Skater_Contract_Test.md`, "Downstream, after adoption".
+- New finding and open decision: contract status enters participation only at horizons with
+  training support, so long terms fall back to the no-contract forecast past it (a cliff);
+  15 of 1,217 simulated terms cannot reproduce their marginals.
+- State files: PROJECT_STATE, WORK_QUEUE, STANDING_FLAGS top entries; WORK_QUEUE decision items
+  marked resolved; new standing flag on horizon-dependent feature support.

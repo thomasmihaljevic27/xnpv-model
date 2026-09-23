@@ -1,9 +1,10 @@
 # Should the skater leader's participation use contract data? A matched test
 
 Run 2026-09-23 in `50_REBUILD/` (`run_skater_contract_test.py` v1.1; `ability_forecast.py` v1.9;
-`contract_price_model.py` v1.5).
+`contract_price_model.py` v1.5). Adoption and downstream reruns: `ability_forecast.py` v2.0,
+`run_npv_simulation.py` v2.4, `repair_checks.py` v3.2.
 Development pages and development start years only. **Contract status only was adopted provisionally
-as the skater leader on 2026-09-23**; the downstream reruns are in the last section.
+as the skater leader on 2026-09-23**; the downstream reruns are in "Downstream, after adoption".
 
 ## The question
 
@@ -216,6 +217,77 @@ Adoption moves the leader's forecasts everywhere they feed: the path simulation,
 the skater side of every price line. Those are rerun below. The previous leader stays importable by
 name (`A1HingeExposure`, `run_npv_simulation.PRIOR_LEADER`) as the no-contract sensitivity.
 
+## Downstream, after adoption
+
+The contract-status version is now the skater leader (`A1HingeExposureStatus`, the switch
+`run_npv_simulation.LEADER`; the no-contract model is kept as `PRIOR_LEADER`). Every runner that
+imports the leader was rerun. The previous outputs are kept beside the new ones, and each run below is
+compared with its own earlier run.
+
+**One more dating gap closed first.** The path simulation builds its season-by-season forecasts in
+`forecast_blocks`, a second caller that still read contract state at 1 July of the page. The paths
+would then have carried a different probability of playing from the point valuation they are checked
+against. It now reads contract state at each signing, as `attach_forecasts` does. Check 43 drives
+both callers on one batch and requires equal expected term totals and first-season participation;
+a page-dated copy of `forecast_blocks` fails it.
+
+**Contract values move on its own price line** (each run fits its own line, so these describe the
+change, not accuracy; the accuracy comparison on one fixed line is the dollar table above):
+
+| | old leader | contract status |
+|---|---:|---:|
+| point surplus, mean of 1,217 | $0.19M | $0.23M |
+| simulated surplus, mean | $0.37M | $0.43M |
+| gap, simulated minus point | $0.18M | $0.21M |
+| contracts changing sign between the two | 223 | 226 |
+| zero-spread identity, largest gap | $1.5e-08 | $7.5e-09 (passes) |
+
+- **Only the 2019–2021 pages move** (mean point surplus +$0.04M to +$0.08M). Contracts on the 2017 and
+  2018 pages are unchanged: no training row there targets a season from 2018 with a visible contract,
+  so status never enters the fit.
+- **Long deals move most:** +$0.01M on one-year deals, +$0.10M to +$0.19M from four years up.
+
+**A finding: status enters only where it is supported, so long terms get a cliff.** The participation
+model keeps a contract column only at horizons where enough training rows carry each value. Contract
+status therefore enters at:
+
+| page | status coefficient by seasons ahead (log-odds) | absent from |
+|---|---|---|
+| 2017, 2018 | — | every horizon |
+| 2019 | +0.99 to +1.32 through four ahead | five ahead |
+| 2020 | +1.06 to +1.29 through four; +1.96 at five | six ahead |
+| 2021 | +1.04 to +1.24 through four; +1.87, +2.32 at five and six | seven ahead |
+
+Past the supported range the forecast falls back to the no-contract fit. On an eight-year deal signed
+in 2021 participation reads about 0.93 through the seventh season and **0.45** in the eighth, which
+is exactly the old leader's number. Two consequences:
+- **The chance of playing sometimes rises from one season to the next** faster than the simulation's
+  return rate allows. That happens on 15 of 1,217 terms (2 under the old leader). There the path
+  cannot reproduce the model's marginal exactly; the average production per season differs by 0.014
+  WAR on average, at most 0.031.
+- **The coefficients at the edge of support are larger** (+1.9 to +2.3 against about +1.1) and rest
+  on few rows.
+
+The matched test's dollar result (1,999 of 2,000) was scored on this same model, cliff included. So
+this is a property of what was adopted, not a new error in it. Whether to carry the last supported
+horizon's status effect forward (with the model's usual decay) is a modelling assumption and is left
+open.
+
+**Control years** (`run_control_years.py`, 398 contracts owning them): deciding as you go $0.691M a
+contract, against $0.703M; the value of seeing the path $0.063M against $0.066M; age-rule
+sensitivity $0.704M against $0.717M. The control years fall after the term, where no contract covers
+the season, so a model that separates covered from uncovered seasons values them slightly lower.
+
+**Goalie price line** (`run_goalie_price_line.py`; the skater side of the pooled line uses the
+leader). The goalie conclusions stand:
+- a goaltender level: 0.006858 mean absolute error in cap share, against 0.006882;
+- a separate goaltender slope on top: better than the level alone in 32% of resamples (33%);
+- the goaltender-to-skater ratio for one more win every season: 0.79 unrestricted (0.77), 0.78
+  restricted (0.76);
+- the skater price of one more win every season, on the last fit: $1.96M (was $2.02M).
+
+**Goalie control years** (`run_goalie_control_years.py`, skater side of its pooled line on the leader): rerun in progress; results follow.
+
 ## What is checked
 
 The suite covers the participation model's contract-state definition (check 41), every registered
@@ -224,10 +296,12 @@ state read at its signing (check 42). Check 42:
 - reproduces Chara's 33.7% at 1 July against 58.9% at the signing;
 - requires a copy of the contract dated 1 July to reproduce the page-dated valuation exactly,
   including a seven-year deal's extrapolated tail;
-- requires the leader to be unmoved by the date.
+- requires the no-contract model to be unmoved by the date.
 
-It fails when the caller ignores the signing date, and when the tail's decay is dropped. The skater mixin's two new settings default to the recorded
+It fails when the caller ignores the signing date, and when the tail's decay is dropped. Check 43
+requires the path simulation's season blocks to carry the same participation as the point valuation
+for the adopted leader (see above). The skater mixin's two new settings default to the recorded
 behaviour. The leader's Brier (0.1340) and the old definition's (0.1326) reproduce the 2026-09-22
 ablation exactly.
 
-Suite: **42 passed, 0 skipped, 0 failed**.
+Suite: **43 passed, 0 skipped, 0 failed**.
