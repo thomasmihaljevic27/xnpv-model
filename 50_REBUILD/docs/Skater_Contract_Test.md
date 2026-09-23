@@ -128,11 +128,14 @@ The sensitivity line gives the same ordering: as known 88%, observable 11%, peri
 contract only 91%.
 
 What this says:
-- **Contract status only is the one contract version that improves dollars on the primary score**,
-  in 91% of resamples. That is consistent, but not decisive by a 95% standard, and it is tiny: $5,000
-  of RMSE on $3.5 million. It moves an average contract's value by $21,000.
-- **The observable version is worse in dollars** (12%): adding the period indicator to contract
-  status costs accuracy, for skaters as for goaltenders.
+- **Two versions lean toward better dollars on the primary score:**
+  - contract only, 91% of resamples;
+  - the old definition, 89%, which also carries the survival signal.
+
+  Neither is decisive by a 95% standard, and both effects are tiny: contract only saves $5,000 of
+  RMSE on $3.5 million and moves an average contract's value by $21,000.
+- **The observable version is worse in dollars** (12%): for skaters, adding the period indicator to
+  contract status costs accuracy.
 - **Point valuations only.** The contract distributions from the path simulation were not rerun for
   every version. The point values moved by $0.02–0.09M, so a simulated comparison is unlikely to
   reorder them, but that is not shown here.
