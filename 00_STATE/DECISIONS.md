@@ -1501,3 +1501,17 @@ $19.18M at most, the rebuilt column not at all, and the correction runs against 
 which is the more conservative chain once both are priced on one line.** Attachment now returns
 an empty result with its rejection report for an all-rejected or empty batch instead of raising.
 Runner docstring corrected. Suite at 17; both new checks fail on the preceding commit.
+
+### Change log, 2026-09-23 (goalie adoption and skater contract review)
+
+**Goalie adoption verified; skater contract decision remains open, 2026-09-23:**
+Reviewed candidate `1b7d9a7` (goalie adoption `68b0e13`). Full suite 41/41;
+all five skater score rows and both dollar tables reproduce. The fresh default
+goalie control/scoring run reproduces 21 rights and 133 completed contracts,
+production simulated RMSE $7.111M and bias +$0.082M. No goalie adoption blocker.
+One skater finding: the contract attachment caller reads July contract status,
+not signing-date status. Chara contract 7041's status-only participation changes
+0.336686 to 0.589150 when only that date is corrected. The July season comparison
+stands; rerun signing-date dollar scores before closing the contract-input decision.
+Keep the existing leader meanwhile. No candidate merge or default change here.
+See `50_REBUILD/docs/Goalie_Adoption_Skater_Contract_Review_Codex.md`.

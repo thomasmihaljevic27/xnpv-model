@@ -1,5 +1,18 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**Goalie adoption verified; skater contract decision remains open, 2026-09-23:**
+Reviewed candidate `1b7d9a7` (goalie adoption `68b0e13`). Full suite 41/41;
+all five skater score rows and both dollar tables reproduce. The fresh default
+goalie control/scoring run reproduces 21 rights and 133 completed contracts,
+production simulated RMSE $7.111M and bias +$0.082M. No goalie adoption blocker.
+One skater finding: the contract attachment caller reads July contract status,
+not signing-date status. Chara contract 7041's status-only participation changes
+0.336686 to 0.589150 when only that date is corrected. The July season comparison
+stands; rerun signing-date dollar scores before closing the contract-input decision.
+Keep the existing leader meanwhile. No candidate merge or default change here.
+See `50_REBUILD/docs/Goalie_Adoption_Skater_Contract_Review_Codex.md`.
+
+
 <!-- Canonical default-context anchor. Source of truth is this file plus its three siblings in
      00_STATE/ (WORK_QUEUE.md, DECISIONS.md, STANDING_FLAGS.md) and the per-session log in
      00_STATE/sessions/, all version-controlled in git. Craft is retired as a canonical surface.
