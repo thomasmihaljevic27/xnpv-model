@@ -127,12 +127,13 @@ What this says:
 - **These results do not establish that knowing a goaltender's contract adds information.** They do
   not establish that it adds none, either.
 
-**What the period indicator is absorbing is not a simple level shift.** For the model with no
-contract inputs, which has no period term, observed minus predicted participation by target season
-sits within ±0.06 every year from 2015 to 2025, and every interval includes zero. There is no visible
-step at 2018. The indicator's gain therefore comes from inside the fits, by horizon and page, where
-it separates older training outcomes from recent ones, and not from a league-wide change in the
-playing rate at 2018. Two cautions:
+**No step at 2018 is clearly detected.** For the model with no contract inputs, which has no
+period term, observed minus predicted participation by target season sits within ±0.06 every year
+from 2015 to 2025, and every interval includes zero. That does not show that no change in the
+playing rate at 2018 exists: intervals that wide could hide one. It does mean the indicator's gain
+cannot be read as a clearly detected league-wide change. Where inside the fits (by horizon and page)
+the gain arises is not established. (An earlier version of this paragraph said the gain was "not from
+a league-wide change"; that went further than the evidence.) Two cautions:
 - **The boundary is the export's earliest end year**, a property of the data source, not of
   goaltending. Nothing here says 2018 is the right place for a step.
 - **It acts only where training straddles 2018.** On pages up to 2018 no training outcome is after
@@ -155,9 +156,14 @@ fixed line, with the realised target asserted identical. On the current run's pr
 | production | current | 6.882 | 3.985 | +0.566 | |
 | production | observable | 6.880 | 3.849 | +0.187 | 51% |
 | production | period only | 6.932 | 3.766 | −0.064 | 33% |
+| production | none | 6.931 | — | −0.006 | 32% |
 | rate | current | 6.923 | 3.730 | −0.159 | |
 | rate | observable | 6.961 | 3.619 | −0.475 | 24% |
 | rate | period only | 7.033 | 3.559 | −0.674 | 10% |
+
+The "none" row (no contract inputs, production forecast) is from the independent closure review of
+this work, run through the same simulator on the same fixed line; its absolute error was not reported
+there and it was not rerun here.
 
 On the other two runs' lines (sensitivities) the shares are:
 - production: 56–58% (observable) and 37–38% (period only);
@@ -195,9 +201,13 @@ What this says:
 
 **Not settled:**
 - **Which replacement.** Period only is best on participation and ties on season WAR, but it is
-  tied to the vendor's coverage year and is the worst of the three on contract-dollar squared error.
-  No contract inputs is the simplest and removes the over-prediction. Observable is in between.
-  **A decision, not a result; nothing is adopted.**
+  tied to the vendor's coverage year and is among the worst on contract-dollar squared error. No
+  contract inputs is the simplest, removes the over-prediction and nearly removes production's dollar
+  bias (−$0.006M), but it too worsens squared dollar error (32% against current). Observable is in
+  between. **Recommended as the provisional baseline: no contract inputs**, for simplicity and because
+  it needs neither a vendor-specific 2018 boundary nor an assumption that the export is complete. It is
+  **not** the winner on the declared dollar-accuracy score, and that trade-off stays explicit; the
+  other specifications stay as sensitivities. **Pending confirmation; nothing adopted.**
 - **Whether contract status carries information** once measured without the survival signal. It is
   not separated from none here.
 - **Skaters.** The skater contract features read the same export. The skater contract ablation and

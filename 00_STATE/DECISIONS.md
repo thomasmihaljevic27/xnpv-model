@@ -1,5 +1,16 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-23c (goalie participation review closed; baseline recommendation recorded):**
+Closure `c2c57ef` merged. Qualification applied: no 2018 step is clearly detected in the annual
+residuals, which does not prove none exists (report reworded; 23b entry marked). The review added
+the missing dollar arm. No contract inputs, production forecast, fixed line: RMSE $6.931M (current
+$6.882M), bias -$0.006M, beats current on squared error in 32%; it also worsens the rate forecast's
+squared dollar error. **Recommended provisional goalie participation baseline: no contract inputs**
+(simplest; no vendor-specific 2018 boundary; no completeness assumption), with the production ability
+forecast. It is not the winner on the declared dollar-accuracy score; the other specifications stay as
+sensitivities. **Recorded as pending Thomas's confirmation; nothing adopted.** Adopting it means
+rerunning the goalie price line, rate arms and control years on it. No code changed this entry.
+
 **Change log, 2026-09-23b (goalie participation: the period indicator separated from contract status):**
 Review of `c4ddcf0` (`9cddb43`) merged. `run_goalie_participation.PART_VARIANTS` names five
 participation specifications, read by the scored arms and the price runner together; the default is
@@ -22,7 +33,8 @@ In paired resamples:
 export-membership signal stays supported: every replacement beats current in 99-100% and removes the
 confident-fifth over-prediction.
 
-**The period term is not a level step.** The no-contract model's observed-minus-predicted by target
+**The period term is not a level step.** [CORRECTED 2026-09-23c: no step at 2018 is clearly detected; that
+does not prove none exists.] The no-contract model's observed-minus-predicted by target
 season is within +-0.06 every year with every interval including zero. The indicator's gain sits at
 three to five seasons out on the later pages, tied to the vendor's coverage year rather than to
 goaltending.
@@ -1192,6 +1204,8 @@ scored. Review artifacts and state are committed together under the session-clos
 ---
 
 ## Change log (state files)
+
+- **2026-09-23c (goalie participation review closed):** step wording qualified; the review's no-contract-inputs dollar arm recorded (RMSE 6.931, bias -0.006, 32%); no contract inputs recommended as the provisional baseline, pending Thomas's confirmation.
 
 - **2026-09-23b (period indicator separated):** five participation specifications scored; the observable definition's gain is its before/after-2018 period indicator (period only best on Brier), not contract information; no replacement improves contract-dollar squared error; attribution and 'noise dominates' withdrawn; CLAUDE.md rules added. Suite 41/41. State files and `sessions/2026-09-23.md`.
 

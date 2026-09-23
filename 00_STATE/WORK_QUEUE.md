@@ -275,6 +275,12 @@ the work is. Next, in order:
 - **Contract dollars (one fixed line):** no replacement lowers squared dollar error. Period only is
   worst there (production 33%, rate 10%) and best on bias (production -0.06).
 
+**Review closed 2026-09-23 (`c2c57ef`).** Recommended provisional baseline: **no contract inputs**
+(dollar arm from the review: RMSE $6.931M against $6.882M current, bias -$0.006M, 32% on squared
+error). Not the dollar-accuracy winner; the trade-off stays explicit. **Awaiting Thomas's confirmation**,
+then: rerun the goalie price line, rate arms and control years on it, and freeze the goalie branch as a
+sensitivity.
+
 **DECISION (Thomas): which replacement, if any, for goalie participation.**
 - **None** (no contract inputs): simplest; removes the over-prediction.
 - **Period only:** best participation score, but tied to the vendor's coverage year and worst in
