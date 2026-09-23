@@ -1,5 +1,18 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
+**Skater signing-date repair closed, 2026-09-23:** candidate `d2be5b0` passes
+42/42 checks. Independent forced-page and removed-tail-decay mutations fail
+check 42; corrupting 3,184 later-signed contracts leaves Chara's attached forecast
+unchanged. The signing date now reaches the real skater caller; the existing
+no-contract leader is unchanged. Contract-status-only adoption remains a decision,
+followed by simulation, control-year, and price-line integration and scoring.
+Calibration counts are 1,458 forecast-attached contracts, versus 1,217 priced and
+1,176 completed terms scored. The full 11.8-point calibration gap is not causally
+attributed to omitting contract inputs. No new goalie evidence or reopening.
+See `50_REBUILD/docs/Skater_Signing_Date_Closure_Codex.md`. No candidate merge or
+leader/default change was made by this review; Phase 5 remains open.
+
+
 **Goalie adoption verified; skater contract decision remains open, 2026-09-23:**
 Reviewed candidate `1b7d9a7` (goalie adoption `68b0e13`). Full suite 41/41;
 all five skater score rows and both dollar tables reproduce. The fresh default
