@@ -578,3 +578,23 @@ not signing-date status. Chara contract 7041's status-only participation changes
 stands; rerun signing-date dollar scores before closing the contract-input decision.
 Keep the existing leader meanwhile. No candidate merge or default change here.
 See `50_REBUILD/docs/Goalie_Adoption_Skater_Contract_Review_Codex.md`.
+
+### Change log, 2026-09-23 (skater signing-date closure)
+
+**Skater signing-date repair closed, 2026-09-23:** candidate `d2be5b0` passes
+42/42 checks. Independent forced-page and removed-tail-decay mutations fail
+check 42; corrupting 3,184 later-signed contracts leaves Chara's attached forecast
+unchanged. The signing date now reaches the real skater caller; the existing
+no-contract leader is unchanged. Contract-status-only adoption remains a decision,
+followed by simulation, control-year, and price-line integration and scoring.
+Calibration counts are 1,458 forecast-attached contracts, versus 1,217 priced and
+1,176 completed terms scored. The full 11.8-point calibration gap is not causally
+attributed to omitting contract inputs. No new goalie evidence or reopening.
+See `50_REBUILD/docs/Skater_Signing_Date_Closure_Codex.md`. No candidate merge or
+leader/default change was made by this review; Phase 5 remains open.
+
+Independent dollar rerun: leader RMSE $3.534M, status only $3.518M; bias
+-$0.597M to -$0.549M, MAE $1.679M to $1.681M. Status only wins 1,999/2,000
+primary and 2,000/2,000 sensitivity career resamples. The printed primary 100%
+is rounded, not literally every draw. Recommendation remains provisional
+status-only adoption on the declared squared-error score, followed by integration.
