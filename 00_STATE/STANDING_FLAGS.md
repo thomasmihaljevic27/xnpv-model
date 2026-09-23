@@ -2,17 +2,18 @@
 
 ## Independent rebuild review (2026-09-15)
 
-**Goalie control-year review open, 2026-09-22:** independently reviewed `088546f`.
-39/39 checks pass; old replay and persistence mutants both fail. Control and term
-figures reproduce. Two evaluation corrections remain: common realised-dollar
-target across forecast arms (current targets differ by $0.514M on average), and
-coverage tests accounting for the salary-floor and non-participation masses.
-Matched-currency production bootstrap advantage is 53.7-55.6%, not 64%; its own
-simulated 80% intervals cover 89.55% of its draws versus 93.23% of outcomes.
-Production's central interval still merits investigation. Do not narrow bands
-from nominal coverage alone. Keep production default/rate sensitivity provisional.
-See `50_REBUILD/docs/Goalie_Control_Years_Review_Codex.md`. Prior closures stand;
-no implementation edits, merge or adoption. Phase 5 remains open.
+**Goalie control-year evaluation review closed, 2026-09-22:** verified `6c9ab2c`
+in isolation. Both findings from `088546f` are repaired: common-dollar scoring
+and calibration accounting for point masses. Suite 40/40, no skips; restored
+own-line targets, inconsistent contract features and both unrandomized PITs are
+rejected. Common-line scores reproduce the independent audit. Contract calibration
+and the top-fifth participation gap (+0.096, interval +0.057 to +0.141) reproduce.
+Proceed to the most-confident participation predictions, retaining production as
+provisional default and rate as sensitivity. Passing pooled PIT summaries is not
+proof the distributions are calibrated; the subgroup failure remains. Its cause
+and contribution to contract-floor errors are not identified. See
+`50_REBUILD/docs/Goalie_Control_Years_Repair_Closure_Codex.md`. No implementation
+edit, merge or adoption. Prior closures stand; Phase 5 remains open.
 
 **Goalie rate review closed, 2026-09-22:** verified `f90e6fe` in isolation.
 37/37 passes. Consumer/scored equality is exact across 4,759 check-37 cells and

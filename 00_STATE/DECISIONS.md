@@ -495,6 +495,16 @@ unsealed.
 
 ---
 
+**Change log, 2026-09-22i (goalie control-year repair closure):** Verified
+`6c9ab2c`; close both evaluation findings. Full 40-check suite passes; common
+currency scores, contract calibration and top-fifth participation gap reproduce.
+Mutants restoring own targets, inconsistent contract features and either
+unrandomized PIT are rejected. Proceed to participation investigation with
+production provisional/rate sensitivity. Qualify passing pooled summaries as
+no detected departure, not proof of calibration or identification of the dollar
+error's cause. Added review/audit under 50_REBUILD, updated state/session. No
+implementation changes, candidate merge or adoption. Phase 5 remains open.
+
 **Change log, 2026-09-22h (goalie control-year review):** Reviewed `088546f` in
 isolation. All 39 checks pass; two restored defects rejected. Control/term run
 reproduced. Two P2 findings: forecast-specific realised-dollar targets and nominal
