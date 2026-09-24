@@ -24,7 +24,7 @@ import forecast_harness as H
 import player_season_table as T
 from ability_forecast import A0Production
 
-SCRIPT_VERSION = "3.3"
+SCRIPT_VERSION = "3.4"
 
 PASS, FAIL, SKIP = "pass", "FAIL", "skip"
 results: list[tuple[str, str, str]] = []
@@ -2169,6 +2169,47 @@ def c45(table):
             f"{out[0]} unanswered under both leaders, none raising")
 
 
+def c46(table):
+    """A FORMULA COMPARISON HOLDS THE AGING CURVE'S ROWS AND WEIGHTS FIXED.
+
+    The star residual run removed the aging curve's level terms and called it
+    one change. It was two: the lagged-level fit drops every pair with no
+    season before the change, and the no-level fit kept them (7,164 rows
+    against 9,459 on the 2021 page). Each fit now records a fingerprint of the
+    rows it used (player, season, observed or imputed) and their weights.
+      * the matched no-level candidate and the hinged-level candidate carry
+        the adopted curve's fingerprint, fitted through the real model classes;
+      * the unmatched no-level candidate does not (so the check can see it);
+      * the adopted curve's coefficients are unchanged by the new options.
+    """
+    import numpy as np
+    import information_set as I
+    import run_npv_simulation as RNS
+    from ability_forecast import (A1StatusNoLevelAging, A1StatusNoLevelAgingMatched,
+                                  A1StatusAgingLevelHinge)
+    from aging_additive import AdditiveAging
+    page = 2018
+    iset = I.build(table, I.decision_date_for_page(page), t0=page)
+    fits = {}
+    for cls in (RNS.LEADER, A1StatusNoLevelAgingMatched, A1StatusAgingLevelHinge,
+                A1StatusNoLevelAging):
+        m = cls()
+        m.fit(iset.seasons, before=page)
+        fits[cls.__name__] = m.aging_
+    ref = fits[RNS.LEADER.__name__]
+    for k in ("A1StatusNoLevelAgingMatched", "A1StatusAgingLevelHinge"):
+        assert fits[k].fit_key_ == ref.fit_key_ and fits[k].n_fit_ == ref.n_fit_, (
+            f"{k} was fitted on different rows or weights from the adopted curve "
+            f"({fits[k].n_fit_} against {ref.n_fit_})")
+    un = fits["A1StatusNoLevelAging"]
+    assert un.fit_key_ != ref.fit_key_ and un.n_fit_ > ref.n_fit_, "the unmatched fit looks matched"
+    # The adopted curve itself: the new options at their defaults change nothing.
+    old = AdditiveAging(level_mode="lagged", selection="impute").fit(iset.seasons, page)
+    assert np.array_equal(old.coef_, ref.coef_), "the adopted aging curve moved"
+    return (f"2018 page: the matched no-level and hinged-level curves use the adopted curve's "
+            f"{ref.n_fit_} rows and weights; the unmatched no-level curve uses {un.n_fit_}")
+
+
 def main() -> None:
     warnings.filterwarnings("ignore")
     C.banner("repair_checks.py", SCRIPT_VERSION)
@@ -2234,7 +2275,8 @@ def main() -> None:
                      ("a skater contract is valued at its signing", c42),
                      ("the paths read contract state where the valuation does", c43),
                      ("one adopted model through the valuation chain", c44),
-                     ("a subject with no history is unanswered, not a crash", c45)]:
+                     ("a subject with no history is unanswered, not a crash", c45),
+                     ("an aging formula comparison keeps its rows and weights", c46)]:
         check(name, lambda fn=fn: fn(table))
 
     width = max(len(n) for n, _, _ in results)

@@ -141,6 +141,11 @@ Draft pillar:
 - **Don't let a failed variant stand for the whole idea.** A candidate that loses rules out that
   construction. Say what it actually changed (the carry-forward sensitivity moved the whole last
   supported fit, not just the contract-status effect) and what its loss does not rule out.
+- **Don't call a formula change "one change" until the fit's rows and weights are shown identical.**
+  Dropping a term changes which rows have complete inputs, and a finite-value filter then changes the
+  sample silently. Removing the aging curve's level terms admitted 2,295 extra rows (7,164 against
+  9,459) and was reported as a single change (corrected 2026-09-24). Fingerprint the fitted rows and
+  assert equality (check 46).
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised

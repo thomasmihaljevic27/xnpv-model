@@ -98,7 +98,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 
 # Ages outside this band have too few seasons to fit a shape on; a player
 # beyond it takes the step at the nearest edge. Without the clamp the cubic
@@ -120,7 +120,8 @@ class AdditiveAging:
 
     def __init__(self, level_mode: str = "lagged", use_experience: bool = False,
                  selection: str = "none", impute_level: float = 0.0,
-                 impute_returners: bool = False):
+                 impute_returners: bool = False, sample: str = "own",
+                 level_knot: float | None = None):
         """level_mode:
              "lagged"  the player's rate one season before the change begins.
                        The default, and the only one that identifies aging
@@ -131,6 +132,20 @@ class AdditiveAging:
         """
         assert level_mode in ("lagged", "same", "none"), level_mode
         assert selection in ("none", "ipw", "impute"), selection
+        # WHICH ROWS THE FIT USES. "own": whatever rows this formula can use,
+        # which for the lagged level excludes every pair with no season before
+        # the change (their level is missing) and for level_mode "none" keeps
+        # them. So changing the formula also changed the sample -- 7,164 rows
+        # against 9,459 on the 2021 page -- and a comparison of the two
+        # formulas was a comparison of two samples too (star residual review,
+        # 2026-09-24). "lagged": the rows the lagged-level fit uses, whatever
+        # the formula, so a formula comparison holds rows and weights fixed.
+        assert sample in ("own", "lagged"), sample
+        self.sample = sample
+        # A SECOND LEVEL SLOPE above this lagged rate per 82 (a hinge), so the
+        # level effect on decline can differ for the best players. None: one
+        # straight level slope, the recorded curve.
+        self.level_knot = None if level_knot is None else float(level_knot)
         self.selection = selection
         self.retention_ = None
         self.n_imputed_ = 0
@@ -163,6 +178,9 @@ class AdditiveAging:
             # level, and level interacted with age: the "more to lose" effect
             # is not constant across a career, it bites hardest on the decline.
             cols += [lv, lv * a]
+            if self.level_knot is not None:
+                hi = np.clip(lv - self.level_knot, 0, None)
+                cols += [hi, hi * a]
         if self.use_experience:
             cols.append(np.asarray(exp, dtype=float))
         return np.column_stack(cols)
@@ -191,8 +209,12 @@ class AdditiveAging:
 
         # The lagged level: the same player's rate one season before the change
         # begins. Independent noise, which is the whole point -- see the
-        # docstring. Rows without one keep a missing level and are fitted on
-        # age and position alone rather than dropped.
+        # docstring. CORRECTED 2026-09-24: this comment used to say rows without
+        # a lagged level "are fitted on age and position alone rather than
+        # dropped". They are not: their level is missing, and the finite-value
+        # filter below drops them from the fit. The walk still answers such a
+        # player (on the level he has). `sample` decides whether a formula
+        # without a level term keeps them or fits on the same rows.
         lag = s[["career_key", "syr", level_col]].rename(columns={level_col: "_lvl"})
         lag["syr"] = lag["syr"] + 1
         p = p.merge(lag, on=["career_key", "syr"], how="left")
@@ -249,6 +271,24 @@ class AdditiveAging:
             w = w * inv
 
         ok = np.isfinite(y) & np.isfinite(X).all(axis=1) & np.isfinite(w)
+        # The rows a lagged-level fit can use: observed pairs and imputed
+        # departures that HAVE a season before the change.
+        has_lag = p["_lvl"].notna().to_numpy()
+        if self.selection == "impute" and getattr(self, "n_imputed_", 0):
+            has_lag = np.concatenate([has_lag, miss["_lvl"].notna().to_numpy()])
+        if self.sample == "lagged":
+            ok = ok & has_lag
+        # THE FINGERPRINT OF WHAT WAS FITTED: every row by player, season and
+        # whether it was observed or imputed, with its weight. Two fits that
+        # claim to differ only in formula must carry the same one (check 46).
+        ids = (p["career_key"].astype(str) + "|" + p["syr"].astype(str) + "|o").tolist()
+        if self.selection == "impute" and getattr(self, "n_imputed_", 0):
+            ids += (miss["career_key"].astype(str) + "|" + miss["syr"].astype(str) + "|m").tolist()
+        ids = np.asarray(ids)
+        used = sorted(zip(ids[ok].tolist(), np.round(w[ok], 9).tolist()))
+        import hashlib
+        self.n_fit_ = int(ok.sum())
+        self.fit_key_ = hashlib.sha1(repr(used).encode()).hexdigest()
         Xw = X[ok] * np.sqrt(w[ok])[:, None]
         yw = y[ok] * np.sqrt(w[ok])
         try:

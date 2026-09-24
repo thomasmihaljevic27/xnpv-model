@@ -13,7 +13,25 @@ WHAT THE RESIDUAL IS, LOCATED BEFORE THIS RUN
     same too-steep walk, smaller. The earlier hinge terms acted on the
     valuation-season fit, where the stars' rate was already about right.
 
-THE CANDIDATES, EACH ONE CHANGE FROM THE ADOPTED LEADER
+v1.1 (2026-09-24, after review): the v1.0 "no_level_aging" candidate was NOT
+one change -- dropping the level terms also admitted the pairs with no season
+before the change, which the lagged-level fit drops (7,164 rows against 9,459
+on the 2021 page). v1.1 scores the matched version (same rows and weights,
+check 46) and the next aging candidate, a second level slope above 2.0 wins
+per 82. The v1.0 candidates survivor_aging and reduced_form are recorded in
+Star_Residual.md and not rerun; the unmatched no_level_aging is kept as the
+reference the matched one is compared against.
+
+THE v1.1 CANDIDATES
+    no_level_aging    as v1.0 (formula AND sample changed; reference only)
+    no_level_matched  the aging curve without level terms, on the adopted
+                      curve's rows and weights
+    level_hinge       the adopted curve's level terms plus a second slope (and
+                      its age interaction) above a lagged 2.0 wins per 82; knot
+                      declared, not searched; same rows and weights
+    The sensitivity dollar line is level_hinge's (declared).
+
+THE v1.0 CANDIDATES
     survivor_aging  the aging curve fitted on survivors, without the
                     replacement-level imputation of departing players' seasons
                     (the forecast rate is conditional on playing, and departure
@@ -51,17 +69,17 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 import forecast_harness as H
 from player_season_table import build as build_table, birthdate_source
-from ability_forecast import (A1StatusSurvivorAging, A1StatusNoLevelAging,
-                              A1StatusReducedForm)
+from ability_forecast import (A1StatusNoLevelAging, A1StatusNoLevelAgingMatched,
+                              A1StatusAgingLevelHinge)
 from run_npv_simulation import LEADER
 import run_skater_contract_test as RSC
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 
 VARIANTS = {"adopted": LEADER,
-            "survivor_aging": A1StatusSurvivorAging,
             "no_level_aging": A1StatusNoLevelAging,
-            "reduced_form": A1StatusReducedForm}
+            "no_level_matched": A1StatusNoLevelAgingMatched,
+            "level_hinge": A1StatusAgingLevelHinge}
 REF = "adopted"
 PAIRS = tuple((REF, k) for k in VARIANTS if k != REF)
 STAR = "3+"
@@ -138,10 +156,10 @@ def main() -> None:
     C.log("")
     RSC.season_scores(runs, ref=REF, pairs=PAIRS)
     residual(runs)
-    RSC.dollars(table, variants=VARIANTS, ref=REF, line_tags=("adopted", "reduced_form"))
+    RSC.dollars(table, variants=VARIANTS, ref=REF, line_tags=("adopted", "level_hinge"))
     out = pd.concat([d.assign(variant=k) for k, d in runs.items()], ignore_index=True)
-    out.to_csv(C.out_path("star_residual.csv"), index=False)
-    C.write_log("star_residual_run_log.txt")
+    out.to_csv(C.out_path("star_residual_v11.csv"), index=False)
+    C.write_log("star_residual_v11_run_log.txt")
 
 
 if __name__ == "__main__":

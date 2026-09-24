@@ -39,7 +39,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 import information_set as ISET
 
-SCRIPT_VERSION = "2.2"
+SCRIPT_VERSION = "2.3"
 
 W_T1, W_T2 = 0.6, 0.4    # the locked recency weighting, reproduced for A0
 
@@ -1282,10 +1282,17 @@ from aging_additive import AdditiveAging  # noqa: E402
 class _AgingMixin:
     """Walk the valuation-season rate forward on the fitted aging curve."""
     AGING_LEVEL_MODE = "lagged"
+    # Which rows the curve is fitted on ("own" or "lagged") and an optional
+    # second level slope above a lagged rate (see aging_additive). The defaults
+    # are the recorded curve.
+    AGING_SAMPLE = "own"
+    AGING_LEVEL_KNOT = None
 
     def fit(self, table, before):
         super().fit(table, before)
-        self.aging_ = AdditiveAging(level_mode=self.AGING_LEVEL_MODE).fit(table, before)
+        self.aging_ = AdditiveAging(level_mode=self.AGING_LEVEL_MODE,
+                                    sample=self.AGING_SAMPLE,
+                                    level_knot=self.AGING_LEVEL_KNOT).fit(table, before)
         return self
 
     def _walk(self, r, rate0, a, h):
@@ -1569,7 +1576,9 @@ class A1AgingParticipationImputed(A1AgingParticipation):
     def fit(self, table, before):
         super().fit(table, before)
         self.aging_ = AdditiveAging(level_mode=self.AGING_LEVEL_MODE,
-                                    selection=self.AGING_SELECTION).fit(table, before)
+                                    selection=self.AGING_SELECTION,
+                                    sample=self.AGING_SAMPLE,
+                                    level_knot=self.AGING_LEVEL_KNOT).fit(table, before)
         return self
 
 
@@ -1596,7 +1605,9 @@ class A2AgingParticipationImputed(A2AgingParticipation):
     def fit(self, table, before):
         super().fit(table, before)
         self.aging_ = AdditiveAging(level_mode=self.AGING_LEVEL_MODE,
-                                    selection=self.AGING_SELECTION).fit(table, before)
+                                    selection=self.AGING_SELECTION,
+                                    sample=self.AGING_SAMPLE,
+                                    level_knot=self.AGING_LEVEL_KNOT).fit(table, before)
         return self
 
 
@@ -1721,10 +1732,38 @@ class A1StatusSurvivorAging(A1HingeExposureStatus):
 
 class A1StatusNoLevelAging(A1HingeExposureStatus):
     """The adopted leader with the aging curve's level terms removed: age and
-    position alone, so a star is not walked down faster for being a star. One
-    change: `AGING_LEVEL_MODE`."""
+    position alone, so a star is not walked down faster for being a star.
+
+    NOT ONE CHANGE, as first reported: with no level term the fit also keeps
+    the pairs that have no season before the change, which the lagged-level
+    fit drops, so formula and sample changed together. Kept as recorded; the
+    matched comparison is `A1StatusNoLevelAgingMatched`."""
     name = "adopted leader, aging curve without level terms"
     AGING_LEVEL_MODE = "none"
+
+
+class A1StatusNoLevelAgingMatched(A1HingeExposureStatus):
+    """The no-level curve fitted on EXACTLY the rows and weights the adopted
+    curve uses. `A1StatusNoLevelAging` changed two things: dropping the level
+    terms also admitted the pairs with no season before the change, which the
+    lagged-level fit excludes (7,164 rows against 9,459 on the 2021 page). This
+    is the single change it was described as (star residual review,
+    2026-09-24). Check 46 asserts the rows and weights match."""
+    name = "adopted leader, aging curve without level terms, same rows"
+    AGING_LEVEL_MODE = "none"
+    AGING_SAMPLE = "lagged"
+
+
+class A1StatusAgingLevelHinge(A1HingeExposureStatus):
+    """The next aging candidate: keep the level terms, and let the level
+    effect on decline take a SECOND slope above a lagged rate of 2.0 wins per
+    82 (and its interaction with age). One level slope was doing two jobs --
+    removing it fixed the stars and broke the lowest tiers -- so this lets the
+    top of the distribution have its own. The knot is declared before the run
+    and not searched. Same rows and weights as the adopted curve by
+    construction (the lagged level); check 46 asserts it."""
+    name = "adopted leader, aging level effect with a second slope above 2 wins"
+    AGING_LEVEL_KNOT = 2.0
 
 
 class A1StatusReducedForm(A1HingeExposureStatus):

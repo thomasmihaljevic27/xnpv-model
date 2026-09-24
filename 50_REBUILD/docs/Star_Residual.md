@@ -1,5 +1,7 @@
 # The star residual: located in the aging walk, not yet repaired
 
+**Update in progress (v1.1):** the matched no-level comparison and the next aging candidate are being scored; see the correction under "Three changes, scored".
+
 Run 2026-09-24 in `50_REBUILD/` (`run_star_residual.py` v1.0; `ability_forecast.py` v2.2).
 Development pages and development start years only. **Nothing adopted.**
 
@@ -30,16 +32,24 @@ seasons later are a selected group. The season WAR column counts every forecast,
 and shows the same growing miss, so selection does not explain it away. It could still inflate the
 rate column's size.
 
-## Three single changes, scored
+## Three changes, scored
 
-Each is the adopted leader with one thing changed; participation, games share and the
+**Correction (after review): only two of the three were single changes.** Removing the aging
+curve's level terms also changed the curve's training sample. The lagged-level fit drops every pair
+with no season before the change (its level is missing), and the no-level fit kept them: 7,164 rows
+against 9,459 on the 2021 page. So the "no level terms" row below changed the formula and the
+sample together. The matched comparison, same rows and weights, is in the next section. (The code
+comment that said such rows were "fitted on age and position alone rather than dropped" was wrong
+and is corrected.)
+
+Each is the adopted leader with the stated change; participation, games share and the
 valuation-season rate are identical (Brier and first-season participation are unchanged to four
 decimals in every version, which checks that).
 
 | version | what changes |
 |---|---|
 | survivors-only curve | the aging curve fitted without the replacement-level seasons imputed for departing players. The forecast rate is conditional on playing, and leaving the league is priced by the participation model, so the imputed curve may count an exit twice. |
-| no level terms | the aging curve on age and position alone, so a star is not walked down faster for being a star |
+| no level terms | the aging curve on age and position alone, so a star is not walked down faster for being a star; **also admits 2,295 more training rows (2021 page)** |
 | per-season regression | the rate at each horizon from that horizon's own regression on the anchor (fitted on seasons played), instead of walking the valuation-season rate forward |
 
 The scores were declared in the runner before it ran. Shares are exact counts of 2,000
@@ -96,7 +106,8 @@ Nothing separates in dollars either, and the direction flips between the two lin
 ## What this says
 
 - **The star residual is the aging walk, and mostly its level terms.** Removing the level terms
-  takes the stars' five-season rate miss from −0.92 to −0.26 and their season WAR bias from −0.55
+  (with the sample change; see the matched comparison) takes the stars' five-season rate miss from
+  −0.92 to −0.26 and their season WAR bias from −0.55
   to −0.30, with the tier's squared error lower in 1,975 of 2,000 resamples. Fitting the curve on
   survivors helps a little (−0.83); the per-season regression does not help stars.
 - **The level terms are also what keeps the lower tiers right.** Without them the two lowest tiers
