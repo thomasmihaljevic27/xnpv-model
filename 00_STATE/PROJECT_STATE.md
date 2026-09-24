@@ -1,5 +1,22 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**Contract-status adoption review closed, 2026-09-23:** verified `5864cb7`.
+45/45 checks pass; deliberate stale-leader and missing-date reversions are caught.
+Fresh simulation, six-forecast comparison, integration, and production
+reconciliation complete: adopted point surplus matches exactly on 1,217 contracts.
+The complete leakage diagnostic passes and reports 4,764/41,496 unanswered
+subject-horizons when last season is removed. Carry-forward sensitivity loses:
+119/2,000 primary dollar wins, 124/2,000 on previous currency, 2/2,000 season-WAR
+wins. Cliffs decline 34 to 15; clipped terms remain 18. Retain the provisional
+status-only baseline and proceed to star forecast residual work. Reporting
+qualifications: 28 upward group moves and one downward; clipping averages are
+among affected terms. The carried method extends the whole last supported fit,
+so its loss does not reject all possible status-effect extensions. Matched
+simulation-distribution scoring remains open; Phase 5 is not complete.
+See `50_REBUILD/docs/Status_Adoption_Closure_Codex.md`. No candidate merge or
+implementation/default change was made by this review.
+
+
 **Contract-status adoption review remains open, 2026-09-23:** candidate `7fee59b`.
 43/43 checks and the new simulation/point dating guard pass; mean simulated
 surplus $0.43M on 1,217 contracts reproduces. Fresh integration fails: the
