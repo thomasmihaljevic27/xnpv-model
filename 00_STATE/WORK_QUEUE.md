@@ -12,6 +12,18 @@ zero skipped or failed. Prior status-adoption closure stands; its three reportin
 corrections are applied. No candidate merge or default change. Phase 5 remains
 open. Review: `50_REBUILD/docs/Star_Residual_Review_Codex.md`.
 
+**Star residual review applied, 2026-09-24c.** The no-level aging candidate changed the curve's
+sample too (7,164 rows against 9,459 on the 2021 page); the lagged-level fit drops pairs without a
+prior season, and a code comment wrongly said they were kept. Now: an aging fit fingerprints its rows
+and weights; `sample="lagged"` holds them fixed; check 46 (mutation-tested). Suite **46/46**. The
+matched no-level curve reproduces the review (stars −0.328, lowest tier −0.351, RMSE 0.8133):
+pooled 1610/2000, dollars 1531/2000 and 1473/2000, MAE worse; not adopted. The next candidate, a
+second level slope above 2 wins, does nothing for stars (−0.925) and is worse (263/2000; dollars
+180/2000). Diagnostic: the curve fits single-season changes by prior-season rate (3+: −0.23 observed,
+−0.27 fitted); the forecast applies it to a shrunk multi-season rating, so stars may be pulled back
+twice. Next candidate: the curve's level measured on a multi-season rate. See
+`50_REBUILD/docs/Star_Residual.md`.
+
 **Star residual located, not repaired, 2026-09-24.** On the adopted leader the three-win-and-up
 tier's rate is right at the valuation season (−0.03 per 82) and walked down too fast after it (−0.92
 five seasons out; stars who played lost ~0.09 a season, the forecast ~0.27). Three single changes
@@ -426,7 +438,8 @@ valuations now read contract state at the signing (check 42).
 
 **Next toward closing the repair:**
 1. the star forecast residual [LOCATED 2026-09-24: the aging walk's level terms; three single changes
-   scored, none adopted; next, a level effect that differs by tier, scored the same way];
+   scored, none adopted; a second level slope (v1.1) did nothing; next, the aging curve's level
+   measured on a multi-season rate, on the same rows];
 2. Phase 5 acceptance (dollar scoring on development pages; contract-by-contract reconciliation
    against production);
 3. Phase 6.

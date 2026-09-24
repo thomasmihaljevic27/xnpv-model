@@ -1,8 +1,8 @@
 # The star residual: located in the aging walk, not yet repaired
 
-**Update in progress (v1.1):** the matched no-level comparison and the next aging candidate are being scored; see the correction under "Three changes, scored".
+**Updated 2026-09-24 (v1.1):** the no-level result below changed the curve's sample as well as its formula. The matched comparison and the next aging candidate are in "The matched comparison, and a second level slope".
 
-Run 2026-09-24 in `50_REBUILD/` (`run_star_residual.py` v1.0; `ability_forecast.py` v2.2).
+Run 2026-09-24 in `50_REBUILD/` (`run_star_residual.py` v1.0 and v1.1; `ability_forecast.py` v2.3; `aging_additive.py` v1.1).
 Development pages and development start years only. **Nothing adopted.**
 
 ## Where the miss is
@@ -111,17 +111,57 @@ Nothing separates in dollars either, and the direction flips between the two lin
   to −0.30, with the tier's squared error lower in 1,975 of 2,000 resamples. Fitting the curve on
   survivors helps a little (−0.83); the per-season regression does not help stars.
 - **The level terms are also what keeps the lower tiers right.** Without them the two lowest tiers
-  are walked down too fast (below replacement −0.07 to −0.36). The curve's single level slope is
-  doing two jobs, and one slope cannot do both.
+  are walked down too fast (below replacement −0.07 to −0.36). The reading that one slope was doing
+  two jobs was tested in v1.1 (a second slope above 2 wins) and did not hold: see below.
 - **No candidate improves the declared primary scores.** Pooled season WAR squared error and
   contract dollars do not separate from the adopted leader, and absolute error is worse for all
   three. By the rule declared before the run, none is adopted, and no combination is scored
   (neither single improves a primary score).
 - **For the thesis the star tier is where the money is**, so a repair that fixes it without
-  breaking the lower tiers is worth designing. The obvious shape is a level effect that is not a
-  single straight line: allowed to differ above and below some level, or estimated on a
-  multi-season level rather than one season's rate. That is a new candidate and would be scored
-  the same way; it is not built here.
+  breaking the lower tiers is worth designing. The first shape tried (a second slope above 2 wins,
+  v1.1) did nothing; the next follows from the diagnostic below.
+
+## The matched comparison, and a second level slope (v1.1)
+
+`run_star_residual.py` v1.1. Two new versions, each fitted on the adopted curve's rows and weights
+(check 46 asserts the fingerprint): the curve without level terms, matched; and the adopted curve
+with a second level slope (and its age interaction) above a lagged 2.0 wins per 82, the knot
+declared before the run and not searched.
+
+| version | pooled WAR RMSE | lower than adopted | WAR MAE | stars' five-season rate miss | lowest tier's | star tier error lower than adopted | dollars, adopted line | dollars, hinge line |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| adopted | 0.8151 | — | 0.4565 | −0.921 | −0.068 | — | — | — |
+| no level terms, unmatched (v1.0) | 0.8147 | 1130/2000 | 0.4619 | −0.261 | −0.364 | 1975/2000 | 1183/2000 | 1118/2000 |
+| no level terms, same rows | 0.8133 | 1610/2000 | 0.4628 | −0.328 | −0.351 | 1993/2000 | 1531/2000 | 1473/2000 |
+| second level slope above 2 | 0.8154 | 263/2000 | 0.4562 | −0.925 | −0.065 | 1962/2000 | 180/2000 | 203/2000 |
+
+(The lowest tier is the below-replacement trailing tier. The hinge row's star-tier share is on a
+0.004 RMSE difference.)
+
+- **The finding survives the matched comparison.** On the same rows, dropping the level terms still
+  takes most of the stars' miss away (−0.92 to −0.33) and still walks the lowest tier down too fast
+  (−0.07 to −0.35). The sample change accounted for part of the star gain (−0.26 unmatched).
+- **It is still not an improvement on the declared primary scores.** Pooled squared error is lower in
+  1,610 of 2,000 resamples, dollars in 1,531 (adopted line) and 1,473 (hinge line); absolute error is
+  worse. Not adopted.
+- **A second level slope above 2 wins does nothing for stars** (−0.925) and is worse overall (263 of
+  2,000; dollars 180 and 203). One slope doing two jobs is not the explanation. Not adopted.
+
+**Why the curve and the forecast disagree (diagnostic, 2021 page).** On its own training pairs the
+curve matches what happened: grouped by the previous season's rate, players at 3+ lost 0.23 per 82
+the next season against 0.27 fitted (the fit is steeper by design, since it includes the imputed
+departures). Grouped by the rate the change starts from, the same pairs show the full regression to
+the mean (−1.15 for a 3+ starting season), which the lagged level exists to keep out.
+
+So the curve describes single-season numbers faithfully, and the forecast applies it to something
+different: a multi-season, shrunk rating, where a star's 3.24 is mostly ability. A level slope
+measured against one noisy season still carries the fading of the part of a good season that
+persists for a year or two (role, linemates, luck that lasts), which the shrunk rating has already
+removed. Applied to that rating, the curve pulls stars back a second time. This is a hypothesis
+consistent with the numbers, not a measurement of it.
+
+**The next candidate that follows from it:** fit the curve's level on the same kind of level the
+forecast carries, a multi-season weighted rate ending the season before the change, on the same rows.
 
 ## What is not settled
 

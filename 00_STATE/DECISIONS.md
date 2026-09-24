@@ -1674,3 +1674,12 @@ claim that missing-lag rows receive an age-only fit. Full suite: 45 passed,
 zero skipped or failed. Prior status-adoption closure stands; its three reporting
 corrections are applied. No candidate merge or default change. Phase 5 remains
 open. Review: `50_REBUILD/docs/Star_Residual_Review_Codex.md`.
+
+### Change log, 2026-09-24c (star residual review applied)
+
+Review `e7a4979` merged. `aging_additive.py` v1.1: `sample` option, optional level knot, fit
+fingerprint; the comment about unlagged pairs corrected. `ability_forecast.py` v2.3:
+`A1StatusNoLevelAgingMatched`, `A1StatusAgingLevelHinge`; the unmatched no-level class's docstring
+corrected. `repair_checks.py` v3.4: check 46; suite 46/46. `run_star_residual.py` v1.1. Withdrawn:
+"one change" for the unmatched no-level candidate. Neither new candidate adopted. CLAUDE.md: rule on
+formula changes that change the sample.
