@@ -739,3 +739,19 @@ No new forecast experiment is requested. Close the Player Model candidate after
 these repairs and verification; adoption for the thesis remains a later decision
 when separate Picks and Prospects Model work resumes. See
 `50_REBUILD/docs/Player_Acceptance_Review_Codex.md`.
+
+### Change log, 2026-09-24 (Player candidate acceptance closure)
+
+**Player candidate acceptance closed, 2026-09-24:** independent review of
+`7b046a3` closes both scoring repairs. Full suite 48/48; all ten identity-field
+mutations rejected; precision mutation rejected. Both rebuilt point values,
+simulated means and realised targets are exactly unchanged on 1,176 ended
+contracts. Corrected calibration reproduces. The Player Model candidate closes
+at Phase 5 with recorded limitations; adoption/drop remains deferred until
+separate Picks and Prospects work resumes. No candidate merge or production
+change. The new scorecard needs reporting corrections: 4,632 of 40,510 season
+rows are adapter fallbacks, not production forecasts; on 35,878 answerable rows
+A still beats production (RMSE .8640 vs .9129, 2,000/2,000 resamples). Later
+pages were previously inspected, not historically sealed; pooled calibration
+does not establish each contract's calibration. No new forecast search is
+requested. See `50_REBUILD/docs/Player_Acceptance_Closure_Review_Codex.md`.

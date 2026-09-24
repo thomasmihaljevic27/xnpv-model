@@ -1,17 +1,18 @@
 # STANDING FLAGS & OPEN QUESTIONS — NHL Trade Market Efficiency
 
-**Player acceptance review, 2026-09-24:** `01e78a9` supplies the remaining
-skater simulation dollar scoring. Suite 47/47; primary error table and all
-comparison counts reproduce on 1,176 ended contracts / 767 players. Point
-values match the previously reviewed integration to $1.49e-08. Two bounded
-scoring repairs remain: the shared-target guard must check player and date
-identity before reusing reference inputs; monetary calibration must recognise
-ties at a declared dollar precision (17 contracts affected by floating-point
-comparisons). The corrected calibration retains the qualitative conclusion.
-No new forecast experiment is requested. Close the Player Model candidate after
-these repairs and verification; adoption for the thesis remains a later decision
-when separate Picks and Prospects Model work resumes. See
-`50_REBUILD/docs/Player_Acceptance_Review_Codex.md`.
+**Player candidate acceptance closed, 2026-09-24:** independent review of
+`7b046a3` closes both scoring repairs. Full suite 48/48; all ten identity-field
+mutations rejected; precision mutation rejected. Both rebuilt point values,
+simulated means and realised targets are exactly unchanged on 1,176 ended
+contracts. Corrected calibration reproduces. The Player Model candidate closes
+at Phase 5 with recorded limitations; adoption/drop remains deferred until
+separate Picks and Prospects work resumes. No candidate merge or production
+change. The new scorecard needs reporting corrections: 4,632 of 40,510 season
+rows are adapter fallbacks, not production forecasts; on 35,878 answerable rows
+A still beats production (RMSE .8640 vs .9129, 2,000/2,000 resamples). Later
+pages were previously inspected, not historically sealed; pooled calibration
+does not establish each contract's calibration. No new forecast search is
+requested. See `50_REBUILD/docs/Player_Acceptance_Closure_Review_Codex.md`.
 
 **Recency review closed, 2026-09-24:** independently reproduced `293f4d6`:
 46/46 suite, 40,510 forecasts, 1,217 valued contracts, 1,176 ended terms.
