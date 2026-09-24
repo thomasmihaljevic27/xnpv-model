@@ -1791,3 +1791,17 @@ Three wins ≈ top 3% per page, inside the top-5% zone where the miss steps up; 
 depends on the cut-off, its direction does not; six of eight verdicts unchanged, no adoption
 decision affected. Report: `50_REBUILD/docs/Star_Definition.md`. Proposed (pending Thomas): keep three
 wins and report the top 5% and top 2% beside it.
+
+### Change log, 2026-09-24 (recency review closure)
+
+**Recency review closed, 2026-09-24:** independently reproduced `293f4d6`:
+46/46 suite, 40,510 forecasts, 1,217 valued contracts, 1,176 ended terms.
+Wins: 69/2000 overall, 463/2000 stars, 155/2000 main dollars, 116/2000
+sensitivity dollars. Keep adopted; close the current star-residual search as a
+measured limitation. Correct season WAR bias at h1 to -0.419 (-0.170 is h0);
+h3 -0.643 and h5 -0.866. This is a group forecast bias, not a measured dollar
+undervaluation of each star contract. All seven pages preserve regression rows,
+targets, and design; exact weights, future invariance, all-ones identity, and
+half-life mutation checked. Proceed to matched simulation comparison,
+development dollar scoring, and production reconciliation. Phase 5 remains open.
+See `50_REBUILD/docs/Star_Recency_Review_Codex.md`.

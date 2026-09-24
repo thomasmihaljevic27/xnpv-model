@@ -1,5 +1,17 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**Recency review closed, 2026-09-24:** independently reproduced `293f4d6`:
+46/46 suite, 40,510 forecasts, 1,217 valued contracts, 1,176 ended terms.
+Wins: 69/2000 overall, 463/2000 stars, 155/2000 main dollars, 116/2000
+sensitivity dollars. Keep adopted; close the current star-residual search as a
+measured limitation. Correct season WAR bias at h1 to -0.419 (-0.170 is h0);
+h3 -0.643 and h5 -0.866. This is a group forecast bias, not a measured dollar
+undervaluation of each star contract. All seven pages preserve regression rows,
+targets, and design; exact weights, future invariance, all-ones identity, and
+half-life mutation checked. Proceed to matched simulation comparison,
+development dollar scoring, and production reconciliation. Phase 5 remains open.
+See `50_REBUILD/docs/Star_Recency_Review_Codex.md`.
+
 **Sustained-quality candidate reviewed, 2026-09-24:** `f83240a` reproduces;
 46/46 suite plus independent lag/fallback/date/sample checks pass. Adopted
 forecasts unchanged on 40,510 rows. Sustained candidate wins 0/2000 pooled
