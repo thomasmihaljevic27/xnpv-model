@@ -39,7 +39,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 import information_set as ISET
 
-SCRIPT_VERSION = "2.3"
+SCRIPT_VERSION = "2.4"
 
 W_T1, W_T2 = 0.6, 0.4    # the locked recency weighting, reproduced for A0
 
@@ -1764,6 +1764,27 @@ class A1StatusAgingLevelHinge(A1HingeExposureStatus):
     construction (the lagged level); check 46 asserts it."""
     name = "adopted leader, aging level effect with a second slope above 2 wins"
     AGING_LEVEL_KNOT = 2.0
+
+
+class A1StatusAgingMultiLevel(A1HingeExposureStatus):
+    """The aging curve's level measured on a multi-season rate (t-1, t-2, t-3,
+    weights 1 / 0.667 / 0.444, renormalised) instead of the single season
+    t-1, on exactly the lagged fit's rows and weights (check 46).
+
+    Why: on its training pairs the one-season curve matches what happened
+    (3+ players at t-1: -0.23 observed, -0.27 fitted), but the forecast applies
+    it to a multi-season rating that has already discounted temporary form. A
+    level slope measured on one season may still carry the fading of a good
+    season's persistent part, and pull a star back twice. A hypothesis; this
+    candidate tests it.
+
+    Season alignment, declared: the training level ends the season BEFORE the
+    change starts; the walk supplies the projected level of the season the
+    change starts from, as it does for the adopted (one-season lagged) curve.
+    A projected level is not a weighted rate of past seasons, so the two are
+    not the same quantity; this is the construction scored."""
+    name = "adopted leader, aging level on a multi-season rate"
+    AGING_LEVEL_MODE = "multi"
 
 
 class A1StatusReducedForm(A1HingeExposureStatus):

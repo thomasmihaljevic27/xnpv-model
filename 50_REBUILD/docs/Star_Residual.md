@@ -111,8 +111,8 @@ Nothing separates in dollars either, and the direction flips between the two lin
   to −0.30, with the tier's squared error lower in 1,975 of 2,000 resamples. Fitting the curve on
   survivors helps a little (−0.83); the per-season regression does not help stars.
 - **The level terms are also what keeps the lower tiers right.** Without them the two lowest tiers
-  are walked down too fast (below replacement −0.07 to −0.36). The reading that one slope was doing
-  two jobs was tested in v1.1 (a second slope above 2 wins) and did not hold: see below.
+  are walked down too fast (below replacement −0.07 to −0.36). One version of the reading that one
+  slope was doing two jobs (a second slope above 2 wins, v1.1) did not help: see below.
 - **No candidate improves the declared primary scores.** Pooled season WAR squared error and
   contract dollars do not separate from the adopted leader, and absolute error is worse for all
   three. By the rule declared before the run, none is adopted, and no combination is scored
@@ -144,8 +144,11 @@ declared before the run and not searched.
 - **It is still not an improvement on the declared primary scores.** Pooled squared error is lower in
   1,610 of 2,000 resamples, dollars in 1,531 (adopted line) and 1,473 (hinge line); absolute error is
   worse. Not adopted.
-- **A second level slope above 2 wins does nothing for stars** (−0.925) and is worse overall (263 of
-  2,000; dollars 180 and 203). One slope doing two jobs is not the explanation. Not adopted.
+- **A second level slope above 2 wins barely moves the stars' five-season miss** (−0.925 against
+  −0.921) and is worse overall (263 of 2,000; dollars 180 and 203). It slightly improves the stars'
+  pooled season error (1.8591 to 1.8547, lower in 1,962 of 2,000), which is not a repair of the
+  long-horizon bias. Not adopted. This rejects that construction, a hinge at 2 wins; it does not
+  show that no level effect differing by tier could explain the miss.
 
 **Why the curve and the forecast disagree (diagnostic, 2021 page).** On its own training pairs the
 curve matches what happened: grouped by the previous season's rate, players at 3+ lost 0.23 per 82
@@ -175,7 +178,14 @@ forecast carries, a multi-season weighted rate ending the season before the chan
 
 ## Files
 
-- `50_REBUILD/code/ability_forecast.py` v2.2: `A1StatusSurvivorAging`, `A1StatusNoLevelAging`,
-  `A1StatusReducedForm` (each one change from the adopted leader; none adopted)
-- `50_REBUILD/code/run_star_residual.py` v1.0
-- output (ignored): `star_residual_run_log.txt`, `star_residual.csv`
+- `50_REBUILD/code/ability_forecast.py` v2.4: `A1StatusSurvivorAging`, `A1StatusReducedForm` (one
+  change each); `A1StatusNoLevelAging` (formula and sample changed together; reference only);
+  `A1StatusNoLevelAgingMatched`, `A1StatusAgingLevelHinge`, `A1StatusAgingMultiLevel` (one change
+  each, rows and weights asserted identical by check 46). None adopted.
+- `50_REBUILD/code/aging_additive.py` v1.2: the `sample` option, the level knot, the multi-season
+  level, the fit fingerprint
+- `50_REBUILD/code/run_star_residual.py` v1.0, v1.1, v1.2 (the candidates scored in each are listed
+  in its docstring)
+- `50_REBUILD/code/repair_checks.py` v3.5: check 46
+- output (ignored): `star_residual_run_log.txt` / `.csv` (v1.0), `star_residual_v11_*` (v1.1),
+  `star_residual_v12_*` (v1.2)

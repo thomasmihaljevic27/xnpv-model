@@ -50,12 +50,16 @@ THE LEVEL TERM, AND THE TRAP IN IT (measured, not theorised)
     0.8 wins a year, which is not a finding about hockey.
 
     THE FIX IS THE LAGGED LEVEL. The regressor is the player's rate in season
-    t-1, whose noise is independent of the t-to-t+1 change by construction, so
-    the coefficient measures the real effect and not the arithmetic. What
-    survives is small and plausible. The cost is the seasons that have no
-    t-1 to look back at (2,080 of 10,937 pairs), which fall back to the
-    age-and-position curve rather than being dropped -- dropping them would
-    select against players early in a career, which is its own bias.
+    t-1, so the change's own starting season no longer sits on both sides of
+    the regression, which removes the arithmetic. It does NOT make the
+    regressor's noise independent of the change: a good season can carry part
+    of its luck, role or linemates into the next one, and whatever persists
+    from t-1 into t still reverts from t to t+1 and is still read as aging
+    (corrected 2026-09-24; that persistence is the hypothesis the
+    multi-season level tests). Pairs with no t-1 have a missing level and are
+    DROPPED from the fit -- not fitted on age and position alone, as this
+    docstring used to say (corrected 2026-09-24). With `sample="lagged"` a
+    formula without a level term is fitted on the same rows.
 
 THE SURVIVORSHIP CORRECTION (level_mode aside, the other switch here)
     A year-over-year change can only be measured on a player who played both
@@ -98,7 +102,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 
-SCRIPT_VERSION = "1.1"
+SCRIPT_VERSION = "1.2"
 
 # Ages outside this band have too few seasons to fit a shape on; a player
 # beyond it takes the step at the nearest edge. Without the clamp the cubic
@@ -129,8 +133,18 @@ class AdditiveAging:
              "same"    the rate the change starts from. Kept ONLY as the
                        diagnostic that demonstrates the bias; never ship it.
              "none"    age and position alone.
+             "multi"   a weighted rate over the three seasons BEFORE the
+                       change starts (t-1, t-2, t-3; weight 0.667 per season
+                       further back, renormalised over the seasons played),
+                       REQUIRING t-1, so the rows are exactly the lagged fit's.
+                       The forecast walks a multi-season, shrunk rating; a
+                       level slope measured on one season still carries the
+                       fading of a good season's persistent part, and applied
+                       to that rating may pull a star back twice (2026-09-24,
+                       a hypothesis this mode tests). Still dated before the
+                       change being predicted.
         """
-        assert level_mode in ("lagged", "same", "none"), level_mode
+        assert level_mode in ("lagged", "multi", "same", "none"), level_mode
         assert selection in ("none", "ipw", "impute"), selection
         # WHICH ROWS THE FIT USES. "own": whatever rows this formula can use,
         # which for the lagged level excludes every pair with no season before
@@ -218,7 +232,9 @@ class AdditiveAging:
         lag = s[["career_key", "syr", level_col]].rename(columns={level_col: "_lvl"})
         lag["syr"] = lag["syr"] + 1
         p = p.merge(lag, on=["career_key", "syr"], how="left")
-        lvl = p["_lvl"] if self.level_mode == "lagged" else p[level_col]
+        if self.level_mode == "multi":
+            p["_mlvl"] = self._multi_level(s, p, level_col)
+        lvl = {"lagged": p["_lvl"], "multi": p.get("_mlvl")}.get(self.level_mode, p[level_col])
 
         self.n_pairs_ = len(p)
         if len(p) < MIN_PAIRS:
@@ -244,7 +260,10 @@ class AdditiveAging:
             # decline rather than a point estimate of it.
             miss = self._missing_next(s, before, level_col)
             if len(miss):
-                lvl_m = miss["_lvl"] if self.level_mode == "lagged" else miss[level_col]
+                if self.level_mode == "multi":
+                    miss["_mlvl"] = self._multi_level(s, miss, level_col)
+                lvl_m = {"lagged": miss["_lvl"], "multi": miss.get("_mlvl")}.get(
+                    self.level_mode, miss[level_col])
                 y = np.concatenate([y, (miss["_impute_at"] - miss[level_col]).to_numpy(float)])
                 X = np.vstack([X, self._design(miss["age"], lvl_m,
                                                (miss["pos"] == "D"),
@@ -296,6 +315,32 @@ class AdditiveAging:
         except np.linalg.LinAlgError:
             self.coef_ = None
         return self
+
+    MULTI_DECAY = 0.667      # weight per season further back: the locked 60/40 ratio
+    MULTI_SEASONS = 3
+
+    def _multi_level(self, s: pd.DataFrame, frame: pd.DataFrame, level_col: str) -> pd.Series:
+        """Weighted rate over the seasons before `frame`'s season t: t-1, t-2,
+        t-3, weights 1, 0.667, 0.444, renormalised over the qualifying seasons
+        the player has. MISSING whenever t-1 is missing, so a fit on this level
+        uses exactly the rows the one-season lagged level does. Keyed on
+        (career_key, syr) of `frame`, returned aligned with its index."""
+        key = frame[["career_key", "syr"]].copy()
+        num = np.zeros(len(key))
+        den = np.zeros(len(key))
+        have_t1 = np.zeros(len(key), dtype=bool)
+        for L in range(1, self.MULTI_SEASONS + 1):
+            lagL = s[["career_key", "syr", level_col]].rename(columns={level_col: "_v"})
+            lagL = lagL.assign(syr=lagL["syr"] + L)
+            v = key.merge(lagL, on=["career_key", "syr"], how="left")["_v"].to_numpy(float)
+            ok = np.isfinite(v)
+            wL = self.MULTI_DECAY ** (L - 1)
+            num += np.where(ok, v * wL, 0.0)
+            den += np.where(ok, wL, 0.0)
+            if L == 1:
+                have_t1 = ok
+        out = np.where(have_t1 & (den > 0), num / np.where(den > 0, den, 1.0), np.nan)
+        return pd.Series(out, index=frame.index)
 
     def _missing_next(self, s: pd.DataFrame, before: int, level_col: str) -> pd.DataFrame:
         """Player-seasons that qualified but had no qualifying season after.

@@ -9,7 +9,8 @@ WHAT THE RESIDUAL IS, LOCATED BEFORE THIS RUN
     trailing total of three wins or more, the rate per 82 games is right at the
     valuation season (-0.03) and then falls about 0.27 a season along the aging
     walk: 3.24 to 1.90 over five seasons, where the stars who played fell from
-    3.26 to 2.82. Season WAR is 1.06 low five seasons out. Every tier shows the
+    3.26 to 2.82. Season WAR over every forecast is 0.866 low five seasons out
+    (1.06 among seasons played only). Every tier shows the
     same too-steep walk, smaller. The earlier hinge terms acted on the
     valuation-season fit, where the stars' rate was already about right.
 
@@ -21,6 +22,16 @@ check 46) and the next aging candidate, a second level slope above 2.0 wins
 per 82. The v1.0 candidates survivor_aging and reduced_form are recorded in
 Star_Residual.md and not rerun; the unmatched no_level_aging is kept as the
 reference the matched one is compared against.
+
+v1.2 (2026-09-24): the multi-season-level candidate. The aging curve's level
+is a weighted rate over the three seasons before the change (t-1 required, so
+the rows and weights are the lagged fit's; check 46). RECORDED BEFORE THE RUN:
+on the 2021 page the multi-season level makes the curve's level slope STEEPER
+(-0.071 against -0.062 per win; a 3.2-win 27-year-old's yearly step -0.265
+against -0.251), which is the opposite of what the "pulled back twice"
+hypothesis predicts, so the prediction is that it does NOT help stars. The
+matched no-level curve stays as the reference. Sensitivity dollar line:
+multi_level's (declared). Outputs: *_v12.
 
 THE v1.1 CANDIDATES
     no_level_aging    as v1.0 (formula AND sample changed; reference only)
@@ -69,17 +80,15 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 import forecast_harness as H
 from player_season_table import build as build_table, birthdate_source
-from ability_forecast import (A1StatusNoLevelAging, A1StatusNoLevelAgingMatched,
-                              A1StatusAgingLevelHinge)
+from ability_forecast import A1StatusNoLevelAgingMatched, A1StatusAgingMultiLevel
 from run_npv_simulation import LEADER
 import run_skater_contract_test as RSC
 
-SCRIPT_VERSION = "1.1"
+SCRIPT_VERSION = "1.2"
 
 VARIANTS = {"adopted": LEADER,
-            "no_level_aging": A1StatusNoLevelAging,
             "no_level_matched": A1StatusNoLevelAgingMatched,
-            "level_hinge": A1StatusAgingLevelHinge}
+            "multi_level": A1StatusAgingMultiLevel}
 REF = "adopted"
 PAIRS = tuple((REF, k) for k in VARIANTS if k != REF)
 STAR = "3+"
@@ -156,10 +165,10 @@ def main() -> None:
     C.log("")
     RSC.season_scores(runs, ref=REF, pairs=PAIRS)
     residual(runs)
-    RSC.dollars(table, variants=VARIANTS, ref=REF, line_tags=("adopted", "level_hinge"))
+    RSC.dollars(table, variants=VARIANTS, ref=REF, line_tags=("adopted", "multi_level"))
     out = pd.concat([d.assign(variant=k) for k, d in runs.items()], ignore_index=True)
-    out.to_csv(C.out_path("star_residual_v11.csv"), index=False)
-    C.write_log("star_residual_v11_run_log.txt")
+    out.to_csv(C.out_path("star_residual_v12.csv"), index=False)
+    C.write_log("star_residual_v12_run_log.txt")
 
 
 if __name__ == "__main__":

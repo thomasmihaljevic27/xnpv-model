@@ -24,7 +24,7 @@ import forecast_harness as H
 import player_season_table as T
 from ability_forecast import A0Production
 
-SCRIPT_VERSION = "3.4"
+SCRIPT_VERSION = "3.5"
 
 PASS, FAIL, SKIP = "pass", "FAIL", "skip"
 results: list[tuple[str, str, str]] = []
@@ -2186,18 +2186,19 @@ def c46(table):
     import information_set as I
     import run_npv_simulation as RNS
     from ability_forecast import (A1StatusNoLevelAging, A1StatusNoLevelAgingMatched,
-                                  A1StatusAgingLevelHinge)
+                                  A1StatusAgingLevelHinge, A1StatusAgingMultiLevel)
     from aging_additive import AdditiveAging
     page = 2018
     iset = I.build(table, I.decision_date_for_page(page), t0=page)
     fits = {}
     for cls in (RNS.LEADER, A1StatusNoLevelAgingMatched, A1StatusAgingLevelHinge,
-                A1StatusNoLevelAging):
+                A1StatusAgingMultiLevel, A1StatusNoLevelAging):
         m = cls()
         m.fit(iset.seasons, before=page)
         fits[cls.__name__] = m.aging_
     ref = fits[RNS.LEADER.__name__]
-    for k in ("A1StatusNoLevelAgingMatched", "A1StatusAgingLevelHinge"):
+    for k in ("A1StatusNoLevelAgingMatched", "A1StatusAgingLevelHinge",
+              "A1StatusAgingMultiLevel"):
         assert fits[k].fit_key_ == ref.fit_key_ and fits[k].n_fit_ == ref.n_fit_, (
             f"{k} was fitted on different rows or weights from the adopted curve "
             f"({fits[k].n_fit_} against {ref.n_fit_})")
@@ -2206,7 +2207,7 @@ def c46(table):
     # The adopted curve itself: the new options at their defaults change nothing.
     old = AdditiveAging(level_mode="lagged", selection="impute").fit(iset.seasons, page)
     assert np.array_equal(old.coef_, ref.coef_), "the adopted aging curve moved"
-    return (f"2018 page: the matched no-level and hinged-level curves use the adopted curve's "
+    return (f"2018 page: the matched no-level, hinged-level and multi-season-level curves use the adopted curve's "
             f"{ref.n_fit_} rows and weights; the unmatched no-level curve uses {un.n_fit_}")
 
 
