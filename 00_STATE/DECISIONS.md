@@ -1730,3 +1730,19 @@ to "rejects this repair" there and in the state files and session log. New
 `run_star_walk_diagnostic.py` v1.0 (hindsight; frozen page fits; three arms on common rows and
 weights; comparison groups; full cohort). CLAUDE.md: the group-definition example added to the
 read-the-code rule; a rule against two-way diagnostic verdicts. No model changed.
+
+### Change log, 2026-09-24 (star-walk diagnostic review)
+
+**Star-walk diagnostic reviewed, 2026-09-24:** `55f23cb` reproduces. Fresh full
+cohort and independent audit verify every input, weight and arm on 876 rows
+(84 careers; 492 distinct transitions). Observed change -0.112; prior-input curve
+-0.352, current-input -0.328, forecast path -0.279, survivors-only -0.307.
+Career-resampled intervals retain negative step error. Proceed to a declared
+sustained-quality candidate, retaining the adopted baseline. Interpret this as
+excess predicted decline on selected observed transitions: recursion is not
+required for the miss, but selection and all path issues are not ruled out.
+Selection: 983 calendar-observable rows, 894 three played, 883 three >=10-game
+seasons, 876 with age. Historical survivor fitting does not remove future-cohort
+selection. Model/suite unchanged from the previously verified 46/46 checkpoint;
+new diagnostic independently audited, full suite not rerun. No adoption or
+candidate merge; Phase 5 remains open. See `50_REBUILD/docs/Star_Walk_Review_Codex.md`.
