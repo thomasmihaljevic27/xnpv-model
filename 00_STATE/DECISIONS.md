@@ -1815,3 +1815,12 @@ the limitation now says it warrants scrutiny of star-contract valuations without
 dollar under-valuation of each contract. **Decision (Thomas):** three wins kept as a tested,
 reasonable star measuring stick; results recorded in `Star_Definition.md`; no extra reporting
 convention. CLAUDE.md: rule on copying figures with their row labels.
+
+### Change log, 2026-09-24j (Phase 5 acceptance: skater dollar scoring)
+
+New `dollar_scoring.py` (scoring helpers moved unchanged from `run_goalie_control_years.py`, now
+v1.5, which reproduces its recorded run exactly); `run_npv_simulation.py` v2.6 (`point_valuation`
+extracted unchanged); new `run_skater_dollar_scoring.py` v1.0; `repair_checks.py` v3.8 (check 47).
+Adopted leader wins dollar squared error on point and simulated valuations against the previous
+leader, loses simulated absolute error; its simulated distribution passes the pooled calibration
+tests. Report: `50_REBUILD/docs/Skater_Dollar_Scoring.md`. No model changed.

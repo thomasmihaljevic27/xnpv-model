@@ -82,6 +82,19 @@ zero skipped or failed. Prior status-adoption closure stands; its three reportin
 corrections are applied. No candidate merge or default change. Phase 5 remains
 open. Review: `50_REBUILD/docs/Star_Residual_Review_Codex.md`.
 
+**Phase 5 acceptance: skater dollar scoring, 2026-09-24j.** `run_skater_dollar_scoring.py` scores
+each development contract's term, point and simulated (2,000 paths), for the adopted and the previous
+skater leader on ONE line (adopted's primary, previous's sensitivity), realised target asserted
+identical; 1,176 ended terms, 767 players. Adopted wins the declared primary score: point RMSE $3.513M
+vs $3.529M (previous lower in 1/2000), simulated $3.513M vs $3.526M (15/2000); on absolute error the
+previous leader's simulated mean is lower (2000/2000; $1.743M vs $1.758M). The adopted simulated
+distribution passes the pooled calibration tests (PIT 80%/50%/mean/variance and own-draw coverage);
+the previous one is too narrow in the middle (50% band −5.8 points; PIT variance 0.091). Simulated
+mean vs point (adopted): same RMSE, bias −$0.335M vs −$0.549M, MAE higher. Scoring code moved to
+shared `dollar_scoring.py`; goalie runner reproduces exactly on it; check 47. With the identity and
+the reconciliation already current, each Phase 5 acceptance item has a current run on the adopted
+leader; closure is for review. Full suite run pending at this commit. See `50_REBUILD/docs/Skater_Dollar_Scoring.md`.
+
 **What counts as a star, tested, 2026-09-24h.** The inherited 3+ cut-off (60/40 two-season
 trailing total; `forecast_harness.subjects_at`) was tested against eight alternatives declared
 before the run (fixed 2.0–4.0; top 2/5/10% of each page; top 5% by trailing rate) in
