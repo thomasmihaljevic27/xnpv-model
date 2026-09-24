@@ -1,8 +1,8 @@
-# The star residual: located in the aging walk, not yet repaired
+# The star residual: located in the aging walk, retained as a stated limitation
 
 **Updated 2026-09-24 (v1.1):** the no-level result below changed the curve's sample as well as its formula. The matched comparison and the next aging candidate are in "The matched comparison, and a second level slope".
 
-Run 2026-09-24 in `50_REBUILD/` (`run_star_residual.py` v1.0–v1.3; `ability_forecast.py` v2.5; `aging_additive.py` v1.3; diagnostic `run_star_walk_diagnostic.py` v1.0).
+Run 2026-09-24 in `50_REBUILD/` (`run_star_residual.py` v1.0–v1.4; `ability_forecast.py` v2.6; `aging_additive.py` v1.4; diagnostic `run_star_walk_diagnostic.py` v1.0).
 Development pages and development start years only. **Nothing adopted.**
 
 ## Where the miss is
@@ -324,6 +324,50 @@ horizon pattern does not establish that: a longer horizon also changes the playe
 players are still observable. A curve weighted toward the seasons nearest each page tests one version
 of the reading (next section).
 
+## One recency-weighted curve (v1.4), and where this leaves the residual
+
+`run_star_residual.py` v1.4; `A1StatusAgingRecency`. One predeclared sensitivity: the adopted aging
+curve with every training row kept and its weight halved for every five seasons it lies before the
+most recent starting season the page can use. Five is a chosen value, not an estimated optimum, and
+no other value was tried. Rows unchanged, weights changed exactly as declared (check 46); forecast
+formula, participation and primary price line fixed.
+
+**Recorded before the run, and wrong:** on the 2021 page the weighted curve is slightly gentler (a
+3.2-win 27-year-old's step −0.230 against −0.251; at 31, −0.362 against −0.403), and the prediction
+was a small star gain. The stars came out slightly worse. One page's curve did not stand for the
+others.
+
+| version | pooled WAR RMSE | lower than adopted | WAR MAE | stars' five-season rate miss | star tier error lower than adopted | dollars, adopted line | dollars, recency line |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| adopted | 0.8151 | — | 0.4565 | −0.921 | — | — | — |
+| recency, half-life 5 | 0.8156 | 69/2000 | 0.4570 | −0.947 | 463/2000 | 155/2000 | 116/2000 |
+
+Five seasons out the recency curve is slightly better for the below-replacement tier (−0.065 against
+−0.068) and slightly worse for the other four (0 to 1 −0.134 against −0.129; 1 to 2 −0.244 against
+−0.227; 2 to 3 −0.308 against −0.290; 3+ −0.947 against −0.921). Participation is unchanged by
+construction. Not adopted. This tests one weighting; it does not show that the age of the training
+seasons plays no part.
+
+**The residual is retained as a stated limitation of the adopted leader.** Eight constructions have
+been scored on one declared currency (survivors-only curve; no level terms, unmatched and matched; a
+per-season regression; a second level slope; a multi-season level; a sustained level; recency
+weighting), the later ones on matched rows. None separates from the adopted leader on the declared
+primary scores: the best, no level terms on matched rows, is lower on pooled squared error in 1,610 of
+2,000 resamples and in dollars in 1,531, with worse absolute error and a broken lower tier. The limitation, as measured on
+the development pages:
+- for the three-win-and-up tier (the harness's 60/40 two-season total, 27 to 32 players a page), the
+  rate per 82 is right at the valuation season (−0.03) and under-forecast by 0.27 one season out,
+  0.63 three out and 0.92 five out among the seasons played; season WAR over every forecast is 0.17,
+  0.64 and 0.87 low;
+- a hindsight diagnostic puts the excess in the aging curve's step for these players, on realised
+  and correctly dated inputs (about −0.35 a season predicted against −0.11 observed; career-resampled
+  excess −0.240, interval −0.347 to −0.130, 84 players), with survivor selection not removed;
+- in dollars, the star tier is where the thesis's surplus claims concentrate, so any result about
+  star contracts carries this bias with it, in the direction of under-valuing the players.
+
+Reopening it needs new evidence pointing at a more specific repair, not another variation on the
+curve's level input.
+
 ## What is not settled
 
 - Why the fitted curve walks stars down so much faster than the stars actually declined. The level
@@ -336,15 +380,15 @@ of the reading (next section).
 
 ## Files
 
-- `50_REBUILD/code/ability_forecast.py` v2.5: `A1StatusSurvivorAging`, `A1StatusReducedForm` (one
+- `50_REBUILD/code/ability_forecast.py` v2.6: `A1StatusSurvivorAging`, `A1StatusReducedForm` (one
   change each); `A1StatusNoLevelAging` (formula and sample changed together; reference only);
   `A1StatusNoLevelAgingMatched`, `A1StatusAgingLevelHinge`, `A1StatusAgingMultiLevel`,
-  `A1StatusAgingSustained` (one change each, rows and weights asserted identical by check 46). None
-  adopted.
-- `50_REBUILD/code/aging_additive.py` v1.3: the `sample` option, the level knot, the multi-season
-  level, the sustained level, the fit fingerprint
-- `50_REBUILD/code/run_star_residual.py` v1.0 to v1.3 (the candidates scored in each are listed in
+  `A1StatusAgingSustained` (one change each, rows and weights asserted identical by check 46);
+  `A1StatusAgingRecency` (rows identical, weights changed as declared, check 46). None adopted.
+- `50_REBUILD/code/aging_additive.py` v1.4: the `sample` option, the level knot, the multi-season
+  level, the sustained level, recency weighting, the fit fingerprints
+- `50_REBUILD/code/run_star_residual.py` v1.0 to v1.4 (the candidates scored in each are listed in
   its docstring); `run_star_walk_diagnostic.py` v1.0
-- `50_REBUILD/code/repair_checks.py` v3.6: check 46
+- `50_REBUILD/code/repair_checks.py` v3.7: check 46
 - output (ignored): `star_residual_run_log.txt` / `.csv` (v1.0), `star_residual_v11_*` (v1.1),
-  `star_residual_v12_*` (v1.2), `star_residual_v13_*` (v1.3), `star_walk_diagnostic_*`
+  `star_residual_v12_*` (v1.2), `star_residual_v13_*` (v1.3), `star_residual_v14_*` (v1.4), `star_walk_diagnostic_*`

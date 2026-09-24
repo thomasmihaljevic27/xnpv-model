@@ -70,6 +70,19 @@ zero skipped or failed. Prior status-adoption closure stands; its three reportin
 corrections are applied. No candidate merge or default change. Phase 5 remains
 open. Review: `50_REBUILD/docs/Star_Residual_Review_Codex.md`.
 
+**Star residual retained as a stated limitation, 2026-09-24g.** Review `ebc9f9b` merged
+(sustained-level results reproduced; corrected: absolute error improved slightly, so not "worse on
+every score"; the horizon pattern does not show older seasons are the cause; the sustained
+construction never carried observed consistency forward). The one predeclared recency sensitivity
+(aging rows kept, weight halved per five seasons of age; check 46 asserts rows and weights) came out
+slightly worse, against a pre-run prediction of a small star gain: pooled 69/2000, star tier
+463/2000, dollars 155/2000 and 116/2000, stars −0.947 five out (adopted −0.921). Not adopted. Eight
+constructions scored, none separating on the declared primary scores, so the star residual is kept
+as a quantified limitation: the 3+ tier's rate is right at the valuation season and 0.27 / 0.63 /
+0.92 low one / three / five seasons out (season WAR 0.17 / 0.64 / 0.87 low), located in the aging
+curve's step. Reopen only on new evidence for a specific repair. Full suite run pending at this commit. See
+`50_REBUILD/docs/Star_Residual.md`.
+
 **Star residual v1.3, 2026-09-24f: a sustained-quality aging level does not help.** Review
 `6a14784` merged (diagnostic reproduced; 84 players, 492 distinct transitions; career-resampled
 excess −0.240 [−0.347, −0.130]; survivor selection not removed; write-up qualified). Candidate: the
@@ -529,8 +542,8 @@ valuations now read contract state at the signing (check 42).
 1. the star forecast residual [LOCATED 2026-09-24: the aging walk's level terms; three single changes
    scored, none adopted; a second level slope (v1.1) and a multi-season level (v1.2) did not help;
    hindsight diagnostic (2026-09-24e): the excess is in the curve's step for stars, out of sample,
-   not the recursion or mainly the imputation; a sustained-quality level (v1.3) did not help; next
-   untested: a curve fitted on or weighted toward the seasons nearest each page];
+   not the recursion or mainly the imputation; sustained level (v1.3) and recency weighting (v1.4)
+   did not help. CLOSED 2026-09-24g as a stated, quantified limitation; reopen only on new evidence];
 2. Phase 5 acceptance (dollar scoring on development pages; contract-by-contract reconciliation
    against production);
 3. Phase 6.

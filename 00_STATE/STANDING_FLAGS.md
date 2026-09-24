@@ -70,6 +70,19 @@ zero skipped or failed. Prior status-adoption closure stands; its three reportin
 corrections are applied. No candidate merge or default change. Phase 5 remains
 open. Review: `50_REBUILD/docs/Star_Residual_Review_Codex.md`.
 
+**Star residual retained as a stated limitation, 2026-09-24g.** Review `ebc9f9b` merged
+(sustained-level results reproduced; corrected: absolute error improved slightly, so not "worse on
+every score"; the horizon pattern does not show older seasons are the cause; the sustained
+construction never carried observed consistency forward). The one predeclared recency sensitivity
+(aging rows kept, weight halved per five seasons of age; check 46 asserts rows and weights) came out
+slightly worse, against a pre-run prediction of a small star gain: pooled 69/2000, star tier
+463/2000, dollars 155/2000 and 116/2000, stars −0.947 five out (adopted −0.921). Not adopted. Eight
+constructions scored, none separating on the declared primary scores, so the star residual is kept
+as a quantified limitation: the 3+ tier's rate is right at the valuation season and 0.27 / 0.63 /
+0.92 low one / three / five seasons out (season WAR 0.17 / 0.64 / 0.87 low), located in the aging
+curve's step. Reopen only on new evidence for a specific repair. Full suite run pending at this commit. See
+`50_REBUILD/docs/Star_Residual.md`.
+
 **Star residual v1.3, 2026-09-24f: a sustained-quality aging level does not help.** Review
 `6a14784` merged (diagnostic reproduced; 84 players, 492 distinct transitions; career-resampled
 excess −0.240 [−0.347, −0.130]; survivor selection not removed; write-up qualified). Candidate: the
@@ -485,6 +498,13 @@ residuals and currency comparisons; fix and rerun development work before furthe
 ---
 
 ## Standing flags (Karl's identification axes — watch on every design choice)
+
+- **NEW 2026-09-24 — the star residual is a known, quantified bias in the forecast.** For the
+  three-win-and-up tier the adopted leader's rate per 82 is right at the valuation season and 0.27,
+  0.63 and 0.92 low one, three and five seasons out (season WAR 0.17, 0.64, 0.87 low), located in the
+  aging curve's step on realised inputs (hindsight diagnostic; 84 players; survivor selection not
+  removed). Eight repairs scored, none adopted. Any result about star contracts inherits it, in the
+  direction of under-valuing the players. Evidence: `50_REBUILD/docs/Star_Residual.md`.
 
 - **NEW 2026-09-23g — a feature that exists only where it has support makes a cliff where it
   stops.** The participation model keeps a contract column only at horizons where enough training
