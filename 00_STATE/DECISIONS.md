@@ -1746,3 +1746,11 @@ seasons, 876 with age. Historical survivor fitting does not remove future-cohort
 selection. Model/suite unchanged from the previously verified 46/46 checkpoint;
 new diagnostic independently audited, full suite not rerun. No adoption or
 candidate merge; Phase 5 remains open. See `50_REBUILD/docs/Star_Walk_Review_Codex.md`.
+
+### Change log, 2026-09-24f (star residual v1.3)
+
+Review `6a14784` merged. `aging_additive.py` v1.3 (`sustained` option); `ability_forecast.py` v2.5
+(`A1StatusAgingSustained`); `repair_checks.py` v3.6 (check 46 covers it); `run_star_residual.py`
+v1.3 (every tier and horizon). Worse on every declared score; not adopted. `Star_Residual.md`: the
+diagnostic's unit counts, career-resampled interval and survivor-selection qualification; v1.3
+section; file list. CLAUDE.md: rule on reporting independent units behind a row count.

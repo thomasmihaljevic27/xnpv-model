@@ -2,7 +2,7 @@
 
 **Updated 2026-09-24 (v1.1):** the no-level result below changed the curve's sample as well as its formula. The matched comparison and the next aging candidate are in "The matched comparison, and a second level slope".
 
-Run 2026-09-24 in `50_REBUILD/` (`run_star_residual.py` v1.0, v1.1 and v1.2; `ability_forecast.py` v2.4; `aging_additive.py` v1.2; diagnostic `run_star_walk_diagnostic.py` v1.0).
+Run 2026-09-24 in `50_REBUILD/` (`run_star_residual.py` v1.0–v1.3; `ability_forecast.py` v2.5; `aging_additive.py` v1.3; diagnostic `run_star_walk_diagnostic.py` v1.0).
 Development pages and development start years only. **Nothing adopted.**
 
 ## Where the miss is
@@ -272,6 +272,50 @@ survivorship concern without removing it. Nor does it show why a curve that matc
 kind of group after the page (−0.22 against −0.34 here): the training pairs and these transitions
 are different seasons.
 
+## A sustained-quality level (v1.3)
+
+`run_star_residual.py` v1.3; `A1StatusAgingSustained`. The aging curve gets a second level beside
+the one-season lagged level: the lower of the player's rates at t−1 and t−2 (t−1 alone where t−2
+was not played), with its age interaction, so its slope can separate a player who was high in both
+seasons from a one-season spike. Same rows and weights (check 46). The walk passes the projected
+level as both. A proposed forecasting change, not an identified cause.
+
+**Recorded before the run:** on the 2021 page the sustained level's slope is negative (−0.034 per
+win): in the training pairs, players high in both seasons declined more, not less. A 3.2-win
+27-year-old's yearly step becomes −0.280 against −0.251. The prediction was no gain for stars.
+
+| version | pooled WAR RMSE | lower than adopted | stars' five-season rate miss | star tier error lower than adopted | dollars, adopted line | dollars, sustained line |
+|---|---:|---:|---:|---:|---:|---:|
+| adopted | 0.8151 | — | −0.921 | — | — | — |
+| sustained level | 0.8170 | 0/2000 | −1.017 | 0/2000 | 42/2000 | 85/2000 |
+
+Worse on every declared score, and more negative in every tier five seasons out (below replacement
+−0.085 against −0.068; 0 to 1 −0.159 against −0.129; 1 to 2 −0.274 against −0.227; 2 to 3 −0.356
+against −0.290). Not adopted. This rejects this construction of sustained quality, not every one.
+
+**Every tier, every horizon (the adopted leader).** Rate miss among seasons played:
+
+| tier | valuation season | one | two | three | four | five |
+|---|---:|---:|---:|---:|---:|---:|
+| below 0 | +0.123 | +0.056 | −0.001 | −0.005 | −0.060 | −0.068 |
+| 0 to 1 | +0.213 | +0.150 | +0.097 | −0.024 | −0.083 | −0.129 |
+| 1 to 2 | +0.112 | +0.106 | +0.102 | +0.014 | −0.122 | −0.227 |
+| 2 to 3 | −0.079 | +0.023 | −0.146 | −0.095 | −0.165 | −0.290 |
+| 3+ | −0.027 | −0.265 | −0.427 | −0.632 | −0.800 | −0.921 |
+
+**Every tier drifts downward with the horizon**, by 0.19 to 0.34 over five seasons below the top
+tier and by 0.89 in it. The lower tiers start too high at the valuation season and end too
+low. Four constructions that change the curve's level input (none, a hinge, a multi-season level, a
+sustained level) either break the lower tiers or leave the stars no better; the two that use a steadier
+level found a steeper level effect in the training pairs, not a flatter one.
+
+**What that points to, not what it shows.** The curve's training pairs repeatedly say high-level
+players decline steeply; the seasons after each page say they decline much less, and the other tiers
+drift the same way, more mildly. One reading is that the pattern in the older seasons the rolling
+curve is fitted on differs from the later seasons it is applied to. That is untested. A curve
+fitted on, or weighted toward, the seasons nearest each page is the construction that would test
+it, scored the same way.
+
 ## What is not settled
 
 - Why the fitted curve walks stars down so much faster than the stars actually declined. The level
@@ -284,14 +328,15 @@ are different seasons.
 
 ## Files
 
-- `50_REBUILD/code/ability_forecast.py` v2.4: `A1StatusSurvivorAging`, `A1StatusReducedForm` (one
+- `50_REBUILD/code/ability_forecast.py` v2.5: `A1StatusSurvivorAging`, `A1StatusReducedForm` (one
   change each); `A1StatusNoLevelAging` (formula and sample changed together; reference only);
-  `A1StatusNoLevelAgingMatched`, `A1StatusAgingLevelHinge`, `A1StatusAgingMultiLevel` (one change
-  each, rows and weights asserted identical by check 46). None adopted.
-- `50_REBUILD/code/aging_additive.py` v1.2: the `sample` option, the level knot, the multi-season
-  level, the fit fingerprint
-- `50_REBUILD/code/run_star_residual.py` v1.0, v1.1, v1.2 (the candidates scored in each are listed
-  in its docstring)
-- `50_REBUILD/code/repair_checks.py` v3.5: check 46
+  `A1StatusNoLevelAgingMatched`, `A1StatusAgingLevelHinge`, `A1StatusAgingMultiLevel`,
+  `A1StatusAgingSustained` (one change each, rows and weights asserted identical by check 46). None
+  adopted.
+- `50_REBUILD/code/aging_additive.py` v1.3: the `sample` option, the level knot, the multi-season
+  level, the sustained level, the fit fingerprint
+- `50_REBUILD/code/run_star_residual.py` v1.0 to v1.3 (the candidates scored in each are listed in
+  its docstring); `run_star_walk_diagnostic.py` v1.0
+- `50_REBUILD/code/repair_checks.py` v3.6: check 46
 - output (ignored): `star_residual_run_log.txt` / `.csv` (v1.0), `star_residual_v11_*` (v1.1),
-  `star_residual_v12_*` (v1.2)
+  `star_residual_v12_*` (v1.2), `star_residual_v13_*` (v1.3), `star_walk_diagnostic_*`

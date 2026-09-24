@@ -55,6 +55,16 @@ zero skipped or failed. Prior status-adoption closure stands; its three reportin
 corrections are applied. No candidate merge or default change. Phase 5 remains
 open. Review: `50_REBUILD/docs/Star_Residual_Review_Codex.md`.
 
+**Star residual v1.3, 2026-09-24f: a sustained-quality aging level does not help.** Review
+`6a14784` merged (diagnostic reproduced; 84 players, 492 distinct transitions; career-resampled
+excess −0.240 [−0.347, −0.130]; survivor selection not removed; write-up qualified). Candidate: the
+aging curve gets min(rate at t−1, t−2) as a second level (same rows and weights; check 46). Recorded
+before the run: its slope is negative (−0.034 per win), so no star gain predicted. Result: pooled
+0/2000, star tier 0/2000, dollars 42/2000 and 85/2000; stars −1.017 five out (adopted −0.921); every
+tier more negative. Not adopted. The adopted leader's miss drifts down with the horizon in every tier
+(0.19 to 0.34 over five seasons below the top, 0.89 for stars). Untested next: an aging curve fitted
+on, or weighted toward, the seasons nearest each page. See `50_REBUILD/docs/Star_Residual.md`.
+
 **Star walk diagnostic, 2026-09-24e (hindsight; localisation, not a verdict).** Review `a9e039c`
 merged: the star tier is the harness's 60/40 two-season total with fallbacks, not a three-season
 weighted total (corrected); the multi-season result rejects that repair, not double shrinkage
