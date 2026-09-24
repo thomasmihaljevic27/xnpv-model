@@ -1,5 +1,20 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
+**Sustained-quality candidate reviewed, 2026-09-24:** `f83240a` reproduces;
+46/46 suite plus independent lag/fallback/date/sample checks pass. Adopted
+forecasts unchanged on 40,510 rows. Sustained candidate wins 0/2000 pooled
+squared error, 0/2000 star squared error, 42/2000 main dollars and 85/2000
+sensitivity dollars. Keep adopted. Correct 'every score worsens': season MAE
+improves 0.456457 to 0.456009 (1897/2000 draws; 95% difference interval includes
+zero); participation unchanged. End-to-end horizon drift is not monotonic at
+every step and does not identify a calendar-period effect. Recommend one declared
+five-season-half-life weighting sensitivity on all existing aging rows, same
+formula and primary currency. Verify row identities/targets and exact intended
+weight factors, not unchanged weights. No sweep or implementation/adoption here.
+Consider retaining subgroup bias as a limitation if it fails absent new evidence.
+Review: `50_REBUILD/docs/Star_Sustained_Review_Codex.md`. Phase 5 remains open.
+
+
 **Star-walk diagnostic reviewed, 2026-09-24:** `55f23cb` reproduces. Fresh full
 cohort and independent audit verify every input, weight and arm on 876 rows
 (84 careers; 492 distinct transitions). Observed change -0.112; prior-input curve
