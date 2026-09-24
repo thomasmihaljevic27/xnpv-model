@@ -724,3 +724,18 @@ targets, and design; exact weights, future invariance, all-ones identity, and
 half-life mutation checked. Proceed to matched simulation comparison,
 development dollar scoring, and production reconciliation. Phase 5 remains open.
 See `50_REBUILD/docs/Star_Recency_Review_Codex.md`.
+
+### Change log, 2026-09-24 (Player acceptance review)
+
+**Player acceptance review, 2026-09-24:** `01e78a9` supplies the remaining
+skater simulation dollar scoring. Suite 47/47; primary error table and all
+comparison counts reproduce on 1,176 ended contracts / 767 players. Point
+values match the previously reviewed integration to $1.49e-08. Two bounded
+scoring repairs remain: the shared-target guard must check player and date
+identity before reusing reference inputs; monetary calibration must recognise
+ties at a declared dollar precision (17 contracts affected by floating-point
+comparisons). The corrected calibration retains the qualitative conclusion.
+No new forecast experiment is requested. Close the Player Model candidate after
+these repairs and verification; adoption for the thesis remains a later decision
+when separate Picks and Prospects Model work resumes. See
+`50_REBUILD/docs/Player_Acceptance_Review_Codex.md`.
