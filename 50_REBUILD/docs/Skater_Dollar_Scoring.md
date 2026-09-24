@@ -82,19 +82,34 @@ On the primary line, 1,176 outcomes; intervals resample players.
 | outcomes at the floor | 35.3% | 35.3% |
 | excess at the floor | +1.8 points [−0.3, +3.9] | +1.2 points [−0.9, +3.3] |
 | 80% interval: outcomes / own draws | 87.5% / 87.3% | 85.9% / 87.3% |
-| 50% interval: outcomes / own draws | 63.1% / 65.0% | 59.5% / 65.3% |
-| 50% interval excess | −1.9 points [−4.7, +0.8] | **−5.8 points [−8.6, −3.1]** |
+| 50% interval: outcomes / own draws | 63.4% / 65.0% | 59.9% / 65.3% |
+| 50% interval excess | −1.6 points [−4.4, +1.1] | **−5.4 points [−8.2, −2.6]** |
 | PIT central 80% (0.80 if calibrated) | 0.803 [0.780, 0.825] | 0.790 [0.766, 0.813] |
-| PIT central 50% (0.50) | 0.486 [0.457, 0.513] | **0.445 [0.416, 0.474]** |
-| PIT mean (0.50) | 0.501 [0.484, 0.518] | 0.512 [0.494, 0.529] |
-| PIT variance (0.083) | 0.085 [0.081, 0.089] | **0.091 [0.086, 0.095]** |
+| PIT central 50% (0.50) | 0.488 [0.459, 0.516] | **0.448 [0.419, 0.477]** |
+| PIT mean (0.50) | 0.501 [0.484, 0.518] | 0.512 [0.495, 0.529] |
+| PIT variance (0.083) | 0.085 [0.081, 0.089] | **0.090 [0.086, 0.095]** |
 
 - **The adopted leader's contract distribution passes every test here:** each PIT statistic's
   interval contains its calibrated value, and interval coverage matches the model's own draws.
   "Passes" means these pooled tests did not detect miscalibration; subgroups can still be off (the
   star tier is known to be, `Star_Residual.md`).
-- **The previous leader's distribution is too narrow in the middle:** its 50% interval holds 5.8
+- **The previous leader's distribution is too narrow in the middle:** its 50% interval holds 5.4
   points fewer outcomes than its own draws, and its PIT variance is above the uniform's.
+
+## Repairs after review (2026-09-24)
+
+Two scoring defects were fixed, neither touching a valuation:
+- **The comparison guard** priced every forecast's realised target from the first forecast's
+  player, dates and discount factor, so it could not see a mismatch in them (a different player,
+  $2.475M, and a different signing date, $26,000, were accepted in a deliberate test). It now checks
+  player, signing date, seasons, term, pricing quarter and the fixed pricing features field by field,
+  and prices each forecast's target from its own row (check 47).
+- **Monetary ties**: values that should be tied differed by about $2e-10, and the randomized PIT read
+  that as a position above or below a lump (one contract moved by 0.544). Dollars are now rounded to
+  six decimal places before ties and interval membership (check 48).
+
+After the repair every valuation is identical (1,176 contracts, largest difference 0), and the
+calibration table above is the refreshed one; its conclusions are unchanged.
 
 ## What this settles
 
