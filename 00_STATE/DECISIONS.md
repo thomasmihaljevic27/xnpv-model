@@ -1851,3 +1851,19 @@ flat benchmark, not the live chain (a summary had called it "production's foreca
 `Skater_Contract_Test.md` and the 2026-09-23 log). **Decision (Thomas): Phase 6 is not part of the
 player-model rebuild; the rebuild ends at Phase 5 and a scorecard decision follows.** Pending
 (Thomas): which player model to commit to; recommended: the adopted candidate. CLAUDE.md: three rules.
+
+### Change log, 2026-09-24 (Player candidate acceptance closure)
+
+**Player candidate acceptance closed, 2026-09-24:** independent review of
+`7b046a3` closes both scoring repairs. Full suite 48/48; all ten identity-field
+mutations rejected; precision mutation rejected. Both rebuilt point values,
+simulated means and realised targets are exactly unchanged on 1,176 ended
+contracts. Corrected calibration reproduces. The Player Model candidate closes
+at Phase 5 with recorded limitations; adoption/drop remains deferred until
+separate Picks and Prospects work resumes. No candidate merge or production
+change. The new scorecard needs reporting corrections: 4,632 of 40,510 season
+rows are adapter fallbacks, not production forecasts; on 35,878 answerable rows
+A still beats production (RMSE .8640 vs .9129, 2,000/2,000 resamples). Later
+pages were previously inspected, not historically sealed; pooled calibration
+does not establish each contract's calibration. No new forecast search is
+requested. See `50_REBUILD/docs/Player_Acceptance_Closure_Review_Codex.md`.
