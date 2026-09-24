@@ -1,5 +1,11 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-24b (overview, Word version):** Added
+`40_DOCS/Project_Overview_Plain_Language.docx`, an editable two-page Word copy of
+the plain-language overview (native tables for text and flow chart, chart as an
+image). Schema-validated and render-checked. Session log and PROJECT_STATE
+document list updated. No model, code, or decision change.
+
 **Change log, 2026-09-24b (plain-language overview):** Added
 `40_DOCS/Project_Overview_Plain_Language.pdf` and its HTML source: a two-page,
 non-specialist overview with the research question, asset classes, back-test
