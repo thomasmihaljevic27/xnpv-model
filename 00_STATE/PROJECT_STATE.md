@@ -95,6 +95,23 @@ zero skipped or failed. Prior status-adoption closure stands; its three reportin
 corrections are applied. No candidate merge or default change. Phase 5 remains
 open. Review: `50_REBUILD/docs/Star_Residual_Review_Codex.md`.
 
+**Player model scorecard; Phase 6 set aside; decision pending (Thomas), 2026-09-24k.** Review
+`674fe67` merged: acceptance results reproduce; two scoring defects fixed (the scorer now checks
+player, dates, seasons, term, pricing quarter and fixed pricing inputs field by field and prices each
+target from its own row, check 47 extended; dollar ties at a declared 6-decimal precision, check 48).
+Valuations identical after the repair; calibration refreshed (adopted passes pooled tests; previous
+misses its 50% band by 5.4 points). Closure of the Phase 5 acceptance review is for review. **Thomas:
+Phase 6 is not part of the model rebuild** (picks and prospects are separate, unfinished models); the
+player rebuild ends at Phase 5, followed by a decision between the current and candidate models.
+Scorecard (`run_model_scorecard.py`; current = production chain via `ProductionChain`): season WAR
+RMSE 0.868 current, 0.815 adopted, 0.816 previous (2000/2000; better at every horizon); Brier 0.231
+vs 0.133; contract dollars on one line: squared error $3.548M vs $3.513M (adopted lower 1237/2000,
+not decisive), absolute $1.771M vs $1.675M (1962/2000), bias −$0.14M vs −$0.55M. Current
+over-forecasts good players (3+ +0.99 at valuation); candidates under-forecast stars at long
+horizons. Recommendation: carry the adopted candidate forward. **DECISION (Thomas): which player
+model to commit to.** Also corrected: the stress tests' comparator is the flat benchmark, not the live
+chain. Full suite run pending at this commit. See `50_REBUILD/docs/Model_Scorecard.md`.
+
 **Phase 5 acceptance: skater dollar scoring, 2026-09-24j.** `run_skater_dollar_scoring.py` scores
 each development contract's term, point and simulated (2,000 paths), for the adopted and the previous
 skater leader on ONE line (adopted's primary, previous's sensitivity), realised target asserted

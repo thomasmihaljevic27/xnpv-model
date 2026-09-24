@@ -1839,3 +1839,15 @@ No new forecast experiment is requested. Close the Player Model candidate after
 these repairs and verification; adoption for the thesis remains a later decision
 when separate Picks and Prospects Model work resumes. See
 `50_REBUILD/docs/Player_Acceptance_Review_Codex.md`.
+
+### Change log, 2026-09-24k (acceptance repairs; scorecard; Phase 6 set aside)
+
+Review `674fe67` merged. `dollar_scoring.py`: field-by-field identity guard and independent targets;
+declared monetary precision for calibration; point-only forecasts supported. `repair_checks.py` v3.9:
+check 47 extended, check 48 new. `run_skater_dollar_scoring.py` v1.1 (`price_and_simulate`);
+valuations identical after the repair, calibration refreshed. New `run_model_scorecard.py` v1.0 and
+`Model_Scorecard.md`. `run_stress_tests.py` v1.3 and `run_bakeoff.py` comment: the comparator is the
+flat benchmark, not the live chain (a summary had called it "production's forecast"; corrected in
+`Skater_Contract_Test.md` and the 2026-09-23 log). **Decision (Thomas): Phase 6 is not part of the
+player-model rebuild; the rebuild ends at Phase 5 and a scorecard decision follows.** Pending
+(Thomas): which player model to commit to; recommended: the adopted candidate. CLAUDE.md: three rules.
