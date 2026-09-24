@@ -110,7 +110,7 @@ not decisive), absolute $1.771M vs $1.675M (1962/2000), bias −$0.14M vs −$0.
 over-forecasts good players (3+ +0.99 at valuation); candidates under-forecast stars at long
 horizons. Recommendation: carry the adopted candidate forward. **DECISION (Thomas): which player
 model to commit to.** Also corrected: the stress tests' comparator is the flat benchmark, not the live
-chain. Full suite run pending at this commit. See `50_REBUILD/docs/Model_Scorecard.md`.
+chain. Suite **48/48**. See `50_REBUILD/docs/Model_Scorecard.md`.
 
 **Phase 5 acceptance: skater dollar scoring, 2026-09-24j.** `run_skater_dollar_scoring.py` scores
 each development contract's term, point and simulated (2,000 paths), for the adopted and the previous
