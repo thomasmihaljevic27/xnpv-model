@@ -39,7 +39,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 import information_set as ISET
 
-SCRIPT_VERSION = "2.1"
+SCRIPT_VERSION = "2.2"
 
 W_T1, W_T2 = 0.6, 0.4    # the locked recency weighting, reproduced for A0
 
@@ -1696,6 +1696,50 @@ class A1HingeExposureStatus(A1HingeExposure):
     USE_CONTRACTS = True
     CONTRACT_STATE = "observable"
     PART_EXCLUDE = ("contract_unknown",)
+
+
+# ---------------------------------------------------------------------------
+# THE STAR RESIDUAL, located (2026-09-24, run_star_residual.py). For players
+# three wins and up, the adopted leader's rate is right at the valuation
+# season (-0.03 per 82) and then falls about 0.27 a season along the aging
+# walk -- 3.24 to 1.90 over five seasons -- where the stars who played fell
+# from 3.26 to 2.82. Every tier shows the same too-steep walk. So the residual
+# is in how the rate is carried forward, not in the starting shrinkage the
+# hinge terms addressed. Three candidates, each ONE change from the adopted
+# leader, scored alone before any combination:
+# ---------------------------------------------------------------------------
+
+class A1StatusSurvivorAging(A1HingeExposureStatus):
+    """The adopted leader with the aging curve fitted on survivors only (no
+    replacement-level imputation of the seasons departing players never
+    played). The forecast rate is conditional on playing and departure is
+    priced by the participation model, so the imputed curve may count an exit
+    twice. One change: `AGING_SELECTION`."""
+    name = "adopted leader, aging curve on survivors"
+    AGING_SELECTION = "none"
+
+
+class A1StatusNoLevelAging(A1HingeExposureStatus):
+    """The adopted leader with the aging curve's level terms removed: age and
+    position alone, so a star is not walked down faster for being a star. One
+    change: `AGING_LEVEL_MODE`."""
+    name = "adopted leader, aging curve without level terms"
+    AGING_LEVEL_MODE = "none"
+
+
+class A1StatusReducedForm(A1HingeExposureStatus):
+    """The adopted leader with the rate at each horizon taken from that
+    horizon's own regression on the anchor (the reduced form the aging walk
+    replaced in Phase 3), instead of walking the valuation-season rate forward.
+    Each horizon's regression is fitted on seasons actually played, so it
+    estimates the rate given playing directly; participation is unchanged. One
+    change: `_walk`."""
+    name = "adopted leader, rate regressed per horizon"
+
+    def _walk(self, r, rate0, a, h):
+        if h == 0:
+            return np.asarray(rate0, dtype=float)
+        return _apply(self.coef_.get(h), a[self.FEATURES], a["tw_WAR"])
 
 
 class A1HingeExposureStatusCarry(A1HingeExposureStatus):
