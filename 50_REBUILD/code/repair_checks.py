@@ -24,7 +24,7 @@ import forecast_harness as H
 import player_season_table as T
 from ability_forecast import A0Production
 
-SCRIPT_VERSION = "3.7"
+SCRIPT_VERSION = "3.8"
 
 PASS, FAIL, SKIP = "pass", "FAIL", "skip"
 results: list[tuple[str, str, str]] = []
@@ -2224,6 +2224,67 @@ def c46(table):
             f"declared; the unmatched no-level curve uses {un.n_fit_}")
 
 
+def c47(table):
+    """THE SHARED DOLLAR SCORER REFUSES A MOVING TARGET.
+
+    `dollar_scoring.score_on_line` prices every forecast's valuations and the
+    realised path on one line and asserts the realised target identical
+    across forecasts. It is now shared by the goalie runner and the skater
+    acceptance scoring, so the guard is tested on its own:
+      * two forecasts carrying the same contract row score against one target,
+        equal to the realised path priced directly;
+      * a contract row that differs between forecasts in a priced feature
+        (restricted-free-agent status) makes the targets differ, and the
+        scorer refuses it.
+    Driven on real contract rows with a stub line (fixed coefficients), so
+    the check tests the scorer, not a fit.
+    """
+    import numpy as np
+    import npv_simulation as SIM
+    from contract_price_model import contract_sample
+    from dollar_scoring import score_on_line
+
+    class Line:
+        term_mode = "in"
+        coef_ = np.array([0.005, 0.02, 0.001, 0.0, -0.01, 0.0, 0.0, 0.005])
+
+        def value(self, df):
+            r = df.iloc[0]
+            return pd.Series([float(SIM.contract_value(
+                self, r, np.array([r["war_per_season"]]), np.array([r["war_year1"]]),
+                SIM.dollar_factor(r))[0])])
+
+    cs = contract_sample()
+    rows = cs[(cs["end_yr"] <= C.LAST_SOURCE_SEASON) & (cs["signed"] >= pd.Timestamp("2016-07-01"))].head(3).copy()
+    rows["war_per_season"], rows["war_year1"] = 1.0, 1.0
+    rows["one_year"] = (rows["length"] == 1).astype(float)
+    rows["rfa_x_war"] = rows["is_RFA"].astype(float)
+    rows["floor_share"] = 0.0
+    rows["cut"] = "q"
+    rows = rows.set_index("contract_id")
+    lines = {"q": Line()}
+    draws = {lab: {c: (np.array([0.5, 1.5]), np.array([0.5, 1.5])) for c in rows.index}
+             for lab in ("a", "b")}
+    real = lambda pkey, yrs: np.full(len(yrs), 0.8)
+    d = score_on_line(list(rows.index), {"a": rows, "b": rows.copy()}, lines, draws, ("a", "b"), real)
+    for c in rows.index:
+        r = rows.loc[c]
+        direct = float(SIM.contract_value(lines["q"], r, np.array([0.8]), np.array([0.8]),
+                                          SIM.dollar_factor(r))[0])
+        got = float(d.loc[d["contract_id"] == c, "realised"].iloc[0])
+        assert abs(got - direct) < 1e-6, "the realised target is not the path priced directly"
+    moved = rows.copy()
+    moved["is_RFA"] = 1.0 - moved["is_RFA"].astype(float)
+    try:
+        score_on_line(list(rows.index), {"a": rows, "b": moved}, lines, draws, ("a", "b"), real)
+    except AssertionError as e:
+        assert "realised target differs" in str(e)
+    else:
+        raise AssertionError("a target that moved with the forecast was accepted")
+    return (f"{len(rows)} contracts: one realised target across two forecasts, equal to the "
+            f"path priced directly; a forecast-dependent target is refused")
+
+
 def main() -> None:
     warnings.filterwarnings("ignore")
     C.banner("repair_checks.py", SCRIPT_VERSION)
@@ -2290,7 +2351,8 @@ def main() -> None:
                      ("the paths read contract state where the valuation does", c43),
                      ("one adopted model through the valuation chain", c44),
                      ("a subject with no history is unanswered, not a crash", c45),
-                     ("an aging formula comparison keeps its rows and weights", c46)]:
+                     ("an aging formula comparison keeps its rows and weights", c46),
+                     ("the shared dollar scorer refuses a moving target", c47)]:
         check(name, lambda fn=fn: fn(table))
 
     width = max(len(n) for n, _, _ in results)

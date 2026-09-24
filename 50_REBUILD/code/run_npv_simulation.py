@@ -52,7 +52,7 @@ from player_season_table import build as build_table, birthdate_source
 from run_phase4_decisions import prep
 from ability_forecast import A1HingeExposure, A1HingeExposureStatus
 
-SCRIPT_VERSION = "2.5"
+SCRIPT_VERSION = "2.6"
 
 # THE SKATER LEADER, adopted provisionally 2026-09-23: the previous leader with
 # visible contract status in its participation (Skater_Contract_Test.md).
@@ -156,6 +156,35 @@ def forecast_blocks(sample: pd.DataFrame, table: pd.DataFrame,
     return rows, spreads
 
 
+def point_valuation(sample: pd.DataFrame, table: pd.DataFrame, cohorts,
+                    model_cls=None):
+    """Every development contract's point valuation, on a price line fitted
+    at each signing quarter on the contracts signed before it: the protocol
+    the rest of the tree uses. Returns (priced rows, {quarter: line}).
+
+    `model_cls` is the forecast (default the skater leader). Extracted
+    2026-09-24 from `main` unchanged, so the acceptance scoring can price the
+    previous leader on exactly the same protocol."""
+    d = prep(attach_forecasts(sample, model_cls or LEADER, table, verbose=False))
+    d = d[d["start_yr"].isin(cohorts)
+          & (d["signed"] >= pd.Timestamp("2015-07-01"))].copy()
+    d["cut"] = d["signed"].dt.to_period("Q").dt.start_time
+
+    priced, lines = [], {}
+    for cut, te in d.groupby("cut"):
+        cur = ProductionCurrency("in").fit(d, before_date=cut)
+        if cur.coef_ is None:
+            continue
+        lines[cut] = cur
+        te = te.copy()
+        te["value_point"] = cur.value(te)
+        te["cost"] = cur.cost(te)
+        priced.append(te)
+    pt = pd.concat(priced, ignore_index=True).drop_duplicates(KEY)
+    pt["surplus_point"] = pt["value_point"] - pt["cost"]
+    return pt, lines
+
+
 def per_season(sample: pd.DataFrame, table: pd.DataFrame):
     """`forecast_blocks` over each contract's own term, in the four-element
     shape this runner and the review scripts read. One implementation, asked a
@@ -225,23 +254,7 @@ def main() -> None:
     cohorts = C.check_market_cohorts(dev, "run_npv_simulation")
 
     # The point valuation, on exactly the protocol the rest of the tree uses.
-    d = prep(attach_forecasts(sample, LEADER, table, verbose=False))
-    d = d[d["start_yr"].isin(cohorts)
-          & (d["signed"] >= pd.Timestamp("2015-07-01"))].copy()
-    d["cut"] = d["signed"].dt.to_period("Q").dt.start_time
-
-    priced, lines = [], {}
-    for cut, te in d.groupby("cut"):
-        cur = ProductionCurrency("in").fit(d, before_date=cut)
-        if cur.coef_ is None:
-            continue
-        lines[cut] = cur
-        te = te.copy()
-        te["value_point"] = cur.value(te)
-        te["cost"] = cur.cost(te)
-        priced.append(te)
-    pt = pd.concat(priced, ignore_index=True).drop_duplicates(KEY)
-    pt["surplus_point"] = pt["value_point"] - pt["cost"]
+    pt, lines = point_valuation(sample, table, cohorts)
     C.log(f"  {len(pt)} contracts valued the existing way")
 
     seasons, spreads = per_season(sample, table)

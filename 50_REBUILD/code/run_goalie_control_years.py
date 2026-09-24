@@ -115,7 +115,7 @@ from contract_price_model import contract_sample, attach_forecasts
 from player_season_table import birthdate_source, build as build_skater_table
 from production_currency import ProductionCurrency, FEATURES
 
-SCRIPT_VERSION = "1.4"
+SCRIPT_VERSION = "1.5"
 KEY = RCY.KEY
 
 # The two forecasts, declared before the run: the label, the harness arm the
@@ -270,71 +270,12 @@ def attrition(go_dev: pd.DataFrame, cmap: dict, pt: pd.DataFrame, blocks: dict,
     C.log("")
 
 
-def realised_path(table: pd.DataFrame):
-    """WAR by (pkey, season), a season he did not play counting as zero."""
-    played = table[table["GP"] >= C.PARTICIPATION_GP]
-    lut = played.groupby(["pkey", "syr"])["WAR"].sum()
-
-    def f(pkey, yrs) -> np.ndarray:
-        return np.array([float(lut.get((pkey, int(y)), 0.0)) for y in yrs])
-    return f
-
-
-def term_extra(lines: dict, keep: dict):
-    """The contract's own term priced on the drawn paths, on the forecast's OWN
-    line (the own-line sensitivity), and the paths' term averages kept in
-    `keep` so the same draws can be repriced on the common scoring line."""
-    def f(cid, r, paths) -> dict:
-        L = int(r["length"])
-        wps, y1 = paths[:, :L].mean(axis=1), paths[:, 0].copy()
-        keep[int(cid)] = (wps, y1)
-        v = SIM.contract_value(lines[r["cut"]], r, wps, y1, SIM.dollar_factor(r))
-        q10, q90 = np.percentile(v, [10, 90])
-        return {"term_sim_mean": float(v.mean()), "term_sim_sd": float(v.std(ddof=1)),
-                "term_sim_q10": float(q10), "term_sim_q90": float(q90),
-                "cost": float(r["cost"]), "value_point": float(r["value_point"])}
-    return f
-
-
-def ci(values: pd.DataFrame, stat, n: int = 2000, seed: int = 20260923) -> tuple:
-    """A statistic and its 95% interval from resampling GOALTENDERS."""
-    g = {k: v for k, v in values.groupby("pkey")}
-    ks = list(g)
-    rng = np.random.default_rng(seed)
-    b = [stat(pd.concat([g[k] for k in rng.choice(ks, len(ks), replace=True)]))
-         for _ in range(n)]
-    lo, hi = np.percentile(b, [2.5, 97.5])
-    return float(stat(values)), float(lo), float(hi)
-
-
-def pit_block(d: pd.DataFrame, label: str) -> None:
-    """Uniformity of randomized PITs, with goaltender-resampled intervals.
-    Under calibration: central 80% share 0.80, central 50% share 0.50, mean
-    0.5, variance 1/12 = 0.0833. A variance BELOW 1/12 means outcomes sit
-    nearer the middle than the forecast says -- too wide; above, too narrow."""
-    rows = [("central 80% (0.1 to 0.9)", 0.80, lambda x: x["pit"].between(0.1, 0.9).mean()),
-            ("central 50% (0.25 to 0.75)", 0.50, lambda x: x["pit"].between(0.25, 0.75).mean()),
-            ("mean", 0.5, lambda x: x["pit"].mean()),
-            ("variance", 1 / 12, lambda x: x["pit"].var(ddof=0))]
-    C.log(f"    {label}  ({len(d)} outcomes)")
-    for name, want, stat in rows:
-        v, lo, hi = ci(d, stat)
-        flag = "" if lo <= want <= hi else "   <- outside"
-        C.log(f"      {name:<28}{v:>8.3f}   [{lo:.3f}, {hi:.3f}]   calibrated {want:.3f}{flag}")
-
-
-def career_bootstrap(d: pd.DataFrame, a: str, b: str, n: int = 2000,
-                     seed: int = 20260922) -> float:
-    """Share of goaltender-resamples in which column b's mean is lower than
-    column a's. Resamples goaltenders, since one signs several contracts."""
-    g = {k: v for k, v in d.groupby("pkey")}
-    ks = list(g)
-    rng = np.random.default_rng(seed)
-    wins = 0
-    for _ in range(n):
-        s = pd.concat([g[k] for k in rng.choice(ks, len(ks), replace=True)])
-        wins += int(s[b].mean() < s[a].mean())
-    return wins / n
+# The scoring helpers live in `dollar_scoring` (moved 2026-09-24, unchanged)
+# so the skater acceptance scoring uses the same code; imported under their
+# old names so anything reading them from this module still finds them.
+from dollar_scoring import (realised_path, term_extra, ci, pit_block,  # noqa: E402
+                            career_bootstrap, score_on_line, report_scores,
+                            calibration_block)
 
 
 def main() -> None:
@@ -464,35 +405,9 @@ def main() -> None:
     rows_of = {lab: priced[lab][0].set_index(KEY) for lab in priced}
 
     def score_on(line_label: str) -> pd.DataFrame:
-        """Both forecasts' point and simulated valuations, and the realised
-        path, priced on ONE line. The realised target is computed from each
-        forecast's own contract row and asserted identical -- it cannot depend
-        on which forecast is being scored."""
-        lines = priced[line_label][1]
-        out = []
-        for cid in common:
-            rp = rows_of["production"].loc[cid]
-            cur = lines[rp["cut"]]
-            k = SIM.dollar_factor(rp)
-            yrs = list(range(int(rp["start_yr"]), int(rp["end_yr"]) + 1))
-            w = real(rp["pkey"], yrs)
-            targets = []
-            rec = {KEY: cid, "pkey": rp["pkey"]}
-            for lab in ("production", "rate"):
-                row = rows_of[lab].loc[cid].copy()
-                row[KEY] = cid
-                targets.append(float(SIM.contract_value(cur, row, np.array([w.mean()]),
-                                                        np.array([w[0]]), k)[0]))
-                rec[f"point_{lab}"] = float(cur.value(pd.DataFrame([row])).iloc[0])
-                wps, y1 = draws[lab][cid]
-                v = SIM.contract_value(cur, row, wps, y1, k)
-                rec[f"sim_{lab}"] = float(v.mean())
-                rec[f"draws_{lab}"] = v
-            assert abs(targets[0] - targets[1]) < 1e-6, (
-                f"contract {cid}: the realised target differs by forecast")
-            rec["realised"] = targets[0]
-            out.append(rec)
-        return pd.DataFrame(out)
+        """Both forecasts on ONE line; `dollar_scoring.score_on_line`."""
+        return score_on_line(common, rows_of, priced[line_label][1], draws,
+                             ("production", "rate"), real)
 
     C.log("AGAINST WHAT HAPPENED, IN ONE CURRENCY. Ended terms. Both forecasts'")
     C.log("valuations and the realised path are priced on the same line, so the")
@@ -505,18 +420,7 @@ def main() -> None:
         scored[line_label] = d
         tag = "PRIMARY" if line_label == SCORING_LINE else "sensitivity"
         C.log(f"  on the {line_label} forecast's line ({tag}), {len(d)} contracts:")
-        C.log(f"    {'forecast':<12}{'valuation':<11}{'RMSE':>8}{'MAE':>8}{'bias':>9}")
-        for lab in ("production", "rate"):
-            for how_ in ("point", "sim"):
-                e = (d[f"{how_}_{lab}"] - d["realised"]) / 1e6
-                d[f"se_{how_}_{lab}"], d[f"ae_{how_}_{lab}"] = e ** 2, e.abs()
-                C.log(f"    {lab:<12}{('point' if how_ == 'point' else 'simulated'):<11}"
-                      f"{np.sqrt((e ** 2).mean()):>8.3f}{e.abs().mean():>8.3f}{e.mean():>+9.3f}")
-        for how_ in ("sim", "point"):
-            ws = career_bootstrap(d, f"se_{how_}_production", f"se_{how_}_rate")
-            wa = career_bootstrap(d, f"ae_{how_}_production", f"ae_{how_}_rate")
-            C.log(f"    rate against production, {('simulated' if how_ == 'sim' else 'point')}: "
-                  f"lower squared error in {ws:.0%}, lower absolute in {wa:.0%}")
+        report_scores(d, ("production", "rate"))
         C.log("")
     C.log("  Each forecast on its OWN line and its own realised target -- the 1.0")
     C.log("  comparison -- is not a common-target test and is kept as a sensitivity:")
@@ -543,35 +447,7 @@ def main() -> None:
     C.log("compared with its coverage of the MODEL'S OWN DRAWS, and the randomized")
     C.log("PIT (uniform under calibration, lumps or not) is tested directly.")
     C.log("")
-    for lab in ("production", "rate"):
-        rng_pit = []
-        cov = []
-        for r in d.itertuples():
-            v = getattr(r, f"draws_{lab}")
-            u = float(np.random.default_rng([PIT_SEED, int(r.contract_id)]).random())
-            rng_pit.append(PI.randomized_pit(v, r.realised, u))
-            q10, q25, q75, q90 = np.percentile(v, [10, 25, 75, 90])
-            floor = float(v.min())
-            cov.append({"own80": np.mean((v >= q10) & (v <= q90)),
-                        "obs80": float(q10 <= r.realised <= q90),
-                        "own50": np.mean((v >= q25) & (v <= q75)),
-                        "obs50": float(q25 <= r.realised <= q75),
-                        "atom": np.mean(v == floor),
-                        "real_at_floor": float(abs(r.realised - floor) < 1e-6)})
-        dd = pd.concat([d[[KEY, "pkey"]].reset_index(drop=True),
-                        pd.DataFrame(cov), pd.Series(rng_pit, name="pit")], axis=1)
-        v, lo, hi = ci(dd, lambda x: (x["real_at_floor"] - x["atom"]).mean())
-        C.log(f"  {lab}: {dd['atom'].mean():.1%} of each contract's draws sit exactly on "
-              f"its lowest value (the floor); {dd['real_at_floor'].mean():.1%} of outcomes do")
-        C.log(f"    outcomes on the floor minus the model's own share: {100 * v:+.1f} points "
-              f"[{100 * lo:+.1f}, {100 * hi:+.1f}]")
-        for band in ("80", "50"):
-            v, lo, hi = ci(dd, lambda x, b=band: (x[f"obs{b}"] - x[f"own{b}"]).mean())
-            C.log(f"    {band}% interval: holds {dd[f'obs{band}'].mean():.1%} of outcomes "
-                  f"against {dd[f'own{band}'].mean():.1%} of its own draws; excess "
-                  f"{100 * v:+.1f} points [{100 * lo:+.1f}, {100 * hi:+.1f}]")
-        pit_block(dd, f"{lab}, randomized PIT of the term value")
-        C.log("")
+    calibration_block(d, ("production", "rate"))
 
     # ---- 4. which component: participation, or the conditional band? ---------
     C.log("WHICH COMPONENT, AT SEASON LEVEL. The season distribution is a lump at")
