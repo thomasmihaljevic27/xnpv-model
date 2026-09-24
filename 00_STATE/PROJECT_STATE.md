@@ -1,5 +1,20 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**Star-walk diagnostic reviewed, 2026-09-24:** `55f23cb` reproduces. Fresh full
+cohort and independent audit verify every input, weight and arm on 876 rows
+(84 careers; 492 distinct transitions). Observed change -0.112; prior-input curve
+-0.352, current-input -0.328, forecast path -0.279, survivors-only -0.307.
+Career-resampled intervals retain negative step error. Proceed to a declared
+sustained-quality candidate, retaining the adopted baseline. Interpret this as
+excess predicted decline on selected observed transitions: recursion is not
+required for the miss, but selection and all path issues are not ruled out.
+Selection: 983 calendar-observable rows, 894 three played, 883 three >=10-game
+seasons, 876 with age. Historical survivor fitting does not remove future-cohort
+selection. Model/suite unchanged from the previously verified 46/46 checkpoint;
+new diagnostic independently audited, full suite not rerun. No adoption or
+candidate merge; Phase 5 remains open. See `50_REBUILD/docs/Star_Walk_Review_Codex.md`.
+
+
 **Multi-season aging candidate reviewed, 2026-09-24:** candidate `3ba71cd`
 (model/report `7bff643`) reproduces. Full suite 46/46. Independent arithmetic,
 required-lag, row alignment and future-corruption checks pass; fitting rows and
