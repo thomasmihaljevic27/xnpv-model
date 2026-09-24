@@ -1781,3 +1781,13 @@ star residual is retained as a stated, quantified limitation of the adopted lead
 added); reopen only on new evidence for a specific repair. `Star_Residual.md` corrections (absolute
 error; horizon-pattern inference; sustained construction scope) and v1.4 section. CLAUDE.md: the
 universal-word rule's recurrence; rule against reading a cause off a horizon pattern.
+
+### Change log, 2026-09-24h (star definition tested)
+
+Thomas raised that the 3+ cut-off had never been tested. New `run_star_definition.py` v1.0 (reads
+existing harness rows; no model changed): nine definitions declared before the run; membership,
+the miss across the level range, headline figures and all eight candidates' star-group verdicts.
+Three wins ≈ top 3% per page, inside the top-5% zone where the miss steps up; the headline's size
+depends on the cut-off, its direction does not; six of eight verdicts unchanged, no adoption
+decision affected. Report: `50_REBUILD/docs/Star_Definition.md`. Proposed (pending Thomas): keep three
+wins and report the top 5% and top 2% beside it.

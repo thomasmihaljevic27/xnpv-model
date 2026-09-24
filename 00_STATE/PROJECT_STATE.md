@@ -70,6 +70,18 @@ zero skipped or failed. Prior status-adoption closure stands; its three reportin
 corrections are applied. No candidate merge or default change. Phase 5 remains
 open. Review: `50_REBUILD/docs/Star_Residual_Review_Codex.md`.
 
+**What counts as a star, tested, 2026-09-24h.** The inherited 3+ cut-off (60/40 two-season
+trailing total; `forecast_harness.subjects_at`) was tested against eight alternatives declared
+before the run (fixed 2.0–4.0; top 2/5/10% of each page; top 5% by trailing rate) in
+`run_star_definition.py`. Three wins is about the top 3% of ~990 skaters on every page (the top 5%
+starts at 2.37–2.64, the top 2% at 3.23–3.66; D20 proration already puts shortened seasons on an
+82-game basis). With no cut-off, the adopted leader's miss grows gradually through the 95th
+percentile and steps up above it (five-season rate miss −0.05 to −0.22 below, −0.52 at 95–98th,
+−1.04 in the top 2%). The headline's size depends on the cut-off (−0.50 at the top 10% to −1.18 at
+4.0+), not its direction. Six of eight candidates' star-group verdicts are unchanged under every
+definition; the second level slope's depends on it; no adoption decision does. Recommendation: keep
+three wins, report the top 5% and top 2% beside it. See `50_REBUILD/docs/Star_Definition.md`.
+
 **Star residual retained as a stated limitation, 2026-09-24g.** Review `ebc9f9b` merged
 (sustained-level results reproduced; corrected: absolute error improved slightly, so not "worse on
 every score"; the horizon pattern does not show older seasons are the cause; the sustained
