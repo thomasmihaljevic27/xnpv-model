@@ -1,16 +1,19 @@
 # Player model scorecard: the current model against the rebuilt candidates
 
-Run 2026-09-24 in `50_REBUILD/` (`run_model_scorecard.py` v1.0), with the skater dollar scoring
+Run 2026-09-24 in `50_REBUILD/` (`run_model_scorecard.py` v1.1), with the skater dollar scoring
 (`Skater_Dollar_Scoring.md`) and the production reconciliation (`Production_Reconciliation.md`
-run log, rebuilt 2026-09-23). Development pages 2015–2021 and development start years only; the
-confirmatory pages 2022–2025 are untouched. Nothing is adopted by this document; it is the basis for
-the decision of which player model to carry forward.
+run log, rebuilt 2026-09-23). Development pages 2015–2021 and development start years only. This run
+does not score the 2022–2025 pages, but they are not a pristine holdout: about thirty variants were
+inspected on them before the rebuild, which the rebuild plan records as prior selection (decision D).
+Nothing is adopted by this document. The rebuilt skater model closes at Phase 5 with the limitations
+recorded here; the choice between it and the current model is deferred until the separate draft-pick
+and prospect models are taken up again.
 
 ## What is being compared
 
 | | what it is |
 |---|---|
-| **Current** | the production skater chain: a 60/40 trailing WAR total carried along the locked aging path (`skater_forward_projection.py`), exit-hazard survival (`exit_hazard.py`, `contract_npv.py`), no separate games forecast. Scored through `production_adapter.ProductionChain`, which imports production's own code rather than reimplementing it. |
+| **Current** | the production skater chain: a 60/40 trailing WAR total carried along the locked aging path (`skater_forward_projection.py`), exit-hazard survival (`exit_hazard.py`, `contract_npv.py`), no separate games forecast. Scored through `production_adapter.ProductionChain`, which imports production's own code rather than reimplementing it. Its chance of playing is the adapter's reading of production's accumulated survival weight, which starts at one in the valuation season; production has no separately fitted participation model. Where production has no anchor (no qualifying season in either of the two before the page) the adapter carries the harness's trailing total flat and tags the row; those rows are the adapter's fallback, not production's forecast (see "Production's answerable sample"). |
 | **Candidate A (adopted)** | the rebuilt skater leader: a three-season shrunk ability forecast with hinge and evidence terms, an additive aging walk with the survivorship correction, separate games-share and participation models, participation reading visible contract status (adopted provisionally 2026-09-23); a simulated distribution for every contract. |
 | **Candidate B (previous)** | Candidate A without contract data in participation. |
 
@@ -20,13 +23,15 @@ and prospects are separate, unfinished models and are not part of this rebuild.
 
 **One tilt in the current model's favour:** its aging curve is fitted on the whole panel, including
 seasons after some of the pages it is scored on (`production_adapter.py`, "What it inherits"). The
-candidates see only what each page could see. The comparison is with production as it is.
+candidates see only what each page could see. The comparison is with production as it is. The
+full-panel fit is a dating problem; it is not shown here to make production more accurate than a
+dated fit would, because no dated version of production's curve has been scored.
 
 ## The scorecard
 
 | criterion | Current | Candidate A | Candidate B | reading |
 |---|---:|---:|---:|---|
-| **Season WAR, squared error (RMSE)** | 0.868 | **0.815** | 0.816 | both candidates better in 2,000 of 2,000 player-resamples; 6.1% lower |
+| **Season WAR, squared error (RMSE)** | 0.868 | **0.815** | 0.816 | both candidates better in 2,000 of 2,000 player-resamples; RMSE 6.1% lower (mean squared error 11.9% lower) |
 | Season WAR, absolute error | 0.516 | **0.457** | 0.457 | 11.5% lower |
 | Season WAR, bias | +0.056 | −0.067 | −0.068 | current over-forecasts on average, candidates under-forecast |
 | Better at every horizon? | — | yes | yes | 10.3% lower RMSE at the valuation season, narrowing to 2.4% five seasons out |
@@ -35,14 +40,16 @@ candidates see only what each page could see. The comparison is with production 
 | **Contract dollars, squared error** (one line) | $3.548M | **$3.513M** | $3.529M | A lower in 1,237 of 2,000 against current: **not decisive** |
 | Contract dollars, absolute error | $1.771M | **$1.675M** | $1.674M | A lower in 1,962 of 2,000; B in 1,961 |
 | Contract dollars, bias | **−$0.14M** | −$0.55M | −$0.59M | current is closer on average |
-| A contract value as a distribution | none | calibrated in pooled tests | too narrow in the middle | A passes every pooled PIT and coverage test; B's 50% band misses by 5.4 points |
+| A contract value as a distribution | none | passes the pooled tests | too narrow in the middle | the pooled PIT and coverage tests do not detect miscalibration for A; B's 50% band misses by 5.4 points. Not a test of each contract or subgroup (stars are known to be off) |
 | Information dated at the decision | aging fitted on the full panel; market sample dated by contract start | page / signing dated, rolling fits | same as A | four look-ahead tests pass at exactly zero change for the candidates |
 | Uses the vendor contract export in the forecast | no | yes (visible status from 2018; completeness assumed) | no | A's one extra identifying assumption |
 | Known open limitation | over-forecasts good players | under-forecasts stars at long horizons | same | both quantified below |
 
 Candidate A against Candidate B directly: season WAR squared error lower in 1,998 of 2,000, Brier in
-2,000; contract dollars squared error lower in 1,999 of 2,000 (point) and 1,985 (simulated); absolute
-dollar error slightly worse on the simulated mean. The differences are real and small.
+2,000; contract dollars squared error lower in 1,999 of 2,000 (point) and 1,985 (simulated). **B has
+the slightly lower dollar absolute error:** $1.674M against $1.675M on the point valuation (B lower in
+1,056 of 2,000 resamples) and $1.743M against $1.758M on the simulated mean (B lower in all 2,000). A's advantage is
+on the declared primary score, squared error; the differences are small.
 
 ## 1. Season forecasts
 
@@ -62,6 +69,23 @@ RMSE by seasons ahead:
 | Candidate A | 0.7857 | 0.8230 | 0.8309 | 0.8351 | 0.8140 | 0.7981 |
 | Candidate B | 0.7861 | 0.8236 | 0.8314 | 0.8355 | 0.8146 | 0.7983 |
 
+**Production's answerable sample.** On 4,632 of the 40,510 forecasts (11.4%) production has no
+anchor: the player has no qualifying season in either of the two before the page. The adapter then
+carries the harness's trailing total flat and tags the row; that is the adapter's extension, not
+production's forecast. The table above is therefore production plus its declared fallback. Dropping
+those rows from all three models (the same 35,878 forecasts for each):
+
+| model | participation Brier | season WAR RMSE | lower than current | MAE | bias |
+|---|---:|---:|---:|---:|---:|
+| current | 0.2052 | 0.9129 | — | 0.5626 | +0.0532 |
+| Candidate A | 0.1358 | 0.8640 | 2000/2000 | 0.5082 | −0.0765 |
+| Candidate B | 0.1370 | 0.8645 | 2000/2000 | 0.5083 | −0.0781 |
+
+On production's own rows the candidates' RMSE is 5.4% lower (mean squared error 10.4% lower), absolute
+error 9.7% lower, and RMSE is lower at every horizon: 9.0% at the valuation season, then 6.4%, 5.5%,
+4.8%, 3.9% and 1.8% five seasons out. The ordering is the same as on the full sample; the margin is a
+little smaller. A against B on these rows: squared error lower in 1,997 of 2,000, Brier in 2,000.
+
 **Where each model misses**, season WAR bias over every forecast by trailing tier (the harness's
 60/40 two-season total):
 
@@ -74,10 +98,12 @@ RMSE by seasons ahead:
 | 3+ | +0.99 → +0.53 | −0.17 → −0.87 |
 
 The current model over-forecasts every tier from one win up at every horizon, most at the top: a
-three-win player is forecast about a win too high the season he is valued. The
+three-win player is forecast about a win too high in the valuation season. The
 candidates are close for the lower tiers early and under-forecast the top, increasingly with the
 horizon (`Star_Residual.md`, retained as a stated limitation). Through two seasons out the current
-model's star bias is the larger in size; from three seasons out the candidates' is.
+model's star bias is the larger in size; from three seasons out the candidates' is. On production's
+answerable rows the crossing comes a season earlier: two seasons out, Candidate A's star bias is
+−0.64 against the current model's +0.62.
 
 ## 2. Contract dollars
 
@@ -130,43 +156,59 @@ of the squared variation in the gap. The exit hazard alone does not explain it (
 production's eight-year figure from −28.19 to −25.90). The rebuild prices term as part of what a club
 buys (the term-in price line, `Phase4_Decisions.md`, decision A), which is a framing choice as much
 as an accuracy one; the reconciliation does not identify how much of the gap is framing and how much
-is forecast. Comparability caveats (different valuation dates, 185 contracts where production carries
-terminal control value, 46 cost disagreements) are in the reconciliation log.
+is forecast. **The reconciliation has not established how much of the long-contract gap comes from
+term pricing and how much from forecasting;** the gap is a difference between two whole chains, not an
+attribution. Comparability caveats (different valuation dates, 185 contracts where production carries
+terminal control value, 46 cost disagreements) are in the reconciliation log and apply to the
+eight-year comparison too.
 
 ## What the scorecard does not settle
 
-- **The confirmatory pages.** Everything here is on development pages; 2022–2025 have not been
-  scored for any model. The rebuild's lead over the flat benchmark narrowed from 38% on the 2015 page
+- **The later pages.** Everything here is on development pages; 2022–2025 have not been scored for
+  any model in this run, and they were inspected by about thirty variants before the rebuild, so a
+  later run on them is not a clean holdout. The rebuild's lead over the flat benchmark narrowed from 38% on the 2015 page
   to 22% on 2021 (`Phase5_StressTests.md`), so a smaller lead on later pages is expected.
 - **The price line and term framing** as a separate decision from the forecast.
 - **The star bias** of the candidates and the good-player over-forecast of the current model: both
   are known, quantified, and unrepaired.
 - **Goalies, picks and prospects**, outside this card.
 
-## Recommendation
+## Status and recommendation
 
-**Carry Candidate A forward as the player model.**
+**Status (2026-09-24):** the rebuilt skater model (Candidate A) closes at Phase 5 with the
+limitations recorded above: the star under-forecast at long horizons, the vendor-snapshot
+completeness assumption, calibration shown only in pooled tests, and no clean holdout. The choice
+between it and the current model is deferred until the separate draft-pick and prospect models are
+taken up again. Nothing is merged into production and no default changes.
 
-1. **It is the better forecaster by a clear margin**: 6% lower squared error and 11.5% lower absolute
-   error on season WAR, better at every horizon, in every resample, and with far better calibrated
-   participation. That holds although the current model's aging curve has seen seasons the
-   candidates have not.
+**Recommendation, for that later decision: carry Candidate A forward as the player model.**
+
+1. **It is the better season forecaster.** On production's own answerable rows its RMSE is 5.4%
+   lower (mean squared error 10.4%) and its absolute error 9.7% lower, lower at every horizon and in
+   all 2,000 player-resamples; with the adapter's fallback rows included the RMSE margin is 6.1%.
+   That holds although the current model's aging curve was fitted on seasons the candidates could
+   not see. Its participation Brier is much lower too, against a current model whose chance of
+   playing is the survival weight, one in the valuation season, not a fitted participation model.
 2. **It dates every input at the decision**, which the current model does not (full-panel aging fit;
    a market sample dated by contract start). For a thesis judged on look-ahead and selection, that is
    the stronger reason.
-3. **It gives each contract a calibrated distribution**, which the current model cannot, and which
-   the back-test's risk statements need.
-4. **Its dollar advantage is modest and honest to state that way:** decisive on absolute error, not
-   on squared error, and more negatively biased than the current model on average.
-5. **Against Candidate B** it is better on every primary score by small, consistent margins, and its
-   contract distribution is calibrated where B's is too narrow; the cost is one extra assumption (the
-   vendor snapshot is complete for contracts ending from 2018). B is the natural sensitivity if that
+3. **It gives each contract a distribution that passes the pooled calibration tests**, which the
+   current model cannot provide and the back-test's risk statements need. Passing pooled tests is
+   not calibration for each contract or subgroup; the star tier is known to be off.
+4. **Its dollar advantage is modest and should be stated that way:** clear on absolute error, not
+   decisive on squared error, and more negatively biased than the current model on average, on the
+   full set and on production's answerable contracts alike.
+5. **Against Candidate B** it wins the declared primary score, squared error, on season WAR and on
+   contract dollars, and its distribution passes the pooled tests where B's is too narrow in the
+   middle. B has the slightly lower dollar absolute error. The cost of A is one extra assumption (the
+   vendor snapshot is complete for contracts ending from 2018); B is the natural sensitivity if that
    assumption is challenged.
 
-This is a recommendation; the choice is Thomas's.
+The decision is Thomas's.
 
 ## Files
 
-- `50_REBUILD/code/run_model_scorecard.py` v1.0 (new)
+- `50_REBUILD/code/run_model_scorecard.py` v1.1 (v1.0 new 2026-09-24; v1.1 adds production's
+  answerable sample for season forecasts and contract dollars)
 - output (ignored): `model_scorecard_run_log.txt`, `model_scorecard_seasons.csv`,
   `model_scorecard_dollars.csv`

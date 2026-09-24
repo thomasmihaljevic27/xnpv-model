@@ -96,7 +96,8 @@ zero skipped or failed. Prior status-adoption closure stands; its three reportin
 corrections are applied. No candidate merge or default change. Phase 5 remains
 open. Review: `50_REBUILD/docs/Star_Residual_Review_Codex.md`.
 
-**Player model scorecard; Phase 6 set aside; decision pending (Thomas), 2026-09-24k.** Review
+**Player model scorecard; Phase 6 set aside, 2026-09-24k** (the model decision is now deferred, see
+2026-09-24l). Review
 `674fe67` merged: acceptance results reproduce; two scoring defects fixed (the scorer now checks
 player, dates, seasons, term, pricing quarter and fixed pricing inputs field by field and prices each
 target from its own row, check 47 extended; dollar ties at a declared 6-decimal precision, check 48).
@@ -109,8 +110,8 @@ RMSE 0.868 current, 0.815 adopted, 0.816 previous (2000/2000; better at every ho
 vs 0.133; contract dollars on one line: squared error $3.548M vs $3.513M (adopted lower 1237/2000,
 not decisive), absolute $1.771M vs $1.675M (1962/2000), bias −$0.14M vs −$0.55M. Current
 over-forecasts good players (3+ +0.99 at valuation); candidates under-forecast stars at long
-horizons. Recommendation: carry the adopted candidate forward. **DECISION (Thomas): which player
-model to commit to.** Also corrected: the stress tests' comparator is the flat benchmark, not the live
+horizons. Recommendation: carry the adopted candidate forward. Which player model to commit to:
+deferred until picks and prospects resume (2026-09-24l). Also corrected: the stress tests' comparator is the flat benchmark, not the live
 chain. Suite **48/48**. See `50_REBUILD/docs/Model_Scorecard.md`.
 
 **Phase 5 acceptance: skater dollar scoring, 2026-09-24j.** `run_skater_dollar_scoring.py` scores
@@ -617,10 +618,13 @@ valuations now read contract state at the signing (check 42).
    kept as a tested, reasonable measuring stick. Open, not scheduled: a market (cap-share) definition
    of a star for claims about star contracts];
 2. Phase 5 acceptance (dollar scoring on development pages; contract-by-contract reconciliation
-   against production) [RUN 2026-09-24j/k; repairs applied; closure for review];
+   against production) [RUN 2026-09-24j/k; repairs applied; CLOSED by review 2026-09-24];
 3. [SET ASIDE 2026-09-24k by Thomas: Phase 6 is not part of the player-model rebuild; picks and
    prospects are separate, unfinished models] -> instead: the scorecard decision between the current
-   model and the candidates (`Model_Scorecard.md`). DECISION (Thomas) pending.
+   model and the candidates (`Model_Scorecard.md`). CLOSED 2026-09-24l: the candidate closes at
+   Phase 5 with recorded limitations; the scorecard is corrected; the choice of model is DEFERRED
+   until the separate draft-pick and prospect models are taken up again. No further forecast
+   experiments on the player model.
 
 **2026-09-23d -- GOALIE BRANCH CLOSED AND FROZEN.** Baseline adopted on Thomas's confirmation: production's
 ability forecast, participation with no contract inputs, trailing share, and the pooled price line

@@ -180,6 +180,17 @@ Draft pillar:
   chain does today" over a comparison with the flat benchmark (`A0Production`), and a summary repeated
   it as "beats production's forecast" (corrected 2026-09-24). Check which class the comparison
   actually runs before naming it; the live chain is `production_adapter.ProductionChain`.
+- **Don't credit a comparator with rows it did not answer.** An adapter that imports production's
+  code still fills gaps: where production has no anchor, `ProductionChain` carries the harness's
+  trailing total flat and tags the row `outside_production`. The scorecard called all 40,510 rows
+  "production" when 4,632 were that fallback (corrected 2026-09-24). Report the full sample as
+  "production plus its fallback" and the answerable sample, same rows for every arm, beside it.
+- **Don't call a reused holdout sealed, or a pooled pass per-contract calibration.** The 2022-2025
+  pages were examined by about thirty variants before the rebuild (plan decision D); "not scored by
+  this run" is true, "sealed" is not. Passing pooled PIT and coverage tests means those tests did
+  not detect miscalibration, not that each contract or subgroup is calibrated. And name the metric
+  a percentage is on: a 6.1% cut in RMSE is an 11.9% cut in mean squared error (corrected
+  2026-09-24).
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised
