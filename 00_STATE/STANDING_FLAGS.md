@@ -1,5 +1,18 @@
 # STANDING FLAGS & OPEN QUESTIONS — NHL Trade Market Efficiency
 
+**Matched-aging repair closed, 2026-09-24:** reviewed `670b614` in isolation.
+46/46 checks pass, including all 41 registered variants. Independent sample and
+weight-only mutations fail check 46. Adopted aging coefficients are bit-identical
+to the previous implementation on all seven development pages; matched and hinge
+fits preserve its rows/weights. Season and primary-dollar counts reproduce exactly; final row-level audit confirms the adopted forecast is unchanged on all 40,510 rows.
+Keep the adopted forecast and proceed to the multi-season-level candidate as an
+experiment. The double-pull explanation is a hypothesis. Failure of the specific
+hinge at 2 wins does not reject all nonlinear level effects; its five-year star
+bias is unchanged but star RMSE improves slightly. Documentation cleanup can
+accompany the next experiment. No candidate merge or adoption by this review.
+Phase 5 remains open. See `50_REBUILD/docs/Star_Matched_Closure_Codex.md`.
+
+
 **Star-residual review, 2026-09-23:** reviewed candidate `477316d` in isolation.
 Keep the adopted status forecast. The no-level aging experiment changes both
 regressors and fitting rows: 7,164 to 9,459 on the 2021 page. Removing only the
