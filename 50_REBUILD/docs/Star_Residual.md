@@ -357,13 +357,17 @@ primary scores: the best, no level terms on matched rows, is lower on pooled squ
 the development pages:
 - for the three-win-and-up tier (the harness's 60/40 two-season total, 27 to 32 players a page), the
   rate per 82 is right at the valuation season (−0.03) and under-forecast by 0.27 one season out,
-  0.63 three out and 0.92 five out among the seasons played; season WAR over every forecast is 0.17,
-  0.64 and 0.87 low;
+  0.63 three out and 0.92 five out among the seasons played; season WAR over every forecast is 0.17
+  low at the valuation season and 0.42, 0.64 and 0.87 low one, three and five seasons out (corrected
+  after review: the first version gave 0.17 for one season out, which is the valuation-season figure);
 - a hindsight diagnostic puts the excess in the aging curve's step for these players, on realised
   and correctly dated inputs (about −0.35 a season predicted against −0.11 observed; career-resampled
   excess −0.240, interval −0.347 to −0.130, 84 players), with survivor selection not removed;
-- in dollars, the star tier is where the thesis's surplus claims concentrate, so any result about
-  star contracts carries this bias with it, in the direction of under-valuing the players.
+- the star tier is where the thesis's surplus claims concentrate, so star-contract valuations
+  warrant scrutiny for it. It does not by itself establish a dollar under-valuation of any given
+  contract: contract membership, pricing, term and control rights all enter the dollars;
+- the diagnostic behind the location is conditional on players whose consecutive seasons were
+  observable.
 
 Reopening it needs new evidence pointing at a more specific repair, not another variation on the
 curve's level input.

@@ -163,6 +163,10 @@ Draft pillar:
   with who is still observable, and with how old the training seasons are, all at once. "The older
   training seasons differ" was offered from such a pattern (2026-09-24); it is a reading to test,
   not something the pattern shows.
+- **Don't copy a figure into a summary without its row label from the source table.** A closing
+  summary gave season-WAR misses of 0.17 / 0.64 / 0.87 "one, three and five seasons out"; 0.17 was
+  the valuation-season figure and one season out was 0.42 (corrected 2026-09-24). Read each figure
+  off its labelled row, not from memory of the table.
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised

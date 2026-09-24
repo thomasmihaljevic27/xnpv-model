@@ -1,7 +1,7 @@
 # What counts as a star: the three-win cut-off, tested
 
 Run 2026-09-24 in `50_REBUILD/` (`run_star_definition.py` v1.0). Development pages 2015–2021 only.
-An evaluation of a reporting group; no model is fitted or changed, nothing adopted.
+An evaluation of a reporting group; no model is fitted or changed. Decision: three wins kept (see the end).
 
 ## The question
 
@@ -120,8 +120,12 @@ below the adopted leader's, on the same rows.
   page, inside the top-5% zone where the forecast's miss steps up, and a rate-based definition picks
   nearly the same players.
 - **What depends on it is the size of the headline, not the finding.** Any reported star figure
-  should say which definition it uses. Carrying the top 5% and the top 2% beside it brackets the
-  figure (five-season rate miss −0.73 and −1.04, against −0.92 at three wins).
+  should say which definition it uses. For scale, the top 5% and the top 2% give five-season rate
+  misses of −0.73 and −1.04, against −0.92 at three wins.
+
+**Decision (2026-09-24): three wins is kept as the star definition**, now as a tested, reasonable
+measuring stick rather than an inherited one. The results above are the record of the test; no
+additional reporting convention is adopted.
 - **Not tested here:** a market definition of a star (cap share or contract rank), which may be the
   right one for claims about star contracts rather than star forecasts; and anything on the
   confirmatory pages.

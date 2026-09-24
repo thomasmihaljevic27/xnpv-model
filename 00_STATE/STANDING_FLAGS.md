@@ -91,8 +91,9 @@ starts at 2.37–2.64, the top 2% at 3.23–3.66; D20 proration already puts sho
 percentile and steps up above it (five-season rate miss −0.05 to −0.22 below, −0.52 at 95–98th,
 −1.04 in the top 2%). The headline's size depends on the cut-off (−0.50 at the top 10% to −1.18 at
 4.0+), not its direction. Six of eight candidates' star-group verdicts are unchanged under every
-definition; the second level slope's depends on it; no adoption decision does. Recommendation: keep
-three wins, report the top 5% and top 2% beside it. See `50_REBUILD/docs/Star_Definition.md`.
+definition; the second level slope's depends on it; no adoption decision does. **Decision (Thomas):
+three wins kept as a tested, reasonable measuring stick; results recorded; no extra reporting
+convention.** See `50_REBUILD/docs/Star_Definition.md`.
 
 **Star residual retained as a stated limitation, 2026-09-24g.** Review `ebc9f9b` merged
 (sustained-level results reproduced; corrected: absolute error improved slightly, so not "worse on
@@ -103,7 +104,7 @@ slightly worse, against a pre-run prediction of a small star gain: pooled 69/200
 463/2000, dollars 155/2000 and 116/2000, stars −0.947 five out (adopted −0.921). Not adopted. Eight
 constructions scored, none separating on the declared primary scores, so the star residual is kept
 as a quantified limitation: the 3+ tier's rate is right at the valuation season and 0.27 / 0.63 /
-0.92 low one / three / five seasons out (season WAR 0.17 / 0.64 / 0.87 low), located in the aging
+0.92 low one / three / five seasons out (season WAR 0.42 / 0.64 / 0.87 low; corrected from 0.17, the valuation-season figure), located in the aging
 curve's step. Reopen only on new evidence for a specific repair. Suite **46/46**. See
 `50_REBUILD/docs/Star_Residual.md`.
 
@@ -525,10 +526,11 @@ residuals and currency comparisons; fix and rerun development work before furthe
 
 - **NEW 2026-09-24 — the star residual is a known, quantified bias in the forecast.** For the
   three-win-and-up tier the adopted leader's rate per 82 is right at the valuation season and 0.27,
-  0.63 and 0.92 low one, three and five seasons out (season WAR 0.17, 0.64, 0.87 low), located in the
+  0.63 and 0.92 low one, three and five seasons out (season WAR 0.42, 0.64, 0.87 low), located in the
   aging curve's step on realised inputs (hindsight diagnostic; 84 players; survivor selection not
-  removed). Eight repairs scored, none adopted. Any result about star contracts inherits it, in the
-  direction of under-valuing the players. Evidence: `50_REBUILD/docs/Star_Residual.md`.
+  removed). Eight repairs scored, none adopted. Star-contract valuations warrant scrutiny for it; it
+  does not by itself establish a dollar under-valuation of any given contract (membership, pricing,
+  term and control rights all enter). Evidence: `50_REBUILD/docs/Star_Residual.md`.
 
 - **NEW 2026-09-23g — a feature that exists only where it has support makes a cliff where it
   stops.** The participation model keeps a contract column only at horizons where enough training

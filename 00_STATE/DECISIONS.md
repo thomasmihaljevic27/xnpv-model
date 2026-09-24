@@ -1805,3 +1805,13 @@ targets, and design; exact weights, future invariance, all-ones identity, and
 half-life mutation checked. Proceed to matched simulation comparison,
 development dollar scoring, and production reconciliation. Phase 5 remains open.
 See `50_REBUILD/docs/Star_Recency_Review_Codex.md`.
+
+### Change log, 2026-09-24i (star work closed; star definition decided)
+
+Review `d320439` merged: recency results reproduce; the star investigation closes as a measured
+limitation; proceed to Phase 5 acceptance. Corrected: the star tier's season-WAR miss one season out
+is 0.42 (0.17 is the valuation season) in `Star_Residual.md`, the state files and the standing flag;
+the limitation now says it warrants scrutiny of star-contract valuations without establishing a
+dollar under-valuation of each contract. **Decision (Thomas):** three wins kept as a tested,
+reasonable star measuring stick; results recorded in `Star_Definition.md`; no extra reporting
+convention. CLAUDE.md: rule on copying figures with their row labels.
