@@ -1705,3 +1705,19 @@ mode; docstring claims on unlagged pairs and lagged-noise independence corrected
 `ability_forecast.py` v2.4 (`A1StatusAgingMultiLevel`); `repair_checks.py` v3.5 (check 46 covers
 it); `run_star_residual.py` v1.2. The multi-season level is worse for stars and overall; not
 adopted. Report file list, hinge wording and the runner's 1.06 figure corrected.
+
+### Change log, 2026-09-24 (multi-season aging review)
+
+**Multi-season aging candidate reviewed, 2026-09-24:** candidate `3ba71cd`
+(model/report `7bff643`) reproduces. Full suite 46/46. Independent arithmetic,
+required-lag, row alignment and future-corruption checks pass; fitting rows and
+weights match on all seven pages. Adopted forecasts unchanged on 40,510 rows.
+Multi-season star h5 bias -0.956; star/pooled season wins 1/234 of 2,000;
+main/sensitivity dollar wins 826/778. Retain adopted model. Proceed to a short
+diagnostic with corrected scope: actual harness stars use a 60/40 two-season
+WAR total with fallbacks, not a three-season weighted total. Freeze page fits,
+compare training-aligned lagged observations, current observations and projected
+levels on common transitions. A one-step pass/fail cannot identify recursion
+versus cohort selection by itself. Failed substitution does not establish the
+cause of the original bias. No adoption or candidate merge; Phase 5 stays open.
+Review: `50_REBUILD/docs/Star_Multi_Review_Codex.md`.
