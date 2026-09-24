@@ -140,7 +140,8 @@ Draft pillar:
 - **Don't summarise a table with "all", "every" or "none" until you have checked every cell.** A
   universal word is a claim about each row. It was wrong three times in one review cycle: "every
   resample" was 1,999 of 2,000, "better on every measure" hid a worse absolute error, and "all
-  upward" hid one contract that moved down (2026-09-23). Count, then write the count.
+  upward" hid one contract that moved down (2026-09-23). It recurred: "worse on every declared
+  score" hid a slightly better absolute error (2026-09-24). Count, then write the count.
 - **Don't let a failed variant stand for the whole idea.** A candidate that loses rules out that
   construction. Say what it actually changed (the carry-forward sensitivity moved the whole last
   supported fit, not just the contract-status effect) and what its loss does not rule out.
@@ -158,6 +159,10 @@ Draft pillar:
   behind it and resample those units. The star diagnostic's 876 rows were 492 distinct transitions by
   84 players, repeated across forecast pages (corrected 2026-09-24); resampling careers is the honest
   interval.
+- **Don't read a cause off a horizon pattern.** A bias that grows with the horizon moves with age,
+  with who is still observable, and with how old the training seasons are, all at once. "The older
+  training seasons differ" was offered from such a pattern (2026-09-24); it is a reading to test,
+  not something the pattern shows.
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised

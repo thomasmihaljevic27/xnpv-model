@@ -39,7 +39,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 import information_set as ISET
 
-SCRIPT_VERSION = "2.5"
+SCRIPT_VERSION = "2.6"
 
 W_T1, W_T2 = 0.6, 0.4    # the locked recency weighting, reproduced for A0
 
@@ -1288,13 +1288,15 @@ class _AgingMixin:
     AGING_SAMPLE = "own"
     AGING_LEVEL_KNOT = None
     AGING_SUSTAINED = False
+    AGING_RECENCY_HALFLIFE = None
 
     def fit(self, table, before):
         super().fit(table, before)
         self.aging_ = AdditiveAging(level_mode=self.AGING_LEVEL_MODE,
                                     sample=self.AGING_SAMPLE,
                                     level_knot=self.AGING_LEVEL_KNOT,
-                                    sustained=self.AGING_SUSTAINED).fit(table, before)
+                                    sustained=self.AGING_SUSTAINED,
+                                    recency_halflife=self.AGING_RECENCY_HALFLIFE).fit(table, before)
         return self
 
     def _walk(self, r, rate0, a, h):
@@ -1581,7 +1583,8 @@ class A1AgingParticipationImputed(A1AgingParticipation):
                                     selection=self.AGING_SELECTION,
                                     sample=self.AGING_SAMPLE,
                                     level_knot=self.AGING_LEVEL_KNOT,
-                                    sustained=self.AGING_SUSTAINED).fit(table, before)
+                                    sustained=self.AGING_SUSTAINED,
+                                    recency_halflife=self.AGING_RECENCY_HALFLIFE).fit(table, before)
         return self
 
 
@@ -1611,7 +1614,8 @@ class A2AgingParticipationImputed(A2AgingParticipation):
                                     selection=self.AGING_SELECTION,
                                     sample=self.AGING_SAMPLE,
                                     level_knot=self.AGING_LEVEL_KNOT,
-                                    sustained=self.AGING_SUSTAINED).fit(table, before)
+                                    sustained=self.AGING_SUSTAINED,
+                                    recency_halflife=self.AGING_RECENCY_HALFLIFE).fit(table, before)
         return self
 
 
@@ -1806,6 +1810,22 @@ class A1StatusAgingSustained(A1HingeExposureStatus):
     group picked on one season's rate. It did not identify a cause."""
     name = "adopted leader, aging curve with a sustained-quality level"
     AGING_SUSTAINED = True
+
+
+class A1StatusAgingRecency(A1HingeExposureStatus):
+    """ONE predeclared sensitivity (2026-09-24): the adopted aging curve with
+    every training row kept and its weight halved for every five seasons it
+    lies before the most recent season the page can use. Five is a chosen
+    value, not an estimated optimum, and no other value is tried. Rows are the
+    adopted curve's; weights change exactly as declared (check 46). The
+    forecast formula, participation and the primary price line are fixed.
+
+    It tests one version of a reading, not an established cause: that the
+    older seasons the rolling curve is fitted on differ from the seasons it
+    is applied to. A horizon pattern cannot show that by itself, because a
+    longer horizon also changes age and who is still observable."""
+    name = "adopted leader, aging curve weighted toward recent seasons (half-life 5)"
+    AGING_RECENCY_HALFLIFE = 5.0
 
 
 class A1StatusReducedForm(A1HingeExposureStatus):

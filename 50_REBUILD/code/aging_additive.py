@@ -102,7 +102,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 
-SCRIPT_VERSION = "1.3"
+SCRIPT_VERSION = "1.4"
 
 # Ages outside this band have too few seasons to fit a shape on; a player
 # beyond it takes the step at the nearest edge. Without the clamp the cubic
@@ -125,7 +125,8 @@ class AdditiveAging:
     def __init__(self, level_mode: str = "lagged", use_experience: bool = False,
                  selection: str = "none", impute_level: float = 0.0,
                  impute_returners: bool = False, sample: str = "own",
-                 level_knot: float | None = None, sustained: bool = False):
+                 level_knot: float | None = None, sustained: bool = False,
+                 recency_halflife: float | None = None):
         """level_mode:
              "lagged"  the player's rate one season before the change begins.
                        The default, and the only one that identifies aging
@@ -169,6 +170,14 @@ class AdditiveAging:
         # shrunk rating, is passed as both levels (2026-09-24; a proposed
         # forecasting change, scored before anything is claimed for it).
         self.sustained = bool(sustained)
+        # RECENCY WEIGHTING. None: every training row weighted as recorded.
+        # A number H: each row's weight is multiplied by 0.5 ** (age / H), where
+        # age is how many seasons its starting season t lies before the most
+        # recent starting season the page can use (before - 2, whose outcome
+        # season before - 1 is the last completed). Every row is kept; only
+        # weights change. Declared 2026-09-24 as ONE sensitivity at H = 5
+        # (a chosen value, not an estimated optimum; nothing searched).
+        self.recency_halflife = None if recency_halflife is None else float(recency_halflife)
         assert not (self.sustained and level_mode != "lagged"), "sustained needs the lagged level"
         self.selection = selection
         self.retention_ = None
@@ -306,6 +315,12 @@ class AdditiveAging:
             self.mean_weight_ = float(np.nanmean(inv))
             w = w * inv
 
+        if self.recency_halflife is not None:
+            t_rows = p["syr"].to_numpy(float)
+            if self.selection == "impute" and getattr(self, "n_imputed_", 0):
+                t_rows = np.concatenate([t_rows, miss["syr"].to_numpy(float)])
+            age_rows = (before - 2) - t_rows
+            w = w * 0.5 ** (age_rows / self.recency_halflife)
         ok = np.isfinite(y) & np.isfinite(X).all(axis=1) & np.isfinite(w)
         # The rows a lagged-level fit can use: observed pairs and imputed
         # departures that HAVE a season before the change.
@@ -325,6 +340,11 @@ class AdditiveAging:
         import hashlib
         self.n_fit_ = int(ok.sum())
         self.fit_key_ = hashlib.sha1(repr(used).encode()).hexdigest()
+        # ROWS ALONE, and the rows with their weights, so a candidate that
+        # changes weights by design (recency) can be checked to keep the rows
+        # and to change the weights exactly as declared (check 46).
+        self.rows_key_ = hashlib.sha1(repr(sorted(ids[ok].tolist())).encode()).hexdigest()
+        self.fit_rows_ = pd.DataFrame({"id": ids[ok], "w": w[ok]})
         Xw = X[ok] * np.sqrt(w[ok])[:, None]
         yw = y[ok] * np.sqrt(w[ok])
         try:

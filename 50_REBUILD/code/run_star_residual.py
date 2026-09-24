@@ -43,6 +43,16 @@ more in the training pairs -- and a 3.2-win 27-year-old's yearly step becomes
 -0.280 against -0.251, so the prediction is no gain for stars. Sensitivity
 dollar line: sustained's (declared). Outputs: *_v13.
 
+v1.4 (2026-09-24): ONE predeclared recency sensitivity (`A1StatusAgingRecency`):
+the adopted aging curve with every training row kept and its weight halved for
+every five seasons of age; the five is chosen, not estimated, and no other
+value is tried. Rows kept, weights changed exactly as declared (check 46);
+forecast formula, participation and primary price line fixed. RECORDED BEFORE
+THE RUN: on the 2021 page the curve becomes slightly gentler (a 3.2-win
+27-year-old's step -0.230 against -0.251; at 31, -0.362 against -0.403), so the
+prediction is a small star gain, about a tenth of the gap, not a repair.
+Sensitivity dollar line: recency's (declared). Outputs: *_v14.
+
 THE v1.1 CANDIDATES
     no_level_aging    as v1.0 (formula AND sample changed; reference only)
     no_level_matched  the aging curve without level terms, on the adopted
@@ -90,14 +100,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 import forecast_harness as H
 from player_season_table import build as build_table, birthdate_source
-from ability_forecast import A1StatusAgingSustained
+from ability_forecast import A1StatusAgingRecency
 from run_npv_simulation import LEADER
 import run_skater_contract_test as RSC
 
-SCRIPT_VERSION = "1.3"
+SCRIPT_VERSION = "1.4"
 
 VARIANTS = {"adopted": LEADER,
-            "sustained": A1StatusAgingSustained}
+            "recency": A1StatusAgingRecency}
 REF = "adopted"
 PAIRS = tuple((REF, k) for k in VARIANTS if k != REF)
 STAR = "3+"
@@ -189,10 +199,10 @@ def main() -> None:
     C.log("")
     RSC.season_scores(runs, ref=REF, pairs=PAIRS)
     residual(runs)
-    RSC.dollars(table, variants=VARIANTS, ref=REF, line_tags=("adopted", "sustained"))
+    RSC.dollars(table, variants=VARIANTS, ref=REF, line_tags=("adopted", "recency"))
     out = pd.concat([d.assign(variant=k) for k, d in runs.items()], ignore_index=True)
-    out.to_csv(C.out_path("star_residual_v13.csv"), index=False)
-    C.write_log("star_residual_v13_run_log.txt")
+    out.to_csv(C.out_path("star_residual_v14.csv"), index=False)
+    C.write_log("star_residual_v14_run_log.txt")
 
 
 if __name__ == "__main__":

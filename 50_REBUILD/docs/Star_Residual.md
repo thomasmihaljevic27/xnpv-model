@@ -289,9 +289,16 @@ win): in the training pairs, players high in both seasons declined more, not les
 | adopted | 0.8151 | — | −0.921 | — | — | — |
 | sustained level | 0.8170 | 0/2000 | −1.017 | 0/2000 | 42/2000 | 85/2000 |
 
-Worse on every declared score, and more negative in every tier five seasons out (below replacement
-−0.085 against −0.068; 0 to 1 −0.159 against −0.129; 1 to 2 −0.274 against −0.227; 2 to 3 −0.356
-against −0.290). Not adopted. This rejects this construction of sustained quality, not every one.
+Worse on the declared primary scores (squared error in season WAR and in dollars, pooled and for the
+star tier), and more negative in every tier five seasons out (below replacement −0.085 against
+−0.068; 0 to 1 −0.159 against −0.129; 1 to 2 −0.274 against −0.227; 2 to 3 −0.356 against −0.290).
+**Not worse on every score**, as the first version of this paragraph said: season WAR absolute
+error improves slightly (0.456457 to 0.456009; the independent review's interval includes zero), and
+participation is unchanged by construction. Not adopted.
+
+This rejects this construction of sustained quality, not every one. In the forecast both level
+inputs receive the same projected rate, so the model never carries a player's observed consistency
+forward; a construction that did would be a different candidate.
 
 **Every tier, every horizon (the adopted leader).** Rate miss among seasons played:
 
@@ -303,18 +310,19 @@ against −0.290). Not adopted. This rejects this construction of sustained qual
 | 2 to 3 | −0.079 | +0.023 | −0.146 | −0.095 | −0.165 | −0.290 |
 | 3+ | −0.027 | −0.265 | −0.427 | −0.632 | −0.800 | −0.921 |
 
-**Every tier drifts downward with the horizon**, by 0.19 to 0.34 over five seasons below the top
-tier and by 0.89 in it. The lower tiers start too high at the valuation season and end too
-low. Four constructions that change the curve's level input (none, a hinge, a multi-season level, a
+**Every tier's miss is lower five seasons out than at the valuation season**, by 0.19 to 0.34 below
+the top tier and by 0.89 in it, but not step by step: the 2-to-3 tier rises from the valuation
+season to one season out, and several tiers are flat for a step. The lower tiers start too high at
+the valuation season and end too low. Four constructions that change the curve's level input (none, a hinge, a multi-season level, a
 sustained level) either break the lower tiers or leave the stars no better; the two that use a steadier
 level found a steeper level effect in the training pairs, not a flatter one.
 
 **What that points to, not what it shows.** The curve's training pairs repeatedly say high-level
-players decline steeply; the seasons after each page say they decline much less, and the other tiers
-drift the same way, more mildly. One reading is that the pattern in the older seasons the rolling
-curve is fitted on differs from the later seasons it is applied to. That is untested. A curve
-fitted on, or weighted toward, the seasons nearest each page is the construction that would test
-it, scored the same way.
+players decline steeply; the seasons after each page say they decline much less. One reading is that
+the older seasons the rolling curve is fitted on differ from the later seasons it is applied to. The
+horizon pattern does not establish that: a longer horizon also changes the players' ages and which
+players are still observable. A curve weighted toward the seasons nearest each page tests one version
+of the reading (next section).
 
 ## What is not settled
 

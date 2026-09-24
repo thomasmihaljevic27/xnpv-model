@@ -24,7 +24,7 @@ import forecast_harness as H
 import player_season_table as T
 from ability_forecast import A0Production
 
-SCRIPT_VERSION = "3.6"
+SCRIPT_VERSION = "3.7"
 
 PASS, FAIL, SKIP = "pass", "FAIL", "skip"
 results: list[tuple[str, str, str]] = []
@@ -2187,13 +2187,14 @@ def c46(table):
     import run_npv_simulation as RNS
     from ability_forecast import (A1StatusNoLevelAging, A1StatusNoLevelAgingMatched,
                                   A1StatusAgingLevelHinge, A1StatusAgingMultiLevel,
-                                  A1StatusAgingSustained)
+                                  A1StatusAgingSustained, A1StatusAgingRecency)
     from aging_additive import AdditiveAging
     page = 2018
     iset = I.build(table, I.decision_date_for_page(page), t0=page)
     fits = {}
     for cls in (RNS.LEADER, A1StatusNoLevelAgingMatched, A1StatusAgingLevelHinge,
-                A1StatusAgingMultiLevel, A1StatusAgingSustained, A1StatusNoLevelAging):
+                A1StatusAgingMultiLevel, A1StatusAgingSustained, A1StatusAgingRecency,
+                A1StatusNoLevelAging):
         m = cls()
         m.fit(iset.seasons, before=page)
         fits[cls.__name__] = m.aging_
@@ -2203,13 +2204,24 @@ def c46(table):
         assert fits[k].fit_key_ == ref.fit_key_ and fits[k].n_fit_ == ref.n_fit_, (
             f"{k} was fitted on different rows or weights from the adopted curve "
             f"({fits[k].n_fit_} against {ref.n_fit_})")
+    # THE RECENCY CANDIDATE changes weights by design: same rows, and every
+    # weight exactly the adopted weight times 0.5 ** (age / 5), age counted
+    # from the most recent starting season the page can use (page - 2).
+    rc = fits["A1StatusAgingRecency"]
+    assert rc.rows_key_ == ref.rows_key_, "the recency fit changed the rows"
+    assert rc.fit_key_ != ref.fit_key_, "the recency fit did not change the weights"
+    j = ref.fit_rows_.merge(rc.fit_rows_, on="id", suffixes=("_a", "_r"), validate="one_to_one")
+    t = j["id"].str.split("|").str[1].astype(float).to_numpy()
+    want = j["w_a"].to_numpy() * 0.5 ** (((page - 2) - t) / 5.0)
+    assert np.allclose(j["w_r"].to_numpy(), want, rtol=1e-12, atol=0), "recency weights are not as declared"
     un = fits["A1StatusNoLevelAging"]
     assert un.fit_key_ != ref.fit_key_ and un.n_fit_ > ref.n_fit_, "the unmatched fit looks matched"
     # The adopted curve itself: the new options at their defaults change nothing.
     old = AdditiveAging(level_mode="lagged", selection="impute").fit(iset.seasons, page)
     assert np.array_equal(old.coef_, ref.coef_), "the adopted aging curve moved"
     return (f"2018 page: the matched no-level, hinged-level, multi-season-level and sustained-level curves use the adopted curve's "
-            f"{ref.n_fit_} rows and weights; the unmatched no-level curve uses {un.n_fit_}")
+            f"{ref.n_fit_} rows and weights; the recency curve keeps the rows with weights exactly as "
+            f"declared; the unmatched no-level curve uses {un.n_fit_}")
 
 
 def main() -> None:
