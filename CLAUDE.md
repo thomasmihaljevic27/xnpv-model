@@ -115,6 +115,12 @@ Draft pillar:
   and described a fixed defect (the projection ratio floor) as live and unfixed. Read the
   script's docstring and the constants it actually uses. Where a figure is a run output rather
   than a code constant, cite it from the locked decision record and say so.
+- **Don't drop a step from a simplified walkthrough.** A plain-language or high-level
+  description of how a value is built still names every operation the code applies to that
+  number, in order. The first draft of the two-page overview (2026-09-24) listed the player
+  path's steps but left out discounting, although `contract_npv.py` shrinks each future
+  season by (1.03)^k. Simplify the wording, not the pipeline: walk the summation in the
+  implementing script and check each operation has a place in the text.
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised

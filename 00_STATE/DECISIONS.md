@@ -1,5 +1,12 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-24b (overview, discounting added):** Took Thomas's edited
+overview .docx as the source and added the missing discounting step (3% per year,
+tied to assumed cap growth, as in `contract_npv.py`) to the player path, the page-1
+example, and the pick and prospect paths. PDF regenerated from the .docx; HTML source
+archived. CLAUDE.md gains a rule against dropping pipeline steps from simplified
+walkthroughs. No model, code, or decision change.
+
 **Change log, 2026-09-24b (overview, Word version):** Added
 `40_DOCS/Project_Overview_Plain_Language.docx`, an editable two-page Word copy of
 the plain-language overview (native tables for text and flow chart, chart as an
