@@ -2,7 +2,7 @@
 
 **Updated 2026-09-24 (v1.1):** the no-level result below changed the curve's sample as well as its formula. The matched comparison and the next aging candidate are in "The matched comparison, and a second level slope".
 
-Run 2026-09-24 in `50_REBUILD/` (`run_star_residual.py` v1.0, v1.1 and v1.2; `ability_forecast.py` v2.4; `aging_additive.py` v1.2).
+Run 2026-09-24 in `50_REBUILD/` (`run_star_residual.py` v1.0, v1.1 and v1.2; `ability_forecast.py` v2.4; `aging_additive.py` v1.2; diagnostic `run_star_walk_diagnostic.py` v1.0).
 Development pages and development start years only. **Nothing adopted.**
 
 ## Where the miss is
@@ -190,15 +190,77 @@ no gain for stars.
 
 **The prediction held: no gain, and slightly worse for stars.** Not adopted.
 
-**What it rules out, and what it does not.** The idea that one noisy season's persistent luck
-inflates the curve's level slope is not supported: with a steadier level the fitted slope grows,
-which is consistent with a real level effect on decline in the training pairs that the one-season
-level measured with noise (a reading, not a measurement). That rejects this explanation of the gap, measured this way. It does not
-explain why the forecast walks stars down about 0.27 a season while the stars in the forecast
-population lost about 0.09. The two describe different populations: the curve's training pairs are
-grouped by one or three past seasons' rates among players who played consecutive seasons; the
-forecast's star tier is grouped by the three-season weighted total, and its outcomes are the
-seasons those players went on to play. Where the two part company is not yet located.
+**What it rules out, and what it does not.** This substitution did not help, and it moved the
+fitted level slope the opposite way to what the "pulled back twice" reading expected. That rejects
+this particular repair. It does not reject double shrinkage as a mechanism: the substituted input
+is still a weighted history, while the walk still passes a projected current-season level to a
+relationship fitted on a level ending one season earlier (corrected after review; the first version
+of this paragraph said the result "rejects this explanation").
+
+Why the forecast walks stars down about 0.27 a season while the stars it forecast lost about 0.09
+is still not located. The two describe different populations. The curve's training pairs are
+grouped by one or three past seasons' rates among players who played consecutive seasons. The
+forecast's star tier is the harness's reporting group: a 60/40 total over the two latest qualifying
+seasons, falling back to the latest, then the second, then the third when seasons are missing
+(`forecast_harness.subjects_at`). The first version of this paragraph called it a three-season
+weighted total, which is the forecast's own anchor, not the reporting group (corrected after
+review). Its outcomes are the seasons those players went on to play.
+
+## Where the walk and the stars part company (hindsight diagnostic)
+
+`run_star_walk_diagnostic.py` v1.0. A localisation exercise, not a candidate and not a two-way test.
+For each development page the adopted leader is fitted once on what the page could see and frozen.
+The group is the harness's own "3+" tier (`forecast_harness.subjects_at`), fixed per player and
+page. A transition is season t to t+1 for t from the page season to four seasons later, kept only
+where the player played t−1, t and t+1, so every arm is scored on the same 876 rows with the same
+weights (the smaller of the two seasons' games, as the curve is fitted). **Arms 1 and 2 use realised
+seasons after the page and are hindsight.**
+
+Change in rate per 82 from t to t+1, weighted:
+
+| transition | rows | observed | arm 1: curve on the realised rate at t−1 | arm 2: on the realised rate at t | arm 3: the forecast's own path | projected level minus realised, at t | arm 1 on a survivors-only curve |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| page season to next | 190 | +0.003 | −0.322 | −0.246 | −0.250 | −0.039 | −0.269 |
+| one to two | 188 | −0.045 | −0.300 | −0.294 | −0.275 | −0.288 | −0.262 |
+| two to three | 182 | −0.119 | −0.345 | −0.340 | −0.288 | −0.583 | −0.301 |
+| three to four | 175 | −0.209 | −0.394 | −0.380 | −0.294 | −0.837 | −0.346 |
+| four to five | 141 | −0.228 | −0.421 | −0.405 | −0.290 | −1.055 | −0.377 |
+| all | 876 | −0.112 | −0.352 | −0.328 | −0.279 | −0.527 | −0.307 |
+
+Counts: 27 to 32 tier members a page; 113 to 134 transition rows a page.
+
+Comparison groups, arm 1 only, same pages, dates and weights:
+
+| group | rows | observed | arm 1 | survivors-only curve |
+|---|---:|---:|---:|---:|
+| the harness "3+" tier | 876 | −0.112 | −0.352 | −0.307 |
+| the harness "2 to 3" tier | 1,750 | −0.189 | −0.226 | −0.212 |
+| every subject whose realised rate at t−1 was 3 or more | 1,563 | −0.216 | −0.344 | −0.288 |
+
+The full cohort, season WAR from the adopted leader's harness rows, absences counted: the tier is
+0.17 low at the valuation season, 0.63 two seasons out and 0.87 five out; 0.23, 0.72 and 1.06 low
+among the seasons played. Predicted participation is close through four seasons out (0.87 against
+0.90 played at four) and low at five (0.78 against 0.88).
+
+**What it localises:**
+- **The steepness is in the curve's step, not in the recursion.** On the same rows the curve
+  predicts −0.33 to −0.35 a season from realised inputs of either timing, against −0.11 observed.
+  The forecast's own path steps less steeply (−0.28), because its projected level falls as it goes;
+  feeding forecasts back does not add to the decline. The starting level is close (−0.04), and the
+  level error then accumulates step by step.
+- **The imputed departures are a small part of it.** A survivors-only curve still predicts −0.31.
+- **The stars in this tier barely decline for two seasons** (+0.003, then −0.045), then by 0.12 to
+  0.23 a season.
+- **Membership matters, and is not the whole story.** Players picked by one season's rate at t−1
+  (the curve's own kind of group) are also over-predicted out of sample, by 0.13; the harness stars,
+  picked on a two-season total, by 0.24; the 2-to-3 tier by 0.04.
+
+**What it does not show.** These are survivors: every row played three consecutive seasons, and a
+star who declined sharply may be the one who did not. The survivors-only curve is the like-for-like
+reference for that and is still steep. Nor does it show why a curve that matches its training pairs
+(3+ at t−1: −0.23 observed against −0.27 fitted on the 2021 page's history) over-predicts the same
+kind of group after the page (−0.22 against −0.34 here): the training pairs and these transitions
+are different seasons.
 
 ## What is not settled
 

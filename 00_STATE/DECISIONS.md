@@ -1721,3 +1721,12 @@ levels on common transitions. A one-step pass/fail cannot identify recursion
 versus cohort selection by itself. Failed substitution does not establish the
 cause of the original bias. No adoption or candidate merge; Phase 5 stays open.
 Review: `50_REBUILD/docs/Star_Multi_Review_Codex.md`.
+
+### Change log, 2026-09-24e (star walk diagnostic)
+
+Review `a9e039c` merged. Corrected: the star tier's definition (60/40 two-season total with
+fallbacks, `forecast_harness.subjects_at`) in `Star_Residual.md`; "rejects this explanation" narrowed
+to "rejects this repair" there and in the state files and session log. New
+`run_star_walk_diagnostic.py` v1.0 (hindsight; frozen page fits; three arms on common rows and
+weights; comparison groups; full cohort). CLAUDE.md: the group-definition example added to the
+read-the-code rule; a rule against two-way diagnostic verdicts. No model changed.

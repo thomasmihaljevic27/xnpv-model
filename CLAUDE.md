@@ -114,7 +114,10 @@ Draft pillar:
   wrong baseline, reported the draft bootstrap at 10,000 resamples when the code runs 2,000,
   and described a fixed defect (the projection ratio floor) as live and unfixed. Read the
   script's docstring and the constants it actually uses. Where a figure is a run output rather
-  than a code constant, cite it from the locked decision record and say so.
+  than a code constant, cite it from the locked decision record and say so. The same goes for a
+  reporting group: the harness's star tier is a 60/40 two-season total with fallbacks
+  (`forecast_harness.subjects_at`), and it was described from memory as a three-season weighted
+  total (corrected 2026-09-24). Quote the function that assigns the label.
 - **Don't credit a multi-part change to one of its parts.** When a candidate adds more than one
   input or term, score each alone and in combination before saying which one carries the gain. This
   was corrected twice: the goalie price line credited a level-and-slope pair when the level alone
@@ -146,6 +149,11 @@ Draft pillar:
   sample silently. Removing the aging curve's level terms admitted 2,295 extra rows (7,164 against
   9,459) and was reported as a single change (corrected 2026-09-24). Fingerprint the fitted rows and
   assert equality (check 46).
+- **Don't frame a diagnostic as a two-way verdict.** "If it predicts the first step, the walk is
+  the problem; if not, the group is" overstates both branches: a first-step success does not show
+  that repeated application causes the later miss, and a failure does not show membership does. Say
+  what each arm localises, compare arms on the same rows and weights, and label any arm that uses
+  realised future seasons as hindsight (corrected 2026-09-24).
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised

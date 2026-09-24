@@ -40,12 +40,23 @@ zero skipped or failed. Prior status-adoption closure stands; its three reportin
 corrections are applied. No candidate merge or default change. Phase 5 remains
 open. Review: `50_REBUILD/docs/Star_Residual_Review_Codex.md`.
 
+**Star walk diagnostic, 2026-09-24e (hindsight; localisation, not a verdict).** Review `a9e039c`
+merged: the star tier is the harness's 60/40 two-season total with fallbacks, not a three-season
+weighted total (corrected); the multi-season result rejects that repair, not double shrinkage
+(corrected). `run_star_walk_diagnostic.py`: page fits frozen, the harness "3+" tier, 876 common
+transition rows (t−1, t, t+1 played), same weights. Observed change −0.11 per 82 a season (≈0 for
+two seasons); the frozen curve predicts −0.35 on realised t−1 levels, −0.33 on realised current
+levels, −0.28 along the forecast's own path. So the excess is in the curve's step, not the recursion;
+imputation is a small part (survivors-only −0.31); membership matters in part (one-season 3+ group
+over-predicted by 0.13 out of sample, harness stars by 0.24, 2-to-3 tier by 0.04). See
+`50_REBUILD/docs/Star_Residual.md`.
+
 **Star residual v1.2, 2026-09-24d: the multi-season aging level does not help.** Review
 `82e9db8` closed the sample-matching repair. The next candidate measures the aging curve's level on
 a weighted three-season rate (same rows and weights; check 46). Recorded before the run: it steepens
 the level slope (−0.071 against −0.062 per win), the opposite of the "pulled back twice" hypothesis.
 Result: stars −0.956 five seasons out (adopted −0.921), star tier 1/2000, pooled 234/2000, dollars
-826 and 778/2000. Not adopted; that explanation is not supported, measured this way. Where the curve's
+826 and 778/2000. Not adopted; this rejects that repair, not double shrinkage as a mechanism. Where the curve's
 training pairs and the forecast's star tier part company is not yet located. Stale descriptions
 cleaned (aging docstring, runner, report file list, hinge wording). Suite 46/46. See
 `50_REBUILD/docs/Star_Residual.md`.
