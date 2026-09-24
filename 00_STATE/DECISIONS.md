@@ -1775,7 +1775,7 @@ Review: `50_REBUILD/docs/Star_Sustained_Review_Codex.md`. Phase 5 remains open.
 
 Review `ebc9f9b` merged. `aging_additive.py` v1.4 (`recency_halflife`; rows-only fingerprint and
 fitted weights recorded); `ability_forecast.py` v2.6 (`A1StatusAgingRecency`); `repair_checks.py`
-v3.7 (check 46 asserts the recency fit's rows and declared weights; a half-life-4 mutant fails; full suite pending);
+v3.7 (check 46 asserts the recency fit's rows and declared weights; a half-life-4 mutant fails; suite 46/46);
 `run_star_residual.py` v1.4. Recency weighting slightly worse; not adopted. **Decision recorded:** the
 star residual is retained as a stated, quantified limitation of the adopted leader (standing flag
 added); reopen only on new evidence for a specific repair. `Star_Residual.md` corrections (absolute

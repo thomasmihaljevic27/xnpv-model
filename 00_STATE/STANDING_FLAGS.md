@@ -80,7 +80,7 @@ slightly worse, against a pre-run prediction of a small star gain: pooled 69/200
 constructions scored, none separating on the declared primary scores, so the star residual is kept
 as a quantified limitation: the 3+ tier's rate is right at the valuation season and 0.27 / 0.63 /
 0.92 low one / three / five seasons out (season WAR 0.17 / 0.64 / 0.87 low), located in the aging
-curve's step. Reopen only on new evidence for a specific repair. Full suite run pending at this commit. See
+curve's step. Reopen only on new evidence for a specific repair. Suite **46/46**. See
 `50_REBUILD/docs/Star_Residual.md`.
 
 **Star residual v1.3, 2026-09-24f: a sustained-quality aging level does not help.** Review
