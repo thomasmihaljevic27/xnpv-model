@@ -25,6 +25,16 @@ zero skipped or failed. Prior status-adoption closure stands; its three reportin
 corrections are applied. No candidate merge or default change. Phase 5 remains
 open. Review: `50_REBUILD/docs/Star_Residual_Review_Codex.md`.
 
+**Star residual v1.2, 2026-09-24d: the multi-season aging level does not help.** Review
+`82e9db8` closed the sample-matching repair. The next candidate measures the aging curve's level on
+a weighted three-season rate (same rows and weights; check 46). Recorded before the run: it steepens
+the level slope (−0.071 against −0.062 per win), the opposite of the "pulled back twice" hypothesis.
+Result: stars −0.956 five seasons out (adopted −0.921), star tier 1/2000, pooled 234/2000, dollars
+826 and 778/2000. Not adopted; that explanation is not supported, measured this way. Where the curve's
+training pairs and the forecast's star tier part company is not yet located. Stale descriptions
+cleaned (aging docstring, runner, report file list, hinge wording). Suite 46/46. See
+`50_REBUILD/docs/Star_Residual.md`.
+
 **Star residual review applied, 2026-09-24c.** The no-level aging candidate changed the curve's
 sample too (7,164 rows against 9,459 on the 2021 page); the lagged-level fit drops pairs without a
 prior season, and a code comment wrongly said they were kept. Now: an aging fit fingerprints its rows
@@ -451,8 +461,8 @@ valuations now read contract state at the signing (check 42).
 
 **Next toward closing the repair:**
 1. the star forecast residual [LOCATED 2026-09-24: the aging walk's level terms; three single changes
-   scored, none adopted; a second level slope (v1.1) did nothing; next, the aging curve's level
-   measured on a multi-season rate, on the same rows];
+   scored, none adopted; a second level slope (v1.1) and a multi-season level (v1.2) did not help;
+   next, locate where the curve's training pairs and the forecast's star tier part company];
 2. Phase 5 acceptance (dollar scoring on development pages; contract-by-contract reconciliation
    against production);
 3. Phase 6.

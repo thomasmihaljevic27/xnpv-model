@@ -1697,3 +1697,11 @@ hinge at 2 wins does not reject all nonlinear level effects; its five-year star
 bias is unchanged but star RMSE improves slightly. Documentation cleanup can
 accompany the next experiment. No candidate merge or adoption by this review.
 Phase 5 remains open. See `50_REBUILD/docs/Star_Matched_Closure_Codex.md`.
+
+### Change log, 2026-09-24d (star residual v1.2)
+
+Review `82e9db8` merged (sample-matching repair closed). `aging_additive.py` v1.2 (`multi` level
+mode; docstring claims on unlagged pairs and lagged-noise independence corrected);
+`ability_forecast.py` v2.4 (`A1StatusAgingMultiLevel`); `repair_checks.py` v3.5 (check 46 covers
+it); `run_star_residual.py` v1.2. The multi-season level is worse for stars and overall; not
+adopted. Report file list, hinge wording and the runner's 1.06 figure corrected.

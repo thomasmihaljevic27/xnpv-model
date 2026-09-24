@@ -2,7 +2,7 @@
 
 **Updated 2026-09-24 (v1.1):** the no-level result below changed the curve's sample as well as its formula. The matched comparison and the next aging candidate are in "The matched comparison, and a second level slope".
 
-Run 2026-09-24 in `50_REBUILD/` (`run_star_residual.py` v1.0 and v1.1; `ability_forecast.py` v2.3; `aging_additive.py` v1.1).
+Run 2026-09-24 in `50_REBUILD/` (`run_star_residual.py` v1.0, v1.1 and v1.2; `ability_forecast.py` v2.4; `aging_additive.py` v1.2).
 Development pages and development start years only. **Nothing adopted.**
 
 ## Where the miss is
@@ -163,8 +163,42 @@ persists for a year or two (role, linemates, luck that lasts), which the shrunk 
 removed. Applied to that rating, the curve pulls stars back a second time. This is a hypothesis
 consistent with the numbers, not a measurement of it.
 
-**The next candidate that follows from it:** fit the curve's level on the same kind of level the
-forecast carries, a multi-season weighted rate ending the season before the change, on the same rows.
+**The next candidate that followed from it:** fit the curve's level on a multi-season weighted rate
+ending the season before the change, on the same rows. Scored in v1.2 below: it did not help, and
+its fitted slope moved the opposite way to the hypothesis.
+
+## The multi-season level (v1.2)
+
+`run_star_residual.py` v1.2; `A1StatusAgingMultiLevel`. The aging curve's level is a weighted rate
+over the three seasons before the change (weights 1, 0.667, 0.444, renormalised over the seasons
+played; the season just before is required, so the rows and weights are the adopted curve's, check
+46). It is still dated before the change it predicts. Season alignment, stated: the training level
+ends the season before the change starts, while the walk supplies the projected level of the season
+the change starts from, as it does for the adopted curve; a projected level and a weighted past
+rate are not the same quantity.
+
+**Recorded before the run:** on the 2021 page the multi-season level makes the curve's level slope
+steeper, not flatter (−0.071 against −0.062 per win; a 3.2-win 27-year-old's yearly step −0.265
+against −0.251). The "pulled back twice" reading predicted a flatter slope, so the prediction was
+no gain for stars.
+
+| version | pooled WAR RMSE | lower than adopted | stars' five-season rate miss | lowest tier's | star tier error lower than adopted | dollars, adopted line | dollars, multi-level line |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| adopted | 0.8151 | — | −0.921 | −0.068 | — | — | — |
+| no level terms, same rows (reference) | 0.8133 | 1610/2000 | −0.328 | −0.351 | 1993/2000 | 1531/2000 | 1588/2000 |
+| multi-season level | 0.8153 | 234/2000 | −0.956 | −0.025 | 1/2000 | 826/2000 | 778/2000 |
+
+**The prediction held: no gain, and slightly worse for stars.** Not adopted.
+
+**What it rules out, and what it does not.** The idea that one noisy season's persistent luck
+inflates the curve's level slope is not supported: with a steadier level the fitted slope grows,
+which is consistent with a real level effect on decline in the training pairs that the one-season
+level measured with noise (a reading, not a measurement). That rejects this explanation of the gap, measured this way. It does not
+explain why the forecast walks stars down about 0.27 a season while the stars in the forecast
+population lost about 0.09. The two describe different populations: the curve's training pairs are
+grouped by one or three past seasons' rates among players who played consecutive seasons; the
+forecast's star tier is grouped by the three-season weighted total, and its outcomes are the
+seasons those players went on to play. Where the two part company is not yet located.
 
 ## What is not settled
 
