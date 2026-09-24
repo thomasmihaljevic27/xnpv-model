@@ -1,0 +1,462 @@
+<title>Two Skater Models</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --bg: #f3f5f7;
+    --surface: #ffffff;
+    --ink: #17212b;
+    --muted: #56636f;
+    --line: #d2d9e0;
+    --issue: #b8352a;
+    --issue-soft: #f8e4e1;
+    --fix: #1c5da3;
+    --fix-soft: #e2ecf7;
+    --display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+    --body: "Source Sans 3", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --mono: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg: #0f151b;
+      --surface: #16202a;
+      --ink: #e5ebf0;
+      --muted: #9aa7b3;
+      --line: #2d3b48;
+      --issue: #ee7466;
+      --issue-soft: #3a211e;
+      --fix: #70aaea;
+      --fix-soft: #16293d;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #0f151b;
+    --surface: #16202a;
+    --ink: #e5ebf0;
+    --muted: #9aa7b3;
+    --line: #2d3b48;
+    --issue: #ee7466;
+    --issue-soft: #3a211e;
+    --fix: #70aaea;
+    --fix-soft: #16293d;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.55;
+    padding-inline: 16px;
+    padding-block: 40px 64px;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; display: grid; gap: 48px; }
+  .prose { max-width: 720px; }
+
+  h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.1; }
+  h1 { font-size: clamp(2.4rem, 6vw, 3.4rem); font-weight: 700; letter-spacing: 0.005em; }
+  h2 { font-size: 1.9rem; font-weight: 600; }
+  h3 { font-size: 1.35rem; font-weight: 600; }
+  p { margin: 0; }
+  .eyebrow {
+    font-family: var(--display); font-weight: 600; font-size: 0.95rem;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted);
+  }
+  .stack { display: grid; gap: 14px; }
+  .lede { font-size: 1.15rem; }
+  .muted { color: var(--muted); }
+  code, .mono { font-family: var(--mono); font-size: 0.82em; }
+
+  .status {
+    display: grid; gap: 6px; padding: 14px 18px;
+    border-left: 4px solid var(--fix); background: var(--fix-soft);
+    max-width: 720px;
+  }
+
+  /* ---------- the flowchart ---------- */
+  figure { margin: 0; display: grid; gap: 12px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 0.95rem; color: var(--muted); }
+  .legend span { display: inline-flex; align-items: center; gap: 8px; }
+  .dot { width: 14px; height: 14px; border-radius: 50%; display: inline-block; }
+  .dot.issue { background: var(--issue); }
+  .dot.fix { background: var(--fix); }
+  .scroll { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 14px 10px 8px; }
+  .scroll svg { display: block; width: 100%; min-width: 980px; height: auto; }
+  figcaption { font-size: 0.95rem; color: var(--muted); max-width: 820px; }
+
+  svg .stage { font-family: var(--display); font-weight: 600; font-size: 13px; letter-spacing: 0.1em; fill: var(--muted); }
+  svg .lane { font-family: var(--display); font-weight: 700; font-size: 17px; letter-spacing: 0.06em; }
+  svg .lane.cur { fill: var(--issue); }
+  svg .lane.new { fill: var(--fix); }
+  svg .box { fill: var(--surface); stroke-width: 1.5; }
+  svg .box.cur { stroke: var(--issue); fill: var(--issue-soft); }
+  svg .box.new { stroke: var(--fix); fill: var(--fix-soft); }
+  svg .txt { font-family: var(--body); font-size: 12.5px; fill: var(--ink); }
+  svg .num { font-family: var(--display); font-weight: 700; font-size: 13px; fill: #ffffff; }
+  svg .badge.cur { fill: var(--issue); }
+  svg .badge.new { fill: var(--fix); }
+  svg .flow { stroke: var(--muted); stroke-width: 1.5; fill: none; }
+  svg .swap { stroke: var(--fix); stroke-width: 1.5; fill: none; }
+  svg .pill { fill: var(--surface); stroke: var(--fix); stroke-width: 1; }
+  svg .pilltxt { font-family: var(--body); font-weight: 600; font-size: 11.5px; fill: var(--fix); }
+  svg .head-flow { fill: var(--muted); }
+  svg .head-swap { fill: var(--fix); }
+  svg .formula { font-family: var(--mono); font-size: 12px; fill: var(--ink); }
+  svg .formula-lab { font-family: var(--display); font-weight: 600; font-size: 13px; letter-spacing: 0.08em; }
+
+  /* ---------- stage cards ---------- */
+  .stages { display: grid; gap: 18px; }
+  .stage-card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 6px;
+    padding: 18px 20px; display: grid; gap: 12px;
+  }
+  .stage-card header { display: flex; align-items: baseline; gap: 12px; }
+  .stage-card .n {
+    font-family: var(--display); font-weight: 700; font-size: 1.05rem;
+    width: 28px; height: 28px; border-radius: 50%; flex: none;
+    display: inline-grid; place-items: center; color: #fff; background: var(--issue);
+    transform: translateY(4px);
+  }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 28px; }
+  .pair > div { display: grid; gap: 6px; align-content: start; }
+  .tag { font-family: var(--display); font-weight: 600; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; }
+  .tag.cur { color: var(--issue); }
+  .tag.new { color: var(--fix); }
+  .src { font-size: 0.85rem; color: var(--muted); }
+  @media (max-width: 700px) { .pair { grid-template-columns: 1fr; } }
+
+  /* ---------- scores ---------- */
+  .tablewrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; min-width: 620px; font-size: 0.97rem; }
+  th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  thead th { font-family: var(--display); font-weight: 600; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); border-bottom: 2px solid var(--line); }
+  td.num, th.num { text-align: right; font-family: var(--mono); font-size: 0.88rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td .better { color: var(--fix); font-weight: 500; }
+  tbody tr.group td { font-family: var(--display); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.9rem; color: var(--muted); padding-top: 18px; }
+
+  ul.plain { margin: 0; padding-left: 1.2em; display: grid; gap: 8px; }
+  .options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .option { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px 18px; display: grid; gap: 8px; align-content: start; }
+  .option.lean { border-color: var(--fix); box-shadow: inset 0 3px 0 var(--fix); }
+  .option .tag { color: var(--muted); }
+  .option.lean .tag { color: var(--fix); }
+  @media (max-width: 860px) { .options { grid-template-columns: 1fr; } }
+
+  a { color: var(--fix); }
+  a:focus-visible { outline: 2px solid var(--fix); outline-offset: 2px; }
+</style>
+
+<div class="wrap">
+
+  <header class="stack prose">
+    <span class="eyebrow">NHL trade market efficiency · player pillar</span>
+    <h1>Two Skater Models</h1>
+    <p class="lede">The current production chain and the rebuilt model both turn a skater's past seasons into a contract value in dollars. They take the same seven steps in different ways. This page shows each step side by side, what was wrong with the current version, what the rebuild does instead, and how the two score on the same seasons and contracts.</p>
+    <div class="status">
+      <strong>Where the decision stands (24 September 2026)</strong>
+      <span>The rebuilt skater model is closed at its final validation stage, with the limitations listed below. The choice between the two is deferred until the draft-pick and prospect models are taken up again, so that each asset class moves onto one currency together. Nothing has been merged into production.</span>
+    </div>
+  </header>
+
+  <!-- ================= FLOWCHART ================= -->
+  <section class="stack">
+    <h2>The two chains, step by step</h2>
+    <figure>
+      <div class="legend" aria-hidden="true">
+        <span><i class="dot issue"></i>Current model; the number matches the explanation below</span>
+        <span><i class="dot fix"></i>Rebuilt model's replacement for that step</span>
+      </div>
+      <div class="scroll">
+        <svg viewBox="0 0 1180 400" role="img" aria-label="Seven steps from past seasons to contract value. The current model uses a raw two-season total, multiplies it by an aging ratio, has no games forecast, applies a separate exit table, prices on realised WAR dated by contract start, and uses a fixed spread. The rebuilt model uses only information known at the decision date, pulls a three-season rate toward the league, adds a yearly aging step, forecasts games share and the chance of playing, prices signing-dated forecasts with term included, and simulates 2,000 careers.">
+          <defs>
+            <marker id="ah-flow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" class="head-flow"/>
+            </marker>
+            <marker id="ah-swap" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" class="head-swap"/>
+            </marker>
+          </defs>
+
+          <!-- stage headings: columns start at x = 116 + i*152, width 136 -->
+          <g text-anchor="middle">
+            <text class="stage" x="184" y="22">WHAT IT SEES</text>
+            <text class="stage" x="336" y="22">CURRENT LEVEL</text>
+            <text class="stage" x="488" y="22">AGING</text>
+            <text class="stage" x="640" y="22">GAMES PLAYED</text>
+            <text class="stage" x="792" y="22">STILL PLAYING?</text>
+            <text class="stage" x="944" y="22">PRICE OF A WIN</text>
+            <text class="stage" x="1096" y="22">RANGE</text>
+          </g>
+
+          <!-- lane labels -->
+          <text class="lane cur" x="0" y="88">CURRENT</text>
+          <text class="lane cur" x="0" y="108">MODEL</text>
+          <text class="lane new" x="0" y="256">REBUILT</text>
+          <text class="lane new" x="0" y="276">MODEL</text>
+          <text x="0" y="182" class="txt" fill="currentColor" style="fill: var(--muted); font-size: 12px;">replaced by</text>
+
+          <!-- ============ CURRENT ROW (y 44..148) ============ -->
+          <g>
+            <rect class="box cur" x="116" y="44" width="136" height="104" rx="5"/>
+            <rect class="box cur" x="268" y="44" width="136" height="104" rx="5"/>
+            <rect class="box cur" x="420" y="44" width="136" height="104" rx="5"/>
+            <rect class="box cur" x="572" y="44" width="136" height="104" rx="5"/>
+            <rect class="box cur" x="724" y="44" width="136" height="104" rx="5"/>
+            <rect class="box cur" x="876" y="44" width="136" height="104" rx="5"/>
+            <rect class="box cur" x="1028" y="44" width="136" height="104" rx="5"/>
+          </g>
+          <g>
+            <circle class="badge cur" cx="132" cy="44" r="11"/><text class="num" x="132" y="48.5" text-anchor="middle">1</text>
+            <circle class="badge cur" cx="284" cy="44" r="11"/><text class="num" x="284" y="48.5" text-anchor="middle">2</text>
+            <circle class="badge cur" cx="436" cy="44" r="11"/><text class="num" x="436" y="48.5" text-anchor="middle">3</text>
+            <circle class="badge cur" cx="588" cy="44" r="11"/><text class="num" x="588" y="48.5" text-anchor="middle">4</text>
+            <circle class="badge cur" cx="740" cy="44" r="11"/><text class="num" x="740" y="48.5" text-anchor="middle">5</text>
+            <circle class="badge cur" cx="892" cy="44" r="11"/><text class="num" x="892" y="48.5" text-anchor="middle">6</text>
+            <circle class="badge cur" cx="1044" cy="44" r="11"/><text class="num" x="1044" y="48.5" text-anchor="middle">7</text>
+          </g>
+          <g class="txt">
+            <text x="126" y="74">Fits use the full</text><text x="126" y="90">panel, including</text><text x="126" y="106">seasons after the</text><text x="126" y="122">valuation date</text>
+            <text x="278" y="74">Raw 60/40 WAR</text><text x="278" y="90">total of the last</text><text x="278" y="106">two seasons, not</text><text x="278" y="122">pulled back</text>
+            <text x="430" y="74">Ratio on the raw</text><text x="430" y="90">total; first season</text><text x="430" y="106">fixed at 1.0; four</text><text x="430" y="122">guards needed</text>
+            <text x="582" y="74">No games forecast;</text><text x="582" y="90">injury time is</text><text x="582" y="106">mixed into the</text><text x="582" y="122">level</text>
+            <text x="734" y="74">Exit table by</text><text x="734" y="90">quality and age,</text><text x="734" y="106">multiplied on</text><text x="734" y="122">separately</text>
+            <text x="886" y="74">Line on realised</text><text x="886" y="90">WAR, dated by</text><text x="886" y="106">contract start,</text><text x="886" y="122">not signing</text>
+            <text x="1038" y="74">Fixed spread, flat</text><text x="1038" y="90">after year three,</text><text x="1038" y="106">used only for the</text><text x="1038" y="122">salary floor</text>
+          </g>
+          <g class="flow" marker-end="url(#ah-flow)">
+            <line x1="252" y1="96" x2="266" y2="96"/>
+            <line x1="404" y1="96" x2="418" y2="96"/>
+            <line x1="556" y1="96" x2="570" y2="96"/>
+            <line x1="708" y1="96" x2="722" y2="96"/>
+            <line x1="860" y1="96" x2="874" y2="96"/>
+            <line x1="1012" y1="96" x2="1026" y2="96"/>
+          </g>
+
+          <!-- ============ WHAT CHANGES (arrows down with pills) ============ -->
+          <g class="swap" marker-end="url(#ah-swap)">
+            <line x1="184" y1="150" x2="184" y2="208"/>
+            <line x1="336" y1="150" x2="336" y2="208"/>
+            <line x1="488" y1="150" x2="488" y2="208"/>
+            <line x1="640" y1="150" x2="640" y2="208"/>
+            <line x1="792" y1="150" x2="792" y2="208"/>
+            <line x1="944" y1="150" x2="944" y2="208"/>
+            <line x1="1096" y1="150" x2="1096" y2="208"/>
+          </g>
+          <g>
+            <rect class="pill" x="124" y="167" width="120" height="24" rx="12"/>
+            <rect class="pill" x="286" y="167" width="100" height="24" rx="12"/>
+            <rect class="pill" x="424" y="167" width="128" height="24" rx="12"/>
+            <rect class="pill" x="590" y="167" width="100" height="24" rx="12"/>
+            <rect class="pill" x="728" y="167" width="128" height="24" rx="12"/>
+            <rect class="pill" x="890" y="167" width="108" height="24" rx="12"/>
+            <rect class="pill" x="1054" y="167" width="84" height="24" rx="12"/>
+          </g>
+          <g class="pilltxt" text-anchor="middle">
+            <text x="184" y="183">dated at decision</text>
+            <text x="336" y="183">pulled back</text>
+            <text x="488" y="183">added, not multiplied</text>
+            <text x="640" y="183">new forecast</text>
+            <text x="792" y="183">fitted, applied once</text>
+            <text x="944" y="183">signing-dated</text>
+            <text x="1096" y="183">simulated</text>
+          </g>
+
+          <!-- ============ REBUILT ROW (y 212..316) ============ -->
+          <g>
+            <rect class="box new" x="116" y="212" width="136" height="104" rx="5"/>
+            <rect class="box new" x="268" y="212" width="136" height="104" rx="5"/>
+            <rect class="box new" x="420" y="212" width="136" height="104" rx="5"/>
+            <rect class="box new" x="572" y="212" width="136" height="104" rx="5"/>
+            <rect class="box new" x="724" y="212" width="136" height="104" rx="5"/>
+            <rect class="box new" x="876" y="212" width="136" height="104" rx="5"/>
+            <rect class="box new" x="1028" y="212" width="136" height="104" rx="5"/>
+          </g>
+          <g class="txt">
+            <text x="126" y="238">Only seasons and</text><text x="126" y="254">deals known by the</text><text x="126" y="270">decision date;</text><text x="126" y="286">fits roll forward</text>
+            <text x="278" y="238">Three seasons,</text><text x="278" y="254">fitted weights,</text><text x="278" y="270">pulled toward the</text><text x="278" y="286">league by evidence</text>
+            <text x="430" y="238">Yearly step by age,</text><text x="430" y="254">position and prior</text><text x="430" y="270">level; exits put</text><text x="430" y="286">back at replacement</text>
+            <text x="582" y="238">Own forecast of</text><text x="582" y="254">the share of</text><text x="582" y="270">games played</text>
+            <text x="734" y="238">Chance of a 10+ GP</text><text x="734" y="254">season, each year;</text><text x="734" y="270">returns allowed;</text><text x="734" y="286">reads signed deals</text>
+            <text x="886" y="238">Line on forecasts</text><text x="886" y="254">dated at signing;</text><text x="886" y="270">term priced in;</text><text x="886" y="286">refit each quarter</text>
+            <text x="1038" y="238">2,000 careers</text><text x="1038" y="254">drawn per contract,</text><text x="1038" y="270">each one priced;</text><text x="1038" y="286">misses persist</text>
+          </g>
+          <g class="flow" marker-end="url(#ah-flow)">
+            <line x1="252" y1="264" x2="266" y2="264"/>
+            <line x1="404" y1="264" x2="418" y2="264"/>
+            <line x1="556" y1="264" x2="570" y2="264"/>
+            <line x1="708" y1="264" x2="722" y2="264"/>
+            <line x1="860" y1="264" x2="874" y2="264"/>
+            <line x1="1012" y1="264" x2="1026" y2="264"/>
+          </g>
+
+          <!-- ============ HOW EACH COMBINES ============ -->
+          <line x1="116" y1="336" x2="1164" y2="336" style="stroke: var(--line); stroke-width: 1;"/>
+          <text class="formula-lab" x="0" y="362" style="fill: var(--issue);">CURRENT</text>
+          <text class="formula" x="116" y="362">season value = price(raw level × aging ratio) × survival from the exit table, discounted and summed</text>
+          <text class="formula-lab" x="0" y="386" style="fill: var(--fix);">REBUILT</text>
+          <text class="formula" x="116" y="386">expected WAR = chance of playing × rate per 82 × games share, formed once; 2,000 paths priced and averaged</text>
+        </svg>
+      </div>
+      <figcaption>Both chains end the same way: projected value against the real cap hit, giving surplus in dollars. The difference is in how each step is built. The current model starts from a raw total and corrects it with separate tables; the rebuilt model forecasts each part of a season on its own and combines them in one place.</figcaption>
+    </figure>
+  </section>
+
+  <!-- ================= STAGE CARDS ================= -->
+  <section class="stack">
+    <h2>What was wrong, and what replaced it</h2>
+    <p class="prose muted">Each description is taken from the script that implements it: <code>20_CODE/skater_forward_projection.py</code>, <code>aging_curve.py</code>, and <code>exit_hazard.py</code> for the current model; <code>50_REBUILD/code/</code> for the rebuild. Figures are run outputs from the development pages (2015 to 2021).</p>
+
+    <div class="stages">
+      <article class="stage-card" id="s1">
+        <header><span class="n">1</span><h3>What each model can see at the decision</h3></header>
+        <div class="pair">
+          <div><span class="tag cur">Current model</span>
+            <p>The aging curve and the exit table are each fitted once on the full panel and then applied to valuations inside that panel; for example, a 2019 valuation uses an aging shape partly learned from 2021 seasons. The price line dates a player's production at the contract's start year, not at the signing. The signing-date audit found 30% of that sample signed before those seasons were complete, and 58% of the three-win-plus players.</p>
+          </div>
+          <div><span class="tag new">Rebuilt model</span>
+            <p>Each fit rolls forward. A valuation sees only seasons complete before the decision date and contracts signed on or before it, and a training pair counts only if its outcome season falls before the page. Four look-ahead tests show zero change when later data is altered.</p>
+          </div>
+        </div>
+        <p class="src">Why it matters: look-ahead bias is the first identification question for the thesis. A back-test of trades cannot rest on values that knew how the seasons turned out.</p>
+      </article>
+
+      <article class="stage-card" id="s2">
+        <header><span class="n">2</span><h3>Where the player is now</h3></header>
+        <div class="pair">
+          <div><span class="tag cur">Current model</span>
+            <p>The starting level is the raw 60/40 blend of the last two seasons' WAR totals (10+ games each). The aging curve does pull toward a comparables norm, but the projection divides the curve by its own first-season level, so the valuation season keeps the raw total. A great season is taken at face value. This is the source of the star over-forecast: three-win players are forecast 0.99 WAR too high in the valuation season.</p>
+          </div>
+          <div><span class="tag new">Rebuilt model</span>
+            <p>A per-82 rate from three seasons with fitted weights, pulled toward the league by a regression fitted on the rolling window. The pull depends on how many games stand behind the number, and a second slope above one win keeps the best players from being pulled as hard. The three-win-plus bias in the valuation season is −0.17.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="stage-card" id="s3">
+        <header><span class="n">3</span><h3>Aging</h3></header>
+        <div class="pair">
+          <div><span class="tag cur">Current model</span>
+            <p>The raw total is multiplied by a ratio from the comparables curve. A ratio applied to a number near or below zero behaves badly, so the chain carries four guards: a floor on the curve's base, a cap and a floor on the ratio, and a flat fallback. A negative level is sent to replacement after the first season by rule.</p>
+          </div>
+          <div><span class="tag new">Rebuilt model</span>
+            <p>A yearly change in the rate, by age, position, and the prior season's level, is added one season at a time. No guards are needed, and a negative level ages like any other. When the curve is fitted, players who left the league are put back at replacement level, so the curve is not fitted on survivors only.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="stage-card" id="s4">
+        <header><span class="n">4</span><h3>Games played</h3></header>
+        <div class="pair">
+          <div><span class="tag cur">Current model</span>
+            <p>The chain forecasts a season total directly, so availability and ability are one number. An injury-shortened season reads as a lower level, and there is no separate forecast of how much a player will play.</p>
+          </div>
+          <div><span class="tag new">Rebuilt model</span>
+            <p>The share of games played is forecast on its own, from the trailing share, position, experience, and age, and multiplied onto a per-82 rate.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="stage-card" id="s5">
+        <header><span class="n">5</span><h3>Is the player still in the league?</h3></header>
+        <div class="pair">
+          <div><span class="tag cur">Current model</span>
+            <p>A separate exit table, by quality bucket and age group, multiplies each future season's value by the chance of still being around. The first missed season ends the career in that chain, and the table was fitted apart from an aging curve built only on players who kept playing. Its most confident fifth of predictions overstates playing by 25 points (18 on the rows it can answer).</p>
+          </div>
+          <div><span class="tag new">Rebuilt model</span>
+            <p>The probability of a 10+ game season is forecast for each future season, so a player can miss a year and come back. It reads the contracts signed by the decision date. Chance × rate × games share is formed once. Participation Brier score: 0.136 against 0.205 on the same rows.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="stage-card" id="s6">
+        <header><span class="n">6</span><h3>The price of a win</h3></header>
+        <div class="pair">
+          <div><span class="tag cur">Current model</span>
+            <p>A line of cap share on trailing realised WAR, censored at the league minimum, with a steeper slope for defencemen. It is dated by contract start (see step 1), and each season is priced separately against a cap that grows 3% a year.</p>
+          </div>
+          <div><span class="tag new">Rebuilt model</span>
+            <p>A censored line on forecasts dated at the signing, refitted each signing quarter on the contracts signed before it. Term is part of the price, and restricted and unrestricted free agents share one line with their rights entering as features.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="stage-card" id="s7">
+        <header><span class="n">7</span><h3>The range of outcomes</h3></header>
+        <div class="pair">
+          <div><span class="tag cur">Current model</span>
+            <p>A normal spread from the script's own backcast (0.52, 0.74, and 0.80 WAR average miss one to three seasons out), held flat past three seasons as a placeholder and set to zero in the valuation season. It is used only to correct the value near the league-minimum floor; no contract gets a distribution.</p>
+          </div>
+          <div><span class="tag new">Rebuilt model</span>
+            <p>2,000 careers are drawn for each contract. A miss carries into later seasons at a fitted rate, and an exit sticks. Each path is priced and the prices averaged, so each contract has a full distribution. The pooled calibration tests do not detect miscalibration; that is a pooled result, not a guarantee for each contract.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= SCORES ================= -->
+  <section class="stack">
+    <h2>How they score</h2>
+    <p class="prose">Same pages, same seasons, and one price line for both models' dollars. On 4,632 of the 40,510 season forecasts (and 65 of 1,176 contracts) the current model has no answer, because the player lacks a qualifying season in the last two; the scoring code filled those gaps with a flat trailing total. The first rows below drop them from both models.</p>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>Measure</th><th class="num">Current</th><th class="num">Rebuilt</th><th>Reading</th></tr>
+        </thead>
+        <tbody>
+          <tr class="group"><td colspan="4">Seasons the current model can answer (35,878 forecasts)</td></tr>
+          <tr><td>Season WAR error (RMSE)</td><td class="num">0.913</td><td class="num"><span class="better">0.864</span></td><td>5.4% lower; rebuilt better in 2,000 of 2,000 player-resamples and at each horizon</td></tr>
+          <tr><td>Season WAR absolute error</td><td class="num">0.563</td><td class="num"><span class="better">0.508</span></td><td>9.7% lower</td></tr>
+          <tr><td>Chance of playing (Brier)</td><td class="num">0.205</td><td class="num"><span class="better">0.136</span></td><td>lower is better</td></tr>
+          <tr class="group"><td colspan="4">All 40,510 forecasts (current model plus its fallback)</td></tr>
+          <tr><td>Season WAR error (RMSE)</td><td class="num">0.868</td><td class="num"><span class="better">0.815</span></td><td>6.1% lower (11.9% in mean squared error)</td></tr>
+          <tr><td>Three-win-plus players, bias from valuation season to five out</td><td class="num">+0.99 → +0.53</td><td class="num">−0.17 → −0.87</td><td>opposite misses; the rebuilt one grows with the horizon</td></tr>
+          <tr class="group"><td colspan="4">Contract dollars the current model can answer (1,111 contracts, $M)</td></tr>
+          <tr><td>Error (RMSE)</td><td class="num">3.648</td><td class="num"><span class="better">3.614</span></td><td>rebuilt lower in 1,246 of 2,000: not decisive</td></tr>
+          <tr><td>Absolute error</td><td class="num">1.854</td><td class="num"><span class="better">1.761</span></td><td>rebuilt lower in 1,934 of 2,000</td></tr>
+          <tr><td>Bias</td><td class="num"><span class="better">−0.15</span></td><td class="num">−0.58</td><td>current closer on average</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="prose muted">Across the full 1,176 contracts the pattern is the same: $3.548M against $3.513M on squared error (1,237 of 2,000), $1.771M against $1.675M on absolute error (1,962 of 2,000), and bias of −$0.14M against −$0.55M.</p>
+  </section>
+
+  <!-- ================= LIMITS ================= -->
+  <section class="stack prose">
+    <h2>What the rebuild does not fix</h2>
+    <ul class="plain">
+      <li><strong>Stars at long horizons.</strong> For three-win-plus players the rebuilt forecast runs 0.42 WAR low one season out, 0.64 three out, and 0.87 five out. The miss sits in how the aging walk carries the rate forward. Eight repair attempts were scored and none was adopted; it is recorded as a limitation.</li>
+      <li><strong>Dollars.</strong> The forecast gain shows up in absolute error but is not decisive on squared error, where a few long, expensive contracts dominate. The rebuilt values also run lower on average than realised production.</li>
+      <li><strong>One vendor assumption.</strong> Contract status in the participation forecast assumes the vendor's contract snapshot is complete for deals ending from 2018.</li>
+      <li><strong>Long contracts.</strong> Production values eight-year deals at −$28.2M on average; the rebuilt surplus on the same deals is $33.8M higher. How much of that gap is the term-in price line and how much is forecasting has not been separated.</li>
+      <li><strong>No clean holdout.</strong> The 2022 to 2025 pages were examined by about thirty variants before the rebuild, so a final run on them is a check, not an independent test.</li>
+    </ul>
+  </section>
+
+  <!-- ================= DECISION ================= -->
+  <section class="stack">
+    <h2>The choice, when it is made</h2>
+    <div class="options">
+      <div class="option lean">
+        <span class="tag">Recommended</span>
+        <h3>Carry the rebuilt model forward</h3>
+        <p>Better season forecasts on the current model's own rows, each input dated at the decision, and a distribution for each contract. The cost is the star under-forecast at long horizons and a more negative dollar bias.</p>
+      </div>
+      <div class="option">
+        <span class="tag">Alternative</span>
+        <h3>Keep the current model</h3>
+        <p>Closer on average in dollars, but through offsetting misses: it over-forecasts each tier from one win up. It also carries the full-panel fits and start-year dating described in step 1.</p>
+      </div>
+      <div class="option">
+        <span class="tag">Sensitivity</span>
+        <h3>Rebuilt, without contract data</h3>
+        <p>The same model with participation that ignores contract status, which removes the vendor assumption. It is worse on squared error (1,999 of 2,000 contract resamples), slightly better on dollar absolute error, and its middle 50% range holds 5.4 points too few outcomes.</p>
+      </div>
+    </div>
+    <p class="prose muted">Sources: <code>50_REBUILD/docs/Model_Scorecard.md</code>, <code>Skater_Dollar_Scoring.md</code>, <code>Star_Residual.md</code>, and <code>Production_Reconciliation.md</code>; scores from <code>run_model_scorecard.py</code> v1.1.</p>
+  </section>
+
+</div>

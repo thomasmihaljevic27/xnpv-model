@@ -1882,3 +1882,9 @@ rows, "sealed", pooled calibration, RMSE vs MSE, B's dollar absolute error, reco
 its recommendation narrowed. PROJECT_STATE / WORK_QUEUE / STANDING_FLAGS: pending-decision wording
 replaced by the deferral. CLAUDE.md: fallback rows as a comparator's forecast; sealed holdout, pooled
 calibration and naming the metric behind a percentage.
+
+### Change log, 2026-09-24m (decision brief)
+
+New `50_REBUILD/docs/Skater_Model_Decision.html`, a short page for the deferred choice between the
+current skater chain and the rebuilt model: the seven steps side by side, what each replaces, the
+corrected scorecard figures, limitations and options. Written from the scripts. No state change.
