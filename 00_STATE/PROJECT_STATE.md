@@ -23,7 +23,7 @@ provisional contract-status leader and found three things; all addressed.
   contracts). It and five diagnostics now take `LEADER` from the one switch; both valuation artifacts
   record their model class and the integration refuses a mismatch by name (check 44). Tiers are cut on
   the adopted model (declared); the previous membership is printed beside it (29 of 1,217 contracts
-  move, all upward). Integration passes ($0.00 on 1,217); reconciliation rebuilt.
+  move: 28 up a group, 1 down). Integration passes ($0.00 on 1,217); reconciliation rebuilt.
 - **Missing history.** The participation model raised `int(NaN)` for a subject with no anchor (both
   leaders); now reported unanswered (check 45). Look-ahead tests: all four pass on the adopted leader,
   and the full diagnostic completes. Stress, uncertainty and coverage rerun on it too.

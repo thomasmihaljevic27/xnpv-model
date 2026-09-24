@@ -23,7 +23,7 @@ provisional contract-status leader and found three things; all addressed.
   contracts). It and five diagnostics now take `LEADER` from the one switch; both valuation artifacts
   record their model class and the integration refuses a mismatch by name (check 44). Tiers are cut on
   the adopted model (declared); the previous membership is printed beside it (29 of 1,217 contracts
-  move, all upward). Integration passes ($0.00 on 1,217); reconciliation rebuilt.
+  move: 28 up a group, 1 down). Integration passes ($0.00 on 1,217); reconciliation rebuilt.
 - **Missing history.** The participation model raised `int(NaN)` for a subject with no anchor (both
   leaders); now reported unanswered (check 45). Look-ahead tests: all four pass on the adopted leader,
   and the full diagnostic completes. Stress, uncertainty and coverage rerun on it too.
@@ -372,9 +372,11 @@ residuals and currency comparisons; fix and rerun development work before furthe
   right for the fit; applied across a contract's term it produces paths no player follows.
   **The general form:** when a feature's availability varies by horizon, check the forecast's shape
   across horizons, not just each horizon's score. Evidence: `50_REBUILD/docs/Skater_Contract_Test.md`.
-  **Scored 2026-09-23h:** carrying the last supported effect forward removes most cliffs but scores
-  worse on both primary scores, so the cliff stays as a stated property of the baseline. A smoother
-  curve is not evidence of a better forecast.
+  **Scored 2026-09-23h:** carrying the last supported participation fit forward (the whole fit, not
+  the status effect alone) removes most cliffs but scores worse on both primary scores, so the cliff
+  stays as a stated property of the baseline. A smoother curve is not evidence of a better forecast.
+  The loss rejects that method, not every extension of the status effect, and does not show the cliff
+  is realistic.
 
 - **NEW 2026-09-22f — the score decides the winner when half the outcomes are zero.** The rebuild
   has ranked forecasts by mean absolute error in season WAR. Almost half the goalie cells, and many

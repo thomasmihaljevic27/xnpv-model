@@ -1620,6 +1620,8 @@ valuation chain, the missing-history diagnostic and the clipping claim; score th
 - Withdrawn: "every downstream runner was rerun" (the market comparison was not); the 0.014 WAR
   clipping figure (simulation noise; exact 0.000415).
 - Not adopted: carrying status past its support (worse on both primary scores). Baseline unchanged.
+  The method carries the whole last supported fit, so its loss does not reject every extension of the
+  status effect alone.
 - CLAUDE.md: two rules (search for the old value by name when a default changes; exact effects, not
   simulated gaps).
 
@@ -1640,3 +1642,10 @@ so its loss does not reject all possible status-effect extensions. Matched
 simulation-distribution scoring remains open; Phase 5 is not complete.
 See `50_REBUILD/docs/Status_Adoption_Closure_Codex.md`. No candidate merge or
 implementation/default change was made by this review.
+
+### Change log, 2026-09-24 (status-adoption review closed)
+
+Closure review `3542bd3` merged: the adoption review closes; provisional status-only leader retained;
+carried version a tested sensitivity. Reporting corrections: 28 up and 1 down (not "all upward");
+clipping average among the 18 affected terms; the carried method's loss does not reject every
+status-effect extension. CLAUDE.md: two rules. Next: star forecast residual.

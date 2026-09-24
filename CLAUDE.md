@@ -134,6 +134,13 @@ Draft pillar:
   draws and the point forecast is mostly sampling noise. Where the mechanism has an exact form (the
   participation chain's recursion), compute its effect exactly: clipping cost 0.000415 WAR a season,
   not the 0.014 first reported (corrected 2026-09-23).
+- **Don't summarise a table with "all", "every" or "none" until you have checked every cell.** A
+  universal word is a claim about each row. It was wrong three times in one review cycle: "every
+  resample" was 1,999 of 2,000, "better on every measure" hid a worse absolute error, and "all
+  upward" hid one contract that moved down (2026-09-23). Count, then write the count.
+- **Don't let a failed variant stand for the whole idea.** A candidate that loses rules out that
+  construction. Say what it actually changed (the carry-forward sensitivity moved the whole last
+  supported fit, not just the contract-status effect) and what its loss does not rule out.
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised

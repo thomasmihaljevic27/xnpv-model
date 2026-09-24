@@ -323,8 +323,8 @@ Every runner that values contracts or tests the leader, rerun after the scope co
 - **Market comparison** (`run_valuation_sensitivity.py` v2.1), six forecasts on 1,217 contracts. On
   groups cut on the adopted model, every group keeps its sign and the five groups keep their order in
   all six columns. On the previous membership the same holds. 29 contracts change group between the
-  two memberships, all upward (24 from 0–0.5 into 0.5–1, 4 from 0.5–1 into 1–2, 1 from 0–0.5 to below
-  0). The top group is unchanged (18 contracts).
+  two memberships: 28 move up a group (24 from 0–0.5 into 0.5–1, 4 from 0.5–1 into 1–2) and one moves
+  down (from 0–0.5 to below 0). The top group is unchanged (18 contracts).
 - **Integration** (`run_valuation_integration.py` v1.3): both artifacts name `A1HingeExposureStatus`;
   the point surplus agrees to $0.00 on all 1,217 contracts; the guard passes.
 - **Production reconciliation** (`run_production_reconciliation.py`, reading the integrated table):
@@ -385,7 +385,7 @@ because a first season is always inside the supported range.
 **Path shape** (the participation `forecast_blocks` hands the simulation, 1,473 development terms,
 a wider set than the 1,217 priced):
 
-| version | terms with a cliff (fall > 0.25 in one season) | clipped terms | clipping, mean abs WAR/season | largest |
+| version | terms with a cliff (fall > 0.25 in one season) | clipped terms | clipping, mean abs WAR/season among the clipped terms | largest |
 |---|---:|---:|---:|---:|
 | adopted | 34 | 18 | 0.000744 | 0.005555 |
 | carried | 15 | 18 | 0.000751 | 0.005555 |
@@ -399,9 +399,14 @@ Contract 6500's eighth season reads 0.773 instead of 0.449.
 - **It removes 19 of the 34 cliffs and none of the clipping** (18 terms either way). That confirms the
   two are separate problems: smoothing the fall leaves the count of rises the chain cannot deliver
   where it was.
-- **The smoother curve is not a better forecast here.** The assumption behind it (that being under
+- **This smoothing is not a better forecast here.** The assumption behind it (that being under
   contract matters as much past the measurable range as at its edge, with the league's decay) is not
   supported by these scores.
+- **What the result does not show.** The candidate carries the WHOLE last supported participation
+  fit forward (age, level, games share, experience and contract status together), not the contract
+  status effect alone. Its loss rules out this method, not every way of extending the status effect;
+  nor does it show the cliff is realistic. It shows this smoothing did not improve the declared
+  scores.
 
 **Result: the adopted model stays the baseline, cliff included.** The carried version is recorded
 as a scored sensitivity and is not adopted. The cliff is a stated property of the baseline: past
