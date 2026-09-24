@@ -29,16 +29,21 @@ dated fit would, because no dated version of production's curve has been scored.
 
 ## The scorecard
 
+The current model's full-sample figures include the adapter's fallback on the rows production cannot
+answer (4,632 season forecasts, 65 contracts); the rows marked "answerable" drop those from every model.
+
 | criterion | Current | Candidate A | Candidate B | reading |
 |---|---:|---:|---:|---|
 | **Season WAR, squared error (RMSE)** | 0.868 | **0.815** | 0.816 | both candidates better in 2,000 of 2,000 player-resamples; RMSE 6.1% lower (mean squared error 11.9% lower) |
 | Season WAR, absolute error | 0.516 | **0.457** | 0.457 | 11.5% lower |
+| Season WAR RMSE, production's answerable rows only (35,878) | 0.913 | **0.864** | 0.865 | 2,000 of 2,000; RMSE 5.4% lower; absolute error 0.563 against 0.508 |
 | Season WAR, bias | +0.056 | −0.067 | −0.068 | current over-forecasts on average, candidates under-forecast |
 | Better at every horizon? | — | yes | yes | 10.3% lower RMSE at the valuation season, narrowing to 2.4% five seasons out |
 | **Chance of playing (Brier)** | 0.231 | **0.133** | 0.134 | current's most confident fifth over-predicts by 25 points (+0.247); candidates' by −0.010 and −0.015 |
 | Star tier (3+) bias, valuation season → five out | +0.99 → +0.53 | −0.17 → −0.87 | −0.17 → −0.87 | opposite directions; see below |
 | **Contract dollars, squared error** (one line) | $3.548M | **$3.513M** | $3.529M | A lower in 1,237 of 2,000 against current: **not decisive** |
-| Contract dollars, absolute error | $1.771M | **$1.675M** | $1.674M | A lower in 1,962 of 2,000; B in 1,961 |
+| Contract dollars, squared error, production's answerable contracts (1,111) | $3.648M | **$3.614M** | $3.630M | A lower in 1,246 of 2,000; absolute error lower in 1,934 |
+| Contract dollars, absolute error | $1.771M | $1.675M | **$1.674M** | against current: A lower in 1,962 of 2,000, B in 1,961; B slightly below A |
 | Contract dollars, bias | **−$0.14M** | −$0.55M | −$0.59M | current is closer on average |
 | A contract value as a distribution | none | passes the pooled tests | too narrow in the middle | the pooled PIT and coverage tests do not detect miscalibration for A; B's 50% band misses by 5.4 points. Not a test of each contract or subgroup (stars are known to be off) |
 | Information dated at the decision | aging fitted on the full panel; market sample dated by contract start | page / signing dated, rolling fits | same as A | four look-ahead tests pass at exactly zero change for the candidates |
@@ -119,6 +124,22 @@ which the candidate's error is lower than the current model's.
 | Candidate A | simulated | 3.513 | 1.758 | −0.335 | | |
 | Candidate B | point | 3.529 | 1.674 | −0.594 | 1162/2000 | 1961/2000 |
 | Candidate B | simulated | 3.526 | 1.743 | −0.406 | | |
+
+**Production's answerable contracts.** On 65 of the 1,176 contracts production has no anchor at the
+signing page, so the current model's value there is the adapter's fallback. Scored without them (1,111
+contracts, 751 players), on the same line as fitted, not a line refitted without those contracts:
+
+| model | valuation | RMSE | MAE | bias | squared error lower than current | absolute lower than current |
+|---|---|---:|---:|---:|---:|---:|
+| current | point | 3.648 | 1.854 | −0.153 | — | — |
+| Candidate A | point | 3.614 | 1.761 | −0.581 | 1246/2000 | 1934/2000 |
+| Candidate A | simulated | 3.612 | 1.840 | −0.370 | | |
+| Candidate B | point | 3.630 | 1.762 | −0.628 | 1152/2000 | 1930/2000 |
+| Candidate B | simulated | 3.626 | 1.827 | −0.440 | | |
+
+The reading does not change: the candidates are clearly better on absolute error, not decisively on
+squared error, and more negatively biased. On the current model's line the answerable-contract counts
+are 1,113 (A) and 1,033 (B) of 2,000 on squared error, 1,952 and 1,958 on absolute error.
 
 On the current model's line (the sensitivity) the pattern repeats: squared error lower in 1,137 (A)
 and 1,047 (B) of 2,000, absolute error in 1,969 and 1,973. The two lines give different realised

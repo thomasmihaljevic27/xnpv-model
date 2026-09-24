@@ -1867,3 +1867,18 @@ A still beats production (RMSE .8640 vs .9129, 2,000/2,000 resamples). Later
 pages were previously inspected, not historically sealed; pooled calibration
 does not establish each contract's calibration. No new forecast search is
 requested. See `50_REBUILD/docs/Player_Acceptance_Closure_Review_Codex.md`.
+
+### Change log, 2026-09-24l (player candidate closed; scorecard corrected; decision deferred)
+
+Review `57d0be8` merged. **Decision recorded: the Player Model candidate closes at Phase 5 with its
+recorded limitations (star under-forecast at long horizons, vendor-snapshot completeness assumption,
+pooled-only calibration, no clean holdout); the choice between it and the current model is deferred
+until the Picks and Prospects Models resume.** `run_model_scorecard.py` v1.1: production's answerable
+sample for season forecasts (35,878 of 40,510) and contract dollars (1,111 of 1,176), the latter on the
+fitted line, not a refit; `production_answerable` column in `model_scorecard_dollars.csv`. Results
+reproduce the review (season RMSE 0.9129 vs 0.8640; dollar RMSE $3.648M vs $3.614M, 1246/2000 against
+the review's 1245 from its faster resampler). `Model_Scorecard.md` corrected on six points (fallback
+rows, "sealed", pooled calibration, RMSE vs MSE, B's dollar absolute error, reconciliation split) and
+its recommendation narrowed. PROJECT_STATE / WORK_QUEUE / STANDING_FLAGS: pending-decision wording
+replaced by the deferral. CLAUDE.md: fallback rows as a comparator's forecast; sealed holdout, pooled
+calibration and naming the metric behind a percentage.

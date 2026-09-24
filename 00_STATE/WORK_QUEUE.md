@@ -1,5 +1,18 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
+**Player candidate closed; scorecard corrected; model choice deferred, 2026-09-24l.** Per review
+`57d0be8`: the rebuilt skater model closes at Phase 5 with its recorded limitations; which player
+model to commit to is DEFERRED until the separate draft-pick and prospect models are taken up again.
+No further forecast experiments on the player model. `run_model_scorecard.py` v1.1 reports production's
+answerable sample beside the full one (4,632 of 40,510 season rows and 65 of 1,176 contracts are the
+adapter's fallback where production has no anchor). Answerable season rows (35,878): RMSE 0.9129
+current vs 0.8640 adopted (5.4% lower; 2000/2000), MAE 0.5626 vs 0.5082. Answerable contracts
+(1,111; primary line as fitted): $3.648M vs $3.614M (adopted lower 1246/2000), MAE $1.854M vs $1.761M
+(1934/2000). Full-sample figures unchanged. `Model_Scorecard.md` corrected: 2022-2025 previously
+inspected by about thirty variants, not sealed; pooled calibration is not per-contract; 6.1% is RMSE
+(11.9% in mean squared error); B has the slightly lower dollar absolute error; the reconciliation does
+not split term pricing from forecasting. CLAUDE.md: two rules. No production change, no merge.
+
 **Player candidate acceptance closed, 2026-09-24:** independent review of
 `7b046a3` closes both scoring repairs. Full suite 48/48; all ten identity-field
 mutations rejected; precision mutation rejected. Both rebuilt point values,
