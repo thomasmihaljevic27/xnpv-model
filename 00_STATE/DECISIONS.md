@@ -1824,3 +1824,18 @@ extracted unchanged); new `run_skater_dollar_scoring.py` v1.0; `repair_checks.py
 Adopted leader wins dollar squared error on point and simulated valuations against the previous
 leader, loses simulated absolute error; its simulated distribution passes the pooled calibration
 tests. Report: `50_REBUILD/docs/Skater_Dollar_Scoring.md`. No model changed.
+
+### Change log, 2026-09-24 (Player acceptance review)
+
+**Player acceptance review, 2026-09-24:** `01e78a9` supplies the remaining
+skater simulation dollar scoring. Suite 47/47; primary error table and all
+comparison counts reproduce on 1,176 ended contracts / 767 players. Point
+values match the previously reviewed integration to $1.49e-08. Two bounded
+scoring repairs remain: the shared-target guard must check player and date
+identity before reusing reference inputs; monetary calibration must recognise
+ties at a declared dollar precision (17 contracts affected by floating-point
+comparisons). The corrected calibration retains the qualitative conclusion.
+No new forecast experiment is requested. Close the Player Model candidate after
+these repairs and verification; adoption for the thesis remains a later decision
+when separate Picks and Prospects Model work resumes. See
+`50_REBUILD/docs/Player_Acceptance_Review_Codex.md`.

@@ -1,5 +1,18 @@
 # STANDING FLAGS & OPEN QUESTIONS — NHL Trade Market Efficiency
 
+**Player acceptance review, 2026-09-24:** `01e78a9` supplies the remaining
+skater simulation dollar scoring. Suite 47/47; primary error table and all
+comparison counts reproduce on 1,176 ended contracts / 767 players. Point
+values match the previously reviewed integration to $1.49e-08. Two bounded
+scoring repairs remain: the shared-target guard must check player and date
+identity before reusing reference inputs; monetary calibration must recognise
+ties at a declared dollar precision (17 contracts affected by floating-point
+comparisons). The corrected calibration retains the qualitative conclusion.
+No new forecast experiment is requested. Close the Player Model candidate after
+these repairs and verification; adoption for the thesis remains a later decision
+when separate Picks and Prospects Model work resumes. See
+`50_REBUILD/docs/Player_Acceptance_Review_Codex.md`.
+
 **Recency review closed, 2026-09-24:** independently reproduced `293f4d6`:
 46/46 suite, 40,510 forecasts, 1,217 valued contracts, 1,176 ended terms.
 Wins: 69/2000 overall, 463/2000 stars, 155/2000 main dollars, 116/2000

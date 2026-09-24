@@ -134,3 +134,7 @@ Every time I get corrected on something, add a rule here so it doesn't repeat.
 >>>>>>> 1817012 (Session sync)
 
 - In pricing explainers, omit unused 2026 CBA implementation details when they do not affect the study sample. Lead the goalie explanation with lower year-to-year performance stability. When incorporating replacement prose, remove the superseded explanation instead of retaining both.
+
+## Player Model closure and later model work
+
+- Closing the rebuilt Player Model means finishing and reviewing the candidate, with its limitations recorded. It does not adopt it for production or the thesis. Picks and prospects are separate model work, not unfinished phases of the Player Model rebuild. When that work resumes, decide whether to adopt or drop the rebuilt Player Model. A forecast selected within the experimental rebuild is not a final adoption decision.
