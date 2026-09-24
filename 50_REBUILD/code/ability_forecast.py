@@ -39,7 +39,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 import information_set as ISET
 
-SCRIPT_VERSION = "2.4"
+SCRIPT_VERSION = "2.5"
 
 W_T1, W_T2 = 0.6, 0.4    # the locked recency weighting, reproduced for A0
 
@@ -1287,12 +1287,14 @@ class _AgingMixin:
     # are the recorded curve.
     AGING_SAMPLE = "own"
     AGING_LEVEL_KNOT = None
+    AGING_SUSTAINED = False
 
     def fit(self, table, before):
         super().fit(table, before)
         self.aging_ = AdditiveAging(level_mode=self.AGING_LEVEL_MODE,
                                     sample=self.AGING_SAMPLE,
-                                    level_knot=self.AGING_LEVEL_KNOT).fit(table, before)
+                                    level_knot=self.AGING_LEVEL_KNOT,
+                                    sustained=self.AGING_SUSTAINED).fit(table, before)
         return self
 
     def _walk(self, r, rate0, a, h):
@@ -1578,7 +1580,8 @@ class A1AgingParticipationImputed(A1AgingParticipation):
         self.aging_ = AdditiveAging(level_mode=self.AGING_LEVEL_MODE,
                                     selection=self.AGING_SELECTION,
                                     sample=self.AGING_SAMPLE,
-                                    level_knot=self.AGING_LEVEL_KNOT).fit(table, before)
+                                    level_knot=self.AGING_LEVEL_KNOT,
+                                    sustained=self.AGING_SUSTAINED).fit(table, before)
         return self
 
 
@@ -1607,7 +1610,8 @@ class A2AgingParticipationImputed(A2AgingParticipation):
         self.aging_ = AdditiveAging(level_mode=self.AGING_LEVEL_MODE,
                                     selection=self.AGING_SELECTION,
                                     sample=self.AGING_SAMPLE,
-                                    level_knot=self.AGING_LEVEL_KNOT).fit(table, before)
+                                    level_knot=self.AGING_LEVEL_KNOT,
+                                    sustained=self.AGING_SUSTAINED).fit(table, before)
         return self
 
 
@@ -1785,6 +1789,23 @@ class A1StatusAgingMultiLevel(A1HingeExposureStatus):
     not the same quantity; this is the construction scored."""
     name = "adopted leader, aging level on a multi-season rate"
     AGING_LEVEL_MODE = "multi"
+
+
+class A1StatusAgingSustained(A1HingeExposureStatus):
+    """A proposed forecasting change, 2026-09-24: the aging curve gets a
+    SUSTAINED-QUALITY level beside the one-season lagged level -- the lower of
+    the player's rates at t-1 and t-2 (t-1 alone when t-2 was not played),
+    with its age interaction -- so its slope can separate a player who was
+    high in both seasons from a one-season spike. Same rows and weights as the
+    adopted curve (it needs only t-1; check 46). In the walk the projected
+    level, already a multi-season shrunk rating, is passed as both levels.
+
+    Motivation, not proof: a hindsight diagnostic found the frozen curve's
+    step too steep for the harness's stars on realised, correctly dated inputs
+    (-0.35 a season against -0.11 observed; 84 players), and less so for a
+    group picked on one season's rate. It did not identify a cause."""
+    name = "adopted leader, aging curve with a sustained-quality level"
+    AGING_SUSTAINED = True
 
 
 class A1StatusReducedForm(A1HingeExposureStatus):

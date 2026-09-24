@@ -33,6 +33,16 @@ hypothesis predicts, so the prediction is that it does NOT help stars. The
 matched no-level curve stays as the reference. Sensitivity dollar line:
 multi_level's (declared). Outputs: *_v12.
 
+v1.3 (2026-09-24): the sustained-quality candidate (`A1StatusAgingSustained`):
+the aging curve gets a second level, min(rate at t-1, rate at t-2), with its
+age interaction; same rows and weights (check 46); the walk passes the
+projected level as both. Scored on every tier and every horizon as well as the
+declared scores. RECORDED BEFORE THE RUN: on the 2021 page the sustained level
+has a NEGATIVE slope (-0.034 per win) -- players high in both seasons declined
+more in the training pairs -- and a 3.2-win 27-year-old's yearly step becomes
+-0.280 against -0.251, so the prediction is no gain for stars. Sensitivity
+dollar line: sustained's (declared). Outputs: *_v13.
+
 THE v1.1 CANDIDATES
     no_level_aging    as v1.0 (formula AND sample changed; reference only)
     no_level_matched  the aging curve without level terms, on the adopted
@@ -80,15 +90,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 import forecast_harness as H
 from player_season_table import build as build_table, birthdate_source
-from ability_forecast import A1StatusNoLevelAgingMatched, A1StatusAgingMultiLevel
+from ability_forecast import A1StatusAgingSustained
 from run_npv_simulation import LEADER
 import run_skater_contract_test as RSC
 
-SCRIPT_VERSION = "1.2"
+SCRIPT_VERSION = "1.3"
 
 VARIANTS = {"adopted": LEADER,
-            "no_level_matched": A1StatusNoLevelAgingMatched,
-            "multi_level": A1StatusAgingMultiLevel}
+            "sustained": A1StatusAgingSustained}
 REF = "adopted"
 PAIRS = tuple((REF, k) for k in VARIANTS if k != REF)
 STAR = "3+"
@@ -139,6 +148,21 @@ def residual(runs: dict) -> None:
               f"actual {d.loc[top, 'act_war'].mean():.3f}   "
               f"miss {(d.loc[top, 'pred_war'] - d.loc[top, 'act_war']).mean():+.3f}   n={int(top.sum())}")
     C.log("")
+    C.log("  EVERY TIER AND EVERY HORIZON. Rate bias among seasons played, and season")
+    C.log("  WAR bias over every forecast, for each version:")
+    tiers_all = ["below 0", "0 to 1", "1 to 2", "2 to 3", "3+"]
+    for k, d in al.items():
+        C.log(f"    {k}: rate / WAR")
+        C.log(f"      {'tier':<10}" + "".join(f"{'h' + str(h):>16}" for h in RSC.HORIZONS))
+        for t in tiers_all:
+            line = f"      {t:<10}"
+            for h in RSC.HORIZONS:
+                m = (d["tier"] == t) & (d["h"] == h)
+                r = d.loc[m & (d["played"] == 1), "e_rate"].mean()
+                w = d.loc[m, "e_war"].mean()
+                line += f"{r:>+8.3f}/{w:<+7.3f}"
+            C.log(line)
+    C.log("")
     C.log("  every tier, rate bias among seasons played, five seasons out:")
     tiers = [t for t in ("below 0", "0 to 1", "1 to 2", "2 to 3", "3+")]
     C.log(f"    {'tier':<10}" + "".join(f"{k:>16}" for k in al))
@@ -165,10 +189,10 @@ def main() -> None:
     C.log("")
     RSC.season_scores(runs, ref=REF, pairs=PAIRS)
     residual(runs)
-    RSC.dollars(table, variants=VARIANTS, ref=REF, line_tags=("adopted", "multi_level"))
+    RSC.dollars(table, variants=VARIANTS, ref=REF, line_tags=("adopted", "sustained"))
     out = pd.concat([d.assign(variant=k) for k, d in runs.items()], ignore_index=True)
-    out.to_csv(C.out_path("star_residual_v12.csv"), index=False)
-    C.write_log("star_residual_v12_run_log.txt")
+    out.to_csv(C.out_path("star_residual_v13.csv"), index=False)
+    C.write_log("star_residual_v13_run_log.txt")
 
 
 if __name__ == "__main__":

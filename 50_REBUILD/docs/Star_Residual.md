@@ -243,8 +243,10 @@ among the seasons played. Predicted participation is close through four seasons 
 0.90 played at four) and low at five (0.78 against 0.88).
 
 **What it localises:**
-- **The steepness is in the curve's step, not in the recursion.** On the same rows the curve
-  predicts −0.33 to −0.35 a season from realised inputs of either timing, against −0.11 observed.
+- **Excess predicted decline appears before repeated forecasting is involved.** On the same rows
+  the curve predicts −0.33 to −0.35 a season from realised, correctly dated inputs of either
+  timing, against −0.11 observed. That does not clear the rest of the forecast; it says the curve's
+  own step is already too steep on these rows.
   The forecast's own path steps less steeply (−0.28), because its projected level falls as it goes;
   feeding forecasts back does not add to the decline. The starting level is close (−0.04), and the
   level error then accumulates step by step.
@@ -255,9 +257,17 @@ among the seasons played. Predicted participation is close through four seasons 
   (the curve's own kind of group) are also over-predicted out of sample, by 0.13; the harness stars,
   picked on a two-season total, by 0.24; the 2-to-3 tier by 0.04.
 
-**What it does not show.** These are survivors: every row played three consecutive seasons, and a
-star who declined sharply may be the one who did not. The survivors-only curve is the like-for-like
-reference for that and is still steep. Nor does it show why a curve that matches its training pairs
+**How much evidence this is.** The 876 rows are 492 distinct player-season transitions by 84
+players, many appearing on several pages. Resampling whole careers (the independent review's
+calculation), the training-aligned arm's error is −0.240 a season with a 95% interval of −0.347 to
+−0.130, so the excess is not an artefact of counting one career many times. The rows are also a
+selected set: of 983 transitions observable by calendar, 894 have the player in all three seasons,
+883 at the qualifying games in each, and 876 with an age.
+
+**What it does not show.** The diagnostic localises; it does not identify the cause. These are survivors: every row played three consecutive seasons, and a
+star who declined sharply may be the one who did not. A survivors-only curve fitted on history does not
+make later surviving stars representative of the whole starting cohort, so it reduces the
+survivorship concern without removing it. Nor does it show why a curve that matches its training pairs
 (3+ at t−1: −0.23 observed against −0.27 fitted on the 2021 page's history) over-predicts the same
 kind of group after the page (−0.22 against −0.34 here): the training pairs and these transitions
 are different seasons.

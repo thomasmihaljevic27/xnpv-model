@@ -102,7 +102,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 
-SCRIPT_VERSION = "1.2"
+SCRIPT_VERSION = "1.3"
 
 # Ages outside this band have too few seasons to fit a shape on; a player
 # beyond it takes the step at the nearest edge. Without the clamp the cubic
@@ -125,7 +125,7 @@ class AdditiveAging:
     def __init__(self, level_mode: str = "lagged", use_experience: bool = False,
                  selection: str = "none", impute_level: float = 0.0,
                  impute_returners: bool = False, sample: str = "own",
-                 level_knot: float | None = None):
+                 level_knot: float | None = None, sustained: bool = False):
         """level_mode:
              "lagged"  the player's rate one season before the change begins.
                        The default, and the only one that identifies aging
@@ -160,6 +160,16 @@ class AdditiveAging:
         # level effect on decline can differ for the best players. None: one
         # straight level slope, the recorded curve.
         self.level_knot = None if level_knot is None else float(level_knot)
+        # A SUSTAINED-QUALITY LEVEL beside the one-season lagged level: the
+        # LOWER of the rates at t-1 and t-2 (t-1 alone when t-2 was not
+        # played), with its age interaction. High only for a player who was
+        # high in both seasons, so its slope separates sustained quality from
+        # a one-season spike. It needs only t-1, so the rows are the lagged
+        # fit's. In the walk the projected level, already a multi-season
+        # shrunk rating, is passed as both levels (2026-09-24; a proposed
+        # forecasting change, scored before anything is claimed for it).
+        self.sustained = bool(sustained)
+        assert not (self.sustained and level_mode != "lagged"), "sustained needs the lagged level"
         self.selection = selection
         self.retention_ = None
         self.n_imputed_ = 0
@@ -184,7 +194,7 @@ class AdditiveAging:
         self.n_pairs_ = 0
 
     # -- design ------------------------------------------------------------
-    def _design(self, age, level, is_d, exp) -> np.ndarray:
+    def _design(self, age, level, is_d, exp, sus=None) -> np.ndarray:
         a = np.clip(np.asarray(age, dtype=float), AGE_LO, AGE_HI) - CENTRE
         cols = [np.ones_like(a), a, a ** 2, a ** 3, np.asarray(is_d, dtype=float)]
         if self.use_level:
@@ -195,6 +205,9 @@ class AdditiveAging:
             if self.level_knot is not None:
                 hi = np.clip(lv - self.level_knot, 0, None)
                 cols += [hi, hi * a]
+            if self.sustained:
+                sv = lv if sus is None else np.asarray(sus, dtype=float)
+                cols += [sv, sv * a]
         if self.use_experience:
             cols.append(np.asarray(exp, dtype=float))
         return np.column_stack(cols)
@@ -234,6 +247,8 @@ class AdditiveAging:
         p = p.merge(lag, on=["career_key", "syr"], how="left")
         if self.level_mode == "multi":
             p["_mlvl"] = self._multi_level(s, p, level_col)
+        if self.sustained:
+            p["_sus"] = self._sustained_level(s, p, level_col)
         lvl = {"lagged": p["_lvl"], "multi": p.get("_mlvl")}.get(self.level_mode, p[level_col])
 
         self.n_pairs_ = len(p)
@@ -242,7 +257,8 @@ class AdditiveAging:
             return self
 
         y = (p[level_col + "_n"] - p[level_col]).to_numpy(float)
-        X = self._design(p["age"], lvl, (p["pos"] == "D"), p["exp_seasons"])
+        X = self._design(p["age"], lvl, (p["pos"] == "D"), p["exp_seasons"],
+                         sus=p["_sus"] if self.sustained else None)
 
         if self.selection == "impute":
             # THE MISSING SEASONS, PUT BACK EXPLICITLY. Every row above is a
@@ -265,9 +281,10 @@ class AdditiveAging:
                 lvl_m = {"lagged": miss["_lvl"], "multi": miss.get("_mlvl")}.get(
                     self.level_mode, miss[level_col])
                 y = np.concatenate([y, (miss["_impute_at"] - miss[level_col]).to_numpy(float)])
+                sus_m = self._sustained_level(s, miss, level_col) if self.sustained else None
                 X = np.vstack([X, self._design(miss["age"], lvl_m,
                                                (miss["pos"] == "D"),
-                                               miss["exp_seasons"])])
+                                               miss["exp_seasons"], sus=sus_m)])
                 w_extra = miss["GP"].to_numpy(float)
                 self.n_imputed_ = len(miss)
         w = np.minimum(p["GP"].to_numpy(float), p["GP_n"].to_numpy(float))
@@ -340,6 +357,21 @@ class AdditiveAging:
             if L == 1:
                 have_t1 = ok
         out = np.where(have_t1 & (den > 0), num / np.where(den > 0, den, 1.0), np.nan)
+        return pd.Series(out, index=frame.index)
+
+    def _sustained_level(self, s: pd.DataFrame, frame: pd.DataFrame, level_col: str) -> pd.Series:
+        """min(rate at t-1, rate at t-2) for each (career_key, syr=t) of
+        `frame`; the t-1 rate where t-2 was not played; missing where t-1 was
+        not (so the rows are exactly the lagged fit's)."""
+        key = frame[["career_key", "syr"]]
+        vals = []
+        for L in (1, 2):
+            lagL = s[["career_key", "syr", level_col]].rename(columns={level_col: "_v"})
+            lagL = lagL.assign(syr=lagL["syr"] + L)
+            vals.append(key.merge(lagL, on=["career_key", "syr"], how="left")["_v"].to_numpy(float))
+        v1, v2 = vals
+        out = np.where(np.isfinite(v2), np.fmin(v1, v2), v1)
+        out = np.where(np.isfinite(v1), out, np.nan)
         return pd.Series(out, index=frame.index)
 
     def _missing_next(self, s: pd.DataFrame, before: int, level_col: str) -> pd.DataFrame:

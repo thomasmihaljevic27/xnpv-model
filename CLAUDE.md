@@ -154,6 +154,10 @@ Draft pillar:
   that repeated application causes the later miss, and a failure does not show membership does. Say
   what each arm localises, compare arms on the same rows and weights, and label any arm that uses
   realised future seasons as hindsight (corrected 2026-09-24).
+- **Don't report a row count as the amount of evidence.** Say how many independent units stand
+  behind it and resample those units. The star diagnostic's 876 rows were 492 distinct transitions by
+  84 players, repeated across forecast pages (corrected 2026-09-24); resampling careers is the honest
+  interval.
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised
