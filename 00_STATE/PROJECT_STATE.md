@@ -1,5 +1,20 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**Multi-season aging candidate reviewed, 2026-09-24:** candidate `3ba71cd`
+(model/report `7bff643`) reproduces. Full suite 46/46. Independent arithmetic,
+required-lag, row alignment and future-corruption checks pass; fitting rows and
+weights match on all seven pages. Adopted forecasts unchanged on 40,510 rows.
+Multi-season star h5 bias -0.956; star/pooled season wins 1/234 of 2,000;
+main/sensitivity dollar wins 826/778. Retain adopted model. Proceed to a short
+diagnostic with corrected scope: actual harness stars use a 60/40 two-season
+WAR total with fallbacks, not a three-season weighted total. Freeze page fits,
+compare training-aligned lagged observations, current observations and projected
+levels on common transitions. A one-step pass/fail cannot identify recursion
+versus cohort selection by itself. Failed substitution does not establish the
+cause of the original bias. No adoption or candidate merge; Phase 5 stays open.
+Review: `50_REBUILD/docs/Star_Multi_Review_Codex.md`.
+
+
 **Matched-aging repair closed, 2026-09-24:** reviewed `670b614` in isolation.
 46/46 checks pass, including all 41 registered variants. Independent sample and
 weight-only mutations fail check 46. Adopted aging coefficients are bit-identical

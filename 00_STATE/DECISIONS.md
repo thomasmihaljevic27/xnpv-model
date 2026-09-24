@@ -662,3 +662,19 @@ hinge at 2 wins does not reject all nonlinear level effects; its five-year star
 bias is unchanged but star RMSE improves slightly. Documentation cleanup can
 accompany the next experiment. No candidate merge or adoption by this review.
 Phase 5 remains open. See `50_REBUILD/docs/Star_Matched_Closure_Codex.md`.
+
+### Change log, 2026-09-24 (multi-season aging review)
+
+**Multi-season aging candidate reviewed, 2026-09-24:** candidate `3ba71cd`
+(model/report `7bff643`) reproduces. Full suite 46/46. Independent arithmetic,
+required-lag, row alignment and future-corruption checks pass; fitting rows and
+weights match on all seven pages. Adopted forecasts unchanged on 40,510 rows.
+Multi-season star h5 bias -0.956; star/pooled season wins 1/234 of 2,000;
+main/sensitivity dollar wins 826/778. Retain adopted model. Proceed to a short
+diagnostic with corrected scope: actual harness stars use a 60/40 two-season
+WAR total with fallbacks, not a three-season weighted total. Freeze page fits,
+compare training-aligned lagged observations, current observations and projected
+levels on common transitions. A one-step pass/fail cannot identify recursion
+versus cohort selection by itself. Failed substitution does not establish the
+cause of the original bias. No adoption or candidate merge; Phase 5 stays open.
+Review: `50_REBUILD/docs/Star_Multi_Review_Codex.md`.
