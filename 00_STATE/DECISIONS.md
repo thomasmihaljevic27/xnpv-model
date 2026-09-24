@@ -1649,3 +1649,14 @@ Closure review `3542bd3` merged: the adoption review closes; provisional status-
 carried version a tested sensitivity. Reporting corrections: 28 up and 1 down (not "all upward");
 clipping average among the 18 affected terms; the carried method's loss does not reject every
 status-effect extension. CLAUDE.md: two rules. Next: star forecast residual.
+
+### Change log, 2026-09-24b (star residual located)
+
+The star residual is in the aging walk, not the valuation-season fit: the three-win tier's rate is
+right at the valuation season and walked down ~0.27 a season against ~0.09 observed. Scored three
+single changes to the adopted leader (`ability_forecast.py` v2.2; `run_star_residual.py` v1.0):
+survivors-only curve, no level terms, per-season regression. No level terms fixes most of the star
+tier (five-season rate miss −0.92 to −0.26) and breaks the lowest tiers; none separates on pooled
+season WAR squared error or contract dollars. Nothing adopted; no combination scored (no single
+improved a primary score). Report: `50_REBUILD/docs/Star_Residual.md`. State files and WORK_QUEUE
+sequence item updated.

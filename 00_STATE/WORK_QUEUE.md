@@ -1,5 +1,15 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
+**Star residual located, not repaired, 2026-09-24.** On the adopted leader the three-win-and-up
+tier's rate is right at the valuation season (−0.03 per 82) and walked down too fast after it (−0.92
+five seasons out; stars who played lost ~0.09 a season, the forecast ~0.27). Three single changes
+scored (`run_star_residual.py`): survivors-only aging curve, curve without level terms, per-season
+regression. Removing the level terms cuts the stars' five-season rate miss to −0.26 (tier error
+lower 1975/2000) but walks the lowest tiers down too fast; none separates on the primary scores
+(pooled season WAR 1130–1601/2000; dollars 1065–1212/2000 on the adopted line, 449–734 on the
+sensitivity line). Nothing adopted. Next candidate to design: a level effect that differs by tier.
+See `50_REBUILD/docs/Star_Residual.md`.
+
 **Contract-status adoption review closed, 2026-09-23:** verified `5864cb7`.
 45/45 checks pass; deliberate stale-leader and missing-date reversions are caught.
 Fresh simulation, six-forecast comparison, integration, and production
@@ -403,7 +413,8 @@ valuations now read contract state at the signing (check 42).
   best-supported alternative. This closes the open decision of 2026-09-22 if Thomas agrees.
 
 **Next toward closing the repair:**
-1. the star forecast residual;
+1. the star forecast residual [LOCATED 2026-09-24: the aging walk's level terms; three single changes
+   scored, none adopted; next, a level effect that differs by tier, scored the same way];
 2. Phase 5 acceptance (dollar scoring on development pages; contract-by-contract reconciliation
    against production);
 3. Phase 6.
