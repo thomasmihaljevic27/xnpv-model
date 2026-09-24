@@ -1,5 +1,17 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**Star-residual review, 2026-09-23:** reviewed candidate `477316d` in isolation.
+Keep the adopted status forecast. The no-level aging experiment changes both
+regressors and fitting rows: 7,164 to 9,459 on the 2021 page. Removing only the
+terms on the original rows reduces star h5 rate bias from -0.921 to -0.328,
+while worsening the lowest tier; pooled squared-error improvement remains
+inconclusive and absolute error worsens. Separate this from the added-row effect
+before selecting the next aging specification. Correct the module's unsupported
+claim that missing-lag rows receive an age-only fit. Full suite: 45 passed,
+zero skipped or failed. Prior status-adoption closure stands; its three reporting
+corrections are applied. No candidate merge or default change. Phase 5 remains
+open. Review: `50_REBUILD/docs/Star_Residual_Review_Codex.md`.
+
 **Star residual located, not repaired, 2026-09-24.** On the adopted leader the three-win-and-up
 tier's rate is right at the valuation season (−0.03 per 82) and walked down too fast after it (−0.92
 five seasons out; stars who played lost ~0.09 a season, the forecast ~0.27). Three single changes
