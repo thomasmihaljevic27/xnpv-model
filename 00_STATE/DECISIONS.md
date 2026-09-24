@@ -1683,3 +1683,17 @@ fingerprint; the comment about unlagged pairs corrected. `ability_forecast.py` v
 corrected. `repair_checks.py` v3.4: check 46; suite 46/46. `run_star_residual.py` v1.1. Withdrawn:
 "one change" for the unmatched no-level candidate. Neither new candidate adopted. CLAUDE.md: rule on
 formula changes that change the sample.
+
+### Change log, 2026-09-24 (matched-aging closure)
+
+**Matched-aging repair closed, 2026-09-24:** reviewed `670b614` in isolation.
+46/46 checks pass, including all 41 registered variants. Independent sample and
+weight-only mutations fail check 46. Adopted aging coefficients are bit-identical
+to the previous implementation on all seven development pages; matched and hinge
+fits preserve its rows/weights. Season and primary-dollar counts reproduce exactly; final row-level audit confirms the adopted forecast is unchanged on all 40,510 rows.
+Keep the adopted forecast and proceed to the multi-season-level candidate as an
+experiment. The double-pull explanation is a hypothesis. Failure of the specific
+hinge at 2 wins does not reject all nonlinear level effects; its five-year star
+bias is unchanged but star RMSE improves slightly. Documentation cleanup can
+accompany the next experiment. No candidate merge or adoption by this review.
+Phase 5 remains open. See `50_REBUILD/docs/Star_Matched_Closure_Codex.md`.
