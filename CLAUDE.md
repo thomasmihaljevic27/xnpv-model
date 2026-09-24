@@ -167,6 +167,19 @@ Draft pillar:
   summary gave season-WAR misses of 0.17 / 0.64 / 0.87 "one, three and five seasons out"; 0.17 was
   the valuation-season figure and one season out was 0.42 (corrected 2026-09-24). Read each figure
   off its labelled row, not from memory of the table.
+- **Don't build an equality guard from inputs both sides share.** A check that prices every
+  forecast's realised target from the FIRST forecast's player, dates and discount factor cannot see
+  a mismatch in them: a different player ($2.475M) and a different signing date ($26,000) passed
+  (corrected 2026-09-24). Compare the identity fields explicitly, and compute each side from its own
+  inputs.
+- **Don't compare money with exact equality.** Values that should tie (a floor, one path priced two
+  ways) differ at $1e-10, and a percentile reads that as above or below a lump: one contract moved by
+  0.544 (corrected 2026-09-24). Round to a declared monetary precision before ties and interval
+  membership (check 48).
+- **Don't take a runner's label for its comparator on trust.** The stress tests print "what the
+  chain does today" over a comparison with the flat benchmark (`A0Production`), and a summary repeated
+  it as "beats production's forecast" (corrected 2026-09-24). Check which class the comparison
+  actually runs before naming it; the live chain is `production_adapter.ProductionChain`.
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised

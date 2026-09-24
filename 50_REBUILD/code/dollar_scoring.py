@@ -13,6 +13,9 @@ WHY ONE MODULE
     against the model's own draws. A second copy is how a rule drifts, so they
     live here and both runners import them. Moved 2026-09-24 from
     `run_goalie_control_years.py` v1.4 without changing what they compute.
+    Repaired the same day after review: the scorer now checks identity and
+    dates field by field and prices each forecast's target from its own row,
+    and dollar calibration compares ties at a declared monetary precision.
 
 THE DISCIPLINE THEY ENFORCE
     * Every forecast's valuations AND the realised production are priced on
@@ -36,6 +39,24 @@ import predictive_interval as PI
 
 KEY = "contract_id"
 PIT_SEED = 20260923
+
+# THE FIELDS TWO FORECASTS' CONTRACT ROWS MUST SHARE before one realised target
+# can be priced for both: who, when, which seasons, which quarter's line, and
+# the pricing features that do not come from the forecast. Forecast fields
+# (war_per_season, war_year1, rfa_x_war) may differ. Checked field by field,
+# because equal dollar targets can occur by coincidence or through the floor
+# (repair 2026-09-24: the first version took the player, dates and factor from
+# one forecast's row and so could not see a mismatch in them).
+IDENTITY_FIELDS = ("pkey", "signed", "start_yr", "end_yr", "length", "cut",
+                   "is_RFA", "is_D", "one_year", "floor_share")
+
+# THE DECLARED MONETARY PRECISION for ties and interval membership in dollar
+# calibration: dollars rounded to 6 decimal places. Values that should be tied
+# (the floor, one path priced two ways) can differ at floating-point precision,
+# and a randomized PIT reads that as a position above or below a lump: one
+# contract's percentile moved by 0.544 (repair 2026-09-24). Dollars only; WAR
+# calibration is not rounded here.
+MONEY_DECIMALS = 6
 
 
 def realised_path(table: pd.DataFrame):
@@ -108,29 +129,48 @@ def career_bootstrap(d: pd.DataFrame, a: str, b: str, n: int = 2000,
 def score_on_line(common, rows_of: dict, lines: dict, draws: dict, labels,
                   real) -> pd.DataFrame:
     """Every forecast's point and simulated valuations, and the realised path,
-    priced on ONE line (`lines`). The realised target is computed from each
-    forecast's own contract row and asserted identical -- it cannot depend on
-    which forecast is being scored. The first label's row supplies the cut,
-    the dollar factor and the seasons, which the assertion then covers."""
+    priced on ONE line (`lines`).
+
+    Two guards, in order:
+      1. the forecasts' contract rows agree on every IDENTITY_FIELDS entry
+         (player, signing date, seasons, term, pricing quarter, and the pricing
+         features that are not forecasts); the error names the contract and
+         the field;
+      2. each forecast's realised target is computed INDEPENDENTLY from its
+         own row -- its own player's realised path, its own seasons, its own
+         quarter's line, its own dollar factor -- and the targets are asserted
+         identical.
+    Each forecast's valuations are priced with its own row's factor and line."""
     out = []
     for cid in common:
-        rp = rows_of[labels[0]].loc[cid]
-        cur = lines[rp["cut"]]
-        k = SIM.dollar_factor(rp)
-        yrs = list(range(int(rp["start_yr"]), int(rp["end_yr"]) + 1))
-        w = real(rp["pkey"], yrs)
+        base = rows_of[labels[0]].loc[cid]
+        for lab in labels[1:]:
+            other = rows_of[lab].loc[cid]
+            for fld in IDENTITY_FIELDS:
+                if fld in base.index or fld in other.index:
+                    a, b = base.get(fld), other.get(fld)
+                    same = (a == b) or (pd.isna(a) and pd.isna(b))
+                    assert same, (f"contract {cid}: forecasts disagree on {fld} "
+                                  f"({labels[0]} {a!r}, {lab} {b!r})")
         targets = []
-        rec = {KEY: cid, "pkey": rp["pkey"]}
+        rec = {KEY: cid, "pkey": base["pkey"]}
         for lab in labels:
             row = rows_of[lab].loc[cid].copy()
             row[KEY] = cid
+            cur = lines[row["cut"]]
+            k = SIM.dollar_factor(row)
+            yrs = list(range(int(row["start_yr"]), int(row["end_yr"]) + 1))
+            w = real(row["pkey"], yrs)
             targets.append(float(SIM.contract_value(cur, row, np.array([w.mean()]),
                                                     np.array([w[0]]), k)[0]))
             rec[f"point_{lab}"] = float(cur.value(pd.DataFrame([row])).iloc[0])
-            wps, y1 = draws[lab][cid]
-            v = SIM.contract_value(cur, row, wps, y1, k)
-            rec[f"sim_{lab}"] = float(v.mean())
-            rec[f"draws_{lab}"] = v
+            # A POINT-ONLY forecast (no simulated paths -- the production chain
+            # has no distribution) is scored on its point valuation alone.
+            if lab in draws:
+                wps, y1 = draws[lab][cid]
+                v = SIM.contract_value(cur, row, wps, y1, k)
+                rec[f"sim_{lab}"] = float(v.mean())
+                rec[f"draws_{lab}"] = v
         assert max(targets) - min(targets) < 1e-6, (
             f"contract {cid}: the realised target differs by forecast")
         rec["realised"] = targets[0]
@@ -146,6 +186,8 @@ def report_scores(d: pd.DataFrame, labels, exact: bool = False) -> None:
     C.log(f"    {'forecast':<12}{'valuation':<11}{'RMSE':>8}{'MAE':>8}{'bias':>9}")
     for lab in labels:
         for how_ in ("point", "sim"):
+            if f"{how_}_{lab}" not in d:
+                continue                      # a point-only forecast has no simulation
             e = (d[f"{how_}_{lab}"] - d["realised"]) / 1e6
             d[f"se_{how_}_{lab}"], d[f"ae_{how_}_{lab}"] = e ** 2, e.abs()
             C.log(f"    {lab:<12}{('point' if how_ == 'point' else 'simulated'):<11}"
@@ -154,6 +196,8 @@ def report_scores(d: pd.DataFrame, labels, exact: bool = False) -> None:
     ref = labels[0]
     for other in labels[1:]:
         for how_ in ("sim", "point"):
+            if f"{how_}_{ref}" not in d or f"{how_}_{other}" not in d:
+                continue
             ws = career_bootstrap(d, f"se_{how_}_{ref}", f"se_{how_}_{other}")
             wa = career_bootstrap(d, f"ae_{how_}_{ref}", f"ae_{how_}_{other}")
             C.log(f"    {other} against {ref}, {('simulated' if how_ == 'sim' else 'point')}: "
@@ -166,22 +210,7 @@ def calibration_block(d: pd.DataFrame, labels) -> None:
     of the MODEL'S OWN DRAWS, and the randomized PIT (uniform under
     calibration, lumps or not) is tested directly. Seeded per contract."""
     for lab in labels:
-        rng_pit = []
-        cov = []
-        for r in d.itertuples():
-            v = getattr(r, f"draws_{lab}")
-            u = float(np.random.default_rng([PIT_SEED, int(r.contract_id)]).random())
-            rng_pit.append(PI.randomized_pit(v, r.realised, u))
-            q10, q25, q75, q90 = np.percentile(v, [10, 25, 75, 90])
-            floor = float(v.min())
-            cov.append({"own80": np.mean((v >= q10) & (v <= q90)),
-                        "obs80": float(q10 <= r.realised <= q90),
-                        "own50": np.mean((v >= q25) & (v <= q75)),
-                        "obs50": float(q25 <= r.realised <= q75),
-                        "atom": np.mean(v == floor),
-                        "real_at_floor": float(abs(r.realised - floor) < 1e-6)})
-        dd = pd.concat([d[[KEY, "pkey"]].reset_index(drop=True),
-                        pd.DataFrame(cov), pd.Series(rng_pit, name="pit")], axis=1)
+        dd = calibration_rows(d, lab)
         v, lo, hi = ci(dd, lambda x: (x["real_at_floor"] - x["atom"]).mean())
         C.log(f"  {lab}: {dd['atom'].mean():.1%} of each contract's draws sit exactly on "
               f"its lowest value (the floor); {dd['real_at_floor'].mean():.1%} of outcomes do")
@@ -194,3 +223,28 @@ def calibration_block(d: pd.DataFrame, labels) -> None:
                   f"{100 * v:+.1f} points [{100 * lo:+.1f}, {100 * hi:+.1f}]")
         pit_block(dd, f"{lab}, randomized PIT of the term value")
         C.log("")
+
+
+def calibration_rows(d: pd.DataFrame, lab: str) -> pd.DataFrame:
+    """Per contract: the randomized PIT of the realised value within the
+    forecast's draws, interval membership of the outcome and of the draws, and
+    the floor lump -- all at the declared monetary precision."""
+    if True:                                   # kept indented as moved
+        rng_pit = []
+        cov = []
+        for r in d.itertuples():
+            # Ties and interval membership at the declared monetary precision.
+            v = np.round(np.asarray(getattr(r, f"draws_{lab}"), float), MONEY_DECIMALS)
+            real_ = round(float(r.realised), MONEY_DECIMALS)
+            u = float(np.random.default_rng([PIT_SEED, int(r.contract_id)]).random())
+            rng_pit.append(PI.randomized_pit(v, real_, u))
+            q10, q25, q75, q90 = np.round(np.percentile(v, [10, 25, 75, 90]), MONEY_DECIMALS)
+            floor = float(v.min())
+            cov.append({"own80": np.mean((v >= q10) & (v <= q90)),
+                        "obs80": float(q10 <= real_ <= q90),
+                        "own50": np.mean((v >= q25) & (v <= q75)),
+                        "obs50": float(q25 <= real_ <= q75),
+                        "atom": np.mean(v == floor),
+                        "real_at_floor": float(real_ == floor)})
+        return pd.concat([d[[KEY, "pkey"]].reset_index(drop=True),
+                          pd.DataFrame(cov), pd.Series(rng_pit, name="pit")], axis=1)

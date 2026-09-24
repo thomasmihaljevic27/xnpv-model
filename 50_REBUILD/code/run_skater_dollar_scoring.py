@@ -51,10 +51,40 @@ from player_season_table import build as build_table, birthdate_source
 from dollar_scoring import (realised_path, term_extra, score_on_line, report_scores,
                             calibration_block)
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 KEY = RCY.KEY
 FORECASTS = (("adopted", RNS.LEADER), ("previous", RNS.PRIOR_LEADER))
 SCORING_LINE = "adopted"
+
+
+def price_and_simulate(label, cls, sample, table, cohorts, simulate: bool = True):
+    """One forecast's point valuations and price lines, and -- if `simulate` --
+    its 2,000-path term distribution per contract (draws kept for repricing on
+    another line). Returns (priced rows, lines, simulated rows or None, draws)."""
+    C.log(f"FORECAST: {label} ({cls.__name__})")
+    pt, lines = RNS.point_valuation(sample, table, cohorts, cls)
+    if not simulate:
+        C.log(f"  {len(pt)} contracts priced (point valuation only)")
+        C.log("")
+        return pt, lines, None, {}
+    s = sample[sample[KEY].isin(pt[KEY])]
+    blocks, spreads = RNS.forecast_blocks(s, table, model_factory=cls)
+    # PARITY: the band's expected term production equals the priced one.
+    gaps = [abs(float(np.mean(blocks[c][1] * blocks[c][3]))
+                - float(pt.loc[pt[KEY] == c, "war_per_season"].iloc[0]))
+            for c in pt[KEY] if c in blocks]
+    assert max(gaps) < 1e-9, f"{label}: band and point valuation disagree by {max(gaps):.2e}"
+    C.log(f"  {len(pt)} contracts priced; {len(gaps)} carry a band, whose expected")
+    C.log(f"  season equals the priced forecast on every one (largest gap {max(gaps):.1e})")
+    keep = {}
+    span = {int(c): [] for c in pt[KEY]}          # the term only
+    out = RCY.price_span(span, s, table, pt, lines, label, check_leakage=True,
+                         blocks=(blocks, spreads), extra=term_extra(lines, keep))
+    ok = out[out["status"] == "ok"].merge(pt[[KEY, "pkey", "end_yr"]], on=KEY)
+    C.log(f"  {len(ok)} contracts simulated; {int((out['status'] != 'ok').sum())} "
+          f"skipped for a band that did not reach every season")
+    C.log("")
+    return pt, lines, ok, keep
 
 
 def main() -> None:
@@ -70,27 +100,8 @@ def main() -> None:
 
     priced, results, draws = {}, {}, {}
     for label, cls in FORECASTS:
-        C.log(f"FORECAST: {label} ({cls.__name__})")
-        pt, lines = RNS.point_valuation(sample, table, cohorts, cls)
+        pt, lines, ok, keep = price_and_simulate(label, cls, sample, table, cohorts)
         priced[label] = (pt, lines)
-        s = sample[sample[KEY].isin(pt[KEY])]
-        blocks, spreads = RNS.forecast_blocks(s, table, model_factory=cls)
-        # PARITY: the band's expected term production equals the priced one.
-        gaps = [abs(float(np.mean(blocks[c][1] * blocks[c][3]))
-                    - float(pt.loc[pt[KEY] == c, "war_per_season"].iloc[0]))
-                for c in pt[KEY] if c in blocks]
-        assert max(gaps) < 1e-9, f"{label}: band and point valuation disagree by {max(gaps):.2e}"
-        C.log(f"  {len(pt)} contracts priced; {len(gaps)} carry a band, whose expected")
-        C.log(f"  season equals the priced forecast on every one (largest gap {max(gaps):.1e})")
-        keep = {}
-        span = {int(c): [] for c in pt[KEY]}          # the term only
-        out = RCY.price_span(span, s, table, pt, lines, label, check_leakage=True,
-                             blocks=(blocks, spreads), extra=term_extra(lines, keep))
-        ok = out[out["status"] == "ok"].merge(
-            pt[[KEY, "pkey", "end_yr"]], on=KEY)
-        C.log(f"  {len(ok)} contracts simulated; {int((out['status'] != 'ok').sum())} "
-              f"skipped for a band that did not reach every season")
-        C.log("")
         results[label], draws[label] = ok, keep
 
     C.log("THE TERM AS A DISTRIBUTION, each forecast on its own line (a valuation,")

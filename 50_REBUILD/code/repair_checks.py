@@ -24,7 +24,7 @@ import forecast_harness as H
 import player_season_table as T
 from ability_forecast import A0Production
 
-SCRIPT_VERSION = "3.8"
+SCRIPT_VERSION = "3.9"
 
 PASS, FAIL, SKIP = "pass", "FAIL", "skip"
 results: list[tuple[str, str, str]] = []
@@ -2273,16 +2273,59 @@ def c47(table):
                                           SIM.dollar_factor(r))[0])
         got = float(d.loc[d["contract_id"] == c, "realised"].iloc[0])
         assert abs(got - direct) < 1e-6, "the realised target is not the path priced directly"
-    moved = rows.copy()
-    moved["is_RFA"] = 1.0 - moved["is_RFA"].astype(float)
-    try:
-        score_on_line(list(rows.index), {"a": rows, "b": moved}, lines, draws, ("a", "b"), real)
-    except AssertionError as e:
-        assert "realised target differs" in str(e)
-    else:
-        raise AssertionError("a target that moved with the forecast was accepted")
+    # EVERY IDENTITY AND PRICING FIELD, mutated one at a time in the second
+    # forecast's rows: each must be refused, naming the field. The first
+    # version caught the RFA mutation only; a different player ($2.475M) and a
+    # different signing date ($26,000) were accepted (review, 2026-09-24).
+    lines["q2"] = Line()
+    mutations = {"is_RFA": lambda m: 1.0 - m.astype(float),
+                 "pkey": lambda m: m.astype(str) + "_other",
+                 "signed": lambda m: m + pd.Timedelta(days=30),
+                 "start_yr": lambda m: m - 1,
+                 "end_yr": lambda m: m + 1,
+                 "cut": lambda m: m.map(lambda _: "q2")}
+    for fld, f in mutations.items():
+        moved = rows.copy()
+        moved[fld] = f(moved[fld])
+        try:
+            score_on_line(list(rows.index), {"a": rows, "b": moved}, lines, draws, ("a", "b"), real)
+        except AssertionError as e:
+            assert f"disagree on {fld}" in str(e), f"{fld}: refused for the wrong reason: {e}"
+        else:
+            raise AssertionError(f"a comparison with a different {fld} was accepted")
     return (f"{len(rows)} contracts: one realised target across two forecasts, equal to the "
-            f"path priced directly; a forecast-dependent target is refused")
+            f"path priced directly; player, signing date, seasons, pricing quarter and RFA "
+            f"status mismatches each refused by name")
+
+
+def c48(table):
+    """DOLLAR TIES ARE TIES AT THE DECLARED MONETARY PRECISION.
+
+    Values that should be equal (a lump of draws at the floor, one path priced
+    two ways) can differ at floating-point precision, and the randomized PIT
+    read $2e-10 as a position above or below a lump: one contract's percentile
+    moved by 0.544 (review, 2026-09-24). `dollar_scoring.calibration_rows`
+    rounds dollars to MONEY_DECIMALS before any tie or interval comparison:
+      * a realised value $2e-10 below a lump of 1,254 of 2,000 draws gets the
+        same PIT and interval membership as one exactly equal to it;
+      * a real difference, a cent, is still a difference.
+    """
+    import numpy as np
+    import dollar_scoring as DS
+    lump, rest = 1_000_000.0, np.linspace(1_500_000.0, 9_000_000.0, 746)
+    v = np.concatenate([np.full(1254, lump) + np.linspace(0, 3e-10, 1254), rest])
+    def rows(real):
+        return pd.DataFrame({"contract_id": [7], "pkey": ["p"], "realised": [real],
+                             "draws_x": [v]})
+    exact = DS.calibration_rows(rows(lump), "x").iloc[0]
+    fuzzy = DS.calibration_rows(rows(lump - 2e-10), "x").iloc[0]
+    for c in ("pit", "obs80", "obs50", "real_at_floor", "atom"):
+        assert exact[c] == fuzzy[c], f"{c}: a $2e-10 difference moved it ({exact[c]} vs {fuzzy[c]})"
+    assert exact["real_at_floor"] == 1.0 and abs(exact["atom"] - 1254 / 2000) < 1e-12
+    cent = DS.calibration_rows(rows(lump - 0.01), "x").iloc[0]
+    assert cent["pit"] < exact["pit"] and cent["real_at_floor"] == 0.0, "a cent below the lump was treated as a tie"
+    return (f"a realised value $2e-10 off a lump of 1,254 draws scores as a tie (PIT "
+            f"{exact['pit']:.3f}); one a cent below does not ({cent['pit']:.3f})")
 
 
 def main() -> None:
@@ -2352,7 +2395,8 @@ def main() -> None:
                      ("one adopted model through the valuation chain", c44),
                      ("a subject with no history is unanswered, not a crash", c45),
                      ("an aging formula comparison keeps its rows and weights", c46),
-                     ("the shared dollar scorer refuses a moving target", c47)]:
+                     ("the shared dollar scorer refuses a moving target", c47),
+                     ("dollar ties are ties at the declared precision", c48)]:
         check(name, lambda fn=fn: fn(table))
 
     width = max(len(n) for n, _, _ in results)

@@ -56,7 +56,7 @@ REGISTER = C.DOCS_DIR / "variant_register.csv"
 BENCHMARK = A1AgingParticipationImputedNC
 
 CANDIDATES = [
-    A0Production,          # what the chain does today -- the floor
+    A0Production,          # the flat benchmark (NOT the live chain; that is ProductionChain) -- the floor
     A1Calibrated,          # the benchmark
     A1NoAgeTerms,          # control: do age terms help the simple model?
     A2Raw,                 # diagnostic: the split with no shrinking

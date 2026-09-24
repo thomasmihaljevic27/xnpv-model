@@ -335,9 +335,12 @@ Every runner that values contracts or tests the leader, rerun after the scope co
   it had crashed on a subject whose history was removed (`int(NaN)` in the participation model, under
   both leaders). Unanswered subjects are reported, e.g. 4,764 of 41,496 subject-horizons when last
   season is removed. Check 45 covers it.
-- **Stress tests** (`run_stress_tests.py` v1.2): the full-chain look-ahead passes; the leader beats
-  production's forecast on all seven pages and in every position, age, experience, level and horizon
-  group.
+- **Stress tests** (`run_stress_tests.py` v1.2): the full-chain look-ahead passes. The leader beats
+  the runner's comparator on all seven pages and in every position, age, experience, level and horizon
+  group. **Corrected 2026-09-24:** that comparator is the flat benchmark (`A0Production`, production's
+  trailing anchor carried flat with no aging path or exit hazard), not the live production chain; the
+  runner's label "what the chain does today" was wrong and this paragraph repeated it. The comparison
+  with the live chain (`production_adapter.ProductionChain`) is in `Model_Scorecard.md`.
 - **Uncertainty and coverage** (`run_uncertainty.py` v1.4, `run_coverage_decomposition.py` v1.2): move
   by about 0.01 at most. The clearest change is predicted participation for young players (23–26)
   next season, 0.922 to 0.937 against 0.954 observed.

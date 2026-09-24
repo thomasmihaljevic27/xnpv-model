@@ -34,7 +34,7 @@ from player_season_table import build as build_table
 from ability_forecast import (A1AgingParticipationImputedNC, A0Production,
                               A2AgingParticipationImputed)
 
-SCRIPT_VERSION = "1.2"
+SCRIPT_VERSION = "1.3"
 # THE ADOPTED CANDIDATE, which is the hinge-and-evidence variant. The battery
 # used to run the earlier leader while the register recorded a different model
 # as adopted, so the six-part suite was testing something nobody had chosen.
@@ -79,9 +79,16 @@ def main() -> None:
     C.log("")
 
     # ---- 2. subgroups -----------------------------------------------------
-    C.log("TEST 2  SUBGROUPS. The leading model against what the chain does")
-    C.log("today, within each group. A negative percentage means the rebuild is")
-    C.log("better. Any group where it is WORSE is a failure the average hid.")
+    # THE COMPARATOR IS THE FLAT BENCHMARK (A0Production), not the live chain:
+    # production's trailing anchor carried flat, without its aging path or
+    # exit hazard. This label used to say "what the chain does today", and a
+    # summary repeated it as "beats production's forecast" (corrected
+    # 2026-09-24). The live chain is production_adapter.ProductionChain.
+    C.log("TEST 2  SUBGROUPS. The leading model against the FLAT BENCHMARK")
+    C.log("(A0Production: production's trailing anchor carried flat, no aging")
+    C.log("path, no exit hazard -- NOT the live chain), within each group. A")
+    C.log("negative percentage means the rebuild is better. Any group where it")
+    C.log("is WORSE is a failure the average hid.")
     C.log("")
     j = s.merge(base, on=["career_key", "page", "h"], suffixes=("", "_b"))
     j["one_season_hist"] = (j["exp_seasons"] == 0).astype(int)
