@@ -1,5 +1,12 @@
 # DECISIONS — NHL Trade Market Efficiency
 
+**Change log, 2026-09-24b (plain-language overview):** Added
+`40_DOCS/Project_Overview_Plain_Language.pdf` and its HTML source: a two-page,
+non-specialist overview with the research question, asset classes, back-test
+aims, a three-path valuation flow chart with build status, and the draft curve.
+Mechanisms written from script docstrings; figures from the locked record. PROJECT_STATE
+document list and new session log updated. No model, code, or decision change.
+
 **Change log, 2026-09-23 (goalie participation comparison closure):** Verified
 `b02a851`; close attribution finding. Full 41-check suite passes; five season
 forecasts match prior audit; period-only dollars reproduce. Independent no-input
