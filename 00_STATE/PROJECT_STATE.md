@@ -93,7 +93,7 @@ the previous one is too narrow in the middle (50% band −5.8 points; PIT varian
 mean vs point (adopted): same RMSE, bias −$0.335M vs −$0.549M, MAE higher. Scoring code moved to
 shared `dollar_scoring.py`; goalie runner reproduces exactly on it; check 47. With the identity and
 the reconciliation already current, each Phase 5 acceptance item has a current run on the adopted
-leader; closure is for review. Full suite run pending at this commit. See `50_REBUILD/docs/Skater_Dollar_Scoring.md`.
+leader; closure is for review. Suite **47/47**. See `50_REBUILD/docs/Skater_Dollar_Scoring.md`.
 
 **What counts as a star, tested, 2026-09-24h.** The inherited 3+ cut-off (60/40 two-season
 trailing total; `forecast_harness.subjects_at`) was tested against eight alternatives declared
