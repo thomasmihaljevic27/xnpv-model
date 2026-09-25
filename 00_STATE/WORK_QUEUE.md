@@ -1665,3 +1665,7 @@ and interval coverage, subgroup reporting by horizon, the trade-date update, joi
 control-year treatment, goalies, end-to-end dollar reconciliation, the full-chain leakage and
 export-break tests, once-only ledger enforcement, the announced later cap ceilings, and the market
 holdout policy.
+
+- **2026-09-14 aging-curve elite weighting — two scripts written, NEITHER RUN ON REAL DATA.** `20_CODE/aging_comp_weight_audit.py` (read-only, seconds) and `20_CODE/aging_elite_shrinkage_test.py` (nine arms on the bandwidth test's held-out design; sweeps `SHRINK_K`, the bandwidth scale, the untested joint cell, and a reliability-weighted lambda; reports signed bias by anchor-level band on the curve and season-total endpoints). Both need the PuckPedia birthdate export and so must run on the desktop machine. The audit's findings are in STANDING_FLAGS; the test decides the open question, which is the SIGN of the net elite bias, since the level shrinkage and the level-blind absolute aging deltas push opposite ways. Treat a winning arm as a lead to re-test on the historical-window mode, not a result: many arms, one evaluation set. Any change to the bandwidth rule or lambda is a deliberate revisit of a locked decision, on the coverage audit's terms.
+- **2026-09-14 latent bug in `aging_bandwidth_test.py`**: it keys its input hashes with `Path.relative_to(ROOT)` on a path taken from `OUTPUT_DIR`, which raises if `OUTPUT_DIR` is ever set outside the repository. `aging_elite_shrinkage_test.py` carries the fix; port it if the bandwidth test is re-run off-repo.
+
