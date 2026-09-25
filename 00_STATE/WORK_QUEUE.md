@@ -13,6 +13,28 @@ inspected by about thirty variants, not sealed; pooled calibration is not per-co
 (11.9% in mean squared error); B has the slightly lower dollar absolute error; the reconciliation does
 not split term pricing from forecasting. CLAUDE.md: two rules. No production change, no merge.
 
+**Aging walkthrough, 2026-09-25:** new viewer `20_CODE/valuation_walkthrough.py`
+v1.0 works the production aging curve through for O'Reilly (2018), Kadri (2019)
+and Pacioretty (2018) on their trade dates: WAR, eight-measure profile, the
+shared yardstick, every comparable's distance and weight, the pull toward
+"players like him", each yearly step, and projected WAR. Writes a live-formula
+workbook to `30_OUTPUT/aging_walkthrough.xlsx`. Six guards tie it to production
+(weights to 1e-12; workbook evaluated with Excel operator rules to 1e-9).
+Verified on practice ages only: the real `WAR_with_age.csv` is not in the cloud
+container. Real run and the `40_DOCS` explainer are open. Production unchanged.
+
+**Open from the 2026-09-25 working session (before Monday 2026-09-28, 9:00):**
+1. Run `python 20_CODE/valuation_walkthrough.py` against the real `WAR_with_age.csv`
+   (full mode on the local machine, or in the cloud once dl.dropboxusercontent.com
+   is allowed). First confirm the log shows the documented fit: 1,478 careers,
+   7,531 comparable profiles, yardstick 2.526.
+2. Write the `40_DOCS` aging walkthrough explainer from that run's numbers
+   (mechanism text drafted; optional for the session).
+3. Queued from the session, not started: express the starting level as a per-82
+   rate to match the curve; move the age cutoff from February 1 to the CBA age
+   date; assess the suggested 50/30/20 three-season weighting. Each changes a
+   locked setting and needs a deliberate revisit.
+
 **Player candidate acceptance closed, 2026-09-24:** independent review of
 `7b046a3` closes both scoring repairs. Full suite 48/48; all ten identity-field
 mutations rejected; precision mutation rejected. Both rebuilt point values,

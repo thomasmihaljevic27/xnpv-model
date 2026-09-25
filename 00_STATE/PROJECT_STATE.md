@@ -13,6 +13,16 @@ inspected by about thirty variants, not sealed; pooled calibration is not per-co
 (11.9% in mean squared error); B has the slightly lower dollar absolute error; the reconciliation does
 not split term pricing from forecasting. CLAUDE.md: two rules. No production change, no merge.
 
+**Aging walkthrough, 2026-09-25:** new viewer `20_CODE/valuation_walkthrough.py`
+v1.0 works the production aging curve through for O'Reilly (2018), Kadri (2019)
+and Pacioretty (2018) on their trade dates: WAR, eight-measure profile, the
+shared yardstick, every comparable's distance and weight, the pull toward
+"players like him", each yearly step, and projected WAR. Writes a live-formula
+workbook to `30_OUTPUT/aging_walkthrough.xlsx`. Six guards tie it to production
+(weights to 1e-12; workbook evaluated with Excel operator rules to 1e-9).
+Verified on practice ages only: the real `WAR_with_age.csv` is not in the cloud
+container. Real run and the `40_DOCS` explainer are open. Production unchanged.
+
 **Scope advice, 2026-09-24:** advisory council report and transcript in
 `50_REBUILD/docs/council-report-2026-09-24-thesis-scope.html` and its matching
 transcript. Recommends freezing player optimization and defining the minimum
@@ -463,6 +473,7 @@ Moved 2026-09-09 (v3.2). The locked decision record (D1-D27, the Phase-1b/1c/1d 
 - `contract_npv.py` — **v1.4, UPDATED 2026-09-13 (D28: `npv(player_id, valuation_season, as_of=None)`, same chain in the goalie branch; summary carries `as_of` and `chain`).** v1.3, UPDATED 2026-07-27 (item 1.2: hazard indices read at k−1 on BOTH axes, with a `legacy_hazard_index` audit switch that re-measures the correction into the run log every run; item 1.4: goalie-table audit reported here since the goalie panel is built here). NEW 2026-07-05.** Phase 1d: `NPVEngine.npv(player_id, valuation_season)` stacks Layer 2 + terminal value + survival weights + 3% denominator into one discounted contract NPV, both positions. Contains the goalie mini-engine (`GoalieProjector`, flat projection, self-calibrating goalie rate recovered from the spine). Writes `contract_npv_spine.csv`. Has a diagnostic k=0 consistency check that prints the offending player/season before failing (added after a stale-spine mismatch was traced this way on Thomas's machine).
 - `contract_npv_panel.py` — **v1.1, UPDATED 2026-09-13.** Validation panel (never a back-test input), now 2018-2026: 7,565 rows, 626 on the 2026-27 page (May 2026 export; summer-2026 signings missing). Each page valued as of July 1 of its season; new columns `as_of_date`, `n_extension_contracts`, `extension_contract_ids`.
 - `player_dashboard.py` + `player_dashboard_template.html` — **v1.1, 2026-09-13.** Local viewer (`30_OUTPUT/player_dashboard.html`, embeds confidential PuckPedia data, never shared). Pick a player and a date; shows the page in force, with in-season extension variants from their signing dates (D28). Re-runs the engine for every page and variant and refuses to write unless it matches the panel within $1.
+- `valuation_walkthrough.py` — **v1.0, NEW 2026-09-25.** Viewer: the production aging curve worked through with real data for three traded forwards (O'Reilly, Kadri, Pacioretty), written as a live-formula workbook `30_OUTPUT/aging_walkthrough.xlsx` plus `.json` and run log. Imports `aging_curve.py` and `skater_forward_projection.py` read-only; refuses to write unless its hand arithmetic matches production (yardstick exact; weights, curve and multipliers to 1e-12; anchor/age/horizon in full mode with the contract spine) and the saved workbook, evaluated with Excel operator rules, matches Python to 1e-9. Aging only: no dollars, survival or discounting.
 - `aging_curve.py` + `age_join.py` — **BOTH UPDATED 2026-07-27.** `aging_curve.py`: item 1.6 (careers keyed on the cleaned name via `career_key`, `CURVE_NAME_SPLITS` for the two Elias Petterssons, team-halves summed) and item 1.7 (adjacency required for the two-season window, non-adjacent entries dropped from the comparables pool, trend divides by the real age gap). `age_join.py`: item 1.8 (`join_on_id_and_name()` + `id_name_conflicts()` + a guard self-test + `age_join_id_conflicts.csv`). Previously described as **finalized** mean-reversion aging engine (lambda=0.55, player-split cross-validated) and hardened age join. (In the project.)
 - `join_clauses_to_spine.py` + `join_clauses_runlog.txt` — clause-to-spine join and validation log. (In the project.)
 - **Game-level model chain (built + validated end-to-end 2026-07-03; Phase 4a):**

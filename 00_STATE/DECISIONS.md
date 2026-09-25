@@ -1903,6 +1903,21 @@ Print styling supplied, physical print pagination not independently verified.
 No new statistical run, production change, or adoption decision. Project state
 and session record updated; existing explainers left unchanged.
 
+### Change log, 2026-09-25 (aging walkthrough)
+
+Built `20_CODE/valuation_walkthrough.py` v1.0 for the three-forward aging
+walkthrough agreed after the September 25 working session (Thomas's scope:
+O'Reilly, Kadri and Pacioretty; Excel plus optional explainer; aging only;
+look-ahead flagged in prose). No locked decision touched; production code and
+outputs unchanged. Corrected three session explanations against the code: the
+yardstick is one pooled all-age median, 0.61 is the weight at one yardstick,
+and the season-before fallback is the target's D21 base-age rule. A workbook
+precedence bug (Excel's -x^2 = (+x^2)) was caught by the new Excel-rules guard
+before any output was used. Verified on practice ages only; real run and
+explainer open (WORK_QUEUE). Queued, not decided: per-82 starting level, CBA age
+date, 50/30/20 weighting. PROJECT_STATE, WORK_QUEUE, MANIFEST and the session
+log updated.
+
 ## Thesis scope discussion, 2026-09-24
 
 Thomas asked whether the Player Model work has become too complex for a

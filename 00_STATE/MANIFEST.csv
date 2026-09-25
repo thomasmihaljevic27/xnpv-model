@@ -194,3 +194,4 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 50_REBUILD/docs,Player_Comparison.md,player,doc,2026-09-14e,de2fc43fffa24e7e60a53e185c4a688f33bc9763,6765,2026-09-15,yes,git,experimental rebuild tree; not production
 50_REBUILD/docs,variant_register.csv,player,doc,2026-09-14e,771b454fbac32cf0bde3988aedf7775054294e6d,3831,2026-09-15,yes,git,experimental rebuild tree; not production
 50_REBUILD,README.md,player,doc,2026-09-14e,2eadf035859339874cfd5df12f62a99b9f647bef,4525,2026-09-15,yes,git,experimental rebuild tree; not production
+20_CODE,valuation_walkthrough.py,age,hashable,2026-09-25,e17c7f4e58aa6b3b794d43adee5badeb9cf31615,64116,2026-09-25,no,git,"viewer; aging-curve walkthrough workbook for three traded forwards; verified on practice ages, real run pending"
