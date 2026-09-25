@@ -1,5 +1,10 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**Scope advice, 2026-09-24:** advisory council report and transcript in
+`50_REBUILD/docs/council-report-2026-09-24-thesis-scope.html` and its matching
+transcript. Recommends freezing player optimization and defining the minimum
+complete cross-asset study. No adoption, approved scope, or queue change.
+
 **Player decision guide, 2026-09-24:**
 `50_REBUILD/docs/Player_Model_Decision_Guide.html` explains the previous and
 rebuilt models with side-by-side flowcharts, an issue/response table, a worked
