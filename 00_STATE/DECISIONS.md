@@ -1976,3 +1976,10 @@ the pre-migration history (three CLAUDE.md rules ported instead) and the unpinne
 (opt-in). New `integrate_branches.py` builds and checks the result locally and pushes to main only
 with `--push`. No model, state figure or locked decision changed.
 
+### Change log, 2026-09-25c (main integrated; session close)
+
+`main` now carries the rebuild branch, the aging walkthrough, the plain-language overview and the two
+2026-09-14 sessions (pushed by `integrate_branches.py` v1.2, `ded9e18`). PROJECT_STATE and WORK_QUEUE:
+integration entry, with the MANIFEST.csv re-audit as the open item. CLAUDE.md: one rule on commands
+handed over for the Windows laptop. No model, state figure or locked decision changed.
+

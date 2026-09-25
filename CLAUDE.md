@@ -222,6 +222,13 @@ Draft pillar:
   season by (1.03)^k. Simplify the wording, not the pipeline: walk the summation in the
   implementing script and check each operation has a place in the text.
 
+- **Don't hand over a command for the Windows laptop without checking it there.** Thomas runs
+  commands in Windows PowerShell 5.1 inside a working folder that `sync.ps1` stages wholesale
+  (`git add -A`). Three round trips on 2026-09-25 came from ignoring that: a script that required a
+  clean tree failed on its own untracked copy; `git show ... > file` wrote UTF-16, which Python cannot
+  read (use `cmd /c "... > file"`); and a sync run between a check and a push committed a stray `.env`
+  backup and moved a pinned branch. Test on a CRLF clone with the same untracked files, keep
+  generated or copied files out of the repo folder, and say plainly when not to run the sync.
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised

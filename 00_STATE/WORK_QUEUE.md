@@ -1,5 +1,15 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
+**Branches integrated into main, 2026-09-25b.** `main` (`ded9e18`) now carries the player-model
+rebuild (all of `50_REBUILD/`), the aging walkthrough, the plain-language overview, and the two
+2026-09-14 sessions (elite aging audit; cap inflation, the g/rho flag, the discount-heterogeneity
+sequence). Nine of eleven GitHub branches are contained in main. Left out on purpose: the
+pre-migration history (`claude/wizardly-goodall-25okn3`; its three CLAUDE.md rules were ported) and
+the unpinned third-party plugin (`claude/nifty-euler-u5c5vm`). Built and pushed by
+`integrate_branches.py` v1.2 from the laptop. Open: re-audit `00_STATE/MANIFEST.csv` against
+`git ls-files` (main's copy was kept; the 2026-09-14 reconciliation was not carried over). No model,
+state figure or locked decision changed.
+
 **Player candidate closed; scorecard corrected; model choice deferred, 2026-09-24l.** Per review
 `57d0be8`: the rebuilt skater model closes at Phase 5 with its recorded limitations; which player
 model to commit to is DEFERRED until the separate draft-pick and prospect models are taken up again.
