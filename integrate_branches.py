@@ -5,14 +5,26 @@ Run from the repo root:
     python integrate_branches.py            # build and check locally; push nothing
     python integrate_branches.py --push     # same, then push the result to origin/main
 
+    It works from any branch and does not need a clean working tree: the merge
+    is built in a separate, temporary git worktree, so the folder you run it
+    from (its branch, its edits, its untracked files) is never touched.
+
+WHAT CHANGED IN v1.1 (first run on the Windows laptop, 2026-09-25)
+    v1.0 merged inside the folder it was run from and so refused any
+    untracked file. On the laptop that was the script's own untracked copy,
+    which the rebuild branch's merge would then have collided with. v1.1
+    builds in its own worktree instead. It also keeps each file's line
+    endings (a Windows checkout may be CRLF; Python's default text mode
+    would have rewritten every resolved state file) and reads git's output as
+    UTF-8 rather than the Windows code page.
+
 WHAT IT DOES
-    1. Refuses to start on a dirty working tree or a half-finished merge.
-    2. Fetches origin and checks that every branch in the plan below still
+    1. Fetches origin and checks that every branch in the plan below still
        matches what was reviewed on 2026-09-25: it exists, it still carries the
        reviewed tip commit (so nothing new slipped in unreviewed), and each
        branch marked "skip" or "already merged" still is.
-    3. Builds a local branch `integrate/<date>` from origin/main and merges the
-       planned branches into it in order, each as its own merge commit, so any
+    3. Builds a local branch `integrate/<date>` from origin/main, in a
+       temporary worktree, and merges the planned branches into it in order, each as its own merge commit, so any
        one of them can be reverted later with `git revert -m 1 <merge>`.
     4. Resolves conflicts only where a mechanical rule is safe (below) and
        stops, leaving the merge for a person, anywhere else.
@@ -55,11 +67,13 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import re
+import shutil
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 REMOTE = "origin"
 BASE = "main"
 
@@ -120,16 +134,46 @@ KEEP_MAIN = {"00_STATE/MANIFEST.csv"}
 # ---------------------------------------------------------------------------
 # git helpers
 # ---------------------------------------------------------------------------
+# Where git runs. The plan check runs in the folder the script was started
+# from; everything that changes files runs in the temporary worktree (set in
+# main()), so the user's own folder is only ever read.
+CWD: Path | None = None
+
+
+def run(args: list[str]) -> subprocess.CompletedProcess:
+    """git's output is UTF-8 (commit messages here carry non-ASCII text); on
+    Windows Python would otherwise decode it with the ANSI code page and fail."""
+    return subprocess.run(args, capture_output=True, text=True, encoding="utf-8",
+                          errors="replace", cwd=CWD)
+
+
 def git(*args: str, check: bool = True) -> str:
     """Run git and return stdout. Errors carry git's own message."""
-    r = subprocess.run(["git", *args], capture_output=True, text=True)
+    r = run(["git", *args])
     if check and r.returncode != 0:
         raise SystemExit(f"git {' '.join(args)} failed:\n{r.stderr.strip()}")
     return r.stdout.strip()
 
 
 def ok(*args: str) -> bool:
-    return subprocess.run(["git", *args], capture_output=True).returncode == 0
+    return run(["git", *args]).returncode == 0
+
+
+def read_text(p: Path) -> tuple[str, str]:
+    """A file's text with LF line ends, and the line end it had on disk.
+
+    newline="" stops Python translating anything, so a CRLF checkout (usual on
+    Windows) is seen as it is. The conflict patterns are written for LF, so the
+    text is normalised for matching and written back in its own convention."""
+    with open(p, encoding="utf-8", newline="") as fh:
+        raw = fh.read()
+    eol = "\r\n" if "\r\n" in raw else "\n"
+    return raw.replace("\r\n", "\n"), eol
+
+
+def write_text(p: Path, text: str, eol: str) -> None:
+    with open(p, "w", encoding="utf-8", newline="") as fh:
+        fh.write(text.replace("\n", eol) if eol != "\n" else text)
 
 
 def ref(branch: str) -> str:
@@ -143,16 +187,12 @@ def is_ancestor(a: str, b: str) -> bool:
 # ---------------------------------------------------------------------------
 # 1-2. preconditions and the plan check
 # ---------------------------------------------------------------------------
-def preflight() -> None:
-    root = Path(git("rev-parse", "--show-toplevel"))
-    if Path.cwd().resolve() != root.resolve():
-        raise SystemExit(f"run from the repo root: {root}")
-    if git("status", "--porcelain"):
-        raise SystemExit("working tree has uncommitted changes; commit or stash them first")
-    gitdir = Path(git("rev-parse", "--absolute-git-dir"))
-    for marker in ("MERGE_HEAD", "rebase-merge", "rebase-apply", "CHERRY_PICK_HEAD"):
-        if (gitdir / marker).exists():
-            raise SystemExit(f"a git operation is in progress ({marker}); finish or abort it first")
+def preflight() -> Path:
+    """Only checks that this is the repository. Uncommitted or untracked files
+    in the current folder do not matter: nothing is built here."""
+    if not ok("rev-parse", "--show-toplevel"):
+        raise SystemExit("not inside the xNPV git repository; cd into it first")
+    return Path(git("rev-parse", "--show-toplevel"))
 
 
 def check_plan(merge: list) -> None:
@@ -242,7 +282,7 @@ def resolve(conflicted: list[str], branch: str, followups: list[str]) -> None:
             followups.append(f"{f}: kept main's copy; re-audit it against `git ls-files` "
                              f"(the {branch} reconciliation was not carried over)")
         elif UNION_OK.match(f):
-            text = Path(f).read_text(encoding="utf-8")
+            text, eol = read_text(CWD / f)
             try:
                 new = HUNK.sub(union_hunk, text)
             except ValueError as e:
@@ -250,7 +290,7 @@ def resolve(conflicted: list[str], branch: str, followups: list[str]) -> None:
                                  f"left in progress for a person to finish.")
             if "<<<<<<<" in new or ">>>>>>>" in new:
                 raise SystemExit(f"{f}: conflict markers not in diff3 form; resolve by hand")
-            Path(f).write_text(new, encoding="utf-8")
+            write_text(CWD / f, new, eol)
         else:
             raise SystemExit(f"{f}: conflict outside the state files; the merge of {branch} "
                              f"is left in progress for a person to finish.")
@@ -260,16 +300,12 @@ def resolve(conflicted: list[str], branch: str, followups: list[str]) -> None:
 # ---------------------------------------------------------------------------
 # 3-5. build and check
 # ---------------------------------------------------------------------------
-def build(merge: list) -> tuple[str, list[str]]:
-    work = f"integrate/{dt.date.today().isoformat()}"
-    git("checkout", "-q", "-B", work, ref(BASE))
+def build(merge: list, work: str) -> list[str]:
     followups: list[str] = []
     for name, _, why in merge:
         print(f"\nmerging {name}\n  {why}")
-        r = subprocess.run(
-            ["git", "-c", "merge.conflictstyle=diff3", "merge", "--no-ff", "--no-edit",
-             "-m", f"Merge {name} into {BASE}", ref(name)],
-            capture_output=True, text=True)
+        r = run(["git", "-c", "merge.conflictstyle=diff3", "merge", "--no-ff", "--no-edit",
+                 "-m", f"Merge {name} into {BASE}", ref(name)])
         if r.returncode != 0:
             conflicted = git("diff", "--name-only", "--diff-filter=U").splitlines()
             if not conflicted:
@@ -280,7 +316,7 @@ def build(merge: list) -> tuple[str, list[str]]:
             print("  resolved (additions kept from both sides)")
         else:
             print("  clean")
-    return work, followups
+    return followups
 
 
 def verify(work: str, merge: list) -> None:
@@ -288,7 +324,7 @@ def verify(work: str, merge: list) -> None:
     # Conflict markers anywhere in a changed text file.
     changed = git("diff", "--name-only", base, work).splitlines()
     for f in changed:
-        p = Path(f)
+        p = CWD / f
         if p.suffix in {".md", ".py", ".csv", ".txt", ".html", ".json"} and p.exists():
             text = p.read_text(encoding="utf-8", errors="replace")
             if re.search(r"^(<<<<<<<|>>>>>>>|\|\|\|\|\|\|\|) ", text, re.M):
@@ -296,10 +332,12 @@ def verify(work: str, merge: list) -> None:
     # Every changed Python file still compiles.
     bad = []
     for f in changed:
-        if f.endswith(".py") and Path(f).exists():
-            r = subprocess.run([sys.executable, "-m", "py_compile", f], capture_output=True, text=True)
-            if r.returncode:
-                bad.append(f"{f}: {r.stderr.strip()}")
+        if f.endswith(".py") and (CWD / f).exists():
+            # compile() rather than py_compile: nothing is written (no __pycache__).
+            try:
+                compile((CWD / f).read_bytes(), f, "exec")
+            except SyntaxError as e:
+                bad.append(f"{f}: {e}")
     if bad:
         raise SystemExit("files that no longer compile:\n  " + "\n  ".join(bad))
     # Each planned branch is contained; main is contained (fast-forward possible).
@@ -331,26 +369,51 @@ def main() -> None:
             merge.append(entry)
             SKIP.pop(entry[0], None)
 
-    preflight()
-    start = git("rev-parse", "--abbrev-ref", "HEAD")
+    global CWD
+    repo = preflight()
+    CWD = repo
     check_plan(merge)
-    work, followups = build(merge)
-    verify(work, merge)
 
-    print("\nmerge commits on", work)
-    print(git("log", "--oneline", "--first-parent", f"{ref(BASE)}..{work}"))
-    if followups:
-        print("\nFOLLOW-UPS:")
-        for f in followups:
-            print(f"  - {f}")
+    # THE TEMPORARY WORKTREE. A second checkout of the same repository in a
+    # temp folder, on its own branch, sharing the object store and refs. The
+    # merge happens there; the folder the script was run from is not touched.
+    work = f"integrate/{dt.date.today().isoformat()}"
+    git("worktree", "prune")
+    for line in git("worktree", "list", "--porcelain").splitlines():
+        if line == f"branch refs/heads/{work}":
+            raise SystemExit(f"branch {work} is checked out in another worktree; "
+                             f"remove it with `git worktree list` / `git worktree remove`")
+    tmp = Path(tempfile.mkdtemp(prefix="xnpv_integrate_"))
+    wt = tmp / "wt"
+    git("worktree", "add", "-q", "-B", work, str(wt), ref(BASE))
+    print(f"\nbuilding in a temporary worktree: {wt}")
+    try:
+        CWD = wt
+        followups = build(merge, work)
+        verify(work, merge)
 
-    if args.push:
-        git("push", REMOTE, f"{work}:{BASE}")        # fast-forward only: no --force
-        print(f"\npushed {work} to {REMOTE}/{BASE}")
-    else:
-        print(f"\nNothing pushed. To publish:  git push {REMOTE} {work}:{BASE}")
-    git("checkout", "-q", start)
-    print(f"back on {start}; the result stays on local branch {work}")
+        print("\nmerge commits on", work)
+        print(git("log", "--oneline", "--first-parent", f"{ref(BASE)}..{work}"))
+        if followups:
+            print("\nFOLLOW-UPS:")
+            for f in followups:
+                print(f"  - {f}")
+
+        if args.push:
+            git("push", REMOTE, f"{work}:{BASE}")        # fast-forward only: no --force
+            print(f"\npushed {work} to {REMOTE}/{BASE}")
+        else:
+            print(f"\nNothing pushed. To publish:  git push {REMOTE} {work}:{BASE}")
+    except BaseException:
+        # Any stop (a refused conflict, a failed check, Ctrl+C): leave the worktree in place so a stopped merge can be finished by hand.
+        print(f"\nSTOPPED. The partial merge is in {wt} (branch {work}). Finish it there, "
+              f"or discard it with:  git worktree remove --force \"{wt}\"")
+        raise
+    CWD = repo
+    git("worktree", "remove", "--force", str(wt))
+    shutil.rmtree(tmp, ignore_errors=True)
+    print(f"temporary worktree removed; the result stays on local branch {work}. "
+          f"Your own folder and branch were not changed.")
 
 
 if __name__ == "__main__":
