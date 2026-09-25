@@ -191,6 +191,29 @@ Draft pillar:
   not detect miscalibration, not that each contract or subgroup is calibrated. And name the metric
   a percentage is on: a 6.1% cut in RMSE is an 11.9% cut in mean squared error (corrected
   2026-09-24).
+- **Don't say something doesn't exist until you have fetched.** A session clone can be several
+  commits behind. On 2026-09-11 a review reported that the target-specific aging-yardstick test
+  had "no source anywhere in `20_CODE/`, `00_STATE/` or `40_DOCS/`" and recommended cutting the
+  sentence that cited it. The test was real: `aging_bandwidth_test.py` and
+  `40_DOCS/Aging_Yardstick_Comparison.md`, committed as `4e708ae` the previous afternoon, three
+  commits ahead of the branch being searched. Before reporting a file, test, result or commit as
+  missing, run `git fetch origin` and search the current tree. "I could not find it" and "it is
+  not there" are different claims. (Ported 2026-09-25 from the retired branch
+  `claude/wizardly-goodall-25okn3`, which never reached main.)
+- **Don't trust a docstring's account of what a script does; read what actually runs.**
+  `aging_split_sample.py`'s docstring says the split-sample check compares two things, the raw
+  within-player age-delta curve and "the model's own global age profile," via "two era-specific
+  AgingModel instances." Its `main()` builds the panel, computes deltas, and prints the era
+  comparison. `aging_curve` is never imported anywhere in the file, so the second comparison
+  does not exist, and the 0-of-16 / 1-of-16 result covers the raw deltas only. Read the entry
+  point and the call path, not the prose above them. (Ported 2026-09-25, same branch.)
+- **Don't sharpen vague wording into a claim the code doesn't support.** Tightening is an edit
+  like any other and needs the same check. "The five style measures together receive the same
+  total importance as ice time, production level, or trend" is vague; the proposed replacement,
+  that each group contributes a quarter of the distance, is false. `_attr_weights()` assigns the
+  four groups equal *weights*; what each contributes to a given distance depends on how far apart
+  the two players are on it. When a sentence is imprecise but true, the replacement must be
+  checkable against the code the same way the original was. (Ported 2026-09-25, same branch.)
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised

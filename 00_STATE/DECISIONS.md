@@ -1921,3 +1921,13 @@ control horizons, costs, and expectations remain necessary. Better development
 forecasts do not establish global superiority or trade mispricing. Actual
 submission deadline, coverage feasibility, and supervisor minimum remain to
 be established. No changes to locked scope, work queue, or adoption status.
+
+### Change log, 2026-09-25b (branch integration)
+
+Reviewed each GitHub branch against main. To merge: the rebuild branch, the aging walkthrough, the
+plain-language overview, and the two 2026-09-14 sessions (elite aging audit; cap inflation and the
+g/rho flag). Already merged: three branches, plus one contained in the rebuild branch. Not merged:
+the pre-migration history (three CLAUDE.md rules ported instead) and the unpinned third-party plugin
+(opt-in). New `integrate_branches.py` builds and checks the result locally and pushes to main only
+with `--push`. No model, state figure or locked decision changed.
+
