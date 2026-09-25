@@ -18,6 +18,15 @@ WHAT CHANGED IN v1.1 (first run on the Windows laptop, 2026-09-25)
     would have rewritten every resolved state file) and reads git's output as
     UTF-8 rather than the Windows code page.
 
+WHAT CHANGED IN v1.2 (2026-09-25, after the laptop sync)
+    The laptop's sync script stages everything, and before the .gitignore fix
+    reached that branch it committed `.env.bak_20260925` (the placeholder
+    template, no keys) and a copy of this script onto the walkthrough branch
+    (f10a67e). That moved the branch past its reviewed tip, which is why the
+    push was refused. v1.2 pins the new tip, and adds a last step: any tracked
+    file that the merged .gitignore excludes is taken out of the index (kept
+    on disk), so a stray backup or archive file cannot reach main.
+
 WHAT IT DOES
     1. Fetches origin and checks that every branch in the plan below still
        matches what was reviewed on 2026-09-25: it exists, it still carries the
@@ -45,10 +54,11 @@ THE CONFLICT RULE, AND WHY IT IS SAFE
     text. Anything else (the branch rewrote or deleted a line main also
     touched) is not auto-resolved.
 
-    00_STATE/MANIFEST.csv is the one exception. The 2026-09-14 reconciliation
+    00_STATE/MANIFEST.csv is one exception. The 2026-09-14 reconciliation
     rewrote the whole file, and main has changed it since; a union would give
     duplicate rows for one path with different hashes. Main's copy is kept and
-    the re-audit is listed as a follow-up.
+    the re-audit is listed as a follow-up. integrate_branches.py is the other:
+    the version already merged (the rebuild branch's, current) is kept.
 
     Any other conflicted file stops the run.
 
@@ -73,7 +83,7 @@ import sys
 import tempfile
 from pathlib import Path
 
-SCRIPT_VERSION = "1.1"
+SCRIPT_VERSION = "1.2"
 REMOTE = "origin"
 BASE = "main"
 
@@ -87,9 +97,10 @@ MERGE = [
     ("claude/amazing-johnson-cllbgl", None,
      "The player-model rebuild: all 50_REBUILD code, reviews, the corrected "
      "scorecard and the decision brief. Already carries main's latest two commits."),
-    ("claude/player-valuation-walkthrough-uiyl8b", "e668929",
+    ("claude/player-valuation-walkthrough-uiyl8b", "f10a67e",
      "Aging-curve walkthrough workbook (20_CODE/valuation_walkthrough.py) and the "
-     "2026-09-25 session; one commit on top of main."),
+     "2026-09-25 session, plus the laptop sync commit (a copy of this script and an "
+     ".env backup, which the untrack step below removes)."),
     ("claude/awesome-curie-9o6hh1", "8e53125",
      "Two-page plain-language project overview (.docx and .pdf) in Thomas's edited "
      "version, with its CLAUDE.md rule."),
@@ -128,7 +139,18 @@ MERGED_VIA_REBUILD = ["claude/loving-maxwell-rd3w5v"]
 
 # Files where "keep both sides" is allowed, provided the branch only added text.
 UNION_OK = re.compile(r"^(00_STATE/[^/]+\.md|00_STATE/sessions/[^/]+\.md|CLAUDE\.md)$")
-KEEP_MAIN = {"00_STATE/MANIFEST.csv"}
+# Files where the side already merged ("ours": main plus the branches merged so
+# far) wins, with the reason printed as a follow-up.
+KEEP_OURS = {
+    "00_STATE/MANIFEST.csv":
+        "kept main's copy; re-audit it against `git ls-files` (the 2026-09-14 "
+        "reconciliation on the branch was not carried over)",
+    # The laptop sync committed a copy of an older version of this script onto
+    # the walkthrough branch; the rebuild branch, merged first, carries the
+    # current one.
+    "integrate_branches.py":
+        "kept the rebuild branch's (current) version of this script",
+}
 
 
 # ---------------------------------------------------------------------------
@@ -277,10 +299,9 @@ def union_hunk(m: re.Match) -> str:
 
 def resolve(conflicted: list[str], branch: str, followups: list[str]) -> None:
     for f in conflicted:
-        if f in KEEP_MAIN:
+        if f in KEEP_OURS:
             git("checkout", "--ours", "--", f)
-            followups.append(f"{f}: kept main's copy; re-audit it against `git ls-files` "
-                             f"(the {branch} reconciliation was not carried over)")
+            followups.append(f"{f} (from {branch}): {KEEP_OURS[f]}")
         elif UNION_OK.match(f):
             text, eol = read_text(CWD / f)
             try:
@@ -319,6 +340,27 @@ def build(merge: list, work: str) -> list[str]:
     return followups
 
 
+def untrack_ignored(followups: list[str]) -> None:
+    """Take out of the index every tracked file the merged .gitignore excludes.
+
+    `git ls-files -ci --exclude-standard` lists files that are tracked AND
+    match an ignore rule: things committed before the rule existed, or staged
+    by a blanket `git add -A`. The files stay on disk; only git stops tracking
+    them. Listed one by one so nothing leaves silently."""
+    stray = [f for f in git("ls-files", "-ci", "--exclude-standard").splitlines() if f]
+    if not stray:
+        print("\nno tracked files match .gitignore")
+        return
+    print("\nuntracking files the merged .gitignore excludes:")
+    for f in stray:
+        print(f"  {f}")
+    git("rm", "-q", "--cached", "--", *stray)
+    git("commit", "-q", "-m", "Untrack files the merged .gitignore excludes\n\n"
+        + "\n".join(f"- {f}" for f in stray))
+    followups.append(f"untracked {len(stray)} ignored file(s): {', '.join(stray)} "
+                     "(removed from main going forward; still in the source branch's history)")
+
+
 def verify(work: str, merge: list) -> None:
     base = ref(BASE)
     # Conflict markers anywhere in a changed text file.
@@ -344,6 +386,8 @@ def verify(work: str, merge: list) -> None:
     for name, _, _ in merge:
         assert is_ancestor(ref(name), work), f"{name} missing from the result"
     assert is_ancestor(base, work), "result does not contain main; push would not fast-forward"
+    left = git("ls-files", "-ci", "--exclude-standard")
+    assert not left, f"tracked files still match .gitignore: {left}"
     # Nothing from the gitignored trees was brought in.
     for tree in ("30_OUTPUT/", "90_ARCHIVE/"):
         added = [f for f in git("diff", "--name-only", "--diff-filter=A", base, work).splitlines()
@@ -390,6 +434,7 @@ def main() -> None:
     try:
         CWD = wt
         followups = build(merge, work)
+        untrack_ignored(followups)
         verify(work, merge)
 
         print("\nmerge commits on", work)
