@@ -1,5 +1,12 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**Player decision guide, 2026-09-24:**
+`50_REBUILD/docs/Player_Model_Decision_Guide.html` explains the previous and
+rebuilt models with side-by-side flowcharts, an issue/response table, a worked
+participation example, and matched-sample evidence. This is a decision aid;
+model adoption remains deferred. Code and prior independent audit checked;
+no model changes or new statistical runs.
+
 **Player candidate acceptance closed, 2026-09-24:** independent review of
 `7b046a3` closes both scoring repairs. Full suite 48/48; all ten identity-field
 mutations rejected; precision mutation rejected. Both rebuilt point values,

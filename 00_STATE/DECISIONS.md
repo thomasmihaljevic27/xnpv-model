@@ -755,3 +755,17 @@ A still beats production (RMSE .8640 vs .9129, 2,000/2,000 resamples). Later
 pages were previously inspected, not historically sealed; pooled calibration
 does not establish each contract's calibration. No new forecast search is
 requested. See `50_REBUILD/docs/Player_Acceptance_Closure_Review_Codex.md`.
+
+### Change log, 2026-09-24 (Player decision guide)
+
+Created an illustrated HTML guide in 50_REBUILD/docs at Thomas's request for
+clearer explanation of the previous model's problems and the rebuild's
+responses. Three sections: paired flowcharts, five issue/response comparisons,
+and evidence/limits for the adoption decision. Uses the production-answerable
+samples (35,878 season rows; 1,111 ended contracts), distinguishes forecast
+accuracy from full-chain valuation validity, and retains goalie/RFA/snapshot
+limitations. Production and candidate mechanisms checked against code and the
+completed acceptance audit. Browser layout inspected; no horizontal overflow.
+Print styling supplied, physical print pagination not independently verified.
+No new statistical run, production change, or adoption decision. Project state
+and session record updated; existing explainers left unchanged.
