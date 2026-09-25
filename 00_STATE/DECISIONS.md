@@ -1983,3 +1983,16 @@ with `--push`. No model, state figure or locked decision changed.
 integration entry, with the MANIFEST.csv re-audit as the open item. CLAUDE.md: one rule on commands
 handed over for the Windows laptop. No model, state figure or locked decision changed.
 
+### Change log, 2026-09-25d (manifest re-audit; repository tidy; branch clean-up)
+
+`MANIFEST.csv` reconciled against the tracked tree (from Thomas's uploaded copy, identical to main's):
+196 rows to 369. 41 git rows already correct; 96 updated (42 files whose content changed since their
+row was written, 53 rows still carrying pre-2026-09-14 machine sizes, and the manifest's own row); 1
+dropped (`00_Immediate_Work.md`, archived); 174 added (138 under `50_REBUILD`, now in scope; 27 under
+`00_STATE`, mostly session logs; 7 under `40_DOCS`; 2 under `20_CODE`); 1 path corrected (the
+2026-09-14d session log); 58 `dropbox`/`local` rows untouched. PROJECT_STATE's manifest section records
+the extended scope and the dating rule for updated rows. `env` and `debug.log` untracked and ignored.
+`sessions/2026-09-11e.md` preserves the Doc 2 review log from the retired pre-migration branch.
+Branch deletions were refused to the cloud session (HTTP 403) and handed to Thomas. CLAUDE.md: one
+rule on asking for decisions in plain terms. No model, state figure or locked decision changed.
+

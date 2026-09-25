@@ -229,6 +229,10 @@ Draft pillar:
   read (use `cmd /c "... > file"`); and a sync run between a check and a push committed a stray `.env`
   backup and moved a pinned branch. Test on a CRLF clone with the same untracked files, keep
   generated or copied files out of the repo folder, and say plainly when not to run the sync.
+- **Don't ask for a decision on something by its name alone.** "Decide whether to keep
+  `claude/nifty-euler-u5c5vm`" meant nothing to Thomas (2026-09-25): a branch name, like a model
+  label, says nothing about what it is. Say what it does and what keeping or dropping it changes,
+  then ask.
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised

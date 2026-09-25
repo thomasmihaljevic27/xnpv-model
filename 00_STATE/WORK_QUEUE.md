@@ -6,9 +6,17 @@ rebuild (all of `50_REBUILD/`), the aging walkthrough, the plain-language overvi
 sequence). Nine of eleven GitHub branches are contained in main. Left out on purpose: the
 pre-migration history (`claude/wizardly-goodall-25okn3`; its three CLAUDE.md rules were ported) and
 the unpinned third-party plugin (`claude/nifty-euler-u5c5vm`). Built and pushed by
-`integrate_branches.py` v1.2 from the laptop. Open: re-audit `00_STATE/MANIFEST.csv` against
-`git ls-files` (main's copy was kept; the 2026-09-14 reconciliation was not carried over). No model,
-state figure or locked decision changed.
+`integrate_branches.py` v1.2 from the laptop. `00_STATE/MANIFEST.csv` re-audited against
+`git ls-files` the same day (2026-09-25c, below). No model, state figure or locked decision changed.
+
+**Manifest re-audited; repository tidied, 2026-09-25c.** `MANIFEST.csv` reconciled against the
+tracked tree: every git-tracked file under `00_STATE`, `10_SOURCE`, `20_CODE`, `40_DOCS` and, new
+in scope, `50_REBUILD` has one row with its git blob hash and blob size; rows for files no longer
+tracked were removed; the `dropbox` and `local` rows (outputs and the game-log DB) are untouched
+because they cannot be checked from git. `env` (an old template copy, no keys) and `debug.log`
+(the Dropbox client's crash log) were untracked and ignored. The 2026-09-11 Doc 2 review log from
+the retired pre-migration branch is preserved as `sessions/2026-09-11e.md`. Branch deletion is
+Thomas's to run (the cloud session may push only its own branch).
 
 **Player candidate closed; scorecard corrected; model choice deferred, 2026-09-24l.** Per review
 `57d0be8`: the rebuilt skater model closes at Phase 5 with its recorded limitations; which player

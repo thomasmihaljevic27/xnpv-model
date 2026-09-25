@@ -6,9 +6,17 @@ rebuild (all of `50_REBUILD/`), the aging walkthrough, the plain-language overvi
 sequence). Nine of eleven GitHub branches are contained in main. Left out on purpose: the
 pre-migration history (`claude/wizardly-goodall-25okn3`; its three CLAUDE.md rules were ported) and
 the unpinned third-party plugin (`claude/nifty-euler-u5c5vm`). Built and pushed by
-`integrate_branches.py` v1.2 from the laptop. Open: re-audit `00_STATE/MANIFEST.csv` against
-`git ls-files` (main's copy was kept; the 2026-09-14 reconciliation was not carried over). No model,
-state figure or locked decision changed.
+`integrate_branches.py` v1.2 from the laptop. `00_STATE/MANIFEST.csv` re-audited against
+`git ls-files` the same day (2026-09-25c, below). No model, state figure or locked decision changed.
+
+**Manifest re-audited; repository tidied, 2026-09-25c.** `MANIFEST.csv` reconciled against the
+tracked tree: every git-tracked file under `00_STATE`, `10_SOURCE`, `20_CODE`, `40_DOCS` and, new
+in scope, `50_REBUILD` has one row with its git blob hash and blob size; rows for files no longer
+tracked were removed; the `dropbox` and `local` rows (outputs and the game-log DB) are untouched
+because they cannot be checked from git. `env` (an old template copy, no keys) and `debug.log`
+(the Dropbox client's crash log) were untracked and ignored. The 2026-09-11 Doc 2 review log from
+the retired pre-migration branch is preserved as `sessions/2026-09-11e.md`. Branch deletion is
+Thomas's to run (the cloud session may push only its own branch).
 
 **Player candidate closed; scorecard corrected; model choice deferred, 2026-09-24l.** Per review
 `57d0be8`: the rebuilt skater model closes at Phase 5 with its recorded limitations; which player
@@ -1507,6 +1515,13 @@ One row per file, in `00_STATE/`. Columns: `path`, `filename`, `pillar`, `class`
 `class` governs how a file is compared when it IS hash-audited. `hashable` covers csv, md, txt, py, and xlsx. `rendition` covers pdf and docx, which the Claude project stores as page-image/markdown extractions, not as files — comparing a rendition to its source produces a guaranteed false mismatch (this caused two spurious conflicts in the 2026-07-30 audit). `binary` covers png and sqlite.
 
 `session_id` is `YYYY-MM-DD` plus a letter where a date carries more than one session.
+
+**Re-audited 2026-09-25c.** Scope now also covers `50_REBUILD/` (it reached main that day). For a
+row whose blob changed, or a row added by the audit, `session_id` and `handoff_date` are the date
+of the last commit that touched the file (`git log -1 --format=%cs`), since the session letter
+cannot be recovered from git; unchanged rows keep what they had. `class` follows the rule above by
+extension (html, json, cmd and ps1 count as hashable). Repo-root files other than the existing
+`AGENTS.md` row stay out of scope.
 
 ### The audit, on the trigger phrase "audit files"
 

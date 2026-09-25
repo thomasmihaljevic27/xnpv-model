@@ -17,6 +17,10 @@
 # Any other .env copy (backups such as .env.bak_20260925 hold machine paths).
 .env.*
 !.env.example
+# A bare `env` copy of the template, and the Dropbox client's crash log, were
+# both committed by `git add -A` syncs (removed 2026-09-25).
+/env
+debug.log
 .claude/
 
 # --- Generated output. Regenerable from code, drifts every run ---
