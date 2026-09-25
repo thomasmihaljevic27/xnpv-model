@@ -14,6 +14,9 @@
 # --- Secrets and machine-specific config ---
 .env
 .env.local
+# Any other .env copy (backups such as .env.bak_20260925 hold machine paths).
+.env.*
+!.env.example
 .claude/
 
 # --- Generated output. Regenerable from code, drifts every run ---

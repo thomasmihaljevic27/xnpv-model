@@ -69,7 +69,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 import information_set as ISET
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.3"
 
 DEFAULT_HORIZONS = (0, 1, 2, 3, 4, 5)   # h=0 is the valuation season itself
 
@@ -114,15 +114,40 @@ def subjects_at(iset: ISET.InformationSet) -> pd.DataFrame:
     # Trailing level for the tier split: the locked 60/40 blend of the two
     # most recent qualifying seasons. Used ONLY to classify rows for
     # reporting; no model is obliged to use it as its own anchor.
-    t1, t2 = iset.latest_season, iset.latest_season - 1
+    t1, t2, t3 = iset.latest_season, iset.latest_season - 1, iset.latest_season - 2
     w1 = played[played["syr"] == t1].set_index("career_key")["WAR"]
     w2 = played[played["syr"] == t2].set_index("career_key")["WAR"]
+    w3 = played[played["syr"] == t3].set_index("career_key")["WAR"]
     both = w1.reindex(last.index) * 0.6 + w2.reindex(last.index) * 0.4
-    last["trailing_war"] = both.fillna(w1.reindex(last.index)).fillna(w2.reindex(last.index))
+    # THE THIRD FALLBACK ADMITS THE RETURNERS. The window above says three
+    # seasons and this line used to stop at two, so a player whose only
+    # qualifying season was the oldest one in the window was dropped for having
+    # no trailing level. That is not a neutral thinning of the sample: it
+    # removes the players who missed a season and came back, which is precisely
+    # the population the eligibility window was widened to admit and precisely
+    # the population a survivorship-aware forecast has to be scored on.
+    last["trailing_war"] = (both.fillna(w1.reindex(last.index))
+                                .fillna(w2.reindex(last.index))
+                                .fillna(w3.reindex(last.index)))
     last = last[last["trailing_war"].notna()]
+
+    # HOW STALE the level behind each row is, carried so a report can say so
+    # rather than presenting a two-year-old number as current.
+    last["history_tier"] = np.where(
+        w1.reindex(last.index).notna(), "current",
+        np.where(w2.reindex(last.index).notna(), "one season stale",
+                 "two seasons stale"))
 
     last["tier"] = _bands(last["trailing_war"], TIER_EDGES, TIER_NAMES)
     last["exp_band"] = _bands(last["exp_seasons"], EXP_EDGES, EXP_NAMES)
+    # AGE AT THE VALUATION SEASON, not in the last season he happened to play.
+    # The bands are reported as the population being forecast, so a returning
+    # 22-year-old whose last season was at 20 was being counted in the "20 and
+    # under" group and the group was not defined at the forecast date. The
+    # models themselves were always aged correctly; this is the reporting side
+    # of the same quantity.
+    last["age_last_seen"] = last["age"]
+    last["age"] = last["age"] + (iset.t0 - last["last_syr"])
     last["age_band"] = _bands(last["age"], AGE_EDGES, AGE_NAMES)
     return last.reset_index()
 
@@ -159,11 +184,27 @@ def _score_rows(pred: pd.DataFrame) -> pd.DataFrame:
     d = pred.copy()
     # The integration rule, applied in exactly one place in this codebase.
     d["pred_war"] = d["p_play"] * d["rate_82"] * d["gp_share"]
-    d["pred_gp"] = d["p_play"] * d["gp_share"] * C.FULL_SEASON
+
+    # GAMES, on the schedule the outcome season actually had. The model
+    # forecasts a SHARE of the schedule, and the scored outcome is a count of
+    # games, so the conversion has to use that season's own length. Using a
+    # flat 82 charged a player who was available for all 56 games of 2020-21 a
+    # 26-game error for a season he did not miss.
+    #
+    # This reads the outcome season's length, which nobody knew at the
+    # forecast date. That is legitimate here and only here: it converts the
+    # units of a realized outcome for scoring, exactly as the realized WAR
+    # total does. No model input touches it.
+    sched = d["season"].map(C.SEASON_LEN).fillna(float(C.FULL_SEASON))
+    d["pred_gp"] = d["p_play"] * d["gp_share"] * sched
 
     d["act_war"] = d["act_war"].fillna(0.0)          # absent = zero, not missing
     d["act_gp"] = d["act_gp"].fillna(0.0)
-    d["played"] = d["act_gp"] >= C.MIN_GP
+    # PLAYED means the participation event happened, which is the event the
+    # participation model predicts. Scoring a Brier score against a ten-game
+    # threshold while the model forecasts a one-game event scores the model
+    # against a question it was not asked.
+    d["played"] = d["act_gp"] >= C.PARTICIPATION_GP
 
     d["e_war"] = d["pred_war"] - d["act_war"]
     d["e_gp"] = d["pred_gp"] - d["act_gp"]
@@ -174,8 +215,16 @@ def _score_rows(pred: pd.DataFrame) -> pd.DataFrame:
     if {"lo", "hi"}.issubset(d.columns):
         d["covered"] = ((d["act_war"] >= d["lo"]) & (d["act_war"] <= d["hi"])).astype(float)
         d.loc[d["lo"].isna(), "covered"] = np.nan
+        # WIDTH, reported beside coverage and never apart from it. Coverage on
+        # its own can always be bought: a band from minus infinity to plus
+        # infinity holds every outcome. The pair is the statement -- this
+        # model covers 80% of seasons within this many wins -- and a model
+        # that hits its coverage with a band twice as wide as another's is
+        # the worse of the two.
+        d["width"] = d["hi"] - d["lo"]
     else:
         d["covered"] = np.nan
+        d["width"] = np.nan
     return d
 
 
@@ -192,6 +241,7 @@ def _summarise(d: pd.DataFrame, by: list[str]) -> pd.DataFrame:
         "brier": g["brier"].mean(),
         "play_rate": g["played"].mean(),
         "coverage": g["covered"].mean(),
+        "width": g["width"].mean(),
     })
     return out.reset_index()
 
@@ -216,8 +266,18 @@ class Harness:
                 "confirmatory run, pass unseal=True with a reason -- it will "
                 "be logged, and it is not repeatable.")
         if sealed:
-            C.log(f"  *** CONFIRMATORY SEAL BROKEN for pages {sealed}: {reason or '(no reason given)'}")
+            # A REASON IS REQUIRED, not merely invited. The seal previously
+            # accepted unseal=True with an empty string and logged "(no reason
+            # given)", which spends the one confirmatory run and leaves no
+            # record of what it was spent on.
+            if not reason.strip():
+                raise C.ConfirmatorySealBroken(
+                    f"pages {sealed} are confirmatory and unseal=True was "
+                    "passed with no reason. The run is not repeatable, so what "
+                    "it was spent on has to be written down before it is spent.")
+            C.log(f"  *** CONFIRMATORY SEAL BROKEN for pages {sealed}: {reason}")
             C.log("  *** This is the one confirmatory run. Record it in DECISIONS.md.")
+        C.record_inspection("forecast_harness", "forecast page", pages, reason)
         return pages
 
     def run(self, model, pages=C.DEV_PAGES, horizons=DEFAULT_HORIZONS,
@@ -245,6 +305,35 @@ class Harness:
             need = {"career_key", "h", "rate_82", "gp_share", "p_play"}
             missing = need - set(pred.columns)
             assert not missing, f"{model.name} predict() is missing {missing}"
+
+            # THE COMPLETE GRID, not just well-formed columns. Everything
+            # below this point validated the CONTENTS of whatever frame came
+            # back and never checked that the frame answered the question. A
+            # model that returned one player for a page of 866 passed each
+            # assertion, and the join two blocks down is a left join on the
+            # prediction, so the missing players simply vanished and the model
+            # was scored on the sample it chose. That is the same failure the
+            # missing-value assertion below already guards against, one level
+            # up: declining a player by omitting his row rather than by
+            # returning a blank one.
+            want = pd.MultiIndex.from_product(
+                [sorted(subs["career_key"]), sorted(int(h) for h in horizons)],
+                names=["career_key", "h"])
+            got = pd.MultiIndex.from_arrays(
+                [pred["career_key"], pred["h"].astype(int)], names=["career_key", "h"])
+            dupes = int(got.duplicated().sum())
+            assert not dupes, (
+                f"{model.name} returned {dupes} duplicate (player, horizon) rows "
+                f"on page {t0}. Each requested cell must be answered once.")
+            absent = want.difference(got)
+            extra = got.difference(want)
+            assert absent.empty and extra.empty, (
+                f"{model.name} did not answer the question asked on page {t0}. "
+                f"Requested {len(want)} (player, horizon) cells, returned "
+                f"{len(got)}, of which {len(absent)} requested cells are missing "
+                f"and {len(extra)} were never asked for. Every model is scored "
+                "on the same grid; a model that omits the players it finds hard "
+                "is scored on an easier sample than its rivals.")
             assert pred["p_play"].between(0, 1).all(), f"{model.name} returned a p_play outside [0,1]"
             assert pred["gp_share"].between(0, 1).all(), f"{model.name} returned a gp_share outside [0,1]"
             # NO MODEL MAY DECLINE TO PREDICT. A missing forecast is dropped by

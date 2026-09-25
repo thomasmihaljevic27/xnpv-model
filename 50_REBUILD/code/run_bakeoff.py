@@ -47,7 +47,7 @@ from ability_forecast import (A0Production, A1Calibrated, A1Calibrated3, A1NoAge
                               A2PerHorizonTrustNoAge)
 from player_season_table import build as build_table
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 REGISTER = C.DOCS_DIR / "variant_register.csv"
 
 # The line every variant is measured against: the best model found so far, so
@@ -56,7 +56,7 @@ REGISTER = C.DOCS_DIR / "variant_register.csv"
 BENCHMARK = A1AgingParticipationImputedNC
 
 CANDIDATES = [
-    A0Production,          # what the chain does today -- the floor
+    A0Production,          # the flat benchmark (NOT the live chain; that is ProductionChain) -- the floor
     A1Calibrated,          # the benchmark
     A1NoAgeTerms,          # control: do age terms help the simple model?
     A2Raw,                 # diagnostic: the split with no shrinking
@@ -177,7 +177,7 @@ def _append_register(rows, tilts, scored) -> None:
         rec = {"last_run": today, "model": name,
                "pages": f"{C.DEV_PAGES[0]}-{C.DEV_PAGES[-1]}",
                "n_rows": int(len(scored[name]))}
-        for h in range(6):
+        for h in C.FITTED_HORIZONS:
             rec[f"mae_plus{h}"] = round(float(mae.get(h, np.nan)), 4)
         rec["bias_3plus"] = round(float(tilts[name].get("3+", np.nan)), 4)
         recs.append(rec)

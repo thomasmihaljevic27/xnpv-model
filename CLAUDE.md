@@ -114,7 +114,106 @@ Draft pillar:
   wrong baseline, reported the draft bootstrap at 10,000 resamples when the code runs 2,000,
   and described a fixed defect (the projection ratio floor) as live and unfixed. Read the
   script's docstring and the constants it actually uses. Where a figure is a run output rather
-  than a code constant, cite it from the locked decision record and say so.
+  than a code constant, cite it from the locked decision record and say so. The same goes for a
+  reporting group: the harness's star tier is a 60/40 two-season total with fallbacks
+  (`forecast_harness.subjects_at`), and it was described from memory as a three-season weighted
+  total (corrected 2026-09-24). Quote the function that assigns the label.
+- **Don't credit a multi-part change to one of its parts.** When a candidate adds more than one
+  input or term, score each alone and in combination before saying which one carries the gain. This
+  was corrected twice: the goalie price line credited a level-and-slope pair when the level alone
+  carried it (2026-09-22), and the goalie participation replacement credited contract status when its
+  before/after-2018 period indicator carried it (2026-09-23).
+- **Don't compare scores whose targets differ.** Before comparing two forecasts, or two runs of one,
+  price both and the outcome on one declared currency and assert that the target is identical. Each
+  run's own price line gives a different realised target (corrected 2026-09-22i and caught again
+  2026-09-23 before it was reported).
+- **Don't say "everything downstream was rerun" after changing a shared default until you have
+  searched for the old value by name.** A switch variable only moves the consumers that read it; a
+  script that imports the old class directly, or labels it "adopted", stays behind silently. When the
+  skater leader changed (2026-09-23), the market comparison still valued on the old class and the
+  integration refused the two artifacts ($1.06M apart). Grep for the old class name, not just the
+  switch, and make artifacts record which model built them.
+- **Don't report a simulated-minus-expected difference as a mechanism's effect.** A gap between 2,000
+  draws and the point forecast is mostly sampling noise. Where the mechanism has an exact form (the
+  participation chain's recursion), compute its effect exactly: clipping cost 0.000415 WAR a season,
+  not the 0.014 first reported (corrected 2026-09-23).
+- **Don't summarise a table with "all", "every" or "none" until you have checked every cell.** A
+  universal word is a claim about each row. It was wrong three times in one review cycle: "every
+  resample" was 1,999 of 2,000, "better on every measure" hid a worse absolute error, and "all
+  upward" hid one contract that moved down (2026-09-23). It recurred: "worse on every declared
+  score" hid a slightly better absolute error (2026-09-24). Count, then write the count.
+- **Don't let a failed variant stand for the whole idea.** A candidate that loses rules out that
+  construction. Say what it actually changed (the carry-forward sensitivity moved the whole last
+  supported fit, not just the contract-status effect) and what its loss does not rule out.
+- **Don't call a formula change "one change" until the fit's rows and weights are shown identical.**
+  Dropping a term changes which rows have complete inputs, and a finite-value filter then changes the
+  sample silently. Removing the aging curve's level terms admitted 2,295 extra rows (7,164 against
+  9,459) and was reported as a single change (corrected 2026-09-24). Fingerprint the fitted rows and
+  assert equality (check 46).
+- **Don't frame a diagnostic as a two-way verdict.** "If it predicts the first step, the walk is
+  the problem; if not, the group is" overstates both branches: a first-step success does not show
+  that repeated application causes the later miss, and a failure does not show membership does. Say
+  what each arm localises, compare arms on the same rows and weights, and label any arm that uses
+  realised future seasons as hindsight (corrected 2026-09-24).
+- **Don't report a row count as the amount of evidence.** Say how many independent units stand
+  behind it and resample those units. The star diagnostic's 876 rows were 492 distinct transitions by
+  84 players, repeated across forecast pages (corrected 2026-09-24); resampling careers is the honest
+  interval.
+- **Don't read a cause off a horizon pattern.** A bias that grows with the horizon moves with age,
+  with who is still observable, and with how old the training seasons are, all at once. "The older
+  training seasons differ" was offered from such a pattern (2026-09-24); it is a reading to test,
+  not something the pattern shows.
+- **Don't copy a figure into a summary without its row label from the source table.** A closing
+  summary gave season-WAR misses of 0.17 / 0.64 / 0.87 "one, three and five seasons out"; 0.17 was
+  the valuation-season figure and one season out was 0.42 (corrected 2026-09-24). Read each figure
+  off its labelled row, not from memory of the table.
+- **Don't build an equality guard from inputs both sides share.** A check that prices every
+  forecast's realised target from the FIRST forecast's player, dates and discount factor cannot see
+  a mismatch in them: a different player ($2.475M) and a different signing date ($26,000) passed
+  (corrected 2026-09-24). Compare the identity fields explicitly, and compute each side from its own
+  inputs.
+- **Don't compare money with exact equality.** Values that should tie (a floor, one path priced two
+  ways) differ at $1e-10, and a percentile reads that as above or below a lump: one contract moved by
+  0.544 (corrected 2026-09-24). Round to a declared monetary precision before ties and interval
+  membership (check 48).
+- **Don't take a runner's label for its comparator on trust.** The stress tests print "what the
+  chain does today" over a comparison with the flat benchmark (`A0Production`), and a summary repeated
+  it as "beats production's forecast" (corrected 2026-09-24). Check which class the comparison
+  actually runs before naming it; the live chain is `production_adapter.ProductionChain`.
+- **Don't credit a comparator with rows it did not answer.** An adapter that imports production's
+  code still fills gaps: where production has no anchor, `ProductionChain` carries the harness's
+  trailing total flat and tags the row `outside_production`. The scorecard called all 40,510 rows
+  "production" when 4,632 were that fallback (corrected 2026-09-24). Report the full sample as
+  "production plus its fallback" and the answerable sample, same rows for every arm, beside it.
+- **Don't call a reused holdout sealed, or a pooled pass per-contract calibration.** The 2022-2025
+  pages were examined by about thirty variants before the rebuild (plan decision D); "not scored by
+  this run" is true, "sealed" is not. Passing pooled PIT and coverage tests means those tests did
+  not detect miscalibration, not that each contract or subgroup is calibrated. And name the metric
+  a percentage is on: a 6.1% cut in RMSE is an 11.9% cut in mean squared error (corrected
+  2026-09-24).
+- **Don't say something doesn't exist until you have fetched.** A session clone can be several
+  commits behind. On 2026-09-11 a review reported that the target-specific aging-yardstick test
+  had "no source anywhere in `20_CODE/`, `00_STATE/` or `40_DOCS/`" and recommended cutting the
+  sentence that cited it. The test was real: `aging_bandwidth_test.py` and
+  `40_DOCS/Aging_Yardstick_Comparison.md`, committed as `4e708ae` the previous afternoon, three
+  commits ahead of the branch being searched. Before reporting a file, test, result or commit as
+  missing, run `git fetch origin` and search the current tree. "I could not find it" and "it is
+  not there" are different claims. (Ported 2026-09-25 from the retired branch
+  `claude/wizardly-goodall-25okn3`, which never reached main.)
+- **Don't trust a docstring's account of what a script does; read what actually runs.**
+  `aging_split_sample.py`'s docstring says the split-sample check compares two things, the raw
+  within-player age-delta curve and "the model's own global age profile," via "two era-specific
+  AgingModel instances." Its `main()` builds the panel, computes deltas, and prints the era
+  comparison. `aging_curve` is never imported anywhere in the file, so the second comparison
+  does not exist, and the 0-of-16 / 1-of-16 result covers the raw deltas only. Read the entry
+  point and the call path, not the prose above them. (Ported 2026-09-25, same branch.)
+- **Don't sharpen vague wording into a claim the code doesn't support.** Tightening is an edit
+  like any other and needs the same check. "The five style measures together receive the same
+  total importance as ice time, production level, or trend" is vague; the proposed replacement,
+  that each group contributes a quarter of the distance, is false. `_attr_weights()` assigns the
+  four groups equal *weights*; what each contributes to a given distance depends on how far apart
+  the two players are on it. When a sentence is imprecise but true, the replacement must be
+  checkable against the code the same way the original was. (Ported 2026-09-25, same branch.)
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised

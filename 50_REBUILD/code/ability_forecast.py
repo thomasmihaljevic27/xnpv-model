@@ -39,7 +39,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 import information_set as ISET
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "2.6"
 
 W_T1, W_T2 = 0.6, 0.4    # the locked recency weighting, reproduced for A0
 
@@ -70,8 +70,176 @@ class BaseModel:
     # worth spending a degree of freedom on.
     DECAY_GRID = np.array([0.40, 0.50, 0.60, 0.667, 0.75, 0.85, 1.00])
 
+    # WHICH HORIZONS THIS MODEL HAS ACTUALLY FITTED. None means unrestricted,
+    # which is true only of a model that carries a trailing number flat and
+    # therefore has nothing to fit.
+    FITTED_HORIZONS = C.FITTED_HORIZONS
+
+    def predict_beyond_fit(self, iset, subs, horizons):
+        """Forecast horizons past the fitted range, by a DECLARED rule.
+
+        predict() refuses an unfitted horizon and will go on refusing it. This
+        is the separate, explicitly-called path for the case the refusal
+        exposed: a contract runs longer than its own page can support. At the
+        2014 page the fitted range reaches five seasons and an eight-year deal
+        needs eight, because a training pair at eight seasons out needs an
+        outcome that had not happened yet. 28 of 1,927 development contracts
+        are in this position, 1.5%, and every one of them is a long deal, which
+        is the population the thesis cares most about. Dropping them would
+        change the market sample in exactly the direction that flatters it.
+
+        THE RULE: continue the decay already visible at the end of the fitted
+        range. The league-wide ratio between the last two fitted horizons is
+        measured separately for the rate and for participation, and each is
+        applied once per extra season. Games share is carried forward.
+
+        WHY NOT SIMPLY HOLD FLAT, which was the first thing tried. Measured
+        against pages where these horizons ARE fitted, holding flat overstates
+        forecast production by 36% one season past the range, 88% two past and
+        170% three past. Production declines steeply out there and
+        participation declines with it, so flat is not conservative, it is
+        wrong. Continuing the observed decay leaves +3.0%, +10.0% and +19.8%
+        over four pages. A rule that tries to capture the ACCELERATION of the
+        decay overshoots the other way, and a log-linear trend is worse than
+        both, so the plain ratio is what ships. Those are means over four pages;
+        on the worst of them the three-season error is +32%, which is the real
+        cost of pricing an eight-year deal from a page that reaches five.
+
+        THE REMAINING BIAS IS UP, and it is not corrected. It could be divided
+        out using the figures above, but they are three constants tuned to
+        repair 1.5% of the sample, and that is not a trade worth making. The
+        direction is stated instead: an extrapolated tail is worth slightly
+        more than a fitted one would be, so a contract priced partly on
+        extrapolation is flattered, mildly and knowably.
+
+        A ratio is measured LEAGUE-WIDE rather than per player: per-player
+        ratios were tested and are worse, being a noisy quotient of two
+        forecasts for one man.
+
+        Every extrapolated row is tagged, so a total built on one can say how
+        much of itself was extrapolated.
+        """
+        raw_fitted = getattr(self, "fitted_horizons_", None) or self.FITTED_HORIZONS
+        want = sorted(int(h) for h in horizons)
+        if raw_fitted is None:
+            # A model with no fitted range answers every horizon by
+            # construction, which is true of anything that carries a rule
+            # forward rather than estimating one. There is nothing to
+            # extrapolate past, so this path is a plain predict with the tag
+            # attached for a consistent frame.
+            out = self.predict(iset, subs, want)
+            out["extrapolated"] = 0.0
+            return out
+        fitted = sorted(raw_fitted)
+        inside = [h for h in want if h in fitted]
+        beyond = [h for h in want if h not in fitted]
+        if beyond and len(fitted) < 2:
+            raise ValueError(
+                f"{self.name} needs two fitted horizons to measure a decay "
+                f"rate from, and has {len(fitted)}.")
+
+        # THE ENDPOINT IS THE MODEL'S, NOT THE CALLER'S. The decay rate was
+        # already measured on a fixed population, but it was applied to the
+        # last fitted horizon the CALLER HAPPENED TO REQUEST, so asking for
+        # horizons 3, 4 and 6 still answered differently from 4, 5 and 6, by
+        # 0.505 WAR at horizon six. The check that was meant to catch this kept
+        # horizon five in both of its requests and so could not.
+        #
+        # The final fitted season is now always computed internally, whether or
+        # not it was asked for, every extrapolation runs from it, and only the
+        # requested rows are returned. A request for an extrapolated year alone
+        # therefore works too, where it used to raise.
+        need = sorted(set(inside) | ({fitted[-1]} if beyond else set()))
+        full = self.predict(iset, subs, need)
+        full["extrapolated"] = 0.0
+        out = full[full["h"].isin(inside)].copy()
+        if beyond:
+            g_prod, g_play = self._tail_decay(iset, fitted[-1], fitted[-2])
+            # The ratio is measured on the PRODUCT, which is the quantity that
+            # has to decay correctly, and then split between the two parts.
+            # Measuring a ratio for each part separately and applying both
+            # decays the product by their product, which double-counts the
+            # decline: tested, it undershoots by 21% to 45% instead of the
+            # 3% to 20% the product ratio leaves. Participation keeps its own
+            # observed rate so it stays interpretable, and the rate carries
+            # whatever is left over.
+            g_rate = float(np.clip(g_prod / g_play, 0.5, 1.05))
+            last = full[full["h"] == fitted[-1]]
+            for h in beyond:
+                k = h - fitted[-1]
+                nxt = last.copy()
+                nxt["h"] = h
+                nxt["rate_82"] = last["rate_82"] * g_rate ** k
+                nxt["p_play"] = (last["p_play"] * g_play ** k).clip(0.005, 0.995)
+                nxt["extrapolated"] = 1.0
+                out = pd.concat([out, nxt], ignore_index=True)
+        return out
+
+    def _tail_decay(self, iset, hmax: int, prev: int):
+        """League-wide decay between two fitted horizons, on a fixed reference
+        population and cached per page, so an extrapolated forecast does not
+        depend on which horizons or which players were asked about."""
+        key = (int(iset.t0), int(hmax), int(prev))
+        cache = getattr(self, "_decay_cache", None)
+        if cache is None:
+            cache = self._decay_cache = {}
+        if key not in cache:
+            import forecast_harness as _H          # lazy, to avoid a cycle
+            ref = _H.subjects_at(iset)
+            p = self.predict(iset, ref, [prev, hmax])
+            a, b = p[p["h"] == prev], p[p["h"] == hmax]
+            war = lambda x: (x["p_play"] * x["rate_82"] * x["gp_share"]).mean()
+            cache[key] = (
+                float(np.clip(war(b) / war(a), 0.5, 1.0)),
+                float(np.clip(b["p_play"].mean() / a["p_play"].mean(), 0.5, 1.0)))
+        return cache[key]
+
+    def _guard_horizons(self, horizons) -> None:
+        """Refuse a horizon this model never fitted.
+
+        Returning something for an unfitted horizon is worse than failing,
+        because the something looks like a forecast. Before this guard a
+        request for year seven got a flat 0.6 participation and the player's
+        trailing rate and games share, and that fabricated tail went into the
+        long-contract averages and from there into the fitted price line.
+        Refusing is the first repair and not the whole one: a contract that
+        runs past the fitted range still needs either a fit that reaches it or
+        a declared extrapolation, and this raise is what forces that choice to
+        be made rather than defaulted into.
+        """
+        # What THIS FIT managed, when it recorded it, rather than the class
+        # default: the range a page can support depends on how much history
+        # sits behind it, so a 2021 valuation legitimately reaches further than
+        # a 2015 one and should not be held to the earlier page's limit.
+        fitted = getattr(self, "fitted_horizons_", None)
+        if fitted is None:
+            fitted = self.FITTED_HORIZONS
+        if fitted is None:
+            return
+        missing = sorted({int(h) for h in horizons} - set(fitted))
+        if missing:
+            raise ValueError(
+                f"{self.name} was asked for horizon(s) {missing} but is fitted "
+                f"only to {sorted(fitted)}. On this page the later horizons "
+                f"have fewer than {C.MIN_HORIZON_PAIRS} training pairs, so "
+                "there is nothing behind them. Price the contract from a page "
+                "that reaches far enough, or declare and test an "
+                "extrapolation. Do not take the fallback value silently.")
+
     def fit(self, table: pd.DataFrame, before: int) -> None:
         self.before = before
+        # UNRESTRICTED UNTIL A FIT NARROWS IT. None is the convention
+        # _guard_horizons already reads through a getattr default, and it means
+        # "this model fitted nothing, so no horizon is outside its range" --
+        # true of the flat benchmark and of the production adapter, which carry
+        # a number forward rather than estimating one.
+        #
+        # Setting it here rather than leaving the attribute absent is what
+        # stops a model that SHOULD have recorded a range from failing with
+        # AttributeError somewhere downstream instead of being caught. The
+        # component model did exactly that, and the error surfaced inside its
+        # own fit rather than anywhere that named the cause.
+        self.fitted_horizons_ = None
         self.decay_ = self.DECAY
         if self.FIT_DECAY:
             self.decay_ = self._fit_decay(table, before)
@@ -111,6 +279,27 @@ class BaseModel:
     def predict(self, iset, subs, horizons) -> pd.DataFrame:
         raise NotImplementedError
 
+    def _record_fitted_horizons(self, pairs: pd.DataFrame) -> None:
+        """WHICH HORIZONS THIS PAGE CAN ACTUALLY CARRY, recorded on the model so
+        the guard can refuse the rest by evidence rather than by a constant.
+
+        THIS LIVES IN ONE PLACE ON PURPOSE. It used to be three lines at the
+        end of the base pair builder, and the component model's own builder --
+        which had to override that method to construct its anchors differently
+        -- was written by copying the rest of it and dropping these. The result
+        was a registered candidate that raised AttributeError inside its own
+        fit, before it could price a single contract, because the horizons it
+        was about to be asked about had never been recorded.
+
+        That is the second-copy-of-a-rule failure this codebase has been bitten
+        by twice before and warns about in two other files. Adding the three
+        lines back to the second builder would have made a third copy. Any
+        builder that produces pairs calls this instead.
+        """
+        n = pairs.dropna(subset=["y_rate"]).groupby("h").size()
+        self.fitted_horizons_ = tuple(
+            sorted(int(h) for h, k in n.items() if k >= C.MIN_HORIZON_PAIRS))
+
     def _training_pairs(self, table: pd.DataFrame, before: int, horizons) -> pd.DataFrame:
         """Every (inputs at t, outcome at t+h) pair whose OUTCOME completed
         before `before`. One row per player-anchor-horizon."""
@@ -129,23 +318,45 @@ class BaseModel:
         pairs["y_war"] = act["WAR"].reindex(ix).to_numpy()
         pairs["y_rate"] = act["WAR_82"].reindex(ix).to_numpy()
         pairs["y_gp_share"] = act["gp_share"].reindex(ix).to_numpy()
-        pairs["y_played"] = act["GP"].reindex(ix).fillna(0).to_numpy() >= C.MIN_GP
+        # THE SAME EVENT the participation model predicts. These two used to
+        # disagree: participation predicted a ten-game season while the rate
+        # and games targets were taken from any season with a number in it, so
+        # a cameo was simultaneously a played season for the rate and an
+        # unplayed one for participation, and their product was an expectation
+        # of nothing.
+        pairs["y_gp"] = act["GP"].reindex(ix).to_numpy()
+        pairs["y_played"] = np.nan_to_num(pairs["y_gp"]) >= C.PARTICIPATION_GP
+        self._record_fitted_horizons(pairs)
         # A season that never happened is not a training row for the RATE, but
         # IS one for participation. Rate fits drop it; the participation
         # placeholder below uses the full frame.
         return pairs
 
 
+# HOW FAR BACK A STALE ANCHOR MAY REACH. Matches the harness's eligibility
+# window (forecast_harness.ACTIVE_WINDOW): a player the harness is willing to
+# ask about must be a player the models can answer about, or he is dropped from
+# scoring and the drop falls entirely on players who missed a season.
+STALE_LOOKBACK = 3
+
+
 def _anchors(played: pd.DataFrame, n_seasons: int = 2,
-             decay: float = W_T2 / W_T1) -> pd.DataFrame:
+             decay: float = W_T2 / W_T1, stale: bool = True,
+             cols: list | None = None) -> pd.DataFrame:
     """For every player and every season t0 he could have been valued at, the
     trailing facts from t0-1 and t0-2 only.
 
     Structurally incapable of seeing season t0: it reads t0-1 and t0-2 by
     construction, the same property the production engine's lookup has. The
     caller is responsible for restricting t0 itself.
+
+    `cols` are the production columns blended into trailing totals and rates.
+    The default is the skater components plus WAR. The goalie branch passes
+    ["WAR"] alone, because a goaltender has one number and no components --
+    and passes it here rather than keeping a second copy of the blend, the
+    stale-history rule and the age stepping, which are the same for both.
     """
-    cols = C.COMPONENTS_MODEL + ["WAR"]
+    cols = list(C.COMPONENTS_MODEL + ["WAR"] if cols is None else cols)
     rate_cols = [c + "_82" for c in cols]
     keep = ["career_key", "pkey", "pos", "syr", "GP", "gp_share", "toi_pg",
             "exp_seasons", "exp_censored", "age", "has_age"] + cols + rate_cols
@@ -226,6 +437,29 @@ def _anchors(played: pd.DataFrame, n_seasons: int = 2,
     gp = np.column_stack([m[f"GP_{lag}"].fillna(0).to_numpy(float) for lag in lags])
     out["exposure_gp"] = (gp * w[None, :]).sum(axis=1) / w.sum()
 
+    out["stale_history"] = 0.0
+
+    # RETURNING PLAYERS. A player whose most recent qualifying season is older
+    # than this model's window has no row above at all, because every row is
+    # built by adding a lag inside the window to a season inside it. The
+    # harness was willing to ask about him -- its eligibility window is three
+    # seasons -- so dropping him here does not make him disappear evenly: it
+    # removes exactly the players who missed a season and came back, which is
+    # the population the participation model exists to price.
+    #
+    # He gets an anchor from his most recent qualifying season alone, tagged so
+    # that a model, a report or a subgroup can treat a two-year-old number as
+    # what it is. Only pairs MISSING from the window above are added, so no
+    # existing anchor changes by a single digit.
+    if stale and n_seasons < STALE_LOOKBACK:
+        deep = _anchors(played, STALE_LOOKBACK, decay, stale=False, cols=cols)
+        have = pd.MultiIndex.from_arrays([out["career_key"], out["t0"]])
+        want = pd.MultiIndex.from_arrays([deep["career_key"], deep["t0"]])
+        add = deep[~want.isin(have)].copy()
+        if len(add):
+            add["stale_history"] = 1.0
+            out = pd.concat([out, add], ignore_index=True)
+
     # ELITE RELIEF TERMS. A straight pull-back toward the league is the best
     # LINEAR predictor, and a linear predictor under-shoots at the top whenever
     # the true relationship bends -- which it does here, because a high
@@ -272,9 +506,20 @@ def _placeholder_participation(subs: pd.DataFrame, h) -> np.ndarray:
 
 class A0Production(BaseModel):
     """The production chain's starting point. Nothing is fitted."""
-    name = "today's model (trailing 60/40, carried flat)"
+
+    # Unrestricted, because nothing is fitted: this model carries one trailing
+    # number flat at every horizon. That is why it is valid at any horizon and
+    # also why it is a benchmark rather than a forecast.
+    FITTED_HORIZONS = None
+    # NOT "today's model". This is the chain's STARTING POINT with the aging
+    # path and the survival weighting removed, and calling it today's model
+    # put a comparison against a simpler rule into every report as though it
+    # were a comparison against production. production_adapter.ProductionChain
+    # is the live chain; this is the flat benchmark.
+    name = "flat benchmark (trailing 60/40, carried flat)"
 
     def predict(self, iset, subs, horizons):
+        self._guard_horizons(horizons)
         a = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP],
                      self.N_SEASONS, self.decay_)
         a = a[a["t0"] == iset.t0].set_index("career_key")
@@ -311,16 +556,18 @@ class A1Calibrated(BaseModel):
 
     def fit(self, table, before):
         super().fit(table, before)
-        pairs = self._training_pairs(table, before, range(6))
+        pairs = self._training_pairs(table, before, C.CANDIDATE_HORIZONS)
         self.coef_, self.gp_coef_ = {}, {}
         for h, g in pairs.groupby("h"):
             r = g.dropna(subset=["y_rate"])           # rate fit: seasons played
-            self.coef_[h] = _ols(r[self.FEATURES], r["y_rate"]) if len(r) > 50 else None
+            self.coef_[h] = (_ols(r[self.FEATURES], r["y_rate"], _rate_weight(r))
+                             if len(r) > 50 else None)
             s = g.dropna(subset=["y_gp_share"])
             self.gp_coef_[h] = _ols(s[["tr_gp_share", "is_D", "exp_seasons", "age_c"]],
                                     s["y_gp_share"]) if len(s) > 50 else None
 
     def predict(self, iset, subs, horizons):
+        self._guard_horizons(horizons)
         a = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP],
                      self.N_SEASONS, self.decay_)
         a = a[a["t0"] == iset.t0].set_index("career_key").reindex(subs["career_key"])
@@ -422,12 +669,13 @@ class A2Component(A1Calibrated):
         self.norm_ = self._fit_norms(s)
         self.k_ = self._fit_reliability(s, before)
 
-        pairs = self._training_pairs(table, before, range(6))
+        pairs = self._training_pairs(table, before, C.CANDIDATE_HORIZONS)
         pairs = self._shrink(pairs)
         self.coef_, self.gp_coef_ = {}, {}
         for h, g in pairs.groupby("h"):
             r = g.dropna(subset=["y_rate"])
-            self.coef_[h] = _ols(r[self.RATE_FEATURES], r["y_rate"]) if len(r) > 50 else None
+            self.coef_[h] = (_ols(r[self.RATE_FEATURES], r["y_rate"], _rate_weight(r))
+                             if len(r) > 50 else None)
             q = g.dropna(subset=["y_gp_share"])
             self.gp_coef_[h] = _ols(q[["tr_gp_share", "is_D", "exp_seasons", "age_c"]],
                                     q["y_gp_share"]) if len(q) > 50 else None
@@ -515,6 +763,7 @@ class A2Component(A1Calibrated):
         return d
 
     def predict(self, iset, subs, horizons):
+        self._guard_horizons(horizons)
         a = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP],
                      self.N_SEASONS, self.decay_)
         a = self._shrink(a[a["t0"] == iset.t0]).set_index("career_key").reindex(
@@ -536,20 +785,44 @@ class A2Component(A1Calibrated):
         return pd.concat(rows, ignore_index=True)
 
 
-def _ols(X: pd.DataFrame, y: pd.Series):
+def _ols(X: pd.DataFrame, y: pd.Series, w: pd.Series | None = None):
     """Least squares with an intercept, on complete rows only. Returns None if
     the design is rank-deficient or too thin -- the caller then falls back to
     the raw trailing value, which is the honest answer when the window has not
-    yet accumulated enough history to fit anything."""
-    d = pd.concat([X, y.rename("_y")], axis=1).replace([np.inf, -np.inf], np.nan).dropna()
+    yet accumulated enough history to fit anything.
+
+    `w` is a precision weight, in practice the games behind each rate. A rate
+    from a handful of games estimates the same quantity as a full season's
+    rate with far more noise, so weighting by games is what stops one cameo
+    from carrying a full season's authority in the fit. Rows are scaled by the
+    square root of the weight, which is the standard way of writing weighted
+    least squares as an ordinary one.
+    """
+    parts = [X, y.rename("_y")]
+    if w is not None:
+        parts.append(w.rename("_w"))
+    d = pd.concat(parts, axis=1).replace([np.inf, -np.inf], np.nan).dropna()
     if len(d) < 50:
         return None
     A = np.column_stack([np.ones(len(d)), d[X.columns].to_numpy(float)])
+    b = d["_y"].to_numpy(float)
+    if w is not None:
+        rw = np.sqrt(np.clip(d["_w"].to_numpy(float), 0.0, None))
+        if not rw.any():
+            return None
+        A, b = A * rw[:, None], b * rw
     try:
-        beta, *_ = np.linalg.lstsq(A, d["_y"].to_numpy(float), rcond=None)
+        beta, *_ = np.linalg.lstsq(A, b, rcond=None)
     except np.linalg.LinAlgError:
         return None
     return list(X.columns), beta
+
+
+def _rate_weight(g: pd.DataFrame) -> pd.Series | None:
+    """The games behind each rate observation, or None when weighting is off."""
+    if not C.RATE_WEIGHT_BY_GAMES or "y_gp" not in g.columns:
+        return None
+    return g["y_gp"].clip(lower=0.0)
 
 
 def _apply(coef, X: pd.DataFrame, fallback: pd.Series) -> np.ndarray:
@@ -628,7 +901,7 @@ class A2PerHorizonTrust(A2Component):
         super().fit(table, before)
         s = table[table["GP"] >= C.MIN_GP]
         self.k_by_h_ = {}
-        for h in range(6):
+        for h in self.fitted_horizons_:
             self.k_by_h_[h] = self._fit_reliability_at(s, before, h + 1)
 
     def _fit_reliability_at(self, s, before, gap):
@@ -662,6 +935,7 @@ class A2PerHorizonTrust(A2Component):
         return d
 
     def predict(self, iset, subs, horizons):
+        self._guard_horizons(horizons)
         base = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP],
                      self.N_SEASONS, self.decay_)
         base = base[base["t0"] == iset.t0]
@@ -751,7 +1025,7 @@ class A2PerHorizonAll3(A2PerHorizonTrust3):
         s = table[table["GP"] >= C.MIN_GP]
         act = s.set_index(["career_key", "syr"])
         self.decay_by_h_ = {}
-        for h in range(6):
+        for h in self.fitted_horizons_:
             self.decay_by_h_[h] = self._fit_decay_at(s, act, before, h)
 
     def _fit_decay_at(self, s, act, before, h):
@@ -775,6 +1049,7 @@ class A2PerHorizonAll3(A2PerHorizonTrust3):
         return best
 
     def predict(self, iset, subs, horizons):
+        self._guard_horizons(horizons)
         played = iset.seasons[iset.seasons["GP"] >= C.MIN_GP]
         rows = []
         for h in horizons:
@@ -806,9 +1081,10 @@ class A1Calibrated3PerHorizon(A1Calibrated3):
         s = table[table["GP"] >= C.MIN_GP]
         act = s.set_index(["career_key", "syr"])
         self.decay_by_h_ = {h: A2PerHorizonAll3._fit_decay_at(self, s, act, before, h)
-                            for h in range(6)}
+                            for h in self.fitted_horizons_}
 
     def predict(self, iset, subs, horizons):
+        self._guard_horizons(horizons)
         played = iset.seasons[iset.seasons["GP"] >= C.MIN_GP]
         rows = []
         for h in horizons:
@@ -949,10 +1225,14 @@ class A2PerComponentWindow(A2PerHorizonTrust3):
         pairs["y_war"] = act["WAR"].reindex(ix).to_numpy()
         pairs["y_rate"] = act["WAR_82"].reindex(ix).to_numpy()
         pairs["y_gp_share"] = act["gp_share"].reindex(ix).to_numpy()
-        pairs["y_played"] = act["GP"].reindex(ix).fillna(0).to_numpy() >= C.MIN_GP
+        # Same event as the other pair builder and as the participation model.
+        pairs["y_gp"] = act["GP"].reindex(ix).to_numpy()
+        pairs["y_played"] = np.nan_to_num(pairs["y_gp"]) >= C.PARTICIPATION_GP
+        self._record_fitted_horizons(pairs)
         return pairs
 
     def predict(self, iset, subs, horizons):
+        self._guard_horizons(horizons)
         played = iset.seasons[iset.seasons["GP"] >= C.MIN_GP]
         base = self._anchor_frame(played)
         base = base[base["t0"] == iset.t0]
@@ -1002,10 +1282,21 @@ from aging_additive import AdditiveAging  # noqa: E402
 class _AgingMixin:
     """Walk the valuation-season rate forward on the fitted aging curve."""
     AGING_LEVEL_MODE = "lagged"
+    # Which rows the curve is fitted on ("own" or "lagged") and an optional
+    # second level slope above a lagged rate (see aging_additive). The defaults
+    # are the recorded curve.
+    AGING_SAMPLE = "own"
+    AGING_LEVEL_KNOT = None
+    AGING_SUSTAINED = False
+    AGING_RECENCY_HALFLIFE = None
 
     def fit(self, table, before):
         super().fit(table, before)
-        self.aging_ = AdditiveAging(level_mode=self.AGING_LEVEL_MODE).fit(table, before)
+        self.aging_ = AdditiveAging(level_mode=self.AGING_LEVEL_MODE,
+                                    sample=self.AGING_SAMPLE,
+                                    level_knot=self.AGING_LEVEL_KNOT,
+                                    sustained=self.AGING_SUSTAINED,
+                                    recency_halflife=self.AGING_RECENCY_HALFLIFE).fit(table, before)
         return self
 
     def _walk(self, r, rate0, a, h):
@@ -1032,6 +1323,7 @@ class A1Calibrated3Aging(_AgingMixin, A1Calibrated3):
     name = "calibrated total, three seasons, additive aging"
 
     def predict(self, iset, subs, horizons):
+        self._guard_horizons(horizons)
         a = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP],
                      self.N_SEASONS, self.decay_)
         a = a[a["t0"] == iset.t0].set_index("career_key").reindex(subs["career_key"])
@@ -1054,6 +1346,7 @@ class A2ComponentAging(_AgingMixin, A2PerComponentWindow):
     name = "component model, per-component window, additive aging"
 
     def predict(self, iset, subs, horizons):
+        self._guard_horizons(horizons)
         played = iset.seasons[iset.seasons["GP"] >= C.MIN_GP]
         base = self._anchor_frame(played)
         base = base[base["t0"] == iset.t0]
@@ -1102,6 +1395,14 @@ class _ParticipationMixin:
     seasons runs from 11% in 2015 to 99% in 2021 -- so a variant that leans on
     it is being judged mostly on its late pages."""
     USE_CONTRACTS = True
+    # WHAT THE CONTRACT COLUMNS MEAN when contracts are used, and which of them
+    # are left out. The defaults reproduce every recorded run. The skater
+    # contract-data test (run_skater_contract_test.py) varies these to separate
+    # the export-membership signal, the before/after-2018 period indicator the
+    # "observable" definition carries, and visible contract status -- the same
+    # split the goalie branch needed (Goalie_Participation_Top.md).
+    CONTRACT_STATE = "as_known"
+    PART_EXCLUDE = ()
 
     def fit(self, table, before):
         super().fit(table, before)
@@ -1113,15 +1414,74 @@ class _ParticipationMixin:
             except Exception:                     # noqa: BLE001
                 contracts = None
         n, d = self.N_SEASONS, self.decay_
-        self.part_ = ParticipationModel(contracts).fit(
-            table, before, anchors_fn=lambda p: _anchors(p, n, d))
+        # THE SAME HORIZONS THE RATE WAS FITTED TO. Participation used to take
+        # its own default of six while the rate reached as far as the page
+        # allowed, so the two halves of the forecast could disagree about which
+        # seasons existed.
+        self.part_ = ParticipationModel(
+            contracts, exclude=tuple(self.PART_EXCLUDE),
+            contract_state=self.CONTRACT_STATE).fit(
+            table, before, anchors_fn=lambda p: _anchors(p, n, d),
+            horizons=self.fitted_horizons_)
         return self
 
+    @property
+    def reads_contracts(self) -> bool:
+        """Whether this model's participation depends on contract state, and
+        so on the date that state is read at."""
+        return bool(self.USE_CONTRACTS) and getattr(self.part_, "spans", None) is not None
+
+    def p_play_signed(self, iset, keys, horizons, dates) -> dict:
+        """Participation for each (player, date) row, contract state read at
+        that row's DATE -- a contract's signing -- instead of 1 July of the
+        page. Returns {h: array aligned with `keys`}.
+
+        WHY: a contract is valued at its signing, and a deal signed in October
+        is part of what the club knew when it signed it. The page-dated forecast
+        treats it as unknown, which moved participation from 34% to 59% for one
+        contract (Chara, October 2021) under visible contract status. The
+        harness scores pages at 1 July, where the page date is the right one;
+        a contract valuation is dated at its own decision.
+
+        Horizons past the fitted range follow `predict_beyond_fit`'s rule: the
+        last fitted horizon's participation times the model's own cached
+        league-wide decay per extra season, clipped as there. So the only
+        thing that changes is the date contract state is read at.
+        """
+        keys = list(keys)
+        dates = pd.to_datetime(np.asarray(dates))
+        a = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP],
+                     self.N_SEASONS, self.decay_)
+        a = a[a["t0"] == iset.t0].drop_duplicates("career_key").set_index("career_key")
+        rows = a.reindex(keys).reset_index()
+        fitted = sorted(getattr(self, "fitted_horizons_", None) or self.FITTED_HORIZONS)
+        out = {}
+        for h in sorted({int(x) for x in horizons}):
+            hh = h if h in fitted else fitted[-1]
+            base = self.part_.base_[hh]
+            p = self._part_predict(rows, hh, as_of=dates).to_numpy(float)
+            p = np.where(np.isfinite(p), p, base)
+            if h not in fitted:
+                _g_prod, g_play = self._tail_decay(iset, fitted[-1], fitted[-2])
+                p = np.clip(p * g_play ** (h - fitted[-1]), 0.005, 0.995)
+            out[h] = p
+        return out
+
+    def _part_predict(self, rows, h, as_of=None):
+        """The one place participation is asked for a horizon, so a variant
+        that changes how a horizon is answered changes it for the harness,
+        the page-dated and the signing-dated callers alike."""
+        return self.part_.predict(rows, h, as_of=as_of)
+
     def _p_play(self, a, subs, h):
-        p = self.part_.predict(a.reset_index(), h)
+        p = self._part_predict(a.reset_index(), h)
         p = p[~p.index.duplicated()]
-        return p.reindex(subs["career_key"]).fillna(
-            self.part_.base_.get(h, 0.6)).to_numpy()
+        # The horizon is guaranteed fitted by _guard_horizons, so this horizon
+        # HAS a base rate and the fallback is the league's own number for it
+        # rather than a hardcoded 0.6. It applies per player, to a subject the
+        # anchor frame has no row for, not to a whole unfitted horizon.
+        base = self.part_.base_[h]
+        return p.reindex(subs["career_key"]).fillna(base).to_numpy()
 
 
 class A1AgingParticipation(_ParticipationMixin, A1Calibrated3Aging):
@@ -1129,6 +1489,7 @@ class A1AgingParticipation(_ParticipationMixin, A1Calibrated3Aging):
     name = "calibrated total, aging, participation"
 
     def predict(self, iset, subs, horizons):
+        self._guard_horizons(horizons)
         a = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP],
                      self.N_SEASONS, self.decay_)
         a = a[a["t0"] == iset.t0].set_index("career_key").reindex(subs["career_key"])
@@ -1162,6 +1523,7 @@ class A1ParticipationNoAging(_ParticipationMixin, A1Calibrated3):
     name = "calibrated total, participation, no aging walk"
 
     def predict(self, iset, subs, horizons):
+        self._guard_horizons(horizons)
         a = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP],
                      self.N_SEASONS, self.decay_)
         a = a[a["t0"] == iset.t0].set_index("career_key").reindex(subs["career_key"])
@@ -1183,6 +1545,7 @@ class A2AgingParticipation(_ParticipationMixin, A2ComponentAging):
     name = "component model, aging, participation"
 
     def predict(self, iset, subs, horizons):
+        self._guard_horizons(horizons)
         played = iset.seasons[iset.seasons["GP"] >= C.MIN_GP]
         base = self._anchor_frame(played)
         base = base[base["t0"] == iset.t0]
@@ -1217,7 +1580,11 @@ class A1AgingParticipationImputed(A1AgingParticipation):
     def fit(self, table, before):
         super().fit(table, before)
         self.aging_ = AdditiveAging(level_mode=self.AGING_LEVEL_MODE,
-                                    selection=self.AGING_SELECTION).fit(table, before)
+                                    selection=self.AGING_SELECTION,
+                                    sample=self.AGING_SAMPLE,
+                                    level_knot=self.AGING_LEVEL_KNOT,
+                                    sustained=self.AGING_SUSTAINED,
+                                    recency_halflife=self.AGING_RECENCY_HALFLIFE).fit(table, before)
         return self
 
 
@@ -1244,7 +1611,11 @@ class A2AgingParticipationImputed(A2AgingParticipation):
     def fit(self, table, before):
         super().fit(table, before)
         self.aging_ = AdditiveAging(level_mode=self.AGING_LEVEL_MODE,
-                                    selection=self.AGING_SELECTION).fit(table, before)
+                                    selection=self.AGING_SELECTION,
+                                    sample=self.AGING_SAMPLE,
+                                    level_knot=self.AGING_LEVEL_KNOT,
+                                    sustained=self.AGING_SUSTAINED,
+                                    recency_halflife=self.AGING_RECENCY_HALFLIFE).fit(table, before)
         return self
 
 
@@ -1315,3 +1686,202 @@ class A1HingeExposure(A1AgingParticipationImputedNC):
     name = "leader + hinge and evidence interaction"
     FEATURES = ["tw_WAR", "tw_hi1", "tw_x_exposure", "one_season", "is_D",
                 "exp_seasons", "age_c", "age_c2"]
+
+
+class A1HingeExposureStatus(A1HingeExposure):
+    """The skater leader with VISIBLE CONTRACT STATUS in its participation
+    model. Adopted provisionally 2026-09-23 (Skater_Contract_Test.md).
+
+    Identical to `A1HingeExposure` in ability, aging, rate and games share.
+    Only participation changes:
+      - USE_CONTRACTS: participation reads the vendor contract export;
+      - CONTRACT_STATE "observable": status counts only deals covering seasons
+        from the export's earliest end year (2018), where a covering contract
+        must be in the export IF the vendor snapshot is complete -- assumed,
+        not verified. Before that, status is zero for everyone, so it cannot
+        encode having survived into the snapshot;
+      - PART_EXCLUDE ("contract_unknown",): the before/after-2018 period
+        indicator is dropped. Scored alone it added nothing for skaters.
+
+    Contract state is read at 1 July of each page when the harness scores it,
+    and at the SIGNING when a contract is valued (`attach_forecasts`,
+    `forecast_blocks`). The model is trained on the 1 July state, so priced
+    contracts' first seasons still run about 5.5 points low.
+
+    The previous leader, `A1HingeExposure`, stays importable as the
+    no-contract sensitivity.
+    """
+    name = "leader, visible contract status in participation"
+    USE_CONTRACTS = True
+    CONTRACT_STATE = "observable"
+    PART_EXCLUDE = ("contract_unknown",)
+
+
+# ---------------------------------------------------------------------------
+# THE STAR RESIDUAL, located (2026-09-24, run_star_residual.py). For players
+# three wins and up, the adopted leader's rate is right at the valuation
+# season (-0.03 per 82) and then falls about 0.27 a season along the aging
+# walk -- 3.24 to 1.90 over five seasons -- where the stars who played fell
+# from 3.26 to 2.82. Every tier shows the same too-steep walk. So the residual
+# is in how the rate is carried forward, not in the starting shrinkage the
+# hinge terms addressed. Three candidates, each ONE change from the adopted
+# leader, scored alone before any combination:
+# ---------------------------------------------------------------------------
+
+class A1StatusSurvivorAging(A1HingeExposureStatus):
+    """The adopted leader with the aging curve fitted on survivors only (no
+    replacement-level imputation of the seasons departing players never
+    played). The forecast rate is conditional on playing and departure is
+    priced by the participation model, so the imputed curve may count an exit
+    twice. One change: `AGING_SELECTION`."""
+    name = "adopted leader, aging curve on survivors"
+    AGING_SELECTION = "none"
+
+
+class A1StatusNoLevelAging(A1HingeExposureStatus):
+    """The adopted leader with the aging curve's level terms removed: age and
+    position alone, so a star is not walked down faster for being a star.
+
+    NOT ONE CHANGE, as first reported: with no level term the fit also keeps
+    the pairs that have no season before the change, which the lagged-level
+    fit drops, so formula and sample changed together. Kept as recorded; the
+    matched comparison is `A1StatusNoLevelAgingMatched`."""
+    name = "adopted leader, aging curve without level terms"
+    AGING_LEVEL_MODE = "none"
+
+
+class A1StatusNoLevelAgingMatched(A1HingeExposureStatus):
+    """The no-level curve fitted on EXACTLY the rows and weights the adopted
+    curve uses. `A1StatusNoLevelAging` changed two things: dropping the level
+    terms also admitted the pairs with no season before the change, which the
+    lagged-level fit excludes (7,164 rows against 9,459 on the 2021 page). This
+    is the single change it was described as (star residual review,
+    2026-09-24). Check 46 asserts the rows and weights match."""
+    name = "adopted leader, aging curve without level terms, same rows"
+    AGING_LEVEL_MODE = "none"
+    AGING_SAMPLE = "lagged"
+
+
+class A1StatusAgingLevelHinge(A1HingeExposureStatus):
+    """The next aging candidate: keep the level terms, and let the level
+    effect on decline take a SECOND slope above a lagged rate of 2.0 wins per
+    82 (and its interaction with age). One level slope was doing two jobs --
+    removing it fixed the stars and broke the lowest tiers -- so this lets the
+    top of the distribution have its own. The knot is declared before the run
+    and not searched. Same rows and weights as the adopted curve by
+    construction (the lagged level); check 46 asserts it."""
+    name = "adopted leader, aging level effect with a second slope above 2 wins"
+    AGING_LEVEL_KNOT = 2.0
+
+
+class A1StatusAgingMultiLevel(A1HingeExposureStatus):
+    """The aging curve's level measured on a multi-season rate (t-1, t-2, t-3,
+    weights 1 / 0.667 / 0.444, renormalised) instead of the single season
+    t-1, on exactly the lagged fit's rows and weights (check 46).
+
+    Why: on its training pairs the one-season curve matches what happened
+    (3+ players at t-1: -0.23 observed, -0.27 fitted), but the forecast applies
+    it to a multi-season rating that has already discounted temporary form. A
+    level slope measured on one season may still carry the fading of a good
+    season's persistent part, and pull a star back twice. A hypothesis; this
+    candidate tests it.
+
+    Season alignment, declared: the training level ends the season BEFORE the
+    change starts; the walk supplies the projected level of the season the
+    change starts from, as it does for the adopted (one-season lagged) curve.
+    A projected level is not a weighted rate of past seasons, so the two are
+    not the same quantity; this is the construction scored."""
+    name = "adopted leader, aging level on a multi-season rate"
+    AGING_LEVEL_MODE = "multi"
+
+
+class A1StatusAgingSustained(A1HingeExposureStatus):
+    """A proposed forecasting change, 2026-09-24: the aging curve gets a
+    SUSTAINED-QUALITY level beside the one-season lagged level -- the lower of
+    the player's rates at t-1 and t-2 (t-1 alone when t-2 was not played),
+    with its age interaction -- so its slope can separate a player who was
+    high in both seasons from a one-season spike. Same rows and weights as the
+    adopted curve (it needs only t-1; check 46). In the walk the projected
+    level, already a multi-season shrunk rating, is passed as both levels.
+
+    Motivation, not proof: a hindsight diagnostic found the frozen curve's
+    step too steep for the harness's stars on realised, correctly dated inputs
+    (-0.35 a season against -0.11 observed; 84 players), and less so for a
+    group picked on one season's rate. It did not identify a cause."""
+    name = "adopted leader, aging curve with a sustained-quality level"
+    AGING_SUSTAINED = True
+
+
+class A1StatusAgingRecency(A1HingeExposureStatus):
+    """ONE predeclared sensitivity (2026-09-24): the adopted aging curve with
+    every training row kept and its weight halved for every five seasons it
+    lies before the most recent season the page can use. Five is a chosen
+    value, not an estimated optimum, and no other value is tried. Rows are the
+    adopted curve's; weights change exactly as declared (check 46). The
+    forecast formula, participation and the primary price line are fixed.
+
+    It tests one version of a reading, not an established cause: that the
+    older seasons the rolling curve is fitted on differ from the seasons it
+    is applied to. A horizon pattern cannot show that by itself, because a
+    longer horizon also changes age and who is still observable."""
+    name = "adopted leader, aging curve weighted toward recent seasons (half-life 5)"
+    AGING_RECENCY_HALFLIFE = 5.0
+
+
+class A1StatusReducedForm(A1HingeExposureStatus):
+    """The adopted leader with the rate at each horizon taken from that
+    horizon's own regression on the anchor (the reduced form the aging walk
+    replaced in Phase 3), instead of walking the valuation-season rate forward.
+    Each horizon's regression is fitted on seasons actually played, so it
+    estimates the rate given playing directly; participation is unchanged. One
+    change: `_walk`."""
+    name = "adopted leader, rate regressed per horizon"
+
+    def _walk(self, r, rate0, a, h):
+        if h == 0:
+            return np.asarray(rate0, dtype=float)
+        return _apply(self.coef_.get(h), a[self.FEATURES], a["tw_WAR"])
+
+
+class A1HingeExposureStatusCarry(A1HingeExposureStatus):
+    """SENSITIVITY, not adopted (2026-09-23): the adopted leader with contract
+    status CARRIED PAST ITS SUPPORT.
+
+    In the adopted leader, contract status enters participation only at
+    horizons where training rows support it (from the 2019 page, up to four
+    to six seasons ahead). Past that the fit is the no-contract one, so a
+    player under contract for eight seasons reads about 0.93 to play in
+    season seven and 0.45 in season eight: a cliff.
+
+    THE RULE, borrowed from `predict_beyond_fit`: at a horizon h past the last
+    supported one, L, use horizon L's fit with the player's features held at
+    L and his contract status read for season t0 + h, times a decay per extra
+    season. The decay is the league's observed participation ratio between
+    horizons L and L-1 in this fit's own training rows (`base_`), clipped to
+    [0.5, 1]. Where no horizon carries status (the 2017 and 2018 pages) the
+    model is the adopted leader exactly.
+
+    This is an assumption -- that being under contract matters past the
+    horizon where it can be measured about as much as it does at the last
+    one -- and it is scored before anything is adopted
+    (`run_status_carry_sensitivity.py`).
+    """
+    name = "adopted leader, contract status carried past its support"
+
+    def fit(self, table, before):
+        super().fit(table, before)
+        pm = self.part_
+        L = pm.status_last_horizon()
+        self.status_last_ = L
+        g = 1.0
+        if L is not None and (L - 1) in pm.base_ and pm.base_[L - 1] > 0:
+            g = float(np.clip(pm.base_[L] / pm.base_[L - 1], 0.5, 1.0))
+        self.status_decay_ = g
+        return self
+
+    def _part_predict(self, rows, h, as_of=None):
+        L = getattr(self, "status_last_", None)
+        if L is None or int(h) <= L:
+            return super()._part_predict(rows, h, as_of=as_of)
+        p = self.part_.predict_carried(rows, int(h), L, as_of=as_of)
+        return (p * self.status_decay_ ** (int(h) - L)).clip(0.005, 0.995)

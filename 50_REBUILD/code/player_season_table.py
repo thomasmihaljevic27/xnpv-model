@@ -63,7 +63,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.3"
 
 # --- Name normalisation ---------------------------------------------------
 # Reproduced from skater_value_engine.norm_name rather than imported, so this
@@ -113,7 +113,109 @@ def career_key(raw_player: str) -> str:
 RATE_COLS = [c + "_82" for c in C.COMPONENTS_MODEL] + ["WAR_82"]
 
 
-def build(birthdate_csv: Path | None = None, verbose: bool = True) -> pd.DataFrame:
+def assert_season_identity(a: "pd.DataFrame", tol: float = 1e-9) -> None:
+    """The three season quantities must reconstruct each other exactly.
+
+    The harness integrates a forecast as participation x rate x games share,
+    so the three columns this table publishes have to satisfy the same
+    identity on the OBSERVED data, or a model is scored against a target its
+    own inputs cannot reproduce:
+
+        WAR (D20 season total)  ==  WAR_82 (per-82 rate)  x  gp_share
+
+    Read in words: the standardized season total is the player's level over a
+    full 82 games multiplied by the share of the schedule he was available
+    for. In a full season the identity is trivial because the schedule is 82.
+    In the two shortened seasons it is the whole question, and the first
+    version of this file failed it.
+
+    WHAT THIS CAUGHT. D20 scales a shortened season's total to an 82-game
+    basis, by 82/70 in 2019-20 and 82/56 in 2020-21. The rate on the line
+    below then divided that ALREADY-SCALED total by the player's own games and
+    multiplied by 82, so the schedule adjustment was applied a second time.
+    A player who was available for all 56 games of 2020-21 came out with a
+    rate 46.4% above his own standardized total and a games share of 1, whose
+    product overshot the total by exactly the proration factor. The rate was
+    also no longer comparable across seasons, which matters more than the
+    reconstruction: the trailing anchors blend two seasons, so a valuation
+    dated 2021 was averaging a 2020 rate inflated by 1.464 with a 2019 rate
+    inflated by 1.171, and each fit pooled over seasons was trained on a
+    target that changed scale partway through the sample.
+
+    The tolerance is exact rather than economic. This is arithmetic between
+    three columns of one table, not an estimate, so anything above floating
+    point noise is a bug.
+    """
+    # The two constants have to agree before the identity can hold at all:
+    # D20 scales by PRORATION and the games share divides by SEASON_LEN, and
+    # they cancel only if one is the reciprocal of the other over 82. Editing
+    # one without the other is the likeliest way to break this in future, so
+    # it is checked separately and names the season.
+    for yr, factor in C.PRORATION.items():
+        expected = C.FULL_SEASON / C.SEASON_LEN[yr]
+        assert abs(factor - expected) < 1e-12, (
+            f"season {yr}: the D20 proration factor {factor} is not 82 over "
+            f"the schedule length {C.SEASON_LEN[yr]} ({expected}). The rate "
+            "and the games share cannot cancel while these disagree.")
+
+    # The games share is clipped at 1, so a row whose source-merged trade
+    # halves carry more games than the schedule cannot satisfy the identity
+    # and is excluded from it by construction rather than by tolerance. Those
+    # rows are counted, not hidden: if the count ever becomes large the clip
+    # is the thing to revisit.
+    played = a[(a["GP"] > 0) & a["WAR"].notna() & a["WAR_82"].notna()]
+    sched = played["syr"].map(C.SEASON_LEN).fillna(float(C.FULL_SEASON))
+    n_clipped = int((played["GP"] > sched).sum())
+    played = played[played["GP"] <= sched]
+    recon = played["WAR_82"] * played["gp_share"]
+    gap = (recon - played["WAR"]).abs()
+    worst = float(gap.max()) if len(gap) else 0.0
+    if worst > tol:
+        # Name the seasons rather than the row count: the failure is a
+        # property of a season's schedule, so the season list is the
+        # diagnosis and a row count is not.
+        bad = played.loc[gap > tol, "syr"]
+        ratio = (recon / played["WAR"]).replace([np.inf, -np.inf], np.nan)
+        by_season = ratio.groupby(played["syr"]).median().round(6)
+        raise AssertionError(
+            "the season identity WAR == WAR_82 * gp_share does not hold. "
+            f"Worst absolute gap {worst:.6f} WAR over {len(bad)} rows in "
+            f"seasons {sorted(bad.unique().tolist())}. Median ratio of the "
+            f"reconstruction to the total, by season:\n{by_season.to_string()}")
+
+
+def birthdate_source() -> tuple[Path | None, str]:
+    """Which birthdate table this machine actually has, and what it is worth.
+
+    THERE ARE TWO HALVES AND THEY ARE NOT INTERCHANGEABLE. The merged table at
+    `output/birthdates.csv` is PuckPedia first with an Elite Prospects scrape
+    behind it, and it reaches 98.3% of season rows. The scrape ON ITS OWN is
+    the fallback half: it was run to reach the players PuckPedia could not
+    match, which are the players who left the league early in the sample. On
+    the source file in this repository's layout it covers 84% of 2007 rows and
+    0% of anything from 2018 on -- 4.6% of the 2015-and-later pages that every
+    development result is scored on.
+
+    That second state is more dangerous than having nothing, because the ages
+    are present, plausible, and concentrated entirely on the seasons nobody is
+    forecasting. A runner that only asked "is there a birthdate file" would
+    report a healthy-looking join and score a model whose aging term is fitted
+    on the players who retired before the sample starts. So the answer comes
+    back with a label, and the caller is expected to print it.
+    """
+    merged = C.OUT_DIR / "birthdates.csv"
+    if merged.exists():
+        return merged, "merged (PuckPedia primary, Elite Prospects fallback)"
+    ep = C.SOURCE_DIR / "ep_birthdates.csv"
+    if ep.exists():
+        return ep, ("the Elite Prospects scrape ALONE -- this is the fallback "
+                    "half and it covers the players who left early, not the "
+                    "development pages")
+    return None, "none on this machine"
+
+
+def build(birthdate_csv: Path | None = None, verbose: bool = True,
+          allow_thin_ages: bool = False) -> pd.DataFrame:
     """Build the season table. Order of operations matters and is fixed:
 
       1. parse the season to a start year
@@ -148,12 +250,11 @@ def build(birthdate_csv: Path | None = None, verbose: bool = True) -> pd.DataFra
     # every season through 2022-23, where the six components already add up.
     w[C.UNALLOCATED] = w["WAR"] - w[C.COMPONENTS].sum(axis=1)
 
-    # D20. Applied to the components and the total together; scaling only the
-    # total would leave the parts no longer summing to it, and the component
-    # forecast reads both.
-    pr = w["syr"].map(C.PRORATION).fillna(1.0)
-    for c in C.COMPONENTS_MODEL + ["WAR"]:
-        w[c] = w[c] * pr
+    # D20 IS APPLIED AFTER THE AGGREGATION, not here. The raw season totals
+    # are summed first so that the per-82 rate below can be built from them.
+    # See assert_season_identity(): scaling the total to an 82-game basis and
+    # THEN dividing it by the player's own games applied the schedule
+    # adjustment twice, and that is what this ordering fixes.
 
     # GUARD before summing. Two halves of one player's season may be summed;
     # two different players sharing a cleaned name and position may not. A
@@ -177,13 +278,31 @@ def build(birthdate_csv: Path | None = None, verbose: bool = True) -> pd.DataFra
                teams=("Team", lambda s: "/".join(sorted(set(s)))))
     a = pd.DataFrame(w.groupby(["pkey", "syr"], as_index=False).agg(**agg))
 
-    # Per-82 RATES. The rate is the quantity that persists year to year; the
-    # season total confounds it with availability, which is forecast
-    # separately (plan, Phase 1: "games share is forecast separately from the
-    # rate"). Dividing by the player's OWN games, not the schedule, is what
-    # makes this a rate rather than a prorated total.
+    # Per-82 RATES, built from the RAW season total. The rate is the quantity
+    # that persists year to year; the season total confounds it with
+    # availability, which is forecast separately (plan, Phase 1: "games share
+    # is forecast separately from the rate"). Dividing by the player's OWN
+    # games, not the schedule, is what makes this a rate rather than a
+    # prorated total.
+    #
+    # RAW, and this is the correction. A rate taken from the D20-scaled total
+    # carries the schedule adjustment that D20 already applied, so a 2020-21
+    # rate came out 46.4% above the same player's standardized season total
+    # and was not on the same scale as his 2018-19 rate. Since D20 scales by
+    # 82/schedule and the games share divides by the same schedule, building
+    # the rate from the raw total makes the two cancel exactly and leaves one
+    # schedule adjustment in the chain instead of two.
     for c in C.COMPONENTS_MODEL + ["WAR"]:
         a[c + "_82"] = a[c] / a["GP"] * C.FULL_SEASON
+
+    # D20, applied now, to the components and the total together; scaling only
+    # the total would leave the parts no longer summing to it, and the
+    # component forecast reads both. The scaled total is what every downstream
+    # consumer calls WAR, so the locked decision is unchanged in substance:
+    # a shortened season's total is still stated on an 82-game basis.
+    pr = a["syr"].map(C.PRORATION).fillna(1.0)
+    for c in C.COMPONENTS_MODEL + ["WAR"]:
+        a[c] = a[c] * pr
 
     # GAMES SHARE. Availability, on the schedule the player's season actually
     # had. Distinct from D20 above: proration corrects the league-wide
@@ -193,6 +312,10 @@ def build(birthdate_csv: Path | None = None, verbose: bool = True) -> pd.DataFra
     sched = a["syr"].map(C.SEASON_LEN).fillna(float(C.FULL_SEASON))
     a["gp_share"] = (a["GP"] / sched).clip(upper=1.0)
     a["toi_pg"] = a["TOI"] / a["GP"]
+
+    # THE SEASON IDENTITY, asserted rather than assumed. See
+    # assert_season_identity() below for why this is here and what it caught.
+    assert_season_identity(a)
 
     # NHL EXPERIENCE, from this table only, so it is available at any
     # decision date without a second source. LEFT-CENSORED: a player whose
@@ -209,6 +332,22 @@ def build(birthdate_csv: Path | None = None, verbose: bool = True) -> pd.DataFra
     a["has_age"] = False
     if birthdate_csv is not None:
         a = _attach_age(a, Path(birthdate_csv))
+
+        # AGE COVERAGE, checked rather than reported. See C.MIN_AGE_COVERAGE:
+        # the Elite Prospects half of this join is not in the repository, and
+        # without it nothing fails, the aging model is simply starved.
+        cov = float(a["has_age"].mean())
+        if cov < C.MIN_AGE_COVERAGE and not allow_thin_ages:
+            raise AssertionError(
+                f"age coverage is {cov:.1%} of season rows, below the "
+                f"{C.MIN_AGE_COVERAGE:.0%} this table proceeds on. The birthdate "
+                "join needs the Elite Prospects file at "
+                f"{C.SOURCE_DIR / 'ep_birthdates.csv'} alongside the PuckPedia "
+                "export; with it, coverage is 98.3%. Running without it does not "
+                "fail, it quietly starves the aging model and shrinks every "
+                "improvement figure: the rebuild's gain over the benchmark five "
+                "seasons out reads 23.6% at 69.2% coverage and 43.5% at 98.3%. "
+                "Pass allow_thin_ages=True to proceed anyway.")
 
     a = a.sort_values(["career_key", "syr", "pkey"]).reset_index(drop=True)
 

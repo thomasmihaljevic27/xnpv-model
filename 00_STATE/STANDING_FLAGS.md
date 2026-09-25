@@ -1,5 +1,18 @@
 # STANDING FLAGS & OPEN QUESTIONS — NHL Trade Market Efficiency
 
+**Player candidate closed; scorecard corrected; model choice deferred, 2026-09-24l.** Per review
+`57d0be8`: the rebuilt skater model closes at Phase 5 with its recorded limitations; which player
+model to commit to is DEFERRED until the separate draft-pick and prospect models are taken up again.
+No further forecast experiments on the player model. `run_model_scorecard.py` v1.1 reports production's
+answerable sample beside the full one (4,632 of 40,510 season rows and 65 of 1,176 contracts are the
+adapter's fallback where production has no anchor). Answerable season rows (35,878): RMSE 0.9129
+current vs 0.8640 adopted (5.4% lower; 2000/2000), MAE 0.5626 vs 0.5082. Answerable contracts
+(1,111; primary line as fitted): $3.648M vs $3.614M (adopted lower 1246/2000), MAE $1.854M vs $1.761M
+(1934/2000). Full-sample figures unchanged. `Model_Scorecard.md` corrected: 2022-2025 previously
+inspected by about thirty variants, not sealed; pooled calibration is not per-contract; 6.1% is RMSE
+(11.9% in mean squared error); B has the slightly lower dollar absolute error; the reconciliation does
+not split term pricing from forecasting. CLAUDE.md: two rules. No production change, no merge.
+
 **Player candidate acceptance closed, 2026-09-24:** independent review of
 `7b046a3` closes both scoring repairs. Full suite 48/48; all ten identity-field
 mutations rejected; precision mutation rejected. Both rebuilt point values,
@@ -96,6 +109,115 @@ zero skipped or failed. Prior status-adoption closure stands; its three reportin
 corrections are applied. No candidate merge or default change. Phase 5 remains
 open. Review: `50_REBUILD/docs/Star_Residual_Review_Codex.md`.
 
+**Player model scorecard; Phase 6 set aside, 2026-09-24k** (the model decision is now deferred, see
+2026-09-24l). Review
+`674fe67` merged: acceptance results reproduce; two scoring defects fixed (the scorer now checks
+player, dates, seasons, term, pricing quarter and fixed pricing inputs field by field and prices each
+target from its own row, check 47 extended; dollar ties at a declared 6-decimal precision, check 48).
+Valuations identical after the repair; calibration refreshed (adopted passes pooled tests; previous
+misses its 50% band by 5.4 points). Closure of the Phase 5 acceptance review is for review. **Thomas:
+Phase 6 is not part of the model rebuild** (picks and prospects are separate, unfinished models); the
+player rebuild ends at Phase 5, followed by a decision between the current and candidate models.
+Scorecard (`run_model_scorecard.py`; current = production chain via `ProductionChain`): season WAR
+RMSE 0.868 current, 0.815 adopted, 0.816 previous (2000/2000; better at every horizon); Brier 0.231
+vs 0.133; contract dollars on one line: squared error $3.548M vs $3.513M (adopted lower 1237/2000,
+not decisive), absolute $1.771M vs $1.675M (1962/2000), bias −$0.14M vs −$0.55M. Current
+over-forecasts good players (3+ +0.99 at valuation); candidates under-forecast stars at long
+horizons. Recommendation: carry the adopted candidate forward. Which player model to commit to:
+deferred until picks and prospects resume (2026-09-24l). Also corrected: the stress tests' comparator is the flat benchmark, not the live
+chain. Suite **48/48**. See `50_REBUILD/docs/Model_Scorecard.md`.
+
+**Phase 5 acceptance: skater dollar scoring, 2026-09-24j.** `run_skater_dollar_scoring.py` scores
+each development contract's term, point and simulated (2,000 paths), for the adopted and the previous
+skater leader on ONE line (adopted's primary, previous's sensitivity), realised target asserted
+identical; 1,176 ended terms, 767 players. Adopted wins the declared primary score: point RMSE $3.513M
+vs $3.529M (previous lower in 1/2000), simulated $3.513M vs $3.526M (15/2000); on absolute error the
+previous leader's simulated mean is lower (2000/2000; $1.743M vs $1.758M). The adopted simulated
+distribution passes the pooled calibration tests (PIT 80%/50%/mean/variance and own-draw coverage);
+the previous one is too narrow in the middle (50% band −5.8 points; PIT variance 0.091). Simulated
+mean vs point (adopted): same RMSE, bias −$0.335M vs −$0.549M, MAE higher. Scoring code moved to
+shared `dollar_scoring.py`; goalie runner reproduces exactly on it; check 47. With the identity and
+the reconciliation already current, each Phase 5 acceptance item has a current run on the adopted
+leader; closure is for review. Suite **47/47**. See `50_REBUILD/docs/Skater_Dollar_Scoring.md`.
+
+**What counts as a star, tested, 2026-09-24h.** The inherited 3+ cut-off (60/40 two-season
+trailing total; `forecast_harness.subjects_at`) was tested against eight alternatives declared
+before the run (fixed 2.0–4.0; top 2/5/10% of each page; top 5% by trailing rate) in
+`run_star_definition.py`. Three wins is about the top 3% of ~990 skaters on every page (the top 5%
+starts at 2.37–2.64, the top 2% at 3.23–3.66; D20 proration already puts shortened seasons on an
+82-game basis). With no cut-off, the adopted leader's miss grows gradually through the 95th
+percentile and steps up above it (five-season rate miss −0.05 to −0.22 below, −0.52 at 95–98th,
+−1.04 in the top 2%). The headline's size depends on the cut-off (−0.50 at the top 10% to −1.18 at
+4.0+), not its direction. Six of eight candidates' star-group verdicts are unchanged under every
+definition; the second level slope's depends on it; no adoption decision does. **Decision (Thomas):
+three wins kept as a tested, reasonable measuring stick; results recorded; no extra reporting
+convention.** See `50_REBUILD/docs/Star_Definition.md`.
+
+**Star residual retained as a stated limitation, 2026-09-24g.** Review `ebc9f9b` merged
+(sustained-level results reproduced; corrected: absolute error improved slightly, so not "worse on
+every score"; the horizon pattern does not show older seasons are the cause; the sustained
+construction never carried observed consistency forward). The one predeclared recency sensitivity
+(aging rows kept, weight halved per five seasons of age; check 46 asserts rows and weights) came out
+slightly worse, against a pre-run prediction of a small star gain: pooled 69/2000, star tier
+463/2000, dollars 155/2000 and 116/2000, stars −0.947 five out (adopted −0.921). Not adopted. Eight
+constructions scored, none separating on the declared primary scores, so the star residual is kept
+as a quantified limitation: the 3+ tier's rate is right at the valuation season and 0.27 / 0.63 /
+0.92 low one / three / five seasons out (season WAR 0.42 / 0.64 / 0.87 low; corrected from 0.17, the valuation-season figure), located in the aging
+curve's step. Reopen only on new evidence for a specific repair. Suite **46/46**. See
+`50_REBUILD/docs/Star_Residual.md`.
+
+**Star residual v1.3, 2026-09-24f: a sustained-quality aging level does not help.** Review
+`6a14784` merged (diagnostic reproduced; 84 players, 492 distinct transitions; career-resampled
+excess −0.240 [−0.347, −0.130]; survivor selection not removed; write-up qualified). Candidate: the
+aging curve gets min(rate at t−1, t−2) as a second level (same rows and weights; check 46). Recorded
+before the run: its slope is negative (−0.034 per win), so no star gain predicted. Result: pooled
+0/2000, star tier 0/2000, dollars 42/2000 and 85/2000; stars −1.017 five out (adopted −0.921); every
+tier more negative. Not adopted. The adopted leader's miss drifts down with the horizon in every tier
+(0.19 to 0.34 over five seasons below the top, 0.89 for stars). Untested next: an aging curve fitted
+on, or weighted toward, the seasons nearest each page. See `50_REBUILD/docs/Star_Residual.md`.
+
+**Star walk diagnostic, 2026-09-24e (hindsight; localisation, not a verdict).** Review `a9e039c`
+merged: the star tier is the harness's 60/40 two-season total with fallbacks, not a three-season
+weighted total (corrected); the multi-season result rejects that repair, not double shrinkage
+(corrected). `run_star_walk_diagnostic.py`: page fits frozen, the harness "3+" tier, 876 common
+transition rows (t−1, t, t+1 played), same weights. Observed change −0.11 per 82 a season (≈0 for
+two seasons); the frozen curve predicts −0.35 on realised t−1 levels, −0.33 on realised current
+levels, −0.28 along the forecast's own path. So the excess is in the curve's step, not the recursion;
+imputation is a small part (survivors-only −0.31); membership matters in part (one-season 3+ group
+over-predicted by 0.13 out of sample, harness stars by 0.24, 2-to-3 tier by 0.04). See
+`50_REBUILD/docs/Star_Residual.md`.
+
+**Star residual v1.2, 2026-09-24d: the multi-season aging level does not help.** Review
+`82e9db8` closed the sample-matching repair. The next candidate measures the aging curve's level on
+a weighted three-season rate (same rows and weights; check 46). Recorded before the run: it steepens
+the level slope (−0.071 against −0.062 per win), the opposite of the "pulled back twice" hypothesis.
+Result: stars −0.956 five seasons out (adopted −0.921), star tier 1/2000, pooled 234/2000, dollars
+826 and 778/2000. Not adopted; this rejects that repair, not double shrinkage as a mechanism. Where the curve's
+training pairs and the forecast's star tier part company is not yet located. Stale descriptions
+cleaned (aging docstring, runner, report file list, hinge wording). Suite 46/46. See
+`50_REBUILD/docs/Star_Residual.md`.
+
+**Star residual review applied, 2026-09-24c.** The no-level aging candidate changed the curve's
+sample too (7,164 rows against 9,459 on the 2021 page); the lagged-level fit drops pairs without a
+prior season, and a code comment wrongly said they were kept. Now: an aging fit fingerprints its rows
+and weights; `sample="lagged"` holds them fixed; check 46 (mutation-tested). Suite **46/46**. The
+matched no-level curve reproduces the review (stars −0.328, lowest tier −0.351, RMSE 0.8133):
+pooled 1610/2000, dollars 1531/2000 and 1473/2000, MAE worse; not adopted. The next candidate, a
+second level slope above 2 wins, does nothing for stars (−0.925) and is worse (263/2000; dollars
+180/2000). Diagnostic: the curve fits single-season changes by prior-season rate (3+: −0.23 observed,
+−0.27 fitted); the forecast applies it to a shrunk multi-season rating, so stars may be pulled back
+twice. Next candidate: the curve's level measured on a multi-season rate. See
+`50_REBUILD/docs/Star_Residual.md`.
+
+**Star residual located, not repaired, 2026-09-24.** On the adopted leader the three-win-and-up
+tier's rate is right at the valuation season (−0.03 per 82) and walked down too fast after it (−0.92
+five seasons out; stars who played lost ~0.09 a season, the forecast ~0.27). Three single changes
+scored (`run_star_residual.py`): survivors-only aging curve, curve without level terms, per-season
+regression. Removing the level terms cuts the stars' five-season rate miss to −0.26 (tier error
+lower 1975/2000) but walks the lowest tiers down too fast; none separates on the primary scores
+(pooled season WAR 1130–1601/2000; dollars 1065–1212/2000 on the adopted line, 449–734 on the
+sensitivity line). Nothing adopted. Next candidate to design: a level effect that differs by tier.
+See `50_REBUILD/docs/Star_Residual.md`.
 
 **Contract-status adoption review closed, 2026-09-23:** verified `5864cb7`.
 45/45 checks pass; deliberate stale-leader and missing-date reversions are caught.
@@ -113,6 +235,23 @@ simulation-distribution scoring remains open; Phase 5 is not complete.
 See `50_REBUILD/docs/Status_Adoption_Closure_Codex.md`. No candidate merge or
 implementation/default change was made by this review.
 
+**Status-adoption review repairs, 2026-09-23h.** The review of `7fee59b` (`acc4a33`) kept the
+provisional contract-status leader and found three things; all addressed.
+- **One model through the valuation chain.** The market comparison still valued on the old class by
+  name ("the adopted candidate"), so the integration refused the fresh artifacts ($1.06M apart on 948
+  contracts). It and five diagnostics now take `LEADER` from the one switch; both valuation artifacts
+  record their model class and the integration refuses a mismatch by name (check 44). Tiers are cut on
+  the adopted model (declared); the previous membership is printed beside it (29 of 1,217 contracts
+  move: 28 up a group, 1 down). Integration passes ($0.00 on 1,217); reconciliation rebuilt.
+- **Missing history.** The participation model raised `int(NaN)` for a subject with no anchor (both
+  leaders); now reported unanswered (check 45). Look-ahead tests: all four pass on the adopted leader,
+  and the full diagnostic completes. Stress, uncertainty and coverage rerun on it too.
+- **Clipping claim withdrawn.** 0.014 WAR a season was mostly simulation noise; the exact effect from
+  the chain's recursion is 0.000415 (max 0.000937). The cliff and the clipped rises are separate.
+- **Cliff sensitivity scored and not adopted.** Carrying status past its support removes 19 of 34
+  cliffs and no clipping, and is worse on both primary scores (dollars 119/2000 against the adopted
+  model; season WAR 2/2000). The adopted model stays the baseline, cliff stated.
+Suite **45/45**. See `50_REBUILD/docs/Skater_Contract_Test.md`.
 
 **Contract-status adoption review remains open, 2026-09-23:** candidate `7fee59b`.
 43/43 checks and the new simulation/point dating guard pass; mean simulated
@@ -130,6 +269,24 @@ changing it. Previous signing-date and goalie closures stand. Review:
 `50_REBUILD/docs/Status_Adoption_Review_Codex.md`. No implementation/default change
 or candidate merge in this review. Phase 5 remains open.
 
+**Skater leader: contract status adopted provisionally, 2026-09-23g.** On the closure review's
+recommendation, the skater leader is now `A1HingeExposureStatus`: the previous leader with visible
+contract status in its participation (period indicator excluded), read at the signing for contract
+valuation. Switch: `run_npv_simulation.LEADER`; the no-contract model stays as `PRIOR_LEADER`.
+- **Second dating gap closed:** the path simulation's `forecast_blocks` read contract state at 1 July;
+  it now reads it at the signing. Check 43 (mutation-tested). Suite **43/43**.
+- **Downstream reruns** (each against its own earlier run, own price lines): simulated surplus $0.37M
+  -> $0.43M a contract, only the 2019-21 pages moving; control years (deciding as you go) $0.703M ->
+  $0.691M; goalie price-line and control-year conclusions stand (level 0.006858, slope 32%, ratio
+  0.79; goalie control value $1.051M unchanged).
+- **Finding:** contract status enters participation only where training rows support it (from the
+  2019 page, up to four to six seasons out), so long terms fall back to the no-contract forecast
+  past that range: an eight-year 2021 deal reads ~0.93 through season seven, 0.45 in season eight.
+  15 of 1,217 simulated terms cannot reproduce their marginals (2 before). Open decision whether to
+  carry the last supported effect forward.
+- Reporting qualifications applied: 1,999/2,000 (primary) and 2,000/2,000 (sensitivity), not
+  "every"; dollar MAE slightly worse ($1.681M vs $1.679M); goalie decision stays closed.
+See `50_REBUILD/docs/Skater_Contract_Test.md`, "Downstream, after adoption".
 
 **Skater signing-date repair closed, 2026-09-23:** candidate `d2be5b0` passes
 42/42 checks. Independent forced-page and removed-tail-decay mutations fail
@@ -425,6 +582,365 @@ residuals and currency comparisons; fix and rerun development work before furthe
 
 ## Standing flags (Karl's identification axes — watch on every design choice)
 
+- **NEW 2026-09-24 — the star residual is a known, quantified bias in the forecast.** For the
+  three-win-and-up tier the adopted leader's rate per 82 is right at the valuation season and 0.27,
+  0.63 and 0.92 low one, three and five seasons out (season WAR 0.42, 0.64, 0.87 low), located in the
+  aging curve's step on realised inputs (hindsight diagnostic; 84 players; survivor selection not
+  removed). Eight repairs scored, none adopted. Star-contract valuations warrant scrutiny for it; it
+  does not by itself establish a dollar under-valuation of any given contract (membership, pricing,
+  term and control rights all enter). Evidence: `50_REBUILD/docs/Star_Residual.md`.
+
+- **NEW 2026-09-23g — a feature that exists only where it has support makes a cliff where it
+  stops.** The participation model keeps a contract column only at horizons where enough training
+  rows carry each value. Visible contract status is observable only for seasons from 2018, so on
+  development pages it enters for the first four to six seasons ahead and not beyond. Past that the
+  forecast silently becomes the no-contract one, and a player under contract for eight seasons is
+  forecast at 0.93 to play in season seven and 0.45 in season eight. The per-horizon support rule is
+  right for the fit; applied across a contract's term it produces paths no player follows.
+  **The general form:** when a feature's availability varies by horizon, check the forecast's shape
+  across horizons, not just each horizon's score. Evidence: `50_REBUILD/docs/Skater_Contract_Test.md`.
+  **Scored 2026-09-23h:** carrying the last supported participation fit forward (the whole fit, not
+  the status effect alone) removes most cliffs but scores worse on both primary scores, so the cliff
+  stays as a stated property of the baseline. A smoother curve is not evidence of a better forecast.
+  The loss rejects that method, not every extension of the status effect, and does not show the cliff
+  is realistic.
+
+- **NEW 2026-09-22f — the score decides the winner when half the outcomes are zero.** The rebuild
+  has ranked forecasts by mean absolute error in season WAR. Almost half the goalie cells, and many
+  skater cells, are seasons not played, scored as zero. There absolute error rewards the forecast
+  closest to the **median**, and squared error the one closest to the **mean**. The goalie share model
+  shows the difference directly: on a real rate it improves squared error (lower in 66-70% of
+  resamples) and worsens absolute error (lower in 0-1%). The NPV sums **expected** dollars, which is a
+  mean, so a forecast feeding it should also be judged on squared error and on calibration by
+  subgroup, not on absolute error alone. **Not a change to any recorded result**: every earlier
+  comparison stands as scored. From now on, report both scores and the bias by subgroup wherever a
+  candidate feeds dollars, and treat a split verdict as a decision to surface, not a win to claim.
+  Evidence: `50_REBUILD/docs/Goalie_Rate_Forecast.md`.
+  **DECIDED 2026-09-22g:** squared error is the primary score for point forecasts entering an
+  expected-value sum; mean absolute error and bias by horizon and role or tier are reported alongside.
+  The hierarchy is declared before each comparison. **And WAR is not dollars:** the salary floor and
+  control options make dollars nonlinear in the WAR path, so pricing the mean path need not give
+  mean dollars. Candidates that feed valuation are also scored on expected dollars and on the
+  simulated distribution.
+
+- **NEW 2026-09-22i — coverage is not calibration when the distribution has a lump, and a score is
+  not a comparison unless the target is common.** Two errors in one runner:
+  - **The lump.** The salary floor put about half of each contract's simulated dollars on one value,
+    so an 80% interval honestly held about 90% of the model's own draws. Reading 93% as "too wide"
+    was wrong. The randomized PIT is uniform under calibration with or without lumps, and check 40
+    demonstrates both on a forecast calibrated by construction.
+  - **The moving target.** Each forecast was scored against realised dollars priced on its own line,
+    so the target moved with the forecast.
+
+  **The general form:**
+  - test distributions with a transform that handles ties, and compare interval coverage with the
+    model's own coverage, not the nominal level;
+  - declare one scoring currency before comparing, and assert that the target is identical across
+    arms.
+
+  Evidence: `50_REBUILD/docs/Goalie_Control_Years.md`.
+
+- **NEW 2026-09-22h — a fit clipped after its search returns a curve nobody scored.** The
+  persistence fit chose its decay rate on the error of an unconstrained fit and then clipped the
+  winning weights into range, so the curve it returned was never compared with the data. On the
+  goalie 2018 page it turned correlations of 0.25, 0.21 and 0.06 into 0.95. The same pattern sits
+  behind the singular-design flag: a number that satisfies a constraint because it was forced to,
+  after the choice was made, is not an estimate. **The general form:** impose constraints inside the
+  search, choose on the error of what is returned, and check that the returned object is the one
+  scored. Evidence: check 39, `50_REBUILD/docs/Goalie_Control_Years.md`.
+
+- **NEW 2026-09-22h — a model that is only ever asked about its own page hides a dating bug.** The
+  goalie models took the page from the fit. That was harmless in the harness, where fit page and
+  asked page coincide, and wrong the first time a calibrator replayed them on earlier pages. **The
+  general form:** predict-time state is read from the information set passed in, never cached from
+  `fit`, and every model that can be replayed carries a test that asks it about an earlier page.
+  Evidence: check 38.
+
+- **NEW 2026-09-22g — one named forecast, one implementation.** The goalie price runner rebuilt the
+  share of the schedule instead of calling the scored arm's rule. The two agreed wherever the share
+  model had a fit and parted where it fell back, so every check passed while the priced forecast
+  differed from the tested one in 435 cells. **The general form:** a consumer that prices, simulates
+  or reports a forecast must call the same code the scoring harness called, and a parity check must
+  compare consumer and scored arm on every page and horizon, including the fallback, borrowed and
+  clamped paths. Checks that test each side alone cannot see a split between them. Evidence:
+  check 37, `50_REBUILD/docs/Goalie_Rate_Forecast.md`.
+
+- **NEW 2026-09-22d — a fit that "converged" on a singular design is not an estimate.** When every
+  player the contract export knows is under contract, `under_contract` is exactly `1 - contract_unknown`
+  and the participation design loses a rank. The regularised optimiser then either reported
+  convergence with an arbitrary split between the two columns or raised an error and fell back, and
+  which one depended on the machine. The arbitrary split reproduces the training rows and extrapolates
+  wherever the columns stop mirroring each other -- on the page itself. It moved a recorded Phase 2
+  result (contract data "hurts", now withdrawn) and made two independent runs of the goalie model
+  disagree. Fixed by a deterministic rank rule and check 35. **The general form: a convergence flag
+  says the optimiser stopped, not that the parameters are identified. Any design built from indicator
+  columns that can become complements on a subsample -- by page, by horizon, by position -- needs a rank
+  check before the fit, and a result that differs between machines is a symptom to trace, not noise.**
+  Evidence: `50_REBUILD/docs/Goalie_Participation.md`, `run_contract_ablation.py`.
+  **Qualification (review, 2026-09-22):** dropping the redundant column makes the fit reproducible;
+  it does not supply the missing information. Where training has no known-but-expired contracts,
+  which column is dropped decides how the model extrapolates to them. That is a modelling
+  assumption, stated, not an estimate.
+
+- **NEW 2026-09-23 — the contract export is a snapshot, and every feature built from it inherits
+  that.** Every contract in the PuckPedia export ends in 2018 or later. On any page before its era,
+  "the export knows him", "he is under a visible contract" and "he has a birthdate" all mean "he
+  went on to sign a deal that ran into 2018 or later": survival. The goalie participation model
+  learned it and predicted retired goaltenders near-certain to play. **The general form:** before
+  using a vendor field on historical rows, find the vendor's coverage rule (here, end year >= 2018)
+  and state the feature only where that rule makes it observable for everyone, survivor or not.
+  **Open for skaters:** the skater contract features read the same export and have not been
+  re-measured under the observable definition. **Measured 2026-09-23e:** the skater export carries the same survival signal, more mildly
+  (under a visible contract, 97-100% played early against 90-92% from 2018); see `Skater_Contract_Test.md`. **Correction 2026-09-23b:** the "observable" replacement carries a
+  before/after-2018 period indicator (the export's coverage year), and that indicator, not contract
+  status, carries its gain. A replacement for a coverage-contaminated feature must be scored input by
+  input, and a period term tied to a vendor's coverage year is a property of the source, not of the
+  sport. Evidence: `50_REBUILD/docs/Goalie_Participation_Top.md`.
+
+- **NEW 2026-09-22 — whether a join finds a record can itself be the outcome.** Goaltender
+  birthdates come mostly from the contract export, so a goaltender HAS a birthdate largely because he
+  was still playing in the contract era. Goalie anchors with one go on to play at about 0.90 at every
+  horizon; those without at 0.56, 0.26 and 0.12 at zero, three and five seasons out. A model that
+  drops rows missing age -- a routine and apparently neutral step, and the skater participation
+  model's rule -- therefore fits survivors only, and a "has a birthdate" flag is the future written as
+  a column. Skaters have 98% coverage and barely feel it; goaltenders have about half. **The general
+  form, to check on every join in this project:** when the coverage of a merged source varies, test
+  whether coverage predicts the outcome before dropping the uncovered rows or using coverage as a
+  feature. Anywhere a vendor file covers the players who stayed, the gaps are not missing at random.
+  Evidence: `50_REBUILD/docs/Goalie_Participation.md`.
+
+- **NEW 2026-09-22 — a coefficient is not a price until the change it prices is defined.** The
+  goalie price line first reported the coefficient on the season-average forecast as "dollars per
+  win". It is a partial slope: first-year production held fixed, the restricted interaction left out.
+  One more expected win in every season moves the fitted annual price by $2.022M for a skater and
+  $2.167M for a goaltender, a ratio of 1.07 against the partial slopes' 1.18. **Every price quoted in
+  the write-up must say what changes and what stays fixed**, and must say it is an annual price
+  before the floor rather than a contract value where that is what it is. The same review found the
+  specification comparison had skipped the simpler alternative: a goaltender LEVEL alone delivers
+  all of the held-out improvement, so the two-term result and the claim to have settled D7 for
+  goaltenders are withdrawn. **The general form: when a richer specification beats a poorer one, the
+  intermediate step has to be tested before the extra terms are credited.** Evidence:
+  `50_REBUILD/docs/Goalie_Price_Line.md`.
+
+- **NEW 2026-09-17, CORRECTED 2026-09-18 — a locked constant ages, and production's goalie
+  projector runs high.** Scored on development pages against its own imported implementation,
+  production's goalie forecast carries a **+0.101 WAR bias at every horizon**, while a rule that
+  measures the league average at each page and fits the kept weight carries **+0.036** at the same
+  error. The first version of this flag put the bias at +0.218 and claimed an improvement in error;
+  both came from comparing against a reimplementation of production rather than production, and the
+  error claim is withdrawn -- nothing in that bake-off beats the real projector. **What stands is a
+  DIAGNOSTIC rather than a defect** (qualified after a second review): the +0.101 has a
+  career-bootstrap interval of -0.129 to +0.315 that contains zero, and the shared participation
+  estimator predicts 64.1% of these seasons played against 55.3% observed -- a gap illustrated at
+  +0.167 WAR, which is a scale for the participation term and not a decomposition of the bias --
+  carried by every candidate. Only the DIFFERENCE
+  between candidates' biases is attributable to their forecasts. The reason to keep watching it is
+  the general point: a forecast multiplied by a price line and summed over eight seasons is hurt by
+  a standing bias in a way it is not hurt by noise, because noise averages out over a contract and a
+  roster and a bias does not -- but a pooled error is not that bias until it has been separated from
+  the participation term, and no dollar price may be moved to cancel it before then. **The general form to
+  watch:** every constant estimated once on a window and carried since -- the skater rate, the
+  goalie league average, the replacement level, the hazard -- is a claim about a league that keeps
+  moving, and a rolling refit is the test. Evidence: `50_REBUILD/docs/Goalie_Bakeoff.md`.
+
+- **NEW 2026-09-17, WITHDRAWN AND REPLACED 2026-09-18 — what is unstable about goalie ageing is the
+  drift, not the age slope.** The first version of this flag said how a goaltender ages "is not
+  identified on the available evidence", on a candidate that **never used age**: it applied the
+  average change at a pivot age to every goaltender alike, and adding twenty years to every subject
+  moved the forecast by exactly zero. Fitted properly, the age slope is **negative on every
+  development page** (-0.005 to -0.088 WAR a season per year of age): older goaltenders decline
+  faster, on every window this project holds. What flips sign is the **common drift**, the level the
+  whole population moves by, from +0.117 in 2015 to -0.106 in 2021 -- which is not an age effect and
+  is itself worth watching, because a rule carrying a fixed level assumption inherits it. The age
+  slope still does not improve the forecast (+0.065 WAR of error, 0% of resamples), which is a
+  statement about this implementation on 82 goaltender-seasons a year and not a finding about
+  ageing. The selection concern is now partly measured (2026-09-22b): the slope is fitted on
+  within-goaltender changes among goaltenders WITH a birthdate, and that subsample is heavily
+  survivor-selected -- anchors with a birthdate play at about 0.90 at every horizon against 0.12 to
+  0.56 without. So the negative slope describes survivors, and nothing about goalie ageing should be
+  quoted from it without that qualification. Evidence:
+  `50_REBUILD/docs/Goalie_Bakeoff.md`.
+
+- **NEW 2026-09-17, CORRECTED after review — a right priced as an obligation is priced wrong, and
+  the correction is large where the contracts are short.** 398 development contracts leave the club
+  holding the player's rights after expiry. Forced to take every control year, those rights are
+  worth **-$0.217M** on the contracts holding one. With the right to decline they are worth
+  **+$0.268M**. **Being able to walk away is worth $0.422M a contract** across all 398, and that figure is a lower
+  bound: the stopping policy priced here is an approximation to optimal stopping, so a club that
+  stopped optimally would do at least as well. Any
+  valuation of a control year, a club option, a buyout or an arbitration walk that prices it as a
+  stream rather than a stopping rule is biased downward, and by more where the player is marginal.
+  **The value of the club's INFORMATION is a much smaller and separate thing: $0.066M**, measured
+  against a baseline that prices the same way and uses the same policy, so that only the
+  conditioning differs. The first version of this flag quoted $0.27M as the value of deciding as you
+  go; that number compared three changes at once and is withdrawn. Where real clubs sit between
+  deciding in advance and knowing the path is a back-test question and is not tested. Evidence:
+  `50_REBUILD/docs/Control_Years.md`.
+
+- **NEW 2026-09-17 — an outcome of the decision being priced was an input to pricing it, in this
+  tree AND in production.** The export's expiry status records what a club eventually did with its
+  rights: "UFA no QO" is a club that declined to qualify the player, years after the signing being
+  valued. The rebuild's first control-year pass read that column and gave those contracts no rights
+  at all, which is the model being told the answer to the question it is asking. Fixed here:
+  ownership is eligibility alone and the label is now an outcome kept for evaluation. **Production's
+  `rfa_terminal_value.py` reads the same column the same way** -- its docstring states that "UFA no
+  QO (team already declined to qualify) -> terminal value = 0" -- and of the 187 contracts where
+  production carries no terminal value while this tree finds a right, **130 carry one of the two labels it zeroes outright** (97 "UFA no QO", 33 plain "UFA"). Any
+  claim about production's control-year value, and any back-test that uses it, has to carry this.
+  **The general form is the one to watch on every remaining design choice:** a status column in a
+  vendor export is usually a snapshot of the present, not of the decision date, and eligibility,
+  expiry, clause and status fields need dating before they are used as inputs. Evidence:
+  `50_REBUILD/docs/Control_Years.md`, `20_CODE/rfa_terminal_value.py`.
+
+- **NEW 2026-09-16, CORRECTED AND NARROWED 2026-09-17 — the exit hazard alone does not explain
+  production's long-contract pessimism.** Reconciled contract by contract against the production
+  spine, the gap between the rebuild and production is monotone in term and reaches **+$33.6M on
+  an eight-year deal**, where production says the average contract destroys $28M and the rebuild
+  says it creates $5M. Holding cost, discounting and terminal value and setting the survival
+  multiplier to one, the hazard is worth **+$2.29M of that $33.63M** at eight years and **+$1.69M
+  of $15.86M** at six: roughly nine-tenths of the long-term disagreement survives removing it.
+  Within each term the two systems still rank contracts substantially alike (0.69-0.89 from three
+  to eight years), so this is mostly a level disagreement about long contracts rather than a
+  reordering.
+  **What this does NOT establish**, and what the 2026-09-16 version of this flag wrongly claimed:
+  it does not put the disagreement on the value side, because nothing here tests the aging path or
+  the price line, and because the two systems differ in ways that can themselves vary with term
+  (production values from 1 July of the first contract season against the rebuild's signing date;
+  production carries terminal control value on 185 rows; the two disagree about cost on 46; the
+  engine valued a different contract than the one requested on 10). 912 of 1,141 pass the four
+  asset tests, but **217 of those have a valuation year away from the signing year, and 17 of the
+  22 eight-year contracts do** -- the dating difference bites hardest exactly where the
+  disagreement is largest, and no screen removes it. It also does not test whether
+  the hazard historically offset over-projection against realised outcomes, which is what the
+  standing note actually claims; that needs outcomes and there are none in this comparison. The
+  first version's decomposition subtracted an undiscounted column and so removed the discounting
+  along with the hazard, producing negative hazard effects that cannot occur; it is withdrawn.
+  Evidence: `50_REBUILD/docs/Production_Reconciliation.md`, `run_production_reconciliation.py`.
+
+- **NEW 2026-09-16d, revised after review — a miss about a player does not wash out over the
+  years of his deal.** The same player's standardised miss correlates 0.39 to 0.43 between adjacent
+  seasons at every page in the window. How that splits between a permanent misjudgement and one
+  that fades is **weakly identified early** -- 0.00 permanent fitted on what 2015 could see against
+  0.25 on 2025 -- while the total adjacent correlation barely moves, so the split is a parameter of
+  a chosen dependence model and not a measured fraction of every forecast mistake. Removing that
+  dependence, on common draws with participation held, narrows a seven-year contract's value by
+  41%. Any statement about how uncertain a long contract is that was built on independent seasons
+  is too narrow by roughly that much.
+- **NEW 2026-09-16d — the value of the average path is not the value of the contract, and the gap
+  is where the floor binds.** Averaging path values rather than valuing the average path is worth
+  +$0.18M on the average contract, +$0.23M on a one-year deal and +$0.22M for a player forecast
+  between nothing and half a win, falling to nothing for stars and long terms. It is the league
+  minimum and the censored price line, both convex from below, and it changes no sign on this
+  sample. The point valuation was approximating this quantity, not making an error.
+
+- **WITHDRAWN 2026-09-16b, the day it was raised — "the elite tier fails on a second independent
+  axis".** It rested on each forecast cutting its own tiers, so the columns held 51, 68, 18, 19
+  and 18 contracts and the spread across them was a change of population rather than the same
+  contracts changing sign. On one declared grouping every column's top group is negative and the
+  ordering of all five groups is identical in all five columns. The currency-shape reversal
+  (straight against log) stands on its own evidence and is unaffected. Recorded rather than
+  deleted: the earlier version was published.
+- **NEW 2026-09-16b — the models disagree about WHO the stars are far more than about what a
+  contract is worth.** Under each model's own tiers the top group holds 51 contracts for
+  production's forecast, 68 for a flat trailing blend and 18 for the adopted candidate. Contract by
+  contract the same models correlate 0.974-0.988 and agree on sign for 88-97%. Any category
+  statement in the thesis therefore needs its membership rule declared in advance, or it is partly
+  a statement about the classifier.
+- **NEW 2026-09-16b — the elite group's direction is stable and its magnitude is not.** On a fixed
+  grouping the top group is negative under all five forecasts but ranges -1.74 to -4.55 $M, on 18
+  contracts, with no uncertainty estimate attached and no realised outcome scored. The term framing
+  moves the same group by $8.76M to $9.70M between term-in and term-free, which remains an open
+  judgement rather than an estimate.
+
+- **NEW 2026-09-16, revised after fact check — long-horizon subgroup miscalibration, causes
+  unresolved.** The measured statement, and the one for the write-up: nominal 80% ranges hold
+  82-84% of outcomes overall but **61% for the 3+ tier five seasons out and 66% for players 22 and
+  under**; 18.5% of played star seasons five out exceed their own page's 95th percentile against
+  an intended 5%; participation probabilities are miscalibrated for those same groups
+  (22-and-unders under-predicted at every horizon, 0.677 against 0.804 five out; 3+ 0.781 against
+  0.883; 34-and-overs over-predicted 0.491 against 0.373 at the valuation season). **The
+  respective roles of participation, games played, the rate forecast and selection are
+  unresolved**, and a calibration table cannot resolve them. Selection is a plausible contributor
+  but is not identified: the harness already keeps departed players as zero seasons rather than
+  dropping them, and the aging curve already attempts a correction, so this is not simply the
+  error from testing on survivors. Do not start another tuning cycle on this development sample.
+  `50_REBUILD/docs/Coverage_Decomposition.md`.
+- **NEW 2026-09-16 — the games forecast is a larger error source than anyone had noticed.** In a
+  common-unit accounting that closes, the share of the schedule is the largest single component of
+  the 22-and-unders' point bias three seasons out (-0.207 of -0.340) and the whole of the 3+
+  tier's bias at the valuation season (-0.178 of -0.172). It has been treated throughout the
+  rebuild as the quiet half of the rate-and-games pair. This is a measurement, not a ranking of
+  causes; the substitution order decides where interactions land.
+- **WITHDRAWN 2026-09-16, the day after it was raised — the causal reading of the coverage gap.**
+  Nine claims are withdrawn in `50_REBUILD/docs/Coverage_Decomposition.md` section 5, among them
+  that the three levers were ceilings (doubling the spread alone takes star coverage five out from
+  60.8% to 88.3%, past every figure reported as a bound), that the gap was therefore three
+  distinct defects, that the centre is the wrong lever for young players, that their bias was
+  almost entirely participation (it is mostly games, and the original table compared four
+  quantities in four different units), that the participation error was one-directional, that
+  participation helped every under-covered group (this branch's own output printed two
+  counterexamples while the sentence was being written), and that a flat Brier score shows
+  subgroup errors cancelling, which is not how a squared-error score behaves. The star rate
+  finding and the participation miscalibration survive. Recorded rather than deleted: the earlier
+  version was published and read.
+
+- **NEW 2026-09-15c — the 2027-28 ceiling: production calls it published, Thomas calls it an
+  estimate.** `20_CODE/skater_forward_projection.py` and `20_CODE/goalie_value_engine.py` both
+  carry 2027 = $113.5M, commented as a published 2025 MOU figure. Thomas's statement on
+  2026-09-15 is that 2027-28 is estimated at about $113M and is **not confirmed**. Under D11
+  only the valuation season's own ceiling is ever read and there is no 2027-28 page in the
+  panel, so nothing currently priced depends on it — it becomes live the day such a page is
+  built. The rebuild tree deliberately leaves 2027 out and extrapolates it at 3%, so the two
+  cap tables now differ on one season. **Decision owed before any 2027-28 valuation is built or
+  cited.** 2026-27 at $104.0M is confirmed and is in both.
+
+- **NEW 2026-09-15c, revised after review — the band under-covers the two populations the model
+  is already worst at.** At the stated 80% the 3+ tier is covered 0.608 five seasons out and the
+  22-and-unders 0.663, while the 34-and-overs reach 0.977. The sharpest statement of it: **18.5%
+  of played star seasons at five out finish above the 95th percentile of the shape their own page
+  was fitted with**, where 5% is intended; 11.6% for the 22-and-unders. Two things are visible in
+  the misses and **the share carried by each is NOT established**: the star middle sits at +0.51
+  where the band's own middle is −0.11, which points at the star residual, and the star and young
+  right tails reach +3.64 and +3.55 against a pooled +2.56, which points at the band. The
+  diagnostic conditions on the player having played while coverage includes non-participation, so
+  a whole component is outside it. **The band was not widened**: doing so would hide a known bias
+  behind a bigger interval. Centre first, then re-measure the tails.
+- **NEW 2026-09-15c, revised after review — three open items carried by the interval layer.**
+  (a) The realized spread runs **0.94 to 1.11 times the fitted one across the seven development
+  pages**. This is a description, **not an estimate of in-sample optimism**: each page's fitted
+  and realized misses are different mixtures of seasons and players, and looking at the ratio
+  cannot separate that from overfitting. An earlier version of this flag called the pooled 1.045
+  a measured 4.5% of optimism, which it is not. **No inflation is applied and none should be**
+  until an experiment that isolates overfitting is run. (b) The shape of a miss is **pooled
+  across horizons**. The per-horizon table does not contradict it (5th/95th move from −1.85/+2.46
+  at the valuation season to −1.55/+2.75 nine out, around a pooled −1.72/+2.56) but that is one
+  sample's description, not a test. It is **not** poolable across tiers and ages, per the flag
+  above. (c) **RESOLVED 2026-09-16d, and not the way this item expected.** It asked for separate
+  rate and games bands so the simulation could draw them jointly. They are not needed: the quantity
+  with a fitted spread is the season total GIVEN he played, and that miss already contains both a
+  player who was healthy but worse and one who was as good but hurt. The joint object the
+  simulation needs is (participation, conditional season total), and `npv_simulation.py` draws
+  exactly that, so an exit on a path is now a zero rather than a product of averages. The existing
+  production flag — first-season uncertainty zero, later uncertainty flat — is answered by this
+  layer for the rebuild tree; it stays open for production itself, which still carries the old
+  rule.
+- **NEW 2026-09-15c — the predictive distribution's mean must be the point forecast, and once was
+  not.** The scaled misses were kept uncentred and average about +0.10 because the shape is
+  right-skewed, so the distribution's own mean sat up to 0.23 wins above the forecast column
+  beside it. Every existing guard passed: the columns were untouched, and the zero-spread identity
+  cannot see an off-centre shape because it removes the shape. **A simulation reads the mean, not
+  the column.** Fixed by centring on the mean of the interpolated quantile function, with the
+  amount removed (+0.0968 on the last development page) reported as a measured forecast bias
+  rather than absorbed. Centring rather than moving the point forecast is a **choice**: treating
+  the residual mean as a bias correction would change the forecast and move every score in the
+  variant register, and belongs in the forecast's own phase. Revisit if the star-residual work
+  moves the centre.
+- **WITHDRAWN 2026-09-15c, the same day it was raised — "a one-season shock matters more at long
+  horizons".** Raised on a test whose helper refitted the model on the perturbed data while its
+  own text said the fit was held fixed, so it measured retraining and input response together.
+  With the fit frozen the pass-through **falls** with distance, 0.23 at the valuation season to
+  0.15 five seasons out, which is what theory expects. Recorded rather than deleted: the flag was
+  published and a reader of the earlier state files will have seen it.
 - **NEW 2026-09-15 — the elite tier is not identified, and the currency choice decides the
   headline.** Surplus at 2+ forecast wins a season is +$3.00M under a straight price line and
   −$0.78M under a log line, on 37 contracts (six above three wins). The log line beat the straight
@@ -603,3 +1119,95 @@ These are newly identified review items, not changes to locked decisions. Detail
 **Stability-test scope clarified (2026-09-10d):** The 0/16 forward and 1/16 defence era counts come only from observed within-player WAR/82 changes. aging_split_sample.py's docstring also describes comparing fitted pooled profiles, but that leg is unimplemented. Supervisor Docs 2 and 5 now state the implemented scope; the results do not measure the effect of full-panel estimation on historical valuations.
 
 - **2026-09-10f:** Control-year qualification survival starts at one in rfa_terminal_value.py; contract_npv.py adds discounted adjusted terminal surplus without multiplying by signed-contract survival. D14(c) deliberately avoids using both annual gates in control years, but the effect of departure before expiry has not been isolated. Docs 3 and 5 now explain this behavior; no model change. The pooled term-test null also coexists with a small positive forward-subgroup coefficient, now preserved in both explainers.
+
+**2026-09-15b — two flags from the rebuild review, one closed and one open.**
+
+*Closed.* The shortened-season units defect in the rebuild tree: the per-82 rate was taken from
+the D20-scaled total and so carried the schedule adjustment twice, which broke the season
+identity by 82/70 in 2019-20 and 82/56 in 2020-21 and, more damagingly, put rates from those
+two seasons on a different scale from the rest, contaminating every trailing anchor that blends
+across the boundary. Repaired and asserted. This was a rebuild-tree defect only; the production
+chain does not build a per-82 rate this way.
+
+*Open, and it is an identification flag rather than a bug.* The rebuild's market holdout is
+spent. Both market runners swept contract start years 2018 through 2025 on every development
+run and selected on each year they touched, including the years the forecast side was
+reserving. Sealing the pages and not the cohorts was never a split sample. No market result on
+a 2022 to 2025 start cohort can be presented as out-of-sample. The forecast holdout is believed
+intact on the evidence of the code and the reports, and is now recorded rather than
+reconstructed. See `50_REBUILD/docs/Holdout_Inventory.md` for the decision owed.
+
+**2026-09-15b — a published improvement figure that did not reproduce, and now does. RESOLVED
+the same day.** Raised when the rebuild's improvement over the flat benchmark at five seasons
+out came out at -23.6% against the -43.5% published in `Phase5_StressTests.md`, and recorded
+then as not reproducible rather than as a correction, with age coverage named as the likeliest
+cause. That was right. The birthdate join takes PuckPedia plus an Elite Prospects file, the
+Elite Prospects file was missing, and coverage was 69.2% against the 98.3% on record. With the
+file in place coverage is 98.346% and the published figures reproduce exactly: **-15.8% at the
+valuation season and -43.5% five seasons out**, both to the decimal. No published figure was
+wrong and nothing needs re-deriving.
+
+Two things worth keeping from it. First, a thin age join starves the aging model specifically,
+so a coverage shortfall shows up as a shrunken improvement rather than as an error, which is
+the kind of failure that looks like a finding. Second, and this is the standing part: **the
+rebuild tree has a silent dependency on a source file that is not in the repository and whose
+absence degrades results without failing anything.** The birthdate builder takes the Elite
+Prospects file when it exists and proceeds without it when it does not. It should say which
+coverage it achieved and refuse to proceed quietly at a materially lower one, in the same way
+the horizon and grid guards now refuse rather than default.
+
+**Still open, and unchanged by the above: every one of these figures is measured against the
+flat-carry benchmark, not the live chain.** The comparator finding stands in full.
+
+**2026-09-15b — the star residual is inverted, not repaired.** Measured against the live chain
+on development pages, production over-projects a three-win player by 0.68 wins a season and the
+rebuilt chain under-projects him by 0.57. The magnitude is 16% smaller and the sign has flipped.
+Under-projection is the safer direction for a surplus estimate on an expensive player, but any
+claim about star contracts still rests on a forecast wrong by more than half a win a season.
+Earlier reports describe this residual as an over-projection, which it no longer is. Do not add
+model flexibility to chase it without re-reading the sign first.
+
+**2026-09-15b — young players are where the rebuild does least.** Both chains under-project
+players 22 and under, production by 0.39 wins a season and the rebuilt chain by 0.25, and the
+rebuild's error advantage on that band is 2.6% against 53.8% at 34 and over. The negative-NPV
+finding on early extensions lives in exactly this population, and the direction of the error
+pushes against that finding rather than supporting it.
+
+**2026-09-15b — the below-replacement gain was an artifact, and is withdrawn.** The rebuild was
+reported as improving on production by 28.6% for below-replacement players. That figure came from
+a production adapter that multiplied negative anchors along a decay path, where locked decision
+D12 projects them to replacement. Against production's actual rule the improvement is 2.6%. Any
+claim that the rebuild fixes the pricing of below-replacement players should be treated as
+withdrawn until something re-establishes it.
+
+**2026-09-15b — on young players the rebuild is now slightly behind production.** Against the
+corrected comparator, players 22 and under show a 0.4% increase in mean absolute error, against
+the 2.4% improvement reported earlier. Both chains under-project that band, production by 0.34
+wins a season and the rebuilt chain by 0.25. This is the population the negative-NPV finding on
+early extensions lives in.
+
+**2026-09-15b — a general lesson worth keeping.** Two of the four P1 defects in the verification
+were the same mistake: reimplementing a production rule that could have been called. The adapter
+restated the anchor and the multiplier, and both restatements were wrong. Where a comparison
+against production is the point, call production.
+
+**2026-09-15b — dating the market at the signing costs the first two years of the sample.** A
+price line fitted only on earlier signings needs earlier signings to exist. The first quarter
+with enough of them is 2017-10-01, so 275 contracts signed before that cannot be priced at all,
+and every named illustration from 2016 is gone with them. This is the repair working rather than
+failing, and it is a real restriction on what the dollar side can speak about. Any future request
+to "get the 2016 cases back" is a request to reintroduce the look-ahead.
+
+**2026-09-15b — twice now a check has been written too close to the fix to fail on it.** Check 12
+asserted the two properties a broken adapter still had. The extrapolation invariance check kept
+horizon five in both of its requests, which was the one horizon that made the remaining defect
+invisible. Both passed while the defect stood. A check should be run against the code that
+preceded it before it is trusted, and where that is impossible it should be varied along the axis
+the fix acts on.
+
+**2026-09-15b — three passes running, a claim in prose outlived the code it described.** The
+comparator was called today's chain after it stopped being production's forecast; the adapter was
+said to import production's rules while it restated two of them; the named table said one price
+line while fitting two. Each time the code moved and the sentence stayed. The rule that follows:
+where a paragraph asserts a property of a calculation, name the check that holds that property in
+the paragraph, so the two are edited together or not at all.

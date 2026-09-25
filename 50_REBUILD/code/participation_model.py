@@ -61,7 +61,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 from player_season_table import norm_name
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.8"
 
 BASE_FEATURES = ["age", "age_sq", "level", "gp_share", "exp_seasons", "is_D"]
 CONTRACT_FEATURES = ["under_contract", "contract_unknown"]
@@ -125,6 +125,36 @@ def players_with_any_contract(spans: pd.DataFrame, as_of: pd.Timestamp) -> set:
 # ---------------------------------------------------------------------------
 # The model
 # ---------------------------------------------------------------------------
+# The order redundant columns are dropped in when a design is rank-deficient:
+# the least informative first. `contract_unknown` goes before `under_contract`
+# because when the two collide, "the export knows him" and "he is under
+# contract" are the same fact, and it is the contract that carries it.
+DROP_ORDER = ("contract_unknown", "under_contract", "exp_seasons", "is_D",
+              "age_sq", "gp_share", "level", "age")
+
+
+def _full_rank(d: pd.DataFrame, use: list) -> tuple[list, list]:
+    """Drop columns, in DROP_ORDER, until [1, X] has full column rank.
+
+    Deterministic by construction: the rank is computed once per candidate
+    set with a fixed tolerance and the order never depends on the data, so two
+    machines given the same rows make the same choice."""
+    use = list(use)
+    dropped = []
+
+    def rank_ok(cols):
+        X = np.column_stack([np.ones(len(d))] + [d[c].to_numpy(float) for c in cols])
+        return np.linalg.matrix_rank(X, tol=1e-8) == X.shape[1]
+
+    for c in DROP_ORDER:
+        if rank_ok(use):
+            break
+        if c in use:
+            use.remove(c)
+            dropped.append(c)
+    return use, dropped
+
+
 class ParticipationModel:
     """One logistic fit per horizon, rolling.
 
@@ -134,8 +164,47 @@ class ParticipationModel:
     regressor would force those two to share a slope on everything else.
     """
 
-    def __init__(self, contracts: pd.DataFrame | None = None):
+    def __init__(self, contracts: pd.DataFrame | None = None,
+                 exclude: tuple = (), contract_state: str = "as_known"):
+        """`exclude` removes features that cannot be used on a population.
+
+        The goalie branch excludes age, and the reason is the whole of why the
+        option exists. A goaltender's birthdate comes mostly from the contract
+        export, so having one means he was still in the league in the contract
+        era -- which is the outcome this model predicts. Among goalie anchors
+        WITH a birthdate the chance of playing three seasons later is 0.90;
+        WITHOUT one it is 0.26. A fit that drops the ageless rows learns from
+        survivors only and predicts about 0.90 at every horizon. Skaters have
+        98% coverage and do not need this; goaltenders have half.
+        """
         self.spans = contract_spans(contracts) if contracts is not None else None
+        self.exclude_ = tuple(exclude)
+        # WHAT THE CONTRACT COLUMNS MEAN. "as_known" (the default, unchanged):
+        # `under_contract` is a deal covering the season signed by the decision
+        # date, and `contract_unknown` is "the export has never heard of him".
+        #
+        # "observable": the export is a SNAPSHOT -- every contract in it ends
+        # in or after its earliest end year (2018 in this export), so a deal
+        # that ended before then is simply absent. On an early page, then, the
+        # players the export knows are the ones who went on to sign a deal
+        # running into the export's era: the survivors. Goalie anchors valued
+        # in 2015 and under a visible contract played 100% of the time three
+        # seasons later, against 47% for known-but-unsigned goaltenders on the
+        # 2020 page. "Known to the export" learned survival and was then
+        # applied to retired goaltenders. The "observable" definition states
+        # contract state only where the export CAN see it: a contract covering
+        # a season in or after the earliest end year must end in or after it,
+        # so it is in the export whether or not the player lasted. Before that
+        # season `contract_unknown` is 1 -- meaning "not observable", a
+        # property of the season, not of the player -- and `under_contract` is
+        # 0; from it on, `contract_unknown` is 0 and `under_contract` is true
+        # contract state. The whole-population "known to the export" signal is
+        # gone. Assumed: the vendor's snapshot is complete for contracts ending
+        # in or after its earliest end year.
+        assert contract_state in ("as_known", "observable"), contract_state
+        self.contract_state = contract_state
+        self.coverage_from_ = (int(self.spans["end_yr"].min())
+                               if self.spans is not None and len(self.spans) else None)
         # WITHOUT CONTRACT DATA THE TWO CONTRACT COLUMNS ARE CONSTANTS -- zero
         # and one for every row -- so `contract_unknown` is collinear with the
         # intercept and the logistic fit is singular. The first version passed
@@ -143,12 +212,14 @@ class ParticipationModel:
         # base rate for everyone. That is not "participation without contract
         # data", it is no participation model at all, and it silently turned a
         # contract ABLATION into a participation ablation.
-        self.features = list(BASE_FEATURES) + (
+        self.features = [f for f in list(BASE_FEATURES) + (
             list(CONTRACT_FEATURES) if self.spans is not None else [])
+            if f not in self.exclude_]
         self.coef_: dict = {}
         self.base_: dict = {}
         self.coverage_: dict = {}
         self.used_: dict = {}
+        self.rank_dropped_: dict = {}
 
     # -- features ----------------------------------------------------------
     def _rows(self, anchors: pd.DataFrame, h: int, as_of=None, table=None) -> pd.DataFrame:
@@ -178,11 +249,36 @@ class ParticipationModel:
         d["age"] = d["age"] - 27.0
 
         d["t0"] = anchors["t0"].to_numpy()
+        # THE DATE CONTRACT STATE IS READ AT. By default 1 July of each row's
+        # own valuation season, which is what every fit uses. A caller pricing
+        # a contract passes its SIGNING DATE instead: the goalie price runner
+        # first read contract state at 1 July, so a deal signed on 16 July was
+        # being priced by a model that could not see it -- Jon Gillies's 2018
+        # contract came out at 44% to play its first season where the state
+        # known at signing gives 93%. `as_of` may be one date or one per row;
+        # it is never allowed to be later than the decision being made, and
+        # that is the caller's contract to keep.
+        if as_of is None:
+            # A SUBJECT WITH NO ANCHOR has no valuation season, so no date to
+            # read contract state at. Callers reindex anchors by the requested
+            # subjects, and a player whose only usable season was removed comes
+            # through with t0 missing; `int(NaN)` used to raise here, before the
+            # caller could report him as unanswered. His date is NaT: the
+            # contract lookup below skips it (groupby drops a missing key), his
+            # features are missing, and `predict` returns the base rate for a row
+            # it cannot score -- the same thing it does for any other row with a
+            # missing feature. Whether he is ANSWERED is the rate half's question.
+            d["_asof"] = [pd.Timestamp(year=int(t), month=7, day=1) if np.isfinite(t)
+                          else pd.NaT for t in d["t0"].astype(float)]
+        elif np.ndim(as_of) == 0:
+            d["_asof"] = pd.Timestamp(as_of)
+        else:
+            d["_asof"] = pd.to_datetime(np.asarray(as_of))
         d["under_contract"] = 0.0
         d["contract_unknown"] = 1.0
         if self.spans is not None:
-            for t0, idx in d.groupby("t0").groups.items():
-                ts = pd.Timestamp(year=int(t0), month=7, day=1)
+            for ts, idx in d.groupby("_asof").groups.items():
+                ts = pd.Timestamp(ts)
                 blk = d.loc[idx]
                 uc = under_contract_at(self.spans, ts, sorted(blk["season"].unique()))
                 known = players_with_any_contract(self.spans, ts)
@@ -197,11 +293,14 @@ class ParticipationModel:
                 # "not under contract" would be a false statement, and it is
                 # concentrated in the early pages where coverage is thin.
                 d.loc[idx, "contract_unknown"] = (~blk["pkey"].isin(known)).astype(float).to_numpy()
+            if self.contract_state == "observable":
+                d["contract_unknown"] = (d["season"] < self.coverage_from_).astype(float)
             d.loc[d["contract_unknown"] > 0, "under_contract"] = 0.0
-        return d.drop(columns=["t0"])
+        return d.drop(columns=["t0", "_asof"])
 
     # -- fit ---------------------------------------------------------------
-    def fit(self, table: pd.DataFrame, before: int, anchors_fn, horizons=range(6)):
+    def fit(self, table: pd.DataFrame, before: int, anchors_fn,
+            horizons=C.FITTED_HORIZONS):
         """Fit on every (player, valuation season, horizon) whose OUTCOME
         season completed before `before`."""
         import statsmodels.api as sm
@@ -210,6 +309,10 @@ class ParticipationModel:
         act = table.set_index(["career_key", "syr"])["GP"]
         all_anchors = anchors_fn(played)
 
+        # Recorded so predict() can tell a horizon whose fit was attempted
+        # and failed, which falls back to the base rate on purpose and
+        # says so, from a horizon nobody ever fitted, which must refuse.
+        self.horizons_ = tuple(int(h) for h in horizons)
         for h in horizons:
             a = all_anchors[all_anchors["t0"] + h < before]
             if not len(a):
@@ -217,7 +320,11 @@ class ParticipationModel:
             d = self._rows(a, h)
             ix = pd.MultiIndex.from_arrays([d["career_key"], d["season"]])
             gp = act.reindex(ix).fillna(0.0).to_numpy()
-            d["y"] = (gp >= C.MIN_GP).astype(float)
+            # THE EVENT: did he play in the NHL at all that season. The
+            # anchors above still require MIN_GP, because that filter asks
+            # whether a PAST season is usable evidence, which is a different
+            # question from whether a FUTURE season happens.
+            d["y"] = (gp >= C.PARTICIPATION_GP).astype(float)
 
             d = d.replace([np.inf, -np.inf], np.nan).dropna(subset=self.features + ["y"])
             self.base_[h] = float(d["y"].mean()) if len(d) else 0.5
@@ -253,6 +360,21 @@ class ParticipationModel:
                     if lo < MIN_LEVEL_ROWS:
                         continue
                 use.append(f)
+            # A SINGULAR DESIGN IS NEVER HANDED TO THE OPTIMISER. When every
+            # player the contract export knows about is also under contract for
+            # the season, `under_contract` is exactly 1 - `contract_unknown`
+            # and the design loses a rank. What the regularised fit does then
+            # is not a property of the data: on the goalie pages it "converged"
+            # with an arbitrary split between the two columns on one fit
+            # (+6.88 against -3.99) and raised a singular-Hessian error on
+            # another, falling back to fewer features -- and which of those
+            # happens depends on floating-point details that differ between
+            # machines. That made an independent rerun disagree at exactly the
+            # horizons where the columns collide. So redundant columns are
+            # dropped here, in a FIXED order, until the design has full rank;
+            # a full-rank design is untouched.
+            use, dropped = _full_rank(d, use)
+            self.rank_dropped_[h] = dropped
             self.used_[h] = list(use)
             # A CASCADE, not a cliff. If the full design will not fit, try the
             # base features alone before giving up on the horizon entirely.
@@ -290,10 +412,58 @@ class ParticipationModel:
         return self
 
     # -- predict -----------------------------------------------------------
+    def status_last_horizon(self):
+        """The last fitted horizon whose fit carries `under_contract`, or None.
+
+        A contract column stays in a horizon's fit only where enough training
+        rows carry each value. Visible contract status exists only for seasons
+        from the export's coverage year, so on a development page it has
+        support for the first few horizons and not beyond; past this horizon
+        the fit is the no-contract one."""
+        hs = [h for h in sorted(self.coef_)
+              if self.coef_.get(h) is not None and "under_contract" in self.used_.get(h, [])]
+        return hs[-1] if hs else None
+
+    def predict_carried(self, anchors: pd.DataFrame, h: int, L: int,
+                        as_of=None) -> pd.Series:
+        """Horizon L's fit, with contract state read for the season h ahead.
+
+        The SENSITIVITY for horizons past contract status's support (h > L):
+        the player's row is built as at horizon L -- age, level, games share
+        and experience held where the last supported fit saw them, as
+        `predict_beyond_fit` holds the last fitted horizon -- and only the
+        contract columns are replaced by their values for season t0 + h, read
+        at `as_of`. The caller applies the decay per extra season. Returns
+        P(plays), indexed by career_key, clipped as `predict` clips."""
+        d = self._rows(anchors, L, as_of=as_of)
+        dh = self._rows(anchors, h, as_of=as_of)
+        for c in ("under_contract", "contract_unknown"):
+            d[c] = dh[c].to_numpy()
+        base = self.base_.get(L, 0.6)
+        coef = self.coef_.get(L)
+        if coef is None:
+            return pd.Series(base, index=d["career_key"])
+        use = self.used_.get(L, self.features)
+        X = np.column_stack([np.ones(len(d)), d[use].to_numpy(float)])
+        ok = np.isfinite(X).all(axis=1)
+        p = np.full(len(d), base)
+        p[ok] = 1.0 / (1.0 + np.exp(-np.clip(X[ok] @ coef, -30, 30)))
+        return pd.Series(np.clip(p, 0.005, 0.995), index=d["career_key"])
+
     def predict(self, anchors: pd.DataFrame, h: int, as_of=None) -> pd.Series:
         """P(plays a ten-game season), indexed by career_key. Contract state is
         dated from each row's own valuation season, as in the fit."""
-        d = self._rows(anchors, h)
+        # REFUSE a horizon that was never fitted. The old behaviour returned
+        # 0.6 for every player, because neither a coefficient nor a base rate
+        # was ever stored for such a horizon, and a flat 0.6 tail is what the
+        # market fits were reading for years seven and eight of a long deal.
+        if hasattr(self, "horizons_") and int(h) not in self.horizons_:
+            raise ValueError(
+                f"participation was asked for horizon {int(h)} but was fitted "
+                f"only to {sorted(self.horizons_)}. There is no coefficient "
+                "and no base rate for that horizon, so any number returned "
+                "here would be invented. Fit it, or declare an extrapolation.")
+        d = self._rows(anchors, h, as_of=as_of)
         base = self.base_.get(h, 0.6)
         coef = self.coef_.get(h)
         if coef is None:
