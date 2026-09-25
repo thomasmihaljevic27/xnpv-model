@@ -1888,3 +1888,36 @@ calibration and naming the metric behind a percentage.
 New `50_REBUILD/docs/Skater_Model_Decision.html`, a short page for the deferred choice between the
 current skater chain and the rebuilt model: the seven steps side by side, what each replaces, the
 corrected scorecard figures, limitations and options. Written from the scripts. No state change.
+
+### Change log, 2026-09-24 (Player decision guide)
+
+Created an illustrated HTML guide in 50_REBUILD/docs at Thomas's request for
+clearer explanation of the previous model's problems and the rebuild's
+responses. Three sections: paired flowcharts, five issue/response comparisons,
+and evidence/limits for the adoption decision. Uses the production-answerable
+samples (35,878 season rows; 1,111 ended contracts), distinguishes forecast
+accuracy from full-chain valuation validity, and retains goalie/RFA/snapshot
+limitations. Production and candidate mechanisms checked against code and the
+completed acceptance audit. Browser layout inspected; no horizontal overflow.
+Print styling supplied, physical print pagination not independently verified.
+No new statistical run, production change, or adoption decision. Project state
+and session record updated; existing explainers left unchanged.
+
+## Thesis scope discussion, 2026-09-24
+
+Thomas asked whether the Player Model work has become too complex for a
+Master's thesis, what a minimum viable project needs, and whether to retain
+existing machinery. Applied the installed council skill: five independent
+perspectives, five anonymous-response peer reviews, and root synthesis (batches
+under the three-worker limit). Advisory report and full transcript saved in
+50_REBUILD/docs/council-report-2026-09-24-thesis-scope.html and matching
+council-transcript file. No new empirical run or model adoption.
+
+Recommendation: freeze further player optimization; define a bounded complete
+cross-asset study and choose the player implementation on validity and remaining
+integration/documentation cost. Preserve all assets in included trade packages;
+do not silently omit rights or prospects. Common information dates, currency,
+control horizons, costs, and expectations remain necessary. Better development
+forecasts do not establish global superiority or trade mispricing. Actual
+submission deadline, coverage feasibility, and supervisor minimum remain to
+be established. No changes to locked scope, work queue, or adoption status.

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Player Model: what changed and why</title>
+<style>
+:root{--ink:#172c3a;--muted:#50616c;--old:#455c76;--new:#126b63;--line:#d7e0e5;--paper:#fff;--bg:#edf1f3}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.48 'Segoe UI',Arial,sans-serif}
+main{max-width:1000px;margin:30px auto}.page{background:var(--paper);padding:42px 48px;margin-bottom:24px;border:1px solid var(--line)}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--new);font-weight:700}h1{font-size:36px;line-height:1.12;letter-spacing:-.025em;margin:12px 0 17px;max-width:720px}h2{font-size:27px;line-height:1.2;margin:9px 0 18px}h3{font-size:18px;margin:0 0 7px}p{margin:0 0 14px}.intro{font-size:18px;line-height:1.48}.muted,small{color:var(--muted)}.note{border-left:4px solid var(--new);background:#eef6f4;padding:14px 18px;margin:18px 0}.note p:last-child{margin:0}
+.flow{display:grid;grid-template-columns:1fr 1fr;gap:0 24px;margin-top:23px}.head{padding:11px 16px;color:white;font-weight:700;border-radius:6px 6px 0 0}.old{background:var(--old)}.new{background:var(--new)}.step{border:1px solid var(--line);border-top:0;padding:12px 15px;background:#fafcfd}.step strong{display:block;font-size:16px;margin-bottom:3px}.step span{font-size:14px;display:block;line-height:1.42}.arrow{text-align:center;font-size:22px;line-height:28px;color:var(--muted)}.output{border:2px solid var(--old);padding:13px 15px;border-radius:0 0 6px 6px;font-size:15px}.output.rebuilt{border-color:var(--new)}.foot{font-size:12px;color:var(--muted);margin-top:22px;padding-top:10px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px}
+table{width:100%;border-collapse:collapse;margin:15px 0}th{text-align:left;background:#edf4f3;font-size:13px;padding:10px 12px}td{padding:14px 12px;border-bottom:1px solid var(--line);vertical-align:top;font-size:14px;line-height:1.43}th:first-child{width:21%}td strong{display:block;margin-bottom:5px}td p{margin:0}.limits{color:#775025;font-size:13px;margin-top:6px}.evidence th:first-child{width:42%}.evidence td{font-size:16px}.two{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:22px 0}.panel{padding:18px;background:#f4f7f8;border-top:3px solid var(--line)}ul{padding-left:20px;margin:8px 0 0}li{margin:7px 0}.sources{font-size:12px;line-height:1.5;color:var(--muted)}a{color:var(--new)}button{font:inherit;border:0;background:var(--new);color:white;border-radius:5px;padding:9px 15px;cursor:pointer}.toolbar{display:flex;justify-content:flex-end;margin-bottom:12px}
+@media(max-width:650px){main{margin:0}.page{padding:24px 18px}.flow{gap:0 10px}.step{padding:10px}.step span{font-size:13px}.two{grid-template-columns:1fr}h1{font-size:29px}td{padding:10px 7px} .toolbar{padding:12px}}
+@media print{@page{size:letter;margin:12mm}body{background:white;font-size:10pt;line-height:1.38}main{max-width:none;margin:0}.toolbar{display:none}.page{border:0;margin:0;padding:0;break-after:page}.page:last-child{break-after:auto}h1{font-size:27pt}h2{font-size:21pt}.intro{font-size:12pt}.step{padding:8px 12px}.step strong{font-size:11pt}.step span{font-size:10pt}.arrow{line-height:21px}.output{font-size:10pt}.flow{margin-top:15px}.foot,.sources{font-size:8pt}td{font-size:10pt;padding:11px 9px}.limits{font-size:9pt}.evidence td{font-size:11pt}.two{margin:15px 0}.panel{padding:12px}.note{padding:10px 13px}.page,th,.head,.note,.panel{-webkit-print-color-adjust:exact;print-color-adjust:exact}tr,.panel,.note{break-inside:avoid}}
+</style>
+</head>
+<body><main>
+<div class="toolbar"><button onclick="window.print()">Print this guide</button></div>
+<section class="page">
+<div class="eyebrow">Player Model decision guide · 24 September 2026</div>
+<h1>What changed in the rebuild,<br>and why it matters</h1>
+<p class="intro">Both models ask the same question: <strong>how much is a player's future production worth, after paying his contract?</strong> The rebuild changes how that production is forecast, how historical decisions are reconstructed, and how uncertainty enters the valuation.</p>
+<p>The previous model already includes aging, survival, and RFA rights. The rebuild replaces or revises those calculations. It does not simply add them to a model that ignored them.</p>
+<div class="flow" aria-label="Side-by-side flowcharts of the previous and rebuilt skater models">
+<div class="head old">Previous production model</div><div class="head new">Rebuilt candidate</div>
+<div class="step"><strong>1. Start from recent production</strong><span>Blend the two previous season WAR totals 60/40 when both qualify; otherwise use the available one. WAR measures wins above replacement.</span></div>
+<div class="step"><strong>1. Estimate ability and playing time</strong><span>Use up to three seasons to estimate repeatable performance. Estimate wins per 82 games separately from games played.</span></div>
+<div class="arrow" aria-hidden="true">↓</div><div class="arrow" aria-hidden="true">↓</div>
+<div class="step"><strong>2. Project through age</strong><span>Multiply the starting WAR by an aging path. This requires safeguards where the curve's starting value is near zero.</span></div>
+<div class="step"><strong>2. Forecast each future season</strong><span>Add the estimated age-related change. Combine performance, playing-time share, and the probability of appearing in the NHL.</span></div>
+<div class="arrow" aria-hidden="true">↓</div><div class="arrow" aria-hidden="true">↓</div>
+<div class="step"><strong>3. Convert production to dollars</strong><span>Use the locked production price relationship. Weight future production value by the chance the player remains in the NHL.</span></div>
+<div class="step"><strong>3. Draw possible careers and price them</strong><span>Allow good and bad seasons to persist, and players to leave and return. Price each path using contracts signed before the decision date.</span></div>
+<div class="arrow" aria-hidden="true">↓</div><div class="arrow" aria-hidden="true">↓</div>
+<div class="step"><strong>4. Subtract cost and add retained rights</strong><span>Discount future value and contract cost to the valuation date. Include production's separate RFA control-year calculation.</span></div>
+<div class="step"><strong>4. Subtract cost on each path</strong><span>Discount to signing and summarise the paths. The revised RFA rights calculation is reported separately from contract surplus.</span></div>
+<div class="arrow" aria-hidden="true">↓</div><div class="arrow" aria-hidden="true">↓</div>
+<div class="output"><strong>Output:</strong> one expected surplus-dollar value, with separate sensitivity calculations.</div>
+<div class="output rebuilt"><strong>Output:</strong> a point value, a simulated average, a range of outcomes, and a probability of negative surplus.</div>
+</div>
+<div class="note"><p><strong>Why split performance from participation?</strong> A player worth 2 wins over 82 games, expected to play half the schedule if active, with an 80% chance of playing at all, contributes <strong>2 × 0.5 × 0.8 = 0.8 expected wins</strong>. Absence is included once. This is an illustrative calculation, not a player estimate.</p></div>
+<div class="foot"><span>Flowcharts show the skater models. Goalies retain a separate branch.</span><span>1 / 3</span></div>
+</section>
+<section class="page">
+<div class="eyebrow">The problems and the responses</div>
+<h2>What the rebuild addresses</h2>
+<p>Some changes repair errors in historical valuation. Others replace forecasting choices or make the economic assumptions explicit. Those are different reasons to prefer a model.</p>
+<table>
+<thead><tr><th>Issue</th><th>Why it matters in the previous model</th><th>What the rebuild changes</th></tr></thead>
+<tbody>
+<tr><td><strong>Information from the future</strong></td><td>A historical forecast can use future seasons indirectly because the aging curve was fitted on the full panel. A contract's start year also need not be the year it was signed. A 2017 extension starting in 2019 must be valued using what was known in 2017.</td><td>Forecast fits use earlier seasons; price fits use earlier signings. Contract status is read at the decision date. Tests change future data and check that earlier answers stay fixed.<div class="limits">The skater contract-status input still assumes the vendor snapshot is complete for contracts ending from 2018.</div></td></tr>
+<tr><td><strong>Recent results are an imperfect ability estimate</strong></td><td>A season total combines skill, games played, and temporary good or bad performance. Multiplying that starting total through an aging curve can carry its noise into several future seasons.</td><td>Estimate performance and playing time separately, reduce reliance on noisy recent results, and add annual aging changes. The aging fit also adjusts for the fact that players who disappear leave no next-season performance to observe.<div class="limits">The adjustment does not eliminate selection problems. The rebuild still forecasts too much decline for stars.</div></td></tr>
+<tr><td><strong>A mean hides the downside and upside</strong></td><td>A single expected path cannot tell you how likely a bad contract outcome is. It also cannot fully represent rules such as a minimum price or the option to decline an RFA qualifying offer.</td><td>Simulate careers, allowing errors to persist across seasons, and value the paths separately. In the rights calculation, a club can stop qualifying a player using the history it has observed.<div class="limits">The simulation draws uncertainty in total season production, rather than separate skill and games shocks. Persistence and return assumptions are approximations.</div></td></tr>
+<tr><td><strong>RFA status can reveal a later decision</strong></td><td>Production treats an expiry label such as “UFA no QO” as zero retained rights. That can use the club's later decision to decline an offer to erase a right the club held at signing.</td><td>Establish the control window from eligibility, then model the decision to retain or release the player. Future offer rules are dated too.<div class="limits">The stopping policy approximates the best decision rule, and average salary can misstate the final-year qualifying offer.</div></td></tr>
+<tr><td><strong>The dollar scale needs an explicit meaning</strong></td><td>A price estimated from observed performance is not automatically the price of an uncertain forecast. Valuations also depend on whether securing several years is itself something the club is buying.</td><td>Fit prices to signing-date forecasts. The primary currency includes contract length; a version excluding length remains a sensitivity. Forecast and realised production are scored on the same price relationship.<div class="limits">This changes the economic comparison. It does not establish a universal dollar value for a win.</div></td></tr>
+</tbody></table>
+<div class="note"><p><strong>What “surplus” means here.</strong> A positive rebuilt value means the contract costs less than the estimated market price of a comparable production forecast. Because contracts supply the price scale, this is a comparison with market behaviour. It is not proof of team profit or proof that the market mispriced the player.</p></div>
+<div class="foot"><span>The revised RFA calculation remains separate from the reported contract surplus.</span><span>2 / 3</span></div>
+</section>
+<section class="page">
+<div class="eyebrow">Evidence for the choice</div>
+<h2>Better forecasts; a smaller gain in dollars</h2>
+<p>The cleanest comparison uses the same players and seasons that production can forecast. Rows requiring a substitute for production are excluded from the figures below.</p>
+<table class="evidence"><thead><tr><th>Mean absolute error, lower is better</th><th>Previous model</th><th>Rebuild</th></tr></thead><tbody>
+<tr><td>Season production, wins<br><small>35,878 player-season forecasts</small></td><td>0.563</td><td><strong>0.508</strong></td></tr>
+<tr><td>Contract production value, $M<br><small>1,111 ended contracts; point forecasts</small></td><td>1.854</td><td><strong>1.761</strong></td></tr>
+</tbody></table>
+<p>On these samples, the rebuild reduces average season error by about <strong>10%</strong> and average dollar error by about <strong>5%</strong>. The season improvement is consistent when players are repeatedly resampled. The dollar advantage is weaker, especially on a score that penalises large misses more heavily.</p>
+<p class="muted">The dollar test puts both forecasts and the realised outcomes through the same rebuilt price relationship. It tests forecast usefulness in one currency, rather than comparing two full valuation chains against different dollar targets.</p>
+<div class="two">
+<div class="panel"><h3>Reasons to prefer the candidate</h3><ul>
+<li>It performs better on the matched skater forecast sample.</li>
+<li>Historical inputs and model fits are tied more carefully to the decision date.</li>
+<li>It supplies a distribution of contract outcomes, which the thesis can use to describe risk.</li>
+</ul></div>
+<div class="panel"><h3>Reasons to keep qualifications</h3><ul>
+<li>Stars remain under-forecast at longer horizons.</li>
+<li>Uncertainty ranges pass tests across all contracts together, but can still miss too often for particular groups.</li>
+<li>The later 2022-2025 pages were inspected during development; they are not an untouched final test.</li>
+</ul></div>
+</div>
+<p><strong>Goalies require a narrower claim.</strong> Their rebuilt branch retains production's ability projector, uses participation without contract inputs, and allows a different goalie price level. It is a frozen sensitivity with recorded limitations; the skater improvement above does not establish a goalie improvement.</p>
+<p><strong>Large valuation changes need care.</strong> The two full chains disagree sharply on long contracts. That combines forecasting, pricing, and valuation-date differences. The comparison has not established how much each causes, or which full-chain value is correct.</p>
+<div class="note"><p><strong>The decision.</strong> The evidence supports carrying the rebuilt candidate into the later cross-asset comparison, while retaining the previous model and the rebuild without contract-status inputs as sensitivities. The Player Model candidate is complete with limitations recorded. Adopting it for the thesis remains a separate decision when Picks and Prospects work resumes.</p></div>
+<div class="sources"><strong>Basis and scope.</strong> Reviewed candidate <code>7b046a3</code>; independent acceptance review <code>57d0be8</code>. Figures and sample restrictions: <a href="Player_Acceptance_Closure_Review_Codex.md">Player acceptance closure review</a>. Mechanisms checked against production's projection, contract NPV, and RFA modules, and the candidate's production adapter, forecast, currency, and simulation modules. The 1,111-contract sensitivity retains the already fitted price line. The 48-check suite supports implementation correctness; it does not prove economic validity. No adoption or model change is made by this guide.</div>
+<div class="foot"><span>Player Model candidate complete · adoption deferred · picks and prospects separate</span><span>3 / 3</span></div>
+</section>
+</main></body></html>
