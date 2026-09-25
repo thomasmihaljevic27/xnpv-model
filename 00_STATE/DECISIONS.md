@@ -676,6 +676,26 @@ unsealed.
 
 ---
 
+**Change log, 2026-09-24b (overview, discounting added):** Took Thomas's edited
+overview .docx as the source and added the missing discounting step (3% per year,
+tied to assumed cap growth, as in `contract_npv.py`) to the player path, the page-1
+example, and the pick and prospect paths. PDF regenerated from the .docx; HTML source
+archived. CLAUDE.md gains a rule against dropping pipeline steps from simplified
+walkthroughs. No model, code, or decision change.
+
+**Change log, 2026-09-24b (overview, Word version):** Added
+`40_DOCS/Project_Overview_Plain_Language.docx`, an editable two-page Word copy of
+the plain-language overview (native tables for text and flow chart, chart as an
+image). Schema-validated and render-checked. Session log and PROJECT_STATE
+document list updated. No model, code, or decision change.
+
+**Change log, 2026-09-24b (plain-language overview):** Added
+`40_DOCS/Project_Overview_Plain_Language.pdf` and its HTML source: a two-page,
+non-specialist overview with the research question, asset classes, back-test
+aims, a three-path valuation flow chart with build status, and the draft curve.
+Mechanisms written from script docstrings; figures from the locked record. PROJECT_STATE
+document list and new session log updated. No model, code, or decision change.
+
 **Change log, 2026-09-23 (goalie participation comparison closure):** Verified
 `b02a851`; close attribution finding. Full 41-check suite passes; five season
 forecasts match prior audit; period-only dollars reproduce. Independent no-input

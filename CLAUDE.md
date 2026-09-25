@@ -214,6 +214,14 @@ Draft pillar:
   four groups equal *weights*; what each contributes to a given distance depends on how far apart
   the two players are on it. When a sentence is imprecise but true, the replacement must be
   checkable against the code the same way the original was. (Ported 2026-09-25, same branch.)
+
+- **Don't drop a step from a simplified walkthrough.** A plain-language or high-level
+  description of how a value is built still names every operation the code applies to that
+  number, in order. The first draft of the two-page overview (2026-09-24) listed the player
+  path's steps but left out discounting, although `contract_npv.py` shrinks each future
+  season by (1.03)^k. Simplify the wording, not the pipeline: walk the summation in the
+  implementing script and check each operation has a place in the text.
+
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised
