@@ -2061,3 +2061,10 @@ State files:
 
 D3 is revised as above. No other locked decision changed. The chain was not re-run here: it needs
 the contract export.
+
+### Change log, 2026-09-28d (age join re-run verified; wrong fuzzy birthdates found)
+
+`age_join.py` was re-run on the laptop and verified here against the previous table and the
+rule-built table (identical on all 17,112 aged rows). Found, pre-existing: Pass 2's fuzzy match
+gave 10 players another player's birthdate through a shared identifier (43 season rows, 25 with
+20+ games). Session log and WORK_QUEUE updated. No code, model or locked decision changed.
