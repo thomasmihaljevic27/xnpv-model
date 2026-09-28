@@ -102,7 +102,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C
 
-SCRIPT_VERSION = "1.4"
+SCRIPT_VERSION = "1.5"
 
 # Ages outside this band have too few seasons to fit a shape on; a player
 # beyond it takes the step at the nearest edge. Without the clamp the cubic
@@ -126,7 +126,9 @@ class AdditiveAging:
                  selection: str = "none", impute_level: float = 0.0,
                  impute_returners: bool = False, sample: str = "own",
                  level_knot: float | None = None, sustained: bool = False,
-                 recency_halflife: float | None = None):
+                 recency_halflife: float | None = None, degree: int = 3,
+                 age_lo: float = AGE_LO, age_hi: float = AGE_HI,
+                 pair_weight: str = "min_gp"):
         """level_mode:
              "lagged"  the player's rate one season before the change begins.
                        The default, and the only one that identifies aging
@@ -178,6 +180,21 @@ class AdditiveAging:
         # weights change. Declared 2026-09-24 as ONE sensitivity at H = 5
         # (a chosen value, not an estimated optimum; nothing searched).
         self.recency_halflife = None if recency_halflife is None else float(recency_halflife)
+        # THREE HAND-SET CHOICES, exposed so they can be scored (2026-09-28,
+        # run_aging_choices_test.py). The defaults are the recorded curve and
+        # reproduce it exactly (the runner asserts identical coefficients).
+        #   degree       the age polynomial: 3 (cubic) as recorded; 2 or 4 to test.
+        #   age_lo/hi    the band outside which a player takes the step at the
+        #                nearest edge (19 and 39 as recorded).
+        #   pair_weight  "min_gp": each pair weighted by the smaller of its two
+        #                seasons' games, as recorded; "equal": every pair once.
+        #                Imputed departures carry their season-t games under
+        #                "min_gp" and 1 under "equal".
+        assert degree in (1, 2, 3, 4), degree
+        assert pair_weight in ("min_gp", "equal"), pair_weight
+        assert age_lo < CENTRE < age_hi, (age_lo, age_hi)
+        self.degree, self.age_lo, self.age_hi = int(degree), float(age_lo), float(age_hi)
+        self.pair_weight = pair_weight
         assert not (self.sustained and level_mode != "lagged"), "sustained needs the lagged level"
         self.selection = selection
         self.retention_ = None
@@ -204,8 +221,9 @@ class AdditiveAging:
 
     # -- design ------------------------------------------------------------
     def _design(self, age, level, is_d, exp, sus=None) -> np.ndarray:
-        a = np.clip(np.asarray(age, dtype=float), AGE_LO, AGE_HI) - CENTRE
-        cols = [np.ones_like(a), a, a ** 2, a ** 3, np.asarray(is_d, dtype=float)]
+        a = np.clip(np.asarray(age, dtype=float), self.age_lo, self.age_hi) - CENTRE
+        cols = ([np.ones_like(a)] + [a ** k for k in range(1, self.degree + 1)]
+                + [np.asarray(is_d, dtype=float)])
         if self.use_level:
             lv = np.asarray(level, dtype=float)
             # level, and level interacted with age: the "more to lose" effect
@@ -297,6 +315,10 @@ class AdditiveAging:
                 w_extra = miss["GP"].to_numpy(float)
                 self.n_imputed_ = len(miss)
         w = np.minimum(p["GP"].to_numpy(float), p["GP_n"].to_numpy(float))
+        if self.pair_weight == "equal":
+            w = np.ones_like(w)
+            if self.selection == "impute" and getattr(self, "n_imputed_", 0):
+                w_extra = np.ones_like(w_extra)
         if self.selection == "impute" and getattr(self, "n_imputed_", 0):
             w = np.concatenate([w, w_extra])
 
