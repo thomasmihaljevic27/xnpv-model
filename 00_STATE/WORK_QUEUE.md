@@ -1,5 +1,25 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
+**Draft and prospect pillars, 2026-09-28k: ready to resume on decided designs.** Plans rewritten:
+`01_Draft_Model_Sequence.md`, `02_Prospect_Model_Sequence.md`. Next, in order, when this work resumes:
+1. **Laptop / this machine: run the Elite Prospects pull**, `python 20_CODE/ep_extract.py` (v3.0; 34
+   leagues from 2006-07; 10-14 hours, restartable). Then `python 20_CODE/ep_nhl_bridge.py` again, so
+   the bridge checks birthdates as well as names. Do not run `sync.ps1` mid-pull (the cache is under
+   `30_OUTPUT/`, gitignored, but the run holds the database open).
+2. **Draft: the break test for the bands (D29)**, compared against a smooth decreasing fit on the same
+   held-out draft classes. Then re-run `future_pick_premium.py` on the new curve and re-examine the 6
+   unexplained unbalanced bundles.
+3. **Draft: hand-code the 161 conditional-pick rows** into year and round (D31: conditions met).
+4. **Decide** the future-pick premium (options in 01, step 3) and confirm D30's reading (last draft
+   held, not in-season standings).
+5. **Goalie birthdates** from the NHL stats API goalie-bios endpoint (96 of the 98 missing found,
+   tested), then the goalie exit hazard on pre-valuation seasons.
+6. **Resolve two id exceptions** before the bridge is used: Nick Henry (PuckPedia's NHL id looks
+   wrong) and Tyler Vesel (two EP profiles).
+Deferred: the player-model choice, to the next supervisor meeting (with further tweaks, and the
+player-comparables model or the regression approach). Dropped: the Docs 1-5 read-through and
+page-layout check.
+
 **Aging, 2026-09-28c: both earlier items decided and coded; three open.**
 (1) LAPTOP RE-RUN: DONE 2026-09-28 -- the player chain ran on the revised code (counts and guards as recorded; NPV p10 -7.80 to -8.10). `age_join.py` DONE and verified 2026-09-28 (1,276 EP matches, 99.9% of rows).
 The 10 sibling/namesake birthdates are corrected in `age_join.py` Pass 5 (hand-verified by Thomas),
@@ -1591,7 +1611,7 @@ v2.9 updated the median/p10/panel figures but not the contract total. Inputs all
 git tree clean, so the pipeline is sound. Rebuilt draft curve also reproduced this session
 (matches to the cent). See the Change log v3.1 entry.
 
-**Editorial update (2026-09-09).** Doc 1 has a new 1370-word draft incorporating the user-provided editorial feedback at `40_DOCS/Doc_1_Circularity_and_Game_Value.docx`. User reading and visual pagination verification remain; broader repository-review work is deferred for now.
+**Editorial update (2026-09-09).** Doc 1 has a new 1370-word draft incorporating the user-provided editorial feedback at `40_DOCS/Doc_1_Circularity_and_Game_Value.docx`. User reading and visual pagination verification remain; broader repository-review work is deferred for now. **[DROPPED 2026-09-28: the Docs 1-5 read-through and page-layout check is long overtaken (Thomas).]**
 
 **SECOND (2026-08-28, consolidated 2026-09-09) — DONE 2026-09-09.** Write the five explainer
 documents per `Explainer_Document_Plan.docx`. All five drafted and placed in `40_DOCS/`:
@@ -1600,11 +1620,11 @@ documents per `Explainer_Document_Plan.docx`. All five drafted and placed in `40
 `Doc_5_Cross_Cutting.docx`. Written in the humanizer voice, each section carrying its four
 required elements (how it works, why built that way, what it doesn't do, what's untested).
 See the Change log v3.5 entry for sourcing and the open items each document surfaced.
-Docs 2-5 were rewritten and checked against implementing code on 2026-09-09 at the user's request (see `sessions/2026-09-09f.md`). Text and core WordprocessingML schema checks pass. User reading and visual pagination verification remain; rendering is unavailable in the current runtime. No model changes or queue reordering resulted.
+Docs 2-5 were rewritten and checked against implementing code on 2026-09-09 at the user's request (see `sessions/2026-09-09f.md`). Text and core WordprocessingML schema checks pass. User reading and visual pagination verification remain; rendering is unavailable in the current runtime. No model changes or queue reordering resulted. **[DROPPED 2026-09-28: the Docs 1-5 read-through and page-layout check is long overtaken (Thomas).]**
 
-**Subsequent user correction:** that pass cut too much explanation for the supervisor. Fuller review copies now live in `40_DOCS/Supervisor_Drafts/` under the same filenames. These are the Docs 2-5 versions for the next read-through; see `sessions/2026-09-09g.md`. Preserve full explanations when removing AI prose. Qualifying-offer effective-date review added to flags, without changing the model or queue order.
+**Subsequent user correction:** that pass cut too much explanation for the supervisor. Fuller review copies now live in `40_DOCS/Supervisor_Drafts/` under the same filenames. These are the Docs 2-5 versions for the next read-through; see `sessions/2026-09-09g.md`. Preserve full explanations when removing AI prose. Qualifying-offer effective-date review added to flags, without changing the model or queue order. **[DROPPED 2026-09-28: the Docs 1-5 read-through and page-layout check is long overtaken (Thomas).]**
 
-**Doc 2 annotations addressed 2026-09-10:** Section 3 now explains the aging calculation step by step with defined inputs and one worked example; other edits in the user's Downloads copy are preserved. Latest review copy remains in `Supervisor_Drafts`. User read-through and unavailable visual pagination check remain. See `sessions/2026-09-10.md`.
+**Doc 2 annotations addressed 2026-09-10:** Section 3 now explains the aging calculation step by step with defined inputs and one worked example; other edits in the user's Downloads copy are preserved. Latest review copy remains in `Supervisor_Drafts`. User read-through and unavailable visual pagination check remain. See `sessions/2026-09-10.md`. **[DROPPED 2026-09-28: the Docs 1-5 read-through and page-layout check is long overtaken (Thomas).]**
 
 **Second annotation pass (2026-09-10b):** comments 2-6 edited; similarity weighting explained in chat for the user's own rewrite, with that paragraph unchanged. Projection safeguards and exit-model explanation clarified. See `sessions/2026-09-10b.md`.
 
@@ -1627,8 +1647,8 @@ Reproducible on both machines (Thomas's local run matches: `[1a] max diff $0.00`
 
 **Phase 3 — remaining pillars, re-ordered**
 - 3a (steps 1-2). Draft-pick yield curve — **CLOSED 2026-07-19 (D22-D27).** Linkage (draft_pick_linkage.py v1.1: 4,765 picks, guarded ID+name resolution) and curve (draft_yield_curve.py v1.1: cap-share surplus over D+1..D+9, cohorts 2007-2017, Rule A canonical) built and reproduced locally. Outputs: draft_pick_linkage.csv, draft_pick_outcomes.csv, draft_yield_curve.csv.
-- 3a (step 3). **Price actual traded picks through the locked curve — NEXT.** Design batch owed before build: (1) future-pick discount premium (deferred flag comes due — premium may cover only arrival delay + team-identity uncertainty, never bust risk twice, Karl-sensitive), (2) unknown-slot convention, (3) conditional/protected picks. Also closed en route: the old 4d linkage task (done as step 1; raw ID coverage 99.9%, the recorded 94% was the spine-join rate).
-- 3b. Elite Prospects production pull (verify slug crosswalk first). Now SECOND.
+- 3a (step 3). **[2026-09-28: design batch answered by D29-D31 except the future-pick premium; see the top entry and `01_Draft_Model_Sequence.md`.]** **Price actual traded picks through the locked curve — NEXT.** Design batch owed before build: (1) future-pick discount premium (deferred flag comes due — premium may cover only arrival delay + team-identity uncertainty, never bust risk twice, Karl-sensitive), (2) unknown-slot convention, (3) conditional/protected picks. Also closed en route: the old 4d linkage task (done as step 1; raw ID coverage 99.9%, the recorded 94% was the spine-join rate).
+- 3b. Elite Prospects production pull (verify slug crosswalk first). Now SECOND. **[2026-09-28: crosswalk verified; `ep_extract.py` v3.0 widened to 34 leagues from 2006-07; draft pass run; full pull owed. See the 2026-09-28k entry at the top.]**
 
 **Phase 4 — back-test engine (folds in old P4, P5, P7)**
 - 4a-i. Game-level model chain (scraper -> on-ice -> xG -> score state -> metric assembly). **[CLOSED 2026-07-03]** — see Game-Level Model section below.
@@ -1651,11 +1671,11 @@ Reproducible on both machines (Thomas's local run matches: `[1a] max diff $0.00`
 
 **Review follow-ups (2026-09-09, not a queue reorder).** Assess the Rule B defence-cost slope mismatch and aging global self-inclusion described in `40_DOCS/Repository_Review_and_Doc_1_Edits.md`; review the proposed Doc 1 passages and the signed allocation rule. A change to the locked surplus-ratio statistic requires a deliberate revisit. No code or model changes made in this review.
 
-**Doc 2/5 review completed (2026-09-10d):** Agreed corrections applied to supervisor copies; user read-through and visual pagination remain. Source-description follow-up: aging_split_sample.py advertises a fitted-profile comparison that main() does not implement. Its published 0/16 and 1/16 counts concern observed within-player deltas only. No new test or production change in this session.
+**Doc 2/5 review completed (2026-09-10d):** Agreed corrections applied to supervisor copies; user read-through and visual pagination remain. Source-description follow-up: aging_split_sample.py advertises a fitted-profile comparison that main() does not implement. Its published 0/16 and 1/16 counts concern observed within-player deltas only. No new test or production change in this session. **[DROPPED 2026-09-28: the Docs 1-5 read-through and page-layout check is long overtaken (Thomas).]**
 
-- **2026-09-10e Doc 2 formatting:** User-edited Downloads copy incorporated into Supervisor_Drafts with consistent fonts, heading hierarchy, and spacing. Text preserved exactly; core checks pass; visual pagination remains unverified. See `sessions/2026-09-10e.md`.
+- **2026-09-10e Doc 2 formatting:** User-edited Downloads copy incorporated into Supervisor_Drafts with consistent fonts, heading hierarchy, and spacing. Text preserved exactly; core checks pass; visual pagination remains unverified. See `sessions/2026-09-10e.md`. **[DROPPED 2026-09-28: the Docs 1-5 read-through and page-layout check is long overtaken (Thomas).]**
 
-- **2026-09-10f:** Supervisor Docs 3-5 edits complete; user read-through and visual pagination remain. Review the effect of terminal qualification probabilities restarting at one without signed-contract survival carried into control years. Existing QO timing and Rule B slope issues remain open.
+- **2026-09-10f:** Supervisor Docs 3-5 edits complete; user read-through and visual pagination remain. Review the effect of terminal qualification probabilities restarting at one without signed-contract survival carried into control years. Existing QO timing and Rule B slope issues remain open. **[DROPPED 2026-09-28: the Docs 1-5 read-through and page-layout check is long overtaken (Thomas).]**
 
 **Rebuild repair sequence (opened 2026-09-15b, after the independent review and the response to it).**
 Agreed order, with the holdout item pulled forward at the reviewer's request. Items 1 and 2 are

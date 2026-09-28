@@ -1304,6 +1304,35 @@ scored. Review artifacts and state are committed together under the session-clos
 - **Identification.** Gated strictly on the information date; no realized outcome enters. **Not gated:** the active contract's own signing date, so a deal signed in August for season t0 is on the t0 page from July 1 (flagged in STANDING_FLAGS).
 - **For Phase 4.** Score each traded player at `npv(pid, t0, as_of=trade_date)`.
 
+**D29-D32 (decided 2026-09-28, Thomas) — draft and prospect design, taken ahead of resuming so
+the build starts without a decision round.** Not yet built unless stated.
+
+- **D29 — the curve's bands are set by a structural-break test.** The bands were a code constant
+  (`BUCKETS`, `draft_yield_curve.py` line 192), not part of D22-D27, so this is a build step, not
+  a reopen. Design notes in `01_Draft_Model_Sequence.md` step 2: draft classes are the unit of
+  evidence; the fitted levels must decrease; and any step curve still prices a trade-down inside
+  one band at zero, so compare against a smooth decreasing fit on the same held-out classes
+  before choosing.
+- **D30 — a pick with no known number is priced at its original team's own slot in the last
+  draft held before the trade.** Example: a team that picked 20th in 2025 and trades its 2026
+  first gives up an assumed 20th. The team's first-round position is applied to every round
+  (second round if it had no first; mid-round if neither). The original team is the first code
+  in the NHL record's `teamPickHistory`. A number counts as known from three days before its
+  draft, and only then is the export's `overall_position` read. Built: `slot_curve.py` v2.0.
+  Open detail: in-season standings on the trade date as the alternative reading of "where the
+  team is that day".
+- **D31 — conditional picks are assumed to meet their conditions**, conveying as described in
+  their conditional form. The export's condition flags are as of the export date and are not
+  read. 161 pick rows carry condition text to hand-code.
+- **D32 — the Elite Prospects pull is widened for the fitting sample:** 34 leagues (was 12), every
+  one with era-varying NHLe factors and a regular route to the draft or the NHL at 16-22, from
+  2006-07 (was 2010-11). Built: `ep_extract.py` v3.0; the draft pass has run (4,765 picks).
+- **Not decided:** the future-pick premium (options in `01_Draft_Model_Sequence.md` step 3);
+  the EP-to-NHL id bridge is a tested proposal (`ep_nhl_bridge.py`), not adopted.
+- **Deferred:** the player-model choice (rebuilt skater model or the current chain) waits for
+  the next supervisor meeting, alongside further tweaks and whether to pursue the
+  player-comparables model or the regression approach.
+
 ---
 
 ## Change log (state files)
@@ -2133,3 +2162,29 @@ the session log. No code or decision change.
 `40_DOCS/Model_Changes_September_2026.md`. The day's branch is merged into `main`. PROJECT_STATE,
 STANDING_FLAGS, WORK_QUEUE and the session log are updated. No locked decision changed beyond the
 D3 and D18 revisions already recorded.
+
+### Change log, 2026-09-28k (stock-take; draft and prospect decisions; EP pull widened; documentation)
+
+Session `sessions/2026-09-28b.md`. Decisions D29-D32 recorded above (break-test bands; own-slot
+convention for unknown picks; conditional picks convey; EP pull widened); future-pick premium left
+open; player-model choice deferred to the next supervisor meeting.
+
+Code:
+- `ep_extract.py` v3.0: 34 leagues, seasons from 2006-07, a draft pass, bios for drafted players;
+  prints SCRIPT_VERSION. Draft pass run (4,765 picks).
+- New `ep_nhl_bridge.py` v1.0: EP id to NHL id by draft slot plus PuckPedia pairs; 2,232 of 2,233
+  agree. Proposal, not adopted.
+- Recreated `slot_curve.py` v2.0 and `future_pick_premium.py` v2.0 (July versions not found
+  anywhere). The sample reproduces 119/56/39/35/17; per-trade values and the 0.735 correlation do
+  not.
+- `skater_forward_projection.py`: comment only (the superseded rate at the top of the file was
+  labelled "locked"). No behaviour change.
+
+Verified, no change: the draft linkage and curve re-run to identical hashes.
+
+Documents: `01_Draft_Model_Sequence.md` and `02_Prospect_Model_Sequence.md` rewritten. CLAUDE.md:
+the stale skater rate replaced; two rules added. PROJECT_STATE refresh: Generated moved to
+2026-09-28; inventory and pending list reconciled; Docs 1-5 read-through and pagination items
+dropped (Thomas: long overtaken). STANDING_FLAGS: goalie birthdate count corrected (98 missing,
+not 109), with a tested NHL API route; PuckPedia's Nick Henry id; Tyler Vesel's duplicate EP
+profile. WORK_QUEUE: new top entry. MANIFEST.csv: new and changed tracked files.

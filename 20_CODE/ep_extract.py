@@ -1,6 +1,26 @@
 """
-ep_extract.py (v2) — Elite Prospects production + bio extraction for the
+ep_extract.py (v3) — Elite Prospects production + bio extraction for the
 non-roster pillar, with a trade-asset filter on the bio pass.
+
+v3 (2026-09-28), three changes, each for the prospect model's fitting sample
+rather than just the traded prospects:
+  (a) LEAGUES widened from 12 to 34. The added leagues are every league in
+      nhle_temporal.csv that is a regular route to the draft or to the NHL at
+      ages 16-22 (Russian, Swedish, Finnish, Czech and Slovak second tiers and
+      junior leagues, the US national development program, Canadian junior A,
+      US high school and prep, the NAHL and the ECHL). Every added slug was
+      checked to load on EP on 2026-09-28. A league with no NHLe factor is
+      useless to the model, so none was added.
+  (b) Seasons now start in 2006-07 (was 2010-11). The draft curve fits the
+      2007-2017 classes; a 2007 draftee's draft season is 2006-07, and
+      nhle_temporal.csv starts there too. Stopping at 2010 would have left
+      the four oldest fitting classes without their junior seasons.
+  (c) A DRAFT PASS reads EP's NHL Entry Draft page for each year (one page
+      per draft lists every pick with its EP player id) into
+      ep_draft_selections. That table is the EP side of the EP-to-NHL id
+      bridge (ep_nhl_bridge.py joins it to the NHL Records draft on draft
+      year + overall pick). The bio pass now also covers every drafted player
+      by default, so the bridge can check birthdates, not just names.
 
 Pulls junior / college / European / minor-league production and player bios
 (including draft slot) via Patrick Bacon's TopDownHockey_Scraper package, and
@@ -36,20 +56,29 @@ Design principles (matching the project's standing rules):
                     Never classify historical roster status from them.
 
 Usage:
-    pip install TopDownHockey_Scraper pandas openpyxl
-    python ep_extract.py                    # full run
-    python ep_extract.py --bio-only         # only fill missing bios
-    python ep_extract.py --no-asset-filter  # bios for ALL scraped players
-                                            # (the v1 behavior; very slow)
+    pip install TopDownHockey_Scraper pandas openpyxl beautifulsoup4
+    python 20_CODE/ep_extract.py                    # full run: draft, production, bios
+    python 20_CODE/ep_extract.py --draft-only       # only the draft pages (~22 requests)
+    python 20_CODE/ep_extract.py --bio-only         # only fill missing bios
+    python 20_CODE/ep_extract.py --bio-scope assets # bios for trade assets only (v2 scope)
+    python 20_CODE/ep_extract.py --no-asset-filter  # bios for ALL scraped players
+                                                    # (the v1 behavior; very slow)
 
-Outputs:
-    ep_cache/             raw per-(league, season) CSVs (provenance archive)
-    ep_prospects.db       SQLite database, three tables:
+Run time (v3 full run): 34 leagues x 20 seasons x 2 player types is 1,360
+league-season pulls, each several pages, with 15 s between pulls: plan on
+10-14 hours. Every pull is cached, so it can be stopped and restarted freely.
+
+Outputs (under OUTPUT_DIR/ep_out/):
+    ep_cache/             raw per-(league, season) CSVs and per-year draft
+                          pages (provenance archive)
+    ep_prospects.db       SQLite database, four tables:
         ep_skater_seasons   one row per skater-league-season-team
         ep_goalie_seasons   one row per goalie-league-season-team
         ep_player_bio       one row per player, keyed by ep_player_id, with
                             the draft string parsed into draft_year /
                             draft_round / draft_overall / draft_team
+        ep_draft_selections one row per NHL Entry Draft pick on EP: draft_year,
+                            draft_round, draft_overall, team, ep_player_id
 """
 
 import argparse
@@ -61,11 +90,15 @@ import sys
 import time
 
 import pandas as pd
+import requests
+from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 
 load_dotenv()
 
 import TopDownHockey_Scraper.TopDownHockey_EliteProspects_Scraper as tdhepscrape
+
+SCRIPT_VERSION = "3.0"   # printed on every run (stale-file guard)
 
 try:
     from importlib.metadata import version as _pkg_version
@@ -84,7 +117,18 @@ except Exception:
 # Cross-check against the league list in nhle_temporal.csv. After the first
 # full run, the audit lists trade-asset players with no production rows —
 # their development leagues are the candidates to add here.
+# Rule for inclusion (v3): the league has era-varying factors in
+# nhle_temporal.csv AND it is a regular route to the draft or the NHL for
+# players aged 16-22. Every slug below matches a league name in
+# nhle_temporal.csv exactly, so production joins to its factor with no
+# crosswalk. Leagues deliberately left out: under-18 and younger levels
+# (factors of 0.03 or less, and the draft-season line is what the model reads),
+# and small European pro leagues (Denmark, Norway, Belarus, France, Austria's
+# second tier, Germany's DEL2) that send almost no one to the draft. The
+# post-run audit lists trade assets with no production rows; if a pattern
+# shows up there, add that league.
 LEAGUES = [
+    # --- v2 leagues (unchanged) ---
     "ohl", "whl", "qmjhl",        # Canadian major junior (CHL)
     "ushl",                        # US junior
     "ncaa",                        # US college
@@ -93,15 +137,43 @@ LEAGUES = [
     "nl",                          # Swiss National League (EP slug is "nl", not "nla")
     "del",                         # Germany
     "czechia",                     # Czech Extraliga (EP renamed the slug from "extraliga")
+    # --- added v3: European second tiers, where drafted Europeans play at 18-21 ---
+    "vhl",                         # Russia second tier (2010-11 onward)
+    "russia2",                     # Russia second tier before the VHL (2006-07 to 2013-14 on EP)
+    "hockeyallsvenskan",           # Sweden second tier
+    "mestis",                      # Finland second tier
+    "czechia2",                    # Czech second tier
+    "slovakia",                    # Slovak top league
+    "sl",                          # Swiss League (second tier)
+    "icehl",                       # Austrian-based ICE league
+    # --- added v3: European junior leagues (the draft season for most Europeans) ---
+    "mhl",                         # Russia junior (2009-10 onward)
+    "u20-nationell",               # Sweden J20
+    "u20-sm-sarja",                # Finland U20
+    "czechia-u20",                 # Czech U20 (EP has no 2019-20 table; skipped cleanly)
+    # --- added v3: North American development routes ---
+    "ntdp",                        # US National Team Development Program
+    "bchl", "ajhl", "ojhl", "cchl", "sjhl",   # Canadian junior A
+    "nahl",                        # US tier-2 junior
+    "ushs-mn", "ushs-prep",       # US high school: Minnesota, prep schools
+    "echl",                        # pro feeder below the AHL
 ]
 
 # --- 2. Seasons ---------------------------------------------------------------
-# Back-test starts 2018; prospects moved in 2018+ trades were drafted roughly
-# 2011 onward, and the pedigree layer needs D-1 through D+2 seasons, so
-# production reaches back to 2010-11.
-FIRST_SEASON_START = 2010
+# v3: 2006-07 onward. The draft curve fits the 2007-2017 classes, and the
+# prospect model's fade rate has to be estimated on those finished careers,
+# so their draft seasons (D-0 = 2006-07 for the 2007 class) must be in hand.
+# nhle_temporal.csv starts in 2006-07 as well, so earlier seasons could not
+# be converted anyway. (v2 started at 2010-11, enough for the traded
+# prospects but not for the fitting sample.)
+FIRST_SEASON_START = 2006
 LAST_SEASON_START = 2025
 SEASONS = [f"{y}-{y+1}" for y in range(FIRST_SEASON_START, LAST_SEASON_START + 1)]
+
+# --- 2b. Draft years for the draft pass -----------------------------------------
+# Matches draft_pick_linkage.csv (NHL Records, 2005-2026).
+DRAFT_YEARS = list(range(2005, 2027))
+SLEEP_BETWEEN_DRAFT_PAGES = 5      # seconds
 
 # --- 3. Paths (from .env; see .env.example) ----------------------------------
 EP_OUT_DIR = os.path.join(os.environ["OUTPUT_DIR"], "ep_out")   # generated EP subtree
@@ -305,6 +377,123 @@ def run_production_pass(conn: sqlite3.Connection) -> None:
 
 
 # =============================================================================
+# Draft pass (v3): one EP page per NHL Entry Draft -> ep_draft_selections
+# =============================================================================
+#
+# Page layout (checked 2026-09-28 on the 2015 draft): a single <table> whose
+# rows are either a round header ("Round 1") or a pick: "#<overall>", a
+# /team/ link, a /player/<ep_id>/ link with text "Name ( F )", then career
+# NHL totals. The career totals are NOT stored: they are as of the scrape and
+# would leak later seasons into anything that read them.
+#
+# The page is cached as raw HTML, so a parser fix never needs a re-scrape.
+
+OVERALL_PATTERN = re.compile(r"^#\s*(\d+)$")
+ROUND_PATTERN = re.compile(r"^Round\s+(\d+)$", re.IGNORECASE)
+POS_PATTERN = re.compile(r"^(?P<name>.*?)\s*\(\s*(?P<pos>[^)]*)\)\s*$")
+
+
+def fetch_draft_page(year: int) -> str | None:
+    """Return the EP draft page HTML for one year, from cache or the web."""
+    cache_file = os.path.join(CACHE_DIR, f"draft_nhl-entry-draft_{year}.html")
+    if os.path.exists(cache_file):
+        print(f"  [cache] draft {year}")
+        with open(cache_file, encoding="utf-8") as f:
+            return f.read()
+    url = f"https://www.eliteprospects.com/draft/nhl-entry-draft/{year}"
+    print(f"  [scrape] draft {year}")
+    for attempt in range(3):
+        resp = requests.get(url, timeout=120)
+        if resp.status_code == 200:
+            break
+        print(f"  !! HTTP {resp.status_code} on {url}; sleeping 100 s")
+        time.sleep(100)
+    else:
+        return None
+    with open(cache_file, "w", encoding="utf-8") as f:
+        f.write(resp.text)
+    time.sleep(SLEEP_BETWEEN_DRAFT_PAGES)
+    return resp.text
+
+
+def parse_draft_page(html: str, year: int) -> pd.DataFrame:
+    """One row per pick. A pick with no player link (forfeited or void) is
+    kept with ep_player_id = NULL so the slot count still reconciles."""
+    soup = BeautifulSoup(html, "html.parser")
+    rows, current_round = [], None
+    for tr in soup.find_all("tr"):
+        cells = [c.get_text(" ", strip=True) for c in tr.find_all(["td", "th"])]
+        if not cells:
+            continue
+        m_round = ROUND_PATTERN.match(cells[0])
+        if m_round and len(cells) == 1:
+            current_round = int(m_round.group(1))
+            continue
+        m_overall = OVERALL_PATTERN.match(cells[0])
+        if not m_overall:
+            continue                              # the header row
+        player_link = next((a["href"] for a in tr.find_all("a", href=True)
+                            if "/player/" in a["href"]), None)
+        team_link = next((a for a in tr.find_all("a", href=True)
+                          if "/team/" in a["href"]), None)
+        player_text = cells[2] if len(cells) > 2 else ""
+        m_pos = POS_PATTERN.match(player_text)
+        rows.append({
+            "draft_year": year,
+            "draft_round": current_round,
+            "draft_overall": int(m_overall.group(1)),
+            "draft_team": team_link.get_text(" ", strip=True) if team_link else None,
+            "ep_player_id": extract_ep_id(player_link),
+            "player_name_ep": (m_pos.group("name") if m_pos else player_text) or None,
+            "position_ep": m_pos.group("pos").strip() if m_pos else None,
+            "link": player_link,
+        })
+    return pd.DataFrame(rows)
+
+
+def run_draft_pass(conn: sqlite3.Connection) -> None:
+    print("\n=== Draft pass: NHL Entry Draft pages ===")
+    for year in DRAFT_YEARS:
+        html = fetch_draft_page(year)
+        if html is None:
+            print(f"  !! draft {year}: no page; skipped")
+            continue
+        df = parse_draft_page(html, year)
+        if df.empty:
+            print(f"  !! draft {year}: page parsed to 0 picks -- layout change? "
+                  f"Inspect the cached HTML before trusting this table.")
+            continue
+        # Guard: overall numbers must be 1..N with no gaps or repeats.
+        expected = list(range(1, int(df["draft_overall"].max()) + 1))
+        if sorted(df["draft_overall"].tolist()) != expected:
+            print(f"  !! draft {year}: overall numbers are not a clean 1..N "
+                  f"sequence; kept, but flag before use")
+        df["scrape_date"] = datetime.date.today().isoformat()
+        df["source"] = "eliteprospects.com/draft/nhl-entry-draft (direct)"
+        cur = conn.cursor()
+        cur.execute("SELECT name FROM sqlite_master WHERE type='table' "
+                    "AND name='ep_draft_selections'")
+        if cur.fetchone() is not None:
+            cur.execute("DELETE FROM ep_draft_selections WHERE draft_year = ?", (year,))
+        append_aligned(df, "ep_draft_selections", conn)
+        conn.commit()
+        print(f"  draft {year}: {len(df)} picks, "
+              f"{df['ep_player_id'].notna().sum()} with an EP id")
+
+
+def drafted_ep_ids(conn: sqlite3.Connection) -> set[int]:
+    """Every EP id in ep_draft_selections (empty set if the pass has not run)."""
+    cur = conn.cursor()
+    cur.execute("SELECT name FROM sqlite_master WHERE type='table' "
+                "AND name='ep_draft_selections'")
+    if cur.fetchone() is None:
+        return set()
+    return {int(r[0]) for r in cur.execute(
+        "SELECT DISTINCT ep_player_id FROM ep_draft_selections "
+        "WHERE ep_player_id IS NOT NULL")}
+
+
+# =============================================================================
 # Bio pull, filtered to the trade-asset universe, cached per player in SQLite
 # =============================================================================
 
@@ -372,12 +561,16 @@ def bios_already_stored(conn: sqlite3.Connection) -> set[int]:
         "WHERE ep_player_id IS NOT NULL")}
 
 
-def run_bio_pass(conn: sqlite3.Connection, asset_filter: bool) -> None:
+def run_bio_pass(conn: sqlite3.Connection, asset_filter: bool,
+                 include_drafted: bool = True) -> None:
     """
     Fetch bios in batches, committing each batch so an interruption loses at
     most one batch of work.
 
-    With the asset filter ON (default): targets are the trade-asset EP ids.
+    With the asset filter ON (default): targets are the trade-asset EP ids,
+    plus (v3, unless --bio-scope assets) every drafted player found by the
+    draft pass, about 4,700 more. The drafted players' birthdates are what
+    lets ep_nhl_bridge.py check each draft-slot match against the NHL record.
     For a player present in the production tables we use his full slugged
     link; otherwise we construct the link from the id alone
     (eliteprospects.com/player/<id> — EP redirects to the slugged page), so
@@ -391,7 +584,12 @@ def run_bio_pass(conn: sqlite3.Connection, asset_filter: bool) -> None:
 
     if asset_filter:
         assets = load_trade_assets(TRADE_EXPORT_PATH)
-        target_ids = [i for i in assets["ep_player_id"].tolist() if i not in done]
+        wanted = list(dict.fromkeys(assets["ep_player_id"].tolist()))
+        if include_drafted:
+            drafted = sorted(drafted_ep_ids(conn) - set(wanted))
+            print(f"  drafted players added to the bio targets: {len(drafted)}")
+            wanted += drafted
+        target_ids = [i for i in wanted if i not in done]
         link_for = {
             i: prod_links.get(i, f"https://www.eliteprospects.com/player/{i}")
             for i in target_ids
@@ -457,7 +655,8 @@ def run_audit(conn: sqlite3.Connection, asset_filter: bool) -> None:
     """
     cur = conn.cursor()
     print("\n=== Audit ===")
-    for table in ("ep_skater_seasons", "ep_goalie_seasons", "ep_player_bio"):
+    for table in ("ep_skater_seasons", "ep_goalie_seasons", "ep_player_bio",
+                  "ep_draft_selections"):
         cur.execute(
             "SELECT name FROM sqlite_master WHERE type='table' AND name=?", (table,)
         )
@@ -518,20 +717,36 @@ def main() -> None:
     parser.add_argument("--no-asset-filter", action="store_true",
                         help="fetch bios for ALL scraped players, not just "
                              "trade assets (very slow)")
+    parser.add_argument("--draft-only", action="store_true",
+                        help="run only the draft pass (about 22 page requests)")
+    parser.add_argument("--bio-scope", choices=["assets+drafted", "assets"],
+                        default="assets+drafted",
+                        help="bio targets under the asset filter (default: "
+                             "trade assets plus every drafted player)")
     args = parser.parse_args()
 
+    print(f"ep_extract.py SCRIPT_VERSION {SCRIPT_VERSION} | package "
+          f"{PACKAGE_VERSION} | {len(LEAGUES)} leagues | seasons "
+          f"{SEASONS[0]}..{SEASONS[-1]} | drafts {DRAFT_YEARS[0]}..{DRAFT_YEARS[-1]}")
+
     asset_filter = not args.no_asset_filter
-    if asset_filter and not os.path.exists(TRADE_EXPORT_PATH):
+    if asset_filter and not args.draft_only and not os.path.exists(TRADE_EXPORT_PATH):
         sys.exit(f"Trade export not found at '{TRADE_EXPORT_PATH}'. Set "
-                 f"TRADE_EXPORT_PATH at the top of this script, or run with "
-                 f"--no-asset-filter.")
+                 f"PUCKPEDIA_TRADES_XLSX in .env, or run with --no-asset-filter.")
 
     os.makedirs(CACHE_DIR, exist_ok=True)
+    os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
     conn = get_connection()
     try:
+        if args.draft_only:
+            run_draft_pass(conn)
+            run_audit(conn, asset_filter=False)
+            return
         if not args.bio_only:
+            run_draft_pass(conn)
             run_production_pass(conn)
-        run_bio_pass(conn, asset_filter)
+        run_bio_pass(conn, asset_filter,
+                     include_drafted=(args.bio_scope == "assets+drafted"))
         run_audit(conn, asset_filter)
     finally:
         conn.close()

@@ -1,5 +1,15 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**Draft and prospect stock-take; decisions D29-D32; EP pull widened, 2026-09-28k.** Draft pillar
+reproduces (linkage and curve re-run to identical hashes) and is ready to resume on Thomas's
+decisions: break-test bands (D29), own-slot convention for unknown picks (D30), conditional picks
+convey (D31); future-pick premium open; player-model choice deferred to the next supervisor
+meeting. `slot_curve.py` and `future_pick_premium.py` recreated (July versions not found anywhere);
+the sample reproduces, per-trade values do not. Prospect pillar: `ep_extract.py` v3.0 (34 leagues,
+from 2006-07, draft pass run: 4,765 picks; full pull not yet run), `ep_nhl_bridge.py` v1.0 (EP id to
+NHL id by draft slot, 2,232 of 2,233 agree with PuckPedia). Goalie birthdates: 98 of 280 missing; the
+NHL stats API supplies 96. Plans rewritten: `01_Draft_Model_Sequence.md`, `02_Prospect_Model_Sequence.md`.
+
 **Merged to main; changes document; goalie exit risk blocked, 2026-09-28j.** Branch
 `claude/aging-model-questions-fl340y` merged into `main`. New `40_DOCS/Model_Changes_September_2026.md`
 (plain-English account of the aging, age-table, birthdate and exit-risk changes). Two more birthdate
@@ -430,10 +440,10 @@ See `50_REBUILD/docs/Goalie_Adoption_Skater_Contract_Review_Codex.md`.
      This file holds: objective, model spec, current build state, the data/scripts inventory,
      locked regression results, per-pillar status, and the file-management protocol. -->
 
-**Generated:** 2026-09-08
-**Refresh due:** 2026-09-15 (7-day cadence)
+**Generated:** 2026-09-28
+**Refresh due:** 2026-10-05 (7-day cadence)
 **Maintained by:** Claude, at session close (see the DECISIONS.md change log)
-**File version:** 3.2 (v3.2 restructure 2026-09-09: PROJECT_STATE.md split into four state files + a per-session log; see DECISIONS.md change log. Not a weekly refresh — Generated / Refresh-due unchanged.)
+**File version:** 3.3 (v3.3 refresh 2026-09-28: every session log since 2026-09-08 checked as referenced in the state files; inventory and pending list reconciled; see the DECISIONS.md 2026-09-28k entry. v3.2 restructure 2026-09-09: PROJECT_STATE.md split into four state files + a per-session log; see DECISIONS.md change log. Not a weekly refresh — Generated / Refresh-due unchanged.)
 
 > **Refresh note (2026-09-08).** The previous snapshot was v2.9, generated 2026-07-29 and due
 > 2026-08-05. It ran six weeks stale. Two sessions in that window went unrecorded on every
@@ -533,9 +543,9 @@ Moved 2026-09-09 (v3.2). The locked decision record (D1-D27, the Phase-1b/1c/1d 
 - **NHL API game-log store (local `new_scrape/nhl_gamelogs.sqlite`, mirrored to Dropbox `10_SOURCE/`)** — scraper v2.4 full run: 11,870 games (2017-18 -> 2025-26), 427,241 skater-games, 8 raw tables (incl. 1.39M shot events, 8.67M+ shift rows; 582 games recovered via the HTML shift-report fallback). Model output tables now include `shot_xg` (1,019,261 scored shots), `shot_score_state` + `score_state_factors`, and **`player_game_value` (427,241 rows — one goal-denominated value per skater per game, with team)**. Only summaries travel into chats; the in-project `games.csv`/`goalie_games.csv`/`goal_events.csv` copies are stale v1-era subsets slated for removal.
 - **`contract_season_spine.csv` (15,918 contract-seasons)** and **`contract_level_spine.csv` (6,851 contracts)** — join outputs; the model's cost backbone. (In the project.)
 - **`skater_value_spine.csv` (11,821 rows, 6,892 priced) — NEW 2026-07-05.** Layer 1 output of Phase 1b: skater Value_t/Cost_t/Surplus_t per contract-season, 2015-2025. Local parity confirmed. (In the project.)
-- **`contract_npv_spine.csv` (2,909 contracts) — NEW 2026-07-05.** Phase 1d output: one discounted NPV per contract (contract + terminal components), both positions, valued from each contract's first 2018-2025 season. The first artifact in the project that is a real, summed, discounted NPV. (In the project.)
+- **`contract_npv_spine.csv` (2,981 contracts: 2,591 skater, 390 goalie, as of the 2026-09-28i laptop run; 2,909 was the 2026-07-05 count) — NEW 2026-07-05.** Phase 1d output: one discounted NPV per contract (contract + terminal components), both positions, valued from each contract's first 2018-2025 season. The first artifact in the project that is a real, summed, discounted NPV. (In the project.)
 - **Draft-pick pillar artifacts — NEW 2026-07-19:** `draft_pick_linkage.py` v1.1 (NHL Records pull + guarded resolution: ID-with-name-agreement, 19 aliases, collision blocklist, temporal guard, 12 variant unions) → `draft_pick_linkage.csv` (4,765 picks 2005-2026, war_names pipe-separated); `draft_yield_curve.py` v1.1 (D22-D27, verified CBA constants embedded) → `draft_pick_outcomes.csv` (2,324-pick audit panel) + `draft_yield_curve.csv` (the locked curve, Rules A and B). RESOLVED 2026-07-30: `draft_pick_linkage.py` and `draft_yield_curve.py` are in Dropbox `20_CODE/`; the three CSV outputs are in `30_OUTPUT/`.
-- **`WAR_with_age.csv` — regenerated 2026-07-05** via `age_join.py` (60.1% player match, 70.9% of season-rows aged; age = Feb 1 of the season's ending year). Feeds the aging curve and the exit-hazard age join.
+- **`WAR_with_age.csv` — regenerated 2026-09-28** via `age_join.py` with the Elite Prospects birthdates restored (1,276 EP matches; about 99.9% of rows aged) and ten sibling/namesake birthdates corrected. (The 2026-07-05 build had a 60.1% player match, 70.9% of season-rows aged; age = Feb 1 of the season's ending year). Feeds the aging curve and the exit-hazard age join.
 - Research Brief (PDF); `WAR_AAV_Regression_Report` **v2** (v1 superseded and removed from the project).
 
 **Document framing (read carefully)**
@@ -577,7 +587,9 @@ Moved 2026-09-09 (v3.2). The locked decision record (D1-D27, the Phase-1b/1c/1d 
   - `xg_model.py` — logistic xG on distance/angle/type/strength/rebound; holdout AUC 0.739; xG/goals ratio 1.000; three label-leak bugs caught pre-ship via coefficient sanity checks.
   - `score_state.py` — goal replay -> leading/tied/trailing tags (11,870/11,870 games reconcile exactly); EV factors 1.046/1.000/0.958 (trailing share 52.2% on xG).
   - `metric_assembly.py` — combines score-adjusted on-ice xG (equal split by actual on-ice counts — accounting identity exact at +0.000000), penalty component (v=0.2097 goals/drawn penalty), ixg stored separately. Orphan tripwire guards the roster join. **Headline validation: season-level R²=0.583 vs team goal differential, fitted to nothing; goals-per-win = 5.90.**
-- `ep_extract.py` — Elite Prospects extraction (TopDownHockey_Scraper; cached, rate-limited, SQLite). (In the project.)
+- `ep_extract.py` — **v3.0, 2026-09-28.** Elite Prospects extraction (TopDownHockey_Scraper; cached, rate-limited, SQLite at `30_OUTPUT/ep_out/ep_prospects.db`). 34 leagues, seasons from 2006-07, a draft pass (`ep_draft_selections`, run 2026-09-28: 4,765 picks), bios for trade assets and every drafted player. Full production pull not yet run (10-14 hours).
+- `ep_nhl_bridge.py` — **v1.0, NEW 2026-09-28.** EP id to NHL id: draft year + overall pick (EP draft pages against NHL Records), plus PuckPedia's id pairs; names and birthdates as checks only. 2,232 of 2,233 agree with PuckPedia; writes `30_OUTPUT/ep_out/ep_nhl_bridge.csv`. Proposal, not adopted.
+- `slot_curve.py` + `future_pick_premium.py` — **v2.0 each, RECREATED 2026-09-28** (the July versions were not in git, Dropbox, the archive or any local transcript). Per-pick curve price and the unknown-slot conventions (D30); the pick-for-pick discount investigation, guarded on the recorded 119/56/39/35/17 sample. Writes `30_OUTPUT/future_pick_premium_diagnostics.csv`.
 - `capspace_scraper.py` + `capspace_capwages_compare.py` — clause scrape + CapWages comparison. (In the project.)
 - `capspace_capwages_finalize.py` — **built (2026-06-11), tested on a 48-player subset only, never run to completion.** This was Phase 2 of a two-stage CapWages-adjudicated workflow (compare -> manual XLSX review -> finalize) intended to produce `capspace_clauses_final.csv`. The full CapWages scrape + manual adjudication step was never launched. **Superseded** by the direct join script below — do not revive unless a more rigorous clause cross-validation pass is explicitly requested later.
 - `capspace_validator.py` — **built and run (2026-06-11)**, not located as a standalone file in the project. Surfaced 4 WARN cases (data-quality disagreements, not parser bugs), resolved manually. Validation work is done; the file's absence from the project is not a gap.
@@ -590,11 +602,12 @@ Moved 2026-09-09 (v3.2). The locked decision record (D1-D27, the Phase-1b/1c/1d 
 - **`Model_Review_Resolution_July_2026.md`** — the plain-language Stage-2-5 resolution document generated 2026-07-28 as a chat deliverable. **RESOLVED 2026-07-30.** Uploaded to Dropbox `40_DOCS/` during the file-system migration, and retained in the Claude project.
 - ~~**Script and run-log staleness**~~ — **RESOLVED 2026-07-30 by the Dropbox migration.** The 2026-07-28 Drive survey found no `draft_yield_curve.py`/`.csv` newer than 2026-07-20, and no updated `skater_value_engine.py` / `rfa_terminal_value.py` reflecting either the 2026-07-27 Stage 1 fixes or the 2026-07-28 Stage 2-5 rebuild; both the cloud copies and the Claude-project mirror were two full review sessions behind. The migration resolved this by consolidating a single live copy of each script into `20_CODE/` and archiving the superseded duplicates. The audit was also more serious than the survey showed: the cloud held two competing script sets, and the stale set contained Dropbox conflict copies (`aging_curve (1).py`, `age_join (2).py`, and nine others). Six files in the Claude project were stale, four of them wrong rather than merely old, and all six were removed. **Standing replacement for this item:** run the `audit files` protocol in Section 12 rather than an ad hoc survey.
 - ~~`capspace_clauses_final.csv`~~ — **abandoned, not pending.** Was the output of the two-phase CapWages-adjudicated finalize workflow (never run to completion); superseded by the direct join script, which produces `contract_season_spine.csv` / `contract_level_spine.csv` straight from `capspace_clauses.csv` via most-restrictive-clause collapse. P1 is effectively **closed** — the clause data is already joined and live in the spine.
-- Goaltender WAR integrated into the spine (P2).
-- Elite Prospects production pull — prospect-pillar data not yet extracted (P3).
+- ~~Goaltender WAR integrated into the spine (P2).~~ Done 2026-06-30 (stale entry, struck 2026-09-28).
+- Elite Prospects production pull — `ep_extract.py` v3.0 ready; draft pass run 2026-09-28; the league and bio passes are not yet run (P3).
+- Goalie birthdates for 98 of 280 goalies (93 last seen before 2018) — blocks the goalie exit hazard on pre-valuation seasons. The NHL stats API goalie-bios endpoint returned 96 of the 98 (tested 2026-09-28); not yet wired in.
 - Mid-season allocation model — **model chain BUILT and validated (2026-07-03); the allocation *application* (splitting back-test trades around trade dates using `player_game_value`) is the remaining step (Phase 4a-ii).**
 - A saved file of the three notes-only regression findings (RESET floor, goalie slope + low YoY correlation, defence weakest fit).
-- NHLe slug crosswalk — generated, not yet verified.
+- ~~NHLe slug crosswalk — generated, not yet verified.~~ **Verified 2026-09-28:** it is the league list inside `ep_extract.py`, and every slug matches a league name in `nhle_temporal.csv`.
 - `trades.db` 2018-2022 spot-validation (contingency).
 - ~~Data-quality note: `puckpedia_player_id` 17422~~ — **RESOLVED 2026-07-28.** It is **Stanislav Demin**, age 19, traded Vegas to Chicago on 2020-02-24 in the three-way Robin Lehner deal with Toronto. He is a non-roster prospect with no PuckPedia contract, which is why a contract-keyed export carries no name or EP id for him. Genuinely a one-off: of 1,503 trade rows carrying a `player_id`, exactly one has no name. Not a data defect — the prospect pillar showing up before the prospect pillar exists. Resolves itself at Phase 3b.
 

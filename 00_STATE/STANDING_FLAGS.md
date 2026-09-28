@@ -1,5 +1,26 @@
 # STANDING FLAGS & OPEN QUESTIONS — NHL Trade Market Efficiency
 
+**Draft and prospect stock-take, 2026-09-28k.** New and corrected flags:
+- **Goalie birthdates, counted (corrects "109").** 98 of the 280 goalies in `Goalies_WAR.csv` have no
+  birthdate (goalie ages come only from contract-export birthdates matched by name); 93 of them were
+  last seen before 2018; 356 of 772 goalie-seasons 2007-08 to 2016-17 lack an age. "109" was the
+  number last seen before 2018. Route tested: the NHL stats API goalie-bios endpoint (one request per
+  season) returns 96 of the 98 with NHL id and birthdate; guard the two Matt Murrays; Chris Gibson and
+  Georgi Romanov remain. Not wired in.
+- **PuckPedia id error: Nick Henry** (EP 201705). PuckPedia gives NHL id 8462234 and birthdate
+  1998-04-15; the NHL draft record (2017, 94th) gives 8479997 and 1999-07-04. PuckPedia looks wrong.
+  `ep_nhl_bridge.py` marks it a conflict and assigns no id.
+- **Duplicate Elite Prospects profile: Tyler Vesel** (EP 121879 from the draft page, 186888 in
+  PuckPedia; both NHL 8478082). Merge before reading his production.
+- **Recreated pick-trade script does not reproduce July's per-trade figures.** The sample reproduces
+  (119/56/39/35/17); pooled discount 0.459 / 0.512 against 0.486 / 0.510. Only 8 of 17 bundles can be
+  balanced by a discount in (0, 1]; the sweetener-to-gap correlation is 0.02 / 0.24 against 0.735. 3
+  of the 9 unbalanced trades have a zero current-year gap (same band); 6 unexplained. Do not cite
+  either set of per-trade numbers until re-run on the break-test curve.
+- **Break-test bands still price within-band trade-downs at zero** (D29). Compare against a smooth
+  decreasing fit before choosing.
+- **Resolved:** the NHLe slug crosswalk (verified); CLAUDE.md's stale skater rate (replaced).
+
 **Merged to main; changes document; goalie exit risk blocked, 2026-09-28j.** Branch
 `claude/aging-model-questions-fl340y` merged into `main`. New `40_DOCS/Model_Changes_September_2026.md`
 (plain-English account of the aging, age-table, birthdate and exit-risk changes). Two more birthdate

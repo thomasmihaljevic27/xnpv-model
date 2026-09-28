@@ -95,8 +95,13 @@ Draft pillar:
   scoped and documented before it ships.
 - **Don't let a valuation see its own season.** A player's value at a decision point draws only
   on information available before that date. Check every new join or metric against this.
-- **Don't reopen locked decisions** (D1 through D27 in PROJECT_STATE.md) without a deliberate
-  revisit. The locked skater rate is alpha=0.0184516, beta=0.0202139.
+- **Don't reopen locked decisions** (D1 through D32 in `00_STATE/DECISIONS.md`) without a
+  deliberate revisit. The skater price per win in force is the Stage 3 rate (locked 2026-07-28):
+  left-censored at the league minimum, one intercept, a separate defence slope.
+  alpha=0.0132478230, beta=0.0212322891 per win for forwards, plus 0.0028702824 for defencemen
+  (0.0241025715), all as cap shares. Every player-chain script and the draft curve use it. The
+  pre-D20 rate (0.0184516 / 0.0202139) and the D20 rate (0.01831864 / 0.01924854) are retired;
+  they survive in the code only as reproduction guards.
 - **Don't trust file size as an integrity check.** Pre-rebuild and post-rebuild
   `draft_yield_curve.csv` are both exactly 845 bytes with different contents. Compare hashes.
 - **Don't trust an output because a script ran.** Several scripts carry reproduction guards that
@@ -233,6 +238,15 @@ Draft pillar:
   `claude/nifty-euler-u5c5vm`" meant nothing to Thomas (2026-09-25): a branch name, like a model
   label, says nothing about what it is. Say what it does and what keeping or dropping it changes,
   then ask.
+- **Don't list a dated to-do from the state files as still pending without checking it still
+  stands.** A 2026-09-28 stock-take reported "read through Docs 1-5 and check their page layout"
+  as open because the queue still said so; the item was weeks old and long overtaken. When an
+  open item is more than a couple of weeks old and nothing has touched it since, say its date
+  and ask whether it still applies rather than listing it as live work.
+- **Don't quote a constant from a rules file or a docstring; read the value the code assigns.**
+  This file quoted a skater rate retired twice over, and `skater_forward_projection.py` still
+  labels a superseded rate "locked" at the top of the file before overwriting it further down
+  (corrected 2026-09-28). The last assignment is the one that runs.
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised
