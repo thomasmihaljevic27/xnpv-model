@@ -1,5 +1,10 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
+**Aging method, 2026-09-28k: open.** Regression against comparable players, aging alone
+(`50_REBUILD/docs/Aging_Method_Test.md`). The regression is better on most players' rates; the
+comparables are better on 3+ win players. Next: a dollar-weighted comparison (laptop, contract
+export). Decide before taking it to Karl.
+
 **Aging, 2026-09-28c: both earlier items decided and coded; three open.**
 (1) LAPTOP RE-RUN: DONE 2026-09-28 -- the player chain ran on the revised code (counts and guards as recorded; NPV p10 -7.80 to -8.10). `age_join.py` DONE and verified 2026-09-28 (1,276 EP matches, 99.9% of rows).
 The 10 sibling/namesake birthdates are corrected in `age_join.py` Pass 5 (hand-verified by Thomas),

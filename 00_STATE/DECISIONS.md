@@ -2133,3 +2133,10 @@ the session log. No code or decision change.
 `40_DOCS/Model_Changes_September_2026.md`. The day's branch is merged into `main`. PROJECT_STATE,
 STANDING_FLAGS, WORK_QUEUE and the session log are updated. No locked decision changed beyond the
 D3 and D18 revisions already recorded.
+
+### Change log, 2026-09-28k (aging method head-to-head)
+
+New `50_REBUILD/code/run_aging_method_test.py` v1.0 and report `50_REBUILD/docs/Aging_Method_Test.md`.
+The fitted equation beats the comparables on most players' rates; the comparables beat it on 3+ win
+players; season WAR cannot separate them. Nothing adopted. PROJECT_STATE, WORK_QUEUE and the session
+log are updated.

@@ -1,5 +1,12 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**Fitted equation against comparable players, aging alone, 2026-09-28k.** `run_aging_method_test.py`
+v1.0 holds all but the yearly changes fixed. On the rate per 82 in seasons played, the regression
+beats the comparables (1.0499 against 1.0604; comparables lower in 1/2000), at each horizon and in each
+tier below 3 wins. For 3+ players the comparables are better (1.523 against 1.548) and less biased five
+out (-0.43 against -0.93). Season WAR cannot separate them. By the declared rule, no clear winner.
+Nothing adopted; a dollar-weighted comparison is open. `50_REBUILD/docs/Aging_Method_Test.md`.
+
 **Merged to main; changes document; goalie exit risk blocked, 2026-09-28j.** Branch
 `claude/aging-model-questions-fl340y` merged into `main`. New `40_DOCS/Model_Changes_September_2026.md`
 (plain-English account of the aging, age-table, birthdate and exit-risk changes). Two more birthdate
