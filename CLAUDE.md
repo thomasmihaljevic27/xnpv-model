@@ -222,6 +222,12 @@ Draft pillar:
   season by (1.03)^k. Simplify the wording, not the pipeline: walk the summation in the
   implementing script and check each operation has a place in the text.
 
+- **Don't run a test under a practice environment and report it.** The session's practice `.env`
+  points OUTPUT_DIR at a scratch folder holding an older `WAR_with_age.csv`. A harness run under it
+  gave a current-model RMSE of 0.9529 against the recorded 0.9036, and the runner's own log still
+  named `30_OUTPUT/WAR_with_age.csv`, because that label is hard-coded (caught 2026-09-28 before it was
+  reported). Before reading a result, check that its log shows the real path of every input and that
+  a reference arm reproduces a recorded figure.
 - **Don't hand over a command for the Windows laptop without checking it there.** Thomas runs
   commands in Windows PowerShell 5.1 inside a working folder that `sync.ps1` stages wholesale
   (`git add -A`). Three round trips on 2026-09-25 came from ignoring that: a script that required a

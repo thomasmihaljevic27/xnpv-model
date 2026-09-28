@@ -2140,3 +2140,11 @@ New `50_REBUILD/code/run_aging_method_test.py` v1.0 and report `50_REBUILD/docs/
 The fitted equation beats the comparables on most players' rates; the comparables beat it on 3+ win
 players; season WAR cannot separate them. Nothing adopted. PROJECT_STATE, WORK_QUEUE and the session
 log are updated.
+
+### Change log, 2026-09-28l (piece-by-piece comparison; documents)
+
+New `50_REBUILD/code/run_step_attribution.py` v1.0 and report `50_REBUILD/docs/Step_Attribution.md`:
+the rebuilt forecast against the current model as it now runs, with each piece swapped in alone.
+Three Claude Docs written for Thomas. The 2026-09-24 page `Skater_Model_Decision.html` is recorded as
+misstating the participation event (10+ games; the code uses one). Nothing adopted; no locked
+decision changed. PROJECT_STATE, WORK_QUEUE and the session log are updated.

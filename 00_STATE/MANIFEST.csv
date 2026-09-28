@@ -380,3 +380,5 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 40_DOCS,Model_Changes_September_2026.md,player,hashable,2026-09-28j,8abb7e62193b27ad631923bd62be6eea10d19b63,10296,2026-09-28,yes,git,plain-English account of the 2026-09-28 model changes
 50_REBUILD/code,run_aging_method_test.py,player,hashable,2026-09-28k,dc19fed40296d162319bef63771be141f87dc396,13346,2026-09-28,yes,git,experimental rebuild tree; not production
 50_REBUILD/docs,Aging_Method_Test.md,player,hashable,2026-09-28k,a3f691695d365fe2e3d29d19b8c9eee6cfa894ff,5607,2026-09-28,yes,git,experimental rebuild tree; not production
+50_REBUILD/code,run_step_attribution.py,player,hashable,2026-09-28l,47a689bd730f624bf923482fbd45cafb08c46ed5,11986,2026-09-28,yes,git,experimental rebuild tree; not production
+50_REBUILD/docs,Step_Attribution.md,player,hashable,2026-09-28l,12f538ccc6bb4791fcecc8937355aa9d51285bf8,5896,2026-09-28,yes,git,experimental rebuild tree; not production

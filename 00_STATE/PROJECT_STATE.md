@@ -1,5 +1,14 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**Current and rebuilt forecasts piece by piece; three documents, 2026-09-28l.** `run_step_attribution.py`
+v1.0 compares the rebuilt forecast (no-contract twin) with the current model as it now runs, on the same
+35,878 answerable rows: season-WAR RMSE 0.9036 against 0.8634 (-4.4%, 2000/2000), lower at every
+horizon. Swapped in alone, rebuilt production-if-plays gives -4.2% and the rebuilt chance of playing
+-1.6%; Brier 0.1918 against 0.1359. Report `50_REBUILD/docs/Step_Attribution.md`. Three Claude Docs
+written (step-by-step comparison, the regression check, speaking notes); links in the session log.
+Karl's 25 September regression suggestion was for choosing comparable weights, not the rebuilt
+model's age equation; it is untested. Nothing adopted.
+
 **Fitted equation against comparable players, aging alone, 2026-09-28k.** `run_aging_method_test.py`
 v1.0 holds all but the yearly changes fixed. On the rate per 82 in seasons played, the regression
 beats the comparables (1.0499 against 1.0604; comparables lower in 1/2000), at each horizon and in each

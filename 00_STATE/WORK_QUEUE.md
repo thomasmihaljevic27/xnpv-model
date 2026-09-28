@@ -1,5 +1,11 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
+**Step comparison and Karl's regression idea, 2026-09-28l: open.** (1) Re-score contract dollars
+against the corrected current model (laptop; the step-by-step document's Step 4 uses the 2026-09-24
+figures). (2) If Karl wants it, test regression-chosen comparable weights (a synthetic control:
+weights at zero or above, summing to one) against similarity weights, same harness, only the weights
+changed. (3) Thomas to decide whether the step-by-step document goes to Karl before (1).
+
 **Aging method, 2026-09-28k: open.** Regression against comparable players, aging alone
 (`50_REBUILD/docs/Aging_Method_Test.md`). The regression is better on most players' rates; the
 comparables are better on 3+ win players. Next: a dollar-weighted comparison (laptop, contract
