@@ -2076,3 +2076,9 @@ Staal, Taylor Pyatt, Brett and Brody Sutter, Mark Cullen, Patrick Holland, Chris
 Schultz) and clears their borrowed identifiers. A guard stops on any identifier shared by names not
 declared as one player. Simulated on the laptop's table: 43 rows change, all belonging to the 10.
 Session log and WORK_QUEUE updated. No model or locked decision changed.
+
+### Change log, 2026-09-28f (player chain re-run on the revised code)
+
+The laptop re-ran the six player-chain scripts with the D3 revision and the corrected age table.
+Guards and counts are as recorded. NPV p10 -$7.80M to -$8.10M; median +$0.29M to +$0.28M. The
+figures are in PROJECT_STATE and the session log. No further code or decision change.

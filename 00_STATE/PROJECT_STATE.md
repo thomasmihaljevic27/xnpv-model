@@ -1,5 +1,11 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**Player chain re-run on the revised code, 2026-09-28f.** Laptop run of `age_join.py` (1,276 Elite
+Prospects matches, ten sibling birthdates corrected, 99.9% of rows aged) and all six chain scripts.
+Guards and counts as recorded: k=0 identity $0.00; 2,981 contracts (2,591 / 390); panel 7,565 rows.
+NPV median +$0.29M to +$0.28M; p10 -$7.80M to -$8.10M. Positive-anchor backcast against hold-flat:
+k=1 +1.2% (was +1.5%), k=3 +7.9% (was +8.3%), now out of sample.
+
 **D3 revised: aging curve fitted per valuation page; age join fixed; group weights swept, 2026-09-28c.**
 Thomas adopted the pre-valuation aging pool. `AgingModel(before=t0)`, `skater_forward_projection.py`
 v1.4 (`curve_for`, `ratio_path(..., t0)`), callers updated, `production_adapter.py` v1.2. Adopted

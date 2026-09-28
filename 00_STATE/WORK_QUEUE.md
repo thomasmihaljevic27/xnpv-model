@@ -1,7 +1,7 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
 **Aging, 2026-09-28c: both earlier items decided and coded; three open.**
-(1) LAPTOP RE-RUN: `age_join.py` DONE and verified 2026-09-28 (1,276 EP matches, 99.9% of rows).
+(1) LAPTOP RE-RUN: DONE 2026-09-28 -- the player chain ran on the revised code (counts and guards as recorded; NPV p10 -7.80 to -8.10). `age_join.py` DONE and verified 2026-09-28 (1,276 EP matches, 99.9% of rows).
 The 10 sibling/namesake birthdates are corrected in `age_join.py` Pass 5 (hand-verified by Thomas),
 with a guard on shared identifiers. Re-run DONE and verified 2026-09-28 (identical to the expected table; 43 rows changed).
 Also unverified: "Mikko Lehtonen F" / "Alex Picard F" share an Elite Prospects birthdate. Then the
