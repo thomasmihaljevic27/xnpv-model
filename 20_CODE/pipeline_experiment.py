@@ -350,7 +350,8 @@ def main(variants=VARIANTS, prefix=PREFIX):
     h_table, n_all, n_cov, ex_all, ex_cov = contracted_hazard(spine)
     print(f'hazard population: all GP>=10 transitions {n_all} (exit {ex_all:.1%}); '
           f'with a contract for t+1 {n_cov} (exit {ex_cov:.1%})')
-    prod_h = eng.h_sk
+    # Recorded 2026-09-14 on the single 2018-2024 table; contract_npv v1.5 names it.
+    prod_h = eng.h_sk_for(None)
 
     # ---- curve pass-through helper (rule C) -------------------------------
     # Recorded 2026-09-14 on the whole-file curve; SkaterProjector v1.4 names it.
@@ -399,7 +400,8 @@ def main(variants=VARIANTS, prefix=PREFIX):
         for name, (rule, top, haz, s0) in VARIANTS_RUN.items():
             sp.anchor = orig_anchor if rule == 'prod' else make_anchor(rule)
             curve._weights = topk_m if top else orig_w
-            eng.h_sk = h_table if haz == 'H' else prod_h
+            cur_h = h_table if haz == 'H' else prod_h
+            eng.h_sk_for = (lambda t0, _h=cur_h: _h)      # every page reads the arm's table
             n = 0
             for r in firsts.itertuples():
                 pid, t0 = int(r.player_id), int(r.season_start)
@@ -411,7 +413,7 @@ def main(variants=VARIANTS, prefix=PREFIX):
                 raw_a, _ = orig_anchor(nk, t0)
                 c = d[d['row_type'] == 'contract'].copy()
                 if s0:                                     # S_0 = 1 - h(anchor state, age0)
-                    h0 = eng._hazard(eng.h_sk, c.iloc[0]['anchor_war'], c.iloc[0]['age_at_valuation'])
+                    h0 = eng._hazard(cur_h, c.iloc[0]['anchor_war'], c.iloc[0]['age_at_valuation'])
                     c['survival'] = c['survival'] * (1 - h0)
                     c['pv_dollars'] = (c['survival'] * c['value_dollars'] - c['cost_dollars']) * c['discount']
                     npv_c = float(c['pv_dollars'].sum())
@@ -439,7 +441,7 @@ def main(variants=VARIANTS, prefix=PREFIX):
                                         disc=(1 + G) ** (-int(x.k))))
             print(f'{name}: {n} contracts ({time.time() - clock:.0f}s)', flush=True)
     finally:
-        sp.anchor = orig_anchor; curve._weights = orig_w; eng.h_sk = prod_h
+        sp.anchor = orig_anchor; curve._weights = orig_w; del eng.h_sk_for
 
     S = pd.DataFrame(seasons); C = pd.DataFrame(contracts)
     S.to_csv(OUT / f'{PREFIX_RUN}_seasons.csv', index=False)

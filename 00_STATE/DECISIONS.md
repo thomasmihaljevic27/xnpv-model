@@ -2090,3 +2090,32 @@ New `50_REBUILD/code/run_exit_hazard_window_test.py` v1.0 and report
 accurate than production's 2018-2024 table on the harness. New read-only
 `20_CODE/npv_spine_compare.py`. PROJECT_STATE, WORK_QUEUE and the session log are updated. Nothing
 adopted.
+
+## D18 revision, 2026-09-28 — the skater exit hazard sees only exits before the valuation page
+
+**Decided by Thomas, 2026-09-28.** D18 (exit hazard estimated from the panel; quality x age;
+survival on the value side under D16(i)) stands. What changes is the window of the skater table.
+It is fitted for each valuation page on transitions 2007 to two seasons before the page
+(`exit_hazard.pre_valuation_window`, `NPVEngine.h_sk_for`). Before, one table on 2018-2024 served
+every page, so a 2018 valuation read exits from 2019-2025 (review item 5.1).
+
+- **Why the window can start in 2007.** The 2018 start rested on the age join missing the pre-2018
+  retirees. Since 2026-09-28 the join carries the Elite Prospects ages (99.9% of rows).
+- **Evidence** (`50_REBUILD/docs/Exit_Hazard_Window_Test.md`, harness, development pages):
+  - Brier 0.2143 against 0.2275, season-WAR RMSE 0.8591 against 0.8619, both lower in 2000 of
+    2000 resamples.
+  - An all-seasons arm shows both the added history and the removed future lower the error.
+- **Not covered.** The goalie table (untested) and the D14(c) control-year chain (never used the
+  hazard) are unchanged.
+
+### Change log, 2026-09-28h (D18 revised; contract comparison recorded)
+
+Code:
+- `exit_hazard.py`: window rule.
+- `contract_npv.py` v1.5.
+- `pipeline_experiment.py`: pinned to the pre-revision table.
+- `production_adapter.py` v1.3; `run_exit_hazard_window_test.py` v1.1.
+
+Report section "Adopted 2026-09-28". Laptop contract comparison recorded in the session log.
+PROJECT_STATE, WORK_QUEUE and STANDING_FLAGS updated. D18 revised as above; nothing else locked
+changed. `contract_npv.py` and the panel are owed a laptop re-run.

@@ -36,8 +36,14 @@ THE SCORES, DECLARED BEFORE THE RUN
     (asserted), so any WAR change is the hazard's. Shares of 2,000 player
     resamples print as counts.
 
+v1.1 (2026-09-28): the expanding pre-valuation hazard was ADOPTED
+    (contract_npv v1.5; production_adapter v1.3), so "current" is now that
+    chain. The pre-adoption table is the arm "prod_2018_2024", and the guard
+    is that production as adopted equals the pre_expanding arm exactly.
+
 GUARDS
-    * an arm set to t = 2018-2024 reproduces ProductionChain exactly;
+    * v1.0: an arm set to t = 2018-2024 reproduced ProductionChain exactly;
+      v1.1: production as adopted reproduces the pre_expanding arm exactly;
     * every arm returns identical rate_82 and gp_share on every row;
     * the hazard table's own guards (no certain cells, calibration) run on
       every page's fit, as they do in production.
@@ -58,7 +64,7 @@ import production_adapter as PA
 from run_skater_contract_test import Boot, _count
 import run_aging_choices_test as RAC
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 HORIZONS = RAC.HORIZONS
 FIRST_SEASON = 2007          # WAR.csv starts at 2007-08
 
@@ -90,6 +96,8 @@ def _arm(tag, label, window):
 
 ARMS = {
     "current": PA.ProductionChain,
+    "prod_2018_2024": _arm("prod_2018", "hazard on 2018-2024 (pre-adoption production)",
+                           lambda t0: (2018, 2024)),
     "pre_expanding": _arm("pre_exp", "hazard on transitions finished before the page (from 2007)",
                           lambda t0: (FIRST_SEASON, t0 - 2)),
     "pre_rolling7": _arm("pre_roll7", "hazard on the seven transition years before the page",
@@ -97,7 +105,6 @@ ARMS = {
     "all_2007_2024": _arm("all_2007", "hazard on 2007-2024 for every page",
                           lambda t0: (FIRST_SEASON, 2024)),
 }
-_SAME_AS_PRODUCTION = _arm("prod_window", "hazard on 2018-2024 (guard)", lambda t0: (2018, 2024))
 
 
 def scores(runs, ref, label, mask=None):
@@ -148,13 +155,14 @@ def main() -> None:
     table = build_table(birthdate_csv=path, verbose=False)
     har = H.Harness(table)
     runs = {"current": har.run(PA.ProductionChain(), pages=C.DEV_PAGES, horizons=HORIZONS)}
-    g = har.run(_SAME_AS_PRODUCTION(), pages=C.DEV_PAGES, horizons=HORIZONS)
+    runs["pre_expanding"] = har.run(ARMS["pre_expanding"](), pages=C.DEV_PAGES, horizons=HORIZONS)
     key = ["career_key", "page", "h"]
-    a, b = runs["current"].set_index(key).sort_index(), g.set_index(key).sort_index()
+    a = runs["current"].set_index(key).sort_index()
+    b = runs["pre_expanding"].set_index(key).sort_index()
     assert a.index.equals(b.index) and all(np.array_equal(a[c].to_numpy(), b[c].to_numpy())
                                            for c in ("rate_82", "gp_share", "p_play")), \
-        "the 2018-2024 arm does not reproduce production"
-    C.log(f"  guard: the 2018-2024 window arm reproduces production on {len(a)} forecasts")
+        "production as adopted does not reproduce the tested pre_expanding arm"
+    C.log(f"  guard: production as adopted equals the pre_expanding arm on {len(a)} forecasts")
     for k, cls in ARMS.items():
         if k in runs:
             continue

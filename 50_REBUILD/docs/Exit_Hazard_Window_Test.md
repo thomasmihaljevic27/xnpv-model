@@ -87,8 +87,18 @@ Every arm over-predicts playing at every horizon; the pre-valuation hazard over-
 - **Scope.** This tests the participation piece only. No dollars were priced, and the goalie hazard
   is not tested.
 
-## Not decided
+## Adopted 2026-09-28
 
-Whether to adopt the pre-valuation hazard in production (`contract_npv.py` builds the table once;
-adopting would build one per valuation page, as the aging curve now does), and which window.
-Recommended: expanding, the more accurate of the two here and the simpler rule.
+Thomas adopted the expanding window.
+- **Production.** `contract_npv.py` v1.5 fits the skater table per valuation page on transitions
+  2007 to two seasons before the page (`exit_hazard.pre_valuation_window`). `h_sk_for(None)` keeps
+  the 2018-2024 table for recorded experiments only.
+- **Harness.** `production_adapter.py` v1.3 follows production. The runner v1.1 asserts that
+  production as adopted equals the pre-valuation arm on all 40,510 forecasts, and the old table,
+  now an arm, reproduces v1.0's figures.
+- **Checked.** The method was lifted from `contract_npv.py` and checked alone: for every page from
+  2018 to 2026 it builds exactly the table the shared rule builds.
+- **Not changed.** The goalie table (still 2018-2024; untested) and the control-year chain, which
+  never used the hazard.
+- **Not yet run.** `contract_npv.py` and the panel need the contract export, so the re-run is owed
+  on the laptop.

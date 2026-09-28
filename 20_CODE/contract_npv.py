@@ -1,7 +1,18 @@
 """
 =============================================================================
- contract_npv.py   v1.4                             Phase 1d
-                                  extensions by signing date (2026-09-13)
+ contract_npv.py   v1.5                             Phase 1d
+                                  pre-valuation exit hazard (2026-09-28)
+=============================================================================
+ WHAT CHANGED IN v1.5 (the skater exit hazard sees only earlier exits)
+ ---------------------------------------------------------------------
+ D18 REVISION, adopted by Thomas 2026-09-28. The skater survival factor used
+ one exit-hazard table fitted on transitions 2018-2024, so a 2018 valuation
+ read exits from 2019-2025. h_sk_for(t0) now fits one table per valuation
+ page on transitions 2007 .. t0-2 (exit_hazard.pre_valuation_window), the
+ same builder and guards as before, cached per page. Evidence:
+ 50_REBUILD/docs/Exit_Hazard_Window_Test.md (Brier -5.8%, season-WAR RMSE
+ -0.32% on the forecast harness). NOT changed: the goalie table, the D14(c)
+ control-year chain (which never used the hazard), the k-1 indexing (v1.2).
 =============================================================================
  WHAT CHANGED IN v1.4 (signed extensions are part of the asset)
  ---------------------------------------------------------------
@@ -162,7 +173,8 @@ from skater_forward_projection import (SkaterProjector, cap_path,
                                        ALPHA, BETA, CAP_GROWTH, CAP_CEILING,
                                        contract_chain, check_as_of)
 from rfa_terminal_value import TerminalValuer, qualifying_offer
-from exit_hazard import (build_transitions, build_hazard_table, bucket,
+from exit_hazard import (build_transitions, build_hazard_table, bucket, pre_valuation_window,
+                         T_EARLIEST, T_FIRST, T_LAST,
                          age_group, report_item_14)
 
 from dotenv import load_dotenv
@@ -342,11 +354,14 @@ class NPVEngine:
         self.sp = SkaterProjector()
         self.tv = TerminalValuer(self.sp)
 
-        # ---- skater exit-hazard table (shared builder, same numbers as ----
-        # ---- the standalone exit_hazard.py report) -------------------------
-        d_sk = build_transitions(SOURCE_DIR / "WAR.csv",
-                                 OUTPUT_DIR / "WAR_with_age.csv")
-        self.h_sk = build_hazard_table(d_sk)
+        # ---- skater exit-hazard tables: one per valuation page (v1.5) -----
+        # Every transition from the first WAR season is built once; each
+        # page's table is fitted on those it may use (pre_valuation_window).
+        # Same builder and guards as the standalone exit_hazard.py report.
+        self._d_sk_all = build_transitions(SOURCE_DIR / "WAR.csv",
+                                           OUTPUT_DIR / "WAR_with_age.csv",
+                                           t_first=T_EARLIEST, t_last=T_LAST)
+        self._h_sk = {}
 
         # ---- goalie panel + hazard -----------------------------------------
         full = pd.read_csv(F_SEASON_SPINE)
@@ -377,6 +392,24 @@ class NPVEngine:
         self._d_g = d_g                      # kept for the validation report
 
     # ---- survival helpers ----------------------------------------------------
+    def h_sk_for(self, t0):
+        """The skater exit-hazard table a valuation in season t0 may use
+        (v1.5, D18 revision). t0=None is the pre-revision 2018-2024 table,
+        kept only for recorded experiments; pricing never passes it."""
+        key = None if t0 is None else int(t0)
+        if key not in self._h_sk:
+            lo, hi = (T_FIRST, T_LAST) if key is None else pre_valuation_window(key)
+            d = self._d_sk_all[self._d_sk_all["t"].between(lo, hi)]
+            self._h_sk[key] = build_hazard_table(d)
+        return self._h_sk[key]
+
+    @property
+    def h_sk(self):
+        raise AttributeError(
+            "NPVEngine.h_sk was the single 2018-2024 skater hazard table, removed in "
+            "v1.5 (2026-09-28): use h_sk_for(t0) for the page being valued, or "
+            "h_sk_for(None) for the pre-revision table in a recorded experiment.")
+
     def _hazard(self, table, pw, age):
         """One-year exit probability for a projected quality + age. Falls
         back to the bucket marginal when age is unknown or the cell empty."""
@@ -420,7 +453,7 @@ class NPVEngine:
                          age0 + (k if self.legacy_hazard_index else k - 1))
                 h_war = (r["projected_war"] if self.legacy_hazard_index
                          else prev_war)
-                h = self._hazard(self.h_sk, h_war, h_age)
+                h = self._hazard(self.h_sk_for(t0), h_war, h_age)   # v1.5: this page's table
                 S *= (1.0 - h)
             prev_war = r["projected_war"]
             disc = (1 + G) ** (-k)

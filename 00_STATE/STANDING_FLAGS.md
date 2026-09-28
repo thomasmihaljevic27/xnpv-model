@@ -1,6 +1,13 @@
 # STANDING FLAGS & OPEN QUESTIONS — NHL Trade Market Efficiency
 
-**D3 revised: aging curve fitted per valuation page; age join fixed; group weights swept, 2026-09-28c.**
+**D18 revised: skater exit hazard fitted per valuation page, 2026-09-28h.** Adopted by Thomas.
+`contract_npv.py` v1.5 builds the skater table per page on transitions 2007 to t0-2
+(`exit_hazard.pre_valuation_window`); goalies unchanged. Adopted production equals the tested arm on
+the harness. The laptop re-run of `contract_npv.py` and `contract_npv_panel.py` is owed. Laptop
+contract comparison of the aging revision: 1,097 of 2,981 contracts moved (887 down), net -$295.1M,
+all on the skater curve path.
+
+**Exit hazard fitted before each page: tested, 2026-09-28g.****D3 revised: aging curve fitted per valuation page; age join fixed; group weights swept, 2026-09-28c.**
 Thomas adopted the pre-valuation aging pool. `AgingModel(before=t0)`, `skater_forward_projection.py`
 v1.4 (`curve_for`, `ratio_path(..., t0)`), callers updated, `production_adapter.py` v1.2. Adopted
 production equals the tested pre-valuation arm on all 40,510 harness forecasts. `age_join.py` now

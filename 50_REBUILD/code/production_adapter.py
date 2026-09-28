@@ -55,8 +55,11 @@ WHAT IT INHERITS
     valuation page on seasons before it (SkaterProjector v1.4, curve_for); up
     to v1.1 it was fitted on the whole panel. The adapter builds the projector
     the same way and passes the page to ratio_path, so "the live chain" here is
-    the revised chain. The exit-hazard table is still production's whole-file
-    estimate.
+    the revised chain.
+
+    v1.3 (2026-09-28): the skater exit-hazard table is fitted per page on
+    transitions before it (contract_npv v1.5, exit_hazard.pre_valuation_window);
+    up to v1.2 it was production's single 2018-2024 table.
 
 REQUIRES 30_OUTPUT/WAR_with_age.csv, built by 20_CODE/age_join.py, and the
 environment variables production reads. Without them the adapter refuses
@@ -74,7 +77,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C                      # loads .env for the imports below
 from ability_forecast import BaseModel
 
-SCRIPT_VERSION = "1.2"
+SCRIPT_VERSION = "1.3"
 
 _PROD = C.REPO_ROOT / "20_CODE"
 
@@ -85,7 +88,8 @@ def _production():
         sys.path.insert(0, str(_PROD))
     try:
         import skater_forward_projection as SFP
-        from exit_hazard import build_transitions, build_hazard_table, bucket, age_group
+        from exit_hazard import (build_transitions, build_hazard_table, bucket, age_group,
+                                 pre_valuation_window, T_EARLIEST, T_LAST)
     except KeyError as e:                        # production reads os.environ directly
         raise RuntimeError(
             f"the production modules need the environment variable {e} set. "
@@ -96,7 +100,8 @@ def _production():
             f"{SFP.F_WAR_AGE} is missing. It is built by 20_CODE/age_join.py "
             "and the production aging curve is fitted on it. Run that first; "
             "this adapter will not substitute anything for it.")
-    return SFP, build_transitions, build_hazard_table, bucket, age_group
+    return (SFP, build_transitions, build_hazard_table, bucket, age_group,
+            pre_valuation_window, T_EARLIEST, T_LAST)
 
 
 class ProductionChain(BaseModel):
@@ -116,7 +121,8 @@ class ProductionChain(BaseModel):
         self.before = before
         key = "singleton"
         if key not in self._cache:
-            SFP, build_transitions, build_hazard_table, bucket, age_group = _production()
+            (SFP, build_transitions, build_hazard_table, bucket, age_group,
+             pre_valuation_window, T_EARLIEST, T_LAST) = _production()
 
             proj = SFP.SkaterProjector.__new__(SFP.SkaterProjector)
             proj._curves = {}          # v1.2: one aging curve per page, via curve_for
@@ -140,10 +146,19 @@ class ProductionChain(BaseModel):
             proj.raw_name = (war.drop_duplicates("nk").set_index("nk")["Player"]
                              .to_dict())
 
-            haz = build_hazard_table(build_transitions(
-                C.F_WAR_SKATERS, Path(SFP.F_WAR_AGE)))
+            # v1.3 (D18 revision, contract_npv v1.5): every transition from the
+            # first WAR season, built once; each page's table is fitted on the
+            # ones it may use, by production's own window rule.
+            d_all = build_transitions(C.F_WAR_SKATERS, Path(SFP.F_WAR_AGE),
+                                      t_first=T_EARLIEST, t_last=T_LAST)
+            haz = {"d_all": d_all, "window": pre_valuation_window,
+                   "build": build_hazard_table, "tables": {}}
             self._cache[key] = (proj, haz, bucket, age_group, q)
-        self.proj_, self.haz_, self._bucket, self._age_group, self._q = self._cache[key]
+        self.proj_, hz, self._bucket, self._age_group, self._q = self._cache[key]
+        if before not in hz["tables"]:
+            lo, hi = hz["window"](before)
+            hz["tables"][before] = hz["build"](hz["d_all"][hz["d_all"]["t"].between(lo, hi)])
+        self.haz_ = hz["tables"][before]
 
     def _anchor(self, nk: str, t0: int):
         """Production's own anchor, called rather than reimplemented.
