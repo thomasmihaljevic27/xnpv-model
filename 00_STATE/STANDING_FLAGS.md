@@ -1,5 +1,15 @@
 # STANDING FLAGS & OPEN QUESTIONS — NHL Trade Market Efficiency
 
+**Older careers missing from the aging pool, 2026-09-28b.** `age_join.py` reads the Elite Prospects
+birthdates from `OUTPUT_DIR/ep_out/ep_birthdates.csv`; the file is in `10_SOURCE/`, so Pass 4 is skipped
+silently and 1,278 of 3,199 skaters (mostly pre-2018 retirees) have no age. `20_CODE/aging_ep_pool_test.py`
+v1.0 applies Pass 4 by rule: coverage 70.9% to 99.9%, pool 7,531 to 10,057 profiles, yardstick 2.5264 to
+2.5253. `run_aging_choices_test.py` v1.1, live chain, season-WAR RMSE: older careers added -1.39%
+(2000/2000); added AND pool limited to pre-valuation seasons -0.56% against the chain as it runs
+(1972/2000). The look-ahead-free, fixed version beats today's figure. The production path fix and
+the pre-valuation decision (revisits D3) are open with Thomas. Report section in
+`50_REBUILD/docs/Aging_Choices_Test.md`. Production unchanged.
+
 **Aging choices scored on both models, 2026-09-28.** Six supervisor questions on the current aging
 curve (yardstick pool; square-root weights; one yardstick for both positions; the weight formula;
 the pool using later seasons; the league weight of 10). The rebuilt curve has no comparables

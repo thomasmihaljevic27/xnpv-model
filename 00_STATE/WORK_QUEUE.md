@@ -1,12 +1,16 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
-**Aging choices scored, 2026-09-28: two items opened.** (1) Decide whether the current model's
-aging pool, z-score scale, yardstick and league curves should be built only from seasons finished
-before each valuation date. It is the look-ahead-free version and costs 1.73% season-WAR RMSE in the
-live chain (`50_REBUILD/docs/Aging_Choices_Test.md`). Locked D3 is unchanged until then. (2) Rebuild
-`30_OUTPUT/WAR_with_age.csv` with `10_SOURCE/ep_birthdates.csv` present (the current file has no
-Elite Prospects matches; 1,278 of 3,199 skaters without an age), then measure what adding the older
-careers does to the current curve's pool.
+**Aging choices scored, 2026-09-28 (updated 2026-09-28b): two items open.** (1) DECISION, Thomas:
+should the current model's aging pool, z-score scale, yardstick and league curves be built only from
+seasons finished before each valuation date? Recommended: yes, as the primary specification, with
+the full-era fit reported as a sensitivity. The exit hazard, which has the same full-era fit, should
+follow. This revisits locked D3. Evidence: on the live table the look-ahead-free pool costs 1.73%
+RMSE; with the older careers added it costs 0.84%, and the combination beats today's chain by 0.56%.
+(2) FIX, Thomas's laptop: point `age_join.py`'s `EP_BIRTHDATES_PATH` at
+`SOURCE_DIR/ep_birthdates.csv` (the file moved there in the 2026-07-30 migration; Pass 4 has been
+skipped since), then re-run `age_join.py` and the player chain. Measured by rule in
+`20_CODE/aging_ep_pool_test.py`: 1,276 older careers join the pool; live-chain RMSE -1.39%. It
+changes the locked curve and every valuation, so it waits for his go-ahead.
 
 **Branches integrated into main, 2026-09-25b.** `main` (`ded9e18`) now carries the player-model
 rebuild (all of `50_REBUILD/`), the aging walkthrough, the plain-language overview, and the two

@@ -43,6 +43,13 @@ WHAT IS SCORED
       share_5pct             the league average takes a fixed 5% share instead
                              of 10 comparable-weight units (6)
       kernel_flat            every same-age, same-position comparable weight 1 (4)
+      ep_pool                (v1.1) the curve fitted on the age table with
+                             age_join.py's Elite Prospects pass applied
+                             (built by 20_CODE/aging_ep_pool_test.py); the
+                             live table has none, so about 1,276 older careers
+                             are missing from the pool
+      ep_pool_pre_valuation  (v1.1) both: that table, and the pool limited to
+                             seasons finished before the page
     The exit-hazard table the chain multiplies by is production's own and is
     NOT refitted by the pre-valuation arm; that arm fixes the aging curve's
     look-ahead only.
@@ -97,7 +104,7 @@ from aging_additive import AdditiveAging
 import production_adapter as PA
 from run_skater_contract_test import Boot, _count
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 HORIZONS = (0, 1, 2, 3, 4, 5)
 STAR = "3+"
 
@@ -252,6 +259,9 @@ class CurrentChain(PA.ProductionChain):
     production's own object, shared with ProductionChain through its cache."""
     AGING: dict = {}
     PER_PAGE = False
+    # v1.1: an alternative age table in OUTPUT_DIR for the curve (None: the
+    # live WAR_with_age.csv). The harness subjects' ages are unchanged.
+    AGE_FILE = None
     _curves: dict = {}
 
     def _curve(self, before):
@@ -259,7 +269,8 @@ class CurrentChain(PA.ProductionChain):
         VA = _variant_aging_class()
         key = (type(self).__name__, before if self.PER_PAGE else None)
         if key not in self._curves:
-            path = SFP.F_WAR_AGE
+            path = SFP.F_WAR_AGE if self.AGE_FILE is None else Path(C.PROD_OUTPUT_DIR) / self.AGE_FILE
+            assert Path(path).exists(), f"{path} is missing; run 20_CODE/aging_ep_pool_test.py first"
             if self.PER_PAGE:
                 wa = pd.read_csv(path)
                 syr = wa["Season"].str.split("-").str[0].astype(int) + 2000
@@ -277,9 +288,17 @@ class CurrentChain(PA.ProductionChain):
         self.proj_ = proj
 
 
-def _current(tag, label, per_page=False, **aging):
+def _current(tag, label, per_page=False, age_file=None, **aging):
     return type(f"Current_{tag}", (CurrentChain,),
-                {"name": f"current, {label}", "AGING": aging, "PER_PAGE": per_page})
+                {"name": f"current, {label}", "AGING": aging, "PER_PAGE": per_page,
+                 "AGE_FILE": age_file})
+
+
+# v1.1 (2026-09-28): the age table with age_join.py's Elite Prospects pass
+# applied, built by 20_CODE/aging_ep_pool_test.py. The live table has none,
+# because age_join.py reads the scrape from OUTPUT_DIR/ep_out/ and the file
+# sits in 10_SOURCE/ (1,278 of 3,199 skaters without an age).
+EP_TABLE = "aging_ep_pool_test_war_with_age.csv"
 
 
 CURRENT = {
@@ -289,6 +308,9 @@ CURRENT = {
     "yard_all_pairs":     _current("yard_all", "yardstick from every pair", yard="all_pairs"),
     "share_5pct":         _current("share5", "league average a fixed 5% share", share=0.05),
     "kernel_flat":        _current("flat", "every comparable weight 1", kernel="flat"),
+    "ep_pool":            _current("ep_pool", "older careers added to the aging pool", age_file=EP_TABLE),
+    "ep_pool_pre_valuation": _current("ep_pre", "older careers added, pool from seasons before the page",
+                                      per_page=True, age_file=EP_TABLE),
 }
 _CURRENT_DEFAULTS = _current("defaults", "wrapper, no change")
 
@@ -428,6 +450,7 @@ def main() -> None:
     s3 = scores({k: runs[k] for k in CURRENT}, "current", "rows production answers", mask=answer)
     C.log("BOTH MODELS ON ONE TARGET (reference: current)")
     s4 = scores({"current": runs["current"], "pre_valuation_pool": runs["pre_valuation_pool"],
+                 "ep_pool": runs["ep_pool"], "ep_pool_pre_valuation": runs["ep_pool_pre_valuation"],
                  "rebuilt": runs["rebuilt"]}, "current", "rows production answers", mask=answer)
 
     pd.concat([s1, s2, s3, s4.assign(sample="cross-model, rows production answers")]).to_csv(

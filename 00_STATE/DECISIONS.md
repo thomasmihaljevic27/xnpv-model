@@ -2006,3 +2006,12 @@ development page). Report `50_REBUILD/docs/Aging_Choices_Test.md`; session log
 `sessions/2026-09-28.md`. PROJECT_STATE and STANDING_FLAGS: result entry. WORK_QUEUE: two open items
 (pre-valuation aging pool decision; age table without the Elite Prospects fallback). The inspection
 ledger records the real harness runs. No model, state figure or locked decision changed.
+
+### Change log, 2026-09-28b (older careers missing from the aging pool)
+
+New `20_CODE/aging_ep_pool_test.py` v1.0; `50_REBUILD/code/run_aging_choices_test.py` v1.1 (two
+live-chain arms: older careers added; added plus the pre-valuation pool). The earlier arms reproduce
+exactly. Report section "The missing older careers" in `50_REBUILD/docs/Aging_Choices_Test.md`;
+session log follow-up in `sessions/2026-09-28.md`. PROJECT_STATE and STANDING_FLAGS: finding entry.
+WORK_QUEUE: the two open items restated as a decision (pre-valuation pool, revisits D3) and a fix
+(`age_join.py` path). No model, state figure or locked decision changed.

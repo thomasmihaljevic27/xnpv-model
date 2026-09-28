@@ -1,8 +1,9 @@
 # Hand-set choices in the aging curves, scored
 
 Run 2026-09-28. Test only: no production file changed, no locked decision opened, nothing adopted.
-Scripts: `20_CODE/aging_arbitrary_choices_test.py` v1.0 (the current curve on held-out careers) and
-`50_REBUILD/code/run_aging_choices_test.py` v1.0 (both models on the rebuild's forecast harness).
+Scripts: `20_CODE/aging_arbitrary_choices_test.py` v1.0 (the current curve on held-out careers),
+`20_CODE/aging_ep_pool_test.py` v1.0 (the missing older careers, held out) and
+`50_REBUILD/code/run_aging_choices_test.py` v1.1 (both models on the rebuild's forecast harness).
 `50_REBUILD/code/aging_additive.py` v1.5 exposes three options for the second script; at their
 defaults it fits exactly the committed curve on every development page (asserted).
 
@@ -33,9 +34,18 @@ choices of its own. Each was changed one at a time and scored against the same o
 5. **The rebuilt model's recorded choices hold up.** The recorded settings are a cubic in age,
    ages 19-39, and season pairs weighted by games. No alternative beats them on the primary score
    by more than 0.013%.
-6. **Across models,** on the 35,878 rows the current chain answers itself, the rebuilt model's
-   season-WAR RMSE is 5.2% below the current chain as it runs, and 6.8% below the current chain
-   with its look-ahead removed.
+6. **The current curve's pool is missing about 1,276 older careers, and that matters more than any
+   hand-set choice.** `age_join.py` reads the Elite Prospects birthdates from
+   `OUTPUT_DIR/ep_out/ep_birthdates.csv`, but the file sits in `10_SOURCE/`, so the step that ages
+   pre-2018 retirees is skipped without a warning. With those careers added, the live chain's
+   season-WAR RMSE falls **1.4%**. With the careers added AND the pool limited to seasons before
+   each valuation date, it is **0.6% below the current chain as it runs**. That is the
+   look-ahead-free version, and it beats today's figure.
+7. **Across models,** on the 35,878 rows the current chain answers itself, the rebuilt model's
+   season-WAR RMSE is:
+   - 5.2% below the current chain as it runs;
+   - 6.8% below it with the look-ahead removed;
+   - 4.6% below it with the older careers added and the look-ahead removed.
 
 ## What the current curve's comparables pool is
 
@@ -62,7 +72,8 @@ to 18 times. The pool holds only players with a birthdate in the age table, and 
 match from the Elite Prospects file (every one of its match types is exact, fuzzy, manual or
 hand-fixed): 1,278 of 3,199 skaters have no age. Coverage is 17% of 2007-08 season rows, 60% of
 2014-15 and 100% from 2018-19. **The pool is therefore weighted toward careers that lasted into
-the years the contract export covers.** That is a selection on survival, and it was not scored here.
+the years the contract export covers.** That is a selection on survival; it is scored below
+("The missing older careers").
 
 ## The current curve on held-out careers
 
@@ -196,6 +207,8 @@ the full grid and the 35,878 rows production answers itself, same rows for every
 | yardstick from every pair | 0.8675 | +0.002% | 0 | 0.9120 | +0.002% | 0 |
 | league average a fixed 5% share | 0.8692 | +0.20% | 0 | 0.9139 | +0.20% | 0 |
 | every same-age comparable weight 1 | 0.8714 | +0.45% | 0 | 0.9162 | +0.46% | 0 |
+| older careers added to the pool | 0.8554 | -1.39% | 2000 | 0.8990 | -1.42% | 2000 |
+| older careers added, pool from seasons finished before the page | 0.8626 | -0.56% | 1972 | 0.9068 | -0.58% | 1966 |
 
 The wrapper with no change reproduces the live chain's forecasts exactly on all 40,510 rows
 (asserted). The pre-valuation change refits only the aging curve. The exit-hazard table the chain
@@ -209,7 +222,58 @@ production answers.
 |---|---:|---:|
 | current chain, as it runs | 0.9120 | |
 | current chain, aging pool from seasons before the page | 0.9281 | +1.8% |
+| current chain, older careers added | 0.8990 | -1.4% |
+| current chain, older careers added, pool from seasons before the page | 0.9068 | -0.6% |
 | rebuilt model (no contract data) | 0.8647 | -5.2% (2,000 of 2,000 lower) |
+
+## The missing older careers
+
+**Why they are missing.**
+- `age_join.py` Pass 4 fills the players the contract export never had (mostly pre-2018 retirees)
+  from the Elite Prospects scrape.
+- It reads that scrape from `OUTPUT_DIR/ep_out/ep_birthdates.csv` (`EP_BIRTHDATES_PATH`).
+  `10_SOURCE/ep_birthdates.csv` exists; that path does not, in this container or in the synced
+  Dropbox copy.
+- The pass checks `os.path.exists()` and skips. The live table carries no "ep" match type.
+- The 26 hand corrections (`EP_BIRTHDATE_OVERRIDES`) are hard-coded, so they were still applied,
+  which is why the table looks partly Elite-Prospects-aware.
+
+**The table, rebuilt by rule.** `aging_ep_pool_test.py` applies Pass 4 and the override pass to the
+live table. It does not re-run `age_join.py`, which needs the confidential contract export.
+- Every row that already had an age keeps it exactly (asserted).
+- 1,276 players gain a birthdate and 2 remain unmatched.
+- Season-row coverage rises from 70.9% to 99.9%.
+
+| | Live table | Older careers added |
+|---|---:|---:|
+| Pool profiles, forwards / defence | 4,950 / 2,581 | 6,600 / 3,457 |
+| Careers in the pool | 1,172 | 1,813 |
+| Yardstick (pooled; forwards / defence) | 2.5264 (2.4852 / 2.5651) | 2.5253 (2.4986 / 2.5512) |
+
+**Held out.** The same forecast-outcome pairs and folds as the hand-set-choices test. Its saved
+production forecasts are reproduced on all 59,606 rows. The added careers are never forecast; they
+only join every fold's training pool. Change in mean absolute error ("better in" = resamples of
+2,000 with lower error):
+
+| | Full era, WAR/82 | Full era, season total | Historical, WAR/82 | Historical, season total |
+|---|---:|---:|---:|---:|
+| all players | +0.14% (333) | -0.36% (2000) | -0.33% (1847) | -0.64% (1999) |
+| 3+ WAR per 82 | +0.37% (383) | -1.34% (2000) | +1.12% (79) | -1.74% (2000) |
+
+The season total improves in both modes. The rate is mixed and neither rate result is decisive.
+With the older careers in, projected WAR per 82 runs lower: bias falls from -0.07 to -0.14 in the
+full-era mode. The average forecast moves 0.07-0.11 WAR per 82, more than any hand-set choice
+moves it.
+
+**In the live chain** (tables above), the added careers lower season-WAR RMSE by 1.39% (2,000 of
+2,000), and the rate error among seasons played by 0.10%.
+- With the pool also limited to pre-valuation seasons, the look-ahead costs 0.84%, where it cost
+  1.73% on the live table.
+- The combination is 0.56% below the current chain (1,972 of 2,000), with a rate error 0.38% above
+  it (25 of 2,000 lower).
+- The three-win-and-up tier's over-forecast five seasons out falls from +0.484 to +0.219 on the rows
+  production answers.
+- The exit hazard also reads the age table and was not refitted.
 
 ## Limits
 
@@ -217,10 +281,11 @@ production answers.
   are reused, not fresh. The held-back pages 2022-2025 were not scored.
 - The held-out test has no exit hazard and no dollars. The harness has no dollars. Nothing here
   prices a contract.
-- Each change is scored alone. A setting that loses alone could still help in combination, and
-  none was searched.
-- The age table's missing Elite Prospects matches bias the current pool toward long careers, and
-  that was not scored.
+- Each change is scored alone, apart from the one combination above (older careers plus the
+  pre-valuation pool). A setting that loses alone could still help in combination, and none was
+  searched.
+- The older-careers table is rebuilt by rule, not by running `age_join.py` with the contract
+  export.
 
 ## Files
 
@@ -230,3 +295,4 @@ Generated and gitignored:
   (same prefix)
 - `50_REBUILD/output/aging_choices_{summary,forecasts}.csv`
 - `aging_choices_run_log.txt` and `aging_choices_birthdates.csv` (same folder)
+- `30_OUTPUT/aging_ep_pool_test_{war_with_age,predictions,summary}.csv` and `_run.json`
