@@ -2125,3 +2125,11 @@ changed. `contract_npv.py` and the panel are owed a laptop re-run.
 The laptop re-ran `contract_npv.py` v1.5 and the panel. Guards are as recorded. 1,359 contracts
 moved, net -$188.1M; the terminal part and goalies did not move. Figures are in PROJECT_STATE and
 the session log. No code or decision change.
+
+### Change log, 2026-09-28j (two birthdates; goalie exit risk blocked; changes document; merge to main)
+
+`age_join.py`: two Elite Prospects overrides (Alex Picard F 1985-10-09; Mikko Lehtonen F
+1987-04-01). The goalie exit risk is blocked on goalie birthdates for pre-2018 retirees. New
+`40_DOCS/Model_Changes_September_2026.md`. The day's branch is merged into `main`. PROJECT_STATE,
+STANDING_FLAGS, WORK_QUEUE and the session log are updated. No locked decision changed beyond the
+D3 and D18 revisions already recorded.

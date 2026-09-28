@@ -1,5 +1,11 @@
 # STANDING FLAGS & OPEN QUESTIONS — NHL Trade Market Efficiency
 
+**Merged to main; changes document; goalie exit risk blocked, 2026-09-28j.** Branch
+`claude/aging-model-questions-fl340y` merged into `main`. New `40_DOCS/Model_Changes_September_2026.md`
+(plain-English account of the aging, age-table, birthdate and exit-risk changes). Two more birthdate
+corrections are in `age_join.py` (take effect at its next run). The goalie exit risk is still
+2018-2024: a pre-valuation version needs goalie birthdates for pre-2018 retirees first.
+
 **D18 revised: skater exit hazard fitted per valuation page, 2026-09-28h.** Adopted by Thomas.
 `contract_npv.py` v1.5 builds the skater table per page on transitions 2007 to t0-2
 (`exit_hazard.pre_valuation_window`); goalies unchanged. Adopted production equals the tested arm on

@@ -1,5 +1,11 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**Merged to main; changes document; goalie exit risk blocked, 2026-09-28j.** Branch
+`claude/aging-model-questions-fl340y` merged into `main`. New `40_DOCS/Model_Changes_September_2026.md`
+(plain-English account of the aging, age-table, birthdate and exit-risk changes). Two more birthdate
+corrections are in `age_join.py` (take effect at its next run). The goalie exit risk is still
+2018-2024: a pre-valuation version needs goalie birthdates for pre-2018 retirees first.
+
 **Both revisions live on the laptop, 2026-09-28i.** `contract_npv.py` v1.5 re-run with the per-page
 skater hazard: guards as recorded (k=0 $0.00; 2,981 contracts; panel 7,565 rows; goalie hazard
 unchanged). 1,359 contracts moved (451 up, 908 down), net -$188.1M, contract part only; stars up,

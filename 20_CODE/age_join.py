@@ -206,6 +206,14 @@ EP_BIRTHDATE_OVERRIDES = {
     "Todd Bertuzzi": "1975-02-02",
     "Wyatt Smith": "1977-02-13",
     "Blair Jones": "1986-09-27",
+    # --- 2026-09-28: two players the scrape gave one shared, wrong date
+    #     (1981-06-11). Picard: Thomas, confirmed by Wikipedia/hockeydb (the
+    #     Columbus forward, drafted 8th in 2004; the defenceman "Alex Picard" is
+    #     1985-07-05 and was already right). Lehtonen: the Boston forward
+    #     (1 GP in 2008-09 and 2009-10), per Wikipedia; not the 1994-born
+    #     defenceman "Mikko Lehtonen", who is matched exactly and was right.
+    "Alex Picard F": "1985-10-09",
+    "Mikko Lehtonen F": "1987-04-01",
     # NOTE: "Ryan Johnson" and "Nathan Smith" are deliberately NOT here. Each is
     # TWO different players merged under one name in WAR.csv (a gap in their
     # seasons gives it away), so no single birthdate is correct. The gate voids
