@@ -2194,3 +2194,15 @@ profile. WORK_QUEUE: new top entry. MANIFEST.csv: new and changed tracked files.
 `ep_extract.py` v3.1: league pages read by the script itself; the package's clean-up fails under
 pandas 3. Verified on six league-seasons and the full write path. CLAUDE.md: one rule. Session log,
 PROJECT_STATE, WORK_QUEUE and STANDING_FLAGS updated. No decision changed.
+
+### Change log, 2026-09-28m (dashboard launcher)
+
+Session `sessions/2026-09-28c.md`. New `dashboard_refresh.py` v1.0 and `Open-Dashboard.cmd`: re-run
+every script the dashboard reads (contract spines, age join, both value engines, the three guard
+runs, contract NPV, panel), then build and open the dashboard. A step passes only on exit 0, no
+guard-failure line, and its own files rewritten in this run; the launcher stops if GitHub is ahead.
+`player_dashboard.py` v1.2 embeds the run record (valuation unchanged). `join_clauses_to_spine.py`
+reads the clause scrape from `SOURCE_DIR` first (spines byte-identical). Scratch-folder test: 10 of
+10 steps, 7.1 minutes; only the 5 age rows of the two pending birthdate fixes differ from the
+accepted run, moving 1,358 contracts by net -$85,592. Live outputs not refreshed. CLAUDE.md run
+section, PROJECT_STATE, WORK_QUEUE and MANIFEST.csv updated. No decision changed.

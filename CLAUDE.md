@@ -70,6 +70,12 @@ Player pillar, in order:
     python 20_CODE/contract_npv.py               # summation, writes contract_npv_spine.csv
     python 20_CODE/contract_npv_panel.py         # panel build
 
+Player dashboard: double-click `Open-Dashboard.cmd` (or `python 20_CODE/dashboard_refresh.py`).
+It re-runs everything the dashboard reads, from `join_clauses_to_spine.py` and `age_join.py`
+through the chain above plus `goalie_value_engine.py`, then builds and opens
+`30_OUTPUT/player_dashboard.html` (about 7 minutes). The step list lives in `dashboard_refresh.py`'s
+`CHAIN`; a new script the dashboard depends on must be added there, or the launcher will not run it.
+
 Game-level chain, in order:
 
     python 20_CODE/nhl_gamelog_scraper.py

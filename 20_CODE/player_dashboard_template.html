@@ -821,7 +821,14 @@ function labelOf(pid) { return LABEL[pid]; }
   $("date").addEventListener("change", e => setDate(e.target.value));
   $("latest").addEventListener("click", () => setDate(latestDate(state.pid)));
   let rt; window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { drawNPV(); drawWAR(); }, 120); });
-  $("meta").textContent = `${META.n_players.toLocaleString()} players · pages ${seasonLbl(META.first)} to ${seasonLbl(META.last)} · built ${META.built} · ${META.version}`;
+  // v1.2: which run of the chain fed this build (dashboard_refresh.py), if any
+  const R = META.refresh;
+  const prov = R
+    ? `chain refreshed ${R.started} on commit ${R.commit || "unknown"}` +
+      (R.uncommitted ? ` + ${R.uncommitted} uncommitted script change${R.uncommitted === 1 ? "" : "s"}` : "")
+    : "not refreshed: built by hand, not by Open-Dashboard.cmd";
+  $("meta").textContent = `${META.n_players.toLocaleString()} players · pages ${seasonLbl(META.first)} to ${seasonLbl(META.last)} · built ${META.built} · ${prov} · ${META.version}`;
+  if (R) $("meta").title = R.steps.map(s => `${s[0]}${s[1] ? " (" + s[1] + ")" : ""}: ${s[2]}s`).join("\n");
 
   const h = new URLSearchParams(location.hash.slice(1));
   const start = P[h.get("pid")] ? h.get("pid") : (ids.find(id => P[id].name === "Auston Matthews") || ids[0]);

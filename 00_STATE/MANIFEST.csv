@@ -37,7 +37,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 20_CODE,gv_adjusted_build.py,gv,hashable,2026-09-09a,32b0a248104214f2e299a881da58dab9c0f219cb,20084,2026-09-09,yes,git,git-tracked; audited via `git status`
 20_CODE,gv_old_vs_new_compare.py,gv,hashable,2026-09-09a,111ea4a7feb045dae123f5d2f0b61f31b4d41e9a,4683,2026-09-09,yes,git,git-tracked; audited via `git status`
 20_CODE,gv_playoff_check.py,gv,hashable,2026-09-09a,edeadd12b0cd656d143954252525d2578f76fcd2,6526,2026-09-09,yes,git,git-tracked; audited via `git status`
-20_CODE,join_clauses_to_spine.py,clause,hashable,2026-09-09a,30fd4c07237e4d0a963975c58006eff89c392475,21463,2026-09-09,yes,git,rescued from data work; writes 1/0 booleans
+20_CODE,join_clauses_to_spine.py,clause,hashable,2026-09-28c,e8e89f3a9d243d8fdaa6ebda1d7951fe4723172e,22703,2026-09-28,yes,git,reads the clause scrape from SOURCE_DIR first (2026-09-28); writes 1/0 booleans; step 1 of the dashboard launcher
 20_CODE,metric_assembly.py,xg,hashable,2026-09-09a,bd1cab0fe6cf74729d243f1c60dec9daabc8175c,24365,2026-09-09,yes,git,git-tracked; audited via `git status`
 20_CODE,nhl_gamelog_scraper.py,xg,hashable,2026-09-09a,9d74b9351763fb3bc8cd1ca762e81d494e189f99,52407,2026-09-09,yes,git,git-tracked; audited via `git status`
 20_CODE,on_ice_reconstruction.py,xg,hashable,2026-09-09a,f5da9ef958a3714715653e80b88f1690981d6292,31627,2026-09-09,yes,git,git-tracked; audited via `git status`
@@ -71,7 +71,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 30_OUTPUT,draft_yield_curve.csv,draft,hashable,2026-09-09a,LOCAL_RUN,845,2026-09-09,yes,dropbox,"POST-rebuild (Stage 3 rate); reproduced to the cent 2026-09-09; pre-rebuild copy is also 845 bytes, hash is the only discriminator"
 30_OUTPUT,draft_pick_outcomes.csv,draft,hashable,2026-09-09a,LOCAL_RUN,220973,2026-09-09,yes,dropbox,"2,324-pick audit panel; regenerated 2026-09-09"
 30_OUTPUT,draft_pick_linkage.csv,draft,hashable,2026-09-09a,LOCAL_RUN,410201,2026-09-09,yes,dropbox,"4,765 picks 2005-2026; regenerated 2026-09-09"
-30_OUTPUT,contract_season_spine.csv,clause,hashable,2026-09-09a,LOCAL_RUN,2887703,2026-09-09,yes,dropbox,"15,918 rows; 1/0 clause booleans; join_clauses_to_spine.py output. NOT regenerated 2026-09-09 (dated 2026-07-01); player chain does not rebuild it"
+30_OUTPUT,contract_season_spine.csv,clause,hashable,2026-09-09a,LOCAL_RUN,2887703,2026-09-09,yes,dropbox,"15,918 rows; 1/0 clause booleans; join_clauses_to_spine.py output. Dated 2026-07-01; rebuilt byte-identical 2026-09-28 from the SOURCE_DIR clause scrape. The dashboard launcher rebuilds it every run"
 30_OUTPUT,contract_level_spine.csv,clause,hashable,2026-09-09a,LOCAL_RUN,926512,2026-09-09,yes,dropbox,"6,851 rows; 1/0 clause booleans. NOT regenerated 2026-09-09 (dated 2026-07-01)"
 30_OUTPUT,WAR_with_age.csv,age,hashable,2026-09-09a,LOCAL_RUN,3763307,2026-09-09,yes,dropbox,age_join.py output; ID pollution flag: 23 IDs / 217 rows / 47 players
 10_SOURCE,nhl_gamelogs.sqlite,xg,binary,2026-09-09a,LOCAL_RUN,2319740928,2026-09-09,yes,dropbox,2.3 GB. Dropbox-only (over GitHub's 100 MB cap). 2026-07-14 copy is canonical per Thomas; holds gv_adjusted + player_game_value_repl
@@ -102,8 +102,8 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 00_STATE/sessions,2026-09-10e.md,state,hashable,2026-09-10e,1c48565a7963177c35584098f7a2217f070bbe9e,809,2026-09-10,yes,git,Doc 2 formatting; user text preserved; visual QA unavailable
 00_STATE/sessions,2026-09-10f.md,state,hashable,2026-09-10f,4e95efc73035ce342897c513ae99e2a5e87118d4,2228,2026-09-10,yes,git,Docs 3-5 review; production unchanged
 40_DOCS,Docs_3_4_5_Review_Notes.md,doc,hashable,2026-09-10f,e12801647c69de2c728b4e4bcaeabf28fc953557,4435,2026-09-10,yes,git,Docs 3-5 review; production unchanged
-20_CODE,player_dashboard.py,npv,hashable,2026-09-13,54f0c2b1a53216486f139aa3096a72d22df4626b,23205,2026-09-13,yes,git,"viewer; builds 30_OUTPUT/player_dashboard.html (embeds confidential PuckPedia data, never commit the output)"
-20_CODE,player_dashboard_template.html,npv,hashable,2026-09-13,e6888f0184bc689f9c9399663e077380be08616a,47666,2026-09-13,yes,git,template for player_dashboard.py; holds no data
+20_CODE,player_dashboard.py,npv,hashable,2026-09-28c,b074d5d5db9d5a4c3c89e0f1c9faf99f55c7784a,24500,2026-09-28,yes,git,"viewer; builds 30_OUTPUT/player_dashboard.html (embeds confidential PuckPedia data, never commit the output)"
+20_CODE,player_dashboard_template.html,npv,hashable,2026-09-28c,44fb158adaf53b64ef3ac18506322b3fbc3f629e,48158,2026-09-28,yes,git,template for player_dashboard.py; holds no data
 50_REBUILD/docs,Aging_Curve_Coverage_Audit.md,age,hashable,2026-09-13,a22d4cdd8087764b71efd65062a0f2a3a51e9787,6083,2026-09-13,yes,git,aging-curve coverage audit; production curve unchanged
 00_STATE/sessions,2026-09-13.md,state,hashable,2026-09-15,afa70fa77bfd6052665825269e78e2e1dc9a5843,5603,2026-09-15,yes,git,session log
 00_STATE/sessions,2026-09-13b.md,state,hashable,2026-09-15,1166fe2c207c3480a95d890e95cf49fe436d3ba4,8001,2026-09-15,yes,git,session log
@@ -382,3 +382,5 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 20_CODE,ep_nhl_bridge.py,prosp,hashable,2026-09-28k,05b61a52a83bed1eec0209c58f8a2b32582b9b33,10672,2026-09-28,yes,git,v1.0 new: EP id to NHL id bridge (proposal)
 20_CODE,future_pick_premium.py,draft,hashable,2026-09-28k,990badf91d3dde840bdffd82825dab69f2d00374,9253,2026-09-28,yes,git,v2.0 recreated 2026-09-28
 20_CODE,slot_curve.py,draft,hashable,2026-09-28k,59b83aa95ab094a7a895fe4bc0edd86017b1f752,6476,2026-09-28,yes,git,v2.0 recreated 2026-09-28; imported by future_pick_premium
+20_CODE,dashboard_refresh.py,npv,hashable,2026-09-28c,4f5e53a0ceb0e3e6ec360b4699e20f2a3d26150a,16681,2026-09-28,yes,git,"launcher: re-runs every script the dashboard reads, then builds and opens it"
+.,Open-Dashboard.cmd,npv,hashable,2026-09-28c,60204f5e20f868214397e18705a5353d6057dc2b,1763,2026-09-28,yes,git,double-click launcher for dashboard_refresh.py; CRLF
