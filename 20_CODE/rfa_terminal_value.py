@@ -372,7 +372,8 @@ class TerminalValuer:
             return empty, {"status": "no_anchor"}
         age = sp.age_at(crows.iloc[0]["bd"], valuation_season)
         horizon = (end - valuation_season) + len(ctrl_seasons)
-        ratios, path = sp.ratio_path(nk, age, horizon)
+        # v1.4 projector (2026-09-28): the curve for this valuation page only (D3 revision)
+        ratios, path = sp.ratio_path(nk, age, horizon, valuation_season)
         if a < 0:
             path = "replacement_reversion"          # D12 v3, same as Layer 2
 
