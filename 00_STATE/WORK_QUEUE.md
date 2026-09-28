@@ -3,7 +3,7 @@
 **Aging, 2026-09-28c: both earlier items decided and coded; three open.**
 (1) LAPTOP RE-RUN: `age_join.py` DONE and verified 2026-09-28 (1,276 EP matches, 99.9% of rows).
 The 10 sibling/namesake birthdates are corrected in `age_join.py` Pass 5 (hand-verified by Thomas),
-with a guard on shared identifiers. Re-run `age_join.py` once more and check that 43 rows change.
+with a guard on shared identifiers. Re-run DONE and verified 2026-09-28 (identical to the expected table; 43 rows changed).
 Also unverified: "Mikko Lehtonen F" / "Alex Picard F" share an Elite Prospects birthdate. Then the
 player chain in the documented
 order (`skater_value_engine.py`, `skater_forward_projection.py`, `rfa_terminal_value.py`,
