@@ -2082,3 +2082,11 @@ Session log and WORK_QUEUE updated. No model or locked decision changed.
 The laptop re-ran the six player-chain scripts with the D3 revision and the corrected age table.
 Guards and counts are as recorded. NPV p10 -$7.80M to -$8.10M; median +$0.29M to +$0.28M. The
 figures are in PROJECT_STATE and the session log. No further code or decision change.
+
+### Change log, 2026-09-28g (exit hazard window tested; spine comparison script)
+
+New `50_REBUILD/code/run_exit_hazard_window_test.py` v1.0 and report
+`50_REBUILD/docs/Exit_Hazard_Window_Test.md`: the pre-valuation hazard (expanding from 2007) is more
+accurate than production's 2018-2024 table on the harness. New read-only
+`20_CODE/npv_spine_compare.py`. PROJECT_STATE, WORK_QUEUE and the session log are updated. Nothing
+adopted.

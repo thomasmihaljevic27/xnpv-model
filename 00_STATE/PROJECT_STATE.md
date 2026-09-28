@@ -1,5 +1,11 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**Exit hazard fitted before each page: tested, 2026-09-28g.** `run_exit_hazard_window_test.py` v1.0 on the
+harness. The hazard fitted per page on transitions finished before it (expanding from 2007) beats
+production's 2018-2024 table: Brier 0.2143 against 0.2275, season-WAR RMSE 0.8591 against 0.8619, both
+2000/2000. The 2018 start existed because of the incomplete age join, now fixed. Not adopted;
+decision owed. New read-only `20_CODE/npv_spine_compare.py` for the laptop's before/after spines.
+
 **Player chain re-run on the revised code, 2026-09-28f.** Laptop run of `age_join.py` (1,276 Elite
 Prospects matches, ten sibling birthdates corrected, 99.9% of rows aged) and all six chain scripts.
 Guards and counts as recorded: k=0 identity $0.00; 2,981 contracts (2,591 / 390); panel 7,565 rows.
