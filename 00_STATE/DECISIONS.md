@@ -2188,3 +2188,9 @@ the stale skater rate replaced; two rules added. PROJECT_STATE refresh: Generate
 dropped (Thomas: long overtaken). STANDING_FLAGS: goalie birthdate count corrected (98 missing,
 not 109), with a tested NHL API route; PuckPedia's Nick Henry id; Tyler Vesel's duplicate EP
 profile. WORK_QUEUE: new top entry. MANIFEST.csv: new and changed tracked files.
+
+### Change log, 2026-09-28l (EP pull fixed for pandas 3)
+
+`ep_extract.py` v3.1: league pages read by the script itself; the package's clean-up fails under
+pandas 3. Verified on six league-seasons and the full write path. CLAUDE.md: one rule. Session log,
+PROJECT_STATE, WORK_QUEUE and STANDING_FLAGS updated. No decision changed.

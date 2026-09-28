@@ -2,11 +2,11 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 00_STATE,01_Draft_Model_Sequence.md,state,hashable,2026-09-28k,19281a382d63f217be50d4c924e322792e1b0739,10417,2026-09-28,yes,git,rewritten 2026-09-28 with D29-D31
 00_STATE,02_Prospect_Model_Sequence.md,state,hashable,2026-09-28k,047d898fa5c56992c326a1403199f106b3f2d792,11163,2026-09-28,yes,git,"rewritten 2026-09-28 (EP pull, bridge, goalie birthdates)"
 00_STATE,03_Player_Market_Model_Sequence.md,state,hashable,2026-09-09a,2f68c554cca2f422235e3baa6e17a0996e8412e7,18322,2026-09-09,yes,git,matches Claude project copy
-00_STATE,DECISIONS.md,state,hashable,2026-09-28k,b32e6f1711028a98f191a3f698a7417e964c92f6,326208,2026-09-28,yes,git,D29-D32; change log 2026-09-28k
+00_STATE,DECISIONS.md,state,hashable,2026-09-28l,d48bbb7d2b28defd14e087b585f8dd3fbbb77e67,326539,2026-09-28,yes,git,change log 2026-09-28l
 00_STATE,MANIFEST.csv,state,hashable,2026-09-25c,66d3201b2fc22f946fa0de1bb2c0f364c6600a13,36432,2026-09-25,yes,git,"this file; the hash column cannot be self-referential, so it is not audited"
-00_STATE,PROJECT_STATE.md,state,hashable,2026-09-28k,4ffef86cfe4d4c865c0db09945e8af5ac2e9f1ad,170664,2026-09-28,yes,git,refresh v3.3 (Generated 2026-09-28)
-00_STATE,STANDING_FLAGS.md,state,hashable,2026-09-28k,4772ddbdf45c92bbfe07ce336ee319595a95a052,133111,2026-09-28,yes,git,draft/prospect flags 2026-09-28k
-00_STATE,WORK_QUEUE.md,state,hashable,2026-09-28k,aa8b0194eec39642de45cbdc3b2b4fff1bc00924,144721,2026-09-28,yes,git,draft/prospect next steps 2026-09-28k
+00_STATE,PROJECT_STATE.md,state,hashable,2026-09-28l,e53a0a76f5463a8925a87cfffa226505adc213f9,170742,2026-09-28,yes,git,refresh v3.3; EP v3.1 note
+00_STATE,STANDING_FLAGS.md,state,hashable,2026-09-28l,25bf013420c65eae835b24e54c56d5db47b758bc,133374,2026-09-28,yes,git,pandas 3 flag
+00_STATE,WORK_QUEUE.md,state,hashable,2026-09-28l,5994aa888450bb2dd4adc6effb9d8aeb0467c7fd,144775,2026-09-28,yes,git,EP v3.1 note
 00_STATE/sessions,2026-08-28.md,state,hashable,2026-09-09a,921a8eae623bb0d7ac4d1d181f6b862aa51a9e62,2159,2026-09-09,yes,git,git-tracked; audited via `git status`
 00_STATE/sessions,2026-09-08.md,state,hashable,2026-09-09a,1b31b43e8ed30fefd98ded8df5f5a431e79f323b,2384,2026-09-09,yes,git,git-tracked; audited via `git status`
 00_STATE/sessions,2026-09-09.md,state,hashable,2026-09-10,e1547fa499f7d8fdff918698f28a968b7bb56a07,22662,2026-09-10,yes,git,git-tracked; audited via `git status`
@@ -27,7 +27,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 20_CODE,draft_pick_linkage.py,draft,hashable,2026-09-09a,3407afcc09d47360dee13a505ea65c181c62d55f,21073,2026-09-09,yes,git,rescued from data work; only cloud copy
 20_CODE,draft_yield_curve.py,draft,hashable,2026-09-09a,dcb1637d0a3684a4a4a7185223e2a6a92adbb15d,21806,2026-09-09,yes,git,git-tracked; audited via `git status`
 20_CODE,ep_age_scraper.py,prosp,hashable,2026-09-09a,c67adaa2471ebe1afc63627cb118e53bab0e5ef4,15677,2026-09-09,yes,git,git-tracked; audited via `git status`
-20_CODE,ep_extract.py,prosp,hashable,2026-09-28k,592e1d90a36ecd721e56b30ac073645c2384ef7f,35135,2026-09-28,yes,git,"v3.0: 34 leagues, 2006-07 on, draft pass"
+20_CODE,ep_extract.py,prosp,hashable,2026-09-28l,b3bd22c40b2efcc5822cf3d5407409c5b4382f7b,39724,2026-09-28,yes,git,v3.1: own league-page reader (pandas 3)
 20_CODE,exit_hazard.py,npv,hashable,2026-09-28h,e8a89c5bd81a66be9fbcdff0d184949b7a48ac3b,22344,2026-09-28,yes,git,imported as module; do not rename
 20_CODE,goalie_hazard_overlap.py,goal,hashable,2026-09-09a,ceb25f53b23e69af920e9be2e6a870a76e164f15,6340,2026-09-09,yes,git,git-tracked; audited via `git status`
 20_CODE,goalie_value_engine.py,goal,hashable,2026-09-09a,326d28d16647e9bbef96a2628b87fec8d27cf857,37691,2026-09-09,yes,git,stale-anchor fix shipped v2.9
@@ -378,7 +378,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 50_REBUILD/code,run_exit_hazard_window_test.py,player,hashable,2026-09-28h,a06765dc4079af0be0bfc55bd6c0a72f1b9472d7,9568,2026-09-28,yes,git,new 2026-09-28; production unchanged
 50_REBUILD/docs,Exit_Hazard_Window_Test.md,player,hashable,2026-09-28h,8aa04be8d742d171a8adbcc0a29cfccad55b127a,5381,2026-09-28,yes,git,new 2026-09-28; production unchanged
 40_DOCS,Model_Changes_September_2026.md,player,hashable,2026-09-28j,8abb7e62193b27ad631923bd62be6eea10d19b63,10296,2026-09-28,yes,git,plain-English account of the 2026-09-28 model changes
-00_STATE/sessions,2026-09-28b.md,state,hashable,2026-09-28k,152661dbf745ca4edeed1359b07b1b9588b7b913,6503,2026-09-28,yes,git,session log
+00_STATE/sessions,2026-09-28b.md,state,hashable,2026-09-28l,73fb0da4f095fbee626f0583fc58f7f404a6c104,7698,2026-09-28,yes,git,session log
 20_CODE,ep_nhl_bridge.py,prosp,hashable,2026-09-28k,05b61a52a83bed1eec0209c58f8a2b32582b9b33,10672,2026-09-28,yes,git,v1.0 new: EP id to NHL id bridge (proposal)
 20_CODE,future_pick_premium.py,draft,hashable,2026-09-28k,990badf91d3dde840bdffd82825dab69f2d00374,9253,2026-09-28,yes,git,v2.0 recreated 2026-09-28
 20_CODE,slot_curve.py,draft,hashable,2026-09-28k,59b83aa95ab094a7a895fe4bc0edd86017b1f752,6476,2026-09-28,yes,git,v2.0 recreated 2026-09-28; imported by future_pick_premium

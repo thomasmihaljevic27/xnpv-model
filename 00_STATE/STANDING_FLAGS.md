@@ -19,6 +19,9 @@
   either set of per-trade numbers until re-run on the break-test curve.
 - **Break-test bands still price within-band trade-downs at zero** (D29). Compare against a smooth
   decreasing fit before choosing.
+- **TopDownHockey_Scraper 6.1.69 league pulls fail under pandas 3.0.2** (its clean-up writes "FW" into a
+  true/false column). `ep_extract.py` v3.1 reads the league pages itself and uses the package only for
+  bios. Re-check if the package or pandas is upgraded.
 - **Resolved:** the NHLe slug crosswalk (verified); CLAUDE.md's stale skater rate (replaced).
 
 **Merged to main; changes document; goalie exit risk blocked, 2026-09-28j.** Branch

@@ -247,6 +247,12 @@ Draft pillar:
   This file quoted a skater rate retired twice over, and `skater_forward_projection.py` still
   labels a superseded rate "locked" at the top of the file before overwriting it further down
   (corrected 2026-09-28). The last assignment is the one that runs.
+- **Don't hand over a scraper after checking only that its pages load.** `ep_extract.py` v3.0 went
+  to Thomas with every league slug checked for a 200 response and the draft pass run, but no
+  league-season pulled through the package end to end. On the laptop every pull failed: the
+  package's clean-up writes "FW" into a true/false column, which pandas 3 rejects (2026-09-28).
+  Before handing over any data-pull script, run one real unit of work through the whole path
+  (request, parse, cache, database) on the same library versions.
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised

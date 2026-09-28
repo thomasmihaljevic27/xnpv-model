@@ -98,7 +98,13 @@ load_dotenv()
 
 import TopDownHockey_Scraper.TopDownHockey_EliteProspects_Scraper as tdhepscrape
 
-SCRIPT_VERSION = "3.0"   # printed on every run (stale-file guard)
+SCRIPT_VERSION = "3.1"   # printed on every run (stale-file guard)
+# v3.1 (2026-09-28): league-season pages are read by this script's own
+# read_league_season(), not the package's get_skaters / get_goalies. The
+# package's clean-up step writes the text "FW" into a true/false column, which
+# pandas 3 refuses ("Invalid value 'FW' for dtype 'bool'"), so every league
+# pull failed after the pages had been read. The page requests and table
+# selection are unchanged; only the clean-up is ours.
 
 try:
     from importlib.metadata import version as _pkg_version
@@ -320,6 +326,97 @@ def load_trade_assets(path: str) -> pd.DataFrame:
 # Production pull (skaters + goalies), with CSV cache
 # =============================================================================
 
+SLEEP_BETWEEN_PAGES = 1            # seconds between pages of one league-season
+MAX_PAGES = 99                     # hard stop; the largest leagues run ~15 pages
+PLAYER_POS_PATTERN = re.compile(r"^(?P<name>.*?)\s*\((?P<pos>[^)]*)\)\s*$")
+
+
+def _find_stats_table(soup, kind):
+    """The stats table, picked by its header row (same rule as the package's
+    private helper, copied so a package update cannot move it). EP's 2025
+    redesign removed the old table classes."""
+    for table in soup.find_all("table"):
+        headers = [th.get_text(strip=True).upper() for th in table.find_all("th")]
+        if kind == "skaters" and "TP" in headers and "GP" in headers:
+            return table
+        if kind == "goalies" and "GAA" in headers and "SV%" in headers:
+            return table
+    return None
+
+
+def _get_with_backoff(url: str):
+    """GET with the package's 403 behaviour (EP throttles with 403): wait
+    100 s and retry, at most five times."""
+    for _ in range(5):
+        resp = requests.get(url, timeout=120)
+        if resp.status_code != 403:
+            return resp
+        print("  .. 403 from EP; sleeping 100 s")
+        time.sleep(100)
+    return resp
+
+
+def read_league_season(player_type: str, league: str, season: str) -> pd.DataFrame | None:
+    """
+    Every row of one league-season stats table, all pages.
+
+    Pages: /league/<slug>/stats/<season>?page=N for skaters, with
+    &tab=goalies for goalies. Reading stops at the first page with no stats
+    table (EP serves an empty page past the last one). A row is kept only if
+    it has as many cells as the header and a non-blank first cell (the rank);
+    EP puts blank spacer rows between blocks. The player link is the first
+    /player/ link IN THAT ROW, so a row can never be paired with another row's
+    player (the package paired them by position across the whole table).
+    One row per player per league-season: a player who played for two teams
+    in the league appears once, with Team = "totals" and his combined line
+    (checked 2026-09-28: 45 such rows in OHL 2019-20, e.g. Philip Tomasino,
+    62 GP). That is the season total the NHLe factors apply to.
+    """
+    tab = "&tab=goalies" if player_type == "goalies" else ""
+    rows, header = [], None
+    for page in range(1, MAX_PAGES + 1):
+        url = f"https://www.eliteprospects.com/league/{league}/stats/{season}?page={page}{tab}"
+        resp = _get_with_backoff(url)
+        if resp.status_code == 404:
+            print(f"  !! 404 for {league} {season}: league-season not on EP")
+            return None
+        table = _find_stats_table(BeautifulSoup(resp.content, "html.parser"), player_type)
+        if table is None:
+            break                                  # past the last page
+        trs = table.find_all("tr")
+        header = [th.get_text(strip=True) for th in trs[0].find_all("th")]
+        n_before = len(rows)
+        for tr in trs[1:]:
+            cells = [td.get_text(" ", strip=True) for td in tr.find_all("td")]
+            if len(cells) != len(header) or not cells[0]:
+                continue
+            rec = dict(zip(header, cells))
+            rec["link"] = next((a["href"] for a in tr.find_all("a", href=True)
+                                if "/player/" in a["href"]), None)
+            rec["page"] = page
+            rows.append(rec)
+        if len(rows) == n_before:
+            break                                  # a table with no player rows
+        time.sleep(SLEEP_BETWEEN_PAGES)
+    if not rows:
+        return None
+    df = pd.DataFrame(rows)
+    df = df.drop(columns=[c for c in ("#",) if c in df.columns])
+    # "Marco Rossi (C)" -> name + position. Goalie rows carry no position.
+    parsed = df["Player"].str.extract(PLAYER_POS_PATTERN)
+    df["playername"] = parsed["name"].fillna(df["Player"]).str.strip()
+    df["position"] = parsed["pos"] if player_type == "skaters" else "G"
+    df["season"] = season
+    df["league"] = league
+    # Guard: the same player-team twice means pages overlapped.
+    dup = df.duplicated(["link", "Team"]).sum()
+    if dup:
+        print(f"  !! {league} {season}: {dup} repeated player-team rows dropped "
+              f"(pages overlapped)")
+        df = df.drop_duplicates(["link", "Team"])
+    return df
+
+
 def fetch_production(player_type: str, league: str, season: str) -> pd.DataFrame | None:
     """
     Return the production dataframe for one (player_type, league, season),
@@ -334,10 +431,8 @@ def fetch_production(player_type: str, league: str, season: str) -> pd.DataFrame
         return pd.read_csv(cache_file, dtype=str)
 
     print(f"  [scrape] {player_type} {league} {season}")
-    scraper = (tdhepscrape.get_skaters if player_type == "skaters"
-               else tdhepscrape.get_goalies)
     try:
-        df = scraper(league, season)
+        df = read_league_season(player_type, league, season)
     except Exception as exc:                       # noqa: BLE001 — log and move on
         print(f"  !! scrape failed for {league} {season}: {exc}")
         return None
