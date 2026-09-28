@@ -11,7 +11,7 @@ order (`skater_value_engine.py`, `skater_forward_projection.py`, `rfa_terminal_v
 `age_join.py`'s run log should show about 1,276 on its "Pass 4 EP matches" line; if it shows 0, stop.
 (2) `valuation_walkthrough.py` rebuilt per page (O'Reilly and Pacioretty on 2018, Kadri on 2019,
 each with its own yardstick). Until then it stops by design.
-(3) Exit hazard on pre-valuation seasons: TESTED 2026-09-28 (`50_REBUILD/docs/Exit_Hazard_Window_Test.md`). Expanding window (2007 to t0-2): Brier -5.8%, season-WAR RMSE -0.32% against the 2018-2024 table, 2000/2000. ADOPTED 2026-09-28 (D18 revision, `contract_npv.py` v1.5). Laptop re-run of `contract_npv.py` and `contract_npv_panel.py` owed. Goalie hazard: still 2018-2024, untested.
+(3) Exit hazard on pre-valuation seasons: TESTED 2026-09-28 (`50_REBUILD/docs/Exit_Hazard_Window_Test.md`). Expanding window (2007 to t0-2): Brier -5.8%, season-WAR RMSE -0.32% against the 2018-2024 table, 2000/2000. ADOPTED 2026-09-28 (D18 revision, `contract_npv.py` v1.5). Laptop re-run DONE 2026-09-28 (1,359 contracts moved, net -$188.1M; guards as recorded). Goalie hazard: still 2018-2024, untested.
 Also: the rebuild's recorded comparisons against "production" predate the revision.
 
 **Branches integrated into main, 2026-09-25b.** `main` (`ded9e18`) now carries the player-model

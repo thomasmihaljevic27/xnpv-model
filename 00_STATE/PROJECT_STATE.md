@@ -1,5 +1,11 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**Both revisions live on the laptop, 2026-09-28i.** `contract_npv.py` v1.5 re-run with the per-page
+skater hazard: guards as recorded (k=0 $0.00; 2,981 contracts; panel 7,565 rows; goalie hazard
+unchanged). 1,359 contracts moved (451 up, 908 down), net -$188.1M, contract part only; stars up,
+older and fringe players down. NPV p10 -$8.32M, median +$0.27M, p90 +$2.45M (start of day: -7.80 /
++0.29 / +2.49).
+
 **D18 revised: skater exit hazard fitted per valuation page, 2026-09-28h.** Adopted by Thomas.
 `contract_npv.py` v1.5 builds the skater table per page on transitions 2007 to t0-2
 (`exit_hazard.pre_valuation_window`); goalies unchanged. Adopted production equals the tested arm on

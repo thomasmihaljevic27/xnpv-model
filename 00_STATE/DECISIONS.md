@@ -2119,3 +2119,9 @@ Code:
 Report section "Adopted 2026-09-28". Laptop contract comparison recorded in the session log.
 PROJECT_STATE, WORK_QUEUE and STANDING_FLAGS updated. D18 revised as above; nothing else locked
 changed. `contract_npv.py` and the panel are owed a laptop re-run.
+
+### Change log, 2026-09-28i (per-page skater hazard live)
+
+The laptop re-ran `contract_npv.py` v1.5 and the panel. Guards are as recorded. 1,359 contracts
+moved, net -$188.1M; the terminal part and goalies did not move. Figures are in PROJECT_STATE and
+the session log. No code or decision change.
