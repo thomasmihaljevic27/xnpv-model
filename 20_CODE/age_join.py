@@ -161,7 +161,7 @@ def join_on_id_and_name(left, right, id_col="player_id", name_col="Player",
 # script still runs; those players just stay unmatched. Keyed on the exact WAR
 # `Player` string. Applied in Pass 4, after the PuckPedia passes. Written by
 # ep_age_scraper.py to OUTPUT_DIR/ep_out/, so it is read from there.
-EP_BIRTHDATES_PATH = os.path.join(OUTPUT_DIR, "ep_out", "ep_birthdates.csv")
+EP_BIRTHDATES_PATH = os.path.join(SOURCE_DIR, "ep_birthdates.csv")
 
 # Corrections for the EP rows the scraper resolved to the WRONG person (its
 # review pile). Each was re-checked against Elite Prospects by hand. These
