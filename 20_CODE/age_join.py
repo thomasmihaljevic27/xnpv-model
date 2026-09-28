@@ -212,6 +212,41 @@ EP_BIRTHDATE_OVERRIDES = {
     # their bad match and they stay unmatched until WAR disambiguates the names.
 }
 
+# SIBLING / NAMESAKE CORRECTIONS (2026-09-28). Pass 2 matches on last name +
+# first initial + position and accepts a match when exactly one contract-export
+# skater fits. For a retired player the one skater who fits can be his brother
+# or a namesake, so he took that player's identifier AND birthdate (Rick Nash was
+# given Riley Nash's 1989 birthdate, five years late). The plausibility gate
+# cannot see it: the wrong age is still a possible hockey age. Found by listing
+# every identifier carried by more than one WAR name; of 23, these 9 joined two
+# different people. Birthdates hand-verified against Elite Prospects by Thomas,
+# 2026-09-28. Each player's identifier fields are cleared as well, because they
+# belong to the other player.
+SIBLING_BIRTHDATE_CORRECTIONS = {
+    "Rick Nash": "1984-06-16",          # had Riley Nash's
+    "Marcel Hossa": "1981-10-12",       # had Marian Hossa's
+    "Jared Staal": "1990-08-21",        # had Jordan Staal's
+    "Taylor Pyatt": "1981-08-19",       # had Tom Pyatt's
+    "Brett Sutter": "1987-06-02",       # had Brandon Sutter's
+    "Brody Sutter": "1991-09-26",       # had Brandon Sutter's
+    "Mark Cullen": "1978-10-28",        # had Matt Cullen's
+    "Patrick Holland": "1992-01-07",    # had Peter Holland's
+    "Chris Brown": "1991-02-03",        # had Connor Brown's
+    "Jeff Schultz": "1986-02-25",       # had Justin Schultz's
+}
+
+# The other 14 shared identifiers are ONE player the WAR file spells two ways.
+# They are declared here so the guard below can tell them from a new mix-up.
+SAME_PERSON_SPELLINGS = [
+    {"Nick Paul", "Nicholas Paul"}, {"Jacob Middleton", "Jake Middleton"},
+    {"Nicholas Merkley", "Nick Merkley"}, {"Thomas Novak", "Tommy Novak"},
+    {"William Borgen", "Will Borgen"}, {"Maxime Lajoie", "Max Lajoie"},
+    {"Alexei Toropchenko", "Alexey Toropchenko"}, {"Alex Chmelevski", "Sasha Chmelevski"},
+    {"Samuel Walker", "Sammy Walker"}, {"Bo Groulx", "Benoit-olivier Groulx"},
+    {"Gerald Mayhew", "Gerry Mayhew"}, {"Matej Blumel", "Mat\u011bj Bl\u00fcmel"},
+    {"Nicholas Abruzzese", "Nick Abruzzese"}, {"J.J. Moser", "Janis Moser"},
+]
+
 # Age is measured on this month/day of the season's ENDING year (Hockey-Ref = Feb 1).
 REFERENCE_MONTH = 2
 REFERENCE_DAY = 1
@@ -436,7 +471,27 @@ def main():
             p1.loc[mask, "birthdate"] = bd
             p1.loc[mask, "match_type"] = "ep_fixed"
 
-    # truly unmatched = nothing from any of the four passes
+    # ---- PASS 5: sibling / namesake corrections (see the dict above) -------
+    for player_name, bd in SIBLING_BIRTHDATE_CORRECTIONS.items():
+        mask = p1["Player"] == player_name
+        if mask.any():
+            p1.loc[mask, "birthdate"] = bd
+            p1.loc[mask, ["player_id", "eliteprospects_id", "nhl_id"]] = float("nan")
+            p1.loc[mask, "match_type"] = "sibling_fixed"
+
+    # GUARD: an identifier may carry more than one WAR name only when the names
+    # are declared spellings of one player. Anything else is a new mix-up of the
+    # kind Pass 5 corrects, and the run stops rather than hand one player
+    # another's birthdate.
+    shared = p1[p1["player_id"].notna()].groupby("player_id")["Player"].agg(lambda x: set(x))
+    shared = shared[shared.map(len) > 1]
+    bad = [sorted(v) for v in shared if not any(v <= ok for ok in SAME_PERSON_SPELLINGS)]
+    assert not bad, (
+        "an identifier is carried by names not declared as one player: "
+        f"{bad}. If they are one player, add them to SAME_PERSON_SPELLINGS; "
+        "if not, add a verified birthdate to SIBLING_BIRTHDATE_CORRECTIONS.")
+
+    # truly unmatched = nothing from any of the five passes
     p1.loc[p1["match_type"] == "", "match_type"] = "unmatched"
 
     # ---- attach the per-player birthdate back onto every WAR season-row ----
@@ -460,6 +515,7 @@ def main():
     n_manual = (p1["match_type"] == "manual").sum()
     n_ep = (p1["match_type"] == "ep").sum()
     n_ep_fixed = (p1["match_type"] == "ep_fixed").sum()
+    n_sib = (p1["match_type"] == "sibling_fixed").sum()
     n_un = (p1["match_type"] == "unmatched").sum()
     miss = p1[p1["match_type"] == "unmatched"][["Player", "Position"]].copy()
     miss["last_season_seen"] = miss["Player"].map(last_seen)
@@ -474,10 +530,11 @@ def main():
     record("Pass 2 fuzzy matches : %d" % n_fuzzy)
     record("Pass 3 manual matches: %d" % n_manual)
     record("Pass 4 EP matches     : %d  (+ %d hand-corrected)" % (n_ep, n_ep_fixed))
+    record("Pass 5 sibling fixes : %d" % n_sib)
     record("Implausible auto-matches voided by age gate: %d" % gate_voided)
     record("Unmatched players    : %d  (of which last seen 2018+: %d)" % (n_un, recent_miss))
     record("Player match rate    : %.1f%%" % (
-        100 * (n_exact + n_fuzzy + n_manual + n_ep + n_ep_fixed) / n_players))
+        100 * (n_exact + n_fuzzy + n_manual + n_ep + n_ep_fixed + n_sib) / n_players))
     record("Season-rows with age : %d / %d (%.1f%%)" % (
         out["age"].notna().sum(), len(out), 100 * out["age"].notna().mean()))
     record("")
@@ -500,8 +557,10 @@ def main():
     record("Identifier / name conflicts (review item 1.8):")
     record("   identifiers carrying more than one name: %d" % n_ids)
     record("   rows affected: %d   distinct players involved: %d" % (n_rows, n_names))
-    record("   These change nothing today -- nothing joins to this file on the")
-    record("   identifier. Any future join must go through")
+    record("   Each is a declared spelling of one player (SAME_PERSON_SPELLINGS; the")
+    record("   guard above stops on any other). They matter for birthdates, which")
+    record("   travel with the identifier, and for any join on it: a future join")
+    record("   must go through")
     record("   join_on_id_and_name(), which matches on identifier AND name and")
     record("   raises if the two disagree.")
     if len(conf):

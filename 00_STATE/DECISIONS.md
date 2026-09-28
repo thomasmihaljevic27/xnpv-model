@@ -2068,3 +2068,11 @@ the contract export.
 rule-built table (identical on all 17,112 aged rows). Found, pre-existing: Pass 2's fuzzy match
 gave 10 players another player's birthdate through a shared identifier (43 season rows, 25 with
 20+ games). Session log and WORK_QUEUE updated. No code, model or locked decision changed.
+
+### Change log, 2026-09-28e (sibling birthdates corrected in the age join)
+
+`age_join.py`: Pass 5 applies ten birthdates hand-verified by Thomas (Rick Nash, Marcel Hossa, Jared
+Staal, Taylor Pyatt, Brett and Brody Sutter, Mark Cullen, Patrick Holland, Chris Brown, Jeff
+Schultz) and clears their borrowed identifiers. A guard stops on any identifier shared by names not
+declared as one player. Simulated on the laptop's table: 43 rows change, all belonging to the 10.
+Session log and WORK_QUEUE updated. No model or locked decision changed.

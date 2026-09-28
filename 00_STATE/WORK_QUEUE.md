@@ -2,10 +2,10 @@
 
 **Aging, 2026-09-28c: both earlier items decided and coded; three open.**
 (1) LAPTOP RE-RUN: `age_join.py` DONE and verified 2026-09-28 (1,276 EP matches, 99.9% of rows).
-Before the chain: hand-verify birthdates for the 10 players the fuzzy pass gave a sibling's or
-namesake's date (Rick Nash, Marcel Hossa, Jared Staal, Taylor Pyatt, Brett and Brody Sutter, Mark
-Cullen, Patrick Holland, Chris Brown, Jeff Schultz; see `sessions/2026-09-28.md`), add them and a
-guard, and re-run `age_join.py`. Then the player chain in the documented
+The 10 sibling/namesake birthdates are corrected in `age_join.py` Pass 5 (hand-verified by Thomas),
+with a guard on shared identifiers. Re-run `age_join.py` once more and check that 43 rows change.
+Also unverified: "Mikko Lehtonen F" / "Alex Picard F" share an Elite Prospects birthdate. Then the
+player chain in the documented
 order (`skater_value_engine.py`, `skater_forward_projection.py`, `rfa_terminal_value.py`,
 `exit_hazard.py`, `contract_npv.py`, `contract_npv_panel.py`). It needs the contract export.
 `age_join.py`'s run log should show about 1,276 on its "Pass 4 EP matches" line; if it shows 0, stop.
