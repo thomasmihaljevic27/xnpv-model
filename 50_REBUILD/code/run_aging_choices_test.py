@@ -362,19 +362,38 @@ def scores(runs: dict, ref: str, label: str, mask=None) -> pd.DataFrame:
 
 
 def _birthdates() -> tuple[Path, str]:
+    """One birthdate table for both models.
+
+    This tree's merged table (output/birthdates.csv) is used when present.
+    Otherwise it is rebuilt by the same rule contract_source.birthdate_table
+    applies: a primary source, then the Elite Prospects scrape for keys the
+    primary lacks, keyed on cleaned name + position (pkey). The primary here is
+    production's own join (30_OUTPUT/WAR_with_age.csv), so wherever production
+    has a birthdate both models use the same one."""
     path, how = birthdate_source()
     if path is not None and path.name == "birthdates.csv":
         return path, how
-    SFP_AGE = Path(C.PROD_OUTPUT_DIR) / "WAR_with_age.csv"
-    if not SFP_AGE.exists():
-        raise RuntimeError(f"no merged birthdate table and no {SFP_AGE}; cannot age players")
-    wa = pd.read_csv(SFP_AGE, usecols=["Player", "Position", "birthdate"]).dropna(subset=["birthdate"])
-    bd = wa.drop_duplicates(["Player", "Position", "birthdate"]).rename(
-        columns={"Player": "war_name", "Position": "war_position"})
+    from player_season_table import norm_name
+    prod_age = Path(C.PROD_OUTPUT_DIR) / "WAR_with_age.csv"
+    if not prod_age.exists():
+        raise RuntimeError(f"no merged birthdate table and no {prod_age}; cannot age players")
+    wa = pd.read_csv(prod_age, usecols=["Player", "Position", "birthdate"]).dropna(subset=["birthdate"])
+    wa["pkey"] = wa["Player"].map(norm_name) + "|" + wa["Position"].astype(str)
+    wa["birthdate"] = pd.to_datetime(wa["birthdate"], format="mixed").dt.strftime("%Y-%m-%d")
+    prim = wa[["pkey", "birthdate"]].drop_duplicates()
+    parts, n_ep = [prim], 0
+    ep_path = C.SOURCE_DIR / "ep_birthdates.csv"
+    if ep_path.exists():
+        ep = pd.read_csv(ep_path).dropna(subset=["birthdate"])
+        ep["pkey"] = ep["war_name"].map(norm_name) + "|" + ep["war_position"].astype(str)
+        fresh = ep.loc[~ep["pkey"].isin(set(prim["pkey"])), ["pkey", "birthdate"]].drop_duplicates()
+        parts.append(fresh); n_ep = len(fresh)
+    bd = pd.concat(parts, ignore_index=True)
     out = C.out_path("aging_choices_birthdates.csv")
     bd.to_csv(out, index=False)
-    return out, ("production's own join (30_OUTPUT/WAR_with_age.csv), so both models "
-                 "age every player identically")
+    return out, (f"production's own join (30_OUTPUT/WAR_with_age.csv, {len(prim)} keys) as primary, "
+                 f"then the Elite Prospects scrape for {n_ep} keys it lacks "
+                 "(the rule contract_source.birthdate_table applies)")
 
 
 def main() -> None:

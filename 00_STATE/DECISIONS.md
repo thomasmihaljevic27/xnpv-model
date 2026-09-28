@@ -1996,3 +1996,13 @@ the extended scope and the dating rule for updated rows. `env` and `debug.log` u
 Branch deletions were refused to the cloud session (HTTP 403) and handed to Thomas. CLAUDE.md: one
 rule on asking for decisions in plain terms. No model, state figure or locked decision changed.
 
+
+### Change log, 2026-09-28 (aging hand-set choices, both models)
+
+New test scripts `20_CODE/aging_arbitrary_choices_test.py` v1.0 and
+`50_REBUILD/code/run_aging_choices_test.py` v1.0; `50_REBUILD/code/aging_additive.py` v1.5 (degree,
+age band and pair-weight options; defaults reproduce the committed curve, asserted on every
+development page). Report `50_REBUILD/docs/Aging_Choices_Test.md`; session log
+`sessions/2026-09-28.md`. PROJECT_STATE and STANDING_FLAGS: result entry. WORK_QUEUE: two open items
+(pre-valuation aging pool decision; age table without the Elite Prospects fallback). The inspection
+ledger records the real harness runs. No model, state figure or locked decision changed.

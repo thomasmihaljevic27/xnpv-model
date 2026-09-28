@@ -1,5 +1,21 @@
 # STANDING FLAGS & OPEN QUESTIONS — NHL Trade Market Efficiency
 
+**Aging choices scored on both models, 2026-09-28.** Six supervisor questions on the current aging
+curve (yardstick pool; square-root weights; one yardstick for both positions; the weight formula;
+the pool using later seasons; the league weight of 10). The rebuilt curve has no comparables
+machinery and refits per decision date, so it answers five by construction and the look-ahead by
+design. `20_CODE/aging_arbitrary_choices_test.py` v1.0 (held-out careers, nineteen single changes
+plus the look-ahead) and `50_REBUILD/code/run_aging_choices_test.py` v1.0 (both models on the harness;
+`aging_additive.py` v1.5 exposes degree, age band and pair weight, defaults identical). No hand-set
+choice moves error by more than 1%; a flat weighting is worse and a halved yardstick better in all four
+held-out comparisons; league weight 0.01-20 is within 0.06%. The rebuilt curve's recorded settings are
+not beaten by more than 0.013%. **The live chain's aging pool restricted to pre-valuation seasons
+raises season-WAR RMSE 1.73% (0/2000)**: that is the look-ahead's contribution. The rebuilt model
+is 5.2% lower in RMSE than the current chain as it runs, and 6.8% lower than it without the
+look-ahead, on the 35,878 rows production answers. Found: `WAR_with_age.csv` has no Elite Prospects
+matches (1,278 of 3,199 skaters ageless), so the current pool leans to long careers; not scored.
+Report `50_REBUILD/docs/Aging_Choices_Test.md`. Production unchanged; D3 unchanged.
+
 **Player candidate closed; scorecard corrected; model choice deferred, 2026-09-24l.** Per review
 `57d0be8`: the rebuilt skater model closes at Phase 5 with its recorded limitations; which player
 model to commit to is DEFERRED until the separate draft-pick and prospect models are taken up again.

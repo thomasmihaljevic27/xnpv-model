@@ -1,5 +1,13 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
+**Aging choices scored, 2026-09-28: two items opened.** (1) Decide whether the current model's
+aging pool, z-score scale, yardstick and league curves should be built only from seasons finished
+before each valuation date. It is the look-ahead-free version and costs 1.73% season-WAR RMSE in the
+live chain (`50_REBUILD/docs/Aging_Choices_Test.md`). Locked D3 is unchanged until then. (2) Rebuild
+`30_OUTPUT/WAR_with_age.csv` with `10_SOURCE/ep_birthdates.csv` present (the current file has no
+Elite Prospects matches; 1,278 of 3,199 skaters without an age), then measure what adding the older
+careers does to the current curve's pool.
+
 **Branches integrated into main, 2026-09-25b.** `main` (`ded9e18`) now carries the player-model
 rebuild (all of `50_REBUILD/`), the aging walkthrough, the plain-language overview, and the two
 2026-09-14 sessions (elite aging audit; cap inflation, the g/rho flag, the discount-heterogeneity

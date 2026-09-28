@@ -83,7 +83,7 @@ DESIGN (inherited from aging_comp_limit_test.py v1.0, same guards)
   it. The interval resamples CAREERS (2,000 draws), not rows.
 
 LIMITS: contemporary reconstructed data; surviving 20+ GP seasons only; no
-exit hazard, no dollars. Twenty-one arms are compared, so a small win by one
+exit hazard, no dollars. Nineteen arms plus the look-ahead are compared, so a small win by one
 of them is weak evidence on its own, and the arms are single changes: none is
 tuned, and no combination is scored. A loss rules out the construction tried,
 not the idea behind it.
