@@ -1,5 +1,18 @@
 # STANDING FLAGS & OPEN QUESTIONS — NHL Trade Market Efficiency
 
+**D3 revised: aging curve fitted per valuation page; age join fixed; group weights swept, 2026-09-28c.**
+Thomas adopted the pre-valuation aging pool. `AgingModel(before=t0)`, `skater_forward_projection.py`
+v1.4 (`curve_for`, `ratio_path(..., t0)`), callers updated, `production_adapter.py` v1.2. Adopted
+production equals the tested pre-valuation arm on all 40,510 harness forecasts. `age_join.py` now
+reads `SOURCE_DIR/ep_birthdates.csv` and stops if it is missing. **Laptop re-run owed:** `age_join.py`
+then the player chain; every valuation moves. Expected, once re-run, from the harness arm "older
+careers added, pool from seasons before the page": season-WAR RMSE 0.8626 on the full grid, against
+0.8675 for the pre-revision chain and 0.8825 for the revision on today's age table.
+`20_CODE/aging_weight_sweep_test.py`: across 65 proportions of the four group weights, equal ranks
+28-32 of 65 and no proportion moves error by more than 0.4%; the declared best-set rule fails. The
+walkthrough workbook now refuses to run until rebuilt per page. The exit hazard is still fitted on
+every season (open).
+
 **Older careers missing from the aging pool, 2026-09-28b.** `age_join.py` reads the Elite Prospects
 birthdates from `OUTPUT_DIR/ep_out/ep_birthdates.csv`; the file is in `10_SOURCE/`, so Pass 4 is skipped
 silently and 1,278 of 3,199 skaters (mostly pre-2018 retirees) have no age. `20_CODE/aging_ep_pool_test.py`

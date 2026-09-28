@@ -1,16 +1,14 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
-**Aging choices scored, 2026-09-28 (updated 2026-09-28b): two items open.** (1) DECISION, Thomas:
-should the current model's aging pool, z-score scale, yardstick and league curves be built only from
-seasons finished before each valuation date? Recommended: yes, as the primary specification, with
-the full-era fit reported as a sensitivity. The exit hazard, which has the same full-era fit, should
-follow. This revisits locked D3. Evidence: on the live table the look-ahead-free pool costs 1.73%
-RMSE; with the older careers added it costs 0.84%, and the combination beats today's chain by 0.56%.
-(2) FIX, Thomas's laptop: point `age_join.py`'s `EP_BIRTHDATES_PATH` at
-`SOURCE_DIR/ep_birthdates.csv` (the file moved there in the 2026-07-30 migration; Pass 4 has been
-skipped since), then re-run `age_join.py` and the player chain. Measured by rule in
-`20_CODE/aging_ep_pool_test.py`: 1,276 older careers join the pool; live-chain RMSE -1.39%. It
-changes the locked curve and every valuation, so it waits for his go-ahead.
+**Aging, 2026-09-28c: both earlier items decided and coded; three open.**
+(1) LAPTOP RE-RUN, owed: `python 20_CODE\age_join.py`, then the player chain in the documented
+order (`skater_value_engine.py`, `skater_forward_projection.py`, `rfa_terminal_value.py`,
+`exit_hazard.py`, `contract_npv.py`, `contract_npv_panel.py`). It needs the contract export.
+`age_join.py`'s run log should show about 1,276 on its "Pass 4 EP matches" line; if it shows 0, stop.
+(2) `valuation_walkthrough.py` rebuilt per page (O'Reilly and Pacioretty on 2018, Kadri on 2019,
+each with its own yardstick). Until then it stops by design.
+(3) Exit hazard on pre-valuation seasons, to match the D3 revision: untested.
+Also: the rebuild's recorded comparisons against "production" predate the revision.
 
 **Branches integrated into main, 2026-09-25b.** `main` (`ded9e18`) now carries the player-model
 rebuild (all of `50_REBUILD/`), the aging walkthrough, the plain-language overview, and the two

@@ -51,7 +51,7 @@ def main():
             continue
         negative += int(anchor < 0)
         age = None if pd.isna(row.age) else int(round(row.age))
-        ratios, tag = live.proj_.ratio_path(row.pkey, age, 5)
+        ratios, tag = live.proj_.ratio_path(row.pkey, age, 5, 2021)   # page 2021 (projector v1.4)
         paths[tag] = paths.get(tag, 0) + 1
         survival, previous = 1., None
         for h in range(6):

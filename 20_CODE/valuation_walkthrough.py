@@ -409,7 +409,7 @@ def walk(m, sp, full, P, labels):
         ratios.append(ratios[-1])
     if flat:
         ratios = [1.0] * (horizon + 1)
-    prod_ratios, path = sp.ratio_path(nk, age, horizon)
+    prod_ratios, path = sp.ratio_path(nk, age, horizon, t0)
     # Tolerance, not bit equality: the hand-built curve adds the same terms in
     # a different order from AgingModel.project(), so the last digit can differ.
     assert len(prod_ratios) == len(ratios) and \
@@ -467,7 +467,7 @@ def light_projector(m):
     curve and the name map), built exactly as SkaterProjector.__init__ builds
     them. Used when the contract spine is not on this machine."""
     sp = object.__new__(sfp.SkaterProjector)
-    sp.curve = m
+    sp._curves = {P["t0"]: m for P in PLAYERS}       # pre-revision: one curve for every page
     war = pd.read_csv(F_WAR)
     war["nk"] = war["Player"].map(sfp.norm_name) + "|" + war["Position"]
     war = war[~war["Player"].map(sfp.norm_name).isin(sfp.MERGED_WAR_NAMES)]
@@ -1106,6 +1106,17 @@ AGES_ALL = {}
 
 def main():
     global LABELS, AGES_ALL
+    # 2026-09-28: production now fits the aging curve per valuation page on
+    # seasons before it (D3 revision; skater_forward_projection v1.4,
+    # curve_for). This viewer still builds ONE whole-file curve with one shared
+    # yardstick, so its workbook would no longer show what production does.
+    # It stops rather than write a workbook that looks current and is not.
+    if os.environ.get("WALKTHROUGH_PRE_REVISION") != "1":
+        raise SystemExit(
+            "valuation_walkthrough.py v1.0 shows the whole-file aging curve that production "
+            "retired on 2026-09-28 (D3 revision). It needs per-page curves (O'Reilly and "
+            "Pacioretty on the 2018 page, Kadri on 2019) before it is rerun. To regenerate the "
+            "pre-revision workbook on purpose, set WALKTHROUGH_PRE_REVISION=1.")
     log(SCRIPT_VERSION)
     log(f"inputs: {F_WAR_AGE} sha256 {sha(F_WAR_AGE)[:16]}")
     log(f"        {F_WAR} sha256 {sha(F_WAR)[:16]}")
@@ -1126,7 +1137,7 @@ def main():
     full = (OUTPUT_DIR / "contract_season_spine.csv").exists()
     if full:
         sp = sfp.SkaterProjector()
-        sp.curve = m
+        sp._curves = {P["t0"]: m for P in PLAYERS}   # pre-revision: one curve for every page
         log("mode: FULL (contract spine found; production anchor and contract chain are checked too)")
     else:
         sp = light_projector(m)

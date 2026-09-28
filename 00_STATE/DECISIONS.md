@@ -2015,3 +2015,49 @@ exactly. Report section "The missing older careers" in `50_REBUILD/docs/Aging_Ch
 session log follow-up in `sessions/2026-09-28.md`. PROJECT_STATE and STANDING_FLAGS: finding entry.
 WORK_QUEUE: the two open items restated as a decision (pre-valuation pool, revisits D3) and a fix
 (`age_join.py` path). No model, state figure or locked decision changed.
+
+## D3 revision, 2026-09-28 — the aging curve sees only seasons before the valuation page
+
+**Decided by Thomas, 2026-09-28.** D3 (the aging curve applied as a decay path on the raw-WAR
+anchor) stands. What changes is the curve it reads: it is fitted for each valuation page on
+seasons that started before that page (`AgingModel(before=t0)`, `SkaterProjector.curve_for(t0)`).
+Before, it was fitted once on every season in the file. A 2018 valuation's comparables, z-score
+scale, yardstick and league-average curves therefore included seasons played after 2018.
+
+- **Why.** The back-test asks whether teams mispriced given what they could know. A curve built
+  partly from later seasons did not exist on the trade date. That holds even if aging itself is
+  stable across eras, because the later seasons are extra observations teams did not have.
+- **Evidence** (`50_REBUILD/docs/Aging_Choices_Test.md`, live chain, season-WAR RMSE):
+  - +1.73% on today's age table;
+  - +0.84% once the Elite Prospects ages are restored;
+  - the revision together with those ages is 0.56% below the pre-revision chain.
+- **Sensitivity.** The whole-file fit is kept as a reported sensitivity (`curve_for(None)`), not the
+  specification.
+- **Not covered.** The exit hazard, which is also fitted on every season, is not part of this
+  revision (open).
+
+**Age join fix, same day.** `age_join.py` reads `SOURCE_DIR/ep_birthdates.csv` first and stops if
+no Elite Prospects file is found. The old `OUTPUT_DIR/ep_out/` path had skipped Pass 4 silently
+since the 2026-07-30 migration.
+
+### Change log, 2026-09-28c (D3 revision coded; age join fixed; weights swept)
+
+Code:
+- `aging_curve.py`: `before=`.
+- `skater_forward_projection.py` v1.4.
+- `rfa_terminal_value.py` and `pipeline_experiment.py`: page passed or named.
+- `age_join.py`: EP path.
+- `valuation_walkthrough.py`: stops until rebuilt per page.
+- `production_adapter.py` v1.2; `review_latest_pass.py`.
+- `run_aging_choices_test.py` v1.2: adopted production equals the tested arm exactly.
+
+New test: `20_CODE/aging_weight_sweep_test.py` v1.0. Report sections "Group weights, swept" and
+"Adopted 2026-09-28".
+
+State files:
+- PROJECT_STATE: top entry and inventory lines for the four changed scripts.
+- STANDING_FLAGS: top entry.
+- WORK_QUEUE: the laptop re-run, the walkthrough rebuild and the exit hazard.
+
+D3 is revised as above. No other locked decision changed. The chain was not re-run here: it needs
+the contract export.

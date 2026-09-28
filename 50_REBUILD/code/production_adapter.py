@@ -49,9 +49,14 @@ THE MAPPING, and it is where the honesty lives
 WHAT IT INHERITS
     Production's own documented limitations travel with it, and they are not
     repaired here because repairing them would stop this being production. The
-    aging curve is fitted on the whole panel, so its parameters are partly
-    estimated on seasons after some valuation dates. The comparison is with the
-    live chain as it actually is.
+    comparison is with the live chain as it actually is.
+
+    v1.2 (2026-09-28): production's D3 revision fits the aging curve per
+    valuation page on seasons before it (SkaterProjector v1.4, curve_for); up
+    to v1.1 it was fitted on the whole panel. The adapter builds the projector
+    the same way and passes the page to ratio_path, so "the live chain" here is
+    the revised chain. The exit-hazard table is still production's whole-file
+    estimate.
 
 REQUIRES 30_OUTPUT/WAR_with_age.csv, built by 20_CODE/age_join.py, and the
 environment variables production reads. Without them the adapter refuses
@@ -69,7 +74,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C                      # loads .env for the imports below
 from ability_forecast import BaseModel
 
-SCRIPT_VERSION = "1.1"
+SCRIPT_VERSION = "1.2"
 
 _PROD = C.REPO_ROOT / "20_CODE"
 
@@ -114,7 +119,7 @@ class ProductionChain(BaseModel):
             SFP, build_transitions, build_hazard_table, bucket, age_group = _production()
 
             proj = SFP.SkaterProjector.__new__(SFP.SkaterProjector)
-            proj.curve = SFP.AgingModel(str(SFP.F_WAR_AGE))
+            proj._curves = {}          # v1.2: one aging curve per page, via curve_for
             proj.last_ratio_floored = []
 
             # The anchor lookup, built exactly as production builds it: D20
@@ -186,7 +191,7 @@ class ProductionChain(BaseModel):
                 # which would have made this adapter look exactly like the flat
                 # benchmark it exists to replace.
                 ratios, tag = self.proj_.ratio_path(
-                    nk, None if age0 is None else int(round(age0)), hmax)
+                    nk, None if age0 is None else int(round(age0)), hmax, t0)
             if len(ratios) < hmax + 1:
                 ratios = list(ratios) + [ratios[-1]] * (hmax + 1 - len(ratios))
 

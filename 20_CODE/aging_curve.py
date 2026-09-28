@@ -40,8 +40,17 @@ IDENTIFICATION NOTES (for the committee)
 * Survivorship: the forward aging is delta-based (within-player changes only),
   and the mean-reversion prior uses a CURRENT-AGE cross-section, so no future
   survivor levels feed the projection.
-* No look-ahead: every input is trailing (<= the valuation season). The outcome
-  in validation is the raw future season; inputs never touch it.
+* Look-ahead (REVISED 2026-09-28, D3 revision). The player's own inputs were
+  always trailing. The comparables pool, the z-score means and SDs, the
+  yardstick and the league-average curves were NOT: they were built once from
+  every season in the file, including seasons other players played after the
+  valuation date. `AgingModel(before=t0)` fits all of them on seasons that
+  started before t0 only, and the pricing chain now builds one such curve per
+  valuation page (skater_forward_projection.SkaterProjector.curve_for). Scored
+  2026-09-28 (50_REBUILD/docs/Aging_Choices_Test.md): on the live age table the
+  pre-valuation fit costs 1.73% season-WAR RMSE in the live chain; with the
+  Elite Prospects ages restored, 0.84%. `before=None` keeps the whole-file fit
+  for tests and experiments that were recorded on it.
 * LAMBDA = 0.55 was locked by cross-validation on TRAIN players and confirmed on
   held-out players (fold picks 0.55-0.60, sd 0.02), so it is not tuned to the
   evaluation set.
@@ -189,8 +198,16 @@ def _profile(rows, level):
 
 
 class AgingModel:
-    def __init__(self, war_age_path=None):
+    def __init__(self, war_age_path=None, before=None):
         df = pd.read_csv(war_age_path or DEFAULT_WAR_AGE)
+        # D3 REVISION (2026-09-28): fit on seasons that STARTED before `before`
+        # (a season-start year, the valuation page t0). Every season kept has
+        # finished by July 1 of t0, the page date. None: the whole file, the
+        # pre-revision fit, kept for recorded tests and experiments only.
+        self.before = before
+        if before is not None:
+            syr = df["Season"].str.split("-").str[0].astype(int) + 2000
+            df = df[syr < int(before)].copy()
 
         # ---- REVIEW ITEM 1.6: careers are keyed on the CLEANED name --------
         # Every other script in the chain cleans names before matching; this

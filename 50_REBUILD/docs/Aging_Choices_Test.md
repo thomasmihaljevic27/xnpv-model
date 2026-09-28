@@ -1,9 +1,10 @@
 # Hand-set choices in the aging curves, scored
 
-Run 2026-09-28. Test only: no production file changed, no locked decision opened, nothing adopted.
+Run 2026-09-28. The tests change no production file. Two results were adopted the same day (see "Adopted 2026-09-28").
 Scripts: `20_CODE/aging_arbitrary_choices_test.py` v1.0 (the current curve on held-out careers),
-`20_CODE/aging_ep_pool_test.py` v1.0 (the missing older careers, held out) and
-`50_REBUILD/code/run_aging_choices_test.py` v1.1 (both models on the rebuild's forecast harness).
+`20_CODE/aging_ep_pool_test.py` v1.0 (the missing older careers, held out),
+`20_CODE/aging_weight_sweep_test.py` v1.0 (the four group weights, swept) and
+`50_REBUILD/code/run_aging_choices_test.py` v1.2 (both models on the rebuild's forecast harness).
 `50_REBUILD/code/aging_additive.py` v1.5 exposes three options for the second script; at their
 defaults it fits exactly the committed curve on every development page (asserted).
 
@@ -46,6 +47,9 @@ choices of its own. Each was changed one at a time and scored against the same o
    - 5.2% below the current chain as it runs;
    - 6.8% below it with the look-ahead removed;
    - 4.6% below it with the older careers added and the look-ahead removed.
+8. **Equal group weights are neither best nor beaten.** Across 65 proportions of the four group
+   weights, equal weights rank 28th to 32nd on each comparison. No proportion moves error by more
+   than 0.4%, and the best set on the primary comparison fails on the season totals.
 
 ## What the current curve's comparables pool is
 
@@ -274,6 +278,73 @@ moves it.
 - The three-win-and-up tier's over-forecast five seasons out falls from +0.484 to +0.219 on the rows
   production answers.
 - The exit hazard also reads the age table and was not refitted.
+
+## Group weights, swept (2026-09-28)
+
+The distance gives each of four groups equal weight: style (five WAR-component shares, a fifth
+each), ice time, level and trend. That is equal weight, not equal contribution: what a group adds
+to a given distance depends on how far apart two players are on it. The removals above do not show
+whether equal proportions are best. `20_CODE/aging_weight_sweep_test.py` v1.0 sweeps them:
+- **One group at a time:** one group at 0.25, 0.5, 2 or 4 times the others.
+- **Joint grid:** every group at 0.5, 1 or 2.
+
+That makes 65 distinct weight sets. Only proportions matter, because the yardstick is rebuilt on
+each scale (checked: all weights times 3 leaves every similarity weight unchanged). The sweep runs on
+the age table with the older careers added. Its primary mode is the pre-valuation one, the adopted
+specification.
+
+| Comparison | Forecast pairs | Players | Equal weights rank (of 65) | Range across the 65 sets |
+|---|---:|---:|---:|---|
+| Pre-valuation, WAR/82 (primary) | 8,311 | 843 | 32 | -0.32% to +0.24% |
+| Pre-valuation, season total | 5,263 | 752 | 28 | -0.22% to +0.22% |
+| Full era, WAR/82 | 32,263 | 1,583 | 29 | -0.29% to +0.22% |
+| Full era, season total | 23,893 | 1,369 | 29 | -0.40% to +0.40% |
+
+One group at a time, change in mean absolute error against equal weights. The four columns are the
+same four comparisons, in the same order:
+
+| Group, times the others | Pre-val. WAR/82 | Pre-val. season total | Full era WAR/82 | Full era season total |
+|---|---:|---:|---:|---:|
+| style x0.25 | -0.12 | -0.01 | -0.08 | +0.03 |
+| style x4 | +0.24 | +0.04 | +0.18 | -0.01 |
+| ice time x0.25 | +0.18 | -0.08 | +0.19 | -0.12 |
+| ice time x4 | -0.32 | +0.17 | -0.29 | +0.24 |
+| level x0.25 | -0.00 | +0.18 | -0.02 | +0.26 |
+| level x4 | +0.02 | -0.22 | +0.07 | -0.40 |
+| trend x0.25 | -0.04 | -0.01 | -0.05 | -0.12 |
+| trend x4 | +0.10 | +0.13 | +0.13 | +0.30 |
+
+- **The declared rule.** Written before the run: choose the best set on the primary comparison, then
+  require it to win the other three. The chosen set is ice time x4: -0.32% (2,000 of 2,000) on the
+  primary comparison, but +0.17% and +0.24% on the two season totals (0 of 2,000 lower). It
+  **fails**.
+- **What moves error.** Ice-time weight trades the rate against the season total. Level weight helps
+  the season total and does nothing for the rate. Less style and less trend help slightly.
+- **Found after the run, not declared.** Eight sets are lower on all four comparisons. In all eight,
+  neither style nor trend carries more weight than ice time or level, and at least one of the two
+  carries less. The largest gain on any one comparison is 0.30%. None has an interval excluding zero
+  on all four; four of the eight exclude zero on three.
+- **Reading.** Equal weights are not shown to be the best proportions, and none of the 65 is shown
+  to be better. With 65 sets tried on the same data, an edge of 0.1%-0.3% is the size selection alone
+  produces. The weights matter little: no proportion moves error by more than 0.4%.
+
+## Adopted 2026-09-28
+
+- **The aging curve is fitted per valuation page.** Production's aging pool, z-score scale,
+  yardstick and league curves now use only seasons that started before the page
+  (`AgingModel(before=t0)`; `skater_forward_projection.py` v1.4, `curve_for`). This revises locked
+  decision D3.
+  - The rebuild's adapter follows (`production_adapter.py` v1.2).
+  - The harness runner v1.2 asserts that production as adopted equals the pre-valuation arm scored
+    above, on all 40,510 forecasts, largest gap 0.
+- **The Elite Prospects path is fixed.** `age_join.py` reads `SOURCE_DIR/ep_birthdates.csv` and stops
+  if the file is missing; it no longer skips silently.
+  - It needs the contract export, so the re-run of `age_join.py` and the chain happens on the laptop.
+  - Once re-run, production is the "older careers added, pool from seasons before the page" arm
+    above.
+- **Not changed:**
+  - The exit hazard, still fitted on every season.
+  - The walkthrough workbook. It stops with an explanation rather than show the retired curve.
 
 ## Limits
 

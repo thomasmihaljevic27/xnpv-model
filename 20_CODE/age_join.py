@@ -156,12 +156,22 @@ def join_on_id_and_name(left, right, id_col="player_id", name_col="Player",
     return merged
 
 
-# Optional SECOND birthdate source: the Elite Prospects scrape (ep_age_scraper.py)
-# that recovers pre-2018 retirees PuckPedia never had. If this file is absent the
-# script still runs; those players just stay unmatched. Keyed on the exact WAR
-# `Player` string. Applied in Pass 4, after the PuckPedia passes. Written by
-# ep_age_scraper.py to OUTPUT_DIR/ep_out/, so it is read from there.
-EP_BIRTHDATES_PATH = os.path.join(OUTPUT_DIR, "ep_out", "ep_birthdates.csv")
+# SECOND birthdate source: the Elite Prospects scrape (ep_age_scraper.py) that
+# recovers pre-2018 retirees PuckPedia never had. Keyed on the exact WAR `Player`
+# string. Applied in Pass 4, after the PuckPedia passes.
+#
+# FIXED 2026-09-28. This used to read only OUTPUT_DIR/ep_out/ep_birthdates.csv,
+# where ep_age_scraper.py writes it. The 2026-07-30 migration placed the file in
+# 10_SOURCE/, and Pass 4 checked os.path.exists() and skipped without a word, so
+# WAR_with_age.csv carried no Elite Prospects match: 1,278 of 3,199 skaters had
+# no age, mostly careers that ended before the 2018 contract export, and the
+# aging curve's comparables pool held only careers that lasted into it. Now the
+# 10_SOURCE copy is read first, the scraper's own output is the fallback, and a
+# missing file is a stop, not a silent skip (pass ALLOW_NO_EP=1 to run without it).
+EP_BIRTHDATES_CANDIDATES = [os.path.join(SOURCE_DIR, "ep_birthdates.csv"),
+                            os.path.join(OUTPUT_DIR, "ep_out", "ep_birthdates.csv")]
+EP_BIRTHDATES_PATH = next((p for p in EP_BIRTHDATES_CANDIDATES if os.path.exists(p)),
+                          EP_BIRTHDATES_CANDIDATES[0])
 
 # Corrections for the EP rows the scraper resolved to the WRONG person (its
 # review pile). Each was re-checked against Elite Prospects by hand. These
@@ -399,6 +409,16 @@ def main():
     # PuckPedia gave the column a datetime64 dtype; switch to object so EP's
     # string dates (and any malformed one) can be stored without a coercion crash.
     p1["birthdate"] = p1["birthdate"].astype(object)
+    if not os.path.exists(EP_BIRTHDATES_PATH):
+        # A missing scrape used to be skipped silently; see EP_BIRTHDATES_PATH.
+        msg = ("Elite Prospects birthdates not found at any of "
+               f"{EP_BIRTHDATES_CANDIDATES}. Without them about 1,278 older "
+               "careers get no age and drop out of the aging curve's pool.")
+        if os.environ.get("ALLOW_NO_EP") != "1":
+            raise FileNotFoundError(msg + " Set ALLOW_NO_EP=1 to run without them.")
+        record("WARNING: " + msg)
+    else:
+        record(f"Elite Prospects birthdates read from {EP_BIRTHDATES_PATH}")
     if os.path.exists(EP_BIRTHDATES_PATH):
         ep = pd.read_csv(EP_BIRTHDATES_PATH).dropna(subset=["birthdate"])
         ep_map = ep.drop_duplicates("war_name").set_index("war_name")["birthdate"].to_dict()

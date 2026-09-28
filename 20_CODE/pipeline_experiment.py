@@ -353,7 +353,8 @@ def main(variants=VARIANTS, prefix=PREFIX):
     prod_h = eng.h_sk
 
     # ---- curve pass-through helper (rule C) -------------------------------
-    curve = sp.curve
+    # Recorded 2026-09-14 on the whole-file curve; SkaterProjector v1.4 names it.
+    curve = sp.curve_for(None)
     def curve_factor(nk, t0):
         raw = sp.raw_name.get(nk); key = sfp.career_key(raw) if raw else None
         age = sp.age_at(bd.get(nk), t0)

@@ -104,7 +104,7 @@ from aging_additive import AdditiveAging
 import production_adapter as PA
 from run_skater_contract_test import Boot, _count
 
-SCRIPT_VERSION = "1.1"
+SCRIPT_VERSION = "1.2"
 HORIZONS = (0, 1, 2, 3, 4, 5)
 STAR = "3+"
 
@@ -283,7 +283,11 @@ class CurrentChain(PA.ProductionChain):
     def fit(self, table, before):
         super().fit(table, before)
         proj = copy.copy(self.proj_)
-        proj.curve = self._curve(before)
+        # v1.2: production's projector (v1.4) asks curve_for(t0) for the page's
+        # curve; the wrapper answers with its own for this page.
+        curve = self._curve(before)
+        proj._curves = {}
+        proj.curve_for = lambda t0, _c=curve: _c
         proj.last_ratio_floored = []
         self.proj_ = proj
 
@@ -301,8 +305,13 @@ def _current(tag, label, per_page=False, age_file=None, **aging):
 EP_TABLE = "aging_ep_pool_test_war_with_age.csv"
 
 
+# v1.2 (2026-09-28): production adopted the pre-valuation curve (D3 revision,
+# SkaterProjector v1.4), so ProductionChain IS the pre-valuation chain and the
+# former reference, the whole-file chain, is the arm "full_era_pool". The
+# hand-set arms stay whole-file, as recorded in v1.0-v1.1, and are scored
+# against it.
 CURRENT = {
-    "current":            PA.ProductionChain,
+    "full_era_pool":      _current("full_era", "aging curve fitted on the whole file (pre-revision)"),
     "pre_valuation_pool": _current("pre_pool", "aging pool from seasons before the page", per_page=True),
     "yard_by_position":   _current("yard_pos", "a yardstick per position", yard="by_position"),
     "yard_all_pairs":     _current("yard_all", "yardstick from every pair", yard="all_pairs"),
@@ -312,7 +321,7 @@ CURRENT = {
     "ep_pool_pre_valuation": _current("ep_pre", "older careers added, pool from seasons before the page",
                                       per_page=True, age_file=EP_TABLE),
 }
-_CURRENT_DEFAULTS = _current("defaults", "wrapper, no change")
+_CURRENT_DEFAULTS = _current("defaults", "wrapper, no change", per_page=True)
 
 
 def guard_current(har) -> pd.DataFrame:
@@ -444,13 +453,25 @@ def main() -> None:
 
     C.log("THE REBUILT MODEL'S AGING CHOICES (reference: rebuilt, the adopted leader without contracts)")
     s1 = scores({k: runs[k] for k in REBUILT}, "rebuilt", "full grid")
-    C.log("THE CURRENT MODEL'S AGING CHOICES (reference: current, the live chain)")
+    # v1.2 GUARD: production as adopted reproduces the pre-valuation arm scored
+    # before adoption, on every forecast.
+    key = ["career_key", "page", "h"]
+    a = runs["current"].set_index(key).sort_index()
+    b = runs["pre_valuation_pool"].set_index(key).sort_index()
+    assert a.index.equals(b.index)
+    gap = {c: float(np.abs(a[c].to_numpy() - b[c].to_numpy()).max()) for c in ("rate_82", "p_play")}
+    assert all(v <= 1e-12 for v in gap.values()), f"adopted production differs from the tested arm: {gap}"
+    C.log(f"  guard: adopted production equals the pre-valuation arm on {len(a)} forecasts "
+          f"(largest gap {max(gap.values()):.1e})")
+    C.log("")
+    C.log("THE CURRENT MODEL'S AGING CHOICES (reference: full_era_pool, the pre-revision chain)")
     answer = lambda d: d["outside_production"].eq(0)
-    s2 = scores({k: runs[k] for k in CURRENT}, "current", "full grid (production plus its fallback)")
-    s3 = scores({k: runs[k] for k in CURRENT}, "current", "rows production answers", mask=answer)
-    C.log("BOTH MODELS ON ONE TARGET (reference: current)")
-    s4 = scores({"current": runs["current"], "pre_valuation_pool": runs["pre_valuation_pool"],
-                 "ep_pool": runs["ep_pool"], "ep_pool_pre_valuation": runs["ep_pool_pre_valuation"],
+    arms = {k: runs[k] for k in CURRENT}
+    s2 = scores(arms, "full_era_pool", "full grid (production plus its fallback)")
+    s3 = scores(arms, "full_era_pool", "rows production answers", mask=answer)
+    C.log("BOTH MODELS ON ONE TARGET (reference: current, production as adopted 2026-09-28)")
+    s4 = scores({"current": runs["current"], "full_era_pool": runs["full_era_pool"],
+                 "ep_pool_pre_valuation": runs["ep_pool_pre_valuation"],
                  "rebuilt": runs["rebuilt"]}, "current", "rows production answers", mask=answer)
 
     pd.concat([s1, s2, s3, s4.assign(sample="cross-model, rows production answers")]).to_csv(

@@ -1,8 +1,21 @@
 """
 =============================================================================
- skater_forward_projection.py   v1.3            Phase 1b -- Layer 2
-                                  extensions + 2026-27 page (2026-09-13)
+ skater_forward_projection.py   v1.4            Phase 1b -- Layer 2
+                                  pre-valuation aging curve (2026-09-28)
 =============================================================================
+ WHAT CHANGED IN v1.4 (the aging curve sees only seasons before the page)
+ ------------------------------------------------------------------------
+ D3 REVISION, adopted by Thomas 2026-09-28. The aging curve used to be fitted
+ once on the whole age table, so a 2018 valuation's comparables, z-score scale,
+ yardstick and league-average curves included seasons played after 2018. Now
+ curve_for(t0) fits one curve per valuation page on seasons that started
+ before t0 (AgingModel(before=t0)), cached per page, and ratio_path() takes t0
+ and REQUIRES it, so no caller can fall back to the whole-file fit without
+ saying so. Evidence: 50_REBUILD/docs/Aging_Choices_Test.md (the pre-valuation
+ fit costs 1.73% season-WAR RMSE in the live chain on the live age table, 0.84%
+ once age_join.py's Elite Prospects pass is restored). Not changed: the exit
+ hazard, which is still estimated on every season (an open item).
+
  WHAT CHANGED IN v1.3 (extensions, the 2026-27 page, the path label)
  -------------------------------------------------------------------
  1. EXTENSIONS COUNT FROM THEIR SIGNING DATE. project_contract() used to
@@ -465,8 +478,9 @@ class SkaterProjector:
     """Builds everything once, then answers per-player projection queries."""
 
     def __init__(self):
-        # ---- the locked aging model (fitted on the age-joined WAR panel) ----
-        self.curve = AgingModel(str(F_WAR_AGE))
+        # ---- the aging model: one per valuation page (v1.4, D3 revision) ---
+        # Built on first use by curve_for(t0); see the v1.4 note above.
+        self._curves = {}
 
         # ---- anchor lookup: identical construction to Layer 1 --------------
         # D20: schedule proration applied BEFORE anything else, using the
@@ -554,7 +568,23 @@ class SkaterProjector:
             (ref.month, ref.day) < (birthdate.month, birthdate.day))
         return int(a)
 
-    def ratio_path(self, nk, age, horizon):
+    def curve_for(self, t0):
+        """The aging curve a valuation in season t0 may use: fitted on seasons
+        that started before t0 (v1.4, D3 revision). t0=None is the whole-file
+        fit, kept only for recorded experiments; production never passes it."""
+        key = None if t0 is None else int(t0)
+        if key not in self._curves:
+            self._curves[key] = AgingModel(str(F_WAR_AGE), before=key)
+        return self._curves[key]
+
+    @property
+    def curve(self):
+        raise AttributeError(
+            "SkaterProjector.curve was the whole-file aging curve and was removed "
+            "in v1.4 (2026-09-28): use curve_for(t0) for the page being valued, "
+            "or curve_for(None) for the pre-revision fit in a recorded experiment.")
+
+    def ratio_path(self, nk, age, horizon, t0):
         """The D3 decay path: curve trajectory divided by its own anchor.
         Returns (list of ratios for k=0..horizon, path_tag). Falls back to
         flat (all 1.0) when the curve cannot be used.
@@ -575,7 +605,7 @@ class SkaterProjector:
         # at horizon 1 for the TAG only and return the k=0 ratio, which is
         # exactly 1.0 on every path -- the value cannot change.
         if horizon == 0:
-            ratios, path = self.ratio_path(nk, age, 1)
+            ratios, path = self.ratio_path(nk, age, 1, t0)
             assert ratios[0] == 1.0, "k=0 ratio must be exactly 1.0"
             self.last_ratio_floored = self.last_ratio_floored[:1]
             self.last_raw_ratios = self.last_raw_ratios[:1]
@@ -590,14 +620,15 @@ class SkaterProjector:
         # two-season fragment rather than his full career.
         raw = self.raw_name.get(nk)
         key = career_key(raw) if raw is not None else None
-        if key is None or key not in self.curve.players or age is None:
+        curve = self.curve_for(t0)            # v1.4: this page's curve only
+        if key is None or key not in curve.players or age is None:
             return flat, "flat_no_curve"
         raw = key
         # BOUNDARY GUARD: the fitted panel only has age-delta data up to its
         # oldest observed age. Walking past that edge raises inside the locked
         # engine (left untouched per project discipline) -- so cap the horizon
         # we ask it for, and hold the last ratio flat for the remainder.
-        max_age = self.curve.AMIN + self.curve.nages - 1
+        max_age = curve.AMIN + curve.nages - 1
         levels = None
         for lag in (1, 2):                            # D21: t-1, then t-2
             base_age = age - lag
@@ -606,7 +637,7 @@ class SkaterProjector:
             if safe_h < lag + 1:
                 continue                              # cannot even reach k=1
             try:
-                tr = self.curve.project(raw, current_age=base_age,
+                tr = curve.project(raw, current_age=base_age,
                                         horizon=safe_h)
             except (ValueError, KeyError, IndexError):
                 continue                              # no qualifying season
@@ -693,7 +724,7 @@ class SkaterProjector:
             return pd.DataFrame()                     # prospect-pillar territory
         age = self.age_at(rows.iloc[0]["bd"], valuation_season)
         horizon = len(rows) - 1
-        ratios, path = self.ratio_path(nk, age, horizon)
+        ratios, path = self.ratio_path(nk, age, horizon, valuation_season)
         # ITEM 1.3: read the floor flags straight after the call that set them.
         # A negative-anchor player never uses the ratio at all (D12 v3 sends
         # him to replacement regardless), so the flag is only meaningful, and
@@ -801,7 +832,7 @@ def validate():
             if pd.isna(a):
                 continue
             age = sp.age_at(r["bd"], t0)
-            ratios, path = sp.ratio_path(r["nk"], age, 3)
+            ratios, path = sp.ratio_path(r["nk"], age, 3, t0)
             if path != "curve":
                 continue
             branch = "neg_reflected" if a < 0 else "pos_direct"
@@ -836,7 +867,7 @@ def validate():
             tally["no_anchor"] += 1
             continue
         age = sp.age_at(r["bd"], int(r["season_start"]))
-        _, path = sp.ratio_path(r["nk"], age, 1)
+        _, path = sp.ratio_path(r["nk"], age, 1, int(r["season_start"]))
         if a < 0:
             path = "replacement_reversion"
         tally[path] += 1
@@ -896,7 +927,7 @@ def validate():
         a, _ = sp.anchor(r["nk"], 2023)
         if pd.notna(a) and a < -0.5:
             age = sp.age_at(r["bd"], 2023)
-            _, path = sp.ratio_path(r["nk"], age, 2)
+            _, path = sp.ratio_path(r["nk"], age, 2, 2023)
             if path == "curve":
                 demos.append((r["full_name"], 2023))
                 break
