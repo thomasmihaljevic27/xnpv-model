@@ -1,5 +1,27 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
+**Contract status in Model 3, 2026-09-30g: laptop run owed.** Run
+`python 50_REBUILD\code\run_contract_status_test.py` and send back
+`50_REBUILD/output/contract_status_run_log.txt`.
+- **Model 6** is Model 3 with contract status in its chance of playing (the adopted rebuilt model's
+  settings).
+- **Model 7** is the adopted rebuilt model with the games-share change, so Model 6 against Model 7
+  differs only in aging.
+- The rule was declared in the runner. Dollars are reported beside, with guards that reproduce the
+  2026-09-30 re-score.
+
+**Late star miss, 2026-09-30f: simple terms ruled out.**
+- Next: Model 3 with contract status in participation. It needs the contract export, so it runs on
+  the laptop.
+- Otherwise record the -0.30 star bias (seasons 1-5) as a stated limitation.
+
+**After the dollar re-score, 2026-09-30e: open.**
+1. Score the rebuilt model with the games-share change (`star_candidates.RebuiltGamesLevel`) in
+   dollars. This is the fair test of comparables against the fitted equation.
+2. Decide on the games-share change.
+3. The long-deal under-valuation: every new forecast is about $2M further under than the current
+   model on six-to-eight-year deals (41 contracts).
+
 **Dollar re-score, 2026-09-30d: running on the laptop.**
 - The first table is in (session log): the fixed current model with the games-share change has the
   lowest dollar RMSE.

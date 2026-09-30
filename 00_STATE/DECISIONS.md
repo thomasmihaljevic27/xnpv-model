@@ -2253,3 +2253,25 @@ estimation windows. PROJECT_STATE, WORK_QUEUE and the session log are updated.
 - `50_REBUILD/code/dollar_scoring.career_bootstrap` works from per-player sums. It uses the same draws
   and gives the same shares, about 300 times faster.
 - No model changed. WORK_QUEUE and the session log are updated.
+
+### Change log, 2026-09-30e (dollar re-score results)
+
+New report `50_REBUILD/docs/Dollar_Rescore.md`, from Thomas's laptop run of
+`run_dollar_rescore.py` v1.1. Nothing adopted; no locked decision changed. PROJECT_STATE, WORK_QUEUE
+and the session log are updated.
+
+### Change log, 2026-09-30f (late star miss: two quality-by-age terms)
+
+`star_candidates.py` v1.3 (participation and start level x age) and new `run_star_late_test.py` v1.0.
+The report is `50_REBUILD/docs/Star_Late_Test.md`. Neither term improves Model 3 under the declared
+rule. Nothing adopted; PROJECT_STATE, WORK_QUEUE and the session log are updated.
+
+### Change log, 2026-09-30g (contract-status test written)
+
+`star_candidates.py` v1.4 adds contract status as a Model 3 switch and `RebuiltStatusGamesLevel`
+(Model 7). New `50_REBUILD/code/run_contract_status_test.py` v1.0 is for the laptop. Tested here:
+- it refuses without the export;
+- the season path runs with synthetic contracts, all guards passing;
+- signing-dated participation and horizons 0-9 were checked on four pages.
+
+The dollar part is not run. Nothing adopted. WORK_QUEUE and the session log are updated.
