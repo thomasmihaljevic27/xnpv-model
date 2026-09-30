@@ -2275,3 +2275,10 @@ rule. Nothing adopted; PROJECT_STATE, WORK_QUEUE and the session log are updated
 - signing-dated participation and horizons 0-9 were checked on four pages.
 
 The dollar part is not run. Nothing adopted. WORK_QUEUE and the session log are updated.
+
+### Change log, 2026-09-30h (contract-status results)
+
+New report `50_REBUILD/docs/Contract_Status_Test.md`, from Thomas's laptop run of
+`run_contract_status_test.py` v1.0. Model 6 does not improve Model 3 under the declared rule
+(1,925/2000). Nothing adopted; no locked decision changed. PROJECT_STATE, WORK_QUEUE and the session
+log are updated.

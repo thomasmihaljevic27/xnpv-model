@@ -1,5 +1,13 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
+**After the contract-status test, 2026-09-30h: open.**
+1. Decide between Model 3 and Model 6 (contract status is a small consistent gain, just short of the
+   declared bar on season error).
+2. Explain why the current model's season figures differ between the merged birthdate file (laptop)
+   and production's age join (cloud).
+3. Record the late star miss (-0.26 over seasons 1-5) and the long-deal gap as limitations, unless a
+   new idea appears.
+
 **Contract status in Model 3, 2026-09-30g: laptop run owed.** Run
 `python 50_REBUILD\code\run_contract_status_test.py` and send back
 `50_REBUILD/output/contract_status_run_log.txt`.

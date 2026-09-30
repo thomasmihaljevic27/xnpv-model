@@ -1,5 +1,20 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**Contract status in Model 3, 2026-09-30h (laptop run).** Model 6 is Model 3 with contract status in
+its chance of playing.
+- **Season forecasts:** squared error lower than Model 3's in 1,925/2000, short of the declared
+  1,950; Brier lower.
+- **Dollars:** squared error lower in 1,931-1,975/2000 across the four tables; absolute error level.
+- **Stars:** it does not move good players' late chance of playing (3+ aged 29-31: 0.85 against
+  0.98 observed).
+- **Model 6 against Model 7** (the adopted rebuilt model with the games-share change; only the
+  aging differs): season squared error leans to Model 7 (1,563/2000) and absolute error clearly
+  does; dollar squared error leans to Model 6 (1,316-1,407). Model 6's star bias is half Model 7's.
+- **Open:** the laptop harness reads the merged birthdate file, the cloud runs production's join.
+  Model 1's Brier is 0.249 against 0.192 between the two, unexplained.
+
+Report `50_REBUILD/docs/Contract_Status_Test.md`. Nothing adopted.
+
 **Late star miss in Model 3, 2026-09-30f.** Model 3 is the fixed current model with the games-share
 change, which Thomas favours. Split by age:
 - Good players past about 29 are given too low a chance of playing.

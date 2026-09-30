@@ -399,3 +399,4 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 50_REBUILD/code,run_star_late_test.py,player,hashable,2026-09-30f,41d29bdd2fc26a63394b1430519a81922c889b50,10697,2026-09-30,yes,git,experimental rebuild tree; not production
 50_REBUILD/docs,Star_Late_Test.md,player,hashable,2026-09-30f,470e750b9b231a7131eec9725190648b4fc5487c,4486,2026-09-30,yes,git,experimental rebuild tree; not production
 50_REBUILD/code,run_contract_status_test.py,player,hashable,2026-09-30g,d030771e72c691f5f23cd4921e0179a41cad6983,13175,2026-09-30,yes,git,experimental rebuild tree; not production
+50_REBUILD/docs,Contract_Status_Test.md,player,hashable,2026-09-30h,e029c0c8aeac8cada2e2cc9843de9706b411628d,5425,2026-09-30,yes,git,experimental rebuild tree; not production
