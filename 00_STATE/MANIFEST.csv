@@ -382,3 +382,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 50_REBUILD/docs,Aging_Method_Test.md,player,hashable,2026-09-28k,a3f691695d365fe2e3d29d19b8c9eee6cfa894ff,5607,2026-09-28,yes,git,experimental rebuild tree; not production
 50_REBUILD/code,run_step_attribution.py,player,hashable,2026-09-28l,47a689bd730f624bf923482fbd45cafb08c46ed5,11986,2026-09-28,yes,git,experimental rebuild tree; not production
 50_REBUILD/docs,Step_Attribution.md,player,hashable,2026-09-28l,12f538ccc6bb4791fcecc8937355aa9d51285bf8,5896,2026-09-28,yes,git,experimental rebuild tree; not production
+50_REBUILD/code,obvious_fixes.py,player,hashable,2026-09-30,4d9925fb90f4017193ce8963ab92e5738b3e0a2e,12707,2026-09-30,yes,git,experimental rebuild tree; not production
+50_REBUILD/code,run_obvious_fixes_test.py,player,hashable,2026-09-30,53ddbe126577ddab6dd47b59336254d33ae06742,9691,2026-09-30,yes,git,experimental rebuild tree; not production
+50_REBUILD/code,run_dollar_rescore.py,player,hashable,2026-09-30,31ece4897bba33598345856f758d2d37881e18dc,7932,2026-09-30,yes,git,experimental rebuild tree; not production
+50_REBUILD/docs,Obvious_Fixes_Test.md,player,hashable,2026-09-30,16a934ce22a48c601d0224b459a2be7d87bcc782,5786,2026-09-30,yes,git,experimental rebuild tree; not production

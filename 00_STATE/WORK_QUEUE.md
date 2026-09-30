@@ -1,5 +1,13 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
+**Dollar re-score, 2026-09-30: laptop run owed.**
+- `python 50_REBUILD\code\run_dollar_rescore.py` needs the contract export. It scores four models on
+  one price line: the current model as revised, the obvious-fixes model, and the rebuilt model with
+  and without contract data.
+- Send back `50_REBUILD/output/dollar_rescore_run_log.txt`.
+- It decides between comparables and the fitted equation within the fixed model: the two tie on season
+  error, and the comparables are less biased for stars.
+
 **Step comparison and Karl's regression idea, 2026-09-28l: open.** (1) Re-score contract dollars
 against the corrected current model (laptop; the step-by-step document's Step 4 uses the 2026-09-24
 figures). (2) If Karl wants it, test regression-chosen comparable weights (a synthetic control:

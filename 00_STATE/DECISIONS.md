@@ -2148,3 +2148,11 @@ the rebuilt forecast against the current model as it now runs, with each piece s
 Three Claude Docs written for Thomas. The 2026-09-24 page `Skater_Model_Decision.html` is recorded as
 misstating the participation event (10+ games; the code uses one). Nothing adopted; no locked
 decision changed. PROJECT_STATE, WORK_QUEUE and the session log are updated.
+
+### Change log, 2026-09-30 (the current model with every listed fix)
+
+New `50_REBUILD/code/obvious_fixes.py` v1.0, `run_obvious_fixes_test.py` v1.0 and
+`run_dollar_rescore.py` v1.0, and report `50_REBUILD/docs/Obvious_Fixes_Test.md`. The current model
+with the listed fixes and its comparables aging ties the rebuilt model on season WAR. The dollar
+re-score is written and owed on the laptop. Nothing adopted; no locked decision changed.
+PROJECT_STATE, WORK_QUEUE and the session log are updated.

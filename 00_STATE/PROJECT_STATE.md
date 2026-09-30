@@ -1,5 +1,20 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**The current model with every listed fix, 2026-09-30.** `obvious_fixes.ObviousFixes` keeps the
+comparable-player aging and takes these fixes:
+- the fitted three-season starting rate;
+- the rebuilt games share and chance of playing;
+- per-page fits on the corrected age table;
+- additive aging changes;
+- departures imputed at replacement.
+
+On the 35,878 answerable rows its season-WAR RMSE is 0.8619, against 0.9036 current and 0.8634
+rebuilt. It is lower than the rebuilt model in 1,529/2000 resamples (not decisive), and higher on
+absolute error (0.5151 against 0.5081). Its star bias five out is -0.54, against -0.88 rebuilt.
+The plain 50/30/20 start alone gives 0.8822. Report `50_REBUILD/docs/Obvious_Fixes_Test.md`.
+`run_dollar_rescore.py` (laptop) re-scores dollars for the current model as revised, the fixed
+model and both rebuilt ones; not yet run. Nothing adopted.
+
 **Current and rebuilt forecasts piece by piece; three documents, 2026-09-28l.** `run_step_attribution.py`
 v1.0 compares the rebuilt forecast (no-contract twin) with the current model as it now runs, on the same
 35,878 answerable rows: season-WAR RMSE 0.9036 against 0.8634 (-4.4%, 2000/2000), lower at every
