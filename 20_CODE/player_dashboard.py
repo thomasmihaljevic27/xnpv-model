@@ -1,7 +1,14 @@
 """
 =============================================================================
- player_dashboard.py   v1.1                        Viewer tool (2026-09-13)
+ player_dashboard.py   v1.2                        Viewer tool (2026-09-13)
 =============================================================================
+ v1.2 (2026-09-28): provenance. When dashboard_refresh.py (Open-Dashboard.cmd)
+ runs the chain and then this script, it passes the path of its run record
+ in XNPV_REFRESH_MANIFEST. The record (commit, uncommitted script changes,
+ each step's version and time) is embedded and shown in the header. A build
+ run by hand carries no record, and the header says it was not refreshed.
+ Nothing about the valuation changed.
+
  v1.1 (2026-09-13): the 2026-27 page, and extensions from their signing
  date. A page is valued as of July 1 of its season (contract_npv v1.4
  includes every extension signed by then). An extension signed LATER in
@@ -91,7 +98,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from contract_npv import NPVEngine                      # noqa: E402
 from skater_forward_projection import norm_name, page_date   # noqa: E402
 
-SCRIPT_VERSION = "player_dashboard.py v1.1 (2026-09-13)"
+SCRIPT_VERSION = "player_dashboard.py v1.2 (2026-09-28)"
 
 load_dotenv()
 SOURCE_DIR = Path(os.environ["SOURCE_DIR"])
@@ -460,8 +467,25 @@ def build_trades(pids):
 # ---------------------------------------------------------------------------
 # 6. Assemble and write
 # ---------------------------------------------------------------------------
+def load_refresh():
+    """v1.2: the record of the dashboard_refresh.py run that fed this build.
+    Only that launcher sets XNPV_REFRESH_MANIFEST, and only for this step,
+    so a build run by hand carries None rather than an older run's record."""
+    p = os.environ.get("XNPV_REFRESH_MANIFEST")
+    if not p:
+        log("no refresh record: built by hand, the header will say so")
+        return None
+    m = json.loads(Path(p).read_text(encoding="utf-8"))
+    log(f"refresh record: chain run {m['started']}, commit {m.get('commit')}, "
+        f"{len(m['steps'])} upstream steps passed")
+    return {"started": m["started"], "commit": m.get("commit"),
+            "uncommitted": len(m.get("uncommitted_code", [])),
+            "steps": [[s["script"], s.get("version"), s["seconds"]] for s in m["steps"]]}
+
+
 def main():
     log(SCRIPT_VERSION)
+    refresh = load_refresh()
     log("=" * 74)
     pages, names, n_dup = build_pages()
     pids = list(pages.keys())
@@ -489,7 +513,8 @@ def main():
         "meta": {"version": SCRIPT_VERSION,
                  "built": datetime.now().strftime("%Y-%m-%d %H:%M"),
                  "first": all_t0[0], "last": all_t0[-1],
-                 "n_players": len(players), "n_dup_collapsed": n_dup},
+                 "n_players": len(players), "n_dup_collapsed": n_dup,
+                 "refresh": refresh},
         "players": players,
         "trades": trades,
     }

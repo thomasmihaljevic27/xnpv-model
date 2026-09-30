@@ -84,10 +84,24 @@ OUTPUT_DIR = os.environ["OUTPUT_DIR"]
 
 PUCKPEDIA_XLSX = os.environ["PUCKPEDIA_CONTRACTS_XLSX"]
 
+SOURCE_DIR = os.environ["SOURCE_DIR"]
+
 # cap-space clauses: read from CSV by default (the capspace_scraper.py output).
 # If you prefer to read from the SQLite DB instead, set CLAUSES_DB to the .db
 # path and CLAUSES_TABLE to the table name; the CSV path is then ignored.
-CLAUSES_CSV   = os.path.join(OUTPUT_DIR, "capspace_out", "capspace_clauses.csv")
+#
+# FIXED 2026-09-28 (same fault as age_join.py's Elite Prospects path). Since
+# the 2026-07-30 migration the scrape lives in SOURCE_DIR, but this still read
+# the scraper's own OUTPUT_DIR/capspace_out/ folder, which the desktop does not
+# have. Read SOURCE_DIR first, then the scraper's folder; stop if neither
+# exists. Verified: both spines rebuilt from the SOURCE_DIR copy are
+# byte-identical (SHA-256) to the 2026-07-01 spines in 30_OUTPUT.
+_CLAUSE_CANDIDATES = [os.path.join(SOURCE_DIR, "capspace_clauses.csv"),
+                      os.path.join(OUTPUT_DIR, "capspace_out", "capspace_clauses.csv")]
+CLAUSES_CSV   = next((p for p in _CLAUSE_CANDIDATES if os.path.exists(p)), None)
+if CLAUSES_CSV is None:
+    raise SystemExit("cap-space clause scrape not found. Looked in:\n  "
+                     + "\n  ".join(_CLAUSE_CANDIDATES))
 CLAUSES_DB    = None          # e.g. os.path.join(OUTPUT_DIR, "capspace_out", "capspace_clauses.db")
 CLAUSES_TABLE = "clauses"     # only used if CLAUSES_DB is set
 

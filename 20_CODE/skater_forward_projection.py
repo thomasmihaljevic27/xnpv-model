@@ -221,8 +221,10 @@ OUT_LOG        = OUTPUT_DIR / "skater_projection_run_log.txt"
 # ---------------------------------------------------------------------------
 # LOCKED CONSTANTS -- identical to skater_value_engine.py where shared
 # ---------------------------------------------------------------------------
-ALPHA = 0.01831864          # locked skater rate (D6-D9 spec + D20 proration)
-BETA  = 0.01924854          # (pre-D20 values 0.01845160/0.02021386 retired)
+ALPHA = 0.01831864          # SUPERSEDED D20 rate: overwritten below by the Stage 3
+BETA  = 0.01924854          # rate (~line 265), which is what runs. Kept here only so
+                            # the history reads in order. (Pre-D20 0.01845160/
+                            # 0.02021386 also retired.) Comment corrected 2026-09-28.
 W_T1, W_T2 = 0.6, 0.4       # trailing weighting
 MIN_GP = 10                 # qualifying-season GP filter for the ANCHOR
                             # (the curve uses its own GP>=20 internally)
