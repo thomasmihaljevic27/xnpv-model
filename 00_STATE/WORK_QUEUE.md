@@ -1,5 +1,10 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
+**Dollar re-score, 2026-09-30d: running on the laptop.**
+- The first table is in (session log): the fixed current model with the games-share change has the
+  lowest dollar RMSE.
+- Read nothing into it until the full `dollar_rescore_run_log.txt` is back.
+
 **Dollar re-score, 2026-09-30c: re-run owed.** `exit_hazard.py` v1.3 fixes the singular-matrix
 stop. Re-run `python 50_REBUILD\code\run_dollar_rescore.py` after pulling main. If its console
 shows an `[exit_hazard v1.3]` line on a goalie table (fewer than about 1,000 transitions), goalie
