@@ -72,7 +72,7 @@ import obvious_fixes as OF
 from ability_forecast import A1HingeExposure, _anchors, _apply, _ols
 from participation_model import ParticipationModel
 
-SCRIPT_VERSION = "1.5"
+SCRIPT_VERSION = "1.6"
 GP_BASE = ["tr_gp_share", "is_D", "exp_seasons", "age_c"]
 GP_WITH_LEVEL = GP_BASE + ["tw_WAR", "tw_hi1"]
 
@@ -307,3 +307,13 @@ class RebuiltStatusGamesLevel(RebuiltGamesLevel):
     USE_CONTRACTS = True
     CONTRACT_STATE = "observable"
     PART_EXCLUDE = ("contract_unknown",)
+
+
+# (v1.6, 2026-09-30) The adopted player model, named xNPV 1 (decision D33).
+# It is "Model 6" of the 2026-09-30 reports: the current model with every
+# listed fix, comparable-player aging, the games-share forecast reading the
+# player's level, and contract status in the chance of playing. Built by the
+# same call the contract-status runner scored, so a run on XNPV1 reproduces
+# that run's Model 6. The class name is left unchanged ("Star_GK") for the
+# same reason. The previous model, xNPV 0, is production_adapter.ProductionChain.
+XNPV1 = candidate(gp=True, contracts=True)

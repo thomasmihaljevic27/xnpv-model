@@ -1,5 +1,24 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**The player model going forward is xNPV 1 (D33, decided by Thomas 2026-09-30).**
+- **xNPV 0** is the model running today in `20_CODE/` ("Model 1" in the 2026-09-30 reports).
+  **xNPV 1** is `50_REBUILD/code/star_candidates.XNPV1` ("Model 6").
+- xNPV 1 is xNPV 0 with the fitted three-season start, the rebuilt games share (which reads the
+  player's level), and the rebuilt chance of playing (which reads contract status). Its aging is
+  xNPV 0's comparable curve, fitted on earlier seasons only, applied additively, with departures
+  entered at replacement.
+- **Scores** (laptop run, 35,878 rows): season-WAR RMSE 0.8614 against 0.9302; contract-dollar RMSE
+  $3.543M against $3.681M.
+- **Chosen deliberately.** Against the same model without contract status it fell short of the
+  declared season bar (1,925 of 2,000, against a bar of 1,950).
+- **Limitations stated:**
+  - five generational stars under-forecast;
+  - good players' late chance of playing too low;
+  - long deals under-valued.
+- **Status: adopted in the rebuild tree only.** Production, the dashboard and the simulation leader
+  still run the earlier models; the migration is queued. It also still goes to the supervisor change
+  by change.
+
 **What causes the star under-forecast, checked item by item, 2026-09-30i.**
 - **Five players:** without McDavid, Draisaitl, MacKinnon, Matthews and Crosby, Model 3's 3+ tier is
   unbiased at every horizon (mean miss 0.000 over seasons 1-5, against -0.30 with them). Only 44% of

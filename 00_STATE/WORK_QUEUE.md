@@ -1,6 +1,26 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
-**Model choice, 2026-09-30i: ready for Thomas's decision.**
+**After the xNPV 1 decision (D33), 2026-09-30j: open, in order.**
+1. **Supervisor review of each change.** Take xNPV 1's five changes to the supervisor one at a
+   time: start, games share, chance of playing with contract status, the aging fixes, and the
+   valuation date. For each, give the fix and the score it earned. Also bring the deliberate
+   contract-status choice (1,925 of 2,000 against the declared 1,950). The speaking notes and the
+   step-by-step document still say "Model 3 / Model 6"; relabel them to xNPV 0 / xNPV 1 before the
+   meeting.
+2. **Score xNPV 1 once on the 2022-2025 pages** against xNPV 0. Declare it as a confirmation, not a
+   selection: those pages are reused, not sealed.
+3. **Migrate xNPV 1 into production.** Wire it into `20_CODE/` so the dashboard, `contract_npv.py`
+   and `run_npv_simulation.LEADER` value on it. Before saying it is done, grep for the old classes
+   (`A1HingeExposureStatus`, `ProductionChain`, `LEADER`) and have every artifact record which model
+   built it.
+4. **Carry as open:**
+   - xNPV 0's season Brier differs between the laptop and cloud age tables (0.249 against 0.192);
+   - the goalie exit-risk tables have not been checked under the separation fix;
+   - the nine-season participation window is an option, not adopted.
+5. **Repository tidy.** The audit is in the 2026-09-30 session log. Move or delete nothing until
+   Thomas confirms each group.
+
+**Model choice, 2026-09-30i: DECIDED 2026-09-30j (D33): Model 6, now named xNPV 1.**
 - Candidates: Model 3, Model 6 (+ contract status), and either with participation fitted on the last
   nine seasons (a borderline pass).
 - The star under-forecast is five generational players, to be stated as a limitation

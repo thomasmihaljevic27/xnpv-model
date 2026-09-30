@@ -2288,3 +2288,70 @@ log are updated.
 - `star_candidates.py` v1.5 adds participation trend and window switches.
 - New `run_participation_drift_test.py` v1.0 and report `50_REBUILD/docs/Star_Miss_Checks.md`.
 - Nothing adopted. PROJECT_STATE, WORK_QUEUE and the session log are updated.
+
+## D33, 2026-09-30 — the player model going forward is xNPV 1
+
+**Decided by Thomas, 2026-09-30.** It still has to go to the supervisor change by change. It
+settles the item D29-D32 left deferred (the player-model choice). No locked decision is reopened:
+D3's comparable-player aging stays, and so do D18's exit risk and the Stage 3 price per win.
+
+- **Names.**
+  - **xNPV 0** is the player model as it runs today in `20_CODE/`. The harness reads it through
+    `production_adapter.ProductionChain`. It is "Model 1" in the 2026-09-30 reports.
+  - **xNPV 1** is the model adopted here, `50_REBUILD/code/star_candidates.XNPV1`
+    (= `candidate(gp=True, contracts=True)`, v1.6). It is "Model 6" in those reports.
+  - Models 2-5 and 7 stay test labels inside the reports that used them.
+- **What xNPV 1 changes from xNPV 0**, read from `obvious_fixes.py` v1.0 and `star_candidates.py`
+  v1.6:
+  1. **Starting level.** A three-season weighted rate per 82 games (50/30/20), pulled toward the
+     league average by the rebuilt model's fitted rule.
+  2. **Games share.** The rebuilt model's games-share forecast. It also reads the player's level
+     (trailing total and its slope above one win), so a star and a depth player with the same recent
+     share are no longer forecast the same share.
+  3. **Chance of playing.** The rebuilt model's participation model, reading contract status the way
+     the rebuilt model does: status counted only where the export's coverage is complete, and the
+     before/after-2018 indicator left out.
+  4. **Aging.** Still xNPV 0's comparable-player curve with its settings unchanged. It is now fitted
+     per valuation page on earlier seasons, on the corrected age table. Its yearly changes are
+     **added** to the rate, not multiplied. Players who left the league enter the comparables at
+     replacement level for the season they missed.
+  5. **Valuation date.** Every fit rolls forward page by page. In dollars, the signing-dated
+     machinery values the forecast.
+- **Evidence** (`50_REBUILD/docs/Contract_Status_Test.md`, laptop run on the merged birthdate file;
+  the 35,878 rows xNPV 0 answers; player resampling, 2,000 draws):
+  - **Season WAR:** RMSE 0.8614 against xNPV 0's 0.9302. The report does not count resamples for
+    this pair directly. xNPV 0 had lower squared error than Model 3 in 0 of 2,000, and xNPV 1 is
+    below Model 3.
+  - **Contract dollars** (adopted model's price line, 1,111 contracts): RMSE $3.543M against
+    $3.681M.
+  - **Against the same model without contract status** ("Model 3"): season squared error lower in
+    1,925 of 2,000 and Brier lower. That is **short of the declared 1,950**. Dollar squared error is
+    lower in 1,931-1,975 of 2,000 across the four tables.
+  - Contract status is therefore a **deliberate choice**, not a pass of the declared season rule. The
+    reason: it is a small gain in the same direction on every score, and dollars are the thesis's
+    currency.
+- **Stated limitations carried with it:**
+  - **Stars.** Over seasons 1-5 the 3+ win tier is under-forecast by -0.26 [-0.56, +0.08]. Five
+    players carry it (McDavid, Draisaitl, MacKinnon, Matthews, Crosby); without them the tier is
+    unbiased (`Star_Miss_Checks.md`).
+  - **Late chance of playing.** Good players now stay in the league longer than the training seasons
+    taught.
+  - **Long deals.** Six-to-eight-year deals are under-valued: 41 contracts, bias -$5.72M against
+    xNPV 0's -$4.09M.
+- **Not adopted with it:** fitting participation on the last nine seasons. It was clearly better on
+  season error (2,000 of 2,000) but not on Brier (1,445), so it stays a reported option.
+- **Not yet done:**
+  - xNPV 1 runs only in `50_REBUILD/code/`. Production (`20_CODE/`), the dashboard and
+    `run_npv_simulation.LEADER` still run xNPV 0 or the earlier rebuilt model. Moving them is queued
+    as its own change.
+  - The 2022-2025 pages have not scored xNPV 1. They are not sealed (earlier variants examined them),
+    but they are the one set this choice was not made on.
+
+### Change log, 2026-09-30j (xNPV 1 adopted; repository audit)
+
+- D33 recorded above: Model 6 is adopted as the player model and named xNPV 1; the current model is
+  xNPV 0. Production migration, supervisor review and a single confirmation score on 2022-2025 are
+  queued.
+- `star_candidates.py` v1.6 adds the `XNPV1` alias. `CLAUDE.md` now says D1 through D33.
+- PROJECT_STATE and WORK_QUEUE updated. The session log carries a repository audit; nothing was moved
+  or deleted.

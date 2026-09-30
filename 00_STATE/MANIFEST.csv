@@ -2,11 +2,11 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 00_STATE,01_Draft_Model_Sequence.md,state,hashable,2026-09-28k,19281a382d63f217be50d4c924e322792e1b0739,10417,2026-09-28,yes,git,rewritten 2026-09-28 with D29-D31
 00_STATE,02_Prospect_Model_Sequence.md,state,hashable,2026-09-28k,047d898fa5c56992c326a1403199f106b3f2d792,11163,2026-09-28,yes,git,"rewritten 2026-09-28 (EP pull, bridge, goalie birthdates)"
 00_STATE,03_Player_Market_Model_Sequence.md,state,hashable,2026-09-09a,2f68c554cca2f422235e3baa6e17a0996e8412e7,18322,2026-09-09,yes,git,matches Claude project copy
-00_STATE,DECISIONS.md,state,hashable,2026-09-28l,d48bbb7d2b28defd14e087b585f8dd3fbbb77e67,326539,2026-09-28,yes,git,change log 2026-09-28l
+00_STATE,DECISIONS.md,state,hashable,2026-09-30j,0a757d90ae3892e2d226cb8cb1dfe928572fd37b,336695,2026-09-30,yes,git,change log 2026-09-30j
 00_STATE,MANIFEST.csv,state,hashable,2026-09-25c,66d3201b2fc22f946fa0de1bb2c0f364c6600a13,36432,2026-09-25,yes,git,"this file; the hash column cannot be self-referential, so it is not audited"
-00_STATE,PROJECT_STATE.md,state,hashable,2026-09-28l,e53a0a76f5463a8925a87cfffa226505adc213f9,170742,2026-09-28,yes,git,refresh v3.3; EP v3.1 note
+00_STATE,PROJECT_STATE.md,state,hashable,2026-09-30j,563ac7046f3c9c8834823f754c5b2130b27ce08f,182446,2026-09-30,yes,git,refresh v3.3; EP v3.1 note
 00_STATE,STANDING_FLAGS.md,state,hashable,2026-09-28l,25bf013420c65eae835b24e54c56d5db47b758bc,133374,2026-09-28,yes,git,pandas 3 flag
-00_STATE,WORK_QUEUE.md,state,hashable,2026-09-28l,5994aa888450bb2dd4adc6effb9d8aeb0467c7fd,144775,2026-09-28,yes,git,EP v3.1 note
+00_STATE,WORK_QUEUE.md,state,hashable,2026-09-30j,2d779f876067e8d3e0922725d367f2f561f9be48,150916,2026-09-30,yes,git,EP v3.1 note
 00_STATE/sessions,2026-08-28.md,state,hashable,2026-09-09a,921a8eae623bb0d7ac4d1d181f6b862aa51a9e62,2159,2026-09-09,yes,git,git-tracked; audited via `git status`
 00_STATE/sessions,2026-09-08.md,state,hashable,2026-09-09a,1b31b43e8ed30fefd98ded8df5f5a431e79f323b,2384,2026-09-09,yes,git,git-tracked; audited via `git status`
 00_STATE/sessions,2026-09-09.md,state,hashable,2026-09-10,e1547fa499f7d8fdff918698f28a968b7bb56a07,22662,2026-09-10,yes,git,git-tracked; audited via `git status`
@@ -392,7 +392,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 20_CODE,slot_curve.py,draft,hashable,2026-09-28k,59b83aa95ab094a7a895fe4bc0edd86017b1f752,6476,2026-09-28,yes,git,v2.0 recreated 2026-09-28; imported by future_pick_premium
 20_CODE,dashboard_refresh.py,npv,hashable,2026-09-28c,4f5e53a0ceb0e3e6ec360b4699e20f2a3d26150a,16681,2026-09-28,yes,git,"launcher: re-runs every script the dashboard reads, then builds and opens it"
 .,Open-Dashboard.cmd,npv,hashable,2026-09-28c,60204f5e20f868214397e18705a5353d6057dc2b,1763,2026-09-28,yes,git,double-click launcher for dashboard_refresh.py; CRLF
-50_REBUILD/code,star_candidates.py,player,hashable,2026-09-30i,2980385fb614127197049fd97a236d507d13652c,15543,2026-09-30,yes,git,experimental rebuild tree; not production
+50_REBUILD/code,star_candidates.py,player,hashable,2026-09-30j,8b7fc84c4e9ba1672b2a761dbb5f473dca2f5798,16124,2026-09-30,yes,git,experimental rebuild tree; not production
 50_REBUILD/code,run_star_bias_test.py,player,hashable,2026-09-30b,e5cc3ffafbf6677527e2779cc3baab6f6725cad3,11619,2026-09-30,yes,git,experimental rebuild tree; not production
 50_REBUILD/docs,Star_Bias_Test.md,player,hashable,2026-09-30c,8cd34e7e78a5f4d0fed4e01d5110fe0e34f8204a,6559,2026-09-30,yes,git,experimental rebuild tree; not production
 50_REBUILD/docs,Dollar_Rescore.md,player,hashable,2026-09-30e,e2ca4e07815d976db232675564b56a08eac65262,5307,2026-09-30,yes,git,experimental rebuild tree; not production
@@ -402,3 +402,4 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 50_REBUILD/docs,Contract_Status_Test.md,player,hashable,2026-09-30h,e029c0c8aeac8cada2e2cc9843de9706b411628d,5425,2026-09-30,yes,git,experimental rebuild tree; not production
 50_REBUILD/code,run_participation_drift_test.py,player,hashable,2026-09-30i,1f16b3e7f70efaab2a4703edc141fde60ee7857d,6955,2026-09-30,yes,git,experimental rebuild tree; not production
 50_REBUILD/docs,Star_Miss_Checks.md,player,hashable,2026-09-30i,11f661adaa320fa083421aa1f9029310c6d97ce6,6651,2026-09-30,yes,git,experimental rebuild tree; not production
+00_STATE/sessions,2026-09-30.md,state,hashable,2026-09-30j,c6dd50e8560102f13ff37d5aed0d07658fa21d07,20322,2026-09-30,yes,git,session log

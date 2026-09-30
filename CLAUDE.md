@@ -101,7 +101,7 @@ Draft pillar:
   scoped and documented before it ships.
 - **Don't let a valuation see its own season.** A player's value at a decision point draws only
   on information available before that date. Check every new join or metric against this.
-- **Don't reopen locked decisions** (D1 through D32 in `00_STATE/DECISIONS.md`) without a
+- **Don't reopen locked decisions** (D1 through D33 in `00_STATE/DECISIONS.md`) without a
   deliberate revisit. The skater price per win in force is the Stage 3 rate (locked 2026-07-28):
   left-censored at the league minimum, one intercept, a separate defence slope.
   alpha=0.0132478230, beta=0.0212322891 per win for forwards, plus 0.0028702824 for defencemen
