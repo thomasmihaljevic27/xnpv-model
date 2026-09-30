@@ -1,5 +1,19 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**What causes the star under-forecast, checked item by item, 2026-09-30i.**
+- **Five players:** without McDavid, Draisaitl, MacKinnon, Matthews and Crosby, Model 3's 3+ tier is
+  unbiased at every horizon (mean miss 0.000 over seasons 1-5, against -0.30 with them). Only 44% of
+  the 88 stars are under-forecast on average.
+- **Chance of playing:** good players stay in the league longer than in the training seasons (29-31,
+  still playing three seasons on: 0.90 valued 2009-2014, 0.98 valued 2015-2021).
+- **Participation on the last nine seasons** (`run_participation_drift_test.py`): season-WAR squared
+  error lower than Model 3's in 2,000/2000, Brier in only 1,445. The declared rule needed both, so it
+  does not pass.
+- **A season trend** made participation worse.
+- **Ruled out:** thin history, comparables, measurement survivorship, double reversion and departures.
+
+Report `50_REBUILD/docs/Star_Miss_Checks.md`. Nothing adopted.
+
 **Contract status in Model 3, 2026-09-30h (laptop run).** Model 6 is Model 3 with contract status in
 its chance of playing.
 - **Season forecasts:** squared error lower than Model 3's in 1,925/2000, short of the declared

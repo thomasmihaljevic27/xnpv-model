@@ -1,5 +1,11 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
+**Model choice, 2026-09-30i: ready for Thomas's decision.**
+- Candidates: Model 3, Model 6 (+ contract status), and either with participation fitted on the last
+  nine seasons (a borderline pass).
+- The star under-forecast is five generational players, to be stated as a limitation
+  (`Star_Miss_Checks.md`).
+
 **After the contract-status test, 2026-09-30h: open.**
 1. Decide between Model 3 and Model 6 (contract status is a small consistent gain, just short of the
    declared bar on season error).

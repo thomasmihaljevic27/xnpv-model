@@ -2282,3 +2282,9 @@ New report `50_REBUILD/docs/Contract_Status_Test.md`, from Thomas's laptop run o
 `run_contract_status_test.py` v1.0. Model 6 does not improve Model 3 under the declared rule
 (1,925/2000). Nothing adopted; no locked decision changed. PROJECT_STATE, WORK_QUEUE and the session
 log are updated.
+
+### Change log, 2026-09-30i (star-miss checks; participation drift)
+
+- `star_candidates.py` v1.5 adds participation trend and window switches.
+- New `run_participation_drift_test.py` v1.0 and report `50_REBUILD/docs/Star_Miss_Checks.md`.
+- Nothing adopted. PROJECT_STATE, WORK_QUEUE and the session log are updated.
