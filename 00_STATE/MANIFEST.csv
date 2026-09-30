@@ -384,11 +384,14 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 50_REBUILD/docs,Step_Attribution.md,player,hashable,2026-09-28l,12f538ccc6bb4791fcecc8937355aa9d51285bf8,5896,2026-09-28,yes,git,experimental rebuild tree; not production
 50_REBUILD/code,obvious_fixes.py,player,hashable,2026-09-30,4d9925fb90f4017193ce8963ab92e5738b3e0a2e,12707,2026-09-30,yes,git,experimental rebuild tree; not production
 50_REBUILD/code,run_obvious_fixes_test.py,player,hashable,2026-09-30,53ddbe126577ddab6dd47b59336254d33ae06742,9691,2026-09-30,yes,git,experimental rebuild tree; not production
-50_REBUILD/code,run_dollar_rescore.py,player,hashable,2026-09-30,31ece4897bba33598345856f758d2d37881e18dc,7932,2026-09-30,yes,git,experimental rebuild tree; not production
-50_REBUILD/docs,Obvious_Fixes_Test.md,player,hashable,2026-09-30,16a934ce22a48c601d0224b459a2be7d87bcc782,5786,2026-09-30,yes,git,experimental rebuild tree; not production
+50_REBUILD/code,run_dollar_rescore.py,player,hashable,2026-09-30b,4f5feca88955c74f7cf1d6c893e40fa6f0612b93,8191,2026-09-30,yes,git,experimental rebuild tree; not production
+50_REBUILD/docs,Obvious_Fixes_Test.md,player,hashable,2026-09-30b,16a934ce22a48c601d0224b459a2be7d87bcc782,5786,2026-09-30,yes,git,experimental rebuild tree; not production
 00_STATE/sessions,2026-09-28b.md,state,hashable,2026-09-28l,73fb0da4f095fbee626f0583fc58f7f404a6c104,7698,2026-09-28,yes,git,session log
 20_CODE,ep_nhl_bridge.py,prosp,hashable,2026-09-28k,05b61a52a83bed1eec0209c58f8a2b32582b9b33,10672,2026-09-28,yes,git,v1.0 new: EP id to NHL id bridge (proposal)
 20_CODE,future_pick_premium.py,draft,hashable,2026-09-28k,990badf91d3dde840bdffd82825dab69f2d00374,9253,2026-09-28,yes,git,v2.0 recreated 2026-09-28
 20_CODE,slot_curve.py,draft,hashable,2026-09-28k,59b83aa95ab094a7a895fe4bc0edd86017b1f752,6476,2026-09-28,yes,git,v2.0 recreated 2026-09-28; imported by future_pick_premium
 20_CODE,dashboard_refresh.py,npv,hashable,2026-09-28c,4f5e53a0ceb0e3e6ec360b4699e20f2a3d26150a,16681,2026-09-28,yes,git,"launcher: re-runs every script the dashboard reads, then builds and opens it"
 .,Open-Dashboard.cmd,npv,hashable,2026-09-28c,60204f5e20f868214397e18705a5353d6057dc2b,1763,2026-09-28,yes,git,double-click launcher for dashboard_refresh.py; CRLF
+50_REBUILD/code,star_candidates.py,player,hashable,2026-09-30b,d0658436989b6c8fa5928b391d109bbaa79699a2,9617,2026-09-30,yes,git,experimental rebuild tree; not production
+50_REBUILD/code,run_star_bias_test.py,player,hashable,2026-09-30b,e5cc3ffafbf6677527e2779cc3baab6f6725cad3,11619,2026-09-30,yes,git,experimental rebuild tree; not production
+50_REBUILD/docs,Star_Bias_Test.md,player,hashable,2026-09-30b,6cd61970a969447d960ec3b744eb09107d02f86c,6224,2026-09-30,yes,git,experimental rebuild tree; not production

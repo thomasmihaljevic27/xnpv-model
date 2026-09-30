@@ -17,6 +17,8 @@ THE FORECASTS, DECLARED BEFORE THE RUN
     current        the live chain (ProductionChain v1.3); point valuation only
     obvious_fixes  fitted start, rebuilt games share and chance of playing,
                    comparables aging added, departures imputed; point only
+    fixes_games    (v1.1) obvious_fixes with the games-share forecast reading the
+                   player's level (Star_Bias_Test.md, change G); point only
     adopted        the rebuilt leader (visible contract status); simulated too
     previous       the rebuilt leader without contract data; simulated too
     The scoring is run_model_scorecard's section 2 unchanged: every valuation
@@ -58,15 +60,17 @@ import run_npv_simulation as RNS
 import run_skater_dollar_scoring as SDS
 import production_adapter as PA
 import obvious_fixes as OF
+import star_candidates as SC
 from contract_price_model import contract_sample
 from player_season_table import build as build_table, birthdate_source
 from run_model_scorecard import production_unanswerable
 from dollar_scoring import realised_path, score_on_line, report_scores
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 KEY = "contract_id"
 MODELS = (("current", PA.ProductionChain, False),
           ("obvious_fixes", OF.ObviousFixes, False),
+          ("fixes_games", SC.candidate(gp=True), False),
           ("adopted", RNS.LEADER, True),
           ("previous", RNS.PRIOR_LEADER, True))
 # The recorded figures this run replaces, for the reader of the log only
@@ -125,7 +129,7 @@ def main() -> None:
     labels = tuple(l for l, _, _ in MODELS)
     real = realised_path(table)
     fallback = production_unanswerable(sample, common)
-    C.log("CONTRACT DOLLARS IN ONE CURRENCY. Ended terms priced by all four; $M.")
+    C.log("CONTRACT DOLLARS IN ONE CURRENCY. Ended terms priced by all five; $M.")
     C.log(f"  {len(common)} contracts; {len(fallback)} have no current-model anchor at signing.")
     C.log("")
     out = None
@@ -140,7 +144,7 @@ def main() -> None:
                   f"contracts, {dd['pkey'].nunique()} players")
             report_scores(dd, labels, exact=True)
             # the headline question: the fixed current model against the rebuilt one
-            report_scores(dd, ("adopted", "obvious_fixes"), exact=True)
+            report_scores(dd, ("adopted", "obvious_fixes", "fixes_games"), exact=True)
             by_term(dd, rows_of["adopted"], labels)
             C.log("")
         if line_label == "adopted":

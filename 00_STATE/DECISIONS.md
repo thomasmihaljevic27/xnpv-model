@@ -2229,3 +2229,11 @@ New `50_REBUILD/code/obvious_fixes.py` v1.0, `run_obvious_fixes_test.py` v1.0 an
 with the listed fixes and its comparables aging ties the rebuilt model on season WAR. The dollar
 re-score is written and owed on the laptop. Nothing adopted; no locked decision changed.
 PROJECT_STATE, WORK_QUEUE and the session log are updated.
+
+### Change log, 2026-09-30b (star bias candidates; branch merged to main)
+
+The branch was merged into `main`, keeping both sides of the state-file conflicts; the session letters
+2026-09-28k and 2026-09-28l were used on both sides for different entries. New
+`50_REBUILD/code/star_candidates.py` v1.2 and `run_star_bias_test.py` v1.2, and report
+`50_REBUILD/docs/Star_Bias_Test.md`. `run_dollar_rescore.py` is now v1.1 with change G added. Nothing
+adopted; no locked decision changed. PROJECT_STATE, WORK_QUEUE and the session log are updated.

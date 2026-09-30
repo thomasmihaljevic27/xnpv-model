@@ -1,5 +1,11 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
+**Star bias, 2026-09-30b: partly repaired in test, open.**
+- The games-share fix (G) is the one change that helps (`Star_Bias_Test.md`). Decide on it after the
+  laptop dollar run, which now includes it.
+- Still unexplained: the late-horizon rate walk and late participation for 3+ players.
+- Untried: contract status in participation for stars, and other constructions of the walk.
+
 **Dollar re-score, 2026-09-30: laptop run owed.**
 - `python 50_REBUILD\code\run_dollar_rescore.py` needs the contract export. It scores four models on
   one price line: the current model as revised, the obvious-fixes model, and the rebuilt model with

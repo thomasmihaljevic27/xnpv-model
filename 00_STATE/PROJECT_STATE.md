@@ -1,5 +1,17 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**Star under-forecast, four single changes, 2026-09-30b.** `star_candidates.py` v1.2 and
+`run_star_bias_test.py` v1.2 test four single changes on the fixed current model.
+- One helps: the games-share forecast reads the player's level (change G). Season-WAR RMSE falls
+  from 0.8619 to 0.8584 (1,995/2000), and the 3+ tier's bias over seasons 1-5 from -0.42 to -0.30.
+  The valuation-season miss falls from -0.19 to -0.06; five seasons out the bias is still -0.44.
+- G helps the rebuilt model too (0.8634 to 0.8591, 2000/2000). With G in both, the two models do not
+  separate (1,230/2000).
+- A participation hinge, raw comparables steps and a half-width window do not help stars.
+- The remaining miss is the late rate walk and late participation. Report
+  `50_REBUILD/docs/Star_Bias_Test.md`. `run_dollar_rescore.py` v1.1 adds G. The branch was merged to
+  main. Nothing adopted.
+
 **The current model with every listed fix, 2026-09-30.** `obvious_fixes.ObviousFixes` keeps the
 comparable-player aging and takes these fixes:
 - the fitted three-season starting rate;
