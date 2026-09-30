@@ -1,5 +1,10 @@
 # The current model with every listed fix, and nothing else
 
+**Correction, 2026-09-30.** The current model's figures here (RMSE 0.9036 on the answerable rows,
+0.8591 on the full grid) used an exit-risk star cell near zero on the 2015 and 2016 pages. With
+`exit_hazard.py` v1.3 they are 0.9033 and 0.8589 (`Step_Attribution.md`, correction). No other arm
+uses that table, and no reading changes.
+
 Run 2026-09-30. Test only: nothing adopted, no production file changed.
 Scripts: `50_REBUILD/code/obvious_fixes.py` v1.0 (the model), `run_obvious_fixes_test.py` v1.0 (the
 season forecasts), and `run_dollar_rescore.py` v1.0 (contract dollars, to run on the laptop).

@@ -1,5 +1,10 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
+**Dollar re-score, 2026-09-30c: re-run owed.** `exit_hazard.py` v1.3 fixes the singular-matrix
+stop. Re-run `python 50_REBUILD\code\run_dollar_rescore.py` after pulling main. If its console
+shows an `[exit_hazard v1.3]` line on a goalie table (fewer than about 1,000 transitions), goalie
+values changed and the dashboard should be refreshed.
+
 **Star bias, 2026-09-30b: partly repaired in test, open.**
 - The games-share fix (G) is the one change that helps (`Star_Bias_Test.md`). Decide on it after the
   laptop dollar run, which now includes it.

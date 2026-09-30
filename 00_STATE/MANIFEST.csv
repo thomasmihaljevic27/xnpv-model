@@ -28,7 +28,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 20_CODE,draft_yield_curve.py,draft,hashable,2026-09-09a,dcb1637d0a3684a4a4a7185223e2a6a92adbb15d,21806,2026-09-09,yes,git,git-tracked; audited via `git status`
 20_CODE,ep_age_scraper.py,prosp,hashable,2026-09-09a,c67adaa2471ebe1afc63627cb118e53bab0e5ef4,15677,2026-09-09,yes,git,git-tracked; audited via `git status`
 20_CODE,ep_extract.py,prosp,hashable,2026-09-28l,b3bd22c40b2efcc5822cf3d5407409c5b4382f7b,39724,2026-09-28,yes,git,v3.1: own league-page reader (pandas 3)
-20_CODE,exit_hazard.py,npv,hashable,2026-09-28h,e8a89c5bd81a66be9fbcdff0d184949b7a48ac3b,22344,2026-09-28,yes,git,imported as module; do not rename
+20_CODE,exit_hazard.py,npv,hashable,2026-09-30c,3313df6f828f90dd92b363840e107317d4d70764,26597,2026-09-30,yes,git,imported as module; do not rename
 20_CODE,goalie_hazard_overlap.py,goal,hashable,2026-09-09a,ceb25f53b23e69af920e9be2e6a870a76e164f15,6340,2026-09-09,yes,git,git-tracked; audited via `git status`
 20_CODE,goalie_value_engine.py,goal,hashable,2026-09-09a,326d28d16647e9bbef96a2628b87fec8d27cf857,37691,2026-09-09,yes,git,stale-anchor fix shipped v2.9
 20_CODE,gv_4b_circularity_check.py,gv,hashable,2026-09-09a,e2753585e7cf0d748f3eae37cfb7dc4420acb277,18053,2026-09-09,yes,git,git-tracked; audited via `git status`
@@ -376,16 +376,16 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 20_CODE,aging_weight_sweep_test.py,age,hashable,2026-09-28c,2e6aaef66203d971ce1beb1e7b87f7a6926734fb,15598,2026-09-28,yes,git,Aging group-weight sweep; production unchanged
 20_CODE,npv_spine_compare.py,age,hashable,2026-09-28h,b1637377f30b3dfc5686a51da9f979d4aa52acae,7218,2026-09-28,yes,git,new 2026-09-28; production unchanged
 50_REBUILD/code,run_exit_hazard_window_test.py,player,hashable,2026-09-28h,a06765dc4079af0be0bfc55bd6c0a72f1b9472d7,9568,2026-09-28,yes,git,new 2026-09-28; production unchanged
-50_REBUILD/docs,Exit_Hazard_Window_Test.md,player,hashable,2026-09-28h,8aa04be8d742d171a8adbcc0a29cfccad55b127a,5381,2026-09-28,yes,git,new 2026-09-28; production unchanged
+50_REBUILD/docs,Exit_Hazard_Window_Test.md,player,hashable,2026-09-30c,d3e526260ae1596c7bb39605265d5af413a3369e,6230,2026-09-30,yes,git,new 2026-09-28; production unchanged
 40_DOCS,Model_Changes_September_2026.md,player,hashable,2026-09-28j,8abb7e62193b27ad631923bd62be6eea10d19b63,10296,2026-09-28,yes,git,plain-English account of the 2026-09-28 model changes
 50_REBUILD/code,run_aging_method_test.py,player,hashable,2026-09-28k,dc19fed40296d162319bef63771be141f87dc396,13346,2026-09-28,yes,git,experimental rebuild tree; not production
 50_REBUILD/docs,Aging_Method_Test.md,player,hashable,2026-09-28k,a3f691695d365fe2e3d29d19b8c9eee6cfa894ff,5607,2026-09-28,yes,git,experimental rebuild tree; not production
 50_REBUILD/code,run_step_attribution.py,player,hashable,2026-09-28l,47a689bd730f624bf923482fbd45cafb08c46ed5,11986,2026-09-28,yes,git,experimental rebuild tree; not production
-50_REBUILD/docs,Step_Attribution.md,player,hashable,2026-09-28l,12f538ccc6bb4791fcecc8937355aa9d51285bf8,5896,2026-09-28,yes,git,experimental rebuild tree; not production
+50_REBUILD/docs,Step_Attribution.md,player,hashable,2026-09-30c,92e6a1765faa01e57daa59446313ceb6e1f22a44,6556,2026-09-30,yes,git,experimental rebuild tree; not production
 50_REBUILD/code,obvious_fixes.py,player,hashable,2026-09-30,4d9925fb90f4017193ce8963ab92e5738b3e0a2e,12707,2026-09-30,yes,git,experimental rebuild tree; not production
 50_REBUILD/code,run_obvious_fixes_test.py,player,hashable,2026-09-30,53ddbe126577ddab6dd47b59336254d33ae06742,9691,2026-09-30,yes,git,experimental rebuild tree; not production
 50_REBUILD/code,run_dollar_rescore.py,player,hashable,2026-09-30b,4f5feca88955c74f7cf1d6c893e40fa6f0612b93,8191,2026-09-30,yes,git,experimental rebuild tree; not production
-50_REBUILD/docs,Obvious_Fixes_Test.md,player,hashable,2026-09-30b,16a934ce22a48c601d0224b459a2be7d87bcc782,5786,2026-09-30,yes,git,experimental rebuild tree; not production
+50_REBUILD/docs,Obvious_Fixes_Test.md,player,hashable,2026-09-30c,16a28fed6c53cb0d1c2800cc64a9f6d9a9b3b4ac,6121,2026-09-30,yes,git,experimental rebuild tree; not production
 00_STATE/sessions,2026-09-28b.md,state,hashable,2026-09-28l,73fb0da4f095fbee626f0583fc58f7f404a6c104,7698,2026-09-28,yes,git,session log
 20_CODE,ep_nhl_bridge.py,prosp,hashable,2026-09-28k,05b61a52a83bed1eec0209c58f8a2b32582b9b33,10672,2026-09-28,yes,git,v1.0 new: EP id to NHL id bridge (proposal)
 20_CODE,future_pick_premium.py,draft,hashable,2026-09-28k,990badf91d3dde840bdffd82825dab69f2d00374,9253,2026-09-28,yes,git,v2.0 recreated 2026-09-28
@@ -394,4 +394,4 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 .,Open-Dashboard.cmd,npv,hashable,2026-09-28c,60204f5e20f868214397e18705a5353d6057dc2b,1763,2026-09-28,yes,git,double-click launcher for dashboard_refresh.py; CRLF
 50_REBUILD/code,star_candidates.py,player,hashable,2026-09-30b,d0658436989b6c8fa5928b391d109bbaa79699a2,9617,2026-09-30,yes,git,experimental rebuild tree; not production
 50_REBUILD/code,run_star_bias_test.py,player,hashable,2026-09-30b,e5cc3ffafbf6677527e2779cc3baab6f6725cad3,11619,2026-09-30,yes,git,experimental rebuild tree; not production
-50_REBUILD/docs,Star_Bias_Test.md,player,hashable,2026-09-30b,6cd61970a969447d960ec3b744eb09107d02f86c,6224,2026-09-30,yes,git,experimental rebuild tree; not production
+50_REBUILD/docs,Star_Bias_Test.md,player,hashable,2026-09-30c,8cd34e7e78a5f4d0fed4e01d5110fe0e34f8204a,6559,2026-09-30,yes,git,experimental rebuild tree; not production

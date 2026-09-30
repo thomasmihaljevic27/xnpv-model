@@ -2237,3 +2237,11 @@ The branch was merged into `main`, keeping both sides of the state-file conflict
 `50_REBUILD/code/star_candidates.py` v1.2 and `run_star_bias_test.py` v1.2, and report
 `50_REBUILD/docs/Star_Bias_Test.md`. `run_dollar_rescore.py` is now v1.1 with change G added. Nothing
 adopted; no locked decision changed. PROJECT_STATE, WORK_QUEUE and the session log are updated.
+
+### Change log, 2026-09-30c (exit-risk separation fix)
+
+`20_CODE/exit_hazard.py` v1.3: a window with a quality or age level that has no exits (or no stays)
+is fitted with Firth's penalty. This extends the D18 revision to pages 2010-2016, which production
+never values and the rebuild's harness and dollar scoring do. No table production values changes.
+The four affected rebuild reports carry correction notes. CLAUDE.md gains a rule on shortened
+estimation windows. PROJECT_STATE, WORK_QUEUE and the session log are updated.

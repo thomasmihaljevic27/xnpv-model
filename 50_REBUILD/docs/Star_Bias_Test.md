@@ -1,5 +1,10 @@
 # The star under-forecast in the fixed current model: four single changes
 
+**Correction, 2026-09-30.** The current model's figures here (RMSE 0.9036 on the answerable rows,
+0.8591 on the full grid) used an exit-risk star cell near zero on the 2015 and 2016 pages. With
+`exit_hazard.py` v1.3 they are 0.9033 and 0.8589 (`Step_Attribution.md`, correction). No other arm
+uses that table, and no reading changes.
+
 Run 2026-09-30. Test only: nothing adopted, no production file changed.
 Scripts: `50_REBUILD/code/star_candidates.py` v1.2 and `run_star_bias_test.py` v1.2, on the forecast
 harness (development pages 2015-2021). The base is `obvious_fixes.ObviousFixes`, the current model

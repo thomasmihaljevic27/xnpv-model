@@ -1,5 +1,21 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**Exit risk for pages with no star exit: `exit_hazard.py` v1.3, 2026-09-30c.** Thomas's laptop run
+of `run_dollar_rescore.py` failed on a singular matrix in the skater exit-risk fit.
+- **Cause:** the pre-valuation windows for pages 2010-2016 contain no star exit, so the star effect
+  is fitted at minus infinity. In the cloud the fallback stopped at a star exit risk of about 1e-5.
+- **Fix:** such windows are now fitted with Firth's penalty. Star exit risk on those pages becomes
+  0.2%-0.7% (27-30).
+- **Unchanged, bit for bit:** every table for pages 2017-2026 and the 2018-2024 table. Production's
+  skater values do not move.
+- **The goalie table is unchecked** (its ages need the contract export). The fix prints a line if a
+  goalie window takes the new path.
+- **Harness effect** (current model, answerable rows): RMSE 0.9036 to 0.9033, Brier 0.1918 to
+  0.1917. No conclusion changes. Correction notes are in `Step_Attribution.md`,
+  `Obvious_Fixes_Test.md`, `Star_Bias_Test.md` and `Exit_Hazard_Window_Test.md`.
+- All four point-valued models in the dollar script were run on every signing page 2010-2025,
+  horizons 0-9.
+
 **Star under-forecast, four single changes, 2026-09-30b.** `star_candidates.py` v1.2 and
 `run_star_bias_test.py` v1.2 test four single changes on the fixed current model.
 - One helps: the games-share forecast reads the player's level (change G). Season-WAR RMSE falls
