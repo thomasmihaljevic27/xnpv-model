@@ -2245,3 +2245,11 @@ is fitted with Firth's penalty. This extends the D18 revision to pages 2010-2016
 never values and the rebuild's harness and dollar scoring do. No table production values changes.
 The four affected rebuild reports carry correction notes. CLAUDE.md gains a rule on shortened
 estimation windows. PROJECT_STATE, WORK_QUEUE and the session log are updated.
+
+### Change log, 2026-09-30d (ledger merge rule; faster dollar resampling)
+
+- `.gitattributes`: the inspection ledger merges with git's union driver, so git keeps both sides'
+  appended lines.
+- `50_REBUILD/code/dollar_scoring.career_bootstrap` works from per-player sums. It uses the same draws
+  and gives the same shares, about 300 times faster.
+- No model changed. WORK_QUEUE and the session log are updated.

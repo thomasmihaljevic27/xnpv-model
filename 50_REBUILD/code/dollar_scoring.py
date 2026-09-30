@@ -115,14 +115,23 @@ def pit_block(d: pd.DataFrame, label: str) -> None:
 def career_bootstrap(d: pd.DataFrame, a: str, b: str, n: int = 2000,
                      seed: int = 20260922) -> float:
     """Share of player-resamples in which column b's mean is lower than
-    column a's. Resamples players, since one signs several contracts."""
-    g = {k: v for k, v in d.groupby("pkey")}
-    ks = list(g)
+    column a's. Resamples players, since one signs several contracts.
+
+    2026-09-30: computed from per-player sums instead of concatenating 2,000
+    resampled frames (13 s a share at 767 players; the laptop's dollar
+    re-score needs 48 of them). The draws are the same: `choice` on the
+    player index draws exactly what `choice` on the player keys drew, and the
+    keys are in the same (groupby) order. Means skip missing values per
+    column, as pandas' mean did. Checked equal to the old version on six
+    synthetic sets, with and without missing values."""
+    g = d.groupby("pkey")
+    sa, sb = g[a].sum().to_numpy(float), g[b].sum().to_numpy(float)
+    ca, cb = g[a].count().to_numpy(float), g[b].count().to_numpy(float)
     rng = np.random.default_rng(seed)
     wins = 0
     for _ in range(n):
-        s = pd.concat([g[k] for k in rng.choice(ks, len(ks), replace=True)])
-        wins += int(s[b].mean() < s[a].mean())
+        idx = rng.choice(len(sa), len(sa), replace=True)
+        wins += int(sb[idx].sum() / cb[idx].sum() < sa[idx].sum() / ca[idx].sum())
     return wins / n
 
 

@@ -231,7 +231,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 40_DOCS/Supervisor_Drafts,"Draft Picks, Prospects, and the Remaining Trade Model.docx",doc,rendition,2026-09-12,227aaae98c437fc1aacf6350b4c870115ce72954,21801,2026-09-12,yes,git,git-tracked; added by the 2026-09-25c audit
 40_DOCS/Supervisor_Drafts,"Pricing, Control Years, and Contract Value.docx",doc,rendition,2026-09-12,418805ee34f7287898734d968e45b124559d68e2,20417,2026-09-12,yes,git,git-tracked; added by the 2026-09-25c audit
 50_REBUILD/code,control_years.py,player,hashable,2026-09-17,f62fa6d83f73b759ad00c015194199f12ee4beaa,30754,2026-09-17,yes,git,git-tracked; added by the 2026-09-25c audit
-50_REBUILD/code,dollar_scoring.py,player,hashable,2026-09-24,e523a37bbf94e2730967bea6934cb30d93f397aa,13011,2026-09-24,yes,git,git-tracked; added by the 2026-09-25c audit
+50_REBUILD/code,dollar_scoring.py,player,hashable,2026-09-30d,cc591871ed111fa3fc0f781d5893627c17930ef9,13628,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit
 50_REBUILD/code,goalie_season_table.py,player,hashable,2026-09-17,d20ebd58900cc25ed131f9ada325b814369dafdb,8286,2026-09-17,yes,git,git-tracked; added by the 2026-09-25c audit
 50_REBUILD/code,npv_simulation.py,player,hashable,2026-09-22,061e8c911d0346d1326fb89ffd0767ba8980c36a,25483,2026-09-22,yes,git,git-tracked; added by the 2026-09-25c audit
 50_REBUILD/code,predictive_interval.py,player,hashable,2026-09-22,fb25eeeba6ecb8fd7a352830f57cc6bd5defb381,39658,2026-09-22,yes,git,git-tracked; added by the 2026-09-25c audit
