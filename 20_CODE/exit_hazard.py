@@ -1,9 +1,19 @@
 """
 =============================================================================
- exit_hazard.py   v1.2                              Phase 1a (D18)
+ exit_hazard.py   v1.3                              Phase 1a (D18)
                                                      (D20, 2026-07-05)
                                           review item 1.4 (2026-07-26)
 =============================================================================
+ WHAT CHANGED IN v1.3 (2026-09-30 -- a whole bucket with no exits)
+ ----------------------------------------------------------------------
+ The pre-valuation windows for pages 2010-2016 contain no star exit at all,
+ so the star effect's maximum-likelihood value is minus infinity: the fit
+ failed on Thomas's laptop (singular matrix) and in the cloud stopped at a
+ star exit risk near 1e-5. A window with a level that has no exits (or no
+ stays) is now fitted with Firth's penalty (_fit_firth). Every other window,
+ including every page production values (2017 on), the 2018-2024 table and
+ the goalie table, is fitted exactly as before.
+
  WHAT CHANGED IN v1.2 (review item 1.4 -- two cells asserted certainty)
  ----------------------------------------------------------------------
  The quality-by-age lookup was twenty raw cell means over 5,346 skater
@@ -205,6 +215,20 @@ def _fit_additive(d):
     import statsmodels.formula.api as smf          # see header dependency note
     dd = d[d["age_grp"] != "unknown"].copy()
     dd["y"] = dd["exited"].astype(int)
+    # v1.3 (2026-09-30): SEPARATION. A quality bucket or age group with no
+    # exits (or no stays) in the window has a maximum-likelihood effect of
+    # minus (or plus) infinity. Every pre-valuation window for pages 2010-2016
+    # holds no star exit (0 of 80 on the 2010 page up to 0 of 267 on 2016): the
+    # ordinary fit does not converge, the BFGS retry stops near a star exit
+    # risk of 1e-5, and on Thomas's laptop the Newton step raised a singular
+    # matrix. Such windows are fitted with Firth's penalty instead (see
+    # _fit_firth). Windows where every level has both outcomes -- every page
+    # production values, 2017 on, and the 2018-2024 and goalie tables -- take
+    # the unchanged path below, bit for bit.
+    sep = [f"{c}={lvl}" for c in ("bucket", "age_grp")
+           for lvl, g in dd.groupby(c)["y"] if g.sum() == 0 or g.sum() == len(g)]
+    if sep:
+        return _fit_firth(dd, sep), dd
     res = smf.logit('y ~ C(bucket) + C(age_grp)', data=dd).fit(disp=0)
     if not res.mle_retvals.get("converged", False):
         # Newton can stall on rare-event data; BFGS is the documented retry.
@@ -214,6 +238,61 @@ def _fit_additive(d):
         "hazard model failed to converge under both Newton and BFGS -- do " \
         "not price anything off this table"
     return res, dd
+
+
+class _FirthFit:
+    """The additive exit model fitted with Firth's penalty (Firth 1993).
+
+    Firth's correction adds half the log-determinant of the information
+    matrix to the log-likelihood. It is the standard remedy for separation:
+    a level with no exits gets a small, finite effect -- roughly as if half
+    an exit had been seen -- instead of minus infinity, and on data without
+    separation it moves estimates only by the small-sample bias it removes.
+    Used ONLY when _fit_additive finds a separated level, so no table that
+    had a finite fit before changes. Exposes what the callers read:
+    predict(frame), params, llf (the unpenalised log-likelihood at the
+    estimate), df_model and mle_retvals."""
+
+    def __init__(self, dd, separated):
+        from patsy import dmatrices
+        y, X = dmatrices('y ~ C(bucket) + C(age_grp)', dd, return_type="dataframe")
+        self.design_info_ = X.design_info
+        Xv, yv = X.to_numpy(float), y.to_numpy(float).ravel()
+        b = np.zeros(Xv.shape[1])
+        converged = False
+        for _ in range(200):
+            p = 1.0 / (1.0 + np.exp(-(Xv @ b)))
+            w = p * (1.0 - p)
+            info_inv = np.linalg.inv(Xv.T @ (Xv * w[:, None]))
+            h = w * np.einsum("ij,jk,ik->i", Xv, info_inv, Xv)      # hat-matrix diagonal
+            step = info_inv @ (Xv.T @ (yv - p + h * (0.5 - p)))     # Firth-modified score
+            b = b + step
+            if np.max(np.abs(step)) < 1e-10:
+                converged = True
+                break
+        self.params = pd.Series(b, index=X.columns)
+        p = 1.0 / (1.0 + np.exp(-(Xv @ b)))
+        self.llf = float(np.sum(yv * np.log(p) + (1 - yv) * np.log(1 - p)))
+        self.df_model = float(Xv.shape[1] - 1)
+        self.mle_retvals = {"converged": converged, "method": "firth",
+                            "separated": list(separated)}
+
+    def predict(self, frame):
+        from patsy import build_design_matrices
+        X = build_design_matrices([self.design_info_], frame)[0]
+        return pd.Series(1.0 / (1.0 + np.exp(-(np.asarray(X) @ self.params.to_numpy()))),
+                         index=frame.index)
+
+
+def _fit_firth(dd, separated):
+    # Printed, not only logged, so any caller's console shows that this path
+    # ran and on which levels (a goalie table taking it would change goalie
+    # values; no skater page production values takes it).
+    print(f"  [exit_hazard v1.3] no exits (or no stays) for {', '.join(separated)} in "
+          f"{len(dd):,} transitions: fitted with Firth's penalty")
+    res = _FirthFit(dd, separated)
+    assert res.mle_retvals["converged"], "Firth fit of the hazard model did not converge"
+    return res
 
 
 def build_hazard_table(d):

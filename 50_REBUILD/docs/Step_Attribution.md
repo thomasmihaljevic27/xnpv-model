@@ -1,5 +1,16 @@
 # The current and rebuilt skater forecasts, piece by piece
 
+**Correction, 2026-09-30.** The current model's exit risk on the 2015 and 2016 pages rested on a
+star cell near zero. The pre-valuation window for those pages holds no star exit, and the fit
+stopped at a star exit risk of about 1e-5. `exit_hazard.py` v1.3 fits such windows with Firth's
+penalty. Rerun on the same rows, the current model's figures become:
+- **Answerable rows:** RMSE 0.9033 (was 0.9036), MAE 0.5430, Brier 0.1917 (was 0.1918).
+- **Full grid:** RMSE 0.8589 (was 0.8591).
+- **Chance of playing alone swapped in:** -1.5% (was -1.6%).
+
+The rebuilt model's margin stays -4.4%, and no reading below changes. The tables below keep the
+v1.0 figures.
+
 Run 2026-09-28. Test only: nothing adopted, no production file changed.
 Script: `50_REBUILD/code/run_step_attribution.py` v1.0, on the forecast harness (development pages
 2015-2021, valuation season to five seasons out, 40,510 forecasts from 1,609 players).

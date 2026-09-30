@@ -1,5 +1,20 @@
 # The exit hazard fitted only on what each valuation date could know
 
+**Correction, 2026-09-30.** The two pre-valuation windows hold no star exit for the 2015 and 2016
+pages, so the star effect was fitted at minus infinity. It
+stopped near an exit risk of 1e-5, and the same fit raised a singular matrix on the laptop.
+`exit_hazard.py` v1.3 fits such windows with Firth's penalty. Every table production values from
+2017 on is unchanged bit for bit.
+
+Rerun (v1.1 runner):
+- **Expanding window:** full-grid Brier 0.2143 (unchanged) and RMSE 0.8589 (was 0.8591). Answerable
+  Brier 0.1917 (was 0.1918) and RMSE 0.9033 (was 0.9036).
+- **Rolling window:** Brier 0.2155 (was 0.2156) and RMSE 0.8591 (was 0.8593) on the full grid.
+- **All seasons and the 2018-2024 table:** unchanged.
+
+The expanding window is still lower than every other arm on both scores, and the adoption stands.
+The tables below keep the v1.0 figures.
+
 Run 2026-09-28. Test only: no production file changed, nothing adopted.
 Script: `50_REBUILD/code/run_exit_hazard_window_test.py` v1.0, on the rebuild's forecast harness
 (development pages 2015-2021, valuation season to five seasons out, 40,510 forecasts from 1,609

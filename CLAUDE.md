@@ -239,6 +239,13 @@ Draft pillar:
   named `30_OUTPUT/WAR_with_age.csv`, because that label is hard-coded (caught 2026-09-28 before it was
   reported). Before reading a result, check that its log shows the real path of every input and that
   a reference arm reproduces a recorded figure.
+- **Don't shorten an estimation window without checking that every category still has both
+  outcomes.** The skater exit risk was moved to windows ending before each valuation date
+  (2026-09-28). Those windows hold no star exit for pages 2010-2016, so the star effect's best fit
+  is minus infinity. The fallback optimizer "converged" at a star exit risk of 1e-5, which passed the
+  table's "no cell at exactly 0 or 1" guard, and the laptop's run of the same fit raised a singular
+  matrix (2026-09-30). Count each level's outcomes in every window a fit will see, not only the
+  windows the first test used.
 - **Don't hand over a command for the Windows laptop without checking it there.** Thomas runs
   commands in Windows PowerShell 5.1 inside a working folder that `sync.ps1` stages wholesale
   (`git add -A`). Three round trips on 2026-09-25 came from ignoring that: a script that required a
