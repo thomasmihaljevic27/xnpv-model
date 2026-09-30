@@ -1,5 +1,23 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**Contract dollars re-scored, 2026-09-30e.** `run_dollar_rescore.py` v1.1 ran on the laptop. It is
+the adopted line on the 1,111 answerable contracts, and the rebuilt models reproduce their 2026-09-24
+figures exactly. RMSE, $M:
+- current 3.681 (was 3.648 before its 28 September revisions);
+- obvious fixes 3.616;
+- fixes + games-share change 3.555;
+- adopted rebuilt 3.614;
+- previous rebuilt 3.630.
+
+Reading:
+- Comparables and the equation do not separate in dollars (888/2000).
+- The games-share change is lowest on squared and absolute error in all four tables. Against adopted
+  it is lower in 1,869-1,917 of 2,000, not decisive, and it was not added to the rebuilt model here.
+- On 41 six-to-eight-year deals the current model is best (10.62) and least biased (-4.09); the new
+  forecasts are at -5.8 to -6.1.
+
+Report `50_REBUILD/docs/Dollar_Rescore.md`. Nothing adopted.
+
 **Exit risk for pages with no star exit: `exit_hazard.py` v1.3, 2026-09-30c.** Thomas's laptop run
 of `run_dollar_rescore.py` failed on a singular matrix in the skater exit-risk fit.
 - **Cause:** the pre-valuation windows for pages 2010-2016 contain no star exit, so the star effect

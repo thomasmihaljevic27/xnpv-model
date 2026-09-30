@@ -2253,3 +2253,9 @@ estimation windows. PROJECT_STATE, WORK_QUEUE and the session log are updated.
 - `50_REBUILD/code/dollar_scoring.career_bootstrap` works from per-player sums. It uses the same draws
   and gives the same shares, about 300 times faster.
 - No model changed. WORK_QUEUE and the session log are updated.
+
+### Change log, 2026-09-30e (dollar re-score results)
+
+New report `50_REBUILD/docs/Dollar_Rescore.md`, from Thomas's laptop run of
+`run_dollar_rescore.py` v1.1. Nothing adopted; no locked decision changed. PROJECT_STATE, WORK_QUEUE
+and the session log are updated.

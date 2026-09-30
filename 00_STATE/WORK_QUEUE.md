@@ -1,5 +1,12 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
+**After the dollar re-score, 2026-09-30e: open.**
+1. Score the rebuilt model with the games-share change (`star_candidates.RebuiltGamesLevel`) in
+   dollars. This is the fair test of comparables against the fitted equation.
+2. Decide on the games-share change.
+3. The long-deal under-valuation: every new forecast is about $2M further under than the current
+   model on six-to-eight-year deals (41 contracts).
+
 **Dollar re-score, 2026-09-30d: running on the laptop.**
 - The first table is in (session log): the fixed current model with the games-share change has the
   lowest dollar RMSE.
