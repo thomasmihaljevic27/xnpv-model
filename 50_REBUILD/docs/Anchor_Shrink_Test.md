@@ -1,6 +1,6 @@
 # Pulling the valuation's starting point toward typical
 
-Test date: 2026-09-13. Production model unchanged. Script: `20_CODE/anchor_shrink_test.py`
+Test date: 2026-09-13. Production model unchanged. Script: `25_TESTS/anchor_shrink_test.py`
 v1.1, seed 20260913.
 
 ## Summary
@@ -187,6 +187,6 @@ same way on both sides of every trade, before a star-versus-package result is re
 
 ## Reproduction
 
-`python 20_CODE/anchor_shrink_test.py` from the repository root runs in about 2.5 minutes. Outputs
+`python 25_TESTS/anchor_shrink_test.py` from the repository root runs in about 2.5 minutes. Outputs
 in `30_OUTPUT/` begin with `anchor_shrink_test_`: `seasons.csv`, `contracts.csv`, `summary.csv`,
 `npv_movement.csv`, and `run.json` (calibration, both market-line fits, hashes).

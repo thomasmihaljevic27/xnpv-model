@@ -33,7 +33,7 @@ link here from `00_STATE/`.
 - [Fable rebuild plan](docs/Player_Model_Rebuild_Plan_Fable.md)
 - [Alternative rebuild plan](docs/Player_Model_Rebuild_Plan.md)
 - [Ground-up review](docs/Ground_Up_Player_Model_Review.md)
-- [Independent candidate review](docs/Player_Rebuild_Candidate_Review_Codex.md)
+- [Independent candidate review](docs/reviews/Player_Rebuild_Candidate_Review_Codex.md)
 - Supporting diagnostics: [anchor shrinkage](docs/Anchor_Shrink_Test.md),
   [comparables limit](docs/Aging_Comparable_Limit_Test.md),
   [aging coverage](docs/Aging_Curve_Coverage_Audit.md), and

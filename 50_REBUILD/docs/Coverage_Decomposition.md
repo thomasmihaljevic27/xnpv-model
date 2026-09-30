@@ -167,4 +167,4 @@ the thesis and not about calibration.
 
 Outputs, ignored under `50_REBUILD/output/`: `coverage_decomposition_run_log.txt`,
 `coverage_decomposition.csv`, `point_bias_accounting.csv`. The reviewer's reproduction is
-`50_REBUILD/code/review_coverage_decomposition.py`.
+`50_REBUILD/code/reviews/review_coverage_decomposition.py`.

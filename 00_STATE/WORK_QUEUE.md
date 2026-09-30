@@ -1,24 +1,28 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
-**After the xNPV 1 decision (D33), 2026-09-30j: open, in order.**
-1. **Supervisor review of each change.** Take xNPV 1's five changes to the supervisor one at a
-   time: start, games share, chance of playing with contract status, the aging fixes, and the
-   valuation date. For each, give the fix and the score it earned. Also bring the deliberate
-   contract-status choice (1,925 of 2,000 against the declared 1,950). The speaking notes and the
-   step-by-step document still say "Model 3 / Model 6"; relabel them to xNPV 0 / xNPV 1 before the
-   meeting.
-2. **Score xNPV 1 once on the 2022-2025 pages** against xNPV 0. Declare it as a confirmation, not a
-   selection: those pages are reused, not sealed.
-3. **Migrate xNPV 1 into production.** Wire it into `20_CODE/` so the dashboard, `contract_npv.py`
-   and `run_npv_simulation.LEADER` value on it. Before saying it is done, grep for the old classes
-   (`A1HingeExposureStatus`, `ProductionChain`, `LEADER`) and have every artifact record which model
-   built it.
-4. **Carry as open:**
-   - xNPV 0's season Brier differs between the laptop and cloud age tables (0.249 against 0.192);
-   - the goalie exit-risk tables have not been checked under the separation fix;
-   - the nine-season participation window is an option, not adopted.
-5. **Repository tidy.** The audit is in the 2026-09-30 session log. Move or delete nothing until
-   Thomas confirms each group.
+**After the xNPV 1 decision (D33), updated 2026-09-30k: open, in order.**
+1. **Supervisor review of each change** (in person).
+   - The five changes, and the deliberate contract-status choice.
+   - D33 now names the three locked decisions it revises: D3, D12 v3 and D18.
+   - Relabel the speaking notes and the step-by-step document from "Model 3 / Model 6" to
+     xNPV 0 / xNPV 1.
+2. **Laptop:** `python 50_REBUILD\code\run_xnpv1_holdout.py`.
+   - Send back `50_REBUILD/output/xnpv1_holdout_run_log.txt`, and commit the ledger line it adds.
+   - This is a one-time run. Try `--code-test` first if in doubt; it scores development pages only.
+   - The pages were partly seen by a cloud code test (session log).
+3. **Migration decisions** (`50_REBUILD/docs/xNPV1_Migration_Plan.md`):
+   - where xNPV 1's code lives;
+   - the valuation season's survival;
+   - the spread behind the league-minimum floor.
+   Build after 1 and 2.
+4. **Laptop diagnostics:**
+   - `python 50_REBUILD\code\run_brier_gap_check.py` (send back `brier_gap_run_log.txt`);
+   - `python 25_TESTS\goalie_hazard_firth_check.py` (paste the console).
+5. **Thomas's calls:**
+   - `claude/nifty-euler-u5c5vm` (adds a third-party agent skill);
+   - whether `ep_age_scraper.py` is superseded;
+   - deleting `claude/amazing-johnson-cllbgl` on GitHub (fully merged; the session could not);
+   - whether to pursue the nine-season participation window for xNPV 1.
 
 **Model choice, 2026-09-30i: DECIDED 2026-09-30j (D33): Model 6, now named xNPV 1.**
 - Candidates: Model 3, Model 6 (+ contract status), and either with participation fitted on the last
@@ -196,7 +200,7 @@ rows are adapter fallbacks, not production forecasts; on 35,878 answerable rows
 A still beats production (RMSE .8640 vs .9129, 2,000/2,000 resamples). Later
 pages were previously inspected, not historically sealed; pooled calibration
 does not establish each contract's calibration. No new forecast search is
-requested. See `50_REBUILD/docs/Player_Acceptance_Closure_Review_Codex.md`.
+requested. See `50_REBUILD/docs/reviews/Player_Acceptance_Closure_Review_Codex.md`.
 
 **Recency review closed, 2026-09-24:** independently reproduced `293f4d6`:
 46/46 suite, 40,510 forecasts, 1,217 valued contracts, 1,176 ended terms.
@@ -208,7 +212,7 @@ undervaluation of each star contract. All seven pages preserve regression rows,
 targets, and design; exact weights, future invariance, all-ones identity, and
 half-life mutation checked. Proceed to matched simulation comparison,
 development dollar scoring, and production reconciliation. Phase 5 remains open.
-See `50_REBUILD/docs/Star_Recency_Review_Codex.md`.
+See `50_REBUILD/docs/reviews/Star_Recency_Review_Codex.md`.
 
 **Sustained-quality candidate reviewed, 2026-09-24:** `f83240a` reproduces;
 46/46 suite plus independent lag/fallback/date/sample checks pass. Adopted
@@ -222,7 +226,7 @@ five-season-half-life weighting sensitivity on all existing aging rows, same
 formula and primary currency. Verify row identities/targets and exact intended
 weight factors, not unchanged weights. No sweep or implementation/adoption here.
 Consider retaining subgroup bias as a limitation if it fails absent new evidence.
-Review: `50_REBUILD/docs/Star_Sustained_Review_Codex.md`. Phase 5 remains open.
+Review: `50_REBUILD/docs/reviews/Star_Sustained_Review_Codex.md`. Phase 5 remains open.
 
 
 **Star-walk diagnostic reviewed, 2026-09-24:** `55f23cb` reproduces. Fresh full
@@ -237,7 +241,7 @@ Selection: 983 calendar-observable rows, 894 three played, 883 three >=10-game
 seasons, 876 with age. Historical survivor fitting does not remove future-cohort
 selection. Model/suite unchanged from the previously verified 46/46 checkpoint;
 new diagnostic independently audited, full suite not rerun. No adoption or
-candidate merge; Phase 5 remains open. See `50_REBUILD/docs/Star_Walk_Review_Codex.md`.
+candidate merge; Phase 5 remains open. See `50_REBUILD/docs/reviews/Star_Walk_Review_Codex.md`.
 
 
 **Multi-season aging candidate reviewed, 2026-09-24:** candidate `3ba71cd`
@@ -252,7 +256,7 @@ compare training-aligned lagged observations, current observations and projected
 levels on common transitions. A one-step pass/fail cannot identify recursion
 versus cohort selection by itself. Failed substitution does not establish the
 cause of the original bias. No adoption or candidate merge; Phase 5 stays open.
-Review: `50_REBUILD/docs/Star_Multi_Review_Codex.md`.
+Review: `50_REBUILD/docs/reviews/Star_Multi_Review_Codex.md`.
 
 
 **Matched-aging repair closed, 2026-09-24:** reviewed `670b614` in isolation.
@@ -265,7 +269,7 @@ experiment. The double-pull explanation is a hypothesis. Failure of the specific
 hinge at 2 wins does not reject all nonlinear level effects; its five-year star
 bias is unchanged but star RMSE improves slightly. Documentation cleanup can
 accompany the next experiment. No candidate merge or adoption by this review.
-Phase 5 remains open. See `50_REBUILD/docs/Star_Matched_Closure_Codex.md`.
+Phase 5 remains open. See `50_REBUILD/docs/reviews/Star_Matched_Closure_Codex.md`.
 
 
 **Star-residual review, 2026-09-23:** reviewed candidate `477316d` in isolation.
@@ -278,7 +282,7 @@ before selecting the next aging specification. Correct the module's unsupported
 claim that missing-lag rows receive an age-only fit. Full suite: 45 passed,
 zero skipped or failed. Prior status-adoption closure stands; its three reporting
 corrections are applied. No candidate merge or default change. Phase 5 remains
-open. Review: `50_REBUILD/docs/Star_Residual_Review_Codex.md`.
+open. Review: `50_REBUILD/docs/reviews/Star_Residual_Review_Codex.md`.
 
 **Player model scorecard; Phase 6 set aside, 2026-09-24k** (the model decision is now deferred, see
 2026-09-24l). Review
@@ -403,7 +407,7 @@ qualifications: 28 upward group moves and one downward; clipping averages are
 among affected terms. The carried method extends the whole last supported fit,
 so its loss does not reject all possible status-effect extensions. Matched
 simulation-distribution scoring remains open; Phase 5 is not complete.
-See `50_REBUILD/docs/Status_Adoption_Closure_Codex.md`. No candidate merge or
+See `50_REBUILD/docs/reviews/Status_Adoption_Closure_Codex.md`. No candidate merge or
 implementation/default change was made by this review.
 
 **Status-adoption review repairs, 2026-09-23h.** The review of `7fee59b` (`acc4a33`) kept the
@@ -437,7 +441,7 @@ The 15 clipped terms have exact mean absolute clipping effect 0.000415 WAR/seaso
 0.0142 includes simulation noise. The cliff and clipped rises are distinct.
 Keep the provisional model; score a named carry-forward-status sensitivity before
 changing it. Previous signing-date and goalie closures stand. Review:
-`50_REBUILD/docs/Status_Adoption_Review_Codex.md`. No implementation/default change
+`50_REBUILD/docs/reviews/Status_Adoption_Review_Codex.md`. No implementation/default change
 or candidate merge in this review. Phase 5 remains open.
 
 **Skater leader: contract status adopted provisionally, 2026-09-23g.** On the closure review's
@@ -468,7 +472,7 @@ followed by simulation, control-year, and price-line integration and scoring.
 Calibration counts are 1,458 forecast-attached contracts, versus 1,217 priced and
 1,176 completed terms scored. The full 11.8-point calibration gap is not causally
 attributed to omitting contract inputs. No new goalie evidence or reopening.
-See `50_REBUILD/docs/Skater_Signing_Date_Closure_Codex.md`. No candidate merge or
+See `50_REBUILD/docs/reviews/Skater_Signing_Date_Closure_Codex.md`. No candidate merge or
 leader/default change was made by this review; Phase 5 remains open.
 
 
@@ -482,7 +486,7 @@ not signing-date status. Chara contract 7041's status-only participation changes
 0.336686 to 0.589150 when only that date is corrected. The July season comparison
 stands; rerun signing-date dollar scores before closing the contract-input decision.
 Keep the existing leader meanwhile. No candidate merge or default change here.
-See `50_REBUILD/docs/Goalie_Adoption_Skater_Contract_Review_Codex.md`.
+See `50_REBUILD/docs/reviews/Goalie_Adoption_Skater_Contract_Review_Codex.md`.
 
 
 <!-- Extracted from PROJECT_STATE.md on 2026-09-09 (v3.2 restructure). Pure move, no content change. -->
@@ -506,7 +510,7 @@ an accuracy win. Production ability arm stays provisional main. No adoption or
 candidate merge; choosing and rerunning a new default remains a model decision.
 No clearly detected aggregate 2018 step is not proof of no step. Prior closures
 stand; Phase 5 remains open. See
-`50_REBUILD/docs/Goalie_Participation_Split_Closure_Codex.md`.
+`50_REBUILD/docs/reviews/Goalie_Participation_Split_Closure_Codex.md`.
 
 **Goalie control-year evaluation review closed, 2026-09-22:** verified `6c9ab2c`
 in isolation. Both findings from `088546f` are repaired: common-dollar scoring
@@ -518,7 +522,7 @@ Proceed to the most-confident participation predictions, retaining production as
 provisional default and rate as sensitivity. Passing pooled PIT summaries is not
 proof the distributions are calibrated; the subgroup failure remains. Its cause
 and contribution to contract-floor errors are not identified. See
-`50_REBUILD/docs/Goalie_Control_Years_Repair_Closure_Codex.md`. No implementation
+`50_REBUILD/docs/reviews/Goalie_Control_Years_Repair_Closure_Codex.md`. No implementation
 edit, merge or adoption. Prior closures stand; Phase 5 remains open.
 
 **Goalie rate review closed, 2026-09-22:** verified `f90e6fe` in isolation.
@@ -532,7 +536,7 @@ years with production benchmark and rate sensitivity. Pricing/D7 provisional.
 Qualification: a games-weighted rate times compatible expected share can recover
 expected season production without zero covariance; define conditioning, schedule
 length and joint-path targets rather than assert independence universally. See
-`50_REBUILD/docs/Goalie_Rate_Repair_Closure_Codex.md`. Prior closures/open skater
+`50_REBUILD/docs/reviews/Goalie_Rate_Repair_Closure_Codex.md`. Prior closures/open skater
 comparison stand. No model edits, candidate merge or adoption.
 
 **Goalie participation review closed, 2026-09-22:** verified `8d1efc6` in isolation.
@@ -547,7 +551,7 @@ WAR gaps +.03% to +.27%, only h2 interval excludes zero. Keep current leader unt
 its exact configuration is compared with/without contracts and valued downstream.
 Dropping unknown status imposes an extrapolation assumption on absent training
 categories; it does not identify their separate effects. Pricing and D7 provisional.
-See `50_REBUILD/docs/Goalie_Participation_Repair_Closure_Codex.md`. Earlier closures
+See `50_REBUILD/docs/reviews/Goalie_Participation_Repair_Closure_Codex.md`. Earlier closures
 stand. No model edits, candidate merge or adoption.
 
 **Goalie price-line review closed, 2026-09-22:** verified `af61f6c` in isolation.
@@ -561,7 +565,7 @@ synthetic coefficients. Three check-33 mutations caught. Counts 263 eligible,
 illustration correctly qualified. All preceding price-line findings closed;
 proceed to participation with provisional price specification. Distinguish any-NHL
 participation from workload conditional on playing, and reassess pricing when the
-forecast changes. See `50_REBUILD/docs/Goalie_Price_Repair_Closure_Codex.md`.
+forecast changes. See `50_REBUILD/docs/reviews/Goalie_Price_Repair_Closure_Codex.md`.
 Earlier closures stand. No model edits, candidate merge, adoption or back-test.
 
 **Goalie forecast review closed, 2026-09-17:** verified `e42f57c` in isolation.
@@ -576,7 +580,7 @@ price adjustment: goalie-cluster mean-error interval [-.12155,+.31314], and shar
 participation averages .64098 predicted versus .55254 observed. Assess any correction
 with participation and development scoring. Seasonal lookup dating does not date the
 locked production calibration constants for historical valuation. See
-`50_REBUILD/docs/Goalie_Repair_Closure_Codex.md`. RFA/simulator/reconciliation closures
+`50_REBUILD/docs/reviews/Goalie_Repair_Closure_Codex.md`. RFA/simulator/reconciliation closures
 stand; goalie participation, control gate, dollars, and back-test remain open. No
 production/model edits, candidate merge, adoption, or confirmatory-page access.
 
@@ -589,7 +593,7 @@ value corruption rejected naming contract 3702. Revised asset/date flags reprodu
 Both preceding findings are closed. Proceed with remaining valuation development.
 This diagnostic still compares different information dates and does not validate
 outcomes or complete Phase 5. Input exceptions and remote goalie hash remain disclosed.
-See `50_REBUILD/docs/Reconciliation_Review_Closure_Codex.md`. No candidate merge,
+See `50_REBUILD/docs/reviews/Reconciliation_Review_Closure_Codex.md`. No candidate merge,
 model edits or source changes; unrelated files preserved.
 
 **Reconciliation repair verification, 2026-09-16:** reviewed `1a6ba0d` in isolation.
@@ -602,7 +606,7 @@ Also, 912 means passes the structural/cost screen, not every test: 217 fail the 
 flag; 695 pass both, still without proving same information dates. Rename the screen
 and retain the date limitation explicitly. Six-year screening loses two contracts;
 other four-to-eight-year cells survive the structural screen, not a same-date test.
-See `50_REBUILD/docs/Reconciliation_Repair_Verification_Codex.md`. Prior simulation
+See `50_REBUILD/docs/reviews/Reconciliation_Repair_Verification_Codex.md`. Prior simulation
 closure remains valid. Further development can proceed; no model redesign requested.
 No candidate merge, implementation edit, or production/source changes.
 
@@ -616,7 +620,7 @@ and +$2.29M at eight, not +$0.76M/-$0.58M. Ten joined production rows actually v
 another contract, 185 include terminal control value absent from the rebuild, dates
 differ, and cost-input discrepancies need explicit reconciliation. Consumer guards
 accept a mismatched simulation baseline, duplicate production IDs and reserved cohorts.
-See `50_REBUILD/docs/Valuation_Integration_Review_Codex.md`. Correct decomposition,
+See `50_REBUILD/docs/reviews/Valuation_Integration_Review_Codex.md`. Correct decomposition,
 reconcile identities/dates/costs/terminal scope and enforce artifact invariants before
 closing this acceptance item. Prior simulation repairs remain closed. No model patch,
 candidate merge or source changes; only isolated generated outputs and review records.
@@ -630,7 +634,7 @@ Both preceding findings are closed; proceed with valuation integration. Full run
 contract SD $11.012715M with returns versus $11.074470M absorbing. Shared draws reduce
 comparison noise but do not eliminate multi-year Monte Carlo error. Phase 5 remains
 open for RFA/control years, goalies, joint-path scope, dollar scoring and reconciliation.
-See `50_REBUILD/docs/Simulation_Review_Closure_Codex.md`. No model patch or merge;
+See `50_REBUILD/docs/reviews/Simulation_Review_Closure_Codex.md`. No model patch or merge;
 unrelated files preserved.
 
 **Simulation repair verification, 2026-09-16:** reviewed `8239d29` in isolation.
@@ -645,7 +649,7 @@ sensitivities; remaining valuation integration can proceed. Clipping affects two
 contracts by at most 0.381 percentage points of playing probability, documented as a
 small exception. Phase 5 remains an aggregate prototype with RFA/control-year, goalie,
 joint-path, dollar-scoring and reconciliation gates open. See
-`50_REBUILD/docs/NPV_Simulation_Repair_Verification_Codex.md`.
+`50_REBUILD/docs/reviews/NPV_Simulation_Repair_Verification_Codex.md`.
 No candidate implementation changed or merged; unrelated files preserved.
 
 **Phase 5 simulation review, 2026-09-16:** reviewed `95750f5` in isolation.
@@ -655,7 +659,7 @@ not closed: all 1,217 historical simulations use the 2025 residual shape/persist
 fit (outcomes through 2024), rank correlations are used as Gaussian correlations
 and the larger-sample self-test fails, and absorbing exits omit the plan's returns.
 Zero rising marginal probabilities does not establish zero returns. See
-`50_REBUILD/docs/NPV_Simulation_Review_Codex.md`. Correct dated calibration and
+`50_REBUILD/docs/reviews/NPV_Simulation_Review_Codex.md`. Correct dated calibration and
 copula mapping, resolve the return-capable path scope, then continue integration.
 RFA/control-year, goalie, joint-path design and dollar reconciliation remain open.
 The preceding valuation review stays closed; no model changes or merge in this review.
@@ -665,7 +669,7 @@ comparison and independently checking its CSV. All 1,217 contract IDs, costs and
 groups match across columns; all five group means reproduce the prior audit and retain
 their signs and ordering. Corrected retention and framing figures reproduce. The preceding
 valuation-comparison findings are resolved on tested paths. See
-`50_REBUILD/docs/Valuation_Review_Closure_Codex.md`. Ready to continue development:
+`50_REBUILD/docs/reviews/Valuation_Review_Closure_Codex.md`. Ready to continue development:
 repair the known component-variant failure before using it, then continue simulation,
 valuation integration/reconciliation and the predefined back-test. Subgroup limitations,
 small samples and final-validation work remain; this is not a completed-model sign-off.
@@ -680,7 +684,7 @@ irrelevant. Development attrition is 423 unmatched subjects, 241 insufficient ea
 pricing contracts and 15 pre-forecast-term cases, leaving 1,217 of 1,896 priced.
 Extending horizons does not recover these losses. The production forecast is repriced
 with rebuild currency, not a full production-NPV comparison. See
-`50_REBUILD/docs/Valuation_Sensitivity_Review_Codex.md`. Continue planned evaluation
+`50_REBUILD/docs/reviews/Valuation_Sensitivity_Review_Codex.md`. Continue planned evaluation
 with fixed groups and these limits; no model change or new thesis claim adopted.
 
 **Coverage diagnostic fact check, 2026-09-15:** reproduced `c4c41f4` in isolation.
@@ -690,7 +694,7 @@ ceilings. A common-unit accounting assigns young h3 error mainly to games in one
 replacement order, not almost exclusively participation. The new diagnostic substitutes
 the final year's residual shape, changing star h5 baseline from 60.8% to 60.2%.
 Prior uncertainty fixes remain closed. See
-`50_REBUILD/docs/Coverage_Decomposition_Review_Codex.md`. Record subgroup miscalibration
+`50_REBUILD/docs/reviews/Coverage_Decomposition_Review_Codex.md`. Record subgroup miscalibration
 as a limitation with unresolved causes; selection bias is plausible, not established.
 Recommendation is to continue remaining build and assess valuation robustness, without
 adopting the new queue priorities as proven diagnoses. No model changed or merged.
@@ -704,7 +708,7 @@ Disabling centring makes the new guard fail, detecting a 0.2228-win mismatch.
 Revised 80% coverage is 82.2-84.3% overall, but only 60.8% for stars and 66.3% for young
 players at h5; 28/151 played star seasons exceed their fitted 95th percentile.
 These remain model limitations, not unresolved instances of the three repaired bugs.
-See `50_REBUILD/docs/Uncertainty_Repair_Verification_Codex.md`. No new blocking defect found
+See `50_REBUILD/docs/reviews/Uncertainty_Repair_Verification_Codex.md`. No new blocking defect found
 in these repairs; candidate remains unmerged and remaining plan work is incomplete.
 The preceding review paragraph records the superseded candidate's findings.
 
@@ -717,7 +721,7 @@ the +0.5 rate shock response from +0.116 at h0 to +0.073 at h5, declining with d
 Residual-shape and optimism diagnostics also use the last page's calibrator across all pages.
 The predictive distribution has a positive mean offset from the reported point expectation
 (mean 0.0374 WAR, maximum 0.2265); reconcile before simulation. See
-`50_REBUILD/docs/Uncertainty_Implementation_Review_Codex.md`. Coverage and future-data checks
+`50_REBUILD/docs/reviews/Uncertainty_Implementation_Review_Codex.md`. Coverage and future-data checks
 are reproduced evidence; attribution to bias versus spread remains unresolved. Implementation
 is unmerged, and simulation/A3/control/goalie/dollar-validation work remains incomplete.
 
@@ -1647,14 +1651,14 @@ built. **Thomas's call**, in the flags. Production was not edited.
 checks pass with no skips. Independent full-run audit confirms identical coefficients across
 18 comparable quarters and zero shared-currency repricing differences for all 12 named cases.
 The all-rejected request returns zero rows and one rejection record; empty input also passes.
-The two preceding findings are closed. See `50_REBUILD/docs/Fourth_Repair_Verification_Codex.md`.
+The two preceding findings are closed. See `50_REBUILD/docs/reviews/Fourth_Repair_Verification_Codex.md`.
 No new blocking defect found in the changed paths. Next milestone is the remaining simulation,
 A3, control/goalie, uncertainty, dollar reconciliation and final-validation work. Rejection
 CSV reporting still is not a complete per-run sample audit. Candidate implementation remains
 unmerged; production code and the previously verified forecast specification are unchanged.
 
 **2026-09-15 independent rebuild review: prerequisite before the experimental next steps below.**
-See `50_REBUILD/docs/Player_Rebuild_Candidate_Review_Codex.md`. Correct shortened-season rate/games units
+See `50_REBUILD/docs/reviews/Player_Rebuild_Candidate_Review_Codex.md`. Correct shortened-season rate/games units
 and the participation event; enforce eligible samples and fitted contract horizons; add the real
 production comparator; date market fits at signings; implement consistent ex-ante caps and
 discounting. Then rerun development comparisons before tuning the remaining star residual.
@@ -1817,6 +1821,6 @@ control-year treatment, goalies, end-to-end dollar reconciliation, the full-chai
 export-break tests, once-only ledger enforcement, the announced later cap ceilings, and the market
 holdout policy.
 
-- **2026-09-14 aging-curve elite weighting — two scripts written, NEITHER RUN ON REAL DATA.** `20_CODE/aging_comp_weight_audit.py` (read-only, seconds) and `20_CODE/aging_elite_shrinkage_test.py` (nine arms on the bandwidth test's held-out design; sweeps `SHRINK_K`, the bandwidth scale, the untested joint cell, and a reliability-weighted lambda; reports signed bias by anchor-level band on the curve and season-total endpoints). Both need the PuckPedia birthdate export and so must run on the desktop machine. The audit's findings are in STANDING_FLAGS; the test decides the open question, which is the SIGN of the net elite bias, since the level shrinkage and the level-blind absolute aging deltas push opposite ways. Treat a winning arm as a lead to re-test on the historical-window mode, not a result: many arms, one evaluation set. Any change to the bandwidth rule or lambda is a deliberate revisit of a locked decision, on the coverage audit's terms.
+- **2026-09-14 aging-curve elite weighting — two scripts written, NEITHER RUN ON REAL DATA.** `25_TESTS/aging_comp_weight_audit.py` (read-only, seconds) and `25_TESTS/aging_elite_shrinkage_test.py` (nine arms on the bandwidth test's held-out design; sweeps `SHRINK_K`, the bandwidth scale, the untested joint cell, and a reliability-weighted lambda; reports signed bias by anchor-level band on the curve and season-total endpoints). Both need the PuckPedia birthdate export and so must run on the desktop machine. The audit's findings are in STANDING_FLAGS; the test decides the open question, which is the SIGN of the net elite bias, since the level shrinkage and the level-blind absolute aging deltas push opposite ways. Treat a winning arm as a lead to re-test on the historical-window mode, not a result: many arms, one evaluation set. Any change to the bandwidth rule or lambda is a deliberate revisit of a locked decision, on the coverage audit's terms.
 - **2026-09-14 latent bug in `aging_bandwidth_test.py`**: it keys its input hashes with `Path.relative_to(ROOT)` on a path taken from `OUTPUT_DIR`, which raises if `OUTPUT_DIR` is ever set outside the repository. `aging_elite_shrinkage_test.py` carries the fix; port it if the bandwidth test is re-run off-repo.
 

@@ -48,12 +48,15 @@ No virtualenv convention is established yet. Stata or R on request only.
     00_STATE/     PROJECT_STATE.md + WORK_QUEUE.md + DECISIONS.md + STANDING_FLAGS.md,
                   sessions/ (per-session log), four sequence docs, MANIFEST.csv
     10_SOURCE/    vendor and scraped source data. Code reads it, never writes it
-    20_CODE/      flat. Every script, current version only
+    20_CODE/      flat. The live pipeline and its tools, current version only
+    25_TESTS/     flat. Finished one-off tests and diagnostics; each puts 20_CODE/ on its path
     30_OUTPUT/    flat. Every spine, panel, curve, diagnostic, run log. Gitignored
     40_DOCS/      reports, reviews, briefs
     90_ARCHIVE/   YYYY-MM-DD/ superseded material under original names. Gitignored
 
-`20_CODE` and `30_OUTPUT` are flat deliberately. Per-pillar subfolders were tried, sat empty
+A test or diagnostic goes in `25_TESTS/` once its result is recorded (moved there 2026-09-30); a new
+one may start in `25_TESTS/` directly. `50_REBUILD/code/reviews/` and `50_REBUILD/docs/reviews/` hold
+the independent reviews' scripts and reports. `20_CODE` and `30_OUTPUT` are flat deliberately. Per-pillar subfolders were tried, sat empty
 for a month, then filled with duplicates and sync-conflict copies while real work happened in
 one flat directory.
 
@@ -272,6 +275,18 @@ Draft pillar:
   package's clean-up writes "FW" into a true/false column, which pandas 3 rejects (2026-09-28).
   Before handing over any data-pull script, run one real unit of work through the whole path
   (request, parse, cache, database) on the same library versions.
+- **Don't test a runner that spends reserved pages by running it.** A confirmation runner scores
+  real forecasts on the pages it unseals, whatever the test fakes around it. `run_xnpv1_holdout.py`
+  v1.0 was checked in the cloud with synthetic contracts. The fake contracts made the xNPV 1 figures
+  meaningless, but xNPV 0 and the no-contract twin were scored for real on 2022-2025 and read
+  (2026-09-30; ledger lines labelled CLOUD CODE TEST). Give such a runner a development-page test
+  mode first, and test only through it.
+- **Don't write that a change reopens no locked decision until each one it touches is checked
+  against the code.** D33's first draft said xNPV 1 left D3 and D18 standing. In fact it adds the
+  aging changes to a fitted start instead of multiplying the anchor (D3), drops the replacement
+  floor for negative anchors (D12 v3), and replaces the exit hazard with the chance of playing
+  (D18) (corrected 2026-09-30). List the decisions governing each step the model changes, and read
+  what the new code does at that step.
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised

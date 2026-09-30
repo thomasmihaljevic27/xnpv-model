@@ -362,7 +362,7 @@ Two claims were also softened rather than corrected: that pooling the shape acro
 optimism, which it is not, because fitted and realized misses are different mixtures of seasons
 and players. No inflation is applied.
 
-The reviewer's reproduction script is `50_REBUILD/code/review_uncertainty.py`.
+The reviewer's reproduction script is `50_REBUILD/code/reviews/review_uncertainty.py`.
 
 ## Files
 

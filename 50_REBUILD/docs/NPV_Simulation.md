@@ -228,4 +228,4 @@ It does **not** fulfil the plan's joint rate/games/participation design for late
     50_REBUILD/code/run_npv_simulation.py    the run and its reports
 
 Outputs, ignored under `50_REBUILD/output/`: `npv_simulation_run_log.txt`, `npv_simulation.csv`.
-The reviewer's reproduction is `50_REBUILD/code/review_npv_simulation.py`.
+The reviewer's reproduction is `50_REBUILD/code/reviews/review_npv_simulation.py`.

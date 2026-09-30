@@ -45,7 +45,7 @@ WHAT IS SCORED
       kernel_flat            every same-age, same-position comparable weight 1 (4)
       ep_pool                (v1.1) the curve fitted on the age table with
                              age_join.py's Elite Prospects pass applied
-                             (built by 20_CODE/aging_ep_pool_test.py); the
+                             (built by 25_TESTS/aging_ep_pool_test.py); the
                              live table has none, so about 1,276 older careers
                              are missing from the pool
       ep_pool_pre_valuation  (v1.1) both: that table, and the pool limited to
@@ -104,7 +104,7 @@ from aging_additive import AdditiveAging
 import production_adapter as PA
 from run_skater_contract_test import Boot, _count
 
-SCRIPT_VERSION = "1.2"
+SCRIPT_VERSION = "1.3"
 HORIZONS = (0, 1, 2, 3, 4, 5)
 STAR = "3+"
 
@@ -216,6 +216,8 @@ def _variant_aging_class():
     production modules need .env set before import."""
     PA._production()
     import aging_curve as AC
+    # (v1.3) the yardstick helper moved with the finished tests to 25_TESTS/ (2026-09-30)
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "25_TESTS"))
     from aging_arbitrary_choices_test import yardsticks
 
     class VariantAging(AC.AgingModel):
@@ -270,7 +272,7 @@ class CurrentChain(PA.ProductionChain):
         key = (type(self).__name__, before if self.PER_PAGE else None)
         if key not in self._curves:
             path = SFP.F_WAR_AGE if self.AGE_FILE is None else Path(C.PROD_OUTPUT_DIR) / self.AGE_FILE
-            assert Path(path).exists(), f"{path} is missing; run 20_CODE/aging_ep_pool_test.py first"
+            assert Path(path).exists(), f"{path} is missing; run 25_TESTS/aging_ep_pool_test.py first"
             if self.PER_PAGE:
                 wa = pd.read_csv(path)
                 syr = wa["Season"].str.split("-").str[0].astype(int) + 2000
@@ -299,7 +301,7 @@ def _current(tag, label, per_page=False, age_file=None, **aging):
 
 
 # v1.1 (2026-09-28): the age table with age_join.py's Elite Prospects pass
-# applied, built by 20_CODE/aging_ep_pool_test.py. The live table has none,
+# applied, built by 25_TESTS/aging_ep_pool_test.py. The live table has none,
 # because age_join.py reads the scrape from OUTPUT_DIR/ep_out/ and the file
 # sits in 10_SOURCE/ (1,278 of 3,199 skaters without an age).
 EP_TABLE = "aging_ep_pool_test_war_with_age.csv"
