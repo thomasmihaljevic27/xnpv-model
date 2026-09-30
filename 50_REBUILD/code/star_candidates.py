@@ -47,6 +47,9 @@ THE CANDIDATES, each ONE change to ObviousFixes, scored alone and together
                  player less than a depth player
     START_LEVEL_AGE the fitted start with level x age (tw_WAR x age_c), so the
                  pull toward the league can differ for young and old stars
+    (v1.4) contracts=True in candidate(): participation reads contract status
+                 with the adopted rebuilt model's settings; and
+                 RebuiltStatusGamesLevel, the adopted rebuilt model with G
     HALF_H       (v1.1, added after v1.0's results were read) the comparables'
                  similarity window at half the yardstick. A star sits in the thin
                  top of the level scale, so at the full width much of his weight
@@ -69,7 +72,7 @@ import obvious_fixes as OF
 from ability_forecast import A1HingeExposure, _anchors, _apply, _ols
 from participation_model import ParticipationModel
 
-SCRIPT_VERSION = "1.3"
+SCRIPT_VERSION = "1.4"
 GP_BASE = ["tr_gp_share", "is_D", "exp_seasons", "age_c"]
 GP_WITH_LEVEL = GP_BASE + ["tw_WAR", "tw_hi1"]
 
@@ -216,18 +219,27 @@ class StarCandidate(OF.ObviousFixes):
         return pd.concat(rows, ignore_index=True)
 
 
-def candidate(gp=False, part=False, raw=False, half=False, part_age=False, start_age=False):
+def candidate(gp=False, part=False, raw=False, half=False, part_age=False, start_age=False,
+              contracts=False):
     tag = "".join(c for c, on in (("G", gp), ("P", part), ("R", raw), ("H", half),
-                                  ("A", part_age), ("S", start_age)) if on) or "base"
+                                  ("A", part_age), ("S", start_age), ("K", contracts)) if on) or "base"
     on = [w for w, f in (("games share reads level", gp), ("participation hinge", part),
                          ("raw comparables steps", raw), ("half-width comparables", half),
                          ("participation level x age", part_age),
-                         ("start level x age", start_age)) if f]
+                         ("start level x age", start_age),
+                         ("participation reads contract status", contracts)) if f]
     attrs = {"GP_LEVEL": gp, "PART_HINGE": part, "RAW_STEPS": raw, "HALF_H": half,
              "PART_LEVEL_AGE": part_age, "START_LEVEL_AGE": start_age,
              "name": "obvious fixes" + ("; " + ", ".join(on) if on else "")}
     if start_age:
         attrs["FEATURES"] = list(A1HingeExposure.FEATURES) + ["tw_x_age"]
+    if contracts:
+        # v1.4: exactly the adopted rebuilt model's participation settings
+        # (ability_forecast.A1HingeExposureStatus): the contract export read,
+        # status counted only where the export's coverage is complete
+        # ("observable"), the before/after-2018 indicator left out.
+        attrs.update({"USE_CONTRACTS": True, "CONTRACT_STATE": "observable",
+                      "PART_EXCLUDE": ("contract_unknown",)})
     return type(f"Star_{tag}", (StarCandidate,), attrs)
 
 
@@ -249,3 +261,14 @@ class RebuiltGamesLevel(A1HingeExposure):
         return self
 
     predict = StarCandidate.predict
+
+
+class RebuiltStatusGamesLevel(RebuiltGamesLevel):
+    """(v1.4) The adopted rebuilt model (visible contract status in
+    participation) with change G, so it can be set against Model 3 with
+    contract status on equal terms: both read contracts, both carry G, and
+    only the aging method differs."""
+    name = "rebuilt model, contract status; games share reads level"
+    USE_CONTRACTS = True
+    CONTRACT_STATE = "observable"
+    PART_EXCLUDE = ("contract_unknown",)

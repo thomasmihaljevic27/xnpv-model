@@ -1,5 +1,15 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
+**Contract status in Model 3, 2026-09-30g: laptop run owed.** Run
+`python 50_REBUILD\code\run_contract_status_test.py` and send back
+`50_REBUILD/output/contract_status_run_log.txt`.
+- **Model 6** is Model 3 with contract status in its chance of playing (the adopted rebuilt model's
+  settings).
+- **Model 7** is the adopted rebuilt model with the games-share change, so Model 6 against Model 7
+  differs only in aging.
+- The rule was declared in the runner. Dollars are reported beside, with guards that reproduce the
+  2026-09-30 re-score.
+
 **Late star miss, 2026-09-30f: simple terms ruled out.**
 - Next: Model 3 with contract status in participation. It needs the contract export, so it runs on
   the laptop.

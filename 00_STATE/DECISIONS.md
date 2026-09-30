@@ -2265,3 +2265,13 @@ and the session log are updated.
 `star_candidates.py` v1.3 (participation and start level x age) and new `run_star_late_test.py` v1.0.
 The report is `50_REBUILD/docs/Star_Late_Test.md`. Neither term improves Model 3 under the declared
 rule. Nothing adopted; PROJECT_STATE, WORK_QUEUE and the session log are updated.
+
+### Change log, 2026-09-30g (contract-status test written)
+
+`star_candidates.py` v1.4 adds contract status as a Model 3 switch and `RebuiltStatusGamesLevel`
+(Model 7). New `50_REBUILD/code/run_contract_status_test.py` v1.0 is for the laptop. Tested here:
+- it refuses without the export;
+- the season path runs with synthetic contracts, all guards passing;
+- signing-dated participation and horizons 0-9 were checked on four pages.
+
+The dollar part is not run. Nothing adopted. WORK_QUEUE and the session log are updated.
