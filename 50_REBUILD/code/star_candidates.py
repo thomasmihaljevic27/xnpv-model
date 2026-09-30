@@ -40,6 +40,13 @@ THE CANDIDATES, each ONE change to ObviousFixes, scored alone and together
                  way, and departures (the survivorship fix) enter as 0 minus the
                  rate at a. This is a reading of the mechanism, and the test is
                  whether the change helps, not a proof of the reading.
+    (v1.3, 2026-09-30, after the late star miss was split by age: good players
+    aged 29+ played more often than forecast, and stars aged 24 or under
+    improved far more than forecast, starting 0.47 per 82 too low)
+    PART_LEVEL_AGE  participation with level x age, so age can cost a good
+                 player less than a depth player
+    START_LEVEL_AGE the fitted start with level x age (tw_WAR x age_c), so the
+                 pull toward the league can differ for young and old stars
     HALF_H       (v1.1, added after v1.0's results were read) the comparables'
                  similarity window at half the yardstick. A star sits in the thin
                  top of the level scale, so at the full width much of his weight
@@ -62,7 +69,7 @@ import obvious_fixes as OF
 from ability_forecast import A1HingeExposure, _anchors, _apply, _ols
 from participation_model import ParticipationModel
 
-SCRIPT_VERSION = "1.2"
+SCRIPT_VERSION = "1.3"
 GP_BASE = ["tr_gp_share", "is_D", "exp_seasons", "age_c"]
 GP_WITH_LEVEL = GP_BASE + ["tw_WAR", "tw_hi1"]
 
@@ -77,6 +84,22 @@ class HingeParticipation(ParticipationModel):
     def _rows(self, anchors, h, as_of=None, table=None):
         d = super()._rows(anchors, h, as_of=as_of, table=table)
         d["level_hi2"] = np.clip(d["level"].to_numpy(float) - 2.0, 0, None)
+        return d
+
+
+class LevelAgeParticipation(ParticipationModel):
+    """(v1.3) The participation model with level interacted with age (age in
+    the target season, centred at 27, as `_rows` builds it), so age can cost a
+    good player less than a depth player. One added column; everything else is
+    the shared model."""
+
+    def __init__(self, *a, **k):
+        super().__init__(*a, **k)
+        self.features = list(self.features) + ["level_x_age"]
+
+    def _rows(self, anchors, h, as_of=None, table=None):
+        d = super()._rows(anchors, h, as_of=as_of, table=table)
+        d["level_x_age"] = d["level"].to_numpy(float) * d["age"].to_numpy(float)
         return d
 
 
@@ -121,6 +144,8 @@ class StarCandidate(OF.ObviousFixes):
     PART_HINGE = False
     RAW_STEPS = False
     HALF_H = False
+    PART_LEVEL_AGE = False       # v1.3: participation with level x age
+    START_LEVEL_AGE = False      # v1.3: the fitted start with level x age (set in FEATURES)
     _raw: dict = {}
 
     name = "obvious fixes (star candidate, all switches off)"
@@ -146,6 +171,14 @@ class StarCandidate(OF.ObviousFixes):
             for h, g in pairs.groupby("h"):
                 s = g.dropna(subset=["y_gp_share"] + GP_WITH_LEVEL)
                 self.gp_coef_[h] = _ols(s[GP_WITH_LEVEL], s["y_gp_share"]) if len(s) > 50 else None
+        if self.PART_LEVEL_AGE:
+            assert not self.PART_HINGE, "one participation change at a time"
+            n, d = self.N_SEASONS, self.decay_
+            self.part_ = LevelAgeParticipation(
+                None, exclude=tuple(self.PART_EXCLUDE),
+                contract_state=self.CONTRACT_STATE).fit(
+                table, before, anchors_fn=lambda p: _anchors(p, n, d),
+                horizons=self.fitted_horizons_)
         if self.PART_HINGE:
             n, d = self.N_SEASONS, self.decay_
             self.part_ = HingeParticipation(
@@ -155,6 +188,12 @@ class StarCandidate(OF.ObviousFixes):
                 horizons=self.fitted_horizons_)
         return self
 
+    def _training_pairs(self, table, before, horizons):
+        pairs = super()._training_pairs(table, before, horizons)
+        if "tw_x_age" in self.FEATURES:
+            pairs["tw_x_age"] = pairs["tw_WAR"] * pairs["age_c"]
+        return pairs
+
     def predict(self, iset, subs, horizons):
         """ability_forecast.A1AgingParticipation.predict, with the games-share
         columns read from `gp_cols_` instead of written in."""
@@ -162,6 +201,8 @@ class StarCandidate(OF.ObviousFixes):
         a = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP],
                      self.N_SEASONS, self.decay_)
         a = a[a["t0"] == iset.t0].set_index("career_key").reindex(subs["career_key"])
+        if "tw_x_age" in self.FEATURES:
+            a["tw_x_age"] = a["tw_WAR"] * a["age_c"]
         rate0 = _apply(self.coef_.get(0), a[self.FEATURES], a["tw_WAR"])
         rows = []
         for h in horizons:
@@ -175,13 +216,19 @@ class StarCandidate(OF.ObviousFixes):
         return pd.concat(rows, ignore_index=True)
 
 
-def candidate(gp=False, part=False, raw=False, half=False):
-    tag = "".join(c for c, on in (("G", gp), ("P", part), ("R", raw), ("H", half)) if on) or "base"
+def candidate(gp=False, part=False, raw=False, half=False, part_age=False, start_age=False):
+    tag = "".join(c for c, on in (("G", gp), ("P", part), ("R", raw), ("H", half),
+                                  ("A", part_age), ("S", start_age)) if on) or "base"
     on = [w for w, f in (("games share reads level", gp), ("participation hinge", part),
-                         ("raw comparables steps", raw), ("half-width comparables", half)) if f]
-    return type(f"Star_{tag}", (StarCandidate,),
-                {"GP_LEVEL": gp, "PART_HINGE": part, "RAW_STEPS": raw, "HALF_H": half,
-                 "name": "obvious fixes" + ("; " + ", ".join(on) if on else "")})
+                         ("raw comparables steps", raw), ("half-width comparables", half),
+                         ("participation level x age", part_age),
+                         ("start level x age", start_age)) if f]
+    attrs = {"GP_LEVEL": gp, "PART_HINGE": part, "RAW_STEPS": raw, "HALF_H": half,
+             "PART_LEVEL_AGE": part_age, "START_LEVEL_AGE": start_age,
+             "name": "obvious fixes" + ("; " + ", ".join(on) if on else "")}
+    if start_age:
+        attrs["FEATURES"] = list(A1HingeExposure.FEATURES) + ["tw_x_age"]
+    return type(f"Star_{tag}", (StarCandidate,), attrs)
 
 
 class RebuiltGamesLevel(A1HingeExposure):

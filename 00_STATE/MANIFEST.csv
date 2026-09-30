@@ -392,7 +392,9 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 20_CODE,slot_curve.py,draft,hashable,2026-09-28k,59b83aa95ab094a7a895fe4bc0edd86017b1f752,6476,2026-09-28,yes,git,v2.0 recreated 2026-09-28; imported by future_pick_premium
 20_CODE,dashboard_refresh.py,npv,hashable,2026-09-28c,4f5e53a0ceb0e3e6ec360b4699e20f2a3d26150a,16681,2026-09-28,yes,git,"launcher: re-runs every script the dashboard reads, then builds and opens it"
 .,Open-Dashboard.cmd,npv,hashable,2026-09-28c,60204f5e20f868214397e18705a5353d6057dc2b,1763,2026-09-28,yes,git,double-click launcher for dashboard_refresh.py; CRLF
-50_REBUILD/code,star_candidates.py,player,hashable,2026-09-30b,d0658436989b6c8fa5928b391d109bbaa79699a2,9617,2026-09-30,yes,git,experimental rebuild tree; not production
+50_REBUILD/code,star_candidates.py,player,hashable,2026-09-30f,f31933636346494299b625d11dcf4a176c6a79a2,12105,2026-09-30,yes,git,experimental rebuild tree; not production
 50_REBUILD/code,run_star_bias_test.py,player,hashable,2026-09-30b,e5cc3ffafbf6677527e2779cc3baab6f6725cad3,11619,2026-09-30,yes,git,experimental rebuild tree; not production
 50_REBUILD/docs,Star_Bias_Test.md,player,hashable,2026-09-30c,8cd34e7e78a5f4d0fed4e01d5110fe0e34f8204a,6559,2026-09-30,yes,git,experimental rebuild tree; not production
 50_REBUILD/docs,Dollar_Rescore.md,player,hashable,2026-09-30e,e2ca4e07815d976db232675564b56a08eac65262,5307,2026-09-30,yes,git,experimental rebuild tree; not production
+50_REBUILD/code,run_star_late_test.py,player,hashable,2026-09-30f,41d29bdd2fc26a63394b1430519a81922c889b50,10697,2026-09-30,yes,git,experimental rebuild tree; not production
+50_REBUILD/docs,Star_Late_Test.md,player,hashable,2026-09-30f,470e750b9b231a7131eec9725190648b4fc5487c,4486,2026-09-30,yes,git,experimental rebuild tree; not production

@@ -1,5 +1,10 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
+**Late star miss, 2026-09-30f: simple terms ruled out.**
+- Next: Model 3 with contract status in participation. It needs the contract export, so it runs on
+  the laptop.
+- Otherwise record the -0.30 star bias (seasons 1-5) as a stated limitation.
+
 **After the dollar re-score, 2026-09-30e: open.**
 1. Score the rebuilt model with the games-share change (`star_candidates.RebuiltGamesLevel`) in
    dollars. This is the fair test of comparables against the fitted equation.

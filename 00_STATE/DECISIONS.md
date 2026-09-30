@@ -2259,3 +2259,9 @@ estimation windows. PROJECT_STATE, WORK_QUEUE and the session log are updated.
 New report `50_REBUILD/docs/Dollar_Rescore.md`, from Thomas's laptop run of
 `run_dollar_rescore.py` v1.1. Nothing adopted; no locked decision changed. PROJECT_STATE, WORK_QUEUE
 and the session log are updated.
+
+### Change log, 2026-09-30f (late star miss: two quality-by-age terms)
+
+`star_candidates.py` v1.3 (participation and start level x age) and new `run_star_late_test.py` v1.0.
+The report is `50_REBUILD/docs/Star_Late_Test.md`. Neither term improves Model 3 under the declared
+rule. Nothing adopted; PROJECT_STATE, WORK_QUEUE and the session log are updated.
