@@ -72,7 +72,7 @@ import obvious_fixes as OF
 from ability_forecast import A1HingeExposure, _anchors, _apply, _ols
 from participation_model import ParticipationModel
 
-SCRIPT_VERSION = "1.4"
+SCRIPT_VERSION = "1.6"
 GP_BASE = ["tr_gp_share", "is_D", "exp_seasons", "age_c"]
 GP_WITH_LEVEL = GP_BASE + ["tw_WAR", "tw_hi1"]
 
@@ -103,6 +103,25 @@ class LevelAgeParticipation(ParticipationModel):
     def _rows(self, anchors, h, as_of=None, table=None):
         d = super()._rows(anchors, h, as_of=as_of, table=table)
         d["level_x_age"] = d["level"].to_numpy(float) * d["age"].to_numpy(float)
+        return d
+
+
+class TrendParticipation(ParticipationModel):
+    """(v1.5) The participation model with a linear trend in the target season
+    (season - 2015). Good players stayed in the league longer in the
+    development era than in the training era (2+ win players aged 29-31 still
+    playing three seasons on: 0.90 when valued 2009-2014, 0.98 when valued
+    2015-2021), so a model fitted on older seasons under-predicts them. The
+    trend is fitted only on outcomes before the page and extrapolated from
+    there; it is one added column."""
+
+    def __init__(self, *a, **k):
+        super().__init__(*a, **k)
+        self.features = list(self.features) + ["season_c"]
+
+    def _rows(self, anchors, h, as_of=None, table=None):
+        d = super()._rows(anchors, h, as_of=as_of, table=table)
+        d["season_c"] = d["season"].to_numpy(float) - 2015.0
         return d
 
 
@@ -149,6 +168,8 @@ class StarCandidate(OF.ObviousFixes):
     HALF_H = False
     PART_LEVEL_AGE = False       # v1.3: participation with level x age
     START_LEVEL_AGE = False      # v1.3: the fitted start with level x age (set in FEATURES)
+    PART_TREND = False           # v1.5: participation with a linear season trend
+    PART_WINDOW = None           # v1.5: participation fitted on anchors from the last N seasons
     _raw: dict = {}
 
     name = "obvious fixes (star candidate, all switches off)"
@@ -174,6 +195,16 @@ class StarCandidate(OF.ObviousFixes):
             for h, g in pairs.groupby("h"):
                 s = g.dropna(subset=["y_gp_share"] + GP_WITH_LEVEL)
                 self.gp_coef_[h] = _ols(s[GP_WITH_LEVEL], s["y_gp_share"]) if len(s) > 50 else None
+        if self.PART_TREND or self.PART_WINDOW:
+            assert not (self.PART_HINGE or self.PART_LEVEL_AGE), "one participation change at a time"
+            n, d, W = self.N_SEASONS, self.decay_, self.PART_WINDOW
+            anchors_fn = ((lambda p: _anchors(p, n, d)) if W is None else
+                          (lambda p: (lambda a: a[a["t0"] >= before - W])(_anchors(p, n, d))))
+            cls = TrendParticipation if self.PART_TREND else ParticipationModel
+            assert not self.USE_CONTRACTS, "trend/window variants are scored without contract data"
+            self.part_ = cls(None, exclude=tuple(self.PART_EXCLUDE),
+                             contract_state=self.CONTRACT_STATE).fit(
+                table, before, anchors_fn=anchors_fn, horizons=self.fitted_horizons_)
         if self.PART_LEVEL_AGE:
             assert not self.PART_HINGE, "one participation change at a time"
             n, d = self.N_SEASONS, self.decay_
@@ -220,16 +251,20 @@ class StarCandidate(OF.ObviousFixes):
 
 
 def candidate(gp=False, part=False, raw=False, half=False, part_age=False, start_age=False,
-              contracts=False):
+              contracts=False, part_trend=False, part_window=None):
     tag = "".join(c for c, on in (("G", gp), ("P", part), ("R", raw), ("H", half),
-                                  ("A", part_age), ("S", start_age), ("K", contracts)) if on) or "base"
+                                  ("A", part_age), ("S", start_age), ("K", contracts),
+                                  ("T", part_trend), ("W", part_window)) if on) or "base"
     on = [w for w, f in (("games share reads level", gp), ("participation hinge", part),
                          ("raw comparables steps", raw), ("half-width comparables", half),
                          ("participation level x age", part_age),
                          ("start level x age", start_age),
-                         ("participation reads contract status", contracts)) if f]
+                         ("participation reads contract status", contracts),
+                         ("participation season trend", part_trend),
+                         (f"participation on the last {part_window} seasons", part_window)) if f]
     attrs = {"GP_LEVEL": gp, "PART_HINGE": part, "RAW_STEPS": raw, "HALF_H": half,
              "PART_LEVEL_AGE": part_age, "START_LEVEL_AGE": start_age,
+             "PART_TREND": part_trend, "PART_WINDOW": part_window,
              "name": "obvious fixes" + ("; " + ", ".join(on) if on else "")}
     if start_age:
         attrs["FEATURES"] = list(A1HingeExposure.FEATURES) + ["tw_x_age"]
@@ -272,3 +307,13 @@ class RebuiltStatusGamesLevel(RebuiltGamesLevel):
     USE_CONTRACTS = True
     CONTRACT_STATE = "observable"
     PART_EXCLUDE = ("contract_unknown",)
+
+
+# (v1.6, 2026-09-30) The adopted player model, named xNPV 1 (decision D33).
+# It is "Model 6" of the 2026-09-30 reports: the current model with every
+# listed fix, comparable-player aging, the games-share forecast reading the
+# player's level, and contract status in the chance of playing. Built by the
+# same call the contract-status runner scored, so a run on XNPV1 reproduces
+# that run's Model 6. The class name is left unchanged ("Star_GK") for the
+# same reason. The previous model, xNPV 0, is production_adapter.ProductionChain.
+XNPV1 = candidate(gp=True, contracts=True)

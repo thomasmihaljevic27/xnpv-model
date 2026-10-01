@@ -1,6 +1,6 @@
 # Limiting the comparables blend in the aging curve
 
-Test date: 2026-09-13. Production model unchanged. Script: `20_CODE/aging_comp_limit_test.py`
+Test date: 2026-09-13. Production model unchanged. Script: `25_TESTS/aging_comp_limit_test.py`
 v1.0, seed 20260913.
 
 ## Summary
@@ -234,7 +234,7 @@ kept playing 10+ games, and players who exited would not raise the realized figu
 ## Follow-up in the production chain
 
 The season-total outcome above mirrors the valuation path but does not run it.
-`20_CODE/npv_realized_by_tier.py` runs it. For all 2,591 skater contracts in the NPV spine, every
+`25_TESTS/npv_realized_by_tier.py` runs it. For all 2,591 skater contracts in the NPV spine, every
 contract season already played was priced two ways: as the engine prices it (survival times
 projected value), and at what the player produced, using the same price per win, the same
 forecast cap ceiling and the same league-minimum floor, with $0 if he had left the league.
@@ -281,7 +281,7 @@ fallback. Production is unaffected, but the two cleaners disagree.
 
 ## Reproduction
 
-`python 20_CODE/aging_comp_limit_test.py` from the repository root runs in about 70 seconds.
+`python 25_TESTS/aging_comp_limit_test.py` from the repository root runs in about 70 seconds.
 Outputs in `30_OUTPUT/` begin with `aging_comp_limit_test_`: `design.json` (written before
 fitting), `audit.csv` and `audit_rows.csv` (Part 1), `predictions.csv`, `origins.csv`,
 `summary.csv`, and `run.json` (hashes and completion). Generated outputs stay outside Git.

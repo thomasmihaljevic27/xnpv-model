@@ -1089,8 +1089,8 @@ All 14 checks pass. Independently verified adapter method parity on 5,196 rows, 
 cap-target invariance and actual early-signing discounted costs. Reran development pages
 2015-2021 and reproduced the revised MAE table. Found remaining endpoint-dependent extrapolation
 (maximum 0.5049 WAR), an upstream h8 attachment ceiling, and the still-obsolete named-player
-dollar method. Added `50_REBUILD/docs/Latest_Repair_Verification_Codex.md` and
-`50_REBUILD/code/review_latest_pass.py`; updated state, queue, flags and session. No model
+dollar method. Added `50_REBUILD/docs/reviews/Latest_Repair_Verification_Codex.md` and
+`50_REBUILD/code/reviews/review_latest_pass.py`; updated state, queue, flags and session. No model
 implementation merged, no production edits, no reserved pages evaluated, no decision reopened.
 
 **Change log, 2026-09-15s (repair verification):** At Thomas's request, fetched Claude's repair
@@ -1101,7 +1101,7 @@ production environment. Independent probes still reject production-adapter parit
 with production-negative anchors receive nonzero h1 WAR instead of replacement reversion.
 Also verified query-dependent extrapolation (up to 0.5156 WAR for the same horizon), omitted
 early-signing discount delay, and exposure of market targets to future start caps. Added
-`50_REBUILD/docs/Repair_Verification_Codex.md` and `review_repair_followup.py`; updated state,
+`50_REBUILD/docs/reviews/Repair_Verification_Codex.md` and `review_repair_followup.py`; updated state,
 queue and flags. No candidate code merged, no production code changed, no new headline estimate.
 
 **Change log, 2026-09-15r (Claude review response):** Read Thomas's supplied response and checked
@@ -1121,8 +1121,8 @@ canonical `00_STATE/` location. No model behavior changed.
 
 **Change log, 2026-09-15p (independent Codex review):** Reviewed the experimental rebuild against
 the Fable plan at `beb69a1`. The original six-part stress runner reproduces, but several reported
-conclusions exceed its coverage. Added `50_REBUILD/docs/Player_Rebuild_Candidate_Review_Codex.md` and
-`50_REBUILD/code/review_candidate_checks.py`. Executed probes confirm the shortened-season
+conclusions exceed its coverage. Added `50_REBUILD/docs/reviews/Player_Rebuild_Candidate_Review_Codex.md` and
+`50_REBUILD/code/reviews/review_candidate_checks.py`. Executed probes confirm the shortened-season
 rate-times-share identity is high by factors 82/70 and 82/56; horizons 6-8 use 0.6 participation
 for all 866 subjects on the 2021 page; 723 horizon-zero rate-fit outcomes fall below the model's
 participation bar; the harness accepts one prediction for 866 requested subjects; 120 third-year
@@ -1603,7 +1603,7 @@ not signing-date status. Chara contract 7041's status-only participation changes
 0.336686 to 0.589150 when only that date is corrected. The July season comparison
 stands; rerun signing-date dollar scores before closing the contract-input decision.
 Keep the existing leader meanwhile. No candidate merge or default change here.
-See `50_REBUILD/docs/Goalie_Adoption_Skater_Contract_Review_Codex.md`.
+See `50_REBUILD/docs/reviews/Goalie_Adoption_Skater_Contract_Review_Codex.md`.
 
 ### Change log, 2026-09-23 (skater signing-date closure)
 
@@ -1616,7 +1616,7 @@ followed by simulation, control-year, and price-line integration and scoring.
 Calibration counts are 1,458 forecast-attached contracts, versus 1,217 priced and
 1,176 completed terms scored. The full 11.8-point calibration gap is not causally
 attributed to omitting contract inputs. No new goalie evidence or reopening.
-See `50_REBUILD/docs/Skater_Signing_Date_Closure_Codex.md`. No candidate merge or
+See `50_REBUILD/docs/reviews/Skater_Signing_Date_Closure_Codex.md`. No candidate merge or
 leader/default change was made by this review; Phase 5 remains open.
 
 Independent dollar rerun: leader RMSE $3.534M, status only $3.518M; bias
@@ -1659,7 +1659,7 @@ The 15 clipped terms have exact mean absolute clipping effect 0.000415 WAR/seaso
 0.0142 includes simulation noise. The cliff and clipped rises are distinct.
 Keep the provisional model; score a named carry-forward-status sensitivity before
 changing it. Previous signing-date and goalie closures stand. Review:
-`50_REBUILD/docs/Status_Adoption_Review_Codex.md`. No implementation/default change
+`50_REBUILD/docs/reviews/Status_Adoption_Review_Codex.md`. No implementation/default change
 or candidate merge in this review. Phase 5 remains open.
 
 ### Change log, 2026-09-23h (status-adoption review repairs)
@@ -1699,7 +1699,7 @@ qualifications: 28 upward group moves and one downward; clipping averages are
 among affected terms. The carried method extends the whole last supported fit,
 so its loss does not reject all possible status-effect extensions. Matched
 simulation-distribution scoring remains open; Phase 5 is not complete.
-See `50_REBUILD/docs/Status_Adoption_Closure_Codex.md`. No candidate merge or
+See `50_REBUILD/docs/reviews/Status_Adoption_Closure_Codex.md`. No candidate merge or
 implementation/default change was made by this review.
 
 ### Change log, 2026-09-24 (status-adoption review closed)
@@ -1732,7 +1732,7 @@ before selecting the next aging specification. Correct the module's unsupported
 claim that missing-lag rows receive an age-only fit. Full suite: 45 passed,
 zero skipped or failed. Prior status-adoption closure stands; its three reporting
 corrections are applied. No candidate merge or default change. Phase 5 remains
-open. Review: `50_REBUILD/docs/Star_Residual_Review_Codex.md`.
+open. Review: `50_REBUILD/docs/reviews/Star_Residual_Review_Codex.md`.
 
 ### Change log, 2026-09-24c (star residual review applied)
 
@@ -1755,7 +1755,7 @@ experiment. The double-pull explanation is a hypothesis. Failure of the specific
 hinge at 2 wins does not reject all nonlinear level effects; its five-year star
 bias is unchanged but star RMSE improves slightly. Documentation cleanup can
 accompany the next experiment. No candidate merge or adoption by this review.
-Phase 5 remains open. See `50_REBUILD/docs/Star_Matched_Closure_Codex.md`.
+Phase 5 remains open. See `50_REBUILD/docs/reviews/Star_Matched_Closure_Codex.md`.
 
 ### Change log, 2026-09-24d (star residual v1.2)
 
@@ -1779,7 +1779,7 @@ compare training-aligned lagged observations, current observations and projected
 levels on common transitions. A one-step pass/fail cannot identify recursion
 versus cohort selection by itself. Failed substitution does not establish the
 cause of the original bias. No adoption or candidate merge; Phase 5 stays open.
-Review: `50_REBUILD/docs/Star_Multi_Review_Codex.md`.
+Review: `50_REBUILD/docs/reviews/Star_Multi_Review_Codex.md`.
 
 ### Change log, 2026-09-24e (star walk diagnostic)
 
@@ -1804,7 +1804,7 @@ Selection: 983 calendar-observable rows, 894 three played, 883 three >=10-game
 seasons, 876 with age. Historical survivor fitting does not remove future-cohort
 selection. Model/suite unchanged from the previously verified 46/46 checkpoint;
 new diagnostic independently audited, full suite not rerun. No adoption or
-candidate merge; Phase 5 remains open. See `50_REBUILD/docs/Star_Walk_Review_Codex.md`.
+candidate merge; Phase 5 remains open. See `50_REBUILD/docs/reviews/Star_Walk_Review_Codex.md`.
 
 ### Change log, 2026-09-24f (star residual v1.3)
 
@@ -1828,7 +1828,7 @@ five-season-half-life weighting sensitivity on all existing aging rows, same
 formula and primary currency. Verify row identities/targets and exact intended
 weight factors, not unchanged weights. No sweep or implementation/adoption here.
 Consider retaining subgroup bias as a limitation if it fails absent new evidence.
-Review: `50_REBUILD/docs/Star_Sustained_Review_Codex.md`. Phase 5 remains open.
+Review: `50_REBUILD/docs/reviews/Star_Sustained_Review_Codex.md`. Phase 5 remains open.
 
 ### Change log, 2026-09-24g (star residual closed as a limitation)
 
@@ -1863,7 +1863,7 @@ undervaluation of each star contract. All seven pages preserve regression rows,
 targets, and design; exact weights, future invariance, all-ones identity, and
 half-life mutation checked. Proceed to matched simulation comparison,
 development dollar scoring, and production reconciliation. Phase 5 remains open.
-See `50_REBUILD/docs/Star_Recency_Review_Codex.md`.
+See `50_REBUILD/docs/reviews/Star_Recency_Review_Codex.md`.
 
 ### Change log, 2026-09-24i (star work closed; star definition decided)
 
@@ -1897,7 +1897,7 @@ comparisons). The corrected calibration retains the qualitative conclusion.
 No new forecast experiment is requested. Close the Player Model candidate after
 these repairs and verification; adoption for the thesis remains a later decision
 when separate Picks and Prospects Model work resumes. See
-`50_REBUILD/docs/Player_Acceptance_Review_Codex.md`.
+`50_REBUILD/docs/reviews/Player_Acceptance_Review_Codex.md`.
 
 ### Change log, 2026-09-24k (acceptance repairs; scorecard; Phase 6 set aside)
 
@@ -1925,7 +1925,7 @@ rows are adapter fallbacks, not production forecasts; on 35,878 answerable rows
 A still beats production (RMSE .8640 vs .9129, 2,000/2,000 resamples). Later
 pages were previously inspected, not historically sealed; pooled calibration
 does not establish each contract's calibration. No new forecast search is
-requested. See `50_REBUILD/docs/Player_Acceptance_Closure_Review_Codex.md`.
+requested. See `50_REBUILD/docs/reviews/Player_Acceptance_Closure_Review_Codex.md`.
 
 ### Change log, 2026-09-24l (player candidate closed; scorecard corrected; decision deferred)
 
@@ -2028,7 +2028,7 @@ rule on asking for decisions in plain terms. No model, state figure or locked de
 
 ### Change log, 2026-09-28 (aging hand-set choices, both models)
 
-New test scripts `20_CODE/aging_arbitrary_choices_test.py` v1.0 and
+New test scripts `25_TESTS/aging_arbitrary_choices_test.py` v1.0 and
 `50_REBUILD/code/run_aging_choices_test.py` v1.0; `50_REBUILD/code/aging_additive.py` v1.5 (degree,
 age band and pair-weight options; defaults reproduce the committed curve, asserted on every
 development page). Report `50_REBUILD/docs/Aging_Choices_Test.md`; session log
@@ -2038,7 +2038,7 @@ ledger records the real harness runs. No model, state figure or locked decision 
 
 ### Change log, 2026-09-28b (older careers missing from the aging pool)
 
-New `20_CODE/aging_ep_pool_test.py` v1.0; `50_REBUILD/code/run_aging_choices_test.py` v1.1 (two
+New `25_TESTS/aging_ep_pool_test.py` v1.0; `50_REBUILD/code/run_aging_choices_test.py` v1.1 (two
 live-chain arms: older careers added; added plus the pre-valuation pool). The earlier arms reproduce
 exactly. Report section "The missing older careers" in `50_REBUILD/docs/Aging_Choices_Test.md`;
 session log follow-up in `sessions/2026-09-28.md`. PROJECT_STATE and STANDING_FLAGS: finding entry.
@@ -2080,7 +2080,7 @@ Code:
 - `production_adapter.py` v1.2; `review_latest_pass.py`.
 - `run_aging_choices_test.py` v1.2: adopted production equals the tested arm exactly.
 
-New test: `20_CODE/aging_weight_sweep_test.py` v1.0. Report sections "Group weights, swept" and
+New test: `25_TESTS/aging_weight_sweep_test.py` v1.0. Report sections "Group weights, swept" and
 "Adopted 2026-09-28".
 
 State files:
@@ -2275,3 +2275,116 @@ rule. Nothing adopted; PROJECT_STATE, WORK_QUEUE and the session log are updated
 - signing-dated participation and horizons 0-9 were checked on four pages.
 
 The dollar part is not run. Nothing adopted. WORK_QUEUE and the session log are updated.
+
+### Change log, 2026-09-30h (contract-status results)
+
+New report `50_REBUILD/docs/Contract_Status_Test.md`, from Thomas's laptop run of
+`run_contract_status_test.py` v1.0. Model 6 does not improve Model 3 under the declared rule
+(1,925/2000). Nothing adopted; no locked decision changed. PROJECT_STATE, WORK_QUEUE and the session
+log are updated.
+
+### Change log, 2026-09-30i (star-miss checks; participation drift)
+
+- `star_candidates.py` v1.5 adds participation trend and window switches.
+- New `run_participation_drift_test.py` v1.0 and report `50_REBUILD/docs/Star_Miss_Checks.md`.
+- Nothing adopted. PROJECT_STATE, WORK_QUEUE and the session log are updated.
+
+## D33, 2026-09-30 — the player model going forward is xNPV 1
+
+**Decided by Thomas, 2026-09-30.** It still has to go to the supervisor change by change. It
+settles the item D29-D32 left deferred (the player-model choice).
+
+**Locked decisions it revises for skaters.** The first draft of this entry said none were reopened.
+That was wrong, and it was corrected the same day after reading `obvious_fixes.py`.
+- **D3.** The comparable-player curve stays. xNPV 1 **adds** its yearly changes to a **fitted
+  start**, where D3 multiplied the raw-WAR anchor by the curve's ratio path.
+- **D12 v3.** Negative anchors are no longer projected at replacement. The start is pulled toward
+  the league average by the fitted rule, then carried forward with no floor.
+- **D18.** The exit-hazard survival factor is replaced by the rebuilt chance of playing: one
+  probability per future season, each read directly rather than chained. It becomes the survival
+  term that D16(i) puts on the value side.
+
+**Unchanged:** the Stage 3 price per win, D11 and D17 (the 3% cap path and discount), D13 and
+D14(c) (the RFA terminal value), D16(i)'s structure, the goalie branch (D19), and every draft
+decision.
+
+- **Names.**
+  - **xNPV 0** is the player model as it runs today in `20_CODE/`. The harness reads it through
+    `production_adapter.ProductionChain`. It is "Model 1" in the 2026-09-30 reports.
+  - **xNPV 1** is the model adopted here, `50_REBUILD/code/star_candidates.XNPV1`
+    (= `candidate(gp=True, contracts=True)`, v1.6). It is "Model 6" in those reports.
+  - Models 2-5 and 7 stay test labels inside the reports that used them.
+- **What xNPV 1 changes from xNPV 0**, read from `obvious_fixes.py` v1.0 and `star_candidates.py`
+  v1.6:
+  1. **Starting level.** A three-season weighted rate per 82 games (50/30/20), pulled toward the
+     league average by the rebuilt model's fitted rule.
+  2. **Games share.** The rebuilt model's games-share forecast. It also reads the player's level
+     (trailing total and its slope above one win), so a star and a depth player with the same recent
+     share are no longer forecast the same share.
+  3. **Chance of playing.** The rebuilt model's participation model, reading contract status the way
+     the rebuilt model does: status counted only where the export's coverage is complete, and the
+     before/after-2018 indicator left out.
+  4. **Aging.** Still xNPV 0's comparable-player curve with its settings unchanged. It is now fitted
+     per valuation page on earlier seasons, on the corrected age table. Its yearly changes are
+     **added** to the rate, not multiplied. Players who left the league enter the comparables at
+     replacement level for the season they missed.
+  5. **Valuation date.** Every fit rolls forward page by page. In dollars, the signing-dated
+     machinery values the forecast.
+- **Evidence** (`50_REBUILD/docs/Contract_Status_Test.md`, laptop run on the merged birthdate file;
+  the 35,878 rows xNPV 0 answers; player resampling, 2,000 draws):
+  - **Season WAR:** RMSE 0.8614 against xNPV 0's 0.9302. The report does not count resamples for
+    this pair directly. xNPV 0 had lower squared error than Model 3 in 0 of 2,000, and xNPV 1 is
+    below Model 3.
+  - **Contract dollars** (adopted model's price line, 1,111 contracts): RMSE $3.543M against
+    $3.681M.
+  - **Against the same model without contract status** ("Model 3"): season squared error lower in
+    1,925 of 2,000 and Brier lower. That is **short of the declared 1,950**. Dollar squared error is
+    lower in 1,931-1,975 of 2,000 across the four tables.
+  - Contract status is therefore a **deliberate choice**, not a pass of the declared season rule. The
+    reason: it is a small gain in the same direction on every score, and dollars are the thesis's
+    currency.
+- **Stated limitations carried with it:**
+  - **Stars.** Over seasons 1-5 the 3+ win tier is under-forecast by -0.26 [-0.56, +0.08]. Five
+    players carry it (McDavid, Draisaitl, MacKinnon, Matthews, Crosby); without them the tier is
+    unbiased (`Star_Miss_Checks.md`).
+  - **Late chance of playing.** Good players now stay in the league longer than the training seasons
+    taught.
+  - **Long deals.** Six-to-eight-year deals are under-valued: 41 contracts, bias -$5.72M against
+    xNPV 0's -$4.09M.
+- **Not adopted with it:** fitting participation on the last nine seasons. It was clearly better on
+  season error (2,000 of 2,000) but not on Brier (1,445), so it stays a reported option.
+- **Not yet done:**
+  - xNPV 1 runs only in `50_REBUILD/code/`. Production (`20_CODE/`), the dashboard and
+    `run_npv_simulation.LEADER` still run xNPV 0 or the earlier rebuilt model. Moving them is queued
+    as its own change.
+  - The 2022-2025 pages have not scored xNPV 1. They are not sealed (earlier variants examined them),
+    but they are the one set this choice was not made on.
+
+### Change log, 2026-09-30j (xNPV 1 adopted; repository audit)
+
+- D33 recorded above: Model 6 is adopted as the player model and named xNPV 1; the current model is
+  xNPV 0. Production migration, supervisor review and a single confirmation score on 2022-2025 are
+  queued.
+- `star_candidates.py` v1.6 adds the `XNPV1` alias. `CLAUDE.md` now says D1 through D33.
+- PROJECT_STATE and WORK_QUEUE updated. The session log carries a repository audit; nothing was moved
+  or deleted.
+
+### Change log, 2026-09-30k (repository tidy; D33 corrected; xNPV 1 follow-ups prepared)
+
+- **D33 corrected in place.** It now names the locked decisions xNPV 1 revises for skaters (D3,
+  D12 v3, D18) and those it leaves unchanged. The first draft said none were reopened.
+- **Repository tidy** (Thomas approved):
+  - new flat `25_TESTS/` for the 29 finished tests and `integrate_branches.py`;
+  - `50_REBUILD/code/reviews/` and `50_REBUILD/docs/reviews/`;
+  - `AGENTS.md` made a pointer to `CLAUDE.md`;
+  - `sync.bat`, `README_RUN_ORDER.md` and the Doc 2-5 copies deleted.
+  - `run_aging_choices_test.py` is v1.3 (path to `25_TESTS/`). MANIFEST paths follow.
+- **New code** (nothing adopted):
+  - `run_xnpv1_holdout.py` v1.1;
+  - `run_brier_gap_check.py` v1.0;
+  - `25_TESTS/goalie_hazard_firth_check.py` v1.0;
+  - `50_REBUILD/code/README.md`.
+- **New plan:** `50_REBUILD/docs/xNPV1_Migration_Plan.md`.
+- **Ledger:** three lines, labelled CLOUD CODE TEST, record that a code test scored the 2022-2025
+  pages (STANDING_FLAGS).
+- PROJECT_STATE, WORK_QUEUE, STANDING_FLAGS, session log and `CLAUDE.md` updated (two rules added).

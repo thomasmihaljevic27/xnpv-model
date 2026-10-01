@@ -579,3 +579,10 @@ utc,runner,kind,keys,reserved_keys,reason
 2026-09-30T14:26:54Z,forecast_harness,forecast page,2015 2016 2017 2018 2019 2020 2021,,
 2026-09-30T14:27:00Z,forecast_harness,forecast page,2015 2016 2017 2018 2019 2020 2021,,
 2026-09-30T14:27:11Z,run_contract_status_test,market cohort,2015 2016 2017 2018 2019 2020 2021,,
+2026-09-30T14:43:44Z,forecast_harness,forecast page,2015 2016 2017 2018 2019 2020 2021,,
+2026-09-30T14:44:20Z,forecast_harness,forecast page,2015 2016 2017 2018 2019 2020 2021,,
+2026-09-30T14:44:41Z,forecast_harness,forecast page,2015 2016 2017 2018 2019 2020 2021,,
+2026-09-30T14:45:01Z,forecast_harness,forecast page,2015 2016 2017 2018 2019 2020 2021,,
+2026-09-30T15:31:28Z,forecast_harness,forecast page,2022 2023 2024 2025,2022 2023 2024 2025,"CLOUD CODE TEST of run_xnpv1_holdout.py v1.0 with SYNTHETIC contracts and production's age join; xNPV 0 and the no-contract twin scored for real on these pages, xNPV 1's figures meaningless; not the confirmation of record: xNPV 1 against xNPV 0, season WAR, rule declared in run_xnpv1_holdout.py v1.0 (1,950 of 2,000)"
+2026-09-30T15:31:58Z,forecast_harness,forecast page,2022 2023 2024 2025,2022 2023 2024 2025,"CLOUD CODE TEST of run_xnpv1_holdout.py v1.0 with SYNTHETIC contracts and production's age join; xNPV 0 and the no-contract twin scored for real on these pages, xNPV 1's figures meaningless; not the confirmation of record: xNPV 1 against xNPV 0, season WAR, rule declared in run_xnpv1_holdout.py v1.0 (1,950 of 2,000)"
+2026-09-30T15:32:16Z,forecast_harness,forecast page,2022 2023 2024 2025,2022 2023 2024 2025,"CLOUD CODE TEST of run_xnpv1_holdout.py v1.0 with SYNTHETIC contracts and production's age join; xNPV 0 and the no-contract twin scored for real on these pages, xNPV 1's figures meaningless; not the confirmation of record: xNPV 1 against xNPV 0, season WAR, rule declared in run_xnpv1_holdout.py v1.0 (1,950 of 2,000)"

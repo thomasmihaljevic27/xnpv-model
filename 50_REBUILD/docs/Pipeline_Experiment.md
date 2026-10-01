@@ -1,8 +1,8 @@
 # Reducing the level tilt: a sweep of the whole player chain
 
-Test date: 2026-09-14. Production model unchanged. Scripts: `20_CODE/pipeline_experiment.py`
-v1.1 (with `pipeline_experiment2.py`), `20_CODE/market_line_experiment.py` v1.0,
-`20_CODE/market_line_search.py` v1.0, `20_CODE/games_line_experiment.py` v1.1. All of them patch
+Test date: 2026-09-14. Production model unchanged. Scripts: `25_TESTS/pipeline_experiment.py`
+v1.1 (with `pipeline_experiment2.py`), `25_TESTS/market_line_experiment.py` v1.0,
+`25_TESTS/market_line_search.py` v1.0, `25_TESTS/games_line_experiment.py` v1.1. All of them patch
 the production engine inside the test process and check production hashes before and after; none
 writes to a production file. The second pass (the last section) was run the same day after the
 first pass was read.
@@ -220,9 +220,9 @@ The second pass below revises 1 and 3.
 
 ## Reproduction
 
-From the repository root: `python 20_CODE/pipeline_experiment.py` (about 11 minutes, 19
-variants), `python 20_CODE/market_line_experiment.py` (15 seconds), `python
-20_CODE/games_line_experiment.py` (2.5 minutes). Outputs in `30_OUTPUT/` carry each script's
+From the repository root: `python 25_TESTS/pipeline_experiment.py` (about 11 minutes, 19
+variants), `python 25_TESTS/market_line_experiment.py` (15 seconds), `python
+25_TESTS/games_line_experiment.py` (2.5 minutes). Outputs in `30_OUTPUT/` carry each script's
 name as prefix. The 2020-2025 page cut and the named-contract table were produced by an inline
 readout over `pipeline_experiment_seasons.csv` and `_contracts.csv`.
 
@@ -337,7 +337,7 @@ lowers stars by $9M to $10M each.
 
 ### Reproduction, second pass
 
-`python 20_CODE/market_line_search.py` (100 seconds), `python 20_CODE/pipeline_experiment2.py`
-(about 7 minutes; harness `pipeline_experiment.py` v1.1), `python 20_CODE/games_line_experiment.py`
+`python 25_TESTS/market_line_search.py` (100 seconds), `python 25_TESTS/pipeline_experiment2.py`
+(about 7 minutes; harness `pipeline_experiment.py` v1.1), `python 25_TESTS/games_line_experiment.py`
 (2 minutes, v1.1). Outputs in `30_OUTPUT/` carry each script's prefix; the 2020-2025 page cuts
 were read from the `_seasons.csv` files inline.

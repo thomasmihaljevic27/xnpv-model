@@ -167,4 +167,4 @@ should keep them apart.
 
 Outputs, ignored under `50_REBUILD/output/`: `valuation_sensitivity_run_log.txt`,
 `valuation_sensitivity.csv`. The reviewer's reproduction is
-`50_REBUILD/code/review_valuation_sensitivity.py`.
+`50_REBUILD/code/reviews/review_valuation_sensitivity.py`.

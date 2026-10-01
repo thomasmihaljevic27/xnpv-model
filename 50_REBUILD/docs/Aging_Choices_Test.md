@@ -1,9 +1,9 @@
 # Hand-set choices in the aging curves, scored
 
 Run 2026-09-28. The tests change no production file. Two results were adopted the same day (see "Adopted 2026-09-28").
-Scripts: `20_CODE/aging_arbitrary_choices_test.py` v1.0 (the current curve on held-out careers),
-`20_CODE/aging_ep_pool_test.py` v1.0 (the missing older careers, held out),
-`20_CODE/aging_weight_sweep_test.py` v1.0 (the four group weights, swept) and
+Scripts: `25_TESTS/aging_arbitrary_choices_test.py` v1.0 (the current curve on held-out careers),
+`25_TESTS/aging_ep_pool_test.py` v1.0 (the missing older careers, held out),
+`25_TESTS/aging_weight_sweep_test.py` v1.0 (the four group weights, swept) and
 `50_REBUILD/code/run_aging_choices_test.py` v1.2 (both models on the rebuild's forecast harness).
 `50_REBUILD/code/aging_additive.py` v1.5 exposes three options for the second script; at their
 defaults it fits exactly the committed curve on every development page (asserted).
@@ -284,7 +284,7 @@ moves it.
 The distance gives each of four groups equal weight: style (five WAR-component shares, a fifth
 each), ice time, level and trend. That is equal weight, not equal contribution: what a group adds
 to a given distance depends on how far apart two players are on it. The removals above do not show
-whether equal proportions are best. `20_CODE/aging_weight_sweep_test.py` v1.0 sweeps them:
+whether equal proportions are best. `25_TESTS/aging_weight_sweep_test.py` v1.0 sweeps them:
 - **One group at a time:** one group at 0.25, 0.5, 2 or 4 times the others.
 - **Joint grid:** every group at 0.5, 1 or 2.
 

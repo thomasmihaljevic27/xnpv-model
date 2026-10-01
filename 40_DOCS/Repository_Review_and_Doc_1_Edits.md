@@ -60,7 +60,7 @@ Keep the main results paragraph, including the user's latest edit. Replace the p
 
 > Two checks used raw Game Value from the same underlying games. One retained its original zero-sum construction; the other moved the baseline to replacement level. Their correlations with trailing WAR were 0.564 and 0.609, respectively. Both were stable across seasons and weakened slightly at the later horizon. Their agreement shows that the result does not depend entirely on the GV-adj adjustments, although the three versions share data and construction choices.
 
-Elsewhere in the repository, replace “three independent validators” with “three versions of a benchmark built without Bacon.” Independence from Bacon does not make the variants independent of one another. [Raw validation design](https://github.com/thomasmihaljevic27/xnpv-model/blob/cd23309a40ebc16debcac96de9f7d26efa9f6e6a/20_CODE/gv_4b_robustness_check.py#L20).
+Elsewhere in the repository, replace “three independent validators” with “three versions of a benchmark built without Bacon.” Independence from Bacon does not make the variants independent of one another. [Raw validation design](https://github.com/thomasmihaljevic27/xnpv-model/blob/cd23309a40ebc16debcac96de9f7d26efa9f6e6a/25_TESTS/gv_4b_robustness_check.py#L20).
 
 ### 7 Remove instructions to the writer from the results
 
