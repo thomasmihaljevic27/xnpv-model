@@ -1,5 +1,19 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**xNPV 1 confirmed on 2022-2025; laptop age table found faulty, 2026-10-02.**
+- **Confirmation** (laptop, one-time run): season-WAR RMSE 0.9003 against xNPV 0's 0.9788, lower in
+  2,000 of 2,000 resamples. Without contract status: 0.9022, beaten in 1,999.
+- **Qualifications:** the pages were partly seen by a cloud test, and the run used the faulty table
+  (DECISIONS, D33 confirmation).
+- **The laptop's `30_OUTPUT/WAR_with_age.csv` has reverted to 70.9% birthdates** (the pre-2026-09-28
+  coverage; the cloud copy has 99.94%). This explains xNPV 0's laptop Brier of 0.249 against 0.192.
+  - Laptop runs on the faulty table: the contract-status test certainly, this confirmation, and
+    probably the dollar re-score. Any dashboard refresh since the reversion used it too.
+  - Fix and re-run before the migration.
+- **Goalie exit-risk table:** unchanged by the separation fix (laptop check).
+- **Migration:** plan v2 in `50_REBUILD/docs/xNPV1_Migration_Plan.md`. Two choices owed: the floor
+  spread, and where the documents and ledger live.
+
 **Repository tidied and xNPV 1 follow-ups prepared, 2026-09-30k.**
 - **Layout.**
   - `20_CODE/` holds the 32 pipeline and tool files; the 29 finished tests are in `25_TESTS/`.

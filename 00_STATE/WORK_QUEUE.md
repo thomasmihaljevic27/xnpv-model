@@ -1,28 +1,30 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
-**After the xNPV 1 decision (D33), updated 2026-09-30k: open, in order.**
-1. **Supervisor review of each change** (in person).
-   - The five changes, and the deliberate contract-status choice.
-   - D33 now names the three locked decisions it revises: D3, D12 v3 and D18.
-   - Relabel the speaking notes and the step-by-step document from "Model 3 / Model 6" to
-     xNPV 0 / xNPV 1.
-2. **Laptop:** `python 50_REBUILD\code\run_xnpv1_holdout.py`.
-   - Send back `50_REBUILD/output/xnpv1_holdout_run_log.txt`, and commit the ledger line it adds.
-   - This is a one-time run. Try `--code-test` first if in doubt; it scores development pages only.
-   - The pages were partly seen by a cloud code test (session log).
-3. **Migration decisions** (`50_REBUILD/docs/xNPV1_Migration_Plan.md`):
-   - where xNPV 1's code lives;
-   - the valuation season's survival;
-   - the spread behind the league-minimum floor.
-   Build after 1 and 2.
-4. **Laptop diagnostics:**
-   - `python 50_REBUILD\code\run_brier_gap_check.py` (send back `brier_gap_run_log.txt`);
-   - `python 25_TESTS\goalie_hazard_firth_check.py` (paste the console).
-5. **Thomas's calls:**
-   - `claude/nifty-euler-u5c5vm` (adds a third-party agent skill);
-   - whether `ep_age_scraper.py` is superseded;
-   - deleting `claude/amazing-johnson-cllbgl` on GitHub (fully merged; the session could not);
-   - whether to pursue the nine-season participation window for xNPV 1.
+**xNPV 1 follow-ups, updated 2026-10-02: open, in order.**
+1. **Supervisor review of each change** (in person). Bring:
+   - the five changes;
+   - the three locked decisions revised (D3, D12 v3, D18);
+   - the contract-status choice;
+   - the 2022-2025 confirmation and its two qualifications.
+   Relabel the speaking notes and the step-by-step document to xNPV 0 / xNPV 1.
+2. **Fix the laptop's production age table** (step 0 of the migration):
+   - run the read-only checks in the session log to find why it reverted;
+   - re-run `python 20_CODE\age_join.py`;
+   - confirm coverage with `python 50_REBUILD\code\run_brier_gap_check.py` (expect about 99.9% and
+     a Brier near 0.192).
+3. **Then re-run, on the rebuilt table:**
+   - `run_contract_status_test.py` (D33's evidence);
+   - `run_xnpv1_holdout.py --rerun "production age table at 70.9% birthdates"`, if Thomas confirms
+     the recommendation in DECISIONS;
+   - the dashboard refresh.
+4. **Migration choices owed** (`xNPV1_Migration_Plan.md` v2):
+   - the floor spread (recommended: re-derive from xNPV 1's errors, valuation season included);
+   - documents and ledger (recommended: `40_DOCS/model_evidence/` and `00_STATE/`, archive only the
+     code).
+5. **Build the migration** (plan steps 1-5) after 2-4.
+6. **Laptop:** `python 25_TESTS\archive_from_git.py 02f6fda 2026-10-02 20_CODE/ep_age_scraper.py`
+   writes the retired scraper's archive copy.
+7. **Carry:** whether to test the nine-season participation window on xNPV 1.
 
 **Model choice, 2026-09-30i: DECIDED 2026-09-30j (D33): Model 6, now named xNPV 1.**
 - Candidates: Model 3, Model 6 (+ contract status), and either with participation fitted on the last
