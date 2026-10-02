@@ -2480,3 +2480,18 @@ before the run.
 - Locked decisions as already recorded in D33. Unchanged: the Stage 3 rate, D10, D11/D17, D13,
   D14(c), D16(i), D28, goalies.
 - Not yet run on real spines: the laptop switch comparison is owed before xNPV 0 is archived.
+
+### Change log, 2026-10-02f (switch comparison; price-per-win units; launchers)
+
+- Laptop switch comparison recorded in the session log:
+  - goalies unchanged;
+  - skater net −$706.9M on 2,591 contracts, with stars on long deals falling most;
+  - 168 more contracts priced.
+- **Finding:** the Stage 3 price per win is estimated per trailing 60/40 win, and xNPV 1 supplies
+  forecast wins. xNPV 1's forecast is 0.18 + 0.674 × trailing, so the line under-prices good players
+  under xNPV 1. The D14(c) qualify-rate calibration has the same mismatch.
+- Recommended re-fit of the Stage 3 specification on xNPV 1's signing-dated forecast, which revisits
+  a locked decision: Thomas to decide. xNPV 1 dollar values are provisional until then; xNPV 0 is not
+  archived.
+- `Open-Dashboard.cmd` split into `Update-Dashboard.cmd` (rebuild) and `Open-Dashboard.cmd` (reopen
+  only).

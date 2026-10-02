@@ -1,5 +1,17 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**Switch comparison in; xNPV 1 dollars provisional, 2026-10-02f.**
+- **The switch:** goalies unchanged; skaters net −$706.9M on 2,591 contracts, with stars on long
+  deals falling up to $18M; 168 more fringe contracts priced.
+- **Found:**
+  - The Stage 3 price per win was fitted on the trailing 60/40 total. xNPV 1 feeds it a forecast
+    (0.18 + 0.674 × trailing), so it under-prices every win above the intercept, about $2M a season
+    for a star.
+  - The D14(c) qualify rates are calibrated on the same trailing buckets.
+- **Recommended:** re-fit the Stage 3 specification and the qualify rates on xNPV 1's forecast.
+  This revisits a lock; Thomas to decide.
+- **Launchers:** `Update-Dashboard.cmd` rebuilds; `Open-Dashboard.cmd` only reopens.
+
 **Skater contracts now price on xNPV 1 in code, 2026-10-02e.**
 - `contract_npv.py` fits xNPV 1 per page. Survival is its chance of playing, the valuation season
   included, and the floor spread is its own misses. The terminal value takes its control-year WAR.

@@ -2,7 +2,7 @@
 =============================================================================
  player_dashboard.py   v1.2                        Viewer tool (2026-09-13)
 =============================================================================
- v1.2 (2026-09-28): provenance. When dashboard_refresh.py (Open-Dashboard.cmd)
+ v1.2 (2026-09-28): provenance. When dashboard_refresh.py (Update-Dashboard.cmd)
  runs the chain and then this script, it passes the path of its run record
  in XNPV_REFRESH_MANIFEST. The record (commit, uncommitted script changes,
  each step's version and time) is embedded and shown in the header. A build

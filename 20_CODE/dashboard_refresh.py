@@ -6,7 +6,8 @@
  ------------------------------
  Re-runs every script the player dashboard depends on, using the code as
  it is on disk right now, then builds the dashboard and opens it in the
- browser. Double-click Open-Dashboard.cmd in the repo root to run it.
+ browser. Double-click Update-Dashboard.cmd in the repo root to run it
+(Open-Dashboard.cmd only reopens the last build).
 
  THE CHAIN, IN ORDER
  -------------------
@@ -208,7 +209,7 @@ def check_scripts(allow_behind):
         say(f"\nSTOPPED: GitHub has {behind} commit(s) this machine does not have,")
         say("so this run would use older scripts. Run the sync launcher first")
         say("(Sync-Desktop.cmd / Sync-Laptop.cmd), then open the dashboard again.")
-        say("To run on this machine's scripts anyway: Open-Dashboard.cmd --allow-behind")
+        say("To run on this machine's scripts anyway: Update-Dashboard.cmd --allow-behind")
         return None
     return info
 

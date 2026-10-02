@@ -1,28 +1,23 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
-**xNPV 1 follow-ups, updated 2026-10-02e: open, in order.**
-1. **Supervisor review of each change** (in person). Bring:
-   - the five changes;
-   - the three locked decisions revised (D3, D12 v3, D18);
-   - contract status (a pass on the rebuilt table);
-   - the 2022-2025 confirmation of record and its qualification.
-   Relabel the speaking notes and the step-by-step document to xNPV 0 / xNPV 1.
-2. **Laptop, after syncing:**
-   - `python 25_TESTS\xnpv1_switch_check.py`, then send back `30_OUTPUT\xnpv1_switch_check_log.txt`
-     and `30_OUTPUT\xnpv1_switch_compare_log.txt`;
-   - then double-click `Open-Dashboard.cmd` (it now runs on xNPV 1).
-3. **Read the switch comparison.** Explain the largest moves before accepting it.
-4. **Archive** (migration plan step 4, after 3):
-   - pre-migration copies of `skater_forward_projection.py`, `contract_npv.py`,
-     `rfa_terminal_value.py` and `exit_hazard.py`, and the last xNPV 0 spine;
-   - the rest of `50_REBUILD/`;
-   - all with `25_TESTS\archive_from_git.py` on the laptop.
-   Then remove the xNPV 0 path and the `XNPV_SKATER_MODEL` switch, and grep for the old names.
-5. **Laptop:** `python 25_TESTS\archive_from_git.py 02f6fda 2026-10-02 20_CODE/ep_age_scraper.py`.
-6. **Carry:**
+**xNPV 1 follow-ups, updated 2026-10-02f: open, in order.**
+1. **Thomas: put the price per win in xNPV 1's units?**
+   - Re-fit the Stage 3 specification (left-censored, one intercept, defence slope, the same 2,349
+     contracts) on xNPV 1's signing-dated WAR-if-plays forecast.
+   - Re-calibrate the D14(c) qualify rates on xNPV 1's forecast buckets.
+   - Then re-run `25_TESTS\xnpv1_switch_check.py`.
+   This revisits the locked Stage 3 rate.
+2. **Supervisor review** (in person). Bring:
+   - xNPV 1's changes and the revised locks (D3, D12 v3, D18);
+   - the confirmation;
+   - this unit question, which is an identification point.
+3. **Archive** xNPV 0 and the rest of `50_REBUILD/` only after item 1 is settled and the comparison
+   is accepted.
+4. **Laptop:** `python 25_TESTS\archive_from_git.py 02f6fda 2026-10-02 20_CODE/ep_age_scraper.py`.
+5. **Carry:**
    - the nine-season participation window;
-   - the long-deal gap (six-to-eight-year bias −$5.69M against xNPV 0's −$4.78M);
-   - the star under-forecast (−0.29 over seasons 1-5).
+   - the long-deal gap;
+   - the star under-forecast.
 
 **Model choice, 2026-09-30i: DECIDED 2026-09-30j (D33): Model 6, now named xNPV 1.**
 - Candidates: Model 3, Model 6 (+ contract status), and either with participation fitted on the last

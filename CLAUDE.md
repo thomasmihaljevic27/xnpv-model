@@ -87,7 +87,8 @@ the comparison is accepted (migration plan, `40_DOCS/model_evidence/xNPV1_Migrat
 finished tests in `25_TESTS/` that build `NPVEngine` reproduce their recorded results only under
 `XNPV_SKATER_MODEL=xNPV 0`.
 
-Player dashboard: double-click `Open-Dashboard.cmd` (or `python 20_CODE/dashboard_refresh.py`).
+Player dashboard: double-click `Update-Dashboard.cmd` (or `python 20_CODE/dashboard_refresh.py`) to rebuild;
+`Open-Dashboard.cmd` only reopens the last build and shows when it was made.
 It re-runs everything the dashboard reads, from `join_clauses_to_spine.py` and `age_join.py`
 through the chain above plus `goalie_value_engine.py`, then builds and opens
 `30_OUTPUT/player_dashboard.html` (about 7 minutes). The step list lives in `dashboard_refresh.py`'s

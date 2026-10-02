@@ -1,5 +1,11 @@
 # STANDING FLAGS & OPEN QUESTIONS — NHL Trade Market Efficiency
 
+**Price per win and xNPV 1 are in different units (2026-10-02).** The Stage 3 line is fitted on the
+trailing 60/40 total; xNPV 1 supplies a forecast that runs at about 0.67 of the trailing total's spread.
+Valued that way, good players look overpaid and poor ones underpaid by construction: a built-in tilt
+the back-test would read as mispricing. The fix is a line fitted on the same forecast it prices (the
+rebuild's currency did this). Until it is in, no xNPV 1 dollar figure is a finding.
+
 **Laptop production age table at 70.9% birthdates (2026-10-02).** The laptop's
 `30_OUTPUT/WAR_with_age.csv` was last written 2026-07-28, with no Elite Prospects matches; it was never rebuilt there, not reverted. REBUILT on the laptop 2026-10-02: 99.94% birthdates, and xNPV 0's laptop Brier is now 0.1917, the cloud figure. xNPV 0's exit risk and
 xNPV 1's comparable-player curve are both fitted on it.

@@ -1,21 +1,13 @@
 @echo off
 REM ===========================================================================
-REM  xNPV player dashboard - refresh everything, then open
+REM  xNPV player dashboard - OPEN the last build (nothing is re-run)
 REM
-REM  Double-click this file. It re-runs every script the dashboard depends on,
-REM  using the code as it is on this machine now, builds the dashboard, and
-REM  opens it in your browser. It stops (and does not open anything) if a
-REM  step fails a guard, or if GitHub has newer scripts than this machine.
+REM  Double-click this file to open 30_OUTPUT\player_dashboard.html as it was
+REM  last built, and see when that was. To re-run the chain and rebuild it
+REM  first, double-click Update-Dashboard.cmd instead (about 10 minutes).
 REM
-REM  The logic lives in 20_CODE\dashboard_refresh.py. This launcher only finds
-REM  the repo, runs it, and keeps the window open so you can read the result.
-REM
-REM  Options pass straight through, e.g.
-REM    Open-Dashboard.cmd --refresh-draft   also re-pull the NHL draft records
-REM    Open-Dashboard.cmd --allow-behind    run even if GitHub has newer commits
-REM
-REM  To reopen the last build without re-running anything, open
-REM  30_OUTPUT\player_dashboard.html directly.
+REM  The dashboard records its own build (commit, scripts, time) in its
+REM  header, so an old build says so when it opens.
 REM ===========================================================================
 
 setlocal
@@ -23,14 +15,14 @@ setlocal
 REM The folder this file sits in, then the two machines' repo locations, so a
 REM copy pinned to the taskbar or Desktop still finds the repo.
 set "REPO=%~dp0"
-if exist "%REPO%20_CODE\dashboard_refresh.py" goto run
+if exist "%REPO%20_CODE\dashboard_refresh.py" goto found
 set "REPO=C:\Users\Thomas\Desktop\xNPV\"
-if exist "%REPO%20_CODE\dashboard_refresh.py" goto run
+if exist "%REPO%20_CODE\dashboard_refresh.py" goto found
 set "REPO=C:\Users\thoma\Desktop\xNPV\"
-if exist "%REPO%20_CODE\dashboard_refresh.py" goto run
+if exist "%REPO%20_CODE\dashboard_refresh.py" goto found
 
 echo.
-echo  ERROR: could not find 20_CODE\dashboard_refresh.py
+echo  ERROR: could not find the xNPV repo
 echo  Looked in: %~dp0
 echo             C:\Users\Thomas\Desktop\xNPV\
 echo             C:\Users\thoma\Desktop\xNPV\
@@ -38,9 +30,18 @@ echo.
 pause
 exit /b 1
 
-:run
-cd /d "%REPO%"
-python "%REPO%20_CODE\dashboard_refresh.py" %*
+:found
+set "DASH=%REPO%30_OUTPUT\player_dashboard.html"
+if exist "%DASH%" goto open
 
 echo.
+echo  No dashboard has been built on this machine yet:
+echo    %DASH%
+echo  Double-click Update-Dashboard.cmd to build it.
+echo.
 pause
+exit /b 1
+
+:open
+for %%F in ("%DASH%") do echo  Opening the dashboard last built %%~tF
+start "" "%DASH%"
