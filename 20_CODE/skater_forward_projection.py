@@ -1,7 +1,25 @@
 """
 =============================================================================
- skater_forward_projection.py   v1.4            Phase 1b -- Layer 2
-                                  pre-valuation aging curve (2026-09-28)
+ skater_forward_projection.py   v1.5            Phase 1b -- Layer 2
+                                  xNPV 1 prices skater contracts (2026-10-02)
+=============================================================================
+ WHAT CHANGED IN v1.5 (the skater forecast is xNPV 1, decision D33)
+ -------------------------------------------------------------------
+ project_contract() now takes each contract season's WAR from xNPV 1
+ (skater_forecast.py): the WAR the player produces IF HE PLAYS (rate per 82
+ x games share) and, as a separate column, his chance of playing that
+ season (`p_play`), which contract_npv.py uses as the survival factor in
+ place of the exit hazard. The current season is forecast too, so it gets
+ xNPV 1's chance of playing and a spread behind the floor (migration plan
+ decisions 2 and 3). Unchanged: the Stage 3 price per win, the cap path
+ (D11), the league-minimum floor (D10) priced as an expected value, the
+ extension chain (D28) and the contract rows.
+
+ The switch is SKATER_MODEL (environment variable XNPV_SKATER_MODEL,
+ default "xNPV 1"). "xNPV 0" runs the anchor-and-ratio projection below,
+ kept for the contract-by-contract comparison and for this file's own
+ validation battery, which tests that machinery; it goes to 90_ARCHIVE once
+ the comparison is accepted.
 =============================================================================
  WHAT CHANGED IN v1.4 (the aging curve sees only seasons before the page)
  ------------------------------------------------------------------------
@@ -210,6 +228,11 @@ from aging_curve import AgingModel, career_key
 from dotenv import load_dotenv
 
 load_dotenv()
+
+# v1.5: which skater forecast prices contracts (see the header).
+SKATER_MODELS = ("xNPV 1", "xNPV 0")
+SKATER_MODEL = os.environ.get("XNPV_SKATER_MODEL", "xNPV 1")
+assert SKATER_MODEL in SKATER_MODELS, f"XNPV_SKATER_MODEL must be one of {SKATER_MODELS}"
 
 SOURCE_DIR = Path(os.environ["SOURCE_DIR"])   # vendor inputs, read-only
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])   # generated spines / panels / logs
@@ -477,9 +500,14 @@ def contract_chain(spine, player_id, t0, signed, as_of):
 
 
 class SkaterProjector:
-    """Builds everything once, then answers per-player projection queries."""
+    """Builds everything once, then answers per-player projection queries.
+    `model` picks the skater forecast ("xNPV 1" or "xNPV 0"; default
+    SKATER_MODEL)."""
 
-    def __init__(self):
+    def __init__(self, model=None):
+        self.model = model or SKATER_MODEL
+        assert self.model in SKATER_MODELS, self.model
+        self._forecaster = None
         # ---- the aging model: one per valuation page (v1.4, D3 revision) ---
         # Built on first use by curve_for(t0); see the v1.4 note above.
         self._curves = {}
@@ -542,6 +570,14 @@ class SkaterProjector:
 
         # ---- v1.3: signing dates, for deciding which extensions are known --
         self.signed = load_signing_dates()
+
+    @property
+    def forecaster(self):
+        """xNPV 1's per-page forecasts, built on first use (v1.5)."""
+        if self._forecaster is None:
+            import skater_forecast
+            self._forecaster = skater_forecast.ContractForecaster()
+        return self._forecaster
 
     # ---- building blocks ---------------------------------------------------
     def anchor(self, nk, t0):
@@ -721,6 +757,8 @@ class SkaterProjector:
             f"{chain} does not give one row per consecutive season: {list(ss)}")
 
         nk = rows.iloc[0]["nk"]
+        if self.model == "xNPV 1":
+            return self._project_xnpv1(player_id, valuation_season, as_of, rows, cid, nk)
         a, src = self.anchor(nk, valuation_season)
         if pd.isna(a):
             return pd.DataFrame()                     # prospect-pillar territory
@@ -788,11 +826,82 @@ class SkaterProjector:
         return pd.DataFrame(out)
 
 
+    def _project_xnpv1(self, player_id, valuation_season, as_of, rows, cid, nk):
+        """v1.5: one row per contract season, the WAR and chance of playing
+        from xNPV 1, priced exactly as the xNPV 0 rows are priced.
+
+        For season k (k = 0 is the valuation season, unplayed on 1 July):
+          projected_war  xNPV 1's WAR if he plays, rate_82 x gp_share
+          p_play         xNPV 1's chance he plays that season, contract
+                         status read at `as_of` (1 July of the page unless an
+                         in-season date is given); contract_npv multiplies
+                         the value by it (D16(i): survival on the value side)
+          value_dollars  E[max(price, league minimum)] with the price on the
+                         Stage 3 line (position slope) and the ex-ante cap
+                         path, the spread being xNPV 1's own miss at k
+                         (skater_forecast.war_if_plays_sd), k = 0 included
+        Returns an empty frame when xNPV 1 has no anchor for the player on
+        this page (no qualifying season in its three-season window or the
+        returning-player lookback)."""
+        from skater_forecast import war_if_plays_sd, MODEL_NAME
+        horizon = len(rows) - 1
+        fc = self.forecaster.forecast(nk, valuation_season, horizon, as_of)
+        if fc is None:
+            return pd.DataFrame()
+        age = self.age_at(rows.iloc[0]["bd"], valuation_season)
+        _posgrp = posgrp_from_nk(nk)
+        _slope = skater_slope(_posgrp)
+        out = []
+        for k, (_, r) in enumerate(rows.iterrows()):
+            f = fc.iloc[k]
+            assert int(f["h"]) == k, "forecast rows out of step with contract seasons"
+            season = int(r["season_start"])
+            w = float(f["war_if_plays"])
+            ceil = cap_path(valuation_season, k)
+            lm = league_min_path(season)
+            val_raw = (ALPHA + _slope * w) * ceil
+            sd_w = war_if_plays_sd(k)
+            val = expected_floored_value(val_raw, _slope * sd_w * ceil, lm)   # D10 floor
+            out.append({
+                "player_id": player_id, "full_name": r["full_name"],
+                "contract_id": int(r["contract_id"]),
+                "active_contract_id": cid,
+                "is_extension": int(r["contract_id"]) != cid,
+                "as_of": as_of.date().isoformat(),
+                "season_start": season, "k": k,
+                "valuation_season": valuation_season, "age_at_valuation": age,
+                "model": MODEL_NAME,
+                "anchor_war": float(f["tw_WAR"]),          # xNPV 1's trailing total
+                "anchor_source": "stale_history" if f["stale_history"] else "trailing_3",
+                "path": MODEL_NAME,
+                "decay_ratio": np.nan, "multiplier_applied": np.nan,
+                "ratio_floored": False, "decay_ratio_raw": np.nan,
+                "rate_82": float(f["rate_82"]), "gp_share": float(f["gp_share"]),
+                "projected_war": w,
+                "p_play": float(f["p_play"]), "p_play_dated": f["p_play_dated"],
+                "expected_war": float(f["p_play"]) * w,
+                "extrapolated": bool(f["extrapolated"]),
+                "cap_ceiling_exante": ceil, "league_min": lm,
+                "posgrp": _posgrp, "slope_used": _slope,
+                "value_dollars": val, "floor_bound": val_raw < lm,
+                "value_point_estimate": max(val_raw, lm),
+                "uncertainty_correction": val - max(val_raw, lm),
+                "proj_sd_war": sd_w,
+                "sd_placeholder": False,
+                "cost_dollars": r["cost"],
+                "surplus_dollars": val - r["cost"],
+            })
+        return pd.DataFrame(out)
+
+
 # ---------------------------------------------------------------------------
 # VALIDATION BATTERY (runs when executed directly)
 # ---------------------------------------------------------------------------
 def validate():
-    sp = SkaterProjector()
+    # v1.5: this battery tests the anchor-and-ratio machinery (xNPV 0), so it
+    # runs on it explicitly. xNPV 1's checks are in contract_npv.validate().
+    sp = SkaterProjector(model="xNPV 0")
+    log("  (validating the xNPV 0 projection; xNPV 1 is checked in contract_npv.py)")
     log("=" * 74)
     log("LAYER 2 VALIDATION BATTERY")
     log("=" * 74)

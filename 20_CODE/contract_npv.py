@@ -1,7 +1,24 @@
 """
 =============================================================================
- contract_npv.py   v1.5                             Phase 1d
-                                  pre-valuation exit hazard (2026-09-28)
+ contract_npv.py   v1.6                             Phase 1d
+                                  xNPV 1 prices skater contracts (2026-10-02)
+=============================================================================
+ WHAT CHANGED IN v1.6 (the skater forecast is xNPV 1, decision D33)
+ -------------------------------------------------------------------
+ Under xNPV 1 (skater_forward_projection.SKATER_MODEL, the default) a skater
+ contract season's survival is xNPV 1's chance he plays that season,
+ including the valuation season itself, read directly rather than chained
+ from the exit hazard: PV_k = (p_play_k x value_k - cap hit_k) / 1.03^k.
+ value_k is priced on xNPV 1's WAR if he plays (see the projection's v1.5
+ note). The exit hazard is not used for skaters under xNPV 1 (D18
+ superseded for skaters by D33); it is still built, because the goalie
+ branch uses its goalie table and "xNPV 0" still runs. Every summary and
+ spine row records the model that built it. Goalies are unchanged.
+ validate(): check [1a] (the valuation season equals Layer 1) holds by
+ design for xNPV 0 only, so under xNPV 1 it checks instead that each
+ priced valuation season carries xNPV 1's own forecast; check [5] (the
+ hazard index audit) runs only under xNPV 0. xNPV 1's forecasts for every
+ page priced are written to 30_OUTPUT/xnpv1_forecasts.csv.
 =============================================================================
  WHAT CHANGED IN v1.5 (the skater exit hazard sees only earlier exits)
  ---------------------------------------------------------------------
@@ -438,9 +455,14 @@ class NPVEngine:
         age0 = pr.iloc[0]["age_at_valuation"]
         det, S = [], 1.0
         prev_war = None                  # v1.2: quality in season k-1
+        xnpv1 = self.sp.model == "xNPV 1"
         for _, r in pr.iterrows():
             k = int(r["k"])
-            if k > 0:      # S_0 = 1: current season carries no exit discount
+            if xnpv1:
+                # v1.6: xNPV 1's chance he plays season k, k = 0 included,
+                # read directly (each season's probability, not a chain).
+                S = float(r["p_play"])
+            elif k > 0:      # S_0 = 1: current season carries no exit discount
                 # REVIEW ITEM 1.2. The hazard cell is defined on the state in
                 # the season the player is LEAVING, so both indices read k-1.
                 # legacy_hazard_index reproduces the v1.1 (shifted) lookup and
@@ -488,6 +510,7 @@ class NPVEngine:
                    "chain": [int(c) for c in dict.fromkeys(pr["contract_id"])],
                    "full_name": pr.iloc[0]["full_name"],
                    "path": pr.iloc[0]["path"],
+                   "model": self.sp.model,
                    "n_contract_seasons": len(pr),
                    "npv_contract": npv_contract, "npv_terminal": npv_tv,
                    "npv_total": npv_contract + npv_tv,
@@ -597,6 +620,7 @@ class NPVEngine:
                    "as_of": as_of.date().isoformat(), "chain": list(chain),
                    "full_name": crows.iloc[0]["full_name"],
                    "path": f"goalie_flat_{src}",
+                   "model": "goalie branch (unchanged)",
                    "n_contract_seasons": len(crows),
                    "npv_contract": npv_contract, "npv_terminal": npv_tv,
                    "npv_total": npv_contract + npv_tv,
@@ -607,17 +631,51 @@ class NPVEngine:
 # ---------------------------------------------------------------------------
 # VALIDATION BATTERY
 # ---------------------------------------------------------------------------
+def _check_xnpv1_valuation_season(eng, l1):
+    """[1a] under xNPV 1 (v1.6). The valuation season is a forecast, not the
+    observed Layer 1 season, so the Layer 1 identity does not apply. What must
+    hold instead, on the same 200 sampled player-seasons: every priced
+    valuation season carries xNPV 1's own forecast for that player and page
+    (WAR if he plays, chance of playing), the chance of playing is inside
+    (0, 1), and the value is the floored price of that WAR."""
+    from skater_forecast import war_if_plays_sd
+    checked, worst = 0, 0.0
+    for _, r in l1.sample(200, random_state=11).iterrows():
+        d, s = eng.npv(int(r["player_id"]), int(r["season_start"]))
+        if s.get("status") != "ok":
+            continue
+        r0 = d[(d["k"] == 0) & (d["row_type"] == "contract")]
+        if r0.empty:
+            continue
+        r0 = r0.iloc[0]
+        fc = eng.sp.forecaster.forecast(eng.sp.spine.loc[eng.sp.spine["player_id"] == r["player_id"], "nk"].iloc[0],
+                                        int(r["season_start"]), 0)
+        assert fc is not None, "a priced skater has no xNPV 1 forecast"
+        worst = max(worst, abs(float(fc.iloc[0]["war_if_plays"]) - float(r0["projected_war"])),
+                    abs(float(fc.iloc[0]["p_play"]) - float(r0["survival"])))
+        assert 0.0 < float(r0["survival"]) < 1.0, "a chance of playing outside (0, 1)"
+        assert abs(float(r0["proj_sd_war"]) - war_if_plays_sd(0)) < 1e-12, "valuation-season spread"
+        checked += 1
+    log(f"\n[1a] skater valuation season under xNPV 1: {checked} sampled rows carry xNPV 1's own")
+    log(f"     forecast (largest gap {worst:.1e}); the Layer 1 identity holds for xNPV 0 only")
+    assert checked >= 50 and worst < 1e-12, "valuation seasons do not carry xNPV 1's forecast"
+
+
 def validate():
     eng = NPVEngine()
     log("=" * 74)
     log("PHASE 1d VALIDATION BATTERY")
     log("=" * 74)
 
+    log(f"  skater model: {eng.sp.model}")
     # ---- 1. k=0 consistency, both positions ---------------------------------
     l1 = pd.read_csv(OUTPUT_DIR / "skater_value_spine.csv")
     l1 = l1[l1["trailing_war"].notna() & l1["season_start"].between(2018, 2025)]
+    if eng.sp.model == "xNPV 1":
+        _check_xnpv1_valuation_season(eng, l1)
     diffs, checked, worst = [], 0, None
-    for _, r in l1.sample(200, random_state=11).iterrows():
+    for _, r in (l1.sample(200, random_state=11) if eng.sp.model == "xNPV 0"
+                 else l1.iloc[0:0]).iterrows():
         d, s = eng.npv(int(r["player_id"]), int(r["season_start"]))
         if s.get("status") != "ok":
             continue
@@ -629,9 +687,10 @@ def validate():
         diffs.append(diff)
         if worst is None or diff > worst[0]:
             worst = (diff, r, r0.iloc[0])
-    log(f"\n[1a] skater k=0 value vs Layer 1: {checked} rows, "
-        f"max diff ${max(diffs):,.2f}")
-    if max(diffs) >= 1.0:
+    if eng.sp.model == "xNPV 0":
+        log(f"\n[1a] skater k=0 value vs Layer 1: {checked} rows, "
+            f"max diff ${max(diffs):,.2f}")
+    if diffs and max(diffs) >= 1.0:
         wd, wr, wr0 = worst
         log("    !! MISMATCH DETAIL (diagnose before trusting anything downstream) !!")
         log(f"    player: {wr['full_name']}   season: {int(wr['season_start'])}   "
@@ -645,7 +704,7 @@ def validate():
         log("    of skater_value_spine.csv, WAR.csv, or contract_season_spine.csv.")
         log("    Re-run age_join.py -> skater_value_engine.py -> contract_npv.py")
         log("    fresh, all reading the SAME current data files.")
-    assert max(diffs) < 1.0, "k=0 must reproduce Layer 1 exactly"
+    assert not diffs or max(diffs) < 1.0, "k=0 must reproduce Layer 1 exactly"
 
     gv = pd.read_csv(F_GOALIE_SPINE)
     gv = gv[gv["season_start"].between(2018, 2025)
@@ -706,7 +765,7 @@ def validate():
             if s.get("status") != "ok":
                 continue
             out.append({"contract_id": r["contract_id"],
-                        "player_id": r["player_id"],
+                        "player_id": r["player_id"], "model": s.get("model"),
                         "full_name": s["full_name"], "position": s["position"],
                         "valuation_season": int(r["season_start"]),
                         "n_seasons": s["n_contract_seasons"],
@@ -757,6 +816,16 @@ def validate():
         f"(contract {s['npv_contract']/1e6:+.2f} + "
         f"terminal {s['npv_terminal']/1e6:+.2f}; "
         f"undiscounted {s['surplus_no_survival']/1e6:+.2f})")
+
+    if eng.sp.model == "xNPV 1":
+        p = eng.sp.forecaster.write(OUTPUT_DIR / "xnpv1_forecasts.csv")
+        log(f"\n    xNPV 1 forecasts used by this run written: {p}")
+        log("\n[5] review item 1.2 (the exit-hazard index audit) -- not applicable: under")
+        log("    xNPV 1 no skater survival is read from the exit hazard.")
+        Path(OUT_LOG).write_text("\n".join(LOG), encoding="utf-8")
+        log(f"\nrun log written: {OUT_LOG}")
+        log(f"NPV spine written: {OUT_SPINE}")
+        return
 
     # ---- 5. review item 1.2: how much did the index correction move? --------
     # Re-runs the identical sweep with the v1.1 shifted lookup and diffs it.

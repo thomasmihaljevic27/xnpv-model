@@ -89,7 +89,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "dashboard_refresh.py v1.0 (2026-09-28)"
+SCRIPT_VERSION = "dashboard_refresh.py v1.1 (2026-10-02)"
 
 CODE_DIR = Path(__file__).resolve().parent
 REPO = CODE_DIR.parent
@@ -120,7 +120,9 @@ CHAIN = [
      ["exit_hazard_run_log.txt"],
      "exit-risk checks"),
     ("contract_npv.py",
-     ["contract_npv_spine.csv", "contract_npv_run_log.txt"],
+     # v1.1: under xNPV 1 (the default skater model) it also writes the
+     # forecasts it priced on, so a stale forecast file cannot pass.
+     ["contract_npv_spine.csv", "contract_npv_run_log.txt", "xnpv1_forecasts.csv"],
      "contract NPV"),
     ("contract_npv_panel.py",
      ["contract_npv_panel.csv", "contract_npv_panel_run_log.txt"],
@@ -218,6 +220,10 @@ def check_inputs(out_dir, refresh_draft):
         "Bacon goalie WAR": src / "Goalies_WAR.csv",
         "Elite Prospects birthdates": src / "ep_birthdates.csv",
         "PuckPedia contract export": Path(os.environ["PUCKPEDIA_CONTRACTS_XLSX"]),
+        # v1.1: xNPV 1's chance of playing reads contract status from the CSV
+        # copy of the same export (skater_forecast refuses without it).
+        "PuckPedia contract export, CSV copy (xNPV 1)":
+            src / "PuckPedia_Player_Contract_Export_May_22_2026__CONFIDENTIAL.csv",
         "PuckPedia trades export": Path(os.environ["PUCKPEDIA_TRADES_XLSX"]),
         "locked goalie spine (parity reference)": out_dir / "goalie_value_spine.csv",
     }

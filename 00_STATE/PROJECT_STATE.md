@@ -1,5 +1,15 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**Skater contracts now price on xNPV 1 in code, 2026-10-02e.**
+- `contract_npv.py` fits xNPV 1 per page. Survival is its chance of playing, the valuation season
+  included, and the floor spread is its own misses. The terminal value takes its control-year WAR.
+- Goalies, the price per win, the cap path, the floor rule, the extension chain and the
+  qualify-rate chain are unchanged.
+- Code paths are verified in the cloud on a synthetic spine. The real-spine switch comparison
+  (`25_TESTS/xnpv1_switch_check.py`) and the dashboard refresh are owed on the laptop.
+- `XNPV_SKATER_MODEL=xNPV 0` keeps the old projection for that comparison until it is archived.
+- The documents are in `40_DOCS/model_evidence/`, the ledger in `00_STATE/`.
+
 **xNPV 1 promoted into 20_CODE; evidence re-run on the rebuilt age table, 2026-10-02c.**
 - **Contract status now passes its declared bar** (1,985 of 2,000; it was 1,925 on the faulty
   table).

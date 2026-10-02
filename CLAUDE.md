@@ -75,10 +75,17 @@ Player pillar, in order:
     python 20_CODE/contract_npv.py               # summation, writes contract_npv_spine.csv
     python 20_CODE/contract_npv_panel.py         # panel build
 
-xNPV 1, the adopted skater forecast (D33), is promoted but not yet wired in: `20_CODE/skater_forecast.py`
-with `forecast_config.py`, `player_season_table.py`, `information_set.py`, `contract_source.py`,
-`participation_model.py` and `forecast_harness.py`. Until `contract_npv.py` is switched (migration plan,
-`40_DOCS/model_evidence/xNPV1_Migration_Plan.md`), the chain above prices on xNPV 0.
+Skater contracts are priced on xNPV 1 (D33) from 2026-10-02: `skater_forward_projection.SKATER_MODEL`,
+environment variable `XNPV_SKATER_MODEL`, default `xNPV 1`. The forecast is `20_CODE/skater_forecast.py`
+(with `forecast_config.py`, `player_season_table.py`, `information_set.py`, `contract_source.py`,
+`participation_model.py`, `forecast_harness.py`); `contract_npv.py` fits it in-process, one fit per
+valuation page, and writes `30_OUTPUT/xnpv1_forecasts.csv`. It needs the contract export as CSV in
+SOURCE_DIR and an age table at 99%+ birthdates. `XNPV_SKATER_MODEL=xNPV 0` runs the old anchor-and-ratio
+projection, kept only for the switch comparison (`25_TESTS/xnpv1_switch_check.py`) and for the
+projection and terminal-value validation batteries, which test that machinery; it goes to 90_ARCHIVE once
+the comparison is accepted (migration plan, `40_DOCS/model_evidence/xNPV1_Migration_Plan.md`). The
+finished tests in `25_TESTS/` that build `NPVEngine` reproduce their recorded results only under
+`XNPV_SKATER_MODEL=xNPV 0`.
 
 Player dashboard: double-click `Open-Dashboard.cmd` (or `python 20_CODE/dashboard_refresh.py`).
 It re-runs everything the dashboard reads, from `join_clauses_to_spine.py` and `age_join.py`

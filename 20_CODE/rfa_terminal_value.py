@@ -1,6 +1,13 @@
 """
 =============================================================================
- rfa_terminal_value.py   v1.3                       Phase 1c
+ rfa_terminal_value.py   v1.4                       Phase 1c
+
+ v1.4 (2026-10-02) under xNPV 1 (skater_forward_projection.SKATER_MODEL,
+ the default) each control year's WAR is xNPV 1's WAR if he plays for that
+ season, from the same page fit as the contract seasons. The D14(c)
+ qualify-rate chain, the qualifying-offer costs, the D13 truncation and the
+ D10 floor are unchanged. Under "xNPV 0" the anchor-and-ratio walk runs as
+ before; this file's validation battery runs on it.
 
  v1.3 (2026-09-13) the control years attach to the END of the contracts
  the team holds on the as-of date, not to the contract being played. With
@@ -367,15 +374,28 @@ class TerminalValuer:
 
         # --- VALUE side: extend the Layer 2 walk through the control years -
         nk = crows.iloc[0]["nk"]
-        a, src = sp.anchor(nk, valuation_season)
-        if pd.isna(a):
-            return empty, {"status": "no_anchor"}
-        age = sp.age_at(crows.iloc[0]["bd"], valuation_season)
         horizon = (end - valuation_season) + len(ctrl_seasons)
-        # v1.4 projector (2026-09-28): the curve for this valuation page only (D3 revision)
-        ratios, path = sp.ratio_path(nk, age, horizon, valuation_season)
-        if a < 0:
-            path = "replacement_reversion"          # D12 v3, same as Layer 2
+        if sp.model == "xNPV 1":
+            # 2026-10-02: the control years' WAR is xNPV 1's WAR IF HE PLAYS
+            # (rate x games share) for those seasons, from the same page fit
+            # as the contract seasons. The qualify-rate chain below (D14(c))
+            # is unchanged and stays the only survival term here, as before:
+            # it is fitted on observed qualify-or-walk decisions, which already
+            # carry the players who left.
+            fc = sp.forecaster.forecast(nk, valuation_season, horizon, as_of)
+            if fc is None:
+                return empty, {"status": "no_anchor"}
+            a, path = float(fc.iloc[0]["tw_WAR"]), "xNPV 1"
+            war_k = fc.set_index("h")["war_if_plays"].to_dict()
+        else:
+            a, src = sp.anchor(nk, valuation_season)
+            if pd.isna(a):
+                return empty, {"status": "no_anchor"}
+            age = sp.age_at(crows.iloc[0]["bd"], valuation_season)
+            # v1.4 projector (2026-09-28): the curve for this valuation page only (D3 revision)
+            ratios, path = sp.ratio_path(nk, age, horizon, valuation_season)
+            if a < 0:
+                path = "replacement_reversion"          # D12 v3, same as Layer 2
 
         # --- COST side: final contract-year base salary -> iterated QOs ----
         final = crows[crows["season_start"] == end].iloc[0]
@@ -393,8 +413,11 @@ class TerminalValuer:
         truncated, survival = False, 1.0
         for j, season in enumerate(ctrl_seasons, start=1):
             k = (end - valuation_season) + j
-            mult = sp.multiplier(a, ratios[k], k)
-            pw = a * mult
+            if sp.model == "xNPV 1":
+                pw = float(war_k[k])
+            else:
+                mult = sp.multiplier(a, ratios[k], k)
+                pw = a * mult
             ceil = cap_path(valuation_season, k)
             lm = league_min_path(season)
             val = max(price(pw, posgrp, ceil), lm)             # D10 floor
@@ -436,7 +459,9 @@ class TerminalValuer:
 # VALIDATION BATTERY
 # ---------------------------------------------------------------------------
 def validate():
-    tv = TerminalValuer()
+    # 2026-10-02: this battery tests the xNPV 0 projection's control years, so
+    # it runs on it explicitly; xNPV 1's are checked in contract_npv.validate().
+    tv = TerminalValuer(SkaterProjector(model="xNPV 0"))
     sp = tv.sp
     log("=" * 74)
     log("PHASE 1c VALIDATION BATTERY  (QO mechanics self-test passed on import)")

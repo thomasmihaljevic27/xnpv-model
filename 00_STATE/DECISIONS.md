@@ -2464,3 +2464,19 @@ before the run.
 - The rebuild documents moved to `40_DOCS/model_evidence/` and the ledger to
   `00_STATE/inspection_ledger.csv` (Thomas). Configs, `.gitattributes`, `CLAUDE.md`, the state files
   and the documents are updated.
+
+### Change log, 2026-10-02e (xNPV 1 wired into contract_npv; migration step 2)
+
+- Skater contracts price on xNPV 1 by default (`skater_forward_projection.SKATER_MODEL`):
+  - `skater_forecast.py` v1.1 (`ContractForecaster`);
+  - `skater_forward_projection.py` v1.5;
+  - `contract_npv.py` v1.6 (survival = xNPV 1's chance of playing, the valuation season included,
+    per migration decision 2; floor spread from xNPV 1's misses, decision 3);
+  - `rfa_terminal_value.py` v1.4;
+  - `contract_npv_panel.py` v1.2;
+  - `dashboard_refresh.py` v1.1;
+  - `valuation_walkthrough.py` v1.1 (pinned to xNPV 0).
+- New `25_TESTS/xnpv1_switch_check.py`.
+- Locked decisions as already recorded in D33. Unchanged: the Stage 3 rate, D10, D11/D17, D13,
+  D14(c), D16(i), D28, goalies.
+- Not yet run on real spines: the laptop switch comparison is owed before xNPV 0 is archived.

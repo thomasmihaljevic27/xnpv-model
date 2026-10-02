@@ -1,27 +1,28 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
-**xNPV 1 follow-ups, updated 2026-10-02c: open, in order.**
+**xNPV 1 follow-ups, updated 2026-10-02e: open, in order.**
 1. **Supervisor review of each change** (in person). Bring:
    - the five changes;
    - the three locked decisions revised (D3, D12 v3, D18);
-   - contract status, now a pass on the rebuilt table;
-   - the 2022-2025 confirmation of record and its qualification (pages partly seen).
+   - contract status (a pass on the rebuilt table);
+   - the 2022-2025 confirmation of record and its qualification.
    Relabel the speaking notes and the step-by-step document to xNPV 0 / xNPV 1.
-2. **Laptop:** `python 25_TESTS\xnpv1_promotion_check.py`. It needs the real export and should
-   print PASS three times.
-3. **Thomas:** the last day of the 2025-26 regular season, for `information_set.SEASON_END`.
-4. **Migration step 2:** wire `skater_forecast.XNPV1` into `contract_npv.py` and
-   `rfa_terminal_value.py`:
-   - the valuation season's chance of playing from the forecast;
-   - the floor spread from `WAR_IF_PLAYS_MAE`;
-   - forecasts written to `30_OUTPUT/xnpv1_forecasts.csv`.
-   Then the dashboard refresh and the spine comparison on the laptop.
-5. **Documents and ledger:** recommended `40_DOCS/model_evidence/` and `00_STATE/`. Thomas has
-   not answered yet. Then archive the rest of `50_REBUILD/` with `archive_from_git.py`.
-6. **Laptop:** `python 25_TESTS\archive_from_git.py 02f6fda 2026-10-02 20_CODE/ep_age_scraper.py`.
-7. **Carry:**
+2. **Laptop, after syncing:**
+   - `python 25_TESTS\xnpv1_switch_check.py`, then send back `30_OUTPUT\xnpv1_switch_check_log.txt`
+     and `30_OUTPUT\xnpv1_switch_compare_log.txt`;
+   - then double-click `Open-Dashboard.cmd` (it now runs on xNPV 1).
+3. **Read the switch comparison.** Explain the largest moves before accepting it.
+4. **Archive** (migration plan step 4, after 3):
+   - pre-migration copies of `skater_forward_projection.py`, `contract_npv.py`,
+     `rfa_terminal_value.py` and `exit_hazard.py`, and the last xNPV 0 spine;
+   - the rest of `50_REBUILD/`;
+   - all with `25_TESTS\archive_from_git.py` on the laptop.
+   Then remove the xNPV 0 path and the `XNPV_SKATER_MODEL` switch, and grep for the old names.
+5. **Laptop:** `python 25_TESTS\archive_from_git.py 02f6fda 2026-10-02 20_CODE/ep_age_scraper.py`.
+6. **Carry:**
    - the nine-season participation window;
-   - the long-deal gap (six-to-eight-year bias −$5.69M against xNPV 0's −$4.78M).
+   - the long-deal gap (six-to-eight-year bias −$5.69M against xNPV 0's −$4.78M);
+   - the star under-forecast (−0.29 over seasons 1-5).
 
 **Model choice, 2026-09-30i: DECIDED 2026-09-30j (D33): Model 6, now named xNPV 1.**
 - Candidates: Model 3, Model 6 (+ contract status), and either with participation fitted on the last
