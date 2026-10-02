@@ -45,7 +45,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 20_CODE,rfa_terminal_value.py,npv,hashable,2026-10-02g,d015debe9e513bb604cfed1affc0299953684fea,34100,2026-10-02,yes,git,imported as module; Stage 4 fix is a reimplementation
 25_TESTS,run_stale_anchor_fix.py,goal,hashable,2026-09-30k,29c6528d981d4275f1cde216d71819690e012148,11667,2026-09-30,yes,git,git-tracked; audited via `git status`; moved 2026-09-30j
 20_CODE,score_state.py,xg,hashable,2026-09-09a,81e3d540c713a014dc673a552b7d2465b79e73a5,17151,2026-09-09,yes,git,git-tracked; audited via `git status`
-20_CODE,skater_forward_projection.py,skat,hashable,2026-10-02g,c3aab047c6df09ad82334c3005e7cf5e9931d91b,59532,2026-10-02,yes,git,comment only 2026-09-28 (superseded rate label)
+20_CODE,skater_forward_projection.py,skat,hashable,2026-10-02h,9bb196049ac230ce66ee631eb1fdf1ac9d99e21d,60196,2026-10-02,yes,git,comment only 2026-09-28 (superseded rate label)
 20_CODE,skater_value_engine.py,skat,hashable,2026-09-09a,bad20445153c30b0e5f542040ad60e1b8eba77ce,30633,2026-09-09,yes,git,imported as module; do not rename
 25_TESTS,term_premium_test.py,skat,hashable,2026-09-30k,d1999d49d08032e0d273ba8576fdc05f30f963ef,38573,2026-09-30,yes,git,git-tracked; audited via `git status`; moved 2026-09-30j
 25_TESTS,uncertainty_correction.py,skat,hashable,2026-09-30k,138805bb1db78da0a7456989fbe9e39afa2ee4d2,15702,2026-09-30,yes,git,git-tracked; audited via `git status`; moved 2026-09-30j
@@ -398,7 +398,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 50_REBUILD/code,run_brier_gap_check.py,player,hashable,2026-09-30k,83b54231c3d727ff73d0403ba0ff7315c3c575ec,6212,2026-09-30,yes,git,experimental rebuild tree; not production
 50_REBUILD/code,run_xnpv1_holdout.py,player,hashable,2026-10-02d,beebb1dcc6fcbf0c95b0c0e796d3a1ea36278e43,11029,2026-10-02,yes,git,player-model evidence (moved from 50_REBUILD/docs 2026-10-02)
 40_DOCS/model_evidence,xNPV1_Migration_Plan.md,player,hashable,2026-10-02e,61ba575851409e2ac64c8e4a67b7680cbcd07468,14926,2026-10-02,yes,git,player-model evidence (moved from 50_REBUILD/docs 2026-10-02)
-.,CLAUDE.md,state,hashable,2026-10-02g,9d4237869eca8b601179ae724d339f937b1a7790,26229,2026-10-02,yes,git,project instructions
+.,CLAUDE.md,state,hashable,2026-10-02h,2f0cc43d544b968caef63998ff3dd8ce523c2ece,26453,2026-10-02,yes,git,project instructions
 00_STATE/sessions,2026-10-02.md,state,hashable,2026-10-02f,360c8f01eb444205184a2e216f7dc7cf9867ef8a,23560,2026-10-02,yes,git,session log
 25_TESTS,archive_from_git.py,tooling,hashable,2026-10-02,722928e1e2551052c2f6d83807db7646d931cce2,2787,2026-10-02,yes,git,finished test or diagnostic
 20_CODE,contract_source.py,player,hashable,2026-10-02c,7cc218712823831045bc21572a79be7003e6804a,6781,2026-10-02,yes,git,"xNPV 1, promoted 2026-10-02 (D33)"
@@ -411,4 +411,6 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,xnpv1_promotion_check.py,player,hashable,2026-10-02c,b8b524e96a22c84a0a256b60880a8d354eb28898,7047,2026-10-02,yes,git,finished test or diagnostic
 25_TESTS,xnpv1_switch_check.py,player,hashable,2026-10-02e,cb067c9a79cb8fff332740042f194a4785153662,6431,2026-10-02,yes,git,finished test or diagnostic
 .,Update-Dashboard.cmd,npv,hashable,2026-10-02f,ab0513d123b559300e811cc1fb2775f45ed63eb0,1813,2026-10-02,yes,git,rebuilds and opens the dashboard (was Open-Dashboard.cmd)
-20_CODE,xnpv1_price_line.py,player,hashable,2026-10-02g,25fd20b00b4497c4af63ffca5daacaa27c11bd55,12214,2026-10-02,no,git,xNPV 1 price-per-win re-fit (one-off; laptop run owed)
+20_CODE,xnpv1_price_line.py,player,hashable,2026-10-02h,ba38608d79450a1909ece7bd96ab8cb8c4fff610,13333,2026-10-02,yes,git,xNPV 1 price-per-win fit and its reproduction guard (laptop)
+25_TESTS,xnpv1_position_compression.py,player,hashable,2026-10-02h,53c882daaf66f221f48530bb87e6b18752ec28a6,4198,2026-10-02,yes,git,finished test or diagnostic
+40_DOCS/model_evidence,xNPV1_Price_Line.md,player,hashable,2026-10-02h,87dc31751567e331f7778e78cc59ba83cab80fa4,7251,2026-10-02,yes,git,xNPV 1 price line evidence

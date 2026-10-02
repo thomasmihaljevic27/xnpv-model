@@ -1,5 +1,15 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**xNPV 1's price per win locked, 2026-10-02h.**
+- **Line in force:** `XNPV1_RATE`, from the laptop run on 2,347 of the Stage 3 contracts. At
+  $95.5M: $0.735M + $2.950M per forecast win for forwards, $4.350M for defencemen.
+- **Fit:** it explains clubs' pay better than the trailing total (log-likelihood +146.1, same
+  rows).
+- **Defence:** the slope rises most because xNPV 1, like real outcomes, pulls defencemen harder
+  toward the league. The resulting 47% defence premium per expected win is flagged as an
+  identification point.
+- **Owed:** the switch comparison and the dashboard refresh on the laptop.
+
 **Price per win re-fitted on xNPV 1's forecast: code ready, constants owed, 2026-10-02g.**
 - **Approved:** a deliberate revisit of the Stage 3 rate, for xNPV 1 only.
 - **The fit:** `20_CODE/xnpv1_price_line.py` fits the same specification on the same contracts,

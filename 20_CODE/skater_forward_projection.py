@@ -7,8 +7,9 @@
  ----------------------------------------------------------------
  xNPV 1's seasons are priced by price_constants("xNPV 1"): the XNPV1_RATE
  line, fitted by xnpv1_price_line.py on the Stage 3 contracts with the
- forecast as the input, once it is locked; the Stage 3 line until then,
- labelled provisional on every row (column price_line). xNPV 0 is unchanged.
+ forecast as the input (locked 2026-10-02: $2.950M per forecast win forwards,
+ $4.350M defence, at the 2025-26 ceiling); every row names its line (column
+ price_line). xNPV 0 is unchanged.
 =============================================================================
  WHAT CHANGED IN v1.5 (the skater forecast is xNPV 1, decision D33)
  -------------------------------------------------------------------
@@ -330,13 +331,21 @@ def skater_rate_cap_pct(war, posgrp):
 # intercept, a defence slope) on the SAME 2,349 contracts with the input
 # replaced by xNPV 1's valuation-season forecast of WAR if he plays.
 #
-# XNPV1_RATE stays None until that run's log has been read; it is then pasted
-# here from the block the script prints. While it is None, xNPV 1 prices on
-# the Stage 3 line and every row says "Stage 3 (provisional for xNPV 1)".
+# LOCKED 2026-10-02 from the laptop run (xnpv1_price_line.py v1.0, log
+# 30_OUTPUT/xnpv1_price_line_log.txt): 2,347 of the 2,349 Stage 3 contracts
+# (two have no xNPV 1 forecast); the re-fit on the trailing total on those rows
+# gave back the Stage 3 line. At the 2025-26 ceiling: $0.735M at zero forecast
+# wins, $2.950M per forecast win for forwards, $4.350M for defencemen (Stage 3:
+# $1.265M, $2.028M, $2.302M per trailing win). Censored log-likelihood 4,048.2
+# against 3,902.1 for the trailing total on the same rows. Evidence and
+# reading: 40_DOCS/model_evidence/xNPV1_Price_Line.md. If XNPV1_RATE is set
+# back to None, xNPV 1 prices on Stage 3 and every row says "Stage 3
+# (provisional for xNPV 1)".
 # xNPV 0 always prices on Stage 3: it prices the trailing anchor, the quantity
 # Stage 3 was fitted on. The draft curve (draft_yield_curve.py) keeps its own
 # Stage 3 copy, because it prices realised wins, not this forecast.
-XNPV1_RATE = None
+XNPV1_RATE = dict(alpha=0.0076921739, beta=0.0308904772, beta_d_add=0.0146619104, n=2347,
+                  sigma=0.02111929, rows_fingerprint="69a6edb291fe")
 
 
 def price_constants(model):

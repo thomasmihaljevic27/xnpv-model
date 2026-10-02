@@ -6,7 +6,16 @@ Valued that way, good players look overpaid and poor ones underpaid by construct
 the back-test would read as mispricing. The fix is a line fitted on the same forecast it prices (the
 rebuild's currency did this). Until it is in, no xNPV 1 dollar figure is a finding.
 UPDATE 2026-10-02g: the fix was approved and written (`xnpv1_price_line.py`, the `XNPV1_RATE` slot,
-qualify rates bucketed on the forecast). It stays open until the laptop run's constants are locked.
+qualify rates bucketed on the forecast). CLOSED 2026-10-02h: `XNPV1_RATE` locked from the laptop run.
+The switch comparison on it is owed.
+
+**The defence slope prices a large premium as fair value (2026-10-02h).** On xNPV 1's line a
+defenceman's expected win costs 47% more than a forward's ($4.350M against $2.950M). Under Stage 3 it
+was 13.5% per trailing win, and it is about 35% per realised win. Defencemen's wins persist less (0.618
+against 0.734 of the trailing total), so clubs either overpay for defence production that does not last,
+or WAR under-counts defence. With a separate defence slope, a defence-wide mispricing cannot appear in
+the back-test; mispricing within defencemen can. For the supervisor review
+(`40_DOCS/model_evidence/xNPV1_Price_Line.md`).
 
 **Laptop production age table at 70.9% birthdates (2026-10-02).** The laptop's
 `30_OUTPUT/WAR_with_age.csv` was last written 2026-07-28, with no Elite Prospects matches; it was never rebuilt there, not reverted. REBUILT on the laptop 2026-10-02: 99.94% birthdates, and xNPV 0's laptop Brier is now 0.1917, the cloud figure. xNPV 0's exit risk and

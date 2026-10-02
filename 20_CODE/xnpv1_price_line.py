@@ -32,6 +32,11 @@ WHAT THIS DOES -- ONE CHANGE, everything else held
     calibrated both ways: on the trailing total (xNPV 0) and on xNPV 1's
     forecast (rfa_terminal_value v1.5).
 
+v1.1 (2026-10-02): once skater_forward_projection.XNPV1_RATE is locked, every
+run is also its reproduction guard: the fresh fit must give back the locked
+constants (Stage 3's tolerances), the same n and the same rows fingerprint,
+or the run prints GUARD FAILED and exits non-zero.
+
 NOTHING IS ADOPTED BY RUNNING THIS. The new constants are written to
 30_OUTPUT/xnpv1_price_line.json and printed as a block; they are locked in
 skater_forward_projection.XNPV1_RATE only after the result is read.
@@ -55,7 +60,7 @@ from scipy import stats
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import skater_value_engine as SVE
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 LOG = []
 
@@ -216,6 +221,20 @@ def main():
                script=f"xnpv1_price_line.py v{SCRIPT_VERSION}",
                skater_forecast_version=SF.SCRIPT_VERSION)
     (OUTPUT_DIR / "xnpv1_price_line.json").write_text(json.dumps(out, indent=2), encoding="utf-8")
+
+    # ---- v1.1: reproduction guard against the locked line, when there is one ----
+    import skater_forward_projection as SFP_
+    lock = SFP_.XNPV1_RATE
+    if lock is not None:
+        gaps = {k: abs(f1[k] - lock[k]) for k in ("alpha", "beta", "beta_d_add")}
+        same = (f1["converged"] and max(gaps.values()) <= SVE.TOL_NEW_COEF
+                and len(d) == lock["n"] and fp == lock["rows_fingerprint"])
+        log(f"\n[guard] against the locked XNPV1_RATE: n {len(d)} (locked {lock['n']}), fingerprint {fp} "
+            f"(locked {lock['rows_fingerprint']}), largest coefficient gap {max(gaps.values()):.1e}: "
+            f"{'PASS' if same else 'GUARD FAILED'}")
+        if not same:
+            (OUTPUT_DIR / "xnpv1_price_line_log.txt").write_text("\n".join(LOG) + "\n", encoding="utf-8")
+            raise SystemExit(1)
     log("\n[6] to lock, in skater_forward_projection.py:")
     log("    XNPV1_RATE = dict(alpha=%.10f, beta=%.10f, beta_d_add=%.10f, n=%d, sigma=%.8f,"
         % (f1["alpha"], f1["beta"], f1["beta_d_add"], len(d), f1["sigma"]))

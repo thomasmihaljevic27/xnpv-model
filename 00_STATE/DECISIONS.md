@@ -2516,3 +2516,54 @@ before the run.
   then the switch comparison. xNPV 1 dollar values are provisional until then.
 - `CLAUDE.md` run notes, `MANIFEST.csv`, `PROJECT_STATE.md`, `WORK_QUEUE.md`, `STANDING_FLAGS.md`
   and the session log are updated.
+
+## D33 addendum, 2026-10-02 — xNPV 1's price per win
+
+**Decision (Thomas approved the re-fit; the constants were locked from the laptop run he
+returned).** xNPV 1's contract seasons and control years are priced on a line fitted in xNPV 1's
+own units.
+
+**Specification:** Stage 3's, unchanged.
+- left-censored at the league minimum;
+- one intercept and a defence slope;
+- standard-level UFA and RFA skater contracts starting 2018-2025.
+
+The input is xNPV 1's forecast of WAR if he plays in the contract's first season, from the start
+year's page. Locked:
+
+    XNPV1_RATE = dict(alpha=0.0076921739, beta=0.0308904772, beta_d_add=0.0146619104,
+                      n=2347, sigma=0.02111929, rows_fingerprint="69a6edb291fe")
+
+At the 2025-26 ceiling that is $0.735M at zero wins, $2.950M per forecast win for forwards and
+$4.350M for defencemen.
+
+Run figures (laptop, `xnpv1_price_line.py` v1.0):
+- 2 of the 2,349 contracts have no forecast;
+- the re-fit on the trailing total on the same rows is within 0.00003 of Stage 3 in every
+  coefficient;
+- censored log-likelihood: forecast 4,048.2 against trailing 3,902.1.
+
+**Under xNPV 1 the D14(c) qualify rates are bucketed on xNPV 1's forecast.**
+
+**Not changed:**
+- the Stage 3 constants (still locked, and still in force for xNPV 0 and the draft curve);
+- every other D33 element.
+
+**Reproduction guard:** `xnpv1_price_line.py` v1.1 must give back these constants, the same n and
+the same fingerprint.
+
+**Flagged:** the defence premium per expected win is 47%, against 13.5% per trailing win under
+Stage 3. The separate slope prices it as fair value (STANDING_FLAGS,
+`40_DOCS/model_evidence/xNPV1_Price_Line.md`).
+
+### Change log, 2026-10-02h (xNPV 1's price per win locked)
+
+- `XNPV1_RATE` locked in `skater_forward_projection.py` (D33 addendum above).
+- `xnpv1_price_line.py` v1.1 adds the reproduction guard.
+- New: `25_TESTS/xnpv1_position_compression.py`, the cloud check that defencemen's forecasts and
+  realised seasons regress harder than forwards'.
+- New: `40_DOCS/model_evidence/xNPV1_Price_Line.md`.
+- Updated: `PROJECT_STATE.md`, `WORK_QUEUE.md`, `STANDING_FLAGS.md` (the unit flag closed, a
+  defence-premium flag added), `CLAUDE.md` (the rate in force, run notes), the session log and
+  `MANIFEST.csv`.
+- Owed: the switch comparison on the laptop.

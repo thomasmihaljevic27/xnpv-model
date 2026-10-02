@@ -1,17 +1,14 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
-**xNPV 1 follow-ups, updated 2026-10-02g: open, in order.**
-1. **Laptop: the price per win in xNPV 1's units** (approved 2026-10-02; code written and
-   cloud-tested, constants owed).
-   - Run `python 20_CODE\xnpv1_price_line.py` and send back `30_OUTPUT\xnpv1_price_line_log.txt`.
-   - Lock `XNPV1_RATE` in `skater_forward_projection.py` from its block, once read.
-   - Then re-run `25_TESTS\xnpv1_switch_check.py` and Update-Dashboard.
-   - Until then, xNPV 1's rows carry "Stage 3 (provisional for xNPV 1)". The qualify rates are
-     already bucketed on xNPV 1's forecast.
+**xNPV 1 follow-ups, updated 2026-10-02h: open, in order.**
+1. **Laptop: re-run `25_TESTS\xnpv1_switch_check.py`, then Update-Dashboard**, on xNPV 1's locked
+   price line (`XNPV1_RATE`, 2026-10-02h: $2.950M per forecast win forwards, $4.350M defence).
 2. **Supervisor review** (in person). Bring:
-   - xNPV 1's changes and the revised locks (D3, D12 v3, D18);
+   - xNPV 1's changes and the revised locks (D3, D12 v3, D18, and the price line for xNPV 1);
    - the confirmation;
-   - this unit question, which is an identification point.
+   - the unit question;
+   - the defence premium (47% per expected win), which the separate defence slope prices as fair
+     value (`40_DOCS/model_evidence/xNPV1_Price_Line.md`). Both are identification points.
 3. **Archive** xNPV 0 and the rest of `50_REBUILD/` only after item 1 is settled and the comparison
    is accepted.
 4. **Laptop:** `python 25_TESTS\archive_from_git.py 02f6fda 2026-10-02 20_CODE/ep_age_scraper.py`.

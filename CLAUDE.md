@@ -88,11 +88,10 @@ finished tests in `25_TESTS/` that build `NPVEngine` reproduce their recorded re
 `XNPV_SKATER_MODEL=xNPV 0`.
 
 xNPV 1's seasons and control years are priced by `skater_forward_projection.price_constants("xNPV 1")`.
-It returns `XNPV1_RATE` once that is locked and the Stage 3 line until then; every row's `price_line`
-column says which, and "provisional" means Stage 3. `XNPV1_RATE` comes from
+It returns `XNPV1_RATE` (locked 2026-10-02); set to None, xNPV 1 falls back to Stage 3, and every row's
+`price_line` column says which line priced it ("provisional" means Stage 3). `XNPV1_RATE` comes from
 `python 20_CODE/xnpv1_price_line.py`: the Stage 3 specification re-fitted on the same contracts with xNPV 1's
-valuation-season forecast as the input (revisit approved 2026-10-02). It is pasted in by hand after the
-log is read. xNPV 0 and the draft curve stay on Stage 3. Under xNPV 1, the D14(c) qualify rates are bucketed on
+valuation-season forecast as the input. Each re-run must give the lock back (its reproduction guard). xNPV 0 and the draft curve stay on Stage 3. Under xNPV 1, the D14(c) qualify rates are bucketed on
 xNPV 1's forecast (`rfa_terminal_value` v1.5).
 
 Player dashboard: double-click `Update-Dashboard.cmd` (or `python 20_CODE/dashboard_refresh.py`) to rebuild;
@@ -131,7 +130,9 @@ Draft pillar:
   deliberate revisit. The skater price per win in force is the Stage 3 rate (locked 2026-07-28):
   left-censored at the league minimum, one intercept, a separate defence slope.
   alpha=0.0132478230, beta=0.0212322891 per win for forwards, plus 0.0028702824 for defencemen
-  (0.0241025715), all as cap shares. Every player-chain script and the draft curve use it. The
+  (0.0241025715), all as cap shares. xNPV 0 and the draft curve use it. xNPV 1 prices on its own line
+  (D33 addendum, 2026-10-02): `XNPV1_RATE`, alpha=0.0076921739, beta=0.0308904772 per forecast win
+  for forwards, plus 0.0146619104 for defencemen, the same specification fitted on xNPV 1's forecast. The
   pre-D20 rate (0.0184516 / 0.0202139) and the D20 rate (0.01831864 / 0.01924854) are retired;
   they survive in the code only as reproduction guards.
 - **Don't trust file size as an integrity check.** Pre-rebuild and post-rebuild
