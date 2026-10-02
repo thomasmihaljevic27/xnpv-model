@@ -2577,3 +2577,14 @@ Stage 3. The separate slope prices it as fair value (STANDING_FLAGS,
     the marginal forward.
   - Parked at Thomas's request; no code, nothing locked changed.
 - The session log is updated.
+
+### Change log, 2026-10-02j (switch comparison on xNPV 1's own line)
+
+- Laptop `xnpv1_switch_check.py` on the locked `XNPV1_RATE`:
+  - goalies $0;
+  - skaters net +$2,199.8M on 2,591 contracts (contract part +$2,129.0M, terminal +$70.8M);
+  - by length, 1-2 / 3-5 / 6+ seasons: +$0.30M / +$1.29M / +$5.04M mean.
+  - Recorded in the session log, `PROJECT_STATE.md` and `WORK_QUEUE.md`.
+- 12 of the 15 largest rises are defencemen. This is noted under the parked defence-premium item.
+- Acceptance of the comparison, and with it the archive of xNPV 0, is waiting on Thomas. No code
+  changed.

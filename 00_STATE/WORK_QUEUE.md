@@ -1,8 +1,13 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
-**xNPV 1 follow-ups, updated 2026-10-02i: open, in order.**
-1. **Laptop: re-run `25_TESTS\xnpv1_switch_check.py`, then Update-Dashboard**, on xNPV 1's locked
-   price line (`XNPV1_RATE`, 2026-10-02h: $2.950M per forecast win forwards, $4.350M defence).
+**xNPV 1 follow-ups, updated 2026-10-02j: open, in order.**
+1. **Thomas: accept the switch comparison?** It ran 2026-10-02j on the locked line.
+   - Goalies are unchanged.
+   - Skaters are net +$2,199.8M on 2,591 contracts; 6+ season deals average +$5.04M.
+   - 12 of the 15 largest rises are defencemen. The falls are mostly aging stars and forwards
+     signed off a big season.
+   - Accepting allows item 3 (the archive) to go ahead.
+   - Update-Dashboard is still owed on the laptop.
 2. **Supervisor review** (in person). Bring:
    - xNPV 1's changes and the revised locks (D3, D12 v3, D18, and the price line for xNPV 1);
    - the confirmation;
@@ -43,6 +48,10 @@
      locked changes unless a result is adopted.
    - **Why it matters:** the separate defence slope prices the premium as fair value. A
      defence-wide mispricing therefore cannot appear in the back-test unless this is resolved.
+   - **Now carries money (2026-10-02j):** 12 of the 15 largest rises in the switch comparison are
+     defencemen.
+   - **A second fit to test against:** the rebuild's currency (`production_currency.py`, term in
+     the line) puts the defence premium in an intercept (+0.0054 of cap), not a slope.
 6. **Carry:**
    - the nine-season participation window;
    - the long-deal gap;

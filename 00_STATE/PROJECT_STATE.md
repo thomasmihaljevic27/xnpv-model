@@ -1,5 +1,15 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**Switch comparison on xNPV 1's own line, 2026-10-02j.**
+- **Goalies:** unchanged.
+- **Skaters:** net +$2,199.8M against xNPV 0 on 2,591 contracts (contract part +$2,129.0M,
+  terminal +$70.8M). The first run, on the current line, was −$706.9M.
+- **Long deals now rise:** +$5.04M on average for 6+ seasons.
+- **Who moves:** 12 of the 15 largest rises are defencemen. The largest falls are mostly aging
+  stars and forwards signed off a big season.
+- **Waiting on Thomas:** acceptance, which unlocks the archive of xNPV 0, and the dashboard
+  refresh.
+
 **xNPV 1's price per win locked, 2026-10-02h.**
 - **Line in force:** `XNPV1_RATE`, from the laptop run on 2,347 of the Stage 3 contracts. At
   $95.5M: $0.735M + $2.950M per forecast win for forwards, $4.350M for defencemen.
