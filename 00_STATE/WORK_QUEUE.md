@@ -1,12 +1,13 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
-**xNPV 1 follow-ups, updated 2026-10-02f: open, in order.**
-1. **Thomas: put the price per win in xNPV 1's units?**
-   - Re-fit the Stage 3 specification (left-censored, one intercept, defence slope, the same 2,349
-     contracts) on xNPV 1's signing-dated WAR-if-plays forecast.
-   - Re-calibrate the D14(c) qualify rates on xNPV 1's forecast buckets.
-   - Then re-run `25_TESTS\xnpv1_switch_check.py`.
-   This revisits the locked Stage 3 rate.
+**xNPV 1 follow-ups, updated 2026-10-02g: open, in order.**
+1. **Laptop: the price per win in xNPV 1's units** (approved 2026-10-02; code written and
+   cloud-tested, constants owed).
+   - Run `python 20_CODE\xnpv1_price_line.py` and send back `30_OUTPUT\xnpv1_price_line_log.txt`.
+   - Lock `XNPV1_RATE` in `skater_forward_projection.py` from its block, once read.
+   - Then re-run `25_TESTS\xnpv1_switch_check.py` and Update-Dashboard.
+   - Until then, xNPV 1's rows carry "Stage 3 (provisional for xNPV 1)". The qualify rates are
+     already bucketed on xNPV 1's forecast.
 2. **Supervisor review** (in person). Bring:
    - xNPV 1's changes and the revised locks (D3, D12 v3, D18);
    - the confirmation;

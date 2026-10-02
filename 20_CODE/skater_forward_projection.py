@@ -1,7 +1,14 @@
 """
 =============================================================================
- skater_forward_projection.py   v1.5            Phase 1b -- Layer 2
+ skater_forward_projection.py   v1.6            Phase 1b -- Layer 2
                                   xNPV 1 prices skater contracts (2026-10-02)
+=============================================================================
+ WHAT CHANGED IN v1.6 (xNPV 1 gets a price line in its own units)
+ ----------------------------------------------------------------
+ xNPV 1's seasons are priced by price_constants("xNPV 1"): the XNPV1_RATE
+ line, fitted by xnpv1_price_line.py on the Stage 3 contracts with the
+ forecast as the input, once it is locked; the Stage 3 line until then,
+ labelled provisional on every row (column price_line). xNPV 0 is unchanged.
 =============================================================================
  WHAT CHANGED IN v1.5 (the skater forecast is xNPV 1, decision D33)
  -------------------------------------------------------------------
@@ -311,6 +318,36 @@ def skater_rate_cap_pct(war, posgrp):
     Common intercept, position-dependent slope."""
     return ALPHA + skater_slope(posgrp) * war
 # --- end item 4.5 step 2 ----------------------------------------------------
+
+
+# --- v1.6: xNPV 1's OWN PRICE LINE (deliberate revisit of the Stage 3 rate,
+# approved by Thomas 2026-10-02) ----------------------------------------------
+# The Stage 3 line above was fitted on each contract's TRAILING 60/40 WAR. xNPV
+# 1 prices its FORECAST, which is shrunk toward the league (0.180 + 0.674 x
+# trailing on the development pages), so a per-trailing-win slope applied to
+# forecast wins under-prices every win above the intercept. xnpv1_price_line.py
+# re-fits the SAME specification (left-censored at the league minimum, one
+# intercept, a defence slope) on the SAME 2,349 contracts with the input
+# replaced by xNPV 1's valuation-season forecast of WAR if he plays.
+#
+# XNPV1_RATE stays None until that run's log has been read; it is then pasted
+# here from the block the script prints. While it is None, xNPV 1 prices on
+# the Stage 3 line and every row says "Stage 3 (provisional for xNPV 1)".
+# xNPV 0 always prices on Stage 3: it prices the trailing anchor, the quantity
+# Stage 3 was fitted on. The draft curve (draft_yield_curve.py) keeps its own
+# Stage 3 copy, because it prices realised wins, not this forecast.
+XNPV1_RATE = None
+
+
+def price_constants(model):
+    """(alpha, beta_F, beta_D, label): the price line a model's seasons are
+    priced on, all in cap share per win. The only place the choice is made."""
+    if model == "xNPV 1" and XNPV1_RATE is not None:
+        r = XNPV1_RATE
+        return (float(r["alpha"]), float(r["beta"]),
+                float(r["beta"]) + float(r["beta_d_add"]), "xNPV 1 forecast line")
+    label = "Stage 3 (provisional for xNPV 1)" if model == "xNPV 1" else "Stage 3"
+    return ALPHA, BETA, BETA_D, label
 
 
 # --- REVIEW ITEM 3.6: value the range of outcomes, not the best guess ------
@@ -850,7 +887,9 @@ class SkaterProjector:
             return pd.DataFrame()
         age = self.age_at(rows.iloc[0]["bd"], valuation_season)
         _posgrp = posgrp_from_nk(nk)
-        _slope = skater_slope(_posgrp)
+        # v1.6: xNPV 1's own price line once locked, Stage 3 until then
+        _alpha, _bf, _bd, _line = price_constants(MODEL_NAME)
+        _slope = _bd if _posgrp.startswith("D") else _bf
         out = []
         for k, (_, r) in enumerate(rows.iterrows()):
             f = fc.iloc[k]
@@ -859,7 +898,7 @@ class SkaterProjector:
             w = float(f["war_if_plays"])
             ceil = cap_path(valuation_season, k)
             lm = league_min_path(season)
-            val_raw = (ALPHA + _slope * w) * ceil
+            val_raw = (_alpha + _slope * w) * ceil
             sd_w = war_if_plays_sd(k)
             val = expected_floored_value(val_raw, _slope * sd_w * ceil, lm)   # D10 floor
             out.append({
@@ -883,6 +922,7 @@ class SkaterProjector:
                 "extrapolated": bool(f["extrapolated"]),
                 "cap_ceiling_exante": ceil, "league_min": lm,
                 "posgrp": _posgrp, "slope_used": _slope,
+                "alpha_used": _alpha, "price_line": _line,
                 "value_dollars": val, "floor_bound": val_raw < lm,
                 "value_point_estimate": max(val_raw, lm),
                 "uncertainty_correction": val - max(val_raw, lm),

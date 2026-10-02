@@ -1,5 +1,16 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**Price per win re-fitted on xNPV 1's forecast: code ready, constants owed, 2026-10-02g.**
+- **Approved:** a deliberate revisit of the Stage 3 rate, for xNPV 1 only.
+- **The fit:** `20_CODE/xnpv1_price_line.py` fits the same specification on the same contracts,
+  with xNPV 1's valuation-season forecast of WAR if he plays as the input.
+- **Wiring:** `price_constants()` and the `XNPV1_RATE` slot in `skater_forward_projection.py` v1.6.
+  `rfa_terminal_value.py` v1.5 prices control years on the same line and buckets the qualify rates
+  on the forecast.
+- **Unchanged:** xNPV 0 and the draft curve stay on Stage 3.
+- **Owed on the laptop:** the run, then the lock, then the switch comparison and the dashboard.
+  xNPV 1 dollars stay provisional until then.
+
 **Switch comparison in; xNPV 1 dollars provisional, 2026-10-02f.**
 - **The switch:** goalies unchanged; skaters net −$706.9M on 2,591 contracts, with stars on long
   deals falling up to $18M; 168 more fringe contracts priced.

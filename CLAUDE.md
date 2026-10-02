@@ -87,6 +87,14 @@ the comparison is accepted (migration plan, `40_DOCS/model_evidence/xNPV1_Migrat
 finished tests in `25_TESTS/` that build `NPVEngine` reproduce their recorded results only under
 `XNPV_SKATER_MODEL=xNPV 0`.
 
+xNPV 1's seasons and control years are priced by `skater_forward_projection.price_constants("xNPV 1")`.
+It returns `XNPV1_RATE` once that is locked and the Stage 3 line until then; every row's `price_line`
+column says which, and "provisional" means Stage 3. `XNPV1_RATE` comes from
+`python 20_CODE/xnpv1_price_line.py`: the Stage 3 specification re-fitted on the same contracts with xNPV 1's
+valuation-season forecast as the input (revisit approved 2026-10-02). It is pasted in by hand after the
+log is read. xNPV 0 and the draft curve stay on Stage 3. Under xNPV 1, the D14(c) qualify rates are bucketed on
+xNPV 1's forecast (`rfa_terminal_value` v1.5).
+
 Player dashboard: double-click `Update-Dashboard.cmd` (or `python 20_CODE/dashboard_refresh.py`) to rebuild;
 `Open-Dashboard.cmd` only reopens the last build and shows when it was made.
 It re-runs everything the dashboard reads, from `join_clauses_to_spine.py` and `age_join.py`

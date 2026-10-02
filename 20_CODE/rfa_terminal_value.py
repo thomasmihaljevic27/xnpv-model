@@ -1,6 +1,15 @@
 """
 =============================================================================
- rfa_terminal_value.py   v1.4                       Phase 1c
+ rfa_terminal_value.py   v1.5                       Phase 1c
+
+ v1.5 (2026-10-02) xNPV 1's control years are priced on xNPV 1's price line
+ (skater_forward_projection.price_constants: XNPV1_RATE once locked, Stage 3
+ until then), and the D14(c) qualify rates are calibrated on the quantity they
+ are applied to: under xNPV 1 each observed qualify-or-walk decision is
+ bucketed on xNPV 1's forecast of WAR if he plays for the season after the
+ contract ends (page = that season), not on the trailing 60/40 total. A
+ decision with no forecast enters the negative bucket, as a decision with no
+ trailing total always has (Stage 4 fix). xNPV 0 is unchanged.
 
  v1.4 (2026-10-02) under xNPV 1 (skater_forward_projection.SKATER_MODEL,
  the default) each control year's WAR is xNPV 1's WAR if he plays for that
@@ -172,6 +181,17 @@ def price(projected_war, posgrp, ceiling):
     beta = BETA_D if str(posgrp).upper().startswith("D") else BETA_F
     return (ALPHA + beta * projected_war) * ceiling
 
+
+def price_for(model, projected_war, posgrp, ceiling):
+    """v1.5: one season's value before the floor, on the price line of the
+    model that forecast `projected_war`. xNPV 0 gets exactly price() above;
+    xNPV 1 gets skater_forward_projection.price_constants("xNPV 1")."""
+    if model != "xNPV 1":
+        return price(projected_war, posgrp, ceiling)
+    a, bf, bd, _ = _sfp.price_constants(model)
+    beta = bd if str(posgrp).upper().startswith("D") else bf
+    return (a + beta * projected_war) * ceiling
+
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -187,6 +207,8 @@ def log(msg=""):
 
 log(f"[rate] price line in force: {_RATE_MODE}")
 log(f"[rate]   alpha={ALPHA:.8f}  beta_F={BETA_F:.8f}  beta_D={BETA_D:.8f}")
+_a1, _bf1, _bd1, _line1 = _sfp.price_constants("xNPV 1")
+log(f"[rate] xNPV 1 control years: {_line1}  alpha={_a1:.8f}  beta_F={_bf1:.8f}  beta_D={_bd1:.8f}")
 if _RATE_MODE.startswith("single"):
     log("[rate]   WARNING: this is the PRE-Stage-3 single-slope rate. "
         "Defencemen are being priced on the forward slope.")
@@ -317,8 +339,21 @@ class TerminalValuer:
         # landed where it was supposed to. Both tables are computed below so
         # the comparison is visible in the run log instead of asserted.
         tab, tab_old = {}, {}
+        # v1.5: the bucket is read off the same quantity the gate is later
+        # applied to. Under xNPV 1 that is its forecast of WAR if he plays in
+        # the first season after the contract (page = that season, h = 0),
+        # which runs about two-thirds as wide as the trailing total, so a
+        # trailing-total table would put forecast-3-WAR players among
+        # trailing-3-WAR ones. None (no forecast) is treated as missing.
+        self.qualify_basis = ("xNPV 1 forecast, WAR if he plays" if sp.model == "xNPV 1"
+                              else "trailing 60/40 total")
         for _, r in elig.iterrows():
-            a, _ = sp.anchor(r["nk"], int(r["season_start"]) + 1)
+            t_dec = int(r["season_start"]) + 1      # the summer the decision is made
+            if sp.model == "xNPV 1":
+                f = sp.forecaster.forecast(r["nk"], t_dec, 0)
+                a = np.nan if f is None else float(f.iloc[0]["war_if_plays"])
+            else:
+                a, _ = sp.anchor(r["nk"], t_dec)
             q = 1 if r["pp_expiry"] == "RFA" else 0
             if pd.isna(a):
                 b = "negative"                     # no NHL games -> below replacement
@@ -379,9 +414,9 @@ class TerminalValuer:
             # 2026-10-02: the control years' WAR is xNPV 1's WAR IF HE PLAYS
             # (rate x games share) for those seasons, from the same page fit
             # as the contract seasons. The qualify-rate chain below (D14(c))
-            # is unchanged and stays the only survival term here, as before:
-            # it is fitted on observed qualify-or-walk decisions, which already
-            # carry the players who left.
+            # stays the only survival term here, as before: it is fitted on
+            # observed qualify-or-walk decisions, which already carry the
+            # players who left (v1.5: bucketed on this same forecast).
             fc = sp.forecaster.forecast(nk, valuation_season, horizon, as_of)
             if fc is None:
                 return empty, {"status": "no_anchor"}
@@ -420,7 +455,7 @@ class TerminalValuer:
                 pw = a * mult
             ceil = cap_path(valuation_season, k)
             lm = league_min_path(season)
-            val = max(price(pw, posgrp, ceil), lm)             # D10 floor
+            val = max(price_for(sp.model, pw, posgrp, ceil), lm)   # D10 floor
             qo = qualifying_offer(sal, cap_hit, season, signed_2020_plus)
             surplus = val - qo
             tv_raw += surplus

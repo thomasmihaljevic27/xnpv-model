@@ -2495,3 +2495,24 @@ before the run.
   archived.
 - `Open-Dashboard.cmd` split into `Update-Dashboard.cmd` (rebuild) and `Open-Dashboard.cmd` (reopen
   only).
+
+### Change log, 2026-10-02g (price per win re-fitted on xNPV 1's forecast: code; constants owed)
+
+- **Revisit approved by Thomas:** "yes, re-fit the price per win on xNPV 1's forecast".
+  - The Stage 3 specification (left-censored at the league minimum, one intercept, a defence
+    slope, the same contracts) is to be re-fitted for xNPV 1, with xNPV 1's valuation-season
+    forecast of WAR if he plays as the input.
+  - xNPV 0 and the draft curve keep the Stage 3 constants, which stay as locked.
+- **The D14(c) qualify-rate calibration**, under xNPV 1, buckets each observed decision on xNPV 1's
+  forecast for the season after the contract ends. Under xNPV 0 it still buckets on the trailing
+  total. Stage 4's rule is kept: a decision with no figure enters the negative bucket.
+- **New and changed files:**
+  - `20_CODE/xnpv1_price_line.py` v1.0, new;
+  - `skater_forward_projection.py` v1.6: `XNPV1_RATE = None`, `price_constants()`, row columns
+    `price_line` and `alpha_used`;
+  - `rfa_terminal_value.py` v1.5: `price_for()` and the qualify basis.
+  - Code paths were tested in the cloud on synthetic data only.
+- **Owed:** the laptop run, then `XNPV1_RATE` locked here as a D33 addendum with its log figures,
+  then the switch comparison. xNPV 1 dollar values are provisional until then.
+- `CLAUDE.md` run notes, `MANIFEST.csv`, `PROJECT_STATE.md`, `WORK_QUEUE.md`, `STANDING_FLAGS.md`
+  and the session log are updated.
