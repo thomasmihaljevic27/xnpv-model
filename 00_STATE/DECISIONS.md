@@ -2588,3 +2588,20 @@ Stage 3. The separate slope prices it as fair value (STANDING_FLAGS,
 - 12 of the 15 largest rises are defencemen. This is noted under the parked defence-premium item.
 - Acceptance of the comparison, and with it the archive of xNPV 0, is waiting on Thomas. No code
   changed.
+
+### Change log, 2026-10-02k (switch accepted; xNPV 0 and 50_REBUILD archived)
+
+- Thomas accepted the switch comparison (D33 migration step 3).
+- xNPV 0 removed from the live code (migration step 4):
+  - `skater_forward_projection.py`, `rfa_terminal_value.py` and `contract_npv.py` are v2.0;
+  - `xnpv1_price_line.py` is v1.2.
+  - The anchor-and-ratio machinery that carried D3 (aging applied as a ratio), D12 v3 (replacement
+    reversion) and D18 (the exit hazard) for skaters is gone from the code. Those decisions stand
+    as the record of xNPV 0. D18 still governs goalies.
+- `valuation_walkthrough.py` and `50_REBUILD/` removed from the tree. The last commit with them is
+  `7f91f0e`; the archive copies are written on the laptop by `archive_from_git.py`.
+  `.gitignore` now ignores `50_REBUILD/`.
+- Checked in the cloud on a synthetic spine: every xNPV 1 value is identical before and after.
+  The real-spine check (`25_TESTS/xnpv0_removal_check.py`) is owed on the laptop.
+- Updated: `CLAUDE.md` (folder map, run notes, the rate rule), `MANIFEST.csv`, the migration plan,
+  `PROJECT_STATE.md`, `WORK_QUEUE.md` and the session log.

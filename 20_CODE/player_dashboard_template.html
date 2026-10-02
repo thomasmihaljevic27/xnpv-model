@@ -214,13 +214,10 @@ const levelLbl = l => ({ entry_level: "ELC", standard_level: "Standard" }[l] || 
 const heightLbl = h => h ? `${Math.floor(h / 12)}′${h % 12}″` : "—";
 const ordinal = n => n + (["th","st","nd","rd"][((n % 100) - 20) % 10] || ["th","st","nd","rd"][n % 100] || "th");
 
-// Projection-path labels, glossed from skater_forward_projection.ratio_path()
-// and contract_npv._npv_goalie().
+// Projection-path labels: skaters from skater_forward_projection._project_xnpv1()
+// (the only skater model since 2026-10-02), goalies from contract_npv._npv_goalie().
 const PATH_GLOSS = {
-  curve: "Aging-curve path applied to the trailing-WAR anchor.",
-  flat_no_curve: "No aging-curve match: no 20+ GP season at age−1 or age−2, so the anchor is held flat.",
-  flat_low_curve_base: "Curve base at or below the ratio-construction floor, so the anchor is held flat.",
-  replacement_reversion: "Negative anchor: the D12 v3 replacement-reversion multiplier applies.",
+  "xNPV 1": "Skater: three-season start pulled toward the league, aged by comparable players; WAR if he plays × his chance of playing, priced on xNPV 1's own line.",
   goalie_flat_503020: "Goalie: 50/30/20 trailing WAR, shrunk toward league average, held flat.",
   goalie_flat_6040: "Goalie: 60/40 trailing WAR (two prior seasons), shrunk, held flat.",
   goalie_flat_t1_only: "Goalie: one prior season only (low confidence), shrunk, held flat.",
@@ -572,7 +569,7 @@ function renderValuation() {
 function noPageReason(t0) {
   if (t0 > META.last) return `The ${seasonLbl(t0)} page is not built. The panel ends at ${seasonLbl(META.last)}.`;
   if (t0 < META.first) return `The panel starts at ${seasonLbl(META.first)}. Nothing is valued before that.`;
-  return `No priced contract for this player in ${seasonLbl(t0)}. He may have been unsigned, outside the NHL, or without a trailing-WAR anchor.`;
+  return `No priced contract for this player in ${seasonLbl(t0)}. He may have been unsigned, outside the NHL, or without an xNPV 1 forecast (no qualifying season in its window).`;
 }
 
 // ---------- contracts ----------

@@ -167,6 +167,34 @@ projections move by tens of thousands of dollars per season.
 - **Step 3 is next, on the laptop:** `25_TESTS/xnpv1_switch_check.py` prices every contract under
   both models and compares them. Then the dashboard refresh.
 
+## Progress: the price line, the comparison, and the archive (2026-10-02)
+
+- **The price per win in xNPV 1's units** (D33 addendum). The Stage 3 specification was re-fitted
+  on xNPV 1's forecast (`xnpv1_price_line.py`) and locked as `XNPV1_RATE`. See
+  `xNPV1_Price_Line.md`.
+- **Step 3 done on the laptop, on the locked line:**
+  - goalies are unchanged;
+  - skaters are net +$2,199.8M on 2,591 contracts;
+  - 168 more contracts are priced.
+  - Thomas accepted the comparison.
+- **Step 4, the archive:**
+  - xNPV 0 is removed from `skater_forward_projection.py`, `rfa_terminal_value.py` and
+    `contract_npv.py` (each v2.0), with the switch and the skater exit-hazard path. The goalie path
+    is untouched.
+  - `valuation_walkthrough.py` (an xNPV 0 viewer) and all of `50_REBUILD/` are removed from the
+    tree. The last commit holding them is `7f91f0e`, and the laptop writes the archive copies with
+    `archive_from_git.py`.
+  - `XNPV_SKATER_MODEL` set to anything but xNPV 1 now stops the run.
+- **Checked, cloud, synthetic spine:**
+  - 24 valuations (3,312 numbers) are identical before and after the removal, largest difference 0;
+  - the qualify-rate table is identical;
+  - the new validation batteries for the projection and the terminal value run.
+- **Owed, laptop:** `25_TESTS/xnpv0_removal_check.py` repeats the before/after comparison on the
+  real spine.
+- **Step 5:** the old names were searched for in `20_CODE/`. What is left is provenance in
+  docstrings: the promoted modules name the rebuild files they came from, and the history notes
+  of the three v2.0 files describe xNPV 0.
+
 ## The layout after the move
 
 **Promoted into `20_CODE/`** (xNPV 1 and what it needs to run). These come from `50_REBUILD/code/`.

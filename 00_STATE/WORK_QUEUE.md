@@ -1,21 +1,26 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
-**xNPV 1 follow-ups, updated 2026-10-02j: open, in order.**
-1. **Thomas: accept the switch comparison?** It ran 2026-10-02j on the locked line.
-   - Goalies are unchanged.
-   - Skaters are net +$2,199.8M on 2,591 contracts; 6+ season deals average +$5.04M.
-   - 12 of the 15 largest rises are defencemen. The falls are mostly aging stars and forwards
-     signed off a big season.
-   - Accepting allows item 3 (the archive) to go ahead.
-   - Update-Dashboard is still owed on the laptop.
+**xNPV 1 follow-ups, updated 2026-10-02k: open, in order.**
+1. **Laptop, after syncing the archive commit (2026-10-02k), in this order:**
+   1. `python 25_TESTS\xnpv0_removal_check.py`, BEFORE Update-Dashboard. It needs the spine the
+      old code wrote, and checks that removing xNPV 0 moved no xNPV 1 value. Send back
+      `30_OUTPUT\xnpv0_removal_check_log.txt`.
+   2. `python 25_TESTS\archive_from_git.py 7f91f0e 2026-10-02 50_REBUILD/code 50_REBUILD/README.md
+      20_CODE/skater_forward_projection.py 20_CODE/rfa_terminal_value.py 20_CODE/contract_npv.py
+      20_CODE/valuation_walkthrough.py 20_CODE/xnpv1_price_line.py`
+   3. `Move-Item 50_REBUILD\output 90_ARCHIVE\2026-10-02\50_REBUILD\output`. This moves the
+      rebuild's untracked run outputs. It has not been run on Windows.
+   4. Update-Dashboard.
+   - Thomas accepted the switch comparison on 2026-10-02 (goalies unchanged; skaters net
+     +$2,199.8M). The defence questions wait (item 5).
 2. **Supervisor review** (in person). Bring:
    - xNPV 1's changes and the revised locks (D3, D12 v3, D18, and the price line for xNPV 1);
    - the confirmation;
    - the unit question;
    - the defence premium (47% per expected win), which the separate defence slope prices as fair
      value (`40_DOCS/model_evidence/xNPV1_Price_Line.md`). Both are identification points.
-3. **Archive** xNPV 0 and the rest of `50_REBUILD/` only after item 1 is settled and the comparison
-   is accepted.
+3. **Archive: done in the tree 2026-10-02k.** xNPV 0, `valuation_walkthrough.py` and `50_REBUILD/`
+   are removed. The archive copies come from item 1, steps 2 and 3.
 4. **Laptop:** `python 25_TESTS\archive_from_git.py 02f6fda 2026-10-02 20_CODE/ep_age_scraper.py`.
 5. **Parked, a possible finding (Thomas, 2026-10-02): where does the defence premium come from?**
    On xNPV 1's line a defenceman's expected win costs 47% more than a forward's. There are three

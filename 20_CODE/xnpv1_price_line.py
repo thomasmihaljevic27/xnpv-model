@@ -29,8 +29,11 @@ WHAT THIS DOES -- ONE CHANGE, everything else held
     log-likelihood of each (same rows, same outcome, same parameter count);
     and, by trailing-WAR tier, the mean cap share observed against each line's
     expected cap share. It also prints the RFA qualify-rate table (D14(c))
-    calibrated both ways: on the trailing total (xNPV 0) and on xNPV 1's
-    forecast (rfa_terminal_value v1.5).
+    calibrated on xNPV 1's forecast (rfa_terminal_value).
+
+v1.2 (2026-10-02): xNPV 0 archived, so step 5 prints the qualify-rate table on
+xNPV 1's forecast only (the trailing-total column was xNPV 0's calibration;
+its laptop figures are in the 2026-10-02 session log). The fit is unchanged.
 
 v1.1 (2026-10-02): once skater_forward_projection.XNPV1_RATE is locked, every
 run is also its reproduction guard: the fresh fit must give back the locked
@@ -60,7 +63,7 @@ from scipy import stats
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import skater_value_engine as SVE
 
-SCRIPT_VERSION = "1.1"
+SCRIPT_VERSION = "1.2"
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 LOG = []
 
@@ -203,15 +206,13 @@ def main():
     # ---- 5. the RFA qualify rates, both ways ------------------------------------
     import skater_forward_projection as SFP
     import rfa_terminal_value as RTV
-    sp0 = SFP.SkaterProjector(model="xNPV 0")
-    sp1 = SFP.SkaterProjector(model="xNPV 1")
+    sp1 = SFP.SkaterProjector()
     sp1._forecaster = fc                       # the same page fits
-    q0, q1 = RTV.TerminalValuer(sp0), RTV.TerminalValuer(sp1)
-    log("\n[5] RFA qualify rates (D14(c)), P(qualified) by quality bucket at the decision:")
-    log(f"    {'bucket':<10}{'on trailing total (xNPV 0)':>30}{'on xNPV 1 forecast':>26}")
+    q1 = RTV.TerminalValuer(sp1)
+    log("\n[5] RFA qualify rates (D14(c)), P(qualified) by quality bucket at the decision,")
+    log(f"    bucketed on {q1.qualify_basis}:")
     for bkt in ("star", "regular", "fringe", "negative"):
-        log(f"    {bkt:<10}{q0.qualify_p.get(bkt, float('nan')):>22.3f} (n {q0.qualify_n.get(bkt, 0):>4})"
-            f"{q1.qualify_p.get(bkt, float('nan')):>18.3f} (n {q1.qualify_n.get(bkt, 0):>4})")
+        log(f"    {bkt:<10}{q1.qualify_p.get(bkt, float('nan')):>8.3f} (n {q1.qualify_n.get(bkt, 0):>4})")
 
     # ---- 6. write -------------------------------------------------------------
     out = dict(model="xNPV 1", fit_on="xNPV 1 WAR if he plays, valuation season, page = start year",

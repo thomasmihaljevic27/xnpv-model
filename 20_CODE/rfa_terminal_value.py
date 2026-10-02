@@ -1,6 +1,14 @@
 """
 =============================================================================
- rfa_terminal_value.py   v1.5                       Phase 1c
+ rfa_terminal_value.py   v2.0                       Phase 1c
+
+ v2.0 (2026-10-02) xNPV 0 archived. Control years are valued on xNPV 1 only:
+ its WAR if he plays for each control season, priced on xNPV 1's line
+ (skater_forward_projection.price_constants), and the D14(c) qualify rates
+ are bucketed on xNPV 1's forecast. The anchor-and-ratio branch, the
+ price-rate adapter that read whatever constants the projection exported,
+ and price_for()'s two-model dispatch are removed; the file as it stood is
+ in git at 7f91f0e. The validation battery now runs on xNPV 1.
 
  v1.5 (2026-10-02) xNPV 1's control years are priced on xNPV 1's price line
  (skater_forward_projection.price_constants: XNPV1_RATE once locked, Stage 3
@@ -123,74 +131,26 @@ from skater_forward_projection import (SkaterProjector, cap_path,
                                        check_as_of)
 
 # ---------------------------------------------------------------------------
-# PRICE-RATE ADAPTER  (added 2026-07-28)
+# THE PRICE LINE (v2.0)
 # ---------------------------------------------------------------------------
-# Stage 3 of the model review replaced the single price line with a
-# POSITION-SPLIT one. In words: a player is worth a base amount plus an
-# amount per win, and the amount per win is larger for a defenceman than for
-# a forward. The 2026-07-06 file this was rebuilt from predates that and
-# imports one ALPHA and one BETA, which cannot express a position split.
-#
-# This adapter reads whatever the projection module actually exports and
-# adapts to it, rather than assuming a name. If it finds a position-split
-# rate it uses it. If it finds only the old single rate it uses that and
-# says so out loud. If it finds neither it stops the script, because
-# guessing here would silently misprice every defenceman in the file.
-def _resolve_rate():
-    a = getattr(_sfp, "ALPHA", None)
-    if a is None:
-        raise ImportError("skater_forward_projection exports no ALPHA.")
-
-    # PREFERRED. The projection module defines its own slope function. Using
-    # it means there is ONE definition of the rate in the project rather than
-    # a copy here that can drift out of step the next time the rate is refit.
-    fn = getattr(_sfp, "skater_slope", None)
-    if callable(fn):
-        return (float(a), float(fn("F")), float(fn("D")),
-                "split (skater_slope helper)")
-
-    # FALLBACK. Named constants, in the naming actually used by this project:
-    # BETA is the forward slope and BETA_D the defence slope. The pair is
-    # asymmetric, so it is listed explicitly rather than guessed at.
-    for fwd, dfn in (("BETA", "BETA_D"), ("BETA_F", "BETA_D"),
-                     ("BETA_FWD", "BETA_DEF")):
-        bf, bd = getattr(_sfp, fwd, None), getattr(_sfp, dfn, None)
-        if bf is not None and bd is not None:
-            return float(a), float(bf), float(bd), f"split ({fwd}/{dfn})"
-
-    # LAST RESORT. One slope for both positions. This is the pre-Stage-3
-    # shape and it underprices defencemen, so it warns loudly.
-    b = getattr(_sfp, "BETA", None)
-    if b is not None:
-        return float(a), float(b), float(b), "single (BETA, pre-Stage-3)"
-    raise ImportError(
-        "Could not find a usable price rate in skater_forward_projection. "
-        "Send me the rate constants from that file and I will wire them in."
-    )
-
-
-ALPHA, BETA_F, BETA_D, _RATE_MODE = _resolve_rate()
+# One definition in the project: skater_forward_projection.price_constants(),
+# which returns xNPV 1's locked line (XNPV1_RATE). A control year is priced on
+# the same line as the contract seasons before it, so the two cannot drift.
+ALPHA, BETA_F, BETA_D, _RATE_MODE = _sfp.price_constants()
 
 
 def price(projected_war, posgrp, ceiling):
     """Value of one season, in dollars, before the league-minimum floor.
-
-    posgrp is 'F' or 'D'. Under the single-rate fallback both slopes are the
-    same, so that path reproduces the old behaviour exactly.
-    """
+    posgrp is 'F' or 'D' (the defence slope applies to 'D')."""
     beta = BETA_D if str(posgrp).upper().startswith("D") else BETA_F
     return (ALPHA + beta * projected_war) * ceiling
 
 
 def price_for(model, projected_war, posgrp, ceiling):
-    """v1.5: one season's value before the floor, on the price line of the
-    model that forecast `projected_war`. xNPV 0 gets exactly price() above;
-    xNPV 1 gets skater_forward_projection.price_constants("xNPV 1")."""
-    if model != "xNPV 1":
-        return price(projected_war, posgrp, ceiling)
-    a, bf, bd, _ = _sfp.price_constants(model)
-    beta = bd if str(posgrp).upper().startswith("D") else bf
-    return (a + beta * projected_war) * ceiling
+    """Kept for callers written when two models ran: refuses any model but
+    xNPV 1, then prices exactly as price()."""
+    assert model in (None, _sfp.MODEL_NAME), f"unknown skater model {model!r}"
+    return price(projected_war, posgrp, ceiling)
 
 from dotenv import load_dotenv
 
@@ -205,13 +165,8 @@ def log(msg=""):
     LOG.append(str(msg))
 
 
-log(f"[rate] price line in force: {_RATE_MODE}")
-log(f"[rate]   alpha={ALPHA:.8f}  beta_F={BETA_F:.8f}  beta_D={BETA_D:.8f}")
-_a1, _bf1, _bd1, _line1 = _sfp.price_constants("xNPV 1")
-log(f"[rate] xNPV 1 control years: {_line1}  alpha={_a1:.8f}  beta_F={_bf1:.8f}  beta_D={_bd1:.8f}")
-if _RATE_MODE.startswith("single"):
-    log("[rate]   WARNING: this is the PRE-Stage-3 single-slope rate. "
-        "Defencemen are being priced on the forward slope.")
+log(f"[rate] control years priced on: {_RATE_MODE}  "
+    f"alpha={ALPHA:.8f}  beta_F={BETA_F:.8f}  beta_D={BETA_D:.8f}")
 
 
 # ---------------------------------------------------------------------------
@@ -340,20 +295,16 @@ class TerminalValuer:
         # the comparison is visible in the run log instead of asserted.
         tab, tab_old = {}, {}
         # v1.5: the bucket is read off the same quantity the gate is later
-        # applied to. Under xNPV 1 that is its forecast of WAR if he plays in
-        # the first season after the contract (page = that season, h = 0),
-        # which runs about two-thirds as wide as the trailing total, so a
-        # trailing-total table would put forecast-3-WAR players among
-        # trailing-3-WAR ones. None (no forecast) is treated as missing.
-        self.qualify_basis = ("xNPV 1 forecast, WAR if he plays" if sp.model == "xNPV 1"
-                              else "trailing 60/40 total")
+        # applied to: xNPV 1's forecast of WAR if he plays in the first season
+        # after the contract (page = that season, h = 0). It runs about
+        # two-thirds as wide as the trailing total, so a trailing-total table
+        # would put forecast-3-WAR players among trailing-3-WAR ones. None (no
+        # forecast) is treated as missing, and so enters the negative bucket.
+        self.qualify_basis = "xNPV 1 forecast, WAR if he plays"
         for _, r in elig.iterrows():
             t_dec = int(r["season_start"]) + 1      # the summer the decision is made
-            if sp.model == "xNPV 1":
-                f = sp.forecaster.forecast(r["nk"], t_dec, 0)
-                a = np.nan if f is None else float(f.iloc[0]["war_if_plays"])
-            else:
-                a, _ = sp.anchor(r["nk"], t_dec)
+            f = sp.forecaster.forecast(r["nk"], t_dec, 0)
+            a = np.nan if f is None else float(f.iloc[0]["war_if_plays"])
             q = 1 if r["pp_expiry"] == "RFA" else 0
             if pd.isna(a):
                 b = "negative"                     # no NHL games -> below replacement
@@ -410,27 +361,17 @@ class TerminalValuer:
         # --- VALUE side: extend the Layer 2 walk through the control years -
         nk = crows.iloc[0]["nk"]
         horizon = (end - valuation_season) + len(ctrl_seasons)
-        if sp.model == "xNPV 1":
-            # 2026-10-02: the control years' WAR is xNPV 1's WAR IF HE PLAYS
-            # (rate x games share) for those seasons, from the same page fit
-            # as the contract seasons. The qualify-rate chain below (D14(c))
-            # stays the only survival term here, as before: it is fitted on
-            # observed qualify-or-walk decisions, which already carry the
-            # players who left (v1.5: bucketed on this same forecast).
-            fc = sp.forecaster.forecast(nk, valuation_season, horizon, as_of)
-            if fc is None:
-                return empty, {"status": "no_anchor"}
-            a, path = float(fc.iloc[0]["tw_WAR"]), "xNPV 1"
-            war_k = fc.set_index("h")["war_if_plays"].to_dict()
-        else:
-            a, src = sp.anchor(nk, valuation_season)
-            if pd.isna(a):
-                return empty, {"status": "no_anchor"}
-            age = sp.age_at(crows.iloc[0]["bd"], valuation_season)
-            # v1.4 projector (2026-09-28): the curve for this valuation page only (D3 revision)
-            ratios, path = sp.ratio_path(nk, age, horizon, valuation_season)
-            if a < 0:
-                path = "replacement_reversion"          # D12 v3, same as Layer 2
+        # The control years' WAR is xNPV 1's WAR IF HE PLAYS (rate x games
+        # share) for those seasons, from the same page fit as the contract
+        # seasons. The qualify-rate chain below (D14(c)) is the only survival
+        # term here: it is fitted on observed qualify-or-walk decisions, which
+        # already carry the players who left (bucketed on this same forecast).
+        # `anchor` in the summary is xNPV 1's trailing total, for reporting.
+        fc = sp.forecaster.forecast(nk, valuation_season, horizon, as_of)
+        if fc is None:
+            return empty, {"status": "no_anchor"}
+        a, path = float(fc.iloc[0]["tw_WAR"]), sp.model
+        war_k = fc.set_index("h")["war_if_plays"].to_dict()
 
         # --- COST side: final contract-year base salary -> iterated QOs ----
         final = crows[crows["season_start"] == end].iloc[0]
@@ -448,14 +389,10 @@ class TerminalValuer:
         truncated, survival = False, 1.0
         for j, season in enumerate(ctrl_seasons, start=1):
             k = (end - valuation_season) + j
-            if sp.model == "xNPV 1":
-                pw = float(war_k[k])
-            else:
-                mult = sp.multiplier(a, ratios[k], k)
-                pw = a * mult
+            pw = float(war_k[k])
             ceil = cap_path(valuation_season, k)
             lm = league_min_path(season)
-            val = max(price_for(sp.model, pw, posgrp, ceil), lm)   # D10 floor
+            val = max(price(pw, posgrp, ceil), lm)             # D10 floor
             qo = qualifying_offer(sal, cap_hit, season, signed_2020_plus)
             surplus = val - qo
             tv_raw += surplus
@@ -494,9 +431,9 @@ class TerminalValuer:
 # VALIDATION BATTERY
 # ---------------------------------------------------------------------------
 def validate():
-    # 2026-10-02: this battery tests the xNPV 0 projection's control years, so
-    # it runs on it explicitly; xNPV 1's are checked in contract_npv.validate().
-    tv = TerminalValuer(SkaterProjector(model="xNPV 0"))
+    # v2.0: runs on xNPV 1. "anchor" below is xNPV 1's trailing total (the
+    # summary's reporting field), used only to group the table.
+    tv = TerminalValuer(SkaterProjector())
     sp = tv.sp
     log("=" * 74)
     log("PHASE 1c VALIDATION BATTERY  (QO mechanics self-test passed on import)")
@@ -564,7 +501,7 @@ def validate():
                                   "regular 1-3" if s["anchor"] < 3 else "star 3+")
             res.append(s)
     df = pd.DataFrame(res)
-    log("    D14(c) calibration table (estimated from the spine this run):")
+    log(f"    D14(c) calibration table (estimated from the spine this run; bucketed on {tv.qualify_basis}):")
     log(f"      {'bucket':9s} {'P(qual) FIXED':>14s} {'n':>7s}   "
         f"{'P(qual) PRE-FIX':>16s} {'n':>7s}")
     for b in ["star", "regular", "fringe", "negative"]:

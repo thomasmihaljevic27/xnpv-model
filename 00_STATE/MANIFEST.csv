@@ -22,12 +22,12 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 20_CODE,capspace_scraper.py,clause,hashable,2026-09-09a,d43c9f8ff142c1bfe668e726431937889ab39db5,21975,2026-09-09,yes,git,git-tracked; audited via `git status`
 20_CODE,check.py,misc,hashable,2026-09-09a,6d47583d129eaaffd3c476ab13e9bb67340699b1,858,2026-09-09,yes,git,git-tracked; audited via `git status`
 25_TESTS,check_stale_anchor_agreement2.py,misc,hashable,2026-09-30k,4ce6f4f38dfc17aab3f4ad23f9fae49a27f7eb05,9224,2026-09-30,yes,git,git-tracked; audited via `git status`; moved 2026-09-30j
-20_CODE,contract_npv.py,npv,hashable,2026-10-02e,f810fca8b11ecfefbb5c89207cc1b8a6ede93673,48217,2026-10-02,yes,git,imported as module; do not rename
+20_CODE,contract_npv.py,npv,hashable,2026-10-02k,655846fd01510a336bb6fb1f989a4b3edffc2ac7,40917,2026-10-02,yes,git,xNPV 1 only from v2.0; goalie path unchanged; do not rename
 20_CODE,contract_npv_panel.py,npv,hashable,2026-10-02e,48a339ac0b4dbccfb448cd67425630b09c6bd2a4,12011,2026-10-02,yes,git,git-tracked; audited via `git status`
 20_CODE,draft_pick_linkage.py,draft,hashable,2026-09-09a,3407afcc09d47360dee13a505ea65c181c62d55f,21073,2026-09-09,yes,git,rescued from data work; only cloud copy
 20_CODE,draft_yield_curve.py,draft,hashable,2026-09-09a,dcb1637d0a3684a4a4a7185223e2a6a92adbb15d,21806,2026-09-09,yes,git,git-tracked; audited via `git status`
 20_CODE,ep_extract.py,prosp,hashable,2026-09-28l,b3bd22c40b2efcc5822cf3d5407409c5b4382f7b,39724,2026-09-28,yes,git,v3.1: own league-page reader (pandas 3)
-20_CODE,exit_hazard.py,npv,hashable,2026-10-02d,480554f12f7b1701e1e1c3962965cf51ad057972,26604,2026-10-02,yes,git,imported as module; do not rename
+20_CODE,exit_hazard.py,npv,hashable,2026-10-02k,b38ab381b0c8fb04e35efc6f5a41da2c333fdd0c,27025,2026-10-02,yes,git,imported as module; do not rename
 25_TESTS,goalie_hazard_overlap.py,goal,hashable,2026-09-30k,51eadcd8253631c2ade1aad8c526abcdaa1624be,6630,2026-09-30,yes,git,git-tracked; audited via `git status`; moved 2026-09-30j
 20_CODE,goalie_value_engine.py,goal,hashable,2026-09-09a,326d28d16647e9bbef96a2628b87fec8d27cf857,37691,2026-09-09,yes,git,stale-anchor fix shipped v2.9
 25_TESTS,gv_4b_circularity_check.py,gv,hashable,2026-09-30k,ea5251a3bbd3665b89927bdfdcb4cc98c0e10d9e,18343,2026-09-30,yes,git,git-tracked; audited via `git status`; moved 2026-09-30j
@@ -42,10 +42,10 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 20_CODE,on_ice_reconstruction.py,xg,hashable,2026-09-09a,f5da9ef958a3714715653e80b88f1690981d6292,31627,2026-09-09,yes,git,git-tracked; audited via `git status`
 20_CODE,replacement_rebase.py,gv,hashable,2026-09-09a,9d2c81f6550b230d2485e16a4369f3db3fb2db79,25435,2026-09-09,yes,git,git-tracked; audited via `git status`
 25_TESTS,retention_recalibration_check.py,npv,hashable,2026-09-30k,e382689e7c7fe5167d46481d568db5be80cc07d3,14021,2026-09-30,yes,git,git-tracked; audited via `git status`; moved 2026-09-30j
-20_CODE,rfa_terminal_value.py,npv,hashable,2026-10-02g,d015debe9e513bb604cfed1affc0299953684fea,34100,2026-10-02,yes,git,imported as module; Stage 4 fix is a reimplementation
+20_CODE,rfa_terminal_value.py,npv,hashable,2026-10-02k,86712faff73b3fd4271d1f5caf9c744fdff82e0c,31090,2026-10-02,yes,git,xNPV 1 only from v2.0; imported as module
 25_TESTS,run_stale_anchor_fix.py,goal,hashable,2026-09-30k,29c6528d981d4275f1cde216d71819690e012148,11667,2026-09-30,yes,git,git-tracked; audited via `git status`; moved 2026-09-30j
 20_CODE,score_state.py,xg,hashable,2026-09-09a,81e3d540c713a014dc673a552b7d2465b79e73a5,17151,2026-09-09,yes,git,git-tracked; audited via `git status`
-20_CODE,skater_forward_projection.py,skat,hashable,2026-10-02h,9bb196049ac230ce66ee631eb1fdf1ac9d99e21d,60196,2026-10-02,yes,git,comment only 2026-09-28 (superseded rate label)
+20_CODE,skater_forward_projection.py,skat,hashable,2026-10-02k,3b19bad2a2e5f96d0de309c319127bf7940ba232,29137,2026-10-02,yes,git,xNPV 1 only from v2.0 (xNPV 0 archived 2026-10-02); imported as module
 20_CODE,skater_value_engine.py,skat,hashable,2026-09-09a,bad20445153c30b0e5f542040ad60e1b8eba77ce,30633,2026-09-09,yes,git,imported as module; do not rename
 25_TESTS,term_premium_test.py,skat,hashable,2026-09-30k,d1999d49d08032e0d273ba8576fdc05f30f963ef,38573,2026-09-30,yes,git,git-tracked; audited via `git status`; moved 2026-09-30j
 25_TESTS,uncertainty_correction.py,skat,hashable,2026-09-30k,138805bb1db78da0a7456989fbe9e39afa2ee4d2,15702,2026-09-30,yes,git,git-tracked; audited via `git status`; moved 2026-09-30j
@@ -93,7 +93,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 00_STATE/sessions,2026-09-10f.md,state,hashable,2026-09-10f,4e95efc73035ce342897c513ae99e2a5e87118d4,2228,2026-09-10,yes,git,Docs 3-5 review; production unchanged
 40_DOCS,Docs_3_4_5_Review_Notes.md,doc,hashable,2026-09-30k,1a5f71d6cab5af7c733a4a81cf75960971fcf4a8,4436,2026-09-30,yes,git,Docs 3-5 review; production unchanged
 20_CODE,player_dashboard.py,npv,hashable,2026-10-02f,97d96cc01ef6461358e3d45907e451d0064e6ade,24502,2026-10-02,yes,git,"viewer; builds 30_OUTPUT/player_dashboard.html (embeds confidential PuckPedia data, never commit the output)"
-20_CODE,player_dashboard_template.html,npv,hashable,2026-09-28c,44fb158adaf53b64ef3ac18506322b3fbc3f629e,48158,2026-09-28,yes,git,template for player_dashboard.py; holds no data
+20_CODE,player_dashboard_template.html,npv,hashable,2026-10-02k,e109f0a5916fc09a021092a68b37379a19eee82b,48034,2026-10-02,yes,git,template for player_dashboard.py; holds no data
 40_DOCS/model_evidence,Aging_Curve_Coverage_Audit.md,age,hashable,2026-10-02d,a22d4cdd8087764b71efd65062a0f2a3a51e9787,6083,2026-10-02,yes,git,aging-curve coverage audit; production curve unchanged
 00_STATE/sessions,2026-09-13.md,state,hashable,2026-09-15,afa70fa77bfd6052665825269e78e2e1dc9a5843,5603,2026-09-15,yes,git,session log
 00_STATE/sessions,2026-09-13b.md,state,hashable,2026-09-15,1166fe2c207c3480a95d890e95cf49fe436d3ba4,8001,2026-09-15,yes,git,session log
@@ -154,23 +154,6 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 30_OUTPUT,component_persistence_test_summary.csv,player,hashable,2026-09-14d,3ed6cdfb946600ca3c8fb67585339b02b08e9ac5,593,2026-09-14,yes,local,Diagnostic output; production unchanged; generated and gitignored
 30_OUTPUT,component_persistence_test_run.json,player,hashable,2026-09-14d,fc4273ce10c170c71309a4c6b804d8140ee5bdb5,701,2026-09-14,yes,local,Diagnostic output; production unchanged; generated and gitignored
 30_OUTPUT,signing_date_audit_rows.csv,player,hashable,2026-09-14d,5fb4e421822fe9ae1e0ea6fb4bdd9e7ed7cfcd8c,220784,2026-09-14,yes,local,"Row-level audit; CONFIDENTIAL PuckPedia contract data; gitignored, never committed"
-50_REBUILD/code,ability_forecast.py,player,hashable,2026-09-24,e73971d46939bf972d1c08a29137485d436b0abe,94268,2026-09-24,yes,git,experimental rebuild tree; not production
-50_REBUILD/code,aging_additive.py,player,hashable,2026-09-28,023bf39893a34e0ec1bc226b02612a235fbf96da,29954,2026-09-28,yes,git,experimental rebuild tree; not production
-50_REBUILD/code,contract_price_model.py,player,hashable,2026-09-23,0ba314be55c4b3669172a2e8680d1a27f943f494,14401,2026-09-23,yes,git,experimental rebuild tree; not production
-50_REBUILD/code,contract_source.py,player,hashable,2026-09-14,83ba60baa4950e5311262045484df7d47d6676b3,11185,2026-09-14,yes,git,experimental rebuild tree; not production
-50_REBUILD/code,forecast_harness.py,player,hashable,2026-09-15,be630bd25bb738c9c31daff2f2df5b748d379a6f,20497,2026-09-15,yes,git,experimental rebuild tree; not production
-50_REBUILD/code,information_set.py,player,hashable,2026-09-14,f434aa4218608638c21ccb4fc1acf21a6f833b61,9339,2026-09-14,yes,git,experimental rebuild tree; not production
-50_REBUILD/code,participation_model.py,player,hashable,2026-09-23,26b904d1e9ddb803659080432d1dca47bdb5243f,25868,2026-09-23,yes,git,experimental rebuild tree; not production
-50_REBUILD/code,player_season_table.py,player,hashable,2026-09-15,fc04f72ecb1c4e9cdf6dbc714078e4de22ec2a82,28476,2026-09-15,yes,git,experimental rebuild tree; not production
-50_REBUILD/code,production_currency.py,player,hashable,2026-09-15,c0b40c02775e5142c263bdd4e30de5d3294c44dc,8027,2026-09-15,yes,git,experimental rebuild tree; not production
-50_REBUILD/code,rebuild_config.py,player,hashable,2026-10-02d,bba6e197769fdba246e8a2bd09dc49a5399927bd,28809,2026-10-02,yes,git,player-model evidence (moved from 50_REBUILD/docs 2026-10-02)
-50_REBUILD/code,run_bakeoff.py,player,hashable,2026-09-24,6fa5e04d43e958fedb6a2f714d60d66b9c289338,10100,2026-09-24,yes,git,experimental rebuild tree; not production
-50_REBUILD/code,run_curvature_test.py,player,hashable,2026-09-15,74b423e773d3bc4d5fc8541471afb011277eba5c,6543,2026-09-15,yes,git,experimental rebuild tree; not production
-50_REBUILD/code,run_phase0_acceptance.py,player,hashable,2026-09-15,2b0456b02404544b6f4185999b6a7f76c1c46c6e,6492,2026-09-15,yes,git,experimental rebuild tree; not production
-50_REBUILD/code,run_phase4_decisions.py,player,hashable,2026-09-15,05d611a484e5403dc55b750792c66fddfb9c5144,10094,2026-09-15,yes,git,experimental rebuild tree; not production
-50_REBUILD/code,run_player_comparison.py,player,hashable,2026-09-23,af30ae49e5cf40043625ba875498149d4180c8ce,13601,2026-09-23,yes,git,experimental rebuild tree; not production
-50_REBUILD/code,run_stress_tests.py,player,hashable,2026-09-24,22775224a282114799d832c3a3794016e8c379e4,9151,2026-09-24,yes,git,experimental rebuild tree; not production
-50_REBUILD/code,run_surplus.py,player,hashable,2026-09-15,42f4f99dc22bbb243adb15bca9b94adc5d83ac93,4742,2026-09-15,yes,git,experimental rebuild tree; not production
 40_DOCS/model_evidence,Aging_Design.md,player,hashable,2026-10-02d,d8224c84141800f6f417671fa3997dcab036eadf,7195,2026-10-02,yes,git,player-model evidence (moved from 50_REBUILD/docs 2026-10-02)
 40_DOCS/model_evidence,Phase0_Harness_Report.md,player,hashable,2026-10-02d,4f597cabeef3a5a611744cfb1dca5db910c53dfb,21514,2026-10-02,yes,git,player-model evidence (moved from 50_REBUILD/docs 2026-10-02)
 40_DOCS/model_evidence,Phase1_Bakeoff.md,player,hashable,2026-10-02d,91a5bd4308d9eb9c93b547ba6edd947ed402153f,11525,2026-10-02,yes,git,player-model evidence (moved from 50_REBUILD/docs 2026-10-02)
@@ -182,8 +165,6 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 40_DOCS/model_evidence,Phase5_StressTests.md,player,hashable,2026-10-02d,936a68fd6ef9573d4c780cb2b2f761521cb666c7,9419,2026-10-02,yes,git,player-model evidence (moved from 50_REBUILD/docs 2026-10-02)
 40_DOCS/model_evidence,Player_Comparison.md,player,hashable,2026-10-02d,7fcc4be015f0fa6f969827516add4867d1fc0e09,6765,2026-10-02,yes,git,player-model evidence (moved from 50_REBUILD/docs 2026-10-02)
 40_DOCS/model_evidence,variant_register.csv,player,hashable,2026-10-02d,54c3fb46329738bd17ecc7f79a118cd31ed3f9de,3831,2026-10-02,yes,git,player-model evidence (moved from 50_REBUILD/docs 2026-10-02)
-50_REBUILD,README.md,player,hashable,2026-10-02d,4130c1cde62bb119b3249137806b158a5d0d6141,5846,2026-10-02,yes,git,player-model evidence (moved from 50_REBUILD/docs 2026-10-02)
-20_CODE,valuation_walkthrough.py,age,hashable,2026-10-02e,40a8a3a61635ea634a044a4fb916983273e2eb1e,65347,2026-10-02,yes,git,"viewer; aging-curve walkthrough workbook for three traded forwards; verified on practice ages, real run pending"
 00_STATE,04_Discount_Heterogeneity_Sequence.md,state,hashable,2026-09-14,977882fb2f5d1cd9b6dda480e9103377c8aa3b4b,15428,2026-09-14,yes,git,git-tracked; added by the 2026-09-25c audit
 00_STATE,Design Questions.txt,state,hashable,2026-09-13,fe7ef83369d3d81aee6c4f8ef6f81bc9f9847bc2,1182,2026-09-13,yes,git,git-tracked; added by the 2026-09-25c audit
 00_STATE/sessions,2026-09-09b.md,state,hashable,2026-09-10,368804c3d60c30669bc8c3b142f81c994cd4cb52,2208,2026-09-10,yes,git,git-tracked; added by the 2026-09-25c audit
@@ -219,72 +200,6 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 40_DOCS/Supervisor_Drafts,"Data, Production, and Aging.docx",doc,rendition,2026-09-12,85fcb0a7d2a6469d8098382cc2b536d786d69156,24975,2026-09-12,yes,git,git-tracked; added by the 2026-09-25c audit
 40_DOCS/Supervisor_Drafts,"Draft Picks, Prospects, and the Remaining Trade Model.docx",doc,rendition,2026-09-12,227aaae98c437fc1aacf6350b4c870115ce72954,21801,2026-09-12,yes,git,git-tracked; added by the 2026-09-25c audit
 40_DOCS/Supervisor_Drafts,"Pricing, Control Years, and Contract Value.docx",doc,rendition,2026-09-12,418805ee34f7287898734d968e45b124559d68e2,20417,2026-09-12,yes,git,git-tracked; added by the 2026-09-25c audit
-50_REBUILD/code,control_years.py,player,hashable,2026-09-17,f62fa6d83f73b759ad00c015194199f12ee4beaa,30754,2026-09-17,yes,git,git-tracked; added by the 2026-09-25c audit
-50_REBUILD/code,dollar_scoring.py,player,hashable,2026-09-30d,cc591871ed111fa3fc0f781d5893627c17930ef9,13628,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit
-50_REBUILD/code,goalie_season_table.py,player,hashable,2026-09-17,d20ebd58900cc25ed131f9ada325b814369dafdb,8286,2026-09-17,yes,git,git-tracked; added by the 2026-09-25c audit
-50_REBUILD/code,npv_simulation.py,player,hashable,2026-09-22,061e8c911d0346d1326fb89ffd0767ba8980c36a,25483,2026-09-22,yes,git,git-tracked; added by the 2026-09-25c audit
-50_REBUILD/code,predictive_interval.py,player,hashable,2026-09-22,fb25eeeba6ecb8fd7a352830f57cc6bd5defb381,39658,2026-09-22,yes,git,git-tracked; added by the 2026-09-25c audit
-50_REBUILD/code,production_adapter.py,player,hashable,2026-10-02c,f5fd70249a2f6efc4df35155133981d4dadfdad0,14397,2026-10-02,yes,git,git-tracked; added by the 2026-09-25c audit
-50_REBUILD/code,repair_checks.py,player,hashable,2026-09-24,e526d68996636d669d05dfca054bec4a5cd1cc6d,122085,2026-09-24,yes,git,git-tracked; added by the 2026-09-25c audit
-50_REBUILD/code/reviews,review_acceptance.py,player,hashable,2026-09-30k,22fd1be1941f67d5141b64a5b2db045095f4b083,12702,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_acceptance_closure.py,player,hashable,2026-09-30k,13d7f689ce0a77107ee793566d2acd9890d8b4b7,7588,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_candidate_checks.py,player,hashable,2026-09-30k,db998b7a0f58cc96acfabdadae2f13523b872fa2,3400,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_control_repairs.py,player,hashable,2026-09-30k,cb17ef129eb775f48059e651ee3fbb3033daeee5,9038,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_control_years.py,player,hashable,2026-09-30k,bd491d100b7a66fc96171dabc2619ce76af015eb,5696,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_coverage_decomposition.py,player,hashable,2026-09-30k,3e447fe8b62201b70cd9c6e409b858bcf0a1ab28,5402,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_goalie_adoption_skater.py,player,hashable,2026-09-30k,2a5ef7b7673fbdcb988de58c1ecc31464d3acb04,4970,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_goalie_branch.py,player,hashable,2026-09-30k,870bc988c2d85555f863be7d029a1b6309d50758,7432,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_goalie_control.py,player,hashable,2026-09-30k,c230ee27f48657716eb68a8dfff94683ac9e069d,7790,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_goalie_control_repairs.py,player,hashable,2026-09-30k,1f7f06257cbf144f8d327448fe8539b709358db7,7802,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_goalie_participation.py,player,hashable,2026-09-30k,eb70a9ae95f61131e18740a7b79d27bbfa8e29d5,9332,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_goalie_participation_repairs.py,player,hashable,2026-09-30k,eb7a09fe63a8bce458c3071ee9fd4ce6fae7c7e7,7193,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_goalie_participation_split.py,player,hashable,2026-09-30k,35f28f931baaa6b4e13d99f0e2bab2dbc0d7c6ca,5430,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_goalie_participation_top.py,player,hashable,2026-09-30k,05beefcd99c87ea032eda9284cba64e49d57d373,6357,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_goalie_price.py,player,hashable,2026-09-30k,c37df834aeea227e9a84d1d6efcc31f66c21efae,7413,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_goalie_price_repairs.py,player,hashable,2026-09-30k,fa3c8a13b0622f54cc3f684b6e1ac1b01a0c93b6,8641,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_goalie_rate.py,player,hashable,2026-09-30k,ec7fa1fa2ff1be88c1010bdd8b2afdd7cf8a9e17,7904,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_goalie_rate_repairs.py,player,hashable,2026-09-30k,c052d7b1809b6f0f910895538d91ea60cdc22f2b,5479,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_goalie_repairs.py,player,hashable,2026-09-30k,d33156158412d6b965bb20ad38ac7773c0f0b539,10248,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_integration.py,player,hashable,2026-09-30k,945d2296e9f04ac8ba64af46383b2f129c6fe44f,11835,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_latest_pass.py,player,hashable,2026-09-30k,d43c43f538955d058c12509926fba179e5355d7c,7046,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_named_currency.py,player,hashable,2026-09-30k,0aa532855a09510a1941467c9a71d935c0341bdd,4399,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_npv_simulation.py,player,hashable,2026-09-30k,3db53b2abdba55e85a653102eebe4a3fd7b38a10,4072,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_repair_followup.py,player,hashable,2026-09-30k,a9598b22fd0ac84f3ffdb7482cdf79a38d2ff31f,4702,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_simulation_closure.py,player,hashable,2026-09-30k,eee66a0d3e9f517b2ab775c022848778c2194f07,3275,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_simulation_repairs.py,player,hashable,2026-09-30k,1427bab598687fab875c7c197124510266fdb488,3999,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_skater_signing.py,player,hashable,2026-09-30k,ab95346d984354cab3384e8d75010626c6251e23,4511,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_star_matched.py,player,hashable,2026-09-30k,c021c3e277f0a21a905cc433ed7579a6cefa8cac,5681,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_star_multi.py,player,hashable,2026-09-30k,2261db600244cfd1fd3dbd12f3ae3ec7491560d8,4906,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_star_recency.py,player,hashable,2026-09-30k,ba4173bf3f729f42ca15a41c8718d294d9bfb78d,5381,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_star_residual.py,player,hashable,2026-09-30k,f8bfd4e6ade17820f30f113af5bd350c347db0fe,6187,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_star_sustained.py,player,hashable,2026-09-30k,48d311636b66f023c9e1fd8b897e7f0609edc966,4599,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_star_walk.py,player,hashable,2026-09-30k,e93bfc27ecd30c5ebf6a62c8884d89348cad8131,5303,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_status_adoption.py,player,hashable,2026-09-30k,fcb6cae073968e2ea943787ad2ba841ad4c2f2b8,6439,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_status_closure.py,player,hashable,2026-09-30k,e1cc1bb5916a1c07a2d4b2b13f3e50a4f019b6f4,3919,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_uncertainty.py,player,hashable,2026-09-30k,c858ad26521b6524fcff8f12eea1944c0dd3bdd1,6590,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code/reviews,review_valuation_sensitivity.py,player,hashable,2026-09-30k,a65dbaa7bfa9aaa4c3ad02c801a0f2a90ea92c5b,7778,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
-50_REBUILD/code,run_contract_ablation.py,player,hashable,2026-09-22,269a9f7b9816d43f35b5f4a52ab4b4455fd7026a,5774,2026-09-22,yes,git,git-tracked; added by the 2026-09-25c audit
-50_REBUILD/code,run_control_years.py,player,hashable,2026-09-22,6d0d6c9b0b60b05b6b5e9feb3572494165f7abed,32818,2026-09-22,yes,git,git-tracked; added by the 2026-09-25c audit
-50_REBUILD/code,run_coverage_decomposition.py,player,hashable,2026-09-23,19a2bc0a4cf3e0780b7b9a61f5a2359b4f9dfb4f,19499,2026-09-23,yes,git,git-tracked; added by the 2026-09-25c audit
-50_REBUILD/code,run_goalie_bakeoff.py,player,hashable,2026-09-22,8e244f75ebcfef7e95ec10512021fb83c0c8b33a,34019,2026-09-22,yes,git,git-tracked; added by the 2026-09-25c audit
-50_REBUILD/code,run_goalie_control_years.py,player,hashable,2026-09-24,7a96f5cf1bcec482072e31a553e028427669b7b5,26869,2026-09-24,yes,git,git-tracked; added by the 2026-09-25c audit
-50_REBUILD/code,run_goalie_participation.py,player,hashable,2026-10-02d,ebace3d9b47e7879c466d1b084b2ab0b1e4dee17,17801,2026-10-02,yes,git,git-tracked; added by the 2026-09-25c audit
-50_REBUILD/code,run_goalie_participation_top.py,player,hashable,2026-09-23,ea79ad5df64dc26692774f1f1a03d34b94a86df0,17362,2026-09-23,yes,git,git-tracked; added by the 2026-09-25c audit
-50_REBUILD/code,run_goalie_price_line.py,player,hashable,2026-09-23,769931851e9f737d9df96f19e45bd153ffa85711,33282,2026-09-23,yes,git,git-tracked; added by the 2026-09-25c audit
-50_REBUILD/code,run_goalie_rate.py,player,hashable,2026-09-22,88c512ab19110209e36d4aef749c8fd268787c1f,24015,2026-09-22,yes,git,git-tracked; added by the 2026-09-25c audit
-50_REBUILD/code,run_leakage_tests.py,player,hashable,2026-09-23,e9a582bd9f4cee9eb84851fcba8d7bd6a0eda42f,19758,2026-09-23,yes,git,git-tracked; added by the 2026-09-25c audit
-50_REBUILD/code,run_model_scorecard.py,player,hashable,2026-09-24,918bf71d2a946bad4f9c1e96f302eee586f80820,10321,2026-09-24,yes,git,git-tracked; added by the 2026-09-25c audit
-50_REBUILD/code,run_npv_simulation.py,player,hashable,2026-09-24,2df7456c1d2a9ac62424d85464af805f14b78404,24860,2026-09-24,yes,git,git-tracked; added by the 2026-09-25c audit
-50_REBUILD/code,run_production_reconciliation.py,player,hashable,2026-09-17,305cd590c05c0ff8f7bc678d54d054b40f0fe72d,17319,2026-09-17,yes,git,git-tracked; added by the 2026-09-25c audit
-50_REBUILD/code,run_skater_contract_test.py,player,hashable,2026-09-23,2e2800ec73f797a8fb297960a4cfd3d7340347d4,15250,2026-09-23,yes,git,git-tracked; added by the 2026-09-25c audit
-50_REBUILD/code,run_skater_dollar_scoring.py,player,hashable,2026-09-24,5dea039c9a09cd1e01d807d00b31f2bd9c4b1f15,7497,2026-09-24,yes,git,git-tracked; added by the 2026-09-25c audit
-50_REBUILD/code,run_star_definition.py,player,hashable,2026-09-24,fb432d08513f000dc812eda054921f42bfa17a9a,10382,2026-09-24,yes,git,git-tracked; added by the 2026-09-25c audit
-50_REBUILD/code,run_star_residual.py,player,hashable,2026-09-24,094725ba02b3f5451d535de4897409dab02c8729,10442,2026-09-24,yes,git,git-tracked; added by the 2026-09-25c audit
-50_REBUILD/code,run_star_walk_diagnostic.py,player,hashable,2026-09-24,b8f59f83849a14fd7fac31790d8a8864d611779b,9483,2026-09-24,yes,git,git-tracked; added by the 2026-09-25c audit
-50_REBUILD/code,run_status_carry_sensitivity.py,player,hashable,2026-09-23,e84cca21839c8b873dde2d632d32662865cc555e,6614,2026-09-23,yes,git,git-tracked; added by the 2026-09-25c audit
-50_REBUILD/code,run_uncertainty.py,player,hashable,2026-09-23,14d6b8d3170d846706dcf12e9faa8a88ad993620,17936,2026-09-23,yes,git,git-tracked; added by the 2026-09-25c audit
-50_REBUILD/code,run_valuation_integration.py,player,hashable,2026-09-23,4bcf88f79e0a96611ecf8b2b84a63c945947e1e4,18137,2026-09-23,yes,git,git-tracked; added by the 2026-09-25c audit
-50_REBUILD/code,run_valuation_sensitivity.py,player,hashable,2026-09-23,c4393b8ad8c4570c84bb0f50ff63ed15d116af87,19394,2026-09-23,yes,git,git-tracked; added by the 2026-09-25c audit
 40_DOCS/model_evidence,Control_Years.md,player,hashable,2026-10-02d,42e4a58ee829dd2ab55e6aeb0e9bce179f6581c6,16864,2026-10-02,yes,git,git-tracked; added by the 2026-09-25c audit
 40_DOCS/model_evidence/reviews,Control_Years_Repair_Review_Codex.md,player,hashable,2026-10-02d,96d6b61abc7699339e4792d3ee28fe87e5a52342,7704,2026-10-02,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
 40_DOCS/model_evidence/reviews,Control_Years_Review_Codex.md,player,hashable,2026-10-02d,704db30031f193bcf8d3af76b8b119f981968c8d,9900,2026-10-02,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
@@ -356,24 +271,16 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 40_DOCS/model_evidence,council-report-2026-09-24-thesis-scope.html,player,hashable,2026-10-02d,abb324645db34d3fc67e7aeb4e9dde53f9278f44,20745,2026-10-02,yes,git,git-tracked; added by the 2026-09-25c audit
 40_DOCS/model_evidence,council-transcript-2026-09-24-thesis-scope.md,player,hashable,2026-10-02d,01578f757cc4e709597fc9f727a6fd9f476ccc01,18518,2026-10-02,yes,git,git-tracked; added by the 2026-09-25c audit
 00_STATE,inspection_ledger.csv,player,hashable,2026-10-02d,7a7e5d58293b5d2eab197b52f27c6a3bb20eaa03,54291,2026-10-02,yes,git,git-tracked; appended by the harness
-50_REBUILD/output,.gitignore,player,binary,2026-09-14,f56b1f4ae62aa76ebc4d930f424acd65173cffbf,293,2026-09-14,yes,git,git-tracked; added by the 2026-09-25c audit
 00_STATE/sessions,2026-09-28.md,state,hashable,2026-09-28k,9d04bbc988a5dcdd5e3c897e6c86624a0cada4ef,22914,2026-09-28,yes,git,session log
 25_TESTS,aging_arbitrary_choices_test.py,age,hashable,2026-09-30k,ea7e27c796f1c7a91d89a9c41447e3940adc8971,31183,2026-09-30,yes,git,"Aging hand-set choices test, current curve; production unchanged; moved 2026-09-30j"
-50_REBUILD/code,run_aging_choices_test.py,player,hashable,2026-09-30k,b02db9474d5f609996b401ada6a9c4e0a5e0bf05,25938,2026-09-30,yes,git,experimental rebuild tree; not production
 40_DOCS/model_evidence,Aging_Choices_Test.md,age,hashable,2026-10-02d,4f291ef46c5d758f0a80a287d95b5b8746f26c61,23050,2026-10-02,yes,git,"Aging hand-set choices and missing older careers, both models; production unchanged"
 25_TESTS,aging_ep_pool_test.py,age,hashable,2026-09-30k,74ed7156d5a2dcebf00a5c0046a0503ba523896b,15192,2026-09-30,yes,git,Aging pool with the Elite Prospects ages; production unchanged; moved 2026-09-30j
 25_TESTS,aging_weight_sweep_test.py,age,hashable,2026-09-30k,71b2cae162b909a81502ebe2d186927cffff7db2,15888,2026-09-30,yes,git,Aging group-weight sweep; production unchanged; moved 2026-09-30j
 20_CODE,npv_spine_compare.py,age,hashable,2026-09-28h,b1637377f30b3dfc5686a51da9f979d4aa52acae,7218,2026-09-28,yes,git,new 2026-09-28; production unchanged
-50_REBUILD/code,run_exit_hazard_window_test.py,player,hashable,2026-09-28h,a06765dc4079af0be0bfc55bd6c0a72f1b9472d7,9568,2026-09-28,yes,git,new 2026-09-28; production unchanged
 40_DOCS/model_evidence,Exit_Hazard_Window_Test.md,player,hashable,2026-10-02d,d3e526260ae1596c7bb39605265d5af413a3369e,6230,2026-10-02,yes,git,new 2026-09-28; production unchanged
 40_DOCS,Model_Changes_September_2026.md,player,hashable,2026-10-02d,ada4af3c99bc148dc4a11a577d183d7a8162ee43,10310,2026-10-02,yes,git,plain-English account of the 2026-09-28 model changes
-50_REBUILD/code,run_aging_method_test.py,player,hashable,2026-09-28k,dc19fed40296d162319bef63771be141f87dc396,13346,2026-09-28,yes,git,experimental rebuild tree; not production
 40_DOCS/model_evidence,Aging_Method_Test.md,player,hashable,2026-10-02d,a3f691695d365fe2e3d29d19b8c9eee6cfa894ff,5607,2026-10-02,yes,git,player-model evidence (moved from 50_REBUILD/docs 2026-10-02)
-50_REBUILD/code,run_step_attribution.py,player,hashable,2026-09-28l,47a689bd730f624bf923482fbd45cafb08c46ed5,11986,2026-09-28,yes,git,experimental rebuild tree; not production
 40_DOCS/model_evidence,Step_Attribution.md,player,hashable,2026-10-02d,92e6a1765faa01e57daa59446313ceb6e1f22a44,6556,2026-10-02,yes,git,player-model evidence (moved from 50_REBUILD/docs 2026-10-02)
-50_REBUILD/code,obvious_fixes.py,player,hashable,2026-09-30,4d9925fb90f4017193ce8963ab92e5738b3e0a2e,12707,2026-09-30,yes,git,experimental rebuild tree; not production
-50_REBUILD/code,run_obvious_fixes_test.py,player,hashable,2026-09-30,53ddbe126577ddab6dd47b59336254d33ae06742,9691,2026-09-30,yes,git,experimental rebuild tree; not production
-50_REBUILD/code,run_dollar_rescore.py,player,hashable,2026-09-30b,4f5feca88955c74f7cf1d6c893e40fa6f0612b93,8191,2026-09-30,yes,git,experimental rebuild tree; not production
 40_DOCS/model_evidence,Obvious_Fixes_Test.md,player,hashable,2026-10-02d,16a28fed6c53cb0d1c2800cc64a9f6d9a9b3b4ac,6121,2026-10-02,yes,git,player-model evidence (moved from 50_REBUILD/docs 2026-10-02)
 00_STATE/sessions,2026-09-28b.md,state,hashable,2026-09-28l,73fb0da4f095fbee626f0583fc58f7f404a6c104,7698,2026-09-28,yes,git,session log
 20_CODE,ep_nhl_bridge.py,prosp,hashable,2026-09-28k,05b61a52a83bed1eec0209c58f8a2b32582b9b33,10672,2026-09-28,yes,git,v1.0 new: EP id to NHL id bridge (proposal)
@@ -381,24 +288,16 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 20_CODE,slot_curve.py,draft,hashable,2026-09-28k,59b83aa95ab094a7a895fe4bc0edd86017b1f752,6476,2026-09-28,yes,git,v2.0 recreated 2026-09-28; imported by future_pick_premium
 20_CODE,dashboard_refresh.py,npv,hashable,2026-10-02f,7d0daf8a068a686d9e9b47e12e1029cca944e45e,17188,2026-10-02,yes,git,"launcher: re-runs every script the dashboard reads, then builds and opens it"
 .,Open-Dashboard.cmd,npv,hashable,2026-10-02f,0ff057dc3c2c441c19fbb312a8a0c11bc69179d2,1586,2026-10-02,yes,git,reopens the last dashboard build (2026-10-02)
-50_REBUILD/code,star_candidates.py,player,hashable,2026-09-30j,8b7fc84c4e9ba1672b2a761dbb5f473dca2f5798,16124,2026-09-30,yes,git,experimental rebuild tree; not production
-50_REBUILD/code,run_star_bias_test.py,player,hashable,2026-09-30b,e5cc3ffafbf6677527e2779cc3baab6f6725cad3,11619,2026-09-30,yes,git,experimental rebuild tree; not production
 40_DOCS/model_evidence,Star_Bias_Test.md,player,hashable,2026-10-02d,8cd34e7e78a5f4d0fed4e01d5110fe0e34f8204a,6559,2026-10-02,yes,git,player-model evidence (moved from 50_REBUILD/docs 2026-10-02)
 40_DOCS/model_evidence,Dollar_Rescore.md,player,hashable,2026-10-02d,e2ca4e07815d976db232675564b56a08eac65262,5307,2026-10-02,yes,git,player-model evidence (moved from 50_REBUILD/docs 2026-10-02)
-50_REBUILD/code,run_star_late_test.py,player,hashable,2026-09-30f,41d29bdd2fc26a63394b1430519a81922c889b50,10697,2026-09-30,yes,git,experimental rebuild tree; not production
 40_DOCS/model_evidence,Star_Late_Test.md,player,hashable,2026-10-02d,470e750b9b231a7131eec9725190648b4fc5487c,4486,2026-10-02,yes,git,player-model evidence (moved from 50_REBUILD/docs 2026-10-02)
-50_REBUILD/code,run_contract_status_test.py,player,hashable,2026-10-02b,90549d19d194c22a2d6680343bac5dd3a83b0ae9,14296,2026-10-02,yes,git,experimental rebuild tree; not production
 40_DOCS/model_evidence,Contract_Status_Test.md,player,hashable,2026-10-02d,e029c0c8aeac8cada2e2cc9843de9706b411628d,5425,2026-10-02,yes,git,player-model evidence (moved from 50_REBUILD/docs 2026-10-02)
-50_REBUILD/code,run_participation_drift_test.py,player,hashable,2026-09-30i,1f16b3e7f70efaab2a4703edc141fde60ee7857d,6955,2026-09-30,yes,git,experimental rebuild tree; not production
 40_DOCS/model_evidence,Star_Miss_Checks.md,player,hashable,2026-10-02d,11f661adaa320fa083421aa1f9029310c6d97ce6,6651,2026-10-02,yes,git,player-model evidence (moved from 50_REBUILD/docs 2026-10-02)
 00_STATE/sessions,2026-09-30.md,state,hashable,2026-09-30k,408e16b2dc4443d63eb1ee6ad4dc4ae60173a3ff,26475,2026-09-30,yes,git,session log
 25_TESTS,goalie_hazard_firth_check.py,tooling,hashable,2026-09-30k,9fa7fecbdb77786ff734cede0ca8349593d2fd5d,2821,2026-09-30,yes,git,finished test or diagnostic
 25_TESTS,integrate_branches.py,tooling,hashable,2026-09-30k,e71f81411167ae4cd13318680b978aba7d350d5f,22243,2026-09-30,yes,git,finished test or diagnostic
-50_REBUILD/code,README.md,player,hashable,2026-10-02d,3d03b9b6a6b8863166e07deef6278feb0c300dad,4251,2026-10-02,yes,git,player-model evidence (moved from 50_REBUILD/docs 2026-10-02)
-50_REBUILD/code,run_brier_gap_check.py,player,hashable,2026-09-30k,83b54231c3d727ff73d0403ba0ff7315c3c575ec,6212,2026-09-30,yes,git,experimental rebuild tree; not production
-50_REBUILD/code,run_xnpv1_holdout.py,player,hashable,2026-10-02d,beebb1dcc6fcbf0c95b0c0e796d3a1ea36278e43,11029,2026-10-02,yes,git,player-model evidence (moved from 50_REBUILD/docs 2026-10-02)
 40_DOCS/model_evidence,xNPV1_Migration_Plan.md,player,hashable,2026-10-02e,61ba575851409e2ac64c8e4a67b7680cbcd07468,14926,2026-10-02,yes,git,player-model evidence (moved from 50_REBUILD/docs 2026-10-02)
-.,CLAUDE.md,state,hashable,2026-10-02h,2f0cc43d544b968caef63998ff3dd8ce523c2ece,26453,2026-10-02,yes,git,project instructions
+.,CLAUDE.md,state,hashable,2026-10-02k,4181917083ea48c818bae7918bc109e4b839bccd,26565,2026-10-02,yes,git,project instructions
 00_STATE/sessions,2026-10-02.md,state,hashable,2026-10-02f,360c8f01eb444205184a2e216f7dc7cf9867ef8a,23560,2026-10-02,yes,git,session log
 25_TESTS,archive_from_git.py,tooling,hashable,2026-10-02,722928e1e2551052c2f6d83807db7646d931cce2,2787,2026-10-02,yes,git,finished test or diagnostic
 20_CODE,contract_source.py,player,hashable,2026-10-02c,7cc218712823831045bc21572a79be7003e6804a,6781,2026-10-02,yes,git,"xNPV 1, promoted 2026-10-02 (D33)"
@@ -411,6 +310,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,xnpv1_promotion_check.py,player,hashable,2026-10-02c,b8b524e96a22c84a0a256b60880a8d354eb28898,7047,2026-10-02,yes,git,finished test or diagnostic
 25_TESTS,xnpv1_switch_check.py,player,hashable,2026-10-02e,cb067c9a79cb8fff332740042f194a4785153662,6431,2026-10-02,yes,git,finished test or diagnostic
 .,Update-Dashboard.cmd,npv,hashable,2026-10-02f,ab0513d123b559300e811cc1fb2775f45ed63eb0,1813,2026-10-02,yes,git,rebuilds and opens the dashboard (was Open-Dashboard.cmd)
-20_CODE,xnpv1_price_line.py,player,hashable,2026-10-02h,ba38608d79450a1909ece7bd96ab8cb8c4fff610,13333,2026-10-02,yes,git,xNPV 1 price-per-win fit and its reproduction guard (laptop)
+20_CODE,xnpv1_price_line.py,player,hashable,2026-10-02k,50ff28fcdbc1c1f3e3642ca25e0bcaf2b3c6af44,13284,2026-10-02,yes,git,xNPV 1 price-per-win fit and its reproduction guard (laptop)
 25_TESTS,xnpv1_position_compression.py,player,hashable,2026-10-02h,53c882daaf66f221f48530bb87e6b18752ec28a6,4198,2026-10-02,yes,git,finished test or diagnostic
 40_DOCS/model_evidence,xNPV1_Price_Line.md,player,hashable,2026-10-02h,87dc31751567e331f7778e78cc59ba83cab80fa4,7251,2026-10-02,yes,git,xNPV 1 price line evidence
+25_TESTS,xnpv0_removal_check.py,player,hashable,2026-10-02k,49130927295d238c6705784770d093f357821e73,5999,2026-10-02,no,git,laptop check that archiving xNPV 0 moved no xNPV 1 value

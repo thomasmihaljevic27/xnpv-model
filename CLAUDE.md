@@ -55,10 +55,12 @@ No virtualenv convention is established yet. Stata or R on request only.
     40_DOCS/      reports, reviews, briefs; model_evidence/ holds the player-model test reports
                   and independent reviews behind D33 (moved from 50_REBUILD/docs/ 2026-10-02)
     90_ARCHIVE/   YYYY-MM-DD/ superseded material under original names. Gitignored
+    (50_REBUILD/  the player-model rebuild, retired 2026-10-02: code in git at 7f91f0e and in
+                  90_ARCHIVE/2026-10-02/ on the laptop; the folder name is gitignored)
 
 A test or diagnostic goes in `25_TESTS/` once its result is recorded (moved there 2026-09-30); a new
-one may start in `25_TESTS/` directly. `50_REBUILD/code/reviews/` and `40_DOCS/model_evidence/reviews/` hold
-the independent reviews' scripts and reports. `20_CODE` and `30_OUTPUT` are flat deliberately. Per-pillar subfolders were tried, sat empty
+one may start in `25_TESTS/` directly. `40_DOCS/model_evidence/reviews/` holds the independent reviews'
+reports; their scripts went to the archive with `50_REBUILD/`. `20_CODE` and `30_OUTPUT` are flat deliberately. Per-pillar subfolders were tried, sat empty
 for a month, then filled with duplicates and sync-conflict copies while real work happened in
 one flat directory.
 
@@ -71,28 +73,28 @@ Player pillar, in order:
     python 20_CODE/skater_value_engine.py        # Layer 1, observed-season value
     python 20_CODE/skater_forward_projection.py  # Layer 2, forward projection
     python 20_CODE/rfa_terminal_value.py         # terminal value at expiry
-    python 20_CODE/exit_hazard.py                # survival weights
+    python 20_CODE/exit_hazard.py                # exit-risk report; goalies' survival weights
     python 20_CODE/contract_npv.py               # summation, writes contract_npv_spine.csv
     python 20_CODE/contract_npv_panel.py         # panel build
 
-Skater contracts are priced on xNPV 1 (D33) from 2026-10-02: `skater_forward_projection.SKATER_MODEL`,
-environment variable `XNPV_SKATER_MODEL`, default `xNPV 1`. The forecast is `20_CODE/skater_forecast.py`
-(with `forecast_config.py`, `player_season_table.py`, `information_set.py`, `contract_source.py`,
-`participation_model.py`, `forecast_harness.py`); `contract_npv.py` fits it in-process, one fit per
-valuation page, and writes `30_OUTPUT/xnpv1_forecasts.csv`. It needs the contract export as CSV in
-SOURCE_DIR and an age table at 99%+ birthdates. `XNPV_SKATER_MODEL=xNPV 0` runs the old anchor-and-ratio
-projection, kept only for the switch comparison (`25_TESTS/xnpv1_switch_check.py`) and for the
-projection and terminal-value validation batteries, which test that machinery; it goes to 90_ARCHIVE once
-the comparison is accepted (migration plan, `40_DOCS/model_evidence/xNPV1_Migration_Plan.md`). The
-finished tests in `25_TESTS/` that build `NPVEngine` reproduce their recorded results only under
-`XNPV_SKATER_MODEL=xNPV 0`.
+Skater contracts are priced on xNPV 1 (D33), the only skater model since 2026-10-02. The forecast is
+`20_CODE/skater_forecast.py` (with `forecast_config.py`, `player_season_table.py`, `information_set.py`,
+`contract_source.py`, `participation_model.py`, `forecast_harness.py`); `contract_npv.py` fits it in-process,
+one fit per valuation page, and writes `30_OUTPUT/xnpv1_forecasts.csv`. It needs the contract export as CSV
+in SOURCE_DIR and an age table at 99%+ birthdates. Survival is xNPV 1's chance of playing; the skater exit
+hazard no longer prices anything (goalies still use theirs).
 
-xNPV 1's seasons and control years are priced by `skater_forward_projection.price_constants("xNPV 1")`.
-It returns `XNPV1_RATE` (locked 2026-10-02); set to None, xNPV 1 falls back to Stage 3, and every row's
-`price_line` column says which line priced it ("provisional" means Stage 3). `XNPV1_RATE` comes from
+xNPV 0, the old anchor-and-ratio projection, was archived on 2026-10-02 after the switch comparison was
+accepted (git 7f91f0e is the last commit that has it). `XNPV_SKATER_MODEL` set to anything but `xNPV 1` now
+stops the run. Finished tests in `25_TESTS/` that build `NPVEngine` on xNPV 0, or that import from
+`50_REBUILD/`, reproduce their recorded results only from a checkout of 7f91f0e.
+
+xNPV 1's seasons and control years are priced by `skater_forward_projection.price_constants()`. It returns
+`XNPV1_RATE` (locked 2026-10-02); set to None, it falls back to Stage 3, and every row's `price_line` column
+says which line priced it ("provisional" means Stage 3). `XNPV1_RATE` comes from
 `python 20_CODE/xnpv1_price_line.py`: the Stage 3 specification re-fitted on the same contracts with xNPV 1's
-valuation-season forecast as the input. Each re-run must give the lock back (its reproduction guard). xNPV 0 and the draft curve stay on Stage 3. Under xNPV 1, the D14(c) qualify rates are bucketed on
-xNPV 1's forecast (`rfa_terminal_value` v1.5).
+valuation-season forecast as the input. Each re-run must give the lock back (its reproduction guard). The
+draft curve stays on Stage 3. The D14(c) qualify rates are bucketed on xNPV 1's forecast.
 
 Player dashboard: double-click `Update-Dashboard.cmd` (or `python 20_CODE/dashboard_refresh.py`) to rebuild;
 `Open-Dashboard.cmd` only reopens the last build and shows when it was made.
@@ -130,7 +132,7 @@ Draft pillar:
   deliberate revisit. The skater price per win in force is the Stage 3 rate (locked 2026-07-28):
   left-censored at the league minimum, one intercept, a separate defence slope.
   alpha=0.0132478230, beta=0.0212322891 per win for forwards, plus 0.0028702824 for defencemen
-  (0.0241025715), all as cap shares. xNPV 0 and the draft curve use it. xNPV 1 prices on its own line
+  (0.0241025715), all as cap shares. The draft curve uses it (so did xNPV 0). xNPV 1 prices on its own line
   (D33 addendum, 2026-10-02): `XNPV1_RATE`, alpha=0.0076921739, beta=0.0308904772 per forecast win
   for forwards, plus 0.0146619104 for defencemen, the same specification fitted on xNPV 1's forecast. The
   pre-D20 rate (0.0184516 / 0.0202139) and the D20 rate (0.01831864 / 0.01924854) are retired;

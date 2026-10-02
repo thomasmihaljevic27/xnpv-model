@@ -4,6 +4,12 @@
                                                      (D20, 2026-07-05)
                                           review item 1.4 (2026-07-26)
 =============================================================================
+ NOTE 2026-10-02 (no code change): skater contracts no longer read this
+ table. xNPV 1, the only skater model since xNPV 0 was archived, uses its own
+ chance of playing (D33). contract_npv.py still builds the GOALIE table with
+ build_transitions / build_hazard_table, and this script's own run still
+ reports the skater table, for the record.
+=============================================================================
  WHAT CHANGED IN v1.3 (2026-09-30 -- a whole bucket with no exits)
  ----------------------------------------------------------------------
  The pre-valuation windows for pages 2010-2016 contain no star exit at all,

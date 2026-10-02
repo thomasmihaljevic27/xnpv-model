@@ -27,6 +27,10 @@ debug.log
 30_OUTPUT/
 Work/
 90_ARCHIVE/
+# The player-model rebuild, retired to 90_ARCHIVE 2026-10-02 (D33 migration;
+# its code is in git at 7f91f0e). Ignored so the untracked run outputs a
+# laptop still holds under 50_REBUILD/output/ cannot be committed by a sync.
+50_REBUILD/
 
 # --- Source data: ignore everything by default ---
 10_SOURCE/*

@@ -1,7 +1,18 @@
 """
 =============================================================================
- contract_npv.py   v1.6                             Phase 1d
+ contract_npv.py   v2.0                             Phase 1d
                                   xNPV 1 prices skater contracts (2026-10-02)
+=============================================================================
+ WHAT CHANGED IN v2.0 (2026-10-02): xNPV 0 ARCHIVED
+ --------------------------------------------------
+ Skaters are priced on xNPV 1 only. PV_k = (p_play_k x value_k - cap hit_k)
+ / 1.03^k, k = 0 included, with value_k on xNPV 1's own price line. Removed
+ with xNPV 0: the skater exit-hazard tables (h_sk_for, the per-page
+ transitions), the Layer 1 identity check (check [1a] is xNPV 1's own) and
+ the review-item-1.2 audit sweep (check [5]), which measured the old skater
+ hazard index. Goalies are untouched: their exit hazard, its k-1 indexing
+ and the goalie terminal value run exactly as before. The file as it stood
+ is in git at 7f91f0e.
 =============================================================================
  WHAT CHANGED IN v1.6 (the skater forecast is xNPV 1, decision D33)
  -------------------------------------------------------------------
@@ -187,12 +198,11 @@ import pandas as pd
 
 from skater_forward_projection import (SkaterProjector, cap_path,
                                        league_min_path, norm_name,
-                                       ALPHA, BETA, CAP_GROWTH, CAP_CEILING,
+                                       CAP_GROWTH, CAP_CEILING,
                                        contract_chain, check_as_of)
 from rfa_terminal_value import TerminalValuer, qualifying_offer
-from exit_hazard import (build_transitions, build_hazard_table, bucket, pre_valuation_window,
-                         T_EARLIEST, T_FIRST, T_LAST,
-                         age_group, report_item_14)
+from exit_hazard import (build_transitions, build_hazard_table, bucket,
+                         age_group, report_item_14)       # goalie hazard only (v2.0)
 
 from dotenv import load_dotenv
 
@@ -209,6 +219,7 @@ F_GOALIE_SPINE = OUTPUT_DIR / "goalie_value_spine_v2.csv"
 F_SEASON_SPINE = OUTPUT_DIR / "contract_season_spine.csv"
 OUT_SPINE = OUTPUT_DIR / "contract_npv_spine.csv"
 OUT_LOG = OUTPUT_DIR / "contract_npv_run_log.txt"
+SCRIPT_VERSION = "2.0"   # printed first in the run log (25_TESTS/xnpv0_removal_check.py reads it)
 
 # ---- locked goalie constants (P2 close-out, 2026-06-30) --------------------
 # The documented narrative values (alpha 1.398% cap, beta 1.097%/WAR, league
@@ -362,23 +373,13 @@ class GoalieProjector:
 
 class NPVEngine:
     def __init__(self):
-        # v1.2 audit switch. False is the corrected, locked pricing path
-        # (hazard indices read at k-1). True reproduces the v1.1 shifted
-        # lookup and is used ONLY by validate()'s [5] comparison sweep, so
-        # the size of the correction is recorded in the run log. Nothing in
-        # the pricing path ever sets it True.
+        # v1.2 goalie hazard index: False is the corrected, locked path (the
+        # hazard read at k-1). Nothing sets it True since the audit sweep that
+        # used it went with xNPV 0 (v2.0); it stays so the goalie path reads
+        # exactly as before.
         self.legacy_hazard_index = False
         self.sp = SkaterProjector()
         self.tv = TerminalValuer(self.sp)
-
-        # ---- skater exit-hazard tables: one per valuation page (v1.5) -----
-        # Every transition from the first WAR season is built once; each
-        # page's table is fitted on those it may use (pre_valuation_window).
-        # Same builder and guards as the standalone exit_hazard.py report.
-        self._d_sk_all = build_transitions(SOURCE_DIR / "WAR.csv",
-                                           OUTPUT_DIR / "WAR_with_age.csv",
-                                           t_first=T_EARLIEST, t_last=T_LAST)
-        self._h_sk = {}
 
         # ---- goalie panel + hazard -----------------------------------------
         full = pd.read_csv(F_SEASON_SPINE)
@@ -409,24 +410,6 @@ class NPVEngine:
         self._d_g = d_g                      # kept for the validation report
 
     # ---- survival helpers ----------------------------------------------------
-    def h_sk_for(self, t0):
-        """The skater exit-hazard table a valuation in season t0 may use
-        (v1.5, D18 revision). t0=None is the pre-revision 2018-2024 table,
-        kept only for recorded experiments; pricing never passes it."""
-        key = None if t0 is None else int(t0)
-        if key not in self._h_sk:
-            lo, hi = (T_FIRST, T_LAST) if key is None else pre_valuation_window(key)
-            d = self._d_sk_all[self._d_sk_all["t"].between(lo, hi)]
-            self._h_sk[key] = build_hazard_table(d)
-        return self._h_sk[key]
-
-    @property
-    def h_sk(self):
-        raise AttributeError(
-            "NPVEngine.h_sk was the single 2018-2024 skater hazard table, removed in "
-            "v1.5 (2026-09-28): use h_sk_for(t0) for the page being valued, or "
-            "h_sk_for(None) for the pre-revision table in a recorded experiment.")
-
     def _hazard(self, table, pw, age):
         """One-year exit probability for a projected quality + age. Falls
         back to the bucket marginal when age is unknown or the cell empty."""
@@ -452,32 +435,12 @@ class NPVEngine:
         pr = self.sp.project_contract(pid, t0, as_of)
         if pr.empty:
             return pr, {"status": "unpriced_no_anchor"}
-        age0 = pr.iloc[0]["age_at_valuation"]
-        det, S = [], 1.0
-        prev_war = None                  # v1.2: quality in season k-1
-        xnpv1 = self.sp.model == "xNPV 1"
+        det = []
         for _, r in pr.iterrows():
             k = int(r["k"])
-            if xnpv1:
-                # v1.6: xNPV 1's chance he plays season k, k = 0 included,
-                # read directly (each season's probability, not a chain).
-                S = float(r["p_play"])
-            elif k > 0:      # S_0 = 1: current season carries no exit discount
-                # REVIEW ITEM 1.2. The hazard cell is defined on the state in
-                # the season the player is LEAVING, so both indices read k-1.
-                # legacy_hazard_index reproduces the v1.1 (shifted) lookup and
-                # exists only for the audit sweep in validate() -- it is never
-                # the pricing path.
-                assert prev_war is not None, \
-                    "k>0 reached with no k-1 projection -- projection rows " \
-                    "are out of order, the hazard index would be undefined"
-                h_age = (None if age0 is None else
-                         age0 + (k if self.legacy_hazard_index else k - 1))
-                h_war = (r["projected_war"] if self.legacy_hazard_index
-                         else prev_war)
-                h = self._hazard(self.h_sk_for(t0), h_war, h_age)   # v1.5: this page's table
-                S *= (1.0 - h)
-            prev_war = r["projected_war"]
+            # xNPV 1's chance he plays season k, k = 0 included, read directly
+            # (each season's own probability, not a chain of exits).
+            S = float(r["p_play"])
             disc = (1 + G) ** (-k)
             pv = (S * r["value_dollars"] - r["cost_dollars"]) * disc
             det.append({**r, "row_type": "contract", "survival": S,
@@ -657,7 +620,7 @@ def _check_xnpv1_valuation_season(eng, l1):
         assert abs(float(r0["proj_sd_war"]) - war_if_plays_sd(0)) < 1e-12, "valuation-season spread"
         checked += 1
     log(f"\n[1a] skater valuation season under xNPV 1: {checked} sampled rows carry xNPV 1's own")
-    log(f"     forecast (largest gap {worst:.1e}); the Layer 1 identity holds for xNPV 0 only")
+    log(f"     forecast (largest gap {worst:.1e})")
     assert checked >= 50 and worst < 1e-12, "valuation seasons do not carry xNPV 1's forecast"
 
 
@@ -665,46 +628,14 @@ def validate():
     eng = NPVEngine()
     log("=" * 74)
     log("PHASE 1d VALIDATION BATTERY")
+    log(f"contract_npv.py v{SCRIPT_VERSION}")
     log("=" * 74)
 
     log(f"  skater model: {eng.sp.model}")
     # ---- 1. k=0 consistency, both positions ---------------------------------
     l1 = pd.read_csv(OUTPUT_DIR / "skater_value_spine.csv")
     l1 = l1[l1["trailing_war"].notna() & l1["season_start"].between(2018, 2025)]
-    if eng.sp.model == "xNPV 1":
-        _check_xnpv1_valuation_season(eng, l1)
-    diffs, checked, worst = [], 0, None
-    for _, r in (l1.sample(200, random_state=11) if eng.sp.model == "xNPV 0"
-                 else l1.iloc[0:0]).iterrows():
-        d, s = eng.npv(int(r["player_id"]), int(r["season_start"]))
-        if s.get("status") != "ok":
-            continue
-        r0 = d[(d["k"] == 0) & (d["row_type"] == "contract")]
-        if r0.empty or r0.iloc[0]["contract_id"] != r["contract_id"]:
-            continue
-        checked += 1
-        diff = abs(r0.iloc[0]["value_dollars"] - r["value_dollars"])
-        diffs.append(diff)
-        if worst is None or diff > worst[0]:
-            worst = (diff, r, r0.iloc[0])
-    if eng.sp.model == "xNPV 0":
-        log(f"\n[1a] skater k=0 value vs Layer 1: {checked} rows, "
-            f"max diff ${max(diffs):,.2f}")
-    if diffs and max(diffs) >= 1.0:
-        wd, wr, wr0 = worst
-        log("    !! MISMATCH DETAIL (diagnose before trusting anything downstream) !!")
-        log(f"    player: {wr['full_name']}   season: {int(wr['season_start'])}   "
-            f"contract_id: {wr['contract_id']}")
-        log(f"    Layer 1 spine  -- trailing_war={wr['trailing_war']:.4f}  "
-            f"war_source={wr['war_source']}  value=${wr['value_dollars']:,.2f}")
-        log(f"    NPV engine     -- anchor={wr0['anchor_war']:.4f}  "
-            f"anchor_source={wr0['anchor_source']}  value=${wr0['value_dollars']:,.2f}")
-        log("    If trailing_war != anchor: the two files disagree on this")
-        log("    player's trailing WAR -- almost always a stale/mismatched copy")
-        log("    of skater_value_spine.csv, WAR.csv, or contract_season_spine.csv.")
-        log("    Re-run age_join.py -> skater_value_engine.py -> contract_npv.py")
-        log("    fresh, all reading the SAME current data files.")
-    assert not diffs or max(diffs) < 1.0, "k=0 must reproduce Layer 1 exactly"
+    _check_xnpv1_valuation_season(eng, l1)
 
     gv = pd.read_csv(F_GOALIE_SPINE)
     gv = gv[gv["season_start"].between(2018, 2025)
@@ -755,10 +686,7 @@ def validate():
               .groupby("contract_id").head(1))
     firsts = firsts[firsts["season_start"].between(2018, 2025)]
     def _sweep(engine):
-        """One full pass over every contract's first 2018-2025 season.
-        Factored out in v1.2 so the same sweep can be run under the legacy
-        hazard index for the [5] comparison, with no risk of the two paths
-        drifting apart."""
+        """One full pass over every contract's first 2018-2025 season."""
         out = []
         for _, r in firsts.iterrows():
             d, s = engine.npv(int(r["player_id"]), int(r["season_start"]))
@@ -777,7 +705,7 @@ def validate():
         return pd.DataFrame(out)
 
     assert eng.legacy_hazard_index is False, \
-        "the priced sweep must run on the corrected hazard index"
+        "the priced sweep must run on the corrected goalie hazard index"
     dfo = _sweep(eng)
     dfo.to_csv(OUT_SPINE, index=False)
     log(f"    priced: {len(dfo):,} contracts "
@@ -817,70 +745,11 @@ def validate():
         f"terminal {s['npv_terminal']/1e6:+.2f}; "
         f"undiscounted {s['surplus_no_survival']/1e6:+.2f})")
 
-    if eng.sp.model == "xNPV 1":
-        p = eng.sp.forecaster.write(OUTPUT_DIR / "xnpv1_forecasts.csv")
-        log(f"\n    xNPV 1 forecasts used by this run written: {p}")
-        log("\n[5] review item 1.2 (the exit-hazard index audit) -- not applicable: under")
-        log("    xNPV 1 no skater survival is read from the exit hazard.")
-        Path(OUT_LOG).write_text("\n".join(LOG), encoding="utf-8")
-        log(f"\nrun log written: {OUT_LOG}")
-        log(f"NPV spine written: {OUT_SPINE}")
-        return
-
-    # ---- 5. review item 1.2: how much did the index correction move? --------
-    # Re-runs the identical sweep with the v1.1 shifted lookup and diffs it.
-    # This is an audit, not a pricing path: the spine on disk is the corrected
-    # run above, and the flag is reset before anything else can read it.
-    log("\n[5] review item 1.2 -- survival lookup indexed at k-1 (both axes).")
-    log("    Comparison against the v1.1 shifted lookup. The corrected run is")
-    log("    what was written to disk; this is the size of the correction.")
-    eng.legacy_hazard_index = True
-    try:
-        dlg = _sweep(eng)
-    finally:
-        eng.legacy_hazard_index = False
-    assert eng.legacy_hazard_index is False, "audit flag left set"
-
-    j = dfo.merge(dlg, on=["contract_id", "valuation_season"],
-                  suffixes=("_fix", "_lg"))
-    assert len(j) == len(dfo) == len(dlg), \
-        "the two sweeps priced different contract sets -- not comparable"
-    d = j["npv_total_fix"] - j["npv_total_lg"]
-    moved = d.abs() > 1_000            # $1k: below this is float noise
-    # NEGATIVE TEST: a one-season contract has no k>0 row, so no hazard is
-    # ever applied to it. If any single-season contract moves, the patch is
-    # touching something it should not.
-    assert (j.loc[moved, "n_seasons_fix"] > 1).all(), \
-        "a single-season contract moved -- the hazard patch has side effects"
-    log(f"    contracts moved: {int(moved.sum()):,} of {len(j):,} "
-        f"({100*moved.mean():.1f}%)   {int((d > 1_000).sum()):,} up / "
-        f"{int((d < -1_000).sum()):,} down")
-    log(f"    on moved contracts: mean ${d[moved].mean()/1e6:+.3f}M   "
-        f"median ${d[moved].median()/1e6:+.3f}M   "
-        f"range ${d[moved].min()/1e6:+.2f}M to ${d[moved].max()/1e6:+.2f}M")
-    log(f"    aggregate NPV shift: ${d.sum()/1e6:+.1f}M")
-    for pos in ["skater", "goalie"]:
-        mp = moved & (j["position_fix"] == pos)
-        if mp.any():
-            log(f"      {pos:7s}: {int(mp.sum()):,} moved, "
-                f"net ${d[mp].sum()/1e6:+.1f}M")
-    jj = j.assign(d=d).sort_values("d", ascending=False)
-    log("    largest upward (v1.1 was overstating exit risk):")
-    for _, r in jj.head(5).iterrows():
-        log(f"      {r['full_name_fix']:24s} {int(r['valuation_season'])} "
-            f"{int(r['n_seasons_fix'])}yr  ${r['npv_total_lg']/1e6:+7.2f}M -> "
-            f"${r['npv_total_fix']/1e6:+7.2f}M  ({r['d']/1e6:+.2f}M)")
-    log("    largest downward -- young players on long deals, whose true")
-    log("    k-1 quality is lower than the shifted lookup used:")
-    for _, r in jj.tail(4).iloc[::-1].iterrows():
-        log(f"      {r['full_name_fix']:24s} {int(r['valuation_season'])} "
-            f"{int(r['n_seasons_fix'])}yr  ${r['npv_total_lg']/1e6:+7.2f}M -> "
-            f"${r['npv_total_fix']/1e6:+7.2f}M  ({r['d']/1e6:+.2f}M)")
-
+    p = eng.sp.forecaster.write(OUTPUT_DIR / "xnpv1_forecasts.csv")
+    log(f"\n    xNPV 1 forecasts used by this run written: {p}")
     Path(OUT_LOG).write_text("\n".join(LOG), encoding="utf-8")
     log(f"\nrun log written: {OUT_LOG}")
     log(f"NPV spine written: {OUT_SPINE}")
-
 
 if __name__ == "__main__":
     validate()

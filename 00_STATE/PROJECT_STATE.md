@@ -1,5 +1,18 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**xNPV 0 archived; xNPV 1 is the only skater model, 2026-10-02k.**
+- **Accepted:** Thomas accepted the switch comparison; the defence questions wait.
+- **Code:**
+  - `skater_forward_projection.py`, `rfa_terminal_value.py` and `contract_npv.py` are each v2.0,
+    on xNPV 1 only. The skater exit-hazard path and the switch are gone; goalies are untouched.
+  - `XNPV_SKATER_MODEL` set to anything but xNPV 1 stops the run.
+  - The projection and terminal-value validation batteries now test xNPV 1.
+- **Removed from the tree:** `valuation_walkthrough.py` and `50_REBUILD/`. The last commit holding
+  them is `7f91f0e`, and the folder name is gitignored.
+- **Checked:** cloud, synthetic spine, 3,312 numbers identical before and after.
+- **Owed on the laptop:** the real-spine check (`25_TESTS/xnpv0_removal_check.py`), the archive
+  copies, then the dashboard refresh.
+
 **Switch comparison on xNPV 1's own line, 2026-10-02j.**
 - **Goalies:** unchanged.
 - **Skaters:** net +$2,199.8M against xNPV 0 on 2,591 contracts (contract part +$2,129.0M,
