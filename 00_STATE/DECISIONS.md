@@ -2388,3 +2388,37 @@ decision.
 - **Ledger:** three lines, labelled CLOUD CODE TEST, record that a code test scored the 2022-2025
   pages (STANDING_FLAGS).
 - PROJECT_STATE, WORK_QUEUE, STANDING_FLAGS, session log and `CLAUDE.md` updated (two rules added).
+
+## D33 confirmation, 2026-10-02 — the one confirmatory run on 2022-2025
+
+**Run by Thomas on the laptop** (`run_xnpv1_holdout.py` v1.1). The rule was declared in the runner
+before the run.
+
+- **Result: xNPV 1 is CONFIRMED against xNPV 0.** On 9,063 forecasts (1,171 players, zero to three
+  seasons ahead):
+  - season-WAR RMSE 0.9003 against 0.9788;
+  - lower in 2,000 of 2,000 player resamples on squared error, absolute error and Brier.
+- **Reported, not decided: against xNPV 1 without contract status.** RMSE 0.9022; xNPV 1 is lower in
+  1,999 of 2,000 on squared error and 2,000 on Brier. This supports D33's deliberate contract-status
+  choice on seasons it was not made on.
+- **Two qualifications. Both must travel with any report of this result.**
+  1. **The pages were partly seen before the run.** A cloud code test of v1.0 scored xNPV 0 and the
+     no-contract twin on them (STANDING_FLAGS, ledger lines labelled CLOUD CODE TEST).
+  2. **The run used a faulty production age table.** The laptop's `WAR_with_age.csv` had birthdates
+     on 70.9% of rows instead of 99.9%. Both xNPV 1's comparable-player curve and xNPV 0's exit risk
+     are fitted on it (session 2026-10-02).
+- **Recommended, for Thomas to confirm:** once the table is rebuilt, re-run once with `--rerun
+  "production age table at 70.9% birthdates"`, under the same rule. Report both runs. The rebuilt
+  table's run becomes the confirmation of record, because the fault is in an input both arms share
+  and the rule does not change.
+
+### Change log, 2026-10-02 (confirmation; age-table fault; migration decisions)
+
+- D33's confirmation recorded above.
+- `ep_age_scraper.py` retired from `20_CODE/` (replaced by `ep_extract.py`). New
+  `25_TESTS/archive_from_git.py` v1.0.
+- `50_REBUILD/docs/xNPV1_Migration_Plan.md` v2 records Thomas's three answers: production keeps its
+  own copy; xNPV 0 and `50_REBUILD/` go to the archive; the valuation season's chance of playing
+  comes from the forecast. Still owed: the floor spread, and where the evidence documents and the
+  ledger live.
+- PROJECT_STATE, WORK_QUEUE, STANDING_FLAGS and the session log `sessions/2026-10-02.md` updated.
