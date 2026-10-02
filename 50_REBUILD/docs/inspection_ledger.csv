@@ -593,3 +593,12 @@ utc,runner,kind,keys,reserved_keys,reason
 2026-10-02T19:37:22Z,forecast_harness,forecast page,2015 2016 2017 2018 2019 2020 2021,,
 2026-10-02T20:02:30Z,forecast_harness,forecast page,2015 2016 2017 2018 2019 2020 2021,,
 2026-10-02T20:02:49Z,forecast_harness,forecast page,2015 2016 2017 2018 2019 2020 2021,,
+2026-10-02T20:15:39Z,forecast_harness,forecast page,2015 2016 2017 2018 2019 2020 2021,,
+2026-10-02T20:15:55Z,forecast_harness,forecast page,2015 2016 2017 2018 2019 2020 2021,,
+2026-10-02T20:16:15Z,forecast_harness,forecast page,2015 2016 2017 2018 2019 2020 2021,,
+2026-10-02T20:16:26Z,forecast_harness,forecast page,2015 2016 2017 2018 2019 2020 2021,,
+2026-10-02T20:16:34Z,forecast_harness,forecast page,2015 2016 2017 2018 2019 2020 2021,,
+2026-10-02T20:16:46Z,run_contract_status_test,market cohort,2015 2016 2017 2018 2019 2020 2021,,
+2026-10-02T20:27:08Z,forecast_harness,forecast page,2022 2023 2024 2025,2022 2023 2024 2025,"D33 confirmation: xNPV 1 against xNPV 0, season WAR, rule declared in run_xnpv1_holdout.py v1.0 (1,950 of 2,000); RERUN: production age table at 70.9% birthdates"
+2026-10-02T20:27:54Z,forecast_harness,forecast page,2022 2023 2024 2025,2022 2023 2024 2025,"D33 confirmation: xNPV 1 against xNPV 0, season WAR, rule declared in run_xnpv1_holdout.py v1.0 (1,950 of 2,000); RERUN: production age table at 70.9% birthdates"
+2026-10-02T20:28:23Z,forecast_harness,forecast page,2022 2023 2024 2025,2022 2023 2024 2025,"D33 confirmation: xNPV 1 against xNPV 0, season WAR, rule declared in run_xnpv1_holdout.py v1.0 (1,950 of 2,000); RERUN: production age table at 70.9% birthdates"
