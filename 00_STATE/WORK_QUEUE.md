@@ -1,30 +1,27 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
-**xNPV 1 follow-ups, updated 2026-10-02: open, in order.**
+**xNPV 1 follow-ups, updated 2026-10-02c: open, in order.**
 1. **Supervisor review of each change** (in person). Bring:
    - the five changes;
    - the three locked decisions revised (D3, D12 v3, D18);
-   - the contract-status choice;
-   - the 2022-2025 confirmation and its two qualifications.
+   - contract status, now a pass on the rebuilt table;
+   - the 2022-2025 confirmation of record and its qualification (pages partly seen).
    Relabel the speaking notes and the step-by-step document to xNPV 0 / xNPV 1.
-2. **Fix the laptop's production age table** (step 0 of the migration):
-   - DONE 2026-10-02: the file was last written 2026-07-28 (Pass 4 EP matches 0); rebuilt to 99.94%;
-   - re-run `python 20_CODE\age_join.py`;
-   - confirm coverage with `python 50_REBUILD\code\run_brier_gap_check.py` (expect about 99.9% and
-     a Brier near 0.192).
-3. **Then re-run, on the rebuilt table:**
-   - `run_contract_status_test.py` (D33's evidence);
-   - `run_xnpv1_holdout.py --rerun "production age table at 70.9% birthdates"`, if Thomas confirms
-     the recommendation in DECISIONS;
-   - the dashboard refresh.
-4. **Migration choices owed** (`xNPV1_Migration_Plan.md` v2):
-   - the floor spread (recommended: re-derive from xNPV 1's errors, valuation season included);
-   - documents and ledger (recommended: `40_DOCS/model_evidence/` and `00_STATE/`, archive only the
-     code).
-5. **Build the migration** (plan steps 1-5) after 2-4.
-6. **Laptop:** `python 25_TESTS\archive_from_git.py 02f6fda 2026-10-02 20_CODE/ep_age_scraper.py`
-   writes the retired scraper's archive copy.
-7. **Carry:** whether to test the nine-season participation window on xNPV 1.
+2. **Laptop:** `python 25_TESTS\xnpv1_promotion_check.py`. It needs the real export and should
+   print PASS three times.
+3. **Thomas:** the last day of the 2025-26 regular season, for `information_set.SEASON_END`.
+4. **Migration step 2:** wire `skater_forecast.XNPV1` into `contract_npv.py` and
+   `rfa_terminal_value.py`:
+   - the valuation season's chance of playing from the forecast;
+   - the floor spread from `WAR_IF_PLAYS_MAE`;
+   - forecasts written to `30_OUTPUT/xnpv1_forecasts.csv`.
+   Then the dashboard refresh and the spine comparison on the laptop.
+5. **Documents and ledger:** recommended `40_DOCS/model_evidence/` and `00_STATE/`. Thomas has
+   not answered yet. Then archive the rest of `50_REBUILD/` with `archive_from_git.py`.
+6. **Laptop:** `python 25_TESTS\archive_from_git.py 02f6fda 2026-10-02 20_CODE/ep_age_scraper.py`.
+7. **Carry:**
+   - the nine-season participation window;
+   - the long-deal gap (six-to-eight-year bias −$5.69M against xNPV 0's −$4.78M).
 
 **Model choice, 2026-09-30i: DECIDED 2026-09-30j (D33): Model 6, now named xNPV 1.**
 - Candidates: Model 3, Model 6 (+ contract status), and either with participation fitted on the last

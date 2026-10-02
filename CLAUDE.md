@@ -73,6 +73,11 @@ Player pillar, in order:
     python 20_CODE/contract_npv.py               # summation, writes contract_npv_spine.csv
     python 20_CODE/contract_npv_panel.py         # panel build
 
+xNPV 1, the adopted skater forecast (D33), is promoted but not yet wired in: `20_CODE/skater_forecast.py`
+with `forecast_config.py`, `player_season_table.py`, `information_set.py`, `contract_source.py`,
+`participation_model.py` and `forecast_harness.py`. Until `contract_npv.py` is switched (migration plan,
+`50_REBUILD/docs/xNPV1_Migration_Plan.md`), the chain above prices on xNPV 0.
+
 Player dashboard: double-click `Open-Dashboard.cmd` (or `python 20_CODE/dashboard_refresh.py`).
 It re-runs everything the dashboard reads, from `join_clauses_to_spine.py` and `age_join.py`
 through the chain above plus `goalie_value_engine.py`, then builds and opens

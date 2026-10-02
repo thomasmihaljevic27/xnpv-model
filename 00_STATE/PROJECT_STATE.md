@@ -1,5 +1,15 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**xNPV 1 promoted into 20_CODE; evidence re-run on the rebuilt age table, 2026-10-02c.**
+- **Contract status now passes its declared bar** (1,985 of 2,000; it was 1,925 on the faulty
+  table).
+- **Confirmation of record:** 0.9001 against xNPV 0's 0.9724, 2,000 of 2,000.
+- **Promoted:** `20_CODE/skater_forecast.py` (xNPV 1), `forecast_config.py` and copies of five
+  supporting modules. They reproduce the adopted class exactly in a cloud check with synthetic
+  contracts. The laptop check with the real export is owed.
+- **Not yet wired:** `contract_npv.py` still prices on xNPV 0.
+- **Next prerequisite:** the 2025-26 season's last day for `information_set.SEASON_END`.
+
 **xNPV 1 confirmed on 2022-2025; laptop age table found faulty, 2026-10-02.**
 - **Confirmation** (laptop, one-time run): season-WAR RMSE 0.9003 against xNPV 0's 0.9788, lower in
   2,000 of 2,000 resamples. Without contract status: 0.9022, beaten in 1,999.
