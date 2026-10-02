@@ -131,4 +131,4 @@ eight changed contract IDs use the `goalie_rate_` prefix under
 `50_REBUILD/output/`; none is committed. The bridge mode changes only in-memory
 behavior to measure the identified inconsistency. No candidate implementation edit,
 merge, source write, canonical production write or adoption. All rebuild documents
-remain under `50_REBUILD/docs/`.
+remain under `40_DOCS/model_evidence/`.

@@ -11,7 +11,7 @@
  curve_for(t0) fits one curve per valuation page on seasons that started
  before t0 (AgingModel(before=t0)), cached per page, and ratio_path() takes t0
  and REQUIRES it, so no caller can fall back to the whole-file fit without
- saying so. Evidence: 50_REBUILD/docs/Aging_Choices_Test.md (the pre-valuation
+ saying so. Evidence: 40_DOCS/model_evidence/Aging_Choices_Test.md (the pre-valuation
  fit costs 1.73% season-WAR RMSE in the live chain on the live age table, 0.84%
  once age_join.py's Elite Prospects pass is restored). Not changed: the exit
  hazard, which is still estimated on every season (an open item).

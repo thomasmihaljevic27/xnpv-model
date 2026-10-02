@@ -10,7 +10,7 @@
  read exits from 2019-2025. h_sk_for(t0) now fits one table per valuation
  page on transitions 2007 .. t0-2 (exit_hazard.pre_valuation_window), the
  same builder and guards as before, cached per page. Evidence:
- 50_REBUILD/docs/Exit_Hazard_Window_Test.md (Brier -5.8%, season-WAR RMSE
+ 40_DOCS/model_evidence/Exit_Hazard_Window_Test.md (Brier -5.8%, season-WAR RMSE
  -0.32% on the forecast harness). NOT changed: the goalie table, the D14(c)
  control-year chain (which never used the hazard), the k-1 indexing (v1.2).
 =============================================================================

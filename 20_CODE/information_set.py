@@ -47,7 +47,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import forecast_config as C
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 
 # Last day of each NHL REGULAR season, by season start year. `True` marks a
 # date carried deliberately; anything absent falls back to 30 June (see above).
@@ -64,6 +64,7 @@ SEASON_END: dict[int, date] = {
     2016: date(2017, 4, 9), 2017: date(2018, 4, 7), 2018: date(2019, 4, 6),
     2019: date(2020, 3, 12), 2020: date(2021, 5, 19), 2021: date(2022, 4, 29),
     2022: date(2023, 4, 13), 2023: date(2024, 4, 18), 2024: date(2025, 4, 17),
+    2025: date(2026, 4, 16),   # confirmed by Thomas 2026-10-02
 }
 
 AVAILABILITY_LAG_DAYS = 30

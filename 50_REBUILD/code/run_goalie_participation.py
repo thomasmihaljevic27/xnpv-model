@@ -109,7 +109,7 @@ PART_EXCLUDE = ("age", "age_sq")
 # assumption. It is NOT the winner on the declared dollar-accuracy score (32%
 # against the old specification on squared dollar error); that trade-off is
 # recorded. "as_known" was every run before that date; the others are
-# sensitivities. See 50_REBUILD/docs/Goalie_Participation_Top.md.
+# sensitivities. See 40_DOCS/model_evidence/Goalie_Participation_Top.md.
 PART_VARIANTS = {
     "as_known": ("as_known", ()),                       # export membership (old)
     "none": ("as_known", ("under_contract", "contract_unknown")),

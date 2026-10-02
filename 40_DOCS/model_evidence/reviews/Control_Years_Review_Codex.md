@@ -159,4 +159,4 @@ and production files are unmodified. Evidence is ignored under `50_REBUILD/outpu
 `control_independent_audit.json`, and the isolated candidate's `control_years.csv`.
 
 No adoption, production-input correction, candidate merge or implementation repair
-was performed during this review. Rebuild documentation remains in `50_REBUILD/docs/`.
+was performed during this review. Rebuild documentation remains in `40_DOCS/model_evidence/`.

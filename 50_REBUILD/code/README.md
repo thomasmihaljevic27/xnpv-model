@@ -59,5 +59,5 @@ ones.
 ## `reviews/`
 
 These are the independent reviews' one-shot audit scripts (`review_*.py`). Each is paired with a
-report in `../docs/reviews/`. Most run against an isolated checkout under `50_REBUILD/output/`. The
+report in `40_DOCS/model_evidence/reviews/`. Most run against an isolated checkout under `50_REBUILD/output/`. The
 repo root is `Path(__file__).parents[3]`.

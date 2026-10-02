@@ -268,8 +268,7 @@ CONFIRMATORY_START_YEARS = tuple(range(2022, 2026))
 # it accumulates and is committed. It is a record of what was done, not a model
 # artifact, so out_path()'s rule does not apply to it and it gets its own
 # writer below rather than a way around that rule.
-# Where the ledger lives until the rebuild documents move (migration plan step 4).
-INSPECTION_LEDGER = REPO_ROOT / "50_REBUILD" / "docs" / "inspection_ledger.csv"
+INSPECTION_LEDGER = REPO_ROOT / "00_STATE" / "inspection_ledger.csv"   # moved there 2026-10-02
 
 def record_inspection(runner: str, kind: str, keys, reason: str = "") -> None:
     """Append one line recording what an evaluation just consumed.

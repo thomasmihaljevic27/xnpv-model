@@ -47,7 +47,7 @@ IDENTIFICATION NOTES (for the committee)
   valuation date. `AgingModel(before=t0)` fits all of them on seasons that
   started before t0 only, and the pricing chain now builds one such curve per
   valuation page (skater_forward_projection.SkaterProjector.curve_for). Scored
-  2026-09-28 (50_REBUILD/docs/Aging_Choices_Test.md): on the live age table the
+  2026-09-28 (40_DOCS/model_evidence/Aging_Choices_Test.md): on the live age table the
   pre-valuation fit costs 1.73% season-WAR RMSE in the live chain; with the
   Elite Prospects ages restored, 0.84%. `before=None` keeps the whole-file fit
   for tests and experiments that were recorded on it.

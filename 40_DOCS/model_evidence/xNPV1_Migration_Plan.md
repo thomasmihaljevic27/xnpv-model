@@ -172,7 +172,7 @@ and the skater exit hazard (see Progress for why there is no separate forecast f
    - `25_TESTS/archive_from_git.py` writes the archive copies from git history. It works before or
      after the pull and never overwrites.
    - Archived files also leave GitHub's current tree. Git history keeps them.
-2. **`50_REBUILD/docs/` holds the evidence the model rests on, and the inspection ledger.** That is
+2. **`40_DOCS/model_evidence/` holds the evidence the model rests on, and the inspection ledger.** That is
    D33's test reports, the review reports, and the ledger: the committed record of which reserved
    seasons were scored.
    - Archiving them takes them out of the repository's tree. Every state-file reference to them

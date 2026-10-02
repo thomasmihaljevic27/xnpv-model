@@ -46,16 +46,18 @@ No virtualenv convention is established yet. Stata or R on request only.
 ## Folder map
 
     00_STATE/     PROJECT_STATE.md + WORK_QUEUE.md + DECISIONS.md + STANDING_FLAGS.md,
-                  sessions/ (per-session log), four sequence docs, MANIFEST.csv
+                  sessions/ (per-session log), four sequence docs, MANIFEST.csv,
+                  inspection_ledger.csv (which seasons each evaluation scored; committed, union-merged)
     10_SOURCE/    vendor and scraped source data. Code reads it, never writes it
     20_CODE/      flat. The live pipeline and its tools, current version only
     25_TESTS/     flat. Finished one-off tests and diagnostics; each puts 20_CODE/ on its path
     30_OUTPUT/    flat. Every spine, panel, curve, diagnostic, run log. Gitignored
-    40_DOCS/      reports, reviews, briefs
+    40_DOCS/      reports, reviews, briefs; model_evidence/ holds the player-model test reports
+                  and independent reviews behind D33 (moved from 50_REBUILD/docs/ 2026-10-02)
     90_ARCHIVE/   YYYY-MM-DD/ superseded material under original names. Gitignored
 
 A test or diagnostic goes in `25_TESTS/` once its result is recorded (moved there 2026-09-30); a new
-one may start in `25_TESTS/` directly. `50_REBUILD/code/reviews/` and `50_REBUILD/docs/reviews/` hold
+one may start in `25_TESTS/` directly. `50_REBUILD/code/reviews/` and `40_DOCS/model_evidence/reviews/` hold
 the independent reviews' scripts and reports. `20_CODE` and `30_OUTPUT` are flat deliberately. Per-pillar subfolders were tried, sat empty
 for a month, then filled with duplicates and sync-conflict copies while real work happened in
 one flat directory.
@@ -76,7 +78,7 @@ Player pillar, in order:
 xNPV 1, the adopted skater forecast (D33), is promoted but not yet wired in: `20_CODE/skater_forecast.py`
 with `forecast_config.py`, `player_season_table.py`, `information_set.py`, `contract_source.py`,
 `participation_model.py` and `forecast_harness.py`. Until `contract_npv.py` is switched (migration plan,
-`50_REBUILD/docs/xNPV1_Migration_Plan.md`), the chain above prices on xNPV 0.
+`40_DOCS/model_evidence/xNPV1_Migration_Plan.md`), the chain above prices on xNPV 0.
 
 Player dashboard: double-click `Open-Dashboard.cmd` (or `python 20_CODE/dashboard_refresh.py`).
 It re-runs everything the dashboard reads, from `join_clauses_to_spine.py` and `age_join.py`

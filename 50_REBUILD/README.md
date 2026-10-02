@@ -3,7 +3,7 @@
 **Status: experimental. Nothing here is production, and nothing here is locked.**
 
 This tree is the build of the player-model rebuild proposed in
-`50_REBUILD/docs/Player_Model_Rebuild_Plan_Fable.md`. It is deliberately separate from the live
+`40_DOCS/model_evidence/Player_Model_Rebuild_Plan_Fable.md`. It is deliberately separate from the live
 model so the rebuild can be wrong, restarted, or abandoned without touching anything that
 currently works.
 
@@ -26,18 +26,18 @@ currently works.
 
 ## Layout
 
-All player-model rebuild documentation belongs in `50_REBUILD/docs/`, including the plans,
+All player-model rebuild documentation belongs in `40_DOCS/model_evidence/`, including the plans,
 reviews, supporting diagnostics, and phase reports. Project-wide state and session history
 link here from `00_STATE/`.
 
-- [Fable rebuild plan](docs/Player_Model_Rebuild_Plan_Fable.md)
-- [Alternative rebuild plan](docs/Player_Model_Rebuild_Plan.md)
-- [Ground-up review](docs/Ground_Up_Player_Model_Review.md)
-- [Independent candidate review](docs/reviews/Player_Rebuild_Candidate_Review_Codex.md)
-- Supporting diagnostics: [anchor shrinkage](docs/Anchor_Shrink_Test.md),
-  [comparables limit](docs/Aging_Comparable_Limit_Test.md),
-  [aging coverage](docs/Aging_Curve_Coverage_Audit.md), and
-  [pipeline experiment](docs/Pipeline_Experiment.md).
+- [Fable rebuild plan](../40_DOCS/model_evidence/Player_Model_Rebuild_Plan_Fable.md)
+- [Alternative rebuild plan](../40_DOCS/model_evidence/Player_Model_Rebuild_Plan.md)
+- [Ground-up review](../40_DOCS/model_evidence/Ground_Up_Player_Model_Review.md)
+- [Independent candidate review](../40_DOCS/model_evidence/reviews/Player_Rebuild_Candidate_Review_Codex.md)
+- Supporting diagnostics: [anchor shrinkage](../40_DOCS/model_evidence/Anchor_Shrink_Test.md),
+  [comparables limit](../40_DOCS/model_evidence/Aging_Comparable_Limit_Test.md),
+  [aging coverage](../40_DOCS/model_evidence/Aging_Curve_Coverage_Audit.md), and
+  [pipeline experiment](../40_DOCS/model_evidence/Pipeline_Experiment.md).
 
     code/     the rebuild's scripts, flat, current version only (repo convention)
     output/   everything generated; gitignored, regenerable
