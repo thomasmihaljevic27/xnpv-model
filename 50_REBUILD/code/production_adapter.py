@@ -77,15 +77,19 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C                      # loads .env for the imports below
 from ability_forecast import BaseModel
 
-SCRIPT_VERSION = "1.4"
+SCRIPT_VERSION = "1.5"
 
 _PROD = C.REPO_ROOT / "20_CODE"
 
 
 def _production():
     """Import the production modules, or say exactly what is missing."""
+    # v1.5 (2026-10-02): APPENDED, not put first. 20_CODE now holds production
+    # copies of player_season_table, participation_model, contract_source,
+    # information_set and forecast_harness (xNPV 1's promotion); put first, a
+    # later import in a rebuild runner could pick up the production copy.
     if str(_PROD) not in sys.path:
-        sys.path.insert(0, str(_PROD))
+        sys.path.append(str(_PROD))
     try:
         import skater_forward_projection as SFP
         from exit_hazard import (build_transitions, build_hazard_table, bucket, age_group,

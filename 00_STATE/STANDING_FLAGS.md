@@ -5,8 +5,9 @@
 xNPV 1's comparable-player curve are both fitted on it.
 - Runs it reached: the contract-status test (D33's evidence) and the 2022-2025 confirmation
   certainly; the 2026-09-30 dollar re-score probably.
-- Every laptop result since the reversion should be re-run on the rebuilt table before it is cited
-  as final.
+- Re-run on the rebuilt table 2026-10-02: the contract-status test (now 1,985 of 2,000, a pass) and the
+  confirmation (0.9001 against 0.9724). The 2026-09-30 dollar re-score was not re-run as such (its xNPV 0, Model 3 and rebuilt-model rows are re-scored in the contract-status test v1.1); its own figures stand
+  only as a record of the faulty table.
 - The cause of the reversion is open.
 
 **Confirmation pages 2022-2025 partly seen (2026-09-30k).** A cloud code test of

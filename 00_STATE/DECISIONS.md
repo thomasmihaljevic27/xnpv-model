@@ -2431,3 +2431,28 @@ before the run.
 - The re-runs on the rebuilt table (contract-status test, the confirmation with `--rerun`, the
   dashboard) are still owed. Decision 3 is still owed.
 - Session log, PROJECT_STATE, WORK_QUEUE, STANDING_FLAGS and the migration plan wording corrected.
+
+### D33 evidence on the rebuilt age table, 2026-10-02
+
+- **Contract-status test v1.1.** On the rebuilt table (99.94% birthdates) xNPV 1 beats the same
+  model without contract status in **1,985 of 2,000** player resamples on season-WAR squared error.
+  That **meets the declared 1,950**. On the faulty table it was 1,925, and D33's "deliberate choice,
+  not a pass" was written from that figure. On the rebuilt table it is a pass. Brier: never higher
+  (0 of 2,000). Dollar squared error: lower in 1,979-1,997 of 2,000 across the four tables.
+- **Confirmation of record (re-run on the rebuilt table, per the recommendation above):** xNPV 1
+  0.9001 against xNPV 0's 0.9724, lower in 2,000 of 2,000. **CONFIRMED.** The first run (0.9003 /
+  0.9788) is reported beside it. The pages were partly seen beforehand (STANDING_FLAGS).
+- **Migration decision 3 (Thomas):** the league-minimum floor's spread comes from xNPV 1's own
+  WAR-if-plays misses, the valuation season included (`skater_forecast.WAR_IF_PLAYS_MAE`).
+
+### Change log, 2026-10-02c (re-runs; xNPV 1 promoted into 20_CODE)
+
+- D33 evidence and confirmation of record recorded above.
+- **Promoted (migration step 1):**
+  - new `20_CODE/skater_forecast.py` v1.0 and `forecast_config.py` v1.0;
+  - production copies of `player_season_table`, `information_set`, `contract_source`,
+    `participation_model` and `forecast_harness`;
+  - `production_adapter.py` v1.5.
+  New `25_TESTS/xnpv1_promotion_check.py` v1.0. Nothing is wired into `contract_npv.py` yet: the
+  pipeline still prices on xNPV 0.
+- Migration plan v3. Session log, PROJECT_STATE, WORK_QUEUE, STANDING_FLAGS and `CLAUDE.md` updated.

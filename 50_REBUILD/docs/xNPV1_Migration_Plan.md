@@ -1,6 +1,7 @@
 # Moving xNPV 1 into production: the plan
 
-Version 2, 2026-10-02. It replaces the 2026-09-30 version and folds in Thomas's three answers.
+Version 3, 2026-10-02 (later the same day). Version 2 folded in Thomas's first three answers; this one
+records decision 3, the corrected-table evidence, and step 1 done.
 Nothing in this plan is built yet. Every mechanism below was read from the script named beside
 it.
 
@@ -18,7 +19,36 @@ it.
      chance of playing x rate x games share, with the chance of playing read at the signing
      (`contract_price_model.attach_forecasts`).
    - **What 1 would mean.** Setting the first season's chance to 1 would be an untested change.
-3. **The spread behind the league-minimum floor:** explained below. **Decision still owed.**
+3. **The spread behind the league-minimum floor comes from xNPV 1's own misses, the valuation season
+   included** (option (a) below). It is coded as `skater_forecast.WAR_IF_PLAYS_MAE`: 0.673 / 0.749 /
+   0.799 / 0.852 / 0.879 / 0.893 WAR, zero to five seasons ahead, held flat after. These are every
+   row xNPV 1 forecasts on the development pages (40,510; cloud, rebuilt age table).
+
+## Progress
+
+- **Step 0 done.** The laptop age table was rebuilt (99.94%). On it:
+  - **The contract-status test** now passes its declared bar: lower in 1,985 of 2,000.
+  - **The confirmation** re-run gives 0.9001 against 0.9724, 2,000 of 2,000.
+- **Step 1 done in the cloud, laptop check owed.** xNPV 1 is in `20_CODE/`:
+  - `skater_forecast.py`, the model, rewritten from only the code it runs;
+  - `forecast_config.py`;
+  - copies of `player_season_table`, `information_set`, `contract_source`,
+    `participation_model` and `forecast_harness`.
+  - `25_TESTS/xnpv1_promotion_check.py` runs the adopted class and the promoted one in separate
+    processes. With synthetic contracts in the cloud, every value agrees exactly (largest gap 0)
+    on:
+    - 40,510 harness forecasts;
+    - 25,272 forecasts six to twelve seasons ahead;
+    - 6,000 signing-dated chances of playing.
+  - Removing one games-share term on purpose makes it fail. The real-export run is the laptop's.
+- **A prerequisite for step 2:** `information_set.SEASON_END` has no date for the 2025-26 regular
+  season. A season without one becomes readable only on 30 July, so on the current page (1 July
+  2026) xNPV 1 would not see last season. It needs the season's last day, confirmed.
+- **Design change for step 2: no separate forecast file.** `contract_npv.py` fits xNPV 1 in-process,
+  page by page, and caches it. The dashboard asks for in-season dates (a contract's signing), and
+  those need the chance of playing read at that date; a precomputed file would have to anticipate
+  every one. The forecasts each run used are written to `30_OUTPUT/xnpv1_forecasts.csv` for audit,
+  tagged with the model and code versions.
 
 ## What changes and what does not
 
@@ -122,10 +152,8 @@ Each is renamed for what it is and stripped of the candidate classes xNPV 1 does
 | `forecast_harness.py` + the player resampler | the scoreboard every future model change is checked on |
 | `rebuild_config.py` | folded into the above; outputs go to `30_OUTPUT/` |
 
-New in `20_CODE/`: `xnpv1_forecast.py`. It fits xNPV 1 page by page and writes
-`30_OUTPUT/xnpv1_forecasts.csv`, every row tagged with the model and the code versions.
-`contract_npv.py` and `rfa_terminal_value.py` read it in place of `SkaterProjector` and the skater
-exit hazard. `dashboard_refresh.py`'s `CHAIN` runs it before `contract_npv.py`.
+`contract_npv.py` and `rfa_terminal_value.py` call `skater_forecast.XNPV1` in place of `SkaterProjector`
+and the skater exit hazard (see Progress for why there is no separate forecast file).
 
 **Archived to `90_ARCHIVE/<date>/` under the original names:**
 - xNPV 0's skater code: the pre-migration copies of `skater_forward_projection.py`,
