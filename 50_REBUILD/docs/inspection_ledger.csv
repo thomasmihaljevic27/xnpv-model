@@ -591,3 +591,5 @@ utc,runner,kind,keys,reserved_keys,reason
 2026-10-02T19:34:42Z,forecast_harness,forecast page,2022 2023 2024 2025,2022 2023 2024 2025,"D33 confirmation: xNPV 1 against xNPV 0, season WAR, rule declared in run_xnpv1_holdout.py v1.0 (1,950 of 2,000)"
 2026-10-02T19:37:00Z,forecast_harness,forecast page,2015 2016 2017 2018 2019 2020 2021,,
 2026-10-02T19:37:22Z,forecast_harness,forecast page,2015 2016 2017 2018 2019 2020 2021,,
+2026-10-02T20:02:30Z,forecast_harness,forecast page,2015 2016 2017 2018 2019 2020 2021,,
+2026-10-02T20:02:49Z,forecast_harness,forecast page,2015 2016 2017 2018 2019 2020 2021,,
