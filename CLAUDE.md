@@ -287,6 +287,11 @@ Draft pillar:
   floor for negative anchors (D12 v3), and replaces the exit hazard with the chance of playing
   (D18) (corrected 2026-09-30). List the decisions governing each step the model changes, and read
   what the new code does at that step.
+- **Don't name how an input went wrong until you have its write date.** The laptop's
+  `WAR_with_age.csv` was diagnosed as having "reverted" to 70.9% birthdates. Its timestamp showed it
+  had never been rebuilt there after 2026-07-28 (corrected 2026-10-02). A machine-specific result
+  starts with the date, coverage and hash of every input table on that machine; the rebuild runners
+  now refuse an age table under 99% coverage (`production_adapter._check_age_coverage`).
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised

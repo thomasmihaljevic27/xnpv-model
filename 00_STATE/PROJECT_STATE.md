@@ -5,7 +5,7 @@
   2,000 of 2,000 resamples. Without contract status: 0.9022, beaten in 1,999.
 - **Qualifications:** the pages were partly seen by a cloud test, and the run used the faulty table
   (DECISIONS, D33 confirmation).
-- **The laptop's `30_OUTPUT/WAR_with_age.csv` has reverted to 70.9% birthdates** (the pre-2026-09-28
+- **The laptop's `30_OUTPUT/WAR_with_age.csv` had 70.9% birthdates; it was never rebuilt there after 2026-07-28. Rebuilt 2026-10-02 (99.94%)** (the pre-2026-09-28
   coverage; the cloud copy has 99.94%). This explains xNPV 0's laptop Brier of 0.249 against 0.192.
   - Laptop runs on the faulty table: the contract-status test certainly, this confirmation, and
     probably the dollar re-score. Any dashboard refresh since the reversion used it too.

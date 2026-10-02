@@ -2422,3 +2422,12 @@ before the run.
   comes from the forecast. Still owed: the floor spread, and where the evidence documents and the
   ledger live.
 - PROJECT_STATE, WORK_QUEUE, STANDING_FLAGS and the session log `sessions/2026-10-02.md` updated.
+
+### Change log, 2026-10-02b (laptop age table rebuilt; coverage guard)
+
+- The laptop's production age table was never rebuilt after 2026-07-28 ("reverted" corrected).
+  Rebuilt to 99.94%; xNPV 0's laptop Brier is now 0.1917, the cloud's.
+- `production_adapter.py` v1.4 refuses an age table under 99% birthdate coverage.
+- The re-runs on the rebuilt table (contract-status test, the confirmation with `--rerun`, the
+  dashboard) are still owed. Decision 3 is still owed.
+- Session log, PROJECT_STATE, WORK_QUEUE, STANDING_FLAGS and the migration plan wording corrected.

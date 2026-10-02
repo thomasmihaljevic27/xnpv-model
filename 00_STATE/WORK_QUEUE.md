@@ -8,7 +8,7 @@
    - the 2022-2025 confirmation and its two qualifications.
    Relabel the speaking notes and the step-by-step document to xNPV 0 / xNPV 1.
 2. **Fix the laptop's production age table** (step 0 of the migration):
-   - run the read-only checks in the session log to find why it reverted;
+   - DONE 2026-10-02: the file was last written 2026-07-28 (Pass 4 EP matches 0); rebuilt to 99.94%;
    - re-run `python 20_CODE\age_join.py`;
    - confirm coverage with `python 50_REBUILD\code\run_brier_gap_check.py` (expect about 99.9% and
      a Brier near 0.192).
