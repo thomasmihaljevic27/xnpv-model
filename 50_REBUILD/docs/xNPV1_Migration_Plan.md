@@ -158,7 +158,7 @@ exit hazard. `dashboard_refresh.py`'s `CHAIN` runs it before `contract_npv.py`.
    - `30_OUTPUT/WAR_with_age.csv` on the laptop has birthdates on 70.9% of rows. The cloud copy,
      the one uploaded after the 2026-09-28 fix, has 99.94%.
    - xNPV 1's comparable-player curve and xNPV 0's exit risk are both fitted on that table. So
-     every laptop run since it reverted used a thinner comparables pool and exit tables missing
+     every laptop run on it used a thinner comparables pool and exit tables missing
      exits.
    - Re-run `age_join.py`, then re-run the contract-status test and the confirmation (see the
      session log, 2026-10-02).

@@ -77,7 +77,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import rebuild_config as C                      # loads .env for the imports below
 from ability_forecast import BaseModel
 
-SCRIPT_VERSION = "1.3"
+SCRIPT_VERSION = "1.4"
 
 _PROD = C.REPO_ROOT / "20_CODE"
 
@@ -100,8 +100,35 @@ def _production():
             f"{SFP.F_WAR_AGE} is missing. It is built by 20_CODE/age_join.py "
             "and the production aging curve is fitted on it. Run that first; "
             "this adapter will not substitute anything for it.")
+    _check_age_coverage(Path(SFP.F_WAR_AGE))
     return (SFP, build_transitions, build_hazard_table, bucket, age_group,
             pre_valuation_window, T_EARLIEST, T_LAST)
+
+
+# v1.4 (2026-10-02): THE AGE TABLE MUST CARRY THE ELITE PROSPECTS BIRTHDATES.
+# The laptop's WAR_with_age.csv was last written 2026-07-28, before age_join.py
+# could find the Elite Prospects file (its log: "Pass 4 EP matches: 0"), so 29%
+# of season rows had no age. Every laptop run that read it fitted the
+# comparables pool and the exit-risk tables without the older careers, and
+# nothing said so: xNPV 0's Brier was 0.249 against 0.192. A rebuilt table
+# carries 99.9%. Below MIN_AGE_COVERAGE the adapter refuses.
+MIN_AGE_COVERAGE = 0.99
+_age_checked: dict = {}
+
+
+def _check_age_coverage(path: Path) -> None:
+    key = (str(path), path.stat().st_mtime)
+    if key in _age_checked:
+        return
+    cov = float(pd.read_csv(path, usecols=["birthdate"])["birthdate"].notna().mean())
+    if cov < MIN_AGE_COVERAGE:
+        raise RuntimeError(
+            f"{path} has a birthdate on only {cov:.1%} of season rows (a rebuilt table "
+            f"carries 99.9%). It was probably built without the Elite Prospects file: "
+            "check age_join_log.txt for 'Pass 4 EP matches', re-run 20_CODE/age_join.py, "
+            "then this script.")
+    C.log(f"  production age table: birthdate on {cov:.2%} of season rows ({path})")
+    _age_checked[key] = cov
 
 
 class ProductionChain(BaseModel):

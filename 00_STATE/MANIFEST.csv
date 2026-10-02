@@ -2,11 +2,11 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 00_STATE,01_Draft_Model_Sequence.md,state,hashable,2026-09-28k,19281a382d63f217be50d4c924e322792e1b0739,10417,2026-09-28,yes,git,rewritten 2026-09-28 with D29-D31
 00_STATE,02_Prospect_Model_Sequence.md,state,hashable,2026-09-28k,047d898fa5c56992c326a1403199f106b3f2d792,11163,2026-09-28,yes,git,"rewritten 2026-09-28 (EP pull, bridge, goalie birthdates)"
 00_STATE,03_Player_Market_Model_Sequence.md,state,hashable,2026-09-09a,2f68c554cca2f422235e3baa6e17a0996e8412e7,18322,2026-09-09,yes,git,matches Claude project copy
-00_STATE,DECISIONS.md,state,hashable,2026-10-02,4114b7a5af93b36b9fa5f23774d7960d7f9635f7,340962,2026-10-02,yes,git,change log 2026-09-30j
+00_STATE,DECISIONS.md,state,hashable,2026-10-02b,fe8d40994aa34f92400b4364dadcc9df5e5ae280,341532,2026-10-02,yes,git,change log 2026-09-30j
 00_STATE,MANIFEST.csv,state,hashable,2026-09-25c,66d3201b2fc22f946fa0de1bb2c0f364c6600a13,36432,2026-09-25,yes,git,"this file; the hash column cannot be self-referential, so it is not audited"
-00_STATE,PROJECT_STATE.md,state,hashable,2026-10-02,0726a06510ed7634e31b856b2657a3011307987b,184905,2026-10-02,yes,git,refresh v3.3; EP v3.1 note
-00_STATE,STANDING_FLAGS.md,state,hashable,2026-10-02,995486067929893fa6660a90c5157ee2f28f3331,134698,2026-10-02,yes,git,pandas 3 flag
-00_STATE,WORK_QUEUE.md,state,hashable,2026-10-02,2e7c24e95bda3918728bc595a0c2c4a6c8394f40,151235,2026-10-02,yes,git,EP v3.1 note
+00_STATE,PROJECT_STATE.md,state,hashable,2026-10-02b,7d3323963895d60d43cdab0ca0e07bf21008cf69,184967,2026-10-02,yes,git,refresh v3.3; EP v3.1 note
+00_STATE,STANDING_FLAGS.md,state,hashable,2026-10-02b,b1dfe13272986568b05db811bdcc5822e753c808,134869,2026-10-02,yes,git,pandas 3 flag
+00_STATE,WORK_QUEUE.md,state,hashable,2026-10-02b,abab7b47babd1925aa200453f4e9846cf66a40f7,151262,2026-10-02,yes,git,EP v3.1 note
 00_STATE/sessions,2026-08-28.md,state,hashable,2026-09-09a,921a8eae623bb0d7ac4d1d181f6b862aa51a9e62,2159,2026-09-09,yes,git,git-tracked; audited via `git status`
 00_STATE/sessions,2026-09-08.md,state,hashable,2026-09-09a,1b31b43e8ed30fefd98ded8df5f5a431e79f323b,2384,2026-09-09,yes,git,git-tracked; audited via `git status`
 00_STATE/sessions,2026-09-09.md,state,hashable,2026-09-10,e1547fa499f7d8fdff918698f28a968b7bb56a07,22662,2026-09-10,yes,git,git-tracked; audited via `git status`
@@ -224,7 +224,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 50_REBUILD/code,goalie_season_table.py,player,hashable,2026-09-17,d20ebd58900cc25ed131f9ada325b814369dafdb,8286,2026-09-17,yes,git,git-tracked; added by the 2026-09-25c audit
 50_REBUILD/code,npv_simulation.py,player,hashable,2026-09-22,061e8c911d0346d1326fb89ffd0767ba8980c36a,25483,2026-09-22,yes,git,git-tracked; added by the 2026-09-25c audit
 50_REBUILD/code,predictive_interval.py,player,hashable,2026-09-22,fb25eeeba6ecb8fd7a352830f57cc6bd5defb381,39658,2026-09-22,yes,git,git-tracked; added by the 2026-09-25c audit
-50_REBUILD/code,production_adapter.py,player,hashable,2026-09-28h,c9f69c508681e10dcb0098e31ec812bfd2440937,12787,2026-09-28,yes,git,git-tracked; added by the 2026-09-25c audit
+50_REBUILD/code,production_adapter.py,player,hashable,2026-10-02b,aac77b6b677a23a4a9e8e0129b262a0d52a2fd43,14094,2026-10-02,yes,git,git-tracked; added by the 2026-09-25c audit
 50_REBUILD/code,repair_checks.py,player,hashable,2026-09-24,e526d68996636d669d05dfca054bec4a5cd1cc6d,122085,2026-09-24,yes,git,git-tracked; added by the 2026-09-25c audit
 50_REBUILD/code/reviews,review_acceptance.py,player,hashable,2026-09-30k,22fd1be1941f67d5141b64a5b2db045095f4b083,12702,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
 50_REBUILD/code/reviews,review_acceptance_closure.py,player,hashable,2026-09-30k,13d7f689ce0a77107ee793566d2acd9890d8b4b7,7588,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
@@ -397,7 +397,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 50_REBUILD/code,README.md,player,hashable,2026-09-30k,ae11c8b44dcaf581514d97b96ff233c75d865453,4236,2026-09-30,yes,git,experimental rebuild tree; not production
 50_REBUILD/code,run_brier_gap_check.py,player,hashable,2026-09-30k,83b54231c3d727ff73d0403ba0ff7315c3c575ec,6212,2026-09-30,yes,git,experimental rebuild tree; not production
 50_REBUILD/code,run_xnpv1_holdout.py,player,hashable,2026-09-30k,d69d944bc689da9f485f4c46ab932e3000333106,11036,2026-09-30,yes,git,experimental rebuild tree; not production
-50_REBUILD/docs,xNPV1_Migration_Plan.md,player,hashable,2026-10-02,11e34d679436d6acefea9e15460917679bd251ed,11086,2026-10-02,yes,git,experimental rebuild tree; not production
-.,CLAUDE.md,state,hashable,2026-09-30k,1aad63299d016b40fb8350695c0296ca2e32b564,23715,2026-09-30,yes,git,project instructions
-00_STATE/sessions,2026-10-02.md,state,hashable,2026-10-02,4f8b6d4b1bf3b05c1e12382f3718a948faefd1fd,7312,2026-10-02,yes,git,session log
+50_REBUILD/docs,xNPV1_Migration_Plan.md,player,hashable,2026-10-02b,033305c41bc5987e9791317b6476e8bfb8c8fe2b,11074,2026-10-02,yes,git,experimental rebuild tree; not production
+.,CLAUDE.md,state,hashable,2026-10-02b,aab59a759ebd27a5361907c7555cc242c239ab26,24188,2026-10-02,yes,git,project instructions
+00_STATE/sessions,2026-10-02.md,state,hashable,2026-10-02b,ad97d733efdaeba88263c7ad8fb113081e466069,9621,2026-10-02,yes,git,session log
 25_TESTS,archive_from_git.py,tooling,hashable,2026-10-02,722928e1e2551052c2f6d83807db7646d931cce2,2787,2026-10-02,yes,git,finished test or diagnostic

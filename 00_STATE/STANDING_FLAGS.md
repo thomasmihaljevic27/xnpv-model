@@ -1,7 +1,7 @@
 # STANDING FLAGS & OPEN QUESTIONS — NHL Trade Market Efficiency
 
 **Laptop production age table at 70.9% birthdates (2026-10-02).** The laptop's
-`30_OUTPUT/WAR_with_age.csv` has reverted to its pre-2026-09-28 coverage. xNPV 0's exit risk and
+`30_OUTPUT/WAR_with_age.csv` was last written 2026-07-28, with no Elite Prospects matches; it was never rebuilt there, not reverted. REBUILT on the laptop 2026-10-02: 99.94% birthdates, and xNPV 0's laptop Brier is now 0.1917, the cloud figure. xNPV 0's exit risk and
 xNPV 1's comparable-player curve are both fitted on it.
 - Runs it reached: the contract-status test (D33's evidence) and the 2022-2025 confirmation
   certainly; the 2026-09-30 dollar re-score probably.
