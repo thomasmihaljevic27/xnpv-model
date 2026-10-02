@@ -64,7 +64,7 @@ import run_npv_simulation as RNS
 import star_candidates as SC
 from run_skater_contract_test import Boot, _count
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 HORIZONS = (0, 1, 2, 3, 4, 5)
 KEYS = ["career_key", "page", "h"]
 KEY = "contract_id"
@@ -78,6 +78,13 @@ LABEL = {"model1": "Model 1 current", "model3": "Model 3 (base)",
 READS = ("model6", "model4", "model7")
 # Dollar_Rescore.md, adopted line, the current model's answerable contracts, point RMSE ($M)
 RECORDED_RMSE = {"model1": 3.681, "model3": 3.555, "model4": 3.614}
+# v1.1 (2026-10-02): that re-score, and v1.0's run of this test, read the laptop's
+# production age table as it stood from 2026-07-28 to 2026-10-02: birthdates on
+# 70.9% of rows, sha1 prefix below. The reproduction guard applies only to that
+# table. On a rebuilt table (99.9%) every model's figures are expected to move,
+# so the guard is reported as not applicable instead of stopping the run.
+RECORDED_AGE_TABLE_SHA1 = "571560368f9e"
+SAME_AGE_TABLE = False
 
 
 # --------------------------------------------------------------------------- seasons
@@ -198,7 +205,11 @@ def run_dollars(table):
             report_scores(dd, ("model7", "model6"), exact=True)
             by_term(dd, rows_of["model4"], labels)
             C.log("")
-            if line_label == "model4" and sub.startswith("the current"):
+            if line_label == "model4" and sub.startswith("the current") and not SAME_AGE_TABLE:
+                C.log("  reproduction guard not applicable: the production age table is not the one")
+                C.log(f"  the recorded re-score read (sha1 {RECORDED_AGE_TABLE_SHA1}); figures are expected to move")
+                C.log("")
+            if line_label == "model4" and sub.startswith("the current") and SAME_AGE_TABLE:
                 for k, want in RECORDED_RMSE.items():
                     got = float(np.sqrt((((dd[f"point_{k}"] - dd["realised"]) / 1e6) ** 2).mean()))
                     assert abs(got - want) < 0.001, (
@@ -225,7 +236,12 @@ def main() -> None:
     C.banner("run_contract_status_test.py", SCRIPT_VERSION)
     check_contracts()
     SFP = PA._production()[0]
-    C.log(f"  production age table read: {Path(SFP.F_WAR_AGE).resolve()}")
+    global SAME_AGE_TABLE
+    import hashlib
+    sha = hashlib.sha1(Path(SFP.F_WAR_AGE).read_bytes()).hexdigest()[:12]
+    SAME_AGE_TABLE = sha == RECORDED_AGE_TABLE_SHA1
+    C.log(f"  production age table read: {Path(SFP.F_WAR_AGE).resolve()} (sha1 {sha}"
+          f"{', the table the recorded re-score read' if SAME_AGE_TABLE else ', NOT the recorded re-score table'})")
     path, how = birthdate_source()
     C.log(f"  birthdates: {how}")
     table = build_table(birthdate_csv=path, verbose=False)

@@ -387,7 +387,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 50_REBUILD/docs,Dollar_Rescore.md,player,hashable,2026-09-30e,e2ca4e07815d976db232675564b56a08eac65262,5307,2026-09-30,yes,git,experimental rebuild tree; not production
 50_REBUILD/code,run_star_late_test.py,player,hashable,2026-09-30f,41d29bdd2fc26a63394b1430519a81922c889b50,10697,2026-09-30,yes,git,experimental rebuild tree; not production
 50_REBUILD/docs,Star_Late_Test.md,player,hashable,2026-09-30f,470e750b9b231a7131eec9725190648b4fc5487c,4486,2026-09-30,yes,git,experimental rebuild tree; not production
-50_REBUILD/code,run_contract_status_test.py,player,hashable,2026-09-30g,d030771e72c691f5f23cd4921e0179a41cad6983,13175,2026-09-30,yes,git,experimental rebuild tree; not production
+50_REBUILD/code,run_contract_status_test.py,player,hashable,2026-10-02b,90549d19d194c22a2d6680343bac5dd3a83b0ae9,14296,2026-10-02,yes,git,experimental rebuild tree; not production
 50_REBUILD/docs,Contract_Status_Test.md,player,hashable,2026-09-30h,e029c0c8aeac8cada2e2cc9843de9706b411628d,5425,2026-09-30,yes,git,experimental rebuild tree; not production
 50_REBUILD/code,run_participation_drift_test.py,player,hashable,2026-09-30i,1f16b3e7f70efaab2a4703edc141fde60ee7857d,6955,2026-09-30,yes,git,experimental rebuild tree; not production
 50_REBUILD/docs,Star_Miss_Checks.md,player,hashable,2026-09-30i,11f661adaa320fa083421aa1f9029310c6d97ce6,6651,2026-09-30,yes,git,experimental rebuild tree; not production
@@ -399,5 +399,5 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 50_REBUILD/code,run_xnpv1_holdout.py,player,hashable,2026-09-30k,d69d944bc689da9f485f4c46ab932e3000333106,11036,2026-09-30,yes,git,experimental rebuild tree; not production
 50_REBUILD/docs,xNPV1_Migration_Plan.md,player,hashable,2026-10-02b,033305c41bc5987e9791317b6476e8bfb8c8fe2b,11074,2026-10-02,yes,git,experimental rebuild tree; not production
 .,CLAUDE.md,state,hashable,2026-10-02b,aab59a759ebd27a5361907c7555cc242c239ab26,24188,2026-10-02,yes,git,project instructions
-00_STATE/sessions,2026-10-02.md,state,hashable,2026-10-02b,ad97d733efdaeba88263c7ad8fb113081e466069,9621,2026-10-02,yes,git,session log
+00_STATE/sessions,2026-10-02.md,state,hashable,2026-10-02b,584b4aa38cf4754aa20b23da865b256b3484a606,10042,2026-10-02,yes,git,session log
 25_TESTS,archive_from_git.py,tooling,hashable,2026-10-02,722928e1e2551052c2f6d83807db7646d931cce2,2787,2026-10-02,yes,git,finished test or diagnostic
