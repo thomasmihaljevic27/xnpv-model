@@ -56,7 +56,7 @@ TO TEST THE CODE WITHOUT SPENDING THE PAGES (v1.1):
     scored xNPV 0 and the no-contract twin for real on 2022-2025 (ledger lines
     labelled CLOUD CODE TEST, 2026-09-30). That is why this switch exists.
 Output: 50_REBUILD/output/xnpv1_holdout_run_log.txt, the file to send back.
-The ledger line it appends (50_REBUILD/docs/inspection_ledger.csv) is meant to
+The ledger line it appends (00_STATE/inspection_ledger.csv) is meant to
 be committed: it is the record that the pages were spent.
 """
 from __future__ import annotations

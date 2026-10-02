@@ -1,7 +1,7 @@
 # Verification of Claude's rebuild repairs
 
 Reviewed 2026-09-15. Candidate: `d651998`, branch `claude/loving-maxwell-rd3w5v`.
-Source report: `50_REBUILD/docs/Review_Repair_Report.md` on that branch.
+Source report: `40_DOCS/model_evidence/Review_Repair_Report.md` on that branch.
 The candidate was tested in an isolated checkout; its implementation was not merged or edited.
 
 ## Assessment

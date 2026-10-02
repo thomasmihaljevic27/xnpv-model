@@ -1,7 +1,11 @@
 """
 =============================================================================
- contract_npv_panel.py   v1.1                    Validation exhibit (2026-07-05)
+ contract_npv_panel.py   v1.2                    Validation exhibit (2026-07-05)
 =============================================================================
+ WHAT CHANGED IN v1.2 (2026-10-02)
+ ---------------------------------
+ * Every row records the model that priced it (`model`): "xNPV 1" for
+   skaters under the default skater forecast, the goalie branch for goalies.
  WHAT CHANGED IN v1.1 (2026-09-13)
  ---------------------------------
  * The 2026-27 page is laid out (PANEL_LAST 2025 -> 2026). It reads the
@@ -155,6 +159,7 @@ def build_panel():
             "is_elc_season": bool(j.cs_entry_level) if pd.notna(j.cs_entry_level) else False,
             "seasons_remaining": n_remaining,
             "path": s.get("path", ""),
+            "model": s.get("model", ""),          # v1.2: which forecast built the row
             # v1.1: the date this page is valued on (July 1 of t0) and the
             # extensions signed by then that the valuation includes
             "as_of_date": s["as_of"],

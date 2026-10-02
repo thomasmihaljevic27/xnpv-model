@@ -161,7 +161,7 @@ Two items remain.
 
 ## Sources
 
-- Aging settings and look-ahead: `50_REBUILD/docs/Aging_Choices_Test.md`
-- Exit risk: `50_REBUILD/docs/Exit_Hazard_Window_Test.md`
+- Aging settings and look-ahead: `40_DOCS/model_evidence/Aging_Choices_Test.md`
+- Exit risk: `40_DOCS/model_evidence/Exit_Hazard_Window_Test.md`
 - Code: `20_CODE/aging_curve.py`, `20_CODE/skater_forward_projection.py`, `20_CODE/exit_hazard.py`,
   `20_CODE/contract_npv.py`, `20_CODE/age_join.py`

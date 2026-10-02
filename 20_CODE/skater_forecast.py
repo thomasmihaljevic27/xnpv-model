@@ -70,9 +70,10 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import forecast_config as C
+import information_set as ISET
 from participation_model import ParticipationModel
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 MODEL_NAME = "xNPV 1"
 
 W_T1, W_T2 = 0.6, 0.4    # the locked recency weighting; 0.4/0.6 is the starting decay
@@ -518,6 +519,19 @@ class XNPV1:
     def reads_contracts(self) -> bool:
         return getattr(self.part_, "spans", None) is not None
 
+    def _signed_anchor_frame(self, iset):
+        """This page's anchors, one row per career, computed once per page and
+        reused (v1.1). The contract engine asks for signing-dated chances of
+        playing one contract at a time; recomputing every player's anchors for
+        each call is the same frame each time and costs most of the call."""
+        memo = getattr(self, "_signed_anchor_memo", None)
+        if memo is None or memo[0] is not iset:
+            a = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP],
+                         self.N_SEASONS, self.decay_)
+            a = a[a["t0"] == iset.t0].drop_duplicates("career_key").set_index("career_key")
+            self._signed_anchor_memo = (iset, a)
+        return self._signed_anchor_memo[1]
+
     def _part_predict(self, rows, h, as_of=None):
         return self.part_.predict(rows, h, as_of=as_of)
 
@@ -534,9 +548,7 @@ class XNPV1:
         Returns {h: array aligned with `keys`}."""
         keys = list(keys)
         dates = pd.to_datetime(np.asarray(dates))
-        a = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP],
-                     self.N_SEASONS, self.decay_)
-        a = a[a["t0"] == iset.t0].drop_duplicates("career_key").set_index("career_key")
+        a = self._signed_anchor_frame(iset)
         rows = a.reindex(keys).reset_index()
         fitted = sorted(getattr(self, "fitted_horizons_", None) or self.FITTED_HORIZONS)
         out = {}
@@ -611,3 +623,91 @@ class XNPV1:
                 float(np.clip(war(b) / war(a), 0.5, 1.0)),
                 float(np.clip(b["p_play"].mean() / a["p_play"].mean(), 0.5, 1.0)))
         return cache[key]
+
+
+# --------------------------------------------------------------------------- for the contract engine
+class ContractForecaster:
+    """xNPV 1's forecasts, served to the contract engine (contract_npv.py via
+    skater_forward_projection.SkaterProjector, and rfa_terminal_value.py).
+
+    One season table for the whole run (production's birthdate rule); one
+    xNPV 1 fit per valuation page t0, on seasons before it, with the decision
+    date 1 July of t0 -- the date the harness scored and the date a page is
+    valued at. For every player with an anchor on the page, the forecast for
+    seasons 0..MAX_H ahead is computed once (predict_beyond_fit, so seasons
+    past the page's fitted range follow the declared extension) and cached.
+
+    A valuation dated after 1 July (an in-season extension, D28) keeps the
+    page's rate and games share and reads the chance of playing with contract
+    status at that date (p_play_signed), as the dollar scoring did.
+
+    The key is production's player key (cleaned name + "|" + position group),
+    which is the season table's `pkey`; it maps to one career.
+    """
+    MAX_H = 20
+
+    def __init__(self):
+        import player_season_table as PST
+        bd, how = PST.birthdate_source()
+        C.log(f"  [{MODEL_NAME}] birthdates: {how}")
+        self.table = PST.build(birthdate_csv=bd, verbose=False)
+        self.career_of = (self.table.drop_duplicates("pkey")
+                          .set_index("pkey")["career_key"].to_dict())
+        self._pages = {}
+
+    def page(self, t0: int):
+        """(model, information set, forecasts indexed by (career_key, h),
+        anchors indexed by career_key) for valuation page t0."""
+        t0 = int(t0)
+        if t0 not in self._pages:
+            iset = ISET.build(self.table, ISET.decision_date_for_page(t0), t0=t0)
+            m = XNPV1().fit(iset.seasons, before=t0)
+            a = m._signed_anchor_frame(iset)
+            subs = pd.DataFrame({"career_key": a.index.to_numpy()})
+            p = m.predict_beyond_fit(iset, subs, list(range(self.MAX_H + 1)))
+            p["war_if_plays"] = p["rate_82"] * p["gp_share"]
+            p = p.set_index(["career_key", "h"]).sort_index()
+            self._pages[t0] = (m, iset, p, a)
+            C.log(f"  [{MODEL_NAME}] page {t0}: fitted through season {max(iset.seasons['syr'])}, "
+                  f"{len(a)} players forecast, fitted horizons {m.fitted_horizons_[0]}-"
+                  f"{m.fitted_horizons_[-1]}, reads contracts: {m.reads_contracts}")
+        return self._pages[t0]
+
+    def forecast(self, pkey: str, t0: int, horizon: int, as_of=None):
+        """Seasons 0..horizon ahead for one player, or None when xNPV 1 has no
+        anchor for him on this page (no qualifying season in its window).
+        Columns: h, rate_82, gp_share, war_if_plays, p_play, extrapolated,
+        tw_WAR (the trailing total the start is built from), stale_history."""
+        ck = self.career_of.get(pkey)
+        if ck is None:
+            return None
+        if horizon > self.MAX_H:
+            raise ValueError(f"horizon {horizon} is past the cached {self.MAX_H}")
+        m, iset, p, a = self.page(t0)
+        if ck not in a.index:
+            return None
+        f = p.loc[ck].loc[0:horizon].reset_index()
+        if len(f) != horizon + 1 or not np.isfinite(f["war_if_plays"]).all():
+            return None
+        page_date = pd.Timestamp(ISET.decision_date_for_page(int(t0)))
+        if as_of is not None and pd.Timestamp(as_of).normalize() != page_date:
+            sig = m.p_play_signed(iset, [ck], list(range(horizon + 1)), [pd.Timestamp(as_of)])
+            f["p_play"] = [float(sig[h][0]) for h in f["h"]]
+            f["p_play_dated"] = pd.Timestamp(as_of).date().isoformat()
+        else:
+            f["p_play_dated"] = page_date.date().isoformat()
+        f["tw_WAR"] = float(a.loc[ck, "tw_WAR"])
+        f["stale_history"] = float(a.loc[ck, "stale_history"])
+        return f
+
+    def write(self, path) -> Path:
+        """Every page forecast this run made, for audit, tagged with the model
+        and code versions."""
+        import participation_model as PM
+        frames = [p.reset_index().assign(page=t0) for t0, (_, _, p, _) in sorted(self._pages.items())]
+        d = pd.concat(frames, ignore_index=True) if frames else pd.DataFrame()
+        d["model"] = MODEL_NAME
+        d["skater_forecast_version"] = SCRIPT_VERSION
+        d["participation_model_version"] = PM.SCRIPT_VERSION
+        d.to_csv(path, index=False)
+        return Path(path)

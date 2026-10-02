@@ -145,4 +145,4 @@ measured participation event. D7 and the goalie price specification stay provisi
 suite, price rerun, independent audit, fit audit and signing-date comparison.
 Generated logs and JSON use the `goalie_participation_` prefix under
 `50_REBUILD/output/`; no source data or canonical production output was changed.
-Review documents stay under `50_REBUILD/docs/`; project state stays in `00_STATE/`.
+Review documents stay under `40_DOCS/model_evidence/`; project state stays in `00_STATE/`.

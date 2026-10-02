@@ -137,6 +137,36 @@ on the 2025 page. Each figure is the floor's addition per season.
 Every option moves only the floor term. Players projected well above replacement barely change; low
 projections move by tens of thousands of dollars per season.
 
+## Progress, later on 2026-10-02
+
+- **Step 1 verified on the laptop:** the promotion check passed with the real export, every gap 0.
+- **Prerequisites met:**
+  - the 2025-26 season end, 16 April 2026, is in `information_set.py` v1.1;
+  - the documents are in `40_DOCS/model_evidence/` and the ledger in `00_STATE/`.
+- **Step 2 coded, laptop run owed.**
+  - `skater_forecast.py` v1.1 adds `ContractForecaster`: one xNPV 1 fit per page, forecasts cached
+    for every player with an anchor, signing-dated chance of playing for an in-season valuation.
+  - `skater_forward_projection.py` v1.5 has the `SKATER_MODEL` switch, default xNPV 1. Under
+    xNPV 1, `project_contract` prices each contract season on xNPV 1's WAR if he plays, with the
+    floor's spread from xNPV 1's own misses.
+  - `contract_npv.py` v1.6 uses the chance of playing as each season's survival, the valuation
+    season included, and labels every row with its model.
+  - `rfa_terminal_value.py` v1.4 takes the control years' WAR from xNPV 1; the qualify-rate chain
+    is unchanged.
+  - `contract_npv_panel.py` v1.2 adds the model column. `dashboard_refresh.py` v1.1 requires the
+    contract-export CSV and checks that the forecast file was rewritten. `valuation_walkthrough.py`
+    v1.1 stays on xNPV 0.
+- **Cloud code-path test** on a synthetic spine (six real skaters, made-up contracts and contract
+  status):
+  - every contract season's WAR and survival equal xNPV 1's forecast;
+  - the value equals the floored price with xNPV 1's spread, and the PV equals (chance of playing x
+    value − cap hit) / 1.03^k, to 1e-6 dollars;
+  - an in-season extension joins the chain, with the chance of playing read at that date;
+  - the control years carry xNPV 1's WAR;
+  - the 2026 page fits through 2025-26.
+- **Step 3 is next, on the laptop:** `25_TESTS/xnpv1_switch_check.py` prices every contract under
+  both models and compares them. Then the dashboard refresh.
+
 ## The layout after the move
 
 **Promoted into `20_CODE/`** (xNPV 1 and what it needs to run). These come from `50_REBUILD/code/`.
@@ -172,7 +202,7 @@ and the skater exit hazard (see Progress for why there is no separate forecast f
    - `25_TESTS/archive_from_git.py` writes the archive copies from git history. It works before or
      after the pull and never overwrites.
    - Archived files also leave GitHub's current tree. Git history keeps them.
-2. **`50_REBUILD/docs/` holds the evidence the model rests on, and the inspection ledger.** That is
+2. **`40_DOCS/model_evidence/` holds the evidence the model rests on, and the inspection ledger.** That is
    D33's test reports, the review reports, and the ledger: the committed record of which reserved
    seasons were scored.
    - Archiving them takes them out of the repository's tree. Every state-file reference to them

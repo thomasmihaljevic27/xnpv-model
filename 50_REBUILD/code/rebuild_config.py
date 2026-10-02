@@ -76,7 +76,7 @@ SOURCE_DIR, SOURCE_DIR_WHY, SOURCE_DIR_TRIED = _resolve_source_dir()
 # The rebuild's own output. NOT OUTPUT_DIR -- the live 30_OUTPUT tree is
 # never written to, never read as an input, and never cleaned by this code.
 OUT_DIR = REBUILD_ROOT / "output"
-DOCS_DIR = REBUILD_ROOT / "docs"
+DOCS_DIR = REPO_ROOT / "40_DOCS" / "model_evidence"   # moved 2026-10-02
 
 # Production paths, recorded so the isolation guard can refuse them by name
 # rather than by a fragile prefix comparison alone.
@@ -372,7 +372,7 @@ CONFIRMATORY_START_YEARS = tuple(range(2022, 2026))
 # it accumulates and is committed. It is a record of what was done, not a model
 # artifact, so out_path()'s rule does not apply to it and it gets its own
 # writer below rather than a way around that rule.
-INSPECTION_LEDGER = REBUILD_ROOT / "docs" / "inspection_ledger.csv"
+INSPECTION_LEDGER = REPO_ROOT / "00_STATE" / "inspection_ledger.csv"   # moved 2026-10-02
 
 
 def record_inspection(runner: str, kind: str, keys, reason: str = "") -> None:

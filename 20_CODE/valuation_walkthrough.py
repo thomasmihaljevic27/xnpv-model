@@ -72,7 +72,7 @@ import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "valuation_walkthrough.py v1.0 (2026-09-25)"
+SCRIPT_VERSION = "valuation_walkthrough.py v1.1 (2026-10-02)"
 
 load_dotenv()
 REPO = Path(__file__).resolve().parent.parent
@@ -1136,7 +1136,10 @@ def main():
     LABELS, AGES_ALL = curve_season_labels()
     full = (OUTPUT_DIR / "contract_season_spine.csv").exists()
     if full:
-        sp = sfp.SkaterProjector()
+        # v1.1 (2026-10-02): this tool walks through the xNPV 0 projection (anchor
+        # times aging ratio), so it builds that one explicitly; the default
+        # skater forecast is now xNPV 1, which this walkthrough does not cover.
+        sp = sfp.SkaterProjector(model="xNPV 0")
         sp._curves = {P["t0"]: m for P in PLAYERS}   # pre-revision: one curve for every page
         log("mode: FULL (contract spine found; production anchor and contract chain are checked too)")
     else:

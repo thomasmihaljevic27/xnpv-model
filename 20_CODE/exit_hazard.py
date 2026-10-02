@@ -119,7 +119,7 @@ MIN_GP = 10                           # anchor-qualifying population
 # complete only from 2018 (see "Design choices"). Since 2026-09-28 age_join.py
 # carries the Elite Prospects ages (99.9% of rows), so transitions back to the
 # first WAR season are usable. Tested on the forecast harness
-# (50_REBUILD/docs/Exit_Hazard_Window_Test.md): against the 2018-2024 table,
+# (40_DOCS/model_evidence/Exit_Hazard_Window_Test.md): against the 2018-2024 table,
 # Brier 0.2143 vs 0.2275 and season-WAR RMSE 0.8591 vs 0.8619, both lower in
 # 2000 of 2000 player resamples. Adopted by Thomas 2026-09-28.
 T_EARLIEST = 2007                     # first WAR.csv season (2007-08)
