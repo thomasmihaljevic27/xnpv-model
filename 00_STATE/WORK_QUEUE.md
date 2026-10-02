@@ -1,6 +1,6 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
-**xNPV 1 follow-ups, updated 2026-10-02h: open, in order.**
+**xNPV 1 follow-ups, updated 2026-10-02i: open, in order.**
 1. **Laptop: re-run `25_TESTS\xnpv1_switch_check.py`, then Update-Dashboard**, on xNPV 1's locked
    price line (`XNPV1_RATE`, 2026-10-02h: $2.950M per forecast win forwards, $4.350M defence).
 2. **Supervisor review** (in person). Bring:
@@ -12,7 +12,38 @@
 3. **Archive** xNPV 0 and the rest of `50_REBUILD/` only after item 1 is settled and the comparison
    is accepted.
 4. **Laptop:** `python 25_TESTS\archive_from_git.py 02f6fda 2026-10-02 20_CODE/ep_age_scraper.py`.
-5. **Carry:**
+5. **Parked, a possible finding (Thomas, 2026-10-02): where does the defence premium come from?**
+   On xNPV 1's line a defenceman's expected win costs 47% more than a forward's. There are three
+   readings, and they predict different shapes.
+   - **Positional scarcity.** Teams fill 4 top-four defence slots against 6 top-six forward slots.
+     In a market where wins are interchangeable across positions, scarcity should move what the
+     *marginal* defenceman earns (a defence intercept). It should not move the price per win,
+     because WAR already measures each player against replacement at his own position. Scarcity
+     can raise the price per win only if wins are not interchangeable: someone has to play 24
+     minutes against top lines, and a forward cannot fill that job. That reading makes the
+     premium real value.
+   - **WAR under-measures defencemen.** The July review found WAR tracks an independent
+     benchmark at 0.28-0.30 for defencemen against 0.65 for forwards. Defencemen's WAR also
+     regresses harder (0.62 of the trailing total against 0.73). This predicts a slope premium.
+   - **Clubs overpay defencemen.** This also predicts a slope premium. It is the only reading
+     under which the premium is mispricing.
+   - **Already known:** at zero trailing wins, forwards and defencemen are paid the same median,
+     $0.886M (Stage 3, item 3.4). That is why the line has a common intercept, and it leans
+     against pure scarcity.
+   - **Test, laptop:**
+     1. On the 2,347 price-line contracts, fit four lines on identical rows: one line; a defence
+        intercept only; a defence slope only (today's); both. Score each alone and combined. Do
+        it on both the trailing total and xNPV 1's forecast.
+     2. Compare the pay of the marginal roster defenceman (seventh by ice time within each
+        team-season) with the thirteenth forward's ($0.984M median, July review). Scarcity
+        predicts the seventh defenceman earns clearly more.
+   - **What it can and cannot settle:** a significant defence intercept would support scarcity.
+     A pure slope premium leaves under-measurement and overpaying apart. Telling those two apart
+     needs an outcome WAR does not supply (the Game Value metric is the candidate). Nothing
+     locked changes unless a result is adopted.
+   - **Why it matters:** the separate defence slope prices the premium as fair value. A
+     defence-wide mispricing therefore cannot appear in the back-test unless this is resolved.
+6. **Carry:**
    - the nine-season participation window;
    - the long-deal gap;
    - the star under-forecast.

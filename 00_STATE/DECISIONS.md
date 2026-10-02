@@ -2567,3 +2567,13 @@ Stage 3. The separate slope prices it as fair value (STANDING_FLAGS,
   defence-premium flag added), `CLAUDE.md` (the rate in force, run notes), the session log and
   `MANIFEST.csv`.
 - Owed: the switch comparison on the laptop.
+
+### Change log, 2026-10-02i (defence premium parked as a possible finding)
+
+- `WORK_QUEUE.md` item 5 (new): three readings of the 47% defence premium per expected win
+  (positional scarcity, WAR under-measuring defencemen, clubs overpaying) and the shape each
+  predicts.
+  - The test: four price lines on identical rows, and the pay of the marginal defenceman against
+    the marginal forward.
+  - Parked at Thomas's request; no code, nothing locked changed.
+- The session log is updated.
