@@ -2621,3 +2621,13 @@ Stage 3. The separate slope prices it as fair value (STANDING_FLAGS,
   - `ep_age_scraper.py` (from 02f6fda).
 - `WORK_QUEUE.md`, `PROJECT_STATE.md` and the session log are updated. Update-Dashboard is
   still owed.
+
+### Change log, 2026-10-03c (session close)
+
+- `PROJECT_STATE.md` scripts inventory reconciled to the v2.0 pricing scripts and the promoted
+  xNPV 1 modules; `valuation_walkthrough.py` marked archived; the `50_REBUILD/` section headed
+  RETIRED.
+- The `STANDING_FLAGS.md` unit-mismatch flag is updated.
+- `MANIFEST.csv` state-file rows are refreshed and two session-log rows added.
+- The dashboard refresh is running on the laptop; its result is carried to the next session.
+- No code changed.

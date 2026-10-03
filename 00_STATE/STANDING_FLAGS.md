@@ -7,7 +7,7 @@ the back-test would read as mispricing. The fix is a line fitted on the same for
 rebuild's currency did this). Until it is in, no xNPV 1 dollar figure is a finding.
 UPDATE 2026-10-02g: the fix was approved and written (`xnpv1_price_line.py`, the `XNPV1_RATE` slot,
 qualify rates bucketed on the forecast). CLOSED 2026-10-02h: `XNPV1_RATE` locked from the laptop run.
-The switch comparison on it is owed.
+The switch comparison on it ran 2026-10-02j and was accepted; xNPV 0 was archived 2026-10-02k.
 
 **The defence slope prices a large premium as fair value (2026-10-02h).** On xNPV 1's line a
 defenceman's expected win costs 47% more than a forward's ($4.350M against $2.950M). Under Stage 3 it
