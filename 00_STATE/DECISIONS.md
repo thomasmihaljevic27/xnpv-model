@@ -2605,3 +2605,10 @@ Stage 3. The separate slope prices it as fair value (STANDING_FLAGS,
   The real-spine check (`25_TESTS/xnpv0_removal_check.py`) is owed on the laptop.
 - Updated: `CLAUDE.md` (folder map, run notes, the rate rule), `MANIFEST.csv`, the migration plan,
   `PROJECT_STATE.md`, `WORK_QUEUE.md` and the session log.
+
+### Change log, 2026-10-03 (archive verified on the real spine)
+
+- The laptop's `xnpv0_removal_check.py` passed: all 3,149 contracts are identical to the dollar
+  before and after the removal of xNPV 0.
+- Recorded in a new session log (`sessions/2026-10-03.md`), `PROJECT_STATE.md` and
+  `WORK_QUEUE.md`. No code changed.

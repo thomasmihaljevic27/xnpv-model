@@ -1,10 +1,9 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
-**xNPV 1 follow-ups, updated 2026-10-02k: open, in order.**
+**xNPV 1 follow-ups, updated 2026-10-03: open, in order.**
 1. **Laptop, after syncing the archive commit (2026-10-02k), in this order:**
-   1. `python 25_TESTS\xnpv0_removal_check.py`, BEFORE Update-Dashboard. It needs the spine the
-      old code wrote, and checks that removing xNPV 0 moved no xNPV 1 value. Send back
-      `30_OUTPUT\xnpv0_removal_check_log.txt`.
+   1. DONE 2026-10-03: `25_TESTS\xnpv0_removal_check.py` PASS. All 3,149 contracts are identical
+      to the dollar.
    2. `python 25_TESTS\archive_from_git.py 7f91f0e 2026-10-02 50_REBUILD/code 50_REBUILD/README.md
       20_CODE/skater_forward_projection.py 20_CODE/rfa_terminal_value.py 20_CODE/contract_npv.py
       20_CODE/valuation_walkthrough.py 20_CODE/xnpv1_price_line.py`

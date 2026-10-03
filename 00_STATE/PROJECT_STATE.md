@@ -1,5 +1,10 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**xNPV 0 removal verified on the real spine, 2026-10-03.**
+- The laptop check passed: all 3,149 contracts are identical to the dollar before and after.
+- Still owed on the laptop: the archive copies, the move of the rebuild outputs, and
+  Update-Dashboard.
+
 **xNPV 0 archived; xNPV 1 is the only skater model, 2026-10-02k.**
 - **Accepted:** Thomas accepted the switch comparison; the defence questions wait.
 - **Code:**
