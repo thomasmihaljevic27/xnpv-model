@@ -21,7 +21,10 @@
 # both committed by `git add -A` syncs (removed 2026-09-25).
 /env
 debug.log
-.claude/
+# Local Claude Code state stays out (settings.local.json and the like). Repo skills are
+# versioned so every session and machine gets the same writing rules (2026-10-03).
+.claude/*
+!.claude/skills/
 
 # --- Generated output. Regenerable from code, drifts every run ---
 30_OUTPUT/

@@ -2637,3 +2637,22 @@ Stage 3. The separate slope prices it as fair value (STANDING_FLAGS,
 - Update-Dashboard ran clean on the post-removal code, the new xNPV 1 validation batteries
   included. That completes the xNPV 1 migration.
 - `WORK_QUEUE.md`, `PROJECT_STATE.md` and the session log are updated. No code changed.
+
+### Change log, 2026-10-03e (aging review meeting: questions, and the writing skill)
+
+- New `40_DOCS/Aging_Review_Meeting_Followups.md` covers the supervisor's questions and requests from
+  the aging review meeting. Each one is checked against the code and the recorded tests. Main
+  findings:
+  - The document under review describes xNPV 0.
+  - Two meeting answers conflict with the record: the self-pair figure, and what the league weight
+    of 10 does.
+  - The 55/45 blend cancels out of xNPV 1's forecast (a code reading, not yet run).
+  - The agreed yardstick changes would force a re-lock of `XNPV1_RATE`.
+- New repo skill `.claude/skills/model-writeup/` holds the supervisor's writing feedback, a story-spine
+  workflow, and STE-flavoured sentence rules. It includes a vendored MIT linter from
+  danyuchn/asd-ste100-skill at 7d4a135.
+- `.gitignore` now keeps `.claude/skills/` under version control. Other `.claude/` content stays
+  ignored.
+- `WORK_QUEUE.md` item 2 is extended. `MANIFEST.csv` rows are added. Session log
+  `sessions/2026-10-03b.md`.
+- No locked decision reopened. No code changed.
