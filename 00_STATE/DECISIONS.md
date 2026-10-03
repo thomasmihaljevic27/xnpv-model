@@ -2631,3 +2631,9 @@ Stage 3. The separate slope prices it as fair value (STANDING_FLAGS,
 - `MANIFEST.csv` state-file rows are refreshed and two session-log rows added.
 - The dashboard refresh is running on the laptop; its result is carried to the next session.
 - No code changed.
+
+### Change log, 2026-10-03d (dashboard refresh clean; migration complete)
+
+- Update-Dashboard ran clean on the post-removal code, the new xNPV 1 validation batteries
+  included. That completes the xNPV 1 migration.
+- `WORK_QUEUE.md`, `PROJECT_STATE.md` and the session log are updated. No code changed.

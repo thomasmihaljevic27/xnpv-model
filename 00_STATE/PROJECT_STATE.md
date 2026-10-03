@@ -3,8 +3,8 @@
 **xNPV 0 removal verified on the real spine; migration closed, 2026-10-03.**
 - The laptop check passed: all 3,149 contracts are identical to the dollar before and after.
 - Archive copies are written and the rebuild outputs moved.
-- The dashboard refresh was started by Thomas on the new code. Its result has not been seen in
-  this session.
+- The dashboard refresh ran clean on the new code (Thomas, 2026-10-03), the projection and
+  terminal-value batteries included. The xNPV 1 migration is complete.
 - The scripts inventory below is reconciled to the v2.0 files.
 
 **xNPV 0 archived; xNPV 1 is the only skater model, 2026-10-02k.**

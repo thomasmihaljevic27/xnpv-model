@@ -6,8 +6,7 @@
       to the dollar.
    2. DONE 2026-10-03: archive copies from 7f91f0e, 104 files.
    3. DONE 2026-10-03: the rebuild's untracked outputs moved to the archive.
-   4. Update-Dashboard: started 2026-10-03 on the new code. If it stops on a guard, the new
-      validation batteries (projection, terminal value) are the first place to look.
+   4. DONE 2026-10-03: Update-Dashboard ran clean on the new code after a sync. Thomas: "all good".
    - Thomas accepted the switch comparison on 2026-10-02 (goalies unchanged; skaters net
      +$2,199.8M). The defence questions wait (item 5).
 2. **Supervisor review** (in person). Bring:
