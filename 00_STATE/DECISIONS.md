@@ -2612,3 +2612,12 @@ Stage 3. The separate slope prices it as fair value (STANDING_FLAGS,
   before and after the removal of xNPV 0.
 - Recorded in a new session log (`sessions/2026-10-03.md`), `PROJECT_STATE.md` and
   `WORK_QUEUE.md`. No code changed.
+
+### Change log, 2026-10-03b (laptop archive steps done)
+
+- `90_ARCHIVE/2026-10-02/` on the laptop now holds:
+  - the pre-removal xNPV 0 files and the rebuild's code (104 files from 7f91f0e);
+  - the rebuild's untracked outputs;
+  - `ep_age_scraper.py` (from 02f6fda).
+- `WORK_QUEUE.md`, `PROJECT_STATE.md` and the session log are updated. Update-Dashboard is
+  still owed.

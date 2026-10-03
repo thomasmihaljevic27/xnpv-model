@@ -4,12 +4,9 @@
 1. **Laptop, after syncing the archive commit (2026-10-02k), in this order:**
    1. DONE 2026-10-03: `25_TESTS\xnpv0_removal_check.py` PASS. All 3,149 contracts are identical
       to the dollar.
-   2. `python 25_TESTS\archive_from_git.py 7f91f0e 2026-10-02 50_REBUILD/code 50_REBUILD/README.md
-      20_CODE/skater_forward_projection.py 20_CODE/rfa_terminal_value.py 20_CODE/contract_npv.py
-      20_CODE/valuation_walkthrough.py 20_CODE/xnpv1_price_line.py`
-   3. `Move-Item 50_REBUILD\output 90_ARCHIVE\2026-10-02\50_REBUILD\output`. This moves the
-      rebuild's untracked run outputs. It has not been run on Windows.
-   4. Update-Dashboard.
+   2. DONE 2026-10-03: archive copies from 7f91f0e, 104 files.
+   3. DONE 2026-10-03: the rebuild's untracked outputs moved to the archive.
+   4. Update-Dashboard (still owed).
    - Thomas accepted the switch comparison on 2026-10-02 (goalies unchanged; skaters net
      +$2,199.8M). The defence questions wait (item 5).
 2. **Supervisor review** (in person). Bring:
@@ -20,7 +17,7 @@
      value (`40_DOCS/model_evidence/xNPV1_Price_Line.md`). Both are identification points.
 3. **Archive: done in the tree 2026-10-02k.** xNPV 0, `valuation_walkthrough.py` and `50_REBUILD/`
    are removed. The archive copies come from item 1, steps 2 and 3.
-4. **Laptop:** `python 25_TESTS\archive_from_git.py 02f6fda 2026-10-02 20_CODE/ep_age_scraper.py`.
+4. DONE 2026-10-03: `ep_age_scraper.py` archived from 02f6fda.
 5. **Parked, a possible finding (Thomas, 2026-10-02): where does the defence premium come from?**
    On xNPV 1's line a defenceman's expected win costs 47% more than a forward's. There are three
    readings, and they predict different shapes.
