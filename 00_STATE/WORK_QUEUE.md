@@ -37,6 +37,24 @@
    - the unit question;
    - the defence premium (47% per expected win), which the separate defence slope prices as fair
      value (`40_DOCS/model_evidence/xNPV1_Price_Line.md`). Both are identification points.
+   - **Added 2026-10-03 from the aging review meeting** (`40_DOCS/Aging_Review_Meeting_Followups.md`).
+     Next meetings: Tue 2026-10-06 1:00 PM, Wed 2026-10-07 10:00 AM.
+     - The aging document and spreadsheet under review describe xNPV 0. Open with xNPV 1's changes,
+       because four commitments made in the meeting are already in xNPV 1: no future data, additive
+       changes, three seasons, and games played.
+     - Correct two meeting answers. Self-pairs moved error under 0.01%, not about 1%. The league
+       weight of 10 is a shrinkage toward the league curve, not a ratio guard; values 0.01-20 are
+       within 0.06%.
+     - Decide on the agreed yardstick changes (self-pairs, forward/defence split). Each moved error
+       under 0.01%, and either would force a re-lock of `XNPV1_RATE`. Recommendation: report the
+       tests and do not implement.
+     - Laptop, owed: the participation model's coefficient table and the goalie exit table; the
+       average games played (all seasons, and seasons of 10+ games); an xNPV 1 worked-contract table
+       (O'Reilly); and a one-line check that the 55/45 blend does not move xNPV 1's forecast.
+     - Writing: Gaussian-weight references (a candidate list is in the note); rewrite as a story with
+       the `writing-style` skill; check what `draft_pick_linkage.py` does with future-year picks.
+     - Timeline: document review done by reading week; fixes over reading week; the paper to the
+       second reader before the end of November.
 3. **Archive: done in the tree 2026-10-02k.** xNPV 0, `valuation_walkthrough.py` and `50_REBUILD/`
    are removed. The archive copies come from item 1, steps 2 and 3.
 4. DONE 2026-10-03: `ep_age_scraper.py` archived from 02f6fda.

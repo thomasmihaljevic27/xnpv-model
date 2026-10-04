@@ -2,11 +2,11 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 00_STATE,01_Draft_Model_Sequence.md,state,hashable,2026-09-28k,19281a382d63f217be50d4c924e322792e1b0739,10417,2026-09-28,yes,git,rewritten 2026-09-28 with D29-D31
 00_STATE,02_Prospect_Model_Sequence.md,state,hashable,2026-09-28k,047d898fa5c56992c326a1403199f106b3f2d792,11163,2026-09-28,yes,git,"rewritten 2026-09-28 (EP pull, bridge, goalie birthdates)"
 00_STATE,03_Player_Market_Model_Sequence.md,state,hashable,2026-09-09a,2f68c554cca2f422235e3baa6e17a0996e8412e7,18322,2026-09-09,yes,git,matches Claude project copy
-00_STATE,DECISIONS.md,state,hashable,2026-10-03d,c5094a6b30ad378ea0eb97e80d3f5f29757ea982,353275,2026-10-03,yes,git,change log 2026-09-30j
+00_STATE,DECISIONS.md,state,hashable,2026-10-04,b25a1014e93cd18877863790729587b84af55318,354979,2026-10-04,yes,git,change log 2026-10-04
 00_STATE,MANIFEST.csv,state,hashable,2026-09-25c,66d3201b2fc22f946fa0de1bb2c0f364c6600a13,36432,2026-09-25,yes,git,"this file; the hash column cannot be self-referential, so it is not audited"
 00_STATE,PROJECT_STATE.md,state,hashable,2026-10-03d,7747ac57f46681986f8da8d71eb8e1abe0e49c1e,193534,2026-10-03,yes,git,refresh v3.3; EP v3.1 note
 00_STATE,STANDING_FLAGS.md,state,hashable,2026-10-03c,bea82bd21d62ce96ed49651408ddf7cad499f3bf,137014,2026-10-03,yes,git,pandas 3 flag
-00_STATE,WORK_QUEUE.md,state,hashable,2026-10-03d,3c7a30d83318bdc7523f5a38526c1c82d0e43305,154374,2026-10-03,yes,git,EP v3.1 note
+00_STATE,WORK_QUEUE.md,state,hashable,2026-10-04,ecefda6f54e87e8c283a9e61f0b4646789482caf,155880,2026-10-04,yes,git,aging review meeting follow-ups added to item 2
 00_STATE/sessions,2026-08-28.md,state,hashable,2026-09-09a,921a8eae623bb0d7ac4d1d181f6b862aa51a9e62,2159,2026-09-09,yes,git,git-tracked; audited via `git status`
 00_STATE/sessions,2026-09-08.md,state,hashable,2026-09-09a,1b31b43e8ed30fefd98ded8df5f5a431e79f323b,2384,2026-09-09,yes,git,git-tracked; audited via `git status`
 00_STATE/sessions,2026-09-09.md,state,hashable,2026-09-10,e1547fa499f7d8fdff918698f28a968b7bb56a07,22662,2026-09-10,yes,git,git-tracked; audited via `git status`
@@ -316,5 +316,11 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,xnpv0_removal_check.py,player,hashable,2026-10-02k,49130927295d238c6705784770d093f357821e73,5999,2026-10-02,no,git,laptop check that archiving xNPV 0 moved no xNPV 1 value
 00_STATE/sessions,2026-09-28c.md,state,hashable,2026-10-03c,4a493f93f91fd01dfd357e378fb1057071396eed,5631,2026-10-03,yes,git,git-tracked; audited via `git status`
 00_STATE/sessions,2026-10-03.md,state,hashable,2026-10-03d,cdd96579aaf9229d6fd2f0beb9617a5335cf4626,3534,2026-10-03,yes,git,git-tracked; audited via `git status`
+40_DOCS,Aging_Review_Meeting_Followups.md,doc,hashable,2026-10-04,fa4ed5c21cf5633a0b759987f7ce410606b7ae77,17419,2026-10-04,yes,git,"supervisor questions and requests from the aging review meeting, checked against code; working note"
+00_STATE/sessions,2026-10-03b.md,state,hashable,2026-10-03e,5d294fad7ea7f91040de4c0a7409ade248f2d25e,3353,2026-10-03,yes,git,git-tracked; audited via `git status`
+.claude/skills/writing-style,SKILL.md,tooling,hashable,2026-10-04,4574cf104ec49c96fda2cc086ff69f740a849945,27385,2026-10-04,yes,git,writing-style skill: model-writeup merged with thomas-voice-humanizer
+.claude/skills/writing-style/scripts,ste-lint.py,tooling,hashable,2026-10-04,69d244ba292b5be8265ba47ad56aba203df6800f,20174,2026-10-04,yes,git,vendored from danyuchn/asd-ste100-skill 7d4a135 (MIT)
+.claude/skills/writing-style/scripts,LICENSE-ste-lint,tooling,hashable,2026-10-04,cf3b9052d36f05227a3e3c364910b9f96c86cc5f,1075,2026-10-04,yes,git,MIT licence for the vendored linter
+00_STATE/sessions,2026-10-04.md,state,hashable,2026-10-04,90aa7ee2a422eee130e93895f3b429f1c76d61be,1844,2026-10-04,yes,git,git-tracked; audited via `git status`
 25_TESTS,late_signing_status_check.py,player,hashable,2026-10-04,d566a23cf265fc7c267e7d0d17f4fd61ad3311a5,4689,2026-10-04,yes,git,laptop check: chance of playing read at July 1 against at the signing
 00_STATE/sessions,2026-10-04.md,state,hashable,2026-10-04,deeebe0eb064833b34beb4168daf76404eca9ddc,4945,2026-10-04,yes,git,git-tracked; audited via `git status`
