@@ -28,6 +28,9 @@ modelling decisions retired (D22-D27, D29-D32); data kept. Order: after player d
 the delivered-win price is decided, write a plain-English specification step by step with the supervisor,
 into the ledger, before any code. Earlier draft and prospect queue entries are superseded.
 
+**Next work (2026-10-04): follow the plan of record in `00_STATE/MODEL_DIRECTIVES.md`.** Step 1: build directives
+1-3 on a branch, starting with directive 1's detail 1 (games weighting of seasons), decided with Thomas.
+
 **Model directives, 2026-10-04: `00_STATE/MODEL_DIRECTIVES.md` is the plan of record.** Thomas went
 through the xNPV 1 documents line by line and directed five changes (50/30/20 start pulled 65/35 toward
 comparables; the curve's level 50/30/20; one 65/35 blend; term-in price line; signing-dated price-line

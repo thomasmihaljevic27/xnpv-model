@@ -28,9 +28,38 @@ the commit), **superseded** (replaced by a later entry).
 | E | The chance of playing for players under contract | open |
 | F | Re-run the Game Value checks on the model as directed | after directives 1-5 are built |
 
-Open decisions (Thomas's to make; listed at the end): the control-year weight; when contract status
+The plan of record (order of work) follows this summary. Open decisions (Thomas's to make; listed at the end): the control-year weight; when contract status
 is read for a contract valuation; the price of a delivered win. Unsettled details sit inside
 directives 1 and 4.
+
+
+## Plan of record: the order of work (Thomas, 2026-10-04)
+
+Several items cannot be settled until some directives exist in code, so the work runs in this
+order. The price line (the expensive step: re-fit, re-lock, re-run the valuations) is built once,
+at step 6.
+
+1. **Build the forecast directives (1, 2, 3) in code, on a branch.** First settle directive 1's
+   details 1, 3 and 4 (games weighting of seasons, the one-year step to the valuation season,
+   players with fewer than three seasons), one at a time with Thomas. Do not re-fit the price line
+   yet; values stay provisional on the branch. Every later test runs on this real code, not on a
+   separate test copy.
+2. **Investigations A, B and C on that branch, as one script** (all three change the same curve).
+   B also settles directive 1's detail 2 (which comparable-player level).
+3. **Investigation D, and investigation E together with open decision 2.** Independent of A-C (both
+   need only directive 1's 50/30/20 trailing total); can run alongside step 2.
+4. **Open decision 1 (the control-year weight)**, after E's result.
+5. **Fix the forecast:** add whatever Thomas adopts from steps 2-4 to the directives and the branch.
+6. **Pricing:** settle directive 4's details; directives 4 and 5 as one price-line re-fit and
+   re-lock; re-measure the qualify rates and control-year weights on the final forecast; re-run the
+   valuations and the dashboard; update the documents.
+7. **Checks:** investigation F, and the price-line specification tests on the new line (straight
+   line, contract length, RFA/UFA, stability). Decide how the changed model is validated: the
+   2022-2025 confirmation was a one-time run on the old forecast and cannot simply be repeated.
+8. **Open decision 3 (the price of a delivered win)**, which unlocks directive 6 (the draft and
+   prospect restart with Karl).
+
+**Next step:** step 1, starting with directive 1's detail 1.
 
 ---
 

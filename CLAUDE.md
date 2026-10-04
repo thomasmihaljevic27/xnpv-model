@@ -20,6 +20,9 @@ State lives in four version-controlled files in `00_STATE/`, plus a per-session 
   running change log for all four state files.
 - **`STANDING_FLAGS.md`** — Karl's identification axes, the triaged open questions, the
   original-conflicts resolution record.
+- **`MODEL_DIRECTIVES.md`** (new 2026-10-04) — Thomas's explicit model directives, the investigate list,
+  the open decisions, and the plan of record (the order of work). The model must match it; read it
+  before changing any model code, and change nothing in it without Thomas's say.
 - **`sessions/YYYY-MM-DD[letter].md`** — one file per working session, beat-by-beat: what was
   discussed, decided, done, which artifacts were touched, and any thread left without a
   follow-up. `git log 00_STATE/ 20_CODE/` is the mechanical second copy of that history.

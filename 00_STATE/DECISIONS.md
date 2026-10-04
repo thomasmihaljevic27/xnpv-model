@@ -2735,3 +2735,11 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - `01_Draft_Model_Sequence.md` and `02_Prospect_Model_Sequence.md` marked superseded. No code or
   data moved; the retired scripts are archived when the restart begins.
 - `CLAUDE.md` lock rule, WORK_QUEUE, PROJECT_STATE, STANDING_FLAGS and the session log updated.
+
+### Change log, 2026-10-04f (session close: ledger complete, plan of record)
+
+- `MODEL_DIRECTIVES.md` complete as of 2026-10-04: six directives, investigations A-F (closed),
+  three open decisions, and the plan of record (forecast directives on a branch first, then A-E and
+  open decisions 1-2, then one price-line re-fit for directives 4-5, then checks, then the
+  delivered-win price and the draft restart).
+- `CLAUDE.md` names the ledger among the state files. No model code changed this session.
