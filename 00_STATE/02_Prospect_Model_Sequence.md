@@ -1,5 +1,7 @@
 # 02. Prospect Model, Sequenced
 
+**SUPERSEDED 2026-10-04 (Thomas).** Every draft and prospect modelling decision is retired and the model restarts from scratch with the supervisor involved (`MODEL_DIRECTIVES.md`, directive 6). Kept as a record only; the data it lists is kept.
+
 Generated 2026-07-29. **Rewritten 2026-09-28** against the current tree and that day's data
 work. Position in the overall order: second of the three structural documents.
 

@@ -1,5 +1,10 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**Model directives ledger; draft and prospect restart, 2026-10-04.** `00_STATE/MODEL_DIRECTIVES.md` holds
+Thomas's five player-model directives (not yet in code) and six investigate items. All draft and prospect
+modelling decisions are retired (D22-D27, D29-D32); those models restart from scratch with the supervisor,
+keeping the data.
+
 **Supervisor documents rewritten for xNPV 1, 2026-10-04.**
 - The four documents in `40_DOCS/Supervisor_Drafts/` describe xNPV 1 from its code, with the 2024
   page's fitted tables and a worked contract (Marchessault 2024). xNPV 0 versions archived.

@@ -111,7 +111,8 @@ Game-level chain, in order:
     python 20_CODE/score_state.py
     python 20_CODE/metric_assembly.py
 
-Draft pillar:
+Draft pillar (models retired 2026-10-04, restart pending with the supervisor; these scripts still
+produce the kept data and the check, see `00_STATE/MODEL_DIRECTIVES.md` directive 6):
 
     python 20_CODE/draft_pick_linkage.py
     python 20_CODE/draft_yield_curve.py
@@ -128,7 +129,8 @@ Draft pillar:
   scoped and documented before it ships.
 - **Don't let a valuation see its own season.** A player's value at a decision point draws only
   on information available before that date. Check every new join or metric against this.
-- **Don't reopen locked decisions** (D1 through D33 in `00_STATE/DECISIONS.md`) without a
+- **Don't reopen locked decisions** (D1 through D33 in `00_STATE/DECISIONS.md`, except D22-D27 and D29-D32,
+  the draft and prospect decisions retired on 2026-10-04) without a
   deliberate revisit. The skater price per win in force is the Stage 3 rate (locked 2026-07-28):
   left-censored at the league minimum, one intercept, a separate defence slope.
   alpha=0.0132478230, beta=0.0212322891 per win for forwards, plus 0.0028702824 for defencemen

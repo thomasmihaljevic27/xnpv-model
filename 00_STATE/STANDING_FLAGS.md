@@ -1,5 +1,9 @@
 # STANDING FLAGS & OPEN QUESTIONS — NHL Trade Market Efficiency
 
+**Draft and prospect flags are moot as model flags (2026-10-04).** Those models restart from scratch
+(directive 6); flags below about the yield curve, Rule A/B, bands and pick conventions describe retired
+work. Flags about the data (linkage cases, birthdates, id conflicts) still apply.
+
 **A late-signed contract cannot see itself in its own chance of playing (2026-10-04).** The priced
 sweep values each contract at July 1 of its first season, and xNPV 1 reads contract status at that
 date. 1,533 of 2,759 priced skater contracts were signed after July 1, so each is valued with its

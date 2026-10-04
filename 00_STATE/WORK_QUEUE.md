@@ -23,6 +23,11 @@
 - **Removed:** the 2026-10-03 meeting follow-ups (item 2 below) and the version-line note for
   `age_join.py` and `join_clauses_to_spine.py` (2026-09-28c).
 
+**Draft and prospect pillars, 2026-10-04: restart from scratch (directive 6).** All draft and prospect
+modelling decisions retired (D22-D27, D29-D32); data kept. Order: after player directives 1-5 are built and
+the delivered-win price is decided, write a plain-English specification step by step with the supervisor,
+into the ledger, before any code. Earlier draft and prospect queue entries are superseded.
+
 **Model directives, 2026-10-04: `00_STATE/MODEL_DIRECTIVES.md` is the plan of record.** Thomas went
 through the xNPV 1 documents line by line and directed five changes (50/30/20 start pulled 65/35 toward
 comparables; the curve's level 50/30/20; one 65/35 blend; term-in price line; signing-dated price-line

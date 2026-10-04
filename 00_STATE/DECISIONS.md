@@ -2718,3 +2718,20 @@ Stage 3. The separate slope prices it as fair value (STANDING_FLAGS,
   average in the comparables, C departed players, D games-share form, E chance of playing under
   contract, F Game Value checks re-run. These revisit locked decisions (D3, D33 and its addendum);
   each is a deliberate revisit by Thomas.
+
+## Draft and prospect decisions retired, 2026-10-04 (Thomas)
+
+**D22-D27 and D29-D32 are retired.** Thomas: "we should scrap all draft and prospect modelling
+decisions, keep the data obviously. starting from scratch allows us to have Karl in the development
+process." The draft and prospect models restart from a specification agreed step by step, with the
+supervisor involved, recorded in `MODEL_DIRECTIVES.md` (directive 6). Each retired decision may
+return only as a fresh decision. Kept as data: the draft records, the Elite Prospects draft pages and
+id bridge, the scraper, the NHLe table, the trade inventory, and the old linkage's output as a check.
+D28 (signed extensions are part of the asset) is a player-model decision and is not retired.
+
+### Change log, 2026-10-04e (draft and prospect restart)
+
+- D22-D27 and D29-D32 retired (above); directive 6 in `MODEL_DIRECTIVES.md`.
+- `01_Draft_Model_Sequence.md` and `02_Prospect_Model_Sequence.md` marked superseded. No code or
+  data moved; the retired scripts are archived when the restart begins.
+- `CLAUDE.md` lock rule, WORK_QUEUE, PROJECT_STATE, STANDING_FLAGS and the session log updated.

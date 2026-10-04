@@ -185,6 +185,34 @@ the commit), **superseded** (replaced by a later entry).
 
 ---
 
+## 6. Draft and prospect models restart from scratch, with Karl in the development; the data is kept
+
+- **Date:** 2026-10-04, while reading `Draft Picks, Prospects, and the Remaining Trade Model.docx`.
+- **Thomas's words:** "we should scrap all draft and prospect modelling decisions, keep the data
+  obviously. starting from scratch allows us to have Karl in the development process, which I think
+  will help the development process and remove explanation pains and further backtracking."
+- **What it means:**
+  - Every draft and prospect modelling decision is retired: D22-D27 (harvest window, cost rules,
+    units, fitting cohorts, one fixed curve, goalies) and D29-D32 (break-test bands, own-slot for
+    unknown picks, conditional picks, the widened prospect pull). Each may come back, but only as a
+    fresh decision taken with Karl.
+  - The models are rebuilt from a plain-English specification agreed step by step (with Karl)
+    before any code, each step entered in this ledger.
+  - **Kept, as data:** the cached NHL draft records; the Elite Prospects draft pages (4,765 picks)
+    and the EP-to-NHL id bridge (`ep_nhl_bridge.py`, 2,232 of 2,233 agreeing); the scraper
+    (`ep_extract.py`) and the NHLe table (`nhle_temporal.csv`); the trade inventory; and the old
+    linkage's output (`draft_pick_linkage.csv`) as the check any new linkage is compared against
+    pick by pick, with its hand-verified cases (aliases, spelling unions, merged-name exclusions).
+  - **Retired, as models:** `draft_yield_curve.py`, `slot_curve.py`, `future_pick_premium.py`, and
+    the plans `01_Draft_Model_Sequence.md` and `02_Prospect_Model_Sequence.md`. They stay in the tree
+    until the restart begins (archived then, under their original names).
+- **Order:** after directives 1-5 are in the code and the price of a delivered win is decided,
+  because the draft curve prices in the player model's currency. Consistent with the 2026-10-04
+  triage (draft and prospect pillars on hold until Karl is up to speed).
+- **Status:** directed. Nothing archived or changed yet.
+
+---
+
 # To investigate (Thomas's list; nothing here is directed)
 
 Questions Thomas wants looked into before he decides. An item moves to the directives above only
