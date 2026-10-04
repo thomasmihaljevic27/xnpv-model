@@ -319,3 +319,4 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 00_STATE/sessions,2026-10-04.md,state,hashable,2026-10-04,8d267d37aa504bd3c08728c9c740bfa4b7edc973,6789,2026-10-04,yes,git,git-tracked; audited via `git status`
 25_TESTS,late_signing_status_check.py,player,hashable,2026-10-04,d566a23cf265fc7c267e7d0d17f4fd61ad3311a5,4689,2026-10-04,yes,git,laptop check: chance of playing read at July 1 against at the signing
 00_STATE/sessions,2026-10-04b.md,state,hashable,2026-10-04b,5eea1b713061533096e85fba2841edd65ed36c2e,4228,2026-10-04,yes,git,triage of the open list
+00_STATE,MODEL_DIRECTIVES.md,state,hashable,2026-10-04,252c158b4fa2023c51e02dc5f87fec792eb4fcb0,3032,2026-10-04,yes,git,"Thomas's explicit model directives, entry by entry"
