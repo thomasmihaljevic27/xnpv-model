@@ -87,3 +87,28 @@ the commit), **superseded** (replaced by a later entry).
   - Slightly worse one season out (1.2620 against 1.2603); better from two seasons on.
   - 60/40 over two seasons was worse than the equal average. Games weighting added nothing.
 - **Status:** directed. Code unchanged.
+
+---
+
+# To investigate (Thomas's list; nothing here is directed)
+
+Questions Thomas wants looked into before he decides. An item moves to the directives above only
+when he directs it.
+
+## A. The yardstick: one per position, and no self-pairs
+
+- **Raised:** 2026-10-04, reading the yardstick sentence in `Data, Production, and Aging.docx`.
+- **Background:** the meeting with Karl (aging review, 2026-10-02) agreed to two changes:
+  - a separate yardstick for forwards (2.48) and defencemen (2.56), instead of the pooled 2.53;
+  - no self-pairs, so a player is never measured against his own other seasons when the yardstick
+    is built.
+  Neither was made, and no decision was recorded.
+- **Already known:** both were tested on 2026-09-28 (`Model_Changes_September_2026.md` §3), and
+  each moved forecast error by under 0.01% (the "about 1%" said in the meeting was wrong). That
+  test ran on the old model, before entries 1 and 2.
+- **Thomas's view:** "sounds like a lot of hoopla for nothing."
+- **To investigate:** re-score both changes on the curve as entries 1 and 2 define it. If they
+  still move nothing, close the item and report the test in the paper as a robustness check. If
+  Thomas directs either change, it rides on the same rebuild as entries 1 and 2 (the price line is
+  re-locked once).
+- **Until then:** the code and the model keep one pooled yardstick, self-pairs included.
