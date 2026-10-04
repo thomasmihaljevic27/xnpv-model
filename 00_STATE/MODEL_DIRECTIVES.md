@@ -276,3 +276,31 @@ when he directs it.
   Score the games share and season WAR on development pages; the cap binds rarely, so expect a
   small effect.
 - **Until then:** the code and the model keep the straight line with the cap and floor.
+
+## E. The chance of playing for players under contract: is it lowered by other players' walk-aways?
+
+- **Raised:** 2026-10-04, from the control-years passage in `Pricing, Control Years, and Contract
+  Value.docx`.
+- **Thomas's point:** the chance of playing is estimated on all player-seasons, including players
+  who left because their club did not qualify them or nobody signed them. A player with years left
+  on his deal should not have his chance lowered by club decisions that do not apply to him.
+- **What the model does:** each season's chance of playing reads whether the player is under
+  contract for that season (deals signed by the valuation date), which raises the odds of playing
+  about 3.5 times (2024 fit, valuation season). That should put most walk-away departures in the
+  "not under contract" group.
+- **Three leaks, none measured:**
+  1. Seasons before 2018-19 are all coded "not under contract" (the export cannot show them), so
+     contracted players from those seasons sit in the free-agent group in training. That shrinks the
+     measured benefit of a contract and may set a contracted player's chance too low. A
+     before/after-2018 indicator would separate them; D33 left it out (for goalies it carried the
+     gain credited to contract status, corrected 2026-09-23).
+  2. Contracts signed after July 1 are treated as not under contract for their own seasons (1,533 of
+     2,759 priced; WORK_QUEUE top block item 1; directive 5's related note).
+  3. The contract effect is one shift in the odds, the same for every player and quality.
+- **To investigate:** for players under contract for the season (2018-19 onward), compare the
+  forecast chance of playing with how often they played, by quality and by seasons ahead. Score
+  each fix the same way: the before/after-2018 indicator; status read at the signing; a contract
+  effect that varies by quality.
+- **Separate from** the control-year weighting (P(qualified) x P(plays, given qualified)), which
+  awaits Thomas's choice of method and is not affected by this pool question.
+- **Until then:** the code and the model keep the current chance of playing.
