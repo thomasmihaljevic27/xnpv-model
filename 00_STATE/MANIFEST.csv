@@ -2,7 +2,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 00_STATE,01_Draft_Model_Sequence.md,state,hashable,2026-10-04,3db01ad109a52983456f63e4d37fc4bc6b89f06f,10822,2026-10-04,yes,git,rewritten 2026-09-28 with D29-D31
 00_STATE,02_Prospect_Model_Sequence.md,state,hashable,2026-10-04,b5b48e30ae4efacc9e1dd8d0e7afb313692a8399,11591,2026-10-04,yes,git,"rewritten 2026-09-28 (EP pull, bridge, goalie birthdates)"
 00_STATE,03_Player_Market_Model_Sequence.md,state,hashable,2026-09-09a,2f68c554cca2f422235e3baa6e17a0996e8412e7,18322,2026-09-09,yes,git,matches Claude project copy
-00_STATE,DECISIONS.md,state,hashable,2026-10-04,bba7797efb3c56d3486436ba04c496999e9fd008,363437,2026-10-04,yes,git,change log 2026-10-04b
+00_STATE,DECISIONS.md,state,hashable,2026-10-04c,37a165c39d43c43ea8afa0dbf4bc7c202135d0b5,363851,2026-10-04,yes,git,change log 2026-10-04g
 00_STATE,MANIFEST.csv,state,hashable,2026-09-25c,66d3201b2fc22f946fa0de1bb2c0f364c6600a13,36432,2026-09-25,yes,git,"this file; the hash column cannot be self-referential, so it is not audited"
 00_STATE,PROJECT_STATE.md,state,hashable,2026-10-04,981ee83946822c89d21cfa36217a5af3216ef94e,196533,2026-10-04,yes,git,Doc 1 entry marked deleted 2026-10-04b
 00_STATE,STANDING_FLAGS.md,state,hashable,2026-10-04,7938e9fcba324476f41407a4fe67f93ae408ec68,140196,2026-10-04,yes,git,55/45-by-type question dropped 2026-10-04b
@@ -319,6 +319,8 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 00_STATE/sessions,2026-10-04.md,state,hashable,2026-10-04,eac49bd36b8f31292c4d598f38c9b07330fda080,14948,2026-10-04,yes,git,git-tracked; audited via `git status`
 25_TESTS,late_signing_status_check.py,player,hashable,2026-10-04,d566a23cf265fc7c267e7d0d17f4fd61ad3311a5,4689,2026-10-04,yes,git,laptop check: chance of playing read at July 1 against at the signing
 00_STATE/sessions,2026-10-04b.md,state,hashable,2026-10-04b,5eea1b713061533096e85fba2841edd65ed36c2e,4228,2026-10-04,yes,git,triage of the open list
-00_STATE,MODEL_DIRECTIVES.md,state,hashable,2026-10-04,1df2ef38efe580b13b3c116f2c8ff6034ece165d,31144,2026-10-04,yes,git,"Thomas's explicit model directives, entry by entry"
+00_STATE,MODEL_DIRECTIVES.md,state,hashable,2026-10-04c,6b76aa0dfeda0e758da29e84eb1dfab28a8eb222,31968,2026-10-04,yes,git,"Thomas's explicit model directives, entry by entry"
 25_TESTS,aging_level_weights_test.py,player,hashable,2026-10-04,48fe1aaafdf02738d8cb3c20d82ff22c56b776c4,15325,2026-10-04,yes,git,finished test or diagnostic
 25_TESTS,starting_level_simple_test.py,player,hashable,2026-10-04,02d3025eebcb181cc31d47da3a1a8fc838452f4f,17263,2026-10-04,yes,git,finished test or diagnostic
+00_STATE/sessions,2026-10-04c.md,state,hashable,2026-10-04c,ce76d1b2bc55c78e123cb038b72a330ed541cfb7,2876,2026-10-04,yes,git,plan of record step 1: directive 1 detail 1; test script written
+25_TESTS,level_games_weighting_test.py,player,hashable,2026-10-04c,bd25199253b89d0416d4b1cdb35b3f6bba46eda0,13745,2026-10-04,yes,git,directive 1 detail 1 test; laptop run owed

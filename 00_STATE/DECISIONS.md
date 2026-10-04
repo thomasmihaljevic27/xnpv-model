@@ -2743,3 +2743,10 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   open decisions 1-2, then one price-line re-fit for directives 4-5, then checks, then the
   delivered-win price and the draft restart).
 - `CLAUDE.md` names the ledger among the state files. No model code changed this session.
+
+### Change log, 2026-10-04g (plan of record step 1: directive 1 detail 1)
+
+- Directive 1, detail 1 (Thomas): the own 50/30/20 rate and the comparables' level use one
+  weighting, plain or games-weighted, chosen on the new `25_TESTS/level_games_weighting_test.py`
+  v1.0 (laptop run owed). A season counts toward the own rate at 10 games or more. Recorded in
+  `MODEL_DIRECTIVES.md`; no model code changed.

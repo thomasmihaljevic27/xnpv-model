@@ -59,7 +59,8 @@ at step 6.
 8. **Open decision 3 (the price of a delivered win)**, which unlocks directive 6 (the draft and
    prospect restart with Karl).
 
-**Next step:** step 1, starting with directive 1's detail 1.
+**Next step:** step 1, directive 1's detail 1: Thomas runs `25_TESTS/level_games_weighting_test.py`
+on the laptop and chooses plain or games-weighted for both sides (2026-10-04c). Then detail 3.
 
 ---
 
@@ -88,6 +89,14 @@ at step 6.
      games played, so a 20-game season counts for less than a full one. The alternative is plain
      50/30/20 on the three per-82 rates. The test found the games-weighted version slightly better
      (1.1683 against 1.1708).
+     - *Thomas, 2026-10-04 (session 2026-10-04c):* "if this is going to be games weighted then the
+       comparable's level should be as well. i want them to be the same. create a test script for
+       that." The own rate and the comparables' level use one weighting, plain or games-weighted,
+       to be chosen on `25_TESTS/level_games_weighting_test.py` v1.0 (laptop run owed). If games
+       weighting is chosen, directive 2's "plain" changes with it.
+     - *Minimum games (Thomas, 2026-10-04):* a season counts toward the player's own 50/30/20 rate
+       at 10 games or more ("10 games, as tested"; `forecast_config.MIN_GP`). The curve keeps its
+       20 (directive 2).
   2. *Which comparable-player level:* the aging curve's existing estimate (the comparables blended
      with the league average for his position and age at a weight of ten comparables), or the
      comparables alone. They tied in the test (1.1502 against 1.1497).
