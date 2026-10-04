@@ -90,6 +90,32 @@ the commit), **superseded** (replaced by a later entry).
 
 ---
 
+## 3. One own-versus-comparables blend: 65/35 replaces the aging curve's 55/45
+
+- **Date:** 2026-10-04, while reading the xNPV 1 documents line by line.
+- **Thomas's words:** "Add it to the ledger as a directive", directing that the curve's 55/45 be
+  replaced by his 65/35 so the model has one blend.
+- **What it means:**
+  - The model has exactly one weighting of a player's own level against his comparables' level:
+    65% own, 35% comparables, as entry 1 defines it.
+  - The aging curve's own 55/45 starting level (`aging_curve.LAMBDA = 0.55`) is replaced by that
+    65/35, so the curve and the starting level use the same weights and the same measure (entry 2:
+    50/30/20).
+  - The forecast still adds the curve's year-to-year changes to the starting rate (unchanged: the
+    changes are added in rate units, not applied as percentages).
+- **What the code does now (not yet changed):** `aging_curve.py` blends 55% own and 45% comparables
+  in `AgingModel.project`; xNPV 1 reads only the curve's changes, so that blend has no effect on any
+  value today.
+- **What this overrides in `Data, Production, and Aging.docx`, Section 4:** the paragraph saying the
+  curve computes a 55/45 starting level that the model does not use. Under entries 1 and 3 the
+  starting-level section states the single 65/35 blend once. Marchessault's 2.37 and his forecast
+  rates (2.00, 1.76, 1.56, 1.12) change once the code is changed.
+- **Note:** with the curve's 55/45 replaced, the curve's own starting level becomes the model's
+  starting level before the one-year step to the valuation season (entry 1, open detail 3).
+- **Status:** directed. Code unchanged.
+
+---
+
 # To investigate (Thomas's list; nothing here is directed)
 
 Questions Thomas wants looked into before he decides. An item moves to the directives above only
