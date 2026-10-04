@@ -112,3 +112,25 @@ when he directs it.
   Thomas directs either change, it rides on the same rebuild as entries 1 and 2 (the price line is
   re-locked once).
 - **Until then:** the code and the model keep one pooled yardstick, self-pairs included.
+
+## B. The league average inside the comparables' estimate: who needs it, and can it go?
+
+- **Raised:** 2026-10-04, reading "Stabilizing the estimate with the league average" in
+  `Data, Production, and Aging.docx`.
+- **Background:** the curve mixes the comparables' average with the league average for the same
+  position and age, at a fixed weight of ten (`aging_curve.SHRINK_K`). It does so for the
+  comparables' level (entry 1's 35%) and for each year-to-year change.
+- **Already known** (2026-09-28 test, old model, held-out careers; change in error against ten):
+  0.01 (effectively removed) +0.02%; 5 -0.02%; 20 +0.04%; 50 +0.16%; a fixed 5% share +0.04%; a
+  fixed 10% share +0.07%. Increasing it never helped. On the directed starting level, comparables
+  alone were slightly better than with the league blend (1.1497 against 1.1502, lower in 1,770 of
+  2,000; `starting_level_simple_test.py` v1.1). On curves refitted per valuation date, the league
+  average carries a median 11-14% of the estimate at the start of the walk and 17-23% at its end.
+- **Thomas's questions:** are there players it is genuinely useful for? Would more of it help?
+  Would anything be lost by removing it?
+- **To investigate:** on the curve as entries 1 and 2 define it, compare today's weight of ten
+  with "comparables only, and the league average only where no comparable has a value at that age"
+  (a fallback is needed there, because the average does not exist). Score the starting level and the
+  rate one to five seasons out, broken out by the league average's share of the estimate, by age
+  band (under 22, 22-34, 35 and over), and by seasons ahead.
+- **Until then:** the code and the model keep the weight of ten.
