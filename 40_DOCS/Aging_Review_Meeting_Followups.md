@@ -255,4 +255,4 @@ The other meeting decisions need no code:
 - **The answer to the square-root question** is missing from the summary. It was answered: arithmetic
   only.
 - **The writing feedback** is reduced to "glossary, subheadings, tell a story". The full points are in
-  `.claude/skills/model-writeup/SKILL.md` §1.
+  `.claude/skills/writing-style/SKILL.md` Part 1.

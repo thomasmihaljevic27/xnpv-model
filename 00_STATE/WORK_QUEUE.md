@@ -30,7 +30,7 @@
        average games played (all seasons, and seasons of 10+ games); an xNPV 1 worked-contract table
        (O'Reilly); and a one-line check that the 55/45 blend does not move xNPV 1's forecast.
      - Writing: Gaussian-weight references (a candidate list is in the note); rewrite as a story with
-       the `model-writeup` skill; check what `draft_pick_linkage.py` does with future-year picks.
+       the `writing-style` skill; check what `draft_pick_linkage.py` does with future-year picks.
      - Timeline: document review done by reading week; fixes over reading week; the paper to the
        second reader before the end of November.
 3. **Archive: done in the tree 2026-10-02k.** xNPV 0, `valuation_walkthrough.py` and `50_REBUILD/`

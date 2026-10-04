@@ -2656,3 +2656,13 @@ Stage 3. The separate slope prices it as fair value (STANDING_FLAGS,
 - `WORK_QUEUE.md` item 2 is extended. `MANIFEST.csv` rows are added. Session log
   `sessions/2026-10-03b.md`.
 - No locked decision reopened. No code changed.
+
+### Change log, 2026-10-04 (writing-style skill)
+
+- `.claude/skills/model-writeup/` is renamed to `.claude/skills/writing-style/` and merged with the
+  account skill `thomas-voice-humanizer`.
+  - The voice rules take precedence over the STE rules: the semicolon plus a connector is allowed,
+    and the linter runs with `--disable semicolon`.
+  - The new skill is packaged as a `.skill` file for Thomas to install in his claude.ai profile.
+- References updated in `WORK_QUEUE.md`, `Aging_Review_Meeting_Followups.md` and `MANIFEST.csv`.
+  Session log `sessions/2026-10-04.md`. No code changed.
