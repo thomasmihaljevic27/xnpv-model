@@ -134,3 +134,29 @@ when he directs it.
   rate one to five seasons out, broken out by the league average's share of the estimate, by age
   band (under 22, 22-34, 35 and over), and by seasons ahead.
 - **Until then:** the code and the model keep the weight of ten.
+
+## C. Departed players in the aging curve: the assumed zero and its gaps
+
+- **Raised:** 2026-10-04, reading the departures paragraph in `Data, Production, and Aging.docx`.
+- **Background:** a comparable with no NHL record the next season is filled in as if he had played
+  it at replacement level (rate 0 per 82), smoothed like any other season, and the league-average
+  changes are recomputed with these filled-in seasons (`skater_forecast.imputed_aging_model`; 1,071
+  on the 2024 valuation). Under entry 2 the zero would carry 50% of the 50/30/20 level.
+- **Already known:**
+  - On the comparable-player curve (the one in use), only on/off was tested: season-WAR RMSE 0.8621
+    without, 0.8619 with (`Obvious_Fixes_Test.md`, 2026-09-30). The value zero was never varied.
+  - On the rebuild's fitted aging equation (not in use), zero was argued before the run and then
+    swept: error five seasons out 0.4338 at -0.50, 0.4221 at -0.25, 0.4171 at 0, 0.4200 at +0.25
+    (`Phase3_Survivorship.md`, 2026-09-15). Reweighting the survivors instead made the curve worse.
+- **Gaps to investigate**, on the curve as entries 1 and 2 define it:
+  1. Sweep the assumed level (for example -0.50, -0.25, 0, +0.25) on the comparable-player curve.
+  2. Returning players: a player absent one season who returns is filled in at zero today. The
+     rebuild used his real return instead (291 of 1,695 absences there); test that here.
+  3. Short seasons: a player with 1-19 games the next season is neither filled in nor measured
+     (the curve needs 20 games), so he drops out, a milder form of the survivor bias this rule
+     exists to fix. Test filling him in, or measuring him on his short season.
+  4. A possible double count: the rate is "if he plays", and the chance of playing already lowers
+     each season for the risk he leaves. Filling departures in at zero also lowers the "if he
+     plays" rate for that same risk. Examine whether leaving is counted twice, and score the
+     forecast with and without the filled-in seasons under the full model.
+- **Until then:** the code and the model keep today's rule.
