@@ -2706,3 +2706,15 @@ Stage 3. The separate slope prices it as fair value (STANDING_FLAGS,
 - `25_TESTS/starting_level_simple_test.py` v1.0 (development pages): 50/30/20 is best; the
   comparable-player pull with aging to the valuation season, k = 0.65, is the best simple start
   (session log). Not adopted yet: production still runs the eight-term start.
+
+### Change log, 2026-10-04d (model directives ledger)
+
+- New `00_STATE/MODEL_DIRECTIVES.md`: Thomas's explicit directives from reading the xNPV 1 documents.
+  Directed (code unchanged): 1, the starting level, 50/30/20 per-82 pulled 65/35 toward comparables,
+  no fitted decay; 2, the aging curve's level 50/30/20 over three seasons; 3, one 65/35 blend
+  replacing the curve's 55/45; 4, term-in price line (restores Decision A of 2026-09-15, dropped
+  unflagged when xNPV 1 entered production); 5, signing-dated price-line forecasts (approved
+  2026-10-02, built start-dated). To investigate, closed at six: A yardstick split, B the league
+  average in the comparables, C departed players, D games-share form, E chance of playing under
+  contract, F Game Value checks re-run. These revisit locked decisions (D3, D33 and its addendum);
+  each is a deliberate revisit by Thomas.

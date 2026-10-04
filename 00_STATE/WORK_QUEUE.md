@@ -23,6 +23,13 @@
 - **Removed:** the 2026-10-03 meeting follow-ups (item 2 below) and the version-line note for
   `age_join.py` and `join_clauses_to_spine.py` (2026-09-28c).
 
+**Model directives, 2026-10-04: `00_STATE/MODEL_DIRECTIVES.md` is the plan of record.** Thomas went
+through the xNPV 1 documents line by line and directed five changes (50/30/20 start pulled 65/35 toward
+comparables; the curve's level 50/30/20; one 65/35 blend; term-in price line; signing-dated price-line
+forecasts) and listed six items to investigate (A-F, closed). No code changed yet. Open choice: the
+control-year weight (July method, or xNPV 1's chance of playing). The block below is superseded by
+directive 1.
+
 **Starting level, 2026-10-04c: Thomas's go-ahead owed.** Replace xNPV 1's eight-term start (fitted decay) with
 50/30/20 games-weighted rate per 82, pulled 65/35 toward the comparable-player average, aged to the valuation
 season (`25_TESTS/starting_level_simple_test.py`). Costs 0.9% start RMSE. Changing it re-fits the price line,

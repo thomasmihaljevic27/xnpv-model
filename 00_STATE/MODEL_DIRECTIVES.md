@@ -304,3 +304,30 @@ when he directs it.
 - **Separate from** the control-year weighting (P(qualified) x P(plays, given qualified)), which
   awaits Thomas's choice of method and is not affected by this pool question.
 - **Until then:** the code and the model keep the current chance of playing.
+
+## F. Re-run the Game Value circularity checks on the model as directed (final item)
+
+- **Raised:** 2026-10-04, reading `Circularity and Game Value.docx`. Thomas: these tests need to be
+  re-run on the new model specifications once the directives above are fully implemented; this is
+  the final to-investigate item.
+- **Why:** the checks in that document were run on the 60/40 two-season trailing total. Under
+  directives 1 and 2 the production measure becomes 50/30/20 over three seasons, pulled 65/35
+  toward comparable players, and none of the checks has been run on the forecast itself.
+- **To re-run, after directives 1-5 are implemented:**
+  1. The main check: each player's trailing measure (now 50/30/20) against his GV-adj performance
+     that season, overall, by season, by position, and one season further ahead (previously 0.576
+     across 6,027 player-seasons; 0.648 forwards, 0.302 defence; 0.538 one season further).
+  2. The two raw Game Value variants (against replacement, and zero-sum).
+  3. The same checks with the model's starting level and its forecast WAR if he plays in place of
+     the trailing measure.
+  4. The contract-status channel (the chance of playing reads club decisions): report how much of
+     the forecast's agreement with Game Value survives without contract status.
+- **Related, already carried elsewhere:** the price-line specification tests (straight line,
+  contract length, RFA/UFA, stability over time) are not repeated on xNPV 1's line (WORK_QUEUE,
+  2026-10-04 block, item 3); directives 4 and 5 change that line again.
+- **Status:** to run once directives 1-5 are implemented.
+
+---
+
+**The to-investigate list is closed (Thomas, 2026-10-04): F is the final item.** New questions go to
+WORK_QUEUE unless Thomas adds them here.
