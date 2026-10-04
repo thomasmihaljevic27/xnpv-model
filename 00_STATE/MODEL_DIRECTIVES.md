@@ -43,4 +43,14 @@ the commit), **superseded** (replaced by a later entry).
      1.1502.
   4. *Fewer than three seasons:* the test renormalized over the seasons a player has (a missing
      season is not a zero), so two seasons are weighted 50/30 and one season stands alone.
+- **Also directed (Thomas, 2026-10-04): "We are not using fitted decay."** This applies to every
+  trailing total in the model. The games-share and chance-of-playing regressions, which read the
+  same trailing total, therefore move to 50/30/20 too. Their other terms, including the trailing
+  total above one win, are not covered by this entry and stay unless Thomas directs otherwise.
+- **What this overrides in `Data, Production, and Aging.docx`, Section 3** (confirmed by Thomas):
+  - Step 1's decay chosen from the data;
+  - Step 2's eight-term regression, its coefficient table, and its worked numbers (the 27-year-old
+    examples and Marchessault's 2.37).
+  - Kept: Step 2's opening paragraph on why a pull is needed.
+  - To re-measure after the switch: the evidence paragraph (2.3%) and the star paragraph (-0.26).
 - **Status:** directed. Code unchanged.
