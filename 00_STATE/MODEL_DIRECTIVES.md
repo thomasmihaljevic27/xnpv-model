@@ -64,9 +64,9 @@ the commit), **superseded** (replaced by a later entry).
   averages two seasons equally when weighting improves other parts of the model.
 - **What it means:**
   - The comparable-player curve measures each player's level at each age as 50% × his rate per 82
-    at that age + 30% × the age before + 20% × the age before that. Each season counts with its
-    20-game qualifying seasons only, and the weights are reweighted over the seasons he has, so a
-    missing season is not a zero. The weights are plain: no games weighting.
+    at that age + 30% × the age before + 20% × the age before that. Only seasons of 20 games or
+    more count. The weights are rescaled over the seasons he has, so a missing season is not a
+    zero. The weights are plain: no games weighting.
   - This one measure is used everywhere the curve uses a level:
     - the "recent rate" measure in the profile that finds comparable players;
     - the year-to-year changes the forecast adds (a comparable's level at the next age minus his
