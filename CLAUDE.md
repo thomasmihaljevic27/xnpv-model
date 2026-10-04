@@ -326,6 +326,13 @@ Draft pillar:
   floor for negative anchors (D12 v3), and replaces the exit hazard with the chance of playing
   (D18) (corrected 2026-09-30). List the decisions governing each step the model changes, and read
   what the new code does at that step.
+- **Don't let borrowed code bring in settings nobody named.** When a test arm or a promoted model
+  reuses code from another model, list every setting that code carries and how each is chosen, and
+  check the description of the result against the code, before Thomas is asked to approve it. The
+  2026-09-30 "starting rate fix" reused the rebuild's trailing-total builder, which picks its weights'
+  decay from the data (47/32/21). D33 described the adopted model as 50/30/20, Thomas approved that
+  description, and the fitted decay ran unapproved until he found it on 2026-10-04. Thomas wants
+  fewer moving parts, not more: an added parameter is a decision for him, never a side effect.
 - **Don't name how an input went wrong until you have its write date.** The laptop's
   `WAR_with_age.csv` was diagnosed as having "reverted" to 70.9% birthdates. Its timestamp showed it
   had never been rebuilt there after 2026-07-28 (corrected 2026-10-02). A machine-specific result

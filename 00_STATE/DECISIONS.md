@@ -2697,3 +2697,12 @@ Stage 3. The separate slope prices it as fair value (STANDING_FLAGS,
 - `CLAUDE.md`: three rules (an item put to Thomas says what he is asked to do; his own answer or a
   settled choice is not a check owed; prune before reporting a remote branch).
 - Session log `sessions/2026-10-04b.md`. No locked decision reopened. No code changed.
+
+### Change log, 2026-10-04c (fitted decay rejected; simple starting level tested)
+
+- **Thomas, 2026-10-04: no fitted decay.** The starting level is to be the best simple three-season
+  weighting (50/30/20 expected), pulled toward a league or comparable-player average. The D33
+  correction above records that the code picked 47/32/21 without approval.
+- `25_TESTS/starting_level_simple_test.py` v1.0 (development pages): 50/30/20 is best; the
+  comparable-player pull with aging to the valuation season, k = 0.65, is the best simple start
+  (session log). Not adopted yet: production still runs the eight-term start.

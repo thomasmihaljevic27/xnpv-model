@@ -16,11 +16,17 @@
     details of most).
 - **Dropped, belonged to xNPV 0 or the retired rebuild:** the aging-pool options, top-50
   comparables and anchor pull-back; the 55/45 weight by player type; the elite aging-weight scripts;
-  the per-82 start, CBA age date and 50/30/20; regression-chosen comparable weights and the
+  the per-82 start, CBA age date and 50/30/20 (50/30/20 REINSTATED later on 2026-10-04: the drop rested on D33's wrong
+  description; see the starting-level block above); regression-chosen comparable weights and the
   dollar-weighted aging-method comparison; the training-date gap and the simulated-distribution
   comparison.
 - **Removed:** the 2026-10-03 meeting follow-ups (item 2 below) and the version-line note for
   `age_join.py` and `join_clauses_to_spine.py` (2026-09-28c).
+
+**Starting level, 2026-10-04c: Thomas's go-ahead owed.** Replace xNPV 1's eight-term start (fitted decay) with
+50/30/20 games-weighted rate per 82, pulled 65/35 toward the comparable-player average, aged to the valuation
+season (`25_TESTS/starting_level_simple_test.py`). Costs 0.9% start RMSE. Changing it re-fits the price line,
+re-buckets the qualify rates, and leaves the 2022-2025 confirmation describing the old start.
 
 **From the 2026-10-04 document rewrite: open, for Thomas.**
 1. **Decide when a contract's chance of playing reads contract status.** `contract_npv.py` values
