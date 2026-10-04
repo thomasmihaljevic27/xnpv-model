@@ -186,3 +186,24 @@ when he directs it.
      plays" rate for that same risk. Examine whether leaving is counted twice, and score the
      forecast with and without the filled-in seasons under the full model.
 - **Until then:** the code and the model keep today's rule.
+
+## D. The games-share equation's form
+
+- **Raised:** 2026-10-04, reading the games-share equation in `Data, Production, and Aging.docx`.
+- **Background:** for each season ahead, the games share is a straight-line regression on the
+  trailing games share, defence, experience, age - 27, the trailing total, and the trailing total
+  above one win (`skater_forecast.GP_FEATURES`). The prediction is then capped at 1.0 (a full
+  season) and floored at 0.05. Age - 27 is centering only: it moves a constant into the intercept and
+  changes no forecast.
+- **Already known:** the form was never tested; the only test added the two level terms (season-WAR
+  RMSE 0.8640 to 0.8596, in a version with the fitted aging equation). In the current run the cap
+  binds on 0.26% of 47,940 forecasts zero to five seasons ahead (1.5% four seasons out); the floor
+  never binds (lowest forecast 0.23); the mean share is 0.68 (about 56 games).
+- **Thomas's point:** a share should approach a full season, not be able to exceed it.
+- **To investigate:**
+  1. A fractional logit (a logistic curve fitted to the share, so predictions stay between 0 and 1
+     without a cap; Papke and Wooldridge, 1996) against the straight line plus cap.
+  2. A curved age effect against the straight line.
+  Score the games share and season WAR on development pages; the cap binds rarely, so expect a
+  small effect.
+- **Until then:** the code and the model keep the straight line with the cap and floor.
