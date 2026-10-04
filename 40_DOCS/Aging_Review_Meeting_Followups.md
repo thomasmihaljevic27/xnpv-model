@@ -1,5 +1,10 @@
 # Aging review meeting: questions, requests and follow-ups
 
+**Status, 2026-10-04.** Thomas removed this note's follow-ups from the work queue: the tables,
+checks, corrections and writing tasks below are not owed. The yardstick changes were already tested
+(section 3), and freezing a traded pick at its projected slot was decided earlier. Kept as a record
+of the meeting only.
+
 **What this is.** A working note for preparing the next supervisor meetings (Tuesday 2026-10-06 at 1:00 PM
 for one hour, Wednesday 2026-10-07 at 10:00 AM). It is not a reader-facing document.
 
@@ -255,4 +260,4 @@ The other meeting decisions need no code:
 - **The answer to the square-root question** is missing from the summary. It was answered: arithmetic
   only.
 - **The writing feedback** is reduced to "glossary, subheadings, tell a story". The full points are in
-  `.claude/skills/writing-style/SKILL.md` Part 1.
+  the `writing-style` skill (claude.ai account copy), Part 1.

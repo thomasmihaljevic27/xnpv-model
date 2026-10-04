@@ -1171,7 +1171,9 @@ residuals and currency comparisons; fix and rerun development work before furthe
 ## Open questions (triaged)
 
 
-**IMPORTANT — should the mean-reversion blend weight vary by player type? (new 2026-08-28.)**
+**[DROPPED 2026-10-04, Thomas: belonged to xNPV 0, archived. xNPV 1 reads only the aging curve's
+yearly changes, from which the 55/45 level cancels.] IMPORTANT — should the mean-reversion blend
+weight vary by player type? (new 2026-08-28.)**
 Lambda is locked at 0.55 and applied universally to every skater. It was recovered by player-split
 cross-validation on the pooled panel, so it is the single weight minimising average held-out error,
 not a weight tested for whether it should differ by quality tier, position, age, or career stage.

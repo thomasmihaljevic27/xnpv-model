@@ -286,6 +286,19 @@ Draft pillar:
   `claude/nifty-euler-u5c5vm`" meant nothing to Thomas (2026-09-25): a branch name, like a model
   label, says nothing about what it is. Say what it does and what keeping or dropping it changes,
   then ask.
+- **Don't put an item to Thomas without saying what he is asked to do.** A to-do list read back
+  to him had an entry that was only a list of meeting topics, with no verb; he could not tell
+  whether it was a task, a decision or an agenda (2026-10-04). Each item says do, decide, read or
+  bring, and an agenda is labelled as an agenda.
+- **Don't turn Thomas's own answer, or a settled choice, into a check owed.** A list asked him to
+  verify a games-played average he had read off the data himself, to decide yardstick changes that
+  had already been tested, and to check a script's handling of future picks after he had decided
+  the rule (2026-10-04). If he stated it or the record shows it decided, it is not open. Doubt about
+  it is a question to ask once, not a queue item.
+- **Don't report a remote branch as still there from an unpruned fetch.** `git fetch` without
+  `--prune` keeps deleted branches as remote-tracking refs. Three branches Thomas had already merged
+  or deleted were listed as his to deal with (2026-10-04). Run `git fetch --prune origin` before
+  saying a branch exists.
 - **Don't list a dated to-do from the state files as still pending without checking it still
   stands.** A 2026-09-28 stock-take reported "read through Docs 1-5 and check their page layout"
   as open because the queue still said so; the item was weeks old and long overtaken. When an

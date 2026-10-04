@@ -1,5 +1,27 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
+**Triage of the open list, 2026-10-04 (Thomas).**
+- **Parked until the model is complete:** the defence premium and the three carried limitations
+  (items 5 and 6 below). A possible finding, not a current priority.
+- **On hold until Karl is up to speed on the model:**
+  - the draft and prospect pillars (the 2026-09-28k entry: the Elite Prospects pull, the bands'
+    break test, the 161 conditional picks, the future-pick premium and last-draft reading, goalie
+    birthdates, the two ID exceptions);
+  - the back-test and thesis items: the power analysis's second part; the mid-season split; the
+    back-test's realized-value currency; the outcome window, playoffs and the surplus-ratio
+    statistic; forced-trade detection and the no-trade-clause cost; the PuckPedia export refresh;
+    the qualifying-offer start date; the draft curve's alternative-rule slope mismatch; control-year
+    qualification survival; the league-minimum floor stress test; the v3 regression report; the
+    merged Erik Gustafsson identities; the market-holdout decision (STANDING_FLAGS holds the
+    details of most).
+- **Dropped, belonged to xNPV 0 or the retired rebuild:** the aging-pool options, top-50
+  comparables and anchor pull-back; the 55/45 weight by player type; the elite aging-weight scripts;
+  the per-82 start, CBA age date and 50/30/20; regression-chosen comparable weights and the
+  dollar-weighted aging-method comparison; the training-date gap and the simulated-distribution
+  comparison.
+- **Removed:** the 2026-10-03 meeting follow-ups (item 2 below) and the version-line note for
+  `age_join.py` and `join_clauses_to_spine.py` (2026-09-28c).
+
 **From the 2026-10-04 document rewrite: open, for Thomas.**
 1. **Decide when a contract's chance of playing reads contract status.** `contract_npv.py` values
    each contract at July 1 of its first season, so a contract signed after July 1 cannot see itself:
@@ -31,34 +53,29 @@
    4. DONE 2026-10-03: Update-Dashboard ran clean on the new code after a sync. Thomas: "all good".
    - Thomas accepted the switch comparison on 2026-10-02 (goalies unchanged; skaters net
      +$2,199.8M). The defence questions wait (item 5).
-2. **Supervisor review** (in person). Bring:
-   - xNPV 1's changes and the revised locks (D3, D12 v3, D18, and the price line for xNPV 1);
-   - the confirmation;
-   - the unit question;
-   - the defence premium (47% per expected win), which the separate defence slope prices as fair
+2. **Supervisor meetings, Tue 2026-10-06 1:00 PM and Wed 2026-10-07 10:00 AM: topics to raise.**
+   This is the meeting agenda, not a task.
+   - xNPV 1's changes and the locked decisions they revise: aging (D3), negative starts (D12 v3),
+     exit risk (D18), and xNPV 1's own price per win. The aging document reviewed last week
+     described xNPV 0, and four things committed to in that meeting are already in xNPV 1: no
+     future data, additive changes, three seasons, and games played.
+   - The 2022-2025 confirmation result.
+   - The unit question (the old price per win was fitted per trailing win, xNPV 1 forecasts wins).
+   - The defence premium (47% per expected win), which the separate defence slope prices as fair
      value (`40_DOCS/model_evidence/xNPV1_Price_Line.md`). Both are identification points.
-   - **Added 2026-10-03 from the aging review meeting** (`40_DOCS/Aging_Review_Meeting_Followups.md`).
-     Next meetings: Tue 2026-10-06 1:00 PM, Wed 2026-10-07 10:00 AM.
-     - The aging document and spreadsheet under review describe xNPV 0. Open with xNPV 1's changes,
-       because four commitments made in the meeting are already in xNPV 1: no future data, additive
-       changes, three seasons, and games played.
-     - Correct two meeting answers. Self-pairs moved error under 0.01%, not about 1%. The league
-       weight of 10 is a shrinkage toward the league curve, not a ratio guard; values 0.01-20 are
-       within 0.06%.
-     - Decide on the agreed yardstick changes (self-pairs, forward/defence split). Each moved error
-       under 0.01%, and either would force a re-lock of `XNPV1_RATE`. Recommendation: report the
-       tests and do not implement.
-     - Laptop, owed: the participation model's coefficient table and the goalie exit table; the
-       average games played (all seasons, and seasons of 10+ games); an xNPV 1 worked-contract table
-       (O'Reilly); and a one-line check that the 55/45 blend does not move xNPV 1's forecast.
-     - Writing: Gaussian-weight references (a candidate list is in the note); rewrite as a story with
-       the `writing-style` skill; check what `draft_pick_linkage.py` does with future-year picks.
-     - Timeline: document review done by reading week; fixes over reading week; the paper to the
-       second reader before the end of November.
+   - Timeline agreed at the last meeting: document review done by reading week; fixes over reading
+     week; the paper to the second reader before the end of November.
+   - [REMOVED 2026-10-04, Thomas] The meeting follow-ups added 2026-10-03 (coefficient tables,
+     average games played, an O'Reilly worked table, the 55/45 check, the three-season weights, the
+     two corrected meeting answers, the reference check, the future-year pick check, the three
+     rewritten drafts' untraced figures, the small spreadsheet edits). The yardstick changes were
+     already tested (each under 0.01%) and are not a decision owed. Future-year picks: freezing a
+     pick at its projected slot when traded was decided earlier; no code check is owed.
 3. **Archive: done in the tree 2026-10-02k.** xNPV 0, `valuation_walkthrough.py` and `50_REBUILD/`
    are removed. The archive copies come from item 1, steps 2 and 3.
 4. DONE 2026-10-03: `ep_age_scraper.py` archived from 02f6fda.
 5. **Parked, a possible finding (Thomas, 2026-10-02): where does the defence premium come from?**
+   **Stays parked until the model is complete (Thomas, 2026-10-04). Not a current priority.**
    On xNPV 1's line a defenceman's expected win costs 47% more than a forward's. There are three
    readings, and they predict different shapes.
    - **Positional scarcity.** Teams fill 4 top-four defence slots against 6 top-six forward slots.
@@ -93,7 +110,7 @@
      defencemen.
    - **A second fit to test against:** the rebuild's currency (`production_currency.py`, term in
      the line) puts the defence premium in an intercept (+0.0054 of cap), not a slope.
-6. **Carry:**
+6. **Carry, parked with item 5 until the model is complete (Thomas, 2026-10-04):**
    - the nine-season participation window;
    - the long-deal gap;
    - the star under-forecast.
@@ -158,13 +175,13 @@ values changed and the dashboard should be refreshed.
 - It decides between comparables and the fitted equation within the fixed model: the two tie on season
   error, and the comparables are less biased for stars.
 
-**Step comparison and Karl's regression idea, 2026-09-28l: open.** (1) Re-score contract dollars
+**Step comparison and Karl's regression idea, 2026-09-28l: [DROPPED 2026-10-04, Thomas: belonged to xNPV 0, archived].** (1) Re-score contract dollars
 against the corrected current model (laptop; the step-by-step document's Step 4 uses the 2026-09-24
 figures). (2) If Karl wants it, test regression-chosen comparable weights (a synthetic control:
 weights at zero or above, summing to one) against similarity weights, same harness, only the weights
 changed. (3) Thomas to decide whether the step-by-step document goes to Karl before (1).
 
-**Aging method, 2026-09-28k: open.** Regression against comparable players, aging alone
+**Aging method, 2026-09-28k: [DROPPED 2026-10-04, Thomas: belonged to xNPV 0, archived].** Regression against comparable players, aging alone
 (`40_DOCS/model_evidence/Aging_Method_Test.md`). The regression is better on most players' rates; the
 comparables are better on 3+ win players. Next: a dollar-weighted comparison (laptop, contract
 export). Decide before taking it to Karl.
@@ -175,7 +192,7 @@ scripts). The first run applies the two pending birthdate fixes (small moves: la
 test run). After a new PuckPedia export, the same launcher rebuilds everything from the contract
 spines up.
 
-**Draft and prospect pillars, 2026-09-28k: ready to resume on decided designs.** Plans rewritten:
+**Draft and prospect pillars, 2026-09-28k: ready to resume on decided designs. [ON HOLD 2026-10-04, Thomas: resumes once Karl is up to speed on the model.]** Plans rewritten:
 `01_Draft_Model_Sequence.md`, `02_Prospect_Model_Sequence.md`. Next, in order, when this work resumes:
 1. **Laptop / this machine: run the Elite Prospects pull**, `python 20_CODE/ep_extract.py` (v3.1; v3.0's league pulls all failed under pandas 3, fixed; 34
    leagues from 2006-07; 10-14 hours, restartable). Then `python 20_CODE/ep_nhl_bridge.py` again, so
@@ -257,7 +274,7 @@ container. Real run and the `40_DOCS` explainer are open. Production unchanged.
    7,531 comparable profiles, yardstick 2.526.
 2. Write the `40_DOCS` aging walkthrough explainer from that run's numbers
    (mechanism text drafted; optional for the session).
-3. Queued from the session, not started: express the starting level as a per-82
+3. [DROPPED 2026-10-04, Thomas: belonged to xNPV 0, archived] Queued from the session, not started: express the starting level as a per-82
    rate to match the curve; move the age cutoff from February 1 to the CBA age
    date; assess the suggested 50/30/20 three-season weighting. Each changes a
    locked setting and needs a deliberate revisit.
@@ -852,9 +869,9 @@ valuations now read contract state at the signing (check 42).
   (`run_leakage_tests.py`, `run_stress_tests.py`, `run_uncertainty.py`,
   `run_coverage_decomposition.py`). The look-ahead tests matter most: the new leader reads the
   vendor export.
-- **Training date vs valuation date:** trained at 1 July, applied at the signing; first seasons of
+- [DROPPED 2026-10-04, Thomas: the retired rebuild] **Training date vs valuation date:** trained at 1 July, applied at the signing; first seasons of
   attached contracts still 5.5 points low.
-- **A matched comparison of the simulated distributions** (adopted against previous leader, one
+- [DROPPED 2026-10-04, Thomas: the retired rebuild] **A matched comparison of the simulated distributions** (adopted against previous leader, one
   currency): the adoption evidence is still the fixed-line point score (from the 2026-09-23h review).
 - **The clipped rises** (18 of 1,473 development terms; exact cost 0.000744 WAR a season on average
   among those 18 affected terms, not across all 1,473):
@@ -1764,8 +1781,8 @@ and reported; nothing is adopted into production. In priority order:
 **2026-09-14d — player model rebuild plan, Fable version (proposal, awaiting Thomas's choice).** `40_DOCS/model_evidence/Player_Model_Rebuild_Plan_Fable.md`: Phase 0 dates, identities and a frozen-information harness; Phase 1 the ability forecast (component-wise reliability shrinkage, rate and games separate, in-season update at trade dates); Phase 2 participation with returns and control-year gates; Phase 3 additive aging on the shrunk rate with selection weights; Phase 4 a contract-price model and a production currency, both dated at the signing; Phase 5 valuation by simulation; Phase 6 rebuild, one confirmatory run, lock. Six decisions (term framing, reference market, second provider, holdout policy, locks opened, comparables fate) are needed before Phase 4, none before. Two test scripts now carry the evidence: `signing_date_audit.py` (30% of the rate sample signed before its trailing seasons were complete, 58% at 3+) and `component_persistence_test.py`. Nothing adopted; the competing plan (09-14c) is `40_DOCS/model_evidence/Player_Model_Rebuild_Plan.md` and its review `40_DOCS/model_evidence/Ground_Up_Player_Model_Review.md`.
 
 **2026-09-13 — 2026-27 page, D28 extensions, aging-curve audit.** Done: the 2026-27 page is live in the panel and dashboard ($104.0M ceiling, reads 2025-26); signed extensions count from their signing date (D28), including in-season dashboard variants; the one-season-left curve label is fixed. Follow-ups, in order:
-1. **Refresh the PuckPedia contract export** (current one ends 2026-05-21), then double-click `Open-Dashboard.cmd`, which rebuilds everything from the contract spines up (2026-09-28m). The 2026-27 page is missing all summer-2026 signings until then.
-2. **Aging-curve pool decision** (deliberate revisit of the locked curve): whether to admit first seasons to the comparables pool, base first-year players on their first qualifying season, and/or pool adjacent ages at the thin ends. Options and evidence required: `40_DOCS/model_evidence/Aging_Curve_Coverage_Audit.md`. **Added 2026-09-13b:** a fourth candidate, limiting the blend to the 50 most similar comparables with the pooled weight kept (held-out gains 0.3%-0.8% overall, 1.3%-2.1% for 3+ players' season totals; `40_DOCS/model_evidence/Aging_Comparable_Limit_Test.md`). Separately, examine the +0.5-0.6 WAR/season held-out over-projection of 3+ players' season totals, which comes mostly from the unshrunk valuation anchor rather than the curve. Confirmed in dollars in the production chain the same session (`npv_realized_by_tier.py`: +$0.98M per season for 3+, under-projection below 1 WAR, no overall bias). Tested the same session (`anchor_shrink_test.py`, `40_DOCS/model_evidence/Anchor_Shrink_Test.md`): a 2009-2017 pull-back fixes the middle tiers but overshoots stars; refitting the market line on pulled-back WAR does nothing. Next, in order: (a) decide the back-test's realized-value currency (price per recent win vs per delivered win), which decides whether stars are over-valued at all; (b) if the pull-back is pursued, calibrate it on a rolling recent window at valuation dates (not contract starts) and test it out of sample. Both must precede any back-test result comparing star and non-star sides of a trade. **2026-09-14 sweep (`40_DOCS/model_evidence/Pipeline_Experiment.md`):** the recommended package is a rolling starting-point pull-back plus the contracted-population exit hazard (L+H), with top-50 comparables; (a) above still comes first, then a deliberate revisit of the k=0 identity and the hazard population in `exit_hazard.py` with full-chain movement recorded. Second pass the same day: age in the pull-back (LB3A+H, +top50) is the lowest-error production rule and near NPV-neutral; the value line is a framing decision (term-free −19% or with term −39% on held-out cap hits; term adds $3.3-4.1B of NPV). Decide the framing (possibly after the draft and prospect pillars), then which locked rules to open: k=0 identity, D6-D9, hazard population, comparables.
+1. [ON HOLD 2026-10-04, Thomas: until Karl is up to speed] **Refresh the PuckPedia contract export** (current one ends 2026-05-21), then double-click `Open-Dashboard.cmd`, which rebuilds everything from the contract spines up (2026-09-28m). The 2026-27 page is missing all summer-2026 signings until then.
+2. [DROPPED 2026-10-04, Thomas: belonged to xNPV 0, archived; except (a), the back-test's realized-value currency, which is ON HOLD with the back-test items] **Aging-curve pool decision** (deliberate revisit of the locked curve): whether to admit first seasons to the comparables pool, base first-year players on their first qualifying season, and/or pool adjacent ages at the thin ends. Options and evidence required: `40_DOCS/model_evidence/Aging_Curve_Coverage_Audit.md`. **Added 2026-09-13b:** a fourth candidate, limiting the blend to the 50 most similar comparables with the pooled weight kept (held-out gains 0.3%-0.8% overall, 1.3%-2.1% for 3+ players' season totals; `40_DOCS/model_evidence/Aging_Comparable_Limit_Test.md`). Separately, examine the +0.5-0.6 WAR/season held-out over-projection of 3+ players' season totals, which comes mostly from the unshrunk valuation anchor rather than the curve. Confirmed in dollars in the production chain the same session (`npv_realized_by_tier.py`: +$0.98M per season for 3+, under-projection below 1 WAR, no overall bias). Tested the same session (`anchor_shrink_test.py`, `40_DOCS/model_evidence/Anchor_Shrink_Test.md`): a 2009-2017 pull-back fixes the middle tiers but overshoots stars; refitting the market line on pulled-back WAR does nothing. Next, in order: (a) decide the back-test's realized-value currency (price per recent win vs per delivered win), which decides whether stars are over-valued at all; (b) if the pull-back is pursued, calibrate it on a rolling recent window at valuation dates (not contract starts) and test it out of sample. Both must precede any back-test result comparing star and non-star sides of a trade. **2026-09-14 sweep (`40_DOCS/model_evidence/Pipeline_Experiment.md`):** the recommended package is a rolling starting-point pull-back plus the contracted-population exit hazard (L+H), with top-50 comparables; (a) above still comes first, then a deliberate revisit of the k=0 identity and the hazard population in `exit_hazard.py` with full-chain movement recorded. Second pass the same day: age in the pull-back (LB3A+H, +top50) is the lowest-error production rule and near NPV-neutral; the value line is a framing decision (term-free −19% or with term −39% on held-out cap hits; term adds $3.3-4.1B of NPV). Decide the framing (possibly after the draft and prospect pillars), then which locked rules to open: k=0 identity, D6-D9, hazard population, comparables.
 3. **D11 vs the published cap schedule** for t0 ≥ 2025 (STANDING_FLAGS). Decide before any 2025-26 or 2026-27 valuation is cited.
 4. **Phase 4 trade scoring** must call `npv(pid, t0, as_of=trade_date)` so extensions signed before a trade are in the asset.
 
@@ -1818,7 +1835,7 @@ Reproducible on both machines (Thomas's local run matches: `[1a] max diff $0.00`
 
 **Phase 2 — power analysis (first run done, must re-run later)**
 - [x] First run DONE 2026-06-30. See Power Analysis section below. **Must re-run after Phase 3 closes** — today's count was taken against an almost-unbuilt model.
-- [ ] **Second arm owed on the re-run (added 2026-09-14).** The re-run is specified against the headline efficiency null only. It also needs the minimum detectable difference in a recovered discount rate by cap era and by club competitive position, given the dispersion of the measured surplus differential. Without it a null in `04_Discount_Heterogeneity_Sequence.md` reads as homogeneous time preference when it may be low power, which is the criticism the 2026-06-30 run drew. Specify both arms before the re-run rather than after.
+- [ ] [ON HOLD 2026-10-04, Thomas: until Karl is up to speed] **Second arm owed on the re-run (added 2026-09-14).** The re-run is specified against the headline efficiency null only. It also needs the minimum detectable difference in a recovered discount rate by cap era and by club competitive position, given the dispersion of the measured surplus differential. Without it a null in `04_Discount_Heterogeneity_Sequence.md` reads as homogeneous time preference when it may be low power, which is the criticism the 2026-06-30 run drew. Specify both arms before the re-run rather than after.
 
 **Phase 3 — remaining pillars, re-ordered**
 - 3a (steps 1-2). Draft-pick yield curve — **CLOSED 2026-07-19 (D22-D27).** Linkage (draft_pick_linkage.py v1.1: 4,765 picks, guarded ID+name resolution) and curve (draft_yield_curve.py v1.1: cap-share surplus over D+1..D+9, cohorts 2007-2017, Rule A canonical) built and reproduced locally. Outputs: draft_pick_linkage.csv, draft_pick_outcomes.csv, draft_yield_curve.csv.
@@ -1827,7 +1844,7 @@ Reproducible on both machines (Thomas's local run matches: `[1a] max diff $0.00`
 
 **Phase 4 — back-test engine (folds in old P4, P5, P7)**
 - 4a-i. Game-level model chain (scraper -> on-ice -> xG -> score state -> metric assembly). **[CLOSED 2026-07-03]** — see Game-Level Model section below.
-- 4a-ii. Mid-season allocation application: split each back-test trade's season value around the trade date using `player_game_value`. [NEXT within Phase 4 — small, engine exists]
+- 4a-ii. [ON HOLD 2026-10-04, Thomas: until Karl is up to speed] Mid-season allocation application: split each back-test trade's season value around the trade date using `player_game_value`. [NEXT within Phase 4 — small, engine exists]
 - 4b. Circularity fix: validate the model's projections vs the non-Bacon game-level metric. **[PRIMARY VALIDATOR RUN — CLOSED 2026-07-14.** Tier 1 player-level design (Thomas's call; trade-level Tier 2 deferred until draft/prospect components exist). trailing_war(t) vs GV-adj wins(t), win units only (goals ÷ pooled 5.903 — no dollars on the outcome side, so the Bacon-derived rate never touches the benchmark). n=6,027 player-seasons (88% ID-to-ID join via spine nhl_id ↔ GV player_id), Pearson r=0.576, Spearman 0.460, OLS R²=0.331; stable r=0.55–0.61 in every one of nine seasons; secondary t+1 horizon r=0.538 (n=4,988). Forwards r=0.648/R²=0.421 vs defencemen r=0.302/R²=0.091 — the same structural defensive-measurement gap from the 2026-07-04 battery, expected and documented, not new. **Framing locked (Thomas): descriptive convergent validity, NO post-hoc pass/fail threshold** — no bar was pre-registered for this run, so none is retrofitted. Script: `gv_4b_circularity_check.py`; outputs in `gv_4b_outputs/`. **Robustness leg RUN 2026-07-14 — 4b FULLY CLOSED.** GV-raw (both variants, regular season only, `gv_4b_robustness_check.py`): rebased r=0.609/R²=0.371, zero-sum r=0.564/R²=0.318 — bracketing the primary; F/D split replicates (F 0.663/0.642 vs D 0.442/0.277, rebased-D flagged as inflated by the documented rebase mechanism); t+1 degrades gently in all variants (0.565/0.530). Three independent validators now agree in a 0.56-0.61 band.]
 - 4c. Standalone cap-retention pricing (~51 three-team deals). Self-contained — can run in parallel with any phase from here on.
 - 4e. **Discount-rate heterogeneity by era and club state (NEW 2026-09-14).** Full design in `00_STATE/04_Discount_Heterogeneity_Sequence.md`. Recovers clubs' revealed rate of trade between near-dated and far-dated assets, which D15 deliberately leaves out of the model so the back-test can measure it. **Gated on two things:** the g/rho confound (new standing flag; sweep g at {3%, 5%, 7.6%} or revisit D11/D17), and Phase 3 in full, because the identifying variation is in the 654 pick trades and not in the 205 clean player-only ones. Deliverable is bounds and a ranking, not point estimates; club-specific rates are out of scope at roughly 59 trade-sides per club. Two prerequisites inside the sequence: a written bargaining restriction chosen before estimation, and a long-horizon projection check against Game Value at k=4..8, since the model's own error grows with the regressor of interest.
@@ -1895,6 +1912,6 @@ control-year treatment, goalies, end-to-end dollar reconciliation, the full-chai
 export-break tests, once-only ledger enforcement, the announced later cap ceilings, and the market
 holdout policy.
 
-- **2026-09-14 aging-curve elite weighting — two scripts written, NEITHER RUN ON REAL DATA.** `25_TESTS/aging_comp_weight_audit.py` (read-only, seconds) and `25_TESTS/aging_elite_shrinkage_test.py` (nine arms on the bandwidth test's held-out design; sweeps `SHRINK_K`, the bandwidth scale, the untested joint cell, and a reliability-weighted lambda; reports signed bias by anchor-level band on the curve and season-total endpoints). Both need the PuckPedia birthdate export and so must run on the desktop machine. The audit's findings are in STANDING_FLAGS; the test decides the open question, which is the SIGN of the net elite bias, since the level shrinkage and the level-blind absolute aging deltas push opposite ways. Treat a winning arm as a lead to re-test on the historical-window mode, not a result: many arms, one evaluation set. Any change to the bandwidth rule or lambda is a deliberate revisit of a locked decision, on the coverage audit's terms.
+- [DROPPED 2026-10-04, Thomas: belonged to xNPV 0, archived] **2026-09-14 aging-curve elite weighting — two scripts written, NEITHER RUN ON REAL DATA.** `25_TESTS/aging_comp_weight_audit.py` (read-only, seconds) and `25_TESTS/aging_elite_shrinkage_test.py` (nine arms on the bandwidth test's held-out design; sweeps `SHRINK_K`, the bandwidth scale, the untested joint cell, and a reliability-weighted lambda; reports signed bias by anchor-level band on the curve and season-total endpoints). Both need the PuckPedia birthdate export and so must run on the desktop machine. The audit's findings are in STANDING_FLAGS; the test decides the open question, which is the SIGN of the net elite bias, since the level shrinkage and the level-blind absolute aging deltas push opposite ways. Treat a winning arm as a lead to re-test on the historical-window mode, not a result: many arms, one evaluation set. Any change to the bandwidth rule or lambda is a deliberate revisit of a locked decision, on the coverage audit's terms.
 - **2026-09-14 latent bug in `aging_bandwidth_test.py`**: it keys its input hashes with `Path.relative_to(ROOT)` on a path taken from `OUTPUT_DIR`, which raises if `OUTPUT_DIR` is ever set outside the repository. `aging_elite_shrinkage_test.py` carries the fix; port it if the bandwidth test is re-run off-repo.
 

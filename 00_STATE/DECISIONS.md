@@ -2678,3 +2678,22 @@ Stage 3. The separate slope prices it as fair value (STANDING_FLAGS,
 - New `25_TESTS/late_signing_status_check.py` v1.0: a contract signed after July 1 cannot see itself
   in its own chance of playing (STANDING_FLAGS, WORK_QUEUE). No code changed; nothing locked moved.
 - PROJECT_STATE, WORK_QUEUE, STANDING_FLAGS, MANIFEST and `sessions/2026-10-04.md` updated.
+
+### Change log, 2026-10-04b (triage of the open list)
+
+- Thomas triaged every open item. Parked until the model is complete: the defence premium and the
+  three carried limitations. On hold until Karl is up to speed: the draft and prospect pillars and
+  the back-test and thesis items. Dropped as belonging to xNPV 0 or the retired rebuild: the
+  aging-pool options, the 55/45 weight by player type, the elite aging-weight scripts, the 25 Sept
+  aging settings, regression-chosen comparable weights, the aging-method dollar comparison, the
+  training-date gap and the simulated-distribution comparison. Removed: the 2026-10-03 meeting
+  follow-ups and the version-line note.
+- `WORK_QUEUE.md` (triage block; item 2 is now the meeting agenda), `STANDING_FLAGS.md`,
+  `PROJECT_STATE.md` and `Aging_Review_Meeting_Followups.md` tagged accordingly.
+- Repo copy of the writing-style skill removed (the account copy is the one in use); `.gitignore`
+  ignores `.claude/` again. `Doc_1_Circularity_and_Game_Value.docx` and `Docs_3_4_5_Review_Notes.md`
+  deleted. `Supervisor_Drafts/Project_Overview.pdf` not committed: it is byte-identical to the
+  tracked `Project_Overview_Plain_Language.pdf` (question to Thomas). `MANIFEST.csv` updated.
+- `CLAUDE.md`: three rules (an item put to Thomas says what he is asked to do; his own answer or a
+  settled choice is not a check owed; prune before reporting a remote branch).
+- Session log `sessions/2026-10-04b.md`. No locked decision reopened. No code changed.
