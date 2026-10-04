@@ -156,6 +156,35 @@ the commit), **superseded** (replaced by a later entry).
 
 ---
 
+## 5. The price line is fitted on forecasts dated at each contract's signing
+
+- **Date:** 2026-10-04, reading the dating paragraph in `Pricing, Control Years, and Contract
+  Value.docx`. This carries out what Thomas approved on 2026-10-02.
+- **Thomas's words:** "Did we not fix this?"; then "Add it to the ledger as a directive." On
+  2026-10-02 he approved the recommendation to re-fit the line "with xNPV 1's signing-dated
+  WAR-if-plays forecast as the input" (`sessions/2026-10-02.md`; `DECISIONS.md` change log
+  2026-10-02f).
+- **What it means:** each contract in the price-line sample is paired with the forecast that could
+  have been made on its signing date, from seasons whose numbers were available by then, as the
+  rebuild did on 2026-09-15 ("each with a forecast frozen at its own signing date"). A contract
+  signed during a season is priced on a forecast that does not read that season.
+- **How it was lost:** the script built the same day, `xnpv1_price_line.py` v1.0, used the start
+  year's page ("the information set Stage 3 already used") instead, and nothing flagged the change.
+  `XNPV1_RATE` is locked on that start-dated line.
+- **What the code does now (not yet changed):** `xnpv1_price_line.py` takes each contract's
+  forecast from the page of its start year.
+- **Scale of the problem:** in the 2026-09-14 audit of this sample, 30% of contracts were signed
+  before the production they are priced on was complete (58% for players with three or more
+  trailing wins); the rebuild found 596 of 3,550 deals signed before the prior season was readable.
+- **Rides with entry 4:** both change the price line, so they go into one re-fit and one re-lock.
+- **Related, for Thomas to decide alongside (not part of this directive):** the chance of playing
+  in a contract valuation reads contract status at July 1, so a contract signed after July 1 cannot
+  see itself (WORK_QUEUE, top block, item 1; `25_TESTS/late_signing_status_check.py`). Same root:
+  valuing a contract as of its start rather than its signing.
+- **Status:** directed. Code unchanged.
+
+---
+
 # To investigate (Thomas's list; nothing here is directed)
 
 Questions Thomas wants looked into before he decides. An item moves to the directives above only
