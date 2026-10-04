@@ -196,10 +196,10 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,aging_elite_shrinkage_test.py,age,hashable,2026-09-30k,3f90a95cd779c1346e85f9a3a031bd777999639b,23104,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
 40_DOCS,Project_Overview_Plain_Language.docx,doc,rendition,2026-09-24,5ac2d0a86053fc3f7866a79c9fbda07e85b7d752,19559,2026-09-24,yes,git,git-tracked; added by the 2026-09-25c audit
 40_DOCS,Project_Overview_Plain_Language.pdf,doc,rendition,2026-09-24,4e8d21abd77590447049c6d5cc5cff6ea8a6fe23,84746,2026-09-24,yes,git,git-tracked; added by the 2026-09-25c audit
-40_DOCS/Supervisor_Drafts,Circularity and Game Value.docx,doc,rendition,2026-09-12,30c33de57fbd78eb42a99fa5591f388a5e013f14,16098,2026-09-12,yes,git,git-tracked; added by the 2026-09-25c audit
-40_DOCS/Supervisor_Drafts,"Data, Production, and Aging.docx",doc,rendition,2026-09-12,85fcb0a7d2a6469d8098382cc2b536d786d69156,24975,2026-09-12,yes,git,git-tracked; added by the 2026-09-25c audit
-40_DOCS/Supervisor_Drafts,"Draft Picks, Prospects, and the Remaining Trade Model.docx",doc,rendition,2026-09-12,227aaae98c437fc1aacf6350b4c870115ce72954,21801,2026-09-12,yes,git,git-tracked; added by the 2026-09-25c audit
-40_DOCS/Supervisor_Drafts,"Pricing, Control Years, and Contract Value.docx",doc,rendition,2026-09-12,418805ee34f7287898734d968e45b124559d68e2,20417,2026-09-12,yes,git,git-tracked; added by the 2026-09-25c audit
+40_DOCS/Supervisor_Drafts,Circularity and Game Value.docx,doc,rendition,2026-10-04,608a1946dea2ef81114becf826fdae334cf59737,15689,2026-10-04,yes,git,git-tracked; rewritten for xNPV 1 2026-10-04 (xNPV 0 version in 90_ARCHIVE/2026-10-04/)
+40_DOCS/Supervisor_Drafts,"Data, Production, and Aging.docx",doc,rendition,2026-10-04,b89226f2b827183f8fd9bdd0ab1cdbdbd112a1f0,24986,2026-10-04,yes,git,git-tracked; rewritten for xNPV 1 2026-10-04 (xNPV 0 version in 90_ARCHIVE/2026-10-04/)
+40_DOCS/Supervisor_Drafts,"Draft Picks, Prospects, and the Remaining Trade Model.docx",doc,rendition,2026-10-04,da905c502d8806aeed0d023a93a2085e3ed3d8dc,19034,2026-10-04,yes,git,git-tracked; rewritten for xNPV 1 2026-10-04 (xNPV 0 version in 90_ARCHIVE/2026-10-04/)
+40_DOCS/Supervisor_Drafts,"Pricing, Control Years, and Contract Value.docx",doc,rendition,2026-10-04,ca5a55cd593faf410469efb0c5ed7b5e0024bebb,22333,2026-10-04,yes,git,git-tracked; rewritten for xNPV 1 2026-10-04 (xNPV 0 version in 90_ARCHIVE/2026-10-04/)
 40_DOCS/model_evidence,Control_Years.md,player,hashable,2026-10-02d,42e4a58ee829dd2ab55e6aeb0e9bce179f6581c6,16864,2026-10-02,yes,git,git-tracked; added by the 2026-09-25c audit
 40_DOCS/model_evidence/reviews,Control_Years_Repair_Review_Codex.md,player,hashable,2026-10-02d,96d6b61abc7699339e4792d3ee28fe87e5a52342,7704,2026-10-02,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
 40_DOCS/model_evidence/reviews,Control_Years_Review_Codex.md,player,hashable,2026-10-02d,704db30031f193bcf8d3af76b8b119f981968c8d,9900,2026-10-02,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
@@ -316,3 +316,5 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,xnpv0_removal_check.py,player,hashable,2026-10-02k,49130927295d238c6705784770d093f357821e73,5999,2026-10-02,no,git,laptop check that archiving xNPV 0 moved no xNPV 1 value
 00_STATE/sessions,2026-09-28c.md,state,hashable,2026-10-03c,4a493f93f91fd01dfd357e378fb1057071396eed,5631,2026-10-03,yes,git,git-tracked; audited via `git status`
 00_STATE/sessions,2026-10-03.md,state,hashable,2026-10-03d,cdd96579aaf9229d6fd2f0beb9617a5335cf4626,3534,2026-10-03,yes,git,git-tracked; audited via `git status`
+25_TESTS,late_signing_status_check.py,player,hashable,2026-10-04,d566a23cf265fc7c267e7d0d17f4fd61ad3311a5,4689,2026-10-04,yes,git,laptop check: chance of playing read at July 1 against at the signing
+00_STATE/sessions,2026-10-04.md,state,hashable,2026-10-04,deeebe0eb064833b34beb4168daf76404eca9ddc,4945,2026-10-04,yes,git,git-tracked; audited via `git status`

@@ -1,5 +1,27 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
+**From the 2026-10-04 document rewrite: open, for Thomas.**
+1. **Decide when a contract's chance of playing reads contract status.** `contract_npv.py` values
+   each contract at July 1 of its first season, so a contract signed after July 1 cannot see itself:
+   its player is "not under contract" for each of its seasons, while its cap hit counts in full.
+   1,533 of 2,759 priced skater contracts are affected (most signed in July). Reading status at
+   each contract's signing raises 1,351 of the 1,530 that can be re-dated, median +$0.33M, total
+   +$622M, largest +$4.1M (`25_TESTS/late_signing_status_check.py`). `skater_forecast.py`'s
+   docstring says contract valuations read status "at a contract's signing", and the rebuild's
+   dollar scoring did; the priced sweep does not. Options: pass each contract's signing date as the
+   as-of date (a code change; STANDING_FLAGS 2026-09-13 notes the same date gap on the cost side),
+   or keep July 1 and correct the docstring. The pricing document (Section 3) describes the code as
+   it runs and will need its paragraph updated if the code changes.
+2. **Read the four rewritten supervisor documents** (`40_DOCS/Supervisor_Drafts/`, now describing
+   xNPV 1; the xNPV 0 versions are in `90_ARCHIVE/2026-10-04/Supervisor_Drafts/` and in git).
+   Points in them that are new to the record: the price-line specification tests and the Game Value
+   check were run on the trailing total and have not been repeated on the forecast; contract status
+   is a channel through which club decisions reach the valuation; the draft curve and player
+   contracts sit on different price lines, so the price of a delivered win (item (a) of the
+   2026-09-14 aging-pool entry below) now also decides how picks compare with players.
+3. **Not repeated on xNPV 1's line (carry):** the nonlinear-line, contract-length, RFA/UFA and
+   2018-19 versus flat-cap tests, and the Game Value circularity check on the forecast itself.
+
 **xNPV 1 follow-ups, updated 2026-10-03: open, in order.**
 1. **Laptop, after syncing the archive commit (2026-10-02k), in this order:**
    1. DONE 2026-10-03: `25_TESTS\xnpv0_removal_check.py` PASS. All 3,149 contracts are identical

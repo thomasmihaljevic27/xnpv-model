@@ -2318,6 +2318,10 @@ decision.
   v1.6:
   1. **Starting level.** A three-season weighted rate per 82 games (50/30/20), pulled toward the
      league average by the rebuilt model's fitted rule.
+     **Corrected 2026-10-04, from `skater_forecast.py`:** the weights' decay is fitted per page from
+     a grid (0.75 on the 2015 page, 0.667 on each later page, so 47/32/21, not 50/30/20), and the
+     fitted start's main input is the weighted season TOTAL (`tw_WAR`); the weighted per-82 rate
+     only picks the decay. The target is next season's rate per 82, weighted by its games.
   2. **Games share.** The rebuilt model's games-share forecast. It also reads the player's level
      (trailing total and its slope above one win), so a star and a depth player with the same recent
      share are no longer forecast the same share.
@@ -2637,3 +2641,12 @@ Stage 3. The separate slope prices it as fair value (STANDING_FLAGS,
 - Update-Dashboard ran clean on the post-removal code, the new xNPV 1 validation batteries
   included. That completes the xNPV 1 migration.
 - `WORK_QUEUE.md`, `PROJECT_STATE.md` and the session log are updated. No code changed.
+
+### Change log, 2026-10-04 (supervisor documents rewritten for xNPV 1)
+
+- The four supervisor documents in `40_DOCS/Supervisor_Drafts/` now describe xNPV 1, written from
+  the code. The xNPV 0 versions are in `90_ARCHIVE/2026-10-04/Supervisor_Drafts/` and in git.
+- D33's description of the starting level corrected in place (fitted decay, weighted total).
+- New `25_TESTS/late_signing_status_check.py` v1.0: a contract signed after July 1 cannot see itself
+  in its own chance of playing (STANDING_FLAGS, WORK_QUEUE). No code changed; nothing locked moved.
+- PROJECT_STATE, WORK_QUEUE, STANDING_FLAGS, MANIFEST and `sessions/2026-10-04.md` updated.

@@ -1,5 +1,22 @@
 # STANDING FLAGS & OPEN QUESTIONS — NHL Trade Market Efficiency
 
+**A late-signed contract cannot see itself in its own chance of playing (2026-10-04).** The priced
+sweep values each contract at July 1 of its first season, and xNPV 1 reads contract status at that
+date. 1,533 of 2,759 priced skater contracts were signed after July 1, so each is valued with its
+player "not under contract" for its own seasons, while its cap hit counts in full. Read at the
+signing, 1,351 of the 1,530 re-datable values rise; median +$0.33M, total +$622M
+(`25_TESTS/late_signing_status_check.py`). This extends the 2026-09-13 flag below (the cost side of
+the same date gap). `skater_forecast.py`'s docstring describes signing-dated status; the code reads
+it only when an as-of date is passed. Decision owed (WORK_QUEUE).
+
+**Two documented descriptions of xNPV 1 were wrong (2026-10-04).** (1) D33 described the starting
+level as "a three-season weighted rate per 82 games (50/30/20)". The code fits the weights' decay per
+page from a grid (0.75 on the 2015 page, 0.667 on each later page, so 47/32/21) and the start line's
+main input is the weighted season TOTAL; the per-82 blend only picks the decay. (2) The aging
+curve's 55/45 starting level has no effect on xNPV 1: it reads only the curve's changes, from which
+that level cancels. `participation_model.py`'s docstring still calls the event a ten-game season;
+the code uses one game (`forecast_config.PARTICIPATION_GP`).
+
 **Price per win and xNPV 1 are in different units (2026-10-02).** The Stage 3 line is fitted on the
 trailing 60/40 total; xNPV 1 supplies a forecast that runs at about 0.67 of the trailing total's spread.
 Valued that way, good players look overpaid and poor ones underpaid by construction: a built-in tilt
