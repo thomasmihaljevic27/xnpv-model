@@ -54,3 +54,36 @@ the commit), **superseded** (replaced by a later entry).
   - Kept: Step 2's opening paragraph on why a pull is needed.
   - To re-measure after the switch: the evidence paragraph (2.3%) and the star paragraph (-0.26).
 - **Status:** directed. Code unchanged.
+
+---
+
+## 2. The aging curve measures each player's level with 50/30/20 over three seasons
+
+- **Date:** 2026-10-04, while reading the xNPV 1 documents line by line.
+- **Thomas's words:** "Add to the ledger", directing the result below after asking why the curve
+  averages two seasons equally when weighting improves other parts of the model.
+- **What it means:**
+  - The comparable-player curve measures each player's level at each age as 50% × his rate per 82
+    at that age + 30% × the age before + 20% × the age before that. Each season counts with its
+    20-game qualifying seasons only, and the weights are reweighted over the seasons he has, so a
+    missing season is not a zero. The weights are plain: no games weighting.
+  - This one measure is used everywhere the curve uses a level:
+    - the "recent rate" measure in the profile that finds comparable players;
+    - the year-to-year changes the forecast adds (a comparable's level at the next age minus his
+      level at this age);
+    - the comparable players' level that makes up entry 1's 35%.
+  - Departed players: a player with no NHL season the next year is entered with that season at
+    replacement level (rate 0), averaged by the same 50/30/20 rule.
+  - Unchanged: the comparables pool rule (two consecutive 20-game seasons), the other profile
+    measures (style, ice time, trend), the yardstick, the weighting formula, and the league weight
+    of ten.
+- **What the code does now (not yet changed):** `aging_curve.py` uses the equal average of the last
+  two consecutive 20-game seasons (`WIN = 2`), and `skater_forecast.imputed_aging_model` enters a
+  departure as (last rate + 0) / 2.
+- **Evidence:** `25_TESTS/aging_level_weights_test.py` v1.0, valuation dates 2015-2021:
+  - The starting level is unaffected: all four versions tie (1.1501-1.1506).
+  - Aging only, one to five seasons out: 1.3610, against 1.3642 for the equal two-season average,
+    lower in 1,999 of 2,000 resamples. Whole forecast: 1.3596 against 1.3642, lower in 2,000.
+  - Slightly worse one season out (1.2620 against 1.2603); better from two seasons on.
+  - 60/40 over two seasons was worse than the equal average. Games weighting added nothing.
+- **Status:** directed. Code unchanged.
