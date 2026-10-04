@@ -116,6 +116,46 @@ the commit), **superseded** (replaced by a later entry).
 
 ---
 
+## 4. Contract length (term) is in the price line: term-in, with term-free as the sensitivity
+
+- **Date:** 2026-10-04, reading the price-line equation in `Pricing, Control Years, and Contract
+  Value.docx`. This restores Decision A, which Thomas locked on 2026-09-15.
+- **Thomas's words (2026-10-04):** "I swear to god we agreed that term needed to be in this
+  equation"; then "Add it to the ledger as a directive."
+- **The 2026-09-15 decision, as recorded:** "Decision A locked by Thomas: term-in (the security of a
+  long deal is part of what the club bought; term-free retained as the required sensitivity)"
+  (`DECISIONS.md`, change log 2026-09-15k; `40_DOCS/model_evidence/Phase4_Decisions.md`).
+- **What it means:**
+  - The price line includes contract length: a club pays for the security of a long deal, so the
+    line prices production signed for a given term.
+  - Contract values are reported term-in. Term-free values (no length in the line) are reported
+    beside them as the required sensitivity.
+  - Term is not production. This is consistent with the July Stage 2 null (length did not predict
+    later production): term-in prices the security, not more wins.
+- **How it was lost:** the term-in line was built in the rebuild (`production_currency.py`) and
+  recorded as "taken inside the tree only... not adopted into production" (`PROJECT_STATE.md`).
+  D33 kept "the Stage 3 price per win", and the 2026-10-02 re-fit used the Stage 3 specification,
+  which has no term. Neither step flagged that this overrode Decision A.
+- **What the code does now (not yet changed):** `xnpv1_price_line.py` fits cap share = alpha +
+  (beta + beta_D x defence) x forecast WAR, with no term, and `XNPV1_RATE` is locked on that line.
+- **Details not yet settled by Thomas:**
+  1. *How term enters the line:* for example a linear term in years, as the July Stage 2
+     specification had ($0.82M a year at the 2025-26 cap on the trailing total), or the rebuild's
+     form; and whether term interacts with the defence slope or the RFA status.
+  2. *How term enters each season's value:* term-in must not add the term premium to each season
+     whatever the player produces (the rebuild's first attempt priced Brent Seabrook's 0.20
+     forecast wins at $47.2M). The rebuild's resolution: the replacement a contract is compared
+     against is a player signed for the remaining term. The exact rule for this model is to be
+     set before any code changes.
+  3. *Control years:* whether the RFA control years are priced term-in, and at what term.
+- **Knock-ons once implemented:** the price line is re-fitted and re-locked; aggregate value moves
+  by billions (term-in added $3.3-4.1B across 2,591 contracts in the 2026-09-14 test); the
+  defence-premium question (WORK_QUEUE) is re-read on the new line (the rebuild's term-in line put
+  the defence premium in an intercept, not the slope).
+- **Status:** directed. Code unchanged.
+
+---
+
 # To investigate (Thomas's list; nothing here is directed)
 
 Questions Thomas wants looked into before he decides. An item moves to the directives above only
