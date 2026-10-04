@@ -1,5 +1,12 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**Supervisor documents rewritten for xNPV 1, 2026-10-04.**
+- The four documents in `40_DOCS/Supervisor_Drafts/` describe xNPV 1 from its code, with the 2024
+  page's fitted tables and a worked contract (Marchessault 2024). xNPV 0 versions archived.
+- Found while writing (STANDING_FLAGS 2026-10-04): late-signed contracts read their chance of playing
+  without themselves (+$622M if signing-dated, a decision owed); D33's start description corrected;
+  the 55/45 aging blend has no effect on xNPV 1.
+
 **xNPV 0 removal verified on the real spine; migration closed, 2026-10-03.**
 - The laptop check passed: all 3,149 contracts are identical to the dollar before and after.
 - Archive copies are written and the rebuild outputs moved.
