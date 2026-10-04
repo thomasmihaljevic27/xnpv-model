@@ -39,6 +39,14 @@ WHAT IT SCORES
     Reference: xNPV 1's current fitted start (skater_forecast.XNPV1, start line
     refitted per page exactly as production does) on the same rows.
 
+v1.1 (2026-10-04, Thomas: "comparable players AND league average"). Part 3 adds a
+three-way blend, start = a * trailing + b * comps_pure + c * league, a + b + c = 1,
+swept in steps of 0.05, aged to t0. comps_pure is the comparables' weighted level
+WITHOUT the curve's league blend (the v1.0 'comparables' target already mixes in the
+position-and-age league level at weight ten, so it is itself a blend). Where a
+player has no comparables with a level at his age, comps_pure falls back to the
+position-and-age league level. Parts 1 and 2 are unchanged.
+
 HOW TO RUN (repo root, about ten minutes):
     python 25_TESTS/starting_level_simple_test.py
 Writes 30_OUTPUT/starting_level_simple_test_log.txt and _rows.csv.
@@ -55,7 +63,7 @@ import information_set as ISET
 import player_season_table as PST
 import skater_forecast as SF
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 PAGES = C.DEV_PAGES
 WEIGHTS = {"33/33/33": (1, 1, 1), "40/35/25": (40, 35, 25), "40/40/20": (40, 40, 20),
            "50/25/25": (50, 25, 25), "50/30/20": (50, 30, 20), "50/35/15": (50, 35, 15),
@@ -192,6 +200,7 @@ def main():
     x = res[win][0]
     log(f"\n[2] the pull, on {win}: start = k x trailing + (1 - k) x target")
     la, cn, step = np.full(len(d), np.nan), np.full(len(d), np.nan), np.zeros(len(d))
+    cp = np.full(len(d), np.nan)                 # v1.1: comparables only, no league blend
     n_comp = 0
     for t0 in PAGES:
         m = SF.imputed_aging_model(str(SF.war_age_path()), t0)
@@ -200,11 +209,11 @@ def main():
             r = d.iloc[i]
             pos, ck = ("D" if r["pos"] == "D" else "F"), r["career_key"]
             if not np.isfinite(r["age_last"]):
-                la[i] = cn[i] = d.at[i, "league"]
+                la[i] = cn[i] = cp[i] = d.at[i, "league"]
                 continue
             a = int(r["age_last"])
             la[i] = m.glevel.get((pos, a), d.at[i, "league"])
-            cn[i] = la[i]
+            cn[i] = cp[i] = la[i]
             gap = int(r["last_lag"])                 # seasons from his last one to t0
             if ck in m.players and a in m.players[ck]["sm"]:
                 try:
@@ -215,6 +224,9 @@ def main():
                     cand, wt = m._weights(tv, pos, a, exclude=ck)
                     if cand is not None and len(cand):
                         cn[i] = m._shrunk(m.Lser[cand, a - m.AMIN], cand, wt, la[i]); n_comp += 1
+                        vals = m.Lser[cand, a - m.AMIN]; mk = ~np.isnan(vals); ww = wt * mk
+                        if ww.sum() > 0:
+                            cp[i] = float(np.sum(ww * np.where(mk, vals, 0.0)) / ww.sum())
                     tr = m.project(ck, current_age=a, horizon=gap)
                     lv = dict(zip(tr["age"].astype(int), tr["projected_war_per_82"]))
                     if (a + gap) in lv:
@@ -235,6 +247,25 @@ def main():
             arms[(tn, aged)] = (e, k)
             pick = "  ".join(f"{errs[list(KGRID).index(kk)]:.4f}" for kk in (0.45, 0.55, 0.65, 0.75))
             log(f"    {tn:26s}{('yes' if aged else 'no'):>12}{k:8.2f}{r:9.4f}{wmae(e, w):9.4f}   {pick}")
+
+    # v1.1 part 3: comparables AND league average, three-way blend
+    log(f"\n[3] three-way blend, aged to t0: start = a x trailing + b x comparables (no league inside) + c x league")
+    log(f"    comparables-only average available for {int(np.sum(cp != la)):,} rows; elsewhere it falls back to league by age")
+    grid = [(round(a_, 2), round(b_, 2)) for a_ in np.arange(0.30, 1.0001, 0.05)
+            for b_ in np.arange(0.0, 1.0001 - a_ + 1e-9, 0.05)]
+    for ln, lgt in (("league (position)", d["league"].to_numpy()), ("league (position, age)", la)):
+        sc = {}
+        for a_, b_ in grid:
+            c_ = max(0.0, 1.0 - a_ - b_)
+            sc[(a_, b_)] = wrmse(a_ * x + b_ * cp + c_ * lgt + step - y, w)
+        (ab, bb), r = min(sc.items(), key=lambda kv: kv[1])
+        e3 = ab * x + bb * cp + (1 - ab - bb) * lgt + step - y
+        arms[("blend: comparables + " + ln, True)] = (e3, ab)
+        log(f"    with {ln:24s} best a / b / c = {ab:.2f} / {bb:.2f} / {1 - ab - bb:.2f}: RMSE {r:.4f}, MAE {wmae(e3, w):.4f}")
+        near = sorted(sc.items(), key=lambda kv: kv[1])[:5]
+        log("      five best cells: " + "; ".join(f"{k[0]:.2f}/{k[1]:.2f}/{1 - k[0] - k[1]:.2f} {v:.4f}" for k, v in near))
+        log(f"      comparables only (c = 0) best: {min(v for k, v in sc.items() if abs(1 - k[0] - k[1]) < 1e-9):.4f}; "
+            f"league only (b = 0) best: {min(v for k, v in sc.items() if k[1] == 0):.4f}")
 
     # reference: xNPV 1's current fitted start on the same rows
     cur = np.full(len(d), np.nan)
