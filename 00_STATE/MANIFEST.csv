@@ -2,11 +2,11 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 00_STATE,01_Draft_Model_Sequence.md,state,hashable,2026-09-28k,19281a382d63f217be50d4c924e322792e1b0739,10417,2026-09-28,yes,git,rewritten 2026-09-28 with D29-D31
 00_STATE,02_Prospect_Model_Sequence.md,state,hashable,2026-09-28k,047d898fa5c56992c326a1403199f106b3f2d792,11163,2026-09-28,yes,git,"rewritten 2026-09-28 (EP pull, bridge, goalie birthdates)"
 00_STATE,03_Player_Market_Model_Sequence.md,state,hashable,2026-09-09a,2f68c554cca2f422235e3baa6e17a0996e8412e7,18322,2026-09-09,yes,git,matches Claude project copy
-00_STATE,DECISIONS.md,state,hashable,2026-10-03d,c5094a6b30ad378ea0eb97e80d3f5f29757ea982,353275,2026-10-03,yes,git,change log 2026-09-30j
+00_STATE,DECISIONS.md,state,hashable,2026-10-04,8360da2d5c1b74ddc13e37ea39721c2cec55242b,354042,2026-10-04,yes,git,change log 2026-09-30j
 00_STATE,MANIFEST.csv,state,hashable,2026-09-25c,66d3201b2fc22f946fa0de1bb2c0f364c6600a13,36432,2026-09-25,yes,git,"this file; the hash column cannot be self-referential, so it is not audited"
 00_STATE,PROJECT_STATE.md,state,hashable,2026-10-03d,7747ac57f46681986f8da8d71eb8e1abe0e49c1e,193534,2026-10-03,yes,git,refresh v3.3; EP v3.1 note
 00_STATE,STANDING_FLAGS.md,state,hashable,2026-10-03c,bea82bd21d62ce96ed49651408ddf7cad499f3bf,137014,2026-10-03,yes,git,pandas 3 flag
-00_STATE,WORK_QUEUE.md,state,hashable,2026-10-03d,3c7a30d83318bdc7523f5a38526c1c82d0e43305,154374,2026-10-03,yes,git,EP v3.1 note
+00_STATE,WORK_QUEUE.md,state,hashable,2026-10-04,bc52c96e9d2157bfab865a72b0d6a48569a586f3,154689,2026-10-04,yes,git,EP v3.1 note
 00_STATE/sessions,2026-08-28.md,state,hashable,2026-09-09a,921a8eae623bb0d7ac4d1d181f6b862aa51a9e62,2159,2026-09-09,yes,git,git-tracked; audited via `git status`
 00_STATE/sessions,2026-09-08.md,state,hashable,2026-09-09a,1b31b43e8ed30fefd98ded8df5f5a431e79f323b,2384,2026-09-09,yes,git,git-tracked; audited via `git status`
 00_STATE/sessions,2026-09-09.md,state,hashable,2026-09-10,e1547fa499f7d8fdff918698f28a968b7bb56a07,22662,2026-09-10,yes,git,git-tracked; audited via `git status`
@@ -196,10 +196,10 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,aging_elite_shrinkage_test.py,age,hashable,2026-09-30k,3f90a95cd779c1346e85f9a3a031bd777999639b,23104,2026-09-30,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
 40_DOCS,Project_Overview_Plain_Language.docx,doc,rendition,2026-09-24,5ac2d0a86053fc3f7866a79c9fbda07e85b7d752,19559,2026-09-24,yes,git,git-tracked; added by the 2026-09-25c audit
 40_DOCS,Project_Overview_Plain_Language.pdf,doc,rendition,2026-09-24,4e8d21abd77590447049c6d5cc5cff6ea8a6fe23,84746,2026-09-24,yes,git,git-tracked; added by the 2026-09-25c audit
-40_DOCS/Supervisor_Drafts,Circularity and Game Value.docx,doc,rendition,2026-09-12,30c33de57fbd78eb42a99fa5591f388a5e013f14,16098,2026-09-12,yes,git,git-tracked; added by the 2026-09-25c audit
+40_DOCS/Supervisor_Drafts,Circularity and Game Value.docx,doc,rendition,2026-10-04,a9311f24b6b01130540416617fb3fb3ff51a5512,17640,2026-10-04,yes,git,rewritten 2026-10-04 on xNPV 0 (writing skill)
 40_DOCS/Supervisor_Drafts,"Data, Production, and Aging.docx",doc,rendition,2026-09-12,85fcb0a7d2a6469d8098382cc2b536d786d69156,24975,2026-09-12,yes,git,git-tracked; added by the 2026-09-25c audit
-40_DOCS/Supervisor_Drafts,"Draft Picks, Prospects, and the Remaining Trade Model.docx",doc,rendition,2026-09-12,227aaae98c437fc1aacf6350b4c870115ce72954,21801,2026-09-12,yes,git,git-tracked; added by the 2026-09-25c audit
-40_DOCS/Supervisor_Drafts,"Pricing, Control Years, and Contract Value.docx",doc,rendition,2026-09-12,418805ee34f7287898734d968e45b124559d68e2,20417,2026-09-12,yes,git,git-tracked; added by the 2026-09-25c audit
+40_DOCS/Supervisor_Drafts,"Draft Picks, Prospects, and the Remaining Trade Model.docx",doc,rendition,2026-10-04,25413311b4f1c6893e60ea6ad6d53c871d891e1a,21160,2026-10-04,yes,git,rewritten 2026-10-04 on xNPV 0 (writing skill)
+40_DOCS/Supervisor_Drafts,"Pricing, Control Years, and Contract Value.docx",doc,rendition,2026-10-04,98ba365bfc2331367149646f1d0f6bfc57a9f4f1,22151,2026-10-04,yes,git,rewritten 2026-10-04 on xNPV 0 (writing skill)
 40_DOCS/model_evidence,Control_Years.md,player,hashable,2026-10-02d,42e4a58ee829dd2ab55e6aeb0e9bce179f6581c6,16864,2026-10-02,yes,git,git-tracked; added by the 2026-09-25c audit
 40_DOCS/model_evidence/reviews,Control_Years_Repair_Review_Codex.md,player,hashable,2026-10-02d,96d6b61abc7699339e4792d3ee28fe87e5a52342,7704,2026-10-02,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
 40_DOCS/model_evidence/reviews,Control_Years_Review_Codex.md,player,hashable,2026-10-02d,704db30031f193bcf8d3af76b8b119f981968c8d,9900,2026-10-02,yes,git,git-tracked; added by the 2026-09-25c audit; moved 2026-09-30j
@@ -316,3 +316,5 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,xnpv0_removal_check.py,player,hashable,2026-10-02k,49130927295d238c6705784770d093f357821e73,5999,2026-10-02,no,git,laptop check that archiving xNPV 0 moved no xNPV 1 value
 00_STATE/sessions,2026-09-28c.md,state,hashable,2026-10-03c,4a493f93f91fd01dfd357e378fb1057071396eed,5631,2026-10-03,yes,git,git-tracked; audited via `git status`
 00_STATE/sessions,2026-10-03.md,state,hashable,2026-10-03d,cdd96579aaf9229d6fd2f0beb9617a5335cf4626,3534,2026-10-03,yes,git,git-tracked; audited via `git status`
+40_DOCS,Glossary.md,doc,hashable,2026-10-04,361988361d20afd47db1bff15f2f503eb078c35a,5455,2026-10-04,yes,git,one name per concept; entries written from the code
+00_STATE/sessions,2026-10-04.md,state,hashable,2026-10-04,83e2b9aeebad91e601e8e9be0e4257389a9e0250,4109,2026-10-04,yes,git,git-tracked; audited via `git status`

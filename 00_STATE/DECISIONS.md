@@ -2637,3 +2637,15 @@ Stage 3. The separate slope prices it as fair value (STANDING_FLAGS,
 - Update-Dashboard ran clean on the post-removal code, the new xNPV 1 validation batteries
   included. That completes the xNPV 1 migration.
 - `WORK_QUEUE.md`, `PROJECT_STATE.md` and the session log are updated. No code changed.
+
+### Change log, 2026-10-04 (three supervisor drafts rewritten on xNPV 0)
+
+- `40_DOCS/Supervisor_Drafts/`: Circularity and Game Value; Pricing, Control Years, and Contract
+  Value; Draft Picks, Prospects, and the Remaining Trade Model rewritten with the writing skill
+  (story spine, evidence tables, one worked contract). Written from xNPV 0's code at `7f91f0e`.
+  Old versions are in git at `3c21f39`.
+- New `40_DOCS/Glossary.md`.
+- Corrections carried in from the code: signed extensions count (contract chain v1.4); the skater
+  exit hazard uses pre-valuation windows (D18 revision); D29-D31 added to the draft document.
+- Four figures from the old drafts are untraced in the record (see `sessions/2026-10-04.md`).
+- No code changed. No locked decision reopened.

@@ -15,6 +15,10 @@
    - the unit question;
    - the defence premium (47% per expected win), which the separate defence slope prices as fair
      value (`40_DOCS/model_evidence/xNPV1_Price_Line.md`). Both are identification points.
+   - 2026-10-04: three of the four `Supervisor_Drafts` documents (Game Value, pricing, draft
+     picks) are rewritten on xNPV 0 with the writing skill. Decide whether they go to the review as
+     the record of xNPV 0 or after an xNPV 1 revision. Four figures in them are untraced
+     (`sessions/2026-10-04.md`).
 3. **Archive: done in the tree 2026-10-02k.** xNPV 0, `valuation_walkthrough.py` and `50_REBUILD/`
    are removed. The archive copies come from item 1, steps 2 and 3.
 4. DONE 2026-10-03: `ep_age_scraper.py` archived from 02f6fda.
