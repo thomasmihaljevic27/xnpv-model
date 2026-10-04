@@ -13,7 +13,7 @@ the commit), **superseded** (replaced by a later entry).
 | # | Directive | Status |
 |---|---|---|
 | 1 | Starting level: 50/30/20 per-82 WAR over three seasons, pulled 65/35 toward comparable players; no fitted decay anywhere | directed |
-| 2 | The aging curve measures each player's level with plain 50/30/20 over three seasons | directed |
+| 2 | The aging curve measures each player's level with 50/30/20 over three seasons, games-weighted (changed from plain 2026-10-04c) | directed |
 | 3 | One own-versus-comparables blend: 65/35 replaces the curve's 55/45 | directed |
 | 4 | Contract length in the price line (term-in), term-free reported as the sensitivity | directed |
 | 5 | Price-line forecasts dated at each contract's signing | directed |
@@ -59,8 +59,8 @@ at step 6.
 8. **Open decision 3 (the price of a delivered win)**, which unlocks directive 6 (the draft and
    prospect restart with Karl).
 
-**Next step:** step 1, directive 1's detail 1: Thomas runs `25_TESTS/level_games_weighting_test.py`
-on the laptop and chooses plain or games-weighted for both sides (2026-10-04c). Then detail 3.
+**Next step:** step 1, directive 1's detail 3 (the step to the valuation season). Detail 1 settled
+2026-10-04c: games-weighted on both sides.
 
 ---
 
@@ -92,8 +92,18 @@ on the laptop and chooses plain or games-weighted for both sides (2026-10-04c). 
      - *Thomas, 2026-10-04 (session 2026-10-04c):* "if this is going to be games weighted then the
        comparable's level should be as well. i want them to be the same. create a test script for
        that." The own rate and the comparables' level use one weighting, plain or games-weighted,
-       to be chosen on `25_TESTS/level_games_weighting_test.py` v1.0 (laptop run owed). If games
-       weighting is chosen, directive 2's "plain" changes with it.
+       chosen on `25_TESTS/level_games_weighting_test.py` v1.0.
+     - **Settled (Thomas, 2026-10-04c): games-weighted on both sides.** Each season's weight is
+       50/30/20 times its games played, for the player's own rate and for the curve's level
+       (directive 2 changed with it). Evidence (laptop, development pages 2015-2021, 6,916
+       player-pages by 1,609 players; with the step to the valuation season): start RMSE 1.1506
+       against plain's 1.1526, whole forecast one to five seasons out 1.3598 against 1.3618;
+       games-weighted lower in 1,827 and 1,802 of 2,000 career resamples (under the 1,950 bar).
+       Lower on 7 of 8 RMSE/MAE cells (without the step, whole MAE is 0.0001 higher). The gain
+       comes from the own side: games-weighting the curve alone is slightly worse than plain
+       (1.3621 against 1.3618), and costs 0.0002 against weighting the own side alone (1.3598
+       against 1.3596). It sits in players with a recent season under 41 games (start 1.1382
+       against 1.1469; elsewhere 1.1558 against 1.1550).
      - *Minimum games (Thomas, 2026-10-04):* a season counts toward the player's own 50/30/20 rate
        at 10 games or more ("10 games, as tested"; `forecast_config.MIN_GP`). The curve keeps its
        20 (directive 2).
@@ -128,14 +138,18 @@ on the laptop and chooses plain or games-weighted for both sides (2026-10-04c). 
   - The comparable-player curve measures each player's level at each age as 50% × his rate per 82
     at that age + 30% × the age before + 20% × the age before that. Only seasons of 20 games or
     more count. The weights are rescaled over the seasons he has, so a missing season is not a
-    zero. The weights are plain: no games weighting.
+    zero. Each weight is multiplied by that season's games played (Thomas, 2026-10-04c, so the
+    curve's level matches the own rate in directive 1; this replaces "plain: no games weighting").
   - This one measure is used everywhere the curve uses a level:
     - the "recent rate" measure in the profile that finds comparable players;
     - the year-to-year changes the forecast adds (a comparable's level at the next age minus his
       level at this age);
     - the comparable players' level that makes up entry 1's 35%.
   - Departed players: a player with no NHL season the next year is entered with that season at
-    replacement level (rate 0), averaged by the same 50/30/20 rule.
+    replacement level (rate 0), averaged by the same 50/30/20 rule. Under games weighting that
+    filled-in season counts as 82 games (as tested; `aging_level_weights_test.build_curve`), so the
+    zero weighs as a full season. A setting carried in by the test, not chosen by Thomas;
+    investigation C examines departures.
   - Unchanged: the comparables pool rule (two consecutive 20-game seasons), the other profile
     measures (style, ice time, trend), the yardstick, the weighting formula, and the league weight
     of ten.

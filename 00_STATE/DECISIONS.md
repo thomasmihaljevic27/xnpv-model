@@ -2750,3 +2750,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   weighting, plain or games-weighted, chosen on the new `25_TESTS/level_games_weighting_test.py`
   v1.0 (laptop run owed). A season counts toward the own rate at 10 games or more. Recorded in
   `MODEL_DIRECTIVES.md`; no model code changed.
+- Detail 1 settled (Thomas): games-weighted on both sides, on the laptop run (start 1.1506 against
+  plain's 1.1526; whole 1.3598 against 1.3618; 1,827 / 1,802 of 2,000). Directive 2's level changes
+  from plain to games-weighted. Code unchanged.
