@@ -8,6 +8,30 @@ implemented from it without his go-ahead.
 Status values: **directed** (decided, code not changed yet), **implemented** (code matches, with
 the commit), **superseded** (replaced by a later entry).
 
+## Summary (2026-10-04)
+
+| # | Directive | Status |
+|---|---|---|
+| 1 | Starting level: 50/30/20 per-82 WAR over three seasons, pulled 65/35 toward comparable players; no fitted decay anywhere | directed |
+| 2 | The aging curve measures each player's level with plain 50/30/20 over three seasons | directed |
+| 3 | One own-versus-comparables blend: 65/35 replaces the curve's 55/45 | directed |
+| 4 | Contract length in the price line (term-in), term-free reported as the sensitivity | directed |
+| 5 | Price-line forecasts dated at each contract's signing | directed |
+| 6 | Draft and prospect models restart from scratch with Karl; the data is kept | directed |
+
+| | To investigate (closed list) | Status |
+|---|---|---|
+| A | The yardstick: one per position, and no self-pairs | open |
+| B | The league average inside the comparables' estimate | open |
+| C | Departed players in the aging curve: the assumed zero and its gaps | open |
+| D | The games-share equation's form | open |
+| E | The chance of playing for players under contract | open |
+| F | Re-run the Game Value checks on the model as directed | after directives 1-5 are built |
+
+Open decisions (Thomas's to make; listed at the end): the control-year weight; when contract status
+is read for a contract valuation; the price of a delivered win. Unsettled details sit inside
+directives 1 and 4.
+
 ---
 
 ## 1. The starting level: 50/30/20, pulled 65/35 toward comparable players
@@ -179,7 +203,7 @@ the commit), **superseded** (replaced by a later entry).
 - **Rides with entry 4:** both change the price line, so they go into one re-fit and one re-lock.
 - **Related, for Thomas to decide alongside (not part of this directive):** the chance of playing
   in a contract valuation reads contract status at July 1, so a contract signed after July 1 cannot
-  see itself (WORK_QUEUE, top block, item 1; `25_TESTS/late_signing_status_check.py`). Same root:
+  see itself (open decision 2 below; `25_TESTS/late_signing_status_check.py`). Same root:
   valuing a contract as of its start rather than its signing.
 - **Status:** directed. Code unchanged.
 
@@ -323,7 +347,7 @@ when he directs it.
      before/after-2018 indicator would separate them; D33 left it out (for goalies it carried the
      gain credited to contract status, corrected 2026-09-23).
   2. Contracts signed after July 1 are treated as not under contract for their own seasons (1,533 of
-     2,759 priced; WORK_QUEUE top block item 1; directive 5's related note).
+     2,759 priced; open decision 2 below).
   3. The contract effect is one shift in the odds, the same for every player and quality.
 - **To investigate:** for players under contract for the season (2018-19 onward), compare the
   forecast chance of playing with how often they played, by quality and by seasons ahead. Score
@@ -359,3 +383,32 @@ when he directs it.
 
 **The to-investigate list is closed (Thomas, 2026-10-04): F is the final item.** New questions go to
 WORK_QUEUE unless Thomas adds them here.
+
+---
+
+# Open decisions (raised 2026-10-04, not yet made)
+
+These are choices put to Thomas during the read-through. They are not investigations; each needs
+his decision before the code it touches is changed.
+
+1. **The control-year weight.** Today each RFA control year is weighted only by the rate at which
+   clubs qualified players of his forecast level; a qualifying offer does not mean he plays. The
+   July test (`DECISIONS.md`, "Control-year departure... TESTED, both fixes PARKED") found a
+   qualified skater still leaves the league at 13.1% a year, uncounted, and that goalie control
+   years carry no weight at all. Choose how "he plays" enters:
+   - the July method: P(qualified) x P(plays, given he was qualified), measured only among
+     qualified players (each departure counted once); or
+   - reuse xNPV 1's chance of playing (simpler, but it includes walk-aways, so part of them is
+     charged twice).
+   Also: start the control-year chain from his chance of playing the contract's final season, not
+   from 1. Goalies: Thomas's July sub-decisions stand (one pooled rate, a one-game bar).
+2. **When contract status is read for a contract valuation.** Contracts are valued at July 1 of
+   their first season, so a contract signed after July 1 cannot see itself in its own chance of
+   playing (1,533 of 2,759 priced skater contracts). Reading it at the signing raises 1,351 of 1,530
+   re-datable values, median +$0.33M, total +$622M (`25_TESTS/late_signing_status_check.py`).
+   Options: read status at each contract's signing (a code change), or keep July 1 and correct
+   `skater_forecast.py`'s docstring. Same root as directive 5.
+3. **The price of a delivered win.** The draft curve and any back-test outcome price realized
+   wins; player contracts price forecast wins on their own line. Which price a delivered win
+   carries must be decided once, for both sides of each trade. On hold under the 2026-10-04 triage;
+   directive 6's restart waits on it.
