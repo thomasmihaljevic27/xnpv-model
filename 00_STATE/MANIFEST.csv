@@ -2,7 +2,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 00_STATE,01_Draft_Model_Sequence.md,state,hashable,2026-09-28k,19281a382d63f217be50d4c924e322792e1b0739,10417,2026-09-28,yes,git,rewritten 2026-09-28 with D29-D31
 00_STATE,02_Prospect_Model_Sequence.md,state,hashable,2026-09-28k,047d898fa5c56992c326a1403199f106b3f2d792,11163,2026-09-28,yes,git,"rewritten 2026-09-28 (EP pull, bridge, goalie birthdates)"
 00_STATE,03_Player_Market_Model_Sequence.md,state,hashable,2026-09-09a,2f68c554cca2f422235e3baa6e17a0996e8412e7,18322,2026-09-09,yes,git,matches Claude project copy
-00_STATE,DECISIONS.md,state,hashable,2026-10-04b,c591cdd964a8f2727942648bfdb7a2f4b0f4884b,357515,2026-10-04,yes,git,change log 2026-10-04b
+00_STATE,DECISIONS.md,state,hashable,2026-10-04b,f28ac0e9e8da9a5485612a51eef5ffdcb76dec03,357544,2026-10-04,yes,git,change log 2026-10-04b
 00_STATE,MANIFEST.csv,state,hashable,2026-09-25c,66d3201b2fc22f946fa0de1bb2c0f364c6600a13,36432,2026-09-25,yes,git,"this file; the hash column cannot be self-referential, so it is not audited"
 00_STATE,PROJECT_STATE.md,state,hashable,2026-10-04b,5410ebb99e0bfcceeb63736bc4949f02b50de64c,194080,2026-10-04,yes,git,Doc 1 entry marked deleted 2026-10-04b
 00_STATE,STANDING_FLAGS.md,state,hashable,2026-10-04b,1e70e45fca3e3f860d98b3a4e1d1ec385a71ea00,138556,2026-10-04,yes,git,55/45-by-type question dropped 2026-10-04b
@@ -318,4 +318,4 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 00_STATE/sessions,2026-10-03b.md,state,hashable,2026-10-03e,5d294fad7ea7f91040de4c0a7409ade248f2d25e,3353,2026-10-03,yes,git,git-tracked; audited via `git status`
 00_STATE/sessions,2026-10-04.md,state,hashable,2026-10-04,8d267d37aa504bd3c08728c9c740bfa4b7edc973,6789,2026-10-04,yes,git,git-tracked; audited via `git status`
 25_TESTS,late_signing_status_check.py,player,hashable,2026-10-04,d566a23cf265fc7c267e7d0d17f4fd61ad3311a5,4689,2026-10-04,yes,git,laptop check: chance of playing read at July 1 against at the signing
-00_STATE/sessions,2026-10-04b.md,state,hashable,2026-10-04b,21feae518abba77e66913ffa406f85da481e0a9a,4221,2026-10-04,yes,git,triage of the open list
+00_STATE/sessions,2026-10-04b.md,state,hashable,2026-10-04b,5eea1b713061533096e85fba2841edd65ed36c2e,4228,2026-10-04,yes,git,triage of the open list

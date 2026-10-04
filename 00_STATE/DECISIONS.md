@@ -2693,7 +2693,7 @@ Stage 3. The separate slope prices it as fair value (STANDING_FLAGS,
 - Repo copy of the writing-style skill removed (the account copy is the one in use); `.gitignore`
   ignores `.claude/` again. `Doc_1_Circularity_and_Game_Value.docx` and `Docs_3_4_5_Review_Notes.md`
   deleted. `Supervisor_Drafts/Project_Overview.pdf` not committed: it is byte-identical to the
-  tracked `Project_Overview_Plain_Language.pdf` (question to Thomas). `MANIFEST.csv` updated.
+  tracked `Project_Overview_Plain_Language.pdf`; Thomas declined the duplicate and it was deleted. `MANIFEST.csv` updated.
 - `CLAUDE.md`: three rules (an item put to Thomas says what he is asked to do; his own answer or a
   settled choice is not a check owed; prune before reporting a remote branch).
 - Session log `sessions/2026-10-04b.md`. No locked decision reopened. No code changed.
