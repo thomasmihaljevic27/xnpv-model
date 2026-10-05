@@ -98,7 +98,11 @@ load_dotenv()
 
 import TopDownHockey_Scraper.TopDownHockey_EliteProspects_Scraper as tdhepscrape
 
-SCRIPT_VERSION = "3.1"   # printed on every run (stale-file guard)
+SCRIPT_VERSION = "3.2"   # printed on every run (stale-file guard)
+# v3.2 (2026-10-05): the bio pass reads one player at a time through the
+# package's get_info() with a 4-second pause after each, instead of calling
+# get_player_information(), which has no pause; EP blocked the first batch
+# after 48 players. One Ctrl+C now saves the batch read so far and stops.
 # v3.1 (2026-09-28): league-season pages are read by this script's own
 # read_league_season(), not the package's get_skaters / get_goalies. The
 # package's clean-up step writes the text "FW" into a true/false column, which
@@ -196,6 +200,8 @@ SLEEP_BETWEEN_LEAGUE_SEASONS = 15  # seconds between league-season pulls
 BIO_BATCH_SIZE = 100               # players per bio batch; each batch commits,
                                    # so an interruption loses at most one batch
 SLEEP_BETWEEN_BIO_BATCHES = 30     # seconds between bio batches
+SLEEP_BETWEEN_BIO_REQUESTS = 4     # seconds after each player's bio page (v3.2);
+                                   # with none, EP returned 403 after 48 players
 
 # --- Same-name collisions (audit tripwire only; joins here are ID-based) ------
 KNOWN_NAME_COLLISIONS = {
@@ -656,6 +662,52 @@ def bios_already_stored(conn: sqlite3.Connection) -> set[int]:
         "WHERE ep_player_id IS NOT NULL")}
 
 
+BIO_COLUMNS = ["player", "rights", "status", "dob", "height", "weight",
+               "birthplace", "nation", "shoots", "draft", "link"]
+
+
+def fetch_bio_batch(links: list[str]) -> tuple[pd.DataFrame, bool]:
+    """
+    Read one batch of bio pages, one player at a time, pausing
+    SLEEP_BETWEEN_BIO_REQUESTS seconds after each.
+
+    v3.2: this replaces the package's get_player_information(), which requests
+    every page back to back (its one-second pause is commented out). EP
+    started refusing requests (403) after 48 players of the first batch. The
+    page request and parsing are still the package's own get_info(); only the
+    loop around it is ours. get_info() keeps its own 403 handling: it retries
+    every 60 seconds and never gives up, so a long block still stalls the run.
+
+    Returns (bios read so far, stop_after). stop_after is True when the loop
+    ended early: Ctrl+C, or a connection error. The caller saves the partial
+    batch and stops, so one Ctrl+C keeps every bio already read.
+    """
+    rows = []
+    stop_after = False
+    for n, link in enumerate(links, start=1):
+        try:
+            result = tdhepscrape.get_info(link)
+        except KeyboardInterrupt:
+            print(f"  Ctrl+C: stopping after {len(rows)} players in this batch")
+            stop_after = True
+            break
+        except (requests.exceptions.RequestException, ConnectionError,
+                ValueError) as exc:
+            # The same errors the package's own loop stopped on.
+            print(f"  !! bio request failed on {link}: {exc}")
+            stop_after = True
+            break
+        rows.append(result)
+        print(f"    {n}/{len(links)} {result[0]}")
+        try:
+            time.sleep(SLEEP_BETWEEN_BIO_REQUESTS)
+        except KeyboardInterrupt:
+            print(f"  Ctrl+C: stopping after {len(rows)} players in this batch")
+            stop_after = True
+            break
+    return pd.DataFrame(rows, columns=BIO_COLUMNS), stop_after
+
+
 def run_bio_pass(conn: sqlite3.Connection, asset_filter: bool,
                  include_drafted: bool = True) -> None:
     """
@@ -704,16 +756,11 @@ def run_bio_pass(conn: sqlite3.Connection, asset_filter: bool,
         batch_ids = target_ids[start:start + BIO_BATCH_SIZE]
         print(f"  bio batch {start // BIO_BATCH_SIZE + 1}: {len(batch_ids)} players")
 
-        # get_player_information only reads the `link` column of its input.
-        batch_df = pd.DataFrame({"link": [link_for[i] for i in batch_ids]})
-        try:
-            bio = tdhepscrape.get_player_information(batch_df)
-        except Exception as exc:                   # noqa: BLE001
-            print(f"  !! bio batch failed: {exc} — committed batches are safe; "
-                  f"rerun to resume")
-            break
+        bio, stop_after = fetch_bio_batch([link_for[i] for i in batch_ids])
 
         if bio is None or len(bio) == 0:
+            if stop_after:
+                break
             continue
 
         bio = normalize_columns(bio)
@@ -732,6 +779,10 @@ def run_bio_pass(conn: sqlite3.Connection, asset_filter: bool,
 
         append_aligned(bio, "ep_player_bio", conn)
         conn.commit()
+        if stop_after:
+            print(f"  {len(bio)} bios from the stopped batch are saved; "
+                  f"rerun to resume from the next player")
+            break
         time.sleep(SLEEP_BETWEEN_BIO_BATCHES)
 
 

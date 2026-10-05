@@ -2892,3 +2892,17 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   +0.599] (10-02 +0.296, xNPV 0 +1.120). All 10,067 rows: RMSE 0.8504 against 0.8566 (xNPV 0 plus its
   fallback 0.9316); squared error lower in 1,939 of 2,000, interval [-0.0220, +0.0006] includes zero.
   Step 7 complete; next, step 8.
+
+### Change log, 2026-10-05 (Elite Prospects bio pass: a pause after each player)
+
+- The laptop's bio pass (4,853 players) was refused by Elite Prospects (403) after 48 players of its
+  first batch. The package's `get_player_information()` requests every page back to back (its
+  one-second pause is commented out), and its 403 retry waits 60 seconds and never gives up.
+- `ep_extract.py` v3.2: the bio pass reads one player at a time through the package's own
+  `get_info()` (same request and parsing) with a 4-second pause after each
+  (`SLEEP_BETWEEN_BIO_REQUESTS`), about 5.5 hours for 4,853 players. One Ctrl+C, or a connection
+  error, saves the bios read so far in the batch and stops; a rerun resumes at the next player.
+  Checked on the laptop: three real players (2015 picks 1-3) read, parsed and written to a scratch
+  database with birthdates and draft slots, and a second run found nothing to do; a simulated Ctrl+C
+  after two real players saved both. The package's endless 60-second 403 retry is unchanged. No
+  model code changed.
