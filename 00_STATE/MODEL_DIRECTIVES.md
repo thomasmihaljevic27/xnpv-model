@@ -305,6 +305,11 @@ comparables' level for thin histories.
   1. *How term enters the line:* for example a linear term in years, as the July Stage 2
      specification had ($0.82M a year at the 2025-26 cap on the trailing total), or the rebuild's
      form; and whether term interacts with the defence slope or the RFA status.
+     - **Settled (Thomas, 2026-10-05): years of term, one linear term,** added to today's line (cap
+       share = intercept + price per forecast win, defence slope, + a fixed share per year of term),
+       nothing else. RFA status and interactions stay out; the RFA/UFA question is the step 7
+       specification test. The rebuild's form (term, RFA, RFA x wins, one-year marker, defence
+       intercept, first-season forecast) was put to Thomas and not chosen.
   2. *How term enters each season's value:* term-in must not add the term premium to each season
      whatever the player produces (the rebuild's first attempt priced Brent Seabrook's 0.20
      forecast wins at $47.2M). The rebuild's resolution: the replacement a contract is compared
