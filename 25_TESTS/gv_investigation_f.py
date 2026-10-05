@@ -34,6 +34,11 @@ WHAT IT DOES
      where the chance of playing matters. Reports how much of expected WAR's agreement survives
      without contract status.
 
+v1.3 (Thomas, 2026-10-05: test the gains before the document is updated). Section 5: a PAIRED career
+resample. 2,000 draws of the players (with replacement, whole careers, seed 20261005); in each draw every
+measure is scored on the same drawn rows, so each difference is paired. Reported: the difference in
+Pearson r, its 95% range, and in how many of the 2,000 draws the first measure's r is higher.
+
 HOW TO RUN (repo root, laptop; needs GAMELOG_DB, the contract export, WAR_with_age.csv at 99%+ and
 the skater value spine from the dashboard chain; about ten minutes):
     python 25_TESTS/gv_investigation_f.py
@@ -50,7 +55,7 @@ import pandas as pd
 
 import forecast_config as C
 
-SCRIPT_VERSION = "1.2"
+SCRIPT_VERSION = "1.3"
 RECORDED = {"n": 6027, "primary": 0.576, "F": 0.648, "D": 0.302, "next": 0.538,
             "repl": 0.609, "zero_sum": 0.564}
 # The forwards' R-squared, recorded with the r (DECISIONS.md 2026-07-14: "Forwards r=0.648/R²=0.421").
@@ -237,6 +242,62 @@ def run(d, gv):
             f"no contract status {rn:.3f}  (contract status adds {re_ - rn:+.3f}; the chance of playing adds {re_ - rw:+.3f})")
 
 
+PAIRS = [("tw502", "trailing_war", "50/30/20 trailing vs 60/40 trailing"),
+         ("start82", "trailing_war", "starting level vs 60/40 trailing"),
+         ("wip0", "trailing_war", "WAR if he plays vs 60/40 trailing"),
+         ("exp0", "trailing_war", "expected WAR vs 60/40 trailing"),
+         ("wip0", "tw502", "WAR if he plays vs 50/30/20 trailing"),
+         ("start82", "tw502", "starting level vs 50/30/20 trailing"),
+         ("exp0", "exp0_nc", "expected WAR: with vs without contract status")]
+PAIRS_NEXT = [("tw502", "trailing_war", "50/30/20 trailing vs 60/40 trailing"),
+              ("wip1", "trailing_war", "WAR if he plays (next) vs 60/40 trailing"),
+              ("wip1", "tw502", "WAR if he plays (next) vs 50/30/20 trailing")]
+
+
+def _r_rows(X, y):
+    """Pearson r of each column of X with y (rows already drawn)."""
+    Xc = X - X.mean(axis=0); yc = y - y.mean()
+    return (Xc * yc[:, None]).sum(axis=0) / np.sqrt((Xc ** 2).sum(axis=0) * (yc ** 2).sum())
+
+
+def resample(df, pairs, outcome, label, n_draws=2000, seed=20261005):
+    """Paired career resample of the differences in r (see v1.3 in the docstring)."""
+    cols = sorted({c for a, b, _ in pairs for c in (a, b)})
+    X = df[cols].to_numpy(float); y = df[outcome].to_numpy(float)
+    idx = list(df.groupby("player_id").indices.values())
+    rng = np.random.default_rng(seed)
+    full = dict(zip(cols, _r_rows(X, y)))
+    diffs = {lab: [] for _, _, lab in pairs}
+    for _ in range(n_draws):
+        pick = rng.integers(0, len(idx), len(idx))
+        rows = np.concatenate([idx[i] for i in pick])
+        r = dict(zip(cols, _r_rows(X[rows], y[rows])))
+        for a, b, lab in pairs:
+            diffs[lab].append(r[a] - r[b])
+    log(f"\n  {label}: {len(df):,} rows, {len(idx):,} players, {n_draws:,} paired career draws")
+    log(f"    {'comparison':52s}{'difference':>11s}{'95% range':>20s}{'first higher in':>18s}")
+    for a, b, lab in pairs:
+        dd = np.asarray(diffs[lab]); lo, hi = np.percentile(dd, [2.5, 97.5])
+        log(f"    {lab:52s}{full[a] - full[b]:>+11.3f}{f'[{lo:+.3f}, {hi:+.3f}]':>20s}"
+            f"{f'{int((dd > 0).sum()):,} of {n_draws:,}':>18s}")
+
+
+def resample_section(d, gv):
+    """Section 5: the same samples run() scores, rebuilt here so the rows are identical."""
+    need = [c for c, _ in MEASURES]
+    same = d.merge(gv, on=["nhl_id", "season_start"], how="inner").dropna(subset=need + [o for o, _ in OUTCOMES])
+    log("\n5. PAIRED CAREER RESAMPLE of the differences in r")
+    for o, lab in OUTCOMES:
+        resample(same, PAIRS, o, f"same season, against {lab}")
+    pos = same["position"].str.startswith("D").map({True: "D", False: "F"})
+    for p_, lab in (("F", "forwards"), ("D", "defence")):
+        resample(same[pos == p_], PAIRS[:5], "gv_adj_wins", f"same season, {lab}, against GV-adj")
+    gn = gv.assign(season_start=gv["season_start"] - 1).rename(columns={o: o + "_n" for o, _ in OUTCOMES})
+    nxt = d.merge(gn, on=["nhl_id", "season_start"], how="inner").dropna(
+        subset=[c for c, _ in NEXT] + [o + "_n" for o, _ in OUTCOMES])
+    resample(nxt, PAIRS_NEXT, "gv_adj_wins_n", "next season, against GV-adj")
+
+
 def main():
     log(f"gv_investigation_f.py v{SCRIPT_VERSION}")
     log("\n0. GUARD: the recorded 60/40 checks, rebuilt from the old scripts' own loaders")
@@ -245,6 +306,7 @@ def main():
     log("\n1. MEASURES from each valuation page")
     d = attach_measures(spine, gv)
     run(d, gv)
+    resample_section(d, gv)
     p = Path(os.environ["OUTPUT_DIR"]) / "gv_investigation_f_log.txt"
     p.write_text("\n".join(LOG) + "\n", encoding="utf-8")
     log(f"\nwritten: {p}")
