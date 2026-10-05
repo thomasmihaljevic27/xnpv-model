@@ -28,8 +28,9 @@ the commit), **superseded** (replaced by a later entry).
 | E | The chance of playing for players under contract | closed: E1 implemented (v2.2); E3, contracted-seasons fit dropped |
 | F | Re-run the Game Value checks on the model as directed | after directives 1-5 are built |
 
-The plan of record (order of work) follows this summary. Open decisions (Thomas's to make; listed at the end): the control-year weight; the price of a
-delivered win. (When contract status is read for a contract valuation: decided 2026-10-05, at the signing.) Unsettled details sit inside
+The plan of record (order of work) follows this summary. Open decisions (Thomas's to make; listed at the end): the price of a delivered win. (Decided
+2026-10-05: the control-year weight, the July method from his chance of playing; when contract status
+is read for a contract valuation, at the signing.) Unsettled details sit inside
 directives 1 and 4.
 
 
@@ -78,7 +79,17 @@ contracted-seasons fit not adopted; open decision 2 decided (at the signing; bui
 
 `25_TESTS/de_build_check.py` passed on the laptop (2026-10-05): gaps 0; figures reproduced.
 
-**Next step:** step 4, open decision 1 (the control-year weight). Do not run the dashboard or `xnpv1_price_line.py` on the branch: the price line is not re-fitted
+**Step 4 closed (2026-10-05):** open decision 1 decided (the July method; the chain starts from his
+chance of playing the final contract season; goalies weighted, pooled, one-game bar). Built at step 6.
+
+**Step 5 (fix the forecast) is done in code:** everything adopted from steps 2-3 is in
+`skater_forecast.py` v2.2 and `aging_curve.py` on the branch, each held by a build check that passed
+on the laptop (A1, C2, C6: `abc_build_check.py`; D2, E1: `de_build_check.py`).
+
+**Next step:** step 6, pricing. First, directive 4's three details, one at a time with Thomas: how
+contract length enters the price line; how it enters each season's value; whether control years are
+priced term-in. Then directives 4 and 5 as one re-fit and re-lock, with open decision 2 (status at
+signing) and open decision 1 (the control-year weight) built alongside. Do not run the dashboard or `xnpv1_price_line.py` on the branch: the price line is not re-fitted
 until step 6, so any valuation there is provisional. Details 1, 3 and 4 settled
 (2026-10-04c/2026-10-05: games-weighted on both sides; the step to the valuation season; rescale over
 the seasons he has). Detail 2 waits on investigation B (step 2), which was widened with C to cover the
@@ -626,7 +637,13 @@ WORK_QUEUE unless Thomas adds them here.
 These are choices put to Thomas during the read-through. They are not investigations; each needs
 his decision before the code it touches is changed.
 
-1. **The control-year weight.** Today each RFA control year is weighted only by the rate at which
+1. **DECIDED (Thomas, 2026-10-05): the July method, chain started from his chance of playing.** Each
+   RFA control year is weighted by P(the club qualifies him) x P(he plays, given he was qualified),
+   measured among qualified players, so each departure is counted once; the chain starts from his
+   forecast chance of playing the contract's final season instead of 1.0. Goalies get a weight for the
+   first time: Thomas's July sub-decisions stand (one pooled rate, a one-game bar). Built and measured at
+   step 6, on the final forecast, with the qualify rates. Original entry:
+   **The control-year weight.** Today each RFA control year is weighted only by the rate at which
    clubs qualified players of his forecast level; a qualifying offer does not mean he plays. The
    July test (`DECISIONS.md`, "Control-year departure... TESTED, both fixes PARKED") found a
    qualified skater still leaves the league at 13.1% a year, uncounted, and that goalie control

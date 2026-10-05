@@ -2797,3 +2797,7 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   (season WAR 0.8075 against 0.8088, 1,998 of 2,000); the contracted-seasons chance of playing dropped
   (it over-forecast). Finding: before the 2019 page the chance of playing cannot see contracts (the
   export starts in 2018); WORK_QUEUE for step 6. `25_TESTS/de_build_check.py` v1.0, laptop run owed.
+- Open decision 1 DECIDED (Thomas, 2026-10-05): RFA control years weighted by P(qualified) x
+  P(plays | qualified) (the July method, reopening D14(c) as its July test proposed), the chain
+  starting from his forecast chance of playing the contract's final season; goalie control years
+  weighted for the first time (one pooled rate, one-game bar). Built and measured at step 6.
