@@ -2857,3 +2857,24 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   hidden-quality test, where Game Value and Bacon WAR disagree in sign, is re-run with seasons not played
   dropped and with the forecast including the chance of playing as the control, each alone and together
   (v1.1). The locked line is unchanged.
+- Price-line specification tests closed (2026-10-05, `price_line_spec_tests.py` v1.1; all reproduction
+  guards passed). One step (a separate length premium below replacement: $1.103M a year against $0.821M)
+  took most of the per-group gain with one term (held-out RMSE 1.2718 against 1.2712 per group and
+  1.2809 locked); the per-group premium's two extra terms were not significant against it (p 0.083).
+  **Thomas: the length premium stays flat; `XNPV1_RATE` unchanged.** Hidden quality: across three
+  windows, two outcome treatments (seasons not played at zero or dropped) and three controls (first
+  season, window, window with the chance of playing), Game Value's length effect is negative in all 18
+  versions and Bacon WAR's positive in all 18 (34 of 36 intervals exclude zero); the measure split is
+  not the zero convention or the chance of playing. On either measure, later production accounts for
+  at most about a sixth of the length premium (shares -0.09 to +0.16). Thomas's reading of the split:
+  Game Value's weakness in measuring defence (consistent with investigation F, where Game Value tracks
+  the forecast at r 0.30 for defencemen against 0.65 for forwards; not tested on this split).
+- Validation of the changed forecast (Thomas, 2026-10-05): **one more scored run on 2022-2025**, rule
+  declared before the run, reported as a second use of seasons already seen (the cloud code test of
+  2026-09-30, the confirmation and its re-run, and the reads by investigation F and the price-line
+  tests). `25_TESTS/run_revalidation_2022_2025.py` v1.0: the built forecast against the 10-02 confirmed
+  forecast and xNPV 0, both read from the confirmation's saved forecasts (not re-run; guarded to give
+  back RMSE 0.9001 and 0.9724). Rule: confirmed if its season-WAR squared error is lower than xNPV 0's
+  in at least 1,950 of 2,000 player resamples on the rows xNPV 0 answers (the confirmation's rule).
+  Against the 10-02 forecast: reported, not decided. Rows and targets are checked against the saved file
+  before any model runs. Not yet run.
