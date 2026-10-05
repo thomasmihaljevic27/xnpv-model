@@ -291,6 +291,12 @@ produce the kept data and the check, see `00_STATE/MODEL_DIRECTIVES.md` directiv
   `claude/nifty-euler-u5c5vm`" meant nothing to Thomas (2026-09-25): a branch name, like a model
   label, says nothing about what it is. Say what it does and what keeping or dropping it changes,
   then ask.
+- **Don't put a decision to Thomas as a list of version labels.** Script labels for test versions
+  (A1, C2, K) are filing labels like model codes. In the question itself, say in hockey terms what each
+  option changes and what it costs; a table of labels from an earlier message is not enough. Twice in
+  one session he could not decide: the departure-rule choices had to be re-explained, and a question
+  offered to "drop K" without saying K was the chance of playing fitted only on contracted seasons
+  (2026-10-05).
 - **Don't put an item to Thomas without saying what he is asked to do.** A to-do list read back
   to him had an entry that was only a list of meeting topics, with no verb; he could not tell
   whether it was a task, a decision or an agenda (2026-10-04). Each item says do, decide, read or
