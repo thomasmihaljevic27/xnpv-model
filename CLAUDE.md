@@ -327,7 +327,8 @@ produce the kept data and the check, see `00_STATE/MODEL_DIRECTIVES.md` directiv
   prospect work starts you need to be 100% certain that you are using 50/30/20 when needed." 60/40
   survives only in code outside the forecast: `skater_value_engine.py` (`W_T1, W_T2`: observed-season
   value and the older price line), `draft_yield_curve.py` (`W_T1, W_T2`: the retired draft curve's
-  cost anchor), and the goalies' two-season fallback (`goalie_value_engine.py`, `contract_npv.py`).
+  cost anchor), and the goalie engine's RAW regime, which rebuilds the locked spine for its parity
+  gate (`goalie_value_engine.TWO_SEASON[False]`); the live goalie path is 62.5/37.5 since 2026-10-05.
   Before any code, figure or document reads a trailing total, grep for `0.6`, `0.4`, `W_T1` and
   "60/40" in what it calls, and state which weighting each step uses; a figure stated against another
   weighting says so and why.

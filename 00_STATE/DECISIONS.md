@@ -2838,3 +2838,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   forecast's 50/30/20 trailing total; subjects unchanged (`25_TESTS/harness_tier_check.py`). Standing
   instruction for the draft and prospect restart: be certain 50/30/20 is used where needed (directive 6;
   CLAUDE.md). The observed-season value and its price line stay 60/40 until then.
+- Goalies' two-season fallback 62.5/37.5 (Thomas, 2026-10-05), replacing the fixed 60/40 in the live
+  goalie path (`goalie_value_engine.py` v1.2, `contract_npv.py` v2.3); the RAW parity regime keeps the
+  locked 60/40. The live goalie rate re-fits on it each run; Stage L stops if lambda leaves 0.65.

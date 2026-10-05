@@ -1,8 +1,12 @@
 """
 =============================================================================
- contract_npv.py   v2.2                             Phase 1d
+ contract_npv.py   v2.3                             Phase 1d
                                   xNPV 1 prices skater contracts (2026-10-02)
 =============================================================================
+ v2.3 (2026-10-05, Thomas): a goaltender with two prior seasons is weighted 62.5/37.5 (the 50/30
+ of the cascade rescaled, as the skater forecast does), not 60/40; goalie_value_engine.py v1.2
+ changes with it, so both files still give one goaltender one anchor.
+
  v2.2 (2026-10-05, open decision 1): the goalie control-year weight is measured on goaltenders
  who played one NHL game or more in the contract's final season (Thomas), not 10+ games in one of
  the three seasons before; see _calibrate_goalie_control.
@@ -180,8 +184,8 @@
  No aging curve exists for goalies (locked earlier: age-conditioning was
  judged not worth it given weak signal + 64% birthdate coverage). The
  goalie projection from a valuation season is therefore:
-   trailing WAR (locked 50/30/20 cascade over t-1/t-2/t-3, with the
-   60/40 and t-1-only fallbacks) -> shrunk toward the league-average
+   trailing WAR (50/30/20 cascade over t-1/t-2/t-3, with the 62.5/37.5
+   (v2.3; 60/40 until then) and t-1-only fallbacks) -> shrunk toward the league-average
    goalie (lambda = 0.65, target 2.19) -> HELD FLAT over the horizon.
  Holding flat is the natural zero-information extension: the shrinkage
  IS the mean-reversion device for goalies. [D19, flagged for the batch]
@@ -238,7 +242,7 @@ F_GOALIE_SPINE = OUTPUT_DIR / "goalie_value_spine_v2.csv"
 F_SEASON_SPINE = OUTPUT_DIR / "contract_season_spine.csv"
 OUT_SPINE = OUTPUT_DIR / "contract_npv_spine.csv"
 OUT_LOG = OUTPUT_DIR / "contract_npv_run_log.txt"
-SCRIPT_VERSION = "2.2"   # printed first in the run log (25_TESTS/xnpv0_removal_check.py reads it)
+SCRIPT_VERSION = "2.3"   # printed first in the run log (25_TESTS/xnpv0_removal_check.py reads it)
 
 # ---- locked goalie constants (P2 close-out, 2026-06-30) --------------------
 # The documented narrative values (alpha 1.398% cap, beta 1.097%/WAR, league
@@ -332,7 +336,7 @@ class GoalieProjector:
         return np.nan if isinstance(v, pd.Series) else v
 
     def shrunk_projection(self, nname, t0):
-        """Locked cascade: 50/30/20 with three priors, 60/40 with two,
+        """Cascade: 50/30/20 with three priors, 62.5/37.5 with two (v2.3; 60/40 until then),
         t-1 alone with one (low-confidence). Then shrink toward the league
         average, KEEPING 35% of trailing (= shrinking 65% toward 2.19).
 
@@ -355,7 +359,7 @@ class GoalieProjector:
         if pd.notna(w1) and pd.notna(w2) and pd.notna(w3):
             tr, src = 0.5 * w1 + 0.3 * w2 + 0.2 * w3, "503020"
         elif pd.notna(w1) and pd.notna(w2):
-            tr, src = 0.6 * w1 + 0.4 * w2, "6040"
+            tr, src = 0.625 * w1 + 0.375 * w2, "62537"
         elif pd.notna(w1):
             tr, src = w1, "t1_only"
         else:
@@ -372,7 +376,7 @@ class GoalieProjector:
                 if pd.notna(a1) and pd.notna(a2) and pd.notna(a3):
                     tr = 0.5 * a1 + 0.3 * a2 + 0.2 * a3
                 elif pd.notna(a1) and pd.notna(a2):
-                    tr = 0.6 * a1 + 0.4 * a2
+                    tr = 0.625 * a1 + 0.375 * a2
                 elif pd.notna(a1):
                     tr = a1
                 else:

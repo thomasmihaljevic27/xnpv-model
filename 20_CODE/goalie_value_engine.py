@@ -1,8 +1,19 @@
 """
 =============================================================================
- goalie_value_engine.py   v1.1                    D20 rebuild (2026-07-05)
+ goalie_value_engine.py   v1.2                    D20 rebuild (2026-07-05)
                                           review item 1.1 (2026-07-26)
 =============================================================================
+ WHAT CHANGED IN v1.2 (Thomas, 2026-10-05: "change it to 62.5/37.5 to match the skaters")
+ -----------------------------------------------------------------------------------------
+ A goaltender with exactly two prior seasons (t-1 and t-2) is weighted 62.5/37.5 in the
+ live (prorated, D20 v2) regime: the 50/30 of the 50/30/20 cascade rescaled over the seasons
+ he has, as the skater forecast weights every trailing measure. Until v1.2 it was a fixed
+ 60/40. The RAW regime keeps 60/40, because it must rebuild the locked spine to the cent
+ (Stage P) and reproduce the locked rate and lambda (the raw guards). Through the cascade the
+ change reaches the prorated rate fit, the prorated lambda search and the v2 spine; Stage L
+ now stops if the prorated lambda leaves 0.65, the value contract_npv.LAMBDA_G applies.
+ contract_npv.py's own goalie cascade changes with it (v2.3).
+
  WHAT CHANGED IN v1.1 (review item 1.1 -- flat carry into out-years)
  -------------------------------------------------------------------
  The locked pipeline priced every contract season beyond the last observed
@@ -154,6 +165,10 @@ OUT_LOG      = OUTPUT_DIR / "goalie_value_engine_run_log.txt"
 ALPHA_G_RAW = 0.013982        # goalie replacement cost, cap-share (locked P2)
 BETA_G_RAW  = 0.010971        # goalie cap-share per WAR unit (locked P2)
 LAMBDA_RAW  = 0.65            # weight on the LEAGUE AVERAGE (locked P2)
+# The two-season fallback's weights (t-1, t-2), by regime (v1.2). RAW reproduces the locked
+# spine; the live prorated regime rescales 50/30 (Thomas, 2026-10-05).
+TWO_SEASON = {False: (0.6, 0.4), True: (0.625, 0.375)}     # keyed on `prorate`
+LAMBDA_LIVE = 0.65            # contract_npv.LAMBDA_G; Stage L stops if the search leaves it
 LEAGUE_AVG  = 2.189172466     # shrinkage target (recovered constant, see header)
 # ---- A1/A2 stale-anchor constants (2026-07-29) ---------------------------
 # A goaltender with no t-1 season but a usable t-2 or t-3 is a real player
@@ -241,12 +256,13 @@ def goalie_war_lut(prorate):
             agg.set_index(["nk", "syr"])["GP"].sort_index())
 
 
-def cascade(nk, t0, lut):
-    """The locked trailing cascade. Returns (trailing value or None, tag).
-    NO GP filter -- see header. 50/30/20 needs all three priors; 60/40
-    needs t-1 and t-2; t-1 alone otherwise; None if no t-1..t-3 history
-    is usable under those rules (t-2/t-3 without t-1 -> no history, which
-    is what the locked spine does)."""
+def cascade(nk, t0, lut, prorate=False):
+    """The trailing cascade. Returns (trailing value or None, tag).
+    NO GP filter -- see header. 50/30/20 needs all three priors; with t-1
+    and t-2 only, TWO_SEASON[prorate] (60/40 raw, the locked rule; 62.5/37.5
+    in the live regime, v1.2); t-1 alone otherwise; None if no t-1..t-3
+    history is usable under those rules (t-2/t-3 without t-1 -> no history,
+    which is what the locked spine does)."""
     def get(y):
         v = lut.get((nk, y), np.nan)
         return np.nan if isinstance(v, pd.Series) else v
@@ -254,13 +270,14 @@ def cascade(nk, t0, lut):
     if pd.notna(w1) and pd.notna(w2) and pd.notna(w3):
         return 0.5 * w1 + 0.3 * w2 + 0.2 * w3, "50/30/20"
     if pd.notna(w1) and pd.notna(w2):
-        return 0.6 * w1 + 0.4 * w2, "60/40"
+        a, b = TWO_SEASON[bool(prorate)]
+        return a * w1 + b * w2, ("60/40" if not prorate else "62.5/37.5")
     if pd.notna(w1):
         return w1, "t-1 only"
     return None, "no_observed_war_history"
 
 
-def carry_anchor(nk, t0, lut, maxback=12):
+def carry_anchor(nk, t0, lut, maxback=12, prorate=False):
     """REVIEW ITEM 1.1 -- the player-level flat carry.
 
     Plain English: this row sits past the end of the goaltender's observed
@@ -290,7 +307,7 @@ def carry_anchor(nk, t0, lut, maxback=12):
     # The A1 in-window caller passes STALE_MAXBACK=3 instead, because a
     # four-year absence is a different asset rather than a stale anchor.
     for s in range(t0 - 1, t0 - 1 - maxback, -1):
-        tw, scheme = cascade(nk, s, lut)
+        tw, scheme = cascade(nk, s, lut, prorate)
         if tw is not None:
             return tw, s, scheme
     return None, None, None
@@ -341,7 +358,7 @@ def build_spine(lam, alpha_g, beta_g, prorate, carry_out_years=False):
         # cascade for every row -- a 2026 valuation legitimately sees the
         # completed 2025-26 season as its t-1. Only when the cascade finds
         # NOTHING does the future/no-history split apply.
-        tw, scheme = cascade(r.nk, t0, lut)
+        tw, scheme = cascade(r.nk, t0, lut, prorate)
         carry_src = ""                     # v1.1: season the anchor came from
         stale = False                      # A1: in-window stale-anchor row?
         if tw is None and t0 >= 2026:
@@ -351,7 +368,7 @@ def build_spine(lam, alpha_g, beta_g, prorate, carry_out_years=False):
             else:
                 # v1.1 regime: carry this goaltender's own anchor forward.
                 # maxback left at the default -- item 1.1 unchanged.
-                ctw, csrc, cscheme = carry_anchor(r.nk, t0, lut)
+                ctw, csrc, cscheme = carry_anchor(r.nk, t0, lut, prorate=prorate)
                 if ctw is not None:
                     tw, carry_src = ctw, csrc
                     scheme = f"flat_carry_out_year[{cscheme}@{csrc}]"
@@ -378,7 +395,7 @@ def build_spine(lam, alpha_g, beta_g, prorate, carry_out_years=False):
             # having missed a season", and a four-year absence is a different
             # question.
             ctw, csrc, cscheme = carry_anchor(r.nk, t0, lut,
-                                              maxback=STALE_MAXBACK)
+                                              maxback=STALE_MAXBACK, prorate=prorate)
             if ctw is not None:
                 tw, carry_src = ctw, csrc
                 stale = True
@@ -526,7 +543,7 @@ def stage_parity():
 # ---------------------------------------------------------------------------
 # STAGE G -- rate guard (raw) + D20 refit (prorated)
 # ---------------------------------------------------------------------------
-def _rate_sample(lut):
+def _rate_sample(lut, prorate):
     """The n=350 goalie contract sample: goaltender contracts starting
     2015-2026, standard level, UFA/RFA, with a computable trailing anchor
     at the start year. Mirrors the skater engine's sample construction."""
@@ -538,7 +555,7 @@ def _rate_sample(lut):
             & (raw["contract_level"] == "standard_level")
             & raw["start_yr"].between(2015, 2026)].copy()
     g["nk"] = (g["first_name"].astype(str) + " " + g["last_name"].astype(str)).map(norm_name)
-    g["wWAR"] = [cascade(k, int(s), lut)[0] if pd.notna(s) else None
+    g["wWAR"] = [cascade(k, int(s), lut, prorate)[0] if pd.notna(s) else None
                  for k, s in zip(g["nk"], g["start_yr"])]
     g = g[g["wWAR"].notna()].copy()
     g["cap_pct"] = g["aav"] / g["start_yr"].map(
@@ -553,7 +570,7 @@ def stage_rate():
     out = {}
     for label, prorate in [("RAW", False), ("PRORATED", True)]:
         lut, _ = goalie_war_lut(prorate)
-        s = _rate_sample(lut)
+        s = _rate_sample(lut, prorate)
         r = sm.OLS(s["cap_pct"], sm.add_constant(s["wWAR"])).fit(cov_type="HC3")
         a, b = r.params["const"], r.params["wWAR"]
         log(f"  {label:>9}: n={len(s)}  alpha_G={a:.8f}  beta_G={b:.8f}  "
@@ -585,7 +602,7 @@ def estimate_lambda(prorate, seeds=(0, 1, 2, 3, 4, 5), folds=5, min_gp=20):
         gp = 0 if isinstance(gp, pd.Series) else gp
         if gp < min_gp:
             continue
-        tw, scheme = cascade(nk, yr, lut)
+        tw, scheme = cascade(nk, yr, lut, prorate)
         if tw is None:
             continue
         pairs.append((nk, tw, float(lut.loc[(nk, yr)])))
@@ -683,6 +700,13 @@ def stage_lambda_and_v2(rate_out):
                 return None
         else:
             lam_new = best
+            # v1.2: contract_npv applies LAMBDA_G = 0.65 to the same goaltenders, so a
+            # search that leaves it would price one goalie two ways. Stop and say so: a
+            # moved lambda is a decision for Thomas, not a side effect of the 62.5/37.5.
+            if abs(lam_new - LAMBDA_LIVE) > 1e-9:
+                log(f"    STOP: the prorated lambda search picked {lam_new:.2f}, not {LAMBDA_LIVE} "
+                    "(contract_npv.LAMBDA_G). Nothing written; a decision for Thomas.")
+                return None
     a_new, b_new, n_new, r2_new = rate_out["PRORATED"]
     # carry_out_years=True: the corrected artifact (review item 1.1).
     v2 = build_spine(lam_new, a_new, b_new, prorate=True,
