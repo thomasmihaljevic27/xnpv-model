@@ -7,6 +7,9 @@ rebuilt age table). Promoted 2026-10-02 from the rebuild tree, where it was
 `star_candidates.XNPV1` ("Model 6"): `candidate(gp=True, contracts=True)` on
 `obvious_fixes.ObviousFixes` on `ability_forecast.A1HingeExposure`.
 
+v2.2 (2026-10-05): investigations D2 (age squared in the games-share line) and
+E1 (the before-2018 marker in the chance of playing), adopted by Thomas on
+25_TESTS/games_playing_followup.py. v2.1 is at a61b607.
 v2.1 (2026-10-05): investigations A1 (a yardstick per position, aging_curve),
 C2 (returners are not departures) and C6 (a departed season at his own games),
 adopted by Thomas on 25_TESTS/aging_abc_followup.py. v2.0 is at 669198b.
@@ -45,12 +48,13 @@ HOW, step by step (v2.0; MODEL_DIRECTIVES.md entries 1-3 and build rules):
        (imputed_aging_model). No replacement floor is applied to a negative
        start (D12 v3 is superseded for skaters by D33).
     3. THE GAMES SHARE. A fitted line per horizon on the trailing share,
-       position, experience, age and the trailing WAR total (GP_FEATURES;
-       plain 50/30/20). The total-above-one-win term was dropped in v2.0.
+       position, experience, age, age squared (v2.2) and the trailing WAR total
+       (GP_FEATURES; plain 50/30/20), capped at 1.0 and floored at 0.05. The
+       total-above-one-win term was dropped in v2.0.
     4. THE CHANCE OF PLAYING. participation_model.ParticipationModel (its
        level input: the plain 50/30/20 trailing WAR total), reading
        contract status where the vendor export's coverage is complete
-       ("observable"), the before/after-2018 indicator left out. Read at
+       ("observable"), with the before/after-2018 marker (v2.2; left out before). Read at
        1 July of the page for the page forecast, and at a contract's signing
        for a contract valuation (p_play_signed). It replaces the exit-hazard
        survival chain for skaters (D18 superseded for skaters by D33).
@@ -90,7 +94,7 @@ import forecast_config as C
 import information_set as ISET
 from participation_model import ParticipationModel
 
-SCRIPT_VERSION = "2.1"
+SCRIPT_VERSION = "2.2"
 MODEL_NAME = "xNPV 1"
 
 # DIRECTIVE 1 (Thomas, 2026-10-04): "We are not using fitted decay." Every
@@ -108,7 +112,11 @@ HMAX = C.MAX_HORIZON     # how far the comparables walk is tabulated
 # WAR TOTAL (Thomas, 2026-10-05, on 25_TESTS/war_input_uniformity_test.py: the
 # total beat the rate per 82 on season WAR). The total-above-one-win term
 # (`tw_hi1`) was dropped the same day: it helped the share but cost season WAR.
-GP_FEATURES = ["tr_gp_share", "is_D", "exp_seasons", "age_c", "tw_WAR"]
+# v2.2: age squared added (`age_c2`, a curved age effect; investigation D2,
+# Thomas 2026-10-05, on 25_TESTS/games_and_playing_de.py: season WAR 0.8078
+# against 0.8088). The straight line, its cap at 1.0 and floor at 0.05 stay
+# (the logistic curve, D1, fitted the share better but cost season WAR).
+GP_FEATURES = ["tr_gp_share", "is_D", "exp_seasons", "age_c", "tw_WAR", "age_c2"]
 
 # xNPV 1's own WAR-if-plays misses by season ahead (see the docstring).
 WAR_IF_PLAYS_MAE = {0: 0.6730, 1: 0.7486, 2: 0.7991, 3: 0.8516, 4: 0.8792, 5: 0.8926}
@@ -393,7 +401,12 @@ class XNPV1:
     N_SEASONS = 3
     FITTED_HORIZONS = C.FITTED_HORIZONS
     CONTRACT_STATE = "observable"
-    PART_EXCLUDE = ("contract_unknown",)
+    # v2.2: nothing excluded. Under "observable", `contract_unknown` is 1 exactly
+    # for seasons before the export's first end year (2018): the before/after-2018
+    # marker D33 left out, put back by investigation E1 (Thomas 2026-10-05: season
+    # WAR 0.8085 against 0.8088, MAE 0.4653 against 0.4673). It can enter a fit
+    # only from the 2019 page on (earlier pages have no training season from 2018).
+    PART_EXCLUDE = ()
     _curves: dict = {}      # one comparables curve per page, shared across instances
 
     # ---- fit -----------------------------------------------------------------

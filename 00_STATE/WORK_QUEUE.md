@@ -23,6 +23,14 @@
 - **Removed:** the 2026-10-03 meeting follow-ups (item 2 below) and the version-line note for
   `age_join.py` and `join_clauses_to_spine.py` (2026-09-28c).
 
+**The chance of playing before 2019 cannot see contracts, 2026-10-05 (for step 6).** The contract export
+starts in 2018, so on valuation pages up to 2018 no training season has a visible contract and the chance
+of playing carries no contract information at any season ahead (`25_TESTS/games_playing_followup.py`).
+That is most of investigation E0's under-forecast of contracted players; from 2019 they are close to
+calibrated. For step 6: contracts starting in 2018 are valued on the 2018 page, which has the same
+blindness, and dating forecasts at the signing (directive 5, open decision 2) keeps 2018 signings there.
+Decide at step 6 how those valuations are read, or state the limitation.
+
 **Offsetting biases for thin histories, 2026-10-05 (finding, parked with the long-horizon under-forecast).**
 On the built forecast the start runs HIGH for players with one or two counted seasons (+0.171 and +0.105
 per 82 on skater_forecast v2.1) while the walk after it runs LOW overall, and the two partly cancel:

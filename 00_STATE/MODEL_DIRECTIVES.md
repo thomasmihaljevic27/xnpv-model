@@ -24,8 +24,8 @@ the commit), **superseded** (replaced by a later entry).
 | A | The yardstick: one per position, and no self-pairs | closed: A1 implemented (v2.1), A2 dropped |
 | B | The league average inside the comparables' estimate | closed: weight of ten kept (2026-10-05) |
 | C | Departed players in the aging curve: the assumed zero and its gaps | closed: C2, C6 implemented (v2.1); C5 dropped |
-| D | The games-share equation's form | D2 adopted (2026-10-05); combined run owed |
-| E | The chance of playing for players under contract | E1 adopted, E3 dropped; contracted-seasons fix under test |
+| D | The games-share equation's form | closed: D2 implemented (v2.2) |
+| E | The chance of playing for players under contract | closed: E1 implemented (v2.2); E3, contracted-seasons fit dropped |
 | F | Re-run the Game Value checks on the model as directed | after directives 1-5 are built |
 
 The plan of record (order of work) follows this summary. Open decisions (Thomas's to make; listed at the end): the control-year weight; the price of a
@@ -73,9 +73,11 @@ C1, C3, C4 and C5 not adopted. `25_TESTS/abc_build_check.py` v1.0 passed on the 
 detail 2 (which comparable-player level): **settled (Thomas, 2026-10-05)** by B's outcome: the curve's
 comparables estimate, blended with the league average at weight ten.
 
-**Next step:** step 3 follow-up: Thomas runs `25_TESTS/games_playing_followup.py` v1.0 on the laptop (D2 +
-E1 together; the contracted-seasons chance of playing for E0's under-forecast). Decided 2026-10-05: D2,
-E1 adopted; E3 dropped; open decision 2 at the signing. Do not run the dashboard or `xnpv1_price_line.py` on the branch: the price line is not re-fitted
+**Step 3 closed (2026-10-05):** D2 and E1 built (`skater_forecast.py` v2.2); D1, D3, E3 and the
+contracted-seasons fit not adopted; open decision 2 decided (at the signing; built at step 6).
+
+**Next step:** Thomas runs `25_TESTS/de_build_check.py` on the laptop; then step 4, open decision 1 (the
+control-year weight). Do not run the dashboard or `xnpv1_price_line.py` on the branch: the price line is not re-fitted
 until step 6, so any valuation there is provisional. Details 1, 3 and 4 settled
 (2026-10-04c/2026-10-05: games-weighted on both sides; the step to the valuation season; rescale over
 the seasons he has). Detail 2 waits on investigation B (step 2), which was widened with C to cover the
@@ -517,8 +519,13 @@ when he directs it.
   shows the logit, not the age term, costs WAR. Today's cap binds on 0.10-0.48% of forecasts at every
   season ahead except four out, where it binds on 19.55% (a quirk of that season's fitted line; no
   version changes it).
-- **Decided (Thomas, 2026-10-05): adopt D2;** cap and floor kept. Combined run with E1 owed
-  (`25_TESTS/games_playing_followup.py`).
+- **Decided (Thomas, 2026-10-05): adopt D2;** cap and floor kept.
+- **Combined run:** `25_TESTS/games_playing_followup.py` v1.0 (laptop 2026-10-05; v1.0 figures reproduced): D2 + E1 together
+  games share 0.2654, log loss 0.4047, Brier 0.1313, season WAR 0.8075 / MAE 0.4656 against the build's
+  0.2657 / 0.4044 / 0.1313 / 0.8088 / 0.4673; season WAR lower in 1,998 of 2,000 and better or equal at
+  every season ahead; counted cost: log loss +0.0003 (lower in 780).
+- **Implemented:** `skater_forecast.py` v2.2 (`GP_FEATURES` gains `age_c2`); `25_TESTS/de_build_check.py`
+  v1.0 holds it to the tested version (passed in the cloud on fake data; laptop run owed).
 
 ## E. The chance of playing for players under contract: is it lowered by other players' walk-aways?
 
@@ -566,6 +573,23 @@ when he directs it.
 - **Decided (Thomas, 2026-10-05): adopt E1, drop E3; test a fix for E0:** for seasons a player is
   under contract, a chance of playing estimated only on player-seasons under contract
   (`25_TESTS/games_playing_followup.py` v1.0, with D2 + E1 combined).
+- **Follow-up result:** `25_TESTS/games_playing_followup.py` v1.0 (laptop 2026-10-05; v1.0 figures reproduced): D2 + E1 together
+  games share 0.2654, log loss 0.4047, Brier 0.1313, season WAR 0.8075 / MAE 0.4656 against the build's
+  0.2657 / 0.4044 / 0.1313 / 0.8088 / 0.4673; season WAR lower in 1,998 of 2,000 and better or equal at
+  every season ahead; counted cost: log loss +0.0003 (lower in 780).
+  The build's chance of playing carries NO contract information on pages 2015-2018 (no training season
+  there has a visible contract; the export starts in 2018); from 2019 the contract column is in the fit
+  at every season ahead. E0's under-forecast comes mostly from those pages: on 2019-2021 contracted
+  players are close to calibrated (forecast / played 0.916 / 0.920, 0.920 / 0.920, 0.911 / 0.928,
+  0.899 / 0.893, 0.875 / 0.898, 0.797 / 0.875 for zero to five seasons out; 1,622 to 80 rows). The
+  contracted-seasons fit could be trained only from the 2019 page and over-forecast there (three out
+  0.944 against 0.893; log loss on contracted rows 0.2304 against 0.2200; worse than D2 + E1 in 1,907 of
+  2,000), season WAR unchanged. (Corrects the earlier reading that the contract effect drops out at
+  longer horizons: it is absent at every horizon before 2019 and present at every one after.)
+- **Decided (Thomas, 2026-10-05): build D2 + E1; the contracted-seasons fit dropped.** Implemented in
+  `skater_forecast.py` v2.2 (`PART_EXCLUDE` emptied); `25_TESTS/de_build_check.py` v1.0. The pre-2019
+  finding and the 2018 page (contracts starting 2018 are valued where contracts are invisible) are in
+  WORK_QUEUE for step 6.
 
 ## F. Re-run the Game Value circularity checks on the model as directed (final item)
 

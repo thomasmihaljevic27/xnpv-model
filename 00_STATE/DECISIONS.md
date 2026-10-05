@@ -2793,3 +2793,7 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   DECIDED: contract status read at each contract's signing (log loss 0.2632 against 0.3309), built at
   step 6 with directive 5. Contracted players are under-forecast (0.687 against 0.858 five seasons
   out); a fix is under test (`25_TESTS/games_playing_followup.py` v1.0). Code unchanged.
+- Step 3 closed (Thomas, 2026-10-05): D2 + E1 built (`skater_forecast.py` v2.2) on the combined run
+  (season WAR 0.8075 against 0.8088, 1,998 of 2,000); the contracted-seasons chance of playing dropped
+  (it over-forecast). Finding: before the 2019 page the chance of playing cannot see contracts (the
+  export starts in 2018); WORK_QUEUE for step 6. `25_TESTS/de_build_check.py` v1.0, laptop run owed.
