@@ -22,6 +22,9 @@ every skater contract ending 2018-2024 whose expiry reads RFA = qualified or "UF
     "plays"        one NHL game or more the next season (forecast_config.PARTICIPATION_GP)
   For each pair: n qualified and P(plays | qualified) by bucket, beside July's.
 GUARD: forecast buckets under "10 in 3" must equal production's own table (TerminalValuer.plays_given_q).
+RESULT (laptop, 2026-10-05): the guard passed; July's figures come back with trailing buckets and 20+ games
+in the final season. Thomas then set the rule to one game in the final season (rfa_terminal_value.py v2.2),
+so the guard stops on current code; the recorded result reproduces from a checkout of 0d9953f.
 
 HOW TO RUN (repo root, laptop; about five minutes):
     python 25_TESTS/control_weight_check.py

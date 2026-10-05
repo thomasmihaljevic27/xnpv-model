@@ -679,10 +679,14 @@ his decision before the code it touches is changed.
 
 1. **DECIDED (Thomas, 2026-10-05): the July method, chain started from his chance of playing.**
    Built 2026-10-05 (`rfa_terminal_value.TerminalValuer.control_weight`; goalies
-   `contract_npv.NPVEngine._calibrate_goalie_control`). **NHL regulars only (Thomas, 2026-10-05):**
-   P(plays | qualified) is measured on players with 10+ NHL games in one of the three seasons before
-   the decision (xNPV 1's own forecast rule); for goalies both numbers are, as in July. The first
-   build left the condition out (goalies 0.348 a year against July's 0.788). Laptop validation owed. Each
+   `contract_npv.NPVEngine._calibrate_goalie_control`). **Who counts at the decision (Thomas,
+   2026-10-05): a player who played one NHL game or more in the contract's final season.**
+   P(plays | qualified) is measured on those players; for goalies both numbers are, as in July. It is
+   the event the chain starts from, so an absence is charged once. The first build had no condition
+   (goalies 0.348 a year against July's 0.788); the second used 10+ games in one of the three seasons
+   before (goalies 0.726; skater fringe 83.9%, below replacement 74.9%), which charged a final-season
+   absence twice (`25_TESTS/control_weight_check.py`: July's figures come back with 20+ games in the
+   final season). Laptop validation owed. Each
    RFA control year is weighted by P(the club qualifies him) x P(he plays, given he was qualified),
    measured among qualified players, so each departure is counted once; the chain starts from his
    forecast chance of playing the contract's final season instead of 1.0. Goalies get a weight for the

@@ -2816,3 +2816,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   the control-year weight's P(plays | qualified) measured on NHL regulars only (Thomas: 10+ games in
   one of the three seasons before the decision; goalies both numbers), as the July method states.
   Finding carried to step 7: term-in puts long cheap deals for mid-level players at the top.
+- Open decision 1, who counts at the decision (Thomas, 2026-10-05, replacing the 10-in-3 rule above):
+  a player who played one NHL game or more in the contract's final season, skaters and goalies alike
+  (`rfa_terminal_value.py` v2.2, `contract_npv.py` v2.2). `25_TESTS/control_weight_check.py` showed the
+  10-in-3 rule charged a final-season absence twice (it is also the chain's starting event) and that
+  July's figures come back with 20+ games in the final season. Laptop validation owed.

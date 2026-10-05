@@ -1,8 +1,12 @@
 """
 =============================================================================
- contract_npv.py   v2.1                             Phase 1d
+ contract_npv.py   v2.2                             Phase 1d
                                   xNPV 1 prices skater contracts (2026-10-02)
 =============================================================================
+ v2.2 (2026-10-05, open decision 1): the goalie control-year weight is measured on goaltenders
+ who played one NHL game or more in the contract's final season (Thomas), not 10+ games in one of
+ the three seasons before; see _calibrate_goalie_control.
+
  WHAT CHANGED IN v2.1 (2026-10-05, plan of record step 6; MODEL_DIRECTIVES.md directive 4)
  ------------------------------------------------------------------------------------------
  The price line is TERM-IN (XNPV1_RATE re-locked on xnpv1_price_line.py v2.0: signing-dated
@@ -234,7 +238,7 @@ F_GOALIE_SPINE = OUTPUT_DIR / "goalie_value_spine_v2.csv"
 F_SEASON_SPINE = OUTPUT_DIR / "contract_season_spine.csv"
 OUT_SPINE = OUTPUT_DIR / "contract_npv_spine.csv"
 OUT_LOG = OUTPUT_DIR / "contract_npv_run_log.txt"
-SCRIPT_VERSION = "2.1"   # printed first in the run log (25_TESTS/xnpv0_removal_check.py reads it)
+SCRIPT_VERSION = "2.2"   # printed first in the run log (25_TESTS/xnpv0_removal_check.py reads it)
 
 # ---- locked goalie constants (P2 close-out, 2026-06-30) --------------------
 # The documented narrative values (alpha 1.398% cap, beta 1.097%/WAR, league
@@ -448,12 +452,13 @@ class NPVEngine:
         ONE pooled yearly weight, P(qualified) x P(plays | qualified), from every
         observable goalie qualify-or-walk decision (contracts ending 2018-2024,
         pp_expiry RFA = qualified or "UFA no QO" = walked), "plays" = one NHL
-        game or more the next season. NHL REGULARS ONLY, for both numbers as in
-        July (Thomas 2026-10-05: 10+ NHL games in one of the three seasons before
-        the decision, the skater forecast's own rule): an AHL goaltender on an
-        NHL contract was never in the league to leave it (the first v2.1 build
-        kept him: 0.679 x 0.513 = 0.348 against July's 0.788). Until v2.1 goalie
-        control years carried weight 1.0 (the gap the goalie TV comment recorded)."""
+        game or more the next season. Both numbers only on goaltenders who were
+        THERE at the decision (Thomas 2026-10-05: one NHL game or more in the
+        contract's final season, the event the chain starts from, so an absence
+        is charged once). The first v2.1 build had no condition (0.679 x 0.513 =
+        0.348 against July's 0.788); the second used 10+ games in one of the
+        three seasons before (0.893 x 0.813 = 0.726). Until v2.1 goalie control
+        years carried weight 1.0 (the gap the goalie TV comment recorded)."""
         last = (self.gp_spine.sort_values("season_start").groupby("contract_id").tail(1))
         elig = last[last["season_start"].between(2018, 2024)
                     & last["pp_expiry"].isin(["RFA", "UFA no QO"])]
@@ -461,10 +466,9 @@ class NPVEngine:
             v = self.g_proj.gp_lut.get((n, int(syr)), 0.0)
             v = float(v.sum()) if isinstance(v, pd.Series) else float(v)   # merged-name rows: summed
             return v if np.isfinite(v) else 0.0
-        # NHL regular at the decision: 10+ games (forecast_config.MIN_GP) in one of
-        # the three seasons before it (the final contract season and the two before)
+        # there at the decision: one NHL game or more in the contract's final season
         import forecast_config as _FC
-        reg = np.array([max(_gp(n, int(s) - j) for j in (0, 1, 2)) >= _FC.MIN_GP
+        reg = np.array([_gp(n, int(s)) >= _FC.PARTICIPATION_GP
                         for n, s in zip(elig["nname"], elig["season_start"])], dtype=bool)
         elig = elig[reg]
         q = (elig["pp_expiry"] == "RFA").to_numpy()
@@ -746,7 +750,7 @@ def validate():
     # ---- 2. goalie hazard table ----------------------------------------------
     dg = eng._d_g
     log(f"\n[1c] goalie control-year weight (open decision 1): {eng.g_control_n[0]} decisions, "
-        f"{eng.g_control_n[1]} qualified (NHL regulars at the decision); P(qualified) {eng.g_qualify_p:.3f} x P(plays | qualified) "
+        f"{eng.g_control_n[1]} qualified (played the final contract season); P(qualified) {eng.g_qualify_p:.3f} x P(plays | qualified) "
         f"{eng.g_plays_given_q:.3f} = {eng.g_control_weight:.3f} a year (July 2026 test: 0.909 x "
         f"0.867 = 0.788, n 99)")
     log(f"\n[2] goalie exit hazard (GP>=10 goalie-seasons, t=2018-2024, "
