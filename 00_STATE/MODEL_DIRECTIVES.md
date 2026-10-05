@@ -86,10 +86,14 @@ chance of playing the final contract season; goalies weighted, pooled, one-game 
 `skater_forecast.py` v2.2 and `aging_curve.py` on the branch, each held by a build check that passed
 on the laptop (A1, C2, C6: `abc_build_check.py`; D2, E1: `de_build_check.py`).
 
-**Next step:** step 6, pricing. First, directive 4's three details, one at a time with Thomas: how
-contract length enters the price line; how it enters each season's value; whether control years are
-priced term-in. Then directives 4 and 5 as one re-fit and re-lock, with open decision 2 (status at
-signing) and open decision 1 (the control-year weight) built alongside. Do not run the dashboard or `xnpv1_price_line.py` on the branch: the price line is not re-fitted
+Directive 4's three details settled (2026-10-05): one linear term for years; each season uses the term
+remaining at the valuation date; a control year is priced as a one-year signing.
+
+**Next step:** step 6, (a) the price-line re-fit for directives 4 and 5 (`xnpv1_price_line.py` v2.0:
+signing-dated forecasts, term-in, term-free fitted beside it); Thomas locks the new line on its laptop
+run; then (b) the pricing code: term in each season's value, status read at the signing (open decision
+2), the control-year weight (open decision 1), the qualify rates and floor spread re-measured, the
+valuations and dashboard re-run, the documents updated. Do not run the dashboard or `xnpv1_price_line.py` on the branch: the price line is not re-fitted
 until step 6, so any valuation there is provisional. Details 1, 3 and 4 settled
 (2026-10-04c/2026-10-05: games-weighted on both sides; the step to the valuation season; rescale over
 the seasons he has). Detail 2 waits on investigation B (step 2), which was widened with C to cover the
@@ -323,6 +327,9 @@ comparables' level for thin histories.
        production value, and the term-free value beside the term-in value. Not chosen: the original
        length at every valuation; a term shrinking season by season.
   3. *Control years:* whether the RFA control years are priced term-in, and at what term.
+     - **Settled (Thomas, 2026-10-05): one year.** Each control year is a one-year qualifying offer, so
+       its market price is a one-year signing's (term = 1): cost and value describe the same deal.
+       Not chosen: the control years remaining; the expired contract's remaining term.
 - **Knock-ons once implemented:** the price line is re-fitted and re-locked; aggregate value moves
   by billions (term-in added $3.3-4.1B across 2,591 contracts in the 2026-09-14 test); the
   defence-premium question (WORK_QUEUE) is re-read on the new line (the rebuild's term-in line put
