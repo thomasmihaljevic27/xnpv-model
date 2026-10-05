@@ -2801,3 +2801,9 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   P(plays | qualified) (the July method, reopening D14(c) as its July test proposed), the chain
   starting from his forecast chance of playing the contract's final season; goalie control years
   weighted for the first time (one pooled rate, one-game bar). Built and measured at step 6.
+- Price line RE-LOCKED (Thomas, 2026-10-05; directives 4 and 5, revisiting the D33 addendum's
+  XNPV1_RATE): term-in `XNPV1_RATE` alpha -0.0043574069, beta 0.0174691916, beta_d_add 0.0035971954,
+  gamma_term 0.0089321965 (cap share per year of term), n 2,296, fingerprint b9067879bf72, fitted on
+  skater_forecast v2.2's forecast dated at each signing; term-free `XNPV1_RATE_TERM_FREE` alpha
+  0.0081646316, beta 0.0310794541, beta_d_add 0.0135178851 as the sensitivity. Term built into
+  pricing (remaining term per contract season; one year per control year).

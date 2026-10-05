@@ -1,8 +1,17 @@
 """
 =============================================================================
- contract_npv.py   v2.0                             Phase 1d
+ contract_npv.py   v2.1                             Phase 1d
                                   xNPV 1 prices skater contracts (2026-10-02)
 =============================================================================
+ WHAT CHANGED IN v2.1 (2026-10-05, plan of record step 6; MODEL_DIRECTIVES.md directive 4)
+ ------------------------------------------------------------------------------------------
+ The price line is TERM-IN (XNPV1_RATE re-locked on xnpv1_price_line.py v2.0: signing-dated
+ forecasts, one linear term for years). A contract season is priced on the term REMAINING at the
+ valuation date, the same for every remaining season; an RFA control year on one year. The
+ term-free line (XNPV1_RATE_TERM_FREE) is priced beside every value as the sensitivity, and each
+ contract season reports its term premium (gamma_term x remaining term x ceiling) in its own column.
+ Each priced contract also carries npv_total_term_free (and its contract and terminal parts) and
+ term_years; goalies (no term in their line) carry the same number in both.
  WHAT CHANGED IN v2.0 (2026-10-02): xNPV 0 ARCHIVED
  --------------------------------------------------
  Skaters are priced on xNPV 1 only. PV_k = (p_play_k x value_k - cap hit_k)
@@ -219,7 +228,7 @@ F_GOALIE_SPINE = OUTPUT_DIR / "goalie_value_spine_v2.csv"
 F_SEASON_SPINE = OUTPUT_DIR / "contract_season_spine.csv"
 OUT_SPINE = OUTPUT_DIR / "contract_npv_spine.csv"
 OUT_LOG = OUTPUT_DIR / "contract_npv_run_log.txt"
-SCRIPT_VERSION = "2.0"   # printed first in the run log (25_TESTS/xnpv0_removal_check.py reads it)
+SCRIPT_VERSION = "2.1"   # printed first in the run log (25_TESTS/xnpv0_removal_check.py reads it)
 
 # ---- locked goalie constants (P2 close-out, 2026-06-30) --------------------
 # The documented narrative values (alpha 1.398% cap, beta 1.097%/WAR, league
@@ -443,12 +452,15 @@ class NPVEngine:
             S = float(r["p_play"])
             disc = (1 + G) ** (-k)
             pv = (S * r["value_dollars"] - r["cost_dollars"]) * disc
+            # directive 4: the term-free sensitivity, same chance and discount
+            pv_f = (S * r["value_dollars_term_free"] - r["cost_dollars"]) * disc
             det.append({**r, "row_type": "contract", "survival": S,
-                        "discount": disc, "pv_dollars": pv})
+                        "discount": disc, "pv_dollars": pv, "pv_dollars_term_free": pv_f})
         npv_contract = sum(d["pv_dollars"] for d in det)
+        npv_contract_f = sum(d["pv_dollars_term_free"] for d in det)
 
         tvd, tvs = self.tv.terminal_value(pid, t0, as_of)
-        npv_tv = 0.0
+        npv_tv, npv_tv_f = 0.0, 0.0
         if tvs.get("status") == "ok":
             end = int(pr["season_start"].max())
             for _, r in tvd.iterrows():
@@ -456,6 +468,7 @@ class NPVEngine:
                 disc = (1 + G) ** (-k)
                 pv = r["surplus_adjusted"] * disc     # D14c chain, no h (locked)
                 npv_tv += pv
+                npv_tv_f += r["surplus_adjusted_term_free"] * disc
                 det.append({"player_id": pid, "full_name": r["full_name"],
                             "contract_id": r["contract_id"],
                             "season_start": r["control_season"], "k": k,
@@ -465,7 +478,8 @@ class NPVEngine:
                             "cost_dollars": r["qo_cost"],
                             "surplus_dollars": r["surplus_adjusted"],
                             "survival": r["qualify_survival"],
-                            "discount": disc, "pv_dollars": pv})
+                            "discount": disc, "pv_dollars": pv,
+                            "pv_dollars_term_free": r["surplus_adjusted_term_free"] * disc})
         d = pd.DataFrame(det)
         return d, {"status": "ok", "position": "skater",
                    # v1.4: the information date and the contracts valued
@@ -477,6 +491,11 @@ class NPVEngine:
                    "n_contract_seasons": len(pr),
                    "npv_contract": npv_contract, "npv_terminal": npv_tv,
                    "npv_total": npv_contract + npv_tv,
+                   # directive 4: term-in is the headline; term-free beside it
+                   "term_years": int(pr["term_years"].iloc[0]),
+                   "npv_contract_term_free": npv_contract_f,
+                   "npv_terminal_term_free": npv_tv_f,
+                   "npv_total_term_free": npv_contract_f + npv_tv_f,
                    "surplus_no_survival":
                        float(pr["surplus_dollars"].sum())
                        + tvs.get("tv_adjusted", 0.0)}
@@ -587,6 +606,11 @@ class NPVEngine:
                    "n_contract_seasons": len(crows),
                    "npv_contract": npv_contract, "npv_terminal": npv_tv,
                    "npv_total": npv_contract + npv_tv,
+                   # directive 4 is the skater price line; the goalie line has
+                   # no term, so its term-free value is the same number
+                   "term_years": len(crows),
+                   "npv_contract_term_free": npv_contract, "npv_terminal_term_free": npv_tv,
+                   "npv_total_term_free": npv_contract + npv_tv,
                    "surplus_no_survival":
                        float(sum(x["surplus_dollars"] for x in det))}
 
@@ -701,6 +725,8 @@ def validate():
                         "npv_contract": s["npv_contract"],
                         "npv_terminal": s["npv_terminal"],
                         "npv_total": s["npv_total"],
+                        "npv_total_term_free": s["npv_total_term_free"],
+                        "term_years": s["term_years"],
                         "surplus_no_survival": s["surplus_no_survival"]})
         return pd.DataFrame(out)
 

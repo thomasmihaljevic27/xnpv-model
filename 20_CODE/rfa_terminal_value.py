@@ -1,6 +1,11 @@
 """
 =============================================================================
- rfa_terminal_value.py   v2.0                       Phase 1c
+ rfa_terminal_value.py   v2.1                       Phase 1c
+
+ v2.1 (2026-10-05) directive 4, detail 3: a control year is a one-year
+ qualifying offer, so it is priced on the term-in line at ONE year of term
+ (CONTROL_TERM); the term-free line is priced beside it (its own D13
+ truncation), and the summary carries tv_adjusted_term_free.
 
  v2.0 (2026-10-02) xNPV 0 archived. Control years are valued on xNPV 1 only:
  its WAR if he plays for each control season, priced on xNPV 1's line
@@ -136,14 +141,23 @@ from skater_forward_projection import (SkaterProjector, cap_path,
 # One definition in the project: skater_forward_projection.price_constants(),
 # which returns xNPV 1's locked line (XNPV1_RATE). A control year is priced on
 # the same line as the contract seasons before it, so the two cannot drift.
-ALPHA, BETA_F, BETA_D, _RATE_MODE = _sfp.price_constants()
+# v2.1 (directive 4, detail 3, Thomas 2026-10-05): a control year is a one-year
+# qualifying offer, so it is priced on the term-in line at ONE year of term;
+# the term-free line is priced beside it as the sensitivity.
+ALPHA, BETA_F, BETA_D, GAMMA_TERM, _RATE_MODE = _sfp.price_constants()
+ALPHA_TF, BETA_F_TF, BETA_D_TF, _G_TF, _RATE_MODE_TF = _sfp.price_constants(term_free=True)
+CONTROL_TERM = 1
 
 
-def price(projected_war, posgrp, ceiling):
-    """Value of one season, in dollars, before the league-minimum floor.
+def price(projected_war, posgrp, ceiling, term_free=False):
+    """Value of one control season, in dollars, before the league-minimum
+    floor: the term-in line at CONTROL_TERM years, or the term-free line.
     posgrp is 'F' or 'D' (the defence slope applies to 'D')."""
+    if term_free:
+        beta = BETA_D_TF if str(posgrp).upper().startswith("D") else BETA_F_TF
+        return (ALPHA_TF + beta * projected_war) * ceiling
     beta = BETA_D if str(posgrp).upper().startswith("D") else BETA_F
-    return (ALPHA + beta * projected_war) * ceiling
+    return (ALPHA + beta * projected_war + GAMMA_TERM * CONTROL_TERM) * ceiling
 
 
 def price_for(model, projected_war, posgrp, ceiling):
@@ -387,6 +401,7 @@ class TerminalValuer:
 
         out, tv_raw, tv_trunc, tv_adj = [], 0.0, 0.0, 0.0
         truncated, survival = False, 1.0
+        tv_adj_f, truncated_f, survival_f = 0.0, False, 1.0     # term-free sensitivity
         for j, season in enumerate(ctrl_seasons, start=1):
             k = (end - valuation_season) + j
             pw = float(war_k[k])
@@ -408,6 +423,15 @@ class TerminalValuer:
             if truncated:
                 survival = 0.0                     # hard walk dominates
             tv_adj += survival * surplus
+            # the term-free sensitivity: same gates, its own D13 truncation
+            val_f = max(price(pw, posgrp, ceil, term_free=True), lm)
+            surplus_f = val_f - qo
+            if not truncated_f and surplus_f < 0:
+                truncated_f = True
+            survival_f *= self.qualify_p.get(_anchor_bucket(pw), 1.0)
+            if truncated_f:
+                survival_f = 0.0
+            tv_adj_f += survival_f * surplus_f
             out.append({
                 "player_id": player_id, "full_name": final["full_name"],
                 "contract_id": cid, "control_season": season, "j": j,
@@ -416,6 +440,8 @@ class TerminalValuer:
                 "qo_cost": qo, "qo_salary_source": sal_src,
                 "surplus_dollars": surplus, "qualify_survival": survival,
                 "surplus_adjusted": survival * surplus,
+                "value_dollars_term_free": val_f,
+                "surplus_adjusted_term_free": survival_f * surplus_f,
                 "counted_after_truncation": not truncated,
             })
             # next year's QO escalates off THIS QO (a one-year deal at qo)
@@ -424,6 +450,7 @@ class TerminalValuer:
             "status": "ok", "n_control": len(ctrl_seasons),
             "tv_raw": tv_raw, "tv_truncated": tv_trunc,
             "tv_adjusted": tv_adj,                 # D14(c) -- the headline TV
+            "tv_adjusted_term_free": tv_adj_f,
             "anchor": a, "path": path, "qo_salary_source": sal_src}
 
 

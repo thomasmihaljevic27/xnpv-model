@@ -15,8 +15,8 @@ the commit), **superseded** (replaced by a later entry).
 | 1 | Starting level: 50/30/20 per-82 WAR over three seasons, pulled 65/35 toward comparable players; no fitted decay anywhere | implemented (branch, `64ab8bf`) |
 | 2 | The aging curve measures each player's level with 50/30/20 over three seasons, games-weighted (changed from plain 2026-10-04c) | implemented (branch, `64ab8bf`) |
 | 3 | One own-versus-comparables blend: 65/35 replaces the curve's 55/45 | implemented (branch, `64ab8bf`) |
-| 4 | Contract length in the price line (term-in), term-free reported as the sensitivity | directed |
-| 5 | Price-line forecasts dated at each contract's signing | directed |
+| 4 | Contract length in the price line (term-in), term-free reported as the sensitivity | implemented (branch); laptop validation owed |
+| 5 | Price-line forecasts dated at each contract's signing | implemented in the price line (branch) |
 | 6 | Draft and prospect models restart from scratch with Karl; the data is kept | directed |
 
 | | To investigate (closed list) | Status |
@@ -89,7 +89,13 @@ on the laptop (A1, C2, C6: `abc_build_check.py`; D2, E1: `de_build_check.py`).
 Directive 4's three details settled (2026-10-05): one linear term for years; each season uses the term
 remaining at the valuation date; a control year is priced as a one-year signing.
 
-**Next step:** step 6, (a) Thomas runs `20_CODE/xnpv1_price_line.py` v2.0 on the laptop (built
+**Step 6 so far (2026-10-05):** the price line re-fitted (`xnpv1_price_line.py` v2.0) and both lines
+locked by Thomas (term-in `XNPV1_RATE`: $1.67M per forecast win, D $2.01M, + $0.853M a season per
+year of term; term-free `XNPV1_RATE_TERM_FREE` beside it). Term built into pricing
+(`skater_forward_projection.py`, `rfa_terminal_value.py`, `contract_npv.py` v2.1). Directive 4
+implemented in code; directive 5 implemented in the price line (and in valuations with open decision 2).
+
+**Next step (was):** step 6, (a) Thomas runs `20_CODE/xnpv1_price_line.py` v2.0 on the laptop (built
 2026-10-05: signing-dated forecasts matched to the page with the identical information set; one linear
 term for years; four fits on the same rows, so directive 5 alone, directive 4 alone and both are each
 shown; the term-free and term-in lines printed for locking) and locks the two lines; then (b) the pricing code: term in each season's value, status read at the signing (open decision

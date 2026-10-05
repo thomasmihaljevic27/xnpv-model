@@ -1,8 +1,15 @@
 """
 =============================================================================
- skater_forward_projection.py   v2.0            Phase 1b -- Layer 2
+ skater_forward_projection.py   v2.1            Phase 1b -- Layer 2
                                   xNPV 1 prices skater contracts (D33)
 =============================================================================
+ WHAT CHANGED IN v2.1 (2026-10-05, plan of record step 6; MODEL_DIRECTIVES.md directive 4)
+ ------------------------------------------------------------------------------------------
+ The price line is TERM-IN (XNPV1_RATE re-locked on xnpv1_price_line.py v2.0: signing-dated
+ forecasts, one linear term for years). A contract season is priced on the term REMAINING at the
+ valuation date, the same for every remaining season; an RFA control year on one year. The
+ term-free line (XNPV1_RATE_TERM_FREE) is priced beside every value as the sensitivity, and each
+ contract season reports its term premium (gamma_term x remaining term x ceiling) in its own column.
  WHAT THIS DOES
  --------------
  Values every remaining season of a skater's contract, plus every extension
@@ -159,21 +166,39 @@ def skater_rate_cap_pct(war, posgrp):
 # (provisional for xNPV 1)".
 # The draft curve (draft_yield_curve.py) keeps its own Stage 3 copy, because it
 # prices realised wins, not this forecast.
-XNPV1_RATE = dict(alpha=0.0076921739, beta=0.0308904772, beta_d_add=0.0146619104, n=2347,
-                  sigma=0.02111929, rows_fingerprint="69a6edb291fe")
+#
+# RE-LOCKED 2026-10-05 (Thomas; plan of record step 6, directives 4 and 5), from the laptop run of
+# xnpv1_price_line.py v2.0 on skater_forecast v2.2: each contract's forecast dated at its SIGNING,
+# and contract length in the line as one linear term (gamma_term, cap share per year of term). 2,296
+# of the 2,349 Stage 3 contracts (50 with no forecast at the signing, 3 signed after their start).
+# At the 2025-26 ceiling: -$0.416M at zero forecast wins and zero term, $1.668M per forecast win for
+# forwards, $2.012M for defencemen, +$0.853M a season per year of term; censored log-likelihood
+# 4,526.4 against 3,897.2 for the same signing-dated fit without term. The v1.x lock above this
+# comment's first paragraph (alpha 0.0076921739, beta 0.0308904772, beta_d_add 0.0146619104, n 2347)
+# was fitted on the v1.x forecast, start-dated, without term; it is in git at 3ee2f88.
+# HOW TERM IS USED (directive 4's details, Thomas 2026-10-05): a contract season is priced on the
+# term REMAINING at the valuation date, the same for every remaining season (_project_xnpv1); an RFA
+# control year on one year (rfa_terminal_value). XNPV1_RATE_TERM_FREE is the same signing-dated fit
+# without term: the term-free sensitivity reported beside every term-in value.
+XNPV1_RATE = dict(alpha=-0.0043574069, beta=0.0174691916, beta_d_add=0.0035971954,
+                  gamma_term=0.0089321965, n=2296, sigma=0.01570309, rows_fingerprint="b9067879bf72")
+XNPV1_RATE_TERM_FREE = dict(alpha=0.0081646316, beta=0.0310794541, beta_d_add=0.0135178851,
+                            gamma_term=0.0, n=2296, sigma=0.02192174, rows_fingerprint="b9067879bf72")
 
 
-def price_constants(model=None):
-    """(alpha, beta_F, beta_D, label): the price line skater seasons are
-    priced on, all in cap share per win. The only place the choice is made.
-    `model` is accepted for callers written when two models ran; anything but
-    "xNPV 1" (or None) is refused (the old model was archived 2026-10-02)."""
+def price_constants(model=None, term_free=False):
+    """(alpha, beta_F, beta_D, gamma_term, label): the price line skater
+    seasons are priced on, in cap share (per win; per year of term). The only
+    place the choice is made. term_free=True gives the sensitivity line
+    (gamma_term 0). `model` is accepted for callers written when two models
+    ran; anything but "xNPV 1" (or None) is refused."""
     assert model in (None, MODEL_NAME), f"unknown skater model {model!r}; only {MODEL_NAME} remains"
-    if XNPV1_RATE is not None:
-        r = XNPV1_RATE
-        return (float(r["alpha"]), float(r["beta"]),
-                float(r["beta"]) + float(r["beta_d_add"]), "xNPV 1 forecast line")
-    return ALPHA, BETA, BETA_D, "Stage 3 (provisional for xNPV 1)"
+    r = XNPV1_RATE_TERM_FREE if term_free else XNPV1_RATE
+    if r is not None:
+        return (float(r["alpha"]), float(r["beta"]), float(r["beta"]) + float(r["beta_d_add"]),
+                float(r.get("gamma_term", 0.0)),
+                "xNPV 1 term-free line" if term_free else "xNPV 1 term-in line")
+    return ALPHA, BETA, BETA_D, 0.0, "Stage 3 (provisional for xNPV 1)"
 
 
 # --- REVIEW ITEM 3.6: value the range of outcomes, not the best guess ------
@@ -424,9 +449,17 @@ class SkaterProjector:
             return pd.DataFrame()
         age = self.age_at(rows.iloc[0]["bd"], valuation_season)
         _posgrp = posgrp_from_nk(nk)
-        # v1.6: xNPV 1's own price line once locked, Stage 3 until then
-        _alpha, _bf, _bd, _line = price_constants(MODEL_NAME)
+        # v1.6: xNPV 1's own price line once locked, Stage 3 until then.
+        # v2.0 (directive 4): the TERM-IN line, priced on the term REMAINING at
+        # the valuation date, the same for every remaining season (the chain's
+        # seasons from t0 on, extensions signed by as_of included; at the first
+        # season of a contract this is its full length). The term-free line is
+        # priced beside it as the sensitivity.
+        _alpha, _bf, _bd, _gamma, _line = price_constants(MODEL_NAME)
         _slope = _bd if _posgrp.startswith("D") else _bf
+        _af, _bff, _bdf, _gf, _linef = price_constants(MODEL_NAME, term_free=True)
+        _slopef = _bdf if _posgrp.startswith("D") else _bff
+        term_years = len(rows)
         out = []
         for k, (_, r) in enumerate(rows.iterrows()):
             f = fc.iloc[k]
@@ -435,9 +468,11 @@ class SkaterProjector:
             w = float(f["war_if_plays"])
             ceil = cap_path(valuation_season, k)
             lm = league_min_path(season)
-            val_raw = (_alpha + _slope * w) * ceil
+            val_raw = (_alpha + _slope * w + _gamma * term_years) * ceil
             sd_w = war_if_plays_sd(k)
             val = expected_floored_value(val_raw, _slope * sd_w * ceil, lm)   # D10 floor
+            val_raw_f = (_af + _slopef * w) * ceil                            # term-free
+            val_f = expected_floored_value(val_raw_f, _slopef * sd_w * ceil, lm)
             out.append({
                 "player_id": player_id, "full_name": r["full_name"],
                 "contract_id": int(r["contract_id"]),
@@ -460,6 +495,10 @@ class SkaterProjector:
                 "cap_ceiling_exante": ceil, "league_min": lm,
                 "posgrp": _posgrp, "slope_used": _slope,
                 "alpha_used": _alpha, "price_line": _line,
+                "term_years": term_years, "gamma_used": _gamma,
+                "term_premium_dollars": _gamma * term_years * ceil,
+                "value_dollars_term_free": val_f,
+                "surplus_dollars_term_free": val_f - r["cost"],
                 "value_dollars": val, "floor_bound": val_raw < lm,
                 "value_point_estimate": max(val_raw, lm),
                 "uncertainty_correction": val - max(val_raw, lm),
@@ -489,10 +528,14 @@ def validate():
     log(f"\n[1] Stage 3 constants equal skater_value_engine.NEW_LOCKED: largest gap {gap:.1e}")
     assert gap < 1e-10, "this file's Stage 3 constants differ from the value engine's"
     assert XNPV1_RATE is not None, "XNPV1_RATE is None: xNPV 1 would price on the provisional line"
-    a, bf, bd, line = price_constants()
+    a, bf, bd, g, line = price_constants()
+    af, bff, bdf, _gf, linef = price_constants(term_free=True)
     c = CAP_CEILING[2025]
     log(f"    in force: {line}: ${a * c / 1e6:.3f}M + ${bf * c / 1e6:.3f}M per forecast win "
-        f"(forwards), ${bd * c / 1e6:.3f}M (defence), at the ${c / 1e6:.1f}M ceiling")
+        f"(forwards), ${bd * c / 1e6:.3f}M (defence), + ${g * c / 1e6:.3f}M a season per year of "
+        f"remaining term, at the ${c / 1e6:.1f}M ceiling")
+    log(f"    sensitivity: {linef}: ${af * c / 1e6:.3f}M + ${bff * c / 1e6:.3f}M per forecast win "
+        f"(forwards), ${bdf * c / 1e6:.3f}M (defence)")
 
     # ---- 2. the floor formula against a simulation ----------------------------
     # E[max(X, F)] for X ~ N(mu, sd): closed form against 4M draws, tolerance
@@ -530,12 +573,17 @@ def validate():
         assert pr["p_play"].between(0, 1).all(), "a chance of playing outside [0, 1]"
         fc = sp.forecaster.forecast(r["nk"], t0, len(pr) - 1)
         slope = bd if posgrp_from_nk(r["nk"]).startswith("D") else bf
+        slopef = bdf if posgrp_from_nk(r["nk"]).startswith("D") else bff
+        assert (pr["term_years"] == len(pr)).all(), "the remaining term is not the seasons left"
         for k, x in pr.iterrows():
             ceil = cap_path(t0, int(x["k"]))
-            raw = (a + slope * float(fc.iloc[int(x["k"])]["war_if_plays"])) * ceil
-            want = expected_floored_value(raw, slope * war_if_plays_sd(int(x["k"])) * ceil,
-                                          league_min_path(int(x["season_start"])))
-            worst = max(worst, abs(want - x["value_dollars"]))
+            wk = float(fc.iloc[int(x["k"])]["war_if_plays"])
+            sd_ = war_if_plays_sd(int(x["k"]))
+            lm_ = league_min_path(int(x["season_start"]))
+            raw = (a + slope * wk + g * len(pr)) * ceil
+            want = expected_floored_value(raw, slope * sd_ * ceil, lm_)
+            want_f = expected_floored_value((af + slopef * wk) * ceil, slopef * sd_ * ceil, lm_)
+            worst = max(worst, abs(want - x["value_dollars"]), abs(want_f - x["value_dollars_term_free"]))
             assert x["value_dollars"] >= x["league_min"] - 1e-6, "a season valued below the minimum"
             rows_checked += 1
     log(f"\n[3] {len(sample)} sampled contracts (first 2018-2025 season): {priced} priced, "
