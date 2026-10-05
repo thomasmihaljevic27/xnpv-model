@@ -2759,3 +2759,7 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - Detail 4 settled (Thomas, 2026-10-05): rescale over the seasons he has. `thin_history_check.py`
   found the start runs high for thin histories (+0.166 one season) through the comparables' level,
   not the own rate; investigations B and C widened to cover it. Code unchanged.
+- Build rules (Thomas, 2026-10-05): the aging walk takes the tested rule (one match at the last
+  counted age). The trailing WAR input to the games-share and chance-of-playing equations goes to a
+  test first, total against rate per 82 (`25_TESTS/war_input_uniformity_test.py` v1.0, laptop run
+  owed); Thomas's stated preference is one uniform per-82 input. Directive 3's note corrected.

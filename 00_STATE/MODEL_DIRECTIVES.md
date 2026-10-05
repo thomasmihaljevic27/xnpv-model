@@ -59,7 +59,8 @@ at step 6.
 8. **Open decision 3 (the price of a delivered win)**, which unlocks directive 6 (the draft and
    prospect restart with Karl).
 
-**Next step:** step 1, the build: directives 1-3 in code on a branch. Details 1, 3 and 4 settled
+**Next step:** step 1, the build, after Thomas's run of `25_TESTS/war_input_uniformity_test.py`
+settles the trailing WAR input (2026-10-05): directives 1-3 in code on a branch. Details 1, 3 and 4 settled
 (2026-10-04c/2026-10-05: games-weighted on both sides; the step to the valuation season; rescale over
 the seasons he has). Detail 2 waits on investigation B (step 2), which was widened with C to cover the
 comparables' level for thin histories.
@@ -146,6 +147,20 @@ comparables' level for thin histories.
   trailing total in the model. The games-share and chance-of-playing regressions, which read the
   same trailing total, therefore move to 50/30/20 too. Their other terms, including the trailing
   total above one win, are not covered by this entry and stay unless Thomas directs otherwise.
+- **Build rules (Thomas, 2026-10-05, before step 1's build):**
+  - *Where the aging comes from:* the tested rule. The step to the valuation season and every later
+    season's change come from one match at the player's last counted season's age; where he has no
+    20-game season at that age, the league-average changes for his position and age. (Today's code
+    reads his profile one season before the valuation season, else two.)
+  - *The trailing WAR input to the games-share and chance-of-playing equations:* Thomas asked why a
+    rate per 82 is not used. It is inherited from the rebuild and was never tested against a rate.
+    Thomas: "any time a players WAR is being considered in a calculation, I want them to be as
+    uniformly inputted as possible. Test first, sure, but I will lean to have things as uniform as
+    possible when possible." Stated preference, not yet a directive: decided on
+    `25_TESTS/war_input_uniformity_test.py` v1.0 (laptop run owed), which scores the trailing total
+    (plain 50/30/20) against the games-weighted 50/30/20 rate per 82, each with and without the
+    level-above-1.0 term (cut-off 1.0 in its own units, a carried setting). The trailing games share
+    stays plain 50/30/20 (a share already counts games).
 - **What this overrides in `Data, Production, and Aging.docx`, Section 3** (confirmed by Thomas):
   - Step 1's decay chosen from the data;
   - Step 2's eight-term regression, its coefficient table, and its worked numbers (the 27-year-old
@@ -215,6 +230,10 @@ comparables' level for thin histories.
   rates (2.00, 1.76, 1.56, 1.12) change once the code is changed.
 - **Note:** with the curve's 55/45 replaced, the curve's own starting level becomes the model's
   starting level before the one-year step to the valuation season (entry 1, open detail 3).
+  *Correction (2026-10-05):* not exactly. The curve measures a player from 20-game seasons by age;
+  the start's own rate uses 10-game seasons by calendar season (Thomas's 10-game minimum, directive
+  1). The two blends use the same weights (65/35) and the same games-weighted 50/30/20 rule, but the
+  start is built as tested (`level_games_weighting_test.py`), not read off the curve's anchor.
 - **Status:** directed. Code unchanged.
 
 ---
