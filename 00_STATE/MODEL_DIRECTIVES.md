@@ -15,8 +15,8 @@ the commit), **superseded** (replaced by a later entry).
 | 1 | Starting level: 50/30/20 per-82 WAR over three seasons, pulled 65/35 toward comparable players; no fitted decay anywhere | implemented (branch, `64ab8bf`) |
 | 2 | The aging curve measures each player's level with 50/30/20 over three seasons, games-weighted (changed from plain 2026-10-04c) | implemented (branch, `64ab8bf`) |
 | 3 | One own-versus-comparables blend: 65/35 replaces the curve's 55/45 | implemented (branch, `64ab8bf`) |
-| 4 | Contract length in the price line (term-in), term-free reported as the sensitivity | implemented (branch); laptop validation owed |
-| 5 | Price-line forecasts dated at each contract's signing | implemented in the price line (branch) |
+| 4 | Contract length in the price line (term-in), term-free reported as the sensitivity | implemented and validated (branch, 2026-10-05) |
+| 5 | Price-line forecasts dated at each contract's signing | implemented and validated (branch, 2026-10-05) |
 | 6 | Draft and prospect models restart from scratch with Karl; the data is kept | directed |
 
 | | To investigate (closed list) | Status |
@@ -107,7 +107,10 @@ Floor spread re-measured and locked (2026-10-05). The first dashboard refresh st
 signing-date change (fixed) and showed the control-year weights missing the NHL-regular condition
 (fixed, Thomas's definition).
 
-**Next step:** Thomas re-runs the dashboard refresh; then the documents.
+The refresh at `dca0831` passed (2026-10-05): every step, the dashboard re-pricing 7,771 pages within
+$1 of the panel. Directives 4 and 5 and open decisions 1 and 2 are validated.
+
+**Next step:** update the documents (`40_DOCS/Supervisor_Drafts/`), written from the code; then step 7.
 
 **Next step (was):** step 6, (a) Thomas runs `20_CODE/xnpv1_price_line.py` v2.0 on the laptop (built
 2026-10-05: signing-dated forecasts matched to the page with the identical information set; one linear
@@ -355,7 +358,7 @@ comparables' level for thin histories.
   by billions (term-in added $3.3-4.1B across 2,591 contracts in the 2026-09-14 test); the
   defence-premium question (WORK_QUEUE) is re-read on the new line (the rebuild's term-in line put
   the defence premium in an intercept, not the slope).
-- **Status:** directed. Code unchanged.
+- **Status:** implemented on `claude/amazing-einstein-tk4b08` (`xnpv1_price_line.py` v2.0; term-in `XNPV1_RATE` locked by Thomas 2026-10-05; `skater_forward_projection.py` v2.1, `rfa_terminal_value.py`, `contract_npv.py`); validated on the laptop 2026-10-05: the full dashboard refresh at `dca0831` passed (the dashboard re-priced 7,771 pages, each matching the panel within $1). Values provisional until the step 7 contract-length test.
 
 ---
 
@@ -384,7 +387,7 @@ comparables' level for thin histories.
   in a contract valuation reads contract status at July 1, so a contract signed after July 1 cannot
   see itself (open decision 2 below; `25_TESTS/late_signing_status_check.py`). Same root:
   valuing a contract as of its start rather than its signing.
-- **Status:** directed. Code unchanged.
+- **Status:** implemented on `claude/amazing-einstein-tk4b08`: the price line is fitted on forecasts dated at each signing (`xnpv1_price_line.py` v2.0), and valuations read status at the signing (open decision 2); validated on the laptop 2026-10-05: the full dashboard refresh at `dca0831` passed (the dashboard re-priced 7,771 pages, each matching the panel within $1). Values provisional until the step 7 contract-length test.
 
 ---
 
@@ -686,7 +689,8 @@ his decision before the code it touches is changed.
    (goalies 0.348 a year against July's 0.788); the second used 10+ games in one of the three seasons
    before (goalies 0.726; skater fringe 83.9%, below replacement 74.9%), which charged a final-season
    absence twice (`25_TESTS/control_weight_check.py`: July's figures come back with 20+ games in the
-   final season). Laptop validation owed. Each
+   final season). Validated on the laptop 2026-10-05 (refresh at `dca0831`): goalies 0.902 x 0.859 =
+   0.775 a year; skaters 100% / 100% / 88.2% / 67.8% by bucket. Each
    RFA control year is weighted by P(the club qualifies him) x P(he plays, given he was qualified),
    measured among qualified players, so each departure is counted once; the chain starts from his
    forecast chance of playing the contract's final season instead of 1.0. Goalies get a weight for the
@@ -704,7 +708,7 @@ his decision before the code it touches is changed.
    Also: start the control-year chain from his chance of playing the contract's final season, not
    from 1. Goalies: Thomas's July sub-decisions stand (one pooled rate, a one-game bar).
 2. **DECIDED (Thomas, 2026-10-05): at the contract's signing.** Built 2026-10-05
-   (`skater_forward_projection.valuation_as_of`); laptop validation owed. Built at step 6 with directive 5 (both
+   (`skater_forward_projection.valuation_as_of`); validated on the laptop 2026-10-05 (refresh at `dca0831`). Built at step 6 with directive 5 (both
    date a contract's forecast at its signing). Evidence: investigation E2 above (log loss 0.2632
    against 0.3309, 2,000 of 2,000). Original entry:
    **When contract status is read for a contract valuation.** Contracts are valued at July 1 of

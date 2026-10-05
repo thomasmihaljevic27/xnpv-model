@@ -2821,3 +2821,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   (`rfa_terminal_value.py` v2.2, `contract_npv.py` v2.2). `25_TESTS/control_weight_check.py` showed the
   10-in-3 rule charged a final-season absence twice (it is also the chain's starting event) and that
   July's figures come back with 20+ games in the final season. Laptop validation owed.
+- Validated on the laptop (2026-10-05, refresh at `dca0831`, every step passed; the dashboard re-priced
+  7,771 pages within $1 of the panel): directives 4 and 5, open decisions 1 and 2. Goalie control-year
+  weight 0.902 x 0.859 = 0.775 a year (July 0.788); skater P(plays | qualified) 100% / 100% / 88.2% /
+  67.8% by bucket, below July's for fringe and below replacement because the rule counts every player
+  who played the final season, not only regulars.
