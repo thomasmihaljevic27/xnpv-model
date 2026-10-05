@@ -2857,3 +2857,15 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   hidden-quality test, where Game Value and Bacon WAR disagree in sign, is re-run with seasons not played
   dropped and with the forecast including the chance of playing as the control, each alone and together
   (v1.1). The locked line is unchanged.
+- Price-line specification tests closed (2026-10-05, `price_line_spec_tests.py` v1.1; all reproduction
+  guards passed). One step (a separate length premium below replacement: $1.103M a year against $0.821M)
+  took most of the per-group gain with one term (held-out RMSE 1.2718 against 1.2712 per group and
+  1.2809 locked); the per-group premium's two extra terms were not significant against it (p 0.083).
+  **Thomas: the length premium stays flat; `XNPV1_RATE` unchanged.** Hidden quality: across three
+  windows, two outcome treatments (seasons not played at zero or dropped) and three controls (first
+  season, window, window with the chance of playing), Game Value's length effect is negative in all 18
+  versions and Bacon WAR's positive in all 18 (34 of 36 intervals exclude zero); the measure split is
+  not the zero convention or the chance of playing. On either measure, later production accounts for
+  at most about a sixth of the length premium (shares -0.09 to +0.16). Thomas's reading of the split:
+  Game Value's weakness in measuring defence (consistent with investigation F, where Game Value tracks
+  the forecast at r 0.30 for defencemen against 0.65 for forwards; not tested on this split).

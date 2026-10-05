@@ -114,7 +114,11 @@ Documents updated (2026-10-05): `Data, Production, and Aging.docx` and `Pricing,
 Contract Value.docx` describe the model as now built, figures from `25_TESTS/document_figures.py`.
 **Step 6 is complete.**
 
-**Next step:** step 7, remaining: Thomas runs `25_TESTS/price_line_spec_tests.py` v1.1 (the
+**Next step:** step 7, remaining: how the changed model is validated. Done in step 7: investigation F
+(closed); the price-line specification tests (closed 2026-10-05): straight line and stability hold;
+one line for RFA and UFA; the length premium kept flat; `XNPV1_RATE` unchanged.
+
+**Next step (was):** step 7, remaining: Thomas runs `25_TESTS/price_line_spec_tests.py` v1.1 (the
 one-step length premium; the hidden-quality legs), then decides the length premium's shape; then how
 the changed model is validated. Done in step 7: investigation F (closed); the specification tests v1.0
 (straight line and stability hold; one line for RFA and UFA, Thomas 2026-10-05).
@@ -351,7 +355,9 @@ comparables' level for thin histories.
        intercept, first-season forecast) was put to Thomas and not chosen.
      - **RFA/UFA settled (Thomas, 2026-10-05): one price line for both,** on the step 7 test (a
        separate RFA line: four terms, 0.17% lower held-out RMSE, only RFA defence clearly non-zero).
-       The length premium's shape (it falls with the forecast) waits on the one-step test (v1.1).
+       **Length premium settled (Thomas, 2026-10-05): kept flat,** the locked line unchanged, after the
+       one-step test (v1.1): a separate premium below replacement would have cut held-out RMSE by about
+       $9k a contract (0.7%) and moved the price per win; the falling premium is a known limit.
   2. *How term enters each season's value:* term-in must not add the term premium to each season
      whatever the player produces (the rebuild's first attempt priced Brent Seabrook's 0.20
      forecast wins at $47.2M). The rebuild's resolution: the replacement a contract is compared
@@ -372,7 +378,7 @@ comparables' level for thin histories.
   by billions (term-in added $3.3-4.1B across 2,591 contracts in the 2026-09-14 test); the
   defence-premium question (WORK_QUEUE) is re-read on the new line (the rebuild's term-in line put
   the defence premium in an intercept, not the slope).
-- **Status:** implemented on `claude/amazing-einstein-tk4b08` (`xnpv1_price_line.py` v2.0; term-in `XNPV1_RATE` locked by Thomas 2026-10-05; `skater_forward_projection.py` v2.1, `rfa_terminal_value.py`, `contract_npv.py`); validated on the laptop 2026-10-05: the full dashboard refresh at `dca0831` passed (the dashboard re-priced 7,771 pages, each matching the panel within $1). Values provisional until the step 7 contract-length test.
+- **Status:** implemented on `claude/amazing-einstein-tk4b08` (`xnpv1_price_line.py` v2.0; term-in `XNPV1_RATE` locked by Thomas 2026-10-05; `skater_forward_projection.py` v2.1, `rfa_terminal_value.py`, `contract_npv.py`); validated on the laptop 2026-10-05: the full dashboard refresh at `dca0831` passed (the dashboard re-priced 7,771 pages, each matching the panel within $1). The step 7 contract-length test (2026-10-05) kept the line as locked: the values stand.
 
 ---
 
@@ -401,7 +407,7 @@ comparables' level for thin histories.
   in a contract valuation reads contract status at July 1, so a contract signed after July 1 cannot
   see itself (open decision 2 below; `25_TESTS/late_signing_status_check.py`). Same root:
   valuing a contract as of its start rather than its signing.
-- **Status:** implemented on `claude/amazing-einstein-tk4b08`: the price line is fitted on forecasts dated at each signing (`xnpv1_price_line.py` v2.0), and valuations read status at the signing (open decision 2); validated on the laptop 2026-10-05: the full dashboard refresh at `dca0831` passed (the dashboard re-priced 7,771 pages, each matching the panel within $1). Values provisional until the step 7 contract-length test.
+- **Status:** implemented on `claude/amazing-einstein-tk4b08`: the price line is fitted on forecasts dated at each signing (`xnpv1_price_line.py` v2.0), and valuations read status at the signing (open decision 2); validated on the laptop 2026-10-05: the full dashboard refresh at `dca0831` passed (the dashboard re-priced 7,771 pages, each matching the panel within $1). The step 7 contract-length test (2026-10-05) kept the line as locked: the values stand.
 
 ---
 
