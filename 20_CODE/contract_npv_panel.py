@@ -1,7 +1,11 @@
 """
 =============================================================================
- contract_npv_panel.py   v1.2                    Validation exhibit (2026-07-05)
+ contract_npv_panel.py   v1.3                    Validation exhibit (2026-07-05)
 =============================================================================
+ WHAT CHANGED IN v1.3 (2026-10-05)
+   Open decision 2: a contract's first-season page is valued at its signing
+   when it was signed after 1 July (valuation_as_of); directive 4: each row
+   carries npv_total_term_free and term_years beside the term-in npv_total.
  WHAT CHANGED IN v1.2 (2026-10-02)
  ---------------------------------
  * Every row records the model that priced it (`model`): "xNPV 1" for
@@ -140,9 +144,17 @@ def build_panel():
     jobs = active.drop_duplicates(["contract_id", "season_start"])[keep]
     log(f"panel jobs (contract x active league-year): {len(jobs):,}")
 
+    # open decision 2 (Thomas, 2026-10-05): on a contract's FIRST season, a
+    # contract signed after 1 July is valued at its signing
+    # (skater_forward_projection.valuation_as_of); every other page stays at
+    # 1 July of the page.
+    from skater_forward_projection import valuation_as_of
+    first_season = spine_all.groupby("contract_id")["season_start"].min().to_dict()
     rows, skipped = [], {}
     for j in jobs.itertuples(index=False):
-        d, s = eng.npv(int(j.player_id), int(j.season_start))
+        aod = (valuation_as_of(j.contract_id, int(j.season_start), eng.sp.signed)
+               if first_season.get(j.contract_id) == j.season_start else None)
+        d, s = eng.npv(int(j.player_id), int(j.season_start), aod)
         if s.get("status") != "ok":
             skipped[s.get("status", "unknown")] = \
                 skipped.get(s.get("status", "unknown"), 0) + 1
@@ -160,7 +172,8 @@ def build_panel():
             "seasons_remaining": n_remaining,
             "path": s.get("path", ""),
             "model": s.get("model", ""),          # v1.2: which forecast built the row
-            # v1.1: the date this page is valued on (July 1 of t0) and the
+            # v1.1: the date this page is valued on (July 1 of t0; v1.3: the signing
+            # for a late-signed contract's first season) and the
             # extensions signed by then that the valuation includes
             "as_of_date": s["as_of"],
             "n_extension_contracts": len(s["chain"]) - 1,
@@ -168,6 +181,8 @@ def build_panel():
             "npv_contract": s["npv_contract"],
             "npv_terminal": s["npv_terminal"],
             "npv_total": s["npv_total"],
+            "npv_total_term_free": s["npv_total_term_free"],   # directive 4 sensitivity
+            "term_years": s["term_years"],
             "surplus_no_survival": s["surplus_no_survival"],
         })
     panel = pd.DataFrame(rows).sort_values(

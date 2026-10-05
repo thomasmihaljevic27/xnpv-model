@@ -10,6 +10,8 @@
  valuation date, the same for every remaining season; an RFA control year on one year. The
  term-free line (XNPV1_RATE_TERM_FREE) is priced beside every value as the sensitivity, and each
  contract season reports its term premium (gamma_term x remaining term x ceiling) in its own column.
+ Open decision 2: valuation_as_of() dates a contract's first-season valuation at its signing when it
+ was signed after 1 July (contract_npv's sweep and contract_npv_panel use it).
  WHAT THIS DOES
  --------------
  Values every remaining season of a skater's contract, plus every extension
@@ -305,6 +307,22 @@ def check_as_of(t0, as_of):
         f"({page_date(t0).date()} to "
         f"{(page_date(t0 + 1) - pd.Timedelta(days=1)).date()})")
     return as_of
+
+
+def valuation_as_of(contract_id, t0, signed):
+    """OPEN DECISION 2 (Thomas, 2026-10-05): the date a contract is valued at on
+    page t0 when t0 is its FIRST season. A contract signed after 1 July of t0
+    (and inside the page's window, to 30 June of t0+1) is valued at its SIGNING
+    date, so its own chance of playing reads it as signed (investigation E2: log
+    loss 0.2632 against 0.3309 at 1 July). Returns that date, or None (1 July,
+    the page date) for a contract signed by 1 July or with no signing date on
+    file. Only the chance of playing and the D28 chain read the date; the page's
+    rate and games share are unchanged (ContractForecaster.forecast)."""
+    sg = signed.get(int(contract_id)) if contract_id is not None else None
+    if sg is None or pd.isna(sg):
+        return None
+    sg = pd.Timestamp(sg)
+    return sg if page_date(t0) < sg < page_date(t0 + 1) else None
 
 
 def load_signing_dates():

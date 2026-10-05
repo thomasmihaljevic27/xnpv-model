@@ -2,6 +2,10 @@
 =============================================================================
  rfa_terminal_value.py   v2.1                       Phase 1c
 
+ v2.1 (2026-10-05) open decision 1 (Thomas): each control year is weighted by
+ P(qualified) x P(plays | qualified), both by bucket and measured on every run
+ (TerminalValuer.control_weight), and the chain starts from his chance of
+ playing the contract's final season instead of 1.0.
  v2.1 (2026-10-05) directive 4, detail 3: a control year is a one-year
  qualifying offer, so it is priced on the term-in line at ONE year of term
  (CONTROL_TERM); the term-free line is priced beside it (its own D13
@@ -308,6 +312,17 @@ class TerminalValuer:
         # landed where it was supposed to. Both tables are computed below so
         # the comparison is visible in the run log instead of asserted.
         tab, tab_old = {}, {}
+        # OPEN DECISION 1 (Thomas, 2026-10-05): the July method. Among QUALIFIED
+        # decisions, the share who played the next season (one NHL game or more,
+        # forecast_config.PARTICIPATION_GP), by the same bucket. A control year's
+        # weight is P(qualified) x P(plays | qualified): a qualified player who
+        # leaves the league anyway is no longer counted as delivering, and each
+        # departure is counted once (a walked player is already zeroed by the gate).
+        import forecast_config as _FC
+        _tbl = sp.forecaster.table
+        _played = set(map(tuple, _tbl.loc[_tbl["GP"] >= _FC.PARTICIPATION_GP, ["career_key", "syr"]]
+                          .to_numpy()))
+        tab_r = {}
         # v1.5: the bucket is read off the same quantity the gate is later
         # applied to: xNPV 1's forecast of WAR if he plays in the first season
         # after the contract (page = that season, h = 0). It runs about
@@ -326,7 +341,12 @@ class TerminalValuer:
                 b = _anchor_bucket(a)
                 tab_old.setdefault(b, []).append(q)   # the pre-fix sample
             tab.setdefault(b, []).append(q)
+            if q == 1:
+                ck = sp.forecaster.career_of.get(r["nk"])
+                tab_r.setdefault(b, []).append(1 if (ck, t_dec) in _played else 0)
         self.qualify_p = {b: float(np.mean(v)) for b, v in tab.items()}
+        self.plays_given_q = {b: float(np.mean(v)) for b, v in tab_r.items()}
+        self.plays_given_q_n = {b: len(v) for b, v in tab_r.items()}
         self.qualify_n = {b: len(v) for b, v in tab.items()}
         self.qualify_p_prefix = {b: float(np.mean(v)) for b, v in tab_old.items()}
         self.qualify_n_prefix = {b: len(v) for b, v in tab_old.items()}
@@ -338,6 +358,13 @@ class TerminalValuer:
             if b in self.qualify_p and b in self.qualify_p_prefix:
                 assert abs(self.qualify_p[b] - self.qualify_p_prefix[b]) < 1e-9, \
                     f"Stage 4 fix moved the {b} bucket, which it must not"
+
+    def control_weight(self, projected_war):
+        """One control year's weight (open decision 1, the July method):
+        P(qualified) x P(plays | qualified) for his projected quality bucket;
+        a bucket with no qualified decisions keeps P(plays | qualified) = 1."""
+        b = _anchor_bucket(projected_war)
+        return self.qualify_p.get(b, 1.0) * self.plays_given_q.get(b, 1.0)
 
     def terminal_value(self, player_id, valuation_season, as_of=None):
         """RFA terminal value at the end of the contracts held for this
@@ -399,9 +426,13 @@ class TerminalValuer:
         signed_2020_plus = int(crows["season_start"].min()) >= 2020  # proxy
         posgrp = crows.iloc[0]["posgrp"]           # 'F' or 'D', for the rate
 
+        # OPEN DECISION 1: the chain starts from his chance of playing the
+        # contract's FINAL season (xNPV 1, dated as the valuation is), not 1.0:
+        # no control years for a player who is not there to be qualified.
+        p_final = float(fc.set_index("h").loc[end - valuation_season, "p_play"])
         out, tv_raw, tv_trunc, tv_adj = [], 0.0, 0.0, 0.0
-        truncated, survival = False, 1.0
-        tv_adj_f, truncated_f, survival_f = 0.0, False, 1.0     # term-free sensitivity
+        truncated, survival = False, p_final
+        tv_adj_f, truncated_f, survival_f = 0.0, False, p_final  # term-free sensitivity
         for j, season in enumerate(ctrl_seasons, start=1):
             k = (end - valuation_season) + j
             pw = float(war_k[k])
@@ -418,8 +449,10 @@ class TerminalValuer:
             # D14(c): each control year passes a qualify-or-walk gate; the
             # chance of passing is the OBSERVED qualify rate for players of
             # this year's projected quality, and gates compound (a player
-            # let go in year 2 cannot be re-qualified in year 3).
-            survival *= self.qualify_p.get(_anchor_bucket(pw), 1.0)
+            # let go in year 2 cannot be re-qualified in year 3). Open decision
+            # 1: times the observed chance he then plays, given qualified.
+            w_year = self.control_weight(pw)
+            survival *= w_year
             if truncated:
                 survival = 0.0                     # hard walk dominates
             tv_adj += survival * surplus
@@ -428,7 +461,7 @@ class TerminalValuer:
             surplus_f = val_f - qo
             if not truncated_f and surplus_f < 0:
                 truncated_f = True
-            survival_f *= self.qualify_p.get(_anchor_bucket(pw), 1.0)
+            survival_f *= w_year
             if truncated_f:
                 survival_f = 0.0
             tv_adj_f += survival_f * surplus_f
@@ -439,6 +472,7 @@ class TerminalValuer:
                 "projected_war": pw, "value_dollars": val,
                 "qo_cost": qo, "qo_salary_source": sal_src,
                 "surplus_dollars": surplus, "qualify_survival": survival,
+                "control_weight_year": w_year, "chain_start_p_play": p_final,
                 "surplus_adjusted": survival * surplus,
                 "value_dollars_term_free": val_f,
                 "surplus_adjusted_term_free": survival_f * surplus_f,
@@ -537,6 +571,13 @@ def validate():
             no = tv.qualify_n_prefix.get(b)
             old = f"{po*100:15.1f}% {no:7,d}" if po is not None else f"{'--':>16s} {'--':>7s}"
             log(f"      {b:9s} {tv.qualify_p[b]*100:13.1f}% {tv.qualify_n[b]:7,d}   {old}")
+    log("    open decision 1: P(plays next season | qualified), one-game bar, and the yearly weight:")
+    for b in ["star", "regular", "fringe", "negative"]:
+        if b in tv.qualify_p:
+            r_ = tv.plays_given_q.get(b)
+            log(f"      {b:9s} P(plays | qualified) "
+                + (f"{r_ * 100:5.1f}% (n {tv.plays_given_q_n[b]:,})" if r_ is not None else "   --  (no qualified decisions)")
+                + f"   weight a year {tv.qualify_p[b] * (1.0 if r_ is None else r_):.3f}")
     _nn = sum(tv.qualify_n.values())
     _no = sum(tv.qualify_n_prefix.values())
     _wn = sum(tv.qualify_n[b]*(1-tv.qualify_p[b]) for b in tv.qualify_p)

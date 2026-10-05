@@ -189,6 +189,11 @@
  different scale, so borrowing the table would be sloppy. [flagged gap:
  goalie qualify-rate calibration, deferred -- goalie RFA TV is a small
  share of trade value]
+ v2.1 (2026-10-05, open decision 1): the gap is closed with Thomas's July
+ sub-decisions -- ONE pooled goalie weight a control year, P(qualified) x
+ P(plays | qualified) at a one-game bar, measured from the goalie spine on
+ every run (NPVEngine._calibrate_goalie_control), the chain starting from his
+ survival into the contract's final season.
 
  WHAT THIS DOES NOT DO
  ---------------------
@@ -205,6 +210,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+from skater_forward_projection import valuation_as_of
 from skater_forward_projection import (SkaterProjector, cap_path,
                                        league_min_path, norm_name,
                                        CAP_GROWTH, CAP_CEILING,
@@ -314,6 +320,7 @@ class GoalieProjector:
         gw["WAR"] = gw["WAR"] * gw["syr"].map(_PR).fillna(1.0)
         gw["nname"] = gw["Goalie"].map(norm_name)
         self.lut = gw.set_index(["nname", "syr"])["WAR"].sort_index()
+        self.gp_lut = gw.set_index(["nname", "syr"])["GP"].sort_index()   # open decision 1
         self.spine = spine[spine["position"] == "Goaltender"].copy()
 
     def _get(self, nname, syr):
@@ -417,8 +424,30 @@ class NPVEngine:
         d_g["age_grp"] = d_g["age"].map(age_group)
         self.h_g = build_hazard_table(d_g)
         self._d_g = d_g                      # kept for the validation report
+        self._calibrate_goalie_control()
 
     # ---- survival helpers ----------------------------------------------------
+    def _calibrate_goalie_control(self):
+        """OPEN DECISION 1, goalies (Thomas, 2026-10-05; his July sub-decisions):
+        ONE pooled yearly weight, P(qualified) x P(plays | qualified), from every
+        observable goalie qualify-or-walk decision (contracts ending 2018-2024,
+        pp_expiry RFA = qualified or "UFA no QO" = walked), "plays" = one NHL
+        game or more the next season. Until v2.1 goalie control years carried
+        weight 1.0 (the gap the goalie TV comment recorded)."""
+        last = (self.gp_spine.sort_values("season_start").groupby("contract_id").tail(1))
+        elig = last[last["season_start"].between(2018, 2024)
+                    & last["pp_expiry"].isin(["RFA", "UFA no QO"])]
+        q = (elig["pp_expiry"] == "RFA").to_numpy()
+        def _gp(n, s):
+            v = self.g_proj.gp_lut.get((n, int(s) + 1), 0.0)
+            v = float(v.sum()) if isinstance(v, pd.Series) else float(v)   # merged-name rows: summed
+            return v if np.isfinite(v) else 0.0
+        gp = np.array([_gp(n, s) for n, s in zip(elig["nname"], elig["season_start"])], dtype=float)
+        self.g_qualify_p = float(q.mean()) if len(q) else 1.0
+        self.g_plays_given_q = float((gp[q] >= 1).mean()) if q.any() else 1.0
+        self.g_control_n = (int(len(q)), int(q.sum()))
+        self.g_control_weight = self.g_qualify_p * self.g_plays_given_q
+
     def _hazard(self, table, pw, age):
         """One-year exit probability for a projected quality + age. Falls
         back to the bucket marginal when age is unknown or the cell empty."""
@@ -561,7 +590,7 @@ class NPVEngine:
         npv_contract = sum(d["pv_dollars"] for d in det)
 
         # ---- goalie RFA terminal value: same QO mechanics, D13 truncation,
-        # ---- flat projection, NO D14c gates (flagged gap, see docstring) ---
+        # ---- flat projection; v2.1: a pooled control-year weight (open decision 1) ---
         npv_tv = 0.0
         end = int(crows["season_start"].max())
         # v1.4: expiry, UFA year and the 2020+ proxy from the chain's END.
@@ -576,6 +605,9 @@ class NPVEngine:
             cap_hit = float(final["cost"])
             s20 = int(lrows["season_start"].min()) >= 2020
             truncated = False
+            # open decision 1: start from his survival into the final contract
+            # season, then the pooled weight compounds each control year
+            S_tv = S
             for j, season in enumerate(range(end + 1, int(ufa_year)), 1):
                 k = (end - t0) + j
                 ceil = cap_path(t0, k)
@@ -587,15 +619,16 @@ class NPVEngine:
                     truncated = True                    # D13
                 if truncated:
                     break
+                S_tv *= self.g_control_weight
                 disc = (1 + G) ** (-k)
-                npv_tv += surplus * disc
+                npv_tv += S_tv * surplus * disc
                 det.append({"player_id": pid, "full_name": final["full_name"],
                             "contract_id": chain[-1], "season_start": season,
                             "k": k, "row_type": "terminal",
                             "projected_war": pw, "value_dollars": val,
                             "cost_dollars": qo, "surplus_dollars": surplus,
-                            "survival": 1.0, "discount": disc,
-                            "pv_dollars": surplus * disc})
+                            "survival": S_tv, "discount": disc,
+                            "pv_dollars": S_tv * surplus * disc})
                 sal, cap_hit = qo, qo
         d = pd.DataFrame(det)
         return d, {"status": "ok", "position": "goalie",
@@ -686,6 +719,10 @@ def validate():
 
     # ---- 2. goalie hazard table ----------------------------------------------
     dg = eng._d_g
+    log(f"\n[1c] goalie control-year weight (open decision 1): {eng.g_control_n[0]} decisions, "
+        f"{eng.g_control_n[1]} qualified; P(qualified) {eng.g_qualify_p:.3f} x P(plays | qualified) "
+        f"{eng.g_plays_given_q:.3f} = {eng.g_control_weight:.3f} a year (July 2026 test: 0.909 x "
+        f"0.867 = 0.788, n 99)")
     log(f"\n[2] goalie exit hazard (GP>=10 goalie-seasons, t=2018-2024, "
         f"n={len(dg):,}):")
     log(f"    overall: {dg['exited'].mean()*100:.2f}%/yr   "
@@ -713,13 +750,17 @@ def validate():
         """One full pass over every contract's first 2018-2025 season."""
         out = []
         for _, r in firsts.iterrows():
-            d, s = engine.npv(int(r["player_id"]), int(r["season_start"]))
+            # open decision 2: a contract signed after 1 July of its first
+            # season is valued at its signing (valuation_as_of)
+            aod = valuation_as_of(r["contract_id"], int(r["season_start"]), engine.sp.signed)
+            d, s = engine.npv(int(r["player_id"]), int(r["season_start"]), aod)
             if s.get("status") != "ok":
                 continue
             out.append({"contract_id": r["contract_id"],
                         "player_id": r["player_id"], "model": s.get("model"),
                         "full_name": s["full_name"], "position": s["position"],
                         "valuation_season": int(r["season_start"]),
+                        "as_of_date": s.get("as_of"),
                         "n_seasons": s["n_contract_seasons"],
                         "path": s["path"],
                         "npv_contract": s["npv_contract"],

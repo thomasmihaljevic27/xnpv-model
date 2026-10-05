@@ -2807,3 +2807,7 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   skater_forecast v2.2's forecast dated at each signing; term-free `XNPV1_RATE_TERM_FREE` alpha
   0.0081646316, beta 0.0310794541, beta_d_add 0.0135178851 as the sensitivity. Term built into
   pricing (remaining term per contract season; one year per control year).
+- Open decisions 1 and 2 built (2026-10-05): control years weighted by P(qualified) x P(plays |
+  qualified), measured each run, the chain starting from the final contract season's chance of
+  playing; goalie control years weighted (pooled, one-game bar) for the first time; a contract's
+  first-season valuation dated at its signing when signed after 1 July. Laptop validation owed.

@@ -95,6 +95,14 @@ year of term; term-free `XNPV1_RATE_TERM_FREE` beside it). Term built into prici
 (`skater_forward_projection.py`, `rfa_terminal_value.py`, `contract_npv.py` v2.1). Directive 4
 implemented in code; directive 5 implemented in the price line (and in valuations with open decision 2).
 
+Open decision 1 (the control-year weight, skaters and goalies) and open decision 2 (status read at
+the signing for a contract's first season) built 2026-10-05 (`rfa_terminal_value.py`, `contract_npv.py`,
+`skater_forward_projection.valuation_as_of`, `contract_npv_panel.py` v1.3).
+
+**Next step:** Thomas runs `25_TESTS/floor_spread_measure.py` on the laptop (the floor spread on v2.2);
+the new figures are locked in `skater_forecast.WAR_IF_PLAYS_MAE`; then the dashboard refresh re-runs
+every validation battery and re-prices every contract; then the documents.
+
 **Next step (was):** step 6, (a) Thomas runs `20_CODE/xnpv1_price_line.py` v2.0 on the laptop (built
 2026-10-05: signing-dated forecasts matched to the page with the identical information set; one linear
 term for years; four fits on the same rows, so directive 5 alone, directive 4 alone and both are each
@@ -663,7 +671,9 @@ WORK_QUEUE unless Thomas adds them here.
 These are choices put to Thomas during the read-through. They are not investigations; each needs
 his decision before the code it touches is changed.
 
-1. **DECIDED (Thomas, 2026-10-05): the July method, chain started from his chance of playing.** Each
+1. **DECIDED (Thomas, 2026-10-05): the July method, chain started from his chance of playing.**
+   Built 2026-10-05 (`rfa_terminal_value.TerminalValuer.control_weight`; goalies
+   `contract_npv.NPVEngine._calibrate_goalie_control`); laptop validation owed. Each
    RFA control year is weighted by P(the club qualifies him) x P(he plays, given he was qualified),
    measured among qualified players, so each departure is counted once; the chain starts from his
    forecast chance of playing the contract's final season instead of 1.0. Goalies get a weight for the
@@ -680,7 +690,8 @@ his decision before the code it touches is changed.
      charged twice).
    Also: start the control-year chain from his chance of playing the contract's final season, not
    from 1. Goalies: Thomas's July sub-decisions stand (one pooled rate, a one-game bar).
-2. **DECIDED (Thomas, 2026-10-05): at the contract's signing.** Built at step 6 with directive 5 (both
+2. **DECIDED (Thomas, 2026-10-05): at the contract's signing.** Built 2026-10-05
+   (`skater_forward_projection.valuation_as_of`); laptop validation owed. Built at step 6 with directive 5 (both
    date a contract's forecast at its signing). Evidence: investigation E2 above (log loss 0.2632
    against 0.3309, 2,000 of 2,000). Original entry:
    **When contract status is read for a contract valuation.** Contracts are valued at July 1 of
