@@ -59,8 +59,7 @@ at step 6.
 8. **Open decision 3 (the price of a delivered win)**, which unlocks directive 6 (the draft and
    prospect restart with Karl).
 
-**Next step:** step 1, the build, after Thomas's run of `25_TESTS/war_input_uniformity_test.py`
-settles the trailing WAR input (2026-10-05): directives 1-3 in code on a branch. Details 1, 3 and 4 settled
+**Next step:** step 1, the build: directives 1-3 and the 2026-10-05 build rules in code on the branch. Details 1, 3 and 4 settled
 (2026-10-04c/2026-10-05: games-weighted on both sides; the step to the valuation season; rescale over
 the seasons he has). Detail 2 waits on investigation B (step 2), which was widened with C to cover the
 comparables' level for thin histories.
@@ -161,6 +160,17 @@ comparables' level for thin histories.
     (plain 50/30/20) against the games-weighted 50/30/20 rate per 82, each with and without the
     level-above-1.0 term (cut-off 1.0 in its own units, a carried setting). The trailing games share
     stays plain 50/30/20 (a share already counts games).
+  - **Settled (Thomas, 2026-10-05): the trailing total, and the level-above-1.0 term dropped.** Both
+    equations read the plain 50/30/20 trailing WAR total; the games-share equation loses its
+    total-above-one-win term. Evidence (laptop, development pages, 40,510 player-seasons, 1,609
+    players; checks passed): season-WAR RMSE 0.8093 total without the term, 0.8107 with it, 0.8108
+    rate without, 0.8111 rate with; the rate lower than the total in 10 of 2,000 career resamples;
+    the total without the term lowest at all six seasons ahead. Chance of playing: the rate's log
+    loss lower in 0 of 2,000 (0.4089 against 0.4044). Games share: the rate slightly better (0.2645
+    against 0.2657, 2,000 of 2,000). The term helps the share but costs season WAR (total without it
+    lower in 1,979 of 2,000; rate 1,931). The rate is the input wherever a player's quality is
+    measured (the start, the aging curve); the total where the question is whether he plays and how
+    much. Not scored: a mixed version (rate in one equation, total in the other).
 - **What this overrides in `Data, Production, and Aging.docx`, Section 3** (confirmed by Thomas):
   - Step 1's decay chosen from the data;
   - Step 2's eight-term regression, its coefficient table, and its worked numbers (the 27-year-old
