@@ -315,6 +315,13 @@ comparables' level for thin histories.
      forecast wins at $47.2M). The rebuild's resolution: the replacement a contract is compared
      against is a player signed for the remaining term. The exact rule for this model is to be
      set before any code changes.
+     - **Settled (Thomas, 2026-10-05): the remaining term at the valuation date,** the same for every
+       remaining season of the contract (the comparison is a replacement signed today for the rest of
+       the deal; at signing, the full length). Each season's value = chance he plays x E[max(intercept
+       + price per forecast win x WAR if he plays + term coefficient x remaining term, league
+       minimum)] - cap hit, discounted. The term premium is reported in its own column beside
+       production value, and the term-free value beside the term-in value. Not chosen: the original
+       length at every valuation; a term shrinking season by season.
   3. *Control years:* whether the RFA control years are priced term-in, and at what term.
 - **Knock-ons once implemented:** the price line is re-fitted and re-locked; aggregate value moves
   by billions (term-in added $3.3-4.1B across 2,591 contracts in the 2026-09-14 test); the
