@@ -76,8 +76,9 @@ comparables estimate, blended with the league average at weight ten.
 **Step 3 closed (2026-10-05):** D2 and E1 built (`skater_forecast.py` v2.2); D1, D3, E3 and the
 contracted-seasons fit not adopted; open decision 2 decided (at the signing; built at step 6).
 
-**Next step:** Thomas runs `25_TESTS/de_build_check.py` on the laptop; then step 4, open decision 1 (the
-control-year weight). Do not run the dashboard or `xnpv1_price_line.py` on the branch: the price line is not re-fitted
+`25_TESTS/de_build_check.py` passed on the laptop (2026-10-05): gaps 0; figures reproduced.
+
+**Next step:** step 4, open decision 1 (the control-year weight). Do not run the dashboard or `xnpv1_price_line.py` on the branch: the price line is not re-fitted
 until step 6, so any valuation there is provisional. Details 1, 3 and 4 settled
 (2026-10-04c/2026-10-05: games-weighted on both sides; the step to the valuation season; rescale over
 the seasons he has). Detail 2 waits on investigation B (step 2), which was widened with C to cover the
@@ -525,7 +526,7 @@ when he directs it.
   0.2657 / 0.4044 / 0.1313 / 0.8088 / 0.4673; season WAR lower in 1,998 of 2,000 and better or equal at
   every season ahead; counted cost: log loss +0.0003 (lower in 780).
 - **Implemented:** `skater_forecast.py` v2.2 (`GP_FEATURES` gains `age_c2`); `25_TESTS/de_build_check.py`
-  v1.0 holds it to the tested version (passed in the cloud on fake data; laptop run owed).
+  v1.0 holds it to the tested version (passed on the laptop 2026-10-05: gaps 0, figures reproduced).
 
 ## E. The chance of playing for players under contract: is it lowered by other players' walk-aways?
 
