@@ -59,9 +59,10 @@ at step 6.
 8. **Open decision 3 (the price of a delivered win)**, which unlocks directive 6 (the draft and
    prospect restart with Karl).
 
-**Next step:** step 1, directive 1's detail 4: Thomas runs `25_TESTS/thin_history_check.py` on the
-laptop and decides how players with fewer than three counted seasons are handled. Details 1 and 3
-settled 2026-10-04c (games-weighted on both sides; the step to the valuation season taken).
+**Next step:** step 1, the build: directives 1-3 in code on a branch. Details 1, 3 and 4 settled
+(2026-10-04c/2026-10-05: games-weighted on both sides; the step to the valuation season; rescale over
+the seasons he has). Detail 2 waits on investigation B (step 2), which was widened with C to cover the
+comparables' level for thin histories.
 
 ---
 
@@ -134,6 +135,13 @@ settled 2026-10-04c (games-weighted on both sides; the step to the valuation sea
        and by seasons since the last counted one, with the own-alone and comparables-alone biases.
        Missing = zero was put to Thomas and not chosen (it scores junior, AHL and injury years as
        replacement-level NHL play).
+     - **Settled (Thomas, 2026-10-05): rescale, as tested.** Result (laptop, reproduction PASS):
+       the own rate is not what runs high for thin histories (own rate alone, start bias: one season
+       +0.053, a lone 10-19-game season +0.000, all rows +0.054). The directed start does run high
+       for them (one season +0.166 [+0.069, +0.257]; two seasons +0.100; three seasons -0.008),
+       and the excess comes from the comparables' level (alone: one season +0.374, a lone 10-19-game
+       season +0.561, trailing games under 41 +0.581). That problem went to investigations B and C
+       (widened 2026-10-05), not to this detail.
 - **Also directed (Thomas, 2026-10-04): "We are not using fitted decay."** This applies to every
   trailing total in the model. The games-share and chance-of-playing regressions, which read the
   same trailing total, therefore move to 50/30/20 too. Their other terms, including the trailing
@@ -351,6 +359,13 @@ when he directs it.
   (a fallback is needed there, because the average does not exist). Score the starting level and the
   rate one to five seasons out, broken out by the league average's share of the estimate, by age
   band (under 22, 22-34, 35 and over), and by seasons ahead.
+- **Widened (Thomas, 2026-10-05): thin histories.** `thin_history_check.py` v1.0 found the
+  comparables' level runs high for players with little NHL history (comparables alone, start bias:
+  one counted season +0.374, a lone 10-19-game season +0.561, trailing games under 41 +0.581; three
+  seasons -0.140). A reading of the code, to test: a lone season under 20 games has no profile on
+  the curve, so his comparables' level is the league average for his position and age, built only
+  from 20-game seasons. B therefore also reports every arm by seasons counted (1, 2, 3) and tests,
+  for thin histories, a fallback that does not stand on regulars' seasons alone.
 - **Until then:** the code and the model keep the weight of ten.
 
 ## C. Departed players in the aging curve: the assumed zero and its gaps
@@ -377,6 +392,12 @@ when he directs it.
      each season for the risk he leaves. Filling departures in at zero also lowers the "if he
      plays" rate for that same risk. Examine whether leaving is counted twice, and score the
      forecast with and without the filled-in seasons under the full model.
+- **Widened (Thomas, 2026-10-05): thin histories.** The comparables come from a pool that needs two
+  consecutive 20-game seasons, i.e. players who stuck; for a player with one or two counted seasons
+  that pool may sit above him (see B's widening; comparables alone run +0.374 for one-season players,
+  +0.488 and +0.803 for players whose last counted season was two and three years back). C therefore
+  also tests, for thin histories, comparables drawn without the two-consecutive-season requirement
+  (or with short seasons measured, gap 3 above), reported by seasons counted.
 - **Until then:** the code and the model keep today's rule.
 
 ## D. The games-share equation's form

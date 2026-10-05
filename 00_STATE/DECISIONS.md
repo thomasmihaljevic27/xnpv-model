@@ -2756,3 +2756,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - Detail 3 settled (Thomas): the start takes the curve's change to the valuation season (1.1506
   with it against 1.1611 without). Detail 4: Thomas asked for a check first; new
   `25_TESTS/thin_history_check.py` v1.0, laptop run owed. Code unchanged.
+- Detail 4 settled (Thomas, 2026-10-05): rescale over the seasons he has. `thin_history_check.py`
+  found the start runs high for thin histories (+0.166 one season) through the comparables' level,
+  not the own rate; investigations B and C widened to cover it. Code unchanged.
