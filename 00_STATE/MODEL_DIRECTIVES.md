@@ -679,7 +679,11 @@ when he directs it.
 - **Related, already carried elsewhere:** the price-line specification tests (straight line,
   contract length, RFA/UFA, stability over time) are not repeated on xNPV 1's line (WORK_QUEUE,
   2026-10-04 block, item 3); directives 4 and 5 change that line again.
-- **Status:** to run once directives 1-5 are implemented.
+- **Status:** run 2026-10-05 (`25_TESTS/gv_investigation_f.py` v1.2, laptop; the recorded 60/40 checks
+  reproduced first). On the same 6,027 player-seasons, r against GV-adj: 60/40 0.576; 50/30/20 0.588;
+  starting level 0.604; WAR if he plays 0.624; expected WAR 0.623, 0.624 without contract status (none of
+  the agreement comes through contract status). Forwards 0.649 -> 0.681, defence 0.302 -> 0.330; next
+  season 0.538 -> 0.602. Paired resample of the differences not yet run. Details: session 2026-10-04c.
 
 ---
 
