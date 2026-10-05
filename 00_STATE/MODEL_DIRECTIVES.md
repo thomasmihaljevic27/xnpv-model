@@ -26,7 +26,7 @@ the commit), **superseded** (replaced by a later entry).
 | C | Departed players in the aging curve: the assumed zero and its gaps | closed: C2, C6 implemented (v2.1); C5 dropped |
 | D | The games-share equation's form | closed: D2 implemented (v2.2) |
 | E | The chance of playing for players under contract | closed: E1 implemented (v2.2); E3, contracted-seasons fit dropped |
-| F | Re-run the Game Value checks on the model as directed | after directives 1-5 are built |
+| F | Re-run the Game Value checks on the model as directed | closed: run 2026-10-05; the forecast agrees with Game Value more than the trailing totals |
 
 The plan of record (order of work) follows this summary. Open decisions (Thomas's to make; listed at the end): the price of a delivered win. (Decided
 2026-10-05: the control-year weight, the July method from his chance of playing; when contract status
@@ -683,7 +683,9 @@ when he directs it.
   reproduced first). On the same 6,027 player-seasons, r against GV-adj: 60/40 0.576; 50/30/20 0.588;
   starting level 0.604; WAR if he plays 0.624; expected WAR 0.623, 0.624 without contract status (none of
   the agreement comes through contract status). Forwards 0.649 -> 0.681, defence 0.302 -> 0.330; next
-  season 0.538 -> 0.602. Paired resample of the differences not yet run. Details: session 2026-10-04c.
+  season 0.538 -> 0.602. Paired career resample (2,000 draws, v1.3): the forecast beats the 60/40 total
+  in 2,000 of 2,000 in each comparison (each Game Value version, forwards, defence, next season).
+  `Circularity and Game Value.docx` updated. **Closed 2026-10-05.** Details: session 2026-10-04c.
 
 ---
 

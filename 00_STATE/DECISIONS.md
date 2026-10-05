@@ -2846,3 +2846,5 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - Investigation F run (2026-10-05): the Game Value circularity checks on the built model. Same 6,027
   player-seasons: r 0.576 (60/40) -> 0.588 (50/30/20) -> 0.624 (WAR if he plays); none through contract
   status. No decision changed.
+  Resampled (2,000 career draws): the forecast's gain over the 60/40 total holds in each draw, in every
+  comparison. `Circularity and Game Value.docx` updated; investigation F closed.
