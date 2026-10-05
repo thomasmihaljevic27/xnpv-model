@@ -30,9 +30,17 @@ WHAT IT PRINTS (each section guarded so its numbers are production's, not a re-i
   A section that fails prints SECTION FAILED with its traceback and the rest still run, so one
   bug does not cost the whole laptop run. A failed section's numbers are not read.
 
+v1.1 (2026-10-05, Thomas: "Didn't we agree that it's not 60/40 but 50/30/20?"). Three figures in the
+documents were stated against the 60/40 two-season total, which the forecast does not use (it survives
+in skater_value_engine's observed-season value and in the harness's reporting tier). Section U restates
+them on the forecast's own trailing total, the plain 50/30/20 WAR total (skater_forecast._anchors'
+tw_WAR): U1 the forecast against that total on the price-line contracts, by position; U2 the
+season-WAR bias by tiers of that total on the development pages. `--only uniform` runs U alone.
+
 HOW TO RUN (repo root, laptop; about the time of one contract_npv run; needs the PuckPedia
 export, the contract spine from the dashboard chain, and WAR_with_age.csv at 99%+ birthdates):
-    python 25_TESTS/document_figures.py
+    python 25_TESTS/document_figures.py                 # everything
+    python 25_TESTS/document_figures.py --only uniform   # section U only (v1.1)
 Writes 30_OUTPUT/document_figures_log.txt (send it back).
 """
 import os
@@ -46,7 +54,7 @@ import pandas as pd
 
 import forecast_config as C
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 PAGE = 2024                                   # the documents' worked page
 # production's player key: the cleaned name + "|" + F/D. The cleaner maps first-name variants
 # (Jonathan -> Jon), so the key is "jon marchessault"; his career key is looked up from it in main().
@@ -266,14 +274,94 @@ def a8_tiers(fc):
             draws.append(s_[ix].sum() / n_[ix].sum())
         return np.percentile(draws, [2.5, 97.5])
     log("  season-WAR bias (forecast minus outcome; negative = under-forecast), by trailing tier:")
+    bias_table(d, "tier", ci)
+    return d
+
+
+def bias_table(d, col, ci):
+    """Bias by season ahead and pooled one to five out, for each tier in column `col`."""
+    import forecast_harness as H
     log(f"    {'tier':9s}" + "".join(f"{'+' + str(h):>8s}" for h in range(6)) + f"{'1-5 out':>10s}{'95% range, 1-5':>20s}{'players':>9s}")
     for t in H.TIER_NAMES:
-        g = d[d["tier"] == t]
+        g = d[d[col] == t]
         by_h = [g.loc[g["h"] == h, "e_war"].mean() for h in range(6)]
         g15 = g[g["h"].between(1, 5)]
         lo, hi = ci(g15)
         log(f"    {t:9s}" + "".join(f"{b:>+8.3f}" for b in by_h)
             + f"{g15['e_war'].mean():>+10.3f}{f'[{lo:+.2f}, {hi:+.2f}]':>20s}{g['career_key'].nunique():>9,}")
+
+
+# =========================================================================== U. 50/30/20 restatements
+def u1_forecast_vs_trailing():
+    """The price-line contracts: the signing-dated forecast against the forecast's own trailing total
+    (plain 50/30/20 WAR total, read off the same page as the forecast), by position; the 60/40 total
+    beside it for the record."""
+    import statsmodels.api as sm
+    import xnpv1_price_line as XPL
+    import skater_forward_projection as SFP
+    import skater_value_engine as SVE
+    import skater_forecast as SF
+    quiet = XPL.log
+    XPL.log = lambda s="": None
+    try:
+        sk = XPL.stage3_sample()
+        fc = SF.ContractForecaster()
+        d, fp, free, tin = XPL.run(sk, fc, SVE.CAP_CEILING[2025])
+    finally:
+        XPL.log = quiet
+    L = SFP.XNPV1_RATE
+    assert fp == L["rows_fingerprint"] and len(d) == L["n"], "not the locked price-line rows"
+    tw = []
+    for nk, pg, h in zip(d["nk"], d["sign_page"], d["sign_h"]):
+        f = fc.forecast(nk, int(pg), int(h))
+        tw.append(float(f["tw_WAR"].iloc[0]))
+    d["tw502"] = tw
+    log(f"price-line contracts: {len(d):,} (fingerprint {fp}, the locked rows); trailing totals read on each "
+        "contract's signing page")
+    for lab, g in (("all", d), ("forwards", d[d["is_d"] == 0]), ("defence", d[d["is_d"] == 1])):
+        out = []
+        for col, nm in (("tw502", "50/30/20"), ("wWAR", "60/40")):
+            r = sm.OLS(g["xwar_signed"].to_numpy(float), sm.add_constant(g[col].to_numpy(float))).fit()
+            out.append(f"{nm}: {r.params[0]:+.3f} + {r.params[1]:.3f} x total (R2 {r.rsquared:.3f})")
+        log(f"  forecast on trailing total, {lab:9s} n {len(g):,}:  " + ";  ".join(out))
+    for w in (2.0, 4.0):
+        r = sm.OLS(d["xwar_signed"].to_numpy(float), sm.add_constant(d["tw502"].to_numpy(float))).fit()
+        log(f"  a {w:.0f}-win 50/30/20 total is forecast at {r.params[0] + r.params[1] * w:.2f}")
+
+
+def u2_tiers(fc):
+    """The development-page bias table with players grouped by the forecast's own 50/30/20 trailing
+    total on the page (same tier edges as the harness), and how the grouping differs from 60/40."""
+    import information_set as ISET
+    import skater_forecast as SF
+    import forecast_harness as H
+    rng = np.random.default_rng(0)
+    d = a8_tiers(fc)                                    # guarded harness grid; prints the 60/40 table
+    tw = []
+    for t0 in C.DEV_PAGES:
+        iset = ISET.build(fc.table, ISET.decision_date_for_page(t0), t0=t0)
+        an = SF._anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP], SF.XNPV1.N_SEASONS)
+        an = an[an["t0"] == t0].drop_duplicates("career_key")
+        tw.append(pd.DataFrame({"page": t0, "career_key": an["career_key"], "tw502": an["tw_WAR"]}))
+    tw = pd.concat(tw, ignore_index=True)
+    d = d.merge(tw, on=["page", "career_key"], how="left")
+    assert d["tw502"].notna().all(), "a scored row has no 50/30/20 trailing total"
+    d["tier502"] = pd.cut(d["tw502"], H.TIER_EDGES, labels=H.TIER_NAMES).astype(str)
+
+    def ci(g):
+        by = g.groupby("career_key")["e_war"].agg(["sum", "size"])
+        s_, n_ = by["sum"].to_numpy(), by["size"].to_numpy()
+        draws = []
+        for _ in range(2000):
+            ix = rng.integers(0, len(by), len(by))
+            draws.append(s_[ix].sum() / n_[ix].sum())
+        return np.percentile(draws, [2.5, 97.5])
+    log("\n  the same bias, players grouped by the 50/30/20 trailing WAR total on the page:")
+    bias_table(d, "tier502", ci)
+    one = d[d["h"] == 0]
+    log("  player-pages by tier (rows: 60/40, columns: 50/30/20):")
+    log(pd.crosstab(one["tier"], one["tier502"]).reindex(index=H.TIER_NAMES, columns=H.TIER_NAMES)
+        .fillna(0).astype(int).to_string())
 
 
 # =========================================================================== B. the pricing
@@ -421,6 +509,13 @@ def main():
     global WORKED
     log(f"document_figures.py v{SCRIPT_VERSION}; skater_forecast v{SF.SCRIPT_VERSION}")
     fc = SF.ContractForecaster()
+    if "--only" in sys.argv and sys.argv[sys.argv.index("--only") + 1] == "uniform":
+        section("U1. the forecast against its own 50/30/20 trailing total, price-line contracts", u1_forecast_vs_trailing)
+        section("U2. bias by 50/30/20 trailing tier, development pages", u2_tiers, fc)
+        p = Path(os.environ["OUTPUT_DIR"]) / "document_figures_uniform_log.txt"
+        p.write_text("\n".join(LOG) + "\n", encoding="utf-8")
+        log(f"\nwritten: {p}")
+        return
     WORKED = fc.career_of[WORKED_PKEY]
     log(f"worked player: {WORKED_PKEY} -> career {WORKED}")
     page = section(f"A1. the {PAGE} page", a1_page, fc)
