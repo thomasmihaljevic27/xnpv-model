@@ -2841,3 +2841,5 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - Goalies' two-season fallback 62.5/37.5 (Thomas, 2026-10-05), replacing the fixed 60/40 in the live
   goalie path (`goalie_value_engine.py` v1.2, `contract_npv.py` v2.3); the RAW parity regime keeps the
   locked 60/40. The live goalie rate re-fits on it each run; Stage L stops if lambda leaves 0.65.
+  Validated (refresh at `9952a5d`): parity and raw guards pass; live goalie line 1.394% + 1.055% per WAR;
+  lambda 0.65 held; [1b] unchanged at 13 join recoveries; skater values unchanged.
