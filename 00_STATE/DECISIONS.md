@@ -2768,3 +2768,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   and the eight-term line removed) and D3's curve (level rule, LAMBDA 0.65), each by Thomas's
   directive. One fix beyond the tested design: the walk holds at the curve's oldest age instead of
   falling back to the league path. `25_TESTS/directed_build_check.py` v1.0 (laptop run owed).
+- Build check passed on the laptop (2026-10-05): `skater_forecast.py` v2.0 equals the tested design
+  and reproduces every recorded figure; the walk fix moves 42 of 41,496 rates. Directives 1-3
+  implemented on the branch at `64ab8bf`.

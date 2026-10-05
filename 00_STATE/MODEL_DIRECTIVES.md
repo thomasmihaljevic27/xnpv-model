@@ -12,9 +12,9 @@ the commit), **superseded** (replaced by a later entry).
 
 | # | Directive | Status |
 |---|---|---|
-| 1 | Starting level: 50/30/20 per-82 WAR over three seasons, pulled 65/35 toward comparable players; no fitted decay anywhere | built on the branch, laptop check owed |
-| 2 | The aging curve measures each player's level with 50/30/20 over three seasons, games-weighted (changed from plain 2026-10-04c) | built on the branch, laptop check owed |
-| 3 | One own-versus-comparables blend: 65/35 replaces the curve's 55/45 | built on the branch, laptop check owed |
+| 1 | Starting level: 50/30/20 per-82 WAR over three seasons, pulled 65/35 toward comparable players; no fitted decay anywhere | implemented (branch, `64ab8bf`) |
+| 2 | The aging curve measures each player's level with 50/30/20 over three seasons, games-weighted (changed from plain 2026-10-04c) | implemented (branch, `64ab8bf`) |
+| 3 | One own-versus-comparables blend: 65/35 replaces the curve's 55/45 | implemented (branch, `64ab8bf`) |
 | 4 | Contract length in the price line (term-in), term-free reported as the sensitivity | directed |
 | 5 | Price-line forecasts dated at each contract's signing | directed |
 | 6 | Draft and prospect models restart from scratch with Karl; the data is kept | directed |
@@ -65,9 +65,10 @@ design: the walk now stops at the curve's oldest age and holds (the tested code 
 league path for a player walked past it). `25_TESTS/directed_build_check.py` v1.0 holds the build to
 the tested design row by row (passed in the cloud on fake data) and to the recorded figures (laptop).
 
-**Next step:** Thomas runs `25_TESTS/directed_build_check.py` on the laptop. When it passes, directives
-1-3 are marked implemented and step 2 (investigations A, B and C, one script, on the built code)
-begins. Do not run the dashboard or `xnpv1_price_line.py` on the branch: the price line is not re-fitted
+Laptop check passed 2026-10-05: production equals the tested design row by row and reproduces every
+recorded figure; the walk fix moves 42 of 41,496 rates (7 player-pages) and no figure at four decimals.
+
+**Next step:** step 2, investigations A, B and C as one script on the built code. Do not run the dashboard or `xnpv1_price_line.py` on the branch: the price line is not re-fitted
 until step 6, so any valuation there is provisional. Details 1, 3 and 4 settled
 (2026-10-04c/2026-10-05: games-weighted on both sides; the step to the valuation season; rescale over
 the seasons he has). Detail 2 waits on investigation B (step 2), which was widened with C to cover the
@@ -86,7 +87,7 @@ comparables' level for thin histories.
     and weight them 50% (last season), 30% (the season before) and 20% (the one before that).
   - Starting level = 65% × that weighted rate + 35% × the comparable players' level.
   - No weights chosen from the data. No league average in the blend.
-- **What the code does now (not yet changed):** `skater_forecast.py` builds the starting level from
+- **What the code did before `64ab8bf`:** `skater_forecast.py` builds the starting level from
   an eight-term regression on a trailing total whose weights' decay is chosen from the data on each
   valuation date (47/32/21 from 2016). The games-share and chance-of-playing regressions read the
   same trailing total.
@@ -186,7 +187,7 @@ comparables' level for thin histories.
     examples and Marchessault's 2.37).
   - Kept: Step 2's opening paragraph on why a pull is needed.
   - To re-measure after the switch: the evidence paragraph (2.3%) and the star paragraph (-0.26).
-- **Status:** directed. Code unchanged.
+- **Status:** implemented on `claude/amazing-einstein-tk4b08` at `64ab8bf` (`skater_forecast.py` v2.0, `aging_curve.py`); `25_TESTS/directed_build_check.py` passed on the laptop 2026-10-05 (production equals the tested design row by row and reproduces every recorded figure; the walk fix moves 42 of 41,496 rates, 7 player-pages). Not yet on `main`.
 
 ---
 
@@ -214,7 +215,7 @@ comparables' level for thin histories.
   - Unchanged: the comparables pool rule (two consecutive 20-game seasons), the other profile
     measures (style, ice time, trend), the yardstick, the weighting formula, and the league weight
     of ten.
-- **What the code does now (not yet changed):** `aging_curve.py` uses the equal average of the last
+- **What the code did before `64ab8bf`:** `aging_curve.py` uses the equal average of the last
   two consecutive 20-game seasons (`WIN = 2`), and `skater_forecast.imputed_aging_model` enters a
   departure as (last rate + 0) / 2.
 - **Evidence:** `25_TESTS/aging_level_weights_test.py` v1.0, valuation dates 2015-2021:
@@ -223,7 +224,7 @@ comparables' level for thin histories.
     lower in 1,999 of 2,000 resamples. Whole forecast: 1.3596 against 1.3642, lower in 2,000.
   - Slightly worse one season out (1.2620 against 1.2603); better from two seasons on.
   - 60/40 over two seasons was worse than the equal average. Games weighting added nothing.
-- **Status:** directed. Code unchanged.
+- **Status:** implemented on `claude/amazing-einstein-tk4b08` at `64ab8bf` (`skater_forecast.py` v2.0, `aging_curve.py`); `25_TESTS/directed_build_check.py` passed on the laptop 2026-10-05 (production equals the tested design row by row and reproduces every recorded figure; the walk fix moves 42 of 41,496 rates, 7 player-pages). Not yet on `main`.
 
 ---
 
@@ -240,7 +241,7 @@ comparables' level for thin histories.
     50/30/20).
   - The forecast still adds the curve's year-to-year changes to the starting rate (unchanged: the
     changes are added in rate units, not applied as percentages).
-- **What the code does now (not yet changed):** `aging_curve.py` blends 55% own and 45% comparables
+- **What the code did before `64ab8bf`:** `aging_curve.py` blends 55% own and 45% comparables
   in `AgingModel.project`; xNPV 1 reads only the curve's changes, so that blend has no effect on any
   value today.
 - **What this overrides in `Data, Production, and Aging.docx`, Section 4:** the paragraph saying the
@@ -253,7 +254,7 @@ comparables' level for thin histories.
   the start's own rate uses 10-game seasons by calendar season (Thomas's 10-game minimum, directive
   1). The two blends use the same weights (65/35) and the same games-weighted 50/30/20 rule, but the
   start is built as tested (`level_games_weighting_test.py`), not read off the curve's anchor.
-- **Status:** directed. Code unchanged.
+- **Status:** implemented on `claude/amazing-einstein-tk4b08` at `64ab8bf` (`skater_forecast.py` v2.0, `aging_curve.py`); `25_TESTS/directed_build_check.py` passed on the laptop 2026-10-05 (production equals the tested design row by row and reproduces every recorded figure; the walk fix moves 42 of 41,496 rates, 7 player-pages). Not yet on `main`.
 
 ---
 
