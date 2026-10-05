@@ -2753,3 +2753,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - Detail 1 settled (Thomas): games-weighted on both sides, on the laptop run (start 1.1506 against
   plain's 1.1526; whole 1.3598 against 1.3618; 1,827 / 1,802 of 2,000). Directive 2's level changes
   from plain to games-weighted. Code unchanged.
+- Detail 3 settled (Thomas): the start takes the curve's change to the valuation season (1.1506
+  with it against 1.1611 without). Detail 4: Thomas asked for a check first; new
+  `25_TESTS/thin_history_check.py` v1.0, laptop run owed. Code unchanged.

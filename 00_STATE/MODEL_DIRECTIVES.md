@@ -59,8 +59,9 @@ at step 6.
 8. **Open decision 3 (the price of a delivered win)**, which unlocks directive 6 (the draft and
    prospect restart with Karl).
 
-**Next step:** step 1, directive 1's detail 3 (the step to the valuation season). Detail 1 settled
-2026-10-04c: games-weighted on both sides.
+**Next step:** step 1, directive 1's detail 4: Thomas runs `25_TESTS/thin_history_check.py` on the
+laptop and decides how players with fewer than three counted seasons are handled. Details 1 and 3
+settled 2026-10-04c (games-weighted on both sides; the step to the valuation season taken).
 
 ---
 
@@ -113,8 +114,26 @@ at step 6.
   3. *The step to the valuation season:* the test added the comparables' one-year change from the
      player's last season's age to the valuation season. Without it, the error was 1.1599 against
      1.1502.
+     - **Settled (Thomas, 2026-10-04c): take the step.** The start (65% own + 35% comparables) is
+       moved from his last counted season's age to the valuation season by the curve's own changes
+       over that gap (one year, or more after missed seasons): the comparables' changes blended with
+       the league average at weight ten, or the league-average change for his position and age where
+       he has no 20-game profile. Evidence (`level_games_weighting_test.py` v1.0, laptop, games-
+       weighted both sides): start RMSE 1.1506 with the step against 1.1611 without; whole forecast
+       1.3598 against 1.3689; the step lower on 36 of 36 RMSE/MAE cells across the four arms. No
+       resample count for this pair. Under directive 1 nothing else ages the start (the fitted
+       start's age terms go).
   4. *Fewer than three seasons:* the test renormalized over the seasons a player has (a missing
      season is not a zero), so two seasons are weighted 50/30 and one season stands alone.
+     - *Thomas, 2026-10-05 (session 2026-10-04c): check first.* On the development pages 1,881 of
+       6,916 valuation rows (27%) have one counted season (median 29 games; 948 under 30 games),
+       1,409 two, 3,626 three. The 2026-10-04 run found the start running high (+0.110 per 82) where
+       the shortest counted season is under 41 games, a group mixing thin histories with three-season
+       players. `25_TESTS/thin_history_check.py` v1.0 (laptop run owed) scores the directed start's
+       error and high/low bias by seasons counted, by games in a lone season, by total trailing games
+       and by seasons since the last counted one, with the own-alone and comparables-alone biases.
+       Missing = zero was put to Thomas and not chosen (it scores junior, AHL and injury years as
+       replacement-level NHL play).
 - **Also directed (Thomas, 2026-10-04): "We are not using fitted decay."** This applies to every
   trailing total in the model. The games-share and chance-of-playing regressions, which read the
   same trailing total, therefore move to 50/30/20 too. Their other terms, including the trailing
