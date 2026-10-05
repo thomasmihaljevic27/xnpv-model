@@ -319,14 +319,14 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 00_STATE/sessions,2026-10-04.md,state,hashable,2026-10-04,eac49bd36b8f31292c4d598f38c9b07330fda080,14948,2026-10-04,yes,git,git-tracked; audited via `git status`
 25_TESTS,late_signing_status_check.py,player,hashable,2026-10-04,d566a23cf265fc7c267e7d0d17f4fd61ad3311a5,4689,2026-10-04,yes,git,laptop check: chance of playing read at July 1 against at the signing
 00_STATE/sessions,2026-10-04b.md,state,hashable,2026-10-04b,5eea1b713061533096e85fba2841edd65ed36c2e,4228,2026-10-04,yes,git,triage of the open list
-00_STATE,MODEL_DIRECTIVES.md,state,hashable,2026-10-04c,14c7f8aecc01b59a4e4aa4becb16d3ff4c1beaad,46222,2026-10-04,yes,git,"Thomas's explicit model directives, entry by entry"
+00_STATE,MODEL_DIRECTIVES.md,state,hashable,2026-10-04c,6c007f0b7f486fe9986dcc31a892fa8594c2521a,46255,2026-10-04,yes,git,"Thomas's explicit model directives, entry by entry"
 25_TESTS,aging_level_weights_test.py,player,hashable,2026-10-04,48fe1aaafdf02738d8cb3c20d82ff22c56b776c4,15325,2026-10-04,yes,git,finished test or diagnostic
 25_TESTS,starting_level_simple_test.py,player,hashable,2026-10-04,02d3025eebcb181cc31d47da3a1a8fc838452f4f,17263,2026-10-04,yes,git,finished test or diagnostic
-00_STATE/sessions,2026-10-04c.md,state,hashable,2026-10-04c,dff12efbf52f9af9f11d34da16c48fe29d93b8d7,19574,2026-10-04,yes,git,plan of record step 1: directive 1 detail 1; test script written
+00_STATE/sessions,2026-10-04c.md,state,hashable,2026-10-04c,e00ba310f01d9080f7a83f1573a659a5eeaec006,19804,2026-10-04,yes,git,plan of record step 1: directive 1 detail 1; test script written
 25_TESTS,level_games_weighting_test.py,player,hashable,2026-10-04c,bd25199253b89d0416d4b1cdb35b3f6bba46eda0,13745,2026-10-04,yes,git,directive 1 detail 1 test; run 2026-10-04
 25_TESTS,thin_history_check.py,player,hashable,2026-10-04c,f07e9b2ffbf0cdb5f7cb664d2507f262670f210a,10300,2026-10-05,yes,git,directive 1 detail 4 diagnostic; run 2026-10-05
 25_TESTS,war_input_uniformity_test.py,player,hashable,2026-10-04c,321f494b7beb3dd1c0774cefff637d99cadcb693,17292,2026-10-05,yes,git,trailing total vs rate per 82; run 2026-10-05
 25_TESTS,directed_build_check.py,player,hashable,2026-10-04c,dc3cd45109660ebd155f977bb6069ec650c07535,12373,2026-10-05,yes,git,holds skater_forecast v2.0 to the tested design; passed 2026-10-05
 25_TESTS,aging_investigations_abc.py,player,hashable,2026-10-04c,5a59d0db52a542ca3db0259325bf9d2791605534,24316,2026-10-05,yes,git,"investigations A, B, C on the built forecast; run 2026-10-05"
 25_TESTS,aging_abc_followup.py,player,hashable,2026-10-04c,51b244599bf9ec3cb6ac1fd50026626d08312740,10961,2026-10-05,yes,git,A1+C2+C6 together; C5 on the level only; run 2026-10-05
-25_TESTS,abc_build_check.py,player,hashable,2026-10-04c,ef7dc86fcd6c5f18d1010a82116e5ad8cd6d44b0,7109,2026-10-05,yes,git,holds skater_forecast v2.1 to the A1+C2+C6 version; laptop run owed
+25_TESTS,abc_build_check.py,player,hashable,2026-10-04c,ef7dc86fcd6c5f18d1010a82116e5ad8cd6d44b0,7109,2026-10-05,yes,git,holds skater_forecast v2.1 to the A1+C2+C6 version; passed 2026-10-05

@@ -69,11 +69,11 @@ Laptop check passed 2026-10-05: production equals the tested design row by row a
 recorded figure; the walk fix moves 42 of 41,496 rates (7 player-pages) and no figure at four decimals.
 
 **Step 2 closed (2026-10-05):** A1, C2, C6 adopted and built (`skater_forecast.py` v2.1); A2, B1, B2,
-C1, C3, C4 and C5 not adopted. `25_TESTS/abc_build_check.py` v1.0 owed on the laptop. Directive 1's
+C1, C3, C4 and C5 not adopted. `25_TESTS/abc_build_check.py` v1.0 passed on the laptop (gaps 0; 1.1506 / 1.3587 / 0.8088 / 0.4673). Directive 1's
 detail 2 (which comparable-player level): B kept the curve's estimate with the league weight of ten;
 Thomas to confirm that this settles detail 2.
 
-**Next step:** after the build check, step 3: investigation D (the games-share equation's form), and
+**Next step:** step 3: investigation D (the games-share equation's form), and
 investigation E with open decision 2 (the chance of playing under contract; when contract status is read). Do not run the dashboard or `xnpv1_price_line.py` on the branch: the price line is not re-fitted
 until step 6, so any valuation there is provisional. Details 1, 3 and 4 settled
 (2026-10-04c/2026-10-05: games-weighted on both sides; the step to the valuation season; rescale over
@@ -394,7 +394,7 @@ when he directs it.
   +0.0002, age 35+ +0.0010 (C6), one-season start bias +0.166 to +0.171 (C2); the gain is mostly C2's.
 - **Implemented** in `aging_curve.py` (`h_by_pos`, used by `_weights`; the pooled `h` kept for
   reporting) with C2 and C6, `skater_forecast.py` v2.1; `25_TESTS/abc_build_check.py` v1.0 holds it to
-  the tested version (passed in the cloud on fake data; laptop run owed).
+  the tested version (passed on the laptop 2026-10-05: gaps 0, figures reproduced).
 
 ## B. The league average inside the comparables' estimate: who needs it, and can it go?
 
