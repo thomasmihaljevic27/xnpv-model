@@ -2784,3 +2784,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   2,000 of 2,000 each); C5 dropped in both forms (the thin-history start and walk biases partly
   cancel; WORK_QUEUE). Built: `aging_curve.py` per-position yardstick, `skater_forecast.py` v2.1
   departures (returners skipped; own games). `25_TESTS/abc_build_check.py` v1.0, laptop run owed.
+- Directive 1 detail 2 settled (Thomas, 2026-10-05): the comparables' level is the curve's estimate,
+  league weight ten (investigation B). Step 3 versions approved: D1-D3, E0-E3 (E2 answers open
+  decision 2); `25_TESTS/games_and_playing_de.py` v1.0, laptop run owed. Code unchanged.

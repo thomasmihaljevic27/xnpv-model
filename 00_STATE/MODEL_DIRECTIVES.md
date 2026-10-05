@@ -70,11 +70,11 @@ recorded figure; the walk fix moves 42 of 41,496 rates (7 player-pages) and no f
 
 **Step 2 closed (2026-10-05):** A1, C2, C6 adopted and built (`skater_forecast.py` v2.1); A2, B1, B2,
 C1, C3, C4 and C5 not adopted. `25_TESTS/abc_build_check.py` v1.0 passed on the laptop (gaps 0; 1.1506 / 1.3587 / 0.8088 / 0.4673). Directive 1's
-detail 2 (which comparable-player level): B kept the curve's estimate with the league weight of ten;
-Thomas to confirm that this settles detail 2.
+detail 2 (which comparable-player level): **settled (Thomas, 2026-10-05)** by B's outcome: the curve's
+comparables estimate, blended with the league average at weight ten.
 
-**Next step:** step 3: investigation D (the games-share equation's form), and
-investigation E with open decision 2 (the chance of playing under contract; when contract status is read). Do not run the dashboard or `xnpv1_price_line.py` on the branch: the price line is not re-fitted
+**Next step:** step 3: Thomas runs `25_TESTS/games_and_playing_de.py` v1.0 on the laptop (D1-D3; E0-E3,
+E2 answering open decision 2). Do not run the dashboard or `xnpv1_price_line.py` on the branch: the price line is not re-fitted
 until step 6, so any valuation there is provisional. Details 1, 3 and 4 settled
 (2026-10-04c/2026-10-05: games-weighted on both sides; the step to the valuation season; rescale over
 the seasons he has). Detail 2 waits on investigation B (step 2), which was widened with C to cover the
@@ -505,6 +505,10 @@ when he directs it.
   2. A curved age effect against the straight line.
   Score the games share and season WAR on development pages; the cap binds rarely, so expect a
   small effect.
+- **Update (2026-10-05):** since v2.0 the line no longer has the above-one-win term (build rule,
+  Thomas); its inputs are the trailing share, defence, experience, age - 27 and the trailing total.
+- **Versions approved (Thomas, 2026-10-05):** D1 fractional logit, D2 the line plus age squared, D3
+  both; `25_TESTS/games_and_playing_de.py` v1.0, laptop run owed.
 - **Until then:** the code and the model keep the straight line with the cap and floor.
 
 ## E. The chance of playing for players under contract: is it lowered by other players' walk-aways?
@@ -533,6 +537,12 @@ when he directs it.
   effect that varies by quality.
 - **Separate from** the control-year weighting (P(qualified) x P(plays, given qualified)), which
   awaits Thomas's choice of method and is not affected by this pool question.
+- **Versions approved (Thomas, 2026-10-05):** E0 a diagnostic for players under contract (forecast
+  against played, by quality and season ahead); E1 the before-2018 marker put back
+  (`contract_unknown`, excluded by the build); E2, which answers open decision 2: contracts signed
+  after 1 July of their first season, the chance of playing read at 1 July against at the signing, on
+  the seasons each covers; E3 a contract effect by quality (under contract x trailing total).
+  `25_TESTS/games_and_playing_de.py` v1.0, laptop run owed.
 - **Until then:** the code and the model keep the current chance of playing.
 
 ## F. Re-run the Game Value circularity checks on the model as directed (final item)
