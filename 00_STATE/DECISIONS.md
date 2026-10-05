@@ -2763,3 +2763,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   counted age). The trailing WAR input to the games-share and chance-of-playing equations goes to a
   test first, total against rate per 82 (`25_TESTS/war_input_uniformity_test.py` v1.0, laptop run
   owed); Thomas's stated preference is one uniform per-82 input. Directive 3's note corrected.
+- Step 1 build (2026-10-05, branch `claude/amazing-einstein-tk4b08`): directives 1-3 and the build
+  rules in `skater_forecast.py` v2.0 and `aging_curve.py`. This revisits D33's start (fitted decay
+  and the eight-term line removed) and D3's curve (level rule, LAMBDA 0.65), each by Thomas's
+  directive. One fix beyond the tested design: the walk holds at the curve's oldest age instead of
+  falling back to the league path. `25_TESTS/directed_build_check.py` v1.0 (laptop run owed).

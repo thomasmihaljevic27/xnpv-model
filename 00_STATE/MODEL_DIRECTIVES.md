@@ -12,9 +12,9 @@ the commit), **superseded** (replaced by a later entry).
 
 | # | Directive | Status |
 |---|---|---|
-| 1 | Starting level: 50/30/20 per-82 WAR over three seasons, pulled 65/35 toward comparable players; no fitted decay anywhere | directed |
-| 2 | The aging curve measures each player's level with 50/30/20 over three seasons, games-weighted (changed from plain 2026-10-04c) | directed |
-| 3 | One own-versus-comparables blend: 65/35 replaces the curve's 55/45 | directed |
+| 1 | Starting level: 50/30/20 per-82 WAR over three seasons, pulled 65/35 toward comparable players; no fitted decay anywhere | built on the branch, laptop check owed |
+| 2 | The aging curve measures each player's level with 50/30/20 over three seasons, games-weighted (changed from plain 2026-10-04c) | built on the branch, laptop check owed |
+| 3 | One own-versus-comparables blend: 65/35 replaces the curve's 55/45 | built on the branch, laptop check owed |
 | 4 | Contract length in the price line (term-in), term-free reported as the sensitivity | directed |
 | 5 | Price-line forecasts dated at each contract's signing | directed |
 | 6 | Draft and prospect models restart from scratch with Karl; the data is kept | directed |
@@ -59,7 +59,16 @@ at step 6.
 8. **Open decision 3 (the price of a delivered win)**, which unlocks directive 6 (the draft and
    prospect restart with Karl).
 
-**Next step:** step 1, the build: directives 1-3 and the 2026-10-05 build rules in code on the branch. Details 1, 3 and 4 settled
+**Step 1 build (2026-10-05):** directives 1-3 and the build rules are in `20_CODE/skater_forecast.py`
+v2.0 and `20_CODE/aging_curve.py` on `claude/amazing-einstein-tk4b08`. One fix beyond the tested
+design: the walk now stops at the curve's oldest age and holds (the tested code fell back to the
+league path for a player walked past it). `25_TESTS/directed_build_check.py` v1.0 holds the build to
+the tested design row by row (passed in the cloud on fake data) and to the recorded figures (laptop).
+
+**Next step:** Thomas runs `25_TESTS/directed_build_check.py` on the laptop. When it passes, directives
+1-3 are marked implemented and step 2 (investigations A, B and C, one script, on the built code)
+begins. Do not run the dashboard or `xnpv1_price_line.py` on the branch: the price line is not re-fitted
+until step 6, so any valuation there is provisional. Details 1, 3 and 4 settled
 (2026-10-04c/2026-10-05: games-weighted on both sides; the step to the valuation season; rescale over
 the seasons he has). Detail 2 waits on investigation B (step 2), which was widened with C to cover the
 comparables' level for thin histories.

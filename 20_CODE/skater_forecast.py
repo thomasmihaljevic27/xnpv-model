@@ -7,6 +7,14 @@ rebuilt age table). Promoted 2026-10-02 from the rebuild tree, where it was
 `star_candidates.XNPV1` ("Model 6"): `candidate(gp=True, contracts=True)` on
 `obvious_fixes.ObviousFixes` on `ability_forecast.A1HingeExposure`.
 
+v2.0 (2026-10-05, branch claude/amazing-einstein-tk4b08): THE DIRECTED FORECAST.
+Thomas's directives 1-3 and the build rules in 00_STATE/MODEL_DIRECTIVES.md
+replace the fitted start and the fitted decay. PROVISIONAL: the price line
+(XNPV1_RATE), the qualify rates and WAR_IF_PLAYS_MAE below were all measured
+on the v1.x forecast and are re-measured at the plan of record's step 6; the
+2022-2025 confirmation above was run on v1.x, not on this. The v1.x forecast is
+in git at 2bc0399 and before.
+
 WHAT IT FORECASTS, for a player valued at page t0 and each season h ahead
 (h = 0 is the valuation season itself, which has not been played on 1 July):
     rate_82   WAR per 82 games if he plays
@@ -15,24 +23,29 @@ WHAT IT FORECASTS, for a player valued at page t0 and each season h ahead
     so expected WAR = p_play x rate_82 x gp_share, and the WAR if he plays is
     rate_82 x gp_share.
 
-HOW, step by step (each step is the rebuild's code, copied, not rewritten):
-    1. THE START. A three-season weighted trailing total, with the weights'
-       decay fitted on earlier seasons (BaseModel._fit_decay), pulled toward
-       the league by a fitted line (RATE_FEATURES; games-weighted least
-       squares on pairs whose outcome finished before the page).
+HOW, step by step (v2.0; MODEL_DIRECTIVES.md entries 1-3 and build rules):
+    1. THE START, no fitted line. 65% x his own rate per 82 (own_82: the
+       seasons t0-1, t0-2, t0-3 weighted 50/30/20, each weight times that
+       season's games, 10+ game seasons only, rescaled over the ones he has)
+       + 35% x his comparable players' level at the age of his last counted
+       season (aging_curve, blended with the league level at weight ten),
+       + the curve's change from that age to the valuation season. (v1.x: a
+       trailing total with a fitted decay, pulled by an eight-term fitted line.)
     2. THE AGING WALK. The comparable-player curve, 20_CODE/aging_curve.py
-       (D3's comparables, settings unchanged), fitted on seasons before the
-       page. Its yearly changes are ADDED to the start (not multiplied), read
-       from the player's profile one age back, then two, as production's
-       ratio path does. Players who left the league enter the curve at
-       replacement level for the season they missed (imputed_aging_model).
-       No replacement floor is applied to a negative start (D12 v3 is
-       superseded for skaters by D33).
+       (level games-weighted 50/30/20 by age, directive 2), fitted on seasons
+       before the page. Its changes are ADDED to the start (not multiplied).
+       One match, at his last counted age, gives the step to the valuation
+       season and every later change; with no 20-game profile there, the
+       league-average changes (XNPV1._path; v1.x read his profile one season
+       before the valuation season, else two). Players who left the league
+       enter the curve at replacement level for the season they missed
+       (imputed_aging_model). No replacement floor is applied to a negative
+       start (D12 v3 is superseded for skaters by D33).
     3. THE GAMES SHARE. A fitted line per horizon on the trailing share,
-       position, experience, age AND the player's level (GP_FEATURES), so a
-       star and a depth player with the same recent share are not forecast
-       the same share.
-    4. THE CHANCE OF PLAYING. participation_model.ParticipationModel, reading
+       position, experience, age and the trailing WAR total (GP_FEATURES;
+       plain 50/30/20). The total-above-one-win term was dropped in v2.0.
+    4. THE CHANCE OF PLAYING. participation_model.ParticipationModel (its
+       level input: the plain 50/30/20 trailing WAR total), reading
        contract status where the vendor export's coverage is complete
        ("observable"), the before/after-2018 indicator left out. Read at
        1 July of the page for the page forecast, and at a contract's signing
@@ -51,6 +64,7 @@ WHAT WAS LEFT OUT IN PROMOTION, and why it changes nothing
     rebuild class's on the development pages.
 
 THE FLOOR SPREAD (decision 3 of the migration plan, Thomas 2026-10-02)
+    STALE IN v2.0: measured on the v1.x forecast; re-measured at step 6.
     WAR_IF_PLAYS_MAE: xNPV 1's own mean absolute miss of the WAR-if-plays,
     seasons played, every row it forecasts on the development pages 2015-2021
     (40,510 forecasts; cloud, 2026-10-02). contract_npv turns it into the
@@ -73,18 +87,25 @@ import forecast_config as C
 import information_set as ISET
 from participation_model import ParticipationModel
 
-SCRIPT_VERSION = "1.1"
+SCRIPT_VERSION = "2.0"
 MODEL_NAME = "xNPV 1"
 
-W_T1, W_T2 = 0.6, 0.4    # the locked recency weighting; 0.4/0.6 is the starting decay
+# DIRECTIVE 1 (Thomas, 2026-10-04): "We are not using fitted decay." Every
+# trailing measure weights the three seasons before the valuation season
+# 50/30/20 (last season first), rescaled over the 10+ game seasons he has, so a
+# missing season is not a zero (detail 4, settled 2026-10-05).
+TRAIL_WEIGHTS = (0.5, 0.3, 0.2)
+# The start's own-versus-comparables blend (directive 1; directive 3 makes it the
+# model's only one): 65% his own rate, 35% his comparable players' level.
+K_OWN = 0.65
 STALE_LOOKBACK = 3       # matches forecast_harness.ACTIVE_WINDOW
 HMAX = C.MAX_HORIZON     # how far the comparables walk is tabulated
 
-# The fitted start's terms (ability_forecast.A1HingeExposure.FEATURES).
-RATE_FEATURES = ["tw_WAR", "tw_hi1", "tw_x_exposure", "one_season", "is_D",
-                 "exp_seasons", "age_c", "age_c2"]
-# The games-share line's terms (star_candidates.GP_WITH_LEVEL).
-GP_FEATURES = ["tr_gp_share", "is_D", "exp_seasons", "age_c", "tw_WAR", "tw_hi1"]
+# The games-share line's terms. Its level input is the plain 50/30/20 trailing
+# WAR TOTAL (Thomas, 2026-10-05, on 25_TESTS/war_input_uniformity_test.py: the
+# total beat the rate per 82 on season WAR). The total-above-one-win term
+# (`tw_hi1`) was dropped the same day: it helped the share but cost season WAR.
+GP_FEATURES = ["tr_gp_share", "is_D", "exp_seasons", "age_c", "tw_WAR"]
 
 # xNPV 1's own WAR-if-plays misses by season ahead (see the docstring).
 WAR_IF_PLAYS_MAE = {0: 0.6730, 1: 0.7486, 2: 0.7991, 3: 0.8516, 4: 0.8792, 5: 0.8926}
@@ -100,13 +121,28 @@ def war_if_plays_sd(k: int) -> float:
 
 
 # --------------------------------------------------------------------------- the anchors
-def _anchors(played: pd.DataFrame, n_seasons: int = 2,
-             decay: float = W_T2 / W_T1, stale: bool = True,
-             cols: list | None = None) -> pd.DataFrame:
+def _anchors(played: pd.DataFrame, n_seasons: int = 3,
+             decay: float | None = None, stale: bool = True,
+             cols: list | None = None, weights=None) -> pd.DataFrame:
     """For every player and every season t0 he could have been valued at, the
     trailing facts from the seasons before t0 only (copied from
     ability_forecast._anchors). Structurally incapable of seeing season t0:
-    every part is built by adding a POSITIVE lag to the season it came from."""
+    every part is built by adding a POSITIVE lag to the season it came from.
+
+    WEIGHTS (v2.0). Production uses TRAIL_WEIGHTS, 50/30/20 (no fitted decay,
+    directive 1). `decay` (geometric 1, d, d^2, ...) is kept only so the recorded
+    tests that compare against the old trailing total can still build it; no
+    production call passes it.
+
+    COLUMNS the forecast reads (v2.0):
+      own_82       his rate per 82, each season's 50/30/20 weight TIMES its games
+                   (directive 1, detail 1): the own side of the start
+      tw_WAR       the trailing WAR total, plain weights: the level the games share
+                   and the chance of playing read
+      tr_gp_share  the trailing games share, plain weights
+      age          age at the valuation season; age_last and last_lag: the age at,
+                   and seasons back to, his most recent counted season (the curve's
+                   step to the valuation season starts there, detail 3)"""
     cols = list(C.COMPONENTS_MODEL + ["WAR"] if cols is None else cols)
     rate_cols = [c + "_82" for c in cols]
     keep = ["career_key", "pkey", "pos", "syr", "GP", "gp_share", "toi_pg",
@@ -119,8 +155,13 @@ def _anchors(played: pd.DataFrame, n_seasons: int = 2,
         parts.append(q.add_suffix(f"_{lag}"))
     m = pd.concat(parts, axis=1).reset_index()
 
-    # Geometric weights: the most recent season 1, the one before `decay`, ...
-    w = np.array([decay ** (i - 1) for i in lags], dtype=float)
+    if weights is None and decay is None:
+        weights = TRAIL_WEIGHTS[:n_seasons]
+    if weights is not None:
+        assert len(weights) == n_seasons, (weights, n_seasons)
+        w = np.asarray(weights, dtype=float)
+    else:                                   # geometric: 1, decay, decay^2 (tests only)
+        w = np.array([decay ** (i - 1) for i in lags], dtype=float)
     avail = np.column_stack([m[f"GP_{lag}"].notna().to_numpy() for lag in lags])
 
     out = pd.DataFrame({"career_key": m["career_key"], "t0": m["t0"]})
@@ -140,21 +181,33 @@ def _anchors(played: pd.DataFrame, n_seasons: int = 2,
     out["age"] = age
     out["age_c"] = out["age"] - 27.0          # centred near the peak
     out["age_c2"] = out["age_c"] ** 2
+    # His most recent counted season: its age (not stepped forward) and how many
+    # seasons before t0 it was. The start is measured there and aged to t0.
+    out["age_last"] = _first_available(m, "age", lags)
+    last_lag = pd.Series(np.nan, index=m.index)
+    for lag in reversed(lags):
+        last_lag = last_lag.where(m[f"GP_{lag}"].isna(), float(lag))
+    out["last_lag"] = last_lag
 
-    def blend(col):
+    def blend(col, games=False):
         """Weighted average over the seasons the player actually has,
-        renormalised over what is available."""
+        renormalised over what is available. games=True multiplies each
+        season's weight by its games (directive 1, detail 1)."""
         vals = np.column_stack([m[f"{col}_{lag}"].to_numpy(float) for lag in lags])
         ok = np.isfinite(vals)
         ww = np.where(ok, w[None, :], 0.0)
+        if games:
+            gp = np.column_stack([m[f"GP_{lag}"].to_numpy(float) for lag in lags])
+            ww = np.where(ok, ww * np.nan_to_num(gp), 0.0)
         tot = ww.sum(axis=1)
         num = np.where(ok, np.nan_to_num(vals) * ww, 0.0).sum(axis=1)
         return np.where(tot > 0, num / np.where(tot > 0, tot, 1.0), np.nan)
 
     for c in cols:
         out["tw_" + c] = blend(c)              # trailing weighted TOTAL
-        out["tr_" + c] = blend(c + "_82")      # trailing weighted RATE
+        out["tr_" + c] = blend(c + "_82")      # trailing weighted RATE (plain)
     out["tr_gp_share"] = blend("gp_share")
+    out["own_82"] = blend("WAR_82", games=True) if "WAR" in cols else np.nan
 
     # Evidence behind the anchor, in games; NOT renormalised, so a short
     # history counts as less evidence.
@@ -163,7 +216,8 @@ def _anchors(played: pd.DataFrame, n_seasons: int = 2,
     out["stale_history"] = 0.0
 
     # Returning players: an anchor from the most recent qualifying season alone
-    # when the window holds none, tagged, added only where missing.
+    # when the window holds none, tagged, added only where missing. (Never runs
+    # at three seasons, production's window.)
     if stale and n_seasons < STALE_LOOKBACK:
         deep = _anchors(played, STALE_LOOKBACK, decay, stale=False, cols=cols)
         have = pd.MultiIndex.from_arrays([out["career_key"], out["t0"]])
@@ -173,10 +227,6 @@ def _anchors(played: pd.DataFrame, n_seasons: int = 2,
             add["stale_history"] = 1.0
             out = pd.concat([out, add], ignore_index=True)
 
-    # The level terms the fitted start and the games share read.
-    out["tw_hi1"] = np.clip(out["tw_WAR"] - 1.0, 0, None)
-    out["tw_hi2"] = np.clip(out["tw_WAR"] - 2.0, 0, None)
-    out["tw_x_exposure"] = out["tw_WAR"] * (out["exposure_gp"] / 82.0)
     return out.dropna(subset=["tw_WAR"]).reset_index(drop=True)
 
 
@@ -211,13 +261,6 @@ def _ols(X: pd.DataFrame, y: pd.Series, w: pd.Series | None = None):
     except np.linalg.LinAlgError:
         return None
     return list(X.columns), beta
-
-
-def _rate_weight(g: pd.DataFrame) -> pd.Series | None:
-    """The games behind each rate observation, or None when weighting is off."""
-    if not C.RATE_WEIGHT_BY_GAMES or "y_gp" not in g.columns:
-        return None
-    return g["y_gp"].clip(lower=0.0)
 
 
 def _apply(coef, X: pd.DataFrame, fallback: pd.Series) -> np.ndarray:
@@ -266,10 +309,13 @@ def imputed_aging_model(path: str, before: int):
     seasons before the page, with departures entered at replacement level
     (copied from obvious_fixes.imputed_aging_model). A pool season at age a
     whose player has NO row at age a+1 (he did not appear), with that season
-    finished before the page, gets an imputed next level of (rate + 0) / 2,
-    the pool's own two-season smoothing; the league-average changes are
-    recomputed with the imputed changes included. A player who played at a+1
-    under 20 games is NOT a departure."""
+    finished before the page, gets an imputed next level: the curve's own level
+    rule (aging_curve.level_at, directive 2: games-weighted 50/30/20) with the
+    missing season entered at rate 0 and aging_curve.DEPARTED_GP games (82).
+    Until v2.0 it was (rate + 0) / 2, the old two-season average. The
+    league-average changes are recomputed with the imputed changes included. A
+    player who played at a+1 under 20 games is NOT a departure. Equal to
+    25_TESTS/aging_level_weights_test.build_curve with the directed weights."""
     import aging_curve as AC
 
     class ImputedAgingModel(AC.AgingModel):
@@ -285,6 +331,7 @@ def imputed_aging_model(path: str, before: int):
             self.n_imputed = 0
             imputed = {}
             for name, p in self.players.items():
+                byage = {s["age"]: s for s in p["seasons"]}
                 for s in p["seasons"]:
                     a = s["age"]
                     if (a + 1) in p["sm"] or (name, a + 1) in present:
@@ -292,7 +339,9 @@ def imputed_aging_model(path: str, before: int):
                     sy = syr_of.get((name, a))
                     if sy is None or sy + 1 >= int(before):
                         continue                      # the next season is not over yet
-                    nxt = (s["w82"] + 0.0) / 2.0 if AC.WIN > 1 else 0.0
+                    b2 = dict(byage)
+                    b2[a + 1] = {"w82": 0.0, "gp": AC.DEPARTED_GP}
+                    nxt = AC.level_at(b2, a + 1)
                     imputed[(name, a)] = nxt - p["sm"][a]
             self.imputed_ = imputed
             self.n_imputed = len(imputed)
@@ -332,10 +381,7 @@ class XNPV1:
 
     name = MODEL_NAME
     N_SEASONS = 3
-    DECAY = W_T2 / W_T1
-    DECAY_GRID = np.array([0.40, 0.50, 0.60, 0.667, 0.75, 0.85, 1.00])
     FITTED_HORIZONS = C.FITTED_HORIZONS
-    FEATURES = RATE_FEATURES
     CONTRACT_STATE = "observable"
     PART_EXCLUDE = ("contract_unknown",)
     _curves: dict = {}      # one comparables curve per page, shared across instances
@@ -344,14 +390,15 @@ class XNPV1:
     def fit(self, table: pd.DataFrame, before: int) -> "XNPV1":
         self.before = before
         self.fitted_horizons_ = None
-        self.decay_ = self._fit_decay(table, before)
         pairs = self._training_pairs(table, before, C.CANDIDATE_HORIZONS)
 
-        # 1. The start: the valuation-season rate line (the only one the walk reads).
-        g0 = pairs[pairs["h"] == 0]
-        r = g0.dropna(subset=["y_rate"])
-        self.coef_ = {0: (_ols(r[self.FEATURES], r["y_rate"], _rate_weight(r))
-                          if len(r) > 50 else None)}
+        # 1. The start needs no fitted line (directive 1). Its fallback when he
+        # has no age: the league's games-weighted rate per 82 for his position
+        # group, from 10+ game seasons before the page.
+        q = table[(table["GP"] >= C.MIN_GP) & (table["syr"] < before)]
+        grp = np.where(q["pos"] == "D", "D", "F")
+        self.league_rate_ = {g: float(np.sum(x["WAR_82"] * x["GP"]) / np.sum(x["GP"]))
+                             for g, x in q.assign(_g=grp).groupby("_g")}
 
         # 3. The games share, one line per horizon, reading the player's level.
         self.gp_coef_ = {}
@@ -368,11 +415,11 @@ class XNPV1:
             raise RuntimeError(
                 f"xNPV 1 needs the contract export ({type(e).__name__}: {e}); expected at "
                 f"{C.F_CONTRACTS_CSV}") from e
-        n, d = self.N_SEASONS, self.decay_
+        n = self.N_SEASONS
         self.part_ = ParticipationModel(
             contracts, exclude=tuple(self.PART_EXCLUDE),
             contract_state=self.CONTRACT_STATE).fit(
-            table, before, anchors_fn=lambda p: _anchors(p, n, d),
+            table, before, anchors_fn=lambda p: _anchors(p, n),
             horizons=self.fitted_horizons_)
 
         # 2. The comparable-player curve for this page.
@@ -381,30 +428,8 @@ class XNPV1:
         if before not in self._curves:
             self._curves[before] = imputed_aging_model(str(path), before)
         self.curve_ = self._curves[before]
-        self._cum = {}
+        self._paths = {}
         return self
-
-    def _fit_decay(self, table: pd.DataFrame, before: int) -> float:
-        """Pick the trailing weights' decay on the rolling window: score each
-        candidate's blended rate against the season it anchors, outcomes
-        completed before the page only, errors weighted by the outcome's games."""
-        s = table[table["GP"] >= C.MIN_GP]
-        act = s.set_index(["career_key", "syr"])
-        best, best_sse = self.DECAY, np.inf
-        for d in self.DECAY_GRID:
-            a = _anchors(s, self.N_SEASONS, float(d))
-            a = a[a["t0"] < before]
-            ix = pd.MultiIndex.from_arrays([a["career_key"], a["t0"]])
-            y = act["WAR_82"].reindex(ix).to_numpy()
-            gp = act["GP"].reindex(ix).to_numpy()
-            ok = np.isfinite(y) & np.isfinite(a["tr_WAR"].to_numpy())
-            if ok.sum() < 200:
-                continue
-            e = a["tr_WAR"].to_numpy()[ok] - y[ok]
-            sse = float((gp[ok] * e ** 2).sum())
-            if sse < best_sse:
-                best, best_sse = float(d), sse
-        return best
 
     def _record_fitted_horizons(self, pairs: pd.DataFrame) -> None:
         """The horizons this page can carry: those with MIN_HORIZON_PAIRS pairs."""
@@ -416,7 +441,7 @@ class XNPV1:
         """Every (inputs at t, outcome at t+h) pair whose OUTCOME completed
         before `before`, the one place training data is built."""
         s = table[table["GP"] >= C.MIN_GP]
-        anchors = _anchors(s, self.N_SEASONS, self.decay_)
+        anchors = _anchors(s, self.N_SEASONS)
         out = []
         for h in horizons:
             a = anchors.copy()
@@ -437,18 +462,16 @@ class XNPV1:
 
     # ---- predict ---------------------------------------------------------------
     def _page_anchors(self, iset, subs) -> pd.DataFrame:
-        a = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP],
-                     self.N_SEASONS, self.decay_)
+        a = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP], self.N_SEASONS)
         return a[a["t0"] == iset.t0].set_index("career_key").reindex(subs["career_key"])
 
     def predict(self, iset, subs, horizons) -> pd.DataFrame:
         self._guard_horizons(horizons)
         a = self._page_anchors(iset, subs)
-        rate0 = _apply(self.coef_.get(0), a[self.FEATURES], a["tw_WAR"])
         rows = []
         for h in horizons:
             r = subs.copy()
-            r["rate_82"] = self._walk(r, rate0, a, h)
+            r["rate_82"] = self._rate(a, h)
             gp = _apply(self.gp_coef_.get(h), a[GP_FEATURES], a["tr_gp_share"])
             r["gp_share"] = np.clip(gp, 0.05, 1.0)
             r["p_play"] = self._p_play(a, subs, h)
@@ -456,62 +479,88 @@ class XNPV1:
             rows.append(r[["career_key", "h", "rate_82", "gp_share", "p_play"]])
         return pd.concat(rows, ignore_index=True)
 
-    def _changes(self, key, age, is_d):
-        """Cumulative change from `age` to age+k, k = 0..HMAX, and its source:
-        the player's own comparables (read one age back, then two), else the
-        league-average curve for his position."""
+    def _path(self, key, pos, age_last, gap):
+        """(comparables' level at his last counted age, cumulative change from
+        that age for 0 .. gap + HMAX seasons) for one player. The rule Thomas
+        took on 2026-10-05 (the tested one, 25_TESTS/aging_level_weights_test
+        .curve_paths, line for line):
+          - one match, at his LAST COUNTED season's age a, gives both his
+            comparables' level (blended with the league level for his position
+            and age at weight aging_curve.SHRINK_K) and every change after a;
+          - no 20-game profile at a (e.g. his last counted season had 10-19
+            games), or no comparables: the league level, and the league-average
+            changes for his position by age (a missing age adds 0);
+          - past the curve's oldest age: the change is held (the projection
+            stops there; v2.0 fixes the tested code's fallback, see below);
+          - no age at all: the league rate for his position group, carried flat.
+        """
+        import aging_curve as AC
         m = self.curve_
-        ck = (key, age)
-        if ck in self._cum:
-            return self._cum[ck]
-        max_age = m.AMIN + m.nages - 1
-        out, src = None, None
-        if key in m.players:
-            for lag in (1, 2):
-                base = age - lag
-                hz = min(HMAX + lag, max_age - base - 1)
-                if hz < lag:
-                    continue
-                try:
-                    tr = m.project(key, current_age=base, horizon=hz)
-                except (ValueError, KeyError, IndexError):
-                    continue
+        pos = "D" if pos == "D" else "F"
+        ck = (key, age_last, gap)
+        if ck in self._paths:
+            return self._paths[ck]
+        n = int(gap) + HMAX
+        path = np.zeros(n + 1)
+        if not np.isfinite(age_last):
+            self._paths[ck] = (self.league_rate_[pos], path)
+            return self._paths[ck]
+        a = int(age_last)
+        cn = m.glevel.get((pos, a), self.league_rate_[pos])
+        got = False
+        if key in m.players and a in m.players[key]["sm"]:
+            try:
+                p = m.players[key]; ss = p["seasons"]
+                idx = next(q for q, s in enumerate(ss) if s["age"] == a)
+                lo = idx if not p["adjacent"].get(a, False) else max(0, idx - (AC.WIN - 1))
+                mu, sd = m.stats[p["pos"]]
+                tv = ((AC._profile(ss[lo: idx + 1], p["sm"][a]) - mu) / sd) * np.sqrt(m.fw)
+                cand, wt = m._weights(tv, p["pos"], a, exclude=key)
+                if cand is not None and len(cand):
+                    cn = m._shrunk(m.Lser[cand, a - m.AMIN], cand, wt, cn)
+                # The walk stops at the curve's oldest age and the change is held
+                # from there. Asked to go further, AgingModel.project indexes past
+                # its age table and raises IndexError; the tested code caught that
+                # and fell back to the league path for the whole player, which is
+                # not the stated rule (found by 25_TESTS/directed_build_check.py,
+                # 2026-10-05: it hit only players walked past the oldest age).
+                hz = max(0, min(n, m.AMIN + m.nages - a))
+                tr = m.project(key, current_age=a, horizon=hz)
                 lv = dict(zip(tr["age"].astype(int), tr["projected_war_per_82"]))
-                if age not in lv:
-                    continue
-                out = [lv[age + k] - lv[age] if (age + k) in lv else np.nan
-                       for k in range(HMAX + 1)]
-                src = "own_comparables"
-                break
-        if out is None:
-            pos = "D" if is_d else "F"
-            out, c = [0.0], 0.0
-            for k in range(1, HMAX + 1):
-                g = m.gdelta.get((pos, age + k - 1))
-                c = c + g if g is not None else np.nan
-                out.append(c)
-            src = "league_curve"
-        for k in range(1, HMAX + 1):                  # past the oldest age: hold flat
-            if not np.isfinite(out[k]):
-                out[k] = out[k - 1]
-        self._cum[ck] = (np.array(out, dtype=float), src)
-        return self._cum[ck]
+                base, last = lv[a], 0.0
+                for st in range(n + 1):
+                    if (a + st) in lv:
+                        last = lv[a + st] - base
+                    path[st] = last                     # past the curve: held
+                got = True
+            except (ValueError, KeyError, IndexError, StopIteration):
+                got = False
+        if not got:
+            c = 0.0
+            for st in range(n + 1):
+                path[st] = c
+                c += m.gdelta.get((pos, a + st), 0.0)
+        self._paths[ck] = (cn, path)
+        return self._paths[ck]
 
-    def _walk(self, r, rate0, a, h):
-        """The start plus the comparables' cumulative change; a player with no
-        age is carried flat."""
-        rate0 = np.asarray(rate0, dtype=float)
-        if h == 0:
-            return rate0
-        out = rate0.copy()
-        ages = a["age"].to_numpy(float)
-        is_d = a["is_D"].to_numpy(float)
-        keys = r["career_key"].to_numpy()
-        for i in range(len(out)):
-            if not (np.isfinite(ages[i]) and np.isfinite(rate0[i])):
+    def _rate(self, a, h):
+        """The rate per 82 if he plays, h seasons after the valuation season.
+        THE START (directive 1, details 1-4 settled 2026-10-04c/2026-10-05):
+            0.65 x own_82 + 0.35 x comparables' level at his last counted age
+            + the curve's change from that age to the valuation season (detail 3)
+        THE WALK: then the curve's change from the valuation season onward,
+        added in rate units. A player with no anchor gets NaN."""
+        own = a["own_82"].to_numpy(float)
+        out = np.full(len(a), np.nan)
+        keys = a.index.to_numpy()
+        for i, (pos, al, g) in enumerate(zip(a["pos"].to_numpy(), a["age_last"].to_numpy(float),
+                                             a["last_lag"].to_numpy(float))):
+            if not np.isfinite(own[i]):
                 continue
-            cum, _ = self._changes(keys[i], int(round(ages[i])), bool(is_d[i]))
-            out[i] = rate0[i] + cum[min(h, HMAX)]
+            cn, path = self._path(keys[i], pos, al, int(g))
+            g = int(g)
+            start = K_OWN * own[i] + (1 - K_OWN) * cn + path[g]
+            out[i] = start + (path[g + min(h, HMAX)] - path[g])
         return out
 
     # ---- participation -----------------------------------------------------
@@ -526,8 +575,7 @@ class XNPV1:
         each call is the same frame each time and costs most of the call."""
         memo = getattr(self, "_signed_anchor_memo", None)
         if memo is None or memo[0] is not iset:
-            a = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP],
-                         self.N_SEASONS, self.decay_)
+            a = _anchors(iset.seasons[iset.seasons["GP"] >= C.MIN_GP], self.N_SEASONS)
             a = a[a["t0"] == iset.t0].drop_duplicates("career_key").set_index("career_key")
             self._signed_anchor_memo = (iset, a)
         return self._signed_anchor_memo[1]

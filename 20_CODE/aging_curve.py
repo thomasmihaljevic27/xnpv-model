@@ -7,8 +7,9 @@ years of a contract. This SUPERSEDES the earlier global-by-position curve.
 
 WHAT IT DOES, IN ONE BREATH
 ---------------------------
-1. Anchor on a denoised estimate of the player's current level (a two-year
-   trailing average, not one noisy season).
+1. Anchor on a denoised estimate of the player's current level (since
+   2026-10-04c a games-weighted 50/30/20 average over this age and the two
+   before, LEVEL_WEIGHTS; until then a two-year trailing average).
 2. Pull that anchor partway toward the "type-and-age norm" -- where comparable
    players his age typically sit -- because an unusually high or low season
    regresses toward true talent. The pull is LAMBDA (kept) vs 1-LAMBDA (norm).
@@ -51,11 +52,15 @@ IDENTIFICATION NOTES (for the committee)
   pre-valuation fit costs 1.73% season-WAR RMSE in the live chain; with the
   Elite Prospects ages restored, 0.84%. `before=None` keeps the whole-file fit
   for tests and experiments that were recorded on it.
+* LAMBDA is 0.65 since 2026-10-04c (directive 3: one 65/35 blend in the model).
+  The xNPV 1 forecast reads only this curve's changes, so LAMBDA moves no
+  forecast. The record below is the 0.55 it replaced:
 * LAMBDA = 0.55 was locked by cross-validation on TRAIN players and confirmed on
   held-out players (fold picks 0.55-0.60, sd 0.02), so it is not tuned to the
   evaluation set.
 
-KEY ASSUMPTIONS (flagged): MIN_GP=20 per usable season; two-season trailing
+KEY ASSUMPTIONS (flagged): MIN_GP=20 per usable season; level = games-weighted
+50/30/20 over ages a, a-1, a-2 (LEVEL_WEIGHTS, directive 2); two-season trailing
 window for profiles; equal weight per attribute (5 style shares split one
 attribute's worth; Pens share dropped to remove the compositional collinearity);
 shrinkage K pulls thin comp estimates toward the global position curve; hard F/D
@@ -128,9 +133,45 @@ DEFAULT_WAR_AGE = os.path.join(os.environ["OUTPUT_DIR"], "WAR_with_age.csv")
 
 # ---------------------------- config ----------------------------------------
 MIN_GP = 20
-WIN = 2                 # trailing window for profiles
+WIN = 2                 # trailing window for the PROFILE (style, ice time, trend); not the level
 SHRINK_K = 10.0         # pull thin comp estimates toward the global curve
-LAMBDA = 0.55           # mean-reversion: kept current form vs (1-LAMBDA) type-age norm
+# DIRECTIVE 3 (Thomas, 2026-10-04): one own-versus-comparables blend in the model,
+# 65/35, replacing the 0.55 locked here earlier. The forecast reads only this
+# curve's year-to-year changes, and the anchor this sets cancels out of them, so
+# changing it moves no forecast (00_STATE/MODEL_DIRECTIVES.md, entry 3).
+LAMBDA = 0.65           # mean-reversion: kept current form vs (1-LAMBDA) type-age norm
+
+# DIRECTIVE 2 (Thomas, 2026-10-04; games weighting 2026-10-04c). A player's LEVEL
+# at age a is the 50/30/20 average of his per-82 rates at ages a, a-1, a-2, each
+# weight multiplied by that season's games, over the 20-game seasons he has at
+# those ages (rescaled, so a missing season is not a zero). It replaced the equal
+# average of the last two consecutive seasons. One measure, used everywhere the
+# curve uses a level: the profile's "lvl", the year-to-year changes, and the
+# comparables' level. Evidence: 25_TESTS/aging_level_weights_test.py and
+# level_games_weighting_test.py (MODEL_DIRECTIVES.md, entries 1 and 2).
+LEVEL_WEIGHTS = (0.5, 0.3, 0.2)   # this age, the age before, the one before that
+LEVEL_BY_GAMES = True
+# A departed player's missing season, entered at replacement (rate 0), counts as a
+# full season under games weighting (skater_forecast.imputed_aging_model). Carried
+# from the test that chose the weighting (aging_level_weights_test.build_curve);
+# not chosen by Thomas; investigation C examines departures.
+DEPARTED_GP = 82.0
+
+
+def level_at(byage, a):
+    """The directive-2 level at age a. `byage` maps age -> season dict with
+    'w82' (rate per 82) and 'gp' (games); ages he has no 20-game season at are
+    simply absent. Raises KeyError if he has no season at a itself."""
+    if a not in byage:
+        raise KeyError(a)
+    num = den = 0.0
+    for lag, wt in enumerate(LEVEL_WEIGHTS):
+        s = byage.get(a - lag)
+        if s is None:
+            continue
+        ww = wt * (s["gp"] if LEVEL_BY_GAMES else 1.0)
+        num += ww * s["w82"]; den += ww
+    return num / den
 STYLE = ["EVO WAR", "EVD WAR", "PP WAR", "PK WAR", "Shoot WAR"]   # Pens dropped (collinearity)
 SHARE = [f"sh_{c.split()[0]}" for c in STYLE]
 FEATS = SHARE + ["toi_pg", "lvl", "slope"]
@@ -266,20 +307,21 @@ class AgingModel:
             # under the games threshold that was filtered out, the previous
             # entry is not last season. 339 of 7,869 windows paired
             # non-consecutive seasons; the worst treated ages 21 and 30 as
-            # back-to-back. Where the previous season is not exactly one year
-            # earlier, the level is now the single season on its own rather
-            # than an average across a gap.
+            # back-to-back. (Until 2026-10-04c, where the previous season was not
+            # exactly one year earlier the level was the single season alone.)
+            # DIRECTIVE 2 (2026-10-04c): the level is level_at() -- games-weighted
+            # 50/30/20 over the 20-game seasons at this age and the two before,
+            # read BY AGE, so a missing age simply drops out and never pairs
+            # across a gap. `adjacent` still governs the PROFILE window and the
+            # comparables pool (_build_bank), not the level.
             sm, adjacent = {}, {}
+            byage = {s["age"]: s for s in seasons}
             for i, s in enumerate(seasons):
                 is_adj = i > 0 and (s["age"] - seasons[i - 1]["age"] == 1)
                 adjacent[s["age"]] = is_adj
-                if is_adj and WIN > 1:
-                    sm[s["age"]] = float(np.mean([seasons[j]["w82"]
-                                                  for j in range(i - (WIN - 1), i + 1)]))
-                else:
-                    sm[s["age"]] = float(s["w82"])
-                    if i > 0:
-                        self.n_nonadjacent += 1
+                sm[s["age"]] = float(level_at(byage, s["age"]))
+                if i > 0 and not is_adj:
+                    self.n_nonadjacent += 1
             self.players[name] = {"pos": g["Position"].iloc[-1], "seasons": seasons,
                                   "raw": raw, "sm": sm, "adjacent": adjacent}
         ages = [s["age"] for p in self.players.values() for s in p["seasons"]]
