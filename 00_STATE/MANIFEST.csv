@@ -322,7 +322,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 00_STATE,MODEL_DIRECTIVES.md,state,hashable,2026-10-04c,df245933472e997ae6b1ac8948c00d7ab84e55f8,59019,2026-10-05,yes,git,"Thomas's explicit model directives, entry by entry"
 25_TESTS,aging_level_weights_test.py,player,hashable,2026-10-04,48fe1aaafdf02738d8cb3c20d82ff22c56b776c4,15325,2026-10-04,yes,git,finished test or diagnostic
 25_TESTS,starting_level_simple_test.py,player,hashable,2026-10-04,02d3025eebcb181cc31d47da3a1a8fc838452f4f,17263,2026-10-04,yes,git,finished test or diagnostic
-00_STATE/sessions,2026-10-04c.md,state,hashable,2026-10-04c,e7945002ab3367317dc00e730c58bc9489784b45,39825,2026-10-05,yes,git,plan of record step 1: directive 1 detail 1; test script written
+00_STATE/sessions,2026-10-04c.md,state,hashable,2026-10-04c,9d9f3be22421261925ed11a168af0dc50e8c792a,41156,2026-10-05,yes,git,plan of record step 1: directive 1 detail 1; test script written
 25_TESTS,level_games_weighting_test.py,player,hashable,2026-10-04c,bd25199253b89d0416d4b1cdb35b3f6bba46eda0,13745,2026-10-04,yes,git,directive 1 detail 1 test; run 2026-10-04
 25_TESTS,thin_history_check.py,player,hashable,2026-10-04c,f07e9b2ffbf0cdb5f7cb664d2507f262670f210a,10300,2026-10-05,yes,git,directive 1 detail 4 diagnostic; run 2026-10-05
 25_TESTS,war_input_uniformity_test.py,player,hashable,2026-10-04c,321f494b7beb3dd1c0774cefff637d99cadcb693,17292,2026-10-05,yes,git,trailing total vs rate per 82; run 2026-10-05
@@ -335,3 +335,4 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,de_build_check.py,player,hashable,2026-10-04c,ab8db21f2c17dd11b977320683b30c8da82f8c64,7305,2026-10-05,yes,git,holds skater_forecast v2.2 to the D2+E1 version; passed 2026-10-05
 25_TESTS,floor_spread_measure.py,player,hashable,2026-10-04c,ef5f5ef5d73132a2bf8116a2a598e6b0f86c0f24,4672,2026-10-05,yes,git,re-measured WAR_IF_PLAYS_MAE on v2.2; run and locked 2026-10-05
 25_TESTS,control_weight_check.py,player,hashable,2026-10-04c,865a6007fb1ae40d32dbc4dabb6bd24d18c2706e,6016,2026-10-05,yes,git,"why control-year weights sat below July's; run 2026-10-05, reproduces at 0d9953f"
+25_TESTS,document_figures.py,player,hashable,2026-10-04c,e010ae32bf2d0b74ce5698c45bd4dd7a4b0e0121,26062,2026-10-05,yes,git,every figure the two updated supervisor documents quote; laptop run owed
