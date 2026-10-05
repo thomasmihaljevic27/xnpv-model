@@ -2829,3 +2829,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - Step 6 closed (2026-10-05): the production and pricing supervisor documents rewritten for the built
   model (figures from `25_TESTS/document_figures.py`, laptop). Star under-forecast re-measured: -0.333 WAR
   a season one to five seasons out for 3+ trailing wins (95% range -0.63 to -0.01). No decision changed.
+- Correction (2026-10-05, Thomas: the model uses 50/30/20, not 60/40): the documents' trailing-total
+  figures restated on the forecast's own 50/30/20 total. Star under-forecast on that grouping: -0.402
+  WAR a season one to five out (95% range -0.74 to -0.07, 73 players), replacing the -0.333 above,
+  which grouped players by the harness's 60/40 label. Open for Thomas: the 60/40 total left in code
+  (observed-season value and its price line; the harness's reporting tier).
