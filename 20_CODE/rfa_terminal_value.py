@@ -318,6 +318,13 @@ class TerminalValuer:
         # weight is P(qualified) x P(plays | qualified): a qualified player who
         # leaves the league anyway is no longer counted as delivering, and each
         # departure is counted once (a walked player is already zeroed by the gate).
+        # NHL REGULARS ONLY (the July method's condition; Thomas 2026-10-05: "10+
+        # games in one of the three seasons before the decision", xNPV 1's own
+        # rule for having a forecast): a qualified player with no forecast at the
+        # decision is left out of this table, since an AHL player on an NHL
+        # contract was never in the league to leave it (v2.1's first build kept
+        # him and measured 43% for the negative bucket). The qualify rate itself
+        # is unchanged (D14(c), Stage 4: no-forecast players stay in "negative").
         import forecast_config as _FC
         _tbl = sp.forecaster.table
         _played = set(map(tuple, _tbl.loc[_tbl["GP"] >= _FC.PARTICIPATION_GP, ["career_key", "syr"]]
@@ -341,7 +348,7 @@ class TerminalValuer:
                 b = _anchor_bucket(a)
                 tab_old.setdefault(b, []).append(q)   # the pre-fix sample
             tab.setdefault(b, []).append(q)
-            if q == 1:
+            if q == 1 and not pd.isna(a):          # NHL regulars only (see above)
                 ck = sp.forecaster.career_of.get(r["nk"])
                 tab_r.setdefault(b, []).append(1 if (ck, t_dec) in _played else 0)
         self.qualify_p = {b: float(np.mean(v)) for b, v in tab.items()}
@@ -571,7 +578,8 @@ def validate():
             no = tv.qualify_n_prefix.get(b)
             old = f"{po*100:15.1f}% {no:7,d}" if po is not None else f"{'--':>16s} {'--':>7s}"
             log(f"      {b:9s} {tv.qualify_p[b]*100:13.1f}% {tv.qualify_n[b]:7,d}   {old}")
-    log("    open decision 1: P(plays next season | qualified), one-game bar, and the yearly weight:")
+    log("    open decision 1: P(plays next season | qualified), one-game bar, NHL regulars at the decision"
+        " (a forecast: 10+ games in one of the three seasons before), and the yearly weight:")
     for b in ["star", "regular", "fringe", "negative"]:
         if b in tv.qualify_p:
             r_ = tv.plays_given_q.get(b)

@@ -1,7 +1,12 @@
 """
 =============================================================================
- player_dashboard.py   v1.2                        Viewer tool (2026-09-13)
+ player_dashboard.py   v1.3                        Viewer tool (2026-09-13)
 =============================================================================
+ v1.3 (2026-10-05): a page whose contract starts that season and was signed
+ after July 1 is valued at the signing (open decision 2), as the panel now
+ values it (NPVEngine.first_season_as_of); its in-season variants start after
+ that date. Guard (a) compares like with like.
+
  v1.2 (2026-09-28): provenance. When dashboard_refresh.py (Update-Dashboard.cmd)
  runs the chain and then this script, it passes the path of its run record
  in XNPV_REFRESH_MANIFEST. The record (commit, uncommitted script changes,
@@ -98,7 +103,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from contract_npv import NPVEngine                      # noqa: E402
 from skater_forward_projection import norm_name, page_date   # noqa: E402
 
-SCRIPT_VERSION = "player_dashboard.py v1.2 (2026-09-28)"
+SCRIPT_VERSION = "player_dashboard.py v1.3 (2026-10-05)"
 
 load_dotenv()
 SOURCE_DIR = Path(os.environ["SOURCE_DIR"])
@@ -224,7 +229,11 @@ def build_pages():
     pages, n_var = {}, 0
     for r in pages_df.itertuples(index=False):
         pid, t0 = int(r.player_id), int(r.valuation_season)
-        d, s = eng.npv(pid, t0)                  # as of July 1 of t0
+        # v1.3: the panel's date for this page -- July 1 of t0, or (open
+        # decision 2) the signing of a contract whose first season is t0 and
+        # which was signed after July 1 (NPVEngine.first_season_as_of)
+        aod = eng.first_season_as_of(pid, t0)
+        d, s = eng.npv(pid, t0, aod)
         # guard (a): the engine still prices this page the way the panel did
         if s.get("status") != "ok":
             raise SystemExit(f"GUARD FAILED: panel page {r.full_name} {t0} "
@@ -236,7 +245,7 @@ def build_pages():
                              " The panel is stale -- re-run contract_npv_panel.py.")
         base = page_dict(d, s, r)
 
-        lo, hi = page_date(t0), page_date(t0 + 1)
+        lo, hi = (page_date(t0) if aod is None else aod), page_date(t0 + 1)
         dates = sorted({signed[int(c)] for c in contracts_of.get(pid, [])
                         if first_season[c] > t0
                         and pd.notna(signed.get(int(c), pd.NaT))

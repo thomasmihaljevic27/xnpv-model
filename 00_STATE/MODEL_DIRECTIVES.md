@@ -55,7 +55,11 @@ at step 6.
    re-lock; re-measure the qualify rates and control-year weights on the final forecast; re-run the
    valuations and the dashboard; update the documents.
 7. **Checks:** investigation F, and the price-line specification tests on the new line (straight
-   line, contract length, RFA/UFA, stability). Decide how the changed model is validated: the
+   line, contract length, RFA/UFA, stability). **Carried to it (Thomas, 2026-10-05):** term-in puts long
+   cheap deals for mid-level players at the top of the values (a 7-8-year deal carries about
+   $6.0-6.8M a season of term premium at the 2025-26 cap whatever he produces; the rebuild warned that
+   term carries quality the forecast misses); the contract-length test examines whether the term
+   premium should scale with player quality. Values are provisional until then. Decide how the changed model is validated: the
    2022-2025 confirmation was a one-time run on the old forecast and cannot simply be repeated.
 8. **Open decision 3 (the price of a delivered win)**, which unlocks directive 6 (the draft and
    prospect restart with Karl).
@@ -99,9 +103,11 @@ Open decision 1 (the control-year weight, skaters and goalies) and open decision
 the signing for a contract's first season) built 2026-10-05 (`rfa_terminal_value.py`, `contract_npv.py`,
 `skater_forward_projection.valuation_as_of`, `contract_npv_panel.py` v1.3).
 
-**Next step:** Thomas runs `25_TESTS/floor_spread_measure.py` on the laptop (the floor spread on v2.2);
-the new figures are locked in `skater_forecast.WAR_IF_PLAYS_MAE`; then the dashboard refresh re-runs
-every validation battery and re-prices every contract; then the documents.
+Floor spread re-measured and locked (2026-10-05). The first dashboard refresh stopped on a bug in the
+signing-date change (fixed) and showed the control-year weights missing the NHL-regular condition
+(fixed, Thomas's definition).
+
+**Next step:** Thomas re-runs the dashboard refresh; then the documents.
 
 **Next step (was):** step 6, (a) Thomas runs `20_CODE/xnpv1_price_line.py` v2.0 on the laptop (built
 2026-10-05: signing-dated forecasts matched to the page with the identical information set; one linear
@@ -673,7 +679,10 @@ his decision before the code it touches is changed.
 
 1. **DECIDED (Thomas, 2026-10-05): the July method, chain started from his chance of playing.**
    Built 2026-10-05 (`rfa_terminal_value.TerminalValuer.control_weight`; goalies
-   `contract_npv.NPVEngine._calibrate_goalie_control`); laptop validation owed. Each
+   `contract_npv.NPVEngine._calibrate_goalie_control`). **NHL regulars only (Thomas, 2026-10-05):**
+   P(plays | qualified) is measured on players with 10+ NHL games in one of the three seasons before
+   the decision (xNPV 1's own forecast rule); for goalies both numbers are, as in July. The first
+   build left the condition out (goalies 0.348 a year against July's 0.788). Laptop validation owed. Each
    RFA control year is weighted by P(the club qualifies him) x P(he plays, given he was qualified),
    measured among qualified players, so each departure is counted once; the chain starts from his
    forecast chance of playing the contract's final season instead of 1.0. Goalies get a weight for the

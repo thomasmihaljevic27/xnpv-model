@@ -71,7 +71,7 @@ WHAT WAS LEFT OUT IN PROMOTION, and why it changes nothing
     rebuild class's on the development pages.
 
 THE FLOOR SPREAD (decision 3 of the migration plan, Thomas 2026-10-02)
-    STALE IN v2.0: measured on the v1.x forecast; re-measured at step 6.
+    Re-measured on v2.2 (2026-10-05, 25_TESTS/floor_spread_measure.py).
     WAR_IF_PLAYS_MAE: xNPV 1's own mean absolute miss of the WAR-if-plays,
     seasons played, every row it forecasts on the development pages 2015-2021
     (40,510 forecasts; cloud, 2026-10-02). contract_npv turns it into the
@@ -119,7 +119,9 @@ HMAX = C.MAX_HORIZON     # how far the comparables walk is tabulated
 GP_FEATURES = ["tr_gp_share", "is_D", "exp_seasons", "age_c", "tw_WAR", "age_c2"]
 
 # xNPV 1's own WAR-if-plays misses by season ahead (see the docstring).
-WAR_IF_PLAYS_MAE = {0: 0.6730, 1: 0.7486, 2: 0.7991, 3: 0.8516, 4: 0.8792, 5: 0.8926}
+# Re-measured on v2.2 (25_TESTS/floor_spread_measure.py, laptop 2026-10-05, guard on the build's
+# rows and rate passed); the v1.x figures were 0.6730, 0.7486, 0.7991, 0.8516, 0.8792, 0.8926.
+WAR_IF_PLAYS_MAE = {0: 0.6769, 1: 0.7553, 2: 0.8040, 3: 0.8524, 4: 0.8766, 5: 0.8970}
 MAE_TO_SD = 1.2533       # SD = MAE * sqrt(pi/2) for a normal, production's conversion
 
 MIN_AGE_COVERAGE = 0.99  # the age table must carry the Elite Prospects birthdates

@@ -2811,3 +2811,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   qualified), measured each run, the chain starting from the final contract season's chance of
   playing; goalie control years weighted (pooled, one-game bar) for the first time; a contract's
   first-season valuation dated at its signing when signed after 1 July. Laptop validation owed.
+- Step 6 corrections (2026-10-05): floor spread re-measured on v2.2 and locked; the signing-date
+  valuation keyed on the contract `npv()` values (a dashboard guard caught two values for one page);
+  the control-year weight's P(plays | qualified) measured on NHL regulars only (Thomas: 10+ games in
+  one of the three seasons before the decision; goalies both numbers), as the July method states.
+  Finding carried to step 7: term-in puts long cheap deals for mid-level players at the top.

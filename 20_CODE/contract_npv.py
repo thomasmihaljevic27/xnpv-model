@@ -210,7 +210,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from skater_forward_projection import valuation_as_of
+from skater_forward_projection import valuation_as_of, page_date
 from skater_forward_projection import (SkaterProjector, cap_path,
                                        league_min_path, norm_name,
                                        CAP_GROWTH, CAP_CEILING,
@@ -427,22 +427,48 @@ class NPVEngine:
         self._calibrate_goalie_control()
 
     # ---- survival helpers ----------------------------------------------------
+    def first_season_as_of(self, pid, t0):
+        """OPEN DECISION 2, keyed on the contract npv() VALUES (chain[0], the
+        contract with a row in t0, found as contract_chain finds it at 1 July),
+        not on whichever contract a caller iterates over. A player with two
+        contracts carrying rows in t0 gets ONE date for the player-season; v2.1
+        keyed it on the caller's contract and gave the dashboard two values for
+        one page (player 6054, 2019; dashboard guard, 2026-10-05). Returns that
+        contract's signing date when t0 is its first season and it was signed
+        after 1 July (skater_forward_projection.valuation_as_of), else None."""
+        spine = self.sp.spine if (self.sp.spine["player_id"] == pid).any() else self.gp_spine
+        chain = contract_chain(spine, pid, t0, self.sp.signed, page_date(t0))
+        if not chain:
+            return None
+        first = spine.loc[spine["contract_id"] == chain[0], "season_start"].min()
+        return valuation_as_of(chain[0], t0, self.sp.signed) if first == t0 else None
+
     def _calibrate_goalie_control(self):
         """OPEN DECISION 1, goalies (Thomas, 2026-10-05; his July sub-decisions):
         ONE pooled yearly weight, P(qualified) x P(plays | qualified), from every
         observable goalie qualify-or-walk decision (contracts ending 2018-2024,
         pp_expiry RFA = qualified or "UFA no QO" = walked), "plays" = one NHL
-        game or more the next season. Until v2.1 goalie control years carried
-        weight 1.0 (the gap the goalie TV comment recorded)."""
+        game or more the next season. NHL REGULARS ONLY, for both numbers as in
+        July (Thomas 2026-10-05: 10+ NHL games in one of the three seasons before
+        the decision, the skater forecast's own rule): an AHL goaltender on an
+        NHL contract was never in the league to leave it (the first v2.1 build
+        kept him: 0.679 x 0.513 = 0.348 against July's 0.788). Until v2.1 goalie
+        control years carried weight 1.0 (the gap the goalie TV comment recorded)."""
         last = (self.gp_spine.sort_values("season_start").groupby("contract_id").tail(1))
         elig = last[last["season_start"].between(2018, 2024)
                     & last["pp_expiry"].isin(["RFA", "UFA no QO"])]
-        q = (elig["pp_expiry"] == "RFA").to_numpy()
-        def _gp(n, s):
-            v = self.g_proj.gp_lut.get((n, int(s) + 1), 0.0)
+        def _gp(n, syr):
+            v = self.g_proj.gp_lut.get((n, int(syr)), 0.0)
             v = float(v.sum()) if isinstance(v, pd.Series) else float(v)   # merged-name rows: summed
             return v if np.isfinite(v) else 0.0
-        gp = np.array([_gp(n, s) for n, s in zip(elig["nname"], elig["season_start"])], dtype=float)
+        # NHL regular at the decision: 10+ games (forecast_config.MIN_GP) in one of
+        # the three seasons before it (the final contract season and the two before)
+        import forecast_config as _FC
+        reg = np.array([max(_gp(n, int(s) - j) for j in (0, 1, 2)) >= _FC.MIN_GP
+                        for n, s in zip(elig["nname"], elig["season_start"])], dtype=bool)
+        elig = elig[reg]
+        q = (elig["pp_expiry"] == "RFA").to_numpy()
+        gp = np.array([_gp(n, int(s) + 1) for n, s in zip(elig["nname"], elig["season_start"])], dtype=float)
         self.g_qualify_p = float(q.mean()) if len(q) else 1.0
         self.g_plays_given_q = float((gp[q] >= 1).mean()) if q.any() else 1.0
         self.g_control_n = (int(len(q)), int(q.sum()))
@@ -720,7 +746,7 @@ def validate():
     # ---- 2. goalie hazard table ----------------------------------------------
     dg = eng._d_g
     log(f"\n[1c] goalie control-year weight (open decision 1): {eng.g_control_n[0]} decisions, "
-        f"{eng.g_control_n[1]} qualified; P(qualified) {eng.g_qualify_p:.3f} x P(plays | qualified) "
+        f"{eng.g_control_n[1]} qualified (NHL regulars at the decision); P(qualified) {eng.g_qualify_p:.3f} x P(plays | qualified) "
         f"{eng.g_plays_given_q:.3f} = {eng.g_control_weight:.3f} a year (July 2026 test: 0.909 x "
         f"0.867 = 0.788, n 99)")
     log(f"\n[2] goalie exit hazard (GP>=10 goalie-seasons, t=2018-2024, "
@@ -752,7 +778,7 @@ def validate():
         for _, r in firsts.iterrows():
             # open decision 2: a contract signed after 1 July of its first
             # season is valued at its signing (valuation_as_of)
-            aod = valuation_as_of(r["contract_id"], int(r["season_start"]), engine.sp.signed)
+            aod = engine.first_season_as_of(int(r["player_id"]), int(r["season_start"]))
             d, s = engine.npv(int(r["player_id"]), int(r["season_start"]), aod)
             if s.get("status") != "ok":
                 continue

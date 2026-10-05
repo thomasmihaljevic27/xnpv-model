@@ -148,12 +148,12 @@ def build_panel():
     # contract signed after 1 July is valued at its signing
     # (skater_forward_projection.valuation_as_of); every other page stays at
     # 1 July of the page.
-    from skater_forward_projection import valuation_as_of
-    first_season = spine_all.groupby("contract_id")["season_start"].min().to_dict()
+    # The date is keyed on the contract npv() values for the player-season
+    # (NPVEngine.first_season_as_of), so two jobs for one player-season (two
+    # contracts with rows in t0) get the same date and the same value.
     rows, skipped = [], {}
     for j in jobs.itertuples(index=False):
-        aod = (valuation_as_of(j.contract_id, int(j.season_start), eng.sp.signed)
-               if first_season.get(j.contract_id) == j.season_start else None)
+        aod = eng.first_season_as_of(int(j.player_id), int(j.season_start))
         d, s = eng.npv(int(j.player_id), int(j.season_start), aod)
         if s.get("status") != "ok":
             skipped[s.get("status", "unknown")] = \
