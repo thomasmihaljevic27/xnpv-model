@@ -2878,3 +2878,17 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   in at least 1,950 of 2,000 player resamples on the rows xNPV 0 answers (the confirmation's rule).
   Against the 10-02 forecast: reported, not decided. Rows and targets are checked against the saved file
   before any model runs. Not yet run.
+- Revalidation run (2026-10-05, laptop, `run_revalidation_2022_2025.py` v1.0; the second scored use of
+  2022-2025). The 10-02 saved forecasts were lost; regenerated from 7f91f0e in a separate worktree
+  (`run_xnpv1_holdout.py --rerun`, its merged birthdates rebuilt by `contract_source.py` and the dates
+  normalised to year-month-day), reproducing 9,063 rows, RMSE 0.9001 / 0.9724, 2,000 of 2,000. Guards
+  passed: the file gives back the record; today's 10,067 rows and realised targets equal it exactly.
+  **The built forecast is CONFIRMED against xNPV 0** (rows xNPV 0 answers, 9,063 forecasts, 1,171
+  players): RMSE 0.8932 against 0.9724; lower in 2,000 of 2,000 resamples on squared error, absolute
+  error and Brier. Against the 10-02 forecast (reported, not decided): RMSE 0.8932 against 0.9001, mean
+  squared error -0.0124 [-0.0252, -0.0003], lower squared error in 1,954 of 2,000; MAE 0.5823 against
+  0.5809, lower absolute error in only 546 of 2,000; Brier 0.1221 against 0.1246, 1,991 of 2,000; RMSE
+  lower at each of the four seasons ahead. 3+ tier bias one or more seasons ahead +0.196 [-0.202,
+  +0.599] (10-02 +0.296, xNPV 0 +1.120). All 10,067 rows: RMSE 0.8504 against 0.8566 (xNPV 0 plus its
+  fallback 0.9316); squared error lower in 1,939 of 2,000, interval [-0.0220, +0.0006] includes zero.
+  Step 7 complete; next, step 8.

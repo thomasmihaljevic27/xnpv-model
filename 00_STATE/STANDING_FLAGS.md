@@ -54,6 +54,10 @@ confirmation pages; both figures were read. xNPV 1's own figures from that run a
 because its synthetic contracts were built from seasons actually played. The declared rule was
 written before the run and is unchanged. The laptop run remains the confirmation of record. Any
 report of it must say the pages were not unseen (ledger lines labelled CLOUD CODE TEST).
+- **Second use, 2026-10-05 (Thomas's choice):** the built forecast was scored once on the same pages
+  (`run_revalidation_2022_2025.py`), after investigation F and the price-line tests had read realised
+  2022-2025 seasons. The 10-02 forecasts were regenerated from 7f91f0e for it (their saved file was
+  lost). Any report of the revalidation says it is the second scored use of these pages.
 
 **Draft and prospect stock-take, 2026-09-28k.** New and corrected flags:
 - **Goalie birthdates, counted (corrects "109").** 98 of the 280 goalies in `Goalies_WAR.csv` have no

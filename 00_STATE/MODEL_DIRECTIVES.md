@@ -114,7 +114,15 @@ Documents updated (2026-10-05): `Data, Production, and Aging.docx` and `Pricing,
 Contract Value.docx` describe the model as now built, figures from `25_TESTS/document_figures.py`.
 **Step 6 is complete.**
 
-**Next step:** step 7, remaining: the revalidation run. Thomas chose (2026-10-05) one more scored run on
+**Step 7 is complete (2026-10-05).** The revalidation: the built forecast, scored once on 2022-2025, is
+CONFIRMED against xNPV 0 under the declared rule (RMSE 0.8932 against 0.9724, lower squared error in
+2,000 of 2,000 player resamples). Against the 10-02 forecast (reported): RMSE 0.8932 against 0.9001,
+lower squared error in 1,954 of 2,000, lower absolute error in 546 of 2,000 (MAE 0.5823 against 0.5809),
+lower Brier in 1,991 of 2,000.
+
+**Next step:** step 8, open decision 3 (the price of a delivered win), which unlocks directive 6.
+
+**Next step (was):** step 7, remaining: the revalidation run. Thomas chose (2026-10-05) one more scored run on
 2022-2025, reported as a second use of seasons already seen: `25_TESTS/run_revalidation_2022_2025.py`
 v1.0, the built forecast against the 10-02 confirmed forecast and xNPV 0, both read from the
 confirmation's saved forecasts. Rule declared in the script: confirmed if lower squared error than

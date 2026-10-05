@@ -4,8 +4,13 @@
 open decisions 1-2 are built and validated on the laptop (the dashboard refresh passed at `dca0831`):
 the directed forecast (`skater_forecast.py` v2.2), the term-in price line re-locked on signing-dated
 forecasts, control years weighted by P(qualified) x P(plays | qualified), first seasons dated at the
-signing. The production and pricing documents in `40_DOCS/Supervisor_Drafts/` describe it. Values are
-provisional until step 7's contract-length test. Not yet on `main`. See `MODEL_DIRECTIVES.md`.
+signing. The production and pricing documents in `40_DOCS/Supervisor_Drafts/` describe it. Not yet on
+`main`. See `MODEL_DIRECTIVES.md`.
+
+**Step 7 done, 2026-10-05.** Investigation F closed; the price-line specification tests kept the locked
+line (straight line, stable, one line for RFA and UFA, flat length premium), so the values stand. The
+built forecast, scored once on 2022-2025 (a second use of those seasons), is confirmed against xNPV 0
+(RMSE 0.8932 against 0.9724, 2,000 of 2,000). Next: step 8, open decision 3.
 
 **Model directives ledger; draft and prospect restart, 2026-10-04.** `00_STATE/MODEL_DIRECTIVES.md` holds
 Thomas's five player-model directives (not yet in code) and six investigate items. All draft and prospect
