@@ -2848,3 +2848,12 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   status. No decision changed.
   Resampled (2,000 career draws): the forecast's gain over the 60/40 total holds in each draw, in every
   comparison. `Circularity and Game Value.docx` updated; investigation F closed.
+- Price-line specification tests run (2026-10-05, `25_TESTS/price_line_spec_tests.py` v1.0; report
+  only, Thomas's setup). The straight line holds held out; the line is stable 2018-21 against 2022-25;
+  the length premium falls with quality (by group, held out better in 20 of 20). Thomas's decisions on
+  them: **one price line for RFA and UFA signings** (no separate RFA line: four terms for a 0.17% RMSE
+  gain, only RFA defence clearly non-zero); the length premium's shape is held until one step (a
+  separate premium for players forecast below replacement) is scored beside the per-group premium; the
+  hidden-quality test, where Game Value and Bacon WAR disagree in sign, is re-run with seasons not played
+  dropped and with the forecast including the chance of playing as the control, each alone and together
+  (v1.1). The locked line is unchanged.

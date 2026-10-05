@@ -114,7 +114,12 @@ Documents updated (2026-10-05): `Data, Production, and Aging.docx` and `Pricing,
 Contract Value.docx` describe the model as now built, figures from `25_TESTS/document_figures.py`.
 **Step 6 is complete.**
 
-**Next step:** step 7: investigation F, the price-line specification tests (straight line, contract
+**Next step:** step 7, remaining: Thomas runs `25_TESTS/price_line_spec_tests.py` v1.1 (the
+one-step length premium; the hidden-quality legs), then decides the length premium's shape; then how
+the changed model is validated. Done in step 7: investigation F (closed); the specification tests v1.0
+(straight line and stability hold; one line for RFA and UFA, Thomas 2026-10-05).
+
+**Next step (was):** step 7: investigation F, the price-line specification tests (straight line, contract
 length including whether the premium should scale with quality, RFA/UFA, stability), and how the
 changed model is validated.
 
@@ -344,6 +349,9 @@ comparables' level for thin histories.
        nothing else. RFA status and interactions stay out; the RFA/UFA question is the step 7
        specification test. The rebuild's form (term, RFA, RFA x wins, one-year marker, defence
        intercept, first-season forecast) was put to Thomas and not chosen.
+     - **RFA/UFA settled (Thomas, 2026-10-05): one price line for both,** on the step 7 test (a
+       separate RFA line: four terms, 0.17% lower held-out RMSE, only RFA defence clearly non-zero).
+       The length premium's shape (it falls with the forecast) waits on the one-step test (v1.1).
   2. *How term enters each season's value:* term-in must not add the term premium to each season
      whatever the player produces (the rebuild's first attempt priced Brent Seabrook's 0.20
      forecast wins at $47.2M). The rebuild's resolution: the replacement a contract is compared
