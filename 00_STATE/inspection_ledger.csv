@@ -607,6 +607,15 @@ utc,runner,kind,keys,reserved_keys,reason
 2026-10-04T16:52:23Z,starting_level_simple_test.py,pages,2015 2016 2017 2018 2019 2020 2021,,simple trailing weights and pull for the starting level (Thomas 2026-10-04)
 2026-10-04T17:01:21Z,starting_level_simple_test.py,pages,2015 2016 2017 2018 2019 2020 2021,,simple trailing weights and pull for the starting level (Thomas 2026-10-04)
 2026-10-04T17:18:52Z,aging_level_weights_test.py,pages,2015 2016 2017 2018 2019 2020 2021,,aging curve level weighting: equal two-season vs weighted (Thomas 2026-10-04)
+2026-10-04T23:52:50Z,level_games_weighting_test.py,pages,2015 2016 2017 2018 2019 2020 2021,,"directive 1 detail 1: plain vs games-weighted 50/30/20, both sides (Thomas 2026-10-04)"
+2026-10-05T00:03:15Z,thin_history_check.py,pages,2015 2016 2017 2018 2019 2020 2021,,directive 1 detail 4: directed start by seasons counted and trailing games (Thomas 2026-10-05)
+2026-10-05T00:21:24Z,war_input_uniformity_test.py,pages,2015 2016 2017 2018 2019 2020 2021,,trailing total vs rate per 82 in games share and chance of playing (Thomas 2026-10-05)
+2026-10-05T00:52:21Z,aging_investigations_abc.py,pages,2015 2016 2017 2018 2019 2020 2021,,"investigations A, B, C on the built forecast (Thomas 2026-10-05)"
+2026-10-05T01:06:08Z,aging_abc_followup.py,pages,2015 2016 2017 2018 2019 2020 2021,,A1+C2+C6 together; C5 on the comparables' level only (Thomas 2026-10-05)
+2026-10-05T01:28:26Z,games_and_playing_de.py,pages,2015 2016 2017 2018 2019 2020 2021,,"investigations D and E, open decision 2, on the built forecast (Thomas 2026-10-05)"
+2026-10-05T01:36:27Z,games_playing_followup.py,pages,2015 2016 2017 2018 2019 2020 2021,,D2+E1 together; contracted-seasons chance of playing (Thomas 2026-10-05)
+2026-10-05T03:14:19Z,forecast_harness,forecast page,2015 2016 2017 2018 2019 2020 2021,,
+2026-10-05T15:25:20Z,forecast_harness,forecast page,2015 2016 2017 2018 2019 2020 2021,,
 2026-10-05T16:16:33Z,gv_investigation_f.py,forecast page,2017 2018 2019 2020 2021 2022 2023 2024 2025,2022 2023 2024 2025,"Investigation F v1.2 and v1.3 (laptop): the built forecast against same-season and next-season Game Value, by season; RECORDED AFTER THE FACT 2026-10-05, time is the result commit"
 2026-10-05T16:27:15Z,price_line_spec_tests.py,outcome seasons,2018 2019 2020 2021 2022 2023 2024 2025,2022 2023 2024 2025,"Price-line tests v1.0 (laptop): realized Game Value and Bacon WAR over contracts first 2-4 seasons regressed on the signing-dated forecast and length; RECORDED AFTER THE FACT 2026-10-05, time is the result commit"
 2026-10-05T16:47:22Z,price_line_spec_tests.py,outcome seasons,2018 2019 2020 2021 2022 2023 2024 2025,2022 2023 2024 2025,"Price-line tests v1.1 (laptop): the same with seasons not played dropped and window controls; RECORDED AFTER THE FACT 2026-10-05, time is the result commit"
