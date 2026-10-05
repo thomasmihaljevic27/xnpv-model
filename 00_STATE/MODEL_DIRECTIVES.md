@@ -110,7 +110,13 @@ signing-date change (fixed) and showed the control-year weights missing the NHL-
 The refresh at `dca0831` passed (2026-10-05): every step, the dashboard re-pricing 7,771 pages within
 $1 of the panel. Directives 4 and 5 and open decisions 1 and 2 are validated.
 
-**Next step:** update the documents (`40_DOCS/Supervisor_Drafts/`), written from the code; then step 7.
+Documents updated (2026-10-05): `Data, Production, and Aging.docx` and `Pricing, Control Years, and
+Contract Value.docx` describe the model as now built, figures from `25_TESTS/document_figures.py`.
+**Step 6 is complete.**
+
+**Next step:** step 7: investigation F, the price-line specification tests (straight line, contract
+length including whether the premium should scale with quality, RFA/UFA, stability), and how the
+changed model is validated.
 
 **Next step (was):** step 6, (a) Thomas runs `20_CODE/xnpv1_price_line.py` v2.0 on the laptop (built
 2026-10-05: signing-dated forecasts matched to the page with the identical information set; one linear

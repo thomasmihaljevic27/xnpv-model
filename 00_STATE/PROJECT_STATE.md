@@ -1,5 +1,12 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**Plan of record steps 1-6 done on `claude/amazing-einstein-tk4b08`, 2026-10-05.** Directives 1-5 and
+open decisions 1-2 are built and validated on the laptop (the dashboard refresh passed at `dca0831`):
+the directed forecast (`skater_forecast.py` v2.2), the term-in price line re-locked on signing-dated
+forecasts, control years weighted by P(qualified) x P(plays | qualified), first seasons dated at the
+signing. The production and pricing documents in `40_DOCS/Supervisor_Drafts/` describe it. Values are
+provisional until step 7's contract-length test. Not yet on `main`. See `MODEL_DIRECTIVES.md`.
+
 **Model directives ledger; draft and prospect restart, 2026-10-04.** `00_STATE/MODEL_DIRECTIVES.md` holds
 Thomas's five player-model directives (not yet in code) and six investigate items. All draft and prospect
 modelling decisions are retired (D22-D27, D29-D32); those models restart from scratch with the supervisor,

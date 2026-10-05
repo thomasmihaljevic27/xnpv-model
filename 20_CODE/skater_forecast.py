@@ -15,11 +15,10 @@ C2 (returners are not departures) and C6 (a departed season at his own games),
 adopted by Thomas on 25_TESTS/aging_abc_followup.py. v2.0 is at 669198b.
 v2.0 (2026-10-05, branch claude/amazing-einstein-tk4b08): THE DIRECTED FORECAST.
 Thomas's directives 1-3 and the build rules in 00_STATE/MODEL_DIRECTIVES.md
-replace the fitted start and the fitted decay. PROVISIONAL: the price line
-(XNPV1_RATE), the qualify rates and WAR_IF_PLAYS_MAE below were all measured
-on the v1.x forecast and are re-measured at the plan of record's step 6; the
-2022-2025 confirmation above was run on v1.x, not on this. The v1.x forecast is
-in git at 2bc0399 and before.
+replace the fitted start and the fitted decay. The price line (XNPV1_RATE),
+the qualify rates and WAR_IF_PLAYS_MAE were re-measured on this forecast at the
+plan of record's step 6 (2026-10-05); the 2022-2025 confirmation above was run
+on v1.x, not on this. The v1.x forecast is in git at 2bc0399 and before.
 
 WHAT IT FORECASTS, for a player valued at page t0 and each season h ahead
 (h = 0 is the valuation season itself, which has not been played on 1 July):

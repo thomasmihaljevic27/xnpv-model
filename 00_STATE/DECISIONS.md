@@ -2826,3 +2826,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   weight 0.902 x 0.859 = 0.775 a year (July 0.788); skater P(plays | qualified) 100% / 100% / 88.2% /
   67.8% by bucket, below July's for fringe and below replacement because the rule counts every player
   who played the final season, not only regulars.
+- Step 6 closed (2026-10-05): the production and pricing supervisor documents rewritten for the built
+  model (figures from `25_TESTS/document_figures.py`, laptop). Star under-forecast re-measured: -0.333 WAR
+  a season one to five seasons out for 3+ trailing wins (95% range -0.63 to -0.01). No decision changed.
