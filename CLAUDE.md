@@ -337,6 +337,19 @@ produce the kept data and the check, see `00_STATE/MODEL_DIRECTIVES.md` directiv
   floor for negative anchors (D12 v3), and replaces the exit hazard with the chance of playing
   (D18) (corrected 2026-09-30). List the decisions governing each step the model changes, and read
   what the new code does at that step.
+- **Don't build a decided method from its headline; build it from the record's full method.** The
+  control-year weight Thomas chose was "the July method", and the decision record says that method
+  measures plays-given-qualified only on NHL regulars at the decision. The first build left that
+  condition out and gave goalies 0.348 a year against July's recorded 0.788 (2026-10-05). Before
+  handing over a build of a recorded method, list every condition the record states, and compare
+  the first run's figures with the recorded ones; a large gap is a build error until shown otherwise.
+- **Don't add a per-page input to one valuation caller without checking every caller that prices
+  the same page.** The sweep, the panel and the dashboard each value a player-season, and the
+  dashboard refuses a page whose re-price differs from the panel's by more than $1. A signing date
+  keyed on the panel job's own contract gave two values for one page when a player had two contracts
+  in a season, and the dashboard's July 1 re-price would have failed every late-signed page
+  (2026-10-05). Key the input on what the engine values (`NPVEngine.first_season_as_of`) and route
+  every caller through it.
 - **Don't let borrowed code bring in settings nobody named.** When a test arm or a promoted model
   reuses code from another model, list every setting that code carries and how each is chosen, and
   check the description of the result against the code, before Thomas is asked to approve it. The
