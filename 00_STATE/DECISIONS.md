@@ -2868,7 +2868,9 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   not the zero convention or the chance of playing. On either measure, later production accounts for
   at most about a sixth of the length premium (shares -0.09 to +0.16). Thomas's reading of the split:
   Game Value's weakness in measuring defence (consistent with investigation F, where Game Value tracks
-  the forecast at r 0.30 for defencemen against 0.65 for forwards; not tested on this split).
+  the forecast's expected WAR at r 0.334 for defencemen against 0.682 for forwards; not tested on this
+  split). [CORRECTED 2026-10-05: first recorded as 0.30 against 0.65, which are the 60/40 trailing
+  total's rows, not the forecast's.]
 - Validation of the changed forecast (Thomas, 2026-10-05): **one more scored run on 2022-2025**, rule
   declared before the run, reported as a second use of seasons already seen (the cloud code test of
   2026-09-30, the confirmation and its re-run, and the reads by investigation F and the price-line
