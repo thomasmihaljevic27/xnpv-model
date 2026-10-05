@@ -50,9 +50,14 @@ import pandas as pd
 
 import forecast_config as C
 
-SCRIPT_VERSION = "1.1"
+SCRIPT_VERSION = "1.2"
 RECORDED = {"n": 6027, "primary": 0.576, "F": 0.648, "D": 0.302, "next": 0.538,
             "repl": 0.609, "zero_sum": 0.564}
+# The forwards' R-squared, recorded with the r (DECISIONS.md 2026-07-14: "Forwards r=0.648/R²=0.421").
+# The two together put the recorded r in [0.64846, 0.6485); the laptop gives 0.648506, 0.000006 above
+# that window, with R² 0.42056 -> 0.421 (2026-10-05). v1.2 checks the forwards on the recorded R², the
+# more precise of the two, and prints both.
+R2_F = 0.421
 # The recorded figures are rounded to three decimals, so a figure reproduces when today's value rounds
 # to the same three decimals (v1.1). v1.0 allowed a gap of 0.0005, which sits on the rounding edge: on
 # the laptop the forwards' 0.648 failed at a value printed as 0.6485 (2026-10-05).
@@ -103,6 +108,9 @@ def guard(spine, gv):
     for k, want in RECORDED.items():
         g = got[k]
         good = (g == want) if k == "n" else round(g, 3) == round(want, 3)
+        if k == "F":
+            good = round(g * g, 3) == R2_F
+            log(f"  {'F (R²)':9s} recorded {R2_F:>7}  now {g * g:>10.6f}  (the forwards are checked on R²; see R2_F)")
         ok &= good
         log(f"  {k:9s} recorded {want:>7}  now {g:>10.6f}  {'PASS' if good else 'FAIL'}" if k != "n"
             else f"  {k:9s} recorded {want:>7,}  now {g:>10,}  {'PASS' if good else 'FAIL'}")
