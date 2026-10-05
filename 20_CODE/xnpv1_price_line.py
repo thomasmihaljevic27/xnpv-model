@@ -1,5 +1,22 @@
 """xnpv1_price_line.py -- the market's price per FORECAST win, for pricing xNPV 1.
 
+v2.0 (2026-10-05, plan of record step 6; 00_STATE/MODEL_DIRECTIVES.md directives 4 and 5).
+    DIRECTIVE 5: each contract's forecast is dated at its SIGNING, not at its start year. The
+    signing date's information set is matched to the valuation page whose 1 July information set is
+    identical (page = the newest season readable at the signing, plus one; asserted per contract),
+    and the forecast is that page's WAR if he plays h = start year - page seasons ahead. v1.x took
+    the start year's page, which for a deal signed before its start reads seasons played after the
+    pen moved (30% of this sample in the 2026-09-14 audit).
+    DIRECTIVE 4 (details settled 2026-10-05): contract length enters as ONE linear term in years,
+    cap share = alpha + (beta + beta_d_add x defence) x forecast wins + gamma_term x years, the same
+    left-censored fit; no RFA terms (the RFA/UFA question is the step 7 specification test).
+    Four fits on the same rows, so each directive is scored alone and together: start-dated without
+    term (v1.x's specification on today's forecast), signing-dated without term (directive 5 alone;
+    the TERM-FREE line valuations report beside the term-in one), start-dated with term (directive 4
+    alone), signing-dated with term (both; the TERM-IN line to lock). The forecast is
+    skater_forecast v2.2, the directed model; the v1.x lock (XNPV1_RATE, fitted on v1.x's forecast)
+    is not comparable and is replaced only when Thomas locks this run's lines.
+
 WHY (session 2026-10-02; STANDING_FLAGS)
     The Stage 3 price per win (skater_value_engine.NEW_LOCKED, locked
     2026-07-28) regresses each contract's cap share on the player's TRAILING
@@ -63,7 +80,7 @@ from scipy import stats
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import skater_value_engine as SVE
 
-SCRIPT_VERSION = "1.2"
+SCRIPT_VERSION = "2.0"
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 LOG = []
 
@@ -108,35 +125,178 @@ def fingerprint(d: pd.DataFrame) -> str:
     return hashlib.sha1("\n".join(key).encode()).hexdigest()[:12]
 
 
-def censored_loglik(fit, cap_pct, war, is_d, floor_pct) -> float:
-    """The left-censored log-likelihood at a fitted line (in cap-share units)."""
-    mu = fit["alpha"] + (fit["beta"] + fit["beta_d_add"] * is_d) * war
-    s = fit["sigma"]
-    cens = cap_pct <= floor_pct + 1e-12
-    ll = np.where(cens, stats.norm.logcdf((floor_pct - mu) / s),
-                  stats.norm.logpdf((cap_pct - mu) / s) - np.log(s))
-    return float(ll.sum())
-
-
-def expected_cap(fit, war, is_d, floor_pct) -> np.ndarray:
-    """E[max(latent, floor)]: the cap share the line expects, floor included."""
-    mu = fit["alpha"] + (fit["beta"] + fit["beta_d_add"] * is_d) * war
-    s = fit["sigma"]
-    d = (floor_pct - mu) / s
-    return floor_pct * stats.norm.cdf(d) + mu * (1 - stats.norm.cdf(d)) + s * stats.norm.pdf(d)
-
-
 def fit_line(d, xcol):
     return SVE._fit_censored_interaction(d["cap_pct"].to_numpy(float), d[xcol].to_numpy(float),
                                          d["is_d"].to_numpy(float), d["floor_pct"].to_numpy(float))
 
 
-def show(name, f, cap):
-    log(f"  {name}")
-    log(f"    alpha {f['alpha']:.10f}  (${f['alpha'] * cap / 1e6:.3f}M at a ${cap / 1e6:.1f}M cap)")
-    log(f"    beta_F {f['beta']:.10f}  (${f['beta'] * cap / 1e6:.3f}M per win, forwards)")
-    log(f"    beta_D_add {f['beta_d_add']:.10f}  (defence ${(f['beta'] + f['beta_d_add']) * cap / 1e6:.3f}M per win)")
-    log(f"    sigma {f['sigma']:.8f}   converged {f['converged']} (max gradient {f['grad_max']:.1e})")
+def fit_censored(cap_pct, X, floor_pct):
+    """Left-censored maximum likelihood on an intercept plus the columns of X, written as
+    skater_value_engine._fit_censored_interaction is (outcome in percentage points of the cap,
+    BFGS with the same fallbacks, convergence judged on the gradient), for any set of columns.
+    Returns (coefficients in cap share, intercept first; sigma; converged; largest gradient).
+    Guarded in run(): on the v1 columns it must give the engine's own fit back."""
+    from scipy import optimize as _opt
+    y = np.asarray(cap_pct, float) * 100.0
+    lo = np.asarray(floor_pct, float) * 100.0
+    X = np.column_stack([np.ones(len(y)), np.asarray(X, float)])
+    cens = y <= lo + 1e-12
+    k = X.shape[1]
+
+    def neg_ll(p):
+        beta, sig = p[:k], np.exp(p[k])
+        mu = X @ beta
+        ll = np.empty_like(y)
+        ll[~cens] = -np.log(sig) + stats.norm.logpdf((y[~cens] - mu[~cens]) / sig)
+        ll[cens] = stats.norm.logcdf((lo[cens] - mu[cens]) / sig)
+        return 1e10 if not np.all(np.isfinite(ll)) else -ll.sum()
+
+    ols = np.linalg.lstsq(X, y, rcond=None)[0]
+    start = np.append(ols, np.log(max(np.std(y - X @ ols), 1e-6)))
+    res = _opt.minimize(neg_ll, start, method="BFGS", options=dict(maxiter=20000, gtol=1e-9))
+    if not res.success:
+        alt = _opt.minimize(neg_ll, res.x, method="Nelder-Mead",
+                            options=dict(maxiter=50000, xatol=1e-10, fatol=1e-10))
+        if alt.fun < res.fun:
+            res = alt
+        r2_ = _opt.minimize(neg_ll, res.x, method="BFGS", options=dict(maxiter=20000, gtol=1e-9))
+        if r2_.fun <= res.fun:
+            res = r2_
+    p = res.x.copy()
+    h = np.maximum(np.abs(p) * 1e-4, 1e-6)
+    grad = np.array([(neg_ll(p + np.eye(len(p))[i] * h[i]) - neg_ll(p - np.eye(len(p))[i] * h[i])) / (2 * h[i])
+                     for i in range(len(p))])
+    return dict(coef=p[:k] / 100.0, sigma=float(np.exp(p[k]) / 100.0),
+                converged=bool(np.max(np.abs(grad)) < 1e-3), grad_max=float(np.max(np.abs(grad))))
+
+
+def design(d, xcol, term):
+    """The columns after the intercept: forecast wins, defence x wins (, years of term)."""
+    cols = [d[xcol].to_numpy(float), d["is_d"].to_numpy(float) * d[xcol].to_numpy(float)]
+    if term:
+        cols.append(d["length"].to_numpy(float))
+    return np.column_stack(cols)
+
+
+def as_line(f, term):
+    c = f["coef"]
+    out = dict(alpha=float(c[0]), beta=float(c[1]), beta_d_add=float(c[2]), sigma=f["sigma"],
+               converged=f["converged"], grad_max=f["grad_max"])
+    out["gamma_term"] = float(c[3]) if term else 0.0
+    return out
+
+
+def loglik(line, d, xcol):
+    """The censored log-likelihood at a line, in cap-share units (comparable across lines on the
+    same rows and outcome)."""
+    mu = (line["alpha"] + (line["beta"] + line["beta_d_add"] * d["is_d"].to_numpy(float)) * d[xcol].to_numpy(float)
+          + line["gamma_term"] * d["length"].to_numpy(float))
+    s = line["sigma"]; cap_ = d["cap_pct"].to_numpy(float); fl = d["floor_pct"].to_numpy(float)
+    cens = cap_ <= fl + 1e-12
+    return float(np.where(cens, stats.norm.logcdf((fl - mu) / s),
+                          stats.norm.logpdf((cap_ - mu) / s) - np.log(s)).sum())
+
+
+def expected_cap_line(line, d, xcol):
+    mu = (line["alpha"] + (line["beta"] + line["beta_d_add"] * d["is_d"].to_numpy(float)) * d[xcol].to_numpy(float)
+          + line["gamma_term"] * d["length"].to_numpy(float))
+    s = line["sigma"]; fl = d["floor_pct"].to_numpy(float)
+    z = (fl - mu) / s
+    return fl * stats.norm.cdf(z) + mu * (1 - stats.norm.cdf(z)) + s * stats.norm.pdf(z)
+
+
+def signing_page(signed):
+    """(page, ok): the valuation page whose 1 July information set equals what was readable on the
+    signing date. ok is False where no page matches (then the contract is left out and listed)."""
+    import information_set as ISET
+    if pd.isna(signed):
+        return None, False
+    readable = ISET.seasons_complete_at(pd.Timestamp(signed).date())
+    if not readable:
+        return None, False
+    page = max(readable) + 1
+    at_page = ISET.seasons_complete_at(ISET.decision_date_for_page(page))
+    return page, bool(at_page) and max(at_page) == max(readable)
+
+
+def run(sk, fc, cap):
+    """Steps 2-4 on a proven sample; split out so the steps can be exercised on their own."""
+    # ---- 2. the forecasts: start-dated (v1.x) and signing-dated (directive 5) ------------------
+    sk = sk.copy()
+    sk["signed"] = pd.to_datetime(sk["signing_date"], errors="coerce")
+    xs, xg, pages, hs, why = [], [], [], [], []
+    for nk, yr, sg in zip(sk["nk"], sk["start_yr"], sk["signed"]):
+        f = fc.forecast(nk, int(yr), 0)
+        xs.append(np.nan if f is None else float(f.iloc[0]["war_if_plays"]))
+        page, ok = signing_page(sg)
+        h = None if page is None else int(yr) - page
+        if not ok or h is None or h < 0:
+            xg.append(np.nan); pages.append(page); hs.append(h)
+            why.append("no signing date" if pd.isna(sg) else ("page mismatch" if not ok else "signed after start"))
+            continue
+        g = fc.forecast(nk, page, h)
+        xg.append(np.nan if g is None else float(g.iloc[h]["war_if_plays"]))
+        pages.append(page); hs.append(h); why.append("" if g is not None else "no forecast at signing")
+    sk["xwar_start"], sk["xwar_signed"], sk["sign_page"], sk["sign_h"], sk["why"] = xs, xg, pages, hs, why
+    log(f"\n[2] forecasts (skater_forecast v{fc_version()}), WAR if he plays in the contract's first season:")
+    log(f"    start-dated (page = start year): {int(sk['xwar_start'].notna().sum()):,} of {len(sk):,}")
+    log(f"    signing-dated (directive 5):     {int(sk['xwar_signed'].notna().sum()):,} of {len(sk):,}")
+    for w, n in sk.loc[sk["why"] != "", "why"].value_counts().items():
+        log(f"      left out, {w}: {n:,}")
+    ok_h = sk["sign_h"].dropna().astype(int)
+    log("    seasons between the signing page and the start: " +
+        ", ".join(f"{h}: {n:,}" for h, n in ok_h.value_counts().sort_index().items()))
+    d = sk[sk["xwar_start"].notna() & sk["xwar_signed"].notna()].copy()
+    fp = fingerprint(d)
+    log(f"    rows with both forecasts (every fit below uses exactly these): {len(d):,}, fingerprint {fp}")
+
+    # ---- 3. four fits on the same rows ------------------------------------------------------
+    chk = fit_line(d, "xwar_start")
+    mine = as_line(fit_censored(d["cap_pct"], design(d, "xwar_start", False), d["floor_pct"]), False)
+    gap = max(abs(chk[k] - mine[k]) for k in ("alpha", "beta", "beta_d_add"))
+    assert gap < 1e-7, f"the general fitter does not reproduce the engine's fit (gap {gap:.1e})"
+    log(f"\n[3] four fits, same {len(d):,} contracts (the general fitter reproduces the engine's fit, gap {gap:.1e}):")
+    fits = {}
+    for name, xcol, term in (("start-dated, no term (v1.x specification)", "xwar_start", False),
+                             ("SIGNING-dated, no term (directive 5 alone; TERM-FREE line)", "xwar_signed", False),
+                             ("start-dated, with term (directive 4 alone)", "xwar_start", True),
+                             ("SIGNING-dated, with term (directives 4 + 5; TERM-IN line)", "xwar_signed", True)):
+        ln = as_line(fit_censored(d["cap_pct"], design(d, xcol, term), d["floor_pct"]), term)
+        ln["loglik"] = loglik(ln, d, xcol); ln["xcol"] = xcol
+        fits[name] = ln
+        log(f"  {name}")
+        log(f"    alpha {ln['alpha']:.10f}  beta_F {ln['beta']:.10f} (${ln['beta'] * cap / 1e6:.3f}M per win)  "
+            f"beta_D_add {ln['beta_d_add']:.10f} (defence ${(ln['beta'] + ln['beta_d_add']) * cap / 1e6:.3f}M per win)")
+        if term:
+            log(f"    gamma_term {ln['gamma_term']:.10f}  (${ln['gamma_term'] * cap / 1e6:.3f}M a season per year of term)")
+        log(f"    sigma {ln['sigma']:.8f}  log-likelihood {ln['loglik']:,.1f}  converged {ln['converged']} "
+            f"(max gradient {ln['grad_max']:.1e})")
+    names = list(fits)
+    log("    log-likelihood gains (same rows and outcome): signing-dating "
+        f"{fits[names[1]]['loglik'] - fits[names[0]]['loglik']:+,.1f}; term "
+        f"{fits[names[2]]['loglik'] - fits[names[0]]['loglik']:+,.1f}; both "
+        f"{fits[names[3]]['loglik'] - fits[names[0]]['loglik']:+,.1f}")
+
+    # ---- 4. calibration by tier and by term ---------------------------------------------------
+    free, tin = fits[names[1]], fits[names[3]]
+    d["e_free"] = expected_cap_line(free, d, "xwar_signed")
+    d["e_in"] = expected_cap_line(tin, d, "xwar_signed")
+    d["tier"] = pd.cut(d["xwar_signed"], [-99, 0, 0.5, 1, 2, 99], labels=["below 0", "0-0.5", "0.5-1", "1-2", "2+"])
+    log(f"\n[4] mean cap share ($M at the 2025-26 cap) observed against each line, signing-dated forecast")
+    log(f"    {'by forecast WAR':<16}{'n':>6}{'observed':>10}{'term-free':>11}{'term-in':>9}")
+    for t, g in d.groupby("tier", observed=True):
+        log(f"    {t:<16}{len(g):>6}{g['cap_pct'].mean() * cap / 1e6:>10.2f}{g['e_free'].mean() * cap / 1e6:>11.2f}"
+            f"{g['e_in'].mean() * cap / 1e6:>9.2f}")
+    log(f"    {'by term (years)':<16}")
+    for t, g in d.groupby("length"):
+        log(f"    {int(t):<16}{len(g):>6}{g['cap_pct'].mean() * cap / 1e6:>10.2f}{g['e_free'].mean() * cap / 1e6:>11.2f}"
+            f"{g['e_in'].mean() * cap / 1e6:>9.2f}")
+    return d, fp, free, tin
+
+
+def fc_version():
+    import skater_forecast as SF
+    return SF.SCRIPT_VERSION
 
 
 def main():
@@ -160,86 +320,47 @@ def main():
         (OUTPUT_DIR / "xnpv1_price_line_log.txt").write_text("\n".join(LOG) + "\n", encoding="utf-8")
         raise SystemExit(1)
 
-    # ---- 2. xNPV 1's forecast for each contract's first season -----------------
     import skater_forecast as SF
     fc = SF.ContractForecaster()
-    xw, pp = [], []
-    for nk, yr in zip(sk["nk"], sk["start_yr"]):
-        f = fc.forecast(nk, int(yr), 0)
-        xw.append(np.nan if f is None else float(f.iloc[0]["war_if_plays"]))
-        pp.append(np.nan if f is None else float(f.iloc[0]["p_play"]))
-    sk["xwar"], sk["p_play0"] = xw, pp
-    miss = sk[sk["xwar"].isna()]
-    log(f"\n[2] xNPV 1 forecasts (page = start year, valuation season, WAR if he plays): "
-        f"{len(sk) - len(miss):,} of {len(sk):,}")
-    for r in miss.head(10).itertuples():
-        log(f"    no forecast: {r.nk}  start {int(r.start_yr)}")
-    d = sk[sk["xwar"].notna()].copy()
-    b = np.polyfit(d["wWAR"], d["xwar"], 1)
-    log(f"    on these contracts xNPV 1's forecast = {b[1]:+.3f} + {b[0]:.3f} x trailing total")
+    d, fp, free, tin = run(sk, fc, cap)
 
-    # ---- 3. the same specification, the same rows, one input changed ----------
-    f0s = fit_line(d, "wWAR")
-    f1 = fit_line(d, "xwar")
-    fp = fingerprint(d)
-    log(f"\n[3] both fits on the same {len(d):,} contracts (rows fingerprint {fp}):")
-    show("TRAILING total (the Stage 3 input)" + ("" if len(d) == len(sk) else ", on these rows"), f0s, cap)
-    show("xNPV 1 FORECAST (the input contract_npv prices)", f1, cap)
-    args = (d["cap_pct"].to_numpy(float), None, d["is_d"].to_numpy(float), d["floor_pct"].to_numpy(float))
-    ll0 = censored_loglik(f0s, args[0], d["wWAR"].to_numpy(float), args[2], args[3])
-    ll1 = censored_loglik(f1, args[0], d["xwar"].to_numpy(float), args[2], args[3])
-    log(f"    censored log-likelihood: trailing {ll0:,.1f}   forecast {ll1:,.1f}   "
-        f"(difference {ll1 - ll0:+,.1f}; same rows, outcome and parameter count)")
-    log(f"    slope ratio, forecast over trailing: forwards {f1['beta'] / f0s['beta']:.3f}")
-
-    # ---- 4. calibration by tier ------------------------------------------------
-    e0 = expected_cap(f0s, d["wWAR"].to_numpy(float), args[2], args[3])
-    e1 = expected_cap(f1, d["xwar"].to_numpy(float), args[2], args[3])
-    d["e0"], d["e1"] = e0, e1
-    d["tier"] = pd.cut(d["wWAR"], [-99, 0, 1, 2, 3, 99], labels=["below 0", "0-1", "1-2", "2-3", "3+"])
-    log("\n[4] mean cap share by trailing-WAR tier, observed against each line's expectation")
-    log(f"    {'tier':<8}{'n':>6}{'observed':>11}{'trailing line':>15}{'forecast line':>15}   ($M at a $95.5M cap)")
-    for t, g in d.groupby("tier", observed=True):
-        log(f"    {t:<8}{len(g):>6}{g['cap_pct'].mean() * cap / 1e6:>11.2f}{g['e0'].mean() * cap / 1e6:>15.2f}"
-            f"{g['e1'].mean() * cap / 1e6:>15.2f}")
-
-    # ---- 5. the RFA qualify rates, both ways ------------------------------------
+    # ---- 5. the RFA qualify rates on this forecast (informational; re-measured with the weight) --
     import skater_forward_projection as SFP
     import rfa_terminal_value as RTV
     sp1 = SFP.SkaterProjector()
-    sp1._forecaster = fc                       # the same page fits
+    sp1._forecaster = fc
     q1 = RTV.TerminalValuer(sp1)
-    log("\n[5] RFA qualify rates (D14(c)), P(qualified) by quality bucket at the decision,")
-    log(f"    bucketed on {q1.qualify_basis}:")
+    log(f"\n[5] RFA qualify rates by quality bucket at the decision, bucketed on {q1.qualify_basis}:")
     for bkt in ("star", "regular", "fringe", "negative"):
         log(f"    {bkt:<10}{q1.qualify_p.get(bkt, float('nan')):>8.3f} (n {q1.qualify_n.get(bkt, 0):>4})")
 
-    # ---- 6. write -------------------------------------------------------------
-    out = dict(model="xNPV 1", fit_on="xNPV 1 WAR if he plays, valuation season, page = start year",
-               alpha=f1["alpha"], beta=f1["beta"], beta_d_add=f1["beta_d_add"],
-               beta_d=f1["beta"] + f1["beta_d_add"], sigma=f1["sigma"], n=int(len(d)),
-               rows_fingerprint=fp, converged=bool(f1["converged"]),
-               script=f"xnpv1_price_line.py v{SCRIPT_VERSION}",
-               skater_forecast_version=SF.SCRIPT_VERSION)
+    # ---- 6. write, and the guard against a lock made by this version --------------------------
+    def pack(line):
+        return dict(alpha=line["alpha"], beta=line["beta"], beta_d_add=line["beta_d_add"],
+                    gamma_term=line["gamma_term"], sigma=line["sigma"], n=int(len(d)), rows_fingerprint=fp)
+    out = dict(model="xNPV 1", skater_forecast_version=SF.SCRIPT_VERSION, script=f"xnpv1_price_line.py v{SCRIPT_VERSION}",
+               fit_on="xNPV 1 WAR if he plays, contract's first season, forecast dated at the signing",
+               term_in=pack(tin), term_free=pack(free))
     (OUTPUT_DIR / "xnpv1_price_line.json").write_text(json.dumps(out, indent=2), encoding="utf-8")
-
-    # ---- v1.1: reproduction guard against the locked line, when there is one ----
-    import skater_forward_projection as SFP_
-    lock = SFP_.XNPV1_RATE
-    if lock is not None:
-        gaps = {k: abs(f1[k] - lock[k]) for k in ("alpha", "beta", "beta_d_add")}
-        same = (f1["converged"] and max(gaps.values()) <= SVE.TOL_NEW_COEF
-                and len(d) == lock["n"] and fp == lock["rows_fingerprint"])
-        log(f"\n[guard] against the locked XNPV1_RATE: n {len(d)} (locked {lock['n']}), fingerprint {fp} "
-            f"(locked {lock['rows_fingerprint']}), largest coefficient gap {max(gaps.values()):.1e}: "
-            f"{'PASS' if same else 'GUARD FAILED'}")
-        if not same:
+    lock, lock_free = SFP.XNPV1_RATE, getattr(SFP, "XNPV1_RATE_TERM_FREE", None)
+    if lock is not None and "gamma_term" in lock and lock_free is not None:
+        bad = []
+        for nm, got, lk in (("term-in", tin, lock), ("term-free", free, lock_free)):
+            gaps = max(abs(got[k] - lk[k]) for k in ("alpha", "beta", "beta_d_add", "gamma_term"))
+            same = got["converged"] and gaps <= SVE.TOL_NEW_COEF and len(d) == lk["n"] and fp == lk["rows_fingerprint"]
+            log(f"\n[guard] {nm} against the lock: n {len(d)} (locked {lk['n']}), fingerprint {fp} "
+                f"(locked {lk['rows_fingerprint']}), largest gap {gaps:.1e}: {'PASS' if same else 'GUARD FAILED'}")
+            bad += [] if same else [nm]
+        if bad:
             (OUTPUT_DIR / "xnpv1_price_line_log.txt").write_text("\n".join(LOG) + "\n", encoding="utf-8")
             raise SystemExit(1)
+    else:
+        log("\n[guard] the lock in skater_forward_projection is v1.x's (start-dated, no term, fitted on the v1.x "
+            "forecast): not comparable; this run's lines replace it once Thomas locks them.")
     log("\n[6] to lock, in skater_forward_projection.py:")
-    log("    XNPV1_RATE = dict(alpha=%.10f, beta=%.10f, beta_d_add=%.10f, n=%d, sigma=%.8f,"
-        % (f1["alpha"], f1["beta"], f1["beta_d_add"], len(d), f1["sigma"]))
-    log(f"                      rows_fingerprint=\"{fp}\")")
+    for nm, line in (("XNPV1_RATE", tin), ("XNPV1_RATE_TERM_FREE", free)):
+        log(f"    {nm} = dict(alpha={line['alpha']:.10f}, beta={line['beta']:.10f}, beta_d_add={line['beta_d_add']:.10f},")
+        log(f"        gamma_term={line['gamma_term']:.10f}, n={len(d)}, sigma={line['sigma']:.8f}, rows_fingerprint=\"{fp}\")")
     (OUTPUT_DIR / "xnpv1_price_line_log.txt").write_text("\n".join(LOG) + "\n", encoding="utf-8")
     log(f"\nwritten: {OUTPUT_DIR / 'xnpv1_price_line_log.txt'} and {OUTPUT_DIR / 'xnpv1_price_line.json'}")
 

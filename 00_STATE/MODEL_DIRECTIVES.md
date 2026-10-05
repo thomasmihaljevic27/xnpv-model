@@ -89,9 +89,10 @@ on the laptop (A1, C2, C6: `abc_build_check.py`; D2, E1: `de_build_check.py`).
 Directive 4's three details settled (2026-10-05): one linear term for years; each season uses the term
 remaining at the valuation date; a control year is priced as a one-year signing.
 
-**Next step:** step 6, (a) the price-line re-fit for directives 4 and 5 (`xnpv1_price_line.py` v2.0:
-signing-dated forecasts, term-in, term-free fitted beside it); Thomas locks the new line on its laptop
-run; then (b) the pricing code: term in each season's value, status read at the signing (open decision
+**Next step:** step 6, (a) Thomas runs `20_CODE/xnpv1_price_line.py` v2.0 on the laptop (built
+2026-10-05: signing-dated forecasts matched to the page with the identical information set; one linear
+term for years; four fits on the same rows, so directive 5 alone, directive 4 alone and both are each
+shown; the term-free and term-in lines printed for locking) and locks the two lines; then (b) the pricing code: term in each season's value, status read at the signing (open decision
 2), the control-year weight (open decision 1), the qualify rates and floor spread re-measured, the
 valuations and dashboard re-run, the documents updated. Do not run the dashboard or `xnpv1_price_line.py` on the branch: the price line is not re-fitted
 until step 6, so any valuation there is provisional. Details 1, 3 and 4 settled

@@ -308,7 +308,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,xnpv1_promotion_check.py,player,hashable,2026-10-02c,b8b524e96a22c84a0a256b60880a8d354eb28898,7047,2026-10-02,yes,git,finished test or diagnostic
 25_TESTS,xnpv1_switch_check.py,player,hashable,2026-10-02e,cb067c9a79cb8fff332740042f194a4785153662,6431,2026-10-02,yes,git,finished test or diagnostic
 .,Update-Dashboard.cmd,npv,hashable,2026-10-02f,ab0513d123b559300e811cc1fb2775f45ed63eb0,1813,2026-10-02,yes,git,rebuilds and opens the dashboard (was Open-Dashboard.cmd)
-20_CODE,xnpv1_price_line.py,player,hashable,2026-10-02k,50ff28fcdbc1c1f3e3642ca25e0bcaf2b3c6af44,13284,2026-10-02,yes,git,xNPV 1 price-per-win fit and its reproduction guard (laptop)
+20_CODE,xnpv1_price_line.py,player,hashable,2026-10-04c,03c1591bad58d682c47a2405cf9009bee9324ea6,20774,2026-10-05,yes,git,"v2.0: signing-dated, term-in price line with term-free beside (directives 4, 5); laptop run owed"
 25_TESTS,xnpv1_position_compression.py,player,hashable,2026-10-02h,53c882daaf66f221f48530bb87e6b18752ec28a6,4198,2026-10-02,yes,git,finished test or diagnostic
 40_DOCS/model_evidence,xNPV1_Price_Line.md,player,hashable,2026-10-02h,87dc31751567e331f7778e78cc59ba83cab80fa4,7251,2026-10-02,yes,git,xNPV 1 price line evidence
 25_TESTS,xnpv0_removal_check.py,player,hashable,2026-10-02k,49130927295d238c6705784770d093f357821e73,5999,2026-10-02,no,git,laptop check that archiving xNPV 0 moved no xNPV 1 value
@@ -319,10 +319,10 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 00_STATE/sessions,2026-10-04.md,state,hashable,2026-10-04,eac49bd36b8f31292c4d598f38c9b07330fda080,14948,2026-10-04,yes,git,git-tracked; audited via `git status`
 25_TESTS,late_signing_status_check.py,player,hashable,2026-10-04,d566a23cf265fc7c267e7d0d17f4fd61ad3311a5,4689,2026-10-04,yes,git,laptop check: chance of playing read at July 1 against at the signing
 00_STATE/sessions,2026-10-04b.md,state,hashable,2026-10-04b,5eea1b713061533096e85fba2841edd65ed36c2e,4228,2026-10-04,yes,git,triage of the open list
-00_STATE,MODEL_DIRECTIVES.md,state,hashable,2026-10-04c,e9baea45b121a03011fa3fecf8994eeeb22d28d1,53448,2026-10-04,yes,git,"Thomas's explicit model directives, entry by entry"
+00_STATE,MODEL_DIRECTIVES.md,state,hashable,2026-10-04c,9e34e5b979163b0e8b205a2dbadcd1998414c670,55340,2026-10-04,yes,git,"Thomas's explicit model directives, entry by entry"
 25_TESTS,aging_level_weights_test.py,player,hashable,2026-10-04,48fe1aaafdf02738d8cb3c20d82ff22c56b776c4,15325,2026-10-04,yes,git,finished test or diagnostic
 25_TESTS,starting_level_simple_test.py,player,hashable,2026-10-04,02d3025eebcb181cc31d47da3a1a8fc838452f4f,17263,2026-10-04,yes,git,finished test or diagnostic
-00_STATE/sessions,2026-10-04c.md,state,hashable,2026-10-04c,6aebe2bc0abc849df31a4606e4b1a6e2a17aeca4,25903,2026-10-04,yes,git,plan of record step 1: directive 1 detail 1; test script written
+00_STATE/sessions,2026-10-04c.md,state,hashable,2026-10-04c,020fe8ca5cd9227813444aa47ec57ec45ad08706,28184,2026-10-04,yes,git,plan of record step 1: directive 1 detail 1; test script written
 25_TESTS,level_games_weighting_test.py,player,hashable,2026-10-04c,bd25199253b89d0416d4b1cdb35b3f6bba46eda0,13745,2026-10-04,yes,git,directive 1 detail 1 test; run 2026-10-04
 25_TESTS,thin_history_check.py,player,hashable,2026-10-04c,f07e9b2ffbf0cdb5f7cb664d2507f262670f210a,10300,2026-10-05,yes,git,directive 1 detail 4 diagnostic; run 2026-10-05
 25_TESTS,war_input_uniformity_test.py,player,hashable,2026-10-04c,321f494b7beb3dd1c0774cefff637d99cadcb693,17292,2026-10-05,yes,git,trailing total vs rate per 82; run 2026-10-05
