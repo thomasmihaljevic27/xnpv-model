@@ -42,7 +42,9 @@ under-forecast (item 6 below). Not a current priority.
 **Draft and prospect pillars, 2026-10-04: restart from scratch (directive 6).** All draft and prospect
 modelling decisions retired (D22-D27, D29-D32); data kept. Order: after player directives 1-5 are built and
 the delivered-win price is decided, write a plain-English specification step by step with the supervisor,
-into the ledger, before any code. Earlier draft and prospect queue entries are superseded.
+into the ledger, before any code. Earlier draft and prospect queue entries are superseded. **50/30/20 (Thomas,
+2026-10-05):** be certain each step that reads a player's recent seasons uses 50/30/20 where needed; the
+old draft curve and the observed-season value still carry 60/40 (`MODEL_DIRECTIVES.md` directive 6).
 
 **Next work (2026-10-04): follow the plan of record in `00_STATE/MODEL_DIRECTIVES.md`.** Step 1: build directives
 1-3 on a branch, starting with directive 1's detail 1 (games weighting of seasons), decided with Thomas.

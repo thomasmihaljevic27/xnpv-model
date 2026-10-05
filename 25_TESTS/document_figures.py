@@ -251,7 +251,8 @@ def a7_playing(fc, page):
 
 def a8_tiers(fc):
     """Season-WAR bias by trailing tier on the development pages, scored by the harness on its own
-    grid (forecast_harness.subjects_at's 60/40 two-season tier, with its fallbacks). Guarded: the
+    grid (forecast_harness.subjects_at's tier: the 60/40 two-season total through harness v1.3, the
+    forecast's 50/30/20 trailing total from v1.4, 2026-10-05). Guarded: the
     whole grid must give the recorded build figures (40,510 rows, season-WAR RMSE 0.8075)."""
     import forecast_harness as H
     import skater_forecast as SF

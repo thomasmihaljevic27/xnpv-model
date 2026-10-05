@@ -2834,3 +2834,7 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   WAR a season one to five out (95% range -0.74 to -0.07, 73 players), replacing the -0.333 above,
   which grouped players by the harness's 60/40 label. Open for Thomas: the 60/40 total left in code
   (observed-season value and its price line; the harness's reporting tier).
+- Harness tier label on 50/30/20 (Thomas, 2026-10-05): `forecast_harness.py` v1.4 labels tiers on the
+  forecast's 50/30/20 trailing total; subjects unchanged (`25_TESTS/harness_tier_check.py`). Standing
+  instruction for the draft and prospect restart: be certain 50/30/20 is used where needed (directive 6;
+  CLAUDE.md). The observed-season value and its price line stay 60/40 until then.

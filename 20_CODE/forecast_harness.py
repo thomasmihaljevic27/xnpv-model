@@ -69,13 +69,17 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import forecast_config as C
 import information_set as ISET
 
-SCRIPT_VERSION = "1.3"
+SCRIPT_VERSION = "1.4"
 
 DEFAULT_HORIZONS = (0, 1, 2, 3, 4, 5)   # h=0 is the valuation season itself
 
-# Level tiers, on the trailing WAR the model itself starts from. These are the
-# tiers the tilt was measured in (+24% at 3+), so the harness reproduces the
-# known defect in the units it was found in.
+# Level tiers, on the trailing WAR total the forecast itself reads: the plain
+# 50/30/20 average of the season WAR totals over the three seasons before the
+# page, 10+ game seasons only, rescaled over the seasons he has
+# (skater_forecast._anchors' tw_WAR). v1.4 (Thomas, 2026-10-05: the model uses
+# 50/30/20, not 60/40); until v1.3 the tiers were on the 60/40 two-season total
+# the old anchor used, in which the +24% tilt at 3+ was first measured. A tier
+# result recorded before v1.4 reproduces only from a checkout before it.
 TIER_EDGES = [-np.inf, 0.0, 1.0, 2.0, 3.0, np.inf]
 TIER_NAMES = ["below 0", "0 to 1", "1 to 2", "2 to 3", "3+"]
 
@@ -111,14 +115,17 @@ def subjects_at(iset: ISET.InformationSet) -> pd.DataFrame:
                  exp_censored=("exp_censored", "last"),
                  age=("age", "last"), has_age=("has_age", "last")))
 
-    # Trailing level for the tier split: the locked 60/40 blend of the two
-    # most recent qualifying seasons. Used ONLY to classify rows for
-    # reporting; no model is obliged to use it as its own anchor.
-    t1, t2, t3 = iset.latest_season, iset.latest_season - 1, iset.latest_season - 2
+    # Trailing level for the tier split (v1.4): the plain 50/30/20 WAR total
+    # over the three seasons before the page, rescaled over the 10+ game
+    # seasons he has -- the forecast's own trailing total (tw_WAR), so a tier
+    # is stated in the units the model reads. Used ONLY to classify rows for
+    # reporting. A player is kept iff one of the three seasons counts, the same
+    # set the 60/40 rule with its fallbacks kept, so the subject list (which
+    # skater_forecast's tail decay reads) is unchanged.
+    t1, t2, t3 = iset.t0 - 1, iset.t0 - 2, iset.t0 - 3
     w1 = played[played["syr"] == t1].set_index("career_key")["WAR"]
     w2 = played[played["syr"] == t2].set_index("career_key")["WAR"]
     w3 = played[played["syr"] == t3].set_index("career_key")["WAR"]
-    both = w1.reindex(last.index) * 0.6 + w2.reindex(last.index) * 0.4
     # THE THIRD FALLBACK ADMITS THE RETURNERS. The window above says three
     # seasons and this line used to stop at two, so a player whose only
     # qualifying season was the oldest one in the window was dropped for having
@@ -126,9 +133,13 @@ def subjects_at(iset: ISET.InformationSet) -> pd.DataFrame:
     # removes the players who missed a season and came back, which is precisely
     # the population the eligibility window was widened to admit and precisely
     # the population a survivorship-aware forecast has to be scored on.
-    last["trailing_war"] = (both.fillna(w1.reindex(last.index))
-                                .fillna(w2.reindex(last.index))
-                                .fillna(w3.reindex(last.index)))
+    num = pd.Series(0.0, index=last.index)
+    den = pd.Series(0.0, index=last.index)
+    for w, wt in ((w1, 0.5), (w2, 0.3), (w3, 0.2)):
+        v = w.reindex(last.index)
+        num += (v * wt).fillna(0.0)
+        den += v.notna() * wt
+    last["trailing_war"] = (num / den).where(den > 0)
     last = last[last["trailing_war"].notna()]
 
     # HOW STALE the level behind each row is, carried so a report can say so

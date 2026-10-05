@@ -160,9 +160,10 @@ produce the kept data and the check, see `00_STATE/MODEL_DIRECTIVES.md` directiv
   and described a fixed defect (the projection ratio floor) as live and unfixed. Read the
   script's docstring and the constants it actually uses. Where a figure is a run output rather
   than a code constant, cite it from the locked decision record and say so. The same goes for a
-  reporting group: the harness's star tier is a 60/40 two-season total with fallbacks
+  reporting group: the harness's star tier was a 60/40 two-season total with fallbacks
   (`forecast_harness.subjects_at`), and it was described from memory as a three-season weighted
-  total (corrected 2026-09-24). Quote the function that assigns the label.
+  total (corrected 2026-09-24); since 2026-10-05 (harness v1.4) it is the forecast's 50/30/20
+  trailing WAR total. Quote the function that assigns the label.
 - **Don't credit a multi-part change to one of its parts.** When a candidate adds more than one
   input or term, score each alone and in combination before saying which one carries the gain. This
   was corrected twice: the goalie price line credited a level-and-slope pair when the level alone
@@ -319,6 +320,17 @@ produce the kept data and the check, see `00_STATE/MODEL_DIRECTIVES.md` directiv
   This file quoted a skater rate retired twice over, and `skater_forward_projection.py` still
   labels a superseded rate "locked" at the top of the file before overwriting it further down
   (corrected 2026-09-28). The last assignment is the one that runs.
+- **Don't weigh a player's recent seasons any way but 50/30/20 without saying so first.** The model
+  reads a player's recent seasons 50/30/20 (last season first; rescaled over the seasons he has, so two
+  seasons are 62.5/37.5, not 60/40). The pricing document compared the forecast against a 60/40 total
+  the forecast does not use, and Thomas caught it (2026-10-05). His instruction: "when the draft and
+  prospect work starts you need to be 100% certain that you are using 50/30/20 when needed." 60/40
+  survives only in code outside the forecast: `skater_value_engine.py` (`W_T1, W_T2`: observed-season
+  value and the older price line), `draft_yield_curve.py` (`W_T1, W_T2`: the retired draft curve's
+  cost anchor), and the goalies' two-season fallback (`goalie_value_engine.py`, `contract_npv.py`).
+  Before any code, figure or document reads a trailing total, grep for `0.6`, `0.4`, `W_T1` and
+  "60/40" in what it calls, and state which weighting each step uses; a figure stated against another
+  weighting says so and why.
 - **Don't hand over a scraper after checking only that its pages load.** `ep_extract.py` v3.0 went
   to Thomas with every league slug checked for a 200 response and the draft pass run, but no
   league-season pulled through the package end to end. On the laptop every pull failed: the

@@ -421,6 +421,13 @@ comparables' level for thin histories.
 - **Order:** after directives 1-5 are in the code and the price of a delivered win is decided,
   because the draft curve prices in the player model's currency. Consistent with the 2026-10-04
   triage (draft and prospect pillars on hold until Karl is up to speed).
+- **50/30/20 (Thomas, 2026-10-05):** "when the draft and prospect work starts you need to be 100% certain
+  that you are using 50/30/20 when needed." Binding on the restart: each step of the specification
+  that reads a player's recent seasons states its weighting, 50/30/20 unless Thomas decides otherwise,
+  and the restart's first check lists every trailing weighting in the code it calls. 60/40 is still in
+  `draft_yield_curve.py` (`W_T1, W_T2`, the cost anchor, lines 165 and 351) and in
+  `skater_value_engine.py` (`W_T1, W_T2`, line 217: the observed-season value and the older price line
+  the draft curve reads); neither is reused without that decision.
 - **Status:** directed. Nothing archived or changed yet.
 
 ---
