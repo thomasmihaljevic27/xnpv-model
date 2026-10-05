@@ -98,7 +98,10 @@ load_dotenv()
 
 import TopDownHockey_Scraper.TopDownHockey_EliteProspects_Scraper as tdhepscrape
 
-SCRIPT_VERSION = "3.2"   # printed on every run (stale-file guard)
+SCRIPT_VERSION = "3.3"   # printed on every run (stale-file guard)
+# v3.3 (2026-10-05): the bio pause is 10 seconds a player (was 4). With 4,
+# EP refused the run after 9 players, then on its first request; the earlier
+# unpaced run's ~850 requests likely still counted against the connection.
 # v3.2 (2026-10-05): the bio pass reads one player at a time through the
 # package's get_info() with a 4-second pause after each, instead of calling
 # get_player_information(), which has no pause; EP blocked the first batch
@@ -200,8 +203,9 @@ SLEEP_BETWEEN_LEAGUE_SEASONS = 15  # seconds between league-season pulls
 BIO_BATCH_SIZE = 100               # players per bio batch; each batch commits,
                                    # so an interruption loses at most one batch
 SLEEP_BETWEEN_BIO_BATCHES = 30     # seconds between bio batches
-SLEEP_BETWEEN_BIO_REQUESTS = 4     # seconds after each player's bio page (v3.2);
-                                   # with none, EP returned 403 after 48 players
+SLEEP_BETWEEN_BIO_REQUESTS = 10    # seconds after each player's bio page. v3.2 had
+                                   # 4 (with none, EP returned 403 after 48 players);
+                                   # v3.3 has 10, after 4 was blocked at 9 players
 
 # --- Same-name collisions (audit tripwire only; joins here are ID-based) ------
 KNOWN_NAME_COLLISIONS = {
@@ -669,7 +673,7 @@ BIO_COLUMNS = ["player", "rights", "status", "dob", "height", "weight",
 def fetch_bio_batch(links: list[str]) -> tuple[pd.DataFrame, bool]:
     """
     Read one batch of bio pages, one player at a time, pausing
-    SLEEP_BETWEEN_BIO_REQUESTS seconds after each.
+    SLEEP_BETWEEN_BIO_REQUESTS seconds after each (10 from v3.3).
 
     v3.2: this replaces the package's get_player_information(), which requests
     every page back to back (its one-second pause is commented out). EP

@@ -375,6 +375,11 @@ produce the kept data and the check, see `00_STATE/MODEL_DIRECTIVES.md` directiv
   had never been rebuilt there after 2026-07-28 (corrected 2026-10-02). A machine-specific result
   starts with the date, coverage and hash of every input table on that machine; the rebuild runners
   now refuse an age table under 99% coverage (`production_adapter._check_age_coverage`).
+- **Don't explain a gap between two counts until you have counted the starting point.** The bio pass
+  printed 4,853 needed, then 4,004; with 949 bios stored, the 100 "extra" bios were read as the old
+  run still saving while the new one ran, and the 403 blamed on two runs at once. Thomas had stopped
+  the old run first; 100 bios were already stored before the first count (2026-10-05). Recompute
+  wanted, stored and needed from the code's own functions before naming a cause.
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised

@@ -2906,3 +2906,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   database with birthdates and draft slots, and a second run found nothing to do; a simulated Ctrl+C
   after two real players saved both. The package's endless 60-second 403 retry is unchanged. No
   model code changed.
+- `ep_extract.py` v3.3: the pause is 10 seconds a player (about 11 hours for the 3,995 bios still
+  needed). With 4 seconds and nothing else running, EP refused the run after 9 players, then on the
+  restart's first request; the earlier unpaced run's ~850 requests likely still counted against the
+  connection, so the restart waits several hours. Not run against EP after the change (the block was
+  in force); only the constant changed. Bios stored: 958 of 4,953.
