@@ -21,9 +21,9 @@ the commit), **superseded** (replaced by a later entry).
 
 | | To investigate (closed list) | Status |
 |---|---|---|
-| A | The yardstick: one per position, and no self-pairs | A1 adopted, A2 dropped (2026-10-05); combined run owed |
+| A | The yardstick: one per position, and no self-pairs | closed: A1 implemented (v2.1), A2 dropped |
 | B | The league average inside the comparables' estimate | closed: weight of ten kept (2026-10-05) |
-| C | Departed players in the aging curve: the assumed zero and its gaps | C2, C6 adopted (2026-10-05); combined run and C5-on-level owed |
+| C | Departed players in the aging curve: the assumed zero and its gaps | closed: C2, C6 implemented (v2.1); C5 dropped |
 | D | The games-share equation's form | open |
 | E | The chance of playing for players under contract | open |
 | F | Re-run the Game Value checks on the model as directed | after directives 1-5 are built |
@@ -68,10 +68,13 @@ the tested design row by row (passed in the cloud on fake data) and to the recor
 Laptop check passed 2026-10-05: production equals the tested design row by row and reproduces every
 recorded figure; the walk fix moves 42 of 41,496 rates (7 player-pages) and no figure at four decimals.
 
-**Next step:** step 2 follow-up: Thomas runs `25_TESTS/aging_abc_followup.py` v1.0 on the laptop
-(A1 + C2 + C6 together; C5 on the comparables' level only). Adopted so far (2026-10-05): A1, C2, C6;
-B closed at the weight of ten. Directive 1's detail 2 (which comparable-player level) is settled by B:
-the curve's estimate, league weight ten. Do not run the dashboard or `xnpv1_price_line.py` on the branch: the price line is not re-fitted
+**Step 2 closed (2026-10-05):** A1, C2, C6 adopted and built (`skater_forecast.py` v2.1); A2, B1, B2,
+C1, C3, C4 and C5 not adopted. `25_TESTS/abc_build_check.py` v1.0 owed on the laptop. Directive 1's
+detail 2 (which comparable-player level): B kept the curve's estimate with the league weight of ten;
+Thomas to confirm that this settles detail 2.
+
+**Next step:** after the build check, step 3: investigation D (the games-share equation's form), and
+investigation E with open decision 2 (the chance of playing under contract; when contract status is read). Do not run the dashboard or `xnpv1_price_line.py` on the branch: the price line is not re-fitted
 until step 6, so any valuation there is provisional. Details 1, 3 and 4 settled
 (2026-10-04c/2026-10-05: games-weighted on both sides; the step to the valuation season; rescale over
 the seasons he has). Detail 2 waits on investigation B (step 2), which was widened with C to cover the
@@ -384,8 +387,14 @@ when he directs it.
   seasons out / season WAR; "lower in" of 2,000 career resamples)): A1 (by position) 1.1505 / 1.3598 / 0.8093, lower in 1,990 / 1,996 / 2,000;
   A2 (no self-pairs) unchanged at four decimals, lower in 0 / 23 / 0. Pooled yardsticks 2.527-2.565;
   forwards 2.492-2.562, defence 2.536-2.575.
-- **Decided (Thomas, 2026-10-05): adopt A1, drop A2.** Pending the combined run
-  (`25_TESTS/aging_abc_followup.py`) before it enters the code.
+- **Decided (Thomas, 2026-10-05): adopt A1, drop A2.**
+- **Combined run:** `25_TESTS/aging_abc_followup.py` v1.0 (laptop 2026-10-05; v1.0 figures reproduced): A1 + C2 + C6 together
+  1.1506 / 1.3587 / 0.8088 (MAE 0.4673) against the build's 1.1506 / 1.3598 / 0.8093; whole and season
+  WAR lower in 2,000 and 2,000 of 2,000, start in 517; costs, counted: MAE +0.0002, one season out
+  +0.0002, age 35+ +0.0010 (C6), one-season start bias +0.166 to +0.171 (C2); the gain is mostly C2's.
+- **Implemented** in `aging_curve.py` (`h_by_pos`, used by `_weights`; the pooled `h` kept for
+  reporting) with C2 and C6, `skater_forecast.py` v2.1; `25_TESTS/abc_build_check.py` v1.0 holds it to
+  the tested version (passed in the cloud on fake data; laptop run owed).
 
 ## B. The league average inside the comparables' estimate: who needs it, and can it go?
 
@@ -462,8 +471,20 @@ when he directs it.
   +0.039, but the two-season walk worse (1.3939 against 1.3802); C6 departed games = his own 1.1506 /
   1.3596 / 0.8092 (lower in 1,193 / 1,934 / 1,965).
 - **Decided (Thomas, 2026-10-05): adopt C2 and C6;** keep the zero, keep filling in, keep short next
-  seasons dropped. Pending the combined run. C5's loss rules out the relaxed pool for level and walk
-  together, not for the level alone: `25_TESTS/aging_abc_followup.py` v1.0 tests it on the level only.
+  seasons dropped.
+- **C5 on the comparables' level only** (`aging_abc_followup.py` v1.0): start bias down (on the
+  combination: one season +0.171 to +0.136, two seasons +0.105 to +0.067; start lower in 1,990), but the
+  walk and season WAR worse (lower than the combination in 46 and 97 of 2,000); C5 in full on the
+  combination also worse (510 and 565). The thin-history start runs high while the walk after it runs
+  low, and the two partly cancel; fixing the start alone breaks that. **Decided (Thomas, 2026-10-05):
+  C5 dropped** in both forms; the offsetting-bias finding is in WORK_QUEUE with the long-horizon
+  under-forecast.
+- **Implemented** with A1: `skater_forecast.imputed_aging_model` (v2.1) skips a player who appears
+  again at a later age before the page (C2) and enters a departed season at his own games (C6);
+  `aging_curve.DEPARTED_GP` removed. Combined run: `25_TESTS/aging_abc_followup.py` v1.0 (laptop 2026-10-05; v1.0 figures reproduced): A1 + C2 + C6 together
+  1.1506 / 1.3587 / 0.8088 (MAE 0.4673) against the build's 1.1506 / 1.3598 / 0.8093; whole and season
+  WAR lower in 2,000 and 2,000 of 2,000, start in 517; costs, counted: MAE +0.0002, one season out
+  +0.0002, age 35+ +0.0010 (C6), one-season start bias +0.166 to +0.171 (C2); the gain is mostly C2's.
 
 ## D. The games-share equation's form
 

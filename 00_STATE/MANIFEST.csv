@@ -2,11 +2,11 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 00_STATE,01_Draft_Model_Sequence.md,state,hashable,2026-10-04,3db01ad109a52983456f63e4d37fc4bc6b89f06f,10822,2026-10-04,yes,git,rewritten 2026-09-28 with D29-D31
 00_STATE,02_Prospect_Model_Sequence.md,state,hashable,2026-10-04,b5b48e30ae4efacc9e1dd8d0e7afb313692a8399,11591,2026-10-04,yes,git,"rewritten 2026-09-28 (EP pull, bridge, goalie birthdates)"
 00_STATE,03_Player_Market_Model_Sequence.md,state,hashable,2026-09-09a,2f68c554cca2f422235e3baa6e17a0996e8412e7,18322,2026-09-09,yes,git,matches Claude project copy
-00_STATE,DECISIONS.md,state,hashable,2026-10-04c,ce74d462bbaa410711ca38bf8b5a59435d57bab4,366458,2026-10-04,yes,git,change log 2026-10-04g
+00_STATE,DECISIONS.md,state,hashable,2026-10-04c,d1dafd9af40a1182e83a1ea2b4f6b5fe01f3adeb,366929,2026-10-04,yes,git,change log 2026-10-04g
 00_STATE,MANIFEST.csv,state,hashable,2026-09-25c,66d3201b2fc22f946fa0de1bb2c0f364c6600a13,36432,2026-09-25,yes,git,"this file; the hash column cannot be self-referential, so it is not audited"
 00_STATE,PROJECT_STATE.md,state,hashable,2026-10-04,981ee83946822c89d21cfa36217a5af3216ef94e,196533,2026-10-04,yes,git,Doc 1 entry marked deleted 2026-10-04b
 00_STATE,STANDING_FLAGS.md,state,hashable,2026-10-04,7938e9fcba324476f41407a4fe67f93ae408ec68,140196,2026-10-04,yes,git,55/45-by-type question dropped 2026-10-04b
-00_STATE,WORK_QUEUE.md,state,hashable,2026-10-04,fb0ccf277b3f2685f6fdaa106f761fa2a0e40ea1,163697,2026-10-04,yes,git,triage of the open list 2026-10-04b
+00_STATE,WORK_QUEUE.md,state,hashable,2026-10-04c,153a4c092f4fd73ea0e6aee12031e07c73626394,164376,2026-10-05,yes,git,triage of the open list 2026-10-04b
 00_STATE/sessions,2026-08-28.md,state,hashable,2026-09-09a,921a8eae623bb0d7ac4d1d181f6b862aa51a9e62,2159,2026-09-09,yes,git,git-tracked; audited via `git status`
 00_STATE/sessions,2026-09-08.md,state,hashable,2026-09-09a,1b31b43e8ed30fefd98ded8df5f5a431e79f323b,2384,2026-09-09,yes,git,git-tracked; audited via `git status`
 00_STATE/sessions,2026-09-09.md,state,hashable,2026-09-10,e1547fa499f7d8fdff918698f28a968b7bb56a07,22662,2026-09-10,yes,git,git-tracked; audited via `git status`
@@ -16,7 +16,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 10_SOURCE,draft_slot_baseline.csv,draft,hashable,2026-09-09a,455e808e2597d6bfc51ba120d0f0595c546adf54,26213,2026-09-09,yes,git,git-tracked; audited via `git status`
 10_SOURCE,nhle_temporal.csv,prosp,hashable,2026-09-09a,7a3a1c5a4aea49e19bb917a657f493d0f2ec1b0f,336187,2026-09-09,yes,git,frozen vendor source
 20_CODE,age_join.py,age,hashable,2026-09-28j,e728e68220a6e2f74baae6781d74022751033feb,31305,2026-09-28,yes,git,WAR_with_age ID pollution flag open
-20_CODE,aging_curve.py,age,hashable,2026-10-04c,a87dde7f23883d521f7940a0f899568ba5530bf1,27367,2026-10-05,yes,git,imported as module; do not rename; directive 2-3 level rule
+20_CODE,aging_curve.py,age,hashable,2026-10-04c,ab01aee4bc641dbf62ebe2bd779b990d09b33fb1,27902,2026-10-05,yes,git,"imported as module; do not rename; directive 2-3 level rule, A1 yardsticks"
 25_TESTS,aging_split_sample.py,age,hashable,2026-09-30k,fc8ae017fc45a6e08db103dff320f016160250b9,6499,2026-09-30,yes,git,git-tracked; audited via `git status`; moved 2026-09-30j
 20_CODE,capspace_capwages_compare.py,clause,hashable,2026-09-09a,7aee6d1a0501bcfe491d0f567b2f73297c245a20,26631,2026-09-09,yes,git,git-tracked; audited via `git status`
 20_CODE,capspace_scraper.py,clause,hashable,2026-09-09a,d43c9f8ff142c1bfe668e726431937889ab39db5,21975,2026-09-09,yes,git,git-tracked; audited via `git status`
@@ -304,7 +304,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 20_CODE,information_set.py,player,hashable,2026-10-02d,48b05b4745780347985d5fa53a8b77e1fa954779,9490,2026-10-02,yes,git,"xNPV 1, promoted 2026-10-02 (D33)"
 20_CODE,participation_model.py,player,hashable,2026-10-02c,4677216cdbe734a090f6da380480b2419c4b189e,25955,2026-10-02,yes,git,"xNPV 1, promoted 2026-10-02 (D33)"
 20_CODE,player_season_table.py,player,hashable,2026-10-02c,c69f287e47f46d25aaa79361b8f67a0e18aeff57,29415,2026-10-02,yes,git,"xNPV 1, promoted 2026-10-02 (D33)"
-20_CODE,skater_forecast.py,player,hashable,2026-10-04c,52b41e74d699f02d2f0a14be97ae711f5a9e511d,38787,2026-10-05,yes,git,"xNPV 1 v2.0, the directed forecast (branch); D33 promotion 2026-10-02"
+20_CODE,skater_forecast.py,player,hashable,2026-10-04c,c96ad606b1697b7126d9b4c43da496cbe5c9d964,39526,2026-10-05,yes,git,"xNPV 1 v2.1, the directed forecast with A1, C2, C6 (branch)"
 25_TESTS,xnpv1_promotion_check.py,player,hashable,2026-10-02c,b8b524e96a22c84a0a256b60880a8d354eb28898,7047,2026-10-02,yes,git,finished test or diagnostic
 25_TESTS,xnpv1_switch_check.py,player,hashable,2026-10-02e,cb067c9a79cb8fff332740042f194a4785153662,6431,2026-10-02,yes,git,finished test or diagnostic
 .,Update-Dashboard.cmd,npv,hashable,2026-10-02f,ab0513d123b559300e811cc1fb2775f45ed63eb0,1813,2026-10-02,yes,git,rebuilds and opens the dashboard (was Open-Dashboard.cmd)
@@ -319,13 +319,14 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 00_STATE/sessions,2026-10-04.md,state,hashable,2026-10-04,eac49bd36b8f31292c4d598f38c9b07330fda080,14948,2026-10-04,yes,git,git-tracked; audited via `git status`
 25_TESTS,late_signing_status_check.py,player,hashable,2026-10-04,d566a23cf265fc7c267e7d0d17f4fd61ad3311a5,4689,2026-10-04,yes,git,laptop check: chance of playing read at July 1 against at the signing
 00_STATE/sessions,2026-10-04b.md,state,hashable,2026-10-04b,5eea1b713061533096e85fba2841edd65ed36c2e,4228,2026-10-04,yes,git,triage of the open list
-00_STATE,MODEL_DIRECTIVES.md,state,hashable,2026-10-04c,57906d9d812e6cf32c9099d4e548a0f6c0422a46,44311,2026-10-04,yes,git,"Thomas's explicit model directives, entry by entry"
+00_STATE,MODEL_DIRECTIVES.md,state,hashable,2026-10-04c,14c7f8aecc01b59a4e4aa4becb16d3ff4c1beaad,46222,2026-10-04,yes,git,"Thomas's explicit model directives, entry by entry"
 25_TESTS,aging_level_weights_test.py,player,hashable,2026-10-04,48fe1aaafdf02738d8cb3c20d82ff22c56b776c4,15325,2026-10-04,yes,git,finished test or diagnostic
 25_TESTS,starting_level_simple_test.py,player,hashable,2026-10-04,02d3025eebcb181cc31d47da3a1a8fc838452f4f,17263,2026-10-04,yes,git,finished test or diagnostic
-00_STATE/sessions,2026-10-04c.md,state,hashable,2026-10-04c,7af8d31d9fdae36866c98c4af418758db6272a1d,17114,2026-10-04,yes,git,plan of record step 1: directive 1 detail 1; test script written
+00_STATE/sessions,2026-10-04c.md,state,hashable,2026-10-04c,dff12efbf52f9af9f11d34da16c48fe29d93b8d7,19574,2026-10-04,yes,git,plan of record step 1: directive 1 detail 1; test script written
 25_TESTS,level_games_weighting_test.py,player,hashable,2026-10-04c,bd25199253b89d0416d4b1cdb35b3f6bba46eda0,13745,2026-10-04,yes,git,directive 1 detail 1 test; run 2026-10-04
 25_TESTS,thin_history_check.py,player,hashable,2026-10-04c,f07e9b2ffbf0cdb5f7cb664d2507f262670f210a,10300,2026-10-05,yes,git,directive 1 detail 4 diagnostic; run 2026-10-05
 25_TESTS,war_input_uniformity_test.py,player,hashable,2026-10-04c,321f494b7beb3dd1c0774cefff637d99cadcb693,17292,2026-10-05,yes,git,trailing total vs rate per 82; run 2026-10-05
 25_TESTS,directed_build_check.py,player,hashable,2026-10-04c,dc3cd45109660ebd155f977bb6069ec650c07535,12373,2026-10-05,yes,git,holds skater_forecast v2.0 to the tested design; passed 2026-10-05
 25_TESTS,aging_investigations_abc.py,player,hashable,2026-10-04c,5a59d0db52a542ca3db0259325bf9d2791605534,24316,2026-10-05,yes,git,"investigations A, B, C on the built forecast; run 2026-10-05"
-25_TESTS,aging_abc_followup.py,player,hashable,2026-10-04c,51b244599bf9ec3cb6ac1fd50026626d08312740,10961,2026-10-05,yes,git,A1+C2+C6 together; C5 on the level only; laptop run owed
+25_TESTS,aging_abc_followup.py,player,hashable,2026-10-04c,51b244599bf9ec3cb6ac1fd50026626d08312740,10961,2026-10-05,yes,git,A1+C2+C6 together; C5 on the level only; run 2026-10-05
+25_TESTS,abc_build_check.py,player,hashable,2026-10-04c,ef7dc86fcd6c5f18d1010a82116e5ad8cd6d44b0,7109,2026-10-05,yes,git,holds skater_forecast v2.1 to the A1+C2+C6 version; laptop run owed

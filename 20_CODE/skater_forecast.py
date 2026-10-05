@@ -7,6 +7,9 @@ rebuilt age table). Promoted 2026-10-02 from the rebuild tree, where it was
 `star_candidates.XNPV1` ("Model 6"): `candidate(gp=True, contracts=True)` on
 `obvious_fixes.ObviousFixes` on `ability_forecast.A1HingeExposure`.
 
+v2.1 (2026-10-05): investigations A1 (a yardstick per position, aging_curve),
+C2 (returners are not departures) and C6 (a departed season at his own games),
+adopted by Thomas on 25_TESTS/aging_abc_followup.py. v2.0 is at 669198b.
 v2.0 (2026-10-05, branch claude/amazing-einstein-tk4b08): THE DIRECTED FORECAST.
 Thomas's directives 1-3 and the build rules in 00_STATE/MODEL_DIRECTIVES.md
 replace the fitted start and the fitted decay. PROVISIONAL: the price line
@@ -87,7 +90,7 @@ import forecast_config as C
 import information_set as ISET
 from participation_model import ParticipationModel
 
-SCRIPT_VERSION = "2.0"
+SCRIPT_VERSION = "2.1"
 MODEL_NAME = "xNPV 1"
 
 # DIRECTIVE 1 (Thomas, 2026-10-04): "We are not using fitted decay." Every
@@ -311,11 +314,14 @@ def imputed_aging_model(path: str, before: int):
     whose player has NO row at age a+1 (he did not appear), with that season
     finished before the page, gets an imputed next level: the curve's own level
     rule (aging_curve.level_at, directive 2: games-weighted 50/30/20) with the
-    missing season entered at rate 0 and aging_curve.DEPARTED_GP games (82).
-    Until v2.0 it was (rate + 0) / 2, the old two-season average. The
+    missing season entered at rate 0 and HIS OWN games at age a (C6; v2.0 used
+    82). Until v2.0 it was (rate + 0) / 2, the old two-season average. The
     league-average changes are recomputed with the imputed changes included. A
-    player who played at a+1 under 20 games is NOT a departure. Equal to
-    25_TESTS/aging_level_weights_test.build_curve with the directed weights."""
+    player who played at a+1 under 20 games is NOT a departure, and since v2.1
+    neither is one who appears again at a later age before the page (C2: he
+    came back). Investigations C2 and C6, Thomas 2026-10-05; equal to
+    25_TESTS/aging_investigations_abc.curve_variant(returners_filled=False,
+    gp_rule="own")."""
     import aging_curve as AC
 
     class ImputedAgingModel(AC.AgingModel):
@@ -328,6 +334,8 @@ def imputed_aging_model(path: str, before: int):
             df = df[df["age"].notna()]
             present = set(zip(df["career"], df["age"].astype(int)))
             syr_of = (df.groupby(["career", df["age"].astype(int)])["syr"].max().to_dict())
+            # C2: the oldest age at which he appears in the NHL before the page
+            last_age = df.groupby("career")["age"].max().astype(int).to_dict()
             self.n_imputed = 0
             imputed = {}
             for name, p in self.players.items():
@@ -339,8 +347,10 @@ def imputed_aging_model(path: str, before: int):
                     sy = syr_of.get((name, a))
                     if sy is None or sy + 1 >= int(before):
                         continue                      # the next season is not over yet
+                    if last_age.get(name, a) > a + 1:
+                        continue                      # C2: he came back later; not a departure
                     b2 = dict(byage)
-                    b2[a + 1] = {"w82": 0.0, "gp": AC.DEPARTED_GP}
+                    b2[a + 1] = {"w82": 0.0, "gp": float(s["gp"])}   # C6: his own games
                     nxt = AC.level_at(b2, a + 1)
                     imputed[(name, a)] = nxt - p["sm"][a]
             self.imputed_ = imputed

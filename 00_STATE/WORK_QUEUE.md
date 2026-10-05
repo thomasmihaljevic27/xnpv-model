@@ -23,6 +23,14 @@
 - **Removed:** the 2026-10-03 meeting follow-ups (item 2 below) and the version-line note for
   `age_join.py` and `join_clauses_to_spine.py` (2026-09-28c).
 
+**Offsetting biases for thin histories, 2026-10-05 (finding, parked with the long-horizon under-forecast).**
+On the built forecast the start runs HIGH for players with one or two counted seasons (+0.171 and +0.105
+per 82 on skater_forecast v2.1) while the walk after it runs LOW overall, and the two partly cancel:
+correcting the start alone (investigation C5, a comparables pool with one-season careers, on the level
+only) made the walk and season WAR worse (`25_TESTS/aging_abc_followup.py`). C5 was dropped (Thomas). Any
+fix has to address the walk's low bias with the start; read with the star and long-horizon
+under-forecast (item 6 below). Not a current priority.
+
 **Draft and prospect pillars, 2026-10-04: restart from scratch (directive 6).** All draft and prospect
 modelling decisions retired (D22-D27, D29-D32); data kept. Order: after player directives 1-5 are built and
 the delivered-win price is decided, write a plain-English specification step by step with the supervisor,

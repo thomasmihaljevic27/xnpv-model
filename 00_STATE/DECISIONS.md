@@ -2779,3 +2779,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   directive 1 detail 2); C, adopt returners-not-filled and the departed season at his own games,
   keep the zero. Combined run and the thin-history level-only test owed
   (`25_TESTS/aging_abc_followup.py` v1.0). Code unchanged.
+- Step 2 closed (Thomas, 2026-10-05): A1 + C2 + C6 adopted on the combined run
+  (`aging_abc_followup.py` v1.0: whole 1.3587 against 1.3598, season WAR 0.8088 against 0.8093,
+  2,000 of 2,000 each); C5 dropped in both forms (the thin-history start and walk biases partly
+  cancel; WORK_QUEUE). Built: `aging_curve.py` per-position yardstick, `skater_forecast.py` v2.1
+  departures (returners skipped; own games). `25_TESTS/abc_build_check.py` v1.0, laptop run owed.

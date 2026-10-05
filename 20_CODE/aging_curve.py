@@ -151,11 +151,9 @@ LAMBDA = 0.65           # mean-reversion: kept current form vs (1-LAMBDA) type-a
 # level_games_weighting_test.py (MODEL_DIRECTIVES.md, entries 1 and 2).
 LEVEL_WEIGHTS = (0.5, 0.3, 0.2)   # this age, the age before, the one before that
 LEVEL_BY_GAMES = True
-# A departed player's missing season, entered at replacement (rate 0), counts as a
-# full season under games weighting (skater_forecast.imputed_aging_model). Carried
-# from the test that chose the weighting (aging_level_weights_test.build_curve);
-# not chosen by Thomas; investigation C examines departures.
-DEPARTED_GP = 82.0
+# A departed player's missing season is entered at replacement (rate 0) with HIS
+# OWN last season's games (investigation C6, Thomas 2026-10-05; until then a
+# carried 82). See skater_forecast.imputed_aging_model.
 
 
 def level_at(byage, a):
@@ -374,8 +372,14 @@ class AgingModel:
         for r in range(len(self.names)):
             self.by_age.setdefault(int(self.agek[r]), []).append(r)
         self.by_age = {k: np.array(v) for k, v in self.by_age.items()}
-        # bandwidth = median within-position pairwise distance (sampled)
-        rng = np.random.default_rng(0); ds = []
+        # bandwidth (the "yardstick") = median within-position pairwise distance
+        # (sampled). INVESTIGATION A1 (Thomas, 2026-10-05): one yardstick PER
+        # POSITION, each the median of its own position's sampled distances, as
+        # agreed in the 2026-10-02 aging review; it replaced the pooled median,
+        # which is kept in self.h for reporting only. Self-pairs stay in (A2 was
+        # dropped). Evidence: 25_TESTS/aging_investigations_abc.py and
+        # aging_abc_followup.py (00_STATE/MODEL_DIRECTIVES.md, investigation A).
+        rng = np.random.default_rng(0); ds = []; self.h_by_pos = {}
         for pp in np.unique(self.pos):
             Xi = self.Zw[self.pos == pp]
             if len(Xi) < 3:
@@ -383,6 +387,7 @@ class AgingModel:
             idx = rng.choice(len(Xi), size=min(1200, len(Xi)), replace=False); Xi = Xi[idx]
             sq = (Xi ** 2).sum(1); d2 = np.clip(sq[:, None] + sq[None, :] - 2 * Xi @ Xi.T, 0, None)
             ds.append(np.sqrt(d2[np.triu_indices(len(Xi), 1)]))
+            self.h_by_pos[pp] = float(np.median(ds[-1]))
         self.h = float(np.median(np.concatenate(ds)))
 
     def _build_globals(self):
@@ -401,7 +406,8 @@ class AgingModel:
         cand = cand[self.pos[cand] == pos] if len(cand) else cand
         if len(cand) == 0:
             return cand, None
-        w = np.exp(-((self.Zw[cand] - target_z) ** 2).sum(1) / (2 * self.h ** 2))
+        h = self.h_by_pos[pos]                       # A1: the target's own position's yardstick
+        w = np.exp(-((self.Zw[cand] - target_z) ** 2).sum(1) / (2 * h ** 2))
         if exclude is not None:
             w[self.names[cand] == exclude] = 0.0
         return cand, w
