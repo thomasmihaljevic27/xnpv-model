@@ -21,9 +21,9 @@ the commit), **superseded** (replaced by a later entry).
 
 | | To investigate (closed list) | Status |
 |---|---|---|
-| A | The yardstick: one per position, and no self-pairs | open |
-| B | The league average inside the comparables' estimate | open |
-| C | Departed players in the aging curve: the assumed zero and its gaps | open |
+| A | The yardstick: one per position, and no self-pairs | A1 adopted, A2 dropped (2026-10-05); combined run owed |
+| B | The league average inside the comparables' estimate | closed: weight of ten kept (2026-10-05) |
+| C | Departed players in the aging curve: the assumed zero and its gaps | C2, C6 adopted (2026-10-05); combined run and C5-on-level owed |
 | D | The games-share equation's form | open |
 | E | The chance of playing for players under contract | open |
 | F | Re-run the Game Value checks on the model as directed | after directives 1-5 are built |
@@ -68,9 +68,10 @@ the tested design row by row (passed in the cloud on fake data) and to the recor
 Laptop check passed 2026-10-05: production equals the tested design row by row and reproduces every
 recorded figure; the walk fix moves 42 of 41,496 rates (7 player-pages) and no figure at four decimals.
 
-**Next step:** step 2, investigations A, B and C: Thomas runs `25_TESTS/aging_investigations_abc.py`
-v1.0 on the laptop (versions approved 2026-10-05: A1, A2, B1, B2, C1-C6; C6 added, the filled-in
-season's games). Do not run the dashboard or `xnpv1_price_line.py` on the branch: the price line is not re-fitted
+**Next step:** step 2 follow-up: Thomas runs `25_TESTS/aging_abc_followup.py` v1.0 on the laptop
+(A1 + C2 + C6 together; C5 on the comparables' level only). Adopted so far (2026-10-05): A1, C2, C6;
+B closed at the weight of ten. Directive 1's detail 2 (which comparable-player level) is settled by B:
+the curve's estimate, league weight ten. Do not run the dashboard or `xnpv1_price_line.py` on the branch: the price line is not re-fitted
 until step 6, so any valuation there is provisional. Details 1, 3 and 4 settled
 (2026-10-04c/2026-10-05: games-weighted on both sides; the step to the valuation season; rescale over
 the seasons he has). Detail 2 waits on investigation B (step 2), which was widened with C to cover the
@@ -378,7 +379,13 @@ when he directs it.
   still move nothing, close the item and report the test in the paper as a robustness check. If
   Thomas directs either change, it rides on the same rebuild as entries 1 and 2 (the price line is
   re-locked once).
-- **Until then:** the code and the model keep one pooled yardstick, self-pairs included.
+- **Result** (`25_TESTS/aging_investigations_abc.py` v1.0 (laptop, 2026-10-05; baseline 1.1506 / 1.3598 / 0.8093
+  on 40,510 player-seasons, PASS; each version one change against the build; start / whole one to five
+  seasons out / season WAR; "lower in" of 2,000 career resamples)): A1 (by position) 1.1505 / 1.3598 / 0.8093, lower in 1,990 / 1,996 / 2,000;
+  A2 (no self-pairs) unchanged at four decimals, lower in 0 / 23 / 0. Pooled yardsticks 2.527-2.565;
+  forwards 2.492-2.562, defence 2.536-2.575.
+- **Decided (Thomas, 2026-10-05): adopt A1, drop A2.** Pending the combined run
+  (`25_TESTS/aging_abc_followup.py`) before it enters the code.
 
 ## B. The league average inside the comparables' estimate: who needs it, and can it go?
 
@@ -407,7 +414,12 @@ when he directs it.
   the curve, so his comparables' level is the league average for his position and age, built only
   from 20-game seasons. B therefore also reports every arm by seasons counted (1, 2, 3) and tests,
   for thin histories, a fallback that does not stand on regulars' seasons alone.
-- **Until then:** the code and the model keep the weight of ten.
+- **Result** (`aging_investigations_abc.py` v1.0, laptop): B1 (comparables only) 1.1505 / 1.3678 /
+  0.8120, worse on the walk in 2,000 of 2,000, most for under-22s (1.8119 against 1.7384) and where the
+  league carries 25%+ of the estimate (1.6444 against 1.5586). B2 (thin histories: a 10-game league
+  fallback) improves the start of no-profile players (1.1203 against 1.1271; start lower in 1,999)
+  and nothing after (whole 1.3599, season WAR 0.8094).
+- **Decided (Thomas, 2026-10-05): keep the weight of ten.** B closed; B2 not adopted.
 
 ## C. Departed players in the aging curve: the assumed zero and its gaps
 
@@ -439,7 +451,19 @@ when he directs it.
   +0.488 and +0.803 for players whose last counted season was two and three years back). C therefore
   also tests, for thin histories, comparables drawn without the two-consecutive-season requirement
   (or with short seasons measured, gap 3 above), reported by seasons counted.
-- **Until then:** the code and the model keep today's rule.
+- **Result** (`aging_investigations_abc.py` v1.0, laptop; start / whole / season WAR, base 1.1506 /
+  1.3598 / 0.8093): C1 level -0.50 1.1494 / 1.3767 / 0.8139, -0.25 1.1499 / 1.3670 / 0.8113, +0.25
+  1.1515 / 1.3552 / 0.8080 (worse at the start and one out, better from two out; no turning point
+  reached); C2 returners not filled 1.1507 / 1.3588 / 0.8089 (whole and WAR lower in 1,999 and 2,000);
+  C3a 1.1505 / 1.3671 / 0.8123 and C3b 1.1506 / 1.3610 / 0.8100 (worse); C4 no filled-in seasons
+  1.1509 / 1.3612 / 0.8092 (WAR lower in 1,463, a wash; 35+ whole 1.0541 against 1.0066), so filling
+  in departures does not double-count in a way that costs season WAR; C5 relaxed pool for thin
+  histories 1.1488 / 1.3607 / 0.8098, start bias one season +0.166 to +0.104, two seasons +0.100 to
+  +0.039, but the two-season walk worse (1.3939 against 1.3802); C6 departed games = his own 1.1506 /
+  1.3596 / 0.8092 (lower in 1,193 / 1,934 / 1,965).
+- **Decided (Thomas, 2026-10-05): adopt C2 and C6;** keep the zero, keep filling in, keep short next
+  seasons dropped. Pending the combined run. C5's loss rules out the relaxed pool for level and walk
+  together, not for the level alone: `25_TESTS/aging_abc_followup.py` v1.0 tests it on the level only.
 
 ## D. The games-share equation's form
 

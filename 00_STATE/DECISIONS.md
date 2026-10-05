@@ -2774,3 +2774,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - Step 2 (Thomas, 2026-10-05): investigations A, B and C approved as one script of single-change
   versions against the build (A1, A2, B1, B2, C1-C6; C6 tests the 82-game filled-in season).
   `25_TESTS/aging_investigations_abc.py` v1.0, laptop run owed. Code unchanged.
+- Step 2 decisions (Thomas, 2026-10-05, on `aging_investigations_abc.py` v1.0): investigation A,
+  adopt the per-position yardstick, drop no-self-pairs; B closed, league weight ten kept (settles
+  directive 1 detail 2); C, adopt returners-not-filled and the departed season at his own games,
+  keep the zero. Combined run and the thin-history level-only test owed
+  (`25_TESTS/aging_abc_followup.py` v1.0). Code unchanged.
