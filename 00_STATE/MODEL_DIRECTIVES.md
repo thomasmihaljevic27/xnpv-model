@@ -120,7 +120,11 @@ CONFIRMED against xNPV 0 under the declared rule (RMSE 0.8932 against 0.9724, lo
 lower squared error in 1,954 of 2,000, lower absolute error in 546 of 2,000 (MAE 0.5823 against 0.5809),
 lower Brier in 1,991 of 2,000.
 
-**Next step:** step 8, open decision 3 (the price of a delivered win), which unlocks directive 6.
+**Step 8 is complete (2026-10-05):** open decision 3 decided, delivered wins on the contract line.
+The plan of record is done. **Next:** directive 6, the draft and prospect restart, specified step by
+step with the supervisor (each step states its trailing weighting, 50/30/20 unless decided otherwise).
+
+**Next step (was):** step 8, open decision 3 (the price of a delivered win), which unlocks directive 6.
 
 **Next step (was):** step 7, remaining: the revalidation run. Thomas chose (2026-10-05) one more scored run on
 2022-2025, reported as a second use of seasons already seen: `25_TESTS/run_revalidation_2022_2025.py`
@@ -448,7 +452,8 @@ comparables' level for thin histories.
     the plans `01_Draft_Model_Sequence.md` and `02_Prospect_Model_Sequence.md`. They stay in the tree
     until the restart begins (archived then, under their original names).
 - **Order:** after directives 1-5 are in the code and the price of a delivered win is decided,
-  because the draft curve prices in the player model's currency. Consistent with the 2026-10-04
+  because the draft curve prices in the player model's currency. Both done 2026-10-05: delivered
+  wins are priced on the contract line (`XNPV1_RATE`), not Stage 3. Consistent with the 2026-10-04
   triage (draft and prospect pillars on hold until Karl is up to speed).
 - **50/30/20 (Thomas, 2026-10-05):** "when the draft and prospect work starts you need to be 100% certain
   that you are using 50/30/20 when needed." Binding on the restart: each step of the specification
@@ -769,3 +774,15 @@ his decision before the code it touches is changed.
    wins; player contracts price forecast wins on their own line. Which price a delivered win
    carries must be decided once, for both sides of each trade. On hold under the 2026-10-04 triage;
    directive 6's restart waits on it.
+   - **Decided (Thomas, 2026-10-05): the contract line.** A delivered season is priced by the same
+     formula as a forecast season (`skater_forward_projection.price_constants()`, `XNPV1_RATE`), with
+     the wins actually delivered in place of the forecast: intercept + price per win x wins + the term
+     premium of the contract he was on, floored at the league minimum; a season not played is worth
+     zero (its cap hit still paid). One currency for players and drafted picks on both sides of every
+     trade. Because the line is straight, the average delivered value equals the forecast value when
+     the forecast is right on average, so a back-test gap is mispricing or forecast error, not a
+     currency difference. It rests on calibration: on 2022-2025 the built forecast's average miss by
+     trailing tier runs -0.24 to +0.09 wins a season (2-3 wins under-forecast by 0.24); a calibration
+     check measures it before the back-test is read. Options not chosen: a line fitted on delivered
+     wins (two currencies for one player, the 10-02 tilt); the Stage 3 line (60/40 trailing wins).
+     Left to the restart with the supervisor: how a drafted player's entry-level seasons are costed.

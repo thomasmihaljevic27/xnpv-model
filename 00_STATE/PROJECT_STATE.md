@@ -10,7 +10,11 @@ signing. The production and pricing documents in `40_DOCS/Supervisor_Drafts/` de
 **Step 7 done, 2026-10-05.** Investigation F closed; the price-line specification tests kept the locked
 line (straight line, stable, one line for RFA and UFA, flat length premium), so the values stand. The
 built forecast, scored once on 2022-2025 (a second use of those seasons), is confirmed against xNPV 0
-(RMSE 0.8932 against 0.9724, 2,000 of 2,000). Next: step 8, open decision 3.
+(RMSE 0.8932 against 0.9724, 2,000 of 2,000).
+
+**Step 8 done, 2026-10-05: the plan of record is complete.** A delivered win is priced on the contract
+line (`XNPV1_RATE`), for players and drafted picks on both sides of every trade. Next: the draft and
+prospect restart with the supervisor (directive 6).
 
 **Model directives ledger; draft and prospect restart, 2026-10-04.** `00_STATE/MODEL_DIRECTIVES.md` holds
 Thomas's five player-model directives (not yet in code) and six investigate items. All draft and prospect

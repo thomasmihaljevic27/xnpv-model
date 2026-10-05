@@ -2911,3 +2911,13 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   restart's first request; the earlier unpaced run's ~850 requests likely still counted against the
   connection, so the restart waits several hours. Not run against EP after the change (the block was
   in force); only the constant changed. Bios stored: 958 of 4,953.
+- **Open decision 3 decided (Thomas, 2026-10-05): a delivered win is priced on the contract line.**
+  Each delivered season, a player's or a drafted pick's, on both sides of every trade, is priced by the
+  formula that prices a forecast season (`XNPV1_RATE`): intercept + price per win x wins delivered + the
+  term premium of the contract he was on, floored at the league minimum; zero if he did not play. At
+  the 2025-26 cap, $1.668M per win for forwards and $2.012M for defencemen. Reason: the line is straight,
+  so with a forecast right on average the average delivered value equals the forecast value, and a
+  back-test gap is mispricing or forecast error rather than a currency artefact. Rests on calibration
+  (2022-2025 tier misses -0.24 to +0.09 wins a season); measured before the back-test is read. Not
+  chosen: a line fitted on delivered wins; the Stage 3 line (retired with the draft curve's 60/40
+  anchor). Plan of record step 8 complete; directive 6 (draft and prospect restart) unlocked.

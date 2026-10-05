@@ -102,6 +102,8 @@ re-buckets the qualify rates, and leaves the 2022-2025 confirmation describing t
      same seasons on 2026-10-05, beats the old chain in 2,000 of 2,000 resamples (RMSE 0.8932 against
      0.9724) and the 10-02 forecast on squared error in 1,954 of 2,000 (0.9001), not on absolute error.
    - The unit question (the old price per win was fitted per trailing win, xNPV 1 forecasts wins).
+     Settled 2026-10-05: xNPV 1 prices on its own line, and delivered wins are priced on the same
+     line (open decision 3), for players and picks alike.
    - The defence premium (47% per expected win), which the separate defence slope prices as fair
      value (`40_DOCS/model_evidence/xNPV1_Price_Line.md`). Both are identification points.
    - Timeline agreed at the last meeting: document review done by reading week; fixes over reading
