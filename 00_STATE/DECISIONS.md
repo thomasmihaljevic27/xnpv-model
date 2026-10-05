@@ -2771,3 +2771,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - Build check passed on the laptop (2026-10-05): `skater_forecast.py` v2.0 equals the tested design
   and reproduces every recorded figure; the walk fix moves 42 of 41,496 rates. Directives 1-3
   implemented on the branch at `64ab8bf`.
+- Step 2 (Thomas, 2026-10-05): investigations A, B and C approved as one script of single-change
+  versions against the build (A1, A2, B1, B2, C1-C6; C6 tests the 82-game filled-in season).
+  `25_TESTS/aging_investigations_abc.py` v1.0, laptop run owed. Code unchanged.

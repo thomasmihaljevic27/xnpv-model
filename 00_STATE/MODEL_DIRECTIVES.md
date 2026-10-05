@@ -68,7 +68,9 @@ the tested design row by row (passed in the cloud on fake data) and to the recor
 Laptop check passed 2026-10-05: production equals the tested design row by row and reproduces every
 recorded figure; the walk fix moves 42 of 41,496 rates (7 player-pages) and no figure at four decimals.
 
-**Next step:** step 2, investigations A, B and C as one script on the built code. Do not run the dashboard or `xnpv1_price_line.py` on the branch: the price line is not re-fitted
+**Next step:** step 2, investigations A, B and C: Thomas runs `25_TESTS/aging_investigations_abc.py`
+v1.0 on the laptop (versions approved 2026-10-05: A1, A2, B1, B2, C1-C6; C6 added, the filled-in
+season's games). Do not run the dashboard or `xnpv1_price_line.py` on the branch: the price line is not re-fitted
 until step 6, so any valuation there is provisional. Details 1, 3 and 4 settled
 (2026-10-04c/2026-10-05: games-weighted on both sides; the step to the valuation season; rescale over
 the seasons he has). Detail 2 waits on investigation B (step 2), which was widened with C to cover the
