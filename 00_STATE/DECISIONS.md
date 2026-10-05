@@ -2869,3 +2869,12 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   at most about a sixth of the length premium (shares -0.09 to +0.16). Thomas's reading of the split:
   Game Value's weakness in measuring defence (consistent with investigation F, where Game Value tracks
   the forecast at r 0.30 for defencemen against 0.65 for forwards; not tested on this split).
+- Validation of the changed forecast (Thomas, 2026-10-05): **one more scored run on 2022-2025**, rule
+  declared before the run, reported as a second use of seasons already seen (the cloud code test of
+  2026-09-30, the confirmation and its re-run, and the reads by investigation F and the price-line
+  tests). `25_TESTS/run_revalidation_2022_2025.py` v1.0: the built forecast against the 10-02 confirmed
+  forecast and xNPV 0, both read from the confirmation's saved forecasts (not re-run; guarded to give
+  back RMSE 0.9001 and 0.9724). Rule: confirmed if its season-WAR squared error is lower than xNPV 0's
+  in at least 1,950 of 2,000 player resamples on the rows xNPV 0 answers (the confirmation's rule).
+  Against the 10-02 forecast: reported, not decided. Rows and targets are checked against the saved file
+  before any model runs. Not yet run.

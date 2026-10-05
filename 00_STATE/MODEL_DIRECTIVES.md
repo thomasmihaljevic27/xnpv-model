@@ -114,7 +114,14 @@ Documents updated (2026-10-05): `Data, Production, and Aging.docx` and `Pricing,
 Contract Value.docx` describe the model as now built, figures from `25_TESTS/document_figures.py`.
 **Step 6 is complete.**
 
-**Next step:** step 7, remaining: how the changed model is validated. Done in step 7: investigation F
+**Next step:** step 7, remaining: the revalidation run. Thomas chose (2026-10-05) one more scored run on
+2022-2025, reported as a second use of seasons already seen: `25_TESTS/run_revalidation_2022_2025.py`
+v1.0, the built forecast against the 10-02 confirmed forecast and xNPV 0, both read from the
+confirmation's saved forecasts. Rule declared in the script: confirmed if lower squared error than
+xNPV 0 in at least 1,950 of 2,000 player resamples; the comparison with the 10-02 forecast is reported,
+not decided. Thomas runs `--code-test` first, then the run once. Then step 8.
+
+**Next step (was):** step 7, remaining: how the changed model is validated. Done in step 7: investigation F
 (closed); the price-line specification tests (closed 2026-10-05): straight line and stability hold;
 one line for RFA and UFA; the length premium kept flat; `XNPV1_RATE` unchanged.
 
