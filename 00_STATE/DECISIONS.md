@@ -2787,3 +2787,9 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - Directive 1 detail 2 settled (Thomas, 2026-10-05): the comparables' level is the curve's estimate,
   league weight ten (investigation B). Step 3 versions approved: D1-D3, E0-E3 (E2 answers open
   decision 2); `25_TESTS/games_and_playing_de.py` v1.0, laptop run owed. Code unchanged.
+- Step 3 decisions (Thomas, 2026-10-05, on `games_and_playing_de.py` v1.0): games share, adopt the
+  curved age effect (D2; the logistic curve fitted the share better but cost season WAR); chance of
+  playing, adopt the before-2018 marker (E1), drop the quality interaction (E3). Open decision 2
+  DECIDED: contract status read at each contract's signing (log loss 0.2632 against 0.3309), built at
+  step 6 with directive 5. Contracted players are under-forecast (0.687 against 0.858 five seasons
+  out); a fix is under test (`25_TESTS/games_playing_followup.py` v1.0). Code unchanged.

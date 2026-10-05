@@ -24,12 +24,12 @@ the commit), **superseded** (replaced by a later entry).
 | A | The yardstick: one per position, and no self-pairs | closed: A1 implemented (v2.1), A2 dropped |
 | B | The league average inside the comparables' estimate | closed: weight of ten kept (2026-10-05) |
 | C | Departed players in the aging curve: the assumed zero and its gaps | closed: C2, C6 implemented (v2.1); C5 dropped |
-| D | The games-share equation's form | open |
-| E | The chance of playing for players under contract | open |
+| D | The games-share equation's form | D2 adopted (2026-10-05); combined run owed |
+| E | The chance of playing for players under contract | E1 adopted, E3 dropped; contracted-seasons fix under test |
 | F | Re-run the Game Value checks on the model as directed | after directives 1-5 are built |
 
-The plan of record (order of work) follows this summary. Open decisions (Thomas's to make; listed at the end): the control-year weight; when contract status
-is read for a contract valuation; the price of a delivered win. Unsettled details sit inside
+The plan of record (order of work) follows this summary. Open decisions (Thomas's to make; listed at the end): the control-year weight; the price of a
+delivered win. (When contract status is read for a contract valuation: decided 2026-10-05, at the signing.) Unsettled details sit inside
 directives 1 and 4.
 
 
@@ -73,8 +73,9 @@ C1, C3, C4 and C5 not adopted. `25_TESTS/abc_build_check.py` v1.0 passed on the 
 detail 2 (which comparable-player level): **settled (Thomas, 2026-10-05)** by B's outcome: the curve's
 comparables estimate, blended with the league average at weight ten.
 
-**Next step:** step 3: Thomas runs `25_TESTS/games_and_playing_de.py` v1.0 on the laptop (D1-D3; E0-E3,
-E2 answering open decision 2). Do not run the dashboard or `xnpv1_price_line.py` on the branch: the price line is not re-fitted
+**Next step:** step 3 follow-up: Thomas runs `25_TESTS/games_playing_followup.py` v1.0 on the laptop (D2 +
+E1 together; the contracted-seasons chance of playing for E0's under-forecast). Decided 2026-10-05: D2,
+E1 adopted; E3 dropped; open decision 2 at the signing. Do not run the dashboard or `xnpv1_price_line.py` on the branch: the price line is not re-fitted
 until step 6, so any valuation there is provisional. Details 1, 3 and 4 settled
 (2026-10-04c/2026-10-05: games-weighted on both sides; the step to the valuation season; rescale over
 the seasons he has). Detail 2 waits on investigation B (step 2), which was widened with C to cover the
@@ -508,8 +509,16 @@ when he directs it.
 - **Update (2026-10-05):** since v2.0 the line no longer has the above-one-win term (build rule,
   Thomas); its inputs are the trailing share, defence, experience, age - 27 and the trailing total.
 - **Versions approved (Thomas, 2026-10-05):** D1 fractional logit, D2 the line plus age squared, D3
-  both; `25_TESTS/games_and_playing_de.py` v1.0, laptop run owed.
-- **Until then:** the code and the model keep the straight line with the cap and floor.
+  both; `25_TESTS/games_and_playing_de.py` v1.0.
+- **Result** (`25_TESTS/games_and_playing_de.py` v1.0 (laptop 2026-10-05; baseline PASS; 40,510 player-seasons; 2,000 career resamples); games-share RMSE / season-WAR RMSE, build 0.2657 / 0.8088): D1 fractional logit
+  0.2636 / 0.8108 (share better in 2,000; season WAR lower in only 3); D2 line + age squared 0.2654 /
+  0.8078 (1,825 / 1,982); D3 both 0.2628 / 0.8100 (2,000 / 65). The logistic curve fits the share
+  better but worsens season WAR, and is worse where he really played 90%+ (0.2087 against 0.2068); D3
+  shows the logit, not the age term, costs WAR. Today's cap binds on 0.10-0.48% of forecasts at every
+  season ahead except four out, where it binds on 19.55% (a quirk of that season's fitted line; no
+  version changes it).
+- **Decided (Thomas, 2026-10-05): adopt D2;** cap and floor kept. Combined run with E1 owed
+  (`25_TESTS/games_playing_followup.py`).
 
 ## E. The chance of playing for players under contract: is it lowered by other players' walk-aways?
 
@@ -542,8 +551,21 @@ when he directs it.
   (`contract_unknown`, excluded by the build); E2, which answers open decision 2: contracts signed
   after 1 July of their first season, the chance of playing read at 1 July against at the signing, on
   the seasons each covers; E3 a contract effect by quality (under contract x trailing total).
-  `25_TESTS/games_and_playing_de.py` v1.0, laptop run owed.
-- **Until then:** the code and the model keep the current chance of playing.
+  `25_TESTS/games_and_playing_de.py` v1.0.
+- **Result** (`25_TESTS/games_and_playing_de.py` v1.0 (laptop 2026-10-05; baseline PASS; 40,510 player-seasons; 2,000 career resamples)). E1 entered the fit only on pages 2019-2021 (earlier pages have no training season
+  from 2018 on). E1: log loss 0.4047 against 0.4044 (lower in 744), Brier equal (970), season WAR
+  0.8085 against 0.8088 (1,979), MAE 0.4653 against 0.4673. E3: no gain (season WAR 255). E2 (open
+  decision 2): 884 late-signed contracts, 1,561 contract-seasons, played 0.916; read at 1 July mean
+  chance 0.785, log loss 0.3309, Brier 0.1037; read at the signing 0.877, 0.2632, 0.0772; signing lower
+  in 2,000 of 2,000 on both.
+- **E0 (diagnostic): Thomas's concern confirmed.** Players under contract for the season (2018 on) are
+  under-forecast, the gap growing with the seasons ahead: forecast against played 0.893 / 0.916 in the
+  valuation season, 0.882 / 0.915, 0.876 / 0.912, 0.826 / 0.887, 0.786 / 0.877, 0.687 / 0.858 five out;
+  worst for low-quality players (below 0 WAR two out: 0.647 against 0.820); even 2+ WAR five out
+  0.779 against 0.910. Neither E1 (0.690 five out) nor E3 (0.719) fixes it.
+- **Decided (Thomas, 2026-10-05): adopt E1, drop E3; test a fix for E0:** for seasons a player is
+  under contract, a chance of playing estimated only on player-seasons under contract
+  (`25_TESTS/games_playing_followup.py` v1.0, with D2 + E1 combined).
 
 ## F. Re-run the Game Value circularity checks on the model as directed (final item)
 
@@ -590,7 +612,10 @@ his decision before the code it touches is changed.
      charged twice).
    Also: start the control-year chain from his chance of playing the contract's final season, not
    from 1. Goalies: Thomas's July sub-decisions stand (one pooled rate, a one-game bar).
-2. **When contract status is read for a contract valuation.** Contracts are valued at July 1 of
+2. **DECIDED (Thomas, 2026-10-05): at the contract's signing.** Built at step 6 with directive 5 (both
+   date a contract's forecast at its signing). Evidence: investigation E2 above (log loss 0.2632
+   against 0.3309, 2,000 of 2,000). Original entry:
+   **When contract status is read for a contract valuation.** Contracts are valued at July 1 of
    their first season, so a contract signed after July 1 cannot see itself in its own chance of
    playing (1,533 of 2,759 priced skater contracts). Reading it at the signing raises 1,351 of 1,530
    re-datable values, median +$0.33M, total +$622M (`25_TESTS/late_signing_status_check.py`).
