@@ -322,7 +322,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 00_STATE,MODEL_DIRECTIVES.md,state,hashable,2026-10-04c,c498875591208e8d2ec0b06d146f1fe79451053f,60761,2026-10-05,yes,git,"Thomas's explicit model directives, entry by entry"
 25_TESTS,aging_level_weights_test.py,player,hashable,2026-10-04,48fe1aaafdf02738d8cb3c20d82ff22c56b776c4,15325,2026-10-04,yes,git,finished test or diagnostic
 25_TESTS,starting_level_simple_test.py,player,hashable,2026-10-04,02d3025eebcb181cc31d47da3a1a8fc838452f4f,17263,2026-10-04,yes,git,finished test or diagnostic
-00_STATE/sessions,2026-10-04c.md,state,hashable,2026-10-04c,36796bfedebaec4144218a16dd9feda770f692b8,57797,2026-10-05,yes,git,plan of record step 1: directive 1 detail 1; test script written
+00_STATE/sessions,2026-10-04c.md,state,hashable,2026-10-04c,8a3c12ec49cfedc2fedc109f14ecf4432e93b691,59905,2026-10-05,yes,git,plan of record step 1: directive 1 detail 1; test script written
 25_TESTS,level_games_weighting_test.py,player,hashable,2026-10-04c,bd25199253b89d0416d4b1cdb35b3f6bba46eda0,13745,2026-10-04,yes,git,directive 1 detail 1 test; run 2026-10-04
 25_TESTS,thin_history_check.py,player,hashable,2026-10-04c,f07e9b2ffbf0cdb5f7cb664d2507f262670f210a,10300,2026-10-05,yes,git,directive 1 detail 4 diagnostic; run 2026-10-05
 25_TESTS,war_input_uniformity_test.py,player,hashable,2026-10-04c,321f494b7beb3dd1c0774cefff637d99cadcb693,17292,2026-10-05,yes,git,trailing total vs rate per 82; run 2026-10-05
@@ -338,4 +338,4 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,document_figures.py,player,hashable,2026-10-04c,910181338ea15c4a14436f69b838b150ad1f8eb0,31272,2026-10-05,yes,git,figures the two updated supervisor documents quote; v1.0 run 2026-10-05; v1.1 adds the 50/30/20 restatements (laptop run owed)
 25_TESTS,harness_tier_check.py,player,hashable,2026-10-04c,6024159d59de06b4606464d333846727061db773,5086,2026-10-05,yes,git,holds forecast_harness v1.4's 50/30/20 tier label; passed in the cloud 2026-10-05
 25_TESTS,gv_investigation_f.py,gv,hashable,2026-10-04c,4f59a8f7805100127f5dc02123e0cbb6bf9a2003,18542,2026-10-05,yes,git,investigation F: the Game Value circularity checks on the model as built; run 2026-10-05 (v1.2)
-25_TESTS,price_line_spec_tests.py,npv,hashable,2026-10-04c,ac859f56b02d94ec6d7d1819b613fbddb76c5028,18638,2026-10-05,yes,git,step 7 specification tests on the term-in price line; laptop run owed
+25_TESTS,price_line_spec_tests.py,npv,hashable,2026-10-04c,ac859f56b02d94ec6d7d1819b613fbddb76c5028,18638,2026-10-05,yes,git,step 7 specification tests on the term-in price line; run 2026-10-05
