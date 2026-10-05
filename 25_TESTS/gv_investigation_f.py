@@ -13,7 +13,8 @@ WHAT IT DOES
      spine's 60/40 trailing_war; GV-adj from `gv_adjusted`; the raw variants from
      `player_game_value_repl`, regular season) and requires the recorded figures back: 0.576 on 6,027
      player-seasons; forwards 0.648, defence 0.302; one season further 0.538; raw against
-     replacement 0.609, zero-sum 0.564 (Pearson r, within 0.0005). Stops if any differs.
+     replacement 0.609, zero-sum 0.564 (Pearson r, equal at the three decimals recorded). Stops if any
+     differs.
   1. On those same player-seasons, the measures the model now uses, each read off the valuation page
      of that season (July 1, seasons before it only):
        trailing 50/30/20   the forecast's trailing WAR total (skater_forecast._anchors tw_WAR)
@@ -49,10 +50,12 @@ import pandas as pd
 
 import forecast_config as C
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 RECORDED = {"n": 6027, "primary": 0.576, "F": 0.648, "D": 0.302, "next": 0.538,
             "repl": 0.609, "zero_sum": 0.564}
-TOL_R = 0.0005
+# The recorded figures are rounded to three decimals, so a figure reproduces when today's value rounds
+# to the same three decimals (v1.1). v1.0 allowed a gap of 0.0005, which sits on the rounding edge: on
+# the laptop the forwards' 0.648 failed at a value printed as 0.6485 (2026-10-05).
 LOG = []
 
 
@@ -99,10 +102,10 @@ def guard(spine, gv):
     ok = True
     for k, want in RECORDED.items():
         g = got[k]
-        good = (g == want) if k == "n" else abs(g - want) <= TOL_R
+        good = (g == want) if k == "n" else round(g, 3) == round(want, 3)
         ok &= good
-        log(f"  {k:9s} recorded {want:>7}  now {g:>9.4f}  {'PASS' if good else 'FAIL'}" if k != "n"
-            else f"  {k:9s} recorded {want:>7,}  now {g:>9,}  {'PASS' if good else 'FAIL'}")
+        log(f"  {k:9s} recorded {want:>7}  now {g:>10.6f}  {'PASS' if good else 'FAIL'}" if k != "n"
+            else f"  {k:9s} recorded {want:>7,}  now {g:>10,}  {'PASS' if good else 'FAIL'}")
     assert ok, "the recorded 60/40 checks do not reproduce; nothing below is read"
 
 
