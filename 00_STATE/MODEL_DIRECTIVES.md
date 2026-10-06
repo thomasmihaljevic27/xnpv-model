@@ -463,6 +463,23 @@ comparables' level for thin histories.
   `skater_value_engine.py` (`W_T1, W_T2`, line 217: the observed-season value and the older price line
   the draft curve reads); neither is reused without that decision.
 - **Status:** directed. Nothing archived or changed yet.
+- **The restart's specification, decided so far (in Thomas's words; no code yet):**
+  1. **A pick whose number is not yet final is priced at the slot it holds on the trade date
+     (Thomas, 2026-10-06; agreed earlier with Karl):** "if I trade a pick slated to be 55th overall
+     at the time, for example, the model for simplicity should assume the pick is the 55th overall
+     pick." No standings projection: Karl agreed a projection would be too complicated. The
+     back-filled `overall_position` in the trade export is not that slot (it is the final one) and
+     is not read. Open detail: what a next-draft pick is slated at between the draft and the first
+     games of the season, when there are no standings to read.
+  2. **Picks two or more drafts out: the round average is to be explored (Thomas, 2026-10-06):**
+     "This, however, is worth exploring at least." Not decided.
+  3. **Entry-level seasons carry the contract-length premium like any other contract (Thomas,
+     2026-10-06):** "They would have to, yes." Settles the detail open decision 3 left to the
+     restart for the term premium; how the entry-level cost itself is measured is still open.
+  - **Under discussion, not decided (2026-10-06):** what a drafted player's rights are worth (the
+    entry-level seasons as delivered, plus the RFA control years at their end valued as the player
+    model values any expiring RFA's); whether a future pick carries any discount beyond the player
+    model's own 3%; the rest of the proposal in `sessions/2026-10-06.md`.
 
 ---
 

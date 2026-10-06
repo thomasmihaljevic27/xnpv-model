@@ -2923,3 +2923,13 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   (2022-2025 tier misses -0.24 to +0.09 wins a season); measured before the back-test is read. Not
   chosen: a line fitted on delivered wins; the Stage 3 line (retired with the draft curve's 60/40
   anchor). Plan of record step 8 complete; directive 6 (draft and prospect restart) unlocked.
+
+### Change log, 2026-10-06 (draft and prospect restart: first design discussion)
+
+- No code changed. A first design for the restart was put to Thomas (session `2026-10-06.md`).
+- Recorded under directive 6 in `MODEL_DIRECTIVES.md`, in Thomas's words: a pick whose number is not
+  yet final is priced at the slot it holds on the trade date, with no standings projection (agreed
+  earlier with Karl); the round average for picks two or more drafts out is to be explored; entry-level
+  seasons carry the contract-length premium like any other contract.
+- Open: the off-season slot for a next-draft pick; what a drafted player's rights are worth; whether a
+  future pick carries any discount beyond the player model's 3%.
