@@ -2933,3 +2933,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   seasons carry the contract-length premium like any other contract.
 - Open: the off-season slot for a next-draft pick; what a drafted player's rights are worth; whether a
   future pick carries any discount beyond the player model's 3%.
+- Added `25_TESTS/pick_slot_persistence.py` v1.0 (year-to-year persistence of a team's own draft slot,
+  and the slot error of the last-draft and round-middle rules), for Thomas's exploration of both
+  off-season rules. Checked on fake records only; to be run on the laptop.
