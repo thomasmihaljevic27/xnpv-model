@@ -2940,3 +2940,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   correlates 0.44 / 0.34 / 0.20 with its slot one, two and three drafts later; the round middle has the
   lower squared error at every lag (one draft later in 1,904 of 2,000 resamples; absolute error favours
   the last slot there). v1.1 lists the 19 two-own-pick cases. No rule decided.
+- Rule for a pick whose number is not final (Thomas, 2026-10-06): a pick for the current draft at the
+  slot it holds on the trade date; a pick for a later draft at its round average. Off-season trades for
+  the next draft not yet placed. Recorded under directive 6; write-up in the doc "Draft Slot Persistence".

@@ -471,8 +471,13 @@ comparables' level for thin histories.
      back-filled `overall_position` in the trade export is not that slot (it is the final one) and
      is not read. Open detail: what a next-draft pick is slated at between the draft and the first
      games of the season, when there are no standings to read.
-  2. **Picks two or more drafts out: the round average is to be explored (Thomas, 2026-10-06):**
-     "This, however, is worth exploring at least." Not decided.
+  2. **A pick for a later draft is priced at its round average (Thomas, 2026-10-06, on
+     `25_TESTS/pick_slot_persistence.py`):** "trade in time t for a draft in time t = assume the draft
+     position is unchanged, trade in time t for draft in t+n>0 = assume round average position." (Earlier
+     the same day: "worth exploring at least.") Evidence: a team's own first-round slot correlates 0.44 /
+     0.34 / 0.20 with its slot one, two and three drafts later, and the round middle has the lower squared
+     error at each lag. Open detail, as in 1: which "time" an off-season trade for the next draft falls in
+     (no standings exist to read). Write-up: the doc "Draft Slot Persistence".
   3. **Entry-level seasons carry the contract-length premium like any other contract (Thomas,
      2026-10-06):** "They would have to, yes." Settles the detail open decision 3 left to the
      restart for the term premium; how the entry-level cost itself is measured is still open.
