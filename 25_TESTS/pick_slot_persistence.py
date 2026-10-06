@@ -2,7 +2,11 @@
 pick_slot_persistence.py -- how well a team's draft slot one year predicts its
 slot one, two and three years later.
 
-SCRIPT_VERSION = 1.0  (2026-10-06)
+SCRIPT_VERSION = 1.1  (2026-10-06)
+
+v1.1: lists every franchise-year with two own picks in one round (19 on the
+laptop's v1.0 run), by round, with both slots, so their effect can be judged.
+The slot rule is unchanged: the earlier first-round position is used.
 
 WHY THIS EXISTS
 ---------------
@@ -70,7 +74,7 @@ from dotenv import load_dotenv
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "20_CODE"))
 load_dotenv()
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 print(f"pick_slot_persistence.py SCRIPT_VERSION {SCRIPT_VERSION}")
 
 OUTPUT_DIR = os.environ["OUTPUT_DIR"]
@@ -117,15 +121,18 @@ print(f"[input] {len(d):,} picks, drafts {d['draftYear'].min()}-{d['draftYear'].
 #    second-round position (flagged). If a franchise somehow shows two own picks
 #    in a round (should not happen), the first is taken and counted.
 # ----------------------------------------------------------------------------
-out, dup = [], 0
+out, dups = [], []
 for yr, g in d.groupby("draftYear"):
     n = teams_in_draft(int(yr))
     for team in sorted(g["orig"].unique()):
         mine = g[g["orig"] == team]
         r1 = mine[mine["roundNumber"] == 1].sort_values("pickInRound")
         r2 = mine[mine["roundNumber"] == 2].sort_values("pickInRound")
-        if len(r1) > 1 or len(r2) > 1:
-            dup += 1
+        for rnd, rr in ((1, r1), (2, r2)):
+            if len(rr) > 1:
+                dups.append({"year": int(yr), "franchise": team, "round": rnd,
+                             "slots": "/".join(str(int(x)) for x in rr["pickInRound"]),
+                             "histories": " | ".join(rr["teamPickHistory"].astype(str))})
         if len(r1):
             slot, src = int(r1.iloc[0]["pickInRound"]), "R1"
         elif len(r2):
@@ -143,7 +150,11 @@ bad = per_year[(per_year < s.groupby("year")["teams"].first() - 2)]
 assert bad.empty, f"too few franchises with an own slot in: {bad.to_dict()}"
 print(f"[slots] {len(s):,} franchise-years, {s['franchise'].nunique()} franchises; "
       f"{(s['source'] != 'R1').sum()} use the second-round stand-in; "
-      f"{dup} franchise-years showed two own picks in one round")
+      f"{len(dups)} franchise-year-rounds showed two own picks in one round "
+      f"({sum(x['round'] == 1 for x in dups)} in the first round, the one measured)")
+if dups:
+    print("[slots] two own picks in one round (first round: the earlier slot is used):")
+    print(pd.DataFrame(dups).to_string(index=False))
 s.to_csv(OUT_CSV, index=False)
 print(f"[output] {OUT_CSV}")
 

@@ -2936,3 +2936,7 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - Added `25_TESTS/pick_slot_persistence.py` v1.0 (year-to-year persistence of a team's own draft slot,
   and the slot error of the last-draft and round-middle rules), for Thomas's exploration of both
   off-season rules. Checked on fake records only; to be run on the laptop.
+- `pick_slot_persistence.py` v1.0 run on the laptop (session 2026-10-06): a team's own first-round slot
+  correlates 0.44 / 0.34 / 0.20 with its slot one, two and three drafts later; the round middle has the
+  lower squared error at every lag (one draft later in 1,904 of 2,000 resamples; absolute error favours
+  the last slot there). v1.1 lists the 19 two-own-pick cases. No rule decided.

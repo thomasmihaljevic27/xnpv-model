@@ -480,6 +480,11 @@ comparables' level for thin histories.
     entry-level seasons as delivered, plus the RFA control years at their end valued as the player
     model values any expiring RFA's); whether a future pick carries any discount beyond the player
     model's own 3%; the rest of the proposal in `sessions/2026-10-06.md`.
+  - **Evidence for the off-season and later-draft rule (2026-10-06, `25_TESTS/pick_slot_persistence.py`
+    v1.0, laptop):** a team's own first-round slot correlates 0.44 / 0.34 / 0.20 with its slot one, two
+    and three drafts later; the round middle beats last draft's slot on squared error at every lag (one
+    draft later in 1,904 of 2,000 franchise resamples; absolute error favours the last slot there). In
+    slots, not value. No rule decided.
 
 ---
 
