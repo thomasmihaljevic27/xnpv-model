@@ -2949,4 +2949,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   (blank row replaced, one row) and Schmaltz (new) stored, 958 to 960 rows, a second run found 0 to
   do. Faked responses: six 403s stop the pass; five 404s in a row stop it. The pause stays 10
   seconds (no evidence now that it needs to be over 4); Thomas's call. No model code changed.
+- Thomas: "set it back to 4 seconds". `ep_extract.py` v3.5: `SLEEP_BETWEEN_BIO_REQUESTS = 4`, about
+  4.5 hours for the 3,995 bios still needed. Only the constant changed.
 

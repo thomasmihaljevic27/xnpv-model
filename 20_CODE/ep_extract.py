@@ -98,7 +98,9 @@ load_dotenv()
 
 import TopDownHockey_Scraper.TopDownHockey_EliteProspects_Scraper as tdhepscrape
 
-SCRIPT_VERSION = "3.4"   # printed on every run (stale-file guard)
+SCRIPT_VERSION = "3.5"   # printed on every run (stale-file guard)
+# v3.5 (2026-10-08): the bio pause is back to 4 seconds (Thomas); the 10 of
+# v3.3 answered a block that was the package's false alarm.
 # v3.4 (2026-10-08): bios are read by this script's read_bio_page(), not the
 # package's get_info(). get_info() treats any first paragraph containing
 # "evil" as EP's block page; "Belleville" does, so David Clarkson's page
@@ -209,10 +211,11 @@ SLEEP_BETWEEN_LEAGUE_SEASONS = 15  # seconds between league-season pulls
 BIO_BATCH_SIZE = 100               # players per bio batch; each batch commits,
                                    # so an interruption loses at most one batch
 SLEEP_BETWEEN_BIO_BATCHES = 30     # seconds between bio batches
-SLEEP_BETWEEN_BIO_REQUESTS = 10    # seconds after each player's bio page (4 in v3.2,
-                                   # 10 from v3.3). Both "blocks" that prompted these
-                                   # were the package's false alarm on "Belleville"
-                                   # (see read_bio_page), not EP refusing requests.
+SLEEP_BETWEEN_BIO_REQUESTS = 4     # seconds after each player's bio page (4 in v3.2,
+                                   # 10 in v3.3-3.4, back to 4 in v3.5 on Thomas's
+                                   # say). The "blocks" behind the 10 were the
+                                   # package's false alarm on "Belleville" (see
+                                   # read_bio_page), not EP refusing requests.
 BIO_BLOCK_WAIT = 120               # seconds to wait after a real 403/429 from EP
 BIO_BLOCK_RETRIES = 5              # real 403/429s in a row on one player before the
                                    # pass stops (about 10 minutes of waiting)

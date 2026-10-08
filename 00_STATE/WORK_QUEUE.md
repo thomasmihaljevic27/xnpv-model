@@ -237,9 +237,9 @@ spines up.
 
 **Draft and prospect pillars, 2026-09-28k: ready to resume on decided designs. [ON HOLD 2026-10-04, Thomas: resumes once Karl is up to speed on the model.]** Plans rewritten:
 `01_Draft_Model_Sequence.md`, `02_Prospect_Model_Sequence.md`. Next, in order, when this work resumes:
-1. **Laptop / this machine: run the Elite Prospects pull**, `python 20_CODE/ep_extract.py` (v3.4; v3.0's league pulls all failed under pandas 3, fixed; v3.4 reads
-   bio pages itself after the package's false "403" stalled the pass on one player; 10 seconds a
-   player, about 11 hours for the 3,995 bios still needed on 2026-10-08; 34
+1. **Laptop / this machine: run the Elite Prospects pull**, `python 20_CODE/ep_extract.py` (v3.5; v3.0's league pulls all failed under pandas 3, fixed; v3.4 reads
+   bio pages itself after the package's false "403" stalled the pass on one player; 4 seconds a
+   player, about 4.5 hours for the 3,995 bios still needed on 2026-10-08; 34
    leagues from 2006-07; 10-14 hours, restartable). Then `python 20_CODE/ep_nhl_bridge.py` again, so
    the bridge checks birthdates as well as names. Do not run `sync.ps1` mid-pull (the cache is under
    `30_OUTPUT/`, gitignored, but the run holds the database open).
