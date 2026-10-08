@@ -98,7 +98,13 @@ load_dotenv()
 
 import TopDownHockey_Scraper.TopDownHockey_EliteProspects_Scraper as tdhepscrape
 
-SCRIPT_VERSION = "3.3"   # printed on every run (stale-file guard)
+SCRIPT_VERSION = "3.4"   # printed on every run (stale-file guard)
+# v3.4 (2026-10-08): bios are read by this script's read_bio_page(), not the
+# package's get_info(). get_info() treats any first paragraph containing
+# "evil" as EP's block page; "Belleville" does, so David Clarkson's page
+# (drafted by the Belleville Bulls) was retried forever under a false
+# "403 Error". A block is now read from the status code only, and a real
+# one stops the pass after about 10 minutes instead of looping.
 # v3.3 (2026-10-05): the bio pause is 10 seconds a player (was 4). With 4,
 # EP refused the run after 9 players, then on its first request; the earlier
 # unpaced run's ~850 requests likely still counted against the connection.
@@ -203,9 +209,14 @@ SLEEP_BETWEEN_LEAGUE_SEASONS = 15  # seconds between league-season pulls
 BIO_BATCH_SIZE = 100               # players per bio batch; each batch commits,
                                    # so an interruption loses at most one batch
 SLEEP_BETWEEN_BIO_BATCHES = 30     # seconds between bio batches
-SLEEP_BETWEEN_BIO_REQUESTS = 10    # seconds after each player's bio page. v3.2 had
-                                   # 4 (with none, EP returned 403 after 48 players);
-                                   # v3.3 has 10, after 4 was blocked at 9 players
+SLEEP_BETWEEN_BIO_REQUESTS = 10    # seconds after each player's bio page (4 in v3.2,
+                                   # 10 from v3.3). Both "blocks" that prompted these
+                                   # were the package's false alarm on "Belleville"
+                                   # (see read_bio_page), not EP refusing requests.
+BIO_BLOCK_WAIT = 120               # seconds to wait after a real 403/429 from EP
+BIO_BLOCK_RETRIES = 5              # real 403/429s in a row on one player before the
+                                   # pass stops (about 10 minutes of waiting)
+BIO_MAX_SKIPS_IN_A_ROW = 5         # unreadable pages in a row before the pass stops
 
 # --- Same-name collisions (audit tripwire only; joins here are ID-based) ------
 KNOWN_NAME_COLLISIONS = {
@@ -654,7 +665,15 @@ def production_links_by_ep_id(conn: sqlite3.Connection) -> dict[int, str]:
 
 
 def bios_already_stored(conn: sqlite3.Connection) -> set[int]:
-    """EP ids already present in ep_player_bio (the per-player bio cache)."""
+    """
+    EP ids already present in ep_player_bio (the per-player bio cache).
+
+    v3.4: a row whose player name is EP's page title ("Elite Prospects - ...")
+    is the package's fallback for a page with no player data, every other
+    field a dash. It does not count as stored, so the next run fetches that
+    player again and run_bio_pass replaces the blank row (one such row on
+    2026-10-08: EP id 95853, Josh Anderson).
+    """
     cur = conn.cursor()
     cur.execute(
         "SELECT name FROM sqlite_master WHERE type='table' AND name='ep_player_bio'"
@@ -663,44 +682,156 @@ def bios_already_stored(conn: sqlite3.Connection) -> set[int]:
         return set()
     return {int(r[0]) for r in cur.execute(
         "SELECT DISTINCT ep_player_id FROM ep_player_bio "
-        "WHERE ep_player_id IS NOT NULL")}
+        f"WHERE ep_player_id IS NOT NULL AND player NOT LIKE '{BLANK_BIO_NAME}%'")}
 
+
+# The package stores EP's page title as the name when a page has no player data.
+BLANK_BIO_NAME = "Elite Prospects - "
 
 BIO_COLUMNS = ["player", "rights", "status", "dob", "height", "weight",
                "birthplace", "nation", "shoots", "draft", "link"]
 
 
+class BioBlocked(Exception):
+    """EP kept answering 403/429 for one player past BIO_BLOCK_RETRIES."""
+
+
+class BioUnreadable(Exception):
+    """The page came back but holds no player record (404, or no player JSON)."""
+
+
+def read_bio_page(link: str) -> tuple:
+    """
+    Request one player's EP page and read his bio, returning the same 11
+    fields, in the same order and the same text forms, as the package's
+    get_info() (TopDownHockey_Scraper 6.1.69).
+
+    v3.4: replaces get_info(). get_info() takes any page whose first <p>
+    contains the letters "evil" to be EP's block page, prints "403 Error" and
+    retries every 60 seconds with no limit. "Belleville" contains "evil", so a
+    player whose page opens with an OHL draft line "by Belleville Bulls"
+    (David Clarkson, EP id 11018) was retried forever on a page that loaded
+    fine (status 200). Every stall of the bio pass on 2026-10-05 to 10-08 was
+    this. Here a block is read only from the status code, a real 403 or 429
+    waits BIO_BLOCK_WAIT seconds and is retried BIO_BLOCK_RETRIES times, and
+    then the pass stops (BioBlocked) instead of looping.
+
+    The fields are read from the page's __NEXT_DATA__ JSON exactly as
+    get_info() reads them (checked against the package on stored players).
+    One difference: where get_info() would fall back to the page title and
+    store dashes for every other field, this raises BioUnreadable and the
+    player is skipped, so a rerun tries him again instead of keeping a
+    blank bio.
+    """
+    import json
+
+    url = link if link.startswith("http") else "https://www.eliteprospects.com" + link
+    for attempt in range(BIO_BLOCK_RETRIES + 1):
+        page = requests.get(url, timeout=60)
+        if page.status_code not in (403, 429):
+            break
+        if attempt == BIO_BLOCK_RETRIES:
+            raise BioBlocked(f"status {page.status_code} {BIO_BLOCK_RETRIES + 1} times on {url}")
+        print(f"    EP answered {page.status_code}; waiting {BIO_BLOCK_WAIT} s "
+              f"(try {attempt + 1} of {BIO_BLOCK_RETRIES})")
+        time.sleep(BIO_BLOCK_WAIT)
+    if page.status_code != 200:
+        raise BioUnreadable(f"status {page.status_code}")
+
+    soup = BeautifulSoup(page.content, "html.parser")
+    tag = soup.find("script", id="__NEXT_DATA__")
+    try:
+        next_data = json.loads(tag.string) if tag else {}
+        p = next_data.get("props", {}).get("pageProps", {}).get("playerData", {}).get("player", {})
+    except (json.JSONDecodeError, AttributeError):
+        p = {}
+    if not p:
+        raise BioUnreadable("no player record in the page's __NEXT_DATA__")
+
+    # From here, field by field as in get_info(); "-" means missing.
+    player = p.get("name", "-")
+    nhl_rights = p.get("nhlRights")
+    if nhl_rights and isinstance(nhl_rights, dict):
+        team_obj = nhl_rights.get("team", {})
+        rights = team_obj.get("name", "-") if team_obj else "-"
+        status = nhl_rights.get("rights", "-")
+    else:
+        rights = "-"
+        status = "-"
+    dob = p.get("dateOfBirth", "-") or "-"
+    height_obj = p.get("height")
+    height = (str(height_obj.get("metrics", "-"))
+              if height_obj and isinstance(height_obj, dict) else "-")
+    weight_obj = p.get("weight")
+    weight = (str(weight_obj.get("metrics", "-"))
+              if weight_obj and isinstance(weight_obj, dict) else "-")
+    birthplace = p.get("placeOfBirth", "-") or "-"
+    nation_obj = p.get("nationality") or p.get("nation")
+    nation = (nation_obj.get("name", "-")
+              if nation_obj and isinstance(nation_obj, dict) else "-")
+    # As in get_info(): "catches" is read only when "shoots" is present but empty.
+    shoots = p.get("shoots", "-") or p.get("catches", "-") or "-"
+    # First draft selection only (a re-drafted player's later picks are not read).
+    draft_data = (next_data.get("props", {}).get("pageProps", {})
+                  .get("playerData", {}).get("playerDraftSelections", {}))
+    draft_edges = draft_data.get("edges", []) if isinstance(draft_data, dict) else []
+    if draft_edges:
+        d = draft_edges[0]
+        draft = (f"{d.get('year', '')} round {d.get('round', '')} "
+                 f"#{d.get('overall', '')} overall by {d.get('teamName', '')}")
+    else:
+        draft = "-"
+    # The link returned is the one passed in (ep_player_id is read from it).
+    return (player, rights, status, dob, height, weight, birthplace, nation,
+            shoots, draft, link)
+
+
 def fetch_bio_batch(links: list[str]) -> tuple[pd.DataFrame, bool]:
     """
     Read one batch of bio pages, one player at a time, pausing
-    SLEEP_BETWEEN_BIO_REQUESTS seconds after each (10 from v3.3).
+    SLEEP_BETWEEN_BIO_REQUESTS seconds after each.
 
-    v3.2: this replaces the package's get_player_information(), which requests
-    every page back to back (its one-second pause is commented out). EP
-    started refusing requests (403) after 48 players of the first batch. The
-    page request and parsing are still the package's own get_info(); only the
-    loop around it is ours. get_info() keeps its own 403 handling: it retries
-    every 60 seconds and never gives up, so a long block still stalls the run.
+    v3.2 replaced the package's get_player_information() (no pause between
+    requests) with this loop; v3.4 reads each page with read_bio_page()
+    instead of the package's get_info(), whose false "403" stalled the pass.
+
+    A page with no player record is skipped with a warning and stays in the
+    to-do list for the next run; BIO_MAX_SKIPS_IN_A_ROW such pages in a row
+    stop the pass (that pattern looks like a block page, not a bad player).
 
     Returns (bios read so far, stop_after). stop_after is True when the loop
-    ended early: Ctrl+C, or a connection error. The caller saves the partial
-    batch and stops, so one Ctrl+C keeps every bio already read.
+    ended early: Ctrl+C, a connection error, a real block, or too many skips.
+    The caller saves the partial batch and stops, so nothing read is lost.
     """
     rows = []
     stop_after = False
+    skips_in_a_row = 0
     for n, link in enumerate(links, start=1):
         try:
-            result = tdhepscrape.get_info(link)
+            result = read_bio_page(link)
         except KeyboardInterrupt:
             print(f"  Ctrl+C: stopping after {len(rows)} players in this batch")
             stop_after = True
             break
+        except BioBlocked as exc:
+            print(f"  !! EP is refusing requests: {exc}. Try again in a few hours.")
+            stop_after = True
+            break
+        except BioUnreadable as exc:
+            skips_in_a_row += 1
+            print(f"    {n}/{len(links)} SKIPPED {link}: {exc}")
+            if skips_in_a_row >= BIO_MAX_SKIPS_IN_A_ROW:
+                print(f"  !! {skips_in_a_row} unreadable pages in a row; stopping")
+                stop_after = True
+                break
+            continue
         except (requests.exceptions.RequestException, ConnectionError,
                 ValueError) as exc:
             # The same errors the package's own loop stopped on.
             print(f"  !! bio request failed on {link}: {exc}")
             stop_after = True
             break
+        skips_in_a_row = 0
         rows.append(result)
         print(f"    {n}/{len(links)} {result[0]}")
         try:
@@ -781,6 +912,13 @@ def run_bio_pass(conn: sqlite3.Connection, asset_filter: bool,
         bio["source"] = SOURCE_LABEL
         bio["package_version"] = PACKAGE_VERSION
 
+        # Replace any blank (title-only) row already stored for these players,
+        # so a refetched player keeps one row. Only blank rows are deleted.
+        ids = [int(i) for i in bio["ep_player_id"].dropna()]
+        if ids:
+            conn.execute(
+                f"DELETE FROM ep_player_bio WHERE player LIKE '{BLANK_BIO_NAME}%' "
+                f"AND ep_player_id IN ({','.join('?' * len(ids))})", ids)
         append_aligned(bio, "ep_player_bio", conn)
         conn.commit()
         if stop_after:

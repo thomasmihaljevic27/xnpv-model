@@ -380,6 +380,11 @@ produce the kept data and the check, see `00_STATE/MODEL_DIRECTIVES.md` directiv
   run still saving while the new one ran, and the 403 blamed on two runs at once. Thomas had stopped
   the old run first; 100 bios were already stored before the first count (2026-10-05). Recompute
   wanted, stored and needed from the code's own functions before naming a cause.
+- **Don't take a scraper's error message as the cause; send the request yourself.** The package
+  printed "403 Error" and two sessions treated it as Elite Prospects blocking the laptop, slowed the
+  pass twice and sent Thomas to wait three days. The page was loading with status 200: the package's
+  block test matched "evil" inside "Belleville" (2026-10-08). Before diagnosing a block, request the
+  exact page the run is stuck on and read its status code and body, and note which player it is.
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised

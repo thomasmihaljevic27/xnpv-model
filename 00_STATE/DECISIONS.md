@@ -2923,3 +2923,30 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   (2022-2025 tier misses -0.24 to +0.09 wins a season); measured before the back-test is read. Not
   chosen: a line fitted on delivered wins; the Stage 3 line (retired with the draft curve's 60/40
   anchor). Plan of record step 8 complete; directive 6 (draft and prospect restart) unlocked.
+
+### Change log, 2026-10-08 (Elite Prospects bio pass: the "403" was a false alarm)
+
+- **Correction to the 2026-10-05 entries.** The bio pass's stalls were not Elite Prospects refusing
+  requests. The package's `get_info()` takes any page whose first paragraph contains the letters
+  "evil" for EP's block page, prints "403 Error" and retries every 60 seconds with no limit. David
+  Clarkson's page (EP id 11018) opens with his OHL draft line, "by Belleville Bulls", and
+  "Belleville" contains "evil": the page loaded with status 200 every time. He was the 10th player
+  of the v3.2 run and the 1st of every restart after it, including 2026-10-08's, three days on. A
+  plain request sent the way the package sends it got a normal page on 2026-10-08. The 4- and
+  10-second pauses answered a block that did not exist. The first run's stall after 48 players may
+  have been the same false alarm or a real block (its order came from a Python set and cannot be
+  rebuilt).
+- `ep_extract.py` v3.4: bios are read by the script's own `read_bio_page()`, field by field as
+  `get_info()` reads them. A block is read only from the status code: a real 403 or 429 waits
+  120 seconds, five times, then the pass stops and saves what it has. A page with no player record
+  is skipped (it stays on the to-do list) instead of stored as a blank row; five such pages in a row
+  stop the pass. One blank row was already stored (EP id 95853, Josh Anderson, the page title as
+  his name and a dash in every field); title-only rows no longer count as stored, and the next run
+  replaces his.
+- Checked on the laptop: 9 stored bios re-read, 88 of 88 fields equal on the 8 good rows (the 9th
+  was Anderson's blank row); 3 live pages, 33 of 33 fields equal to the package's own `get_info()`.
+  End to end on a copy of the database: Clarkson (undrafted in the NHL, birthdate read), Anderson
+  (blank row replaced, one row) and Schmaltz (new) stored, 958 to 960 rows, a second run found 0 to
+  do. Faked responses: six 403s stop the pass; five 404s in a row stop it. The pause stays 10
+  seconds (no evidence now that it needs to be over 4); Thomas's call. No model code changed.
+
