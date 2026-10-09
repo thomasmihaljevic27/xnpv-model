@@ -17,7 +17,7 @@ the commit), **superseded** (replaced by a later entry).
 | 3 | One own-versus-comparables blend: 65/35 replaces the curve's 55/45 | implemented (branch, `64ab8bf`) |
 | 4 | Contract length in the price line (term-in), term-free reported as the sensitivity | implemented and validated (branch, 2026-10-05) |
 | 5 | Price-line forecasts dated at each contract's signing | implemented and validated (branch, 2026-10-05) |
-| 6 | Draft and prospect models restart from scratch with Karl; the data is kept | directed; restarted 2026-10-09, specification below |
+| 6 | Draft and prospect models restart from scratch with Karl; the data is kept | pick curve built 2026-10-09 (`pick_curve.py`, `traded_pick_values.py`); prospects not started |
 
 | | To investigate (closed list) | Status |
 |---|---|---|
@@ -639,7 +639,19 @@ Thomas the same day. Each item may change only by Thomas's decision.
     collected the surplus (1,080 drafted skaters who played; $3,517.7M): the drafting club 92.1%,
     rights traded before his first NHL season ended 5.7%, rights lapsed and signed elsewhere 2.2% (55
     players; Spurgeon, Hagel, Muzzin, Hayes). Zeroing the lapsed group moves the pooled scale -0.5%.
-    Open for Thomas: count lapsed-rights players as worth zero to the pick, or not.
+    **Decided (Thomas, 2026-10-09): zero them.**
+  - **Built (2026-10-09).** `20_CODE/pick_curve.py` v1.0 prices every drafted player 2007-2017 under all of
+    the above (2,322 picks, 233 goalies; guards: windows equal the window count for 2,322 of 2,322,
+    skater surplus equals the tested no-slides version for 2,089 of 2,089) and fits the scales: pooled
+    31.66 (se 2.74); knowable 25.56 (2017-18), 27.45, 27.19, 26.40, 24.16 (2021-22), 24.62, 26.19, 29.62,
+    30.95 (2025-26). 68 lapsed-rights picks zeroed ($104.6M of $4,022.2M). `20_CODE/traded_pick_values.py`
+    v1.1 values every traded pick: during its own draft, its actual slot (188); the next draft's pick
+    after that season's first game, the slot its original team's standings on the trade date give
+    (156; median miss against the actual slot 2, largest in round 1 10, lottery not modelled); before
+    that season's first game or a later draft, the round average for that draft's team count (51 + 239).
+    634 picks from 2017-07-01 to 2022-03-28 (where trades.db ends): $575.4M knowable, $704.8M pooled.
+    Conditional picks (113 here) valued as unconditional until resolved.
+  - **Status:** the pick curve is built; the prospect model is not started.
 - a slope that varies by draft year;
 - negative careers counted as negative, or floored at zero (this matters only for the WAR version;
   in dollars, a season is already priced no lower than the league minimum);

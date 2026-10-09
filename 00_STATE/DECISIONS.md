@@ -3051,3 +3051,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - Pick checks (`25_TESTS/pick_star_and_rights_checks.py` v1.1): Bacon's star rates match ours within
   two standard errors in every pick range; 2.2% of the curve's surplus came from players whose rights
   lapsed (zeroing them: scale -0.5%). Decision owed: zero lapsed-rights players or not.
+- Decided (Thomas): lapsed-rights picks are worth zero to the pick. Built: `20_CODE/pick_curve.py` v1.0
+  (pooled scale 31.66; knowable 24.16-30.95 by trade season) and `20_CODE/traded_pick_values.py` v1.1
+  (634 traded picks, $575.4M knowable, $704.8M pooled). CLAUDE.md run order updated.

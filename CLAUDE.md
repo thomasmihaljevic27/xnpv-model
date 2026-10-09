@@ -117,9 +117,11 @@ Game-level chain, in order:
 
 Draft pillar (restarted 2026-10-09 with the supervisor; the specification is `00_STATE/MODEL_DIRECTIVES.md`
 directive 6). The old models (`draft_yield_curve.py`, `slot_curve.py`, `future_pick_premium.py`) and plans are in
-`90_ARCHIVE/2026-10-09/`, with the old curve's output as a reference. The linkage still produces the kept check:
+`90_ARCHIVE/2026-10-09/`, with the old curve's output as a reference. In order:
 
-    python 20_CODE/draft_pick_linkage.py
+    python 20_CODE/draft_pick_linkage.py     # picks linked to careers (also the kept check)
+    python 20_CODE/pick_curve.py             # each drafted player priced; knowable and pooled scales
+    python 20_CODE/traded_pick_values.py     # every traded pick valued at its trade
 
 ## Don't
 

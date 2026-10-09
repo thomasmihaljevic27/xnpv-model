@@ -17,7 +17,9 @@
    surplus = $31.37M x P(star) through zero; provisional on the remaining tests (item 3).
    Tests done and decided (2026-10-09): no slides, negatives kept, goalies pooled; re-fit the scale on them.
    Scale: knowable at each trade season (classes T-9 and earlier), pooled as sensitivity (Thomas).
-   Next checks: Bacon's star rates against our data; rights that lapse unsigned.
+   Checks done (star rates match; lapsed rights zeroed). BUILT 2026-10-09: `20_CODE/pick_curve.py`,
+   `20_CODE/traded_pick_values.py`. Still owed for picks: resolve the 113 conditional picks (met or not);
+   the arbitration cost alternative as a sensitivity before the back-test is read.
 3. **Do:** the tests in directive 6 (straight line against log of the pick; slope by year; negative
    careers; top 10 and top 15; slides against none), scored on draft classes left out one at a time,
    resampling classes; declare the bar in the script first.

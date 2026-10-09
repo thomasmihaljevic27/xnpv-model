@@ -346,3 +346,8 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,pick_goalie_test.py,draft,hashable,2026-10-09b,f4f9426e6368e94c6c0a7051084629d72d8ee79a,8185,2026-10-09,yes,git,"goalies in the pick curve: skater scale, pooled, or apart; report only"
 25_TESTS,pick_lookahead_check.py,draft,hashable,2026-10-09b,57416de94e4e47cab9fda9d348ca41a67607228b,6590,2026-10-09,yes,git,"look-ahead in the pick curve: shape by era, the scale knowable at each trade season, traded picks valued both ways"
 25_TESTS,pick_star_and_rights_checks.py,draft,hashable,2026-10-09b,272ad61e759609604c10f4c120c806a3314e07d5,11015,2026-10-09,yes,git,"Bacon star and NHLer rates against our drafted skaters; who collected each pick's surplus (same team, traded before debut, rights lapsed)"
+20_CODE,pick_curve.py,draft,hashable,2026-10-09b,eca397c5d1fcd0b2cab3119fd6b19e1915f93866,16367,2026-10-09,yes,git,"the draft pick curve: each drafted player priced under directive 6, knowable and pooled scales on Bacon star chance"
+20_CODE,traded_pick_values.py,draft,hashable,2026-10-09b,639b5df88f4df3976f4c27a81cd5607fc6f5932c,10414,2026-10-09,yes,git,"values each traded pick: trade-date slot, actual slot on the draft floor, or round average; knowable and pooled scales"
+30_OUTPUT,pick_curve_players.csv,draft,hashable,2026-10-09b,LOCAL_RUN,254355,2026-10-09,yes,dropbox,"written by pick_curve.py"
+30_OUTPUT,pick_curve_scales.csv,draft,hashable,2026-10-09b,LOCAL_RUN,712,2026-10-09,yes,dropbox,"written by pick_curve.py"
+30_OUTPUT,traded_pick_values.csv,draft,hashable,2026-10-09b,LOCAL_RUN,86937,2026-10-09,yes,dropbox,"written by traded_pick_values.py"
