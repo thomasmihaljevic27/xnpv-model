@@ -520,6 +520,19 @@ Thomas the same day. Each item may change only by Thomas's decision.
 - *A season outside the NHL is worth zero and costs zero* (a minor-league salary is off the cap).
 - *Classes whose window runs past 2025-26:* count the players affected first, then decide between
   dropping the class and cutting the window at 2025-26.
+  - **Count (2026-10-09, `25_TESTS/draft_window_count.py` v1.0):** CBA Group 3 (Section 10.1(a): seven
+    Accrued Seasons, or 27 as of June 30; an Accrued Season is 40 active-roster games, 30 for a goalie,
+    with NHL games played standing in for roster games). Every window in the 2007-2016 classes ends by
+    2025-26. In the 2017 class, 29 of 217 run past it, each by exactly one season (control through
+    2026-27, all from the age rule: born after June 30, 1999): 15 have played in the NHL (among them
+    Jason Robertson, Gabriel Vilardi, Filip Chytil), 14 have not. If Group 6 (25 or older, three
+    professional seasons, under 80 NHL games) is assumed met for everyone, 12 remain, all NHL
+    players. 3 picks have no window (two forfeited picks without a player; Erik Gustafsson 2012, the
+    merged-name exclusion). Against PuckPedia's UFA year: 1,151 of 1,183 drafted players with a contract
+    agree; PuckPedia is earlier for 19 (games played under-count roster games: injured players and
+    backup goalies) and later for 13 (11 where the seven-season count decides, cause not found; debut
+    age does not explain it, since 76 of the 89 who debuted at 18 or 19 agree; and Conner Bleackley,
+    drafted twice). Of the 29, PuckPedia has Chytil free after 2024-25; 8 have no PuckPedia contract.
 
 **Draft picks: to test (Thomas, 2026-10-09)**
 - the slope's form: a straight line in pick number against a curve (log of the pick);

@@ -2999,3 +2999,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   takes its age date and its definition of a season from the CBA, built for pre-2018-19 players and
   checked against PuckPedia's UFA year; age rules to be CBA-based across the project (each age the
   model reads to be listed for Thomas); cap growth kept at 3% with no sensitivity for now.
+- Window count (`25_TESTS/draft_window_count.py` v1.0, from the CBA text): only the 2017 class has
+  windows past 2025-26, 29 of 217 by one season (12 if Group 6 is assumed met); PuckPedia's UFA year
+  agrees for 1,151 of 1,183 drafted players. Decision owed: drop the 2017 class or cut its window.

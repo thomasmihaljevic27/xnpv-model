@@ -7,8 +7,9 @@
    supervisor or answer the meeting.
 2. **Do:** the first look at the pick regression. Price each drafted player's seasons in dollars over
    the window to the end of the qualifying-offer chain, regress the dollars on slot (with and without
-   draft-year indicators), with the WAR version beside it. Charts, not a locked curve. First count the
-   players whose window runs past 2025-26 (Thomas decides then: drop the class, or cut the window).
+   draft-year indicators), with the WAR version beside it. Charts, not a locked curve. Count done
+   (2026-10-09): only the 2017 class runs past 2025-26, 29 of 217 picks by one season (directive 6).
+   **Decide (Thomas):** drop the 2017 class, or cut its window at 2025-26.
 3. **Do:** the tests in directive 6 (straight line against log of the pick; slope by year; negative
    careers; top 10 and top 15; slides against none), scored on draft classes left out one at a time,
    resampling classes; declare the bar in the script first.
