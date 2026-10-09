@@ -49,7 +49,8 @@ No virtualenv convention is established yet. Stata or R on request only.
 ## Folder map
 
     00_STATE/     PROJECT_STATE.md + WORK_QUEUE.md + DECISIONS.md + STANDING_FLAGS.md,
-                  sessions/ (per-session log), four sequence docs, MANIFEST.csv,
+                  sessions/ (per-session log), two sequence docs (the draft and prospect plans
+                  were archived 2026-10-09), MANIFEST.csv,
                   inspection_ledger.csv (which seasons each evaluation scored; committed, union-merged)
     10_SOURCE/    vendor and scraped source data. Code reads it, never writes it
     20_CODE/      flat. The live pipeline and its tools, current version only
@@ -114,11 +115,11 @@ Game-level chain, in order:
     python 20_CODE/score_state.py
     python 20_CODE/metric_assembly.py
 
-Draft pillar (models retired 2026-10-04, restart pending with the supervisor; these scripts still
-produce the kept data and the check, see `00_STATE/MODEL_DIRECTIVES.md` directive 6):
+Draft pillar (restarted 2026-10-09 with the supervisor; the specification is `00_STATE/MODEL_DIRECTIVES.md`
+directive 6). The old models (`draft_yield_curve.py`, `slot_curve.py`, `future_pick_premium.py`) and plans are in
+`90_ARCHIVE/2026-10-09/`, with the old curve's output as a reference. The linkage still produces the kept check:
 
     python 20_CODE/draft_pick_linkage.py
-    python 20_CODE/draft_yield_curve.py
 
 ## Don't
 
@@ -385,6 +386,11 @@ produce the kept data and the check, see `00_STATE/MODEL_DIRECTIVES.md` directiv
   pass twice and sent Thomas to wait three days. The page was loading with status 200: the package's
   block test matched "evil" inside "Belleville" (2026-10-08). Before diagnosing a block, request the
   exact page the run is stuck on and read its status code and body, and note which player it is.
+- **Don't state what an option costs against a baseline nobody chose.** Asked how pricing a rookie's
+  entry-level seasons at the deal's remaining term compares with pricing them as one-year deals, a
+  reply put the difference at "roughly $5M", the whole term premium, when one-year pricing carries a
+  year of premium too: the difference is about $2.6M (corrected 2026-10-09). Price each option on the
+  table and subtract them; never one option against zero.
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised

@@ -1,5 +1,37 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
+**Draft and prospect restart, 2026-10-09: reading week.** The specification so far is in
+`MODEL_DIRECTIVES.md` directive 6. Supervisor meetings: Tue 2026-10-13 2:30 PM, Thu 2026-10-15 11:00 AM.
+1. **Write (for Tuesday):** a one-to-two page summary of the draft and prospect work, set out as the
+   problem, then the approach, then what is still open. A reader-facing document: it does not name the
+   supervisor or answer the meeting.
+2. **Do:** the first look at the pick regression. Price each drafted player's seasons in dollars over
+   the window to the end of the qualifying-offer chain, regress the dollars on slot (with and without
+   draft-year indicators), with the WAR version beside it. Charts, not a locked curve. First count the
+   players whose window runs past 2025-26 (Thomas decides then: drop the class, or cut the window).
+3. **Do:** the tests in directive 6 (straight line against log of the pick; slope by year; negative
+   careers; top 10 and top 15; slides against none), scored on draft classes left out one at a time,
+   resampling classes; declare the bar in the script first.
+4. **Do:** the top-pick look. How often a top pick's second contract was a long deal rather than a
+   qualifying offer or bridge, and its cap hits against the qualifying-offer chain. First check which
+   source covers second contracts signed before 2018-19 (the PuckPedia export starts in 2018-19).
+5. **Do:** list every trailing weighting in the code the restart calls (directive 6's first check).
+6. **Do:** the leave-the-class-out check for the overlap between the curve's classes and the traded
+   picks (STANDING_FLAGS 2026-10-09).
+7. **Decide:** goalies in the pick curve (pooled on the goalie line, separate, or left out); what counts
+   as an NHL season and the age date for the end of the chain.
+8. **Do (prospects, after the pick curve):** a plain-English specification: slot as the starting
+   estimate (none for undrafted players), production history adjusted to NHL terms, size, age.
+   Before the Elite Prospects-to-NHL bridge is used: resolve Nick Henry and Tyler Vesel.
+9. **Do (reading week, from the meeting):** find every place the model weights a player's seasons or
+   pulls him toward the league or comparables, and make them the same; goalies stay the exception (35%
+   own, 65% league). Known: `skater_value_engine.py` 60/40 (`W_T1, W_T2`); the goalie engine's RAW
+   regime (parity gate only). Each change is Thomas's decision.
+10. **Do (from the meeting):** add to `Pricing, Control Years, and Contract Value.docx` why the full
+    cap hit is kept after a player leaves (some departures leave it on the cap; no contract-specific
+    relief is modelled). **Decide:** whether to report a 4-5% cap-growth sensitivity beside the 3%
+    planning assumption.
+
 **Triage of the open list, 2026-10-04 (Thomas).**
 - **Parked until the model is complete:** the defence premium and the three carried limitations
   (items 5 and 6 below). A possible finding, not a current priority.
@@ -235,6 +267,9 @@ scripts). The first run applies the two pending birthdate fixes (small moves: la
 test run). After a new PuckPedia export, the same launcher rebuilds everything from the contract
 spines up.
 
+**[SUPERSEDED 2026-10-09 by the restart block at the top: items 2 and 4 (the bands' break test, the
+future-pick premium and the last-draft reading) are replaced by directive 6's specification; item 3
+(conditional picks) and item 5 (goalie birthdates) stand for later; item 6 moved to the top block.]**
 **Draft and prospect pillars, 2026-09-28k: ready to resume on decided designs. [ON HOLD 2026-10-04, Thomas: resumes once Karl is up to speed on the model.]** Plans rewritten:
 `01_Draft_Model_Sequence.md`, `02_Prospect_Model_Sequence.md`. Next, in order, when this work resumes:
 1. ~~**Laptop / this machine: run the Elite Prospects pull**, then the bridge again.~~ **Done

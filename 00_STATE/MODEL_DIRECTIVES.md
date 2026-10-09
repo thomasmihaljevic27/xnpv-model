@@ -17,7 +17,7 @@ the commit), **superseded** (replaced by a later entry).
 | 3 | One own-versus-comparables blend: 65/35 replaces the curve's 55/45 | implemented (branch, `64ab8bf`) |
 | 4 | Contract length in the price line (term-in), term-free reported as the sensitivity | implemented and validated (branch, 2026-10-05) |
 | 5 | Price-line forecasts dated at each contract's signing | implemented and validated (branch, 2026-10-05) |
-| 6 | Draft and prospect models restart from scratch with Karl; the data is kept | directed |
+| 6 | Draft and prospect models restart from scratch with Karl; the data is kept | directed; restarted 2026-10-09, specification below |
 
 | | To investigate (closed list) | Status |
 |---|---|---|
@@ -462,7 +462,80 @@ comparables' level for thin histories.
   `draft_yield_curve.py` (`W_T1, W_T2`, the cost anchor, lines 165 and 351) and in
   `skater_value_engine.py` (`W_T1, W_T2`, line 217: the observed-season value and the older price line
   the draft curve reads); neither is reused without that decision.
-- **Status:** directed. Nothing archived or changed yet.
+- **Archived (Thomas, 2026-10-09):** `draft_yield_curve.py`, `slot_curve.py`, `future_pick_premium.py`,
+  `01_Draft_Model_Sequence.md` and `02_Prospect_Model_Sequence.md` moved to `90_ARCHIVE/2026-10-09/`
+  under their original names (in git up to `de67144`), with the old curve's outputs
+  (`draft_yield_curve.csv`, `draft_pick_outcomes.csv`) copied beside them as the reference the new curve
+  is compared against. Nothing live imported them. `draft_pick_linkage.py` stays (kept data and check).
+- **Status:** directed; restarted 2026-10-09. The specification so far follows. Nothing built yet.
+
+### The specification so far (2026-10-09)
+
+Agreed in the meeting with the supervisor on 2026-10-09 (read from the transcript), then decided by
+Thomas the same day. Each item may change only by Thomas's decision.
+
+**Draft picks: agreed in the meeting**
+- *One regression on draft slot.* A pick's value comes from one regression on draft slot across all
+  picks, not from bands of picks (about 2,200 picks over ten-plus classes is enough). It is noisy by
+  design: at the draft, the slot is the only information. Draft-year indicators control for unusually
+  deep or shallow drafts; a pick is valued from the slope, without a year's effect. Thomas expects the
+  slope, more than the level, to change by year: tested (below), and accepted as uncertainty.
+- *A pick a year or more ahead is valued at the average for its round.* Last draft's slot is not used
+  to predict it: the slot-persistence chart showed no usable signal. Thomas: "the draft slot is
+  uncertain one year out. We will just take the average value of a draft pick in that round." The
+  supervisor: "I think that's exactly what you do."
+- *A pick for the coming draft, traded in-season, is valued at its projected slot on the trade date*
+  (decided earlier; confirmed in the meeting).
+- *Cost after the entry-level deal: a chain of one-year qualifying offers,* as in the player model.
+  Not chosen: surplus counted only during the entry-level deal (it understates: clubs control a player
+  past three years); cost set from his earlier production (set aside).
+- *Top picks get a separate look:* what control over a top prospect is worth in the data, against the
+  qualifying-offer chain (a top pick is likelier to sign a long deal than to take one-year offers).
+- *Every selection enters,* picks that never play included (read in the meeting and agreed).
+- *Read and accepted:* the classes the old document used (2007-2017). The curve's classes overlap the
+  traded picks (a 2017 pick traded from 2017-18 has its outcome inside the curve that values it).
+  Accepted as how the draft works; to be stated as a limitation, with a check that refits the curve
+  without the class being valued.
+
+**Draft picks: decided by Thomas after the meeting (2026-10-09)**
+- *Order: price each player, then regress.* Each drafted player's seasons are priced in dollars (value
+  minus cost, as below), and the dollars are regressed on slot. The regression of WAR on slot is
+  reported beside it. Not chosen: regress WAR on slot, then price the predicted WAR (it treats every
+  player at a slot as the average one and blurs the stars, who carry a pick's value).
+- *Window: from the draft to where the qualifying-offer chain ends,* not a fixed nine seasons. The
+  chain ends at unrestricted free agency, simplified to age 27 or seven NHL seasons, whichever comes
+  first. Not yet settled: what counts as an NHL season, and the date at which age is read.
+- *Entry-level seasons are priced as one-year deals* (term = 1 in the contract line), like the control
+  years. Not chosen: the entry-level deal's remaining term (3, 2, 1), which at $0.853M a season per
+  year of term (2025-26 cap) adds $1.7M and $0.85M to the first two seasons beyond one-year pricing,
+  about $2.6M over the deal, where the price is above the league minimum. (The chat on 2026-10-09 put
+  it at about $5M, measuring against no premium at all; corrected here.) This settles,
+  for drafted players' entry-level seasons, open decision 3's "term premium of the contract he was on".
+- *A season outside the NHL is worth zero and costs zero* (a minor-league salary is off the cap).
+- *Classes whose window runs past 2025-26:* count the players affected first, then decide between
+  dropping the class and cutting the window at 2025-26.
+
+**Draft picks: to test (Thomas, 2026-10-09)**
+- the slope's form: a straight line in pick number against a curve (log of the pick);
+- a slope that varies by draft year;
+- negative careers counted as negative, or floored at zero (this matters only for the WAR version;
+  in dollars, a season is already priced no lower than the league minimum);
+- the separate look at top picks: the top 10, with the top 15 as the test;
+- entry-level cost: the old way (the entry-level maximum for his class, with slides modelled, where a
+  season sent back to junior does not count toward the deal) against no slides.
+- *How a test is won (Thomas, 2026-10-09):* prediction error in dollars on draft classes left out of
+  the fit, one class at a time, resampling classes rather than players. The bar is declared in the
+  test script before it runs.
+
+**Draft picks: still open**
+- Goalies: one curve with skaters (priced on the goalie line), a separate curve, or left out.
+
+**Prospects**
+- *Outline (Thomas, in the meeting):* the draft slot as the starting estimate, plus the prospect's own
+  information: production history (Elite Prospects, adjusted to NHL terms) and physical traits such as
+  size. Any step that reads his recent seasons uses 50/30/20 unless Thomas decides otherwise.
+- *Undrafted prospects (Thomas, 2026-10-09):* the same model as drafted prospects, without the
+  draft-slot starting estimate.
 
 ---
 

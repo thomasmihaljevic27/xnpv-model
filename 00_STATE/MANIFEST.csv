@@ -1,6 +1,4 @@
 path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,verified_locally,channel,note
-00_STATE,01_Draft_Model_Sequence.md,state,hashable,2026-10-04,3db01ad109a52983456f63e4d37fc4bc6b89f06f,10822,2026-10-04,yes,git,rewritten 2026-09-28 with D29-D31
-00_STATE,02_Prospect_Model_Sequence.md,state,hashable,2026-10-04,b5b48e30ae4efacc9e1dd8d0e7afb313692a8399,11591,2026-10-04,yes,git,"rewritten 2026-09-28 (EP pull, bridge, goalie birthdates)"
 00_STATE,03_Player_Market_Model_Sequence.md,state,hashable,2026-09-09a,2f68c554cca2f422235e3baa6e17a0996e8412e7,18322,2026-09-09,yes,git,matches Claude project copy
 00_STATE,DECISIONS.md,state,hashable,2026-10-04c,adb80983984dc53abc8d7d6bf7600ae09636ec6c,373134,2026-10-05,yes,git,change log 2026-10-04g
 00_STATE,MANIFEST.csv,state,hashable,2026-09-25c,66d3201b2fc22f946fa0de1bb2c0f364c6600a13,36432,2026-09-25,yes,git,"this file; the hash column cannot be self-referential, so it is not audited"
@@ -25,7 +23,6 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 20_CODE,contract_npv.py,npv,hashable,2026-10-04c,85aff5585f2d8f8da62341bb46346b478481706e,48166,2026-10-05,yes,git,v2.2: goalie control weight on one game in the final season; do not rename
 20_CODE,contract_npv_panel.py,npv,hashable,2026-10-04c,e0cfecf5dccc5e5ca5549b22bf5f511c16452ea0,13024,2026-10-05,yes,git,git-tracked; audited via `git status`
 20_CODE,draft_pick_linkage.py,draft,hashable,2026-09-09a,3407afcc09d47360dee13a505ea65c181c62d55f,21073,2026-09-09,yes,git,rescued from data work; only cloud copy
-20_CODE,draft_yield_curve.py,draft,hashable,2026-09-09a,dcb1637d0a3684a4a4a7185223e2a6a92adbb15d,21806,2026-09-09,yes,git,git-tracked; audited via `git status`
 20_CODE,ep_extract.py,prosp,hashable,2026-09-28l,b3bd22c40b2efcc5822cf3d5407409c5b4382f7b,39724,2026-09-28,yes,git,v3.1: own league-page reader (pandas 3)
 20_CODE,exit_hazard.py,npv,hashable,2026-10-02k,b38ab381b0c8fb04e35efc6f5a41da2c333fdd0c,27025,2026-10-02,yes,git,imported as module; do not rename
 25_TESTS,goalie_hazard_overlap.py,goal,hashable,2026-09-30k,51eadcd8253631c2ade1aad8c526abcdaa1624be,6630,2026-09-30,yes,git,git-tracked; audited via `git status`; moved 2026-09-30j
@@ -66,8 +63,8 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 30_OUTPUT,goalie_value_spine_v2.csv,goal,hashable,2026-09-09a,LOCAL_RUN,319712,2026-09-09,yes,dropbox,post stale-anchor fix; reproduced byte-identical 2026-09-09 (MD5 55c935dd)
 30_OUTPUT,contract_npv_spine.csv,npv,hashable,2026-09-09a,LOCAL_RUN,338242,2026-09-09,yes,dropbox,"2,981 contracts (2,591 skater + 390 goalie); regenerated 2026-09-09"
 30_OUTPUT,contract_npv_panel.csv,npv,hashable,2026-09-09a,LOCAL_RUN,1084033,2026-09-09,yes,dropbox,"6,939 rows; validation exhibit, never a back-test input; regenerated 2026-09-09"
-30_OUTPUT,draft_yield_curve.csv,draft,hashable,2026-09-09a,LOCAL_RUN,845,2026-09-09,yes,dropbox,"POST-rebuild (Stage 3 rate); reproduced to the cent 2026-09-09; pre-rebuild copy is also 845 bytes, hash is the only discriminator"
-30_OUTPUT,draft_pick_outcomes.csv,draft,hashable,2026-09-09a,LOCAL_RUN,220973,2026-09-09,yes,dropbox,"2,324-pick audit panel; regenerated 2026-09-09"
+30_OUTPUT,draft_yield_curve.csv,draft,hashable,2026-09-09a,LOCAL_RUN,845,2026-09-09,yes,dropbox,"POST-rebuild (Stage 3 rate); reproduced to the cent 2026-09-09; pre-rebuild copy is also 845 bytes, hash is the only discriminator; retired model's output, kept as the reference for the restart (script archived 2026-10-09; copy in 90_ARCHIVE/2026-10-09/)"
+30_OUTPUT,draft_pick_outcomes.csv,draft,hashable,2026-09-09a,LOCAL_RUN,220973,2026-09-09,yes,dropbox,"2,324-pick audit panel; regenerated 2026-09-09; retired model's output, kept as the reference for the restart (script archived 2026-10-09; copy in 90_ARCHIVE/2026-10-09/)"
 30_OUTPUT,draft_pick_linkage.csv,draft,hashable,2026-09-09a,LOCAL_RUN,410201,2026-09-09,yes,dropbox,"4,765 picks 2005-2026; regenerated 2026-09-09"
 30_OUTPUT,contract_season_spine.csv,clause,hashable,2026-09-09a,LOCAL_RUN,2887703,2026-09-09,yes,dropbox,"15,918 rows; 1/0 clause booleans; join_clauses_to_spine.py output. Dated 2026-07-01; rebuilt byte-identical 2026-09-28 from the SOURCE_DIR clause scrape. The dashboard launcher rebuilds it every run"
 30_OUTPUT,contract_level_spine.csv,clause,hashable,2026-09-09a,LOCAL_RUN,926512,2026-09-09,yes,dropbox,"6,851 rows; 1/0 clause booleans. NOT regenerated 2026-09-09 (dated 2026-07-01)"
@@ -283,8 +280,6 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 40_DOCS/model_evidence,Obvious_Fixes_Test.md,player,hashable,2026-10-02d,16a28fed6c53cb0d1c2800cc64a9f6d9a9b3b4ac,6121,2026-10-02,yes,git,player-model evidence (moved from 50_REBUILD/docs 2026-10-02)
 00_STATE/sessions,2026-09-28b.md,state,hashable,2026-09-28l,73fb0da4f095fbee626f0583fc58f7f404a6c104,7698,2026-09-28,yes,git,session log
 20_CODE,ep_nhl_bridge.py,prosp,hashable,2026-09-28k,05b61a52a83bed1eec0209c58f8a2b32582b9b33,10672,2026-09-28,yes,git,v1.0 new: EP id to NHL id bridge (proposal)
-20_CODE,future_pick_premium.py,draft,hashable,2026-09-28k,990badf91d3dde840bdffd82825dab69f2d00374,9253,2026-09-28,yes,git,v2.0 recreated 2026-09-28
-20_CODE,slot_curve.py,draft,hashable,2026-09-28k,59b83aa95ab094a7a895fe4bc0edd86017b1f752,6476,2026-09-28,yes,git,v2.0 recreated 2026-09-28; imported by future_pick_premium
 20_CODE,dashboard_refresh.py,npv,hashable,2026-10-02f,7d0daf8a068a686d9e9b47e12e1029cca944e45e,17188,2026-10-02,yes,git,"launcher: re-runs every script the dashboard reads, then builds and opens it"
 .,Open-Dashboard.cmd,npv,hashable,2026-10-02f,0ff057dc3c2c441c19fbb312a8a0c11bc69179d2,1586,2026-10-02,yes,git,reopens the last dashboard build (2026-10-02)
 40_DOCS/model_evidence,Star_Bias_Test.md,player,hashable,2026-10-02d,8cd34e7e78a5f4d0fed4e01d5110fe0e34f8204a,6559,2026-10-02,yes,git,player-model evidence (moved from 50_REBUILD/docs 2026-10-02)

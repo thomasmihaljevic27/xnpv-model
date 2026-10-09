@@ -1,5 +1,11 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**Draft and prospect restart begun, 2026-10-09.** Agreed with the supervisor and decided by Thomas the same
+day (`MODEL_DIRECTIVES.md` directive 6): one regression of each drafted player's priced dollars on draft
+slot, with draft-year indicators; a window to the end of the qualifying-offer chain; entry-level seasons
+priced as one-year deals; picks a year or more ahead at the round's average; top picks examined
+separately. The old draft models and plans are archived in `90_ARCHIVE/2026-10-09/`. Nothing built yet.
+
 **Plan of record steps 1-6 done on `claude/amazing-einstein-tk4b08`, 2026-10-05.** Directives 1-5 and
 open decisions 1-2 are built and validated on the laptop (the dashboard refresh passed at `dca0831`):
 the directed forecast (`skater_forecast.py` v2.2), the term-in price line re-locked on signing-dated

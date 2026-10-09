@@ -4,6 +4,13 @@
 (directive 6); flags below about the yield curve, Rule A/B, bands and pick conventions describe retired
 work. Flags about the data (linkage cases, birthdates, id conflicts) still apply.
 
+**The pick curve's classes overlap the traded picks (look-ahead, 2026-10-09).** The curve is fitted on
+realised outcomes of the 2007-2017 classes, and the back-test's trades start in 2017-18, so a 2017 pick
+traded then is valued by a curve that contains its own outcome. Read in the meeting and accepted as how
+the draft works. To be stated as a limitation, with a check that refits the curve without the class being
+valued (WORK_QUEUE 2026-10-09 item 6). Under the new window (to the end of the qualifying-offer chain)
+which classes are complete is still to be counted.
+
 **A late-signed contract cannot see itself in its own chance of playing (2026-10-04).** The priced
 sweep values each contract at July 1 of its first season, and xNPV 1 reads contract status at that
 date. 1,533 of 2,759 priced skater contracts were signed after July 1, so each is valued with its

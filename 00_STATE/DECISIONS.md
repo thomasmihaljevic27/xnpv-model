@@ -2970,3 +2970,27 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   exceptions are unchanged (Nick Henry, Tyler Vesel; work queue item 6). No code changed.
 
 
+
+### Change log, 2026-10-09b (draft and prospect restart: meeting decisions recorded; old draft models archived)
+
+- Supervisor meeting 2026-10-09 (transcript pasted by Thomas). Contracts read to the end: no change.
+  Goalies: the 35/65 pull stays the exception. Draft picks: agreed in the meeting, recorded in
+  `MODEL_DIRECTIVES.md` directive 6: one regression on slot with draft-year indicators, not bands; a
+  pick a year or more ahead at its round's average (no slot persistence); a coming-draft pick at its
+  projected slot on the trade date; post-entry-level cost a chain of one-year qualifying offers;
+  top picks examined separately; every selection enters; the 2007-2017 classes' overlap with the
+  traded picks accepted, flagged (STANDING_FLAGS 2026-10-09).
+- Decided by Thomas the same day: archive the old draft models; price each player then regress the
+  dollars; window to the end of the qualifying-offer chain (age 27 or seven NHL seasons); entry-level
+  seasons priced as one-year deals; a season outside the NHL worth and costing zero; count incomplete
+  classes before deciding; tests (line against log of the pick, slope by year, negative careers, top
+  10 with top 15, slides) scored on left-out classes, resampling classes; undrafted prospects use the
+  same model without the slot. Open: goalies in the pick curve.
+- Archived to `90_ARCHIVE/2026-10-09/` (in git to `de67144`): `draft_yield_curve.py`, `slot_curve.py`,
+  `future_pick_premium.py`, `01_Draft_Model_Sequence.md`, `02_Prospect_Model_Sequence.md`; the old
+  curve's two outputs copied beside them. Nothing live imported them. MANIFEST rows removed; CLAUDE.md's
+  run section and folder map updated.
+- Corrected in chat and in the ledger: the entry-level term premium difference is about $2.6M over the
+  deal against one-year pricing, not "roughly $5M" (that measured against no premium). Rule added to
+  CLAUDE.md. Also corrected: the meeting's AI summary said the curve uses "2017 draft class onward"; the
+  classes are 2007-2017.
