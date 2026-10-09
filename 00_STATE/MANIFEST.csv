@@ -355,3 +355,4 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,pick_summary_doc.js,draft,hashable,2026-10-09b,db1be7f240226205d9bf162f23b312c511538041,26268,2026-10-09,yes,git,"builds 40_DOCS/Supervisor_Drafts/Valuing Draft Picks.docx (docx-js) from numbers.json and recorded test results"
 40_DOCS/Supervisor_Drafts,"Valuing Draft Picks.docx",doc,rendition,2026-10-09b,0eb4d57562b268537e1e188c8e620a4c98de8363,216768,2026-10-09,yes,git,"v2.0 rewrite: the pick curve on a four-point spine (prospects moved to a later document); 7 pages, 3 figures, 3 tables"
 30_OUTPUT,pick_curve_seasons.csv,draft,hashable,2026-10-09b,LOCAL_RUN,724891,2026-10-09,yes,dropbox,"written by pick_curve.py v1.1"
+25_TESTS,pick_review_checks.py,draft,hashable,2026-10-09b,37c86c96496538367a0a9bfead7541881659781e,6442,2026-10-09,yes,git,"checks from Thomas's comments: stars' share of surplus, trend in the scale across drafts, persistence of draft position"
