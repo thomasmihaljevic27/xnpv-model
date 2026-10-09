@@ -11,8 +11,8 @@ would have the same shape (his own model cannot be refitted). SCALE: fitted only
 nine or more years before each trade season, it runs 24.1-29.4 against the pooled 31.37 (6-23% lower),
 because the 2014-2017 classes carry the highest scales. The picks traded from 2017-07-01 (633 with a
 final slot; trades.db ends 2022-03-28) are worth $666.1M on the pooled scale, $557.5M (-16.3%) on the
-scale knowable at each trade. Decision owed: pooled scale with this as a sensitivity, or the knowable
-scale as the main one.
+scale knowable at each trade. DECIDED (Thomas, 2026-10-09): the knowable scale is the main one,
+pooled reported as the sensitivity.
 
 **Picks and players are costed differently (identification, 2026-10-09).** A drafted player is charged
 the entry-level maximum then qualifying offers; a rostered player is charged his actual cap hit. The

@@ -16,6 +16,8 @@
    validated against our slot curves. Star chance alone (Thomas). ADOPTED (Thomas, 2026-10-09):
    surplus = $31.37M x P(star) through zero; provisional on the remaining tests (item 3).
    Tests done and decided (2026-10-09): no slides, negatives kept, goalies pooled; re-fit the scale on them.
+   Scale: knowable at each trade season (classes T-9 and earlier), pooled as sensitivity (Thomas).
+   Next checks: Bacon's star rates against our data; rights that lapse unsigned.
 3. **Do:** the tests in directive 6 (straight line against log of the pick; slope by year; negative
    careers; top 10 and top 15; slides against none), scored on draft classes left out one at a time,
    resampling classes; declare the bar in the script first.

@@ -623,6 +623,14 @@ Thomas the same day. Each item may change only by Thomas's decision.
     runs by calendar from his first NHL season (3 / 2 / 1 years by age), with no slide; a player's
     negative total surplus counts as negative; goalie picks are priced on the goalie line and pooled
     with skaters in one scale. The scale is to be re-fitted once on this package.
+  - **The scale is the one knowable at each trade (Thomas, 2026-10-09: "go with the knowable scale,
+    pooled as sensitivity").** A pick traded in season T is priced with the scale fitted only on classes
+    drafted in T-9 or earlier (their control windows had largely run out by then); the shape stays
+    Bacon's star chance, which fits early and late drafts alike (`25_TESTS/pick_lookahead_check.py`).
+    The pooled scale (all classes 2007-2017) is reported beside it as the sensitivity. Reason: the
+    value at a trade must use only what was knowable then; realised careers belong to the back-test's
+    outcome side. The scale is not stable across classes (p 0.002), unlike the player price line.
+    Cost, accepted: the early trade seasons rest on two or three classes (2017-18 se $6.2M).
 - a slope that varies by draft year;
 - negative careers counted as negative, or floored at zero (this matters only for the WAR version;
   in dollars, a season is already priced no lower than the league minimum);

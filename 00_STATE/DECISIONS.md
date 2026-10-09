@@ -3046,3 +3046,5 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - Look-ahead check (`25_TESTS/pick_lookahead_check.py` v1.0): Bacon's shape holds in each era; the
   scale knowable at each trade season is 6-23% below the pooled one; traded picks -16.3% in total.
   Decision owed: pooled or knowable scale as the main one.
+- Decided (Thomas): the pick curve's scale is the one knowable at each trade season (classes drafted
+  T-9 or earlier); the pooled scale is the sensitivity.
