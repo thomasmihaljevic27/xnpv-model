@@ -18,8 +18,11 @@
 5. **Do:** list every trailing weighting in the code the restart calls (directive 6's first check).
 6. **Do:** the leave-the-class-out check for the overlap between the curve's classes and the traded
    picks (STANDING_FLAGS 2026-10-09).
-7. **Decide:** goalies in the pick curve (pooled on the goalie line, separate, or left out); what counts
-   as an NHL season and the age date for the end of the chain.
+7. **Do:** build the end of the qualifying-offer chain from the CBA (age date and what counts as a
+   season, cited from the CBA text) and check it against PuckPedia's UFA year for every drafted player
+   who has one. Add goalies to the tests (with skaters, separate, left out; Thomas's first guess:
+   skaters only). Thomas wants age rules CBA-based across the project: list each place the model
+   reads an age, the date it uses, and where that differs from the CBA, for Thomas to decide.
 8. **Do (prospects, after the pick curve):** a plain-English specification: slot as the starting
    estimate (none for undrafted players), production history adjusted to NHL terms, size, age.
    Before the Elite Prospects-to-NHL bridge is used: resolve Nick Henry and Tyler Vesel.
@@ -29,8 +32,7 @@
    regime (parity gate only). Each change is Thomas's decision.
 10. **Do (from the meeting):** add to `Pricing, Control Years, and Contract Value.docx` why the full
     cap hit is kept after a player leaves (some departures leave it on the cap; no contract-specific
-    relief is modelled). **Decide:** whether to report a 4-5% cap-growth sensitivity beside the 3%
-    planning assumption.
+    relief is modelled). Cap growth stays at 3%, no sensitivity for now (Thomas, 2026-10-09).
 
 **Triage of the open list, 2026-10-04 (Thomas).**
 - **Parked until the model is complete:** the defence premium and the three carried limitations

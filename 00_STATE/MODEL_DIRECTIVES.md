@@ -504,7 +504,13 @@ Thomas the same day. Each item may change only by Thomas's decision.
   player at a slot as the average one and blurs the stars, who carry a pick's value).
 - *Window: from the draft to where the qualifying-offer chain ends,* not a fixed nine seasons. The
   chain ends at unrestricted free agency, simplified to age 27 or seven NHL seasons, whichever comes
-  first. Not yet settled: what counts as an NHL season, and the date at which age is read.
+  first. **Settled (Thomas, 2026-10-09): both from the CBA.** "lets keep the age cutoff consistent, it
+  may be subject to change throughout the whole project as I want the age rules to be based off the
+  CBA. What counts as a season I suppose is also based off the CBA." The age date and the definition
+  of a season counted toward free agency are taken from the CBA text (cited in the code, not from
+  memory). The player model does not compute this: it reads each contract's UFA year from PuckPedia
+  (`rfa_terminal_value.py`, `ufa_year`). Drafted players before 2018-19 have no PuckPedia record, so the
+  rule is built from the CBA and checked against PuckPedia's UFA year wherever a player has one.
 - *Entry-level seasons are priced as one-year deals* (term = 1 in the contract line), like the control
   years. Not chosen: the entry-level deal's remaining term (3, 2, 1), which at $0.853M a season per
   year of term (2025-26 cap) adds $1.7M and $0.85M to the first two seasons beyond one-year pricing,
@@ -527,8 +533,11 @@ Thomas the same day. Each item may change only by Thomas's decision.
   the fit, one class at a time, resampling classes rather than players. The bar is declared in the
   test script before it runs.
 
-**Draft picks: still open**
-- Goalies: one curve with skaters (priced on the goalie line), a separate curve, or left out.
+- *Goalies (Thomas, 2026-10-09): test all three* (one curve with skaters, goalies priced on the goalie
+  line; a separate goalie curve; goalies left out). His first guess: "its best to go assuming only
+  players are drafted", read as skaters only.
+
+**Cap growth (Thomas, 2026-10-09):** "lets just keep the 3% for now." No 4-5% sensitivity for now.
 
 **Prospects**
 - *Outline (Thomas, in the meeting):* the draft slot as the starting estimate, plus the prospect's own

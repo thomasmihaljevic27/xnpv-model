@@ -2994,3 +2994,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   deal against one-year pricing, not "roughly $5M" (that measured against no premium). Rule added to
   CLAUDE.md. Also corrected: the meeting's AI summary said the curve uses "2017 draft class onward"; the
   classes are 2007-2017.
+- Later the same session (Thomas): goalies in the pick curve tested three ways (with skaters on the
+  goalie line, separate, left out), first guess skaters only; the end of the qualifying-offer chain
+  takes its age date and its definition of a season from the CBA, built for pre-2018-19 players and
+  checked against PuckPedia's UFA year; age rules to be CBA-based across the project (each age the
+  model reads to be listed for Thomas); cap growth kept at 3% with no sensitivity for now.
