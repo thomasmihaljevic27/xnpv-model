@@ -4,6 +4,16 @@
 (directive 6); flags below about the yield curve, Rule A/B, bands and pick conventions describe retired
 work. Flags about the data (linkage cases, birthdates, id conflicts) still apply.
 
+**Picks and players are costed differently (identification, 2026-10-09).** A drafted player is charged
+the entry-level maximum then qualifying offers; a rostered player is charged his actual cap hit. The
+chain under-charges: actual pay over the control window runs 3.2x the chain for picks 1-10 and 2.1x for
+16-32 (`25_TESTS/top_pick_control_look.py`). Pick surplus is therefore overstated against contract
+surplus, which could manufacture a back-test finding that clubs give picks away too cheaply. On the
+adopted curve a late first (#20-32, $2.3-3.6M) sits at about the 90th percentile of contract NPVs
+($2.19M) and #1 ($23.5M) near the largest ($24.0M). What is traded is mostly late: of 634 picks traded
+from 2017-07-01, 4 became top-10 picks, 7 picks 11-15, 50 picks 16-32, 118 picks 33-64, 454 pick 65+.
+The arbitration-eligibility sensitivity (MODEL_DIRECTIVES directive 6) bears directly on this.
+
 **The pick curve's classes overlap the traded picks (look-ahead, 2026-10-09).** The curve is fitted on
 realised outcomes of the 2007-2017 classes, and the back-test's trades start in 2017-18, so a 2017 pick
 traded then is valued by a curve that contains its own outcome. Read in the meeting and accepted as how
