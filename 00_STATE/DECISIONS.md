@@ -3029,3 +3029,7 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   rule's verdict; intercept, squared and power versions add nothing. Adoption owed to Thomas.
 - ADOPTED (Thomas): the pick curve is surplus = $31.37M x Bacon's star chance for the slot, through
   zero, at the average draft year; provisional on the remaining draft tests.
+- Top-pick look (`25_TESTS/top_pick_control_look.py` v1.1, report only): actual cap hits over the
+  control window run 3.2x the modelled cost for picks 1-10, 2.3x for 11-15, 2.1x for 16-32. Not yet a
+  like-for-like surplus: values are one-year-term while actual deals are mostly long (term premium),
+  and the two sources treat entry-level bonuses differently. Questions to Thomas; nothing adopted.
