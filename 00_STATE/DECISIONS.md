@@ -3043,3 +3043,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   (31.37 to 32.00); a goalie-only scale (84.33) is not credible. Decision owed: skaters only, pooled,
   or apart.
 - Decided (Thomas): no slides; negative careers kept; goalies pooled. Scale to be re-fitted on the package.
+- Look-ahead check (`25_TESTS/pick_lookahead_check.py` v1.0): Bacon's shape holds in each era; the
+  scale knowable at each trade season is 6-23% below the pooled one; traded picks -16.3% in total.
+  Decision owed: pooled or knowable scale as the main one.

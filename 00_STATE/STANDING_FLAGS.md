@@ -4,6 +4,16 @@
 (directive 6); flags below about the yield curve, Rule A/B, bands and pick conventions describe retired
 work. Flags about the data (linkage cases, birthdates, id conflicts) still apply.
 
+**The pick curve's scale uses later drafts (look-ahead, measured 2026-10-09).** `25_TESTS/
+pick_lookahead_check.py` v1.0. SHAPE: Bacon's star-chance shape fits each era alone (log(pick) added:
+2007-2011 +0.27, se 0.53, p 0.61; 2012-2017 -0.17, se 0.65, p 0.79), so a curve shaped on early drafts
+would have the same shape (his own model cannot be refitted). SCALE: fitted only on classes drafted
+nine or more years before each trade season, it runs 24.1-29.4 against the pooled 31.37 (6-23% lower),
+because the 2014-2017 classes carry the highest scales. The picks traded from 2017-07-01 (633 with a
+final slot; trades.db ends 2022-03-28) are worth $666.1M on the pooled scale, $557.5M (-16.3%) on the
+scale knowable at each trade. Decision owed: pooled scale with this as a sensitivity, or the knowable
+scale as the main one.
+
 **Picks and players are costed differently (identification, 2026-10-09).** A drafted player is charged
 the entry-level maximum then qualifying offers; a rostered player is charged his actual cap hit. The
 chain under-charges: actual pay over the control window runs 3.2x the chain for picks 1-10 and 2.1x for
