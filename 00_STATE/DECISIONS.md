@@ -3039,3 +3039,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - Skater pick tests (`25_TESTS/pick_cost_and_year_tests.py` v1.0): slides move the scale by under
   0.5%; flooring careers at zero +4.1%; the arbitration cost version -55%; the scale differs by draft
   class (p 0.002; spread beyond noise 29% of the pooled scale). Decisions owed: slides, floor.
+- Goalie pick test (`25_TESTS/pick_goalie_test.py` v1.0): pooling goalies moves the scale +2%
+  (31.37 to 32.00); a goalie-only scale (84.33) is not credible. Decision owed: skaters only, pooled,
+  or apart.

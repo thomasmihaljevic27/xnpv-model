@@ -612,6 +612,13 @@ Thomas the same day. Each item may change only by Thomas's decision.
     8.6 (se 4.9) to 2015 56.4 (se 10.1); the spread beyond sampling noise is about 9.1, 29% of the
     pooled scale; 2014-2017 all above the pooled scale (a pattern, cause not examined). Open for
     Thomas: slides (modelled, CBA-only, or none); careers floored at zero or not.
+  - **Goalie test (`25_TESTS/pick_goalie_test.py` v1.0, report only; no bar declared):** 233 goalie
+    picks priced on the goalie line (82 played; mean surplus $2.40M against skaters' $1.68M; best:
+    Holtby #93, Vasilevskiy #19, Gibson #39, Saros #99, Oettinger #26, Shesterkin #118). Scale:
+    skaters 31.37, pooled 32.00 (+2%), goalies alone 84.33 (goalie value does not follow the slot;
+    applied to Bacon's skater star chance it would put a #1 goalie pick near $63M). Held-out miss on
+    goalie picks: skater scale 5.889, pooled 5.891, apart 5.707; skater picks 5.2155 in all three.
+    At a trade the pick's position is unknown. Open for Thomas: skaters only, pooled, or apart.
 - a slope that varies by draft year;
 - negative careers counted as negative, or floored at zero (this matters only for the WAR version;
   in dollars, a season is already priced no lower than the league minimum);
