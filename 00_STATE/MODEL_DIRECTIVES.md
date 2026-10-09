@@ -547,7 +547,13 @@ Thomas the same day. Each item may change only by Thomas's decision.
     moves the curve materially, the question comes back to Thomas with the figures.
 
 **Draft picks: to test (Thomas, 2026-10-09)**
-- the slope's form: a straight line in pick number against a curve (log of the pick);
+- the slope's form (widened, Thomas 2026-10-09: "test all but I agree I favour a simpler solution"):
+  a straight line in pick number; the log of the pick; a bendable curve (a + b x pick^c, one extra
+  number); a two-part model (chance he plays in the NHL x value if he does, each on log of the pick);
+  a curve on the log of the pick (adds log squared); Bacon's NHL and star probabilities by pick as the
+  inputs (caution recorded: fitted on largely the same drafts); and, as a benchmark never adopted, the
+  smoothed average at each pick forced to fall with the pick number. Simpler wins unless a more complex
+  form clearly beats it (the bar is set before the run);
 - a slope that varies by draft year;
 - negative careers counted as negative, or floored at zero (this matters only for the WAR version;
   in dollars, a season is already priced no lower than the league minimum);
