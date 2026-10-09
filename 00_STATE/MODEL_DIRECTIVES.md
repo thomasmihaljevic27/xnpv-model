@@ -583,7 +583,13 @@ Thomas the same day. Each item may change only by Thomas's decision.
     through-zero line in more than 30 of 2,000 redraws. Verdict under the rule: through zero. Values
     at an average year: #1 $23.5M, #10 $6.7M, #32 $2.3M, #100 $0.75M, #200 $0.12M. The $31.37M is not
     the value of a star: it also carries the surplus of non-star regulars, which rises with the star
-    chance. Adoption is Thomas's.
+    chance.
+  - **ADOPTED (Thomas, 2026-10-09): "yes adopt".** The pick curve: surplus = $31.37M x Bacon's star
+    chance for the slot, through zero, at the average draft year (2025-26 cap). Bacon's logistic gives
+    the shape across picks; our regression gives only the dollar scale. Explained before adoption: the
+    line is straight in the star chance, not in pick number (#1 to #2 falls $5.0M, #20 to #32 $1.3M).
+    Provisional on the remaining tests (year slopes, negative careers, top 10/15, slides, goalies),
+    which may change the scale.
 - a slope that varies by draft year;
 - negative careers counted as negative, or floored at zero (this matters only for the WAR version;
   in dollars, a season is already priced no lower than the league minimum);

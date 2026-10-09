@@ -3027,3 +3027,5 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   WAR/82 1.8+ F, 1.23+ D; slot baseline a logistic on pick with a kink at 150). Form test
   (`25_TESTS/pick_star_form_test.py` v1.0): the through-zero line, surplus = $31.37M x P(star), is the
   rule's verdict; intercept, squared and power versions add nothing. Adoption owed to Thomas.
+- ADOPTED (Thomas): the pick curve is surplus = $31.37M x Bacon's star chance for the slot, through
+  zero, at the average draft year; provisional on the remaining draft tests.

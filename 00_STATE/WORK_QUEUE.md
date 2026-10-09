@@ -13,8 +13,8 @@
    bring it back to Thomas only if it moves the curve.
    First look done 2026-10-09 (`25_TESTS/pick_regression_first_look.py`). Decided: partial NHL seasons
    scaled under 10 games; 82/48 for 2012-13 (v1.1 re-run). Shape decided (Thomas): Bacon's probabilities,
-   validated against our slot curves. Star chance alone (Thomas). **Decide:** adopt the
-   rule's verdict, surplus = $31.37M x P(star) through zero (`pick_star_form_test.py`).
+   validated against our slot curves. Star chance alone (Thomas). ADOPTED (Thomas, 2026-10-09):
+   surplus = $31.37M x P(star) through zero; provisional on the remaining tests (item 3).
 3. **Do:** the tests in directive 6 (straight line against log of the pick; slope by year; negative
    careers; top 10 and top 15; slides against none), scored on draft classes left out one at a time,
    resampling classes; declare the bar in the script first.
