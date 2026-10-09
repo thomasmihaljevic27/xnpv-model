@@ -33,7 +33,7 @@ import pandas as pd                               # noqa: E402
 import statsmodels.api as sm                      # noqa: E402
 from dotenv import load_dotenv                    # noqa: E402
 
-SCRIPT_VERSION = "pick_summary_figures.py v1.0 (2026-10-09)"
+SCRIPT_VERSION = "pick_summary_figures.py v1.1 (2026-10-09)"
 print(SCRIPT_VERSION)
 load_dotenv()
 OUT, SRC = Path(os.environ["OUTPUT_DIR"]), Path(os.environ["SOURCE_DIR"])
@@ -60,15 +60,45 @@ def save(fig, name):
     print(f"  wrote {name}")
 
 
-# ---- f1: the shape ------------------------------------------------------------------------------
-fl = pd.read_csv(OUT / "pick_first_look_players.csv")
-curves = pd.read_csv(OUT / "pick_curve_shape_curves.csv").set_index("pick")
-per_pick = fl.groupby("pick")["surplus"].mean() / 1e6
+# ---- f1: the shape, on the ADOPTED pricing (v1.1) ------------------------------------------------
+# v1.0 drew this on the first-look pricing (skaters only, slides modelled), the basis of the shape
+# test. v1.1 refits the three curves the document compares on pick_curve_players.csv (all positions,
+# no slides, lapsed rights at zero), so every number in that section shares one basis. Each curve has
+# draft-year indicators (sum to zero) and is read at the average draft year; held-out miss = leave one
+# draft out, refit, predict each of its picks (the shape test's scoring), RMSE in $M a pick.
+pcf = pd.read_csv(OUT / "pick_curve_players.csv")
+pcf["y"], pcf["log_pick"] = pcf["surplus"] / 1e6, np.log(pcf["pick"])
+CLf = sorted(pcf["draftYear"].unique())
+
+
+def fit_curve(frame, kind):
+    cl = sorted(frame["draftYear"].unique())
+    yrs = frame["draftYear"].values
+    Y = [(yrs == c).astype(float) - (yrs == cl[-1]).astype(float) for c in cl[:-1]]
+    if kind == "star":                                   # adopted: through zero on the star probability
+        b = np.linalg.lstsq(np.column_stack([frame["p_star"].values] + Y), frame["y"].values, rcond=None)[0]
+        return lambda pick: b[0] * bacon.loc[pick, "p_star"].values
+    x = frame["pick"].values if kind == "line" else frame["log_pick"].values
+    b = np.linalg.lstsq(np.column_stack([np.ones(len(frame)), x] + Y), frame["y"].values, rcond=None)[0]
+    return (lambda pick: b[0] + b[1] * np.asarray(pick, float)) if kind == "line" else            (lambda pick: b[0] + b[1] * np.log(np.asarray(pick, float)))
+
+
+grid = np.arange(1, 218)
+fits = {k: fit_curve(pcf, k) for k in ("line", "log", "star")}
+held = {}
+for k in fits:
+    sq = []
+    for c in CLf:
+        tr, te = pcf[pcf["draftYear"] != c], pcf[pcf["draftYear"] == c]
+        sq.append((te["y"].values - fit_curve(tr, k)(te["pick"].values)) ** 2)
+    held[k] = float(np.sqrt(np.concatenate(sq).mean()))
+per_pick = pcf.groupby("pick")["y"].mean()
 fig, ax = plt.subplots(figsize=(6.5, 3.4))
-ax.scatter(per_pick.index, per_pick.values, s=9, color="#bdbcb6", zorder=2, label="Average at each pick (11 classes)")
-for col, colour, lab in (("line", ORANGE, "Straight line in pick number"), ("log", AQUA, "Log of the pick"),
-                         ("bacon", BLUE, "Bacon's probabilities (adopted shape)")):
-    ax.plot(curves.index, curves[col], color=colour, lw=2, zorder=3, label=lab)
+ax.scatter(per_pick.index, per_pick.values, s=9, color="#bdbcb6", zorder=2,
+           label="Average surplus of the players taken at that pick")
+for k, colour, lab in (("line", ORANGE, "Straight line in the pick number"), ("log", AQUA, "Log of the pick number"),
+                       ("star", BLUE, "Star probability x dollar scale (adopted)")):
+    ax.plot(grid, fits[k](grid), color=colour, lw=2, zorder=3, label=lab)
 ax.set_xscale("log")
 ax.set_xticks([1, 2, 3, 5, 10, 20, 32, 64, 100, 200])
 ax.get_xaxis().set_major_formatter(matplotlib.ticker.ScalarFormatter())
@@ -78,8 +108,12 @@ ax.set_ylim(-3, 32)
 ax.axhline(0, color="#c9c8c3", lw=0.8)
 ax.legend(loc="upper right", fontsize=8)
 save(fig, "f1_shape.png")
-N["f1"] = {"raw_mean_pick1": float(per_pick[1]), "line_pick1": float(curves.loc[1, "line"]),
-           "log_pick1": float(curves.loc[1, "log"]), "bacon_pick1": float(curves.loc[1, "bacon"])}
+N["f1"] = {"raw_mean_pick1": float(per_pick[1]), "raw_mean_33plus": float(pcf.loc[pcf["pick"] > 32, "y"].mean()),
+           "raw_mean_1_10": float(pcf.loc[pcf["pick"] <= 10, "y"].mean()),
+           "never_played": int((pcf["nhl_seasons"] == 0).sum()), "picks": int(len(pcf)),
+           "curves": {k: {str(pk): float(fits[k](np.array([pk]))[0]) for pk in (1, 10, 32, 64, 150)} for k in fits},
+           "held_out_rmse": held}
+print(f"  f1 basis: adopted pricing, {len(pcf):,} picks; held-out RMSE {held}")
 
 # ---- f2: star rates, ours against Bacon's ------------------------------------------------------------
 sr = pd.read_csv(OUT / "pick_star_and_rights_checks.csv")
@@ -126,7 +160,7 @@ ax.errorbar(CL, bc, yerr=2 * sec, fmt="o", color=BLUE, ecolor=BLUE, elinewidth=1
 ax.axhline(pooled, color=GRAY, lw=1.2, ls="--", label=f"Pooled scale, all classes ({pooled:.1f})")
 ax.set_xticks(CL, [str(c) for c in CL])
 ax.set_xlabel("Draft class")
-ax.set_ylabel("$M per 100% star chance")
+ax.set_ylabel("Dollar scale ($M per 100% star probability)")
 ax.legend(loc="upper left", fontsize=8)
 save(fig, "f3_class_scales.png")
 N["f3"] = {"classes": CL, "scale": [float(v) for v in bc], "se": [float(v) for v in sec],
@@ -138,11 +172,11 @@ N["f3"]["sd_beyond_noise"] = float(np.sqrt(max(spread ** 2 - noise ** 2, 0)))
 kn = sc[sc["scale_kind"] == "knowable"].copy()
 fig, ax = plt.subplots(figsize=(6.5, 2.8))
 ax.errorbar(kn["trade_season"], kn["scale_M"], yerr=2 * kn["se_M"], fmt="-o", color=BLUE, ecolor=BLUE,
-            elinewidth=1, capsize=2, ms=4, lw=2, label="Knowable scale (classes drafted nine or more seasons earlier)")
-ax.axhline(pooled, color=GRAY, lw=1.2, ls="--", label=f"Pooled scale ({pooled:.1f})")
+            elinewidth=1, capsize=2, ms=4, lw=2, label="Scale for the trade season (drafts made nine or more seasons earlier)")
+ax.axhline(pooled, color=GRAY, lw=1.2, ls="--", label=f"Scale from all eleven drafts, the sensitivity ({pooled:.1f})")
 ax.set_xticks(kn["trade_season"], [f"{int(t)}-{str(int(t) + 1)[2:]}" for t in kn["trade_season"]])
 ax.set_xlabel("Trade season")
-ax.set_ylabel("$M per 100% star chance")
+ax.set_ylabel("Dollar scale ($M per 100% star probability)")
 ax.set_ylim(0, 45)
 ax.legend(loc="lower right", fontsize=8)
 save(fig, "f4_knowable_scale.png")
@@ -163,11 +197,11 @@ cc = pd.DataFrame(rows)
 fig, ax = plt.subplots(figsize=(6.5, 3.0))
 x = np.arange(len(cc))
 for off, col, colour, lab in ((-0.27, "value", BLUE, "Value delivered"),
-                              (0, "cost_model", AQUA, "Cost, qualifying-offer chain (adopted)"),
-                              (0.27, "cost_actual", ORANGE, "Cost, actual cap hits")):
+                              (0, "cost_model", AQUA, "Cost charged by the model (qualifying-offer chain)"),
+                              (0.27, "cost_actual", ORANGE, "Cost actually paid (cap hits)")):
     ax.bar(x + off, cc[col], width=0.25, color=colour, label=lab)
 ax.set_xticks(x, [f"{b}\n({n} NHL players)" for b, n in zip(cc["band"], cc["n"])])
-ax.set_ylabel("$M per player over the window")
+ax.set_ylabel("$M per player over his control years")
 ax.legend(loc="upper right", fontsize=8)
 save(fig, "f5_control_cost.png")
 N["f5"] = cc.round(3).to_dict("records")
