@@ -237,12 +237,13 @@ spines up.
 
 **Draft and prospect pillars, 2026-09-28k: ready to resume on decided designs. [ON HOLD 2026-10-04, Thomas: resumes once Karl is up to speed on the model.]** Plans rewritten:
 `01_Draft_Model_Sequence.md`, `02_Prospect_Model_Sequence.md`. Next, in order, when this work resumes:
-1. **Laptop / this machine: run the Elite Prospects pull**, `python 20_CODE/ep_extract.py` (v3.5; v3.0's league pulls all failed under pandas 3, fixed; v3.4 reads
-   bio pages itself after the package's false "403" stalled the pass on one player; 4 seconds a
-   player, about 4.5 hours for the 3,995 bios still needed on 2026-10-08; 34
-   leagues from 2006-07; 10-14 hours, restartable). Then `python 20_CODE/ep_nhl_bridge.py` again, so
-   the bridge checks birthdates as well as names. Do not run `sync.ps1` mid-pull (the cache is under
-   `30_OUTPUT/`, gitignored, but the run holds the database open).
+1. ~~**Laptop / this machine: run the Elite Prospects pull**, then the bridge again.~~ **Done
+   2026-10-08/09** (`ep_extract.py` v3.5, finished 2026-10-08 22:24): 679 of 680 league-seasons for
+   skaters, 677 of 680 for goalies (gaps: Czech U20 2019-20, which EP does not have, and OJHL goalies
+   2006-07 and 2007-08, where EP's OJHL tables hold one skater each); 4,953 of 4,953 bios, none blank,
+   none without a birthdate. Bridge re-run 2026-10-09: birthdates agree for 4,734 of 4,760 drafted
+   players; the other 26 have matching surnames (25 full names) and the same birth year, the dates
+   differing by a day/month swap (3) or a few days to six months (23): source typos, not wrong matches.
 2. **Draft: the break test for the bands (D29)**, compared against a smooth decreasing fit on the same
    held-out draft classes. Then re-run `future_pick_premium.py` on the new curve and re-examine the 6
    unexplained unbalanced bundles.

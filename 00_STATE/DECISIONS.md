@@ -2952,3 +2952,21 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - Thomas: "set it back to 4 seconds". `ep_extract.py` v3.5: `SLEEP_BETWEEN_BIO_REQUESTS = 4`, about
   4.5 hours for the 3,995 bios still needed. Only the constant changed.
 
+### Change log, 2026-10-09 (Elite Prospects pull complete; bridge re-run with birthdates)
+
+- The pull finished on the laptop on 2026-10-08 (database written 22:24). Production: 459,898 skater
+  and 30,037 goalie rows; skaters cover 679 of the 680 league-seasons (34 leagues x 2006-07 to
+  2025-26), goalies 677. Gaps: Czech U20 2019-20 (EP has no table, known) and OJHL goalies 2006-07
+  and 2007-08 (EP's OJHL tables for those seasons hold one skater each). Bios: 4,953 of 4,953 wanted
+  (1,055 trade assets and 3,898 more drafted players), 0 blank, 0 duplicate ids, 0 without a
+  birthdate; draft string parsed for 4,777, undrafted or missing for 176.
+- `audit_assets_without_production.csv`: 11 trade assets with no EP production rows, all born
+  1979-1985 and drafted 1997-2004 (Marleau to Weber), whose junior seasons predate 2006-07. Expected
+  (rostered players are valued from WAR, not EP production); no league to add.
+- `ep_nhl_bridge.py` v1.0 re-run with the bios: everything as on 2026-09-28 except the birthdate
+  check, now 4,734 of 4,760 drafted players agreeing. The 26 others: surnames agree in all 26, full
+  names in 25, PuckPedia confirms the id for 2; same birth year in all 26; 3 are day/month swaps, 23
+  differ by 1 day to 6 months. Read as typos in one source, not wrong matches. The two known
+  exceptions are unchanged (Nick Henry, Tyler Vesel; work queue item 6). No code changed.
+
+
