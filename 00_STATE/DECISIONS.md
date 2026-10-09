@@ -3036,3 +3036,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - Decided (Thomas): picks keep the qualifying-offer chain for cost; the top-pick look is recorded as
   the size of its understatement (actual pay 2-3x); an arbitration-eligibility version is an optional
   later sensitivity.
+- Skater pick tests (`25_TESTS/pick_cost_and_year_tests.py` v1.0): slides move the scale by under
+  0.5%; flooring careers at zero +4.1%; the arbitration cost version -55%; the scale differs by draft
+  class (p 0.002; spread beyond noise 29% of the pooled scale). Decisions owed: slides, floor.

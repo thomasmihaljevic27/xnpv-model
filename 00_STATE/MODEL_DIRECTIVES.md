@@ -598,6 +598,20 @@ Thomas the same day. Each item may change only by Thomas's decision.
     (salary arbitration, CBA Article 12, and early long deals push RFA pay toward market). Optional
     later, a sensitivity only: from arbitration eligibility, control years costed at the market price
     of delivered wins (rule-based, no actual contracts).
+  - **Keep the cost side's alternatives (Thomas, 2026-10-09):** "I think keeping alternative ways to
+    design the cost side of picks is going to be needed." The qualifying-offer chain stays the main
+    cost; alternatives are kept and reported beside it: the arbitration-eligibility version; the
+    entry-level slide variants; actual cap hits (hindsight, reference only). A cost alternative changes
+    each pick's surplus, so it is compared by how much it moves the curve, never by held-out miss
+    against the main version (different targets).
+  - **Skater tests run (`25_TESTS/pick_cost_and_year_tests.py` v1.0, 2026-10-09; main reproduces the
+    first look for all 2,089 picks).** Scale ($M per 100% star chance; main 31.37): CBA-only slides
+    31.27 (-0.3%), no slides 31.21 (-0.5%); each player's total floored at zero 32.64 (+4.1%);
+    arbitration (control seasons from eligibility carry no surplus) 14.06 (-55%; #1 $10.5M against
+    $23.5M). By class (Wald test that all eleven scales are equal: chi2 27.3, 10 df, p 0.002): 2012
+    8.6 (se 4.9) to 2015 56.4 (se 10.1); the spread beyond sampling noise is about 9.1, 29% of the
+    pooled scale; 2014-2017 all above the pooled scale (a pattern, cause not examined). Open for
+    Thomas: slides (modelled, CBA-only, or none); careers floored at zero or not.
 - a slope that varies by draft year;
 - negative careers counted as negative, or floored at zero (this matters only for the WAR version;
   in dollars, a season is already priced no lower than the league minimum);
