@@ -3005,3 +3005,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - Settled (Thomas): the 2017 class is kept as it is, its 29 one-season-short windows stated as a
   limitation; the leave-one-class-out refit without 2017 is reported, and the question returns to
   Thomas only if it moves the curve.
+- First look at the pick regression (`25_TESTS/pick_regression_first_look.py` v1.0, skaters): mean
+  $1.50M a pick; log(pick) R2 0.182 against 0.078 for a straight line; both under-fit the top picks
+  (#1 raw $28.6M; fitted $12.8M and $4.3M) and log runs below the raw tail; year indicators barely move
+  the slope. Not the declared tests. Open for Thomas: partial NHL seasons priced in full or scaled
+  under 10 games ($1.50M against $1.68M a pick); 82/48 for 2012-13 WAR.
