@@ -388,6 +388,12 @@ directive 6). The old models (`draft_yield_curve.py`, `slot_curve.py`, `future_p
   pass twice and sent Thomas to wait three days. The page was loading with status 200: the package's
   block test matched "evil" inside "Belleville" (2026-10-08). Before diagnosing a block, request the
   exact page the run is stuck on and read its status code and body, and note which player it is.
+- **Don't hand Thomas a reader-facing document without an agreed spine and the writing-style skill's 1.6 review
+  pass.** "Valuing Draft Picks" ran 11 pages as "an info dump, and a long one at that", and its rewrite still drew 38
+  comments, nearly all one of six failures: vague phrases for plain claims, coined labels ("dollar scale", "the
+  chain"), claims without their number, results described instead of shown, numbers without their meaning, and
+  choices without their reason (2026-10-09). Agree three to five take-aways first, then check each sentence against
+  skill section 1.6 before handing it over.
 - **Don't state what an option costs against a baseline nobody chose.** Asked how pricing a rookie's
   entry-level seasons at the deal's remaining term compares with pricing them as one-year deals, a
   reply put the difference at "roughly $5M", the whole term premium, when one-year pricing carries a

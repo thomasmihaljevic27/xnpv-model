@@ -1,5 +1,9 @@
-// pick_summary_doc.js v3.0 -- builds "Valuing Draft Picks.docx" (40_DOCS/Supervisor_Drafts/).
+// pick_summary_doc.js v3.1 -- builds "Valuing Draft Picks.docx" (40_DOCS/Supervisor_Drafts/).
 //
+// v3.1 (2026-10-09): carries Thomas's own edits to the final version (Downloads/"Valuing Draft Picksv3.docx"):
+// "lottery ticket", "market rate", the future-version sentences after the round average, "A Worked
+// Example"; deleted the roadmap paragraph, the Appendix B pointer, the conditional-picks/total paragraph
+// and the Limitations and Next Steps section. The committed .docx is his final version.
 // v3.0 (2026-10-09): revised from Thomas's 38 comments on v2.0. Evidence for each claim (stars' share
 // of surplus; the regression behind the star value; the trend test behind one star value; the
 // persistence data behind the round average); his phrasings adopted; "dollar scale" renamed "star
@@ -103,16 +107,14 @@ add(P(`Two features of the draft make this difficult. The first is that outcomes
 
 // 2
 add(H1("2. The Approach"));
-add(P(`Most of the surplus that draft picks produce comes from the few players who become stars. Of the ${comma(ST.picks)} skaters drafted from 2007 to 2015, the ${ST.stars} who became stars (${f1(ST.share_picks)}%, by the definition below, with at least 200 NHL games) produced ${f1(ST.share_surplus)}% of all the surplus those picks returned. Among the first ten picks, stars were ${f1(ST.top10_share_picks)}% of the players and produced ${f1(ST.top10_share_surplus)}% of the surplus. The model, therefore, values a pick as a ticket on a star:`));
+add(P(`Most of the surplus that draft picks produce comes from the few players who become stars. Of the ${comma(ST.picks)} skaters drafted from 2007 to 2015, the ${ST.stars} who became stars (${f1(ST.share_picks)}%, by the definition below, with at least 200 NHL games) produced ${f1(ST.share_surplus)}% of all the surplus those picks returned. Among the first ten picks, stars were ${f1(ST.top10_share_picks)}% of the players and produced ${f1(ST.top10_share_surplus)}% of the surplus. The model, therefore, values a pick as a lottery ticket on a star:`));
 add(FORMULA("pick value  =  star value  ×  star probability for the slot"));
 add(P(`The star probability is the chance that a player taken at that slot becomes a star. It comes from Patrick Bacon's draft model, the source of the WAR used throughout this model, which defines a star as a player whose career WAR per 82 games is at least 1.8 for a forward or 1.23 for a defenceman. The star value is the surplus a pick would be worth if its player were certain to become a star. Section 4 estimates it at $${f1(SV.main)} million at the 2025-26 cap. For example, the first overall pick has a star probability of ${f1(100 * VAL["1"].p)}%, so it is worth ${(VAL["1"].p).toFixed(3)} × $${f1(SV.main)} million = $${f1(VAL["1"].v)} million.`));
-add(P("Section 3 measures what each drafted player delivered. Section 4 shows why the star probability is the right measure and estimates the star value, and Section 5 explains why one star value is used for every draft. Section 6 covers the cost of keeping a drafted player, which is the choice that matters most for the results, and Section 7 covers how a traded pick is assigned a slot."));
 
 // 3
 add(H1("3. What a Drafted Player Delivered"));
-add(P("To learn what a slot returns, I price each player drafted from 2007 to 2017 the way the player model prices a contract. Only the seasons while his club holds his rights count. These run from his draft until he becomes an unrestricted free agent under the collective agreement, at 27 or after seven seasons on an NHL roster. They are the years the pick secures for the club; after them, the player is paid at market."));
+add(P("To learn what a slot returns, I price each player drafted from 2007 to 2017 the way the player model prices a contract. Only the seasons while his club holds his rights count. These run from his draft until he becomes an unrestricted free agent under the collective agreement, at 27 or after seven seasons on an NHL roster. They are the years the pick secures for the club; after them, the player is paid at market rate."));
 add(P("For each of those seasons, the player's surplus is his value less his cost. His value is the market price of the wins he delivered that season, on the same price line that values player contracts. His cost is what the club paid to keep him. That is the maximum entry-level salary while his first contract runs, then a one-year qualifying offer each summer, which is the least the club can offer to keep his rights. A season he spends outside the NHL counts as zero, because a minor-league salary does not count against the cap. I sum the seasons and state the total at the 2025-26 cap, so picks and players are in the same currency."));
-add(P(`Appendix B prices one player season by season: Brayden Point, taken 79th in 2014, who delivered $${f1(pv)} million of value for $${f1(pcst)} million of cost.`));
 
 // 4
 add(H1("4. Estimating the Star Value"));
@@ -169,14 +171,7 @@ add(P(`A pick is often traded before anyone knows its slot, so the model assigns
 add(P(`The round average rests on how little a team's current slot says about its slot a year or two later. Across the 2005-2026 drafts, a team's own first-round slot correlates ${f2(F4.corr["1"])} with its slot in the next draft and ${f2(F4.corr["2"])} with its slot two drafts later, and it moves a median of ${F4.median_move["1"]} places in a year (Figure 4). A team that picked in the top five went on to pick anywhere from ${per(1, "1-5").p10.toFixed(0)}nd to ${Math.round(per(1, "1-5").p90)}nd the next year, in 80% of cases.`));
 add(FIGURE("f4_slot_persistence.png", "Figure 4. How a team's draft slot carries over to later drafts",
   "For teams whose own first-round pick fell in each range of slots, the dot is the average slot of their own first-round pick in the next draft (blue) and two drafts later (orange); the bars span the 10th to 90th percentiles. A team's own pick is the one it originally held, wherever it was later traded. Drafts 2005-2026, from the NHL's draft records (actual slots, after the lottery); slot 1 is the first pick."));
-add(P(`The round average does give up some information, because the slot is not purely random: teams near the top of the draft tend to stay near the top. Valued at the slots they went on to pick, the next first-round pick of a team that just picked in the top five was worth $${f1(per(1, "1-5").value)} million on average, against the round average of $${f1(per(1, "1-5").round_avg)} million; that of a team that just picked 25th to 32nd was worth $${f1(per(1, "25-32").value)} million. The round average, therefore, undervalues a weak team's future first-round pick and overvalues a strong team's. It is kept for its simplicity, and this difference is stated as a limitation.`));
-add(P(`The ${TR.conditional} picks traded with conditions attached are valued without their conditions until each is checked. In all, the ${TR.picks} picks traded from July 2017 to March 2022 are worth $${f1(TR.total)} million, or $${f1(TR.total_s)} million without the 2015 and 2016 drafts.`));
-
-// 8
-add(H1("8. Limitations and Next Steps"));
-add(P("Four limits remain. The qualifying-offer chain understates what clubs pay to keep a drafted player (Section 6). The round average for future picks ignores that weak teams tend to stay weak (Section 7). Bacon's probabilities come from a model fitted on drafts through 2021, so they draw on outcomes that were not known at the time of the earlier trades; the shape they give the curve fits our 2007-2011 and 2012-2017 drafts equally well, but his model cannot be refitted on what was known at each trade. And the slot projected from the standings ignores the draft lottery."));
-add(P("The next steps on picks are to resolve the conditional picks and to run the arbitration alternative. The prospect model will follow in a separate document."));
-
+add(P(`The round average does give up some information, because the slot is not purely random: teams near the top of the draft tend to stay near the top. Valued at the slots they went on to pick, the next first-round pick of a team that just picked in the top five was worth $${f1(per(1, "1-5").value)} million on average, against the round average of $${f1(per(1, "1-5").round_avg)} million; that of a team that just picked 25th to 32nd was worth $${f1(per(1, "25-32").value)} million. The round average, therefore, undervalues a weak team's future first-round pick and overvalues a strong team's. It is kept for its simplicity, and this difference is stated as a limitation. A future version of the model could value a traded first-round pick from a later draft on its original team’s current place in the draft order, which would capture this difference. The same is not needed for picks in the second to seventh rounds, because the pick curve is close to flat after the first round.`));
 // Appendix A
 add(H1("Appendix A. Other Choices"));
 add(P(`Each row gives a choice made in building the curve, why it was made, and what the alternative would have done. Where a choice changes each pick's value by the same percentage, the effect is shown on the 10th pick, worth $${f2(P10.main)} million in the model.`));
@@ -195,7 +190,7 @@ add(TABLE(["Choice", "What the model does", "Why", "What the alternative would d
 ], [1700, 2500, 2500, 2660], [], false));
 
 // Appendix B
-add(H1("Appendix B. A Worked Player"));
+add(H1("Appendix B. A Worked Example"));
 add(P(`Brayden Point was taken 79th in 2014, a slot with a star probability of ${f1(100 * PT.p_star)}%, so the model values that pick at $${f2(SV.main * PT.p_star)} million. Table 4 prices each season from his draft until he became an unrestricted free agent after 2022-23.`));
 add(TITLE("Table 4. Brayden Point (2014, #79), from his draft to free agency"));
 const jr = { "2014-2015": "Junior (Moose Jaw, WHL) and 9 AHL games (Syracuse)", "2015-2016": "Junior (Moose Jaw, WHL)" };

@@ -7,6 +7,9 @@ priced as one-year deals; picks a year or more ahead at the round's average; top
 separately. The old draft models and plans are archived in `90_ARCHIVE/2026-10-09/`. Later the same day the curve
 was settled (a pick = a scale x Bacon's star chance; the scale knowable at each trade season, pooled as the
 sensitivity) and built: `20_CODE/pick_curve.py`, `20_CODE/traded_pick_values.py`. Prospects not started.
+On review the same day Thomas replaced the trade-season scale with one star value for every draft (31.66; 27.58
+without 2015-2016 as the sensitivity). Documented in `40_DOCS/Supervisor_Drafts/Valuing Draft Picks.docx` (Thomas's
+final). Next: the prospect model, with its own document.
 
 **Plan of record steps 1-6 done on `claude/amazing-einstein-tk4b08`, 2026-10-05.** Directives 1-5 and
 open decisions 1-2 are built and validated on the laptop (the dashboard refresh passed at `dca0831`):

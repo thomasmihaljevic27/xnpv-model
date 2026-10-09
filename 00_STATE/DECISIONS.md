@@ -3063,3 +3063,7 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - Built: pick_curve.py v1.2 and traded_pick_values.py v1.2 on one star value (31.66; sensitivity 27.58);
   traded picks $704.8M ($614.0M). Persistence rebuilt from the draft records (pick_slot_persistence.py).
   Document v3.0 revised from Thomas's 38 comments (figures v1.2, builder v3.0).
+- Final document: Thomas's own edit of v3 committed as `Valuing Draft Picks.docx`; `pick_summary_doc.js` v3.1
+  carries his edits (text identical, checked paragraph by paragraph). The writing-style skill gained section 1.6
+  (Thomas's review rules from his 38 comments and final edits), a spine-first step and a 1.6 review pass, and
+  ten checklist items. CLAUDE.md rule added. Next session: the prospect model.
