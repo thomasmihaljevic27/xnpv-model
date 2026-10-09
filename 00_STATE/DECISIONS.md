@@ -3067,3 +3067,5 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   carries his edits (text identical, checked paragraph by paragraph). The writing-style skill gained section 1.6
   (Thomas's review rules from his 38 comments and final edits), a spine-first step and a 1.6 review pass, and
   ten checklist items. CLAUDE.md rule added. Next session: the prospect model.
+- Thomas: merge the branch into main; conditional picks deferred to the back-test analysis; the arbitration cost
+  alternative for picks folded into the RFA arbitration idea (and probably prospects), to put to Karl next meeting.

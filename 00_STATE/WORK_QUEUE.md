@@ -5,13 +5,15 @@
 Prospects get their own document. Start by agreeing a plain-English specification with Thomas step by step
 (MODEL_DIRECTIVES directive 6, "Prospects": slot as the starting value, production adjusted to NHL terms with
 50/30/20, age and size as candidates, undrafted players without the slot), and a spine for the document before
-drafting it (writing-style skill 1.6). Still owed on picks, none blocking prospects: resolve the conditional
-picks (113 among the traded picks); run the arbitration cost alternative before the back-test is read;
-the RFA arbitration idea below; a slot-aware value for future first-round picks is a possible later version
-(the round average undervalues a weak team's future first: $9.5M against $6.6M). Branch
-`claude/amazing-einstein-tk4b08` is 26 commits ahead of `main` (2026-10-09): merge when Thomas is ready.
+drafting it (writing-style skill 1.6). Thomas, 2026-10-09: the conditional picks (113 among the traded picks)
+are back-test work, taken up when the full model is complete and the analysis starts; the arbitration cost
+alternative for picks is folded into the RFA arbitration idea below (and probably the prospect model), which
+Thomas will put to Karl at the next meeting. A slot-aware value for future first-round picks is a possible later
+version (the round average undervalues a weak team's future first: $9.5M against $6.6M). Branch merged into
+`main` 2026-10-09 (Thomas).
 
-**Idea (Thomas, 2026-10-09; not decided): the arbitration rule for RFA terminal value.** "the arbitration model
+**Idea (Thomas, 2026-10-09; not decided; to put to Karl at the next meeting, with the picks' arbitration cost
+alternative folded in): the arbitration rule for RFA terminal value.** "the arbitration model
 is really interesting and could be a way to depress RFA terminal value if we decided. For the same reason the QO
 chain could overvalue draft picks and the arb rule is proposed there, maybe that could work for the RFAs." The
 player model prices a contract's RFA control years on the same qualifying-offer chain (`rfa_terminal_value.py`;

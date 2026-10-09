@@ -649,6 +649,9 @@ Thomas the same day. Each item may change only by Thomas's decision.
     average of $6.6M; of a team that just picked 25-32, $4.35M. Stated in the document as a limitation.
   - **Built (2026-10-09):** `pick_curve.py` v1.2 (star value 31.66, sensitivity 27.58) and
     `traded_pick_values.py` v1.2 (634 traded picks: $704.8M; sensitivity $614.0M).
+  - **Later work (Thomas, 2026-10-09):** the conditional picks are back-test work, for when the full model is
+    complete; the arbitration cost alternative for picks is folded into the RFA arbitration idea (WORK_QUEUE),
+    and probably the prospect model, and goes to Karl at the next meeting.
   - **Checks (`25_TESTS/pick_star_and_rights_checks.py` v1.1, 2026-10-09, report only).** (1) Bacon's
     star rates against ours (his definition; our reading: a star is also a 200+ game NHLer), classes
     2007-2015, 1,700 skater picks: 5.9% stars against his 5.3%; every pick range within two standard
