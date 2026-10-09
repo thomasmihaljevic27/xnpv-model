@@ -11,8 +11,8 @@
    (2026-10-09): only the 2017 class runs past 2025-26, 29 of 217 picks by one season (directive 6).
    Settled (Thomas): keep 2017 as it is, stated as a limitation; report the leave-2017-out refit and
    bring it back to Thomas only if it moves the curve.
-   First look done 2026-10-09 (`25_TESTS/pick_regression_first_look.py`). **Decide (Thomas):** partial
-   NHL seasons priced in full or scaled by games under 10 games; 82/48 for 2012-13 WAR.
+   First look done 2026-10-09 (`25_TESTS/pick_regression_first_look.py`). Decided: partial NHL seasons
+   scaled under 10 games; 82/48 for 2012-13 (v1.1 re-run). Open: which further curve shapes enter the tests.
 3. **Do:** the tests in directive 6 (straight line against log of the pick; slope by year; negative
    careers; top 10 and top 15; slides against none), scored on draft classes left out one at a time,
    resampling classes; declare the bar in the script first.

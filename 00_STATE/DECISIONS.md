@@ -3010,3 +3010,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   (#1 raw $28.6M; fitted $12.8M and $4.3M) and log runs below the raw tail; year indicators barely move
   the slope. Not the declared tests. Open for Thomas: partial NHL seasons priced in full or scaled
   under 10 games ($1.50M against $1.68M a pick); 82/48 for 2012-13 WAR.
+- Decided (Thomas): partial NHL seasons under 10 games scaled by games/82 in value and cost; 2012-13 WAR
+  scaled x82/48. First look v1.1 re-run on that: mean $1.68M a pick; log(pick) R2 0.192, #1 fitted
+  $13.2M against $28.6M raw.

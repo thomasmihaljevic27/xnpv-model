@@ -518,6 +518,13 @@ Thomas the same day. Each item may change only by Thomas's decision.
   it at about $5M, measuring against no premium at all; corrected here.) This settles,
   for drafted players' entry-level seasons, open decision 3's "term premium of the contract he was on".
 - *A season outside the NHL is worth zero and costs zero* (a minor-league salary is off the cap).
+- *Partial NHL seasons are scaled (Thomas, 2026-10-09):* a season under 10 NHL games has its priced value
+  and its cost scaled by games/82 (a callup is on the cap only for his days on the roster). Seasons of
+  10+ games are priced in full: games played under-count roster days for injured regulars, whose cap
+  hit counted all year. The 10-game cut is carried from the archived curve (and is the CBA's 9.1(d)
+  slide line). Effect on the first look: mean surplus a pick $1.50M -> $1.68M (655 picks change).
+- *2012-13 WAR is scaled to 82 games (x82/48) (Thomas, 2026-10-09),* extending D20 (82/70, 82/56) to
+  the lockout season.
 - *Classes whose window runs past 2025-26:* count the players affected first, then decide between
   dropping the class and cutting the window at 2025-26.
   - **Count (2026-10-09, `25_TESTS/draft_window_count.py` v1.0):** CBA Group 3 (Section 10.1(a): seven

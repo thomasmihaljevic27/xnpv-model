@@ -32,7 +32,7 @@ who never plays is a real zero):
     price_constants() (XNPV1_RATE, term-in).
  4. SHORT SEASONS: WAR in 2012-13, 2019-20 and 2020-21 is scaled to 82 games
     (x82/48, x82/70, x82/56) before pricing. D20 locks 82/70 and 82/56;
-    82/48 extends it to 2012-13 (flagged; carried from the archived curve).
+    82/48 extends it to 2012-13 (Thomas, 2026-10-09, after the v1.0 run).
     Costs are not scaled (cap shares are already annual ratios).
  5. COST:
     * Entry-level seasons: the entry-level maximum for his draft class, as a
@@ -47,7 +47,8 @@ who never plays is a real zero):
       minimum), the first on the entry-level maximum as the prior salary,
       each next one on the previous offer. The chain advances every season
       after the entry-level deal; a season with no NHL game still costs zero.
- 6. PARTIAL SEASONS (a DECISION FOR THOMAS, both shown): "full" prices any
+ 6. PARTIAL SEASONS (DECIDED, Thomas 2026-10-09: scale; v1.1 makes "cameo"
+    the main result, "full" kept beside it): "full" prices any
     season with an NHL game as a full season (value floor and cost in full);
     "cameo" scales the season's priced value and its cost by games/82 when
     he played under 10 games (adapted from the archived curve, which scaled
@@ -87,7 +88,7 @@ import pandas as pd
 import statsmodels.formula.api as smf
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "pick_regression_first_look.py v1.0 (2026-10-09)"
+SCRIPT_VERSION = "pick_regression_first_look.py v1.1 (2026-10-09)"
 
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "20_CODE"))
@@ -217,7 +218,7 @@ def price_player(row, arm):
 for arm in ("full", "cameo"):
     out = picks.apply(lambda r: price_player(r, arm), axis=1, result_type="expand")
     picks[f"surplus_{arm}"] = out[0] * CAP_NOW
-    if arm == "full":
+    if arm == "cameo":                            # the decided arm carries value, cost, WAR
         picks["value"], picks["cost"], picks["war"], picks["nhl_seasons"] = (
             out[1] * CAP_NOW, out[2] * CAP_NOW, out[3], out[4])
 picks["pick"] = picks["overallPickNumber"]
@@ -227,36 +228,37 @@ picks["played"] = picks["nhl_seasons"] > 0
 
 # ---- what the outcomes look like ------------------------------------------
 log(f"\nskater picks priced: {len(picks):,}; played an NHL game: {picks['played'].sum():,}")
-log(f"surplus per pick ($M at the 2025-26 cap), 'full' arm: mean {picks['surplus_full'].mean()/1e6:.2f}, "
-    f"median {picks['surplus_full'].median()/1e6:.2f}, max {picks['surplus_full'].max()/1e6:.1f}")
-log(f"'cameo' arm mean {picks['surplus_full'].mean()/1e6:.3f} -> {picks['surplus_cameo'].mean()/1e6:.3f}; "
+picks["surplus"] = picks["surplus_cameo"]          # the decided arm (scaled partial seasons)
+log(f"surplus per pick ($M at the 2025-26 cap), scaled partial seasons: mean {picks['surplus'].mean()/1e6:.2f}, "
+    f"median {picks['surplus'].median()/1e6:.2f}, max {picks['surplus'].max()/1e6:.1f}")
+log(f"beside it, every NHL season in full: mean {picks['surplus_full'].mean()/1e6:.3f} against {picks['surplus_cameo'].mean()/1e6:.3f}; "
     f"picks that differ: {(picks['surplus_full'] - picks['surplus_cameo']).abs().gt(1).sum()}")
 bands = [(1, 1), (2, 2), (3, 5), (6, 10), (11, 20), (21, 32), (33, 64), (65, 100), (101, 150), (151, 217)]
 rows = []
 for lo, hi in bands:
     d = picks[picks["pick"].between(lo, hi)]
     rows.append({"picks": f"{lo}-{hi}", "n": len(d), "played_%": 100 * d["played"].mean(),
-                 "mean_$M": d["surplus_full"].mean() / 1e6, "median_$M": d["surplus_full"].median() / 1e6,
+                 "mean_$M": d["surplus"].mean() / 1e6, "median_$M": d["surplus"].median() / 1e6,
                  "mean_WAR": d["war"].mean(), "mean_value_$M": d["value"].mean() / 1e6,
                  "mean_cost_$M": d["cost"].mean() / 1e6})
-log("\nRAW AVERAGES BY PICK RANGE (display only; the regression uses every pick), 'full' arm")
+log("\nRAW AVERAGES BY PICK RANGE (display only; the regression uses every pick), scaled partial seasons")
 log(pd.DataFrame(rows).round(2).to_string(index=False))
-top = picks.nlargest(10, "surplus_full")[["draftYear", "pick", "playerName", "war", "surplus_full"]]
+top = picks.nlargest(10, "surplus")[["draftYear", "pick", "playerName", "war", "surplus"]]
 log("\nlargest surpluses ($M):")
-log(top.assign(surplus_full=top["surplus_full"] / 1e6).round(2).to_string(index=False))
-low = picks.nsmallest(5, "surplus_full")[["draftYear", "pick", "playerName", "war", "surplus_full"]]
+log(top.assign(surplus=top["surplus"] / 1e6).round(2).to_string(index=False))
+low = picks.nsmallest(5, "surplus")[["draftYear", "pick", "playerName", "war", "surplus"]]
 log("smallest:")
-log(low.assign(surplus_full=low["surplus_full"] / 1e6).round(2).to_string(index=False))
+log(low.assign(surplus=low["surplus"] / 1e6).round(2).to_string(index=False))
 
 # ---- the regressions ---------------------------------------------------------
 # Robust (HC1) standard errors: outcomes are very uneven across picks.
 # With draft-year indicators the prediction is at the AVERAGE draft year:
 # the class effects are averaged with equal weight (sum-to-zero coding).
 specs = {
-    "$ on pick":                 ("surplus_full ~ pick", False),
-    "$ on log(pick)":            ("surplus_full ~ log_pick", False),
-    "$ on pick + year":          ("surplus_full ~ pick + C(cls, Sum)", True),
-    "$ on log(pick) + year":     ("surplus_full ~ log_pick + C(cls, Sum)", True),
+    "$ on pick":                 ("surplus ~ pick", False),
+    "$ on log(pick)":            ("surplus ~ log_pick", False),
+    "$ on pick + year":          ("surplus ~ pick + C(cls, Sum)", True),
+    "$ on log(pick) + year":     ("surplus ~ log_pick + C(cls, Sum)", True),
     "WAR on pick + year":        ("war ~ pick + C(cls, Sum)", True),
     "WAR on log(pick) + year":   ("war ~ log_pick + C(cls, Sum)", True),
 }
@@ -282,7 +284,7 @@ for name, (f, has_year) in specs.items():
 at = [1, 2, 3, 5, 10, 15, 20, 32, 64, 100, 150, 200]
 log("\nFITTED SURPLUS AT AN AVERAGE DRAFT YEAR ($M, 2025-26 cap); raw mean of that exact pick beside it")
 tbl = grid.set_index("pick").loc[at, [k for k in specs if k.startswith("$")]] / 1e6
-tbl["raw mean at pick"] = [picks.loc[picks["pick"] == p, "surplus_full"].mean() / 1e6 for p in at]
+tbl["raw mean at pick"] = [picks.loc[picks["pick"] == p, "surplus"].mean() / 1e6 for p in at]
 tbl["picks at slot"] = [int((picks["pick"] == p).sum()) for p in at]
 log(tbl.round(2).to_string())
 log("\nFITTED WAR OVER THE WINDOW AT AN AVERAGE DRAFT YEAR")
@@ -290,7 +292,7 @@ log(grid.set_index("pick").loc[at, ["WAR on pick + year", "WAR on log(pick) + ye
 
 # ---- outputs ---------------------------------------------------------------------
 cols = ["draftYear", "pick", "roundNumber", "playerName", "position", "link_status", "end_g3",
-        "nhl_seasons", "war", "value", "cost", "surplus_full", "surplus_cameo"]
+        "nhl_seasons", "war", "value", "cost", "surplus", "surplus_full"]
 picks[cols].to_csv(OUTPUT_DIR / "pick_first_look_players.csv", index=False)
 grid.to_csv(OUTPUT_DIR / "pick_first_look_curve.csv", index=False)
 (OUTPUT_DIR / "pick_first_look_log.txt").write_text("\n".join(LOG), encoding="utf-8")
