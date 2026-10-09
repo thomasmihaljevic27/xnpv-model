@@ -3013,3 +3013,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - Decided (Thomas): partial NHL seasons under 10 games scaled by games/82 in value and cost; 2012-13 WAR
   scaled x82/48. First look v1.1 re-run on that: mean $1.68M a pick; log(pick) R2 0.192, #1 fitted
   $13.2M against $28.6M raw.
+- Pick curve shape test (`25_TESTS/pick_curve_shape_test.py` v1.0; bar 1,950 of 2,000, Thomas): the
+  declared rule's verdict is log plus log-squared (held-out RMSE 5.213 against log's 5.384, beats log
+  in 1,985), but that curve rises from pick 138 on; the bend (always falling) misses the bar by four
+  redraws; Bacon's probabilities clear it with a higher miss. Adoption owed to Thomas. The 2017 refit
+  moves the log curve by at most $0.35M.
