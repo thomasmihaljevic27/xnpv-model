@@ -3018,3 +3018,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   in 1,985), but that curve rises from pick 138 on; the bend (always falling) misses the bar by four
   redraws; Bacon's probabilities clear it with a higher miss. Adoption owed to Thomas. The 2017 refit
   moves the log curve by at most $0.35M.
+- Decided (Thomas): the pick curve prices on Bacon's NHL-player and star probabilities by slot.
+  Validation (`25_TESTS/pick_bacon_validation.py` v1.0): log(pick) adds nothing beyond them (p 0.91);
+  our slot curves match his within $0.15-0.24M a pick on average; his NHL-player term carries no
+  dollars once the star term is in. Open for Thomas: keep both terms, or price on the star probability
+  alone (one fewer number).

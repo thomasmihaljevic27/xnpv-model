@@ -554,6 +554,20 @@ Thomas the same day. Each item may change only by Thomas's decision.
   inputs (caution recorded: fitted on largely the same drafts); and, as a benchmark never adopted, the
   smoothed average at each pick forced to fall with the pick number. Simpler wins unless a more complex
   form clearly beats it (the bar is set before the run);
+  - **Result and decision (2026-10-09).** Bar 1,950 of 2,000 (Thomas). `25_TESTS/pick_curve_shape_test.py`
+    v1.0: the declared rule's verdict was log + log-squared (held-out RMSE $5.213M a pick against log's
+    $5.384M), but that curve rises from pick 138 on; Bacon's probabilities also cleared the bar ($5.224M);
+    the bendable curve missed it by four redraws. **Thomas: "I think we should probably just go with
+    bacon's probabilities, but maybe this regression can be used to validate that his approximation is
+    backed up."** The pick curve is surplus = a + b x P(NHL player) + d x P(star) by slot (Bacon's
+    `draft_slot_baseline.csv`), with draft-year indicators, read at the average year.
+  - **Validation** (`25_TESTS/pick_bacon_validation.py` v1.0, report only): adding log(pick) to his
+    probabilities adds nothing (coefficient +0.14, se 1.21, p 0.91; held-out RMSE 5.228 against 5.224).
+    Our own slot-only curves give nearly the same dollars: mean gap per pick $0.15M (bendable) and
+    $0.24M (log + log-squared), largest at #1 (bendable $27.1M against his curve's $23.4M; raw $28.6M).
+    In dollars his NHL-player probability carries nothing once his star probability is in (coefficient
+    -0.05, se 2.15; star +31.3, se 6.9). Caveat: his probabilities are fitted on largely the same
+    drafts, so agreement is not independent confirmation.
 - a slope that varies by draft year;
 - negative careers counted as negative, or floored at zero (this matters only for the WAR version;
   in dollars, a season is already priced no lower than the league minimum);
