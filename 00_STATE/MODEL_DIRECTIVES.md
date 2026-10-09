@@ -533,6 +533,11 @@ Thomas the same day. Each item may change only by Thomas's decision.
     backup goalies) and later for 13 (11 where the seven-season count decides, cause not found; debut
     age does not explain it, since 76 of the 89 who debuted at 18 or 19 agree; and Conner Bleackley,
     drafted twice). Of the 29, PuckPedia has Chytil free after 2024-25; 8 have no PuckPedia contract.
+  - **Settled (Thomas, 2026-10-09): keep the 2017 class as it is; no decision owed unless its refit
+    moves the curve.** The 29 short windows (one season each, mostly late-birthday players) are stated
+    as a limitation. The draft-year indicators absorb most of a class-wide shortfall, and the
+    leave-one-class-out scoring already refits without 2017, which is the "drop" option; if that refit
+    moves the curve materially, the question comes back to Thomas with the figures.
 
 **Draft picks: to test (Thomas, 2026-10-09)**
 - the slope's form: a straight line in pick number against a curve (log of the pick);

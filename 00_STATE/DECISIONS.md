@@ -3002,3 +3002,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - Window count (`25_TESTS/draft_window_count.py` v1.0, from the CBA text): only the 2017 class has
   windows past 2025-26, 29 of 217 by one season (12 if Group 6 is assumed met); PuckPedia's UFA year
   agrees for 1,151 of 1,183 drafted players. Decision owed: drop the 2017 class or cut its window.
+- Settled (Thomas): the 2017 class is kept as it is, its 29 one-season-short windows stated as a
+  limitation; the leave-one-class-out refit without 2017 is reported, and the question returns to
+  Thomas only if it moves the curve.

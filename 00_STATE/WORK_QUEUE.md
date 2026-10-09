@@ -9,7 +9,8 @@
    the window to the end of the qualifying-offer chain, regress the dollars on slot (with and without
    draft-year indicators), with the WAR version beside it. Charts, not a locked curve. Count done
    (2026-10-09): only the 2017 class runs past 2025-26, 29 of 217 picks by one season (directive 6).
-   **Decide (Thomas):** drop the 2017 class, or cut its window at 2025-26.
+   Settled (Thomas): keep 2017 as it is, stated as a limitation; report the leave-2017-out refit and
+   bring it back to Thomas only if it moves the curve.
 3. **Do:** the tests in directive 6 (straight line against log of the pick; slope by year; negative
    careers; top 10 and top 15; slides against none), scored on draft classes left out one at a time,
    resampling classes; declare the bar in the script first.
