@@ -2,7 +2,8 @@
 
 **Draft and prospect restart, 2026-10-09: reading week.** The specification so far is in
 `MODEL_DIRECTIVES.md` directive 6. Supervisor meetings: Tue 2026-10-13 2:30 PM, Thu 2026-10-15 11:00 AM.
-1. **Write (for Tuesday):** a one-to-two page summary of the draft and prospect work, set out as the
+1. ~~**Write (for Tuesday):** a one-to-two page summary~~ DONE 2026-10-09: `40_DOCS/Supervisor_Drafts/Valuing
+   Draft Picks.docx` (11 pages, five figures, seven tables; Thomas allowed over two pages). Set out as the
    problem, then the approach, then what is still open. A reader-facing document: it does not name the
    supervisor or answer the meeting.
 2. **Do:** the first look at the pick regression. Price each drafted player's seasons in dollars over

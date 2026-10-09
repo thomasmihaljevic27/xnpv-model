@@ -3054,3 +3054,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - Decided (Thomas): lapsed-rights picks are worth zero to the pick. Built: `20_CODE/pick_curve.py` v1.0
   (pooled scale 31.66; knowable 24.16-30.95 by trade season) and `20_CODE/traded_pick_values.py` v1.1
   (634 traded picks, $575.4M knowable, $704.8M pooled). CLAUDE.md run order updated.
+- Document: `40_DOCS/Supervisor_Drafts/Valuing Draft Picks.docx` (built by `25_TESTS/pick_summary_doc.js` from
+  `pick_summary_figures.py`'s numbers.json and the recorded test results). `pick_curve.py` v1.1 adds the
+  season-by-season audit file (results unchanged, checked).

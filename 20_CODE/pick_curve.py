@@ -58,7 +58,8 @@ TRAILING WEIGHTING CHECK (directive 6): nothing here reads a trailing total.
 
 INPUTS (paths from .env): OUTPUT_DIR/draft_pick_linkage.csv (draft_pick_linkage.py),
 SOURCE_DIR/WAR.csv, Goalies_WAR.csv, draft_slot_baseline.csv, trades.db.
-OUTPUTS: OUTPUT_DIR/pick_curve_players.csv (one row per pick),
+OUTPUTS: OUTPUT_DIR/pick_curve_players.csv (one row per pick), OUTPUT_DIR/pick_curve_seasons.csv
+(v1.1: one row per priced season, the audit trail behind each pick's total; no result changes),
 OUTPUT_DIR/pick_curve_scales.csv (the scales), OUTPUT_DIR/pick_curve_log.txt.
 
 Run from the repo root:  python 20_CODE/pick_curve.py
@@ -76,7 +77,7 @@ import pandas as pd
 import statsmodels.api as sm
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "pick_curve.py v1.0 (2026-10-09)"
+SCRIPT_VERSION = "pick_curve.py v1.1 (2026-10-09)"
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import skater_forward_projection as sfp          # noqa: E402  skater price line, cap and minimum tables
@@ -187,6 +188,9 @@ def window_end(row, s):
     return min(y27, a7) if a7 else y27
 
 
+SEASONS = []
+
+
 def price(row, s, last):
     """Summed surplus (cap shares) over the window, under the decided rules."""
     played = s[(s["GP"] > 0) & (s.index <= last)]
@@ -213,6 +217,10 @@ def price(row, s, last):
         cost = (ELC_MAX[row["draftYear"]] if in_elc else prior) / CAP[y] * scale
         tot += value - cost
         war_tot += wins
+        SEASONS.append({"draftYear": row["draftYear"], "pick": row["overallPickNumber"], "season": y,
+                        "gp": gp, "war_82": wins, "in_entry_level": in_elc, "games_scale": scale,
+                        "cap": CAP[y], "value_share": value, "cost_share": cost,
+                        "cost_$": (ELC_MAX[row["draftYear"]] if in_elc else prior) * scale})
     return tot, war_tot, len(played)
 
 
@@ -299,6 +307,12 @@ for T in range(2017, 2026):
                    "scale_M": bk, "se_M": sek})
     log(f"  knowable, trade season {T}-{str(T + 1)[2:]} (classes 2007-{T - 9}): {bk:.2f} (se {sek:.2f})")
 
+se_ = pd.DataFrame(SEASONS)
+se_["surplus_2025_cap"] = (se_["value_share"] - se_["cost_share"]) * CAP_NOW
+chk = se_.groupby(["draftYear", "pick"])["surplus_2025_cap"].sum()
+m = d.set_index(["draftYear", "pick"])["surplus_before_rights"]
+assert (chk.reindex(m.index).fillna(0.0) - m).abs().max() < 1.0      # GUARD: seasons add up to each pick
+se_.to_csv(OUTPUT_DIR / "pick_curve_seasons.csv", index=False)
 d.to_csv(OUTPUT_DIR / "pick_curve_players.csv", index=False)
 pd.DataFrame(scales).to_csv(OUTPUT_DIR / "pick_curve_scales.csv", index=False)
 (OUTPUT_DIR / "pick_curve_log.txt").write_text("\n".join(LOG), encoding="utf-8")
