@@ -568,6 +568,22 @@ Thomas the same day. Each item may change only by Thomas's decision.
     In dollars his NHL-player probability carries nothing once his star probability is in (coefficient
     -0.05, se 2.15; star +31.3, se 6.9). Caveat: his probabilities are fitted on largely the same
     drafts, so agreement is not independent confirmation.
+  - **Star chance only (Thomas, 2026-10-09):** "this seems simple enough to go with his star
+    probabilities." Options put: both of his chances (held-out RMSE 5.224), the star chance only
+    (5.215, same dollars to $0.03M a pick), the NHL chance only (5.410; #1 at $10.3M). His NHL chance
+    carried nothing once the star chance was in (-0.05, se 2.15); the two correlate 0.87 across picks.
+  - **His definitions** (hockeystats.com/draft/guide, read 2026-10-09): a star has career WAR per 82
+    games of 1.8+ (forwards) or 1.23+ (defencemen), described as the top 20% / 15%; an NHLer has 200+
+    NHL games; players are labelled only if drafted 2021 or earlier; the slot baseline is a logistic
+    regression on pick number with a kink at pick 150. The curve's shape across picks is therefore his
+    logistic; our regression sets its dollar scale.
+  - **Form on the star chance** (`25_TESTS/pick_star_form_test.py` v1.0, same rule and bar): through
+    zero (surplus = b x P(star), b = $31.37M) RMSE 5.214; with an intercept 5.215 (a = $0.04M); with a
+    squared term 5.232; a power curve 5.227 (k = 1.03). No version with more numbers beat the
+    through-zero line in more than 30 of 2,000 redraws. Verdict under the rule: through zero. Values
+    at an average year: #1 $23.5M, #10 $6.7M, #32 $2.3M, #100 $0.75M, #200 $0.12M. The $31.37M is not
+    the value of a star: it also carries the surplus of non-star regulars, which rises with the star
+    chance. Adoption is Thomas's.
 - a slope that varies by draft year;
 - negative careers counted as negative, or floored at zero (this matters only for the WAR version;
   in dollars, a season is already priced no lower than the league minimum);

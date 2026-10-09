@@ -3023,3 +3023,7 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   our slot curves match his within $0.15-0.24M a pick on average; his NHL-player term carries no
   dollars once the star term is in. Open for Thomas: keep both terms, or price on the star probability
   alone (one fewer number).
+- Decided (Thomas): price picks on Bacon's star chance alone. His definitions recorded (star: career
+  WAR/82 1.8+ F, 1.23+ D; slot baseline a logistic on pick with a kink at 150). Form test
+  (`25_TESTS/pick_star_form_test.py` v1.0): the through-zero line, surplus = $31.37M x P(star), is the
+  rule's verdict; intercept, squared and power versions add nothing. Adoption owed to Thomas.
