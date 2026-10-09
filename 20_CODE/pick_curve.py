@@ -6,19 +6,22 @@ SPECIFICATION: 00_STATE/MODEL_DIRECTIVES.md directive 6, decided with Thomas on
 is a recorded decision; the label in brackets says where it was decided or tested.
 
 A PICK'S VALUE
-  value = SCALE x Bacon's star chance for the slot              [adopted 2026-10-09]
+  value = STAR VALUE x Bacon's star probability for the slot    [adopted 2026-10-09]
   * Star chance: SOURCE_DIR/draft_slot_baseline.csv `p_star` (Bacon; a star has
     career WAR per 82 games of 1.8+ forwards / 1.23+ defencemen; his slot
     baseline is a logistic regression on pick number with a kink at pick 150).
-    The shape across picks is his; this script fits only the dollar SCALE.
-  * SCALE: each drafted player's surplus regressed on the star chance of his
-    slot, through zero, with draft-year indicators that sum to zero, so the
-    scale is the average draft year's [pick_star_form_test.py: through zero won].
-  * Two scales are written:                                 [pick_lookahead_check.py]
-      knowable  for trade season T, fitted only on classes drafted T-9 or
-                earlier (their control windows had largely run out): the MAIN
-                scale, so a pick is priced with what a club could know;
-      pooled    fitted on every class 2007-2017: the SENSITIVITY.
+    The shape across picks is his; this script fits only the STAR VALUE.
+  * STAR VALUE: the surplus a pick would be worth if its player were certain to
+    become a star (Thomas's name, 2026-10-09; it replaces "scale"). Each drafted
+    player's surplus is regressed on the star probability of his slot, through
+    zero, with draft-year indicators that sum to zero, so it is the average draft
+    year's [pick_star_form_test.py: through zero won].
+  * ONE star value for every year (v1.2, Thomas 2026-10-09, option (a)):
+      main         fitted on all eleven drafts 2007-2017;
+      sensitivity  the same without 2015 and 2016, the two drafts that carry the
+                   only trend across drafts [pick_review_checks.py: +2.08 a year with
+                   them, +0.84 (p 0.435) without].
+    v1.0-v1.1 wrote a trade-season ("knowable") scale as the main one; retired.
 
 ONE DRAFTED PLAYER'S SURPLUS (classes 2007-2017, every selection, all positions)
   1. WINDOW: from the draft to the end of club control under CBA Group 3
@@ -77,7 +80,7 @@ import pandas as pd
 import statsmodels.api as sm
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "pick_curve.py v1.1 (2026-10-09)"
+SCRIPT_VERSION = "pick_curve.py v1.2 (2026-10-09)"
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import skater_forward_projection as sfp          # noqa: E402  skater price line, cap and minimum tables
@@ -297,15 +300,13 @@ def fit_scale(frame):
 
 
 b, se, n = fit_scale(d)
-scales = [{"scale_kind": "pooled", "trade_season": None, "classes": "2007-2017", "n_classes": n,
-           "scale_M": b, "se_M": se}]
-log(f"\nSCALE ($M per 100% star chance, average draft year)")
-log(f"  pooled (sensitivity), classes 2007-2017: {b:.2f} (se {se:.2f})")
-for T in range(2017, 2026):
-    bk, sek, nk = fit_scale(d[d["draftYear"] <= T - 9])
-    scales.append({"scale_kind": "knowable", "trade_season": T, "classes": f"2007-{T - 9}", "n_classes": nk,
-                   "scale_M": bk, "se_M": sek})
-    log(f"  knowable, trade season {T}-{str(T + 1)[2:]} (classes 2007-{T - 9}): {bk:.2f} (se {sek:.2f})")
+b2, se2, n2 = fit_scale(d[~d["draftYear"].isin([2015, 2016])])
+scales = [{"scale_kind": "main", "classes": "2007-2017", "n_classes": n, "scale_M": b, "se_M": se},
+          {"scale_kind": "sensitivity", "classes": "2007-2017 without 2015 and 2016", "n_classes": n2,
+           "scale_M": b2, "se_M": se2}]
+log(f"\nSTAR VALUE ($M at the 2025-26 cap: the surplus of a pick certain to produce a star; average draft year)")
+log(f"  main, all eleven drafts:            {b:.2f} (se {se:.2f})")
+log(f"  sensitivity, without 2015 and 2016: {b2:.2f} (se {se2:.2f})")
 
 se_ = pd.DataFrame(SEASONS)
 se_["surplus_2025_cap"] = (se_["value_share"] - se_["cost_share"]) * CAP_NOW

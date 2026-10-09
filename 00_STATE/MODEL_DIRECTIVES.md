@@ -631,6 +631,24 @@ Thomas the same day. Each item may change only by Thomas's decision.
     value at a trade must use only what was knowable then; realised careers belong to the back-test's
     outcome side. The scale is not stable across classes (p 0.002), unlike the player price line.
     Cost, accepted: the early trade seasons rest on two or three classes (2017-18 se $6.2M).
+  - **SUPERSEDED (Thomas, 2026-10-09, reviewing the document): one fixed star value for every year.** Thomas's
+    comments asked whether a year-specific scale was justified at all ("What if teams simply value draft picks
+    consistently over time?"). The test behind the trade-season scale showed only that drafts differ; the
+    test that matters is a drift over time. `25_TESTS/pick_review_checks.py` v1.0: the scale rises +2.08 a
+    draft year (robust p 0.046), but without 2015 and 2016 +0.84 (p 0.435). Decided: "go with (a)": the
+    **star value** (renamed from "dollar scale"; Thomas: "star value works"), the surplus a pick would be worth
+    if its player were certain to become a star, is one number fitted on all eleven drafts (31.66); the same
+    fit without 2015 and 2016 (27.58) is the sensitivity. The trade-season scale is retired.
+  - **Future picks: the round average stays (Thomas, 2026-10-09: "keep round average").** Final standings
+    2017-18 to 2025-26: a team's place correlates 0.54 with the next season's and 0.44 two seasons on; median
+    move 6 places. The persistence data is rebuilt from the draft records (Thomas: "im sure you can recreate
+    the data") for the document, with what the round average costs.
+    Rebuilt (`25_TESTS/pick_slot_persistence.py` v1.0, draft records 2005-2026, each team's own first-round
+    slot): correlation 0.44 with the next draft, 0.34 two drafts on; median move 6 slots. Valued at the slots
+    teams went on to pick, a future first of a team that just picked 1-5 was worth $9.5M against the round
+    average of $6.6M; of a team that just picked 25-32, $4.35M. Stated in the document as a limitation.
+  - **Built (2026-10-09):** `pick_curve.py` v1.2 (star value 31.66, sensitivity 27.58) and
+    `traded_pick_values.py` v1.2 (634 traded picks: $704.8M; sensitivity $614.0M).
   - **Checks (`25_TESTS/pick_star_and_rights_checks.py` v1.1, 2026-10-09, report only).** (1) Bacon's
     star rates against ours (his definition; our reading: a star is also a 200+ game NHLer), classes
     2007-2015, 1,700 skater picks: 5.9% stars against his 5.3%; every pick range within two standard

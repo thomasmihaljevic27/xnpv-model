@@ -3057,3 +3057,9 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - Document: `40_DOCS/Supervisor_Drafts/Valuing Draft Picks.docx` (built by `25_TESTS/pick_summary_doc.js` from
   `pick_summary_figures.py`'s numbers.json and the recorded test results). `pick_curve.py` v1.1 adds the
   season-by-season audit file (results unchanged, checked).
+- Decided (Thomas, reviewing the document): one fixed star value from all eleven drafts (31.66), without
+  2015-2016 (27.58) as the sensitivity; the trade-season scale retired (no trend once 2015-2016 are out,
+  p 0.435). "Dollar scale" renamed "star value". The round average for future picks stays.
+- Built: pick_curve.py v1.2 and traded_pick_values.py v1.2 on one star value (31.66; sensitivity 27.58);
+  traded picks $704.8M ($614.0M). Persistence rebuilt from the draft records (pick_slot_persistence.py).
+  Document v3.0 revised from Thomas's 38 comments (figures v1.2, builder v3.0).

@@ -2,7 +2,7 @@
 traded_pick_values.py -- what each traded draft pick was worth when it was traded.
 
 SPECIFICATION: 00_STATE/MODEL_DIRECTIVES.md directive 6 (decided 2026-10-09).
-  value = SCALE for the trade season x Bacon's star chance for the pick's slot,
+  value = STAR VALUE x Bacon's star probability for the pick's slot,
   with the slot known as follows:
   * THE NEXT DRAFT'S PICK, traded during or after that draft's regular season
     (at least one regular-season game played before the trade date): the slot
@@ -24,9 +24,10 @@ SPECIFICATION: 00_STATE/MODEL_DIRECTIVES.md directive 6 (decided 2026-10-09).
   "The next draft" is the first draft whose last day is on or after the trade date (draft
   dates from the cached NHL draft records: the 2020 draft was in October and the
   2021 draft in late July, so picks for them were still being traded after July 1).
-  * SCALE: the KNOWABLE scale for the trade season (pick_curve.py: classes drafted
-    nine or more seasons earlier), with the POOLED scale beside it as the
-    sensitivity. Trade season = the season starting July 1 on or before the trade.
+  * STAR VALUE (v1.2, Thomas 2026-10-09): one value for every year, pick_curve.py's
+    main star value (all eleven drafts), with its sensitivity (without 2015 and 2016)
+    beside it. v1.0-v1.1 used a trade-season scale, retired. Trades from 2017-07-01 (the
+    trade study's period; trade season = the season starting July 1 on or before).
   * CONDITIONAL picks (trades.db is_conditional) are valued as if unconditional
     and flagged; resolving them (met or not) is a separate, owed step.
 
@@ -48,7 +49,7 @@ import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "traded_pick_values.py v1.1 (2026-10-09)"
+SCRIPT_VERSION = "traded_pick_values.py v1.2 (2026-10-09)"
 load_dotenv()
 SOURCE_DIR, OUTPUT_DIR = Path(os.environ["SOURCE_DIR"]), Path(os.environ["OUTPUT_DIR"])
 LOG = []
@@ -132,16 +133,17 @@ def standings(season_label, on):
 
 # ---- the traded picks -------------------------------------------------------------------------------
 scales = pd.read_csv(F["scales"])
-pooled = float(scales.loc[scales["scale_kind"] == "pooled", "scale_M"].iloc[0])
-knowable = scales[scales["scale_kind"] == "knowable"].set_index("trade_season")["scale_M"].to_dict()
+STAR_MAIN = float(scales.loc[scales["scale_kind"] == "main", "scale_M"].iloc[0])
+STAR_SENS = float(scales.loc[scales["scale_kind"] == "sensitivity", "scale_M"].iloc[0])
+log(f"  star value: main {STAR_MAIN:.2f}, sensitivity (without 2015 and 2016) {STAR_SENS:.2f}")
 con = sqlite3.connect(F["trades"])
 p = pd.read_sql("select a.asset_id, a.trade_id, a.pick_year, a.pick_round, a.pick_original_team, a.pick_number, "
                 "a.is_conditional, a.raw_text, t.trade_date from trade_assets a join trades t using(trade_id) "
                 "where a.asset_type = 'pick'", con)
 p["date"] = pd.to_datetime(p["trade_date"])
 p["trade_season"] = np.where(p["date"].dt.month >= 7, p["date"].dt.year, p["date"].dt.year - 1)
-p = p[p["trade_season"].isin(knowable)].copy()
-log(f"\npicks traded in trade seasons {int(min(knowable))}-{int(max(knowable))} present in trades.db: {len(p)} "
+p = p[p["date"] >= "2017-07-01"].copy()
+log(f"\npicks traded from 2017-07-01 present in trades.db: {len(p)} "
     f"(trades.db ends {pd.read_sql('select max(trade_date) m from trades', con)['m'][0]})")
 
 cache = {}
@@ -180,20 +182,20 @@ for r in p.itertuples():
                 "original_team": r.pick_original_team, "conditional": bool(r.is_conditional),
                 "method": method, "standings_place": place, "projected_slot": slot,
                 "actual_slot": r.pick_number, "star_chance": star,
-                "value_knowable_M": None if star is None else knowable[r.trade_season] * star,
-                "value_pooled_M": None if star is None else pooled * star})
+                "value_M": None if star is None else STAR_MAIN * star,
+                "value_sensitivity_M": None if star is None else STAR_SENS * star})
 v = pd.DataFrame(out)
 
 log("\nHOW EACH PICK WAS VALUED")
-g = v.groupby("method").agg(picks=("asset_id", "size"), knowable_M=("value_knowable_M", "sum"),
-                            pooled_M=("value_pooled_M", "sum"))
+g = v.groupby("method").agg(picks=("asset_id", "size"), value_M=("value_M", "sum"),
+                            sensitivity_M=("value_sensitivity_M", "sum"))
 log(g.round(1).to_string())
-vv = v[v["value_knowable_M"].notna()]
-log(f"  total: knowable ${vv['value_knowable_M'].sum():,.1f}M, pooled ${vv['value_pooled_M'].sum():,.1f}M "
-    f"({100 * (vv['value_knowable_M'].sum() / vv['value_pooled_M'].sum() - 1):+.1f}%); conditional picks among them: "
+vv = v[v["value_M"].notna()]
+log(f"  total: ${vv['value_M'].sum():,.1f}M; sensitivity ${vv['value_sensitivity_M'].sum():,.1f}M "
+    f"({100 * (vv['value_sensitivity_M'].sum() / vv['value_M'].sum() - 1):+.1f}%); conditional picks among them: "
     f"{int(vv['conditional'].sum())}")
-log("\nBY ROUND (mean $M a pick, knowable scale)")
-log(vv.groupby("pick_round")["value_knowable_M"].agg(["size", "mean", "min", "max"]).round(2).to_string())
+log("\nBY ROUND (mean $M a pick)")
+log(vv.groupby("pick_round")["value_M"].agg(["size", "mean", "min", "max"]).round(2).to_string())
 
 slot = v[v["method"] == "slot on the trade date"]
 if len(slot):
