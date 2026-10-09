@@ -590,6 +590,14 @@ Thomas the same day. Each item may change only by Thomas's decision.
     line is straight in the star chance, not in pick number (#1 to #2 falls $5.0M, #20 to #32 $1.3M).
     Provisional on the remaining tests (year slopes, negative careers, top 10/15, slides, goalies),
     which may change the scale.
+  - **Top picks: cost stays the qualifying-offer chain (Thomas, 2026-10-09: "I think it should then work
+    this way").** `25_TESTS/top_pick_control_look.py` v1.1 (report only) found clubs actually paid 3.2x
+    the chain over the control window for picks 1-10, 2.3x for 11-15, 2.1x for 16-32. Not adopted:
+    actual contracts add hindsight on the cost side (Thomas's concern) and their averaged cap hits
+    include the price of UFA years outside the window. Recorded as a stated limitation with its size
+    (salary arbitration, CBA Article 12, and early long deals push RFA pay toward market). Optional
+    later, a sensitivity only: from arbitration eligibility, control years costed at the market price
+    of delivered wins (rule-based, no actual contracts).
 - a slope that varies by draft year;
 - negative careers counted as negative, or floored at zero (this matters only for the WAR version;
   in dollars, a season is already priced no lower than the league minimum);

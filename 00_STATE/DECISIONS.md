@@ -3033,3 +3033,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   control window run 3.2x the modelled cost for picks 1-10, 2.3x for 11-15, 2.1x for 16-32. Not yet a
   like-for-like surplus: values are one-year-term while actual deals are mostly long (term premium),
   and the two sources treat entry-level bonuses differently. Questions to Thomas; nothing adopted.
+- Decided (Thomas): picks keep the qualifying-offer chain for cost; the top-pick look is recorded as
+  the size of its understatement (actual pay 2-3x); an arbitration-eligibility version is an optional
+  later sensitivity.
