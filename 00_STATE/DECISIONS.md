@@ -3048,3 +3048,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   Decision owed: pooled or knowable scale as the main one.
 - Decided (Thomas): the pick curve's scale is the one knowable at each trade season (classes drafted
   T-9 or earlier); the pooled scale is the sensitivity.
+- Pick checks (`25_TESTS/pick_star_and_rights_checks.py` v1.1): Bacon's star rates match ours within
+  two standard errors in every pick range; 2.2% of the curve's surplus came from players whose rights
+  lapsed (zeroing them: scale -0.5%). Decision owed: zero lapsed-rights players or not.

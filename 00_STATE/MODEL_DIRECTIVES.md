@@ -631,6 +631,15 @@ Thomas the same day. Each item may change only by Thomas's decision.
     value at a trade must use only what was knowable then; realised careers belong to the back-test's
     outcome side. The scale is not stable across classes (p 0.002), unlike the player price line.
     Cost, accepted: the early trade seasons rest on two or three classes (2017-18 se $6.2M).
+  - **Checks (`25_TESTS/pick_star_and_rights_checks.py` v1.1, 2026-10-09, report only).** (1) Bacon's
+    star rates against ours (his definition; our reading: a star is also a 200+ game NHLer), classes
+    2007-2015, 1,700 skater picks: 5.9% stars against his 5.3%; every pick range within two standard
+    errors (#1 67% against 75%; 2-3 56% / 54%; 4-10 29% / 29%; 11-20 22% / 15%; 21-32 8% / 9%). NHLers
+    run above his (27.8% / 23.0%), most in late picks. Not independent (same drafts, same WAR). (2) Who
+    collected the surplus (1,080 drafted skaters who played; $3,517.7M): the drafting club 92.1%,
+    rights traded before his first NHL season ended 5.7%, rights lapsed and signed elsewhere 2.2% (55
+    players; Spurgeon, Hagel, Muzzin, Hayes). Zeroing the lapsed group moves the pooled scale -0.5%.
+    Open for Thomas: count lapsed-rights players as worth zero to the pick, or not.
 - a slope that varies by draft year;
 - negative careers counted as negative, or floored at zero (this matters only for the WAR version;
   in dollars, a season is already priced no lower than the league minimum);
