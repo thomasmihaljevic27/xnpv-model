@@ -3042,3 +3042,4 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - Goalie pick test (`25_TESTS/pick_goalie_test.py` v1.0): pooling goalies moves the scale +2%
   (31.37 to 32.00); a goalie-only scale (84.33) is not credible. Decision owed: skaters only, pooled,
   or apart.
+- Decided (Thomas): no slides; negative careers kept; goalies pooled. Scale to be re-fitted on the package.
