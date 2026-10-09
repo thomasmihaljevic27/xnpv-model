@@ -1,5 +1,14 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
+**Idea (Thomas, 2026-10-09; not decided): the arbitration rule for RFA terminal value.** "the arbitration model
+is really interesting and could be a way to depress RFA terminal value if we decided. For the same reason the QO
+chain could overvalue draft picks and the arb rule is proposed there, maybe that could work for the RFAs." The
+player model prices a contract's RFA control years on the same qualifying-offer chain (`rfa_terminal_value.py`;
+directive 4 detail 3, open decision 1), so it carries the same overstatement the pick look measured. Costing
+control years at market from arbitration eligibility (CBA 12.1) on both sides would give picks and players one
+control-year cost rule, which also bears on the pick/player cost asymmetry (STANDING_FLAGS 2026-10-09). Touches
+locked choices (the control-year pricing); nothing is changed without Thomas's decision.
+
 **Draft and prospect restart, 2026-10-09: reading week.** The specification so far is in
 `MODEL_DIRECTIVES.md` directive 6. Supervisor meetings: Tue 2026-10-13 2:30 PM, Thu 2026-10-15 11:00 AM.
 1. ~~**Write (for Tuesday):** a one-to-two page summary~~ DONE 2026-10-09: `40_DOCS/Supervisor_Drafts/Valuing
