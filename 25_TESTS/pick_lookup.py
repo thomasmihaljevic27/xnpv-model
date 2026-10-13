@@ -13,7 +13,7 @@ USAGE (from the repo root, in PowerShell or any shell):
   python 25_TESTS/pick_lookup.py draft 2015         one draft: its own star value, best and worst players
   python 25_TESTS/pick_lookup.py team TOR           picks originally Toronto's that were traded, and their values
   python 25_TESTS/pick_lookup.py date 2019-02-25    picks traded on a date
-  python 25_TESTS/pick_lookup.py regression         Table 2: surplus on star probability (and with pick number)
+  python 25_TESTS/pick_lookup.py regression         Table 2: surplus on star probability (with pick number; with a constant)
   python 25_TESTS/pick_lookup.py trend              the trend in the star value across drafts, with and without 2015-16
   python 25_TESTS/pick_lookup.py stars              share of surplus produced by stars
   python 25_TESTS/pick_lookup.py persistence        how a team's draft slot carries to the next drafts
@@ -167,6 +167,19 @@ def cmd_regression(a):
     print(f"  With pick: star probability {mB.params[1]:.2f} (se {mB.bse[1]:.2f}); pick number {mB.params[2]:.4f} "
           f"(se {mB.bse[2]:.4f}, p {mB.pvalues[2]:.3f}); constant {mB.params[0]:.2f} (se {mB.bse[0]:.2f}); "
           f"R-squared {1 - mB.ssr / sst:.3f}")
+    # Karl's form (meeting 2026-10-13): a constant plus a dummy for every draft but one (base = the last draft).
+    # The adopted form has no column of ones and ten sum-to-zero year columns, so it is not the dummy-variable
+    # trap; what it does do is force the average draft's intercept to zero. This line frees that intercept.
+    yrs = d["draftYear"].values
+    cl = sorted(set(yrs))
+    mC = sm.OLS(d["surplus_M"].values, np.column_stack([np.ones(len(d)), d["p_star"].values]
+                                                       + [(yrs == c).astype(float) for c in cl[:-1]])).fit(cov_type="HC1")
+    stz = np.array(year_cols(d)).T                                        # the same intercept read at an average draft
+    mD = sm.OLS(d["surplus_M"].values, np.column_stack([np.ones(len(d)), d["p_star"].values, stz])).fit(cov_type="HC1")
+    print(f"  Constant:  star probability {mC.params[1]:.2f} (se {mC.bse[1]:.2f}); constant {mC.params[0]:.3f} "
+          f"(se {mC.bse[0]:.3f}, p {mC.pvalues[0]:.3f}) for the {cl[-1]} draft, {mD.params[0]:.3f} "
+          f"(se {mD.bse[0]:.3f}, p {mD.pvalues[0]:.3f}) at an average draft; dummies for {cl[0]}-{cl[-2]}; "
+          f"R-squared {1 - mC.ssr / sst:.3f}")
 
 
 def cmd_trend(a):

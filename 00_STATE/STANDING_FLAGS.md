@@ -23,7 +23,14 @@ surplus, which could manufacture a back-test finding that clubs give picks away 
 adopted curve a late first (#20-32, $2.3-3.6M) sits at about the 90th percentile of contract NPVs
 ($2.19M) and #1 ($23.5M) near the largest ($24.0M). What is traded is mostly late: of 634 picks traded
 from 2017-07-01, 4 became top-10 picks, 7 picks 11-15, 50 picks 16-32, 118 picks 33-64, 454 pick 65+.
-The arbitration-eligibility sensitivity (MODEL_DIRECTIVES directive 6) bears directly on this.
+The arbitration-eligibility sensitivity (MODEL_DIRECTIVES directive 6) bears directly on this. Agreed with Karl
+(2026-10-13): build the arbitration rule on both sides (players' RFA control years and picks) and compare.
+
+**Bacon's star chance and our surplus share a source (circularity, raised 2026-10-13).** The pick curve's shape is
+Bacon's star probability by slot, fitted on his WAR over largely the same drafts whose surplus (also priced from his
+WAR) sets the star value; the agreement between the two is not independent confirmation. Karl: acceptable as
+reliance on published research ("I think it's okay"). Stated as a limitation. Open for Thomas: a check against a stat
+with no Bacon input (games played, points, Game Value).
 
 **The pick curve's classes overlap the traded picks (look-ahead, 2026-10-09).** The curve is fitted on
 realised outcomes of the 2007-2017 classes, and the back-test's trades start in 2017-18, so a 2017 pick

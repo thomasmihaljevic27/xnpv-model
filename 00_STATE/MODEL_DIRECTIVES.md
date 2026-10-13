@@ -17,7 +17,7 @@ the commit), **superseded** (replaced by a later entry).
 | 3 | One own-versus-comparables blend: 65/35 replaces the curve's 55/45 | implemented (branch, `64ab8bf`) |
 | 4 | Contract length in the price line (term-in), term-free reported as the sensitivity | implemented and validated (branch, 2026-10-05) |
 | 5 | Price-line forecasts dated at each contract's signing | implemented and validated (branch, 2026-10-05) |
-| 6 | Draft and prospect models restart from scratch with Karl; the data is kept | pick curve built 2026-10-09 (`pick_curve.py`, `traded_pick_values.py`); prospects not started |
+| 6 | Draft and prospect models restart from scratch with Karl; the data is kept | pick curve built 2026-10-09 (`pick_curve.py`, `traded_pick_values.py`); arbitration rule for players and picks agreed to build and compare (2026-10-13); prospects not started |
 
 | | To investigate (closed list) | Status |
 |---|---|---|
@@ -688,6 +688,28 @@ Thomas the same day. Each item may change only by Thomas's decision.
   players are drafted", read as skaters only.
 
 **Cap growth (Thomas, 2026-10-09):** "lets just keep the 3% for now." No 4-5% sensitivity for now.
+
+**Meeting with the supervisor, 2026-10-13** (read from the transcript; session `2026-10-13b`)
+- *The arbitration rule, players and picks: agreed to build and compare.* Thomas proposed it: from the season a
+  player becomes eligible for salary arbitration, his remaining control seasons are priced at market, for drafted
+  players and for RFA control years in contract values alike. Reasons he gave: Figure 3's gap (clubs pay 2.1-3.2x
+  the qualifying-offer chain), and the player model looks too high on RFAs. Karl: "try doing it that way and see
+  what happens." Thomas: "I'll change the contract chain to account for arbitration years." It touches the locked
+  control-year pricing (directive 4 detail 3; open decision 1); adoption waits on the results. Details for Thomas
+  before the build: the eligibility rule (CBA Article 12, cited from the text), what "market" means in those
+  seasons (no surplus, or an arbitrator's price), and one rule for both sides or not. The pick-side version run
+  2026-10-09 (control seasons from eligibility carry no surplus) cut the scale 55%.
+- *Table 2's constant: Karl asked for a re-run* with a constant and a dummy for every draft but one, run by Thomas.
+  Checked 2026-10-13: the adopted fit has ten sum-to-zero year columns and no column of ones, so it is not the
+  dummy-variable trap; it does force the average draft's intercept to zero. Karl's form gives star value 31.04
+  (se 3.21) against 31.66, constant $0.13M a pick at an average draft (se 0.14, p 0.35). **Open for Thomas:**
+  through zero or free intercept. Command: `python 25_TESTS/pick_lookup.py regression`.
+- *Bacon's star chance is circular with our surplus* (both from his WAR, largely the same drafts). Karl raised it,
+  then: "take it as given ... we're relying on this other research"; "I think it's okay." Stated as a limitation.
+  **Open for Thomas:** an independent check against a stat with no Bacon input (games played, points, Game Value).
+- *Accepted in the meeting:* the leave-one-draft-out score; one star value with 2015-2016 out as the sensitivity;
+  the round average for future picks; negative careers; the CBA control window; the in-season slot from the
+  original team's standings.
 
 **Prospects**
 - *Outline (Thomas, in the meeting):* the draft slot as the starting estimate, plus the prospect's own

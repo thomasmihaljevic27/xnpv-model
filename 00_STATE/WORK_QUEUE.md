@@ -1,5 +1,20 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
+**For Thursday 2026-10-15 11:00 (supervisor meeting of 2026-10-13, session `2026-10-13b`).**
+1. **Decide:** Table 2 through zero (star value 31.66) or with a free constant (31.04; constant $0.13M a pick at an
+   average draft, p 0.35). Karl asked for the constant-plus-dummies form and for Thomas to run it himself:
+   `python 25_TESTS/pick_lookup.py regression` (third line). The adopted fit is not the dummy-variable trap (ten
+   sum-to-zero year columns, no column of ones); the document's body text should say so.
+2. **Decide, then build:** the arbitration rule (agreed with Karl to build and compare, idea below). Before code:
+   the eligibility rule from CBA Article 12 (cited from the text), what "market" means in those seasons, and one rule
+   for picks and players or not. Then run it on picks (Figure 3's gap) and on RFA control years in contract values
+   (does the top of the NPV list lose its middle-lineup RFAs?), and bring both to Thomas.
+3. **Decide:** an independent check of Bacon's star chance against a stat with no Bacon input, or state the
+   circularity as a limitation only (Karl accepted the latter).
+4. **Then:** begin the prospect model (below); Thomas expects to bring options rather than one answer.
+5. **Document, next version:** Table 2's wording; why the star-probability curve has one parameter; Figure 3's bands
+   (1-10 and 11-32 suggested); cap shares stated beside Figure 2.
+
 **Next session (Thomas, 2026-10-09): begin the prospect model.** The pick curve is built (`pick_curve.py` v1.2,
 `traded_pick_values.py` v1.2) and documented (`40_DOCS/Supervisor_Drafts/Valuing Draft Picks.docx`, Thomas's final).
 Prospects get their own document. Start by agreeing a plain-English specification with Thomas step by step
@@ -12,8 +27,8 @@ Thomas will put to Karl at the next meeting. A slot-aware value for future first
 version (the round average undervalues a weak team's future first: $9.5M against $6.6M). Branch merged into
 `main` 2026-10-09 (Thomas).
 
-**Idea (Thomas, 2026-10-09; not decided; to put to Karl at the next meeting, with the picks' arbitration cost
-alternative folded in): the arbitration rule for RFA terminal value.** "the arbitration model
+**Idea (Thomas, 2026-10-09; put to Karl 2026-10-13, who agreed to build it and compare: "try doing it that way and
+see what happens"; adoption after the results): the arbitration rule for RFA terminal value.** "the arbitration model
 is really interesting and could be a way to depress RFA terminal value if we decided. For the same reason the QO
 chain could overvalue draft picks and the arb rule is proposed there, maybe that could work for the RFAs." The
 player model prices a contract's RFA control years on the same qualifying-offer chain (`rfa_terminal_value.py`;

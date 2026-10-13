@@ -3079,3 +3079,17 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   per-draft star value uses Figure 2's joint model (first draft of it fitted one draft alone: 57.11 against
   the figure's 56.92; fixed before handing over). CLAUDE.md run line corrected (it still said "knowable and
   pooled scales").
+
+### Change log, 2026-10-13b (supervisor meeting on Valuing Draft Picks)
+
+- Recorded from the transcript (session `2026-10-13b`). Agreed: build the arbitration rule (control seasons priced at
+  market from arbitration eligibility) for players and picks, and compare; adoption after the results. Accepted: the
+  leave-one-draft-out score, one star value, the round average, negative careers, the CBA window. Raised: circularity
+  between Bacon's star chance and our surplus (Karl: acceptable as reliance on his research). Asked: Table 2 re-run with
+  a constant and dummies for all drafts but one.
+- Checked: the adopted fit has ten sum-to-zero year columns and no constant (not the dummy-variable trap; it forces the
+  average draft's intercept to zero). Karl's form: star value 31.04 (se 3.21) against 31.66, constant $0.13M at an
+  average draft (p 0.35). `25_TESTS/pick_lookup.py regression` prints it (run in PowerShell). Decisions owed by Thomas:
+  through zero or free constant; an independent circularity check or not; the arbitration rule's details.
+- Files: MODEL_DIRECTIVES directive 6 (meeting block, summary row), WORK_QUEUE (Thursday list; idea status),
+  STANDING_FLAGS (circularity flag; cost-asymmetry next step).
