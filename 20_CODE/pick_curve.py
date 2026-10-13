@@ -44,7 +44,9 @@ ONE DRAFTED PLAYER'S SURPLUS (classes 2007-2017, every selection, all positions)
   6. COST: the entry-level maximum for his draft class while his entry-level
      deal runs, then a chain of one-year qualifying offers
      (rfa_terminal_value.qualifying_offer; first on the entry-level maximum,
-     each next on the previous offer). The entry-level deal runs by CALENDAR
+     each next on the previous offer); from v1.4, once he is eligible for
+     arbitration, the higher of the offer and the arbitration price (below),
+     each next offer on what he was paid. The entry-level deal runs by CALENDAR
      from his first NHL season, NO SLIDES [decided 2026-10-09], for 3 / 2 / 1
      seasons by his age on September 15 of that season (CBA 9.1(b): 18-21 /
      22-23 / 24+; 25+ treated as 1).
@@ -57,9 +59,13 @@ ONE DRAFTED PLAYER'S SURPLUS (classes 2007-2017, every selection, all positions)
      to the pick [decided 2026-10-09; pick_star_and_rights_checks.py v1.1].
   9. GOALIES are pooled with skaters in one scale [decided 2026-10-09].
 
-THE ARBITRATION COST, reported beside the main one (v1.3; agreed with the supervisor 2026-10-13 to
-build and compare; rule set by Thomas 2026-10-13: "Use NPV1 price line, floor it at the QO, same rule
-for picks and players"). Nothing above changes: the main and sensitivity star values are as in v1.2.
+THE ARBITRATION COST, ADOPTED as the main cost (v1.4; Thomas 2026-10-13: "I say adopt"; built in v1.3
+beside the main one after the supervisor agreed to build and compare; rule: "Use NPV1 price line,
+floor it at the QO, same rule for picks and players"). Step 6's qualifying-offer chain without it is
+reported beside as the alternative (scale kinds qo_chain, qo_chain_sensitivity; columns *_qo). The
+contract engine (rfa_terminal_value v2.4) reads eligibility from PuckPedia's flag; drafted players
+keep the CBA count below, because the export starts in 2018-19 and most of their control seasons
+come before it.
   * ELIGIBILITY, CBA 2013 Section 12.1(a) (text read 2026-10-13, media.nhl.com/site/asset/public/ext/
     CBA.pdf p.57): first-contract signing age 18-20 needs 4 years of professional experience, 21 needs
     3, 22-23 need 2, 24 and older 1; a year is 10+ NHL games (age 18-19) or 10+ professional games
@@ -101,7 +107,7 @@ import pandas as pd
 import statsmodels.api as sm
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "pick_curve.py v1.3 (2026-10-13)"
+SCRIPT_VERSION = "pick_curve.py v1.4 (2026-10-13)"
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import skater_forward_projection as sfp          # noqa: E402  skater price line, cap and minimum tables
@@ -265,11 +271,12 @@ def price(row, s, last):
         war_tot += wins
         SEASONS.append({"draftYear": row["draftYear"], "pick": row["overallPickNumber"], "season": y,
                         "gp": gp, "war_82": wins, "in_entry_level": in_elc, "games_scale": scale,
-                        "cap": CAP[y], "value_share": value, "cost_share": cost,
-                        "cost_$": (ELC_MAX[row["draftYear"]] if in_elc else prior) * scale,
-                        "arb_eligible": arb, "cost_arb_share": cost_a,
-                        "cost_arb_$": (ELC_MAX[row["draftYear"]] if in_elc else prior_a) * scale})
-    return tot, war_tot, len(played), tot_a
+                        "cap": CAP[y], "value_share": value,
+                        # v1.4: cost_share / cost_$ are the adopted (arbitration) cost; *_qo the chain
+                        "cost_share": cost_a, "cost_$": (ELC_MAX[row["draftYear"]] if in_elc else prior_a) * scale,
+                        "arb_eligible": arb, "cost_qo_share": cost,
+                        "cost_qo_$": (ELC_MAX[row["draftYear"]] if in_elc else prior) * scale})
+    return tot_a, war_tot, len(played), tot
 
 
 # ---- rights that lapsed -------------------------------------------------------------------------
@@ -302,14 +309,15 @@ for r in picks.itertuples():
     s = seasons_of(row)
     end = window_end(row, s)
     last = min(end - 1, LAST_START)
-    sur, wins, n, sur_a = price(row, s, last)
+    sur, wins, n, sur_q = price(row, s, last)      # v1.4: sur = the adopted cost, sur_q = the chain
     rt = route(row, s)
     rows.append({"draftYear": r.draftYear, "pick": r.overallPickNumber, "round": r.roundNumber, "player": r.playerName,
                  "playerId": r.playerId, "position": r.position, "is_goalie": r.is_goalie, "team": r.triCode,
                  "window_end": end, "nhl_seasons": n, "war": wins, "route": rt,
                  "surplus_before_rights": sur * CAP_NOW,
                  "surplus": 0.0 if rt in ("lapsed", "drafted twice (earlier pick)") else sur * CAP_NOW,
-                 "surplus_arb": 0.0 if rt in ("lapsed", "drafted twice (earlier pick)") else sur_a * CAP_NOW})
+                 "surplus_qo_before_rights": sur_q * CAP_NOW,
+                 "surplus_qo": 0.0 if rt in ("lapsed", "drafted twice (earlier pick)") else sur_q * CAP_NOW})
 d = pd.DataFrame(rows)
 bacon = pd.read_csv(F["bacon"]).set_index("draft_pick")["p_star"]
 d["p_star"] = d["pick"].map(bacon)
@@ -326,7 +334,7 @@ ct = OUTPUT_DIR / "pick_cost_and_year_tests.csv"
 if ct.exists():
     t = pd.read_csv(ct)[["draftYear", "overallPickNumber", "no_slides"]].rename(columns={"overallPickNumber": "pick"})
     m = d.merge(t, on=["draftYear", "pick"], how="inner")
-    gap = (m["surplus_before_rights"] / 1e6 - m["no_slides"]).abs()
+    gap = (m["surplus_qo_before_rights"] / 1e6 - m["no_slides"]).abs()   # the tested version is the chain
     log(f"  guard, skater surplus vs pick_cost_and_year_tests no_slides: {int((gap < 1e-6).sum())} of {len(m)} equal")
     assert (gap < 1e-6).all()
 
@@ -354,30 +362,30 @@ log(f"\nSTAR VALUE ($M at the 2025-26 cap: the surplus of a pick certain to prod
 log(f"  main, all eleven drafts:            {b:.2f} (se {se:.2f})")
 log(f"  sensitivity, without 2015 and 2016: {b2:.2f} (se {se2:.2f})")
 
-# ---- the arbitration cost, beside the main one (v1.3) -----------------------------------------------
-# GUARD: the arbitration cost is never below the chain's in any season (it is floored at a qualifying
-# offer that escalates off a salary at least as high), so no pick's surplus can rise.
-assert (d["surplus_arb"] <= d["surplus"] + 1.0).all()
-da = d.assign(surplus=d["surplus_arb"])
-b3, se3, n3 = fit_scale(da)
-b4, se4, n4 = fit_scale(da[~da["draftYear"].isin([2015, 2016])])
-scales += [{"scale_kind": "arbitration", "classes": "2007-2017", "n_classes": n3, "scale_M": b3, "se_M": se3},
-           {"scale_kind": "arbitration_sensitivity", "classes": "2007-2017 without 2015 and 2016", "n_classes": n4,
+# ---- the qualifying-offer chain without arbitration, beside the adopted cost (v1.4) ------------------
+# GUARD: the adopted cost is never below the chain's in any season (it is floored at a qualifying offer
+# that escalates off a salary at least as high), so no pick's surplus is above the chain's.
+assert (d["surplus"] <= d["surplus_qo"] + 1.0).all()
+dq = d.assign(surplus=d["surplus_qo"])
+b3, se3, n3 = fit_scale(dq)
+b4, se4, n4 = fit_scale(dq[~dq["draftYear"].isin([2015, 2016])])
+scales += [{"scale_kind": "qo_chain", "classes": "2007-2017", "n_classes": n3, "scale_M": b3, "se_M": se3},
+           {"scale_kind": "qo_chain_sensitivity", "classes": "2007-2017 without 2015 and 2016", "n_classes": n4,
             "scale_M": b4, "se_M": se4}]
-log(f"  arbitration cost, all eleven drafts:    {b3:.2f} (se {se3:.2f}), {100 * (b3 / b - 1):+.1f}% against main")
-log(f"  arbitration cost, without 2015 and 2016: {b4:.2f} (se {se4:.2f})")
+log(f"  the qualifying-offer chain (main until 2026-10-13): {b3:.2f} (se {se3:.2f}); without 2015 and 2016 "
+    f"{b4:.2f} (se {se4:.2f})")
 sa = pd.DataFrame(SEASONS)
-log(f"  control seasons played: {int((~sa['in_entry_level'] & (sa['cost_$'] > 0)).sum()):,}; "
+log(f"  control seasons played: {int((~sa['in_entry_level'] & (sa['cost_qo_$'] > 0)).sum()):,}; "
     f"arbitration-eligible: {int(sa['arb_eligible'].sum()):,}; "
-    f"priced above the qualifying offer: {int((sa['cost_arb_$'] > sa['cost_$'] + 1).sum()):,}")
+    f"priced above the qualifying offer: {int((sa['cost_$'] > sa['cost_qo_$'] + 1).sum()):,}")
 fr = sa.merge(d[["draftYear", "pick", "route"]], on=["draftYear", "pick"])
 fr = fr[fr["route"].isin(["same team", "traded first"])]
 log("  first-round picks who played, summed over their control windows ($M at the 2025-26 cap):")
 for lo, hi in ((1, 10), (11, 32)):
     g = fr[fr["pick"].between(lo, hi)]
-    v, c, ca = (g[k].sum() * CAP_NOW / 1e6 for k in ("value_share", "cost_share", "cost_arb_share"))
-    log(f"    picks {lo}-{hi}: value delivered {v:,.1f}; cost, qualifying-offer chain {c:,.1f}; "
-        f"cost, arbitration {ca:,.1f} ({ca / c:.2f}x the chain)")
+    v, c, cq = (g[k].sum() * CAP_NOW / 1e6 for k in ("value_share", "cost_share", "cost_qo_share"))
+    log(f"    picks {lo}-{hi}: value delivered {v:,.1f}; cost {c:,.1f} ({c / cq:.2f}x the qualifying-offer "
+        f"chain's {cq:,.1f})")
 
 se_ = pd.DataFrame(SEASONS)
 se_["surplus_2025_cap"] = (se_["value_share"] - se_["cost_share"]) * CAP_NOW

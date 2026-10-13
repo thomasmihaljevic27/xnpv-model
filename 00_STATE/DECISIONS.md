@@ -3117,3 +3117,15 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   loses young players early in their careers, not the middle-lineup players on long deals (no control-year value; their rank is
   the term premium's). Eligibility agrees with PuckPedia's flag on 64.1% (ours later on 541, mostly AHL players).
 - Owed by Thomas: adopt or keep as the alternative; PuckPedia's flag for players' eligibility or not.
+
+### Change log, 2026-10-13e (arbitration cost adopted)
+
+- DECISION (Thomas, 2026-10-13): "I say adopt. I say use PuckPedia's flag." The arbitration cost becomes the main
+  control-year cost for picks and players (revises the control-year cost of directive 4 detail 3 and open decision
+  1; the one-year term, the control-year weights and D13 stand). Players' eligibility from PuckPedia's flag (0 = from
+  the second control season, supported by 92.4% of 225 cases); drafted players keep the CBA count.
+- Built: pick_curve.py v1.4 (13.42 / 11.13; chain 31.66 / 27.58 beside), traded picks $298.8M; rfa_terminal_value.py
+  v2.4, contract_npv.py v2.5, contract_npv_panel.py v1.5 (npv_total_qo beside); refresh 10 of 10 steps;
+  arbitration_player_compare.py v1.1: 811 of 7,817 contract-pages lower, median -$0.81M.
+- Notes added: PROJECT_STATE header; superseded figures on 40_DOCS/Valuing_Draft_Picks_Reproduction.md; CLAUDE.md run
+  line; STANDING_FLAGS (the flag's look-ahead).

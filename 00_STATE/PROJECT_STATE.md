@@ -1,5 +1,12 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**Arbitration cost adopted for RFA control years, picks and players, 2026-10-13.** After the supervisor meeting
+(build and compare) Thomas adopted it: once a player is eligible for salary arbitration, a control season costs the
+higher of the qualifying offer and the xNPV 1 line's price of his 50/30/20 trailing WAR (`MODEL_DIRECTIVES.md`
+directive 6, meeting 2026-10-13). Players' eligibility from PuckPedia's flag; drafted players' from the CBA 12.1(a)
+count. The pick star value is 13.42 (11.13 without 2015-2016; the chain's 31.66 beside it); traded picks $298.8M.
+Contract values carry the chain beside the headline (`npv_total_qo`). `Valuing Draft Picks.docx` predates it.
+
 **Draft and prospect restart begun, 2026-10-09.** Agreed with the supervisor and decided by Thomas the same
 day (`MODEL_DIRECTIVES.md` directive 6): one regression of each drafted player's priced dollars on draft
 slot, with draft-year indicators; a window to the end of the qualifying-offer chain; entry-level seasons

@@ -1,5 +1,12 @@
 # Valuing Draft Picks: how to reproduce each finding
 
+> **Superseded figures, 2026-10-13 (later the same day).** Thomas adopted the arbitration cost for control
+> seasons (`pick_curve.py` v1.4). The figures below are the document's, on the qualifying-offer chain without
+> arbitration; a re-run now prints the adopted values as the main ones (star value 13.42, se 1.44; 11.13
+> without 2015 and 2016; traded picks $298.8M) and the document's on the line "the qualifying-offer chain
+> (main until 2026-10-13): 31.66 ... 27.58". The lookup's `pick`, `round`, `slot`, `player` and `regression`
+> commands now read the adopted values. The document needs a new version before these figures are quoted.
+
 For Thomas, for the 2026-10-13 meeting. Every command below was run in Windows PowerShell on the
 laptop on 2026-10-13 and gave the value shown. Run them from the repo folder
 (`C:\Users\Thomas\Desktop\xNPV`). They write only to `30_OUTPUT\`, which git ignores, so they change no

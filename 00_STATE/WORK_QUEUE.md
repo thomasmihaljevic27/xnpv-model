@@ -1,10 +1,11 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
 **For Thursday 2026-10-15 11:00 (supervisor meeting of 2026-10-13, sessions `2026-10-13b`).**
-1. **Decide (Thomas, with the supervisor Thursday):** adopt the arbitration rule on both sides or keep it as the
-   reported alternative; and whether players' eligibility should read PuckPedia's flag where the contract has one
-   (it is set at the contract's expiry, so a valuation dated earlier would see seasons not yet played). **Done
-   2026-10-13, the player side:** the arbitration value is beside the headline in every contract value (`rfa_terminal_value.py` v2.3,
+1. **Decided and built 2026-10-13 (Thomas): the arbitration cost is adopted on both sides, players' eligibility from
+   PuckPedia's flag** (MODEL_DIRECTIVES directive 6, meeting 2026-10-13). Star value 13.42 (was 31.66); traded picks
+   $298.8M (was $704.8M); 811 of 7,817 contract-pages lower. To tell the supervisor Thursday. Owed: a new version of
+   `Valuing Draft Picks.docx` (every dollar figure moves; the reproduction sheet carries a superseded-figures note).
+   Before adoption, the player side as built beside the headline: the arbitration value is beside the headline in every contract value (`rfa_terminal_value.py` v2.3,
    `contract_npv.py` v2.4, `contract_npv_panel.py` v1.4 column `npv_total_arb`); refresh passed all 10 steps; headline
    unchanged (30 sampled contracts within $2e-9; the dashboard's $1 re-price check passed). Report:
    `python 25_TESTS/arbitration_player_compare.py`. 813 of 7,817 contract-pages fall (813 of the 883 with positive

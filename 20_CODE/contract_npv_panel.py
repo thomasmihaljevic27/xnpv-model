@@ -1,7 +1,10 @@
 """
 =============================================================================
- contract_npv_panel.py   v1.4                    Validation exhibit (2026-07-05)
+ contract_npv_panel.py   v1.5                    Validation exhibit (2026-07-05)
 =============================================================================
+ WHAT CHANGED IN v1.5 (2026-10-13)
+   The arbitration cost is adopted as the headline npv_total (contract_npv v2.5); the QO chain
+   without it is the column npv_total_qo. npv_total_arb is gone.
  WHAT CHANGED IN v1.4 (2026-10-13)
    Each row carries npv_total_arb beside npv_total: the control years costed under the
    arbitration rule (contract_npv v2.4, rfa_terminal_value v2.3). npv_total is unchanged.
@@ -185,7 +188,7 @@ def build_panel():
             "npv_terminal": s["npv_terminal"],
             "npv_total": s["npv_total"],
             "npv_total_term_free": s["npv_total_term_free"],   # directive 4 sensitivity
-            "npv_total_arb": s["npv_total_arb"],               # v1.4: arbitration cost
+            "npv_total_qo": s["npv_total_qo"],                 # v1.5: QO chain, beside
             "term_years": s["term_years"],
             "surplus_no_survival": s["surplus_no_survival"],
         })

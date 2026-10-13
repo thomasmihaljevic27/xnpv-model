@@ -1,6 +1,18 @@
 """
 =============================================================================
- rfa_terminal_value.py   v2.3                       Phase 1c
+ rfa_terminal_value.py   v2.4                       Phase 1c
+
+ v2.4 (2026-10-13) ADOPTED (Thomas: "I say adopt. I say use PuckPedia's
+ flag"): the arbitration cost is the HEADLINE (tv_adjusted). Eligibility
+ comes from PuckPedia's `arbitration_eligible` on the contract whose expiry
+ he faces: 1 = eligible from the first control season, 0 = from the second
+ (92.4% of 225 such players were eligible a one-year deal later); the CBA
+ 12.1(a) count only where a contract has no flag. STATED LIMITATION: the flag
+ is set at the contract's expiry, so a valuation dated earlier reads
+ eligibility as of a later date (Thomas chose it knowing this). The QO chain
+ without arbitration, the headline until now, is reported beside it as
+ tv_adjusted_qo. The term-free sensitivity prices the arbitration cost on the
+ term-free line too.
 
  v2.3 (2026-10-13) THE ARBITRATION COST, beside the headline (agreed with the
  supervisor 2026-10-13 to build and compare; rule set by Thomas: "Use NPV1
@@ -223,6 +235,16 @@ def arb_trailing(season, t0, observed, future):
     return sum(w * x for w, x in parts) / sum(w for w, _ in parts)
 
 
+def load_arbitration_flags():
+    """v2.4: contract_id -> PuckPedia's `arbitration_eligible` (0/1): whether the player is
+    eligible for salary arbitration when the contract expires. Same export the signing dates
+    come from (skater_forward_projection.F_PP_CONTRACTS; confidential, read only)."""
+    pp = pd.read_excel(_sfp.F_PP_CONTRACTS, usecols=["contract_id", "arbitration_eligible"])
+    assert pp["contract_id"].is_unique, "PuckPedia export: duplicate contract_id"
+    pp = pp.dropna(subset=["arbitration_eligible"])
+    return dict(zip(pp["contract_id"].astype(int), pp["arbitration_eligible"].astype(int)))
+
+
 def price_for(model, projected_war, posgrp, ceiling):
     """Kept for callers written when two models ran: refuses any model but
     xNPV 1, then prices exactly as price()."""
@@ -334,6 +356,7 @@ class TerminalValuer:
     def __init__(self, projector=None):
         self.sp = projector or SkaterProjector()
         self._calibrate_qualify_rates()
+        self.arb_flag = load_arbitration_flags()     # v2.4: contract_id -> 0/1
 
     def _calibrate_qualify_rates(self):
         """D14(c), locked 2026-07-05. The intercept convention makes nearly
@@ -526,19 +549,38 @@ class TerminalValuer:
         out, tv_raw, tv_trunc, tv_adj = [], 0.0, 0.0, 0.0
         truncated, survival = False, p_final
         tv_adj_f, truncated_f, survival_f = 0.0, False, p_final  # term-free sensitivity
-        # v2.3: the arbitration cost, its own chain, truncation and total (headline unchanged)
+        tv_adj_q, truncated_q, survival_q = 0.0, False, p_final  # v2.4: the QO chain, the alternative
+        # v2.4 (Thomas, 2026-10-13: "I say adopt. I say use PuckPedia's flag"): the arbitration
+        # rule is the headline. Eligibility from PuckPedia's flag on the contract whose expiry he
+        # faces (chain end); the CBA 12.1(a) count where the contract has no flag.
         observed, need = self._arb_history(nk, valuation_season)
         obs_gp = {z: v[0] for z, v in observed.items()}
-        sal_a, cap_a = sal, cap_hit
-        tv_adj_a, truncated_a, survival_a = 0.0, False, p_final
+        flag = self.arb_flag.get(int(cid))
+        sal_f, cap_f = sal, cap_hit                # the term-free arm's own chain
+        sal_q, cap_q = sal, cap_hit                # the QO-chain alternative's own chain
         for j, season in enumerate(ctrl_seasons, start=1):
             k = (end - valuation_season) + j
             pw = float(war_k[k])
             ceil = cap_path(valuation_season, k)
             lm = league_min_path(season)
             val = max(price(pw, posgrp, ceil), lm)             # D10 floor
+            w_year = self.control_weight(pw)
+            # ELIGIBILITY. Flag 1: from the first control season. Flag 0: from the second
+            # (PuckPedia: of 225 flag-0 expiries followed by a one-year RFA deal, 92.4% were
+            # eligible at its end; once eligible, 99.5% stay so). No flag: the CBA count, with
+            # seasons from the valuation season on counted as played.
+            if flag is None:
+                elig = arb_eligible(season, valuation_season, need, obs_gp)
+            else:
+                elig = flag == 1 or j >= 2
+            tw = (arb_trailing(season, valuation_season, observed,
+                               lambda z: war_k[z - valuation_season]) if elig else None)
+            # HEADLINE COST: the qualifying offer (computed on what he was paid the season
+            # before), or once eligible the higher of it and the line's price (one year of term)
+            # of his 50/30/20 trailing WAR, floored at the league minimum
             qo = qualifying_offer(sal, cap_hit, season, signed_2020_plus)
-            surplus = val - qo
+            cost = max(qo, max(price(tw, posgrp, ceil), lm)) if tw is not None else qo
+            surplus = val - cost
             tv_raw += surplus
             if not truncated and surplus < 0:
                 truncated = True                    # D13: walk away, rights end
@@ -549,59 +591,58 @@ class TerminalValuer:
             # this year's projected quality, and gates compound (a player
             # let go in year 2 cannot be re-qualified in year 3). Open decision
             # 1: times the observed chance he then plays, given qualified.
-            w_year = self.control_weight(pw)
             survival *= w_year
             if truncated:
                 survival = 0.0                     # hard walk dominates
             tv_adj += survival * surplus
-            # the term-free sensitivity: same gates, its own D13 truncation
+            # the term-free sensitivity: the term-free line on both the value and the
+            # arbitration price, its own chain, same gates, its own D13 truncation
             val_f = max(price(pw, posgrp, ceil, term_free=True), lm)
-            surplus_f = val_f - qo
+            qo_f = qualifying_offer(sal_f, cap_f, season, signed_2020_plus)
+            cost_f = (max(qo_f, max(price(tw, posgrp, ceil, term_free=True), lm))
+                      if tw is not None else qo_f)
+            surplus_f = val_f - cost_f
             if not truncated_f and surplus_f < 0:
                 truncated_f = True
             survival_f *= w_year
             if truncated_f:
                 survival_f = 0.0
             tv_adj_f += survival_f * surplus_f
-            # v2.3: the arbitration cost -- the higher of the qualifying offer (computed on what
-            # he was paid) and the line's price of his 50/30/20 trailing WAR, once eligible
-            qo_a = qualifying_offer(sal_a, cap_a, season, signed_2020_plus)
-            tw = (arb_trailing(season, valuation_season, observed,
-                               lambda z: war_k[z - valuation_season])
-                  if arb_eligible(season, valuation_season, need, obs_gp) else None)
-            cost_a = max(qo_a, max(price(tw, posgrp, ceil), lm)) if tw is not None else qo_a
-            surplus_a = val - cost_a
-            if not truncated_a and surplus_a < 0:
-                truncated_a = True
-            survival_a *= w_year
-            if truncated_a:
-                survival_a = 0.0
-            tv_adj_a += survival_a * surplus_a
+            # the QO chain without arbitration (the headline until 2026-10-13), reported beside
+            qo_q = qualifying_offer(sal_q, cap_q, season, signed_2020_plus)
+            surplus_q = val - qo_q
+            if not truncated_q and surplus_q < 0:
+                truncated_q = True
+            survival_q *= w_year
+            if truncated_q:
+                survival_q = 0.0
+            tv_adj_q += survival_q * surplus_q
             out.append({
                 "player_id": player_id, "full_name": final["full_name"],
                 "contract_id": cid, "control_season": season, "j": j,
                 "valuation_season": valuation_season, "path": path,
                 "projected_war": pw, "value_dollars": val,
-                "qo_cost": qo, "qo_salary_source": sal_src,
+                "qo_cost": qo, "cost": cost, "qo_salary_source": sal_src,
+                "arb_flag": flag, "arb_eligible": tw is not None, "arb_trailing_war": tw,
                 "surplus_dollars": surplus, "qualify_survival": survival,
                 "control_weight_year": w_year, "chain_start_p_play": p_final,
                 "surplus_adjusted": survival * surplus,
                 "value_dollars_term_free": val_f,
                 "surplus_adjusted_term_free": survival_f * surplus_f,
                 "counted_after_truncation": not truncated,
-                "arb_eligible": tw is not None, "arb_trailing_war": tw,
-                "cost_arb": cost_a, "surplus_adjusted_arb": survival_a * surplus_a,
+                "qo_chain_cost": qo_q, "surplus_adjusted_qo": survival_q * surplus_q,
             })
-            sal_a, cap_a = cost_a, cost_a           # v2.3: next QO on what he was paid
-            # next year's QO escalates off THIS QO (a one-year deal at qo)
-            sal, cap_hit = qo, qo
+            # next year's QO is computed on what he was paid this year (CBA: prior salary)
+            sal, cap_hit = cost, cost
+            sal_f, cap_f = cost_f, cost_f
+            sal_q, cap_q = qo_q, qo_q
         return pd.DataFrame(out), {
             "status": "ok", "n_control": len(ctrl_seasons),
             "tv_raw": tv_raw, "tv_truncated": tv_trunc,
-            "tv_adjusted": tv_adj,                 # D14(c) -- the headline TV
+            "tv_adjusted": tv_adj,                 # D14(c), arbitration cost -- the headline TV
             "tv_adjusted_term_free": tv_adj_f,
-            "tv_adjusted_arb": tv_adj_a,           # v2.3: the arbitration cost, beside
-            "arb_need": need,
+            "tv_adjusted_qo": tv_adj_q,            # v2.4: the QO chain, the alternative
+            "arb_need": need, "arb_flag": flag,
             "anchor": a, "path": path, "qo_salary_source": sal_src}
 
 

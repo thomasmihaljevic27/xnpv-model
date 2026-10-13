@@ -17,7 +17,7 @@ the commit), **superseded** (replaced by a later entry).
 | 3 | One own-versus-comparables blend: 65/35 replaces the curve's 55/45 | implemented (branch, `64ab8bf`) |
 | 4 | Contract length in the price line (term-in), term-free reported as the sensitivity | implemented and validated (branch, 2026-10-05) |
 | 5 | Price-line forecasts dated at each contract's signing | implemented and validated (branch, 2026-10-05) |
-| 6 | Draft and prospect models restart from scratch with Karl; the data is kept | pick curve built 2026-10-09 (`pick_curve.py`, `traded_pick_values.py`); arbitration rule for players and picks agreed to build and compare (2026-10-13); prospects not started |
+| 6 | Draft and prospect models restart from scratch with Karl; the data is kept | pick curve built 2026-10-09 (`pick_curve.py`, `traded_pick_values.py`); arbitration cost adopted for players and picks (2026-10-13; star value 13.42); prospects not started |
 
 | | To investigate (closed list) | Status |
 |---|---|---|
@@ -730,7 +730,20 @@ Thomas the same day. Each item may change only by Thomas's decision.
   (the term premium flagged at plan step 7). Eligibility against PuckPedia's flag (1,656 skater contracts ending as
   RFAs 2018-19 to 2024-25): agree 64.1%; ours later 541 (323 without one NHL season of 10+ games: the missing AHL
   games), earlier 53. The later group carries $56M of control-year value at expiry against $785M where the two agree.
-  Adoption on both sides waits on Thomas.
+  **ADOPTED (Thomas, 2026-10-13): "I say adopt. I say use PuckPedia's flag."** The arbitration cost is the main cost
+  on both sides; the qualifying-offer chain without it is reported beside (picks: scale kinds `qo_chain`,
+  `qo_chain_sensitivity`, columns `*_qo`; contracts: `npv_total_qo`). Players' eligibility from PuckPedia's
+  `arbitration_eligible` on the contract whose expiry he faces: 1 = from the first control season, 0 = from the second
+  (of 225 flag-0 expiries followed by a one-year RFA deal, 92.4% were eligible at its end; once eligible 99.5% stay),
+  the CBA count only without a flag. Stated limitation: the flag is set at the contract's expiry, so a valuation dated
+  earlier reads eligibility from a later date. Drafted players keep the CBA count (the export starts in 2018-19; most of
+  their control seasons come before it). Built: `pick_curve.py` v1.4 (star value 13.42, se 1.44; 11.13 without
+  2015-2016; chain 31.66 / 27.58 beside), `traded_pick_values.py` re-run ($298.8M; sensitivity $247.9M; was $704.8M),
+  `rfa_terminal_value.py` v2.4, `contract_npv.py` v2.5, `contract_npv_panel.py` v1.5 (the chain reproduces the former
+  headline within $2e-9 on 30 sampled contracts; refresh 10 of 10 steps). 811 of 7,817 contract-pages fall, median
+  -$0.81M, page totals -$112M to -$221M. This revises the control-year cost of directive 4 detail 3 and open
+  decision 1 (a control year was a one-year qualifying offer; now the higher of that and the arbitration price once
+  eligible); the one-year term, the weights and the D13 walk-away stand.
 - *The circularity check (Thomas, 2026-10-13): "some kind would be valuable, Game Value probably makes sense."* Run
   (`25_TESTS/pick_star_gv_check.py` v1.0): Game Value agrees with WAR on who the stars are at each slot (STANDING_FLAGS).
 - *Table 2's constant moved to its own session before the prospect work (Thomas, 2026-10-13).*

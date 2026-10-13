@@ -27,7 +27,13 @@ The arbitration-eligibility sensitivity (MODEL_DIRECTIVES directive 6) bears dir
 (2026-10-13): build the arbitration rule on both sides (players' RFA control years and picks) and compare. Built
 2026-10-13 on both sides, reported beside the headline: the pick star value falls 57.6% (31.66 to 13.42), contract
 values with control years fall (813 of 7,817 contract-pages, median -$0.75M). On the arbitration cost both sides are
-costed more alike; adoption is Thomas's decision.
+costed more alike. ADOPTED 2026-10-13 (Thomas) on both sides.
+
+**Players' arbitration eligibility reads a flag set at the contract's expiry (look-ahead, accepted 2026-10-13).**
+PuckPedia's `arbitration_eligible` says whether the player can elect arbitration when the contract ends; a valuation
+dated earlier in the contract reads it although the seasons that earn it were not yet played. Thomas chose it over
+the CBA count from NHL games (which misses AHL seasons: it agreed with the flag on 64.1% of 1,656 RFA expiries, later
+on 541). Stated as a limitation; the count is the fallback where a contract has no flag.
 
 **Bacon's star chance and our surplus share a source (circularity, raised 2026-10-13).** The pick curve's shape is
 Bacon's star probability by slot, fitted on his WAR over largely the same drafts whose surplus (also priced from his

@@ -1,6 +1,11 @@
 """
 arbitration_player_compare.py -- what the arbitration rule does to contract values (report only).
 
+v1.1 (2026-10-13): Thomas adopted the arbitration cost, with PuckPedia's flag for eligibility. The
+headline npv_total is now the arbitration value and npv_total_qo the chain (contract_npv v2.5, panel
+v1.5); this report compares the two the same way. Part 2 shows how far the CBA count, used where a
+contract has no flag, sits from the flag.
+
 WHY (agreed with the supervisor 2026-10-13 to build and compare; rule set by Thomas the same day):
 the qualifying-offer chain may overvalue RFA control years, the same way it overvalues picks. The
 contract engine now prices every contract both ways: npv_total (the qualifying-offer chain, the
@@ -32,7 +37,7 @@ from pathlib import Path
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "arbitration_player_compare.py v1.0 (2026-10-13)"
+SCRIPT_VERSION = "arbitration_player_compare.py v1.1 (2026-10-13)"
 print(SCRIPT_VERSION)
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "20_CODE"))
@@ -45,7 +50,9 @@ M = 1e6
 
 # ---- PART 1: the panel ------------------------------------------------------------------------------
 pn = pd.read_csv(F_PANEL)
-assert "npv_total_arb" in pn.columns, "panel predates contract_npv_panel.py v1.4: run the refresh first"
+assert "npv_total_qo" in pn.columns, "panel predates contract_npv_panel.py v1.5: run the refresh first"
+pn = pn.rename(columns={"npv_total": "npv_total_arb", "npv_total_qo": "npv_total"})   # below: npv_total = chain
+pn["npv_terminal"] = pn["npv_terminal"] + pn["npv_total"] - pn["npv_total_arb"]      # the chain's control years
 pn["diff"] = pn["npv_total_arb"] - pn["npv_total"]
 assert (pn["diff"] <= 1.0).all(), "a contract rose under the arbitration cost"
 moved = pn["diff"] < -1.0
@@ -68,8 +75,8 @@ for page in (2024, 2025):
     p = pn[pn["valuation_season"] == page]
     a = p.nlargest(N, "npv_total")
     b = p.nlargest(N, "npv_total_arb")
-    print(f"\nTOP {N} on the {page}-{(page + 1) % 100:02d} page, qualifying-offer chain (headline) | arbitration cost")
-    print(f"  of the headline's top {N}: {int((a['npv_terminal'] > 1).sum())} carry control-year value; "
+    print(f"\nTOP {N} on the {page}-{(page + 1) % 100:02d} page, qualifying-offer chain | arbitration cost (headline)")
+    print(f"  of the chain's top {N}: {int((a['npv_terminal'] > 1).sum())} carry control-year value; "
           f"{len(set(a['contract_id']) & set(b['contract_id']))} stay in the top {N} under arbitration")
     left = a.reset_index(drop=True)
     right = b.reset_index(drop=True)
