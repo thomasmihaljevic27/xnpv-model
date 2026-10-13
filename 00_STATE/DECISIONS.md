@@ -3093,3 +3093,16 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   through zero or free constant; an independent circularity check or not; the arbitration rule's details.
 - Files: MODEL_DIRECTIVES directive 6 (meeting block, summary row), WORK_QUEUE (Thursday list; idea status),
   STANDING_FLAGS (circularity flag; cost-asymmetry next step).
+
+### Change log, 2026-10-13c (arbitration rule set; picks built; Game Value check)
+
+- Thomas: the draft regression's form (through zero or a free constant) moved to its own session before the prospect
+  work; the four forms compared (year indicators do not move the star value; the constant moves it -2%).
+- Thomas: the arbitration rule uses the xNPV 1 contract line on 50/30/20 trailing WAR, floored at the qualifying offer,
+  the same rule for picks and players. CBA 12.1 read from the 2013 text (the eligibility table matches; one secondary
+  source had it wrong). Built for picks: `pick_curve.py` v1.3 writes the arbitration star value beside the main one
+  (13.42, -57.6%; without 2015-2016 11.13); main unchanged (31.66 / 27.58, guards 2322/2322 and 2089/2089; traded
+  picks $704.8M). Players: next build.
+- Thomas: an independent check of Bacon's star chance on Game Value. `25_TESTS/pick_star_gv_check.py` v1.0: within
+  two paired standard errors of the WAR rule in 9 of 9 rows; slope on his chance 1.05 (se 0.11).
+- Files: pick_curve.py v1.3, pick_star_gv_check.py v1.0; WORK_QUEUE, MODEL_DIRECTIVES, STANDING_FLAGS; session 2026-10-13b.

@@ -1,19 +1,31 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
-**For Thursday 2026-10-15 11:00 (supervisor meeting of 2026-10-13, session `2026-10-13b`).**
-1. **Decide:** Table 2 through zero (star value 31.66) or with a free constant (31.04; constant $0.13M a pick at an
-   average draft, p 0.35). Karl asked for the constant-plus-dummies form and for Thomas to run it himself:
-   `python 25_TESTS/pick_lookup.py regression` (third line). The adopted fit is not the dummy-variable trap (ten
-   sum-to-zero year columns, no column of ones); the document's body text should say so.
-2. **Decide, then build:** the arbitration rule (agreed with Karl to build and compare, idea below). Before code:
-   the eligibility rule from CBA Article 12 (cited from the text), what "market" means in those seasons, and one rule
-   for picks and players or not. Then run it on picks (Figure 3's gap) and on RFA control years in contract values
-   (does the top of the NPV list lose its middle-lineup RFAs?), and bring both to Thomas.
-3. **Decide:** an independent check of Bacon's star chance against a stat with no Bacon input, or state the
-   circularity as a limitation only (Karl accepted the latter).
-4. **Then:** begin the prospect model (below); Thomas expects to bring options rather than one answer.
-5. **Document, next version:** Table 2's wording; why the star-probability curve has one parameter; Figure 3's bands
-   (1-10 and 11-32 suggested); cap shares stated beside Figure 2.
+**For Thursday 2026-10-15 11:00 (supervisor meeting of 2026-10-13, sessions `2026-10-13b`).**
+1. **Build (next):** the arbitration rule on the player side, in `rfa_terminal_value.py`, as a column beside the
+   headline control-year value, carried through `contract_npv.py` and the panel so contract NPVs can be compared
+   with and without it (does the top of the NPV list lose its middle-lineup RFAs?). Rule set by Thomas 2026-10-13,
+   the same as the pick side (`pick_curve.py` v1.3, below): once eligible under CBA 12.1(a), a control season costs
+   the higher of the qualifying offer and the contract line's price (one year of term) of his 50/30/20 trailing
+   WAR; the next qualifying offer is computed on what he was paid. New for players, to put to Thomas before code:
+   seasons after the valuation date enter the trailing total and the experience count at the forecast's WAR if he
+   plays (observed seasons only before the valuation date); check the eligibility rule against PuckPedia's
+   `arbitration_eligible` flag (1,484 of 6,851 contracts). Then a dashboard refresh.
+2. **Done 2026-10-13: the pick side.** `pick_curve.py` v1.3 reports the arbitration star value beside the main one:
+   13.42 (se 1.44), -57.6%; without 2015-2016 11.13. Main unchanged (31.66 / 27.58; traded picks $704.8M).
+3. **Done 2026-10-13: the Game Value check of Bacon's star chance** (`25_TESTS/pick_star_gv_check.py`): passed its
+   declared reading in 9 of 9 rows (STANDING_FLAGS).
+4. **Document, next version:** Table 2's wording; why the star-probability curve has one parameter; Figure 3's bands
+   (1-10 and 11-32 suggested); cap shares stated beside Figure 2; the arbitration star value and the Game Value check.
+
+**Before the prospect work, in its own session (Thomas, 2026-10-13): the draft regression's form.** Undecided:
+through zero (star value 31.66) or with a free constant (31.04; constant $0.13M a pick at an average draft, p 0.35).
+Karl asked for the constant-plus-dummies form, run by Thomas himself: `python 25_TESTS/pick_lookup.py regression`.
+Thomas asked for the rationale for each form against the others. Checked 2026-10-13: the year indicators do not
+move the star value (every draft has the same slots, so the star chance averages 0.050 in every draft and
+correlates at most 0.005 with any year; 31.66 with or without them); they absorb deep and shallow drafts (R-squared
+0.2245 to 0.2331, se 2.77 to 2.74). The constant is the only choice that moves it (-2%); through zero won the
+2026-10-09 form test on held-out drafts (here 5.2318 against 5.2328). The adopted fit is not the dummy-variable
+trap (ten sum-to-zero year columns, no column of ones); the document's body text should say so.
 
 **Next session (Thomas, 2026-10-09): begin the prospect model.** The pick curve is built (`pick_curve.py` v1.2,
 `traded_pick_values.py` v1.2) and documented (`40_DOCS/Supervisor_Drafts/Valuing Draft Picks.docx`, Thomas's final).

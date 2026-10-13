@@ -707,6 +707,20 @@ Thomas the same day. Each item may change only by Thomas's decision.
 - *Bacon's star chance is circular with our surplus* (both from his WAR, largely the same drafts). Karl raised it,
   then: "take it as given ... we're relying on this other research"; "I think it's okay." Stated as a limitation.
   **Open for Thomas:** an independent check against a stat with no Bacon input (games played, points, Game Value).
+- *The arbitration rule's details (Thomas, 2026-10-13):* "Use NPV1 price line, floor it at the QO, same rule for
+  picks and players." Market means the market price of his 3-season weighted WAR (Thomas: "this still allows the
+  possibility that surplus on an arb contract exists, but it should be lower"). Built as: once eligible under CBA
+  12.1(a) (text read 2026-10-13: first-contract age 18-20 needs 4 professional years, 21 needs 3, 22-23 need 2, 24+
+  needs 1; 10+ games a year), a control season costs the higher of the qualifying offer and the contract line's
+  price (one year of term; goalies on the goalie line) of his 50/30/20 trailing WAR, rescaled over the seasons he
+  has; the next qualifying offer is computed on what he was paid. Proxies: signing age = age on September 15 of
+  his first NHL season; a professional year = 10+ NHL games (no AHL data, so eligibility comes late).
+  **Picks: built 2026-10-13** (`pick_curve.py` v1.3, reported beside the main star value): 13.42 (se 1.44), -57.6%;
+  first-round control-window cost 1.80x the chain for picks 1-10, 1.45x for 11-32 (actual pay: 3.2x, 2.1-2.3x).
+  **Players: to build** (WORK_QUEUE). Adoption on both sides waits on the results.
+- *The circularity check (Thomas, 2026-10-13): "some kind would be valuable, Game Value probably makes sense."* Run
+  (`25_TESTS/pick_star_gv_check.py` v1.0): Game Value agrees with WAR on who the stars are at each slot (STANDING_FLAGS).
+- *Table 2's constant moved to its own session before the prospect work (Thomas, 2026-10-13).*
 - *Accepted in the meeting:* the leave-one-draft-out score; one star value with 2015-2016 out as the sensitivity;
   the round average for future picks; negative careers; the CBA control window; the in-season slot from the
   original team's standings.

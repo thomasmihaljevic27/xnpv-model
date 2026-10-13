@@ -29,8 +29,16 @@ The arbitration-eligibility sensitivity (MODEL_DIRECTIVES directive 6) bears dir
 **Bacon's star chance and our surplus share a source (circularity, raised 2026-10-13).** The pick curve's shape is
 Bacon's star probability by slot, fitted on his WAR over largely the same drafts whose surplus (also priced from his
 WAR) sets the star value; the agreement between the two is not independent confirmation. Karl: acceptable as
-reliance on published research ("I think it's okay"). Stated as a limitation. Open for Thomas: a check against a stat
-with no Bacon input (games played, points, Game Value).
+reliance on published research ("I think it's okay"). Stated as a limitation. CHECKED 2026-10-13 (Thomas chose Game
+Value; `25_TESTS/pick_star_gv_check.py` v1.0, rule declared before the run). Game Value covers 2017-18 to 2025-26
+only, so it tests the shape, not the dollars. Drafts 2013-2019, 1,337 skater picks; a star = top 20% of forwards /
+15% of defencemen per 82 games among the 749 skaters with 200+ games in the window. Star rates on adjusted Game Value
+sit within two paired standard errors of the same rule on WAR in all 9 rows (8 pick ranges and the total): overall
+5.5% against 6.1% (Bacon's chance 5.3%); picks 4-10 28.6% / 34.7% (29.4%), 11-20 24.6% / 30.4% (14.9%). Of 82 WAR
+stars, 63 (77%) are Game Value stars (74 in all). Each star rate regressed on Bacon's chance: slope 1.05 (se 0.11)
+on Game Value, 1.10 on WAR; log(pick) adds nothing beside his chance (Game Value p 0.42). Limits: the window (older
+drafts seen late, players gone before 2017 missing), Game Value's weakness on defencemen, small top ranges (7 first
+overall picks). Not independent of the same games, only of Bacon's model.
 
 **The pick curve's classes overlap the traded picks (look-ahead, 2026-10-09).** The curve is fitted on
 realised outcomes of the 2007-2017 classes, and the back-test's trades start in 2017-18, so a 2017 pick
