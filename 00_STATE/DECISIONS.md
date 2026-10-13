@@ -3069,3 +3069,13 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   ten checklist items. CLAUDE.md rule added. Next session: the prospect model.
 - Thomas: merge the branch into main; conditional picks deferred to the back-test analysis; the arbitration cost
   alternative for picks folded into the RFA arbitration idea (and probably prospects), to put to Karl next meeting.
+
+### Change log, 2026-10-13 (meeting kit for the pick curve)
+
+- `25_TESTS/pick_lookup.py` (answers questions from the saved outputs) and
+  `40_DOCS/Valuing_Draft_Picks_Reproduction.md` (each finding, its command and expected value). Every command
+  run in PowerShell on the laptop; the rebuild (draft_window_count, pick_curve, traded_pick_values) takes about
+  15 seconds and reproduces 31.66 / 27.58 / $704.8M; each test reproduces its recorded figures. The lookup's
+  per-draft star value uses Figure 2's joint model (first draft of it fitted one draft alone: 57.11 against
+  the figure's 56.92; fixed before handing over). CLAUDE.md run line corrected (it still said "knowable and
+  pooled scales").

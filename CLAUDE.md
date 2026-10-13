@@ -120,8 +120,11 @@ directive 6). The old models (`draft_yield_curve.py`, `slot_curve.py`, `future_p
 `90_ARCHIVE/2026-10-09/`, with the old curve's output as a reference. In order:
 
     python 20_CODE/draft_pick_linkage.py     # picks linked to careers (also the kept check)
-    python 20_CODE/pick_curve.py             # each drafted player priced; knowable and pooled scales
+    python 20_CODE/pick_curve.py             # each drafted player priced; the star value (and its sensitivity)
     python 20_CODE/traded_pick_values.py     # every traded pick valued at its trade
+
+To answer questions about the curve on the spot: `python 25_TESTS/pick_lookup.py --help`. Each finding in
+`Valuing Draft Picks.docx`, with its command and expected value: `40_DOCS/Valuing_Draft_Picks_Reproduction.md`.
 
 ## Don't
 
