@@ -717,7 +717,20 @@ Thomas the same day. Each item may change only by Thomas's decision.
   his first NHL season; a professional year = 10+ NHL games (no AHL data, so eligibility comes late).
   **Picks: built 2026-10-13** (`pick_curve.py` v1.3, reported beside the main star value): 13.42 (se 1.44), -57.6%;
   first-round control-window cost 1.80x the chain for picks 1-10, 1.45x for 11-32 (actual pay: 3.2x, 2.1-2.3x).
-  **Players: to build** (WORK_QUEUE). Adoption on both sides waits on the results.
+  **Players: built 2026-10-13** (Thomas approved: seasons after the valuation date enter at the forecast's WAR if he
+  plays, each counted as played): the arbitration value is beside the headline in every contract value (`rfa_terminal_value.py` v2.3,
+  `contract_npv.py` v2.4, `contract_npv_panel.py` v1.4 column `npv_total_arb`); refresh passed all 10 steps; headline
+  unchanged (30 sampled contracts within $2e-9; the dashboard's $1 re-price check passed). Report:
+  `python 25_TESTS/arbitration_player_compare.py`. 813 of 7,817 contract-pages fall (813 of the 883 with positive
+  control-year value), median -$0.75M, largest -$17.32M; page totals fall $99M-$216M. The headline top 20 on the 2024-25
+  and 2025-26 pages hold 5 and 6 contracts with control-year value, all young players early in their careers
+  (Johnston, Cooley, Carlsson, Poitras, Guenther; Michkov, Celebrini, Kasper, Casey, Blake, Wright); 17 of 20 stay in the
+  top 20 either way. The middle-lineup players on long deals near the top (Engvall, Carrier, Frederic, O'Connor,
+  Fehervary) carry no control-year value, so the rule does not touch them: their rank comes from the contract seasons
+  (the term premium flagged at plan step 7). Eligibility against PuckPedia's flag (1,656 skater contracts ending as
+  RFAs 2018-19 to 2024-25): agree 64.1%; ours later 541 (323 without one NHL season of 10+ games: the missing AHL
+  games), earlier 53. The later group carries $56M of control-year value at expiry against $785M where the two agree.
+  Adoption on both sides waits on Thomas.
 - *The circularity check (Thomas, 2026-10-13): "some kind would be valuable, Game Value probably makes sense."* Run
   (`25_TESTS/pick_star_gv_check.py` v1.0): Game Value agrees with WAR on who the stars are at each slot (STANDING_FLAGS).
 - *Table 2's constant moved to its own session before the prospect work (Thomas, 2026-10-13).*

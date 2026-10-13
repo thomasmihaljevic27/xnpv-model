@@ -24,7 +24,10 @@ adopted curve a late first (#20-32, $2.3-3.6M) sits at about the 90th percentile
 ($2.19M) and #1 ($23.5M) near the largest ($24.0M). What is traded is mostly late: of 634 picks traded
 from 2017-07-01, 4 became top-10 picks, 7 picks 11-15, 50 picks 16-32, 118 picks 33-64, 454 pick 65+.
 The arbitration-eligibility sensitivity (MODEL_DIRECTIVES directive 6) bears directly on this. Agreed with Karl
-(2026-10-13): build the arbitration rule on both sides (players' RFA control years and picks) and compare.
+(2026-10-13): build the arbitration rule on both sides (players' RFA control years and picks) and compare. Built
+2026-10-13 on both sides, reported beside the headline: the pick star value falls 57.6% (31.66 to 13.42), contract
+values with control years fall (813 of 7,817 contract-pages, median -$0.75M). On the arbitration cost both sides are
+costed more alike; adoption is Thomas's decision.
 
 **Bacon's star chance and our surplus share a source (circularity, raised 2026-10-13).** The pick curve's shape is
 Bacon's star probability by slot, fitted on his WAR over largely the same drafts whose surplus (also priced from his

@@ -1,8 +1,15 @@
 """
 =============================================================================
- contract_npv.py   v2.3                             Phase 1d
+ contract_npv.py   v2.4                             Phase 1d
                                   xNPV 1 prices skater contracts (2026-10-02)
 =============================================================================
+ v2.4 (2026-10-13): every priced contract also carries npv_total_arb, its value with the RFA
+ control years costed under the arbitration rule (rfa_terminal_value v2.3; Thomas, 2026-10-13:
+ the xNPV 1 line on 50/30/20 trailing WAR, floored at the qualifying offer, same rule for picks
+ and players). The contract seasons are unchanged; only the terminal part differs. Goalies: the
+ same rule on the goalie line, their trailing seasons from Goalies_WAR, the flat projection after
+ the valuation season. The headline npv_total is unchanged.
+
  v2.3 (2026-10-05, Thomas): a goaltender with two prior seasons is weighted 62.5/37.5 (the 50/30
  of the cascade rescaled, as the skater forecast does), not 60/40; goalie_value_engine.py v1.2
  changes with it, so both files still give one goaltender one anchor.
@@ -223,7 +230,8 @@ from skater_forward_projection import (SkaterProjector, cap_path,
                                        league_min_path, norm_name,
                                        CAP_GROWTH, CAP_CEILING,
                                        contract_chain, check_as_of)
-from rfa_terminal_value import TerminalValuer, qualifying_offer
+from rfa_terminal_value import (TerminalValuer, qualifying_offer, ARB_NEED,  # noqa: E402
+                                arb_eligible, arb_trailing)
 from exit_hazard import (build_transitions, build_hazard_table, bucket,
                          age_group, report_item_14)       # goalie hazard only (v2.0)
 
@@ -242,7 +250,7 @@ F_GOALIE_SPINE = OUTPUT_DIR / "goalie_value_spine_v2.csv"
 F_SEASON_SPINE = OUTPUT_DIR / "contract_season_spine.csv"
 OUT_SPINE = OUTPUT_DIR / "contract_npv_spine.csv"
 OUT_LOG = OUTPUT_DIR / "contract_npv_run_log.txt"
-SCRIPT_VERSION = "2.3"   # printed first in the run log (25_TESTS/xnpv0_removal_check.py reads it)
+SCRIPT_VERSION = "2.4"   # printed first in the run log (25_TESTS/xnpv0_removal_check.py reads it)
 
 # ---- locked goalie constants (P2 close-out, 2026-06-30) --------------------
 # The documented narrative values (alpha 1.398% cap, beta 1.097%/WAR, league
@@ -334,6 +342,19 @@ class GoalieProjector:
     def _get(self, nname, syr):
         v = self.lut.get((nname, syr), np.nan)
         return np.nan if isinstance(v, pd.Series) else v
+
+    def history(self, nname, t0):
+        """v2.4, the arbitration cost: {season: (games, WAR)} before t0 (WAR D20-prorated,
+        team splits summed), and his first NHL season (t0 if none before it)."""
+        out = {}
+        if nname in self.lut.index.get_level_values(0):
+            w = self.lut.loc[nname].groupby(level=0).sum()        # a shared name: summed, as _get treats it
+            g = self.gp_lut.loc[nname].groupby(level=0).sum()
+            for z in w.index:
+                if z < t0:
+                    out[int(z)] = (float(g.loc[z]), float(w.loc[z]))
+        played = [z for z, (gp, _) in out.items() if gp > 0]
+        return out, (min(played) if played else int(t0))
 
     def shrunk_projection(self, nname, t0):
         """Cascade: 50/30/20 with three priors, 62.5/37.5 with two (v2.3; 60/40 until then),
@@ -523,7 +544,7 @@ class NPVEngine:
         npv_contract_f = sum(d["pv_dollars_term_free"] for d in det)
 
         tvd, tvs = self.tv.terminal_value(pid, t0, as_of)
-        npv_tv, npv_tv_f = 0.0, 0.0
+        npv_tv, npv_tv_f, npv_tv_a = 0.0, 0.0, 0.0
         if tvs.get("status") == "ok":
             end = int(pr["season_start"].max())
             for _, r in tvd.iterrows():
@@ -532,6 +553,7 @@ class NPVEngine:
                 pv = r["surplus_adjusted"] * disc     # D14c chain, no h (locked)
                 npv_tv += pv
                 npv_tv_f += r["surplus_adjusted_term_free"] * disc
+                npv_tv_a += r["surplus_adjusted_arb"] * disc       # v2.4: arbitration cost
                 det.append({"player_id": pid, "full_name": r["full_name"],
                             "contract_id": r["contract_id"],
                             "season_start": r["control_season"], "k": k,
@@ -559,6 +581,8 @@ class NPVEngine:
                    "npv_contract_term_free": npv_contract_f,
                    "npv_terminal_term_free": npv_tv_f,
                    "npv_total_term_free": npv_contract_f + npv_tv_f,
+                   # v2.4: the arbitration cost on the control years, beside the headline
+                   "npv_terminal_arb": npv_tv_a, "npv_total_arb": npv_contract + npv_tv_a,
                    "surplus_no_survival":
                        float(pr["surplus_dollars"].sum())
                        + tvs.get("tv_adjusted", 0.0)}
@@ -625,7 +649,7 @@ class NPVEngine:
 
         # ---- goalie RFA terminal value: same QO mechanics, D13 truncation,
         # ---- flat projection; v2.1: a pooled control-year weight (open decision 1) ---
-        npv_tv = 0.0
+        npv_tv, npv_tv_a = 0.0, 0.0
         end = int(crows["season_start"].max())
         # v1.4: expiry, UFA year and the 2020+ proxy from the chain's END.
         # With no extension lrows is exactly the old t0-filtered crows.
@@ -638,6 +662,7 @@ class NPVEngine:
                    else float(final["pp_aav"]))
             cap_hit = float(final["cost"])
             s20 = int(lrows["season_start"].min()) >= 2020
+            sal0, cap0 = sal, cap_hit                   # v2.4: the arbitration chain starts here
             truncated = False
             # open decision 1: start from his survival into the final contract
             # season, then the pooled weight compounds each control year
@@ -664,6 +689,28 @@ class NPVEngine:
                             "survival": S_tv, "discount": disc,
                             "pv_dollars": S_tv * surplus * disc})
                 sal, cap_hit = qo, qo
+            # v2.4: the arbitration cost (rfa_terminal_value v2.3), its own chain and D13 stop;
+            # trailing seasons before t0 from Goalies_WAR, from t0 on the flat projection pw
+            observed, first = self.g_proj.history(nname, t0)
+            need = (None if pd.isna(bd) else
+                    ARB_NEED(int(np.floor((pd.Timestamp(first, 9, 15) - bd).days / 365.25))))
+            obs_gp = {z: v[0] for z, v in observed.items()}
+            sal_a, cap_a, S_a = sal0, cap0, S
+            for j, season in enumerate(range(end + 1, int(ufa_year)), 1):
+                k = (end - t0) + j
+                ceil = cap_path(t0, k)
+                lm = league_min_path(season)
+                val = max((ALPHA_G + BETA_G * pw) * ceil, lm)
+                qo_a = qualifying_offer(sal_a, cap_a, season, s20)
+                tw = (arb_trailing(season, t0, observed, lambda z: pw)
+                      if arb_eligible(season, t0, need, obs_gp) else None)
+                cost_a = (max(qo_a, max((ALPHA_G + BETA_G * tw) * ceil, lm))
+                          if tw is not None else qo_a)
+                if val - cost_a < 0:
+                    break                               # D13
+                S_a *= self.g_control_weight
+                npv_tv_a += S_a * (val - cost_a) * (1 + G) ** (-k)
+                sal_a, cap_a = cost_a, cost_a
         d = pd.DataFrame(det)
         return d, {"status": "ok", "position": "goalie",
                    "as_of": as_of.date().isoformat(), "chain": list(chain),
@@ -678,6 +725,7 @@ class NPVEngine:
                    "term_years": len(crows),
                    "npv_contract_term_free": npv_contract, "npv_terminal_term_free": npv_tv,
                    "npv_total_term_free": npv_contract + npv_tv,
+                   "npv_terminal_arb": npv_tv_a, "npv_total_arb": npv_contract + npv_tv_a,
                    "surplus_no_survival":
                        float(sum(x["surplus_dollars"] for x in det))}
 
@@ -801,6 +849,7 @@ def validate():
                         "npv_terminal": s["npv_terminal"],
                         "npv_total": s["npv_total"],
                         "npv_total_term_free": s["npv_total_term_free"],
+                        "npv_total_arb": s["npv_total_arb"],          # v2.4
                         "term_years": s["term_years"],
                         "surplus_no_survival": s["surplus_no_survival"]})
         return pd.DataFrame(out)

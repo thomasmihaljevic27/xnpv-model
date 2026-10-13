@@ -3106,3 +3106,14 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - Thomas: an independent check of Bacon's star chance on Game Value. `25_TESTS/pick_star_gv_check.py` v1.0: within
   two paired standard errors of the WAR rule in 9 of 9 rows; slope on his chance 1.05 (se 0.11).
 - Files: pick_curve.py v1.3, pick_star_gv_check.py v1.0; WORK_QUEUE, MODEL_DIRECTIVES, STANDING_FLAGS; session 2026-10-13b.
+
+### Change log, 2026-10-13d (arbitration rule on the player side)
+
+- Thomas approved the player-side construction (seasons after the valuation date at the forecast's WAR if he plays,
+  each counted as a played season). Built: `rfa_terminal_value.py` v2.3 (shared eligibility and 50/30/20 helpers;
+  tv_adjusted_arb), `contract_npv.py` v2.4 (npv_total_arb, goalies on their own line and Goalies_WAR history),
+  `contract_npv_panel.py` v1.4. Headline values unchanged; refresh passed (10 of 10 steps, 11.6 min).
+- `25_TESTS/arbitration_player_compare.py` v1.0: 813 of 7,817 contract-pages fall, median -$0.75M; the top of the list
+  loses young players early in their careers, not the middle-lineup players on long deals (no control-year value; their rank is
+  the term premium's). Eligibility agrees with PuckPedia's flag on 64.1% (ours later on 541, mostly AHL players).
+- Owed by Thomas: adopt or keep as the alternative; PuckPedia's flag for players' eligibility or not.

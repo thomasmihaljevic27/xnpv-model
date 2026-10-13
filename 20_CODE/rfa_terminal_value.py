@@ -1,6 +1,19 @@
 """
 =============================================================================
- rfa_terminal_value.py   v2.2                       Phase 1c
+ rfa_terminal_value.py   v2.3                       Phase 1c
+
+ v2.3 (2026-10-13) THE ARBITRATION COST, beside the headline (agreed with the
+ supervisor 2026-10-13 to build and compare; rule set by Thomas: "Use NPV1
+ price line, floor it at the QO, same rule for picks and players"). Once a
+ player is eligible for salary arbitration (CBA 12.1(a)), a control season
+ costs the higher of the qualifying offer and the contract line's price (one
+ year of term) of his 50/30/20 trailing WAR; the next qualifying offer is
+ computed on what he was paid. Seasons before the valuation season enter at
+ what he did; seasons from it on at the forecast's WAR if he plays, each
+ counted as a played season toward eligibility (Thomas, 2026-10-13). Its own
+ D13 truncation and the same control-year weights; reported as tv_adjusted_arb.
+ The headline (tv_adjusted) is unchanged. See arb_* below; the pick curve
+ (pick_curve.py v1.3) applies the same rule to drafted players.
 
  v2.2 (2026-10-05) open decision 1 (Thomas): P(plays | qualified) is measured on
  players who played one NHL game or more in the contract's final season (the
@@ -166,6 +179,48 @@ def price(projected_war, posgrp, ceiling, term_free=False):
         return (ALPHA_TF + beta * projected_war) * ceiling
     beta = BETA_D if str(posgrp).upper().startswith("D") else BETA_F
     return (ALPHA + beta * projected_war + GAMMA_TERM * CONTROL_TERM) * ceiling
+
+
+# ---------------------------------------------------------------------------
+# THE ARBITRATION COST (v2.3, Thomas 2026-10-13), reported BESIDE the headline.
+# Shared with contract_npv.py's goalie branch; pick_curve.py v1.3 states the same rule.
+# ---------------------------------------------------------------------------
+# CBA 2013 Section 12.1(a) (text read 2026-10-13, media.nhl.com/site/asset/public/ext/CBA.pdf p.57):
+# first-contract signing age 18-20 needs 4 years of professional experience, 21 needs 3, 22-23
+# need 2, 24 and older 1; a year is 10+ NHL games at 18-19, 10+ professional games under a contract
+# at 20+; 12.1(c) age is as of September 15 of the year he first signs. PROXIES (ours): signing age
+# = his age on September 15 of his first NHL season; a professional year = 10+ NHL games (no AHL
+# data, so eligibility comes later than in fact), pro-rated in the short seasons.
+ARB_NEED = lambda age: 4 if age <= 20 else 3 if age == 21 else 2 if age <= 23 else 1
+ARB_GP = {2012: 6, 2019: 9, 2020: 7}            # 10 games x 48/82, 70/82, 56/82, rounded up
+W_TRAIL = (0.5, 0.3, 0.2)                      # 50/30/20, most recent season first
+SEP15_BEFORE_FEB1 = 139 / 365.25               # the season table's age is on 1 February
+
+
+def arb_eligible(season, t0, need, observed_gp):
+    """CBA 12.1(a): his professional seasons before `season` reach `need`. A season before
+    the valuation season t0 counts when he played 10+ NHL games in it (pro-rated); every
+    season from t0 to season-1 counts as played. need None (age unknown): never eligible."""
+    if need is None:
+        return False
+    pro = sum(1 for z, g in observed_gp.items() if z < t0 and g >= ARB_GP.get(z, 10))
+    return pro + max(0, season - t0) >= need
+
+
+def arb_trailing(season, t0, observed, future):
+    """50/30/20 over the three seasons before `season`, most recent first, rescaled over
+    the seasons he has. Before t0: observed[z] = (games, season WAR), seasons with an NHL
+    game only. From t0 on: future(z), the forecast's WAR if he plays. None if none."""
+    parts = []
+    for wt, z in zip(W_TRAIL, (season - 1, season - 2, season - 3)):
+        if z < t0:
+            if z in observed and observed[z][0] > 0:
+                parts.append((wt, observed[z][1]))
+        else:
+            parts.append((wt, float(future(z))))
+    if not parts:
+        return None
+    return sum(w * x for w, x in parts) / sum(w for w, _ in parts)
 
 
 def price_for(model, projected_war, posgrp, ceiling):
@@ -373,6 +428,30 @@ class TerminalValuer:
                 assert abs(self.qualify_p[b] - self.qualify_p_prefix[b]) < 1e-9, \
                     f"Stage 4 fix moved the {b} bucket, which it must not"
 
+    def _arb_history(self, pkey, t0):
+        """(observed {season: (games, WAR)} before t0, the CBA 12.1(a) need) for one skater,
+        from the season table the forecast reads (WAR is the D20 season total). Signing age:
+        his age on September 15 of his first NHL season (t0 if none before it); None if the
+        table has no age for him."""
+        fc = self.sp.forecaster
+        if not hasattr(self, "_arb_groups"):
+            t = fc.table
+            self._arb_groups = {k: g.groupby("syr").agg(GP=("GP", "sum"), WAR=("WAR", "sum"),
+                                                         age_exact=("age_exact", "first"))
+                                for k, g in t.groupby("career_key")}
+        g = self._arb_groups.get(fc.career_of.get(pkey))
+        if g is None:
+            return {}, None
+        obs = g[g.index < t0]
+        observed = {int(z): (float(r.GP), float(r.WAR)) for z, r in obs.iterrows()}
+        played = obs[obs["GP"] > 0]
+        first = int(played.index.min()) if len(played) else int(t0)
+        aged = g["age_exact"].dropna()
+        if aged.empty:
+            return observed, None
+        age = float(aged.iloc[0]) - (int(aged.index[0]) - first) - SEP15_BEFORE_FEB1
+        return observed, ARB_NEED(int(np.floor(age)))
+
     def control_weight(self, projected_war):
         """One control year's weight (open decision 1, the July method):
         P(qualified) x P(plays | qualified) for his projected quality bucket;
@@ -447,6 +526,11 @@ class TerminalValuer:
         out, tv_raw, tv_trunc, tv_adj = [], 0.0, 0.0, 0.0
         truncated, survival = False, p_final
         tv_adj_f, truncated_f, survival_f = 0.0, False, p_final  # term-free sensitivity
+        # v2.3: the arbitration cost, its own chain, truncation and total (headline unchanged)
+        observed, need = self._arb_history(nk, valuation_season)
+        obs_gp = {z: v[0] for z, v in observed.items()}
+        sal_a, cap_a = sal, cap_hit
+        tv_adj_a, truncated_a, survival_a = 0.0, False, p_final
         for j, season in enumerate(ctrl_seasons, start=1):
             k = (end - valuation_season) + j
             pw = float(war_k[k])
@@ -479,6 +563,20 @@ class TerminalValuer:
             if truncated_f:
                 survival_f = 0.0
             tv_adj_f += survival_f * surplus_f
+            # v2.3: the arbitration cost -- the higher of the qualifying offer (computed on what
+            # he was paid) and the line's price of his 50/30/20 trailing WAR, once eligible
+            qo_a = qualifying_offer(sal_a, cap_a, season, signed_2020_plus)
+            tw = (arb_trailing(season, valuation_season, observed,
+                               lambda z: war_k[z - valuation_season])
+                  if arb_eligible(season, valuation_season, need, obs_gp) else None)
+            cost_a = max(qo_a, max(price(tw, posgrp, ceil), lm)) if tw is not None else qo_a
+            surplus_a = val - cost_a
+            if not truncated_a and surplus_a < 0:
+                truncated_a = True
+            survival_a *= w_year
+            if truncated_a:
+                survival_a = 0.0
+            tv_adj_a += survival_a * surplus_a
             out.append({
                 "player_id": player_id, "full_name": final["full_name"],
                 "contract_id": cid, "control_season": season, "j": j,
@@ -491,7 +589,10 @@ class TerminalValuer:
                 "value_dollars_term_free": val_f,
                 "surplus_adjusted_term_free": survival_f * surplus_f,
                 "counted_after_truncation": not truncated,
+                "arb_eligible": tw is not None, "arb_trailing_war": tw,
+                "cost_arb": cost_a, "surplus_adjusted_arb": survival_a * surplus_a,
             })
+            sal_a, cap_a = cost_a, cost_a           # v2.3: next QO on what he was paid
             # next year's QO escalates off THIS QO (a one-year deal at qo)
             sal, cap_hit = qo, qo
         return pd.DataFrame(out), {
@@ -499,6 +600,8 @@ class TerminalValuer:
             "tv_raw": tv_raw, "tv_truncated": tv_trunc,
             "tv_adjusted": tv_adj,                 # D14(c) -- the headline TV
             "tv_adjusted_term_free": tv_adj_f,
+            "tv_adjusted_arb": tv_adj_a,           # v2.3: the arbitration cost, beside
+            "arb_need": need,
             "anchor": a, "path": path, "qo_salary_source": sal_src}
 
 

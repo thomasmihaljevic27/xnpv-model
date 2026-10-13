@@ -1,15 +1,21 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
 **For Thursday 2026-10-15 11:00 (supervisor meeting of 2026-10-13, sessions `2026-10-13b`).**
-1. **Build (next):** the arbitration rule on the player side, in `rfa_terminal_value.py`, as a column beside the
-   headline control-year value, carried through `contract_npv.py` and the panel so contract NPVs can be compared
-   with and without it (does the top of the NPV list lose its middle-lineup RFAs?). Rule set by Thomas 2026-10-13,
-   the same as the pick side (`pick_curve.py` v1.3, below): once eligible under CBA 12.1(a), a control season costs
-   the higher of the qualifying offer and the contract line's price (one year of term) of his 50/30/20 trailing
-   WAR; the next qualifying offer is computed on what he was paid. New for players, to put to Thomas before code:
-   seasons after the valuation date enter the trailing total and the experience count at the forecast's WAR if he
-   plays (observed seasons only before the valuation date); check the eligibility rule against PuckPedia's
-   `arbitration_eligible` flag (1,484 of 6,851 contracts). Then a dashboard refresh.
+1. **Decide (Thomas, with the supervisor Thursday):** adopt the arbitration rule on both sides or keep it as the
+   reported alternative; and whether players' eligibility should read PuckPedia's flag where the contract has one
+   (it is set at the contract's expiry, so a valuation dated earlier would see seasons not yet played). **Done
+   2026-10-13, the player side:** the arbitration value is beside the headline in every contract value (`rfa_terminal_value.py` v2.3,
+   `contract_npv.py` v2.4, `contract_npv_panel.py` v1.4 column `npv_total_arb`); refresh passed all 10 steps; headline
+   unchanged (30 sampled contracts within $2e-9; the dashboard's $1 re-price check passed). Report:
+   `python 25_TESTS/arbitration_player_compare.py`. 813 of 7,817 contract-pages fall (813 of the 883 with positive
+   control-year value), median -$0.75M, largest -$17.32M; page totals fall $99M-$216M. The headline top 20 on the 2024-25
+   and 2025-26 pages hold 5 and 6 contracts with control-year value, all young players early in their careers
+   (Johnston, Cooley, Carlsson, Poitras, Guenther; Michkov, Celebrini, Kasper, Casey, Blake, Wright); 17 of 20 stay in the
+   top 20 either way. The middle-lineup players on long deals near the top (Engvall, Carrier, Frederic, O'Connor,
+   Fehervary) carry no control-year value, so the rule does not touch them: their rank comes from the contract seasons
+   (the term premium flagged at plan step 7). Eligibility against PuckPedia's flag (1,656 skater contracts ending as
+   RFAs 2018-19 to 2024-25): agree 64.1%; ours later 541 (323 without one NHL season of 10+ games: the missing AHL
+   games), earlier 53. The later group carries $56M of control-year value at expiry against $785M where the two agree.
 2. **Done 2026-10-13: the pick side.** `pick_curve.py` v1.3 reports the arbitration star value beside the main one:
    13.42 (se 1.44), -57.6%; without 2015-2016 11.13. Main unchanged (31.66 / 27.58; traded picks $704.8M).
 3. **Done 2026-10-13: the Game Value check of Bacon's star chance** (`25_TESTS/pick_star_gv_check.py`): passed its

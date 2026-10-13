@@ -1,7 +1,10 @@
 """
 =============================================================================
- contract_npv_panel.py   v1.3                    Validation exhibit (2026-07-05)
+ contract_npv_panel.py   v1.4                    Validation exhibit (2026-07-05)
 =============================================================================
+ WHAT CHANGED IN v1.4 (2026-10-13)
+   Each row carries npv_total_arb beside npv_total: the control years costed under the
+   arbitration rule (contract_npv v2.4, rfa_terminal_value v2.3). npv_total is unchanged.
  WHAT CHANGED IN v1.3 (2026-10-05)
    Open decision 2: a contract's first-season page is valued at its signing
    when it was signed after 1 July (valuation_as_of); directive 4: each row
@@ -182,6 +185,7 @@ def build_panel():
             "npv_terminal": s["npv_terminal"],
             "npv_total": s["npv_total"],
             "npv_total_term_free": s["npv_total_term_free"],   # directive 4 sensitivity
+            "npv_total_arb": s["npv_total_arb"],               # v1.4: arbitration cost
             "term_years": s["term_years"],
             "surplus_no_survival": s["surplus_no_survival"],
         })
