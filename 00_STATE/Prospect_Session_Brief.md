@@ -56,4 +56,4 @@ Written 2026-10-14, at Thomas's request, to open the prospect-model session.
 - `00_STATE/sessions/2026-10-06.md`: a first design proposal for one model family covering picks and prospects
   (superseded in its details on 2026-10-09; useful as context).
 - `00_STATE/MODEL_DIRECTIVES.md` directive 6: the full draft and prospect specification so far.
-- `00_STATE/WORK_QUEUE.md`: the live list (the prospect model is the next item); its pointer to this brief is the first line there.
+- `00_STATE/WORK_QUEUE.md`: the live list; its prospect-model item points to this brief.
