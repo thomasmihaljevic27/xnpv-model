@@ -7,6 +7,13 @@ rebuilt age table). Promoted 2026-10-02 from the rebuild tree, where it was
 `star_candidates.XNPV1` ("Model 6"): `candidate(gp=True, contracts=True)` on
 `obvious_fixes.ObviousFixes` on `ability_forecast.A1HingeExposure`.
 
+v2.3 (2026-10-14): ContractForecaster.arbitration_war(), the arbitration price's WAR
+"consistent with the forecast" (Thomas, 2026-10-14, reading (a)): for a season z, the
+forecast's own start built on the three seasons before z (games-weighted 50/30/20 rate per
+82, 65/35 toward comparable players, plus the curve's change to z) times the forecast's
+games share for z. Seasons before the page are observed; seasons from the page on are the
+page's forecast. Asked at page z itself it IS the page's h = 0 WAR if he plays (asserted).
+No forecast changes. pick_curve.py and rfa_terminal_value.py both call it.
 v2.2 (2026-10-05): investigations D2 (age squared in the games-share line) and
 E1 (the before-2018 marker in the chance of playing), adopted by Thomas on
 25_TESTS/games_playing_followup.py. v2.1 is at a61b607.
@@ -93,7 +100,7 @@ import forecast_config as C
 import information_set as ISET
 from participation_model import ParticipationModel
 
-SCRIPT_VERSION = "2.2"
+SCRIPT_VERSION = "2.3"
 MODEL_NAME = "xNPV 1"
 
 # DIRECTIVE 1 (Thomas, 2026-10-04): "We are not using fitted decay." Every
@@ -771,6 +778,63 @@ class ContractForecaster:
         f["tw_WAR"] = float(a.loc[ck, "tw_WAR"])
         f["stale_history"] = float(a.loc[ck, "stale_history"])
         return f
+
+    def arbitration_war(self, ck: str, t0: int, season: int):
+        """The arbitration price's WAR for `season`, consistent with the forecast (v2.3;
+        Thomas 2026-10-14, reading (a)), for career `ck` valued from page t0 <= season.
+        Returns (WAR, own_82, last counted season) or None when the page has no anchor for him.
+
+        THE START, rebuilt at `season` the way the forecast builds it at its page:
+            K_OWN x own_82(season)                       own: the three seasons before it,
+                                                         50/30/20, each weight times its games
+          + (1 - K_OWN) x comparables' level at the age of his last counted season s*
+          + the curve's change from s* to `season`
+        times the forecast's games share for `season` (the page's line, h = season - t0).
+        A season before t0 counts when observed with MIN_GP+ games (rate WAR_82, its games);
+        a season from t0 on is the page's forecast (rate_82, games = gp_share x 82), and
+        always counts. Comparables' level and changes come from the page's one match
+        (XNPV1._path): level cn at his last counted age before t0, changes path[st] from it,
+        held past the end. Nothing after t0 is read."""
+        t0, season = int(t0), int(season)
+        assert season >= t0, "an arbitration season before the page would need a later page"
+        m, iset, p, a = self.page(t0)
+        if ck not in a.index:
+            return None
+        row = a.loc[ck]
+        g = int(row["last_lag"])
+        cn, path = m._path(ck, row["pos"], float(row["age_last"]), g)
+        base = t0 - g                                  # his last counted season before t0
+        # the table's own rate per 82 (WAR is the D20-prorated total, so WAR / GP would count the
+        # proration twice in the short seasons), games-weighted within a season as the start is
+        t = self.table[(self.table["career_key"] == ck) & (self.table["syr"] < t0)
+                       & (self.table["GP"] >= C.MIN_GP)]
+        obs = (t.assign(_w=t["WAR_82"] * t["GP"]).groupby("syr")
+               .agg(GP=("GP", "sum"), _w=("_w", "sum")))
+        obs["WAR_82"] = obs["_w"] / obs["GP"]
+        num = den = 0.0
+        last = None
+        for wt, z in zip(TRAIL_WEIGHTS, (season - 1, season - 2, season - 3)):
+            if z < t0:
+                if z not in obs.index:
+                    continue
+                gp, r82 = float(obs.loc[z, "GP"]), float(obs.loc[z, "WAR_82"])
+            else:
+                f = p.loc[(ck, z - t0)]
+                gp, r82 = float(f["gp_share"]) * 82.0, float(f["rate_82"])
+            num += wt * gp * r82
+            den += wt * gp
+            last = z if last is None else max(last, z)
+        if last is None or den <= 0:
+            return None
+        own = num / den
+        n = len(path) - 1
+        st_last, st_z = min(max(last - base, 0), n), min(max(season - base, 0), n)
+        rate = K_OWN * own + (1 - K_OWN) * (cn + path[st_last]) + (path[st_z] - path[st_last])
+        war = rate * float(p.loc[(ck, season - t0), "gp_share"])
+        if season == t0:                               # GUARD: at its own page it is the forecast
+            assert abs(own - float(row["own_82"])) < 1e-9, (ck, t0, own, row["own_82"])
+            assert abs(war - float(p.loc[(ck, 0), "war_if_plays"])) < 1e-9, (ck, t0)
+        return war, own, last
 
     def write(self, path) -> Path:
         """Every page forecast this run made, for audit, tagged with the model

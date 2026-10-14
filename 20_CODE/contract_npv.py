@@ -1,8 +1,13 @@
 """
 =============================================================================
- contract_npv.py   v2.6                             Phase 1d
+ contract_npv.py   v2.7                             Phase 1d
                                   xNPV 1 prices skater contracts (2026-10-02)
 =============================================================================
+ v2.7 (2026-10-14, Thomas): goalie control seasons follow rfa_terminal_value v2.5. The arbitration
+ price's WAR is the goalie forecast's construction rebuilt at each control season
+ (GoalieProjector.arbitration_war: 50/30/20 over the three seasons before it, observed before the
+ page and the flat projection from it, 62.5/37.5 with two, t-1 alone; shrunk 65% toward the league
+ average); the CBA need reads his age in the year he signed his entry-level contract.
  v2.6 (2026-10-14): validate() takes its sample rows from the contract-season spine; the 60/40
  skater_value_spine.csv is retired (skater_value_engine v2.0). Prices unchanged.
  v2.5 (2026-10-13) ADOPTED (Thomas): the arbitration cost is the headline npv_total; the QO
@@ -237,7 +242,7 @@ from skater_forward_projection import (SkaterProjector, cap_path,
                                        CAP_GROWTH, CAP_CEILING,
                                        contract_chain, check_as_of)
 from rfa_terminal_value import (TerminalValuer, qualifying_offer, ARB_NEED,  # noqa: E402
-                                arb_eligible, arb_trailing)
+                                arb_eligible, signing_year)
 from exit_hazard import (build_transitions, build_hazard_table, bucket,
                          age_group, report_item_14)       # goalie hazard only (v2.0)
 
@@ -256,7 +261,7 @@ F_GOALIE_SPINE = OUTPUT_DIR / "goalie_value_spine_v2.csv"
 F_SEASON_SPINE = OUTPUT_DIR / "contract_season_spine.csv"
 OUT_SPINE = OUTPUT_DIR / "contract_npv_spine.csv"
 OUT_LOG = OUTPUT_DIR / "contract_npv_run_log.txt"
-SCRIPT_VERSION = "2.6"   # printed first in the run log (25_TESTS/xnpv0_removal_check.py reads it)
+SCRIPT_VERSION = "2.7"   # printed first in the run log (25_TESTS/xnpv0_removal_check.py reads it)
 
 # ---- locked goalie constants (P2 close-out, 2026-06-30) --------------------
 # The documented narrative values (alpha 1.398% cap, beta 1.097%/WAR, league
@@ -361,6 +366,24 @@ class GoalieProjector:
                     out[int(z)] = (float(g.loc[z]), float(w.loc[z]))
         played = [z for z, (gp, _) in out.items() if gp > 0]
         return out, (min(played) if played else int(t0))
+
+    def arbitration_war(self, nname, t0, season, pw):
+        """v2.7: the goalie forecast's construction rebuilt at `season` (>= t0): the cascade over
+        the three seasons before it (observed, D20-prorated, before the page t0; the flat
+        projection pw from t0 on), then shrunk 65% toward the league average. None without a t-1
+        season. No stale-anchor walk: a control season always follows a played contract."""
+        def w(z):
+            return pw if z >= t0 else self._get(nname, z)
+        w1, w2, w3 = w(season - 1), w(season - 2), w(season - 3)
+        if pd.notna(w1) and pd.notna(w2) and pd.notna(w3):
+            tr = 0.5 * w1 + 0.3 * w2 + 0.2 * w3
+        elif pd.notna(w1) and pd.notna(w2):
+            tr = 0.625 * w1 + 0.375 * w2
+        elif pd.notna(w1):
+            tr = w1
+        else:
+            return None
+        return (1 - LAMBDA_G) * tr + LAMBDA_G * GOALIE_LEAGUE_AVG
 
     def shrunk_projection(self, nname, t0):
         """Cascade: 50/30/20 with three priors, 62.5/37.5 with two (v2.3; 60/40 until then),
@@ -674,8 +697,10 @@ class NPVEngine:
             # from the second); the CBA count without one: trailing seasons before t0 from
             # Goalies_WAR, from t0 on the flat projection pw
             observed, first = self.g_proj.history(nname, t0)
+            sy = signing_year(lrows.iloc[0].get("nhl_id"))      # v2.7: the year he signed
             need = (None if pd.isna(bd) else
-                    ARB_NEED(int(np.floor((pd.Timestamp(first, 9, 15) - bd).days / 365.25))))
+                    ARB_NEED(int(np.floor((pd.Timestamp(sy if sy is not None else first, 9, 15)
+                                           - bd).days / 365.25))))
             obs_gp = {z: v[0] for z, v in observed.items()}
             flag = self.tv.arb_flag.get(int(chain[-1]))
             truncated = False
@@ -689,7 +714,7 @@ class NPVEngine:
                 val = max((ALPHA_G + BETA_G * pw) * ceil, lm)
                 elig = (arb_eligible(season, t0, need, obs_gp) if flag is None
                         else flag == 1 or j >= 2)
-                tw = arb_trailing(season, t0, observed, lambda z: pw) if elig else None
+                tw = self.g_proj.arbitration_war(nname, t0, season, pw) if elig else None
                 qo = qualifying_offer(sal, cap_hit, season, s20)
                 cost = (max(qo, max((ALPHA_G + BETA_G * tw) * ceil, lm))
                         if tw is not None else qo)

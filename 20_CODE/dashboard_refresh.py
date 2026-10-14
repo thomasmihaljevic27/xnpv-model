@@ -1,6 +1,8 @@
 """
 =============================================================================
- dashboard_refresh.py   v1.0                        Launcher (2026-09-28)
+ dashboard_refresh.py   v1.2                        Launcher (2026-09-28)
+   v1.2 (2026-10-14): elc_signing_dates.py joins the chain (step 3); skater_value_engine.py left it (a library since v2.0; its
+   60/40 spine and guards are retired); the goalie engine no longer runs a parity gate.
 =============================================================================
  WHAT THIS DOES (plain English)
  ------------------------------
@@ -17,8 +19,9 @@
     1  join_clauses_to_spine.py      contract_season_spine / contract_level_spine
     2  age_join.py                   WAR_with_age.csv (ages for the aging curve
                                      and the exit hazard)
-    3  skater_value_engine.py        skater_value_spine.csv (rate guards first)
-    4  goalie_value_engine.py        goalie_value_spine_v2.csv (parity gate first)
+    3  elc_signing_dates.py          elc_signing_dates.csv (entry-level signing years,
+                                     for the CBA arbitration age)
+    4  goalie_value_engine.py        goalie_value_spine_v2.csv
     5  skater_forward_projection.py  guards + run log; the NPV engine imports it
     6  rfa_terminal_value.py         guards + run log; imported
     7  exit_hazard.py                guards + run log; imported
@@ -33,15 +36,15 @@
  the dashboard only uses it to show draft position.
 
  Not in the chain: draft_yield_curve.py (the dashboard does not price
- picks) and goalie_value_spine.csv, the locked goalie file that step 4's
- parity gate checks against. It is a fixed reference, never regenerated.
+ picks) and goalie_value_spine.csv, the locked July goalie file that step 4's
+ carry report reads. It is a fixed reference, never regenerated.
 
  WHAT COUNTS AS A STEP PASSING -- all three, because an exit code is not enough
  ------------------------------------------------------------------------------
    (a) the script exits with code 0;
    (b) no guard-failure line in its output (GUARD FAILED, FAIL, FAILED,
-       HALTED). goalie_value_engine.py prints "HALTED at parity gate." and
-       exits 0 when its gate fails, without writing its spine;
+       HALTED). goalie_value_engine.py v1.2 printed "HALTED at parity gate." and
+       exited 0 when its gate failed, without writing its spine;
    (c) every file the step owns was rewritten during this run. A step that
        stops early leaves last run's file in place, and the next step would
        read it without complaint.
@@ -90,7 +93,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "dashboard_refresh.py v1.1 (2026-10-02)"
+SCRIPT_VERSION = "dashboard_refresh.py v1.2 (2026-10-14)"
 
 CODE_DIR = Path(__file__).resolve().parent
 REPO = CODE_DIR.parent
@@ -105,9 +108,9 @@ CHAIN = [
     ("age_join.py",
      ["WAR_with_age.csv", "age_join_log.txt"],
      "player ages"),
-    ("skater_value_engine.py",
-     ["skater_value_spine.csv", "skater_value_run_log.txt"],
-     "skater observed-season value"),
+    ("elc_signing_dates.py",
+     ["elc_signing_dates.csv", "elc_signing_dates_log.txt"],
+     "entry-level signing years"),
     ("goalie_value_engine.py",
      ["goalie_value_spine_v2.csv", "goalie_value_engine_run_log.txt"],
      "goalie observed-season value"),
@@ -134,7 +137,7 @@ DRAFT_STEP = ("draft_pick_linkage.py", ["draft_pick_linkage.csv"],
 DASH_STEP = ("player_dashboard.py", ["player_dashboard.html"], "dashboard")
 
 # Files the chain READS from OUTPUT_DIR but does not write. The locked goalie
-# spine is step 4's parity reference; the draft linkage is only rewritten
+# spine is read by step 4's carry report; the draft linkage is only rewritten
 # with --refresh-draft.
 REFERENCE_FILES = ["goalie_value_spine.csv", "draft_pick_linkage.csv"]
 
@@ -226,7 +229,7 @@ def check_inputs(out_dir, refresh_draft):
         "PuckPedia contract export, CSV copy (xNPV 1)":
             src / "PuckPedia_Player_Contract_Export_May_22_2026__CONFIDENTIAL.csv",
         "PuckPedia trades export": Path(os.environ["PUCKPEDIA_TRADES_XLSX"]),
-        "locked goalie spine (parity reference)": out_dir / "goalie_value_spine.csv",
+        "locked goalie spine (carry report reference)": out_dir / "goalie_value_spine.csv",
     }
     if not refresh_draft:
         need["draft linkage"] = out_dir / "draft_pick_linkage.csv"

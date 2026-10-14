@@ -1,6 +1,17 @@
 """
 =============================================================================
- rfa_terminal_value.py   v2.4                       Phase 1c
+ rfa_terminal_value.py   v2.5                       Phase 1c
+
+ v2.5 (2026-10-14, Thomas): the arbitration price's WAR is "consistent with the forecast"
+ (reading (a)): skater_forecast.ContractForecaster.arbitration_war, xNPV 1's own start rebuilt at each
+ control season from the page's information (observed seasons before the page, the page's forecast
+ from it on) times its games share; it replaces the raw 50/30/20 of season totals (arb_trailing,
+ removed). Every RFA-expiring contract in the export carries the flag (2,759 of 2,759), so the
+ signing age below is not read for any priced contract today.
+ Also (Thomas: "all aging checks should be consistent"): where PuckPedia has no
+ eligibility flag, the CBA 12.1(a) need reads his age on September 15 of the year he SIGNED his
+ entry-level contract (elc_signing_dates.csv; signing_year()), his first NHL season standing in
+ only without a date.
 
  v2.4 (2026-10-13) ADOPTED (Thomas: "I say adopt. I say use PuckPedia's
  flag"): the arbitration cost is the HEADLINE (tv_adjusted). Eligibility
@@ -205,7 +216,6 @@ def price(projected_war, posgrp, ceiling, term_free=False):
 # data, so eligibility comes later than in fact), pro-rated in the short seasons.
 ARB_NEED = lambda age: 4 if age <= 20 else 3 if age == 21 else 2 if age <= 23 else 1
 ARB_GP = {2012: 6, 2019: 9, 2020: 7}            # 10 games x 48/82, 70/82, 56/82, rounded up
-W_TRAIL = (0.5, 0.3, 0.2)                      # 50/30/20, most recent season first
 SEP15_BEFORE_FEB1 = 139 / 365.25               # the season table's age is on 1 February
 
 
@@ -219,20 +229,20 @@ def arb_eligible(season, t0, need, observed_gp):
     return pro + max(0, season - t0) >= need
 
 
-def arb_trailing(season, t0, observed, future):
-    """50/30/20 over the three seasons before `season`, most recent first, rescaled over
-    the seasons he has. Before t0: observed[z] = (games, season WAR), seasons with an NHL
-    game only. From t0 on: future(z), the forecast's WAR if he plays. None if none."""
-    parts = []
-    for wt, z in zip(W_TRAIL, (season - 1, season - 2, season - 3)):
-        if z < t0:
-            if z in observed and observed[z][0] > 0:
-                parts.append((wt, observed[z][1]))
-        else:
-            parts.append((wt, float(future(z))))
-    if not parts:
+_SIGNED = None
+
+
+def signing_year(nhl_id):
+    """v2.5: the calendar year he signed his entry-level contract (CBA 9.2, 12.1(c): age is read on
+    September 15 of it), from OUTPUT_DIR/elc_signing_dates.csv (elc_signing_dates.py), or None."""
+    global _SIGNED
+    if _SIGNED is None:
+        f = Path(os.environ["OUTPUT_DIR"]) / "elc_signing_dates.csv"
+        e = pd.read_csv(f).dropna(subset=["nhl_id", "signing_year"])
+        _SIGNED = dict(zip(e["nhl_id"].astype("int64"), e["signing_year"].astype(int)))
+    if nhl_id is None or pd.isna(nhl_id):
         return None
-    return sum(w * x for w, x in parts) / sum(w for w, _ in parts)
+    return _SIGNED.get(int(nhl_id))
 
 
 def load_arbitration_flags():
@@ -451,11 +461,12 @@ class TerminalValuer:
                 assert abs(self.qualify_p[b] - self.qualify_p_prefix[b]) < 1e-9, \
                     f"Stage 4 fix moved the {b} bucket, which it must not"
 
-    def _arb_history(self, pkey, t0):
+    def _arb_history(self, pkey, t0, nhl_id=None, bd=None):
         """(observed {season: (games, WAR)} before t0, the CBA 12.1(a) need) for one skater,
-        from the season table the forecast reads (WAR is the D20 season total). Signing age:
-        his age on September 15 of his first NHL season (t0 if none before it); None if the
-        table has no age for him."""
+        from the season table the forecast reads (WAR is the D20 season total). Signing age
+        (v2.5): his age on September 15 of the year he signed his entry-level contract
+        (signing_year), from his birthdate `bd` when given; without a signing date, of his first
+        NHL season (t0 if none before it). None if no age is known."""
         fc = self.sp.forecaster
         if not hasattr(self, "_arb_groups"):
             t = fc.table
@@ -469,10 +480,15 @@ class TerminalValuer:
         observed = {int(z): (float(r.GP), float(r.WAR)) for z, r in obs.iterrows()}
         played = obs[obs["GP"] > 0]
         first = int(played.index.min()) if len(played) else int(t0)
-        aged = g["age_exact"].dropna()
-        if aged.empty:
-            return observed, None
-        age = float(aged.iloc[0]) - (int(aged.index[0]) - first) - SEP15_BEFORE_FEB1
+        sy = signing_year(nhl_id)
+        year = sy if sy is not None else first
+        if bd is not None and pd.notna(bd):
+            age = (pd.Timestamp(year, 9, 15) - pd.Timestamp(bd)).days / 365.25
+        else:
+            aged = g["age_exact"].dropna()
+            if aged.empty:
+                return observed, None
+            age = float(aged.iloc[0]) - (int(aged.index[0]) - year) - SEP15_BEFORE_FEB1
         return observed, ARB_NEED(int(np.floor(age)))
 
     def control_weight(self, projected_war):
@@ -553,7 +569,9 @@ class TerminalValuer:
         # v2.4 (Thomas, 2026-10-13: "I say adopt. I say use PuckPedia's flag"): the arbitration
         # rule is the headline. Eligibility from PuckPedia's flag on the contract whose expiry he
         # faces (chain end); the CBA 12.1(a) count where the contract has no flag.
-        observed, need = self._arb_history(nk, valuation_season)
+        observed, need = self._arb_history(nk, valuation_season, crows.iloc[0].get("nhl_id"),
+                                           crows.iloc[0].get("bd"))
+        ck = sp.forecaster.career_of.get(nk)
         obs_gp = {z: v[0] for z, v in observed.items()}
         flag = self.arb_flag.get(int(cid))
         sal_f, cap_f = sal, cap_hit                # the term-free arm's own chain
@@ -573,11 +591,14 @@ class TerminalValuer:
                 elig = arb_eligible(season, valuation_season, need, obs_gp)
             else:
                 elig = flag == 1 or j >= 2
-            tw = (arb_trailing(season, valuation_season, observed,
-                               lambda z: war_k[z - valuation_season]) if elig else None)
+            # v2.5: the arbitration price's WAR is the forecast's own start rebuilt at this season
+            # (reading (a)); None when the page has no anchor for him
+            r_arb = (sp.forecaster.arbitration_war(ck, valuation_season, season)
+                     if elig and ck is not None else None)
+            tw = None if r_arb is None else r_arb[0]
             # HEADLINE COST: the qualifying offer (computed on what he was paid the season
             # before), or once eligible the higher of it and the line's price (one year of term)
-            # of his 50/30/20 trailing WAR, floored at the league minimum
+            # of that WAR, floored at the league minimum
             qo = qualifying_offer(sal, cap_hit, season, signed_2020_plus)
             cost = max(qo, max(price(tw, posgrp, ceil), lm)) if tw is not None else qo
             surplus = val - cost
@@ -623,7 +644,7 @@ class TerminalValuer:
                 "valuation_season": valuation_season, "path": path,
                 "projected_war": pw, "value_dollars": val,
                 "qo_cost": qo, "cost": cost, "qo_salary_source": sal_src,
-                "arb_flag": flag, "arb_eligible": tw is not None, "arb_trailing_war": tw,
+                "arb_flag": flag, "arb_eligible": tw is not None, "arb_market_war": tw,
                 "surplus_dollars": surplus, "qualify_survival": survival,
                 "control_weight_year": w_year, "chain_start_p_play": p_final,
                 "surplus_adjusted": survival * surplus,
