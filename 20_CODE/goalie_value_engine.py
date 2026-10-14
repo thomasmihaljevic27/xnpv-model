@@ -331,6 +331,8 @@ def build_spine(lam, alpha_g, beta_g, prorate, carry_out_years=False):
     cs = pd.read_csv(F_SEASON_SPINE)
     gl = cs[cs["position"] == "Goaltender"].copy()
     gl["full_name"] = gl["first_name"].astype(str) + " " + gl["last_name"].astype(str)
+    import contract_source as _CS                # 2026-10-14: WAR spelling for crosswalked ids
+    gl["full_name"] = _CS.war_full_name(gl, gl["full_name"])
     gl["nk"] = gl["full_name"].map(norm_name)
     gl["cost"] = gl["cs_cap_hit"].fillna(gl["pp_cap_hit"])
 
@@ -506,7 +508,8 @@ def _rate_sample(lut, prorate):
     g = raw[(raw["position"] == "Goaltender")
             & (raw["contract_level"] == "standard_level")
             & raw["start_yr"].between(2015, 2026)].copy()
-    g["nk"] = (g["first_name"].astype(str) + " " + g["last_name"].astype(str)).map(norm_name)
+    import contract_source as _CS                # 2026-10-14: WAR spelling for crosswalked ids
+    g["nk"] = _CS.war_full_name(g, g["first_name"].astype(str) + " " + g["last_name"].astype(str)).map(norm_name)
     g["wWAR"] = [cascade(k, int(s), lut, prorate)[0] if pd.notna(s) else None
                  for k, s in zip(g["nk"], g["start_yr"])]
     g = g[g["wWAR"].notna()].copy()
@@ -591,8 +594,20 @@ def _log_carry_impact(v2):
         f"({carried['full_name'].nunique()} goaltenders)")
     log(f"    -> never played, retag only:{len(nohist):,} rows "
         f"({nohist['full_name'].nunique()} goaltenders)")
-    assert len(carried) + len(nohist) == len(ph), \
-        "carried + retagged does not reconstruct the locked placeholder set"
+    # 2026-10-14: a placeholder row may now be priced from the goaltender's own seasons because
+    # war_name_crosswalk.py joined his contract to them (PuckPedia and Goalies_WAR spell him differently).
+    # Each such row must belong to a crosswalk-matched goaltender; nothing else may leave the set.
+    import contract_source as _CS
+    key = lambda d: set(zip(d["contract_id"], d["season_start"]))          # noqa: E731
+    gone = key(ph) - key(carried) - key(nohist)
+    joined = v2[[k in gone for k in zip(v2["contract_id"], v2["season_start"])]]
+    xw_names = set(_CS.war_name_map().values())
+    assert len(joined) == len(gone) and joined["full_name"].isin(xw_names).all(), \
+        "a placeholder row left the set without a crosswalk join"
+    log(f"    -> now priced from his own seasons (name crosswalk): {len(joined):,} rows "
+        f"({', '.join(sorted(joined['full_name'].unique()))})")
+    assert len(carried) + len(nohist) + len(joined) == len(ph), \
+        "carried + retagged + crosswalk-joined does not reconstruct the locked placeholder set"
 
     # Dollar movement on the carried rows. The locked value on these rows was
     # the placeholder value, so the difference IS the correction. Signed:

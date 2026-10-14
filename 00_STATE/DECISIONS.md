@@ -3237,3 +3237,12 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   zero, seasons from the first draft-eligible year. Fresh decisions under directive 6.
 - `prospect_values.py` v1.3: 54 undrafted assets valued, $5.95M; all prospects $78.67M. The question's premise (75
   AHL contracts) was corrected: trades.db's AHL flag marks assignment, not contract type; PuckPedia decides.
+
+### Change log, 2026-10-14k (coverage of traded players: name crosswalk, ids; price line re-lock pending)
+
+- DECISIONS (Thomas): build a 2017-18 page; fix the id matching; veterans with no recent season at the cost above the
+  AHL burial allowance (to confirm against D16(i)); fix the player model's name join in this session.
+- Built: `war_name_crosswalk.py` v1.0 (34 ids) wired through `contract_source.war_full_name()` into the chain; the goalie
+  carry audit accepts crosswalk-joined rows; `prospect_values.py` v1.4. Refresh 11/11: 87 more contract-pages priced.
+- The locked price line (D33 addendum, 2026-10-14 lock) reproduces on its locked sample; the corrected sample would move
+  it (beta +0.13%, defence add -3%). `xnpv1_price_line.py` fails its sample guard until Thomas decides. Not re-locked.

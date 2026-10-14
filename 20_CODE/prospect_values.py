@@ -117,7 +117,7 @@ import statsmodels.api as sm
 from dotenv import load_dotenv
 
 
-SCRIPT_VERSION = "prospect_values.py v1.3 (2026-10-14)"
+SCRIPT_VERSION = "prospect_values.py v1.4 (2026-10-14)"
 load_dotenv()
 import contract_source as CS   # noqa: E402  v1.1: PuckPedia exports read strictly (identity only)
 SOURCE_DIR, OUTPUT_DIR = Path(os.environ["SOURCE_DIR"]), Path(os.environ["OUTPUT_DIR"])
@@ -483,7 +483,8 @@ def main():
     def ids_for(r):
         """NHL ids for a traded asset: (1) a PuckPedia trade row of the same name within 3 days of the trade;
         (2) a PuckPedia contract of the same name whose cap hit equals the asset's and that runs on the trade
-        date (signed on or before it, ending June 30 of its last season on or after it)."""
+        date (signed on or before it, ending June 30 of its last season on or after it); (3, v1.4) when neither
+        finds one, a PuckPedia contract of the same name running on the trade date, whatever its cap hit."""
         key, ids = name_key(r.player_name), {}
         t = pt_by.get(key[0])
         if t is not None:
@@ -496,6 +497,17 @@ def main():
                   & (c["signed"] <= r.date) & (c["ends"] >= r.date)]
             for i in c["nhl_id"].astype(int):
                 ids.setdefault(i, set()).add("PuckPedia contract")
+        if not ids:
+            # v1.4 (Thomas, 2026-10-14: "Fix it"): trades.db lists a player assigned to the AHL at $0, so the cap-hit
+            # match finds nothing; a PuckPedia contract of the same name running on the trade date, any cap hit
+            c = pc_by.get(key[0])
+            if c is not None:
+                # the SAME canonical first name, not just its first letter: without the cap hit as evidence, a
+                # first-letter match took Vince Dunn's contract for Vincent Dunn (OTT 2013 #138) and Jordan
+                # Greenway's for James Greenway (caught by the id-name guard, 2026-10-14)
+                c = c[c["key"].map(lambda k: k == key) & (c["signed"] <= r.date) & (c["ends"] >= r.date)]
+                for i in c["nhl_id"].astype(int):
+                    ids.setdefault(i, set()).add("PuckPedia contract, any cap hit")
         return ids
 
     # the name tier's spellings: the linkage's name, and Elite Prospects' name for the same draft slot
@@ -550,7 +562,7 @@ def main():
             key = name_key(r.player_name)
             c_ = pc_by.get(key[0])
             if c_ is not None:
-                c_ = c_[c_["key"].map(lambda k_: first_ok(k_, key)) & (c_["signed"] <= r.date) & (c_["ends"] >= r.date)]
+                c_ = c_[c_["key"].map(lambda k_: k_ == key) & (c_["signed"] <= r.date) & (c_["ends"] >= r.date)]
                 found = set(c_["nhl_id"].astype(int))
                 if len(found) == 1:
                     nid = found.pop()

@@ -84,8 +84,9 @@ def contract_spans(contracts: pd.DataFrame) -> pd.DataFrame:
     """
     from contract_source import POSGRP
     c = contracts.copy()
-    name = (c["first_name"].astype(str).str.strip() + " "
-            + c["last_name"].astype(str).str.strip()).map(norm_name)
+    from contract_source import war_full_name   # 2026-10-14: WAR spelling for crosswalked ids
+    name = war_full_name(c, c["first_name"].astype(str).str.strip() + " "
+                         + c["last_name"].astype(str).str.strip()).map(norm_name)
     c["pkey"] = name + "|" + c["position"].map(POSGRP).astype(str)
     c["end_yr"] = pd.to_numeric(
         c["contract_end"].astype(str).str.extract(r"^(\d{4})")[0], errors="coerce")

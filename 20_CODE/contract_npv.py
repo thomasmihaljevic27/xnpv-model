@@ -460,6 +460,8 @@ class NPVEngine:
         full["posgrp"] = "G"
         full["full_name"] = (full["first_name"].astype(str) + " "
                              + full["last_name"].astype(str))
+        import contract_source as _CS            # 2026-10-14: WAR spelling for crosswalked ids
+        full["full_name"] = _CS.war_full_name(full, full["full_name"])
         full["nname"] = full["full_name"].map(norm_name)
         full["cost"] = full["cs_cap_hit"].fillna(full["pp_cap_hit"])
         full["bd"] = pd.to_datetime(full["birthdate"], errors="coerce")

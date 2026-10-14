@@ -39,7 +39,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import forecast_config as C
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"   # 1.1 (2026-10-14): war_full_name(), the WAR spelling for crosswalked ids
 
 # Tried in order. UTF-8 first so a correctly-encoded file is never read as
 # cp1252 -- cp1252 decodes ANY byte sequence without error, so trying it first
@@ -98,6 +98,34 @@ def validate(df: pd.DataFrame, n_cols: int, what: str) -> None:
 
 # (guard_against_locked_regression is a rebuild-only check, not promoted.)
 
+
+# ---- v1.1 (2026-10-14): the WAR tables' spelling for players the two sources spell differently ----------
+_WAR_NAMES = None
+
+
+def war_name_map() -> dict:
+    """{NHL id: the name as WAR.csv / Goalies_WAR.csv spell it} for the ids war_name_crosswalk.py matched on the
+    NHL game logs (Evgenii Dadonov -> Evgeny Dadonov, Matthew Beniers -> Matty Beniers; 34 on 2026-10-14). Refuses
+    to run without the crosswalk: a missing file would silently drop those players again."""
+    global _WAR_NAMES
+    if _WAR_NAMES is None:
+        path = Path(C.PROD_OUTPUT_DIR) / "war_name_crosswalk.csv"
+        if not path.exists():
+            raise RuntimeError(f"{path} is missing; run 20_CODE/war_name_crosswalk.py first")
+        x = pd.read_csv(path)
+        x = x[x["method"].astype(str).str.startswith("game-log")]
+        _WAR_NAMES = dict(zip(x["nhl_id"].astype(int), x["war_name"].astype(str)))
+    return _WAR_NAMES
+
+
+def war_full_name(df: pd.DataFrame, base: pd.Series, id_col: str = "nhl_id") -> pd.Series:
+    """The caller's own PuckPedia "first last" (`base`), with the WAR spelling put in for a matched NHL id.
+    Every other row is returned unchanged, byte for byte, so a player who already joined is untouched."""
+    xw = war_name_map()
+    ids = pd.to_numeric(df[id_col], errors="coerce")
+    sub = pd.Series([xw.get(int(i)) if pd.notna(i) else None for i in ids], index=df.index, dtype=object)
+    return base.where(sub.isna(), sub)
+
 POSGRP = {"Center": "F", "Left Wing": "F", "Right Wing": "F",
           "Defense": "D", "Goaltender": "G"}
 
@@ -123,8 +151,8 @@ def birthdate_table(ep_csv: Path | None = None) -> pd.DataFrame:
     from player_season_table import norm_name
 
     con, _ = load_contracts()
-    con["_k"] = ((con["first_name"].astype(str).str.strip() + " "
-                  + con["last_name"].astype(str).str.strip()).map(norm_name)
+    con["_k"] = (war_full_name(con, con["first_name"].astype(str).str.strip() + " "
+                               + con["last_name"].astype(str).str.strip()).map(norm_name)   # v1.1
                  + "|" + con["position"].map(POSGRP).astype(str))
     pp = con[["_k", "birthdate"]].dropna()
     pp = pp[pp["birthdate"].astype(str).str.len() >= 8]

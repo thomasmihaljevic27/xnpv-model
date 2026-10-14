@@ -353,6 +353,8 @@ def compute_age(birthdate, end_year):
 def build_puckpedia_lookup(path):
     raw = pd.read_excel(path).drop_duplicates("player_id").copy()
     raw["full_name"] = raw["first_name"].astype(str) + " " + raw["last_name"].astype(str)
+    import contract_source as _CS                # 2026-10-14: WAR spelling for crosswalked ids
+    raw["full_name"] = _CS.war_full_name(raw, raw["full_name"])
     raw["nkey"] = raw["full_name"].map(normalise_name)
     raw["posgroup"] = raw["position"].map(POSITION_GROUP)
     raw["last_norm"] = raw["last_name"].astype(str).map(normalise_name)

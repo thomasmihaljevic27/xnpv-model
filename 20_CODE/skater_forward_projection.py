@@ -393,6 +393,9 @@ class SkaterProjector:
         sk = cs[cs["position"] != "Goaltender"].copy()
         sk["posgrp"] = sk["position"].map(POSGRP)
         sk["full_name"] = sk["first_name"].astype(str) + " " + sk["last_name"].astype(str)
+        # 2026-10-14: the WAR spelling for ids war_name_crosswalk.py matched (Dadonov, Beniers, Peterka ...)
+        import contract_source as _CS
+        sk["full_name"] = _CS.war_full_name(sk, sk["full_name"])
         sk["nname"] = sk["full_name"].map(norm_name)
         def make_key(row):
             alias = NAME_ALIASES.get((row["nname"], row["posgrp"]))

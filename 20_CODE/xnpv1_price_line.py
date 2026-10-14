@@ -106,7 +106,8 @@ def stage3_sample() -> pd.DataFrame:
         raw["contract_end"].astype(str).str.extract(r"^(\d{4})")[0], errors="coerce")
     raw["start_yr"] = raw["end_yr"] - raw["length"] + 1
     raw["posgrp"] = raw["position"].map(SVE.POSGRP)
-    raw["nk"] = ((raw["first_name"].astype(str) + " " + raw["last_name"].astype(str))
+    import contract_source as _CS                # 2026-10-14: WAR spelling for crosswalked ids
+    raw["nk"] = (_CS.war_full_name(raw, raw["first_name"].astype(str) + " " + raw["last_name"].astype(str))
                  .map(SVE.norm_name) + "|" + raw["posgrp"].astype(str))
     # Screen: a 10+ game season at t-1 or t-2 (goalies are dropped below, so only the skater
     # lookup matters; proration changes values, not which keys exist).

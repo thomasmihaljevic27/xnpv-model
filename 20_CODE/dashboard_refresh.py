@@ -105,6 +105,9 @@ CHAIN = [
     ("join_clauses_to_spine.py",
      ["contract_season_spine.csv", "contract_level_spine.csv", "join_clauses_runlog.txt"],
      "contract spines"),
+    ("war_name_crosswalk.py",          # 2026-10-14: WAR spellings for ids the two sources spell differently
+     ["war_name_crosswalk.csv", "war_name_crosswalk_log.txt"],
+     "name crosswalk"),
     ("age_join.py",
      ["WAR_with_age.csv", "age_join_log.txt"],
      "player ages"),

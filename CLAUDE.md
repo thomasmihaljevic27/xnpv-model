@@ -79,6 +79,7 @@ Paths come from `.env` (copy `.env.example`). Run from the repo root.
 
 Player pillar, in order:
 
+    python 20_CODE/war_name_crosswalk.py         # each contracted player's WAR spelling (before age_join; 2026-10-14)
     python 20_CODE/elc_signing_dates.py          # entry-level signing years (CBA arbitration and entry-level ages)
     python 20_CODE/skater_forward_projection.py  # Layer 2, forward projection
     python 20_CODE/rfa_terminal_value.py         # terminal value at expiry
