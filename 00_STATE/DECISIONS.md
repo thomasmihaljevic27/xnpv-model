@@ -3276,3 +3276,9 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - `rfa_terminal_value.py` v2.6 (optional expired-contract argument; default path identical on 200 of 200 samples) and
   `rights_values.py` v1.0. Figures shown to Thomas before adoption: 19 rights assets, $0.78M (13 RFAs; 11 at zero by
   the qualifying-offer / arbitration cost and D13), 6 UFA rights at zero. Not adopted.
+
+### Change log, 2026-10-14p (rights values adopted)
+
+- DECISION (Thomas): rights traded after the regular season carry `rights_values.py`'s values (restricted: control years
+  from the next page, the engine's terminal-value logic; unrestricted: zero). 19 assets, $0.78M. Written into
+  traded_player_values.csv. buried_contract_values v1.2 no longer values an asset a second time.

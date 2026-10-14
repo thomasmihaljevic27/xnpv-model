@@ -30,7 +30,7 @@ WHAT HE IS WORTH
 INPUTS: OUTPUT_DIR/prospect_values.csv, contract_npv_panel.csv; SOURCE_DIR/trades.db; the PuckPedia contract export
 (contract_source.py); skater_forward_projection's ceilings and minimums.
 OUTPUTS: OUTPUT_DIR/buried_contract_values.csv, buried_contract_values_log.txt.
-Run from the repo root:  python 20_CODE/buried_contract_values.py   (after prospect_values.py)
+Run from the repo root:  python 20_CODE/buried_contract_values.py   (after traded_player_values.py and rights_values.py)
 """
 
 import os
@@ -41,7 +41,7 @@ from pathlib import Path
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "buried_contract_values.py v1.1 (2026-10-14)"
+SCRIPT_VERSION = "buried_contract_values.py v1.2 (2026-10-14)"
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_source as CS                        # noqa: E402
@@ -77,6 +77,11 @@ def main():
     LID = {(int(a), int(b)): int(c) for a, b, c in zip(link["draftYear"], link["overallPickNumber"], link["playerId"])
            if pd.notna(c)}
 
+    # v1.2: an asset traded_player_values.py priced, or rights_values.py valued (a post-season trade's rights), is
+    # not valued here as well (Scott Darling and Marek Mazanec were in both, 2026-10-14)
+    tpv = OUTPUT_DIR / "traded_player_values.csv"
+    t_ = pd.read_csv(tpv) if tpv.exists() else pd.DataFrame(columns=["asset_id", "status"])
+    valued_elsewhere = set(t_.loc[t_["status"].astype(str).str.startswith(("ok", "rights:")), "asset_id"])
     rows = []
     for _, r in v.iterrows():
         st = str(r["status"])
@@ -86,6 +91,8 @@ def main():
         if nid is None and pd.notna(r.get("draftYear")) and pd.notna(r.get("pick")):
             nid = LID.get((int(r["draftYear"]), int(r["pick"])))
         y, date = int(r["valuation_page"]), pd.Timestamp(r["trade_date"])   # v1.1: the trade's page (trade_page.py)
+        if r["asset_id"] in valued_elsewhere:             # v1.2: one value per asset
+            continue
         if nid is None or (nid, y) in priced or nid not in by_id:
             continue
         run = by_id[nid][(by_id[nid]["signed"] <= date) & (by_id[nid]["ends"] >= date)]

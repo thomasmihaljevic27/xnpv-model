@@ -3,8 +3,10 @@ rights_values.py -- the rights to a pending free agent, traded after the regular
 
 ASKED (Thomas, 2026-10-14): "Value restricted free agents' rights as their control years from the next page (the
 terminal-value logic, from that page's forecast); unrestricted rights are worth zero. Show me the figures before
-adopting." MEASURED HERE; NOT ADOPTED: traded_player_values.py lists these assets as rights only, unvalued, until
-Thomas decides.
+adopting." ADOPTED (Thomas, 2026-10-14: "Adopt the rights values: wire rights_values.py into the traded-player values
+so the 19 assets carry them."): after it values them, this script writes each value back into
+traded_player_values.csv (npv_total and its versions; status "rights: RFA control years" or "rights: UFA, zero"),
+so it runs after traded_player_values.py and every reader of that file sees the rights valued.
 
 WHO: traded_player_values.csv rows "rights only (his contract at the page was signed after the trade)" or "no contract
 at the page": a trade after the regular season (trade_page.py: valued on the next page, P) of a player whose contract
@@ -39,7 +41,7 @@ import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "rights_values.py v1.0 (2026-10-14)"
+SCRIPT_VERSION = "rights_values.py v1.1 (2026-10-14)"
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_npv as CN                                         # noqa: E402
@@ -188,6 +190,23 @@ def main():
         log(f"    {x.trade_date}  {x.player_name:<22} page {x.page} {str(x.position):<2} {str(x.expiry):<10} "
             f"UFA year {x.ufa_year if pd.notna(x.ufa_year) else '-'}  {val:>9}  {x.status} ({x.source})")
     v.to_csv(OUTPUT_DIR / "rights_values.csv", index=False)
+    # ADOPTED: write the values back into traded_player_values.csv (Thomas, 2026-10-14)
+    tpv = pd.read_csv(OUTPUT_DIR / "traded_player_values.csv")
+    got = v.dropna(subset=["value_M"]).set_index("asset_id")
+    hit = tpv["asset_id"].isin(got.index)
+    for i in tpv.index[hit]:
+        x = got.loc[tpv.at[i, "asset_id"]]
+        ufa = str(x["status"]).startswith("UFA rights")
+        tpv.at[i, "status"] = "rights: UFA, zero" if ufa else "rights: RFA control years"
+        tpv.at[i, "npv_total"] = x["value_M"] * 1e6
+        tpv.at[i, "npv_contract"] = 0.0
+        tpv.at[i, "npv_terminal"] = x["value_M"] * 1e6
+        for col, src in (("npv_total_qo", "value_qo_M"), ("npv_total_term_free", "value_term_free_M")):
+            q = x.get(src)
+            tpv.at[i, col] = (q if pd.notna(q) else x["value_M"]) * 1e6
+    tpv.to_csv(OUTPUT_DIR / "traded_player_values.csv", index=False)
+    log(f"  written back into traded_player_values.csv: {int(hit.sum())} assets "
+        f"(${got['value_M'].sum():,.2f}M); left without a value: {int((~v['asset_id'].isin(got.index)).sum())}")
     (OUTPUT_DIR / "rights_values_log.txt").write_text("\n".join(LOG), encoding="utf-8")
     log(f"\nwrote rights_values.csv and its log in {OUTPUT_DIR}")
 

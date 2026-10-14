@@ -120,7 +120,10 @@ if tpv.exists():
     a.loc[a["asset_id"].isin(set(t_["asset_id"])) & (a["covered_by"] == "player model"), "covered_by"] = "neither"
     a.loc[a["asset_id"].isin(set(t_.loc[t_["status"] == "ok", "asset_id"])), "covered_by"] = "player model"
     ro_ = set(t_.loc[t_["status"].astype(str).str.startswith(("rights only", "no contract at the page")), "asset_id"])
-    a.loc[a["asset_id"].isin(ro_), "why"] = "rights only at the page (post-season trade; no rule yet)"
+    a.loc[a["asset_id"].isin(ro_), "why"] = "rights only at the page (post-season trade; not valued)"
+    # v1.3: rights valued by rights_values.py (adopted 2026-10-14)
+    rv_ = set(t_.loc[t_["status"].astype(str).str.startswith("rights:"), "asset_id"])
+    a.loc[a["asset_id"].isin(rv_), "covered_by"] = "player model, rights"
 # v1.1: the 2017 page (page_2017_values.py) and the buried-contract rule (buried_contract_values.py), where run
 for f, lab, ok in (("page_2017_values.csv", "player model, 2017 page", ("ok",)),
                    ("page_2017_values.csv", "buried-contract rule", ("buried veteran (cost above burial)",)),
