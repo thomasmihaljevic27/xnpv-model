@@ -79,9 +79,9 @@ rows = []
 for _, r in v.iterrows():
     i = nhl_id(r)
     date = pd.Timestamp(r["trade_date"])
-    y = int(r["trade_season"])
+    y = int(r["valuation_page"])        # v1.2: the trade's page (trade_page.py)
     st = str(r["status"])
-    rec = {"asset_id": r["asset_id"], "trade_date": r["trade_date"], "trade_season": y, "player_name": r["player_name"],
+    rec = {"asset_id": r["asset_id"], "trade_date": r["trade_date"], "trade_season": r["trade_season"], "valuation_page": y, "player_name": r["player_name"],
            "acquiring_team": r["acquiring_team"], "trade_cap_hit": r["cap_hit"], "nhl_id": i, "prospect_status": st}
     con = None
     if i is not None and i in PC:
@@ -112,6 +112,15 @@ for _, r in v.iterrows():
         rec["why"] = why
     rows.append(rec)
 a = pd.DataFrame(rows)
+# v1.2: the player model counts a traded player as valued only where traded_player_values.py priced him at his
+# trade's page (a panel row at the page can be a contract signed after a post-season trade: Kevin Hayes 2019)
+tpv = OUTPUT_DIR / "traded_player_values.csv"
+if tpv.exists():
+    t_ = pd.read_csv(tpv)
+    a.loc[a["asset_id"].isin(set(t_["asset_id"])) & (a["covered_by"] == "player model"), "covered_by"] = "neither"
+    a.loc[a["asset_id"].isin(set(t_.loc[t_["status"] == "ok", "asset_id"])), "covered_by"] = "player model"
+    ro_ = set(t_.loc[t_["status"].astype(str).str.startswith(("rights only", "no contract at the page")), "asset_id"])
+    a.loc[a["asset_id"].isin(ro_), "why"] = "rights only at the page (post-season trade; no rule yet)"
 # v1.1: the 2017 page (page_2017_values.py) and the buried-contract rule (buried_contract_values.py), where run
 for f, lab, ok in (("page_2017_values.csv", "player model, 2017 page", ("ok",)),
                    ("page_2017_values.csv", "buried-contract rule", ("buried veteran (cost above burial)",)),

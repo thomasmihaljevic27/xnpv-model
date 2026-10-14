@@ -36,8 +36,9 @@ veterans on NHL contracts with no recent NHL season are valued by neither model 
 contract; McKenna, Hammond): player model / back-test. **In progress 2026-10-14 (session log "traded players neither
 model values"):** name crosswalk built (34 players joined); ids fixed; price line re-locked on the corrected sample; buried
 veterans valued (`buried_contract_values.py`); 2017-18 contracts read (`contracts_2017.py`, 129 of 135). 2017 page built
-(`page_2017_values.py`: 132 of 135); 917 of 927 traded player assets valued. **Open for Thomas:** June trades' page
-(the season just ended, or the next); retained salary in the back-test.
+(`page_2017_values.py`: 132 of 135); 917 of 927 traded player assets valued. Post-season trades go to the next
+page (Thomas, 2026-10-14; `trade_page.py`; `traded_player_values.py` values traded players at their page). **Open for
+Thomas:** the rule for rights traded after the regular season (19 assets); retained salary in the back-test.
 
 **Done 2026-10-14 (Thomas's decisions on the audit).**
 - 60/40 checks retired (commit 35cbb62): `skater_value_engine.py` v2.0 (a library), `goalie_value_engine.py` v1.3,

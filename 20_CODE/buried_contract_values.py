@@ -41,7 +41,7 @@ from pathlib import Path
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "buried_contract_values.py v1.0 (2026-10-14)"
+SCRIPT_VERSION = "buried_contract_values.py v1.1 (2026-10-14)"
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_source as CS                        # noqa: E402
@@ -80,12 +80,12 @@ def main():
     rows = []
     for _, r in v.iterrows():
         st = str(r["status"])
-        if st.startswith(("prospect, valued", "undrafted prospect, valued")) or int(r["trade_season"]) < first_page:
+        if st.startswith(("prospect, valued", "undrafted prospect, valued")) or int(r["valuation_page"]) < first_page:
             continue
         nid = next((int(r[c]) for c in ("nhl_id", "nhl_id_undrafted") if c in r and pd.notna(r[c])), None)
         if nid is None and pd.notna(r.get("draftYear")) and pd.notna(r.get("pick")):
             nid = LID.get((int(r["draftYear"]), int(r["pick"])))
-        y, date = int(r["trade_season"]), pd.Timestamp(r["trade_date"])
+        y, date = int(r["valuation_page"]), pd.Timestamp(r["trade_date"])   # v1.1: the trade's page (trade_page.py)
         if nid is None or (nid, y) in priced or nid not in by_id:
             continue
         run = by_id[nid][(by_id[nid]["signed"] <= date) & (by_id[nid]["ends"] >= date)]

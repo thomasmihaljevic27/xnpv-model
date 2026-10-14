@@ -67,8 +67,9 @@ UNDRAFTED (v1.3; Thomas 2026-10-14: "NHL contracts only", "Same model, no slot";
     limitation; his value with his own draft left out of the fit is reported beside (value_own_draft_out_M).
 
 THE TRADE INVENTORY (trades.db, player assets, from 2017-07-01 as for traded picks; trade season = the season
-starting July 1 on or before the trade date; valuation season y = the trade season, or his draft year when he
-is traded between his draft and July 1).
+starting July 1 on or before the trade date; valuation season y = the trade's page (trade_page.page: the trade
+season, or the next one for a trade after that season's last regular-season game; v1.5, Thomas 2026-10-14), or his
+draft year when he is traded between his draft and July 1).
   WHO EACH TRADED PLAYER IS (v1.1, Thomas 2026-10-14: "determine the O'Reilly fix needed and also fix name
   matching"). Ours, in this order:
   1. HIS NHL ID, from PuckPedia (identity only; no value is read from it): a PuckPedia trade row of the same name
@@ -117,7 +118,7 @@ import statsmodels.api as sm
 from dotenv import load_dotenv
 
 
-SCRIPT_VERSION = "prospect_values.py v1.4 (2026-10-14)"
+SCRIPT_VERSION = "prospect_values.py v1.5 (2026-10-14)"
 load_dotenv()
 import contract_source as CS   # noqa: E402  v1.1: PuckPedia exports read strictly (identity only)
 SOURCE_DIR, OUTPUT_DIR = Path(os.environ["SOURCE_DIR"]), Path(os.environ["OUTPUT_DIR"])
@@ -459,6 +460,9 @@ def main():
                     con, params=(TRADES_FROM,))
     a["date"] = pd.to_datetime(a["trade_date"])
     a["trade_season"] = np.where(a["date"].dt.month >= 7, a["date"].dt.year, a["date"].dt.year - 1)
+    # v1.5 (Thomas, 2026-10-14): a trade after its season's last regular-season game is valued on the next page
+    import trade_page as TP
+    a["valuation_page"] = a["date"].map(TP.page)
     log(f"\nplayers traded from {TRADES_FROM}: {len(a)} assets "
         f"(trades.db ends {pd.read_sql('select max(trade_date) m from trades', con)['m'][0]})")
 
@@ -531,7 +535,7 @@ def main():
         # none (zero_no_nhl_record), so the traded player is someone else. Seasons before his draft belong to
         # an older namesake and say nothing (Nathan Smith, drafted 2018, traded 2022).
         rejected = cand[(cand["link_status"] == "zero_no_nhl_record")
-                        & cand["draftYear"].map(lambda dy: any(dy <= z < r.trade_season for z in nhl_years))]
+                        & cand["draftYear"].map(lambda dy: any(dy <= z < r.valuation_page for z in nhl_years))]
         return cand.drop(rejected.index), len(rejected)
 
     def show(c):
@@ -574,7 +578,7 @@ def main():
             gk = norm(r.player_name) not in tables[False].index.get_level_values(0) and \
                 norm(r.player_name) in tables[True].index.get_level_values(0)
         s = nhl_seasons_by_name(r.player_name, gk)
-        y = int(r.trade_season)
+        y = int(r.valuation_page)
         out = {"drafted_match": "none", "undrafted_nhl_contract": nhl_contract, "is_goalie": gk}
         if not is_prospect(s, y, gk):
             out["status"] = "undrafted or pre-2005: player model (not a prospect)"
@@ -627,7 +631,8 @@ def main():
         ids = ids_for(r)
         name_cand, n_rej = by_name(r)
         rec = {"asset_id": r.asset_id, "trade_id": r.trade_id, "trade_date": r.trade_date,
-               "trade_season": r.trade_season, "player_name": r.player_name, "from_team": r.from_team,
+               "trade_season": r.trade_season, "valuation_page": r.valuation_page,
+               "player_name": r.player_name, "from_team": r.from_team,
                "acquiring_team": r.acquiring_team, "cap_hit": r.cap_hit_aav, "is_ahl_jr": bool(r.is_ahl_jr),
                "is_signing_rights": bool(r.is_signing_rights), "namesakes_rejected": n_rej,
                "by_name": show(name_cand)}
@@ -654,7 +659,7 @@ def main():
             continue
         c = cand.iloc[0]
         s = seasons_of(c)
-        y = max(int(r.trade_season), int(c["draftYear"]))
+        y = max(int(r.valuation_page), int(c["draftYear"]))
         k = y - int(c["draftYear"])
         slot = int(c["overallPickNumber"])
         p_star = float(bacon[min(slot, int(bacon.index.max()))])   # picks past 225 (2005 only): the last slot's chance

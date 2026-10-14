@@ -139,7 +139,7 @@ def main():
     args = ap.parse_args()
     log(SCRIPT_VERSION)
     v = pd.read_csv(OUTPUT_DIR / "prospect_values.csv")
-    a = v[(v["trade_season"] == PAGE_SEASON)
+    a = v[(v["valuation_page"] == PAGE_SEASON)    # 2026-10-14: the trade's page (trade_page.py)
           & ~v["status"].astype(str).str.startswith(("prospect, valued", "undrafted prospect, valued"))].copy()
     log(f"  traded player assets of {PAGE_SEASON}-{str(PAGE_SEASON + 1)[2:]} no model values: {len(a)} "
         f"({a['player_name'].nunique()} players)")

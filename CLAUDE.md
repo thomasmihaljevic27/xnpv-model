@@ -133,6 +133,7 @@ directive 6). The old models (`draft_yield_curve.py`, `slot_curve.py`, `future_p
     python 20_CODE/pick_curve.py             # each drafted player priced; the star value (its sensitivity; the qualifying-offer chain beside)
     python 20_CODE/traded_pick_values.py     # every traded pick valued at its trade
     python 20_CODE/prospect_values.py        # prospects: every traded prospect valued (slot, production, age)
+    python 20_CODE/traded_player_values.py   # traded players valued at their trade's page (2018-19 on; trade_page.py)
     python 20_CODE/buried_contract_values.py # traded veterans with no recent NHL season: cost above burial
     python 20_CODE/contracts_2017.py         # 2017-18 traded players' contracts from CapWages (--fetch for new pages)
     python 20_CODE/page_2017_values.py       # the player model's 2017 page for them

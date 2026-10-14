@@ -3262,3 +3262,11 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   on CapWages contracts through the unchanged engine at page 2017. CapWages chosen over PuckPedia's older rows for this
   page on evidence (trades.db sides with CapWages in all six disagreements). Reproduces PuckPedia's own pricing for 38
   of 38 shared contracts. 917 of 927 traded player assets are now valued by some model or rule.
+
+### Change log, 2026-10-14n (post-season trades on the next page)
+
+- DECISION (Thomas): a trade after its season's last regular-season game is valued on the next season's page, for
+  players, prospects and picks (`trade_page.py`). Picks: no value depends on the page (138 post-season picks, none
+  move). Prospects -$3.51M on 23 assets; players -$2.11M on 37, 18 by $1M or more. Contracts signed after a
+  post-season trade are left out (look-ahead caught: Kevin Hayes 2019); 19 assets become rights only, rule pending.
+- New: `traded_player_values.py` (traded players valued at their trade's page, 2018-19 on).

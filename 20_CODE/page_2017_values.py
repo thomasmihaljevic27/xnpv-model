@@ -68,7 +68,9 @@ def log(s=""):
 def main():
     log(SCRIPT_VERSION)
     a = pd.read_csv(OUTPUT_DIR / "uncovered_assets_audit.csv")
-    a = a[(a["covered_by"] == "neither") & (a["trade_season"] == PAGE)].copy()
+    # every asset on the 2017 page (trade_page.py) the prospect model does not value (the player model's pages start
+    # in 2018-19); not covered_by == "neither": the audit counts this script's own earlier output as coverage
+    a = a[(a["covered_by"] != "prospect model") & (a["valuation_page"] == PAGE)].copy()
     k17 = pd.read_csv(OUTPUT_DIR / "contracts_2017.csv").set_index("asset_id")
     log(f"  assets: {len(a)} ({a['player_name'].nunique()} players), traded {PAGE}-{str(PAGE + 1)[2:]}, no model valued")
 
