@@ -40,10 +40,10 @@ HOW THE JOIN WORKS (and every assumption it bakes in)
      a wrong match on common last names.
 
 4. AGE CONVENTION (documented, configurable). A player's age for a season is
-   their age on 1 FEBRUARY of the season's ENDING year - e.g. season "23-24" ->
-   1 Feb 2024. This is the standard Hockey-Reference convention and guarantees
-   consecutive seasons differ by exactly one year of age, which is what the
-   delta-method curve needs. We output both an integer `age` and a continuous
+   his age on 15 SEPTEMBER of the season's STARTING year - e.g. season "23-24" ->
+   15 Sep 2023 (2026-10-14, Thomas, 2026-10-14: every age the model reads follows the CBA; the CBA reads ages on September 15 (9.2, 10.2, 12.1(c)); until then 1 February of the
+   ending year, the Hockey-Reference convention). Consecutive seasons still differ by
+   exactly one year of age, which is what the delta-method curve needs. We output both an integer `age` and a continuous
    `age_exact`.
 
 COVERAGE REALITY (so the run log is honest)
@@ -255,9 +255,10 @@ SAME_PERSON_SPELLINGS = [
     {"Nicholas Abruzzese", "Nick Abruzzese"}, {"J.J. Moser", "Janis Moser"},
 ]
 
-# Age is measured on this month/day of the season's ENDING year (Hockey-Ref = Feb 1).
-REFERENCE_MONTH = 2
-REFERENCE_DAY = 1
+# Age is measured on this month/day of the season's STARTING year (2026-10-14: the CBA's
+# September 15; until then February 1 of the ending year).
+REFERENCE_MONTH = 9
+REFERENCE_DAY = 15
 
 # PuckPedia detailed position -> coarse group used in the join key.
 POSITION_GROUP = {
@@ -328,7 +329,8 @@ def season_end_year(season_str):
 
 def compute_age(birthdate, end_year):
     """
-    Exact and integer age on (REFERENCE_MONTH/REFERENCE_DAY) of `end_year`.
+    Exact and integer age on (REFERENCE_MONTH/REFERENCE_DAY) of the season's STARTING
+    year, end_year - 1 (2026-10-14).
     Returns (age_int, age_exact) or (None, None) if birthdate is missing.
     """
     if pd.isna(birthdate):
@@ -337,11 +339,11 @@ def compute_age(birthdate, end_year):
     if pd.isna(bd):           # malformed string (e.g. an EP "2001-00-00")
         return None, None
     bd = bd.date()
-    ref = date(end_year, REFERENCE_MONTH, REFERENCE_DAY)
+    ref = date(end_year - 1, REFERENCE_MONTH, REFERENCE_DAY)
     days = (ref - bd).days
     age_exact = days / 365.25
     # integer years completed by the reference date
-    age_int = end_year - bd.year - ((ref.month, ref.day) < (bd.month, bd.day))
+    age_int = ref.year - bd.year - ((ref.month, ref.day) < (bd.month, bd.day))   # ref.year: the starting year
     return age_int, round(age_exact, 2)
 
 
@@ -532,7 +534,7 @@ def main():
 
     record("=== age_join run log ===")
     record("WAR season-rows: %d  |  distinct WAR players: %d" % (len(war), n_players))
-    record("Age convention: age on %02d-%02d of season-ending year" % (REFERENCE_MONTH, REFERENCE_DAY))
+    record("Age convention: age on %02d-%02d of the season's starting year" % (REFERENCE_MONTH, REFERENCE_DAY))
     record("")
     record("Pass 1 exact matches : %d" % n_exact)
     record("Pass 2 fuzzy matches : %d" % n_fuzzy)

@@ -408,11 +408,11 @@ class SkaterProjector:
         return self._forecaster
 
     def age_at(self, birthdate, season_start):
-        """Integer age on Feb 1 of the season's ENDING year (the age_join.py
-        convention). Reported on each row; xNPV 1 reads its own ages."""
+        """Integer age on September 15 of the season's STARTING year (the age_join.py
+        convention since 2026-10-14). Reported on each row; xNPV 1 reads its own ages."""
         if pd.isna(birthdate):
             return None
-        ref = pd.Timestamp(year=season_start + 1, month=2, day=1)
+        ref = pd.Timestamp(year=season_start, month=9, day=15)
         a = ref.year - birthdate.year - (
             (ref.month, ref.day) < (birthdate.month, birthdate.day))
         return int(a)

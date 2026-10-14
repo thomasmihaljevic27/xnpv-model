@@ -28,10 +28,12 @@ import information_set as ISET
 import player_season_table as PST
 import skater_forecast as SF
 
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
 PAGES = C.DEV_PAGES
 HS = tuple(range(6))
-GUARD = {"start": 1.1506, "whole": 1.3587, "rows": 40510}
+GUARD = {"start": 1.1506, "whole": 1.3587, "rows": 40510}   # the 2026-10-05 build, ages on February 1
+# v1.1 (2026-10-14): ages moved to September 15 (Thomas), which changes the forecast, so start and whole are
+# REPORTED against the February 1 build (the age change's effect on accuracy); the rows must still be the same.
 LOG = []
 
 
@@ -76,9 +78,10 @@ def main():
            "rows": len(D)}
     log(f"\nguard: start {got['start']}, whole {got['whole']}, rows {got['rows']:,} "
         f"(the build: {GUARD['start']}, {GUARD['whole']}, {GUARD['rows']:,})")
-    if any(abs(got[k] - GUARD[k]) > 1e-9 for k in GUARD):
-        raise RuntimeError("not the build's rows and rate; nothing read")
-    log("  PASS")
+    if got["rows"] != GUARD["rows"]:
+        raise RuntimeError("not the build's rows; nothing read")
+    log(f"  rows PASS; gp-weighted RMSE per 82 against the February 1 build: start {got['start'] - GUARD['start']:+.4f}, "
+        f"whole {got['whole'] - GUARD['whole']:+.4f}")
     played = D[(D["gp"] >= C.PARTICIPATION_GP) & np.isfinite(D["war"]) & np.isfinite(D["wip"])]
     mae = {h: float((played[played["h"] == h]["wip"] - played[played["h"] == h]["war"]).abs().mean()) for h in HS}
     log("\nWAR if he plays, mean absolute miss on seasons played, by season ahead (old -> new):")
