@@ -172,6 +172,10 @@ ARB_NEED = lambda age: 4 if age <= 20 else 3 if age == 21 else 2 if age <= 23 el
 ARB_GP = {2012: 6, 2019: 9, 2020: 7}                  # 10 games pro-rated (48/82, 70/82, 56/82), rounded up
 W_TRAIL = (0.5, 0.3, 0.2)                            # 50/30/20, most recent season first
 V14_STAR = 13.42242755243992                         # v1.4's main star value: the attribution guard
+# The price line the recorded tests and V14_STAR were run on (the 2026-10-05 lock). Both guards below run only
+# when it is in force: the line was re-locked on 2026-10-14 (September 15 ages), and a new line moves them by
+# design. Both passed on that line on 2026-10-14 (session log) before the re-lock.
+LINE_OF_TESTS = (-0.0043574069, 0.0174691916, 0.0035971954, 0.0089321965)
 FRANCHISE = {"N.J": "NJD", "S.J": "SJS", "T.B": "TBL", "L.A": "LAK", "ATL": "WPG", "PHX": "ARI", "UTA": "ARI"}
 SHORT_FORMS = {"tony": "anthony", "josh": "joshua", "mike": "michael", "alex": "alexander", "matt": "matthew",
                "nick": "nicholas", "will": "william", "zach": "zachary", "jake": "jacob", "dan": "daniel",
@@ -419,7 +423,12 @@ if wc.exists():
     log(f"  guard, window ends vs draft_window_count.csv: {int((m['window_end'] == m['end_g3']).sum())} of {len(m)} equal")
     assert (m["window_end"] == m["end_g3"]).all()
 ct = OUTPUT_DIR / "pick_cost_and_year_tests.csv"
-if ct.exists():
+_L = sfp.XNPV1_RATE
+TESTED_LINE = (_L["alpha"], _L["beta"], _L["beta_d_add"], _L["gamma_term"]) == LINE_OF_TESTS
+if not TESTED_LINE:
+    log("  guard, skater surplus vs pick_cost_and_year_tests: skipped (the price line was re-locked 2026-10-14; "
+        "the tests were priced on the 2026-10-05 line)")
+if ct.exists() and TESTED_LINE:
     t = pd.read_csv(ct)[["draftYear", "overallPickNumber", "no_slides"]].rename(columns={"overallPickNumber": "pick"})
     m = d.merge(t, on=["draftYear", "pick"], how="inner")
     gap = (m["surplus_v14_qo_before_rights"] / 1e6 - m["no_slides"]).abs()   # the tested chain: v1.4's ages
@@ -469,8 +478,10 @@ for kind, col in (("attribution_v14", "surplus_v14"), ("attribution_signing_age"
     bb, ss_, nn = fit_scale(d.assign(surplus=d[col]))
     att[kind] = bb
     scales.append({"scale_kind": kind, "classes": "2007-2017", "n_classes": nn, "scale_M": bb, "se_M": ss_})
-assert abs(att["attribution_v14"] - V14_STAR) < 1e-9, (att["attribution_v14"], V14_STAR)   # GUARD
-log(f"  v1.5 attribution (all eleven drafts): v1.4 {att['attribution_v14']:.2f} (reproduces); signing age alone "
+if TESTED_LINE:
+    assert abs(att["attribution_v14"] - V14_STAR) < 1e-9, (att["attribution_v14"], V14_STAR)   # GUARD
+log(f"  v1.5 attribution (all eleven drafts): v1.4 rules {att['attribution_v14']:.2f}"
+    f"{' (reproduces v1.4)' if TESTED_LINE else ' (on the re-locked line)'}; signing age alone "
     f"{att['attribution_signing_age']:.2f}; forecast-consistent arbitration alone "
     f"{att['attribution_forecast_arbitration']:.2f}; both (main) {b:.2f}")
 src = pd.Series(AGE_SRC)

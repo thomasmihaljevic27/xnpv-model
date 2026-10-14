@@ -127,7 +127,9 @@ GP_FEATURES = ["tr_gp_share", "is_D", "exp_seasons", "age_c", "tw_WAR", "age_c2"
 # xNPV 1's own WAR-if-plays misses by season ahead (see the docstring).
 # Re-measured on v2.2 (25_TESTS/floor_spread_measure.py, laptop 2026-10-05, guard on the build's
 # rows and rate passed); the v1.x figures were 0.6730, 0.7486, 0.7991, 0.8516, 0.8792, 0.8926.
-WAR_IF_PLAYS_MAE = {0: 0.6769, 1: 0.7553, 2: 0.8040, 3: 0.8524, 4: 0.8766, 5: 0.8970}
+# Re-measured 2026-10-14 on September 15 ages (floor_spread_measure.py v1.1; Thomas: "lock it");
+# was {0: 0.6769, 1: 0.7553, 2: 0.8040, 3: 0.8524, 4: 0.8766, 5: 0.8970}.
+WAR_IF_PLAYS_MAE = {0: 0.6767, 1: 0.7545, 2: 0.8026, 3: 0.8499, 4: 0.8770, 5: 0.8981}
 MAE_TO_SD = 1.2533       # SD = MAE * sqrt(pi/2) for a normal, production's conversion
 
 MIN_AGE_COVERAGE = 0.99  # the age table must carry the Elite Prospects birthdates

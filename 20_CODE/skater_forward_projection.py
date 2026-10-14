@@ -182,10 +182,16 @@ def skater_rate_cap_pct(war, posgrp):
 # term REMAINING at the valuation date, the same for every remaining season (_project_xnpv1); an RFA
 # control year on one year (rfa_terminal_value). XNPV1_RATE_TERM_FREE is the same signing-dated fit
 # without term: the term-free sensitivity reported beside every term-in value.
-XNPV1_RATE = dict(alpha=-0.0043574069, beta=0.0174691916, beta_d_add=0.0035971954,
-                  gamma_term=0.0089321965, n=2296, sigma=0.01570309, rows_fingerprint="b9067879bf72")
-XNPV1_RATE_TERM_FREE = dict(alpha=0.0081646316, beta=0.0310794541, beta_d_add=0.0135178851,
-                            gamma_term=0.0, n=2296, sigma=0.02192174, rows_fingerprint="b9067879bf72")
+# RE-LOCKED 2026-10-14 (Thomas: "lock it"), from xnpv1_price_line.py v2.1 on skater_forecast v2.3 with
+# every age on September 15 of the season's starting year (was February 1 of the ending year). Same 2,296
+# contracts and fingerprint. At the 2025-26 ceiling: $1.673M per forecast win for forwards (was $1.668M),
+# $2.043M for defencemen ($2.012M), +$0.852M a season per year of term ($0.853M). The 2026-10-05 lock
+# (alpha -0.0043574069, beta 0.0174691916, beta_d_add 0.0035971954, gamma_term 0.0089321965; term-free
+# 0.0081646316 / 0.0310794541 / 0.0135178851) is in git at 64d1ecb.
+XNPV1_RATE = dict(alpha=-0.0043530319, beta=0.0175137032, beta_d_add=0.0038753270,
+                  gamma_term=0.0089195167, n=2296, sigma=0.01566428, rows_fingerprint="b9067879bf72")
+XNPV1_RATE_TERM_FREE = dict(alpha=0.0081699059, beta=0.0310586846, beta_d_add=0.0139734816,
+                            gamma_term=0.0, n=2296, sigma=0.02188771, rows_fingerprint="b9067879bf72")
 
 
 def price_constants(model=None, term_free=False):
