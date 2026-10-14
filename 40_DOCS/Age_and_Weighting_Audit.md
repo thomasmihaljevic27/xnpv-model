@@ -4,6 +4,17 @@ Two audits Thomas asked for before the prospect model (WORK_QUEUE reading-week i
 first check). Each row was read from the code that runs, at the line given. Nothing was changed. Every
 "Decide" is Thomas's.
 
+## Thomas's decisions (2026-10-14)
+
+- **Ages (findings 1.1 and 1.2):** "We should move it so that all age checks are consistent." Every age the model
+  reads follows the CBA: the performance age moves off February 1 (which CBA date is owed), and drafted players'
+  signing age is read in the year they signed. To build (WORK_QUEUE live item 1).
+- **Group 6 (finding 1.3):** asked whether it affects anything. `25_TESTS/pick_group6_check.py`: at its upper bound
+  the star value moves from 13.42 to 13.37 (-0.37%). Left out and stated.
+- **The arbitration price (finding 2.3):** "It should be consistent with the forecast." To build once the reading is
+  settled (WORK_QUEUE live item 2).
+- **The 60/40 guards (finding 2.5):** explained; Thomas's decision is owed (WORK_QUEUE live item 4).
+
 ## 1. Ages: where the model reads one, and the date it uses
 
 ### What the CBA says (2013 CBA text, read 2026-10-13/14)

@@ -3147,3 +3147,17 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - WORK_QUEUE restructured: a live list at the top, earlier entries moved below unchanged. MODEL_DIRECTIVES
   directive 6 (prospects: how it is built). CLAUDE.md: the xNPV 1 rate in force is the term-in line of 2026-10-05,
   and the pick curve prices on it (both statements were stale).
+
+### Change log, 2026-10-14b (age and arbitration decisions; PROJECT_STATE refresh v3.4)
+
+- DECISION (Thomas, 2026-10-14): every age the model reads follows the CBA ("all age checks are consistent"): the
+  performance age moves off February 1 and drafted players' signing age is read in the year they signed. This
+  revisits the age convention behind the aging curve, the chance of playing and the `XNPV1_RATE` lock; the date and
+  the re-lock are Thomas's. Not built yet.
+- DECISION (Thomas, 2026-10-14): the arbitration price "should be consistent with the forecast" (revises the
+  2026-10-13 rule's 50/30/20 raw trailing WAR once the reading is settled). Not built yet.
+- DECISION (Thomas, 2026-10-14): the supervisor documents are point-in-time snapshots; no update is queued for
+  them. CLAUDE.md rule added.
+- CBA Group 6 measured (`25_TESTS/pick_group6_check.py` v1.0): -0.37% on the star value at its upper bound; left out.
+- PROJECT_STATE v3.4 (refresh protocol): Generated 2026-10-14, Refresh due 2026-10-21; current sections rewritten
+  from the code, superseded ones moved to History unchanged. CLAUDE.md current-state paragraph and 60/40 list updated.

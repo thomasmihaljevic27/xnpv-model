@@ -744,6 +744,15 @@ Thomas the same day. Each item may change only by Thomas's decision.
   -$0.81M, page totals -$112M to -$221M. This revises the control-year cost of directive 4 detail 3 and open
   decision 1 (a control year was a one-year qualifying offer; now the higher of that and the arbitration price once
   eligible); the one-year term, the weights and the D13 walk-away stand.
+- *Ages follow the CBA everywhere (Thomas, 2026-10-14):* "We should move it so that all age checks are
+  consistent." The performance age (aging curve, chance of playing, games share, goalie exit risk; February 1 of
+  the season's ending year until now) moves to a CBA date (which date: owed, September 15 recommended), and drafted
+  players' signing age (entry-level length, arbitration need) is read in the year they signed, not their first NHL
+  season. Not built; the price line is re-locked after it (`40_DOCS/Age_and_Weighting_Audit.md`).
+- *The arbitration price consistent with the forecast (Thomas, 2026-10-14):* "It should be consistent with the
+  forecast." Which reading (the forecast's start construction, or the line's price of the forecast itself) is
+  owed. Not built.
+- *CBA Group 6 left out (2026-10-14):* -0.37% on the star value at its upper bound (`pick_group6_check.py`).
 - *The circularity check (Thomas, 2026-10-13): "some kind would be valuable, Game Value probably makes sense."* Run
   (`25_TESTS/pick_star_gv_check.py` v1.0): Game Value agrees with WAR on who the stars are at each slot (STANDING_FLAGS).
 - *Table 2's constant moved to its own session before the prospect work (Thomas, 2026-10-13).*

@@ -28,8 +28,12 @@ State lives in four version-controlled files in `00_STATE/`, plus a per-session 
   follow-up. `git log 00_STATE/ 20_CODE/` is the mechanical second copy of that history.
 
 All four share `PROJECT_STATE.md`'s Generated / Refresh-due dates and its staleness trigger.
-As of the 2026-09-09 session the full pipeline was re-run post-migration and reproduces
-(migration verified clean); the only open verification item is the Stage 2 length-term null test.
+As of the 2026-10-14 refresh (PROJECT_STATE v3.4, "Current state" and "Model as built"): skater and goalie
+contracts are priced on xNPV 1 with the five player directives built; the draft pick curve and the traded-pick
+values are built, with the arbitration cost for control seasons adopted on both sides (2026-10-13); the
+prospect model is next (simplest version first, each parameter Thomas's); the back-test has not started.
+Decided 2026-10-14 and not yet built: every age the model reads follows the CBA, and the arbitration price is
+made consistent with the forecast (WORK_QUEUE live list).
 
 **Craft is retired as a canonical surface (2026-09-09).** Do not read it, reconcile against it,
 or sync to it. "How it works" explainers live in `40_DOCS/`. Precedence when sources conflict:
@@ -49,7 +53,7 @@ No virtualenv convention is established yet. Stata or R on request only.
 ## Folder map
 
     00_STATE/     PROJECT_STATE.md + WORK_QUEUE.md + DECISIONS.md + STANDING_FLAGS.md,
-                  sessions/ (per-session log), two sequence docs (the draft and prospect plans
+                  sessions/ (per-session log), two sequence docs, 03 and 04 (the draft and prospect plans
                   were archived 2026-10-09), MANIFEST.csv,
                   inspection_ledger.csv (which seasons each evaluation scored; committed, union-merged)
     10_SOURCE/    vendor and scraped source data. Code reads it, never writes it
@@ -337,10 +341,11 @@ To answer questions about the curve on the spot: `python 25_TESTS/pick_lookup.py
   seasons are 62.5/37.5, not 60/40). The pricing document compared the forecast against a 60/40 total
   the forecast does not use, and Thomas caught it (2026-10-05). His instruction: "when the draft and
   prospect work starts you need to be 100% certain that you are using 50/30/20 when needed." 60/40
-  survives only in code outside the forecast: `skater_value_engine.py` (`W_T1, W_T2`: observed-season
-  value and the older price line), `draft_yield_curve.py` (`W_T1, W_T2`: the retired draft curve's
-  cost anchor), and the goalie engine's RAW regime, which rebuilds the locked spine for its parity
-  gate (`goalie_value_engine.TWO_SEASON[False]`); the live goalie path is 62.5/37.5 since 2026-10-05.
+  survives only in code that prices nothing (audited 2026-10-14, `40_DOCS/Age_and_Weighting_Audit.md`):
+  `skater_value_engine.py` (`W_T1, W_T2`: observed-season value and the Stage 3 guards) and the goalie
+  engine's RAW regime, which rebuilds the locked spine for its parity gate
+  (`goalie_value_engine.TWO_SEASON[False]`); the live goalie path is 62.5/37.5 since 2026-10-05. (The
+  retired `draft_yield_curve.py` also carried it; it is archived.)
   Before any code, figure or document reads a trailing total, grep for `0.6`, `0.4`, `W_T1` and
   "60/40" in what it calls, and state which weighting each step uses; a figure stated against another
   weighting says so and why.
@@ -408,6 +413,12 @@ To answer questions about the curve on the spot: `python 25_TESTS/pick_lookup.py
   reply put the difference at "roughly $5M", the whole term premium, when one-year pricing carries a
   year of premium too: the difference is about $2.6M (corrected 2026-10-09). Price each option on the
   table and subtract them; never one option against zero.
+- **Don't queue updates to the supervisor documents.** The documents in `40_DOCS/Supervisor_Drafts/`
+  ("Valuing Draft Picks" and the four main documents) are point-in-time snapshots of progress. A work
+  queue listed a new version of "Valuing Draft Picks" because its figures had moved, and Thomas dropped
+  it: "Those are meant to be point in time snapshots of progress, not anything we need to continuously
+  update" (2026-10-14). When the model changes, record it in the state files; write a new short note only
+  if Thomas asks for one.
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised

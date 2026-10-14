@@ -18,14 +18,30 @@
   (p 0.77). On the old qualifying-offer chain the same pair was 31.66 against 31.04. The held-out comparison of
   the two forms (5.2318 against 5.2328) was run on the chain only.
 
-**Do, after the meeting, in order.**
-1. **Do (Claude): the next version of `Valuing Draft Picks.docx`.** Its dollar figures change under the
-   arbitration cost (the reproduction sheet carries a superseded-figures note), and it owes five edits: Table 2's
-   body text (the year indicators sum to zero, so the fit is not the dummy-variable trap); why the
-   star-probability curve has one parameter (Bacon's shape, our star value); Figure 3's bands as 1-10 and 11-32;
-   cap shares beside Figure 2; the arbitration star value and the Game Value check. Plus the regression form
-   Thomas settles on Thursday.
-2. **Do (with Thomas, step by step): the prospect model, simplest version first.** Thomas, 2026-10-14: "start
+**Do, after the meeting, in order.** The two builds come before the prospect model, because both move the
+star value, which is a drafted prospect's starting value.
+1. **Build (decided 2026-10-14, Thomas): every age the model reads follows the CBA.** "We should move it so that
+   all age checks are consistent." Two parts:
+   - *The performance age* (aging curve, chance of playing, games share, goalie exit risk) moves off February 1 of
+     the season's ending year. **Owed by Thomas first: which CBA date.** The CBA uses September 15 for signing ages
+     (9.2, 10.2, 12.1(c)) and June 30 for the free-agency age (10.1(a)). Recommended: September 15 of the season's
+     starting year, the date the CBA uses for most ages; a player born between September 16 and January 31 becomes
+     a year younger in each season. Cost: the aging curve, the chance of playing, the games share and the price
+     line are re-fitted, `XNPV1_RATE` is re-locked by Thomas, the qualify rates and control weights re-measured,
+     the panel and dashboard re-run; the 2022-2025 validation figures were measured on the old age.
+   - *Drafted players' signing age* (entry-level length, arbitration need) is read on September 15 of the year he
+     signed, not of his first NHL season. Signing dates on hand for 942 of the 1,157 drafted players who played
+     (PuckPedia's entry-level contracts, 413; the cached CapWages pages, 865; either, 942); the other 215, mostly
+     2007-2011 drafts, from CapWages pages to fetch. Players who never played need no signing age (their seasons
+     are worth and cost zero).
+2. **Build (decided 2026-10-14, Thomas): the arbitration price consistent with the forecast.** "It should be
+   consistent with the forecast." **Owed by Thomas first: which reading.** (a) Build his level the way the
+   forecast builds its start: games-weighted 50/30/20 rate per 82, pulled 65/35 toward comparable players, times his
+   games share. (b) Price the forecast itself: the price line was fitted on xNPV 1's forecast at the signing, so
+   the arbitration price would be the line's price of xNPV 1's forecast WAR for that season. Under (b) an improving
+   young player's arbitration price equals his forecast value, so his eligible control seasons carry little or no
+   surplus; under (a) some surplus can remain, as now.
+3. **Do (with Thomas, step by step): the prospect model, simplest version first.** Thomas, 2026-10-14: "start
    as simple as possible and work our way up. I'll decide what the parameters of the model will be then." The
    outline so far is in MODEL_DIRECTIVES directive 6, "Prospects": the draft slot as the starting value (now
    $13.42M x Bacon's star chance), production adjusted to NHL terms read 50/30/20, age and size as candidates,
@@ -33,17 +49,18 @@
    the bridge to NHL ids (`ep_nhl_bridge.py` v1.1, 2026-10-14: no conflicts, no duplicate ids). Every input the
    model will call reads 50/30/20 (`40_DOCS/Age_and_Weighting_Audit.md`, section 2). Its own document; agree
    the spine first.
-3. **Decide (Thomas): five points from `40_DOCS/Age_and_Weighting_Audit.md`.**
-   - The performance age is read on February 1 (the CBA has no rule for it): keep and state, or move to a CBA
-     date (re-fits the aging curve, the chance of playing and the price line).
-   - Drafted players' signing age is read in their first NHL season, not the year they signed: keep and state,
-     or find signing dates and measure. Upper bound: 437 of 1,157 players who played would get a different
-     entry-level length and 683 a different arbitration need.
-   - CBA Group 6 (25 or older, under 80 NHL games) is not modelled: state it, or build it and measure.
-   - The arbitration price reads raw 50/30/20 season totals, with no pull toward comparables and no games
-     weighting: keep as deliberate, or pull it like the forecast.
-   - The 60/40 code left (`skater_value_engine.py`, the goalie engine's RAW regime) feeds only guards: leave
-     it, or retire it and rebuild the guards.
+4. **Decide (Thomas): the 60/40 code that feeds only checks.** `skater_value_engine.py` rebuilds the May and July
+   price-per-win regressions and asserts they land on the locked figures; `xnpv1_price_line.py` rebuilds the July
+   (Stage 3) contract sample on the 60/40 trailing total and refuses to fit unless it gives the July line back; the
+   goalie engine's RAW regime rebuilds the locked July goalie spine to the cent before the live 62.5/37.5 regime
+   runs. Each proves the code still reproduces a recorded figure. Leave them (recommended), or retire them and
+   lose those proofs.
+
+**Answered 2026-10-14: CBA Group 6 changes nothing material.** `25_TESTS/pick_group6_check.py` v1.0: applying
+Group 6 at 25 to every drafted player under 80 NHL games (an upper bound: it assumes each has three professional
+seasons) drops 338 NHL seasons from 219 players and moves the star value from 13.42 to 13.37 (-0.37%). Left out and
+stated as a limitation. Player contracts read PuckPedia's UFA year; the export marks Group 6 itself (112 contracts signed as Group 6
+free agents; a `group6` flag on 232 contract rows).
 
 **Parked (Thomas, 2026-10-04; confirmed 2026-10-14: "Keep everything parked that is currently parked").**
 - Until the model is complete: the defence premium (entry "xNPV 1 follow-ups" item 5 below); the nine-season
@@ -75,13 +92,16 @@
 - The age audit and the season-weighting audit (`40_DOCS/Age_and_Weighting_Audit.md`).
 - The meeting note (above).
 - This audit.
+- PROJECT_STATE refreshed (v3.4) and CLAUDE.md brought up to date (Thomas: "Update claude.md and project_state").
 
-**Dropped 2026-10-14 (Thomas).** The paragraph for `Pricing, Control Years, and Contract Value.docx` on why the
+**Dropped 2026-10-14 (Thomas).** The next version of `Valuing Draft Picks.docx` and any update to the four main
+supervisor documents: "Those are meant to be point in time snapshots of progress, not anything we need to
+continuously update." Also the paragraph for `Pricing, Control Years, and Contract Value.docx` on why the
 full cap hit is kept after a player leaves ("Don't worry about the pricing doc").
 
 **Closed by the 2026-10-14 audit (moved below unchanged).** The 2026-10-13 items (the arbitration idea, built and
 adopted; the pick side; the Game Value check); the reading-week list of 2026-10-09 (items 1-7 and 9 done, 8 is
-live item 2, 10 dropped); the 2026-10-04 triage (its parked items are above; the draft and prospect pillars
+live item 3, 10 dropped); the 2026-10-04 triage (its parked items are above; the draft and prospect pillars
 resumed 2026-10-09); the directive and plan-of-record entries (plan done 2026-10-05); the starting-level go-ahead
 (built 2026-10-05); the 2026-10-04 document-rewrite list (status date decided as open decision 2; the price-line
 tests repeated at step 7; the four documents rewritten again 2026-10-05); the xNPV 1 follow-ups (done, or

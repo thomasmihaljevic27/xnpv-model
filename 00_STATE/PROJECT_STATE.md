@@ -1,11 +1,444 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+<!-- Canonical default-context anchor. Source of truth is this file plus its three siblings in
+     00_STATE/ (WORK_QUEUE.md, DECISIONS.md, STANDING_FLAGS.md) and the per-session log in
+     00_STATE/sessions/, all version-controlled in git. Craft is retired as a canonical surface.
+     This file holds: objective, model spec, current build state, the data/scripts inventory,
+     locked regression results, per-pillar status, and the file-management protocol. -->
+
+**Generated:** 2026-10-14
+**Refresh due:** 2026-10-21 (7-day cadence)
+**Maintained by:** Claude, at session close (see the DECISIONS.md change log)
+**File version:** 3.4 (v3.4 refresh 2026-10-14: the current state, the model as built and the figures in force rewritten from the code; the inventory replaced; the dated entries, the old model spec, the old inventory, the retired-rebuild section and the old regression record moved to History unchanged. Session logs 2026-09-28 to 2026-10-14 checked against the dated entries: each has one. See the DECISIONS.md 2026-10-14b entry. v3.3: v3.3 refresh 2026-09-28: every session log since 2026-09-08 checked as referenced in the state files; inventory and pending list reconciled; see the DECISIONS.md 2026-09-28k entry. v3.2 restructure 2026-09-09: PROJECT_STATE.md split into four state files + a per-session log; see DECISIONS.md change log. Not a weekly refresh — Generated / Refresh-due unchanged.)
+
+> **Refresh note (2026-09-08).** The previous snapshot was v2.9, generated 2026-07-29 and due
+> 2026-08-05. It ran six weeks stale. Two sessions in that window went unrecorded on every
+> surface: the 2026-08-28 supervisor meeting and the 2026-09-08 repository migration. Both are
+> written up in the new section below and applied to Craft in the same pass. **Every model
+> figure in this file still dates from the 2026-07-28 runs and has not been reproduced since
+> the migration.** See the compounded verification flag before citing any of them.
+
+---
+
+## STALENESS TRIGGER — READ THIS FIRST (instruction to Claude)
+
+Before doing substantive work in any chat, check today's date against **Refresh due** above.
+
+- **If today is on or after the Refresh due date:** this snapshot is stale. Do **not** silently rely on it. First tell Thomas: *"The PROJECT_STATE snapshot was generated on [Generated date] and is now past its weekly refresh. Want me to run the refresh before we proceed?"* Then, on his go-ahead, run the **Refresh protocol** below.
+- **If today is before the Refresh due date:** treat this file as current. Where it conflicts with older project-instruction text or dated project files, this file wins — it is the more recent snapshot.
+
+This is a soft trigger: it works only because this file sits in context each chat and the above is a standing instruction. Honour it. The same staleness caveat covers the sibling files (WORK_QUEUE.md, DECISIONS.md, STANDING_FLAGS.md) — they share this file's Generated / Refresh-due dates.
+
+---
+## Refresh protocol (run when stale, or whenever Thomas asks)
+
+1. **Confirm the date** and state how stale the snapshot is.
+2. **Read the session log** — every `00_STATE/sessions/*.md` written since the Generated date. That is the primary record of what changed: decisions made, work done, artifacts touched, threads left open.
+3. **Cross-check against `git log --stat 00_STATE/ 20_CODE/`** for the same window — commits are the mechanical second copy; anything in a commit but not in a session file is a gap to close.
+4. **Reconcile.** Edit whichever of the four state files each change touches: PROJECT_STATE.md (build state, inventory, regression results, pillar status), WORK_QUEUE.md, DECISIONS.md (locked decisions + change log), STANDING_FLAGS.md.
+5. **Compile conflicts and questions** — anything where the session files, the commits, or the state files disagree, or where a decision is ambiguous.
+6. **Bring the conflicts to Thomas** and let him resolve them. Do not guess on load-bearing items.
+7. **Re-stamp** the Generated date, advance the Refresh due date by 7 days, bump the File version, and append an entry to the **DECISIONS.md change log**.
+
+---
+## Precedence & layers
+
+- **Order of authority:** the four `00_STATE/` files (PROJECT_STATE.md, WORK_QUEUE.md, DECISIONS.md, STANDING_FLAGS.md), `MODEL_DIRECTIVES.md` (Thomas's directives; the model must match it) + the `sessions/` log, all in git — these ARE the source of truth; then the model overview / scoping doc; then the Research Brief. **There is no paper manuscript** — writing begins only after the model is built.
+- **Craft is retired as a canonical surface (2026-09-09).** It may survive as a personal reading/scratch space, but Claude does not read, reconcile against, or sync to it. "How it works" explainers now live in `40_DOCS/`. Historical note kept for the lesson (2026-07-28): Craft received a full content overhaul at 17:09 on 2026-07-28, AFTER the v2.6 snapshot of this file was taken at 11:26. For roughly six hours Craft was the more current surface and this file was the stale one. v2.7 reconciles them. The lesson is recorded because it recurred twice in one session: read the live hub before asserting anything about its contents, rather than trusting a snapshot that sits in context.
+- **SQLite + local files** are the heavy data store (source of truth for data). Only summaries, schemas, diagnostics, and small aggregates travel into chats.
+- **This file** is the lightweight current-state anchor that seeds default context.
+
+---
+## Objective
+
+Put all three trade-asset classes — rostered players, draft picks, non-roster prospects — on one common scale: projected surplus value in dollars over a defined horizon, risk- and time-adjusted. Then back-test historical trades against realized outcomes to find categories of systematic mispricing. The cross-asset integration is the central contribution. Audience: economics faculty (supervisor **Karl**, econometrics) and sports-analytics practitioners. Karl weighs identification (circularity, look-ahead, selection) most heavily.
+
+---
+## Current state (refresh 2026-10-14)
+
+Written from the code that runs (versions as printed by each script) and the session logs 2026-09-28 to
+2026-10-14. Dated entries before this refresh are in the History section at the end, as written.
+
+| Pillar | State | Code |
+|---|---|---|
+| Skater contracts | Built and priced on xNPV 1 (D33); the five player directives built and validated 2026-10-05 | `skater_forecast.py` v2.2, `skater_forward_projection.py` v2.1, `rfa_terminal_value.py` v2.4, `contract_npv.py` v2.5 |
+| Goalie contracts | Built; flat projection pulled 65% to the league | `contract_npv.py` goalie branch, `goalie_value_engine.py` v1.2, `exit_hazard.py` v1.3 |
+| Draft picks | Pick curve built 2026-10-09; arbitration cost adopted 2026-10-13 | `draft_pick_linkage.py` v1.1, `pick_curve.py` v1.4, `traded_pick_values.py` v1.2 |
+| Prospects | Not started. Data ready (Elite Prospects pull 2026-10-08; bridge v1.1 2026-10-14). Next: simplest version first, each parameter Thomas's | `ep_extract.py` v3.5, `ep_nhl_bridge.py` v1.1 |
+| Game-level metric (Game Value) | Built 2026-07-03; used for the circularity checks | game-level chain (below) |
+| Back-test | Not started. A delivered win is priced on the contract line (open decision 3) | none yet |
+
+- **Validation of the skater forecast.** The 2022-2025 confirmation (2026-10-02) and the revalidation of the built
+  forecast (2026-10-05): season-WAR RMSE 0.8932 against xNPV 0's 0.9724, lower squared error in 2,000 of 2,000 player
+  resamples. Those seasons were examined by about thirty earlier variants; they are not a sealed holdout.
+- **Dashboard.** `Update-Dashboard.cmd` / `dashboard_refresh.py` v1.1: 10 steps, about 11 minutes; the dashboard
+  re-prices each page within $1 of the panel or refuses. Last full refresh: 2026-10-13 (arbitration adoption).
+- **Panel.** `contract_npv_panel.py` v1.5: 7,817 contract-pages, seasons 2018-19 to 2026-27; headline `npv_total`
+  (arbitration cost), `npv_total_qo` (qualifying-offer chain) and the term-free values beside.
+- **Decided 2026-10-14, to build (Thomas):** every age the model reads follows the CBA (the performance age moves
+  off February 1; drafted players' signing age is read in the year they signed); the arbitration price is made
+  consistent with the forecast. The exact form of each is in WORK_QUEUE's live list.
+- **Supervisor documents** in `40_DOCS/Supervisor_Drafts/` are point-in-time snapshots of progress; they are not
+  updated as the model changes (Thomas, 2026-10-14).
+
+## Model as built (2026-10-14)
+
+**Core.** A contract's value is the sum over its seasons k = 0, 1, ... of (chance he plays x value of the season -
+cap hit) / 1.03^k, plus the value of his restricted free agent control seasons after it. Value and cost are shares
+of each season's cap, which grows 3% a year (D11, D17: one constant for cap growth and discounting).
+
+**Skater forecast (xNPV 1, `skater_forecast.py` v2.2).** For each season ahead it forecasts the WAR per 82 if he
+plays, the share of games he plays if he plays, and the chance he plays at all.
+1. Start: 65% his own rate per 82 (the three seasons before, weighted 50/30/20, each weight times that season's
+   games, 10+ game seasons, rescaled over the seasons he has) plus 35% his comparable players' level at the age of
+   his last counted season (blended with the league level at weight ten), plus the curve's change to the valuation
+   season.
+2. Aging: the comparable-player curve (`aging_curve.py`; level 50/30/20 by age, games-weighted; one yardstick per
+   position), fitted on seasons before the page; its changes are added to the start. Players who left the league
+   enter the curve at replacement level for the seasons they missed.
+3. Games share: a fitted line per season ahead on the trailing share, position, experience, age, age squared and
+   the 50/30/20 trailing WAR total; capped at 1.0, floored at 0.05.
+4. Chance of playing (`participation_model.py` v1.8): reads contract status, with a before/after-2018 marker; read
+   at July 1 for a page and at the signing for a contract's own valuation (open decision 2).
+5. Seasons beyond the fitted range continue the league-wide decline measured between the last two fitted seasons.
+
+**Skater price line (`skater_forward_projection.price_constants()`).** A season is worth max(alpha + beta x WAR
+(+ the defence addition) + gamma_term x remaining term, league minimum) x that season's cap, the floor taken as an
+expected value over a spread of WAR_IF_PLAYS_MAE x 1.2533. The line was fitted on xNPV 1's forecast dated at each
+contract's signing, with a linear term for contract length (directives 4 and 5; `xnpv1_price_line.py` v2.0).
+
+**Control seasons (`rfa_terminal_value.py` v2.4).** From the contract's end to PuckPedia's UFA year. Each season is
+weighted P(qualified) x P(plays, given qualified) for his forecast bucket (the July method, open decision 1), the
+chain starting from his chance of playing the contract's final season. Value is priced at one year of term. Cost is
+the qualifying offer until he is arbitration-eligible (PuckPedia's flag: 1 = from the first control season, 0 =
+from the second); once eligible, the higher of the qualifying offer and the line's price of his 50/30/20 trailing WAR
+(adopted 2026-10-13; to be made consistent with the forecast, 2026-10-14). The qualifying-offer chain alone is
+reported beside.
+
+**Goalies (`contract_npv.py`).** A flat projection: the 50/30/20 trailing WAR (62.5/37.5 with two seasons, the
+last alone with one), pulled 65% toward the league average, priced on the goalie line recovered from the goalie
+spine; survival from the goalie exit hazard (fitted on 2018-2024); control seasons weighted 0.902 x 0.859 = 0.775 a
+year; the arbitration rule on the goalie line.
+
+**Draft picks (`pick_curve.py` v1.4).** A pick is worth the star value times Bacon's probability that its slot
+produces a star (career WAR/82 of 1.8+ forwards, 1.23+ defencemen). The star value is the slope of each drafted
+player's surplus (2007-2017 drafts, 2,322 players) on his slot's star probability, through zero, with draft-year
+indicators that sum to zero. Each player's surplus runs from the draft to the end of club control under CBA Group 3
+(27 by June 30, or seven Accrued Seasons): delivered WAR priced on the contract line at one year of term; entry-level
+maximum, then the qualifying offer, then the arbitration price once eligible (CBA 12.1, counted from seasons of 10+
+NHL games); a season without an NHL game worth and costing zero; lapsed rights zeroed; goalies pooled.
+
+**Traded picks (`traded_pick_values.py` v1.2).** The next draft's pick traded in season: the slot of the original
+team's standings on the trade date. Before that season's first game, or any later draft: the round average. During
+the draft: the actual slot. Conditional picks valued as unconditional (back-test work).
+
+## Figures in force (read from the code, 2026-10-14)
+
+| What | Value | Where |
+|---|---|---|
+| Skater line, term-in (`XNPV1_RATE`, locked 2026-10-05) | alpha -0.0043574069; beta 0.0174691916 per forecast win; defence +0.0035971954; gamma_term 0.0089321965 a season per year of term; n 2,296 | `skater_forward_projection.py` |
+| At the 2025-26 cap | $1.67M per forecast win (forwards), $2.01M (defence), +$0.853M a season per year of term | MODEL_DIRECTIVES step 6 |
+| Skater line, term-free (sensitivity) | 0.0081646316 / 0.0310794541 / +0.0135178851 | same |
+| Stage 3 line (guards only) | 0.0132478230 / 0.0212322891 / +0.0028702824 | `skater_value_engine.py` |
+| Floor spread, WAR_IF_PLAYS_MAE | 0.6769, 0.7553, 0.8040, 0.8524, 0.8766, 0.8970 (seasons 0-5, flat after) | `skater_forecast.py` |
+| Skater control weights | 100% / 100% / 88.2% / 67.8% by forecast bucket | refresh 2026-10-05 |
+| Goalie control weight | 0.902 x 0.859 = 0.775 a year | refresh 2026-10-05 |
+| Star value | $13.42M (se 1.44); without 2015-2016 $11.13M; qualifying-offer chain $31.66M / $27.58M | `pick_curve.py` |
+| Traded picks (634, 2017-07-01 to 2022-03-21) | $298.8M; sensitivity $247.9M | `traded_pick_values.py` |
+| Discount and cap growth | 3% each | D11, D17 |
+
+## Data and scripts (2026-10-14)
+
+**Source data (`10_SOURCE/`, never written by code).** `WAR.csv` and `Goalies_WAR.csv` (Bacon); the PuckPedia
+player-contract and trades exports (confidential, 2026-05-22; 6,851 contract rows, from 2018-19, with signing dates,
+UFA year, arbitration and Group 6 flags); `trades.db`; `games.csv`; `draft_slot_baseline.csv` (Bacon's slot
+probabilities); `nhle_temporal.csv`; `ep_birthdates.csv`; the game-level tables and `nhl_gamelogs.sqlite`; the
+CapWages cache (1,551 player pages); the clause scrape.
+
+**Live code (`20_CODE/`, 36 scripts).**
+- Player chain, in run order: `join_clauses_to_spine.py`, `age_join.py`, `skater_value_engine.py` v1.1 (60/40
+  observed-season spine and the Stage 3 guards), `skater_forward_projection.py` v2.1, `rfa_terminal_value.py` v2.4,
+  `exit_hazard.py` v1.3, `goalie_value_engine.py` v1.2, `contract_npv.py` v2.5, `contract_npv_panel.py` v1.5;
+  `dashboard_refresh.py` v1.1 runs them and builds `player_dashboard.py` v1.3.
+- xNPV 1 modules: `skater_forecast.py` v2.2, `aging_curve.py`, `participation_model.py` v1.8,
+  `player_season_table.py` v1.3, `information_set.py` v1.1, `contract_source.py` v1.0, `forecast_config.py` v1.0,
+  `forecast_harness.py` v1.4; `xnpv1_price_line.py` v2.0 (the line and its reproduction guard).
+- Draft: `draft_pick_linkage.py` v1.1, `pick_curve.py` v1.4, `traded_pick_values.py` v1.2.
+- Prospect data: `ep_extract.py` v3.5, `ep_nhl_bridge.py` v1.1.
+- Game level: `nhl_gamelog_scraper.py` v2.4, `on_ice_reconstruction.py` v1.3, `xg_model.py` v1.0,
+  `score_state.py` v1.0, `metric_assembly.py` v1.0, `gv_adjusted_build.py` v1.0.
+- Other: `replacement_rebase.py`, `npv_spine_compare.py`, `capspace_scraper.py`, `capspace_capwages_compare.py`,
+  `check.py`.
+
+**Pending data items.** Goalie birthdates for pre-2018 retirees (96 of 98 found in the NHL stats API, not wired);
+the mid-season allocation application (Phase 4a-ii); `trades.db` ends 2022-03-21; the PuckPedia export refresh.
+
+## Pointers
+
+- Live work: `00_STATE/WORK_QUEUE.md` (top section).
+- Thomas's model directives, investigations and open decisions: `00_STATE/MODEL_DIRECTIVES.md`.
+- Locked decisions and the change log: `00_STATE/DECISIONS.md`.
+- Identification flags and open questions: `00_STATE/STANDING_FLAGS.md`.
+- Session-by-session record: `00_STATE/sessions/`.
+- How-it-works explainers and audits: `40_DOCS/`; supervisor snapshots: `40_DOCS/Supervisor_Drafts/`.
+
+---
+
+
+## Player pillar — goaltender wiring CLOSED for observed seasons (P2, 2026-06-30)
+
+Full chain wired: trailing weight (50/30/20 cascade) → shrinkage (lambda=0.65) → dollar conversion (rate above) → Value_t, joined to existing Cost_t (`cs_cap_hit`/`pp_cap_hit`) → Surplus_t. Output: `goalie_value_spine.csv`, 1,730 of 1,752 goalie contract-seasons valued (2015-2025 observed range). 22 pre-2015 rows excluded (outside the regression sample window); 71 rows use an extrapolated cap ceiling beyond 2027-28 (flat 3%/yr placeholder).
+
+**Bug caught and fixed mid-build:** a naive exact-name join initially mislabeled 54% of rows as "rookie." Verified root cause: 748 genuinely have no NHL WAR record (true rookies + never-played-meaningfully depth goalies — correct fallback to league average), and 181 are FUTURE contract years (2026-2032) beyond any actual WAR data — now separately flagged as `future_season_static_placeholder`, not conflated with rookies. Name normalization only recovered 2 additional matches (180→182); spot-checked 12 known starters (Shesterkin, Hellebuyck, Vasilevskiy, etc.), all matched cleanly.
+
+**Known limitation, not fixed:** the 181 future-season rows use a static league-average placeholder, not a real forward projection — no aging-curve-based decay model exists for goalies (or skaters — same project-wide gap, see Phase 1). Low priority since the back-test window (2018-present) sits entirely within observed WAR data.
+
+---
+## Power analysis (Phase 2, first run 2026-06-30)
+
+946 trade groups (2018-2026, multi-team collapsed via `linked_trade_id`). 69.1% involve a draft pick (unpriceable until Phase 3). Cleanest current category (player-only, no pick, no prospect-proxy) = **205 trades (21.7%)**. Of those: only **14 all-goalie** (fully priceable today), **154 all-skater** (blocked on Phase 1), 153 need Phase 4a (mid-season allocation), 53 carry an NTC/NMC clause-holder flag (upper bound, not a confirmed forced trade). Era split (flat-cap 91 / post-flat 88 / pre-flat 26) confirms the regime indicator is load-bearing. Fixed a boolean-comparison bug mid-run that had silently zeroed out the monopsony count (`== 'True'` string compare against actual Python bools). Output: `power_analysis_trade_groups.csv`.
+
+**Key finding:** the real bottleneck is Phase 1 (skater NPV engine + discount rate), not the back-test items the old queue prioritized — triggered the full re-sequencing above.
+
+**Framing caveat, raised directly by Thomas:** running this against an almost-entirely-unbuilt model meant near-total blockage was the expected floor, not a genuine discovery — should have stated that expectation before running, not after. The category-size breakdown and the bottleneck-identification are the real value; the raw pass/fail count itself wasn't news. **Must re-run after Phase 3 closes.**
+
+---
+## Game-level model — Phase 4a-i CLOSED (2026-07-03)
+
+The non-Bacon, goal-denominated per-skater-per-game metric is built and validated end-to-end on 11,870 games (2017-18 -> 2025-26). Four-script chain (see Scripts inventory). Purposes: (a) mid-season trade allocation via the per-game `team` column; (b) the designated non-Bacon outcome yardstick for the circularity fix. **Zero Bacon inputs anywhere in the chain** — weights come from a fixed accounting identity (equal split among skaters actually on ice) plus league-estimated factors, never fitted to Bacon.
+
+**Validation (both machines, matching to 3+ decimals):** accounting identity exact (+0.000000); orphan tripwire 0; **season-level regression: metric explains 58.3% of team-season goal differential (R²=0.583, slope 1.085), fitted to nothing**; game-level R²=0.034 — honestly benchmarked against MoneyPuck's public model (R²≈0.07 per game with richer features; single games are mostly luck for every model); goals-per-win = 5.90; penalty value v = 0.2097; eyeball test passes (2023-24 leaders: McDavid, MacKinnon, Tkachuk...).
+
+**Documented limitations:** equal split cannot separate a player from his linemates (teammate confound — why the metric is scoped to allocation + validation, not standalone player valuation); xG top-decile overpredicts (~21.8% vs 17.0%, partly era drift; log-distance and slot-indicator fixes tested and rejected on evidence); 2,629 bench/team penalties credited to no individual (correct per feed).
+
+**NHL feed corruption found and neutralized (exactly 3 games league-wide):** 2025020565 (another game's shifts misfiled under its id), 2021020513 (every shift triplicated, one copy with corrupted team label), 2024030116 (shift-chart player absent from the official box score). Fix: the roster-truth rule (Script 1 v1.3) + scraper v2.4's foreign-team filter. Also: the 2019-20 COVID round-robin contains the only two playoff-type shootout games in nine seasons (2019030002, 2019030016) — shootout detection now keys on the game's recorded final period, not game type.
+
+**Provider-discipline note:** MoneyPuck's public shot file was downloaded once, solely to benchmark validation *expectations* (what game-level R² a richer public model achieves). It is not an input to any model component and does not touch the single-provider rule.
+
+**GV-adj + architecture decision (2026-07-04).** A WAR-like adjusted version — GV-adj — was built (RAPM teammate/competition separation, shrunken finishing talent, deployment controls). A pre-registered battery testing GV as a full replacement for Bacon skater WAR was run and closed: Bacon is retained for skater value; the defensive-value gap is structural, not a tuning problem (see Resolved Decisions). GV now has three scoped roles — mid-season allocation (GV-raw), and the paired Phase 4b circularity validators (GV-adj + GV-raw). Backward scraping of the game-log store to 2006-07 was confirmed available via live URL tests (not yet run) — relevant to the left-truncation open question.
+
+**Phase 4b primary validator — RUN 2026-07-14.** Tier 1 player-level: `trailing_war(t)` (the exact ex-ante quantity priced into Value_t) vs same-season GV-adj in win units. Headline: r=0.576 / Spearman 0.460 / OLS R²=0.331 on 6,027 player-seasons; per-season r=0.55–0.61 across all nine seasons (no season carries the result, no era break); t+1 horizon r=0.538. Forward/defence split mirrors the known GV defensive gap (F 0.648 vs D 0.302) — same wall from the replacement battery, seen from the outcome side. Framing: descriptive convergent validity, no pass/fail bar (none was pre-registered; retrofitting one post-hoc was explicitly rejected). Run mechanics worth preserving: the join is spine `nhl_id` ↔ GV `player_id` (the GV tables carry NHL ids, NOT PuckPedia ids — a zero-match tripwire now guards this); 47 duplicate player-seasons in the skater spine turned out to be retention-split contract legs (mid-season trade + salary retention, identical projection across legs) — collapsed with a projection-agreement guard, and independently a small structural confirmation of the retention mechanism. **Canonical game-log DB declared: the `Desktop\test` copy** (`C:\Users\thoma\OneDrive\Desktop\test\nhl_gamelogs.sqlite`) — the only copy holding `gv_adjusted` + `player_game_value_repl`; the old `new_scrape` path is superseded. **Robustness leg RUN 2026-07-14 — 4b closed in full.** GV-raw aggregated to player-seasons (regular season only, both the zero-sum `game_value` and replacement-rebased `gv_repl` columns): rebased r=0.609, zero-sum r=0.564 vs the GV-adj primary 0.576 — a tight three-validator band, stable in every season, gentle t+1 decay in all three. Two interpretive notes: (a) GV-raw matching/exceeding GV-adj is consistent with the earlier persistence finding (raw 0.809 vs adj 0.779) — the RAPM adjustment strips team-context signal that Bacon WAR also carries; a finding about metric content, not a reason to reopen the locked primary designation. (b) Rebased-D (0.442) is not cited as the defence headline — the rebase's known offensive-D inflation plus shared deployment correlation likely contributes; the honest defence range is 0.28-0.30 across the other two validators.
+
+---
+## Player-model review — STAGE 1 CLOSED (2026-07-27)
+
+An external review of the player pillar (`player_model_review.md`) listed ten Stage 1 items:
+corrections that bring the code into line with rules the project had already adopted. All ten are
+now closed. Every fix was built, run locally by Thomas, and cross-checked against an independent
+run before being accepted. Seven scripts changed.
+
+**What each item was, and what it did**
+
+| item | file(s) | outcome |
+|---|---|---|
+| 1.1 goalie out-year projections | `goalie_value_engine.py` v1.1 | 98 rows / 38 goalies now carry the goalie's own projection instead of the league average; 83 never-played rows retagged only. Net +$36.9M on the goalie panel. Parity gate still passes. |
+| 1.2 retirement-risk lookup | `contract_npv.py` v1.2 | Both lookup axes (age AND quality) were read one season too late. Corrected to k−1. 922 contracts move, +$137.1M. |
+| 1.3 projection multiplier floor | `skater_forward_projection.py` v1.2 | `RATIO_FLOOR = 0.0` added. 67 rows across 39 contracts had wanted a NEGATIVE multiplier (worst −2.86). 41 contracts move, all upward, +$8.4M. |
+| 1.4 thin cells in the risk table | `exit_hazard.py` v1.2 | Cell means replaced by a fitted additive model (quality + age, main effects). Two skater cells and FOUR goalie cells had read exactly 0.0% — i.e. asserted certainty. 1,450 contracts move, +$16.6M. |
+| 1.5 traded player's lost half-season | `skater_value_engine.py`, `skater_forward_projection.py` | Team-halves are now summed, not discarded. One live case (Nick Paul 2022), +$2.30M — he had been routed onto the wrong projection branch entirely. |
+| 1.6 name cleaning in the aging curve | `aging_curve.py`, `skater_forward_projection.py` | Careers keyed on the cleaned name; five split careers reunited; the two Elias Petterssons kept apart by explicit rule. |
+| 1.7 non-consecutive season windows | `aging_curve.py` | 338 windows had paired non-consecutive seasons (worst: ages 21 and 30 treated as consecutive). Dropped from the comparables pool; level falls back to the single season; trend divides by the real age gap. |
+| 1.8 identifier / name join guard | `age_join.py` | `join_on_id_and_name()` added, with a self-test that fires on a known conflict every run. No behavioural change; forward-looking guard. |
+| 1.9 goalie column type | `goalie_value_engine.py` | `trailing_war` is numeric again (748 rows had carried text, re-typing the column). Was a regression against the locked v1 file, not the original design. |
+| 1.10 qualifying-offer salary substitute | `rfa_terminal_value.py` | **RECLASSIFIED: limitation, not correction.** See below. |
+
+**1.6 + 1.7 combined effect on the curve and the valuations**
+Careers 1,479 → 1,478; comparables pool 7,869 → 7,531; bandwidth 2.555 → 2.526. Downstream:
+1,011 contracts move (34.8%), +$30.5M in total, but the median move is $5k and 90% are under
+$167k; largest single move $1.33M. Nine contracts switch projection track, eight of them off the
+flat fallback and onto the curve because their careers are now whole. **λ = 0.55 was re-tested,
+not assumed** — sampled-career error 1.0226 / 1.0110 / **1.0068** / 1.0095 / 1.0192 at λ = 0.35 /
+0.45 / 0.55 / 0.65 / 0.75. 0.55 still wins; the locked value stands and is now re-earned on
+corrected inputs.
+
+**1.10 is a limitation, not a fix.** The review proposed falling back to the contract's highest
+observed salary when the final year's salary is missing. Of the 1,689 affected contracts, only
+**11** have a salary recorded on any season — the salary feed covers a whole contract or none of
+it — and the PuckPedia export holds a contract total, not a per-season breakdown, so there is no
+alternative source in the current data. Implemented: max-salary fallback where it exists, explicit
+tagging (`qo_salary_source`) everywhere else, a guard against substituting while a real salary is
+on file, and reporting in the run log (**1,083 real salaries vs 356 substitutes, 25%**; priced
+population 411 vs 133). Downstream effect: zero contracts. **Paper statement:** roughly a quarter
+of qualifying offers rest on a figure that switches off the CBA's 120%-of-cap-hit ceiling; the
+bias runs one way (offer understated → control-year cost understated → surplus overstated); about
+2.8% of contracts would have had the ceiling bind, judged from the contracts where the real salary
+IS visible. Closing it needs per-season salary coverage extended — the cap-space.com feed is the
+natural place to look.
+
+**The review's own reliability — record this before Stages 2-5.** It identified a real problem in
+all ten items, but was wrong on mechanism or magnitude in five: 1.1 (row count and population
+split), 1.2 (35.8% figure requires five transitions, not the four its worked example implies;
+7.5% on that path), 1.3 (attributed the cause to small curve bases — only 18 of 75 rows;
+its proposed threshold change would have left 57 pathological rows and re-routed 197 healthy
+ones), 1.8 (23 IDs / 217 rows / 47 players, not 33 / 322 / 69), and 1.10 (proposed remedy not
+implementable). Treat every Stage 2-5 claim as a hypothesis to verify, not a finding to act on.
+
+**Direction-of-effect pattern (belongs in the robustness section).** Items 1.1, 1.2, 1.3, and 1.5
+all moved values UPWARD, and 1.6/1.7 net upward as well. Each is independently defensible, but the
+common direction is what a skeptical reader will notice, so it should be presented as a set with
+the total effect stated, not as six unrelated corrections.
+
+**No accuracy gain claimed.** The projection's own backcast barely moved (+1.5% over hold-flat at
+k=1 before and after; +8.3% vs +8.4% at k=3). Stage 1 bought defensibility, not predictive
+performance. One small honest note: for negative anchors at k=1 the curve now trails hold-flat by
+1.4% where it previously led by 0.2% (n=233); it still wins clearly at k=2 and k=3.
+
+---
+## Sessions log → 00_STATE/sessions/
+
+Moved 2026-09-09 (v3.2). Each working session writes a dated file to **`00_STATE/sessions/`** (`YYYY-MM-DD[letter].md`) summarising that session beat-by-beat: what was discussed, what was decided or done, which artifacts were touched, and — mandatory — any thread left without a follow-up. The two pre-split write-ups (2026-08-28 supervisor meeting, 2026-09-08 repository migration) were migrated there verbatim. The curated arc lives in the DECISIONS.md change log; the session files are the granular substrate you grep.
+
+---
+
+## Standing flags & open questions → STANDING_FLAGS.md
+
+Moved 2026-09-09 (v3.2). Karl's identification axes, the triaged open questions, and the original-conflicts resolution record now live in **`00_STATE/STANDING_FLAGS.md`**.
+
+---
+
+## File management protocol (adopted 2026-07-30)
+
+### Amendment (2026-09-08): git is now the code channel
+
+The tree below is unchanged and still governs. What changed is how code and state move between
+machines. `20_CODE`, `00_STATE`, `40_DOCS`, and the four small vendor CSVs travel through the
+GitHub repo. `10_SOURCE` heavy data and all of `30_OUTPUT` do not, because GitHub caps files at
+100 MB and the game-log database alone is 2.3 GB. **Dropbox is therefore no longer the working
+channel for code, but remains the only channel for data.** Local stays authoritative throughout.
+The practical trap: generate a spine on one machine and the other goes stale silently, because git
+will not tell you. Either re-run the chain or sync `30_OUTPUT` through Dropbox, and treat the most
+recent run as canonical.
+
+### Amendment (2026-09-11): the sync is scripted, and it refuses to run on a broken repo
+
+Two machines now sync through one script, `sync.ps1` at the repo root, launched by
+`Sync-Desktop.cmd` or `Sync-Laptop.cmd`. The script commits every local change, pulls whatever is
+on GitHub and not local, and pushes, in that order. It takes the repo location from its own folder
+rather than a hardcoded user path, because the two Windows accounts differ (`Thomas` on the
+desktop, `thoma` on the laptop); the two `.cmd` launchers carry the machine-specific path so they
+can be pinned outside the folder, and fall back to their own directory if that path is wrong.
+
+Two design points are load-bearing, both of them consequences of a real stall on 2026-09-11 that
+left the desktop in detached HEAD with an interactive rebase half-applied. **The pull is
+`--no-rebase`, deliberately.** Rebase rewrites local commits onto the remote's and strands you off
+the branch when it stops partway, which is what happened; a merge pull leaves you on the branch
+whatever else goes wrong, and a merge commit costs nothing on a single-author repo. **The script
+refuses to run at all** when `rebase-merge`, `rebase-apply`, `MERGE_HEAD`, or `CHERRY_PICK_HEAD`
+exists, or when HEAD is detached: in those states an `add`/`commit`/`pull` sequence compounds the
+problem rather than fixing it, so it prints the resolving commands and exits without touching
+anything.
+
+The sync moves tracked files only. `30_OUTPUT` is gitignored and does not travel, so the stale-spine
+trap above is unchanged: a spine generated on one machine still goes silently stale on the other.
+
+### Where things live, and which copy is authoritative
+
+The local working folder on Thomas's machine is the source of truth. OneDrive backs it up continuously at no effort. Dropbox is the working channel, which is the only cloud surface Claude can read and write. Google Drive is retired. When Dropbox and local disagree, local wins and Dropbox is refreshed from it; a stale Dropbox never means work was lost.
+
+### The tree
+
+- `00_STATE/`, holding the four state files (`PROJECT_STATE.md`, `WORK_QUEUE.md`, `DECISIONS.md`, `STANDING_FLAGS.md`), the `sessions/` per-session log, the four sequence documents, and `MANIFEST.csv`.
+- `10_SOURCE/`, vendor and scraped source data. Our code reads it and never writes it.
+- `20_CODE/`, flat. Every script, current version only.
+- `30_OUTPUT/`, flat. Every spine, panel, curve, diagnostic, and run log.
+- `40_DOCS/`, reports, reviews, briefs, and assets.
+- `90_ARCHIVE/YYYY-MM-DD/`, superseded material under its original name.
+
+`20_CODE` and `30_OUTPUT` are flat deliberately. The previous per-pillar folders sat empty for a month, then filled with duplicates and Dropbox conflict copies while the real work happened in one flat directory. A structure that contradicts how the code actually runs will keep losing.
+
+### Naming
+
+Filenames in Dropbox are byte-identical to filenames locally. There is no version suffix on a live file; the file in `20_CODE` is current, and superseded copies move to `90_ARCHIVE/YYYY-MM-DD/` under their original name, with the date carried by the folder.
+
+A `<pillar>_<name>` convention was considered and **rejected for code and outputs**. Six scripts are imported as modules by others, so renaming them is a code change requiring an import rewrite and a local re-run; output filenames are equally exposed because scripts read and write them by hardcoded name. More importantly, a file named one thing locally and another in Dropbox breaks the manifest check and licenses the two surfaces to disagree, which is the failure this system exists to prevent. Browsability is recovered through the manifest's `pillar` column instead.
+
+### MANIFEST.csv
+
+One row per file, in `00_STATE/`. Columns: `path`, `filename`, `pillar`, `class`, `session_id`, `dbx_content_hash`, `size_bytes`, `handoff_date`, `verified_locally`, `channel`, `note`. **Reconciled 2026-09-09 (v3.2) into a complete inventory** — 77 rows: every git-tracked file under `20_CODE` / `00_STATE` / `10_SOURCE` / `40_DOCS`, plus the load-bearing `30_OUTPUT` working set and the game-log DB. Before then it listed only the 2026-07-30 handoff set (~13 scripts + spines) and was never complete.
+
+`channel` (new 2026-09-09) says how the file moves and therefore how it is audited:
+- **`git`** — the `dbx_content_hash` column holds the **git blob SHA** (from `git ls-files -s`), not a Dropbox hash. The audit for these files is `git status` (clean tree = every row verified) and `git log`. `verified_locally` is `yes` whenever the working tree is clean. **`size_bytes` is the git blob size (2026-09-14 convention), reproducible anywhere with `git cat-file -s <blob>` and equal to the file's LF byte count.** It was previously whatever the writing machine's `stat` reported, which made the column disagree with itself: rows written on the Windows desktop carried CRLF sizes and rows written from a Linux container carried LF sizes, so the same unchanged file read 42,810 bytes in one row and 42,026 in another. Recording the blob size ties `size_bytes` to the same object the hash column identifies and removes the platform from the picture. Size is still not an integrity check on its own (see the audit section), so a size-only mismatch means the row is stale, never that the file is corrupt.
+- **`dropbox`** — `30_OUTPUT` outputs and the 2.3 GB `nhl_gamelogs.sqlite`, which do not travel through git. `dbx_content_hash` is `LOCAL_RUN` (they regenerate; the most recent local run is canonical) or an actual Dropbox content hash after a handoff. These are the only rows the Dropbox-hash audit still applies to.
+
+`class` governs how a file is compared when it IS hash-audited. `hashable` covers csv, md, txt, py, and xlsx. `rendition` covers pdf and docx, which the Claude project stores as page-image/markdown extractions, not as files — comparing a rendition to its source produces a guaranteed false mismatch (this caused two spurious conflicts in the 2026-07-30 audit). `binary` covers png and sqlite.
+
+`session_id` is `YYYY-MM-DD` plus a letter where a date carries more than one session.
+
+**Re-audited 2026-09-25c.** Scope now also covers `50_REBUILD/` (it reached main that day). For a
+row whose blob changed, or a row added by the audit, `session_id` and `handoff_date` are the date
+of the last commit that touched the file (`git log -1 --format=%cs`), since the session letter
+cannot be recovered from git; unchanged rows keep what they had. `class` follows the rule above by
+extension (html, json, cmd and ps1 count as hashable). Repo-root files other than the existing
+`AGENTS.md` row stay out of scope.
+
+### The audit, on the trigger phrase "audit files"
+
+Scope is now `channel = dropbox` rows only — `channel = git` files are audited by `git status` / `git log`, not by hash comparison against a listing.
+
+Direction one asks whether a handoff landed: compare the Dropbox content hash, which any listing returns at no cost, against the manifest row. Match means fine, differ means Thomas edited or reran it and Claude asks which, absent means the handoff never arrived.
+
+Direction two asks whether the Claude project is serving stale files: the same comparison against the project copies, restricted to `class = hashable`. (Largely moot since 2026-07-30 — the Claude project no longer holds scripts or outputs.)
+
+Both report exceptions only. Two operational notes from the migration. Dropbox move jobs can report `internal_error` on every entry while having actually succeeded, so completion is confirmed by listing the destination rather than by trusting the job result. And file size alone is not an integrity check: the pre-rebuild and post-rebuild `draft_yield_curve.csv` are both exactly 845 bytes with different contents.
+
+### What the Claude project holds
+
+Only files that change on a decision cadence: `PROJECT_STATE.md`, the four sequence documents, the two review documents, the Research Brief, the WAR/AAV regression report, and the frozen vendor sources. No scripts, no spines, no panels, no curves, no run logs. Outputs change every run while project files change only when Thomas clicks, so any output kept there drifts by construction. Scripts and outputs are attached per message when being worked on, or read from Dropbox.
+
+**Supervisor review applied (2026-09-10d):** Doc 2 and Doc 5 in `40_DOCS/Supervisor_Drafts/` incorporate the agreed factual and prose corrections. Doc 5 now distinguishes the completed raw within-player era comparison from the unimplemented fitted-profile leg described in the source docstring. Doc 2 retains full explanations and adds the yardstick test. ZIP/XML and core WML checks pass; visual pagination remains unverified. See `sessions/2026-09-10d.md`.
+
+- **2026-09-10e Doc 2 formatting:** User-edited Downloads copy incorporated into Supervisor_Drafts with consistent fonts, heading hierarchy, and spacing. Text preserved exactly; core checks pass; visual pagination remains unverified. See `sessions/2026-09-10e.md`.
+
+- **2026-09-10f:** Supervisor Docs 3-5 reviewed against code and run logs. Clarified tests and calculations; restored the forward term-test result and separate draft intervals, and documented terminal qualification survival starting a new chain. Production unchanged. Report: `40_DOCS/Docs_3_4_5_Review_Notes.md`.
+
+- **2026-09-11b formatting:** Applied Data, Production, and Aging's formatting to the four other user-named explainers in place. Text preserved exactly; XML checks pass. Visual pagination remains unverified because the packaged renderer lacks LibreOffice. See sessions/2026-09-11b.md.
+
+**2026-09-11c document update:** Current user-supplied pricing draft is 40_DOCS/Doc_3_Player_Pillar_II_2.docx, edited for flow and consistent formatting. Numerical results and model settings unchanged. Visual pagination unverified because the bundled renderer lacks LibreOffice.
+
+**2026-09-11d document update:** 40_DOCS/Doc_4_Drafting_Prospects_Unbuilt.docx rewritten for comprehension and matched to the preceding explainer's formatting. Built/proposed distinctions and numerical findings retained. Structural checks pass; visual pagination remains unverified.
+
+**SUPERSEDED by the entry appended at the end of this file on 2026-09-15 after the repair verification: the improvement figures below are measured against a faulty adapter and are corrected there.** **2026-09-15b rebuild status, and what may be quoted from it.** The experimental player rebuild
+in `50_REBUILD/` was independently reviewed, answered, and has had its first repair pass. What
+is established today: the experimental forecast beats a flat-carry benchmark reproducibly. What
+is not established: that it beats the live chain, that the chain is clean of look-ahead through
+the market stage, or that any of its dollar figures can be used. **Each dollar figure in the
+candidate reports is withdrawn** until the participation event, the market dating and the cap
+path with discounting are repaired and the chain is refit. The comparator those reports call
+the production chain is a flat trailing anchor with no aging path and no survival weighting, so
+each improvement quoted against production is an improvement against a simpler rule; the
+attribution appears in report prose, model labels and log output, and is corrected in none of
+them yet. Two defects are repaired and asserted: the shortened-season units, and four silent
+defaults that returned fabricated numbers rather than refusing. The market holdout is spent
+(see STANDING_FLAGS and `40_DOCS/model_evidence/Holdout_Inventory.md`); the forecast holdout is
+believed intact and is now recorded rather than reconstructed. Nothing in production changed
+and no locked decision was reopened. Repair sequence and the two decisions owed are in
+WORK_QUEUE.
+
+**2026-09-15b rebuild status, CORRECTED after the repair verification.** The comparator used in
+the earlier entry was a production adapter that reimplemented two of production's rules and got
+both wrong. Corrected, on rows production can price: **the rebuilt chain beats the live chain by
+14.4% in the valuation season and by 8% to 9% from one season out.** The gain is an old-player
+gain and should be described as one: 43.1% at 34 and over, 20.2% at 31 to 33, 11.0% at 27 to 30,
+2.9% at 23 to 26, and a 0.4% loss at 22 and under. **The previously reported 28.6% improvement on
+below-replacement players is withdrawn; correctly measured it is 2.6%.** The star residual is
+inverted rather than repaired, at -0.57 wins against production's +0.67. Each dollar figure
+remains withdrawn pending reconciliation against production's contract NPVs. Repair items 1 to 7
+and all six verification findings are complete; the check suite is at 14 of 14. No production
+file changed and no locked decision was reopened.
+
+
+---
+
+## History (kept as written; superseded by the sections above on 2026-10-14)
+
+### Dated entries, newest first (to 2026-10-14)
+
+
 **Work queue audited; checks before the prospect model, 2026-10-14.** The live list is the top section of
 `WORK_QUEUE.md`. Done: the draft-class overlap check (no traded pick is for a draft in the star value's fit),
 the Elite Prospects bridge's two id exceptions (`ep_nhl_bridge.py` v1.1), the age and season-weighting audits
 (`40_DOCS/Age_and_Weighting_Audit.md`), and a short note for the 2026-10-15 meeting. Next: the prospect model,
-simplest version first. This file's own refresh (due 2026-10-05) is overdue; the headers above the dated
-entries carry the current state.
+simplest version first. This file was refreshed the same day (v3.4).
 
 **Arbitration cost adopted for RFA control years, picks and players, 2026-10-13.** After the supervisor meeting
 (build and compare) Thomas adopted it: once a player is eligible for salary arbitration, a control season costs the
@@ -755,61 +1188,10 @@ Keep the existing leader meanwhile. No candidate merge or default change here.
 See `40_DOCS/model_evidence/reviews/Goalie_Adoption_Skater_Contract_Review_Codex.md`.
 
 
-<!-- Canonical default-context anchor. Source of truth is this file plus its three siblings in
-     00_STATE/ (WORK_QUEUE.md, DECISIONS.md, STANDING_FLAGS.md) and the per-session log in
-     00_STATE/sessions/, all version-controlled in git. Craft is retired as a canonical surface.
-     This file holds: objective, model spec, current build state, the data/scripts inventory,
-     locked regression results, per-pillar status, and the file-management protocol. -->
 
-**Generated:** 2026-09-28
-**Refresh due:** 2026-10-05 (7-day cadence)
-**Maintained by:** Claude, at session close (see the DECISIONS.md change log)
-**File version:** 3.3 (v3.3 refresh 2026-09-28: every session log since 2026-09-08 checked as referenced in the state files; inventory and pending list reconciled; see the DECISIONS.md 2026-09-28k entry. v3.2 restructure 2026-09-09: PROJECT_STATE.md split into four state files + a per-session log; see DECISIONS.md change log. Not a weekly refresh — Generated / Refresh-due unchanged.)
+### Superseded sections (as they stood before the 2026-10-14 refresh)
 
-> **Refresh note (2026-09-08).** The previous snapshot was v2.9, generated 2026-07-29 and due
-> 2026-08-05. It ran six weeks stale. Two sessions in that window went unrecorded on every
-> surface: the 2026-08-28 supervisor meeting and the 2026-09-08 repository migration. Both are
-> written up in the new section below and applied to Craft in the same pass. **Every model
-> figure in this file still dates from the 2026-07-28 runs and has not been reproduced since
-> the migration.** See the compounded verification flag before citing any of them.
-
----
-
-## STALENESS TRIGGER — READ THIS FIRST (instruction to Claude)
-
-Before doing substantive work in any chat, check today's date against **Refresh due** above.
-
-- **If today is on or after the Refresh due date:** this snapshot is stale. Do **not** silently rely on it. First tell Thomas: *"The PROJECT_STATE snapshot was generated on [Generated date] and is now past its weekly refresh. Want me to run the refresh before we proceed?"* Then, on his go-ahead, run the **Refresh protocol** below.
-- **If today is before the Refresh due date:** treat this file as current. Where it conflicts with older project-instruction text or dated project files, this file wins — it is the more recent snapshot.
-
-This is a soft trigger: it works only because this file sits in context each chat and the above is a standing instruction. Honour it. The same staleness caveat covers the sibling files (WORK_QUEUE.md, DECISIONS.md, STANDING_FLAGS.md) — they share this file's Generated / Refresh-due dates.
-
----
-## Refresh protocol (run when stale, or whenever Thomas asks)
-
-1. **Confirm the date** and state how stale the snapshot is.
-2. **Read the session log** — every `00_STATE/sessions/*.md` written since the Generated date. That is the primary record of what changed: decisions made, work done, artifacts touched, threads left open.
-3. **Cross-check against `git log --stat 00_STATE/ 20_CODE/`** for the same window — commits are the mechanical second copy; anything in a commit but not in a session file is a gap to close.
-4. **Reconcile.** Edit whichever of the four state files each change touches: PROJECT_STATE.md (build state, inventory, regression results, pillar status), WORK_QUEUE.md, DECISIONS.md (locked decisions + change log), STANDING_FLAGS.md.
-5. **Compile conflicts and questions** — anything where the session files, the commits, or the state files disagree, or where a decision is ambiguous.
-6. **Bring the conflicts to Thomas** and let him resolve them. Do not guess on load-bearing items.
-7. **Re-stamp** the Generated date, advance the Refresh due date by 7 days, bump the File version, and append an entry to the **DECISIONS.md change log**.
-
----
-## Precedence & layers
-
-- **Order of authority:** the four `00_STATE/` files (PROJECT_STATE.md, WORK_QUEUE.md, DECISIONS.md, STANDING_FLAGS.md) + the `sessions/` log, all in git — these ARE the source of truth; then the model overview / scoping doc; then the Research Brief. **There is no paper manuscript** — writing begins only after the model is built.
-- **Craft is retired as a canonical surface (2026-09-09).** It may survive as a personal reading/scratch space, but Claude does not read, reconcile against, or sync to it. "How it works" explainers now live in `40_DOCS/`. Historical note kept for the lesson (2026-07-28): Craft received a full content overhaul at 17:09 on 2026-07-28, AFTER the v2.6 snapshot of this file was taken at 11:26. For roughly six hours Craft was the more current surface and this file was the stale one. v2.7 reconciles them. The lesson is recorded because it recurred twice in one session: read the live hub before asserting anything about its contents, rather than trusting a snapshot that sits in context.
-- **SQLite + local files** are the heavy data store (source of truth for data). Only summaries, schemas, diagnostics, and small aggregates travel into chats.
-- **This file** is the lightweight current-state anchor that seeds default context.
-
----
-## Objective
-
-Put all three trade-asset classes — rostered players, draft picks, non-roster prospects — on one common scale: projected surplus value in dollars over a defined horizon, risk- and time-adjusted. Then back-test historical trades against realized outcomes to find categories of systematic mispricing. The cross-asset integration is the central contribution. Audience: economics faculty (supervisor **Karl**, econometrics) and sports-analytics practitioners. Karl weighs identification (circularity, look-ahead, selection) most heavily.
-
----
-## Model spec
+#### Model spec
 
 **Proposed rebuild plan (2026-09-14c; not adopted):** `40_DOCS/model_evidence/Player_Model_Rebuild_Plan.md` gives the staged plan requested for comparison, with Claude as intended builder. Thomas has not selected a plan. Existing production specification and work-queue order remain in force. See `sessions/2026-09-14c.md`.
 
@@ -831,7 +1213,7 @@ Put all three trade-asset classes — rostered players, draft picks, non-roster 
 **Back-test logic.** Per trade, compute NPV of assets sent vs received using only point-in-time information; the differential is the ex-ante prediction. Express each trade as a **surplus ratio (NPV sent / NPV received)** — robust to level errors in the dollars-per-win rate. Compare to realized on-ice outcomes measured by the **non-Bacon** game-level metric (the yardstick that breaks circularity for systematic claims). Decompose residuals: genuine mispricing vs team-fit premiums, private-information rents, monopsony pricing under trade-protection clauses.
 
 ---
-## Resolved decisions & change log → DECISIONS.md
+#### Resolved decisions & change log → DECISIONS.md
 
 **Aging comparable-weight audit and elite shrinkage test (2026-09-14, WRITTEN BUT NOT YET RUN ON REAL DATA):** `25_TESTS/aging_comp_weight_audit.py` measures what the curve's comparable weights actually do — the retention slope (how much of a player's deviation from his position-and-age cell survives into the estimate), the pooled weight's real share, and comparable-set quality by level band. `25_TESTS/aging_elite_shrinkage_test.py` is a nine-arm held-out comparison on the bandwidth test's design (`SHRINK_K` settings, bandwidth scalings, the joint cell, a reliability-weighted lambda), reporting **signed bias by anchor-level band** on both endpoints. Both require the PuckPedia birthdate export and so must run on the desktop machine. Preliminary audit figures, on synthetic age cells, are recorded in `STANDING_FLAGS.md`; the bandwidth reproduces the production docstring's 2.526 and does not depend on the age partition, but nothing else transfers until the real run. Production unchanged. See `sessions/2026-09-14.md`.
 
@@ -851,7 +1233,7 @@ Moved 2026-09-09 (v3.2). The locked decision record (D1-D27, the Phase-1b/1c/1d 
 
 ---
 
-## Data & scripts inventory
+#### Data & scripts inventory
 
 **Data in hand (local source of truth; subset mirrored into the project)**
 - `WAR.csv` — Bacon skater WAR, component-decomposed. 17,123 rows, seasons **2007-08 -> 2025-26** (regressions use 2015+; pre-2015 vintage excluded).
@@ -936,7 +1318,7 @@ Moved 2026-09-09 (v3.2). The locked decision record (D1-D27, the Phase-1b/1c/1d 
 - ~~Data-quality note: `puckpedia_player_id` 17422~~ — **RESOLVED 2026-07-28.** It is **Stanislav Demin**, age 19, traded Vegas to Chicago on 2020-02-24 in the three-way Robin Lehner deal with Toronto. He is a non-roster prospect with no PuckPedia contract, which is why a contract-keyed export carries no name or EP id for him. Genuinely a one-off: of 1,503 trade rows carrying a `player_id`, exactly one has no name. Not a data defect — the prospect pillar showing up before the prospect pillar exists. Resolves itself at Phase 3b.
 
 ---
-## Experimental player-model rebuild → `50_REBUILD/` (2026-09-14/15)
+#### Experimental player-model rebuild → `50_REBUILD/` (2026-09-14/15)
 
 **RETIRED 2026-10-02.** xNPV 1 (D33) was promoted into `20_CODE/`. The rest of the tree is in git at
 7f91f0e and in `90_ARCHIVE/2026-10-02/50_REBUILD/` on the laptop, and the folder name is gitignored.
@@ -1719,13 +2101,13 @@ are within 1.1% at every horizon, tie at the valuation season, and are within 0.
 other on the star tier. The criterion that would separate them is dollar error on a contract, which
 needs the back-test.
 
-## Work queue → WORK_QUEUE.md
+#### Work queue → WORK_QUEUE.md
 
 Moved 2026-09-09 (v3.2). The phase-sequenced list of yet-to-do work now lives in **`00_STATE/WORK_QUEUE.md`**. Pillar-level detail stays in `01_Draft_Model_Sequence.md`, `02_Prospect_Model_Sequence.md`, `03_Player_Market_Model_Sequence.md`, and `04_Discount_Heterogeneity_Sequence.md` (added 2026-09-14; a back-test extension rather than a pillar, and gated on 01 and 02).
 
 ---
 
-## Regression results (locked — build on these, do not re-derive)
+#### Regression results (locked — build on these, do not re-derive)
 
 - **SUPERSEDED 2026-07-05 — see Phase 1b decisions D6-D9 above.** The items below marked *(superseded)* came from a regression that, undocumented, pooled goalies into the skater sample. They are kept for audit trail, not for use.
 
@@ -1748,243 +2130,3 @@ Moved 2026-09-09 (v3.2). The phase-sequenced list of yet-to-do work now lives in
 - **CURRENT LOCKED SKATER RATE (2026-07-28, review Stage 3 — supersedes both entries above):** left-censored (Tobit) maximum-likelihood fit, same n=2,349 sample, no contract-length term (Stage 2 found none belongs — see the Player Model Review Stages 2-5 block in Resolved Decisions). **Intercept alpha=0.0132478230 (1.325% cap, $1.265M at the 2025-26 ceiling) shared by both positions. Slope beta=0.0212322891 (2.123% cap/win, $2.028M/win) for forwards; defencemen carry an additional beta_d_add=0.0028702824 (0.287% cap/win), for a combined 2.410% cap/win ($2.302M/win).** Residual scale sigma=0.02276380 (Tobit reports this in place of an OLS R²). The straight-line, censored, position-interaction specification beat a nonlinear (bent) curve on out-of-sample prediction despite the bent curve fitting better in-sample — bent curve rejected. **This is the rate now in force for every skater valuation, and the one the draft-pick curve was rebuilt against (see D22-D27 above).** Locally re-run and confirmed 2026-09-09 — the verification gap this line used to flag is closed; see the Resolved Decisions verification-gap entry.
 
 ---
-## Player pillar — goaltender wiring CLOSED for observed seasons (P2, 2026-06-30)
-
-Full chain wired: trailing weight (50/30/20 cascade) → shrinkage (lambda=0.65) → dollar conversion (rate above) → Value_t, joined to existing Cost_t (`cs_cap_hit`/`pp_cap_hit`) → Surplus_t. Output: `goalie_value_spine.csv`, 1,730 of 1,752 goalie contract-seasons valued (2015-2025 observed range). 22 pre-2015 rows excluded (outside the regression sample window); 71 rows use an extrapolated cap ceiling beyond 2027-28 (flat 3%/yr placeholder).
-
-**Bug caught and fixed mid-build:** a naive exact-name join initially mislabeled 54% of rows as "rookie." Verified root cause: 748 genuinely have no NHL WAR record (true rookies + never-played-meaningfully depth goalies — correct fallback to league average), and 181 are FUTURE contract years (2026-2032) beyond any actual WAR data — now separately flagged as `future_season_static_placeholder`, not conflated with rookies. Name normalization only recovered 2 additional matches (180→182); spot-checked 12 known starters (Shesterkin, Hellebuyck, Vasilevskiy, etc.), all matched cleanly.
-
-**Known limitation, not fixed:** the 181 future-season rows use a static league-average placeholder, not a real forward projection — no aging-curve-based decay model exists for goalies (or skaters — same project-wide gap, see Phase 1). Low priority since the back-test window (2018-present) sits entirely within observed WAR data.
-
----
-## Power analysis (Phase 2, first run 2026-06-30)
-
-946 trade groups (2018-2026, multi-team collapsed via `linked_trade_id`). 69.1% involve a draft pick (unpriceable until Phase 3). Cleanest current category (player-only, no pick, no prospect-proxy) = **205 trades (21.7%)**. Of those: only **14 all-goalie** (fully priceable today), **154 all-skater** (blocked on Phase 1), 153 need Phase 4a (mid-season allocation), 53 carry an NTC/NMC clause-holder flag (upper bound, not a confirmed forced trade). Era split (flat-cap 91 / post-flat 88 / pre-flat 26) confirms the regime indicator is load-bearing. Fixed a boolean-comparison bug mid-run that had silently zeroed out the monopsony count (`== 'True'` string compare against actual Python bools). Output: `power_analysis_trade_groups.csv`.
-
-**Key finding:** the real bottleneck is Phase 1 (skater NPV engine + discount rate), not the back-test items the old queue prioritized — triggered the full re-sequencing above.
-
-**Framing caveat, raised directly by Thomas:** running this against an almost-entirely-unbuilt model meant near-total blockage was the expected floor, not a genuine discovery — should have stated that expectation before running, not after. The category-size breakdown and the bottleneck-identification are the real value; the raw pass/fail count itself wasn't news. **Must re-run after Phase 3 closes.**
-
----
-## Game-level model — Phase 4a-i CLOSED (2026-07-03)
-
-The non-Bacon, goal-denominated per-skater-per-game metric is built and validated end-to-end on 11,870 games (2017-18 -> 2025-26). Four-script chain (see Scripts inventory). Purposes: (a) mid-season trade allocation via the per-game `team` column; (b) the designated non-Bacon outcome yardstick for the circularity fix. **Zero Bacon inputs anywhere in the chain** — weights come from a fixed accounting identity (equal split among skaters actually on ice) plus league-estimated factors, never fitted to Bacon.
-
-**Validation (both machines, matching to 3+ decimals):** accounting identity exact (+0.000000); orphan tripwire 0; **season-level regression: metric explains 58.3% of team-season goal differential (R²=0.583, slope 1.085), fitted to nothing**; game-level R²=0.034 — honestly benchmarked against MoneyPuck's public model (R²≈0.07 per game with richer features; single games are mostly luck for every model); goals-per-win = 5.90; penalty value v = 0.2097; eyeball test passes (2023-24 leaders: McDavid, MacKinnon, Tkachuk...).
-
-**Documented limitations:** equal split cannot separate a player from his linemates (teammate confound — why the metric is scoped to allocation + validation, not standalone player valuation); xG top-decile overpredicts (~21.8% vs 17.0%, partly era drift; log-distance and slot-indicator fixes tested and rejected on evidence); 2,629 bench/team penalties credited to no individual (correct per feed).
-
-**NHL feed corruption found and neutralized (exactly 3 games league-wide):** 2025020565 (another game's shifts misfiled under its id), 2021020513 (every shift triplicated, one copy with corrupted team label), 2024030116 (shift-chart player absent from the official box score). Fix: the roster-truth rule (Script 1 v1.3) + scraper v2.4's foreign-team filter. Also: the 2019-20 COVID round-robin contains the only two playoff-type shootout games in nine seasons (2019030002, 2019030016) — shootout detection now keys on the game's recorded final period, not game type.
-
-**Provider-discipline note:** MoneyPuck's public shot file was downloaded once, solely to benchmark validation *expectations* (what game-level R² a richer public model achieves). It is not an input to any model component and does not touch the single-provider rule.
-
-**GV-adj + architecture decision (2026-07-04).** A WAR-like adjusted version — GV-adj — was built (RAPM teammate/competition separation, shrunken finishing talent, deployment controls). A pre-registered battery testing GV as a full replacement for Bacon skater WAR was run and closed: Bacon is retained for skater value; the defensive-value gap is structural, not a tuning problem (see Resolved Decisions). GV now has three scoped roles — mid-season allocation (GV-raw), and the paired Phase 4b circularity validators (GV-adj + GV-raw). Backward scraping of the game-log store to 2006-07 was confirmed available via live URL tests (not yet run) — relevant to the left-truncation open question.
-
-**Phase 4b primary validator — RUN 2026-07-14.** Tier 1 player-level: `trailing_war(t)` (the exact ex-ante quantity priced into Value_t) vs same-season GV-adj in win units. Headline: r=0.576 / Spearman 0.460 / OLS R²=0.331 on 6,027 player-seasons; per-season r=0.55–0.61 across all nine seasons (no season carries the result, no era break); t+1 horizon r=0.538. Forward/defence split mirrors the known GV defensive gap (F 0.648 vs D 0.302) — same wall from the replacement battery, seen from the outcome side. Framing: descriptive convergent validity, no pass/fail bar (none was pre-registered; retrofitting one post-hoc was explicitly rejected). Run mechanics worth preserving: the join is spine `nhl_id` ↔ GV `player_id` (the GV tables carry NHL ids, NOT PuckPedia ids — a zero-match tripwire now guards this); 47 duplicate player-seasons in the skater spine turned out to be retention-split contract legs (mid-season trade + salary retention, identical projection across legs) — collapsed with a projection-agreement guard, and independently a small structural confirmation of the retention mechanism. **Canonical game-log DB declared: the `Desktop\test` copy** (`C:\Users\thoma\OneDrive\Desktop\test\nhl_gamelogs.sqlite`) — the only copy holding `gv_adjusted` + `player_game_value_repl`; the old `new_scrape` path is superseded. **Robustness leg RUN 2026-07-14 — 4b closed in full.** GV-raw aggregated to player-seasons (regular season only, both the zero-sum `game_value` and replacement-rebased `gv_repl` columns): rebased r=0.609, zero-sum r=0.564 vs the GV-adj primary 0.576 — a tight three-validator band, stable in every season, gentle t+1 decay in all three. Two interpretive notes: (a) GV-raw matching/exceeding GV-adj is consistent with the earlier persistence finding (raw 0.809 vs adj 0.779) — the RAPM adjustment strips team-context signal that Bacon WAR also carries; a finding about metric content, not a reason to reopen the locked primary designation. (b) Rebased-D (0.442) is not cited as the defence headline — the rebase's known offensive-D inflation plus shared deployment correlation likely contributes; the honest defence range is 0.28-0.30 across the other two validators.
-
----
-## Player-model review — STAGE 1 CLOSED (2026-07-27)
-
-An external review of the player pillar (`player_model_review.md`) listed ten Stage 1 items:
-corrections that bring the code into line with rules the project had already adopted. All ten are
-now closed. Every fix was built, run locally by Thomas, and cross-checked against an independent
-run before being accepted. Seven scripts changed.
-
-**What each item was, and what it did**
-
-| item | file(s) | outcome |
-|---|---|---|
-| 1.1 goalie out-year projections | `goalie_value_engine.py` v1.1 | 98 rows / 38 goalies now carry the goalie's own projection instead of the league average; 83 never-played rows retagged only. Net +$36.9M on the goalie panel. Parity gate still passes. |
-| 1.2 retirement-risk lookup | `contract_npv.py` v1.2 | Both lookup axes (age AND quality) were read one season too late. Corrected to k−1. 922 contracts move, +$137.1M. |
-| 1.3 projection multiplier floor | `skater_forward_projection.py` v1.2 | `RATIO_FLOOR = 0.0` added. 67 rows across 39 contracts had wanted a NEGATIVE multiplier (worst −2.86). 41 contracts move, all upward, +$8.4M. |
-| 1.4 thin cells in the risk table | `exit_hazard.py` v1.2 | Cell means replaced by a fitted additive model (quality + age, main effects). Two skater cells and FOUR goalie cells had read exactly 0.0% — i.e. asserted certainty. 1,450 contracts move, +$16.6M. |
-| 1.5 traded player's lost half-season | `skater_value_engine.py`, `skater_forward_projection.py` | Team-halves are now summed, not discarded. One live case (Nick Paul 2022), +$2.30M — he had been routed onto the wrong projection branch entirely. |
-| 1.6 name cleaning in the aging curve | `aging_curve.py`, `skater_forward_projection.py` | Careers keyed on the cleaned name; five split careers reunited; the two Elias Petterssons kept apart by explicit rule. |
-| 1.7 non-consecutive season windows | `aging_curve.py` | 338 windows had paired non-consecutive seasons (worst: ages 21 and 30 treated as consecutive). Dropped from the comparables pool; level falls back to the single season; trend divides by the real age gap. |
-| 1.8 identifier / name join guard | `age_join.py` | `join_on_id_and_name()` added, with a self-test that fires on a known conflict every run. No behavioural change; forward-looking guard. |
-| 1.9 goalie column type | `goalie_value_engine.py` | `trailing_war` is numeric again (748 rows had carried text, re-typing the column). Was a regression against the locked v1 file, not the original design. |
-| 1.10 qualifying-offer salary substitute | `rfa_terminal_value.py` | **RECLASSIFIED: limitation, not correction.** See below. |
-
-**1.6 + 1.7 combined effect on the curve and the valuations**
-Careers 1,479 → 1,478; comparables pool 7,869 → 7,531; bandwidth 2.555 → 2.526. Downstream:
-1,011 contracts move (34.8%), +$30.5M in total, but the median move is $5k and 90% are under
-$167k; largest single move $1.33M. Nine contracts switch projection track, eight of them off the
-flat fallback and onto the curve because their careers are now whole. **λ = 0.55 was re-tested,
-not assumed** — sampled-career error 1.0226 / 1.0110 / **1.0068** / 1.0095 / 1.0192 at λ = 0.35 /
-0.45 / 0.55 / 0.65 / 0.75. 0.55 still wins; the locked value stands and is now re-earned on
-corrected inputs.
-
-**1.10 is a limitation, not a fix.** The review proposed falling back to the contract's highest
-observed salary when the final year's salary is missing. Of the 1,689 affected contracts, only
-**11** have a salary recorded on any season — the salary feed covers a whole contract or none of
-it — and the PuckPedia export holds a contract total, not a per-season breakdown, so there is no
-alternative source in the current data. Implemented: max-salary fallback where it exists, explicit
-tagging (`qo_salary_source`) everywhere else, a guard against substituting while a real salary is
-on file, and reporting in the run log (**1,083 real salaries vs 356 substitutes, 25%**; priced
-population 411 vs 133). Downstream effect: zero contracts. **Paper statement:** roughly a quarter
-of qualifying offers rest on a figure that switches off the CBA's 120%-of-cap-hit ceiling; the
-bias runs one way (offer understated → control-year cost understated → surplus overstated); about
-2.8% of contracts would have had the ceiling bind, judged from the contracts where the real salary
-IS visible. Closing it needs per-season salary coverage extended — the cap-space.com feed is the
-natural place to look.
-
-**The review's own reliability — record this before Stages 2-5.** It identified a real problem in
-all ten items, but was wrong on mechanism or magnitude in five: 1.1 (row count and population
-split), 1.2 (35.8% figure requires five transitions, not the four its worked example implies;
-7.5% on that path), 1.3 (attributed the cause to small curve bases — only 18 of 75 rows;
-its proposed threshold change would have left 57 pathological rows and re-routed 197 healthy
-ones), 1.8 (23 IDs / 217 rows / 47 players, not 33 / 322 / 69), and 1.10 (proposed remedy not
-implementable). Treat every Stage 2-5 claim as a hypothesis to verify, not a finding to act on.
-
-**Direction-of-effect pattern (belongs in the robustness section).** Items 1.1, 1.2, 1.3, and 1.5
-all moved values UPWARD, and 1.6/1.7 net upward as well. Each is independently defensible, but the
-common direction is what a skeptical reader will notice, so it should be presented as a set with
-the total effect stated, not as six unrelated corrections.
-
-**No accuracy gain claimed.** The projection's own backcast barely moved (+1.5% over hold-flat at
-k=1 before and after; +8.3% vs +8.4% at k=3). Stage 1 bought defensibility, not predictive
-performance. One small honest note: for negative anchors at k=1 the curve now trails hold-flat by
-1.4% where it previously led by 0.2% (n=233); it still wins clearly at k=2 and k=3.
-
----
-## Sessions log → 00_STATE/sessions/
-
-Moved 2026-09-09 (v3.2). Each working session writes a dated file to **`00_STATE/sessions/`** (`YYYY-MM-DD[letter].md`) summarising that session beat-by-beat: what was discussed, what was decided or done, which artifacts were touched, and — mandatory — any thread left without a follow-up. The two pre-split write-ups (2026-08-28 supervisor meeting, 2026-09-08 repository migration) were migrated there verbatim. The curated arc lives in the DECISIONS.md change log; the session files are the granular substrate you grep.
-
----
-
-## Standing flags & open questions → STANDING_FLAGS.md
-
-Moved 2026-09-09 (v3.2). Karl's identification axes, the triaged open questions, and the original-conflicts resolution record now live in **`00_STATE/STANDING_FLAGS.md`**.
-
----
-
-## File management protocol (adopted 2026-07-30)
-
-### Amendment (2026-09-08): git is now the code channel
-
-The tree below is unchanged and still governs. What changed is how code and state move between
-machines. `20_CODE`, `00_STATE`, `40_DOCS`, and the four small vendor CSVs travel through the
-GitHub repo. `10_SOURCE` heavy data and all of `30_OUTPUT` do not, because GitHub caps files at
-100 MB and the game-log database alone is 2.3 GB. **Dropbox is therefore no longer the working
-channel for code, but remains the only channel for data.** Local stays authoritative throughout.
-The practical trap: generate a spine on one machine and the other goes stale silently, because git
-will not tell you. Either re-run the chain or sync `30_OUTPUT` through Dropbox, and treat the most
-recent run as canonical.
-
-### Amendment (2026-09-11): the sync is scripted, and it refuses to run on a broken repo
-
-Two machines now sync through one script, `sync.ps1` at the repo root, launched by
-`Sync-Desktop.cmd` or `Sync-Laptop.cmd`. The script commits every local change, pulls whatever is
-on GitHub and not local, and pushes, in that order. It takes the repo location from its own folder
-rather than a hardcoded user path, because the two Windows accounts differ (`Thomas` on the
-desktop, `thoma` on the laptop); the two `.cmd` launchers carry the machine-specific path so they
-can be pinned outside the folder, and fall back to their own directory if that path is wrong.
-
-Two design points are load-bearing, both of them consequences of a real stall on 2026-09-11 that
-left the desktop in detached HEAD with an interactive rebase half-applied. **The pull is
-`--no-rebase`, deliberately.** Rebase rewrites local commits onto the remote's and strands you off
-the branch when it stops partway, which is what happened; a merge pull leaves you on the branch
-whatever else goes wrong, and a merge commit costs nothing on a single-author repo. **The script
-refuses to run at all** when `rebase-merge`, `rebase-apply`, `MERGE_HEAD`, or `CHERRY_PICK_HEAD`
-exists, or when HEAD is detached: in those states an `add`/`commit`/`pull` sequence compounds the
-problem rather than fixing it, so it prints the resolving commands and exits without touching
-anything.
-
-The sync moves tracked files only. `30_OUTPUT` is gitignored and does not travel, so the stale-spine
-trap above is unchanged: a spine generated on one machine still goes silently stale on the other.
-
-### Where things live, and which copy is authoritative
-
-The local working folder on Thomas's machine is the source of truth. OneDrive backs it up continuously at no effort. Dropbox is the working channel, which is the only cloud surface Claude can read and write. Google Drive is retired. When Dropbox and local disagree, local wins and Dropbox is refreshed from it; a stale Dropbox never means work was lost.
-
-### The tree
-
-- `00_STATE/`, holding the four state files (`PROJECT_STATE.md`, `WORK_QUEUE.md`, `DECISIONS.md`, `STANDING_FLAGS.md`), the `sessions/` per-session log, the four sequence documents, and `MANIFEST.csv`.
-- `10_SOURCE/`, vendor and scraped source data. Our code reads it and never writes it.
-- `20_CODE/`, flat. Every script, current version only.
-- `30_OUTPUT/`, flat. Every spine, panel, curve, diagnostic, and run log.
-- `40_DOCS/`, reports, reviews, briefs, and assets.
-- `90_ARCHIVE/YYYY-MM-DD/`, superseded material under its original name.
-
-`20_CODE` and `30_OUTPUT` are flat deliberately. The previous per-pillar folders sat empty for a month, then filled with duplicates and Dropbox conflict copies while the real work happened in one flat directory. A structure that contradicts how the code actually runs will keep losing.
-
-### Naming
-
-Filenames in Dropbox are byte-identical to filenames locally. There is no version suffix on a live file; the file in `20_CODE` is current, and superseded copies move to `90_ARCHIVE/YYYY-MM-DD/` under their original name, with the date carried by the folder.
-
-A `<pillar>_<name>` convention was considered and **rejected for code and outputs**. Six scripts are imported as modules by others, so renaming them is a code change requiring an import rewrite and a local re-run; output filenames are equally exposed because scripts read and write them by hardcoded name. More importantly, a file named one thing locally and another in Dropbox breaks the manifest check and licenses the two surfaces to disagree, which is the failure this system exists to prevent. Browsability is recovered through the manifest's `pillar` column instead.
-
-### MANIFEST.csv
-
-One row per file, in `00_STATE/`. Columns: `path`, `filename`, `pillar`, `class`, `session_id`, `dbx_content_hash`, `size_bytes`, `handoff_date`, `verified_locally`, `channel`, `note`. **Reconciled 2026-09-09 (v3.2) into a complete inventory** — 77 rows: every git-tracked file under `20_CODE` / `00_STATE` / `10_SOURCE` / `40_DOCS`, plus the load-bearing `30_OUTPUT` working set and the game-log DB. Before then it listed only the 2026-07-30 handoff set (~13 scripts + spines) and was never complete.
-
-`channel` (new 2026-09-09) says how the file moves and therefore how it is audited:
-- **`git`** — the `dbx_content_hash` column holds the **git blob SHA** (from `git ls-files -s`), not a Dropbox hash. The audit for these files is `git status` (clean tree = every row verified) and `git log`. `verified_locally` is `yes` whenever the working tree is clean. **`size_bytes` is the git blob size (2026-09-14 convention), reproducible anywhere with `git cat-file -s <blob>` and equal to the file's LF byte count.** It was previously whatever the writing machine's `stat` reported, which made the column disagree with itself: rows written on the Windows desktop carried CRLF sizes and rows written from a Linux container carried LF sizes, so the same unchanged file read 42,810 bytes in one row and 42,026 in another. Recording the blob size ties `size_bytes` to the same object the hash column identifies and removes the platform from the picture. Size is still not an integrity check on its own (see the audit section), so a size-only mismatch means the row is stale, never that the file is corrupt.
-- **`dropbox`** — `30_OUTPUT` outputs and the 2.3 GB `nhl_gamelogs.sqlite`, which do not travel through git. `dbx_content_hash` is `LOCAL_RUN` (they regenerate; the most recent local run is canonical) or an actual Dropbox content hash after a handoff. These are the only rows the Dropbox-hash audit still applies to.
-
-`class` governs how a file is compared when it IS hash-audited. `hashable` covers csv, md, txt, py, and xlsx. `rendition` covers pdf and docx, which the Claude project stores as page-image/markdown extractions, not as files — comparing a rendition to its source produces a guaranteed false mismatch (this caused two spurious conflicts in the 2026-07-30 audit). `binary` covers png and sqlite.
-
-`session_id` is `YYYY-MM-DD` plus a letter where a date carries more than one session.
-
-**Re-audited 2026-09-25c.** Scope now also covers `50_REBUILD/` (it reached main that day). For a
-row whose blob changed, or a row added by the audit, `session_id` and `handoff_date` are the date
-of the last commit that touched the file (`git log -1 --format=%cs`), since the session letter
-cannot be recovered from git; unchanged rows keep what they had. `class` follows the rule above by
-extension (html, json, cmd and ps1 count as hashable). Repo-root files other than the existing
-`AGENTS.md` row stay out of scope.
-
-### The audit, on the trigger phrase "audit files"
-
-Scope is now `channel = dropbox` rows only — `channel = git` files are audited by `git status` / `git log`, not by hash comparison against a listing.
-
-Direction one asks whether a handoff landed: compare the Dropbox content hash, which any listing returns at no cost, against the manifest row. Match means fine, differ means Thomas edited or reran it and Claude asks which, absent means the handoff never arrived.
-
-Direction two asks whether the Claude project is serving stale files: the same comparison against the project copies, restricted to `class = hashable`. (Largely moot since 2026-07-30 — the Claude project no longer holds scripts or outputs.)
-
-Both report exceptions only. Two operational notes from the migration. Dropbox move jobs can report `internal_error` on every entry while having actually succeeded, so completion is confirmed by listing the destination rather than by trusting the job result. And file size alone is not an integrity check: the pre-rebuild and post-rebuild `draft_yield_curve.csv` are both exactly 845 bytes with different contents.
-
-### What the Claude project holds
-
-Only files that change on a decision cadence: `PROJECT_STATE.md`, the four sequence documents, the two review documents, the Research Brief, the WAR/AAV regression report, and the frozen vendor sources. No scripts, no spines, no panels, no curves, no run logs. Outputs change every run while project files change only when Thomas clicks, so any output kept there drifts by construction. Scripts and outputs are attached per message when being worked on, or read from Dropbox.
-
-**Supervisor review applied (2026-09-10d):** Doc 2 and Doc 5 in `40_DOCS/Supervisor_Drafts/` incorporate the agreed factual and prose corrections. Doc 5 now distinguishes the completed raw within-player era comparison from the unimplemented fitted-profile leg described in the source docstring. Doc 2 retains full explanations and adds the yardstick test. ZIP/XML and core WML checks pass; visual pagination remains unverified. See `sessions/2026-09-10d.md`.
-
-- **2026-09-10e Doc 2 formatting:** User-edited Downloads copy incorporated into Supervisor_Drafts with consistent fonts, heading hierarchy, and spacing. Text preserved exactly; core checks pass; visual pagination remains unverified. See `sessions/2026-09-10e.md`.
-
-- **2026-09-10f:** Supervisor Docs 3-5 reviewed against code and run logs. Clarified tests and calculations; restored the forward term-test result and separate draft intervals, and documented terminal qualification survival starting a new chain. Production unchanged. Report: `40_DOCS/Docs_3_4_5_Review_Notes.md`.
-
-- **2026-09-11b formatting:** Applied Data, Production, and Aging's formatting to the four other user-named explainers in place. Text preserved exactly; XML checks pass. Visual pagination remains unverified because the packaged renderer lacks LibreOffice. See sessions/2026-09-11b.md.
-
-**2026-09-11c document update:** Current user-supplied pricing draft is 40_DOCS/Doc_3_Player_Pillar_II_2.docx, edited for flow and consistent formatting. Numerical results and model settings unchanged. Visual pagination unverified because the bundled renderer lacks LibreOffice.
-
-**2026-09-11d document update:** 40_DOCS/Doc_4_Drafting_Prospects_Unbuilt.docx rewritten for comprehension and matched to the preceding explainer's formatting. Built/proposed distinctions and numerical findings retained. Structural checks pass; visual pagination remains unverified.
-
-**SUPERSEDED by the entry appended at the end of this file on 2026-09-15 after the repair verification: the improvement figures below are measured against a faulty adapter and are corrected there.** **2026-09-15b rebuild status, and what may be quoted from it.** The experimental player rebuild
-in `50_REBUILD/` was independently reviewed, answered, and has had its first repair pass. What
-is established today: the experimental forecast beats a flat-carry benchmark reproducibly. What
-is not established: that it beats the live chain, that the chain is clean of look-ahead through
-the market stage, or that any of its dollar figures can be used. **Each dollar figure in the
-candidate reports is withdrawn** until the participation event, the market dating and the cap
-path with discounting are repaired and the chain is refit. The comparator those reports call
-the production chain is a flat trailing anchor with no aging path and no survival weighting, so
-each improvement quoted against production is an improvement against a simpler rule; the
-attribution appears in report prose, model labels and log output, and is corrected in none of
-them yet. Two defects are repaired and asserted: the shortened-season units, and four silent
-defaults that returned fabricated numbers rather than refusing. The market holdout is spent
-(see STANDING_FLAGS and `40_DOCS/model_evidence/Holdout_Inventory.md`); the forecast holdout is
-believed intact and is now recorded rather than reconstructed. Nothing in production changed
-and no locked decision was reopened. Repair sequence and the two decisions owed are in
-WORK_QUEUE.
-
-**2026-09-15b rebuild status, CORRECTED after the repair verification.** The comparator used in
-the earlier entry was a production adapter that reimplemented two of production's rules and got
-both wrong. Corrected, on rows production can price: **the rebuilt chain beats the live chain by
-14.4% in the valuation season and by 8% to 9% from one season out.** The gain is an old-player
-gain and should be described as one: 43.1% at 34 and over, 20.2% at 31 to 33, 11.0% at 27 to 30,
-2.9% at 23 to 26, and a 0.4% loss at 22 and under. **The previously reported 28.6% improvement on
-below-replacement players is withdrawn; correctly measured it is 2.6%.** The star residual is
-inverted rather than repaired, at -0.57 wins against production's +0.67. Each dollar figure
-remains withdrawn pending reconciliation against production's contract NPVs. Repair items 1 to 7
-and all six verification findings are complete; the check suite is at 14 of 14. No production
-file changed and no locked decision was reopened.
