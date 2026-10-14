@@ -3204,3 +3204,11 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   values). 197 traded prospects, $60.8M (own draft left out $59.3M). Name matching to drafted players is ours (short
   forms, initials, a namesake guard); recorded in MODEL_DIRECTIVES directive 6, step one item 7.
 - PROJECT_STATE: prospects row, step one paragraph, two figures rows, scripts list. CLAUDE.md: state paragraph, run order.
+
+### Change log, 2026-10-14g (prospects: O'Reilly and name matching, v1.1)
+
+- Asked (Thomas): fix the O'Reilly case and the name matching before any further model step.
+- `prospect_values.py` v1.1: a traded player's NHL id from PuckPedia (trade rows from 2019; contracts by cap hit on the
+  trade date) decides first; names (now with Elite Prospects' spelling) second; disagreements listed and guarded.
+  684 of 927 by id; 2 disagreements, both v1.0 errors worth zero (O'Reilly, Lehtonen). Values unchanged ($60.8M).
+  PuckPedia is used for identity only, not as a value input (single-provider rule untouched).

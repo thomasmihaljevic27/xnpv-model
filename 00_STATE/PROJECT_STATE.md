@@ -64,7 +64,7 @@ Written from the code that runs (versions as printed by each script) and the ses
 | Skater contracts | Built and priced on xNPV 1 (D33); the five player directives built and validated 2026-10-05 | `skater_forecast.py` v2.3, `skater_forward_projection.py` v2.1, `rfa_terminal_value.py` v2.5, `contract_npv.py` v2.7 |
 | Goalie contracts | Built; flat projection pulled 65% to the league | `contract_npv.py` goalie branch, `goalie_value_engine.py` v1.3, `exit_hazard.py` v1.3 |
 | Draft picks | Pick curve built 2026-10-09; arbitration cost adopted 2026-10-13; CBA signing age and the forecast-consistent arbitration price 2026-10-14 | `draft_pick_linkage.py` v1.1, `elc_signing_dates.py` v1.0, `pick_curve.py` v1.5, `traded_pick_values.py` v1.2 |
-| Prospects | Step one built 2026-10-14 (slot x a star value by seasons since the draft; traded prospects valued). Next: production adjusted to NHL terms, each addition Thomas's | `prospect_values.py` v1.0; data `ep_extract.py` v3.5, `ep_nhl_bridge.py` v1.1 |
+| Prospects | Step one built 2026-10-14 (slot x a star value by seasons since the draft; traded prospects valued). Next: production adjusted to NHL terms, each addition Thomas's | `prospect_values.py` v1.1; data `ep_extract.py` v3.5, `ep_nhl_bridge.py` v1.1 |
 | Game-level metric (Game Value) | Built 2026-07-03; used for the circularity checks | game-level chain (below) |
 | Back-test | Not started. A delivered win is priced on the contract line (open decision 3) | none yet |
 
@@ -143,8 +143,9 @@ player the player model does not take yet (skaters: no 10+ game NHL season in th
 in the six before). Value = Bacon's star chance for his slot x a star value for the seasons since his draft, fitted
 with the pick curve's regression (through zero) on the 2007-2017 draftees still prospects then, outcome their
 remaining surplus; 4+ seasons pooled; zero past club control. His value with his own draft left out is beside it.
-Undrafted prospects get no value in step one. Traded players are matched to drafted players by name (short forms,
-initials, a namesake guard).
+Undrafted prospects get no value in step one. Traded players are matched to drafted players by NHL id from PuckPedia
+(trade rows, or a contract with the same cap hit running on the trade date; 684 of 927), else by name (short forms,
+initials, Elite Prospects' spelling, a namesake guard); every id-name disagreement is listed and guarded (v1.1).
 
 ## Figures in force (read from the code, 2026-10-14)
 
@@ -181,7 +182,7 @@ CapWages cache (1,551 player pages); the clause scrape.
   `player_season_table.py` v1.3, `information_set.py` v1.1, `contract_source.py` v1.0, `forecast_config.py` v1.0,
   `forecast_harness.py` v1.4; `xnpv1_price_line.py` v2.1 (the line and its reproduction guard).
 - Draft: `draft_pick_linkage.py` v1.1, `elc_signing_dates.py` v1.0, `pick_curve.py` v1.5, `traded_pick_values.py` v1.2.
-- Prospects: `prospect_values.py` v1.0 (step one). Prospect data: `ep_extract.py` v3.5, `ep_nhl_bridge.py` v1.1.
+- Prospects: `prospect_values.py` v1.1 (step one). Prospect data: `ep_extract.py` v3.5, `ep_nhl_bridge.py` v1.1.
 - Game level: `nhl_gamelog_scraper.py` v2.4, `on_ice_reconstruction.py` v1.3, `xg_model.py` v1.0,
   `score_state.py` v1.0, `metric_assembly.py` v1.0, `gv_adjusted_build.py` v1.0.
 - Other: `replacement_rebase.py`, `npv_spine_compare.py`, `capspace_scraper.py`, `capspace_capwages_compare.py`,

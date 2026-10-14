@@ -830,16 +830,25 @@ v1.0, item 7 below.
 7. **The traded prospects (`prospect_values.py` v1.0).** The trade inventory's player assets from 2017-07-01 (as for
    traded picks; trades.db ends 2022-03-28), valued at the trade season (his draft year if traded between his draft
    and July 1). Past club control (CBA Group 3, as the pick curve) a prospect is worth zero. Beyond seven seasons
-   since the draft the 4+ star value is used (2 assets). Matching a traded name to a drafted player is ours: surname
-   plus a canonical first name (the pick curve's short forms, widened), initials joined, and a namesake guard (a
-   draftee with no NHL record is rejected when the name has NHL seasons between his draft and the trade).
+   since the draft the 4+ star value is used (2 assets). Matching a traded name to a drafted player is ours; from
+   v1.1 (Thomas, 2026-10-14: "determine the O'Reilly fix needed and also fix name matching") his NHL id decides
+   first: a PuckPedia trade row of the same name within 3 days, or a PuckPedia contract of the same name whose cap
+   hit equals the asset's and which runs on the trade date (identity only; no value input). Without one id, the
+   name rules: surname plus a canonical first name (the pick curve's short forms, widened), initials joined, the
+   linkage's and Elite Prospects' spellings, and a namesake guard (a draftee with no NHL record is rejected when
+   the name has NHL seasons between his draft and the trade). Both run on every asset; disagreements are listed
+   and guarded. v1.1: 684 of 927 assets matched by NHL id; the names agree on 682; the two differences (Ryan
+   O'Reilly 2018-07-01, the 2009 #33 veteran by his $7.5M contract; Mikko Lehtonen 2021, not a draftee) were v1.0's
+   errors, each worth zero either way. The 243 matched by name alone were checked loosely (any draftee sharing the
+   surname and first initial): no wrong match found.
    Result (2026-10-14): 927 player assets; 197 valued as prospects (170 players), $60.8M, own draft left out $59.3M;
-   509 with the player model; 9 past club control; 211 not matched to a drafted player (179 of them have NHL seasons
-   under the name; 26 names have none, undrafted prospects such as Barabanov, Kaski and Praplan, who get no value in
-   step one); 1 ambiguous (Ryan O'Reilly, 2018-07-01: the veteran and a 2018 draftee of the same name, the day of the
-   trade; not valued). Most valuable: Nick Suzuki (2017 #13, one season on) $2.99M, Erik Brannstrom $2.64M, Josh
-   Norris $2.13M, Peyton Krebs $2.11M, Pierre-Olivier Joseph $1.79M. Known mismatch, no effect: the Mikko Lehtonen
-   traded in 2021 is not the 2005 draftee of that name; both readings give zero (past control, or undrafted).
+   v1.1: 510 with the player model; 8 past club control; 149 not 2005-2026 draftees by NHL id; 63 not matched to a
+   drafted player by name (53 with NHL seasons under the name; 8 names without, all undrafted, e.g. Praplan), none
+   ambiguous. Undrafted prospects (e.g. Barabanov, Kaski) get no value in step one. (v1.0: 509 / 9 / 211 / 1
+   ambiguous.) Most valuable: Nick Suzuki (2017 #13, one season on) $2.99M, Erik Brannstrom $2.64M, Josh
+   Norris $2.13M, Peyton Krebs $2.11M, Pierre-Olivier Joseph $1.79M. Known, no effect: Chris DiDomenico is in the
+   linkage as a 2007 draftee with no NHL record although he played; the guard leaves him unmatched, and as an NHL
+   regular he would be the player model's either way.
 
 ---
 

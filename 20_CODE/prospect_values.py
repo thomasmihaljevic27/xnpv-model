@@ -34,24 +34,34 @@ WHAT HE IS WORTH [opening decisions 1 and 3]
 THE TRADE INVENTORY (trades.db, player assets, from 2017-07-01 as for traded picks; trade season = the season
 starting July 1 on or before the trade date; valuation season y = the trade season, or his draft year when he
 is traded between his draft and July 1).
-  MATCHING a traded name to a drafted player (draft_pick_linkage.csv, drafts 2005-2026), ours:
-  * names compared as surname plus a canonical first name (pick_curve.name_key's short forms, widened here
-    with nic/nicolas, nate, phil, sammy, evgenii, yegor) and a hand list of initials-forms (P.O Joseph, J-F
-    Berube), hyphens read as spaces;
-  * only players whose draft had begun by the trade date;
-  * initials joined before comparing ("P.O Joseph" and "Pierre-Olivier Joseph"; "A.J." and "AJ");
-  * a NAMESAKE GUARD: a candidate with no NHL record (link_status zero_no_nhl_record) is rejected when the
-    traded name has NHL seasons in the WAR tables between his draft and the trade: those seasons belong to
-    someone else, so the traded player is not this draftee. Seasons before his draft are an older namesake's
-    and do not reject him;
-  * two or more candidates left: not valued, listed (ambiguous).
+  WHO EACH TRADED PLAYER IS (v1.1, Thomas 2026-10-14: "determine the O'Reilly fix needed and also fix name
+  matching"). Ours, in this order:
+  1. HIS NHL ID, from PuckPedia (identity only; no value is read from it): a PuckPedia trade row of the same name
+     within 3 days of the trade (PuckPedia's trade rows start in 2019), or a PuckPedia contract of the same name
+     whose cap hit equals the asset's (trades.db cap_hit_aav) and which runs on the trade date (signed on or
+     before it, ending June 30 of its last season on or after it). "Same name" = same surname and first names
+     that agree as canonical forms or on the first letter. One id: he is the drafted player with that NHL id
+     (draft_pick_linkage playerId; drafted twice, the later draft), or not a 2005-2026 draftee when no drafted
+     player has it. Two ids or none: the name rules decide.
+  2. NAMES (v1.0, widened): surname plus a canonical first name (pick_curve.name_key's short forms, widened with
+     nic/nicolas, nate, phil, sammy, evgenii, yegor), initials joined ("P.O Joseph" = "Pierre-Olivier Joseph"),
+     hyphens read as spaces, against the linkage's name AND Elite Prospects' name for the same draft slot; only
+     players whose draft had begun by the trade date; a NAMESAKE GUARD: a draftee with no NHL record
+     (zero_no_nhl_record) is rejected when the name has NHL seasons between his draft and the trade (those
+     seasons are someone else's; seasons before his draft are an older namesake's and do not reject him).
+     Two or more left: not valued, listed (ambiguous).
+  Both rules are run on every asset and every disagreement is listed in the log. v1.1 run: 684 of 927 assets
+  matched by NHL id; the names agree on 682; the two differences were v1.0's errors: Ryan O'Reilly traded
+  2018-07-01 (the 2009 #33 veteran, by his $7.5M contract; v1.0 left him ambiguous with a 2018 draftee of the
+  same name) and Mikko Lehtonen traded 2021 (not a draftee; v1.0 matched the 2005 #83 namesake).
 
 TRAILING WEIGHTING CHECK (directive 6): this script reads no trailing total itself; the surplus it fits on
 carries the pick curve's arbitration price, which reads the forecast's 50/30/20 (pick_curve.py v1.5).
 
 INPUTS: OUTPUT_DIR/pick_curve_players.csv, pick_curve_seasons.csv, pick_curve_scales.csv (pick_curve.py),
-OUTPUT_DIR/draft_pick_linkage.csv, OUTPUT_DIR/draft_raw/draft_YYYY.json, SOURCE_DIR/trades.db, WAR.csv,
-Goalies_WAR.csv, draft_slot_baseline.csv.
+OUTPUT_DIR/draft_pick_linkage.csv, OUTPUT_DIR/draft_raw/draft_YYYY.json, OUTPUT_DIR/ep_out/ep_prospects.db
+(Elite Prospects draft names), SOURCE_DIR/trades.db, WAR.csv, Goalies_WAR.csv, draft_slot_baseline.csv, and the
+PuckPedia contract and trade exports (through contract_source.py; NHL ids only).
 OUTPUTS: OUTPUT_DIR/prospect_values.csv (one row per traded player asset), prospect_star_values.csv (the star
 value for each k, and with each draft left out), prospect_values_log.txt.
 
@@ -70,8 +80,10 @@ import pandas as pd
 import statsmodels.api as sm
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "prospect_values.py v1.0 (2026-10-14)"
+
+SCRIPT_VERSION = "prospect_values.py v1.1 (2026-10-14)"
 load_dotenv()
+import contract_source as CS   # noqa: E402  v1.1: PuckPedia exports read strictly (identity only)
 SOURCE_DIR, OUTPUT_DIR = Path(os.environ["SOURCE_DIR"]), Path(os.environ["OUTPUT_DIR"])
 
 # ---- constants (each from the specification above) ----------------------------------------------
@@ -90,6 +102,9 @@ FIRST_FORMS = {"tony": "anthony", "josh": "joshua", "mike": "michael", "alex": "
                "steve": "steven", "rob": "robert", "bobby": "robert",           # pick_curve.SHORT_FORMS
                "nic": "nicholas", "nicolas": "nicholas", "phil": "philip", "sammy": "samuel",   # added here
                "evgenii": "evgeni", "yegor": "egor"}
+# v1.1: assets where the NHL id and the name rules disagree, each read on 2026-10-14 (the id is right in both)
+REVIEWED_DISAGREEMENTS = {("2018-07-01", "Ryan O'Reilly"),      # the 2009 #33 veteran ($7.5M), not the 2018 #98 draftee
+                          ("2021-03-12", "Mikko Lehtonen")}     # the KHL defenceman, not the 2005 #83 draftee
 INITIAL_FORMS = {"po joseph": "pierre olivier joseph", "jf berube": "jean francois berube"}   # after joining
 
 LOG = []
@@ -258,7 +273,7 @@ def main():
 
     # ---- 3. the traded players ----------------------------------------------------------------------
     con = sqlite3.connect(F["trades"])
-    a = pd.read_sql("select a.asset_id, a.trade_id, a.player_name, a.from_team, a.is_ahl_jr, a.is_signing_rights, "
+    a = pd.read_sql("select a.asset_id, a.trade_id, a.player_name, a.from_team, a.cap_hit_aav, a.is_ahl_jr, a.is_signing_rights, "
                     "l.acquiring_team, t.trade_date from trade_assets a join trades t using(trade_id) "
                     "join trade_legs l using(leg_id) where a.asset_type = 'player' and t.trade_date >= ?",
                     con, params=(TRADES_FROM,))
@@ -267,31 +282,98 @@ def main():
     log(f"\nplayers traded from {TRADES_FROM}: {len(a)} assets "
         f"(trades.db ends {pd.read_sql('select max(trade_date) m from trades', con)['m'][0]})")
 
-    sv_main = main_sv["star_value_M"].to_dict()
-    sv_out = {(r.k_group, int(r.left_out)): r.star_value_M for r in sv[sv["left_out"] != "none"].itertuples()}
-    out = []
-    for r in a.itertuples():
+    # ---- 3a. who each traded player is: his NHL id from PuckPedia first, names second (v1.1) ------------
+    pc, enc_c = CS.load_contracts()
+    pt, enc_t = CS.load_trades()
+    log(f"  PuckPedia contracts ({enc_c}) {len(pc):,} rows; PuckPedia trades ({enc_t}) {len(pt):,} rows "
+        "(identity only: NHL ids for matching, no value input)")
+    pc = pc.dropna(subset=["nhl_id", "cap_hit", "signing_date", "contract_end"]).copy()
+    pc["key"] = (pc["first_name"].astype(str) + " " + pc["last_name"].astype(str)).map(name_key)
+    pc["signed"] = pd.to_datetime(pc["signing_date"], format="%m/%d/%Y")
+    pc["ends"] = pc["contract_end"].astype(str).str[-4:].astype(int).map(lambda y: pd.Timestamp(y, 6, 30))
+    pt = pt[pt["player_id"].notna() & pt["nhl_id"].notna()].copy()
+    pt["key"] = (pt["first_name"].astype(str) + " " + pt["last_name"].astype(str)).map(name_key)
+    pt["date"] = pd.to_datetime(pt["trade_date"], format="%m/%d/%Y")
+    pc_by, pt_by = dict(tuple(pc.groupby(pc["key"].str[0]))), dict(tuple(pt.groupby(pt["key"].str[0])))
+
+    def first_ok(k1, k2):
+        """Same surname is assumed; first names agree as canonical forms, or at least on the first letter."""
+        return k1[1] == k2[1] or k1[1][:1] == k2[1][:1]
+
+    def ids_for(r):
+        """NHL ids for a traded asset: (1) a PuckPedia trade row of the same name within 3 days of the trade;
+        (2) a PuckPedia contract of the same name whose cap hit equals the asset's and that runs on the trade
+        date (signed on or before it, ending June 30 of its last season on or after it)."""
+        key, ids = name_key(r.player_name), {}
+        t = pt_by.get(key[0])
+        if t is not None:
+            t = t[t["key"].map(lambda k: first_ok(k, key)) & ((t["date"] - r.date).abs() <= pd.Timedelta(days=3))]
+            for i in t["nhl_id"].astype(int):
+                ids.setdefault(i, set()).add("PuckPedia trade")
+        c = pc_by.get(key[0])
+        if c is not None and pd.notna(r.cap_hit_aav):
+            c = c[c["key"].map(lambda k: first_ok(k, key)) & (c["cap_hit"].astype(float) == float(r.cap_hit_aav))
+                  & (c["signed"] <= r.date) & (c["ends"] >= r.date)]
+            for i in c["nhl_id"].astype(int):
+                ids.setdefault(i, set()).add("PuckPedia contract")
+        return ids
+
+    # the name tier's spellings: the linkage's name, and Elite Prospects' name for the same draft slot
+    ep = sqlite3.connect(OUTPUT_DIR / "ep_out" / "ep_prospects.db")
+    eps = pd.read_sql("select draft_year, draft_overall, player_name_ep from ep_draft_selections", ep)
+    eps = eps.rename(columns={"draft_year": "draftYear", "draft_overall": "overallPickNumber"})
+    link = link.merge(eps, on=["draftYear", "overallPickNumber"], how="left")
+    link["key_ep"] = link["player_name_ep"].map(lambda n: name_key(n) if pd.notna(n) else None)
+    link["pid"] = link["playerId"].map(lambda x: int(x) if pd.notna(x) else -1)
+
+    def drafted_by(cands, date):
+        held = cands["draftYear"].map(lambda y: draft_day.get(y, pd.Timestamp(y, 6, 26)) <= date).astype(bool)
+        return cands.loc[held]
+
+    def by_name(r):
+        """v1.0's name tier, widened to Elite Prospects' spelling; returns (candidates, namesakes rejected)."""
         key = name_key(r.player_name)
-        cand = link[(link["key"] == key)
-                    & link["draftYear"].map(lambda y: draft_day.get(y, pd.Timestamp(y, 6, 26)) <= r.date)]
+        cand = drafted_by(link[(link["key"] == key) | (link["key_ep"] == key)], r.date)
         nhl_years = names_with_nhl.get(norm(r.player_name), set())
         # NAMESAKE GUARD: NHL seasons under this name between his draft and the trade would be his, but he has
         # none (zero_no_nhl_record), so the traded player is someone else. Seasons before his draft belong to
         # an older namesake and say nothing (Nathan Smith, drafted 2018, traded 2022).
         rejected = cand[(cand["link_status"] == "zero_no_nhl_record")
                         & cand["draftYear"].map(lambda dy: any(dy <= z < r.trade_season for z in nhl_years))]
-        cand = cand.drop(rejected.index)
+        return cand.drop(rejected.index), len(rejected)
+
+    def show(c):
+        return "; ".join(f"{x.draftYear} #{x.overallPickNumber}" for x in c.itertuples()) or "none"
+
+    sv_main = main_sv["star_value_M"].to_dict()
+    sv_out = {(r.k_group, int(r.left_out)): r.star_value_M for r in sv[sv["left_out"] != "none"].itertuples()}
+    out = []
+    for r in a.itertuples():
+        ids = ids_for(r)
+        name_cand, n_rej = by_name(r)
         rec = {"asset_id": r.asset_id, "trade_id": r.trade_id, "trade_date": r.trade_date,
                "trade_season": r.trade_season, "player_name": r.player_name, "from_team": r.from_team,
-               "acquiring_team": r.acquiring_team, "is_ahl_jr": bool(r.is_ahl_jr),
-               "is_signing_rights": bool(r.is_signing_rights), "namesakes_rejected": len(rejected)}
+               "acquiring_team": r.acquiring_team, "cap_hit": r.cap_hit_aav, "is_ahl_jr": bool(r.is_ahl_jr),
+               "is_signing_rights": bool(r.is_signing_rights), "namesakes_rejected": n_rej,
+               "by_name": show(name_cand)}
+        if len(ids) == 1:
+            nid, src = next(iter(ids.items()))
+            cand = drafted_by(link[link["pid"] == nid], r.date)
+            if len(cand) > 1:                         # drafted twice: the later draft holds the rights
+                cand = cand[cand["draftYear"] == cand["draftYear"].max()]
+            rec.update({"nhl_id": nid, "match": "NHL id (" + " + ".join(sorted(src)) + ")", "by_id": show(cand)})
+            rec["id_and_name_agree"] = rec["by_id"] == rec["by_name"]
+        else:
+            cand = name_cand
+            rec["match"] = "name" if not ids else "name (PuckPedia ids conflict: " + ", ".join(map(str, ids)) + ")"
         if len(cand) == 0:
-            rec["status"] = "no drafted match (undrafted, drafted before 2005, or name not found)"
+            rec["status"] = ("not drafted 2005-2026 (by NHL id)" if len(ids) == 1
+                             else "no drafted match (undrafted, drafted before 2005, or name not found)")
             out.append(rec)
             continue
         if len(cand) > 1:
             rec["status"] = "ambiguous name (not valued)"
-            rec["candidates"] = "; ".join(f"{c.draftYear} #{c.overallPickNumber}" for c in cand.itertuples())
+            rec["candidates"] = show(cand)
             out.append(rec)
             continue
         c = cand.iloc[0]
@@ -344,6 +426,19 @@ def main():
     for r in pv.sort_values("value_M", ascending=False).head(20).itertuples():
         log(f"    {r.trade_date}  {r.player_name:<24} {int(r.draftYear)} #{int(r.pick):<3} k={int(r.seasons_since_draft)}  "
             f"${r.value_M:5.2f}M (own draft out ${r.value_own_draft_out_M:5.2f}M)  to {r.acquiring_team}")
+    log("\nWHO EACH TRADED PLAYER IS (v1.1: NHL id from PuckPedia first, names second)")
+    log(v["match"].map(lambda m: m if not m.startswith("name (") else "name (PuckPedia ids conflict)")
+        .value_counts().to_string())
+    idm = v[v["match"].str.startswith("NHL id")]
+    dis = idm[~idm["id_and_name_agree"].astype(bool)]
+    log(f"  matched by NHL id: {len(idm)}; the name rules give the same draftee for {len(idm) - len(dis)}, "
+        f"a different answer for {len(dis)}:")
+    for r in dis.itertuples():
+        log(f"    {r.trade_date} {r.player_name:<24} by id: {r.by_id:<14} by name: {r.by_name:<14} -> {r.status}")
+    # GUARD: every disagreement has been read and the NHL id found right; a new one stops the run for review
+    unreviewed = set(zip(dis["trade_date"], dis["player_name"])) - REVIEWED_DISAGREEMENTS
+    assert not unreviewed, f"id and name disagree on unreviewed assets: {sorted(unreviewed)}"
+    log(f"  guard: all {len(dis)} disagreements were reviewed (the NHL id is right in each) (PASS)")
     nd = v[v["status"].str.startswith("no drafted")]
     log(f"\n  not matched to a drafted player: {len(nd)} assets, of them flagged AHL/junior {int(nd['is_ahl_jr'].sum())}, "
         f"signing rights {int(nd['is_signing_rights'].sum())}, with NHL seasons in the WAR tables "
