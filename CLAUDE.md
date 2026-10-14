@@ -31,8 +31,8 @@ All four share `PROJECT_STATE.md`'s Generated / Refresh-due dates and its stalen
 As of the 2026-10-14 refresh (PROJECT_STATE v3.4, "Current state" and "Model as built"): skater and goalie
 contracts are priced on xNPV 1 with the five player directives built; the draft pick curve and the traded-pick
 values are built, with the arbitration cost for control seasons adopted on both sides (2026-10-13); the
-prospect model's step one is built (2026-10-14: slot x a star value by seasons since the draft, `prospect_values.py`),
-each later addition Thomas's; the back-test has not started.
+prospect model is built for drafted prospects (2026-10-14: slot, production adjusted to NHL terms and age,
+`prospect_values.py`), undrafted prospects next, each addition Thomas's; the back-test has not started.
 Built 2026-10-14: every age the model reads follows the CBA (September 15; drafted players' signing ages in the
 year they signed), the arbitration price is consistent with the forecast, and the 60/40 checks are retired.
 
@@ -131,7 +131,7 @@ directive 6). The old models (`draft_yield_curve.py`, `slot_curve.py`, `future_p
     python 20_CODE/elc_signing_dates.py      # entry-level signing years (the CBA ages)
     python 20_CODE/pick_curve.py             # each drafted player priced; the star value (its sensitivity; the qualifying-offer chain beside)
     python 20_CODE/traded_pick_values.py     # every traded pick valued at its trade
-    python 20_CODE/prospect_values.py        # prospects, step one: every traded prospect valued from his slot
+    python 20_CODE/prospect_values.py        # prospects: every traded prospect valued (slot, production, age)
 
 To answer questions about the curve on the spot: `python 25_TESTS/pick_lookup.py --help`. Each finding in
 `Valuing Draft Picks.docx`, with its command and expected value: `40_DOCS/Valuing_Draft_Picks_Reproduction.md`.

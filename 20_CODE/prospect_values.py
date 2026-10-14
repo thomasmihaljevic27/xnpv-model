@@ -1,6 +1,6 @@
 """
-prospect_values.py -- the prospect model, step one: what each prospect in the trade inventory was worth when
-he was traded, from his draft slot and the seasons since his draft.
+prospect_values.py -- the prospect model: what each prospect in the trade inventory was worth when he was traded,
+from his draft slot, the seasons since his draft, his production adjusted to NHL terms and his age (v1.2).
 
 SPECIFICATION: 00_STATE/MODEL_DIRECTIVES.md directive 6, "Prospects, step one" (Thomas, 2026-10-14). Every
 rule below is a recorded decision; the bracket says where.
@@ -28,6 +28,29 @@ WHAT HE IS WORTH [opening decisions 1 and 3]
     form; the free-constant alternative is an open choice (WORK_QUEUE).
   * Past the end of club control (CBA Group 3, as pick_curve.window_end: 27 as of June 30, or seven Accrued
     Seasons) a prospect is worth zero: nothing is left to control.
+  That is step one; from v1.2 it is reported beside as value_slot_only_M, and goalies keep it as their value.
+
+STEP TWO, PRODUCTION AND AGE (v1.2; MODEL_DIRECTIVES directive 6, "Prospects, step two" and "age"; Thomas
+2026-10-14, each choice his; measured by 25_TESTS/prospect_nhle_look.py v1.1 and prospect_age_look.py v1.0)
+  * Production: NHL-equivalent points per 82 games = Elite Prospects points x the league-season's NHLe factor
+    (nhle_temporal.csv), over his games that season; seasons of 10+ games; 2012-13's missing factor = the mean
+    of the league's 2011-12 and 2013-14; his level 50/30/20 over the three seasons before the valuation season,
+    rescaled over those he has; none: a no-record indicator. Curved: the level and its square (stored / 10).
+  * Age: years past first eligibility = his age on September 15 of the valuation season (the CBA date), minus
+    seasons since the draft, minus 18.5. It enters as production x years past first eligibility (the same
+    scoring counts for less from an older prospect), in seasons 0-3 since the draft only.
+  * The slot's star chance enters in seasons 0-2 only; from season 3, production alone.
+  * value_M (main) = the fitted line for his season group: seasons 0-2 star chance + level + level squared +
+    no-record + production x age; season 3 the same without the star chance; 4+ without age. value_no_age_M:
+    the same without the age term (kept beside, Thomas: "I want a non-age version as well because I want to
+    consider if the added complexity really affects anything"). Each fit is the pick curve's form (through zero,
+    draft-year indicators summing to zero; errors robust, clustered by player for 4+) on the 2007-2017 skater
+    rows still prospects (13,152 rows, 2,089 players); a value is the average draft's.
+  * Goalies: the slot alone (NHLe measures scoring). Undrafted prospects: still zero; their own step is next
+    (Thomas, 2026-10-14: "Zero now, own step next").
+  * A value can be below zero: a low scorer's remaining surplus averages slightly below zero in the data, and
+    negative careers count, as in the pick curve.
+  GUARD: every step-two fit equals the look that measured it, to 1e-9 (when those outputs are present).
   * THE OVERLAP [opening decision 4]: a 2007-2017 draftee sits inside the fit that values him. Stated as a
     limitation; his value with his own draft left out of the fit is reported beside (value_own_draft_out_M).
 
@@ -55,15 +78,16 @@ is traded between his draft and July 1).
   2018-07-01 (the 2009 #33 veteran, by his $7.5M contract; v1.0 left him ambiguous with a 2018 draftee of the
   same name) and Mikko Lehtonen traded 2021 (not a draftee; v1.0 matched the 2005 #83 namesake).
 
-TRAILING WEIGHTING CHECK (directive 6): this script reads no trailing total itself; the surplus it fits on
-carries the pick curve's arbitration price, which reads the forecast's 50/30/20 (pick_curve.py v1.5).
+TRAILING WEIGHTING CHECK (directive 6): production reads 50/30/20 (W_NHLE), rescaled over the seasons he has; the
+surplus it fits on carries the pick curve's arbitration price, which reads the forecast's 50/30/20 (pick_curve.py v1.5).
 
 INPUTS: OUTPUT_DIR/pick_curve_players.csv, pick_curve_seasons.csv, pick_curve_scales.csv (pick_curve.py),
 OUTPUT_DIR/draft_pick_linkage.csv, OUTPUT_DIR/draft_raw/draft_YYYY.json, OUTPUT_DIR/ep_out/ep_prospects.db
-(Elite Prospects draft names), SOURCE_DIR/trades.db, WAR.csv, Goalies_WAR.csv, draft_slot_baseline.csv, and the
+(Elite Prospects draft names and skater seasons), SOURCE_DIR/nhle_temporal.csv, trades.db, WAR.csv, Goalies_WAR.csv, draft_slot_baseline.csv, and the
 PuckPedia contract and trade exports (through contract_source.py; NHL ids only).
-OUTPUTS: OUTPUT_DIR/prospect_values.csv (one row per traded player asset), prospect_star_values.csv (the star
-value for each k, and with each draft left out), prospect_values_log.txt.
+OUTPUTS: OUTPUT_DIR/prospect_values.csv (one row per traded player asset), prospect_star_values.csv (step one's
+star value for each k, and with each draft left out), prospect_production_fits.csv (step two's coefficients, each
+version and season group, all drafts and each left out), prospect_values_log.txt.
 
 Run from the repo root:  python 20_CODE/prospect_values.py   (after pick_curve.py)
 """
@@ -81,7 +105,7 @@ import statsmodels.api as sm
 from dotenv import load_dotenv
 
 
-SCRIPT_VERSION = "prospect_values.py v1.1 (2026-10-14)"
+SCRIPT_VERSION = "prospect_values.py v1.2 (2026-10-14)"
 load_dotenv()
 import contract_source as CS   # noqa: E402  v1.1: PuckPedia exports read strictly (identity only)
 SOURCE_DIR, OUTPUT_DIR = Path(os.environ["SOURCE_DIR"]), Path(os.environ["OUTPUT_DIR"])
@@ -204,6 +228,103 @@ def star_values():
     return pd.DataFrame(out), d
 
 
+# ---- step two: production adjusted to NHL terms, and age (v1.2) ---------------------------------------
+PROD_MIN_GP = 10                      # a production season counts with 10+ games [step two, "accept all"]
+W_NHLE = (0.5, 0.3, 0.2)              # 50/30/20 over the three seasons before, most recent first [directive 6]
+FIRST_ELIGIBLE_MID = 18.5             # years past first eligibility = age the autumn after the draft - 18.5
+SLOT_GROUPS = ("0", "1", "2")         # the slot enters in these season groups only [step two]
+AGE_GROUPS = ("0", "1", "2", "3")     # the age discount applies in these only [age, "Seasons 0-3 only"]
+VERSIONS = ("main", "no_age")         # main: production discounted by age; no_age: beside it (Thomas, 2026-10-14)
+
+
+def production_rates():
+    """{(Elite Prospects id, season start year): NHL-equivalent points per 82} for seasons of 10+ games.
+    Points x the league-season's NHLe factor (nhle_temporal.csv), summed over his teams, over his games.
+    2012-13 has no factor: the mean of the league's 2011-12 and 2013-14 [step two, "accept all"]."""
+    nh = pd.read_csv(SOURCE_DIR / "nhle_temporal.csv")
+    fac = {(r.league, int(r.season_start_year)): float(r.nhle) for r in nh.itertuples()}
+    for lg in nh["league"].unique():
+        if (lg, 2012) not in fac and (lg, 2011) in fac and (lg, 2013) in fac:
+            fac[(lg, 2012)] = (fac[(lg, 2011)] + fac[(lg, 2013)]) / 2
+    con = sqlite3.connect(OUTPUT_DIR / "ep_out" / "ep_prospects.db")
+    s = pd.read_sql("select ep_player_id, season, league, gp, tp from ep_skater_seasons", con)
+    s["syr"] = s["season"].str[:4].astype(int)
+    s["ep_player_id"] = pd.to_numeric(s["ep_player_id"]).astype(int).astype(str)
+    s["gp"], s["tp"] = pd.to_numeric(s["gp"], errors="coerce"), pd.to_numeric(s["tp"], errors="coerce")
+    s = s[(s["gp"] > 0) & s["tp"].notna()].copy()
+    s["f"] = [fac.get((lg, y)) for lg, y in zip(s["league"], s["syr"])]
+    s = s[s["f"].notna()]                           # a league-season without a factor: its games left out
+    s["nhle_pts"] = s["tp"] * s["f"]
+    g = s.groupby(["ep_player_id", "syr"]).agg(gp=("gp", "sum"), nhle_pts=("nhle_pts", "sum"))
+    g = g[g["gp"] >= PROD_MIN_GP]
+    return (g["nhle_pts"] / g["gp"] * 82).to_dict()
+
+
+def production_features(frame, rates):
+    """Adds the step-two inputs to rows with ep_player_id, birthDate, season (y) and k:
+    nhle82 (50/30/20 over y-1..y-3, rescaled over the seasons he has), nhle82_sq (squared / 10, the looks'
+    scale), no_record, past_elig (age on September 15 of y, minus k, minus 18.5) and prod_x_age."""
+    lv, n = [], []
+    for ep, y in zip(frame["ep_player_id"], frame["season"]):
+        got = [(w, rates[(ep, z)]) for w, z in zip(W_NHLE, (y - 1, y - 2, y - 3)) if (ep, z) in rates]
+        lv.append(sum(w * r for w, r in got) / sum(w for w, _ in got) if got else 0.0)
+        n.append(len(got))
+    frame = frame.copy()
+    frame["nhle82"], frame["n_prod_seasons"] = lv, n
+    frame["nhle82_sq"] = frame["nhle82"] ** 2 / 10
+    frame["no_record"] = (frame["n_prod_seasons"] == 0).astype(float)
+    age = (pd.to_datetime(frame["season"].astype(int).astype(str) + "-09-15") - frame["birthDate"]).dt.days / 365.25
+    frame["past_elig"] = age - frame["k"] - FIRST_ELIGIBLE_MID
+    frame["prod_x_age"] = frame["nhle82"] * frame["past_elig"]
+    return frame
+
+
+def cols_for(group, version):
+    return ((["p_star"] if group in SLOT_GROUPS else []) + ["nhle82", "nhle82_sq", "no_record"]
+            + (["prod_x_age"] if version == "main" and group in AGE_GROUPS else []))
+
+
+def fit_cols(frame, cols, cluster):
+    """The pick curve's form: through zero, draft-year indicators that sum to zero; the first len(cols)
+    coefficients are the value at the average draft."""
+    cl = sorted(frame["draftYear"].unique())
+    yrs = frame["draftYear"].values
+    X = np.column_stack([frame[c].values for c in cols]
+                        + [(yrs == c).astype(float) - (yrs == cl[-1]).astype(float) for c in cl[:-1]])
+    if cluster:
+        groups = pd.factorize(frame["draftYear"].astype(str) + "-" + frame["pick"].astype(str))[0]
+        m = sm.OLS(frame["remaining_M"].values, X).fit(cov_type="cluster", cov_kwds={"groups": groups})
+    else:
+        m = sm.OLS(frame["remaining_M"].values, X).fit(cov_type="HC1")
+    return m.params[:len(cols)], m.bse[:len(cols)]
+
+
+def production_fits(fitrows, rates):
+    """Step two's coefficients for each version and season group, on all drafts and with each draft left out.
+    Training rows: the step-one rows of skaters still prospects (goalies stay on the slot alone)."""
+    pl = pd.read_csv(OUTPUT_DIR / "pick_curve_players.csv")[["draftYear", "pick", "is_goalie"]]
+    link = pd.read_csv(OUTPUT_DIR / "draft_pick_linkage.csv", parse_dates=["birthDate"])
+    link = link[["draftYear", "overallPickNumber", "birthDate"]].rename(columns={"overallPickNumber": "pick"})
+    ep = pd.read_sql("select draft_year draftYear, draft_overall pick, ep_player_id from ep_draft_selections",
+                     sqlite3.connect(OUTPUT_DIR / "ep_out" / "ep_prospects.db"))
+    d = fitrows[fitrows["prospect"]].merge(pl, on=["draftYear", "pick"], how="left")
+    d = d[~d["is_goalie"].astype(bool)].merge(link, on=["draftYear", "pick"], how="left").merge(
+        ep, on=["draftYear", "pick"], how="left")
+    assert d["birthDate"].notna().all() and d["ep_player_id"].notna().all()
+    d["ep_player_id"] = pd.to_numeric(d["ep_player_id"]).astype(int).astype(str)
+    d["season"] = d["draftYear"] + d["k"]
+    d = production_features(d.reset_index(drop=True), rates)
+    fits = {}
+    for g, x in d.groupby("k_group"):
+        for v in VERSIONS:
+            cols = cols_for(g, v)
+            b, se = fit_cols(x, cols, g.endswith("+"))
+            fits[(v, g, "none")] = (cols, b, se)
+            for c in sorted(x["draftYear"].unique()):
+                fits[(v, g, int(c))] = (cols, fit_cols(x[x["draftYear"] != c], cols, g.endswith("+"))[0], None)
+    return fits, d
+
+
 # ---- NHL seasons by name (as pick_curve.season_table) -----------------------------------------------
 FRANCHISE = {"N.J": "NJD", "S.J": "SJS", "T.B": "TBL", "L.A": "LAK", "ATL": "WPG", "PHX": "ARI", "UTA": "ARI"}
 
@@ -243,6 +364,47 @@ def main():
     for g, r in main_sv.iterrows():
         lo = sv[(sv["k_group"] == g) & (sv["left_out"] != "none")]["star_value_M"]
         log(f"  {g:>2}: {r.star_value_M:6.2f} (se {r.se_M:.2f}); each draft left out {lo.min():.2f} to {lo.max():.2f}")
+
+    # ---- 1b. step two: production and age (v1.2) ---------------------------------------------------
+    rates = production_rates()
+    fits, prow = production_fits(fitrows, rates)
+    log(f"\nSTEP TWO (production adjusted to NHL terms; main = discounted by age in seasons 0-3; no_age beside)")
+    log(f"  training rows: {len(prow):,} skater prospect-rows ({prow[['draftYear', 'pick']].drop_duplicates().shape[0]:,} "
+        f"players); no production record {prow['no_record'].mean():.1%}")
+    # GUARDS: each fit equals the look that measured it (when those outputs are on this machine)
+    ac, nc = OUTPUT_DIR / "prospect_age_coefficients.csv", OUTPUT_DIR / "prospect_nhle_coefficients.csv"
+    if ac.exists() and nc.exists():
+        ac, nc = pd.read_csv(ac), pd.read_csv(nc)
+        src = {("main", g): (ac, "+ age x production") for g in AGE_GROUPS}
+        src.update({("main", "4+"): (nc, "production curved")})
+        src.update({("no_age", g): (nc, "slot+production curved") for g in SLOT_GROUPS})
+        src.update({("no_age", g): (nc, "production curved") for g in ("3", "4+")})
+        n_ok = 0
+        for (v, g), (tab, arm) in src.items():
+            cols, b, _ = fits[(v, g, "none")]
+            ref = tab[(tab["k_group"] == g) & (tab["arm"] == arm)].iloc[0]
+            gap = max(abs(b[i] - ref[c]) for i, c in enumerate(cols))
+            assert gap < 1e-9, (v, g, arm, gap)
+            n_ok += 1
+        log(f"  guard: coefficients equal the production and age looks' for {n_ok} of {len(src)} fits (PASS)")
+    for v in VERSIONS:
+        for g in ("0", "1", "2", "3", "4+"):
+            cols, b, se = fits[(v, g, "none")]
+            log(f"  {v:<7} {g:>2}: " + "; ".join(f"{c} {b[i]:.3f} ({se[i]:.3f})" for i, c in enumerate(cols)))
+    ep_ids = pd.read_sql("select draft_year draftYear, draft_overall pick, ep_player_id from ep_draft_selections",
+                         sqlite3.connect(OUTPUT_DIR / "ep_out" / "ep_prospects.db"))
+    EP_ID = {(int(a), int(b)): str(int(c)) for a, b, c in zip(ep_ids["draftYear"], ep_ids["pick"], ep_ids["ep_player_id"])
+             if pd.notna(c)}
+
+    def step_two(c, y, k, p_star, version, left_out="none"):
+        """Value ($M) of skater prospect c at season y under one version of step two (None if no EP id)."""
+        ep = EP_ID.get((int(c["draftYear"]), int(c["overallPickNumber"])))
+        if ep is None or pd.isna(c["birthDate"]):
+            return None
+        row = production_features(pd.DataFrame({"ep_player_id": [ep], "season": [y], "k": [k],
+                                                "birthDate": [c["birthDate"]], "p_star": [p_star]}), rates).iloc[0]
+        cols, b, _ = fits[(version, k_group(k), left_out)]
+        return float(sum(b[i] * row[col] for i, col in enumerate(cols))), row
 
     # ---- 2. drafted players and their NHL seasons --------------------------------------------------
     bacon = pd.read_csv(F["bacon"]).set_index("draft_pick")["p_star"]
@@ -392,15 +554,26 @@ def main():
             rec["status"] = "player model (not a prospect)"
         elif end is not None and y >= end:
             rec["status"] = "prospect, club control over (worth zero)"
-            rec["value_M"] = 0.0
+            rec["value_M"] = rec["value_no_age_M"] = rec["value_slot_only_M"] = 0.0
         else:
             rec["status"] = "prospect, valued"
             rec["star_value_M"] = sv_main[k_group(k)]
-            rec["value_M"] = p_star * sv_main[k_group(k)]
-            if int(c["draftYear"]) in FIT_CLASSES:
-                rec["value_own_draft_out_M"] = p_star * sv_out[(k_group(k), int(c["draftYear"]))]
+            own = int(c["draftYear"]) if int(c["draftYear"]) in FIT_CLASSES else "none"   # his draft in the fit?
+            # step one, the slot alone (v1.0-v1.1's value; goalies keep it as their value)
+            rec["value_slot_only_M"] = p_star * sv_main[k_group(k)]
+            slot_out = p_star * sv_out[(k_group(k), own)] if own != "none" else rec["value_slot_only_M"]
+            two = None if bool(c["is_goalie"]) else step_two(c, y, k, p_star, "main")
+            if two is None:                           # goalies (and a skater without an EP id): the slot alone
+                rec["value_M"] = rec["value_no_age_M"] = rec["value_slot_only_M"]
+                rec["value_own_draft_out_M"] = slot_out
+                rec["value_basis"] = "slot alone (goalie)" if bool(c["is_goalie"]) else "slot alone (no EP id)"
             else:
-                rec["value_own_draft_out_M"] = rec["value_M"]   # his draft is not in the fit
+                rec["value_M"], row = two
+                rec["value_no_age_M"] = step_two(c, y, k, p_star, "no_age")[0]
+                rec["value_own_draft_out_M"] = step_two(c, y, k, p_star, "main", own)[0]
+                rec.update({"value_basis": "slot + production" if k_group(k) in SLOT_GROUPS else "production",
+                            "nhle82": row["nhle82"], "n_prod_seasons": int(row["n_prod_seasons"]),
+                            "past_elig": row["past_elig"]})
             if end is None:
                 rec["status"] = "prospect, valued (no birthdate: control window not checked)"
         out.append(rec)
@@ -422,10 +595,39 @@ def main():
     log(f"  with 1-9 NHL games before the valuation season: {int((pv['nhl_games_before'] > 0).sum())}; "
         f"flagged signing rights: {int(pv['is_signing_rights'].sum())}; flagged AHL/junior: {int(pv['is_ahl_jr'].sum())}")
     log(f"  inside the fit's drafts (2007-2017; the stated overlap): {int(pv['draftYear'].isin(FIT_CLASSES).sum())}")
-    log("\n  the twenty most valuable:")
+    log("  basis: " + ", ".join(f"{k_} {n_}" for k_, n_ in pv["value_basis"].value_counts().items()))
+    log(f"  below zero (a remaining surplus can be negative; kept, as the pick curve keeps negative careers): "
+        f"{int((pv['value_M'] < 0).sum())} under main, {int((pv['value_no_age_M'] < 0).sum())} without age")
+
+    log(f"\nTHREE VERSIONS SIDE BY SIDE ($M; the same {len(pv)} assets)")
+    for col, lab in (("value_M", "main: slot + production, discounted by age"),
+                     ("value_no_age_M", "the same without age"), ("value_slot_only_M", "step one: the slot alone")):
+        log(f"  {lab:<46} total {pv[col].sum():7.2f}; mean {pv[col].mean():.3f}; largest {pv[col].max():.2f}")
+    for a_, b_, lab in (("value_M", "value_no_age_M", "age's effect (main minus no age)"),
+                        ("value_no_age_M", "value_slot_only_M", "production's effect (no age minus slot alone)"),
+                        ("value_M", "value_slot_only_M", "both (main minus slot alone)")):
+        diff = pv[a_] - pv[b_]
+        rho = pv[a_].rank().corr(pv[b_].rank())
+        log(f"  {lab:<46} total {diff.sum():+7.2f}; moved by $0.25M or more: {int((diff.abs() >= 0.25).sum())} of "
+            f"{len(pv)}; by $0.5M or more: {int((diff.abs() >= 0.5).sum())}; largest {diff.abs().max():.2f}; "
+            f"rank correlation {rho:.3f}")
+    top_main = set(pv.nlargest(20, "value_M")["asset_id"])
+    log(f"  the twenty most valuable: {len(top_main & set(pv.nlargest(20, 'value_no_age_M')['asset_id']))} of 20 the "
+        f"same without age; {len(top_main & set(pv.nlargest(20, 'value_slot_only_M')['asset_id']))} of 20 the same on "
+        f"the slot alone")
+    moved = (pv["value_M"] - pv["value_no_age_M"])
+    log("  age moves most (main minus no age):")
+    for i in moved.abs().sort_values(ascending=False).index[:8]:
+        r = pv.loc[i]
+        log(f"    {r.trade_date}  {r.player_name:<24} {int(r.draftYear)} #{int(r.pick):<3} k={int(r.seasons_since_draft)}  "
+            f"main ${r.value_M:5.2f}M, no age ${r.value_no_age_M:5.2f}M ({moved[i]:+.2f}); years past first "
+            f"eligibility {r.past_elig:+.2f}; production {r.nhle82:.1f} per 82")
+
+    log("\n  the twenty most valuable (main; beside: without age, slot alone, own draft left out):")
     for r in pv.sort_values("value_M", ascending=False).head(20).itertuples():
         log(f"    {r.trade_date}  {r.player_name:<24} {int(r.draftYear)} #{int(r.pick):<3} k={int(r.seasons_since_draft)}  "
-            f"${r.value_M:5.2f}M (own draft out ${r.value_own_draft_out_M:5.2f}M)  to {r.acquiring_team}")
+            f"${r.value_M:5.2f}M  (no age ${r.value_no_age_M:5.2f}M, slot ${r.value_slot_only_M:5.2f}M, "
+            f"own draft out ${r.value_own_draft_out_M:5.2f}M)  to {r.acquiring_team}")
     log("\nWHO EACH TRADED PLAYER IS (v1.1: NHL id from PuckPedia first, names second)")
     log(v["match"].map(lambda m: m if not m.startswith("name (") else "name (PuckPedia ids conflict)")
         .value_counts().to_string())
@@ -455,8 +657,12 @@ def main():
 
     v.drop(columns=[c for c in ("date",) if c in v.columns]).to_csv(OUTPUT_DIR / "prospect_values.csv", index=False)
     sv.to_csv(OUTPUT_DIR / "prospect_star_values.csv", index=False)
+    pd.DataFrame([{"version": v_, "k_group": g_, "left_out": lo_, **{c_: b_[i] for i, c_ in enumerate(cols_)}}
+                  for (v_, g_, lo_), (cols_, b_, _) in fits.items()]).to_csv(
+        OUTPUT_DIR / "prospect_production_fits.csv", index=False)
     (OUTPUT_DIR / "prospect_values_log.txt").write_text("\n".join(LOG), encoding="utf-8")
-    log(f"\nwrote prospect_values.csv, prospect_star_values.csv, prospect_values_log.txt in {OUTPUT_DIR}")
+    log(f"\nwrote prospect_values.csv, prospect_star_values.csv, prospect_production_fits.csv, prospect_values_log.txt "
+        f"in {OUTPUT_DIR}")
 
 
 if __name__ == "__main__":

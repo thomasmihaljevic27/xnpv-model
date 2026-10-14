@@ -27,10 +27,12 @@ call reads 50/30/20 (`40_DOCS/Age_and_Weighting_Audit.md`). Its own document; ag
 $18.03M since 2026-10-14. **Opened 2026-10-14:** the brief's four questions are decided and step one is specified
 (MODEL_DIRECTIVES directive 6, "Prospects, step one"; measured by `25_TESTS/prospect_slot_years_check.py`). Step one is
 built (`20_CODE/prospect_values.py` v1.0, 2026-10-14: 197 traded prospects, $60.8M), on the through-zero form; the pick
-curve's regression form (below) is still open and step one inherits it. Step two (production
-adjusted to NHL terms) is decided, not built: curved, slot + production for seasons 0-2 and production alone from 3
-(MODEL_DIRECTIVES, "Prospects, step two"; `25_TESTS/prospect_nhle_look.py`). **Next (Thomas decides): build step two
-into `prospect_values.py`; then undrafted prospects and age.**
+curve's regression form (below) is still open and step one inherits it. Step two
+(production adjusted to NHL terms) and age are built (`prospect_values.py` v1.2: main $72.7M, without age $70.7M,
+slot alone $60.8M on 197 traded prospects; MODEL_DIRECTIVES "Prospects, step two" and "age"). **Open for Thomas:
+whether age stays, judged on the side-by-side (age moves 26 of 197 by $0.25M+, rank correlation 0.916).** **Next:
+undrafted prospects, their own step** (Thomas: "Zero now, own step next"): a fit on undrafted players' outcomes and
+a rule for their clock.
 
 **Done 2026-10-14 (Thomas's decisions on the audit).**
 - 60/40 checks retired (commit 35cbb62): `skater_value_engine.py` v2.0 (a library), `goalie_value_engine.py` v1.3,

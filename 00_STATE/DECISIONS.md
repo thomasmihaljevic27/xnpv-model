@@ -3220,3 +3220,12 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   neighbours, goalies on the slot alone, one rate for both positions). Fresh decisions under directive 6.
 - `25_TESTS/prospect_nhle_look.py` v1.1: chosen combination 2.2015 against the slot's 2.2417 ($M held-out a row;
   1,832 of 2,000 redraws). Not built into `prospect_values.py`.
+
+### Change log, 2026-10-14i (prospects: age decided; production and age built, v1.2)
+
+- DECISION (Thomas): age enters as production discounted by years past first eligibility, in seasons 0-3 since the
+  draft; a no-age version is kept beside to judge whether age earns its place; the measure accepted; undrafted
+  prospects stay at zero until their own step. Fresh decisions under directive 6.
+- `25_TESTS/prospect_age_look.py` v1.0: 2.1862 against 2.2015 ($M held-out a row; 1,997 of 2,000 redraws).
+- `prospect_values.py` v1.2: traded prospects $72.72M (no age $70.73M; slot alone $60.82M). PROJECT_STATE, CLAUDE.md
+  (state, run order), MODEL_DIRECTIVES, WORK_QUEUE updated.

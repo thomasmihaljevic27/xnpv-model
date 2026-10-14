@@ -17,7 +17,7 @@ the commit), **superseded** (replaced by a later entry).
 | 3 | One own-versus-comparables blend: 65/35 replaces the curve's 55/45 | implemented (branch, `64ab8bf`) |
 | 4 | Contract length in the price line (term-in), term-free reported as the sensitivity | implemented and validated (branch, 2026-10-05) |
 | 5 | Price-line forecasts dated at each contract's signing | implemented and validated (branch, 2026-10-05) |
-| 6 | Draft and prospect models restart from scratch with Karl; the data is kept | pick curve built 2026-10-09 (`pick_curve.py`, `traded_pick_values.py`); arbitration cost adopted for players and picks (2026-10-13; star value 13.42, 18.03 on September 15 ages 2026-10-14); prospects: opening decisions 2026-10-14, step one built (`prospect_values.py`); step two (production, NHLe) decided, not built |
+| 6 | Draft and prospect models restart from scratch with Karl; the data is kept | pick curve built 2026-10-09 (`pick_curve.py`, `traded_pick_values.py`); arbitration cost adopted for players and picks (2026-10-13; star value 13.42, 18.03 on September 15 ages 2026-10-14); prospects: opening decisions 2026-10-14, step one built (`prospect_values.py`); step two (production, NHLe) and age built (`prospect_values.py` v1.2), no-age version beside; undrafted next |
 
 | | To investigate (closed list) | Status |
 |---|---|---|
@@ -874,9 +874,35 @@ the drafts (the pick curve's rule; its 1,950 bar reported against, not applied).
 - What it means, a #20 pick one season after the draft (curved, all drafts): $1.20M at the 25th percentile of
   production (4.6 points per 82), $1.71M at the 75th (10.4), $2.45M at the 90th (13.9), $4.52M at 20; the slot
   alone gives $1.92M.
-- **Not yet built.** The live script (`prospect_values.py`) is step one until Thomas asks for the build. Open with
-  it: undrafted prospects (production alone fits their case, but "seasons since the draft" has no meaning for them);
-  age, the next candidate.
+- **Built 2026-10-14 with age, below** (Thomas: "Before building, investigate age as the next addition so production
+  and age can be built together").
+
+### Prospects: age (decided and built 2026-10-14)
+
+Measured by `25_TESTS/prospect_age_look.py` v1.0 (report; same rows as the production look, fingerprint 8aa11d737772;
+guard reproduces its 2.2015). Age = years past first eligibility: his age on September 15 of the valuation season
+minus the seasons since his draft minus 18.5 (within a season group, "older now" and "drafted older" are one input).
+- **Results ($M held-out error a row, against the production version's 2.2015):** + age alone 2.1951 (-0.29%; beats
+  it in 1,995 of 2,000 redraws); + age discounting production (production x years past first eligibility) 2.1863
+  (-0.69%; 1,995); both 2.1849 (-0.75%; 1,962; against the discount alone only 1,390, and the plain age term flips
+  sign once both are in); the discount in seasons 0-3 only 2.1862 (-0.69%; 1,997). Four or more seasons on, age
+  adds nothing (0.7385 with it against 0.7379).
+- **Decided (Thomas, 2026-10-14):** "let's go with age discounted production, but I want a non-age version as well
+  because I want to consider if the added complexity really affects anything. I don't want things to become overly
+  complicated for only marginal improvements." Seasons 0-3 only ("Seasons 0-3 only"); the measure as put ("Accept").
+  Undrafted prospects: "Zero now, own step next".
+- **Built: `prospect_values.py` v1.2.** value_M = step two with the age discount (main); value_no_age_M beside it;
+  value_slot_only_M (step one) beside both; goalies on the slot alone. Guard: all 10 fits equal the looks' to 1e-9.
+- **The traded prospects (197 assets), three versions:** main $72.72M; without age $70.73M; slot alone $60.82M.
+  What age changes (main against no age): +$1.99M in total; 26 of 197 move by $0.25M or more, 8 by $0.5M or more,
+  largest $1.15M (Jonathan Davidsson, drafted two years past first eligibility: -$0.19M against $0.96M); rank
+  correlation 0.916; 18 of the top 20 the same. What production changes (no age against slot alone): +$9.91M; 53
+  move by $0.25M or more; rank correlation 0.623; 9 of the top 20 the same. Top under main: Nick Suzuki $4.23M (no
+  age $3.53M, slot $2.99M), Janne Kuokkanen $2.48M, Nikita Gusev $2.39M (a 2012 draftee seven seasons on: the
+  highest production in the 4+ training rows, his own; own draft left out $2.93M), Peyton Krebs $2.31M.
+- **Below zero:** 63 of 197 under main (total -$3.52M, lowest -$0.34M; 49 of them four or more seasons on). The data
+  supports it: low scorers one or more seasons on have a remaining surplus averaging -$0.02M to -$0.05M, and
+  negative careers count (pick curve, 2026-10-09).
 
 ---
 
