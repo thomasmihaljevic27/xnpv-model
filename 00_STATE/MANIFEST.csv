@@ -371,3 +371,4 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 20_CODE,prospect_values.py,prospect,hashable,2026-10-14,1b9e85a7a9a144f50177df63fe0c1d3eee33cea2,29191,2026-10-14,yes,git,"v1.1: prospects step one: star value by seasons since the draft; every traded prospect valued from his slot; matched by NHL id first, names second"
 30_OUTPUT,prospect_values.csv,prospect,hashable,2026-10-14,LOCAL_RUN,212132,2026-10-14,yes,dropbox,"written by prospect_values.py"
 30_OUTPUT,prospect_star_values.csv,prospect,hashable,2026-10-14,LOCAL_RUN,3067,2026-10-14,yes,dropbox,"written by prospect_values.py"
+25_TESTS,prospect_nhle_look.py,prospect,hashable,2026-10-14,70191410c897e63f125160ed7f2e169e3b379216,13359,2026-10-14,yes,git,"v1.1: production adjusted to NHL terms against the slot, scored on held-out drafts (report)"

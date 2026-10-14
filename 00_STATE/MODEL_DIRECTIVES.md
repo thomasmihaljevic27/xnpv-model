@@ -17,7 +17,7 @@ the commit), **superseded** (replaced by a later entry).
 | 3 | One own-versus-comparables blend: 65/35 replaces the curve's 55/45 | implemented (branch, `64ab8bf`) |
 | 4 | Contract length in the price line (term-in), term-free reported as the sensitivity | implemented and validated (branch, 2026-10-05) |
 | 5 | Price-line forecasts dated at each contract's signing | implemented and validated (branch, 2026-10-05) |
-| 6 | Draft and prospect models restart from scratch with Karl; the data is kept | pick curve built 2026-10-09 (`pick_curve.py`, `traded_pick_values.py`); arbitration cost adopted for players and picks (2026-10-13; star value 13.42, 18.03 on September 15 ages 2026-10-14); prospects: opening decisions 2026-10-14, step one built (`prospect_values.py`) |
+| 6 | Draft and prospect models restart from scratch with Karl; the data is kept | pick curve built 2026-10-09 (`pick_curve.py`, `traded_pick_values.py`); arbitration cost adopted for players and picks (2026-10-13; star value 13.42, 18.03 on September 15 ages 2026-10-14); prospects: opening decisions 2026-10-14, step one built (`prospect_values.py`); step two (production, NHLe) decided, not built |
 
 | | To investigate (closed list) | Status |
 |---|---|---|
@@ -849,6 +849,34 @@ v1.0, item 7 below.
    Norris $2.13M, Peyton Krebs $2.11M, Pierre-Olivier Joseph $1.79M. Known, no effect: Chris DiDomenico is in the
    linkage as a 2007 draftee with no NHL record although he played; the guard leaves him unmatched, and as an NHL
    regular he would be the player model's either way.
+
+### Prospects, step two: production adjusted to NHL terms (decided 2026-10-14; not built)
+
+Asked (Thomas): "let's investigate how we may be able to include NHLe production." Measured by
+`25_TESTS/prospect_nhle_look.py` v1.1 (report): drafted skaters 2007-2017 still prospects, 13,152 rows (2,089 players),
+the same rows for every version (fingerprint 8aa11d737772); held-out error by leaving one draft out, 2,000 redraws of
+the drafts (the pick curve's rule; its 1,950 bar reported against, not applied).
+- **The measure (accepted as put, Thomas: "accept all"):** a season's NHL-equivalent points per 82 games = Elite
+  Prospects points x the league-season's NHLe factor (`nhle_temporal.csv`), over his games that season; a season
+  counts with 10+ games; 2012-13 (no factor) filled as the mean of the league's 2011-12 and 2013-14 factors; his
+  level 50/30/20 over the three seasons before the valuation season, rescaled over those he has; none: a "no
+  production record" indicator (4.1% of rows). Skaters only: goalies stay on the slot alone. One rate for forwards
+  and defencemen (a separate defence rate added nothing: 2.2284 against 2.2290, 1,904 redraws).
+- **Results ($M held-out error a row):** slot alone 2.2417; production alone 2.3103 (beats the slot in 11 of
+  2,000 redraws); slot + production, straight line 2.2290 (1,941); slot + production, curved (adds the level
+  squared) 2.2017 (1,830). Once production is in, the slot's weight falls to about zero three seasons on (curved
+  +0.58, se 1.88) and below zero from four (-0.80, se 0.34).
+- **Decided (Thomas, 2026-10-14; all three as recommended):** the curved form ("Curved"); seasons 0-2 since the
+  draft slot + production, seasons 3 and later production alone ("Production only"); the measurement defaults
+  above ("Accept all"). **The chosen combination scores 2.2015** (1.8% below the slot alone; beats it in 1,832 of
+  2,000 redraws; level with keeping the slot throughout, 2.2017). By season since the draft: 3.2731, 2.9740, 2.6501,
+  2.0151, 0.7379 (slot alone 3.3265, 3.0412, 2.6836, 2.0729, 0.7429).
+- What it means, a #20 pick one season after the draft (curved, all drafts): $1.20M at the 25th percentile of
+  production (4.6 points per 82), $1.71M at the 75th (10.4), $2.45M at the 90th (13.9), $4.52M at 20; the slot
+  alone gives $1.92M.
+- **Not yet built.** The live script (`prospect_values.py`) is step one until Thomas asks for the build. Open with
+  it: undrafted prospects (production alone fits their case, but "seasons since the draft" has no meaning for them);
+  age, the next candidate.
 
 ---
 

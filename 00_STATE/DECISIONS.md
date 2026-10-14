@@ -3212,3 +3212,11 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   trade date) decides first; names (now with Elite Prospects' spelling) second; disagreements listed and guarded.
   684 of 927 by id; 2 disagreements, both v1.0 errors worth zero (O'Reilly, Lehtonen). Values unchanged ($60.8M).
   PuckPedia is used for identity only, not as a value input (single-provider rule untouched).
+
+### Change log, 2026-10-14h (prospects, step two: production adjusted to NHL terms, decided)
+
+- DECISION (Thomas): production enters curved; seasons 0-2 since the draft slot + production, 3 and later production
+  alone; measurement defaults accepted (10+ game seasons, 50/30/20 over the three before, 2012-13 NHLe filled from its
+  neighbours, goalies on the slot alone, one rate for both positions). Fresh decisions under directive 6.
+- `25_TESTS/prospect_nhle_look.py` v1.1: chosen combination 2.2015 against the slot's 2.2417 ($M held-out a row;
+  1,832 of 2,000 redraws). Not built into `prospect_values.py`.
