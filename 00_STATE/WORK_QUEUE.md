@@ -18,7 +18,7 @@
   (p 0.77). On the old qualifying-offer chain the same pair was 31.66 against 31.04. The held-out comparison of
   the two forms (5.2318 against 5.2328) was run on the chain only.
 
-**Do (with Thomas, step by step): the prospect model, simplest version first.** Thomas, 2026-10-14: "start as simple as
+**Do (with Thomas, step by step): the prospect model, simplest version first.** Session brief: `00_STATE/Prospect_Session_Brief.md`. Thomas, 2026-10-14: "start as simple as
 possible and work our way up. I'll decide what the parameters of the model will be then." The outline so far is in
 MODEL_DIRECTIVES directive 6, "Prospects": the draft slot as the starting value (the star value x Bacon's star chance),
 production adjusted to NHL terms read 50/30/20, age and size as candidates, undrafted players on the same model without
