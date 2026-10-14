@@ -7,13 +7,14 @@ first check). Each row was read from the code that runs, at the line given. Noth
 ## Thomas's decisions (2026-10-14)
 
 - **Ages (findings 1.1 and 1.2):** "We should move it so that all age checks are consistent." Every age the model
-  reads follows the CBA: the performance age moves off February 1 (which CBA date is owed), and drafted players'
-  signing age is read in the year they signed. To build (WORK_QUEUE live item 1).
+  reads follows the CBA. The performance age moves to September 15 of the season's starting year (Thomas: "Sept 15"):
+  built on branch `claude/cba-age-sep15`, waiting on his lock of the re-fitted price line. Drafted players' signing age
+  is read in the year they signed: built (`elc_signing_dates.py`, `pick_curve.py` v1.5).
 - **Group 6 (finding 1.3):** asked whether it affects anything. `25_TESTS/pick_group6_check.py`: at its upper bound
   the star value moves from 13.42 to 13.37 (-0.37%). Left out and stated.
-- **The arbitration price (finding 2.3):** "It should be consistent with the forecast." To build once the reading is
-  settled (WORK_QUEUE live item 2).
-- **The 60/40 guards (finding 2.5):** explained; Thomas's decision is owed (WORK_QUEUE live item 4).
+- **The arbitration price (finding 2.3):** "It should be consistent with the forecast"; reading (a), the forecast's
+  own start rebuilt at the season (Thomas: "a)"). Built (`skater_forecast.arbitration_war`).
+- **The 60/40 guards (finding 2.5):** retired (Thomas: "retire"); no value moved.
 
 ## 1. Ages: where the model reads one, and the date it uses
 

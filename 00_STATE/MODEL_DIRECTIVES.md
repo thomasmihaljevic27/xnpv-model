@@ -746,12 +746,14 @@ Thomas the same day. Each item may change only by Thomas's decision.
   eligible); the one-year term, the weights and the D13 walk-away stand.
 - *Ages follow the CBA everywhere (Thomas, 2026-10-14):* "We should move it so that all age checks are
   consistent." The performance age (aging curve, chance of playing, games share, goalie exit risk; February 1 of
-  the season's ending year until now) moves to a CBA date (which date: owed, September 15 recommended), and drafted
-  players' signing age (entry-level length, arbitration need) is read in the year they signed, not their first NHL
-  season. Not built; the price line is re-locked after it (`40_DOCS/Age_and_Weighting_Audit.md`).
+  the season's ending year until now) moves to September 15 of the season's starting year (Thomas, 2026-10-14:
+  "Sept 15"); drafted players' signing age (entry-level length, arbitration need) is read in the year they signed.
+  Signing age built (`elc_signing_dates.py`, `pick_curve.py` v1.5); the September 15 age built on branch
+  `claude/cba-age-sep15`, awaiting Thomas's lock of the re-fitted price line.
 - *The arbitration price consistent with the forecast (Thomas, 2026-10-14):* "It should be consistent with the
-  forecast." Which reading (the forecast's start construction, or the line's price of the forecast itself) is
-  owed. Not built.
+  forecast." Reading (a) (Thomas, 2026-10-14): the forecast's own start rebuilt at the season, times its games
+  share. Built (`skater_forecast.arbitration_war`; goalies the goalie forecast's construction). Star value 17.85.
+- *The 60/40 checks retired (Thomas, 2026-10-14: "retire").* No value moved.
 - *CBA Group 6 left out (2026-10-14):* -0.37% on the star value at its upper bound (`pick_group6_check.py`).
 - *The circularity check (Thomas, 2026-10-13): "some kind would be valuable, Game Value probably makes sense."* Run
   (`25_TESTS/pick_star_gv_check.py` v1.0): Game Value agrees with WAR on who the stars are at each slot (STANDING_FLAGS).

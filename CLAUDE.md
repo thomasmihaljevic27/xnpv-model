@@ -78,7 +78,7 @@ Paths come from `.env` (copy `.env.example`). Run from the repo root.
 
 Player pillar, in order:
 
-    python 20_CODE/skater_value_engine.py        # Layer 1, observed-season value
+    python 20_CODE/elc_signing_dates.py          # entry-level signing years (CBA arbitration and entry-level ages)
     python 20_CODE/skater_forward_projection.py  # Layer 2, forward projection
     python 20_CODE/rfa_terminal_value.py         # terminal value at expiry
     python 20_CODE/exit_hazard.py                # exit-risk report; goalies' survival weights
@@ -127,6 +127,7 @@ directive 6). The old models (`draft_yield_curve.py`, `slot_curve.py`, `future_p
 `90_ARCHIVE/2026-10-09/`, with the old curve's output as a reference. In order:
 
     python 20_CODE/draft_pick_linkage.py     # picks linked to careers (also the kept check)
+    python 20_CODE/elc_signing_dates.py      # entry-level signing years (the CBA ages)
     python 20_CODE/pick_curve.py             # each drafted player priced; the star value (its sensitivity; the qualifying-offer chain beside)
     python 20_CODE/traded_pick_values.py     # every traded pick valued at its trade
 
@@ -156,8 +157,9 @@ To answer questions about the curve on the spot: `python 25_TESTS/pick_lookup.py
   forecast win for forwards, plus 0.0035971954 for defencemen, plus gamma_term=0.0089321965 a season per year
   of term; `XNPV1_RATE_TERM_FREE` (0.0081646316 / 0.0310794541 / +0.0135178851) is the sensitivity. The
   2026-10-02 line (0.0076921739 / 0.0308904772 / +0.0146619104) is superseded. The
-  pre-D20 rate (0.0184516 / 0.0202139) and the D20 rate (0.01831864 / 0.01924854) are retired;
-  they survive in the code only as reproduction guards.
+  pre-D20 rate (0.0184516 / 0.0202139) and the D20 rate (0.01831864 / 0.01924854) are retired; their
+  reproduction guards were removed with the 60/40 checks on 2026-10-14 (Thomas). The Stage 3 constants stay
+  in `skater_value_engine.NEW_LOCKED` as the fallback line, no longer re-fitted.
 - **Don't trust file size as an integrity check.** Pre-rebuild and post-rebuild
   `draft_yield_curve.csv` are both exactly 845 bytes with different contents. Compare hashes.
 - **Don't trust an output because a script ran.** Several scripts carry reproduction guards that
@@ -340,12 +342,11 @@ To answer questions about the curve on the spot: `python 25_TESTS/pick_lookup.py
   reads a player's recent seasons 50/30/20 (last season first; rescaled over the seasons he has, so two
   seasons are 62.5/37.5, not 60/40). The pricing document compared the forecast against a 60/40 total
   the forecast does not use, and Thomas caught it (2026-10-05). His instruction: "when the draft and
-  prospect work starts you need to be 100% certain that you are using 50/30/20 when needed." 60/40
-  survives only in code that prices nothing (audited 2026-10-14, `40_DOCS/Age_and_Weighting_Audit.md`):
-  `skater_value_engine.py` (`W_T1, W_T2`: observed-season value and the Stage 3 guards) and the goalie
-  engine's RAW regime, which rebuilds the locked spine for its parity gate
-  (`goalie_value_engine.TWO_SEASON[False]`); the live goalie path is 62.5/37.5 since 2026-10-05. (The
-  retired `draft_yield_curve.py` also carried it; it is archived.)
+  prospect work starts you need to be 100% certain that you are using 50/30/20 when needed." No live code
+  reads a 60/40 total since 2026-10-14: the last two places, both checks that priced nothing
+  (`skater_value_engine.py`'s July guards and observed-season spine, the goalie engine's RAW regime), were
+  retired (Thomas; `skater_value_engine` v2.0, `goalie_value_engine` v1.3). Finished tests in `25_TESTS/`
+  that import `trailing_weighted_war` or `W_T1` reproduce only from git before commit 35cbb62.
   Before any code, figure or document reads a trailing total, grep for `0.6`, `0.4`, `W_T1` and
   "60/40" in what it calls, and state which weighting each step uses; a figure stated against another
   weighting says so and why.

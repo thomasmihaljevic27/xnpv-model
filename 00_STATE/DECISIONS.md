@@ -3161,3 +3161,14 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - CBA Group 6 measured (`25_TESTS/pick_group6_check.py` v1.0): -0.37% on the star value at its upper bound; left out.
 - PROJECT_STATE v3.4 (refresh protocol): Generated 2026-10-14, Refresh due 2026-10-21; current sections rewritten
   from the code, superseded ones moved to History unchanged. CLAUDE.md current-state paragraph and 60/40 list updated.
+
+### Change log, 2026-10-14c (Thomas's answers on the audit, built)
+
+- DECISION (Thomas): the CBA date for every age is September 15 ("Sept 15"); the arbitration price follows reading (a)
+  ("a)"); the 60/40 checks are retired ("retire").
+- Built and verified: the 60/40 retirement (commit 35cbb62; 0 of 7,817 values moved); the CBA signing age and the
+  forecast-consistent arbitration price (commit 364df7a; star value 13.42 -> 17.85, scored alone 13.71 and 17.57;
+  traded picks $298.8M -> $397.3M; 787 of 7,817 contract valuations move, total -$48.1M).
+- The September 15 age: built on branch claude/cba-age-sep15; the re-fitted price line and floor spread await
+  Thomas's lock (WORK_QUEUE). The age convention revisits the input behind the aging curve, the chance of playing and
+  the `XNPV1_RATE` lock (D33 addendum).
