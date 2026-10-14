@@ -3129,3 +3129,21 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   arbitration_player_compare.py v1.1: 811 of 7,817 contract-pages lower, median -$0.81M.
 - Notes added: PROJECT_STATE header; superseded figures on 40_DOCS/Valuing_Draft_Picks_Reproduction.md; CLAUDE.md run
   line; STANDING_FLAGS (the flag's look-ahead).
+
+### Change log, 2026-10-14 (work-queue audit; overlap check; id exceptions; age and weighting audits)
+
+- Thomas's answers to the queue walk-through: a short bullet note for the 2026-10-15 meeting (built:
+  `40_DOCS/Supervisor_Drafts/Arbitration Cost Update.docx`, `25_TESTS/control_cost_note_doc.js`); the regression
+  form decided with the supervisor (on the arbitration cost: 13.42 through zero, 13.53 with a constant, p 0.77);
+  the prospect model simplest first, parameters his; the overlap check, the age audit and the weighting audit run;
+  the pricing-document paragraph dropped; everything parked stays parked; the work queue audited.
+- `25_TESTS/pick_class_overlap_check.py` v1.0: no traded pick is for a 2007-2017 draft; leave-one-draft-out star
+  values 12.09-14.59 (STANDING_FLAGS).
+- `20_CODE/ep_nhl_bridge.py` v1.1: Nick Henry and Tyler Vesel resolved as named, asserted exceptions
+  (STANDING_FLAGS); 5,572 EP ids, no conflicts, no NHL id claimed twice.
+- `40_DOCS/Age_and_Weighting_Audit.md`: no 60/40 prices anything; the prospect model's inputs are all 50/30/20;
+  five points for Thomas (performance age on February 1; drafted players' signing year; Group 6; the arbitration
+  price raw; the 60/40 guards). No locked decision changed.
+- WORK_QUEUE restructured: a live list at the top, earlier entries moved below unchanged. MODEL_DIRECTIVES
+  directive 6 (prospects: how it is built). CLAUDE.md: the xNPV 1 rate in force is the term-in line of 2026-10-05,
+  and the pick curve prices on it (both statements were stale).

@@ -55,6 +55,13 @@ traded then is valued by a curve that contains its own outcome. Read in the meet
 the draft works. To be stated as a limitation, with a check that refits the curve without the class being
 valued (WORK_QUEUE 2026-10-09 item 6). Under the new window (to the end of the qualifying-offer chain)
 which classes are complete is still to be counted.
+**Checked 2026-10-14 (`25_TESTS/pick_class_overlap_check.py` v1.0): the flag does not apply to traded
+picks.** None of the 634 traded picks is for a 2007-2017 draft; each is for 2018-2025 (a pick for a draft
+already held is a drafted player, not a pick). It applies to drafted players from 2007-2017 traded as
+prospects, if the prospect model starts from the slot. Leaving one draft out moves the star value (13.42) from
+12.09 (without 2015, -9.9%) to 14.59 (without 2012, +8.7%); 4 of 11 drafts move it 5% or more. The
+look-ahead that remains for picks is the one already decided: the star value uses careers completed after
+the trade (the trade-season scale was retired 2026-10-09).
 
 **A late-signed contract cannot see itself in its own chance of playing (2026-10-04).** The priced
 sweep values each contract at July 1 of its first season, and xNPV 1 reads contract status at that
@@ -120,9 +127,13 @@ report of it must say the pages were not unseen (ledger lines labelled CLOUD COD
   Georgi Romanov remain. Not wired in.
 - **PuckPedia id error: Nick Henry** (EP 201705). PuckPedia gives NHL id 8462234 and birthdate
   1998-04-15; the NHL draft record (2017, 94th) gives 8479997 and 1999-07-04. PuckPedia looks wrong.
-  `ep_nhl_bridge.py` marks it a conflict and assigns no id.
+  `ep_nhl_bridge.py` marks it a conflict and assigns no id. **RESOLVED 2026-10-14** (`ep_nhl_bridge.py` v1.1):
+  his Elite Prospects bio also gives 1999-07-04, so the draft record's 8479997 is kept (status
+  conflict_resolved); the exception asserts it still matches the sources on each run.
 - **Duplicate Elite Prospects profile: Tyler Vesel** (EP 121879 from the draft page, 186888 in
-  PuckPedia; both NHL 8478082). Merge before reading his production.
+  PuckPedia; both NHL 8478082). Merge before reading his production. **RESOLVED 2026-10-14**
+  (`ep_nhl_bridge.py` v1.1): PuckPedia's 186888 is read as 121879, the id holding his 16 skater seasons
+  (186888 has no rows in ep_prospects.db). The bridge now has no conflicts and no NHL id claimed twice.
 - **Recreated pick-trade script does not reproduce July's per-trade figures.** The sample reproduces
   (119/56/39/35/17); pooled discount 0.459 / 0.512 against 0.486 / 0.510. Only 8 of 17 bundles can be
   balanced by a discount in (0, 1]; the sweetener-to-gap correlation is 0.02 / 0.24 against 0.735. 3

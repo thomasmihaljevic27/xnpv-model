@@ -1,5 +1,12 @@
 # PROJECT STATE — NHL Trade Market Efficiency
 
+**Work queue audited; checks before the prospect model, 2026-10-14.** The live list is the top section of
+`WORK_QUEUE.md`. Done: the draft-class overlap check (no traded pick is for a draft in the star value's fit),
+the Elite Prospects bridge's two id exceptions (`ep_nhl_bridge.py` v1.1), the age and season-weighting audits
+(`40_DOCS/Age_and_Weighting_Audit.md`), and a short note for the 2026-10-15 meeting. Next: the prospect model,
+simplest version first. This file's own refresh (due 2026-10-05) is overdue; the headers above the dated
+entries carry the current state.
+
 **Arbitration cost adopted for RFA control years, picks and players, 2026-10-13.** After the supervisor meeting
 (build and compare) Thomas adopted it: once a player is eligible for salary arbitration, a control season costs the
 higher of the qualifying offer and the xNPV 1 line's price of his 50/30/20 trailing WAR (`MODEL_DIRECTIVES.md`

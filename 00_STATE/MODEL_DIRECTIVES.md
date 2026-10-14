@@ -757,6 +757,14 @@ Thomas the same day. Each item may change only by Thomas's decision.
   size. Any step that reads his recent seasons uses 50/30/20 unless Thomas decides otherwise.
 - *Undrafted prospects (Thomas, 2026-10-09):* the same model as drafted prospects, without the
   draft-slot starting estimate.
+- *How it is built (Thomas, 2026-10-14):* "start as simple as possible and work our way up. I'll decide what the
+  parameters of the model will be then." The simplest version comes first; each added input or parameter is
+  Thomas's decision, scored alone and in combination.
+- *Inputs checked (2026-10-14, `40_DOCS/Age_and_Weighting_Audit.md`):* every input the prospect model will call
+  (the contract line, the pick curve, the qualifying offer and the arbitration price) reads 50/30/20. The
+  Elite Prospects bridge has no conflicts or duplicate ids (`ep_nhl_bridge.py` v1.1). A prospect from a
+  2007-2017 draft valued from his slot sits inside the star value's fit; leaving his draft out moves it -9.9%
+  to +8.7% (`pick_class_overlap_check.py`).
 
 ---
 

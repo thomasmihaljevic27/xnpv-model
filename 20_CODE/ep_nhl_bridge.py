@@ -1,7 +1,8 @@
 """
 ep_nhl_bridge.py -- one table connecting Elite Prospects player ids to NHL player ids.
 
-SCRIPT_VERSION = 1.0  (2026-09-28)
+SCRIPT_VERSION = 1.1  (2026-10-14)
+  v1.1: two named exceptions (EXCEPTIONS below), each checked to still apply
 
 WHY THIS EXISTS
 ---------------
@@ -35,6 +36,18 @@ ASSUMPTIONS, stated so they can be checked
 - Slots with no player on either side (forfeited or void picks) are
   reported and dropped.
 
+EXCEPTIONS (v1.1, 2026-10-14; STANDING_FLAGS "PuckPedia id error" and "Duplicate
+Elite Prospects profile"). Each is applied by name, logged, and asserted to still
+match the sources, so a source fix makes the run stop rather than act twice.
+- Nick Henry, EP 201705 (2017, 94th, Colorado). PuckPedia gives NHL id 8462234 and
+  birthdate 1998-04-15; the NHL draft record gives 8479997 and 1999-07-04, and his
+  Elite Prospects bio agrees with the NHL record (1999-07-04). Two sources against
+  one: the draft-slot id is kept (was CONFLICT, no id).
+- Tyler Vesel, NHL 8478082 (2014, 153rd, Edmonton). Elite Prospects has two ids:
+  121879 (the draft page; holds his 16 skater seasons) and 186888 (PuckPedia's; no
+  rows in ep_prospects.db). PuckPedia's id is read as 121879 before the join, so one
+  EP id carries his production.
+
 Outputs (OUTPUT_DIR/ep_out/): ep_nhl_bridge.csv, ep_nhl_bridge_log.txt
 Run: python 20_CODE/ep_nhl_bridge.py   (after ep_extract.py --draft-only)
 """
@@ -49,7 +62,12 @@ import pandas as pd
 from dotenv import load_dotenv
 
 load_dotenv()
-SCRIPT_VERSION = "1.0"
+SCRIPT_VERSION = "1.1"
+
+# EP id the draft-slot join keeps -> (NHL id it must give, PuckPedia's NHL id it overrides)
+CONFLICT_RESOLVED = {201705: (8479997, 8462234)}     # Nick Henry: NHL record + EP bio over PuckPedia
+# PuckPedia's EP id -> the EP id that holds the player's seasons (same NHL id on both)
+EP_ALIAS = {186888: 121879}                          # Tyler Vesel, NHL 8478082
 
 OUTPUT_DIR = os.environ["OUTPUT_DIR"]
 EP_DB = os.environ["EP_PROSPECTS_DB"]
@@ -169,6 +187,11 @@ def main():
     # ---- 3. PuckPedia pairs ---------------------------------------------------
     c = pd.read_excel(CONTRACTS_XLSX, usecols=["eliteprospects_id", "nhl_id"])
     c = c.dropna().astype("int64").drop_duplicates()
+    for old, new in EP_ALIAS.items():                # v1.1: duplicate EP profiles
+        assert (c.eliteprospects_id == old).any(), f"EP alias {old} no longer in PuckPedia: remove it"
+        c.loc[c.eliteprospects_id == old, "eliteprospects_id"] = new
+        log(f"[exception] PuckPedia's EP id {old} read as {new} (duplicate Elite Prospects profile)")
+    c = c.drop_duplicates()
     pp_conflict = c.groupby("eliteprospects_id")["nhl_id"].nunique()
     log(f"[puckpedia] {len(c)} distinct (EP id, NHL id) pairs; EP ids with >1 "
         f"NHL id inside PuckPedia itself: {int((pp_conflict > 1).sum())}")
@@ -193,6 +216,12 @@ def main():
         return "draft_slot_only" if pd.notna(a) else "puckpedia_only"
     out["status"] = out.apply(status, axis=1)
     out["nhl_id_final"] = out["nhl_id"].where(out["nhl_id"].notna(), out["nhl_id_pp"])
+    for ep_id, (keep, pp_id) in CONFLICT_RESOLVED.items():   # v1.1: named resolutions
+        m = out.ep_player_id == ep_id
+        assert m.sum() == 1 and (out.loc[m, "status"] == "CONFLICT").all()             and int(out.loc[m, "nhl_id"].iloc[0]) == keep and int(out.loc[m, "nhl_id_pp"].iloc[0]) == pp_id,             f"exception for EP {ep_id} no longer matches the sources: review it"
+        out.loc[m, "status"] = "conflict_resolved"
+        out.loc[m, "nhl_id_final"] = keep
+        log(f"[exception] EP {ep_id}: NHL id {keep} kept over PuckPedia's {pp_id} (draft record and EP bio agree)")
     out.loc[out.status == "CONFLICT", "nhl_id_final"] = pd.NA
     out["nhl_id_final"] = out["nhl_id_final"].astype("Int64")
     log("[bridge] rows by status: " + ", ".join(

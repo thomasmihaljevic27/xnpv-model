@@ -1,5 +1,98 @@
 # WORK QUEUE — NHL Trade Market Efficiency
 
+<!-- The list of yet-to-do work. Changes almost every session. The live list is the first section;
+     audited 2026-10-14 (session 2026-10-14): each earlier entry was checked against the session logs and
+     the state files, and the overtaken ones moved, unchanged, under "Earlier entries" below. The draft and
+     prospect specification lives in MODEL_DIRECTIVES.md directive 6 (the old sequence docs were archived
+     2026-10-09). -->
+
+## Live (audited 2026-10-14)
+
+**Thursday 2026-10-15 11:00, supervisor meeting.** This is the agenda, not a task.
+- Bring: `40_DOCS/Supervisor_Drafts/Arbitration Cost Update.docx` (2 pages, built by
+  `25_TESTS/control_cost_note_doc.js`): what changed in the control-season cost for picks and players,
+  its effect, and the checks (Thomas, 2026-10-14: "a short bullet point document ... Nothing crazy").
+- Decide there (Thomas, with the supervisor): the draft regression's form. Run
+  `python 25_TESTS/pick_lookup.py regression`. On the arbitration cost now adopted: through zero 13.42 (se 1.44);
+  a constant plus a dummy for each draft but one 13.53 (se 1.69), constant -$0.02M a pick at an average draft
+  (p 0.77). On the old qualifying-offer chain the same pair was 31.66 against 31.04. The held-out comparison of
+  the two forms (5.2318 against 5.2328) was run on the chain only.
+
+**Do, after the meeting, in order.**
+1. **Do (Claude): the next version of `Valuing Draft Picks.docx`.** Its dollar figures change under the
+   arbitration cost (the reproduction sheet carries a superseded-figures note), and it owes five edits: Table 2's
+   body text (the year indicators sum to zero, so the fit is not the dummy-variable trap); why the
+   star-probability curve has one parameter (Bacon's shape, our star value); Figure 3's bands as 1-10 and 11-32;
+   cap shares beside Figure 2; the arbitration star value and the Game Value check. Plus the regression form
+   Thomas settles on Thursday.
+2. **Do (with Thomas, step by step): the prospect model, simplest version first.** Thomas, 2026-10-14: "start
+   as simple as possible and work our way up. I'll decide what the parameters of the model will be then." The
+   outline so far is in MODEL_DIRECTIVES directive 6, "Prospects": the draft slot as the starting value (now
+   $13.42M x Bacon's star chance), production adjusted to NHL terms read 50/30/20, age and size as candidates,
+   undrafted players on the same model without the slot. Data ready: the Elite Prospects pull (2026-10-08) and
+   the bridge to NHL ids (`ep_nhl_bridge.py` v1.1, 2026-10-14: no conflicts, no duplicate ids). Every input the
+   model will call reads 50/30/20 (`40_DOCS/Age_and_Weighting_Audit.md`, section 2). Its own document; agree
+   the spine first.
+3. **Decide (Thomas): five points from `40_DOCS/Age_and_Weighting_Audit.md`.**
+   - The performance age is read on February 1 (the CBA has no rule for it): keep and state, or move to a CBA
+     date (re-fits the aging curve, the chance of playing and the price line).
+   - Drafted players' signing age is read in their first NHL season, not the year they signed: keep and state,
+     or find signing dates and measure. Upper bound: 437 of 1,157 players who played would get a different
+     entry-level length and 683 a different arbitration need.
+   - CBA Group 6 (25 or older, under 80 NHL games) is not modelled: state it, or build it and measure.
+   - The arbitration price reads raw 50/30/20 season totals, with no pull toward comparables and no games
+     weighting: keep as deliberate, or pull it like the forecast.
+   - The 60/40 code left (`skater_value_engine.py`, the goalie engine's RAW regime) feeds only guards: leave
+     it, or retire it and rebuild the guards.
+
+**Parked (Thomas, 2026-10-04; confirmed 2026-10-14: "Keep everything parked that is currently parked").**
+- Until the model is complete: the defence premium (entry "xNPV 1 follow-ups" item 5 below); the nine-season
+  participation window; the long-deal gap; the star under-forecast; the offsetting biases for thin histories
+  (2026-10-05).
+- Unruled: the chance of playing before 2019 cannot see contracts (2026-10-05). The queue said to decide at
+  step 6 whether those valuations are read differently or the gap is stated as a limitation; no ruling is in
+  the record.
+- Draft, for the back-test: the 113 conditional picks among the traded picks (met or not); a slot-aware value
+  for future first-round picks (the round average undervalues a weak team's future first: $9.5M against
+  $6.6M under the old chain).
+- Goalies: birthdates for pre-2018 retirees from the NHL stats API (96 of 98 found, tested), then the goalie
+  exit hazard on seasons before each valuation (still 2018-2024).
+- The back-test and thesis items: the power analysis's second part; the mid-season split; the back-test's
+  realized-value currency; the outcome window, playoffs and the surplus-ratio statistic; forced-trade
+  detection and the no-trade-clause cost; the PuckPedia export refresh; the qualifying-offer start date;
+  control-year qualification survival; the league-minimum floor stress test; the v3 regression report; the
+  merged Erik Gustafsson identities; the market-holdout decision (STANDING_FLAGS holds most details). Not
+  carried: the draft curve's alternative-rule slope mismatch, which belonged to the retired draft curve.
+
+**Done 2026-10-14.**
+- The draft-class overlap check (`25_TESTS/pick_class_overlap_check.py` v1.0): none of the 634 traded picks is
+  for a 2007-2017 draft (each is for 2018-2025), so the flag does not apply to picks; it applies to drafted
+  players traded as prospects if the prospect model starts from the slot. Leaving one draft out moves the star
+  value from 12.09 (without 2015) to 14.59 (without 2012); 4 of 11 drafts move it 5% or more.
+- The two id exceptions (`ep_nhl_bridge.py` v1.1): Nick Henry keeps the NHL draft record's id 8479997 (his
+  Elite Prospects bio agrees on 1999-07-04; PuckPedia's 8462234 and 1998-04-15 do not); Tyler Vesel's two
+  Elite Prospects ids read as 121879, the one holding his 16 seasons.
+- The age audit and the season-weighting audit (`40_DOCS/Age_and_Weighting_Audit.md`).
+- The meeting note (above).
+- This audit.
+
+**Dropped 2026-10-14 (Thomas).** The paragraph for `Pricing, Control Years, and Contract Value.docx` on why the
+full cap hit is kept after a player leaves ("Don't worry about the pricing doc").
+
+**Closed by the 2026-10-14 audit (moved below unchanged).** The 2026-10-13 items (the arbitration idea, built and
+adopted; the pick side; the Game Value check); the reading-week list of 2026-10-09 (items 1-7 and 9 done, 8 is
+live item 2, 10 dropped); the 2026-10-04 triage (its parked items are above; the draft and prospect pillars
+resumed 2026-10-09); the directive and plan-of-record entries (plan done 2026-10-05); the starting-level go-ahead
+(built 2026-10-05); the 2026-10-04 document-rewrite list (status date decided as open decision 2; the price-line
+tests repeated at step 7; the four documents rewritten again 2026-10-05); the xNPV 1 follow-ups (done, or
+parked above); the 2026-09-30 model-choice and re-score entries (closed by D33); the 2026-09-28 draft plan
+(superseded by directive 6; the id exceptions done today); the 2026-09-28 aging items (done, or dropped with
+xNPV 0); the 2026-09-25 items (the walkthrough was archived with xNPV 0); the review closures.
+
+---
+
+## Earlier entries (as written; overtaken, closed or carried into the live list above, 2026-10-14)
+
 **For Thursday 2026-10-15 11:00 (supervisor meeting of 2026-10-13, sessions `2026-10-13b`).**
 1. **Decided and built 2026-10-13 (Thomas): the arbitration cost is adopted on both sides, players' eligibility from
    PuckPedia's flag** (MODEL_DIRECTIVES directive 6, meeting 2026-10-13). Star value 13.42 (was 31.66); traded picks
