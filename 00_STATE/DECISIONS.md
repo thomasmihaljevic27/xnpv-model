@@ -3255,3 +3255,10 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   $375K): a departure from D16(i) for these contracts only, taken knowingly. Built: `buried_contract_values.py`.
 - DECISION (Thomas): build a 2017-18 page from CapWages contracts; 23 pages fetched. `contracts_2017.py` built; the
   page's valuation through the engine is not built yet.
+
+### Change log, 2026-10-14m (the 2017 page)
+
+- Built `page_2017_values.py` v1.0 (Thomas: "Continue the 2017-18 page here"): 132 of 135 traded 2017-18 assets priced
+  on CapWages contracts through the unchanged engine at page 2017. CapWages chosen over PuckPedia's older rows for this
+  page on evidence (trades.db sides with CapWages in all six disagreements). Reproduces PuckPedia's own pricing for 38
+  of 38 shared contracts. 917 of 927 traded player assets are now valued by some model or rule.

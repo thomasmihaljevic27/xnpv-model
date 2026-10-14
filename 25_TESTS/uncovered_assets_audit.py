@@ -28,7 +28,7 @@ from pathlib import Path
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "uncovered_assets_audit.py v1.0 (2026-10-14)"
+SCRIPT_VERSION = "uncovered_assets_audit.py v1.1 (2026-10-14)"
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "20_CODE"))
 import contract_source as CS   # noqa: E402
@@ -112,6 +112,15 @@ for _, r in v.iterrows():
         rec["why"] = why
     rows.append(rec)
 a = pd.DataFrame(rows)
+# v1.1: the 2017 page (page_2017_values.py) and the buried-contract rule (buried_contract_values.py), where run
+for f, lab, ok in (("page_2017_values.csv", "player model, 2017 page", ("ok",)),
+                   ("page_2017_values.csv", "buried-contract rule", ("buried veteran (cost above burial)",)),
+                   ("buried_contract_values.csv", "buried-contract rule", None)):
+    p_ = OUTPUT_DIR / f
+    if p_.exists():
+        x_ = pd.read_csv(p_)
+        ids_ = set(x_["asset_id"] if ok is None else x_.loc[x_["status"].isin(ok), "asset_id"])
+        a.loc[a["asset_id"].isin(ids_) & (a["covered_by"] == "neither"), "covered_by"] = lab
 
 log(f"\nTRADED PLAYER ASSETS from 2017-07-01: {len(a)}")
 log(a["covered_by"].value_counts().to_string())

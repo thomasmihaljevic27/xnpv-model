@@ -100,7 +100,13 @@ def parse_contracts(lines):
                 # in the column, AAV and the page's own sentence $4,583,333), so the contract's stated cap hit is
                 # used (below), and the AAV column where the sentence is missing
                 money = [x for x in lines[j + 1:k] if MONEY.match(x)]
-                c["seasons"][y] = float(money[1].replace("$", "").replace(",", "")) if len(money) > 1 else None
+                # a season belongs to the contract only if its row carries an AAV: CapWages lists placeholder rows
+                # past the term ($0, no AAV; Kyle Turris's Nashville deal shows 2024-25 to 2027-28 after 2023-24)
+                if len(money) > 1:
+                    c["seasons"][y] = float(money[1].replace("$", "").replace(",", ""))
+                    # base salary (the fifth dollar cell), which starts the qualifying-offer chain at expiry
+                    c.setdefault("base", {})[y] = (float(money[4].replace("$", "").replace(",", ""))
+                                                   if len(money) > 4 else None)
                 j = k
             stated = [re.search(r"cap hit of \$([\d,]+)", x) for x in lines[i:j]]
             stated = [m for m in stated if m]
@@ -114,8 +120,12 @@ def parse_contracts(lines):
     return out
 
 
+# the page addresses CapWages uses where the trade's spelling gives a different slug (both fetched 2026-10-14)
+SLUG_OVERRIDES = {"J.T. Miller": "jt-miller", "Patrick Maroon": "pat-maroon"}
+
+
 def find_page(name):
-    slug = to_slug(name)
+    slug = SLUG_OVERRIDES.get(name, to_slug(name))
     for d in CACHES:
         f = d / f"{slug}.html"
         if f.exists():
@@ -141,7 +151,7 @@ def main():
         for n in sorted(a["player_name"].unique()):
             if find_page(n) is not None:
                 continue
-            f = CACHE_FETCH / f"{to_slug(n)}.html"
+            f = CACHE_FETCH / f"{SLUG_OVERRIDES.get(n, to_slug(n))}.html"
             try:
                 resp = sess.get(f"https://capwages.com/players/{f.stem}", headers={"User-Agent": UA}, timeout=20)
             except requests.RequestException as e:
