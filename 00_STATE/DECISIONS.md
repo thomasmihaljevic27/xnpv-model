@@ -3183,3 +3183,15 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - Results: refresh 10 of 10; 7,353 of 7,817 valuations move (total +$58.6M); star value 18.03 (se 1.73), 15.68
   without 2015-2016, chain 31.90; traded picks $401.3M. pick_curve's two guards recorded on the 2026-10-05 line now run
   only on that line.
+
+### Change log, 2026-10-14e (the prospect model opens: four decisions, step one specified)
+
+- DECISION (Thomas): a prospect is valued in the pick curve's currency; a prospect is whoever the player model does not
+  take yet (skaters: no 10+ game NHL season in the three before; goalies: no NHL game in the six before, the goalie
+  forecast's own reach); the simplest version is Bacon's star chance x a star value re-fitted for each season since
+  the draft on players still prospects, seasons 4+ pooled; the overlap with the fit is a stated limitation, as for
+  picks. Recorded in MODEL_DIRECTIVES directive 6 with step one's specification. Fresh decisions under directive 6;
+  no locked decision is reopened.
+- `25_TESTS/prospect_slot_years_check.py` v1.0: star value 18.03 / 17.60 / 15.73 / 8.88 / 2.01 (0, 1, 2, 3, 4+ seasons
+  since the draft); guard reproduces the pick curve at the draft.
+- MODEL_DIRECTIVES: the overlap range corrected to -8.0% to +7.5% (on 18.03; was the 13.42 figure); summary row 6.

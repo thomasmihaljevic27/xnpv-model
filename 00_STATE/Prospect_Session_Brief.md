@@ -2,6 +2,9 @@
 
 Written 2026-10-14, at Thomas's request, to open the prospect-model session.
 
+**Opened 2026-10-14 (session log `sessions/2026-10-14.md`, "the prospect model opens").** The four questions below are
+decided (all four as recommended) and step one is specified in MODEL_DIRECTIVES directive 6.
+
 ## What Thomas wants
 
 - **Simplest version first, then build up.** "Start as simple as possible and work our way up. I'll decide what the

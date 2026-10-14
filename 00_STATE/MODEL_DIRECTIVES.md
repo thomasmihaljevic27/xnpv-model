@@ -17,7 +17,7 @@ the commit), **superseded** (replaced by a later entry).
 | 3 | One own-versus-comparables blend: 65/35 replaces the curve's 55/45 | implemented (branch, `64ab8bf`) |
 | 4 | Contract length in the price line (term-in), term-free reported as the sensitivity | implemented and validated (branch, 2026-10-05) |
 | 5 | Price-line forecasts dated at each contract's signing | implemented and validated (branch, 2026-10-05) |
-| 6 | Draft and prospect models restart from scratch with Karl; the data is kept | pick curve built 2026-10-09 (`pick_curve.py`, `traded_pick_values.py`); arbitration cost adopted for players and picks (2026-10-13; star value 13.42); prospects not started |
+| 6 | Draft and prospect models restart from scratch with Karl; the data is kept | pick curve built 2026-10-09 (`pick_curve.py`, `traded_pick_values.py`); arbitration cost adopted for players and picks (2026-10-13; star value 13.42, 18.03 on September 15 ages 2026-10-14); prospects: opening decisions and step one specified 2026-10-14, nothing live yet |
 
 | | To investigate (closed list) | Status |
 |---|---|---|
@@ -774,8 +774,57 @@ Thomas the same day. Each item may change only by Thomas's decision.
 - *Inputs checked (2026-10-14, `40_DOCS/Age_and_Weighting_Audit.md`):* every input the prospect model will call
   (the contract line, the pick curve, the qualifying offer and the arbitration price) reads 50/30/20. The
   Elite Prospects bridge has no conflicts or duplicate ids (`ep_nhl_bridge.py` v1.1). A prospect from a
-  2007-2017 draft valued from his slot sits inside the star value's fit; leaving his draft out moves it -9.9%
-  to +8.7% (`pick_class_overlap_check.py`).
+  2007-2017 draft valued from his slot sits inside the star value's fit; leaving his draft out moves it -8.0%
+  to +7.5% on the star value of 18.03 (`pick_class_overlap_check.py`, re-run 2026-10-14; the -9.9% to +8.7%
+  first recorded here was on the earlier 13.42).
+- *The opening decisions (Thomas, 2026-10-14; put as options with the recommendation first, all four taken):*
+  - **Currency: the same as picks.** A prospect's value is his remaining NHL seasons priced on the contract line
+    minus his cost (entry-level deal, then control seasons at the qualifying offer or the arbitration price), to
+    the end of club control, at the 2025-26 cap. Not chosen: the entry-level years only (understates, as for picks).
+  - **Who is a prospect: whoever the player model does not take yet.** Skaters: no NHL season of 10+ games in the
+    three before the valuation season. Goalies, by the goalie forecast's own rule (any NHL season in the three
+    before, walking back up to three more): no NHL game in the six before. Callups under the line stay prospects;
+    nothing in the player model changes. Not chosen: any NHL game sends him to the player model (it would change
+    the locked forecast, which cannot use a season under 10 games).
+  - **The simplest version: slot x seasons since the draft.** Value = Bacon's star chance for his slot x a star
+    value re-fitted for each season since the draft, on the drafted players still prospects then, seasons 4 and
+    later pooled into one. Not chosen: the slot alone however long ago (values a prospect four years out several
+    times too high); one yearly fade (the fall is a step at years 3-4, not a steady fade).
+  - **The overlap: a stated limitation, as for picks,** with the value with his draft left out reported beside.
+    Not chosen: refitting without his own draft for every prospect (eleven fits per season since the draft, and the
+    prospect side would no longer match the pick side).
+
+### Prospects, step one: the specification (2026-10-14)
+
+Measured by `25_TESTS/prospect_slot_years_check.py` v1.0 (report; guard: at the draft it reproduces the pick
+curve's 18.03 to 1e-9). Not yet a live script.
+
+1. **Who.** A drafted player valued at a date in season y (the season starting that autumn; a date between July 1
+   and June 30 belongs to one season), who is a prospect at y by the rule above. Seasons since the draft: k = y -
+   draft year (k = 0 is the season after his draft, the pick curve's first season).
+2. **What he is worth.** Bacon's star chance for his slot (`draft_slot_baseline.csv`) x the star value for k.
+3. **The star value for k.** The pick curve's own regression (`pick_curve.fit_scale`: through zero, draft-year
+   indicators that sum to zero, robust errors) on the 2007-2017 drafted players who were prospects at k, with
+   their remaining surplus as the outcome: the pick curve's priced seasons from y on (season y in full), lapsed
+   rights zeroed as the pick curve zeroes them. Seasons 4 and later: one fit on the stacked rows, errors clustered
+   by player. Goalies pooled with skaters, as for picks.
+4. **Weighting.** Step one reads no trailing total itself; the surplus it fits on carries the pick curve's
+   arbitration price, which reads the forecast's 50/30/20.
+5. **Undrafted prospects** have no slot, so step one gives them no value; they enter with the step that adds
+   production.
+6. **Figures (2026-10-14, star value $M at the 2025-26 cap; #1 pick's value; left-out range):**
+
+   | Seasons since the draft | Prospects | Star value (se) | #1 pick | Draft left out | Top-10 picks still prospects |
+   |---|---|---|---|---|---|
+   | 0 (the draft) | 2,322 | 18.03 (1.73) | 13.48 | 16.59-19.37 | 110 |
+   | 1 | 2,269 | 17.60 (1.77) | 13.16 | 16.07-18.80 | 70 |
+   | 2 | 2,140 | 15.73 (2.17) | 11.76 | 13.06-16.65 | 26 |
+   | 3 | 1,937 | 8.88 (1.71) | 6.64 | 7.01-9.67 | 11 |
+   | 4 and later | 1,765 (6,098 player-seasons) | 2.01 (0.66) | 1.50 | 1.28-2.34 | 10 |
+
+   A prospect keeps most of his slot's value for two seasons; the third and fourth take most of it. Past two
+   seasons few top picks are left, so the slot carries little there: that is where production must add value.
+   Inherits the pick curve's open choice of regression form (through zero or a free constant: WORK_QUEUE).
 
 ---
 

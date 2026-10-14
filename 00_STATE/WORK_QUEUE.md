@@ -24,7 +24,11 @@ MODEL_DIRECTIVES directive 6, "Prospects": the draft slot as the starting value 
 production adjusted to NHL terms read 50/30/20, age and size as candidates, undrafted players on the same model without
 the slot. Data ready: the Elite Prospects pull (2026-10-08) and the bridge (`ep_nhl_bridge.py` v1.1). Every input it will
 call reads 50/30/20 (`40_DOCS/Age_and_Weighting_Audit.md`). Its own document; agree the spine first. The star value is
-$18.03M since 2026-10-14.
+$18.03M since 2026-10-14. **Opened 2026-10-14:** the brief's four questions are decided and step one is specified
+(MODEL_DIRECTIVES directive 6, "Prospects, step one"; measured by `25_TESTS/prospect_slot_years_check.py`). Next, Thomas
+decides: build step one as a live script that values the prospects in the trade inventory, or decide the pick curve's
+regression form first (below), which step one inherits. After step one: production adjusted to NHL terms (NHLe), the
+first addition.
 
 **Done 2026-10-14 (Thomas's decisions on the audit).**
 - 60/40 checks retired (commit 35cbb62): `skater_value_engine.py` v2.0 (a library), `goalie_value_engine.py` v1.3,
