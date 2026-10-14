@@ -475,7 +475,7 @@ class NPVEngine:
             b = bd_map.get(norm_name(row["player"]))
             if pd.isna(b) or b is None:
                 return None
-            ref = pd.Timestamp(year=int(row["t"]) + 1, month=2, day=1)
+            ref = pd.Timestamp(year=int(row["t"]), month=9, day=15)   # 2026-10-14: the CBA's date
             return int(ref.year - b.year
                        - ((ref.month, ref.day) < (b.month, b.day)))
         d_g["age"] = d_g.apply(g_age, axis=1)
@@ -640,8 +640,7 @@ class NPVEngine:
             return pd.DataFrame(), {"status": "unpriced_no_history"}
         bd = crows.iloc[0]["bd"]
         age0 = (None if pd.isna(bd) else
-                int(pd.Timestamp(year=t0 + 1, month=2, day=1).year - bd.year
-                    - ((2, 1) < (bd.month, bd.day))))
+                int(t0 - bd.year - ((9, 15) < (bd.month, bd.day))))   # September 15 of t0 (2026-10-14)
 
         # A3 (2026-07-29): seed S with the materialisation gate for stale-
         # anchor goaltenders, 1.0 for everyone else (unchanged behaviour).

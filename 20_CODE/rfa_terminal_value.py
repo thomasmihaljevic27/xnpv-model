@@ -216,7 +216,7 @@ def price(projected_war, posgrp, ceiling, term_free=False):
 # data, so eligibility comes later than in fact), pro-rated in the short seasons.
 ARB_NEED = lambda age: 4 if age <= 20 else 3 if age == 21 else 2 if age <= 23 else 1
 ARB_GP = {2012: 6, 2019: 9, 2020: 7}            # 10 games x 48/82, 70/82, 56/82, rounded up
-SEP15_BEFORE_FEB1 = 139 / 365.25               # the season table's age is on 1 February
+SEP15_BEFORE_FEB1 = 0.0                        # 2026-10-14: the season table's age is on September 15
 
 
 def arb_eligible(season, t0, need, observed_gp):

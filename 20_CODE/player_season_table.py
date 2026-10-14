@@ -63,7 +63,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import forecast_config as C
 
-SCRIPT_VERSION = "1.3"
+SCRIPT_VERSION = "1.4"   # 1.4 (2026-10-14): age on September 15 of the starting year
 
 # --- Name normalisation ---------------------------------------------------
 # Reproduced from skater_value_engine.norm_name rather than imported, so this
@@ -387,8 +387,9 @@ def build(birthdate_csv: Path | None = None, verbose: bool = True,
 def _attach_age(a: pd.DataFrame, path: Path) -> pd.DataFrame:
     """Join birthdates if a table is available.
 
-    Age convention follows `20_CODE/age_join.py`: age on 1 February of the
-    season's ENDING year, so consecutive seasons differ by exactly one year of
+    Age convention follows `20_CODE/age_join.py`: age on 15 September of the
+    season's STARTING year (v1.4, 2026-10-14, the CBA's date; until then 1 February
+    of the ending year), so consecutive seasons differ by exactly one year of
     age -- which is what a within-player delta aging curve needs.
 
     THE JOIN KEY. `ep_birthdates.csv` carries the raw WAR.csv player name and
@@ -441,7 +442,7 @@ def _attach_age(a: pd.DataFrame, path: Path) -> pd.DataFrame:
 
     m = a.merge(bd[["_k", col]].rename(columns={"_k": on}), on=on, how="left")
     b = pd.to_datetime(m[col], errors="coerce")
-    ref = pd.to_datetime(dict(year=m["syr"] + 1, month=2, day=1))
+    ref = pd.to_datetime(dict(year=m["syr"], month=9, day=15))      # v1.4: the CBA's September 15
     m["age_exact"] = ((ref - b).dt.days / 365.25).round(2)
     m["age"] = np.floor(m["age_exact"])
     m["has_age"] = m["age_exact"].notna()
