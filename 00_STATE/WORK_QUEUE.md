@@ -41,12 +41,9 @@ page (Thomas, 2026-10-14; `trade_page.py`; `traded_player_values.py` values trad
 after the regular season are valued (adopted 2026-10-14, `rights_values.py`). 916 of 927 traded player assets valued.
 **Open for Thomas:** retained salary in the back-test.
 
-**Look into (Thomas, 2026-10-14): offer sheets with the model.** Not yet scoped or scheduled; Thomas sets the question
-when he picks it up. As of today nothing in `20_CODE/` models an offer sheet: a restricted free agent's control years
-are priced as the club keeping him at the qualifying offer or the arbitration price (D13's walk-away aside), and the
-only mention is a comment in `page_2017_values.py` (players under CBA 10.2(c) can't receive one). Possible angles,
-Claude's suggestion only: what the model says a signed offer sheet's player was worth against the draft picks paid
-as compensation (both on the one dollar scale), and whether the threat of one should cap the control-year value.
+**Look into (Thomas, 2026-10-14): are offer sheets under-used?** Thomas: "I just want to look to see if offer sheets
+are under utilized. We can model that somehow." How to model it is not yet decided. As of today nothing in `20_CODE/`
+models an offer sheet (one comment in `page_2017_values.py`).
 
 **Done 2026-10-14 (Thomas's decisions on the audit).**
 - 60/40 checks retired (commit 35cbb62): `skater_value_engine.py` v2.0 (a library), `goalie_value_engine.py` v1.3,

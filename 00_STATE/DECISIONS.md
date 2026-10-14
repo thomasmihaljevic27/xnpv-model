@@ -3287,3 +3287,5 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 
 - WORK_QUEUE: added "look into offer sheets with the model" to the live list (Thomas), unscoped. No decision, code or
   model change.
+- Corrected the same day (Thomas): the question is whether offer sheets are under-used; how to model it is undecided.
+  Claude's suggested angles removed from the entry. CLAUDE.md rule added.

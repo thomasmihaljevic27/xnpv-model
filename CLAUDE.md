@@ -330,6 +330,10 @@ To answer questions about the curve on the spot: `python 25_TESTS/pick_lookup.py
   to him had an entry that was only a list of meeting topics, with no verb; he could not tell
   whether it was a task, a decision or an agenda (2026-10-04). Each item says do, decide, read or
   bring, and an agenda is labelled as an agenda.
+- **Don't add your own angles to an item Thomas asks to queue.** Asked to queue "look into offer sheets with the
+  model", the entry added two suggested angles (offer-sheet players against their compensation picks; a cap on
+  control-year value). His question was only whether offer sheets are under-used (2026-10-14). Record the item in
+  his words, with what the record shows about it; suggest angles in chat, if at all, not in the queue.
 - **Don't turn Thomas's own answer, or a settled choice, into a check owed.** A list asked him to
   verify a games-played average he had read off the data himself, to decide yardstick changes that
   had already been tested, and to check a script's handling of future picks after he had decided
