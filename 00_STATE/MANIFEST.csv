@@ -42,7 +42,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 20_CODE,rfa_terminal_value.py,npv,hashable,2026-10-14,3a8fb7cc2fe831986b915a6b318f1a99a24de1dc,46907,2026-10-14,yes,git,v2.2: plays-given-qualified on one game in the final season; imported as module
 25_TESTS,run_stale_anchor_fix.py,goal,hashable,2026-09-30k,29c6528d981d4275f1cde216d71819690e012148,11667,2026-09-30,yes,git,git-tracked; audited via `git status`; moved 2026-09-30j
 20_CODE,score_state.py,xg,hashable,2026-09-09a,81e3d540c713a014dc673a552b7d2465b79e73a5,17151,2026-09-09,yes,git,git-tracked; audited via `git status`
-20_CODE,skater_forward_projection.py,skat,hashable,2026-10-14,431e1e4064a2e377ce039825528f2c2406deaa70,34996,2026-10-14,yes,git,xNPV 1 only from v2.0 (xNPV 0 archived 2026-10-02); imported as module
+20_CODE,skater_forward_projection.py,skat,hashable,2026-10-14,b80011758724eb417ca1e1ea6ace43010196918c,35661,2026-10-14,yes,git,xNPV 1 only from v2.0 (xNPV 0 archived 2026-10-02); imported as module
 20_CODE,skater_value_engine.py,skat,hashable,2026-10-14,daa285d9a8a28387e9661f41336b18c6064ceeea,13447,2026-10-14,yes,git,imported as module; do not rename
 25_TESTS,term_premium_test.py,skat,hashable,2026-09-30k,d1999d49d08032e0d273ba8576fdc05f30f963ef,38573,2026-09-30,yes,git,git-tracked; audited via `git status`; moved 2026-09-30j
 25_TESTS,uncertainty_correction.py,skat,hashable,2026-09-30k,138805bb1db78da0a7456989fbe9e39afa2ee4d2,15702,2026-09-30,yes,git,git-tracked; audited via `git status`; moved 2026-09-30j
@@ -303,7 +303,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,xnpv1_promotion_check.py,player,hashable,2026-10-02c,b8b524e96a22c84a0a256b60880a8d354eb28898,7047,2026-10-02,yes,git,finished test or diagnostic
 25_TESTS,xnpv1_switch_check.py,player,hashable,2026-10-02e,cb067c9a79cb8fff332740042f194a4785153662,6431,2026-10-02,yes,git,finished test or diagnostic
 .,Update-Dashboard.cmd,npv,hashable,2026-10-02f,ab0513d123b559300e811cc1fb2775f45ed63eb0,1813,2026-10-02,yes,git,rebuilds and opens the dashboard (was Open-Dashboard.cmd)
-20_CODE,xnpv1_price_line.py,player,hashable,2026-10-14,ed4fb89652c0a432e01bff45d3a07cb234b3dd28,21085,2026-10-14,yes,git,"v2.0: signing-dated, term-in price line; locked 2026-10-05"
+20_CODE,xnpv1_price_line.py,player,hashable,2026-10-14,2076a47fc502b4e78a40bb81a59c6ce318f6a36a,21285,2026-10-14,yes,git,"v2.0: signing-dated, term-in price line; locked 2026-10-05"
 25_TESTS,xnpv1_position_compression.py,player,hashable,2026-10-02h,53c882daaf66f221f48530bb87e6b18752ec28a6,4198,2026-10-02,yes,git,finished test or diagnostic
 40_DOCS/model_evidence,xNPV1_Price_Line.md,player,hashable,2026-10-02h,87dc31751567e331f7778e78cc59ba83cab80fa4,7251,2026-10-02,yes,git,xNPV 1 price line evidence
 25_TESTS,xnpv0_removal_check.py,player,hashable,2026-10-02k,49130927295d238c6705784770d093f357821e73,5999,2026-10-02,no,git,laptop check that archiving xNPV 0 moved no xNPV 1 value
@@ -378,3 +378,5 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,uncovered_assets_audit.py,trade,hashable,2026-10-14,c72ba9f27338caa55aaed454f880db8065f36b8d,7130,2026-10-14,yes,git,"v1.0: traded player assets valued by neither model, with reasons"
 25_TESTS,price_line_crosswalk_check.py,player,hashable,2026-10-14,c7e76e01201da645bd9f47aa2ba8c5b42a72deb1,3000,2026-10-14,yes,git,"v1.0: the price line on the locked and the crosswalk-corrected samples (report)"
 30_OUTPUT,war_name_crosswalk.csv,player,hashable,2026-10-14,LOCAL_RUN,0,2026-10-14,yes,dropbox,"written by war_name_crosswalk.py"
+20_CODE,buried_contract_values.py,trade,hashable,2026-10-14,40c3451e55f1e0731b9ac8ba50252c76034d651a,7640,2026-10-14,yes,git,"v1.0: traded veterans neither model values: cost above the burial allowance (Thomas; departs from D16(i))"
+20_CODE,contracts_2017.py,trade,hashable,2026-10-14,00c3350c6d0665ff80d449f976c2e94f6043a248,10297,2026-10-14,yes,git,"v1.0: contracts of players traded in 2017-18, read from CapWages (second contract source, terms only)"

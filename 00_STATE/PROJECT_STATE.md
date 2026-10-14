@@ -156,9 +156,9 @@ initials, Elite Prospects' spelling, a namesake guard); every id-name disagreeme
 
 | What | Value | Where |
 |---|---|---|
-| Skater line, term-in (`XNPV1_RATE`, re-locked 2026-10-14 on September 15 ages) | alpha -0.0043530319; beta 0.0175137032 per forecast win; defence +0.0038753270; gamma_term 0.0089195167 a season per year of term; n 2,296 | `skater_forward_projection.py` |
-| At the 2025-26 cap | $1.673M per forecast win (forwards), $2.043M (defence), +$0.852M a season per year of term | xnpv1_price_line.py v2.1 |
-| Skater line, term-free (sensitivity) | 0.0081699059 / 0.0310586846 / +0.0139734816 | same |
+| Skater line, term-in (`XNPV1_RATE`, re-locked 2026-10-14 on September 15 ages, again on the name-crosswalk sample) | alpha -0.0043651624; beta 0.0175356938 per forecast win; defence +0.0037579369; gamma_term 0.0089300596 a season per year of term; n 2,323 | `skater_forward_projection.py` |
+| At the 2025-26 cap | $1.675M per forecast win (forwards), $2.034M (defence), +$0.853M a season per year of term | xnpv1_price_line.py v2.2 |
+| Skater line, term-free (sensitivity) | 0.0081469438 / 0.0311507981 / +0.0137184862 | same |
 | Stage 3 line (guards only) | 0.0132478230 / 0.0212322891 / +0.0028702824 | `skater_value_engine.py` |
 | Floor spread, WAR_IF_PLAYS_MAE | 0.6767, 0.7545, 0.8026, 0.8499, 0.8770, 0.8981 (seasons 0-5, flat after; 2026-10-14) | `skater_forecast.py` |
 | Skater control weights | 100% / 100% / 88.2% / 67.8% by forecast bucket | refresh 2026-10-05 |

@@ -86,9 +86,11 @@ from scipy import stats
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import skater_value_engine as SVE
 
-SCRIPT_VERSION = "2.1"
-# The Stage 3 contract sample as v2.0 built it (2026-10-14, before the 60/40 total was retired).
-SAMPLE_N, SAMPLE_FINGERPRINT = 2349, "282f608a7ac9"
+SCRIPT_VERSION = "2.2"
+# The Stage 3 contract sample. v2.2 (2026-10-14, Thomas: "Re-lock"): with the name crosswalk
+# (war_name_crosswalk.py) the sample gains the 29 contracts whose PuckPedia and WAR spellings differ
+# (Dadonov, Beniers, Peterka ...). v2.0-v2.1 recorded 2349, "282f608a7ac9" (the crosswalk-off sample).
+SAMPLE_N, SAMPLE_FINGERPRINT = 2378, "e8c9d5a76cc1"
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 LOG = []
 

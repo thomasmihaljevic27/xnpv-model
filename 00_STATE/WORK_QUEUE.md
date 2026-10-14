@@ -34,9 +34,9 @@ no-age version beside (Thomas, 2026-10-14: "keep both for now"); revisit at the 
 (v1.3: those on NHL contracts, the same model with the slot at zero; 54 assets, $5.95M). **Open, found 2026-10-14:**
 veterans on NHL contracts with no recent NHL season are valued by neither model (Clarkson's $5.25M long-term-injury
 contract; McKenna, Hammond): player model / back-test. **In progress 2026-10-14 (session log "traded players neither
-model values"):** name crosswalk built (34 players joined); ids fixed; open for Thomas: re-lock the price line on the
-corrected sample (`25_TESTS/price_line_crosswalk_check.py`), the veteran rule against D16(i), the 2017-18 page's 25
-CapWages fetches.
+model values"):** name crosswalk built (34 players joined); ids fixed; price line re-locked on the corrected sample; buried
+veterans valued (`buried_contract_values.py`); 2017-18 contracts read (`contracts_2017.py`, 129 of 135). **Next:** value
+the 2017-18 traded assets at a 2017 page through the player engine; for Thomas, June trades' page.
 
 **Done 2026-10-14 (Thomas's decisions on the audit).**
 - 60/40 checks retired (commit 35cbb62): `skater_value_engine.py` v2.0 (a library), `goalie_value_engine.py` v1.3,

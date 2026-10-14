@@ -156,10 +156,11 @@ To answer questions about the curve on the spot: `python 25_TESTS/pick_lookup.py
   alpha=0.0132478230, beta=0.0212322891 per win for forwards, plus 0.0028702824 for defencemen
   (0.0241025715), all as cap shares. The retired draft curve and xNPV 0 used it; it now survives as guards.
   xNPV 1 prices on its own line, with term in (directives 4 and 5), re-locked 2026-10-14 on September 15 ages
-  (read the value the code assigns in `skater_forward_projection.py`): `XNPV1_RATE`, alpha=-0.0043530319,
-  beta=0.0175137032 per forecast win for forwards, plus 0.0038753270 for defencemen, plus
-  gamma_term=0.0089195167 a season per year of term; `XNPV1_RATE_TERM_FREE` (0.0081699059 / 0.0310586846 /
-  +0.0139734816) is the sensitivity. The 2026-10-05 line (-0.0043574069 / 0.0174691916 / +0.0035971954, term
+  and again the same day on the name-crosswalk sample (read the value the code assigns in
+  `skater_forward_projection.py`): `XNPV1_RATE`, alpha=-0.0043651624, beta=0.0175356938 per forecast win for
+  forwards, plus 0.0037579369 for defencemen, plus gamma_term=0.0089300596 a season per year of term;
+  `XNPV1_RATE_TERM_FREE` (0.0081469438 / 0.0311507981 / +0.0137184862) is the sensitivity. The earlier 2026-10-14
+  line (-0.0043530319 / 0.0175137032 / +0.0038753270, term 0.0089195167) is superseded. The 2026-10-05 line (-0.0043574069 / 0.0174691916 / +0.0035971954, term
   0.0089321965) and the 2026-10-02 line (0.0076921739 / 0.0308904772 / +0.0146619104) are superseded. The
   pre-D20 rate (0.0184516 / 0.0202139) and the D20 rate (0.01831864 / 0.01924854) are retired; their
   reproduction guards were removed with the 60/40 checks on 2026-10-14 (Thomas). The Stage 3 constants stay

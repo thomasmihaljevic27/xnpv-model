@@ -3246,3 +3246,12 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   carry audit accepts crosswalk-joined rows; `prospect_values.py` v1.4. Refresh 11/11: 87 more contract-pages priced.
 - The locked price line (D33 addendum, 2026-10-14 lock) reproduces on its locked sample; the corrected sample would move
   it (beta +0.13%, defence add -3%). `xnpv1_price_line.py` fails its sample guard until Thomas decides. Not re-locked.
+
+### Change log, 2026-10-14l (price line re-locked on the crosswalk sample; buried veterans; 2017-18 contracts)
+
+- DECISION (Thomas): re-lock `XNPV1_RATE` on the corrected sample (D33 addendum: beta 0.0175356938, defence add
+  0.0037579369, term 0.0089300596; term-free 0.0311507981 / +0.0137184862; n 2,323). Revisits the 2026-10-14 lock.
+- DECISION (Thomas): traded veterans with no recent NHL season cost the cap hit above the burial allowance (minimum +
+  $375K): a departure from D16(i) for these contracts only, taken knowingly. Built: `buried_contract_values.py`.
+- DECISION (Thomas): build a 2017-18 page from CapWages contracts; 23 pages fetched. `contracts_2017.py` built; the
+  page's valuation through the engine is not built yet.

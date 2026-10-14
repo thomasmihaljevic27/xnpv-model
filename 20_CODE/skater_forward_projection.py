@@ -188,10 +188,16 @@ def skater_rate_cap_pct(war, posgrp):
 # $2.043M for defencemen ($2.012M), +$0.852M a season per year of term ($0.853M). The 2026-10-05 lock
 # (alpha -0.0043574069, beta 0.0174691916, beta_d_add 0.0035971954, gamma_term 0.0089321965; term-free
 # 0.0081646316 / 0.0310794541 / 0.0135178851) is in git at 64d1ecb.
-XNPV1_RATE = dict(alpha=-0.0043530319, beta=0.0175137032, beta_d_add=0.0038753270,
-                  gamma_term=0.0089195167, n=2296, sigma=0.01566428, rows_fingerprint="b9067879bf72")
-XNPV1_RATE_TERM_FREE = dict(alpha=0.0081699059, beta=0.0310586846, beta_d_add=0.0139734816,
-                            gamma_term=0.0, n=2296, sigma=0.02188771, rows_fingerprint="b9067879bf72")
+# RE-LOCKED AGAIN 2026-10-14 (Thomas: "Re-lock"), from xnpv1_price_line.py v2.2 on the sample corrected by the
+# name crosswalk (war_name_crosswalk.py: 29 contracts whose PuckPedia and WAR spellings differ now join, 27 of
+# them fitted; n 2,323 against 2,296). At the 2025-26 ceiling: $1.675M per forecast win for forwards (was
+# $1.673M), defence add 0.0037579 (was 0.0038753, -3%), term 0.0089301 (was 0.0089195). The line just above's
+# values (alpha -0.0043530319, beta 0.0175137032, beta_d_add 0.0038753270, gamma_term 0.0089195167; term-free
+# 0.0081699059 / 0.0310586846 / 0.0139734816) reproduce on the crosswalk-off sample (price_line_crosswalk_check.py).
+XNPV1_RATE = dict(alpha=-0.0043651624, beta=0.0175356938, beta_d_add=0.0037579369,
+                  gamma_term=0.0089300596, n=2323, sigma=0.01560978, rows_fingerprint="a8fbd5c03a0c")
+XNPV1_RATE_TERM_FREE = dict(alpha=0.0081469438, beta=0.0311507981, beta_d_add=0.0137184862,
+                            gamma_term=0.0, n=2323, sigma=0.02183668, rows_fingerprint="a8fbd5c03a0c")
 
 
 def price_constants(model=None, term_free=False):
