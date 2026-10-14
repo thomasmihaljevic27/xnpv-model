@@ -11,8 +11,7 @@ WHO IS A PROSPECT [opening decision 2]
     three-season anchor);
   * goalies: no NHL game in the six seasons before y (the goalie forecast takes any NHL season in the three
     before, walking back up to three more: contract_npv.shrunk_projection, STALE_MAXBACK = 3).
-  A player the player model takes is valued there, not here. Undrafted players have no slot: step one gives
-  them no value; they enter with production [spec item 5].
+  A player the player model takes is valued there, not here. Undrafted players: see UNDRAFTED below (v1.3).
 
 WHAT HE IS WORTH [opening decisions 1 and 3]
   value = Bacon's star chance for his slot (draft_slot_baseline.csv p_star) x STAR VALUE(k),
@@ -46,8 +45,21 @@ STEP TWO, PRODUCTION AND AGE (v1.2; MODEL_DIRECTIVES directive 6, "Prospects, st
     consider if the added complexity really affects anything"). Each fit is the pick curve's form (through zero,
     draft-year indicators summing to zero; errors robust, clustered by player for 4+) on the 2007-2017 skater
     rows still prospects (13,152 rows, 2,089 players); a value is the average draft's.
-  * Goalies: the slot alone (NHLe measures scoring). Undrafted prospects: still zero; their own step is next
-    (Thomas, 2026-10-14: "Zero now, own step next").
+  * Goalies: the slot alone (NHLe measures scoring).
+
+UNDRAFTED (v1.3; Thomas 2026-10-14: "NHL contracts only", "Same model, no slot"; also players drafted before 2005)
+  * NHL rights only through an NHL contract: a cap hit without trades.db's AHL/junior flag, or a PuckPedia contract
+    of his (standard or entry level, i.e. NHL) running on the trade date. trades.db lists a player assigned to the
+    AHL at $0 with the flag although his NHL two-way contract runs, so PuckPedia decides; without an NHL id, a
+    PuckPedia contract of the same name running on the trade date, whatever its cap hit, supplies it (one id only).
+  * With an NHL contract: the drafted model with the star chance at zero (the slot term drops out), seasons since
+    the draft counted from his first draft-eligible year (the first draft at which he was 18 by September 15),
+    production and age as for anyone; birthdate and Elite Prospects id from PuckPedia; past club control zero;
+    goalies zero (the slot alone, and he has none). Fitted on drafted players: it assumes an undrafted player
+    converts like a drafted one at the same production (a stated limitation).
+  * Without one: zero (no NHL rights), or signing rights to a player whose contract has expired: zero. Traded
+    before 2018-07-01 with no contract seen: not valued (PuckPedia's export holds contracts running in 2018-19 or
+    later, so an earlier one cannot be seen).
   * A value can be below zero: a low scorer's remaining surplus averages slightly below zero in the data, and
     negative careers count, as in the pick curve.
   GUARD: every step-two fit equals the look that measured it, to 1e-9 (when those outputs are present).
@@ -105,7 +117,7 @@ import statsmodels.api as sm
 from dotenv import load_dotenv
 
 
-SCRIPT_VERSION = "prospect_values.py v1.2 (2026-10-14)"
+SCRIPT_VERSION = "prospect_values.py v1.3 (2026-10-14)"
 load_dotenv()
 import contract_source as CS   # noqa: E402  v1.1: PuckPedia exports read strictly (identity only)
 SOURCE_DIR, OUTPUT_DIR = Path(os.environ["SOURCE_DIR"]), Path(os.environ["OUTPUT_DIR"])
@@ -118,6 +130,7 @@ LAST_START = 2025                     # 2025-26, the last season in the data (st
 FIT_CLASSES = range(2007, 2018)       # the pick curve's drafts
 LAPSED = ("lapsed", "drafted twice (earlier pick)")
 TRADES_FROM = "2017-07-01"
+PP_FROM = pd.Timestamp(2018, 7, 1)     # v1.3: PuckPedia's contract export holds contracts running in 2018-19 or later
 ACCRUE_PRORATE = {2012: 48 / 82, 2019: 70 / 82, 2020: 56 / 82}   # as pick_curve (Accrued Season thresholds)
 FIRST_FORMS = {"tony": "anthony", "josh": "joshua", "mike": "michael", "alex": "alexander", "matt": "matthew",
                "nick": "nicholas", "will": "william", "zach": "zachary", "jake": "jacob", "dan": "daniel",
@@ -396,15 +409,20 @@ def main():
     EP_ID = {(int(a), int(b)): str(int(c)) for a, b, c in zip(ep_ids["draftYear"], ep_ids["pick"], ep_ids["ep_player_id"])
              if pd.notna(c)}
 
-    def step_two(c, y, k, p_star, version, left_out="none"):
-        """Value ($M) of skater prospect c at season y under one version of step two (None if no EP id)."""
-        ep = EP_ID.get((int(c["draftYear"]), int(c["overallPickNumber"])))
-        if ep is None or pd.isna(c["birthDate"]):
+    def value_from(ep, birth, y, k, p_star, version, left_out="none"):
+        """Value ($M) of a skater prospect at season y under one version of step two (None without an EP id or
+        a birthdate). v1.3: keyed on the Elite Prospects id, so undrafted players (p_star 0) use it too."""
+        if ep is None or pd.isna(birth):
             return None
         row = production_features(pd.DataFrame({"ep_player_id": [ep], "season": [y], "k": [k],
-                                                "birthDate": [c["birthDate"]], "p_star": [p_star]}), rates).iloc[0]
+                                                "birthDate": [birth], "p_star": [p_star]}), rates).iloc[0]
         cols, b, _ = fits[(version, k_group(k), left_out)]
         return float(sum(b[i] * row[col] for i, col in enumerate(cols))), row
+
+    def step_two(c, y, k, p_star, version, left_out="none"):
+        """A drafted skater prospect: his EP id from the draft pages."""
+        return value_from(EP_ID.get((int(c["draftYear"]), int(c["overallPickNumber"]))), c["birthDate"],
+                          y, k, p_star, version, left_out)
 
     # ---- 2. drafted players and their NHL seasons --------------------------------------------------
     bacon = pd.read_csv(F["bacon"]).set_index("draft_pick")["p_star"]
@@ -507,6 +525,89 @@ def main():
     def show(c):
         return "; ".join(f"{x.draftYear} #{x.overallPickNumber}" for x in c.itertuples()) or "none"
 
+    # ---- v1.3: undrafted players (Thomas, 2026-10-14: "NHL contracts only"; "Same model, no slot") ----------
+    pc_by_id = dict(tuple(pc.groupby(pc["nhl_id"].astype(int))))
+    PPINFO = {int(i): (pd.to_datetime(g["birthdate"].iloc[0], format="%m/%d/%Y", errors="coerce"),
+                       str(int(g["eliteprospects_id"].iloc[0])) if pd.notna(g["eliteprospects_id"].iloc[0]) else None,
+                       str(g["position"].iloc[0]).startswith("G"))
+              for i, g in pc_by_id.items()}
+
+    def nhl_seasons_by_name(name, is_goalie):
+        t = tables[is_goalie]
+        n = norm(name)
+        if n not in t.index.get_level_values(0):
+            return pd.DataFrame({"GP": [], "WAR": []}, index=pd.Index([], name="start"))
+        return t.loc[n]
+
+    def undrafted(r, nid):
+        """An undrafted player (or one drafted before 2005): NHL rights only through an NHL contract, i.e. a cap
+        hit without trades.db's AHL/junior flag, or a PuckPedia contract of his running on the trade date. With
+        one, he is valued by the drafted model with the slot term at zero, seasons counted from his first
+        draft-eligible year (the first draft at which he was 18 by September 15)."""
+        if nid is None:
+            # trades.db lists a player assigned to the AHL at $0, so the cap-hit match finds no contract: look for a
+            # PuckPedia contract of the same name running on the trade date, whatever its cap hit (one id only)
+            key = name_key(r.player_name)
+            c_ = pc_by.get(key[0])
+            if c_ is not None:
+                c_ = c_[c_["key"].map(lambda k_: first_ok(k_, key)) & (c_["signed"] <= r.date) & (c_["ends"] >= r.date)]
+                found = set(c_["nhl_id"].astype(int))
+                if len(found) == 1:
+                    nid = found.pop()
+        running = nid is not None and nid in pc_by_id and bool(
+            ((pc_by_id[nid]["signed"] <= r.date) & (pc_by_id[nid]["ends"] >= r.date)).any())
+        nhl_contract = (pd.notna(r.cap_hit_aav) and r.cap_hit_aav > 0 and not r.is_ahl_jr) or running
+        birth, ep, gk = PPINFO.get(nid, (pd.NaT, None, None)) if nid is not None else (pd.NaT, None, None)
+        if gk is None:                                 # no PuckPedia record: the table his name appears in
+            gk = norm(r.player_name) not in tables[False].index.get_level_values(0) and \
+                norm(r.player_name) in tables[True].index.get_level_values(0)
+        s = nhl_seasons_by_name(r.player_name, gk)
+        y = int(r.trade_season)
+        out = {"drafted_match": "none", "undrafted_nhl_contract": nhl_contract, "is_goalie": gk}
+        if not is_prospect(s, y, gk):
+            out["status"] = "undrafted or pre-2005: player model (not a prospect)"
+            return out
+        out["nhl_id_undrafted"] = nid
+        if not nhl_contract:
+            if r.date < PP_FROM:
+                # PuckPedia holds contracts running in 2018-19 or later; one that ended earlier cannot be seen
+                out["status"] = "undrafted, contract not seen (traded before PuckPedia's coverage: not valued)"
+            elif r.is_signing_rights:
+                out["status"] = "undrafted, signing rights only (contract expired: worth zero)"
+                out["value_M"] = out["value_no_age_M"] = out["value_slot_only_M"] = 0.0
+            else:
+                out["status"] = "undrafted, no NHL contract (no NHL rights: worth zero)"
+                out["value_M"] = out["value_no_age_M"] = out["value_slot_only_M"] = 0.0
+            return out
+        if pd.isna(birth):
+            out["status"] = "undrafted, NHL contract, not valued (no PuckPedia record: no birthdate or EP id)"
+            return out
+        first_elig = birth.year + (18 if (birth.month, birth.day) <= (9, 15) else 19)
+        k = max(y - first_elig, 0)
+        end = window_end(birth, gk, s)
+        out.update({"birthDate": birth, "first_eligible_draft": first_elig, "valuation_season": y,
+                    "seasons_since_draft": k, "k_group": k_group(k), "window_end": end, "p_star": 0.0,
+                    "nhl_games_before": float(s.loc[s.index < y, "GP"].sum())})
+        if y >= end:
+            out["status"] = "undrafted prospect, club control over (worth zero)"
+            out["value_M"] = out["value_no_age_M"] = out["value_slot_only_M"] = 0.0
+            return out
+        out["value_slot_only_M"] = 0.0                 # no slot
+        two = None if gk else value_from(ep, birth, y, k, 0.0, "main")
+        if two is None:
+            out["status"] = ("undrafted prospect, valued (goalie: slot alone, so zero)" if gk
+                             else "undrafted prospect, valued (no EP id: zero)")
+            out["value_M"] = out["value_no_age_M"] = out["value_own_draft_out_M"] = 0.0
+            out["value_basis"] = "slot alone (goalie)" if gk else "no production record"
+            return out
+        out["status"] = "undrafted prospect, valued (NHL contract)"
+        out["value_M"], row = two
+        out["value_no_age_M"] = value_from(ep, birth, y, k, 0.0, "no_age")[0]
+        out["value_own_draft_out_M"] = out["value_M"]          # no draft in the fit to leave out
+        out.update({"value_basis": "production (undrafted, slot at zero)", "nhle82": row["nhle82"],
+                    "n_prod_seasons": int(row["n_prod_seasons"]), "past_elig": row["past_elig"]})
+        return out
+
     sv_main = main_sv["star_value_M"].to_dict()
     sv_out = {(r.k_group, int(r.left_out)): r.star_value_M for r in sv[sv["left_out"] != "none"].itertuples()}
     out = []
@@ -531,6 +632,7 @@ def main():
         if len(cand) == 0:
             rec["status"] = ("not drafted 2005-2026 (by NHL id)" if len(ids) == 1
                              else "no drafted match (undrafted, drafted before 2005, or name not found)")
+            rec.update(undrafted(r, next(iter(ids)) if len(ids) == 1 else None))
             out.append(rec)
             continue
         if len(cand) > 1:
@@ -587,6 +689,20 @@ def main():
     for r in amb.itertuples():
         log(f"  ambiguous: {r.player_name} ({r.trade_date}): {r.candidates}")
     pv = v[v["status"].str.startswith("prospect, valued")]
+    # v1.3: the undrafted players
+    ud = v[v["drafted_match"].eq("none")]
+    log(f"\nUNDRAFTED (or drafted before 2005): {len(ud)} assets")
+    log(ud.groupby("status").agg(assets=("asset_id", "size"), value_M=("value_M", "sum")).round(2).to_string())
+    uv = ud[ud["status"].str.startswith("undrafted prospect")]
+    for r in uv.sort_values("trade_date").itertuples():
+        log(f"    {r.trade_date}  {r.player_name:<22} born {r.birthDate:%Y-%m-%d}, first eligible {int(r.first_eligible_draft)}, "
+            f"k={int(r.seasons_since_draft)}, control ends {int(r.window_end)}: main ${r.value_M:5.2f}M, no age "
+            f"${r.value_no_age_M:5.2f}M; production {r.nhle82 if pd.notna(r.nhle82) else float('nan'):.1f} per 82; "
+            f"{r.status}")
+    allv = v[v["status"].str.startswith(("prospect, valued", "undrafted prospect, valued"))]
+    log(f"  all prospects valued (drafted and undrafted): {len(allv)} assets, ${allv['value_M'].sum():,.2f}M; "
+        f"without age ${allv['value_no_age_M'].sum():,.2f}M")
+
     log(f"\nPROSPECTS VALUED: {len(pv)} assets, {pv['player_name'].nunique()} players, total ${pv['value_M'].sum():,.1f}M "
         f"(own draft left out: ${pv['value_own_draft_out_M'].sum():,.1f}M)")
     log(pv.groupby("k_group").agg(assets=("asset_id", "size"), mean_M=("value_M", "mean"),
@@ -641,17 +757,17 @@ def main():
     unreviewed = set(zip(dis["trade_date"], dis["player_name"])) - REVIEWED_DISAGREEMENTS
     assert not unreviewed, f"id and name disagree on unreviewed assets: {sorted(unreviewed)}"
     log(f"  guard: all {len(dis)} disagreements were reviewed (the NHL id is right in each) (PASS)")
-    nd = v[v["status"].str.startswith("no drafted")]
+    nd = v[v["drafted_match"].eq("none") & ~v["match"].str.startswith("NHL id")]   # v1.3: by name, no draftee
     log(f"\n  not matched to a drafted player: {len(nd)} assets, of them flagged AHL/junior {int(nd['is_ahl_jr'].sum())}, "
         f"signing rights {int(nd['is_signing_rights'].sum())}, with NHL seasons in the WAR tables "
         f"{int(nd['player_name'].map(lambda n: norm(n) in names_with_nhl).sum())}")
     nn = nd[~nd["player_name"].map(lambda n: norm(n) in names_with_nhl)]
-    log(f"  of them with no NHL season under the name (undrafted prospects or names not found; no value in step one): "
+    log(f"  of them with no NHL season under the name (undrafted, or names not found): "
         + ", ".join(sorted(nn["player_name"].unique())))
     rj = v[v["namesakes_rejected"] > 0]
     for r in rj.itertuples():
         log(f"  namesake guard: {r.player_name} ({r.trade_date}) -> {r.status}")
-    co = v[v["status"].str.contains("control over")]
+    co = v[v["status"].str.startswith("prospect, club control over")]   # drafted (undrafted listed above)
     log(f"  past club control (worth zero): " + "; ".join(
         f"{r.player_name} ({int(r.draftYear)} #{int(r.pick)}, control ended {int(r.window_end)})" for r in co.itertuples()))
 

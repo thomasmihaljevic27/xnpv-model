@@ -29,10 +29,11 @@ $18.03M since 2026-10-14. **Opened 2026-10-14:** the brief's four questions are 
 built (`20_CODE/prospect_values.py` v1.0, 2026-10-14: 197 traded prospects, $60.8M), on the through-zero form; the pick
 curve's regression form (below) is still open and step one inherits it. Step two
 (production adjusted to NHL terms) and age are built (`prospect_values.py` v1.2: main $72.7M, without age $70.7M,
-slot alone $60.8M on 197 traded prospects; MODEL_DIRECTIVES "Prospects, step two" and "age"). **Open for Thomas:
-whether age stays, judged on the side-by-side (age moves 26 of 197 by $0.25M+, rank correlation 0.916).** **Next:
-undrafted prospects, their own step** (Thomas: "Zero now, own step next"): a fit on undrafted players' outcomes and
-a rule for their clock.
+slot alone $60.8M on 197 traded prospects; MODEL_DIRECTIVES "Prospects, step two" and "age"). Age kept with the
+no-age version beside (Thomas, 2026-10-14: "keep both for now"); revisit at the back-test. Undrafted players built
+(v1.3: those on NHL contracts, the same model with the slot at zero; 54 assets, $5.95M). **Open, found 2026-10-14:**
+veterans on NHL contracts with no recent NHL season are valued by neither model (Clarkson's $5.25M long-term-injury
+contract; McKenna, Hammond): player model / back-test.
 
 **Done 2026-10-14 (Thomas's decisions on the audit).**
 - 60/40 checks retired (commit 35cbb62): `skater_value_engine.py` v2.0 (a library), `goalie_value_engine.py` v1.3,

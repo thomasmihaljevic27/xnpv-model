@@ -3229,3 +3229,11 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - `25_TESTS/prospect_age_look.py` v1.0: 2.1862 against 2.2015 ($M held-out a row; 1,997 of 2,000 redraws).
 - `prospect_values.py` v1.2: traded prospects $72.72M (no age $70.73M; slot alone $60.82M). PROJECT_STATE, CLAUDE.md
   (state, run order), MODEL_DIRECTIVES, WORK_QUEUE updated.
+
+### Change log, 2026-10-14j (prospects: age kept; undrafted players built, v1.3)
+
+- DECISION (Thomas): keep the age version as the main value with the no-age version beside; revisit at the back-test.
+- DECISION (Thomas): undrafted players count only on an NHL contract; valued by the same model with the slot term at
+  zero, seasons from the first draft-eligible year. Fresh decisions under directive 6.
+- `prospect_values.py` v1.3: 54 undrafted assets valued, $5.95M; all prospects $78.67M. The question's premise (75
+  AHL contracts) was corrected: trades.db's AHL flag marks assignment, not contract type; PuckPedia decides.

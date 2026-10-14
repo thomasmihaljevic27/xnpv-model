@@ -17,7 +17,7 @@ the commit), **superseded** (replaced by a later entry).
 | 3 | One own-versus-comparables blend: 65/35 replaces the curve's 55/45 | implemented (branch, `64ab8bf`) |
 | 4 | Contract length in the price line (term-in), term-free reported as the sensitivity | implemented and validated (branch, 2026-10-05) |
 | 5 | Price-line forecasts dated at each contract's signing | implemented and validated (branch, 2026-10-05) |
-| 6 | Draft and prospect models restart from scratch with Karl; the data is kept | pick curve built 2026-10-09 (`pick_curve.py`, `traded_pick_values.py`); arbitration cost adopted for players and picks (2026-10-13; star value 13.42, 18.03 on September 15 ages 2026-10-14); prospects: opening decisions 2026-10-14, step one built (`prospect_values.py`); step two (production, NHLe) and age built (`prospect_values.py` v1.2), no-age version beside; undrafted next |
+| 6 | Draft and prospect models restart from scratch with Karl; the data is kept | pick curve built 2026-10-09 (`pick_curve.py`, `traded_pick_values.py`); arbitration cost adopted for players and picks (2026-10-13; star value 13.42, 18.03 on September 15 ages 2026-10-14); prospects: opening decisions 2026-10-14, step one built (`prospect_values.py`); step two (production, NHLe), age and undrafted players built (`prospect_values.py` v1.3), no-age version beside |
 
 | | To investigate (closed list) | Status |
 |---|---|---|
@@ -903,6 +903,38 @@ minus the seasons since his draft minus 18.5 (within a season group, "older now"
 - **Below zero:** 63 of 197 under main (total -$3.52M, lowest -$0.34M; 49 of them four or more seasons on). The data
   supports it: low scorers one or more seasons on have a remaining surplus averaging -$0.02M to -$0.05M, and
   negative careers count (pick curve, 2026-10-09).
+- **Age kept, with the no-age version beside (Thomas, 2026-10-14: "let's keep both for now and continue"),** after
+  the case for and against was put: for, it is the most consistent addition (1,997 of 2,000 redraws, where
+  production alone was 1,832), costs one number per season group 0-3 and no new data, and moves single prospects by
+  up to $1.15M; against, the overall gain is small (0.69%, totals +3%, rank correlation 0.916), it is tangled with
+  production, the held-out score is a little optimistic after choosing among forms, and the slot already carries
+  some of it (-0.14 with the star chance). The back-test is where it shows whether it changes a finding.
+
+### Prospects: undrafted players (decided and built 2026-10-14, `prospect_values.py` v1.3)
+
+- **Decided (Thomas, 2026-10-14; options with recommendation first):** only undrafted players on an NHL contract
+  count ("NHL contracts only"); they are valued by the same model with the slot term at zero, seasons counted from
+  their first draft-eligible year ("Same model, no slot", his 2026-10-09 rule taken literally).
+- **Correction to the premise put with the question:** the question said 75 of the 83 undrafted assets were AHL
+  contracts with no NHL rights. trades.db lists a player assigned to the AHL at $0 with its AHL/junior flag even when
+  his NHL two-way contract runs (Aaron Luchuk's $759K entry-level deal; Jacob MacDonald's $750K two-way), so many of
+  them hold NHL contracts. The rule decided handles it: an NHL contract is a cap hit without the flag, or a PuckPedia
+  contract (standard or entry level) of his running on the trade date; without an NHL id, a PuckPedia contract of the
+  same name running on the date supplies it.
+- **Built (v1.3):** NHL contract: the drafted model with the star chance at zero, k from the first draft at which he
+  was 18 by September 15, production and age as for anyone, birthdate and Elite Prospects id from PuckPedia, zero
+  past club control, goalies zero. No contract: zero; signing rights to an expired contract: zero; traded before
+  2018-07-01 with no contract seen: not valued (PuckPedia's export holds contracts running in 2018-19 or later).
+  Stated limitation: fitted on drafted players, so it assumes an undrafted player converts like a drafted one at the
+  same production.
+- **Result:** of 212 undrafted (or pre-2005) assets: 136 with the player model; 54 valued (51 skaters, $5.95M,
+  largest Brennan Menell $0.65M; 3 goalies at zero), all four or more seasons past first eligibility, so production
+  alone sets them; 9 past club control; 4 signing rights; 1 without an NHL contract (Cole Schneider 2019); 7 traded
+  in 2017-18 with no contract seen (not valued); 1 with an NHL contract but no PuckPedia record (Jakub Jerabek
+  2018-02-21, not valued). All prospects valued, drafted and undrafted: 251 assets, $78.67M (without age $76.61M).
+- **Found, outside the prospect model:** veterans on NHL contracts with no recent NHL season are valued by neither
+  model (David Clarkson's $5.25M long-term-injury contract, a cap dump; goalies Mike McKenna and Andrew Hammond). For
+  the player model and the back-test.
 
 ---
 

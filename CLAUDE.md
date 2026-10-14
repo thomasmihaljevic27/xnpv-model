@@ -31,8 +31,8 @@ All four share `PROJECT_STATE.md`'s Generated / Refresh-due dates and its stalen
 As of the 2026-10-14 refresh (PROJECT_STATE v3.4, "Current state" and "Model as built"): skater and goalie
 contracts are priced on xNPV 1 with the five player directives built; the draft pick curve and the traded-pick
 values are built, with the arbitration cost for control seasons adopted on both sides (2026-10-13); the
-prospect model is built for drafted prospects (2026-10-14: slot, production adjusted to NHL terms and age,
-`prospect_values.py`), undrafted prospects next, each addition Thomas's; the back-test has not started.
+prospect model is built (2026-10-14: slot, production adjusted to NHL terms and age, undrafted players on NHL
+contracts with the slot at zero, `prospect_values.py`), each addition Thomas's; the back-test has not started.
 Built 2026-10-14: every age the model reads follows the CBA (September 15; drafted players' signing ages in the
 year they signed), the arbitration price is consistent with the forecast, and the 60/40 checks are retired.
 
