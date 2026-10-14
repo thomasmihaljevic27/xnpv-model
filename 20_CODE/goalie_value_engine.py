@@ -1,8 +1,18 @@
 """
 =============================================================================
- goalie_value_engine.py   v1.2                    D20 rebuild (2026-07-05)
+ goalie_value_engine.py   v1.3                    D20 rebuild (2026-07-05)
                                           review item 1.1 (2026-07-26)
 =============================================================================
+ WHAT CHANGED IN v1.3 (Thomas, 2026-10-14: retire the 60/40 checks)
+ ---------------------------------------------------------------------
+ The RAW (un-prorated, 60/40) regime is removed: Stage P (the rebuild of the locked July spine
+ to the cent), the raw rate guard in Stage G and the raw lambda check in Stage L. Each proved
+ the code still reproduced a July figure; none priced anything. The live regime is unchanged
+ (prorated D20 inputs, 50/30/20 with 62.5/37.5 for two seasons, lambda 0.65), so
+ goalie_value_spine_v2.csv is identical (checked against the file before the change). The
+ descriptions of Stage P and the raw guards below are the record of what v1.2 ran; a v1.2 run
+ needs git at the commit before this one.
+
  WHAT CHANGED IN v1.2 (Thomas, 2026-10-05: "change it to 62.5/37.5 to match the skaters")
  -----------------------------------------------------------------------------------------
  A goaltender with exactly two prior seasons (t-1 and t-2) is weighted 62.5/37.5 in the
@@ -154,20 +164,16 @@ SOURCE_DIR = Path(os.environ["SOURCE_DIR"])   # vendor inputs, read-only
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])   # generated spines / logs
 F_GOALIE_WAR   = SOURCE_DIR / "Goalies_WAR.csv"
 F_SEASON_SPINE = OUTPUT_DIR / "contract_season_spine.csv"
-F_LOCKED_SPINE = OUTPUT_DIR / "goalie_value_spine.csv"      # parity oracle
+F_LOCKED_SPINE = OUTPUT_DIR / "goalie_value_spine.csv"      # the July file; read only by the carry report
 F_CONTRACT_XLSX = Path(os.environ["PUCKPEDIA_CONTRACTS_XLSX"])
 OUT_SPINE_V2 = OUTPUT_DIR / "goalie_value_spine_v2.csv"
 OUT_LOG      = OUTPUT_DIR / "goalie_value_engine_run_log.txt"
 
 # ---------------------------------------------------------------------------
-# LOCKED CONSTANTS (raw regime -- the parity target)
+# CONSTANTS (v1.3: the raw regime's locked constants and guards are retired)
 # ---------------------------------------------------------------------------
-ALPHA_G_RAW = 0.013982        # goalie replacement cost, cap-share (locked P2)
-BETA_G_RAW  = 0.010971        # goalie cap-share per WAR unit (locked P2)
-LAMBDA_RAW  = 0.65            # weight on the LEAGUE AVERAGE (locked P2)
-# The two-season fallback's weights (t-1, t-2), by regime (v1.2). RAW reproduces the locked
-# spine; the live prorated regime rescales 50/30 (Thomas, 2026-10-05).
-TWO_SEASON = {False: (0.6, 0.4), True: (0.625, 0.375)}     # keyed on `prorate`
+# The two-season fallback's weights (t-1, t-2): 50/30 rescaled (Thomas, 2026-10-05).
+TWO_SEASON = (0.625, 0.375)
 LAMBDA_LIVE = 0.65            # contract_npv.LAMBDA_G; Stage L stops if the search leaves it
 LEAGUE_AVG  = 2.189172466     # shrinkage target (recovered constant, see header)
 # ---- A1/A2 stale-anchor constants (2026-07-29) ---------------------------
@@ -190,17 +196,6 @@ LEAGUE_AVG  = 2.189172466     # shrinkage target (recovered constant, see header
 #                  absent is a different asset, not a stale one.
 STALE_TARGET  = 0.650
 STALE_MAXBACK = 3
-# SAMPLE RECONSTRUCTION NOTE (documented residual, same class as the
-# skater engine's Stage-0a "+2/+4" note): the locked report says n=350;
-# the closest reconstructable spec -- standard-level goalie contracts,
-# ANY signing status, starts 2015-2026 -- yields n=353 with R2=0.5261
-# (locked: 0.526) and coefficients within 3e-5 of the spine-recovered
-# constants. The 3-contract residual is name-variant matching edge cases
-# in the anchor join. Coefficients, not n, are what price the spine, and
-# parity (Stage P) already proves those to the cent.
-RATE_N_LOCKED = 353           # reconstructed sample size (locked report: 350)
-TOL_RATE_COEF = 1.0e-4        # rate-guard tolerance on alpha/beta
-TOL_PARITY_DOLLARS = 0.01     # parity gate: value must match to the cent
 
 # D20 schedule-proration factors (single source of truth is
 # skater_value_engine.PRORATION; duplicated here with an import guard so
@@ -259,8 +254,8 @@ def goalie_war_lut(prorate):
 def cascade(nk, t0, lut, prorate=False):
     """The trailing cascade. Returns (trailing value or None, tag).
     NO GP filter -- see header. 50/30/20 needs all three priors; with t-1
-    and t-2 only, TWO_SEASON[prorate] (60/40 raw, the locked rule; 62.5/37.5
-    in the live regime, v1.2); t-1 alone otherwise; None if no t-1..t-3
+    and t-2 only, 62.5/37.5 (TWO_SEASON; v1.3: the raw regime's 60/40 is
+    retired, so `prorate` no longer changes the weights); t-1 alone otherwise; None if no t-1..t-3
     history is usable under those rules (t-2/t-3 without t-1 -> no history,
     which is what the locked spine does)."""
     def get(y):
@@ -270,8 +265,8 @@ def cascade(nk, t0, lut, prorate=False):
     if pd.notna(w1) and pd.notna(w2) and pd.notna(w3):
         return 0.5 * w1 + 0.3 * w2 + 0.2 * w3, "50/30/20"
     if pd.notna(w1) and pd.notna(w2):
-        a, b = TWO_SEASON[bool(prorate)]
-        return a * w1 + b * w2, ("60/40" if not prorate else "62.5/37.5")
+        a, b = TWO_SEASON
+        return a * w1 + b * w2, "62.5/37.5"
     if pd.notna(w1):
         return w1, "t-1 only"
     return None, "no_observed_war_history"
@@ -498,49 +493,6 @@ def build_spine(lam, alpha_g, beta_g, prorate, carry_out_years=False):
 
 
 # ---------------------------------------------------------------------------
-# STAGE P -- PARITY GATE against the locked spine
-# ---------------------------------------------------------------------------
-def stage_parity():
-    log("=" * 74)
-    log("STAGE P: parity gate -- raw rebuild vs locked goalie_value_spine.csv")
-    log("=" * 74)
-    locked = pd.read_csv(F_LOCKED_SPINE)
-    # carry_out_years=False is REQUIRED here: the parity target is the
-    # locked file, which contains the league-average placeholder rows.
-    mine = build_spine(LAMBDA_RAW, ALPHA_G_RAW, BETA_G_RAW,
-                       prorate=False, carry_out_years=False)
-
-    if len(locked) != len(mine):
-        log(f"  FAIL: row counts differ (locked {len(locked)}, rebuild {len(mine)})")
-        return False
-    key = ["contract_id", "season_start"]
-    m = locked.merge(mine, on=key, suffixes=("_l", "_m"))
-    if len(m) != len(locked):
-        log(f"  FAIL: key join lost rows ({len(m)} of {len(locked)})")
-        return False
-
-    # scheme tags must agree everywhere
-    bad_scheme = m[m["weight_scheme_l"] != m["weight_scheme_m"]]
-    log(f"  weight_scheme mismatches: {len(bad_scheme)}")
-
-    # priced rows must match to the cent on value (and so on everything
-    # upstream of it: trailing, shrunk, cap%)
-    pl = pd.to_numeric(m["value_dollars_l"], errors="coerce")
-    pm = pd.to_numeric(m["value_dollars_m"], errors="coerce")
-    both = pl.notna() & pm.notna()
-    if (pl.notna() != pm.notna()).any():
-        log(f"  FAIL: priced-row sets differ "
-            f"({int((pl.notna() != pm.notna()).sum())} rows)")
-        return False
-    maxd = (pl[both] - pm[both]).abs().max()
-    log(f"  priced rows compared: {int(both.sum()):,}   "
-        f"max |value diff| = ${maxd:.6f}")
-    ok = (len(bad_scheme) == 0) and (maxd < TOL_PARITY_DOLLARS)
-    log(f"  Stage P {'PASSED -- this file IS the locked pipeline.' if ok else 'FAILED.'}\n")
-    return ok
-
-
-# ---------------------------------------------------------------------------
 # STAGE G -- rate guard (raw) + D20 refit (prorated)
 # ---------------------------------------------------------------------------
 def _rate_sample(lut, prorate):
@@ -565,10 +517,10 @@ def _rate_sample(lut, prorate):
 
 def stage_rate():
     log("=" * 74)
-    log("STAGE G: goalie rate -- raw guard, then D20 refit")
+    log("STAGE G: goalie rate (D20, prorated; v1.3: the raw guard is retired)")
     log("=" * 74)
     out = {}
-    for label, prorate in [("RAW", False), ("PRORATED", True)]:
+    for label, prorate in [("PRORATED", True)]:
         lut, _ = goalie_war_lut(prorate)
         s = _rate_sample(lut, prorate)
         r = sm.OLS(s["cap_pct"], sm.add_constant(s["wWAR"])).fit(cov_type="HC3")
@@ -576,13 +528,7 @@ def stage_rate():
         log(f"  {label:>9}: n={len(s)}  alpha_G={a:.8f}  beta_G={b:.8f}  "
             f"R2={r.rsquared:.4f}")
         out[label] = (a, b, len(s), r.rsquared)
-    a, b, n, _ = out["RAW"]
-    ok = (abs(a - ALPHA_G_RAW) <= TOL_RATE_COEF
-          and abs(b - BETA_G_RAW) <= TOL_RATE_COEF
-          and abs(n - RATE_N_LOCKED) <= 5)
-    log(f"  raw guard vs locked (a={ALPHA_G_RAW}, b={BETA_G_RAW}, n={RATE_N_LOCKED}): "
-        f"{'PASS' if ok else 'FAIL'}\n")
-    return (out if ok else None)
+    return out
 
 
 # ---------------------------------------------------------------------------
@@ -685,20 +631,14 @@ def stage_lambda_and_v2(rate_out):
     log("=" * 74)
     log("STAGE L: lambda re-estimation + goalie_value_spine_v2.csv")
     log("=" * 74)
-    # procedure validation: the RAW run must land on (or immediately next
-    # to) the locked 0.65 before the prorated number is trusted
-    for label, prorate in [("RAW", False), ("PRORATED", True)]:
+    # v1.3: the raw procedure check against the locked 0.65 is retired
+    for label, prorate in [("PRORATED", True)]:
         best, mse, n, npl = estimate_lambda(prorate)
         near = {l: round(mse[l], 6) for l in
                 sorted(mse) if abs(l - best) <= 0.10}
         log(f"  {label:>9}: lambda* = {best:.2f}   "
             f"(n={n} season-targets, {npl} goalies)  MSE near optimum: {near}")
-        if label == "RAW":
-            ok = abs(best - LAMBDA_RAW) <= 0.05
-            log(f"    raw procedure check vs locked 0.65: {'PASS' if ok else 'FAIL'}")
-            if not ok:
-                return None
-        else:
+        if True:
             lam_new = best
             # v1.2: contract_npv applies LAMBDA_G = 0.65 to the same goaltenders, so a
             # search that leaves it would price one goalie two ways. Stop and say so: a
@@ -721,13 +661,6 @@ def stage_lambda_and_v2(rate_out):
 
 
 if __name__ == "__main__":
-    if not stage_parity():
-        log("HALTED at parity gate.")
-    else:
-        rates = stage_rate()
-        if rates is None:
-            log("HALTED at rate guard.")
-        else:
-            stage_lambda_and_v2(rates)
+    stage_lambda_and_v2(stage_rate())     # v1.3: no parity gate, no raw guard
     Path(OUT_LOG).write_text("\n".join(LOG), encoding="utf-8")
     log(f"\nrun log written: {OUT_LOG}")

@@ -1,5 +1,11 @@
 """xnpv1_price_line.py -- the market's price per FORECAST win, for pricing xNPV 1.
 
+v2.1 (2026-10-14, Thomas: retire the 60/40 checks). Step 1 no longer re-fits the Stage 3 line on
+    the 60/40 trailing total. The sample is screened as before (a 10+ game season at t-1 or t-2,
+    skater_value_engine.has_recent_season, which is non-null exactly where the 60/40 total was) and
+    proven instead by its size and row fingerprint (SAMPLE_N, SAMPLE_FINGERPRINT, recorded from the
+    v2.0 sample on 2026-10-14). The lock's own reproduction guard (step 6) is unchanged.
+
 v2.0 (2026-10-05, plan of record step 6; 00_STATE/MODEL_DIRECTIVES.md directives 4 and 5).
     DIRECTIVE 5: each contract's forecast is dated at its SIGNING, not at its start year. The
     signing date's information set is matched to the valuation page whose 1 July information set is
@@ -80,7 +86,9 @@ from scipy import stats
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import skater_value_engine as SVE
 
-SCRIPT_VERSION = "2.0"
+SCRIPT_VERSION = "2.1"
+# The Stage 3 contract sample as v2.0 built it (2026-10-14, before the 60/40 total was retired).
+SAMPLE_N, SAMPLE_FINGERPRINT = 2349, "282f608a7ac9"
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 LOG = []
 
@@ -91,7 +99,8 @@ def log(s=""):
 
 
 def stage3_sample() -> pd.DataFrame:
-    """The locked Stage 3 sample, built step for step as stage0 builds it."""
+    """The locked Stage 3 sample: the contracts stage0 selected (v2.1: screened on a 10+ game
+    season at t-1 or t-2, which is where the retired 60/40 total was non-null)."""
     raw = pd.read_excel(SVE.F_CONTRACT_XLSX)
     raw["end_yr"] = pd.to_numeric(
         raw["contract_end"].astype(str).str.extract(r"^(\d{4})")[0], errors="coerce")
@@ -99,22 +108,17 @@ def stage3_sample() -> pd.DataFrame:
     raw["posgrp"] = raw["position"].map(SVE.POSGRP)
     raw["nk"] = ((raw["first_name"].astype(str) + " " + raw["last_name"].astype(str))
                  .map(SVE.norm_name) + "|" + raw["posgrp"].astype(str))
-    # stage0 screens the sample on the RAW (pre-D20) trailing total, then
-    # recomputes it prorated on the skater subset; both steps are kept.
+    # Screen: a 10+ game season at t-1 or t-2 (goalies are dropped below, so only the skater
+    # lookup matters; proration changes values, not which keys exist).
     lut_raw = SVE.build_skater_war_lookup(exclude_merged=False, prorate=False)
-    lut_go = SVE.build_goalie_war_lookup()
-    raw["wWAR"] = [SVE.trailing_weighted_war(k, s, lut_go if str(k).endswith("|G") else lut_raw)[0]
-                   for k, s in zip(raw["nk"], raw["start_yr"])]
+    raw["recent"] = [SVE.has_recent_season(k, s, lut_raw) for k, s in zip(raw["nk"], raw["start_yr"])]
     raw["cap_pct"] = raw["aav"] / raw["start_yr"].map(SVE.CAP_CEILING)
     ss = raw["signing_status"].astype(str)
     samp = raw[(raw["start_yr"].between(2015, 2025))
                & (raw["contract_level"] == "standard_level")
                & ss.isin(["UFA", "RFA"])
-               & raw["wWAR"].notna() & raw["cap_pct"].notna()].copy()
+               & raw["recent"] & raw["cap_pct"].notna()].copy()
     sk = samp[(samp["posgrp"] != "G") & (samp["start_yr"] >= 2018)].copy()
-    lut_p = SVE.build_skater_war_lookup(exclude_merged=False, prorate=True)
-    sk["wWAR"] = [SVE.trailing_weighted_war(k, y, lut_p)[0] for k, y in zip(sk["nk"], sk["start_yr"])]
-    sk = sk[sk["wWAR"].notna()].copy()
     sk["is_d"] = (sk["posgrp"] == "D").astype(float)
     sk["floor_pct"] = sk["start_yr"].map(SVE.LEAGUE_MIN_SALARY) / sk["start_yr"].map(SVE.CAP_CEILING)
     return sk.reset_index(drop=True)
@@ -305,16 +309,12 @@ def main():
     log("=" * 74)
     cap = SVE.CAP_CEILING[2025]
 
-    # ---- 1. the locked sample, proven by the locked fit ------------------------
+    # ---- 1. the locked sample, proven by its size and row fingerprint (v2.1) ---
     sk = stage3_sample()
-    f0 = fit_line(sk, "wWAR")
-    L = SVE.NEW_LOCKED
-    ok = (f0["converged"] and abs(len(sk) - L["n"]) <= SVE.TOL_NEW_N
-          and abs(f0["alpha"] - L["alpha"]) <= SVE.TOL_NEW_COEF
-          and abs(f0["beta"] - L["beta"]) <= SVE.TOL_NEW_COEF
-          and abs(f0["beta_d_add"] - L["beta_d_add"]) <= SVE.TOL_NEW_COEF)
-    log(f"\n[1] the Stage 3 sample: {len(sk):,} contracts (locked n {L['n']:,}); re-fit on the trailing "
-        f"total reproduces the locked rate: {'yes' if ok else 'NO'}")
+    fp0 = fingerprint(sk)
+    ok = len(sk) == SAMPLE_N and fp0 == SAMPLE_FINGERPRINT
+    log(f"\n[1] the Stage 3 sample: {len(sk):,} contracts (recorded {SAMPLE_N:,}), fingerprint {fp0} "
+        f"(recorded {SAMPLE_FINGERPRINT}): {'same rows' if ok else 'DIFFERENT'}")
     if not ok:
         log("GUARD FAILED: this is not the locked Stage 3 sample; nothing below is valid.")
         (OUTPUT_DIR / "xnpv1_price_line_log.txt").write_text("\n".join(LOG) + "\n", encoding="utf-8")

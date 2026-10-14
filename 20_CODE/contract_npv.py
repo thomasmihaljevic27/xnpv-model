@@ -1,8 +1,10 @@
 """
 =============================================================================
- contract_npv.py   v2.5                             Phase 1d
+ contract_npv.py   v2.6                             Phase 1d
                                   xNPV 1 prices skater contracts (2026-10-02)
 =============================================================================
+ v2.6 (2026-10-14): validate() takes its sample rows from the contract-season spine; the 60/40
+ skater_value_spine.csv is retired (skater_value_engine v2.0). Prices unchanged.
  v2.5 (2026-10-13) ADOPTED (Thomas): the arbitration cost is the headline npv_total; the QO
  chain without it is reported beside as npv_total_qo. Skater eligibility from PuckPedia's flag
  (rfa_terminal_value v2.4); goalies: the same flag on the chain-end contract, 1 = from the first
@@ -254,7 +256,7 @@ F_GOALIE_SPINE = OUTPUT_DIR / "goalie_value_spine_v2.csv"
 F_SEASON_SPINE = OUTPUT_DIR / "contract_season_spine.csv"
 OUT_SPINE = OUTPUT_DIR / "contract_npv_spine.csv"
 OUT_LOG = OUTPUT_DIR / "contract_npv_run_log.txt"
-SCRIPT_VERSION = "2.5"   # printed first in the run log (25_TESTS/xnpv0_removal_check.py reads it)
+SCRIPT_VERSION = "2.6"   # printed first in the run log (25_TESTS/xnpv0_removal_check.py reads it)
 
 # ---- locked goalie constants (P2 close-out, 2026-06-30) --------------------
 # The documented narrative values (alpha 1.398% cap, beta 1.097%/WAR, league
@@ -779,8 +781,10 @@ def validate():
 
     log(f"  skater model: {eng.sp.model}")
     # ---- 1. k=0 consistency, both positions ---------------------------------
-    l1 = pd.read_csv(OUTPUT_DIR / "skater_value_spine.csv")
-    l1 = l1[l1["trailing_war"].notna() & l1["season_start"].between(2018, 2025)]
+    # v2.6 (2026-10-14): the rows to check come from the contract-season spine (skater rows,
+    # 2018-2025); skater_value_spine.csv, the 60/40 observed-season file, is retired.
+    l1 = pd.read_csv(F_SEASON_SPINE, usecols=["player_id", "position", "season_start"])
+    l1 = l1[(l1["position"] != "Goaltender") & l1["season_start"].between(2018, 2025)].drop_duplicates()
     _check_xnpv1_valuation_season(eng, l1)
 
     gv = pd.read_csv(F_GOALIE_SPINE)
