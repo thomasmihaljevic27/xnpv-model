@@ -3270,3 +3270,9 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   move). Prospects -$3.51M on 23 assets; players -$2.11M on 37, 18 by $1M or more. Contracts signed after a
   post-season trade are left out (look-ahead caught: Kevin Hayes 2019); 19 assets become rights only, rule pending.
 - New: `traded_player_values.py` (traded players valued at their trade's page, 2018-19 on).
+
+### Change log, 2026-10-14o (rights traded after the regular season: measured)
+
+- `rfa_terminal_value.py` v2.6 (optional expired-contract argument; default path identical on 200 of 200 samples) and
+  `rights_values.py` v1.0. Figures shown to Thomas before adoption: 19 rights assets, $0.78M (13 RFAs; 11 at zero by
+  the qualifying-offer / arbitration cost and D13), 6 UFA rights at zero. Not adopted.

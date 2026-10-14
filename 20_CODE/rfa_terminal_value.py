@@ -498,16 +498,26 @@ class TerminalValuer:
         b = _anchor_bucket(projected_war)
         return self.qualify_p.get(b, 1.0) * self.plays_given_q.get(b, 1.0)
 
-    def terminal_value(self, player_id, valuation_season, as_of=None):
+    def terminal_value(self, player_id, valuation_season, as_of=None, expired_contract_id=None):
         """RFA terminal value at the end of the contracts held for this
         player on `as_of` (v1.3; default July 1 of `valuation_season`), from
         that season's standpoint (same information set as Layer 2). With no
         signed extension this is the contract active at t0, as before.
-        Returns (per-control-year DataFrame, summary dict)."""
+        Returns (per-control-year DataFrame, summary dict).
+
+        v2.6 (2026-10-14, Thomas: "Value restricted free agents' rights as their control years from the next
+        page"): `expired_contract_id` values the RIGHTS to a player whose contract ended before t0 (a trade after
+        the regular season, valued on the next page, of a player with no contract for it): the control seasons
+        run from that contract's end + 1 (= t0) to his UFA year - 1, on page t0's forecast, the first at k = 0;
+        the chain starts at 1.0 (he is the acquiring club's to qualify), not at his chance of playing the
+        contract's final season, which is already played. Left out (None), nothing changes."""
         sp = self.sp
         as_of = check_as_of(valuation_season, as_of)
-        chain = contract_chain(sp.spine, player_id, valuation_season,
-                               sp.signed, as_of)
+        if expired_contract_id is not None:
+            chain = [int(expired_contract_id)]
+        else:
+            chain = contract_chain(sp.spine, player_id, valuation_season,
+                                   sp.signed, as_of)
         empty = pd.DataFrame()
         if not chain:
             return empty, {"status": "no_contract"}
@@ -561,7 +571,8 @@ class TerminalValuer:
         # OPEN DECISION 1: the chain starts from his chance of playing the
         # contract's FINAL season (xNPV 1, dated as the valuation is), not 1.0:
         # no control years for a player who is not there to be qualified.
-        p_final = float(fc.set_index("h").loc[end - valuation_season, "p_play"])
+        p_final = (1.0 if expired_contract_id is not None          # v2.6: rights, his final season played
+                   else float(fc.set_index("h").loc[end - valuation_season, "p_play"]))
         out, tv_raw, tv_trunc, tv_adj = [], 0.0, 0.0, 0.0
         truncated, survival = False, p_final
         tv_adj_f, truncated_f, survival_f = 0.0, False, p_final  # term-free sensitivity
