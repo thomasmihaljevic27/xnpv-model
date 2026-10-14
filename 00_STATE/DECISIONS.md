@@ -3282,3 +3282,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - DECISION (Thomas): rights traded after the regular season carry `rights_values.py`'s values (restricted: control years
   from the next page, the engine's terminal-value logic; unrestricted: zero). 19 assets, $0.78M. Written into
   traded_player_values.csv. buried_contract_values v1.2 no longer values an asset a second time.
+
+### Change log, 2026-10-14q (offer sheets queued)
+
+- WORK_QUEUE: added "look into offer sheets with the model" to the live list (Thomas), unscoped. No decision, code or
+  model change.
