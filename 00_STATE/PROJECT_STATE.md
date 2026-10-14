@@ -64,7 +64,7 @@ Written from the code that runs (versions as printed by each script) and the ses
 | Skater contracts | Built and priced on xNPV 1 (D33); the five player directives built and validated 2026-10-05 | `skater_forecast.py` v2.3, `skater_forward_projection.py` v2.1, `rfa_terminal_value.py` v2.5, `contract_npv.py` v2.7 |
 | Goalie contracts | Built; flat projection pulled 65% to the league | `contract_npv.py` goalie branch, `goalie_value_engine.py` v1.3, `exit_hazard.py` v1.3 |
 | Draft picks | Pick curve built 2026-10-09; arbitration cost adopted 2026-10-13; CBA signing age and the forecast-consistent arbitration price 2026-10-14 | `draft_pick_linkage.py` v1.1, `elc_signing_dates.py` v1.0, `pick_curve.py` v1.5, `traded_pick_values.py` v1.2 |
-| Prospects | Not started. Data ready (Elite Prospects pull 2026-10-08; bridge v1.1 2026-10-14). Next: simplest version first, each parameter Thomas's | `ep_extract.py` v3.5, `ep_nhl_bridge.py` v1.1 |
+| Prospects | Step one built 2026-10-14 (slot x a star value by seasons since the draft; traded prospects valued). Next: production adjusted to NHL terms, each addition Thomas's | `prospect_values.py` v1.0; data `ep_extract.py` v3.5, `ep_nhl_bridge.py` v1.1 |
 | Game-level metric (Game Value) | Built 2026-07-03; used for the circularity checks | game-level chain (below) |
 | Back-test | Not started. A delivered win is priced on the contract line (open decision 3) | none yet |
 
@@ -138,6 +138,14 @@ goalies pooled.
 team's standings on the trade date. Before that season's first game, or any later draft: the round average. During
 the draft: the actual slot. Conditional picks valued as unconditional (back-test work).
 
+**Prospects, step one (`prospect_values.py` v1.0, 2026-10-14; MODEL_DIRECTIVES directive 6).** A prospect is a drafted
+player the player model does not take yet (skaters: no 10+ game NHL season in the three before; goalies: no NHL game
+in the six before). Value = Bacon's star chance for his slot x a star value for the seasons since his draft, fitted
+with the pick curve's regression (through zero) on the 2007-2017 draftees still prospects then, outcome their
+remaining surplus; 4+ seasons pooled; zero past club control. His value with his own draft left out is beside it.
+Undrafted prospects get no value in step one. Traded players are matched to drafted players by name (short forms,
+initials, a namesake guard).
+
 ## Figures in force (read from the code, 2026-10-14)
 
 | What | Value | Where |
@@ -151,6 +159,8 @@ the draft: the actual slot. Conditional picks valued as unconditional (back-test
 | Goalie control weight | 0.902 x 0.859 = 0.775 a year | refresh 2026-10-05 |
 | Star value | $18.03M (se 1.73); without 2015-2016 $15.68M; qualifying-offer chain $31.90M / $27.82M (v1.5, 2026-10-14; was $13.42M) | `pick_curve.py` |
 | Traded picks (634, 2017-07-01 to 2022-03-21) | $401.3M; sensitivity $349.1M (2026-10-14; was $298.8M) | `traded_pick_values.py` |
+| Prospect star value by seasons since the draft | 18.03 / 17.60 / 15.73 / 8.88 / 2.01 (0, 1, 2, 3, 4+; $M at the 2025-26 cap) | `prospect_values.py` |
+| Traded prospects (197 assets, 170 players, 2017-07-01 to 2022-03-28) | $60.8M; own draft left out $59.3M (2026-10-14) | `prospect_values.py` |
 | Discount and cap growth | 3% each | D11, D17 |
 
 ## Data and scripts (2026-10-14)
@@ -171,7 +181,7 @@ CapWages cache (1,551 player pages); the clause scrape.
   `player_season_table.py` v1.3, `information_set.py` v1.1, `contract_source.py` v1.0, `forecast_config.py` v1.0,
   `forecast_harness.py` v1.4; `xnpv1_price_line.py` v2.1 (the line and its reproduction guard).
 - Draft: `draft_pick_linkage.py` v1.1, `elc_signing_dates.py` v1.0, `pick_curve.py` v1.5, `traded_pick_values.py` v1.2.
-- Prospect data: `ep_extract.py` v3.5, `ep_nhl_bridge.py` v1.1.
+- Prospects: `prospect_values.py` v1.0 (step one). Prospect data: `ep_extract.py` v3.5, `ep_nhl_bridge.py` v1.1.
 - Game level: `nhl_gamelog_scraper.py` v2.4, `on_ice_reconstruction.py` v1.3, `xg_model.py` v1.0,
   `score_state.py` v1.0, `metric_assembly.py` v1.0, `gv_adjusted_build.py` v1.0.
 - Other: `replacement_rebase.py`, `npv_spine_compare.py`, `capspace_scraper.py`, `capspace_capwages_compare.py`,

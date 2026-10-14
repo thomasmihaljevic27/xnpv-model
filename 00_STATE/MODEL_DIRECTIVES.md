@@ -17,7 +17,7 @@ the commit), **superseded** (replaced by a later entry).
 | 3 | One own-versus-comparables blend: 65/35 replaces the curve's 55/45 | implemented (branch, `64ab8bf`) |
 | 4 | Contract length in the price line (term-in), term-free reported as the sensitivity | implemented and validated (branch, 2026-10-05) |
 | 5 | Price-line forecasts dated at each contract's signing | implemented and validated (branch, 2026-10-05) |
-| 6 | Draft and prospect models restart from scratch with Karl; the data is kept | pick curve built 2026-10-09 (`pick_curve.py`, `traded_pick_values.py`); arbitration cost adopted for players and picks (2026-10-13; star value 13.42, 18.03 on September 15 ages 2026-10-14); prospects: opening decisions and step one specified 2026-10-14, nothing live yet |
+| 6 | Draft and prospect models restart from scratch with Karl; the data is kept | pick curve built 2026-10-09 (`pick_curve.py`, `traded_pick_values.py`); arbitration cost adopted for players and picks (2026-10-13; star value 13.42, 18.03 on September 15 ages 2026-10-14); prospects: opening decisions 2026-10-14, step one built (`prospect_values.py`) |
 
 | | To investigate (closed list) | Status |
 |---|---|---|
@@ -797,7 +797,9 @@ Thomas the same day. Each item may change only by Thomas's decision.
 ### Prospects, step one: the specification (2026-10-14)
 
 Measured by `25_TESTS/prospect_slot_years_check.py` v1.0 (report; guard: at the draft it reproduces the pick
-curve's 18.03 to 1e-9). Not yet a live script.
+curve's 18.03 to 1e-9). **Built 2026-10-14 (Thomas: "build the first version as a live script that values the
+prospects in the trade inventory, keeping the pick curve's current through-zero form"):** `20_CODE/prospect_values.py`
+v1.0, item 7 below.
 
 1. **Who.** A drafted player valued at a date in season y (the season starting that autumn; a date between July 1
    and June 30 belongs to one season), who is a prospect at y by the rule above. Seasons since the draft: k = y -
@@ -825,6 +827,19 @@ curve's 18.03 to 1e-9). Not yet a live script.
    A prospect keeps most of his slot's value for two seasons; the third and fourth take most of it. Past two
    seasons few top picks are left, so the slot carries little there: that is where production must add value.
    Inherits the pick curve's open choice of regression form (through zero or a free constant: WORK_QUEUE).
+7. **The traded prospects (`prospect_values.py` v1.0).** The trade inventory's player assets from 2017-07-01 (as for
+   traded picks; trades.db ends 2022-03-28), valued at the trade season (his draft year if traded between his draft
+   and July 1). Past club control (CBA Group 3, as the pick curve) a prospect is worth zero. Beyond seven seasons
+   since the draft the 4+ star value is used (2 assets). Matching a traded name to a drafted player is ours: surname
+   plus a canonical first name (the pick curve's short forms, widened), initials joined, and a namesake guard (a
+   draftee with no NHL record is rejected when the name has NHL seasons between his draft and the trade).
+   Result (2026-10-14): 927 player assets; 197 valued as prospects (170 players), $60.8M, own draft left out $59.3M;
+   509 with the player model; 9 past club control; 211 not matched to a drafted player (179 of them have NHL seasons
+   under the name; 26 names have none, undrafted prospects such as Barabanov, Kaski and Praplan, who get no value in
+   step one); 1 ambiguous (Ryan O'Reilly, 2018-07-01: the veteran and a 2018 draftee of the same name, the day of the
+   trade; not valued). Most valuable: Nick Suzuki (2017 #13, one season on) $2.99M, Erik Brannstrom $2.64M, Josh
+   Norris $2.13M, Peyton Krebs $2.11M, Pierre-Olivier Joseph $1.79M. Known mismatch, no effect: the Mikko Lehtonen
+   traded in 2021 is not the 2005 draftee of that name; both readings give zero (past control, or undrafted).
 
 ---
 

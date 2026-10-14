@@ -3195,3 +3195,12 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - `25_TESTS/prospect_slot_years_check.py` v1.0: star value 18.03 / 17.60 / 15.73 / 8.88 / 2.01 (0, 1, 2, 3, 4+ seasons
   since the draft); guard reproduces the pick curve at the draft.
 - MODEL_DIRECTIVES: the overlap range corrected to -8.0% to +7.5% (on 18.03; was the 13.42 figure); summary row 6.
+
+### Change log, 2026-10-14f (prospects: step one built)
+
+- DECISION (Thomas): build step one as a live script valuing the trade inventory's prospects, on the pick curve's
+  through-zero form.
+- Built `20_CODE/prospect_values.py` v1.0 (guards: reproduces the pick curve at the draft and the check's five star
+  values). 197 traded prospects, $60.8M (own draft left out $59.3M). Name matching to drafted players is ours (short
+  forms, initials, a namesake guard); recorded in MODEL_DIRECTIVES directive 6, step one item 7.
+- PROJECT_STATE: prospects row, step one paragraph, two figures rows, scripts list. CLAUDE.md: state paragraph, run order.
