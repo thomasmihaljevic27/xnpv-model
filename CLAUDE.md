@@ -32,8 +32,8 @@ As of the 2026-10-14 refresh (PROJECT_STATE v3.4, "Current state" and "Model as 
 contracts are priced on xNPV 1 with the five player directives built; the draft pick curve and the traded-pick
 values are built, with the arbitration cost for control seasons adopted on both sides (2026-10-13); the
 prospect model is next (simplest version first, each parameter Thomas's); the back-test has not started.
-Decided 2026-10-14 and not yet built: every age the model reads follows the CBA, and the arbitration price is
-made consistent with the forecast (WORK_QUEUE live list).
+Built 2026-10-14: every age the model reads follows the CBA (September 15; drafted players' signing ages in the
+year they signed), the arbitration price is consistent with the forecast, and the 60/40 checks are retired.
 
 **Craft is retired as a canonical surface (2026-09-09).** Do not read it, reconcile against it,
 or sync to it. "How it works" explainers live in `40_DOCS/`. Precedence when sources conflict:
@@ -98,7 +98,7 @@ stops the run. Finished tests in `25_TESTS/` that build `NPVEngine` on xNPV 0, o
 `50_REBUILD/`, reproduce their recorded results only from a checkout of 7f91f0e.
 
 xNPV 1's seasons and control years are priced by `skater_forward_projection.price_constants()`. It returns
-`XNPV1_RATE` (the term-in line, locked 2026-10-05; `XNPV1_RATE_TERM_FREE` beside it as the sensitivity); set to
+`XNPV1_RATE` (the term-in line, re-locked 2026-10-14 on September 15 ages; `XNPV1_RATE_TERM_FREE` beside it as the sensitivity); set to
 None, it falls back to Stage 3, and every row's `price_line` column says which line priced it ("provisional"
 means Stage 3). Both come from `python 20_CODE/xnpv1_price_line.py` v2.0: the Stage 3 specification re-fitted
 on xNPV 1's forecast dated at each contract's signing (directive 5), with a linear term for contract length
@@ -152,11 +152,12 @@ To answer questions about the curve on the spot: `python 25_TESTS/pick_lookup.py
   left-censored at the league minimum, one intercept, a separate defence slope.
   alpha=0.0132478230, beta=0.0212322891 per win for forwards, plus 0.0028702824 for defencemen
   (0.0241025715), all as cap shares. The retired draft curve and xNPV 0 used it; it now survives as guards.
-  xNPV 1 prices on its own line, re-locked 2026-10-05 with term in (directives 4 and 5; read the value the code
-  assigns in `skater_forward_projection.py`): `XNPV1_RATE`, alpha=-0.0043574069, beta=0.0174691916 per
-  forecast win for forwards, plus 0.0035971954 for defencemen, plus gamma_term=0.0089321965 a season per year
-  of term; `XNPV1_RATE_TERM_FREE` (0.0081646316 / 0.0310794541 / +0.0135178851) is the sensitivity. The
-  2026-10-02 line (0.0076921739 / 0.0308904772 / +0.0146619104) is superseded. The
+  xNPV 1 prices on its own line, with term in (directives 4 and 5), re-locked 2026-10-14 on September 15 ages
+  (read the value the code assigns in `skater_forward_projection.py`): `XNPV1_RATE`, alpha=-0.0043530319,
+  beta=0.0175137032 per forecast win for forwards, plus 0.0038753270 for defencemen, plus
+  gamma_term=0.0089195167 a season per year of term; `XNPV1_RATE_TERM_FREE` (0.0081699059 / 0.0310586846 /
+  +0.0139734816) is the sensitivity. The 2026-10-05 line (-0.0043574069 / 0.0174691916 / +0.0035971954, term
+  0.0089321965) and the 2026-10-02 line (0.0076921739 / 0.0308904772 / +0.0146619104) are superseded. The
   pre-D20 rate (0.0184516 / 0.0202139) and the D20 rate (0.01831864 / 0.01924854) are retired; their
   reproduction guards were removed with the 60/40 checks on 2026-10-14 (Thomas). The Stage 3 constants stay
   in `skater_value_engine.NEW_LOCKED` as the fallback line, no longer re-fitted.

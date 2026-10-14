@@ -18,28 +18,13 @@
   (p 0.77). On the old qualifying-offer chain the same pair was 31.66 against 31.04. The held-out comparison of
   the two forms (5.2318 against 5.2328) was run on the chain only.
 
-**Decide (Thomas): lock the price line re-fitted on September 15 ages.** The age change is built on branch
-`claude/cba-age-sep15` (5,929 of 17,112 season rows one year younger) and waits on this lock; `main` still prices on
-February 1 ages and the current lock. Re-fitted on the same 2,296 contracts (fingerprint b9067879bf72):
-- term-in: forwards $1.673M per forecast win (locked $1.668M), defence $2.043M ($2.012M), $0.852M a season per year
-  of term ($0.853M); alpha -0.0043530319, beta 0.0175137032, defence +0.0038753270, term 0.0089195167.
-- term-free: 0.0081699059 / 0.0310586846 / +0.0139734816 (locked 0.0081646316 / 0.0310794541 / +0.0135178851).
-- floor spread (WAR_IF_PLAYS_MAE): 0.6767, 0.7545, 0.8026, 0.8499, 0.8770, 0.8981 (moves at most 0.0025).
-- forecast accuracy on the development pages: start RMSE +0.0005, whole-forecast RMSE -0.0008.
-On the lock: set both lines and the spread in code on the branch, refresh, re-run the pick curve and the traded
-picks, compare with `25_TESTS/output_compare.py`, merge.
-
-**Ask (Thomas): fetch CapWages pages for the 242 drafted players (2007-2017) who played with no entry-level signing
-date** (mostly 2007-2011 drafts). The first NHL season stands in for them. About 242 public pages at 1.5 s apart, kept
-in 30_OUTPUT; each verified by its draft line. It is a download, so it waits for a yes.
-
 **Do (with Thomas, step by step): the prospect model, simplest version first.** Thomas, 2026-10-14: "start as simple as
 possible and work our way up. I'll decide what the parameters of the model will be then." The outline so far is in
 MODEL_DIRECTIVES directive 6, "Prospects": the draft slot as the starting value (the star value x Bacon's star chance),
 production adjusted to NHL terms read 50/30/20, age and size as candidates, undrafted players on the same model without
 the slot. Data ready: the Elite Prospects pull (2026-10-08) and the bridge (`ep_nhl_bridge.py` v1.1). Every input it will
-call reads 50/30/20 (`40_DOCS/Age_and_Weighting_Audit.md`). Its own document; agree the spine first. Best started after
-the lock above, since the age change moves the star value.
+call reads 50/30/20 (`40_DOCS/Age_and_Weighting_Audit.md`). Its own document; agree the spine first. The star value is
+$18.03M since 2026-10-14.
 
 **Done 2026-10-14 (Thomas's decisions on the audit).**
 - 60/40 checks retired (commit 35cbb62): `skater_value_engine.py` v2.0 (a library), `goalie_value_engine.py` v1.3,
@@ -51,6 +36,13 @@ the lock above, since the age change moves the star value.
   traded picks $298.8M -> $397.3M. Contracts: 787 of 7,817 valuations move (199 up, 588 down), total -$48.1M; the
   signing age is never read on the player side (2,759 of 2,759 RFA expiries carry PuckPedia's flag).
 - Group 6 measured and left out (-0.37% at its upper bound).
+- September 15 ages and the re-locked line (Thomas: "lock it"; commits 9802f32, f511afb): `XNPV1_RATE` -0.0043530319 /
+  0.0175137032 / +0.0038753270, term 0.0089195167; floor spread re-measured. 7,353 of 7,817 valuations move (median
+  -$0.01M, total +$58.6M). Star value 17.85 -> 18.03 (without 2015-2016 15.68; chain 31.90); traded picks $401.3M.
+- CapWages pages fetched for missing signing dates (Thomas: "yes fetch"; `elc_signing_dates.py` v1.1): 230 pages;
+  drafted players who played with a signing year 919 -> 1,092 of 1,157 (12 refused, mostly apostrophe and initial
+  names; 56 pages list no entry-level deal). Star value unchanged at two decimals.
+- The meeting note rebuilt on the final figures (Thomas: "new figures"; `control_cost_note_doc.js` v1.1, 2 pages).
 
 **Parked (Thomas, 2026-10-04; confirmed 2026-10-14: "Keep everything parked that is currently parked").**
 - Until the model is complete: the defence premium (entry "xNPV 1 follow-ups" item 5 below); the nine-season

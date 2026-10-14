@@ -76,9 +76,9 @@ Written from the code that runs (versions as printed by each script) and the ses
 - **Panel.** `contract_npv_panel.py` v1.5: 7,817 contract-pages, seasons 2018-19 to 2026-27; headline `npv_total`
   (arbitration cost), `npv_total_qo` (qualifying-offer chain) and the term-free values beside.
 - **Built 2026-10-14 (Thomas's decisions):** the 60/40 checks retired (no value moved); drafted players' CBA ages
-  read in the year they signed; the arbitration price consistent with the forecast (reading (a)). **Built on branch
-  `claude/cba-age-sep15`, awaiting Thomas's lock of the re-fitted price line:** the performance age on September 15
-  of the season's starting year (was February 1 of the ending year).
+  read in the year they signed (1,092 of 1,157 who played have a date); the arbitration price consistent with the
+  forecast (reading (a)); every performance age on September 15 of the season's starting year (was February 1 of the
+  ending year), with the price line and floor spread re-locked on it (Thomas: "lock it").
 - **Supervisor documents** in `40_DOCS/Supervisor_Drafts/` are point-in-time snapshots of progress; they are not
   updated as the model changes (Thomas, 2026-10-14).
 
@@ -95,7 +95,7 @@ plays, the share of games he plays if he plays, and the chance he plays at all.
    his last counted season (blended with the league level at weight ten), plus the curve's change to the valuation
    season.
 2. Aging: the comparable-player curve (`aging_curve.py`; level 50/30/20 by age, games-weighted; one yardstick per
-   position), fitted on seasons before the page; its changes are added to the start. Players who left the league
+   position; ages on September 15 of the season's starting year since 2026-10-14), fitted on seasons before the page; its changes are added to the start. Players who left the league
    enter the curve at replacement level for the seasons they missed.
 3. Games share: a fitted line per season ahead on the trailing share, position, experience, age, age squared and
    the 50/30/20 trailing WAR total; capped at 1.0, floored at 0.05.
@@ -130,8 +130,8 @@ indicators that sum to zero. Each player's surplus runs from the draft to the en
 (27 by June 30, or seven Accrued Seasons): delivered WAR priced on the contract line at one year of term; entry-level
 maximum, then the qualifying offer, then the arbitration price once eligible (CBA 12.1, counted from seasons of 10+
 NHL games; the arbitration WAR is the forecast's start at that season, from seasons before it); entry-level length and
-arbitration need from his age on September 15 of the year he signed (`elc_signing_dates.csv`; 919 of 1,157 who played;
-the first NHL season stands in for 238); a season without an NHL game worth and costing zero; lapsed rights zeroed;
+arbitration need from his age on September 15 of the year he signed (`elc_signing_dates.csv`; 1,092 of 1,157 who
+played; the first NHL season stands in for 65); a season without an NHL game worth and costing zero; lapsed rights zeroed;
 goalies pooled.
 
 **Traded picks (`traded_pick_values.py` v1.2).** The next draft's pick traded in season: the slot of the original
@@ -142,15 +142,15 @@ the draft: the actual slot. Conditional picks valued as unconditional (back-test
 
 | What | Value | Where |
 |---|---|---|
-| Skater line, term-in (`XNPV1_RATE`, locked 2026-10-05) | alpha -0.0043574069; beta 0.0174691916 per forecast win; defence +0.0035971954; gamma_term 0.0089321965 a season per year of term; n 2,296 | `skater_forward_projection.py` |
-| At the 2025-26 cap | $1.67M per forecast win (forwards), $2.01M (defence), +$0.853M a season per year of term | MODEL_DIRECTIVES step 6 |
-| Skater line, term-free (sensitivity) | 0.0081646316 / 0.0310794541 / +0.0135178851 | same |
+| Skater line, term-in (`XNPV1_RATE`, re-locked 2026-10-14 on September 15 ages) | alpha -0.0043530319; beta 0.0175137032 per forecast win; defence +0.0038753270; gamma_term 0.0089195167 a season per year of term; n 2,296 | `skater_forward_projection.py` |
+| At the 2025-26 cap | $1.673M per forecast win (forwards), $2.043M (defence), +$0.852M a season per year of term | xnpv1_price_line.py v2.1 |
+| Skater line, term-free (sensitivity) | 0.0081699059 / 0.0310586846 / +0.0139734816 | same |
 | Stage 3 line (guards only) | 0.0132478230 / 0.0212322891 / +0.0028702824 | `skater_value_engine.py` |
-| Floor spread, WAR_IF_PLAYS_MAE | 0.6769, 0.7553, 0.8040, 0.8524, 0.8766, 0.8970 (seasons 0-5, flat after) | `skater_forecast.py` |
+| Floor spread, WAR_IF_PLAYS_MAE | 0.6767, 0.7545, 0.8026, 0.8499, 0.8770, 0.8981 (seasons 0-5, flat after; 2026-10-14) | `skater_forecast.py` |
 | Skater control weights | 100% / 100% / 88.2% / 67.8% by forecast bucket | refresh 2026-10-05 |
 | Goalie control weight | 0.902 x 0.859 = 0.775 a year | refresh 2026-10-05 |
-| Star value | $17.85M (se 1.73); without 2015-2016 $15.48M; qualifying-offer chain $31.68M / $27.60M (v1.5, 2026-10-14; was $13.42M) | `pick_curve.py` |
-| Traded picks (634, 2017-07-01 to 2022-03-21) | $397.3M; sensitivity $344.7M (2026-10-14; was $298.8M) | `traded_pick_values.py` |
+| Star value | $18.03M (se 1.73); without 2015-2016 $15.68M; qualifying-offer chain $31.90M / $27.82M (v1.5, 2026-10-14; was $13.42M) | `pick_curve.py` |
+| Traded picks (634, 2017-07-01 to 2022-03-21) | $401.3M; sensitivity $349.1M (2026-10-14; was $298.8M) | `traded_pick_values.py` |
 | Discount and cap growth | 3% each | D11, D17 |
 
 ## Data and scripts (2026-10-14)

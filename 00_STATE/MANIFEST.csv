@@ -13,14 +13,14 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 10_SOURCE,WAR.csv,doc,hashable,2026-09-09a,c641c1576572a2f3658c3073d43a318b93bc55ad,2919228,2026-09-09,yes,git,Bacon skater WAR; frozen vendor source
 10_SOURCE,draft_slot_baseline.csv,draft,hashable,2026-09-09a,455e808e2597d6bfc51ba120d0f0595c546adf54,26213,2026-09-09,yes,git,git-tracked; audited via `git status`
 10_SOURCE,nhle_temporal.csv,prosp,hashable,2026-09-09a,7a3a1c5a4aea49e19bb917a657f493d0f2ec1b0f,336187,2026-09-09,yes,git,frozen vendor source
-20_CODE,age_join.py,age,hashable,2026-09-28j,e728e68220a6e2f74baae6781d74022751033feb,31305,2026-09-28,yes,git,WAR_with_age ID pollution flag open
+20_CODE,age_join.py,age,hashable,2026-10-14,9a222793c5ce94d9d64f352889dba80007068062,31612,2026-10-14,yes,git,WAR_with_age ID pollution flag open
 20_CODE,aging_curve.py,age,hashable,2026-10-04c,ab01aee4bc641dbf62ebe2bd779b990d09b33fb1,27902,2026-10-05,yes,git,"imported as module; do not rename; directive 2-3 level rule, A1 yardsticks"
 25_TESTS,aging_split_sample.py,age,hashable,2026-09-30k,fc8ae017fc45a6e08db103dff320f016160250b9,6499,2026-09-30,yes,git,git-tracked; audited via `git status`; moved 2026-09-30j
 20_CODE,capspace_capwages_compare.py,clause,hashable,2026-09-09a,7aee6d1a0501bcfe491d0f567b2f73297c245a20,26631,2026-09-09,yes,git,git-tracked; audited via `git status`
 20_CODE,capspace_scraper.py,clause,hashable,2026-09-09a,d43c9f8ff142c1bfe668e726431937889ab39db5,21975,2026-09-09,yes,git,git-tracked; audited via `git status`
 20_CODE,check.py,misc,hashable,2026-09-09a,6d47583d129eaaffd3c476ab13e9bb67340699b1,858,2026-09-09,yes,git,git-tracked; audited via `git status`
 25_TESTS,check_stale_anchor_agreement2.py,misc,hashable,2026-09-30k,4ce6f4f38dfc17aab3f4ad23f9fae49a27f7eb05,9224,2026-09-30,yes,git,git-tracked; audited via `git status`; moved 2026-09-30j
-20_CODE,contract_npv.py,npv,hashable,2026-10-14,deac704b57b78d83eead81ee2ef600b54df66428,54105,2026-10-14,yes,git,v2.2: goalie control weight on one game in the final season; do not rename
+20_CODE,contract_npv.py,npv,hashable,2026-10-14,59ad344650e153870e8e34825f1f0058d6cacba5,54106,2026-10-14,yes,git,v2.2: goalie control weight on one game in the final season; do not rename
 20_CODE,contract_npv_panel.py,npv,hashable,2026-10-04c,e0cfecf5dccc5e5ca5549b22bf5f511c16452ea0,13024,2026-10-05,yes,git,git-tracked; audited via `git status`
 20_CODE,draft_pick_linkage.py,draft,hashable,2026-09-09a,3407afcc09d47360dee13a505ea65c181c62d55f,21073,2026-09-09,yes,git,rescued from data work; only cloud copy
 20_CODE,ep_extract.py,prosp,hashable,2026-09-28l,b3bd22c40b2efcc5822cf3d5407409c5b4382f7b,39724,2026-09-28,yes,git,v3.1: own league-page reader (pandas 3)
@@ -39,10 +39,10 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 20_CODE,on_ice_reconstruction.py,xg,hashable,2026-09-09a,f5da9ef958a3714715653e80b88f1690981d6292,31627,2026-09-09,yes,git,git-tracked; audited via `git status`
 20_CODE,replacement_rebase.py,gv,hashable,2026-09-09a,9d2c81f6550b230d2485e16a4369f3db3fb2db79,25435,2026-09-09,yes,git,git-tracked; audited via `git status`
 25_TESTS,retention_recalibration_check.py,npv,hashable,2026-09-30k,e382689e7c7fe5167d46481d568db5be80cc07d3,14021,2026-09-30,yes,git,git-tracked; audited via `git status`; moved 2026-09-30j
-20_CODE,rfa_terminal_value.py,npv,hashable,2026-10-14,14143863e21a2a057cdb5a28144dacd82b794348,46893,2026-10-14,yes,git,v2.2: plays-given-qualified on one game in the final season; imported as module
+20_CODE,rfa_terminal_value.py,npv,hashable,2026-10-14,3a8fb7cc2fe831986b915a6b318f1a99a24de1dc,46907,2026-10-14,yes,git,v2.2: plays-given-qualified on one game in the final season; imported as module
 25_TESTS,run_stale_anchor_fix.py,goal,hashable,2026-09-30k,29c6528d981d4275f1cde216d71819690e012148,11667,2026-09-30,yes,git,git-tracked; audited via `git status`; moved 2026-09-30j
 20_CODE,score_state.py,xg,hashable,2026-09-09a,81e3d540c713a014dc673a552b7d2465b79e73a5,17151,2026-09-09,yes,git,git-tracked; audited via `git status`
-20_CODE,skater_forward_projection.py,skat,hashable,2026-10-04c,6d77bbe15b0c496556ed804d177ef2f86be896e6,34173,2026-10-05,yes,git,xNPV 1 only from v2.0 (xNPV 0 archived 2026-10-02); imported as module
+20_CODE,skater_forward_projection.py,skat,hashable,2026-10-14,6eb874b72b5108b63ed0c04e0449c98e5aff146b,34784,2026-10-14,yes,git,xNPV 1 only from v2.0 (xNPV 0 archived 2026-10-02); imported as module
 20_CODE,skater_value_engine.py,skat,hashable,2026-10-14,daa285d9a8a28387e9661f41336b18c6064ceeea,13447,2026-10-14,yes,git,imported as module; do not rename
 25_TESTS,term_premium_test.py,skat,hashable,2026-09-30k,d1999d49d08032e0d273ba8576fdc05f30f963ef,38573,2026-09-30,yes,git,git-tracked; audited via `git status`; moved 2026-09-30j
 25_TESTS,uncertainty_correction.py,skat,hashable,2026-09-30k,138805bb1db78da0a7456989fbe9e39afa2ee4d2,15702,2026-09-30,yes,git,git-tracked; audited via `git status`; moved 2026-09-30j
@@ -298,8 +298,8 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 20_CODE,forecast_harness.py,player,hashable,2026-10-02c,555fd12694953584751060438796074b0af6f4fb,21221,2026-10-05,yes,git,"xNPV 1, promoted 2026-10-02 (D33); v1.4 tier label on 50/30/20 (2026-10-05)"
 20_CODE,information_set.py,player,hashable,2026-10-02d,48b05b4745780347985d5fa53a8b77e1fa954779,9490,2026-10-02,yes,git,"xNPV 1, promoted 2026-10-02 (D33)"
 20_CODE,participation_model.py,player,hashable,2026-10-02c,4677216cdbe734a090f6da380480b2419c4b189e,25955,2026-10-02,yes,git,"xNPV 1, promoted 2026-10-02 (D33)"
-20_CODE,player_season_table.py,player,hashable,2026-10-02c,c69f287e47f46d25aaa79361b8f67a0e18aeff57,29415,2026-10-02,yes,git,"xNPV 1, promoted 2026-10-02 (D33)"
-20_CODE,skater_forecast.py,player,hashable,2026-10-14,e32bc581c666a6e40cc4d03f7beb522f976580d0,44678,2026-10-14,yes,git,"xNPV 1 v2.2, the directed forecast with A1, C2, C6, D2, E1 (branch)"
+20_CODE,player_season_table.py,player,hashable,2026-10-14,2881eed65940b3e49c58e4d178bacf2fd8cbbb04,29596,2026-10-14,yes,git,"xNPV 1, promoted 2026-10-02 (D33)"
+20_CODE,skater_forecast.py,player,hashable,2026-10-14,fb1fe71cd9eae8bea8f07de362e145644e6af73e,44849,2026-10-14,yes,git,"xNPV 1 v2.2, the directed forecast with A1, C2, C6, D2, E1 (branch)"
 25_TESTS,xnpv1_promotion_check.py,player,hashable,2026-10-02c,b8b524e96a22c84a0a256b60880a8d354eb28898,7047,2026-10-02,yes,git,finished test or diagnostic
 25_TESTS,xnpv1_switch_check.py,player,hashable,2026-10-02e,cb067c9a79cb8fff332740042f194a4785153662,6431,2026-10-02,yes,git,finished test or diagnostic
 .,Update-Dashboard.cmd,npv,hashable,2026-10-02f,ab0513d123b559300e811cc1fb2775f45ed63eb0,1813,2026-10-02,yes,git,rebuilds and opens the dashboard (was Open-Dashboard.cmd)
@@ -328,7 +328,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,games_and_playing_de.py,player,hashable,2026-10-04c,c88763d4102c882d7808fc13e986cf7a769dd02e,19847,2026-10-05,yes,git,"investigations D and E, open decision 2; run 2026-10-05"
 25_TESTS,games_playing_followup.py,player,hashable,2026-10-04c,79f342efa3516cbdff8ba4c7972c659468bd46c1,13308,2026-10-05,yes,git,D2+E1 together; contracted-seasons chance of playing; run 2026-10-05
 25_TESTS,de_build_check.py,player,hashable,2026-10-04c,ab8db21f2c17dd11b977320683b30c8da82f8c64,7305,2026-10-05,yes,git,holds skater_forecast v2.2 to the D2+E1 version; passed 2026-10-05
-25_TESTS,floor_spread_measure.py,player,hashable,2026-10-04c,ef5f5ef5d73132a2bf8116a2a598e6b0f86c0f24,4672,2026-10-05,yes,git,re-measured WAR_IF_PLAYS_MAE on v2.2; run and locked 2026-10-05
+25_TESTS,floor_spread_measure.py,player,hashable,2026-10-14,424507df4740f5099c0a1b795e36cd76aec6c9ab,5068,2026-10-14,yes,git,re-measured WAR_IF_PLAYS_MAE on v2.2; run and locked 2026-10-05
 25_TESTS,control_weight_check.py,player,hashable,2026-10-04c,865a6007fb1ae40d32dbc4dabb6bd24d18c2706e,6016,2026-10-05,yes,git,"why control-year weights sat below July's; run 2026-10-05, reproduces at 0d9953f"
 25_TESTS,document_figures.py,player,hashable,2026-10-04c,910181338ea15c4a14436f69b838b150ad1f8eb0,31272,2026-10-05,yes,git,figures the two updated supervisor documents quote; v1.0 run 2026-10-05; v1.1 adds the 50/30/20 restatements (laptop run owed)
 25_TESTS,harness_tier_check.py,player,hashable,2026-10-04c,6024159d59de06b4606464d333846727061db773,5086,2026-10-05,yes,git,holds forecast_harness v1.4's 50/30/20 tier label; passed in the cloud 2026-10-05
@@ -345,7 +345,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,pick_goalie_test.py,draft,hashable,2026-10-09b,f4f9426e6368e94c6c0a7051084629d72d8ee79a,8185,2026-10-09,yes,git,"goalies in the pick curve: skater scale, pooled, or apart; report only"
 25_TESTS,pick_lookahead_check.py,draft,hashable,2026-10-09b,57416de94e4e47cab9fda9d348ca41a67607228b,6590,2026-10-09,yes,git,"look-ahead in the pick curve: shape by era, the scale knowable at each trade season, traded picks valued both ways"
 25_TESTS,pick_star_and_rights_checks.py,draft,hashable,2026-10-09b,272ad61e759609604c10f4c120c806a3314e07d5,11015,2026-10-09,yes,git,"Bacon star and NHLer rates against our drafted skaters; who collected each pick's surplus (same team, traded before debut, rights lapsed)"
-20_CODE,pick_curve.py,draft,hashable,2026-10-14,2b9eb8c9675b745779051312bf89da77c9d961c2,30022,2026-10-14,yes,git,"the draft pick curve: each drafted player priced under directive 6, v1.2: one star value (all drafts) and its sensitivity (without 2015-16); writes pick_curve_seasons.csv"
+20_CODE,pick_curve.py,draft,hashable,2026-10-14,20a98979f62896498f4b8a7faac6a6d562883122,30810,2026-10-14,yes,git,"the draft pick curve: each drafted player priced under directive 6, v1.2: one star value (all drafts) and its sensitivity (without 2015-16); writes pick_curve_seasons.csv"
 20_CODE,traded_pick_values.py,draft,hashable,2026-10-09b,ed7b0e9cb6ed540ad3630b9d031c6a5c8862dab7,10477,2026-10-09,yes,git,"values each traded pick: trade-date slot, actual slot on the draft floor, or round average; v1.2 on the star value"
 30_OUTPUT,pick_curve_players.csv,draft,hashable,2026-10-09b,LOCAL_RUN,254355,2026-10-09,yes,dropbox,"written by pick_curve.py"
 30_OUTPUT,pick_curve_scales.csv,draft,hashable,2026-10-09b,LOCAL_RUN,712,2026-10-09,yes,dropbox,"written by pick_curve.py"
@@ -360,10 +360,10 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 40_DOCS,Valuing_Draft_Picks_Reproduction.md,doc,hashable,2026-10-13,2068ab5e855d2b9df052f242fb4ca969643f2f0c,6462,2026-10-13,yes,git,"each finding in Valuing Draft Picks with the command that reproduces it and the expected value (checked in PowerShell 2026-10-13)"
 20_CODE,ep_nhl_bridge.py,prosp,hashable,2026-10-14,9757e690dc3f0962c5dec5ebf25ffda2e7d69c77,12922,2026-10-14,yes,git,"v1.1: two named, asserted id exceptions (Nick Henry, Tyler Vesel); no conflicts or duplicate ids"
 25_TESTS,pick_class_overlap_check.py,draft,hashable,2026-10-14,934d1de3562617043240edbeb4fc290a8de123af,5811,2026-10-14,yes,git,v1.0: traded picks by draft (none inside the star value's 2007-2017 fit); star value with each draft left out
-25_TESTS,control_cost_note_doc.js,draft,hashable,2026-10-14,579fbfba61abc17e42e2d0f81954feb7d40de5ad,9778,2026-10-14,yes,git,builds 40_DOCS/Supervisor_Drafts/Arbitration Cost Update.docx (docx-js); figures sourced in its header
-40_DOCS/Supervisor_Drafts,Arbitration Cost Update.docx,doc,rendition,2026-10-14,952bf9cb53f0782e549dd166306d9f2eb288b9ff,12647,2026-10-14,yes,git,"2-page note for the 2026-10-15 meeting: the arbitration cost for control seasons, its effect, the checks"
+25_TESTS,control_cost_note_doc.js,draft,hashable,2026-10-14,00ff834a23943c34dde0b3088bf78b305cf967b4,11464,2026-10-14,yes,git,builds 40_DOCS/Supervisor_Drafts/Arbitration Cost Update.docx (docx-js); figures sourced in its header
+40_DOCS/Supervisor_Drafts,Arbitration Cost Update.docx,doc,rendition,2026-10-14,e3b95f738661ac13e041b1819aa36a5029545415,13103,2026-10-14,yes,git,"2-page note for the 2026-10-15 meeting: the arbitration cost for control seasons, its effect, the checks"
 25_TESTS,pick_group6_check.py,draft,hashable,2026-10-14,8e9353702819a62adcd2ce73f1681c371ac5f63a,4936,2026-10-14,yes,git,"v1.0: the star value with CBA Group 6 applied at its upper bound (-0.37%)"
-40_DOCS,Age_and_Weighting_Audit.md,doc,hashable,2026-10-14,282ba8efc373b896d9b3c6575d0b4f1b52eff1c3,10604,2026-10-14,yes,git,where the model reads an age (date vs the CBA) and where it weights seasons or pulls toward the league; Thomas's decisions 2026-10-14 at the top
+40_DOCS,Age_and_Weighting_Audit.md,doc,hashable,2026-10-14,a0f5928a4a028c38b2a3b28683c736d4f83224f9,10617,2026-10-14,yes,git,where the model reads an age (date vs the CBA) and where it weights seasons or pulls toward the league; Thomas's decisions 2026-10-14 at the top
 00_STATE/sessions,2026-10-14.md,state,hashable,2026-10-14,33dfa2d1b5f76430bf32570b4e57e25c16727073,8368,2026-10-14,yes,git,"session log: work-queue walk-through and audit; checks before the prospect model; age and arbitration decisions; PROJECT_STATE v3.4"
-20_CODE,elc_signing_dates.py,draft,hashable,2026-10-14,71fe6371ecd264c560643af98520b2b9945f8a6b,7164,2026-10-14,yes,git,"v1.0: entry-level signing dates (PuckPedia, CapWages verified by draft line) for the CBA ages"
+20_CODE,elc_signing_dates.py,draft,hashable,2026-10-14,d76a1a5e98229ebf869b81780b372381f8a1ca6f,10028,2026-10-14,yes,git,"v1.0: entry-level signing dates (PuckPedia, CapWages verified by draft line) for the CBA ages"
 25_TESTS,output_compare.py,player,hashable,2026-10-14,6b20616ca24c63d6618832f2fb1a810956d33060,5411,2026-10-14,yes,git,"v1.0: what moved between two runs (contract values, goalie spine, star value, traded picks)"

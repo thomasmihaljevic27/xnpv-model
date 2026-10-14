@@ -8,8 +8,8 @@ first check). Each row was read from the code that runs, at the line given. Noth
 
 - **Ages (findings 1.1 and 1.2):** "We should move it so that all age checks are consistent." Every age the model
   reads follows the CBA. The performance age moves to September 15 of the season's starting year (Thomas: "Sept 15"):
-  built on branch `claude/cba-age-sep15`, waiting on his lock of the re-fitted price line. Drafted players' signing age
-  is read in the year they signed: built (`elc_signing_dates.py`, `pick_curve.py` v1.5).
+  built, and the price line re-locked on it (Thomas: "lock it"). Drafted players' signing age is read in the year they
+  signed: built (`elc_signing_dates.py`, `pick_curve.py` v1.5; 1,092 of 1,157 who played have a date).
 - **Group 6 (finding 1.3):** asked whether it affects anything. `25_TESTS/pick_group6_check.py`: at its upper bound
   the star value moves from 13.42 to 13.37 (-0.37%). Left out and stated.
 - **The arbitration price (finding 2.3):** "It should be consistent with the forecast"; reading (a), the forecast's

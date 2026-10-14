@@ -748,8 +748,8 @@ Thomas the same day. Each item may change only by Thomas's decision.
   consistent." The performance age (aging curve, chance of playing, games share, goalie exit risk; February 1 of
   the season's ending year until now) moves to September 15 of the season's starting year (Thomas, 2026-10-14:
   "Sept 15"); drafted players' signing age (entry-level length, arbitration need) is read in the year they signed.
-  Signing age built (`elc_signing_dates.py`, `pick_curve.py` v1.5); the September 15 age built on branch
-  `claude/cba-age-sep15`, awaiting Thomas's lock of the re-fitted price line.
+  Both built 2026-10-14 (`elc_signing_dates.py` v1.1, `pick_curve.py` v1.5; `age_join.py`, `player_season_table.py`
+  v1.4); the price line and floor spread re-locked on the new ages (Thomas: "lock it"). Star value 18.03.
 - *The arbitration price consistent with the forecast (Thomas, 2026-10-14):* "It should be consistent with the
   forecast." Reading (a) (Thomas, 2026-10-14): the forecast's own start rebuilt at the season, times its games
   share. Built (`skater_forecast.arbitration_war`; goalies the goalie forecast's construction). Star value 17.85.

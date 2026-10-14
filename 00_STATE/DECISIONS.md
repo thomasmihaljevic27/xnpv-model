@@ -3172,3 +3172,14 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - The September 15 age: built on branch claude/cba-age-sep15; the re-fitted price line and floor spread await
   Thomas's lock (WORK_QUEUE). The age convention revisits the input behind the aging curve, the chance of playing and
   the `XNPV1_RATE` lock (D33 addendum).
+
+### Change log, 2026-10-14d (the line re-locked on September 15 ages; signing dates fetched; note rebuilt)
+
+- DECISION (Thomas): "lock it": `XNPV1_RATE` -0.0043530319 / 0.0175137032 / +0.0038753270, term 0.0089195167;
+  term-free 0.0081699059 / 0.0310586846 / +0.0139734816; WAR_IF_PLAYS_MAE {0.6767, 0.7545, 0.8026, 0.8499, 0.8770,
+  0.8981}. Revisits the 2026-10-05 lock (D33 addendum) with the September 15 age. Lock guard PASS (gap 4.0e-11).
+- DECISION (Thomas): "yes fetch": 230 CapWages pages; signing years for 1,092 of 1,157 drafted players who played.
+- DECISION (Thomas): "new figures" for the meeting note (rebuilt, 2 pages).
+- Results: refresh 10 of 10; 7,353 of 7,817 valuations move (total +$58.6M); star value 18.03 (se 1.73), 15.68
+  without 2015-2016, chain 31.90; traded picks $401.3M. pick_curve's two guards recorded on the 2026-10-05 line now run
+  only on that line.
