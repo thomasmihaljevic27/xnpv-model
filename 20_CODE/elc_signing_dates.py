@@ -9,6 +9,11 @@ WHY (Thomas, 2026-10-14: "all aging checks should be consistent")
     supplies the real signing date where a source has it; pick_curve.py and rfa_terminal_value.py
     read it and fall back to the first NHL season only where it is missing (counted in each log).
 
+v1.1 (2026-10-14, Thomas: "yes fetch"): --fetch requests capwages.com/players/<first-last> for each
+drafted player (2007-2017 drafts) who played and has no date, 1.5 s apart, into 30_OUTPUT/capwages_elc/,
+and keeps a page only if its draft line names his draft year and overall pick. Without --fetch nothing is
+requested; the folder is read like the other caches.
+
 SOURCES, in order (the first that has the player wins; agreement between them is reported)
     1. PuckPedia's contract export: the earliest `entry_level` contract's `signing_date`, by NHL id.
        Covers entry-level deals signed from 2014 on.
@@ -34,12 +39,14 @@ from pathlib import Path
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "elc_signing_dates.py v1.0 (2026-10-14)"
+SCRIPT_VERSION = "elc_signing_dates.py v1.1 (2026-10-14)"
 load_dotenv()
 SOURCE_DIR, OUTPUT_DIR = Path(os.environ["SOURCE_DIR"]), Path(os.environ["OUTPUT_DIR"])
 F_LINK = OUTPUT_DIR / "draft_pick_linkage.csv"
 F_PP = SOURCE_DIR / "PuckPedia_Player_Contract_Export_May_22_2026__CONFIDENTIAL.csv"
-CACHES = [SOURCE_DIR / "capwages_cache", OUTPUT_DIR / "capwages_top_picks"]
+CACHE_FETCH = OUTPUT_DIR / "capwages_elc"           # v1.1: pages fetched by --fetch
+CACHES = [SOURCE_DIR / "capwages_cache", OUTPUT_DIR / "capwages_top_picks", CACHE_FETCH]
+UA = os.environ.get("SCRAPER_USER_AGENT", "xnpv-model/1.0 (academic research)")
 OUT, OUT_LOG = OUTPUT_DIR / "elc_signing_dates.csv", OUTPUT_DIR / "elc_signing_dates_log.txt"
 LOG = []
 
@@ -70,7 +77,54 @@ def elc_signed(txt):
     return min(dates) if dates else None
 
 
-def main():
+def to_slug(name):
+    """capspace_capwages_compare.to_slug: first-last lowercase ASCII."""
+    import unicodedata
+    n = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode()
+    n = re.sub(r"[^A-Za-z\- ]", "", n).strip().lower()
+    return re.sub(r"\s+", "-", n)
+
+
+def fetch_missing(link, pp_d, pages):
+    """v1.1: fetch pages for drafted players (2007-2017) who played and have no date from either source."""
+    import time
+    import requests
+    CACHE_FETCH.mkdir(exist_ok=True)
+    want = link[link["war_names"].notna() & link["draftYear"].between(2007, 2017)]
+    sess, fetched, refused, nodate = requests.Session(), 0, [], []
+    for r in want.itertuples():
+        key = (int(r.draftYear), int(r.overallPickNumber))
+        nid = int(r.playerId) if pd.notna(r.playerId) else None
+        if (nid is not None and nid in pp_d.index) or (key in pages and pages[key][1] is not None):
+            continue
+        f = CACHE_FETCH / f"{to_slug(r.playerName)}.html"
+        if not f.exists():
+            try:
+                resp = sess.get(f"https://capwages.com/players/{f.stem}", headers={"User-Agent": UA}, timeout=20)
+            except requests.RequestException as e:
+                refused.append(f"{key} {r.playerName}: {type(e).__name__}")
+                continue
+            time.sleep(1.5)
+            if resp.status_code != 200:
+                refused.append(f"{key} {r.playerName}: HTTP {resp.status_code}")
+                continue
+            f.write_text(resp.text, encoding="utf-8")
+            fetched += 1
+        t = page_text(f.read_text(encoding="utf-8", errors="ignore"))
+        if drafted(t) != key:                          # GUARD: a namesake's page is refused
+            refused.append(f"{key} {r.playerName}: page drafted {drafted(t)}")
+            continue
+        sd = elc_signed(t)
+        pages[key] = (f.name, sd)
+        if sd is None:
+            nodate.append(f"{key} {r.playerName}")
+    log(f"[fetch] requested {fetched} pages into {CACHE_FETCH}; refused {len(refused)}; "
+        f"verified page without an entry-level signing date {len(nodate)}")
+    for x in refused + [f"{x}: no entry-level block" for x in nodate]:
+        log(f"     {x}")
+
+
+def main(fetch=False):
     log(SCRIPT_VERSION)
     for k, p in {"linkage": F_LINK, "puckpedia": F_PP}.items():
         log(f"  input {k}: {p.resolve()}  (modified {pd.Timestamp(p.stat().st_mtime, unit='s'):%Y-%m-%d %H:%M})")
@@ -100,6 +154,8 @@ def main():
 
     # 3. drafted players who played
     link = pd.read_csv(F_LINK)
+    if fetch:
+        fetch_missing(link, pp_d, pages)
     played = link[link["war_names"].notna()].copy()
     rows = []
     agree = disagree = 0
@@ -140,4 +196,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+    main(fetch="--fetch" in sys.argv)
