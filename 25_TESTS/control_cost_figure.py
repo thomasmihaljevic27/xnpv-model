@@ -1,5 +1,5 @@
 """
-control_cost_figure.py v1.0 -- the control-cost bar chart for "Arbitration Cost Update" (Figure 1).
+control_cost_figure.py v1.4 -- the control-cost bar chart for "Arbitration Cost Update" (Figure 1).
 
 WHY (Thomas, 2026-10-15, a note on the Arbitration Cost Update): "In the previous Valuing Draft Picks document you
 had a bar graph showing the difference between surplus value, what the model costed players at, and what teams
@@ -33,6 +33,14 @@ the Word file in place of the paragraph "[Figure 1 is inserted here by 25_TESTS/
 caption's {{...}} counts are filled. Run again after the figure is in, it replaces the image (word/media/
 control_cost.png) and leaves the text alone. Standard library only for the Word step (zipfile).
 
+v1.1: stops plainly when the pick curve output predates v1.5. v1.2 (Thomas's first laptop run): the temporary
+Word file is closed before it is swapped in (v1.1 left it open, and Windows refused the move); a re-run refreshes the
+caption's counts; the cap-hit coverage is printed by band with the CapWages folders read, and the figure stays out of
+the note when over 10% of seasons have no cap hit (--allow-gaps overrides). v1.3: --capwages-dir reads more folders of
+CapWages pages (repeatable); a player's cap hits are the union over his pages, the first folder read winning a season.
+v1.4: --fetch N fetches up to N missing pages as top_pick_control_look.py did (kept only when the draft line matches);
+the coverage lines split the seasons without a cap hit at 2018-19.
+
 OUTPUTS: OUTPUT_DIR/control_cost_figure/control_cost.png, control_cost_bands.csv, control_cost_figure_log.txt.
 Run from the repo root:  python 25_TESTS/control_cost_figure.py      (after pick_curve.py; needs matplotlib)
 """
@@ -41,10 +49,10 @@ import argparse
 import html as htmlmod
 import os
 import re
-import shutil
 import struct
 import sys
-import tempfile
+import time
+import unicodedata
 import zipfile
 from pathlib import Path
 
@@ -53,9 +61,10 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt                   # noqa: E402
 import numpy as np                                # noqa: E402
 import pandas as pd                               # noqa: E402
+import requests                                   # noqa: E402
 from dotenv import load_dotenv                    # noqa: E402
 
-SCRIPT_VERSION = "control_cost_figure.py v1.0 (2026-10-15)"
+SCRIPT_VERSION = "control_cost_figure.py v1.4 (2026-10-15)"
 load_dotenv()
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "20_CODE"))
@@ -93,6 +102,50 @@ def cap_hits(txt):
     return out
 
 
+def to_slug(name):
+    """capspace_capwages_compare.to_slug, as top_pick_control_look.py v1.1: first-last lowercase ASCII."""
+    n = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode()
+    n = re.sub(r"[^A-Za-z\- ]", "", n).strip().lower()
+    return re.sub(r"\s+", "-", n)
+
+
+def fetch_missing(players, pages, limit):
+    """v1.4: fetch the CapWages page of each first-round skater who played and has no page, as
+    top_pick_control_look.py v1.1 fetched them on 2026-10-09 (capwages.com/players/<slug>, 1.5 s apart, the .env
+    user agent), into OUTPUT_DIR/capwages_top_picks/. A page is kept ONLY if its "Drafted" line names the same
+    draft year and pick (a namesake's page is refused and not saved). limit: at most this many requests."""
+    new = OUTPUT_DIR / "capwages_top_picks"
+    new.mkdir(exist_ok=True)
+    ua = os.environ.get("SCRAPER_USER_AGENT", "xnpv-model/1.0 (academic research)")
+    sess, asked, kept, refused = requests.Session(), 0, 0, []
+    todo = [r for r in players.itertuples() if (int(r.draftYear), int(r.pick)) not in pages]
+    log(f"  fetch: {len(todo):,} first-round skaters who played have no CapWages page; limit {limit:,} requests")
+    for r in todo:
+        if asked >= limit:
+            break
+        key, slug = (int(r.draftYear), int(r.pick)), to_slug(r.player)
+        try:
+            resp = sess.get(f"https://capwages.com/players/{slug}", headers={"User-Agent": ua}, timeout=20)
+        except requests.RequestException as e:
+            refused.append(f"{key[0]} #{key[1]} {r.player} ({slug}): {type(e).__name__}")
+            asked += 1
+            continue
+        asked += 1
+        time.sleep(1.5)
+        t = page_text(resp.text) if resp.status_code == 200 else ""
+        got = drafted(t) if t else None
+        if resp.status_code != 200 or got != key:      # GUARD: only his own page is kept
+            refused.append(f"{key[0]} #{key[1]} {r.player} ({slug}): HTTP {resp.status_code}, page drafted {got}")
+            continue
+        (new / f"{slug}.html").write_text(resp.text, encoding="utf-8")
+        pages[key] = cap_hits(t)
+        kept += 1
+        log(f"    kept {key[0]} #{key[1]} {r.player}: {len(pages[key])} seasons with a cap hit")
+    log(f"  fetch: {asked:,} requested, {kept:,} kept, {len(refused):,} refused")
+    for x in refused:
+        log(f"    refused {x}")
+
+
 # ---- the Word step: one inline picture in place of the placeholder paragraph --------------------------------
 def drawing_xml(rid, cx, cy):
     return (f'<w:r><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0"><wp:extent cx="{cx}" cy="{cy}"/>'
@@ -105,14 +158,21 @@ def drawing_xml(rid, cx, cy):
             f'</a:prstGeom></pic:spPr></pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r>')
 
 
+# the caption's counts: a {{TOKEN}} on the first insertion, the previous run's number on a re-run (v1.2)
+CAPTION_RX = {"N_PLAYERS": r"2007-2017 drafts \((\{\{N_PLAYERS\}\}|[\d,]+) players\)",
+              "NO_CAP_HIT": r"before; (\{\{NO_CAP_HIT\}\}|[\d,]+) of ",
+              "SEASONS": r" of (\{\{SEASONS\}\}|[\d,]+) seasons with no cap hit"}
+
+
 def put_in_doc(doc, png, fills):
+    doc = Path(doc)
     with zipfile.ZipFile(doc) as z:
         parts = {n: z.read(n) for n in z.namelist()}
-    if MEDIA in parts:                                       # already inserted: replace the picture only
+    xml = parts["word/document.xml"].decode("utf-8")
+    if MEDIA in parts:                                       # already inserted: replace the picture and the counts
         parts[MEDIA] = png.read_bytes()
-        how = "picture replaced"
+        how = "picture and caption counts replaced"
     else:
-        xml = parts["word/document.xml"].decode("utf-8")
         m = re.search(r"<w:p\b(?:(?!<w:p\b).)*?" + re.escape(PLACEHOLDER) + r".*?</w:p>", xml, flags=re.S)
         assert m, f"placeholder paragraph not found in {doc}"
         rels = parts["word/_rels/document.xml.rels"].decode("utf-8")
@@ -125,22 +185,31 @@ def put_in_doc(doc, png, fills):
         para = ('<w:p><w:pPr><w:keepNext/><w:spacing w:before="60" w:after="60"/><w:jc w:val="center"/></w:pPr>'
                 + drawing_xml(rid, cx, int(cx * h / w)) + "</w:p>")
         xml = xml[:m.start()] + para + xml[m.end():]
-        for k, v in fills.items():                           # the caption's counts
-            assert xml.count("{{" + k + "}}") == 1, k
-            xml = xml.replace("{{" + k + "}}", v)
         ct = parts["[Content_Types].xml"].decode("utf-8")
         if 'Extension="png"' not in ct:
-            ct = ct.replace("<Types ", "<Types ", 1).replace(
-                "</Types>", '<Default Extension="png" ContentType="image/png"/></Types>')
-        parts.update({"word/document.xml": xml.encode("utf-8"), "word/_rels/document.xml.rels": rels.encode("utf-8"),
-                      "[Content_Types].xml": ct.encode("utf-8"), MEDIA: png.read_bytes()})
+            ct = ct.replace("</Types>", '<Default Extension="png" ContentType="image/png"/></Types>')
+        parts.update({"word/_rels/document.xml.rels": rels.encode("utf-8"), "[Content_Types].xml": ct.encode("utf-8"),
+                      MEDIA: png.read_bytes()})
         how = "figure and caption counts inserted"
-    tmp = Path(tempfile.mkstemp(suffix=".docx")[1])
-    with zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED) as z:
-        z.writestr("[Content_Types].xml", parts.pop("[Content_Types].xml"))   # first, as Word writes it
-        for n, b in parts.items():
-            z.writestr(n, b)
-    shutil.move(str(tmp), doc)
+    for k, v in fills.items():
+        rx = CAPTION_RX[k]
+        assert len(re.findall(rx, xml)) == 1, f"caption count {k} not found once in {doc}"
+        xml = re.sub(rx, lambda mm: mm.group(0).replace(mm.group(1), v), xml)
+    parts["word/document.xml"] = xml.encode("utf-8")
+    # v1.2: write a closed temporary file beside the note, then swap it in (v1.1 left its temp file open, and
+    # Windows refused the move). If Word holds the note, say so and leave the note as it was.
+    tmp = doc.with_name(doc.name + ".tmp")
+    try:
+        with zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED) as z:
+            z.writestr("[Content_Types].xml", parts.pop("[Content_Types].xml"))   # first, as Word writes it
+            for n, b in parts.items():
+                z.writestr(n, b)
+        os.replace(tmp, doc)
+    except PermissionError:
+        sys.exit(f"STOP: Windows would not replace {doc}. Close it in Word and run again; the note is unchanged.")
+    finally:
+        if tmp.exists():
+            tmp.unlink()
     return how
 
 
@@ -148,6 +217,10 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--doc", default=str(ROOT / "40_DOCS" / "Supervisor_Drafts" / "Arbitration Cost Update.docx"))
     ap.add_argument("--no-doc", action="store_true", help="draw the figure only")
+    ap.add_argument("--capwages-dir", action="append", default=[], help="another folder of CapWages pages (repeatable)")
+    ap.add_argument("--fetch", type=int, default=0, metavar="N",
+                    help="fetch up to N missing CapWages pages for first-round skaters who played")
+    ap.add_argument("--allow-gaps", action="store_true", help="insert even with over 10%% of seasons lacking a cap hit")
     a = ap.parse_args()
     OUT.mkdir(exist_ok=True)
     log(SCRIPT_VERSION)
@@ -157,8 +230,16 @@ def main():
         log(f"  input {k}: {p.resolve()}  (modified {pd.Timestamp(p.stat().st_mtime, unit='s'):%Y-%m-%d %H:%M})")
     curve_log = F["curve_log"].read_text(encoding="utf-8")
     log(f"  pick curve: {curve_log.splitlines()[0]}")
+    # GUARD (v1.1): the note's figures come from pick_curve.py v1.5 (2026-10-14); an older run has no chain column
+    m = re.match(r"pick_curve\.py v(\d+)\.(\d+)", curve_log)
+    if not m or (int(m.group(1)), int(m.group(2))) < (1, 5):
+        sys.exit("STOP: 30_OUTPUT's pick curve is older than v1.5 (the version the note quotes). Run, from the repo "
+                 "root:\n  python 20_CODE/elc_signing_dates.py\n  python 20_CODE/pick_curve.py\nthen check its log's "
+                 "first line says v1.5 and the star value is 18.03, and run this script again.")
 
     se = pd.read_csv(F["seasons"])
+    missing = {"value_share", "cost_share", "cost_qo_share", "games_scale", "cap"} - set(se.columns)
+    assert not missing, f"pick_curve_seasons.csv lacks {sorted(missing)}: re-run pick_curve.py"
     pl = pd.read_csv(F["players"])
     se = se.merge(pl[["draftYear", "pick", "player", "playerId", "is_goalie", "route", "nhl_seasons"]],
                   on=["draftYear", "pick"], how="left", validate="many_to_one")
@@ -178,19 +259,31 @@ def main():
             f"equal pick_curve_log.txt (PASS)")
 
     # ---- actual cap hits, season by season ----------------------------------------------------------------
-    pages = {}
-    for d_ in (SOURCE_DIR / "capwages_cache", OUTPUT_DIR / "capwages_top_picks"):
-        if d_.exists():
-            for f in sorted(d_.glob("*.html")):
-                t = page_text(f.read_text(encoding="utf-8", errors="ignore"))
-                k = drafted(t)
-                if k:
-                    pages.setdefault(k, cap_hits(t))
-    log(f"  CapWages pages with a draft line: {len(pages):,}")
+    # v1.3: --capwages-dir adds folders (the laptop holds copies outside the working folder). Each player's cap hits
+    # are the union over his pages, season by season; where two pages list one season, the first folder read wins.
+    pages, CW = {}, []
+    for d_ in [SOURCE_DIR / "capwages_cache", OUTPUT_DIR / "capwages_top_picks"] + [Path(x) for x in a.capwages_dir]:
+        files = sorted(d_.glob("*.html")) if d_.exists() else []
+        with_line, new_players = 0, 0
+        for f in files:
+            t = page_text(f.read_text(encoding="utf-8", errors="ignore"))
+            k = drafted(t)
+            if k:
+                with_line += 1
+                new_players += k not in pages
+                hits = pages.setdefault(k, {})
+                for y, v in cap_hits(t).items():
+                    hits.setdefault(y, v)
+        CW.append(f"  CapWages folder {d_}: {'present' if d_.exists() else 'MISSING'}, {len(files):,} pages, "
+                  f"{with_line:,} with a draft line, {new_players:,} players not in an earlier folder")
+        log(CW[-1])
+    log(f"  CapWages players with a draft line: {len(pages):,}")
     pp = pd.read_csv(F["pp_seasons"], usecols=["nhl_id", "season_start", "pp_cap_hit"]).dropna()
     pp = pp.groupby(["nhl_id", "season_start"])["pp_cap_hit"].max().to_dict()
 
     fig_rows = se[(se["pick"] <= 32) & ~se["is_goalie"].astype(bool) & (se["nhl_seasons"] > 0)].copy()
+    if a.fetch:
+        fetch_missing(fig_rows.drop_duplicates(["draftYear", "pick"])[["draftYear", "pick", "player"]], pages, a.fetch)
     acts, src, corrupt = [], [], 0
     for r in fig_rows.itertuples():
         pv = pp.get((int(r.playerId), int(r.season))) if (pd.notna(r.playerId) and r.season >= 2018) else None
@@ -260,8 +353,23 @@ def main():
     plt.close(fig)
     log(f"\n  wrote {png}")
 
+    nh = int((fig_rows["actual_source"] == "market price rule (no cap hit)").sum())
+    for lo, hi in BANDS:                                     # v1.2: coverage of the "actually paid" bar, by band
+        g = fig_rows[fig_rows["pick"].between(lo, hi)]
+        gap = int((g["actual_source"] == "market price rule (no cap hit)").sum())
+        early = int(((g["actual_source"] == "market price rule (no cap hit)") & (g["season"] < 2018)).sum())
+        log(f"  picks {lo}-{hi}: {gap:,} of {len(g):,} seasons without a cap hit ({gap / len(g):.0%}; "
+            f"{early:,} before 2018-19, {gap - early:,} from it)")
+    for line in CW:                                          # repeated beside the coverage
+        log(line)
+    # GUARD (v1.2): a season without a cap hit takes the model's cost, which pulls the "actually paid" bar toward the
+    # model's; over 10% of seasons and the bar is not what clubs paid, so the figure stays out of the note
+    if not a.no_doc and nh > 0.10 * len(fig_rows) and not a.allow_gaps:
+        (OUT / "control_cost_figure_log.txt").write_text("\n".join(LOG), encoding="utf-8")
+        sys.exit(f"STOP: {nh:,} of {len(fig_rows):,} seasons ({nh / len(fig_rows):.0%}) have no cap hit, so the 'cost "
+                 f"actually paid' bar is mostly the model's own cost. The note was not changed. Check the CapWages folder counts "
+                 f"above against the folders top_pick_control_look.py read on 2026-10-09.")
     if not a.no_doc:
-        nh = int((fig_rows["actual_source"] == "market price rule (no cap hit)").sum())
         how = put_in_doc(a.doc, png, {"N_PLAYERS": f"{int(cc['players'].sum()):,}", "NO_CAP_HIT": f"{nh:,}",
                                       "SEASONS": f"{len(fig_rows):,}"})
         log(f"  {a.doc}: {how}")
