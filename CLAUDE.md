@@ -463,6 +463,22 @@ To answer questions about the curve on the spot: `python 25_TESTS/pick_lookup.py
   reach the NHL do it in their first season) to Thomas; Thomas's guess was about 10% of first-rounders
   (2026-10-15). Before saying who said something, check it against what each person would say (Karl asks about
   method, Thomas explains hockey), and when it is still unclear, say so instead of naming either.
+- **Don't name a model version by its shape; name it by its terms.** "The curve" and "the full curve" in "Valuing
+  Prospects" left Thomas asking how they differed: "The whole thing is a curve" (2026-10-15). Write "linear production",
+  "linear and squared production", "production squared alone", and use the same name for one version everywhere.
+- **Don't call a draft position "the slot".** The slot is an area of the ice; "slot" for a pick's position read as
+  non-specific to Thomas (2026-10-15). Write "draft position".
+- **Don't draw a cumulative share without saying what it is a share of.** "When drafted players reach the NHL" plotted
+  shares of the players who arrived, so every line reached 100%, and Thomas read it as everyone reaching the NHL
+  (2026-10-15). A cumulative curve of an outcome some never reach is drawn as a share of the whole group, so the
+  never-reached share shows.
+- **Don't argue from a part of the model the reader has not reached.** Section 2 rejected production squared alone
+  on how age is centred, before Section 3 introduces age; Thomas: "Why are we talking about age here at all?"
+  (2026-10-15). Give the reason that stands where it is, or move the argument after what it rests on.
+- **Don't describe a measure by how it is built when the reader asks what it means.** "Years past first eligibility
+  ... the age the autumn after his draft, less 18" read to Thomas as valuing a player by his draft age, when within a
+  season it also measures the age at which he scored, which is what matters (2026-10-15). Say what the measure
+  compares in hockey terms first.
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised

@@ -972,6 +972,14 @@ minus the seasons since his draft minus 18.5 (within a season group, "older now"
 - **The document:** "Valuing Prospects" rebuilt by `25_TESTS/prospect_model_doc.js` v2.0 from Thomas's edited file,
   his 20 notes, these decisions, the deceased-draftee list and the new tests (figures and numbers:
   `prospect_doc_figures.py` v2.0). The Word file is again built by the script.
+- **Reported as age now (Thomas, 2026-10-15, option A of three rewrites offered for his note on the age wording):**
+  the document reports age as his age on September 15 of the valuation season, entering as production x (age - 18).
+  Within a season's regression that differs from years past first eligibility by the seasons since the draft, the same
+  for every prospect, so production's coefficient absorbs it: the same values and the same age coefficient; only the
+  reported production coefficient moves (b - e x k). `prospect_doc_figures.py` v2.1 refits the adopted model this way
+  and checks it against the live fit; `prospect_values.py` is unchanged (it still stores years past first
+  eligibility). The rejected flat age form is reported as tested, on years past first eligibility. His reading, which
+  this matches: a point scored at 20 is worth less than a point scored at 18, all else equal.
 
 ---
 

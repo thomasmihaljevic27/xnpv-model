@@ -20,6 +20,11 @@
   (2026-10-15): the scripts are his to run and check, as now; no change to the process.
 - Not discussed: the draft regression's form (below), still open.
 
+**Do (Thomas, on the laptop): rebuild "Valuing Prospects" from his 13 notes (session 2026-10-15c).** Close the Word
+file; from the repo root run `python 25_TESTS/prospect_doc_figures.py` (both guard lines PASS), then
+`node 25_TESTS/prospect_model_doc.js`. Then read it; the production coefficients in Tables 9-11 move under age now (the
+values do not).
+
 **Read (Thomas): the revised "Valuing Prospects" (built 2026-10-15, session 2026-10-15b, 16 pages).** Then decide (Thomas):
 whether undrafted players' selection (all on NHL contracts) is a stated limitation or something to investigate, and
 whether to test a save-percentage measure for goaltenders (stated as untested in the document). The revision itself: Answered in

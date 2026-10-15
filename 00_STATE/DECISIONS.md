@@ -3323,3 +3323,15 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - "Valuing Prospects" rebuilt (`25_TESTS/prospect_model_doc.js` v2.0, `prospect_doc_figures.py` v2.0): all 20 notes,
   the excluded-players table, arrival timing, the fade rules against the adopted one, NHLe factors, three production
   forms, age correlations, the regressions built up one term at a time. No locked decision (D1-D33) touched.
+
+### Change log, 2026-10-15d (Thomas's 13 notes on the rebuilt "Valuing Prospects"; session 2026-10-15c)
+
+- Thomas chose to report age as his age on September 15 of the valuation season (option A): the same values and age
+  coefficient as years past first eligibility, a different reported production coefficient. Document only
+  (`prospect_doc_figures.py` v2.1 refits and checks; `prospect_values.py` unchanged). MODEL_DIRECTIVES directive 6.
+- "Valuing Prospects" builder v2.1 and figure script v2.1: draft position for slot, NHLe, root mean squared error,
+  production forms named by their terms, the full set of interaction terms, arrival as shares of all picks, Figure 2
+  in three panels, the age-centring argument cut from Section 2, missing prospect-seasons with the 2007 draft.
+  Thomas's commented copy committed. Not yet run on the laptop. No locked decision (D1-D33) touched.
+- CLAUDE.md: four rules (name a model by its terms; draft position, not slot; a cumulative share's base; no argument
+  that rests on a section not yet read). `sessions/2026-10-15c.md`.

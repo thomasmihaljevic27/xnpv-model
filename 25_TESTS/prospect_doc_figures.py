@@ -1,5 +1,19 @@
 """
-prospect_doc_figures.py -- the numbers and figures behind "Valuing Prospects" (40_DOCS/Supervisor_Drafts/), v2.0.
+prospect_doc_figures.py -- the numbers and figures behind "Valuing Prospects" (40_DOCS/Supervisor_Drafts/), v2.1.
+
+v2.1 (2026-10-15, Thomas's 13 notes on v2.0's document):
+  * age is reported as his age on September 15 of the valuation season, less 18 (Thomas: option A), not as years
+    past first eligibility. Within a season the two differ by the seasons since the draft, the same for every
+    prospect, so production's coefficient absorbs it: the same values, the same age coefficient, a different
+    production coefficient. The adopted model is refitted with age now (GUARD: fitted values, the age coefficient
+    and production's shifted coefficient match the live fit to 1e-9). The live script still stores years past
+    first eligibility. The rejected flat age term (Appendix table) is reported as tested, on years past eligibility:
+    with no constant in the regression, it does not convert.
+  * arrival figure: each line is the share of ALL the group's players who had reached the NHL by each season, so
+    the players who never arrived show as the gap to 100% (v2.0 drew shares of arrivals, which all reach 100%);
+  * the star value figure: three panels, one simpler rule each against the adopted values, no shared legend;
+  * no-record prospect-seasons counted by season for the 2007 draft (its D+1 scoring can draw only on 2006-07);
+  * axis labels say NHLe points and draft position.
 
 v2.0 (2026-10-15, Thomas's 20 notes and the decisions of session 2026-10-15b): rebuilt for the revised document.
   * the model as it runs now: prospect_values.py v1.7 (deceased draftees out of every fit, age centred at 18,
@@ -43,7 +57,7 @@ import matplotlib                                                  # noqa: E402
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt                                    # noqa: E402
 
-SCRIPT_VERSION = "prospect_doc_figures.py v2.0 (2026-10-15)"
+SCRIPT_VERSION = "prospect_doc_figures.py v2.1 (2026-10-15)"
 OUT, SRC = Path(os.environ["OUTPUT_DIR"]), Path(os.environ["SOURCE_DIR"])
 FIG = OUT / "prospect_doc"
 FIG.mkdir(exist_ok=True)
@@ -90,6 +104,8 @@ ar = pd.read_csv(OUT / "nhl_arrival_timing_summary.csv")
 N["arrival"] = {g: {"n_arrived": int(x.loc[x["season"] != "never", "arrived"].sum()),
                     "n": int(x["arrived"].sum()),
                     "share": {s: float(v) for s, v in zip(x["season"], x["share_of_arrivals"]) if s != "never"},
+                    # v2.1: the share of ALL the group's players arriving in each season (never-arrived = the rest)
+                    "share_all": {s: float(v) for s, v in zip(x["season"], x["share_of_all"]) if s != "never"},
                     "never": int(x.loc[x["season"] == "never", "arrived"].iloc[0])}
                 for g, x in ar.groupby("group")}
 
@@ -103,7 +119,11 @@ nc = pd.read_csv(OUT / "prospect_nhle_coefficients.csv", dtype={"k_group": str})
 pr = pd.read_csv(OUT / "prospect_nhle_rows.csv", dtype={"k_group": str})
 N["prod_rows"] = {"rows": len(pr), "players": int(pr[["draftYear", "pick"]].drop_duplicates().shape[0]),
                   "no_record_share": float(pr["no_record"].mean()),
-                  "no_record_by_k": {g: int(x["no_record"].sum()) for g, x in pr.groupby("k_group")}}
+                  "no_record_by_k": {g: int(x["no_record"].sum()) for g, x in pr.groupby("k_group")},
+                  # v2.1: how many of each season's no-record prospect-seasons belong to the 2007 draft, whose
+                  # scoring record (Elite Prospects with an NHLe factor) begins in 2006-07, its draft season
+                  "no_record_2007_by_k": {g: int(x.loc[x["draftYear"] == 2007, "no_record"].sum())
+                                          for g, x in pr.groupby("k_group")}}
 k1 = pr[(pr["k_group"] == "1") & (pr["n_seasons"] > 0)]["nhle82"]
 N["prod_pct_k1"] = {q: float(k1.quantile(q / 100)) for q in (25, 50, 75, 90)}
 N["prod_median_by_k"] = {g: float(x.loc[x["n_seasons"] > 0, "nhle82"].median()) for g, x in pr.groupby("k_group")}
@@ -156,6 +176,9 @@ live = pd.read_csv(OUT / "prospect_production_fits.csv", dtype={"k_group": str, 
 # the age correlations on the fit rows
 age_now = prow["past_elig"] + prow["k"] + PV.FIRST_ELIGIBLE_AGE
 N["age_corr"] = {"age_vs_k": float(np.corrcoef(age_now, prow["k"])[0, 1]),
+                 # v2.1: the range of age now (September 15 of the valuation season) in each age-bearing season
+                 "age_range": {g: [float(age_now[prow["k_group"] == g].min()), float(age_now[prow["k_group"] == g].max())]
+                               for g in ("0", "1", "2", "3")},
                  "past_vs_k": float(np.corrcoef(prow["past_elig"], prow["k"])[0, 1]),
                  "past_range_k0": [float(prow.loc[prow["k"] == 0, "past_elig"].min()),
                                    float(prow.loc[prow["k"] == 0, "past_elig"].max())]}
@@ -197,8 +220,24 @@ for g, x in prow.groupby("k_group"):
             lv = live[(live["version"] == "main") & (live["k_group"] == g) & (live["left_out"] == "none")].iloc[0]
             for i, c in enumerate(cols):
                 assert abs(m.params[i] - lv[c]) < 1e-9, (g, c)           # GUARD: the live script's coefficients
+            # v2.1 (Thomas, option A): report age as his age on September 15 of the valuation season, less 18.
+            # Age now - 18 = years past first eligibility + seasons since the draft (k), so
+            # production x (age now - 18) = prod_x_age + k x production. k is the same for every row of a
+            # season's fit (k groups 0-3; 4+ has no age term), so production's coefficient absorbs it:
+            # b_now = b - e x k, and the fitted values and e are unchanged. Refit and check, not assume.
+            if "prod_x_age" in cols:
+                assert x["k"].nunique() == 1, g                            # one k per age-bearing group
+                kk = int(x["k"].iloc[0])
+                xa = x.assign(prod_x_age=x["prod_x_age"] + kk * x["nhle82"])
+                ma = fit(xa, cols, g.endswith("+"))
+                assert np.max(np.abs(ma.fittedvalues - m.fittedvalues)) < 1e-9, g      # GUARD: the same values
+                ie, ib = cols.index("prod_x_age"), cols.index("nhle82")
+                assert abs(ma.params[ie] - m.params[ie]) < 1e-9, g                    # GUARD: the same discount
+                assert abs(ma.params[ib] - (m.params[ib] - kk * m.params[ie])) < 1e-9, g
+                N["build"][g][spec] = table(ma, xa, cols)
             N["adopted"].append({"k": g, **N["build"][g][spec]})
 print("  guard: the adopted refit equals prospect_production_fits.csv (PASS)")
+print("  guard: age now gives the same values and age coefficient as years past first eligibility (PASS)")
 
 # ---- 4. the traded prospects ----------------------------------------------------------------------------
 v = pd.read_csv(OUT / "prospect_values.csv")
@@ -223,7 +262,9 @@ N["traded"] = {
     "neg_min": float(allv["value_M"].min()),
     "top10": [{"date": r.trade_date, "name": r.player_name, "draft": int(r.draftYear), "pick": int(r.pick),
                "k": int(r.seasons_since_draft), "prod": None if pd.isna(r.nhle82) else float(r.nhle82),
-               "past": None if pd.isna(r.past_elig) else float(r.past_elig), "main": r.value_M,
+               "past": None if pd.isna(r.past_elig) else float(r.past_elig),
+               "age": None if pd.isna(r.past_elig) else float(r.past_elig + r.seasons_since_draft + PV.FIRST_ELIGIBLE_AGE),
+               "main": r.value_M,
                "slot": r.value_slot_only_M} for r in dv.nlargest(10, "value_M").itertuples()],
 }
 sk = dv[~dv["is_goalie"].astype(bool) & dv["nhle82"].notna()].copy()
@@ -269,14 +310,16 @@ w = dv.nlargest(1, "value_M").iloc[0]
 g = str(w["k_group"])
 terms = next(t for t in N["adopted"] if t["k"] == g)["terms"]
 q, pe = float(w["nhle82"]), float(w["past_elig"])
-inputs = {"p_star": float(w["p_star"]), "nhle82": q, "nhle82_sq": q * q, "no_record": 0.0, "prod_x_age": q * pe}
+age18 = pe + int(w["seasons_since_draft"])                          # v2.1: his age on September 15, less 18
+inputs = {"p_star": float(w["p_star"]), "nhle82": q, "nhle82_sq": q * q, "no_record": 0.0, "prod_x_age": q * age18}
 parts = {c: terms[c]["b"] * inputs[c] for c in terms}
 assert abs(sum(parts.values()) - float(w["value_M"])) < 1e-9                # GUARD: the parts add to his value
 wn = {"p_star": inputs["p_star"], "nhle82": q, "nhle82_sq": q * q, "no_record": 0.0}
 no_age = sum(N["build"][g]["slot + production + squared"]["terms"][c]["b"] * wn[c]
              for c in N["build"][g]["slot + production + squared"]["terms"])
 N["worked"] = {"name": w["player_name"], "date": w["trade_date"], "draft": int(w["draftYear"]), "pick": int(w["pick"]),
-               "k": int(w["seasons_since_draft"]), "prod": q, "past": pe, "inputs": inputs,
+               "k": int(w["seasons_since_draft"]), "prod": q, "past": pe, "age": age18 + PV.FIRST_ELIGIBLE_AGE,
+               "inputs": inputs,
                "coefs": {c: terms[c]["b"] for c in terms}, "parts": parts, "value": float(w["value_M"]),
                "slot": float(w["value_slot_only_M"]), "own_out": float(w["value_own_draft_out_M"]),
                "no_age": float(no_age)}
@@ -306,43 +349,54 @@ N["leagues_share_top10"] = float(lg_counts[top].sum() / lg_counts.sum())
 plt.rcParams.update({"font.family": "Calibri", "font.size": 10, "axes.spines.top": False, "axes.spines.right": False})
 INK, MUTED, A1, A2, A3, A4 = "#2B2A28", "#8A8984", "#2F6DB5", "#D9822B", "#3E9A5B", "#9B4F96"
 
-# Figure 1: the star value by season, with the three simpler rules over it
-fig, ax = plt.subplots(figsize=(6.6, 3.5), dpi=200)
+# Figure 2: the star value by season against each simpler rule, one panel per rule (v2.1: v2.0 drew all three
+# rules over wide bars in one panel, with a legend; Thomas: "kinda ugly")
 s1 = N["step1"]
-for i in range(4):
-    ax.bar(i, s1[i]["star"], color=A1, width=0.6, zorder=2,
-           label="A separate value for each season (adopted; one value from D+5 on)" if i == 0 else None)
-    ax.errorbar(i, s1[i]["star"], yerr=1.96 * s1[i]["se"], fmt="none", ecolor=INK, capsize=3, lw=1, zorder=3)
-ax.bar(5.5, s1[4]["star"], color=A1, width=3.6, alpha=0.85, zorder=2)
-ax.errorbar(5.5, s1[4]["star"], yerr=1.96 * s1[4]["se"], fmt="none", ecolor=INK, capsize=3, lw=1, zorder=3)
-xs = np.arange(8)
-for rule, col, ls in (("no fade", MUTED, "-"), ("straight line", A2, "--"), ("same percentage", A3, ":")):
-    ax.plot(xs, N["fade_curve"][rule], color=col, lw=1.8, ls=ls, marker="o", ms=3, zorder=4,
-            label={"no fade": "One value for every season", "straight line": "Straight-line decline (one interaction term)",
-                   "same percentage": "Same percentage decline each season"}[rule])
-ax.axhline(0, color=INK, lw=0.6)
-ax.set_xticks(xs, [f"D+{i + 1}" for i in range(8)])
-ax.set_xlabel("Season (D+1 is the season after the draft)")
-ax.set_ylabel("Star value ($ millions, 2025-26 cap)")
-ax.set_ylim(-2.5, 23)
-ax.legend(frameon=False, fontsize=8, loc="upper right")
-fig.tight_layout()
+xs = np.arange(1, 9)                                                  # D+1 .. D+8
+fig, axes = plt.subplots(1, 3, figsize=(6.9, 2.7), dpi=200, sharey=True)
+for ax, (rule, title) in zip(axes, (("no fade", "One value for every season"),
+                                     ("straight line", "Straight-line decline"),
+                                     ("same percentage", "Same percentage decline"))):
+    # the adopted values: a dot and its 95% interval for D+1 to D+4, then one value from D+5 on, drawn as a
+    # level line with its interval as a band, since that one estimate covers every later season
+    ax.fill_between([4.6, 8.4], s1[4]["star"] - 1.96 * s1[4]["se"], s1[4]["star"] + 1.96 * s1[4]["se"],
+                    color=A1, alpha=0.15, lw=0, zorder=1)
+    ax.plot([4.6, 8.4], [s1[4]["star"]] * 2, color=A1, lw=2, zorder=3)
+    ax.errorbar(xs[:4], [r["star"] for r in s1[:4]], yerr=[1.96 * r["se"] for r in s1[:4]], fmt="o", ms=5,
+                color=A1, ecolor=A1, elinewidth=1.2, capsize=0, zorder=3)
+    ax.plot(xs, N["fade_curve"][rule][:8], color=A2, lw=2, zorder=4)
+    ax.axhline(0, color=MUTED, lw=0.6, zorder=0)
+    ax.set_title(title, fontsize=9.5, color=INK, loc="left")
+    ax.set_xticks(xs, [f"+{i}" for i in xs], fontsize=8)
+    ax.set_xlim(0.5, 8.5)
+    ax.grid(axis="y", color="#E6E5E0", lw=0.6, zorder=0)
+axes[0].set_ylabel("Star value ($ millions)")
+axes[0].set_ylim(-2.5, 23)
+axes[1].set_xlabel("Season after the draft (D+n)")
+axes[0].text(4.7, 4.4, "Adopted", color=A1, fontsize=8, va="center")
+axes[0].text(5.2, 16.6, "Rule", color=A2, fontsize=8, va="center")
+fig.tight_layout(w_pad=0.6)
 fig.savefig(FIG / "fig_star_value.png")
 plt.close(fig)
 
-# Figure: arrival timing, cumulative share of arrivals by season, by draft group
-fig, ax = plt.subplots(figsize=(6.4, 3.3), dpi=200)
+# Figure 1: arrival timing, the cumulative share of each draft group's players who had reached the NHL by each
+# season (v2.1: of all the group's players, so each line levels off at the share who ever arrived)
+fig, ax = plt.subplots(figsize=(6.4, 3.7), dpi=200)
 seasons = [f"D+{i}" for i in range(1, 10)]
 for grp, col in (("picks 1-10", A1), ("rest of round 1", A2), ("round 2", A3), ("rounds 3-7", A4)):
     a = N["arrival"][grp]
-    cum = np.cumsum([a["share"].get(s, 0.0) for s in seasons]) * 100
+    cum = np.cumsum([a["share_all"].get(s, 0.0) for s in seasons]) * 100
+    assert abs(cum[-1] / 100 - a["n_arrived"] / a["n"]) < 1e-9, grp    # GUARD: ends at the share who ever arrived
     ax.plot(range(1, 10), cum, color=col, lw=1.8, marker="o", ms=3,
             label=f"{grp.capitalize()}: {a['n_arrived']} of {a['n']} reached the NHL")
+    ax.text(9.15, cum[-1], f"{cum[-1]:.0f}%", color=INK, fontsize=8, va="center")
 ax.set_xticks(range(1, 10), seasons)
-ax.set_ylim(0, 102)
-ax.set_xlabel("Season of the first NHL season of 10 or more games (a goaltender's first game)")
-ax.set_ylabel("Share of those who reached the NHL (%)")
-ax.legend(frameon=False, fontsize=8, loc="lower right")
+ax.set_xlim(0.7, 9.6)
+ax.set_ylim(0, 100)
+ax.grid(axis="y", color="#E6E5E0", lw=0.6, zorder=0)
+ax.set_xlabel("Season (D+1 is the season after the draft)")
+ax.set_ylabel("Reached the NHL by then (%)")
+ax.legend(frameon=False, fontsize=8, loc="upper center", bbox_to_anchor=(0.5, -0.2), ncol=2)
 fig.tight_layout()
 fig.savefig(FIG / "fig_arrival.png")
 plt.close(fig)
@@ -379,14 +433,14 @@ qs = np.linspace(0, 25, 251)
 st = coef[("1", "slot+production")]
 cu = coef[("1", "slot+production curved")]
 fig, ax = plt.subplots(figsize=(6.4, 3.4), dpi=200)
-ax.plot(qs, np.full_like(qs, coef[("1", "slot")]["p_star"] * p20), color=MUTED, lw=1.6, label="Slot alone")
-ax.plot(qs, st["p_star"] * p20 + st["nhle82"] * qs, color=A2, lw=1.6, label="Slot + production, straight line")
+ax.plot(qs, np.full_like(qs, coef[("1", "slot")]["p_star"] * p20), color=MUTED, lw=1.6, label="Draft position alone")
+ax.plot(qs, st["p_star"] * p20 + st["nhle82"] * qs, color=A2, lw=1.6, label="Draft position + linear production")
 ax.plot(qs, cu["p_star"] * p20 + cu["nhle82"] * qs + cu["nhle82_sq"] * qs ** 2, color=A1, lw=1.8,
-        label="Slot + production, curved")
+        label="Draft position + linear and squared production")
 for qq, v_ in N["prod_pct_k1"].items():
     ax.axvline(v_, color="#D5D4CF", lw=0.8, zorder=0)
     ax.text(v_ + 0.12, -0.45, f"{qq}th", ha="left", va="bottom", fontsize=8, color=MUTED)
-ax.set_xlabel("Production: NHL-equivalent points per 82 games (50/30/20 over the three seasons before)")
+ax.set_xlabel("Production: NHLe points per 82 games (50/30/20 over the three seasons before)")
 ax.set_ylabel("Prospect value ($ millions)")
 ax.set_xlim(0, 25)
 ax.set_ylim(-0.5, 6.5)
@@ -403,14 +457,16 @@ N["fig_production"]["cross"] = float(above.min()) if len(above) else None
 # Figure: age, the adopted model for a #20 pick in D+2
 ad = next(t for t in N["adopted"] if t["k"] == "1")["terms"]
 fig, ax = plt.subplots(figsize=(6.4, 3.4), dpi=200)
-for Y, col, ls, lab in ((0.5, A1, "-", "18.5 in the autumn after his draft (a first-time eligible player)"),
-                        (1.5, A2, "--", "19.5 (drafted a year older)"), (2.5, A4, ":", "20.5 (drafted two years older)")):
-    val = ad["p_star"]["b"] * p20 + ad["nhle82"]["b"] * qs + ad["nhle82_sq"]["b"] * qs ** 2 + ad["prod_x_age"]["b"] * qs * Y
+# v2.1: ages on September 15 of his D+2 season; the adopted terms are on age now, less 18
+for A, col, ls, lab in ((19.5, A1, "-", "Age 19.5 (drafted at his first opportunity)"),
+                        (20.5, A2, "--", "Age 20.5"), (21.5, A4, ":", "Age 21.5")):
+    val = (ad["p_star"]["b"] * p20 + ad["nhle82"]["b"] * qs + ad["nhle82_sq"]["b"] * qs ** 2
+           + ad["prod_x_age"]["b"] * qs * (A - PV.FIRST_ELIGIBLE_AGE))
     ax.plot(qs, val, color=col, lw=1.8, ls=ls, label=lab)
 for qq, v_ in N["prod_pct_k1"].items():
     ax.axvline(v_, color="#D5D4CF", lw=0.8, zorder=0)
     ax.text(v_ + 0.12, -0.95, f"{qq}th", ha="left", va="bottom", fontsize=8, color=MUTED)
-ax.set_xlabel("Production: NHL-equivalent points per 82 games (50/30/20 over the three seasons before)")
+ax.set_xlabel("Production: NHLe points per 82 games (50/30/20 over the three seasons before)")
 ax.set_ylabel("Prospect value ($ millions)")
 ax.set_xlim(0, 25)
 ax.set_ylim(-1, 6.5)
@@ -428,7 +484,7 @@ lim = max(dv["value_M"].max(), dv["value_slot_only_M"].max()) + 0.3
 ax.plot([-0.5, lim], [-0.5, lim], color=MUTED, lw=0.8, ls="--")
 ax.set_xlim(-0.5, lim)
 ax.set_ylim(-0.5, lim)
-ax.set_xlabel("Value on the slot alone ($ millions)")
+ax.set_xlabel("Value on draft position alone ($ millions)")
 ax.set_ylabel("Value, adopted model ($ millions)")
 ax.legend(frameon=False, fontsize=8, loc="upper left")
 fig.tight_layout()
