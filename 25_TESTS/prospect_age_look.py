@@ -11,7 +11,7 @@ THE AGE INPUT (a choice made for this look; an option for Thomas)
     records' birthdates (draft_pick_linkage.csv; every row has one).
   * Within one season group, age = his age in the autumn after his draft + seasons since the draft, so "older
     now" and "drafted older" are the same input. It enters as YEARS PAST FIRST ELIGIBILITY: his age in the autumn
-    after his draft minus 18.5 (a first-time-eligible player is 18.0-19.0 then; 18.5 is the middle). Centred so
+    after his draft minus 18 (v1.2; 18.5 in v1.0-v1.1: a first-time-eligible player is 18.0-19.0 then). Centred so
     the through-zero form still gives zero to a mid-birthday first-time-eligible pick with no other signal.
 
 THE ARMS (each fitted for each season group 0, 1, 2, 3, 4+; through zero, draft-year indicators that sum to
@@ -25,6 +25,10 @@ zero; the slot's star chance in seasons 0-2 only, as decided):
 SCORING: the pick curve's rule (held-out error with one draft left out at a time, 2,000 redraws of the drafts),
 each arm against the chosen one on the same rows. Each addition is scored alone and in combination (CLAUDE.md).
 
+v1.1 (2026-10-15): the rows leave out the six drafted players who died before reaching the NHL (Thomas;
+pick_curve.py v1.6); v1.0 ran on 13,152 rows (fingerprint 8aa11d737772) and reproduces from git before this.
+v1.2 (2026-10-15, Thomas): centred at 18; the adopted arm's values are unchanged, the flat-age arms move (they
+have no constant, so the centre changes their fit).
 GUARD: the chosen arm reproduces prospect_nhle_look.py v1.1's 2.2015 (to 1e-9, from prospect_nhle_look.csv).
 
 TRAILING WEIGHTING CHECK (directive 6): production reads 50/30/20 (prospect_nhle_look.py); age reads no trailing
@@ -45,7 +49,7 @@ import pandas as pd
 import statsmodels.api as sm
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "prospect_age_look.py v1.0 (2026-10-14)"
+SCRIPT_VERSION = "prospect_age_look.py v1.2 (2026-10-15)"
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 LOG = []
@@ -62,7 +66,7 @@ F = {"rows": OUTPUT_DIR / "prospect_nhle_rows.csv", "nhle_scores": OUTPUT_DIR / 
 for k, p in F.items():
     log(f"  input {k}: {p.resolve()}  (modified {pd.Timestamp(p.stat().st_mtime, unit='s'):%Y-%m-%d %H:%M})")
 
-FIRST_ELIGIBLE_MID = 18.5          # a first-time-eligible draftee is 18.0-19.0 on September 15 after his draft
+FIRST_ELIGIBLE_AGE = 18.0          # v1.2: a first-time-eligible draftee is 18.0-19.0 on September 15 after his draft
 N_REDRAW, SEED = 2000, 20261014    # as prospect_nhle_look.py
 EARLY = ["0", "1", "2"]            # the slot enters in these season groups only (decided 2026-10-14)
 
@@ -71,10 +75,10 @@ link = pd.read_csv(F["linkage"], parse_dates=["birthDate"])[["draftYear", "overa
 d = d.merge(link.rename(columns={"overallPickNumber": "pick"}), on=["draftYear", "pick"], how="left")
 assert d["birthDate"].notna().all()
 d["age"] = (pd.to_datetime(d["season"].astype(str) + "-09-15") - d["birthDate"]).dt.days / 365.25
-d["past_elig"] = d["age"] - d["k"] - FIRST_ELIGIBLE_MID
+d["past_elig"] = d["age"] - d["k"] - FIRST_ELIGIBLE_AGE
 d["prod_x_age"] = d["nhle82"] * d["past_elig"]
 FP = hashlib.sha1(pd.util.hash_pandas_object(d[["draftYear", "pick", "k"]], index=False).values).hexdigest()[:12]
-assert FP == "8aa11d737772", FP                                    # GUARD: the step-two look's rows
+assert FP == "cff3583de536", FP                                    # GUARD: the step-two look's rows (v1.1: deceased draftees out)
 log(f"\nrows: {len(d):,} (fingerprint {FP}, the production look's rows)")
 x0 = d[d["k"] == 0]
 log(f"  years past first eligibility, at the draft: first-time eligible (under 0.5) {int((x0['past_elig'] < 0.5).sum()):,}; "
@@ -167,9 +171,9 @@ p20 = float(d.loc[d["pick"] == 20, "p_star"].iloc[0])
 
 def value(arm, q, pe):
     """The arm's fitted value (all drafts) for production q and years past first eligibility pe.
-    nhle82_sq is stored as the level squared / 10 (prospect_nhle_look.py)."""
+    nhle82_sq is stored as the level squared (prospect_nhle_look.py v1.2)."""
     r = co[(co["k_group"] == "1") & (co["arm"] == arm)].iloc[0]
-    v = r["p_star"] * p20 + r["nhle82"] * q + r["nhle82_sq"] * q * q / 10
+    v = r["p_star"] * p20 + r["nhle82"] * q + r["nhle82_sq"] * q * q
     if "past_elig" in ADD[arm]:
         v += r["past_elig"] * pe
     if "prod_x_age" in ADD[arm]:

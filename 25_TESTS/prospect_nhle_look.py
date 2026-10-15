@@ -18,6 +18,9 @@ THE MEASURE (choices made for this look, each one an option for Thomas)
 THE ROWS: prospect_slot_years_check.py's rows (drafted 2007-2017, a prospect at k seasons since the draft,
 outcome his remaining surplus), skaters only, identical for every arm (asserted by fingerprint).
 
+v1.2 (2026-10-15, Thomas): the square is no longer divided by 10 (a scale change; held-out errors
+unchanged).
+
 THE ARMS (each fitted for each k group 0, 1, 2, 3, 4+; through zero, draft-year indicators summing to zero, as
 the pick curve):
   slot             surplus = b x star chance                          (step one, on skaters)
@@ -52,7 +55,7 @@ import pandas as pd
 import statsmodels.api as sm
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "prospect_nhle_look.py v1.1 (2026-10-14)"
+SCRIPT_VERSION = "prospect_nhle_look.py v1.2 (2026-10-15)"
 load_dotenv()
 SOURCE_DIR, OUTPUT_DIR = Path(os.environ["SOURCE_DIR"]), Path(os.environ["OUTPUT_DIR"])
 LOG = []
@@ -132,7 +135,7 @@ ARMS = {"slot": ["p_star"], "production": ["nhle82", "no_record"],
         "slot+production curved": ["p_star", "nhle82", "nhle82_sq", "no_record"],
         "production curved": ["nhle82", "nhle82_sq", "no_record"]}
 d["nhle_f"], d["nhle_d"] = d["nhle82"] * (1 - d["is_d"]), d["nhle82"] * d["is_d"]
-d["nhle82_sq"] = d["nhle82"] ** 2 / 10        # per 10 (points per 82) squared, so its coefficient reads on the same scale
+d["nhle82_sq"] = d["nhle82"] ** 2             # v1.2: squared points per 82 (v1.1 divided by 10; a scale change only)
 
 
 def design(frame, cols, classes):

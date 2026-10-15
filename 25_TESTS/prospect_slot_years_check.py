@@ -28,6 +28,8 @@ WHAT THIS SCRIPT DOES
      fit on the stacked rows (k = 4..7 while y <= 2025), errors clustered by player.
   4. Leave-one-draft-out: each fit again without each draft; the range is reported beside (the limitation).
 
+v1.1 (2026-10-15, Thomas): drafted players who died before reaching the NHL (pick_curve_players.csv
+excluded_deceased, six players) are left out, as from every fit. v1.0's figures reproduce from git before this.
 GUARD: at k = 0 every drafted player is a prospect and his remaining surplus is his whole surplus, so the
 fit must reproduce pick_curve_scales.csv's main star value (asserted to 1e-9).
 
@@ -49,7 +51,7 @@ import pandas as pd
 import statsmodels.api as sm
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "prospect_slot_years_check.py v1.0 (2026-10-14)"
+SCRIPT_VERSION = "prospect_slot_years_check.py v1.1 (2026-10-15)"
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "20_CODE"))
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
@@ -73,6 +75,7 @@ POOL_FROM, K_MAX = 4, 7
 LAPSED = ("lapsed", "drafted twice (earlier pick)")
 
 p = pd.read_csv(F["players"])
+p = p[~p["excluded_deceased"].astype(bool)]           # v1.1: drafted players who died before the NHL
 s = pd.read_csv(F["seasons"])
 main_star = pd.read_csv(F["scales"]).set_index("scale_kind").loc["main", "scale_M"]
 # lapsed rights are worth zero to the pick (pick_curve step 8): zero every season's surplus for them

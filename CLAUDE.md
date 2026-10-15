@@ -33,6 +33,8 @@ contracts are priced on xNPV 1 with the five player directives built; the draft 
 values are built, with the arbitration cost for control seasons adopted on both sides (2026-10-13); the
 prospect model is built (2026-10-14: slot, production adjusted to NHL terms and age, undrafted players on NHL
 contracts with the slot at zero, `prospect_values.py`), each addition Thomas's; the back-test has not started.
+Built 2026-10-15: drafted players who died before reaching the NHL are left out of every fit (`deceased_draftees.py`), and
+the prospect model has no age-removed version (age centred at 18; `prospect_values.py` v1.7).
 Built 2026-10-14: every age the model reads follows the CBA (September 15; drafted players' signing ages in the
 year they signed), the arbitration price is consistent with the forecast, and the 60/40 checks are retired.
 
@@ -450,6 +452,17 @@ To answer questions about the curve on the spot: `python 25_TESTS/pick_lookup.py
   past eligibility" read as doubling a player's scoring two years on (2026-10-15). Say what is compared with what,
   what the coefficient measures in hockey terms ("each year older lowers the value of each point by $0.064 million"),
   and give one worked number. A negative coefficient beside its square needs the same: say where the curve turns.
+- **Don't say the data rejects a form until the test is the right one and does not hang on an arbitrary choice.** Twice in
+  one session (2026-10-15): a reply said "the data rejects" a straight-line decline of the slot's value from the shape
+  of the estimates, when the held-out test could not tell the two apart (p = 0.33); and it said the data rejects
+  production squared alone in every sample, when that test's verdict flipped with where age was centred (p = 0.0027 at
+  18.5, 0.063 at 18). Run the held-out comparison before calling a form worse, and check that the verdict survives a
+  change of centre or scale that leaves the adopted model's values unchanged.
+- **Don't attribute a line in a meeting transcript by its speaker label.** The transcription's "Speaker A" and
+  "Speaker B" swap between Thomas and Karl mid-meeting. A reply credited Karl's guess (half of the players who
+  reach the NHL do it in their first season) to Thomas; Thomas's guess was about 10% of first-rounders
+  (2026-10-15). Before saying who said something, check it against what each person would say (Karl asks about
+  method, Thomas explains hockey), and when it is still unclear, say so instead of naming either.
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised

@@ -59,6 +59,11 @@ ONE DRAFTED PLAYER'S SURPLUS (classes 2007-2017, every selection, all positions)
      to the pick [decided 2026-10-09; pick_star_and_rights_checks.py v1.1].
   9. GOALIES are pooled with skaters in one scale [decided 2026-10-09].
 
+v1.6 (2026-10-15, Thomas): DRAFTED PLAYERS WHO DIED BEFORE REACHING THE NHL are left out of every star value
+  (deceased_draftees.py: six players of 2007-2017, each "never played" and dead before his control would have
+  ended). They stay in pick_curve_players.csv, priced as before and marked excluded_deceased, so every script
+  that refits on that file can drop them. The fit drafts' players and picks are otherwise unchanged.
+
 v1.5 (2026-10-14, Thomas: "all aging checks should be consistent"; the arbitration price "should be
 consistent with the forecast", reading (a)). Two changes, each also scored alone (scale kinds below):
   * SIGNING AGE. Entry-level length (CBA 9.1(b)) and the arbitration need (12.1(a)) read his age on
@@ -124,7 +129,7 @@ import pandas as pd
 import statsmodels.api as sm
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "pick_curve.py v1.5 (2026-10-14)"
+SCRIPT_VERSION = "pick_curve.py v1.6 (2026-10-15)"
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import skater_forward_projection as sfp          # noqa: E402  skater price line, cap and minimum tables
@@ -132,6 +137,7 @@ import rfa_terminal_value as rtv                 # noqa: E402  qualifying-offer 
 import contract_npv as cnpv                      # noqa: E402  goalie price line (recovered on import)
 import skater_forecast as SF                     # noqa: E402  v1.5: the arbitration price's WAR (skaters)
 import player_season_table as PST                # noqa: E402  v1.5: WAR names -> the forecast's career key
+import deceased_draftees as DD                   # noqa: E402  v1.6: drafted players who died before the NHL
 
 SOURCE_DIR, OUTPUT_DIR = Path(os.environ["SOURCE_DIR"]), Path(os.environ["OUTPUT_DIR"])
 LOG = []
@@ -414,6 +420,13 @@ d = pd.DataFrame(rows)
 bacon = pd.read_csv(F["bacon"]).set_index("draft_pick")["p_star"]
 d["p_star"] = d["pick"].map(bacon)
 assert d["p_star"].notna().all()
+# v1.6: drafted players who died before reaching the NHL, marked and left out of every fit below
+d["excluded_deceased"] = [DD.is_deceased(y, k) for y, k in zip(d["draftYear"], d["pick"])]
+for (y, k), (nm, died) in DD.DECEASED.items():
+    hit = d[(d["draftYear"] == y) & (d["pick"] == k)]
+    assert len(hit) == 1 and hit["route"].iloc[0] == "never played", (y, k, nm)                  # GUARD
+    assert int(died[:4]) < int(hit["window_end"].iloc[0]), (nm, died, hit["window_end"].iloc[0])  # GUARD: died in control
+    log(f"  excluded from every fit (died before reaching the NHL): {nm}, {y} #{k}, died {died}")
 
 # ---- guards against the tests that decided each step (when their outputs are on this machine) ----
 wc = OUTPUT_DIR / "draft_window_count.csv"
@@ -443,6 +456,7 @@ log(f"surplus zeroed for lapsed rights: ${d.loc[d['surplus'] != d['surplus_befor
 
 # ---- the scales ------------------------------------------------------------------------------------
 def fit_scale(frame):
+    frame = frame[~frame["excluded_deceased"]]                     # v1.6: deceased draftees out of every fit
     cl = sorted(frame["draftYear"].unique())
     yrs = frame["draftYear"].values
     X = [frame["p_star"].values] + [(yrs == c).astype(float) - (yrs == cl[-1]).astype(float) for c in cl[:-1]]

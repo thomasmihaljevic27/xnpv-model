@@ -64,7 +64,7 @@ Written from the code that runs (versions as printed by each script) and the ses
 | Skater contracts | Built and priced on xNPV 1 (D33); the five player directives built and validated 2026-10-05 | `skater_forecast.py` v2.3, `skater_forward_projection.py` v2.1, `rfa_terminal_value.py` v2.5, `contract_npv.py` v2.7 |
 | Goalie contracts | Built; flat projection pulled 65% to the league | `contract_npv.py` goalie branch, `goalie_value_engine.py` v1.3, `exit_hazard.py` v1.3 |
 | Draft picks | Pick curve built 2026-10-09; arbitration cost adopted 2026-10-13; CBA signing age and the forecast-consistent arbitration price 2026-10-14 | `draft_pick_linkage.py` v1.1, `elc_signing_dates.py` v1.0, `pick_curve.py` v1.5, `traded_pick_values.py` v1.2 |
-| Prospects | Built 2026-10-14: slot, production adjusted to NHL terms (NHLe) and age, with the no-age and slot-only versions beside; undrafted players on NHL contracts on the same model with the slot at zero; traded prospects valued | `prospect_values.py` v1.3; data `ep_extract.py` v3.5, `ep_nhl_bridge.py` v1.1 |
+| Prospects | Built 2026-10-14: slot, production adjusted to NHL terms (NHLe) and age, with the slot-only version beside (the no-age version dropped 2026-10-15); undrafted players on NHL contracts on the same model with the slot at zero; traded prospects valued; deceased draftees out of every fit | `prospect_values.py` v1.7; data `ep_extract.py` v3.5, `ep_nhl_bridge.py` v1.1 |
 | Game-level metric (Game Value) | Built 2026-07-03; used for the circularity checks | game-level chain (below) |
 | Back-test | Not started. A delivered win is priced on the contract line (open decision 3) | none yet |
 
@@ -147,8 +147,9 @@ remaining surplus; 4+ seasons pooled; zero past club control. His value with his
 on the trade date), valued by the same model with the slot term at zero, seasons counted from the first draft-eligible
 year. **Step two and age (v1.2):** skaters' value adds production (Elite Prospects
 points x NHLe, per 82 games, 50/30/20 over the three seasons before; curved) and, in seasons 0-3, production discounted
-by years past first eligibility; the slot only in seasons 0-2; goalies keep the slot alone. The no-age and slot-only
-values are beside it. Traded players are matched to drafted players by NHL id from PuckPedia
+by years past first eligibility (age in the autumn after the draft minus 18, v1.7); the slot only in seasons 0-2;
+goalies keep the slot alone. The slot-only value is beside it (the no-age version was dropped 2026-10-15, v1.7). **Deceased draftees (v1.6, 2026-10-15):** the six 2007-2017 draftees who died before reaching the
+NHL are left out of every fit (pick curve, star values, production fits; `deceased_draftees.py`). Traded players are matched to drafted players by NHL id from PuckPedia
 (trade rows, or a contract with the same cap hit running on the trade date; 684 of 927), else by name (short forms,
 initials, Elite Prospects' spelling, a namesake guard); every id-name disagreement is listed and guarded (v1.1).
 
@@ -163,11 +164,11 @@ initials, Elite Prospects' spelling, a namesake guard); every id-name disagreeme
 | Floor spread, WAR_IF_PLAYS_MAE | 0.6767, 0.7545, 0.8026, 0.8499, 0.8770, 0.8981 (seasons 0-5, flat after; 2026-10-14) | `skater_forecast.py` |
 | Skater control weights | 100% / 100% / 88.2% / 67.8% by forecast bucket | refresh 2026-10-05 |
 | Goalie control weight | 0.902 x 0.859 = 0.775 a year | refresh 2026-10-05 |
-| Star value | $18.03M (se 1.73); without 2015-2016 $15.68M; qualifying-offer chain $31.90M / $27.82M (v1.5, 2026-10-14; was $13.42M) | `pick_curve.py` |
-| Traded picks (634, 2017-07-01 to 2022-03-21) | $401.3M; sensitivity $349.1M (2026-10-14; was $298.8M) | `traded_pick_values.py` |
-| Prospect star value by seasons since the draft | 18.03 / 17.60 / 15.73 / 8.88 / 2.01 (0, 1, 2, 3, 4+; $M at the 2025-26 cap) | `prospect_values.py` |
-| Traded prospects (197 assets, 170 players, 2017-07-01 to 2022-03-28) | $72.7M (slot, production and age); without age $70.7M; slot alone $60.8M; own draft left out $71.5M (2026-10-14) | `prospect_values.py` |
-| Traded undrafted prospects on NHL contracts (54 assets) | $5.95M; all prospects $78.67M (without age $76.61M) (2026-10-14) | `prospect_values.py` |
+| Star value | $18.04M (se 1.73); without 2015-2016 $15.69M; qualifying-offer chain $31.92M / $27.83M (v1.6, 2026-10-15: six deceased draftees out of every fit; was $18.02M) | `pick_curve.py` |
+| Traded picks (634, 2017-07-01 to 2022-03-21) | $401.5M; sensitivity $349.2M (2026-10-15; was $401.25M) | `traded_pick_values.py` |
+| Prospect star value by seasons since the draft | 18.04 / 17.61 / 15.75 / 8.89 / 2.01 (D+1, D+2, D+3, D+4, D+5 on; $M at the 2025-26 cap; 2026-10-15) | `prospect_values.py` |
+| Traded prospects (197 assets, 170 players, 2017-07-01 to 2022-03-28) | $70.39M (slot, production and age); slot alone $58.30M; own draft left out $69.23M (v1.7, 2026-10-15; was $69.12M) | `prospect_values.py` |
+| Traded undrafted prospects on NHL contracts (53 assets) | $5.93M; all prospects $76.31M (2026-10-15) | `prospect_values.py` |
 | Discount and cap growth | 3% each | D11, D17 |
 
 ## Data and scripts (2026-10-14)
