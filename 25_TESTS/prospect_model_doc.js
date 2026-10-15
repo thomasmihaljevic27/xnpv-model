@@ -1,5 +1,9 @@
 // prospect_model_doc.js v1.0 -- builds "Valuing Prospects.docx" (40_DOCS/Supervisor_Drafts/).
 //
+// NO LONGER THE SOURCE OF THE .docx (2026-10-15): Thomas edited "Valuing Prospects.docx" by hand, and his notes on it were applied
+// to his edited file in place (session 2026-10-15). Rebuilding from this script would lose both; the Word file in
+// 40_DOCS/Supervisor_Drafts/ is the record. Kept for how the 2026-10-14 version and its numbers were built.
+//
 // Asked (Thomas, 2026-10-14): "create a document for the prospect model. use /anthropic-skills:writing-style. ensure
 // that decisions are clearly explained and alternatives are outlined along with the reason for the decision. graphs and
 // charts and tables are welcome"; then "ensure that the various model parameters and decisions are legibly comparable

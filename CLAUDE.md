@@ -434,6 +434,22 @@ To answer questions about the curve on the spot: `python 25_TESTS/pick_lookup.py
   it: "Those are meant to be point in time snapshots of progress, not anything we need to continuously
   update" (2026-10-14). When the model changes, record it in the state files; write a new short note only
   if Thomas asks for one.
+- **Don't number seasons after the draft from zero in anything Thomas reads.** Hockey names them from the draft: D0
+  is the draft season, D+1 the season after it. "Valuing Prospects" called the season after the draft "season 0", and
+  Thomas had to translate it (2026-10-15). The code's k = 0 can stay; in prose, tables and figures write D+(k+1), and
+  say once which seasons a measure reads (a prospect valued in D+1 is measured on D0, D-1 and D-2).
+- **Don't report a redraw count beside the p-value it makes.** "Lower in 1,997 of 2,000 redraws (p = 0.0015)" says one
+  number twice. Thomas: "if the whole redraw thing is really just the p value, you should just state the p value"
+  (2026-10-15). Define the p-value once, in a caption, and report it alone.
+- **Don't show a model's formula once and then add its terms in prose.** "Valuing Prospects" showed the formula for
+  the slot alone, then added production, its square and age in words. Thomas: "you should definitely show the adopted
+  formula each time you add a variable to the model" (2026-10-15).
+- **Don't explain a regression by its specification, or an interaction by its arithmetic.** "It regresses each
+  prospect's remaining surplus on his slot's star probability, through zero, with draft-year indicators that sum to
+  zero" and "star value for his seasons since the draft" meant nothing to Thomas, and "multiplies production by years
+  past eligibility" read as doubling a player's scoring two years on (2026-10-15). Say what is compared with what,
+  what the coefficient measures in hockey terms ("each year older lowers the value of each point by $0.064 million"),
+  and give one worked number. A negative coefficient beside its square needs the same: say where the curve turns.
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised

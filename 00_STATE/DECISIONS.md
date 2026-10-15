@@ -3294,3 +3294,11 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 
 - Built `40_DOCS/Supervisor_Drafts/Valuing Prospects.docx` (spine agreed with Thomas; Word) from
   `25_TESTS/prospect_doc_figures.py` and `25_TESTS/prospect_model_doc.js`. No model change.
+
+### Change log, 2026-10-15 (Thomas's notes on the two supervisor documents)
+
+- Applied Thomas's notes to his own edits of `40_DOCS/Supervisor_Drafts/Valuing Prospects.docx` (14 notes and the
+  formula note) and `Arbitration Cost Update.docx` (the bar graph, by `25_TESTS/control_cost_figure.py` v1.0, run on the
+  laptop). Both Word files are now the record; their builders say so. Arbitration note: the two cost ratios relabelled
+  (they include entry-level seasons). `prospect_doc_figures.py` v1.1 (D+ labels). WORK_QUEUE: the figure step. CLAUDE.md:
+  four rules. No model change; no locked decision touched. `sessions/2026-10-15.md`.

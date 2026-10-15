@@ -11,6 +11,10 @@ prospect_nhle_rows.csv, prospect_age_look.csv, prospect_age_coefficients.csv, pr
 prospect_values.csv; SOURCE_DIR/draft_slot_baseline.csv.
 OUTPUTS: OUTPUT_DIR/prospect_doc/numbers.json and fig1_star_value.png, fig2_production.png, fig3_traded.png.
 Run from the repo root (matplotlib on PYTHONPATH):  python 25_TESTS/prospect_doc_figures.py
+
+v1.1 (2026-10-15, Thomas's notes on the document): seasons are named D+1 (the season after the draft, k = 0) to D+5
+and later in Figures 1 and 3. Labels only; no number changes. The revised document carries these figures (Figure 1
+redrawn from Table 1, Figure 3's legend relabelled); it is no longer rebuilt by prospect_model_doc.js.
 """
 
 import json
@@ -32,7 +36,7 @@ import matplotlib                                                  # noqa: E402
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt                                    # noqa: E402
 
-SCRIPT_VERSION = "prospect_doc_figures.py v1.0 (2026-10-14)"
+SCRIPT_VERSION = "prospect_doc_figures.py v1.1 (2026-10-15)"
 OUT, SRC = Path(os.environ["OUTPUT_DIR"]), Path(os.environ["SOURCE_DIR"])
 FIG = OUT / "prospect_doc"
 FIG.mkdir(exist_ok=True)
@@ -217,15 +221,15 @@ N["worked"] = {"name": w["player_name"], "date": w["trade_date"], "draft": int(w
 plt.rcParams.update({"font.family": "Calibri", "font.size": 10, "axes.spines.top": False, "axes.spines.right": False})
 INK, MUTED, A1, A2, A3 = "#2B2A28", "#8A8984", "#2F6DB5", "#D9822B", "#3E9A5B"
 
-# Figure 1: star value by seasons since the draft, 95% intervals
+# Figure 1: star value by season (k = seasons since the draft; k = 0 is D+1, the season after the draft), 95% intervals
 fig, ax = plt.subplots(figsize=(6.4, 3.2), dpi=200)
 xs = np.arange(len(rows))
 ax.bar(xs, [r["star"] for r in rows], color=A1, width=0.6)
 ax.errorbar(xs, [r["star"] for r in rows], yerr=[1.96 * r["se"] for r in rows], fmt="none", ecolor=INK, capsize=4, lw=1)
 for x_, r in zip(xs, rows):
     ax.text(x_ + 0.33, r["star"] + 0.4, f"${r['star']:.2f}M", ha="left", va="bottom", fontsize=9, color=INK)
-ax.set_xticks(xs, ["0 (draft)", "1", "2", "3", "4 and later"])
-ax.set_xlabel("Seasons since the draft")
+ax.set_xticks(xs, ["D+1\n(from the draft)", "D+2", "D+3", "D+4", "D+5 and later"])   # v1.1: D+ names (Thomas)
+ax.set_xlabel("Season (D+1 is the season after the draft)")
 ax.set_ylabel("Star value ($ millions, 2025-26 cap)")
 ax.set_ylim(0, 23)
 fig.tight_layout()
@@ -265,8 +269,8 @@ plt.close(fig)
 # Figure 3: the traded prospects, slot alone against the adopted model
 fig, ax = plt.subplots(figsize=(5.2, 4.2), dpi=200)
 colors = {"0": A1, "1": A1, "2": A1, "3": A2, "4+": A3}
-for lab, sel, col in (("0-2 seasons since the draft", dv["k_group"].isin(["0", "1", "2"]), A1),
-                      ("3 seasons", dv["k_group"] == "3", A2), ("4 or more", dv["k_group"] == "4+", A3)):
+for lab, sel, col in (("D+1 to D+3 (season at the trade)", dv["k_group"].isin(["0", "1", "2"]), A1),   # v1.1
+                      ("D+4", dv["k_group"] == "3", A2), ("D+5 or later", dv["k_group"] == "4+", A3)):
     ax.scatter(dv.loc[sel, "value_slot_only_M"], dv.loc[sel, "value_M"], s=14, color=col, alpha=0.8, label=lab)
 lim = max(dv["value_M"].max(), dv["value_slot_only_M"].max()) + 0.3
 ax.plot([-0.5, lim], [-0.5, lim], color=MUTED, lw=0.8, ls="--")
