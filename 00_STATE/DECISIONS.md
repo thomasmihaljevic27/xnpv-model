@@ -3307,3 +3307,4 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - 2026-10-15 (continued): `control_cost_figure.py` v1.2 after the laptop run: temporary-file fix, refreshable caption
   counts, and a cap-hit coverage guard (the run found 55% of seasons without a cap hit). No model change.
 - 2026-10-15 (continued): `control_cost_figure.py` v1.3 reads extra CapWages folders (--capwages-dir). No model change.
+- 2026-10-15 (continued): `control_cost_figure.py` v1.4 adds a limited CapWages fetch (--fetch N). No model change.
