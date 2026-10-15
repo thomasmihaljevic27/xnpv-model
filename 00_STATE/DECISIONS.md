@@ -3289,3 +3289,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   model change.
 - Corrected the same day (Thomas): the question is whether offer sheets are under-used; how to model it is undecided.
   Claude's suggested angles removed from the entry. CLAUDE.md rule added.
+
+### Change log, 2026-10-14q (the prospect model's document)
+
+- Built `40_DOCS/Supervisor_Drafts/Valuing Prospects.docx` (spine agreed with Thomas; Word) from
+  `25_TESTS/prospect_doc_figures.py` and `25_TESTS/prospect_model_doc.js`. No model change.

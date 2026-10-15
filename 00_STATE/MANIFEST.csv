@@ -388,3 +388,6 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,next_page_moves.py,trade,hashable,2026-10-14,d1554e4ad1822f0eb6139024a3c3968b4433d435,5963,2026-10-14,yes,git,"v1.0: what moves when post-season trades go to the next page (report)"
 30_OUTPUT,traded_player_values.csv,trade,hashable,2026-10-14,LOCAL_RUN,0,2026-10-14,yes,dropbox,"written by traded_player_values.py"
 20_CODE,rights_values.py,trade,hashable,2026-10-14,56c2aa6083e28a36cd203a7dd510583c53420cda,12861,2026-10-14,yes,git,"v1.0: rights to pending free agents traded after the regular season: control years from the next page (measured, not adopted)"
+25_TESTS,prospect_doc_figures.py,prospect,hashable,2026-10-14,2ea79900f2c9c3a013b4b1e1f91121b099281c29,16969,2026-10-14,yes,git,"v1.0: numbers and figures for Valuing Prospects (refits the adopted model for standard errors; guard against the live coefficients)"
+25_TESTS,prospect_model_doc.js,prospect,hashable,2026-10-14,ef6f58bcbe8491f3f10cbdb5a02cf73a8e0be854,46567,2026-10-14,yes,git,"v1.0: builds Valuing Prospects.docx from numbers.json"
+40_DOCS/Supervisor_Drafts,"Valuing Prospects.docx",doc,rendition,2026-10-14,feda36a3621b737f50e3f324629d75315af967b8,234965,2026-10-14,yes,git,"the prospect model, for the supervisor (11 pages)"
