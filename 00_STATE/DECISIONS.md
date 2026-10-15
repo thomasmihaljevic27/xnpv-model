@@ -3333,5 +3333,5 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   production forms named by their terms, the full set of interaction terms, arrival as shares of all picks, Figure 2
   in three panels, the age-centring argument cut from Section 2, missing prospect-seasons with the 2007 draft.
   Thomas's commented copy committed. Not yet run on the laptop. No locked decision (D1-D33) touched.
-- CLAUDE.md: four rules (name a model by its terms; draft position, not slot; a cumulative share's base; no argument
-  that rests on a section not yet read). `sessions/2026-10-15c.md`.
+- CLAUDE.md: five rules (name a model by its terms; draft position, not slot; a cumulative share's base; no argument
+  that rests on a section not yet read; a measure described by what it compares). `sessions/2026-10-15c.md`.
