@@ -12,6 +12,12 @@
 - Bring: `40_DOCS/Supervisor_Drafts/Arbitration Cost Update.docx` (2 pages, built by
   `25_TESTS/control_cost_note_doc.js`): what changed in the control-season cost for picks and players,
   its effect, and the checks (Thomas, 2026-10-14: "a short bullet point document ... Nothing crazy").
+  Revised 2026-10-15 from Thomas's own edit and his note (session 2026-10-15); the Word file is now the record.
+- **Do (Thomas, on the laptop, before printing the note): put Figure 1 in it.** Close the note in Word, then run
+  `python 25_TESTS/control_cost_figure.py` from the repo root (needs matplotlib, as `pick_summary_figures.py`). It
+  checks its sums against `pick_curve_log.txt`, draws the bar chart he asked for (value delivered; cost on the
+  qualifying-offer chain; cost on the market price rule; cost actually paid) and puts it in place of the placeholder
+  line under the 1.61x bullet. Until it runs, the note shows "[Figure 1 is inserted here ...]".
 - Decide there (Thomas, with the supervisor): the draft regression's form. Run
   `python 25_TESTS/pick_lookup.py regression`. On the arbitration cost now adopted: through zero 13.42 (se 1.44);
   a constant plus a dummy for each draft but one 13.53 (se 1.69), constant -$0.02M a pick at an average draft

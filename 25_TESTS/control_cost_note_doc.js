@@ -1,4 +1,8 @@
 // control_cost_note_doc.js v1.1 (2026-10-14) -- builds "Arbitration Cost Update.docx" (40_DOCS/Supervisor_Drafts/).
+//
+// NO LONGER THE SOURCE OF THE .docx (2026-10-15): Thomas edited "Arbitration Cost Update.docx" by hand, and his notes on it were applied
+// to his edited file in place (session 2026-10-15). Rebuilding from this script would lose both; the Word file in
+// 40_DOCS/Supervisor_Drafts/ is the record. Kept for how the 2026-10-14 version and its numbers were built.
 // v1.1 (Thomas, 2026-10-14: "new figures"): every figure from the final run of the day (September 15 ages,
 // the re-locked price line, the forecast-based market price, signing-year ages); sources: pick_curve_log.txt v1.5,
 // traded_pick_values_log.txt, arbitration_player_compare.py v1.1, pick_lookup.py regression,
