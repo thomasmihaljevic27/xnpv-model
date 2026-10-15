@@ -1,5 +1,5 @@
 """
-control_cost_figure.py v1.0 -- the control-cost bar chart for "Arbitration Cost Update" (Figure 1).
+control_cost_figure.py v1.1 -- the control-cost bar chart for "Arbitration Cost Update" (Figure 1).
 
 WHY (Thomas, 2026-10-15, a note on the Arbitration Cost Update): "In the previous Valuing Draft Picks document you
 had a bar graph showing the difference between surplus value, what the model costed players at, and what teams
@@ -55,7 +55,7 @@ import numpy as np                                # noqa: E402
 import pandas as pd                               # noqa: E402
 from dotenv import load_dotenv                    # noqa: E402
 
-SCRIPT_VERSION = "control_cost_figure.py v1.0 (2026-10-15)"
+SCRIPT_VERSION = "control_cost_figure.py v1.1 (2026-10-15)"
 load_dotenv()
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "20_CODE"))
@@ -157,8 +157,16 @@ def main():
         log(f"  input {k}: {p.resolve()}  (modified {pd.Timestamp(p.stat().st_mtime, unit='s'):%Y-%m-%d %H:%M})")
     curve_log = F["curve_log"].read_text(encoding="utf-8")
     log(f"  pick curve: {curve_log.splitlines()[0]}")
+    # GUARD (v1.1): the note's figures come from pick_curve.py v1.5 (2026-10-14); an older run has no chain column
+    m = re.match(r"pick_curve\.py v(\d+)\.(\d+)", curve_log)
+    if not m or (int(m.group(1)), int(m.group(2))) < (1, 5):
+        sys.exit("STOP: 30_OUTPUT's pick curve is older than v1.5 (the version the note quotes). Run, from the repo "
+                 "root:\n  python 20_CODE/elc_signing_dates.py\n  python 20_CODE/pick_curve.py\nthen check its log's "
+                 "first line says v1.5 and the star value is 18.03, and run this script again.")
 
     se = pd.read_csv(F["seasons"])
+    missing = {"value_share", "cost_share", "cost_qo_share", "games_scale", "cap"} - set(se.columns)
+    assert not missing, f"pick_curve_seasons.csv lacks {sorted(missing)}: re-run pick_curve.py"
     pl = pd.read_csv(F["players"])
     se = se.merge(pl[["draftYear", "pick", "player", "playerId", "is_goalie", "route", "nhl_seasons"]],
                   on=["draftYear", "pick"], how="left", validate="many_to_one")

@@ -3302,3 +3302,5 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   laptop). Both Word files are now the record; their builders say so. Arbitration note: the two cost ratios relabelled
   (they include entry-level seasons). `prospect_doc_figures.py` v1.1 (D+ labels). WORK_QUEUE: the figure step. CLAUDE.md:
   four rules. No model change; no locked decision touched. `sessions/2026-10-15.md`.
+- 2026-10-15 (continued): `control_cost_figure.py` v1.1 stops with instructions when the laptop's pick curve output is
+  older than v1.5 (Thomas's run found v1.2 output). No model change.
