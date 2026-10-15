@@ -1,5 +1,5 @@
 """
-control_cost_figure.py v1.1 -- the control-cost bar chart for "Arbitration Cost Update" (Figure 1).
+control_cost_figure.py v1.2 -- the control-cost bar chart for "Arbitration Cost Update" (Figure 1).
 
 WHY (Thomas, 2026-10-15, a note on the Arbitration Cost Update): "In the previous Valuing Draft Picks document you
 had a bar graph showing the difference between surplus value, what the model costed players at, and what teams
@@ -33,6 +33,11 @@ the Word file in place of the paragraph "[Figure 1 is inserted here by 25_TESTS/
 caption's {{...}} counts are filled. Run again after the figure is in, it replaces the image (word/media/
 control_cost.png) and leaves the text alone. Standard library only for the Word step (zipfile).
 
+v1.1: stops plainly when the pick curve output predates v1.5. v1.2 (Thomas's first laptop run): the temporary
+Word file is closed before it is swapped in (v1.1 left it open, and Windows refused the move); a re-run refreshes the
+caption's counts; the cap-hit coverage is printed by band with the CapWages folders read, and the figure stays out of
+the note when over 10% of seasons have no cap hit (--allow-gaps overrides).
+
 OUTPUTS: OUTPUT_DIR/control_cost_figure/control_cost.png, control_cost_bands.csv, control_cost_figure_log.txt.
 Run from the repo root:  python 25_TESTS/control_cost_figure.py      (after pick_curve.py; needs matplotlib)
 """
@@ -41,10 +46,8 @@ import argparse
 import html as htmlmod
 import os
 import re
-import shutil
 import struct
 import sys
-import tempfile
 import zipfile
 from pathlib import Path
 
@@ -55,7 +58,7 @@ import numpy as np                                # noqa: E402
 import pandas as pd                               # noqa: E402
 from dotenv import load_dotenv                    # noqa: E402
 
-SCRIPT_VERSION = "control_cost_figure.py v1.1 (2026-10-15)"
+SCRIPT_VERSION = "control_cost_figure.py v1.2 (2026-10-15)"
 load_dotenv()
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "20_CODE"))
@@ -105,14 +108,21 @@ def drawing_xml(rid, cx, cy):
             f'</a:prstGeom></pic:spPr></pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r>')
 
 
+# the caption's counts: a {{TOKEN}} on the first insertion, the previous run's number on a re-run (v1.2)
+CAPTION_RX = {"N_PLAYERS": r"2007-2017 drafts \((\{\{N_PLAYERS\}\}|[\d,]+) players\)",
+              "NO_CAP_HIT": r"before; (\{\{NO_CAP_HIT\}\}|[\d,]+) of ",
+              "SEASONS": r" of (\{\{SEASONS\}\}|[\d,]+) seasons with no cap hit"}
+
+
 def put_in_doc(doc, png, fills):
+    doc = Path(doc)
     with zipfile.ZipFile(doc) as z:
         parts = {n: z.read(n) for n in z.namelist()}
-    if MEDIA in parts:                                       # already inserted: replace the picture only
+    xml = parts["word/document.xml"].decode("utf-8")
+    if MEDIA in parts:                                       # already inserted: replace the picture and the counts
         parts[MEDIA] = png.read_bytes()
-        how = "picture replaced"
+        how = "picture and caption counts replaced"
     else:
-        xml = parts["word/document.xml"].decode("utf-8")
         m = re.search(r"<w:p\b(?:(?!<w:p\b).)*?" + re.escape(PLACEHOLDER) + r".*?</w:p>", xml, flags=re.S)
         assert m, f"placeholder paragraph not found in {doc}"
         rels = parts["word/_rels/document.xml.rels"].decode("utf-8")
@@ -125,22 +135,31 @@ def put_in_doc(doc, png, fills):
         para = ('<w:p><w:pPr><w:keepNext/><w:spacing w:before="60" w:after="60"/><w:jc w:val="center"/></w:pPr>'
                 + drawing_xml(rid, cx, int(cx * h / w)) + "</w:p>")
         xml = xml[:m.start()] + para + xml[m.end():]
-        for k, v in fills.items():                           # the caption's counts
-            assert xml.count("{{" + k + "}}") == 1, k
-            xml = xml.replace("{{" + k + "}}", v)
         ct = parts["[Content_Types].xml"].decode("utf-8")
         if 'Extension="png"' not in ct:
-            ct = ct.replace("<Types ", "<Types ", 1).replace(
-                "</Types>", '<Default Extension="png" ContentType="image/png"/></Types>')
-        parts.update({"word/document.xml": xml.encode("utf-8"), "word/_rels/document.xml.rels": rels.encode("utf-8"),
-                      "[Content_Types].xml": ct.encode("utf-8"), MEDIA: png.read_bytes()})
+            ct = ct.replace("</Types>", '<Default Extension="png" ContentType="image/png"/></Types>')
+        parts.update({"word/_rels/document.xml.rels": rels.encode("utf-8"), "[Content_Types].xml": ct.encode("utf-8"),
+                      MEDIA: png.read_bytes()})
         how = "figure and caption counts inserted"
-    tmp = Path(tempfile.mkstemp(suffix=".docx")[1])
-    with zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED) as z:
-        z.writestr("[Content_Types].xml", parts.pop("[Content_Types].xml"))   # first, as Word writes it
-        for n, b in parts.items():
-            z.writestr(n, b)
-    shutil.move(str(tmp), doc)
+    for k, v in fills.items():
+        rx = CAPTION_RX[k]
+        assert len(re.findall(rx, xml)) == 1, f"caption count {k} not found once in {doc}"
+        xml = re.sub(rx, lambda mm: mm.group(0).replace(mm.group(1), v), xml)
+    parts["word/document.xml"] = xml.encode("utf-8")
+    # v1.2: write a closed temporary file beside the note, then swap it in (v1.1 left its temp file open, and
+    # Windows refused the move). If Word holds the note, say so and leave the note as it was.
+    tmp = doc.with_name(doc.name + ".tmp")
+    try:
+        with zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED) as z:
+            z.writestr("[Content_Types].xml", parts.pop("[Content_Types].xml"))   # first, as Word writes it
+            for n, b in parts.items():
+                z.writestr(n, b)
+        os.replace(tmp, doc)
+    except PermissionError:
+        sys.exit(f"STOP: Windows would not replace {doc}. Close it in Word and run again; the note is unchanged.")
+    finally:
+        if tmp.exists():
+            tmp.unlink()
     return how
 
 
@@ -148,6 +167,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--doc", default=str(ROOT / "40_DOCS" / "Supervisor_Drafts" / "Arbitration Cost Update.docx"))
     ap.add_argument("--no-doc", action="store_true", help="draw the figure only")
+    ap.add_argument("--allow-gaps", action="store_true", help="insert even with over 10%% of seasons lacking a cap hit")
     a = ap.parse_args()
     OUT.mkdir(exist_ok=True)
     log(SCRIPT_VERSION)
@@ -268,8 +288,22 @@ def main():
     plt.close(fig)
     log(f"\n  wrote {png}")
 
+    nh = int((fig_rows["actual_source"] == "market price rule (no cap hit)").sum())
+    for lo, hi in BANDS:                                     # v1.2: coverage of the "actually paid" bar, by band
+        g = fig_rows[fig_rows["pick"].between(lo, hi)]
+        gap = int((g["actual_source"] == "market price rule (no cap hit)").sum())
+        log(f"  picks {lo}-{hi}: {gap:,} of {len(g):,} seasons without a cap hit ({gap / len(g):.0%})")
+    for d_ in (SOURCE_DIR / "capwages_cache", OUTPUT_DIR / "capwages_top_picks"):
+        n = len(list(d_.glob("*.html"))) if d_.exists() else 0
+        log(f"  CapWages folder {d_}: {'present' if d_.exists() else 'MISSING'}, {n:,} pages")
+    # GUARD (v1.2): a season without a cap hit takes the model's cost, which pulls the "actually paid" bar toward the
+    # model's; over 10% of seasons and the bar is not what clubs paid, so the figure stays out of the note
+    if not a.no_doc and nh > 0.10 * len(fig_rows) and not a.allow_gaps:
+        (OUT / "control_cost_figure_log.txt").write_text("\n".join(LOG), encoding="utf-8")
+        sys.exit(f"STOP: {nh:,} of {len(fig_rows):,} seasons ({nh / len(fig_rows):.0%}) have no cap hit, so the 'cost "
+                 f"actually paid' bar is mostly the model's own cost. The note was not changed. Check the CapWages folder counts "
+                 f"above against the folders top_pick_control_look.py read on 2026-10-09.")
     if not a.no_doc:
-        nh = int((fig_rows["actual_source"] == "market price rule (no cap hit)").sum())
         how = put_in_doc(a.doc, png, {"N_PLAYERS": f"{int(cc['players'].sum()):,}", "NO_CAP_HIT": f"{nh:,}",
                                       "SEASONS": f"{len(fig_rows):,}"})
         log(f"  {a.doc}: {how}")
