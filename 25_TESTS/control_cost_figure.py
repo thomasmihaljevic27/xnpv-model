@@ -1,5 +1,5 @@
 """
-control_cost_figure.py v1.2 -- the control-cost bar chart for "Arbitration Cost Update" (Figure 1).
+control_cost_figure.py v1.3 -- the control-cost bar chart for "Arbitration Cost Update" (Figure 1).
 
 WHY (Thomas, 2026-10-15, a note on the Arbitration Cost Update): "In the previous Valuing Draft Picks document you
 had a bar graph showing the difference between surplus value, what the model costed players at, and what teams
@@ -36,7 +36,8 @@ control_cost.png) and leaves the text alone. Standard library only for the Word 
 v1.1: stops plainly when the pick curve output predates v1.5. v1.2 (Thomas's first laptop run): the temporary
 Word file is closed before it is swapped in (v1.1 left it open, and Windows refused the move); a re-run refreshes the
 caption's counts; the cap-hit coverage is printed by band with the CapWages folders read, and the figure stays out of
-the note when over 10% of seasons have no cap hit (--allow-gaps overrides).
+the note when over 10% of seasons have no cap hit (--allow-gaps overrides). v1.3: --capwages-dir reads more folders of
+CapWages pages (repeatable); a player's cap hits are the union over his pages, the first folder read winning a season.
 
 OUTPUTS: OUTPUT_DIR/control_cost_figure/control_cost.png, control_cost_bands.csv, control_cost_figure_log.txt.
 Run from the repo root:  python 25_TESTS/control_cost_figure.py      (after pick_curve.py; needs matplotlib)
@@ -58,7 +59,7 @@ import numpy as np                                # noqa: E402
 import pandas as pd                               # noqa: E402
 from dotenv import load_dotenv                    # noqa: E402
 
-SCRIPT_VERSION = "control_cost_figure.py v1.2 (2026-10-15)"
+SCRIPT_VERSION = "control_cost_figure.py v1.3 (2026-10-15)"
 load_dotenv()
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "20_CODE"))
@@ -167,6 +168,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--doc", default=str(ROOT / "40_DOCS" / "Supervisor_Drafts" / "Arbitration Cost Update.docx"))
     ap.add_argument("--no-doc", action="store_true", help="draw the figure only")
+    ap.add_argument("--capwages-dir", action="append", default=[], help="another folder of CapWages pages (repeatable)")
     ap.add_argument("--allow-gaps", action="store_true", help="insert even with over 10%% of seasons lacking a cap hit")
     a = ap.parse_args()
     OUT.mkdir(exist_ok=True)
@@ -206,15 +208,25 @@ def main():
             f"equal pick_curve_log.txt (PASS)")
 
     # ---- actual cap hits, season by season ----------------------------------------------------------------
-    pages = {}
-    for d_ in (SOURCE_DIR / "capwages_cache", OUTPUT_DIR / "capwages_top_picks"):
-        if d_.exists():
-            for f in sorted(d_.glob("*.html")):
-                t = page_text(f.read_text(encoding="utf-8", errors="ignore"))
-                k = drafted(t)
-                if k:
-                    pages.setdefault(k, cap_hits(t))
-    log(f"  CapWages pages with a draft line: {len(pages):,}")
+    # v1.3: --capwages-dir adds folders (the laptop holds copies outside the working folder). Each player's cap hits
+    # are the union over his pages, season by season; where two pages list one season, the first folder read wins.
+    pages, CW = {}, []
+    for d_ in [SOURCE_DIR / "capwages_cache", OUTPUT_DIR / "capwages_top_picks"] + [Path(x) for x in a.capwages_dir]:
+        files = sorted(d_.glob("*.html")) if d_.exists() else []
+        with_line, new_players = 0, 0
+        for f in files:
+            t = page_text(f.read_text(encoding="utf-8", errors="ignore"))
+            k = drafted(t)
+            if k:
+                with_line += 1
+                new_players += k not in pages
+                hits = pages.setdefault(k, {})
+                for y, v in cap_hits(t).items():
+                    hits.setdefault(y, v)
+        CW.append(f"  CapWages folder {d_}: {'present' if d_.exists() else 'MISSING'}, {len(files):,} pages, "
+                  f"{with_line:,} with a draft line, {new_players:,} players not in an earlier folder")
+        log(CW[-1])
+    log(f"  CapWages players with a draft line: {len(pages):,}")
     pp = pd.read_csv(F["pp_seasons"], usecols=["nhl_id", "season_start", "pp_cap_hit"]).dropna()
     pp = pp.groupby(["nhl_id", "season_start"])["pp_cap_hit"].max().to_dict()
 
@@ -293,9 +305,8 @@ def main():
         g = fig_rows[fig_rows["pick"].between(lo, hi)]
         gap = int((g["actual_source"] == "market price rule (no cap hit)").sum())
         log(f"  picks {lo}-{hi}: {gap:,} of {len(g):,} seasons without a cap hit ({gap / len(g):.0%})")
-    for d_ in (SOURCE_DIR / "capwages_cache", OUTPUT_DIR / "capwages_top_picks"):
-        n = len(list(d_.glob("*.html"))) if d_.exists() else 0
-        log(f"  CapWages folder {d_}: {'present' if d_.exists() else 'MISSING'}, {n:,} pages")
+    for line in CW:                                          # repeated beside the coverage
+        log(line)
     # GUARD (v1.2): a season without a cap hit takes the model's cost, which pulls the "actually paid" bar toward the
     # model's; over 10% of seasons and the bar is not what clubs paid, so the figure stays out of the note
     if not a.no_doc and nh > 0.10 * len(fig_rows) and not a.allow_gaps:
