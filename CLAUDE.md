@@ -479,6 +479,19 @@ To answer questions about the curve on the spot: `python 25_TESTS/pick_lookup.py
   ... the age the autumn after his draft, less 18" read to Thomas as valuing a player by his draft age, when within a
   season it also measures the age at which he scored, which is what matters (2026-10-15). Say what the measure
   compares in hockey terms first.
+- **Don't describe an equivalent of the method Thomas asked for; build the one he asked for.** Asked to use a full
+  set of interaction terms, the document said the season-by-season fits "give exactly the same coefficients" while
+  the code kept fitting each season alone. Thomas: "Just make the regression actually be the interaction terms. I
+  feel like I've said this multiple times" (2026-10-16). Change the code to run the asked-for method, keep the old
+  route only as a guard, and describe what runs.
+- **Don't write "reliable" for a test result.** Thomas: "Be specific. You mean statistically significant"
+  (2026-10-16). Say "statistically significant at the 5% level", with the p-value.
+- **Don't introduce rejected alternatives as if the model used them.** "Three simpler rules each restrict how the
+  value may change" read as rules in the model (2026-10-16). Say they were tested and rejected before describing
+  them.
+- **Don't let a table's baseline go by a shorthand name.** Table 8's "production model without age" was the Section 2
+  model, and Thomas asked why the age candidates were not compared with it (2026-10-16). Name the baseline by its terms
+  in the title, the row and the column.
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised

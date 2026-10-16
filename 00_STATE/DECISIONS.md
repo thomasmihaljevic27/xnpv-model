@@ -3335,3 +3335,13 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   Thomas's commented copy committed. Not yet run on the laptop. No locked decision (D1-D33) touched.
 - CLAUDE.md: five rules (name a model by its terms; draft position, not slot; a cumulative share's base; no argument
   that rests on a section not yet read; a measure described by what it compares). `sessions/2026-10-15c.md`.
+
+### Change log, 2026-10-16 (one stacked regression; Thomas's 10 notes on "Valuing Prospects")
+
+- Thomas: "Just make the regression actually be the interaction terms." `prospect_values.py` v1.8 fits the star values
+  and the production-and-age model as one regression with the full set of interaction terms (`fit_stacked`), errors
+  clustered by player; coefficients and values unchanged (guarded). MODEL_DIRECTIVES directive 6.
+- `prospect_doc_figures.py` v2.2 (every table from the stack; D+5-and-later joint tests), `prospect_model_doc.js` v2.2
+  (his edits and notes). Thomas's commented copy committed. Not yet run on the laptop. No locked decision touched.
+- CLAUDE.md: four rules (build the method asked for, not an equivalent; "statistically significant", not
+  "reliable"; a rejected alternative is called one; a table's baseline named by its terms). `sessions/2026-10-16.md`.

@@ -20,8 +20,12 @@
   (2026-10-15): the scripts are his to run and check, as now; no change to the process.
 - Not discussed: the draft regression's form (below), still open.
 
-**Read (Thomas): "Valuing Prospects" as rebuilt from his 13 notes (session 2026-10-15c; rebuilt on the laptop, three
-text fixes patched in).** To build it again: `$env:NODE_PATH = "$env:USERPROFILE\node_docx\node_modules"` first.
+**Do (Thomas, on the laptop): rebuild "Valuing Prospects" from his 10 notes of 2026-10-16 (session 2026-10-16).** Close
+the Word file; from the repo root: `python 20_CODE/prospect_values.py` (v1.8; its new guards PASS, values unchanged),
+`python 25_TESTS/prospect_doc_figures.py` (v2.2; every guard line PASS; it prints the D+5-and-later joint test), then
+`$env:NODE_PATH = "$env:USERPROFILE\node_docx\node_modules"` and `node 25_TESTS/prospect_model_doc.js`.
+**Then decide (Thomas):** if production and its square are not jointly significant from D+5 on, whether D+5-and-later
+prospects keep the production values (the held-out error favours them: 0.7392 against 0.7443 on draft position alone).
 
 **Read (Thomas): the revised "Valuing Prospects" (built 2026-10-15, session 2026-10-15b, 16 pages).** Then decide (Thomas):
 whether undrafted players' selection (all on NHL contracts) is a stated limitation or something to investigate, and

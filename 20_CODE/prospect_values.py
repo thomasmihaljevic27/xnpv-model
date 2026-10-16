@@ -65,6 +65,13 @@ UNDRAFTED (v1.3; Thomas 2026-10-14: "NHL contracts only", "Same model, no slot";
   * A value can be below zero: a low scorer's remaining surplus averages slightly below zero in the data, and
     negative careers count, as in the pick curve.
   GUARD: every step-two fit equals the look that measured it, to 1e-9 (when those outputs are present).
+  * ONE REGRESSION (v1.8, Thomas 2026-10-16: "Just make the regression actually be the interaction terms"): the star
+    values and each step-two version are one regression on every prospect-season (fit_stacked), each term and each
+    draft's level multiplied by an indicator for the season group (a full set of interaction terms), errors
+    clustered by player (one player appears in several seasons). The coefficients equal the season-by-season fits
+    (GUARD, 1e-9; those fits stay for the each-draft-left-out values); only the standard errors move, and only by
+    the small-sample correction (a season's rows hold each player once, so its block of the clustered variance is
+    the season's own).
   * DECEASED DRAFTEES (v1.6, Thomas 2026-10-15): the six drafted players of 2007-2017 who died before reaching
     the NHL (pick_curve_players.csv excluded_deceased; deceased_draftees.py) are left out of the star values and
     of every step-two fit, all their rows.
@@ -123,7 +130,7 @@ import statsmodels.api as sm
 from dotenv import load_dotenv
 
 
-SCRIPT_VERSION = "prospect_values.py v1.7 (2026-10-15)"
+SCRIPT_VERSION = "prospect_values.py v1.8 (2026-10-16)"
 load_dotenv()
 import contract_source as CS   # noqa: E402  v1.1: PuckPedia exports read strictly (identity only)
 SOURCE_DIR, OUTPUT_DIR = Path(os.environ["SOURCE_DIR"]), Path(os.environ["OUTPUT_DIR"])
@@ -237,9 +244,14 @@ def star_values():
     d = pd.DataFrame(rows)
     d["k_group"] = d["k"].map(lambda k: k_group(min(k, K_MAX)))
     out = []
-    for grp, g in d[d["prospect"]].groupby("k_group", sort=True):
+    pr = d[d["prospect"]]
+    # v1.8: one regression, the star chance and the draft levels interacted with each season group
+    st, _ = fit_stacked(pr, {grp: ["p_star"] for grp in pr["k_group"].astype(str).unique()})
+    for grp, g in pr.groupby("k_group", sort=True):
         clus = grp.endswith("+")
-        b, se = fit(g, clus)
+        b_own, _ = fit(g, clus)
+        b, se = float(st[grp][0][0]), float(st[grp][1][0])
+        assert abs(b - b_own) < 1e-9, grp                               # GUARD: the stack equals the season's own fit
         out.append({"k_group": grp, "left_out": "none", "star_value_M": b, "se_M": se, "rows": len(g)})
         for c in sorted(g["draftYear"].unique()):
             bb, ss = fit(g[g["draftYear"] != c], clus)
@@ -319,6 +331,33 @@ def fit_cols(frame, cols, cluster):
     return m.params[:len(cols)], m.bse[:len(cols)]
 
 
+def fit_stacked(frame, cols_by_group, group_col="k_group"):
+    """One regression on every row of frame: for each season group g, each column in cols_by_group[g] and each of
+    g's draft-year indicators (summing to zero within g) multiplied by the indicator for g. A full set of
+    interaction terms, through zero, so the design is block-diagonal and each group's coefficients equal the
+    group's own fit_cols (checked by the callers). Errors clustered by player (draftYear-pick) across the stack.
+    Returns ({g: (params, bse)} for the cols of each group, the fitted model)."""
+    gv = frame[group_col].astype(str).values
+    yrs = frame["draftYear"].values
+    blocks, at, pos = [], {}, 0
+    for g in sorted(cols_by_group):
+        on = gv == g
+        assert on.any(), g
+        cl = sorted(frame.loc[on, "draftYear"].unique())
+        cols = cols_by_group[g]
+        # np.where, not multiplication: another group's NaN times zero would still be NaN
+        blocks += [np.where(on, frame[c].values, 0.0) for c in cols]
+        blocks += [np.where(on, (yrs == c).astype(float) - (yrs == cl[-1]).astype(float), 0.0) for c in cl[:-1]]
+        at[g] = (pos, len(cols))
+        pos += len(cols) + len(cl) - 1
+    assert set(gv) <= set(cols_by_group), "rows outside the listed groups"
+    players = pd.factorize(frame["draftYear"].astype(str) + "-" + frame["pick"].astype(str))[0]
+    m = sm.OLS(frame["remaining_M"].values, np.column_stack(blocks)).fit(
+        cov_type="cluster", cov_kwds={"groups": players})
+    m.positions = at                                     # {g: (first column, number of cols)}, for joint tests
+    return {g: (m.params[p:p + n], m.bse[p:p + n]) for g, (p, n) in at.items()}, m
+
+
 def production_fits(fitrows, rates):
     """Step two's coefficients for each version and season group, on all drafts and with each draft left out.
     Training rows: the step-one rows of skaters still prospects (goalies stay on the slot alone)."""
@@ -335,10 +374,15 @@ def production_fits(fitrows, rates):
     d["season"] = d["draftYear"] + d["k"]
     d = production_features(d.reset_index(drop=True), rates)
     fits = {}
-    for g, x in d.groupby("k_group"):
-        for v in VERSIONS:
+    for v in VERSIONS:
+        # v1.8: one regression with the full set of interaction terms gives the coefficients and their errors
+        groups = sorted(d["k_group"].astype(str).unique())
+        st, _ = fit_stacked(d, {g: cols_for(g, v) for g in groups})
+        for g, x in d.groupby("k_group"):
             cols = cols_for(g, v)
-            b, se = fit_cols(x, cols, g.endswith("+"))
+            b_own, _ = fit_cols(x, cols, g.endswith("+"))
+            b, se = st[g]
+            assert np.max(np.abs(b - b_own)) < 1e-9, (v, g)          # GUARD: the stack equals the season's own fit
             fits[(v, g, "none")] = (cols, b, se)
             for c in sorted(x["draftYear"].unique()):
                 fits[(v, g, int(c))] = (cols, fit_cols(x[x["draftYear"] != c], cols, g.endswith("+"))[0], None)

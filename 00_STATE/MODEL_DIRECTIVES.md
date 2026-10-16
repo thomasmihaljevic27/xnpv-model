@@ -980,6 +980,12 @@ minus the seasons since his draft minus 18.5 (within a season group, "older now"
   and checks it against the live fit; `prospect_values.py` is unchanged (it still stores years past first
   eligibility). The rejected flat age form is reported as tested, on years past first eligibility. His reading, which
   this matches: a point scored at 20 is worth less than a point scored at 18, all else equal.
+- **One regression with the full set of interaction terms (Thomas, 2026-10-16: "Just make the regression actually be the
+  interaction terms. I feel like I've said this multiple times"):** the star values and the production-and-age model
+  are each one regression on every prospect-season, every term and each draft's level multiplied by an indicator for
+  the season (D+1 to D+4, D+5 onwards), errors clustered by player. `prospect_values.py` v1.8 (`fit_stacked`); the
+  coefficients and values equal the season-by-season fits (guarded to 1e-9), the standard errors move only by the
+  small-sample correction. The season-by-season fits stay for the each-draft-left-out values.
 
 ---
 
