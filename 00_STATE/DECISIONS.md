@@ -3366,3 +3366,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   directive 6; WORK_QUEUE (goaltender prospects parked for later, in Thomas's words). No code change.
 - "Valuing Prospects": "rule" -> "alternative" in Figure 2 and Table 3 (Thomas: "go with alternatives"); builder and
   figures v2.3, rebuilt.
+- "Valuing Prospects" v2.4: Thomas's concision edits (13 of 14 as proposed, one cut further) and his Section 1
+  comments; 5,625 -> 4,928 words of prose and captions. One intercept for the pick curve and the prospect model:
+  measured, not built; awaiting Thomas (traded picks +9.5%).

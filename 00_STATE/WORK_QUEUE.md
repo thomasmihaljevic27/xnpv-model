@@ -24,6 +24,10 @@
 PASS; Table 6's note corrected. Decided: D+5-and-later skater prospects keep the adopted model (MODEL_DIRECTIVES directive
 6). Figure 2 and Table 3 say "alternative" (Thomas).
 
+**Decide (Thomas, 2026-10-16): one intercept in the pick curve and the prospect model** (his direction, put back
+with its figures before building; session 2026-10-16b): the traded picks rise $38.2M (+9.5%) on a $0.07M intercept
+(p = 0.44); prospects move $0.3M. This settles the pick curve's open regression form (below).
+
 **Later (Thomas, 2026-10-16): goaltender prospects.** Thomas: "maybe we can return to the goalies another day." What the
 record shows: from D+5 on, the pooled star value ($2.01M) is almost all goaltenders' signal; goaltender prospect-seasons
 alone give $19.35M (p < 0.001), skaters $0.16M (p = 0.64). Session 2026-10-16b.
