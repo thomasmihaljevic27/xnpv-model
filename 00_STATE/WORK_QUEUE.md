@@ -8,7 +8,30 @@
 
 ## Live (audited 2026-10-14)
 
-**Thursday 2026-10-15 11:00, supervisor meeting.** This is the agenda, not a task.
+**Held 2026-10-15: the supervisor meeting (session 2026-10-15b has the notes).** What it set:
+- Decided: the arbitration cost stands; the remaining gap between value delivered and cost paid is accepted (clubs earn
+  from more than wins). Thomas: no more cost changes.
+- Do (Thomas, supervisor's direction): finish the prospect model; then a complete, detailed write-up of the whole
+  approach, built on the last write-up (the goal, trades as three components taken in turn, every regression shown
+  with its formula and results in nested-specification tables; "better to go more detailed"); and start the back-test.
+- The supervisor asked for: when drafted players reach the NHL (`25_TESTS/nhl_arrival_timing.py`), and the correlation
+  of age with time since the draft (`25_TESTS/prospect_age_correlation.py`). Both run 2026-10-15; for the document.
+- The supervisor: regressions are not to be done by AI; Thomas must be able to show the data and run them. Thomas
+  (2026-10-15): the scripts are his to run and check, as now; no change to the process.
+- Not discussed: the draft regression's form (below), still open.
+
+**Read (Thomas): "Valuing Prospects" as rebuilt from his 13 notes (session 2026-10-15c; rebuilt on the laptop, three
+text fixes patched in).** To build it again: `$env:NODE_PATH = "$env:USERPROFILE\node_docx\node_modules"` first.
+
+**Read (Thomas): the revised "Valuing Prospects" (built 2026-10-15, session 2026-10-15b, 16 pages).** Then decide (Thomas):
+whether undrafted players' selection (all on NHL contracts) is a stated limitation or something to investigate, and
+whether to test a save-percentage measure for goaltenders (stated as untested in the document). The revision itself: Answered in
+session 2026-10-15b. Decided there: age fully adopted, no age-removed version (Thomas's note; code and document not yet
+changed); the full curve kept; deceased draftees excluded (built) and to be listed. His note on centring age at 18:
+"seems like the simpler solution" (same values; not yet changed). Tests for the document: `prospect_curve_vs_line.py`,
+`prospect_fade_rules.py`, `prospect_production_form.py`, `prospect_age_correlation.py`, `nhl_arrival_timing.py`.
+
+**Earlier agenda (2026-10-15 meeting), kept for the open item in it.**
 - Bring: `40_DOCS/Supervisor_Drafts/Arbitration Cost Update.docx` (2 pages, built by
   `25_TESTS/control_cost_note_doc.js`): what changed in the control-season cost for picks and players,
   its effect, and the checks (Thomas, 2026-10-14: "a short bullet point document ... Nothing crazy").
@@ -49,7 +72,9 @@ after the regular season are valued (adopted 2026-10-14, `rights_values.py`). 91
 
 **Look into (Thomas, 2026-10-14): are offer sheets under-used?** Thomas: "I just want to look to see if offer sheets
 are under utilized. We can model that somehow." How to model it is not yet decided. As of today nothing in `20_CODE/`
-models an offer sheet (one comment in `page_2017_values.py`).
+models an offer sheet (one comment in `page_2017_values.py`). The supervisor (2026-10-15): about 12-14 offer sheets in the cap era, too few
+for statistics; put it aside until the paper is done ("you're having creep here"). Thomas: "at a minimum this is
+like a later thing".
 
 **Done 2026-10-14 (Thomas's decisions on the audit).**
 - 60/40 checks retired (commit 35cbb62): `skater_value_engine.py` v2.0 (a library), `goalie_value_engine.py` v1.3,

@@ -3302,3 +3302,36 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   laptop). Both Word files are now the record; their builders say so. Arbitration note: the two cost ratios relabelled
   (they include entry-level seasons). `prospect_doc_figures.py` v1.1 (D+ labels). WORK_QUEUE: the figure step. CLAUDE.md:
   four rules. No model change; no locked decision touched. `sessions/2026-10-15.md`.
+
+### Change log, 2026-10-15b (the meeting; deceased draftees excluded from every fit; prospect tests)
+
+- Thomas's decision: drafted players who died before reaching the NHL are left out of every fit (pick curve, star
+  values, prospect model). `20_CODE/deceased_draftees.py` v1.0 (six players, 2007-2017), `pick_curve.py` v1.6,
+  `prospect_values.py` v1.6; tests `prospect_slot_years_check.py` v1.1, `prospect_age_look.py` v1.1. Star value
+  18.02 -> 18.04; traded picks $401.25M -> $401.50M; traded drafted prospects $69.12M -> $70.39M. Recorded in
+  MODEL_DIRECTIVES directive 6 ("deceased draftees"). The full production curve kept (Thomas); squared alone tested and
+  not adopted. No locked decision (D1-D33) touched: the draft and prospect decisions sit under directive 6.
+- Five tests added in `25_TESTS/` (curve vs line, fade rules, production form, age correlation, NHL arrival timing).
+- The meeting recorded in WORK_QUEUE (outcomes, the supervisor's next steps, offer sheets parked). PROJECT_STATE
+  figures in force updated. CLAUDE.md: transcript speaker-label rule. `sessions/2026-10-15b.md`.
+
+### Change log, 2026-10-15c (prospects: age-removed version dropped, age centred at 18, square unscaled; the document rebuilt)
+
+- Thomas's notes: age fully adopted with no age-removed version; age centred at 18; production squared not divided by
+  10. `prospect_values.py` v1.7, `prospect_nhle_look.py` v1.2, `prospect_age_look.py` v1.2, the five new tests updated;
+  adopted values unchanged (3.7e-14). MODEL_DIRECTIVES directive 6 ("age fully adopted, centred at 18").
+- "Valuing Prospects" rebuilt (`25_TESTS/prospect_model_doc.js` v2.0, `prospect_doc_figures.py` v2.0): all 20 notes,
+  the excluded-players table, arrival timing, the fade rules against the adopted one, NHLe factors, three production
+  forms, age correlations, the regressions built up one term at a time. No locked decision (D1-D33) touched.
+
+### Change log, 2026-10-15d (Thomas's 13 notes on the rebuilt "Valuing Prospects"; session 2026-10-15c)
+
+- Thomas chose to report age as his age on September 15 of the valuation season (option A): the same values and age
+  coefficient as years past first eligibility, a different reported production coefficient. Document only
+  (`prospect_doc_figures.py` v2.1 refits and checks; `prospect_values.py` unchanged). MODEL_DIRECTIVES directive 6.
+- "Valuing Prospects" builder v2.1 and figure script v2.1: draft position for slot, NHLe, root mean squared error,
+  production forms named by their terms, the full set of interaction terms, arrival as shares of all picks, Figure 2
+  in three panels, the age-centring argument cut from Section 2, missing prospect-seasons with the 2007 draft.
+  Thomas's commented copy committed. Not yet run on the laptop. No locked decision (D1-D33) touched.
+- CLAUDE.md: five rules (name a model by its terms; draft position, not slot; a cumulative share's base; no argument
+  that rests on a section not yet read; a measure described by what it compares). `sessions/2026-10-15c.md`.

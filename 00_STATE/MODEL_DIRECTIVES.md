@@ -936,6 +936,51 @@ minus the seasons since his draft minus 18.5 (within a season group, "older now"
   model (David Clarkson's $5.25M long-term-injury contract, a cap dump; goalies Mike McKenna and Andrew Hammond). For
   the player model and the back-test.
 
+### Draft picks and prospects: drafted players who died before reaching the NHL are excluded (decided and built 2026-10-15)
+
+- **Decided (Thomas, 2026-10-15):** "Exclude drafted players who died before reaching the NHL from every fit (the
+  draft pick curve, the star values and the prospect model), keep the full curve, and list them in the document as
+  excluded with the reason." His reason: such a player "obviously did not make the NHL through no fault of his own"
+  (raised with Rodion Amirov, 2020 #15, died 2023). The NHL also compensates a club whose unsigned draftee dies.
+- **The rule (`20_CODE/deceased_draftees.py`):** drafted 2007-2017, never reached the NHL, died before his club control
+  would have ended. Six players, from Wikipedia's list of players who died during their careers: Alexei Cherepanov
+  (2007 #17, died 2008-10-13), Mickey Renaud (2007 #143, 2008-02-18), Bryan Rufenach (2007 #208, 2012-06-04), Scott
+  Winkler (2008 #89, 2013-06-12), Kristians Pelss (2010 #181, 2013-06-11), Daniil Sobchenko (2011 #166, 2011-09-07).
+  Kept: Adam Comrie (2008 #80, died 2020, after his control ended in 2018). Amirov is outside the fit drafts.
+- **Why it mattered:** their rows ran on after death as prospect-seasons with zero outcome; Cherepanov's D+3 to D+5
+  carried his 2007-08 KHL production (44.1 NHL-equivalent points per 82), the single row most against the curve.
+- **Built:** `pick_curve.py` v1.6 (marks them `excluded_deceased`, keeps them priced, fits without them),
+  `prospect_values.py` v1.6, the tests `prospect_slot_years_check.py` v1.1 and `prospect_age_look.py` v1.1 (rows
+  13,152 -> 13,104, fingerprint cff3583de536). Star value $18.02M -> $18.04M; traded picks $401.25M -> $401.50M;
+  traded drafted prospects $69.12M -> $70.39M (all prospects $74.96M -> $76.31M).
+- **Effect on the production form (`prospect_production_form.py` v1.1):** curved beats the straight line in 1,951 of
+  2,000 redraws (one-sided p = 0.0245; it was 0.095), and the slot alone at p = 0.0105. The full curve is kept
+  (Thomas); squared alone was tested: the data rejects dropping production's own term (joint p = 0.0027).
+
+### Prospects: age fully adopted, centred at 18; production squared as it is (decided and built 2026-10-15)
+
+- **Decided (Thomas, 2026-10-15, notes on "Valuing Prospects"):** "Age is fully adopted and we don't need to report an
+  age removed version as sensitivity" (this replaces "keep both for now", 2026-10-14); centring years past first
+  eligibility at 18 rather than 18.5 ("seems like the simpler solution"); production squared without the division by
+  10. Both scale changes leave the adopted model's values unchanged (largest change 3.7e-14 on the traded prospects).
+- **Built:** `prospect_values.py` v1.7 (no `value_no_age_M`), `prospect_nhle_look.py` v1.2, `prospect_age_look.py` v1.2;
+  the five new tests follow. Under the new centre the flat-age test arms move (they have no constant): both terms
+  together are now worse than the discount alone (held-out -0.69% against -0.74%).
+- **Found:** whether production squared alone is rejected depends on the centre of age (joint p = 0.0027 at 18.5,
+  0.063 at 18), because without its own production term the age interaction carries a hidden linear term. The full
+  curve does not depend on the centre; it stays adopted.
+- **The document:** "Valuing Prospects" rebuilt by `25_TESTS/prospect_model_doc.js` v2.0 from Thomas's edited file,
+  his 20 notes, these decisions, the deceased-draftee list and the new tests (figures and numbers:
+  `prospect_doc_figures.py` v2.0). The Word file is again built by the script.
+- **Reported as age now (Thomas, 2026-10-15, option A of three rewrites offered for his note on the age wording):**
+  the document reports age as his age on September 15 of the valuation season, entering as production x (age - 18).
+  Within a season's regression that differs from years past first eligibility by the seasons since the draft, the same
+  for every prospect, so production's coefficient absorbs it: the same values and the same age coefficient; only the
+  reported production coefficient moves (b - e x k). `prospect_doc_figures.py` v2.1 refits the adopted model this way
+  and checks it against the live fit; `prospect_values.py` is unchanged (it still stores years past first
+  eligibility). The rejected flat age form is reported as tested, on years past first eligibility. His reading, which
+  this matches: a point scored at 20 is worth less than a point scored at 18, all else equal.
+
 ---
 
 # To investigate (Thomas's list; nothing here is directed)

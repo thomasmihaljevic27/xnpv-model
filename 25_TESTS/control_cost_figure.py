@@ -1,5 +1,5 @@
 """
-control_cost_figure.py v1.3 -- the control-cost bar chart for "Arbitration Cost Update" (Figure 1).
+control_cost_figure.py v1.4 -- the control-cost bar chart for "Arbitration Cost Update" (Figure 1).
 
 WHY (Thomas, 2026-10-15, a note on the Arbitration Cost Update): "In the previous Valuing Draft Picks document you
 had a bar graph showing the difference between surplus value, what the model costed players at, and what teams
@@ -38,6 +38,8 @@ Word file is closed before it is swapped in (v1.1 left it open, and Windows refu
 caption's counts; the cap-hit coverage is printed by band with the CapWages folders read, and the figure stays out of
 the note when over 10% of seasons have no cap hit (--allow-gaps overrides). v1.3: --capwages-dir reads more folders of
 CapWages pages (repeatable); a player's cap hits are the union over his pages, the first folder read winning a season.
+v1.4: --fetch N fetches up to N missing pages as top_pick_control_look.py did (kept only when the draft line matches);
+the coverage lines split the seasons without a cap hit at 2018-19.
 
 OUTPUTS: OUTPUT_DIR/control_cost_figure/control_cost.png, control_cost_bands.csv, control_cost_figure_log.txt.
 Run from the repo root:  python 25_TESTS/control_cost_figure.py      (after pick_curve.py; needs matplotlib)
@@ -49,6 +51,8 @@ import os
 import re
 import struct
 import sys
+import time
+import unicodedata
 import zipfile
 from pathlib import Path
 
@@ -57,9 +61,10 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt                   # noqa: E402
 import numpy as np                                # noqa: E402
 import pandas as pd                               # noqa: E402
+import requests                                   # noqa: E402
 from dotenv import load_dotenv                    # noqa: E402
 
-SCRIPT_VERSION = "control_cost_figure.py v1.3 (2026-10-15)"
+SCRIPT_VERSION = "control_cost_figure.py v1.4 (2026-10-15)"
 load_dotenv()
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "20_CODE"))
@@ -95,6 +100,50 @@ def cap_hits(txt):
     for s, cap in re.findall(r"(\d{4})-\d{2} \S+ \$([\d,]+) [\d.]+% \$[\d,]+", txt):
         out.setdefault(int(s), float(cap.replace(",", "")))
     return out
+
+
+def to_slug(name):
+    """capspace_capwages_compare.to_slug, as top_pick_control_look.py v1.1: first-last lowercase ASCII."""
+    n = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode()
+    n = re.sub(r"[^A-Za-z\- ]", "", n).strip().lower()
+    return re.sub(r"\s+", "-", n)
+
+
+def fetch_missing(players, pages, limit):
+    """v1.4: fetch the CapWages page of each first-round skater who played and has no page, as
+    top_pick_control_look.py v1.1 fetched them on 2026-10-09 (capwages.com/players/<slug>, 1.5 s apart, the .env
+    user agent), into OUTPUT_DIR/capwages_top_picks/. A page is kept ONLY if its "Drafted" line names the same
+    draft year and pick (a namesake's page is refused and not saved). limit: at most this many requests."""
+    new = OUTPUT_DIR / "capwages_top_picks"
+    new.mkdir(exist_ok=True)
+    ua = os.environ.get("SCRAPER_USER_AGENT", "xnpv-model/1.0 (academic research)")
+    sess, asked, kept, refused = requests.Session(), 0, 0, []
+    todo = [r for r in players.itertuples() if (int(r.draftYear), int(r.pick)) not in pages]
+    log(f"  fetch: {len(todo):,} first-round skaters who played have no CapWages page; limit {limit:,} requests")
+    for r in todo:
+        if asked >= limit:
+            break
+        key, slug = (int(r.draftYear), int(r.pick)), to_slug(r.player)
+        try:
+            resp = sess.get(f"https://capwages.com/players/{slug}", headers={"User-Agent": ua}, timeout=20)
+        except requests.RequestException as e:
+            refused.append(f"{key[0]} #{key[1]} {r.player} ({slug}): {type(e).__name__}")
+            asked += 1
+            continue
+        asked += 1
+        time.sleep(1.5)
+        t = page_text(resp.text) if resp.status_code == 200 else ""
+        got = drafted(t) if t else None
+        if resp.status_code != 200 or got != key:      # GUARD: only his own page is kept
+            refused.append(f"{key[0]} #{key[1]} {r.player} ({slug}): HTTP {resp.status_code}, page drafted {got}")
+            continue
+        (new / f"{slug}.html").write_text(resp.text, encoding="utf-8")
+        pages[key] = cap_hits(t)
+        kept += 1
+        log(f"    kept {key[0]} #{key[1]} {r.player}: {len(pages[key])} seasons with a cap hit")
+    log(f"  fetch: {asked:,} requested, {kept:,} kept, {len(refused):,} refused")
+    for x in refused:
+        log(f"    refused {x}")
 
 
 # ---- the Word step: one inline picture in place of the placeholder paragraph --------------------------------
@@ -169,6 +218,8 @@ def main():
     ap.add_argument("--doc", default=str(ROOT / "40_DOCS" / "Supervisor_Drafts" / "Arbitration Cost Update.docx"))
     ap.add_argument("--no-doc", action="store_true", help="draw the figure only")
     ap.add_argument("--capwages-dir", action="append", default=[], help="another folder of CapWages pages (repeatable)")
+    ap.add_argument("--fetch", type=int, default=0, metavar="N",
+                    help="fetch up to N missing CapWages pages for first-round skaters who played")
     ap.add_argument("--allow-gaps", action="store_true", help="insert even with over 10%% of seasons lacking a cap hit")
     a = ap.parse_args()
     OUT.mkdir(exist_ok=True)
@@ -231,6 +282,8 @@ def main():
     pp = pp.groupby(["nhl_id", "season_start"])["pp_cap_hit"].max().to_dict()
 
     fig_rows = se[(se["pick"] <= 32) & ~se["is_goalie"].astype(bool) & (se["nhl_seasons"] > 0)].copy()
+    if a.fetch:
+        fetch_missing(fig_rows.drop_duplicates(["draftYear", "pick"])[["draftYear", "pick", "player"]], pages, a.fetch)
     acts, src, corrupt = [], [], 0
     for r in fig_rows.itertuples():
         pv = pp.get((int(r.playerId), int(r.season))) if (pd.notna(r.playerId) and r.season >= 2018) else None
@@ -304,7 +357,9 @@ def main():
     for lo, hi in BANDS:                                     # v1.2: coverage of the "actually paid" bar, by band
         g = fig_rows[fig_rows["pick"].between(lo, hi)]
         gap = int((g["actual_source"] == "market price rule (no cap hit)").sum())
-        log(f"  picks {lo}-{hi}: {gap:,} of {len(g):,} seasons without a cap hit ({gap / len(g):.0%})")
+        early = int(((g["actual_source"] == "market price rule (no cap hit)") & (g["season"] < 2018)).sum())
+        log(f"  picks {lo}-{hi}: {gap:,} of {len(g):,} seasons without a cap hit ({gap / len(g):.0%}; "
+            f"{early:,} before 2018-19, {gap - early:,} from it)")
     for line in CW:                                          # repeated beside the coverage
         log(line)
     # GUARD (v1.2): a season without a cap hit takes the model's cost, which pulls the "actually paid" bar toward the
