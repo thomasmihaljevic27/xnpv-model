@@ -424,7 +424,8 @@ To answer questions about the curve on the spot: `python 25_TESTS/pick_lookup.py
   comments, nearly all one of six failures: vague phrases for plain claims, coined labels ("dollar scale", "the
   chain"), claims without their number, results described instead of shown, numbers without their meaning, and
   choices without their reason (2026-10-09). Agree three to five take-aways first, then check each sentence against
-  skill section 1.6 before handing it over.
+  skill section 1.6 before handing it over. Then run the checks at the end of `40_DOCS/Valuing_Prospects_Feedback.md`, his
+  five rounds of notes on "Valuing Prospects" sorted into themes (2026-10-16).
 - **Don't state what an option costs against a baseline nobody chose.** Asked how pricing a rookie's
   entry-level seasons at the deal's remaining term compares with pricing them as one-year deals, a
   reply put the difference at "roughly $5M", the whole term premium, when one-year pricing carries a

@@ -3373,3 +3373,5 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   regression form). `pick_curve.py` v1.7, `prospect_values.py` v1.10, seven document tests; star value $18.04M,
   traded picks $401.6M, traded prospects $75.60M. "Valuing Prospects" v2.5. MODEL_DIRECTIVES directive 6,
   WORK_QUEUE, PROJECT_STATE. No locked decision (D1-D33) touched.
+- `40_DOCS/Valuing_Prospects_Feedback.md`: Thomas's notes on "Valuing Prospects" in five rounds, with themes and
+  checks for the next draft; CLAUDE.md's document rule points to it.
