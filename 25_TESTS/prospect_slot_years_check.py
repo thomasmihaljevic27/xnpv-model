@@ -51,7 +51,7 @@ import pandas as pd
 import statsmodels.api as sm
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "prospect_slot_years_check.py v1.1 (2026-10-15)"
+SCRIPT_VERSION = "prospect_slot_years_check.py v1.2 (2026-10-16)"   # no draft-year terms (Thomas, 2026-10-16)
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "20_CODE"))
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
@@ -105,11 +105,8 @@ d = pd.DataFrame(rows)
 
 
 def fit(frame, cluster=False):
-    """pick_curve.fit_scale on remaining surplus: through zero, sum-to-zero draft-year columns."""
-    cl = sorted(frame["draftYear"].unique())
-    yrs = frame["draftYear"].values
-    X = np.column_stack([frame["p_star"].values]
-                        + [(yrs == c).astype(float) - (yrs == cl[-1]).astype(float) for c in cl[:-1]])
+    """pick_curve.fit_scale on remaining surplus: through zero, no draft-year terms (v1.2)."""
+    X = np.column_stack([frame["p_star"].values])
     if cluster:
         groups = pd.factorize(frame["draftYear"].astype(str) + "-" + frame["pick"].astype(str))[0]
         m = sm.OLS(frame["remaining_M"].values, X).fit(cov_type="cluster", cov_kwds={"groups": groups})
@@ -139,7 +136,7 @@ log("\nWHO IS A PROSPECT, by seasons since the draft (drafted players 2007-2017)
 for k, g in d.groupby("k"):
     log(f"  {k}: {len(g):5,} players; prospects {int(g['prospect'].sum()):5,}; player model {int((~g['prospect']).sum()):4,}")
 
-log("\nSTAR VALUE FOR A PLAYER STILL A PROSPECT ($M at the 2025-26 cap; through zero, draft-year indicators)")
+log("\nSTAR VALUE FOR A PLAYER STILL A PROSPECT ($M at the 2025-26 cap; through zero, no draft-year terms)")
 log(f"  #1 pick: star chance {P1:.4f}. Left-out range: the star value with each draft left out in turn.")
 for r in o.itertuples():
     log(f"  {r.seasons_since_draft:>2} seasons: star value {r.star_value_M:6.2f} (se {r.se_M:.2f}); #1 pick "

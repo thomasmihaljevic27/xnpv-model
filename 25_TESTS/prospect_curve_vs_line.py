@@ -41,7 +41,7 @@ import pandas as pd
 import statsmodels.api as sm
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "prospect_curve_vs_line.py v1.2 (2026-10-15)"
+SCRIPT_VERSION = "prospect_curve_vs_line.py v1.3 (2026-10-16)"   # no draft-year terms (Thomas, 2026-10-16)
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 LOG = []
@@ -92,11 +92,8 @@ def cols_for(form, slot_groups, age, g):
 
 
 def fit(frame, cols, cluster):
-    """The pick curve's form: through zero, draft-year indicators that sum to zero."""
-    cl = sorted(frame["draftYear"].unique())
-    yrs = frame["draftYear"].values
-    X = np.column_stack([frame[c].values for c in cols]
-                        + [(yrs == c).astype(float) - (yrs == cl[-1]).astype(float) for c in cl[:-1]])
+    """The pick curve's form: through zero, no draft-year terms (v1.3)."""
+    X = np.column_stack([frame[c].values for c in cols])
     if cluster:
         groups = pd.factorize(frame["draftYear"].astype(str) + "-" + frame["pick"].astype(str))[0]
         return sm.OLS(frame["remaining_M"].values, X).fit(cov_type="cluster", cov_kwds={"groups": groups})

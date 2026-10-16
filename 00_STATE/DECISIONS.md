@@ -3369,3 +3369,7 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - "Valuing Prospects" v2.4: Thomas's concision edits (13 of 14 as proposed, one cut further) and his Section 1
   comments; 5,625 -> 4,928 words of prose and captions. One intercept for the pick curve and the prospect model:
   measured, not built; awaiting Thomas (traded picks +9.5%).
+- Decided (Thomas): no intercept and no draft dummies in the pick curve and the prospect model (the pick curve's open
+  regression form). `pick_curve.py` v1.7, `prospect_values.py` v1.10, seven document tests; star value $18.04M,
+  traded picks $401.6M, traded prospects $75.60M. "Valuing Prospects" v2.5. MODEL_DIRECTIVES directive 6,
+  WORK_QUEUE, PROJECT_STATE. No locked decision (D1-D33) touched.

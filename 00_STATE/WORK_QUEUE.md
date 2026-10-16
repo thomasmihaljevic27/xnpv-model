@@ -24,9 +24,9 @@
 PASS; Table 6's note corrected. Decided: D+5-and-later skater prospects keep the adopted model (MODEL_DIRECTIVES directive
 6). Figure 2 and Table 3 say "alternative" (Thomas).
 
-**Decide (Thomas, 2026-10-16): one intercept in the pick curve and the prospect model** (his direction, put back
-with its figures before building; session 2026-10-16b): the traded picks rise $38.2M (+9.5%) on a $0.07M intercept
-(p = 0.44); prospects move $0.3M. This settles the pick curve's open regression form (below).
+**Decided and built 2026-10-16 (session 2026-10-16b): no intercept and no draft dummies** in the pick curve and the
+prospect model (Thomas), settling the draft regression's form below. Star value $18.04M; traded picks $401.6M;
+traded prospects $75.60M (drafted $69.82M); "Valuing Prospects" rebuilt (v2.5).
 
 **Later (Thomas, 2026-10-16): goaltender prospects.** Thomas: "maybe we can return to the goalies another day." What the
 record shows: from D+5 on, the pooled star value ($2.01M) is almost all goaltenders' signal; goaltender prospect-seasons
@@ -50,7 +50,7 @@ changed); the full curve kept; deceased draftees excluded (built) and to be list
   checks its sums against `pick_curve_log.txt`, draws the bar chart he asked for (value delivered; cost on the
   qualifying-offer chain; cost on the market price rule; cost actually paid) and puts it in place of the placeholder
   line under the 1.61x bullet. Until it runs, the note shows "[Figure 1 is inserted here ...]".
-- Decide there (Thomas, with the supervisor): the draft regression's form. Run
+- Decided 2026-10-16 (Thomas): no intercept, no draft dummies (above). Was: decide the draft regression's form. Run
   `python 25_TESTS/pick_lookup.py regression`. On the arbitration cost now adopted: through zero 13.42 (se 1.44);
   a constant plus a dummy for each draft but one 13.53 (se 1.69), constant -$0.02M a pick at an average draft
   (p 0.77). On the old qualifying-offer chain the same pair was 31.66 against 31.04. The held-out comparison of

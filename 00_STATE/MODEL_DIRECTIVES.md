@@ -702,8 +702,8 @@ Thomas the same day. Each item may change only by Thomas's decision.
 - *Table 2's constant: Karl asked for a re-run* with a constant and a dummy for every draft but one, run by Thomas.
   Checked 2026-10-13: the adopted fit has ten sum-to-zero year columns and no column of ones, so it is not the
   dummy-variable trap; it does force the average draft's intercept to zero. Karl's form gives star value 31.04
-  (se 3.21) against 31.66, constant $0.13M a pick at an average draft (se 0.14, p 0.35). **Open for Thomas:**
-  through zero or free intercept. Command: `python 25_TESTS/pick_lookup.py regression`.
+  (se 3.21) against 31.66, constant $0.13M a pick at an average draft (se 0.14, p 0.35). **Decided (Thomas, 2026-10-16): no intercept and no draft dummies** in the pick curve and the prospect model ("Go with no intercept and no draft dummies in both"), chosen over one intercept (traded picks +9.5% on a $0.07M intercept, p = 0.44). `pick_curve.py` v1.7, `prospect_values.py` v1.10.
+  Star value 18.04 (se 1.75; 18.04 with the year terms), traded picks $401.6M (was $401.5M).
 - *Bacon's star chance is circular with our surplus* (both from his WAR, largely the same drafts). Karl raised it,
   then: "take it as given ... we're relying on this other research"; "I think it's okay." Stated as a limitation.
   **Open for Thomas:** an independent check against a stat with no Bacon input (games played, points, Game Value).
@@ -805,8 +805,8 @@ v1.0, item 7 below.
    and June 30 belongs to one season), who is a prospect at y by the rule above. Seasons since the draft: k = y -
    draft year (k = 0 is the season after his draft, the pick curve's first season).
 2. **What he is worth.** Bacon's star chance for his slot (`draft_slot_baseline.csv`) x the star value for k.
-3. **The star value for k.** The pick curve's own regression (`pick_curve.fit_scale`: through zero, draft-year
-   indicators that sum to zero, robust errors) on the 2007-2017 drafted players who were prospects at k, with
+3. **The star value for k.** The pick curve's own regression (`pick_curve.fit_scale`: through zero, no
+   draft-year terms since 2026-10-16, robust errors) on the 2007-2017 drafted players who were prospects at k, with
    their remaining surplus as the outcome: the pick curve's priced seasons from y on (season y in full), lapsed
    rights zeroed as the pick curve zeroes them. Seasons 4 and later: one fit on the stacked rows, errors clustered
    by player. Goalies pooled with skaters, as for picks.
@@ -826,7 +826,8 @@ v1.0, item 7 below.
 
    A prospect keeps most of his slot's value for two seasons; the third and fourth take most of it. Past two
    seasons few top picks are left, so the slot carries little there: that is where production must add value.
-   Inherits the pick curve's open choice of regression form (through zero or a free constant: WORK_QUEUE).
+   The pick curve's regression form, decided 2026-10-16: through zero, no draft-year terms (as are the
+   production-and-age fits).
 7. **The traded prospects (`prospect_values.py` v1.0).** The trade inventory's player assets from 2017-07-01 (as for
    traded picks; trades.db ends 2022-03-28), valued at the trade season (his draft year if traded between his draft
    and July 1). Past club control (CBA Group 3, as the pick curve) a prospect is worth zero. Beyond seven seasons

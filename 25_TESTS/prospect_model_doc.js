@@ -1,5 +1,7 @@
-// prospect_model_doc.js v2.4 -- builds "Valuing Prospects.docx" (40_DOCS/Supervisor_Drafts/).
+// prospect_model_doc.js v2.5 -- builds "Valuing Prospects.docx" (40_DOCS/Supervisor_Drafts/).
 //
+// v2.5 (2026-10-16, session 2026-10-16b): no intercept and no draft-year terms in the pick curve and the prospect
+// model (Thomas); Section 1's method, its equation and Table 6's note say so; Table 1's note re-measured.
 // v2.4 (2026-10-16, session 2026-10-16b): Thomas's 14 concision edits (13 as proposed, the D+5 paragraph after
 // Table 9 cut entirely), his two comments on Section 1 (the star value in his words; the draft-year effects and
 // the regression equation shown), his Oxford comma.
@@ -57,7 +59,7 @@ const f4 = (x) => Number(x).toFixed(4);
 const comma = (x) => Number(x).toLocaleString("en-US");
 const money = (x) => (x < 0 ? `-$${f2(-x)}M` : `$${f2(x)}M`);
 const mil = (x) => (x < 0 ? `-$${f2(-x)} million` : `$${f2(x)} million`);
-const pfmt = (p) => (p < 0.001 ? "<0.001" : f3(p));
+const pfmt = (p) => (p === null || Number.isNaN(p) ? "–" : (p < 0.001 ? "<0.001" : f3(p)));   // v2.5: "–" when there is no p-value
 const pone = (p) => (p < 0.0005 ? "<0.001" : (p < 0.01 ? f4(p) : f3(p)));
 const pq = (p) => (p < 0.0005 ? "p < 0.001" : `p = ${p < 0.01 ? f4(p) : f3(p)}`);   // a p-value in prose
 const z3 = (x, d = 3) => (Math.abs(x) < 0.5 * 10 ** -d ? (0).toFixed(d) : Number(x).toFixed(d));
@@ -167,7 +169,7 @@ add(TITLE("Table 1. Drafted players left out of every fit"));
 add(TABLE(["Player", "Drafted", "Club", "Died"],
   N.excluded.map((e) => [e.name, `${e.draft}, #${e.pick}`, TEAMS[e.name], longDate(e.died)]),
   [2600, 1500, 2600, 2400], []));
-add(CAPTION("Drafted players of 2007 to 2017 who never played an NHL season and died before their club's control would have ended, from Wikipedia's list of ice hockey players who died during their careers, each matched to the draft records by draft year and overall pick. Leaving them out moves the star value at the draft from $18.02 million to $18.04 million."));
+add(CAPTION("Drafted players of 2007 to 2017 who never played an NHL season and died before their club's control would have ended, from Wikipedia's list of ice hockey players who died during their careers, each matched to the draft records by draft year and overall pick. Leaving them out moves the star value at the draft from $18.03 million to $18.04 million."));
 
 // ---- 1. draft position -------------------------------------------------------------------------------------------
 add(H1("1. Draft Position and How Its Value Fades"));
@@ -176,9 +178,9 @@ const A10 = ARR["picks 1-10"], A37 = ARR["rounds 3-7"], AALL = ARR["all drafted 
 add(P(`The answer depends on when drafted players reach the NHL. Of the ${comma(AALL.n)} drafted players, ${comma(AALL.n_arrived)} (${f1(100 * AALL.n_arrived / AALL.n)}%) played an NHL season of 10 or more games (a goaltender, an NHL game) before their club's control ended; the other ${comma(AALL.n - AALL.n_arrived)} never did. How many arrive, and when, depends on where they were drafted (Figure 1). Of the ${A10.n} top-ten picks, ${f1(cum("picks 1-10", 1))}% had reached the NHL by D+1, ${f1(cum("picks 1-10", 2))}% by D+2 and ${f1(cum("picks 1-10", 3))}% by D+3, and ${A10.n_arrived} reached it in the end. Of the ${comma(A37.n)} picks from rounds 3 to 7, ${f1(cum("rounds 3-7", 3))}% had reached it by D+3 and ${f1(cum("rounds 3-7", 4))}% by D+4, and only ${f1(100 * A37.n_arrived / A37.n)}% ever did. A top pick who is still a prospect in D+4 is therefore unusual, and later picks who reach the NHL at all reach it later.`));
 add(FIGURE("fig_arrival.png", "Figure 1. When drafted players reach the NHL",
   `Drafted players of 2007 to 2017, without the six in Table 1. Each line is the share of a draft group's players who had reached the NHL by each season; the rest of the group, the gap above the line at D+9, never did. Reaching the NHL means a first NHL season of 10 or more games (for a goaltender, a first NHL game), the point at which the player model takes him; only seasons within club control are seen. Every draft is observed through at least D+9.`));
-add(P("To measure how the value of draft position changes, I regressed each prospect's remaining surplus on the star probability for his draft position, interacted with an indicator for each season from D+1 to D+4 and one for D+5 onwards, using every season in which a drafted player was still a prospect. The coefficient for each season is that season's star value, which is what a prospect still unproven in that season would be worth if he were certain to become a star. As in the draft pick curve, a dummy variable for each draft year lets a draft sit above or below the average. The draft effects average zero and there is no overall intercept, so each star value describes an average draft."));
-add(FORMULA("remaining surplus  =  star value for D+n  ×  star probability  +  draft-year effect  +  error"));
-add(P("A prospect is valued at the average draft, where the draft-year effect is zero:"));
+add(P("To measure how the value of draft position changes, I regressed each prospect's remaining surplus on the star probability for his draft position, interacted with an indicator for each season from D+1 to D+4 and one for D+5 onwards, using every season in which a drafted player was still a prospect. The coefficient for each season is that season's star value, which is what a prospect still unproven in that season would be worth if he were certain to become a star. As in the draft pick curve, the regression has no intercept, so a draft position with no star probability is worth zero."));
+add(FORMULA("remaining surplus  =  star value for D+n  ×  star probability  +  error"));
+add(P("A prospect still unproven in season D+n is therefore valued as:"));
 add(FORMULA("value in season D+n  =  star probability for his draft position  ×  star value for season D+n"));
 add(P(`For example, a #10 pick (star probability ${f1(100 * PS["10"])}%) who is still a prospect in D+3 is worth ${f3(PS["10"])} × ${mil(k("2").star)} = ${mil(PS["10"] * k("2").star)}.`));
 add(TITLE("Table 2. The star value for a player still a prospect, by season"));
@@ -259,7 +261,7 @@ add(TABLE(["Term", ...G.map((g) => SEAS[g])],
   [...t6terms.map(([lab, c]) => [lab, ...G.map((g) => { const r = PC(g, "slot+production curved"); const d = c === "nhle82_sq" ? 4 : 3;
     return `${Number(r[c]).toFixed(d)} (${Number(r[`${c}_se`]).toFixed(d)}) [${pfmt(erfcP(r[c], r[`${c}_se`]))}]`; })])],
   [2600, 1350, 1350, 1350, 1350, 1350], [1, 2, 3, 4, 5]));
-add(CAPTION("Dependent variable: remaining surplus in millions of dollars at the 2025-26 cap. Each cell gives the coefficient, its standard error clustered by player in parentheses and its two-sided p-value in brackets. The table is one regression with the full set of interaction terms: each column holds that season's coefficients. Each draft's level is allowed for (not shown), so the coefficients describe an average draft. Draft position's coefficient is statistically significant at the 5% level from D+1 to D+3, not in D+4, and negative and statistically significant from D+5 on (the paragraph before this table). From D+5 on, neither production term is statistically significant at the 5% level on its own."));
+add(CAPTION("Dependent variable: remaining surplus in millions of dollars at the 2025-26 cap. Each cell gives the coefficient, its standard error clustered by player in parentheses and its two-sided p-value in brackets. The table is one regression with the full set of interaction terms: each column holds that season's coefficients. Draft position's coefficient is statistically significant at the 5% level from D+1 to D+3, not in D+4, and negative and statistically significant from D+5 on (the paragraph before this table). From D+5 on, neither production term is statistically significant at the 5% level on its own."));
 add(H2("Decision: one production rate for forwards and defencemen"));
 add(P(`A separate production rate for defencemen was tested. It changes the held-out error by ${pct(pctVs(PA["slot+production by position"].rmse, PA["slot+production"].rmse))} against linear production with one rate, and its improvement over draft position alone is less consistent across drafts (one-sided p = ${f3(PA["slot+production by position"].p)} against ${f3(PA["slot+production"].p)}). One rate is kept.`));
 add(P("With production, the model values a prospect in season D+n as follows, where S is the star probability for his draft position, P is his production level in NHLe points per 82 games, and N is 1 when he has no production record and 0 otherwise. As in Section 1, each term is multiplied by an indicator for each season (a full set of interaction terms), so the coefficients a, b, c and d take a separate value in each season: a is the value of the star probability, b and c together give the value of production, and d is the value of having no record."));
@@ -273,7 +275,12 @@ add(TABLE(["Setting", "Adopted", "Alternative", "Why"], [
   ["Goaltenders", "Draft position alone", "A save-based measure (not tested)", "NHLe converts scoring, which says nothing about a goaltender. Elite Prospects holds goaltenders' save percentages, but no factor translates a save percentage from one league to another; a save-based measure is untested."],
   ["No production record", "An indicator, 0 or 1", "Read as zero scoring", "Missing data (an unlisted league) is not evidence of poor play."],
 ], [1900, 2100, 1700, 3600]));
-add(P(`Each setting is applied identically to each candidate in Table 4. The no-record indicator is not statistically significant in any season (p from ${f3(Math.min(...N.adopted.map((t) => t.terms.no_record.p)))} to ${f3(Math.max(...N.adopted.map((t) => t.terms.no_record.p)))}, Table 9); it is kept so that a missing record does not move a prospect's value.`));
+// v2.5: with no draft-year terms the no-record coefficient is what prospects without a record went on to deliver in
+// that season; from D+4 on each of them delivered nothing, so it is exactly zero there, with no p-value. The wording
+// below rests on that and on D+3 holding one such prospect-season: GUARD, the build stops if either changes.
+const nrP = N.adopted.map((t) => t.terms.no_record.p);
+if (!(nrP[3] === null && nrP[4] === null && NR["2"] === 1 && nrP[0] >= 0.05 && nrP[1] >= 0.05)) throw new Error("no-record wording no longer matches Table 9");
+add(P(`Each setting is applied identically to each candidate in Table 4. The no-record indicator gives a prospect without a record what such prospects went on to deliver in his season. It is not statistically significant at the 5% level in D+1 or D+2 (p = ${f3(nrP[0])} and ${f3(nrP[1])}, Table 9), and in D+3 it rests on a single prospect-season. From D+4 on it is exactly zero, with no p-value, because none of the ${NR["3"] + NR["4+"]} prospect-seasons without a record in those seasons delivered any surplus. It is kept so that missing data is not read as zero scoring.`));
 
 // ---- 3. age ------------------------------------------------------------------------------------------------
 add(H1("3. Age"));
@@ -386,6 +393,7 @@ add(TABLE(["Form and term", ...G.map((g) => SEAS[g])],
 add(CAPTION("Coefficients in millions of dollars per year of age (flat) or per NHLe point per year of age (discount), standard errors clustered by player in parentheses and two-sided p-values in brackets; each form is one regression with the full set of interaction terms and the production terms of Section 2. These candidates were fitted with age measured as years past first eligibility (his age less 18, less the seasons since his draft). Measuring age from 18 instead leaves the discount alone unchanged, as in Table 9; the forms with the flat term would be different fits, because the regression has no constant term to absorb the difference."));
 
 function erfcP(b, se) {
+  if (!(se > 1e-12)) return null;                       // v2.5: no p-value when the standard error is zero
   const x = Math.abs(b / se) / Math.SQRT2, t = 1 / (1 + 0.3275911 * x);
   return t * Math.exp(-x * x) * (0.254829592 + t * (-0.284496736 + t * (1.421413741 + t * (-1.453152027 + t * 1.061405429))));
 }

@@ -165,10 +165,10 @@ initials, Elite Prospects' spelling, a namesake guard); every id-name disagreeme
 | Skater control weights | 100% / 100% / 88.2% / 67.8% by forecast bucket | refresh 2026-10-05 |
 | Goalie control weight | 0.902 x 0.859 = 0.775 a year | refresh 2026-10-05 |
 | Star value | $18.04M (se 1.73); without 2015-2016 $15.69M; qualifying-offer chain $31.92M / $27.83M (v1.6, 2026-10-15: six deceased draftees out of every fit; was $18.02M) | `pick_curve.py` |
-| Traded picks (634, 2017-07-01 to 2022-03-21) | $401.5M; sensitivity $349.2M (2026-10-15; was $401.25M) | `traded_pick_values.py` |
-| Prospect star value by seasons since the draft | 18.04 / 17.61 / 15.75 / 8.89 / 2.01 (D+1, D+2, D+3, D+4, D+5 on; $M at the 2025-26 cap; 2026-10-15) | `prospect_values.py` |
-| Traded prospects (197 assets, 170 players, 2017-07-01 to 2022-03-28) | $70.39M (slot, production and age); slot alone $58.30M; own draft left out $69.23M (v1.7, 2026-10-15; was $69.12M; reproduced by v1.9 on the laptop 2026-10-16) | `prospect_values.py` |
-| Traded undrafted prospects on NHL contracts (53 assets) | $5.93M; all prospects $76.31M (2026-10-15) | `prospect_values.py` |
+| Traded picks (634, 2017-07-01 to 2022-03-21) | $401.6M; sensitivity $349.3M (2026-10-16: no draft-year terms; was $401.5M) | `traded_pick_values.py` |
+| Prospect star value by seasons since the draft | 18.04 / 17.67 / 15.74 / 8.79 / 1.94 (2026-10-16, no draft-year terms; D+1, D+2, D+3, D+4, D+5 on; $M at the 2025-26 cap; 2026-10-15) | `prospect_values.py` |
+| Traded prospects (197 assets, 170 players, 2017-07-01 to 2022-03-28) | $69.82M (slot, production and age); slot alone $57.99M (v1.10, 2026-10-16: no draft-year terms; was $70.39M / $58.30M) | `prospect_values.py` |
+| Traded undrafted prospects on NHL contracts (53 assets) | $5.78M; all prospects $75.60M (2026-10-16; was $5.93M / $76.31M) | `prospect_values.py` |
 | Discount and cap growth | 3% each | D11, D17 |
 
 ## Data and scripts (2026-10-14)

@@ -55,7 +55,7 @@ import pandas as pd
 import statsmodels.api as sm
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "prospect_nhle_look.py v1.2 (2026-10-15)"
+SCRIPT_VERSION = "prospect_nhle_look.py v1.3 (2026-10-16)"   # no draft-year terms (Thomas, 2026-10-16)
 load_dotenv()
 SOURCE_DIR, OUTPUT_DIR = Path(os.environ["SOURCE_DIR"]), Path(os.environ["OUTPUT_DIR"])
 LOG = []
@@ -140,8 +140,7 @@ d["nhle82_sq"] = d["nhle82"] ** 2             # v1.2: squared points per 82 (v1.
 
 def design(frame, cols, classes):
     yrs = frame["draftYear"].values
-    return np.column_stack([frame[c].values for c in cols]
-                           + [(yrs == c).astype(float) - (yrs == classes[-1]).astype(float) for c in classes[:-1]])
+    return np.column_stack([frame[c].values for c in cols])                 # v1.3: no draft-year terms
 
 
 def fit(frame, cols, cluster):

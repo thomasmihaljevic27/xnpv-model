@@ -49,7 +49,7 @@ import pandas as pd
 import statsmodels.api as sm
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "prospect_age_look.py v1.2 (2026-10-15)"
+SCRIPT_VERSION = "prospect_age_look.py v1.3 (2026-10-16)"   # no draft-year terms (Thomas, 2026-10-16)
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 LOG = []
@@ -99,8 +99,7 @@ def cols_for(arm, g):
 def fit(frame, cols, cluster):
     cl = sorted(frame["draftYear"].unique())
     yrs = frame["draftYear"].values
-    X = np.column_stack([frame[c].values for c in cols]
-                        + [(yrs == c).astype(float) - (yrs == cl[-1]).astype(float) for c in cl[:-1]])
+    X = np.column_stack([frame[c].values for c in cols])                    # v1.3: no draft-year terms
     if cluster:
         groups = pd.factorize(frame["draftYear"].astype(str) + "-" + frame["pick"].astype(str))[0]
         return sm.OLS(frame["remaining_M"].values, X).fit(cov_type="cluster", cov_kwds={"groups": groups})

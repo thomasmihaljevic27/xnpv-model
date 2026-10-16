@@ -14,8 +14,8 @@ A PICK'S VALUE
   * STAR VALUE: the surplus a pick would be worth if its player were certain to
     become a star (Thomas's name, 2026-10-09; it replaces "scale"). Each drafted
     player's surplus is regressed on the star probability of his slot, through
-    zero, with draft-year indicators that sum to zero, so it is the average draft
-    year's [pick_star_form_test.py: through zero won].
+    zero [pick_star_form_test.py: through zero won]. v1.7 (Thomas, 2026-10-16): no
+    draft-year terms (v1.0-v1.6 had sum-to-zero draft-year indicators).
   * ONE star value for every year (v1.2, Thomas 2026-10-09, option (a)):
       main         fitted on all eleven drafts 2007-2017;
       sensitivity  the same without 2015 and 2016, the two drafts that carry the
@@ -129,7 +129,7 @@ import pandas as pd
 import statsmodels.api as sm
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "pick_curve.py v1.6 (2026-10-15)"
+SCRIPT_VERSION = "pick_curve.py v1.7 (2026-10-16)"   # v1.7: no draft-year terms (Thomas)
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import skater_forward_projection as sfp          # noqa: E402  skater price line, cap and minimum tables
@@ -458,8 +458,9 @@ log(f"surplus zeroed for lapsed rights: ${d.loc[d['surplus'] != d['surplus_befor
 def fit_scale(frame):
     frame = frame[~frame["excluded_deceased"]]                     # v1.6: deceased draftees out of every fit
     cl = sorted(frame["draftYear"].unique())
-    yrs = frame["draftYear"].values
-    X = [frame["p_star"].values] + [(yrs == c).astype(float) - (yrs == cl[-1]).astype(float) for c in cl[:-1]]
+    # v1.7 (Thomas, 2026-10-16: "no intercept and no draft dummies"): surplus on the star chance alone, through
+    # zero; the sum-to-zero draft-year columns of v1.0-v1.6 are gone (they moved the star value by $0.004M)
+    X = [frame["p_star"].values]
     m = sm.OLS(frame["surplus"].values / 1e6, np.column_stack(X)).fit(cov_type="HC1")
     return m.params[0], m.bse[0], len(cl)
 
@@ -469,7 +470,7 @@ b2, se2, n2 = fit_scale(d[~d["draftYear"].isin([2015, 2016])])
 scales = [{"scale_kind": "main", "classes": "2007-2017", "n_classes": n, "scale_M": b, "se_M": se},
           {"scale_kind": "sensitivity", "classes": "2007-2017 without 2015 and 2016", "n_classes": n2,
            "scale_M": b2, "se_M": se2}]
-log(f"\nSTAR VALUE ($M at the 2025-26 cap: the surplus of a pick certain to produce a star; average draft year)")
+log(f"\nSTAR VALUE ($M at the 2025-26 cap: the surplus of a pick certain to produce a star; through zero, no draft-year terms)")
 log(f"  main, all eleven drafts:            {b:.2f} (se {se:.2f})")
 log(f"  sensitivity, without 2015 and 2016: {b2:.2f} (se {se2:.2f})")
 

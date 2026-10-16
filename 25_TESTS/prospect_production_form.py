@@ -57,7 +57,7 @@ import statsmodels.api as sm
 from dotenv import load_dotenv
 from scipy import stats
 
-SCRIPT_VERSION = "prospect_production_form.py v1.2 (2026-10-15)"
+SCRIPT_VERSION = "prospect_production_form.py v1.3 (2026-10-16)"   # no draft-year terms (Thomas, 2026-10-16)
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 LOG = []
@@ -114,9 +114,7 @@ def cols_for(form, g):
 
 
 def draft_cols(frame):
-    cl = sorted(frame["draftYear"].unique())
-    yrs = frame["draftYear"].values
-    return [(yrs == c).astype(float) - (yrs == cl[-1]).astype(float) for c in cl[:-1]]
+    return []                                                               # v1.3: no draft-year terms
 
 
 def fit(frame, cols, cluster):
@@ -147,12 +145,6 @@ def stacked(d, form):
         for c in cols_for(form, g):
             cols.append(x_in * d[c].values)
             names.append((g, c))
-        sub = d[d["k_group"] == g]
-        cl = sorted(sub["draftYear"].unique())
-        yrs = d["draftYear"].values
-        for c in cl[:-1]:
-            cols.append(x_in * ((yrs == c).astype(float) - (yrs == cl[-1]).astype(float)))
-            names.append((g, f"draft {c}"))
     m = sm.OLS(d["remaining_M"].values, np.column_stack(cols)).fit(
         cov_type="cluster", cov_kwds={"groups": pd.factorize(d["pid"])[0]})
     return m, names

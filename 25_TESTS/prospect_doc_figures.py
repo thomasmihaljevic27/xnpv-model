@@ -63,7 +63,7 @@ import matplotlib                                                  # noqa: E402
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt                                    # noqa: E402
 
-SCRIPT_VERSION = "prospect_doc_figures.py v2.3 (2026-10-16)"   # v2.3: Figure 2 label "Alternative"
+SCRIPT_VERSION = "prospect_doc_figures.py v2.4 (2026-10-16)"   # no draft-year terms (Thomas, 2026-10-16)   # v2.3: Figure 2 label "Alternative"
 OUT, SRC = Path(os.environ["OUTPUT_DIR"]), Path(os.environ["SOURCE_DIR"])
 FIG = OUT / "prospect_doc"
 FIG.mkdir(exist_ok=True)
@@ -74,7 +74,10 @@ LABEL = {"0": "D+1", "1": "D+2", "2": "D+3", "3": "D+4", "4+": "D+5 and later"}
 
 
 def pval(b, se):
-    """Two-sided p-value from a robust z statistic (normal reference)."""
+    """Two-sided p-value from a robust z statistic (normal reference). v2.4: None when the standard error is zero
+    (a coefficient that fits its rows exactly, as no-record from D+4 on: every such prospect delivered nothing)."""
+    if se < 1e-12:
+        return None
     return math.erfc(abs(b / se) / math.sqrt(2))
 
 
@@ -193,8 +196,7 @@ N["age_corr"] = {"age_vs_k": float(np.corrcoef(age_now, prow["k"])[0, 1]),
 def fit(x, cols, cluster):
     cl = sorted(x["draftYear"].unique())
     yrs = x["draftYear"].values
-    X = np.column_stack([x[c].values for c in cols] + [(yrs == c).astype(float) - (yrs == cl[-1]).astype(float)
-                                                       for c in cl[:-1]])
+    X = np.column_stack([x[c].values for c in cols])                        # v2.4: no draft-year terms
     if cluster:
         grp = pd.factorize(x["draftYear"].astype(str) + "-" + x["pick"].astype(str))[0]
         return sm.OLS(x["remaining_M"].values, X).fit(cov_type="cluster", cov_kwds={"groups": grp})
