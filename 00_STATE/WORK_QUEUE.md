@@ -8,6 +8,21 @@
 
 ## Live (audited 2026-10-14)
 
+**Read (Thomas): "Valuing Players, Draft Picks, and Prospects" (built 2026-10-16, session 2026-10-16c, 20 pages).** The
+write-up the supervisor asked for on 2026-10-15: the three models, every regression with its formula and a table that
+adds terms one at a time, the Pacioretty trade carried through. Built by `25_TESTS/model_doc.js` from
+`25_TESTS/model_doc_figures.py` (every guard PASS). Then decide (Thomas), each found while building it:
+- Draft intercepts in the pick curve: an intercept for each draft is jointly statistically significant at 5% (p = 0.017;
+  -$0.27M to +$0.82M a pick; star value $17.71M with them, $18.04M without). The document gives as the reason for
+  leaving them out that a pick traded before its draft has no intercept of its own (Claude's wording): confirm or
+  replace it.
+- An extension signed on the day of a trade: Pacioretty's value at the trade (-$11.07M) includes the four-year
+  extension Vegas signed that day; the season Montreal held was worth +$0.29M. Decide how the back-test counts it.
+- The cap at which a trade's sides are added: player values are stated at the cap of the valuation season, picks and
+  prospects at the 2025-26 cap; the document restates players at 2025-26 (x 95.5 / 79.5 for 2018-19). Decide the
+  back-test's rule.
+- Check the four references the document cites (Efron and Morris 1975; Nadaraya 1964; Tobin 1958; Watson 1964).
+
 **Held 2026-10-15: the supervisor meeting (session 2026-10-15b has the notes).** What it set:
 - Decided: the arbitration cost stands; the remaining gap between value delivered and cost paid is accepted (clubs earn
   from more than wins). Thomas: no more cost changes.

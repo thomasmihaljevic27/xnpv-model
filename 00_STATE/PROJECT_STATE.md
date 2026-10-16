@@ -163,7 +163,7 @@ initials, Elite Prospects' spelling, a namesake guard); every id-name disagreeme
 | Stage 3 line (guards only) | 0.0132478230 / 0.0212322891 / +0.0028702824 | `skater_value_engine.py` |
 | Floor spread, WAR_IF_PLAYS_MAE | 0.6767, 0.7545, 0.8026, 0.8499, 0.8770, 0.8981 (seasons 0-5, flat after; 2026-10-14) | `skater_forecast.py` |
 | Skater control weights | 100% / 100% / 88.2% / 67.8% by forecast bucket | refresh 2026-10-05 |
-| Goalie control weight | 0.902 x 0.859 = 0.775 a year | refresh 2026-10-05 |
+| Goalie control weight | 0.893 x 0.859 = 0.767 a year (103 decisions; measured 2026-10-16 on the laptop's inputs, session 2026-10-16c; was 0.902 x 0.859 = 0.775 at the 2026-10-05 refresh, not traced) | `contract_npv.py`, measured each run |
 | Star value | $18.04M (se 1.73); without 2015-2016 $15.69M; qualifying-offer chain $31.92M / $27.83M (v1.6, 2026-10-15: six deceased draftees out of every fit; was $18.02M) | `pick_curve.py` |
 | Traded picks (634, 2017-07-01 to 2022-03-21) | $401.6M; sensitivity $349.3M (2026-10-16: no draft-year terms; was $401.5M) | `traded_pick_values.py` |
 | Prospect star value by seasons since the draft | 18.04 / 17.67 / 15.74 / 8.79 / 1.94 (2026-10-16, no draft-year terms; D+1, D+2, D+3, D+4, D+5 on; $M at the 2025-26 cap; 2026-10-15) | `prospect_values.py` |

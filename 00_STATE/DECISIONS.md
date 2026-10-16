@@ -3375,3 +3375,16 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   WORK_QUEUE, PROJECT_STATE. No locked decision (D1-D33) touched.
 - `40_DOCS/Valuing_Prospects_Feedback.md`: Thomas's notes on "Valuing Prospects" in five rounds, with themes and
   checks for the next draft; CLAUDE.md's document rule points to it.
+
+### Change log, 2026-10-16c ("Valuing Players, Draft Picks, and Prospects")
+
+- New document `40_DOCS/Supervisor_Drafts/Valuing Players, Draft Picks, and Prospects.docx` (20 pages), the write-up
+  the supervisor asked for on 2026-10-15: the three models on one scale, each regression with its formula and a table
+  that adds terms one at a time, the Pacioretty trade carried through. Built by `25_TESTS/model_doc.js` v1.0 from
+  `25_TESTS/model_doc_figures.py` v1.0 (every guard PASS). No model code changed; no locked decision (D1-D33) touched.
+- `30_OUTPUT/traded_player_values.csv` refreshed on this laptop (`traded_player_values.py`, then `rights_values.py`):
+  it predated today's rebuilt signing dates and birthdates; 321 of 523 values moved by at most $229.
+- Found, for Thomas: the pick curve's draft intercepts are jointly significant (p = 0.017); the goaltender control
+  weight measures 0.767 (recorded 0.775); the goaltender price line is fitted on trailing WAR but prices the pulled
+  forecast; how the back-test counts an extension signed at a trade, and at which cap it adds the three asset kinds,
+  is not decided. WORK_QUEUE, PROJECT_STATE (goalie control weight). `sessions/2026-10-16c.md`.
