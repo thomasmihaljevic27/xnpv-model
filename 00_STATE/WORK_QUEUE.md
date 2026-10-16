@@ -21,10 +21,12 @@
 - Not discussed: the draft regression's form (below), still open.
 
 **Done 2026-10-16 (session 2026-10-16b): "Valuing Prospects" rebuilt on the laptop from Thomas's 10 notes;** every guard
-PASS; Table 6's note corrected. From D+5 on, production and its square are not jointly significant (p = 0.089; all three
-terms p = 0.182). **Decide (Thomas):** whether D+5-and-later prospects keep the production values (held-out error 0.7392
-against 0.7443 on draft position alone), and whether Figure 2's title and Table 3's "Rule" header should say
-"alternatives" too.
+PASS; Table 6's note corrected. Decided: D+5-and-later skater prospects keep the adopted model (MODEL_DIRECTIVES directive
+6). **Decide (Thomas):** whether Figure 2's title and Table 3's "Rule" header should say "alternatives" too.
+
+**Later (Thomas, 2026-10-16): goaltender prospects.** Thomas: "maybe we can return to the goalies another day." What the
+record shows: from D+5 on, the pooled star value ($2.01M) is almost all goaltenders' signal; goaltender prospect-seasons
+alone give $19.35M (p < 0.001), skaters $0.16M (p = 0.64). Session 2026-10-16b.
 
 **Read (Thomas): the revised "Valuing Prospects" (built 2026-10-15, session 2026-10-15b, 16 pages).** Then decide (Thomas):
 whether undrafted players' selection (all on NHL contracts) is a stated limitation or something to investigate, and

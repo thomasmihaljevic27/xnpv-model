@@ -3362,3 +3362,5 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   values $0.24M to $26.51M against $18.97M. Found: the D+5-and-later star value ($2.01M) is goaltenders' signal
   (skaters $0.16M, p = 0.64; goaltenders $19.35M, p < 0.001). CLAUDE.md: one rule (a pooled estimate quoted for a
   subgroup).
+- Decided (Thomas): D+5-and-later skater prospects keep the adopted model (production and its square). MODEL_DIRECTIVES
+  directive 6; WORK_QUEUE (goaltender prospects parked for later, in Thomas's words). No code change.

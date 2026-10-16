@@ -986,6 +986,11 @@ minus the seasons since his draft minus 18.5 (within a season group, "older now"
   the season (D+1 to D+4, D+5 onwards), errors clustered by player. `prospect_values.py` v1.8 (`fit_stacked`); the
   coefficients and values equal the season-by-season fits (guarded to 1e-9), the standard errors move only by the
   small-sample correction. The season-by-season fits stay for the each-draft-left-out values.
+- **D+5 and later keep the adopted model (Thomas, 2026-10-16: "let's go with the adopted model"):** skater prospects
+  from D+5 on stay on production and production squared (with the no-record indicator; no draft position, no age),
+  although the two are not jointly statistically significant there (p = 0.089). Evidence: all 24 combinations of draft
+  position, production, production squared and age (`25_TESTS/prospect_term_combinations.py` v1.0) predict within 1%
+  of one another and none beats the adopted model at the 5% level (smallest one-sided p 0.14). No code change.
 
 ---
 
