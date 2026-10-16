@@ -41,7 +41,7 @@ from pathlib import Path
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "buried_contract_values.py v1.2 (2026-10-14)"
+SCRIPT_VERSION = "buried_contract_values.py v1.3 (2026-10-16)"   # v1.3: PuckPedia dates read in either style
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_source as CS                        # noqa: E402
@@ -67,7 +67,7 @@ def main():
     priced = {(pp2nhl[int(p)], int(s)) for p, s in zip(panel["player_id"], panel["valuation_season"])}
     first_page = int(panel["valuation_season"].min())
     pc = pc.dropna(subset=["nhl_id", "signing_date", "contract_end", "cap_hit"]).copy()
-    pc["signed"] = pd.to_datetime(pc["signing_date"], format="%m/%d/%Y")
+    pc["signed"] = CS.parse_export_dates(pc["signing_date"], "PuckPedia signing_date")   # v1.3: either date style
     pc["last"] = pc["contract_end"].astype(str).str[:4].astype(int)
     pc["ends"] = pc["last"].map(lambda y: pd.Timestamp(y + 1, 6, 30))
     by_id = dict(tuple(pc.groupby(pc["nhl_id"].astype(int))))

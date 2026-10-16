@@ -3345,3 +3345,15 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   (his edits and notes). Thomas's commented copy committed. Not yet run on the laptop. No locked decision touched.
 - CLAUDE.md: four rules (build the method asked for, not an equivalent; "statistically significant", not
   "reliable"; a rejected alternative is called one; a table's baseline named by its terms). `sessions/2026-10-16.md`.
+
+### Change log, 2026-10-16b (the laptop: git repaired; prospect chain run; "Valuing Prospects" rebuilt)
+
+- Git: an interrupted pull's leftover merge state cleared and the cloud commit a63f158 merged in (1b1d86f; no file
+  changed). The laptop lacked the other computer's Elite Prospects database and CapWages caches (star value 17.72 against
+  18.04); Thomas copied `30_OUTPUT` and `10_SOURCE`; the signing-date and pick-curve logs then matched line for line and
+  the traded prospects came back at $70.39M.
+- `contract_source.py` 1.2 `parse_export_dates()`: PuckPedia dates in either style, guarded; `prospect_values.py` v1.9,
+  `buried_contract_values.py` v1.3, `page_2017_values.py` v1.1. No value change.
+- "Valuing Prospects" rebuilt; every guard PASS; Table 6's note corrected (draft position is negative and significant
+  from D+5 on, p = 0.028). D+5-and-later joint test: production and its square p = 0.089; all three terms p = 0.182.
+  WORK_QUEUE, PROJECT_STATE (prospect row). No locked decision (D1-D33) touched. `sessions/2026-10-16b.md`.

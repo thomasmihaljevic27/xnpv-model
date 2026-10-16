@@ -39,7 +39,8 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import forecast_config as C
 
-SCRIPT_VERSION = "1.1"   # 1.1 (2026-10-14): war_full_name(), the WAR spelling for crosswalked ids
+SCRIPT_VERSION = "1.2"   # 1.1 (2026-10-14): war_full_name(), the WAR spelling for crosswalked ids
+                         # 1.2 (2026-10-16): parse_export_dates(), either date style the exports carry
 
 # Tried in order. UTF-8 first so a correctly-encoded file is never read as
 # cp1252 -- cp1252 decodes ANY byte sequence without error, so trying it first
@@ -83,6 +84,19 @@ def load_trades() -> tuple[pd.DataFrame, str]:
     df, enc = read_csv_detect(C.F_TRADES_CSV)
     validate(df, TRADE_COLS, "trades")
     return df, enc
+
+
+def parse_export_dates(s: pd.Series, what: str) -> pd.Series:
+    """A date column of a PuckPedia export, read in either of the two styles the copies on Thomas's computers carry
+    (1.2, 2026-10-16): month/day/year ("9/2/2009") on one, year-month-day ("2009-09-02") on the laptop's contracts
+    file. Each value must fit one style exactly; nothing is guessed (no day-first reading, no inferred format).
+    GUARD: stops if any non-missing value fits neither."""
+    mdy = pd.to_datetime(s, format="%m/%d/%Y", errors="coerce")
+    iso = pd.to_datetime(s, format="%Y-%m-%d", errors="coerce")
+    out = mdy.fillna(iso)
+    bad = s.notna() & out.isna()
+    assert not bad.any(), f"{what}: {int(bad.sum())} dates fit neither m/d/Y nor Y-m-d, e.g. {s[bad].head(3).tolist()}"
+    return out
 
 
 def validate(df: pd.DataFrame, n_cols: int, what: str) -> None:

@@ -130,7 +130,7 @@ import statsmodels.api as sm
 from dotenv import load_dotenv
 
 
-SCRIPT_VERSION = "prospect_values.py v1.8 (2026-10-16)"
+SCRIPT_VERSION = "prospect_values.py v1.9 (2026-10-16)"   # v1.9: PuckPedia dates read in either style (no value change)
 load_dotenv()
 import contract_source as CS   # noqa: E402  v1.1: PuckPedia exports read strictly (identity only)
 SOURCE_DIR, OUTPUT_DIR = Path(os.environ["SOURCE_DIR"]), Path(os.environ["OUTPUT_DIR"])
@@ -521,11 +521,11 @@ def main():
         "(identity only: NHL ids for matching, no value input)")
     pc = pc.dropna(subset=["nhl_id", "cap_hit", "signing_date", "contract_end"]).copy()
     pc["key"] = (pc["first_name"].astype(str) + " " + pc["last_name"].astype(str)).map(name_key)
-    pc["signed"] = pd.to_datetime(pc["signing_date"], format="%m/%d/%Y")
+    pc["signed"] = CS.parse_export_dates(pc["signing_date"], "PuckPedia signing_date")   # v1.9: either date style
     pc["ends"] = pc["contract_end"].astype(str).str[-4:].astype(int).map(lambda y: pd.Timestamp(y, 6, 30))
     pt = pt[pt["player_id"].notna() & pt["nhl_id"].notna()].copy()
     pt["key"] = (pt["first_name"].astype(str) + " " + pt["last_name"].astype(str)).map(name_key)
-    pt["date"] = pd.to_datetime(pt["trade_date"], format="%m/%d/%Y")
+    pt["date"] = CS.parse_export_dates(pt["trade_date"], "PuckPedia trade_date")         # v1.9: either date style
     pc_by, pt_by = dict(tuple(pc.groupby(pc["key"].str[0]))), dict(tuple(pt.groupby(pt["key"].str[0])))
 
     def first_ok(k1, k2):
@@ -590,8 +590,9 @@ def main():
         return "; ".join(f"{x.draftYear} #{x.overallPickNumber}" for x in c.itertuples()) or "none"
 
     # ---- v1.3: undrafted players (Thomas, 2026-10-14: "NHL contracts only"; "Same model, no slot") ----------
-    pc_by_id = dict(tuple(pc.groupby(pc["nhl_id"].astype(int))))
-    PPINFO = {int(i): (pd.to_datetime(g["birthdate"].iloc[0], format="%m/%d/%Y", errors="coerce"),
+    pc["bd"] = CS.parse_export_dates(pc["birthdate"], "PuckPedia birthdate")   # v1.9: either style; was m/d/Y with
+    pc_by_id = dict(tuple(pc.groupby(pc["nhl_id"].astype(int))))              # errors="coerce", blank on Y-m-d
+    PPINFO = {int(i): (g["bd"].iloc[0],
                        str(int(g["eliteprospects_id"].iloc[0])) if pd.notna(g["eliteprospects_id"].iloc[0]) else None,
                        str(g["position"].iloc[0]).startswith("G"))
               for i, g in pc_by_id.items()}

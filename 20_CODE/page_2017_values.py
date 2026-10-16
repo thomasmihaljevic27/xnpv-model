@@ -44,7 +44,7 @@ import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "page_2017_values.py v1.0 (2026-10-14)"
+SCRIPT_VERSION = "page_2017_values.py v1.1 (2026-10-16)"   # v1.1: PuckPedia birthdates read in either style
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_source as CS                         # noqa: E402
@@ -76,7 +76,8 @@ def main():
 
     pc, _ = CS.load_contracts()
     PPID = {int(b): int(x) for x, b in zip(pc["player_id"], pc["nhl_id"]) if pd.notna(x) and pd.notna(b)}
-    INFO = {int(b): (p, bd) for b, p, bd in zip(pc["nhl_id"], pc["position"], pc["birthdate"]) if pd.notna(b)}
+    pc["bd"] = CS.parse_export_dates(pc["birthdate"], "PuckPedia birthdate")   # v1.1: either date style
+    INFO = {int(b): (p, bd) for b, p, bd in zip(pc["nhl_id"], pc["position"], pc["bd"]) if pd.notna(b)}
     wa = pd.read_csv(OUTPUT_DIR / "WAR_with_age.csv", usecols=["Player", "Position", "birthdate"]).dropna()
     BD_AGE = {norm_name(p) + "|" + str(q): bd for p, q, bd in zip(wa["Player"], wa["Position"], wa["birthdate"])}
     POS_WAR = {norm_name(p): str(q) for p, q in zip(wa["Player"], wa["Position"])}
@@ -141,7 +142,7 @@ def main():
             rows.append(rec)
             continue
         gk = pg == "G"
-        bd = pd.to_datetime(bd_pp, format="%m/%d/%Y", errors="coerce") if bd_pp else pd.NaT
+        bd = bd_pp if bd_pp is not None and pd.notna(bd_pp) else pd.NaT   # v1.1: parsed once above, either style
         if pd.isna(bd):
             bd = pd.to_datetime(BD_AGE.get(nn + "|" + ("G" if gk else pg)), errors="coerce")
         pid = PPID.get(nid) if nid else None
