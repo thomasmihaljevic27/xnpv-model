@@ -492,6 +492,10 @@ To answer questions about the curve on the spot: `python 25_TESTS/pick_lookup.py
 - **Don't let a table's baseline go by a shorthand name.** Table 8's "production model without age" was the Section 2
   model, and Thomas asked why the age candidates were not compared with it (2026-10-16). Name the baseline by its terms
   in the title, the row and the column.
+- **Don't quote a pooled estimate for a subgroup it doesn't describe.** Asked about valuing D+5-and-later skater
+  prospects without production, a reply offered draft position alone as significant there ($2.01M, p = 0.002). That
+  star value pools skaters and goaltenders: skaters alone give $0.16M (p = 0.64), goaltenders $19.35M (2026-10-16).
+  Before quoting a fit's estimate for a group, check it was fitted on that group's rows.
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised

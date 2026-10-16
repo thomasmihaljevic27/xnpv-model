@@ -3357,3 +3357,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - "Valuing Prospects" rebuilt; every guard PASS; Table 6's note corrected (draft position is negative and significant
   from D+5 on, p = 0.028). D+5-and-later joint test: production and its square p = 0.089; all three terms p = 0.182.
   WORK_QUEUE, PROJECT_STATE (prospect row). No locked decision (D1-D33) touched. `sessions/2026-10-16b.md`.
+- `25_TESTS/prospect_term_combinations.py` v1.0 (report only): every combination of draft position, production,
+  production squared and the age discount from D+5 on. None beats the adopted model or draft position alone at 5%;
+  values $0.24M to $26.51M against $18.97M. Found: the D+5-and-later star value ($2.01M) is goaltenders' signal
+  (skaters $0.16M, p = 0.64; goaltenders $19.35M, p < 0.001). CLAUDE.md: one rule (a pooled estimate quoted for a
+  subgroup).
