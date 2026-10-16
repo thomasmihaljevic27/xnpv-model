@@ -22,7 +22,7 @@
 
 **Done 2026-10-16 (session 2026-10-16b): "Valuing Prospects" rebuilt on the laptop from Thomas's 10 notes;** every guard
 PASS; Table 6's note corrected. Decided: D+5-and-later skater prospects keep the adopted model (MODEL_DIRECTIVES directive
-6). **Decide (Thomas):** whether Figure 2's title and Table 3's "Rule" header should say "alternatives" too.
+6). Figure 2 and Table 3 say "alternative" (Thomas).
 
 **Later (Thomas, 2026-10-16): goaltender prospects.** Thomas: "maybe we can return to the goalies another day." What the
 record shows: from D+5 on, the pooled star value ($2.01M) is almost all goaltenders' signal; goaltender prospect-seasons

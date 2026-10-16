@@ -63,7 +63,7 @@ import matplotlib                                                  # noqa: E402
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt                                    # noqa: E402
 
-SCRIPT_VERSION = "prospect_doc_figures.py v2.2 (2026-10-16)"
+SCRIPT_VERSION = "prospect_doc_figures.py v2.3 (2026-10-16)"   # v2.3: Figure 2 label "Alternative"
 OUT, SRC = Path(os.environ["OUTPUT_DIR"]), Path(os.environ["SOURCE_DIR"])
 FIG = OUT / "prospect_doc"
 FIG.mkdir(exist_ok=True)
@@ -449,7 +449,7 @@ axes[0].set_ylabel("Star value ($ millions)")
 axes[0].set_ylim(-2.5, 23)
 axes[1].set_xlabel("Season after the draft (D+n)")
 axes[0].text(4.7, 4.4, "Adopted", color=A1, fontsize=8, va="center")
-axes[0].text(5.2, 16.6, "Rule", color=A2, fontsize=8, va="center")
+axes[0].text(5.2, 16.6, "Alternative", color=A2, fontsize=8, va="center")   # v2.3: was "Rule"
 fig.tight_layout(w_pad=0.6)
 fig.savefig(FIG / "fig_star_value.png")
 plt.close(fig)

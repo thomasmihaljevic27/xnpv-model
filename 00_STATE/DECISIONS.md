@@ -3364,3 +3364,5 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   subgroup).
 - Decided (Thomas): D+5-and-later skater prospects keep the adopted model (production and its square). MODEL_DIRECTIVES
   directive 6; WORK_QUEUE (goaltender prospects parked for later, in Thomas's words). No code change.
+- "Valuing Prospects": "rule" -> "alternative" in Figure 2 and Table 3 (Thomas: "go with alternatives"); builder and
+  figures v2.3, rebuilt.
