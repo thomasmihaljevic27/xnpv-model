@@ -143,6 +143,9 @@ directive 6). The old models (`draft_yield_curve.py`, `slot_curve.py`, `future_p
 
 To answer questions about the curve on the spot: `python 25_TESTS/pick_lookup.py --help`. Each finding in
 `Valuing Draft Picks.docx`, with its command and expected value: `40_DOCS/Valuing_Draft_Picks_Reproduction.md`.
+`draft_pick_linkage.py` v1.2 (2026-10-18, commit bc8db88) added sixteen hand-verified WAR spellings; the four finished
+tests pinned to the old prospect rows (`prospect_curve_vs_line.py`, `prospect_production_form.py`,
+`prospect_term_combinations.py`, `prospect_age_correlation.py`) reproduce their recorded results only from git before it.
 
 ## Don't
 

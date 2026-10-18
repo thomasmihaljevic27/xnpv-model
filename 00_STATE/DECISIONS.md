@@ -3415,3 +3415,13 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   $401.571M; traded prospects $75.601M -> $75.688M. Correction: the sweep said O'Regan's 2018 trade was misrouted as
   a prospect; he had 3 NHL games before that season and is a prospect. Only Brown's 2020 trade is.
 
+### Change log, 2026-10-18c (draft linkage spellings: adopted)
+
+- DECISION (Thomas, 2026-10-18: "Adopt the linkage fix"): `draft_pick_linkage.py` v1.2, sixteen hand-verified alias
+  entries (commit bc8db88); `prospect_age_look.py` v1.4 (row fingerprint 8cb34e6c56c4). The draft and prospect chain
+  re-run on the laptop equals the tested run in all 18 files. Star value $18.0396M (was 18.0400; se 1.75); traded
+  picks $401.57M; traded prospects 196 drafted assets $69.88M (slot alone $57.95M), 53 undrafted $5.80M, all $75.69M;
+  Joshua Brown's 2020-10-02 trade is the player model's (RFA rights, $0.00). PROJECT_STATE figures in force; CLAUDE.md
+  notes the four document tests that reproduce only from git before bc8db88. On this laptop `contracts_2017.csv` and
+  `page_2017_values.csv` are now rebuilt here (the stored-path defect itself is not fixed).
+
