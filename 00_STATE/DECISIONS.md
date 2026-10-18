@@ -3465,3 +3465,13 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - Built, not adopted: prospect fits inside club control (branch `claude/prospect-control-rows`). Found, for Thomas: 22
   "lapsed" picks signed by the drafting club (star value +0.43% if counted). No locked decision (D1-D33) touched.
 
+### Change log, 2026-10-18g (prospect fits inside club control: adopted)
+
+- DECISION (Thomas, 2026-10-18: "Adopt the prospect-fit change"): `prospect_values.py` v1.11,
+  `prospect_slot_years_check.py` v1.3, `prospect_age_look.py` v1.5 (commit 3cf849d). A season past club control is not
+  a fit row. Laptop re-run of the prospect and trade chain matches the tested run's recorded figures: star value D+5 on
+  1.9440 (was 1.9343); 12,996 training rows; 170 traded prospects move, all D+5 on, at most $0.046M; traded prospects
+  $76.15M (drafted $70.19M, undrafted $5.96M); traded players, rights, buried contracts and the 2017 page unchanged; the
+  join's total -$527.91M at the 2025-26 cap. PROJECT_STATE figures in force updated. The four finished document tests
+  pinned to older prospect rows reproduce only from git before bc8db88 (CLAUDE.md).
+
