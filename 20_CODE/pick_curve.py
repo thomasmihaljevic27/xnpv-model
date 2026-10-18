@@ -129,7 +129,7 @@ import pandas as pd
 import statsmodels.api as sm
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "pick_curve.py v1.7 (2026-10-16)"   # v1.7: no draft-year terms (Thomas)
+SCRIPT_VERSION = "pick_curve.py v1.8 (2026-10-18)"   # v1.8: CBA age on the calendar; v1.7: no draft-year terms (Thomas)
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import skater_forward_projection as sfp          # noqa: E402  skater price line, cap and minimum tables
@@ -314,7 +314,7 @@ def price(row, s, last, signing=True, forecast_arb=True, record=False):
     sy = SIGNED.get(key) if signing else None
     if record:
         AGE_SRC[key] = "signing" if sy is not None else "first NHL season"
-    age = int((pd.Timestamp(sy if sy is not None else first, 9, 15) - row["birthDate"]).days / 365.25)
+    age = rtv.cba_age(row["birthDate"], sy if sy is not None else first)   # v1.8: on the calendar (was days / 365.25)
     n_elc = 3 if age <= 21 else 2 if age <= 23 else 1
     beta = BETA_D if row["position"] == "D" else BETA_F
     line = (lambda w: ALPHA_G + BETA_G * w) if row["is_goalie"] else (lambda w: ALPHA + beta * w + GAMMA * 1)

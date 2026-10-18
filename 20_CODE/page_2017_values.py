@@ -45,7 +45,7 @@ import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "page_2017_values.py v1.2 (2026-10-18)"   # v1.2: buried rows at the 2017-18 cap; v1.1: either date style
+SCRIPT_VERSION = "page_2017_values.py v1.3 (2026-10-18)"   # v1.3: pages found here, buried from the page on at ex-ante caps; v1.2: one cap
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_source as CS                         # noqa: E402
@@ -114,8 +114,11 @@ def main():
             rows.append(rec)
             continue
         date = pd.Timestamp(r.trade_date)
-        cons = K.parse_contracts(K.page_lines(open(k17.loc[r.asset_id, "page"], encoding="utf-8",
-                                                    errors="ignore").read()))
+        # v1.3 (2026-10-18): the page is found as contracts_2017.py found it, on this computer; v1.0-v1.2 opened the
+        # absolute path stored in contracts_2017.csv, which names the computer that wrote it (another user folder)
+        f = K.find_page(r.player_name)
+        assert f is not None and f.name == Path(str(k17.loc[r.asset_id, "page"])).name, (r.player_name, f)   # GUARD
+        cons = K.parse_contracts(K.page_lines(f.read_text(encoding="utf-8", errors="ignore")))
         run = [c for c in cons if PAGE in c["seasons"] and pd.notna(c.get("signing_date")) and c["signing_date"] <= date]
         c0 = max(run, key=lambda x: x["signing_date"])
         chain = [c0]
@@ -201,9 +204,12 @@ def main():
         if sm.get("status") in ("unpriced_no_anchor", "unpriced_no_history"):
             # no forecast (no recent NHL season): buried_contract_values.py's rule (Thomas, "Cost above burial"),
             # the cap hit above the burial allowance (league minimum + $375K) over the contracts held, no value
+            # v1.3 (2026-10-18): the seasons from the page on (v1.0-v1.2 also counted a contract's seasons before 2017-18),
+            # each divided by the ceiling a GM on this page planned with (D11's 3% path), not the realised one
             cost = sum(max(0.0, nd.loc[i, "cost"] - (SFP.league_min_path(int(nd.loc[i, "season_start"]))
-                                                     + BURY_ABOVE_MIN)) / SFP.CAP_CEILING[int(nd.loc[i, "season_start"])]
-                       for i in nd.index)
+                                                     + BURY_ABOVE_MIN))
+                       / SFP.cap_path(PAGE, int(nd.loc[i, "season_start"]) - PAGE)
+                       for i in nd.index if int(nd.loc[i, "season_start"]) >= PAGE)
             # v1.2 (2026-10-18): stated at the 2017-18 cap, as every other row of this file (the engine prices at
             # the page's ceiling); v1.0-v1.1 stated these rows at the 2025-26 cap, so one column held two caps
             rec.update({"status": "buried veteran (cost above burial)", "npv_total": -cost * SFP.CAP_CEILING[PAGE] + 0.0,

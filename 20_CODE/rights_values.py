@@ -46,7 +46,7 @@ import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "rights_values.py v1.2 (2026-10-18)"   # v1.2: in-window trades before his contract too
+SCRIPT_VERSION = "rights_values.py v1.3 (2026-10-18)"   # v1.3: CBA age on the calendar; v1.2: in-window trades too
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_npv as CN                                         # noqa: E402
@@ -67,6 +67,7 @@ def log(s=""):
 def goalie_rights(eng, pid, t0, crows, as_of):
     """The goalie branch's terminal block (contract_npv._npv_goalie), the chain at 1.0, first control season k = 0."""
     from contract_npv import ALPHA_G, BETA_G, G, ARB_NEED, signing_year
+    from rfa_terminal_value import cba_age
     nname = crows.iloc[0]["nname"]
     pw, src = eng.g_proj.shrunk_projection(nname, t0)
     if pd.isna(pw):
@@ -81,8 +82,7 @@ def goalie_rights(eng, pid, t0, crows, as_of):
     bd = crows.iloc[0]["bd"]
     observed, first = eng.g_proj.history(nname, t0)
     sy = signing_year(crows.iloc[0].get("nhl_id"))
-    need = None if pd.isna(bd) else ARB_NEED(int(np.floor((pd.Timestamp(sy if sy is not None else first, 9, 15)
-                                                           - bd).days / 365.25)))
+    need = None if pd.isna(bd) else ARB_NEED(cba_age(bd, sy if sy is not None else first))   # v1.3: on the calendar
     obs_gp = {z: v[0] for z, v in observed.items()}
     flag = eng.tv.arb_flag.get(int(crows.iloc[0]["contract_id"]))
     S_tv, tv = 1.0, 0.0

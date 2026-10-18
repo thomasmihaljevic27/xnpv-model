@@ -17,7 +17,9 @@ WHO (from prospect_values.csv's identities and contract_npv_panel.csv's coverage
 
 WHAT HE IS WORTH
   value = - sum over the contract's seasons from the trade season to its last season of
-          max(0, cap hit carried by the acquiring club - burial allowance that season) / that season's ceiling
+          max(0, cap hit carried by the acquiring club - burial allowance that season) / that season's ceiling as planned
+          on the page (v1.4, 2026-10-18: D11's path, the page's ceiling grown 3% a year; v1.0-v1.3 used the realised
+          ceilings, which a GM at the trade could not know)
           x the 2025-26 ceiling   (cap shares stated at the 2025-26 cap: 3% growth and 3% discounting cancel, D11)
   * burial allowance = the league minimum + $375,000. Source: PuckPedia's "Buried Threshold" (cap relief from an
     AHL assignment is the lesser of the cap hit and the minimum + $375K), also cited by CanucksArmy as CBA Article
@@ -41,7 +43,7 @@ from pathlib import Path
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "buried_contract_values.py v1.3 (2026-10-16)"   # v1.3: PuckPedia dates read in either style
+SCRIPT_VERSION = "buried_contract_values.py v1.4 (2026-10-18)"   # v1.4: ex-ante ceilings; v1.3: either date style
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_source as CS                        # noqa: E402
@@ -103,7 +105,7 @@ def main():
         cost, seasons = 0.0, []
         for s in range(y, int(c["last"]) + 1):
             allowance = SFP.league_min_path(s) + BURY_ABOVE_MIN
-            share = max(0.0, carried - allowance) / SFP.CAP_CEILING[s]
+            share = max(0.0, carried - allowance) / SFP.cap_path(y, s - y)   # v1.4: D11's 3% path from the page
             cost += share
             seasons.append(f"{s}: ${carried / 1e6:.3f}M - ${allowance / 1e6:.3f}M")
         rows.append({"asset_id": r["asset_id"], "trade_date": r["trade_date"], "trade_season": y,
@@ -111,7 +113,7 @@ def main():
                      "contract_cap_hit": float(c["cap_hit"]), "retained": float(RET.get(r["asset_id"], 0) or 0),
                      "last_season": int(c["last"]), "seasons_left": int(c["last"]) - y + 1,
                      "value_M": -cost * CAP_NOW / 1e6 + 0.0, "full_cap_hit_value_M": -sum(
-                         carried / SFP.CAP_CEILING[s] for s in range(y, int(c["last"]) + 1)) * CAP_NOW / 1e6,
+                         carried / SFP.cap_path(y, s - y) for s in range(y, int(c["last"]) + 1)) * CAP_NOW / 1e6,
                      "seasons": "; ".join(seasons), "prospect_status": st})
     d = pd.DataFrame(rows)
     log(f"\nTRADED VETERANS ON NHL CONTRACTS NEITHER MODEL VALUES (from the {first_page}-{str(first_page + 1)[2:]} page): "

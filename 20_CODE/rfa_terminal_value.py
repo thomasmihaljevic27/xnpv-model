@@ -1,7 +1,8 @@
 """
 =============================================================================
- rfa_terminal_value.py   v2.5                       Phase 1c
+ rfa_terminal_value.py   v2.7                       Phase 1c
 
+ v2.7 (2026-10-18): the CBA age on the calendar (cba_age), not floor(days / 365.25). v2.6: rights (expired_contract_id).
  v2.5 (2026-10-14, Thomas): the arbitration price's WAR is "consistent with the forecast"
  (reading (a)): skater_forecast.ContractForecaster.arbitration_war, xNPV 1's own start rebuilt at each
  control season from the page's information (observed seasons before the page, the page's forecast
@@ -217,6 +218,14 @@ def price(projected_war, posgrp, ceiling, term_free=False):
 ARB_NEED = lambda age: 4 if age <= 20 else 3 if age == 21 else 2 if age <= 23 else 1
 ARB_GP = {2012: 6, 2019: 9, 2020: 7}            # 10 games x 48/82, 70/82, 56/82, rounded up
 SEP15_BEFORE_FEB1 = 0.0                        # 2026-10-14: the season table's age is on September 15
+
+
+def cba_age(birth, year):
+    """v2.7 (2026-10-18, the bug sweep): his age on September 15 of `year` (CBA 9.2, 12.1(c)), counted on the calendar:
+    the years completed by that date. Replaces floor(days / 365.25), which came out a year low for a player born on
+    September 15 itself (three drafted players 2007-2017; no entry-level length or arbitration need changed)."""
+    b = pd.Timestamp(birth)
+    return int(year) - b.year - int((9, 15) < (b.month, b.day))
 
 
 def arb_eligible(season, t0, need, observed_gp):
@@ -483,7 +492,7 @@ class TerminalValuer:
         sy = signing_year(nhl_id)
         year = sy if sy is not None else first
         if bd is not None and pd.notna(bd):
-            age = (pd.Timestamp(year, 9, 15) - pd.Timestamp(bd)).days / 365.25
+            age = cba_age(bd, year)                                      # v2.7: on the calendar
         else:
             aged = g["age_exact"].dropna()
             if aged.empty:

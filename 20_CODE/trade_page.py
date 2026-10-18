@@ -17,7 +17,8 @@ for players, prospects and picks alike."
   season was paused). A season without games in the file: April 20 of its ending year.
 
 Used by prospect_values.py, traded_player_values.py, page_2017_values.py, contracts_2017.py, buried_contract_values.py
-and traded_pick_values.py (picks: recorded, no value depends on the page). Import and call page(date).
+and trade_asset_values.py (which also gives each traded pick its page; no pick value depends on it, and
+traded_pick_values.py does not record it: corrected 2026-10-18). Import and call page(date).
 """
 
 import os

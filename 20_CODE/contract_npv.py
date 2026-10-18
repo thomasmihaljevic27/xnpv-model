@@ -1,8 +1,9 @@
 """
 =============================================================================
- contract_npv.py   v2.8                             Phase 1d
+ contract_npv.py   v2.9                             Phase 1d
                                   xNPV 1 prices skater contracts (2026-10-02)
 =============================================================================
+ v2.9 (2026-10-18): the goalie CBA age on the calendar (rfa_terminal_value.cba_age).
  v2.8 (2026-10-18): a skater with no contract for the page reads "no_contract" (was "unpriced_no_anchor").
  v2.7 (2026-10-14, Thomas): goalie control seasons follow rfa_terminal_value v2.5. The arbitration
  price's WAR is the goalie forecast's construction rebuilt at each control season
@@ -243,7 +244,7 @@ from skater_forward_projection import (SkaterProjector, cap_path,
                                        CAP_GROWTH, CAP_CEILING,
                                        contract_chain, check_as_of)
 from rfa_terminal_value import (TerminalValuer, qualifying_offer, ARB_NEED,  # noqa: E402
-                                arb_eligible, signing_year)
+                                arb_eligible, signing_year, cba_age)
 from exit_hazard import (build_transitions, build_hazard_table, bucket,
                          age_group, report_item_14)       # goalie hazard only (v2.0)
 
@@ -262,7 +263,7 @@ F_GOALIE_SPINE = OUTPUT_DIR / "goalie_value_spine_v2.csv"
 F_SEASON_SPINE = OUTPUT_DIR / "contract_season_spine.csv"
 OUT_SPINE = OUTPUT_DIR / "contract_npv_spine.csv"
 OUT_LOG = OUTPUT_DIR / "contract_npv_run_log.txt"
-SCRIPT_VERSION = "2.8"   # printed first in the run log (25_TESTS/xnpv0_removal_check.py reads it)
+SCRIPT_VERSION = "2.9"   # printed first in the run log (25_TESTS/xnpv0_removal_check.py reads it)
 
 # ---- locked goalie constants (P2 close-out, 2026-06-30) --------------------
 # The documented narrative values (alpha 1.398% cap, beta 1.097%/WAR, league
@@ -705,9 +706,8 @@ class NPVEngine:
             # Goalies_WAR, from t0 on the flat projection pw
             observed, first = self.g_proj.history(nname, t0)
             sy = signing_year(lrows.iloc[0].get("nhl_id"))      # v2.7: the year he signed
-            need = (None if pd.isna(bd) else
-                    ARB_NEED(int(np.floor((pd.Timestamp(sy if sy is not None else first, 9, 15)
-                                           - bd).days / 365.25))))
+            need = (None if pd.isna(bd) else                    # v2.9: the CBA age on the calendar
+                    ARB_NEED(cba_age(bd, sy if sy is not None else first)))
             obs_gp = {z: v[0] for z, v in observed.items()}
             flag = self.tv.arb_flag.get(int(chain[-1]))
             truncated = False
