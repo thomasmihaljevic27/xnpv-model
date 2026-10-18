@@ -31,6 +31,7 @@ chain), expiry status (UFA / RFA), entry level or not; the signing date (for the
   the CapWages-built contract prices as PuckPedia's own does, npv_total within $0.01M for 38 of 38.
   The engine instance is this script's own; nothing the live chain writes is changed.
 
+CAP: every npv_total is in dollars at the 2017-18 page's cap (v1.2: the buried rows too).
 OUTPUTS: OUTPUT_DIR/page_2017_values.csv (one row per asset: the contract used, npv_total and its parts, status),
 page_2017_values_log.txt.
 Run from the repo root:  python 20_CODE/page_2017_values.py   (after contracts_2017.py and prospect_values.py)
@@ -44,7 +45,7 @@ import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "page_2017_values.py v1.1 (2026-10-16)"   # v1.1: PuckPedia birthdates read in either style
+SCRIPT_VERSION = "page_2017_values.py v1.2 (2026-10-18)"   # v1.2: buried rows at the 2017-18 cap; v1.1: either date style
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_source as CS                         # noqa: E402
@@ -203,8 +204,10 @@ def main():
             cost = sum(max(0.0, nd.loc[i, "cost"] - (SFP.league_min_path(int(nd.loc[i, "season_start"]))
                                                      + BURY_ABOVE_MIN)) / SFP.CAP_CEILING[int(nd.loc[i, "season_start"])]
                        for i in nd.index)
-            rec.update({"status": "buried veteran (cost above burial)", "npv_total": -cost * SFP.CAP_CEILING[2025] + 0.0,
-                        "npv_contract": -cost * SFP.CAP_CEILING[2025] + 0.0, "npv_terminal": 0.0})
+            # v1.2 (2026-10-18): stated at the 2017-18 cap, as every other row of this file (the engine prices at
+            # the page's ceiling); v1.0-v1.1 stated these rows at the 2025-26 cap, so one column held two caps
+            rec.update({"status": "buried veteran (cost above burial)", "npv_total": -cost * SFP.CAP_CEILING[PAGE] + 0.0,
+                        "npv_contract": -cost * SFP.CAP_CEILING[PAGE] + 0.0, "npv_terminal": 0.0})
         rows.append(rec)
     v = pd.DataFrame(rows)
     log("\n" + v["status"].value_counts().to_string())

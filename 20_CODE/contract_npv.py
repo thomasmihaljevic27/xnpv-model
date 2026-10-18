@@ -1,8 +1,9 @@
 """
 =============================================================================
- contract_npv.py   v2.7                             Phase 1d
+ contract_npv.py   v2.8                             Phase 1d
                                   xNPV 1 prices skater contracts (2026-10-02)
 =============================================================================
+ v2.8 (2026-10-18): a skater with no contract for the page reads "no_contract" (was "unpriced_no_anchor").
  v2.7 (2026-10-14, Thomas): goalie control seasons follow rfa_terminal_value v2.5. The arbitration
  price's WAR is the goalie forecast's construction rebuilt at each control season
  (GoalieProjector.arbitration_war: 50/30/20 over the three seasons before it, observed before the
@@ -261,7 +262,7 @@ F_GOALIE_SPINE = OUTPUT_DIR / "goalie_value_spine_v2.csv"
 F_SEASON_SPINE = OUTPUT_DIR / "contract_season_spine.csv"
 OUT_SPINE = OUTPUT_DIR / "contract_npv_spine.csv"
 OUT_LOG = OUTPUT_DIR / "contract_npv_run_log.txt"
-SCRIPT_VERSION = "2.7"   # printed first in the run log (25_TESTS/xnpv0_removal_check.py reads it)
+SCRIPT_VERSION = "2.8"   # printed first in the run log (25_TESTS/xnpv0_removal_check.py reads it)
 
 # ---- locked goalie constants (P2 close-out, 2026-06-30) --------------------
 # The documented narrative values (alpha 1.398% cap, beta 1.097%/WAR, league
@@ -558,7 +559,12 @@ class NPVEngine:
     def _npv_skater(self, pid, t0, as_of=None):
         pr = self.sp.project_contract(pid, t0, as_of)
         if pr.empty:
-            return pr, {"status": "unpriced_no_anchor"}
+            # v2.8 (2026-10-18, the bug sweep): project_contract is empty both when he holds no contract with a row in
+            # t0 and when xNPV 1 has no forecast for him; until v2.7 both read "unpriced_no_anchor", so a skater traded
+            # without a contract for the page (Henrik Borgstrom 2021, Pontus Aberg 2020) never reached rights_values.
+            # The goalie branch already says "no_contract". Labels only: nothing priced changes.
+            chain = contract_chain(self.sp.spine, pid, t0, self.sp.signed, check_as_of(t0, as_of))
+            return pr, {"status": "unpriced_no_anchor" if chain else "no_contract"}
         det = []
         for _, r in pr.iterrows():
             k = int(r["k"])
