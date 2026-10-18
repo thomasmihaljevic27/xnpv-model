@@ -23,7 +23,10 @@ was fixed. Every trade-valuation script re-runs to the laptop's files (guards pa
    $401.571M, traded prospects $75.601M -> $75.688M. **Done 2026-10-18: adopted** (Thomas: "Adopt the linkage fix");
    laptop chain re-run.
 3. The forecast ages 12 players born September 16-17 a year too old in 49 seasons (Ovechkin, Matthews, Brady
-   Tkachuk); fixing it moves forecasts and the price line.
+   Tkachuk). **Built, not adopted (2026-10-18):** branch `claude/september-ages`. The price line and floor spread re-fit
+   inside their locks' tolerance (no re-lock needed); Tkachuk's 2021 page +$4.54M, Matthews 2021 +$1.82M; star value
+   18.0396 -> 18.0144; traded players +$0.80M (Mantha's 2021 trade +$0.82M). Decide (Thomas): adopt, and whether to
+   keep or re-lock the two lines.
 4. Joining the files: players at their page's cap, picks, prospects and buried contracts at 2025-26 (the open cap
    question below); 17 assets in two files (one value zero in each); 6 traded players valued nowhere (J.T. Miller
    2018-02-26 among them).

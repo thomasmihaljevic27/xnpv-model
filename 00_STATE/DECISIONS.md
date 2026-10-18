@@ -3424,4 +3424,7 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   Joshua Brown's 2020-10-02 trade is the player model's (RFA rights, $0.00). PROJECT_STATE figures in force; CLAUDE.md
   notes the four document tests that reproduce only from git before bc8db88. On this laptop `contracts_2017.csv` and
   `page_2017_values.csv` are now rebuilt here (the stored-path defect itself is not fixed).
+- Finding 3 built on the local branch `claude/september-ages` (`player_season_table.py` v1.5: integer age counted on
+  the calendar), not adopted. Price line and floor spread re-fit inside their locks' tolerance. Tkachuk's 2021 page
+  +$4.54M, Matthews 2021 +$1.82M; star value 18.0396 -> 18.0144; traded players +$0.80M. Awaiting Thomas.
 
