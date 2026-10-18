@@ -3401,3 +3401,13 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - Finding 1 built on the local branch `claude/rights-for-unsigned-trades` (`traded_player_values.py` v1.1,
   `rights_values.py` v1.2), not adopted: a trade made before the player signed his page contract is valued as rights.
   The 26 assets: -$52.61M to +$2.16M at their pages' caps; nothing else moves. Awaiting Thomas.
+
+### Change log, 2026-10-18b (rights for players traded before they signed: adopted)
+
+- DECISION (Thomas, 2026-10-18, after the 26 values before and after were shown: "great, implement"): a traded player
+  whose contract for the page's season was signed after the trade is valued as rights, by `rights_values.py`'s rule
+  (restricted: control years from the page; unrestricted: zero), for every trade, not only those after the regular
+  season (extends 2026-10-14p). `traded_player_values.py` v1.1, `rights_values.py` v1.2 (commit 78ce479). Laptop
+  outputs re-run and equal to the scratch run: 26 assets -$52.61M -> +$2.16M at their pages' caps; priced traded
+  players -$780.67M -> -$725.89M; 4 assets without a forecast change label only; buried contracts unchanged.
+
