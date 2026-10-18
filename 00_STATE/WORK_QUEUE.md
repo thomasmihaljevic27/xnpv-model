@@ -29,7 +29,10 @@ was fixed. Every trade-valuation script re-runs to the laptop's files (guards pa
    kept** (Thomas: "Adopt the age fix and keep both locks"); dashboard refresh and trade chain re-run on the laptop.
 4. Joining the files: players at their page's cap, picks, prospects and buried contracts at 2025-26 (the open cap
    question below); 17 assets in two files (one value zero in each); 6 traded players valued nowhere (J.T. Miller
-   2018-02-26 among them).
+   2018-02-26 among them). **Built, not adopted (2026-10-18):** branch `claude/join-files`: `trade_asset_values.py`
+   (1,561 assets, one value each, both caps; 1,557 valued), the no-contract label (Borgstrom, Aberg now valued as
+   rights), the 2017 page at one cap. Decide (Thomas): adopt; fetch CapWages pages for J.T. Miller and Greg McKegg;
+   the cap at which the back-test adds the sides (still open).
 5. Smaller: prospect fits keep 116 rows past club control (star value D+5 on 1.936 against 1.946); September 15
    birthdays one year low in the CBA age (no effect); `contracts_2017.csv` stores the other computer's paths, so
    `page_2017_values.py` stops on this laptop until `contracts_2017.py` re-runs; no runner refreshes the trade chain;

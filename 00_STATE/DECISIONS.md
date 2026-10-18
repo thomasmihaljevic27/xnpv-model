@@ -3438,4 +3438,7 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   18 outputs equal the tested scratch run. Panel 7,904 pages, total $-13,349.77M; star value
   $18.0144M; traded picks $401.01M; traded prospects $69.86M drafted, $5.80M undrafted;
   priced traded players $-725.09M. PROJECT_STATE figures in force and refresh date updated.
+- Finding 4 built on the local branch `claude/join-files` (`trade_asset_values.py` v1.0 new; `contract_npv.py` v2.8,
+  labels only; `page_2017_values.py` v1.2, one cap), not adopted. 1,561 traded assets, 1,557 valued; Borgstrom's and
+  Aberg's rights now valued ($0.47M, $0.00). Awaiting Thomas, with the CapWages fetch and the cap rule.
 
