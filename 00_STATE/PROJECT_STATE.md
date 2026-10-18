@@ -72,7 +72,7 @@ Written from the code that runs (versions as printed by each script) and the ses
   forecast (2026-10-05): season-WAR RMSE 0.8932 against xNPV 0's 0.9724, lower squared error in 2,000 of 2,000 player
   resamples. Those seasons were examined by about thirty earlier variants; they are not a sealed holdout.
 - **Dashboard.** `Update-Dashboard.cmd` / `dashboard_refresh.py` v1.1: 10 steps, about 11 minutes; the dashboard
-  re-prices each page within $1 of the panel or refuses. Last full refresh: 2026-10-13 (arbitration adoption).
+  re-prices each page within $1 of the panel or refuses. Last full refresh: 2026-10-18 (the season table's calendar ages; 11 of 11 steps).
 - **Panel.** `contract_npv_panel.py` v1.5: 7,817 contract-pages, seasons 2018-19 to 2026-27; headline `npv_total`
   (arbitration cost), `npv_total_qo` (qualifying-offer chain) and the term-free values beside.
 - **Built 2026-10-14 (Thomas's decisions):** the 60/40 checks retired (no value moved); drafted players' CBA ages
@@ -164,11 +164,11 @@ initials, Elite Prospects' spelling, a namesake guard); every id-name disagreeme
 | Floor spread, WAR_IF_PLAYS_MAE | 0.6767, 0.7545, 0.8026, 0.8499, 0.8770, 0.8981 (seasons 0-5, flat after; 2026-10-14) | `skater_forecast.py` |
 | Skater control weights | 100% / 100% / 88.2% / 67.8% by forecast bucket | refresh 2026-10-05 |
 | Goalie control weight | 0.893 x 0.859 = 0.767 a year (103 decisions; measured 2026-10-16 on the laptop's inputs, session 2026-10-16c; was 0.902 x 0.859 = 0.775 at the 2026-10-05 refresh, not traced) | `contract_npv.py`, measured each run |
-| Star value | $18.04M (18.0396, se 1.75); without 2015-2016 $15.69M; qualifying-offer chain $31.93M / $27.84M (2026-10-18: draft linkage v1.2, sixteen missed WAR spellings; was 18.0400) | `pick_curve.py` |
-| Traded picks (634, 2017-07-01 to 2022-03-21) | $401.6M ($401.57M); sensitivity $349.3M (2026-10-18: linkage v1.2; was $401.58M) | `traded_pick_values.py` |
-| Prospect star value by seasons since the draft | 18.04 / 17.67 / 15.74 / 8.78 / 1.93 (2026-10-18, linkage v1.2; D+1, D+2, D+3, D+4, D+5 on; $M at the 2025-26 cap) | `prospect_values.py` |
-| Traded prospects (196 assets, 169 players, 2017-07-01 to 2022-03-28) | $69.88M (slot, production and age); slot alone $57.95M (2026-10-18: linkage v1.2, Joshua Brown's 2020 trade now the player model's; was $69.82M / $57.99M) | `prospect_values.py` |
-| Traded undrafted prospects on NHL contracts (53 assets) | $5.80M; all prospects $75.69M (2026-10-18; was $5.78M / $75.60M) | `prospect_values.py` |
+| Star value | $18.01M (18.0144, se 1.74); without 2015-2016 $15.68M; qualifying-offer chain $31.93M / $27.84M (2026-10-18: draft linkage v1.2 and the season table's calendar ages; was 18.0400) | `pick_curve.py` |
+| Traded picks (634, 2017-07-01 to 2022-03-21) | $401.01M; sensitivity $349.14M (2026-10-18: linkage v1.2, calendar ages; was $401.58M) | `traded_pick_values.py` |
+| Prospect star value by seasons since the draft | 18.01/17.66/15.72/8.78/1.93 (2026-10-18; D+1, D+2, D+3, D+4, D+5 on; $M at the 2025-26 cap) | `prospect_values.py` |
+| Traded prospects (196 assets, 169 players, 2017-07-01 to 2022-03-28) | $69.86M (slot, production and age); slot alone $57.91M (2026-10-18: linkage v1.2, calendar ages; was $69.82M / $57.99M) | `prospect_values.py` |
+| Traded undrafted prospects on NHL contracts (53 assets) | $5.80M; all prospects $75.67M (2026-10-18; was $5.78M / $75.60M) | `prospect_values.py` |
 | Discount and cap growth | 3% each | D11, D17 |
 
 ## Data and scripts (2026-10-14)
@@ -186,7 +186,7 @@ CapWages cache (1,551 player pages); the clause scrape.
   and builds `player_dashboard.py` v1.3. `skater_value_engine.py` v2.0 is a library (helpers and the Stage 3
   constants) since the 60/40 checks were retired.
 - xNPV 1 modules: `skater_forecast.py` v2.3, `aging_curve.py`, `participation_model.py` v1.8,
-  `player_season_table.py` v1.3, `information_set.py` v1.1, `contract_source.py` v1.0, `forecast_config.py` v1.0,
+  `player_season_table.py` v1.5, `information_set.py` v1.1, `contract_source.py` v1.0, `forecast_config.py` v1.0,
   `forecast_harness.py` v1.4; `xnpv1_price_line.py` v2.1 (the line and its reproduction guard).
 - Draft: `draft_pick_linkage.py` v1.1, `elc_signing_dates.py` v1.0, `pick_curve.py` v1.5, `traded_pick_values.py` v1.2.
 - Prospects: `prospect_values.py` v1.3 (slot, production, age; undrafted). Prospect data: `ep_extract.py` v3.5, `ep_nhl_bridge.py` v1.1.

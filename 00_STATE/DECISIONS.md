@@ -3428,3 +3428,14 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   the calendar), not adopted. Price line and floor spread re-fit inside their locks' tolerance. Tkachuk's 2021 page
   +$4.54M, Matthews 2021 +$1.82M; star value 18.0396 -> 18.0144; traded players +$0.80M. Awaiting Thomas.
 
+### Change log, 2026-10-18d (the season table's calendar ages: adopted, locks kept)
+
+- DECISION (Thomas, 2026-10-18: "Adopt the age fix and keep both locks"): `player_season_table.py` v1.5 counts the
+  integer age as the years completed by September 15 (commit 64cfb00). `XNPV1_RATE`, `XNPV1_RATE_TERM_FREE` and
+  `WAR_IF_PLAYS_MAE` are kept: re-fitted on the corrected ages they come back inside their guards (gaps 1.6e-05 and
+  3.1e-05 against a tolerance of 5e-05; the spread by at most 0.0008). No locked decision (D1-D33) reopened.
+- Laptop: `dashboard_refresh.py --no-open` (11 of 11 steps, 18.8 min), then the draft, prospect and trade chain; all
+  18 outputs equal the tested scratch run. Panel 7,904 pages, total $-13,349.77M; star value
+  $18.0144M; traded picks $401.01M; traded prospects $69.86M drafted, $5.80M undrafted;
+  priced traded players $-725.09M. PROJECT_STATE figures in force and refresh date updated.
+
