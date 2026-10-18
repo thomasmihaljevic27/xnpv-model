@@ -37,7 +37,14 @@ was fixed. Every trade-valuation script re-runs to the laptop's files (guards pa
 5. Smaller: prospect fits keep 116 rows past club control (star value D+5 on 1.936 against 1.946); September 15
    birthdays one year low in the CBA age (no effect); `contracts_2017.csv` stores the other computer's paths, so
    `page_2017_values.py` stops on this laptop until `contracts_2017.py` re-runs; no runner refreshes the trade chain;
-   the NHLe table is a 2026 download (a look-ahead the record does not state for prospects).
+   the NHLe table is a 2026 download (a look-ahead the record does not state for prospects). **2026-10-18:** the plain
+   bugs fixed with no value moved (calendar CBA age; the 2017 page's stored paths, pre-page seasons and caps; the
+   buried rule's ex-ante caps; `trade_page.py`'s docstring; the NHLe vintage noted in STANDING_FLAGS). Built, not
+   adopted: the prospect fits without the 116 rows past club control (branch `claude/prospect-control-rows`; traded
+   prospects $75.67M -> $76.15M). Decide (Thomas): adopt that; and whether the 22 "lapsed" picks whose player signed his
+   entry-level deal with the drafting club (Driedger, Hickey, Gazdic ...) keep their surplus (star value +0.43%).
+   Not a bug, offered: one runner for the trade chain (pick curve to the join), as `dashboard_refresh.py` is for the
+   contract chain.
 Details and figures: `sessions/2026-10-18.md`.
 
 **Read (Thomas): "Valuing Players, Draft Picks, and Prospects" (built 2026-10-16, session 2026-10-16c, 20 pages).** The

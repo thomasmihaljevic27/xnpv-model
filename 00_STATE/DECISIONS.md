@@ -3456,3 +3456,12 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - 1,561 assets (927 players, 634 picks), 1,558 valued; at the 2025-26 cap players $-929.40M, picks $401.01M. Not valued: Mike Sislo (no NHL id), Greg McKegg (no contract on CapWages), Adam Chapie (position unknown;
   under the burial allowance).
 
+### Change log, 2026-10-18f (finding 5: the smaller items)
+
+- Plain bugs fixed, no value moved (commit 68d2bff): the CBA age on the calendar (`rfa_terminal_value.cba_age`, in
+  `pick_curve.py` v1.8, `contract_npv.py` v2.9, `rights_values.py` v1.3); `page_2017_values.py` v1.3 (pages found
+  locally; buried rule from the page on, ex-ante caps); `buried_contract_values.py` v1.4 (ex-ante caps); `trade_page.py`
+  docstring; STANDING_FLAGS notes the NHLe table's single vintage. Laptop re-run: 17 outputs unchanged.
+- Built, not adopted: prospect fits inside club control (branch `claude/prospect-control-rows`). Found, for Thomas: 22
+  "lapsed" picks signed by the drafting club (star value +0.43% if counted). No locked decision (D1-D33) touched.
+
