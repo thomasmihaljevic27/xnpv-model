@@ -10,7 +10,10 @@ so it runs after traded_player_values.py and every reader of that file sees the 
 
 WHO: traded_player_values.csv rows "rights only (his contract at the page was signed after the trade)" or "no contract
 at the page": a trade after the regular season (trade_page.py: valued on the next page, P) of a player whose contract
-ended with the season just played (P - 1).
+ended with the season just played (P - 1). v1.2 (Thomas, 2026-10-18: "value an unsigned player traded inside the page's
+window as rights only, using rights_values.py's rule"): also a trade inside page P's window (July 1 of P on) of a player
+whose contract ended with P - 1 and who signed his next one after the trade (traded_player_values.py v1.1). The rule and
+the code are the same for both; only the trade date differs.
 
 THE EXPIRED CONTRACT: PuckPedia's spine contract of his whose last season is P - 1 (signed on or before the trade);
 for P = 2018 (contracts ending 2017-18, before PuckPedia's coverage), his CapWages contract ending 2017-18, built into
@@ -27,7 +30,9 @@ THE VALUE
   * expiry RFA, goaltender: the goalie branch's terminal block (contract_npv._npv_goalie, as of 2026-10-14) restated
     here with the same rules: flat projection pw on page P, the pooled control weight, D13, arbitration from
     PuckPedia's flag or the CBA count; the chain starting at 1.0 and the first control season at k = 0.
-  The trade date comes before July 1 of P; the page's information (seasons through P - 1) was complete at the trade.
+  The page's information (seasons through P - 1) was complete at the trade in both cases. Both are valued as of July 1
+  of P: the date moves only the forecast's chance of playing, which the rights chain does not read (it starts at 1.0),
+  so an in-window trade's own date would give the same value.
 
 OUTPUTS: OUTPUT_DIR/rights_values.csv, rights_values_log.txt.
 Run from the repo root:  python 20_CODE/rights_values.py   (after traded_player_values.py)
@@ -41,7 +46,7 @@ import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "rights_values.py v1.1 (2026-10-14)"
+SCRIPT_VERSION = "rights_values.py v1.2 (2026-10-18)"   # v1.2: in-window trades before his contract too
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_npv as CN                                         # noqa: E402

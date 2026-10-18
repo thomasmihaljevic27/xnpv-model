@@ -12,6 +12,9 @@ of each page). This values each traded asset directly, on the engine the panel u
     contracts and extensions the club held on that date are the ones valued; for a post-season trade (valued on the
     next page) the window starts after the trade, so as_of is the page date, July 1, and every contract signed
     between the trade and that July 1 is LISTED (it was known to the page, not to the trade).
+  * RIGHTS ONLY (v1.1, every trade; v1.0 post-season trades only): when the contract the page would value was signed
+    after the trade, the club acquired his rights, not that contract. Status "rights only (...)", valued by
+    rights_values.py (RFA: his control seasons from the page; UFA: zero).
   * the player: his NHL id (prospect_values.csv's identities: PuckPedia ids, the drafted match, the undrafted path),
     to PuckPedia's player id, which the engine keys on.
 
@@ -30,7 +33,7 @@ from pathlib import Path
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "traded_player_values.py v1.0 (2026-10-14)"
+SCRIPT_VERSION = "traded_player_values.py v1.1 (2026-10-18)"   # v1.1: rights only for any trade before his contract
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_source as CS                         # noqa: E402
@@ -74,19 +77,26 @@ def main():
         date = pd.Timestamp(r["trade_date"])
         as_of = date if page_date(y) <= date < page_date(y + 1) else page_date(y)
         masked = {}
+        # RIGHTS ONLY: the contract the page would value (the first with a row in season y, the one
+        # contract_chain starts from) was signed after the trade, so it did not exist when the club acquired him:
+        # it acquired his rights. v1.0 checked this for post-season trades only (Kevin Hayes's rights went to
+        # Philadelphia on 2019-06-03; he signed for seven years on 2019-06-19). v1.1 (Thomas, 2026-10-18: "value an
+        # unsigned player traded inside the page's window as rights only, using rights_values.py's rule") applies
+        # it to every trade: contract_chain checks the signing date of an extension but not of the contract it
+        # starts from, so a player traded unsigned after July 1 was valued on the deal he signed later (Josh
+        # Anderson, traded 2020-10-06, signed for seven years 2020-10-08). rights_values.py values these rows.
+        spine = eng.sp.spine if (eng.sp.spine["player_id"] == pid).any() else eng.gp_spine
+        mine = spine[spine["player_id"] == pid]
+        act = mine.loc[mine["season_start"] == y, "contract_id"]
+        if len(act) and pd.notna(eng.sp.signed.get(int(act.iloc[0]))) and eng.sp.signed[int(act.iloc[0])] > date:
+            rec.update({"player_id": pid, "as_of": as_of.date(),
+                        "status": "rights only (his contract at the page was signed after the trade)"})
+            rows.append(rec)
+            continue
         if as_of > date:
-            # POST-SEASON: the page's July 1 comes after the trade. A contract signed between the two did not exist at
-            # the trade (Kevin Hayes's rights went to Philadelphia on 2019-06-03; he signed for seven years on
-            # 2019-06-19): if the contract the page would value was signed after the trade, the club acquired only his
-            # rights; a later-signed extension is left out of the chain (its signing date masked for this valuation).
-            spine = eng.sp.spine if (eng.sp.spine["player_id"] == pid).any() else eng.gp_spine
-            mine = spine[spine["player_id"] == pid]
-            act = mine.loc[mine["season_start"] == y, "contract_id"]
-            if len(act) and pd.notna(eng.sp.signed.get(int(act.iloc[0]))) and eng.sp.signed[int(act.iloc[0])] > date:
-                rec.update({"player_id": pid, "as_of": as_of.date(),
-                            "status": "rights only (his contract at the page was signed after the trade)"})
-                rows.append(rec)
-                continue
+            # POST-SEASON: the page's July 1 comes after the trade. A later-signed extension did not exist at the
+            # trade either, so it is left out of the chain (its signing date masked for this valuation). Inside the
+            # window as_of is the trade date, and contract_chain already leaves out an extension signed after it.
             for c in mine["contract_id"].unique():
                 sg = eng.sp.signed.get(int(c))
                 if pd.notna(sg) and date < sg <= as_of:
@@ -112,7 +122,8 @@ def main():
         + "".join(f"\n    {x.trade_date} {x.player_name}" for x in late.itertuples()))
     ro = d[d["status"].astype(str).str.startswith("rights only")]
     log(f"  rights only (contract at the page signed after the trade): {len(ro)}"
-        + "".join(f"\n    {x.trade_date} {x.player_name} (page {x.valuation_page})" for x in ro.itertuples()))
+        + "".join(f"\n    {x.trade_date} {x.player_name} (page {x.valuation_page}"
+                  f"{', post-season' if x.post_season else ''})" for x in ro.itertuples()))
     nc = d[d["status"] == "no contract at the page"]
     log(f"  no contract at the page: {len(nc)}" + "".join(
         f"\n    {x.trade_date} {x.player_name} (page {x.valuation_page}{', post-season' if x.post_season else ''})"
