@@ -3388,3 +3388,13 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   weight measures 0.767 (recorded 0.775); the goaltender price line is fitted on trailing WAR but prices the pulled
   forecast; how the back-test counts an extension signed at a trade, and at which cap it adds the three asset kinds,
   is not decided. WORK_QUEUE, PROJECT_STATE (goalie control weight). `sessions/2026-10-16c.md`.
+
+### Change log, 2026-10-18 (bug sweep before the three models are joined)
+
+- A sweep of the live code behind player, pick and prospect values and their joins, asked by Thomas before the
+  back-test. No code changed; no locked decision (D1-D33) touched. The trade-valuation chain was re-run on a scratch
+  copy of 30_OUTPUT and reproduces the laptop's files (guards pass; the 2017 page within $60 an asset).
+- Found, for Thomas to decide (WORK_QUEUE, `sessions/2026-10-18.md`): contracts signed after an in-window trade are
+  valued as part of it (26 assets, -$52.63M); the draft linkage misses four drafted players spelled differently in WAR;
+  the forecast's season table ages 12 players born September 16-17 a year too old in 49 seasons; the files to be joined
+  sit at two caps, 17 assets appear in two of them and 6 in none; smaller points listed there.

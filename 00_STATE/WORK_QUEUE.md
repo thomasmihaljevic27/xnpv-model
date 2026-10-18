@@ -8,6 +8,26 @@
 
 ## Live (audited 2026-10-14)
 
+**Decide (Thomas): what to fix from the bug sweep before the three models are joined (session 2026-10-18).** Asked:
+"as a final check before plugging the three models together, do a complete sweep for bugs and other errors". Nothing
+was fixed. Every trade-valuation script re-runs to the laptop's files (guards pass). Found, in the order they move values:
+1. An unsigned player traded inside the page's window is valued on the contract he signed afterwards: 26 assets,
+   -$52.63M (Josh Anderson 2020-10-06 -$17.64M, Matt Murray -$14.65M, Barclay Goodrow -$8.14M). Post-season trades
+   already get rights only; decide whether these do too (`rights_values.py`'s rule).
+2. The draft linkage misses four drafted players spelled differently in WAR (Joshua Brown 2013 #152, Danny O'Regan,
+   Tim Gettinger, Alexandre Grenier): "never played" in the pick curve, and two traded assets valued as prospects
+   (O'Regan 2018, Brown 2020).
+3. The forecast ages 12 players born September 16-17 a year too old in 49 seasons (Ovechkin, Matthews, Brady
+   Tkachuk); fixing it moves forecasts and the price line.
+4. Joining the files: players at their page's cap, picks, prospects and buried contracts at 2025-26 (the open cap
+   question below); 17 assets in two files (one value zero in each); 6 traded players valued nowhere (J.T. Miller
+   2018-02-26 among them).
+5. Smaller: prospect fits keep 116 rows past club control (star value D+5 on 1.936 against 1.946); September 15
+   birthdays one year low in the CBA age (no effect); `contracts_2017.csv` stores the other computer's paths, so
+   `page_2017_values.py` stops on this laptop until `contracts_2017.py` re-runs; no runner refreshes the trade chain;
+   the NHLe table is a 2026 download (a look-ahead the record does not state for prospects).
+Details and figures: `sessions/2026-10-18.md`.
+
 **Read (Thomas): "Valuing Players, Draft Picks, and Prospects" (built 2026-10-16, session 2026-10-16c, 20 pages).** The
 write-up the supervisor asked for on 2026-10-15: the three models, every regression with its formula and a table that
 adds terms one at a time, the Pacioretty trade carried through. Built by `25_TESTS/model_doc.js` from
