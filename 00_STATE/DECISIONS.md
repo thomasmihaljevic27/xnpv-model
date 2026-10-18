@@ -3398,3 +3398,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   valued as part of it (26 assets, -$52.63M); the draft linkage misses four drafted players spelled differently in WAR;
   the forecast's season table ages 12 players born September 16-17 a year too old in 49 seasons; the files to be joined
   sit at two caps, 17 assets appear in two of them and 6 in none; smaller points listed there.
+- Finding 1 built on the local branch `claude/rights-for-unsigned-trades` (`traded_player_values.py` v1.1,
+  `rights_values.py` v1.2), not adopted: a trade made before the player signed his page contract is valued as rights.
+  The 26 assets: -$52.61M to +$2.16M at their pages' caps; nothing else moves. Awaiting Thomas.

@@ -13,7 +13,9 @@
 was fixed. Every trade-valuation script re-runs to the laptop's files (guards pass). Found, in the order they move values:
 1. An unsigned player traded inside the page's window is valued on the contract he signed afterwards: 26 assets,
    -$52.63M (Josh Anderson 2020-10-06 -$17.64M, Matt Murray -$14.65M, Barclay Goodrow -$8.14M). Post-season trades
-   already get rights only; decide whether these do too (`rights_values.py`'s rule).
+   already get rights only; decide whether these do too (`rights_values.py`'s rule). **Built, not adopted
+   (2026-10-18):** branch `claude/rights-for-unsigned-trades`; the 26 go from -$52.61M to +$2.16M (most RFA rights are
+   zero under the arbitration cost). Decide (Thomas): adopt.
 2. The draft linkage misses four drafted players spelled differently in WAR (Joshua Brown 2013 #152, Danny O'Regan,
    Tim Gettinger, Alexandre Grenier): "never played" in the pick curve, and two traded assets valued as prospects
    (O'Regan 2018, Brown 2020).
