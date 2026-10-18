@@ -169,6 +169,7 @@ initials, Elite Prospects' spelling, a namesake guard); every id-name disagreeme
 | Prospect star value by seasons since the draft | 18.01/17.66/15.72/8.78/1.93 (2026-10-18; D+1, D+2, D+3, D+4, D+5 on; $M at the 2025-26 cap) | `prospect_values.py` |
 | Traded prospects (196 assets, 169 players, 2017-07-01 to 2022-03-28) | $69.86M (slot, production and age); slot alone $57.91M (2026-10-18: linkage v1.2, calendar ages; was $69.82M / $57.99M) | `prospect_values.py` |
 | Traded undrafted prospects on NHL contracts (53 assets) | $5.80M; all prospects $75.67M (2026-10-18; was $5.78M / $75.60M) | `prospect_values.py` |
+| Traded assets joined (`trade_asset_values.csv`, 2017-07-01 to 2022-03-28) | 1,561 assets (927 players, 634 picks), 1,558 valued; at the 2025-26 cap players $-929.40M, picks $401.01M (2026-10-18; 3 not valued: Sislo, McKegg, Chapie) | `trade_asset_values.py` |
 | Discount and cap growth | 3% each | D11, D17 |
 
 ## Data and scripts (2026-10-14)
@@ -188,8 +189,11 @@ CapWages cache (1,551 player pages); the clause scrape.
 - xNPV 1 modules: `skater_forecast.py` v2.3, `aging_curve.py`, `participation_model.py` v1.8,
   `player_season_table.py` v1.5, `information_set.py` v1.1, `contract_source.py` v1.0, `forecast_config.py` v1.0,
   `forecast_harness.py` v1.4; `xnpv1_price_line.py` v2.1 (the line and its reproduction guard).
-- Draft: `draft_pick_linkage.py` v1.1, `elc_signing_dates.py` v1.0, `pick_curve.py` v1.5, `traded_pick_values.py` v1.2.
-- Prospects: `prospect_values.py` v1.3 (slot, production, age; undrafted). Prospect data: `ep_extract.py` v3.5, `ep_nhl_bridge.py` v1.1.
+- Draft: `draft_pick_linkage.py` v1.2, `elc_signing_dates.py` v1.1, `pick_curve.py` v1.7, `traded_pick_values.py` v1.2.
+- Prospects: `prospect_values.py` v1.10 (slot, production, age; undrafted). Prospect data: `ep_extract.py` v3.5, `ep_nhl_bridge.py` v1.1.
+- Traded assets (2026-10-14 to 2026-10-18): `trade_page.py`, `traded_player_values.py` v1.1, `rights_values.py` v1.2,
+  `buried_contract_values.py` v1.3, `contracts_2017.py` v1.1, `page_2017_values.py` v1.2, and the join
+  `trade_asset_values.py` v1.0 (every traded asset once, both caps).
 - Game level: `nhl_gamelog_scraper.py` v2.4, `on_ice_reconstruction.py` v1.3, `xg_model.py` v1.0,
   `score_state.py` v1.0, `metric_assembly.py` v1.0, `gv_adjusted_build.py` v1.0.
 - Other: `replacement_rebase.py`, `npv_spine_compare.py`, `capspace_scraper.py`, `capspace_capwages_compare.py`,

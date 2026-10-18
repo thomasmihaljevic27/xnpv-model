@@ -34,7 +34,7 @@ from pathlib import Path
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "contracts_2017.py v1.0 (2026-10-14)"
+SCRIPT_VERSION = "contracts_2017.py v1.1 (2026-10-18)"   # v1.1: a page without contracts counts as missing
 load_dotenv()
 SOURCE_DIR, OUTPUT_DIR = Path(os.environ["SOURCE_DIR"]), Path(os.environ["OUTPUT_DIR"])
 CACHE_FETCH = OUTPUT_DIR / "capwages_2017"
@@ -120,22 +120,36 @@ def parse_contracts(lines):
     return out
 
 
-# the page addresses CapWages uses where the trade's spelling gives a different slug (both fetched 2026-10-14)
-SLUG_OVERRIDES = {"J.T. Miller": "jt-miller", "Patrick Maroon": "pat-maroon"}
+# the page addresses CapWages uses where the trade's spelling gives a different slug (fetched 2026-10-14). v1.1
+# (2026-10-18): capwages.com/players/jt-miller now answers 404; his page is j-t-miller (draft line 2011 #15 checked).
+# A list is tried in order (the first is the one --fetch requests), so a copy cached under the old address still serves.
+SLUG_OVERRIDES = {"J.T. Miller": ["j-t-miller", "jt-miller"], "Patrick Maroon": ["pat-maroon"]}
+
+
+def slugs(name):
+    return SLUG_OVERRIDES.get(name, [to_slug(name)])
 
 
 def find_page(name):
-    slug = SLUG_OVERRIDES.get(name, to_slug(name))
-    for d in CACHES:
-        f = d / f"{slug}.html"
-        if f.exists():
+    """v1.1 (2026-10-18): the first cached page, in CACHES order, that lists a contract; a page with none (Greg McKegg's
+    clause-scrape copy shows career earnings of $0 and no contract block) is used only when no cache has a better one."""
+    found = [d / f"{sl}.html" for sl in slugs(name) for d in CACHES if (d / f"{sl}.html").exists()]
+    for f in found:
+        if parse_contracts(page_lines(f.read_text(encoding="utf-8", errors="ignore"))):
             return f
-    return None
+    return found[0] if found else None
+
+
+def has_contracts(f):
+    return f is not None and bool(parse_contracts(page_lines(f.read_text(encoding="utf-8", errors="ignore"))))
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--fetch", action="store_true", help="request missing pages from capwages.com (1.5 s apart)")
+    ap.add_argument("--fetch", action="store_true",
+                    help="request missing pages (or cached ones listing no contract) from capwages.com (1.5 s apart)")
+    ap.add_argument("--only", nargs="+", metavar="NAME",
+                    help="limit --fetch to these traded names, as trades.db spells them (v1.1)")
     args = ap.parse_args()
     log(SCRIPT_VERSION)
     v = pd.read_csv(OUTPUT_DIR / "prospect_values.csv")
@@ -149,9 +163,10 @@ def main():
         CACHE_FETCH.mkdir(exist_ok=True)
         sess, got, bad = requests.Session(), 0, []
         for n in sorted(a["player_name"].unique()):
-            if find_page(n) is not None:
+            f = CACHE_FETCH / f"{slugs(n)[0]}.html"
+            # v1.1: a cached page with no contract on it counts as missing (fetched once, into CACHE_FETCH)
+            if has_contracts(find_page(n)) or f.exists() or (args.only and n not in args.only):
                 continue
-            f = CACHE_FETCH / f"{SLUG_OVERRIDES.get(n, to_slug(n))}.html"
             try:
                 resp = sess.get(f"https://capwages.com/players/{f.stem}", headers={"User-Agent": UA}, timeout=20)
             except requests.RequestException as e:

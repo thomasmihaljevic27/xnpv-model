@@ -3442,3 +3442,17 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   labels only; `page_2017_values.py` v1.2, one cap), not adopted. 1,561 traded assets, 1,557 valued; Borgstrom's and
   Aberg's rights now valued ($0.47M, $0.00). Awaiting Thomas, with the CapWages fetch and the cap rule.
 
+### Change log, 2026-10-18e (the trade files joined: adopted; two CapWages pages fetched)
+
+- DECISION (Thomas, 2026-10-18: "Adopt the join ... Also fetch the CapWages pages for J.T. Miller and Greg McKegg"):
+  `trade_asset_values.py` v1.0, `contract_npv.py` v2.8 (labels only), `page_2017_values.py` v1.2 (one cap), commit
+  78ce479. Laptop run equals the tested run (traded players, rights, buried contracts, audit, 2017 page, the join;
+  `contracts_2017.csv` differs only in its stored page paths).
+- `contracts_2017.py` v1.1, to carry out the fetch: a cached page listing no contract counts as missing, a page with
+  contracts is preferred when two caches hold one, and `--only` limits a fetch to named players (without it the fetch
+  would also have requested Josh Archibald's page, which was not approved). Fetched: Greg McKegg (still no contracts
+  on CapWages); J.T. Miller from `capwages.com/players/j-t-miller` (the recorded `jt-miller` now answers 404; draft
+  line 2011 #15 checked). Miller on the 2017 page: -$0.57M (2017-18 cap), -$0.73M (2025-26 cap).
+- 1,561 assets (927 players, 634 picks), 1,558 valued; at the 2025-26 cap players $-929.40M, picks $401.01M. Not valued: Mike Sislo (no NHL id), Greg McKegg (no contract on CapWages), Adam Chapie (position unknown;
+  under the burial allowance).
+
