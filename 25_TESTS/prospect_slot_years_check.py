@@ -51,7 +51,7 @@ import pandas as pd
 import statsmodels.api as sm
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "prospect_slot_years_check.py v1.2 (2026-10-16)"   # no draft-year terms (Thomas, 2026-10-16)
+SCRIPT_VERSION = "prospect_slot_years_check.py v1.3 (2026-10-18)"   # v1.3: rows past club control left out; v1.2: no draft-year terms
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "20_CODE"))
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
@@ -97,8 +97,12 @@ for r in p.itertuples():
             taken = (before["season"] >= y - GOALIE_BACK).any()            # any NHL game (rows exist only if gp > 0)
         else:
             taken = ((before["season"] >= y - SKATER_BACK) & (before["gp"] >= SKATER_GP)).any()
+        # v1.3 (2026-10-18, the bug sweep): a season past the end of his club control (pick_curve window_end) is not a
+        # prospect row: its remaining surplus is zero by construction, and prospect_values.py values such a prospect at
+        # zero by rule, so the fit must not learn from it (116 rows, all four or more seasons after the draft)
         rows.append({"draftYear": r.draftYear, "pick": r.pick, "player": r.player, "is_goalie": r.is_goalie,
-                     "p_star": r.p_star, "k": k, "season": y, "prospect": not taken,
+                     "p_star": r.p_star, "k": k, "season": y, "prospect": (not taken) and y < r.window_end,
+                     "past_control": y >= r.window_end,
                      "nhl_games_before": float(before["gp"].sum()),
                      "remaining_M": float(mine.loc[mine["season"] >= y, "sur_M"].sum())})
 d = pd.DataFrame(rows)

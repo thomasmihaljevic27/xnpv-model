@@ -20,7 +20,8 @@ WHAT HE IS WORTH [opening decisions 1 and 3]
   line minus his cost (entry-level deal, then the qualifying offer or the arbitration price), to the end of
   club control, at the 2025-26 cap.
   * STAR VALUE(k): pick_curve.fit_scale's regression (through zero; v1.10: no draft-year terms;
-    robust HC1 errors) on the 2007-2017 drafted players who were prospects at k, outcome their remaining
+    robust HC1 errors) on the 2007-2017 drafted players who were prospects at k (v1.11: and still under club
+    control), outcome their remaining
     surplus: pick_curve_seasons.csv's priced seasons from y on (season y in full), lapsed rights zeroed as the
     pick curve zeroes them. k = 0, 1, 2, 3 one fit each; 4 and later one fit on the stacked rows for k = 4..7,
     errors clustered by player. Kept: the through-zero form (Thomas, 2026-10-14), the pick curve's current
@@ -130,7 +131,7 @@ import statsmodels.api as sm
 from dotenv import load_dotenv
 
 
-SCRIPT_VERSION = "prospect_values.py v1.10 (2026-10-16)"   # v1.10: no draft-year terms (Thomas); v1.9: PuckPedia dates
+SCRIPT_VERSION = "prospect_values.py v1.11 (2026-10-18)"   # v1.11: fit rows inside club control; v1.10: no draft-year terms
 load_dotenv()
 import contract_source as CS   # noqa: E402  v1.1: PuckPedia exports read strictly (identity only)
 SOURCE_DIR, OUTPUT_DIR = Path(os.environ["SOURCE_DIR"]), Path(os.environ["OUTPUT_DIR"])
@@ -235,8 +236,10 @@ def star_values():
             y = r.draftYear + k
             if y > LAST_START:
                 break
+            # v1.11 (2026-10-18, the bug sweep): a season past his club control is left out of the fits (its remaining
+            # surplus is zero by construction, and such a prospect is valued at zero by rule below)
             rows.append({"draftYear": r.draftYear, "pick": r.pick, "p_star": r.p_star, "k": k,
-                         "prospect": is_prospect(mine, y, bool(r.is_goalie)),
+                         "prospect": is_prospect(mine, y, bool(r.is_goalie)) and y < r.window_end,
                          "remaining_M": float(mine.loc[mine.index >= y, "sur_M"].sum())})
     d = pd.DataFrame(rows)
     d["k_group"] = d["k"].map(lambda k: k_group(min(k, K_MAX)))

@@ -27,6 +27,8 @@ each arm against the chosen one on the same rows. Each addition is scored alone 
 
 v1.1 (2026-10-15): the rows leave out the six drafted players who died before reaching the NHL (Thomas;
 pick_curve.py v1.6); v1.0 ran on 13,152 rows (fingerprint 8aa11d737772) and reproduces from git before this.
+v1.5 (2026-10-18): rows past club control leave (prospect_slot_years_check.py v1.3; 13,100 -> 12,996 rows, fingerprint
+1a0aa6bb93a0).
 v1.4 (2026-10-18): the rows follow draft_pick_linkage.py v1.2 (sixteen missed WAR spellings added; four players in the
 fit drafts change: Grenier 2011 #90, O'Regan 2012 #138, Brown 2013 #152, Gettinger 2016 #141; 13,104 -> 13,100 rows,
 fingerprint cff3583de536 -> 8cb34e6c56c4). The recorded v1.3 results reproduce from git before it.
@@ -52,7 +54,7 @@ import pandas as pd
 import statsmodels.api as sm
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "prospect_age_look.py v1.4 (2026-10-18)"   # v1.4: rows on linkage v1.2; v1.3: no draft-year terms
+SCRIPT_VERSION = "prospect_age_look.py v1.5 (2026-10-18)"   # v1.5: rows inside club control; v1.4: linkage v1.2
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 LOG = []
@@ -81,7 +83,7 @@ d["age"] = (pd.to_datetime(d["season"].astype(str) + "-09-15") - d["birthDate"])
 d["past_elig"] = d["age"] - d["k"] - FIRST_ELIGIBLE_AGE
 d["prod_x_age"] = d["nhle82"] * d["past_elig"]
 FP = hashlib.sha1(pd.util.hash_pandas_object(d[["draftYear", "pick", "k"]], index=False).values).hexdigest()[:12]
-assert FP == "8cb34e6c56c4", FP                                    # GUARD: the step-two look's rows (v1.4: linkage v1.2)
+assert FP == "1a0aa6bb93a0", FP                                    # GUARD: the step-two look's rows (v1.5: inside club control)
 log(f"\nrows: {len(d):,} (fingerprint {FP}, the production look's rows)")
 x0 = d[d["k"] == 0]
 log(f"  years past first eligibility, at the draft: first-time eligible (under 0.5) {int((x0['past_elig'] < 0.5).sum()):,}; "
