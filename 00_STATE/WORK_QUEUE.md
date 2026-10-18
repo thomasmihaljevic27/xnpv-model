@@ -17,8 +17,10 @@ was fixed. Every trade-valuation script re-runs to the laptop's files (guards pa
    (Thomas: "great, implement").** `traded_player_values.py` v1.1, `rights_values.py` v1.2; the 26 go from -$52.61M to
    +$2.16M (most RFA rights are zero under the arbitration cost); laptop outputs re-run.
 2. The draft linkage misses four drafted players spelled differently in WAR (Joshua Brown 2013 #152, Danny O'Regan,
-   Tim Gettinger, Alexandre Grenier): "never played" in the pick curve, and two traded assets valued as prospects
-   (O'Regan 2018, Brown 2020).
+   Tim Gettinger, Alexandre Grenier): "never played" in the pick curve, and one traded asset valued as a prospect
+   (Brown 2020; O'Regan, first listed here too, is correctly a prospect). **Built, not adopted (2026-10-18):** branch
+   `claude/linkage-spellings`, sixteen verified aliases; star value 18.0400 -> 18.0396, traded picks $401.580M ->
+   $401.571M, traded prospects $75.601M -> $75.688M. Decide (Thomas): adopt.
 3. The forecast ages 12 players born September 16-17 a year too old in 49 seasons (Ovechkin, Matthews, Brady
    Tkachuk); fixing it moves forecasts and the price line.
 4. Joining the files: players at their page's cap, picks, prospects and buried contracts at 2025-26 (the open cap

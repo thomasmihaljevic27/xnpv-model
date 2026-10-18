@@ -3410,4 +3410,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   season (extends 2026-10-14p). `traded_player_values.py` v1.1, `rights_values.py` v1.2 (commit 78ce479). Laptop
   outputs re-run and equal to the scratch run: 26 assets -$52.61M -> +$2.16M at their pages' caps; priced traded
   players -$780.67M -> -$725.89M; 4 assets without a forecast change label only; buried contracts unchanged.
+- Finding 2 built on the local branch `claude/linkage-spellings` (`draft_pick_linkage.py` v1.2, sixteen verified
+  aliases; `prospect_age_look.py` v1.4), not adopted. Star value 18.0400 -> 18.0396; traded picks $401.580M ->
+  $401.571M; traded prospects $75.601M -> $75.688M. Correction: the sweep said O'Regan's 2018 trade was misrouted as
+  a prospect; he had 3 NHL games before that season and is a prospect. Only Brown's 2020 trade is.
 
