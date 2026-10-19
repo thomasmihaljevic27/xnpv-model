@@ -57,6 +57,11 @@ ONE DRAFTED PLAYER'S SURPLUS (classes 2007-2017, every selection, all positions)
      with no trade of him between his draft and the end of that season in
      trades.db, and the earlier pick of a player drafted twice, are worth ZERO
      to the pick [decided 2026-10-09; pick_star_and_rights_checks.py v1.1].
+     v1.9 (Thomas, 2026-10-19: "Count the 22"): NOT lapsed, and kept, when he signed his
+     entry-level deal with the drafting club (elc_signing_dates.csv signing_team, the
+     club of the source his signing date comes from): the club held him and lost him
+     later (waivers, release). Route "signed by the drafting club". A trade missed by the
+     name rule is matched under trades.db's spelling (TRADE_NAMES, hand-verified).
   9. GOALIES are pooled with skaters in one scale [decided 2026-10-09].
 
 v1.6 (2026-10-15, Thomas): DRAFTED PLAYERS WHO DIED BEFORE REACHING THE NHL are left out of every star value
@@ -129,7 +134,7 @@ import pandas as pd
 import statsmodels.api as sm
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "pick_curve.py v1.8 (2026-10-18)"   # v1.8: CBA age on the calendar; v1.7: no draft-year terms (Thomas)
+SCRIPT_VERSION = "pick_curve.py v1.9 (2026-10-19)"   # v1.9: signed by the drafting club kept; v1.8: CBA age on the calendar
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import skater_forward_projection as sfp          # noqa: E402  skater price line, cap and minimum tables
@@ -219,6 +224,12 @@ picks = picks[~drop].copy()
 # v1.5: entry-level signing years (CBA 9.2, 12.1(c)) and the forecaster for the arbitration price
 el = pd.read_csv(F["elc"]).dropna(subset=["draftYear", "signing_year"])
 SIGNED = {(int(a), int(b)): int(c) for a, b, c in zip(el["draftYear"], el["pick"], el["signing_year"])}
+# v1.9: the club he signed his entry-level deal with (NHL code; relocated clubs mapped to the franchise in route())
+ELC_TEAM = {(int(a), int(b)): t for a, b, t in zip(el["draftYear"], el["pick"], el["signing_team"]) if pd.notna(t)}
+# v1.9 (Thomas, 2026-10-19: "treat P.O. Joseph as traded"): trades.db's spelling where the draft record's defeats the
+# name rule. Checked: of the 68 picks v1.8 called lapsed, only this one had a trade of a player with the same surname
+# and first initial inside the window (Arizona to Pittsburgh, 2019-06-29).
+TRADE_NAMES = {(2017, 23): "Pierre-Olivier Joseph"}
 log(f"  entry-level signing years held: {len(SIGNED):,} drafted players (elc_signing_dates.csv)")
 FC = SF.ContractForecaster()
 CAREERS = set(FC.table["career_key"])
@@ -388,8 +399,11 @@ def route(row, s):
     if FRANCHISE.get(row["triCode"], row["triCode"]) in played.loc[first, "teams"]:
         return "same team"
     after, ends = pd.Timestamp(int(row["draftYear"]), 6, 1), pd.Timestamp(first + 1, 7, 1)
-    if ((ta["key"] == name_key(row["playerName"])) & (ta["date"] > after) & (ta["date"] < ends)).any():
+    key = (int(row["draftYear"]), int(row["overallPickNumber"]))
+    if ((ta["key"] == name_key(TRADE_NAMES.get(key, row["playerName"]))) & (ta["date"] > after) & (ta["date"] < ends)).any():
         return "traded first"
+    if FRANCHISE.get(ELC_TEAM.get(key), ELC_TEAM.get(key)) == FRANCHISE.get(row["triCode"], row["triCode"]):
+        return "signed by the drafting club"            # v1.9: held, then lost later: not lapsed
     return "lapsed"
 
 
@@ -451,6 +465,11 @@ if ct.exists() and TESTED_LINE:
 log(f"\npicks priced: {len(d):,} ({int(d['is_goalie'].sum())} goalies); played an NHL game: "
     f"{int((d['nhl_seasons'] > 0).sum()):,}")
 log("routes: " + ", ".join(f"{k} {v}" for k, v in d["route"].value_counts().items()))
+for (y, k), nm in TRADE_NAMES.items():                                       # GUARD: each listed trade is found
+    assert d.loc[(d["draftYear"] == y) & (d["pick"] == k), "route"].iloc[0] == "traded first", (y, k, nm)
+kept = d[d["route"] == "signed by the drafting club"]
+log(f"  signed his entry-level deal with the drafting club, kept (v1.9): {len(kept)} picks, "
+    f"${kept['surplus'].sum() / 1e6:,.2f}M")
 log(f"surplus zeroed for lapsed rights: ${d.loc[d['surplus'] != d['surplus_before_rights'], 'surplus_before_rights'].sum() / 1e6:,.1f}M "
     f"of ${d['surplus_before_rights'].sum() / 1e6:,.1f}M")
 
