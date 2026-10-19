@@ -142,6 +142,17 @@ directive 6). The old models (`draft_yield_curve.py`, `slot_curve.py`, `future_p
     python 20_CODE/page_2017_values.py       # the player model's 2017 page for them
     python 20_CODE/trade_asset_values.py     # every traded asset once: one value, its source, at the page's and the 2025-26 cap
 
+One command runs that whole list in order (2026-10-18): `python 20_CODE/trade_refresh.py`, about 8 minutes. It also runs
+the five checks those scripts guard against: `25_TESTS/draft_window_count.py` before the pick curve;
+`prospect_slot_years_check.py`, `prospect_nhle_look.py` and `prospect_age_look.py` before the prospects;
+`uncovered_assets_audit.py` before the 2017 contracts and again after the 2017 page. It stops at the first step that
+exits with an error, prints a guard failure, prints no version line, or leaves an output unwritten, and records each
+output's hash in `30_OUTPUT/trade_refresh_manifest.json`. `--output-dir DIR` runs it into a copy of 30_OUTPUT. Run
+`dashboard_refresh.py` first whenever the contract side changed (the PuckPedia export, WAR, the ages, the price line or
+any script in its chain): this chain reads its outputs. It fetches no CapWages page (`contracts_2017.py --fetch` stays a
+step run by hand, with Thomas's approval each time); the draft linkage pulls a draft year from records.nhl.com only if
+its cached file in `30_OUTPUT/draft_raw/` is missing.
+
 To answer questions about the curve on the spot: `python 25_TESTS/pick_lookup.py --help`. Each finding in
 `Valuing Draft Picks.docx`, with its command and expected value: `40_DOCS/Valuing_Draft_Picks_Reproduction.md`.
 `draft_pick_linkage.py` v1.2 (2026-10-18, commit bc8db88) added sixteen hand-verified WAR spellings; the four finished

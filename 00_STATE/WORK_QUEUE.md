@@ -44,7 +44,8 @@ was fixed. Every trade-valuation script re-runs to the laptop's files (guards pa
    2026-10-18**, laptop chain re-run). Decide (Thomas): whether the 22 "lapsed" picks whose player signed his
    entry-level deal with the drafting club (Driedger, Hickey, Gazdic ...) keep their surplus (star value +0.43%).
    Not a bug, offered: one runner for the trade chain (pick curve to the join), as `dashboard_refresh.py` is for the
-   contract chain.
+   contract chain. **Built 2026-10-18:** `trade_refresh.py` v1.0 (Thomas chose the name), tested on a copy of
+   30_OUTPUT; see `sessions/2026-10-18.md`.
 Details and figures: `sessions/2026-10-18.md`.
 
 **Read (Thomas): "Valuing Players, Draft Picks, and Prospects" (built 2026-10-16, session 2026-10-16c, 20 pages).** The

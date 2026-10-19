@@ -3475,3 +3475,13 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   join's total -$527.91M at the 2025-26 cap. PROJECT_STATE figures in force updated. The four finished document tests
   pinned to older prospect rows reproduce only from git before bc8db88 (CLAUDE.md).
 
+
+### Change log, 2026-10-18h (one runner for the draft, prospect and trade chain)
+
+- `trade_refresh.py` v1.0 (new; the name Thomas's): runs the 17 steps from `draft_pick_linkage.py` to
+  `trade_asset_values.py`, with the five `25_TESTS/` checks the scripts guard against, and stops at the first step that
+  exits with an error, prints a guard failure, prints no version line, or leaves an output unwritten. No script and no
+  value changed. Tested into a copy of 30_OUTPUT: 17 of 17 passed (8.1 min); 23 of the 24 data files byte-identical to
+  the laptop's, `contracts_2017.csv` different only in its stored page paths, the logs only in their input-path and
+  write-time lines. CLAUDE.md run list, PROJECT_STATE inventory, WORK_QUEUE item 5 and MANIFEST updated. No locked
+  decision (D1-D33) touched.
