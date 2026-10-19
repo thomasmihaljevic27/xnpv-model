@@ -661,6 +661,14 @@ Thomas the same day. Each item may change only by Thomas's decision.
     rights traded before his first NHL season ended 5.7%, rights lapsed and signed elsewhere 2.2% (55
     players; Spurgeon, Hagel, Muzzin, Hayes). Zeroing the lapsed group moves the pooled scale -0.5%.
     **Decided (Thomas, 2026-10-09): zero them.**
+    **Refined (Thomas, 2026-10-19: "Count the 22: picks whose player signed his entry-level deal with the drafting club
+    keep their surplus (and treat P.O. Joseph as traded)").** A player who signed his entry-level deal with the club that
+    drafted him was held by it and lost later (waivers, release): his pick keeps its surplus (route "signed by the
+    drafting club"). The signing club is CapWages's "Signing Team" line where its year agrees with the signing date, else
+    PuckPedia's contract club (`elc_signing_dates.py` v1.2). Pierre-Olivier Joseph's 2019 trade is matched under
+    trades.db's spelling. Built (`pick_curve.py` v1.9): 20 picks kept (net $+8.33M), Joseph traded first;
+    star value 18.0144 -> 18.0928. Michael Hutchinson (2008 #77), the 22nd, stays lapsed while PuckPedia's
+    mislabelled 2018 "entry-level" Florida deal sets his signing club.
   - **Built (2026-10-09).** `20_CODE/pick_curve.py` v1.0 prices every drafted player 2007-2017 under all of
     the above (2,322 picks, 233 goalies; guards: windows equal the window count for 2,322 of 2,322,
     skater surplus equals the tested no-slides version for 2,089 of 2,089) and fits the scales: pooled

@@ -3485,3 +3485,16 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   the laptop's, `contracts_2017.csv` different only in its stored page paths, the logs only in their input-path and
   write-time lines. CLAUDE.md run list, PROJECT_STATE inventory, WORK_QUEUE item 5 and MANIFEST updated. No locked
   decision (D1-D33) touched.
+
+### Change log, 2026-10-19 (picks signed by the drafting club keep their surplus)
+
+- DECISION (Thomas, 2026-10-19: "Count the 22 ... and treat P.O. Joseph as traded"): `elc_signing_dates.py` v1.2 records
+  the entry-level signing club; `pick_curve.py` v1.9 keeps a pick whose player signed his entry-level deal with the
+  drafting club (route "signed by the drafting club") and matches Joseph's 2019 trade (commit e1e4f60). Refines the
+  2026-10-09 lapsed-rights decision (MODEL_DIRECTIVES directive 6). Run on a scratch copy, then on the laptop with
+  `trade_refresh.py` (17 of 17 steps); all 20 outputs equal the scratch run.
+- Figures: 20 picks kept (net $+8.33M; Driedger +$6.98M, Hickey +$4.34M, Gazdic -$1.78M); star value
+  18.0144 -> 18.0928 (without 2015-2016 15.6842 -> 15.7792); traded picks $401.01M -> $402.75M;
+  prospect star values 18.09/17.81/16.00/9.29/2.51; traded prospects $76.15M -> $76.51M; traded players, rights, buried
+  contracts and the 2017 page unchanged. Hutchinson stays lapsed (PuckPedia's mislabelled entry-level date; separate).
+
