@@ -3485,3 +3485,15 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   the laptop's, `contracts_2017.csv` different only in its stored page paths, the logs only in their input-path and
   write-time lines. CLAUDE.md run list, PROJECT_STATE inventory, WORK_QUEUE item 5 and MANIFEST updated. No locked
   decision (D1-D33) touched.
+
+
+### Change log, 2026-10-19 (should the age discount reach production squared? report only)
+
+- `25_TESTS/prospect_age_form_look.py` v1.0 (new), asked by Thomas: why age discounts production through its own term
+  rather than the production terms already in the model. Four forms against the adopted one on the age test's rows
+  (D+1 to D+4): production squared x age added; it in place of production x age; one discount on all of production;
+  age-adjusted points in both terms. None predicts better at the 5% level (one-sided p 0.16 to 0.43; held-out error
+  -0.02% to -0.12%); in sample the square's discount is statistically significant (p = 0.0027). The centre of age moves
+  no verdict. Traded drafted prospects $70.51M move by -$0.75M to +$0.12M. Recorded in sessions/2026-10-19.md; WORK_QUEUE
+  item added for Thomas's decision; MANIFEST row. No code in 20_CODE/, no MODEL_DIRECTIVES.md section and no locked
+  decision (D1-D33) touched.
