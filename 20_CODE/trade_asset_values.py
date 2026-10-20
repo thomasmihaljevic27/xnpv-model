@@ -48,7 +48,7 @@ import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "trade_asset_values.py v1.1 (2026-10-19)"   # v1.1: the season left; retained-salary entries
+SCRIPT_VERSION = "trade_asset_values.py v1.2 (2026-10-20)"   # v1.2: text-only retentions; v1.1: the season left; retained-salary entries
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import skater_forward_projection as SFP             # noqa: E402  the ceilings
@@ -84,6 +84,9 @@ def main():
                     "join trades t using(trade_id) join trade_legs l using(leg_id) where t.trade_date >= ?",
                     con, params=(TRADES_FROM,))
     import trade_page as TP
+    # v1.2 (2026-10-20): the retained dollars from trade_page.retention(), the ledger's fields or, for the 15 it left
+    # unread, its text
+    a["retained_aav"] = a["asset_id"].map(TP.retention()["retained_aav"]).fillna(0.0)
     legs = pd.read_sql("select trade_id, acquiring_team from trade_legs", con)
     CLUBS = legs.groupby("trade_id")["acquiring_team"].apply(lambda s: sorted(set(s))).to_dict()
     a["valuation_page"] = a["trade_date"].map(TP.page)

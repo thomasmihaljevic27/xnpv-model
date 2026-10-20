@@ -37,7 +37,7 @@ from pathlib import Path
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "traded_player_values.py v1.2 (2026-10-19)"   # v1.2: season left, retained salary; v1.1: rights only
+SCRIPT_VERSION = "traded_player_values.py v1.3 (2026-10-20)"   # v1.3: text-only retentions; v1.2: season left, retained salary; v1.1: rights only
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_source as CS                         # noqa: E402
@@ -63,11 +63,9 @@ def main():
     pc, _ = CS.load_contracts()
     PPID = {int(b): int(a) for a, b in zip(pc["player_id"], pc["nhl_id"]) if pd.notna(a) and pd.notna(b)}
     eng = CN.NPVEngine()
-    # v1.2 (Thomas, 2026-10-19: "Yes, include retained salary"): trades.db's retained share of each asset's cap hit
-    import sqlite3
-    ret = pd.read_sql("select asset_id, retention_pct, retained_aav from trade_assets where retained_aav > 0",
-                      sqlite3.connect(Path(os.environ["SOURCE_DIR"]) / "trades.db"))
-    RET = dict(zip(ret["asset_id"], ret["retention_pct"].astype(float)))
+    # v1.2 (Thomas, 2026-10-19: "Yes, include retained salary"): the retained share of each asset's cap hit;
+    # v1.3 (2026-10-20): from trade_page.retention(), the ledger's fields or, for the 15 it left unread, its text
+    RET = TP.retention()["retention_pct"].to_dict()
     rows = []
     for _, r in v.iterrows():
         st, y = str(r["status"]), int(r["valuation_page"])

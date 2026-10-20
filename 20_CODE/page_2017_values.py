@@ -48,7 +48,7 @@ import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "page_2017_values.py v1.4 (2026-10-19)"   # v1.4: season left, retained salary; v1.3: pages found here
+SCRIPT_VERSION = "page_2017_values.py v1.5 (2026-10-20)"   # v1.5: text-only retentions; v1.4: season left, retained salary; v1.3: pages found here
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_source as CS                         # noqa: E402
@@ -95,9 +95,7 @@ def main():
     # retained share of each asset's cap hit, and the share of 2017-18's days left on the trade date
     import sqlite3
     import trade_page as TP
-    _ret = pd.read_sql("select asset_id, retention_pct from trade_assets where retained_aav > 0",
-                       sqlite3.connect(SOURCE_DIR / "trades.db"))
-    RET = dict(zip(_ret["asset_id"], _ret["retention_pct"].astype(float)))
+    RET = TP.retention()["retention_pct"].to_dict()     # v1.5 (2026-10-20): the ledger's fields or its text
     sp = eng.sp
     next_cid, next_pid = -1, -1
     rows = []

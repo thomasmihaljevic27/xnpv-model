@@ -44,7 +44,7 @@ from pathlib import Path
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "buried_contract_values.py v1.6 (2026-10-19)"   # v1.6: season left, retaining club; v1.5: a buyout's full term before it
+SCRIPT_VERSION = "buried_contract_values.py v1.7 (2026-10-20)"   # v1.7: text-only retentions; v1.6: season left, retaining club; v1.5: a buyout's full term before it
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_source as CS                        # noqa: E402
@@ -79,8 +79,7 @@ def main():
     _t = CS.contract_terms(pc)
     pc["signed_end"], pc["off"] = _t["signed_end_yr"], _t["off_contract"]
     by_id = dict(tuple(pc.groupby(pc["nhl_id"].astype(int))))
-    ret = pd.read_sql("select asset_id, retained_aav from trade_assets", sqlite3.connect(SOURCE_DIR / "trades.db"))
-    RET = dict(zip(ret["asset_id"], ret["retained_aav"].fillna(0)))
+    RET = TP.retention()["retained_aav"].to_dict()       # v1.7 (2026-10-20): the ledger's fields or its text
     link = pd.read_csv(OUTPUT_DIR / "draft_pick_linkage.csv")
     LID = {(int(a), int(b)): int(c) for a, b, c in zip(link["draftYear"], link["overallPickNumber"], link["playerId"])
            if pd.notna(c)}
