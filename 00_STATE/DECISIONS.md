@@ -3497,6 +3497,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   18.0144 -> 18.0928 (without 2015-2016 15.6842 -> 15.7792); traded picks $401.01M -> $402.75M;
   prospect star values 18.09/17.81/16.00/9.29/2.51; traded prospects $76.15M -> $76.51M; traded players, rights, buried
   contracts and the 2017 page unchanged. Hutchinson stays lapsed (PuckPedia's mislabelled entry-level date; separate).
+- Built, not adopted: `elc_signing_dates.py` v1.3 (branch `claude/elc-date-check`): entry-level dates after the first
+  NHL season ended set aside (six). Hutchinson kept (+$3.34M); star value 18.0928 -> 18.0975. Awaiting Thomas.
 
 ### Change log, 2026-10-19 (should the age discount reach production squared? report only)
 
