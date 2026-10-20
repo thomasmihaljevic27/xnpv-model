@@ -63,17 +63,39 @@
 #          double-counted across two contracts in one season.
 #
 #   These choices are logged in the run-log so they are documented, not implicit.
+#
+#   v2.0 (2026-10-19; Thomas: "Everywhere, re-lock", "Full term until buyout", "PuckPedia's"):
+#     B'. The seasons come from contract_source.contract_terms(), the one rule every script now uses. For all
+#         but 38 contracts it is B's count back from the end. A deal that ended early (a buyout) carries its
+#         last season played as its END but its full signed LENGTH, so B placed it seasons before it was signed
+#         (Perry's 2013 extension on 2011-12); its rows now run from its first season (the `season` field) to
+#         its last season played. The table stays AS PLAYED: the seasons signed for after a buyout are not rows
+#         here, they are carried as pp_signed_end / pp_off_contract for the valuation, which counts them only
+#         when it is dated before the buyout (skater_forward_projection.contract_chain).
+#     D'. A cap-space season record is attached only to the SAME contract: the record whose signing date is
+#         nearest PuckPedia's, within 14 days, or failing that one with PuckPedia's cap hit to the dollar. The
+#         (ep_id, season) collapse that kept the most restrictive record, and the cap-hit-nearest overlap rule,
+#         gave a bought-out deal's record to the player's next contract (Marleau's $700K San Jose season carried
+#         his $6.25M Toronto figure). Each record attaches to one contract-season at most.
+#     The player model now charges PuckPedia's cap hit (pp_cap_hit); cs_cap_hit stays as the clause data's own
+#     figure, for clauses and bonuses only.
 # =============================================================================
 
 import os
 import re
 import sqlite3
+import sys
 import numpy as np
 import pandas as pd
 
 from dotenv import load_dotenv
 
 load_dotenv()
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import contract_source as CS                      # noqa: E402  v2.0: contract_terms(), the seasons rule
+
+SCRIPT_VERSION = "join_clauses_to_spine.py v2.0 (2026-10-19)"   # v2.0: seasons from contract_terms; same-contract clauses
+CS_SIGNING_DAYS = 14       # v2.0: a clause record is the same contract when signed within 14 days of PuckPedia's date
 
 # -----------------------------------------------------------------------------
 # CONFIG -- all paths come from .env (see .env.example). OUTPUT_DIR is the
@@ -178,16 +200,19 @@ def load_spine():
     # 5 contracts have no EP id and therefore cannot be joined to cap-space.
     no_ep = p["eliteprospects_id"].isna().sum()
 
-    # end-season start year: 'contract_end' is a season label like "2024-2025",
-    # whose START year (2024) is how NHL seasons are indexed everywhere here.
-    p["end_sy"] = p["contract_end"].astype(str).str.slice(0, 4).astype(int)
+    # v2.0: the seasons each contract covers, from the one rule (contract_source.contract_terms). Rows run from
+    # its first season to its last season played; a deal that ended early keeps its signed end and the day its
+    # end became known on every row, for the valuation.
+    t = CS.contract_terms(p)
+    p = p.join(t)
+    p["signed_dt"] = pd.to_datetime(p["signing_date"], errors="coerce")
+    n_cut = int(p["cut_short"].sum())
+    moved = int((p["first_yr"] - (p["last_played_yr"] - p["length"] + 1))[p["cut_short"]].sum())
 
-    # Expand each contract backward from its end season by `length` years.
     spine_rows = []
     for r in p.itertuples(index=False):
         L = int(r.length)
-        for k in range(L):
-            sy = r.end_sy - L + 1 + k
+        for sy in range(int(r.first_yr), int(r.last_played_yr) + 1):
             spine_rows.append({
                 "contract_id":  r.contract_id,
                 "player_id":    r.player_id,
@@ -207,12 +232,21 @@ def load_spine():
                 "ufa_year":     r.ufa_year,
                 "birthdate":    r.birthdate,
                 "draft_year":   r.draft_year,
+                # v2.0: contract-level, the same on every row of the contract
+                "pp_signing_date": (r.signed_dt.date().isoformat() if pd.notna(r.signed_dt) else None),
+                "pp_first_season": int(r.first_yr),
+                "pp_signed_end":   int(r.signed_end_yr),
+                "pp_cut_short":    int(bool(r.cut_short)),
+                "pp_off_contract": (r.off_contract.date().isoformat() if pd.notna(r.off_contract) else None),
             })
     spine = pd.DataFrame(spine_rows)
 
     log(f"[spine] PuckPedia contracts: {n_contracts}  players: {n_players}")
     log(f"[spine] contracts with NO eliteprospects_id (cannot join): {no_ep}")
     log(f"[spine] expanded to contract-seasons: {len(spine)}")
+    log(f"[spine] v2.0: {n_cut} contracts ended early (bought out); counting back from their cut-back end placed "
+        f"{moved} rows in seasons before they started, now gone. Their {int((p['signed_end_yr'] - p['last_played_yr'])[p['cut_short']].sum())} "
+        f"seasons signed for after the buyout are carried as pp_signed_end, not as rows")
     return spine
 
 # -----------------------------------------------------------------------------
@@ -231,18 +265,14 @@ def load_clauses():
     c = c.copy()
     c["ep_id"] = c["puckpedia_ep_id"].astype(int)
 
-    # restrictiveness rank for the dedup tie-break
+    # restrictiveness rank for the tie-break among same-contract records
     c["_rk"] = c.apply(restrictiveness_rank, axis=1)
-
-    before = len(c)
-    # Collapse spurious duplicate cap-space contract records: keep, per
-    # (ep_id, season), the MOST restrictive record (then highest cap_hit as a
-    # final deterministic tie-break so the run is reproducible).
-    c = c.sort_values(["ep_id", "season", "_rk", "cap_hit"],
-                      ascending=[True, True, False, False])
-    c = c.drop_duplicates(subset=["ep_id", "season"], keep="first")
-    log(f"[clauses] season-rows: {before} -> {len(c)} after (ep_id,season) "
-        f"most-restrictive dedup ({before-len(c)} duplicate season-rows removed)")
+    # v2.0: every record kept; the join picks, per PuckPedia contract-season, the record of the same contract
+    c["_cs_row"] = np.arange(len(c))
+    c["_cs_signed"] = pd.to_datetime(c["signing_date"], errors="coerce")
+    n_multi = int((c.groupby(["ep_id", "season"]).size() > 1).sum())
+    log(f"[clauses] season-rows: {len(c)}; player-seasons with more than one record: {n_multi} "
+        f"(v2.0: matched to a contract by signing date, not collapsed)")
 
     # parse the graded team count + list type out of the text field
     parsed = c["clause_limits"].apply(parse_clause_limits)
@@ -256,7 +286,7 @@ def load_clauses():
             "nmc_full", "ntc_full", "m_ntc", "m_nmc", "has_any_clause",
             "cs_clause_type", "cs_team_count", "cs_list_type",
             "clause_limits", "clause_raw", "expiration_status",
-            "entry_level", "extension", "_rk"]
+            "entry_level", "extension", "_rk", "_cs_row", "_cs_signed"]
     c = c[keep].rename(columns={
         "cap_hit":"cs_cap_hit", "aav":"cs_aav",
         "nhl_salary":"cs_nhl_salary", "minors_salary":"cs_minors_salary",
@@ -272,29 +302,38 @@ def load_clauses():
 def join_spine_clauses(spine, clauses):
     clause_value_cols = [col for col in clauses.columns if col not in ("ep_id", "season")]
 
-    m = spine.merge(clauses, on=["ep_id", "season"], how="left", indicator=True)
+    # ---- v2.0: the record of the SAME contract. Candidates are the player-season's records; the one signed nearest
+    # PuckPedia's date is taken when within CS_SIGNING_DAYS, else one with PuckPedia's cap hit to the dollar, else
+    # none (the record belongs to another contract: a bought-out deal's seasons, a later deal). Ties: the most
+    # restrictive record, then the highest cap hit (the old collapse's order), so the run is reproducible.
+    cand = spine[["contract_id", "season", "ep_id", "pp_signing_date", "pp_cap_hit"]].merge(
+        clauses[["ep_id", "season", "_cs_row", "_cs_signed", "cs_cap_hit", "_rk"]], on=["ep_id", "season"])
+    cand["_dd"] = (cand["_cs_signed"] - pd.to_datetime(cand["pp_signing_date"])).dt.days.abs()
+    cand["_cap_same"] = (cand["cs_cap_hit"] - cand["pp_cap_hit"]).abs() < 1
+    cand["_ok_date"] = cand["_dd"] <= CS_SIGNING_DAYS
+    cand = cand[cand["_ok_date"] | cand["_cap_same"]].copy()
+    cand["_tier"] = np.where(cand["_ok_date"], 0, 1)
+    cand = cand.sort_values(["contract_id", "season", "_tier", "_dd", "_rk", "cs_cap_hit"],
+                            ascending=[True, True, True, True, False, False], na_position="last")
+    pick = cand.drop_duplicates(["contract_id", "season"], keep="first")
+    # one record, one contract-season: two PuckPedia contracts can claim the same record (a duplicate deal);
+    # the nearer signing date keeps it
+    pick = pick.sort_values(["_cs_row", "_tier", "_dd"]).drop_duplicates("_cs_row", keep="first")
+    n_by_date, n_by_cap = int((pick["_tier"] == 0).sum()), int((pick["_tier"] == 1).sum())
 
-    # ---- overlap fix: ~39 players have 2 contracts in the same season; the one
-    # cap-space season record matched both. Keep the clause on the contract whose
-    # cap_hit is NEAREST cap-space's cap_hit; null the clause cols on the other(s).
-    m["_capdiff"] = (m["pp_cap_hit"] - m["cs_cap_hit"]).abs()
-    grp = m.groupby(["ep_id", "season"])
-    m["_n_contracts_this_season"] = grp["contract_id"].transform("nunique")
-    # within an overlapping (ep_id, season), rank contracts by cap_hit closeness
-    m["_rank_in_overlap"] = (m.sort_values("_capdiff")
-                              .groupby(["ep_id", "season"]).cumcount())
-    overlap_loser = (m["_n_contracts_this_season"] > 1) & (m["_merge"] == "both") \
-                    & (m["_rank_in_overlap"] > 0)
-    n_overlap_fixed = int(overlap_loser.sum())
-    m.loc[overlap_loser, clause_value_cols] = np.nan
-    m.loc[overlap_loser, "_merge"] = "left_only"
+    m = spine.merge(pick[["contract_id", "season", "_cs_row"]], on=["contract_id", "season"], how="left")
+    m = m.merge(clauses.drop(columns=["ep_id", "season"]), on="_cs_row", how="left")
+    m["_merge"] = np.where(m["_cs_row"].notna(), "both", "left_only")
+    n_other = int(spine.merge(clauses[["ep_id", "season"]].drop_duplicates(), on=["ep_id", "season"]).shape[0]
+                  - len(pick))
 
     # clean grain assertion: exactly one row per (contract_id, season)
     dup = m.duplicated(subset=["contract_id", "season"], keep=False).sum()
     assert dup == 0, f"grain broken: {dup} duplicate (contract_id, season) rows"
 
     m["clause_matched"] = (m["_merge"] == "both")
-    m = m.drop(columns=["_merge", "_capdiff", "_rank_in_overlap"])
+    m["_n_contracts_this_season"] = m.groupby(["player_id", "season"])["contract_id"].transform("nunique")
+    m = m.drop(columns=["_merge", "_cs_row", "_cs_signed"])
 
     # ---- diagnostics ----
     total = len(m)
@@ -304,7 +343,9 @@ def join_spine_clauses(spine, clauses):
     n_in_target = int(in_target.sum())
 
     log("")
-    log(f"[join] overlap-season clause re-attributions (cap_hit-nearest): {n_overlap_fixed}")
+    log(f"[join] v2.0 same-contract records attached: {n_by_date} by signing date (within {CS_SIGNING_DAYS} days), "
+        f"{n_by_cap} by an equal cap hit; {n_other} contract-seasons whose player-season has records of another "
+        f"contract only, left unmatched")
     log(f"[join] MATCH RATE all spine contract-seasons: "
         f"{matched}/{total} = {matched/total:.1%}")
     log(f"[join] MATCH RATE within cap-space target players: "
@@ -395,6 +436,7 @@ def contract_rollup(season_df):
 # MAIN
 # -----------------------------------------------------------------------------
 def main():
+    log(SCRIPT_VERSION)
     log("="*72)
     log("JOIN: cap-space clauses/bonuses -> PuckPedia contract spine")
     log("="*72)

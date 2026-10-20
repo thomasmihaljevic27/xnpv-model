@@ -39,8 +39,9 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import forecast_config as C
 
-SCRIPT_VERSION = "1.2"   # 1.1 (2026-10-14): war_full_name(), the WAR spelling for crosswalked ids
+SCRIPT_VERSION = "1.3"   # 1.1 (2026-10-14): war_full_name(), the WAR spelling for crosswalked ids
                          # 1.2 (2026-10-16): parse_export_dates(), either date style the exports carry
+                         # 1.3 (2026-10-19): contract_terms(), the seasons a contract covers
 
 # Tried in order. UTF-8 first so a correctly-encoded file is never read as
 # cp1252 -- cp1252 decodes ANY byte sequence without error, so trying it first
@@ -142,6 +143,63 @@ def war_full_name(df: pd.DataFrame, base: pd.Series, id_col: str = "nhl_id") -> 
 
 POSGRP = {"Center": "F", "Left Wing": "F", "Right Wing": "F",
           "Defense": "D", "Goaltender": "G"}
+
+
+# ---- v1.3 (2026-10-19, Thomas: "Everywhere, re-lock"; "Full term until buyout"): the seasons a contract covers ---
+# The day free agency opened each summer where it was not July 1. The buyout window closes the day before it opens:
+# in 2020 after the delayed playoffs (window September 25 to October 8), in 2021 after the July Final (to July 27).
+FREE_AGENCY_OPENS = {2020: pd.Timestamp("2020-10-09"), 2021: pd.Timestamp("2021-07-28")}
+
+
+def free_agency_opens(year: int) -> pd.Timestamp:
+    """The day free agency opened in the summer of `year`: July 1, except 2020 (October 9) and 2021 (July 28)."""
+    return FREE_AGENCY_OPENS.get(int(year), pd.Timestamp(int(year), 7, 1))
+
+
+def _start_year(s: pd.Series) -> pd.Series:
+    """A season label's starting year ("2018-2019" -> 2018)."""
+    return pd.to_numeric(s.astype(str).str.extract(r"^(\d{4})")[0], errors="coerce")
+
+
+def contract_terms(df: pd.DataFrame) -> pd.DataFrame:
+    """The seasons each PuckPedia contract covers: one row per contract, on `df`'s index.
+
+    The export gives a contract's LENGTH (the years signed for) and its END season. For every contract but one kind
+    the first season is end - length + 1, the rule the engine has always used: the export's own `season` field is
+    the first season for some deals, the last for others and the current one for running deals, and end - length + 1
+    also places an entry-level deal that slid in the seasons it was actually played. The exception is a deal that
+    ended early. For a bought-out contract PuckPedia moves the END back to the last season played but keeps the full
+    LENGTH, so end - length + 1 lands seasons before the deal was signed (Corey Perry's 2013 extension on 2011-12,
+    Jeff Skinner's 2019 Buffalo deal on 2016-17). Such a deal is a "history" contract whose `season` field, its first
+    season, falls after end - length + 1: 38 contracts on 2026-10-19, each starting in its signing season or the one
+    after (asserted).
+
+      first_yr        the first season: end - length + 1, or the `season` field for a deal that ended early
+      last_played_yr  the export's end season, the last season played on the deal
+      signed_end_yr   first_yr + length - 1, the last season signed for
+      cut_short       signed_end_yr > last_played_yr: the deal ended early
+      off_contract    for a deal that ended early, the day its end is taken as known: free agency's opening day after
+                      its last season played (a buyout is done the day before at the latest); NaT otherwise
+    Thomas, 2026-10-19 ("Full term until buyout"): a valuation dated before off_contract sees the full signed term,
+    one dated on or after it sees the deal ended after last_played_yr."""
+    end = _start_year(df["contract_end"])
+    length = pd.to_numeric(df["length"], errors="coerce")
+    back = end - length + 1
+    field = _start_year(df["season"])
+    cut = (df["contract_type"].astype(str) == "history") & (field > back)
+    first = back.where(~cut, field)
+    out = pd.DataFrame({"first_yr": first, "last_played_yr": end, "signed_end_yr": first + length - 1,
+                        "cut_short": cut}, index=df.index)
+    out["off_contract"] = pd.to_datetime([free_agency_opens(int(e) + 1) if c else pd.NaT
+                                          for e, c in zip(end, cut)])
+    # GUARD: a deal that ended early starts in the season it was signed or the one after
+    sd = df["signing_date"]
+    signed = sd if pd.api.types.is_datetime64_any_dtype(sd) else parse_export_dates(sd, "PuckPedia signing_date")
+    signed = pd.to_datetime(signed)
+    sign_season = signed.dt.year - (signed.dt.month < 7).astype(int)
+    gap = (first - sign_season)[cut & signed.notna()]
+    assert gap.isin([0, 1]).all(), f"a contract that ended early starts {sorted(gap.unique())} seasons from its signing"
+    return out
 
 
 def birthdate_table(ep_csv: Path | None = None) -> pd.DataFrame:
