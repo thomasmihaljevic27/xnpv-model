@@ -8,13 +8,15 @@
 
 ## Live (audited 2026-10-14)
 
-**Do (Claude, with Thomas's details): the back-test's three accounting rules (decided by Thomas, 2026-10-19).**
+**Decide (Thomas): adopt the back-test's three accounting rules, built 2026-10-19 on the local branch `claude/in-season-and-retention` (commit 8527b50; session log 2026-10-18, "the back-test's three accounting rules").** Details decided: the season left in days, on value and cap; prospects keep the full season; the retaining club pays the retained part. Scratch run: the join at the 2025-26 cap $-525.63M -> $-335.61M (season left +$190.02M; retention moves the total by zero, $73.64M moved from acquirers to 72 retaining-club entries). The season's last day is the published schedule's, not the last game played (2019-20's pause would otherwise be look-ahead). Decided 2026-10-19 (Thomas):
 1. "2025-26": every value is added at the 2025-26 cap (`trade_asset_values.csv`'s `value_2025_cap_M`).
 2. "Yes, include retained salary": the acquirer pays only the cap hit it carries; the retained part stays a cost to the club
    that retained it. 72 traded assets carry retention (61 in two-team trades, 11 in three-team trades).
 3. "Yes, account for in-season trades": a trade during the regular season counts only the part of that season left after
    it (the July conventions already said "Mid-season trades charged prorated cap cost"; the value side was pending).
    897 traded assets moved during a regular season. The forecast still uses no in-season production (STANDING_FLAGS).
+
+**Decide (Thomas): fix the contract table's cap hits? (found 2026-10-19, session log 2026-10-18).** The player model costs a season at the clause pipeline's cap hit ahead of PuckPedia's. 143 season rows on 83 contracts carry a clause-pipeline figure more than 10% from PuckPedia's, often a bought-out or earlier contract's (Marleau's $700K San Jose deal at $6.25M; Parise's $750K Islanders deals at $7.54M); 59 rows on 36 contracts sit in seasons that ended before the contract was signed (Skinner's 2019 Buffalo deal on 2017-18); 55 player-seasons hold two contracts and the engine takes the first (Kovalchuk to Washington charged his terminated $6.25M Los Angeles contract, and Montreal's retained entry half of it). Up to 21 traded player assets touched (an upper bound); the dashboard and panel read the same column; the price line does not (it reads PuckPedia's AAV per contract). Not fixed.
 
 **Decided 2026-10-19 (Thomas): keep the prospect model's age discount on production alone** ("For the form of the
 prospects age discounting I'm content with what we have then"; recorded in MODEL_DIRECTIVES directive 6, prospects,

@@ -3543,3 +3543,17 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   the build details go to Thomas first. No locked decision (D1-D33) touched; (3) completes the July convention
   "Mid-season trades charged prorated cap cost".
 
+### Change log, 2026-10-19e (the three back-test rules built, not adopted; a contract-table finding)
+
+- DETAILS (Thomas, 2026-10-19): the season left counts "Days left, value and cap"; prospects "No, keep the full season";
+  retained salary: "Retaining club pays it". Built on the local branch `claude/in-season-and-retention` (commit 8527b50):
+  `trade_page.season_left_share` (the last day from the schedule published before the season: 2019-20 April 4, 2020-21
+  May 8, 2021-22 April 29; the last game played would let a 2020-02-24 valuation see the March 12 pause);
+  `contract_npv.py` v3.0 (`first_season_share`, `retained_pct`; defaults leave the panel and dashboard unchanged);
+  `traded_player_values.py` v1.2, `rights_values.py` v1.4, `buried_contract_values.py` v1.5, `page_2017_values.py` v1.4,
+  `trade_asset_values.py` v1.1 (one "retained salary" entry per retained asset, charged to the retaining club). Scratch
+  run 17 of 17: the join at the 2025-26 cap $-525.63M -> $-335.61M. Not adopted. No locked decision (D1-D33) touched;
+  completes the July convention "Mid-season trades charged prorated cap cost" on the value side as well.
+- FOUND: the contract table's cap-hit column (clause pipeline ahead of PuckPedia) carries another contract's figure on 143
+  season rows (83 contracts), places 59 rows (36 contracts) in seasons before signing, and leaves 55 player-seasons with
+  two contracts. Recorded in WORK_QUEUE for Thomas; not fixed.
