@@ -23,8 +23,10 @@ a contract running at their page with the label (Hartman 2019-02-25, Donato, Duc
 pages carry it too. Not measured. The back-test's forecast side carries it (sessions/2026-10-20.md).
 
 **The back-test's outcomes share the forecast's source (2026-10-20).** Delivered value is priced from Bacon's WAR, as
-the forecast is. The Game Value check (the locked circularity validators) has not been run on the outcomes; until it
-is, no back-test group finding is called systematic. Long-term injury relief is not modelled (Ryan Ellis, -$33.45M of
+the forecast is. **Game Value check RUN 2026-10-20** (`backtest.py` v1.5, `25_TESTS/backtest_gv_compare.py`): 9 results
+hold on GV-adj, 1 is not confirmed (the futures group below its forecast); club net wins agree r = 0.901. Cite with its
+limits: Bacon's league mean and spread set the scale; the contract line prices both; goalies and the 2026-27
+revaluation are not re-measured; the same games underlie both. Long-term injury relief is not modelled (Ryan Ellis, -$33.45M of
 the players' -$226.6M miss); BUILT 2026-10-20 (`ltir.py`, Spotrac's pages, "Label + CBA test"): Ellis's outcome
 -$2.19M, the players' shortfall gone. Limits: the CBA reading relieves IR spells at clubs below the cap that may never
 have used LTIR; Spotrac's dates are approximate (end dates can stop a game or two short); part of a season's LTIR relief

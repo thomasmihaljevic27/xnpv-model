@@ -11,8 +11,8 @@
 **Run 2026-10-20: the back-test (session 2026-10-20; protocol `40_DOCS/Backtest_Protocol.md`, `backtest.py` v1.2).**
 The forecast's verdicts come true on average (slope 0.919); players delivered less than forecast; the club taking picks
 and prospects for players gains in forecast and outcome. Next, in order:
-1. Do: the Game Value check of the outcomes (the protocol's first stated limit; the locked circularity validators). No
-   group finding is called systematic before it.
+1. Done 2026-10-20: the Game Value check of the outcomes (session 2026-10-20): 9 results hold, 1 not confirmed (the
+   futures group below its forecast), 9 were not WAR findings.
 2. Done 2026-10-20 (Thomas: "Fix the QO look ahead"): "UFA no QO" read only once the decision is known; 20 traded
    assets +$10.12M, the back-test's slope 0.918 (session 2026-10-20).
 2a. Done 2026-10-20: LTIR relief built from Spotrac's pages and adopted ("Label + CBA test"); the back-test's slope

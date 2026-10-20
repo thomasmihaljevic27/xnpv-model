@@ -3652,3 +3652,13 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - Locked decisions touched: D16(i) (a buried or injured player's cap hit counted in full) is departed from for LTIR
   seasons, as Thomas directed: in the outcome for every LTIR day, in a trade's forecast for a player on LTIR when traded.
   The contract panel and dashboard are unchanged (no LTIR in the contract chain). Session log sessions/2026-10-20.md.
+
+### Change log, 2026-10-20f (the Game Value check of the back-test)
+
+- RUN (Thomas, 2026-10-20: "Run the Game Value check on the back-test's outcomes, as the protocol says"): design and
+  verdict rule declared and pushed first (db3e04e); `backtest.py` v1.5, `25_TESTS/backtest_gv_compare.py` v1.0. The WAR
+  run reproduces v1.4 exactly. Verdicts: 9 hold on Game Value (the forecast predicts the outcome, slope 0.726 on GV-adj;
+  the futures-for-players club ahead; retained salary, nothing back, clause-holder groups), 1 not confirmed (the futures
+  group below its forecast), 9 were not WAR findings. Rate-free agreement of club net wins r = 0.901. No locked decision
+  touched: it runs the locked validators (2026-07-04, 2026-07-14) at trade level, as deferred in July. Session log
+  sessions/2026-10-20.md.

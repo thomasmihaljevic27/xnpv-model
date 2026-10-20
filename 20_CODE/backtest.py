@@ -40,6 +40,13 @@ WHERE EACH ASSET'S SPAN AND FORECAST COME FROM (the files trade_asset_values joi
   undrafted prospects        priced by this script's copy of the pick curve's cost chain (GUARD: the copy reproduces
                              every 2007-2017 draftee's seasons in pick_curve_seasons.csv)
 
+THE GAME VALUE CHECK (v1.5; protocol, "The Game Value check", declared before it ran): XNPV_OUTCOME_METRIC=gv_adj
+(primary) or gv_raw replaces a skater's Bacon WAR in every realised season 2017-18 on with his Game Value: GV-adj plus
+Game Value's own per-game replacement rebase (gv_repl - game_value), or GV-raw's gv_repl; goals / 5.903 = wins; mapped to
+Bacon's scale by each season's and position's league mean and standard deviation (gv_wins). Nothing else changes.
+Outputs carry the metric's suffix (backtest_assets_gv_adj.csv ...); the default, war, writes the files above.
+Every asset also records wins_delivered (his realised wins inside the span, on the run's metric) for the rate-free leg.
+
 INPUTS: OUTPUT_DIR/trade_asset_values.csv and the files above; SOURCE_DIR/WAR.csv, Goalies_WAR.csv, games.csv,
 nhl_gamelogs.sqlite, trades.db, draft_slot_baseline.csv; the contract chain's spines through NPVEngine.
 OUTPUTS: OUTPUT_DIR/backtest_assets.csv (one row per asset: forecast, realised, revalued, outcome),
@@ -57,7 +64,7 @@ import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "backtest.py v1.4 (2026-10-20)"   # v1.4: LTIR relief; v1.3: "UFA no QO" known only after the decision; v1.2: seasons after a buyout; v1.1: the ledger's spelling when the spine's has no WAR rows
+SCRIPT_VERSION = "backtest.py v1.5 (2026-10-20)"   # v1.5: the Game Value check (XNPV_OUTCOME_METRIC), wins delivered; v1.4: LTIR relief; v1.3: "UFA no QO" known only after the decision; v1.2: seasons after a buyout; v1.1: the ledger's spelling when the spine's has no WAR rows
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_npv as CN                                     # noqa: E402  the engine, goalie line and hazard
@@ -87,6 +94,10 @@ ELC_MAX = {**{y: 875_000 for y in (2007, 2008)}, **{y: 900_000 for y in (2009, 2
 ALPHA, BETA_F, BETA_D, GAMMA, LINE = SFP.price_constants()
 ALPHA_G, BETA_G = CN.ALPHA_G, CN.BETA_G
 N_BOOT, SEED = 2000, 20261020
+METRIC = os.environ.get("XNPV_OUTCOME_METRIC", "war")       # v1.5: war (Bacon) | gv_adj | gv_raw
+assert METRIC in ("war", "gv_adj", "gv_raw"), METRIC
+SUFFIX = "" if METRIC == "war" else f"_{METRIC}"
+GOALS_PER_WIN = 5.903                                       # the game-level chain's pooled goals per win (2026-07-03)
 LAPSED = ("lapsed", "drafted twice (earlier pick)")
 LOG = []
 
@@ -162,6 +173,55 @@ def gp_war(s, y):
     if y not in s.index:
         return 0.0, 0.0
     return float(s.loc[y, "GP"]), float(s.loc[y, "WAR"]) * SHORT.get(y, 1.0)
+
+
+def gv_wins():
+    """v1.5: {(NHL id, season start): Game Value wins on Bacon's scale}, skaters, regular season. The rebased goals
+    (GV-adj + the per-game replacement rebase, or GV-raw's gv_repl) / 5.903, then for each season and position the
+    league's Bacon mean and spread: mapped = mean_WAR + sd_WAR x (x - mean_GV) / sd_GV (all skaters in each table)."""
+    con = sqlite3.connect(SOURCE_DIR / "nhl_gamelogs.sqlite")
+    r = pd.read_sql("select player_id, season, pos_bucket, sum(game_value) gv, sum(gv_repl) rp from "
+                    "player_game_value_repl where game_type = 2 group by 1, 2, 3", con)
+    r["syr"] = r["season"].astype(str).str[:4].astype(int)
+    r["player_id"] = r["player_id"].astype(int)
+    a = pd.read_sql("select player_id, season, gv_adj from gv_adjusted", con)
+    a["syr"], a["player_id"] = a["season"].astype(str).str[:4].astype(int), a["player_id"].astype(int)
+    r = r.merge(a[["player_id", "syr", "gv_adj"]], on=["player_id", "syr"], how="left")
+    goals = (r["gv_adj"].fillna(0.0) + (r["rp"] - r["gv"])) if METRIC == "gv_adj" else r["rp"]
+    r["x"] = goals / GOALS_PER_WIN
+    w = pd.read_csv(SOURCE_DIR / "WAR.csv", usecols=["Season", "Position", "WAR"])
+    w["syr"] = 2000 + w["Season"].astype(str).str[:2].astype(int)
+    mw = w.groupby(["syr", "Position"])["WAR"].agg(["mean", "std"])
+    mg = r.groupby(["syr", "pos_bucket"])["x"].agg(["mean", "std"])
+    out, cells = {}, []
+    for (y, pos), g in r.groupby(["syr", "pos_bucket"]):
+        bw, bg = mw.loc[(y, pos)], mg.loc[(y, pos)]
+        mapped = bw["mean"] + bw["std"] * (g["x"] - bg["mean"]) / bg["std"]
+        out.update({(int(i), int(y)): float(v) for i, v in zip(g["player_id"], mapped)})
+        cells.append(f"{y} {pos}: GV {bg['mean']:+.2f} sd {bg['std']:.2f} -> WAR {bw['mean']:+.2f} sd {bw['std']:.2f}")
+    return out, cells, int(r["gv_adj"].isna().sum())
+
+
+GVMAP, GV_CELLS, GV_ADJ_MISSING = (gv_wins() if METRIC != "war" else ({}, [], 0))
+GV_KEPT = []                                                 # skater-seasons with games and no Game Value row
+
+
+def with_metric(ns, gk, nhl_id):
+    """v1.5: his seasons with WAR replaced by Game Value wins (from 2017-18), on a gv run; unchanged on war, for
+    goaltenders, or without an NHL id. A season with games and no Game Value row keeps Bacon's figure (logged)."""
+    if METRIC == "war" or gk or nhl_id is None or pd.isna(nhl_id) or not len(ns):
+        return ns
+    ns = ns.copy()
+    for y in ns.index:
+        if y < 2017:
+            continue
+        v = GVMAP.get((int(nhl_id), int(y)))
+        if v is None:
+            if ns.at[y, "GP"] > 0:
+                GV_KEPT.append((int(nhl_id), int(y)))
+            continue
+        ns.at[y, "WAR"] = v
+    return ns
 
 
 def trailing_total(s, page):
@@ -276,6 +336,7 @@ class Now:
 def main():
     sys.stdout.reconfigure(errors="replace")
     log(SCRIPT_VERSION)
+    log(f"  outcome metric: {METRIC} (XNPV_OUTCOME_METRIC)")
     log(f"  skater line: {LINE} alpha {ALPHA:.10f} beta F {BETA_F:.10f} D {BETA_D:.10f} term {GAMMA:.10f}; "
         f"goalie line: {ALPHA_G:.6f} + {BETA_G:.6f} x WAR")
     for f in ("trade_asset_values.csv", "trade_sides.csv", "traded_player_values.csv", "rights_values.csv",
@@ -323,7 +384,7 @@ def main():
         return d, s, masked, as_of
 
     def control_part(*, gk, pos, name_seasons, nhl_id, nk, ck, nname, bd, seasons, chain, flag, need, y0, share,
-                     trade_date, first_is_trade_season):
+                     trade_date, first_is_trade_season, acc=None):
         """Control seasons (rule cost): realised through 2025-26 (only when he played), revalued after.
         Returns (realised $M, revalued $M)."""
         real = rev = 0.0
@@ -356,9 +417,13 @@ def main():
                         gpp, gps = gp_after(nhl_id, z, trade_date)
                         v = part_value(w, gp, gpp, f, z, gk, pos, 1)
                         c = cost / CAP[z] * f
+                        wd = w * gpp / gp
                     else:
                         sc = gp / 82 if gp < CAMEO_GP else 1.0
                         v, c = played_value(w, gp, z, gk, pos, 1), cost / CAP[z] * sc
+                        wd = w
+                    if acc is not None:
+                        acc["w"] += wd                     # v1.5: wins delivered (the rate-free leg)
                     real += (v - c) * CAP_NOW / 1e6
                     chain.paid(cost)
                 else:
@@ -403,7 +468,9 @@ def main():
             crow0 = mine.iloc[0]
             name = crow0["full_name"]
             nn = PV.norm(name)
-            ns = seasons_for(name, gk, r["player_name"])
+            ns_b = seasons_for(name, gk, r["player_name"])                 # Bacon's (the star group reads it)
+            ns = with_metric(ns_b, gk, crow0["nhl_id"])                       # v1.5: the run's metric
+            acc = {"w": 0.0}
             pos = "G" if gk else ("D" if str(crow0["posgrp"]).startswith("D") else "F")
             nk = None if gk else crow0["nk"]
             ck = None if gk else sp.forecaster.career_of.get(nk)
@@ -436,8 +503,10 @@ def main():
                     elif f < 1.0:
                         gpp, gps = gp_after(crow0["nhl_id"], z, date)
                         v = part_value(w, gp, gpp, f, z, gk, pos, term)
+                        acc["w"] += w * gpp / gp if gp > 0 else 0.0
                     else:
                         v = played_value(w, gp, z, gk, pos, term)
+                        acc["w"] += w if gp > 0 else 0.0
                     lt = 0.0 if post_cut else LT.relief_any(names_lt, z, after=date if f < 1.0 else None)   # v1.4
                     lt_M += cost * keep * f * lt / CAP[z] * CAP_NOW / 1e6
                     real += (v - cost * keep * f * (1 - lt) / CAP[z]) * CAP_NOW / 1e6
@@ -504,11 +573,12 @@ def main():
                 ctrl_real, ctrl_rev = control_part(
                     gk=gk, pos=pos, name_seasons=ns, nhl_id=crow0["nhl_id"], nk=nk, ck=ck, nname=crow0["nname"],
                     bd=crow0["bd"], seasons=ctrl, chain=ch, flag=flag, need=need, y0=y, share=share,
-                    trade_date=date, first_is_trade_season=False)
+                    trade_date=date, first_is_trade_season=False, acc=acc)
         finally:
             sp.signed.update(masked)
         rows[int(r["asset_id"])] = {"realised_M": real + ctrl_real, "revalued_M": rev + ctrl_rev,
-                                   "trailing_war": np.nan if gk else trailing_total(ns, y),
+                                   "trailing_war": np.nan if gk else trailing_total(ns_b, y),
+                                   "wins_delivered": acc["w"], "pos": pos,
                                    "outcome_route": "player model", "war_spelling": SPELLING[(name, gk)],
                                    "cap_path_M": capfx, "ltir_relief_M": lt_M,
                                    "nhl_seasons_after": int(((ns.index >= y) & (ns["GP"] > 0)).sum()) if len(ns) else 0}
@@ -553,16 +623,19 @@ def main():
         need = None
         if flag is None and not gk and nk is not None:
             _, need = eng.tv._arb_history(nk, P, nid, bd)
-        ns = seasons_for(name, gk, r["player_name"])
+        ns_b = seasons_for(name, gk, r["player_name"])
+        ns = with_metric(ns_b, gk, nid)                                       # v1.5
+        acc = {"w": 0.0}
         ck = None if (gk or nk is None) else sp.forecaster.career_of.get(nk)
         seasons = list(range(P, int(r["ufa_year"])))
         share = float(r["season_share"]) if pd.notna(r["season_share"]) else 1.0
         real, rev = control_part(gk=gk, pos=r["position"], name_seasons=ns, nhl_id=nid, nk=nk, ck=ck, nname=nname,
                                  bd=bd, seasons=seasons, chain=Chain(sal, float(r["last_cap_hit"]), s20), flag=flag,
                                  need=need, y0=P, share=share, trade_date=pd.Timestamp(r["trade_date"]),
-                                 first_is_trade_season=True)
+                                 first_is_trade_season=True, acc=acc)
         rows[int(aid)] = {"realised_M": real, "revalued_M": rev, "outcome_route": "rights",
-                          "trailing_war": np.nan if gk else trailing_total(ns, P), "war_spelling": SPELLING[(name, gk)],
+                          "trailing_war": np.nan if gk else trailing_total(ns_b, P), "war_spelling": SPELLING[(name, gk)],
+                          "wins_delivered": acc["w"], "pos": r["position"],
                           "nhl_seasons_after": int(((ns.index >= P) & (ns["GP"] > 0)).sum()) if len(ns) else 0}
         n_r += 1
     log(f"2. rights: {n_r} with control seasons, {len(rv) - n_r} zero")
@@ -578,7 +651,9 @@ def main():
         aid, date = int(r["asset_id"]), pd.Timestamp(r["trade_date"])
         gk = r["position"] == "G"
         pos = r["position"]
-        ns = seasons_for(r["war_name"], gk, r["player_name"])
+        ns_b = seasons_for(r["war_name"], gk, r["player_name"])
+        ns = with_metric(ns_b, gk, r["nhl_id"])                               # v1.5
+        acc = {"w": 0.0}
         share = float(r["season_share"]) if pd.notna(r["season_share"]) else 1.0
         rpct = float(r["retained_pct"]) if pd.notna(r["retained_pct"]) else 0.0
         real = rev = ret = capfx = lt_M = 0.0
@@ -625,8 +700,10 @@ def main():
                 if f < 1.0:
                     gpp, gps = gp_after(r["nhl_id"], z, date)
                     v = part_value(w, gp, gpp, f, z, gk, pos, term)
+                    acc["w"] += w * gpp / gp if gp > 0 else 0.0
                 else:
                     v = played_value(w, gp, z, gk, pos, term)
+                    acc["w"] += w if gp > 0 else 0.0
                 lt = LT.relief_any(names_lt, z, after=date if f < 1.0 else None)                  # v1.4
                 lt_M += cost * keep * f * lt / CAP[z] * CAP_NOW / 1e6
                 real += (v - cost * keep * f * (1 - lt) / CAP[z]) * CAP_NOW / 1e6
@@ -642,11 +719,12 @@ def main():
             ck = sp.forecaster.career_of.get(nk) if nk is not None else None
             cr, cv = control_part(gk=gk, pos=pos, name_seasons=ns, nhl_id=r["nhl_id"], nk=nk, ck=ck,
                                   nname=PV.norm(r["war_name"]), bd=pd.NaT, seasons=ctrl, chain=ch, flag=flag, need=None,
-                                  y0=2017, share=share, trade_date=date, first_is_trade_season=False)
+                                  y0=2017, share=share, trade_date=date, first_is_trade_season=False, acc=acc)
             real, rev = real + cr, rev + cv
         rows[aid] = {"realised_M": real, "revalued_M": rev, "outcome_route": "player model, 2017 page", "cap_path_M": capfx,
                      "ltir_relief_M": lt_M,
-                     "trailing_war": np.nan if gk else trailing_total(ns, 2017),
+                     "trailing_war": np.nan if gk else trailing_total(ns_b, 2017),
+                     "wins_delivered": acc["w"], "pos": pos,
                      "war_spelling": SPELLING[(r["war_name"], gk)],
                      "nhl_seasons_after": int(((ns.index >= 2017) & (ns["GP"] > 0)).sum()) if len(ns) else 0}
         retained_out[aid] = ret
@@ -794,6 +872,20 @@ def main():
         name = (str(lk["war_names"]).split("|")[0] if lk is not None and pd.notna(lk["war_names"])
                 else (lk["playerName"] if lk is not None else ""))
         birth = lk["birthDate"] if lk is not None else pd.NaT
+        # v1.5: a gv run re-prices his realised seasons from 2017-18 on the metric (value only; the rule's cost
+        # unchanged): value = max(line(wins, term 1), league minimum) x the pick curve's games scale
+        if METRIC != "war" and not gk and lk is not None and pd.notna(lk["playerId"]) and len(played):
+            played = played.copy()
+            for z in played.index:
+                v_ = GVMAP.get((int(lk["playerId"]), int(z))) if z >= 2017 else None
+                if v_ is None:
+                    if z >= 2017:
+                        GV_KEPT.append((int(lk["playerId"]), int(z)))
+                    continue
+                w82 = v_ * SHORT.get(int(z), 1.0)
+                val = max(line(w82, False, pos, 1), LMIN[int(z)] / CAP[int(z)]) * float(played.at[z, "games_scale"])
+                played.at[z, "war_82"] = w82
+                played.at[z, "surplus_2025_cap"] = (val - float(played.at[z, "cost_share"])) * CAP_NOW
         if dy >= 2018 and pl is not None:
             state = {"first": pl["chain_first"], "n_elc": pl["chain_n_elc"], "need": pl["chain_need"],
                      "prior": pl["chain_prior"]}
@@ -823,11 +915,13 @@ def main():
             if route in LAPSED:
                 rows[int(aid)] = {"realised_M": 0.0, "revalued_M": 0.0, "outcome_route": f"prospect, {route}"}
                 continue
-            real = float(played.loc[(played.index >= y) & (played.index <= LAST), "surplus_2025_cap"].sum()) / 1e6
+            span = (played.index >= y) & (played.index <= LAST)
+            real = float(played.loc[span, "surplus_2025_cap"].sum()) / 1e6
             ep = EPD.get((dy, pk))
             rest, how = draftee_rest(gk=gk, pos=pos, base_year=dy, window_end=wend, played=played, birth=birth, ep=ep,
                                      p_star=float(bacon[pk]), k_now=NOW - dy, name=name, state=state, war_names=wn)
-            rows[int(aid)] = {"realised_M": real, "revalued_M": rest, "outcome_route": f"prospect, {how}"}
+            rows[int(aid)] = {"realised_M": real, "revalued_M": rest, "outcome_route": f"prospect, {how}",
+                              "wins_delivered": float(played.loc[span, "war_82"].sum()), "pos": pos}
         else:
             # undrafted on an NHL contract: the same chain from his first NHL season, the slot term zero
             gk = bool(r["is_goalie"]) if pd.notna(r["is_goalie"]) else False
@@ -835,8 +929,9 @@ def main():
             nid = r["nhl_id_undrafted"] if pd.notna(r.get("nhl_id_undrafted")) else r.get("nhl_id")
             birth = pd.to_datetime(r["birthDate"])
             fe = int(r["first_eligible_draft"])
-            ns = seasons_for(name, gk)
+            ns = with_metric(seasons_for(name, gk), gk, nid)                      # v1.5
             wend = PV.window_end(birth, gk, ns)
+            wins_u = 0.0
             pos = "G" if gk else ("D" if str(r.get("position")) == "D" else "F")
             pl = ns[(ns["GP"] > 0) & (ns.index <= LAST)].rename(columns={"GP": "gp"})
             pl = pl[pl.index < wend]
@@ -857,12 +952,14 @@ def main():
                         gp, w = gp_war(ns, z)
                         sc = gp / 82 if gp < CAMEO_GP else 1.0
                         real += (played_value(w, gp, z, gk, pos, 1) - (cost or 0) / CAP[z] * sc) * CAP_NOW / 1e6
+                        wins_u += w
                 state = {"first": first, "n_elc": n_elc, "need": need, "prior": prior}
             ep = EP_BY_NHL.get(int(nid)) if pd.notna(nid) else None
             rest, how = draftee_rest(gk=gk, pos=pos, base_year=min(fe, 2026), window_end=wend,
                                      played=pl, birth=birth, ep=ep, p_star=0.0, k_now=NOW - fe, name=name, state=state,
                                      war_names=name)
-            rows[int(aid)] = {"realised_M": real, "revalued_M": rest, "outcome_route": f"undrafted prospect, {how}"}
+            rows[int(aid)] = {"realised_M": real, "revalued_M": rest, "outcome_route": f"undrafted prospect, {how}",
+                              "wins_delivered": wins_u, "pos": pos}
         n_pro += 1
     log(f"4. prospects: {n_pro} valued assets; the chain copy checked against the pick curve for {checked} draftees "
         f"(every played season equal to $1)")
@@ -883,10 +980,12 @@ def main():
             rows[aid] = {"realised_M": 0.0, "revalued_M": 0.0, "outcome_route": f"pick, {route}"}
             continue
         real = float(played.loc[played.index <= LAST, "surplus_2025_cap"].sum()) / 1e6
+        wins_p = float(played.loc[played.index <= LAST, "war_82"].sum())
         rest, how = draftee_rest(gk=gk, pos=pos, base_year=dy, window_end=wend, played=played, birth=birth,
                                  ep=EPD.get((dy, pk)), p_star=float(bacon[pk]), k_now=NOW - dy, name=name, state=state,
                                  war_names=wn)
-        rows[aid] = {"realised_M": real, "revalued_M": rest, "outcome_route": f"pick, {how}"}
+        rows[aid] = {"realised_M": real, "revalued_M": rest, "outcome_route": f"pick, {how}",
+                     "wins_delivered": wins_p, "pos": pos}
         n_pick += 1
     log(f"   picks: {n_pick} followed to their player; no selection recorded: {len(no_slot)}"
         + "".join(f"\n     {x}" for x in no_slot))
@@ -903,6 +1002,8 @@ def main():
     a["nhl_seasons_after"] = np.nan
     a["cap_path_M"] = 0.0
     a["ltir_relief_M"] = 0.0
+    a["wins_delivered"] = 0.0
+    a["pos"] = None
     for i, r in a.iterrows():
         aid = int(r["asset_id"])
         if r["asset_type"] == "retained salary":
@@ -934,10 +1035,16 @@ def main():
         log(f"   players with no WAR season in the three before the page under the spine's spelling: {len(names_note)}")
         for x in names_note[:20]:
             log(f"     {x}")
-    a.to_csv(OUTPUT_DIR / "backtest_assets.csv", index=False)
+    if METRIC != "war":
+        log(f"\nGAME VALUE RUN ({METRIC}): skater-seasons 2017-18 on with games and no Game Value row, Bacon kept: "
+            f"{len(set(GV_KEPT))}; GV-adj rows missing (zero before the rebase): {GV_ADJ_MISSING}")
+        for x in GV_CELLS:
+            log(f"   {x}")
+    a.to_csv(OUTPUT_DIR / f"backtest_assets{SUFFIX}.csv", index=False)
     analyse(a)
-    (OUTPUT_DIR / "backtest_log.txt").write_text("\n".join(LOG) + "\n", encoding="utf-8")
-    log(f"\nwrote backtest_assets.csv, backtest_sides.csv, backtest_results.csv and backtest_log.txt in {OUTPUT_DIR}")
+    (OUTPUT_DIR / f"backtest_log{SUFFIX}.txt").write_text("\n".join(LOG) + "\n", encoding="utf-8")
+    log(f"\nwrote backtest_assets{SUFFIX}.csv, backtest_sides{SUFFIX}.csv, backtest_results{SUFFIX}.csv and "
+        f"backtest_log{SUFFIX}.txt in {OUTPUT_DIR}")
 
 
 # ======================================================================================================
@@ -961,9 +1068,11 @@ def analyse(a):
     fore = TSD.club_sides(ok, "value_2025_cap_M", clubs, cond)
     out = TSD.club_sides(ok.assign(o=ok["outcome_M"]), "o", clubs, cond)
     real_only = TSD.club_sides(ok.assign(o=ok["realised_M"]), "o", clubs, cond)
+    wins = TSD.club_sides(ok.assign(o=ok["wins_delivered"].fillna(0.0)), "o", clubs, cond)     # v1.5: no dollar rate
     key = ["trade_id", "club"]
     s = fore.merge(out[key + ["net_M"]].rename(columns={"net_M": "out_net_M"}), on=key).merge(
-        real_only[key + ["net_M"]].rename(columns={"net_M": "real_net_M"}), on=key)
+        real_only[key + ["net_M"]].rename(columns={"net_M": "real_net_M"}), on=key).merge(
+        wins[key + ["net_M"]].rename(columns={"net_M": "out_wins"}), on=key)
     # trades whose every asset has an outcome (picks with no selection, unvalued assets out)
     bad = set(ok.loc[(ok["source"] != "not valued") & ok["outcome_M"].isna(), "trade_id"]) | set(
         ok.loc[ok["source"] == "not valued", "trade_id"])
@@ -1024,7 +1133,7 @@ def analyse(a):
     pl_cl = pl[pl["asset_id"].map(lambda x: x in tpv.index and pd.notna(tpv.at[x, "nhl_id"])
                                   and (int(tpv.at[x, "nhl_id"]), int(tpv.at[x, "valuation_page"])) in cl)]
     s["g_clause"] = s.apply(lambda r: ((pl_cl["trade_id"] == r.trade_id) & (pl_cl["acquiring_team"] == r.club)).any(), axis=1)
-    s.to_csv(OUTPUT_DIR / "backtest_sides.csv", index=False)
+    s.to_csv(OUTPUT_DIR / f"backtest_sides{SUFFIX}.csv", index=False)
 
     rng = np.random.default_rng(SEED)
     res = []
@@ -1147,7 +1256,7 @@ def analyse(a):
                         "estimate": est, "lo95": lo, "hi95": hi, "p": p})
             line_ += f"\n      {what:<19} {est:+7.2f} [{lo:+7.2f}, {hi:+7.2f}] p {p:.4f}"
         log(line_)
-    pd.DataFrame(res).to_csv(OUTPUT_DIR / "backtest_results.csv", index=False)
+    pd.DataFrame(res).to_csv(OUTPUT_DIR / f"backtest_results{SUFFIX}.csv", index=False)
 
 
 if __name__ == "__main__":

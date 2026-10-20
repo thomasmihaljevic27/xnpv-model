@@ -42,7 +42,7 @@ own first season, its full signed term counted until the buyout is known); the m
 (`model_cap_hit`); the price line is re-locked; the back-test's three rules are in (the 2025-26 cap, retained salary
 charged to the retaining club, the season left on in-season trades).
 Run 2026-10-20: the back-test (`trade_sides.py`, `backtest.py`; protocol `40_DOCS/Backtest_Protocol.md`, committed
-before the run). The Game Value check of its outcomes is not yet run. LTIR relief (2026-10-20): `ltir.py` reads
+before the run). Its Game Value check was run the same day (9 results hold, 1 not confirmed). LTIR relief (2026-10-20): `ltir.py` reads
 Spotrac's injured-reserve pages saved by Thomas in `10_SOURCE/ltir/` ("Label + CBA test"); the trade valuations and the
 back-test import it.
 
@@ -165,6 +165,10 @@ The back-test, after `trade_refresh.py` (both by hand; not in its chain):
 
     python 20_CODE/trade_sides.py   # each club's side of each trade, zero-sum
     python 20_CODE/backtest.py      # outcomes, club sides, the protocol's tests (about 10 minutes)
+
+The Game Value check (2026-10-20): the same script with XNPV_OUTCOME_METRIC=gv_adj, then gv_raw (outputs carry the
+metric's suffix), then `python 25_TESTS/backtest_gv_compare.py` for the protocol's verdicts. In PowerShell set the variable
+first: `$env:XNPV_OUTCOME_METRIC = "gv_adj"`, and remove it afterwards (`Remove-Item Env:XNPV_OUTCOME_METRIC`).
 
 Its rules, tests and groups are in `40_DOCS/Backtest_Protocol.md`, committed before the first run; a change to any of
 them after a run goes in as a dated amendment saying what changed and why.
