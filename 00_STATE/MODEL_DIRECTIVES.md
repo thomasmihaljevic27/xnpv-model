@@ -667,8 +667,9 @@ Thomas the same day. Each item may change only by Thomas's decision.
     drafting club"). The signing club is CapWages's "Signing Team" line where its year agrees with the signing date, else
     PuckPedia's contract club (`elc_signing_dates.py` v1.2). Pierre-Olivier Joseph's 2019 trade is matched under
     trades.db's spelling. Built (`pick_curve.py` v1.9): 20 picks kept (net $+8.33M), Joseph traded first;
-    star value 18.0144 -> 18.0928. Michael Hutchinson (2008 #77), the 22nd, stays lapsed while PuckPedia's
-    mislabelled 2018 "entry-level" Florida deal sets his signing club.
+    star value 18.0144 -> 18.0928. Michael Hutchinson (2008 #77), the 22nd, joined them once PuckPedia's mislabelled
+    2018 "entry-level" Florida deal was set aside (`elc_signing_dates.py` v1.3, adopted 2026-10-19: an entry-level
+    date after the first NHL season ended is not his entry-level signing): 21 picks kept, star value 18.0975.
   - **Built (2026-10-09).** `20_CODE/pick_curve.py` v1.0 prices every drafted player 2007-2017 under all of
     the above (2,322 picks, 233 goalies; guards: windows equal the window count for 2,322 of 2,322,
     skater surplus equals the tested no-slides version for 2,089 of 2,089) and fits the scales: pooled

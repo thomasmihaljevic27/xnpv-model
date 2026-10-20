@@ -51,9 +51,8 @@ was fixed. Every trade-valuation script re-runs to the laptop's files (guards pa
    buried rule's ex-ante caps; `trade_page.py`'s docstring; the NHLe vintage noted in STANDING_FLAGS). Built, not
    adopted: the prospect fits without the 116 rows past club control (traded prospects $75.67M -> $76.15M; **adopted
    2026-10-18**, laptop chain re-run). The 22 "lapsed" picks signed by the drafting club: **counted (Thomas,
-   2026-10-19)**, 20 kept and Joseph traded (star value 18.09); Hutchinson waits on the entry-level date fix, **built, not adopted (2026-10-19)**: branch `claude/elc-date-check`
-   (`elc_signing_dates.py` v1.3; six dates set aside; Hutchinson kept +$3.34M; star value 18.0928 -> 18.0975). Decide
-   (Thomas): adopt.
+   2026-10-19)**, 20 kept and Joseph traded (star value 18.09); Hutchinson joined them with the entry-level date check, **adopted 2026-10-19** (`elc_signing_dates.py` v1.3;
+   six dates set aside; Hutchinson kept +$3.34M; star value 18.0975); laptop chain re-run.
    Not a bug, offered: one runner for the trade chain (pick curve to the join), as `dashboard_refresh.py` is for the
    contract chain. **Built 2026-10-18:** `trade_refresh.py` v1.0 (Thomas chose the name), tested on a copy of
    30_OUTPUT; see `sessions/2026-10-18.md`.

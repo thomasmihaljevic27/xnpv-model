@@ -164,12 +164,12 @@ initials, Elite Prospects' spelling, a namesake guard); every id-name disagreeme
 | Floor spread, WAR_IF_PLAYS_MAE | 0.6767, 0.7545, 0.8026, 0.8499, 0.8770, 0.8981 (seasons 0-5, flat after; 2026-10-14) | `skater_forecast.py` |
 | Skater control weights | 100% / 100% / 88.2% / 67.8% by forecast bucket | refresh 2026-10-05 |
 | Goalie control weight | 0.893 x 0.859 = 0.767 a year (103 decisions; measured 2026-10-16 on the laptop's inputs, session 2026-10-16c; was 0.902 x 0.859 = 0.775 at the 2026-10-05 refresh, not traced) | `contract_npv.py`, measured each run |
-| Star value | $18.09M (18.0928, se 1.74); without 2015-2016 $15.78M; qualifying-offer chain $32.00M / $27.93M (2026-10-19: picks signed by the drafting club kept; was 18.0144) | `pick_curve.py` |
-| Traded picks (634, 2017-07-01 to 2022-03-21) | $402.75M; sensitivity $351.25M (2026-10-19; was $401.01M) | `traded_pick_values.py` |
-| Prospect star value by seasons since the draft | 18.09/17.81/16.00/9.29/2.51 (2026-10-19: picks signed by the drafting club kept; D+1, D+2, D+3, D+4, D+5 on; $M at the 2025-26 cap) | `prospect_values.py` |
-| Traded prospects (196 assets, 169 players, 2017-07-01 to 2022-03-28) | $70.51M (slot, production and age); slot alone $61.02M (2026-10-19; was $70.19M / $57.95M on 2026-10-18) | `prospect_values.py` |
-| Traded undrafted prospects on NHL contracts (53 assets) | $6.00M; all prospects $76.51M (2026-10-19; was $5.96M / $76.15M) | `prospect_values.py` |
-| Traded assets joined (`trade_asset_values.csv`, 2017-07-01 to 2022-03-28) | 1,561 assets (927 players, 634 picks), 1,558 valued; at the 2025-26 cap players $-928.56M, picks $402.75M (2026-10-19; 3 not valued: Sislo, McKegg, Chapie) | `trade_asset_values.py` |
+| Star value | $18.10M (18.0975, se 1.74); without 2015-2016 $15.78M; qualifying-offer chain $32.01M / $27.94M (2026-10-19: picks signed by the drafting club kept; entry-level dates after the first NHL season set aside; was 18.0144 on 2026-10-18) | `pick_curve.py` |
+| Traded picks (634, 2017-07-01 to 2022-03-21) | $402.86M; sensitivity $351.38M (2026-10-19; was $401.01M on 2026-10-18) | `traded_pick_values.py` |
+| Prospect star value by seasons since the draft | 18.10/17.82/16.02/9.32/2.54 (2026-10-19; D+1, D+2, D+3, D+4, D+5 on; $M at the 2025-26 cap) | `prospect_values.py` |
+| Traded prospects (196 assets, 169 players, 2017-07-01 to 2022-03-28) | $70.57M (slot, production and age); slot alone $61.19M (2026-10-19; was $70.19M / $57.95M on 2026-10-18) | `prospect_values.py` |
+| Traded undrafted prospects on NHL contracts (53 assets) | $6.01M; all prospects $76.58M (2026-10-19; was $5.96M / $76.15M on 2026-10-18) | `prospect_values.py` |
+| Traded assets joined (`trade_asset_values.csv`, 2017-07-01 to 2022-03-28) | 1,561 assets (927 players, 634 picks), 1,558 valued; at the 2025-26 cap players $-928.49M, picks $402.86M (2026-10-19; 3 not valued: Sislo, McKegg, Chapie) | `trade_asset_values.py` |
 | Discount and cap growth | 3% each | D11, D17 |
 
 ## Data and scripts (2026-10-14)
@@ -189,7 +189,7 @@ CapWages cache (1,551 player pages); the clause scrape.
 - xNPV 1 modules: `skater_forecast.py` v2.3, `aging_curve.py`, `participation_model.py` v1.8,
   `player_season_table.py` v1.5, `information_set.py` v1.1, `contract_source.py` v1.0, `forecast_config.py` v1.0,
   `forecast_harness.py` v1.4; `xnpv1_price_line.py` v2.1 (the line and its reproduction guard).
-- Draft: `draft_pick_linkage.py` v1.2, `elc_signing_dates.py` v1.2, `pick_curve.py` v1.9, `traded_pick_values.py` v1.2.
+- Draft: `draft_pick_linkage.py` v1.2, `elc_signing_dates.py` v1.3, `pick_curve.py` v1.9, `traded_pick_values.py` v1.2.
 - Prospects: `prospect_values.py` v1.11 (slot, production, age; undrafted). Prospect data: `ep_extract.py` v3.5, `ep_nhl_bridge.py` v1.1.
 - Traded assets (2026-10-14 to 2026-10-18): `trade_page.py`, `traded_player_values.py` v1.1, `rights_values.py` v1.2,
   `buried_contract_values.py` v1.3, `contracts_2017.py` v1.1, `page_2017_values.py` v1.2, and the join

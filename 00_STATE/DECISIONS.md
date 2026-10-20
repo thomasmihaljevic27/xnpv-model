@@ -3521,3 +3521,17 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - CLAUDE.md: new rule, write every model's formula in full with its discount shown (Thomas, after asking why picks and
   prospects are not discounted; they are: cap-share sums, where 3% cap growth and 3% discounting cancel, D11 and D17).
   Session log sessions/2026-10-19b.md. No locked decision (D1-D33) touched.
+
+### Change log, 2026-10-19c (entry-level dates after the first NHL season set aside: adopted)
+
+- DECISION (Thomas, 2026-10-19: "Adopt the entry-level date check"): `elc_signing_dates.py` v1.3 (commit 718e541). An
+  entry-level deal is signed before the player's first NHL season ends; a later date is set aside and the other source's
+  date used, else the first NHL season stands in as before. Six set aside (PuckPedia's 2018 "entry_level" deals for
+  Hutchinson, Donovan, Ullstrom and McNeill; CapWages dates for Yakupov and Rask). Laptop `trade_refresh.py`: 17 of 17
+  steps; all 20 outputs equal the tested scratch run.
+- Figures: Hutchinson (2008 #77) signed by the drafting club, +$3.34M; Donovan -$0.87M (was -$1.11M); Ullstrom -$0.58M
+  (was -$0.84M); 21 picks now kept as signed by the drafting club. Star value 18.0928 -> 18.0975 (without
+  2015-2016 15.7849); traded picks $402.86M; prospect star values 18.10/17.82/16.02/9.32/2.54; traded prospects
+  $76.58M (drafted $70.57M, undrafted $6.01M); traded players, rights, buried contracts and
+  the 2017 page unchanged; the join $-525.63M at the 2025-26 cap. PROJECT_STATE figures in force updated.
+
