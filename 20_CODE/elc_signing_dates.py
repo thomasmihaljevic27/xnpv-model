@@ -40,7 +40,7 @@ from pathlib import Path
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "elc_signing_dates.py v1.2 (2026-10-18)"   # v1.2: the signing club
+SCRIPT_VERSION = "elc_signing_dates.py v1.3 (2026-10-19)"   # v1.3: dates after the first NHL season set aside; v1.2: club
 load_dotenv()
 SOURCE_DIR, OUTPUT_DIR = Path(os.environ["SOURCE_DIR"]), Path(os.environ["OUTPUT_DIR"])
 F_LINK = OUTPUT_DIR / "draft_pick_linkage.csv"
@@ -105,6 +105,30 @@ def elc_signed_team(txt):
         if pd.notna(d) and (best[0] is None or d < best[0]):
             best = (d, TEAM_CODES.get(m.group(2).strip()))
     return best
+
+
+def first_nhl_seasons(link):
+    """v1.3: {(draft year, pick): start year of his first season with an NHL game}, from the WAR tables under the
+    linkage's names, as pick_curve.seasons_of reads them (accents stripped, letters and spaces; seasons from his draft
+    on, so a namesake's earlier seasons cannot leak in)."""
+    import unicodedata
+
+    def norm(s):
+        s = unicodedata.normalize("NFKD", str(s)).encode("ascii", "ignore").decode()
+        return re.sub(r"[^a-z ]", "", s.lower()).strip()
+    tables = {}
+    for gk, (f, col) in {False: ("WAR.csv", "Player"), True: ("Goalies_WAR.csv", "Goalie")}.items():
+        w = pd.read_csv(SOURCE_DIR / f, usecols=[col, "Season", "GP"])
+        w = w[w["GP"] > 0]
+        w["n"], w["start"] = w[col].map(norm), w["Season"].map(lambda x: 2000 + int(str(x)[:2]))
+        tables[gk] = w.groupby("n")["start"].apply(sorted).to_dict()
+    out = {}
+    for r in link[link["war_names"].notna()].itertuples():
+        t = tables[str(r.is_goalie).strip().lower() == "true"]
+        ys = [y for nm in str(r.war_names).split("|") for y in t.get(norm(nm), []) if y >= int(r.draftYear)]
+        if ys:
+            out[(int(r.draftYear), int(r.overallPickNumber))] = min(ys)
+    return out
 
 
 def to_slug(name):
@@ -189,6 +213,12 @@ def main(fetch=False):
     if fetch:
         fetch_missing(link, pp_d, pages)
     played = link[link["war_names"].notna()].copy()
+    # v1.3 (2026-10-19, the bug sweep): an entry-level deal is signed before his first NHL season ends (he cannot play
+    # without one), so a date after June 30 of that season's end year is not his entry-level signing and is set aside.
+    # Found: PuckPedia labels a 2018 deal "entry_level" for Michael Hutchinson, Matt Donovan, David Ullstrom and Mark
+    # McNeill; Nail Yakupov's CapWages page gives July 2013, after his 2012-13 debut.
+    FIRST = first_nhl_seasons(link)
+    set_aside = []
     rows = []
     agree = disagree = 0
     team_agree = team_disagree = 0
@@ -205,13 +235,24 @@ def main(fetch=False):
             if a.year == b.year and ta and tb:
                 team_agree += ta == tb
                 team_disagree += ta != tb
+        # v1.3: a date after his first NHL season ended is set aside (see above)
+        f1 = FIRST.get((int(r.draftYear), int(r.overallPickNumber)))
+        cut = pd.Timestamp(f1 + 1, 6, 30) if f1 is not None else None
+        aside = [f"{nm} {x.date()}" for nm, x in (("puckpedia", a), ("capwages", b))
+                 if x is not None and cut is not None and x > cut]
+        if aside:
+            set_aside.append(f"{int(r.draftYear)} #{int(r.overallPickNumber)} {r.playerName}: " + ", ".join(aside)
+                             + f" (first NHL season {f1}-{str(f1 + 1)[2:]})")
+        a = a if (a is None or cut is None or a <= cut) else None
+        b = b if (b is None or cut is None or b <= cut) else None
         # v1.2: the signing club. CapWages's own "Signing Team" line when it has the same signing year (PuckPedia gives
         # the club holding the contract: Brett Howden's Tampa deal reads NYR, Arizona's deals UTA); else PuckPedia's
         sd, src = ((a, "puckpedia") if a is not None else
                    ((b, f"capwages:{cw[0]}") if b is not None else (None, "none")))
         team = tb if (tb and b is not None and (a is None or a.year == b.year)) else (ta if a is not None else None)
         rows.append({"nhl_id": nid, "draftYear": int(r.draftYear), "pick": int(r.overallPickNumber),
-                     "player": r.playerName, "signing_date": sd, "source": src, "signing_team": team})
+                     "player": r.playerName, "signing_date": sd, "source": src, "signing_team": team,
+                     "set_aside": "; ".join(aside) or None})
     d = pd.DataFrame(rows)
     seen = set(d["nhl_id"].dropna().astype("int64"))
     extra = [{"nhl_id": int(n), "draftYear": None, "pick": None, "player": None, "signing_date": sd,
@@ -235,6 +276,9 @@ def main(fetch=False):
     log(f"    years from draft to signing: median {gap.median():.0f}, "
         + ", ".join(f"{int(k)}: {v}" for k, v in gap.value_counts().sort_index().items()))
     log(f"    players under contract (PuckPedia entry-level, not in the drafted set): {len(extra):,}")
+    log(f"    v1.3: dates set aside, signed after his first NHL season ended ({len(set_aside)}):")
+    for x in set_aside:
+        log(f"      {x}")
     d.to_csv(OUT, index=False)
     OUT_LOG.write_text("\n".join(LOG) + "\n", encoding="utf-8")
     log(f"\nwrote {OUT} and its log")
