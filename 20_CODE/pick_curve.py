@@ -134,7 +134,7 @@ import pandas as pd
 import statsmodels.api as sm
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "pick_curve.py v1.9 (2026-10-19)"   # v1.9: signed by the drafting club kept; v1.8: CBA age on the calendar
+SCRIPT_VERSION = "pick_curve.py v1.10 (2026-10-20)"   # v1.10: later drafts priced for the back-test; v1.9: signed by the drafting club kept; v1.8: CBA age on the calendar
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import skater_forward_projection as sfp          # noqa: E402  skater price line, cap and minimum tables
@@ -313,7 +313,7 @@ def market_war(row, s, y, ck):
     return None if r is None else r[0]
 
 
-def price(row, s, last, signing=True, forecast_arb=True, record=False):
+def price(row, s, last, signing=True, forecast_arb=True, record=False, state=None):
     """Summed surplus (cap shares) over the window, under the decided rules. v1.5: `signing`
     reads the CBA ages in the signing year (else his first NHL season); `forecast_arb` prices
     arbitration on the forecast's construction (else the v1.4 raw 50/30/20 season totals)."""
@@ -377,6 +377,8 @@ def price(row, s, last, signing=True, forecast_arb=True, record=False):
                             "cost_share": cost_a, "cost_$": (ELC_MAX[row["draftYear"]] if in_elc else prior_a) * scale,
                             "arb_eligible": arb, "arb_market_war": m_war, "cost_qo_share": cost,
                             "cost_qo_$": (ELC_MAX[row["draftYear"]] if in_elc else prior) * scale})
+    if state is not None:                             # v1.10: where the adopted chain stands after `last`
+        state.update(first=first, n_elc=n_elc, need=need, ck=ck, prior_a=prior_a, signing_age=age)
     return tot_a, war_tot, len(played), tot
 
 
@@ -544,3 +546,50 @@ d.to_csv(OUTPUT_DIR / "pick_curve_players.csv", index=False)
 pd.DataFrame(scales).to_csv(OUTPUT_DIR / "pick_curve_scales.csv", index=False)
 (OUTPUT_DIR / "pick_curve_log.txt").write_text("\n".join(LOG), encoding="utf-8")
 log(f"\nwrote pick_curve_players.csv, pick_curve_scales.csv, pick_curve_log.txt in {OUTPUT_DIR}")
+
+
+# ---- v1.10 (2026-10-20, the back-test; Thomas: "Played + rest re-valued", "The model's rule"): the 2018-2025 drafts --
+# Priced by the same rules (price(), route(), window_end()) through 2025-26, for the back-test's outcomes of traded
+# picks and prospects. NOT in any fit: this block runs after every fit and every file above is written, and writes
+# its own two files. Entry-level maximum by draft year, 2020 MOU: $925,000 to the 2021 draft, $950,000 for 2022-2023,
+# $975,000 for 2024-2025 (PuckPedia's summary of the 2020 MOU, read 2026-10-20).
+LATER = range(2018, 2026)
+ELC_MAX.update({2018: 925_000, 2019: 925_000, 2020: 925_000, 2021: 925_000, 2022: 950_000, 2023: 950_000,
+                2024: 975_000, 2025: 975_000})
+n_fit_seasons = len(SEASONS)
+later = link[link["draftYear"].isin(LATER)].copy()
+later["is_goalie"] = later["is_goalie"].astype(bool)
+later = later[(later["link_status"] != "excluded_merged_name") & later["birthDate"].notna()]
+lrows = []
+for r in later.itertuples():
+    row = r._asdict()
+    s = seasons_of(row)
+    end = window_end(row, s)
+    last = min(end - 1, LAST_START)
+    st = {}
+    sur, wins, n, sur_q = price(row, s, last, record=True, state=st)
+    rt = route(row, s)
+    lrows.append({"draftYear": r.draftYear, "pick": r.overallPickNumber, "round": r.roundNumber, "player": r.playerName,
+                  "playerId": r.playerId, "position": r.position, "is_goalie": r.is_goalie, "team": r.triCode,
+                  "birthDate": r.birthDate, "war_names": r.war_names, "window_end": end, "nhl_seasons": n, "war": wins,
+                  "route": rt, "surplus_before_rights": sur * CAP_NOW,
+                  "surplus": 0.0 if rt in ("lapsed", "drafted twice (earlier pick)") else sur * CAP_NOW,
+                  # where the adopted cost chain stands after 2025-26 (empty when he has not played)
+                  "chain_first": st.get("first"), "chain_n_elc": st.get("n_elc"), "chain_need": st.get("need"),
+                  "chain_prior": st.get("prior_a"), "career_key": st.get("ck")})
+ld = pd.DataFrame(lrows)
+ls = pd.DataFrame(SEASONS[n_fit_seasons:])
+if len(ls):
+    ls["surplus_2025_cap"] = (ls["value_share"] - ls["cost_share"]) * CAP_NOW
+    chk = ls.groupby(["draftYear", "pick"])["surplus_2025_cap"].sum()
+    m = ld.set_index(["draftYear", "pick"])["surplus_before_rights"]
+    assert (chk.reindex(m.index).fillna(0.0) - m).abs().max() < 1.0      # GUARD: seasons add up to each pick
+assert len(SEASONS) - n_fit_seasons == len(ls) and len(pd.DataFrame(SEASONS[:n_fit_seasons])) == len(se_)   # GUARD: fit rows untouched
+ld.to_csv(OUTPUT_DIR / "pick_curve_later_players.csv", index=False)
+ls.to_csv(OUTPUT_DIR / "pick_curve_later_seasons.csv", index=False)
+log()
+log(f"LATER DRAFTS (2018-2025), priced for the back-test only, in no fit: {len(ld):,} picks, {len(ls):,} seasons "
+    f"played; surplus through 2025-26 ${ld['surplus'].sum() / 1e6:,.1f}M; routes: "
+    + ", ".join(f"{k} {v}" for k, v in ld["route"].value_counts().items()))
+log("wrote pick_curve_later_players.csv and pick_curve_later_seasons.csv")
+(OUTPUT_DIR / "pick_curve_log.txt").write_text("\n".join(LOG), encoding="utf-8")

@@ -10,7 +10,7 @@ row for the player (48 assets), the two were compared: they agree on the cap hit
 in all six that differ, trades.db's own cap hit sides with CapWages (Spooner $2,825,000, Henrique $4,000,000,
 Cammalleri $1,000,000, Turris $3,500,000, Phaneuf $7,000,000 with $1,750,000 retained), and its last seasons fit
 the players' later contracts (Phaneuf to 2020-21, Turris's Ottawa deal ending 2017-18). So one source for the page:
-the running contract and every extension signed on or before the trade date come from the player's CapWages page,
+the running contract and every extension signed before the trade date (v1.6: not on it) come from the player's CapWages page,
 and the PuckPedia rows that overlap them are set aside for this page only.
 
 THE VALUATION: contract_npv.NPVEngine, unchanged, at valuation season 2017 with as_of = the trade date (inside the
@@ -48,7 +48,7 @@ import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "page_2017_values.py v1.5 (2026-10-20)"   # v1.5: text-only retentions; v1.4: season left, retained salary; v1.3: pages found here
+SCRIPT_VERSION = "page_2017_values.py v1.6 (2026-10-20)"   # v1.6: extensions signed on the trade date left out; v1.5: text-only retentions; v1.4: season left, retained salary; v1.3: pages found here
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_source as CS                         # noqa: E402
@@ -131,9 +131,12 @@ def main():
         cons = K.parse_contracts(K.page_lines(f.read_text(encoding="utf-8", errors="ignore")))
         run = [c for c in cons if PAGE in c["seasons"] and pd.notna(c.get("signing_date")) and c["signing_date"] <= date]
         c0 = max(run, key=lambda x: x["signing_date"])
+        assert c0["signing_date"] < date, (r.player_name, c0["signing_date"])   # GUARD v1.6: no running deal signed that day
         chain = [c0]
-        while True:                                     # extensions signed by the trade date, contiguous
-            nxt = [c for c in cons if pd.notna(c.get("signing_date")) and c["signing_date"] <= date
+        while True:                                     # extensions signed BEFORE the trade date, contiguous
+            # v1.6 (Thomas, 2026-10-20: "Leave the extension out"): one signed on the trade date is left out (was <=):
+            # Kyle Turris (Nashville, 2017-11-05) and Darcy Kuemper (Arizona, 2018-02-21)
+            nxt = [c for c in cons if pd.notna(c.get("signing_date")) and c["signing_date"] < date
                    and c["seasons"] and min(c["seasons"]) == max(chain[-1]["seasons"]) + 1]
             if not nxt:
                 break
@@ -203,7 +206,20 @@ def main():
                                   nd], ignore_index=True)
             eng.gp_spine = eng.gp_spine[eng.gp_spine["player_id"] != pid]
         share, rpct = TP.season_left_share(date, PAGE), float(RET.get(r.asset_id, 0.0))     # v1.4
+        # v1.6: a PuckPedia contract of his signed on or after the trade date is masked for this valuation, as
+        # traded_player_values v1.4 does. Leaving it out of the CapWages chain is not enough: it does not overlap the
+        # chain's seasons, so it stays in the spine and contract_chain would add it as an extension (Kyle Turris's
+        # Nashville deal, signed 2017-11-05, the day of his trade)
+        masked = {}
+        for c_ in (set(sp.spine.loc[sp.spine["player_id"] == pid, "contract_id"])
+                   | set(eng.gp_spine.loc[eng.gp_spine["player_id"] == pid, "contract_id"])):
+            sg = sp.signed.get(int(c_))
+            if int(c_) >= 0 and pd.notna(sg) and sg >= date:   # CapWages contracts carry negative ids
+                masked[int(c_)] = sg
+                sp.signed[int(c_)] = pd.NaT
         d, sm = eng.npv(pid, PAGE, date, first_season_share=share, retained_pct=rpct)
+        sp.signed.update(masked)                         # restore the dates for every other valuation
+        rec["signed_on_or_after_trade_left_out"] = len(masked)
         rec.update({"player_id": pid, "position": pg, "war_name": wname, "contract": c0["type"],
                     "signed": c0["signing_date"].date(), "cap_hit_2017": c0["seasons"][PAGE],
                     "contract_last_season": max(c0["seasons"]), "expiry": c0.get("expiry_raw"),

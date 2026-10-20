@@ -8,7 +8,7 @@ so the 19 assets carry them."): after it values them, this script writes each va
 traded_player_values.csv (npv_total and its versions; status "rights: RFA control years" or "rights: UFA, zero"),
 so it runs after traded_player_values.py and every reader of that file sees the rights valued.
 
-WHO: traded_player_values.csv rows "rights only (his contract at the page was signed after the trade)" or "no contract
+WHO: traded_player_values.csv rows "rights only (his contract at the page was signed on or after the trade date)" or "no contract
 at the page": a trade after the regular season (trade_page.py: valued on the next page, P) of a player whose contract
 ended with the season just played (P - 1). v1.2 (Thomas, 2026-10-18: "value an unsigned player traded inside the page's
 window as rights only, using rights_values.py's rule"): also a trade inside page P's window (July 1 of P on) of a player

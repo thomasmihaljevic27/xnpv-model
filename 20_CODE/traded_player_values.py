@@ -37,7 +37,7 @@ from pathlib import Path
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "traded_player_values.py v1.3 (2026-10-20)"   # v1.3: text-only retentions; v1.2: season left, retained salary; v1.1: rights only
+SCRIPT_VERSION = "traded_player_values.py v1.4 (2026-10-20)"   # v1.4: signed on the trade date left out; v1.3: text-only retentions; v1.2: season left, retained salary; v1.1: rights only
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_source as CS                         # noqa: E402
@@ -96,21 +96,26 @@ def main():
         spine = eng.sp.spine if (eng.sp.spine["player_id"] == pid).any() else eng.gp_spine
         mine = spine[spine["player_id"] == pid]
         act = mine.loc[mine["season_start"] == y, "contract_id"]
-        if len(act) and pd.notna(eng.sp.signed.get(int(act.iloc[0]))) and eng.sp.signed[int(act.iloc[0])] > date:
+        # v1.4 (Thomas, 2026-10-20: "Leave the extension out"): a contract signed ON the trade date counts as signed
+        # after it (was: strictly after). All 13 such contracts were signed with the acquiring club (PuckPedia's
+        # contract team): 6 extensions (Pacioretty, Stone, Pageau, Faulk, Seth Jones, Nick Jensen) and 7 restricted
+        # free agents signed the day they were traded (Ceci, Rychel, Roslovic, Zadorov, Pederson, Jaros, Nedeljkovic),
+        # who become rights only like the 26 of v1.1.
+        if len(act) and pd.notna(eng.sp.signed.get(int(act.iloc[0]))) and eng.sp.signed[int(act.iloc[0])] >= date:
             rec.update({"player_id": pid, "as_of": as_of.date(),
-                        "status": "rights only (his contract at the page was signed after the trade)"})
+                        "status": "rights only (his contract at the page was signed on or after the trade date)"})
             rows.append(rec)
             continue
-        if as_of > date:
-            # POST-SEASON: the page's July 1 comes after the trade. A later-signed extension did not exist at the
-            # trade either, so it is left out of the chain (its signing date masked for this valuation). Inside the
-            # window as_of is the trade date, and contract_chain already leaves out an extension signed after it.
-            for c in mine["contract_id"].unique():
-                sg = eng.sp.signed.get(int(c))
-                if pd.notna(sg) and date < sg <= as_of:
-                    masked[int(c)] = sg
-                    eng.sp.signed[int(c)] = pd.NaT
-            rec["signed_after_trade_left_out"] = len(masked)
+        # An extension signed on or after the trade date did not exist when the club acquired him, so it is left out of
+        # the chain (its signing date masked for this valuation). POST-SEASON: the page's July 1 comes after the trade,
+        # so this covers every extension signed between the trade and that July 1. Inside the window as_of is the trade
+        # date, contract_chain already leaves out one signed after it, and v1.4 masks one signed on it.
+        for c in mine["contract_id"].unique():
+            sg = eng.sp.signed.get(int(c))
+            if pd.notna(sg) and date <= sg <= as_of:
+                masked[int(c)] = sg
+                eng.sp.signed[int(c)] = pd.NaT
+        rec["signed_after_trade_left_out"] = len(masked)
         # v1.2 (Thomas, 2026-10-19: "Yes, account for in-season trades"; "Days left, value and cap"): the season left on
         # the trade date (1.0 off-season and for a post-season trade, valued on the next page), and the retained share
         share = TP.season_left_share(date, y)
@@ -131,10 +136,10 @@ def main():
     log(f"  priced: {len(ok)}; npv_total ${ok['npv_total'].sum() / 1e6:,.1f}M; post-season trades among them: "
         f"{int(ok['post_season'].sum())}")
     late = d[d.get("signed_after_trade_left_out", pd.Series(0, index=d.index)).fillna(0) > 0]
-    log(f"  post-season trades with an extension signed after the trade, left out: {len(late)}"
+    log(f"  trades with an extension signed on or after the trade date, left out (v1.4): {len(late)}"
         + "".join(f"\n    {x.trade_date} {x.player_name}" for x in late.itertuples()))
     ro = d[d["status"].astype(str).str.startswith("rights only")]
-    log(f"  rights only (contract at the page signed after the trade): {len(ro)}"
+    log(f"  rights only (contract at the page signed on or after the trade date): {len(ro)}"
         + "".join(f"\n    {x.trade_date} {x.player_name} (page {x.valuation_page}"
                   f"{', post-season' if x.post_season else ''})" for x in ro.itertuples()))
     nc = d[d["status"] == "no contract at the page"]
