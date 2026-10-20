@@ -3630,3 +3630,14 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - Locked decisions touched: the surplus-ratio convention (above, Thomas's choice). D11/D17 unchanged (realised seasons at
   actual caps, as the pick curve). D13-D14(c) are forecast rules; the outcome uses whether he played. Session log
   sessions/2026-10-20.md.
+
+### Change log, 2026-10-20d (the qualifying-offer look-ahead fixed; LTIR decided)
+
+- FIX (Thomas, 2026-10-20: "Fix the QO look ahead"): PuckPedia's "UFA no QO" is read only once the club's decision is
+  known (free agency open after the contract's last season); before that the expiry is RFA and the D14(c) gate prices
+  the walk-away. `rfa_terminal_value.py` v2.9 (expiry_known), `contract_npv.py` 3.2, `rights_values.py` v1.5 (on the
+  trade date), `page_2017_values.py` v1.7, `backtest.py` v1.3. Panel: 126 pages up, +$46.1M; traded assets: 20 up,
+  +$10.12M; back-test slope 0.918. This revisits the terminal value's "UFA or 'UFA no QO' -> zero" rule (rfa_terminal_value
+  rule 1) for valuations dated before the decision; after it, unchanged.
+- DECISIONS (Thomas, 2026-10-20): LTIR relief, "All of it", "Outcome + known at trade", from "a real LTIR log", Spotrac's
+  pages saved by Thomas. Directed, not built. Session log sessions/2026-10-20.md.

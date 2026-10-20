@@ -1,6 +1,12 @@
 """
 =============================================================================
- rfa_terminal_value.py   v2.8                       Phase 1c
+ rfa_terminal_value.py   v2.9                       Phase 1c
+
+ v2.9 (2026-10-20, Thomas: "Fix the QO look ahead"): PuckPedia's expiry "UFA no QO" records the club's decision not to
+ qualify, made at the qualifying-offer deadline after the contract's last season. A valuation dated before free agency
+ opens that summer reads it as "RFA" (expiry_known): the control years are valued, and the D14(c) qualify-or-walk gate
+ prices the chance the club walks away, as for every RFA expiry. From that day the label is known and stands. Was: zero
+ control years whatever the valuation's date (706 contracts end "UFA no QO").
 
  v2.7 (2026-10-18): the CBA age on the calendar (cba_age), not floor(days / 365.25). v2.6: rights (expired_contract_id).
  v2.5 (2026-10-14, Thomas): the arbitration price's WAR is "consistent with the forecast"
@@ -226,6 +232,16 @@ def cba_age(birth, year):
     September 15 itself (three drafted players 2007-2017; no entry-level length or arbitration need changed)."""
     b = pd.Timestamp(birth)
     return int(year) - b.year - int((9, 15) < (b.month, b.day))
+
+
+def expiry_known(expiry, end, on):
+    """v2.9: the expiry label as known on `on` for a contract whose last season starts in `end`. "UFA no QO" is the
+    club's choice at the qualifying-offer deadline after that season; before free agency opens that summer
+    (contract_source.free_agency_opens) it is not yet made, and he is an RFA the club may qualify."""
+    from contract_source import free_agency_opens
+    if expiry == "UFA no QO" and (on is None or pd.Timestamp(on) < free_agency_opens(int(end) + 1)):
+        return "RFA"
+    return expiry
 
 
 def arb_eligible(season, t0, need, observed_gp):
@@ -507,7 +523,7 @@ class TerminalValuer:
         b = _anchor_bucket(projected_war)
         return self.qualify_p.get(b, 1.0) * self.plays_given_q.get(b, 1.0)
 
-    def terminal_value(self, player_id, valuation_season, as_of=None, expired_contract_id=None):
+    def terminal_value(self, player_id, valuation_season, as_of=None, expired_contract_id=None, label_as_of=None):
         """RFA terminal value at the end of the contracts held for this
         player on `as_of` (v1.3; default July 1 of `valuation_season`), from
         that season's standpoint (same information set as Layer 2). With no
@@ -519,7 +535,10 @@ class TerminalValuer:
         the regular season, valued on the next page, of a player with no contract for it): the control seasons
         run from that contract's end + 1 (= t0) to his UFA year - 1, on page t0's forecast, the first at k = 0;
         the chain starts at 1.0 (he is the acquiring club's to qualify), not at his chance of playing the
-        contract's final season, which is already played. Left out (None), nothing changes."""
+        contract's final season, which is already played. Left out (None), nothing changes.
+
+        v2.9: the expiry label is read as known on `label_as_of` (default as_of): expiry_known. rights_values passes
+        the trade date, which can come before the qualifying-offer deadline although the page is July 1."""
         sp = self.sp
         as_of = check_as_of(valuation_season, as_of)
         if expired_contract_id is not None:
@@ -542,10 +561,11 @@ class TerminalValuer:
             from skater_forward_projection import chain_rows
             crows = chain_rows(sp.spine, player_id, [cid], 0, sp.signed, as_of)
         end = int(crows["season_start"].max())
-        expiry = crows.iloc[0]["pp_expiry"]
+        # v2.9: "UFA no QO" only once the club's decision is known (expiry_known)
+        expiry = expiry_known(crows.iloc[0]["pp_expiry"], end, label_as_of if label_as_of is not None else as_of)
         ufa_year = crows.iloc[0]["ufa_year"]
 
-        # --- locked rule: UFA expiry (incl. team-declined "no QO") -> zero --
+        # --- locked rule: UFA expiry (incl. team-declined "no QO", once known: v2.9) -> zero --
         if expiry != "RFA":
             return empty, {"status": "ufa_expiry", "tv_raw": 0.0,
                            "tv_truncated": 0.0, "n_control": 0}

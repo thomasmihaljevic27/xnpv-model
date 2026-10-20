@@ -266,7 +266,7 @@ F_GOALIE_SPINE = OUTPUT_DIR / "goalie_value_spine_v2.csv"
 F_SEASON_SPINE = OUTPUT_DIR / "contract_season_spine.csv"
 OUT_SPINE = OUTPUT_DIR / "contract_npv_spine.csv"
 OUT_LOG = OUTPUT_DIR / "contract_npv_run_log.txt"
-SCRIPT_VERSION = "3.1"   # 3.1: a trade's season left and retained share; 3.0: PuckPedia's cap hit, the chain as known on the date. Printed first in the run log (25_TESTS/xnpv0_removal_check.py reads it)
+SCRIPT_VERSION = "3.2"   # 3.2: "UFA no QO" read only once known (rfa_terminal_value.expiry_known); 3.1: a trade's season left and retained share; 3.0: PuckPedia's cap hit, the chain as known on the date. Printed first in the run log (25_TESTS/xnpv0_removal_check.py reads it)
 
 # ---- locked goalie constants (P2 close-out, 2026-06-30) --------------------
 # The documented narrative values (alpha 1.398% cap, beta 1.097%/WAR, league
@@ -714,7 +714,9 @@ class NPVEngine:
         end = int(crows["season_start"].max())
         # v1.4: expiry, UFA year and the 2020+ proxy from the chain's END.
         # With no extension lrows is exactly the old t0-filtered crows.
-        expiry = lrows.iloc[0]["pp_expiry"]
+        # v3.2 (Thomas, 2026-10-20: "Fix the QO look ahead"): the label as known on as_of
+        from rfa_terminal_value import expiry_known
+        expiry = expiry_known(lrows.iloc[0]["pp_expiry"], end, as_of)
         ufa_year = lrows.iloc[0]["ufa_year"]
         if expiry == "RFA" and pd.notna(ufa_year):
             final = crows[crows["season_start"] == end].iloc[0]

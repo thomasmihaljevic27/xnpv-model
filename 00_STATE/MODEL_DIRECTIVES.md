@@ -1344,3 +1344,13 @@ protocol `40_DOCS/Backtest_Protocol.md` (committed 0d898b4 before the run). Stat
    It replaces the July convention of surplus ratios for the back-test.
 4. **A contract signed with the acquirer on the trade date**, "Leave the extension out": not part of the trade, in the
    forecast and the outcome (`traded_player_values.py` v1.4, `page_2017_values.py` v1.6).
+
+## LTIR (Thomas, 2026-10-20)
+
+Thomas: "guys like Ryan Ellis, Shea Weber, Carey Price, Datsyuk, etc.. LTIR trades and also guys who would go on to LTIR
+need to be accounted for in some capacity." Status: **directed** (waiting on the data).
+1. **Source:** "Fetch a real LTIR log": Spotrac's NHL injured-reserve pages, one per season 2017-18 to 2025-26, saved by
+   Thomas into `10_SOURCE/ltir/` (the sites with a full log block automated requests).
+2. **Relief:** "All of it": a season on LTIR costs nothing in the model's currency (cap shares); cash ignored.
+3. **Where:** "Outcome + known at trade": every LTIR season is relieved in the back-test's outcome; in the forecast only
+   a player already on LTIR when traded, his seasons relieved by the chance he does not play.

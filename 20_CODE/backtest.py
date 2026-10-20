@@ -53,7 +53,7 @@ import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "backtest.py v1.2 (2026-10-20)"   # v1.2: seasons after a buyout; v1.1: the ledger's spelling when the spine's has no WAR rows
+SCRIPT_VERSION = "backtest.py v1.3 (2026-10-20)"   # v1.3: "UFA no QO" known only after the decision; v1.2: seasons after a buyout; v1.1: the ledger's spelling when the spine's has no WAR rows
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_npv as CN                                     # noqa: E402  the engine, goalie line and hazard
@@ -379,7 +379,7 @@ def main():
                 chain.paid(cost)
         return real, rev
 
-    n_eng = 0
+    n_eng = n_walked = 0
     for _, r in tp.iterrows():
         st = str(r["status"])
         if st != "ok":
@@ -458,9 +458,16 @@ def main():
             lrows = chain_rows(spine, pid, [int(chain_ids[-1])], 0, sp.signed, as_of)
             end = int(lrows["season_start"].max())
             final = lrows[lrows["season_start"] == end].iloc[0]
-            rfa = final["pp_expiry"] == "RFA" and pd.notna(final["ufa_year"]) and int(final["ufa_year"]) > end + 1
+            # v1.3: the forecast reads the expiry as known on as_of (rfa_terminal_value.expiry_known, Thomas 2026-10-20:
+            # "Fix the QO look ahead"); the OUTCOME reads the label itself: a club that did not qualify him ("UFA no
+            # QO") holds no control season, so its outcome there is zero
+            known = RTV.expiry_known(final["pp_expiry"], end, as_of)
+            rfa = known == "RFA" and pd.notna(final["ufa_year"]) and int(final["ufa_year"]) > end + 1
             assert rfa or not len(t), (r["player_name"], final["pp_expiry"])                   # GUARD
-            if rfa:
+            walked = final["pp_expiry"] == "UFA no QO"
+            if rfa and walked:
+                n_walked += 1
+            if rfa and not walked:
                 if gk:
                     sal = float(final["cs_nhl_salary"]) if pd.notna(final["cs_nhl_salary"]) else float(final["pp_aav"])
                 else:
@@ -496,6 +503,7 @@ def main():
         retained_out[int(r["asset_id"])] = ret
         n_eng += 1
     log(f"\n1. player model, 2018-19 on: {n_eng} assets re-run, each npv_total within $1 of traded_player_values")
+    log(f"   control years the forecast values and the club did not take up (\"UFA no QO\", outcome zero): {n_walked}")
     log(f"   seasons after a buyout (no value, the buyout share of the cap hit): {len(cut_hits)}, "
         f"{len(set(n for n, _ in cut_hits))} assets: " + ", ".join(sorted(set(n for n, _ in cut_hits))))
 
@@ -508,6 +516,9 @@ def main():
     for aid, r in rv.iterrows():
         if str(tpi.at[aid, "status"]) != "rights: RFA control years":
             rows[int(aid)] = {"realised_M": 0.0, "revalued_M": 0.0, "outcome_route": "rights, UFA: zero"}
+            continue
+        if r.get("expiry_label") == "UFA no QO":                  # v1.3: the club did not qualify him: no control
+            rows[int(aid)] = {"realised_M": 0.0, "revalued_M": 0.0, "outcome_route": "rights, not qualified: zero"}
             continue
         P, pid = int(r["page"]), tpi.at[aid, "player_id"]
         gk = r["position"] == "G"

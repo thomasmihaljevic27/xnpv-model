@@ -48,7 +48,7 @@ import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "page_2017_values.py v1.6 (2026-10-20)"   # v1.6: extensions signed on the trade date left out; v1.5: text-only retentions; v1.4: season left, retained salary; v1.3: pages found here
+SCRIPT_VERSION = "page_2017_values.py v1.7 (2026-10-20)"   # v1.7: "UFA (No QO)" keeps its UFA year; v1.6: extensions signed on the trade date left out; v1.5: text-only retentions; v1.4: season left, retained salary; v1.3: pages found here
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_source as CS                         # noqa: E402
@@ -191,7 +191,9 @@ def main():
                             "cost": c["seasons"][y], "cs_cap_hit": c["seasons"][y], "pp_cap_hit": c["seasons"][y],
                             "pp_aav": c["seasons"][y], "cs_nhl_salary": c.get("base", {}).get(y),
                             "bd": bd, "birthdate": bd, "pp_expiry": c.get("expiry_status"),
-                            "ufa_year": ufa if c.get("expiry_status") == "RFA" else np.nan,
+                            # v1.7: a "UFA (No QO)" expiry keeps its UFA year: the engine reads the label only once
+                            # the decision is known (rfa_terminal_value.expiry_known), after a 2017-18 trade
+                            "ufa_year": ufa if c.get("expiry_status") in ("RFA", "UFA no QO") else np.nan,
                             "cs_entry_level": "Entry" in c["type"], "pp_ctype": "capwages", "season": f"{y}-{str(y + 1)[2:]}",
                             "first_name": "", "last_name": ""})
         nd = pd.DataFrame(new)

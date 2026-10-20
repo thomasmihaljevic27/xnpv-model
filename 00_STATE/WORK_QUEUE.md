@@ -13,9 +13,11 @@ The forecast's verdicts come true on average (slope 0.919); players delivered le
 and prospects for players gains in forecast and outcome. Next, in order:
 1. Do: the Game Value check of the outcomes (the protocol's first stated limit; the locked circularity validators). No
    group finding is called systematic before it.
-2. Decide (Thomas): the forecast reads PuckPedia's "UFA no QO" label, the club's later decision not to qualify, so a
-   contract valued before its end sets its control years to zero from knowledge the club did not have (up to 68 traded
-   assets; not measured). Fix in the forecast, or state it.
+2. Done 2026-10-20 (Thomas: "Fix the QO look ahead"): "UFA no QO" read only once the decision is known; 20 traded
+   assets +$10.12M, the back-test's slope 0.918 (session 2026-10-20).
+2a. Do (Thomas): save Spotrac's NHL injured-reserve page for each season 2017-18 to 2025-26 into `10_SOURCE/ltir/`.
+   Then Claude builds the LTIR relief Thomas decided (all of the cap hit; the outcome, and the forecast of a player
+   already on LTIR when traded), checks the pages against known cases first, and re-runs the back-test.
 3. Decide (Thomas): whether to run draftee costs at actual pay as a sensitivity for the futures-for-players group (the
    costing flag of 2026-10-09 bears on it directly).
 4. Decide (Thomas): the declared star group (3+ trailing WAR) holds one club side; whether a lower line is run, labelled

@@ -21,7 +21,9 @@ the engine's own spine as page_2017_values.py builds them (cap hit, base salary,
 "RFA (Arb)" flag).
 
 THE VALUE
-  * expiry UFA (or "UFA no QO"): zero, the club controls nothing (Thomas).
+  * expiry UFA (or "UFA no QO"): zero, the club controls nothing (Thomas). v1.5 (Thomas, 2026-10-20: "Fix the QO look
+    ahead"): "UFA no QO" counts only when the club's decision was known on the TRADE date (free agency open after the
+    expired contract's last season; rfa_terminal_value.expiry_known); a trade before it values RFA control years.
   * expiry RFA, skater: rfa_terminal_value.TerminalValuer.terminal_value(player, P, July 1 of P,
     expired_contract_id=...) (v2.6): the control seasons P .. UFA year - 1 on page P's forecast, the qualifying offer
     (on his last salary) or once eligible the arbitration price, D13 walk-away, D14(c) qualify-or-walk gates, the
@@ -46,7 +48,7 @@ import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "rights_values.py v1.4 (2026-10-19)"   # v1.4: the season left; v1.3: CBA age on the calendar
+SCRIPT_VERSION = "rights_values.py v1.5 (2026-10-20)"   # v1.5: "UFA no QO" only once known at the trade; v1.4: the season left; v1.3: CBA age on the calendar
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_npv as CN                                         # noqa: E402
@@ -54,7 +56,7 @@ import contracts_2017 as K                                        # noqa: E402
 import prospect_values as PV                                      # noqa: E402
 from player_season_table import norm_name                         # noqa: E402
 from skater_forward_projection import page_date, cap_path, league_min_path   # noqa: E402
-from rfa_terminal_value import qualifying_offer, arb_eligible     # noqa: E402
+from rfa_terminal_value import qualifying_offer, arb_eligible, expiry_known     # noqa: E402
 import trade_page as TP                                           # noqa: E402  v1.4: the share of the season left
 OUTPUT_DIR, SOURCE_DIR = Path(os.environ["OUTPUT_DIR"]), Path(os.environ["SOURCE_DIR"])
 LOG = []
@@ -153,7 +155,8 @@ def main():
                                  "contract_id": cid, "player_id": pid, "season_start": y, "cost": c["seasons"][y],
                                  "cs_cap_hit": c["seasons"][y], "pp_cap_hit": c["seasons"][y], "pp_aav": c["seasons"][y],
                                  "cs_nhl_salary": c.get("base", {}).get(y), "pp_expiry": expiry,
-                                 "ufa_year": ufa if expiry == "RFA" else np.nan, "cs_entry_level": "Entry" in c["type"],
+                                 "ufa_year": ufa if expiry in ("RFA", "UFA no QO") else np.nan,
+                                 "cs_entry_level": "Entry" in c["type"],
                                  "pp_ctype": "capwages", "nk": (base.get("nk") if base is not None and pd.notna(base.get("nk")) else nn + "|" + pg),
                                  "nname": nn} for y in sorted(c["seasons"])])
             if gk:
@@ -164,9 +167,9 @@ def main():
         cid = cands[0]
         spine = eng.gp_spine if gk else sp.spine
         crows = spine[spine["contract_id"] == cid].sort_values("season_start")
-        expiry = crows.iloc[0]["pp_expiry"]
+        expiry = expiry_known(crows.iloc[0]["pp_expiry"], P - 1, date)            # v1.5: as known on the trade date
         rec.update({"position": "G" if gk else crows.iloc[0].get("posgrp"), "expired_contract": cid, "source": source,
-                    "expiry": expiry, "last_cap_hit": float(crows.iloc[-1]["cost"]), "ufa_year": crows.iloc[0]["ufa_year"]})
+                    "expiry": expiry, "expiry_label": crows.iloc[0]["pp_expiry"], "last_cap_hit": float(crows.iloc[-1]["cost"]), "ufa_year": crows.iloc[0]["ufa_year"]})
         if expiry != "RFA":
             rec.update({"status": "UFA rights: zero", "value_M": 0.0})
             rows.append(rec)
@@ -180,7 +183,7 @@ def main():
             v, st = goalie_rights(eng, pid, P, crows, as_of, share)
             rec.update({"status": st, "value_M": None if v is None else v / 1e6})
         else:
-            d, sm = eng.tv.terminal_value(pid, P, as_of, expired_contract_id=cid)
+            d, sm = eng.tv.terminal_value(pid, P, as_of, expired_contract_id=cid, label_as_of=date)
             if sm.get("status") != "ok":
                 rec.update({"status": sm.get("status")})
                 if sm.get("status") in ("ufa_expiry", "rfa_no_control_years_DATA_FLAG"):
