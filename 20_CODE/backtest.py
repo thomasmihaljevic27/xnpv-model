@@ -16,6 +16,10 @@ AN ASSET'S OUTCOME ($M at the 2025-26 cap) covers the span its forecast covered,
             cost   = a contract season: the cap hit the forecast charged (PuckPedia's), net of any retention for the
                      acquirer, paid whether or not he played; a control or draftee season: the pick curve's rule
                      (entry-level maximum, qualifying offer, arbitration price once eligible), only when he played.
+            v1.4 (Thomas, 2026-10-20: LTIR "All of it", "Outcome + known at trade"): a contract season's carried cap
+                     hit is charged only for the days he was not on LTIR (ltir.py, Spotrac's log, ltir.RULE); the
+                     retained part is never relieved. From 2026-27, a player on LTIR at that page is charged his cap
+                     hit times the forecast's chance he plays.
             the season of an in-season trade: the share of days left (as the forecast) for the intercept, the floor
                      and the cap hit; the wins after the trade = season WAR x his games after the trade date / his
                      games that season (nhl_gamelogs.sqlite).
@@ -53,7 +57,7 @@ import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "backtest.py v1.3 (2026-10-20)"   # v1.3: "UFA no QO" known only after the decision; v1.2: seasons after a buyout; v1.1: the ledger's spelling when the spine's has no WAR rows
+SCRIPT_VERSION = "backtest.py v1.4 (2026-10-20)"   # v1.4: LTIR relief; v1.3: "UFA no QO" known only after the decision; v1.2: seasons after a buyout; v1.1: the ledger's spelling when the spine's has no WAR rows
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_npv as CN                                     # noqa: E402  the engine, goalie line and hazard
@@ -65,6 +69,7 @@ import contract_source as CS                                  # noqa: E402
 import contracts_2017 as K                                    # noqa: E402
 import prospect_values as PV                                  # noqa: E402  prospect features, windows
 import trade_sides as TSD                                      # noqa: E402  club sides, one rule for both
+import ltir as LT                                             # noqa: E402  v1.4: long-term injured reserve
 from skater_forecast import war_if_plays_sd                   # noqa: E402
 
 SOURCE_DIR, OUTPUT_DIR = Path(os.environ["SOURCE_DIR"]), Path(os.environ["OUTPUT_DIR"])
@@ -389,7 +394,8 @@ def main():
         rpct = float(r["retained_pct"]) if pd.notna(r["retained_pct"]) else 0.0
         d, s, masked, as_of = engine_detail(pid, y, date, share, rpct)
         try:
-            assert abs(s["npv_total"] - r["npv_total"]) < 1.0, (r["player_name"], s["npv_total"], r["npv_total"])   # GUARD
+            ref = r["npv_total_engine"] if pd.notna(r.get("npv_total_engine")) else r["npv_total"]   # v1.4: before LTIR
+            assert abs(s["npv_total"] - ref) < 1.0, (r["player_name"], s["npv_total"], ref)   # GUARD
             gk = s["position"] == "goalie"
             spine = eng.gp_spine if gk else sp.spine
             chain_ids = s["chain"]
@@ -405,7 +411,9 @@ def main():
                 names_note.append(f"{r['player_name']} ({name}): no WAR season in the three before page {y}")
             c = d[d["row_type"] == "contract"].sort_values("season_start")
             term = int(s.get("term_years", len(c)))
-            real = rev = ret = capfx = 0.0
+            real = rev = ret = capfx = lt_M = 0.0
+            names_lt = (name, r["player_name"])
+            lt_now = LT.known_on_ltir(names_lt, page_date(NOW), crow0["nhl_id"])     # v1.4: on LTIR at 2026-27
             later = c[c["season_start"] >= NOW]
             fc = None
             if len(later):
@@ -430,7 +438,9 @@ def main():
                         v = part_value(w, gp, gpp, f, z, gk, pos, term)
                     else:
                         v = played_value(w, gp, z, gk, pos, term)
-                    real += (v - cost * keep * f / CAP[z]) * CAP_NOW / 1e6
+                    lt = 0.0 if post_cut else LT.relief_any(names_lt, z, after=date if f < 1.0 else None)   # v1.4
+                    lt_M += cost * keep * f * lt / CAP[z] * CAP_NOW / 1e6
+                    real += (v - cost * keep * f * (1 - lt) / CAP[z]) * CAP_NOW / 1e6
                     ret -= cost * (1 - keep) * f / CAP[z] * CAP_NOW / 1e6
                     # DECOMPOSITION (not in the protocol): the extra cost of the realised cap against the forecast's 3%
                     # path (the 2020-2022 flat cap), so the outcome on the forecast's cap path = outcome + cap_path_M
@@ -450,7 +460,9 @@ def main():
                         val, p = 0.0, 0.0                  # no forecast at 2026-27: he is not expected to play
                     if post_cut:
                         val, p = 0.0, 0.0
-                    rev += (p * val - cost * keep) / ceil * CAP_NOW / 1e6
+                    carried = cost * keep * (p if (lt_now and not post_cut) else 1.0)     # v1.4: LTIR at 2026-27
+                    lt_M += (cost * keep - carried) / ceil * CAP_NOW / 1e6
+                    rev += (p * val - carried) / ceil * CAP_NOW / 1e6
                     ret -= cost * (1 - keep) / ceil * CAP_NOW / 1e6
             # control seasons: the forecast's own list (the chain end's expiry and UFA year)
             ctrl_real = ctrl_rev = 0.0
@@ -498,7 +510,7 @@ def main():
         rows[int(r["asset_id"])] = {"realised_M": real + ctrl_real, "revalued_M": rev + ctrl_rev,
                                    "trailing_war": np.nan if gk else trailing_total(ns, y),
                                    "outcome_route": "player model", "war_spelling": SPELLING[(name, gk)],
-                                   "cap_path_M": capfx,
+                                   "cap_path_M": capfx, "ltir_relief_M": lt_M,
                                    "nhl_seasons_after": int(((ns.index >= y) & (ns["GP"] > 0)).sum()) if len(ns) else 0}
         retained_out[int(r["asset_id"])] = ret
         n_eng += 1
@@ -569,13 +581,15 @@ def main():
         ns = seasons_for(r["war_name"], gk, r["player_name"])
         share = float(r["season_share"]) if pd.notna(r["season_share"]) else 1.0
         rpct = float(r["retained_pct"]) if pd.notna(r["retained_pct"]) else 0.0
-        real = rev = ret = capfx = 0.0
+        real = rev = ret = capfx = lt_M = 0.0
+        names_lt = (r["war_name"], r["player_name"])
         if str(r["contract"]).startswith("PuckPedia"):
             # FALLBACK rows: PuckPedia's own contract, on the engine (page_2017_values' fallback path)
             d, s, masked, as_of = engine_detail(int(r["player_id"]), 2017, date, share, rpct)
             sp.signed.update(masked)
             c = d[d["row_type"] == "contract"]
-            assert abs(s["npv_total"] - r["npv_total"]) < 1.0, r["player_name"]                    # GUARD
+            ref = r["npv_total_engine"] if pd.notna(r.get("npv_total_engine")) else r["npv_total"]   # v1.4
+            assert abs(s["npv_total"] - ref) < 1.0, r["player_name"]                               # GUARD
             seasons = [(int(q["season_start"]), float(q["cost_dollars"]), int(q["contract_id"]) == int(s["chain"][0]))
                        for _, q in c.iterrows()]
             ctrl, ch, flag = [], None, None
@@ -613,7 +627,9 @@ def main():
                     v = part_value(w, gp, gpp, f, z, gk, pos, term)
                 else:
                     v = played_value(w, gp, z, gk, pos, term)
-                real += (v - cost * keep * f / CAP[z]) * CAP_NOW / 1e6
+                lt = LT.relief_any(names_lt, z, after=date if f < 1.0 else None)                  # v1.4
+                lt_M += cost * keep * f * lt / CAP[z] * CAP_NOW / 1e6
+                real += (v - cost * keep * f * (1 - lt) / CAP[z]) * CAP_NOW / 1e6
                 ret -= cost * (1 - keep) * f / CAP[z] * CAP_NOW / 1e6
                 capfx += cost * keep * f * (1 / CAP[z] - 1 / cap_path(2017, z - 2017)) * CAP_NOW / 1e6
             else:
@@ -629,6 +645,7 @@ def main():
                                   y0=2017, share=share, trade_date=date, first_is_trade_season=False)
             real, rev = real + cr, rev + cv
         rows[aid] = {"realised_M": real, "revalued_M": rev, "outcome_route": "player model, 2017 page", "cap_path_M": capfx,
+                     "ltir_relief_M": lt_M,
                      "trailing_war": np.nan if gk else trailing_total(ns, 2017),
                      "war_spelling": SPELLING[(r["war_name"], gk)],
                      "nhl_seasons_after": int(((ns.index >= 2017) & (ns["GP"] > 0)).sum()) if len(ns) else 0}
@@ -885,6 +902,7 @@ def main():
     a["war_spelling"] = None
     a["nhl_seasons_after"] = np.nan
     a["cap_path_M"] = 0.0
+    a["ltir_relief_M"] = 0.0
     for i, r in a.iterrows():
         aid = int(r["asset_id"])
         if r["asset_type"] == "retained salary":
@@ -1082,6 +1100,15 @@ def analyse(a):
             f"${g['outcome_M'].sum():>8,.1f}M (realised ${g['realised_M'].sum():,.1f}M); mean miss {est:+.3f} "
             f"[{lo:+.3f}, {hi:+.3f}] p {p:.4f}")
     g = ac[ac["cls"] == "players"]
+    tpv_ = pd.read_csv(OUTPUT_DIR / "traded_player_values.csv")
+    p17_ = pd.read_csv(OUTPUT_DIR / "page_2017_values.csv")
+    bu_ = pd.read_csv(OUTPUT_DIR / "buried_contract_values.csv")
+    cap_of = lambda y: CAP_NOW / SFP.CAP_CEILING[int(y)]                                     # noqa: E731
+    fr = (sum(x.ltir_relief * cap_of(x.valuation_page) for x in tpv_.itertuples() if pd.notna(getattr(x, "ltir_relief", None)))
+          + sum(x.ltir_relief * cap_of(2017) for x in p17_.itertuples() if pd.notna(getattr(x, "ltir_relief", None)))) / 1e6
+    fr += float((bu_["value_M"] - bu_["value_no_ltir_M"]).sum()) if "value_no_ltir_M" in bu_ else 0.0
+    log(f"  LTIR (ltir.py rule {LT.RULE}): relief in the players' outcome ${g['ltir_relief_M'].sum():,.1f}M over "
+        f"{int((g['ltir_relief_M'] > 0.005).sum())} assets; in their forecast (on LTIR when traded) ${fr:,.1f}M")
     log(f"  DECOMPOSITION (not in the protocol): of the players' outcome, the realised cap's extra cost against the "
         f"forecast's 3% path is ${g['cap_path_M'].sum():,.1f}M; on the forecast's path the players' outcome would be "
         f"${(g['outcome_M'] + g['cap_path_M']).sum():,.1f}M against a forecast of ${g['value_2025_cap_M'].sum():,.1f}M "

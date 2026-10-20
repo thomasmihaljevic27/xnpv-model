@@ -37,13 +37,14 @@ from pathlib import Path
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "traded_player_values.py v1.4 (2026-10-20)"   # v1.4: signed on the trade date left out; v1.3: text-only retentions; v1.2: season left, retained salary; v1.1: rights only
+SCRIPT_VERSION = "traded_player_values.py v1.5 (2026-10-20)"   # v1.5: LTIR known at the trade; v1.4: signed on the trade date left out; v1.3: text-only retentions; v1.2: season left, retained salary; v1.1: rights only
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_source as CS                         # noqa: E402
 import contract_npv as CN                            # noqa: E402
 from skater_forward_projection import page_date   # noqa: E402
 import trade_page as TP                              # noqa: E402  v1.2: the share of the season left
+import ltir as LT                                    # noqa: E402  v1.5: long-term injured reserve
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 FIRST_PAGE = 2018
 LOG = []
@@ -126,6 +127,16 @@ def main():
         rec.update({"player_id": pid, "as_of": as_of.date(), "status": s.get("status"),
                     **{k: s[k] for k in ("npv_total", "npv_contract", "npv_terminal", "npv_total_qo",
                                          "npv_total_term_free", "n_contract_seasons", "retained_pv") if k in s}})
+        # v1.5 (Thomas, 2026-10-20: LTIR "All of it", "Outcome + known at trade"): a player on LTIR when traded (ltir.py,
+        # Spotrac's log) costs his carried cap hit only in the share of each season he plays: each contract season's
+        # cost is relieved by the forecast's chance he does not play. The retained part is not relieved (the retaining
+        # club cannot carry him on LTIR). npv_total_engine keeps the engine's own value.
+        if s.get("status") == "ok":
+            on = LT.known_on_ltir((r["player_name"], s.get("full_name")), date, nid)
+            relief = LT.forecast_relief(d) if on else 0.0
+            rec.update({"ltir_at_trade": on, "ltir_relief": relief, "npv_total_engine": s["npv_total"]})
+            for k in ("npv_total", "npv_contract", "npv_total_qo", "npv_total_term_free"):
+                rec[k] = rec[k] + relief
         if s.get("status") == "no_contract":
             rec["status"] = "no contract at the page"
         rows.append(rec)
@@ -142,6 +153,10 @@ def main():
     log(f"  rights only (contract at the page signed on or after the trade date): {len(ro)}"
         + "".join(f"\n    {x.trade_date} {x.player_name} (page {x.valuation_page}"
                   f"{', post-season' if x.post_season else ''})" for x in ro.itertuples()))
+    lt = d[d.get("ltir_at_trade", pd.Series(False, index=d.index)).fillna(False).astype(bool)]
+    log(f"  on LTIR when traded (v1.5; ltir.py rule {LT.RULE}): {len(lt)}, relief ${lt['ltir_relief'].sum() / 1e6:,.2f}M at "
+        f"the pages' caps" + "".join(f"\n    {x.trade_date} {x.player_name}: +${x.ltir_relief / 1e6:.2f}M"
+                                     for x in lt.sort_values("ltir_relief", ascending=False).itertuples()))
     nc = d[d["status"] == "no contract at the page"]
     log(f"  no contract at the page: {len(nc)}" + "".join(
         f"\n    {x.trade_date} {x.player_name} (page {x.valuation_page}{', post-season' if x.post_season else ''})"

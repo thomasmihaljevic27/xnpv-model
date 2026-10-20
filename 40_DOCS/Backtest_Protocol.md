@@ -100,6 +100,18 @@ an outcome was measured; none changes a group, a test or a sensitivity. The firs
    player-model asset with no WAR row under any of them is listed in the log. In v1.0 these four players' delivered
    value read as zero.
 
+3. **Long-term injured reserve** (v1.4; Thomas, 2026-10-20: "All of it", "Outcome + known at trade", "Fetch a real
+   LTIR log"). Rule 3's cost of a contract season is charged only for the days he was not on LTIR (Spotrac's
+   injured-reserve pages, `ltir.py`); the retained part is never relieved. From 2026-27, a player on LTIR at that page
+   is charged his cap hit times the forecast's chance he plays. The forecast side changes too: a player on LTIR when
+   traded is charged, season by season, his cap hit times the chance he plays (`traded_player_values.py` v1.5,
+   `page_2017_values.py` v1.8), or nothing where there is no forecast (`buried_contract_values.py` v1.8). Which spells
+   count is Thomas's choice between Spotrac's "Long-Term IR" label alone and the label plus any IR spell meeting the
+   CBA's test (24+ days, 10+ games); both are run.
+4. **The qualifying-offer look-ahead** (v1.3; Thomas: "Fix the QO look ahead"). The forecast reads "UFA no QO" only
+   once the club's decision is known; the outcome reads the label itself (no control seasons for a player the club
+   did not qualify).
+
 ## Limits stated in advance
 
 - The outcome uses Bacon's WAR, the same source as the forecast. The Game Value check (the locked circularity

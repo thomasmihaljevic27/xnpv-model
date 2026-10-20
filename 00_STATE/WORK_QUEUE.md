@@ -15,9 +15,9 @@ and prospects for players gains in forecast and outcome. Next, in order:
    group finding is called systematic before it.
 2. Done 2026-10-20 (Thomas: "Fix the QO look ahead"): "UFA no QO" read only once the decision is known; 20 traded
    assets +$10.12M, the back-test's slope 0.918 (session 2026-10-20).
-2a. Do (Thomas): save Spotrac's NHL injured-reserve page for each season 2017-18 to 2025-26 into `10_SOURCE/ltir/`.
-   Then Claude builds the LTIR relief Thomas decided (all of the cap hit; the outcome, and the forecast of a player
-   already on LTIR when traded), checks the pages against known cases first, and re-runs the back-test.
+2a. Done 2026-10-20: LTIR relief built from Spotrac's pages and adopted ("Label + CBA test"); the back-test's slope
+   0.741, the players' shortfall gone (session 2026-10-20). Not done: a third reading (label plus season-ending IR spells
+   only) was offered and not chosen.
 3. Decide (Thomas): whether to run draftee costs at actual pay as a sensitivity for the futures-for-players group (the
    costing flag of 2026-10-09 bears on it directly).
 4. Decide (Thomas): the declared star group (3+ trailing WAR) holds one club side; whether a lower line is run, labelled

@@ -25,7 +25,10 @@ pages carry it too. Not measured. The back-test's forecast side carries it (sess
 **The back-test's outcomes share the forecast's source (2026-10-20).** Delivered value is priced from Bacon's WAR, as
 the forecast is. The Game Value check (the locked circularity validators) has not been run on the outcomes; until it
 is, no back-test group finding is called systematic. Long-term injury relief is not modelled (Ryan Ellis, -$33.45M of
-the players' -$226.6M miss); decided 2026-10-20 (Thomas), built when the LTIR log is in (WORK_QUEUE).
+the players' -$226.6M miss); BUILT 2026-10-20 (`ltir.py`, Spotrac's pages, "Label + CBA test"): Ellis's outcome
+-$2.19M, the players' shortfall gone. Limits: the CBA reading relieves IR spells at clubs below the cap that may never
+have used LTIR; Spotrac's dates are approximate (end dates can stop a game or two short); part of a season's LTIR relief
+is lost to the CBA's pool rules (cap space at placement), which "All of it" leaves out.
 
 **Picks and players are costed differently (identification, 2026-10-09).** A drafted player is charged
 the entry-level maximum then qualifying offers; a rostered player is charged his actual cap hit. The

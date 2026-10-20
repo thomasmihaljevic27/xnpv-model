@@ -48,7 +48,7 @@ import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "page_2017_values.py v1.7 (2026-10-20)"   # v1.7: "UFA (No QO)" keeps its UFA year; v1.6: extensions signed on the trade date left out; v1.5: text-only retentions; v1.4: season left, retained salary; v1.3: pages found here
+SCRIPT_VERSION = "page_2017_values.py v1.8 (2026-10-20)"   # v1.8: LTIR known at the trade; v1.7: "UFA (No QO)" keeps its UFA year; v1.6: extensions signed on the trade date left out; v1.5: text-only retentions; v1.4: season left, retained salary; v1.3: pages found here
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_source as CS                         # noqa: E402
@@ -230,6 +230,15 @@ def main():
         for kk in ("npv_total", "npv_contract", "npv_terminal", "npv_total_qo", "npv_total_term_free", "retained_pv"):
             if kk in sm:
                 rec[kk] = sm[kk]
+        # v1.8 (Thomas, 2026-10-20: LTIR "Outcome + known at trade"): on LTIR when traded, each contract season's
+        # carried cap hit relieved by the chance he does not play (traded_player_values v1.5's rule)
+        if sm.get("status") == "ok":
+            import ltir as LT
+            on = LT.known_on_ltir((r.player_name, wname), date, nid)
+            relief = LT.forecast_relief(d) if on else 0.0
+            rec.update({"ltir_at_trade": on, "ltir_relief": relief, "npv_total_engine": sm["npv_total"]})
+            for kk in ("npv_total", "npv_contract", "npv_total_qo", "npv_total_term_free"):
+                rec[kk] = rec[kk] + relief
         if sm.get("status") in ("unpriced_no_anchor", "unpriced_no_history"):
             # no forecast (no recent NHL season): buried_contract_values.py's rule (Thomas, "Cost above burial"),
             # the cap hit above the burial allowance (league minimum + $375K) over the contracts held, no value

@@ -3641,3 +3641,14 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   rule 1) for valuations dated before the decision; after it, unchanged.
 - DECISIONS (Thomas, 2026-10-20): LTIR relief, "All of it", "Outcome + known at trade", from "a real LTIR log", Spotrac's
   pages saved by Thomas. Directed, not built. Session log sessions/2026-10-20.md.
+
+### Change log, 2026-10-20e (LTIR relief built and adopted)
+
+- DECISION (Thomas, 2026-10-20): LTIR spells are "Label + CBA test": Spotrac's "Long-Term IR" spells and any IR spell
+  of 24+ days and 10+ team games (CBA 50.10). With the earlier choices ("Fetch a real LTIR log", "All of it", "Outcome +
+  known at trade"): `ltir.py` v1.0, `traded_player_values.py` v1.5, `page_2017_values.py` v1.8, `buried_contract_values.py`
+  v1.8, `backtest.py` v1.4. The join $-264.15M -> $-216.87M; the back-test's slope 0.741; the players' shortfall gone
+  (+$0.014M an asset, p = 0.92); futures-for-players' outcome minus forecast -0.48 (p = 0.031).
+- Locked decisions touched: D16(i) (a buried or injured player's cap hit counted in full) is departed from for LTIR
+  seasons, as Thomas directed: in the outcome for every LTIR day, in a trade's forecast for a player on LTIR when traded.
+  The contract panel and dashboard are unchanged (no LTIR in the contract chain). Session log sessions/2026-10-20.md.

@@ -42,7 +42,9 @@ own first season, its full signed term counted until the buyout is known); the m
 (`model_cap_hit`); the price line is re-locked; the back-test's three rules are in (the 2025-26 cap, retained salary
 charged to the retaining club, the season left on in-season trades).
 Run 2026-10-20: the back-test (`trade_sides.py`, `backtest.py`; protocol `40_DOCS/Backtest_Protocol.md`, committed
-before the run). The Game Value check of its outcomes is not yet run.
+before the run). The Game Value check of its outcomes is not yet run. LTIR relief (2026-10-20): `ltir.py` reads
+Spotrac's injured-reserve pages saved by Thomas in `10_SOURCE/ltir/` ("Label + CBA test"); the trade valuations and the
+back-test import it.
 
 **Craft is retired as a canonical surface (2026-09-09).** Do not read it, reconcile against it,
 or sync to it. "How it works" explainers live in `40_DOCS/`. Precedence when sources conflict:

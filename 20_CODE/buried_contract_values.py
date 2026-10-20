@@ -44,12 +44,13 @@ from pathlib import Path
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "buried_contract_values.py v1.7 (2026-10-20)"   # v1.7: text-only retentions; v1.6: season left, retaining club; v1.5: a buyout's full term before it
+SCRIPT_VERSION = "buried_contract_values.py v1.8 (2026-10-20)"   # v1.8: LTIR known at the trade; v1.7: text-only retentions; v1.6: season left, retaining club; v1.5: a buyout's full term before it
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_source as CS                        # noqa: E402
 import skater_forward_projection as SFP             # noqa: E402  ceilings and league minimums
 import trade_page as TP                             # noqa: E402  v1.5: the share of the season left
+import ltir as LT                                   # noqa: E402  v1.8: long-term injured reserve
 SOURCE_DIR, OUTPUT_DIR = Path(os.environ["SOURCE_DIR"]), Path(os.environ["OUTPUT_DIR"])
 BURY_ABOVE_MIN = 375_000                            # PuckPedia "Buried Threshold" = minimum + $375K (CBA text unread)
 CAP_NOW = SFP.CAP_CEILING[2025]
@@ -125,19 +126,25 @@ def main():
             ret_cost += w * retained / ceil
             full += w * carried / ceil
             seasons.append(f"{s}: ${carried / 1e6:.3f}M - ${allowance / 1e6:.3f}M" + (f" x {w:.3f}" if w < 1 else ""))
+        # v1.8 (Thomas, 2026-10-20: LTIR "All of it", "Outcome + known at trade"): a veteran on LTIR when traded
+        # (ltir.py) has no forecast, so no chance of playing: the cap hit he carries is relieved in full. The value
+        # without the relief is kept beside; the retained part is not relieved.
+        on = LT.known_on_ltir((r["player_name"],), date, nid)
         rows.append({"asset_id": r["asset_id"], "trade_date": r["trade_date"], "trade_season": y,
                      "player_name": r["player_name"], "acquiring_team": r["acquiring_team"], "nhl_id": nid,
                      "contract_cap_hit": float(c["cap_hit"]), "retained": float(RET.get(r["asset_id"], 0) or 0),
                      "last_season": last_c, "seasons_left": last_c - y + 1,
-                     "season_share": share0,
-                     "value_M": -cost * CAP_NOW / 1e6 + 0.0, "full_cap_hit_value_M": -full * CAP_NOW / 1e6 + 0.0,
+                     "season_share": share0, "ltir_at_trade": on, "value_no_ltir_M": -cost * CAP_NOW / 1e6 + 0.0,
+                     "value_M": (0.0 if on else -cost * CAP_NOW / 1e6) + 0.0,
+                     "full_cap_hit_value_M": -full * CAP_NOW / 1e6 + 0.0,
                      "retained_value_M": -ret_cost * CAP_NOW / 1e6 + 0.0,
                      "seasons": "; ".join(seasons), "prospect_status": st})
     d = pd.DataFrame(rows)
     log(f"\nTRADED VETERANS ON NHL CONTRACTS NEITHER MODEL VALUES (from the {first_page}-{str(first_page + 1)[2:]} page): "
         f"{len(d)} assets, {d['player_name'].nunique()} players")
     log(f"  value (cost above the burial allowance, at the 2025-26 cap): ${d['value_M'].sum():,.2f}M; "
-        f"beside it, the full cap hit (D16(i)'s rule): ${d['full_cap_hit_value_M'].sum():,.2f}M")
+        f"beside it, the full cap hit (D16(i)'s rule): ${d['full_cap_hit_value_M'].sum():,.2f}M; on LTIR when traded "
+        f"(v1.8, relieved in full): {int(d['ltir_at_trade'].sum())}, ${d['value_no_ltir_M'].sum() - d['value_M'].sum():,.2f}M")
     for r in d.sort_values("value_M").itertuples():
         log(f"  {r.trade_date}  {r.player_name:<22} cap hit ${r.contract_cap_hit / 1e6:5.3f}M"
             f"{f' (retained ${r.retained / 1e6:.3f}M)' if r.retained else ''} to {r.last_season}-{str(r.last_season + 1)[2:]}: "
