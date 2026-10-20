@@ -378,7 +378,8 @@ def contract_spans_at(rows, signed, as_of):
         if has:
             r0 = rows.loc[rows["contract_id"] == cid].iloc[0]
             off = pd.to_datetime(r0.get("pp_off_contract"), errors="coerce")
-            if int(r0.get("pp_cut_short", 0) or 0) and pd.notna(off) and as_of < off:
+            cut = r0.get("pp_cut_short", 0)          # blank on rows other scripts add (the 2017 page's CapWages deals)
+            if pd.notna(cut) and int(cut) and pd.notna(off) and as_of < off:
                 end = int(r0["pp_signed_end"])
         out[c] = [int(first[cid]), end, int(last[cid])]
     for a, (fa, ea, _) in list(out.items()):
