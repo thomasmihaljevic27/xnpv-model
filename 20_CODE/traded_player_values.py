@@ -12,6 +12,10 @@ of each page). This values each traded asset directly, on the engine the panel u
     contracts and extensions the club held on that date are the ones valued; for a post-season trade (valued on the
     next page) the window starts after the trade, so as_of is the page date, July 1, and every contract signed
     between the trade and that July 1 is LISTED (it was known to the page, not to the trade).
+  * THE SEASON LEFT AND RETAINED SALARY (v1.2, Thomas 2026-10-19): a trade during the regular season counts only the
+    share of that season's days left (trade_page.season_left_share), for value and cap hit alike; the acquirer pays
+    (1 - retained share) of the retained contract's cap hit (trades.db retention_pct; the contract being played only),
+    and retained_pv records what the retaining club pays (positive dollars, at the page's cap).
   * RIGHTS ONLY (v1.1, every trade; v1.0 post-season trades only): when the contract the page would value was signed
     after the trade, the club acquired his rights, not that contract. Status "rights only (...)", valued by
     rights_values.py (RFA: his control seasons from the page; UFA: zero).
@@ -33,12 +37,13 @@ from pathlib import Path
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "traded_player_values.py v1.1 (2026-10-18)"   # v1.1: rights only for any trade before his contract
+SCRIPT_VERSION = "traded_player_values.py v1.2 (2026-10-19)"   # v1.2: season left, retained salary; v1.1: rights only
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_source as CS                         # noqa: E402
 import contract_npv as CN                            # noqa: E402
 from skater_forward_projection import page_date   # noqa: E402
+import trade_page as TP                              # noqa: E402  v1.2: the share of the season left
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 FIRST_PAGE = 2018
 LOG = []
@@ -58,6 +63,11 @@ def main():
     pc, _ = CS.load_contracts()
     PPID = {int(b): int(a) for a, b in zip(pc["player_id"], pc["nhl_id"]) if pd.notna(a) and pd.notna(b)}
     eng = CN.NPVEngine()
+    # v1.2 (Thomas, 2026-10-19: "Yes, include retained salary"): trades.db's retained share of each asset's cap hit
+    import sqlite3
+    ret = pd.read_sql("select asset_id, retention_pct, retained_aav from trade_assets where retained_aav > 0",
+                      sqlite3.connect(Path(os.environ["SOURCE_DIR"]) / "trades.db"))
+    RET = dict(zip(ret["asset_id"], ret["retention_pct"].astype(float)))
     rows = []
     for _, r in v.iterrows():
         st, y = str(r["status"]), int(r["valuation_page"])
@@ -103,11 +113,16 @@ def main():
                     masked[int(c)] = sg
                     eng.sp.signed[int(c)] = pd.NaT
             rec["signed_after_trade_left_out"] = len(masked)
-        d, s = eng.npv(pid, y, as_of)
+        # v1.2 (Thomas, 2026-10-19: "Yes, account for in-season trades"; "Days left, value and cap"): the season left on
+        # the trade date (1.0 off-season and for a post-season trade, valued on the next page), and the retained share
+        share = TP.season_left_share(date, y)
+        rpct = float(RET.get(r["asset_id"], 0.0))
+        rec.update({"season_share": share, "retained_pct": rpct})
+        d, s = eng.npv(pid, y, as_of, first_season_share=share, retained_pct=rpct)
         eng.sp.signed.update(masked)                    # restore the dates for every other valuation
         rec.update({"player_id": pid, "as_of": as_of.date(), "status": s.get("status"),
                     **{k: s[k] for k in ("npv_total", "npv_contract", "npv_terminal", "npv_total_qo",
-                                         "npv_total_term_free", "n_contract_seasons") if k in s}})
+                                         "npv_total_term_free", "n_contract_seasons", "retained_pv") if k in s}})
         if s.get("status") == "no_contract":
             rec["status"] = "no contract at the page"
         rows.append(rec)

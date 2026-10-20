@@ -32,6 +32,9 @@ chain), expiry status (UFA / RFA), entry level or not; the signing date (for the
   The engine instance is this script's own; nothing the live chain writes is changed.
 
 CAP: every npv_total is in dollars at the 2017-18 page's cap (v1.2: the buried rows too).
+SEASON LEFT AND RETAINED SALARY (v1.4, Thomas 2026-10-19): a trade during 2017-18 counts only the share of its days left
+(trade_page.season_left_share); the acquirer carries (1 - retained share) of the running contract's cap hit (trades.db
+retention_pct), and retained_pv is what the retaining club pays, at the 2017-18 cap.
 OUTPUTS: OUTPUT_DIR/page_2017_values.csv (one row per asset: the contract used, npv_total and its parts, status),
 page_2017_values_log.txt.
 Run from the repo root:  python 20_CODE/page_2017_values.py   (after contracts_2017.py and prospect_values.py)
@@ -45,7 +48,7 @@ import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "page_2017_values.py v1.3 (2026-10-18)"   # v1.3: pages found here, buried from the page on at ex-ante caps; v1.2: one cap
+SCRIPT_VERSION = "page_2017_values.py v1.4 (2026-10-19)"   # v1.4: season left, retained salary; v1.3: pages found here
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_source as CS                         # noqa: E402
@@ -88,6 +91,13 @@ def main():
               True: PV.season_table(SOURCE_DIR / "Goalies_WAR.csv", "Goalie")}
 
     eng = CN.NPVEngine()
+    # v1.4 (Thomas, 2026-10-19: "Yes, include retained salary"; "Yes, account for in-season trades"): trades.db's
+    # retained share of each asset's cap hit, and the share of 2017-18's days left on the trade date
+    import sqlite3
+    import trade_page as TP
+    _ret = pd.read_sql("select asset_id, retention_pct from trade_assets where retained_aav > 0",
+                       sqlite3.connect(SOURCE_DIR / "trades.db"))
+    RET = dict(zip(_ret["asset_id"], _ret["retention_pct"].astype(float)))
     sp = eng.sp
     next_cid, next_pid = -1, -1
     rows = []
@@ -103,10 +113,12 @@ def main():
                                           or ((eng.gp_spine["player_id"] == pid0)
                                               & (eng.gp_spine["season_start"] == PAGE)).any())
             if has17:
-                d, sm = eng.npv(pid0, PAGE, pd.Timestamp(r.trade_date))
+                share, rpct = TP.season_left_share(r.trade_date, PAGE), float(RET.get(r.asset_id, 0.0))
+                d, sm = eng.npv(pid0, PAGE, pd.Timestamp(r.trade_date), first_season_share=share, retained_pct=rpct)
                 rec.update({"player_id": pid0, "contract": "PuckPedia (no CapWages contract)",
-                            "status": sm.get("status")})
-                for kk in ("npv_total", "npv_contract", "npv_terminal", "npv_total_qo", "npv_total_term_free"):
+                            "status": sm.get("status"), "season_share": share, "retained_pct": rpct})
+                for kk in ("npv_total", "npv_contract", "npv_terminal", "npv_total_qo", "npv_total_term_free",
+                           "retained_pv"):
                     if kk in sm:
                         rec[kk] = sm[kk]
             else:
@@ -192,13 +204,14 @@ def main():
             sp.spine = pd.concat([sp.spine[~((sp.spine["player_id"] == pid) & sp.spine["season_start"].isin(seasons_used))],
                                   nd], ignore_index=True)
             eng.gp_spine = eng.gp_spine[eng.gp_spine["player_id"] != pid]
-        d, sm = eng.npv(pid, PAGE, date)
+        share, rpct = TP.season_left_share(date, PAGE), float(RET.get(r.asset_id, 0.0))     # v1.4
+        d, sm = eng.npv(pid, PAGE, date, first_season_share=share, retained_pct=rpct)
         rec.update({"player_id": pid, "position": pg, "war_name": wname, "contract": c0["type"],
                     "signed": c0["signing_date"].date(), "cap_hit_2017": c0["seasons"][PAGE],
                     "contract_last_season": max(c0["seasons"]), "expiry": c0.get("expiry_raw"),
                     "extensions": len(chain) - 1, "chain_last_season": max(chain[-1]["seasons"]),
-                    "ufa_year": ufa, "status": sm.get("status")})
-        for kk in ("npv_total", "npv_contract", "npv_terminal", "npv_total_qo", "npv_total_term_free"):
+                    "ufa_year": ufa, "status": sm.get("status"), "season_share": share, "retained_pct": rpct})
+        for kk in ("npv_total", "npv_contract", "npv_terminal", "npv_total_qo", "npv_total_term_free", "retained_pv"):
             if kk in sm:
                 rec[kk] = sm[kk]
         if sm.get("status") in ("unpriced_no_anchor", "unpriced_no_history"):
@@ -206,10 +219,19 @@ def main():
             # the cap hit above the burial allowance (league minimum + $375K) over the contracts held, no value
             # v1.3 (2026-10-18): the seasons from the page on (v1.0-v1.2 also counted a contract's seasons before 2017-18),
             # each divided by the ceiling a GM on this page planned with (D11's 3% path), not the realised one
-            cost = sum(max(0.0, nd.loc[i, "cost"] - (SFP.league_min_path(int(nd.loc[i, "season_start"]))
-                                                     + BURY_ABOVE_MIN))
-                       / SFP.cap_path(PAGE, int(nd.loc[i, "season_start"]) - PAGE)
-                       for i in nd.index if int(nd.loc[i, "season_start"]) >= PAGE)
+            # v1.4 (2026-10-19): 2017-18 counts its share of days left; the acquirer carries (1 - retained share) of
+            # the running contract's cap hit, and the retaining club pays the retained part in full (retained_pv)
+            cid0 = int(nd["contract_id"].iloc[0])               # the running contract (chain[0]): the one retained
+            cost = ret = 0.0
+            for i in nd.index:
+                y_ = int(nd.loc[i, "season_start"])
+                if y_ < PAGE:
+                    continue
+                w, ceil = (share if y_ == PAGE else 1.0), SFP.cap_path(PAGE, y_ - PAGE)
+                r_ = rpct if int(nd.loc[i, "contract_id"]) == cid0 else 0.0
+                cost += w * max(0.0, nd.loc[i, "cost"] * (1 - r_) - (SFP.league_min_path(y_) + BURY_ABOVE_MIN)) / ceil
+                ret += w * nd.loc[i, "cost"] * r_ / ceil
+            rec["retained_pv"] = ret * SFP.CAP_CEILING[PAGE]
             # v1.2 (2026-10-18): stated at the 2017-18 cap, as every other row of this file (the engine prices at
             # the page's ceiling); v1.0-v1.1 stated these rows at the 2025-26 cap, so one column held two caps
             rec.update({"status": "buried veteran (cost above burial)", "npv_total": -cost * SFP.CAP_CEILING[PAGE] + 0.0,

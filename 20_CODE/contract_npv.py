@@ -1,8 +1,10 @@
 """
 =============================================================================
- contract_npv.py   v2.9                             Phase 1d
+ contract_npv.py   v3.1                             Phase 1d
                                   xNPV 1 prices skater contracts (2026-10-02)
 =============================================================================
+ v3.1 (2026-10-19, Thomas): npv() takes a trade's season left and retained share (defaults: unchanged).
+ v3.0 (2026-10-19, Thomas): PuckPedia's cap hit; the chain as known on the date (buyouts, replaced deals).
  v2.9 (2026-10-18): the goalie CBA age on the calendar (rfa_terminal_value.cba_age).
  v2.8 (2026-10-18): a skater with no contract for the page reads "no_contract" (was "unpriced_no_anchor").
  v2.7 (2026-10-14, Thomas): goalie control seasons follow rfa_terminal_value v2.5. The arbitration
@@ -264,7 +266,7 @@ F_GOALIE_SPINE = OUTPUT_DIR / "goalie_value_spine_v2.csv"
 F_SEASON_SPINE = OUTPUT_DIR / "contract_season_spine.csv"
 OUT_SPINE = OUTPUT_DIR / "contract_npv_spine.csv"
 OUT_LOG = OUTPUT_DIR / "contract_npv_run_log.txt"
-SCRIPT_VERSION = "3.0"   # 3.0 (2026-10-19): PuckPedia's cap hit; the chain as known on the date (buyouts, replaced deals)   # printed first in the run log (25_TESTS/xnpv0_removal_check.py reads it)
+SCRIPT_VERSION = "3.1"   # 3.1: a trade's season left and retained share; 3.0: PuckPedia's cap hit, the chain as known on the date. Printed first in the run log (25_TESTS/xnpv0_removal_check.py reads it)
 
 # ---- locked goalie constants (P2 close-out, 2026-06-30) --------------------
 # The documented narrative values (alpha 1.398% cap, beta 1.097%/WAR, league
@@ -545,20 +547,29 @@ class NPVEngine:
         return table.get((b, g), table.get((b, "ALL"), 0.0))
 
     # ---- the main query -------------------------------------------------------
-    def npv(self, player_id, valuation_season, as_of=None):
+    def npv(self, player_id, valuation_season, as_of=None, first_season_share=1.0, retained_pct=0.0):
         """Full discounted NPV from `valuation_season`, over the contract
         being played plus every extension signed by `as_of` (v1.4; default
         July 1 of valuation_season). Returns (per-season detail DataFrame
-        incl. terminal rows, summary dict)."""
+        incl. terminal rows, summary dict).
+
+        v3.1 (2026-10-19, Thomas: "Yes, account for in-season trades"; "Yes, include retained salary"), for a TRADE's
+        valuation only (the defaults leave every other caller unchanged):
+          first_season_share  the share of the valuation season left (trade_page.season_left_share): the first
+                              season's value and cap hit are both multiplied by it;
+          retained_pct        the share of the cap hit the trading club retained, on the contract being played
+                              (chain[0]) only: the acquirer pays (1 - retained_pct) of each of its seasons; extensions
+                              and control seasons are not retained. The summary's retained_pv is what the retaining
+                              club pays: retained_pct x cap hit over the same seasons, prorated and discounted alike."""
         row = self.sp.spine[self.sp.spine["player_id"] == player_id]
         if not row.empty:
-            return self._npv_skater(player_id, valuation_season, as_of)
+            return self._npv_skater(player_id, valuation_season, as_of, first_season_share, retained_pct)
         row = self.gp_spine[self.gp_spine["player_id"] == player_id]
         if not row.empty:
-            return self._npv_goalie(player_id, valuation_season, as_of)
+            return self._npv_goalie(player_id, valuation_season, as_of, first_season_share, retained_pct)
         return pd.DataFrame(), {"status": "unknown_player"}
 
-    def _npv_skater(self, pid, t0, as_of=None):
+    def _npv_skater(self, pid, t0, as_of=None, share=1.0, retained_pct=0.0):
         pr = self.sp.project_contract(pid, t0, as_of)
         if pr.empty:
             # v2.8 (2026-10-18, the bug sweep): project_contract is empty both when he holds no contract with a row in
@@ -568,16 +579,23 @@ class NPVEngine:
             chain = contract_chain(self.sp.spine, pid, t0, self.sp.signed, check_as_of(t0, as_of))
             return pr, {"status": "unpriced_no_anchor" if chain else "no_contract"}
         det = []
+        retained_pv = 0.0
+        cid0 = int(pr["active_contract_id"].iloc[0])          # the contract being played: the one a trade can retain
         for _, r in pr.iterrows():
             k = int(r["k"])
             # xNPV 1's chance he plays season k, k = 0 included, read directly
             # (each season's own probability, not a chain of exits).
             S = float(r["p_play"])
             disc = (1 + G) ** (-k)
-            pv = (S * r["value_dollars"] - r["cost_dollars"]) * disc
+            # v3.1: a trade's season left (k = 0) and the acquirer's share of a retained contract's cap hit
+            w = share if k == 0 else 1.0
+            keep = 1.0 - retained_pct if int(r["contract_id"]) == cid0 else 1.0
+            cost = r["cost_dollars"] * keep
+            retained_pv += r["cost_dollars"] * (1.0 - keep) * w * disc
+            pv = (S * r["value_dollars"] - cost) * w * disc
             # directive 4: the term-free sensitivity, same chance and discount
-            pv_f = (S * r["value_dollars_term_free"] - r["cost_dollars"]) * disc
-            det.append({**r, "row_type": "contract", "survival": S,
+            pv_f = (S * r["value_dollars_term_free"] - cost) * w * disc
+            det.append({**r, "row_type": "contract", "survival": S, "season_share": w, "cost_carried": cost,
                         "discount": disc, "pv_dollars": pv, "pv_dollars_term_free": pv_f})
         npv_contract = sum(d["pv_dollars"] for d in det)
         npv_contract_f = sum(d["pv_dollars_term_free"] for d in det)
@@ -622,11 +640,12 @@ class NPVEngine:
                    "npv_total_term_free": npv_contract_f + npv_tv_f,
                    # v2.5: the QO chain without arbitration, beside the headline
                    "npv_terminal_qo": npv_tv_q, "npv_total_qo": npv_contract + npv_tv_q,
+                   "first_season_share": share, "retained_pct": retained_pct, "retained_pv": retained_pv,
                    "surplus_no_survival":
                        float(pr["surplus_dollars"].sum())
                        + tvs.get("tv_adjusted", 0.0)}
 
-    def _npv_goalie(self, pid, t0, as_of=None):
+    def _npv_goalie(self, pid, t0, as_of=None, share=1.0, retained_pct=0.0):
         # v1.4: the same contract chain as the skater branch -- the contract
         # being played plus every extension signed by `as_of`.
         as_of = check_as_of(t0, as_of)
@@ -658,6 +677,7 @@ class NPVEngine:
         # 5 of 54 appeared at k=1, so the state is near-absorbing. Slightly
         # conservative, and named as such.
         det = []
+        retained_pv = 0.0
         S = STALE_GATE if src == "stale_anchor" else 1.0
         for k, (_, r) in enumerate(crows.iterrows()):
             season = int(r["season_start"])
@@ -674,13 +694,17 @@ class NPVEngine:
             val = max((ALPHA_G + BETA_G * pw) * ceil,
                       league_min_path(season))          # D10 floor
             disc = (1 + G) ** (-k)
-            pv = (S * val - r["cost"]) * disc
+            # v3.1: a trade's season left (k = 0) and the acquirer's share of a retained contract's cap hit
+            w = share if k == 0 else 1.0
+            keep = 1.0 - retained_pct if int(r["contract_id"]) == int(cid) else 1.0
+            retained_pv += r["cost"] * (1.0 - keep) * w * disc
+            pv = (S * val - r["cost"] * keep) * w * disc
             det.append({"player_id": pid, "full_name": r["full_name"],
                         "contract_id": int(r["contract_id"]),
                         "season_start": season, "k": k,
                         "row_type": "contract", "projected_war": pw,
                         "value_dollars": val, "cost_dollars": r["cost"],
-                        "surplus_dollars": val - r["cost"],
+                        "surplus_dollars": val - r["cost"], "season_share": w, "cost_carried": r["cost"] * keep,
                         "survival": S, "discount": disc, "pv_dollars": pv})
         npv_contract = sum(d["pv_dollars"] for d in det)
 
@@ -767,6 +791,7 @@ class NPVEngine:
                    "npv_contract_term_free": npv_contract, "npv_terminal_term_free": npv_tv,
                    "npv_total_term_free": npv_contract + npv_tv,
                    "npv_terminal_qo": npv_tv_q, "npv_total_qo": npv_contract + npv_tv_q,
+                   "first_season_share": share, "retained_pct": retained_pct, "retained_pv": retained_pv,
                    "surplus_no_survival":
                        float(sum(x["surplus_dollars"] for x in det))}
 

@@ -46,7 +46,7 @@ import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "rights_values.py v1.3 (2026-10-18)"   # v1.3: CBA age on the calendar; v1.2: in-window trades too
+SCRIPT_VERSION = "rights_values.py v1.4 (2026-10-19)"   # v1.4: the season left; v1.3: CBA age on the calendar
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_npv as CN                                         # noqa: E402
@@ -55,6 +55,7 @@ import prospect_values as PV                                      # noqa: E402
 from player_season_table import norm_name                         # noqa: E402
 from skater_forward_projection import page_date, cap_path, league_min_path   # noqa: E402
 from rfa_terminal_value import qualifying_offer, arb_eligible     # noqa: E402
+import trade_page as TP                                           # noqa: E402  v1.4: the share of the season left
 OUTPUT_DIR, SOURCE_DIR = Path(os.environ["OUTPUT_DIR"]), Path(os.environ["SOURCE_DIR"])
 LOG = []
 
@@ -64,8 +65,9 @@ def log(s=""):
     LOG.append(str(s))
 
 
-def goalie_rights(eng, pid, t0, crows, as_of):
-    """The goalie branch's terminal block (contract_npv._npv_goalie), the chain at 1.0, first control season k = 0."""
+def goalie_rights(eng, pid, t0, crows, as_of, share=1.0):
+    """The goalie branch's terminal block (contract_npv._npv_goalie), the chain at 1.0, first control season k = 0.
+    v1.4: `share`, the share of the first control season left on the trade date (trade_page.season_left_share)."""
     from contract_npv import ALPHA_G, BETA_G, G, ARB_NEED, signing_year
     from rfa_terminal_value import cba_age
     nname = crows.iloc[0]["nname"]
@@ -98,7 +100,7 @@ def goalie_rights(eng, pid, t0, crows, as_of):
         if val - cost < 0:
             break                                       # D13
         S_tv *= eng.g_control_weight
-        tv += S_tv * (val - cost) * (1 + G) ** (-k)
+        tv += S_tv * (val - cost) * (1 + G) ** (-k) * (share if j == 1 else 1.0)    # v1.4: the season left
         sal, cap_hit = cost, cost
     return tv, "ok"
 
@@ -170,8 +172,12 @@ def main():
             rows.append(rec)
             continue
         as_of = page_date(P)
+        # v1.4 (Thomas, 2026-10-19: "Yes, account for in-season trades"): a trade inside the page's regular season
+        # counts only the share of its first control season left (1.0 for a post-season or off-season trade)
+        share = TP.season_left_share(date, P)
+        rec["season_share"] = share
         if gk:
-            v, st = goalie_rights(eng, pid, P, crows, as_of)
+            v, st = goalie_rights(eng, pid, P, crows, as_of, share)
             rec.update({"status": st, "value_M": None if v is None else v / 1e6})
         else:
             d, sm = eng.tv.terminal_value(pid, P, as_of, expired_contract_id=cid)
@@ -180,7 +186,7 @@ def main():
                 if sm.get("status") in ("ufa_expiry", "rfa_no_control_years_DATA_FLAG"):
                     rec["value_M"] = 0.0
             else:
-                disc = lambda j: (1 + CN.G) ** (-(j - 1))                   # noqa: E731  k = j - 1 from page P
+                disc = lambda j: (1 + CN.G) ** (-(j - 1)) * (share if j == 1 else 1.0)   # noqa: E731  k = j - 1; v1.4: season left
                 rec.update({"status": "ok", "n_control": sm["n_control"],
                             "value_M": float(sum(x.surplus_adjusted * disc(x.j) for x in d.itertuples())) / 1e6,
                             "value_qo_M": float(sum(x.surplus_adjusted_qo * disc(x.j) for x in d.itertuples())) / 1e6,

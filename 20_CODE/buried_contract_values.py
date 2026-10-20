@@ -26,7 +26,8 @@ WHAT HE IS WORTH
     50.5; NOT yet read from the CBA text (flagged).
   * cap hit carried = PuckPedia's cap hit of the contract running on the trade date, less trades.db's retained
     amount when the trading club retained part of it.
-  * the trade season counts in full, as for prospects.
+  * the trade season counts only its share of days left (v1.5, Thomas 2026-10-19; trade_page.season_left_share).
+  * retained_value_M (v1.5): what the club that retained part of the cap hit pays, in full, over the same seasons.
   * no on-ice value: no forecast exists, and these players are in the minors or on long-term injury.
 
 INPUTS: OUTPUT_DIR/prospect_values.csv, contract_npv_panel.csv; SOURCE_DIR/trades.db; the PuckPedia contract export
@@ -43,11 +44,12 @@ from pathlib import Path
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "buried_contract_values.py v1.5 (2026-10-19)"   # v1.5: a buyout's full term before it; v1.4: ex-ante ceilings
+SCRIPT_VERSION = "buried_contract_values.py v1.6 (2026-10-19)"   # v1.6: season left, retaining club; v1.5: a buyout's full term before it
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_source as CS                        # noqa: E402
 import skater_forward_projection as SFP             # noqa: E402  ceilings and league minimums
+import trade_page as TP                             # noqa: E402  v1.5: the share of the season left
 SOURCE_DIR, OUTPUT_DIR = Path(os.environ["SOURCE_DIR"]), Path(os.environ["OUTPUT_DIR"])
 BURY_ABOVE_MIN = 375_000                            # PuckPedia "Buried Threshold" = minimum + $375K (CBA text unread)
 CAP_NOW = SFP.CAP_CEILING[2025]
@@ -109,19 +111,28 @@ def main():
             continue
         c = run.sort_values("signed").iloc[-1]
         last_c = int(last_at[c.name])
-        carried = float(c["cap_hit"]) - float(RET.get(r["asset_id"], 0) or 0)
-        cost, seasons = 0.0, []
+        retained = float(RET.get(r["asset_id"], 0) or 0)
+        carried = float(c["cap_hit"]) - retained
+        # v1.6 (Thomas, 2026-10-19: "Yes, account for in-season trades"; "Yes, include retained salary"): the trade
+        # season counts only its share of days left; the retaining club pays the retained part in full (a retained
+        # cap hit cannot be buried by the club that kept it)
+        share0 = TP.season_left_share(date, y)
+        cost, ret_cost, full, seasons = 0.0, 0.0, 0.0, []
         for s in range(y, last_c + 1):
+            w = share0 if s == y else 1.0
             allowance = SFP.league_min_path(s) + BURY_ABOVE_MIN
-            share = max(0.0, carried - allowance) / SFP.cap_path(y, s - y)   # v1.4: D11's 3% path from the page
-            cost += share
-            seasons.append(f"{s}: ${carried / 1e6:.3f}M - ${allowance / 1e6:.3f}M")
+            ceil = SFP.cap_path(y, s - y)                                     # v1.4: D11's 3% path from the page
+            cost += w * max(0.0, carried - allowance) / ceil
+            ret_cost += w * retained / ceil
+            full += w * carried / ceil
+            seasons.append(f"{s}: ${carried / 1e6:.3f}M - ${allowance / 1e6:.3f}M" + (f" x {w:.3f}" if w < 1 else ""))
         rows.append({"asset_id": r["asset_id"], "trade_date": r["trade_date"], "trade_season": y,
                      "player_name": r["player_name"], "acquiring_team": r["acquiring_team"], "nhl_id": nid,
                      "contract_cap_hit": float(c["cap_hit"]), "retained": float(RET.get(r["asset_id"], 0) or 0),
                      "last_season": last_c, "seasons_left": last_c - y + 1,
-                     "value_M": -cost * CAP_NOW / 1e6 + 0.0, "full_cap_hit_value_M": -sum(
-                         carried / SFP.cap_path(y, s - y) for s in range(y, last_c + 1)) * CAP_NOW / 1e6,
+                     "season_share": share0,
+                     "value_M": -cost * CAP_NOW / 1e6 + 0.0, "full_cap_hit_value_M": -full * CAP_NOW / 1e6 + 0.0,
+                     "retained_value_M": -ret_cost * CAP_NOW / 1e6 + 0.0,
                      "seasons": "; ".join(seasons), "prospect_status": st})
     d = pd.DataFrame(rows)
     log(f"\nTRADED VETERANS ON NHL CONTRACTS NEITHER MODEL VALUES (from the {first_page}-{str(first_page + 1)[2:]} page): "
