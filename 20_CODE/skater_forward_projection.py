@@ -436,7 +436,7 @@ def contract_chain(spine, player_id, t0, signed, as_of):
 def chain_rows(spine, player_id, chain, t0, signed, as_of):
     """v2.2 (2026-10-19): the chain's contract seasons from t0 on, one row per season, as known on `as_of`: each
     contract's played rows to its end on the date (contract_spans_at), plus, for a deal valued before its buyout, the
-    seasons signed for after its last season played, each a copy of its last played row at PuckPedia's cap hit
+    seasons signed for after its last season played, each a copy of its last played row (its cap hit)
     (after_buyout = 1). Every caller that prices a chain builds its rows here."""
     rows = spine[spine["player_id"] == player_id]
     spans = contract_spans_at(rows, signed, as_of)
@@ -455,8 +455,6 @@ def chain_rows(spine, player_id, chain, t0, signed, as_of):
                             "cs_perf_bonuses"):
                     if col in x.columns:
                         x[col] = np.nan
-                if "cost" in x.columns:
-                    x["cost"] = x["pp_cap_hit"]
                 parts.append(x)
     out = pd.concat(parts, ignore_index=True)
     return out[out["season_start"] >= t0].sort_values("season_start")
@@ -495,7 +493,7 @@ class SkaterProjector:
         # 2026-10-19 (Thomas: "PuckPedia's"): PuckPedia's cap hit, the source the price line is fitted on. Until
         # v2.1 the clause data's figure came first, which on 700 contract-seasons differed from PuckPedia's on the
         # same contract (Giroux $9.525M against $8.275M) and on others was another contract's (Marleau).
-        sk["cost"] = sk["pp_cap_hit"].astype(float)
+        sk["cost"] = sk["model_cap_hit"].astype(float)     # 2026-10-20: the clause figure after a late signing's year 1
         sk["bd"] = pd.to_datetime(sk["birthdate"], errors="coerce")
         self.spine = sk
 

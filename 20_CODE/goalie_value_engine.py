@@ -334,7 +334,7 @@ def build_spine(lam, alpha_g, beta_g, prorate, carry_out_years=False):
     import contract_source as _CS                # 2026-10-14: WAR spelling for crosswalked ids
     gl["full_name"] = _CS.war_full_name(gl, gl["full_name"])
     gl["nk"] = gl["full_name"].map(norm_name)
-    gl["cost"] = gl["pp_cap_hit"].astype(float)      # 2026-10-19 (Thomas: "PuckPedia's"): PuckPedia's cap hit
+    gl["cost"] = gl["model_cap_hit"].astype(float)   # 2026-10-19/20 (Thomas): PuckPedia's, the clause figure after a late signing's year 1
 
     rows = []
     for r in gl.itertuples():

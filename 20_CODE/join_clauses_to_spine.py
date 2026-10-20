@@ -77,8 +77,12 @@
 #         (ep_id, season) collapse that kept the most restrictive record, and the cap-hit-nearest overlap rule,
 #         gave a bought-out deal's record to the player's next contract (Marleau's $700K San Jose season carried
 #         his $6.25M Toronto figure). Each record attaches to one contract-season at most.
-#     The player model now charges PuckPedia's cap hit (pp_cap_hit); cs_cap_hit stays as the clause data's own
-#     figure, for clauses and bonuses only.
+#     The player model now charges PuckPedia's cap hit; cs_cap_hit stays as the clause data's own figure.
+#   v2.1 (2026-10-20; Thomas: "Clause data after year 1"): model_cap_hit, the cap hit every pricing script charges.
+#     PuckPedia's, except on a late signing: PuckPedia stores one figure per contract, which for a deal signed after
+#     the season began is the prorated first-season hit, repeated. Where the same contract's clause records equal
+#     PuckPedia's figure in the first season and differ after it, the later seasons take the clause figure
+#     (William Nylander $6.96M from 2019-20, not $10.28M; Hampus Lindholm $5.21M, not $5.71M; 8 contracts).
 # =============================================================================
 
 import os
@@ -94,7 +98,7 @@ load_dotenv()
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import contract_source as CS                      # noqa: E402  v2.0: contract_terms(), the seasons rule
 
-SCRIPT_VERSION = "join_clauses_to_spine.py v2.0 (2026-10-19)"   # v2.0: seasons from contract_terms; same-contract clauses
+SCRIPT_VERSION = "join_clauses_to_spine.py v2.1 (2026-10-20)"   # v2.1: model_cap_hit; v2.0: seasons from contract_terms
 CS_SIGNING_DAYS = 14       # v2.0: a clause record is the same contract when signed within 14 days of PuckPedia's date
 
 # -----------------------------------------------------------------------------
@@ -364,6 +368,20 @@ def join_spine_clauses(spine, clauses):
             f"({mm['has_any_clause'].fillna(0).mean():.1%})")
     return m
 
+def add_model_cap_hit(m):
+    """v2.1: model_cap_hit (see the header): PuckPedia's cap hit, the clause figure on a late signing's later seasons."""
+    m = m.copy()
+    m["model_cap_hit"] = m["pp_cap_hit"].astype(float)
+    hit = m[m["clause_matched"].astype(bool)]
+    first = hit[hit["season_start"] == hit["pp_first_season"]]
+    first_same = set(first.loc[(first["cs_cap_hit"] - first["pp_cap_hit"]).abs() <= 10, "contract_id"])
+    later = hit[(hit["season_start"] > hit["pp_first_season"]) & hit["contract_id"].isin(first_same)
+                & ((hit["cs_cap_hit"] - hit["pp_cap_hit"]).abs() > 10)]
+    m.loc[later.index, "model_cap_hit"] = later["cs_cap_hit"].astype(float)
+    log(f"[cap hit] v2.1 model_cap_hit: PuckPedia's, except {later['contract_id'].nunique()} late signings' later "
+        f"seasons ({len(later)} rows) at the clause figure")
+    return m
+
 # -----------------------------------------------------------------------------
 # 4. CONTRACT-LEVEL ROLLUP  (the clause-discount regression table)
 # -----------------------------------------------------------------------------
@@ -443,7 +461,7 @@ def main():
 
     spine   = load_spine()
     clauses = load_clauses()
-    season  = join_spine_clauses(spine, clauses)
+    season  = add_model_cap_hit(join_spine_clauses(spine, clauses))
     contract = contract_rollup(season)
 
     # drop internal helper col before writing the season file

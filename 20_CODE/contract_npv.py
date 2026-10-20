@@ -466,7 +466,7 @@ class NPVEngine:
         import contract_source as _CS            # 2026-10-14: WAR spelling for crosswalked ids
         full["full_name"] = _CS.war_full_name(full, full["full_name"])
         full["nname"] = full["full_name"].map(norm_name)
-        full["cost"] = full["pp_cap_hit"].astype(float)       # v3.0 (Thomas, 2026-10-19: "PuckPedia's")
+        full["cost"] = full["model_cap_hit"].astype(float)    # v3.0 (Thomas, 2026-10-19/20: "PuckPedia's", "Clause data after year 1")
         full["bd"] = pd.to_datetime(full["birthdate"], errors="coerce")
         self.gp_spine = full[full["position"] == "Goaltender"].copy()
         self.g_proj = GoalieProjector(full)
