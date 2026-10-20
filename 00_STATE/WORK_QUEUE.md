@@ -8,6 +8,14 @@
 
 ## Live (audited 2026-10-14)
 
+**Do (Claude, with Thomas's details): the back-test's three accounting rules (decided by Thomas, 2026-10-19).**
+1. "2025-26": every value is added at the 2025-26 cap (`trade_asset_values.csv`'s `value_2025_cap_M`).
+2. "Yes, include retained salary": the acquirer pays only the cap hit it carries; the retained part stays a cost to the club
+   that retained it. 72 traded assets carry retention (61 in two-team trades, 11 in three-team trades).
+3. "Yes, account for in-season trades": a trade during the regular season counts only the part of that season left after
+   it (the July conventions already said "Mid-season trades charged prorated cap cost"; the value side was pending).
+   897 traded assets moved during a regular season. The forecast still uses no in-season production (STANDING_FLAGS).
+
 **Decided 2026-10-19 (Thomas): keep the prospect model's age discount on production alone** ("For the form of the
 prospects age discounting I'm content with what we have then"; recorded in MODEL_DIRECTIVES directive 6, prospects,
 age). Was: decide whether to extend it to production squared (session 2026-10-19). Asked: why age gets its own term rather than discounting the production terms already in the

@@ -3535,3 +3535,11 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   $76.58M (drafted $70.57M, undrafted $6.01M); traded players, rights, buried contracts and
   the 2017 page unchanged; the join $-525.63M at the 2025-26 cap. PROJECT_STATE figures in force updated.
 
+### Change log, 2026-10-19d (the back-test's three accounting rules decided)
+
+- DECISIONS (Thomas, 2026-10-19), answering the three questions left by the bug sweep: (1) "2025-26": the back-test adds
+  every asset's value at the 2025-26 cap; (2) "Yes, include retained salary"; (3) "Yes, account for in-season trades".
+  Recorded in WORK_QUEUE with the counts (72 retained assets; 897 assets traded during a regular season). Not built yet:
+  the build details go to Thomas first. No locked decision (D1-D33) touched; (3) completes the July convention
+  "Mid-season trades charged prorated cap cost".
+
