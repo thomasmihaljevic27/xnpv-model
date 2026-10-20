@@ -200,7 +200,7 @@ def skater_rate_cap_pct(war, posgrp):
 # $1.673M), defence add 0.0037579 (was 0.0038753, -3%), term 0.0089301 (was 0.0089195). The line just above's
 # values (alpha -0.0043530319, beta 0.0175137032, beta_d_add 0.0038753270, gamma_term 0.0089195167; term-free
 # 0.0081699059 / 0.0310586846 / 0.0139734816) reproduce on the crosswalk-off sample (price_line_crosswalk_check.py).
-# RE-FITTED 2026-10-19 (Thomas: "Everywhere, re-lock"; built on a branch, for Thomas to lock), from xnpv1_price_line.py
+# RE-LOCKED 2026-10-20 (Thomas: "lock the re-fitted price line"; re-fitted 2026-10-19, "Everywhere, re-lock"), from xnpv1_price_line.py
 # v2.3 on the sample with bought-out deals at their own first season (contract_source.contract_terms; 14 such deals in
 # the sample, n 2,336 fitted against 2,323). At the 2025-26 ceiling: $1.674M per forecast win for forwards (was $1.675M),
 # defence add 0.0039447 (was 0.0037579, +5%), term 0.0089105 (was 0.0089301). The 2026-10-14 crosswalk lock (alpha
