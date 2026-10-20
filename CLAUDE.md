@@ -41,6 +41,8 @@ Built 2026-10-20: every script dates a contract by one rule (`contract_source.co
 own first season, its full signed term counted until the buyout is known); the model charges PuckPedia's cap hit
 (`model_cap_hit`); the price line is re-locked; the back-test's three rules are in (the 2025-26 cap, retained salary
 charged to the retaining club, the season left on in-season trades).
+Run 2026-10-20: the back-test (`trade_sides.py`, `backtest.py`; protocol `40_DOCS/Backtest_Protocol.md`, committed
+before the run). The Game Value check of its outcomes is not yet run.
 
 **Craft is retired as a canonical surface (2026-09-09).** Do not read it, reconcile against it,
 or sync to it. "How it works" explainers live in `40_DOCS/`. Precedence when sources conflict:
@@ -156,6 +158,14 @@ output's hash in `30_OUTPUT/trade_refresh_manifest.json`. `--output-dir DIR` run
 any script in its chain): this chain reads its outputs. It fetches no CapWages page (`contracts_2017.py --fetch` stays a
 step run by hand, with Thomas's approval each time); the draft linkage pulls a draft year from records.nhl.com only if
 its cached file in `30_OUTPUT/draft_raw/` is missing.
+
+The back-test, after `trade_refresh.py` (both by hand; not in its chain):
+
+    python 20_CODE/trade_sides.py   # each club's side of each trade, zero-sum
+    python 20_CODE/backtest.py      # outcomes, club sides, the protocol's tests (about 10 minutes)
+
+Its rules, tests and groups are in `40_DOCS/Backtest_Protocol.md`, committed before the first run; a change to any of
+them after a run goes in as a dated amendment saying what changed and why.
 
 To answer questions about the curve on the spot: `python 25_TESTS/pick_lookup.py --help`. Each finding in
 `Valuing Draft Picks.docx`, with its command and expected value: `40_DOCS/Valuing_Draft_Picks_Reproduction.md`.

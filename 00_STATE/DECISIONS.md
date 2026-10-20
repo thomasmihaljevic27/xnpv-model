@@ -3609,3 +3609,24 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   `trade_asset_values.py` v1.2 read it. Laptop equals the tested run. The 15 acquirers $-73.27M -> $-54.02M, their
   retaining clubs $-19.25M; the join total unchanged at $-357.29M; retained salary in all $-92.63M. No locked decision
   (D1-D33) touched: it completes the retained-salary rule decided 2026-10-19. Session log sessions/2026-10-18.md.
+
+### Change log, 2026-10-20c (the three models put together; the back-test run)
+
+- DECISIONS (Thomas, 2026-10-20, asked before anything ran; each the recommended option): the outcome "Played + rest
+  re-valued" (seasons through 2025-26 as delivered, the rest by the same models at the 2026-27 page); the cost of control
+  and draftee seasons "The model's rule"; the statistic "Dollar gap per club", which reopens the July convention that
+  outputs are surplus ratios (Modeling conventions, "Outputs are surplus ratios"; flagged for review 2026-09-09); a
+  contract signed with the acquirer on the trade date "Leave the extension out" (closes the WORK_QUEUE Pacioretty item).
+- BUILT: `trade_sides.py` v1.0 (club sides, zero-sum, retention moved once); `traded_player_values.py` v1.4,
+  `page_2017_values.py` v1.6 (15 same-day contracts left out; join $-357.29M -> $-274.27M at the 2025-26 cap);
+  `pick_curve.py` v1.10 (2018-2025 drafts priced for the back-test, in no fit; the curve's outputs unchanged);
+  `40_DOCS/Backtest_Protocol.md` committed before the run (0d898b4), two amendments after the first run (buyouts,
+  spellings); `backtest.py` v1.2.
+- RESULTS (563 complete trades; sessions/2026-10-20.md has every figure): the forecast's verdict comes true on average
+  (slope 0.919 [0.746, 1.061]; the favoured club ahead in 57.2% of trades); players delivered less than forecast (mean
+  -$0.341M an asset, p = 0.001); the club taking picks and prospects for players gains in forecast and outcome (+$1.49M,
+  +$1.19M a side), a group the draftee costing flag bears on; buyers higher in the standings lose less than forecast
+  (+$0.32M, p = 0.014, one of nine tests). Not yet the Game Value check: no group finding is called systematic.
+- Locked decisions touched: the surplus-ratio convention (above, Thomas's choice). D11/D17 unchanged (realised seasons at
+  actual caps, as the pick curve). D13-D14(c) are forecast rules; the outcome uses whether he played. Session log
+  sessions/2026-10-20.md.

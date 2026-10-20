@@ -15,6 +15,17 @@ scale knowable at each trade. DECIDED then SUPERSEDED (Thomas, 2026-10-09): one 
 beyond 2015-2016 (pick_review_checks.py); the knowable scale was
 pooled reported as the sensitivity.
 
+**The forecast reads a later non-qualification (look-ahead, found 2026-10-20).** `rfa_terminal_value.terminal_value`
+returns zero control years when the contract's PuckPedia expiry is "UFA no QO". That label records the club's decision
+at the contract's end, so a contract valued before then sees a decision not yet made. Up to 68 traded-player assets have
+a contract running at their page with the label (Hartman 2019-02-25, Donato, Duclair, Guhle); the panel's contract
+pages carry it too. Not measured. The back-test's forecast side carries it (sessions/2026-10-20.md).
+
+**The back-test's outcomes share the forecast's source (2026-10-20).** Delivered value is priced from Bacon's WAR, as
+the forecast is. The Game Value check (the locked circularity validators) has not been run on the outcomes; until it
+is, no back-test group finding is called systematic. Long-term injury relief is not modelled (Ryan Ellis, -$33.45M of
+the players' -$226.6M miss).
+
 **Picks and players are costed differently (identification, 2026-10-09).** A drafted player is charged
 the entry-level maximum then qualifying offers; a rostered player is charged his actual cap hit. The
 chain under-charges: actual pay over the control window runs 3.2x the chain for picks 1-10 and 2.1x for

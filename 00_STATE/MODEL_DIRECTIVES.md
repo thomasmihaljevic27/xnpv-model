@@ -1331,3 +1331,16 @@ his decision before the code it touches is changed.
      check measures it before the back-test is read. Options not chosen: a line fitted on delivered
      wins (two currencies for one player, the 10-02 tilt); the Stage 3 line (60/40 trailing wins).
      Left to the restart with the supervisor: how a drafted player's entry-level seasons are costed.
+
+## The back-test (Thomas, 2026-10-20)
+
+Asked before the first run, each answered with the option offered as recommended; built in `backtest.py` v1.2 on the
+protocol `40_DOCS/Backtest_Protocol.md` (committed 0d898b4 before the run). Status: **implemented**.
+1. **The outcome**, "Played + rest re-valued": seasons through 2025-26 priced on what was delivered (open decision 3's
+   currency), the seasons after valued by the same models at the 2026-27 page.
+2. **The cost of control and draftee seasons**, "The model's rule": entry-level maximum, qualifying offer, arbitration
+   price, as the forecast and the pick curve charge; not what clubs actually paid.
+3. **The statistic**, "Dollar gap per club": each club's received value minus what it gave up, $M at the 2025-26 cap.
+   It replaces the July convention of surplus ratios for the back-test.
+4. **A contract signed with the acquirer on the trade date**, "Leave the extension out": not part of the trade, in the
+   forecast and the outcome (`traded_player_values.py` v1.4, `page_2017_values.py` v1.6).

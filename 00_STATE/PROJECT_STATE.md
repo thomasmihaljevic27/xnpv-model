@@ -66,7 +66,7 @@ Written from the code that runs (versions as printed by each script) and the ses
 | Draft picks | Pick curve built 2026-10-09; arbitration cost adopted 2026-10-13; CBA signing age and the forecast-consistent arbitration price 2026-10-14 | `draft_pick_linkage.py` v1.1, `elc_signing_dates.py` v1.0, `pick_curve.py` v1.5, `traded_pick_values.py` v1.2 |
 | Prospects | Built 2026-10-14: slot, production adjusted to NHL terms (NHLe) and age, with the slot-only version beside (the no-age version dropped 2026-10-15); undrafted players on NHL contracts on the same model with the slot at zero; traded prospects valued; deceased draftees out of every fit | `prospect_values.py` v1.7; data `ep_extract.py` v3.5, `ep_nhl_bridge.py` v1.1 |
 | Game-level metric (Game Value) | Built 2026-07-03; used for the circularity checks | game-level chain (below) |
-| Back-test | Not started. A delivered win is priced on the contract line (open decision 3) | none yet |
+| Back-test | Run 2026-10-20 on the protocol `40_DOCS/Backtest_Protocol.md` (Thomas: outcome realised to 2025-26 plus the 2026-27 page; rule cost; dollar gap per club). Forecast predicts outcome (slope 0.919); players below forecast; Game Value check not yet run | `trade_sides.py` v1.0, `backtest.py` v1.2 |
 
 - **Validation of the skater forecast.** The 2022-2025 confirmation (2026-10-02) and the revalidation of the built
   forecast (2026-10-05): season-WAR RMSE 0.8932 against xNPV 0's 0.9724, lower squared error in 2,000 of 2,000 player
@@ -171,7 +171,7 @@ initials, Elite Prospects' spelling, a namesake guard); every id-name disagreeme
 | Prospect star value by seasons since the draft | 18.18/17.94/16.16/9.44/2.59 (2026-10-20; D+1, D+2, D+3, D+4, D+5 on; $M at the 2025-26 cap) | `prospect_values.py` |
 | Traded prospects (196 assets, 169 players, 2017-07-01 to 2022-03-28) | $71.2M (draft position, production and age); draft position alone $61.78M (2026-10-20; was $70.57M / $61.19M on 2026-10-19) | `prospect_values.py` |
 | Traded prospects, drafted and undrafted (249 assets) | $77.32M (2026-10-20; was $76.58M) | `prospect_values.py` |
-| Traded assets joined (`trade_asset_values.csv`, 2017-07-01 to 2022-03-28) | 1,561 assets (927 players, 634 picks) and 87 retained-salary entries; 1,645 valued; at the 2025-26 cap $-357.29M: players $-762.00M (retained salary $-92.63M among them, 87 retentions, 15 read from the ledger's text), picks $404.71M (2026-10-20: the back-test's three rules and the contract fix; was $-525.63M; 3 not valued: Sislo, McKegg, Chapie) | `trade_asset_values.py` |
+| Traded assets joined (`trade_asset_values.csv`, 2017-07-01 to 2022-03-28) | 1,561 assets (927 players, 634 picks) and 87 retained-salary entries; 1,645 valued; at the 2025-26 cap $-274.27M: players $-756.30M (retained salary $-92.63M among them), picks $404.71M, prospects $77.32M (2026-10-20c: contracts signed on the trade date left out; was $-357.29M; 3 not valued: Sislo, McKegg, Chapie). Club sides: `trade_sides.csv`, 567 trades, each zero-sum | `trade_asset_values.py`, `trade_sides.py` |
 | Discount and cap growth | 3% each | D11, D17 |
 
 ## Data and scripts (2026-10-14)
@@ -195,7 +195,8 @@ CapWages cache (1,551 player pages); the clause scrape.
 - Prospects: `prospect_values.py` v1.11 (slot, production, age; undrafted). Prospect data: `ep_extract.py` v3.5, `ep_nhl_bridge.py` v1.1.
 - Traded assets (2026-10-14 to 2026-10-18): `trade_page.py`, `traded_player_values.py` v1.1, `rights_values.py` v1.2,
   `buried_contract_values.py` v1.3, `contracts_2017.py` v1.1, `page_2017_values.py` v1.2, and the join
-  `trade_asset_values.py` v1.0 (every traded asset once, both caps). `trade_refresh.py` v1.0 (2026-10-18) runs the
+  `trade_asset_values.py` v1.0 (every traded asset once, both caps). The back-test (2026-10-20): `trade_sides.py` v1.0 (each
+  club's side of each trade) and `backtest.py` v1.2 (outcomes and the declared tests), run by hand after the chain. `trade_refresh.py` v1.0 (2026-10-18) runs the
   draft, prospect and trade chain in order, from `draft_pick_linkage.py` to the join, with the five `25_TESTS/`
   checks the scripts guard against; a step passes only on exit 0, no guard-failure line, its version line, and its
   outputs rewritten. Run `dashboard_refresh.py` first when the contract side changed.

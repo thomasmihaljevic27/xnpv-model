@@ -84,6 +84,22 @@ difference for the group's club, each with its interval):
 - Outcome through 2025-26 only (the 2026-27 re-valuation set to zero), and the share of the outcome that is re-valued.
 - The pick curve's sensitivity star value for picks (without 2015-2016).
 
+## Amendments after the first run (2026-10-20)
+
+The first run (`backtest.py` v1.0) was read in full, group results included, before these were made. Each corrects how
+an outcome was measured; none changes a group, a test or a sensitivity. The first run's log is kept beside the final one
+(`30_OUTPUT/backtest_log_v1.0.txt`).
+
+1. **Seasons after a buyout** (replaces the last sentence of rule 3). v1.0 charged a bought-out contract's remaining
+   seasons at the full cap hit and credited the value of seasons he played afterwards on other clubs' contracts
+   (Ekman-Larsson's Florida and Toronto seasons against Vancouver's deal). From v1.2: after a contract's last season in
+   force (the export's 38 deals that ended early), its seasons credit no value and charge the CBA buyout share of the
+   cap hit, two thirds (one third under 26). A mutual termination is charged the same, an overstatement.
+2. **Spellings** (v1.1, v1.2). A player whose spine spelling has no WAR rows is read under the trade ledger's spelling
+   (Alex Petrovic), then under the short or long form of the first name (Alex Nylander, Alex Kerfoot); every
+   player-model asset with no WAR row under any of them is listed in the log. In v1.0 these four players' delivered
+   value read as zero.
+
 ## Limits stated in advance
 
 - The outcome uses Bacon's WAR, the same source as the forecast. The Game Value check (the locked circularity

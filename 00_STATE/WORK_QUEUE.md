@@ -8,6 +8,19 @@
 
 ## Live (audited 2026-10-14)
 
+**Run 2026-10-20: the back-test (session 2026-10-20; protocol `40_DOCS/Backtest_Protocol.md`, `backtest.py` v1.2).**
+The forecast's verdicts come true on average (slope 0.919); players delivered less than forecast; the club taking picks
+and prospects for players gains in forecast and outcome. Next, in order:
+1. Do: the Game Value check of the outcomes (the protocol's first stated limit; the locked circularity validators). No
+   group finding is called systematic before it.
+2. Decide (Thomas): the forecast reads PuckPedia's "UFA no QO" label, the club's later decision not to qualify, so a
+   contract valued before its end sets its control years to zero from knowledge the club did not have (up to 68 traded
+   assets; not measured). Fix in the forecast, or state it.
+3. Decide (Thomas): whether to run draftee costs at actual pay as a sensitivity for the futures-for-players group (the
+   costing flag of 2026-10-09 bears on it directly).
+4. Decide (Thomas): the declared star group (3+ trailing WAR) holds one club side; whether a lower line is run, labelled
+   as chosen after the run.
+
 **Done 2026-10-20 (adopted; Thomas: "Adopt both"): the back-test's three accounting rules, built on the contract-table fix (session log 2026-10-18, its 2026-10-20 section).** Details: the season left in days, on value and cap (the last day from the schedule published before the season); prospects keep the full season; the retaining club pays the retained part. Laptop: the join at the 2025-26 cap $-525.63M -> $-357.29M ($-534.21M with the contract fix alone). The 15 retentions recorded only in the ledger's text were added the same day (below). Decided 2026-10-19 (Thomas):
 1. "2025-26": every value is added at the 2025-26 cap (`trade_asset_values.csv`'s `value_2025_cap_M`).
 2. "Yes, include retained salary": the acquirer pays only the cap hit it carries; the retained part stays a cost to the club
@@ -77,8 +90,9 @@ annotated copy. Then decide (Thomas), each found while building it:
   on 2026-10-19 data; -$0.25M to +$0.82M a pick), and does not predict left-out drafts better (one-sided p = 0.754).
   The document gives as the reason for leaving them out that a pick traded before its draft has no intercept of its own
   (Claude's wording): confirm or replace it.
-- An extension signed on the day of a trade: Pacioretty's value at the trade (-$13.30M at the 2025-26 cap) includes the
-  four-year extension Vegas signed that day; the season Montreal held was worth +$0.35M. Decide how the back-test
+- Done 2026-10-20 (Thomas: "Leave the extension out"; session 2026-10-20): a contract signed with the acquirer on the trade
+  date is not part of the trade (15 contracts). Was: an extension signed on the day of a trade: Pacioretty's value at the
+  trade (-$13.30M at the 2025-26 cap) includes the four-year extension Vegas signed that day. Decide how the back-test
   counts it.
 - Done 2026-10-20 (Thomas: "Charge the 15 retentions recorded only in the trade ledger's text"; `trade_page.retention()`, session log 2026-10-18): the 15 are charged to their retaining clubs, $-19.25M moved from acquirers; the join total unchanged. Was: retained salary recorded only in the trade ledger's text (found 2026-10-19, session 2026-10-19c): of the 87 valued
   traded players whose row text in `trades.db` shows a retention, 15 have no amount in `retention_pct` or

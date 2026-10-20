@@ -53,7 +53,7 @@ import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "backtest.py v1.0 (2026-10-20)"
+SCRIPT_VERSION = "backtest.py v1.2 (2026-10-20)"   # v1.2: seasons after a buyout; v1.1: the ledger's spelling when the spine's has no WAR rows
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_npv as CN                                     # noqa: E402  the engine, goalie line and hazard
@@ -121,10 +121,36 @@ TABLES = {False: PV.season_table(SOURCE_DIR / "WAR.csv", "Player"),
           True: PV.season_table(SOURCE_DIR / "Goalies_WAR.csv", "Goalie")}
 
 
-def seasons_for(name, gk):
-    """GP and WAR by start year for a WAR spelling (PV.norm), as pick_curve.season_table."""
-    t, n = TABLES[gk], PV.norm(name)
-    return t.loc[n] if n in t.index.get_level_values(0) else pd.DataFrame({"GP": [], "WAR": []})
+def seasons_for(name, gk, *also):
+    """GP and WAR by start year for a WAR spelling (PV.norm), as pick_curve.season_table. v1.1: when the first
+    spelling has no WAR rows, the next one given (the trade ledger's), so a spine spelling WAR does not use (Alexander
+    Petrovic for WAR's Alex Petrovic) does not read as seasons not played. SPELLING records which one was used."""
+    t = TABLES[gk]
+    have = set(t.index.get_level_values(0))
+    tries = []
+    for nm in (name, *also):
+        if nm is None or (isinstance(nm, float) and pd.isna(nm)):
+            continue
+        n = PV.norm(nm)
+        tries.append((nm, n))
+        # the same name with the first name's short or long form (WAR's Alex Nylander for Alexander Nylander)
+        parts = n.split()
+        if len(parts) > 1:
+            for lng, sh in SHORT_LONG:
+                if parts[0] in (lng, sh):
+                    tries.append((nm, " ".join([sh if parts[0] == lng else lng] + parts[1:])))
+    for nm, n in tries:
+        if n in have:
+            SPELLING[(name, gk)] = nm if n == PV.norm(nm) else n
+            return t.loc[n]
+    SPELLING[(name, gk)] = None
+    return pd.DataFrame({"GP": [], "WAR": []})
+
+
+SPELLING = {}
+SHORT_LONG = (("alexander", "alex"), ("nicholas", "nick"), ("michael", "mike"), ("matthew", "matt"),
+              ("joshua", "josh"), ("zachary", "zach"), ("christopher", "chris"), ("daniel", "dan"),
+              ("anthony", "tony"), ("samuel", "sam"), ("william", "will"), ("jacob", "jake"))   # pick_curve's short forms
 
 
 def gp_war(s, y):
@@ -138,6 +164,25 @@ def trailing_total(s, page):
     got = [(w, float(s.loc[z, "WAR"])) for w, z in zip((0.5, 0.3, 0.2), (page - 1, page - 2, page - 3))
            if z in s.index and s.loc[z, "GP"] >= 10]
     return sum(w * x for w, x in got) / sum(w for w, _ in got) if got else np.nan
+
+
+def buyouts():
+    """v1.2 (protocol amendment 1): {contract_id: (last season in force, buyout share of the cap hit)} for every deal that
+    ended early (contract_source.contract_terms' cut_short, the season spine's pp_cut_short). After its last season the
+    contract credits no value (he no longer plays on it) and charges the CBA buyout's share of its cap hit in each season
+    it had left: two thirds, one third if he was under 26 on June 30 of the buyout (CBA 50.9(i)); the cap charge's
+    spread over twice the years is left out (in cap shares the timing cancels). Ends the export does not mark as buyouts
+    (a mutual termination) are charged the same: an overstatement, stated."""
+    ss = pd.read_csv(OUTPUT_DIR / "contract_season_spine.csv", usecols=["contract_id", "season_start", "pp_cut_short",
+                                                                       "birthdate"], low_memory=False)
+    c = ss[ss["pp_cut_short"] == 1].groupby("contract_id").agg(last=("season_start", "max"), bd=("birthdate", "first"))
+    out = {}
+    for cid, r in c.iterrows():
+        bd = pd.to_datetime(r["bd"], errors="coerce")
+        june = pd.Timestamp(int(r["last"]) + 1, 6, 30)
+        age = np.nan if pd.isna(bd) else june.year - bd.year - ((june.month, june.day) < (bd.month, bd.day))
+        out[int(cid)] = (int(r["last"]), 1 / 3 if (pd.notna(age) and age < 26) else 2 / 3)
+    return out
 
 
 def game_log_counts():
@@ -238,6 +283,9 @@ def main():
     sp, now = eng.sp, None
     now = Now(eng)
     games = game_log_counts()
+    CUT = buyouts()
+    log(f"  contracts that ended early (buyouts and terminations): {len(CUT)}")
+    cut_hits = []
     log(f"  game logs: {len(games):,} player-seasons")
     rows = {}                                   # asset_id -> outcome record (player and pick assets)
     retained_out = {}                           # asset_id -> the retaining club's realised + revalued cost ($M)
@@ -349,7 +397,7 @@ def main():
             crow0 = mine.iloc[0]
             name = crow0["full_name"]
             nn = PV.norm(name)
-            ns = seasons_for(name, gk)
+            ns = seasons_for(name, gk, r["player_name"])
             pos = "G" if gk else ("D" if str(crow0["posgrp"]).startswith("D") else "F")
             nk = None if gk else crow0["nk"]
             ck = None if gk else sp.forecaster.career_of.get(nk)
@@ -357,7 +405,7 @@ def main():
                 names_note.append(f"{r['player_name']} ({name}): no WAR season in the three before page {y}")
             c = d[d["row_type"] == "contract"].sort_values("season_start")
             term = int(s.get("term_years", len(c)))
-            real = rev = ret = 0.0
+            real = rev = ret = capfx = 0.0
             later = c[c["season_start"] >= NOW]
             fc = None
             if len(later):
@@ -368,15 +416,25 @@ def main():
                 keep = (1.0 - rpct) if int(q["contract_id"]) == int(chain_ids[0]) else 1.0
                 f = share if z == y else 1.0
                 cost = float(q["cost_dollars"])
+                cut = CUT.get(int(q["contract_id"]))
+                post_cut = cut is not None and z > cut[0]           # v1.2: a season after his buyout
+                if post_cut:
+                    cost *= cut[1]
+                    cut_hits.append((r["player_name"], z))
                 if z <= LAST:
                     gp, w = gp_war(ns, z)
-                    if f < 1.0:
+                    if post_cut:
+                        v = 0.0                                     # he no longer plays on this contract
+                    elif f < 1.0:
                         gpp, gps = gp_after(crow0["nhl_id"], z, date)
                         v = part_value(w, gp, gpp, f, z, gk, pos, term)
                     else:
                         v = played_value(w, gp, z, gk, pos, term)
                     real += (v - cost * keep * f / CAP[z]) * CAP_NOW / 1e6
                     ret -= cost * (1 - keep) * f / CAP[z] * CAP_NOW / 1e6
+                    # DECOMPOSITION (not in the protocol): the extra cost of the realised cap against the forecast's 3%
+                    # path (the 2020-2022 flat cap), so the outcome on the forecast's cap path = outcome + cap_path_M
+                    capfx += cost * keep * f * (1 / CAP[z] - 1 / cap_path(y, z - y)) * CAP_NOW / 1e6
                 else:
                     h = z - NOW
                     ceil = cap_path(NOW, h)
@@ -390,6 +448,8 @@ def main():
                                                          sl * war_if_plays_sd(h) * ceil, league_min_path(z))
                     else:
                         val, p = 0.0, 0.0                  # no forecast at 2026-27: he is not expected to play
+                    if post_cut:
+                        val, p = 0.0, 0.0
                     rev += (p * val - cost * keep) / ceil * CAP_NOW / 1e6
                     ret -= cost * (1 - keep) / ceil * CAP_NOW / 1e6
             # control seasons: the forecast's own list (the chain end's expiry and UFA year)
@@ -430,10 +490,14 @@ def main():
             sp.signed.update(masked)
         rows[int(r["asset_id"])] = {"realised_M": real + ctrl_real, "revalued_M": rev + ctrl_rev,
                                    "trailing_war": np.nan if gk else trailing_total(ns, y),
-                                   "outcome_route": "player model"}
+                                   "outcome_route": "player model", "war_spelling": SPELLING[(name, gk)],
+                                   "cap_path_M": capfx,
+                                   "nhl_seasons_after": int(((ns.index >= y) & (ns["GP"] > 0)).sum()) if len(ns) else 0}
         retained_out[int(r["asset_id"])] = ret
         n_eng += 1
     log(f"\n1. player model, 2018-19 on: {n_eng} assets re-run, each npv_total within $1 of traded_player_values")
+    log(f"   seasons after a buyout (no value, the buyout share of the cap hit): {len(cut_hits)}, "
+        f"{len(set(n for n, _ in cut_hits))} assets: " + ", ".join(sorted(set(n for n, _ in cut_hits))))
 
     # ======================================================================================================
     # 2. RIGHTS (rights_values.csv): control seasons from the page to the UFA year
@@ -466,7 +530,7 @@ def main():
         need = None
         if flag is None and not gk and nk is not None:
             _, need = eng.tv._arb_history(nk, P, nid, bd)
-        ns = seasons_for(name, gk)
+        ns = seasons_for(name, gk, r["player_name"])
         ck = None if (gk or nk is None) else sp.forecaster.career_of.get(nk)
         seasons = list(range(P, int(r["ufa_year"])))
         share = float(r["season_share"]) if pd.notna(r["season_share"]) else 1.0
@@ -475,7 +539,8 @@ def main():
                                  need=need, y0=P, share=share, trade_date=pd.Timestamp(r["trade_date"]),
                                  first_is_trade_season=True)
         rows[int(aid)] = {"realised_M": real, "revalued_M": rev, "outcome_route": "rights",
-                          "trailing_war": np.nan if gk else trailing_total(ns, P)}
+                          "trailing_war": np.nan if gk else trailing_total(ns, P), "war_spelling": SPELLING[(name, gk)],
+                          "nhl_seasons_after": int(((ns.index >= P) & (ns["GP"] > 0)).sum()) if len(ns) else 0}
         n_r += 1
     log(f"2. rights: {n_r} with control seasons, {len(rv) - n_r} zero")
 
@@ -490,10 +555,10 @@ def main():
         aid, date = int(r["asset_id"]), pd.Timestamp(r["trade_date"])
         gk = r["position"] == "G"
         pos = r["position"]
-        ns = seasons_for(r["war_name"], gk)
+        ns = seasons_for(r["war_name"], gk, r["player_name"])
         share = float(r["season_share"]) if pd.notna(r["season_share"]) else 1.0
         rpct = float(r["retained_pct"]) if pd.notna(r["retained_pct"]) else 0.0
-        real = rev = ret = 0.0
+        real = rev = ret = capfx = 0.0
         if str(r["contract"]).startswith("PuckPedia"):
             # FALLBACK rows: PuckPedia's own contract, on the engine (page_2017_values' fallback path)
             d, s, masked, as_of = engine_detail(int(r["player_id"]), 2017, date, share, rpct)
@@ -539,6 +604,7 @@ def main():
                     v = played_value(w, gp, z, gk, pos, term)
                 real += (v - cost * keep * f / CAP[z]) * CAP_NOW / 1e6
                 ret -= cost * (1 - keep) * f / CAP[z] * CAP_NOW / 1e6
+                capfx += cost * keep * f * (1 / CAP[z] - 1 / cap_path(2017, z - 2017)) * CAP_NOW / 1e6
             else:
                 raise AssertionError(f"2017-page contract past 2025-26: {r['player_name']}")       # GUARD: none expected
         if ctrl:
@@ -551,8 +617,10 @@ def main():
                                   nname=PV.norm(r["war_name"]), bd=pd.NaT, seasons=ctrl, chain=ch, flag=flag, need=None,
                                   y0=2017, share=share, trade_date=date, first_is_trade_season=False)
             real, rev = real + cr, rev + cv
-        rows[aid] = {"realised_M": real, "revalued_M": rev, "outcome_route": "player model, 2017 page",
-                     "trailing_war": np.nan if gk else trailing_total(ns, 2017)}
+        rows[aid] = {"realised_M": real, "revalued_M": rev, "outcome_route": "player model, 2017 page", "cap_path_M": capfx,
+                     "trailing_war": np.nan if gk else trailing_total(ns, 2017),
+                     "war_spelling": SPELLING[(r["war_name"], gk)],
+                     "nhl_seasons_after": int(((ns.index >= 2017) & (ns["GP"] > 0)).sum()) if len(ns) else 0}
         retained_out[aid] = ret
         n17 += 1
     log(f"3. the 2017 page: {n17} assets")
@@ -803,6 +871,9 @@ def main():
     a["revalued_M"] = np.nan
     a["outcome_route"] = None
     a["trailing_war"] = np.nan
+    a["war_spelling"] = None
+    a["nhl_seasons_after"] = np.nan
+    a["cap_path_M"] = 0.0
     for i, r in a.iterrows():
         aid = int(r["asset_id"])
         if r["asset_type"] == "retained salary":
@@ -824,6 +895,12 @@ def main():
     log(f"\n5. assets with a forecast and no outcome: {len(miss)}")
     for r in miss.itertuples():
         log(f"     {r.trade_date} {r.name} ({r.source}; {r.status})")
+    # AUDIT (v1.1): player-model assets whose WAR rows were not found under any spelling, or found under the ledger's
+    pm = a[a["outcome_route"].isin(["player model", "rights", "player model, 2017 page"])]
+    nf = pm[pm["war_spelling"].isna()]
+    log(f"   player-model assets with no WAR row under any spelling: {len(nf)}"
+        + "".join(f"\n     {x.trade_date} {x.name} (forecast {x.value_2025_cap_M:+.2f}, outcome {x.outcome_M:+.2f})"
+                  for x in nf.itertuples()))
     if names_note:
         log(f"   players with no WAR season in the three before the page under the spine's spelling: {len(names_note)}")
         for x in names_note[:20]:
@@ -993,6 +1070,14 @@ def analyse(a):
         log(f"  {k:<10} {len(g):>4} assets: forecast ${g['value_2025_cap_M'].sum():>8,.1f}M, outcome "
             f"${g['outcome_M'].sum():>8,.1f}M (realised ${g['realised_M'].sum():,.1f}M); mean miss {est:+.3f} "
             f"[{lo:+.3f}, {hi:+.3f}] p {p:.4f}")
+    g = ac[ac["cls"] == "players"]
+    log(f"  DECOMPOSITION (not in the protocol): of the players' outcome, the realised cap's extra cost against the "
+        f"forecast's 3% path is ${g['cap_path_M'].sum():,.1f}M; on the forecast's path the players' outcome would be "
+        f"${(g['outcome_M'] + g['cap_path_M']).sum():,.1f}M against a forecast of ${g['value_2025_cap_M'].sum():,.1f}M "
+        f"(mean miss {(g['outcome_M'] + g['cap_path_M'] - g['value_2025_cap_M']).mean():+.3f})")
+    res.append({"test": "B, decomposition (not in the protocol): players on the forecast's cap path", "group": "players",
+                "n_assets": len(g), "estimate": float((g["outcome_M"] + g["cap_path_M"] - g["value_2025_cap_M"]).mean()),
+                "forecast_sum_M": g["value_2025_cap_M"].sum(), "outcome_sum_M": (g["outcome_M"] + g["cap_path_M"]).sum()})
     # the pick curve's sensitivity star value (the forecast side of picks only)
     tpk = pd.read_csv(OUTPUT_DIR / "traded_pick_values.csv").set_index("asset_id")
     g = ac[ac["cls"] == "picks"].copy()
