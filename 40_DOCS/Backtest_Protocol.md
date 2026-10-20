@@ -112,6 +112,32 @@ an outcome was measured; none changes a group, a test or a sensitivity. The firs
    once the club's decision is known; the outcome reads the label itself (no control seasons for a player the club
    did not qualify).
 
+## The Game Value check (declared 2026-10-20, before it was run; Thomas: "Run the Game Value check on the back-test's outcomes, as the protocol says")
+
+The locked validators (DECISIONS, 2026-07-04 and 2026-07-14): Game Value adjusted (GV-adj) primary, Game Value raw
+(GV-raw) as robustness, goals to wins at 5.903, zero Bacon inputs. This is the trade-level check deferred in July
+"until draft/prospect components exist".
+
+1. **What changes.** Only the measure of what a skater delivered in a realised season, 2017-18 to 2025-26: his Bacon WAR
+   is replaced by his Game Value. Everything else is the v1.4 outcome unchanged: the same assets and spans, games
+   played, cap hits, the rule's costs, LTIR, buyouts, the 2026-27 revaluation (a forecast, not an outcome) and the
+   forecast side. Goaltenders keep Bacon's goalie WAR (Game Value has no goaltender measure). Drafted players' realised
+   seasons are re-priced the same way (their costs unchanged).
+2. **Baseline.** GV-adj is centred on the league average; Bacon's WAR and the contract line count from replacement. GV-adj
+   is put on a replacement baseline with Game Value's own per-game rebase (`player_game_value_repl`: gv_repl minus
+   game_value, summed over his regular-season games). GV-raw uses gv_repl directly.
+3. **Units.** The rebased Game Value runs about 200 wins a league season against Bacon's 470-570, with a narrower
+   spread, so priced as it stands it would mark every player down for its units alone. Each season and position (F, D),
+   it is mapped to Bacon's scale by matching the league's mean and standard deviation of season totals (all skaters in
+   each table; two numbers per cell from Bacon, none from any one player). Who delivered how much stays Bacon-free.
+   A skater-season with games and no Game Value row keeps Bacon's figure; the count is logged.
+4. **Rate-free leg.** Each club side's net wins delivered in realised seasons (received minus given), on Bacon and on
+   each Game Value measure, compared by correlation, with no dollar rate on either side.
+5. **What is reported.** Tests A, B and C re-run on GV-adj and GV-raw beside the WAR run. A result **holds on Game
+   Value** when, on GV-adj, its estimate keeps the WAR run's sign and its 95% interval still excludes zero; otherwise
+   it is **not confirmed**. GV-raw is reported beside, not decisive. As in July, Game Value is strong for forwards and
+   weak for defencemen (r 0.65 against 0.30); the asset-level agreement is reported by position.
+
 ## Limits stated in advance
 
 - The outcome uses Bacon's WAR, the same source as the forecast. The Game Value check (the locked circularity
