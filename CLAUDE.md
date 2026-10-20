@@ -37,6 +37,10 @@ Built 2026-10-15: drafted players who died before reaching the NHL are left out 
 the prospect model has no age-removed version (age centred at 18; `prospect_values.py` v1.7).
 Built 2026-10-14: every age the model reads follows the CBA (September 15; drafted players' signing ages in the
 year they signed), the arbitration price is consistent with the forecast, and the 60/40 checks are retired.
+Built 2026-10-20: every script dates a contract by one rule (`contract_source.contract_terms`: a bought-out deal at its
+own first season, its full signed term counted until the buyout is known); the model charges PuckPedia's cap hit
+(`model_cap_hit`); the price line is re-locked; the back-test's three rules are in (the 2025-26 cap, retained salary
+charged to the retaining club, the season left on in-season trades).
 
 **Craft is retired as a canonical surface (2026-09-09).** Do not read it, reconcile against it,
 or sync to it. "How it works" explainers live in `40_DOCS/`. Precedence when sources conflict:
@@ -102,9 +106,9 @@ stops the run. Finished tests in `25_TESTS/` that build `NPVEngine` on xNPV 0, o
 `50_REBUILD/`, reproduce their recorded results only from a checkout of 7f91f0e.
 
 xNPV 1's seasons and control years are priced by `skater_forward_projection.price_constants()`. It returns
-`XNPV1_RATE` (the term-in line, re-locked 2026-10-14 on September 15 ages; `XNPV1_RATE_TERM_FREE` beside it as the sensitivity); set to
+`XNPV1_RATE` (the term-in line, re-locked 2026-10-20 on contracts dated one way; `XNPV1_RATE_TERM_FREE` beside it as the sensitivity); set to
 None, it falls back to Stage 3, and every row's `price_line` column says which line priced it ("provisional"
-means Stage 3). Both come from `python 20_CODE/xnpv1_price_line.py` v2.0: the Stage 3 specification re-fitted
+means Stage 3). Both come from `python 20_CODE/xnpv1_price_line.py` v2.3: the Stage 3 specification re-fitted
 on xNPV 1's forecast dated at each contract's signing (directive 5), with a linear term for contract length
 (directive 4). Each re-run must give the lock back (its reproduction guard). The pick curve (`pick_curve.py`)
 prices delivered wins on `XNPV1_RATE` at one year of term (open decision 3). The D14(c) qualify rates are
@@ -177,12 +181,13 @@ tests pinned to the old prospect rows (`prospect_curve_vs_line.py`, `prospect_pr
   left-censored at the league minimum, one intercept, a separate defence slope.
   alpha=0.0132478230, beta=0.0212322891 per win for forwards, plus 0.0028702824 for defencemen
   (0.0241025715), all as cap shares. The retired draft curve and xNPV 0 used it; it now survives as guards.
-  xNPV 1 prices on its own line, with term in (directives 4 and 5), re-locked 2026-10-14 on September 15 ages
-  and again the same day on the name-crosswalk sample (read the value the code assigns in
-  `skater_forward_projection.py`): `XNPV1_RATE`, alpha=-0.0043651624, beta=0.0175356938 per forecast win for
-  forwards, plus 0.0037579369 for defencemen, plus gamma_term=0.0089300596 a season per year of term;
-  `XNPV1_RATE_TERM_FREE` (0.0081469438 / 0.0311507981 / +0.0137184862) is the sensitivity. The earlier 2026-10-14
-  line (-0.0043530319 / 0.0175137032 / +0.0038753270, term 0.0089195167) is superseded. The 2026-10-05 line (-0.0043574069 / 0.0174691916 / +0.0035971954, term
+  xNPV 1 prices on its own line, with term in (directives 4 and 5), re-locked 2026-10-20 on the sample with
+  bought-out deals at their own first season (read the value the code assigns in
+  `skater_forward_projection.py`): `XNPV1_RATE`, alpha=-0.0043026112, beta=0.0175297693 per forecast win for
+  forwards, plus 0.0039447231 for defencemen, plus gamma_term=0.0089105379 a season per year of term;
+  `XNPV1_RATE_TERM_FREE` (0.0081818739 / 0.0312216498 / +0.0140759564) is the sensitivity. The 2026-10-14
+  crosswalk line (-0.0043651624 / 0.0175356938 / +0.0037579369, term 0.0089300596) and the earlier 2026-10-14
+  line (-0.0043530319 / 0.0175137032 / +0.0038753270, term 0.0089195167) are superseded. The 2026-10-05 line (-0.0043574069 / 0.0174691916 / +0.0035971954, term
   0.0089321965) and the 2026-10-02 line (0.0076921739 / 0.0308904772 / +0.0146619104) are superseded. The
   pre-D20 rate (0.0184516 / 0.0202139) and the D20 rate (0.01831864 / 0.01924854) are retired; their
   reproduction guards were removed with the 60/40 checks on 2026-10-14 (Thomas). The Stage 3 constants stay

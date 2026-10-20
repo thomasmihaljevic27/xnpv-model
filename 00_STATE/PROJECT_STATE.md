@@ -153,23 +153,25 @@ NHL are left out of every fit (pick curve, star values, production fits; `deceas
 (trade rows, or a contract with the same cap hit running on the trade date; 684 of 927), else by name (short forms,
 initials, Elite Prospects' spelling, a namesake guard); every id-name disagreement is listed and guarded (v1.1).
 
-## Figures in force (read from the code, 2026-10-14)
+## Figures in force (read from the code, 2026-10-20)
 
 | What | Value | Where |
 |---|---|---|
-| Skater line, term-in (`XNPV1_RATE`, re-locked 2026-10-14 on September 15 ages, again on the name-crosswalk sample) | alpha -0.0043651624; beta 0.0175356938 per forecast win; defence +0.0037579369; gamma_term 0.0089300596 a season per year of term; n 2,323 | `skater_forward_projection.py` |
-| At the 2025-26 cap | $1.675M per forecast win (forwards), $2.034M (defence), +$0.853M a season per year of term | xnpv1_price_line.py v2.2 |
-| Skater line, term-free (sensitivity) | 0.0081469438 / 0.0311507981 / +0.0137184862 | same |
+| Skater line, term-in (`XNPV1_RATE`, re-locked 2026-10-20 on the contracts dated by `contract_source.contract_terms`) | alpha -0.0043026112; beta 0.0175297693 per forecast win; defence +0.0039447231; gamma_term 0.0089105379 a season per year of term; n 2,336 | `skater_forward_projection.py` |
+| At the 2025-26 cap | $1.674M per forecast win (forwards), $2.051M (defence), +$0.851M a season per year of term | xnpv1_price_line.py v2.3 |
+| Skater line, term-free (sensitivity) | 0.0081818739 / 0.0312216498 / +0.0140759564 | same |
+| Goalie line (re-fitted every run) | 1.371% of the cap + 1.074% per win, 356 contracts (2026-10-20) | `goalie_value_engine.py` |
+| Cap hit charged | PuckPedia's; the clause figure on a late signing's later seasons (`model_cap_hit`, 8 contracts; 2026-10-20) | `join_clauses_to_spine.py` |
 | Stage 3 line (guards only) | 0.0132478230 / 0.0212322891 / +0.0028702824 | `skater_value_engine.py` |
 | Floor spread, WAR_IF_PLAYS_MAE | 0.6767, 0.7545, 0.8026, 0.8499, 0.8770, 0.8981 (seasons 0-5, flat after; 2026-10-14) | `skater_forecast.py` |
 | Skater control weights | 100% / 100% / 88.2% / 67.8% by forecast bucket | refresh 2026-10-05 |
 | Goalie control weight | 0.893 x 0.859 = 0.767 a year (103 decisions; measured 2026-10-16 on the laptop's inputs, session 2026-10-16c; was 0.902 x 0.859 = 0.775 at the 2026-10-05 refresh, not traced) | `contract_npv.py`, measured each run |
-| Star value | $18.10M (18.0975, se 1.74); without 2015-2016 $15.78M; qualifying-offer chain $32.01M / $27.94M (2026-10-19: picks signed by the drafting club kept; entry-level dates after the first NHL season set aside; was 18.0144 on 2026-10-18) | `pick_curve.py` |
-| Traded picks (634, 2017-07-01 to 2022-03-21) | $402.86M; sensitivity $351.38M (2026-10-19; was $401.01M on 2026-10-18) | `traded_pick_values.py` |
-| Prospect star value by seasons since the draft | 18.10/17.82/16.02/9.32/2.54 (2026-10-19; D+1, D+2, D+3, D+4, D+5 on; $M at the 2025-26 cap) | `prospect_values.py` |
-| Traded prospects (196 assets, 169 players, 2017-07-01 to 2022-03-28) | $70.57M (slot, production and age); slot alone $61.19M (2026-10-19; was $70.19M / $57.95M on 2026-10-18) | `prospect_values.py` |
-| Traded undrafted prospects on NHL contracts (53 assets) | $6.01M; all prospects $76.58M (2026-10-19; was $5.96M / $76.15M on 2026-10-18) | `prospect_values.py` |
-| Traded assets joined (`trade_asset_values.csv`, 2017-07-01 to 2022-03-28) | 1,561 assets (927 players, 634 picks), 1,558 valued; at the 2025-26 cap players $-928.49M, picks $402.86M (2026-10-19; 3 not valued: Sislo, McKegg, Chapie) | `trade_asset_values.py` |
+| Star value | $18.18M (se 1.74); without 2015-2016 $15.87M; qualifying-offer chain $32.14M / $28.08M (2026-10-20: contracts dated one way, the price line re-locked; was 18.0975 on 2026-10-19) | `pick_curve.py` |
+| Traded picks (634, 2017-07-01 to 2022-03-21) | $404.71M; sensitivity $353.3M (2026-10-20; was $402.86M on 2026-10-19) | `traded_pick_values.py` |
+| Prospect star value by seasons since the draft | 18.18/17.94/16.16/9.44/2.59 (2026-10-20; D+1, D+2, D+3, D+4, D+5 on; $M at the 2025-26 cap) | `prospect_values.py` |
+| Traded prospects (196 assets, 169 players, 2017-07-01 to 2022-03-28) | $71.2M (draft position, production and age); draft position alone $61.78M (2026-10-20; was $70.57M / $61.19M on 2026-10-19) | `prospect_values.py` |
+| Traded prospects, drafted and undrafted (249 assets) | $77.32M (2026-10-20; was $76.58M) | `prospect_values.py` |
+| Traded assets joined (`trade_asset_values.csv`, 2017-07-01 to 2022-03-28) | 1,561 assets (927 players, 634 picks) and 72 retained-salary entries; 1,630 valued; at the 2025-26 cap $-357.29M: players $-762.00M (retained salary $-73.38M among them), picks $404.71M (2026-10-20: the back-test's three rules and the contract fix; was $-525.63M; 3 not valued: Sislo, McKegg, Chapie) | `trade_asset_values.py` |
 | Discount and cap growth | 3% each | D11, D17 |
 
 ## Data and scripts (2026-10-14)

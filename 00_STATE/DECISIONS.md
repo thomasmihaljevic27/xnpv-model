@@ -3571,3 +3571,31 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - WORK_QUEUE: the read item now points at v2; the cap question removed from it (decided 2026-10-19); MANIFEST rows for
   the three files updated. Committed to `main` from a separate worktree, because the working folder held another
   session's branch (`claude/contract-dating`) and its uncommitted edits.
+
+### Change log, 2026-10-20 (contracts dated one way; PuckPedia's cap hit; price line re-locked; the back-test rules adopted)
+
+- DECISIONS (Thomas, 2026-10-19/20): the contract dating fix goes "Everywhere, re-lock" (the contract table, the
+  chance-of-playing model's contract coverage, both price lines' samples); "Full term until buyout" (a valuation dated
+  before a buyout sees the full signed term; the buyout is known from free agency's opening day after the last season
+  played); the cost is "PuckPedia's" cap hit, with "Clause data after year 1" on a late signing; then "Adopt both: lock
+  the re-fitted price line, bring both branches onto main, run dashboard_refresh.py and trade_refresh.py on the
+  laptop, check against the tested runs, and record it."
+- CODE (main, 4773efb to 4433672; the lock 4b65e49): `contract_source.py` v1.3, `join_clauses_to_spine.py` v2.1,
+  `skater_forward_projection.py` v2.2, `contract_npv.py` v3.1, `rfa_terminal_value.py` v2.8, `participation_model.py`
+  v1.9, `xnpv1_price_line.py` v2.3, `goalie_value_engine.py` (samples, cost, carry report), `buried_contract_values.py`
+  v1.6; the back-test rules as built 2026-10-19 (`trade_page.season_left_share`, `traded_player_values.py` v1.2,
+  `rights_values.py` v1.4, `page_2017_values.py` v1.4, `trade_asset_values.py` v1.1).
+- LOCK: `XNPV1_RATE` re-locked on the corrected sample: alpha -0.0043026112, beta 0.0175297693, beta_d_add
+  0.0039447231, gamma_term 0.0089105379, n 2,336, rows d9d1d82777bf; term-free 0.0081818739 / 0.0312216498 /
+  +0.0140759564. Sample 2,388, fingerprint 12490b6ee630. The 2026-10-14 crosswalk line is superseded.
+- CHECKED AGAINST: D33 (the xNPV 1 line, re-locked with Thomas's approval); participation's span, "the production
+  engine's locked fix" (end - length + 1), kept for every contract but the 38 that ended early; D28 (extensions count
+  from their signing date: unchanged rule); open decision 2 (`first_season_as_of`: unchanged rule, keyed on the chain's
+  new first contract); D14(c) (qualify rates: unchanged rule); D11 and D17 (3% growth and discount) unchanged. The cost
+  source had no recorded decision (the clause figure came first from the initial commit).
+- RESULT: the laptop's data files equal the tested runs. Panel: 3,158 of 7,852 player-pages move by more than $0.01M,
+  143 by more than $1M, sum $-236.47M; 3 pages gone. Trade join at the 2025-26 cap $-525.63M -> $-357.29M (contract fix
+  alone $-534.21M). Star value 18.18; traded picks $404.71M; all prospects $77.32M.
+- CORRECTED: three examples in the questions put to Thomas (Phaneuf's trade already charged through 2020-21 on the
+  2017 page; Pacioretty's disagreement is his 2023-24 Washington season; Lehner's $0 is a Vegas season). Session log
+  sessions/2026-10-18.md, its 2026-10-20 section.
