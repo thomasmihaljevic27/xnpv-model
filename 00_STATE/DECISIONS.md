@@ -3599,3 +3599,13 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - CORRECTED: three examples in the questions put to Thomas (Phaneuf's trade already charged through 2020-21 on the
   2017 page; Pacioretty's disagreement is his 2023-24 Washington season; Lehner's $0 is a Vegas season). Session log
   sessions/2026-10-18.md, its 2026-10-20 section.
+
+### Change log, 2026-10-20b (the 15 retentions kept only in the trade ledger's text)
+
+- DECISION (Thomas, 2026-10-20): "Charge the 15 retentions recorded only in the trade ledger's text: read each amount
+  from the row text, show me the values before and after, then adopt." `trade_page.retention()` reads the ledger's
+  fields where set (72) and the row text where not (15, every one with a decimal share the parser skipped), guarded
+  against each other; `traded_player_values.py` v1.3, `page_2017_values.py` v1.5, `buried_contract_values.py` v1.7,
+  `trade_asset_values.py` v1.2 read it. Laptop equals the tested run. The 15 acquirers $-73.27M -> $-54.02M, their
+  retaining clubs $-19.25M; the join total unchanged at $-357.29M; retained salary in all $-92.63M. No locked decision
+  (D1-D33) touched: it completes the retained-salary rule decided 2026-10-19. Session log sessions/2026-10-18.md.

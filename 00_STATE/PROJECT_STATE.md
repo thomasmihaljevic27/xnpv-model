@@ -171,7 +171,7 @@ initials, Elite Prospects' spelling, a namesake guard); every id-name disagreeme
 | Prospect star value by seasons since the draft | 18.18/17.94/16.16/9.44/2.59 (2026-10-20; D+1, D+2, D+3, D+4, D+5 on; $M at the 2025-26 cap) | `prospect_values.py` |
 | Traded prospects (196 assets, 169 players, 2017-07-01 to 2022-03-28) | $71.2M (draft position, production and age); draft position alone $61.78M (2026-10-20; was $70.57M / $61.19M on 2026-10-19) | `prospect_values.py` |
 | Traded prospects, drafted and undrafted (249 assets) | $77.32M (2026-10-20; was $76.58M) | `prospect_values.py` |
-| Traded assets joined (`trade_asset_values.csv`, 2017-07-01 to 2022-03-28) | 1,561 assets (927 players, 634 picks) and 72 retained-salary entries; 1,630 valued; at the 2025-26 cap $-357.29M: players $-762.00M (retained salary $-73.38M among them), picks $404.71M (2026-10-20: the back-test's three rules and the contract fix; was $-525.63M; 3 not valued: Sislo, McKegg, Chapie) | `trade_asset_values.py` |
+| Traded assets joined (`trade_asset_values.csv`, 2017-07-01 to 2022-03-28) | 1,561 assets (927 players, 634 picks) and 87 retained-salary entries; 1,645 valued; at the 2025-26 cap $-357.29M: players $-762.00M (retained salary $-92.63M among them, 87 retentions, 15 read from the ledger's text), picks $404.71M (2026-10-20: the back-test's three rules and the contract fix; was $-525.63M; 3 not valued: Sislo, McKegg, Chapie) | `trade_asset_values.py` |
 | Discount and cap growth | 3% each | D11, D17 |
 
 ## Data and scripts (2026-10-14)

@@ -8,7 +8,7 @@
 
 ## Live (audited 2026-10-14)
 
-**Done 2026-10-20 (adopted; Thomas: "Adopt both"): the back-test's three accounting rules, built on the contract-table fix (session log 2026-10-18, its 2026-10-20 section).** Details: the season left in days, on value and cap (the last day from the schedule published before the season); prospects keep the full season; the retaining club pays the retained part. Laptop: the join at the 2025-26 cap $-525.63M -> $-357.29M ($-534.21M with the contract fix alone). Open: the 15 retentions recorded only in the ledger's text (below). Decided 2026-10-19 (Thomas):
+**Done 2026-10-20 (adopted; Thomas: "Adopt both"): the back-test's three accounting rules, built on the contract-table fix (session log 2026-10-18, its 2026-10-20 section).** Details: the season left in days, on value and cap (the last day from the schedule published before the season); prospects keep the full season; the retaining club pays the retained part. Laptop: the join at the 2025-26 cap $-525.63M -> $-357.29M ($-534.21M with the contract fix alone). The 15 retentions recorded only in the ledger's text were added the same day (below). Decided 2026-10-19 (Thomas):
 1. "2025-26": every value is added at the 2025-26 cap (`trade_asset_values.csv`'s `value_2025_cap_M`).
 2. "Yes, include retained salary": the acquirer pays only the cap hit it carries; the retained part stays a cost to the club
    that retained it. 72 traded assets carry retention (61 in two-team trades, 11 in three-team trades).
@@ -80,7 +80,7 @@ annotated copy. Then decide (Thomas), each found while building it:
 - An extension signed on the day of a trade: Pacioretty's value at the trade (-$13.30M at the 2025-26 cap) includes the
   four-year extension Vegas signed that day; the season Montreal held was worth +$0.35M. Decide how the back-test
   counts it.
-- Retained salary recorded only in the trade ledger's text (found 2026-10-19, session 2026-10-19c): of the 87 valued
+- Done 2026-10-20 (Thomas: "Charge the 15 retentions recorded only in the trade ledger's text"; `trade_page.retention()`, session log 2026-10-18): the 15 are charged to their retaining clubs, $-19.25M moved from acquirers; the join total unchanged. Was: retained salary recorded only in the trade ledger's text (found 2026-10-19, session 2026-10-19c): of the 87 valued
   traded players whose row text in `trades.db` shows a retention, 15 have no amount in `retention_pct` or
   `retained_aav` (Tatar's $500,000 kept by Vegas on 2018-09-10; Lucic, Faulk, Kuemper and Saad among them). Each row's
   text carries the amount and share. The retention rule built on `claude/in-season-and-retention` reads the fields only
