@@ -73,7 +73,7 @@
 #         here, they are carried as pp_signed_end / pp_off_contract for the valuation, which counts them only
 #         when it is dated before the buyout (skater_forward_projection.contract_chain).
 #     D'. A cap-space season record is attached only to the SAME contract: the record whose signing date is
-#         nearest PuckPedia's, within 14 days, or failing that one with PuckPedia's cap hit to the dollar. The
+#         nearest PuckPedia's, within 14 days, or failing that one with PuckPedia's cap hit within $10. The
 #         (ep_id, season) collapse that kept the most restrictive record, and the cap-hit-nearest overlap rule,
 #         gave a bought-out deal's record to the player's next contract (Marleau's $700K San Jose season carried
 #         his $6.25M Toronto figure). Each record attaches to one contract-season at most.
@@ -303,13 +303,13 @@ def join_spine_clauses(spine, clauses):
     clause_value_cols = [col for col in clauses.columns if col not in ("ep_id", "season")]
 
     # ---- v2.0: the record of the SAME contract. Candidates are the player-season's records; the one signed nearest
-    # PuckPedia's date is taken when within CS_SIGNING_DAYS, else one with PuckPedia's cap hit to the dollar, else
+    # PuckPedia's date is taken when within CS_SIGNING_DAYS, else one with PuckPedia's cap hit within $10, else
     # none (the record belongs to another contract: a bought-out deal's seasons, a later deal). Ties: the most
     # restrictive record, then the highest cap hit (the old collapse's order), so the run is reproducible.
     cand = spine[["contract_id", "season", "ep_id", "pp_signing_date", "pp_cap_hit"]].merge(
         clauses[["ep_id", "season", "_cs_row", "_cs_signed", "cs_cap_hit", "_rk"]], on=["ep_id", "season"])
     cand["_dd"] = (cand["_cs_signed"] - pd.to_datetime(cand["pp_signing_date"])).dt.days.abs()
-    cand["_cap_same"] = (cand["cs_cap_hit"] - cand["pp_cap_hit"]).abs() < 1
+    cand["_cap_same"] = (cand["cs_cap_hit"] - cand["pp_cap_hit"]).abs() <= 10    # rounding (Howard $5,291,666/7)
     cand["_ok_date"] = cand["_dd"] <= CS_SIGNING_DAYS
     cand = cand[cand["_ok_date"] | cand["_cap_same"]].copy()
     cand["_tier"] = np.where(cand["_ok_date"], 0, 1)

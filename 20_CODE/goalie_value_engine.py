@@ -334,7 +334,7 @@ def build_spine(lam, alpha_g, beta_g, prorate, carry_out_years=False):
     import contract_source as _CS                # 2026-10-14: WAR spelling for crosswalked ids
     gl["full_name"] = _CS.war_full_name(gl, gl["full_name"])
     gl["nk"] = gl["full_name"].map(norm_name)
-    gl["cost"] = gl["cs_cap_hit"].fillna(gl["pp_cap_hit"])
+    gl["cost"] = gl["pp_cap_hit"].astype(float)      # 2026-10-19 (Thomas: "PuckPedia's"): PuckPedia's cap hit
 
     rows = []
     for r in gl.itertuples():
@@ -504,7 +504,8 @@ def _rate_sample(lut, prorate):
     raw = pd.read_excel(F_CONTRACT_XLSX)
     raw["end_yr"] = pd.to_numeric(
         raw["contract_end"].astype(str).str.extract(r"^(\d{4})")[0], errors="coerce")
-    raw["start_yr"] = raw["end_yr"] - raw["length"] + 1
+    import contract_source as _CS0               # 2026-10-19: the one seasons rule (a buyout's first season)
+    raw["start_yr"] = _CS0.contract_terms(raw)["first_yr"]
     g = raw[(raw["position"] == "Goaltender")
             & (raw["contract_level"] == "standard_level")
             & raw["start_yr"].between(2015, 2026)].copy()
@@ -600,14 +601,24 @@ def _log_carry_impact(v2):
     import contract_source as _CS
     key = lambda d: set(zip(d["contract_id"], d["season_start"]))          # noqa: E731
     gone = key(ph) - key(carried) - key(nohist)
+    # 2026-10-19: a placeholder row may be a season that no longer exists: a bought-out deal's rows placed before it
+    # started (contract_source.contract_terms). Each must be on such a deal, before its first season.
+    sp_now = pd.read_csv(F_SEASON_SPINE, usecols=["contract_id", "pp_first_season", "pp_cut_short"])
+    first_now = sp_now.drop_duplicates("contract_id").set_index("contract_id")
+    misplaced = {k for k in gone - key(v2)}
+    assert all(k[0] in first_now.index and int(first_now.at[k[0], "pp_cut_short"]) == 1
+               and k[1] < int(first_now.at[k[0], "pp_first_season"]) for k in misplaced), \
+        "a placeholder row left the spine that is not a bought-out deal's misplaced season"
+    gone = gone - misplaced
     joined = v2[[k in gone for k in zip(v2["contract_id"], v2["season_start"])]]
     xw_names = set(_CS.war_name_map().values())
     assert len(joined) == len(gone) and joined["full_name"].isin(xw_names).all(), \
         "a placeholder row left the set without a crosswalk join"
     log(f"    -> now priced from his own seasons (name crosswalk): {len(joined):,} rows "
         f"({', '.join(sorted(joined['full_name'].unique()))})")
-    assert len(carried) + len(nohist) + len(joined) == len(ph), \
-        "carried + retagged + crosswalk-joined does not reconstruct the locked placeholder set"
+    log(f"    -> gone, seasons placed before a bought-out deal started (2026-10-19): {len(misplaced):,} rows")
+    assert len(carried) + len(nohist) + len(joined) + len(misplaced) == len(ph), \
+        "carried + retagged + crosswalk-joined + misplaced does not reconstruct the locked placeholder set"
 
     # Dollar movement on the carried rows. The locked value on these rows was
     # the placeholder value, so the difference IS the correction. Signed:

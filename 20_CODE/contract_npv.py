@@ -242,7 +242,8 @@ from skater_forward_projection import valuation_as_of, page_date
 from skater_forward_projection import (SkaterProjector, cap_path,
                                        league_min_path, norm_name,
                                        CAP_GROWTH, CAP_CEILING,
-                                       contract_chain, check_as_of)
+                                       contract_chain, check_as_of,
+                                       chain_rows, contract_spans_at)
 from rfa_terminal_value import (TerminalValuer, qualifying_offer, ARB_NEED,  # noqa: E402
                                 arb_eligible, signing_year, cba_age)
 from exit_hazard import (build_transitions, build_hazard_table, bucket,
@@ -263,7 +264,7 @@ F_GOALIE_SPINE = OUTPUT_DIR / "goalie_value_spine_v2.csv"
 F_SEASON_SPINE = OUTPUT_DIR / "contract_season_spine.csv"
 OUT_SPINE = OUTPUT_DIR / "contract_npv_spine.csv"
 OUT_LOG = OUTPUT_DIR / "contract_npv_run_log.txt"
-SCRIPT_VERSION = "2.9"   # printed first in the run log (25_TESTS/xnpv0_removal_check.py reads it)
+SCRIPT_VERSION = "3.0"   # 3.0 (2026-10-19): PuckPedia's cap hit; the chain as known on the date (buyouts, replaced deals)   # printed first in the run log (25_TESTS/xnpv0_removal_check.py reads it)
 
 # ---- locked goalie constants (P2 close-out, 2026-06-30) --------------------
 # The documented narrative values (alpha 1.398% cap, beta 1.097%/WAR, league
@@ -465,7 +466,7 @@ class NPVEngine:
         import contract_source as _CS            # 2026-10-14: WAR spelling for crosswalked ids
         full["full_name"] = _CS.war_full_name(full, full["full_name"])
         full["nname"] = full["full_name"].map(norm_name)
-        full["cost"] = full["cs_cap_hit"].fillna(full["pp_cap_hit"])
+        full["cost"] = full["pp_cap_hit"].astype(float)       # v3.0 (Thomas, 2026-10-19: "PuckPedia's")
         full["bd"] = pd.to_datetime(full["birthdate"], errors="coerce")
         self.gp_spine = full[full["position"] == "Goaltender"].copy()
         self.g_proj = GoalieProjector(full)
@@ -633,9 +634,8 @@ class NPVEngine:
         if not chain:
             return pd.DataFrame(), {"status": "no_contract"}
         cid = chain[0]
-        crows = (self.gp_spine[self.gp_spine["contract_id"].isin(chain)]
-                 .sort_values("season_start"))
-        crows = crows[crows["season_start"] >= t0]
+        # v3.0: the chain's seasons as known on as_of (a deal valued before its buyout runs its signed term)
+        crows = chain_rows(self.gp_spine, pid, chain, t0, self.sp.signed, as_of)
         # GUARD: k is the row position, so one row per consecutive season
         ss = crows["season_start"].to_numpy()
         assert len(ss) and ss[0] == t0 and (np.diff(ss) == 1).all(), (

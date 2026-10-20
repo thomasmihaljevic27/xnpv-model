@@ -1,6 +1,6 @@
 """
 =============================================================================
- rfa_terminal_value.py   v2.7                       Phase 1c
+ rfa_terminal_value.py   v2.8                       Phase 1c
 
  v2.7 (2026-10-18): the CBA age on the calendar (cba_age), not floor(days / 365.25). v2.6: rights (expired_contract_id).
  v2.5 (2026-10-14, Thomas): the arbitration price's WAR is "consistent with the forecast"
@@ -536,6 +536,11 @@ class TerminalValuer:
         cid = chain[-1]
         crows = (sp.spine[sp.spine["contract_id"] == cid]
                  .sort_values("season_start"))
+        if expired_contract_id is None:
+            # v2.8 (2026-10-19): the last contract's seasons as known on as_of (chain_rows): a deal valued before its
+            # buyout runs to its signed end, its final season a copy of its last played one at PuckPedia's cap hit
+            from skater_forward_projection import chain_rows
+            crows = chain_rows(sp.spine, player_id, [cid], 0, sp.signed, as_of)
         end = int(crows["season_start"].max())
         expiry = crows.iloc[0]["pp_expiry"]
         ufa_year = crows.iloc[0]["ufa_year"]

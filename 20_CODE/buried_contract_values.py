@@ -43,7 +43,7 @@ from pathlib import Path
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "buried_contract_values.py v1.4 (2026-10-18)"   # v1.4: ex-ante ceilings; v1.3: either date style
+SCRIPT_VERSION = "buried_contract_values.py v1.5 (2026-10-19)"   # v1.5: a buyout's full term before it; v1.4: ex-ante ceilings
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_source as CS                        # noqa: E402
@@ -72,6 +72,10 @@ def main():
     pc["signed"] = CS.parse_export_dates(pc["signing_date"], "PuckPedia signing_date")   # v1.3: either date style
     pc["last"] = pc["contract_end"].astype(str).str[:4].astype(int)
     pc["ends"] = pc["last"].map(lambda y: pd.Timestamp(y + 1, 6, 30))
+    # v1.5 (Thomas, 2026-10-19: "Full term until buyout"): a deal that ended early runs to its signed end for a trade
+    # dated before its buyout became known (contract_source.contract_terms); "last" is its last season played
+    _t = CS.contract_terms(pc)
+    pc["signed_end"], pc["off"] = _t["signed_end_yr"], _t["off_contract"]
     by_id = dict(tuple(pc.groupby(pc["nhl_id"].astype(int))))
     ret = pd.read_sql("select asset_id, retained_aav from trade_assets", sqlite3.connect(SOURCE_DIR / "trades.db"))
     RET = dict(zip(ret["asset_id"], ret["retained_aav"].fillna(0)))
@@ -97,13 +101,17 @@ def main():
             continue
         if nid is None or (nid, y) in priced or nid not in by_id:
             continue
-        run = by_id[nid][(by_id[nid]["signed"] <= date) & (by_id[nid]["ends"] >= date)]
+        cand = by_id[nid]
+        last_at = cand["last"].where(~(cand["off"].notna() & (date < cand["off"])), cand["signed_end"]).astype(int)
+        ends_at = last_at.map(lambda y_: pd.Timestamp(y_ + 1, 6, 30))
+        run = cand[(cand["signed"] <= date) & (ends_at >= date)]
         if run.empty:
             continue
         c = run.sort_values("signed").iloc[-1]
+        last_c = int(last_at[c.name])
         carried = float(c["cap_hit"]) - float(RET.get(r["asset_id"], 0) or 0)
         cost, seasons = 0.0, []
-        for s in range(y, int(c["last"]) + 1):
+        for s in range(y, last_c + 1):
             allowance = SFP.league_min_path(s) + BURY_ABOVE_MIN
             share = max(0.0, carried - allowance) / SFP.cap_path(y, s - y)   # v1.4: D11's 3% path from the page
             cost += share
@@ -111,9 +119,9 @@ def main():
         rows.append({"asset_id": r["asset_id"], "trade_date": r["trade_date"], "trade_season": y,
                      "player_name": r["player_name"], "acquiring_team": r["acquiring_team"], "nhl_id": nid,
                      "contract_cap_hit": float(c["cap_hit"]), "retained": float(RET.get(r["asset_id"], 0) or 0),
-                     "last_season": int(c["last"]), "seasons_left": int(c["last"]) - y + 1,
+                     "last_season": last_c, "seasons_left": last_c - y + 1,
                      "value_M": -cost * CAP_NOW / 1e6 + 0.0, "full_cap_hit_value_M": -sum(
-                         carried / SFP.cap_path(y, s - y) for s in range(y, int(c["last"]) + 1)) * CAP_NOW / 1e6,
+                         carried / SFP.cap_path(y, s - y) for s in range(y, last_c + 1)) * CAP_NOW / 1e6,
                      "seasons": "; ".join(seasons), "prospect_status": st})
     d = pd.DataFrame(rows)
     log(f"\nTRADED VETERANS ON NHL CONTRACTS NEITHER MODEL VALUES (from the {first_page}-{str(first_page + 1)[2:]} page): "
