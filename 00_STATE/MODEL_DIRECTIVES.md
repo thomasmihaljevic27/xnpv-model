@@ -1000,6 +1000,13 @@ minus the seasons since his draft minus 18.5 (within a season group, "older now"
   although the two are not jointly statistically significant there (p = 0.089). Evidence: all 24 combinations of draft
   position, production, production squared and age (`25_TESTS/prospect_term_combinations.py` v1.0) predict within 1%
   of one another and none beats the adopted model at the 5% level (smallest one-sided p 0.14). No code change.
+- **The age discount stays on production alone (Thomas, 2026-10-19: "For the form of the prospects age discounting I'm
+  content with what we have then"):** asked why age enters through its own term rather than discounting the production
+  terms already in the model. The term does discount production, a point being worth b + e x (age - 18); production
+  squared is not discounted. `25_TESTS/prospect_age_form_look.py` v1.0 tested four forms that reach the square (the
+  square discounted as well, the square alone, one discount on all of production, age-adjusted points in both terms):
+  none predicts the left-out drafts better at the 5% level (one-sided p 0.16 to 0.43), and the centre of age moves no
+  verdict (sessions/2026-10-19.md). No code change.
 
 ---
 

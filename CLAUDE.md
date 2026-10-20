@@ -462,6 +462,15 @@ tests pinned to the old prospect rows (`prospect_curve_vs_line.py`, `prospect_pr
 - **Don't show a model's formula once and then add its terms in prose.** "Valuing Prospects" showed the formula for
   the slot alone, then added production, its square and age in words. Thomas: "you should definitely show the adopted
   formula each time you add a variable to the model" (2026-10-15).
+- **Don't write one model's formula with discounting and another's without.** Every model discounts at 3% a year, but
+  only the contract formula showed it: `contract_npv.py` divides each season by (1.03)^k, while the pick curve and the
+  prospect model add up cap shares, where 3% cap growth and 3% discounting cancel (D11, D17), so their formulas showed
+  no discount at all. Thomas asked why picks and prospects were not discounted, and: "when writing out the formulas you
+  should just do the full form because it helps to see that there is still discounting in all models" (2026-10-19).
+  Write every value formula in full, the same way for each model: each season's value and cost in that season's
+  dollars, divided by (1.03)^k (a realised career's seasons multiplied by the stated cap over that season's cap, the
+  same discount at the cap's actual growth), then say in one line where the growth and the discount cancel. Never
+  present the cancelled cap-share sum as the formula.
 - **Don't explain a regression by its specification, or an interaction by its arithmetic.** "It regresses each
   prospect's remaining surplus on his slot's star probability, through zero, with draft-year indicators that sum to
   zero" and "star value for his seasons since the draft" meant nothing to Thomas, and "multiplies production by years

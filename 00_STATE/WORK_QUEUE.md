@@ -8,8 +8,9 @@
 
 ## Live (audited 2026-10-14)
 
-**Decide (Thomas): keep the prospect model's age discount on production alone, or extend it to production squared
-(session 2026-10-19).** Asked: why age gets its own term rather than discounting the production terms already in the
+**Decided 2026-10-19 (Thomas): keep the prospect model's age discount on production alone** ("For the form of the
+prospects age discounting I'm content with what we have then"; recorded in MODEL_DIRECTIVES directive 6, prospects,
+age). Was: decide whether to extend it to production squared (session 2026-10-19). Asked: why age gets its own term rather than discounting the production terms already in the
 model. Tested (`25_TESTS/prospect_age_form_look.py` v1.0): discounting the square as well, the square alone, one
 discount on all of production, or age-adjusted points in both terms; none predicts the left-out drafts better than the
 adopted form at the 5% level (one-sided p 0.16 to 0.43), and the centre of age moves no verdict. The alternatives move

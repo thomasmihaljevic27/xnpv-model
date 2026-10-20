@@ -3508,3 +3508,14 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   no verdict. Traded drafted prospects $70.51M move by -$0.75M to +$0.12M. Recorded in sessions/2026-10-19.md; WORK_QUEUE
   item added for Thomas's decision; MANIFEST row. No code in 20_CODE/, no MODEL_DIRECTIVES.md section and no locked
   decision (D1-D33) touched.
+
+### Change log, 2026-10-19b (the age-form test merged; the age discount kept; formulas written in full)
+
+- Branch `claude/gifted-hypatia-65fd41` (commit c263a54, the age-form test) merged into main on Thomas's say (merge
+  64dd682; the one conflict, this change log, kept both 2026-10-19 entries).
+- DECISION (Thomas, 2026-10-19: "For the form of the prospects age discounting I'm content with what we have then"):
+  the prospect model's age discount stays on production alone. Recorded in MODEL_DIRECTIVES directive 6 (prospects,
+  age); the WORK_QUEUE item is closed. No code change.
+- CLAUDE.md: new rule, write every model's formula in full with its discount shown (Thomas, after asking why picks and
+  prospects are not discounted; they are: cap-share sums, where 3% cap growth and 3% discounting cancel, D11 and D17).
+  Session log sessions/2026-10-19b.md. No locked decision (D1-D33) touched.
