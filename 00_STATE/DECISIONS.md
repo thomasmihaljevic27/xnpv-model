@@ -3557,3 +3557,17 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - FOUND: the contract table's cap-hit column (clause pipeline ahead of PuckPedia) carries another contract's figure on 143
   season rows (83 contracts), places 59 rows (36 contracts) in seasons before signing, and leaves 55 player-seasons with
   two contracts. Recorded in WORK_QUEUE for Thomas; not fixed.
+
+### Change log, 2026-10-19f (session 2026-10-19c: "Valuing Players, Draft Picks, and Prospects" v2)
+
+- DOCUMENT: v2 of the three-model write-up, after Thomas's reading of v1: the detail of the earlier supervisor documents,
+  each decision with its options and reasons, statistics, formulas and terms explained. `model_doc_figures.py` v2.0 (14
+  guards PASS; the price-line guards now within the lock's tolerance, 5e-5) and `model_doc.js` v2.0 build
+  `40_DOCS/Supervisor_Drafts/Valuing Players, Draft Picks, and Prospects.docx` (38 pages). No model change and no
+  figure in force moved; no locked decision (D1-D33) touched.
+- FOUND: 15 of the 87 valued traded players with a retention in `trades.db`'s row text have no retained amount in its
+  fields (Tatar among them); the retention rule on `claude/in-season-and-retention` reads the fields only. Queued for
+  Thomas. The draft intercepts' joint p is 0.020 on today's data (0.017 recorded 2026-10-16); the queue item is updated.
+- WORK_QUEUE: the read item now points at v2; the cap question removed from it (decided 2026-10-19); MANIFEST rows for
+  the three files updated. Committed to `main` from a separate worktree, because the working folder held another
+  session's branch (`claude/contract-dating`) and its uncommitted edits.
