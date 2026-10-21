@@ -83,6 +83,8 @@ was fixed. Every trade-valuation script re-runs to the laptop's files (guards pa
    30_OUTPUT; see `sessions/2026-10-18.md`.
 Details and figures: `sessions/2026-10-18.md`.
 
+**Do: Thomas's second round of notes on "Valuing Players, Draft Picks, and Prospects" v3 (2026-10-21; 39 comments and 15 text edits, the whole document).** Transcribed with themes and the work they ask for in `40_DOCS/Valuing_Players_Feedback.md` (Round 2). Model work first, then the rebuild: the prospect model without linear production (Thomas: "The model should be a c d and e"); one rule for a contract signed on the trade date in the chance of playing as in the value; the games share (position at p = 0.404, the 0.05 floor, age centred at 27); the chance of playing's age squared (p = 0.111); the starting level's games weighting (p = 0.087 and 0.099); pricing on the forecast over the contract's term ("It's worth considering"); the goaltender model revisited; the 50th pick in place of Brayden Point. "Valuing Prospects" brought up to date before his meeting with Karl.
+
 **Read (Thomas): "Valuing Players, Draft Picks, and Prospects" v3 (rebuilt 2026-10-21, session 2026-10-21, 39 pages).**
 His first round of notes on v2 (14 comments on pages 1 to 4, 2026-10-21) is done throughout the document: the sources
 introduced with who they are and why credible; Section 1 in general terms; no "Decision:" headings; performance,

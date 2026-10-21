@@ -3681,3 +3681,11 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   club control (prospect_values.py v1.11); linear production's verdict (p = 0.053) and draft position's from D+5
   (+$0.07M, p = 0.944) now follow the numbers. Two finished tests re-pinned to today's rows (v1.4). No model change; no
   locked decision (D1-D33) touched. MANIFEST rows updated. Session log sessions/2026-10-21.md.
+
+### Change log, 2026-10-21c (Thomas's second round of notes on "Valuing Players, Draft Picks, and Prospects")
+
+- NOTES: 39 comments and 15 text edits on v3, transcribed with themes and the work they ask for in
+  `40_DOCS/Valuing_Players_Feedback.md` (Round 2); his annotated copy committed as saved and kept in `90_ARCHIVE/2026-10-21/`.
+  Seven CLAUDE.md rules from them. No model change yet; no locked decision (D1-D33) touched.
+- WORK_QUEUE: a "Do" item for the round's model work and the rebuild, ahead of the read item. Session log
+  sessions/2026-10-21.md.

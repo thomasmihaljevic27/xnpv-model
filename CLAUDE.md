@@ -570,6 +570,32 @@ tests pinned to the old prospect rows (`prospect_curve_vs_line.py`, `prospect_pr
   name the topic in the heading.
 - **Don't name a data source without saying who it is and why it is credible.** WAR, Patrick Bacon, PuckPedia and
   the trade ledger were named without either (2026-10-21). His notes are in `40_DOCS/Valuing_Players_Feedback.md`.
+- **Don't describe what an earlier version of the model did in a reader-facing document.** v3 of "Valuing Players, Draft
+  Picks, and Prospects" explained the forecast, the chance of playing, the price line, term and the control-season cost
+  against the model's earlier projection, its trailing-WAR price line and the qualifying-offer chain. Thomas: "If you were
+  someone reading this paper, would you give a shit what a model that doesn't exist did? No"; "What's important is
+  defending the parameters used in the model as it exists and describing how and why they are used" (2026-10-21).
+  Defend each choice shortly by why it is right; an alternative tested against the model as it is may stay, briefly; a
+  superseded version, and anything no longer in any part of the model (the qualifying-offer chain), is not mentioned.
+- **Don't write a number without saying what it is.** "Start 1.1506 against 1.1611; one to five seasons ahead 1.3598
+  against 1.3689" drew: "I can just say random numbers too if I wanted to and act like they mean anything" (2026-10-21).
+  Name the measure and its unit each time a figure appears (the forecast's root mean squared error, in WAR per 82), and
+  say what a difference of that size means. "Best in the same test" is shown, not asserted.
+- **Don't leave a term in an adopted model that is not statistically significant without a reason Thomas has
+  accepted.** Position at p = 0.404 in the games share, age squared at p = 0.111 in the chance of playing and linear
+  production at p = 0.113 in the prospect model drew: "I'm getting tired of seeing things that aren't statistically
+  significant in these results" (2026-10-21). Before a table of an adopted regression goes to him, list each term with
+  p above 0.05 and either test dropping it or state why it stays; never show one in silence.
+- **Don't give a circular reason.** "The threshold used throughout the model" as the reason for a threshold, and "a
+  club holds an asset for the seasons it controls it", drew "Horribly circular reasoning" (2026-10-21). The reason is
+  what makes the choice right, not that the model makes it.
+- **Don't state a claim the document does not show.** "Goaltenders' WAR varies far more from season to season" and
+  "the signal was judged too weak": "You cannot simply state that, you need to show proof" (2026-10-21). Give the
+  figure, or a table, that shows it.
+- **Don't write "last" for the most recent season.** Thomas: "Most recent ... to avoid confusion between last meaning
+  previous and last meaning final" (2026-10-21).
+- **Don't run several tested figures through a paragraph.** Four errors and two p-values in prose drew "Shit like this
+  is where a table is helpful" (2026-10-21); so did a list of five comparable players with their weights.
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised
