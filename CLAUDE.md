@@ -542,6 +542,14 @@ tests pinned to the old prospect rows (`prospect_curve_vs_line.py`, `prospect_pr
   prospects without production, a reply offered draft position alone as significant there ($2.01M, p = 0.002). That
   star value pools skaters and goaltenders: skaters alone give $0.16M (p = 0.64), goaltenders $19.35M (2026-10-16).
   Before quoting a fit's estimate for a group, check it was fitted on that group's rows.
+- **Don't rebuild a document Thomas has annotated without carrying his own edits into the builder.** He edits the text
+  in Word as well as commenting (not as tracked changes). v3 of "Valuing Players, Draft Picks, and Prospects" was rebuilt
+  from the builder after only his comments were read, and his rewording of five paragraphs, the overview paragraph he
+  deleted, the statistical-terms table he deleted and his new Section 2 title were lost. Thomas: "If I made a change to
+  the document you should honour that change" (2026-10-21). Before each rebuild, diff the text of his copy against the
+  copy he was sent, paragraph by paragraph (deletions included, not only `w:ins`/`w:del`), carry each edit into the
+  builder verbatim, and check after the build that each is present. Never write over a file he has open or has saved
+  edits into.
 - **Don't personify the model or its parts.** "On the cost side only the discount acts" drew: "The Discount is not a
   noun and it cannot act. This is a MAJOR tell of AI writing. Do not personify things in the model" (2026-10-21). A
   discount, forecast, regression or price line does not act, know, ask, see, read or learn; say what is done to what:
