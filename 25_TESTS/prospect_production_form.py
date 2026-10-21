@@ -57,7 +57,7 @@ import statsmodels.api as sm
 from dotenv import load_dotenv
 from scipy import stats
 
-SCRIPT_VERSION = "prospect_production_form.py v1.3 (2026-10-16)"   # no draft-year terms (Thomas, 2026-10-16)
+SCRIPT_VERSION = "prospect_production_form.py v1.4 (2026-10-21)"   # v1.4: the rows of the 2026-10-20 prospect chain; v1.3   # no draft-year terms (Thomas, 2026-10-16)
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 LOG = []
@@ -89,7 +89,7 @@ PAIRS = [("straight", "slot alone"), ("curved", "slot alone"), ("squared alone",
 # ---- rows ------------------------------------------------------------------------------------------------
 d0 = pd.read_csv(F["rows"])
 FP = hashlib.sha1(pd.util.hash_pandas_object(d0[["draftYear", "pick", "k"]], index=False).values).hexdigest()[:12]
-assert FP == "cff3583de536", FP                                     # GUARD: the production look's rows
+assert FP == "1a0aa6bb93a0", FP   # GUARD: the production look's rows (v1.4, 2026-10-21: the rows after 2026-10-20; v1.3: cff3583de536, reproduce from git 166a98b)
 link = pd.read_csv(F["linkage"], parse_dates=["birthDate"])[["draftYear", "overallPickNumber", "birthDate"]]
 d0 = d0.merge(link.rename(columns={"overallPickNumber": "pick"}), on=["draftYear", "pick"], how="left")
 assert d0["birthDate"].notna().all()

@@ -3674,3 +3674,10 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - WORK_QUEUE: the read item now points at v3; the two items decided 2026-10-20 removed from it. Asked in chat, not
   queued: the trade ledger's source (Thomas: PuckPedia; `trades.db` and DECISIONS 2026-09-14e: CapFriendly).
 - MANIFEST: rows for the two scripts and the document updated; the feedback file added. Session log sessions/2026-10-21.md.
+
+### Change log, 2026-10-21b ("Valuing Prospects" brought to the model after 2026-10-20)
+
+- DOCUMENT: `prospect_model_doc.js` v2.6 rebuilds "Valuing Prospects" on today's outputs; the fit rows described as inside
+  club control (prospect_values.py v1.11); linear production's verdict (p = 0.053) and draft position's from D+5
+  (+$0.07M, p = 0.944) now follow the numbers. Two finished tests re-pinned to today's rows (v1.4). No model change; no
+  locked decision (D1-D33) touched. MANIFEST rows updated. Session log sessions/2026-10-21.md.

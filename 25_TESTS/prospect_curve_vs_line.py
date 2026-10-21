@@ -41,7 +41,7 @@ import pandas as pd
 import statsmodels.api as sm
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "prospect_curve_vs_line.py v1.3 (2026-10-16)"   # no draft-year terms (Thomas, 2026-10-16)
+SCRIPT_VERSION = "prospect_curve_vs_line.py v1.4 (2026-10-21)"   # v1.4: the rows of the 2026-10-20 prospect chain; v1.3   # no draft-year terms (Thomas, 2026-10-16)
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 LOG = []
@@ -68,7 +68,7 @@ LABEL = {"0": "D+1", "1": "D+2", "2": "D+3", "3": "D+4", "4+": "D+5 and later"}
 # ---- the rows: the production look's, with age added as prospect_age_look.py adds it --------------------
 d = pd.read_csv(F["rows"])
 FP = hashlib.sha1(pd.util.hash_pandas_object(d[["draftYear", "pick", "k"]], index=False).values).hexdigest()[:12]
-assert FP == "cff3583de536", FP                                     # GUARD: the production look's rows
+assert FP == "1a0aa6bb93a0", FP   # GUARD: the production look's rows (v1.4, 2026-10-21: the rows after 2026-10-20; v1.3: cff3583de536, reproduce from git 166a98b)
 link = pd.read_csv(F["linkage"], parse_dates=["birthDate"])[["draftYear", "overallPickNumber", "birthDate"]]
 d = d.merge(link.rename(columns={"overallPickNumber": "pick"}), on=["draftYear", "pick"], how="left")
 assert d["birthDate"].notna().all()
