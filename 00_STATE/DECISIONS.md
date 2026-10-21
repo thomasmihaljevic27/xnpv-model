@@ -3662,3 +3662,15 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   group below its forecast), 9 were not WAR findings. Rate-free agreement of club net wins r = 0.901. No locked decision
   touched: it runs the locked validators (2026-07-04, 2026-07-14) at trade level, as deferred in July. Session log
   sessions/2026-10-20.md.
+
+### Change log, 2026-10-21 ("Valuing Players, Draft Picks, and Prospects" v3)
+
+- DOCUMENT: Thomas's first round of notes on v2 (14 comments) done throughout; `model_doc.js` v3.0 and
+  `model_doc_figures.py` v3.0 (every guard PASS) rebuild the document on the model as it runs after 2026-10-20: the two
+  traded players valued as `traded_player_values.py` v1.5 values them, the clubs' sides from `trade_sides.csv`. Three
+  prospect tests re-run on today's rows (stale outputs). No model change; no locked decision (D1-D33) touched.
+- NEW: `40_DOCS/Valuing_Players_Feedback.md` (his notes, themes, checks); seven CLAUDE.md rules from them. His annotated
+  v2 kept in `90_ARCHIVE/2026-10-21/`.
+- WORK_QUEUE: the read item now points at v3; the two items decided 2026-10-20 removed from it. Asked in chat, not
+  queued: the trade ledger's source (Thomas: PuckPedia; `trades.db` and DECISIONS 2026-09-14e: CapFriendly).
+- MANIFEST: rows for the two scripts and the document updated; the feedback file added. Session log sessions/2026-10-21.md.

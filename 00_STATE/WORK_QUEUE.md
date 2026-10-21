@@ -83,27 +83,21 @@ was fixed. Every trade-valuation script re-runs to the laptop's files (guards pa
    30_OUTPUT; see `sessions/2026-10-18.md`.
 Details and figures: `sessions/2026-10-18.md`.
 
-**Read (Thomas): "Valuing Players, Draft Picks, and Prospects" v2 (rebuilt 2026-10-19/20, session 2026-10-19c, 38
-pages).** Rewritten after his reading of v1 (2026-10-19): the detail of "Valuing Draft Picks" and "Valuing Prospects";
-each decision with its options, why the adopted one and why not the others; the statistics, formulas and terms explained.
-Built by `25_TESTS/model_doc.js` v2.0 from `25_TESTS/model_doc_figures.py` v2.0 (14 guards, all PASS). He will send an
-annotated copy. Then decide (Thomas), each found while building it:
-- Draft intercepts in the pick curve: an intercept for each draft is jointly statistically significant at 5% (p = 0.020
-  on 2026-10-19 data; -$0.25M to +$0.82M a pick), and does not predict left-out drafts better (one-sided p = 0.754).
-  The document gives as the reason for leaving them out that a pick traded before its draft has no intercept of its own
-  (Claude's wording): confirm or replace it.
-- Done 2026-10-20 (Thomas: "Leave the extension out"; session 2026-10-20): a contract signed with the acquirer on the trade
-  date is not part of the trade (15 contracts). Was: an extension signed on the day of a trade: Pacioretty's value at the
-  trade (-$13.30M at the 2025-26 cap) includes the four-year extension Vegas signed that day. Decide how the back-test
-  counts it.
-- Done 2026-10-20 (Thomas: "Charge the 15 retentions recorded only in the trade ledger's text"; `trade_page.retention()`, session log 2026-10-18): the 15 are charged to their retaining clubs, $-19.25M moved from acquirers; the join total unchanged. Was: retained salary recorded only in the trade ledger's text (found 2026-10-19, session 2026-10-19c): of the 87 valued
-  traded players whose row text in `trades.db` shows a retention, 15 have no amount in `retention_pct` or
-  `retained_aav` (Tatar's $500,000 kept by Vegas on 2018-09-10; Lucic, Faulk, Kuemper and Saad among them). Each row's
-  text carries the amount and share. The retention rule built on `claude/in-season-and-retention` reads the fields only
-  (its 72 assets). Decide whether it reads the text as well.
+**Read (Thomas): "Valuing Players, Draft Picks, and Prospects" v3 (rebuilt 2026-10-21, session 2026-10-21, 39 pages).**
+His first round of notes on v2 (14 comments on pages 1 to 4, 2026-10-21) is done throughout the document: the sources
+introduced with who they are and why credible; Section 1 in general terms; no "Decision:" headings; performance,
+forecasted, terminal value; no personified model parts; continuity errors cleared. It also now describes the model as it
+runs after 2026-10-20 (the same-day contract left out, retained salary, the season left, LTIR; each club's side as
+received less given up: Montreal +$2.70M, Vegas -$2.70M at the 2025-26 cap). His notes and the checks drawn from them:
+`40_DOCS/Valuing_Players_Feedback.md`; his annotated v2 is in `90_ARCHIVE/2026-10-21/`. Then decide (Thomas):
+- Draft intercepts in the pick curve: an intercept for each draft is jointly statistically significant at 5% (p = 0.020)
+  and does not predict left-out drafts better (one-sided p = 0.719 on 2026-10-21 data). The document gives as the reason
+  for leaving them out that a pick traded before its draft has no intercept of its own (Claude's wording): confirm or
+  replace it.
 - Check the five references the document cites (Efron and Morris 1975; Nadaraya 1964; Papke and Wooldridge 1996; Tobin
   1958; Watson 1964).
-(The v1 item's question of the cap at which a trade's sides are added was decided 2026-10-19: the 2025-26 cap.)
+(Done since v2: the same-day extension left out and the 15 text-only retentions charged, both 2026-10-20; the cap at
+which a trade's sides are added, 2025-26, 2026-10-19.)
 
 **Held 2026-10-15: the supervisor meeting (session 2026-10-15b has the notes).** What it set:
 - Decided: the arbitration cost stands; the remaining gap between value delivered and cost paid is accepted (clubs earn

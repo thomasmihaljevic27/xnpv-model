@@ -13,6 +13,11 @@ alone in the adopted structure (the age test's procedure, guarded to reproduce i
 the prospect tests that read today's rows (fade rules, production, age, age form, arrival timing); retained salary in
 the trade under the rule decided for the back-test. v1.0 read the prospect document's numbers.json (2026-10-16).
 
+v3.0 (2026-10-21): the model as it runs after 2026-10-20: the two traded players valued as traded_player_values.py
+v1.5 values them (a contract signed on the trade date left out, the retained share inside the acquirer's value, the season
+left, LTIR relief); the trade's club sides read from trade_sides.csv (received less given up); the forecast path drawn
+from the forecast itself, since Pacioretty's valued contract is now one season. Guarded as before.
+
 Nothing here prices anything new. Every figure is read from the code that runs, and GUARDED against the output it
 must reproduce: the traded players and the joined trade file (to $1 or 1e-6), the locked price lines, the 2025-26 page
 fits, the star value, the prospect star values and fits, Suzuki's parts, the tests' own adopted arms.
@@ -45,7 +50,7 @@ import matplotlib                                                  # noqa: E402
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt                                    # noqa: E402
 
-SCRIPT_VERSION = "model_doc_figures.py v2.0 (2026-10-19)"
+SCRIPT_VERSION = "model_doc_figures.py v3.0 (2026-10-21)"
 OUT, SRC = Path(os.environ["OUTPUT_DIR"]), Path(os.environ["SOURCE_DIR"])
 FIG = OUT / "model_doc"
 FIG.mkdir(exist_ok=True)
@@ -92,7 +97,9 @@ def heavy():
                      "price_line_script": XPL.SCRIPT_VERSION}
 
     # ---- 1. the two traded players, valued as traded_player_values.py values them ---------------------------------
+    import trade_page as TP
     tp = pd.read_csv(OUT / "traded_player_values.csv")
+    RET = TP.retention()["retention_pct"].to_dict()
     war = pd.read_csv(SRC / "WAR.csv", usecols=["Player"])
     display = {}
     for nm in war["Player"]:
@@ -101,9 +108,23 @@ def heavy():
     for name in ("Max Pacioretty", "Tomas Tatar"):
         r = tp[(tp["player_name"] == name) & (tp["trade_date"] == TRADE_DATE)].iloc[0]
         pid, page, as_of = int(r["player_id"]), int(r["valuation_page"]), pd.Timestamp(r["as_of"])
-        det, s = eng.npv(pid, page, as_of)
-        guard(f"{name}: value equals traded_player_values.csv", abs(s["npv_total"] - r["npv_total"]) < 1.0,
-              f"({s['npv_total']:,.0f} against {r['npv_total']:,.0f})")
+        date = pd.Timestamp(TRADE_DATE)
+        # traded_player_values.py v1.4: a contract signed on or after the trade date is left out (its signing date masked
+        # for this valuation); v1.2: the season left and the retained share
+        share, rpct = TP.season_left_share(date, page), float(RET.get(r["asset_id"], 0.0))
+        before = eng.npv(pid, page, as_of, first_season_share=share, retained_pct=rpct)[1]   # with the extension
+        spine_ = eng.sp.spine[eng.sp.spine["player_id"] == pid]
+        masked = {}
+        for c in spine_["contract_id"].unique():
+            sg = eng.sp.signed.get(int(c))
+            if pd.notna(sg) and date <= sg <= as_of:
+                masked[int(c)] = sg
+                eng.sp.signed[int(c)] = pd.NaT
+        det, s = eng.npv(pid, page, as_of, first_season_share=share, retained_pct=rpct)
+        eng.sp.signed.update(masked)
+        guard(f"{name}: value equals traded_player_values.csv (the engine's value, before LTIR relief)",
+              abs(s["npv_total"] - r["npv_total_engine"]) < 1.0 and abs(float(r.get("ltir_relief", 0.0) or 0.0)) < 1e-9,
+              f"({s['npv_total']:,.0f} against {r['npv_total_engine']:,.0f})")
         rows = det[det["row_type"] == "contract"]
         seasons = [{k: (None if pd.isna(x[k]) else (float(x[k]) if isinstance(x[k], (int, float, np.floating, np.integer))
                                                     else str(x[k])))
@@ -146,6 +167,11 @@ def heavy():
                 for k, v in s.items() if k in ("npv_total", "npv_contract", "npv_terminal", "n_contract_seasons",
                                                "term_years", "npv_total_term_free", "npv_total_qo")},
             "seasons": seasons, "own_seasons": own_seasons,
+            "season_share": float(share), "retained_pct": rpct, "retained_pv": float(s.get("retained_pv", 0.0)),
+            "extension_left_out": len(masked), "npv_with_extension": float(before["npv_total"]),
+            "forecast_path": [{"k": int(k_), **{c_: float(p.loc[(ck, k_), c_]) for c_ in ("rate_82", "gp_share", "p_play")
+                                                if c_ in p.columns}}
+                              for k_ in range(6) if (ck, k_) in p.index],
             "own_82": float(row["own_82"]), "tw_WAR": float(row["tw_WAR"]), "age_last": age_last, "last_lag": g,
             "pos": str(row["pos"]), "comparables_level": float(cn), "path": [float(x) for x in path[: g + 8]],
             "start": float(start),
@@ -734,35 +760,42 @@ to25 = cap["2025"] / cap[str(TRADE_PAGE)]
 pl = H["players"]
 tav = pd.read_csv(OUT / "trade_asset_values.csv")
 tav = tav[tav["trade_id"] == 1590].set_index("name")
+tpl = tav[tav["asset_type"] == "player"]
 guard("trade: Pacioretty and Tatar equal trade_asset_values.csv",
-      abs(tav.loc["Max Pacioretty", "value_page_cap_M"] - pl["Max Pacioretty"]["summary"]["npv_total"] / 1e6) < 1e-6
-      and abs(tav.loc["Tomas Tatar", "value_page_cap_M"] - pl["Tomas Tatar"]["summary"]["npv_total"] / 1e6) < 1e-6)
+      abs(tpl.loc["Max Pacioretty", "value_page_cap_M"] - pl["Max Pacioretty"]["summary"]["npv_total"] / 1e6) < 1e-6
+      and abs(tpl.loc["Tomas Tatar", "value_page_cap_M"] - pl["Tomas Tatar"]["summary"]["npv_total"] / 1e6) < 1e-6)
 guard("trade: Suzuki and the pick equal trade_asset_values.csv",
-      abs(tav.loc["Nick Suzuki", "value_2025_cap_M"] - PRS["suzuki"]["value"]) < 1e-9
+      abs(tpl.loc["Nick Suzuki", "value_2025_cap_M"] - PRS["suzuki"]["value"]) < 1e-9
       and abs(tav.loc["2019 round 2 (CBJ)", "value_2025_cap_M"] - PK["trade_pick"]["value"]) < 1e-9)
-# retained salary as decided for the back-test (the retaining club pays retained share x cap hit over the contract being
-# played, discounted like the contract; contract_npv v3.0 on the unadopted branch claude/in-season-and-retention):
-# Montreal kept $450,000 of Pacioretty's $4.5M (trades.db); Vegas kept $500,000 of Tatar's $5.3M (the row's text only)
+# retained salary (Thomas 2026-10-19; contract_npv's retained_pv): the retaining club's entry in trade_asset_values.csv
 ret = {}
-for nm, amount in (("Max Pacioretty", 450_000.0), ("Tomas Tatar", 500_000.0)):
-    run = [s for s in pl[nm]["seasons"] if s["is_extension"] in (0.0, "False", False)]
-    share = amount / run[0]["cost_dollars"]
-    ret[nm] = {"amount": amount, "share": share, "seasons": len(run),
-               "pv_page": float(sum(share * s["cost_dollars"] * s["discount"] for s in run)) / 1e6}
-    ret[nm]["pv_2025"] = ret[nm]["pv_page"] * to25
+for nm, club in (("Max Pacioretty", "MTL"), ("Tomas Tatar", "VGK")):
+    rr = tav.loc[f"retained: {nm}"]
+    guard(f"trade: {nm}'s retained entry equals the engine's retained value",
+          abs(-float(rr["value_page_cap_M"]) - pl[nm]["retained_pv"] / 1e6) < 1e-6)
+    ret[nm] = {"club": club, "share": pl[nm]["retained_pct"], "amount": float(rr["retained_aav"]),
+               "seasons": int(pl[nm]["summary"]["n_contract_seasons"]),
+               "pv_page": -float(rr["value_page_cap_M"]), "pv_2025": -float(rr["value_2025_cap_M"])}
+sides = pd.read_csv(OUT / "trade_sides.csv")
+sides = sides[sides["trade_id"] == 1590].set_index("club")
+guard("trade: the two clubs' sides sum to zero", abs(sides["net_M"].sum()) < 1e-9)
 N["trade"] = {"to_2025": to25, "retained": ret, "assets": [
-    {"asset": "Max Pacioretty", "to": "VGK", "kind": "player", "value_page": float(tav.loc["Max Pacioretty", "value_page_cap_M"]),
-     "value": float(tav.loc["Max Pacioretty", "value_2025_cap_M"])},
-    {"asset": "Tomas Tatar", "to": "MTL", "kind": "player", "value_page": float(tav.loc["Tomas Tatar", "value_page_cap_M"]),
-     "value": float(tav.loc["Tomas Tatar", "value_2025_cap_M"])},
-    {"asset": "Nick Suzuki", "to": "MTL", "kind": "prospect", "value": float(tav.loc["Nick Suzuki", "value_2025_cap_M"])},
-    {"asset": "2019 second-round pick", "to": "MTL", "kind": "pick", "value": float(tav.loc["2019 round 2 (CBJ)", "value_2025_cap_M"])}]}
+    {"asset": "Max Pacioretty", "to": "VGK", "kind": "player", "value_page": float(tpl.loc["Max Pacioretty", "value_page_cap_M"]),
+     "value": float(tpl.loc["Max Pacioretty", "value_2025_cap_M"])},
+    {"asset": "Tomas Tatar", "to": "MTL", "kind": "player", "value_page": float(tpl.loc["Tomas Tatar", "value_page_cap_M"]),
+     "value": float(tpl.loc["Tomas Tatar", "value_2025_cap_M"])},
+    {"asset": "Nick Suzuki", "to": "MTL", "kind": "prospect", "value": float(tpl.loc["Nick Suzuki", "value_2025_cap_M"])},
+    {"asset": "2019 second-round pick", "to": "MTL", "kind": "pick", "value": float(tav.loc["2019 round 2 (CBJ)", "value_2025_cap_M"])}],
+    "sides": {c_: {k_: float(sides.loc[c_, k_]) for k_ in ("received_M", "given_M", "net_M", "recv_players_M", "recv_picks_M",
+                                                           "recv_prospects_M", "recv_retained_M", "gave_players_M",
+                                                           "gave_picks_M", "gave_prospects_M")} for c_ in ("MTL", "VGK")}}
 for side in ("MTL", "VGK"):
-    N["trade"][side] = float(sum(a_["value"] for a_ in N["trade"]["assets"] if a_["to"] == side))
-s0 = [x for x in pl["Max Pacioretty"]["seasons"] if int(x["k"]) == 0][0]
-N["trade"]["pacioretty_old_contract"] = {"value_page": s0["pv_dollars"] / 1e6, "value": s0["pv_dollars"] / 1e6 * to25}
-N["trade"]["season_share"] = 1.0                      # traded before opening night (2018-10-03): the whole season is left
-log(f"  the trade at the 2025-26 cap: Montreal received ${N['trade']['MTL']:.2f}M, Vegas ${N['trade']['VGK']:.2f}M; retained "
+    N["trade"][side] = N["trade"]["sides"][side]["net_M"]
+pac_ = pl["Max Pacioretty"]
+N["trade"]["pacioretty_with_extension"] = {"value_page": pac_["npv_with_extension"] / 1e6,
+                                           "value": pac_["npv_with_extension"] / 1e6 * to25}
+N["trade"]["season_share"] = pac_["season_share"]
+log(f"  the trade at the 2025-26 cap: Montreal net ${N['trade']['MTL']:.2f}M, Vegas ${N['trade']['VGK']:.2f}M; retained "
     + ", ".join(f"{k} ${v['pv_2025']:.2f}M" for k, v in ret.items()))
 
 
@@ -799,8 +832,9 @@ age_v = pc["age_last"] + pc["last_lag"]
 base_syr = TRADE_PAGE - pc["last_lag"]
 g18 = H["aging"]["page_2018_gdelta"]
 seas = pc["seasons"]
-ks = [int(x["k"]) for x in seas]
-ax.plot([age_v + k for k in ks], [x["rate_82"] for x in seas], color=A1, lw=1.8, marker="o", ms=3,
+fpath = pc["forecast_path"][:5]
+ks = [int(x["k"]) for x in fpath]
+ax.plot([age_v + k for k in ks], [x["rate_82"] for x in fpath], color=A1, lw=1.8, marker="o", ms=3,
         label="His forecast (comparable players' changes)")
 lg = [pc["start"]]
 for k in ks[1:]:
@@ -943,22 +977,26 @@ ax.set_xlim(0, 25); ax.set_ylim(-1, 7)
 ax.legend(frameon=False, fontsize=8, loc="upper left")
 fig.tight_layout(); fig.savefig(FIG / "fig_prospect.png"); plt.close(fig)
 
-# Figure: the trade
-tr = N["trade"]["assets"]
-fig, ax = plt.subplots(figsize=(6.2, 2.6), dpi=200)
-labels = [f"{a_['asset']} (to {'Montreal' if a_['to'] == 'MTL' else 'Vegas'})" for a_ in tr]
-vals = [a_["value"] for a_ in tr]
-cols_ = [A1 if a_["to"] == "MTL" else A2 for a_ in tr]
-yy = np.arange(len(tr))[::-1]
-ax.barh(yy, vals, color=cols_, height=0.55)
-for y_, v_ in zip(yy, vals):
-    ax.text(v_ + (0.3 if v_ >= 0 else -0.3), y_, f"{'-' if v_ < 0 else ''}${abs(v_):.2f}M", va="center",
-            ha="left" if v_ >= 0 else "right", fontsize=8.5, color=INK)
-ax.set_yticks(yy, labels, fontsize=8.5)
+# Figure: the trade, each club's side (trade_sides.csv: received, given up, and the difference)
+sd_ = N["trade"]["sides"]
+fig, ax = plt.subplots(figsize=(6.2, 2.5), dpi=200)
+rows_ = [("Montreal", "MTL"), ("Vegas", "VGK")]
+parts = [("Received", "received_M", "#B9B8B2"), ("Given up", "given_M", MUTED), ("Net: received less given up", "net_M", None)]
+hgt = 0.24
+for i_, (club, k_) in enumerate(rows_):
+    for j_, (lab, col, c_) in enumerate(parts):
+        v_ = sd_[k_][col]
+        y_ = (len(rows_) - 1 - i_) + (1 - j_) * hgt
+        colour = c_ or A1
+        ax.barh(y_, v_, height=hgt * 0.9, color=colour, label=lab if i_ == 0 else None)
+        ax.text(v_ + (0.12 if v_ >= 0 else -0.12), y_, f"{'-' if v_ < 0 else ''}${abs(v_):.2f}M", va="center",
+                ha="left" if v_ >= 0 else "right", fontsize=8, color=INK)
+ax.set_yticks([1, 0], [r_[0] for r_ in rows_], fontsize=9)
 ax.axvline(0, color=INK, lw=0.8)
 ax.set_xlabel("Surplus value at the trade ($M at the 2025-26 cap)")
-ax.set_xlim(min(vals) - 4, max(vals) + 3)
+ax.set_xlim(-7.5, 4.5)
 ax.grid(axis="x", color=GRID, lw=0.6)
+ax.legend(frameon=False, fontsize=7.5, loc="lower right")
 fig.tight_layout(); fig.savefig(FIG / "fig_trade.png"); plt.close(fig)
 
 def clean(o):

@@ -542,6 +542,26 @@ tests pinned to the old prospect rows (`prospect_curve_vs_line.py`, `prospect_pr
   prospects without production, a reply offered draft position alone as significant there ($2.01M, p = 0.002). That
   star value pools skaters and goaltenders: skaters alone give $0.16M (p = 0.64), goaltenders $19.35M (2026-10-16).
   Before quoting a fit's estimate for a group, check it was fitted on that group's rows.
+- **Don't personify the model or its parts.** "On the cost side only the discount acts" drew: "The Discount is not a
+  noun and it cannot act. This is a MAJOR tell of AI writing. Do not personify things in the model" (2026-10-21). A
+  discount, forecast, regression or price line does not act, know, ask, see, read or learn; say what is done to what:
+  "A cap hit is in fixed dollars, so on the cost side discounting is present."
+- **Don't open a document with detail that only a later section explains.** Section 1 of "Valuing Players, Draft
+  Picks, and Prospects" gave the realised-career cap formula before picks were introduced: "indecipherable unless
+  you've already read the document ... The entire document needs to be cleared of writing continuity errors like this"
+  (2026-10-21). An opening section introduces the concept, why it matters and how it works in general; each detail goes
+  where its context is.
+- **Don't write "play" for what a player delivers.** Thomas: "Important to use 'performance' rather than 'play'"; a
+  forecast of it is "forecasted performance" (2026-10-21). And a pick or prospect delivers no performance until its
+  player reaches the NHL.
+- **Don't call the value of the control seasons anything but the terminal value** (Thomas, 2026-10-21;
+  `rfa_terminal_value.py`).
+- **Don't define a symbol by apposition.** "and C his cap hit" reads as if C were a verb; write "C is his cap hit"
+  (2026-10-21).
+- **Don't use "Decision:" headings.** Thomas: "I am not a fan of these" (2026-10-21). Keep the options and reasons;
+  name the topic in the heading.
+- **Don't name a data source without saying who it is and why it is credible.** WAR, Patrick Bacon, PuckPedia and
+  the trade ledger were named without either (2026-10-21). His notes are in `40_DOCS/Valuing_Players_Feedback.md`.
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised
