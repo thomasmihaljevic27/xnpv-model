@@ -37,7 +37,7 @@ from pathlib import Path
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "traded_player_values.py v1.5 (2026-10-20)"   # v1.5: LTIR known at the trade; v1.4: signed on the trade date left out; v1.3: text-only retentions; v1.2: season left, retained salary; v1.1: rights only
+SCRIPT_VERSION = "traded_player_values.py v1.6 (2026-10-21)"   # v1.6: the chance of playing leaves the same contracts out; v1.5: LTIR known at the trade; v1.4: signed on the trade date left out; v1.3: text-only retentions; v1.2: season left, retained salary; v1.1: rights only
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_source as CS                         # noqa: E402
@@ -122,7 +122,17 @@ def main():
         share = TP.season_left_share(date, y)
         rpct = float(RET.get(r["asset_id"], 0.0))
         rec.update({"season_share": share, "retained_pct": rpct})
-        d, s = eng.npv(pid, y, as_of, first_season_share=share, retained_pct=rpct)
+        # v1.6 (Thomas, 2026-10-21: "to be consistent yes that is how it should work"): the chance of playing leaves out
+        # the same contracts, signed from the trade date to as_of; until v1.5 participation_model read every deal signed
+        # by as_of, so it counted the deal the chain leaves out (Section 2 and Section 8 of the player document disagreed)
+        nk_ = eng.sp.spine.loc[eng.sp.spine["player_id"] == pid, "nk"]
+        if len(nk_):
+            with eng.sp.forecaster.signed_between(nk_.iloc[0], y, date, as_of) as n_play:
+                d, s = eng.npv(pid, y, as_of, first_season_share=share, retained_pct=rpct)
+        else:                                           # a goaltender: his chance of playing reads no contract
+            n_play = 0
+            d, s = eng.npv(pid, y, as_of, first_season_share=share, retained_pct=rpct)
+        rec["signed_after_trade_left_out_of_play"] = n_play
         eng.sp.signed.update(masked)                    # restore the dates for every other valuation
         rec.update({"player_id": pid, "as_of": as_of.date(), "status": s.get("status"),
                     **{k: s[k] for k in ("npv_total", "npv_contract", "npv_terminal", "npv_total_qo",

@@ -48,7 +48,7 @@ import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "page_2017_values.py v1.8 (2026-10-20)"   # v1.8: LTIR known at the trade; v1.7: "UFA (No QO)" keeps its UFA year; v1.6: extensions signed on the trade date left out; v1.5: text-only retentions; v1.4: season left, retained salary; v1.3: pages found here
+SCRIPT_VERSION = "page_2017_values.py v1.9 (2026-10-21)"   # v1.9: the chance of playing leaves the same contracts out; v1.8: LTIR known at the trade; v1.7: "UFA (No QO)" keeps its UFA year; v1.6: extensions signed on the trade date left out; v1.5: text-only retentions; v1.4: season left, retained salary; v1.3: pages found here
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_source as CS                         # noqa: E402
@@ -219,7 +219,15 @@ def main():
             if int(c_) >= 0 and pd.notna(sg) and sg >= date:   # CapWages contracts carry negative ids
                 masked[int(c_)] = sg
                 sp.signed[int(c_)] = pd.NaT
-        d, sm = eng.npv(pid, PAGE, date, first_season_share=share, retained_pct=rpct)
+        # v1.9 (Thomas, 2026-10-21): the chance of playing leaves out a deal of his signed on the trade date, as the chain
+        # does (participation_model reads PuckPedia's deals signed by the date: Turris's Nashville deal, 2017-11-05)
+        if gk:
+            n_play = 0
+            d, sm = eng.npv(pid, PAGE, date, first_season_share=share, retained_pct=rpct)
+        else:
+            with sp.forecaster.signed_between(nn + "|" + pg, PAGE, date, date) as n_play:
+                d, sm = eng.npv(pid, PAGE, date, first_season_share=share, retained_pct=rpct)
+        rec["signed_on_trade_date_left_out_of_play"] = n_play
         sp.signed.update(masked)                         # restore the dates for every other valuation
         rec["signed_on_or_after_trade_left_out"] = len(masked)
         rec.update({"player_id": pid, "position": pg, "war_name": wname, "contract": c0["type"],

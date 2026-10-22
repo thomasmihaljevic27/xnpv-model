@@ -3706,3 +3706,10 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   `25_TESTS/prospect_linear_drop_centre.py` v1.0 showed that without it the traded prospects' value and the term's
   significance both hang on the centre of age. "Valuing Prospects" to explain why the coefficient's p-value is not the
   test of whether it belongs. No code change; no locked decision touched.
+
+### Change log, 2026-10-21f (the forecast audit decided)
+
+- DECIDED (Thomas): drop the games share's defenceman term and the chance of playing's age squared and seasons since
+  debut; keep the no-contract-record marker; games-share floor 0; age centred at 27.22; keep the games weighting; keep
+  10 games. MODEL_DIRECTIVES, "The forecast audit decided". Touches D33's forecast specification (the games-share and
+  chance-of-playing inputs, as adopted 2026-10-05); a deliberate revisit by Thomas. Re-lock pending.

@@ -205,6 +205,13 @@ MIN_GP = 10           # a season needs this many games to count as a signal
 # seasons again.
 PARTICIPATION_GP = 1
 
+# THE CENTRE OF AGE in the games share and the chance of playing (Thomas, 2026-10-21: "Centre ages at 27.22", the mean
+# age of the 2025-26 games-share fit; was 27, "near the peak", which he found arbitrary). A centre changes no forecast
+# of the games share (25_TESTS/forecast_term_audit.py: fitted shares identical to 5.7e-14); it sets what the
+# intercept describes (a player of the average age). In the chance of playing, with no age squared, it moves the
+# intercept only.
+AGE_CENTRE = 27.22
+
 # MINIMUM AGE COVERAGE the season table will proceed on without being told to.
 #
 # The birthdate join reads PuckPedia plus an Elite Prospects file, and the

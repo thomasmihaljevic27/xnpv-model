@@ -294,12 +294,12 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 00_STATE/sessions,2026-10-02.md,state,hashable,2026-10-03c,ca012f6a6abb1fd97cac82b15b5fe1eb5aa9a242,37402,2026-10-03,yes,git,session log
 25_TESTS,archive_from_git.py,tooling,hashable,2026-10-02,722928e1e2551052c2f6d83807db7646d931cce2,2787,2026-10-02,yes,git,finished test or diagnostic
 20_CODE,contract_source.py,player,hashable,2026-10-20,bf33ffb5fa707482ad932fa6ac31b4138b49f850,13179,2026-10-20,yes,git,"v1.3: contract_terms(), the one rule for the seasons a contract covers (2026-10-20)"
-20_CODE,forecast_config.py,player,hashable,2026-10-02d,4238a8bffc638970d825a9b8c964bcf3615a3085,18579,2026-10-02,yes,git,"xNPV 1, promoted 2026-10-02 (D33)"
+20_CODE,forecast_config.py,player,hashable,2026-10-21,9e94efc3e2295180a359076ea0e6608317c45312,19077,2026-10-21,yes,git,"xNPV 1, promoted 2026-10-02 (D33); AGE_CENTRE 27.22 (2026-10-21)"
 20_CODE,forecast_harness.py,player,hashable,2026-10-02c,555fd12694953584751060438796074b0af6f4fb,21221,2026-10-05,yes,git,"xNPV 1, promoted 2026-10-02 (D33); v1.4 tier label on 50/30/20 (2026-10-05)"
 20_CODE,information_set.py,player,hashable,2026-10-02d,48b05b4745780347985d5fa53a8b77e1fa954779,9490,2026-10-02,yes,git,"xNPV 1, promoted 2026-10-02 (D33)"
-20_CODE,participation_model.py,player,hashable,2026-10-20,812bff95169e03c8296dd4ed745286d4830e75fb,27950,2026-10-20,yes,git,"v1.9: contract coverage from contract_terms (buyouts, replaced deals)"
+20_CODE,participation_model.py,player,hashable,2026-10-21,ce2d941e1028747ab2aa46dff4b60f97788be3a2,28655,2026-10-21,yes,git,"v2.0: no age squared, no seasons since debut; age centred at 27.22 (Thomas 2026-10-21)"
 20_CODE,player_season_table.py,player,hashable,2026-10-14,2881eed65940b3e49c58e4d178bacf2fd8cbbb04,29596,2026-10-14,yes,git,"xNPV 1, promoted 2026-10-02 (D33)"
-20_CODE,skater_forecast.py,player,hashable,2026-10-14,fb1fe71cd9eae8bea8f07de362e145644e6af73e,44849,2026-10-14,yes,git,"xNPV 1 v2.2, the directed forecast with A1, C2, C6, D2, E1 (branch)"
+20_CODE,skater_forecast.py,player,hashable,2026-10-21,4cff0ab072e98e0bae140338d071433a5c94c49d,46646,2026-10-21,yes,git,"xNPV 1 v2.4: no defenceman term in the games share, floor 0, age centred at 27.22; signed_between (Thomas 2026-10-21)"
 25_TESTS,xnpv1_promotion_check.py,player,hashable,2026-10-02c,b8b524e96a22c84a0a256b60880a8d354eb28898,7047,2026-10-02,yes,git,finished test or diagnostic
 25_TESTS,xnpv1_switch_check.py,player,hashable,2026-10-02e,cb067c9a79cb8fff332740042f194a4785153662,6431,2026-10-02,yes,git,finished test or diagnostic
 .,Update-Dashboard.cmd,npv,hashable,2026-10-02f,ab0513d123b559300e811cc1fb2775f45ed63eb0,1813,2026-10-02,yes,git,rebuilds and opens the dashboard (was Open-Dashboard.cmd)
@@ -381,11 +381,11 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 30_OUTPUT,war_name_crosswalk.csv,player,hashable,2026-10-14,LOCAL_RUN,0,2026-10-14,yes,dropbox,"written by war_name_crosswalk.py"
 20_CODE,buried_contract_values.py,trade,hashable,2026-10-20e,3f75e2d4b426b9b6edb08af9f96218452b851258,10762,2026-10-20,yes,git,"v1.8: a veteran on LTIR when traded relieved in full; v1.7: text-only retentions"
 20_CODE,contracts_2017.py,trade,hashable,2026-10-14,7999ff56393c4e213be4505cef64229c4f9adfa2,11119,2026-10-14,yes,git,"v1.0: contracts of players traded in 2017-18, read from CapWages (second contract source, terms only)"
-20_CODE,page_2017_values.py,trade,hashable,2026-10-20e,a4c166d559d40072b90ad5d8eb9f722267ea2b5d,20122,2026-10-20,yes,git,"v1.8: LTIR known at the trade; v1.7: a CapWages ""UFA (No QO)"" keeps its UFA year"
+20_CODE,page_2017_values.py,trade,hashable,2026-10-21,bc22f3778deda37fd3acf2785b04d22c27df4f67,20723,2026-10-21,yes,git,"v1.9: the chance of playing leaves out a contract signed on the trade date; v1.8: LTIR known at the trade"
 25_TESTS,page_2017_reproduction_check.py,trade,hashable,2026-10-14,886813476599d0f08b5ba2e30aa782635afabe4b,2641,2026-10-14,yes,git,"v1.0: CapWages-built contracts price as PuckPedia's own (38 of 38 within $0.01M)"
 30_OUTPUT,page_2017_values.csv,trade,hashable,2026-10-14,LOCAL_RUN,0,2026-10-14,yes,dropbox,"written by page_2017_values.py"
 20_CODE,trade_page.py,trade,hashable,2026-10-20b,9305f5999e2c1f9f2751801d6314c2692bd27f66,8544,2026-10-20,yes,git,"season_left_share (2026-10-19); retention(): the ledger's fields, else its text (2026-10-20)"
-20_CODE,traded_player_values.py,trade,hashable,2026-10-20e,699385a641d40c135e00b1775b3bf2b87340ea9e,11841,2026-10-20,yes,git,"v1.5: LTIR known at the trade (ltir.py); v1.4: a contract signed on the trade date is not part of the trade"
+20_CODE,traded_player_values.py,trade,hashable,2026-10-21,fe8e745b8acd904da85787f5fd93aa1514613143,12737,2026-10-21,yes,git,"v1.6: the chance of playing leaves out a contract signed on the trade date; v1.5: LTIR known at the trade"
 25_TESTS,next_page_moves.py,trade,hashable,2026-10-14,d1554e4ad1822f0eb6139024a3c3968b4433d435,5963,2026-10-14,yes,git,"v1.0: what moves when post-season trades go to the next page (report)"
 30_OUTPUT,traded_player_values.csv,trade,hashable,2026-10-14,LOCAL_RUN,0,2026-10-14,yes,dropbox,"written by traded_player_values.py"
 20_CODE,rights_values.py,trade,hashable,2026-10-20d,b3f290ba3fe0b90a3cd45200580a58ee35b5a4c8,14605,2026-10-20,yes,git,"v1.5: ""UFA no QO"" only once known on the trade date; expiry_label kept beside"
@@ -404,3 +404,6 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 40_DOCS,Valuing_Players_Feedback.md,doc,hashable,2026-10-21,d5398765f74a0c3b338036995c7a421dee3af1ca,4623,2026-10-21,yes,git,"Thomas's notes on Valuing Players, Draft Picks, and Prospects, sorted into themes, with the checks for the next draft"
 20_CODE,ltir.py,trade,hashable,2026-10-20e,4c5733cc41f4bd1fe66533df2f6846bbe16366de,13988,2026-10-20,yes,git,"v1.0: LTIR spells from Spotrac's pages (10_SOURCE/ltir/), the CBA test, relief shares; imported by the trade valuations and backtest.py"
 25_TESTS,backtest_gv_compare.py,backtest,hashable,2026-10-20f,c316a9ebb80d6006fef12685380742fc8f90786b,5970,2026-10-20,yes,git,"v1.0: the Game Value check of the back-test: each result on WAR, GV-adj and GV-raw, the declared verdict, the rate-free leg"
+25_TESTS,forecast_term_audit.py,player,hashable,2026-10-21,0afcb5d521d8127c2b123f2a1e183f3361400016,23315,2026-10-21,yes,git,"terms not statistically significant, games weighting, counting threshold (report only; 2026-10-21)"
+25_TESTS,forecast_round2_check.py,player,hashable,2026-10-21,b93669a196d3eef9e27418eea47aa3ab3f172232,4988,2026-10-21,yes,git,"the built forecast v2.4 gives the audit's S1 back (PASS 2026-10-21)"
+25_TESTS,prospect_linear_drop_centre.py,player,hashable,2026-10-21,4481a79b17bff34cc519a43a29402c7b760b8376,16401,2026-10-21,yes,git,"the prospect model without linear production at each centre of age (report only; 2026-10-21)"

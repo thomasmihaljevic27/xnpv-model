@@ -8,6 +8,9 @@
 
 ## Live (audited 2026-10-14)
 
+**Do not run (2026-10-21): `Update-Dashboard.cmd`, `trade_refresh.py` or the back-test until the price line is re-locked.** The forecast is skater_forecast v2.4 / participation_model v2.0 (Thomas's decisions on the forecast audit, MODEL_DIRECTIVES "The forecast audit decided"), but `XNPV1_RATE` is still the 2026-10-20 lock fitted on v2.3's forecast. The re-lock waits for Thomas's answer on the design for pricing over the contract's term, so the price line is re-locked once. Then: re-lock, the dashboard chain, the trade chain, the back-test and its Game Value check; the prospect model's own significance check (the no-record indicator in D+1 and D+2; production from D+5); the goaltender review; the two documents.
+
+
 **Run 2026-10-20: the back-test (session 2026-10-20; protocol `40_DOCS/Backtest_Protocol.md`, `backtest.py` v1.2).**
 The forecast's verdicts come true on average (slope 0.919); players delivered less than forecast; the club taking picks
 and prospects for players gains in forecast and outcome. Next, in order:

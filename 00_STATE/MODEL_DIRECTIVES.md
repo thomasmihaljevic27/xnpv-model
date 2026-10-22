@@ -1395,3 +1395,20 @@ Decided in chat after the notes were discussed one by one (`40_DOCS/Valuing_Play
    until every test is done and the price line is re-locked (Thomas, 2026-10-21: "I'll tell Karl it's coming after the
    meeting"); was: rebuilt before Friday 2026-10-23. The significance check covers the prospect model too (the
    no-record indicator in D+1 and D+2, p = 0.053 and 0.072; production from D+5, jointly p = 0.086).
+
+### The forecast audit decided (Thomas, 2026-10-21)
+
+`25_TESTS/forecast_term_audit.py` v1.2 (sessions/2026-10-21.md), under the rule agreed before the results. Status:
+**decided; built 2026-10-21 awaiting the price-line re-lock** (one re-lock after every forecast change; the design for
+pricing over the term comes first).
+1. **Drop the three terms** in every season ahead: the defenceman term in the games share; age squared and seasons
+   since his debut in the chance of playing (held out, season WAR 0.8054 against 0.8064, p < 0.001).
+2. **Keep the no-contract-record marker** (not significant in 6 of 10 seasons ahead, but dropping it worsens season WAR,
+   p = 0.006).
+3. **The games-share floor is 0** (was 0.05; no forecast share fell below 0.05 on the development pages).
+4. **Age is centred at 27.22** (the mean age of the 2025-26 games-share fit; was 27), in the games share and the chance
+   of playing. No forecast changes with the centre in the games share; in the chance of playing, without age squared,
+   only the intercept moves.
+5. **Keep the games weighting** (without it, season WAR 0.8076 against 0.8064, p = 0.026).
+6. **Keep the 10-game counting season** (5 games forecast better on the build's rows, but would move players with only
+   5-9 game seasons into the player model, untested; 20 games worse, p = 0.057).

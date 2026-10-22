@@ -61,9 +61,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import forecast_config as C
 from player_season_table import norm_name
 
-SCRIPT_VERSION = "1.9"   # 1.9 (2026-10-19): contract seasons from contract_source.contract_terms
+SCRIPT_VERSION = "2.0"   # 2.0 (2026-10-21, Thomas): no age squared, no seasons since debut; age centred at 27.22; 1.9 (2026-10-19): contract seasons from contract_source.contract_terms   # 1.9 (2026-10-19): contract seasons from contract_source.contract_terms
 
-BASE_FEATURES = ["age", "age_sq", "level", "gp_share", "exp_seasons", "is_D"]
+# v2.0 (Thomas, 2026-10-21, on 25_TESTS/forecast_term_audit.py v1.2): age squared (not statistically significant in
+# any of 13 seasons ahead, p 0.111 to 0.981) and seasons since his debut (not in 7 of 13) dropped; held out, season
+# WAR 0.8054 against 0.8064 with the games share's defenceman term also out (p < 0.001). The no-contract-record marker
+# is kept: it fails in 6 of 10 seasons ahead, but dropping it worsens season WAR (p = 0.006).
+BASE_FEATURES = ["age", "level", "gp_share", "is_D"]
 CONTRACT_FEATURES = ["under_contract", "contract_unknown"]
 FEATURES = BASE_FEATURES + CONTRACT_FEATURES
 MIN_FIT_ROWS = 400
@@ -268,8 +272,8 @@ class ParticipationModel:
             "exp_seasons": anchors["exp_seasons"].to_numpy(float),
             "is_D": anchors["is_D"].to_numpy(float),
         })
-        d["age_sq"] = (d["age"] - 27.0) ** 2
-        d["age"] = d["age"] - 27.0
+        d["age_sq"] = (d["age"] - C.AGE_CENTRE) ** 2     # v2.0: no longer a feature; kept for finished tests
+        d["age"] = d["age"] - C.AGE_CENTRE                # v2.0: centred at 27.22 (was 27)
 
         d["t0"] = anchors["t0"].to_numpy()
         # THE DATE CONTRACT STATE IS READ AT. By default 1 July of each row's
