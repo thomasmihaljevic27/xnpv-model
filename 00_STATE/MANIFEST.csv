@@ -407,3 +407,4 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,forecast_term_audit.py,player,hashable,2026-10-21,0afcb5d521d8127c2b123f2a1e183f3361400016,23315,2026-10-21,yes,git,"terms not statistically significant, games weighting, counting threshold (report only; 2026-10-21)"
 25_TESTS,forecast_round2_check.py,player,hashable,2026-10-21,b93669a196d3eef9e27418eea47aa3ab3f172232,4988,2026-10-21,yes,git,"the built forecast v2.4 gives the audit's S1 back (PASS 2026-10-21)"
 25_TESTS,prospect_linear_drop_centre.py,player,hashable,2026-10-21,4481a79b17bff34cc519a43a29402c7b760b8376,16401,2026-10-21,yes,git,"the prospect model without linear production at each centre of age (report only; 2026-10-21)"
+25_TESTS,term_average_price_line.py,player,hashable,2026-10-21,1a9d55ad240fa72e8f7956bf6c3a7e492ff2757b,12375,2026-10-21,yes,git,"the price line on the forecast over the term (report only; 2026-10-21)"
