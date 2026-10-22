@@ -50,7 +50,7 @@ import matplotlib                                                  # noqa: E402
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt                                    # noqa: E402
 
-SCRIPT_VERSION = "model_doc_figures.py v4.0 (2026-10-22)"   # v4.0: the model after 2026-10-21 (round-2 notes)
+SCRIPT_VERSION = "model_doc_figures.py v4.1 (2026-10-22)"   # v4.1: figure labels say NPV and xNPV, not surplus (Thomas); v4.0: the model after 2026-10-21 (round-2 notes)
 OUT, SRC = Path(os.environ["OUTPUT_DIR"]), Path(os.environ["SOURCE_DIR"])
 FIG = OUT / "model_doc"
 FIG.mkdir(exist_ok=True)
@@ -915,9 +915,9 @@ for nm, col, ls, lab in (("straight line in draft position", A4, ":", "Straight 
     ax.plot(xs, PK["shapes"][nm]["curve"], color=col, lw=1.8, ls=ls, label=lab, zorder=3)
 ax.axhline(0, color=MUTED, lw=0.6)
 ax.set_xlabel("Draft position")
-ax.set_ylabel("Surplus ($M at the 2025-26 cap)")
+ax.set_ylabel("Career NPV ($M at the 2025-26 cap)")
 ax.set_ylim(-3, max(16, np.nanmax(PK["avg_curve"][:5]) + 1))
-tidy(ax, "Surplus delivered, and three curves")
+tidy(ax, "Career NPV delivered, and three curves")
 ax.legend(frameon=False, fontsize=7.2, loc="upper right")
 fig.tight_layout(); fig.savefig(FIG / "fig_picks.png"); plt.close(fig)
 
@@ -1024,7 +1024,7 @@ for i_, (club, k_) in enumerate(rows_):
                 ha="left" if v_ >= 0 else "right", fontsize=8, color=INK)
 ax.set_yticks([1, 0], [r_[0] for r_ in rows_], fontsize=9)
 ax.axvline(0, color=INK, lw=0.8)
-ax.set_xlabel("Surplus value at the trade ($M at the 2025-26 cap)")
+ax.set_xlabel("xNPV at the trade ($M at the 2025-26 cap)")
 ax.set_xlim(-7.5, 4.5)
 ax.grid(axis="x", color=GRID, lw=0.6)
 ax.legend(frameon=False, fontsize=7.5, loc="lower right")

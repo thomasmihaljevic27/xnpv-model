@@ -595,6 +595,14 @@ tests pinned to the old prospect rows (`prospect_curve_vs_line.py`, `prospect_pr
 - **Don't state a claim the document does not show.** "Goaltenders' WAR varies far more from season to season" and
   "the signal was judged too weak": "You cannot simply state that, you need to show proof" (2026-10-21). Give the
   figure, or a table, that shows it.
+- **Don't call an asset's value "surplus value".** Thomas: "I want to retire using Surplus Value in the document. The project
+  is literally called xNPV. We really should be using Expected Net Present Value and xNPV where appropriate" (2026-10-22).
+  An asset's value at a valuation date is its expected net present value (xNPV); a drafted player's played career is its net
+  present value (NPV), and a prospect's outcome his remaining NPV; one season's value less its cost is its net value.
+- **Don't label a column or a date by what it should hold; read what the code puts there.** "Valuing Players" v4 headed
+  Sissons's column "WAR per 82" when `pick_curve.py` stores season WAR with only the league's shortened seasons scaled, and
+  said his control ended after 2021-22 when `price()` stops at `window_end - 1`, 2020-21 (found by an outside review,
+  2026-10-22). Name the measure from the line that computes it, and a season range from the loop that walks it.
 - **Don't write "last" for the most recent season.** Thomas: "Most recent ... to avoid confusion between last meaning
   previous and last meaning final" (2026-10-21).
 - **Don't run several tested figures through a paragraph.** Four errors and two p-values in prose drew "Shit like this

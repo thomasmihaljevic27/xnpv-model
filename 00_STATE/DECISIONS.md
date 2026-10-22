@@ -3755,3 +3755,13 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 
 - DOCUMENT: Reviewed both supplied drafts and all 39 old-draft comments; created a separate independent rewrite and review in 40_DOCS/Model_Explanation_Review. Detailed tests remain beside each model component, as Thomas requested. Current code and saved outputs checked; 17 arithmetic reconciliation assertions passed. No full pipeline rerun or model change. Both Word documents rendered and all 26 pages visually inspected. Supplied documents and the pre-existing edited Valuing Prospects.docx preserved. See sessions/2026-10-22c.md.
 
+### Change log, 2026-10-22c ("Valuing Players" v4 revised: xNPV, Word equations, the review's fixes)
+
+- TERM (Thomas, 2026-10-22: "retire using Surplus Value ... use Expected Net Present Value and xNPV"): in the documents an
+  asset's value is its expected net present value (xNPV), a played career's its NPV, a season's value less cost its net
+  value. No model change. CLAUDE.md: two rules (the term; label a column from the code that fills it).
+- DOCUMENT: `model_doc.js` v4.2 and `model_doc_figures.py` v4.1 rebuilt "Valuing Players, Draft Picks, and Prospects" with
+  Astra's review's confirmed errors fixed, repeated explanations cut, equations as Word equations, every table, figure,
+  appendix and Thomas's edits kept. `25_TESTS/pick_choices_current.py` v1.0 re-measured Appendix C's five qualifying-offer-era
+  effects on the arbitration cost. MANIFEST updated. Session log: sessions/2026-10-22.md.
+
