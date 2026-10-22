@@ -3750,3 +3750,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   fixed, the player document rebuilt. No model change. MANIFEST rows for both builders, the figures script and both
   documents updated. Session log: sessions/2026-10-22.md.
 
+
+### Change log, 2026-10-22c (independent document review and rewrite)
+
+- DOCUMENT: Reviewed both supplied drafts and all 39 old-draft comments; created a separate independent rewrite and review in 40_DOCS/Model_Explanation_Review. Detailed tests remain beside each model component, as Thomas requested. Current code and saved outputs checked; 17 arithmetic reconciliation assertions passed. No full pipeline rerun or model change. Both Word documents rendered and all 26 pages visually inspected. Supplied documents and the pre-existing edited Valuing Prospects.docx preserved. See sessions/2026-10-22c.md.
+
