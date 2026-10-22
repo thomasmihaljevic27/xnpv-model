@@ -3699,3 +3699,10 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   pricing over the term; goaltenders after skaters; one re-lock after all forecast changes.
 - RECORDED BEFORE THE RERUN: these changes do not come from the back-test's outcomes.
 - Nothing built. Session log sessions/2026-10-21.md.
+
+### Change log, 2026-10-21e (prospect model: linear production kept)
+
+- DECIDED (Thomas): keep linear production in the prospect model, reversing 2026-10-21d's item 1 after
+  `25_TESTS/prospect_linear_drop_centre.py` v1.0 showed that without it the traded prospects' value and the term's
+  significance both hang on the centre of age. "Valuing Prospects" to explain why the coefficient's p-value is not the
+  test of whether it belongs. No code change; no locked decision touched.

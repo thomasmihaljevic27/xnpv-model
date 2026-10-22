@@ -1362,7 +1362,7 @@ v1.5, `page_2017_values.py` v1.8, `buried_contract_values.py` v1.8, `backtest.py
 ## Thomas's second round of notes on "Valuing Players, Draft Picks, and Prospects" (2026-10-21)
 
 Decided in chat after the notes were discussed one by one (`40_DOCS/Valuing_Players_Feedback.md`, Round 2). Status: **decided, not built**.
-1. **Prospects: drop linear production** (note 38; "okay I'm comfortable dropping linear production"). The model becomes
+1. **Prospects: linear production KEPT (Thomas, 2026-10-21, after the centring check: "Keep linear production (the current model), and explain in the document why its p-value is not the test of whether it belongs").** Was: drop it. `25_TESTS/prospect_linear_drop_centre.py` v1.0: without it the traded drafted prospects ranged $71.19M to $90.55M by the centre of age, and its joint test p = 0.078 to 0.0002 by the centre; the current model's values do not depend on the centre. No code change. The note as first decided: **drop linear production** (note 38; "okay I'm comfortable dropping linear production"). The model becomes
    star probability, production squared, the no-record indicator and production x (age - 18). Before the build: the
    held-out comparison at more than one centre of age, since without linear production the centre is no longer
    neutral (recorded 2026-10-15: this form's rejection was p = 0.0027 at 18.5 and 0.063 at 18).
