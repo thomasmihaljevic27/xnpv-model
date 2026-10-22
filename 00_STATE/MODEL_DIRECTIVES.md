@@ -1391,5 +1391,7 @@ Decided in chat after the notes were discussed one by one (`40_DOCS/Valuing_Play
    we're doing and how"); changes in WAR are added and subtracted without explanation (no percentage passage, note 19);
    the departed season's level stated plainly as chosen on principle, with +0.25 scoring better on season WAR (20); the
    fitted 47/32/21 weights dropped from Table 2 (8); the drafted-player example is the 50th pick with more NHL games,
-   Colton Sissons (2012) or Jordan Greenway (2015) (36). "Valuing Prospects" goes to Karl rebuilt on the new prospect
-   model before Friday 2026-10-23 (Thomas: "I can just send him a new prospects document").
+   Colton Sissons (2012) or Jordan Greenway (2015), whichever played more NHL games (36). "Valuing Prospects" is HELD
+   until every test is done and the price line is re-locked (Thomas, 2026-10-21: "I'll tell Karl it's coming after the
+   meeting"); was: rebuilt before Friday 2026-10-23. The significance check covers the prospect model too (the
+   no-record indicator in D+1 and D+2, p = 0.053 and 0.072; production from D+5, jointly p = 0.086).
