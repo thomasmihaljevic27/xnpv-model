@@ -48,7 +48,7 @@ import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "rights_values.py v1.5 (2026-10-20)"   # v1.5: "UFA no QO" only once known at the trade; v1.4: the season left; v1.3: CBA age on the calendar
+SCRIPT_VERSION = "rights_values.py v1.6 (2026-10-21)"   # v1.6: goaltenders on contract_npv v3.4 (own line, age term); v1.5: "UFA no QO" only once known at the trade; v1.4: the season left; v1.3: CBA age on the calendar
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_npv as CN                                         # noqa: E402
@@ -70,12 +70,15 @@ def log(s=""):
 def goalie_rights(eng, pid, t0, crows, as_of, share=1.0):
     """The goalie branch's terminal block (contract_npv._npv_goalie), the chain at 1.0, first control season k = 0.
     v1.4: `share`, the share of the first control season left on the trade date (trade_page.season_left_share)."""
-    from contract_npv import ALPHA_G, BETA_G, G, ARB_NEED, signing_year
+    from contract_npv import G, ARB_NEED, signing_year, goalie_line
     from rfa_terminal_value import cba_age
     nname = crows.iloc[0]["nname"]
     pw, src = eng.g_proj.shrunk_projection(nname, t0)
     if pd.isna(pw):
         return None, "goalie: no history"
+    # v1.6 (Thomas, 2026-10-21): each control season's forecast carries the age term (contract_npv v3.4)
+    bd0 = crows.iloc[0]["bd"]
+    age0 = None if pd.isna(bd0) else int(t0 - bd0.year - ((9, 15) < (bd0.month, bd0.day)))
     end, ufa_year = int(crows["season_start"].max()), crows.iloc[0]["ufa_year"]
     if pd.isna(ufa_year):
         return None, "goalie: no UFA year"
@@ -90,15 +93,18 @@ def goalie_rights(eng, pid, t0, crows, as_of, share=1.0):
     obs_gp = {z: v[0] for z, v in observed.items()}
     flag = eng.tv.arb_flag.get(int(crows.iloc[0]["contract_id"]))
     S_tv, tv = 1.0, 0.0
+    fc, _src = eng.g_proj.forecast(nname, t0, max(int(ufa_year) - 1 - t0, 0), age0)
     for j, season in enumerate(range(end + 1, int(ufa_year)), 1):
         k = (end - t0) + j
         ceil = cap_path(t0, k)
         lm = league_min_path(season)
-        val = max((ALPHA_G + BETA_G * pw) * ceil, lm)
+        val = max(goalie_line(fc[k][1], 1) * ceil, lm)       # a control season: one year of term
         elig = arb_eligible(season, t0, need, obs_gp) if flag is None else (flag == 1 or j >= 2)
         tw = eng.g_proj.arbitration_war(nname, t0, season, pw) if elig else None
+        if tw is not None and src != "stale_anchor":
+            tw += eng.g_proj.age_term(nname, t0, season)
         qo = qualifying_offer(sal, cap_hit, season, s20)
-        cost = max(qo, max((ALPHA_G + BETA_G * tw) * ceil, lm)) if tw is not None else qo
+        cost = max(qo, max(goalie_line(tw, 1) * ceil, lm)) if tw is not None else qo
         if val - cost < 0:
             break                                       # D13
         S_tv *= eng.g_control_weight

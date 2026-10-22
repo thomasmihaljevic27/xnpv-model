@@ -439,14 +439,20 @@ def main():
         ac, nc = pd.read_csv(ac), pd.read_csv(nc)
         src = {("main", g): (ac, "+ age x production") for g in AGE_GROUPS}
         src.update({("main", "4+"): (nc, "production curved")})
+        # v1.12: the looks measured the model with the no-record indicator, which v1.12 drops (Thomas, 2026-10-21). The
+        # guard now refits each look's own columns (the adopted ones plus the indicator) on these rows and requires the
+        # look's coefficients back: the rows are the ones the looks measured, and the indicator is the only change.
         n_ok = 0
         for (v, g), (tab, arm) in src.items():
             cols, b, _ = fits[(v, g, "none")]
             ref = tab[(tab["k_group"] == g) & (tab["arm"] == arm)].iloc[0]
-            gap = max(abs(b[i] - ref[c]) for i, c in enumerate(cols))
+            cols_look = cols + ["no_record"]
+            b_look, _ = fit_cols(prow[prow["k_group"] == g], cols_look, g.endswith("+"))
+            gap = max(abs(b_look[i] - ref[c]) for i, c in enumerate(cols_look))
             assert gap < 1e-9, (v, g, arm, gap)
             n_ok += 1
-        log(f"  guard: coefficients equal the production and age looks' for {n_ok} of {len(src)} fits (PASS)")
+        log(f"  guard: with the no-record indicator added back, the coefficients equal the production and age looks' for "
+            f"{n_ok} of {len(src)} fits (PASS): the same rows, one term dropped")
     for v in VERSIONS:
         for g in ("0", "1", "2", "3", "4+"):
             cols, b, se = fits[(v, g, "none")]

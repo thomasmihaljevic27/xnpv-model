@@ -64,7 +64,7 @@ import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "backtest.py v1.5 (2026-10-20)"   # v1.5: the Game Value check (XNPV_OUTCOME_METRIC), wins delivered; v1.4: LTIR relief; v1.3: "UFA no QO" known only after the decision; v1.2: seasons after a buyout; v1.1: the ledger's spelling when the spine's has no WAR rows
+SCRIPT_VERSION = "backtest.py v1.6 (2026-10-21)"   # v1.6: goaltenders on contract_npv v3.4 (own line with term, age term, chance of playing by season ahead); v1.5: the Game Value check (XNPV_OUTCOME_METRIC), wins delivered; v1.4: LTIR relief; v1.3: "UFA no QO" known only after the decision; v1.2: seasons after a buyout; v1.1: the ledger's spelling when the spine's has no WAR rows
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_npv as CN                                     # noqa: E402  the engine, goalie line and hazard
@@ -111,7 +111,7 @@ def log(s=""):
 def line(w, gk, pos, term):
     """The contract line (cap share): goalies' line, or skaters' with the defence slope and the term premium."""
     if gk:
-        return ALPHA_G + BETA_G * w
+        return CN.goalie_line(w, term)                  # v1.6: the goaltender line, with its term (one year here)
     return ALPHA + (BETA_D if pos == "D" else BETA_F) * w + GAMMA * term
 
 
@@ -320,17 +320,13 @@ class Now:
         return self._cache[key]
 
     def goalie(self, nname, bd, horizon):
-        pw, src = self.eng.g_proj.shrunk_projection(nname, NOW)
-        if pd.isna(pw):
-            return None
+        """v1.6: contract_npv v3.4's goaltender forecast (the age term in each season, a chance of playing by season
+        ahead), as the valuation reads it."""
         age0 = None if pd.isna(bd) else int(NOW - bd.year - ((9, 15) < (bd.month, bd.day)))
-        S = CN.STALE_GATE if src == "stale_anchor" else 1.0
-        out = []
-        for k in range(horizon + 1):
-            if k > 0:
-                S *= 1.0 - self.eng._hazard(self.eng.h_g, pw, None if age0 is None else age0 + k - 1)
-            out.append({"h": k, "war_if_plays": pw, "p_play": S})
-        return pd.DataFrame(out)
+        fc, src = self.eng.g_proj.forecast(nname, NOW, horizon, age0)
+        if fc is None:
+            return None
+        return pd.DataFrame([{"h": k, "war_if_plays": w, "p_play": p} for k, w, p in fc])
 
 
 def main():
@@ -338,7 +334,8 @@ def main():
     log(SCRIPT_VERSION)
     log(f"  outcome metric: {METRIC} (XNPV_OUTCOME_METRIC)")
     log(f"  skater line: {LINE} alpha {ALPHA:.10f} beta F {BETA_F:.10f} D {BETA_D:.10f} term {GAMMA:.10f}; "
-        f"goalie line: {ALPHA_G:.6f} + {BETA_G:.6f} x WAR")
+        f"goalie line: {CN.GOALIE_RATE['alpha']:.6f} + {CN.GOALIE_RATE['beta']:.6f} x WAR + "
+        f"{CN.GOALIE_RATE['gamma_term']:.6f} x term")
     for f in ("trade_asset_values.csv", "trade_sides.csv", "traded_player_values.csv", "rights_values.csv",
               "page_2017_values.csv", "prospect_values.csv", "traded_pick_values.csv", "pick_curve_seasons.csv",
               "pick_curve_later_seasons.csv", "pick_curve_later_players.csv", "prospect_production_fits.csv"):
@@ -405,8 +402,10 @@ def main():
                 tw = None
                 if elig and gp > 0:
                     if gk:
-                        pw_z, _ = eng.g_proj.shrunk_projection(nname, z)
+                        pw_z, src_z = eng.g_proj.shrunk_projection(nname, z)
                         tw = None if pd.isna(pw_z) else eng.g_proj.arbitration_war(nname, z, z, pw_z)
+                        if tw is not None and src_z != "stale_anchor":
+                            tw += eng.g_proj.age_term(nname, z, z)        # v1.6: the forecast's age term
                     elif ck is not None:
                         r = now.fc.arbitration_war(ck, z, z)
                         tw = None if r is None else r[0]
@@ -438,7 +437,10 @@ def main():
                 tw = None
                 if elig:
                     if gk:
-                        tw = eng.g_proj.arbitration_war(nname, NOW, z, w)
+                        pw0, src0 = eng.g_proj.shrunk_projection(nname, NOW)   # v1.6: the record, then its age term
+                        tw = eng.g_proj.arbitration_war(nname, NOW, z, pw0)
+                        if tw is not None and src0 != "stale_anchor":
+                            tw += eng.g_proj.age_term(nname, NOW, z)
                     elif ck is not None:
                         r = now.fc.arbitration_war(ck, NOW, z)
                         tw = None if r is None else r[0]
@@ -804,7 +806,10 @@ def main():
                 tw = None
                 if pro >= need:
                     if gk:
-                        tw = eng.g_proj.arbitration_war(PV.norm(name), NOW, z, float(fc.iloc[h]["war_if_plays"]))
+                        pw0, src0 = eng.g_proj.shrunk_projection(PV.norm(name), NOW)   # v1.6
+                        tw = (None if pd.isna(pw0) else eng.g_proj.arbitration_war(PV.norm(name), NOW, z, pw0))
+                        if tw is not None and src0 != "stale_anchor":
+                            tw += eng.g_proj.age_term(PV.norm(name), NOW, z)
                     elif ck is not None:
                         r_ = now.fc.arbitration_war(ck, NOW, z)
                         tw = None if r_ is None else r_[0]

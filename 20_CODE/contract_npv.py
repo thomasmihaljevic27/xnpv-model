@@ -269,15 +269,22 @@ OUT_LOG = OUTPUT_DIR / "contract_npv_run_log.txt"
 SCRIPT_VERSION = "3.4"   # 3.4 (Thomas, 2026-10-21): goaltenders priced on their own locked line (pulled forecast, censored, term), an age term, a chance of playing by season ahead; 3.3: goalie ages from the NHL's birthdates (goalie_birthdates.py), PuckPedia's beside; 3.2: "UFA no QO" read only once known (rfa_terminal_value.expiry_known); 3.1: a trade's season left and retained share; 3.0: PuckPedia's cap hit, the chain as known on the date. Printed first in the run log (25_TESTS/xnpv0_removal_check.py reads it)
 
 # ---- the goaltender price line (v3.4; Thomas, 2026-10-21, on 25_TESTS/goalie_review.py v1.0) ----------------------
-# Cap share = alpha + beta x his forecast WAR (kept 35%, pulled toward the league average, with its age term), dated at
-# the contract's signing, + gamma x years of term, left-censored at the league minimum: the skater price line's form.
+# Cap share = alpha + beta x his track-record forecast WAR (kept 35%, pulled toward the league average, before the age
+# term), dated at the contract's signing, + gamma x years of term, left-censored at the league minimum: the skater price
+# line's form. Values apply it to the forecast WITH the age term (Thomas, 2026-10-21, option 1: clubs' pay follows the
+# record, 25_TESTS/goalie_line_check.py; the age term predicts performance better, goalie_review.py Part B).
 # Fitted by goalie_value_engine.py (Stage G), which must give the lock back on every run. A control season and a
 # delivered season are priced at one year of term, as for skaters. GOALIE_RATE_TERM_FREE is the same fit without term,
 # the sensitivity reported beside each value. Until v3.3 the goaltender line was recovered from the July goalie spine:
 # fitted on unpulled trailing WAR and applied to the pulled forecast, which overpriced goaltenders by $0.52M a contract
 # on average (goalie_review.py, Part D).
-GOALIE_RATE = None
-GOALIE_RATE_TERM_FREE = None
+# LOCKED 2026-10-21 (Thomas: "go with your recommendation", option 1), from goalie_value_engine.py v2.0 Stage G: 333
+# goaltender contracts starting 2015-2025 (57 at the league minimum). At the 2025-26 ceiling: -$3.03M + $2.042M per
+# forecast WAR + $0.775M a season per year of term; without term -$4.00M + $3.462M per WAR.
+GOALIE_RATE = dict(alpha=-0.0317074413, beta=0.0213830910, gamma_term=0.0081170278, n=333, sigma=0.01277566,
+                   rows_fingerprint="079356e187fe")
+GOALIE_RATE_TERM_FREE = dict(alpha=-0.0418477388, beta=0.0362527068, gamma_term=0.0, n=333, sigma=0.01696536,
+                             rows_fingerprint="079356e187fe")
 GOALIE_LEAGUE_AVG = 2.189172466   # goalie_value_engine.LEAGUE_AVG, the 65% pull's target (was recovered from the spine)
 ALPHA_G = BETA_G = GAMMA_G = None
 if GOALIE_RATE is not None:

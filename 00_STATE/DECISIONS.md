@@ -3721,3 +3721,14 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   by season ahead in place of the exit chain, the two Matt Murrays apart; the 35% pull, no games filter and the pooled
   control weight kept. MODEL_DIRECTIVES, "The prospect check and the goaltender review decided". Revisits the goalie
   model's July decisions (no aging curve, the goalie rate, the exit hazard for goalies; D18's goalie side). Being built.
+
+### Change log, 2026-10-21h (goaltender line locked; everything rerun; the back-test)
+
+- LOCKED (Thomas, option 1): contract_npv.GOALIE_RATE, the goaltender line on the track-record forecast dated at the
+  signing, censored, with term; values on the forecast with its age term. MODEL_DIRECTIVES item 4 of "The prospect check
+  and the goaltender review decided" reads: fitted on the forecast WITHOUT the age term (decided after
+  goalie_line_check.py), applied to the forecast with it.
+- BUILT: rights_values v1.6, pick_curve v1.11, backtest v1.6; prospect_values' guard against the looks refits their
+  columns with the dropped indicator. Dashboard chain, trade chain, back-test and Game Value check rerun (session log).
+- WORK_QUEUE: the do-not-run item replaced by the next steps (the two documents; the PROJECT_STATE refresh). CLAUDE.md:
+  the locks in force. MANIFEST rows updated.

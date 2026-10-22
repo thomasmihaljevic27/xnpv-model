@@ -134,7 +134,7 @@ import pandas as pd
 import statsmodels.api as sm
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "pick_curve.py v1.10 (2026-10-20)"   # v1.10: later drafts priced for the back-test; v1.9: signed by the drafting club kept; v1.8: CBA age on the calendar
+SCRIPT_VERSION = "pick_curve.py v1.11 (2026-10-21)"   # v1.11: goaltenders on their own line at one year of term (contract_npv v3.4); the two Matt Murrays apart; v1.10: later drafts priced for the back-test; v1.9: signed by the drafting club kept; v1.8: CBA age on the calendar
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import skater_forward_projection as sfp          # noqa: E402  skater price line, cap and minimum tables
@@ -164,9 +164,9 @@ for k, p in F.items():
 CLASSES = range(2007, 2018)
 LAST_START = 2025                                  # 2025-26, the last season in the data (start year)
 ALPHA, BETA_F, BETA_D, GAMMA, LINE = sfp.price_constants()
-ALPHA_G, BETA_G = cnpv.ALPHA_G, cnpv.BETA_G
 log(f"  skater line: {LINE} alpha {ALPHA:.10f} beta F {BETA_F:.10f} D {BETA_D:.10f} term {GAMMA:.10f}")
-log(f"  goalie line: alpha {ALPHA_G:.10f} beta {BETA_G:.10f}")
+log(f"  goalie line: alpha {cnpv.GOALIE_RATE['alpha']:.10f} beta {cnpv.GOALIE_RATE['beta']:.10f} "
+    f"term {cnpv.GOALIE_RATE['gamma_term']:.10f}")
 # Caps and league minimums by season START year: 2007-2014 public CBA figures carried
 # from the archived curve (90_ARCHIVE/2026-10-09/draft_yield_curve.py, verified 2026-07-14);
 # 2015 on, the live tables.
@@ -332,7 +332,8 @@ def price(row, s, last, signing=True, forecast_arb=True, record=False, state=Non
     age = rtv.cba_age(row["birthDate"], sy if sy is not None else first)   # v1.8: on the calendar (was days / 365.25)
     n_elc = 3 if age <= 21 else 2 if age <= 23 else 1
     beta = BETA_D if row["position"] == "D" else BETA_F
-    line = (lambda w: ALPHA_G + BETA_G * w) if row["is_goalie"] else (lambda w: ALPHA + beta * w + GAMMA * 1)
+    # v1.11: a delivered goaltender season on the goaltender line at one year of term, as a skater's on his
+    line = (lambda w: cnpv.goalie_line(w, 1)) if row["is_goalie"] else (lambda w: ALPHA + beta * w + GAMMA * 1)
     need = ARB_NEED(age)
     ck = None if (row["is_goalie"] or not forecast_arb) else career_of(row, s)
     prior, tot, war_tot = None, 0.0, 0.0

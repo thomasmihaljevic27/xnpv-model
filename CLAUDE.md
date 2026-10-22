@@ -197,11 +197,14 @@ tests pinned to the old prospect rows (`prospect_curve_vs_line.py`, `prospect_pr
   left-censored at the league minimum, one intercept, a separate defence slope.
   alpha=0.0132478230, beta=0.0212322891 per win for forwards, plus 0.0028702824 for defencemen
   (0.0241025715), all as cap shares. The retired draft curve and xNPV 0 used it; it now survives as guards.
-  xNPV 1 prices on its own line, with term in (directives 4 and 5), re-locked 2026-10-20 on the sample with
-  bought-out deals at their own first season (read the value the code assigns in
-  `skater_forward_projection.py`): `XNPV1_RATE`, alpha=-0.0043026112, beta=0.0175297693 per forecast win for
-  forwards, plus 0.0039447231 for defencemen, plus gamma_term=0.0089105379 a season per year of term;
-  `XNPV1_RATE_TERM_FREE` (0.0081818739 / 0.0312216498 / +0.0140759564) is the sensitivity. The 2026-10-14
+  xNPV 1 prices on its own line, with term in (directives 4 and 5), re-locked 2026-10-21 on skater_forecast v2.4
+  (the forecast audit's decisions; read the value the code assigns in `skater_forward_projection.py`): `XNPV1_RATE`,
+  alpha=-0.0043092485, beta=0.0175092736 per forecast win for forwards, plus 0.0040764912 for defencemen, plus
+  gamma_term=0.0089103033 a season per year of term; `XNPV1_RATE_TERM_FREE` (0.0081682729 / 0.0311829464 /
+  +0.0143706284) is the sensitivity. Goaltenders have their own locked line since 2026-10-21 (`contract_npv.GOALIE_RATE`:
+  alpha=-0.0317074413, beta=0.0213830910 per track-record forecast win, gamma_term=0.0081170278; fitted by
+  `goalie_value_engine.py` Stage G on the forecast without the age term, applied to the forecast with it). The
+  2026-10-20 line (-0.0043026112 / 0.0175297693 / +0.0039447231, term 0.0089105379) is superseded. The 2026-10-14
   crosswalk line (-0.0043651624 / 0.0175356938 / +0.0037579369, term 0.0089300596) and the earlier 2026-10-14
   line (-0.0043530319 / 0.0175137032 / +0.0038753270, term 0.0089195167) are superseded. The 2026-10-05 line (-0.0043574069 / 0.0174691916 / +0.0035971954, term
   0.0089321965) and the 2026-10-02 line (0.0076921739 / 0.0308904772 / +0.0146619104) are superseded. The

@@ -1433,7 +1433,9 @@ was cut at 300 characters; the rest is the recommendation he was answering). Sta
 3. **Goaltender forecast: a straight-line age term**, fitted on the forecast's errors in goaltender-seasons of 20+ games
    before the valuation page (held out -1.67%, p = 0.022), applied at each season's age, so the forecast is no longer
    flat. The 35% kept, the 2.19 target and no games filter on the trailing seasons stay.
-4. **Goaltender price line:** cap share on the pulled forecast (with its age term) dated at the signing, left-censored at
+4. **Goaltender price line** (amended 2026-10-21, Thomas: "go with your recommendation", option 1): cap share on the
+   track-record forecast (pulled, WITHOUT the age term; clubs' pay follows the record, 25_TESTS/goalie_line_check.py)
+   dated at the signing, applied to the forecast with its age term; was: on the pulled forecast (with its age term) dated at the signing, left-censored at
    the league minimum, with a term for contract length; locked like the skater line. Control and delivered seasons are
    priced at one year of term (as for skaters).
 5. **Goaltender chance of playing:** a logistic regression for each season ahead on age, the forecast and last season's

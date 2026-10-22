@@ -8,7 +8,16 @@
 
 ## Live (audited 2026-10-14)
 
-**Do not run (2026-10-21): `Update-Dashboard.cmd`, `trade_refresh.py` or the back-test until the price line is re-locked.** The forecast is skater_forecast v2.4 / participation_model v2.0 (Thomas's decisions on the forecast audit, MODEL_DIRECTIVES "The forecast audit decided"), but `XNPV1_RATE` is still the 2026-10-20 lock fitted on v2.3's forecast. The re-lock waits for Thomas's answer on the design for pricing over the contract's term, so the price line is re-locked once. Then: re-lock, the dashboard chain, the trade chain, the back-test and its Game Value check; the prospect model's own significance check (the no-record indicator in D+1 and D+2; production from D+5); the goaltender review; the two documents.
+**Done 2026-10-21: the round-2 model work (session 2026-10-21).** The forecast audit's decisions, the re-lock, the
+whole-term pricing test (not adopted; to be stated as tested in the player document), goalie birthdates from the NHL,
+the prospect model without the no-record indicator, the goaltender rebuild (age term, chance of playing by season ahead,
+own price line on the track-record forecast, the two Matt Murrays apart), both chains, the back-test and its Game Value
+check (11 results hold, 7 not WAR findings, 2 too few trades, 1 not confirmed). Next:
+1. Do: rebuild "Valuing Players, Draft Picks, and Prospects" as v4 from Thomas's round-2 notes and his 15 edits
+   (`40_DOCS/Valuing_Players_Feedback.md`, Round 2), on the model as it now runs.
+2. Do: rebuild "Valuing Prospects" on the model as it now runs (held for Karl until the re-lock; Thomas will send it
+   after the meeting of 2026-10-23).
+3. Do: the PROJECT_STATE refresh (due 2026-10-21).
 
 
 **Run 2026-10-20: the back-test (session 2026-10-20; protocol `40_DOCS/Backtest_Protocol.md`, `backtest.py` v1.2).**

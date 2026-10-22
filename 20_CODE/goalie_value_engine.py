@@ -6,8 +6,9 @@
  WHAT CHANGED IN v2.0 (Thomas, 2026-10-21, on 25_TESTS/goalie_review.py v1.0)
  ---------------------------------------------------------------------------
  STAGE G fits the goaltender price line the valuation engine locks (contract_npv.GOALIE_RATE): cap share on the
- goaltender's forecast WAR -- contract_npv.GoalieProjector's, kept 35%, pulled toward the league average, with its age
- term -- dated at the contract's signing (xnpv1_price_line.signing_page; the season h = start - page ahead), left-censored
+ goaltender's track-record forecast -- kept 35%, pulled toward the league average, WITHOUT the age term (Thomas,
+ 2026-10-21, option 1: clubs' pay follows the record; fitted on the forecast with its age term the line predicts cap hits
+ worse, $1.273M against $1.119M a contract held out, 25_TESTS/goalie_line_check.py) -- dated at the contract's signing (xnpv1_price_line.signing_page; the season h = start - page ahead), left-censored
  at the league minimum, with a term for contract length (and the same fit without term, the sensitivity). Sample:
  standard-level goaltender contracts starting 2015-2025 with a forecast at the signing. Every run must give the lock back
  (GUARD). Until v1.3 Stage G fitted least squares on the unpulled trailing WAR at the contract's start, and the valuation
@@ -550,8 +551,8 @@ def stage_rate():
     import xnpv1_price_line as XPL
     from skater_forward_projection import league_min_path
     log("=" * 74)
-    log("STAGE G: the goaltender price line (v2.0: the pulled forecast with its age term, dated at the signing, "
-        "censored at the league minimum, with term)")
+    log("STAGE G: the goaltender price line (v2.0: the track-record forecast, kept 35% and pulled toward the league "
+        "average, dated at the signing, censored at the league minimum, with term)")
     log("=" * 74)
     CN, GP, _nn = _projector()
     raw = pd.read_excel(F_CONTRACT_XLSX)
@@ -574,11 +575,13 @@ def stage_rate():
             xs.append(np.nan); why.append("no signing page" if not ok else "signed after start"); continue
         a0 = None if pd.isna(r.bd) else int(page) - r.bd.year - ((9, 15) < (r.bd.month, r.bd.day))
         fc, src = GP.forecast(r.nname, int(page), h, a0)
+        # option 1 (Thomas, 2026-10-21): the regressor is the track-record forecast, before the age term
         # a season in the year before the signing, as the tested sample required (goalie_review.py Part D): a stale
         # anchor's forecast is a fallback for valuing a goaltender who missed a season, not a price the market set
         if fc is not None and src == "stale_anchor":
             xs.append(np.nan); why.append("no season in the year before the signing (stale anchor)"); continue
-        xs.append(np.nan if fc is None else fc[h][1]); why.append("" if fc is not None else "no forecast at the signing")
+        xs.append(np.nan if fc is None else GP.shrunk_projection(r.nname, int(page))[0])
+        why.append("" if fc is not None else "no forecast at the signing")
     d["x"] = xs
     for w, n in pd.Series(why)[pd.Series(why) != ""].value_counts().items():
         log(f"  left out, {w}: {n}")
