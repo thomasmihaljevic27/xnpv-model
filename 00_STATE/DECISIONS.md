@@ -3732,3 +3732,11 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   columns with the dropped indicator. Dashboard chain, trade chain, back-test and Game Value check rerun (session log).
 - WORK_QUEUE: the do-not-run item replaced by the next steps (the two documents; the PROJECT_STATE refresh). CLAUDE.md:
   the locks in force. MANIFEST rows updated.
+
+### Change log, 2026-10-22 (PROJECT_STATE refresh, v3.5)
+
+- REFRESH (Thomas: "Do the PROJECT_STATE refresh first"): PROJECT_STATE v3.5, generated 2026-10-22, due 2026-10-29. The
+  current state, the model as built, the figures in force and the inventory rewritten from the code (versions as
+  printed) and the 2026-10-21 runs; the 2026-10-14 sections moved to History unchanged. Session logs 2026-10-14 to
+  2026-10-21 read; git log for 00_STATE and 20_CODE cross-checked (104 commits). STANDING_FLAGS: the goaltender
+  birthdate flag resolved. Questions for Thomas: listed in sessions/2026-10-22.md.

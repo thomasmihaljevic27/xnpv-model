@@ -136,6 +136,9 @@ report of it must say the pages were not unseen (ledger lines labelled CLOUD COD
   lost). Any report of the revalidation says it is the second scored use of these pages.
 
 **Draft and prospect stock-take, 2026-09-28k.** New and corrected flags:
+- **RESOLVED 2026-10-21: goaltender birthdates complete** (`goalie_birthdates.py` v1.0: the NHL's records for 277 of 280
+  goaltenders, PuckPedia's for the other three; the two agree on all 1,193 goaltender-seasons both cover; the two Matt
+  Murrays told apart). The flag as it stood:
 - **Goalie birthdates, counted (corrects "109").** 98 of the 280 goalies in `Goalies_WAR.csv` have no
   birthdate (goalie ages come only from contract-export birthdates matched by name); 93 of them were
   last seen before 2018; 356 of 772 goalie-seasons 2007-08 to 2016-17 lack an age. "109" was the
