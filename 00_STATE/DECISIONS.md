@@ -3740,3 +3740,13 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   printed) and the 2026-10-21 runs; the 2026-10-14 sections moved to History unchanged. Session logs 2026-10-14 to
   2026-10-21 read; git log for 00_STATE and 20_CODE cross-checked (104 commits). STANDING_FLAGS: the goaltender
   birthdate flag resolved. Questions for Thomas: listed in sessions/2026-10-22.md.
+
+### Change log, 2026-10-22b ("Valuing Prospects" rebuilt on the model as it runs)
+
+- DOCUMENT (Thomas: "rebuild Valuing Players, Draft Picks, and Prospects v4 and Valuing Prospects on the model as it now
+  runs"): "Valuing Prospects" built by `prospect_model_doc.js` v3.0 from `prospect_doc_figures.py` v3.0: no no-record
+  indicator; why linear production stays, with the centring test as Table 11 (read from its output, guarded); production
+  from D+5 kept, with its numbers; Thomas's round-2 writing rules applied. `model_doc.js` v4.1: one personified phrase
+  fixed, the player document rebuilt. No model change. MANIFEST rows for both builders, the figures script and both
+  documents updated. Session log: sessions/2026-10-22.md.
+

@@ -1,5 +1,8 @@
 """
-prospect_doc_figures.py -- the numbers and figures behind "Valuing Prospects" (40_DOCS/Supervisor_Drafts/), v2.2.
+prospect_doc_figures.py -- the numbers and figures behind "Valuing Prospects" (40_DOCS/Supervisor_Drafts/), v3.0.
+
+v3.0 (2026-10-22): no no-record indicator in any arm or table (prospect_values.py v1.12, Thomas 2026-10-21); on the
+model after 2026-10-21. Every guard PASS.
 
 v2.2 (2026-10-16, Thomas's 10 notes on v2.1's document): every coefficient table is one regression with the full set
 of interaction terms (prospect_values.fit_stacked; Thomas: "Just make the regression actually be the interaction
@@ -63,7 +66,7 @@ import matplotlib                                                  # noqa: E402
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt                                    # noqa: E402
 
-SCRIPT_VERSION = "prospect_doc_figures.py v2.4 (2026-10-16)"   # no draft-year terms (Thomas, 2026-10-16)   # v2.3: Figure 2 label "Alternative"
+SCRIPT_VERSION = "prospect_doc_figures.py v3.0 (2026-10-22)"   # v3.0: no no-record indicator (prospect_values.py v1.12, Thomas 2026-10-21); v2.4   # no draft-year terms (Thomas, 2026-10-16)   # v2.3: Figure 2 label "Alternative"
 OUT, SRC = Path(os.environ["OUTPUT_DIR"]), Path(os.environ["SOURCE_DIR"])
 FIG = OUT / "prospect_doc"
 FIG.mkdir(exist_ok=True)
@@ -227,8 +230,8 @@ def stacked_check(st, frame, cols_by_group):
 
 
 BUILD = {"slot alone": lambda g: ["p_star"],
-         "slot + production": lambda g: ["p_star", "nhle82", "no_record"],
-         "slot + production + squared": lambda g: ["p_star", "nhle82", "nhle82_sq", "no_record"],
+         "slot + production": lambda g: ["p_star", "nhle82"],
+         "slot + production + squared": lambda g: ["p_star", "nhle82", "nhle82_sq"],
          "adopted": lambda g: PV.cols_for(g, "main")}
 prow = prow.assign(k_group=prow["k_group"].astype(str))
 assert set(prow["k_group"]) == set(GROUPS), sorted(prow["k_group"].unique())
@@ -289,12 +292,12 @@ def restack(tab, arm, cols_of):
             tab.at[i, f"{c}_se"] = float(st[g][1][j])
 
 
-restack(nc, "slot+production curved", lambda g: ["p_star", "nhle82", "nhle82_sq", "no_record"])
+restack(nc, "slot+production curved", lambda g: ["p_star", "nhle82", "nhle82_sq"])
 EARLY_ = ("0", "1", "2")
 AGE_ADD = {"+ age": ["past_elig"], "+ age x production": ["prod_x_age"],
            "+ age and age x production": ["past_elig", "prod_x_age"]}
 for arm_, add_ in AGE_ADD.items():
-    restack(ac, arm_, lambda g, add_=add_: (["p_star"] if g in EARLY_ else []) + ["nhle82", "nhle82_sq", "no_record"] + add_)
+    restack(ac, arm_, lambda g, add_=add_: (["p_star"] if g in EARLY_ else []) + ["nhle82", "nhle82_sq"] + add_)
 N["prod_coefs"] = json.loads(nc.to_json(orient="records"))
 N["age_coefs"] = json.loads(ac.to_json(orient="records"))
 print("  guard: the production table and the age forms equal their source tables (PASS)")
@@ -366,15 +369,15 @@ early = lambda g: g in ("0", "1", "2")                                       # n
 N["alt_totals"] = {
     "slot_no_fade": float((dv["p_star"] * N["step1"][0]["star"]).sum()),
     "slot_by_season": float(dv["value_slot_only_M"].sum()),
-    "straight_slot_throughout": arm_total(nc, lambda g: "slot+production", lambda g: ["p_star", "nhle82", "no_record"]),
+    "straight_slot_throughout": arm_total(nc, lambda g: "slot+production", lambda g: ["p_star", "nhle82"]),
     "curved_slot_throughout": arm_total(nc, lambda g: "slot+production curved",
-                                        lambda g: ["p_star", "nhle82", "nhle82_sq", "no_record"]),
+                                        lambda g: ["p_star", "nhle82", "nhle82_sq"]),
     "curved_slot_early_no_age": arm_total(nc, lambda g: "slot+production curved" if early(g) else "production curved",
-                                          lambda g: (["p_star"] if early(g) else []) + ["nhle82", "nhle82_sq", "no_record"]),
+                                          lambda g: (["p_star"] if early(g) else []) + ["nhle82", "nhle82_sq"]),
     "age_flat": arm_total(ac, lambda g: "+ age", lambda g: (["p_star"] if early(g) else [])
-                          + ["nhle82", "nhle82_sq", "no_record", "past_elig"]),
+                          + ["nhle82", "nhle82_sq", "past_elig"]),
     "age_both": arm_total(ac, lambda g: "+ age and age x production", lambda g: (["p_star"] if early(g) else [])
-                          + ["nhle82", "nhle82_sq", "no_record", "past_elig", "prod_x_age"]),
+                          + ["nhle82", "nhle82_sq", "past_elig", "prod_x_age"]),
     "adopted": float(dv["value_M"].sum()), "own_draft_out": float(dv["value_own_draft_out_M"].sum()),
     "skaters_priced": int(len(sk)), "others_on_slot": int(len(dv) - len(sk)),
 }

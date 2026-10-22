@@ -77,8 +77,9 @@ The sections as they stood at the 2026-10-14 refresh (figures of 2026-10-20) are
 - **Dashboard.** `dashboard_refresh.py` v1.3: 12 steps, about 19 minutes. Last full run 2026-10-21 (12 of 12).
 - **Trade chain.** `trade_refresh.py` v1.0: 17 steps, about 6 minutes. Last full run 2026-10-21 (17 of 17).
 - **Panel.** `contract_npv_panel.py` v1.5: 7,890 contract-pages written, seasons 2018-19 to 2026-27 (2026-10-21).
-- **Documents.** "Valuing Prospects" is held until the model settled (Thomas, 2026-10-21; he meets Karl 2026-10-23);
-  "Valuing Players, Draft Picks, and Prospects" v4 is next, from his round-2 notes (`40_DOCS/Valuing_Players_Feedback.md`).
+- **Documents.** Both rebuilt 2026-10-22 on the model as it runs: "Valuing Players, Draft Picks, and Prospects" v4
+  (`model_doc.js` v4.1, from his round-2 notes) and "Valuing Prospects" (`prospect_model_doc.js` v3.0), which Thomas
+  sends to Karl after the meeting of 2026-10-23.
 
 ## Model as built (2026-10-22)
 

@@ -15,8 +15,8 @@ own price line on the track-record forecast, the two Matt Murrays apart), both c
 check (11 results hold, 7 not WAR findings, 2 too few trades, 1 not confirmed). Next:
 1. Do: rebuild "Valuing Players, Draft Picks, and Prospects" as v4 from Thomas's round-2 notes and his 15 edits
    (`40_DOCS/Valuing_Players_Feedback.md`, Round 2), on the model as it now runs.
-2. Do: rebuild "Valuing Prospects" on the model as it now runs (held for Karl until the re-lock; Thomas will send it
-   after the meeting of 2026-10-23).
+2. Done 2026-10-22: "Valuing Prospects" rebuilt on the model as it now runs (v3.0 builder). Thomas sends it to Karl
+   after the meeting of 2026-10-23.
 3. Do: the PROJECT_STATE refresh (due 2026-10-21).
 
 
