@@ -42,7 +42,7 @@ import statsmodels.api as sm
 from dotenv import load_dotenv
 from scipy import stats
 
-SCRIPT_VERSION = "prospect_term_check.py v1.0 (2026-10-21)"
+SCRIPT_VERSION = "prospect_term_check.py v1.1 (2026-10-22)"   # v1.1: the adopted model has no no-record indicator (Thomas, 2026-10-21); N1 is now the adopted model
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 LOG = []
@@ -87,8 +87,7 @@ def design(arm, x, g):
         cols, names = [x["p_star"].values], ["p_star"]
     if not (arm in ("N2", "N3") and g == "4+"):
         cols += [x["nhle82"].values, x["nhle82_sq"].values]; names += ["nhle82", "nhle82_sq"]
-    if arm not in ("N1", "N3"):
-        cols.append(x["no_record"].values); names.append("no_record")
+    # v1.1: the indicator is dropped from the adopted model (prospect_values.py v1.12), so no arm carries it
     if g in AGE_GROUPS:
         cols.append(x["nhle82"].values * x["past_elig"].values); names.append("prod_x_age")
     if not cols:

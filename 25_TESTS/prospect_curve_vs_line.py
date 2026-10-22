@@ -41,7 +41,7 @@ import pandas as pd
 import statsmodels.api as sm
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "prospect_curve_vs_line.py v1.4 (2026-10-21)"   # v1.4: the rows of the 2026-10-20 prospect chain; v1.3   # no draft-year terms (Thomas, 2026-10-16)
+SCRIPT_VERSION = "prospect_curve_vs_line.py v1.5 (2026-10-22)"   # v1.5: no no-record indicator, as prospect_values.py v1.12 (Thomas, 2026-10-21); v1.4: the rows of the 2026-10-20 prospect chain; v1.3   # no draft-year terms (Thomas, 2026-10-16)
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 LOG = []
@@ -85,7 +85,7 @@ def cols_for(form, slot_groups, age, g):
     """The regressors one arm uses in season group g. form: straight (production), curved (production and its
     square), squared (its square alone, v1.1)."""
     c = ["p_star"] if g in slot_groups else []
-    c += {"straight": ["nhle82"], "curved": ["nhle82", "nhle82_sq"], "squared": ["nhle82_sq"]}[form] + ["no_record"]
+    c += {"straight": ["nhle82"], "curved": ["nhle82", "nhle82_sq"], "squared": ["nhle82_sq"]}[form]   # v1.5: no no-record indicator
     if age and g in AGE_GROUPS:
         c += ["prod_x_age"]
     return c

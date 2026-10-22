@@ -50,7 +50,7 @@ import matplotlib                                                  # noqa: E402
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt                                    # noqa: E402
 
-SCRIPT_VERSION = "model_doc_figures.py v3.0 (2026-10-21)"
+SCRIPT_VERSION = "model_doc_figures.py v4.0 (2026-10-22)"   # v4.0: the model after 2026-10-21 (round-2 notes)
 OUT, SRC = Path(os.environ["OUTPUT_DIR"]), Path(os.environ["SOURCE_DIR"])
 FIG = OUT / "model_doc"
 FIG.mkdir(exist_ok=True)
@@ -282,9 +282,10 @@ def heavy():
     # ---- 4. the games share and the chance of playing, on the most recent page ------------------------------------
     m25, iset25, p25, a25 = fc.page(TABLE_PAGE)
     pairs = SF.XNPV1()._training_pairs(iset25.seasons, TABLE_PAGE, C.CANDIDATE_HORIZONS)
+    # v4.0: skater_forecast v2.4 (no defenceman term)
     gp_specs = {"games share": ["tr_gp_share"],
-                "+ defence, experience": ["tr_gp_share", "is_D", "exp_seasons"],
-                "+ age, age squared": ["tr_gp_share", "is_D", "exp_seasons", "age_c", "age_c2"],
+                "+ seasons since debut": ["tr_gp_share", "exp_seasons"],
+                "+ age, age squared": ["tr_gp_share", "exp_seasons", "age_c", "age_c2"],
                 "+ trailing WAR (adopted)": list(SF.GP_FEATURES)}
     H["games_share"] = {"page": TABLE_PAGE, "by_h": {}}
     for hh in range(6):
@@ -306,8 +307,8 @@ def heavy():
     played = iset25.seasons[iset25.seasons["GP"] >= C.MIN_GP]
     anchors = SF._anchors(played, 3)
     act = iset25.seasons.set_index(["career_key", "syr"])["GP"]
-    pp_specs = {"age": ["age", "age_sq"], "+ level, games share, experience, defence":
-                ["age", "age_sq", "level", "gp_share", "exp_seasons", "is_D"]}
+    # v4.0: participation_model v2.0 (no age squared, no seasons since debut)
+    pp_specs = {"age": ["age"], "+ level, games share, defence": ["age", "level", "gp_share", "is_D"]}
     H["participation"] = {"page": TABLE_PAGE, "by_h": {}, "event_gp": C.PARTICIPATION_GP}
     for hh in range(6):
         a_ = anchors[anchors["t0"] + hh < TABLE_PAGE]
@@ -522,11 +523,20 @@ for lo, hi in ((1, 10), (11, 15), (16, 32)):
     PK["first_round"].append({"lo": lo, "hi": hi, "n": int(len(g)), "value": float(g["value_share"].mean()),
                               "cost_qo": float(g["cost_qo_share"].mean()), "cost_arb": float(g["cost_share"].mean()),
                               "cost_actual": float(g["actual"].mean()), "n_actual": int(g["actual"].notna().sum())})
-# a worked drafted player: Brayden Point (2014, #79)
-pt = pk[(pk["draftYear"] == 2014) & (pk["pick"] == 79)].iloc[0]
-ps_ = sea[(sea["draftYear"] == 2014) & (sea["pick"] == 79)].sort_values("season")
-guard("worked pick: Point's seasons add to his surplus", abs(ps_["surplus_2025_cap"].sum() / 1e6 - pt["y"]) < 1e-6)
-PK["point"] = {"window_end": int(pt["window_end"]), "route": pt["route"], "p_star": float(pt["p_star"]), "surplus": float(pt["y"]),
+# a worked drafted player (v4.0; Thomas, 2026-10-21: Montreal received the 50th pick of 2019, so a player taken 50th, of
+# Colton Sissons (2012) and Jordan Greenway (2015) "whoever has the higher games played"; Milan Lucic, 2006, is outside
+# the 2007-2017 drafts): NHL games from WAR.csv, every season
+_war = pd.read_csv(SRC / "WAR.csv", usecols=["Player", "GP"])
+_cand = {"Colton Sissons": (2012, 50), "Jordan Greenway": (2015, 50)}
+_gp = {nm: int(_war.loc[_war["Player"] == nm, "GP"].sum()) for nm in _cand}
+_who = max(_gp, key=_gp.get)
+_dy, _pk = _cand[_who]
+log(f"  worked pick: NHL games {_gp}; {_who} ({_dy}, #{_pk})")
+pt = pk[(pk["draftYear"] == _dy) & (pk["pick"] == _pk)].iloc[0]
+ps_ = sea[(sea["draftYear"] == _dy) & (sea["pick"] == _pk)].sort_values("season")
+guard("worked pick: his seasons add to his surplus", abs(ps_["surplus_2025_cap"].sum() / 1e6 - pt["y"]) < 1e-6)
+PK["point"] = {"name": _who, "draft": int(_dy), "pick": int(_pk), "nhl_games": _gp,
+               "window_end": int(pt["window_end"]), "route": pt["route"], "p_star": float(pt["p_star"]), "surplus": float(pt["y"]),
                "surplus_qo": float(pt["surplus_qo"] / 1e6),
                "seasons": [{"season": int(r.season), "gp": float(r.gp), "war82": float(r.war_82), "elc": bool(r.in_entry_level),
                             "arb": bool(r.arb_eligible), "arb_war": None if pd.isna(r.arb_market_war) else float(r.arb_market_war),
@@ -599,7 +609,8 @@ for g in G5:
         assert np.isfinite(float(ref[c].iloc[0])), (g, c)
         gap = max(gap, abs(t["b"] - float(ref[c].iloc[0])))
         checked += 1
-guard("prospects: the adopted fit equals prospect_production_fits.csv", gap < 1e-9 and checked == 22, f"({checked} terms, gap {gap:.1e})")
+n_terms = sum(len(adopted_cols(g)) for g in G5)          # v4.0: no no-record indicator (17 terms)
+guard("prospects: the adopted fit equals prospect_production_fits.csv", gap < 1e-9 and checked == n_terms, f"({checked} terms, gap {gap:.1e})")
 # the same fitted values on age now (Thomas's presentation) as on years past first eligibility (the code)
 fv_gap = 0.0
 for g in G5:
@@ -609,8 +620,8 @@ for g in G5:
     fv_gap = max(fv_gap, float(np.max(np.abs(a - b))))
 guard("prospects: age now gives the same fitted values", fv_gap < 1e-8, f"(gap {fv_gap:.1e})")
 BUILD = {}
-specs = {"draft position alone": lambda g: ["p_star"], "+ linear production": lambda g: ["p_star", "nhle82", "no_record"],
-         "+ production squared": lambda g: ["p_star", "nhle82", "nhle82_sq", "no_record"],
+specs = {"draft position alone": lambda g: ["p_star"], "+ linear production": lambda g: ["p_star", "nhle82"],
+         "+ production squared": lambda g: ["p_star", "nhle82", "nhle82_sq"],
          "adopted": lambda g: adopted_cols(g, "prod_x_age18")}
 for nm, fn in specs.items():
     BUILD[nm] = stacked({g: fn(g) for g in G5})
@@ -747,12 +758,32 @@ N["gv"]["no_contract"] = gv_row("SAME SEASON, all positions", "expected WAR, no 
 N["gv"]["expected"] = gv_row("SAME SEASON, all positions", "expected WAR  ")
 N["gv"]["log_date"] = pd.Timestamp((OUT / "gv_investigation_f_log.txt").stat().st_mtime, unit="s").strftime("%Y-%m-%d")
 gl = (OUT / "goalie_value_engine_run_log.txt").read_text(encoding="utf-8")
-mm = re.search(r"PRORATED: n=(\d+)\s+alpha_G=([\d.]+)\s+beta_G=([\d.]+)\s+R2=([\d.]+)", gl)
-N["goalie"] = {"n": int(mm.group(1)), "alpha": float(mm.group(2)), "beta": float(mm.group(3)), "r2": float(mm.group(4))}
+import contract_npv as _CN                       # v4.0: the locked goaltender line (contract_npv.GOALIE_RATE)
+N["goalie"] = {"n": int(_CN.GOALIE_RATE["n"]), "alpha": float(_CN.GOALIE_RATE["alpha"]), "beta": float(_CN.GOALIE_RATE["beta"]),
+               "gamma": float(_CN.GOALIE_RATE["gamma_term"]), "free_alpha": float(_CN.GOALIE_RATE_TERM_FREE["alpha"]),
+               "free_beta": float(_CN.GOALIE_RATE_TERM_FREE["beta"])}
+mm = re.search(r"term-in: n=(\d+) \(fingerprint \w+; (\d+) at the minimum\)", gl)
+guard("goaltender line: the engine's Stage G fitted the locked rows", mm is not None and int(mm.group(1)) == N["goalie"]["n"])
+N["goalie"]["at_min"] = int(mm.group(2))
 mm = re.search(r"lambda\* = ([\d.]+)\s+\(n=(\d+) season-targets, (\d+) goalies\)", gl)
 N["goalie"].update({"lambda": float(mm.group(1)), "lambda_n": int(mm.group(2)), "lambda_goalies": int(mm.group(3))})
 mm = re.search(r"MSE near optimum: (\{.*\})", gl)
 N["goalie"]["mse_near"] = {k: float(v) for k, v in re.findall(r"np\.float64\(([\d.]+)\): ([\d.]+)", mm.group(1))} if mm else {}
+
+# ---- v4.0: the forecast audit and the whole-term pricing test (2026-10-21), read from their outputs -----------------------
+fa = pd.read_csv(OUT / "forecast_term_audit_scores.csv")
+fa_all = fa[fa["rows_set"].str.startswith("ALL")]
+fa_com = fa[fa["rows_set"].str.startswith("THE")]
+N["audit"] = {"all": fa_all.to_dict("records"), "common": fa_com.to_dict("records"),
+              "rows_all": int(fa_all["rows"].iloc[0]), "rows_common": int(fa_com["rows"].iloc[0])}
+fal = (OUT / "forecast_term_audit_log.txt").read_text(encoding="utf-8")
+mm = re.search(r"of ([\d,]+) forecast shares .*?, (\d+) fall below 0.05 before the floor and (\d+) below 0; (\d+) are above the cap", fal)
+N["audit"]["shares"] = int(mm.group(1).replace(",", "")); N["audit"]["below_floor"] = int(mm.group(2))
+N["audit"]["above_cap"] = int(mm.group(4))
+ins = pd.read_csv(OUT / "forecast_term_audit_insample.csv")
+N["audit"]["insample"] = ins.to_dict("records")
+ta = pd.read_csv(OUT / "term_average_price_line.csv")
+N["term_avg"] = ta.to_dict("records")
 
 # ---- the trade on one scale --------------------------------------------------------------------------------------------
 cap = H["cap"]
@@ -903,15 +934,15 @@ tidy(ax)
 ax.legend(frameon=False, fontsize=8, loc="upper left")
 fig.tight_layout(); fig.savefig(FIG / "fig_pick_drafts.png"); plt.close(fig)
 
-# Figure: first-round picks, value delivered and three measures of cost
+# Figure: first-round picks, value delivered and two measures of cost (v4.0, Thomas's note 37: no qualifying-offer chain)
 fr = pd.DataFrame(PK["first_round"])
 fig, ax = plt.subplots(figsize=(6.4, 3.0), dpi=200)
 xg = np.arange(len(fr))
-wbar = 0.2
-for i, (col, c_, lab) in enumerate((("value", A3, "Value delivered"), ("cost_qo", MUTED, "Cost: qualifying-offer chain"),
-                                    ("cost_arb", A1, "Cost: adopted (arbitration price)"), ("cost_actual", A2, "Cost actually paid"))):
-    ax.bar(xg + (i - 1.5) * wbar, fr[col], width=wbar, color=c_, label=lab, zorder=3)
-    for x_, v_ in zip(xg + (i - 1.5) * wbar, fr[col]):
+wbar = 0.26
+for i, (col, c_, lab) in enumerate((("value", A3, "Value delivered"),
+                                    ("cost_arb", A1, "Cost: adopted rule"), ("cost_actual", A2, "Cost actually paid"))):
+    ax.bar(xg + (i - 1) * wbar, fr[col], width=wbar, color=c_, label=lab, zorder=3)
+    for x_, v_ in zip(xg + (i - 1) * wbar, fr[col]):
         ax.text(x_, v_ + 0.4, f"{v_:.1f}", ha="center", va="bottom", fontsize=7, color=INK)
 ax.set_xticks(xg, [f"Picks {r.lo}-{r.hi}\n({r.n} players)" for r in fr.itertuples()], fontsize=8.5)
 ax.set_ylabel("$M per player, at the 2025-26 cap")

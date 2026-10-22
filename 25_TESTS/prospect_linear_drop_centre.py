@@ -51,7 +51,7 @@ import statsmodels.api as sm
 from dotenv import load_dotenv
 from scipy import stats
 
-SCRIPT_VERSION = "prospect_linear_drop_centre.py v1.0 (2026-10-21)"
+SCRIPT_VERSION = "prospect_linear_drop_centre.py v1.1 (2026-10-22)"   # v1.1: no no-record indicator, as prospect_values.py v1.12
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 LOG = []
@@ -110,7 +110,7 @@ def design(arm, x, g, m=None, c=None):
     if arm == "adopted":
         cols, names = cols + [P], names + ["nhle82"]
         m, c = "past", 18.0
-    cols, names = cols + [P2, NR], names + ["nhle82_sq", "no_record"]
+    cols, names = cols + [P2], names + ["nhle82_sq"]                 # v1.1: no no-record indicator
     if g in AGE_GROUPS:
         cols, names = cols + [P * age_term(x, m, c, int(g))], names + ["prod_x_age"]
     return np.column_stack(cols), names

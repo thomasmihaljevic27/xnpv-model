@@ -54,7 +54,7 @@ import pandas as pd
 import statsmodels.api as sm
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "prospect_age_look.py v1.5 (2026-10-18)"   # v1.5: rows inside club control; v1.4: linkage v1.2
+SCRIPT_VERSION = "prospect_age_look.py v1.6 (2026-10-22)"   # v1.6: no no-record indicator, as prospect_values.py v1.12 (Thomas, 2026-10-21); v1.5: rows inside club control; v1.4: linkage v1.2
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 LOG = []
@@ -92,7 +92,7 @@ log(f"  years past first eligibility, at the draft: first-time eligible (under 0
 log(f"  correlation with the star chance (at the draft): {np.corrcoef(x0['past_elig'], x0['p_star'])[0, 1]:.2f}; "
     f"with production: {np.corrcoef(x0['past_elig'], x0['nhle82'])[0, 1]:.2f}")
 
-BASE = ["nhle82", "nhle82_sq", "no_record"]
+BASE = ["nhle82", "nhle82_sq"]   # v1.6: no no-record indicator
 ADD = {"chosen": [], "+ age": ["past_elig"], "+ age x production": ["prod_x_age"],
        "+ age and age x production": ["past_elig", "prod_x_age"]}
 

@@ -57,7 +57,7 @@ import statsmodels.api as sm
 from dotenv import load_dotenv
 from scipy import stats
 
-SCRIPT_VERSION = "prospect_production_form.py v1.4 (2026-10-21)"   # v1.4: the rows of the 2026-10-20 prospect chain; v1.3   # no draft-year terms (Thomas, 2026-10-16)
+SCRIPT_VERSION = "prospect_production_form.py v1.5 (2026-10-22)"   # v1.5: no no-record indicator, as prospect_values.py v1.12 (Thomas, 2026-10-21); v1.4: the rows of the 2026-10-20 prospect chain; v1.3   # no draft-year terms (Thomas, 2026-10-16)
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 LOG = []
@@ -109,7 +109,7 @@ def cols_for(form, g):
         return ["p_star"]
     c = ["p_star"] if g in SLOT_EARLY else []
     c += {"straight": ["nhle82"], "curved": ["nhle82", "nhle82_sq"], "squared alone": ["nhle82_sq"]}[form]
-    c += ["no_record"] + (["prod_x_age"] if g in AGE_GROUPS else [])
+    c += (["prod_x_age"] if g in AGE_GROUPS else [])                 # v1.5: no no-record indicator
     return c
 
 

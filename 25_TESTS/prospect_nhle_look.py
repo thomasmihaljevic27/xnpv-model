@@ -55,7 +55,7 @@ import pandas as pd
 import statsmodels.api as sm
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "prospect_nhle_look.py v1.3 (2026-10-16)"   # no draft-year terms (Thomas, 2026-10-16)
+SCRIPT_VERSION = "prospect_nhle_look.py v1.4 (2026-10-22)"   # v1.4: no no-record indicator, as prospect_values.py v1.12 (Thomas, 2026-10-21); v1.3:   # no draft-year terms (Thomas, 2026-10-16)
 load_dotenv()
 SOURCE_DIR, OUTPUT_DIR = Path(os.environ["SOURCE_DIR"]), Path(os.environ["OUTPUT_DIR"])
 LOG = []
@@ -129,11 +129,11 @@ for g, x in d[d["n_seasons"] > 0].groupby("k_group"):
     log(f"    {g:>2}: n {len(x):5,}  median {x['nhle82'].median():5.1f}  90th pct {x['nhle82'].quantile(.9):5.1f}  "
         f"corr with star chance {np.corrcoef(x['nhle82'], x['p_star'])[0, 1]:.2f}")
 
-ARMS = {"slot": ["p_star"], "production": ["nhle82", "no_record"],
-        "slot+production": ["p_star", "nhle82", "no_record"],
-        "slot+production by position": ["p_star", "nhle_f", "nhle_d", "no_record"],
-        "slot+production curved": ["p_star", "nhle82", "nhle82_sq", "no_record"],
-        "production curved": ["nhle82", "nhle82_sq", "no_record"]}
+ARMS = {"slot": ["p_star"], "production": ["nhle82"],                        # v1.4: no no-record indicator
+        "slot+production": ["p_star", "nhle82"],
+        "slot+production by position": ["p_star", "nhle_f", "nhle_d"],
+        "slot+production curved": ["p_star", "nhle82", "nhle82_sq"],
+        "production curved": ["nhle82", "nhle82_sq"]}
 d["nhle_f"], d["nhle_d"] = d["nhle82"] * (1 - d["is_d"]), d["nhle82"] * d["is_d"]
 d["nhle82_sq"] = d["nhle82"] ** 2             # v1.2: squared points per 82 (v1.1 divided by 10; a scale change only)
 

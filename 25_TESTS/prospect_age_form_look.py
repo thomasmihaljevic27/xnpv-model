@@ -70,7 +70,7 @@ import statsmodels.api as sm
 from dotenv import load_dotenv
 from scipy.optimize import minimize_scalar
 
-SCRIPT_VERSION = "prospect_age_form_look.py v1.0 (2026-10-19)"
+SCRIPT_VERSION = "prospect_age_form_look.py v1.1 (2026-10-22)"   # v1.1: no no-record indicator, as prospect_values.py v1.12 (Thomas, 2026-10-21)
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 LOG = []
@@ -140,22 +140,22 @@ def design(arm, A, g, delta=None):
     P, P2, NR, a = A["P"], A["P2"], A["NR"], A["a"]
     cols, names = ([A["p_star"]], ["p_star"]) if g in EARLY else ([], [])
     if g not in AGE_GROUPS or arm == "no_age":          # D+5 on: no age in any arm (as adopted)
-        return np.column_stack(cols + [P, P2, NR]), names + ["nhle82", "nhle82_sq", "no_record"]
+        return np.column_stack(cols + [P, P2]), names + ["nhle82", "nhle82_sq"]
     if arm == "adopted":
-        return (np.column_stack(cols + [P, P2, NR, P * a]),
-                names + ["nhle82", "nhle82_sq", "no_record", "prod_x_age"])
+        return (np.column_stack(cols + [P, P2, P * a]),
+                names + ["nhle82", "nhle82_sq", "prod_x_age"])
     if arm == "both":
-        return (np.column_stack(cols + [P, P2, NR, P * a, P2 * a]),
-                names + ["nhle82", "nhle82_sq", "no_record", "prod_x_age", "prod_sq_x_age"])
+        return (np.column_stack(cols + [P, P2, P * a, P2 * a]),
+                names + ["nhle82", "nhle82_sq", "prod_x_age", "prod_sq_x_age"])
     if arm == "sq_only":
-        return (np.column_stack(cols + [P, P2, NR, P2 * a]),
-                names + ["nhle82", "nhle82_sq", "no_record", "prod_sq_x_age"])
+        return (np.column_stack(cols + [P, P2, P2 * a]),
+                names + ["nhle82", "nhle82_sq", "prod_sq_x_age"])
     if arm == "share":                                   # (b P + c P^2)(1 + d age): b and c on the discounted terms
         m = 1.0 + delta * a
-        return np.column_stack(cols + [P * m, P2 * m, NR]), names + ["nhle82", "nhle82_sq", "no_record"]
+        return np.column_stack(cols + [P * m, P2 * m]), names + ["nhle82", "nhle82_sq"]
     if arm == "adjusted":                                # P* = P (1 + d age); b P* + c P*^2
         ps = P * (1.0 + delta * a)
-        return np.column_stack(cols + [ps, ps * ps, NR]), names + ["nhle82", "nhle82_sq", "no_record"]
+        return np.column_stack(cols + [ps, ps * ps]), names + ["nhle82", "nhle82_sq"]
     raise ValueError(arm)
 
 

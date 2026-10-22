@@ -446,13 +446,12 @@ def main():
         for (v, g), (tab, arm) in src.items():
             cols, b, _ = fits[(v, g, "none")]
             ref = tab[(tab["k_group"] == g) & (tab["arm"] == arm)].iloc[0]
-            cols_look = cols + ["no_record"]
+            cols_look = cols + (["no_record"] if "no_record" in tab.columns and pd.notna(ref.get("no_record")) else [])
             b_look, _ = fit_cols(prow[prow["k_group"] == g], cols_look, g.endswith("+"))
             gap = max(abs(b_look[i] - ref[c]) for i, c in enumerate(cols_look))
             assert gap < 1e-9, (v, g, arm, gap)
             n_ok += 1
-        log(f"  guard: with the no-record indicator added back, the coefficients equal the production and age looks' for "
-            f"{n_ok} of {len(src)} fits (PASS): the same rows, one term dropped")
+        log(f"  guard: the coefficients equal the production and age looks' for {n_ok} of {len(src)} fits (PASS)")
     for v in VERSIONS:
         for g in ("0", "1", "2", "3", "4+"):
             cols, b, se = fits[(v, g, "none")]
