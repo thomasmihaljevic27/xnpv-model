@@ -3689,3 +3689,13 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   Seven CLAUDE.md rules from them. No model change yet; no locked decision (D1-D33) touched.
 - WORK_QUEUE: a "Do" item for the round's model work and the rebuild, ahead of the read item. Session log
   sessions/2026-10-21.md.
+
+### Change log, 2026-10-21d (the round-2 notes discussed; decisions before any test)
+
+- DECIDED (Thomas, in chat): drop linear production from the prospect model; check every adopted regression for terms
+  not statistically significant, by a rule agreed before any result (MODEL_DIRECTIVES, "Thomas's second round of
+  notes", item 2); tests of the games share's position term, floor and centring, the games weighting and the counting
+  threshold; a contract signed on the trade date left out of the chance of playing as of the value; a design for
+  pricing over the term; goaltenders after skaters; one re-lock after all forecast changes.
+- RECORDED BEFORE THE RERUN: these changes do not come from the back-test's outcomes.
+- Nothing built. Session log sessions/2026-10-21.md.

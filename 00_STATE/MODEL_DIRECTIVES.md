@@ -1358,3 +1358,38 @@ v1.5, `page_2017_values.py` v1.8, `buried_contract_values.py` v1.8, `backtest.py
 4. **Which spells:** "Label + CBA test": Spotrac's "Long-Term IR" spells and any IR spell of 24+ days and 10+ team
    games (the CBA's LTIR test), because Spotrac labels season-long LTIR as plain "IR" (Ellis, Weber, Hossa). Chosen
    after both readings were run (label alone: slope 0.836, players -$0.22M an asset; adopted: 0.741, +$0.01M).
+
+## Thomas's second round of notes on "Valuing Players, Draft Picks, and Prospects" (2026-10-21)
+
+Decided in chat after the notes were discussed one by one (`40_DOCS/Valuing_Players_Feedback.md`, Round 2). Status: **decided, not built**.
+1. **Prospects: drop linear production** (note 38; "okay I'm comfortable dropping linear production"). The model becomes
+   star probability, production squared, the no-record indicator and production x (age - 18). Before the build: the
+   held-out comparison at more than one centre of age, since without linear production the centre is no longer
+   neutral (recorded 2026-10-15: this form's rejection was p = 0.0027 at 18.5 and 0.063 at 18).
+2. **Every adopted regression checked for terms not statistically significant** (note 25). The rule, agreed before any
+   result is seen (Thomas: "I agree to this plan"): a term goes if it is not statistically significant at the 5% level
+   AND dropping it does not worsen the held-out forecast; the failing terms are tested together as a set as well as one
+   at a time; a term that fails on p but helps the held-out forecast goes to Thomas with both numbers. Each season ahead
+   should keep the same terms "in theory", decided once the results are seen; candidate sets are scored on all seasons
+   ahead together.
+3. **To test:** the games share without the defenceman term (23); its floor at 0 against 0.05 (22); age centred at its
+   mean, or not centred (21); the starting level without the games weighting, on his own rate and the comparables'
+   level alike (9); the counting threshold at 5, 10 and 20 games (12; Thomas: the CBA's 10-game entry-level rule is the
+   reason it works, "but we can test").
+4. **A contract signed on the trade date is left out of the chance of playing too** (31), as it is of the contract's
+   value. Thomas: some trades happen only because a deal is agreed or expected, but "I don't think it's fair to the
+   acquiring team to assume each and every time they behave knowing this"; with John Carlson's rights traded to Carolina,
+   who could not sign him, valuing the trade on whether he signed would give two worlds, "not logically consistent".
+5. **Pricing on the forecast over the contract's term** (27): a design first, for Thomas to agree ("worth exploring").
+6. **Goaltenders reviewed after the skater changes** (33-35).
+7. **One re-lock:** every forecast change is collected first, then the price line is re-locked once and everything after
+   it rerun once.
+8. **The back-test was not consulted.** These changes come from the forecast's significance tests and held-out error,
+   and from Thomas's reading of the document, not from the back-test's outcomes (run 2026-10-20). Recorded before the
+   back-test is rerun on them.
+9. **The document:** no earlier model version is described (a waste of ink: "you just stuck to why we are doing what
+   we're doing and how"); changes in WAR are added and subtracted without explanation (no percentage passage, note 19);
+   the departed season's level stated plainly as chosen on principle, with +0.25 scoring better on season WAR (20); the
+   fitted 47/32/21 weights dropped from Table 2 (8); the drafted-player example is the 50th pick with more NHL games,
+   Colton Sissons (2012) or Jordan Greenway (2015) (36). "Valuing Prospects" goes to Karl rebuilt on the new prospect
+   model before Friday 2026-10-23 (Thomas: "I can just send him a new prospects document").
