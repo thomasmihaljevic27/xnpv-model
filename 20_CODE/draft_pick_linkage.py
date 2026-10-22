@@ -94,7 +94,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-SCRIPT_VERSION = "1.2"
+SCRIPT_VERSION = "1.3"   # 1.3 (2026-10-21): contract_source.read_goalie_war
 print(f"draft_pick_linkage.py SCRIPT_VERSION {SCRIPT_VERSION}")
 
 # ----------------------------------------------------------------------------
@@ -264,7 +264,8 @@ draft["is_goalie"] = draft["position"].eq("G")   # 'F', hybrids, NaN => skater s
 # ----------------------------------------------------------------------------
 war  = pd.read_csv(WAR_PATH)
 wage = pd.read_csv(WAGE_PATH)
-gw   = pd.read_csv(GW_PATH)
+import contract_source as _CSG      # 2026-10-21 (v1.3): the two Matt Murrays kept apart
+gw   = _CSG.read_goalie_war(GW_PATH)
 
 war["name_n"] = war["Player"].apply(norm)
 war["syear"]  = war["Season"].apply(season_start)

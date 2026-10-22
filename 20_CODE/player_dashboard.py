@@ -103,7 +103,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from contract_npv import NPVEngine                      # noqa: E402
 from skater_forward_projection import norm_name, page_date   # noqa: E402
 
-SCRIPT_VERSION = "player_dashboard.py v1.3 (2026-10-05)"
+SCRIPT_VERSION = "player_dashboard.py v1.4 (2026-10-21)"   # v1.4: contract_source.read_goalie_war
 
 load_dotenv()
 SOURCE_DIR = Path(os.environ["SOURCE_DIR"])
@@ -398,7 +398,8 @@ def build_war(names):
 
     # Goalies: Goalies_WAR has names only -- match on the cleaned name, with
     # the same uniqueness rule, exactly as the goalie engine keys on nname.
-    gw = pd.read_csv(F_GOALIE_WAR)
+    import contract_source as _CSG               # v1.4: the two Matt Murrays kept apart
+    gw = _CSG.read_goalie_war(F_GOALIE_WAR)
     gw["ss"] = gw["Season"].map(season_start)
     gw["nk"] = gw["Goalie"].map(norm_name)
     gg = gw.groupby(["nk", "ss"])[["WAR", "GP"]].sum().reset_index()

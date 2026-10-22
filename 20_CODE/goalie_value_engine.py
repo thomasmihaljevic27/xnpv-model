@@ -1,8 +1,20 @@
 """
 =============================================================================
- goalie_value_engine.py   v1.3                    D20 rebuild (2026-07-05)
+ goalie_value_engine.py   v2.0                    D20 rebuild (2026-07-05)
                                           review item 1.1 (2026-07-26)
 =============================================================================
+ WHAT CHANGED IN v2.0 (Thomas, 2026-10-21, on 25_TESTS/goalie_review.py v1.0)
+ ---------------------------------------------------------------------------
+ STAGE G fits the goaltender price line the valuation engine locks (contract_npv.GOALIE_RATE): cap share on the
+ goaltender's forecast WAR -- contract_npv.GoalieProjector's, kept 35%, pulled toward the league average, with its age
+ term -- dated at the contract's signing (xnpv1_price_line.signing_page; the season h = start - page ahead), left-censored
+ at the league minimum, with a term for contract length (and the same fit without term, the sensitivity). Sample:
+ standard-level goaltender contracts starting 2015-2025 with a forecast at the signing. Every run must give the lock back
+ (GUARD). Until v1.3 Stage G fitted least squares on the unpulled trailing WAR at the contract's start, and the valuation
+ applied it to the pulled forecast (mean error +$0.52M a contract). The v2 spine's priced rows now carry the valuation
+ engine's forecast for the season (forecast_war) and its price at the contract's own remaining term; contract_npv's
+ check [1b] compares the forecasts.
+
  WHAT CHANGED IN v1.3 (Thomas, 2026-10-14: retire the 60/40 checks)
  ---------------------------------------------------------------------
  The RAW (un-prorated, 60/40) regime is removed: Stage P (the rebuild of the locked July spine
@@ -240,7 +252,8 @@ def norm_name(s):
 def goalie_war_lut(prorate):
     """(normalized name, season start year) -> season-total WAR.
     Team-split seasons summed FIRST, then (optionally) D20 proration."""
-    g = pd.read_csv(F_GOALIE_WAR)
+    import contract_source as _CSG               # 2026-10-21: the two Matt Murrays kept apart
+    g = _CSG.read_goalie_war(F_GOALIE_WAR)
     g["syr"] = g["Season"].str.split("-").str[0].astype(int) + 2000
     agg = (g.groupby(["Goalie", "syr"], as_index=False)
              .agg(WAR=("WAR", "sum"), GP=("GP", "sum")))
@@ -519,19 +532,88 @@ def _rate_sample(lut, prorate):
     return g[g["cap_pct"].notna()]
 
 
+def _projector():
+    """contract_npv's GoalieProjector on the contract-season spine, as NPVEngine builds it."""
+    import contract_npv as CN
+    import contract_source as _CS
+    from skater_forward_projection import norm_name as _nn
+    full = pd.read_csv(F_SEASON_SPINE)
+    full["full_name"] = _CS.war_full_name(full, full["first_name"].astype(str) + " " + full["last_name"].astype(str))
+    full["nname"] = full["full_name"].map(_nn)
+    full["bd"] = pd.to_datetime(full["birthdate"], errors="coerce")
+    return CN, CN.GoalieProjector(full), _nn
+
+
 def stage_rate():
+    """v2.0: the goaltender price line, fitted on the forecast dated at each contract's signing (see the header)."""
+    import hashlib
+    import xnpv1_price_line as XPL
+    from skater_forward_projection import league_min_path
     log("=" * 74)
-    log("STAGE G: goalie rate (D20, prorated; v1.3: the raw guard is retired)")
+    log("STAGE G: the goaltender price line (v2.0: the pulled forecast with its age term, dated at the signing, "
+        "censored at the league minimum, with term)")
     log("=" * 74)
+    CN, GP, _nn = _projector()
+    raw = pd.read_excel(F_CONTRACT_XLSX)
+    import contract_source as _CS
+    raw["start_yr"] = _CS.contract_terms(raw)["first_yr"]
+    d = raw[(raw["position"] == "Goaltender") & (raw["contract_level"] == "standard_level")
+            & raw["start_yr"].between(2015, 2025)].copy()
+    d["nname"] = _CS.war_full_name(d, d["first_name"].astype(str) + " " + d["last_name"].astype(str)).map(_nn)
+    d["cap"] = d["start_yr"].map(lambda y: ceiling_for(int(y))[0])
+    d["cap_pct"] = d["aav"] / d["cap"]
+    d["floor_pct"] = d["start_yr"].map(league_min_path) / d["cap"]
+    d["signed"] = pd.to_datetime(d["signing_date"], errors="coerce")
+    d["bd"] = pd.to_datetime(d["birthdate"], errors="coerce")
+    d["length"] = pd.to_numeric(d["length"], errors="coerce")
+    xs, why = [], []
+    for r in d.itertuples():
+        page, ok = XPL.signing_page(r.signed)
+        h = None if page is None else int(r.start_yr) - int(page)
+        if not ok or h is None or h < 0:
+            xs.append(np.nan); why.append("no signing page" if not ok else "signed after start"); continue
+        a0 = None if pd.isna(r.bd) else int(page) - r.bd.year - ((9, 15) < (r.bd.month, r.bd.day))
+        fc, src = GP.forecast(r.nname, int(page), h, a0)
+        # a season in the year before the signing, as the tested sample required (goalie_review.py Part D): a stale
+        # anchor's forecast is a fallback for valuing a goaltender who missed a season, not a price the market set
+        if fc is not None and src == "stale_anchor":
+            xs.append(np.nan); why.append("no season in the year before the signing (stale anchor)"); continue
+        xs.append(np.nan if fc is None else fc[h][1]); why.append("" if fc is not None else "no forecast at the signing")
+    d["x"] = xs
+    for w, n in pd.Series(why)[pd.Series(why) != ""].value_counts().items():
+        log(f"  left out, {w}: {n}")
+    d = d[np.isfinite(d["x"]) & d["cap_pct"].notna() & d["length"].notna()].reset_index(drop=True)
+    key = d[["nname", "start_yr", "cap_pct"]].astype(str).agg("|".join, axis=1).sort_values()
+    fp = hashlib.sha1("\n".join(key).encode()).hexdigest()[:12]
+    cap25 = ceiling_for(2025)[0]
     out = {}
-    for label, prorate in [("PRORATED", True)]:
-        lut, _ = goalie_war_lut(prorate)
-        s = _rate_sample(lut, prorate)
-        r = sm.OLS(s["cap_pct"], sm.add_constant(s["wWAR"])).fit(cov_type="HC3")
-        a, b = r.params["const"], r.params["wWAR"]
-        log(f"  {label:>9}: n={len(s)}  alpha_G={a:.8f}  beta_G={b:.8f}  "
-            f"R2={r.rsquared:.4f}")
-        out[label] = (a, b, len(s), r.rsquared)
+    for lab, cols in (("term-in", ["x", "length"]), ("term-free", ["x"])):
+        f = XPL.fit_censored(d["cap_pct"], d[cols].to_numpy(float), d["floor_pct"])
+        c = f["coef"]
+        out[lab] = dict(alpha=float(c[0]), beta=float(c[1]), gamma_term=float(c[2]) if len(c) > 2 else 0.0,
+                        sigma=float(f["sigma"]), n=int(len(d)), rows_fingerprint=fp, converged=bool(f["converged"]))
+        log(f"  {lab}: n={len(d)} (fingerprint {fp}; {int((d['cap_pct'] <= d['floor_pct'] + 1e-12).sum())} at the minimum)  "
+            f"alpha={c[0]:.10f} (${c[0] * cap25 / 1e6:.2f}M)  beta={c[1]:.10f} (${c[1] * cap25 / 1e6:.3f}M per WAR)"
+            + (f"  gamma_term={c[2]:.10f} (${c[2] * cap25 / 1e6:.3f}M per year)" if len(c) > 2 else "")
+            + f"  sigma={f['sigma']:.8f}  converged {f['converged']}")
+    lock = {"term-in": CN.GOALIE_RATE, "term-free": CN.GOALIE_RATE_TERM_FREE}
+    if lock["term-in"] is None:
+        log("  [guard] contract_npv.GOALIE_RATE is not locked yet; to lock, in contract_npv.py:")
+    bad = []
+    for lab, got in out.items():
+        lk = lock[lab]
+        if lk is not None:
+            gap = max(abs(got[k] - lk[k]) for k in ("alpha", "beta", "gamma_term"))
+            same = got["converged"] and gap <= 1e-8 and got["n"] == lk["n"] and got["rows_fingerprint"] == lk["rows_fingerprint"]
+            log(f"  [guard] {lab} against the lock: n {got['n']} (locked {lk['n']}), fingerprint {fp} "
+                f"(locked {lk['rows_fingerprint']}), largest gap {gap:.1e}: {'PASS' if same else 'GUARD FAILED'}")
+            bad += [] if same else [lab]
+        nm = "GOALIE_RATE" if lab == "term-in" else "GOALIE_RATE_TERM_FREE"
+        log(f"    {nm} = dict(alpha={got['alpha']:.10f}, beta={got['beta']:.10f}, gamma_term={got['gamma_term']:.10f}, "
+            f"n={got['n']}, sigma={got['sigma']:.8f}, rows_fingerprint=\"{fp}\")")
+    if bad:
+        Path(OUT_LOG).write_text("\n".join(LOG), encoding="utf-8")
+        raise SystemExit(1)
     return out
 
 
@@ -673,15 +755,42 @@ def stage_lambda_and_v2(rate_out):
                 log(f"    STOP: the prorated lambda search picked {lam_new:.2f}, not {LAMBDA_LIVE} "
                     "(contract_npv.LAMBDA_G). Nothing written; a decision for Thomas.")
                 return None
-    a_new, b_new, n_new, r2_new = rate_out["PRORATED"]
-    # carry_out_years=True: the corrected artifact (review item 1.1).
-    v2 = build_spine(lam_new, a_new, b_new, prorate=True,
+    # v2.0: build_spine's own price is the retired least-squares line (alpha 0, beta 1 here only keep its columns
+    # numeric); every priced row's value is replaced below by the valuation engine's forecast and locked line
+    v2 = build_spine(lam_new, 0.0, 1.0, prorate=True,
                      carry_out_years=True)
+    CN, GP, _nn = _projector()
+    from skater_forward_projection import league_min_path
+    if CN.GOALIE_RATE is None:
+        log("  the goaltender line is not locked: the spine's values are left empty (lock Stage G, then run again)")
+    cs = pd.read_csv(F_SEASON_SPINE)
+    cs = cs[cs["position"] == "Goaltender"]
+    end_of = cs.groupby("contract_id")["season_start"].max().to_dict()
+    bd_of = pd.to_datetime(cs.drop_duplicates("player_id").set_index("player_id")["birthdate"], errors="coerce").to_dict()
+    fw, vals, pcs = [], [], []
+    for r in v2.itertuples():
+        t0 = int(r.season_start)
+        if t0 < 2015 or r.value_dollars in ("", None) or pd.isna(r.value_dollars):
+            fw.append(np.nan); vals.append(r.value_dollars); pcs.append(r.predicted_cap_pct); continue
+        b = bd_of.get(r.player_id)
+        a0 = None if b is None or pd.isna(b) else t0 - b.year - ((9, 15) < (b.month, b.day))
+        fc, src = GP.forecast(_nn(r.full_name), t0, 0, a0)
+        if fc is None:
+            fw.append(np.nan); vals.append(np.nan); pcs.append(np.nan); continue
+        w0 = fc[0][1]
+        term_left = int(end_of[r.contract_id]) - t0 + 1
+        ceil = ceiling_for(t0)[0]
+        pc = CN.goalie_line(w0, term_left) if CN.GOALIE_RATE is not None else np.nan
+        fw.append(w0)
+        vals.append(max(pc * ceil, league_min_path(t0)) if CN.GOALIE_RATE is not None else np.nan)
+        pcs.append(pc)
+    v2["forecast_war"], v2["value_dollars"], v2["predicted_cap_pct"] = fw, vals, pcs
+    v2["surplus_dollars"] = pd.to_numeric(v2["value_dollars"], errors="coerce") - pd.to_numeric(v2["cost_dollars"], errors="coerce")
     _log_carry_impact(v2)
     v2.to_csv(OUT_SPINE_V2, index=False)
     priced = pd.to_numeric(v2["value_dollars"], errors="coerce").notna().sum()
-    log(f"\n  D20 goalie constants: lambda={lam_new:.2f}  "
-        f"alpha_G={a_new:.8f}  beta_G={b_new:.8f}  (rate n={n_new}, R2={r2_new:.4f})")
+    log(f"\n  goaltender constants: lambda={lam_new:.2f}; the price line is contract_npv.GOALIE_RATE "
+        f"({rate_out['term-in']['n']} contracts, fingerprint {rate_out['term-in']['rows_fingerprint']})")
     log(f"  wrote {OUT_SPINE_V2.name}: {len(v2):,} rows ({priced:,} priced)")
     return lam_new
 

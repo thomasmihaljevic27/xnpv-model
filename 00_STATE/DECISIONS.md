@@ -3713,3 +3713,11 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   debut; keep the no-contract-record marker; games-share floor 0; age centred at 27.22; keep the games weighting; keep
   10 games. MODEL_DIRECTIVES, "The forecast audit decided". Touches D33's forecast specification (the games-share and
   chance-of-playing inputs, as adopted 2026-10-05); a deliberate revisit by Thomas. Re-lock pending.
+
+### Change log, 2026-10-21g (the prospect check and the goaltender review decided)
+
+- DECIDED (Thomas): prospects without the no-record indicator, production from D+5 kept; goaltenders with a straight-line
+  age term, a price line refitted on the pulled forecast dated at the signing (censored, with term), a chance of playing
+  by season ahead in place of the exit chain, the two Matt Murrays apart; the 35% pull, no games filter and the pooled
+  control weight kept. MODEL_DIRECTIVES, "The prospect check and the goaltender review decided". Revisits the goalie
+  model's July decisions (no aging curve, the goalie rate, the exit hazard for goalies; D18's goalie side). Being built.

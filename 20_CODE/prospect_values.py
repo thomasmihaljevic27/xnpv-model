@@ -131,7 +131,7 @@ import statsmodels.api as sm
 from dotenv import load_dotenv
 
 
-SCRIPT_VERSION = "prospect_values.py v1.11 (2026-10-18)"   # v1.11: fit rows inside club control; v1.10: no draft-year terms
+SCRIPT_VERSION = "prospect_values.py v1.12 (2026-10-21)"   # v1.12: no no-record indicator (Thomas); v1.11: fit rows inside club control; v1.10: no draft-year terms
 load_dotenv()
 import contract_source as CS   # noqa: E402  v1.1: PuckPedia exports read strictly (identity only)
 SOURCE_DIR, OUTPUT_DIR = Path(os.environ["SOURCE_DIR"]), Path(os.environ["OUTPUT_DIR"])
@@ -312,7 +312,11 @@ def production_features(frame, rates):
 
 
 def cols_for(group, version):
-    return ((["p_star"] if group in SLOT_GROUPS else []) + ["nhle82", "nhle82_sq", "no_record"]
+    # v1.12 (Thomas, 2026-10-21, on 25_TESTS/prospect_term_check.py): the no-record indicator dropped. It was not
+    # statistically significant in D+1 or D+2 (p = 0.053 and 0.067; its D+3 coefficient rests on one prospect-season and
+    # it is exactly zero from D+4), and without it the held-out error is unchanged (2.1995 against 2.1994, p = 0.166)
+    # and no traded prospect's value moves. A prospect without a record (nhle82 = 0) is valued on draft position alone.
+    return ((["p_star"] if group in SLOT_GROUPS else []) + ["nhle82", "nhle82_sq"]
             + (["prod_x_age"] if version == "main" and group in AGE_GROUPS else []))
 
 
@@ -387,7 +391,8 @@ FRANCHISE = {"N.J": "NJD", "S.J": "SJS", "T.B": "TBL", "L.A": "LAK", "ATL": "WPG
 
 
 def season_table(path, name_col):
-    w = pd.read_csv(path, usecols=[name_col, "Season", "GP", "WAR"])
+    w = (CS.read_goalie_war(path, usecols=[name_col, "Season", "GP", "WAR"]) if name_col == "Goalie"   # v1.12
+         else pd.read_csv(path, usecols=[name_col, "Season", "GP", "WAR"]))
     w["name_n"] = w[name_col].map(norm)
     w["start"] = w["Season"].map(lambda x: 2000 + int(str(x)[:2]))
     return w.groupby(["name_n", "start"]).agg(GP=("GP", "sum"), WAR=("WAR", "sum"))

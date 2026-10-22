@@ -40,7 +40,7 @@ from pathlib import Path
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "elc_signing_dates.py v1.3 (2026-10-19)"   # v1.3: dates after the first NHL season set aside; v1.2: club
+SCRIPT_VERSION = "elc_signing_dates.py v1.4 (2026-10-21)"   # v1.4: contract_source.read_goalie_war; v1.3: dates after the first NHL season set aside; v1.2: club
 load_dotenv()
 SOURCE_DIR, OUTPUT_DIR = Path(os.environ["SOURCE_DIR"]), Path(os.environ["OUTPUT_DIR"])
 F_LINK = OUTPUT_DIR / "draft_pick_linkage.csv"
@@ -118,7 +118,11 @@ def first_nhl_seasons(link):
         return re.sub(r"[^a-z ]", "", s.lower()).strip()
     tables = {}
     for gk, (f, col) in {False: ("WAR.csv", "Player"), True: ("Goalies_WAR.csv", "Goalie")}.items():
-        w = pd.read_csv(SOURCE_DIR / f, usecols=[col, "Season", "GP"])
+        if gk:                                        # v1.4: the two Matt Murrays kept apart
+            import contract_source as _CSG
+            w = _CSG.read_goalie_war(SOURCE_DIR / f, usecols=[col, "Season", "GP"])
+        else:
+            w = pd.read_csv(SOURCE_DIR / f, usecols=[col, "Season", "GP"])
         w = w[w["GP"] > 0]
         w["n"], w["start"] = w[col].map(norm), w["Season"].map(lambda x: 2000 + int(str(x)[:2]))
         tables[gk] = w.groupby("n")["start"].apply(sorted).to_dict()

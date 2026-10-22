@@ -1419,3 +1419,27 @@ pricing over the term comes first).
   v2.4 ("Re-lock"). The whole-term test (`25_TESTS/term_average_price_line.py` v1.0) goes into "Valuing Players, Draft
   Picks, and Prospects" as a tested alternative: "If a reviewer thinks of this it's important that it be stated it was
   tested."
+
+### The prospect check and the goaltender review decided (Thomas, 2026-10-21)
+
+`25_TESTS/prospect_term_check.py`, `goalie_review.py`, `goalie_play_spec.py` (sessions/2026-10-21.md). Thomas: "drop the
+no-record indicator; keep production from D+5; for goalies add a straight-line age term, refit the price line on the
+pulled forecast dated at the signing with censoring and term, replace the exit chain with a chance of playing by season
+ahead, fix the Matt Murray merge, and keep the 35[% pull, no games filter and the pooled control weight]" (his message
+was cut at 300 characters; the rest is the recommendation he was answering). Status: **decided; being built**.
+1. **Prospects: no no-record indicator.** A prospect without a scoring record is valued on draft position alone (D+1 to
+   D+3) and at zero from D+4, as the indicator already gave there.
+2. **Prospects: production from D+5 kept** (jointly p = 0.085; dropping it would value every prospect from D+5 at zero).
+3. **Goaltender forecast: a straight-line age term**, fitted on the forecast's errors in goaltender-seasons of 20+ games
+   before the valuation page (held out -1.67%, p = 0.022), applied at each season's age, so the forecast is no longer
+   flat. The 35% kept, the 2.19 target and no games filter on the trailing seasons stay.
+4. **Goaltender price line:** cap share on the pulled forecast (with its age term) dated at the signing, left-censored at
+   the league minimum, with a term for contract length; locked like the skater line. Control and delivered seasons are
+   priced at one year of term (as for skaters).
+5. **Goaltender chance of playing:** a logistic regression for each season ahead on age, the forecast and last season's
+   games share, fitted on pages before the valuation page; age squared dropped under the rule (not significant in any
+   season ahead, p 0.370 to 0.981; held out 0.4845 against 0.4850). Replaces the exit chain and the stale-anchor seed
+   (the games share of a goaltender absent last season is zero, which the regression reads).
+6. **The two Matt Murrays** are kept apart in every goaltender reading (2022-23: Toronto 26 games, the elder; Dallas 3,
+   the younger).
+7. **Kept:** the pooled control-season weight (0.767; qualifying rates do not differ by forecast group, p = 0.519).

@@ -39,7 +39,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import forecast_config as C
 
-SCRIPT_VERSION = "1.3"   # 1.1 (2026-10-14): war_full_name(), the WAR spelling for crosswalked ids
+SCRIPT_VERSION = "1.4"   # 1.4 (2026-10-21): read_goalie_war(), the two Matt Murrays apart; 1.1 (2026-10-14): war_full_name(), the WAR spelling for crosswalked ids
                          # 1.2 (2026-10-16): parse_export_dates(), either date style the exports carry
                          # 1.3 (2026-10-19): contract_terms(), the seasons a contract covers
 
@@ -253,3 +253,24 @@ def birthdate_table(ep_csv: Path | None = None) -> pd.DataFrame:
 
 
 # (main is a rebuild-only check, not promoted.)
+
+# ---- goaltenders who share a name (v1.4, 2026-10-21) ----------------------------------------------------------------
+# Thomas, 2026-10-21: "fix the Matt Murray merge". Goalies_WAR.csv names goaltenders only, and two NHL goaltenders are
+# called Matt Murray (NHL ids 8476899, born 1994-05-25, and 8483575, born 1998-02-02; goalie_birthdates.py matches each
+# row to one of them by season and games). In 2022-23 the file has a Toronto row (26 games, the elder) and a Dallas row
+# (3 games, the younger); every reader that sums a goaltender's team rows by name made them one 29-game season. Each split
+# row below is renamed for the younger player, in letters only so that every name normaliser in the tree keeps it apart.
+# Hand-verified against the NHL's goalie bios (games played by NHL id and season). The younger player has no contract
+# in PuckPedia's export and no trade, so the rename only stops his games being read as the elder's.
+GOALIE_WAR_SPLITS = {("Matt Murray", "22-23", "DAL"): ("Matt Murray Younger", 3)}
+
+
+def read_goalie_war(path, usecols=None) -> pd.DataFrame:
+    """Goalies_WAR.csv with each GOALIE_WAR_SPLITS row renamed (GUARD: each found exactly once, with its games)."""
+    cols = None if usecols is None else list(dict.fromkeys(list(usecols) + ["Goalie", "Season", "Team", "GP"]))
+    w = pd.read_csv(path, usecols=cols)
+    for (name, season, team), (new, gp) in GOALIE_WAR_SPLITS.items():
+        hit = (w["Goalie"] == name) & (w["Season"].astype(str) == season) & (w["Team"].astype(str) == team)
+        assert int(hit.sum()) == 1 and int(w.loc[hit, "GP"].iloc[0]) == gp, (name, season, team, int(hit.sum()))
+        w.loc[hit, "Goalie"] = new
+    return w if usecols is None else w[list(usecols)]

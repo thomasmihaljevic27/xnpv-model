@@ -237,7 +237,11 @@ AGE_SRC = {}                                       # (draftYear, pick) -> "signi
 
 
 def season_table(path, name_col):
-    w = pd.read_csv(path, usecols=[name_col, "Season", "Team", "GP", "WAR"])
+    if name_col == "Goalie":                     # v1.11: the two Matt Murrays kept apart
+        import contract_source as _CSG
+        w = _CSG.read_goalie_war(path, usecols=[name_col, "Season", "Team", "GP", "WAR"])
+    else:
+        w = pd.read_csv(path, usecols=[name_col, "Season", "Team", "GP", "WAR"])
     w["name_n"] = w[name_col].map(norm)
     w["start"] = w["Season"].map(lambda s: 2000 + int(str(s)[:2]))
     w["teams"] = w["Team"].astype(str).map(lambda t: {FRANCHISE.get(x, x) for x in t.split("/")})
