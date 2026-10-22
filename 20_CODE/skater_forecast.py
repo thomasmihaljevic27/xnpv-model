@@ -135,7 +135,9 @@ GP_FEATURES = ["tr_gp_share", "exp_seasons", "age_c", "tw_WAR", "age_c2"]
 # rows and rate passed); the v1.x figures were 0.6730, 0.7486, 0.7991, 0.8516, 0.8792, 0.8926.
 # Re-measured 2026-10-14 on September 15 ages (floor_spread_measure.py v1.1; Thomas: "lock it");
 # was {0: 0.6769, 1: 0.7553, 2: 0.8040, 3: 0.8524, 4: 0.8766, 5: 0.8970}.
-WAR_IF_PLAYS_MAE = {0: 0.6767, 1: 0.7545, 2: 0.8026, 3: 0.8499, 4: 0.8770, 5: 0.8981}
+# Re-measured 2026-10-21 on v2.4 with the price line's re-lock (floor_spread_measure.py; was 0.6767, 0.7545, 0.8026,
+# 0.8499, 0.8770, 0.8981: no season ahead moved by more than 0.0006).
+WAR_IF_PLAYS_MAE = {0: 0.6766, 1: 0.7545, 2: 0.8023, 3: 0.8494, 4: 0.8765, 5: 0.8975}
 MAE_TO_SD = 1.2533       # SD = MAE * sqrt(pi/2) for a normal, production's conversion
 
 MIN_AGE_COVERAGE = 0.99  # the age table must carry the Elite Prospects birthdates

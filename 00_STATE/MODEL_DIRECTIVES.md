@@ -1412,3 +1412,10 @@ pricing over the term comes first).
 5. **Keep the games weighting** (without it, season WAR 0.8076 against 0.8064, p = 0.026).
 6. **Keep the 10-game counting season** (5 games forecast better on the build's rows, but would move players with only
    5-9 game seasons into the player model, untested; 20 games worse, p = 0.057).
+
+### Pricing on the forecast over the term: tested, not adopted; re-lock (Thomas, 2026-10-21)
+
+- **Decided:** keep the price line on the first season's forecast (dated at the signing); re-lock it on skater_forecast
+  v2.4 ("Re-lock"). The whole-term test (`25_TESTS/term_average_price_line.py` v1.0) goes into "Valuing Players, Draft
+  Picks, and Prospects" as a tested alternative: "If a reviewer thinks of this it's important that it be stated it was
+  tested."

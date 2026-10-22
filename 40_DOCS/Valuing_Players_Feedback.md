@@ -172,3 +172,12 @@ Found by a paragraph-by-paragraph diff of his copy against the v3 he was sent (c
   forecast; the chance of playing and the control-season weight. Revisit after the changes made to skaters.
 - **The 50th pick for the drafted-player table (36).** Colton Sissons (2012) or Jordan Greenway (2015); Milan Lucic
   (2006) is outside the 2007-2017 drafts the pick model is fitted on.
+
+## To include in the next draft (Thomas, 2026-10-21)
+
+- **Pricing on the forecast over the contract's term (note 27) was tested and is stated as tested.** Thomas: "I want these
+  results to be discussed in the overall doc when the time comes. If a reviewer thinks of this it's important that it be
+  stated it was tested." `25_TESTS/term_average_price_line.py` v1.0 (sessions/2026-10-21.md): the first-season line
+  fits and predicts better than the term average and the term average with the chance of playing (held out, beaten in
+  none of 20 repeats); the term premium rises on the averages, so it is not paying for later performance. Section 3,
+  as a tested alternative, without describing any earlier version of the price line.

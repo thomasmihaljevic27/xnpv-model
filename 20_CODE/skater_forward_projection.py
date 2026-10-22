@@ -206,10 +206,17 @@ def skater_rate_cap_pct(war, posgrp):
 # defence add 0.0039447 (was 0.0037579, +5%), term 0.0089105 (was 0.0089301). The 2026-10-14 crosswalk lock (alpha
 # -0.0043651624, beta 0.0175356938, beta_d_add 0.0037579369, gamma_term 0.0089300596; term-free 0.0081469438 /
 # 0.0311507981 / 0.0137184862; n 2,323, rows a8fbd5c03a0c) is in git before this change.
-XNPV1_RATE = dict(alpha=-0.0043026112, beta=0.0175297693, beta_d_add=0.0039447231,
-                  gamma_term=0.0089105379, n=2336, sigma=0.01558698, rows_fingerprint="d9d1d82777bf")
-XNPV1_RATE_TERM_FREE = dict(alpha=0.0081818739, beta=0.0312216498, beta_d_add=0.0140759564,
-                            gamma_term=0.0, n=2336, sigma=0.02182638, rows_fingerprint="d9d1d82777bf")
+# RE-LOCKED 2026-10-21 (Thomas: "Re-lock"), from xnpv1_price_line.py v2.3 on skater_forecast v2.4 / participation_model
+# v2.0 (the forecast audit's decisions: no defenceman term in the games share, floor 0, age centred at 27.22; no age
+# squared or seasons since debut in the chance of playing). Same 2,336 contracts and fingerprint. At the 2025-26 ceiling:
+# $1.672M per forecast win for forwards (was $1.674M), $2.061M for defencemen ($2.051M), +$0.851M a season per year of
+# term (unchanged to the thousand). Pricing on the forecast over the contract's term was tested first and not adopted
+# (25_TESTS/term_average_price_line.py v1.0). The 2026-10-20 lock (alpha -0.0043026112, beta 0.0175297693, beta_d_add
+# 0.0039447231, gamma_term 0.0089105379; term-free 0.0081818739 / 0.0312216498 / 0.0140759564) is in git before this.
+XNPV1_RATE = dict(alpha=-0.0043092485, beta=0.0175092736, beta_d_add=0.0040764912,
+                  gamma_term=0.0089103033, n=2336, sigma=0.01558828, rows_fingerprint="d9d1d82777bf")
+XNPV1_RATE_TERM_FREE = dict(alpha=0.0081682729, beta=0.0311829464, beta_d_add=0.0143706284,
+                            gamma_term=0.0, n=2336, sigma=0.02182557, rows_fingerprint="d9d1d82777bf")
 
 
 def price_constants(model=None, term_free=False):
