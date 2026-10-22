@@ -20,7 +20,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 20_CODE,capspace_scraper.py,clause,hashable,2026-09-09a,d43c9f8ff142c1bfe668e726431937889ab39db5,21975,2026-09-09,yes,git,git-tracked; audited via `git status`
 20_CODE,check.py,misc,hashable,2026-09-09a,6d47583d129eaaffd3c476ab13e9bb67340699b1,858,2026-09-09,yes,git,git-tracked; audited via `git status`
 25_TESTS,check_stale_anchor_agreement2.py,misc,hashable,2026-09-30k,4ce6f4f38dfc17aab3f4ad23f9fae49a27f7eb05,9224,2026-09-30,yes,git,git-tracked; audited via `git status`; moved 2026-09-30j
-20_CODE,contract_npv.py,player,hashable,2026-10-20d,81686198e814842ecbb87d6f27ae37df05b2158b,57865,2026-10-20,yes,git,"3.2: the goalie branch reads ""UFA no QO"" only once known; 3.1: a trade's season left and retained share"
+20_CODE,contract_npv.py,player,hashable,2026-10-21,65c8790a9590f0a34b0e154f1e93fb1201dacdd6,58758,2026-10-21,yes,git,"v3.3: goalie ages from the NHL's birthdates (goalie_birthdates.py), PuckPedia's after"
 20_CODE,contract_npv_panel.py,npv,hashable,2026-10-04c,e0cfecf5dccc5e5ca5549b22bf5f511c16452ea0,13024,2026-10-05,yes,git,git-tracked; audited via `git status`
 20_CODE,draft_pick_linkage.py,draft,hashable,2026-09-09a,3407afcc09d47360dee13a505ea65c181c62d55f,21073,2026-09-09,yes,git,rescued from data work; only cloud copy
 20_CODE,ep_extract.py,prosp,hashable,2026-09-28l,b3bd22c40b2efcc5822cf3d5407409c5b4382f7b,39724,2026-09-28,yes,git,v3.1: own league-page reader (pandas 3)
@@ -279,7 +279,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 40_DOCS/model_evidence,Step_Attribution.md,player,hashable,2026-10-02d,92e6a1765faa01e57daa59446313ceb6e1f22a44,6556,2026-10-02,yes,git,player-model evidence (moved from 50_REBUILD/docs 2026-10-02)
 40_DOCS/model_evidence,Obvious_Fixes_Test.md,player,hashable,2026-10-02d,16a28fed6c53cb0d1c2800cc64a9f6d9a9b3b4ac,6121,2026-10-02,yes,git,player-model evidence (moved from 50_REBUILD/docs 2026-10-02)
 00_STATE/sessions,2026-09-28b.md,state,hashable,2026-09-28l,73fb0da4f095fbee626f0583fc58f7f404a6c104,7698,2026-09-28,yes,git,session log
-20_CODE,dashboard_refresh.py,npv,hashable,2026-10-14,b1353f8fdc559e5c9f8e9ad4ece8759b5efc221e,17662,2026-10-14,yes,git,"launcher: re-runs every script the dashboard reads, then builds and opens it"
+20_CODE,dashboard_refresh.py,npv,hashable,2026-10-21,a5e356e95cb8579ddccf2e1d332bf4a7eb936e13,17930,2026-10-21,yes,git,"v1.3: goalie_birthdates.py before the goalie engine"
 .,Open-Dashboard.cmd,npv,hashable,2026-10-02f,0ff057dc3c2c441c19fbb312a8a0c11bc69179d2,1586,2026-10-02,yes,git,reopens the last dashboard build (2026-10-02)
 40_DOCS/model_evidence,Star_Bias_Test.md,player,hashable,2026-10-02d,8cd34e7e78a5f4d0fed4e01d5110fe0e34f8204a,6559,2026-10-02,yes,git,player-model evidence (moved from 50_REBUILD/docs 2026-10-02)
 40_DOCS/model_evidence,Dollar_Rescore.md,player,hashable,2026-10-02d,e2ca4e07815d976db232675564b56a08eac65262,5307,2026-10-02,yes,git,player-model evidence (moved from 50_REBUILD/docs 2026-10-02)
@@ -408,3 +408,6 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,forecast_round2_check.py,player,hashable,2026-10-21,b93669a196d3eef9e27418eea47aa3ab3f172232,4988,2026-10-21,yes,git,"the built forecast v2.4 gives the audit's S1 back (PASS 2026-10-21)"
 25_TESTS,prospect_linear_drop_centre.py,player,hashable,2026-10-21,4481a79b17bff34cc519a43a29402c7b760b8376,16401,2026-10-21,yes,git,"the prospect model without linear production at each centre of age (report only; 2026-10-21)"
 25_TESTS,term_average_price_line.py,player,hashable,2026-10-21,1a9d55ad240fa72e8f7956bf6c3a7e492ff2757b,12375,2026-10-21,yes,git,"the price line on the forecast over the term (report only; 2026-10-21)"
+20_CODE,goalie_birthdates.py,goal,hashable,2026-10-21,3a7b4e804b836c86c624f1a027b2c414e7d39dc4,12551,2026-10-21,yes,git,"goaltenders' birthdates from the NHL stats API, by season (2026-10-21)"
+25_TESTS,prospect_term_check.py,draft,hashable,2026-10-21,f7822679ad5cd8da6cd57e39f04cde11b9dcd76b,11684,2026-10-21,yes,git,"the prospect model's terms not statistically significant (report only; 2026-10-21)"
+25_TESTS,goalie_review.py,goal,hashable,2026-10-21,bfed5cbbe199d8e48635cebf4d11ade1f49f63e8,29959,2026-10-21,yes,git,"the goaltender model's choices tested again (report only; 2026-10-21)"

@@ -266,7 +266,7 @@ F_GOALIE_SPINE = OUTPUT_DIR / "goalie_value_spine_v2.csv"
 F_SEASON_SPINE = OUTPUT_DIR / "contract_season_spine.csv"
 OUT_SPINE = OUTPUT_DIR / "contract_npv_spine.csv"
 OUT_LOG = OUTPUT_DIR / "contract_npv_run_log.txt"
-SCRIPT_VERSION = "3.2"   # 3.2: "UFA no QO" read only once known (rfa_terminal_value.expiry_known); 3.1: a trade's season left and retained share; 3.0: PuckPedia's cap hit, the chain as known on the date. Printed first in the run log (25_TESTS/xnpv0_removal_check.py reads it)
+SCRIPT_VERSION = "3.3"   # 3.3: goalie ages from the NHL's birthdates (goalie_birthdates.py), PuckPedia's beside; 3.2: "UFA no QO" read only once known (rfa_terminal_value.expiry_known); 3.1: a trade's season left and retained share; 3.0: PuckPedia's cap hit, the chain as known on the date. Printed first in the run log (25_TESTS/xnpv0_removal_check.py reads it)
 
 # ---- locked goalie constants (P2 close-out, 2026-06-30) --------------------
 # The documented narrative values (alpha 1.398% cap, beta 1.097%/WAR, league
@@ -478,8 +478,18 @@ class NPVEngine:
         d_g = build_transitions(F_GOALIE_WAR, None, name_col="Goalie")
         bd_map = (self.gp_spine.drop_duplicates("nname")
                   .set_index("nname")["bd"].to_dict())
+        # v3.3 (Thomas, 2026-10-21: "add them where the goalie model reads ages"): the NHL's birthdate for the
+        # goaltender who played that season (goalie_birthdates.py: by name and season, so the two Matt Murrays are
+        # told apart; it agrees with PuckPedia on every goaltender-season both cover), PuckPedia's where the NHL's
+        # records have none (three goaltenders the NHL spells differently)
+        nhl_bd = pd.read_csv(Path(os.environ["OUTPUT_DIR"]) / "goalie_birthdates.csv")
+        nhl_bd = (nhl_bd.dropna(subset=["birthdate"])
+                  .assign(bd=lambda x: pd.to_datetime(x["birthdate"]))
+                  .set_index(["nname", "syr"])["bd"].to_dict())
         def g_age(row):
-            b = bd_map.get(norm_name(row["player"]))
+            b = nhl_bd.get((norm_name(row["player"]), int(row["t"])))
+            if b is None or pd.isna(b):
+                b = bd_map.get(norm_name(row["player"]))
             if pd.isna(b) or b is None:
                 return None
             ref = pd.Timestamp(year=int(row["t"]), month=9, day=15)   # 2026-10-14: the CBA's date
