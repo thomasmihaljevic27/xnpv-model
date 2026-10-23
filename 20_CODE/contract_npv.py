@@ -1,8 +1,12 @@
 """
 =============================================================================
- contract_npv.py   v2.7                             Phase 1d
+ contract_npv.py   v3.1                             Phase 1d
                                   xNPV 1 prices skater contracts (2026-10-02)
 =============================================================================
+ v3.1 (2026-10-19, Thomas): npv() takes a trade's season left and retained share (defaults: unchanged).
+ v3.0 (2026-10-19, Thomas): PuckPedia's cap hit; the chain as known on the date (buyouts, replaced deals).
+ v2.9 (2026-10-18): the goalie CBA age on the calendar (rfa_terminal_value.cba_age).
+ v2.8 (2026-10-18): a skater with no contract for the page reads "no_contract" (was "unpriced_no_anchor").
  v2.7 (2026-10-14, Thomas): goalie control seasons follow rfa_terminal_value v2.5. The arbitration
  price's WAR is the goalie forecast's construction rebuilt at each control season
  (GoalieProjector.arbitration_war: 50/30/20 over the three seasons before it, observed before the
@@ -240,9 +244,10 @@ from skater_forward_projection import valuation_as_of, page_date
 from skater_forward_projection import (SkaterProjector, cap_path,
                                        league_min_path, norm_name,
                                        CAP_GROWTH, CAP_CEILING,
-                                       contract_chain, check_as_of)
+                                       contract_chain, check_as_of,
+                                       chain_rows, contract_spans_at)
 from rfa_terminal_value import (TerminalValuer, qualifying_offer, ARB_NEED,  # noqa: E402
-                                arb_eligible, signing_year)
+                                arb_eligible, signing_year, cba_age)
 from exit_hazard import (build_transitions, build_hazard_table, bucket,
                          age_group, report_item_14)       # goalie hazard only (v2.0)
 
@@ -261,19 +266,39 @@ F_GOALIE_SPINE = OUTPUT_DIR / "goalie_value_spine_v2.csv"
 F_SEASON_SPINE = OUTPUT_DIR / "contract_season_spine.csv"
 OUT_SPINE = OUTPUT_DIR / "contract_npv_spine.csv"
 OUT_LOG = OUTPUT_DIR / "contract_npv_run_log.txt"
-SCRIPT_VERSION = "2.7"   # printed first in the run log (25_TESTS/xnpv0_removal_check.py reads it)
+SCRIPT_VERSION = "3.4"   # 3.4 (Thomas, 2026-10-21): goaltenders priced on their own locked line (pulled forecast, censored, term), an age term, a chance of playing by season ahead; 3.3: goalie ages from the NHL's birthdates (goalie_birthdates.py), PuckPedia's beside; 3.2: "UFA no QO" read only once known (rfa_terminal_value.expiry_known); 3.1: a trade's season left and retained share; 3.0: PuckPedia's cap hit, the chain as known on the date. Printed first in the run log (25_TESTS/xnpv0_removal_check.py reads it)
 
-# ---- locked goalie constants (P2 close-out, 2026-06-30) --------------------
-# The documented narrative values (alpha 1.398% cap, beta 1.097%/WAR, league
-# average 2.19) are ROUNDED. The spine was built at full precision, and a
-# rounded re-implementation drifts ~$250/row -- so the engine recovers the
-# exact constants FROM goalie_value_spine.csv at startup (self-calibrating;
-# it can never diverge from the locked artifact by rounding again). The
-# recovered values are asserted against the documented ones to 3 decimals,
-# so a corrupted spine cannot silently smuggle in a different rate.
-ALPHA_G = None           # recovered in _recover_goalie_constants()
-BETA_G = None
-GOALIE_LEAGUE_AVG = None
+# ---- the goaltender price line (v3.4; Thomas, 2026-10-21, on 25_TESTS/goalie_review.py v1.0) ----------------------
+# Cap share = alpha + beta x his track-record forecast WAR (kept 35%, pulled toward the league average, before the age
+# term), dated at the contract's signing, + gamma x years of term, left-censored at the league minimum: the skater price
+# line's form. Values apply it to the forecast WITH the age term (Thomas, 2026-10-21, option 1: clubs' pay follows the
+# record, 25_TESTS/goalie_line_check.py; the age term predicts performance better, goalie_review.py Part B).
+# Fitted by goalie_value_engine.py (Stage G), which must give the lock back on every run. A control season and a
+# delivered season are priced at one year of term, as for skaters. GOALIE_RATE_TERM_FREE is the same fit without term,
+# the sensitivity reported beside each value. Until v3.3 the goaltender line was recovered from the July goalie spine:
+# fitted on unpulled trailing WAR and applied to the pulled forecast, which overpriced goaltenders by $0.52M a contract
+# on average (goalie_review.py, Part D).
+# LOCKED 2026-10-21 (Thomas: "go with your recommendation", option 1), from goalie_value_engine.py v2.0 Stage G: 333
+# goaltender contracts starting 2015-2025 (57 at the league minimum). At the 2025-26 ceiling: -$3.03M + $2.042M per
+# forecast WAR + $0.775M a season per year of term; without term -$4.00M + $3.462M per WAR.
+GOALIE_RATE = dict(alpha=-0.0317074413, beta=0.0213830910, gamma_term=0.0081170278, n=333, sigma=0.01277566,
+                   rows_fingerprint="079356e187fe")
+GOALIE_RATE_TERM_FREE = dict(alpha=-0.0418477388, beta=0.0362527068, gamma_term=0.0, n=333, sigma=0.01696536,
+                             rows_fingerprint="079356e187fe")
+GOALIE_LEAGUE_AVG = 2.189172466   # goalie_value_engine.LEAGUE_AVG, the 65% pull's target (was recovered from the spine)
+ALPHA_G = BETA_G = GAMMA_G = None
+if GOALIE_RATE is not None:
+    ALPHA_G, BETA_G, GAMMA_G = GOALIE_RATE["alpha"], GOALIE_RATE["beta"], GOALIE_RATE["gamma_term"]
+
+
+def goalie_line(w, term=1, term_free=False):
+    """The goaltender price line in cap share, before the league-minimum floor."""
+    r = GOALIE_RATE_TERM_FREE if term_free else GOALIE_RATE
+    if r is None:
+        raise RuntimeError("the goaltender price line is not locked (run goalie_value_engine.py and lock its Stage G)")
+    return r["alpha"] + r["beta"] * w + r.get("gamma_term", 0.0) * (0 if term_free else term)
+
+
 LAMBDA_G = 0.65          # weight on the LEAGUE AVERAGE (kept-trailing = 0.35;
                          # see the convention-correction note below)
 G = CAP_GROWTH           # D17: one constant, two uses (D11 ceilings + here)
@@ -303,25 +328,6 @@ STALE_GATE    = 0.312
 STALE_MAXBACK = 3
 
 
-def _recover_goalie_constants():
-    """Back out the full-precision goalie rate and shrinkage target from
-    the locked spine. All spine rows lie on one line, predicted_cap_pct =
-    alpha + beta x shrunk_projection, so a first-degree fit recovers alpha
-    and beta to machine precision; the rookie-fallback rows carry the raw
-    shrinkage target as their shrunk_projection."""
-    global ALPHA_G, BETA_G, GOALIE_LEAGUE_AVG
-    gvs = pd.read_csv(F_GOALIE_SPINE)
-    ok = gvs[gvs["shrunk_projection"].notna() & gvs["predicted_cap_pct"].notna()]
-    beta, alpha = np.polyfit(ok["shrunk_projection"], ok["predicted_cap_pct"], 1)
-    rook = gvs[gvs["weight_scheme"] == "no_observed_war_history"]
-    target = float(rook["shrunk_projection"].mode().iloc[0])
-    # guard: recovered values must round to the documented narrative ones
-    assert abs(alpha - 0.01398) < 5e-4 and abs(beta - 0.01097) < 5e-4,         f"recovered goalie rate {alpha:.5f}/{beta:.5f} != documented 0.01398/0.01097"
-    assert abs(target - 2.19) < 5e-3, f"recovered target {target:.4f} != ~2.19"
-    ALPHA_G, BETA_G, GOALIE_LEAGUE_AVG = float(alpha), float(beta), target
-
-
-_recover_goalie_constants()
 
 LOG = []
 def log(msg=""):
@@ -334,7 +340,8 @@ class GoalieProjector:
     shrinkage -> flat projection. Mirrors the locked goalie wiring."""
 
     def __init__(self, spine):
-        gw = pd.read_csv(F_GOALIE_WAR)
+        import contract_source as _CSG           # v3.3: the two Matt Murrays kept apart
+        gw = _CSG.read_goalie_war(F_GOALIE_WAR)
         gw["syr"] = gw["Season"].str.split("-").str[0].astype(int) + 2000
         # team-split rows collapse: one row per goalie-season, WAR summed
         gw = (gw.groupby(["Goalie", "syr"], as_index=False)
@@ -349,6 +356,145 @@ class GoalieProjector:
         self.lut = gw.set_index(["nname", "syr"])["WAR"].sort_index()
         self.gp_lut = gw.set_index(["nname", "syr"])["GP"].sort_index()   # open decision 1
         self.spine = spine[spine["position"] == "Goaltender"].copy()
+        # v3.4: birthdates, the NHL's by season (goalie_birthdates.py) and else PuckPedia's by name
+        nb = pd.read_csv(OUTPUT_DIR / "goalie_birthdates.csv")
+        nb["bd"] = pd.to_datetime(nb["birthdate"], errors="coerce")
+        nb = nb.dropna(subset=["bd"])
+        self.nhl_bd = nb.set_index(["nname", "syr"])["bd"].to_dict()
+        self.bd_name = nb.drop_duplicates("nname").set_index("nname")["bd"].to_dict()
+        if "bd" in self.spine and "nname" in self.spine:
+            for n_, b_ in self.spine.dropna(subset=["bd"]).drop_duplicates("nname").set_index("nname")["bd"].items():
+                self.bd_name.setdefault(n_, b_)
+        self._age_fit, self._play_fit = {}, {}
+
+    # ---- v3.4 (Thomas, 2026-10-21, on 25_TESTS/goalie_review.py and goalie_play_spec.py) -----------------------------
+    AGE_MIN_GP = 20            # the targets the 35% pull was chosen on (goalie_value_engine.estimate_lambda)
+    PLAY_MIN_ROWS = 200        # a season ahead is fitted with at least this many rows (as forecast_config.MIN_HORIZON_PAIRS)
+    PLAY_FIRST_PAGE = 2008     # the first page with a season before it in Goalies_WAR.csv
+
+    def age(self, nname, syr):
+        """His age on September 15 of season syr (the CBA's date), or None."""
+        b = self.nhl_bd.get((nname, int(syr)))
+        if b is None or pd.isna(b):
+            b = self.bd_name.get(nname)
+        if b is None or pd.isna(b):
+            return None
+        return int(syr) - b.year - ((9, 15) < (b.month, b.day))
+
+    def _gp(self, nname, syr):
+        v = self.gp_lut.get((nname, int(syr)), 0.0)
+        v = float(v.sum()) if isinstance(v, pd.Series) else float(v)
+        return v if np.isfinite(v) else 0.0
+
+    def _trail(self, nname, t0):
+        """The 50/30/20 trailing WAR (62.5/37.5 with two seasons, the most recent alone with one), t-1 required."""
+        w1, w2, w3 = (self._get(nname, t0 - k) for k in (1, 2, 3))
+        if pd.notna(w1) and pd.notna(w2) and pd.notna(w3):
+            return 0.5 * w1 + 0.3 * w2 + 0.2 * w3
+        if pd.notna(w1) and pd.notna(w2):
+            return 0.625 * w1 + 0.375 * w2
+        return w1 if pd.notna(w1) else np.nan
+
+    def age_coef(self, t0):
+        """(c0, c1, n): the age term, a straight line in age (centred at forecast_config.AGE_CENTRE) fitted by least
+        squares on the forecast's error, WAR - (0.35 x trailing + 0.65 x league average), over the goaltender-seasons of
+        20+ games before page t0 with a trailing value and an age (Thomas, 2026-10-21: "add a straight-line age term";
+        held out -1.67%, p = 0.022). Fitted once per page."""
+        import forecast_config as _FC
+        if t0 not in self._age_fit:
+            rows = []
+            for (n, y) in self.lut.index:
+                if y >= t0 or self._gp(n, y) < self.AGE_MIN_GP:
+                    continue
+                tr, a = self._trail(n, y), self.age(n, y)
+                if pd.isna(tr) or a is None:
+                    continue
+                pred = (1 - LAMBDA_G) * tr + LAMBDA_G * GOALIE_LEAGUE_AVG
+                rows.append((a - _FC.AGE_CENTRE, self._get(n, y) - pred))
+            x = np.array(rows, float)
+            c = np.linalg.lstsq(np.column_stack([np.ones(len(x)), x[:, 0]]), x[:, 1], rcond=None)[0]
+            self._age_fit[t0] = (float(c[0]), float(c[1]), len(x))
+        return self._age_fit[t0]
+
+    def play_models(self, t0):
+        """{h: (coefficients, share who played)}: one logistic regression for each season ahead h on his age in that
+        season (centred at AGE_CENTRE), his forecast (0.35 x trailing + 0.65 x league average) and last season's games
+        share (games / 82), fitted on every page t' whose outcome season t' + h was over before page t0 (Thomas,
+        2026-10-21: "replace the exit chain with a chance of playing by season ahead"; age squared dropped under the
+        significance rule, 25_TESTS/goalie_play_spec.py). The event is one NHL game or more. A season ahead with fewer
+        than PLAY_MIN_ROWS rows is not fitted; past the last fitted one the last fitted model is used, his age moving on."""
+        import statsmodels.api as _sm
+        import warnings as _w
+        import forecast_config as _FC
+        if t0 in self._play_fit:
+            return self._play_fit[t0]
+        by_season = {}
+        for (n, y) in self.lut.index:
+            by_season.setdefault(int(y), []).append(n)
+        rows = []
+        for tp in range(self.PLAY_FIRST_PAGE, t0):
+            for n in by_season.get(tp - 1, []):
+                tr, a = self._trail(n, tp), self.age(n, tp - 1)
+                if pd.isna(tr) or a is None:
+                    continue
+                pw = (1 - LAMBDA_G) * tr + LAMBDA_G * GOALIE_LEAGUE_AVG
+                gs = self._gp(n, tp - 1) / 82.0
+                for h in range(0, t0 - tp):
+                    rows.append((h, a + 1 + h - _FC.AGE_CENTRE, pw, gs,
+                                 float(self._gp(n, tp + h) >= _FC.PARTICIPATION_GP)))
+        R = np.array(rows, float)
+        out = {}
+        for h in range(0, 13):
+            x = R[R[:, 0] == h]
+            if len(x) < self.PLAY_MIN_ROWS or x[:, 4].min() == x[:, 4].max():
+                break
+            with _w.catch_warnings():
+                _w.simplefilter("ignore")
+                m = _sm.Logit(x[:, 4], _sm.add_constant(x[:, 1:4], has_constant="add")).fit(disp=0, maxiter=200)
+            out[h] = (np.asarray(m.params, float), float(x[:, 4].mean()))
+        assert out, f"page {t0}: no goaltender chance-of-playing regression could be fitted"
+        self._play_fit[t0] = out
+        return out
+
+    def forecast(self, nname, t0, kmax, age0=None):
+        """([(k, WAR if he plays, chance of playing)] for k = 0..kmax, source) on page t0, or (None, source) without
+        history. WAR if he plays: the pulled trailing value plus the age term at his age in that season (a stale anchor,
+        a goaltender with no season at t-1, keeps the flat stale projection: the age term was fitted on goaltenders with
+        one). Chance of playing: play_models, reading the pulled value before the age term (as it was fitted). age0 is
+        his age in season t0 (else read from his birthdate)."""
+        import forecast_config as _FC
+        pw, src = self.shrunk_projection(nname, t0)
+        if pd.isna(pw):
+            return None, src
+        if age0 is None:
+            b = self.bd_name.get(nname)
+            age0 = None if b is None or pd.isna(b) else int(t0) - b.year - ((9, 15) < (b.month, b.day))
+        c0, c1, _n = self.age_coef(t0)
+        gs = self._gp(nname, t0 - 1) / 82.0
+        models = self.play_models(t0)
+        last_h = max(models)
+        out = []
+        for k in range(kmax + 1):
+            a = None if age0 is None else age0 + k
+            w = pw + ((c0 + c1 * (a - _FC.AGE_CENTRE)) if (a is not None and src != "stale_anchor") else 0.0)
+            coef, base = models[min(k, last_h)]
+            if a is None:
+                p = base
+            else:
+                z = coef[0] + coef[1] * (a - _FC.AGE_CENTRE) + coef[2] * pw + coef[3] * gs
+                p = 1.0 / (1.0 + np.exp(-z))
+            out.append((k, float(w), float(p)))
+        return out, src
+
+    def age_term(self, nname, t0, season):
+        """The age term at his age in `season`, with page t0's fit (0 without an age)."""
+        import forecast_config as _FC
+        b = self.bd_name.get(nname)
+        if b is None or pd.isna(b):
+            return 0.0
+        a = int(season) - b.year - ((9, 15) < (b.month, b.day))
+        c0, c1, _n = self.age_coef(t0)
+        return c0 + c1 * (a - _FC.AGE_CENTRE)
 
     def _get(self, nname, syr):
         v = self.lut.get((nname, syr), np.nan)
@@ -463,7 +609,7 @@ class NPVEngine:
         import contract_source as _CS            # 2026-10-14: WAR spelling for crosswalked ids
         full["full_name"] = _CS.war_full_name(full, full["full_name"])
         full["nname"] = full["full_name"].map(norm_name)
-        full["cost"] = full["cs_cap_hit"].fillna(full["pp_cap_hit"])
+        full["cost"] = full["model_cap_hit"].astype(float)    # v3.0 (Thomas, 2026-10-19/20: "PuckPedia's", "Clause data after year 1")
         full["bd"] = pd.to_datetime(full["birthdate"], errors="coerce")
         self.gp_spine = full[full["position"] == "Goaltender"].copy()
         self.g_proj = GoalieProjector(full)
@@ -473,8 +619,18 @@ class NPVEngine:
         d_g = build_transitions(F_GOALIE_WAR, None, name_col="Goalie")
         bd_map = (self.gp_spine.drop_duplicates("nname")
                   .set_index("nname")["bd"].to_dict())
+        # v3.3 (Thomas, 2026-10-21: "add them where the goalie model reads ages"): the NHL's birthdate for the
+        # goaltender who played that season (goalie_birthdates.py: by name and season, so the two Matt Murrays are
+        # told apart; it agrees with PuckPedia on every goaltender-season both cover), PuckPedia's where the NHL's
+        # records have none (three goaltenders the NHL spells differently)
+        nhl_bd = pd.read_csv(Path(os.environ["OUTPUT_DIR"]) / "goalie_birthdates.csv")
+        nhl_bd = (nhl_bd.dropna(subset=["birthdate"])
+                  .assign(bd=lambda x: pd.to_datetime(x["birthdate"]))
+                  .set_index(["nname", "syr"])["bd"].to_dict())
         def g_age(row):
-            b = bd_map.get(norm_name(row["player"]))
+            b = nhl_bd.get((norm_name(row["player"]), int(row["t"])))
+            if b is None or pd.isna(b):
+                b = bd_map.get(norm_name(row["player"]))
             if pd.isna(b) or b is None:
                 return None
             ref = pd.Timestamp(year=int(row["t"]), month=9, day=15)   # 2026-10-14: the CBA's date
@@ -542,34 +698,55 @@ class NPVEngine:
         return table.get((b, g), table.get((b, "ALL"), 0.0))
 
     # ---- the main query -------------------------------------------------------
-    def npv(self, player_id, valuation_season, as_of=None):
+    def npv(self, player_id, valuation_season, as_of=None, first_season_share=1.0, retained_pct=0.0):
         """Full discounted NPV from `valuation_season`, over the contract
         being played plus every extension signed by `as_of` (v1.4; default
         July 1 of valuation_season). Returns (per-season detail DataFrame
-        incl. terminal rows, summary dict)."""
+        incl. terminal rows, summary dict).
+
+        v3.1 (2026-10-19, Thomas: "Yes, account for in-season trades"; "Yes, include retained salary"), for a TRADE's
+        valuation only (the defaults leave every other caller unchanged):
+          first_season_share  the share of the valuation season left (trade_page.season_left_share): the first
+                              season's value and cap hit are both multiplied by it;
+          retained_pct        the share of the cap hit the trading club retained, on the contract being played
+                              (chain[0]) only: the acquirer pays (1 - retained_pct) of each of its seasons; extensions
+                              and control seasons are not retained. The summary's retained_pv is what the retaining
+                              club pays: retained_pct x cap hit over the same seasons, prorated and discounted alike."""
         row = self.sp.spine[self.sp.spine["player_id"] == player_id]
         if not row.empty:
-            return self._npv_skater(player_id, valuation_season, as_of)
+            return self._npv_skater(player_id, valuation_season, as_of, first_season_share, retained_pct)
         row = self.gp_spine[self.gp_spine["player_id"] == player_id]
         if not row.empty:
-            return self._npv_goalie(player_id, valuation_season, as_of)
+            return self._npv_goalie(player_id, valuation_season, as_of, first_season_share, retained_pct)
         return pd.DataFrame(), {"status": "unknown_player"}
 
-    def _npv_skater(self, pid, t0, as_of=None):
+    def _npv_skater(self, pid, t0, as_of=None, share=1.0, retained_pct=0.0):
         pr = self.sp.project_contract(pid, t0, as_of)
         if pr.empty:
-            return pr, {"status": "unpriced_no_anchor"}
+            # v2.8 (2026-10-18, the bug sweep): project_contract is empty both when he holds no contract with a row in
+            # t0 and when xNPV 1 has no forecast for him; until v2.7 both read "unpriced_no_anchor", so a skater traded
+            # without a contract for the page (Henrik Borgstrom 2021, Pontus Aberg 2020) never reached rights_values.
+            # The goalie branch already says "no_contract". Labels only: nothing priced changes.
+            chain = contract_chain(self.sp.spine, pid, t0, self.sp.signed, check_as_of(t0, as_of))
+            return pr, {"status": "unpriced_no_anchor" if chain else "no_contract"}
         det = []
+        retained_pv = 0.0
+        cid0 = int(pr["active_contract_id"].iloc[0])          # the contract being played: the one a trade can retain
         for _, r in pr.iterrows():
             k = int(r["k"])
             # xNPV 1's chance he plays season k, k = 0 included, read directly
             # (each season's own probability, not a chain of exits).
             S = float(r["p_play"])
             disc = (1 + G) ** (-k)
-            pv = (S * r["value_dollars"] - r["cost_dollars"]) * disc
+            # v3.1: a trade's season left (k = 0) and the acquirer's share of a retained contract's cap hit
+            w = share if k == 0 else 1.0
+            keep = 1.0 - retained_pct if int(r["contract_id"]) == cid0 else 1.0
+            cost = r["cost_dollars"] * keep
+            retained_pv += r["cost_dollars"] * (1.0 - keep) * w * disc
+            pv = (S * r["value_dollars"] - cost) * w * disc
             # directive 4: the term-free sensitivity, same chance and discount
-            pv_f = (S * r["value_dollars_term_free"] - r["cost_dollars"]) * disc
-            det.append({**r, "row_type": "contract", "survival": S,
+            pv_f = (S * r["value_dollars_term_free"] - cost) * w * disc
+            det.append({**r, "row_type": "contract", "survival": S, "season_share": w, "cost_carried": cost,
                         "discount": disc, "pv_dollars": pv, "pv_dollars_term_free": pv_f})
         npv_contract = sum(d["pv_dollars"] for d in det)
         npv_contract_f = sum(d["pv_dollars_term_free"] for d in det)
@@ -614,11 +791,12 @@ class NPVEngine:
                    "npv_total_term_free": npv_contract_f + npv_tv_f,
                    # v2.5: the QO chain without arbitration, beside the headline
                    "npv_terminal_qo": npv_tv_q, "npv_total_qo": npv_contract + npv_tv_q,
+                   "first_season_share": share, "retained_pct": retained_pct, "retained_pv": retained_pv,
                    "surplus_no_survival":
                        float(pr["surplus_dollars"].sum())
                        + tvs.get("tv_adjusted", 0.0)}
 
-    def _npv_goalie(self, pid, t0, as_of=None):
+    def _npv_goalie(self, pid, t0, as_of=None, share=1.0, retained_pct=0.0):
         # v1.4: the same contract chain as the skater branch -- the contract
         # being played plus every extension signed by `as_of`.
         as_of = check_as_of(t0, as_of)
@@ -626,9 +804,8 @@ class NPVEngine:
         if not chain:
             return pd.DataFrame(), {"status": "no_contract"}
         cid = chain[0]
-        crows = (self.gp_spine[self.gp_spine["contract_id"].isin(chain)]
-                 .sort_values("season_start"))
-        crows = crows[crows["season_start"] >= t0]
+        # v3.0: the chain's seasons as known on as_of (a deal valued before its buyout runs its signed term)
+        crows = chain_rows(self.gp_spine, pid, chain, t0, self.sp.signed, as_of)
         # GUARD: k is the row position, so one row per consecutive season
         ss = crows["season_start"].to_numpy()
         assert len(ss) and ss[0] == t0 and (np.diff(ss) == 1).all(), (
@@ -637,133 +814,126 @@ class NPVEngine:
         # the contract whose expiry decides the terminal value: the chain end
         lrows = crows[crows["contract_id"] == chain[-1]]
         nname = crows.iloc[0]["nname"]
-        pw, src = self.g_proj.shrunk_projection(nname, t0)
-        if pd.isna(pw):
-            return pd.DataFrame(), {"status": "unpriced_no_history"}
         bd = crows.iloc[0]["bd"]
         age0 = (None if pd.isna(bd) else
                 int(t0 - bd.year - ((9, 15) < (bd.month, bd.day))))   # September 15 of t0 (2026-10-14)
-
-        # A3 (2026-07-29): seed S with the materialisation gate for stale-
-        # anchor goaltenders, 1.0 for everyone else (unchanged behaviour).
-        # Seeding rather than applying at k=0 means the gate carries forward:
-        # of stale-anchor rows where the goaltender did not play at k=0, only
-        # 5 of 54 appeared at k=1, so the state is near-absorbing. Slightly
-        # conservative, and named as such.
-        det = []
-        S = STALE_GATE if src == "stale_anchor" else 1.0
-        for k, (_, r) in enumerate(crows.iterrows()):
-            season = int(r["season_start"])
-            if k > 0:
-                # REVIEW ITEM 1.2, goalie side. Same off-by-one, same table
-                # semantics. Age only: the goalie projection is held flat by
-                # design, so pw is already the k-1 quality.
-                h = self._hazard(self.h_g, pw,
-                                 None if age0 is None else
-                                 age0 + (k if self.legacy_hazard_index
-                                         else k - 1))
-                S *= (1.0 - h)
-            ceil = cap_path(t0, k)
-            val = max((ALPHA_G + BETA_G * pw) * ceil,
-                      league_min_path(season))          # D10 floor
-            disc = (1 + G) ** (-k)
-            pv = (S * val - r["cost"]) * disc
-            det.append({"player_id": pid, "full_name": r["full_name"],
-                        "contract_id": int(r["contract_id"]),
-                        "season_start": season, "k": k,
-                        "row_type": "contract", "projected_war": pw,
-                        "value_dollars": val, "cost_dollars": r["cost"],
-                        "surplus_dollars": val - r["cost"],
-                        "survival": S, "discount": disc, "pv_dollars": pv})
-        npv_contract = sum(d["pv_dollars"] for d in det)
-
-        # ---- goalie RFA terminal value: same QO mechanics, D13 truncation,
-        # ---- flat projection; v2.1: a pooled control-year weight (open decision 1) ---
-        npv_tv, npv_tv_q = 0.0, 0.0
-        end = int(crows["season_start"].max())
-        # v1.4: expiry, UFA year and the 2020+ proxy from the chain's END.
-        # With no extension lrows is exactly the old t0-filtered crows.
-        expiry = lrows.iloc[0]["pp_expiry"]
+        # v3.4 (Thomas, 2026-10-21): each season's forecast WAR (the pulled trailing value plus the age term at his age
+        # then) and its own chance of playing (GoalieProjector.play_models), as the skater forecast gives them; the exit
+        # chain and the stale-anchor seed are retired (a goaltender absent last season has a games share of zero, which
+        # the chance of playing reads). Priced on the goaltender line with the term left, the same for each season.
         ufa_year = lrows.iloc[0]["ufa_year"]
-        if expiry == "RFA" and pd.notna(ufa_year):
-            final = crows[crows["season_start"] == end].iloc[0]
-            sal = (float(final["cs_nhl_salary"])
-                   if pd.notna(final["cs_nhl_salary"])
-                   else float(final["pp_aav"]))
-            cap_hit = float(final["cost"])
-            s20 = int(lrows["season_start"].min()) >= 2020
-            sal0, cap0 = sal, cap_hit                   # v2.5: the QO-chain alternative starts here
-            # v2.5 (Thomas, 2026-10-13): the arbitration rule is the headline. Eligibility from
-            # PuckPedia's flag on the chain-end contract (1 = from the first control season, 0 =
-            # from the second); the CBA count without one: trailing seasons before t0 from
-            # Goalies_WAR, from t0 on the flat projection pw
-            observed, first = self.g_proj.history(nname, t0)
-            sy = signing_year(lrows.iloc[0].get("nhl_id"))      # v2.7: the year he signed
-            need = (None if pd.isna(bd) else
-                    ARB_NEED(int(np.floor((pd.Timestamp(sy if sy is not None else first, 9, 15)
-                                           - bd).days / 365.25))))
-            obs_gp = {z: v[0] for z, v in observed.items()}
-            flag = self.tv.arb_flag.get(int(chain[-1]))
-            truncated = False
-            # open decision 1: start from his survival into the final contract
-            # season, then the pooled weight compounds each control year
-            S_tv = S
-            for j, season in enumerate(range(end + 1, int(ufa_year)), 1):
-                k = (end - t0) + j
+        kmax = max(len(crows) - 1, (int(ufa_year) - 1 - t0) if pd.notna(ufa_year) else 0)
+        fc, src = self.g_proj.forecast(nname, t0, kmax, age0)
+        if fc is None:
+            return pd.DataFrame(), {"status": "unpriced_no_history"}
+        pw = fc[0][1]
+        term_years = len(crows)
+        nhl_bd_name = nname
+
+        def value_block(term_free):
+            """(contract PV, terminal PV, terminal PV on the qualifying offer alone, detail rows, retained PV)."""
+            det, retained_pv, npv_c = [], 0.0, 0.0
+            for k, (_, r) in enumerate(crows.iterrows()):
+                season = int(r["season_start"])
+                _k, w_k, p_k = fc[k]
                 ceil = cap_path(t0, k)
-                lm = league_min_path(season)
-                val = max((ALPHA_G + BETA_G * pw) * ceil, lm)
-                elig = (arb_eligible(season, t0, need, obs_gp) if flag is None
-                        else flag == 1 or j >= 2)
-                tw = self.g_proj.arbitration_war(nname, t0, season, pw) if elig else None
-                qo = qualifying_offer(sal, cap_hit, season, s20)
-                cost = (max(qo, max((ALPHA_G + BETA_G * tw) * ceil, lm))
-                        if tw is not None else qo)
-                surplus = val - cost
-                if surplus < 0:
-                    truncated = True                    # D13
-                if truncated:
-                    break
-                S_tv *= self.g_control_weight
+                val = max(goalie_line(w_k, term_years, term_free) * ceil, league_min_path(season))   # D10 floor
                 disc = (1 + G) ** (-k)
-                npv_tv += S_tv * surplus * disc
-                det.append({"player_id": pid, "full_name": final["full_name"],
-                            "contract_id": chain[-1], "season_start": season,
-                            "k": k, "row_type": "terminal",
-                            "projected_war": pw, "value_dollars": val,
-                            "cost_dollars": cost, "surplus_dollars": surplus,
-                            "survival": S_tv, "discount": disc,
-                            "pv_dollars": S_tv * surplus * disc})
-                sal, cap_hit = cost, cost               # next QO on what he was paid
-            # the QO chain without arbitration (the headline until 2026-10-13), reported beside
-            sal_q, cap_q, S_q = sal0, cap0, S
-            for j, season in enumerate(range(end + 1, int(ufa_year)), 1):
-                k = (end - t0) + j
-                val = max((ALPHA_G + BETA_G * pw) * cap_path(t0, k), league_min_path(season))
-                qo_q = qualifying_offer(sal_q, cap_q, season, s20)
-                if val - qo_q < 0:
-                    break                               # D13
-                S_q *= self.g_control_weight
-                npv_tv_q += S_q * (val - qo_q) * (1 + G) ** (-k)
-                sal_q, cap_q = qo_q, qo_q
+                # v3.1: a trade's season left (k = 0) and the acquirer's share of a retained contract's cap hit
+                wsh = share if k == 0 else 1.0
+                keep = 1.0 - retained_pct if int(r["contract_id"]) == int(cid) else 1.0
+                retained_pv += r["cost"] * (1.0 - keep) * wsh * disc
+                pv = (p_k * val - r["cost"] * keep) * wsh * disc
+                npv_c += pv
+                det.append({"player_id": pid, "full_name": r["full_name"],
+                            "contract_id": int(r["contract_id"]),
+                            "season_start": season, "k": k,
+                            "row_type": "contract", "projected_war": w_k,
+                            "value_dollars": val, "cost_dollars": r["cost"],
+                            "surplus_dollars": val - r["cost"], "season_share": wsh, "cost_carried": r["cost"] * keep,
+                            "survival": p_k, "discount": disc, "pv_dollars": pv})
+            npv_t, npv_tq = 0.0, 0.0
+            end = int(crows["season_start"].max())
+            # v1.4: expiry, UFA year and the 2020+ proxy from the chain's END.
+            # v3.2 (Thomas, 2026-10-20: "Fix the QO look ahead"): the label as known on as_of
+            from rfa_terminal_value import expiry_known
+            expiry = expiry_known(lrows.iloc[0]["pp_expiry"], end, as_of)
+            if expiry == "RFA" and pd.notna(ufa_year):
+                final = crows[crows["season_start"] == end].iloc[0]
+                sal = (float(final["cs_nhl_salary"]) if pd.notna(final["cs_nhl_salary"]) else float(final["pp_aav"]))
+                cap_hit = float(final["cost"])
+                s20 = int(lrows["season_start"].min()) >= 2020
+                sal0, cap0 = sal, cap_hit
+                # v2.5 (Thomas, 2026-10-13): the arbitration rule is the headline. Eligibility from PuckPedia's flag on
+                # the chain-end contract (1 = from the first control season, 0 = from the second); the CBA count without
+                # one: trailing seasons before t0 from Goalies_WAR, from t0 on the projection
+                observed, first = self.g_proj.history(nname, t0)
+                sy = signing_year(lrows.iloc[0].get("nhl_id"))
+                need = (None if pd.isna(bd) else ARB_NEED(cba_age(bd, sy if sy is not None else first)))
+                obs_gp = {z: v[0] for z, v in observed.items()}
+                flag = self.tv.arb_flag.get(int(chain[-1]))
+                truncated = False
+                # open decision 1: from his chance of playing the contract's last season, the pooled weight each year
+                S_tv = fc[end - t0][2]
+                for j, season in enumerate(range(end + 1, int(ufa_year)), 1):
+                    k = (end - t0) + j
+                    ceil = cap_path(t0, k)
+                    lm = league_min_path(season)
+                    w_k = fc[k][1]
+                    val = max(goalie_line(w_k, 1, term_free) * ceil, lm)      # a control season: one year of term
+                    elig = (arb_eligible(season, t0, need, obs_gp) if flag is None else flag == 1 or j >= 2)
+                    tw = self.g_proj.arbitration_war(nname, t0, season, pw) if elig else None
+                    if tw is not None and src != "stale_anchor":
+                        tw += self.g_proj.age_term(nname, t0, season)        # v3.4: the forecast's own age term
+                    qo = qualifying_offer(sal, cap_hit, season, s20)
+                    cost = (max(qo, max(goalie_line(tw, 1, term_free) * ceil, lm)) if tw is not None else qo)
+                    surplus = val - cost
+                    if surplus < 0:
+                        truncated = True                # D13
+                    if truncated:
+                        break
+                    S_tv *= self.g_control_weight
+                    disc = (1 + G) ** (-k)
+                    npv_t += S_tv * surplus * disc
+                    det.append({"player_id": pid, "full_name": final["full_name"],
+                                "contract_id": chain[-1], "season_start": season,
+                                "k": k, "row_type": "terminal",
+                                "projected_war": w_k, "value_dollars": val,
+                                "cost_dollars": cost, "surplus_dollars": surplus,
+                                "survival": S_tv, "discount": disc,
+                                "pv_dollars": S_tv * surplus * disc})
+                    sal, cap_hit = cost, cost           # next QO on what he was paid
+                # the qualifying-offer chain without arbitration, reported beside
+                sal_q, cap_q, S_q = sal0, cap0, fc[end - t0][2]
+                for j, season in enumerate(range(end + 1, int(ufa_year)), 1):
+                    k = (end - t0) + j
+                    val = max(goalie_line(fc[k][1], 1, term_free) * cap_path(t0, k), league_min_path(season))
+                    qo_q = qualifying_offer(sal_q, cap_q, season, s20)
+                    if val - qo_q < 0:
+                        break                           # D13
+                    S_q *= self.g_control_weight
+                    npv_tq += S_q * (val - qo_q) * (1 + G) ** (-k)
+                    sal_q, cap_q = qo_q, qo_q
+            return npv_c, npv_t, npv_tq, det, retained_pv
+
+        npv_contract, npv_tv, npv_tv_q, det, retained_pv = value_block(False)
+        npv_contract_f, npv_tv_f, _q, _d, _r = value_block(True)
         d = pd.DataFrame(det)
         return d, {"status": "ok", "position": "goalie",
                    "as_of": as_of.date().isoformat(), "chain": list(chain),
                    "full_name": crows.iloc[0]["full_name"],
-                   "path": f"goalie_flat_{src}",
-                   "model": "goalie branch (unchanged)",
+                   "path": f"goalie_{src}",
+                   "model": "goalie v3.4 (age term, chance of playing by season ahead, own line with term)",
                    "n_contract_seasons": len(crows),
                    "npv_contract": npv_contract, "npv_terminal": npv_tv,
                    "npv_total": npv_contract + npv_tv,
-                   # directive 4 is the skater price line; the goalie line has
-                   # no term, so its term-free value is the same number
-                   "term_years": len(crows),
-                   "npv_contract_term_free": npv_contract, "npv_terminal_term_free": npv_tv,
-                   "npv_total_term_free": npv_contract + npv_tv,
+                   "term_years": term_years,
+                   "npv_contract_term_free": npv_contract_f, "npv_terminal_term_free": npv_tv_f,
+                   "npv_total_term_free": npv_contract_f + npv_tv_f,
                    "npv_terminal_qo": npv_tv_q, "npv_total_qo": npv_contract + npv_tv_q,
+                   "first_season_share": share, "retained_pct": retained_pct, "retained_pv": retained_pv,
                    "surplus_no_survival":
                        float(sum(x["surplus_dollars"] for x in det))}
-
 
 # ---------------------------------------------------------------------------
 # VALIDATION BATTERY
@@ -813,9 +983,11 @@ def validate():
     l1 = l1[(l1["position"] != "Goaltender") & l1["season_start"].between(2018, 2025)].drop_duplicates()
     _check_xnpv1_valuation_season(eng, l1)
 
+    # v3.4: the forecast for the season is compared (goalie_value_engine v2.0 writes it as forecast_war); the value
+    # depends on the chain's term left, which an extension signed by July 1 lengthens here but not in the spine
     gv = pd.read_csv(F_GOALIE_SPINE)
     gv = gv[gv["season_start"].between(2018, 2025)
-            & gv["value_dollars"].notna()]
+            & gv["forecast_war"].notna()]
     gdiffs, gchecked = [], 0
     for _, r in gv.iterrows():
         d, s = eng.npv(int(r["player_id"]), int(r["season_start"]))
@@ -825,11 +997,11 @@ def validate():
         if r0.empty or r0.iloc[0]["contract_id"] != r["contract_id"]:
             continue
         gchecked += 1
-        gdiffs.append(abs(r0.iloc[0]["value_dollars"] - r["value_dollars"]))
-    log(f"[1b] goalie k=0 value vs goalie spine: {gchecked} rows, "
-        f"max diff ${max(gdiffs):,.2f}")
-    big = [x for x in gdiffs if x > 1.0]
-    log(f"     rows beyond $1: {len(big)} -- each one must be a JOIN RECOVERY "
+        gdiffs.append(abs(r0.iloc[0]["projected_war"] - r["forecast_war"]))
+    log(f"[1b] goalie k=0 forecast vs goalie spine: {gchecked} rows, "
+        f"max diff {max(gdiffs):.2e} WAR")
+    big = [x for x in gdiffs if x > 1e-9]
+    log(f"     rows beyond 1e-9 WAR: {len(big)} -- each one must be a JOIN RECOVERY "
         f"(this engine's name normalizer finds an NHL history the spine's "
         f"weaker join missed, e.g. Zachary->Zach Sawchenko); anything else "
         f"is a real inconsistency.")

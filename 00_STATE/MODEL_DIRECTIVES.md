@@ -661,6 +661,15 @@ Thomas the same day. Each item may change only by Thomas's decision.
     rights traded before his first NHL season ended 5.7%, rights lapsed and signed elsewhere 2.2% (55
     players; Spurgeon, Hagel, Muzzin, Hayes). Zeroing the lapsed group moves the pooled scale -0.5%.
     **Decided (Thomas, 2026-10-09): zero them.**
+    **Refined (Thomas, 2026-10-19: "Count the 22: picks whose player signed his entry-level deal with the drafting club
+    keep their surplus (and treat P.O. Joseph as traded)").** A player who signed his entry-level deal with the club that
+    drafted him was held by it and lost later (waivers, release): his pick keeps its surplus (route "signed by the
+    drafting club"). The signing club is CapWages's "Signing Team" line where its year agrees with the signing date, else
+    PuckPedia's contract club (`elc_signing_dates.py` v1.2). Pierre-Olivier Joseph's 2019 trade is matched under
+    trades.db's spelling. Built (`pick_curve.py` v1.9): 20 picks kept (net $+8.33M), Joseph traded first;
+    star value 18.0144 -> 18.0928. Michael Hutchinson (2008 #77), the 22nd, joined them once PuckPedia's mislabelled
+    2018 "entry-level" Florida deal was set aside (`elc_signing_dates.py` v1.3, adopted 2026-10-19: an entry-level
+    date after the first NHL season ended is not his entry-level signing): 21 picks kept, star value 18.0975.
   - **Built (2026-10-09).** `20_CODE/pick_curve.py` v1.0 prices every drafted player 2007-2017 under all of
     the above (2,322 picks, 233 goalies; guards: windows equal the window count for 2,322 of 2,322,
     skater surplus equals the tested no-slides version for 2,089 of 2,089) and fits the scales: pooled
@@ -702,8 +711,8 @@ Thomas the same day. Each item may change only by Thomas's decision.
 - *Table 2's constant: Karl asked for a re-run* with a constant and a dummy for every draft but one, run by Thomas.
   Checked 2026-10-13: the adopted fit has ten sum-to-zero year columns and no column of ones, so it is not the
   dummy-variable trap; it does force the average draft's intercept to zero. Karl's form gives star value 31.04
-  (se 3.21) against 31.66, constant $0.13M a pick at an average draft (se 0.14, p 0.35). **Open for Thomas:**
-  through zero or free intercept. Command: `python 25_TESTS/pick_lookup.py regression`.
+  (se 3.21) against 31.66, constant $0.13M a pick at an average draft (se 0.14, p 0.35). **Decided (Thomas, 2026-10-16): no intercept and no draft dummies** in the pick curve and the prospect model ("Go with no intercept and no draft dummies in both"), chosen over one intercept (traded picks +9.5% on a $0.07M intercept, p = 0.44). `pick_curve.py` v1.7, `prospect_values.py` v1.10.
+  Star value 18.04 (se 1.75; 18.04 with the year terms), traded picks $401.6M (was $401.5M).
 - *Bacon's star chance is circular with our surplus* (both from his WAR, largely the same drafts). Karl raised it,
   then: "take it as given ... we're relying on this other research"; "I think it's okay." Stated as a limitation.
   **Open for Thomas:** an independent check against a stat with no Bacon input (games played, points, Game Value).
@@ -805,8 +814,8 @@ v1.0, item 7 below.
    and June 30 belongs to one season), who is a prospect at y by the rule above. Seasons since the draft: k = y -
    draft year (k = 0 is the season after his draft, the pick curve's first season).
 2. **What he is worth.** Bacon's star chance for his slot (`draft_slot_baseline.csv`) x the star value for k.
-3. **The star value for k.** The pick curve's own regression (`pick_curve.fit_scale`: through zero, draft-year
-   indicators that sum to zero, robust errors) on the 2007-2017 drafted players who were prospects at k, with
+3. **The star value for k.** The pick curve's own regression (`pick_curve.fit_scale`: through zero, no
+   draft-year terms since 2026-10-16, robust errors) on the 2007-2017 drafted players who were prospects at k, with
    their remaining surplus as the outcome: the pick curve's priced seasons from y on (season y in full), lapsed
    rights zeroed as the pick curve zeroes them. Seasons 4 and later: one fit on the stacked rows, errors clustered
    by player. Goalies pooled with skaters, as for picks.
@@ -826,7 +835,8 @@ v1.0, item 7 below.
 
    A prospect keeps most of his slot's value for two seasons; the third and fourth take most of it. Past two
    seasons few top picks are left, so the slot carries little there: that is where production must add value.
-   Inherits the pick curve's open choice of regression form (through zero or a free constant: WORK_QUEUE).
+   The pick curve's regression form, decided 2026-10-16: through zero, no draft-year terms (as are the
+   production-and-age fits).
 7. **The traded prospects (`prospect_values.py` v1.0).** The trade inventory's player assets from 2017-07-01 (as for
    traded picks; trades.db ends 2022-03-28), valued at the trade season (his draft year if traded between his draft
    and July 1). Past club control (CBA Group 3, as the pick curve) a prospect is worth zero. Beyond seven seasons
@@ -980,6 +990,24 @@ minus the seasons since his draft minus 18.5 (within a season group, "older now"
   and checks it against the live fit; `prospect_values.py` is unchanged (it still stores years past first
   eligibility). The rejected flat age form is reported as tested, on years past first eligibility. His reading, which
   this matches: a point scored at 20 is worth less than a point scored at 18, all else equal.
+- **One regression with the full set of interaction terms (Thomas, 2026-10-16: "Just make the regression actually be the
+  interaction terms. I feel like I've said this multiple times"):** the star values and the production-and-age model
+  are each one regression on every prospect-season, every term and each draft's level multiplied by an indicator for
+  the season (D+1 to D+4, D+5 onwards), errors clustered by player. `prospect_values.py` v1.8 (`fit_stacked`); the
+  coefficients and values equal the season-by-season fits (guarded to 1e-9), the standard errors move only by the
+  small-sample correction. The season-by-season fits stay for the each-draft-left-out values.
+- **D+5 and later keep the adopted model (Thomas, 2026-10-16: "let's go with the adopted model"):** skater prospects
+  from D+5 on stay on production and production squared (with the no-record indicator; no draft position, no age),
+  although the two are not jointly statistically significant there (p = 0.089). Evidence: all 24 combinations of draft
+  position, production, production squared and age (`25_TESTS/prospect_term_combinations.py` v1.0) predict within 1%
+  of one another and none beats the adopted model at the 5% level (smallest one-sided p 0.14). No code change.
+- **The age discount stays on production alone (Thomas, 2026-10-19: "For the form of the prospects age discounting I'm
+  content with what we have then"):** asked why age enters through its own term rather than discounting the production
+  terms already in the model. The term does discount production, a point being worth b + e x (age - 18); production
+  squared is not discounted. `25_TESTS/prospect_age_form_look.py` v1.0 tested four forms that reach the square (the
+  square discounted as well, the square alone, one discount on all of production, age-adjusted points in both terms):
+  none predicts the left-out drafts better at the 5% level (one-sided p 0.16 to 0.43), and the centre of age moves no
+  verdict (sessions/2026-10-19.md). No code change.
 
 ---
 
@@ -1303,3 +1331,117 @@ his decision before the code it touches is changed.
      check measures it before the back-test is read. Options not chosen: a line fitted on delivered
      wins (two currencies for one player, the 10-02 tilt); the Stage 3 line (60/40 trailing wins).
      Left to the restart with the supervisor: how a drafted player's entry-level seasons are costed.
+
+## The back-test (Thomas, 2026-10-20)
+
+Asked before the first run, each answered with the option offered as recommended; built in `backtest.py` v1.2 on the
+protocol `40_DOCS/Backtest_Protocol.md` (committed 0d898b4 before the run). Status: **implemented**.
+1. **The outcome**, "Played + rest re-valued": seasons through 2025-26 priced on what was delivered (open decision 3's
+   currency), the seasons after valued by the same models at the 2026-27 page.
+2. **The cost of control and draftee seasons**, "The model's rule": entry-level maximum, qualifying offer, arbitration
+   price, as the forecast and the pick curve charge; not what clubs actually paid.
+3. **The statistic**, "Dollar gap per club": each club's received value minus what it gave up, $M at the 2025-26 cap.
+   It replaces the July convention of surplus ratios for the back-test.
+4. **A contract signed with the acquirer on the trade date**, "Leave the extension out": not part of the trade, in the
+   forecast and the outcome (`traded_player_values.py` v1.4, `page_2017_values.py` v1.6).
+
+## LTIR (Thomas, 2026-10-20)
+
+Thomas: "guys like Ryan Ellis, Shea Weber, Carey Price, Datsyuk, etc.. LTIR trades and also guys who would go on to LTIR
+need to be accounted for in some capacity." Status: **implemented** (2026-10-20: `ltir.py` v1.0, `traded_player_values.py`
+v1.5, `page_2017_values.py` v1.8, `buried_contract_values.py` v1.8, `backtest.py` v1.4).
+1. **Source:** "Fetch a real LTIR log": Spotrac's NHL injured-reserve pages, one per season 2017-18 to 2025-26, saved by
+   Thomas into `10_SOURCE/ltir/` (the sites with a full log block automated requests).
+2. **Relief:** "All of it": a season on LTIR costs nothing in the model's currency (cap shares); cash ignored.
+3. **Where:** "Outcome + known at trade": every LTIR season is relieved in the back-test's outcome; in the forecast only
+   a player already on LTIR when traded, his seasons relieved by the chance he does not play.
+4. **Which spells:** "Label + CBA test": Spotrac's "Long-Term IR" spells and any IR spell of 24+ days and 10+ team
+   games (the CBA's LTIR test), because Spotrac labels season-long LTIR as plain "IR" (Ellis, Weber, Hossa). Chosen
+   after both readings were run (label alone: slope 0.836, players -$0.22M an asset; adopted: 0.741, +$0.01M).
+
+## Thomas's second round of notes on "Valuing Players, Draft Picks, and Prospects" (2026-10-21)
+
+Decided in chat after the notes were discussed one by one (`40_DOCS/Valuing_Players_Feedback.md`, Round 2). Status: **decided, not built**.
+1. **Prospects: linear production KEPT (Thomas, 2026-10-21, after the centring check: "Keep linear production (the current model), and explain in the document why its p-value is not the test of whether it belongs").** Was: drop it. `25_TESTS/prospect_linear_drop_centre.py` v1.0: without it the traded drafted prospects ranged $71.19M to $90.55M by the centre of age, and its joint test p = 0.078 to 0.0002 by the centre; the current model's values do not depend on the centre. No code change. The note as first decided: **drop linear production** (note 38; "okay I'm comfortable dropping linear production"). The model becomes
+   star probability, production squared, the no-record indicator and production x (age - 18). Before the build: the
+   held-out comparison at more than one centre of age, since without linear production the centre is no longer
+   neutral (recorded 2026-10-15: this form's rejection was p = 0.0027 at 18.5 and 0.063 at 18).
+2. **Every adopted regression checked for terms not statistically significant** (note 25). The rule, agreed before any
+   result is seen (Thomas: "I agree to this plan"): a term goes if it is not statistically significant at the 5% level
+   AND dropping it does not worsen the held-out forecast; the failing terms are tested together as a set as well as one
+   at a time; a term that fails on p but helps the held-out forecast goes to Thomas with both numbers. Each season ahead
+   should keep the same terms "in theory", decided once the results are seen; candidate sets are scored on all seasons
+   ahead together.
+3. **To test:** the games share without the defenceman term (23); its floor at 0 against 0.05 (22); age centred at its
+   mean, or not centred (21); the starting level without the games weighting, on his own rate and the comparables'
+   level alike (9); the counting threshold at 5, 10 and 20 games (12; Thomas: the CBA's 10-game entry-level rule is the
+   reason it works, "but we can test").
+4. **A contract signed on the trade date is left out of the chance of playing too** (31), as it is of the contract's
+   value. Thomas: some trades happen only because a deal is agreed or expected, but "I don't think it's fair to the
+   acquiring team to assume each and every time they behave knowing this"; with John Carlson's rights traded to Carolina,
+   who could not sign him, valuing the trade on whether he signed would give two worlds, "not logically consistent".
+5. **Pricing on the forecast over the contract's term** (27): a design first, for Thomas to agree ("worth exploring").
+6. **Goaltenders reviewed after the skater changes** (33-35).
+7. **One re-lock:** every forecast change is collected first, then the price line is re-locked once and everything after
+   it rerun once.
+8. **The back-test was not consulted.** These changes come from the forecast's significance tests and held-out error,
+   and from Thomas's reading of the document, not from the back-test's outcomes (run 2026-10-20). Recorded before the
+   back-test is rerun on them.
+9. **The document:** no earlier model version is described (a waste of ink: "you just stuck to why we are doing what
+   we're doing and how"); changes in WAR are added and subtracted without explanation (no percentage passage, note 19);
+   the departed season's level stated plainly as chosen on principle, with +0.25 scoring better on season WAR (20); the
+   fitted 47/32/21 weights dropped from Table 2 (8); the drafted-player example is the 50th pick with more NHL games,
+   Colton Sissons (2012) or Jordan Greenway (2015), whichever played more NHL games (36). "Valuing Prospects" is HELD
+   until every test is done and the price line is re-locked (Thomas, 2026-10-21: "I'll tell Karl it's coming after the
+   meeting"); was: rebuilt before Friday 2026-10-23. The significance check covers the prospect model too (the
+   no-record indicator in D+1 and D+2, p = 0.053 and 0.072; production from D+5, jointly p = 0.086).
+
+### The forecast audit decided (Thomas, 2026-10-21)
+
+`25_TESTS/forecast_term_audit.py` v1.2 (sessions/2026-10-21.md), under the rule agreed before the results. Status:
+**decided; built 2026-10-21 awaiting the price-line re-lock** (one re-lock after every forecast change; the design for
+pricing over the term comes first).
+1. **Drop the three terms** in every season ahead: the defenceman term in the games share; age squared and seasons
+   since his debut in the chance of playing (held out, season WAR 0.8054 against 0.8064, p < 0.001).
+2. **Keep the no-contract-record marker** (not significant in 6 of 10 seasons ahead, but dropping it worsens season WAR,
+   p = 0.006).
+3. **The games-share floor is 0** (was 0.05; no forecast share fell below 0.05 on the development pages).
+4. **Age is centred at 27.22** (the mean age of the 2025-26 games-share fit; was 27), in the games share and the chance
+   of playing. No forecast changes with the centre in the games share; in the chance of playing, without age squared,
+   only the intercept moves.
+5. **Keep the games weighting** (without it, season WAR 0.8076 against 0.8064, p = 0.026).
+6. **Keep the 10-game counting season** (5 games forecast better on the build's rows, but would move players with only
+   5-9 game seasons into the player model, untested; 20 games worse, p = 0.057).
+
+### Pricing on the forecast over the term: tested, not adopted; re-lock (Thomas, 2026-10-21)
+
+- **Decided:** keep the price line on the first season's forecast (dated at the signing); re-lock it on skater_forecast
+  v2.4 ("Re-lock"). The whole-term test (`25_TESTS/term_average_price_line.py` v1.0) goes into "Valuing Players, Draft
+  Picks, and Prospects" as a tested alternative: "If a reviewer thinks of this it's important that it be stated it was
+  tested."
+
+### The prospect check and the goaltender review decided (Thomas, 2026-10-21)
+
+`25_TESTS/prospect_term_check.py`, `goalie_review.py`, `goalie_play_spec.py` (sessions/2026-10-21.md). Thomas: "drop the
+no-record indicator; keep production from D+5; for goalies add a straight-line age term, refit the price line on the
+pulled forecast dated at the signing with censoring and term, replace the exit chain with a chance of playing by season
+ahead, fix the Matt Murray merge, and keep the 35[% pull, no games filter and the pooled control weight]" (his message
+was cut at 300 characters; the rest is the recommendation he was answering). Status: **decided; being built**.
+1. **Prospects: no no-record indicator.** A prospect without a scoring record is valued on draft position alone (D+1 to
+   D+3) and at zero from D+4, as the indicator already gave there.
+2. **Prospects: production from D+5 kept** (jointly p = 0.085; dropping it would value every prospect from D+5 at zero).
+3. **Goaltender forecast: a straight-line age term**, fitted on the forecast's errors in goaltender-seasons of 20+ games
+   before the valuation page (held out -1.67%, p = 0.022), applied at each season's age, so the forecast is no longer
+   flat. The 35% kept, the 2.19 target and no games filter on the trailing seasons stay.
+4. **Goaltender price line** (amended 2026-10-21, Thomas: "go with your recommendation", option 1): cap share on the
+   track-record forecast (pulled, WITHOUT the age term; clubs' pay follows the record, 25_TESTS/goalie_line_check.py)
+   dated at the signing, applied to the forecast with its age term; was: on the pulled forecast (with its age term) dated at the signing, left-censored at
+   the league minimum, with a term for contract length; locked like the skater line. Control and delivered seasons are
+   priced at one year of term (as for skaters).
+5. **Goaltender chance of playing:** a logistic regression for each season ahead on age, the forecast and last season's
+   games share, fitted on pages before the valuation page; age squared dropped under the rule (not significant in any
+   season ahead, p 0.370 to 0.981; held out 0.4845 against 0.4850). Replaces the exit chain and the stale-anchor seed
+   (the games share of a goaltender absent last season is zero, which the regression reads).
+6. **The two Matt Murrays** are kept apart in every goaltender reading (2022-23: Toronto 26 games, the elder; Dallas 3,
+   the younger).
+7. **Kept:** the pooled control-season weight (0.767; qualifying rates do not differ by forecast group, p = 0.519).

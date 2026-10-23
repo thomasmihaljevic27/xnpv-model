@@ -86,11 +86,14 @@ from scipy import stats
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import skater_value_engine as SVE
 
-SCRIPT_VERSION = "2.2"
+SCRIPT_VERSION = "2.3"   # 2.3 (2026-10-19): each contract's first season from contract_source.contract_terms
 # The Stage 3 contract sample. v2.2 (2026-10-14, Thomas: "Re-lock"): with the name crosswalk
 # (war_name_crosswalk.py) the sample gains the 29 contracts whose PuckPedia and WAR spellings differ
 # (Dadonov, Beniers, Peterka ...). v2.0-v2.1 recorded 2349, "282f608a7ac9" (the crosswalk-off sample).
-SAMPLE_N, SAMPLE_FINGERPRINT = 2378, "e8c9d5a76cc1"
+# v2.3 (2026-10-19, Thomas: "Everywhere, re-lock"): a bought-out deal's first season is its own, not its cut-back end
+# less its full length (contract_source.contract_terms). 14 such deals now sit in the sample at their real first season
+# (Vlasic, Ekman-Larsson, Skinner, Schmidt ...): n 2,388. v2.2 recorded 2378, "e8c9d5a76cc1".
+SAMPLE_N, SAMPLE_FINGERPRINT = 2388, "12490b6ee630"
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 LOG = []
 
@@ -106,7 +109,8 @@ def stage3_sample() -> pd.DataFrame:
     raw = pd.read_excel(SVE.F_CONTRACT_XLSX)
     raw["end_yr"] = pd.to_numeric(
         raw["contract_end"].astype(str).str.extract(r"^(\d{4})")[0], errors="coerce")
-    raw["start_yr"] = raw["end_yr"] - raw["length"] + 1
+    import contract_source as _CS0               # v2.3 (2026-10-19): the one seasons rule (a buyout's first season)
+    raw["start_yr"] = _CS0.contract_terms(raw)["first_yr"]
     raw["posgrp"] = raw["position"].map(SVE.POSGRP)
     import contract_source as _CS                # 2026-10-14: WAR spelling for crosswalked ids
     raw["nk"] = (_CS.war_full_name(raw, raw["first_name"].astype(str) + " " + raw["last_name"].astype(str))

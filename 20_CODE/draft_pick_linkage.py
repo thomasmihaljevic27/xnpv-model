@@ -1,6 +1,6 @@
 # =============================================================================
 # draft_pick_linkage.py -- Phase 3a, Step 1: draft record pull + player linkage
-# SCRIPT_VERSION = 1.1  (2026-07-14)
+# SCRIPT_VERSION = 1.2  (2026-10-18)   1.2: sixteen hand-verified aliases (see SKATER_ALIASES)
 #
 # WHAT THIS DOES, IN PLAIN ENGLISH
 # --------------------------------
@@ -48,7 +48,7 @@
 #    pre-2005 NHLer (2016 pick "Ryan Jones" vs the 2004-drafted Ryan Jones).
 #    A career cannot begin BEFORE its draft year; exact-name matches whose
 #    first WAR season predates the draft are rejected as different humans.
-# 5. Alias table: ~19 real careers hide behind first-name variants
+# 5. Alias table: ~35 real careers hide behind first-name variants (16 added 2026-10-18)
 #    (Alexander->Alex, Mathew->Matt, Evgenii->Evgeny). Fuzzy matching is NOT
 #    used -- a last-name+initial scan also "matched" brothers and
 #    near-namesakes (Emil vs Elias Pettersson, Vincent Dunn 2013 vs the real
@@ -94,7 +94,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-SCRIPT_VERSION = "1.1"
+SCRIPT_VERSION = "1.3"   # 1.3 (2026-10-21): contract_source.read_goalie_war
 print(f"draft_pick_linkage.py SCRIPT_VERSION {SCRIPT_VERSION}")
 
 # ----------------------------------------------------------------------------
@@ -157,6 +157,32 @@ SKATER_ALIASES = {
     (2018,  31): "Alex Alexeyev",
     (2018,  38): "Alex Romanov",
     (2019, 129): "Arseny Gritsyuk",
+    # v1.2 (2026-10-18, the bug sweep; Thomas: "implement"). Sixteen picks recorded as "no NHL record" although
+    # WAR.csv has their careers under another first-name form (or, for Legault and Blumel, a hyphen or a double
+    # space in the draft record's name). Found two ways: the pick's NHL id carried by WAR_with_age.csv under
+    # the other spelling (all but Grenier and DiDomenico), or the same surname and first initial with no other
+    # pick claiming the name (fit drafts 2007-2017). Each checked by hand: the birthdate in WAR_with_age.csv
+    # equals the draft record's, the position agrees, the first WAR season is on or after the draft. Rejected
+    # on the same check: Brendan Morrison (2015 #113 is Brad), Craig Adams (2016 #170 is Collin), Cory Stillman
+    # (2021 #29 is Chase), Conor Allen (2023 #136 is Cam), Joonas Nattinen (2015 #59 is Julius), and Nathan
+    # Smith (2018 #91 Nate Smith: a merged-name WAR row, excluded by the standing rule).
+    (2007, 164): "Chris DiDomenico",           # b. 1989-02-20; first NHL season 2016-17 (OTT), after his control
+    (2011,  90): "Alex Grenier",               # b. 1991-09-05; VAN 2015-16, 2016-17
+    (2012, 138): "Daniel O'Regan",             # b. 1994-01-30
+    (2013, 152): "Josh Brown",                 # b. 1994-01-21; 299 games
+    (2016, 141): "Timothy Gettinger",          # b. 1998-04-14
+    (2018,  66): "Cameron Hillis",             # b. 2000-06-24
+    (2019, 100): "Matej Blumel",               # b. 2000-05-31; the draft record has a double space; WAR's
+                                               # accented "Matěj Blümel" attaches by normalized name
+    (2020,   7): "Alex Holtz",                 # b. 2002-01-23
+    (2020,  69): "Alex Nikishin",              # b. 2001-10-02
+    (2021,  17): "Zachary Bolduc",             # b. 2003-02-24
+    (2021, 107): "Emil Martinsen Lilleberg",   # b. 2001-02-02
+    (2022,  34): "Cam Lund",                   # b. 2004-06-07
+    (2022,  80): "Elias Pettersson(D)",        # b. 2004-02-16; VAN's defenceman (the forward is 2017 #5)
+    (2023,   6): "Dmitri Simashev",            # b. 2005-02-04
+    (2023, 139): "Charles Alexis Legault",     # b. 2003-09-05; the draft record hyphenates
+    (2025,  11): "Ben Kindel",                 # b. 2007-04-19
 }
 GOALIE_ALIASES = {
     (2011,  49): "Chris Gibson",        # drafted as Christopher Gibson
@@ -238,7 +264,8 @@ draft["is_goalie"] = draft["position"].eq("G")   # 'F', hybrids, NaN => skater s
 # ----------------------------------------------------------------------------
 war  = pd.read_csv(WAR_PATH)
 wage = pd.read_csv(WAGE_PATH)
-gw   = pd.read_csv(GW_PATH)
+import contract_source as _CSG      # 2026-10-21 (v1.3): the two Matt Murrays kept apart
+gw   = _CSG.read_goalie_war(GW_PATH)
 
 war["name_n"] = war["Player"].apply(norm)
 war["syear"]  = war["Season"].apply(season_start)

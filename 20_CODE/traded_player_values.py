@@ -12,6 +12,13 @@ of each page). This values each traded asset directly, on the engine the panel u
     contracts and extensions the club held on that date are the ones valued; for a post-season trade (valued on the
     next page) the window starts after the trade, so as_of is the page date, July 1, and every contract signed
     between the trade and that July 1 is LISTED (it was known to the page, not to the trade).
+  * THE SEASON LEFT AND RETAINED SALARY (v1.2, Thomas 2026-10-19): a trade during the regular season counts only the
+    share of that season's days left (trade_page.season_left_share), for value and cap hit alike; the acquirer pays
+    (1 - retained share) of the retained contract's cap hit (trades.db retention_pct; the contract being played only),
+    and retained_pv records what the retaining club pays (positive dollars, at the page's cap).
+  * RIGHTS ONLY (v1.1, every trade; v1.0 post-season trades only): when the contract the page would value was signed
+    after the trade, the club acquired his rights, not that contract. Status "rights only (...)", valued by
+    rights_values.py (RFA: his control seasons from the page; UFA: zero).
   * the player: his NHL id (prospect_values.csv's identities: PuckPedia ids, the drafted match, the undrafted path),
     to PuckPedia's player id, which the engine keys on.
 
@@ -30,12 +37,14 @@ from pathlib import Path
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "traded_player_values.py v1.0 (2026-10-14)"
+SCRIPT_VERSION = "traded_player_values.py v1.6 (2026-10-21)"   # v1.6: the chance of playing leaves the same contracts out; v1.5: LTIR known at the trade; v1.4: signed on the trade date left out; v1.3: text-only retentions; v1.2: season left, retained salary; v1.1: rights only
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_source as CS                         # noqa: E402
 import contract_npv as CN                            # noqa: E402
 from skater_forward_projection import page_date   # noqa: E402
+import trade_page as TP                              # noqa: E402  v1.2: the share of the season left
+import ltir as LT                                    # noqa: E402  v1.5: long-term injured reserve
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 FIRST_PAGE = 2018
 LOG = []
@@ -55,6 +64,9 @@ def main():
     pc, _ = CS.load_contracts()
     PPID = {int(b): int(a) for a, b in zip(pc["player_id"], pc["nhl_id"]) if pd.notna(a) and pd.notna(b)}
     eng = CN.NPVEngine()
+    # v1.2 (Thomas, 2026-10-19: "Yes, include retained salary"): the retained share of each asset's cap hit;
+    # v1.3 (2026-10-20): from trade_page.retention(), the ledger's fields or, for the 15 it left unread, its text
+    RET = TP.retention()["retention_pct"].to_dict()
     rows = []
     for _, r in v.iterrows():
         st, y = str(r["status"]), int(r["valuation_page"])
@@ -74,30 +86,67 @@ def main():
         date = pd.Timestamp(r["trade_date"])
         as_of = date if page_date(y) <= date < page_date(y + 1) else page_date(y)
         masked = {}
-        if as_of > date:
-            # POST-SEASON: the page's July 1 comes after the trade. A contract signed between the two did not exist at
-            # the trade (Kevin Hayes's rights went to Philadelphia on 2019-06-03; he signed for seven years on
-            # 2019-06-19): if the contract the page would value was signed after the trade, the club acquired only his
-            # rights; a later-signed extension is left out of the chain (its signing date masked for this valuation).
-            spine = eng.sp.spine if (eng.sp.spine["player_id"] == pid).any() else eng.gp_spine
-            mine = spine[spine["player_id"] == pid]
-            act = mine.loc[mine["season_start"] == y, "contract_id"]
-            if len(act) and pd.notna(eng.sp.signed.get(int(act.iloc[0]))) and eng.sp.signed[int(act.iloc[0])] > date:
-                rec.update({"player_id": pid, "as_of": as_of.date(),
-                            "status": "rights only (his contract at the page was signed after the trade)"})
-                rows.append(rec)
-                continue
-            for c in mine["contract_id"].unique():
-                sg = eng.sp.signed.get(int(c))
-                if pd.notna(sg) and date < sg <= as_of:
-                    masked[int(c)] = sg
-                    eng.sp.signed[int(c)] = pd.NaT
-            rec["signed_after_trade_left_out"] = len(masked)
-        d, s = eng.npv(pid, y, as_of)
+        # RIGHTS ONLY: the contract the page would value (the first with a row in season y, the one
+        # contract_chain starts from) was signed after the trade, so it did not exist when the club acquired him:
+        # it acquired his rights. v1.0 checked this for post-season trades only (Kevin Hayes's rights went to
+        # Philadelphia on 2019-06-03; he signed for seven years on 2019-06-19). v1.1 (Thomas, 2026-10-18: "value an
+        # unsigned player traded inside the page's window as rights only, using rights_values.py's rule") applies
+        # it to every trade: contract_chain checks the signing date of an extension but not of the contract it
+        # starts from, so a player traded unsigned after July 1 was valued on the deal he signed later (Josh
+        # Anderson, traded 2020-10-06, signed for seven years 2020-10-08). rights_values.py values these rows.
+        spine = eng.sp.spine if (eng.sp.spine["player_id"] == pid).any() else eng.gp_spine
+        mine = spine[spine["player_id"] == pid]
+        act = mine.loc[mine["season_start"] == y, "contract_id"]
+        # v1.4 (Thomas, 2026-10-20: "Leave the extension out"): a contract signed ON the trade date counts as signed
+        # after it (was: strictly after). All 13 such contracts were signed with the acquiring club (PuckPedia's
+        # contract team): 6 extensions (Pacioretty, Stone, Pageau, Faulk, Seth Jones, Nick Jensen) and 7 restricted
+        # free agents signed the day they were traded (Ceci, Rychel, Roslovic, Zadorov, Pederson, Jaros, Nedeljkovic),
+        # who become rights only like the 26 of v1.1.
+        if len(act) and pd.notna(eng.sp.signed.get(int(act.iloc[0]))) and eng.sp.signed[int(act.iloc[0])] >= date:
+            rec.update({"player_id": pid, "as_of": as_of.date(),
+                        "status": "rights only (his contract at the page was signed on or after the trade date)"})
+            rows.append(rec)
+            continue
+        # An extension signed on or after the trade date did not exist when the club acquired him, so it is left out of
+        # the chain (its signing date masked for this valuation). POST-SEASON: the page's July 1 comes after the trade,
+        # so this covers every extension signed between the trade and that July 1. Inside the window as_of is the trade
+        # date, contract_chain already leaves out one signed after it, and v1.4 masks one signed on it.
+        for c in mine["contract_id"].unique():
+            sg = eng.sp.signed.get(int(c))
+            if pd.notna(sg) and date <= sg <= as_of:
+                masked[int(c)] = sg
+                eng.sp.signed[int(c)] = pd.NaT
+        rec["signed_after_trade_left_out"] = len(masked)
+        # v1.2 (Thomas, 2026-10-19: "Yes, account for in-season trades"; "Days left, value and cap"): the season left on
+        # the trade date (1.0 off-season and for a post-season trade, valued on the next page), and the retained share
+        share = TP.season_left_share(date, y)
+        rpct = float(RET.get(r["asset_id"], 0.0))
+        rec.update({"season_share": share, "retained_pct": rpct})
+        # v1.6 (Thomas, 2026-10-21: "to be consistent yes that is how it should work"): the chance of playing leaves out
+        # the same contracts, signed from the trade date to as_of; until v1.5 participation_model read every deal signed
+        # by as_of, so it counted the deal the chain leaves out (Section 2 and Section 8 of the player document disagreed)
+        nk_ = eng.sp.spine.loc[eng.sp.spine["player_id"] == pid, "nk"]
+        if len(nk_):
+            with eng.sp.forecaster.signed_between(nk_.iloc[0], y, date, as_of) as n_play:
+                d, s = eng.npv(pid, y, as_of, first_season_share=share, retained_pct=rpct)
+        else:                                           # a goaltender: his chance of playing reads no contract
+            n_play = 0
+            d, s = eng.npv(pid, y, as_of, first_season_share=share, retained_pct=rpct)
+        rec["signed_after_trade_left_out_of_play"] = n_play
         eng.sp.signed.update(masked)                    # restore the dates for every other valuation
         rec.update({"player_id": pid, "as_of": as_of.date(), "status": s.get("status"),
                     **{k: s[k] for k in ("npv_total", "npv_contract", "npv_terminal", "npv_total_qo",
-                                         "npv_total_term_free", "n_contract_seasons") if k in s}})
+                                         "npv_total_term_free", "n_contract_seasons", "retained_pv") if k in s}})
+        # v1.5 (Thomas, 2026-10-20: LTIR "All of it", "Outcome + known at trade"): a player on LTIR when traded (ltir.py,
+        # Spotrac's log) costs his carried cap hit only in the share of each season he plays: each contract season's
+        # cost is relieved by the forecast's chance he does not play. The retained part is not relieved (the retaining
+        # club cannot carry him on LTIR). npv_total_engine keeps the engine's own value.
+        if s.get("status") == "ok":
+            on = LT.known_on_ltir((r["player_name"], s.get("full_name")), date, nid)
+            relief = LT.forecast_relief(d) if on else 0.0
+            rec.update({"ltir_at_trade": on, "ltir_relief": relief, "npv_total_engine": s["npv_total"]})
+            for k in ("npv_total", "npv_contract", "npv_total_qo", "npv_total_term_free"):
+                rec[k] = rec[k] + relief
         if s.get("status") == "no_contract":
             rec["status"] = "no contract at the page"
         rows.append(rec)
@@ -108,11 +157,16 @@ def main():
     log(f"  priced: {len(ok)}; npv_total ${ok['npv_total'].sum() / 1e6:,.1f}M; post-season trades among them: "
         f"{int(ok['post_season'].sum())}")
     late = d[d.get("signed_after_trade_left_out", pd.Series(0, index=d.index)).fillna(0) > 0]
-    log(f"  post-season trades with an extension signed after the trade, left out: {len(late)}"
+    log(f"  trades with an extension signed on or after the trade date, left out (v1.4): {len(late)}"
         + "".join(f"\n    {x.trade_date} {x.player_name}" for x in late.itertuples()))
     ro = d[d["status"].astype(str).str.startswith("rights only")]
-    log(f"  rights only (contract at the page signed after the trade): {len(ro)}"
-        + "".join(f"\n    {x.trade_date} {x.player_name} (page {x.valuation_page})" for x in ro.itertuples()))
+    log(f"  rights only (contract at the page signed on or after the trade date): {len(ro)}"
+        + "".join(f"\n    {x.trade_date} {x.player_name} (page {x.valuation_page}"
+                  f"{', post-season' if x.post_season else ''})" for x in ro.itertuples()))
+    lt = d[d.get("ltir_at_trade", pd.Series(False, index=d.index)).fillna(False).astype(bool)]
+    log(f"  on LTIR when traded (v1.5; ltir.py rule {LT.RULE}): {len(lt)}, relief ${lt['ltir_relief'].sum() / 1e6:,.2f}M at "
+        f"the pages' caps" + "".join(f"\n    {x.trade_date} {x.player_name}: +${x.ltir_relief / 1e6:.2f}M"
+                                     for x in lt.sort_values("ltir_relief", ascending=False).itertuples()))
     nc = d[d["status"] == "no contract at the page"]
     log(f"  no contract at the page: {len(nc)}" + "".join(
         f"\n    {x.trade_date} {x.player_name} (page {x.valuation_page}{', post-season' if x.post_season else ''})"

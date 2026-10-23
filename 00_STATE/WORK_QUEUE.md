@@ -8,6 +8,111 @@
 
 ## Live (audited 2026-10-14)
 
+**Done 2026-10-21: the round-2 model work (session 2026-10-21).** The forecast audit's decisions, the re-lock, the
+whole-term pricing test (not adopted; to be stated as tested in the player document), goalie birthdates from the NHL,
+the prospect model without the no-record indicator, the goaltender rebuild (age term, chance of playing by season ahead,
+own price line on the track-record forecast, the two Matt Murrays apart), both chains, the back-test and its Game Value
+check (11 results hold, 7 not WAR findings, 2 too few trades, 1 not confirmed). Next:
+1. Do: rebuild "Valuing Players, Draft Picks, and Prospects" as v4 from Thomas's round-2 notes and his 15 edits
+   (`40_DOCS/Valuing_Players_Feedback.md`, Round 2), on the model as it now runs.
+2. Done 2026-10-22: "Valuing Prospects" rebuilt on the model as it now runs (v3.0 builder). Thomas sends it to Karl
+   after the meeting of 2026-10-23.
+3. Do: the PROJECT_STATE refresh (due 2026-10-21).
+
+
+**Run 2026-10-20: the back-test (session 2026-10-20; protocol `40_DOCS/Backtest_Protocol.md`, `backtest.py` v1.2).**
+The forecast's verdicts come true on average (slope 0.919); players delivered less than forecast; the club taking picks
+and prospects for players gains in forecast and outcome. Next, in order:
+1. Done 2026-10-20: the Game Value check of the outcomes (session 2026-10-20): 9 results hold, 1 not confirmed (the
+   futures group below its forecast), 9 were not WAR findings.
+2. Done 2026-10-20 (Thomas: "Fix the QO look ahead"): "UFA no QO" read only once the decision is known; 20 traded
+   assets +$10.12M, the back-test's slope 0.918 (session 2026-10-20).
+2a. Done 2026-10-20: LTIR relief built from Spotrac's pages and adopted ("Label + CBA test"); the back-test's slope
+   0.741, the players' shortfall gone (session 2026-10-20). Not done: a third reading (label plus season-ending IR spells
+   only) was offered and not chosen.
+3. Decide (Thomas): whether to run draftee costs at actual pay as a sensitivity for the futures-for-players group (the
+   costing flag of 2026-10-09 bears on it directly).
+4. Decide (Thomas): the declared star group (3+ trailing WAR) holds one club side; whether a lower line is run, labelled
+   as chosen after the run.
+
+**Done 2026-10-20 (adopted; Thomas: "Adopt both"): the back-test's three accounting rules, built on the contract-table fix (session log 2026-10-18, its 2026-10-20 section).** Details: the season left in days, on value and cap (the last day from the schedule published before the season); prospects keep the full season; the retaining club pays the retained part. Laptop: the join at the 2025-26 cap $-525.63M -> $-357.29M ($-534.21M with the contract fix alone). The 15 retentions recorded only in the ledger's text were added the same day (below). Decided 2026-10-19 (Thomas):
+1. "2025-26": every value is added at the 2025-26 cap (`trade_asset_values.csv`'s `value_2025_cap_M`).
+2. "Yes, include retained salary": the acquirer pays only the cap hit it carries; the retained part stays a cost to the club
+   that retained it. 72 traded assets carry retention (61 in two-team trades, 11 in three-team trades).
+3. "Yes, account for in-season trades": a trade during the regular season counts only the part of that season left after
+   it (the July conventions already said "Mid-season trades charged prorated cap cost"; the value side was pending).
+   897 traded assets moved during a regular season. The forecast still uses no in-season production (STANDING_FLAGS).
+
+**Done 2026-10-20 (adopted; Thomas: "Everywhere, re-lock", "Full term until buyout", "PuckPedia's", "Clause data after year 1"): the contract table fixed (session log 2026-10-18, its 2026-10-20 section).** One dating rule for every script (`contract_source.contract_terms`): a bought-out deal starts at its own first season and counts its full signed term in a valuation dated before its buyout is known; a deal replaced by a later one ends where that one starts; of two deals in a season, the one signed last by the date is played. The model charges PuckPedia's cap hit (`model_cap_hit`), the clause figure on a late signing's later seasons; clause records attach only to the same contract. Price line re-locked (n 2,336; $1.674M a forecast win). Panel: 3,158 of 7,852 pages move by more than $0.01M, 143 by more than $1M.
+
+**Decided 2026-10-19 (Thomas): keep the prospect model's age discount on production alone** ("For the form of the
+prospects age discounting I'm content with what we have then"; recorded in MODEL_DIRECTIVES directive 6, prospects,
+age). Was: decide whether to extend it to production squared (session 2026-10-19). Asked: why age gets its own term rather than discounting the production terms already in the
+model. Tested (`25_TESTS/prospect_age_form_look.py` v1.0): discounting the square as well, the square alone, one
+discount on all of production, or age-adjusted points in both terms; none predicts the left-out drafts better than the
+adopted form at the 5% level (one-sided p 0.16 to 0.43), and the centre of age moves no verdict. The alternatives move
+a year's cost of age from low scorers to high scorers (D+1 at 20 points per 82: 21% of production's value adopted, 27%
+to 35% under the others) and the traded drafted prospects' $70.51M by -$0.75M to +$0.12M. Nothing changed.
+
+**Decide (Thomas): what to fix from the bug sweep before the three models are joined (session 2026-10-18).** Asked:
+"as a final check before plugging the three models together, do a complete sweep for bugs and other errors". Nothing
+was fixed. Every trade-valuation script re-runs to the laptop's files (guards pass). Found, in the order they move values:
+1. An unsigned player traded inside the page's window is valued on the contract he signed afterwards: 26 assets,
+   -$52.63M (Josh Anderson 2020-10-06 -$17.64M, Matt Murray -$14.65M, Barclay Goodrow -$8.14M). Post-season trades
+   already get rights only; decide whether these do too (`rights_values.py`'s rule). **Done 2026-10-18: adopted
+   (Thomas: "great, implement").** `traded_player_values.py` v1.1, `rights_values.py` v1.2; the 26 go from -$52.61M to
+   +$2.16M (most RFA rights are zero under the arbitration cost); laptop outputs re-run.
+2. The draft linkage misses four drafted players spelled differently in WAR (Joshua Brown 2013 #152, Danny O'Regan,
+   Tim Gettinger, Alexandre Grenier): "never played" in the pick curve, and one traded asset valued as a prospect
+   (Brown 2020; O'Regan, first listed here too, is correctly a prospect). **Built, not adopted (2026-10-18):** branch
+   `claude/linkage-spellings`, sixteen verified aliases; star value 18.0400 -> 18.0396, traded picks $401.580M ->
+   $401.571M, traded prospects $75.601M -> $75.688M. **Done 2026-10-18: adopted** (Thomas: "Adopt the linkage fix");
+   laptop chain re-run.
+3. The forecast ages 12 players born September 16-17 a year too old in 49 seasons (Ovechkin, Matthews, Brady
+   Tkachuk). **Built, not adopted (2026-10-18):** branch `claude/september-ages`. The price line and floor spread re-fit
+   inside their locks' tolerance (no re-lock needed); Tkachuk's 2021 page +$4.54M, Matthews 2021 +$1.82M; star value
+   18.0396 -> 18.0144; traded players +$0.80M (Mantha's 2021 trade +$0.82M). **Done 2026-10-18: adopted, both locks
+   kept** (Thomas: "Adopt the age fix and keep both locks"); dashboard refresh and trade chain re-run on the laptop.
+4. Joining the files: players at their page's cap, picks, prospects and buried contracts at 2025-26 (the open cap
+   question below); 17 assets in two files (one value zero in each); 6 traded players valued nowhere (J.T. Miller
+   2018-02-26 among them). **Built, not adopted (2026-10-18):** branch `claude/join-files`: `trade_asset_values.py`
+   (1,561 assets, one value each, both caps; 1,557 valued), the no-contract label (Borgstrom, Aberg now valued as
+   rights), the 2017 page at one cap. **Done 2026-10-18: adopted; pages fetched** (Thomas). J.T. Miller valued
+   (-$0.57M at the 2017-18 cap); McKegg's CapWages page lists no contracts even fresh, so 3 stay unvalued (Sislo,
+   McKegg, Chapie). Still open (Thomas): the cap at which the back-test adds the sides.
+5. Smaller: prospect fits keep 116 rows past club control (star value D+5 on 1.936 against 1.946); September 15
+   birthdays one year low in the CBA age (no effect); `contracts_2017.csv` stores the other computer's paths, so
+   `page_2017_values.py` stops on this laptop until `contracts_2017.py` re-runs; no runner refreshes the trade chain;
+   the NHLe table is a 2026 download (a look-ahead the record does not state for prospects). **2026-10-18:** the plain
+   bugs fixed with no value moved (calendar CBA age; the 2017 page's stored paths, pre-page seasons and caps; the
+   buried rule's ex-ante caps; `trade_page.py`'s docstring; the NHLe vintage noted in STANDING_FLAGS). Built, not
+   adopted: the prospect fits without the 116 rows past club control (traded prospects $75.67M -> $76.15M; **adopted
+   2026-10-18**, laptop chain re-run). The 22 "lapsed" picks signed by the drafting club: **counted (Thomas,
+   2026-10-19)**, 20 kept and Joseph traded (star value 18.09); Hutchinson joined them with the entry-level date check, **adopted 2026-10-19** (`elc_signing_dates.py` v1.3;
+   six dates set aside; Hutchinson kept +$3.34M; star value 18.0975); laptop chain re-run.
+   Not a bug, offered: one runner for the trade chain (pick curve to the join), as `dashboard_refresh.py` is for the
+   contract chain. **Built 2026-10-18:** `trade_refresh.py` v1.0 (Thomas chose the name), tested on a copy of
+   30_OUTPUT; see `sessions/2026-10-18.md`.
+Details and figures: `sessions/2026-10-18.md`.
+
+**Do: Thomas's second round of notes on "Valuing Players, Draft Picks, and Prospects" v3 (2026-10-21; 39 comments and 15 text edits, the whole document).** Transcribed with themes and the work they ask for in `40_DOCS/Valuing_Players_Feedback.md` (Round 2). Model work first, then the rebuild: the prospect model without linear production (Thomas: "The model should be a c d and e"); one rule for a contract signed on the trade date in the chance of playing as in the value; the games share (position at p = 0.404, the 0.05 floor, age centred at 27); the chance of playing's age squared (p = 0.111); the starting level's games weighting (p = 0.087 and 0.099); pricing on the forecast over the contract's term ("It's worth considering"); the goaltender model revisited; the 50th pick in place of Brayden Point. "Valuing Prospects" brought up to date before his meeting with Karl.
+
+**Read (Thomas): "Valuing Players, Draft Picks, and Prospects" v3 (rebuilt 2026-10-21, session 2026-10-21, 39 pages).**
+His first round of notes on v2 (14 comments on pages 1 to 4, 2026-10-21) is done throughout the document: the sources
+introduced with who they are and why credible; Section 1 in general terms; no "Decision:" headings; performance,
+forecasted, terminal value; no personified model parts; continuity errors cleared. It also now describes the model as it
+runs after 2026-10-20 (the same-day contract left out, retained salary, the season left, LTIR; each club's side as
+received less given up: Montreal +$2.70M, Vegas -$2.70M at the 2025-26 cap). His notes and the checks drawn from them:
+`40_DOCS/Valuing_Players_Feedback.md`; his annotated v2 is in `90_ARCHIVE/2026-10-21/`. Then decide (Thomas):
+- Draft intercepts in the pick curve: an intercept for each draft is jointly statistically significant at 5% (p = 0.020)
+  and does not predict left-out drafts better (one-sided p = 0.719 on 2026-10-21 data). The document gives as the reason
+  for leaving them out that a pick traded before its draft has no intercept of its own (Claude's wording): confirm or
+  replace it.
+- Check the five references the document cites (Efron and Morris 1975; Nadaraya 1964; Papke and Wooldridge 1996; Tobin
+  1958; Watson 1964).
+(Done since v2: the same-day extension left out and the 15 text-only retentions charged, both 2026-10-20; the cap at
+which a trade's sides are added, 2025-26, 2026-10-19.)
+
 **Held 2026-10-15: the supervisor meeting (session 2026-10-15b has the notes).** What it set:
 - Decided: the arbitration cost stands; the remaining gap between value delivered and cost paid is accepted (clubs earn
   from more than wins). Thomas: no more cost changes.
@@ -20,10 +125,17 @@
   (2026-10-15): the scripts are his to run and check, as now; no change to the process.
 - Not discussed: the draft regression's form (below), still open.
 
-**Do (Thomas, on the laptop): rebuild "Valuing Prospects" from his 13 notes (session 2026-10-15c).** Close the Word
-file; from the repo root run `python 25_TESTS/prospect_doc_figures.py` (both guard lines PASS), then
-`node 25_TESTS/prospect_model_doc.js`. Then read it; the production coefficients in Tables 9-11 move under age now (the
-values do not).
+**Done 2026-10-16 (session 2026-10-16b): "Valuing Prospects" rebuilt on the laptop from Thomas's 10 notes;** every guard
+PASS; Table 6's note corrected. Decided: D+5-and-later skater prospects keep the adopted model (MODEL_DIRECTIVES directive
+6). Figure 2 and Table 3 say "alternative" (Thomas).
+
+**Decided and built 2026-10-16 (session 2026-10-16b): no intercept and no draft dummies** in the pick curve and the
+prospect model (Thomas), settling the draft regression's form below. Star value $18.04M; traded picks $401.6M;
+traded prospects $75.60M (drafted $69.82M); "Valuing Prospects" rebuilt (v2.5).
+
+**Later (Thomas, 2026-10-16): goaltender prospects.** Thomas: "maybe we can return to the goalies another day." What the
+record shows: from D+5 on, the pooled star value ($2.01M) is almost all goaltenders' signal; goaltender prospect-seasons
+alone give $19.35M (p < 0.001), skaters $0.16M (p = 0.64). Session 2026-10-16b.
 
 **Read (Thomas): the revised "Valuing Prospects" (built 2026-10-15, session 2026-10-15b, 16 pages).** Then decide (Thomas):
 whether undrafted players' selection (all on NHL contracts) is a stated limitation or something to investigate, and
@@ -43,7 +155,7 @@ changed); the full curve kept; deceased draftees excluded (built) and to be list
   checks its sums against `pick_curve_log.txt`, draws the bar chart he asked for (value delivered; cost on the
   qualifying-offer chain; cost on the market price rule; cost actually paid) and puts it in place of the placeholder
   line under the 1.61x bullet. Until it runs, the note shows "[Figure 1 is inserted here ...]".
-- Decide there (Thomas, with the supervisor): the draft regression's form. Run
+- Decided 2026-10-16 (Thomas): no intercept, no draft dummies (above). Was: decide the draft regression's form. Run
   `python 25_TESTS/pick_lookup.py regression`. On the arbitration cost now adopted: through zero 13.42 (se 1.44);
   a constant plus a dummy for each draft but one 13.53 (se 1.69), constant -$0.02M a pick at an average draft
   (p 0.77). On the old qualifying-offer chain the same pair was 31.66 against 31.04. The held-out comparison of

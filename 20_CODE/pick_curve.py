@@ -14,8 +14,8 @@ A PICK'S VALUE
   * STAR VALUE: the surplus a pick would be worth if its player were certain to
     become a star (Thomas's name, 2026-10-09; it replaces "scale"). Each drafted
     player's surplus is regressed on the star probability of his slot, through
-    zero, with draft-year indicators that sum to zero, so it is the average draft
-    year's [pick_star_form_test.py: through zero won].
+    zero [pick_star_form_test.py: through zero won]. v1.7 (Thomas, 2026-10-16): no
+    draft-year terms (v1.0-v1.6 had sum-to-zero draft-year indicators).
   * ONE star value for every year (v1.2, Thomas 2026-10-09, option (a)):
       main         fitted on all eleven drafts 2007-2017;
       sensitivity  the same without 2015 and 2016, the two drafts that carry the
@@ -57,6 +57,11 @@ ONE DRAFTED PLAYER'S SURPLUS (classes 2007-2017, every selection, all positions)
      with no trade of him between his draft and the end of that season in
      trades.db, and the earlier pick of a player drafted twice, are worth ZERO
      to the pick [decided 2026-10-09; pick_star_and_rights_checks.py v1.1].
+     v1.9 (Thomas, 2026-10-19: "Count the 22"): NOT lapsed, and kept, when he signed his
+     entry-level deal with the drafting club (elc_signing_dates.csv signing_team, the
+     club of the source his signing date comes from): the club held him and lost him
+     later (waivers, release). Route "signed by the drafting club". A trade missed by the
+     name rule is matched under trades.db's spelling (TRADE_NAMES, hand-verified).
   9. GOALIES are pooled with skaters in one scale [decided 2026-10-09].
 
 v1.6 (2026-10-15, Thomas): DRAFTED PLAYERS WHO DIED BEFORE REACHING THE NHL are left out of every star value
@@ -129,7 +134,7 @@ import pandas as pd
 import statsmodels.api as sm
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "pick_curve.py v1.6 (2026-10-15)"
+SCRIPT_VERSION = "pick_curve.py v1.11 (2026-10-21)"   # v1.11: goaltenders on their own line at one year of term (contract_npv v3.4); the two Matt Murrays apart; v1.10: later drafts priced for the back-test; v1.9: signed by the drafting club kept; v1.8: CBA age on the calendar
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import skater_forward_projection as sfp          # noqa: E402  skater price line, cap and minimum tables
@@ -159,9 +164,9 @@ for k, p in F.items():
 CLASSES = range(2007, 2018)
 LAST_START = 2025                                  # 2025-26, the last season in the data (start year)
 ALPHA, BETA_F, BETA_D, GAMMA, LINE = sfp.price_constants()
-ALPHA_G, BETA_G = cnpv.ALPHA_G, cnpv.BETA_G
 log(f"  skater line: {LINE} alpha {ALPHA:.10f} beta F {BETA_F:.10f} D {BETA_D:.10f} term {GAMMA:.10f}")
-log(f"  goalie line: alpha {ALPHA_G:.10f} beta {BETA_G:.10f}")
+log(f"  goalie line: alpha {cnpv.GOALIE_RATE['alpha']:.10f} beta {cnpv.GOALIE_RATE['beta']:.10f} "
+    f"term {cnpv.GOALIE_RATE['gamma_term']:.10f}")
 # Caps and league minimums by season START year: 2007-2014 public CBA figures carried
 # from the archived curve (90_ARCHIVE/2026-10-09/draft_yield_curve.py, verified 2026-07-14);
 # 2015 on, the live tables.
@@ -219,6 +224,12 @@ picks = picks[~drop].copy()
 # v1.5: entry-level signing years (CBA 9.2, 12.1(c)) and the forecaster for the arbitration price
 el = pd.read_csv(F["elc"]).dropna(subset=["draftYear", "signing_year"])
 SIGNED = {(int(a), int(b)): int(c) for a, b, c in zip(el["draftYear"], el["pick"], el["signing_year"])}
+# v1.9: the club he signed his entry-level deal with (NHL code; relocated clubs mapped to the franchise in route())
+ELC_TEAM = {(int(a), int(b)): t for a, b, t in zip(el["draftYear"], el["pick"], el["signing_team"]) if pd.notna(t)}
+# v1.9 (Thomas, 2026-10-19: "treat P.O. Joseph as traded"): trades.db's spelling where the draft record's defeats the
+# name rule. Checked: of the 68 picks v1.8 called lapsed, only this one had a trade of a player with the same surname
+# and first initial inside the window (Arizona to Pittsburgh, 2019-06-29).
+TRADE_NAMES = {(2017, 23): "Pierre-Olivier Joseph"}
 log(f"  entry-level signing years held: {len(SIGNED):,} drafted players (elc_signing_dates.csv)")
 FC = SF.ContractForecaster()
 CAREERS = set(FC.table["career_key"])
@@ -226,7 +237,11 @@ AGE_SRC = {}                                       # (draftYear, pick) -> "signi
 
 
 def season_table(path, name_col):
-    w = pd.read_csv(path, usecols=[name_col, "Season", "Team", "GP", "WAR"])
+    if name_col == "Goalie":                     # v1.11: the two Matt Murrays kept apart
+        import contract_source as _CSG
+        w = _CSG.read_goalie_war(path, usecols=[name_col, "Season", "Team", "GP", "WAR"])
+    else:
+        w = pd.read_csv(path, usecols=[name_col, "Season", "Team", "GP", "WAR"])
     w["name_n"] = w[name_col].map(norm)
     w["start"] = w["Season"].map(lambda s: 2000 + int(str(s)[:2]))
     w["teams"] = w["Team"].astype(str).map(lambda t: {FRANCHISE.get(x, x) for x in t.split("/")})
@@ -302,7 +317,7 @@ def market_war(row, s, y, ck):
     return None if r is None else r[0]
 
 
-def price(row, s, last, signing=True, forecast_arb=True, record=False):
+def price(row, s, last, signing=True, forecast_arb=True, record=False, state=None):
     """Summed surplus (cap shares) over the window, under the decided rules. v1.5: `signing`
     reads the CBA ages in the signing year (else his first NHL season); `forecast_arb` prices
     arbitration on the forecast's construction (else the v1.4 raw 50/30/20 season totals)."""
@@ -314,10 +329,11 @@ def price(row, s, last, signing=True, forecast_arb=True, record=False):
     sy = SIGNED.get(key) if signing else None
     if record:
         AGE_SRC[key] = "signing" if sy is not None else "first NHL season"
-    age = int((pd.Timestamp(sy if sy is not None else first, 9, 15) - row["birthDate"]).days / 365.25)
+    age = rtv.cba_age(row["birthDate"], sy if sy is not None else first)   # v1.8: on the calendar (was days / 365.25)
     n_elc = 3 if age <= 21 else 2 if age <= 23 else 1
     beta = BETA_D if row["position"] == "D" else BETA_F
-    line = (lambda w: ALPHA_G + BETA_G * w) if row["is_goalie"] else (lambda w: ALPHA + beta * w + GAMMA * 1)
+    # v1.11: a delivered goaltender season on the goaltender line at one year of term, as a skater's on his
+    line = (lambda w: cnpv.goalie_line(w, 1)) if row["is_goalie"] else (lambda w: ALPHA + beta * w + GAMMA * 1)
     need = ARB_NEED(age)
     ck = None if (row["is_goalie"] or not forecast_arb) else career_of(row, s)
     prior, tot, war_tot = None, 0.0, 0.0
@@ -366,6 +382,8 @@ def price(row, s, last, signing=True, forecast_arb=True, record=False):
                             "cost_share": cost_a, "cost_$": (ELC_MAX[row["draftYear"]] if in_elc else prior_a) * scale,
                             "arb_eligible": arb, "arb_market_war": m_war, "cost_qo_share": cost,
                             "cost_qo_$": (ELC_MAX[row["draftYear"]] if in_elc else prior) * scale})
+    if state is not None:                             # v1.10: where the adopted chain stands after `last`
+        state.update(first=first, n_elc=n_elc, need=need, ck=ck, prior_a=prior_a, signing_age=age)
     return tot_a, war_tot, len(played), tot
 
 
@@ -388,8 +406,11 @@ def route(row, s):
     if FRANCHISE.get(row["triCode"], row["triCode"]) in played.loc[first, "teams"]:
         return "same team"
     after, ends = pd.Timestamp(int(row["draftYear"]), 6, 1), pd.Timestamp(first + 1, 7, 1)
-    if ((ta["key"] == name_key(row["playerName"])) & (ta["date"] > after) & (ta["date"] < ends)).any():
+    key = (int(row["draftYear"]), int(row["overallPickNumber"]))
+    if ((ta["key"] == name_key(TRADE_NAMES.get(key, row["playerName"]))) & (ta["date"] > after) & (ta["date"] < ends)).any():
         return "traded first"
+    if FRANCHISE.get(ELC_TEAM.get(key), ELC_TEAM.get(key)) == FRANCHISE.get(row["triCode"], row["triCode"]):
+        return "signed by the drafting club"            # v1.9: held, then lost later: not lapsed
     return "lapsed"
 
 
@@ -451,6 +472,11 @@ if ct.exists() and TESTED_LINE:
 log(f"\npicks priced: {len(d):,} ({int(d['is_goalie'].sum())} goalies); played an NHL game: "
     f"{int((d['nhl_seasons'] > 0).sum()):,}")
 log("routes: " + ", ".join(f"{k} {v}" for k, v in d["route"].value_counts().items()))
+for (y, k), nm in TRADE_NAMES.items():                                       # GUARD: each listed trade is found
+    assert d.loc[(d["draftYear"] == y) & (d["pick"] == k), "route"].iloc[0] == "traded first", (y, k, nm)
+kept = d[d["route"] == "signed by the drafting club"]
+log(f"  signed his entry-level deal with the drafting club, kept (v1.9): {len(kept)} picks, "
+    f"${kept['surplus'].sum() / 1e6:,.2f}M")
 log(f"surplus zeroed for lapsed rights: ${d.loc[d['surplus'] != d['surplus_before_rights'], 'surplus_before_rights'].sum() / 1e6:,.1f}M "
     f"of ${d['surplus_before_rights'].sum() / 1e6:,.1f}M")
 
@@ -458,8 +484,9 @@ log(f"surplus zeroed for lapsed rights: ${d.loc[d['surplus'] != d['surplus_befor
 def fit_scale(frame):
     frame = frame[~frame["excluded_deceased"]]                     # v1.6: deceased draftees out of every fit
     cl = sorted(frame["draftYear"].unique())
-    yrs = frame["draftYear"].values
-    X = [frame["p_star"].values] + [(yrs == c).astype(float) - (yrs == cl[-1]).astype(float) for c in cl[:-1]]
+    # v1.7 (Thomas, 2026-10-16: "no intercept and no draft dummies"): surplus on the star chance alone, through
+    # zero; the sum-to-zero draft-year columns of v1.0-v1.6 are gone (they moved the star value by $0.004M)
+    X = [frame["p_star"].values]
     m = sm.OLS(frame["surplus"].values / 1e6, np.column_stack(X)).fit(cov_type="HC1")
     return m.params[0], m.bse[0], len(cl)
 
@@ -469,7 +496,7 @@ b2, se2, n2 = fit_scale(d[~d["draftYear"].isin([2015, 2016])])
 scales = [{"scale_kind": "main", "classes": "2007-2017", "n_classes": n, "scale_M": b, "se_M": se},
           {"scale_kind": "sensitivity", "classes": "2007-2017 without 2015 and 2016", "n_classes": n2,
            "scale_M": b2, "se_M": se2}]
-log(f"\nSTAR VALUE ($M at the 2025-26 cap: the surplus of a pick certain to produce a star; average draft year)")
+log(f"\nSTAR VALUE ($M at the 2025-26 cap: the surplus of a pick certain to produce a star; through zero, no draft-year terms)")
 log(f"  main, all eleven drafts:            {b:.2f} (se {se:.2f})")
 log(f"  sensitivity, without 2015 and 2016: {b2:.2f} (se {se2:.2f})")
 
@@ -524,3 +551,50 @@ d.to_csv(OUTPUT_DIR / "pick_curve_players.csv", index=False)
 pd.DataFrame(scales).to_csv(OUTPUT_DIR / "pick_curve_scales.csv", index=False)
 (OUTPUT_DIR / "pick_curve_log.txt").write_text("\n".join(LOG), encoding="utf-8")
 log(f"\nwrote pick_curve_players.csv, pick_curve_scales.csv, pick_curve_log.txt in {OUTPUT_DIR}")
+
+
+# ---- v1.10 (2026-10-20, the back-test; Thomas: "Played + rest re-valued", "The model's rule"): the 2018-2025 drafts --
+# Priced by the same rules (price(), route(), window_end()) through 2025-26, for the back-test's outcomes of traded
+# picks and prospects. NOT in any fit: this block runs after every fit and every file above is written, and writes
+# its own two files. Entry-level maximum by draft year, 2020 MOU: $925,000 to the 2021 draft, $950,000 for 2022-2023,
+# $975,000 for 2024-2025 (PuckPedia's summary of the 2020 MOU, read 2026-10-20).
+LATER = range(2018, 2026)
+ELC_MAX.update({2018: 925_000, 2019: 925_000, 2020: 925_000, 2021: 925_000, 2022: 950_000, 2023: 950_000,
+                2024: 975_000, 2025: 975_000})
+n_fit_seasons = len(SEASONS)
+later = link[link["draftYear"].isin(LATER)].copy()
+later["is_goalie"] = later["is_goalie"].astype(bool)
+later = later[(later["link_status"] != "excluded_merged_name") & later["birthDate"].notna()]
+lrows = []
+for r in later.itertuples():
+    row = r._asdict()
+    s = seasons_of(row)
+    end = window_end(row, s)
+    last = min(end - 1, LAST_START)
+    st = {}
+    sur, wins, n, sur_q = price(row, s, last, record=True, state=st)
+    rt = route(row, s)
+    lrows.append({"draftYear": r.draftYear, "pick": r.overallPickNumber, "round": r.roundNumber, "player": r.playerName,
+                  "playerId": r.playerId, "position": r.position, "is_goalie": r.is_goalie, "team": r.triCode,
+                  "birthDate": r.birthDate, "war_names": r.war_names, "window_end": end, "nhl_seasons": n, "war": wins,
+                  "route": rt, "surplus_before_rights": sur * CAP_NOW,
+                  "surplus": 0.0 if rt in ("lapsed", "drafted twice (earlier pick)") else sur * CAP_NOW,
+                  # where the adopted cost chain stands after 2025-26 (empty when he has not played)
+                  "chain_first": st.get("first"), "chain_n_elc": st.get("n_elc"), "chain_need": st.get("need"),
+                  "chain_prior": st.get("prior_a"), "career_key": st.get("ck")})
+ld = pd.DataFrame(lrows)
+ls = pd.DataFrame(SEASONS[n_fit_seasons:])
+if len(ls):
+    ls["surplus_2025_cap"] = (ls["value_share"] - ls["cost_share"]) * CAP_NOW
+    chk = ls.groupby(["draftYear", "pick"])["surplus_2025_cap"].sum()
+    m = ld.set_index(["draftYear", "pick"])["surplus_before_rights"]
+    assert (chk.reindex(m.index).fillna(0.0) - m).abs().max() < 1.0      # GUARD: seasons add up to each pick
+assert len(SEASONS) - n_fit_seasons == len(ls) and len(pd.DataFrame(SEASONS[:n_fit_seasons])) == len(se_)   # GUARD: fit rows untouched
+ld.to_csv(OUTPUT_DIR / "pick_curve_later_players.csv", index=False)
+ls.to_csv(OUTPUT_DIR / "pick_curve_later_seasons.csv", index=False)
+log()
+log(f"LATER DRAFTS (2018-2025), priced for the back-test only, in no fit: {len(ld):,} picks, {len(ls):,} seasons "
+    f"played; surplus through 2025-26 ${ld['surplus'].sum() / 1e6:,.1f}M; routes: "
+    + ", ".join(f"{k} {v}" for k, v in ld["route"].value_counts().items()))
+log("wrote pick_curve_later_players.csv and pick_curve_later_seasons.csv")
+(OUTPUT_DIR / "pick_curve_log.txt").write_text("\n".join(LOG), encoding="utf-8")

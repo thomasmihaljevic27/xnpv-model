@@ -10,7 +10,7 @@ row for the player (48 assets), the two were compared: they agree on the cap hit
 in all six that differ, trades.db's own cap hit sides with CapWages (Spooner $2,825,000, Henrique $4,000,000,
 Cammalleri $1,000,000, Turris $3,500,000, Phaneuf $7,000,000 with $1,750,000 retained), and its last seasons fit
 the players' later contracts (Phaneuf to 2020-21, Turris's Ottawa deal ending 2017-18). So one source for the page:
-the running contract and every extension signed on or before the trade date come from the player's CapWages page,
+the running contract and every extension signed before the trade date (v1.6: not on it) come from the player's CapWages page,
 and the PuckPedia rows that overlap them are set aside for this page only.
 
 THE VALUATION: contract_npv.NPVEngine, unchanged, at valuation season 2017 with as_of = the trade date (inside the
@@ -31,6 +31,10 @@ chain), expiry status (UFA / RFA), entry level or not; the signing date (for the
   the CapWages-built contract prices as PuckPedia's own does, npv_total within $0.01M for 38 of 38.
   The engine instance is this script's own; nothing the live chain writes is changed.
 
+CAP: every npv_total is in dollars at the 2017-18 page's cap (v1.2: the buried rows too).
+SEASON LEFT AND RETAINED SALARY (v1.4, Thomas 2026-10-19): a trade during 2017-18 counts only the share of its days left
+(trade_page.season_left_share); the acquirer carries (1 - retained share) of the running contract's cap hit (trades.db
+retention_pct), and retained_pv is what the retaining club pays, at the 2017-18 cap.
 OUTPUTS: OUTPUT_DIR/page_2017_values.csv (one row per asset: the contract used, npv_total and its parts, status),
 page_2017_values_log.txt.
 Run from the repo root:  python 20_CODE/page_2017_values.py   (after contracts_2017.py and prospect_values.py)
@@ -44,7 +48,7 @@ import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "page_2017_values.py v1.0 (2026-10-14)"
+SCRIPT_VERSION = "page_2017_values.py v1.9 (2026-10-21)"   # v1.9: the chance of playing leaves the same contracts out; v1.8: LTIR known at the trade; v1.7: "UFA (No QO)" keeps its UFA year; v1.6: extensions signed on the trade date left out; v1.5: text-only retentions; v1.4: season left, retained salary; v1.3: pages found here
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_source as CS                         # noqa: E402
@@ -76,7 +80,8 @@ def main():
 
     pc, _ = CS.load_contracts()
     PPID = {int(b): int(x) for x, b in zip(pc["player_id"], pc["nhl_id"]) if pd.notna(x) and pd.notna(b)}
-    INFO = {int(b): (p, bd) for b, p, bd in zip(pc["nhl_id"], pc["position"], pc["birthdate"]) if pd.notna(b)}
+    pc["bd"] = CS.parse_export_dates(pc["birthdate"], "PuckPedia birthdate")   # v1.1: either date style
+    INFO = {int(b): (p, bd) for b, p, bd in zip(pc["nhl_id"], pc["position"], pc["bd"]) if pd.notna(b)}
     wa = pd.read_csv(OUTPUT_DIR / "WAR_with_age.csv", usecols=["Player", "Position", "birthdate"]).dropna()
     BD_AGE = {norm_name(p) + "|" + str(q): bd for p, q, bd in zip(wa["Player"], wa["Position"], wa["birthdate"])}
     POS_WAR = {norm_name(p): str(q) for p, q in zip(wa["Player"], wa["Position"])}
@@ -86,6 +91,11 @@ def main():
               True: PV.season_table(SOURCE_DIR / "Goalies_WAR.csv", "Goalie")}
 
     eng = CN.NPVEngine()
+    # v1.4 (Thomas, 2026-10-19: "Yes, include retained salary"; "Yes, account for in-season trades"): trades.db's
+    # retained share of each asset's cap hit, and the share of 2017-18's days left on the trade date
+    import sqlite3
+    import trade_page as TP
+    RET = TP.retention()["retention_pct"].to_dict()     # v1.5 (2026-10-20): the ledger's fields or its text
     sp = eng.sp
     next_cid, next_pid = -1, -1
     rows = []
@@ -101,10 +111,12 @@ def main():
                                           or ((eng.gp_spine["player_id"] == pid0)
                                               & (eng.gp_spine["season_start"] == PAGE)).any())
             if has17:
-                d, sm = eng.npv(pid0, PAGE, pd.Timestamp(r.trade_date))
+                share, rpct = TP.season_left_share(r.trade_date, PAGE), float(RET.get(r.asset_id, 0.0))
+                d, sm = eng.npv(pid0, PAGE, pd.Timestamp(r.trade_date), first_season_share=share, retained_pct=rpct)
                 rec.update({"player_id": pid0, "contract": "PuckPedia (no CapWages contract)",
-                            "status": sm.get("status")})
-                for kk in ("npv_total", "npv_contract", "npv_terminal", "npv_total_qo", "npv_total_term_free"):
+                            "status": sm.get("status"), "season_share": share, "retained_pct": rpct})
+                for kk in ("npv_total", "npv_contract", "npv_terminal", "npv_total_qo", "npv_total_term_free",
+                           "retained_pv"):
                     if kk in sm:
                         rec[kk] = sm[kk]
             else:
@@ -112,13 +124,19 @@ def main():
             rows.append(rec)
             continue
         date = pd.Timestamp(r.trade_date)
-        cons = K.parse_contracts(K.page_lines(open(k17.loc[r.asset_id, "page"], encoding="utf-8",
-                                                    errors="ignore").read()))
+        # v1.3 (2026-10-18): the page is found as contracts_2017.py found it, on this computer; v1.0-v1.2 opened the
+        # absolute path stored in contracts_2017.csv, which names the computer that wrote it (another user folder)
+        f = K.find_page(r.player_name)
+        assert f is not None and f.name == Path(str(k17.loc[r.asset_id, "page"])).name, (r.player_name, f)   # GUARD
+        cons = K.parse_contracts(K.page_lines(f.read_text(encoding="utf-8", errors="ignore")))
         run = [c for c in cons if PAGE in c["seasons"] and pd.notna(c.get("signing_date")) and c["signing_date"] <= date]
         c0 = max(run, key=lambda x: x["signing_date"])
+        assert c0["signing_date"] < date, (r.player_name, c0["signing_date"])   # GUARD v1.6: no running deal signed that day
         chain = [c0]
-        while True:                                     # extensions signed by the trade date, contiguous
-            nxt = [c for c in cons if pd.notna(c.get("signing_date")) and c["signing_date"] <= date
+        while True:                                     # extensions signed BEFORE the trade date, contiguous
+            # v1.6 (Thomas, 2026-10-20: "Leave the extension out"): one signed on the trade date is left out (was <=):
+            # Kyle Turris (Nashville, 2017-11-05) and Darcy Kuemper (Arizona, 2018-02-21)
+            nxt = [c for c in cons if pd.notna(c.get("signing_date")) and c["signing_date"] < date
                    and c["seasons"] and min(c["seasons"]) == max(chain[-1]["seasons"]) + 1]
             if not nxt:
                 break
@@ -141,7 +159,7 @@ def main():
             rows.append(rec)
             continue
         gk = pg == "G"
-        bd = pd.to_datetime(bd_pp, format="%m/%d/%Y", errors="coerce") if bd_pp else pd.NaT
+        bd = bd_pp if bd_pp is not None and pd.notna(bd_pp) else pd.NaT   # v1.1: parsed once above, either style
         if pd.isna(bd):
             bd = pd.to_datetime(BD_AGE.get(nn + "|" + ("G" if gk else pg)), errors="coerce")
         pid = PPID.get(nid) if nid else None
@@ -173,7 +191,9 @@ def main():
                             "cost": c["seasons"][y], "cs_cap_hit": c["seasons"][y], "pp_cap_hit": c["seasons"][y],
                             "pp_aav": c["seasons"][y], "cs_nhl_salary": c.get("base", {}).get(y),
                             "bd": bd, "birthdate": bd, "pp_expiry": c.get("expiry_status"),
-                            "ufa_year": ufa if c.get("expiry_status") == "RFA" else np.nan,
+                            # v1.7: a "UFA (No QO)" expiry keeps its UFA year: the engine reads the label only once
+                            # the decision is known (rfa_terminal_value.expiry_known), after a 2017-18 trade
+                            "ufa_year": ufa if c.get("expiry_status") in ("RFA", "UFA no QO") else np.nan,
                             "cs_entry_level": "Entry" in c["type"], "pp_ctype": "capwages", "season": f"{y}-{str(y + 1)[2:]}",
                             "first_name": "", "last_name": ""})
         nd = pd.DataFrame(new)
@@ -187,23 +207,68 @@ def main():
             sp.spine = pd.concat([sp.spine[~((sp.spine["player_id"] == pid) & sp.spine["season_start"].isin(seasons_used))],
                                   nd], ignore_index=True)
             eng.gp_spine = eng.gp_spine[eng.gp_spine["player_id"] != pid]
-        d, sm = eng.npv(pid, PAGE, date)
+        share, rpct = TP.season_left_share(date, PAGE), float(RET.get(r.asset_id, 0.0))     # v1.4
+        # v1.6: a PuckPedia contract of his signed on or after the trade date is masked for this valuation, as
+        # traded_player_values v1.4 does. Leaving it out of the CapWages chain is not enough: it does not overlap the
+        # chain's seasons, so it stays in the spine and contract_chain would add it as an extension (Kyle Turris's
+        # Nashville deal, signed 2017-11-05, the day of his trade)
+        masked = {}
+        for c_ in (set(sp.spine.loc[sp.spine["player_id"] == pid, "contract_id"])
+                   | set(eng.gp_spine.loc[eng.gp_spine["player_id"] == pid, "contract_id"])):
+            sg = sp.signed.get(int(c_))
+            if int(c_) >= 0 and pd.notna(sg) and sg >= date:   # CapWages contracts carry negative ids
+                masked[int(c_)] = sg
+                sp.signed[int(c_)] = pd.NaT
+        # v1.9 (Thomas, 2026-10-21): the chance of playing leaves out a deal of his signed on the trade date, as the chain
+        # does (participation_model reads PuckPedia's deals signed by the date: Turris's Nashville deal, 2017-11-05)
+        if gk:
+            n_play = 0
+            d, sm = eng.npv(pid, PAGE, date, first_season_share=share, retained_pct=rpct)
+        else:
+            with sp.forecaster.signed_between(nn + "|" + pg, PAGE, date, date) as n_play:
+                d, sm = eng.npv(pid, PAGE, date, first_season_share=share, retained_pct=rpct)
+        rec["signed_on_trade_date_left_out_of_play"] = n_play
+        sp.signed.update(masked)                         # restore the dates for every other valuation
+        rec["signed_on_or_after_trade_left_out"] = len(masked)
         rec.update({"player_id": pid, "position": pg, "war_name": wname, "contract": c0["type"],
                     "signed": c0["signing_date"].date(), "cap_hit_2017": c0["seasons"][PAGE],
                     "contract_last_season": max(c0["seasons"]), "expiry": c0.get("expiry_raw"),
                     "extensions": len(chain) - 1, "chain_last_season": max(chain[-1]["seasons"]),
-                    "ufa_year": ufa, "status": sm.get("status")})
-        for kk in ("npv_total", "npv_contract", "npv_terminal", "npv_total_qo", "npv_total_term_free"):
+                    "ufa_year": ufa, "status": sm.get("status"), "season_share": share, "retained_pct": rpct})
+        for kk in ("npv_total", "npv_contract", "npv_terminal", "npv_total_qo", "npv_total_term_free", "retained_pv"):
             if kk in sm:
                 rec[kk] = sm[kk]
+        # v1.8 (Thomas, 2026-10-20: LTIR "Outcome + known at trade"): on LTIR when traded, each contract season's
+        # carried cap hit relieved by the chance he does not play (traded_player_values v1.5's rule)
+        if sm.get("status") == "ok":
+            import ltir as LT
+            on = LT.known_on_ltir((r.player_name, wname), date, nid)
+            relief = LT.forecast_relief(d) if on else 0.0
+            rec.update({"ltir_at_trade": on, "ltir_relief": relief, "npv_total_engine": sm["npv_total"]})
+            for kk in ("npv_total", "npv_contract", "npv_total_qo", "npv_total_term_free"):
+                rec[kk] = rec[kk] + relief
         if sm.get("status") in ("unpriced_no_anchor", "unpriced_no_history"):
             # no forecast (no recent NHL season): buried_contract_values.py's rule (Thomas, "Cost above burial"),
             # the cap hit above the burial allowance (league minimum + $375K) over the contracts held, no value
-            cost = sum(max(0.0, nd.loc[i, "cost"] - (SFP.league_min_path(int(nd.loc[i, "season_start"]))
-                                                     + BURY_ABOVE_MIN)) / SFP.CAP_CEILING[int(nd.loc[i, "season_start"])]
-                       for i in nd.index)
-            rec.update({"status": "buried veteran (cost above burial)", "npv_total": -cost * SFP.CAP_CEILING[2025] + 0.0,
-                        "npv_contract": -cost * SFP.CAP_CEILING[2025] + 0.0, "npv_terminal": 0.0})
+            # v1.3 (2026-10-18): the seasons from the page on (v1.0-v1.2 also counted a contract's seasons before 2017-18),
+            # each divided by the ceiling a GM on this page planned with (D11's 3% path), not the realised one
+            # v1.4 (2026-10-19): 2017-18 counts its share of days left; the acquirer carries (1 - retained share) of
+            # the running contract's cap hit, and the retaining club pays the retained part in full (retained_pv)
+            cid0 = int(nd["contract_id"].iloc[0])               # the running contract (chain[0]): the one retained
+            cost = ret = 0.0
+            for i in nd.index:
+                y_ = int(nd.loc[i, "season_start"])
+                if y_ < PAGE:
+                    continue
+                w, ceil = (share if y_ == PAGE else 1.0), SFP.cap_path(PAGE, y_ - PAGE)
+                r_ = rpct if int(nd.loc[i, "contract_id"]) == cid0 else 0.0
+                cost += w * max(0.0, nd.loc[i, "cost"] * (1 - r_) - (SFP.league_min_path(y_) + BURY_ABOVE_MIN)) / ceil
+                ret += w * nd.loc[i, "cost"] * r_ / ceil
+            rec["retained_pv"] = ret * SFP.CAP_CEILING[PAGE]
+            # v1.2 (2026-10-18): stated at the 2017-18 cap, as every other row of this file (the engine prices at
+            # the page's ceiling); v1.0-v1.1 stated these rows at the 2025-26 cap, so one column held two caps
+            rec.update({"status": "buried veteran (cost above burial)", "npv_total": -cost * SFP.CAP_CEILING[PAGE] + 0.0,
+                        "npv_contract": -cost * SFP.CAP_CEILING[PAGE] + 0.0, "npv_terminal": 0.0})
         rows.append(rec)
     v = pd.DataFrame(rows)
     log("\n" + v["status"].value_counts().to_string())

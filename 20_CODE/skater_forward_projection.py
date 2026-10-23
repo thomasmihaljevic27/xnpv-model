@@ -1,8 +1,14 @@
 """
 =============================================================================
- skater_forward_projection.py   v2.1            Phase 1b -- Layer 2
+ skater_forward_projection.py   v2.2            Phase 1b -- Layer 2
                                   xNPV 1 prices skater contracts (D33)
 =============================================================================
+ WHAT CHANGED IN v2.2 (2026-10-19; Thomas: "Everywhere, re-lock", "Full term until buyout", "PuckPedia's"):
+ the cost is PuckPedia's cap hit; contract_chain reads each contract's seasons as known on the valuation date
+ (contract_spans_at): a bought-out deal runs its signed term until the buyout is known, a deal replaced by a later
+ one ends where it starts, and of two deals covering t0 the one signed last by the date is played; chain_rows
+ builds every caller's rows.
+
  WHAT CHANGED IN v2.1 (2026-10-05, plan of record step 6; MODEL_DIRECTIVES.md directive 4)
  ------------------------------------------------------------------------------------------
  The price line is TERM-IN (XNPV1_RATE re-locked on xnpv1_price_line.py v2.0: signing-dated
@@ -194,10 +200,23 @@ def skater_rate_cap_pct(war, posgrp):
 # $1.673M), defence add 0.0037579 (was 0.0038753, -3%), term 0.0089301 (was 0.0089195). The line just above's
 # values (alpha -0.0043530319, beta 0.0175137032, beta_d_add 0.0038753270, gamma_term 0.0089195167; term-free
 # 0.0081699059 / 0.0310586846 / 0.0139734816) reproduce on the crosswalk-off sample (price_line_crosswalk_check.py).
-XNPV1_RATE = dict(alpha=-0.0043651624, beta=0.0175356938, beta_d_add=0.0037579369,
-                  gamma_term=0.0089300596, n=2323, sigma=0.01560978, rows_fingerprint="a8fbd5c03a0c")
-XNPV1_RATE_TERM_FREE = dict(alpha=0.0081469438, beta=0.0311507981, beta_d_add=0.0137184862,
-                            gamma_term=0.0, n=2323, sigma=0.02183668, rows_fingerprint="a8fbd5c03a0c")
+# RE-LOCKED 2026-10-20 (Thomas: "lock the re-fitted price line"; re-fitted 2026-10-19, "Everywhere, re-lock"), from xnpv1_price_line.py
+# v2.3 on the sample with bought-out deals at their own first season (contract_source.contract_terms; 14 such deals in
+# the sample, n 2,336 fitted against 2,323). At the 2025-26 ceiling: $1.674M per forecast win for forwards (was $1.675M),
+# defence add 0.0039447 (was 0.0037579, +5%), term 0.0089105 (was 0.0089301). The 2026-10-14 crosswalk lock (alpha
+# -0.0043651624, beta 0.0175356938, beta_d_add 0.0037579369, gamma_term 0.0089300596; term-free 0.0081469438 /
+# 0.0311507981 / 0.0137184862; n 2,323, rows a8fbd5c03a0c) is in git before this change.
+# RE-LOCKED 2026-10-21 (Thomas: "Re-lock"), from xnpv1_price_line.py v2.3 on skater_forecast v2.4 / participation_model
+# v2.0 (the forecast audit's decisions: no defenceman term in the games share, floor 0, age centred at 27.22; no age
+# squared or seasons since debut in the chance of playing). Same 2,336 contracts and fingerprint. At the 2025-26 ceiling:
+# $1.672M per forecast win for forwards (was $1.674M), $2.061M for defencemen ($2.051M), +$0.851M a season per year of
+# term (unchanged to the thousand). Pricing on the forecast over the contract's term was tested first and not adopted
+# (25_TESTS/term_average_price_line.py v1.0). The 2026-10-20 lock (alpha -0.0043026112, beta 0.0175297693, beta_d_add
+# 0.0039447231, gamma_term 0.0089105379; term-free 0.0081818739 / 0.0312216498 / 0.0140759564) is in git before this.
+XNPV1_RATE = dict(alpha=-0.0043092485, beta=0.0175092736, beta_d_add=0.0040764912,
+                  gamma_term=0.0089103033, n=2336, sigma=0.01558828, rows_fingerprint="d9d1d82777bf")
+XNPV1_RATE_TERM_FREE = dict(alpha=0.0081682729, beta=0.0311829464, beta_d_add=0.0143706284,
+                            gamma_term=0.0, n=2336, sigma=0.02182557, rows_fingerprint="d9d1d82777bf")
 
 
 def price_constants(model=None, term_free=False):
@@ -345,13 +364,51 @@ def load_signing_dates():
     return dict(zip(pp["contract_id"].astype(int), dates))
 
 
+def contract_spans_at(rows, signed, as_of):
+    """v2.2 (2026-10-19; Thomas: "Everywhere, re-lock", "Full term until buyout"): the seasons each of ONE player's
+    contracts covers as known on `as_of`, from his spine rows (the contract table is as played).
+    {contract_id: (first, end, last_played)}; a contract that covers nothing on the date is left out.
+      * a deal that ended early (pp_cut_short, a buyout) runs to its SIGNED end (pp_signed_end) when the valuation
+        is dated before the buyout became known (pp_off_contract), and to its last season played on or after it
+      * a deal that a later one replaced: when contract B, signed after A and on or before `as_of`, starts inside
+        A's span, A ends the season before B starts (Ilya Kovalchuk's Los Angeles deal, terminated, then his
+        Montreal one; Brooks Orpik's bought-out Washington deal, then his next one). An extension starts after A's
+        end and replaces nothing. A contract without a signing date is never dated against another."""
+    out = {}
+    g = rows.groupby("contract_id")
+    first = g["season_start"].min()
+    last = g["season_start"].max()
+    has = "pp_signed_end" in rows.columns
+    for cid in first.index:
+        c = int(cid)
+        end = int(last[cid])
+        if has:
+            r0 = rows.loc[rows["contract_id"] == cid].iloc[0]
+            off = pd.to_datetime(r0.get("pp_off_contract"), errors="coerce")
+            cut = r0.get("pp_cut_short", 0)          # blank on rows other scripts add (the 2017 page's CapWages deals)
+            if pd.notna(cut) and int(cut) and pd.notna(off) and as_of < off:
+                end = int(r0["pp_signed_end"])
+        out[c] = [int(first[cid]), end, int(last[cid])]
+    for a, (fa, ea, _) in list(out.items()):
+        sa = signed.get(a, pd.NaT)
+        if pd.isna(sa):
+            continue
+        later = [fb for b, (fb, _, _) in out.items()
+                 if b != a and pd.notna(signed.get(b, pd.NaT)) and sa < signed[b] <= as_of and fa <= fb <= ea]
+        if later:
+            out[a][1] = min(later) - 1
+    return {c: tuple(v) for c, v in out.items() if v[1] >= v[0]}
+
+
 def contract_chain(spine, player_id, t0, signed, as_of):
     """The contracts a team holds for this player as of `as_of`, in order.
 
-    Starts at the contract with a spine row in season t0 (the one being
-    played; the first one found, exactly as before v1.3). Then repeatedly
-    adds the contract that STARTS the season after the chain ends -- an
-    extension -- provided its signing date is on or before `as_of`.
+    v2.2 (2026-10-19): read from contract_spans_at, so a deal counts its full signed term until its buyout and a
+    replaced deal ends where its replacement starts. The contract being played in t0 is the one covering t0 on the
+    date; when two do (a deal and the one that replaced it before the date is known, or duplicate records), the one
+    signed most recently on or before `as_of`, else the earliest signed (until v2.1: the first row found, which
+    charged Kovalchuk's trade to Washington his terminated Los Angeles deal). Then repeatedly adds the contract that
+    STARTS the season after the chain ends -- an extension -- provided its signing date is on or before `as_of`.
       * join key: contract_id within this player's spine rows
       * contiguity: an extension must start at end + 1; a later contract
         after a gap is not an extension of this one and is never added
@@ -360,21 +417,54 @@ def contract_chain(spine, player_id, t0, signed, as_of):
         lower contract_id, so the choice is deterministic
     Returns [] when no contract is active in t0."""
     rows = spine[spine["player_id"] == player_id]
-    active = rows[rows["season_start"] == t0]
-    if active.empty:
+    if rows.empty:
         return []
-    first = rows.groupby("contract_id")["season_start"].min()
-    last = rows.groupby("contract_id")["season_start"].max()
-    chain = [int(active.iloc[0]["contract_id"])]
+    spans = contract_spans_at(rows, signed, as_of)
+    cover = [c for c, (f, e, _) in spans.items() if f <= t0 <= e]
+    if not cover:
+        return []
+    known = [c for c in cover if pd.notna(signed.get(c, pd.NaT)) and signed[c] <= as_of]
+    if known:
+        cid = max(known, key=lambda c: (signed[c], -c))
+    else:
+        cid = min(cover, key=lambda c: (pd.isna(signed.get(c, pd.NaT)),
+                                         signed.get(c, pd.NaT) if pd.notna(signed.get(c, pd.NaT)) else pd.Timestamp.max,
+                                         c))
+    chain = [cid]
     while True:
-        starts_next = first.index[first == last[chain[-1]] + 1]
-        nxt = sorted(int(c) for c in starts_next
-                     if int(c) not in chain
-                     and pd.notna(signed.get(int(c), pd.NaT))
-                     and signed[int(c)] <= as_of)
+        nxt = sorted(c for c, (f, _, _) in spans.items()
+                     if f == spans[chain[-1]][1] + 1 and c not in chain
+                     and pd.notna(signed.get(c, pd.NaT)) and signed[c] <= as_of)
         if not nxt:
             return chain
         chain.append(nxt[0])
+
+
+def chain_rows(spine, player_id, chain, t0, signed, as_of):
+    """v2.2 (2026-10-19): the chain's contract seasons from t0 on, one row per season, as known on `as_of`: each
+    contract's played rows to its end on the date (contract_spans_at), plus, for a deal valued before its buyout, the
+    seasons signed for after its last season played, each a copy of its last played row (its cap hit)
+    (after_buyout = 1). Every caller that prices a chain builds its rows here."""
+    rows = spine[spine["player_id"] == player_id]
+    spans = contract_spans_at(rows, signed, as_of)
+    parts = []
+    for c in chain:
+        f, e, lp = spans[c]
+        own = rows[(rows["contract_id"] == c) & (rows["season_start"] <= e)].copy()
+        own["after_buyout"] = 0
+        parts.append(own)
+        if e > lp:
+            base = own.sort_values("season_start").iloc[[-1]]
+            for y in range(lp + 1, e + 1):
+                x = base.copy()
+                x["season_start"], x["season"], x["after_buyout"] = y, f"{y}-{y + 1}", 1
+                for col in ("cs_cap_hit", "cs_aav", "cs_nhl_salary", "cs_minors_salary", "cs_signing_bonus",
+                            "cs_perf_bonuses"):
+                    if col in x.columns:
+                        x[col] = np.nan
+                parts.append(x)
+    out = pd.concat(parts, ignore_index=True)
+    return out[out["season_start"] >= t0].sort_values("season_start")
 
 
 class SkaterProjector:
@@ -394,7 +484,7 @@ class SkaterProjector:
         #   * join key to xNPV 1: nk = normalised "first last" + "|" + F/D,
         #     the key player_season_table builds as pkey; NAME_ALIASES
         #     resolves the one known collision
-        #   * cost: the clause pipeline's cap hit, else PuckPedia's
+        #   * cost: PuckPedia's cap hit (2026-10-19; until then the clause pipeline's first)
         cs = pd.read_csv(F_SEASON_SPINE)
         sk = cs[cs["position"] != "Goaltender"].copy()
         sk["posgrp"] = sk["position"].map(POSGRP)
@@ -407,7 +497,10 @@ class SkaterProjector:
             alias = NAME_ALIASES.get((row["nname"], row["posgrp"]))
             return (alias if alias else row["nname"]) + "|" + row["posgrp"]
         sk["nk"] = sk.apply(make_key, axis=1)
-        sk["cost"] = sk["cs_cap_hit"].fillna(sk["pp_cap_hit"])
+        # 2026-10-19 (Thomas: "PuckPedia's"): PuckPedia's cap hit, the source the price line is fitted on. Until
+        # v2.1 the clause data's figure came first, which on 700 contract-seasons differed from PuckPedia's on the
+        # same contract (Giroux $9.525M against $8.275M) and on others was another contract's (Marleau).
+        sk["cost"] = sk["model_cap_hit"].astype(float)     # 2026-10-20: the clause figure after a late signing's year 1
         sk["bd"] = pd.to_datetime(sk["birthdate"], errors="coerce")
         self.spine = sk
 
@@ -444,9 +537,8 @@ class SkaterProjector:
         if not chain:
             return pd.DataFrame()
         cid = chain[0]                    # the contract being played in t0
-        rows = (self.spine[self.spine["contract_id"].isin(chain)
-                           & (self.spine["season_start"] >= valuation_season)]
-                .sort_values("season_start"))
+        # v2.2: the chain's seasons as known on as_of (a deal valued before its buyout runs its signed term)
+        rows = chain_rows(self.spine, player_id, chain, valuation_season, self.signed, as_of)
         # GUARD: k is the row position, so the chain must give exactly one
         # row per consecutive season. A duplicate season row would shift
         # every later season's discount, chance of playing and cap path.

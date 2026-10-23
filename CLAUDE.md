@@ -37,6 +37,14 @@ Built 2026-10-15: drafted players who died before reaching the NHL are left out 
 the prospect model has no age-removed version (age centred at 18; `prospect_values.py` v1.7).
 Built 2026-10-14: every age the model reads follows the CBA (September 15; drafted players' signing ages in the
 year they signed), the arbitration price is consistent with the forecast, and the 60/40 checks are retired.
+Built 2026-10-20: every script dates a contract by one rule (`contract_source.contract_terms`: a bought-out deal at its
+own first season, its full signed term counted until the buyout is known); the model charges PuckPedia's cap hit
+(`model_cap_hit`); the price line is re-locked; the back-test's three rules are in (the 2025-26 cap, retained salary
+charged to the retaining club, the season left on in-season trades).
+Run 2026-10-20: the back-test (`trade_sides.py`, `backtest.py`; protocol `40_DOCS/Backtest_Protocol.md`, committed
+before the run). Its Game Value check was run the same day (9 results hold, 1 not confirmed). LTIR relief (2026-10-20): `ltir.py` reads
+Spotrac's injured-reserve pages saved by Thomas in `10_SOURCE/ltir/` ("Label + CBA test"); the trade valuations and the
+back-test import it.
 
 **Craft is retired as a canonical surface (2026-09-09).** Do not read it, reconcile against it,
 or sync to it. "How it works" explainers live in `40_DOCS/`. Precedence when sources conflict:
@@ -102,9 +110,9 @@ stops the run. Finished tests in `25_TESTS/` that build `NPVEngine` on xNPV 0, o
 `50_REBUILD/`, reproduce their recorded results only from a checkout of 7f91f0e.
 
 xNPV 1's seasons and control years are priced by `skater_forward_projection.price_constants()`. It returns
-`XNPV1_RATE` (the term-in line, re-locked 2026-10-14 on September 15 ages; `XNPV1_RATE_TERM_FREE` beside it as the sensitivity); set to
+`XNPV1_RATE` (the term-in line, re-locked 2026-10-20 on contracts dated one way; `XNPV1_RATE_TERM_FREE` beside it as the sensitivity); set to
 None, it falls back to Stage 3, and every row's `price_line` column says which line priced it ("provisional"
-means Stage 3). Both come from `python 20_CODE/xnpv1_price_line.py` v2.0: the Stage 3 specification re-fitted
+means Stage 3). Both come from `python 20_CODE/xnpv1_price_line.py` v2.3: the Stage 3 specification re-fitted
 on xNPV 1's forecast dated at each contract's signing (directive 5), with a linear term for contract length
 (directive 4). Each re-run must give the lock back (its reproduction guard). The pick curve (`pick_curve.py`)
 prices delivered wins on `XNPV1_RATE` at one year of term (open decision 3). The D14(c) qualify rates are
@@ -136,13 +144,40 @@ directive 6). The old models (`draft_yield_curve.py`, `slot_curve.py`, `future_p
     python 20_CODE/traded_pick_values.py     # every traded pick valued at its trade
     python 20_CODE/prospect_values.py        # prospects: every traded prospect valued (slot, production, age)
     python 20_CODE/traded_player_values.py   # traded players valued at their trade's page (2018-19 on; trade_page.py)
-    python 20_CODE/rights_values.py          # rights traded after the regular season; written into traded_player_values
+    python 20_CODE/rights_values.py          # rights: a player traded before he signed his page contract; written into traded_player_values
     python 20_CODE/buried_contract_values.py # traded veterans with no recent NHL season: cost above burial
-    python 20_CODE/contracts_2017.py         # 2017-18 traded players' contracts from CapWages (--fetch for new pages)
+    python 20_CODE/contracts_2017.py         # 2017-18 traded players' contracts from CapWages (--fetch [--only NAME ...] for pages)
     python 20_CODE/page_2017_values.py       # the player model's 2017 page for them
+    python 20_CODE/trade_asset_values.py     # every traded asset once: one value, its source, at the page's and the 2025-26 cap
+
+One command runs that whole list in order (2026-10-18): `python 20_CODE/trade_refresh.py`, about 8 minutes. It also runs
+the five checks those scripts guard against: `25_TESTS/draft_window_count.py` before the pick curve;
+`prospect_slot_years_check.py`, `prospect_nhle_look.py` and `prospect_age_look.py` before the prospects;
+`uncovered_assets_audit.py` before the 2017 contracts and again after the 2017 page. It stops at the first step that
+exits with an error, prints a guard failure, prints no version line, or leaves an output unwritten, and records each
+output's hash in `30_OUTPUT/trade_refresh_manifest.json`. `--output-dir DIR` runs it into a copy of 30_OUTPUT. Run
+`dashboard_refresh.py` first whenever the contract side changed (the PuckPedia export, WAR, the ages, the price line or
+any script in its chain): this chain reads its outputs. It fetches no CapWages page (`contracts_2017.py --fetch` stays a
+step run by hand, with Thomas's approval each time); the draft linkage pulls a draft year from records.nhl.com only if
+its cached file in `30_OUTPUT/draft_raw/` is missing.
+
+The back-test, after `trade_refresh.py` (both by hand; not in its chain):
+
+    python 20_CODE/trade_sides.py   # each club's side of each trade, zero-sum
+    python 20_CODE/backtest.py      # outcomes, club sides, the protocol's tests (about 10 minutes)
+
+The Game Value check (2026-10-20): the same script with XNPV_OUTCOME_METRIC=gv_adj, then gv_raw (outputs carry the
+metric's suffix), then `python 25_TESTS/backtest_gv_compare.py` for the protocol's verdicts. In PowerShell set the variable
+first: `$env:XNPV_OUTCOME_METRIC = "gv_adj"`, and remove it afterwards (`Remove-Item Env:XNPV_OUTCOME_METRIC`).
+
+Its rules, tests and groups are in `40_DOCS/Backtest_Protocol.md`, committed before the first run; a change to any of
+them after a run goes in as a dated amendment saying what changed and why.
 
 To answer questions about the curve on the spot: `python 25_TESTS/pick_lookup.py --help`. Each finding in
 `Valuing Draft Picks.docx`, with its command and expected value: `40_DOCS/Valuing_Draft_Picks_Reproduction.md`.
+`draft_pick_linkage.py` v1.2 (2026-10-18, commit bc8db88) added sixteen hand-verified WAR spellings; the four finished
+tests pinned to the old prospect rows (`prospect_curve_vs_line.py`, `prospect_production_form.py`,
+`prospect_term_combinations.py`, `prospect_age_correlation.py`) reproduce their recorded results only from git before it.
 
 ## Don't
 
@@ -162,12 +197,16 @@ To answer questions about the curve on the spot: `python 25_TESTS/pick_lookup.py
   left-censored at the league minimum, one intercept, a separate defence slope.
   alpha=0.0132478230, beta=0.0212322891 per win for forwards, plus 0.0028702824 for defencemen
   (0.0241025715), all as cap shares. The retired draft curve and xNPV 0 used it; it now survives as guards.
-  xNPV 1 prices on its own line, with term in (directives 4 and 5), re-locked 2026-10-14 on September 15 ages
-  and again the same day on the name-crosswalk sample (read the value the code assigns in
-  `skater_forward_projection.py`): `XNPV1_RATE`, alpha=-0.0043651624, beta=0.0175356938 per forecast win for
-  forwards, plus 0.0037579369 for defencemen, plus gamma_term=0.0089300596 a season per year of term;
-  `XNPV1_RATE_TERM_FREE` (0.0081469438 / 0.0311507981 / +0.0137184862) is the sensitivity. The earlier 2026-10-14
-  line (-0.0043530319 / 0.0175137032 / +0.0038753270, term 0.0089195167) is superseded. The 2026-10-05 line (-0.0043574069 / 0.0174691916 / +0.0035971954, term
+  xNPV 1 prices on its own line, with term in (directives 4 and 5), re-locked 2026-10-21 on skater_forecast v2.4
+  (the forecast audit's decisions; read the value the code assigns in `skater_forward_projection.py`): `XNPV1_RATE`,
+  alpha=-0.0043092485, beta=0.0175092736 per forecast win for forwards, plus 0.0040764912 for defencemen, plus
+  gamma_term=0.0089103033 a season per year of term; `XNPV1_RATE_TERM_FREE` (0.0081682729 / 0.0311829464 /
+  +0.0143706284) is the sensitivity. Goaltenders have their own locked line since 2026-10-21 (`contract_npv.GOALIE_RATE`:
+  alpha=-0.0317074413, beta=0.0213830910 per track-record forecast win, gamma_term=0.0081170278; fitted by
+  `goalie_value_engine.py` Stage G on the forecast without the age term, applied to the forecast with it). The
+  2026-10-20 line (-0.0043026112 / 0.0175297693 / +0.0039447231, term 0.0089105379) is superseded. The 2026-10-14
+  crosswalk line (-0.0043651624 / 0.0175356938 / +0.0037579369, term 0.0089300596) and the earlier 2026-10-14
+  line (-0.0043530319 / 0.0175137032 / +0.0038753270, term 0.0089195167) are superseded. The 2026-10-05 line (-0.0043574069 / 0.0174691916 / +0.0035971954, term
   0.0089321965) and the 2026-10-02 line (0.0076921739 / 0.0308904772 / +0.0146619104) are superseded. The
   pre-D20 rate (0.0184516 / 0.0202139) and the D20 rate (0.01831864 / 0.01924854) are retired; their
   reproduction guards were removed with the 60/40 checks on 2026-10-14 (Thomas). The Stage 3 constants stay
@@ -424,7 +463,8 @@ To answer questions about the curve on the spot: `python 25_TESTS/pick_lookup.py
   comments, nearly all one of six failures: vague phrases for plain claims, coined labels ("dollar scale", "the
   chain"), claims without their number, results described instead of shown, numbers without their meaning, and
   choices without their reason (2026-10-09). Agree three to five take-aways first, then check each sentence against
-  skill section 1.6 before handing it over.
+  skill section 1.6 before handing it over. Then run the checks at the end of `40_DOCS/Valuing_Prospects_Feedback.md`, his
+  five rounds of notes on "Valuing Prospects" sorted into themes (2026-10-16).
 - **Don't state what an option costs against a baseline nobody chose.** Asked how pricing a rookie's
   entry-level seasons at the deal's remaining term compares with pricing them as one-year deals, a
   reply put the difference at "roughly $5M", the whole term premium, when one-year pricing carries a
@@ -446,6 +486,15 @@ To answer questions about the curve on the spot: `python 25_TESTS/pick_lookup.py
 - **Don't show a model's formula once and then add its terms in prose.** "Valuing Prospects" showed the formula for
   the slot alone, then added production, its square and age in words. Thomas: "you should definitely show the adopted
   formula each time you add a variable to the model" (2026-10-15).
+- **Don't write one model's formula with discounting and another's without.** Every model discounts at 3% a year, but
+  only the contract formula showed it: `contract_npv.py` divides each season by (1.03)^k, while the pick curve and the
+  prospect model add up cap shares, where 3% cap growth and 3% discounting cancel (D11, D17), so their formulas showed
+  no discount at all. Thomas asked why picks and prospects were not discounted, and: "when writing out the formulas you
+  should just do the full form because it helps to see that there is still discounting in all models" (2026-10-19).
+  Write every value formula in full, the same way for each model: each season's value and cost in that season's
+  dollars, divided by (1.03)^k (a realised career's seasons multiplied by the stated cap over that season's cap, the
+  same discount at the cap's actual growth), then say in one line where the growth and the discount cancel. Never
+  present the cancelled cap-share sum as the formula.
 - **Don't explain a regression by its specification, or an interaction by its arithmetic.** "It regresses each
   prospect's remaining surplus on his slot's star probability, through zero, with draft-year indicators that sum to
   zero" and "star value for his seasons since the draft" meant nothing to Thomas, and "multiplies production by years
@@ -479,6 +528,85 @@ To answer questions about the curve on the spot: `python 25_TESTS/pick_lookup.py
   ... the age the autumn after his draft, less 18" read to Thomas as valuing a player by his draft age, when within a
   season it also measures the age at which he scored, which is what matters (2026-10-15). Say what the measure
   compares in hockey terms first.
+- **Don't describe an equivalent of the method Thomas asked for; build the one he asked for.** Asked to use a full
+  set of interaction terms, the document said the season-by-season fits "give exactly the same coefficients" while
+  the code kept fitting each season alone. Thomas: "Just make the regression actually be the interaction terms. I
+  feel like I've said this multiple times" (2026-10-16). Change the code to run the asked-for method, keep the old
+  route only as a guard, and describe what runs.
+- **Don't write "reliable" for a test result.** Thomas: "Be specific. You mean statistically significant"
+  (2026-10-16). Say "statistically significant at the 5% level", with the p-value.
+- **Don't introduce rejected alternatives as if the model used them.** "Three simpler rules each restrict how the
+  value may change" read as rules in the model (2026-10-16). Say they were tested and rejected before describing
+  them.
+- **Don't let a table's baseline go by a shorthand name.** Table 8's "production model without age" was the Section 2
+  model, and Thomas asked why the age candidates were not compared with it (2026-10-16). Name the baseline by its terms
+  in the title, the row and the column.
+- **Don't quote a pooled estimate for a subgroup it doesn't describe.** Asked about valuing D+5-and-later skater
+  prospects without production, a reply offered draft position alone as significant there ($2.01M, p = 0.002). That
+  star value pools skaters and goaltenders: skaters alone give $0.16M (p = 0.64), goaltenders $19.35M (2026-10-16).
+  Before quoting a fit's estimate for a group, check it was fitted on that group's rows.
+- **Don't rebuild a document Thomas has annotated without carrying his own edits into the builder.** He edits the text
+  in Word as well as commenting (not as tracked changes). v3 of "Valuing Players, Draft Picks, and Prospects" was rebuilt
+  from the builder after only his comments were read, and his rewording of five paragraphs, the overview paragraph he
+  deleted, the statistical-terms table he deleted and his new Section 2 title were lost. Thomas: "If I made a change to
+  the document you should honour that change" (2026-10-21). Before each rebuild, diff the text of his copy against the
+  copy he was sent, paragraph by paragraph (deletions included, not only `w:ins`/`w:del`), carry each edit into the
+  builder verbatim, and check after the build that each is present. Never write over a file he has open or has saved
+  edits into.
+- **Don't personify the model or its parts.** "On the cost side only the discount acts" drew: "The Discount is not a
+  noun and it cannot act. This is a MAJOR tell of AI writing. Do not personify things in the model" (2026-10-21). A
+  discount, forecast, regression or price line does not act, know, ask, see, read or learn; say what is done to what:
+  "A cap hit is in fixed dollars, so on the cost side discounting is present."
+- **Don't open a document with detail that only a later section explains.** Section 1 of "Valuing Players, Draft
+  Picks, and Prospects" gave the realised-career cap formula before picks were introduced: "indecipherable unless
+  you've already read the document ... The entire document needs to be cleared of writing continuity errors like this"
+  (2026-10-21). An opening section introduces the concept, why it matters and how it works in general; each detail goes
+  where its context is.
+- **Don't write "play" for what a player delivers.** Thomas: "Important to use 'performance' rather than 'play'"; a
+  forecast of it is "forecasted performance" (2026-10-21). And a pick or prospect delivers no performance until its
+  player reaches the NHL.
+- **Don't call the value of the control seasons anything but the terminal value** (Thomas, 2026-10-21;
+  `rfa_terminal_value.py`).
+- **Don't define a symbol by apposition.** "and C his cap hit" reads as if C were a verb; write "C is his cap hit"
+  (2026-10-21).
+- **Don't use "Decision:" headings.** Thomas: "I am not a fan of these" (2026-10-21). Keep the options and reasons;
+  name the topic in the heading.
+- **Don't name a data source without saying who it is and why it is credible.** WAR, Patrick Bacon, PuckPedia and
+  the trade ledger were named without either (2026-10-21). His notes are in `40_DOCS/Valuing_Players_Feedback.md`.
+- **Don't describe what an earlier version of the model did in a reader-facing document.** v3 of "Valuing Players, Draft
+  Picks, and Prospects" explained the forecast, the chance of playing, the price line, term and the control-season cost
+  against the model's earlier projection, its trailing-WAR price line and the qualifying-offer chain. Thomas: "If you were
+  someone reading this paper, would you give a shit what a model that doesn't exist did? No"; "What's important is
+  defending the parameters used in the model as it exists and describing how and why they are used" (2026-10-21).
+  Defend each choice shortly by why it is right; an alternative tested against the model as it is may stay, briefly; a
+  superseded version, and anything no longer in any part of the model (the qualifying-offer chain), is not mentioned.
+- **Don't write a number without saying what it is.** "Start 1.1506 against 1.1611; one to five seasons ahead 1.3598
+  against 1.3689" drew: "I can just say random numbers too if I wanted to and act like they mean anything" (2026-10-21).
+  Name the measure and its unit each time a figure appears (the forecast's root mean squared error, in WAR per 82), and
+  say what a difference of that size means. "Best in the same test" is shown, not asserted.
+- **Don't leave a term in an adopted model that is not statistically significant without a reason Thomas has
+  accepted.** Position at p = 0.404 in the games share, age squared at p = 0.111 in the chance of playing and linear
+  production at p = 0.113 in the prospect model drew: "I'm getting tired of seeing things that aren't statistically
+  significant in these results" (2026-10-21). Before a table of an adopted regression goes to him, list each term with
+  p above 0.05 and either test dropping it or state why it stays; never show one in silence.
+- **Don't give a circular reason.** "The threshold used throughout the model" as the reason for a threshold, and "a
+  club holds an asset for the seasons it controls it", drew "Horribly circular reasoning" (2026-10-21). The reason is
+  what makes the choice right, not that the model makes it.
+- **Don't state a claim the document does not show.** "Goaltenders' WAR varies far more from season to season" and
+  "the signal was judged too weak": "You cannot simply state that, you need to show proof" (2026-10-21). Give the
+  figure, or a table, that shows it.
+- **Don't call an asset's value "surplus value".** Thomas: "I want to retire using Surplus Value in the document. The project
+  is literally called xNPV. We really should be using Expected Net Present Value and xNPV where appropriate" (2026-10-22).
+  An asset's value at a valuation date is its expected net present value (xNPV); a drafted player's played career is its net
+  present value (NPV), and a prospect's outcome his remaining NPV; one season's value less its cost is its net value.
+- **Don't label a column or a date by what it should hold; read what the code puts there.** "Valuing Players" v4 headed
+  Sissons's column "WAR per 82" when `pick_curve.py` stores season WAR with only the league's shortened seasons scaled, and
+  said his control ended after 2021-22 when `price()` stops at `window_end - 1`, 2020-21 (found by an outside review,
+  2026-10-22). Name the measure from the line that computes it, and a season range from the loop that walks it.
+- **Don't write "last" for the most recent season.** Thomas: "Most recent ... to avoid confusion between last meaning
+  previous and last meaning final" (2026-10-21).
+- **Don't run several tested figures through a paragraph.** Four errors and two p-values in prose drew "Shit like this
+  is where a table is helpful" (2026-10-21); so did a list of five comparable players with their weights.
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised

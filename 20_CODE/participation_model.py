@@ -61,9 +61,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import forecast_config as C
 from player_season_table import norm_name
 
-SCRIPT_VERSION = "1.8"
+SCRIPT_VERSION = "2.0"   # 2.0 (2026-10-21, Thomas): no age squared, no seasons since debut; age centred at 27.22; 1.9 (2026-10-19): contract seasons from contract_source.contract_terms   # 1.9 (2026-10-19): contract seasons from contract_source.contract_terms
 
-BASE_FEATURES = ["age", "age_sq", "level", "gp_share", "exp_seasons", "is_D"]
+# v2.0 (Thomas, 2026-10-21, on 25_TESTS/forecast_term_audit.py v1.2): age squared (not statistically significant in
+# any of 13 seasons ahead, p 0.111 to 0.981) and seasons since his debut (not in 7 of 13) dropped; held out, season
+# WAR 0.8054 against 0.8064 with the games share's defenceman term also out (p < 0.001). The no-contract-record marker
+# is kept: it fails in 6 of 10 seasons ahead, but dropping it worsens season WAR (p = 0.006).
+BASE_FEATURES = ["age", "level", "gp_share", "is_D"]
 CONTRACT_FEATURES = ["under_contract", "contract_unknown"]
 FEATURES = BASE_FEATURES + CONTRACT_FEATURES
 MIN_FIT_ROWS = 400
@@ -81,6 +85,13 @@ def contract_spans(contracts: pd.DataFrame) -> pd.DataFrame:
     `season` field. That is the production engine's locked fix: the `season`
     field is unreliable for active multi-year deals, and taking it at face
     value would put some contracts in the wrong years entirely.
+
+    v1.9 (2026-10-19; Thomas: "Everywhere, re-lock", "Full term until buyout"): the span comes from
+    contract_source.contract_terms, the one rule every script uses. It is that fix for all but the 38 deals that
+    ended early: a bought-out deal's export END is its last season played but its LENGTH the full term, so the old
+    span started it seasons before it was signed. Such a deal now starts at its first season and runs to its signed
+    end (`signed_end_yr`) for a decision dated before the buyout became known (`off_contract`), to its last season
+    played (`end_yr`) after it (under_contract_at).
     """
     from contract_source import POSGRP
     c = contracts.copy()
@@ -88,19 +99,34 @@ def contract_spans(contracts: pd.DataFrame) -> pd.DataFrame:
     name = war_full_name(c, c["first_name"].astype(str).str.strip() + " "
                          + c["last_name"].astype(str).str.strip()).map(norm_name)
     c["pkey"] = name + "|" + c["position"].map(POSGRP).astype(str)
-    c["end_yr"] = pd.to_numeric(
-        c["contract_end"].astype(str).str.extract(r"^(\d{4})")[0], errors="coerce")
-    c["start_yr"] = c["end_yr"] - c["length"] + 1
+    from contract_source import contract_terms
+    t = contract_terms(c)
+    c["start_yr"], c["end_yr"] = t["first_yr"], t["last_played_yr"]
+    c["signed_end_yr"], c["off_contract"] = t["signed_end_yr"], t["off_contract"]
     c["signed"] = pd.to_datetime(c["signing_date"], errors="coerce")
     return c.dropna(subset=["pkey", "start_yr", "end_yr", "signed"])[
-        ["pkey", "start_yr", "end_yr", "signed", "contract_level", "signing_status"]]
+        ["pkey", "contract_id", "start_yr", "end_yr", "signed_end_yr", "off_contract", "signed",
+         "contract_level", "signing_status"]]
 
 
 def under_contract_at(spans: pd.DataFrame, as_of: pd.Timestamp,
                       seasons) -> pd.DataFrame:
     """(pkey, season) -> was he under contract for that season, as known on
     `as_of`. Only deals signed on or before the decision date are visible."""
-    known = spans[spans["signed"] <= as_of]
+    known = spans[spans["signed"] <= as_of].copy()
+    if "signed_end_yr" in known.columns:
+        # v1.9: a deal that ended early covers its signed term until its buyout is known; a deal replaced by a later
+        # one (signed after it, by the decision date, starting inside its span) ends the season before that one
+        # starts (skater_forward_projection.contract_spans_at, the valuation's rule)
+        before = known["off_contract"].notna() & (as_of < known["off_contract"])
+        known["end_yr"] = known["end_yr"].where(~before, known["signed_end_yr"])
+        k = known[["pkey", "contract_id", "start_yr", "end_yr", "signed"]]
+        pr = k.merge(k, on="pkey", suffixes=("", "_b"))
+        pr = pr[(pr["contract_id"] != pr["contract_id_b"]) & (pr["signed"] < pr["signed_b"])
+                & (pr["start_yr"] <= pr["start_yr_b"]) & (pr["start_yr_b"] <= pr["end_yr"])]
+        cut = pr.groupby("contract_id")["start_yr_b"].min() - 1
+        known["end_yr"] = known["end_yr"].where(~known["contract_id"].isin(cut.index),
+                                                known["contract_id"].map(cut))
     rows = []
     for s in seasons:
         cov = known[(known["start_yr"] <= s) & (known["end_yr"] >= s)]
@@ -246,8 +272,8 @@ class ParticipationModel:
             "exp_seasons": anchors["exp_seasons"].to_numpy(float),
             "is_D": anchors["is_D"].to_numpy(float),
         })
-        d["age_sq"] = (d["age"] - 27.0) ** 2
-        d["age"] = d["age"] - 27.0
+        d["age_sq"] = (d["age"] - C.AGE_CENTRE) ** 2     # v2.0: no longer a feature; kept for finished tests
+        d["age"] = d["age"] - C.AGE_CENTRE                # v2.0: centred at 27.22 (was 27)
 
         d["t0"] = anchors["t0"].to_numpy()
         # THE DATE CONTRACT STATE IS READ AT. By default 1 July of each row's

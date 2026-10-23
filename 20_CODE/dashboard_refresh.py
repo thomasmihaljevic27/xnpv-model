@@ -93,7 +93,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "dashboard_refresh.py v1.2 (2026-10-14)"
+SCRIPT_VERSION = "dashboard_refresh.py v1.3 (2026-10-21)"   # v1.3: goalie_birthdates.py before the goalie engine
 
 CODE_DIR = Path(__file__).resolve().parent
 REPO = CODE_DIR.parent
@@ -114,6 +114,9 @@ CHAIN = [
     ("elc_signing_dates.py",
      ["elc_signing_dates.csv", "elc_signing_dates_log.txt"],
      "entry-level signing years"),
+    ("goalie_birthdates.py",           # 2026-10-21: goaltenders' birthdates from the NHL (cached; fetches only if missing)
+     ["goalie_birthdates.csv", "goalie_birthdates_log.txt"],
+     "goalie birthdates"),
     ("goalie_value_engine.py",
      ["goalie_value_spine_v2.csv", "goalie_value_engine_run_log.txt"],
      "goalie observed-season value"),

@@ -168,7 +168,11 @@ def build_transitions(war_path, age_path, name_col="Player",
     contract_npv.py, so the NPV engine can never drift from the documented
     estimation. Works for the goalie panel too (name_col="Goalie",
     age_path=None -- goalie ages ride in from the contract spine later)."""
-    war = pd.read_csv(war_path)
+    if name_col == "Goalie":                     # 2026-10-21: the two Matt Murrays kept apart
+        import contract_source as _CS
+        war = _CS.read_goalie_war(war_path)
+    else:
+        war = pd.read_csv(war_path)
     war["syr"] = war["Season"].str.split("-").str[0].astype(int) + 2000
     # team-split seasons collapse to one row per player-season, WAR summed
     war = (war.groupby([name_col, "syr"], as_index=False)

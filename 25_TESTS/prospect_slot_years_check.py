@@ -51,7 +51,7 @@ import pandas as pd
 import statsmodels.api as sm
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "prospect_slot_years_check.py v1.1 (2026-10-15)"
+SCRIPT_VERSION = "prospect_slot_years_check.py v1.3 (2026-10-18)"   # v1.3: rows past club control left out; v1.2: no draft-year terms
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "20_CODE"))
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
@@ -97,19 +97,20 @@ for r in p.itertuples():
             taken = (before["season"] >= y - GOALIE_BACK).any()            # any NHL game (rows exist only if gp > 0)
         else:
             taken = ((before["season"] >= y - SKATER_BACK) & (before["gp"] >= SKATER_GP)).any()
+        # v1.3 (2026-10-18, the bug sweep): a season past the end of his club control (pick_curve window_end) is not a
+        # prospect row: its remaining surplus is zero by construction, and prospect_values.py values such a prospect at
+        # zero by rule, so the fit must not learn from it (116 rows, all four or more seasons after the draft)
         rows.append({"draftYear": r.draftYear, "pick": r.pick, "player": r.player, "is_goalie": r.is_goalie,
-                     "p_star": r.p_star, "k": k, "season": y, "prospect": not taken,
+                     "p_star": r.p_star, "k": k, "season": y, "prospect": (not taken) and y < r.window_end,
+                     "past_control": y >= r.window_end,
                      "nhl_games_before": float(before["gp"].sum()),
                      "remaining_M": float(mine.loc[mine["season"] >= y, "sur_M"].sum())})
 d = pd.DataFrame(rows)
 
 
 def fit(frame, cluster=False):
-    """pick_curve.fit_scale on remaining surplus: through zero, sum-to-zero draft-year columns."""
-    cl = sorted(frame["draftYear"].unique())
-    yrs = frame["draftYear"].values
-    X = np.column_stack([frame["p_star"].values]
-                        + [(yrs == c).astype(float) - (yrs == cl[-1]).astype(float) for c in cl[:-1]])
+    """pick_curve.fit_scale on remaining surplus: through zero, no draft-year terms (v1.2)."""
+    X = np.column_stack([frame["p_star"].values])
     if cluster:
         groups = pd.factorize(frame["draftYear"].astype(str) + "-" + frame["pick"].astype(str))[0]
         m = sm.OLS(frame["remaining_M"].values, X).fit(cov_type="cluster", cov_kwds={"groups": groups})
@@ -139,7 +140,7 @@ log("\nWHO IS A PROSPECT, by seasons since the draft (drafted players 2007-2017)
 for k, g in d.groupby("k"):
     log(f"  {k}: {len(g):5,} players; prospects {int(g['prospect'].sum()):5,}; player model {int((~g['prospect']).sum()):4,}")
 
-log("\nSTAR VALUE FOR A PLAYER STILL A PROSPECT ($M at the 2025-26 cap; through zero, draft-year indicators)")
+log("\nSTAR VALUE FOR A PLAYER STILL A PROSPECT ($M at the 2025-26 cap; through zero, no draft-year terms)")
 log(f"  #1 pick: star chance {P1:.4f}. Left-out range: the star value with each draft left out in turn.")
 for r in o.itertuples():
     log(f"  {r.seasons_since_draft:>2} seasons: star value {r.star_value_M:6.2f} (se {r.se_M:.2f}); #1 pick "

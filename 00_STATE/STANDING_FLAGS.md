@@ -15,6 +15,23 @@ scale knowable at each trade. DECIDED then SUPERSEDED (Thomas, 2026-10-09): one 
 beyond 2015-2016 (pick_review_checks.py); the knowable scale was
 pooled reported as the sensitivity.
 
+**FIXED 2026-10-20 (Thomas: "Fix the QO look ahead"; `rfa_terminal_value.expiry_known`): 20 traded assets moved,
++$10.12M; 126 panel pages, +$46.1M. Kept as a record.** **The forecast reads a later non-qualification (look-ahead, found 2026-10-20).** `rfa_terminal_value.terminal_value`
+returns zero control years when the contract's PuckPedia expiry is "UFA no QO". That label records the club's decision
+at the contract's end, so a contract valued before then sees a decision not yet made. Up to 68 traded-player assets have
+a contract running at their page with the label (Hartman 2019-02-25, Donato, Duclair, Guhle); the panel's contract
+pages carry it too. Not measured. The back-test's forecast side carries it (sessions/2026-10-20.md).
+
+**The back-test's outcomes share the forecast's source (2026-10-20).** Delivered value is priced from Bacon's WAR, as
+the forecast is. **Game Value check RUN 2026-10-20** (`backtest.py` v1.5, `25_TESTS/backtest_gv_compare.py`): 9 results
+hold on GV-adj, 1 is not confirmed (the futures group below its forecast); club net wins agree r = 0.901. Cite with its
+limits: Bacon's league mean and spread set the scale; the contract line prices both; goalies and the 2026-27
+revaluation are not re-measured; the same games underlie both. Long-term injury relief is not modelled (Ryan Ellis, -$33.45M of
+the players' -$226.6M miss); BUILT 2026-10-20 (`ltir.py`, Spotrac's pages, "Label + CBA test"): Ellis's outcome
+-$2.19M, the players' shortfall gone. Limits: the CBA reading relieves IR spells at clubs below the cap that may never
+have used LTIR; Spotrac's dates are approximate (end dates can stop a game or two short); part of a season's LTIR relief
+is lost to the CBA's pool rules (cap space at placement), which "All of it" leaves out.
+
 **Picks and players are costed differently (identification, 2026-10-09).** A drafted player is charged
 the entry-level maximum then qualifying offers; a rostered player is charged his actual cap hit. The
 chain under-charges: actual pay over the control window runs 3.2x the chain for picks 1-10 and 2.1x for
@@ -119,6 +136,9 @@ report of it must say the pages were not unseen (ledger lines labelled CLOUD COD
   lost). Any report of the revalidation says it is the second scored use of these pages.
 
 **Draft and prospect stock-take, 2026-09-28k.** New and corrected flags:
+- **RESOLVED 2026-10-21: goaltender birthdates complete** (`goalie_birthdates.py` v1.0: the NHL's records for 277 of 280
+  goaltenders, PuckPedia's for the other three; the two agree on all 1,193 goaltender-seasons both cover; the two Matt
+  Murrays told apart). The flag as it stood:
 - **Goalie birthdates, counted (corrects "109").** 98 of the 280 goalies in `Goalies_WAR.csv` have no
   birthdate (goalie ages come only from contract-export birthdates matched by name); 93 of them were
   last seen before 2018; 356 of 772 goalie-seasons 2007-08 to 2016-17 lack an age. "109" was the
@@ -1268,7 +1288,7 @@ rate-adjacent, since the anchor feeds the projection that feeds the price equati
 - Forced-trade detection rule not yet implemented. UPPER BOUND established 2026-06-30: 53 of 205 clean trades carry a clause-holder flag, but presence of a clause is not proof it caused the move.
 - **No data path yet for the NTC/NMC friction-cost discount** (carried forward from the retired `00_Immediate_Work.md`, 2026-07-29). This is headline contribution one and the only one still data-blocked: the cap-space.com scrape produced clause *coverage* but nothing yet supports a revealed-preference estimate of what a no-trade/no-move clause costs an asset. Distinct from the forced-trade detection rule above — that's about identifying which trades a clause caused; this is about pricing the clause itself. Self-contained, parallelisable with Phase 4c retention pricing.
 - **In-season production is not used before a trade (NEW 2026-09-13).** The model re-values once per season, so a trade in game 81 is valued on the page built before that season began. Phase 4a-ii splits realized season value around the trade date; it does not update the forecast. The obstacle is identification, not effort: Bacon WAR exists only as season totals, and scaling the finished total by pre-trade game shares uses post-trade games (look-ahead). An in-season update would have to come from Game Value alone, which needs a scoped exception to single-provider discipline and is weak for defencemen. Proposed, not decided: keep the annual clock as the main specification and run a GV-based in-season anchor as a robustness leg.
-- Point-in-time metric availability: single current-vintage export, no archived season snapshots. The 2018 window limits but does not remove look-ahead. The constraint Karl is most likely to press; mitigated, not solved.
+- Point-in-time metric availability: single current-vintage export, no archived season snapshots. The 2018 window limits but does not remove look-ahead. The constraint Karl is most likely to press; mitigated, not solved. (Added 2026-10-18, the bug sweep: the same holds for the prospect model's NHL-equivalence factors. `nhle_temporal.csv` is one download (2026-05-24) of Bacon's era-varying factors, and a season's factor is estimated partly from later seasons, so a prospect valued at a trade reads a factor that was not available then. Not measured.)
 - Long-term deals crossing UFA eligibility need separate terminal-value handling.
 - Outcome-measurement design: the realized-outcome window and playoff-vs-regular-season weighting are not fixed (a Cup rental != a seven-year accumulator).
 - Efficient-market null not yet stated as a possible finding (Work Queue Phase 6).

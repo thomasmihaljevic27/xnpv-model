@@ -3335,3 +3335,433 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   Thomas's commented copy committed. Not yet run on the laptop. No locked decision (D1-D33) touched.
 - CLAUDE.md: five rules (name a model by its terms; draft position, not slot; a cumulative share's base; no argument
   that rests on a section not yet read; a measure described by what it compares). `sessions/2026-10-15c.md`.
+
+### Change log, 2026-10-16 (one stacked regression; Thomas's 10 notes on "Valuing Prospects")
+
+- Thomas: "Just make the regression actually be the interaction terms." `prospect_values.py` v1.8 fits the star values
+  and the production-and-age model as one regression with the full set of interaction terms (`fit_stacked`), errors
+  clustered by player; coefficients and values unchanged (guarded). MODEL_DIRECTIVES directive 6.
+- `prospect_doc_figures.py` v2.2 (every table from the stack; D+5-and-later joint tests), `prospect_model_doc.js` v2.2
+  (his edits and notes). Thomas's commented copy committed. Not yet run on the laptop. No locked decision touched.
+- CLAUDE.md: four rules (build the method asked for, not an equivalent; "statistically significant", not
+  "reliable"; a rejected alternative is called one; a table's baseline named by its terms). `sessions/2026-10-16.md`.
+
+### Change log, 2026-10-16b (the laptop: git repaired; prospect chain run; "Valuing Prospects" rebuilt)
+
+- Git: an interrupted pull's leftover merge state cleared and the cloud commit a63f158 merged in (1b1d86f; no file
+  changed). The laptop lacked the other computer's Elite Prospects database and CapWages caches (star value 17.72 against
+  18.04); Thomas copied `30_OUTPUT` and `10_SOURCE`; the signing-date and pick-curve logs then matched line for line and
+  the traded prospects came back at $70.39M.
+- `contract_source.py` 1.2 `parse_export_dates()`: PuckPedia dates in either style, guarded; `prospect_values.py` v1.9,
+  `buried_contract_values.py` v1.3, `page_2017_values.py` v1.1. No value change.
+- "Valuing Prospects" rebuilt; every guard PASS; Table 6's note corrected (draft position is negative and significant
+  from D+5 on, p = 0.028). D+5-and-later joint test: production and its square p = 0.089; all three terms p = 0.182.
+  WORK_QUEUE, PROJECT_STATE (prospect row). No locked decision (D1-D33) touched. `sessions/2026-10-16b.md`.
+- `25_TESTS/prospect_term_combinations.py` v1.0 (report only): every combination of draft position, production,
+  production squared and the age discount from D+5 on. None beats the adopted model or draft position alone at 5%;
+  values $0.24M to $26.51M against $18.97M. Found: the D+5-and-later star value ($2.01M) is goaltenders' signal
+  (skaters $0.16M, p = 0.64; goaltenders $19.35M, p < 0.001). CLAUDE.md: one rule (a pooled estimate quoted for a
+  subgroup).
+- Decided (Thomas): D+5-and-later skater prospects keep the adopted model (production and its square). MODEL_DIRECTIVES
+  directive 6; WORK_QUEUE (goaltender prospects parked for later, in Thomas's words). No code change.
+- "Valuing Prospects": "rule" -> "alternative" in Figure 2 and Table 3 (Thomas: "go with alternatives"); builder and
+  figures v2.3, rebuilt.
+- "Valuing Prospects" v2.4: Thomas's concision edits (13 of 14 as proposed, one cut further) and his Section 1
+  comments; 5,625 -> 4,928 words of prose and captions. One intercept for the pick curve and the prospect model:
+  measured, not built; awaiting Thomas (traded picks +9.5%).
+- Decided (Thomas): no intercept and no draft dummies in the pick curve and the prospect model (the pick curve's open
+  regression form). `pick_curve.py` v1.7, `prospect_values.py` v1.10, seven document tests; star value $18.04M,
+  traded picks $401.6M, traded prospects $75.60M. "Valuing Prospects" v2.5. MODEL_DIRECTIVES directive 6,
+  WORK_QUEUE, PROJECT_STATE. No locked decision (D1-D33) touched.
+- `40_DOCS/Valuing_Prospects_Feedback.md`: Thomas's notes on "Valuing Prospects" in five rounds, with themes and
+  checks for the next draft; CLAUDE.md's document rule points to it.
+
+### Change log, 2026-10-16c ("Valuing Players, Draft Picks, and Prospects")
+
+- New document `40_DOCS/Supervisor_Drafts/Valuing Players, Draft Picks, and Prospects.docx` (20 pages), the write-up
+  the supervisor asked for on 2026-10-15: the three models on one scale, each regression with its formula and a table
+  that adds terms one at a time, the Pacioretty trade carried through. Built by `25_TESTS/model_doc.js` v1.0 from
+  `25_TESTS/model_doc_figures.py` v1.0 (every guard PASS). No model code changed; no locked decision (D1-D33) touched.
+- `30_OUTPUT/traded_player_values.csv` refreshed on this laptop (`traded_player_values.py`, then `rights_values.py`):
+  it predated today's rebuilt signing dates and birthdates; 321 of 523 values moved by at most $229.
+- Found, for Thomas: the pick curve's draft intercepts are jointly significant (p = 0.017); the goaltender control
+  weight measures 0.767 (recorded 0.775); the goaltender price line is fitted on trailing WAR but prices the pulled
+  forecast; how the back-test counts an extension signed at a trade, and at which cap it adds the three asset kinds,
+  is not decided. WORK_QUEUE, PROJECT_STATE (goalie control weight). `sessions/2026-10-16c.md`.
+
+### Change log, 2026-10-18 (bug sweep before the three models are joined)
+
+- A sweep of the live code behind player, pick and prospect values and their joins, asked by Thomas before the
+  back-test. No code changed; no locked decision (D1-D33) touched. The trade-valuation chain was re-run on a scratch
+  copy of 30_OUTPUT and reproduces the laptop's files (guards pass; the 2017 page within $60 an asset).
+- Found, for Thomas to decide (WORK_QUEUE, `sessions/2026-10-18.md`): contracts signed after an in-window trade are
+  valued as part of it (26 assets, -$52.63M); the draft linkage misses four drafted players spelled differently in WAR;
+  the forecast's season table ages 12 players born September 16-17 a year too old in 49 seasons; the files to be joined
+  sit at two caps, 17 assets appear in two of them and 6 in none; smaller points listed there.
+- Finding 1 built on the local branch `claude/rights-for-unsigned-trades` (`traded_player_values.py` v1.1,
+  `rights_values.py` v1.2), not adopted: a trade made before the player signed his page contract is valued as rights.
+  The 26 assets: -$52.61M to +$2.16M at their pages' caps; nothing else moves. Awaiting Thomas.
+
+### Change log, 2026-10-18b (rights for players traded before they signed: adopted)
+
+- DECISION (Thomas, 2026-10-18, after the 26 values before and after were shown: "great, implement"): a traded player
+  whose contract for the page's season was signed after the trade is valued as rights, by `rights_values.py`'s rule
+  (restricted: control years from the page; unrestricted: zero), for every trade, not only those after the regular
+  season (extends 2026-10-14p). `traded_player_values.py` v1.1, `rights_values.py` v1.2 (commit 78ce479). Laptop
+  outputs re-run and equal to the scratch run: 26 assets -$52.61M -> +$2.16M at their pages' caps; priced traded
+  players -$780.67M -> -$725.89M; 4 assets without a forecast change label only; buried contracts unchanged.
+- Finding 2 built on the local branch `claude/linkage-spellings` (`draft_pick_linkage.py` v1.2, sixteen verified
+  aliases; `prospect_age_look.py` v1.4), not adopted. Star value 18.0400 -> 18.0396; traded picks $401.580M ->
+  $401.571M; traded prospects $75.601M -> $75.688M. Correction: the sweep said O'Regan's 2018 trade was misrouted as
+  a prospect; he had 3 NHL games before that season and is a prospect. Only Brown's 2020 trade is.
+
+### Change log, 2026-10-18c (draft linkage spellings: adopted)
+
+- DECISION (Thomas, 2026-10-18: "Adopt the linkage fix"): `draft_pick_linkage.py` v1.2, sixteen hand-verified alias
+  entries (commit bc8db88); `prospect_age_look.py` v1.4 (row fingerprint 8cb34e6c56c4). The draft and prospect chain
+  re-run on the laptop equals the tested run in all 18 files. Star value $18.0396M (was 18.0400; se 1.75); traded
+  picks $401.57M; traded prospects 196 drafted assets $69.88M (slot alone $57.95M), 53 undrafted $5.80M, all $75.69M;
+  Joshua Brown's 2020-10-02 trade is the player model's (RFA rights, $0.00). PROJECT_STATE figures in force; CLAUDE.md
+  notes the four document tests that reproduce only from git before bc8db88. On this laptop `contracts_2017.csv` and
+  `page_2017_values.csv` are now rebuilt here (the stored-path defect itself is not fixed).
+- Finding 3 built on the local branch `claude/september-ages` (`player_season_table.py` v1.5: integer age counted on
+  the calendar), not adopted. Price line and floor spread re-fit inside their locks' tolerance. Tkachuk's 2021 page
+  +$4.54M, Matthews 2021 +$1.82M; star value 18.0396 -> 18.0144; traded players +$0.80M. Awaiting Thomas.
+
+### Change log, 2026-10-18d (the season table's calendar ages: adopted, locks kept)
+
+- DECISION (Thomas, 2026-10-18: "Adopt the age fix and keep both locks"): `player_season_table.py` v1.5 counts the
+  integer age as the years completed by September 15 (commit 64cfb00). `XNPV1_RATE`, `XNPV1_RATE_TERM_FREE` and
+  `WAR_IF_PLAYS_MAE` are kept: re-fitted on the corrected ages they come back inside their guards (gaps 1.6e-05 and
+  3.1e-05 against a tolerance of 5e-05; the spread by at most 0.0008). No locked decision (D1-D33) reopened.
+- Laptop: `dashboard_refresh.py --no-open` (11 of 11 steps, 18.8 min), then the draft, prospect and trade chain; all
+  18 outputs equal the tested scratch run. Panel 7,904 pages, total $-13,349.77M; star value
+  $18.0144M; traded picks $401.01M; traded prospects $69.86M drafted, $5.80M undrafted;
+  priced traded players $-725.09M. PROJECT_STATE figures in force and refresh date updated.
+- Finding 4 built on the local branch `claude/join-files` (`trade_asset_values.py` v1.0 new; `contract_npv.py` v2.8,
+  labels only; `page_2017_values.py` v1.2, one cap), not adopted. 1,561 traded assets, 1,557 valued; Borgstrom's and
+  Aberg's rights now valued ($0.47M, $0.00). Awaiting Thomas, with the CapWages fetch and the cap rule.
+
+### Change log, 2026-10-18e (the trade files joined: adopted; two CapWages pages fetched)
+
+- DECISION (Thomas, 2026-10-18: "Adopt the join ... Also fetch the CapWages pages for J.T. Miller and Greg McKegg"):
+  `trade_asset_values.py` v1.0, `contract_npv.py` v2.8 (labels only), `page_2017_values.py` v1.2 (one cap), commit
+  78ce479. Laptop run equals the tested run (traded players, rights, buried contracts, audit, 2017 page, the join;
+  `contracts_2017.csv` differs only in its stored page paths).
+- `contracts_2017.py` v1.1, to carry out the fetch: a cached page listing no contract counts as missing, a page with
+  contracts is preferred when two caches hold one, and `--only` limits a fetch to named players (without it the fetch
+  would also have requested Josh Archibald's page, which was not approved). Fetched: Greg McKegg (still no contracts
+  on CapWages); J.T. Miller from `capwages.com/players/j-t-miller` (the recorded `jt-miller` now answers 404; draft
+  line 2011 #15 checked). Miller on the 2017 page: -$0.57M (2017-18 cap), -$0.73M (2025-26 cap).
+- 1,561 assets (927 players, 634 picks), 1,558 valued; at the 2025-26 cap players $-929.40M, picks $401.01M. Not valued: Mike Sislo (no NHL id), Greg McKegg (no contract on CapWages), Adam Chapie (position unknown;
+  under the burial allowance).
+
+### Change log, 2026-10-18f (finding 5: the smaller items)
+
+- Plain bugs fixed, no value moved (commit 68d2bff): the CBA age on the calendar (`rfa_terminal_value.cba_age`, in
+  `pick_curve.py` v1.8, `contract_npv.py` v2.9, `rights_values.py` v1.3); `page_2017_values.py` v1.3 (pages found
+  locally; buried rule from the page on, ex-ante caps); `buried_contract_values.py` v1.4 (ex-ante caps); `trade_page.py`
+  docstring; STANDING_FLAGS notes the NHLe table's single vintage. Laptop re-run: 17 outputs unchanged.
+- Built, not adopted: prospect fits inside club control (branch `claude/prospect-control-rows`). Found, for Thomas: 22
+  "lapsed" picks signed by the drafting club (star value +0.43% if counted). No locked decision (D1-D33) touched.
+
+### Change log, 2026-10-18g (prospect fits inside club control: adopted)
+
+- DECISION (Thomas, 2026-10-18: "Adopt the prospect-fit change"): `prospect_values.py` v1.11,
+  `prospect_slot_years_check.py` v1.3, `prospect_age_look.py` v1.5 (commit 3cf849d). A season past club control is not
+  a fit row. Laptop re-run of the prospect and trade chain matches the tested run's recorded figures: star value D+5 on
+  1.9440 (was 1.9343); 12,996 training rows; 170 traded prospects move, all D+5 on, at most $0.046M; traded prospects
+  $76.15M (drafted $70.19M, undrafted $5.96M); traded players, rights, buried contracts and the 2017 page unchanged; the
+  join's total -$527.91M at the 2025-26 cap. PROJECT_STATE figures in force updated. The four finished document tests
+  pinned to older prospect rows reproduce only from git before bc8db88 (CLAUDE.md).
+
+
+### Change log, 2026-10-18h (one runner for the draft, prospect and trade chain)
+
+- `trade_refresh.py` v1.0 (new; the name Thomas's): runs the 17 steps from `draft_pick_linkage.py` to
+  `trade_asset_values.py`, with the five `25_TESTS/` checks the scripts guard against, and stops at the first step that
+  exits with an error, prints a guard failure, prints no version line, or leaves an output unwritten. No script and no
+  value changed. Tested into a copy of 30_OUTPUT: 17 of 17 passed (8.1 min); 23 of the 24 data files byte-identical to
+  the laptop's, `contracts_2017.csv` different only in its stored page paths, the logs only in their input-path and
+  write-time lines. CLAUDE.md run list, PROJECT_STATE inventory, WORK_QUEUE item 5 and MANIFEST updated. No locked
+  decision (D1-D33) touched.
+
+### Change log, 2026-10-19 (picks signed by the drafting club keep their surplus)
+
+- DECISION (Thomas, 2026-10-19: "Count the 22 ... and treat P.O. Joseph as traded"): `elc_signing_dates.py` v1.2 records
+  the entry-level signing club; `pick_curve.py` v1.9 keeps a pick whose player signed his entry-level deal with the
+  drafting club (route "signed by the drafting club") and matches Joseph's 2019 trade (commit e1e4f60). Refines the
+  2026-10-09 lapsed-rights decision (MODEL_DIRECTIVES directive 6). Run on a scratch copy, then on the laptop with
+  `trade_refresh.py` (17 of 17 steps); all 20 outputs equal the scratch run.
+- Figures: 20 picks kept (net $+8.33M; Driedger +$6.98M, Hickey +$4.34M, Gazdic -$1.78M); star value
+  18.0144 -> 18.0928 (without 2015-2016 15.6842 -> 15.7792); traded picks $401.01M -> $402.75M;
+  prospect star values 18.09/17.81/16.00/9.29/2.51; traded prospects $76.15M -> $76.51M; traded players, rights, buried
+  contracts and the 2017 page unchanged. Hutchinson stays lapsed (PuckPedia's mislabelled entry-level date; separate).
+- Built, not adopted: `elc_signing_dates.py` v1.3 (branch `claude/elc-date-check`): entry-level dates after the first
+  NHL season ended set aside (six). Hutchinson kept (+$3.34M); star value 18.0928 -> 18.0975. Awaiting Thomas.
+
+### Change log, 2026-10-19 (should the age discount reach production squared? report only)
+
+- `25_TESTS/prospect_age_form_look.py` v1.0 (new), asked by Thomas: why age discounts production through its own term
+  rather than the production terms already in the model. Four forms against the adopted one on the age test's rows
+  (D+1 to D+4): production squared x age added; it in place of production x age; one discount on all of production;
+  age-adjusted points in both terms. None predicts better at the 5% level (one-sided p 0.16 to 0.43; held-out error
+  -0.02% to -0.12%); in sample the square's discount is statistically significant (p = 0.0027). The centre of age moves
+  no verdict. Traded drafted prospects $70.51M move by -$0.75M to +$0.12M. Recorded in sessions/2026-10-19.md; WORK_QUEUE
+  item added for Thomas's decision; MANIFEST row. No code in 20_CODE/, no MODEL_DIRECTIVES.md section and no locked
+  decision (D1-D33) touched.
+
+### Change log, 2026-10-19b (the age-form test merged; the age discount kept; formulas written in full)
+
+- Branch `claude/gifted-hypatia-65fd41` (commit c263a54, the age-form test) merged into main on Thomas's say (merge
+  64dd682; the one conflict, this change log, kept both 2026-10-19 entries).
+- DECISION (Thomas, 2026-10-19: "For the form of the prospects age discounting I'm content with what we have then"):
+  the prospect model's age discount stays on production alone. Recorded in MODEL_DIRECTIVES directive 6 (prospects,
+  age); the WORK_QUEUE item is closed. No code change.
+- CLAUDE.md: new rule, write every model's formula in full with its discount shown (Thomas, after asking why picks and
+  prospects are not discounted; they are: cap-share sums, where 3% cap growth and 3% discounting cancel, D11 and D17).
+  Session log sessions/2026-10-19b.md. No locked decision (D1-D33) touched.
+
+### Change log, 2026-10-19c (entry-level dates after the first NHL season set aside: adopted)
+
+- DECISION (Thomas, 2026-10-19: "Adopt the entry-level date check"): `elc_signing_dates.py` v1.3 (commit 718e541). An
+  entry-level deal is signed before the player's first NHL season ends; a later date is set aside and the other source's
+  date used, else the first NHL season stands in as before. Six set aside (PuckPedia's 2018 "entry_level" deals for
+  Hutchinson, Donovan, Ullstrom and McNeill; CapWages dates for Yakupov and Rask). Laptop `trade_refresh.py`: 17 of 17
+  steps; all 20 outputs equal the tested scratch run.
+- Figures: Hutchinson (2008 #77) signed by the drafting club, +$3.34M; Donovan -$0.87M (was -$1.11M); Ullstrom -$0.58M
+  (was -$0.84M); 21 picks now kept as signed by the drafting club. Star value 18.0928 -> 18.0975 (without
+  2015-2016 15.7849); traded picks $402.86M; prospect star values 18.10/17.82/16.02/9.32/2.54; traded prospects
+  $76.58M (drafted $70.57M, undrafted $6.01M); traded players, rights, buried contracts and
+  the 2017 page unchanged; the join $-525.63M at the 2025-26 cap. PROJECT_STATE figures in force updated.
+
+### Change log, 2026-10-19d (the back-test's three accounting rules decided)
+
+- DECISIONS (Thomas, 2026-10-19), answering the three questions left by the bug sweep: (1) "2025-26": the back-test adds
+  every asset's value at the 2025-26 cap; (2) "Yes, include retained salary"; (3) "Yes, account for in-season trades".
+  Recorded in WORK_QUEUE with the counts (72 retained assets; 897 assets traded during a regular season). Not built yet:
+  the build details go to Thomas first. No locked decision (D1-D33) touched; (3) completes the July convention
+  "Mid-season trades charged prorated cap cost".
+
+### Change log, 2026-10-19e (the three back-test rules built, not adopted; a contract-table finding)
+
+- DETAILS (Thomas, 2026-10-19): the season left counts "Days left, value and cap"; prospects "No, keep the full season";
+  retained salary: "Retaining club pays it". Built on the local branch `claude/in-season-and-retention` (commit 8527b50):
+  `trade_page.season_left_share` (the last day from the schedule published before the season: 2019-20 April 4, 2020-21
+  May 8, 2021-22 April 29; the last game played would let a 2020-02-24 valuation see the March 12 pause);
+  `contract_npv.py` v3.0 (`first_season_share`, `retained_pct`; defaults leave the panel and dashboard unchanged);
+  `traded_player_values.py` v1.2, `rights_values.py` v1.4, `buried_contract_values.py` v1.5, `page_2017_values.py` v1.4,
+  `trade_asset_values.py` v1.1 (one "retained salary" entry per retained asset, charged to the retaining club). Scratch
+  run 17 of 17: the join at the 2025-26 cap $-525.63M -> $-335.61M. Not adopted. No locked decision (D1-D33) touched;
+  completes the July convention "Mid-season trades charged prorated cap cost" on the value side as well.
+- FOUND: the contract table's cap-hit column (clause pipeline ahead of PuckPedia) carries another contract's figure on 143
+  season rows (83 contracts), places 59 rows (36 contracts) in seasons before signing, and leaves 55 player-seasons with
+  two contracts. Recorded in WORK_QUEUE for Thomas; not fixed.
+
+### Change log, 2026-10-19f (session 2026-10-19c: "Valuing Players, Draft Picks, and Prospects" v2)
+
+- DOCUMENT: v2 of the three-model write-up, after Thomas's reading of v1: the detail of the earlier supervisor documents,
+  each decision with its options and reasons, statistics, formulas and terms explained. `model_doc_figures.py` v2.0 (14
+  guards PASS; the price-line guards now within the lock's tolerance, 5e-5) and `model_doc.js` v2.0 build
+  `40_DOCS/Supervisor_Drafts/Valuing Players, Draft Picks, and Prospects.docx` (38 pages). No model change and no
+  figure in force moved; no locked decision (D1-D33) touched.
+- FOUND: 15 of the 87 valued traded players with a retention in `trades.db`'s row text have no retained amount in its
+  fields (Tatar among them); the retention rule on `claude/in-season-and-retention` reads the fields only. Queued for
+  Thomas. The draft intercepts' joint p is 0.020 on today's data (0.017 recorded 2026-10-16); the queue item is updated.
+- WORK_QUEUE: the read item now points at v2; the cap question removed from it (decided 2026-10-19); MANIFEST rows for
+  the three files updated. Committed to `main` from a separate worktree, because the working folder held another
+  session's branch (`claude/contract-dating`) and its uncommitted edits.
+
+### Change log, 2026-10-20 (contracts dated one way; PuckPedia's cap hit; price line re-locked; the back-test rules adopted)
+
+- DECISIONS (Thomas, 2026-10-19/20): the contract dating fix goes "Everywhere, re-lock" (the contract table, the
+  chance-of-playing model's contract coverage, both price lines' samples); "Full term until buyout" (a valuation dated
+  before a buyout sees the full signed term; the buyout is known from free agency's opening day after the last season
+  played); the cost is "PuckPedia's" cap hit, with "Clause data after year 1" on a late signing; then "Adopt both: lock
+  the re-fitted price line, bring both branches onto main, run dashboard_refresh.py and trade_refresh.py on the
+  laptop, check against the tested runs, and record it."
+- CODE (main, 4773efb to 4433672; the lock 4b65e49): `contract_source.py` v1.3, `join_clauses_to_spine.py` v2.1,
+  `skater_forward_projection.py` v2.2, `contract_npv.py` v3.1, `rfa_terminal_value.py` v2.8, `participation_model.py`
+  v1.9, `xnpv1_price_line.py` v2.3, `goalie_value_engine.py` (samples, cost, carry report), `buried_contract_values.py`
+  v1.6; the back-test rules as built 2026-10-19 (`trade_page.season_left_share`, `traded_player_values.py` v1.2,
+  `rights_values.py` v1.4, `page_2017_values.py` v1.4, `trade_asset_values.py` v1.1).
+- LOCK: `XNPV1_RATE` re-locked on the corrected sample: alpha -0.0043026112, beta 0.0175297693, beta_d_add
+  0.0039447231, gamma_term 0.0089105379, n 2,336, rows d9d1d82777bf; term-free 0.0081818739 / 0.0312216498 /
+  +0.0140759564. Sample 2,388, fingerprint 12490b6ee630. The 2026-10-14 crosswalk line is superseded.
+- CHECKED AGAINST: D33 (the xNPV 1 line, re-locked with Thomas's approval); participation's span, "the production
+  engine's locked fix" (end - length + 1), kept for every contract but the 38 that ended early; D28 (extensions count
+  from their signing date: unchanged rule); open decision 2 (`first_season_as_of`: unchanged rule, keyed on the chain's
+  new first contract); D14(c) (qualify rates: unchanged rule); D11 and D17 (3% growth and discount) unchanged. The cost
+  source had no recorded decision (the clause figure came first from the initial commit).
+- RESULT: the laptop's data files equal the tested runs. Panel: 3,158 of 7,852 player-pages move by more than $0.01M,
+  143 by more than $1M, sum $-236.47M; 3 pages gone. Trade join at the 2025-26 cap $-525.63M -> $-357.29M (contract fix
+  alone $-534.21M). Star value 18.18; traded picks $404.71M; all prospects $77.32M.
+- CORRECTED: three examples in the questions put to Thomas (Phaneuf's trade already charged through 2020-21 on the
+  2017 page; Pacioretty's disagreement is his 2023-24 Washington season; Lehner's $0 is a Vegas season). Session log
+  sessions/2026-10-18.md, its 2026-10-20 section.
+
+### Change log, 2026-10-20b (the 15 retentions kept only in the trade ledger's text)
+
+- DECISION (Thomas, 2026-10-20): "Charge the 15 retentions recorded only in the trade ledger's text: read each amount
+  from the row text, show me the values before and after, then adopt." `trade_page.retention()` reads the ledger's
+  fields where set (72) and the row text where not (15, every one with a decimal share the parser skipped), guarded
+  against each other; `traded_player_values.py` v1.3, `page_2017_values.py` v1.5, `buried_contract_values.py` v1.7,
+  `trade_asset_values.py` v1.2 read it. Laptop equals the tested run. The 15 acquirers $-73.27M -> $-54.02M, their
+  retaining clubs $-19.25M; the join total unchanged at $-357.29M; retained salary in all $-92.63M. No locked decision
+  (D1-D33) touched: it completes the retained-salary rule decided 2026-10-19. Session log sessions/2026-10-18.md.
+
+### Change log, 2026-10-20c (the three models put together; the back-test run)
+
+- DECISIONS (Thomas, 2026-10-20, asked before anything ran; each the recommended option): the outcome "Played + rest
+  re-valued" (seasons through 2025-26 as delivered, the rest by the same models at the 2026-27 page); the cost of control
+  and draftee seasons "The model's rule"; the statistic "Dollar gap per club", which reopens the July convention that
+  outputs are surplus ratios (Modeling conventions, "Outputs are surplus ratios"; flagged for review 2026-09-09); a
+  contract signed with the acquirer on the trade date "Leave the extension out" (closes the WORK_QUEUE Pacioretty item).
+- BUILT: `trade_sides.py` v1.0 (club sides, zero-sum, retention moved once); `traded_player_values.py` v1.4,
+  `page_2017_values.py` v1.6 (15 same-day contracts left out; join $-357.29M -> $-274.27M at the 2025-26 cap);
+  `pick_curve.py` v1.10 (2018-2025 drafts priced for the back-test, in no fit; the curve's outputs unchanged);
+  `40_DOCS/Backtest_Protocol.md` committed before the run (0d898b4), two amendments after the first run (buyouts,
+  spellings); `backtest.py` v1.2.
+- RESULTS (563 complete trades; sessions/2026-10-20.md has every figure): the forecast's verdict comes true on average
+  (slope 0.919 [0.746, 1.061]; the favoured club ahead in 57.2% of trades); players delivered less than forecast (mean
+  -$0.341M an asset, p = 0.001); the club taking picks and prospects for players gains in forecast and outcome (+$1.49M,
+  +$1.19M a side), a group the draftee costing flag bears on; buyers higher in the standings lose less than forecast
+  (+$0.32M, p = 0.014, one of nine tests). Not yet the Game Value check: no group finding is called systematic.
+- Locked decisions touched: the surplus-ratio convention (above, Thomas's choice). D11/D17 unchanged (realised seasons at
+  actual caps, as the pick curve). D13-D14(c) are forecast rules; the outcome uses whether he played. Session log
+  sessions/2026-10-20.md.
+
+### Change log, 2026-10-20d (the qualifying-offer look-ahead fixed; LTIR decided)
+
+- FIX (Thomas, 2026-10-20: "Fix the QO look ahead"): PuckPedia's "UFA no QO" is read only once the club's decision is
+  known (free agency open after the contract's last season); before that the expiry is RFA and the D14(c) gate prices
+  the walk-away. `rfa_terminal_value.py` v2.9 (expiry_known), `contract_npv.py` 3.2, `rights_values.py` v1.5 (on the
+  trade date), `page_2017_values.py` v1.7, `backtest.py` v1.3. Panel: 126 pages up, +$46.1M; traded assets: 20 up,
+  +$10.12M; back-test slope 0.918. This revisits the terminal value's "UFA or 'UFA no QO' -> zero" rule (rfa_terminal_value
+  rule 1) for valuations dated before the decision; after it, unchanged.
+- DECISIONS (Thomas, 2026-10-20): LTIR relief, "All of it", "Outcome + known at trade", from "a real LTIR log", Spotrac's
+  pages saved by Thomas. Directed, not built. Session log sessions/2026-10-20.md.
+
+### Change log, 2026-10-20e (LTIR relief built and adopted)
+
+- DECISION (Thomas, 2026-10-20): LTIR spells are "Label + CBA test": Spotrac's "Long-Term IR" spells and any IR spell
+  of 24+ days and 10+ team games (CBA 50.10). With the earlier choices ("Fetch a real LTIR log", "All of it", "Outcome +
+  known at trade"): `ltir.py` v1.0, `traded_player_values.py` v1.5, `page_2017_values.py` v1.8, `buried_contract_values.py`
+  v1.8, `backtest.py` v1.4. The join $-264.15M -> $-216.87M; the back-test's slope 0.741; the players' shortfall gone
+  (+$0.014M an asset, p = 0.92); futures-for-players' outcome minus forecast -0.48 (p = 0.031).
+- Locked decisions touched: D16(i) (a buried or injured player's cap hit counted in full) is departed from for LTIR
+  seasons, as Thomas directed: in the outcome for every LTIR day, in a trade's forecast for a player on LTIR when traded.
+  The contract panel and dashboard are unchanged (no LTIR in the contract chain). Session log sessions/2026-10-20.md.
+
+### Change log, 2026-10-20f (the Game Value check of the back-test)
+
+- RUN (Thomas, 2026-10-20: "Run the Game Value check on the back-test's outcomes, as the protocol says"): design and
+  verdict rule declared and pushed first (db3e04e); `backtest.py` v1.5, `25_TESTS/backtest_gv_compare.py` v1.0. The WAR
+  run reproduces v1.4 exactly. Verdicts: 9 hold on Game Value (the forecast predicts the outcome, slope 0.726 on GV-adj;
+  the futures-for-players club ahead; retained salary, nothing back, clause-holder groups), 1 not confirmed (the futures
+  group below its forecast), 9 were not WAR findings. Rate-free agreement of club net wins r = 0.901. No locked decision
+  touched: it runs the locked validators (2026-07-04, 2026-07-14) at trade level, as deferred in July. Session log
+  sessions/2026-10-20.md.
+
+### Change log, 2026-10-21 ("Valuing Players, Draft Picks, and Prospects" v3)
+
+- DOCUMENT: Thomas's first round of notes on v2 (14 comments) done throughout; `model_doc.js` v3.0 and
+  `model_doc_figures.py` v3.0 (every guard PASS) rebuild the document on the model as it runs after 2026-10-20: the two
+  traded players valued as `traded_player_values.py` v1.5 values them, the clubs' sides from `trade_sides.csv`. Three
+  prospect tests re-run on today's rows (stale outputs). No model change; no locked decision (D1-D33) touched.
+- NEW: `40_DOCS/Valuing_Players_Feedback.md` (his notes, themes, checks); seven CLAUDE.md rules from them. His annotated
+  v2 kept in `90_ARCHIVE/2026-10-21/`.
+- WORK_QUEUE: the read item now points at v3; the two items decided 2026-10-20 removed from it. Asked in chat, not
+  queued: the trade ledger's source (Thomas: PuckPedia; `trades.db` and DECISIONS 2026-09-14e: CapFriendly).
+- MANIFEST: rows for the two scripts and the document updated; the feedback file added. Session log sessions/2026-10-21.md.
+
+### Change log, 2026-10-21b ("Valuing Prospects" brought to the model after 2026-10-20)
+
+- DOCUMENT: `prospect_model_doc.js` v2.6 rebuilds "Valuing Prospects" on today's outputs; the fit rows described as inside
+  club control (prospect_values.py v1.11); linear production's verdict (p = 0.053) and draft position's from D+5
+  (+$0.07M, p = 0.944) now follow the numbers. Two finished tests re-pinned to today's rows (v1.4). No model change; no
+  locked decision (D1-D33) touched. MANIFEST rows updated. Session log sessions/2026-10-21.md.
+
+### Change log, 2026-10-21c (Thomas's second round of notes on "Valuing Players, Draft Picks, and Prospects")
+
+- NOTES: 39 comments and 15 text edits on v3, transcribed with themes and the work they ask for in
+  `40_DOCS/Valuing_Players_Feedback.md` (Round 2); his annotated copy committed as saved and kept in `90_ARCHIVE/2026-10-21/`.
+  Seven CLAUDE.md rules from them. No model change yet; no locked decision (D1-D33) touched.
+- WORK_QUEUE: a "Do" item for the round's model work and the rebuild, ahead of the read item. Session log
+  sessions/2026-10-21.md.
+
+### Change log, 2026-10-21d (the round-2 notes discussed; decisions before any test)
+
+- DECIDED (Thomas, in chat): drop linear production from the prospect model; check every adopted regression for terms
+  not statistically significant, by a rule agreed before any result (MODEL_DIRECTIVES, "Thomas's second round of
+  notes", item 2); tests of the games share's position term, floor and centring, the games weighting and the counting
+  threshold; a contract signed on the trade date left out of the chance of playing as of the value; a design for
+  pricing over the term; goaltenders after skaters; one re-lock after all forecast changes.
+- RECORDED BEFORE THE RERUN: these changes do not come from the back-test's outcomes.
+- Nothing built. Session log sessions/2026-10-21.md.
+
+### Change log, 2026-10-21e (prospect model: linear production kept)
+
+- DECIDED (Thomas): keep linear production in the prospect model, reversing 2026-10-21d's item 1 after
+  `25_TESTS/prospect_linear_drop_centre.py` v1.0 showed that without it the traded prospects' value and the term's
+  significance both hang on the centre of age. "Valuing Prospects" to explain why the coefficient's p-value is not the
+  test of whether it belongs. No code change; no locked decision touched.
+
+### Change log, 2026-10-21f (the forecast audit decided)
+
+- DECIDED (Thomas): drop the games share's defenceman term and the chance of playing's age squared and seasons since
+  debut; keep the no-contract-record marker; games-share floor 0; age centred at 27.22; keep the games weighting; keep
+  10 games. MODEL_DIRECTIVES, "The forecast audit decided". Touches D33's forecast specification (the games-share and
+  chance-of-playing inputs, as adopted 2026-10-05); a deliberate revisit by Thomas. Re-lock pending.
+
+### Change log, 2026-10-21g (the prospect check and the goaltender review decided)
+
+- DECIDED (Thomas): prospects without the no-record indicator, production from D+5 kept; goaltenders with a straight-line
+  age term, a price line refitted on the pulled forecast dated at the signing (censored, with term), a chance of playing
+  by season ahead in place of the exit chain, the two Matt Murrays apart; the 35% pull, no games filter and the pooled
+  control weight kept. MODEL_DIRECTIVES, "The prospect check and the goaltender review decided". Revisits the goalie
+  model's July decisions (no aging curve, the goalie rate, the exit hazard for goalies; D18's goalie side). Being built.
+
+### Change log, 2026-10-21h (goaltender line locked; everything rerun; the back-test)
+
+- LOCKED (Thomas, option 1): contract_npv.GOALIE_RATE, the goaltender line on the track-record forecast dated at the
+  signing, censored, with term; values on the forecast with its age term. MODEL_DIRECTIVES item 4 of "The prospect check
+  and the goaltender review decided" reads: fitted on the forecast WITHOUT the age term (decided after
+  goalie_line_check.py), applied to the forecast with it.
+- BUILT: rights_values v1.6, pick_curve v1.11, backtest v1.6; prospect_values' guard against the looks refits their
+  columns with the dropped indicator. Dashboard chain, trade chain, back-test and Game Value check rerun (session log).
+- WORK_QUEUE: the do-not-run item replaced by the next steps (the two documents; the PROJECT_STATE refresh). CLAUDE.md:
+  the locks in force. MANIFEST rows updated.
+
+### Change log, 2026-10-22 (PROJECT_STATE refresh, v3.5)
+
+- REFRESH (Thomas: "Do the PROJECT_STATE refresh first"): PROJECT_STATE v3.5, generated 2026-10-22, due 2026-10-29. The
+  current state, the model as built, the figures in force and the inventory rewritten from the code (versions as
+  printed) and the 2026-10-21 runs; the 2026-10-14 sections moved to History unchanged. Session logs 2026-10-14 to
+  2026-10-21 read; git log for 00_STATE and 20_CODE cross-checked (104 commits). STANDING_FLAGS: the goaltender
+  birthdate flag resolved. Questions for Thomas: listed in sessions/2026-10-22.md.
+
+### Change log, 2026-10-22b ("Valuing Prospects" rebuilt on the model as it runs)
+
+- DOCUMENT (Thomas: "rebuild Valuing Players, Draft Picks, and Prospects v4 and Valuing Prospects on the model as it now
+  runs"): "Valuing Prospects" built by `prospect_model_doc.js` v3.0 from `prospect_doc_figures.py` v3.0: no no-record
+  indicator; why linear production stays, with the centring test as Table 11 (read from its output, guarded); production
+  from D+5 kept, with its numbers; Thomas's round-2 writing rules applied. `model_doc.js` v4.1: one personified phrase
+  fixed, the player document rebuilt. No model change. MANIFEST rows for both builders, the figures script and both
+  documents updated. Session log: sessions/2026-10-22.md.
+
+
+### Change log, 2026-10-22c (independent document review and rewrite)
+
+- DOCUMENT: Reviewed both supplied drafts and all 39 old-draft comments; created a separate independent rewrite and review in 40_DOCS/Model_Explanation_Review. Detailed tests remain beside each model component, as Thomas requested. Current code and saved outputs checked; 17 arithmetic reconciliation assertions passed. No full pipeline rerun or model change. Both Word documents rendered and all 26 pages visually inspected. Supplied documents and the pre-existing edited Valuing Prospects.docx preserved. See sessions/2026-10-22c.md.
+
+### Change log, 2026-10-22c ("Valuing Players" v4 revised: xNPV, Word equations, the review's fixes)
+
+- TERM (Thomas, 2026-10-22: "retire using Surplus Value ... use Expected Net Present Value and xNPV"): in the documents an
+  asset's value is its expected net present value (xNPV), a played career's its NPV, a season's value less cost its net
+  value. No model change. CLAUDE.md: two rules (the term; label a column from the code that fills it).
+- DOCUMENT: `model_doc.js` v4.2 and `model_doc_figures.py` v4.1 rebuilt "Valuing Players, Draft Picks, and Prospects" with
+  Astra's review's confirmed errors fixed, repeated explanations cut, equations as Word equations, every table, figure,
+  appendix and Thomas's edits kept. `25_TESTS/pick_choices_current.py` v1.0 re-measured Appendix C's five qualifying-offer-era
+  effects on the arbitration cost. MANIFEST updated. Session log: sessions/2026-10-22.md.
+

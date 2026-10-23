@@ -38,7 +38,7 @@ import pandas as pd
 import statsmodels.api as sm
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "prospect_fade_rules.py v1.1 (2026-10-15)"
+SCRIPT_VERSION = "prospect_fade_rules.py v1.2 (2026-10-16)"   # no draft-year terms (Thomas, 2026-10-16)
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 LOG = []
@@ -67,21 +67,13 @@ log(f"\nrows: {len(d):,} prospect-rows of {d['pid'].nunique():,} drafted players
 
 
 def level_cols(frame):
-    """Draft-year levels, one set for each season group, through zero and summing to zero within the group."""
-    cols = []
-    for g in GROUPS:
-        in_g = (frame["k_group"].values == g).astype(float)
-        cl = sorted(frame.loc[frame["k_group"] == g, "draftYear"].unique())
-        yrs = frame["draftYear"].values
-        cols += [in_g * ((yrs == c).astype(float) - (yrs == cl[-1]).astype(float)) for c in cl[:-1]]
-    return cols
+    """v1.2: none (no draft-year terms, Thomas 2026-10-16); v1.0-v1.1 had one sum-to-zero set per season group."""
+    return []
 
 
 def one_level_cols(frame):
-    """One set of draft-year levels for every season (the chat version)."""
-    cl = sorted(frame["draftYear"].unique())
-    yrs = frame["draftYear"].values
-    return [(yrs == c).astype(float) - (yrs == cl[-1]).astype(float) for c in cl[:-1]]
+    """v1.2: none, as level_cols (the chat version had one set for every season)."""
+    return []
 
 
 def star_terms(frame, rule, r=None):

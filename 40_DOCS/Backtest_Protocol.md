@@ -1,0 +1,147 @@
+# Back-test protocol, declared before the run (2026-10-20)
+
+Committed before any outcome was computed, so that the groups and tests cannot be chosen after seeing results. Every
+choice marked **Thomas** was his on 2026-10-20 (or earlier, as dated); every choice marked **built** is how Claude
+implemented a decided rule, listed so it can be checked. Nothing here may change after the run without a dated note
+saying what changed and why.
+
+## What is compared
+
+For each club in each traded deal from 2017-07-01 to 2022-03-28 (567 trades, trades.db):
+
+- **Forecast (ex-ante) net:** the value of what the club received minus the value of what it gave up, every asset
+  valued by the three models at the trade, in $M at the 2025-26 cap (`trade_sides.py`). Each trade is zero-sum among
+  its clubs. The retained part of a player's cap hit is charged to the retaining club (Thomas, 2026-10-19).
+- **Outcome (realised) net:** the same sum with each asset's value replaced by what it delivered over the same span.
+
+## How an asset's outcome is measured
+
+1. **Span.** The same span its forecast covers: a player's contract as traded plus his control seasons to his UFA
+   year; a pick's or prospect's draftee from the draft (or the trade) to the end of club control (CBA Group 3, as the
+   pick curve). **Thomas:** a contract signed with the acquirer on the trade date is not part of the trade (13 in
+   2018-19 on, 2 on the 2017 page), in the forecast and the outcome alike.
+2. **Seasons played, through 2025-26** (Thomas: "Played + rest re-valued"). Value: the contract line with the wins he
+   delivered (open decision 3, 2026-10-05): max(alpha + beta x WAR + gamma_term x term, league minimum) x that
+   season's actual cap; a season with no NHL game is worth zero. Short seasons' WAR scaled to 82 games and seasons of
+   under 10 games scaled by games/82, as the pick curve (**built**: the pick curve's rules). Goalies on the goalie line.
+   The term premium of a contract season is the one its forecast used (**built**); a control or draftee season is
+   priced as a one-year deal.
+3. **Cost of a contract season:** the cap hit charged (PuckPedia's, `model_cap_hit`), paid whether or not he played,
+   the acquirer's share net of retention and the retained part to the retaining club. A contract season the contract
+   no longer has (bought out or ended) is charged what the forecast charged (**built**: buyouts are not in the data).
+4. **Cost of a control or draftee season** (Thomas: "The model's rule"): entry-level maximum, then the qualifying
+   offer, then the higher of it and the arbitration price once eligible, exactly as the pick curve; a season with no
+   NHL game costs zero. For traded players, the chain starts from the expiring contract's final salary
+   (`rfa_terminal_value.final_year_salary`) and eligibility follows PuckPedia's flag, as the forecast does. A player
+   not qualified at his contract's end ("UFA no QO") has no control seasons.
+5. **The season of an in-season trade:** the share of the season's days left (Thomas, 2026-10-19) for the intercept,
+   the floor and the cap hit, and the wins he delivered after the trade = season WAR x his games after the trade /
+   his games that season, from the game logs (**built**; the record's Game Value split is on hold and needs a rule for
+   seasons whose total is near zero).
+6. **Seasons from 2026-27 on** (Thomas: "the rest re-valued"): valued by the same models at the 2026-27 page,
+   knowing everything through 2025-26: a draftee still a prospect by the prospect model at season 2026; a draftee or
+   traded player in the NHL by the forecast at page 2026 (value x chance of playing, the control-year weights as in
+   the forecast) with the cost of rule 3 or 4.
+7. **Rights that lapsed** (the pick curve's rule) are worth zero. A pick is followed to the player drafted with it
+   (trades.db `pick_number`, the linkage); conditional picks as conveyed in the record.
+8. All seasons in cap shares, stated at the 2025-26 cap (3% growth and 3% discounting cancel, D11; realised seasons
+   at each season's actual cap). Each asset is followed whoever holds it later: the outcome is the asset's, not the
+   club's (**built**).
+
+## The statistic (Thomas: "Dollar gap per club")
+
+Per club side: forecast net and outcome net in $M at the 2025-26 cap. Intervals: 2,000 resamples of trades (a trade's
+club sides move together), seed 20261020, 95% percentile intervals; a p-value is the share of resamples on the other
+side of zero, doubled.
+
+## Tests, all reported, none dropped
+
+**A. Does the model's verdict predict the outcome?** Over all club sides of complete trades: the slope of outcome net
+on forecast net (one would mean the forecast's gaps come true on average, zero that they carry no information), the
+correlation, and the share of trades whose favoured club (forecast net > 0) also came out ahead. Each with its
+interval.
+
+**B. Asset-class calibration.** For players, picks and prospects separately: the sum and mean of (outcome - forecast)
+per asset. A pillar whose outcomes fall short of its forecasts on average will show here before it shows in any group.
+
+**C. Groups of clubs** (from the record's named categories; the mean forecast net, mean outcome net and their
+difference for the group's club, each with its interval):
+1. **Futures for players:** two-team trades where one club received only players and gave at least one pick or
+   prospect. The group is the club that received the picks and prospects.
+2. **Buyers at the trade date:** two-team trades during the regular season. The group is the club higher in the
+   standings (points percentage, games before the trade date).
+3. **Stars:** the club that received a skater whose 50/30/20 trailing WAR total before the trade's page is 3 or more
+   (the harness's 3+ tier, where the star over-forecast was measured: STANDING_FLAGS 2026-09-13b).
+4. **Retained salary:** the club that retained salary.
+5. **Nothing back:** trades where one club received no recorded asset. The group is that club.
+6. **No-trade or no-move clause:** the club that received a player whose contract carried such a clause in the trade
+   season (the clause scrape). Not a forced-trade test: the detection rule is not built (STANDING_FLAGS).
+7. **Deadline versus off-season:** in-season trades and off-season trades, each scored by test A's slope.
+
+## Sensitivities, all reported
+
+- Trades with a conditional pick left out.
+- Outcome through 2025-26 only (the 2026-27 re-valuation set to zero), and the share of the outcome that is re-valued.
+- The pick curve's sensitivity star value for picks (without 2015-2016).
+
+## Amendments after the first run (2026-10-20)
+
+The first run (`backtest.py` v1.0) was read in full, group results included, before these were made. Each corrects how
+an outcome was measured; none changes a group, a test or a sensitivity. The first run's log is kept beside the final one
+(`30_OUTPUT/backtest_log_v1.0.txt`).
+
+1. **Seasons after a buyout** (replaces the last sentence of rule 3). v1.0 charged a bought-out contract's remaining
+   seasons at the full cap hit and credited the value of seasons he played afterwards on other clubs' contracts
+   (Ekman-Larsson's Florida and Toronto seasons against Vancouver's deal). From v1.2: after a contract's last season in
+   force (the export's 38 deals that ended early), its seasons credit no value and charge the CBA buyout share of the
+   cap hit, two thirds (one third under 26). A mutual termination is charged the same, an overstatement.
+2. **Spellings** (v1.1, v1.2). A player whose spine spelling has no WAR rows is read under the trade ledger's spelling
+   (Alex Petrovic), then under the short or long form of the first name (Alex Nylander, Alex Kerfoot); every
+   player-model asset with no WAR row under any of them is listed in the log. In v1.0 these four players' delivered
+   value read as zero.
+
+3. **Long-term injured reserve** (v1.4; Thomas, 2026-10-20: "All of it", "Outcome + known at trade", "Fetch a real
+   LTIR log"). Rule 3's cost of a contract season is charged only for the days he was not on LTIR (Spotrac's
+   injured-reserve pages, `ltir.py`); the retained part is never relieved. From 2026-27, a player on LTIR at that page
+   is charged his cap hit times the forecast's chance he plays. The forecast side changes too: a player on LTIR when
+   traded is charged, season by season, his cap hit times the chance he plays (`traded_player_values.py` v1.5,
+   `page_2017_values.py` v1.8), or nothing where there is no forecast (`buried_contract_values.py` v1.8). Which spells
+   count is Thomas's choice between Spotrac's "Long-Term IR" label alone and the label plus any IR spell meeting the
+   CBA's test (24+ days, 10+ games); both are run.
+4. **The qualifying-offer look-ahead** (v1.3; Thomas: "Fix the QO look ahead"). The forecast reads "UFA no QO" only
+   once the club's decision is known; the outcome reads the label itself (no control seasons for a player the club
+   did not qualify).
+
+## The Game Value check (declared 2026-10-20, before it was run; Thomas: "Run the Game Value check on the back-test's outcomes, as the protocol says")
+
+The locked validators (DECISIONS, 2026-07-04 and 2026-07-14): Game Value adjusted (GV-adj) primary, Game Value raw
+(GV-raw) as robustness, goals to wins at 5.903, zero Bacon inputs. This is the trade-level check deferred in July
+"until draft/prospect components exist".
+
+1. **What changes.** Only the measure of what a skater delivered in a realised season, 2017-18 to 2025-26: his Bacon WAR
+   is replaced by his Game Value. Everything else is the v1.4 outcome unchanged: the same assets and spans, games
+   played, cap hits, the rule's costs, LTIR, buyouts, the 2026-27 revaluation (a forecast, not an outcome) and the
+   forecast side. Goaltenders keep Bacon's goalie WAR (Game Value has no goaltender measure). Drafted players' realised
+   seasons are re-priced the same way (their costs unchanged).
+2. **Baseline.** GV-adj is centred on the league average; Bacon's WAR and the contract line count from replacement. GV-adj
+   is put on a replacement baseline with Game Value's own per-game rebase (`player_game_value_repl`: gv_repl minus
+   game_value, summed over his regular-season games). GV-raw uses gv_repl directly.
+3. **Units.** The rebased Game Value runs about 200 wins a league season against Bacon's 470-570, with a narrower
+   spread, so priced as it stands it would mark every player down for its units alone. Each season and position (F, D),
+   it is mapped to Bacon's scale by matching the league's mean and standard deviation of season totals (all skaters in
+   each table; two numbers per cell from Bacon, none from any one player). Who delivered how much stays Bacon-free.
+   A skater-season with games and no Game Value row keeps Bacon's figure; the count is logged.
+4. **Rate-free leg.** Each club side's net wins delivered in realised seasons (received minus given), on Bacon and on
+   each Game Value measure, compared by correlation, with no dollar rate on either side.
+5. **What is reported.** Tests A, B and C re-run on GV-adj and GV-raw beside the WAR run. A result **holds on Game
+   Value** when, on GV-adj, its estimate keeps the WAR run's sign and its 95% interval still excludes zero; otherwise
+   it is **not confirmed**. GV-raw is reported beside, not decisive. As in July, Game Value is strong for forwards and
+   weak for defencemen (r 0.65 against 0.30); the asset-level agreement is reported by position.
+
+## Limits stated in advance
+
+- The outcome uses Bacon's WAR, the same source as the forecast. The Game Value check (the locked circularity
+  validators) is the next step; no group finding is called systematic before it.
+- The 2026-27 re-valuation is itself a forecast; it is largest for the 2022-2025 picks.
+- A club's own gains (fit, playoffs, a Cup) are outside the currency: regular-season wins only.
+- Multiple groups: seven groups and two class tests; a single p below 0.05 among them is weak evidence alone.

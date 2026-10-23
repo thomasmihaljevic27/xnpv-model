@@ -8,9 +8,12 @@ so the 19 assets carry them."): after it values them, this script writes each va
 traded_player_values.csv (npv_total and its versions; status "rights: RFA control years" or "rights: UFA, zero"),
 so it runs after traded_player_values.py and every reader of that file sees the rights valued.
 
-WHO: traded_player_values.csv rows "rights only (his contract at the page was signed after the trade)" or "no contract
+WHO: traded_player_values.csv rows "rights only (his contract at the page was signed on or after the trade date)" or "no contract
 at the page": a trade after the regular season (trade_page.py: valued on the next page, P) of a player whose contract
-ended with the season just played (P - 1).
+ended with the season just played (P - 1). v1.2 (Thomas, 2026-10-18: "value an unsigned player traded inside the page's
+window as rights only, using rights_values.py's rule"): also a trade inside page P's window (July 1 of P on) of a player
+whose contract ended with P - 1 and who signed his next one after the trade (traded_player_values.py v1.1). The rule and
+the code are the same for both; only the trade date differs.
 
 THE EXPIRED CONTRACT: PuckPedia's spine contract of his whose last season is P - 1 (signed on or before the trade);
 for P = 2018 (contracts ending 2017-18, before PuckPedia's coverage), his CapWages contract ending 2017-18, built into
@@ -18,7 +21,9 @@ the engine's own spine as page_2017_values.py builds them (cap hit, base salary,
 "RFA (Arb)" flag).
 
 THE VALUE
-  * expiry UFA (or "UFA no QO"): zero, the club controls nothing (Thomas).
+  * expiry UFA (or "UFA no QO"): zero, the club controls nothing (Thomas). v1.5 (Thomas, 2026-10-20: "Fix the QO look
+    ahead"): "UFA no QO" counts only when the club's decision was known on the TRADE date (free agency open after the
+    expired contract's last season; rfa_terminal_value.expiry_known); a trade before it values RFA control years.
   * expiry RFA, skater: rfa_terminal_value.TerminalValuer.terminal_value(player, P, July 1 of P,
     expired_contract_id=...) (v2.6): the control seasons P .. UFA year - 1 on page P's forecast, the qualifying offer
     (on his last salary) or once eligible the arbitration price, D13 walk-away, D14(c) qualify-or-walk gates, the
@@ -27,7 +32,9 @@ THE VALUE
   * expiry RFA, goaltender: the goalie branch's terminal block (contract_npv._npv_goalie, as of 2026-10-14) restated
     here with the same rules: flat projection pw on page P, the pooled control weight, D13, arbitration from
     PuckPedia's flag or the CBA count; the chain starting at 1.0 and the first control season at k = 0.
-  The trade date comes before July 1 of P; the page's information (seasons through P - 1) was complete at the trade.
+  The page's information (seasons through P - 1) was complete at the trade in both cases. Both are valued as of July 1
+  of P: the date moves only the forecast's chance of playing, which the rights chain does not read (it starts at 1.0),
+  so an in-window trade's own date would give the same value.
 
 OUTPUTS: OUTPUT_DIR/rights_values.csv, rights_values_log.txt.
 Run from the repo root:  python 20_CODE/rights_values.py   (after traded_player_values.py)
@@ -41,7 +48,7 @@ import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "rights_values.py v1.1 (2026-10-14)"
+SCRIPT_VERSION = "rights_values.py v1.6 (2026-10-21)"   # v1.6: goaltenders on contract_npv v3.4 (own line, age term); v1.5: "UFA no QO" only once known at the trade; v1.4: the season left; v1.3: CBA age on the calendar
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_npv as CN                                         # noqa: E402
@@ -49,7 +56,8 @@ import contracts_2017 as K                                        # noqa: E402
 import prospect_values as PV                                      # noqa: E402
 from player_season_table import norm_name                         # noqa: E402
 from skater_forward_projection import page_date, cap_path, league_min_path   # noqa: E402
-from rfa_terminal_value import qualifying_offer, arb_eligible     # noqa: E402
+from rfa_terminal_value import qualifying_offer, arb_eligible, expiry_known     # noqa: E402
+import trade_page as TP                                           # noqa: E402  v1.4: the share of the season left
 OUTPUT_DIR, SOURCE_DIR = Path(os.environ["OUTPUT_DIR"]), Path(os.environ["SOURCE_DIR"])
 LOG = []
 
@@ -59,13 +67,18 @@ def log(s=""):
     LOG.append(str(s))
 
 
-def goalie_rights(eng, pid, t0, crows, as_of):
-    """The goalie branch's terminal block (contract_npv._npv_goalie), the chain at 1.0, first control season k = 0."""
-    from contract_npv import ALPHA_G, BETA_G, G, ARB_NEED, signing_year
+def goalie_rights(eng, pid, t0, crows, as_of, share=1.0):
+    """The goalie branch's terminal block (contract_npv._npv_goalie), the chain at 1.0, first control season k = 0.
+    v1.4: `share`, the share of the first control season left on the trade date (trade_page.season_left_share)."""
+    from contract_npv import G, ARB_NEED, signing_year, goalie_line
+    from rfa_terminal_value import cba_age
     nname = crows.iloc[0]["nname"]
     pw, src = eng.g_proj.shrunk_projection(nname, t0)
     if pd.isna(pw):
         return None, "goalie: no history"
+    # v1.6 (Thomas, 2026-10-21): each control season's forecast carries the age term (contract_npv v3.4)
+    bd0 = crows.iloc[0]["bd"]
+    age0 = None if pd.isna(bd0) else int(t0 - bd0.year - ((9, 15) < (bd0.month, bd0.day)))
     end, ufa_year = int(crows["season_start"].max()), crows.iloc[0]["ufa_year"]
     if pd.isna(ufa_year):
         return None, "goalie: no UFA year"
@@ -76,24 +89,26 @@ def goalie_rights(eng, pid, t0, crows, as_of):
     bd = crows.iloc[0]["bd"]
     observed, first = eng.g_proj.history(nname, t0)
     sy = signing_year(crows.iloc[0].get("nhl_id"))
-    need = None if pd.isna(bd) else ARB_NEED(int(np.floor((pd.Timestamp(sy if sy is not None else first, 9, 15)
-                                                           - bd).days / 365.25)))
+    need = None if pd.isna(bd) else ARB_NEED(cba_age(bd, sy if sy is not None else first))   # v1.3: on the calendar
     obs_gp = {z: v[0] for z, v in observed.items()}
     flag = eng.tv.arb_flag.get(int(crows.iloc[0]["contract_id"]))
     S_tv, tv = 1.0, 0.0
+    fc, _src = eng.g_proj.forecast(nname, t0, max(int(ufa_year) - 1 - t0, 0), age0)
     for j, season in enumerate(range(end + 1, int(ufa_year)), 1):
         k = (end - t0) + j
         ceil = cap_path(t0, k)
         lm = league_min_path(season)
-        val = max((ALPHA_G + BETA_G * pw) * ceil, lm)
+        val = max(goalie_line(fc[k][1], 1) * ceil, lm)       # a control season: one year of term
         elig = arb_eligible(season, t0, need, obs_gp) if flag is None else (flag == 1 or j >= 2)
         tw = eng.g_proj.arbitration_war(nname, t0, season, pw) if elig else None
+        if tw is not None and src != "stale_anchor":
+            tw += eng.g_proj.age_term(nname, t0, season)
         qo = qualifying_offer(sal, cap_hit, season, s20)
-        cost = max(qo, max((ALPHA_G + BETA_G * tw) * ceil, lm)) if tw is not None else qo
+        cost = max(qo, max(goalie_line(tw, 1) * ceil, lm)) if tw is not None else qo
         if val - cost < 0:
             break                                       # D13
         S_tv *= eng.g_control_weight
-        tv += S_tv * (val - cost) * (1 + G) ** (-k)
+        tv += S_tv * (val - cost) * (1 + G) ** (-k) * (share if j == 1 else 1.0)    # v1.4: the season left
         sal, cap_hit = cost, cost
     return tv, "ok"
 
@@ -146,7 +161,8 @@ def main():
                                  "contract_id": cid, "player_id": pid, "season_start": y, "cost": c["seasons"][y],
                                  "cs_cap_hit": c["seasons"][y], "pp_cap_hit": c["seasons"][y], "pp_aav": c["seasons"][y],
                                  "cs_nhl_salary": c.get("base", {}).get(y), "pp_expiry": expiry,
-                                 "ufa_year": ufa if expiry == "RFA" else np.nan, "cs_entry_level": "Entry" in c["type"],
+                                 "ufa_year": ufa if expiry in ("RFA", "UFA no QO") else np.nan,
+                                 "cs_entry_level": "Entry" in c["type"],
                                  "pp_ctype": "capwages", "nk": (base.get("nk") if base is not None and pd.notna(base.get("nk")) else nn + "|" + pg),
                                  "nname": nn} for y in sorted(c["seasons"])])
             if gk:
@@ -157,25 +173,29 @@ def main():
         cid = cands[0]
         spine = eng.gp_spine if gk else sp.spine
         crows = spine[spine["contract_id"] == cid].sort_values("season_start")
-        expiry = crows.iloc[0]["pp_expiry"]
+        expiry = expiry_known(crows.iloc[0]["pp_expiry"], P - 1, date)            # v1.5: as known on the trade date
         rec.update({"position": "G" if gk else crows.iloc[0].get("posgrp"), "expired_contract": cid, "source": source,
-                    "expiry": expiry, "last_cap_hit": float(crows.iloc[-1]["cost"]), "ufa_year": crows.iloc[0]["ufa_year"]})
+                    "expiry": expiry, "expiry_label": crows.iloc[0]["pp_expiry"], "last_cap_hit": float(crows.iloc[-1]["cost"]), "ufa_year": crows.iloc[0]["ufa_year"]})
         if expiry != "RFA":
             rec.update({"status": "UFA rights: zero", "value_M": 0.0})
             rows.append(rec)
             continue
         as_of = page_date(P)
+        # v1.4 (Thomas, 2026-10-19: "Yes, account for in-season trades"): a trade inside the page's regular season
+        # counts only the share of its first control season left (1.0 for a post-season or off-season trade)
+        share = TP.season_left_share(date, P)
+        rec["season_share"] = share
         if gk:
-            v, st = goalie_rights(eng, pid, P, crows, as_of)
+            v, st = goalie_rights(eng, pid, P, crows, as_of, share)
             rec.update({"status": st, "value_M": None if v is None else v / 1e6})
         else:
-            d, sm = eng.tv.terminal_value(pid, P, as_of, expired_contract_id=cid)
+            d, sm = eng.tv.terminal_value(pid, P, as_of, expired_contract_id=cid, label_as_of=date)
             if sm.get("status") != "ok":
                 rec.update({"status": sm.get("status")})
                 if sm.get("status") in ("ufa_expiry", "rfa_no_control_years_DATA_FLAG"):
                     rec["value_M"] = 0.0
             else:
-                disc = lambda j: (1 + CN.G) ** (-(j - 1))                   # noqa: E731  k = j - 1 from page P
+                disc = lambda j: (1 + CN.G) ** (-(j - 1)) * (share if j == 1 else 1.0)   # noqa: E731  k = j - 1; v1.4: season left
                 rec.update({"status": "ok", "n_control": sm["n_control"],
                             "value_M": float(sum(x.surplus_adjusted * disc(x.j) for x in d.itertuples())) / 1e6,
                             "value_qo_M": float(sum(x.surplus_adjusted_qo * disc(x.j) for x in d.itertuples())) / 1e6,

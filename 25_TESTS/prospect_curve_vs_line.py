@@ -41,7 +41,7 @@ import pandas as pd
 import statsmodels.api as sm
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "prospect_curve_vs_line.py v1.2 (2026-10-15)"
+SCRIPT_VERSION = "prospect_curve_vs_line.py v1.5 (2026-10-22)"   # v1.5: no no-record indicator, as prospect_values.py v1.12 (Thomas, 2026-10-21); v1.4: the rows of the 2026-10-20 prospect chain; v1.3   # no draft-year terms (Thomas, 2026-10-16)
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 LOG = []
@@ -68,7 +68,7 @@ LABEL = {"0": "D+1", "1": "D+2", "2": "D+3", "3": "D+4", "4+": "D+5 and later"}
 # ---- the rows: the production look's, with age added as prospect_age_look.py adds it --------------------
 d = pd.read_csv(F["rows"])
 FP = hashlib.sha1(pd.util.hash_pandas_object(d[["draftYear", "pick", "k"]], index=False).values).hexdigest()[:12]
-assert FP == "cff3583de536", FP                                     # GUARD: the production look's rows
+assert FP == "1a0aa6bb93a0", FP   # GUARD: the production look's rows (v1.4, 2026-10-21: the rows after 2026-10-20; v1.3: cff3583de536, reproduce from git 166a98b)
 link = pd.read_csv(F["linkage"], parse_dates=["birthDate"])[["draftYear", "overallPickNumber", "birthDate"]]
 d = d.merge(link.rename(columns={"overallPickNumber": "pick"}), on=["draftYear", "pick"], how="left")
 assert d["birthDate"].notna().all()
@@ -85,18 +85,15 @@ def cols_for(form, slot_groups, age, g):
     """The regressors one arm uses in season group g. form: straight (production), curved (production and its
     square), squared (its square alone, v1.1)."""
     c = ["p_star"] if g in slot_groups else []
-    c += {"straight": ["nhle82"], "curved": ["nhle82", "nhle82_sq"], "squared": ["nhle82_sq"]}[form] + ["no_record"]
+    c += {"straight": ["nhle82"], "curved": ["nhle82", "nhle82_sq"], "squared": ["nhle82_sq"]}[form]   # v1.5: no no-record indicator
     if age and g in AGE_GROUPS:
         c += ["prod_x_age"]
     return c
 
 
 def fit(frame, cols, cluster):
-    """The pick curve's form: through zero, draft-year indicators that sum to zero."""
-    cl = sorted(frame["draftYear"].unique())
-    yrs = frame["draftYear"].values
-    X = np.column_stack([frame[c].values for c in cols]
-                        + [(yrs == c).astype(float) - (yrs == cl[-1]).astype(float) for c in cl[:-1]])
+    """The pick curve's form: through zero, no draft-year terms (v1.3)."""
+    X = np.column_stack([frame[c].values for c in cols])
     if cluster:
         groups = pd.factorize(frame["draftYear"].astype(str) + "-" + frame["pick"].astype(str))[0]
         return sm.OLS(frame["remaining_M"].values, X).fit(cov_type="cluster", cov_kwds={"groups": groups})

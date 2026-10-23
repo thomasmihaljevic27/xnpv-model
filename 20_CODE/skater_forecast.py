@@ -54,9 +54,10 @@ HOW, step by step (v2.0; MODEL_DIRECTIVES.md entries 1-3 and build rules):
        (imputed_aging_model). No replacement floor is applied to a negative
        start (D12 v3 is superseded for skaters by D33).
     3. THE GAMES SHARE. A fitted line per horizon on the trailing share,
-       position, experience, age, age squared (v2.2) and the trailing WAR total
-       (GP_FEATURES; plain 50/30/20), capped at 1.0 and floored at 0.05. The
-       total-above-one-win term was dropped in v2.0.
+       experience, age, age squared (v2.2) and the trailing WAR total
+       (GP_FEATURES; plain 50/30/20), capped at 1.0 and floored at 0 (v2.4;
+       was 0.05, which no forecast reached). The total-above-one-win term was
+       dropped in v2.0, the defenceman term in v2.4.
     4. THE CHANCE OF PLAYING. participation_model.ParticipationModel (its
        level input: the plain 50/30/20 trailing WAR total), reading
        contract status where the vendor export's coverage is complete
@@ -92,6 +93,8 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
+from contextlib import contextmanager
+
 import numpy as np
 import pandas as pd
 
@@ -100,7 +103,7 @@ import forecast_config as C
 import information_set as ISET
 from participation_model import ParticipationModel
 
-SCRIPT_VERSION = "2.3"
+SCRIPT_VERSION = "2.4"   # 2.4 (2026-10-21, Thomas): no defenceman term in the games share; its floor 0; age centred at 27.22
 MODEL_NAME = "xNPV 1"
 
 # DIRECTIVE 1 (Thomas, 2026-10-04): "We are not using fitted decay." Every
@@ -122,14 +125,19 @@ HMAX = C.MAX_HORIZON     # how far the comparables walk is tabulated
 # Thomas 2026-10-05, on 25_TESTS/games_and_playing_de.py: season WAR 0.8078
 # against 0.8088). The straight line, its cap at 1.0 and floor at 0.05 stay
 # (the logistic curve, D1, fitted the share better but cost season WAR).
-GP_FEATURES = ["tr_gp_share", "is_D", "exp_seasons", "age_c", "tw_WAR", "age_c2"]
+# v2.4 (Thomas, 2026-10-21, on 25_TESTS/forecast_term_audit.py v1.2): the defenceman term (`is_D`) dropped, not
+# statistically significant in any of 13 seasons ahead (p 0.404 to 0.964) and no change held out (season WAR 0.8064
+# both); the floor is 0 (no forecast share fell below 0.05 on the development pages); age centred at C.AGE_CENTRE.
+GP_FEATURES = ["tr_gp_share", "exp_seasons", "age_c", "tw_WAR", "age_c2"]
 
 # xNPV 1's own WAR-if-plays misses by season ahead (see the docstring).
 # Re-measured on v2.2 (25_TESTS/floor_spread_measure.py, laptop 2026-10-05, guard on the build's
 # rows and rate passed); the v1.x figures were 0.6730, 0.7486, 0.7991, 0.8516, 0.8792, 0.8926.
 # Re-measured 2026-10-14 on September 15 ages (floor_spread_measure.py v1.1; Thomas: "lock it");
 # was {0: 0.6769, 1: 0.7553, 2: 0.8040, 3: 0.8524, 4: 0.8766, 5: 0.8970}.
-WAR_IF_PLAYS_MAE = {0: 0.6767, 1: 0.7545, 2: 0.8026, 3: 0.8499, 4: 0.8770, 5: 0.8981}
+# Re-measured 2026-10-21 on v2.4 with the price line's re-lock (floor_spread_measure.py; was 0.6767, 0.7545, 0.8026,
+# 0.8499, 0.8770, 0.8981: no season ahead moved by more than 0.0006).
+WAR_IF_PLAYS_MAE = {0: 0.6766, 1: 0.7545, 2: 0.8023, 3: 0.8494, 4: 0.8765, 5: 0.8975}
 MAE_TO_SD = 1.2533       # SD = MAE * sqrt(pi/2) for a normal, production's conversion
 
 MIN_AGE_COVERAGE = 0.99  # the age table must carry the Elite Prospects birthdates
@@ -200,7 +208,7 @@ def _anchors(played: pd.DataFrame, n_seasons: int = 3,
     for nxt in aged[1:]:
         age = age.fillna(nxt)
     out["age"] = age
-    out["age_c"] = out["age"] - 27.0          # centred near the peak
+    out["age_c"] = out["age"] - C.AGE_CENTRE  # v2.4: the mean age of the 2025-26 fit (was 27, near the peak)
     out["age_c2"] = out["age_c"] ** 2
     # His most recent counted season: its age (not stepped forward) and how many
     # seasons before t0 it was. The start is measured there and aged to t0.
@@ -506,7 +514,7 @@ class XNPV1:
             r = subs.copy()
             r["rate_82"] = self._rate(a, h)
             gp = _apply(self.gp_coef_.get(h), a[GP_FEATURES], a["tr_gp_share"])
-            r["gp_share"] = np.clip(gp, 0.05, 1.0)
+            r["gp_share"] = np.clip(gp, 0.0, 1.0)      # v2.4: floored at 0 (was 0.05)
             r["p_play"] = self._p_play(a, subs, h)
             r["h"] = h
             rows.append(r[["career_key", "h", "rate_82", "gp_share", "p_play"]])
@@ -735,6 +743,28 @@ class ContractForecaster:
         self.career_of = (self.table.drop_duplicates("pkey")
                           .set_index("pkey")["career_key"].to_dict())
         self._pages = {}
+
+    @contextmanager
+    def signed_between(self, pkey: str, t0: int, start, end):
+        """For one valuation: the chance of playing on page t0 treats each contract of `pkey` signed from `start` to
+        `end` (both included) as not yet signed, as the contract chain does (v2.4; Thomas, 2026-10-21: a contract
+        signed on the trade date is left out of a traded player's value, "to be consistent yes that is how it should
+        work"). participation_model reads every deal signed on or before its date, so without this the chance of
+        playing counted the deal the value leaves out. Yields the number of contracts set aside; restores them after."""
+        m = self.page(t0)[0]
+        sp = getattr(m.part_, "spans", None)
+        if sp is None:
+            yield 0
+            return
+        day = sp["signed"].dt.normalize()
+        hit = ((sp["pkey"] == pkey) & (day >= pd.Timestamp(start).normalize())
+               & (day <= pd.Timestamp(end).normalize())).to_numpy()
+        keep = sp.loc[hit, "signed"].copy()
+        sp.loc[hit, "signed"] = pd.NaT
+        try:
+            yield int(hit.sum())
+        finally:
+            sp.loc[hit, "signed"] = keep
 
     def page(self, t0: int):
         """(model, information set, forecasts indexed by (career_key, h),

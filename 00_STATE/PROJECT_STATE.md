@@ -6,10 +6,10 @@
      This file holds: objective, model spec, current build state, the data/scripts inventory,
      locked regression results, per-pillar status, and the file-management protocol. -->
 
-**Generated:** 2026-10-14
-**Refresh due:** 2026-10-21 (7-day cadence)
+**Generated:** 2026-10-22
+**Refresh due:** 2026-10-29 (7-day cadence)
 **Maintained by:** Claude, at session close (see the DECISIONS.md change log)
-**File version:** 3.4 (v3.4 refresh 2026-10-14: the current state, the model as built and the figures in force rewritten from the code; the inventory replaced; the dated entries, the old model spec, the old inventory, the retired-rebuild section and the old regression record moved to History unchanged. Session logs 2026-09-28 to 2026-10-14 checked against the dated entries: each has one. See the DECISIONS.md 2026-10-14b entry. v3.3: v3.3 refresh 2026-09-28: every session log since 2026-09-08 checked as referenced in the state files; inventory and pending list reconciled; see the DECISIONS.md 2026-09-28k entry. v3.2 restructure 2026-09-09: PROJECT_STATE.md split into four state files + a per-session log; see DECISIONS.md change log. Not a weekly refresh — Generated / Refresh-due unchanged.)
+**File version:** 3.5 (v3.5 refresh 2026-10-22: the current state, the model as built, the figures in force and the inventory rewritten from the code and the 2026-10-21 runs; the 2026-10-14 sections moved to History unchanged; session logs 2026-10-14 to 2026-10-21 read; see DECISIONS 2026-10-22. v3.4 refresh 2026-10-14: the current state, the model as built and the figures in force rewritten from the code; the inventory replaced; the dated entries, the old model spec, the old inventory, the retired-rebuild section and the old regression record moved to History unchanged. Session logs 2026-09-28 to 2026-10-14 checked against the dated entries: each has one. See the DECISIONS.md 2026-10-14b entry. v3.3: v3.3 refresh 2026-09-28: every session log since 2026-09-08 checked as referenced in the state files; inventory and pending list reconciled; see the DECISIONS.md 2026-09-28k entry. v3.2 restructure 2026-09-09: PROJECT_STATE.md split into four state files + a per-session log; see DECISIONS.md change log. Not a weekly refresh — Generated / Refresh-due unchanged.)
 
 > **Refresh note (2026-09-08).** The previous snapshot was v2.9, generated 2026-07-29 and due
 > 2026-08-05. It ran six weeks stale. Two sessions in that window went unrecorded on every
@@ -54,149 +54,146 @@ This is a soft trigger: it works only because this file sits in context each cha
 Put all three trade-asset classes — rostered players, draft picks, non-roster prospects — on one common scale: projected surplus value in dollars over a defined horizon, risk- and time-adjusted. Then back-test historical trades against realized outcomes to find categories of systematic mispricing. The cross-asset integration is the central contribution. Audience: economics faculty (supervisor **Karl**, econometrics) and sports-analytics practitioners. Karl weighs identification (circularity, look-ahead, selection) most heavily.
 
 ---
-## Current state (refresh 2026-10-14)
+## Current state (refresh 2026-10-22)
 
-Written from the code that runs (versions as printed by each script) and the session logs 2026-09-28 to
-2026-10-14. Dated entries before this refresh are in the History section at the end, as written.
+Written from the code that runs (versions as each script prints them) and the session logs 2026-10-14 to 2026-10-21.
+The sections as they stood at the 2026-10-14 refresh (figures of 2026-10-20) are in History, as written.
 
 | Pillar | State | Code |
 |---|---|---|
-| Skater contracts | Built and priced on xNPV 1 (D33); the five player directives built and validated 2026-10-05 | `skater_forecast.py` v2.3, `skater_forward_projection.py` v2.1, `rfa_terminal_value.py` v2.5, `contract_npv.py` v2.7 |
-| Goalie contracts | Built; flat projection pulled 65% to the league | `contract_npv.py` goalie branch, `goalie_value_engine.py` v1.3, `exit_hazard.py` v1.3 |
-| Draft picks | Pick curve built 2026-10-09; arbitration cost adopted 2026-10-13; CBA signing age and the forecast-consistent arbitration price 2026-10-14 | `draft_pick_linkage.py` v1.1, `elc_signing_dates.py` v1.0, `pick_curve.py` v1.5, `traded_pick_values.py` v1.2 |
-| Prospects | Built 2026-10-14: slot, production adjusted to NHL terms (NHLe) and age, with the slot-only version beside (the no-age version dropped 2026-10-15); undrafted players on NHL contracts on the same model with the slot at zero; traded prospects valued; deceased draftees out of every fit | `prospect_values.py` v1.7; data `ep_extract.py` v3.5, `ep_nhl_bridge.py` v1.1 |
-| Game-level metric (Game Value) | Built 2026-07-03; used for the circularity checks | game-level chain (below) |
-| Back-test | Not started. A delivered win is priced on the contract line (open decision 3) | none yet |
+| Skater contracts | Priced on xNPV 1 (D33); the forecast audit's decisions built 2026-10-21 (Thomas's round-2 notes); the price line re-locked on that forecast 2026-10-21 | `skater_forecast.py` v2.4, `participation_model.py` v2.0, `skater_forward_projection.py` v2.2, `rfa_terminal_value.py` v2.9, `contract_npv.py` v3.4 |
+| Goalie contracts | Rebuilt 2026-10-21 (goalie review): an age term in the forecast, a chance of playing by season ahead, the goaltender's own locked price line with term; the two Matt Murrays kept apart | `contract_npv.py` v3.4 (GoalieProjector, GOALIE_RATE), `goalie_value_engine.py` v2.0, `goalie_birthdates.py` v1.0 |
+| Draft picks | Pick curve on the skater and goaltender lines at one year of term; no intercept, no draft-year terms (2026-10-16) | `draft_pick_linkage.py` v1.3, `elc_signing_dates.py` v1.4, `pick_curve.py` v1.11, `traded_pick_values.py` v1.2 |
+| Prospects | Draft position (D+1 to D+3), linear and squared production, the age discount on production (D+1 to D+4); the no-record indicator dropped 2026-10-21; fits inside club control only (v1.11) | `prospect_values.py` v1.12; data `ep_extract.py` v3.5, `ep_nhl_bridge.py` v1.1 |
+| Traded assets | Every traded asset valued once, 2017-07-01 to 2022-03-28: players at the trade (contract signed on the trade date left out of value and chance of playing), rights, buried contracts, the 2017 page, retained salary, the season left, LTIR relief | `traded_player_values.py` v1.6, `rights_values.py` v1.6, `buried_contract_values.py` v1.8, `page_2017_values.py` v1.9, `trade_asset_values.py` v1.2, `ltir.py` v1.0 |
+| Back-test | Rerun 2026-10-21 on the protocol (`40_DOCS/Backtest_Protocol.md`): slope of outcome on forecast 0.743 [0.542, 0.898]; Game Value check 11 hold, 7 not WAR findings, 2 too few trades, 1 not confirmed | `trade_sides.py` v1.0, `backtest.py` v1.6, `25_TESTS/backtest_gv_compare.py` |
+| Game-level metric (Game Value) | Built 2026-07-03; the circularity checks and the back-test's Game Value check | game-level chain |
 
-- **Validation of the skater forecast.** The 2022-2025 confirmation (2026-10-02) and the revalidation of the built
-  forecast (2026-10-05): season-WAR RMSE 0.8932 against xNPV 0's 0.9724, lower squared error in 2,000 of 2,000 player
-  resamples. Those seasons were examined by about thirty earlier variants; they are not a sealed holdout.
-- **Dashboard.** `Update-Dashboard.cmd` / `dashboard_refresh.py` v1.1: 10 steps, about 11 minutes; the dashboard
-  re-prices each page within $1 of the panel or refuses. Last full refresh: 2026-10-13 (arbitration adoption).
-- **Panel.** `contract_npv_panel.py` v1.5: 7,817 contract-pages, seasons 2018-19 to 2026-27; headline `npv_total`
-  (arbitration cost), `npv_total_qo` (qualifying-offer chain) and the term-free values beside.
-- **Built 2026-10-14 (Thomas's decisions):** the 60/40 checks retired (no value moved); drafted players' CBA ages
-  read in the year they signed (1,092 of 1,157 who played have a date); the arbitration price consistent with the
-  forecast (reading (a)); every performance age on September 15 of the season's starting year (was February 1 of the
-  ending year), with the price line and floor spread re-locked on it (Thomas: "lock it").
-- **Supervisor documents** in `40_DOCS/Supervisor_Drafts/` are point-in-time snapshots of progress; they are not
-  updated as the model changes (Thomas, 2026-10-14).
+- **Thomas's round-2 notes on "Valuing Players, Draft Picks, and Prospects" (2026-10-21)** drove the week's model work,
+  each item decided by him before it was built (MODEL_DIRECTIVES, from "Thomas's second round of notes"): the rule for
+  dropping a term not statistically significant (agreed before any result), the forecast audit, the whole-term pricing
+  test (not adopted; to be stated as tested), goaltender birthdates from the NHL, the prospect check, the goaltender
+  review. The back-test was not consulted for any of them (DECISIONS 2026-10-21d).
+- **Dashboard.** `dashboard_refresh.py` v1.3: 12 steps, about 19 minutes. Last full run 2026-10-21 (12 of 12).
+- **Trade chain.** `trade_refresh.py` v1.0: 17 steps, about 6 minutes. Last full run 2026-10-21 (17 of 17).
+- **Panel.** `contract_npv_panel.py` v1.5: 7,890 contract-pages written, seasons 2018-19 to 2026-27 (2026-10-21).
+- **Documents.** Both rebuilt 2026-10-22 on the model as it runs: "Valuing Players, Draft Picks, and Prospects" v4
+  (`model_doc.js` v4.1, from his round-2 notes) and "Valuing Prospects" (`prospect_model_doc.js` v3.0), which Thomas
+  sends to Karl after the meeting of 2026-10-23.
 
-## Model as built (2026-10-14)
+## Model as built (2026-10-22)
 
 **Core.** A contract's value is the sum over its seasons k = 0, 1, ... of (chance he plays x value of the season -
-cap hit) / 1.03^k, plus the value of his restricted free agent control seasons after it. Value and cost are shares
-of each season's cap, which grows 3% a year (D11, D17: one constant for cap growth and discounting).
+cap hit) / 1.03^k, plus the terminal value of his restricted free agent control seasons after it. Value and cost are
+in each season's dollars at a cap growing 3% a year, so in cap shares the growth and the discount cancel (D11, D17).
 
-**Skater forecast (xNPV 1, `skater_forecast.py` v2.2).** For each season ahead it forecasts the WAR per 82 if he
-plays, the share of games he plays if he plays, and the chance he plays at all.
-1. Start: 65% his own rate per 82 (the three seasons before, weighted 50/30/20, each weight times that season's
-   games, 10+ game seasons, rescaled over the seasons he has) plus 35% his comparable players' level at the age of
-   his last counted season (blended with the league level at weight ten), plus the curve's change to the valuation
+**Skater forecast (xNPV 1, `skater_forecast.py` v2.4).** For each season ahead: WAR per 82 if he plays, the share of
+games he plays if he plays, and the chance he plays at all.
+1. Start: 65% his own rate per 82 (the three seasons before, weighted 50/30/20, each weight times that season's games,
+   10+ game seasons, rescaled over the seasons he has) plus 35% his comparable players' level at the age of his most
+   recent counted season (blended with the league level at weight ten), plus the comparables' change to the valuation
    season.
-2. Aging: the comparable-player curve (`aging_curve.py`; level 50/30/20 by age, games-weighted; one yardstick per
-   position; ages on September 15 of the season's starting year since 2026-10-14), fitted on seasons before the page; its changes are added to the start. Players who left the league
-   enter the curve at replacement level for the seasons they missed.
-3. Games share: a fitted line per season ahead on the trailing share, position, experience, age, age squared and
-   the 50/30/20 trailing WAR total; capped at 1.0, floored at 0.05.
-4. Chance of playing (`participation_model.py` v1.8): reads contract status, with a before/after-2018 marker; read
-   at July 1 for a page and at the signing for a contract's own valuation (open decision 2).
+2. Aging: the comparable-player curve (`aging_curve.py`), fitted on seasons before the page; its changes in WAR per 82
+   are added to the start. Departed players enter the curve at replacement level for the season they missed.
+3. Games share: a straight line per season ahead on the trailing share, seasons since debut, age and age squared
+   (centred at `forecast_config.AGE_CENTRE` = 27.22) and the 50/30/20 trailing WAR total; capped at 1, floored at 0. The
+   defenceman term was dropped 2026-10-21.
+4. Chance of playing (`participation_model.py` v2.0): a logistic regression per season ahead on age (centred at
+   27.22), the trailing WAR total, the trailing games share, defenceman, contract status and the before-2018 marker;
+   age squared and seasons since debut dropped 2026-10-21. Contract status is read at July 1 for a page, at the
+   signing for a contract's own valuation, and before the trade date for a traded player (a contract signed on the
+   trade date is left out, `ContractForecaster.signed_between`).
 5. Seasons beyond the fitted range continue the league-wide decline measured between the last two fitted seasons.
 
-**Skater price line (`skater_forward_projection.price_constants()`).** A season is worth max(alpha + beta x WAR
-(+ the defence addition) + gamma_term x remaining term, league minimum) x that season's cap, the floor taken as an
-expected value over a spread of WAR_IF_PLAYS_MAE x 1.2533. The line was fitted on xNPV 1's forecast dated at each
-contract's signing, with a linear term for contract length (directives 4 and 5; `xnpv1_price_line.py` v2.0).
+**Skater price line (`skater_forward_projection.price_constants()`).** A season is worth max(alpha + beta x WAR (+ the
+defence addition) + gamma_term x the term left, league minimum) x that season's cap, the floor taken as an expected
+value over a spread of WAR_IF_PLAYS_MAE x 1.2533. Fitted on the forecast of the contract's first season dated at its
+signing (directives 4 and 5; `xnpv1_price_line.py` v2.3), censored at the league minimum. Pricing on the forecast over
+the contract's whole term was tested 2026-10-21 and predicts cap hits worse (`25_TESTS/term_average_price_line.py`).
 
-**Control seasons (`rfa_terminal_value.py` v2.4).** From the contract's end to PuckPedia's UFA year. Each season is
-weighted P(qualified) x P(plays, given qualified) for his forecast bucket (the July method, open decision 1), the
-chain starting from his chance of playing the contract's final season. Value is priced at one year of term. Cost is
-the qualifying offer until he is arbitration-eligible (PuckPedia's flag: 1 = from the first control season, 0 =
-from the second); once eligible, the higher of the qualifying offer and the line's price of his arbitration WAR
-(adopted 2026-10-13). Since 2026-10-14 that WAR is consistent with the forecast
-(`ContractForecaster.arbitration_war`): xNPV 1's own start rebuilt at the control season (games-weighted 50/30/20
-rate per 82, 65/35 toward comparable players, plus the curve's change), observed seasons before the page and the
-page's forecast after it, times the forecast's games share. The qualifying-offer chain alone is reported beside.
+**Control seasons (`rfa_terminal_value.py` v2.9).** From the contract's end to the UFA year. Each season weighted
+P(qualified) x P(plays, given qualified) for his forecast bucket, the chain starting from his chance of playing the
+contract's final season. Priced at one year of term. Cost: the qualifying offer until arbitration-eligible (PuckPedia's
+flag), then the higher of the qualifying offer and the line's price of his arbitration WAR (the forecast's own start
+rebuilt at that season). The walk-away rule ends the terminal value at the first season with negative surplus.
 
-**Goalies (`contract_npv.py`).** A flat projection: the 50/30/20 trailing WAR (62.5/37.5 with two seasons, the
-last alone with one), pulled 65% toward the league average, priced on the goalie line recovered from the goalie
-spine; survival from the goalie exit hazard (fitted on 2018-2024); control seasons weighted 0.902 x 0.859 = 0.775 a
-year; the arbitration rule on the goalie line, its WAR the goalie forecast's construction rebuilt at the season.
+**Goaltenders (`contract_npv.py` v3.4).** Forecast: the 50/30/20 trailing WAR (62.5/37.5 with two seasons, the most
+recent alone with one; no games filter), kept 35% and pulled 65% toward 2.19 WAR, plus a straight-line age term (fitted
+per page on the forecast's errors, goaltender-seasons of 20+ games before the page) at his age in each season. Chance
+of playing: a logistic regression per season ahead on age, the pulled forecast and last season's games share, fitted
+per page. Price: `GOALIE_RATE`, fitted on the track-record forecast (without the age term) dated at the signing,
+censored, with term (`goalie_value_engine.py` Stage G guards the lock), applied to the forecast with its age term
+(Thomas, option 1). Control seasons: one pooled weight a year (0.893 x 0.859 = 0.767). Goaltender birthdates from the
+NHL's records (`goalie_birthdates.py`), PuckPedia's after. The goalie exit hazard (`exit_hazard.py`) no longer prices
+anything; it is reported.
 
-**Draft picks (`pick_curve.py` v1.4).** A pick is worth the star value times Bacon's probability that its slot
-produces a star (career WAR/82 of 1.8+ forwards, 1.23+ defencemen). The star value is the slope of each drafted
-player's surplus (2007-2017 drafts, 2,322 players) on his slot's star probability, through zero, with draft-year
-indicators that sum to zero. Each player's surplus runs from the draft to the end of club control under CBA Group 3
-(27 by June 30, or seven Accrued Seasons): delivered WAR priced on the contract line at one year of term; entry-level
-maximum, then the qualifying offer, then the arbitration price once eligible (CBA 12.1, counted from seasons of 10+
-NHL games; the arbitration WAR is the forecast's start at that season, from seasons before it); entry-level length and
-arbitration need from his age on September 15 of the year he signed (`elc_signing_dates.csv`; 1,092 of 1,157 who
-played; the first NHL season stands in for 65); a season without an NHL game worth and costing zero; lapsed rights zeroed;
-goalies pooled.
+**Draft picks (`pick_curve.py` v1.11).** A pick is worth the star value times Bacon's probability that its draft
+position produces a star. The star value is the slope of each drafted player's surplus (2007-2017 drafts, six deceased
+draftees out) on that probability, through zero, no draft-year terms. Each player's surplus runs from the draft to the
+end of club control (CBA Group 3): delivered WAR priced on his position's line at one year of term; entry-level
+maximum, then the qualifying offer, then the arbitration price once eligible; a season without an NHL game worth and
+costing zero; lapsed rights zeroed.
 
-**Traded picks (`traded_pick_values.py` v1.2).** The next draft's pick traded in season: the slot of the original
-team's standings on the trade date. Before that season's first game, or any later draft: the round average. During
-the draft: the actual slot. Conditional picks valued as unconditional (back-test work).
+**Traded picks (`traded_pick_values.py` v1.2).** The next draft's pick traded in season: the draft position from the
+original team's standings on the trade date; before that season's first game, or a later draft: the round average;
+during the draft: the actual position. Conditional picks valued as unconditional.
 
-**Prospects, step one (`prospect_values.py` v1.0, 2026-10-14; MODEL_DIRECTIVES directive 6).** A prospect is a drafted
-player the player model does not take yet (skaters: no 10+ game NHL season in the three before; goalies: no NHL game
-in the six before). Value = Bacon's star chance for his slot x a star value for the seasons since his draft, fitted
-with the pick curve's regression (through zero) on the 2007-2017 draftees still prospects then, outcome their
-remaining surplus; 4+ seasons pooled; zero past club control. His value with his own draft left out is beside it.
-**Undrafted (v1.3):** only those on an NHL contract (a cap hit without the AHL flag, or a PuckPedia contract running
-on the trade date), valued by the same model with the slot term at zero, seasons counted from the first draft-eligible
-year. **Step two and age (v1.2):** skaters' value adds production (Elite Prospects
-points x NHLe, per 82 games, 50/30/20 over the three seasons before; curved) and, in seasons 0-3, production discounted
-by years past first eligibility (age in the autumn after the draft minus 18, v1.7); the slot only in seasons 0-2;
-goalies keep the slot alone. The slot-only value is beside it (the no-age version was dropped 2026-10-15, v1.7). **Deceased draftees (v1.6, 2026-10-15):** the six 2007-2017 draftees who died before reaching the
-NHL are left out of every fit (pick curve, star values, production fits; `deceased_draftees.py`). Traded players are matched to drafted players by NHL id from PuckPedia
-(trade rows, or a contract with the same cap hit running on the trade date; 684 of 927), else by name (short forms,
-initials, Elite Prospects' spelling, a namesake guard); every id-name disagreement is listed and guarded (v1.1).
+**Prospects (`prospect_values.py` v1.12).** A prospect is a drafted player the player model does not take yet (skaters:
+no 10+ game NHL season in the three before; goaltenders: no NHL game in the six before). One regression with the full
+set of interaction terms on the 2007-2017 draftees' prospect-seasons inside club control, outcome the remaining
+surplus: draft position's star probability (D+1 to D+3), NHLe production per 82 (50/30/20) and its square (every
+season), production x (age - 18) (D+1 to D+4). Goaltenders on draft position alone. Undrafted players on NHL contracts
+on the same model with the star probability at zero.
 
-## Figures in force (read from the code, 2026-10-14)
+## Figures in force (read from the code and the 2026-10-21 runs)
 
 | What | Value | Where |
 |---|---|---|
-| Skater line, term-in (`XNPV1_RATE`, re-locked 2026-10-14 on September 15 ages, again on the name-crosswalk sample) | alpha -0.0043651624; beta 0.0175356938 per forecast win; defence +0.0037579369; gamma_term 0.0089300596 a season per year of term; n 2,323 | `skater_forward_projection.py` |
-| At the 2025-26 cap | $1.675M per forecast win (forwards), $2.034M (defence), +$0.853M a season per year of term | xnpv1_price_line.py v2.2 |
-| Skater line, term-free (sensitivity) | 0.0081469438 / 0.0311507981 / +0.0137184862 | same |
-| Stage 3 line (guards only) | 0.0132478230 / 0.0212322891 / +0.0028702824 | `skater_value_engine.py` |
-| Floor spread, WAR_IF_PLAYS_MAE | 0.6767, 0.7545, 0.8026, 0.8499, 0.8770, 0.8981 (seasons 0-5, flat after; 2026-10-14) | `skater_forecast.py` |
-| Skater control weights | 100% / 100% / 88.2% / 67.8% by forecast bucket | refresh 2026-10-05 |
-| Goalie control weight | 0.902 x 0.859 = 0.775 a year | refresh 2026-10-05 |
-| Star value | $18.04M (se 1.73); without 2015-2016 $15.69M; qualifying-offer chain $31.92M / $27.83M (v1.6, 2026-10-15: six deceased draftees out of every fit; was $18.02M) | `pick_curve.py` |
-| Traded picks (634, 2017-07-01 to 2022-03-21) | $401.5M; sensitivity $349.2M (2026-10-15; was $401.25M) | `traded_pick_values.py` |
-| Prospect star value by seasons since the draft | 18.04 / 17.61 / 15.75 / 8.89 / 2.01 (D+1, D+2, D+3, D+4, D+5 on; $M at the 2025-26 cap; 2026-10-15) | `prospect_values.py` |
-| Traded prospects (197 assets, 170 players, 2017-07-01 to 2022-03-28) | $70.39M (slot, production and age); slot alone $58.30M; own draft left out $69.23M (v1.7, 2026-10-15; was $69.12M) | `prospect_values.py` |
-| Traded undrafted prospects on NHL contracts (53 assets) | $5.93M; all prospects $76.31M (2026-10-15) | `prospect_values.py` |
+| Skater line, term-in (`XNPV1_RATE`, re-locked 2026-10-21 on skater_forecast v2.4) | alpha -0.0043092485; beta 0.0175092736 per forecast win; defence +0.0040764912; gamma_term 0.0089103033 a season per year of term; n 2,336 (d9d1d82777bf) | `skater_forward_projection.py` |
+| At the 2025-26 cap | $1.672M per forecast win (forwards), $2.061M (defence), +$0.851M a season per year of term | xnpv1_price_line.py v2.3 |
+| Skater line, term-free (sensitivity) | 0.0081682729 / 0.0311829464 / +0.0143706284 | same |
+| Goaltender line (`GOALIE_RATE`, locked 2026-10-21) | alpha -0.0317074413; beta 0.0213830910 per track-record forecast win; gamma_term 0.0081170278; n 333 (079356e187fe): -$3.03M + $2.042M per WAR + $0.775M per year of term at the 2025-26 cap; term-free -0.0418477388 / 0.0362527068 | `contract_npv.py` |
+| Floor spread, WAR_IF_PLAYS_MAE | 0.6766, 0.7545, 0.8023, 0.8494, 0.8765, 0.8975 (seasons 0-5; 2026-10-21) | `skater_forecast.py` |
+| Skater qualifying rates by bucket | star 1.000 (10), regular 0.960 (176), fringe 0.780 (904), negative 0.654 (1,180) | xnpv1_price_line.py v2.3 run, 2026-10-21 |
+| Goaltender control weight | 0.893 x 0.859 = 0.767 a year (103 decisions) | `contract_npv.py`, each run |
+| Star value | $18.29M (se 1.74); without 2015-2016 $15.99M (2026-10-21; was $18.18M on 2026-10-20) | `pick_curve.py` |
+| Traded picks (634) | $407.11M; sensitivity $355.9M (2026-10-21) | `traded_pick_values.py` |
+| Prospect star value by season | 18.29 / 18.16 / 16.53 / 9.65 / 2.68 (D+1, D+2, D+3, D+4, D+5 on; $M at the 2025-26 cap) | `prospect_values.py` |
+| Traded prospects | 196 drafted $71.3M; drafted and undrafted (249) $77.44M (2026-10-21) | `prospect_values.py` |
+| Traded assets joined (2017-07-01 to 2022-03-28) | 1,648 assets (927 players, 634 picks) plus retained-salary entries; 1,645 valued; at the 2025-26 cap $-270.64M: players $-755.18M (retained salary $-92.63M among them), picks $407.11M, prospects $77.44M (2026-10-21; was $-216.87M on 2026-10-20) | `trade_asset_values.py` |
+| Back-test (2026-10-21) | slope 0.743 [0.542, 0.898]; correlation 0.552; favoured club ahead 57.2%; picks -$0.199M an asset [-0.338, -0.051]; futures-for-players -$0.632M [-1.045, -0.204] | `backtest.py` v1.6 |
 | Discount and cap growth | 3% each | D11, D17 |
 
-## Data and scripts (2026-10-14)
+## Data and scripts (2026-10-22)
 
-**Source data (`10_SOURCE/`, never written by code).** `WAR.csv` and `Goalies_WAR.csv` (Bacon); the PuckPedia
-player-contract and trades exports (confidential, 2026-05-22; 6,851 contract rows, from 2018-19, with signing dates,
-UFA year, arbitration and Group 6 flags); `trades.db`; `games.csv`; `draft_slot_baseline.csv` (Bacon's slot
-probabilities); `nhle_temporal.csv`; `ep_birthdates.csv`; the game-level tables and `nhl_gamelogs.sqlite`; the
-CapWages cache (1,551 player pages); the clause scrape.
+**Source data (`10_SOURCE/`, never written by code).** `WAR.csv` and `Goalies_WAR.csv` (Bacon); the PuckPedia contract
+and trades exports (confidential, 2026-05-22); `trades.db` (ends 2022-03-28); `games.csv`; `draft_slot_baseline.csv`;
+`nhle_temporal.csv`; `ep_birthdates.csv`; the game-level tables and `nhl_gamelogs.sqlite`; the CapWages cache; the clause
+scrape; Spotrac's injured-reserve pages (`ltir/`). Cached pulls in `30_OUTPUT/`: the NHL draft records (`draft_raw/`)
+and goaltender bios (`goalie_bios_raw/`, 2026-10-21).
 
-**Live code (`20_CODE/`, 36 scripts).**
-- Player chain, in run order: `join_clauses_to_spine.py`, `age_join.py`, `elc_signing_dates.py` v1.0,
-  `goalie_value_engine.py` v1.3, `skater_forward_projection.py` v2.1, `rfa_terminal_value.py` v2.5,
-  `exit_hazard.py` v1.3, `contract_npv.py` v2.7, `contract_npv_panel.py` v1.5; `dashboard_refresh.py` v1.2 runs them
-  and builds `player_dashboard.py` v1.3. `skater_value_engine.py` v2.0 is a library (helpers and the Stage 3
-  constants) since the 60/40 checks were retired.
-- xNPV 1 modules: `skater_forecast.py` v2.3, `aging_curve.py`, `participation_model.py` v1.8,
-  `player_season_table.py` v1.3, `information_set.py` v1.1, `contract_source.py` v1.0, `forecast_config.py` v1.0,
-  `forecast_harness.py` v1.4; `xnpv1_price_line.py` v2.1 (the line and its reproduction guard).
-- Draft: `draft_pick_linkage.py` v1.1, `elc_signing_dates.py` v1.0, `pick_curve.py` v1.5, `traded_pick_values.py` v1.2.
-- Prospects: `prospect_values.py` v1.3 (slot, production, age; undrafted). Prospect data: `ep_extract.py` v3.5, `ep_nhl_bridge.py` v1.1.
-- Game level: `nhl_gamelog_scraper.py` v2.4, `on_ice_reconstruction.py` v1.3, `xg_model.py` v1.0,
-  `score_state.py` v1.0, `metric_assembly.py` v1.0, `gv_adjusted_build.py` v1.0.
-- Other: `replacement_rebase.py`, `npv_spine_compare.py`, `capspace_scraper.py`, `capspace_capwages_compare.py`,
+**Live code (`20_CODE/`, 52 scripts).**
+- Player chain (`dashboard_refresh.py` v1.3 runs it): `join_clauses_to_spine.py` v2.1, `war_name_crosswalk.py` v1.1,
+  `age_join.py`, `elc_signing_dates.py` v1.4, `goalie_birthdates.py` v1.0, `goalie_value_engine.py` v2.0,
+  `skater_forward_projection.py` v2.2, `rfa_terminal_value.py` v2.9, `exit_hazard.py` v1.3, `contract_npv.py` v3.4,
+  `contract_npv_panel.py` v1.5, then `player_dashboard.py` v1.4.
+- xNPV 1 modules: `skater_forecast.py` v2.4, `aging_curve.py`, `participation_model.py` v2.0, `player_season_table.py`
+  v1.5, `information_set.py` v1.1, `contract_source.py` v1.4 (one contract-dating rule; `read_goalie_war`),
+  `forecast_config.py` v1.0, `forecast_harness.py` v1.4; `xnpv1_price_line.py` v2.3; `skater_value_engine.py` v2.0
+  (library).
+- Draft, prospect and trade chain (`trade_refresh.py` v1.0 runs it): `draft_pick_linkage.py` v1.3, `pick_curve.py`
+  v1.11, `traded_pick_values.py` v1.2, `deceased_draftees.py` v1.0, `prospect_values.py` v1.12, `trade_page.py`,
+  `traded_player_values.py` v1.6, `rights_values.py` v1.6, `buried_contract_values.py` v1.8, `contracts_2017.py` v1.1,
+  `page_2017_values.py` v1.9, `trade_asset_values.py` v1.2, `ltir.py` v1.0. Prospect data: `ep_extract.py` v3.5,
+  `ep_nhl_bridge.py` v1.1.
+- Back-test, by hand after the chain: `trade_sides.py` v1.0, `backtest.py` v1.6.
+- Game level: `nhl_gamelog_scraper.py` v2.4, `on_ice_reconstruction.py` v1.3, `xg_model.py` v1.0, `score_state.py`
+  v1.0, `metric_assembly.py` v1.0, `gv_adjusted_build.py` v1.0.
+- Other: `replacement_rebase.py`, `npv_spine_compare.py` v1.0, `capspace_scraper.py`, `capspace_capwages_compare.py`,
   `check.py`.
 
-**Pending data items.** Goalie birthdates for pre-2018 retirees (96 of 98 found in the NHL stats API, not wired);
-the mid-season allocation application (Phase 4a-ii); `trades.db` ends 2022-03-21; the PuckPedia export refresh.
+**Pending data items.** The mid-season allocation application (Phase 4a-ii); `trades.db` ends 2022-03-28; the PuckPedia
+export refresh. Goaltender birthdates are complete (2026-10-21).
 
 ## Pointers
 
@@ -454,7 +451,166 @@ file changed and no locked decision was reopened.
 
 ---
 
-## History (kept as written; superseded by the sections above on 2026-10-14)
+## History (kept as written)
+
+### The sections as of the 2026-10-14 refresh (figures of 2026-10-20), superseded 2026-10-22
+
+#### Current state (refresh 2026-10-14)
+
+Written from the code that runs (versions as printed by each script) and the session logs 2026-09-28 to
+2026-10-14. Dated entries before this refresh are in the History section at the end, as written.
+
+| Pillar | State | Code |
+|---|---|---|
+| Skater contracts | Built and priced on xNPV 1 (D33); the five player directives built and validated 2026-10-05 | `skater_forecast.py` v2.3, `skater_forward_projection.py` v2.1, `rfa_terminal_value.py` v2.5, `contract_npv.py` v2.7 |
+| Goalie contracts | Built; flat projection pulled 65% to the league | `contract_npv.py` goalie branch, `goalie_value_engine.py` v1.3, `exit_hazard.py` v1.3 |
+| Draft picks | Pick curve built 2026-10-09; arbitration cost adopted 2026-10-13; CBA signing age and the forecast-consistent arbitration price 2026-10-14 | `draft_pick_linkage.py` v1.1, `elc_signing_dates.py` v1.0, `pick_curve.py` v1.5, `traded_pick_values.py` v1.2 |
+| Prospects | Built 2026-10-14: slot, production adjusted to NHL terms (NHLe) and age, with the slot-only version beside (the no-age version dropped 2026-10-15); undrafted players on NHL contracts on the same model with the slot at zero; traded prospects valued; deceased draftees out of every fit | `prospect_values.py` v1.7; data `ep_extract.py` v3.5, `ep_nhl_bridge.py` v1.1 |
+| Game-level metric (Game Value) | Built 2026-07-03; used for the circularity checks | game-level chain (below) |
+| Back-test | Run 2026-10-20 on the protocol `40_DOCS/Backtest_Protocol.md` (Thomas: outcome realised to 2025-26 plus the 2026-27 page; rule cost; dollar gap per club). Forecast predicts outcome (slope 0.741 with LTIR relief, 2026-10-20e; 0.726 on Game Value); players on target once LTIR is relieved; Game Value check run 2026-10-20f: 9 results hold, 1 not confirmed | `trade_sides.py` v1.0, `backtest.py` v1.5, `ltir.py` v1.0, `25_TESTS/backtest_gv_compare.py` |
+
+- **Validation of the skater forecast.** The 2022-2025 confirmation (2026-10-02) and the revalidation of the built
+  forecast (2026-10-05): season-WAR RMSE 0.8932 against xNPV 0's 0.9724, lower squared error in 2,000 of 2,000 player
+  resamples. Those seasons were examined by about thirty earlier variants; they are not a sealed holdout.
+- **Dashboard.** `Update-Dashboard.cmd` / `dashboard_refresh.py` v1.1: 10 steps, about 11 minutes; the dashboard
+  re-prices each page within $1 of the panel or refuses. Last full refresh: 2026-10-18 (the season table's calendar ages; 11 of 11 steps).
+- **Panel.** `contract_npv_panel.py` v1.5: 7,817 contract-pages, seasons 2018-19 to 2026-27; headline `npv_total`
+  (arbitration cost), `npv_total_qo` (qualifying-offer chain) and the term-free values beside.
+- **Built 2026-10-14 (Thomas's decisions):** the 60/40 checks retired (no value moved); drafted players' CBA ages
+  read in the year they signed (1,092 of 1,157 who played have a date); the arbitration price consistent with the
+  forecast (reading (a)); every performance age on September 15 of the season's starting year (was February 1 of the
+  ending year), with the price line and floor spread re-locked on it (Thomas: "lock it").
+- **Supervisor documents** in `40_DOCS/Supervisor_Drafts/` are point-in-time snapshots of progress; they are not
+  updated as the model changes (Thomas, 2026-10-14).
+
+#### Model as built (2026-10-14)
+
+**Core.** A contract's value is the sum over its seasons k = 0, 1, ... of (chance he plays x value of the season -
+cap hit) / 1.03^k, plus the value of his restricted free agent control seasons after it. Value and cost are shares
+of each season's cap, which grows 3% a year (D11, D17: one constant for cap growth and discounting).
+
+**Skater forecast (xNPV 1, `skater_forecast.py` v2.2).** For each season ahead it forecasts the WAR per 82 if he
+plays, the share of games he plays if he plays, and the chance he plays at all.
+1. Start: 65% his own rate per 82 (the three seasons before, weighted 50/30/20, each weight times that season's
+   games, 10+ game seasons, rescaled over the seasons he has) plus 35% his comparable players' level at the age of
+   his last counted season (blended with the league level at weight ten), plus the curve's change to the valuation
+   season.
+2. Aging: the comparable-player curve (`aging_curve.py`; level 50/30/20 by age, games-weighted; one yardstick per
+   position; ages on September 15 of the season's starting year since 2026-10-14), fitted on seasons before the page; its changes are added to the start. Players who left the league
+   enter the curve at replacement level for the seasons they missed.
+3. Games share: a fitted line per season ahead on the trailing share, position, experience, age, age squared and
+   the 50/30/20 trailing WAR total; capped at 1.0, floored at 0.05.
+4. Chance of playing (`participation_model.py` v1.8): reads contract status, with a before/after-2018 marker; read
+   at July 1 for a page and at the signing for a contract's own valuation (open decision 2).
+5. Seasons beyond the fitted range continue the league-wide decline measured between the last two fitted seasons.
+
+**Skater price line (`skater_forward_projection.price_constants()`).** A season is worth max(alpha + beta x WAR
+(+ the defence addition) + gamma_term x remaining term, league minimum) x that season's cap, the floor taken as an
+expected value over a spread of WAR_IF_PLAYS_MAE x 1.2533. The line was fitted on xNPV 1's forecast dated at each
+contract's signing, with a linear term for contract length (directives 4 and 5; `xnpv1_price_line.py` v2.0).
+
+**Control seasons (`rfa_terminal_value.py` v2.4).** From the contract's end to PuckPedia's UFA year. Each season is
+weighted P(qualified) x P(plays, given qualified) for his forecast bucket (the July method, open decision 1), the
+chain starting from his chance of playing the contract's final season. Value is priced at one year of term. Cost is
+the qualifying offer until he is arbitration-eligible (PuckPedia's flag: 1 = from the first control season, 0 =
+from the second); once eligible, the higher of the qualifying offer and the line's price of his arbitration WAR
+(adopted 2026-10-13). Since 2026-10-14 that WAR is consistent with the forecast
+(`ContractForecaster.arbitration_war`): xNPV 1's own start rebuilt at the control season (games-weighted 50/30/20
+rate per 82, 65/35 toward comparable players, plus the curve's change), observed seasons before the page and the
+page's forecast after it, times the forecast's games share. The qualifying-offer chain alone is reported beside.
+
+**Goalies (`contract_npv.py`).** A flat projection: the 50/30/20 trailing WAR (62.5/37.5 with two seasons, the
+last alone with one), pulled 65% toward the league average, priced on the goalie line recovered from the goalie
+spine; survival from the goalie exit hazard (fitted on 2018-2024); control seasons weighted 0.902 x 0.859 = 0.775 a
+year; the arbitration rule on the goalie line, its WAR the goalie forecast's construction rebuilt at the season.
+
+**Draft picks (`pick_curve.py` v1.4).** A pick is worth the star value times Bacon's probability that its slot
+produces a star (career WAR/82 of 1.8+ forwards, 1.23+ defencemen). The star value is the slope of each drafted
+player's surplus (2007-2017 drafts, 2,322 players) on his slot's star probability, through zero, with draft-year
+indicators that sum to zero. Each player's surplus runs from the draft to the end of club control under CBA Group 3
+(27 by June 30, or seven Accrued Seasons): delivered WAR priced on the contract line at one year of term; entry-level
+maximum, then the qualifying offer, then the arbitration price once eligible (CBA 12.1, counted from seasons of 10+
+NHL games; the arbitration WAR is the forecast's start at that season, from seasons before it); entry-level length and
+arbitration need from his age on September 15 of the year he signed (`elc_signing_dates.csv`; 1,092 of 1,157 who
+played; the first NHL season stands in for 65); a season without an NHL game worth and costing zero; lapsed rights zeroed;
+goalies pooled.
+
+**Traded picks (`traded_pick_values.py` v1.2).** The next draft's pick traded in season: the slot of the original
+team's standings on the trade date. Before that season's first game, or any later draft: the round average. During
+the draft: the actual slot. Conditional picks valued as unconditional (back-test work).
+
+**Prospects, step one (`prospect_values.py` v1.0, 2026-10-14; MODEL_DIRECTIVES directive 6).** A prospect is a drafted
+player the player model does not take yet (skaters: no 10+ game NHL season in the three before; goalies: no NHL game
+in the six before). Value = Bacon's star chance for his slot x a star value for the seasons since his draft, fitted
+with the pick curve's regression (through zero) on the 2007-2017 draftees still prospects then, outcome their
+remaining surplus; 4+ seasons pooled; zero past club control. His value with his own draft left out is beside it.
+**Undrafted (v1.3):** only those on an NHL contract (a cap hit without the AHL flag, or a PuckPedia contract running
+on the trade date), valued by the same model with the slot term at zero, seasons counted from the first draft-eligible
+year. **Step two and age (v1.2):** skaters' value adds production (Elite Prospects
+points x NHLe, per 82 games, 50/30/20 over the three seasons before; curved) and, in seasons 0-3, production discounted
+by years past first eligibility (age in the autumn after the draft minus 18, v1.7); the slot only in seasons 0-2;
+goalies keep the slot alone. The slot-only value is beside it (the no-age version was dropped 2026-10-15, v1.7). **Deceased draftees (v1.6, 2026-10-15):** the six 2007-2017 draftees who died before reaching the
+NHL are left out of every fit (pick curve, star values, production fits; `deceased_draftees.py`). Traded players are matched to drafted players by NHL id from PuckPedia
+(trade rows, or a contract with the same cap hit running on the trade date; 684 of 927), else by name (short forms,
+initials, Elite Prospects' spelling, a namesake guard); every id-name disagreement is listed and guarded (v1.1).
+
+#### Figures in force (read from the code, 2026-10-20)
+
+| What | Value | Where |
+|---|---|---|
+| Skater line, term-in (`XNPV1_RATE`, re-locked 2026-10-20 on the contracts dated by `contract_source.contract_terms`) | alpha -0.0043026112; beta 0.0175297693 per forecast win; defence +0.0039447231; gamma_term 0.0089105379 a season per year of term; n 2,336 | `skater_forward_projection.py` |
+| At the 2025-26 cap | $1.674M per forecast win (forwards), $2.051M (defence), +$0.851M a season per year of term | xnpv1_price_line.py v2.3 |
+| Skater line, term-free (sensitivity) | 0.0081818739 / 0.0312216498 / +0.0140759564 | same |
+| Goalie line (re-fitted every run) | 1.371% of the cap + 1.074% per win, 356 contracts (2026-10-20) | `goalie_value_engine.py` |
+| Cap hit charged | PuckPedia's; the clause figure on a late signing's later seasons (`model_cap_hit`, 8 contracts; 2026-10-20) | `join_clauses_to_spine.py` |
+| Stage 3 line (guards only) | 0.0132478230 / 0.0212322891 / +0.0028702824 | `skater_value_engine.py` |
+| Floor spread, WAR_IF_PLAYS_MAE | 0.6767, 0.7545, 0.8026, 0.8499, 0.8770, 0.8981 (seasons 0-5, flat after; 2026-10-14) | `skater_forecast.py` |
+| Skater control weights | 100% / 100% / 88.2% / 67.8% by forecast bucket | refresh 2026-10-05 |
+| Goalie control weight | 0.893 x 0.859 = 0.767 a year (103 decisions; measured 2026-10-16 on the laptop's inputs, session 2026-10-16c; was 0.902 x 0.859 = 0.775 at the 2026-10-05 refresh, not traced) | `contract_npv.py`, measured each run |
+| Star value | $18.18M (se 1.74); without 2015-2016 $15.87M; qualifying-offer chain $32.14M / $28.08M (2026-10-20: contracts dated one way, the price line re-locked; was 18.0975 on 2026-10-19) | `pick_curve.py` |
+| Traded picks (634, 2017-07-01 to 2022-03-21) | $404.71M; sensitivity $353.3M (2026-10-20; was $402.86M on 2026-10-19) | `traded_pick_values.py` |
+| Prospect star value by seasons since the draft | 18.18/17.94/16.16/9.44/2.59 (2026-10-20; D+1, D+2, D+3, D+4, D+5 on; $M at the 2025-26 cap) | `prospect_values.py` |
+| Traded prospects (196 assets, 169 players, 2017-07-01 to 2022-03-28) | $71.2M (draft position, production and age); draft position alone $61.78M (2026-10-20; was $70.57M / $61.19M on 2026-10-19) | `prospect_values.py` |
+| Traded prospects, drafted and undrafted (249 assets) | $77.32M (2026-10-20; was $76.58M) | `prospect_values.py` |
+| Traded assets joined (`trade_asset_values.csv`, 2017-07-01 to 2022-03-28) | 1,561 assets (927 players, 634 picks) and 87 retained-salary entries; 1,645 valued; at the 2025-26 cap $-216.87M: players $-698.90M (retained salary $-92.63M among them), picks $404.71M, prospects $77.32M (2026-10-20e: LTIR relief for players on LTIR when traded, +$47.28M; 2026-10-20d: "UFA no QO" read only once known, +$10.12M; 2026-10-20c: contracts signed on the trade date left out; was $-357.29M; 3 not valued: Sislo, McKegg, Chapie). Club sides: `trade_sides.csv`, 567 trades, each zero-sum | `trade_asset_values.py`, `trade_sides.py` |
+| Discount and cap growth | 3% each | D11, D17 |
+
+#### Data and scripts (2026-10-14)
+
+**Source data (`10_SOURCE/`, never written by code).** `WAR.csv` and `Goalies_WAR.csv` (Bacon); the PuckPedia
+player-contract and trades exports (confidential, 2026-05-22; 6,851 contract rows, from 2018-19, with signing dates,
+UFA year, arbitration and Group 6 flags); `trades.db`; `games.csv`; `draft_slot_baseline.csv` (Bacon's slot
+probabilities); `nhle_temporal.csv`; `ep_birthdates.csv`; the game-level tables and `nhl_gamelogs.sqlite`; the
+CapWages cache (1,551 player pages); the clause scrape.
+
+**Live code (`20_CODE/`, 36 scripts).**
+- Player chain, in run order: `join_clauses_to_spine.py`, `age_join.py`, `elc_signing_dates.py` v1.0,
+  `goalie_value_engine.py` v1.3, `skater_forward_projection.py` v2.1, `rfa_terminal_value.py` v2.5,
+  `exit_hazard.py` v1.3, `contract_npv.py` v2.7, `contract_npv_panel.py` v1.5; `dashboard_refresh.py` v1.2 runs them
+  and builds `player_dashboard.py` v1.3. `skater_value_engine.py` v2.0 is a library (helpers and the Stage 3
+  constants) since the 60/40 checks were retired.
+- xNPV 1 modules: `skater_forecast.py` v2.3, `aging_curve.py`, `participation_model.py` v1.8,
+  `player_season_table.py` v1.5, `information_set.py` v1.1, `contract_source.py` v1.0, `forecast_config.py` v1.0,
+  `forecast_harness.py` v1.4; `xnpv1_price_line.py` v2.1 (the line and its reproduction guard).
+- Draft: `draft_pick_linkage.py` v1.2, `elc_signing_dates.py` v1.3, `pick_curve.py` v1.9, `traded_pick_values.py` v1.2.
+- Prospects: `prospect_values.py` v1.11 (slot, production, age; undrafted). Prospect data: `ep_extract.py` v3.5, `ep_nhl_bridge.py` v1.1.
+- Traded assets (2026-10-14 to 2026-10-18): `trade_page.py`, `traded_player_values.py` v1.1, `rights_values.py` v1.2,
+  `buried_contract_values.py` v1.3, `contracts_2017.py` v1.1, `page_2017_values.py` v1.2, and the join
+  `trade_asset_values.py` v1.0 (every traded asset once, both caps). The back-test (2026-10-20): `trade_sides.py` v1.0 (each
+  club's side of each trade) and `backtest.py` v1.2 (outcomes and the declared tests), run by hand after the chain. `trade_refresh.py` v1.0 (2026-10-18) runs the
+  draft, prospect and trade chain in order, from `draft_pick_linkage.py` to the join, with the five `25_TESTS/`
+  checks the scripts guard against; a step passes only on exit 0, no guard-failure line, its version line, and its
+  outputs rewritten. Run `dashboard_refresh.py` first when the contract side changed.
+- Game level: `nhl_gamelog_scraper.py` v2.4, `on_ice_reconstruction.py` v1.3, `xg_model.py` v1.0,
+  `score_state.py` v1.0, `metric_assembly.py` v1.0, `gv_adjusted_build.py` v1.0.
+- Other: `replacement_rebase.py`, `npv_spine_compare.py`, `capspace_scraper.py`, `capspace_capwages_compare.py`,
+  `check.py`.
+
+**Pending data items.** Goalie birthdates for pre-2018 retirees (96 of 98 found in the NHL stats API, not wired);
+the mid-season allocation application (Phase 4a-ii); `trades.db` ends 2022-03-21; the PuckPedia export refresh.
+
+
+### Superseded by the sections above on 2026-10-14
 
 ### Dated entries, newest first (to 2026-10-14)
 

@@ -44,7 +44,7 @@ from pathlib import Path
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "war_name_crosswalk.py v1.0 (2026-10-14)"
+SCRIPT_VERSION = "war_name_crosswalk.py v1.1 (2026-10-21)"   # v1.1: contract_source.read_goalie_war
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_source as CS                       # noqa: E402
@@ -62,7 +62,8 @@ def log(s=""):
 
 def war_seasons(path, name_col):
     """{raw WAR name: {start year: (GP, team set)}} and the raw names by cleaned name."""
-    w = pd.read_csv(path, usecols=[name_col, "Season", "Team", "GP"])
+    w = (CS.read_goalie_war(path, usecols=[name_col, "Season", "Team", "GP"]) if name_col == "Goalie"   # v1.1
+         else pd.read_csv(path, usecols=[name_col, "Season", "Team", "GP"]))
     w["syr"] = 2000 + w["Season"].astype(str).str[:2].astype(int)
     out = {}
     for (n, y), g in w.groupby([name_col, "syr"]):

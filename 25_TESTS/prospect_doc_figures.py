@@ -1,5 +1,14 @@
 """
-prospect_doc_figures.py -- the numbers and figures behind "Valuing Prospects" (40_DOCS/Supervisor_Drafts/), v2.1.
+prospect_doc_figures.py -- the numbers and figures behind "Valuing Prospects" (40_DOCS/Supervisor_Drafts/), v3.0.
+
+v3.0 (2026-10-22): no no-record indicator in any arm or table (prospect_values.py v1.12, Thomas 2026-10-21); on the
+model after 2026-10-21. Every guard PASS.
+
+v2.2 (2026-10-16, Thomas's 10 notes on v2.1's document): every coefficient table is one regression with the full set
+of interaction terms (prospect_values.fit_stacked; Thomas: "Just make the regression actually be the interaction
+terms"): the star values, the build-up, the adopted model, the production table and the age forms. Their
+coefficients equal the season-by-season fits and the source tables (GUARDS, 1e-9); the standard errors are the
+stack's, clustered by player. New: joint tests of the D+5-and-later terms in the adopted model.
 
 v2.1 (2026-10-15, Thomas's 13 notes on v2.0's document):
   * age is reported as his age on September 15 of the valuation season, less 18 (Thomas: option A), not as years
@@ -57,7 +66,7 @@ import matplotlib                                                  # noqa: E402
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt                                    # noqa: E402
 
-SCRIPT_VERSION = "prospect_doc_figures.py v2.1 (2026-10-15)"
+SCRIPT_VERSION = "prospect_doc_figures.py v3.0 (2026-10-22)"   # v3.0: no no-record indicator (prospect_values.py v1.12, Thomas 2026-10-21); v2.4   # no draft-year terms (Thomas, 2026-10-16)   # v2.3: Figure 2 label "Alternative"
 OUT, SRC = Path(os.environ["OUTPUT_DIR"]), Path(os.environ["SOURCE_DIR"])
 FIG = OUT / "prospect_doc"
 FIG.mkdir(exist_ok=True)
@@ -68,7 +77,10 @@ LABEL = {"0": "D+1", "1": "D+2", "2": "D+3", "3": "D+4", "4+": "D+5 and later"}
 
 
 def pval(b, se):
-    """Two-sided p-value from a robust z statistic (normal reference)."""
+    """Two-sided p-value from a robust z statistic (normal reference). v2.4: None when the standard error is zero
+    (a coefficient that fits its rows exactly, as no-record from D+4 on: every such prospect delivered nothing)."""
+    if se < 1e-12:
+        return None
     return math.erfc(abs(b / se) / math.sqrt(2))
 
 
@@ -187,35 +199,57 @@ N["age_corr"] = {"age_vs_k": float(np.corrcoef(age_now, prow["k"])[0, 1]),
 def fit(x, cols, cluster):
     cl = sorted(x["draftYear"].unique())
     yrs = x["draftYear"].values
-    X = np.column_stack([x[c].values for c in cols] + [(yrs == c).astype(float) - (yrs == cl[-1]).astype(float)
-                                                       for c in cl[:-1]])
+    X = np.column_stack([x[c].values for c in cols])                        # v2.4: no draft-year terms
     if cluster:
         grp = pd.factorize(x["draftYear"].astype(str) + "-" + x["pick"].astype(str))[0]
         return sm.OLS(x["remaining_M"].values, X).fit(cov_type="cluster", cov_kwds={"groups": grp})
     return sm.OLS(x["remaining_M"].values, X).fit(cov_type="HC1")
 
 
-def table(m, x, cols):
-    from statsmodels.stats.outliers_influence import variance_inflation_factor
-    Xc = np.column_stack([np.ones(len(x))] + [x[c].values for c in cols])
+def table(m, x, cols, se):
+    """One season's rows of a coefficient table: m is the season's own fit (rows, R-squared, coefficients); se are
+    the stacked regression's standard errors for those coefficients (v2.2)."""
     return {"rows": int(m.nobs), "players": int(x[["draftYear", "pick"]].drop_duplicates().shape[0]),
             "drafts": int(x["draftYear"].nunique()), "r2": float(m.rsquared),
-            "terms": {c: {"b": float(m.params[i]), "se": float(m.bse[i]), "p": pval(m.params[i], m.bse[i]),
-                          "vif": float(variance_inflation_factor(Xc, i + 1)) if len(cols) > 1 else 1.0}
+            "terms": {c: {"b": float(m.params[i]), "se": float(se[i]), "p": pval(m.params[i], se[i])}
                       for i, c in enumerate(cols)}}
 
 
+def age_now_rows(frame):
+    """v2.1 (option A): production x (age now - 18) = prod_x_age + k x production, in the age-bearing seasons."""
+    on = frame["k_group"].astype(str).isin(PV.AGE_GROUPS)
+    return frame.assign(prod_x_age=np.where(on, frame["prod_x_age"] + frame["k"] * frame["nhle82"], frame["prod_x_age"]))
+
+
+def stacked_check(st, frame, cols_by_group):
+    """GUARD: the stacked coefficients equal each season's own fit."""
+    for g, x in frame.groupby("k_group"):
+        cols = cols_by_group[str(g)]
+        m = fit(x, cols, str(g).endswith("+"))
+        assert np.max(np.abs(m.params[:len(cols)] - st[str(g)][0])) < 1e-9, g
+
+
 BUILD = {"slot alone": lambda g: ["p_star"],
-         "slot + production": lambda g: ["p_star", "nhle82", "no_record"],
-         "slot + production + squared": lambda g: ["p_star", "nhle82", "nhle82_sq", "no_record"],
+         "slot + production": lambda g: ["p_star", "nhle82"],
+         "slot + production + squared": lambda g: ["p_star", "nhle82", "nhle82_sq"],
          "adopted": lambda g: PV.cols_for(g, "main")}
+prow = prow.assign(k_group=prow["k_group"].astype(str))
+assert set(prow["k_group"]) == set(GROUPS), sorted(prow["k_group"].unique())
+prow_a = age_now_rows(prow)
+STK, MST = {}, {}
+for spec, cf in BUILD.items():
+    # v2.2: one regression per specification, every term and draft level interacted with the season group
+    fr = prow_a if spec == "adopted" else prow
+    STK[spec], MST[spec] = PV.fit_stacked(fr, {g: cf(g) for g in GROUPS})
+    stacked_check(STK[spec], fr, {g: cf(g) for g in GROUPS})
+print("  guard: each stacked regression equals the season-by-season fits (PASS)")
 N["build"], N["adopted"] = {}, []
 for g, x in prow.groupby("k_group"):
     N["build"][g] = {}
     for spec, cf in BUILD.items():
         cols = cf(g)
         m = fit(x, cols, g.endswith("+"))
-        N["build"][g][spec] = table(m, x, cols)
+        N["build"][g][spec] = table(m, x, cols, STK[spec][g][1])
         if spec == "adopted":
             lv = live[(live["version"] == "main") & (live["k_group"] == g) & (live["left_out"] == "none")].iloc[0]
             for i, c in enumerate(cols):
@@ -234,10 +268,56 @@ for g, x in prow.groupby("k_group"):
                 ie, ib = cols.index("prod_x_age"), cols.index("nhle82")
                 assert abs(ma.params[ie] - m.params[ie]) < 1e-9, g                    # GUARD: the same discount
                 assert abs(ma.params[ib] - (m.params[ib] - kk * m.params[ie])) < 1e-9, g
-                N["build"][g][spec] = table(ma, xa, cols)
+                N["build"][g][spec] = table(ma, xa, cols, STK[spec][g][1])
             N["adopted"].append({"k": g, **N["build"][g][spec]})
 print("  guard: the adopted refit equals prospect_production_fits.csv (PASS)")
 print("  guard: age now gives the same values and age coefficient as years past first eligibility (PASS)")
+
+# v2.2: the star values' standard errors from the stacked regression (prospect_values v1.8 star_values)
+svm = sv[sv["left_out"] == "none"].set_index("k_group")
+for r in N["step1"]:
+    assert abs(float(svm.loc[r["k"], "star_value_M"]) - r["star"]) < 1e-9, r["k"]   # GUARD: the same star values
+    r["se"] = float(svm.loc[r["k"], "se_M"])
+    r["p"] = pval(r["star"], r["se"])
+print("  guard: the stacked star values equal prospect_slot_years.csv (PASS)")
+
+# v2.2: the production table (before age) and the age forms, from one stacked regression each
+def restack(tab, arm, cols_of):
+    cbg = {g: cols_of(g) for g in GROUPS}
+    st, _ = PV.fit_stacked(prow, cbg)
+    for g in GROUPS:
+        i = tab.index[(tab["k_group"] == g) & (tab["arm"] == arm)][0]
+        for j, c in enumerate(cbg[g]):
+            assert abs(tab.at[i, c] - st[g][0][j]) < 1e-9, (arm, g, c)   # GUARD: the source table's coefficient
+            tab.at[i, f"{c}_se"] = float(st[g][1][j])
+
+
+restack(nc, "slot+production curved", lambda g: ["p_star", "nhle82", "nhle82_sq"])
+EARLY_ = ("0", "1", "2")
+AGE_ADD = {"+ age": ["past_elig"], "+ age x production": ["prod_x_age"],
+           "+ age and age x production": ["past_elig", "prod_x_age"]}
+for arm_, add_ in AGE_ADD.items():
+    restack(ac, arm_, lambda g, add_=add_: (["p_star"] if g in EARLY_ else []) + ["nhle82", "nhle82_sq"] + add_)
+N["prod_coefs"] = json.loads(nc.to_json(orient="records"))
+N["age_coefs"] = json.loads(ac.to_json(orient="records"))
+print("  guard: the production table and the age forms equal their source tables (PASS)")
+
+# v2.2: joint tests in the adopted model from D+5 on (Thomas: is anything significant there?)
+ma4, (p4, n4) = MST["adopted"], MST["adopted"].positions["4+"]
+cols4 = PV.cols_for("4+", "main")
+
+
+def joint4(names):
+    R = np.zeros((len(names), len(ma4.params)))
+    for j, c in enumerate(names):
+        R[j, p4 + cols4.index(c)] = 1.0
+    w = ma4.wald_test(R, use_f=False, scalar=True)
+    return {"chi2": float(w.statistic), "df": len(names), "p": float(w.pvalue)}
+
+
+N["joint_late"] = {"production": joint4(["nhle82", "nhle82_sq"]), "all": joint4(cols4)}
+print(f"  D+5 and later, adopted: production terms together p = {N['joint_late']['production']['p']:.4f}; "
+      f"all terms p = {N['joint_late']['all']['p']:.4f}")
 
 # ---- 4. the traded prospects ----------------------------------------------------------------------------
 v = pd.read_csv(OUT / "prospect_values.csv")
@@ -289,15 +369,15 @@ early = lambda g: g in ("0", "1", "2")                                       # n
 N["alt_totals"] = {
     "slot_no_fade": float((dv["p_star"] * N["step1"][0]["star"]).sum()),
     "slot_by_season": float(dv["value_slot_only_M"].sum()),
-    "straight_slot_throughout": arm_total(nc, lambda g: "slot+production", lambda g: ["p_star", "nhle82", "no_record"]),
+    "straight_slot_throughout": arm_total(nc, lambda g: "slot+production", lambda g: ["p_star", "nhle82"]),
     "curved_slot_throughout": arm_total(nc, lambda g: "slot+production curved",
-                                        lambda g: ["p_star", "nhle82", "nhle82_sq", "no_record"]),
+                                        lambda g: ["p_star", "nhle82", "nhle82_sq"]),
     "curved_slot_early_no_age": arm_total(nc, lambda g: "slot+production curved" if early(g) else "production curved",
-                                          lambda g: (["p_star"] if early(g) else []) + ["nhle82", "nhle82_sq", "no_record"]),
+                                          lambda g: (["p_star"] if early(g) else []) + ["nhle82", "nhle82_sq"]),
     "age_flat": arm_total(ac, lambda g: "+ age", lambda g: (["p_star"] if early(g) else [])
-                          + ["nhle82", "nhle82_sq", "no_record", "past_elig"]),
+                          + ["nhle82", "nhle82_sq", "past_elig"]),
     "age_both": arm_total(ac, lambda g: "+ age and age x production", lambda g: (["p_star"] if early(g) else [])
-                          + ["nhle82", "nhle82_sq", "no_record", "past_elig", "prod_x_age"]),
+                          + ["nhle82", "nhle82_sq", "past_elig", "prod_x_age"]),
     "adopted": float(dv["value_M"].sum()), "own_draft_out": float(dv["value_own_draft_out_M"].sum()),
     "skaters_priced": int(len(sk)), "others_on_slot": int(len(dv) - len(sk)),
 }
@@ -374,7 +454,7 @@ axes[0].set_ylabel("Star value ($ millions)")
 axes[0].set_ylim(-2.5, 23)
 axes[1].set_xlabel("Season after the draft (D+n)")
 axes[0].text(4.7, 4.4, "Adopted", color=A1, fontsize=8, va="center")
-axes[0].text(5.2, 16.6, "Rule", color=A2, fontsize=8, va="center")
+axes[0].text(5.2, 16.6, "Alternative", color=A2, fontsize=8, va="center")   # v2.3: was "Rule"
 fig.tight_layout(w_pad=0.6)
 fig.savefig(FIG / "fig_star_value.png")
 plt.close(fig)

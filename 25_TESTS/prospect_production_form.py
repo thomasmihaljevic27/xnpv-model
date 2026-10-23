@@ -57,7 +57,7 @@ import statsmodels.api as sm
 from dotenv import load_dotenv
 from scipy import stats
 
-SCRIPT_VERSION = "prospect_production_form.py v1.2 (2026-10-15)"
+SCRIPT_VERSION = "prospect_production_form.py v1.5 (2026-10-22)"   # v1.5: no no-record indicator, as prospect_values.py v1.12 (Thomas, 2026-10-21); v1.4: the rows of the 2026-10-20 prospect chain; v1.3   # no draft-year terms (Thomas, 2026-10-16)
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 LOG = []
@@ -89,7 +89,7 @@ PAIRS = [("straight", "slot alone"), ("curved", "slot alone"), ("squared alone",
 # ---- rows ------------------------------------------------------------------------------------------------
 d0 = pd.read_csv(F["rows"])
 FP = hashlib.sha1(pd.util.hash_pandas_object(d0[["draftYear", "pick", "k"]], index=False).values).hexdigest()[:12]
-assert FP == "cff3583de536", FP                                     # GUARD: the production look's rows
+assert FP == "1a0aa6bb93a0", FP   # GUARD: the production look's rows (v1.4, 2026-10-21: the rows after 2026-10-20; v1.3: cff3583de536, reproduce from git 166a98b)
 link = pd.read_csv(F["linkage"], parse_dates=["birthDate"])[["draftYear", "overallPickNumber", "birthDate"]]
 d0 = d0.merge(link.rename(columns={"overallPickNumber": "pick"}), on=["draftYear", "pick"], how="left")
 assert d0["birthDate"].notna().all()
@@ -109,14 +109,12 @@ def cols_for(form, g):
         return ["p_star"]
     c = ["p_star"] if g in SLOT_EARLY else []
     c += {"straight": ["nhle82"], "curved": ["nhle82", "nhle82_sq"], "squared alone": ["nhle82_sq"]}[form]
-    c += ["no_record"] + (["prod_x_age"] if g in AGE_GROUPS else [])
+    c += (["prod_x_age"] if g in AGE_GROUPS else [])                 # v1.5: no no-record indicator
     return c
 
 
 def draft_cols(frame):
-    cl = sorted(frame["draftYear"].unique())
-    yrs = frame["draftYear"].values
-    return [(yrs == c).astype(float) - (yrs == cl[-1]).astype(float) for c in cl[:-1]]
+    return []                                                               # v1.3: no draft-year terms
 
 
 def fit(frame, cols, cluster):
@@ -147,12 +145,6 @@ def stacked(d, form):
         for c in cols_for(form, g):
             cols.append(x_in * d[c].values)
             names.append((g, c))
-        sub = d[d["k_group"] == g]
-        cl = sorted(sub["draftYear"].unique())
-        yrs = d["draftYear"].values
-        for c in cl[:-1]:
-            cols.append(x_in * ((yrs == c).astype(float) - (yrs == cl[-1]).astype(float)))
-            names.append((g, f"draft {c}"))
     m = sm.OLS(d["remaining_M"].values, np.column_stack(cols)).fit(
         cov_type="cluster", cov_kwds={"groups": pd.factorize(d["pid"])[0]})
     return m, names

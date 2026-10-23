@@ -63,7 +63,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import forecast_config as C
 
-SCRIPT_VERSION = "1.4"   # 1.4 (2026-10-14): age on September 15 of the starting year
+SCRIPT_VERSION = "1.5"   # 1.5 (2026-10-18): integer age counted on the calendar; 1.4 (2026-10-14): age on September 15
 
 # --- Name normalisation ---------------------------------------------------
 # Reproduced from skater_value_engine.norm_name rather than imported, so this
@@ -444,7 +444,12 @@ def _attach_age(a: pd.DataFrame, path: Path) -> pd.DataFrame:
     b = pd.to_datetime(m[col], errors="coerce")
     ref = pd.to_datetime(dict(year=m["syr"], month=9, day=15))      # v1.4: the CBA's September 15
     m["age_exact"] = ((ref - b).dt.days / 365.25).round(2)
-    m["age"] = np.floor(m["age_exact"])
+    # v1.5 (2026-10-18, the bug sweep): the integer age is the years completed by September 15, counted on the
+    # calendar as age_join.compute_age counts it. v1.4 floored age_exact, which is rounded to two decimals, so a
+    # player born on September 16 or 17 came out a year old a day or two early in some seasons (49 season rows,
+    # 12 players: Ovechkin, Matthews, Brady Tkachuk ...), one age off the aging curve's own (WAR_with_age.csv).
+    late = (b.dt.month > 9) | ((b.dt.month == 9) & (b.dt.day > 15))     # birthday after September 15
+    m["age"] = (m["syr"] - b.dt.year - late.astype(float)).where(b.notna())
     m["has_age"] = m["age_exact"].notna()
     C.log(f"  [age] {path.name}: {n_before} keys on {how}"
           + (f", {dropped} dropped for conflicting birthdates" if dropped else ""))

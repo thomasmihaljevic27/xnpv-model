@@ -19,8 +19,9 @@ WHAT HE IS WORTH [opening decisions 1 and 3]
   pick curve's first season). The currency is the pick curve's: remaining NHL seasons priced on the contract
   line minus his cost (entry-level deal, then the qualifying offer or the arbitration price), to the end of
   club control, at the 2025-26 cap.
-  * STAR VALUE(k): pick_curve.fit_scale's regression (through zero, draft-year indicators that sum to zero,
-    robust HC1 errors) on the 2007-2017 drafted players who were prospects at k, outcome their remaining
+  * STAR VALUE(k): pick_curve.fit_scale's regression (through zero; v1.10: no draft-year terms;
+    robust HC1 errors) on the 2007-2017 drafted players who were prospects at k (v1.11: and still under club
+    control), outcome their remaining
     surplus: pick_curve_seasons.csv's priced seasons from y on (season y in full), lapsed rights zeroed as the
     pick curve zeroes them. k = 0, 1, 2, 3 one fit each; 4 and later one fit on the stacked rows for k = 4..7,
     errors clustered by player. Kept: the through-zero form (Thomas, 2026-10-14), the pick curve's current
@@ -44,9 +45,9 @@ STEP TWO, PRODUCTION AND AGE (v1.2; MODEL_DIRECTIVES directive 6, "Prospects, st
   * value_M (main) = the fitted line for his season group: seasons 0-2 star chance + level + level squared +
     no-record + production x age; season 3 the same without the star chance; 4+ without age. v1.7 (Thomas,
     2026-10-15): "Age is fully adopted and we don't need to report an age removed version as sensitivity", so
-    value_no_age_M (v1.2-v1.6) is gone. Each fit is the pick curve's form (through zero,
-    draft-year indicators summing to zero; errors robust, clustered by player for 4+) on the 2007-2017 skater
-    rows still prospects (13,152 rows, 2,089 players); a value is the average draft's.
+    value_no_age_M (v1.2-v1.6) is gone. Each fit is the pick curve's form (through zero;
+    v1.10: no draft-year terms; errors robust, clustered by player for 4+) on the 2007-2017 skater
+    rows still prospects (13,152 rows, 2,089 players).
   * Goalies: the slot alone (NHLe measures scoring).
 
 UNDRAFTED (v1.3; Thomas 2026-10-14: "NHL contracts only", "Same model, no slot"; also players drafted before 2005)
@@ -65,6 +66,13 @@ UNDRAFTED (v1.3; Thomas 2026-10-14: "NHL contracts only", "Same model, no slot";
   * A value can be below zero: a low scorer's remaining surplus averages slightly below zero in the data, and
     negative careers count, as in the pick curve.
   GUARD: every step-two fit equals the look that measured it, to 1e-9 (when those outputs are present).
+  * ONE REGRESSION (v1.8, Thomas 2026-10-16: "Just make the regression actually be the interaction terms"): the star
+    values and each step-two version are one regression on every prospect-season (fit_stacked), each term (and, to
+    v1.9, each draft's level) multiplied by an indicator for the season group (a full set of interaction terms), errors
+    clustered by player (one player appears in several seasons). The coefficients equal the season-by-season fits
+    (GUARD, 1e-9; those fits stay for the each-draft-left-out values); only the standard errors move, and only by
+    the small-sample correction (a season's rows hold each player once, so its block of the clustered variance is
+    the season's own).
   * DECEASED DRAFTEES (v1.6, Thomas 2026-10-15): the six drafted players of 2007-2017 who died before reaching
     the NHL (pick_curve_players.csv excluded_deceased; deceased_draftees.py) are left out of the star values and
     of every step-two fit, all their rows.
@@ -123,7 +131,7 @@ import statsmodels.api as sm
 from dotenv import load_dotenv
 
 
-SCRIPT_VERSION = "prospect_values.py v1.7 (2026-10-15)"
+SCRIPT_VERSION = "prospect_values.py v1.12 (2026-10-21)"   # v1.12: no no-record indicator (Thomas); v1.11: fit rows inside club control; v1.10: no draft-year terms
 load_dotenv()
 import contract_source as CS   # noqa: E402  v1.1: PuckPedia exports read strictly (identity only)
 SOURCE_DIR, OUTPUT_DIR = Path(os.environ["SOURCE_DIR"]), Path(os.environ["OUTPUT_DIR"])
@@ -201,11 +209,8 @@ def k_group(k):
 
 # ---- the star values ----------------------------------------------------------------------------------
 def fit(frame, cluster=False):
-    """pick_curve.fit_scale on remaining surplus: through zero, sum-to-zero draft-year columns."""
-    cl = sorted(frame["draftYear"].unique())
-    yrs = frame["draftYear"].values
-    X = np.column_stack([frame["p_star"].values]
-                        + [(yrs == c).astype(float) - (yrs == cl[-1]).astype(float) for c in cl[:-1]])
+    """pick_curve.fit_scale on remaining surplus: through zero, no draft-year terms (v1.10)."""
+    X = np.column_stack([frame["p_star"].values])
     if cluster:
         groups = pd.factorize(frame["draftYear"].astype(str) + "-" + frame["pick"].astype(str))[0]
         m = sm.OLS(frame["remaining_M"].values, X).fit(cov_type="cluster", cov_kwds={"groups": groups})
@@ -231,15 +236,22 @@ def star_values():
             y = r.draftYear + k
             if y > LAST_START:
                 break
+            # v1.11 (2026-10-18, the bug sweep): a season past his club control is left out of the fits (its remaining
+            # surplus is zero by construction, and such a prospect is valued at zero by rule below)
             rows.append({"draftYear": r.draftYear, "pick": r.pick, "p_star": r.p_star, "k": k,
-                         "prospect": is_prospect(mine, y, bool(r.is_goalie)),
+                         "prospect": is_prospect(mine, y, bool(r.is_goalie)) and y < r.window_end,
                          "remaining_M": float(mine.loc[mine.index >= y, "sur_M"].sum())})
     d = pd.DataFrame(rows)
     d["k_group"] = d["k"].map(lambda k: k_group(min(k, K_MAX)))
     out = []
-    for grp, g in d[d["prospect"]].groupby("k_group", sort=True):
+    pr = d[d["prospect"]]
+    # v1.8: one regression, the star chance interacted with each season group (v1.10: no draft levels)
+    st, _ = fit_stacked(pr, {grp: ["p_star"] for grp in pr["k_group"].astype(str).unique()})
+    for grp, g in pr.groupby("k_group", sort=True):
         clus = grp.endswith("+")
-        b, se = fit(g, clus)
+        b_own, _ = fit(g, clus)
+        b, se = float(st[grp][0][0]), float(st[grp][1][0])
+        assert abs(b - b_own) < 1e-9, grp                               # GUARD: the stack equals the season's own fit
         out.append({"k_group": grp, "left_out": "none", "star_value_M": b, "se_M": se, "rows": len(g)})
         for c in sorted(g["draftYear"].unique()):
             bb, ss = fit(g[g["draftYear"] != c], clus)
@@ -300,23 +312,47 @@ def production_features(frame, rates):
 
 
 def cols_for(group, version):
-    return ((["p_star"] if group in SLOT_GROUPS else []) + ["nhle82", "nhle82_sq", "no_record"]
+    # v1.12 (Thomas, 2026-10-21, on 25_TESTS/prospect_term_check.py): the no-record indicator dropped. It was not
+    # statistically significant in D+1 or D+2 (p = 0.053 and 0.067; its D+3 coefficient rests on one prospect-season and
+    # it is exactly zero from D+4), and without it the held-out error is unchanged (2.1995 against 2.1994, p = 0.166)
+    # and no traded prospect's value moves. A prospect without a record (nhle82 = 0) is valued on draft position alone.
+    return ((["p_star"] if group in SLOT_GROUPS else []) + ["nhle82", "nhle82_sq"]
             + (["prod_x_age"] if version == "main" and group in AGE_GROUPS else []))
 
 
 def fit_cols(frame, cols, cluster):
-    """The pick curve's form: through zero, draft-year indicators that sum to zero; the first len(cols)
-    coefficients are the value at the average draft."""
-    cl = sorted(frame["draftYear"].unique())
-    yrs = frame["draftYear"].values
-    X = np.column_stack([frame[c].values for c in cols]
-                        + [(yrs == c).astype(float) - (yrs == cl[-1]).astype(float) for c in cl[:-1]])
+    """The pick curve's form: through zero, no draft-year terms (v1.10)."""
+    X = np.column_stack([frame[c].values for c in cols])
     if cluster:
         groups = pd.factorize(frame["draftYear"].astype(str) + "-" + frame["pick"].astype(str))[0]
         m = sm.OLS(frame["remaining_M"].values, X).fit(cov_type="cluster", cov_kwds={"groups": groups})
     else:
         m = sm.OLS(frame["remaining_M"].values, X).fit(cov_type="HC1")
     return m.params[:len(cols)], m.bse[:len(cols)]
+
+
+def fit_stacked(frame, cols_by_group, group_col="k_group"):
+    """One regression on every row of frame: for each season group g, each column in cols_by_group[g] multiplied by
+    the indicator for g (v1.10: no draft-year terms). A full set of interaction terms, through zero, so the design
+    is block-diagonal and each group's coefficients equal the
+    group's own fit_cols (checked by the callers). Errors clustered by player (draftYear-pick) across the stack.
+    Returns ({g: (params, bse)} for the cols of each group, the fitted model)."""
+    gv = frame[group_col].astype(str).values
+    blocks, at, pos = [], {}, 0
+    for g in sorted(cols_by_group):
+        on = gv == g
+        assert on.any(), g
+        cols = cols_by_group[g]
+        # np.where, not multiplication: another group's NaN times zero would still be NaN
+        blocks += [np.where(on, frame[c].values, 0.0) for c in cols]
+        at[g] = (pos, len(cols))
+        pos += len(cols)
+    assert set(gv) <= set(cols_by_group), "rows outside the listed groups"
+    players = pd.factorize(frame["draftYear"].astype(str) + "-" + frame["pick"].astype(str))[0]
+    m = sm.OLS(frame["remaining_M"].values, np.column_stack(blocks)).fit(
+        cov_type="cluster", cov_kwds={"groups": players})
+    m.positions = at                                     # {g: (first column, number of cols)}, for joint tests
+    return {g: (m.params[p:p + n], m.bse[p:p + n]) for g, (p, n) in at.items()}, m
 
 
 def production_fits(fitrows, rates):
@@ -335,10 +371,15 @@ def production_fits(fitrows, rates):
     d["season"] = d["draftYear"] + d["k"]
     d = production_features(d.reset_index(drop=True), rates)
     fits = {}
-    for g, x in d.groupby("k_group"):
-        for v in VERSIONS:
+    for v in VERSIONS:
+        # v1.8: one regression with the full set of interaction terms gives the coefficients and their errors
+        groups = sorted(d["k_group"].astype(str).unique())
+        st, _ = fit_stacked(d, {g: cols_for(g, v) for g in groups})
+        for g, x in d.groupby("k_group"):
             cols = cols_for(g, v)
-            b, se = fit_cols(x, cols, g.endswith("+"))
+            b_own, _ = fit_cols(x, cols, g.endswith("+"))
+            b, se = st[g]
+            assert np.max(np.abs(b - b_own)) < 1e-9, (v, g)          # GUARD: the stack equals the season's own fit
             fits[(v, g, "none")] = (cols, b, se)
             for c in sorted(x["draftYear"].unique()):
                 fits[(v, g, int(c))] = (cols, fit_cols(x[x["draftYear"] != c], cols, g.endswith("+"))[0], None)
@@ -350,7 +391,8 @@ FRANCHISE = {"N.J": "NJD", "S.J": "SJS", "T.B": "TBL", "L.A": "LAK", "ATL": "WPG
 
 
 def season_table(path, name_col):
-    w = pd.read_csv(path, usecols=[name_col, "Season", "GP", "WAR"])
+    w = (CS.read_goalie_war(path, usecols=[name_col, "Season", "GP", "WAR"]) if name_col == "Goalie"   # v1.12
+         else pd.read_csv(path, usecols=[name_col, "Season", "GP", "WAR"]))
     w["name_n"] = w[name_col].map(norm)
     w["start"] = w["Season"].map(lambda x: 2000 + int(str(x)[:2]))
     return w.groupby(["name_n", "start"]).agg(GP=("GP", "sum"), WAR=("WAR", "sum"))
@@ -397,14 +439,19 @@ def main():
         ac, nc = pd.read_csv(ac), pd.read_csv(nc)
         src = {("main", g): (ac, "+ age x production") for g in AGE_GROUPS}
         src.update({("main", "4+"): (nc, "production curved")})
+        # v1.12: the looks measured the model with the no-record indicator, which v1.12 drops (Thomas, 2026-10-21). The
+        # guard now refits each look's own columns (the adopted ones plus the indicator) on these rows and requires the
+        # look's coefficients back: the rows are the ones the looks measured, and the indicator is the only change.
         n_ok = 0
         for (v, g), (tab, arm) in src.items():
             cols, b, _ = fits[(v, g, "none")]
             ref = tab[(tab["k_group"] == g) & (tab["arm"] == arm)].iloc[0]
-            gap = max(abs(b[i] - ref[c]) for i, c in enumerate(cols))
+            cols_look = cols + (["no_record"] if "no_record" in tab.columns and pd.notna(ref.get("no_record")) else [])
+            b_look, _ = fit_cols(prow[prow["k_group"] == g], cols_look, g.endswith("+"))
+            gap = max(abs(b_look[i] - ref[c]) for i, c in enumerate(cols_look))
             assert gap < 1e-9, (v, g, arm, gap)
             n_ok += 1
-        log(f"  guard: coefficients equal the production and age looks' for {n_ok} of {len(src)} fits (PASS)")
+        log(f"  guard: the coefficients equal the production and age looks' for {n_ok} of {len(src)} fits (PASS)")
     for v in VERSIONS:
         for g in ("0", "1", "2", "3", "4+"):
             cols, b, se = fits[(v, g, "none")]
@@ -477,11 +524,11 @@ def main():
         "(identity only: NHL ids for matching, no value input)")
     pc = pc.dropna(subset=["nhl_id", "cap_hit", "signing_date", "contract_end"]).copy()
     pc["key"] = (pc["first_name"].astype(str) + " " + pc["last_name"].astype(str)).map(name_key)
-    pc["signed"] = pd.to_datetime(pc["signing_date"], format="%m/%d/%Y")
+    pc["signed"] = CS.parse_export_dates(pc["signing_date"], "PuckPedia signing_date")   # v1.9: either date style
     pc["ends"] = pc["contract_end"].astype(str).str[-4:].astype(int).map(lambda y: pd.Timestamp(y, 6, 30))
     pt = pt[pt["player_id"].notna() & pt["nhl_id"].notna()].copy()
     pt["key"] = (pt["first_name"].astype(str) + " " + pt["last_name"].astype(str)).map(name_key)
-    pt["date"] = pd.to_datetime(pt["trade_date"], format="%m/%d/%Y")
+    pt["date"] = CS.parse_export_dates(pt["trade_date"], "PuckPedia trade_date")         # v1.9: either date style
     pc_by, pt_by = dict(tuple(pc.groupby(pc["key"].str[0]))), dict(tuple(pt.groupby(pt["key"].str[0])))
 
     def first_ok(k1, k2):
@@ -546,8 +593,9 @@ def main():
         return "; ".join(f"{x.draftYear} #{x.overallPickNumber}" for x in c.itertuples()) or "none"
 
     # ---- v1.3: undrafted players (Thomas, 2026-10-14: "NHL contracts only"; "Same model, no slot") ----------
-    pc_by_id = dict(tuple(pc.groupby(pc["nhl_id"].astype(int))))
-    PPINFO = {int(i): (pd.to_datetime(g["birthdate"].iloc[0], format="%m/%d/%Y", errors="coerce"),
+    pc["bd"] = CS.parse_export_dates(pc["birthdate"], "PuckPedia birthdate")   # v1.9: either style; was m/d/Y with
+    pc_by_id = dict(tuple(pc.groupby(pc["nhl_id"].astype(int))))              # errors="coerce", blank on Y-m-d
+    PPINFO = {int(i): (g["bd"].iloc[0],
                        str(int(g["eliteprospects_id"].iloc[0])) if pd.notna(g["eliteprospects_id"].iloc[0]) else None,
                        str(g["position"].iloc[0]).startswith("G"))
               for i, g in pc_by_id.items()}
