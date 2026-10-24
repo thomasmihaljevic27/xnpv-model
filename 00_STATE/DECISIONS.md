@@ -3800,3 +3800,9 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   equal coefficients are rejected for production (Wald p = 3.2e-07) and the age term (p = 0.018). Verdicts checked under
   three age measures. No model change. Also: the y profile and the Stata steps for the discounted-points form (chat).
   WORK_QUEUE, MANIFEST, session log sessions/2026-10-23.md.
+
+### Change log, 2026-10-24b (the prospect age form kept)
+
+- DECIDED (Thomas: "for now I will say to keep the model as is"): production x age stays the prospect model's age term;
+  the discount forms are recorded as tested (MODEL_DIRECTIVES directive 6). No code change, no rerun. WORK_QUEUE items 1
+  and 2 closed. Session log: sessions/2026-10-23.md.

@@ -1008,6 +1008,14 @@ minus the seasons since his draft minus 18.5 (within a season group, "older now"
   square discounted as well, the square alone, one discount on all of production, age-adjusted points in both terms):
   none predicts the left-out drafts better at the 5% level (one-sided p 0.16 to 0.43), and the centre of age moves no
   verdict (sessions/2026-10-19.md). No code change.
+- **Production x age kept again, for now (Thomas, 2026-10-24: "for now I will say to keep the model as is"):** after the
+  supervisor meeting of 2026-10-23, `25_TESTS/prospect_age_discount_look.py` v1.1 tested age alone, age-adjusted points
+  (a straight-line markdown and a discount P / y^age in both production terms), production's value discounted, and
+  P(1 + P) / y^age. Discounted points: R-squared 0.2048 against the adopted 0.1998 with as many coefficients, the
+  discount statistically significant in every season (resampling p <= 0.001), held-out error not different (p = 0.40);
+  the forms are not nested, so no test picks one. Kept for simplicity (one linear regression). Also tested
+  (`prospect_pooled_terms_look.py` v1.0): every term keeps its own coefficient in each season after the draft (pooling
+  production rejected, p = 3.2e-07; the age term, p = 0.018). No code change (sessions/2026-10-23.md).
 
 ---
 

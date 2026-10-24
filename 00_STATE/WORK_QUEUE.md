@@ -12,13 +12,14 @@
 2026-10-27, when the supervisor prints the document:
 1. Do: test the prospect model's age term as age on its own and as age-adjusted production with its square, against
    production x (age - 18); Thomas added "some form of actual discounting (X/y^z)". **Run 2026-10-23**
-   (`25_TESTS/prospect_age_discount_look.py` v1.0; session 2026-10-23, its last section). Decide (Thomas): which age
-   form the model uses. Nothing in the model changed.
+   (`25_TESTS/prospect_age_discount_look.py` v1.1; session 2026-10-23). **Decided 2026-10-24 (Thomas): "for now I
+   will say to keep the model as is"**: production x age stays. The discount forms fit slightly better in sample
+   (R-squared 0.2048 against 0.1998) but not by a statistically significant margin on held-out drafts (p = 0.40).
 1a. Done 2026-10-24 (Thomas: "you might as well run a test"): whether every term needs its own coefficient in each
    season after the draft (`25_TESTS/prospect_pooled_terms_look.py` v1.0). The adopted model, every term by season, is
    best on R-squared, adjusted R-squared and held-out error; pooling production across seasons is rejected (Wald
    p = 3.2e-07), pooling the age term too (p = 0.018). No change.
-2. Do: rerun everything downstream once the age form is decided.
+2. Not needed (2026-10-24): the age form is unchanged, so nothing downstream moves.
 3. Do: R-squared, statistical significance and economic significance as the main fit measures in the document; held-out
    error at most a supplementary note.
 4. Do: write each regression's equation out in full.
