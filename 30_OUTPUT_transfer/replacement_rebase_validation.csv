@@ -1,9 +1,0 @@
-check,value,note
-rows_source,427169,player_game_value
-rows_rebased,427169,player_game_value_repl (must match)
-replacement_stint_share,37.31,% of stints below the top-13F/top-7D cut
-reg_season_gv_repl_total,10247.93,total goals above replacement (positive by design)
-invariant_groups_failed,0,"(season,pos) groups where replacement pool != 0"
-reg_rows_missing_toi,0,passed through un-rebased
-reg_rows_missing_position,0,passed through un-rebased
-pooled_goals_per_win,5.903,continuity; Script 4 ref 5.903
