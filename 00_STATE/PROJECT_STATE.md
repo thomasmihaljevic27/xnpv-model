@@ -64,9 +64,9 @@ The sections as they stood at the 2026-10-14 refresh (figures of 2026-10-20) are
 | Skater contracts | Priced on xNPV 1 (D33); the forecast audit's decisions built 2026-10-21 (Thomas's round-2 notes); the price line re-locked on that forecast 2026-10-21 | `skater_forecast.py` v2.4, `participation_model.py` v2.0, `skater_forward_projection.py` v2.2, `rfa_terminal_value.py` v2.9, `contract_npv.py` v3.4 |
 | Goalie contracts | Rebuilt 2026-10-21 (goalie review): an age term in the forecast, a chance of playing by season ahead, the goaltender's own locked price line with term; the two Matt Murrays kept apart | `contract_npv.py` v3.4 (GoalieProjector, GOALIE_RATE), `goalie_value_engine.py` v2.0, `goalie_birthdates.py` v1.0 |
 | Draft picks | Pick curve on the skater and goaltender lines at one year of term; no intercept, no draft-year terms (2026-10-16) | `draft_pick_linkage.py` v1.3, `elc_signing_dates.py` v1.4, `pick_curve.py` v1.11, `traded_pick_values.py` v1.2 |
-| Prospects | Draft position (D+1 to D+3), linear and squared production, the age discount on production (D+1 to D+4); the no-record indicator dropped 2026-10-21; fits inside club control only (v1.11) | `prospect_values.py` v1.12; data `ep_extract.py` v3.5, `ep_nhl_bridge.py` v1.1 |
+| Prospects | Draft position (D+1 to D+3), linear and squared production, the age discount on production (D+1 to D+4), defenceman x production (every season, 2026-10-24); the no-record indicator dropped 2026-10-21; fits inside club control only (v1.11) | `prospect_values.py` v1.13; data `ep_extract.py` v3.5, `ep_nhl_bridge.py` v1.1 |
 | Traded assets | Every traded asset valued once, 2017-07-01 to 2022-03-28: players at the trade (contract signed on the trade date left out of value and chance of playing), rights, buried contracts, the 2017 page, retained salary, the season left, LTIR relief | `traded_player_values.py` v1.6, `rights_values.py` v1.6, `buried_contract_values.py` v1.8, `page_2017_values.py` v1.9, `trade_asset_values.py` v1.2, `ltir.py` v1.0 |
-| Back-test | Rerun 2026-10-21 on the protocol (`40_DOCS/Backtest_Protocol.md`): slope of outcome on forecast 0.743 [0.542, 0.898]; Game Value check 11 hold, 7 not WAR findings, 2 too few trades, 1 not confirmed | `trade_sides.py` v1.0, `backtest.py` v1.6, `25_TESTS/backtest_gv_compare.py` |
+| Back-test | Rerun 2026-10-24 on the protocol (`40_DOCS/Backtest_Protocol.md`), after the prospect model's defenceman term: slope of outcome on forecast 0.748 [0.552, 0.901] (0.743 on 2026-10-21); Game Value check 11 hold, 7 not WAR findings, 2 too few trades, 1 not confirmed | `trade_sides.py` v1.0, `backtest.py` v1.7, `25_TESTS/backtest_gv_compare.py` |
 | Game-level metric (Game Value) | Built 2026-07-03; the circularity checks and the back-test's Game Value check | game-level chain |
 
 - **Thomas's round-2 notes on "Valuing Players, Draft Picks, and Prospects" (2026-10-21)** drove the week's model work,
@@ -138,11 +138,12 @@ costing zero; lapsed rights zeroed.
 original team's standings on the trade date; before that season's first game, or a later draft: the round average;
 during the draft: the actual position. Conditional picks valued as unconditional.
 
-**Prospects (`prospect_values.py` v1.12).** A prospect is a drafted player the player model does not take yet (skaters:
+**Prospects (`prospect_values.py` v1.13).** A prospect is a drafted player the player model does not take yet (skaters:
 no 10+ game NHL season in the three before; goaltenders: no NHL game in the six before). One regression with the full
 set of interaction terms on the 2007-2017 draftees' prospect-seasons inside club control, outcome the remaining
 surplus: draft position's star probability (D+1 to D+3), NHLe production per 82 (50/30/20) and its square (every
-season), production x (age - 18) (D+1 to D+4). Goaltenders on draft position alone. Undrafted players on NHL contracts
+season), production x (age - 18) (D+1 to D+4), production x defenceman (every season; added 2026-10-24, Thomas;
+Elite Prospects' draft-page position, PuckPedia's for undrafted players). Goaltenders on draft position alone. Undrafted players on NHL contracts
 on the same model with the star probability at zero.
 
 ## Figures in force (read from the code and the 2026-10-21 runs)

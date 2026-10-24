@@ -110,6 +110,7 @@ D0 is the draft season; D+1 is the season after the draft. Seasons run to 2025-2
 | `age`, `age_m18` | his age on September 15 of the valuation season; that age less 18 |
 | `prod_x_age_m18` | `nhle82` x (`age` - 18): the age term as the document writes it |
 | `years_past_elig`, `prod_x_years_past_elig` | `age` - `k` - 18, and `nhle82` times it: the age term as `prospect_values.py` stores it |
+| `prod_x_defence` | `nhle82` x `is_defence`: the defenceman term (in the model since 2026-10-24) |
 
 The two age terms give the same fitted values and the same age coefficient. Within one season group every row has
 the same `k`, so the difference between them is `k` x production, and production's coefficient absorbs it:
@@ -175,22 +176,27 @@ through-zero form.
 
 ### 4. The adopted model (Table 9)
 
-Draft position in D+1 to D+3, the age term in D+1 to D+4:
+Draft position in D+1 to D+3, the age term in D+1 to D+4, and production for defencemen (D = `is_defence`) in every
+season (added 2026-10-24):
 
     remaining NPV = sum over n = 1..3 of a_n x S x 1[D+n]
-                  + sum over all n of (b_n x P + c_n x P^2) x 1[D+n]
+                  + sum over all n of (b_n x P + c_n x P^2 + f_n x D x P) x 1[D+n]
                   + sum over n = 1..4 of e_n x P x (A - 18) x 1[D+n] + error
 
     generate s_early  = p_star * (season_group <= 3)
     generate age_term = prod_x_age_m18 * (season_group <= 4)
-    regress remaining_npv_m ibn.season_group#c.(s_early nhle82 nhle82_sq age_term) if sample_production == 1, ///
-        noconstant vce(cluster player_id)
+    regress remaining_npv_m ibn.season_group#c.(s_early nhle82 nhle82_sq prod_x_defence age_term) ///
+        if sample_production == 1, noconstant vce(cluster player_id)
 
 Stata lists the zero columns (`s_early` from D+4, `age_term` from D+5 on) as omitted; they are not estimated.
+The defenceman terms together (five coefficients):
+
+    testparm ibn.season_group#c.prod_x_defence
+
 Each season's own R-squared, for example D+2:
 
-    regress remaining_npv_m p_star nhle82 nhle82_sq prod_x_age_m18 if sample_production == 1 & season_group == 2, ///
-        noconstant vce(robust)
+    regress remaining_npv_m p_star nhle82 nhle82_sq prod_x_defence prod_x_age_m18 ///
+        if sample_production == 1 & season_group == 2, noconstant vce(robust)
 
 ### 5. The D+2 build-up (Table 10, Appendix B)
 
@@ -201,13 +207,13 @@ coefficients are the table's column; its standard errors are clustered by player
     regress remaining_npv_m ibn.season_group#c.(p_star nhle82) if sample_production == 1, noconstant vce(cluster player_id)
     regress remaining_npv_m ibn.season_group#c.(p_star nhle82 nhle82_sq) if sample_production == 1, noconstant vce(cluster player_id)
 
-Column (4) is the adopted model (section 4).
+Column (4) adds the age term. The adopted model (section 4) adds production for defencemen to it.
 
 ### 6. A defenceman dummy interacted with production
 
-This is the separate production rate for defencemen in Section 2 ("One production rate for forwards and
-defencemen"): draft position and production, with one production coefficient for forwards and another for
-defencemen, in each season (D is `is_defence`):
+Since 2026-10-24 the adopted model includes it (section 4; `25_TESTS/defence_terms_look.py`: the five terms jointly
+p = 0.033). The form below is the earlier test, on draft position and linear production only, with one production
+coefficient for forwards and another for defencemen, in each season (D is `is_defence`):
 
     remaining NPV = sum over n of (a_n x S + f_n x P x (1 - D) + d_n x P x D) x 1[D+n] + error
 
@@ -218,9 +224,11 @@ The same model written as production plus a defenceman dummy interacted with pro
 interaction coefficient d_n - f_n; testing that coefficient against zero tests whether defencemen need their own
 rate.
 
-### 7. The age forms to test next (supervisor meeting, 2026-10-23)
+### 7. The age forms tested (supervisor meeting, 2026-10-23)
 
-The meeting raised two alternatives to production x (age - 18). The data for both is in the file:
+The meeting raised two alternatives to production x (age - 18); both were tested on 2026-10-23
+(`25_TESTS/prospect_age_discount_look.py`) and production x (age - 18) was kept (Thomas, 2026-10-24). The data for
+both is in the file:
 
 - Age on its own, moving the whole value line up or down: replace `age_term` with `age_m18` (by season group).
 - Age-adjusted production and its square: `prod_x_age_m18` and either its square, or `nhle82_sq` x `age_m18`.

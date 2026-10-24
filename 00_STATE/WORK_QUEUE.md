@@ -26,9 +26,12 @@
 5. Do: reword the defencemen test ("a separate regression was run using a defenceman dummy interacted with production").
    Re-run 2026-10-24 on the model as it now stands (Thomas: "i want you to run all those tests"; `25_TESTS/
    defence_terms_look.py` v1.0, which also tests the star chance by position in the pick curve and the prospect model).
-   Decide (Thomas): whether a defenceman x production term enters the prospect model (jointly p = 0.033; held-out not
-   better at 5%, p = 0.23), and what to do with the pick curve's position result (defencemen's star value $11.15M against
-   forwards' $21.04M, p = 0.002; a pick traded before its draft has no position).
+   **Done 2026-10-24 (Thomas: "ok go for it"): defenceman x production added** to the prospect model
+   (`prospect_values.py` v1.13); the trade chain, the back-test, its Game Value check and the Stata exports re-run on
+   the desktop. Decide (Thomas): what to do with the pick curve's position result (defencemen's star value $11.15M
+   against forwards' $21.04M, p = 0.002; a pick traded before its draft has no position). Decide (Thomas): which rule
+   governs model choices from here: significance decides with held-out error a note (the supervisor's), or held-out
+   error decides.
 6. Do: send the updated "Valuing Prospects".
 After the supervisor's trip and Thomas's two exams: Thomas runs every regression in the document in Stata in front of
 the supervisor (the data: `30_OUTPUT/stata/`). Loose threads: Nick Suzuki's dashboard value (-$0.03M); the supervisor

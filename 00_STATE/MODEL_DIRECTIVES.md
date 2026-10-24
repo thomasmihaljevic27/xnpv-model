@@ -1016,6 +1016,14 @@ minus the seasons since his draft minus 18.5 (within a season group, "older now"
   the forms are not nested, so no test picks one. Kept for simplicity (one linear regression). Also tested
   (`prospect_pooled_terms_look.py` v1.0): every term keeps its own coefficient in each season after the draft (pooling
   production rejected, p = 3.2e-07; the age term, p = 0.018). No code change (sessions/2026-10-23.md).
+- **Defenceman x production added (Thomas, 2026-10-24: "ok go for it"):** in every season after the draft, production
+  times 1 for a defenceman, its own coefficient each season (`prospect_values.py` v1.13). `25_TESTS/defence_terms_look.py`
+  v1.0: the five terms jointly statistically significant (p = 0.033), R-squared 0.1998 -> 0.2037 (adjusted 0.1988 ->
+  0.2025), held-out error lower but not significantly (p = 0.23); the term alone significant in D+2 to D+4, not in D+1
+  (p = 0.62) or D+5 on (p = 0.076), kept there because every term varies by season. Added on the supervisor's measures
+  (significance decides; held-out error a supplementary note). Which rule governs later choices (that one, or held-out
+  error deciding) was put to Thomas and not answered in words. Not added: defenceman x production squared (with it, p = 0.106), defenceman x star chance
+  (p = 0.139). The pick curve's defenceman x star chance (p = 0.002) is not adopted: open.
 
 ---
 

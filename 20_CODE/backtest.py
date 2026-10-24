@@ -64,7 +64,7 @@ import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "backtest.py v1.6 (2026-10-21)"   # v1.6: goaltenders on contract_npv v3.4 (own line with term, age term, chance of playing by season ahead); v1.5: the Game Value check (XNPV_OUTCOME_METRIC), wins delivered; v1.4: LTIR relief; v1.3: "UFA no QO" known only after the decision; v1.2: seasons after a buyout; v1.1: the ledger's spelling when the spine's has no WAR rows
+SCRIPT_VERSION = "backtest.py v1.7 (2026-10-24)"   # v1.7: the prospect model's defenceman x production (prospect_values v1.13); v1.6: goaltenders on contract_npv v3.4 (own line with term, age term, chance of playing by season ahead); v1.5: the Game Value check (XNPV_OUTCOME_METRIC), wins delivered; v1.4: LTIR relief; v1.3: "UFA no QO" known only after the decision; v1.2: seasons after a buyout; v1.1: the ledger's spelling when the spine's has no WAR rows
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_npv as CN                                     # noqa: E402  the engine, goalie line and hazard
@@ -751,25 +751,38 @@ def main():
     stars = stars[stars["left_out"] == "none"].set_index("k_group")["star_value_M"]
     rates = PV.production_rates()
     con = sqlite3.connect(OUTPUT_DIR / "ep_out" / "ep_prospects.db")
-    ep_draft = pd.read_sql("select draft_year, draft_overall, ep_player_id from ep_draft_selections", con)
+    ep_draft = pd.read_sql("select draft_year, draft_overall, ep_player_id, position_ep from ep_draft_selections", con)
     EPD = {(int(a), int(b)): str(int(c)) for a, b, c in zip(ep_draft["draft_year"], ep_draft["draft_overall"],
                                                            ep_draft["ep_player_id"]) if pd.notna(c)}
+    # v1.7: the prospect model's position, as prospect_values v1.13 reads it: Elite Prospects' draft page for a drafted
+    # player; for one without it (a draft after the pages were pulled), the linkage's position, counted in the log
+    EP_D = {(int(a), int(b)): float(str(c).startswith("D")) for a, b, c in zip(ep_draft["draft_year"],
+            ep_draft["draft_overall"], ep_draft["position_ep"]) if pd.notna(c)}
+    pos_fallback = []
+
+    def draft_is_d(dy, pk, pos):
+        if (dy, pk) in EP_D:
+            return EP_D[(dy, pk)]
+        pos_fallback.append((dy, pk))
+        return 1.0 if pos == "D" else 0.0
     pc_all, _ = CS.load_contracts()
     EP_BY_NHL = {int(a): str(int(b)) for a, b in zip(pc_all["nhl_id"], pc_all["eliteprospects_id"])
                  if pd.notna(a) and pd.notna(b)}
 
-    def prospect_now(k, p_star, ep, birth, gk):
-        """The prospect model at season 2026, k seasons after his draft (or first eligibility)."""
+    def prospect_now(k, p_star, ep, birth, gk, is_d):
+        """The prospect model at season 2026, k seasons after his draft (or first eligibility). v1.7: is_d, 1 for a
+        defenceman (prospect_values v1.13's defenceman x production)."""
         g = PV.k_group(k)
         if gk:
             return p_star * float(stars[g])
-        fr = pd.DataFrame({"ep_player_id": [ep or "none"], "season": [NOW], "k": [k], "birthDate": [birth]})
+        fr = pd.DataFrame({"ep_player_id": [ep or "none"], "season": [NOW], "k": [k], "birthDate": [birth],
+                           "is_d": [float(is_d)]})
         fr = PV.production_features(fr, rates)
         cols = PV.cols_for(g, "main")
         fr["p_star"] = p_star
         return float(sum(fits.at[g, cc] * fr[cc].iloc[0] for cc in cols))
 
-    def draftee_rest(*, gk, pos, base_year, window_end, played, birth, ep, p_star, k_now, name, state, war_names):
+    def draftee_rest(*, gk, pos, base_year, window_end, played, birth, ep, p_star, k_now, name, state, war_names, is_d):
         """Seasons 2026-27 to the end of club control. A prospect at 2026: the prospect model. An NHL player: xNPV 1
         (goalies the goalie forecast) at page 2026, value x chance of playing minus the rule's cost when he plays."""
         if window_end - 1 < NOW:
@@ -777,7 +790,7 @@ def main():
         gpby = played["gp"] if len(played) else pd.Series(dtype=float)
         sea = pd.DataFrame({"GP": gpby})
         if PV.is_prospect(sea, NOW, gk):
-            return prospect_now(k_now, p_star, ep, birth, gk), "prospect at 2026"
+            return prospect_now(k_now, p_star, ep, birth, gk, is_d), "prospect at 2026"
         if state is None or pd.isna(state.get("first")):
             return 0.0, "no chain"
         H = window_end - 1 - NOW
@@ -924,7 +937,8 @@ def main():
             real = float(played.loc[span, "surplus_2025_cap"].sum()) / 1e6
             ep = EPD.get((dy, pk))
             rest, how = draftee_rest(gk=gk, pos=pos, base_year=dy, window_end=wend, played=played, birth=birth, ep=ep,
-                                     p_star=float(bacon[pk]), k_now=NOW - dy, name=name, state=state, war_names=wn)
+                                     p_star=float(bacon[pk]), k_now=NOW - dy, name=name, state=state, war_names=wn,
+                                     is_d=draft_is_d(dy, pk, pos))
             rows[int(aid)] = {"realised_M": real, "revalued_M": rest, "outcome_route": f"prospect, {how}",
                               "wins_delivered": float(played.loc[span, "war_82"].sum()), "pos": pos}
         else:
@@ -962,7 +976,8 @@ def main():
             ep = EP_BY_NHL.get(int(nid)) if pd.notna(nid) else None
             rest, how = draftee_rest(gk=gk, pos=pos, base_year=min(fe, 2026), window_end=wend,
                                      played=pl, birth=birth, ep=ep, p_star=0.0, k_now=NOW - fe, name=name, state=state,
-                                     war_names=name)
+                                     war_names=name,
+                                     is_d=float(r["is_d_model"]) if pd.notna(r.get("is_d_model")) else 0.0)
             rows[int(aid)] = {"realised_M": real, "revalued_M": rest, "outcome_route": f"undrafted prospect, {how}",
                               "wins_delivered": wins_u, "pos": pos}
         n_pro += 1
@@ -988,10 +1003,12 @@ def main():
         wins_p = float(played.loc[played.index <= LAST, "war_82"].sum())
         rest, how = draftee_rest(gk=gk, pos=pos, base_year=dy, window_end=wend, played=played, birth=birth,
                                  ep=EPD.get((dy, pk)), p_star=float(bacon[pk]), k_now=NOW - dy, name=name, state=state,
-                                 war_names=wn)
+                                 war_names=wn, is_d=draft_is_d(dy, pk, pos))
         rows[aid] = {"realised_M": real, "revalued_M": rest, "outcome_route": f"pick, {how}",
                      "wins_delivered": wins_p, "pos": pos}
         n_pick += 1
+    log(f"   v1.7: the prospect model's position from the linkage, not Elite Prospects' draft page, for "
+        f"{len(set(pos_fallback))} draftees (no draft page)")
     log(f"   picks: {n_pick} followed to their player; no selection recorded: {len(no_slot)}"
         + "".join(f"\n     {x}" for x in no_slot))
 

@@ -40,7 +40,7 @@ import statsmodels.api as sm
 
 import prospect_values as PV
 
-SCRIPT_VERSION = "stata_export.py v1.0 (2026-10-23)"
+SCRIPT_VERSION = "stata_export.py v1.1 (2026-10-24)"   # v1.1: prod_x_defence (prospect_values v1.13)
 OUTPUT_DIR, SOURCE_DIR = PV.OUTPUT_DIR, PV.SOURCE_DIR
 OUT = OUTPUT_DIR / "stata"
 TOL = 1e-9
@@ -132,7 +132,9 @@ def main():
     sk = ~d["is_goalie"].astype(bool)
     assert d["player_id"].notna().all() and d.loc[sk, "birthDate"].notna().all()   # as production_fits (skaters)
     assert (d.loc[sk, "ep_player_id"] != "").all(), "a skater without an Elite Prospects id"
-    feats = PV.production_features(d.loc[sk, ["ep_player_id", "season", "k", "birthDate"]].reset_index(drop=True), rates)
+    # v1.1: is_d, so production_features builds defenceman x production as the model does (prospect_values v1.13)
+    feats = PV.production_features(d.loc[sk, ["ep_player_id", "season", "k", "birthDate", "is_defence"]]
+                                   .rename(columns={"is_defence": "is_d"}).reset_index(drop=True), rates)
     feats.index = d.index[sk]
     age = (pd.to_datetime(d["season"].astype(str) + "-09-15") - d["birthDate"]).dt.days / 365.25   # as production_features
     rows = pd.DataFrame({
@@ -151,7 +153,8 @@ def main():
         "n_prod_seasons": feats["n_prod_seasons"], "no_record": feats["no_record"],
         "age": age, "age_m18": age - 18.0,
         "prod_x_age_m18": feats["nhle82"] * (age - 18.0),                           # the document's age term
-        "years_past_elig": feats["past_elig"], "prod_x_years_past_elig": feats["prod_x_age"]})   # the code's
+        "years_past_elig": feats["past_elig"], "prod_x_years_past_elig": feats["prod_x_age"],   # the code's
+        "prod_x_defence": feats["d_x_prod"]})                                        # v1.1: production x is_defence
     rows["season_group_label"] = rows["season_group"].map(GROUP_LABEL)
     assert rows["season_group"].notna().all()
     rows.to_csv(OUT / "prospect_seasons.csv", index=False)
@@ -192,7 +195,8 @@ def main():
     assert len(r2) == len(pm) and (r2["draft_year"].values == pm["draftYear"].values).all() \
         and (r2["pick"].values == pm["pick"].values).all() and (r2["k"].values == pm["k"].values).all()
     for a_, b_ in (("remaining_npv_m", "remaining_M"), ("nhle82", "nhle82"), ("nhle82_sq", "nhle82_sq"),
-                   ("years_past_elig", "past_elig"), ("prod_x_years_past_elig", "prod_x_age"), ("p_star", "p_star")):
+                   ("years_past_elig", "past_elig"), ("prod_x_years_past_elig", "prod_x_age"), ("p_star", "p_star"),
+                   ("prod_x_defence", "d_x_prod")):
         gap = float(np.max(np.abs(r2[a_].values - pm[b_].values)))
         assert gap < TOL, (a_, gap)
     assert int(R["sample_star"].sum()) == int(fitrows["prospect"].sum())
@@ -222,7 +226,8 @@ def main():
     # 4. the adopted model (Valuing Prospects Table 9)
     s2 = R[R["sample_production"] == 1]
     cols_code = {GROUP_NUM[g]: [{"p_star": "p_star", "nhle82": "nhle82", "nhle82_sq": "nhle82_sq",
-                                 "prod_x_age": "prod_x_years_past_elig"}[c] for c in PV.cols_for(g, "main")]
+                                 "prod_x_age": "prod_x_years_past_elig", "d_x_prod": "prod_x_defence"}[c]
+                                for c in PV.cols_for(g, "main")]
                  for g in GROUP_NUM}
     st_code, m_code = stacked(s2, cols_code)
     for g_, gnum in GROUP_NUM.items():
@@ -234,7 +239,7 @@ def main():
     assert float(np.max(np.abs(m_doc.fittedvalues - m_code.fittedvalues))) < TOL       # the same values
     log("\n  check 4: the adopted model (Valuing Prospects Table 9), from prospect_seasons.csv, age less 18:")
     names = {"p_star": "star probability", "nhle82": "production", "nhle82_sq": "production squared",
-             "prod_x_age_m18": "production x (age - 18)"}
+             "prod_x_age_m18": "production x (age - 18)", "prod_x_defence": "production x defenceman"}
     for gnum, cs in cols_doc.items():
         kk = int(s2.loc[s2["season_group"] == gnum, "k"].iloc[0])
         if "prod_x_age_m18" in cs:

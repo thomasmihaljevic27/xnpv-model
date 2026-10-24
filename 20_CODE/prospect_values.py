@@ -42,6 +42,11 @@ STEP TWO, PRODUCTION AND AGE (v1.2; MODEL_DIRECTIVES directive 6, "Prospects, st
     shift). It enters as production x years past first eligibility (the same
     scoring counts for less from an older prospect), in seasons 0-3 since the draft only.
   * The slot's star chance enters in seasons 0-2 only; from season 3, production alone.
+  * Defenceman x production (v1.13, Thomas 2026-10-24: "ok go for it", on 25_TESTS/defence_terms_look.py v1.0): in
+    every season group, production times 1 for a defenceman, so a defenceman's point is worth its own amount (jointly
+    statistically significant, p = 0.033). Position: a drafted player's Elite Prospects draft-page position (the
+    position the fit reads, ep_draft_selections.position_ep); an undrafted player's PuckPedia position (no draft page;
+    it agrees with his Elite Prospects season lines for all 50 valued on 2026-10-24).
   * value_M (main) = the fitted line for his season group: seasons 0-2 star chance + level + level squared +
     no-record + production x age; season 3 the same without the star chance; 4+ without age. v1.7 (Thomas,
     2026-10-15): "Age is fully adopted and we don't need to report an age removed version as sensitivity", so
@@ -131,7 +136,7 @@ import statsmodels.api as sm
 from dotenv import load_dotenv
 
 
-SCRIPT_VERSION = "prospect_values.py v1.12 (2026-10-21)"   # v1.12: no no-record indicator (Thomas); v1.11: fit rows inside club control; v1.10: no draft-year terms
+SCRIPT_VERSION = "prospect_values.py v1.13 (2026-10-24)"   # v1.13: defenceman x production (Thomas); v1.12: no no-record indicator (Thomas); v1.11: fit rows inside club control; v1.10: no draft-year terms
 load_dotenv()
 import contract_source as CS   # noqa: E402  v1.1: PuckPedia exports read strictly (identity only)
 SOURCE_DIR, OUTPUT_DIR = Path(os.environ["SOURCE_DIR"]), Path(os.environ["OUTPUT_DIR"])
@@ -308,6 +313,8 @@ def production_features(frame, rates):
     age = (pd.to_datetime(frame["season"].astype(int).astype(str) + "-09-15") - frame["birthDate"]).dt.days / 365.25
     frame["past_elig"] = age - frame["k"] - FIRST_ELIGIBLE_AGE
     frame["prod_x_age"] = frame["nhle82"] * frame["past_elig"]
+    if "is_d" in frame.columns:                                     # v1.13: defenceman x production
+        frame["d_x_prod"] = frame["nhle82"] * frame["is_d"]
     return frame
 
 
@@ -316,8 +323,10 @@ def cols_for(group, version):
     # statistically significant in D+1 or D+2 (p = 0.053 and 0.067; its D+3 coefficient rests on one prospect-season and
     # it is exactly zero from D+4), and without it the held-out error is unchanged (2.1995 against 2.1994, p = 0.166)
     # and no traded prospect's value moves. A prospect without a record (nhle82 = 0) is valued on draft position alone.
+    # v1.13 (Thomas, 2026-10-24): defenceman x production in every season group
     return ((["p_star"] if group in SLOT_GROUPS else []) + ["nhle82", "nhle82_sq"]
-            + (["prod_x_age"] if version == "main" and group in AGE_GROUPS else []))
+            + (["prod_x_age"] if version == "main" and group in AGE_GROUPS else [])
+            + (["d_x_prod"] if version == "main" else []))
 
 
 def fit_cols(frame, cols, cluster):
@@ -361,13 +370,14 @@ def production_fits(fitrows, rates):
     pl = pd.read_csv(OUTPUT_DIR / "pick_curve_players.csv")[["draftYear", "pick", "is_goalie"]]
     link = pd.read_csv(OUTPUT_DIR / "draft_pick_linkage.csv", parse_dates=["birthDate"])
     link = link[["draftYear", "overallPickNumber", "birthDate"]].rename(columns={"overallPickNumber": "pick"})
-    ep = pd.read_sql("select draft_year draftYear, draft_overall pick, ep_player_id from ep_draft_selections",
+    ep = pd.read_sql("select draft_year draftYear, draft_overall pick, ep_player_id, position_ep from ep_draft_selections",
                      sqlite3.connect(OUTPUT_DIR / "ep_out" / "ep_prospects.db"))
     d = fitrows[fitrows["prospect"]].merge(pl, on=["draftYear", "pick"], how="left")
     d = d[~d["is_goalie"].astype(bool)].merge(link, on=["draftYear", "pick"], how="left").merge(
         ep, on=["draftYear", "pick"], how="left")
-    assert d["birthDate"].notna().all() and d["ep_player_id"].notna().all()
+    assert d["birthDate"].notna().all() and d["ep_player_id"].notna().all() and d["position_ep"].notna().all()
     d["ep_player_id"] = pd.to_numeric(d["ep_player_id"]).astype(int).astype(str)
+    d["is_d"] = d["position_ep"].astype(str).str.startswith("D").astype(float)    # v1.13: Elite Prospects' draft page
     d["season"] = d["draftYear"] + d["k"]
     d = production_features(d.reset_index(drop=True), rates)
     fits = {}
@@ -446,12 +456,28 @@ def main():
         for (v, g), (tab, arm) in src.items():
             cols, b, _ = fits[(v, g, "none")]
             ref = tab[(tab["k_group"] == g) & (tab["arm"] == arm)].iloc[0]
-            cols_look = cols + (["no_record"] if "no_record" in tab.columns and pd.notna(ref.get("no_record")) else [])
+            cols_look = ([c_ for c_ in cols if c_ != "d_x_prod"]                 # v1.13: the looks had no defence term
+                         + (["no_record"] if "no_record" in tab.columns and pd.notna(ref.get("no_record")) else []))
             b_look, _ = fit_cols(prow[prow["k_group"] == g], cols_look, g.endswith("+"))
             gap = max(abs(b_look[i] - ref[c]) for i, c in enumerate(cols_look))
             assert gap < 1e-9, (v, g, arm, gap)
             n_ok += 1
         log(f"  guard: the coefficients equal the production and age looks' for {n_ok} of {len(src)} fits (PASS)")
+    dc = OUTPUT_DIR / "defence_terms_coefficients.csv"
+    if dc.exists():                       # v1.13 GUARD: the fits equal the defence test's "+ D x P" arm that measured them
+        dc = pd.read_csv(dc)
+        dc = dc[(dc["part"] == "prospect model") & (dc["arm"] == "+ D x P")]
+        term = {"p_star": "S", "nhle82": "P", "nhle82_sq": "P^2", "prod_x_age": "P x age", "d_x_prod": "D x P"}
+        lab = {"0": "D+1", "1": "D+2", "2": "D+3", "3": "D+4", "4+": "D+5 on"}
+        gap = 0.0
+        for g in lab:
+            cols, b, _ = fits[("main", g, "none")]
+            for i, c_ in enumerate(cols):
+                ref = dc[(dc["season"] == lab[g]) & (dc["term"] == term[c_])]["coef"]
+                assert len(ref) == 1, (g, c_)
+                gap = max(gap, abs(b[i] - float(ref.iloc[0])))
+        assert gap < 1e-9, gap
+        log(f"  guard: the coefficients equal defence_terms_look.py's defenceman x production arm (largest gap {gap:.1e}) (PASS)")
     for v in VERSIONS:
         for g in ("0", "1", "2", "3", "4+"):
             cols, b, se = fits[(v, g, "none")]
@@ -460,21 +486,27 @@ def main():
                          sqlite3.connect(OUTPUT_DIR / "ep_out" / "ep_prospects.db"))
     EP_ID = {(int(a), int(b)): str(int(c)) for a, b, c in zip(ep_ids["draftYear"], ep_ids["pick"], ep_ids["ep_player_id"])
              if pd.notna(c)}
+    ep_pos = pd.read_sql("select draft_year draftYear, draft_overall pick, position_ep from ep_draft_selections",
+                         sqlite3.connect(OUTPUT_DIR / "ep_out" / "ep_prospects.db"))
+    EP_D = {(int(a), int(b)): float(str(c).startswith("D")) for a, b, c in      # v1.13: the fit's position source
+            zip(ep_pos["draftYear"], ep_pos["pick"], ep_pos["position_ep"]) if pd.notna(c)}
 
-    def value_from(ep, birth, y, k, p_star, version, left_out="none"):
+    def value_from(ep, birth, y, k, p_star, version, is_d, left_out="none"):
         """Value ($M) of a skater prospect at season y under one version of step two (None without an EP id or
-        a birthdate). v1.3: keyed on the Elite Prospects id, so undrafted players (p_star 0) use it too."""
-        if ep is None or pd.isna(birth):
+        a birthdate). v1.3: keyed on the Elite Prospects id, so undrafted players (p_star 0) use it too.
+        v1.13: is_d, 1 for a defenceman (None: no position, not valued)."""
+        if ep is None or pd.isna(birth) or is_d is None:
             return None
         row = production_features(pd.DataFrame({"ep_player_id": [ep], "season": [y], "k": [k],
-                                                "birthDate": [birth], "p_star": [p_star]}), rates).iloc[0]
+                                                "birthDate": [birth], "p_star": [p_star],
+                                                "is_d": [float(is_d)]}), rates).iloc[0]
         cols, b, _ = fits[(version, k_group(k), left_out)]
         return float(sum(b[i] * row[col] for i, col in enumerate(cols))), row
 
     def step_two(c, y, k, p_star, version, left_out="none"):
         """A drafted skater prospect: his EP id from the draft pages."""
-        return value_from(EP_ID.get((int(c["draftYear"]), int(c["overallPickNumber"]))), c["birthDate"],
-                          y, k, p_star, version, left_out)
+        key = (int(c["draftYear"]), int(c["overallPickNumber"]))
+        return value_from(EP_ID.get(key), c["birthDate"], y, k, p_star, version, EP_D.get(key), left_out)
 
     # ---- 2. drafted players and their NHL seasons --------------------------------------------------
     bacon = pd.read_csv(F["bacon"]).set_index("draft_pick")["p_star"]
@@ -597,8 +629,9 @@ def main():
     pc_by_id = dict(tuple(pc.groupby(pc["nhl_id"].astype(int))))              # errors="coerce", blank on Y-m-d
     PPINFO = {int(i): (g["bd"].iloc[0],
                        str(int(g["eliteprospects_id"].iloc[0])) if pd.notna(g["eliteprospects_id"].iloc[0]) else None,
-                       str(g["position"].iloc[0]).startswith("G"))
-              for i, g in pc_by_id.items()}
+                       str(g["position"].iloc[0]).startswith("G"),
+                       float(str(g["position"].iloc[0]).startswith("D")) if pd.notna(g["position"].iloc[0]) else None)
+              for i, g in pc_by_id.items()}            # v1.13: the last, 1 for a defenceman (PuckPedia's position)
 
     def nhl_seasons_by_name(name, is_goalie):
         t = tables[is_goalie]
@@ -625,7 +658,7 @@ def main():
         running = nid is not None and nid in pc_by_id and bool(
             ((pc_by_id[nid]["signed"] <= r.date) & (pc_by_id[nid]["ends"] >= r.date)).any())
         nhl_contract = (pd.notna(r.cap_hit_aav) and r.cap_hit_aav > 0 and not r.is_ahl_jr) or running
-        birth, ep, gk = PPINFO.get(nid, (pd.NaT, None, None)) if nid is not None else (pd.NaT, None, None)
+        birth, ep, gk, dflag = PPINFO.get(nid, (pd.NaT, None, None, None)) if nid is not None else (pd.NaT, None, None, None)
         if gk is None:                                 # no PuckPedia record: the table his name appears in
             gk = norm(r.player_name) not in tables[False].index.get_level_values(0) and \
                 norm(r.player_name) in tables[True].index.get_level_values(0)
@@ -661,7 +694,7 @@ def main():
             out["value_M"] = out["value_slot_only_M"] = 0.0
             return out
         out["value_slot_only_M"] = 0.0                 # no slot
-        two = None if gk else value_from(ep, birth, y, k, 0.0, "main")
+        two = None if gk else value_from(ep, birth, y, k, 0.0, "main", dflag)
         if two is None:
             out["status"] = ("undrafted prospect, valued (goalie: slot alone, so zero)" if gk
                              else "undrafted prospect, valued (no EP id: zero)")
@@ -672,7 +705,8 @@ def main():
         out["value_M"], row = two
         out["value_own_draft_out_M"] = out["value_M"]          # no draft in the fit to leave out
         out.update({"value_basis": "production (undrafted, slot at zero)", "nhle82": row["nhle82"],
-                    "n_prod_seasons": int(row["n_prod_seasons"]), "past_elig": row["past_elig"]})
+                    "n_prod_seasons": int(row["n_prod_seasons"]), "past_elig": row["past_elig"],
+                    "is_d_model": row["is_d"]})
         return out
 
     sv_main = main_sv["star_value_M"].to_dict()
@@ -742,7 +776,7 @@ def main():
                 rec["value_own_draft_out_M"] = step_two(c, y, k, p_star, "main", own)[0]
                 rec.update({"value_basis": "slot + production" if k_group(k) in SLOT_GROUPS else "production",
                             "nhle82": row["nhle82"], "n_prod_seasons": int(row["n_prod_seasons"]),
-                            "past_elig": row["past_elig"]})
+                            "past_elig": row["past_elig"], "is_d_model": row["is_d"]})
             if end is None:
                 rec["status"] = "prospect, valued (no birthdate: control window not checked)"
         out.append(rec)

@@ -622,6 +622,12 @@ tests pinned to the old prospect rows (`prospect_curve_vs_line.py`, `prospect_pr
 - **Don't run Stata unasked.** A check of the export in Stata batch mode drew "why are you running stata commands?"
   (2026-10-23). Running the regressions in Stata is Thomas's work for the supervisor, who asked to see him run them; the
   model's checks run in Python. Write Stata commands for him to run, and say they are untested in Stata.
+- **Don't call an alternative the better or best model without its test against the current one.** Discounted points
+  was reported as fitting better with its discount "statistically significant in every season"; Thomas took it as a
+  significant improvement on the adopted model, which it was not (held-out p = 0.40; the forms are not nested, so no test
+  of one against the other exists). The next recommendation then leaned on held-out error the other way, and he said the
+  replies contradicted each other (2026-10-24). Say what each p-value tests against (no discount, or the current model),
+  and state the rule a recommendation applies before applying it.
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised

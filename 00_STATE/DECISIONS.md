@@ -3814,3 +3814,11 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   goaltenders $70.97M. Prospect model: defenceman x production jointly significant (p = 0.033), held-out not better at 5%;
   defenceman x star chance not (p = 0.139). No model change; Thomas decides. WORK_QUEUE item 5, MANIFEST, session log
   sessions/2026-10-23.md.
+
+### Change log, 2026-10-24d (defenceman x production in the prospect model)
+
+- DECIDED (Thomas: "ok go for it"): defenceman x production enters the prospect model in every season after the draft
+  (`prospect_values.py` v1.13; MODEL_DIRECTIVES directive 6). Downstream re-run on the desktop: trade chain (17 of 17),
+  `backtest.py` v1.7 and both Game Value runs (slope 0.748; verdicts unchanged), `stata_export.py` v1.1 and
+  `stata_export_backtest.py` (PASS). Traded prospects: drafted $76.28M, undrafted $7.09M. PROJECT_STATE (prospects,
+  back-test rows), WORK_QUEUE item 5, codebook, MANIFEST, CLAUDE.md (one rule), session log sessions/2026-10-23.md.
