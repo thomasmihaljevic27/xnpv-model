@@ -1,0 +1,42 @@
+valuation_walkthrough.py v1.0 (2026-09-25)
+inputs: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\WAR_with_age.csv sha256 4724446cd7e3a5e6
+        C:\Users\thoma\Desktop\xNPV\10_SOURCE\WAR.csv sha256 8406059a4db5a677
+        aging_curve.py sha256 18ab7a9dd0e38bce
+        skater_forward_projection.py sha256 8c8ce4ce77a865aa
+aging model: 1478 careers, 7531 comparable profiles, yardstick 2.5264, lambda 0.55
+  guard (a) yardstick recomputed exactly: 2.526413 (forwards 1200 sampled, defence 1200)
+mode: FULL (contract spine found; production anchor and contract chain are checked too)
+
+Ryan O'Reilly (valued 2018-19, traded 2018-07-01)
+  guard (e) starting level matches production: 3.279602 (both)
+  guard (b) 472 comparable weights match production (max abs diff 1.1e-16)
+  guard (c) curve path matches AgingModel.project() at 6 ages
+  guard (d) multipliers match SkaterProjector.ratio_path() to 1e-12 (path=curve)
+  full-mode checks: horizon, valuation age and projected WAR match project_contract()
+  starting level 3.280 WAR; age 27 (curve based at 26); 471 comparables, effective 390.6, top-5 share 2.0%
+  own level 3.516 -> players-like-him 1.938 -> start 2.806 (WAR per 82)
+  projected WAR: 2018-19 3.28, 2019-20 3.10, 2020-21 2.89, 2021-22 2.69, 2022-23 2.53
+
+Nazem Kadri (valued 2019-20, traded 2019-07-01)
+  guard (e) starting level matches production: 1.968285 (both)
+  guard (b) 400 comparable weights match production (max abs diff 1.1e-16)
+  guard (c) curve path matches AgingModel.project() at 4 ages
+  guard (d) multipliers match SkaterProjector.ratio_path() to 1e-12 (path=curve)
+  full-mode checks: horizon, valuation age and projected WAR match project_contract()
+  starting level 1.968 WAR; age 29 (curve based at 28); 399 comparables, effective 363.9, top-5 share 2.0%
+  own level 2.316 -> players-like-him 1.547 -> start 1.970 (WAR per 82)
+  projected WAR: 2019-20 1.97, 2020-21 1.83, 2021-22 1.66
+
+Max Pacioretty (valued 2018-19, traded 2018-09-10)
+  guard (e) starting level matches production: 1.486634 (both)
+  guard (b) 354 comparable weights match production (max abs diff 1.1e-16)
+  guard (c) curve path matches AgingModel.project() at 6 ages
+  guard (d) multipliers match SkaterProjector.ratio_path() to 1e-12 (path=curve)
+  full-mode checks: horizon, valuation age and projected WAR match project_contract()
+  starting level 1.487 WAR; age 30 (curve based at 29); 353 comparables, effective 295.6, top-5 share 2.8%
+  own level 1.878 -> players-like-him 1.518 -> start 1.716 (WAR per 82)
+  projected WAR: 2018-19 1.49, 2019-20 1.45, 2020-21 1.20, 2021-22 1.12, 2022-23 0.96
+  guard (f) workbook formulas evaluated with Excel operator rules (50261 cells, 0 errors); key results match Python (max abs diff 1.8e-15)
+
+wrote C:\Users\thoma\Desktop\xNPV\30_OUTPUT\aging_walkthrough.xlsx
+wrote C:\Users\thoma\Desktop\xNPV\30_OUTPUT\aging_walkthrough.json

@@ -1,0 +1,45 @@
+prospect_age_look.py v1.6 (2026-10-22)
+  input rows: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\prospect_nhle_rows.csv  (modified 2026-10-22 13:05)
+  input nhle_scores: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\prospect_nhle_look.csv  (modified 2026-10-22 13:05)
+  input linkage: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\draft_pick_linkage.csv  (modified 2026-10-22 03:04)
+
+rows: 12,996 (fingerprint 1a0aa6bb93a0, the production look's rows)
+  years past first eligibility, at the draft: first-time eligible (under 0.5) 816; one year older 986; two or more 281
+  correlation with the star chance (at the draft): -0.14; with production: 0.20
+  guard: the chosen arm reproduces the production look's 2.2151 (PASS)
+
+COEFFICIENTS ON ALL DRAFTS (age terms; $M of remaining surplus per year past first eligibility; se in brackets)
+   0 + age                        past_elig -0.360 (0.109)
+   0 + age x production           prod_x_age -0.074 (0.021)
+   0 + age and age x production   past_elig 0.270 (0.247); prod_x_age -0.101 (0.041)
+   1 + age                        past_elig -0.426 (0.106)
+   1 + age x production           prod_x_age -0.062 (0.015)
+   1 + age and age x production   past_elig 0.305 (0.278); prod_x_age -0.087 (0.035)
+   2 + age                        past_elig -0.300 (0.095)
+   2 + age x production           prod_x_age -0.049 (0.012)
+   2 + age and age x production   past_elig 0.545 (0.226); prod_x_age -0.089 (0.026)
+   3 + age                        past_elig -0.151 (0.068)
+   3 + age x production           prod_x_age -0.026 (0.009)
+   3 + age and age x production   past_elig 0.373 (0.204); prod_x_age -0.051 (0.021)
+  4+ + age                        past_elig 0.005 (0.019)
+  4+ + age x production           prod_x_age -0.003 (0.004)
+  4+ + age and age x production   past_elig 0.075 (0.074); prod_x_age -0.008 (0.009)
+
+HELD-OUT ERROR ($M of remaining surplus a row; same rows for every arm)
+  chosen                       RMSE 2.2151 (+0.00%)  by k: 0 3.2842, 1 2.9882, 2 2.6290, 3 2.0179, 4+ 0.7567
+  + age                        RMSE 2.2089 (-0.28%)  by k: 0 3.2758, 1 2.9756, 2 2.6217, 3 2.0157, 4+ 0.7569  | beats the chosen arm in 1,989 of 2,000 redraws
+  + age x production           RMSE 2.1996 (-0.70%)  by k: 0 3.2658, 1 2.9619, 2 2.6037, 3 2.0077, 4+ 0.7577  | beats the chosen arm in 1,997 of 2,000 redraws
+  + age and age x production   RMSE 2.2008 (-0.64%)  by k: 0 3.2715, 1 2.9646, 2 2.5991, 3 2.0075, 4+ 0.7583  | beats the chosen arm in 1,948 of 2,000 redraws
+  + age and age x production against + age x production alone: beats it in 723 of 2,000 redraws
+  age x production in seasons 0-3 only: RMSE 2.1995 (-0.70%); beats chosen in 1,997 of 2,000 redraws
+  age x production in seasons 0-3 only: RMSE 2.1995 (-0.70%); beats + age x production in 1,780 of 2,000 redraws
+
+WHAT IT MEANS: a #20 pick one season after his draft ($M at the average draft; production in NHL-equivalent points per 82)
+  production at the median (7.2): chosen $1.37M
+    first-time eligible, late birthday       + age $1.78M; + age x production $1.70M
+    first-time eligible, mid-year birthday   + age $1.61M; + age x production $1.52M
+    drafted a year older                     + age $1.18M; + age x production $1.08M
+  production at the 90th percentile (13.9): chosen $2.46M
+    first-time eligible, late birthday       + age $3.04M; + age x production $3.55M
+    first-time eligible, mid-year birthday   + age $2.87M; + age x production $3.20M
+    drafted a year older                     + age $2.45M; + age x production $2.34M

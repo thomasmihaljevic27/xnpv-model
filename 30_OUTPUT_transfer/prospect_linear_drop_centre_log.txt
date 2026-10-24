@@ -1,0 +1,63 @@
+prospect_linear_drop_centre.py v1.1 (2026-10-22)
+  input rows: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\prospect_nhle_rows.csv  (modified 2026-10-22 13:05)
+  input linkage: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\draft_pick_linkage.csv  (modified 2026-10-22 03:04)
+  input age_scores: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\prospect_age_look.csv  (modified 2026-10-22 13:05)
+  input values: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\prospect_values.csv  (modified 2026-10-22 13:06)
+
+rows: 12,996 prospect-seasons, 2,083 skaters (fingerprint 1a0aa6bb93a0)
+
+fitting the adopted model and the model without linear production at each centre
+  guard: the adopted model's held-out error reproduces prospect_age_look.py's (2.1995) (PASS)
+  guard: the adopted model reproduces prospect_values.csv's value_M (largest gap 1.6e-12) (PASS)
+  guard: with linear production in, the fitted values are the same at every centre tested (PASS)
+
+HELD-OUT ERROR ($M of remaining surplus a prospect-season; the same rows and weights for every arm)
+  p (defined once): the share of 2,000 redraws of the 11 drafts in which the first model's summed squared held-out
+  error is NOT below the second's (one-sided). Below 0.05: statistically significant at the 5% level.
+  model                                                  all  D+1-D+4  D+5 on vs adopted  p: adopted  p: this   drafted  undrafted
+                                                                                              better   better        $M         $M
+  adopted (linear production in; any centre)          2.1995   2.7820  0.7567                                     71.34       6.10
+  no linear, years past first eligibility less 17.5   2.1985   2.7806  0.7577    -0.044%      0.6870   0.3130     78.57       7.82
+  no linear, years past first eligibility less 18     2.2012   2.7841  0.7577    +0.077%      0.3365   0.6635     82.87       7.82
+  no linear, years past first eligibility less 18.5   2.2069   2.7917  0.7577    +0.336%      0.1510   0.8490     87.43       7.82
+  no linear, years past first eligibility less 19     2.2145   2.8017  0.7577    +0.681%      0.0700   0.9300     90.54       7.82
+  no linear, age less 18                              2.1995   2.7818  0.7577    -0.001%      0.4900   0.5100     75.34       7.82
+  no linear, age less 19                              2.2038   2.7876  0.7577    +0.198%      0.2535   0.7465     81.44       7.82
+  no linear, age less 20                              2.2126   2.7993  0.7577    +0.598%      0.0905   0.9095     87.04       7.82
+  no linear, age less 21                              2.2211   2.8106  0.7577    +0.984%      0.0245   0.9755     88.09       7.82
+  no linear, age not centred                          2.2123   2.7989  0.7577    +0.584%      0.0045   0.9955     71.31       7.82
+
+BY SEASON (held-out error, $M)
+  model                                                   D+1      D+2      D+3      D+4   D+5 on
+  adopted (linear production in; any centre)           3.2658   2.9619   2.6037   2.0077   0.7567
+  no linear, years past first eligibility less 17.5    3.2640   2.9601   2.6033   2.0059   0.7577
+  no linear, years past first eligibility less 18      3.2665   2.9645   2.6086   2.0077   0.7577
+  no linear, years past first eligibility less 18.5    3.2731   2.9735   2.6186   2.0117   0.7577
+  no linear, years past first eligibility less 19      3.2828   2.9854   2.6310   2.0168   0.7577
+  no linear, age less 18                               3.2665   2.9593   2.6039   2.0092   0.7577
+  no linear, age less 19                               3.2828   2.9645   2.6017   2.0074   0.7577
+  no linear, age less 20                               3.2970   2.9854   2.6086   2.0058   0.7577
+  no linear, age less 21                               3.2995   3.0033   2.6310   2.0077   0.7577
+  no linear, age not centred                           3.2809   2.9834   2.6242   2.0162   0.7577
+
+THE AGE TERM WITHOUT LINEAR PRODUCTION (all drafts; $M a point a year of age; the implied linear value of a point
+  at age 18 on September 15 is -e x (the centre's distance from 18), in D+n for years past eligibility: -e x (c - 18 + k))
+  no linear, years past first eligibility less 17.5 D+1 e -0.0835, c 0.0198; D+2 e -0.0698, c 0.0138; D+3 e -0.0566, c 0.0089; D+4 e -0.0303, c 0.0051
+  no linear, years past first eligibility less 18   D+1 e -0.0879, c 0.0171; D+2 e -0.0727, c 0.0118; D+3 e -0.0584, c 0.0075; D+4 e -0.0311, c 0.0044
+  no linear, years past first eligibility less 18.5 D+1 e -0.0800, c 0.0134; D+2 e -0.0674, c 0.0093; D+3 e -0.0537, c 0.0058; D+4 e -0.0280, c 0.0035
+  no linear, years past first eligibility less 19   D+1 e -0.0587, c 0.0100; D+2 e -0.0530, c 0.0069; D+3 e -0.0419, c 0.0043; D+4 e -0.0210, c 0.0028
+  no linear, age less 18                            D+1 e -0.0879, c 0.0171; D+2 e -0.0629, c 0.0150; D+3 e -0.0396, c 0.0105; D+4 e -0.0161, c 0.0062
+  no linear, age less 19                            D+1 e -0.0587, c 0.0100; D+2 e -0.0727, c 0.0118; D+3 e -0.0513, c 0.0098; D+4 e -0.0210, c 0.0061
+  no linear, age less 20                            D+1 e -0.0132, c 0.0079; D+2 e -0.0530, c 0.0069; D+3 e -0.0584, c 0.0075; D+4 e -0.0275, c 0.0056
+  no linear, age less 21                            D+1 e +0.0070, c 0.0094; D+2 e -0.0181, c 0.0052; D+3 e -0.0419, c 0.0043; D+4 e -0.0311, c 0.0044
+  no linear, age not centred                        D+1 e -0.0072, c 0.0187; D+2 e -0.0061, c 0.0139; D+3 e -0.0050, c 0.0095; D+4 e -0.0025, c 0.0057
+
+IN SAMPLE (beside the held-out test, not the verdict): linear production's coefficient in the adopted model
+  b moves with the centre (b' = b + e x shift) while the values do not; its p-value moves with it.
+  years past first eligibility less 18: joint p = 0.0817; D+1 -0.0736 (p = 0.117); D+2 -0.0653 (p = 0.054); D+3 -0.0586 (p = 0.027); D+4 -0.0319 (p = 0.085); D+5 on -0.0159 (p = 0.093)
+  years past first eligibility less 18.5: joint p = 0.0044; D+1 -0.1106 (p = 0.023); D+2 -0.0964 (p = 0.007); D+3 -0.0831 (p = 0.002); D+4 -0.0448 (p = 0.027); D+5 on -0.0159 (p = 0.093)
+  age less 18: joint p = 0.0616; D+1 -0.0736 (p = 0.117); D+2 -0.0033 (p = 0.927); D+3 +0.0392 (p = 0.309); D+4 +0.0459 (p = 0.116); D+5 on -0.0159 (p = 0.093)
+  age less 19: joint p = 0.0055; D+1 -0.1475 (p = 0.005); D+2 -0.0653 (p = 0.054); D+3 -0.0097 (p = 0.752); D+4 +0.0200 (p = 0.375); D+5 on -0.0159 (p = 0.093)
+  age less 20: joint p = 0.0003; D+1 -0.2214 (p = 0.001); D+2 -0.1274 (p = 0.001); D+3 -0.0586 (p = 0.027); D+4 -0.0060 (p = 0.745); D+5 on -0.0159 (p = 0.093)
+
+wrote prospect_linear_drop_centre.csv, prospect_linear_drop_centre_insample.csv and the log

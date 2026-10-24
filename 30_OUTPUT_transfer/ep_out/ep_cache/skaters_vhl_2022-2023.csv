@@ -1,0 +1,914 @@
+player,team,gp,g,a,tp,p_per_gp,pim,plus_minus,link,page,playername,position,season,league,ep_player_id,scrape_date,source,package_version
+Ildar Shiksatdarov (RW),Yugra Khanty-Mansiysk,49,20,30,50,1.02,47,23,/player/155383/ildar-shiksatdarov,1,Ildar Shiksatdarov,RW,2022-2023,vhl,155383,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Lazarev (LW/RW),AKM Tula Region,49,18,32,50,1.02,28,7,/player/168687/maxim-lazarev,1,Maxim Lazarev,LW/RW,2022-2023,vhl,168687,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Knyazev (LW),Sokol Krasnoyarsk,46,22,27,49,1.07,20,9,/player/191877/alexei-knyazev,1,Alexei Knyazev,LW,2022-2023,vhl,191877,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bogdan Potekhin (LW/RW),Sokol Krasnoyarsk,44,21,27,48,1.09,26,11,/player/42437/bogdan-potekhin,1,Bogdan Potekhin,LW/RW,2022-2023,vhl,42437,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Stepanov (C/LW),Yugra Khanty-Mansiysk,50,28,18,46,0.92,12,16,/player/395868/yegor-stepanov,1,Yegor Stepanov,C/LW,2022-2023,vhl,395868,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Belyayev (RW/LW),Izhstal Izhevsk,49,24,18,42,0.86,31,11,/player/359983/alexander-belyayev,1,Alexander Belyayev,RW/LW,2022-2023,vhl,359983,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Anokhovsky (C),Lada Togliatti,49,22,19,41,0.84,21,13,/player/312826/nikita-anokhovsky,1,Nikita Anokhovsky,C,2022-2023,vhl,312826,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Komaristy (C/RW),Dynamo St. Petersburg,49,9,32,41,0.84,24,2,/player/28108/alexander-komaristy,1,Alexander Komaristy,C/RW,2022-2023,vhl,28108,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Rymarev (RW/LW),AKM Tula Region,50,15,25,40,0.80,6,1,/player/15278/yevgeni-rymarev,1,Yevgeni Rymarev,RW/LW,2022-2023,vhl,15278,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yaroslav Alshevsky (LW),Neftyanik Almetievsk,50,17,22,39,0.78,36,8,/player/67796/yaroslav-alshevsky,1,Yaroslav Alshevsky,LW,2022-2023,vhl,67796,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Peshekhonov (C),Zauralie Kurgan,49,16,23,39,0.80,24,-6,/player/106994/vladimir-peshekhonov,1,Vladimir Peshekhonov,C,2022-2023,vhl,106994,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Kitsyn (LW),Metallurg Novokuznetsk,49,19,19,38,0.78,31,3,/player/19425/maxim-kitsyn,1,Maxim Kitsyn,LW,2022-2023,vhl,19425,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Timiryov (RW),HK Tambov,49,16,22,38,0.78,10,-6,/player/106800/alexander-timiryov,1,Alexander Timiryov,RW,2022-2023,vhl,106800,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Lapin (LW),Dizel Penza,50,21,16,37,0.74,18,-8,/player/331649/daniil-lapin,1,Daniil Lapin,LW,2022-2023,vhl,331649,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Yakovlev (C),AKM Tula Region,48,13,24,37,0.77,100,13,/player/240089/yegor-yakovlev,1,Yegor Yakovlev,C,2022-2023,vhl,240089,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vyacheslav Skobelev (F),Izhstal Izhevsk,50,11,26,37,0.74,15,3,/player/312806/vyacheslav-skobelev,1,Vyacheslav Skobelev,F,2022-2023,vhl,312806,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Lomako (LW),Metallurg Novokuznetsk,46,16,20,36,0.78,14,14,/player/77122/oleg-lomako,1,Oleg Lomako,LW,2022-2023,vhl,77122,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Petrakov (C),AKM Tula Region,50,16,20,36,0.72,18,0,/player/107365/ivan-petrakov,1,Ivan Petrakov,C,2022-2023,vhl,107365,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Ivashov (RW),Lada Togliatti,46,13,23,36,0.78,6,8,/player/269049/roman-ivashov,1,Roman Ivashov,RW,2022-2023,vhl,269049,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Alshevsky (RW/C),Neftyanik Almetievsk,50,14,21,35,0.70,23,11,/player/43003/stanislav-alshevsky,1,Stanislav Alshevsky,RW/C,2022-2023,vhl,43003,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Avramenko (RW),Metallurg Novokuznetsk,47,19,15,34,0.72,18,12,/player/362660/ilya-avramenko,1,Ilya Avramenko,RW,2022-2023,vhl,362660,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Romanov (RW/LW),Lada Togliatti,47,19,14,33,0.70,20,12,/player/320907/ivan-romanov,1,Ivan Romanov,RW/LW,2022-2023,vhl,320907,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Silantyev (RW),Ryazan-VDV,49,15,18,33,0.67,14,11,/player/547792/dmitri-silantyev,1,Dmitri Silantyev,RW,2022-2023,vhl,547792,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Borisenkov (F),Yuzhny Ural Orsk,45,13,20,33,0.73,36,-6,/player/212431/alexander-borisenkov,1,Alexander Borisenkov,F,2022-2023,vhl,212431,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Manin (F),Toros Neftekamsk,47,12,20,32,0.68,18,8,/player/512839/ivan-manin,1,Ivan Manin,F,2022-2023,vhl,512839,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timur Fatkullin (D),totals,43,11,21,32,0.74,16,12,/player/280074/timur-fatkullin,1,Timur Fatkullin,D,2022-2023,vhl,280074,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gleb Petrov (F),AKM Tula Region,46,17,14,31,0.67,10,7,/player/516184/gleb-petrov,1,Gleb Petrov,F,2022-2023,vhl,516184,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Korenev (LW/RW),Toros Neftekamsk,50,16,15,31,0.62,22,10,/player/173421/ilya-korenev,1,Ilya Korenev,LW/RW,2022-2023,vhl,173421,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Kazakov (LW),Omskie Krylia,47,15,16,31,0.66,32,-1,/player/58563/maxim-kazakov,1,Maxim Kazakov,LW,2022-2023,vhl,58563,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danil Voyevodin (F),Neftyanik Almetievsk,45,9,22,31,0.69,24,1,/player/313342/danil-voyevodin,1,Danil Voyevodin,F,2022-2023,vhl,313342,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Shipov (C),Khimik Voskresensk,34,4,27,31,0.91,12,8,/player/100552/ilya-shipov,1,Ilya Shipov,C,2022-2023,vhl,100552,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filipp Toluzakov (LW),totals,32,18,12,30,0.94,6,11,/player/77160/filipp-toluzakov,1,Filipp Toluzakov,LW,2022-2023,vhl,77160,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Kosolapov (LW),Dynamo St. Petersburg,37,17,13,30,0.81,13,7,/player/537761/anton-kosolapov,1,Anton Kosolapov,LW,2022-2023,vhl,537761,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valeri Polyakov (C),totals,39,12,18,30,0.77,2,11,/player/107755/valeri-polyakov,1,Valeri Polyakov,C,2022-2023,vhl,107755,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Teryayev (D),Metallurg Novokuznetsk,47,12,18,30,0.64,37,16,/player/166522/sergei-teryayev,1,Sergei Teryayev,D,2022-2023,vhl,166522,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danil Savunov (RW/C),SKA-Neva St. Petersburg,43,11,19,30,0.70,31,-1,/player/398544/danil-savunov,1,Danil Savunov,RW/C,2022-2023,vhl,398544,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Tkachenko (RW/LW),Khimik Voskresensk,37,15,14,29,0.78,12,5,/player/265482/pavel-tkachenko,1,Pavel Tkachenko,RW/LW,2022-2023,vhl,265482,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Semyon Astashevsky (C),Omskie Krylia,41,13,16,29,0.71,28,-12,/player/396915/semyon-astashevsky,1,Semyon Astashevsky,C,2022-2023,vhl,396915,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Kapiturov (C/RW),Yuzhny Ural Orsk,46,12,17,29,0.63,20,-8,/player/212429/maxim-kapiturov,1,Maxim Kapiturov,C/RW,2022-2023,vhl,212429,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Byakin (RW/C),HK Rostov,47,12,17,29,0.62,6,0,/player/265117/mikhail-byakin,1,Mikhail Byakin,RW/C,2022-2023,vhl,265117,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Kogalev (LW/RW),Yugra Khanty-Mansiysk,43,10,19,29,0.67,43,10,/player/111591/alexander-kogalev,1,Alexander Kogalev,LW/RW,2022-2023,vhl,111591,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Tarasov (C),Sokol Krasnoyarsk,47,10,19,29,0.62,14,4,/player/161828/alexander-tarasov,1,Alexander Tarasov,C,2022-2023,vhl,161828,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Yerdakov (LW),totals,36,8,21,29,0.81,35,2,/player/92715/daniil-yerdakov,1,Daniil Yerdakov,LW,2022-2023,vhl,92715,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Salakhov (D),Neftyanik Almetievsk,49,5,24,29,0.59,46,16,/player/164187/maxim-salakhov,1,Maxim Salakhov,D,2022-2023,vhl,164187,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Sidlyarov (RW),Khimik Voskresensk,23,15,13,28,1.22,14,6,/player/124615/dmitri-sidlyarov,1,Dmitri Sidlyarov,RW,2022-2023,vhl,124615,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Buchelnikov (LW),SKA-Neva St. Petersburg,35,15,13,28,0.80,12,10,/player/698717/dmitri-buchelnikov,1,Dmitri Buchelnikov,LW,2022-2023,vhl,698717,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Bain (LW),totals,48,15,13,28,0.58,14,0,/player/313017/maxim-bain,1,Maxim Bain,LW,2022-2023,vhl,313017,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Korbit (RW/LW),HK Rostov,50,14,14,28,0.56,19,-4,/player/395909/yegor-korbit,1,Yegor Korbit,RW/LW,2022-2023,vhl,395909,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Yerofeyev (LW),Chelmet Chelyabinsk,44,13,15,28,0.64,30,7,/player/211965/andrei-yerofeyev,1,Andrei Yerofeyev,LW,2022-2023,vhl,211965,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+German Nesterov (F),Rubin Tyumen,50,11,17,28,0.56,18,10,/player/100707/german-nesterov,1,German Nesterov,F,2022-2023,vhl,100707,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Yerkin (C),Gornyak-UGMK,43,8,20,28,0.65,22,-9,/player/377565/denis-yerkin,1,Denis Yerkin,C,2022-2023,vhl,377565,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Mineyev (D),Sokol Krasnoyarsk,26,7,21,28,1.08,10,7,/player/300942/maxim-mineyev,1,Maxim Mineyev,D,2022-2023,vhl,300942,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Semyon Terekhov (RW),Bars Kazan,41,17,10,27,0.66,26,5,/player/588577/semyon-terekhov,1,Semyon Terekhov,RW,2022-2023,vhl,588577,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Kuznetsov (RW),Yuzhny Ural Orsk,45,15,12,27,0.60,10,-4,/player/566693/maxim-kuznetsov,1,Maxim Kuznetsov,RW,2022-2023,vhl,566693,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Popugayev (RW/LW),Rubin Tyumen,49,13,14,27,0.55,16,12,/player/312222/nikita-popugayev,1,Nikita Popugayev,RW/LW,2022-2023,vhl,312222,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yaroslav Alexeyev (LW),Yuzhny Ural Orsk,48,10,17,27,0.56,40,-9,/player/312821/yaroslav-alexeyev,1,Yaroslav Alexeyev,LW,2022-2023,vhl,312821,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Chmykhov (D),Metallurg Novokuznetsk,48,7,20,27,0.56,31,30,/player/301495/artyom-chmykhov,1,Artyom Chmykhov,D,2022-2023,vhl,301495,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ruslan Shaikhulov (F),AKM Tula Region,50,7,20,27,0.54,26,-5,/player/169508/ruslan-shaikhulov,1,Ruslan Shaikhulov,F,2022-2023,vhl,169508,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Islam Khasanov (F),Neftyanik Almetievsk,49,16,10,26,0.53,16,4,/player/339594/islam-khasanov,1,Islam Khasanov,F,2022-2023,vhl,339594,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vitali Kamenev (C),Toros Neftekamsk,50,12,14,26,0.52,38,4,/player/77210/vitali-kamenev,1,Vitali Kamenev,C,2022-2023,vhl,77210,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Maltsev (C/W),Metallurg Novokuznetsk,49,11,15,26,0.53,35,13,/player/216616/maxim-maltsev,1,Maxim Maltsev,C/W,2022-2023,vhl,216616,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Davydov (LW),Rubin Tyumen,43,9,17,26,0.60,10,2,/player/77175/denis-davydov,1,Denis Davydov,LW,2022-2023,vhl,77175,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Albert Konozov (W),SKA-Neva St. Petersburg,43,9,17,26,0.60,20,-1,/player/77193/albert-konozov,1,Albert Konozov,W,2022-2023,vhl,77193,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Rasseikin (C),Gornyak-UGMK,36,8,18,26,0.72,8,12,/player/309246/maxim-rasseikin,1,Maxim Rasseikin,C,2022-2023,vhl,309246,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Mayorov (C),Sokol Krasnoyarsk,49,7,19,26,0.53,36,10,/player/20210/konstantin-mayorov,1,Konstantin Mayorov,C,2022-2023,vhl,20210,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Vorobyov (LW/RW),totals,39,6,20,26,0.67,20,-1,/player/577710/ivan-vorobyov,1,Ivan Vorobyov,LW/RW,2022-2023,vhl,577710,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Zinovyev (LW/RW),Chelmet Chelyabinsk,47,14,11,25,0.53,4,0,/player/168680/ilya-zinovyev,1,Ilya Zinovyev,LW/RW,2022-2023,vhl,168680,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Larichev (LW),Dynamo St. Petersburg,44,13,12,25,0.57,28,2,/player/269023/ivan-larichev,1,Ivan Larichev,LW,2022-2023,vhl,269023,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Antipov (LW),Yugra Khanty-Mansiysk,46,12,13,25,0.54,42,14,/player/116754/artyom-antipov,1,Artyom Antipov,LW,2022-2023,vhl,116754,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Pochivalov (C),Dizel Penza,45,10,15,25,0.56,36,15,/player/532000/denis-pochivalov,1,Denis Pochivalov,C,2022-2023,vhl,532000,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Parkhomenko (C),Molot Perm,49,10,15,25,0.51,20,1,/player/242193/konstantin-parkhomenko,1,Konstantin Parkhomenko,C,2022-2023,vhl,242193,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Ryzhkov (C),Zauralie Kurgan,38,9,16,25,0.66,4,-1,/player/242169/maxim-ryzhkov,1,Maxim Ryzhkov,C,2022-2023,vhl,242169,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Glovatsky (C),totals,50,8,17,25,0.50,34,-13,/player/10487/anton-glovatsky,1,Anton Glovatsky,C,2022-2023,vhl,10487,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Dugin (C),Buran Voronezh,38,14,10,24,0.63,22,-3,/player/38662/yegor-dugin,1,Yegor Dugin,C,2022-2023,vhl,38662,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Andriyanov (F),Dizel Penza,47,12,12,24,0.51,14,7,/player/159162/anton-andriyanov,1,Anton Andriyanov,F,2022-2023,vhl,159162,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Mokin (LW/RW),Rubin Tyumen,50,12,12,24,0.48,6,9,/player/210511/nikita-mokin,1,Nikita Mokin,LW/RW,2022-2023,vhl,210511,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Artyomov (RW),totals,37,11,13,24,0.65,14,-8,/player/265921/artyom-artyomov,1,Artyom Artyomov,RW,2022-2023,vhl,265921,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Mayorov (RW/LW),Zauralie Kurgan,44,11,13,24,0.55,14,13,/player/396896/nikolai-mayorov,1,Nikolai Mayorov,RW/LW,2022-2023,vhl,396896,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Kuznetsov (RW),Khimik Voskresensk,47,10,14,24,0.51,30,6,/player/398197/andrei-kuznetsov,1,Andrei Kuznetsov,RW,2022-2023,vhl,398197,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Tsyganov (F),totals,48,9,15,24,0.50,12,-7,/player/163172/denis-tsyganov,1,Denis Tsyganov,F,2022-2023,vhl,163172,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Mitrofanov (RW),Lada Togliatti,50,9,15,24,0.48,24,10,/player/159605/alexei-mitrofanov,1,Alexei Mitrofanov,RW,2022-2023,vhl,159605,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Semyon Ivanov (W),totals,37,8,16,24,0.65,16,4,/player/223996/semyon-ivanov,1,Semyon Ivanov,W,2022-2023,vhl,223996,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Shvaryov (C),Chelmet Chelyabinsk,47,7,17,24,0.51,24,11,/player/517830/artyom-shvaryov,1,Artyom Shvaryov,C,2022-2023,vhl,517830,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Chernov (C/RW),Dynamo St. Petersburg,31,6,18,24,0.77,4,6,/player/273486/artyom-chernov,1,Artyom Chernov,C/RW,2022-2023,vhl,273486,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Kozhukhov (RW/LW),Sokol Krasnoyarsk,50,6,18,24,0.48,24,14,/player/496343/ilya-kozhukhov,1,Ilya Kozhukhov,RW/LW,2022-2023,vhl,496343,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Petrikov (D),Lada Togliatti,41,5,19,24,0.59,26,10,/player/211961/yevgeni-petrikov,1,Yevgeni Petrikov,D,2022-2023,vhl,211961,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danil Aimurzin (C),Toros Neftekamsk,23,16,7,23,1.00,12,5,/player/568050/danil-aimurzin,1,Danil Aimurzin,C,2022-2023,vhl,568050,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Seroukh (LW),Molot Perm,47,14,9,23,0.49,26,-4,/player/421709/daniil-seroukh,1,Daniil Seroukh,LW,2022-2023,vhl,421709,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pyotr Yakovlev (F),Dynamo St. Petersburg,44,13,10,23,0.52,28,10,/player/358968/pyotr-yakovlev,1,Pyotr Yakovlev,F,2022-2023,vhl,358968,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Skvortsov (RW),Sokol Krasnoyarsk,49,12,11,23,0.47,21,17,/player/212440/ilya-skvortsov,1,Ilya Skvortsov,RW,2022-2023,vhl,212440,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Gorbunov (C),totals,47,11,12,23,0.49,14,-8,/player/213653/denis-gorbunov,1,Denis Gorbunov,C,2022-2023,vhl,213653,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Dyuryagin (F),Rubin Tyumen,40,9,14,23,0.58,16,15,/player/214170/denis-dyuryagin,1,Denis Dyuryagin,F,2022-2023,vhl,214170,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Shubin (LW),Molot Perm,47,8,15,23,0.49,16,0,/player/95810/alexei-shubin,1,Alexei Shubin,LW,2022-2023,vhl,95810,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Gurzanov (RW),SKA-Neva St. Petersburg,45,7,16,23,0.51,12,13,/player/595528/yegor-gurzanov,1,Yegor Gurzanov,RW,2022-2023,vhl,595528,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Yelizarov (D),Toros Neftekamsk,40,4,19,23,0.58,16,10,/player/450511/pavel-yelizarov,1,Pavel Yelizarov,D,2022-2023,vhl,450511,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Medvedev (D),Lada Togliatti,46,3,20,23,0.50,57,9,/player/159426/pavel-medvedev,1,Pavel Medvedev,D,2022-2023,vhl,159426,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Ryzhov (C),Izhstal Izhevsk,45,13,9,22,0.49,22,10,/player/262837/konstantin-ryzhov,1,Konstantin Ryzhov,C,2022-2023,vhl,262837,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Lazarev (RW/LW),totals,41,11,11,22,0.54,16,-10,/player/15179/anton-lazarev,1,Anton Lazarev,RW/LW,2022-2023,vhl,15179,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Tsybin (LW),Sokol Krasnoyarsk,41,10,12,22,0.54,24,-2,/player/422945/maxim-tsybin,1,Maxim Tsybin,LW,2022-2023,vhl,422945,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Ugolnikov (C),Izhstal Izhevsk,48,9,13,22,0.46,14,2,/player/240086/anton-ugolnikov,1,Anton Ugolnikov,C,2022-2023,vhl,240086,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Filin (RW/LW),Metallurg Novokuznetsk,43,8,14,22,0.51,6,19,/player/359582/yegor-filin,2,Yegor Filin,RW/LW,2022-2023,vhl,359582,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Tagirov (F),Zauralie Kurgan,46,8,14,22,0.48,8,10,/player/514491/kirill-tagirov,2,Kirill Tagirov,F,2022-2023,vhl,514491,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Sokolov (RW),Zauralie Kurgan,46,7,15,22,0.48,22,0,/player/47544/konstantin-sokolov,2,Konstantin Sokolov,RW,2022-2023,vhl,47544,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Krutov (LW/RW),Bars Kazan,48,7,15,22,0.46,10,0,/player/450768/kirill-krutov,2,Kirill Krutov,LW/RW,2022-2023,vhl,450768,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Savchik (C/RW),Yugra Khanty-Mansiysk,50,7,15,22,0.44,22,22,/player/398634/ivan-savchik,2,Ivan Savchik,C/RW,2022-2023,vhl,398634,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Mokin (LW),Lada Togliatti,34,6,16,22,0.65,4,14,/player/105664/mikhail-mokin,2,Mikhail Mokin,LW,2022-2023,vhl,105664,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Georgi Busarov (C),Lada Togliatti,40,6,16,22,0.55,20,0,/player/123122/georgi-busarov,2,Georgi Busarov,C,2022-2023,vhl,123122,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Opalev (C),Metallurg Novokuznetsk,43,6,16,22,0.51,8,-9,/player/223773/roman-opalev,2,Roman Opalev,C,2022-2023,vhl,223773,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yuri Kozhukhov (RW/LW),Sokol Krasnoyarsk,50,12,9,21,0.42,20,10,/player/499177/yuri-kozhukhov,2,Yuri Kozhukhov,RW/LW,2022-2023,vhl,499177,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Lapshin (C),Toros Neftekamsk,48,11,10,21,0.44,6,1,/player/379750/ivan-lapshin,2,Ivan Lapshin,C,2022-2023,vhl,379750,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Groshev (C/RW),Lada Togliatti,50,11,10,21,0.42,6,4,/player/339549/yevgeni-groshev,2,Yevgeni Groshev,C/RW,2022-2023,vhl,339549,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Vilkov (F),Yermak Angarsk,50,11,10,21,0.42,26,-14,/player/106716/anton-vilkov,2,Anton Vilkov,F,2022-2023,vhl,106716,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leonid Nikolenko (C/LW),Sokol Krasnoyarsk,47,10,11,21,0.45,20,13,/player/394864/leonid-nikolenko,2,Leonid Nikolenko,C/LW,2022-2023,vhl,394864,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Grents (C),Zvezda Moskva,42,9,12,21,0.50,24,-6,/player/244162/dmitri-grents,2,Dmitri Grents,C,2022-2023,vhl,244162,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Shestakov (F),totals,45,9,12,21,0.47,8,-9,/player/151623/sergei-shestakov,2,Sergei Shestakov,F,2022-2023,vhl,151623,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Berestennikov (C),totals,47,9,12,21,0.45,36,-6,/player/162796/ilya-berestennikov,2,Ilya Berestennikov,C,2022-2023,vhl,162796,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Denezhkin (C),Gornyak-UGMK,37,8,13,21,0.57,90,1,/player/360187/maxim-denezhkin,2,Maxim Denezhkin,C,2022-2023,vhl,360187,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Podkorytov (F),Chelmet Chelyabinsk,39,8,13,21,0.54,4,1,/player/247118/alexander-podkorytov,2,Alexander Podkorytov,F,2022-2023,vhl,247118,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arseni Yerokhin (D),Molot Perm,49,7,14,21,0.43,42,6,/player/150821/arseni-yerokhin,2,Arseni Yerokhin,D,2022-2023,vhl,150821,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Li (RW),Dizel Penza,39,5,16,21,0.54,6,-2,/player/301279/nikita-li,2,Nikita Li,RW,2022-2023,vhl,301279,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Georgi Berdyukov (D),SKA-Neva St. Petersburg,42,5,16,21,0.50,26,12,/player/38661/georgi-berdyukov,2,Georgi Berdyukov,D,2022-2023,vhl,38661,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Myasishchev (D),Toros Neftekamsk,33,3,18,21,0.64,35,11,/player/301492/igor-myasishchev,2,Igor Myasishchev,D,2022-2023,vhl,301492,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Chervonenko (RW),Lada Togliatti,50,12,8,20,0.40,14,4,/player/339483/vladislav-chervonenko,2,Vladislav Chervonenko,RW,2022-2023,vhl,339483,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Mozer (LW/C),Dynamo St. Petersburg,36,10,10,20,0.56,8,-7,/player/211957/yevgeni-mozer,2,Yevgeni Mozer,LW/C,2022-2023,vhl,211957,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yuri Platonov (C),totals,26,9,11,20,0.77,8,6,/player/384368/yuri-platonov,2,Yuri Platonov,C,2022-2023,vhl,384368,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Remov (LW/RW),Toros Neftekamsk,37,9,11,20,0.54,10,11,/player/159060/alexander-remov,2,Alexander Remov,LW/RW,2022-2023,vhl,159060,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Kolesnikov (RW),Dizel Penza,42,9,11,20,0.48,65,7,/player/433705/sergei-kolesnikov,2,Sergei Kolesnikov,RW,2022-2023,vhl,433705,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stepan Grymzin (F),Gornyak-UGMK,44,9,11,20,0.45,4,-6,/player/377564/stepan-grymzin,2,Stepan Grymzin,F,2022-2023,vhl,377564,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Ovechkin (F),SKA-Neva St. Petersburg,50,9,11,20,0.40,14,10,/player/339994/dmitri-ovechkin,2,Dmitri Ovechkin,F,2022-2023,vhl,339994,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Semyon Kizimov (RW),Gornyak-UGMK,26,7,13,20,0.77,37,7,/player/420947/semyon-kizimov,2,Semyon Kizimov,RW,2022-2023,vhl,420947,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kamil Shiafotdinov (C),totals,41,7,13,20,0.49,6,9,/player/187500/kamil-shiafotdinov,2,Kamil Shiafotdinov,C,2022-2023,vhl,187500,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Plastinin (C),Ryazan-VDV,42,5,15,20,0.48,53,5,/player/173426/viktor-plastinin,2,Viktor Plastinin,C,2022-2023,vhl,173426,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Tsyganov (D/LW),AKM Tula Region,50,4,16,20,0.40,28,4,/player/57972/dmitri-tsyganov,2,Dmitri Tsyganov,D/LW,2022-2023,vhl,57972,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Kurbatov (C),SKA-Neva St. Petersburg,45,3,17,20,0.44,14,15,/player/324797/vladislav-kurbatov,2,Vladislav Kurbatov,C,2022-2023,vhl,324797,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Smirnov (F),totals,37,11,8,19,0.51,14,4,/player/159603/kirill-smirnov,2,Kirill Smirnov,F,2022-2023,vhl,159603,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Penkovsky (C/LW),HK Rostov,42,10,9,19,0.45,24,-14,/player/211963/artyom-penkovsky,2,Artyom Penkovsky,C/LW,2022-2023,vhl,211963,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Glukhov (D),Lada Togliatti,50,10,9,19,0.38,46,1,/player/195579/nikolai-glukhov,2,Nikolai Glukhov,D,2022-2023,vhl,195579,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Kadyshev (RW/C),Chelmet Chelyabinsk,43,9,10,19,0.44,43,-1,/player/568979/kirill-kadyshev,2,Kirill Kadyshev,RW/C,2022-2023,vhl,568979,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danila Popov (RW),totals,30,8,11,19,0.63,8,-4,/player/398541/danila-popov,2,Danila Popov,RW,2022-2023,vhl,398541,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Manin (LW/RW),Molot Perm,42,8,11,19,0.45,26,12,/player/395124/yegor-manin,2,Yegor Manin,LW/RW,2022-2023,vhl,395124,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Kalabushkin (D),SKA-Neva St. Petersburg,38,7,12,19,0.50,8,2,/player/361170/yevgeni-kalabushkin,2,Yevgeni Kalabushkin,D,2022-2023,vhl,361170,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Zheleznov (LW/C),Lada Togliatti,50,7,12,19,0.38,26,-4,/player/38678/mikhail-zheleznov,2,Mikhail Zheleznov,LW/C,2022-2023,vhl,38678,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eduard Gimatov (LW/RW),Neftyanik Almetievsk,37,6,13,19,0.51,28,0,/player/158043/eduard-gimatov,2,Eduard Gimatov,LW/RW,2022-2023,vhl,158043,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Akmaldinov (C/RW),Yugra Khanty-Mansiysk,45,6,13,19,0.42,20,16,/player/223794/alexander-akmaldinov,2,Alexander Akmaldinov,C/RW,2022-2023,vhl,223794,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Popov (D),Sokol Krasnoyarsk,47,6,13,19,0.40,16,9,/player/323863/oleg-popov,2,Oleg Popov,D,2022-2023,vhl,323863,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Makhrin (C),Omskie Krylia,50,6,13,19,0.38,8,-9,/player/396922/maxim-makhrin,2,Maxim Makhrin,C,2022-2023,vhl,396922,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Ugolnikov (D),Omskie Krylia,50,6,13,19,0.38,46,-12,/player/43859/alexander-ugolnikov,2,Alexander Ugolnikov,D,2022-2023,vhl,43859,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grigori Glebov (D),Dizel Penza,49,4,15,19,0.39,16,6,/player/116036/grigori-glebov,2,Grigori Glebov,D,2022-2023,vhl,116036,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Semyon Perelyayev (D),Gornyak-UGMK,45,3,16,19,0.42,20,-9,/player/420919/semyon-perelyayev,2,Semyon Perelyayev,D,2022-2023,vhl,420919,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Kruglov (C),totals,44,12,6,18,0.41,16,-12,/player/396202/ilya-kruglov,2,Ilya Kruglov,C,2022-2023,vhl,396202,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Kozlov (C),Yugra Khanty-Mansiysk,47,11,7,18,0.38,20,18,/player/312831/ivan-kozlov,2,Ivan Kozlov,C,2022-2023,vhl,312831,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Orlov (RW),Omskie Krylia,37,10,8,18,0.49,14,-4,/player/45662/yevgeni-orlov,2,Yevgeni Orlov,RW,2022-2023,vhl,45662,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Levitsky (LW/RW),Zvezda Moskva,49,10,8,18,0.37,19,-10,/player/77231/igor-levitsky,2,Igor Levitsky,LW/RW,2022-2023,vhl,77231,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Groshev (D/W),SKA-Neva St. Petersburg,22,9,9,18,0.82,10,0,/player/532511/maxim-groshev,2,Maxim Groshev,D/W,2022-2023,vhl,532511,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Prokhorov (F),HK Rostov,38,9,9,18,0.47,24,-11,/player/106876/alexei-prokhorov,2,Alexei Prokhorov,F,2022-2023,vhl,106876,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Baranov (F),Ryazan-VDV,39,9,9,18,0.46,10,-3,/player/566665/denis-baranov,2,Denis Baranov,F,2022-2023,vhl,566665,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Gubin (C),Khimik Voskresensk,44,8,10,18,0.41,22,6,/player/19409/oleg-gubin,2,Oleg Gubin,C,2022-2023,vhl,19409,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Prokhorov (F),Zvezda Moskva,50,8,10,18,0.36,12,-7,/player/211811/artyom-prokhorov,2,Artyom Prokhorov,F,2022-2023,vhl,211811,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Chemerikin (C),Rubin Tyumen,47,7,11,18,0.38,24,-3,/player/279299/roman-chemerikin,2,Roman Chemerikin,C,2022-2023,vhl,279299,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Dzhioshvili (C),totals,48,7,11,18,0.38,36,-6,/player/300826/vladislav-dzhioshvili,2,Vladislav Dzhioshvili,C,2022-2023,vhl,300826,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Voronin (C/RW),Yugra Khanty-Mansiysk,50,7,11,18,0.36,28,7,/player/47582/artyom-voronin,2,Artyom Voronin,C/RW,2022-2023,vhl,47582,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Bogatov (D),Neftyanik Almetievsk,41,4,14,18,0.44,12,8,/player/324566/nikolai-bogatov,2,Nikolai Bogatov,D,2022-2023,vhl,324566,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Shakurov (D),AKM Tula Region,48,3,15,18,0.38,24,-7,/player/107954/yevgeni-shakurov,2,Yevgeni Shakurov,D,2022-2023,vhl,107954,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Pukhov (F),Dynamo St. Petersburg,39,10,7,17,0.44,24,-6,/player/164671/nikita-pukhov,2,Nikita Pukhov,F,2022-2023,vhl,164671,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Chefanov (RW),Molot Perm,42,9,8,17,0.40,22,2,/player/514146/ilya-chefanov,2,Ilya Chefanov,RW,2022-2023,vhl,514146,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Sirotkin (RW),Ryazan-VDV,48,9,8,17,0.35,12,-2,/player/90803/nikita-sirotkin,2,Nikita Sirotkin,RW,2022-2023,vhl,90803,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitry Zhukenov (C),Gornyak-UGMK,32,8,9,17,0.53,18,-1,/player/277804/dmitry-zhukenov,2,Dmitry Zhukenov,C,2022-2023,vhl,277804,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Barbashev (RW),totals,33,8,9,17,0.52,8,-4,/player/40264/sergei-barbashev,2,Sergei Barbashev,RW,2022-2023,vhl,40264,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Gavrilenko (D),Zauralie Kurgan,37,8,9,17,0.46,16,-7,/player/40248/ivan-gavrilenko,2,Ivan Gavrilenko,D,2022-2023,vhl,40248,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Maslov (D),Metallurg Novokuznetsk,44,8,9,17,0.39,31,-5,/player/159406/kirill-maslov,2,Kirill Maslov,D,2022-2023,vhl,159406,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Sergeyev (D),Omskie Krylia,45,8,9,17,0.38,26,-12,/player/168690/dmitri-sergeyev,2,Dmitri Sergeyev,D,2022-2023,vhl,168690,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artur Brovkin (RW),Bars Kazan,40,7,10,17,0.43,4,-6,/player/398455/artur-brovkin,2,Artur Brovkin,RW,2022-2023,vhl,398455,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Khovanov (C),totals,42,7,10,17,0.40,35,0,/player/339559/alexander-khovanov,2,Alexander Khovanov,C,2022-2023,vhl,339559,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Melyakov (D),Khimik Voskresensk,48,7,10,17,0.35,39,11,/player/313924/kirill-melyakov,2,Kirill Melyakov,D,2022-2023,vhl,313924,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Kurakin (RW),HK Tambov,49,7,10,17,0.35,10,-2,/player/269016/nikita-kurakin,2,Nikita Kurakin,RW,2022-2023,vhl,269016,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Komkov (C),Bars Kazan,50,7,10,17,0.34,20,-4,/player/531285/denis-komkov,2,Denis Komkov,C,2022-2023,vhl,531285,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Lukin (RW),Yugra Khanty-Mansiysk,30,6,11,17,0.57,18,1,/player/300926/vladislav-lukin,2,Vladislav Lukin,RW,2022-2023,vhl,300926,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Belokhonov (F),Molot Perm,45,6,11,17,0.38,19,3,/player/357587/dmitri-belokhonov,2,Dmitri Belokhonov,F,2022-2023,vhl,357587,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Shvyryov (C),HK Tambov,15,5,12,17,1.13,12,4,/player/312234/igor-shvyryov,2,Igor Shvyryov,C,2022-2023,vhl,312234,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grigori Kuzmin (LW),SKA-Neva St. Petersburg,22,5,12,17,0.77,6,-3,/player/543203/grigori-kuzmin,2,Grigori Kuzmin,LW,2022-2023,vhl,543203,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arseni Brinkman (D),totals,47,5,12,17,0.36,12,16,/player/392584/arseni-brinkman,2,Arseni Brinkman,D,2022-2023,vhl,392584,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Krikunenko (C/RW),Metallurg Novokuznetsk,37,4,13,17,0.46,14,10,/player/265762/roman-krikunenko,2,Roman Krikunenko,C/RW,2022-2023,vhl,265762,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Yermakov (D),Yuzhny Ural Orsk,39,4,13,17,0.44,50,-1,/player/123120/andrei-yermakov,2,Andrei Yermakov,D,2022-2023,vhl,123120,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+German Tochilkin (RW/LW),Khimik Voskresensk,21,3,14,17,0.81,10,11,/player/699318/german-tochilkin,2,German Tochilkin,RW/LW,2022-2023,vhl,699318,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Kaletnik (C/RW),Lada Togliatti,32,3,14,17,0.53,22,11,/player/162784/vladislav-kaletnik,2,Vladislav Kaletnik,C/RW,2022-2023,vhl,162784,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Ustinenko (D),Buran Voronezh,50,3,14,17,0.34,30,-22,/player/238833/nikita-ustinenko,2,Nikita Ustinenko,D,2022-2023,vhl,238833,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Lukin (RW),Chelmet Chelyabinsk,36,13,3,16,0.44,12,8,/player/517822/konstantin-lukin,2,Konstantin Lukin,RW,2022-2023,vhl,517822,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marsel Sholokhov (C),Chelmet Chelyabinsk,34,9,7,16,0.47,8,1,/player/370828/marsel-sholokhov,2,Marsel Sholokhov,C,2022-2023,vhl,370828,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Zhelezkov (C),Yugra Khanty-Mansiysk,43,9,7,16,0.37,22,3,/player/238265/artyom-zhelezkov,2,Artyom Zhelezkov,C,2022-2023,vhl,238265,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Suslov (F),Gornyak-UGMK,44,9,7,16,0.36,12,4,/player/398154/konstantin-suslov,2,Konstantin Suslov,F,2022-2023,vhl,398154,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Fursa (F),Yuzhny Ural Orsk,38,7,9,16,0.42,4,1,/player/583016/alexei-fursa,2,Alexei Fursa,F,2022-2023,vhl,583016,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Koshurnikov (F),totals,41,7,9,16,0.39,10,-2,/player/370832/kirill-koshurnikov,2,Kirill Koshurnikov,F,2022-2023,vhl,370832,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Kiryanov (C/RW),Molot Perm,44,7,9,16,0.36,16,0,/player/589941/nikita-kiryanov,2,Nikita Kiryanov,C/RW,2022-2023,vhl,589941,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vyacheslav Shevchenko (C),Metallurg Novokuznetsk,46,7,9,16,0.35,55,18,/player/312229/vyacheslav-shevchenko,2,Vyacheslav Shevchenko,C,2022-2023,vhl,312229,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Kolgotin (F),Zauralie Kurgan,47,7,9,16,0.34,22,-10,/player/159081/dmitri-kolgotin,2,Dmitri Kolgotin,F,2022-2023,vhl,159081,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Ivanov (LW/C),Izhstal Izhevsk,49,7,9,16,0.33,20,-11,/player/160554/ivan-ivanov,2,Ivan Ivanov,LW/C,2022-2023,vhl,160554,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Vorobyov (F),Molot Perm,50,7,9,16,0.32,35,-6,/player/218278/dmitri-vorobyov,2,Dmitri Vorobyov,F,2022-2023,vhl,218278,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Sigaryov (W/C),totals,29,6,10,16,0.55,6,-4,/player/58571/andrei-sigaryov,2,Andrei Sigaryov,W/C,2022-2023,vhl,58571,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valeri Vasilyev (D),totals,42,6,10,16,0.38,32,8,/player/123080/valeri-vasilyev,2,Valeri Vasilyev,D,2022-2023,vhl,123080,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Sheshin (LW),totals,44,6,10,16,0.36,8,-16,/player/450503/dmitri-sheshin,2,Dmitri Sheshin,LW,2022-2023,vhl,450503,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Shutov (F),Yugra Khanty-Mansiysk,45,6,10,16,0.36,26,17,/player/532514/vladislav-shutov,3,Vladislav Shutov,F,2022-2023,vhl,532514,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Kremzer (D),Rubin Tyumen,47,6,10,16,0.34,28,2,/player/152706/kirill-kremzer,3,Kirill Kremzer,D,2022-2023,vhl,152706,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Spitsenko (D),Zauralie Kurgan,48,5,11,16,0.33,10,9,/player/379717/kirill-spitsenko,3,Kirill Spitsenko,D,2022-2023,vhl,379717,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Titov (F),Yuzhny Ural Orsk,38,4,12,16,0.42,21,-10,/player/238268/nikita-titov,3,Nikita Titov,F,2022-2023,vhl,238268,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Veryovkin (D),totals,45,3,13,16,0.36,28,16,/player/99489/maxim-veryovkin,3,Maxim Veryovkin,D,2022-2023,vhl,99489,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Vinogradov (D),Izhstal Izhevsk,49,3,13,16,0.33,50,6,/player/273049/alexei-vinogradov,3,Alexei Vinogradov,D,2022-2023,vhl,273049,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Smirnov (D),SKA-Neva St. Petersburg,41,2,14,16,0.39,14,-2,/player/595475/nikita-smirnov,3,Nikita Smirnov,D,2022-2023,vhl,595475,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Klimontov (D),Chelmet Chelyabinsk,43,1,15,16,0.37,10,3,/player/24784/konstantin-klimontov,3,Konstantin Klimontov,D,2022-2023,vhl,24784,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Krasnov (D),HK Rostov,45,1,15,16,0.36,26,-13,/player/267021/alexei-krasnov,3,Alexei Krasnov,D,2022-2023,vhl,267021,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zakhar Chernov (F),HK Tambov,50,11,4,15,0.30,24,6,/player/322038/zakhar-chernov,3,Zakhar Chernov,F,2022-2023,vhl,322038,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danil Gizatullin (LW/RW),Neftyanik Almetievsk,48,10,5,15,0.31,10,2,/player/362876/danil-gizatullin,3,Danil Gizatullin,LW/RW,2022-2023,vhl,362876,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Rybakov (LW),AKM Tula Region,44,9,6,15,0.34,56,-4,/player/339506/vladislav-rybakov,3,Vladislav Rybakov,LW,2022-2023,vhl,339506,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timur Sharifyanov (C),Izhstal Izhevsk,36,8,7,15,0.42,8,-4,/player/339606/timur-sharifyanov,3,Timur Sharifyanov,C,2022-2023,vhl,339606,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Bobylyov (W/C),HK Tambov,43,8,7,15,0.35,30,-4,/player/268059/vladimir-bobylyov,3,Vladimir Bobylyov,W/C,2022-2023,vhl,268059,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Stulov (D),totals,41,7,8,15,0.37,43,-1,/player/97500/dmitri-stulov,3,Dmitri Stulov,D,2022-2023,vhl,97500,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Anop (LW/RW),AKM Tula Region,43,7,8,15,0.35,18,6,/player/395903/daniil-anop,3,Daniil Anop,LW/RW,2022-2023,vhl,395903,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Slepets (RW/LW),Sokol Krasnoyarsk,19,6,9,15,0.79,4,9,/player/312832/kirill-slepets,3,Kirill Slepets,RW/LW,2022-2023,vhl,312832,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vasili Filyayev (C),Gornyak-UGMK,32,6,9,15,0.47,22,7,/player/432031/vasili-filyayev,3,Vasili Filyayev,C,2022-2023,vhl,432031,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Alexeyev (C),Bars Kazan,44,6,9,15,0.34,12,-4,/player/93161/andrei-alexeyev,3,Andrei Alexeyev,C,2022-2023,vhl,93161,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Ogurtsov (D),Buran Voronezh,50,6,9,15,0.30,41,-7,/player/155387/dmitri-ogurtsov,3,Dmitri Ogurtsov,D,2022-2023,vhl,155387,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Kruzhenkov (LW),Omskie Krylia,29,5,10,15,0.52,8,-5,/player/450283/yegor-kruzhenkov,3,Yegor Kruzhenkov,LW,2022-2023,vhl,450283,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vasili Streltsov (C),HK Rostov,32,5,10,15,0.47,24,-5,/player/64528/vasili-streltsov,3,Vasili Streltsov,C,2022-2023,vhl,64528,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ildar Valeyev (D),Yermak Angarsk,49,4,11,15,0.31,30,-9,/player/77223/ildar-valeyev,3,Ildar Valeyev,D,2022-2023,vhl,77223,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Savelyev (D),Yermak Angarsk,50,3,12,15,0.30,18,-17,/player/58558/anton-savelyev,3,Anton Savelyev,D,2022-2023,vhl,58558,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matvei Michkov (RW),SKA-Neva St. Petersburg,12,10,4,14,1.17,4,-5,/player/699375/matvei-michkov,3,Matvei Michkov,RW,2022-2023,vhl,699375,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Lipanov (C/LW),Khimik Voskresensk,29,9,5,14,0.48,14,-4,/player/312824/alexei-lipanov,3,Alexei Lipanov,C/LW,2022-2023,vhl,312824,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Voronkov (F),Gornyak-UGMK,32,9,5,14,0.44,16,2,/player/356462/pavel-voronkov,3,Pavel Voronkov,F,2022-2023,vhl,356462,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Ushenin (LW),Molot Perm,31,8,6,14,0.45,17,8,/player/157849/vladislav-ushenin,3,Vladislav Ushenin,LW,2022-2023,vhl,157849,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Kuznetsov (RW/LW),Gornyak-UGMK,28,7,7,14,0.50,8,2,/player/309244/vladimir-kuznetsov,3,Vladimir Kuznetsov,RW/LW,2022-2023,vhl,309244,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Golodnyuk (LW/RW),totals,32,7,7,14,0.44,6,8,/player/377563/sergei-golodnyuk,3,Sergei Golodnyuk,LW/RW,2022-2023,vhl,377563,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artur Boltanov (LW),totals,42,7,7,14,0.33,12,10,/player/216656/artur-boltanov,3,Artur Boltanov,LW,2022-2023,vhl,216656,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Kuliyev (F),totals,42,7,7,14,0.33,12,-1,/player/370829/vladislav-kuliyev,3,Vladislav Kuliyev,F,2022-2023,vhl,370829,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vasili Zhilov (F),HK Tambov,50,7,7,14,0.28,12,-2,/player/148986/vasili-zhilov,3,Vasili Zhilov,F,2022-2023,vhl,148986,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Polyakov (RW/LW),SKA-Neva St. Petersburg,29,6,8,14,0.48,39,6,/player/358970/nikolai-polyakov,3,Nikolai Polyakov,RW/LW,2022-2023,vhl,358970,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Revatsky (C),totals,42,6,8,14,0.33,26,-11,/player/342862/andrei-revatsky,3,Andrei Revatsky,C,2022-2023,vhl,342862,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danila Khulapov (RW),Zvezda Moskva,35,5,9,14,0.40,10,1,/player/514655/danila-khulapov,3,Danila Khulapov,RW,2022-2023,vhl,514655,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Kholodilin (C),Omskie Krylia,35,5,9,14,0.40,30,3,/player/577717/nikita-kholodilin,3,Nikita Kholodilin,C,2022-2023,vhl,577717,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Kirsanov (D),SKA-Neva St. Petersburg,31,4,10,14,0.45,14,15,/player/542519/kirill-kirsanov,3,Kirill Kirsanov,D,2022-2023,vhl,542519,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Zenchikov (RW),Molot Perm,41,4,10,14,0.34,8,-9,/player/312828/igor-zenchikov,3,Igor Zenchikov,RW,2022-2023,vhl,312828,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Kuzmenko (F),totals,43,4,10,14,0.33,22,0,/player/340212/yegor-kuzmenko,3,Yegor Kuzmenko,F,2022-2023,vhl,340212,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Zinchenko (RW),Khimik Voskresensk,45,4,10,14,0.31,9,10,/player/514461/ivan-zinchenko,3,Ivan Zinchenko,RW,2022-2023,vhl,514461,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Timashev (F),Yuzhny Ural Orsk,50,4,10,14,0.28,35,-6,/player/398659/ivan-timashev,3,Ivan Timashev,F,2022-2023,vhl,398659,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Mikhailov (RW/C),Omskie Krylia,19,3,11,14,0.74,4,-1,/player/310439/nikita-mikhailov,3,Nikita Mikhailov,RW/C,2022-2023,vhl,310439,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Ilyin (C),totals,22,3,11,14,0.64,26,1,/player/159083/daniil-ilyin,3,Daniil Ilyin,C,2022-2023,vhl,159083,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Sevostyanov (D),Gornyak-UGMK,38,3,11,14,0.37,36,9,/player/319197/alexander-sevostyanov,3,Alexander Sevostyanov,D,2022-2023,vhl,319197,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yuri Kozlovsky (D),Dizel Penza,39,3,11,14,0.36,22,-6,/player/159890/yuri-kozlovsky,3,Yuri Kozlovsky,D,2022-2023,vhl,159890,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Afanasyev (D),totals,44,3,11,14,0.32,26,5,/player/312203/maxim-afanasyev,3,Maxim Afanasyev,D,2022-2023,vhl,312203,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Vinogradov (D),AKM Tula Region,45,3,11,14,0.31,26,10,/player/324480/andrei-vinogradov,3,Andrei Vinogradov,D,2022-2023,vhl,324480,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radel Galeyev (F),Neftyanik Almetievsk,45,3,11,14,0.31,62,5,/player/532564/radel-galeyev,3,Radel Galeyev,F,2022-2023,vhl,532564,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Lyutov (D),Rubin Tyumen,49,3,11,14,0.29,24,13,/player/90379/dmitri-lyutov,3,Dmitri Lyutov,D,2022-2023,vhl,90379,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Puchkov (D),Sokol Krasnoyarsk,49,3,11,14,0.29,48,19,/player/451352/yegor-puchkov,3,Yegor Puchkov,D,2022-2023,vhl,451352,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anatoli Yelizarov (D),Yugra Khanty-Mansiysk,50,2,12,14,0.28,18,19,/player/313701/anatoli-yelizarov,3,Anatoli Yelizarov,D,2022-2023,vhl,313701,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Nechayev (F),Dynamo St. Petersburg,46,9,4,13,0.28,8,1,/player/262671/artyom-nechayev,3,Artyom Nechayev,F,2022-2023,vhl,262671,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Baranov (LW),Gornyak-UGMK,13,8,5,13,1.00,41,7,/player/266251/yegor-baranov,3,Yegor Baranov,LW,2022-2023,vhl,266251,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Krovyakov (C),Khimik Voskresensk,30,7,6,13,0.43,22,5,/player/595481/maxim-krovyakov,3,Maxim Krovyakov,C,2022-2023,vhl,595481,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Tunik (F),Yermak Angarsk,31,7,6,13,0.42,10,-5,/player/115897/vladislav-tunik,3,Vladislav Tunik,F,2022-2023,vhl,115897,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Zlodeyev (C),Khimik Voskresensk,33,7,6,13,0.39,7,6,/player/537763/dmitri-zlodeyev,3,Dmitri Zlodeyev,C,2022-2023,vhl,537763,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Kuzminov (F),Zvezda Moskva,37,7,6,13,0.35,6,7,/player/512922/yegor-kuzminov,3,Yegor Kuzminov,F,2022-2023,vhl,512922,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arkadi Axyonov (F),totals,40,7,6,13,0.33,31,-2,/player/387200/arkadi-axyonov,3,Arkadi Axyonov,F,2022-2023,vhl,387200,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matvei Nosov (F),totals,30,6,7,13,0.43,10,-7,/player/514153/matvei-nosov,3,Matvei Nosov,F,2022-2023,vhl,514153,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Bryzgalov (C),Dynamo St. Petersburg,33,6,7,13,0.39,8,1,/player/426372/yegor-bryzgalov,3,Yegor Bryzgalov,C,2022-2023,vhl,426372,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Valitov (D),Gornyak-UGMK,39,6,7,13,0.33,8,4,/player/398674/daniil-valitov,3,Daniil Valitov,D,2022-2023,vhl,398674,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ruslan Karlin (C),Ryazan-VDV,43,6,7,13,0.30,27,0,/player/103317/ruslan-karlin,3,Ruslan Karlin,C,2022-2023,vhl,103317,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Antipov (F),HK Rostov,46,6,7,13,0.28,45,-17,/player/212113/pavel-antipov,3,Pavel Antipov,F,2022-2023,vhl,212113,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Grigorenko (RW),totals,33,5,8,13,0.39,10,-6,/player/42438/yevgeni-grigorenko,3,Yevgeni Grigorenko,RW,2022-2023,vhl,42438,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Osipov (D),Rubin Tyumen,48,5,8,13,0.27,26,1,/player/60812/alexander-osipov,3,Alexander Osipov,D,2022-2023,vhl,60812,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Rozhkov (RW/C),Yuzhny Ural Orsk,24,4,9,13,0.54,0,-6,/player/398172/nikita-rozhkov,3,Nikita Rozhkov,RW/C,2022-2023,vhl,398172,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vyacheslav Ushenin (C),Molot Perm,27,4,9,13,0.48,16,6,/player/157850/vyacheslav-ushenin,3,Vyacheslav Ushenin,C,2022-2023,vhl,157850,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Ogirchuk (LW/RW),SKA-Neva St. Petersburg,37,4,9,13,0.35,22,-8,/player/358947/daniil-ogirchuk,3,Daniil Ogirchuk,LW/RW,2022-2023,vhl,358947,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Isaak Valitsky (F),Ryazan-VDV,42,4,9,13,0.31,8,-1,/player/237693/isaak-valitsky,3,Isaak Valitsky,F,2022-2023,vhl,237693,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Kargin (F),Yermak Angarsk,47,4,9,13,0.28,8,-12,/player/674572/ilya-kargin,3,Ilya Kargin,F,2022-2023,vhl,674572,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Yepishin (D),Yugra Khanty-Mansiysk,50,4,9,13,0.26,30,22,/player/313309/mikhail-yepishin,3,Mikhail Yepishin,D,2022-2023,vhl,313309,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timur Taratunin (D),totals,41,3,10,13,0.32,22,9,/player/262649/timur-taratunin,3,Timur Taratunin,D,2022-2023,vhl,262649,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Yevseyenkov (D),Buran Voronezh,39,2,11,13,0.33,20,-11,/player/84480/alexander-yevseyenkov,3,Alexander Yevseyenkov,D,2022-2023,vhl,84480,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ruslan Aliyev (F),HK Rostov,41,2,11,13,0.32,14,3,/player/396209/ruslan-aliyev,3,Ruslan Aliyev,F,2022-2023,vhl,396209,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Bochkov (D),Zauralie Kurgan,47,2,11,13,0.28,51,8,/player/98625/ilya-bochkov,3,Ilya Bochkov,D,2022-2023,vhl,98625,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marsel Ibragimov (D),Zvezda Moskva,49,1,12,13,0.27,8,-9,/player/300925/marsel-ibragimov,3,Marsel Ibragimov,D,2022-2023,vhl,300925,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Shavin (RW/LW),Dizel Penza,26,8,4,12,0.46,10,3,/player/531533/nikita-shavin,3,Nikita Shavin,RW/LW,2022-2023,vhl,531533,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Gordin (RW/C),HK Rostov,36,8,4,12,0.33,6,-1,/player/514678/alexander-gordin,3,Alexander Gordin,RW/C,2022-2023,vhl,514678,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Solovyov (LW),Buran Voronezh,27,7,5,12,0.44,14,3,/player/588573/dmitri-solovyov,3,Dmitri Solovyov,LW,2022-2023,vhl,588573,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Ivanov (D),Khimik Voskresensk,36,7,5,12,0.33,29,6,/player/617935/daniil-ivanov,3,Daniil Ivanov,D,2022-2023,vhl,617935,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Chyorny (LW),Toros Neftekamsk,44,7,5,12,0.27,6,0,/player/339431/alexander-chyorny,3,Alexander Chyorny,LW,2022-2023,vhl,339431,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Daryin (LW),Dizel Penza,18,6,6,12,0.67,6,12,/player/395123/alexander-daryin,3,Alexander Daryin,LW,2022-2023,vhl,395123,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Dubrovsky (LW/C),Toros Neftekamsk,28,6,6,12,0.43,12,-1,/player/24789/yegor-dubrovsky,3,Yegor Dubrovsky,LW/C,2022-2023,vhl,24789,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Chernov (C),totals,37,6,6,12,0.32,14,-3,/player/16748/pavel-chernov,3,Pavel Chernov,C,2022-2023,vhl,16748,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Kulagin (RW),AKM Tula Region,45,6,6,12,0.27,12,-8,/player/173422/alexander-kulagin,3,Alexander Kulagin,RW,2022-2023,vhl,173422,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Kabat (F),Buran Voronezh,45,6,6,12,0.27,43,-6,/player/690693/mikhail-kabat,3,Mikhail Kabat,F,2022-2023,vhl,690693,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lev Komissarov (C),totals,28,5,7,12,0.43,14,-9,/player/395628/lev-komissarov,3,Lev Komissarov,C,2022-2023,vhl,395628,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Skorikov (LW/RW),Toros Neftekamsk,29,5,7,12,0.41,18,-2,/player/378576/daniil-skorikov,3,Daniil Skorikov,LW/RW,2022-2023,vhl,378576,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Burenov (D),Dizel Penza,30,5,7,12,0.40,12,2,/player/512827/nikolai-burenov,3,Nikolai Burenov,D,2022-2023,vhl,512827,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Bryutov (D),Zvezda Moskva,35,5,7,12,0.34,33,-2,/player/450489/yegor-bryutov,3,Yegor Bryutov,D,2022-2023,vhl,450489,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Lyamin (D),Yugra Khanty-Mansiysk,37,5,7,12,0.32,14,19,/player/9254/kirill-lyamin,3,Kirill Lyamin,D,2022-2023,vhl,9254,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ranis Mirgaliyev (LW),HK Rostov,44,5,7,12,0.27,6,-4,/player/322521/ranis-mirgaliyev,3,Ranis Mirgaliyev,LW,2022-2023,vhl,322521,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Vladimirov (RW),totals,47,5,7,12,0.26,61,-4,/player/159646/nikolai-vladimirov,3,Nikolai Vladimirov,RW,2022-2023,vhl,159646,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Kalinin (D),HK Rostov,48,5,7,12,0.25,14,-10,/player/338576/alexander-kalinin,3,Alexander Kalinin,D,2022-2023,vhl,338576,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Sushinsky (D),totals,44,4,8,12,0.27,53,-3,/player/274990/ivan-sushinsky,3,Ivan Sushinsky,D,2022-2023,vhl,274990,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vasili Machulin (D),Dynamo St. Petersburg,29,3,9,12,0.41,16,5,/player/537759/vasili-machulin,3,Vasili Machulin,D,2022-2023,vhl,537759,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Damir Rakhimullin (RW),Metallurg Novokuznetsk,42,3,9,12,0.29,39,13,/player/362341/damir-rakhimullin,3,Damir Rakhimullin,RW,2022-2023,vhl,362341,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Zhuravlyov (D),Yuzhny Ural Orsk,50,3,9,12,0.24,26,-8,/player/89415/yegor-zhuravlyov,3,Yegor Zhuravlyov,D,2022-2023,vhl,89415,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Artamonov (D),totals,46,2,10,12,0.26,41,-5,/player/91865/yegor-artamonov,3,Yegor Artamonov,D,2022-2023,vhl,91865,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matvei Zaseda (LW),Khimik Voskresensk,9,8,3,11,1.22,4,6,/player/338776/matvei-zaseda,4,Matvei Zaseda,LW,2022-2023,vhl,338776,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Svintsitsky (C),Dizel Penza,43,8,3,11,0.26,8,7,/player/158860/nikita-svintsitsky,4,Nikita Svintsitsky,C,2022-2023,vhl,158860,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Katsevich (F),Yermak Angarsk,35,7,4,11,0.31,10,-6,/player/470217/mark-katsevich,4,Mark Katsevich,F,2022-2023,vhl,470217,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Karpov (F),Toros Neftekamsk,34,6,5,11,0.32,4,1,/player/698942/igor-karpov,4,Igor Karpov,F,2022-2023,vhl,698942,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Serdyuk (RW),Omskie Krylia,36,6,5,11,0.31,10,-14,/player/450506/yegor-serdyuk,4,Yegor Serdyuk,RW,2022-2023,vhl,450506,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Nevolin (F),totals,40,6,5,11,0.28,12,-5,/player/514450/maxim-nevolin,4,Maxim Nevolin,F,2022-2023,vhl,514450,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Boichuk (F),totals,30,5,6,11,0.37,14,-4,/player/195589/dmitri-boichuk,4,Dmitri Boichuk,F,2022-2023,vhl,195589,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Alkhimov (LW/RW),Omskie Krylia,41,5,6,11,0.27,29,-3,/player/465209/sergei-alkhimov,4,Sergei Alkhimov,LW/RW,2022-2023,vhl,465209,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Shevchenko (D/F),Molot Perm,42,5,6,11,0.26,16,-7,/player/310128/alexander-shevchenko,4,Alexander Shevchenko,D/F,2022-2023,vhl,310128,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Shamshurin (F),Zvezda Moskva,43,5,6,11,0.26,6,-3,/player/588314/sergei-shamshurin,4,Sergei Shamshurin,F,2022-2023,vhl,588314,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Morozov (D),Sokol Krasnoyarsk,47,5,6,11,0.23,20,17,/player/577231/yegor-morozov,4,Yegor Morozov,D,2022-2023,vhl,577231,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Noskov (F),totals,20,4,7,11,0.55,4,0,/player/287248/dmitri-noskov,4,Dmitri Noskov,F,2022-2023,vhl,287248,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Rykov (RW/LW),Chelmet Chelyabinsk,20,4,7,11,0.55,10,1,/player/780049/alexander-rykov,4,Alexander Rykov,RW/LW,2022-2023,vhl,780049,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pyotr Yasinsky (D),Chelmet Chelyabinsk,25,4,7,11,0.44,8,4,/player/375651/pyotr-yasinsky,4,Pyotr Yasinsky,D,2022-2023,vhl,375651,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timur Zakirov (F),totals,27,4,7,11,0.41,6,9,/player/532576/timur-zakirov,4,Timur Zakirov,F,2022-2023,vhl,532576,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gleb Zaitsev (RW/LW),Yermak Angarsk,31,4,7,11,0.35,45,-9,/player/378731/gleb-zaitsev,4,Gleb Zaitsev,RW/LW,2022-2023,vhl,378731,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Syomin (D),Rubin Tyumen,42,4,7,11,0.26,78,7,/player/313028/vladislav-syomin,4,Vladislav Syomin,D,2022-2023,vhl,313028,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Kovalyov (D),Neftyanik Almetievsk,44,4,7,11,0.25,51,-3,/player/313922/ivan-kovalyov,4,Ivan Kovalyov,D,2022-2023,vhl,313922,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Mukhin (F),Bars Kazan,47,4,7,11,0.23,6,-8,/player/531286/kirill-mukhin,4,Kirill Mukhin,F,2022-2023,vhl,531286,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Suchkov (RW/LW),Toros Neftekamsk,15,3,8,11,0.73,6,1,/player/522430/yegor-suchkov,4,Yegor Suchkov,RW/LW,2022-2023,vhl,522430,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Puzanov (D),Izhstal Izhevsk,35,3,8,11,0.31,24,1,/player/357287/alexei-puzanov,4,Alexei Puzanov,D,2022-2023,vhl,357287,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Tsukanov (D/F),Neftyanik Almetievsk,41,2,9,11,0.27,33,9,/player/267031/denis-tsukanov,4,Denis Tsukanov,D/F,2022-2023,vhl,267031,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Sorokin (D),Sokol Krasnoyarsk,49,2,9,11,0.22,28,12,/player/107040/alexander-sorokin,4,Alexander Sorokin,D,2022-2023,vhl,107040,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Pogorishny (D),HK Tambov,31,1,10,11,0.35,28,1,/player/159676/oleg-pogorishny,4,Oleg Pogorishny,D,2022-2023,vhl,159676,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Udot (RW/LW),Chelmet Chelyabinsk,37,1,10,11,0.30,6,-7,/player/568986/artyom-udot,4,Artyom Udot,RW/LW,2022-2023,vhl,568986,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arseni Varlakov (D),Yugra Khanty-Mansiysk,46,0,11,11,0.24,10,9,/player/698982/arseni-varlakov,4,Arseni Varlakov,D,2022-2023,vhl,698982,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Shurygin (D),totals,47,0,11,11,0.23,28,6,/player/301506/alexander-shurygin,4,Alexander Shurygin,D,2022-2023,vhl,301506,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Shipilov (F),Buran Voronezh,50,10,0,10,0.20,14,-11,/player/266162/alexander-shipilov,4,Alexander Shipilov,F,2022-2023,vhl,266162,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Bykov (LW),Bars Kazan,22,8,2,10,0.45,13,7,/player/625742/maxim-bykov,4,Maxim Bykov,LW,2022-2023,vhl,625742,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Lyapustin (F),totals,29,8,2,10,0.34,14,-3,/player/178712/denis-lyapustin,4,Denis Lyapustin,F,2022-2023,vhl,178712,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Prokhor Korbit (RW),Buran Voronezh,19,6,4,10,0.53,8,2,/player/673317/prokhor-korbit,4,Prokhor Korbit,RW,2022-2023,vhl,673317,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Musorov (LW),Khimik Voskresensk,36,6,4,10,0.28,6,3,/player/452036/maxim-musorov,4,Maxim Musorov,LW,2022-2023,vhl,452036,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Makar Nasretdinov (C/RW),Rubin Tyumen,39,6,4,10,0.26,18,0,/player/709142/makar-nasretdinov,4,Makar Nasretdinov,C/RW,2022-2023,vhl,709142,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Vozovik (D),Buran Voronezh,44,6,4,10,0.23,26,-10,/player/313585/dmitri-vozovik,4,Dmitri Vozovik,D,2022-2023,vhl,313585,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+German Rubtsov (C),Khimik Voskresensk,23,5,5,10,0.43,2,5,/player/312227/german-rubtsov,4,German Rubtsov,C,2022-2023,vhl,312227,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gleb Trikozov (LW/RW),Omskie Krylia,25,5,5,10,0.40,4,-7,/player/690807/gleb-trikozov,4,Gleb Trikozov,LW/RW,2022-2023,vhl,690807,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vadim Shaveko (F),Chelmet Chelyabinsk,35,5,5,10,0.29,14,-5,/player/568988/vadim-shaveko,4,Vadim Shaveko,F,2022-2023,vhl,568988,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Mikulovich (D),HK Rostov,40,5,5,10,0.25,24,0,/player/168691/alexander-mikulovich,4,Alexander Mikulovich,D,2022-2023,vhl,168691,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Alexeyev (C),Gornyak-UGMK,41,5,5,10,0.24,39,-7,/player/422943/yegor-alexeyev,4,Yegor Alexeyev,C,2022-2023,vhl,422943,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matvei Kabush (F),SKA-Neva St. Petersburg,47,5,5,10,0.21,12,-5,/player/515331/matvei-kabush,4,Matvei Kabush,F,2022-2023,vhl,515331,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Orlovich-Grudkov (RW),SKA-Neva St. Petersburg,25,4,6,10,0.40,14,2,/player/216628/denis-orlovich-grudkov,4,Denis Orlovich-Grudkov,RW,2022-2023,vhl,216628,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Loktev (C),totals,31,4,6,10,0.32,66,8,/player/231509/alexander-loktev,4,Alexander Loktev,C,2022-2023,vhl,231509,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Nikulin (F),totals,35,4,6,10,0.29,20,-8,/player/217918/vladislav-nikulin,4,Vladislav Nikulin,F,2022-2023,vhl,217918,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Astankov (RW),Sokol Krasnoyarsk,38,4,6,10,0.26,8,1,/player/274924/yevgeni-astankov,4,Yevgeni Astankov,RW,2022-2023,vhl,274924,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Pavlyukov (C),Dizel Penza,39,4,6,10,0.26,14,-8,/player/215322/ilya-pavlyukov,4,Ilya Pavlyukov,C,2022-2023,vhl,215322,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Polygalov (C),Dizel Penza,40,4,6,10,0.25,10,-5,/player/18846/igor-polygalov,4,Igor Polygalov,C,2022-2023,vhl,18846,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Chibrikov (LW/RW),Khimik Voskresensk,16,3,7,10,0.63,4,3,/player/527467/nikita-chibrikov,4,Nikita Chibrikov,LW/RW,2022-2023,vhl,527467,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Semyon Pankratov (C),Zvezda Moskva,16,3,7,10,0.63,8,-3,/player/337864/semyon-pankratov,4,Semyon Pankratov,C,2022-2023,vhl,337864,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Varlov (D),Toros Neftekamsk,18,3,7,10,0.56,6,10,/player/398187/sergei-varlov,4,Sergei Varlov,D,2022-2023,vhl,398187,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adel Bulatov (F),totals,36,3,7,10,0.28,37,1,/player/423002/adel-bulatov,4,Adel Bulatov,F,2022-2023,vhl,423002,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grigori Seleznyov (RW),Izhstal Izhevsk,39,3,7,10,0.26,2,-14,/player/591434/grigori-seleznyov,4,Grigori Seleznyov,RW,2022-2023,vhl,591434,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Alyoshin (LW),totals,41,3,7,10,0.24,20,-1,/player/124640/yegor-alyoshin,4,Yegor Alyoshin,LW,2022-2023,vhl,124640,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Drobin (C/RW),Rubin Tyumen,43,3,7,10,0.23,24,0,/player/375736/alexei-drobin,4,Alexei Drobin,C/RW,2022-2023,vhl,375736,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Kachelovsky (LW),Bars Kazan,47,3,7,10,0.21,43,-15,/player/567522/oleg-kachelovsky,4,Oleg Kachelovsky,LW,2022-2023,vhl,567522,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Kosorenkov (RW/LW),Zvezda Moskva,39,2,8,10,0.26,24,2,/player/313588/ivan-kosorenkov,4,Ivan Kosorenkov,RW/LW,2022-2023,vhl,313588,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Biryukov (C),totals,40,2,8,10,0.25,2,-4,/player/100450/andrei-biryukov,4,Andrei Biryukov,C,2022-2023,vhl,100450,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timur Valeyev (C),Toros Neftekamsk,40,2,8,10,0.25,24,1,/player/570493/timur-valeyev,4,Timur Valeyev,C,2022-2023,vhl,570493,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Veniamin Baranov (D),Dynamo St. Petersburg,44,2,8,10,0.23,54,-7,/player/339965/veniamin-baranov,4,Veniamin Baranov,D,2022-2023,vhl,339965,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Kapotov (D),Molot Perm,45,2,8,10,0.22,16,-6,/player/43979/anton-kapotov,4,Anton Kapotov,D,2022-2023,vhl,43979,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Starkov (D),Toros Neftekamsk,46,2,8,10,0.22,14,-2,/player/518582/yegor-starkov,4,Yegor Starkov,D,2022-2023,vhl,518582,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Silayev (C),Zvezda Moskva,49,2,8,10,0.20,30,-6,/player/240715/ivan-silayev,4,Ivan Silayev,C,2022-2023,vhl,240715,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Mamkin (D),Toros Neftekamsk,37,1,9,10,0.27,12,1,/player/106976/mikhail-mamkin,4,Mikhail Mamkin,D,2022-2023,vhl,106976,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kamil Fazylzyanov (D),Bars Kazan,45,1,9,10,0.22,20,-13,/player/265337/kamil-fazylzyanov,4,Kamil Fazylzyanov,D,2022-2023,vhl,265337,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danil Makarov (RW),Bars Kazan,16,7,2,9,0.56,10,-3,/player/97485/danil-makarov,4,Danil Makarov,RW,2022-2023,vhl,97485,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matvei Guskov (C/LW),Zvezda Moskva,16,7,2,9,0.56,12,-2,/player/450910/matvei-guskov,4,Matvei Guskov,C/LW,2022-2023,vhl,450910,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Katelevsky (C),Bars Kazan,19,7,2,9,0.47,8,-2,/player/619135/dmitri-katelevsky,4,Dmitri Katelevsky,C,2022-2023,vhl,619135,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evgeniy Oksentyuk (RW/LW),Sokol Krasnoyarsk,16,6,3,9,0.56,8,5,/player/517437/evgeniy-oksentyuk,4,Evgeniy Oksentyuk,RW/LW,2022-2023,vhl,517437,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Melnichenko (C),SKA-Neva St. Petersburg,31,6,3,9,0.29,14,1,/player/589059/kirill-melnichenko,4,Kirill Melnichenko,C,2022-2023,vhl,589059,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Kazakov (RW),Buran Voronezh,22,5,4,9,0.41,24,-7,/player/396197/maxim-kazakov,4,Maxim Kazakov,RW,2022-2023,vhl,396197,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Ignatovich (D),Dizel Penza,28,5,4,9,0.32,20,5,/player/45001/maxim-ignatovich,4,Maxim Ignatovich,D,2022-2023,vhl,45001,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danil Mokrushev (D),Metallurg Novokuznetsk,34,5,4,9,0.26,16,9,/player/339966/danil-mokrushev,4,Danil Mokrushev,D,2022-2023,vhl,339966,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Demid Mansurov (C),Khimik Voskresensk,37,5,4,9,0.24,7,5,/player/398151/demid-mansurov,4,Demid Mansurov,C,2022-2023,vhl,398151,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Nazarevich (D),Zvezda Moskva,43,5,4,9,0.21,45,-3,/player/104167/ilya-nazarevich,4,Ilya Nazarevich,D,2022-2023,vhl,104167,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ildar Abdeyev (D),Toros Neftekamsk,46,5,4,9,0.20,12,-14,/player/378568/ildar-abdeyev,4,Ildar Abdeyev,D,2022-2023,vhl,378568,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Tridchikov (LW),Chelmet Chelyabinsk,33,4,5,9,0.27,40,-2,/player/149491/alexander-tridchikov,4,Alexander Tridchikov,LW,2022-2023,vhl,149491,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Melnikov (F),Buran Voronezh,46,4,5,9,0.20,10,-9,/player/394771/daniil-melnikov,4,Daniil Melnikov,F,2022-2023,vhl,394771,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Fateyev (RW),Chelmet Chelyabinsk,12,3,6,9,0.75,4,2,/player/320908/yegor-fateyev,4,Yegor Fateyev,RW,2022-2023,vhl,320908,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grigori Nesvetayev (LW),totals,29,3,6,9,0.31,12,1,/player/375740/grigori-nesvetayev,4,Grigori Nesvetayev,LW,2022-2023,vhl,375740,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vitali Lyulko (D),Dizel Penza,46,3,6,9,0.20,18,8,/player/383165/vitali-lyulko,4,Vitali Lyulko,D,2022-2023,vhl,383165,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Sumin (D),Neftyanik Almetievsk,48,3,6,9,0.19,20,-3,/player/93178/alexander-sumin,4,Alexander Sumin,D,2022-2023,vhl,93178,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Kirpichnikov (D),Chelmet Chelyabinsk,39,2,7,9,0.23,16,6,/player/517816/alexander-kirpichnikov,4,Alexander Kirpichnikov,D,2022-2023,vhl,517816,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vsevolod Almetkin (D),Bars Kazan,40,2,7,9,0.23,12,-4,/player/619130/vsevolod-almetkin,4,Vsevolod Almetkin,D,2022-2023,vhl,619130,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Tsulygin (D),totals,40,2,7,9,0.23,24,-2,/player/265485/kirill-tsulygin,4,Kirill Tsulygin,D,2022-2023,vhl,265485,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Volosenkov (D),AKM Tula Region,42,2,7,9,0.21,19,-1,/player/396906/nikita-volosenkov,4,Nikita Volosenkov,D,2022-2023,vhl,396906,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yuri Zhuravlyov (D),Gornyak-UGMK,43,2,7,9,0.21,33,10,/player/396882/yuri-zhuravlyov,4,Yuri Zhuravlyov,D,2022-2023,vhl,396882,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Fedotov (D),Rubin Tyumen,30,1,8,9,0.30,33,13,/player/231836/alexander-fedotov,4,Alexander Fedotov,D,2022-2023,vhl,231836,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Airat Murzin (F),HK Rostov,33,1,8,9,0.27,33,-1,/player/186906/airat-murzin,4,Airat Murzin,F,2022-2023,vhl,186906,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Krylov (D),Dynamo St. Petersburg,34,1,8,9,0.26,43,9,/player/265730/ivan-krylov,4,Ivan Krylov,D,2022-2023,vhl,265730,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Zaytsev (C),Dynamo St. Petersburg,36,1,8,9,0.25,14,4,/player/512907/oleg-zaytsev,4,Oleg Zaytsev,C,2022-2023,vhl,512907,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gleb Kozhemyakin (D),Khimik Voskresensk,39,1,8,9,0.23,22,4,/player/353550/gleb-kozhemyakin,4,Gleb Kozhemyakin,D,2022-2023,vhl,353550,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Kalinin (D),Izhstal Izhevsk,49,1,8,9,0.18,62,-13,/player/159033/yevgeni-kalinin,4,Yevgeni Kalinin,D,2022-2023,vhl,159033,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Voronin (D),HK Tambov,50,1,8,9,0.18,12,5,/player/159131/nikita-voronin,4,Nikita Voronin,D,2022-2023,vhl,159131,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gleb Semyonov (D),Izhstal Izhevsk,12,0,9,9,0.75,14,2,/player/357282/gleb-semyonov,4,Gleb Semyonov,D,2022-2023,vhl,357282,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Markov (F),Buran Voronezh,32,0,9,9,0.28,8,-7,/player/357584/artyom-markov,4,Artyom Markov,F,2022-2023,vhl,357584,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ruslan Novruzov (F),totals,33,7,1,8,0.24,26,-2,/player/396551/ruslan-novruzov,4,Ruslan Novruzov,F,2022-2023,vhl,396551,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Mikhasyonok (RW/C),AKM Tula Region,9,6,2,8,0.89,4,2,/player/398952/vladimir-mikhasyonok,4,Vladimir Mikhasyonok,RW/C,2022-2023,vhl,398952,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Proskurnin (F),SKA-Neva St. Petersburg,35,6,2,8,0.23,12,-4,/player/595268/andrei-proskurnin,4,Andrei Proskurnin,F,2022-2023,vhl,595268,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Kanitsky (C),Zvezda Moskva,40,6,2,8,0.20,10,-1,/player/360014/yevgeni-kanitsky,4,Yevgeni Kanitsky,C,2022-2023,vhl,360014,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Bogdanov (D/F),Zauralie Kurgan,46,6,2,8,0.17,16,-6,/player/419543/alexei-bogdanov,4,Alexei Bogdanov,D/F,2022-2023,vhl,419543,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Mashkov (LW),Omskie Krylia,36,5,3,8,0.22,6,-2,/player/542983/vladimir-mashkov,4,Vladimir Mashkov,LW,2022-2023,vhl,542983,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Litvinov (C),Yuzhny Ural Orsk,37,5,3,8,0.22,18,0,/player/353760/ilya-litvinov,5,Ilya Litvinov,C,2022-2023,vhl,353760,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Korchagin (F),HK Tambov,40,5,3,8,0.20,8,3,/player/450754/oleg-korchagin,5,Oleg Korchagin,F,2022-2023,vhl,450754,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Bodrov (C),Lada Togliatti,14,4,4,8,0.57,12,1,/player/9306/yevgeni-bodrov,5,Yevgeni Bodrov,C,2022-2023,vhl,9306,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Pishchalnikov (F),Dynamo St. Petersburg,27,4,4,8,0.30,21,-8,/player/324606/pavel-pishchalnikov,5,Pavel Pishchalnikov,F,2022-2023,vhl,324606,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Meshcheryakov (C),HK Tambov,30,4,4,8,0.27,8,-1,/player/280042/mikhail-meshcheryakov,5,Mikhail Meshcheryakov,C,2022-2023,vhl,280042,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timur Mukhanov (LW),Omskie Krylia,31,4,4,8,0.26,10,-4,/player/708561/timur-mukhanov,5,Timur Mukhanov,LW,2022-2023,vhl,708561,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Lyakhov (D),Neftyanik Almetievsk,40,4,4,8,0.20,50,2,/player/420923/alexander-lyakhov,5,Alexander Lyakhov,D,2022-2023,vhl,420923,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Baranov (LW),Khimik Voskresensk,19,3,5,8,0.42,8,0,/player/266141/ilya-baranov,5,Ilya Baranov,LW,2022-2023,vhl,266141,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Bitsadze (C/LW),Ryazan-VDV,23,3,5,8,0.35,10,-7,/player/312830/mikhail-bitsadze,5,Mikhail Bitsadze,C/LW,2022-2023,vhl,312830,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Kotkov (C/LW),Zvezda Moskva,28,3,5,8,0.29,8,1,/player/375738/vladislav-kotkov,5,Vladislav Kotkov,C/LW,2022-2023,vhl,375738,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Alexeyev (D),totals,33,3,5,8,0.24,14,1,/player/309541/dmitri-alexeyev,5,Dmitri Alexeyev,D,2022-2023,vhl,309541,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Goloshchapov (D),Khimik Voskresensk,36,3,5,8,0.22,18,1,/player/398189/nikita-goloshchapov,5,Nikita Goloshchapov,D,2022-2023,vhl,398189,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Rotenberg (RW),Dynamo St. Petersburg,37,3,5,8,0.22,10,-11,/player/339971/pavel-rotenberg,5,Pavel Rotenberg,RW,2022-2023,vhl,339971,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Korinevsky (LW/RW),Neftyanik Almetievsk,38,3,5,8,0.21,18,6,/player/250461/maxim-korinevsky,5,Maxim Korinevsky,LW/RW,2022-2023,vhl,250461,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Belov (D),Sokol Krasnoyarsk,39,3,5,8,0.21,43,0,/player/31328/nikolai-belov,5,Nikolai Belov,D,2022-2023,vhl,31328,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Antonov (LW/RW),Yermak Angarsk,43,3,5,8,0.19,18,-7,/player/266877/dmitri-antonov,5,Dmitri Antonov,LW/RW,2022-2023,vhl,266877,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Tyuvilin (D),Molot Perm,44,3,5,8,0.18,34,-1,/player/514166/dmitri-tyuvilin,5,Dmitri Tyuvilin,D,2022-2023,vhl,514166,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Usmanov (C),Khimik Voskresensk,21,2,6,8,0.38,6,1,/player/663596/daniel-usmanov,5,Daniel Usmanov,C,2022-2023,vhl,663596,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Didkovsky (RW),Ryazan-VDV,26,2,6,8,0.31,8,-5,/player/512923/ivan-didkovsky,5,Ivan Didkovsky,RW,2022-2023,vhl,512923,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grigori Gryaznov (D),SKA-Neva St. Petersburg,27,2,6,8,0.30,12,-4,/player/392582/grigori-gryaznov,5,Grigori Gryaznov,D,2022-2023,vhl,392582,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Kolganov (D),Rubin Tyumen,33,2,6,8,0.24,12,10,/player/265632/ilya-kolganov,5,Ilya Kolganov,D,2022-2023,vhl,265632,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Voronov (D),totals,35,2,6,8,0.23,38,7,/player/568358/pavel-voronov,5,Pavel Voronov,D,2022-2023,vhl,568358,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Kovalyov (LW),Dizel Penza,47,2,6,8,0.17,16,9,/player/300932/anton-kovalyov,5,Anton Kovalyov,LW,2022-2023,vhl,300932,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Lypkan (D),Metallurg Novokuznetsk,49,2,6,8,0.16,18,13,/player/192977/mark-lypkan,5,Mark Lypkan,D,2022-2023,vhl,192977,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Vasilyev (D),Ryazan-VDV,17,1,7,8,0.47,6,-3,/player/699445/kirill-vasilyev,5,Kirill Vasilyev,D,2022-2023,vhl,699445,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Vasin (D),Dynamo St. Petersburg,28,0,8,8,0.29,12,9,/player/339766/ivan-vasin,5,Ivan Vasin,D,2022-2023,vhl,339766,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Kozhevnikov (LW/RW),Khimik Voskresensk,17,6,1,7,0.41,20,7,/player/312834/kirill-kozhevnikov,5,Kirill Kozhevnikov,LW/RW,2022-2023,vhl,312834,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Skorenov (LW/RW),Dynamo St. Petersburg,12,5,2,7,0.58,4,4,/player/490221/alexander-skorenov,5,Alexander Skorenov,LW/RW,2022-2023,vhl,490221,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valentin Makarov (F),Izhstal Izhevsk,37,5,2,7,0.19,0,-3,/player/378118/valentin-makarov,5,Valentin Makarov,F,2022-2023,vhl,378118,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Zyuzyakin (W),Molot Perm,18,4,3,7,0.39,10,-4,/player/77151/maxim-zyuzyakin,5,Maxim Zyuzyakin,W,2022-2023,vhl,77151,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Monakhov (LW),Dynamo St. Petersburg,28,4,3,7,0.25,4,-5,/player/77194/sergei-monakhov,5,Sergei Monakhov,LW,2022-2023,vhl,77194,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Derbenyov (F),Gornyak-UGMK,35,4,3,7,0.20,6,9,/player/357248/alexander-derbenyov,5,Alexander Derbenyov,F,2022-2023,vhl,357248,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Luchevnikov (D),Bars Kazan,27,3,4,7,0.26,16,-1,/player/212423/konstantin-luchevnikov,5,Konstantin Luchevnikov,D,2022-2023,vhl,212423,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Mingaleyev (RW),AKM Tula Region,29,3,4,7,0.24,8,-4,/player/123125/denis-mingaleyev,5,Denis Mingaleyev,RW,2022-2023,vhl,123125,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Pugachyov (RW/LW),Zvezda Moskva,37,3,4,7,0.19,14,-4,/player/512909/artyom-pugachyov,5,Artyom Pugachyov,RW/LW,2022-2023,vhl,512909,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Bolshakov (D),totals,43,3,4,7,0.16,26,5,/player/537756/mikhail-bolshakov,5,Mikhail Bolshakov,D,2022-2023,vhl,537756,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Rozhkovsky (LW),Rubin Tyumen,44,3,4,7,0.16,27,-1,/player/262839/artyom-rozhkovsky,5,Artyom Rozhkovsky,LW,2022-2023,vhl,262839,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Fishchenko (C/RW),Buran Voronezh,18,2,5,7,0.39,12,-3,/player/195587/ivan-fishchenko,5,Ivan Fishchenko,C/RW,2022-2023,vhl,195587,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Naumov (D),Metallurg Novokuznetsk,25,2,5,7,0.28,15,5,/player/242179/vladislav-naumov,5,Vladislav Naumov,D,2022-2023,vhl,242179,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Kolesnikov (C),AKM Tula Region,25,2,5,7,0.28,39,-1,/player/378615/nikita-kolesnikov,5,Nikita Kolesnikov,C,2022-2023,vhl,378615,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bulat Motygullin (D),Izhstal Izhevsk,26,2,5,7,0.27,12,-3,/player/339588/bulat-motygullin,5,Bulat Motygullin,D,2022-2023,vhl,339588,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leonid Klimov (F),totals,33,2,5,7,0.21,8,-3,/player/340206/leonid-klimov,5,Leonid Klimov,F,2022-2023,vhl,340206,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leonid Lavrinenko (D),totals,40,2,5,7,0.18,10,-2,/player/309544/leonid-lavrinenko,5,Leonid Lavrinenko,D,2022-2023,vhl,309544,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Malik Alishlalov (D),Zvezda Moskva,42,2,5,7,0.17,6,-5,/player/450907/malik-alishlalov,5,Malik Alishlalov,D,2022-2023,vhl,450907,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Islam Garaishin (D),Neftyanik Almetievsk,47,2,5,7,0.15,2,4,/player/625710/islam-garaishin,5,Islam Garaishin,D,2022-2023,vhl,625710,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Averin (D),Bars Kazan,49,2,5,7,0.14,27,-2,/player/265742/nikolai-averin,5,Nikolai Averin,D,2022-2023,vhl,265742,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Shulenin (D),Yugra Khanty-Mansiysk,50,2,5,7,0.14,26,25,/player/209465/dmitri-shulenin,5,Dmitri Shulenin,D,2022-2023,vhl,209465,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Kucheryavenko (C),Dynamo St. Petersburg,12,1,6,7,0.58,4,-5,/player/9590/alexander-kucheryavenko,5,Alexander Kucheryavenko,C,2022-2023,vhl,9590,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fyodor Svechkov (C/LW),Khimik Voskresensk,14,1,6,7,0.50,0,4,/player/693396/fyodor-svechkov,5,Fyodor Svechkov,C/LW,2022-2023,vhl,693396,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Serikov (D),Khimik Voskresensk,15,1,6,7,0.47,18,5,/player/396538/artyom-serikov,5,Artyom Serikov,D,2022-2023,vhl,396538,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Drugalya (D),Chelmet Chelyabinsk,25,1,6,7,0.28,4,-3,/player/570234/sergei-drugalya,5,Sergei Drugalya,D,2022-2023,vhl,570234,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Zhuk (W/C),totals,27,1,6,7,0.26,22,-8,/player/392591/artyom-zhuk,5,Artyom Zhuk,W/C,2022-2023,vhl,392591,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Klyauzov (C),Rubin Tyumen,29,1,6,7,0.24,25,8,/player/216602/ilya-klyauzov,5,Ilya Klyauzov,C,2022-2023,vhl,216602,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Uskov (C),Zauralie Kurgan,31,1,6,7,0.23,8,-5,/player/337858/maxim-uskov,5,Maxim Uskov,C,2022-2023,vhl,337858,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Gordeyev (D),Dynamo St. Petersburg,31,1,6,7,0.23,44,1,/player/362085/mikhail-gordeyev,5,Mikhail Gordeyev,D,2022-2023,vhl,362085,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Chetverikov (D),Bars Kazan,39,1,6,7,0.18,51,-11,/player/529796/daniil-chetverikov,5,Daniil Chetverikov,D,2022-2023,vhl,529796,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lev Starikov (D),Bars Kazan,41,1,6,7,0.17,16,-3,/player/394770/lev-starikov,5,Lev Starikov,D,2022-2023,vhl,394770,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Tsvetkov (D),Dizel Penza,45,1,6,7,0.16,20,-5,/player/168688/yegor-tsvetkov,5,Yegor Tsvetkov,D,2022-2023,vhl,168688,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Zhdanov (D),Yermak Angarsk,48,1,6,7,0.15,14,-14,/player/360013/yegor-zhdanov,5,Yegor Zhdanov,D,2022-2023,vhl,360013,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ildan Gazimov (D),Toros Neftekamsk,50,1,6,7,0.14,34,12,/player/518587/ildan-gazimov,5,Ildan Gazimov,D,2022-2023,vhl,518587,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gleb Kuzmin (RW/C),Toros Neftekamsk,9,0,7,7,0.78,4,1,/player/301269/gleb-kuzmin,5,Gleb Kuzmin,RW/C,2022-2023,vhl,301269,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Zhurakov (D),AKM Tula Region,34,0,7,7,0.21,7,-3,/player/527455/daniil-zhurakov,5,Daniil Zhurakov,D,2022-2023,vhl,527455,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Ozerov (D),Gornyak-UGMK,41,0,7,7,0.17,12,7,/player/324806/maxim-ozerov,5,Maxim Ozerov,D,2022-2023,vhl,324806,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Papst (D),Yuzhny Ural Orsk,50,0,7,7,0.14,24,-5,/player/370784/roman-papst,5,Roman Papst,D,2022-2023,vhl,370784,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Kurkin (F),Gornyak-UGMK,32,4,2,6,0.19,8,5,/player/586995/mikhail-kurkin,5,Mikhail Kurkin,F,2022-2023,vhl,586995,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Agapov (F),totals,36,4,2,6,0.17,2,1,/player/589066/alexander-agapov,5,Alexander Agapov,F,2022-2023,vhl,589066,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Smolyov (F),HK Rostov,47,4,2,6,0.13,22,-3,/player/486742/ivan-smolyov,5,Ivan Smolyov,F,2022-2023,vhl,486742,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Beryozkin (RW/LW),Molot Perm,9,3,3,6,0.67,4,2,/player/514147/maxim-beryozkin,5,Maxim Beryozkin,RW/LW,2022-2023,vhl,514147,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Kotlyarevsky (LW),Chelmet Chelyabinsk,11,3,3,6,0.55,11,-3,/player/322460/mikhail-kotlyarevsky,5,Mikhail Kotlyarevsky,LW,2022-2023,vhl,322460,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Makarenko (C/LW),Buran Voronezh,17,3,3,6,0.35,8,-7,/player/123077/pavel-makarenko,5,Pavel Makarenko,C/LW,2022-2023,vhl,123077,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Sorokin (LW/C),Metallurg Novokuznetsk,21,3,3,6,0.29,20,5,/player/356465/yevgeni-sorokin,5,Yevgeni Sorokin,LW/C,2022-2023,vhl,356465,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Lisov (D),totals,22,3,3,6,0.27,12,12,/player/155385/nikita-lisov,5,Nikita Lisov,D,2022-2023,vhl,155385,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Sulev (F),Zvezda Moskva,29,3,3,6,0.21,6,-3,/player/398540/sergei-sulev,5,Sergei Sulev,F,2022-2023,vhl,398540,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radel Fazleyev (C/LW),Neftyanik Almetievsk,32,3,3,6,0.19,6,1,/player/231738/radel-fazleyev,5,Radel Fazleyev,C/LW,2022-2023,vhl,231738,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Shikun (D),totals,32,3,3,6,0.19,10,-5,/player/358501/alexander-shikun,5,Alexander Shikun,D,2022-2023,vhl,358501,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artur Demidov (F),totals,38,3,3,6,0.16,12,-12,/player/502637/artur-demidov,5,Artur Demidov,F,2022-2023,vhl,502637,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gleb Pivunov (F),Yuzhny Ural Orsk,44,3,3,6,0.14,52,-5,/player/384367/gleb-pivunov,5,Gleb Pivunov,F,2022-2023,vhl,384367,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Polunin (D),Ryazan-VDV,46,3,3,6,0.13,53,-8,/player/319689/nikolai-polunin,5,Nikolai Polunin,D,2022-2023,vhl,319689,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yaroslav Busygin (D),Ryazan-VDV,9,2,4,6,0.67,6,-2,/player/699444/yaroslav-busygin,5,Yaroslav Busygin,D,2022-2023,vhl,699444,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Kukshtel (C),Khimik Voskresensk,10,2,4,6,0.60,0,6,/player/312940/pavel-kukshtel,5,Pavel Kukshtel,C,2022-2023,vhl,312940,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Koltygin (C),SKA-Neva St. Petersburg,16,2,4,6,0.38,22,-11,/player/273659/pavel-koltygin,5,Pavel Koltygin,C,2022-2023,vhl,273659,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arslan Yarullin (D),SKA-Neva St. Petersburg,20,2,4,6,0.30,12,-8,/player/532179/arslan-yarullin,5,Arslan Yarullin,D,2022-2023,vhl,532179,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vyacheslav Sarayev (D),Ryazan-VDV,21,2,4,6,0.29,15,-3,/player/395913/vyacheslav-sarayev,5,Vyacheslav Sarayev,D,2022-2023,vhl,395913,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Chufarov (F),Zauralie Kurgan,24,2,4,6,0.25,12,9,/player/569642/anton-chufarov,5,Anton Chufarov,F,2022-2023,vhl,569642,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danila Palivko (D),Yermak Angarsk,24,2,4,6,0.25,18,-4,/player/567517/danila-palivko,5,Danila Palivko,D,2022-2023,vhl,567517,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Zakharov (F),Gornyak-UGMK,26,2,4,6,0.23,8,-8,/player/398692/ilya-zakharov,5,Ilya Zakharov,F,2022-2023,vhl,398692,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Smirnov (D),Ryazan-VDV,30,2,4,6,0.20,20,2,/player/537755/yegor-smirnov,5,Yegor Smirnov,D,2022-2023,vhl,537755,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Tyutchev (F),Sokol Krasnoyarsk,34,2,4,6,0.18,14,4,/player/396121/daniil-tyutchev,5,Daniil Tyutchev,F,2022-2023,vhl,396121,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Mekhovov (C/RW),Bars Kazan,36,2,4,6,0.17,4,0,/player/619136/ivan-mekhovov,5,Ivan Mekhovov,C/RW,2022-2023,vhl,619136,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Kochurov (C),Izhstal Izhevsk,40,2,4,6,0.15,24,-8,/player/90880/anton-kochurov,5,Anton Kochurov,C,2022-2023,vhl,90880,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Goloshchapov (D),Zvezda Moskva,47,2,4,6,0.13,14,-4,/player/398181/kirill-goloshchapov,5,Kirill Goloshchapov,D,2022-2023,vhl,398181,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Khvorov (RW),Omskie Krylia,7,1,5,6,0.86,2,-4,/player/543189/nikolai-khvorov,5,Nikolai Khvorov,RW,2022-2023,vhl,543189,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artur Gizdatullin (C),Sokol Krasnoyarsk,11,1,5,6,0.55,6,3,/player/301510/artur-gizdatullin,5,Artur Gizdatullin,C,2022-2023,vhl,301510,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Lukhovskoy (C),Buran Voronezh,20,1,5,6,0.30,4,-6,/player/516176/nikita-lukhovskoy,5,Nikita Lukhovskoy,C,2022-2023,vhl,516176,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danila Dyadenkin (LW),totals,30,1,5,6,0.20,4,-2,/player/339480/danila-dyadenkin,5,Danila Dyadenkin,LW,2022-2023,vhl,339480,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Basisty (D),Ryazan-VDV,38,1,5,6,0.16,20,3,/player/324162/kirill-basisty,5,Kirill Basisty,D,2022-2023,vhl,324162,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danila Marushev (F),HK Rostov,41,1,5,6,0.15,6,-6,/player/326712/danila-marushev,5,Danila Marushev,F,2022-2023,vhl,326712,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Tolpegin (D),HK Rostov,41,1,5,6,0.15,22,-10,/player/337850/denis-tolpegin,5,Denis Tolpegin,D,2022-2023,vhl,337850,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Solopanov (D),Zvezda Moskva,34,0,6,6,0.18,4,1,/player/395156/nikita-solopanov,5,Nikita Solopanov,D,2022-2023,vhl,395156,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danil Semyonov (D),totals,35,0,6,6,0.17,8,2,/player/276314/danil-semyonov,5,Danil Semyonov,D,2022-2023,vhl,276314,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Kolomiytsev (D),Dynamo St. Petersburg,39,0,6,6,0.15,18,7,/player/595532/ivan-kolomiytsev,6,Ivan Kolomiytsev,D,2022-2023,vhl,595532,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grigori Vashchenko (D),SKA-Neva St. Petersburg,45,0,6,6,0.13,16,5,/player/216625/grigori-vashchenko,6,Grigori Vashchenko,D,2022-2023,vhl,216625,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Sychushkin (D),Bars Kazan,46,0,6,6,0.13,78,-14,/player/382859/vladimir-sychushkin,6,Vladimir Sychushkin,D,2022-2023,vhl,382859,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aidar Nazmutdinov (F),Neftyanik Almetievsk,11,4,1,5,0.45,4,-1,/player/531283/aidar-nazmutdinov,6,Aidar Nazmutdinov,F,2022-2023,vhl,531283,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Ozhgikhin (RW/LW),SKA-Neva St. Petersburg,13,4,1,5,0.38,8,1,/player/313029/alexei-ozhgikhin,6,Alexei Ozhgikhin,RW/LW,2022-2023,vhl,313029,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matvei Vasin (C),Zvezda Moskva,14,4,1,5,0.36,6,1,/player/538832/matvei-vasin,6,Matvei Vasin,C,2022-2023,vhl,538832,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Loza (C),Gornyak-UGMK,25,4,1,5,0.20,0,-4,/player/522015/ilya-loza,6,Ilya Loza,C,2022-2023,vhl,522015,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vadim Schegolkov (LW),Lada Togliatti,34,4,1,5,0.15,10,1,/player/184116/vadim-schegolkov,6,Vadim Schegolkov,LW,2022-2023,vhl,184116,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Ovchinnikov (C/RW),Gornyak-UGMK,22,3,2,5,0.23,4,-10,/player/522150/ilya-ovchinnikov,6,Ilya Ovchinnikov,C/RW,2022-2023,vhl,522150,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Volkov (D),totals,33,3,2,5,0.15,10,-9,/player/340196/artyom-volkov,6,Artyom Volkov,D,2022-2023,vhl,340196,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitry Zaitsev (D),Rubin Tyumen,33,3,2,5,0.15,10,-4,/player/312205/dmitry-zaitsev,6,Dmitry Zaitsev,D,2022-2023,vhl,312205,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Martynov (D),Omskie Krylia,33,3,2,5,0.15,19,-4,/player/519788/yegor-martynov,6,Yegor Martynov,D,2022-2023,vhl,519788,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bogdan Krokhalev (D),Yuzhny Ural Orsk,39,3,2,5,0.13,10,-11,/player/672616/bogdan-krokhalev,6,Bogdan Krokhalev,D,2022-2023,vhl,672616,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yuri Kramarenko (D),HK Rostov,39,3,2,5,0.13,29,0,/player/356720/yuri-kramarenko,6,Yuri Kramarenko,D,2022-2023,vhl,356720,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Bobryashov (D),Lada Togliatti,49,3,2,5,0.10,16,11,/player/218279/nikita-bobryashov,6,Nikita Bobryashov,D,2022-2023,vhl,218279,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Sedov (D),Khimik Voskresensk,10,2,3,5,0.50,0,12,/player/465239/nikita-sedov,6,Nikita Sedov,D,2022-2023,vhl,465239,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danil Avershin (RW),HK Rostov,12,2,3,5,0.42,4,-5,/player/547027/danil-avershin,6,Danil Avershin,RW,2022-2023,vhl,547027,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Razat Timirov (C/LW),totals,18,2,3,5,0.28,18,-6,/player/339597/razat-timirov,6,Razat Timirov,C/LW,2022-2023,vhl,339597,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Stikhanovsky (D),Zauralie Kurgan,22,2,3,5,0.23,4,2,/player/450513/mikhail-stikhanovsky,6,Mikhail Stikhanovsky,D,2022-2023,vhl,450513,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Komarov (D),Toros Neftekamsk,25,2,3,5,0.20,4,-4,/player/570486/alexander-komarov,6,Alexander Komarov,D,2022-2023,vhl,570486,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Pribylsky (D),Dynamo St. Petersburg,27,2,3,5,0.19,6,-13,/player/395855/andrei-pribylsky,6,Andrei Pribylsky,D,2022-2023,vhl,395855,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Stepanov (F),totals,29,2,3,5,0.17,4,-5,/player/398234/ivan-stepanov,6,Ivan Stepanov,F,2022-2023,vhl,398234,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Asylayev (F),Toros Neftekamsk,38,2,3,5,0.13,19,1,/player/586124/nikita-asylayev,6,Nikita Asylayev,F,2022-2023,vhl,586124,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Tsalpanov (D),HK Rostov,44,2,3,5,0.11,15,-5,/player/595263/yevgeni-tsalpanov,6,Yevgeni Tsalpanov,D,2022-2023,vhl,595263,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Davydov (C/RW),Dynamo St. Petersburg,8,1,4,5,0.63,0,0,/player/699552/daniil-davydov,6,Daniil Davydov,C/RW,2022-2023,vhl,699552,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Komarov (C),Dizel Penza,10,1,4,5,0.50,4,2,/player/159851/viktor-komarov,6,Viktor Komarov,C,2022-2023,vhl,159851,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Oleinik (D),totals,18,1,4,5,0.28,4,2,/player/514649/nikita-oleinik,6,Nikita Oleinik,D,2022-2023,vhl,514649,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Podshivalov (C),Buran Voronezh,20,1,4,5,0.25,10,-9,/player/692372/ivan-podshivalov,6,Ivan Podshivalov,C,2022-2023,vhl,692372,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Kirileichenko (F),Zvezda Moskva,22,1,4,5,0.23,6,-4,/player/577712/maxim-kirileichenko,6,Maxim Kirileichenko,F,2022-2023,vhl,577712,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matvei Averochkin (C),Zvezda Moskva,22,1,4,5,0.23,10,0,/player/538831/matvei-averochkin,6,Matvei Averochkin,C,2022-2023,vhl,538831,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Demidov (D),Zauralie Kurgan,22,1,4,5,0.23,10,-2,/player/215320/nikolai-demidov,6,Nikolai Demidov,D,2022-2023,vhl,215320,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Antonovsky (D),totals,23,1,4,5,0.22,45,-7,/player/533790/ivan-antonovsky,6,Ivan Antonovsky,D,2022-2023,vhl,533790,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Rodionychev (D),totals,26,1,4,5,0.19,28,3,/player/359580/dmitri-rodionychev,6,Dmitri Rodionychev,D,2022-2023,vhl,359580,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bogdan Zhilyakov (D),Dynamo St. Petersburg,30,1,4,5,0.17,2,-3,/player/375636/bogdan-zhilyakov,6,Bogdan Zhilyakov,D,2022-2023,vhl,375636,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stepan Myslyayev (D),Chelmet Chelyabinsk,33,1,4,5,0.15,6,-1,/player/568974/stepan-myslyayev,6,Stepan Myslyayev,D,2022-2023,vhl,568974,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Tsaryov (D),HK Rostov,34,1,4,5,0.15,14,-6,/player/319757/alexei-tsaryov,6,Alexei Tsaryov,D,2022-2023,vhl,319757,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Zubov (RW),Ryazan-VDV,35,1,4,5,0.14,31,-5,/player/522424/yegor-zubov,6,Yegor Zubov,RW,2022-2023,vhl,522424,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Katichev (D),totals,40,1,4,5,0.13,45,1,/player/21099/yevgeni-katichev,6,Yevgeni Katichev,D,2022-2023,vhl,21099,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Mironov (D),Chelmet Chelyabinsk,42,1,4,5,0.12,16,-8,/player/442945/ilya-mironov,6,Ilya Mironov,D,2022-2023,vhl,442945,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Pavlikov (D),Buran Voronezh,42,1,4,5,0.12,18,-6,/player/312818/mark-pavlikov,6,Mark Pavlikov,D,2022-2023,vhl,312818,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Patrikeyev (D),Lada Togliatti,43,1,4,5,0.12,22,6,/player/224201/mikhail-patrikeyev,6,Mikhail Patrikeyev,D,2022-2023,vhl,224201,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Semyon Sukhov (D),HK Tambov,46,1,4,5,0.11,12,-5,/player/356477/semyon-sukhov,6,Semyon Sukhov,D,2022-2023,vhl,356477,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Orlov (D),Khimik Voskresensk,7,0,5,5,0.71,0,3,/player/665898/daniil-orlov,6,Daniil Orlov,D,2022-2023,vhl,665898,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Makarevich (D),totals,23,0,5,5,0.22,6,-1,/player/449977/alexander-makarevich,6,Alexander Makarevich,D,2022-2023,vhl,449977,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bogdan Denisevich (D),Omskie Krylia,35,0,5,5,0.14,26,-10,/player/359237/bogdan-denisevich,6,Bogdan Denisevich,D,2022-2023,vhl,359237,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail V. Kozlov (F),Toros Neftekamsk,41,0,5,5,0.12,14,-10,/player/398195/mikhail-v-kozlov,6,Mikhail V. Kozlov,F,2022-2023,vhl,398195,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Krivosheyev (D),Ryazan-VDV,46,0,5,5,0.11,24,7,/player/356458/roman-krivosheyev,6,Roman Krivosheyev,D,2022-2023,vhl,356458,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Lobanov (RW),Buran Voronezh,48,0,5,5,0.10,26,-9,/player/333788/daniil-lobanov,6,Daniil Lobanov,RW,2022-2023,vhl,333788,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zakhar Malashkevich (F),Dynamo St. Petersburg,13,4,0,4,0.31,2,1,/player/644131/zakhar-malashkevich,6,Zakhar Malashkevich,F,2022-2023,vhl,644131,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Semyon Afonasyevsky (LW/RW),Zauralie Kurgan,32,4,0,4,0.13,12,-8,/player/250459/semyon-afonasyevsky,6,Semyon Afonasyevsky,LW/RW,2022-2023,vhl,250459,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Chezganov (LW/C),Khimik Voskresensk,13,3,1,4,0.31,4,-1,/player/595729/yegor-chezganov,6,Yegor Chezganov,LW/C,2022-2023,vhl,595729,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Chaban (W),Lada Togliatti,16,3,1,4,0.25,6,2,/player/514488/ilya-chaban,6,Ilya Chaban,W,2022-2023,vhl,514488,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Styozhkin (C),Chelmet Chelyabinsk,23,3,1,4,0.17,4,-5,/player/568983/ivan-styozhkin,6,Ivan Styozhkin,C,2022-2023,vhl,568983,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zigurds Podzins (D),totals,26,3,1,4,0.15,26,-4,/player/269026/zigurds-podzins,6,Zigurds Podzins,D,2022-2023,vhl,269026,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Belyayev (LW/RW),totals,8,2,2,4,0.50,0,1,/player/320897/mikhail-belyayev,6,Mikhail Belyayev,LW/RW,2022-2023,vhl,320897,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valeri Gurin (F),Yermak Angarsk,8,2,2,4,0.50,2,-5,/player/242206/valeri-gurin,6,Valeri Gurin,F,2022-2023,vhl,242206,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yaroslav Tsulygin (D),Toros Neftekamsk,9,2,2,4,0.44,2,4,/player/709064/yaroslav-tsulygin,6,Yaroslav Tsulygin,D,2022-2023,vhl,709064,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Mikhailov (RW),totals,13,2,2,4,0.31,4,-3,/player/93875/dmitri-mikhailov,6,Dmitri Mikhailov,RW,2022-2023,vhl,93875,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Georgi Solyannikov (D),SKA-Neva St. Petersburg,20,2,2,4,0.20,4,7,/player/262668/georgi-solyannikov,6,Georgi Solyannikov,D,2022-2023,vhl,262668,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Iskander Mulyukov (D),Neftyanik Almetievsk,25,2,2,4,0.16,8,-1,/player/383321/iskander-mulyukov,6,Iskander Mulyukov,D,2022-2023,vhl,383321,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Gromov (D),Omskie Krylia,35,2,2,4,0.11,12,0,/player/313920/nikita-gromov,6,Nikita Gromov,D,2022-2023,vhl,313920,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Saveli Kuvardin (C),Bars Kazan,35,2,2,4,0.11,12,-16,/player/451575/saveli-kuvardin,6,Saveli Kuvardin,C,2022-2023,vhl,451575,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Zalitov (D),HK Rostov,37,2,2,4,0.11,24,0,/player/378564/yegor-zalitov,6,Yegor Zalitov,D,2022-2023,vhl,378564,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Voronkov (D),AKM Tula Region,43,2,2,4,0.09,61,3,/player/211787/yevgeni-voronkov,6,Yevgeni Voronkov,D,2022-2023,vhl,211787,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Mironov (D),Toros Neftekamsk,48,2,2,4,0.08,28,-8,/player/159425/andrei-mironov,6,Andrei Mironov,D,2022-2023,vhl,159425,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Balanov (D),Buran Voronezh,50,2,2,4,0.08,14,-11,/player/663617/yegor-balanov,6,Yegor Balanov,D,2022-2023,vhl,663617,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Verba (RW),Khimik Voskresensk,4,1,3,4,1.00,2,2,/player/353564/mark-verba,6,Mark Verba,RW,2022-2023,vhl,353564,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tigran Yarulin (RW/LW),HK Rostov,11,1,3,4,0.36,4,3,/player/652831/tigran-yarulin,6,Tigran Yarulin,RW/LW,2022-2023,vhl,652831,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Abramov (RW/LW),totals,16,1,3,4,0.25,6,-4,/player/357661/mikhail-abramov,6,Mikhail Abramov,RW/LW,2022-2023,vhl,357661,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Fyodorov (D/F),Gornyak-UGMK,17,1,3,4,0.24,17,4,/player/378881/alexander-fyodorov,6,Alexander Fyodorov,D/F,2022-2023,vhl,378881,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Zelenov (D),SKA-Neva St. Petersburg,18,1,3,4,0.22,6,0,/player/588568/yegor-zelenov,6,Yegor Zelenov,D,2022-2023,vhl,588568,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timofei Davydov (D),Omskie Krylia,19,1,3,4,0.21,10,1,/player/519763/timofei-davydov,6,Timofei Davydov,D,2022-2023,vhl,519763,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Gorbunov (C),Chelmet Chelyabinsk,21,1,3,4,0.19,6,-4,/player/698714/yegor-gorbunov,6,Yegor Gorbunov,C,2022-2023,vhl,698714,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Bryutov (F),Rubin Tyumen,22,1,3,4,0.18,31,0,/player/450488/nikita-bryutov,6,Nikita Bryutov,F,2022-2023,vhl,450488,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vadim Khlopotov (W/C),Lada Togliatti,24,1,3,4,0.17,18,-2,/player/106191/vadim-khlopotov,6,Vadim Khlopotov,W/C,2022-2023,vhl,106191,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yuri Ushakov (F),totals,28,1,3,4,0.14,0,-10,/player/515360/yuri-ushakov,6,Yuri Ushakov,F,2022-2023,vhl,515360,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Voropayev (D),totals,31,1,3,4,0.13,12,-12,/player/225813/vladislav-voropayev,6,Vladislav Voropayev,D,2022-2023,vhl,225813,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Zaitsev (F),Neftyanik Almetievsk,36,1,3,4,0.11,6,-3,/player/394767/alexander-zaitsev,6,Alexander Zaitsev,F,2022-2023,vhl,394767,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Airat Vildanov (F),Yermak Angarsk,36,1,3,4,0.11,10,-6,/player/339553/airat-vildanov,6,Airat Vildanov,F,2022-2023,vhl,339553,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Avvakumov (D),Zauralie Kurgan,41,1,3,4,0.10,8,6,/player/426009/ilya-avvakumov,6,Ilya Avvakumov,D,2022-2023,vhl,426009,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Kalmykov (F),totals,11,0,4,4,0.36,4,1,/player/362100/daniil-kalmykov,6,Daniil Kalmykov,F,2022-2023,vhl,362100,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Gulyayev (D),Omskie Krylia,12,0,4,4,0.33,4,7,/player/700461/mikhail-gulyayev,6,Mikhail Gulyayev,D,2022-2023,vhl,700461,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Shepelev (D),Chelmet Chelyabinsk,12,0,4,4,0.33,10,-4,/player/370824/alexander-shepelev,6,Alexander Shepelev,D,2022-2023,vhl,370824,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Semyon Ionov (D/F),totals,18,0,4,4,0.22,2,-1,/player/532562/semyon-ionov,6,Semyon Ionov,D/F,2022-2023,vhl,532562,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Malysjev (D),Dynamo St. Petersburg,29,0,4,4,0.14,8,4,/player/398121/emil-malysjev,6,Emil Malysjev,D,2022-2023,vhl,398121,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ranel Vafin (F),Buran Voronezh,30,0,4,4,0.13,21,-17,/player/629847/ranel-vafin,6,Ranel Vafin,F,2022-2023,vhl,629847,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filat Zotov (D),Ryazan-VDV,32,0,4,4,0.13,10,-8,/player/588570/filat-zotov,6,Filat Zotov,D,2022-2023,vhl,588570,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adel Kurbanov (D),Bars Kazan,35,0,4,4,0.11,4,0,/player/627393/adel-kurbanov,6,Adel Kurbanov,D,2022-2023,vhl,627393,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gleb Shaborshin (D),Izhstal Izhevsk,38,0,4,4,0.11,41,5,/player/515131/gleb-shaborshin,6,Gleb Shaborshin,D,2022-2023,vhl,515131,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Dervuk (D),Sokol Krasnoyarsk,43,0,4,4,0.09,15,4,/player/223800/ilya-dervuk,6,Ilya Dervuk,D,2022-2023,vhl,223800,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Usmanov (D),Lada Togliatti,49,0,4,4,0.08,10,5,/player/420916/igor-usmanov,6,Igor Usmanov,D,2022-2023,vhl,420916,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Goncharov (LW),Ryazan-VDV,5,3,0,3,0.60,2,2,/player/360973/nikita-goncharov,6,Nikita Goncharov,LW,2022-2023,vhl,360973,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Semyon Sinyatkin (F),Dynamo St. Petersburg,8,3,0,3,0.38,2,0,/player/699554/semyon-sinyatkin,6,Semyon Sinyatkin,F,2022-2023,vhl,699554,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Shuidin (LW/C),totals,32,3,0,3,0.09,12,-3,/player/543724/nikita-shuidin,6,Nikita Shuidin,LW/C,2022-2023,vhl,543724,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Talaluyev (LW),Khimik Voskresensk,4,2,1,3,0.75,4,0,/player/383446/ilya-talaluyev,6,Ilya Talaluyev,LW,2022-2023,vhl,383446,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Myagkov (F),HK Tambov,16,2,1,3,0.19,2,-2,/player/528230/vladislav-myagkov,6,Vladislav Myagkov,F,2022-2023,vhl,528230,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Chusovitin (F),totals,16,2,1,3,0.19,9,-8,/player/420580/nikita-chusovitin,6,Nikita Chusovitin,F,2022-2023,vhl,420580,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Sinyavsky (F),Sokol Krasnoyarsk,21,2,1,3,0.14,8,-5,/player/378081/pavel-sinyavsky,6,Pavel Sinyavsky,F,2022-2023,vhl,378081,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Sergeyev (C),Dizel Penza,25,2,1,3,0.12,4,-5,/player/395886/alexei-sergeyev,6,Alexei Sergeyev,C,2022-2023,vhl,395886,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Fadeyev (F),Neftyanik Almetievsk,28,2,1,3,0.11,12,2,/player/451197/mikhail-fadeyev,6,Mikhail Fadeyev,F,2022-2023,vhl,451197,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bulat Minnekhanov (F),Bars Kazan,31,2,1,3,0.10,4,-4,/player/518590/bulat-minnekhanov,7,Bulat Minnekhanov,F,2022-2023,vhl,518590,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Sholgin (F),Neftyanik Almetievsk,31,2,1,3,0.10,6,2,/player/395141/andrei-sholgin,7,Andrei Sholgin,F,2022-2023,vhl,395141,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danila Markus (D),Izhstal Izhevsk,31,2,1,3,0.10,8,-8,/player/361838/danila-markus,7,Danila Markus,D,2022-2023,vhl,361838,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Gatiyatulin (D),totals,33,2,1,3,0.09,10,-5,/player/398139/ilya-gatiyatulin,7,Ilya Gatiyatulin,D,2022-2023,vhl,398139,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Ikamatskikh (D),Zauralie Kurgan,45,2,1,3,0.07,17,-6,/player/285683/artyom-ikamatskikh,7,Artyom Ikamatskikh,D,2022-2023,vhl,285683,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Makeyev (LW),Gornyak-UGMK,2,1,2,3,1.50,0,0,/player/130373/alexei-makeyev,7,Alexei Makeyev,LW,2022-2023,vhl,130373,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danil Yurtaikin (LW/RW),Zvezda Moskva,3,1,2,3,1.00,0,0,/player/265753/danil-yurtaikin,7,Danil Yurtaikin,LW/RW,2022-2023,vhl,265753,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Grebyonkin (LW/RW),Yuzhny Ural Orsk,4,1,2,3,0.75,0,1,/player/652832/nikita-grebyonkin,7,Nikita Grebyonkin,LW/RW,2022-2023,vhl,652832,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Parshin (RW),Yugra Khanty-Mansiysk,6,1,2,3,0.50,2,-2,/player/9588/denis-parshin,7,Denis Parshin,RW,2022-2023,vhl,9588,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Churyukanov (F),Dynamo St. Petersburg,7,1,2,3,0.43,6,6,/player/673230/ivan-churyukanov,7,Ivan Churyukanov,F,2022-2023,vhl,673230,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zakhar Arzamastsev (D),Metallurg Novokuznetsk,8,1,2,3,0.38,0,1,/player/43977/zakhar-arzamastsev,7,Zakhar Arzamastsev,D,2022-2023,vhl,43977,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Dzhig (F),Izhstal Izhevsk,13,1,2,3,0.23,14,1,/player/223815/vladimir-dzhig,7,Vladimir Dzhig,F,2022-2023,vhl,223815,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Vorobyov (D),Chelmet Chelyabinsk,14,1,2,3,0.21,12,-5,/player/265348/ivan-vorobyov,7,Ivan Vorobyov,D,2022-2023,vhl,265348,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Yegorov (F),Rubin Tyumen,15,1,2,3,0.20,0,0,/player/618276/yegor-yegorov,7,Yegor Yegorov,F,2022-2023,vhl,618276,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fyodor Belyakov (D),Omskie Krylia,15,1,2,3,0.20,41,0,/player/105486/fyodor-belyakov,7,Fyodor Belyakov,D,2022-2023,vhl,105486,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Ivanov (C),Yuzhny Ural Orsk,16,1,2,3,0.19,14,-6,/player/160563/ilya-ivanov,7,Ilya Ivanov,C,2022-2023,vhl,160563,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marat Khaidarov (W),Toros Neftekamsk,17,1,2,3,0.18,2,0,/player/340879/marat-khaidarov,7,Marat Khaidarov,W,2022-2023,vhl,340879,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Zhuldikov (D),totals,17,1,2,3,0.18,12,-5,/player/250458/nikita-zhuldikov,7,Nikita Zhuldikov,D,2022-2023,vhl,250458,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Boluchevsky (C),Dynamo St. Petersburg,18,1,2,3,0.17,4,0,/player/699558/andrei-boluchevsky,7,Andrei Boluchevsky,C,2022-2023,vhl,699558,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilnaz Fakhrutdinov (F),Yuzhny Ural Orsk,19,1,2,3,0.16,4,-2,/player/515335/ilnaz-fakhrutdinov,7,Ilnaz Fakhrutdinov,F,2022-2023,vhl,515335,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yaroslav Trofimov (D),Gornyak-UGMK,24,1,2,3,0.13,2,-3,/player/698977/yaroslav-trofimov,7,Yaroslav Trofimov,D,2022-2023,vhl,698977,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yaroslav Yapparov (RW/LW),Chelmet Chelyabinsk,24,1,2,3,0.13,4,-9,/player/698996/yaroslav-yapparov,7,Yaroslav Yapparov,RW/LW,2022-2023,vhl,698996,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Barabanov (LW/C),totals,25,1,2,3,0.12,10,-4,/player/273487/vladimir-barabanov,7,Vladimir Barabanov,LW/C,2022-2023,vhl,273487,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Rydchenko (D),Ryazan-VDV,25,1,2,3,0.12,10,-5,/player/512828/igor-rydchenko,7,Igor Rydchenko,D,2022-2023,vhl,512828,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artur Gusev (D),Izhstal Izhevsk,26,1,2,3,0.12,14,-7,/player/532517/artur-gusev,7,Artur Gusev,D,2022-2023,vhl,532517,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Buyalsky (RW),Chelmet Chelyabinsk,34,1,2,3,0.09,12,-18,/player/567519/yegor-buyalsky,7,Yegor Buyalsky,RW,2022-2023,vhl,567519,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Petrov (C),Dynamo St. Petersburg,35,1,2,3,0.09,19,-2,/player/515154/maxim-petrov,7,Maxim Petrov,C,2022-2023,vhl,515154,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Akim Trishin (D),Lada Togliatti,39,1,2,3,0.08,14,7,/player/340192/akim-trishin,7,Akim Trishin,D,2022-2023,vhl,340192,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stepan Anisimov (D),SKA-Neva St. Petersburg,43,1,2,3,0.07,20,-11,/player/516188/stepan-anisimov,7,Stepan Anisimov,D,2022-2023,vhl,516188,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ruslan Shamsutdinov (C),AKM Tula Region,50,1,2,3,0.06,12,-15,/player/459652/ruslan-shamsutdinov,7,Ruslan Shamsutdinov,C,2022-2023,vhl,459652,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Miroshnichenko (LW),Omskie Krylia,4,0,3,3,0.75,2,2,/player/526255/ivan-miroshnichenko,7,Ivan Miroshnichenko,LW,2022-2023,vhl,526255,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timur Khafizov (C),Khimik Voskresensk,7,0,3,3,0.43,2,2,/player/333977/timur-khafizov,7,Timur Khafizov,C,2022-2023,vhl,333977,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Leuka (C),Omskie Krylia,9,0,3,3,0.33,4,1,/player/698860/pavel-leuka,7,Pavel Leuka,C,2022-2023,vhl,698860,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Repyakh (F),Sokol Krasnoyarsk,11,0,3,3,0.27,0,3,/player/164916/alexander-repyakh,7,Alexander Repyakh,F,2022-2023,vhl,164916,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Migur (F),Yermak Angarsk,17,0,3,3,0.18,6,-6,/player/465203/andrei-migur,7,Andrei Migur,F,2022-2023,vhl,465203,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Golikov (D),Ryazan-VDV,22,0,3,3,0.14,16,-5,/player/339497/andrei-golikov,7,Andrei Golikov,D,2022-2023,vhl,339497,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Nikolayev (D),Yuzhny Ural Orsk,23,0,3,3,0.13,8,-5,/player/519782/ilya-nikolayev,7,Ilya Nikolayev,D,2022-2023,vhl,519782,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Chibrikov (D),Khimik Voskresensk,25,0,3,3,0.12,8,8,/player/418063/igor-chibrikov,7,Igor Chibrikov,D,2022-2023,vhl,418063,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Faizullin (D),HK Tambov,27,0,3,3,0.11,8,-2,/player/522010/artyom-faizullin,7,Artyom Faizullin,D,2022-2023,vhl,522010,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Napolskikh (F),Zauralie Kurgan,28,0,3,3,0.11,2,2,/player/618218/ivan-napolskikh,7,Ivan Napolskikh,F,2022-2023,vhl,618218,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Mukhin (D),HK Rostov,31,0,3,3,0.10,22,-6,/player/106885/dmitri-mukhin,7,Dmitri Mukhin,D,2022-2023,vhl,106885,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Murylyov (D),Omskie Krylia,36,0,3,3,0.08,12,-11,/player/568999/artyom-murylyov,7,Artyom Murylyov,D,2022-2023,vhl,568999,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vadim Antipin (D),totals,37,0,3,3,0.08,21,1,/player/392063/vadim-antipin,7,Vadim Antipin,D,2022-2023,vhl,392063,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Gusev (D),Yuzhny Ural Orsk,38,0,3,3,0.08,26,-14,/player/566660/andrei-gusev,7,Andrei Gusev,D,2022-2023,vhl,566660,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radel Zamaltdinov (RW),Bars Kazan,7,2,0,2,0.29,0,-3,/player/707856/radel-zamaltdinov,7,Radel Zamaltdinov,RW,2022-2023,vhl,707856,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Kazakov (F),Izhstal Izhevsk,17,2,0,2,0.12,6,-5,/player/529801/ivan-kazakov,7,Ivan Kazakov,F,2022-2023,vhl,529801,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Yanevsky (D),totals,19,2,0,2,0.11,6,-1,/player/450508/sergei-yanevsky,7,Sergei Yanevsky,D,2022-2023,vhl,450508,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matvei Bannikov (RW/C),totals,27,2,0,2,0.07,4,-6,/player/543596/matvei-bannikov,7,Matvei Bannikov,RW/C,2022-2023,vhl,543596,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilnar Fakhrutdinov (F),Yermak Angarsk,31,2,0,2,0.06,8,-12,/player/568987/ilnar-fakhrutdinov,7,Ilnar Fakhrutdinov,F,2022-2023,vhl,568987,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ruslan Gospodynko (F),Izhstal Izhevsk,32,2,0,2,0.06,4,-10,/player/450502/ruslan-gospodynko,7,Ruslan Gospodynko,F,2022-2023,vhl,450502,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Sokolov (D),Khimik Voskresensk,5,1,1,2,0.40,4,4,/player/383445/nikita-sokolov,7,Nikita Sokolov,D,2022-2023,vhl,383445,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vyacheslav Malov (C),Omskie Krylia,5,1,1,2,0.40,4,-3,/player/543187/vyacheslav-malov,7,Vyacheslav Malov,C,2022-2023,vhl,543187,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Mamaladze (C),SKA-Neva St. Petersburg,6,1,1,2,0.33,0,-4,/player/699454/david-mamaladze,7,David Mamaladze,C,2022-2023,vhl,699454,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filipp Permyakov (LW),Toros Neftekamsk,6,1,1,2,0.33,0,2,/player/698947/filipp-permyakov,7,Filipp Permyakov,LW,2022-2023,vhl,698947,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yan Kopylov (C),Yermak Angarsk,6,1,1,2,0.33,2,-1,/player/595529/yan-kopylov,7,Yan Kopylov,C,2022-2023,vhl,595529,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vsevolod Selivanov (C),Dynamo St. Petersburg,8,1,1,2,0.25,2,4,/player/595552/vsevolod-selivanov,7,Vsevolod Selivanov,C,2022-2023,vhl,595552,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei S. Bolshakov (F),Ryazan-VDV,8,1,1,2,0.25,10,-5,/player/392573/sergei-s-bolshakov,7,Sergei S. Bolshakov,F,2022-2023,vhl,392573,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Yuzbashyan (D/C),HK Rostov,9,1,1,2,0.22,6,-2,/player/649445/roman-yuzbashyan,7,Roman Yuzbashyan,D/C,2022-2023,vhl,649445,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Ivanov (F),Chelmet Chelyabinsk,11,1,1,2,0.18,2,0,/player/617936/yegor-ivanov,7,Yegor Ivanov,F,2022-2023,vhl,617936,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Lyubimov (LW/RW),Khimik Voskresensk,11,1,1,2,0.18,6,-1,/player/42434/roman-lyubimov,7,Roman Lyubimov,LW/RW,2022-2023,vhl,42434,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Vengryzhanovsky (LW),Dizel Penza,12,1,1,2,0.17,4,0,/player/512711/denis-vengryzhanovsky,7,Denis Vengryzhanovsky,LW,2022-2023,vhl,512711,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Gutik (LW),Yermak Angarsk,12,1,1,2,0.17,6,-7,/player/514155/daniil-gutik,7,Daniil Gutik,LW,2022-2023,vhl,514155,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Kazamanov (D),Yermak Angarsk,14,1,1,2,0.14,2,-1,/player/312814/vladislav-kazamanov,7,Vladislav Kazamanov,D,2022-2023,vhl,312814,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Prokopenko (F),Sokol Krasnoyarsk,15,1,1,2,0.13,2,3,/player/552043/alexei-prokopenko,7,Alexei Prokopenko,F,2022-2023,vhl,552043,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Lukichyov (D),Molot Perm,16,1,1,2,0.13,12,-4,/player/395878/anton-lukichyov,7,Anton Lukichyov,D,2022-2023,vhl,395878,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Shumilov (F),totals,18,1,1,2,0.11,4,0,/player/651875/kirill-shumilov,7,Kirill Shumilov,F,2022-2023,vhl,651875,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Skoropad (F),Toros Neftekamsk,23,1,1,2,0.09,4,-10,/player/698946/nikita-skoropad,7,Nikita Skoropad,F,2022-2023,vhl,698946,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nasser Sobhy (C),Bars Kazan,23,1,1,2,0.09,10,-12,/player/625660/nasser-sobhy,7,Nasser Sobhy,C,2022-2023,vhl,625660,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Popov (F),Omskie Krylia,25,1,1,2,0.08,2,-6,/player/359976/kirill-popov,7,Kirill Popov,F,2022-2023,vhl,359976,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Velmatov (D),Dizel Penza,25,1,1,2,0.08,14,3,/player/532035/alexander-velmatov,7,Alexander Velmatov,D,2022-2023,vhl,532035,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Ryashentsev (F),totals,27,1,1,2,0.07,14,-10,/player/160628/andrei-ryashentsev,7,Andrei Ryashentsev,F,2022-2023,vhl,160628,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Yegorov (D),Khimik Voskresensk,31,1,1,2,0.06,12,5,/player/542315/alexei-yegorov,7,Alexei Yegorov,D,2022-2023,vhl,542315,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Saveli Olshansky (D/F),totals,31,1,1,2,0.06,53,-4,/player/384365/saveli-olshansky,7,Saveli Olshansky,D/F,2022-2023,vhl,384365,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Igoshev (D),Molot Perm,36,1,1,2,0.06,30,-6,/player/312953/alexander-igoshev,7,Alexander Igoshev,D,2022-2023,vhl,312953,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yan Grachyov (F),Yermak Angarsk,39,1,1,2,0.05,23,-9,/player/700310/yan-grachyov,7,Yan Grachyov,F,2022-2023,vhl,700310,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Fesenko (RW),Omskie Krylia,2,0,2,2,1.00,0,3,/player/690802/daniil-fesenko,7,Daniil Fesenko,RW,2022-2023,vhl,690802,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Tatalin (D),Yuzhny Ural Orsk,7,0,2,2,0.29,27,-4,/player/107344/roman-tatalin,7,Roman Tatalin,D,2022-2023,vhl,107344,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Odinokov (F),totals,8,0,2,2,0.25,4,-2,/player/514129/sergei-odinokov,7,Sergei Odinokov,F,2022-2023,vhl,514129,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Damir Musin (D),Dizel Penza,9,0,2,2,0.22,0,3,/player/97488/damir-musin,7,Damir Musin,D,2022-2023,vhl,97488,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arsen Khisamutdinov (RW),Gornyak-UGMK,9,0,2,2,0.22,2,3,/player/372023/arsen-khisamutdinov,7,Arsen Khisamutdinov,RW,2022-2023,vhl,372023,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Yadykin (C),Omskie Krylia,9,0,2,2,0.22,6,1,/player/708564/yegor-yadykin,7,Yegor Yadykin,C,2022-2023,vhl,708564,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gennadi Stolyarov (RW/C),Yugra Khanty-Mansiysk,10,0,2,2,0.20,2,1,/player/13646/gennadi-stolyarov,7,Gennadi Stolyarov,RW/C,2022-2023,vhl,13646,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Semeneko (D),Metallurg Novokuznetsk,10,0,2,2,0.20,4,3,/player/395856/mikhail-semeneko,7,Mikhail Semeneko,D,2022-2023,vhl,395856,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Putilov (F),totals,11,0,2,2,0.18,0,-3,/player/625814/alexander-putilov,7,Alexander Putilov,F,2022-2023,vhl,625814,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Misnikov (LW),Dizel Penza,12,0,2,2,0.17,2,1,/player/699783/artyom-misnikov,7,Artyom Misnikov,LW,2022-2023,vhl,699783,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Davydov (D),Izhstal Izhevsk,13,0,2,2,0.15,2,0,/player/93510/ilya-davydov,7,Ilya Davydov,D,2022-2023,vhl,93510,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Konkin (F),Izhstal Izhevsk,13,0,2,2,0.15,6,-6,/player/532572/daniil-konkin,7,Daniil Konkin,F,2022-2023,vhl,532572,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timur Karimov (D),Buran Voronezh,16,0,2,2,0.13,2,4,/player/625738/timur-karimov,7,Timur Karimov,D,2022-2023,vhl,625738,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Manukyan (RW),totals,17,0,2,2,0.12,2,-6,/player/312221/artyom-manukyan,7,Artyom Manukyan,RW,2022-2023,vhl,312221,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gleb Shashkov (F),totals,20,0,2,2,0.10,10,-2,/player/313589/gleb-shashkov,7,Gleb Shashkov,F,2022-2023,vhl,313589,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Figurin (D),Omskie Krylia,22,0,2,2,0.09,0,-8,/player/527451/alexander-figurin,7,Alexander Figurin,D,2022-2023,vhl,527451,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Savelyev (D),Chelmet Chelyabinsk,22,0,2,2,0.09,2,-1,/player/698700/alexei-savelyev,7,Alexei Savelyev,D,2022-2023,vhl,698700,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Zaitsev (D),Gornyak-UGMK,25,0,2,2,0.08,12,5,/player/522140/daniil-zaitsev,7,Daniil Zaitsev,D,2022-2023,vhl,522140,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arman Iritsyan (D),totals,25,0,2,2,0.08,20,3,/player/512904/arman-iritsyan,7,Arman Iritsyan,D,2022-2023,vhl,512904,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Kalinichenko (D),Zvezda Moskva,26,0,2,2,0.08,18,-2,/player/395155/roman-kalinichenko,7,Roman Kalinichenko,D,2022-2023,vhl,395155,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Bannikov (D),totals,32,0,2,2,0.06,26,2,/player/266876/andrei-bannikov,7,Andrei Bannikov,D,2022-2023,vhl,266876,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Vdovin (D),Chelmet Chelyabinsk,43,0,2,2,0.05,18,-10,/player/398142/yegor-vdovin,7,Yegor Vdovin,D,2022-2023,vhl,398142,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danil Zinovyev (F),Sokol Krasnoyarsk,2,1,0,1,0.50,0,-1,/player/420154/danil-zinovyev,7,Danil Zinovyev,F,2022-2023,vhl,420154,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Popugayev (LW/RW),SKA-Neva St. Petersburg,2,1,0,1,0.50,0,1,/player/312680/nikita-popugayev,7,Nikita Popugayev,LW/RW,2022-2023,vhl,312680,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Semyon Chistyakov (D),Omskie Krylia,2,1,0,1,0.50,2,1,/player/517832/semyon-chistyakov,7,Semyon Chistyakov,D,2022-2023,vhl,517832,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Romanov (LW),SKA-Neva St. Petersburg,2,1,0,1,0.50,2,-1,/player/620086/vladislav-romanov,8,Vladislav Romanov,LW,2022-2023,vhl,620086,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Semyon Demidov (RW),SKA-Neva St. Petersburg,3,1,0,1,0.33,0,-1,/player/588575/semyon-demidov,8,Semyon Demidov,RW,2022-2023,vhl,588575,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gleb Nikitin (D),Dizel Penza,4,1,0,1,0.25,2,2,/player/531284/gleb-nikitin,8,Gleb Nikitin,D,2022-2023,vhl,531284,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leonid Boikov (RW),Dynamo St. Petersburg,6,1,0,1,0.17,0,0,/player/713873/leonid-boikov,8,Leonid Boikov,RW,2022-2023,vhl,713873,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Dishkovsky (RW),SKA-Neva St. Petersburg,6,1,0,1,0.17,2,-1,/player/698231/nikita-dishkovsky,8,Nikita Dishkovsky,RW,2022-2023,vhl,698231,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Chernikov (C/RW),Yugra Khanty-Mansiysk,7,1,0,1,0.14,0,1,/player/577719/yegor-chernikov,8,Yegor Chernikov,C/RW,2022-2023,vhl,577719,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Yushkov (F),Zauralie Kurgan,7,1,0,1,0.14,0,1,/player/313248/alexander-yushkov,8,Alexander Yushkov,F,2022-2023,vhl,313248,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Neuchev (LW/RW),Gornyak-UGMK,7,1,0,1,0.14,2,1,/player/618304/viktor-neuchev,8,Viktor Neuchev,LW/RW,2022-2023,vhl,618304,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Kandakov (F),Chelmet Chelyabinsk,8,1,0,1,0.13,2,-2,/player/698709/dmitri-kandakov,8,Dmitri Kandakov,F,2022-2023,vhl,698709,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Ananichev (C/RW),Yuzhny Ural Orsk,9,1,0,1,0.11,0,-6,/player/271673/alexander-ananichev,8,Alexander Ananichev,C/RW,2022-2023,vhl,271673,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grigori Osipov (F),totals,10,1,0,1,0.10,4,-1,/player/709162/grigori-osipov,8,Grigori Osipov,F,2022-2023,vhl,709162,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Sulimov (D),totals,10,1,0,1,0.10,6,-7,/player/160097/yevgeni-sulimov,8,Yevgeni Sulimov,D,2022-2023,vhl,160097,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danila Klimov (F),HK Rostov,14,1,0,1,0.07,0,1,/player/712969/danila-klimov,8,Danila Klimov,F,2022-2023,vhl,712969,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Maltsev (D),totals,16,1,0,1,0.06,35,0,/player/313719/artyom-maltsev,8,Artyom Maltsev,D,2022-2023,vhl,313719,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stepan Steshenko (W),Lada Togliatti,21,1,0,1,0.05,2,-1,/player/568067/stepan-steshenko,8,Stepan Steshenko,W,2022-2023,vhl,568067,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Savchenko (C),Omskie Krylia,22,1,0,1,0.05,8,-1,/player/569011/nikita-savchenko,8,Nikita Savchenko,C,2022-2023,vhl,569011,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Veniamin Korolyov (D),Khimik Voskresensk,22,1,0,1,0.05,49,5,/player/699304/veniamin-korolyov,8,Veniamin Korolyov,D,2022-2023,vhl,699304,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Yushkevich (D),Omskie Krylia,25,1,0,1,0.04,12,-10,/player/265745/dmitri-yushkevich,8,Dmitri Yushkevich,D,2022-2023,vhl,265745,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gleb Babintsev (D),totals,26,1,0,1,0.04,18,-2,/player/375633/gleb-babintsev,8,Gleb Babintsev,D,2022-2023,vhl,375633,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arseni Koromyslov (D),SKA-Neva St. Petersburg,1,0,1,1,1.00,0,1,/player/527452/arseni-koromyslov,8,Arseni Koromyslov,D,2022-2023,vhl,527452,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Takhir Mingachyov (C),Zvezda Moskva,1,0,1,1,1.00,0,0,/player/508751/takhir-mingachyov,8,Takhir Mingachyov,C,2022-2023,vhl,508751,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Yanchevsky (D),Neftyanik Almetievsk,2,0,1,1,0.50,0,-1,/player/312955/mark-yanchevsky,8,Mark Yanchevsky,D,2022-2023,vhl,312955,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Pimenov (C),Toros Neftekamsk,2,0,1,1,0.50,0,0,/player/265515/artyom-pimenov,8,Artyom Pimenov,C,2022-2023,vhl,265515,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vasili Dronyk (F),Zvezda Moskva,2,0,1,1,0.50,0,1,/player/538828/vasili-dronyk,8,Vasili Dronyk,F,2022-2023,vhl,538828,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Dergachyov (C),Omskie Krylia,2,0,1,1,0.50,2,-1,/player/231966/alexander-dergachyov,8,Alexander Dergachyov,C,2022-2023,vhl,231966,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Churkin (D),Buran Voronezh,2,0,1,1,0.50,2,1,/player/273485/andrei-churkin,8,Andrei Churkin,D,2022-2023,vhl,273485,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Kuptsov (RW),Izhstal Izhevsk,2,0,1,1,0.50,2,0,/player/131756/sergei-kuptsov,8,Sergei Kuptsov,RW,2022-2023,vhl,131756,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Semyon Ruchkin (D),Khimik Voskresensk,2,0,1,1,0.50,4,1,/player/262664/semyon-ruchkin,8,Semyon Ruchkin,D,2022-2023,vhl,262664,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Makarov (D),Zvezda Moskva,3,0,1,1,0.33,0,4,/player/673300/nikolai-makarov,8,Nikolai Makarov,D,2022-2023,vhl,673300,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Susuyev (LW/RW),Khimik Voskresensk,3,0,1,1,0.33,0,0,/player/691473/nikita-susuyev,8,Nikita Susuyev,LW/RW,2022-2023,vhl,691473,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Yarovoi (LW/RW),Ryazan-VDV,3,0,1,1,0.33,0,1,/player/699449/stanislav-yarovoi,8,Stanislav Yarovoi,LW/RW,2022-2023,vhl,699449,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Remezovsky (D),SKA-Neva St. Petersburg,3,0,1,1,0.33,0,0,/player/779979/ivan-remezovsky,8,Ivan Remezovsky,D,2022-2023,vhl,779979,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Didkovsky (F),Khimik Voskresensk,3,0,1,1,0.33,0,0,/player/543495/artyom-didkovsky,8,Artyom Didkovsky,F,2022-2023,vhl,543495,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Lekomtsev (D),Yugra Khanty-Mansiysk,3,0,1,1,0.33,2,3,/player/18967/ivan-lekomtsev,8,Ivan Lekomtsev,D,2022-2023,vhl,18967,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Prokhor Poltapov (RW/LW),Zvezda Moskva,3,0,1,1,0.33,2,0,/player/539226/prokhor-poltapov,8,Prokhor Poltapov,RW/LW,2022-2023,vhl,539226,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matvei Tymchenko (F),Yermak Angarsk,3,0,1,1,0.33,6,-2,/player/182440/matvei-tymchenko,8,Matvei Tymchenko,F,2022-2023,vhl,182440,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Korchemkin (D),Yermak Angarsk,4,0,1,1,0.25,0,-7,/player/264868/dmitri-korchemkin,8,Dmitri Korchemkin,D,2022-2023,vhl,264868,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasim Shakirov (LW),HK Tambov,4,0,1,1,0.25,2,0,/player/577246/rasim-shakirov,8,Rasim Shakirov,LW,2022-2023,vhl,577246,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tigran Manukyan (F),Ryazan-VDV,4,0,1,1,0.25,4,-2,/player/262840/tigran-manukyan,8,Tigran Manukyan,F,2022-2023,vhl,262840,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Alexeyev (RW),Metallurg Novokuznetsk,4,0,1,1,0.25,4,-2,/player/205602/andrei-alexeyev,8,Andrei Alexeyev,RW,2022-2023,vhl,205602,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Rolgizer (LW/C),Chelmet Chelyabinsk,5,0,1,1,0.20,0,2,/player/568977/mikhail-rolgizer,8,Mikhail Rolgizer,LW/C,2022-2023,vhl,568977,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Buruyanov (RW/LW),Dynamo St. Petersburg,5,0,1,1,0.20,2,-4,/player/515146/nikita-buruyanov,8,Nikita Buruyanov,RW/LW,2022-2023,vhl,515146,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Galyuk (D/F),Yermak Angarsk,5,0,1,1,0.20,6,1,/player/340088/kirill-galyuk,8,Kirill Galyuk,D/F,2022-2023,vhl,340088,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Chernov (RW),Izhstal Izhevsk,5,0,1,1,0.20,6,1,/player/697780/robert-chernov,8,Robert Chernov,RW,2022-2023,vhl,697780,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Shurakov (RW),Buran Voronezh,6,0,1,1,0.17,2,-1,/player/213111/denis-shurakov,8,Denis Shurakov,RW,2022-2023,vhl,213111,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Pashchenko (D),Yugra Khanty-Mansiysk,6,0,1,1,0.17,2,1,/player/619247/maxim-pashchenko,8,Maxim Pashchenko,D,2022-2023,vhl,619247,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Naumenko (D),Molot Perm,7,0,1,1,0.14,29,-2,/player/589925/artyom-naumenko,8,Artyom Naumenko,D,2022-2023,vhl,589925,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Dyukarev (C/RW),Toros Neftekamsk,8,0,1,1,0.13,2,-4,/player/300944/vladislav-dyukarev,8,Vladislav Dyukarev,C/RW,2022-2023,vhl,300944,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Rykmanov (RW/LW),Chelmet Chelyabinsk,8,0,1,1,0.13,2,-1,/player/709100/alexei-rykmanov,8,Alexei Rykmanov,RW/LW,2022-2023,vhl,709100,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yelisei Minayev (D/C),Sokol Krasnoyarsk,8,0,1,1,0.13,8,0,/player/514176/yelisei-minayev,8,Yelisei Minayev,D/C,2022-2023,vhl,514176,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Timchenko (F),Dizel Penza,9,0,1,1,0.11,0,0,/player/527151/alexander-timchenko,8,Alexander Timchenko,F,2022-2023,vhl,527151,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valeri Sitnikov (D),Gornyak-UGMK,9,0,1,1,0.11,4,0,/player/569639/valeri-sitnikov,8,Valeri Sitnikov,D,2022-2023,vhl,569639,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danil Mylnikov (F),Gornyak-UGMK,9,0,1,1,0.11,10,2,/player/569635/danil-mylnikov,8,Danil Mylnikov,F,2022-2023,vhl,569635,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Semyon Barinov (F),totals,10,0,1,1,0.10,8,-1,/player/360186/semyon-barinov,8,Semyon Barinov,F,2022-2023,vhl,360186,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Plitin (D),Gornyak-UGMK,11,0,1,1,0.09,0,-4,/player/698577/yegor-plitin,8,Yegor Plitin,D,2022-2023,vhl,698577,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Bychkov (D),Molot Perm,11,0,1,1,0.09,9,-2,/player/514141/roman-bychkov,8,Roman Bychkov,D,2022-2023,vhl,514141,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danil Grigoryev (F),Bars Kazan,12,0,1,1,0.08,2,-3,/player/619134/danil-grigoryev,8,Danil Grigoryev,F,2022-2023,vhl,619134,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Naumov (D),Khimik Voskresensk,13,0,1,1,0.08,0,1,/player/708698/maxim-naumov,8,Maxim Naumov,D,2022-2023,vhl,708698,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eduard Mayorov (F),Sokol Krasnoyarsk,13,0,1,1,0.08,0,1,/player/700405/eduard-mayorov,8,Eduard Mayorov,F,2022-2023,vhl,700405,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Tatarnikov (D),Toros Neftekamsk,13,0,1,1,0.08,2,-1,/player/566663/kirill-tatarnikov,8,Kirill Tatarnikov,D,2022-2023,vhl,566663,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Koryagin (D),Sokol Krasnoyarsk,13,0,1,1,0.08,4,-1,/player/589901/vladimir-koryagin,8,Vladimir Koryagin,D,2022-2023,vhl,589901,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Desyatkov (D),Sokol Krasnoyarsk,13,0,1,1,0.08,6,-1,/player/310438/pavel-desyatkov,8,Pavel Desyatkov,D,2022-2023,vhl,310438,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Kanashev (D),Yuzhny Ural Orsk,13,0,1,1,0.08,21,2,/player/392160/ivan-kanashev,8,Ivan Kanashev,D,2022-2023,vhl,392160,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Pachin (F),Zauralie Kurgan,14,0,1,1,0.07,2,-2,/player/316518/anton-pachin,8,Anton Pachin,F,2022-2023,vhl,316518,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vitali Budnitsky (D),Dynamo St. Petersburg,16,0,1,1,0.06,6,3,/player/569857/vitali-budnitsky,8,Vitali Budnitsky,D,2022-2023,vhl,569857,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Muzhikov (D/F),totals,16,0,1,1,0.06,6,2,/player/322592/dmitri-muzhikov,8,Dmitri Muzhikov,D/F,2022-2023,vhl,322592,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Tunkhuzin (D),Yuzhny Ural Orsk,16,0,1,1,0.06,17,-9,/player/17759/stanislav-tunkhuzin,8,Stanislav Tunkhuzin,D,2022-2023,vhl,17759,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yaroslav Obryadin (D),Toros Neftekamsk,17,0,1,1,0.06,16,-3,/player/292118/yaroslav-obryadin,8,Yaroslav Obryadin,D,2022-2023,vhl,292118,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Semyon Buivan (D),Zauralie Kurgan,18,0,1,1,0.06,2,1,/player/566653/semyon-buivan,8,Semyon Buivan,D,2022-2023,vhl,566653,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alisers Mubaraksins (D),Bars Kazan,18,0,1,1,0.06,7,-8,/player/476866/alisers-mubaraksins,8,Alisers Mubaraksins,D,2022-2023,vhl,476866,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Georgi Dedov (D),Zvezda Moskva,18,0,1,1,0.06,12,1,/player/360966/georgi-dedov,8,Georgi Dedov,D,2022-2023,vhl,360966,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Rytkov (F),Dizel Penza,21,0,1,1,0.05,4,-2,/player/708260/yegor-rytkov,8,Yegor Rytkov,F,2022-2023,vhl,708260,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Koreshkov (D),SKA-Neva St. Petersburg,22,0,1,1,0.05,2,-8,/player/398162/yevgeni-koreshkov,8,Yevgeni Koreshkov,D,2022-2023,vhl,398162,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yuri Salov (D),Gornyak-UGMK,24,0,1,1,0.04,12,-1,/player/465201/yuri-salov,8,Yuri Salov,D,2022-2023,vhl,465201,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Oshchepkov (D),Molot Perm,26,0,1,1,0.04,8,6,/player/514446/artyom-oshchepkov,8,Artyom Oshchepkov,D,2022-2023,vhl,514446,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Rogov (D),Zvezda Moskva,27,0,1,1,0.04,14,-1,/player/440406/ivan-rogov,8,Ivan Rogov,D,2022-2023,vhl,440406,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stepan Ostrovsky (D),Gornyak-UGMK,30,0,1,1,0.03,12,-8,/player/450363/stepan-ostrovsky,8,Stepan Ostrovsky,D,2022-2023,vhl,450363,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arsen Nurgaliyev (D),totals,32,0,1,1,0.03,12,-6,/player/265484/arsen-nurgaliyev,8,Arsen Nurgaliyev,D,2022-2023,vhl,265484,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Romanov (D),Molot Perm,41,0,1,1,0.02,15,2,/player/586992/roman-romanov,8,Roman Romanov,D,2022-2023,vhl,586992,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Pronichkin (D),Chelmet Chelyabinsk,0,0,0,0,-,0,0,/player/709087/artyom-pronichkin,8,Artyom Pronichkin,D,2022-2023,vhl,709087,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ignat Korotkikh (C),Sokol Krasnoyarsk,0,0,0,0,-,0,0,/player/595265/ignat-korotkikh,8,Ignat Korotkikh,C,2022-2023,vhl,595265,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Urakov (C/RW),Dizel Penza,0,0,0,0,-,0,0,/player/301513/kirill-urakov,8,Kirill Urakov,C/RW,2022-2023,vhl,301513,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Pukelo (C),AKM Tula Region,0,0,0,0,-,0,0,/player/692215/kirill-pukelo,8,Kirill Pukelo,C,2022-2023,vhl,692215,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danil Bashkirov (RW),Toros Neftekamsk,0,0,0,0,-,0,0,/player/396889/danil-bashkirov,8,Danil Bashkirov,RW,2022-2023,vhl,396889,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Pustozyorov (RW/LW),Toros Neftekamsk,0,0,0,0,-,0,0,/player/395128/alexei-pustozyorov,8,Alexei Pustozyorov,RW/LW,2022-2023,vhl,395128,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Savikov (D),Khimik Voskresensk,0,0,0,0,-,0,0,/player/629427/yegor-savikov,8,Yegor Savikov,D,2022-2023,vhl,629427,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Kharchenko (D),Dizel Penza,1,0,0,0,0.00,0,0,/player/674106/yegor-kharchenko,8,Yegor Kharchenko,D,2022-2023,vhl,674106,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Shapovalenko (D),Toros Neftekamsk,1,0,0,0,0.00,0,-1,/player/588311/vladimir-shapovalenko,8,Vladimir Shapovalenko,D,2022-2023,vhl,588311,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matvei Kokovin (F),Ryazan-VDV,1,0,0,0,0.00,0,-1,/player/542504/matvei-kokovin,8,Matvei Kokovin,F,2022-2023,vhl,542504,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gleb Bulychyov (D),Dizel Penza,1,0,0,0,0.00,0,0,/player/700177/gleb-bulychyov,8,Gleb Bulychyov,D,2022-2023,vhl,700177,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Gavrilov (D),Khimik Voskresensk,1,0,0,0,0.00,0,0,/player/699439/ilya-gavrilov,8,Ilya Gavrilov,D,2022-2023,vhl,699439,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Tankov (C),SKA-Neva St. Petersburg,1,0,0,0,0.00,0,0,/player/292126/kirill-tankov,8,Kirill Tankov,C,2022-2023,vhl,292126,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Monakhov (F),Dizel Penza,1,0,0,0,0.00,0,0,/player/627795/kirill-monakhov,8,Kirill Monakhov,F,2022-2023,vhl,627795,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Kondyrev (C),Ryazan-VDV,1,0,0,0,0.00,0,0,/player/588578/kirill-kondyrev,8,Kirill Kondyrev,C,2022-2023,vhl,588578,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ruslan Abdullayev (LW/RW),Ryazan-VDV,1,0,0,0,0.00,0,0,/player/530690/ruslan-abdullayev,8,Ruslan Abdullayev,LW/RW,2022-2023,vhl,530690,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Guskov (C),AKM Tula Region,1,0,0,0,0.00,0,0,/player/589060/ivan-guskov,8,Ivan Guskov,C,2022-2023,vhl,589060,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Protapovich (C/W),Dizel Penza,1,0,0,0,0.00,0,0,/player/168689/alexander-protapovich,8,Alexander Protapovich,C/W,2022-2023,vhl,168689,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Tonkov (D),Ryazan-VDV,1,0,0,0,0.00,0,1,/player/591426/nikita-tonkov,8,Nikita Tonkov,D,2022-2023,vhl,591426,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yelisei Karpov (RW),Dynamo St. Petersburg,1,0,0,0,0.00,0,0,/player/538021/yelisei-karpov,8,Yelisei Karpov,RW,2022-2023,vhl,538021,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Korobintsev (C),Yugra Khanty-Mansiysk,1,0,0,0,0.00,0,0,/player/699004/vladimir-korobintsev,8,Vladimir Korobintsev,C,2022-2023,vhl,699004,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Shalyshkin (C),Zvezda Moskva,1,0,0,0,0.00,0,0,/player/530474/nikita-shalyshkin,9,Nikita Shalyshkin,C,2022-2023,vhl,530474,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Deni Elabiyev (D),AKM Tula Region,1,0,0,0,0.00,0,0,/player/589055/deni-elabiyev,9,Deni Elabiyev,D,2022-2023,vhl,589055,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ruslan Petrishchev (D),Izhstal Izhevsk,1,0,0,0,0.00,0,0,/player/301527/ruslan-petrishchev,9,Ruslan Petrishchev,D,2022-2023,vhl,301527,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Savin (F),Izhstal Izhevsk,1,0,0,0,0.00,0,0,/player/802742/vladimir-savin,9,Vladimir Savin,F,2022-2023,vhl,802742,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grigori Rudakov (D),Metallurg Novokuznetsk,1,0,0,0,0.00,0,-1,/player/674146/grigori-rudakov,9,Grigori Rudakov,D,2022-2023,vhl,674146,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pyotr Piskunov (RW/C),Metallurg Novokuznetsk,1,0,0,0,0.00,0,0,/player/700339/pyotr-piskunov,9,Pyotr Piskunov,RW/C,2022-2023,vhl,700339,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Obidin (C/RW),Gornyak-UGMK,1,0,0,0,0.00,0,0,/player/269051/andrei-obidin,9,Andrei Obidin,C/RW,2022-2023,vhl,269051,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Vinogradov (C/RW),Dizel Penza,1,0,0,0,0.00,0,-1,/player/700152/yegor-vinogradov,9,Yegor Vinogradov,C/RW,2022-2023,vhl,700152,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Malkov (D),Sokol Krasnoyarsk,1,0,0,0,0.00,0,0,/player/491704/roman-malkov,9,Roman Malkov,D,2022-2023,vhl,491704,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matvei Korepanov (D),Izhstal Izhevsk,1,0,0,0,0.00,2,0,/player/802720/matvei-korepanov,9,Matvei Korepanov,D,2022-2023,vhl,802720,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Georgi Sergeyenko (LW/RW),Yermak Angarsk,2,0,0,0,0.00,0,-1,/player/213001/georgi-sergeyenko,9,Georgi Sergeyenko,LW/RW,2022-2023,vhl,213001,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filipp Freyer (D),Yermak Angarsk,2,0,0,0,0.00,0,0,/player/674576/filipp-freyer,9,Filipp Freyer,D,2022-2023,vhl,674576,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Ruban (F),Sokol Krasnoyarsk,2,0,0,0,0.00,0,0,/player/301511/anton-ruban,9,Anton Ruban,F,2022-2023,vhl,301511,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Vashchenko (D),SKA-Neva St. Petersburg,2,0,0,0,0.00,0,1,/player/398447/nikita-vashchenko,9,Nikita Vashchenko,D,2022-2023,vhl,398447,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Tsyplakov (C),Lada Togliatti,2,0,0,0,0.00,0,0,/player/491369/alexei-tsyplakov,9,Alexei Tsyplakov,C,2022-2023,vhl,491369,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gleb Barmin (F),Zauralie Kurgan,2,0,0,0,0.00,0,-2,/player/577709/gleb-barmin,9,Gleb Barmin,F,2022-2023,vhl,577709,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Valeyev (F),Bars Kazan,2,0,0,0,0.00,0,-1,/player/266825/artyom-valeyev,9,Artyom Valeyev,F,2022-2023,vhl,266825,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Bezrukov (RW),Ryazan-VDV,2,0,0,0,0.00,0,-1,/player/285678/ivan-bezrukov,9,Ivan Bezrukov,RW,2022-2023,vhl,285678,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Kuzmin (LW),Dizel Penza,2,0,0,0,0.00,0,0,/player/802532/ivan-kuzmin,9,Ivan Kuzmin,LW,2022-2023,vhl,802532,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bogdan Trineyev (LW),Dynamo St. Petersburg,2,0,0,0,0.00,0,-3,/player/537760/bogdan-trineyev,9,Bogdan Trineyev,LW,2022-2023,vhl,537760,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Anufriyev (F),Ryazan-VDV,2,0,0,0,0.00,0,0,/player/699443/ilya-anufriyev,9,Ilya Anufriyev,F,2022-2023,vhl,699443,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Rogach (D),Gornyak-UGMK,2,0,0,0,0.00,0,-1,/player/644765/daniil-rogach,9,Daniil Rogach,D,2022-2023,vhl,644765,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yeremei Shumilin (C),Molot Perm,2,0,0,0,0.00,0,-1,/player/539893/yeremei-shumilin,9,Yeremei Shumilin,C,2022-2023,vhl,539893,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Andreyev (C),SKA-Neva St. Petersburg,2,0,0,0,0.00,0,0,/player/620743/vladimir-andreyev,9,Vladimir Andreyev,C,2022-2023,vhl,620743,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matvei Bryntsev (C),AKM Tula Region,2,0,0,0,0.00,0,-1,/player/708689/matvei-bryntsev,9,Matvei Bryntsev,C,2022-2023,vhl,708689,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Dobrovolsky (F),Yugra Khanty-Mansiysk,2,0,0,0,0.00,0,0,/player/450510/alexander-dobrovolsky,9,Alexander Dobrovolsky,F,2022-2023,vhl,450510,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Shenfeld (LW/RW),Metallurg Novokuznetsk,2,0,0,0,0.00,0,0,/player/93874/anton-shenfeld,9,Anton Shenfeld,LW/RW,2022-2023,vhl,93874,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Svyatoslav Grebenshchikov (RW),SKA-Neva St. Petersburg,2,0,0,0,0.00,0,1,/player/160625/svyatoslav-grebenshchikov,9,Svyatoslav Grebenshchikov,RW,2022-2023,vhl,160625,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Alexeyev (F),AKM Tula Region,2,0,0,0,0.00,0,0,/player/566664/ivan-alexeyev,9,Ivan Alexeyev,F,2022-2023,vhl,566664,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Zaikin (C),Omskie Krylia,2,0,0,0,0.00,0,-1,/player/779974/andrei-zaikin,9,Andrei Zaikin,C,2022-2023,vhl,779974,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Fatkullin (C),Omskie Krylia,2,0,0,0,0.00,0,0,/player/779969/david-fatkullin,9,David Fatkullin,C,2022-2023,vhl,779969,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Basov (D),Chelmet Chelyabinsk,2,0,0,0,0.00,2,-1,/player/589930/kirill-basov,9,Kirill Basov,D,2022-2023,vhl,589930,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Kuimov (F),Gornyak-UGMK,2,0,0,0,0.00,4,-1,/player/698897/yegor-kuimov,9,Yegor Kuimov,F,2022-2023,vhl,698897,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Yevseyev (D),Bars Kazan,2,0,0,0,0.00,9,2,/player/699960/nikita-yevseyev,9,Nikita Yevseyev,D,2022-2023,vhl,699960,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Blednov (F),Gornyak-UGMK,3,0,0,0,0.00,0,-1,/player/698862/nikita-blednov,9,Nikita Blednov,F,2022-2023,vhl,698862,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Antonov (F),HK Tambov,3,0,0,0,0.00,0,0,/player/515336/yegor-antonov,9,Yegor Antonov,F,2022-2023,vhl,515336,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Duda (D),Zvezda Moskva,3,0,0,0,0.00,0,0,/player/620321/artyom-duda,9,Artyom Duda,D,2022-2023,vhl,620321,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ostap Maslov (RW),Lada Togliatti,3,0,0,0,0.00,0,0,/player/697809/ostap-maslov,9,Ostap Maslov,RW,2022-2023,vhl,697809,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Ishimnikov (D),Gornyak-UGMK,3,0,0,0,0.00,0,0,/player/707850/nikita-ishimnikov,9,Nikita Ishimnikov,D,2022-2023,vhl,707850,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Begayev (C/RW),Sokol Krasnoyarsk,3,0,0,0,0.00,0,-1,/player/625821/anton-begayev,9,Anton Begayev,C/RW,2022-2023,vhl,625821,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rustam Valiakhmetov (D),Yermak Angarsk,3,0,0,0,0.00,0,0,/player/708675/rustam-valiakhmetov,9,Rustam Valiakhmetov,D,2022-2023,vhl,708675,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Galiaskarov (F),Bars Kazan,3,0,0,0,0.00,2,-1,/player/423136/emil-galiaskarov,9,Emil Galiaskarov,F,2022-2023,vhl,423136,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Semyon Sigorin (D),Molot Perm,3,0,0,0,0.00,2,-3,/player/514137/semyon-sigorin,9,Semyon Sigorin,D,2022-2023,vhl,514137,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Meledin (F),Rubin Tyumen,3,0,0,0,0.00,2,-2,/player/699001/ivan-meledin,9,Ivan Meledin,F,2022-2023,vhl,699001,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Makar Khabarov (D),Buran Voronezh,3,0,0,0,0.00,2,-2,/player/326707/makar-khabarov,9,Makar Khabarov,D,2022-2023,vhl,326707,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Volodin (D),HK Tambov,3,0,0,0,0.00,6,-1,/player/24788/pavel-volodin,9,Pavel Volodin,D,2022-2023,vhl,24788,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Kashtanov (C/RW),Gornyak-UGMK,4,0,0,0,0.00,0,-2,/player/709006/artyom-kashtanov,9,Artyom Kashtanov,C/RW,2022-2023,vhl,709006,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Ustimkin (F),Izhstal Izhevsk,4,0,0,0,0.00,0,1,/player/697754/maxim-ustimkin,9,Maxim Ustimkin,F,2022-2023,vhl,697754,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Ivanov (F),Lada Togliatti,4,0,0,0,0.00,0,0,/player/707905/dmitri-ivanov,9,Dmitri Ivanov,F,2022-2023,vhl,707905,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Zugan (C),Zvezda Moskva,4,0,0,0,0.00,0,-1,/player/530471/dmitri-zugan,9,Dmitri Zugan,C,2022-2023,vhl,530471,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Maryshev (D),Khimik Voskresensk,4,0,0,0,0.00,0,-1,/player/717878/anton-maryshev,9,Anton Maryshev,D,2022-2023,vhl,717878,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Svyatoslav Dorokhov (F),Buran Voronezh,4,0,0,0,0.00,0,0,/player/542344/svyatoslav-dorokhov,9,Svyatoslav Dorokhov,F,2022-2023,vhl,542344,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bulat Nabiullin (F),Buran Voronezh,4,0,0,0,0.00,2,-1,/player/378582/bulat-nabiullin,9,Bulat Nabiullin,F,2022-2023,vhl,378582,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Grishin (D),totals,4,0,0,0,0.00,2,-6,/player/20551/alexei-grishin,9,Alexei Grishin,D,2022-2023,vhl,20551,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Kuznetsov (D),Dizel Penza,4,0,0,0,0.00,2,-2,/player/708231/alexei-kuznetsov,9,Alexei Kuznetsov,D,2022-2023,vhl,708231,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Yezhov (D),Molot Perm,4,0,0,0,0.00,10,-2,/player/514162/andrei-yezhov,9,Andrei Yezhov,D,2022-2023,vhl,514162,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Lukoyanov (LW),Bars Kazan,4,0,0,0,0.00,11,-1,/player/93164/artyom-lukoyanov,9,Artyom Lukoyanov,LW,2022-2023,vhl,93164,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Kovalsky (F),HK Tambov,5,0,0,0,0.00,0,-1,/player/383997/alexander-kovalsky,9,Alexander Kovalsky,F,2022-2023,vhl,383997,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timur Shaikhutdinov (C),Dizel Penza,5,0,0,0,0.00,0,0,/player/708409/timur-shaikhutdinov,9,Timur Shaikhutdinov,C,2022-2023,vhl,708409,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matvei Nasyrov (C),Yugra Khanty-Mansiysk,5,0,0,0,0.00,0,1,/player/577714/matvei-nasyrov,9,Matvei Nasyrov,C,2022-2023,vhl,577714,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Makarov (LW/RW),Zvezda Moskva,5,0,0,0,0.00,0,0,/player/620332/roman-makarov,9,Roman Makarov,LW/RW,2022-2023,vhl,620332,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bogdan Senotov (F),Yugra Khanty-Mansiysk,5,0,0,0,0.00,2,0,/player/577716/bogdan-senotov,9,Bogdan Senotov,F,2022-2023,vhl,577716,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Yegorov (D),Yuzhny Ural Orsk,5,0,0,0,0.00,2,0,/player/339461/daniil-yegorov,9,Daniil Yegorov,D,2022-2023,vhl,339461,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Edgar Varagyan (RW),Yuzhny Ural Orsk,5,0,0,0,0.00,2,-3,/player/543166/edgar-varagyan,9,Edgar Varagyan,RW,2022-2023,vhl,543166,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Georgi Savin (F),Ryazan-VDV,5,0,0,0,0.00,2,-2,/player/588572/georgi-savin,9,Georgi Savin,F,2022-2023,vhl,588572,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Grudinin (D),Zvezda Moskva,5,0,0,0,0.00,2,-1,/player/651884/vladimir-grudinin,9,Vladimir Grudinin,D,2022-2023,vhl,651884,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Isayev (D),Chelmet Chelyabinsk,5,0,0,0,0.00,2,0,/player/211962/igor-isayev,9,Igor Isayev,D,2022-2023,vhl,211962,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timur Khairullin (D),Khimik Voskresensk,5,0,0,0,0.00,4,1,/player/398165/timur-khairullin,9,Timur Khairullin,D,2022-2023,vhl,398165,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Svishchyov (C),Yugra Khanty-Mansiysk,5,0,0,0,0.00,4,0,/player/619250/kirill-svishchyov,9,Kirill Svishchyov,C,2022-2023,vhl,619250,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vyacheslav Korotin (LW/RW),Izhstal Izhevsk,5,0,0,0,0.00,4,-1,/player/431435/vyacheslav-korotin,9,Vyacheslav Korotin,LW/RW,2022-2023,vhl,431435,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Sobolevsky (D),HK Rostov,5,0,0,0,0.00,4,-1,/player/595716/yegor-sobolevsky,9,Yegor Sobolevsky,D,2022-2023,vhl,595716,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Miller (F),Buran Voronezh,5,0,0,0,0.00,27,-1,/player/514483/nikita-miller,9,Nikita Miller,F,2022-2023,vhl,514483,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Nizovkin (LW),AKM Tula Region,6,0,0,0,0.00,0,0,/player/651876/mikhail-nizovkin,9,Mikhail Nizovkin,LW,2022-2023,vhl,651876,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Gorbachyov (D),Izhstal Izhevsk,6,0,0,0,0.00,2,-2,/player/265349/anton-gorbachyov,9,Anton Gorbachyov,D,2022-2023,vhl,265349,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Butsayev (F),Ryazan-VDV,6,0,0,0,0.00,2,-2,/player/514657/daniel-butsayev,9,Daniel Butsayev,F,2022-2023,vhl,514657,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danil Mikhailov (C),Yermak Angarsk,6,0,0,0,0.00,2,-5,/player/465210/danil-mikhailov,9,Danil Mikhailov,C,2022-2023,vhl,465210,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Afanasyev (D),Chelmet Chelyabinsk,6,0,0,0,0.00,8,0,/player/538013/pavel-afanasyev,9,Pavel Afanasyev,D,2022-2023,vhl,538013,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Mnatsyan (D),Molot Perm,6,0,0,0,0.00,21,2,/player/86897/david-mnatsyan,9,David Mnatsyan,D,2022-2023,vhl,86897,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Gopiyenko (D/F),Sokol Krasnoyarsk,7,0,0,0,0.00,0,-3,/player/443693/alexander-gopiyenko,9,Alexander Gopiyenko,D/F,2022-2023,vhl,443693,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Sirotin (D),Yermak Angarsk,7,0,0,0,0.00,0,-2,/player/644153/nikita-sirotin,9,Nikita Sirotin,D,2022-2023,vhl,644153,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Steklov (D),Ryazan-VDV,7,0,0,0,0.00,2,-2,/player/552041/kirill-steklov,9,Kirill Steklov,D,2022-2023,vhl,552041,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Smirnov (F),totals,8,0,0,0,0.00,2,-1,/player/588579/nikolai-smirnov,9,Nikolai Smirnov,F,2022-2023,vhl,588579,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bogdan Korotkov (F),Neftyanik Almetievsk,8,0,0,0,0.00,4,-1,/player/532565/bogdan-korotkov,9,Bogdan Korotkov,F,2022-2023,vhl,532565,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Onishko (D),Lada Togliatti,8,0,0,0,0.00,4,0,/player/398449/artyom-onishko,9,Artyom Onishko,D,2022-2023,vhl,398449,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valeri Sapozhnikov (C),Chelmet Chelyabinsk,9,0,0,0,0.00,0,-4,/player/568982/valeri-sapozhnikov,9,Valeri Sapozhnikov,C,2022-2023,vhl,568982,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adel Safin (D),Bars Kazan,9,0,0,0,0.00,0,-5,/player/700012/adel-safin,9,Adel Safin,D,2022-2023,vhl,700012,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Malov (LW),Omskie Krylia,9,0,0,0,0.00,0,-3,/player/700463/denis-malov,9,Denis Malov,LW,2022-2023,vhl,700463,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Ponomaryov (LW/RW),Khimik Voskresensk,9,0,0,0,0.00,2,0,/player/693397/alexander-ponomaryov,9,Alexander Ponomaryov,LW/RW,2022-2023,vhl,693397,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Ushnev (D),Dynamo St. Petersburg,9,0,0,0,0.00,2,-5,/player/157369/nikita-ushnev,9,Nikita Ushnev,D,2022-2023,vhl,157369,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Demid Podrezov (LW),Omskie Krylia,10,0,0,0,0.00,2,3,/player/396528/demid-podrezov,9,Demid Podrezov,LW,2022-2023,vhl,396528,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Damir Shirgaziyev (F),Yuzhny Ural Orsk,10,0,0,0,0.00,4,1,/player/379729/damir-shirgaziyev,9,Damir Shirgaziyev,F,2022-2023,vhl,379729,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Yershov (D),Buran Voronezh,11,0,0,0,0.00,2,-4,/player/379889/vladimir-yershov,9,Vladimir Yershov,D,2022-2023,vhl,379889,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Vlaskin (D),Izhstal Izhevsk,11,0,0,0,0.00,8,-2,/player/301525/alexei-vlaskin,9,Alexei Vlaskin,D,2022-2023,vhl,301525,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Alexandrov (D),Zauralie Kurgan,11,0,0,0,0.00,27,-2,/player/312812/nikita-alexandrov,9,Nikita Alexandrov,D,2022-2023,vhl,312812,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Konstantinov (F),Chelmet Chelyabinsk,12,0,0,0,0.00,6,-7,/player/530493/dmitri-konstantinov,9,Dmitri Konstantinov,F,2022-2023,vhl,530493,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Vanin (D),Molot Perm,12,0,0,0,0.00,12,-5,/player/149482/denis-vanin,9,Denis Vanin,D,2022-2023,vhl,149482,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Belenchuk (LW),Dizel Penza,13,0,0,0,0.00,4,0,/player/698591/dmitri-belenchuk,9,Dmitri Belenchuk,LW,2022-2023,vhl,698591,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rostislav Khaliullin (LW),Ryazan-VDV,13,0,0,0,0.00,29,-9,/player/512915/rostislav-khaliullin,9,Rostislav Khaliullin,LW,2022-2023,vhl,512915,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Kalashnikov (D),Zauralie Kurgan,14,0,0,0,0.00,4,-1,/player/34771/stanislav-kalashnikov,9,Stanislav Kalashnikov,D,2022-2023,vhl,34771,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Kozhevnikov (D),Buran Voronezh,14,0,0,0,0.00,4,-1,/player/712497/ivan-kozhevnikov,9,Ivan Kozhevnikov,D,2022-2023,vhl,712497,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vsevolod Gaidamak (C),Zvezda Moskva,14,0,0,0,0.00,33,-10,/player/527728/vsevolod-gaidamak,10,Vsevolod Gaidamak,C,2022-2023,vhl,527728,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Lyubchich (D),Bars Kazan,16,0,0,0,0.00,6,-1,/player/531281/alexander-lyubchich,10,Alexander Lyubchich,D,2022-2023,vhl,531281,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Goryachev (D),totals,16,0,0,0,0.00,6,-7,/player/514163/alexei-goryachev,10,Alexei Goryachev,D,2022-2023,vhl,514163,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Kurdin (F),AKM Tula Region,18,0,0,0,0.00,6,-6,/player/673591/ivan-kurdin,10,Ivan Kurdin,F,2022-2023,vhl,673591,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail I. Kozlov (D),Dizel Penza,18,0,0,0,0.00,39,1,/player/339491/mikhail-i-kozlov,10,Mikhail I. Kozlov,D,2022-2023,vhl,339491,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Shapovalenko (F),Toros Neftekamsk,19,0,0,0,0.00,2,-1,/player/543723/sergei-shapovalenko,10,Sergei Shapovalenko,F,2022-2023,vhl,543723,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ruslan Galimzyanov (F),Bars Kazan,21,0,0,0,0.00,8,-10,/player/398451/ruslan-galimzyanov,10,Ruslan Galimzyanov,F,2022-2023,vhl,398451,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Avdyushkin (D),HK Tambov,24,0,0,0,0.00,8,-4,/player/627781/roman-avdyushkin,10,Roman Avdyushkin,D,2022-2023,vhl,627781,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Burlaka (D),Izhstal Izhevsk,26,0,0,0,0.00,4,-8,/player/692341/yevgeni-burlaka,10,Yevgeni Burlaka,D,2022-2023,vhl,692341,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Kanayev (D),Izhstal Izhevsk,26,0,0,0,0.00,8,-4,/player/666153/artyom-kanayev,10,Artyom Kanayev,D,2022-2023,vhl,666153,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Grishanov (D),totals,28,0,0,0,0.00,15,-12,/player/262836/anton-grishanov,10,Anton Grishanov,D,2022-2023,vhl,262836,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Penzin (C),Yuzhny Ural Orsk,35,0,0,0,0.00,14,-15,/player/566752/yegor-penzin,10,Yegor Penzin,C,2022-2023,vhl,566752,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Osin (D),Yermak Angarsk,35,0,0,0,0.00,20,-11,/player/312815/alexander-osin,10,Alexander Osin,D,2022-2023,vhl,312815,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69

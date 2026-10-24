@@ -1,0 +1,83 @@
+npv_spine_compare.py v1.0
+  old: C:\Users\Thomas\AppData\Local\Temp\contract_npv_spine_before_hazard.csv
+  new: 30_OUTPUT\contract_npv_spine.csv
+
+contracts: old 2,981  new 2,981  in both 2,981  only old 0  only new 0
+  identity fields (player, position, seasons) agree on every matched contract
+
+NPV (contract + terminal), rounded to $1:
+  moved: 1,359 of 2,981   up 451   down 908   unchanged 1,622
+  total change $-188.1M   mean $-0.063M   median $+0.000M
+  among moved: median |change| $0.047M, 90th percentile $0.567M, largest $1.81M
+  of which contract part $-188.1M, terminal (RFA control years) $+0.0M
+  distribution old: p10 -8.10  median +0.28  p90 +2.44  ($M)
+  distribution new: p10 -8.32  median +0.27  p90 +2.45  ($M)
+
+by position:
+  goalie                   n   390  moved     0  total      +0.0  mean  +0.000
+  skater                   n  2591  moved  1359  total    -188.1  mean  -0.073
+
+by projection path (old run's label):
+  curve                    n  1515  moved   957  total    -163.7  mean  -0.108
+  flat_low_curve_base      n    98  moved    41  total      -3.3  mean  -0.034
+  flat_no_curve            n   108  moved    49  total      -0.5  mean  -0.005
+  goalie_flat_503020       n   200  moved     0  total      +0.0  mean  +0.000
+  goalie_flat_6040         n    45  moved     0  total      +0.0  mean  +0.000
+  goalie_flat_stale_anchor n    72  moved     0  total      +0.0  mean  +0.000
+  goalie_flat_t1_only      n    73  moved     0  total      +0.0  mean  +0.000
+  replacement_reversion    n   870  moved   312  total     -20.5  mean  -0.024
+
+projection path changed on 0 contracts
+
+by valuation season:
+  2018                     n   330  moved   141  total     -17.2  mean  -0.052
+  2019                     n   370  moved   162  total     -23.1  mean  -0.063
+  2020                     n   364  moved   159  total     -19.8  mean  -0.054
+  2021                     n   372  moved   160  total     -24.1  mean  -0.065
+  2022                     n   423  moved   195  total     -23.7  mean  -0.056
+  2023                     n   377  moved   168  total     -21.5  mean  -0.057
+  2024                     n   385  moved   187  total     -27.6  mean  -0.072
+  2025                     n   360  moved   187  total     -31.1  mean  -0.086
+
+by old NPV ($M):
+  below -20                n   124  moved   115  total     -65.4  mean  -0.527
+  -20 to -5                n   288  moved   244  total     -64.8  mean  -0.225
+  -5 to 0                  n   852  moved   356  total     -34.5  mean  -0.040
+  0 to 5                   n  1626  moved   605  total     -22.4  mean  -0.014
+  above 5                  n    91  moved    39  total      -1.1  mean  -0.012
+
+largest increases:
+  Leon Draisaitl           2025 8yr  curve->curve  $ -11.20M -> $  -9.47M  (+1.73M)
+  Connor McDavid           2018 8yr  curve->curve  $  -7.52M -> $  -6.10M  (+1.42M)
+  David Pastrnak           2023 8yr  curve->curve  $  -2.47M -> $  -1.29M  (+1.19M)
+  Mark Stone               2019 8yr  curve->curve  $ -10.04M -> $  -8.99M  (+1.05M)
+  Jesper Bratt             2023 8yr  curve->curve  $  +2.18M -> $  +3.10M  (+0.92M)
+  Aleksander Barkov        2022 8yr  curve->curve  $ -10.87M -> $ -10.04M  (+0.82M)
+  Elias Pettersson         2024 8yr  curve->curve  $ -14.50M -> $ -13.72M  (+0.79M)
+  Joshua Norris            2022 8yr  curve->curve  $  -7.31M -> $  -6.59M  (+0.72M)
+  Jack Hughes              2022 8yr  curve->curve  $  -4.45M -> $  -3.76M  (+0.69M)
+  Johnny Gaudreau          2022 7yr  curve->curve  $  -6.90M -> $  -6.21M  (+0.69M)
+  Tage Thompson            2023 7yr  curve->curve  $  +4.69M -> $  +5.34M  (+0.65M)
+  William Karlsson         2019 8yr  curve->curve  $ +10.71M -> $ +11.22M  (+0.51M)
+  Nikita Kucherov          2019 8yr  curve->curve  $ -15.14M -> $ -14.63M  (+0.51M)
+  Sam Reinhart             2024 8yr  curve->curve  $  -0.12M -> $  +0.36M  (+0.48M)
+  Timo Meier               2023 8yr  curve->curve  $  -7.69M -> $  -7.26M  (+0.43M)
+
+largest decreases:
+  Jaccob Slavin            2025 8yr  curve->curve  $  -8.37M -> $ -10.18M  (-1.81M)
+  Christopher Tanev        2024 6yr  curve->curve  $  -4.05M -> $  -5.60M  (-1.55M)
+  Brad Marchand            2025 6yr  curve->curve  $  -8.30M -> $  -9.72M  (-1.42M)
+  Damon Severson           2023 8yr  curve->curve  $ -11.60M -> $ -13.00M  (-1.40M)
+  Ryan Ellis               2019 8yr  curve->curve  $ -17.85M -> $ -19.21M  (-1.36M)
+  Tyler Seguin             2019 8yr  curve->curve  $ -39.90M -> $ -41.26M  (-1.36M)
+  Dougie Hamilton          2021 7yr  curve->curve  $ -21.89M -> $ -23.24M  (-1.35M)
+  Mark Scheifele           2024 7yr  curve->curve  $ -25.01M -> $ -26.28M  (-1.27M)
+  Charlie McAvoy           2022 8yr  curve->curve  $ -23.88M -> $ -25.14M  (-1.26M)
+  Devon Toews              2024 7yr  curve->curve  $ -13.80M -> $ -15.04M  (-1.24M)
+  Alex Pietrangelo         2020 7yr  curve->curve  $ -30.66M -> $ -31.89M  (-1.23M)
+  Cam Fowler               2018 8yr  curve->curve  $ -30.27M -> $ -31.46M  (-1.20M)
+  Bo Horvat                2023 8yr  curve->curve  $ -29.10M -> $ -30.25M  (-1.15M)
+  Logan Couture            2019 8yr  curve->curve  $ -33.22M -> $ -34.35M  (-1.14M)
+  Adam Pelech              2021 8yr  curve->curve  $ -14.57M -> $ -15.69M  (-1.12M)
+
+the ten players with corrected birthdates: 0 priced contracts

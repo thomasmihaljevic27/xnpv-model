@@ -1,0 +1,351 @@
+player,team,gp,g,a,tp,p_per_gp,pim,plus_minus,link,page,playername,position,season,league,ep_player_id,scrape_date,source,package_version
+John Hughes (C/RW),Villacher SV,48,12,47,59,1.23,14,15,/player/11254/john-hughes,1,John Hughes,C/RW,2024-2025,icehl,11254,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Hancock (LW/C),Villacher SV,48,21,32,53,1.10,14,18,/player/268928/kevin-hancock,1,Kevin Hancock,LW/C,2024-2025,icehl,268928,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Petersen (RW/LW),EC-KAC,44,18,35,53,1.20,12,21,/player/23202/nick-petersen,1,Nick Petersen,RW/LW,2024-2025,icehl,23202,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matteo Gennaro (C/LW),Asiago,42,23,28,51,1.21,34,-12,/player/131328/matteo-gennaro,1,Matteo Gennaro,C/LW,2024-2025,icehl,131328,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jason Akeson (RW/LW),HC Pustertal,46,18,32,50,1.09,31,0,/player/18628/jason-akeson,1,Jason Akeson,RW/LW,2024-2025,icehl,18628,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Passolt (F),Pioneers Vorarlberg,47,22,23,45,0.96,10,-11,/player/346691/josh-passolt,1,Josh Passolt,F,2024-2025,icehl,346691,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benjamin Nissner (LW),EC Salzburg,46,21,24,45,0.98,34,20,/player/205426/benjamin-nissner,1,Benjamin Nissner,LW,2024-2025,icehl,205426,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Schneider (RW/LW),EC Salzburg,40,19,26,45,1.13,18,18,/player/25178/peter-schneider,1,Peter Schneider,RW/LW,2024-2025,icehl,25178,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian Lebler (RW),Black Wings Linz,48,28,16,44,0.92,61,-2,/player/38232/brian-lebler,1,Brian Lebler,RW,2024-2025,icehl,38232,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+János Hári (LW/C),Fehérvár AV19,48,14,30,44,0.92,23,21,/player/14416/janos-hari,1,János Hári,LW/C,2024-2025,icehl,14416,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Findlay (C),HC Pustertal,45,19,24,43,0.96,38,6,/player/61006/brett-findlay,1,Brett Findlay,C,2024-2025,icehl,61006,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Graham Knott (LW/C),Black Wings Linz,48,16,27,43,0.90,16,8,/player/225057/graham-knott,1,Graham Knott,LW/C,2024-2025,icehl,225057,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Murphy (D),EC Salzburg,42,8,35,43,1.02,8,15,/player/44666/ryan-murphy,1,Ryan Murphy,D,2024-2025,icehl,44666,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Troy Bourke (C),EC Salzburg,43,16,26,42,0.98,33,26,/player/51708/troy-bourke,1,Troy Bourke,C,2024-2025,icehl,51708,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Ierullo (LW),Asiago,42,13,29,42,1.00,19,-16,/player/335273/alex-ierullo,1,Alex Ierullo,LW,2024-2025,icehl,335273,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathias From (LW/RW),EC-KAC,46,21,20,41,0.89,18,21,/player/220307/mathias-from,1,Mathias From,LW/RW,2024-2025,icehl,220307,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Bradley (C),HC Bolzano,48,16,25,41,0.85,49,16,/player/199714/matt-bradley,1,Matt Bradley,C,2024-2025,icehl,199714,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trevor Gooch (C/W),Graz99ers,47,12,27,39,0.83,14,15,/player/163981/trevor-gooch,1,Trevor Gooch,C/W,2024-2025,icehl,163981,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Roy (C/LW),Graz99ers,48,10,29,39,0.81,6,-2,/player/121841/kevin-roy,1,Kevin Roy,C/LW,2024-2025,icehl,121841,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Fraser (RW/LW),EC-KAC,47,21,17,38,0.81,22,17,/player/37148/matt-fraser,1,Matt Fraser,RW/LW,2024-2025,icehl,37148,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shawn St-Amant (LW/RW),Black Wings Linz,44,18,20,38,0.86,16,9,/player/213568/shawn-st-amant,1,Shawn St-Amant,LW/RW,2024-2025,icehl,213568,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Saracino (LW),totals,38,16,22,38,1.00,26,-17,/player/62216/nick-saracino,1,Nick Saracino,LW,2024-2025,icehl,62216,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Keefer (RW),Pioneers Vorarlberg,44,12,26,38,0.86,12,-9,/player/234387/david-keefer,1,David Keefer,RW,2024-2025,icehl,234387,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ken Ograjensek (RW),Black Wings Linz,41,11,27,38,0.93,8,16,/player/20807/ken-ograjensek,1,Ken Ograjensek,RW,2024-2025,icehl,20807,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Randy Gazzola (D),Asiago,30,7,31,38,1.27,6,-8,/player/117333/randy-gazzola,1,Randy Gazzola,D,2024-2025,icehl,117333,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zane Franklin (W),Vienna Capitals,48,17,20,37,0.77,50,-4,/player/209216/zane-franklin,1,Zane Franklin,W,2024-2025,icehl,209216,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Mursak (C/RW),EC-KAC,33,13,24,37,1.12,32,13,/player/11112/jan-mursak,1,Jan Mursak,C/RW,2024-2025,icehl,11112,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Helewka (LW/C),HC Bolzano,44,15,21,36,0.82,75,6,/player/119394/adam-helewka,1,Adam Helewka,LW/C,2024-2025,icehl,119394,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Scherbak (LW/RW),Villacher SV,48,12,24,36,0.75,12,12,/player/209468/nikita-scherbak,1,Nikita Scherbak,LW/RW,2024-2025,icehl,209468,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Rassell (C/LW),HC Innsbruck,44,24,11,35,0.80,28,-16,/player/107924/mark-rassell,1,Mark Rassell,C/LW,2024-2025,icehl,107924,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Grasso (RW/LW),HC Innsbruck,45,21,14,35,0.78,8,-25,/player/212957/patrick-grasso,1,Patrick Grasso,RW/LW,2024-2025,icehl,212957,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Salinitri (C/LW),HC Bolzano,47,17,18,35,0.74,26,11,/player/254246/anthony-salinitri,1,Anthony Salinitri,C/LW,2024-2025,icehl,254246,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Hundertpfund (C),EC-KAC,41,15,20,35,0.85,18,25,/player/16059/thomas-hundertpfund,1,Thomas Hundertpfund,C,2024-2025,icehl,16059,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mario Huber (RW/C),EC Salzburg,47,14,21,35,0.74,17,9,/player/91240/mario-huber,1,Mario Huber,RW/C,2024-2025,icehl,91240,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Petan (C/RW),HC Pustertal,46,13,21,34,0.74,49,1,/player/48817/alex-petan,1,Alex Petan,C/RW,2024-2025,icehl,48817,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan Roe (D),Black Wings Linz,48,6,28,34,0.71,6,13,/player/75025/logan-roe,1,Logan Roe,D,2024-2025,icehl,75025,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Brown (RW/C),Fehérvár AV19,48,21,12,33,0.69,41,17,/player/31273/chris-brown,1,Chris Brown,RW/C,2024-2025,icehl,31273,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Pearson (C/LW),Villacher SV,38,19,14,33,0.87,18,8,/player/245117/chase-pearson,1,Chase Pearson,C/LW,2024-2025,icehl,245117,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommy Purdeller (RW),HC Pustertal,48,17,16,33,0.69,16,16,/player/561349/tommy-purdeller,1,Tommy Purdeller,RW,2024-2025,icehl,561349,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Sabolic (RW),HK Olimpija Ljubljana,46,13,20,33,0.72,20,-8,/player/30086/robert-sabolic,1,Robert Sabolic,RW,2024-2025,icehl,30086,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Guus van Nes (LW/RW),Villacher SV,46,19,13,32,0.70,12,13,/player/214775/guus-van-nes,1,Guus van Nes,LW/RW,2024-2025,icehl,214775,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean Collins (C/LW),Black Wings Linz,47,15,17,32,0.68,14,3,/player/19204/sean-collins,1,Sean Collins,C/LW,2024-2025,icehl,19204,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Haudum (C/LW),Graz99ers,34,11,21,32,0.94,12,2,/player/223288/lukas-haudum,1,Lukas Haudum,C/LW,2024-2025,icehl,223288,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maximilian Rebernig (F),Villacher SV,46,23,8,31,0.67,22,11,/player/385592/maximilian-rebernig,1,Maximilian Rebernig,F,2024-2025,icehl,385592,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryce Misley (C),Asiago,48,13,18,31,0.65,10,-28,/player/273632/bryce-misley,1,Bryce Misley,C,2024-2025,icehl,273632,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cristiano DiGiacinto (C/LW),HC Bolzano,48,13,18,31,0.65,33,12,/player/204054/cristiano-digiacinto,1,Cristiano DiGiacinto,C/LW,2024-2025,icehl,204054,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Raphael Herburger (C),EC-KAC,37,10,21,31,0.84,14,18,/player/15218/raphael-herburger,1,Raphael Herburger,C,2024-2025,icehl,15218,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luca Frigo (LW),HC Bolzano,46,15,15,30,0.65,23,6,/player/43778/luca-frigo,1,Luca Frigo,LW,2024-2025,icehl,43778,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Paul Huber (F),Graz99ers,48,17,12,29,0.60,24,3,/player/385594/paul-huber,1,Paul Huber,F,2024-2025,icehl,385594,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trevor Cheek (C),Fehérvár AV19,37,15,14,29,0.78,30,11,/player/91917/trevor-cheek,1,Trevor Cheek,C,2024-2025,icehl,91917,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikael Frycklund (C),HC Pustertal,44,13,16,29,0.66,75,-4,/player/29266/mikael-frycklund,1,Mikael Frycklund,C,2024-2025,icehl,29266,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dennis Robertson (D),EC Salzburg,44,6,23,29,0.66,53,22,/player/46692/dennis-robertson,1,Dennis Robertson,D,2024-2025,icehl,46692,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Willie Raskob (D),Vienna Capitals,46,6,23,29,0.63,16,-3,/player/183808/willie-raskob,1,Willie Raskob,D,2024-2025,icehl,183808,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ole Einar Engeland Andersen (D),HC Pustertal,45,5,24,29,0.64,18,-5,/player/388736/ole-einar-engeland-andersen,1,Ole Einar Engeland Andersen,D,2024-2025,icehl,388736,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Manuel Ganahl (RW/LW),Graz99ers,48,9,19,28,0.58,28,18,/player/17425/manuel-ganahl,1,Manuel Ganahl,RW/LW,2024-2025,icehl,17425,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frank Hora (D),Graz99ers,48,6,22,28,0.58,34,14,/player/190654/frank-hora,1,Frank Hora,D,2024-2025,icehl,190654,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Campbell (D),Fehérvár AV19,46,5,23,28,0.61,14,20,/player/33876/tim-campbell,1,Tim Campbell,D,2024-2025,icehl,33876,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Vela (C),Graz99ers,42,19,8,27,0.64,22,8,/player/199950/marcus-vela,1,Marcus Vela,C,2024-2025,icehl,199950,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Casey Bailey (RW),Graz99ers,46,15,12,27,0.59,16,-3,/player/45878/casey-bailey,1,Casey Bailey,RW,2024-2025,icehl,45878,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Turnbull (RW/C),Asiago,33,12,15,27,0.82,42,-16,/player/247050/carter-turnbull,1,Carter Turnbull,RW/C,2024-2025,icehl,247050,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Kosmachuk (RW),EC Salzburg,26,11,16,27,1.04,41,8,/player/91265/scott-kosmachuk,1,Scott Kosmachuk,RW,2024-2025,icehl,91265,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Balázs Sebők (C/RW),Fehérvár AV19,33,11,16,27,0.82,8,11,/player/68942/balazs-seb%C5%91k,1,Balázs Sebők,C/RW,2024-2025,icehl,68942,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Valentini (C/W),HC Innsbruck,40,6,21,27,0.68,8,-16,/player/274870/ryan-valentini,1,Ryan Valentini,C/W,2024-2025,icehl,274870,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Jensen Aabo (D),EC-KAC,38,5,22,27,0.71,47,11,/player/16082/jesper-jensen-aabo,1,Jesper Jensen Aabo,D,2024-2025,icehl,16082,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jérémy Grégoire (C/W),Vienna Capitals,37,16,10,26,0.70,84,-9,/player/98666/jeremy-gregoire,1,Jérémy Grégoire,C/W,2024-2025,icehl,98666,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Obersteiner (C),EC-KAC,48,13,13,26,0.54,8,18,/player/263898/daniel-obersteiner,1,Daniel Obersteiner,C,2024-2025,icehl,263898,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philipp Lindner (D),Villacher SV,48,10,16,26,0.54,21,3,/player/99484/philipp-lindner,1,Philipp Lindner,D,2024-2025,icehl,99484,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rok Ticar (C),Graz99ers,47,8,18,26,0.55,14,-5,/player/12862/rok-ticar,1,Rok Ticar,C,2024-2025,icehl,12862,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ross MacDougall (D),Pioneers Vorarlberg,47,5,21,26,0.55,12,-10,/player/296145/ross-macdougall,1,Ross MacDougall,D,2024-2025,icehl,296145,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Bourque (D),HC Bolzano,48,5,21,26,0.54,24,24,/player/213536/simon-bourque,1,Simon Bourque,D,2024-2025,icehl,213536,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brad McClure (RW/C),HC Bolzano,46,11,14,25,0.54,12,4,/player/75849/brad-mcclure,1,Brad McClure,RW/C,2024-2025,icehl,75849,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yushiroh Hirano (RW),HC Innsbruck,36,9,16,25,0.69,6,-18,/player/42643/yushiroh-hirano,1,Yushiroh Hirano,RW,2024-2025,icehl,42643,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Pastujov (C/LW),EC-KAC,40,6,19,25,0.63,16,14,/player/233429/nick-pastujov,1,Nick Pastujov,C/LW,2024-2025,icehl,233429,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cameron Gaunce (D),Fehérvár AV19,44,6,19,25,0.57,60,11,/player/16591/cameron-gaunce,1,Cameron Gaunce,D,2024-2025,icehl,16591,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas Kristler (LW/C),Black Wings Linz,41,5,20,25,0.61,25,0,/player/17127/andreas-kristler,1,Andreas Kristler,LW/C,2024-2025,icehl,17127,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Thaler (C),EC Salzburg,32,13,11,24,0.75,24,15,/player/481010/lucas-thaler,1,Lucas Thaler,C,2024-2025,icehl,481010,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Braden Christoffer (C/LW),HC Bolzano,43,7,17,24,0.56,67,2,/player/88696/braden-christoffer,1,Braden Christoffer,C/LW,2024-2025,icehl,88696,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bine Masic (D),HK Olimpija Ljubljana,45,6,18,24,0.53,14,-4,/player/581143/bine-masic,1,Bine Masic,D,2024-2025,icehl,581143,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Clemens Unterweger (D),EC-KAC,41,5,19,24,0.59,18,36,/player/42494/clemens-unterweger,1,Clemens Unterweger,D,2024-2025,icehl,42494,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan MacPherson (D),Villacher SV,48,4,20,24,0.50,16,14,/player/163732/dylan-macpherson,1,Dylan MacPherson,D,2024-2025,icehl,163732,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anze Kuralt (RW/LW),Fehérvár AV19,30,14,9,23,0.77,31,16,/player/23043/anze-kuralt,1,Anze Kuralt,RW/LW,2024-2025,icehl,23043,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Jasper (C/LW),Vienna Capitals,46,13,10,23,0.50,44,-23,/player/61301/evan-jasper,1,Evan Jasper,C/LW,2024-2025,icehl,61301,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcel Mahkovec (RW),HK Olimpija Ljubljana,48,11,12,23,0.48,4,-1,/player/682665/marcel-mahkovec,1,Marcel Mahkovec,RW,2024-2025,icehl,682665,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leon Wallner (C/RW),Vienna Capitals,43,10,13,23,0.53,6,-4,/player/293185/leon-wallner,1,Leon Wallner,C/RW,2024-2025,icehl,293185,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joseph Cramarossa (C/LW),Vienna Capitals,32,8,15,23,0.72,32,1,/player/45600/joseph-cramarossa,1,Joseph Cramarossa,C/LW,2024-2025,icehl,45600,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thimo Nickl (D),EC-KAC,47,2,21,23,0.49,80,27,/player/291222/thimo-nickl,1,Thimo Nickl,D,2024-2025,icehl,291222,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simeon Schwinger (LW/RW),EC-KAC,47,13,9,22,0.47,24,4,/player/266763/simeon-schwinger,1,Simeon Schwinger,LW/RW,2024-2025,icehl,266763,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Raffl (LW/RW),EC Salzburg,32,12,10,22,0.69,11,16,/player/15501/thomas-raffl,1,Thomas Raffl,LW/RW,2024-2025,icehl,15501,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Hochkofler (RW/D),EC Salzburg,48,10,12,22,0.46,35,5,/player/99495/peter-hochkofler,1,Peter Hochkofler,RW/D,2024-2025,icehl,99495,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cédric Lacroix (C/LW/D),HC Pustertal,47,9,13,22,0.47,114,-5,/player/129040/cedric-lacroix,1,Cédric Lacroix,C/LW/D,2024-2025,icehl,129040,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dustin Gazley (LW/RW),HC Bolzano,29,8,14,22,0.76,10,12,/player/38239/dustin-gazley,1,Dustin Gazley,LW/RW,2024-2025,icehl,38239,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Coatta (RW/C),Villacher SV,48,7,15,22,0.46,8,-3,/player/204303/max-coatta,1,Max Coatta,RW/C,2024-2025,icehl,204303,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Rauchenwald (C),Villacher SV,43,6,16,22,0.51,18,-3,/player/88930/alexander-rauchenwald,1,Alexander Rauchenwald,C,2024-2025,icehl,88930,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Atkinson (D),Fehérvár AV19,44,6,16,22,0.50,68,19,/player/57028/josh-atkinson,1,Josh Atkinson,D,2024-2025,icehl,57028,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luka Maver (C),Black Wings Linz,45,12,9,21,0.47,17,12,/player/176148/luka-maver,1,Luka Maver,C,2024-2025,icehl,176148,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brady Gilmour (C),Pioneers Vorarlberg,45,9,12,21,0.47,4,-12,/player/297674/brady-gilmour,1,Brady Gilmour,C,2024-2025,icehl,297674,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nico Feldner (C/RW),Black Wings Linz,48,7,14,21,0.44,16,6,/player/275134/nico-feldner,1,Nico Feldner,C/RW,2024-2025,icehl,275134,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+István Bartalis (C/LW),Fehérvár AV19,31,5,16,21,0.68,22,13,/player/14074/istvan-bartalis,1,István Bartalis,C/LW,2024-2025,icehl,14074,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexandre Lavoie (C/RW),HK Olimpija Ljubljana,41,5,16,21,0.51,2,-3,/player/37596/alexandre-lavoie,1,Alexandre Lavoie,C/RW,2024-2025,icehl,37596,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Wall (D),Villacher SV,44,4,17,21,0.48,26,12,/player/37501/alex-wall,1,Alex Wall,D,2024-2025,icehl,37501,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Wesley (D),HC Pustertal,47,4,17,21,0.45,18,0,/player/189578/josh-wesley,2,Josh Wesley,D,2024-2025,icehl,189578,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ian Scheid (D),Black Wings Linz,47,2,19,21,0.45,2,-1,/player/223664/ian-scheid,2,Ian Scheid,D,2024-2025,icehl,223664,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominique Heinrich (D),Vienna Capitals,35,1,20,21,0.60,4,-19,/player/17426/dominique-heinrich,2,Dominique Heinrich,D,2024-2025,icehl,17426,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Giordano Finoro (RW),HC Bolzano,46,11,9,20,0.43,18,2,/player/267791/giordano-finoro,2,Giordano Finoro,RW,2024-2025,icehl,267791,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kale Kerbashian (C),HK Olimpija Ljubljana,34,9,11,20,0.59,0,-11,/player/23671/kale-kerbashian,2,Kale Kerbashian,C,2024-2025,icehl,23671,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Corey Mackin (C),HC Innsbruck,40,9,11,20,0.50,2,-20,/player/265890/corey-mackin,2,Corey Mackin,C,2024-2025,icehl,265890,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Csanád Erdély (C/LW),Fehérvár AV19,27,8,12,20,0.74,4,15,/player/114156/csanad-erdely,2,Csanád Erdély,C/LW,2024-2025,icehl,114156,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskar Maier (F),Pioneers Vorarlberg,48,8,12,20,0.42,12,-2,/player/555166/oskar-maier,2,Oskar Maier,F,2024-2025,icehl,555166,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Sowder (LW/RW),Pioneers Vorarlberg,31,7,13,20,0.65,35,-5,/player/349266/lucas-sowder,2,Lucas Sowder,LW/RW,2024-2025,icehl,349266,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Coulter (C),HC Pustertal,47,7,13,20,0.43,10,0,/player/147632/tyler-coulter,2,Tyler Coulter,C,2024-2025,icehl,147632,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Krieger (C/LW),Vienna Capitals,37,6,14,20,0.54,16,-11,/player/214667/peter-krieger,2,Peter Krieger,C/LW,2024-2025,icehl,214667,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Würschl (D),Black Wings Linz,46,3,17,20,0.43,12,5,/player/326191/niklas-wurschl,2,Niklas Würschl,D,2024-2025,icehl,326191,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rudolf Červený (W/C),HK Olimpija Ljubljana,25,10,9,19,0.76,18,-5,/player/14498/rudolf-cerveny,2,Rudolf Červený,W/C,2024-2025,icehl,14498,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Schiechl (C/RW),Graz99ers,48,9,10,19,0.40,12,16,/player/5993/michael-schiechl,2,Michael Schiechl,C/RW,2024-2025,icehl,5993,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Moncada (C),Asiago,35,7,12,19,0.54,14,-11,/player/418591/luke-moncada,2,Luke Moncada,C,2024-2025,icehl,418591,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Hults (D),HC Bolzano,48,6,13,19,0.40,41,3,/player/300850/cole-hults,2,Cole Hults,D,2024-2025,icehl,300850,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Cooper (C),Pioneers Vorarlberg,48,4,15,19,0.40,20,-17,/player/129344/oliver-cooper,2,Oliver Cooper,C,2024-2025,icehl,129344,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Cairns (D),Asiago,46,3,16,19,0.41,30,-20,/player/245621/matt-cairns,2,Matt Cairns,D,2024-2025,icehl,245621,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wyatt Ege (D),HK Olimpija Ljubljana,48,3,16,19,0.40,16,3,/player/267311/wyatt-ege,2,Wyatt Ege,D,2024-2025,icehl,267311,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Messner (D),Fehérvár AV19,48,2,17,19,0.40,28,8,/player/107327/joel-messner,2,Joel Messner,D,2024-2025,icehl,107327,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nik Simsic (LW/C),HK Olimpija Ljubljana,48,11,7,18,0.38,14,-6,/player/158654/nik-simsic,2,Nik Simsic,LW/C,2024-2025,icehl,158654,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benjamin Lanzinger (RW),Villacher SV,39,8,10,18,0.46,2,4,/player/322694/benjamin-lanzinger,2,Benjamin Lanzinger,RW,2024-2025,icehl,322694,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Rowe (C/W),EC Salzburg,44,7,11,18,0.41,18,3,/player/38238/andrew-rowe,2,Andrew Rowe,C/W,2024-2025,icehl,38238,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Kaspick (C),Asiago,40,6,12,18,0.45,30,-17,/player/201245/tanner-kaspick,2,Tanner Kaspick,C,2024-2025,icehl,201245,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Holway (D),Villacher SV,41,3,15,18,0.44,30,7,/player/203358/patrick-holway,2,Patrick Holway,D,2024-2025,icehl,203358,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luca Zanatta (D),HC Pustertal,43,1,17,18,0.42,10,-12,/player/34301/luca-zanatta,2,Luca Zanatta,D,2024-2025,icehl,34301,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Bonino (C),HK Olimpija Ljubljana,22,6,11,17,0.77,10,2,/player/14686/nick-bonino,2,Nick Bonino,C,2024-2025,icehl,14686,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Greg Moro (D),Black Wings Linz,48,6,11,17,0.35,28,10,/player/62145/greg-moro,2,Greg Moro,D,2024-2025,icehl,62145,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Mantenuto (C),HC Bolzano,48,5,12,17,0.35,6,9,/player/269966/daniel-mantenuto,2,Daniel Mantenuto,C,2024-2025,icehl,269966,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johannes Bischofberger (LW),EC-KAC,19,4,13,17,0.89,10,3,/player/70410/johannes-bischofberger,2,Johannes Bischofberger,LW,2024-2025,icehl,70410,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeremy Bracco (LW/RW),HC Innsbruck,22,4,13,17,0.77,2,-14,/player/197800/jeremy-bracco,2,Jeremy Bracco,LW/RW,2024-2025,icehl,197800,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nash Nienhuis (D),EC Salzburg,42,4,13,17,0.40,10,7,/player/330989/nash-nienhuis,2,Nash Nienhuis,D,2024-2025,icehl,330989,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Maier (D),EC-KAC,48,4,13,17,0.35,67,7,/player/313996/david-maier,2,David Maier,D,2024-2025,icehl,313996,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jason Seed (D),HC Bolzano,48,3,14,17,0.35,4,15,/player/45138/jason-seed,2,Jason Seed,D,2024-2025,icehl,45138,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Kainz (C),Graz99ers,46,2,15,17,0.37,2,8,/player/99461/lukas-kainz,2,Lukas Kainz,C,2024-2025,icehl,99461,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Berger (C),Fehérvár AV19,30,7,9,16,0.53,6,3,/player/121953/chase-berger,2,Chase Berger,C,2024-2025,icehl,121953,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicholas Porco (LW),Asiago,43,7,9,16,0.37,13,-28,/player/372048/nicholas-porco,2,Nicholas Porco,LW,2024-2025,icehl,372048,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Valentine (D),HC Bolzano,48,4,12,16,0.33,14,12,/player/30688/scott-valentine,2,Scott Valentine,D,2024-2025,icehl,30688,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blaz Gregorc (D),HK Olimpija Ljubljana,47,3,13,16,0.34,14,-8,/player/12879/blaz-gregorc,2,Blaz Gregorc,D,2024-2025,icehl,12879,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Spornberger (D),HC Bolzano,43,1,15,16,0.37,16,10,/player/381955/peter-spornberger,2,Peter Spornberger,D,2024-2025,icehl,381955,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fabian Hochegger (LW),EC-KAC,33,7,8,15,0.45,30,5,/player/291215/fabian-hochegger,2,Fabian Hochegger,LW,2024-2025,icehl,291215,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Senna Peeters (RW/C),EC-KAC,39,7,8,15,0.38,6,-3,/player/241441/senna-peeters,2,Senna Peeters,RW/C,2024-2025,icehl,241441,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maris Bicevskis (C),HK Olimpija Ljubljana,35,4,11,15,0.43,12,8,/player/34652/maris-bicevskis,2,Maris Bicevskis,C,2024-2025,icehl,34652,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Antonitsch (LW/RW),Graz99ers,48,4,11,15,0.31,41,5,/player/155937/sam-antonitsch,2,Sam Antonitsch,LW/RW,2024-2025,icehl,155937,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roni Allén (D),Pioneers Vorarlberg,35,2,13,15,0.43,16,-1,/player/299307/roni-allen,2,Roni Allén,D,2024-2025,icehl,299307,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ziga Pance (LW/RW),HK Olimpija Ljubljana,39,10,4,14,0.36,42,-3,/player/14641/ziga-pance,2,Ziga Pance,LW/RW,2024-2025,icehl,14641,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ali Wukovits (C/LW),EC Salzburg,20,7,7,14,0.70,18,15,/player/155945/ali-wukovits,2,Ali Wukovits,C/LW,2024-2025,icehl,155945,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marco Richter (LW/C),Villacher SV,37,6,8,14,0.38,6,6,/player/116581/marco-richter,2,Marco Richter,LW/C,2024-2025,icehl,116581,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rok Kapel (F),HK Olimpija Ljubljana,47,6,8,14,0.30,6,-10,/player/267518/rok-kapel,2,Rok Kapel,F,2024-2025,icehl,267518,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gustav Bouramman (D),HC Pustertal,37,5,9,14,0.38,14,1,/player/142252/gustav-bouramman,2,Gustav Bouramman,D,2024-2025,icehl,142252,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Bär (LW/D),HC Innsbruck,48,5,9,14,0.29,8,-26,/player/224953/lukas-bar,2,Lukas Bär,LW/D,2024-2025,icehl,224953,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aljaz Predan (C),Vienna Capitals,48,5,9,14,0.29,10,-3,/player/256100/aljaz-predan,2,Aljaz Predan,C,2024-2025,icehl,256100,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Moutrey (C/W),Asiago,29,7,6,13,0.45,14,-5,/player/117024/nick-moutrey,2,Nick Moutrey,C/W,2024-2025,icehl,117024,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christof Kromp (C/LW),Vienna Capitals,46,7,6,13,0.28,28,2,/player/213016/christof-kromp,2,Christof Kromp,C/LW,2024-2025,icehl,213016,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthias Mantinger (LW),HC Pustertal,48,6,7,13,0.27,14,-9,/player/210068/matthias-mantinger,2,Matthias Mantinger,LW,2024-2025,icehl,210068,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Lattner (D/F),HC Innsbruck,46,5,8,13,0.28,15,-33,/player/36155/jan-lattner,2,Jan Lattner,D/F,2024-2025,icehl,36155,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ramón Schnetzer (D),totals,47,4,9,13,0.28,24,-7,/player/146317/ramon-schnetzer,2,Ramón Schnetzer,D,2024-2025,icehl,146317,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tobias Sablattnig (D/F),EC-KAC,48,4,9,13,0.27,10,10,/player/639339/tobias-sablattnig,2,Tobias Sablattnig,D/F,2024-2025,icehl,639339,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joseph Nardi (C/LW),Pioneers Vorarlberg,26,3,10,13,0.50,24,-5,/player/108431/joseph-nardi,2,Joseph Nardi,C/LW,2024-2025,icehl,108431,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Lewington (D),EC Salzburg,46,3,10,13,0.28,48,22,/player/88699/tyler-lewington,2,Tyler Lewington,D,2024-2025,icehl,88699,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Albano (D),Graz99ers,30,2,11,13,0.43,18,-2,/player/377396/nick-albano,2,Nick Albano,D,2024-2025,icehl,377396,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Garrett McFadden (D),HC Innsbruck,40,2,11,13,0.33,37,-38,/player/238755/garrett-mcfadden,2,Garrett McFadden,D,2024-2025,icehl,238755,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chay Genoway (D),EC Salzburg,34,1,12,13,0.38,2,11,/player/24398/chay-genoway,2,Chay Genoway,D,2024-2025,icehl,24398,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Katic (D),Villacher SV,35,1,12,13,0.37,4,8,/player/11395/mark-katic,2,Mark Katic,D,2024-2025,icehl,11395,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Woger (LW),Pioneers Vorarlberg,34,7,5,12,0.35,12,0,/player/16005/daniel-woger,2,Daniel Woger,LW,2024-2025,icehl,16005,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Orrin Centazzo (LW),Pioneers Vorarlberg,28,6,6,12,0.43,2,-1,/player/282351/orrin-centazzo,2,Orrin Centazzo,LW,2024-2025,icehl,282351,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Korbinian Holzer (D),Graz99ers,39,6,6,12,0.31,65,3,/player/12276/korbinian-holzer,2,Korbinian Holzer,D,2024-2025,icehl,12276,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Harnisch (C),Graz99ers,45,6,6,12,0.27,2,4,/player/432199/tim-harnisch,2,Tim Harnisch,C,2024-2025,icehl,432199,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Raphael Andergassen (RW/C),HC Pustertal,48,5,7,12,0.25,6,-12,/player/67683/raphael-andergassen,2,Raphael Andergassen,RW/C,2024-2025,icehl,67683,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jason Fram (D),Asiago,30,4,8,12,0.40,10,-3,/player/102383/jason-fram,2,Jason Fram,D,2024-2025,icehl,102383,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Akos Mihaly (F),Fehérvár AV19,48,3,9,12,0.25,14,4,/player/269764/akos-mihaly,2,Akos Mihaly,F,2024-2025,icehl,269764,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Davide Conci (LW),HC Pustertal,45,8,3,11,0.24,8,-6,/player/218862/davide-conci,2,Davide Conci,LW,2024-2025,icehl,218862,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+István Terbócs (RW),Fehérvár AV19,47,6,5,11,0.23,12,0,/player/161713/istvan-terbocs,2,István Terbócs,RW,2024-2025,icehl,161713,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julian Pusnik (C),Black Wings Linz,43,5,6,11,0.26,18,12,/player/288835/julian-pusnik,2,Julian Pusnik,C,2024-2025,icehl,288835,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Seamus Donohue (D),Vienna Capitals,44,4,7,11,0.25,28,-2,/player/248332/seamus-donohue,2,Seamus Donohue,D,2024-2025,icehl,248332,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Vallant (D),Villacher SV,44,4,7,11,0.25,28,7,/player/108815/thomas-vallant,2,Thomas Vallant,D,2024-2025,icehl,108815,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Lundegård (D),Pioneers Vorarlberg,45,4,7,11,0.24,8,4,/player/180252/jacob-lundegard,2,Jacob Lundegård,D,2024-2025,icehl,180252,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Felix Maxa (C/W),Villacher SV,48,4,7,11,0.23,15,-3,/player/227623/felix-maxa,2,Felix Maxa,C/W,2024-2025,icehl,227623,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ziga Pavlin (D),HK Olimpija Ljubljana,21,2,9,11,0.52,16,4,/player/15972/ziga-pavlin,2,Ziga Pavlin,D,2024-2025,icehl,15972,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Raphael Wolf (D),Black Wings Linz,47,2,9,11,0.23,34,2,/player/143011/raphael-wolf,2,Raphael Wolf,D,2024-2025,icehl,143011,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Bailen (D),Graz99ers,11,1,10,11,1.00,2,2,/player/38575/nick-bailen,2,Nick Bailen,D,2024-2025,icehl,38575,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Dougherty (D),Vienna Capitals,43,0,11,11,0.26,18,2,/player/204300/jack-dougherty,2,Jack Dougherty,D,2024-2025,icehl,204300,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Wallenta (F),Villacher SV,46,6,4,10,0.22,10,-2,/player/341692/elias-wallenta,2,Elias Wallenta,F,2024-2025,icehl,341692,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaka Sodja (F),HK Olimpija Ljubljana,41,5,5,10,0.24,4,4,/player/276447/jaka-sodja,2,Jaka Sodja,F,2024-2025,icehl,276447,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luca Auer (RW/LW),EC Salzburg,47,5,5,10,0.21,43,0,/player/655950/luca-auer,2,Luca Auer,RW/LW,2024-2025,icehl,655950,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henrik Neubauer (RW/LW),Black Wings Linz,35,4,6,10,0.29,4,-4,/player/172429/henrik-neubauer,2,Henrik Neubauer,RW/LW,2024-2025,icehl,172429,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steven Strong (D),EC-KAC,43,4,6,10,0.23,16,0,/player/45390/steven-strong,2,Steven Strong,D,2024-2025,icehl,45390,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philipp Krening (F),EC Salzburg,36,3,7,10,0.28,8,9,/player/564193/philipp-krening,2,Philipp Krening,F,2024-2025,icehl,564193,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miha Bericic (C/LW),HK Olimpija Ljubljana,47,3,7,10,0.21,10,4,/player/550268/miha-bericic,2,Miha Bericic,C/LW,2024-2025,icehl,550268,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Kernberger (D),Graz99ers,48,3,7,10,0.21,18,-2,/player/27847/michael-kernberger,2,Michael Kernberger,D,2024-2025,icehl,27847,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Di Perna (D),HC Bolzano,48,1,9,10,0.21,22,-4,/player/189407/dylan-di-perna,2,Dylan Di Perna,D,2024-2025,icehl,189407,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miha Zajc (D),HK Olimpija Ljubljana,28,5,4,9,0.32,12,5,/player/151423/miha-zajc,2,Miha Zajc,D,2024-2025,icehl,151423,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bence Stipsicz (D),Fehérvár AV19,46,5,4,9,0.20,16,12,/player/219496/bence-stipsicz,2,Bence Stipsicz,D,2024-2025,icehl,219496,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bálint Magosi (RW),Fehérvár AV19,40,4,5,9,0.23,4,-7,/player/37387/balint-magosi,2,Bálint Magosi,RW,2024-2025,icehl,37387,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Kemp (C),Vienna Capitals,21,3,6,9,0.43,2,-5,/player/292550/brett-kemp,2,Brett Kemp,C,2024-2025,icehl,292550,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ziga Mehle (F),HK Olimpija Ljubljana,43,3,6,9,0.21,10,-3,/player/334739/ziga-mehle,2,Ziga Mehle,F,2024-2025,icehl,334739,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathias Böhm (F),Vienna Capitals,45,3,6,9,0.20,19,-4,/player/540472/mathias-bohm,2,Mathias Böhm,F,2024-2025,icehl,540472,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Glira (D),HC Pustertal,48,3,6,9,0.19,26,-2,/player/93215/daniel-glira,2,Daniel Glira,D,2024-2025,icehl,93215,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Söllinger (D),Black Wings Linz,48,3,6,9,0.19,44,8,/player/642812/patrick-sollinger,2,Patrick Söllinger,D,2024-2025,icehl,642812,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Cosic (D),HK Olimpija Ljubljana,32,2,7,9,0.28,14,1,/player/682486/jan-cosic,2,Jan Cosic,D,2024-2025,icehl,682486,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arvin Atwal (D),HK Olimpija Ljubljana,40,2,7,9,0.23,74,-6,/player/102384/arvin-atwal,3,Arvin Atwal,D,2024-2025,icehl,102384,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Bretschneider (C/W),Black Wings Linz,42,2,7,9,0.21,0,-4,/player/271350/niklas-bretschneider,3,Niklas Bretschneider,C/W,2024-2025,icehl,271350,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Florian Baltram (C/LW),EC Salzburg,19,1,8,9,0.47,4,11,/player/208964/florian-baltram,3,Florian Baltram,C/LW,2024-2025,icehl,208964,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Angelo Miceli (C/LW),Asiago,22,1,8,9,0.41,4,-12,/player/88914/angelo-miceli,3,Angelo Miceli,C/LW,2024-2025,icehl,88914,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zintis Zusevics (LW/C),HC Innsbruck,46,1,8,9,0.20,18,-11,/player/48517/zintis-zusevics,3,Zintis Zusevics,LW/C,2024-2025,icehl,48517,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicholas Welsh (D),HC Innsbruck,37,0,9,9,0.24,28,-22,/player/194215/nicholas-welsh,3,Nicholas Welsh,D,2024-2025,icehl,194215,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michele Marchetti (LW),HC Bolzano,46,7,1,8,0.17,10,1,/player/151303/michele-marchetti,3,Michele Marchetti,LW,2024-2025,icehl,151303,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luca Erne (D/F),Pioneers Vorarlberg,47,6,2,8,0.17,13,-10,/player/705808/luca-erne,3,Luca Erne,D/F,2024-2025,icehl,705808,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Klassek (F),HC Innsbruck,45,5,3,8,0.18,12,-14,/player/639343/stefan-klassek,3,Stefan Klassek,F,2024-2025,icehl,639343,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blaz Tomazevic (F),HK Olimpija Ljubljana,33,4,4,8,0.24,8,-15,/player/222575/blaz-tomazevic,3,Blaz Tomazevic,F,2024-2025,icehl,222575,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Macierzynski (RW/LW),Pioneers Vorarlberg,40,3,5,8,0.20,18,-11,/player/44223/kevin-macierzynski,3,Kevin Macierzynski,RW/LW,2024-2025,icehl,44223,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jimmy Oligny (D),Graz99ers,23,2,6,8,0.35,13,8,/player/45244/jimmy-oligny,3,Jimmy Oligny,D,2024-2025,icehl,45244,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philipp Wimmer (D),EC Salzburg,30,1,7,8,0.27,6,12,/player/505576/philipp-wimmer,3,Philipp Wimmer,D,2024-2025,icehl,505576,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julian Metzler (F),Pioneers Vorarlberg,32,1,7,8,0.25,41,-3,/player/349535/julian-metzler,3,Julian Metzler,F,2024-2025,icehl,349535,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Finn van Ee (C/RW),EC-KAC,47,1,7,8,0.17,26,-4,/player/560849/finn-van-ee,3,Finn van Ee,C/RW,2024-2025,icehl,560849,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Giovanni Vallati (D),Asiago,44,0,8,8,0.18,24,-26,/player/299432/giovanni-vallati,3,Giovanni Vallati,D,2024-2025,icehl,299432,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolaus Hartl (RW),Vienna Capitals,30,5,2,7,0.23,22,-3,/player/25614/nikolaus-hartl,3,Nikolaus Hartl,RW,2024-2025,icehl,25614,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nico Brunner (D/F),Graz99ers,34,4,3,7,0.21,4,12,/player/23216/nico-brunner,3,Nico Brunner,D/F,2024-2025,icehl,23216,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kilian Zündel (D),Graz99ers,36,2,5,7,0.19,16,8,/player/291223/kilian-zundel,3,Kilian Zündel,D,2024-2025,icehl,291223,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Frank (LW/RW),HC Bolzano,41,2,5,7,0.17,8,2,/player/99492/daniel-frank,3,Daniel Frank,LW/RW,2024-2025,icehl,99492,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Kulmala (C/W),Fehérvár AV19,47,2,5,7,0.15,6,-4,/player/55944/rasmus-kulmala,3,Rasmus Kulmala,C/W,2024-2025,icehl,55944,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominic Hackl (D),Vienna Capitals,28,1,6,7,0.25,16,-1,/player/169773/dominic-hackl,3,Dominic Hackl,D,2024-2025,icehl,169773,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anders Krogsgaard (D),HC Innsbruck,38,1,6,7,0.18,21,-15,/player/148403/anders-krogsgaard,3,Anders Krogsgaard,D,2024-2025,icehl,148403,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maximilian Preiml (D),EC-KAC,42,1,6,7,0.17,37,8,/player/639342/maximilian-preiml,3,Maximilian Preiml,D,2024-2025,icehl,639342,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marlon Tschofen (F),Pioneers Vorarlberg,46,4,2,6,0.13,38,-12,/player/548290/marlon-tschofen,3,Marlon Tschofen,F,2024-2025,icehl,548290,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Pallestrang (D),Pioneers Vorarlberg,33,3,3,6,0.18,14,1,/player/17429/alexander-pallestrang,3,Alexander Pallestrang,D,2024-2025,icehl,17429,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommaso Traversa (C/LW),HC Pustertal,41,2,4,6,0.15,18,-9,/player/18104/tommaso-traversa,3,Tommaso Traversa,C/LW,2024-2025,icehl,18104,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcel Witting (RW),Black Wings Linz,44,2,4,6,0.14,6,-3,/player/116588/marcel-witting,3,Marcel Witting,RW,2024-2025,icehl,116588,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kristof Németh (F),Fehérvár AV19,46,2,4,6,0.13,14,-8,/player/564550/kristof-nemeth,3,Kristof Németh,F,2024-2025,icehl,564550,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Stajnoch (D),Fehérvár AV19,46,2,4,6,0.13,35,-3,/player/17747/martin-stajnoch,3,Martin Stajnoch,D,2024-2025,icehl,17747,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Phillip Sinn (D),EC Salzburg,32,1,5,6,0.19,6,0,/player/564061/phillip-sinn,3,Phillip Sinn,D,2024-2025,icehl,564061,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Korecký (D),Pioneers Vorarlberg,47,0,6,6,0.13,67,-18,/player/161190/ivan-korecky,3,Ivan Korecký,D,2024-2025,icehl,161190,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brodi Stuart (C/LW),Black Wings Linz,24,4,1,5,0.21,4,2,/player/337734/brodi-stuart,3,Brodi Stuart,C/LW,2024-2025,icehl,337734,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filippo Rigoni (F),Asiago,43,4,1,5,0.12,6,-14,/player/489327/filippo-rigoni,3,Filippo Rigoni,F,2024-2025,icehl,489327,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Armin Preiser (RW/C),Vienna Capitals,47,4,1,5,0.11,16,-9,/player/385607/armin-preiser,3,Armin Preiser,RW/C,2024-2025,icehl,385607,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marco Magnabosco (RW),Asiago,36,3,2,5,0.14,8,-19,/player/156545/marco-magnabosco,3,Marco Magnabosco,RW,2024-2025,icehl,156545,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolaus Kraus (RW),EC Salzburg,23,2,3,5,0.22,10,-7,/player/155939/nikolaus-kraus,3,Nikolaus Kraus,RW,2024-2025,icehl,155939,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sascha Bauer (LW),HC Innsbruck,31,2,3,5,0.16,10,-24,/player/157084/sascha-bauer,3,Sascha Bauer,LW,2024-2025,icehl,157084,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aljosa Crnovic (D),HK Olimpija Ljubljana,41,2,3,5,0.12,24,-6,/player/267520/aljosa-crnovic,3,Aljosa Crnovic,D,2024-2025,icehl,267520,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Althuber (D/F),HC Pustertal,39,1,4,5,0.13,6,-6,/player/153270/ivan-althuber,3,Ivan Althuber,D/F,2024-2025,icehl,153270,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gergő Ambrus (F),Fehérvár AV19,39,1,4,5,0.13,14,5,/player/489696/gerg%C5%91-ambrus,3,Gergő Ambrus,F,2024-2025,icehl,489696,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Osmanski (D),HC Pustertal,40,1,4,5,0.13,30,1,/player/267695/austin-osmanski,3,Austin Osmanski,D,2024-2025,icehl,267695,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Devin Steffler (D),HC Innsbruck,40,1,4,5,0.13,42,-6,/player/348076/devin-steffler,3,Devin Steffler,D,2024-2025,icehl,348076,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Svedberg (D),HC Pustertal,25,0,5,5,0.20,13,3,/player/13538/viktor-svedberg,3,Viktor Svedberg,D,2024-2025,icehl,13538,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mario Fischer (D),Vienna Capitals,48,0,5,5,0.10,49,-4,/player/11947/mario-fischer,3,Mario Fischer,D,2024-2025,icehl,11947,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Clark (RW),EC-KAC,4,3,1,4,1.00,6,2,/player/15040/kevin-clark,3,Kevin Clark,RW,2024-2025,icehl,15040,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Friend (D),Pioneers Vorarlberg,24,2,2,4,0.17,8,-6,/player/253249/jacob-friend,3,Jacob Friend,D,2024-2025,icehl,253249,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Balázs Varga (RW),Fehérvár AV19,4,1,3,4,1.00,0,1,/player/571834/balazs-varga,3,Balázs Varga,RW,2024-2025,icehl,571834,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jason Willms (C),Vienna Capitals,16,1,3,4,0.25,13,-3,/player/269452/jason-willms,3,Jason Willms,C,2024-2025,icehl,269452,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Deluca (LW),HC Pustertal,33,1,3,4,0.12,31,-2,/player/274522/ivan-deluca,3,Ivan Deluca,LW,2024-2025,icehl,274522,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Stöffler (D),HC Innsbruck,36,1,3,4,0.11,14,-18,/player/707808/elias-stoffler,3,Elias Stöffler,D,2024-2025,icehl,707808,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Antal (F),Vienna Capitals,43,1,3,4,0.09,12,-5,/player/395637/patrick-antal,3,Patrick Antal,F,2024-2025,icehl,395637,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johannes Tschurnig (F),Villacher SV,29,0,4,4,0.14,2,-5,/player/641782/johannes-tschurnig,3,Johannes Tschurnig,F,2024-2025,icehl,641782,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Halmo (LW/RW),HC Bolzano,29,0,4,4,0.14,11,-8,/player/37694/mike-halmo,3,Mike Halmo,LW/RW,2024-2025,icehl,37694,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kele Steffler (D),HC Innsbruck,35,0,4,4,0.11,14,-19,/player/318863/kele-steffler,3,Kele Steffler,D,2024-2025,icehl,318863,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filippo Rigoni (D),Asiago,44,0,4,4,0.09,4,-24,/player/477822/filippo-rigoni,3,Filippo Rigoni,D,2024-2025,icehl,477822,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Pfeffer (D),Graz99ers,48,0,4,4,0.08,2,5,/player/432201/jacob-pfeffer,3,Jacob Pfeffer,D,2024-2025,icehl,432201,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vadim Schreiner (C),EC Salzburg,12,3,0,3,0.25,4,1,/player/714442/vadim-schreiner,3,Vadim Schreiner,C,2024-2025,icehl,714442,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luka Gomboc (LW),EC-KAC,13,2,1,3,0.23,2,-3,/player/384821/luka-gomboc,3,Luka Gomboc,LW,2024-2025,icehl,384821,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Csongor Ambrus (C/RW),Fehérvár AV19,25,2,1,3,0.12,2,-3,/player/639259/csongor-ambrus,3,Csongor Ambrus,C/RW,2024-2025,icehl,639259,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pascal Brunner (RW),HC Bolzano,32,2,1,3,0.09,6,5,/player/490933/pascal-brunner,3,Pascal Brunner,RW,2024-2025,icehl,490933,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Schreier (F/D),EC Salzburg,46,2,1,3,0.07,4,2,/player/296236/lukas-schreier,3,Lukas Schreier,F/D,2024-2025,icehl,296236,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zack Andrusiak (LW/C),Vienna Capitals,3,1,2,3,1.00,2,0,/player/247479/zack-andrusiak,3,Zack Andrusiak,LW/C,2024-2025,icehl,247479,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leon Kolarik (F),EC Salzburg,7,1,2,3,0.43,2,-1,/player/745961/leon-kolarik,3,Leon Kolarik,F,2024-2025,icehl,745961,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kilian Rappold (F),Black Wings Linz,20,1,2,3,0.15,6,-4,/player/482069/kilian-rappold,3,Kilian Rappold,F,2024-2025,icehl,482069,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gregorio Gios (D),totals,27,1,2,3,0.11,18,-6,/player/332317/gregorio-gios,3,Gregorio Gios,D,2024-2025,icehl,332317,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maximilian Theirich (W),Vienna Capitals,30,1,2,3,0.10,4,-2,/player/590851/maximilian-theirich,3,Maximilian Theirich,W,2024-2025,icehl,590851,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Mader (LW/RW),HC Innsbruck,48,1,2,3,0.06,27,-14,/player/104049/thomas-mader,3,Thomas Mader,LW/RW,2024-2025,icehl,104049,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mihály Bendegúz Dobos (LW),Fehérvár AV19,11,0,3,3,0.27,0,1,/player/653873/mihaly-bendeguz-dobos,3,Mihály Bendegúz Dobos,LW,2024-2025,icehl,653873,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Márkó Csollák (D),Fehérvár AV19,14,0,3,3,0.21,2,5,/player/552777/marko-csollak,3,Márkó Csollák,D,2024-2025,icehl,552777,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Enrico Miglioranzi (D),HC Bolzano,16,0,3,3,0.19,8,0,/player/25084/enrico-miglioranzi,3,Enrico Miglioranzi,D,2024-2025,icehl,25084,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rozle Bohinc (D/F),HK Olimpija Ljubljana,26,0,3,3,0.12,2,-2,/player/682662/rozle-bohinc,3,Rozle Bohinc,D/F,2024-2025,icehl,682662,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tian Hebar (D),HK Olimpija Ljubljana,29,0,3,3,0.10,2,-2,/player/618647/tian-hebar,3,Tian Hebar,D,2024-2025,icehl,618647,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Lam (RW),EC-KAC,29,0,3,3,0.10,2,-3,/player/708056/oliver-lam,3,Oliver Lam,RW,2024-2025,icehl,708056,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonas Dobnig (F),HC Innsbruck,35,0,3,3,0.09,4,-29,/player/639347/jonas-dobnig,3,Jonas Dobnig,F,2024-2025,icehl,639347,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefano Marchetti (D),Asiago,38,0,3,3,0.08,14,-4,/player/8498/stefano-marchetti,3,Stefano Marchetti,D,2024-2025,icehl,8498,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lorenzo Casetti (D),Asiago,39,0,3,3,0.08,4,-18,/player/115526/lorenzo-casetti,3,Lorenzo Casetti,D,2024-2025,icehl,115526,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lenz Moosbrugger (F),Graz99ers,41,0,3,3,0.07,2,-3,/player/707960/lenz-moosbrugger,3,Lenz Moosbrugger,F,2024-2025,icehl,707960,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fabian Gschliesser (F),HC Pustertal,39,2,0,2,0.05,4,-5,/player/489349/fabian-gschliesser,3,Fabian Gschliesser,F,2024-2025,icehl,489349,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christoph Tialler (D),Black Wings Linz,7,1,1,2,0.29,2,1,/player/639341/christoph-tialler,3,Christoph Tialler,D,2024-2025,icehl,639341,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mads Larsen (D),EC-KAC,9,1,1,2,0.22,0,4,/player/89718/mads-larsen,3,Mads Larsen,D,2024-2025,icehl,89718,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Felix Koschek (W),Vienna Capitals,16,1,1,2,0.13,0,0,/player/655956/felix-koschek,3,Felix Koschek,W,2024-2025,icehl,655956,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maximilian Wurzer (F),EC Salzburg,16,1,1,2,0.13,2,1,/player/706591/maximilian-wurzer,3,Maximilian Wurzer,F,2024-2025,icehl,706591,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Wetzl (D),Villacher SV,18,0,2,2,0.11,2,-1,/player/291224/niklas-wetzl,3,Niklas Wetzl,D,2024-2025,icehl,291224,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sandro Wille (D),HC Innsbruck,21,0,2,2,0.10,2,-16,/player/655949/sandro-wille,3,Sandro Wille,D,2024-2025,icehl,655949,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janick Wernicke (C/W),Pioneers Vorarlberg,22,0,2,2,0.09,4,-8,/player/592150/janick-wernicke,3,Janick Wernicke,C/W,2024-2025,icehl,592150,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Hörl (D),EC Salzburg,24,0,2,2,0.08,0,5,/player/540476/lukas-horl,3,Lukas Hörl,D,2024-2025,icehl,540476,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leon Widhalm (F),Vienna Capitals,4,1,0,1,0.25,0,0,/player/642830/leon-widhalm,3,Leon Widhalm,F,2024-2025,icehl,642830,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Erlacher (C),HC Innsbruck,9,1,0,1,0.11,2,-5,/player/707795/alexander-erlacher,3,Alexander Erlacher,C,2024-2025,icehl,707795,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Kulintsev (D),Villacher SV,17,1,0,1,0.06,2,4,/player/557237/daniil-kulintsev,3,Daniil Kulintsev,D,2024-2025,icehl,557237,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuele Zampieri (F),Asiago,26,1,0,1,0.04,2,-9,/player/479507/samuele-zampieri,3,Samuele Zampieri,F,2024-2025,icehl,479507,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gerd Kragl (D),Black Wings Linz,40,1,0,1,0.03,11,2,/player/223289/gerd-kragl,3,Gerd Kragl,D,2024-2025,icehl,223289,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shawn Lalonde (D),HK Olimpija Ljubljana,3,0,1,1,0.33,0,-3,/player/11246/shawn-lalonde,3,Shawn Lalonde,D,2024-2025,icehl,11246,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Rapuzzi (C/RW),Asiago,3,0,1,1,0.33,2,1,/player/37764/william-rapuzzi,3,William Rapuzzi,C/RW,2024-2025,icehl,37764,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stephen Harper (LW/C/D),Graz99ers,3,0,1,1,0.33,2,0,/player/117022/stephen-harper,3,Stephen Harper,LW/C/D,2024-2025,icehl,117022,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timo Pallierer (D),Vienna Capitals,6,0,1,1,0.17,2,1,/player/291230/timo-pallierer,3,Timo Pallierer,D,2024-2025,icehl,291230,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julian Pall (F),HC Innsbruck,8,0,1,1,0.13,2,-5,/player/960743/julian-pall,3,Julian Pall,F,2024-2025,icehl,960743,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrea Miglioranzi (F),Asiago,9,0,1,1,0.11,0,-2,/player/824893/andrea-miglioranzi,3,Andrea Miglioranzi,F,2024-2025,icehl,824893,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roland Kiss (D),Fehérvár AV19,10,0,1,1,0.10,0,-4,/player/381629/roland-kiss,3,Roland Kiss,D,2024-2025,icehl,381629,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Mussbacher (D),Pioneers Vorarlberg,15,0,1,1,0.07,2,-5,/player/656397/mark-mussbacher,3,Mark Mussbacher,D,2024-2025,icehl,656397,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominik Prodinger (F),Villacher SV,16,0,1,1,0.06,0,1,/player/655945/dominik-prodinger,4,Dominik Prodinger,F,2024-2025,icehl,655945,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nico Uschan (D),Villacher SV,19,0,1,1,0.05,0,-3,/player/870670/nico-uschan,4,Nico Uschan,D,2024-2025,icehl,870670,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Kerber (D),HC Innsbruck,22,0,1,1,0.05,37,-7,/player/641909/noah-kerber,4,Noah Kerber,D,2024-2025,icehl,641909,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aron Summer (D/F),Pioneers Vorarlberg,25,0,1,1,0.04,27,1,/player/734147/aron-summer,4,Aron Summer,D/F,2024-2025,icehl,734147,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Clemens Krainz (F),Graz99ers,34,0,1,1,0.03,2,-3,/player/504729/clemens-krainz,4,Clemens Krainz,F,2024-2025,icehl,504729,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Jakubitzka (D),HC Innsbruck,44,0,1,1,0.02,22,-18,/player/153308/daniel-jakubitzka,4,Daniel Jakubitzka,D,2024-2025,icehl,153308,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valentin Ploner (F),HC Innsbruck,45,0,1,1,0.02,7,-18,/player/385357/valentin-ploner,4,Valentin Ploner,F,2024-2025,icehl,385357,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Paul Stapelfeldt (D),EC Salzburg,45,0,1,1,0.02,15,3,/player/318853/paul-stapelfeldt,4,Paul Stapelfeldt,D,2024-2025,icehl,318853,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michele Stevan (LW),Asiago,48,0,1,1,0.02,2,-17,/player/48455/michele-stevan,4,Michele Stevan,LW,2024-2025,icehl,48455,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicholas Schintler (F),HC Innsbruck,0,0,0,0,-,0,0,/player/494496/nicholas-schintler,4,Nicholas Schintler,F,2024-2025,icehl,494496,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Romig (LW/RW),Black Wings Linz,0,0,0,0,-,0,0,/player/31691/emil-romig,4,Emil Romig,LW/RW,2024-2025,icehl,31691,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Gaffal (RW/C),Black Wings Linz,0,0,0,0,-,0,0,/player/149537/stefan-gaffal,4,Stefan Gaffal,RW/C,2024-2025,icehl,149537,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Laurin Liesch (D),Black Wings Linz,0,0,0,0,-,0,-,/player/505571/laurin-liesch,4,Laurin Liesch,D,2024-2025,icehl,505571,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yannik Lebeda (F),Pioneers Vorarlberg,1,0,0,0,0.00,0,0,/player/623456/yannik-lebeda,4,Yannik Lebeda,F,2024-2025,icehl,623456,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas De Lorenzo Meo (RW),HC Pustertal,1,0,0,0,0.00,0,0,/player/459915/lukas-de-lorenzo-meo,4,Lukas De Lorenzo Meo,RW,2024-2025,icehl,459915,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lorenz Lindner (D),Black Wings Linz,1,0,0,0,0.00,0,0,/player/560902/lorenz-lindner,4,Lorenz Lindner,D,2024-2025,icehl,560902,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Raffael Aigner (F),Black Wings Linz,1,0,0,0,0.00,0,0,/player/703546/raffael-aigner,4,Raffael Aigner,F,2024-2025,icehl,703546,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Laurin Sandholzer (F),EC Salzburg,1,0,0,0,0.00,0,0,/player/655955/laurin-sandholzer,4,Laurin Sandholzer,F,2024-2025,icehl,655955,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maximilian Mackner (F),EC Salzburg,1,0,0,0,0.00,0,0,/player/641912/maximilian-mackner,4,Maximilian Mackner,F,2024-2025,icehl,641912,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Laurin Wempe (D),Pioneers Vorarlberg,1,0,0,0,0.00,0,0,/player/746570/laurin-wempe,4,Laurin Wempe,D,2024-2025,icehl,746570,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Winston Frimmel (D),HC Innsbruck,1,0,0,0,0.00,0,0,/player/655944/winston-frimmel,4,Winston Frimmel,D,2024-2025,icehl,655944,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Manuel Öhler (LW),HC Pustertal,1,0,0,0,0.00,0,0,/player/459117/manuel-ohler,4,Manuel Öhler,LW,2024-2025,icehl,459117,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tit Smolnikar (D),EC-KAC,1,0,0,0,0.00,0,0,/player/708117/tit-smolnikar,4,Tit Smolnikar,D,2024-2025,icehl,708117,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Constantin Humer (F),EC Salzburg,1,0,0,0,0.00,2,0,/player/794402/constantin-humer,4,Constantin Humer,F,2024-2025,icehl,794402,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maximilian Kirchebner (D),EC Salzburg,2,0,0,0,0.00,0,-1,/player/707800/maximilian-kirchebner,4,Maximilian Kirchebner,D,2024-2025,icehl,707800,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adrian Gesson (F),EC Salzburg,2,0,0,0,0.00,0,0,/player/745974/adrian-gesson,4,Adrian Gesson,F,2024-2025,icehl,745974,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luca Kogler (F),EC Salzburg,2,0,0,0,0.00,2,0,/player/870676/luca-kogler,4,Luca Kogler,F,2024-2025,icehl,870676,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Hanl (F),Graz99ers,3,0,0,0,0.00,0,0,/player/706383/markus-hanl,4,Markus Hanl,F,2024-2025,icehl,706383,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Gruber (D),Vienna Capitals,3,0,0,0,0.00,0,0,/player/706588/richard-gruber,4,Richard Gruber,D,2024-2025,icehl,706588,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alan Lobis (C),HC Pustertal,3,0,0,0,0.00,0,-1,/player/477968/alan-lobis,4,Alan Lobis,C,2024-2025,icehl,477968,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Florian Lanzinger (F),totals,4,0,0,0,0.00,0,-1,/player/655959/florian-lanzinger,4,Florian Lanzinger,F,2024-2025,icehl,655959,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lorenz Klingler (F),HC Innsbruck,4,0,0,0,0.00,0,-6,/player/957576/lorenz-klingler,4,Lorenz Klingler,F,2024-2025,icehl,957576,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Summer (F),Pioneers Vorarlberg,5,0,0,0,0.00,0,0,/player/945480/ben-summer,4,Ben Summer,F,2024-2025,icehl,945480,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergio Benetti (D),Asiago,6,0,0,0,0.00,0,-3,/player/835501/sergio-benetti,4,Sergio Benetti,D,2024-2025,icehl,835501,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Falus (D),Fehérvár AV19,7,0,0,0,0.00,0,-2,/player/393510/adam-falus,4,Adam Falus,D,2024-2025,icehl,393510,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leonhard Ludwig Hasler (D),HC Pustertal,7,0,0,0,0.00,0,-3,/player/489330/leonhard-ludwig-hasler,4,Leonhard Ludwig Hasler,D,2024-2025,icehl,489330,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Paolo Wieltschnig (F),Villacher SV,7,0,0,0,0.00,0,-2,/player/593084/paolo-wieltschnig,4,Paolo Wieltschnig,F,2024-2025,icehl,593084,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Weidacher (F),HC Innsbruck,8,0,0,0,0.00,0,-4,/player/745980/sebastian-weidacher,4,Sebastian Weidacher,F,2024-2025,icehl,745980,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Paul Reiner (D),Graz99ers,9,0,0,0,0.00,0,0,/player/832483/paul-reiner,4,Paul Reiner,D,2024-2025,icehl,832483,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Waschnig (LW),EC-KAC,10,0,0,0,0.00,0,0,/player/902453/david-waschnig,4,David Waschnig,LW,2024-2025,icehl,902453,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakob Mitsch (F),Black Wings Linz,10,0,0,0,0.00,4,-1,/player/317418/jakob-mitsch,4,Jakob Mitsch,F,2024-2025,icehl,317418,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Donát Horváth (D),Fehérvár AV19,11,0,0,0,0.00,0,3,/player/653869/donat-horvath,4,Donát Horváth,D,2024-2025,icehl,653869,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Giacomo Marcazzan (F),Asiago,11,0,0,0,0.00,0,-3,/player/804199/giacomo-marcazzan,4,Giacomo Marcazzan,F,2024-2025,icehl,804199,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julian Raspotnig (D),Villacher SV,11,0,0,0,0.00,2,-4,/player/718100/julian-raspotnig,4,Julian Raspotnig,D,2024-2025,icehl,718100,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Piff (D),Vienna Capitals,13,0,0,0,0.00,2,1,/player/385609/lukas-piff,4,Lukas Piff,D,2024-2025,icehl,385609,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luka Vodlan (C),HK Olimpija Ljubljana,18,0,0,0,0.00,0,-3,/player/527491/luka-vodlan,4,Luka Vodlan,C,2024-2025,icehl,527491,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Klassek (D),EC-KAC,18,0,0,0,0.00,2,4,/player/718106/thomas-klassek,4,Thomas Klassek,D,2024-2025,icehl,718106,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Kirchschläger (D),Vienna Capitals,19,0,0,0,0.00,2,-3,/player/155930/erik-kirchschlager,4,Erik Kirchschläger,D,2024-2025,icehl,155930,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lovro Kumanovic (F),HK Olimpija Ljubljana,22,0,0,0,0.00,0,0,/player/620276/lovro-kumanovic,4,Lovro Kumanovic,F,2024-2025,icehl,620276,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bernhard Posch (D),Vienna Capitals,39,0,0,0,0.00,14,-9,/player/463237/bernhard-posch,4,Bernhard Posch,D,2024-2025,icehl,463237,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69

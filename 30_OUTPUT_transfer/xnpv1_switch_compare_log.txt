@@ -1,0 +1,255 @@
+npv_spine_compare.py v1.0
+  old: C:\Users\thoma\AppData\Local\Temp\tmp1o7nr1kz\spine_xnpv0.csv
+  new: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\contract_npv_spine.csv
+
+contracts: old 2,981  new 3,149  in both 2,981  only old 0  only new 168
+  only in NEW: Brian Strait 2018 (contract 3721) NPV $+0.08M
+  only in NEW: Tyler Gaudet 2018 (contract 3741) NPV $+0.51M
+  only in NEW: Nathan Gerbe 2018 (contract 3794) NPV $-0.70M
+  only in NEW: Rinat Valiev 2018 (contract 4134) NPV $+1.55M
+  only in NEW: Stefan Matteau 2018 (contract 4197) NPV $+0.43M
+  only in NEW: Daniel Sprong 2018 (contract 4262) NPV $+4.21M
+  only in NEW: Seth Helgeson 2018 (contract 4298) NPV $-0.21M
+  only in NEW: Tyler Wotherspoon 2018 (contract 4366) NPV $+0.37M
+  only in NEW: Zach Trotman 2018 (contract 4373) NPV $+0.68M
+  only in NEW: Joel Hanley 2018 (contract 4377) NPV $-5.83M
+  only in NEW: Rocco Grimaldi 2018 (contract 4401) NPV $+1.22M
+  only in NEW: Jarred Tinordi 2018 (contract 4403) NPV $+0.27M
+  only in NEW: Mike Sislo 2018 (contract 4421) NPV $-0.36M
+  only in NEW: Michael Mersch 2018 (contract 4470) NPV $-0.20M
+  only in NEW: Kurtis MacDermid 2018 (contract 4505) NPV $+0.63M
+  only in NEW: Kerby Rychel 2018 (contract 4625) NPV $+0.43M
+  only in NEW: Anthony Peluso 2018 (contract 4628) NPV $-0.15M
+  only in NEW: Stefan Elliott 2018 (contract 4654) NPV $+0.29M
+  only in NEW: Dennis Everberg 2018 (contract 4657) NPV $-0.14M
+  only in NEW: Laurent Dauphin 2019 (contract 4919) NPV $+0.94M
+  only in NEW: Joseph Cramarossa 2019 (contract 5011) NPV $+1.20M
+  only in NEW: Anton Blidh 2019 (contract 5022) NPV $+1.32M
+  only in NEW: Robbie Russo 2019 (contract 5072) NPV $+0.84M
+  only in NEW: Cameron Gaunce 2019 (contract 5149) NPV $+0.29M
+  only in NEW: Adam Clendening 2019 (contract 5160) NPV $+2.79M
+  only in NEW: Cody Goloubef 2019 (contract 5165) NPV $+0.33M
+  only in NEW: Michael Sgarbossa 2019 (contract 5180) NPV $+1.79M
+  only in NEW: Patrick Brown 2019 (contract 5241) NPV $+0.19M
+  only in NEW: Beau Bennett 2019 (contract 5274) NPV $+1.20M
+  only in NEW: Tanner Kero 2019 (contract 5281) NPV $+1.56M
+  only in NEW: Tyler Graovac 2019 (contract 5289) NPV $+1.32M
+  only in NEW: Luke Witkowski 2019 (contract 5297) NPV $-0.13M
+  only in NEW: Jayson Megna 2019 (contract 5302) NPV $+0.90M
+  only in NEW: Joseph Blandisi 2019 (contract 5322) NPV $+0.90M
+  only in NEW: Hudson Fasching 2019 (contract 5335) NPV $-0.04M
+  only in NEW: Nelson Nogier 2019 (contract 5416) NPV $+1.42M
+  only in NEW: Julian Melchiori 2019 (contract 5625) NPV $-0.03M
+  only in NEW: Gustav Olofsson 2020 (contract 5659) NPV $+1.28M
+  only in NEW: Kurtis MacDermid 2020 (contract 5687) NPV $+0.28M
+  only in NEW: Evgeny Svechnikov 2020 (contract 5798) NPV $+0.12M
+  only in NEW: Michael McCarron 2020 (contract 5835) NPV $-0.12M
+  only in NEW: Sebastian Aho 2020 (contract 5871) NPV $+1.35M
+  only in NEW: Matt Bartkowski 2020 (contract 5891) NPV $-0.51M
+  only in NEW: Seth Griffith 2020 (contract 5915) NPV $-0.34M
+  only in NEW: Byron Froese 2020 (contract 5973) NPV $-0.06M
+  only in NEW: Andreas Borgman 2020 (contract 5979) NPV $+1.38M
+  only in NEW: Mark Alt 2020 (contract 6016) NPV $-0.20M
+  only in NEW: Gabriel Carlsson 2020 (contract 6090) NPV $+0.94M
+  only in NEW: Marko Dano 2020 (contract 6170) NPV $+0.16M
+  only in NEW: Roland McKeown 2020 (contract 6197) NPV $+0.27M
+  only in NEW: Jonny Brodzinski 2021 (contract 6386) NPV $-0.01M
+  only in NEW: Steven Santini 2021 (contract 6405) NPV $+1.79M
+  only in NEW: Henrik Borgstrom 2021 (contract 6419) NPV $+4.16M
+  only in NEW: Kevin Connauton 2021 (contract 6451) NPV $+0.17M
+  only in NEW: Vinni Lettieri 2021 (contract 6520) NPV $-0.10M
+  only in NEW: Fredrik Claesson 2021 (contract 6540) NPV $+0.56M
+  only in NEW: Gemel Smith 2021 (contract 6548) NPV $-0.28M
+  only in NEW: Samuel Morin 2021 (contract 6563) NPV $+0.20M
+  only in NEW: Noah Juulsen 2021 (contract 6564) NPV $+0.65M
+  only in NEW: Chris Wideman 2021 (contract 6622) NPV $-0.45M
+  only in NEW: Jean-Sebastien Dea 2021 (contract 6628) NPV $+0.15M
+  only in NEW: Sven Baertschi 2021 (contract 6634) NPV $-0.23M
+  only in NEW: Joe Hicketts 2021 (contract 6658) NPV $+0.36M
+  only in NEW: Dmitrij Jaskin 2021 (contract 6664) NPV $-2.40M
+  only in NEW: Sheldon Dries 2021 (contract 6671) NPV $+0.24M
+  only in NEW: C.J. Smith 2021 (contract 6687) NPV $-0.24M
+  only in NEW: Steven Fogarty 2021 (contract 6711) NPV $-0.43M
+  only in NEW: Jaycob Megna 2021 (contract 6713) NPV $+0.08M
+  only in NEW: Kevin Gravel 2021 (contract 6721) NPV $+0.42M
+  only in NEW: Alexander Petrovic 2021 (contract 6725) NPV $-0.23M
+  only in NEW: Justin Bailey 2021 (contract 6731) NPV $-0.25M
+  only in NEW: Dylan Sikura 2021 (contract 6748) NPV $+0.18M
+  only in NEW: Joseph Gambardella 2021 (contract 6758) NPV $-0.84M
+  only in NEW: Luke Witkowski 2021 (contract 6763) NPV $-0.97M
+  only in NEW: Gavin Bayreuther 2021 (contract 6768) NPV $+0.19M
+  only in NEW: Pontus Aberg 2021 (contract 6810) NPV $+1.09M
+  only in NEW: Remi Elie 2021 (contract 6811) NPV $-0.21M
+  only in NEW: Brett Seney 2021 (contract 6812) NPV $+1.29M
+  only in NEW: A.J. Greer 2021 (contract 6842) NPV $-0.09M
+  only in NEW: Maxime Lajoie 2021 (contract 6914) NPV $+3.12M
+  only in NEW: Paul LaDue 2021 (contract 6997) NPV $+0.72M
+  only in NEW: Ashton Sautner 2021 (contract 7092) NPV $+0.12M
+  only in NEW: Brad Malone 2021 (contract 7119) NPV $-0.63M
+  only in NEW: Carl Dahlstrom 2022 (contract 7146) NPV $+0.50M
+  only in NEW: Derrick Pouliot 2021 (contract 7165) NPV $+0.47M
+  only in NEW: Matthew Peca 2022 (contract 7187) NPV $-0.30M
+  only in NEW: Kurtis MacDermid 2022 (contract 7220) NPV $-0.08M
+  only in NEW: Joona Luoto 2022 (contract 7322) NPV $+0.52M
+  only in NEW: TJ Tynan 2022 (contract 7340) NPV $-0.38M
+  only in NEW: Taylor Fedun 2022 (contract 7369) NPV $+0.24M
+  only in NEW: Otto Koivula 2022 (contract 7411) NPV $+0.32M
+  only in NEW: Andy Andreoff 2022 (contract 7415) NPV $-1.25M
+  only in NEW: Alexander Nylander 2022 (contract 7424) NPV $+8.40M
+  only in NEW: Stefan Noesen 2022 (contract 7439) NPV $+0.92M
+  only in NEW: Alexander True 2022 (contract 7440) NPV $+0.19M
+  only in NEW: Xavier Ouellet 2022 (contract 7479) NPV $-0.67M
+  only in NEW: Charles Hudon 2022 (contract 7488) NPV $-0.33M
+  only in NEW: Madison Bowey 2022 (contract 7508) NPV $+0.21M
+  only in NEW: Dennis Gilbert 2022 (contract 7521) NPV $+1.08M
+  only in NEW: Scott Sabourin 2022 (contract 7544) NPV $-0.18M
+  only in NEW: Mason Geertsen 2022 (contract 7565) NPV $+0.04M
+  only in NEW: Andrew Agozzino 2022 (contract 7570) NPV $-1.07M
+  only in NEW: Andreas Englund 2022 (contract 7577) NPV $+0.37M
+  only in NEW: Denis Malgin 2022 (contract 7595) NPV $+0.40M
+  only in NEW: Gerald Mayhew 2022 (contract 7652) NPV $-0.47M
+  only in NEW: Lawrence Pilut 2022 (contract 7660) NPV $+0.07M
+  only in NEW: Martin Frk 2022 (contract 7661) NPV $-0.13M
+  only in NEW: Carsen Twarynski 2022 (contract 7715) NPV $+0.42M
+  only in NEW: David Gustafsson 2022 (contract 7791) NPV $+3.71M
+  only in NEW: Cale Fleury 2022 (contract 7830) NPV $+1.13M
+  only in NEW: Clark Bishop 2023 (contract 8155) NPV $+0.22M
+  only in NEW: Steven Kampfer 2023 (contract 8170) NPV $+0.04M
+  only in NEW: Jeremy Davies 2023 (contract 8187) NPV $+0.69M
+  only in NEW: Jacob Larsson 2023 (contract 8202) NPV $+0.77M
+  only in NEW: Mason Geertsen 2023 (contract 8299) NPV $-0.31M
+  only in NEW: Wyatt Kalynuk 2023 (contract 8322) NPV $+1.50M
+  only in NEW: Rhett Gardner 2023 (contract 8357) NPV $+1.05M
+  only in NEW: Anthony Angello 2023 (contract 8374) NPV $+0.11M
+  only in NEW: Chris Wagner 2023 (contract 8403) NPV $-0.33M
+  only in NEW: Nicholas Caamano 2023 (contract 8411) NPV $+0.24M
+  only in NEW: Connor Carrick 2023 (contract 8434) NPV $-0.13M
+  only in NEW: William Borgen 2023 (contract 8464) NPV $-3.85M
+  only in NEW: Nicolas Beaudin 2023 (contract 8491) NPV $+1.19M
+  only in NEW: Kurtis MacDermid 2024 (contract 8856) NPV $-1.61M
+  only in NEW: Gabriel Fortier 2024 (contract 8901) NPV $+1.16M
+  only in NEW: Ty Smith 2024 (contract 8919) NPV $+1.04M
+  only in NEW: Vladislav Kolyachonok 2024 (contract 8931) NPV $+3.76M
+  only in NEW: Matthew Highmore 2024 (contract 8935) NPV $+0.88M
+  only in NEW: Cam Dineen 2024 (contract 8940) NPV $+1.79M
+  only in NEW: John Hayden 2024 (contract 8952) NPV $+0.39M
+  only in NEW: Max McCormick 2024 (contract 8956) NPV $-1.06M
+  only in NEW: Corey Schueneman 2024 (contract 9059) NPV $+0.66M
+  only in NEW: Mike Hardman 2024 (contract 9062) NPV $+0.90M
+  only in NEW: Riley Tufte 2024 (contract 9079) NPV $+0.32M
+  only in NEW: Kole Lind 2024 (contract 9107) NPV $+0.52M
+  only in NEW: Lucas Carlsson 2024 (contract 9121) NPV $+3.31M
+  only in NEW: Derrick Pouliot 2024 (contract 9129) NPV $-0.21M
+  only in NEW: Jeffrey Viel 2024 (contract 9132) NPV $+0.99M
+  only in NEW: Brett Murray 2024 (contract 9133) NPV $+0.63M
+  only in NEW: Adam Gaudette 2024 (contract 9148) NPV $-0.02M
+  only in NEW: Kevin Connauton 2024 (contract 9184) NPV $-0.77M
+  only in NEW: Jan Jenik 2024 (contract 9219) NPV $+0.60M
+  only in NEW: Josiah Slavin 2024 (contract 9245) NPV $-0.52M
+  only in NEW: Alec Regula 2024 (contract 9269) NPV $+1.53M
+  only in NEW: Marc McLaughlin 2024 (contract 9293) NPV $+0.66M
+  only in NEW: Dennis Cholowski 2024 (contract 9308) NPV $-0.00M
+  only in NEW: Anton Blidh 2025 (contract 9610) NPV $-0.46M
+  only in NEW: Egor Afanasyev 2025 (contract 9669) NPV $+0.82M
+  only in NEW: Victor Soderstrom 2025 (contract 9716) NPV $+1.10M
+  only in NEW: Jonathan Toews 2025 (contract 9731) NPV $-1.22M
+  only in NEW: Hunter McKown 2025 (contract 9751) NPV $+1.00M
+  only in NEW: Jack Rathbone 2025 (contract 9771) NPV $+2.05M
+  only in NEW: Guillaume Brisebois 2025 (contract 9786) NPV $+0.82M
+  only in NEW: Matt Luff 2025 (contract 9814) NPV $+0.43M
+  only in NEW: Lane Pederson 2025 (contract 9822) NPV $+0.36M
+  only in NEW: Dylan Coghlan 2025 (contract 9847) NPV $+0.89M
+  only in NEW: Riley Stillman 2025 (contract 9898) NPV $+2.71M
+  only in NEW: Nick Cicek 2025 (contract 9908) NPV $+1.10M
+  only in NEW: Alex Belzile 2025 (contract 9909) NPV $+0.32M
+  only in NEW: Kale Clague 2025 (contract 9932) NPV $+0.38M
+  only in NEW: Matt Kiersted 2025 (contract 9941) NPV $+0.66M
+  only in NEW: Calle Rosen 2025 (contract 9945) NPV $+2.72M
+  only in NEW: Pavol Regenda 2025 (contract 9947) NPV $-0.12M
+  only in NEW: Logan Brown 2025 (contract 9984) NPV $+0.05M
+  only in NEW: Gavin Bayreuther 2025 (contract 10023) NPV $+0.43M
+  only in NEW: Jake Leschyshyn 2025 (contract 10044) NPV $-0.14M
+  only in NEW: Dysin Mayo 2025 (contract 10046) NPV $-0.23M
+  only in NEW: Vitali Kravtsov 2025 (contract 10080) NPV $+0.41M
+  identity fields (player, position, seasons) agree on every matched contract
+
+NPV (contract + terminal), rounded to $1:
+  moved: 2,591 of 2,981   up 1,696   down 895   unchanged 390
+  total change $+2,199.8M   mean $+0.738M   median $+0.193M
+  among moved: median |change| $0.696M, 90th percentile $3.081M, largest $21.40M
+  of which contract part $+2,129.0M, terminal (RFA control years) $+70.8M
+  distribution old: p10 -8.32  median +0.27  p90 +2.45  ($M)
+  distribution new: p10 -6.70  median +0.51  p90 +3.02  ($M)
+
+by position:
+  goalie                   n   390  moved     0  total      +0.0  mean  +0.000
+  skater                   n  2591  moved  2591  total   +2199.8  mean  +0.849
+
+by projection path (old run's label):
+  curve                    n  1515  moved  1515  total   +1674.5  mean  +1.105
+  flat_low_curve_base      n    98  moved    98  total     +25.7  mean  +0.262
+  flat_no_curve            n   108  moved   108  total     -62.8  mean  -0.582
+  goalie_flat_503020       n   200  moved     0  total      +0.0  mean  +0.000
+  goalie_flat_6040         n    45  moved     0  total      +0.0  mean  +0.000
+  goalie_flat_stale_anchor n    72  moved     0  total      +0.0  mean  +0.000
+  goalie_flat_t1_only      n    73  moved     0  total      +0.0  mean  +0.000
+  replacement_reversion    n   870  moved   870  total    +562.3  mean  +0.646
+
+projection path changed on 2591 contracts
+  curve -> xNPV 1                               1515
+  replacement_reversion -> xNPV 1               870
+  flat_no_curve -> xNPV 1                       108
+  flat_low_curve_base -> xNPV 1                 98
+
+by valuation season:
+  2018                     n   330  moved   284  total    +222.3  mean  +0.674
+  2019                     n   370  moved   324  total    +275.4  mean  +0.744
+  2020                     n   364  moved   317  total    +250.5  mean  +0.688
+  2021                     n   372  moved   322  total    +163.1  mean  +0.439
+  2022                     n   423  moved   369  total    +245.9  mean  +0.581
+  2023                     n   377  moved   328  total    +249.5  mean  +0.662
+  2024                     n   385  moved   336  total    +389.2  mean  +1.011
+  2025                     n   360  moved   311  total    +403.9  mean  +1.122
+
+by old NPV ($M):
+  below -20                n   131  moved   122  total    +752.0  mean  +5.741
+  -20 to -5                n   292  moved   263  total    +561.6  mean  +1.923
+  -5 to 0                  n   851  moved   734  total    +578.9  mean  +0.680
+  0 to 5                   n  1615  moved  1418  total    +340.7  mean  +0.211
+  above 5                  n    92  moved    54  total     -33.4  mean  -0.364
+
+largest increases:
+  Charlie McAvoy           2022 8yr  curve->xNPV 1  $ -25.14M -> $  -3.75M  (+21.40M)
+  Leon Draisaitl           2025 8yr  curve->xNPV 1  $  -9.47M -> $ +11.72M  (+21.19M)
+  Rasmus Dahlin            2024 8yr  curve->xNPV 1  $ -21.32M -> $  -0.63M  (+20.69M)
+  Miro Heiskanen           2021 8yr  curve->xNPV 1  $ -34.72M -> $ -14.61M  (+20.11M)
+  Jake Sanderson           2024 8yr  curve->xNPV 1  $ -28.14M -> $  -8.75M  (+19.39M)
+  Adam Fox                 2022 7yr  curve->xNPV 1  $ -16.96M -> $  +2.05M  (+19.01M)
+  Luke Hughes              2025 7yr  curve->xNPV 1  $ -45.25M -> $ -28.75M  (+16.50M)
+  Moritz Seider            2024 7yr  curve->xNPV 1  $ -44.39M -> $ -28.03M  (+16.36M)
+  Noah Hanifin             2024 8yr  curve->xNPV 1  $ -28.42M -> $ -12.09M  (+16.32M)
+  K'Andre Miller           2025 8yr  curve->xNPV 1  $ -35.98M -> $ -20.58M  (+15.40M)
+  Auston Matthews          2024 4yr  curve->xNPV 1  $  +4.04M -> $ +19.07M  (+15.03M)
+  Mikko Rantanen           2025 8yr  curve->xNPV 1  $ -74.16M -> $ -59.21M  (+14.95M)
+  Jaccob Slavin            2025 8yr  curve->xNPV 1  $ -10.18M -> $  +4.70M  (+14.88M)
+  Owen Power               2024 7yr  curve->xNPV 1  $ -43.76M -> $ -29.80M  (+13.96M)
+  Quinn Hughes             2021 6yr  curve->xNPV 1  $ -30.35M -> $ -16.66M  (+13.69M)
+
+largest decreases:
+  Evgeni Malkin            2022 4yr  curve->xNPV 1  $  -9.75M -> $ -18.66M  (-8.91M)
+  William Karlsson         2019 8yr  curve->xNPV 1  $ +11.22M -> $  +2.34M  (-8.89M)
+  Alex Ovechkin            2021 5yr  curve->xNPV 1  $ -17.42M -> $ -26.15M  (-8.73M)
+  Tage Thompson            2023 7yr  curve->xNPV 1  $  +5.34M -> $  -2.71M  (-8.05M)
+  Filip Forsberg           2022 8yr  curve->xNPV 1  $ -12.54M -> $ -19.60M  (-7.07M)
+  Brad Marchand            2025 6yr  curve->xNPV 1  $  -9.72M -> $ -16.34M  (-6.63M)
+  Dylan Larkin             2023 8yr  curve->xNPV 1  $ -14.54M -> $ -20.33M  (-5.79M)
+  Thomas Novak             2024 3yr  curve->xNPV 1  $  +7.97M -> $  +2.43M  (-5.54M)
+  William Carrier          2024 6yr  curve->xNPV 1  $  +5.24M -> $  +0.00M  (-5.23M)
+  Bryan Little             2018 6yr  curve->xNPV 1  $ -12.14M -> $ -17.33M  (-5.19M)
+  Brock Boeser             2025 7yr  curve->xNPV 1  $ -20.43M -> $ -25.45M  (-5.02M)
+  Nikolaj Ehlers           2025 6yr  curve->xNPV 1  $ -10.65M -> $ -14.95M  (-4.30M)
+  Tyler Toffoli            2024 4yr  curve->xNPV 1  $  +3.52M -> $  -0.67M  (-4.19M)
+  Blake Coleman            2021 6yr  curve->xNPV 1  $  -9.08M -> $ -12.86M  (-3.78M)
+  Jaden Schwartz           2021 5yr  curve->xNPV 1  $ -12.93M -> $ -16.64M  (-3.71M)
+
+the ten players with corrected birthdates: 0 priced contracts

@@ -1,0 +1,373 @@
+player,team,gp,g,a,tp,p_per_gp,pim,plus_minus,link,page,playername,position,season,league,ep_player_id,scrape_date,source,package_version
+Fredrik Pettersson (RW),HC Lugano,49,33,36,69,1.41,38,3,/player/1715/fredrik-pettersson,1,Fredrik Pettersson,RW,2014-2015,nl,1715,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Klasen (LW),HC Lugano,46,20,35,55,1.20,10,4,/player/2295/linus-klasen,1,Linus Klasen,LW,2014-2015,nl,2295,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pierre-Marc Bouchard (C),EV Zug,49,17,34,51,1.04,16,18,/player/9086/pierre-marc-bouchard,1,Pierre-Marc Bouchard,C,2014-2015,nl,9086,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lino Martschini (RW),EV Zug,50,23,24,47,0.94,2,26,/player/70432/lino-martschini,1,Lino Martschini,RW,2014-2015,nl,70432,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicklas Danielsson (RW),SC Rapperswil-Jona Lakers,46,19,28,47,1.02,50,-9,/player/610/nicklas-danielsson,1,Nicklas Danielsson,RW,2014-2015,nl,610,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Plüss (C),SC Bern,50,23,22,45,0.90,18,7,/player/4091/martin-pluss,1,Martin Plüss,C,2014-2015,nl,4091,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robbie Earl (C/LW),EV Zug,48,19,26,45,0.94,34,16,/player/9414/robbie-earl,1,Robbie Earl,C/LW,2014-2015,nl,9414,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc-Antoine Pouliot (C/RW),HC Fribourg-Gottéron,49,19,24,43,0.88,66,5,/player/8919/marc-antoine-pouliot,1,Marc-Antoine Pouliot,C/RW,2014-2015,nl,8919,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Byron Ritchie (C/LW),SC Bern,50,14,29,43,0.86,38,3,/player/4520/byron-ritchie,1,Byron Ritchie,C/LW,2014-2015,nl,4520,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Wick (LW/RW),ZSC Lions,49,16,25,41,0.84,36,16,/player/17894/roman-wick,1,Roman Wick,LW/RW,2014-2015,nl,17894,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexandre Giroux (LW/RW),HC Ambrì-Piotta,49,27,13,40,0.82,28,-9,/player/7963/alexandre-giroux,1,Alexandre Giroux,LW/RW,2014-2015,nl,7963,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julien Sprunger (RW),HC Fribourg-Gottéron,50,14,26,40,0.80,18,-3,/player/9242/julien-sprunger,1,Julien Sprunger,RW,2014-2015,nl,9242,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Persson (C),SC Rapperswil-Jona Lakers,43,17,22,39,0.91,16,-9,/player/356/niklas-persson,1,Niklas Persson,C,2014-2015,nl,356,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pär Arlbrandt (RW),EHC Biel-Bienne,48,17,22,39,0.81,12,-4,/player/825/par-arlbrandt,1,Pär Arlbrandt,RW,2014-2015,nl,825,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reto Suri (C/W),EV Zug,50,15,24,39,0.78,48,20,/player/15165/reto-suri,1,Reto Suri,C/W,2014-2015,nl,15165,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikael Johansson (C/LW),SC Rapperswil-Jona Lakers,40,6,33,39,0.98,46,-6,/player/2647/mikael-johansson,1,Mikael Johansson,C/LW,2014-2015,nl,2647,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt D'Agostini (RW/LW),Genève-Servette HC,40,14,23,37,0.93,30,11,/player/11721/matt-d-agostini,1,Matt D'Agostini,RW/LW,2014-2015,nl,11721,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bud Holloway (RW),SC Bern,42,13,24,37,0.88,24,7,/player/11620/bud-holloway,1,Bud Holloway,RW,2014-2015,nl,11620,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Kamber (C),EHC Biel-Bienne,50,9,28,37,0.74,10,-4,/player/12692/oliver-kamber,1,Oliver Kamber,C,2014-2015,nl,12692,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc-André Gragnani (D),SC Bern,49,8,29,37,0.76,18,13,/player/9356/marc-andre-gragnani,1,Marc-André Gragnani,D,2014-2015,nl,9356,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Sondell (D),EV Zug,46,6,30,36,0.78,6,17,/player/529/daniel-sondell,1,Daniel Sondell,D,2014-2015,nl,529,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Greg Mauldin (C/W),HC Fribourg-Gottéron,40,18,17,35,0.88,8,7,/player/10292/greg-mauldin,1,Greg Mauldin,C/W,2014-2015,nl,10292,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Paulsson (LW),HC Davos,41,14,21,35,0.85,20,15,/player/547/marcus-paulsson,1,Marcus Paulsson,LW,2014-2015,nl,547,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Shannon (C/RW),ZSC Lions,49,10,25,35,0.71,18,19,/player/9443/ryan-shannon,1,Ryan Shannon,C/RW,2014-2015,nl,9443,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Perttu Lindgren (C),HC Davos,42,11,23,34,0.81,4,13,/player/6423/perttu-lindgren,1,Perttu Lindgren,C,2014-2015,nl,6423,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Romy (C),Genève-Servette HC,48,18,15,33,0.69,16,1,/player/9649/kevin-romy,1,Kevin Romy,C,2014-2015,nl,9649,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc Wieser (RW),HC Davos,47,16,17,33,0.70,82,21,/player/17570/marc-wieser,1,Marc Wieser,RW,2014-2015,nl,17570,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dick Axelsson (LW),HC Davos,45,14,19,33,0.73,30,13,/player/3778/dick-axelsson,1,Dick Axelsson,LW,2014-2015,nl,3778,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilari Filppula (C),HC Lugano,37,12,21,33,0.89,10,2,/player/7462/ilari-filppula,1,Ilari Filppula,C,2014-2015,nl,7462,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tom Pyatt (C),Genève-Servette HC,50,11,22,33,0.66,10,10,/player/9199/tom-pyatt,1,Tom Pyatt,C,2014-2015,nl,9199,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Hall (RW),HC Ambrì-Piotta,50,14,18,32,0.64,34,-3,/player/8724/adam-hall,1,Adam Hall,RW,2014-2015,nl,8724,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Derrick Walser (D),SC Rapperswil-Jona Lakers,39,11,21,32,0.82,26,-5,/player/10663/derrick-walser,1,Derrick Walser,D,2014-2015,nl,10663,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ahren Spylo (LW),EHC Biel-Bienne,45,20,11,31,0.69,58,-5,/player/10836/ahren-spylo,1,Ahren Spylo,LW,2014-2015,nl,10836,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Holden (C),EV Zug,34,15,16,31,0.91,68,19,/player/10825/josh-holden,1,Josh Holden,C,2014-2015,nl,10825,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Nilsson (W/C),ZSC Lions,44,11,20,31,0.70,18,7,/player/352/robert-nilsson,1,Robert Nilsson,W/C,2014-2015,nl,352,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Olausson (C),EHC Biel-Bienne,37,8,23,31,0.84,12,-7,/player/1705/niklas-olausson,1,Niklas Olausson,C,2014-2015,nl,1705,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keith Aucoin (C/RW),HC Ambrì-Piotta,41,7,24,31,0.76,18,-13,/player/9069/keith-aucoin,1,Keith Aucoin,C/RW,2014-2015,nl,9069,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christoph Bertschy (C/RW),SC Bern,44,14,16,30,0.68,26,14,/player/85327/christoph-bertschy,1,Christoph Bertschy,C/RW,2014-2015,nl,85327,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dragan Umicevic (RW),EHC Biel-Bienne,44,10,20,30,0.68,26,-12,/player/549/dragan-umicevic,1,Dragan Umicevic,RW,2014-2015,nl,549,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett McLean (C),HC Lugano,47,9,21,30,0.64,14,1,/player/4518/brett-mclean,1,Brett McLean,C,2014-2015,nl,4518,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ossi Louhivaara (RW),Lausanne HC,46,14,15,29,0.63,37,8,/player/3203/ossi-louhivaara,1,Ossi Louhivaara,RW,2014-2015,nl,3203,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andres Ambühl (W/C),HC Davos,49,13,16,29,0.59,28,15,/player/12672/andres-ambuhl,1,Andres Ambühl,W/C,2014-2015,nl,12672,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Harri Pesonen (LW),Lausanne HC,48,10,19,29,0.60,49,-1,/player/15181/harri-pesonen,1,Harri Pesonen,LW,2014-2015,nl,15181,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Hollenstein (LW/RW),EHC Kloten,35,8,21,29,0.83,28,15,/player/11838/denis-hollenstein,1,Denis Hollenstein,LW/RW,2014-2015,nl,11838,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Romain Loeffel (D),Genève-Servette HC,43,8,21,29,0.67,22,-5,/player/17681/romain-loeffel,1,Romain Loeffel,D,2014-2015,nl,17681,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dario Simion (LW/RW),HC Davos,47,13,14,27,0.57,4,9,/player/85341/dario-simion,1,Dario Simion,LW/RW,2014-2015,nl,85341,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Baltisberger (RW),ZSC Lions,47,12,15,27,0.57,38,2,/player/57928/chris-baltisberger,1,Chris Baltisberger,RW,2014-2015,nl,57928,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Rubin (C/RW),Genève-Servette HC,46,11,16,27,0.59,22,-5,/player/17227/daniel-rubin,1,Daniel Rubin,C/RW,2014-2015,nl,17227,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Grossmann (D),EV Zug,50,4,22,26,0.52,83,13,/player/18512/robin-grossmann,1,Robin Grossmann,D,2014-2015,nl,18512,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Taylor Pyatt (LW),Genève-Servette HC,38,14,11,25,0.66,18,-3,/player/5372/taylor-pyatt,1,Taylor Pyatt,LW,2014-2015,nl,5372,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Steiner (RW),HC Ambrì-Piotta,49,14,11,25,0.51,26,1,/player/18929/daniel-steiner,1,Daniel Steiner,RW,2014-2015,nl,18929,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Guggisberg (RW),EHC Kloten,42,13,12,25,0.60,18,-6,/player/9655/peter-guggisberg,1,Peter Guggisberg,RW,2014-2015,nl,9655,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Bärtschi (C/W),ZSC Lions,45,13,12,25,0.56,16,10,/player/9640/patrik-bartschi,1,Patrik Bärtschi,C/W,2014-2015,nl,9640,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grégory Hofmann (LW),HC Davos,47,11,14,25,0.53,18,11,/player/66536/gregory-hofmann,1,Grégory Hofmann,LW,2014-2015,nl,66536,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Dubé (C),HC Fribourg-Gottéron,46,10,15,25,0.54,43,-14,/player/10819/christian-dube,1,Christian Dubé,C,2014-2015,nl,10819,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Blum (D),SC Bern,50,2,23,25,0.50,26,8,/player/9240/eric-blum,1,Eric Blum,D,2014-2015,nl,9240,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthias Bieber (LW/C),EHC Kloten,50,17,7,24,0.48,12,-11,/player/9243/matthias-bieber,1,Matthias Bieber,LW/C,2014-2015,nl,9243,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Inti Pestoni (LW),HC Ambrì-Piotta,30,9,15,24,0.80,24,-6,/player/34822/inti-pestoni,1,Inti Pestoni,LW,2014-2015,nl,34822,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommi Santala (C),EHC Kloten,39,9,15,24,0.62,42,-5,/player/2711/tommi-santala,1,Tommi Santala,C,2014-2015,nl,2711,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Gardner (RW/C),SC Bern,44,9,15,24,0.55,24,13,/player/10834/ryan-gardner,1,Ryan Gardner,RW/C,2014-2015,nl,10834,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gaëtan Haas (C),EHC Biel-Bienne,49,8,16,24,0.49,20,3,/player/34816/gaetan-haas,1,Gaëtan Haas,C,2014-2015,nl,34816,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Morris Trachsler (C),ZSC Lions,50,8,16,24,0.48,28,11,/player/17596/morris-trachsler,1,Morris Trachsler,C,2014-2015,nl,17596,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Etienne Froidevaux (C),Lausanne HC,50,13,10,23,0.46,22,-10,/player/15159/etienne-froidevaux,1,Etienne Froidevaux,C,2014-2015,nl,15159,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Künzle (RW/LW),ZSC Lions,47,12,11,23,0.49,28,16,/player/99566/mike-kunzle,1,Mike Künzle,RW/LW,2014-2015,nl,99566,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juha-Pekka Hytönen (C),Lausanne HC,41,11,12,23,0.56,10,5,/player/7485/juha-pekka-hytonen,1,Juha-Pekka Hytönen,C,2014-2015,nl,7485,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luca Cunti (C),ZSC Lions,34,9,14,23,0.68,14,8,/player/10902/luca-cunti,1,Luca Cunti,C,2014-2015,nl,10902,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Micki DuPont (D),EHC Kloten,48,2,21,23,0.48,26,-14,/player/8062/micki-dupont,1,Micki DuPont,D,2014-2015,nl,8062,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mauro Jörg (RW/LW),HC Davos,49,14,8,22,0.45,14,11,/player/17695/mauro-jorg,1,Mauro Jörg,RW/LW,2014-2015,nl,17695,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Killian Mottet (LW),HC Fribourg-Gottéron,50,12,10,22,0.44,45,5,/player/34820/killian-mottet,1,Killian Mottet,LW,2014-2015,nl,34820,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alain Miéville (C),Lausanne HC,49,10,12,22,0.45,59,4,/player/34315/alain-mieville,1,Alain Miéville,C,2014-2015,nl,34315,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Enzo Corvi (C),HC Davos,40,9,13,22,0.55,14,6,/player/88219/enzo-corvi,1,Enzo Corvi,C,2014-2015,nl,88219,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tristan Scherwey (LW/RW),SC Bern,45,7,15,22,0.49,68,17,/player/17685/tristan-scherwey,1,Tristan Scherwey,LW/RW,2014-2015,nl,17685,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthias Rossi (RW),EHC Biel-Bienne,49,10,11,21,0.43,6,-2,/player/34823/matthias-rossi,1,Matthias Rossi,RW,2014-2015,nl,34823,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reto Schäppi (C/LW),ZSC Lions,50,9,12,21,0.42,20,13,/player/17684/reto-schappi,1,Reto Schäppi,C/LW,2014-2015,nl,17684,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joël Genazzi (D/F),Lausanne HC,50,2,19,21,0.42,8,-4,/player/17593/joel-genazzi,1,Joël Genazzi,D/F,2014-2015,nl,17593,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexandre Picard (LW),Genève-Servette HC,30,10,10,20,0.67,22,0,/player/6670/alexandre-picard,1,Alexandre Picard,LW,2014-2015,nl,6670,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juraj Simek (RW/LW),totals,39,9,11,20,0.51,16,-8,/player/10616/juraj-simek,1,Juraj Simek,RW/LW,2014-2015,nl,10616,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dan Fritsche (C/W),ZSC Lions,46,9,11,20,0.43,10,11,/player/9434/dan-fritsche,1,Dan Fritsche,C/W,2014-2015,nl,9434,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Calle Andersson (D),totals,48,6,14,20,0.42,22,-6,/player/30181/calle-andersson,1,Calle Andersson,D,2014-2015,nl,30181,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timothy Kast (C/LW),Genève-Servette HC,50,6,14,20,0.40,14,-7,/player/17612/timothy-kast,1,Timothy Kast,C/LW,2014-2015,nl,17612,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Fransson (D),SC Rapperswil-Jona Lakers,32,4,16,20,0.63,22,-20,/player/507/johan-fransson,1,Johan Fransson,D,2014-2015,nl,507,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc-André Bergeron (D),ZSC Lions,46,4,16,20,0.43,38,3,/player/5672/marc-andre-bergeron,1,Marc-André Bergeron,D,2014-2015,nl,5672,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lorenz Kienzle (D/RW),HC Lugano,49,2,18,20,0.41,28,10,/player/22459/lorenz-kienzle,1,Lorenz Kienzle,D/RW,2014-2015,nl,22459,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benjamin Plüss (LW),HC Fribourg-Gottéron,30,12,7,19,0.63,14,-1,/player/17582/benjamin-pluss,1,Benjamin Plüss,LW,2014-2015,nl,17582,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Ramholt (D),EV Zug,50,9,10,19,0.38,48,24,/player/9652/tim-ramholt,1,Tim Ramholt,D,2014-2015,nl,9652,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alain Berger (RW),SC Bern,50,8,11,19,0.38,26,14,/player/15162/alain-berger,1,Alain Berger,RW,2014-2015,nl,15162,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dino Wieser (LW),HC Davos,38,7,12,19,0.50,59,11,/player/15158/dino-wieser,1,Dino Wieser,LW,2014-2015,nl,15158,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordy Murray (LW),SC Rapperswil-Jona Lakers,40,7,12,19,0.48,22,-17,/player/18634/jordy-murray,1,Jordy Murray,LW,2014-2015,nl,18634,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chuck Kobasew (RW),SC Bern,29,9,9,18,0.62,24,2,/player/9018/chuck-kobasew,1,Chuck Kobasew,RW,2014-2015,nl,9018,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Keller (RW),ZSC Lions,39,9,9,18,0.46,28,3,/player/11763/ryan-keller,1,Ryan Keller,RW,2014-2015,nl,11763,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fabian Sutter (C),EV Zug,50,9,9,18,0.36,14,11,/player/18902/fabian-sutter,1,Fabian Sutter,C,2014-2015,nl,18902,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dario Bürgler (RW),EV Zug,29,8,10,18,0.62,14,6,/player/10617/dario-burgler,1,Dario Bürgler,RW,2014-2015,nl,10617,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Romano Lemm (RW/C),EHC Kloten,42,7,11,18,0.43,22,-1,/player/12693/romano-lemm,1,Romano Lemm,RW/C,2014-2015,nl,12693,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Koistinen (D),HC Davos,40,5,13,18,0.45,34,10,/player/7440/ville-koistinen,1,Ville Koistinen,D,2014-2015,nl,7440,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Gobbi (D),Lausanne HC,50,3,15,18,0.36,70,-1,/player/17600/john-gobbi,1,John Gobbi,D,2014-2015,nl,17600,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Mueller (RW/C),EHC Kloten,34,10,7,17,0.50,12,-6,/player/9220/peter-mueller,1,Peter Mueller,RW/C,2014-2015,nl,9220,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Rüfenacht (LW/RW),SC Bern,45,8,9,17,0.38,53,1,/player/17610/thomas-rufenacht,1,Thomas Rüfenacht,LW/RW,2014-2015,nl,17610,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Félicien Du Bois (D),HC Davos,46,7,10,17,0.37,16,11,/player/12642/felicien-du-bois,1,Félicien Du Bois,D,2014-2015,nl,12642,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Lombardi (C),Genève-Servette HC,19,6,11,17,0.89,8,5,/player/8999/matthew-lombardi,1,Matthew Lombardi,C,2014-2015,nl,8999,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Walsky (RW),totals,39,6,11,17,0.44,8,-9,/player/24833/eric-walsky,1,Eric Walsky,RW,2014-2015,nl,24833,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Mercier (D),Genève-Servette HC,40,6,11,17,0.43,14,11,/player/17595/jonathan-mercier,2,Jonathan Mercier,D,2014-2015,nl,17595,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Huguenin (D),HC Fribourg-Gottéron,50,4,13,17,0.34,12,-14,/player/34817/anthony-huguenin,2,Anthony Huguenin,D,2014-2015,nl,34817,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jérémie Kamerzin (D),HC Fribourg-Gottéron,38,3,14,17,0.45,34,-1,/player/12669/jeremie-kamerzin,2,Jérémie Kamerzin,D,2014-2015,nl,12669,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Krueger (D),SC Bern,41,3,14,17,0.41,43,7,/player/12256/justin-krueger,2,Justin Krueger,D,2014-2015,nl,12256,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ramon Untersander (D),EHC Biel-Bienne,42,3,14,17,0.40,8,-8,/player/17688/ramon-untersander,2,Ramon Untersander,D,2014-2015,nl,17688,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Damien Brunner (RW/LW),HC Lugano,20,11,5,16,0.80,30,2,/player/18949/damien-brunner,2,Damien Brunner,RW/LW,2014-2015,nl,18949,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Bodenmann (LW/RW),EHC Kloten,49,9,7,16,0.33,36,-12,/player/15167/simon-bodenmann,2,Simon Bodenmann,LW/RW,2014-2015,nl,15167,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Raphael Herburger (C),EHC Biel-Bienne,41,8,8,16,0.39,41,-2,/player/15218/raphael-herburger,2,Raphael Herburger,C,2014-2015,nl,15218,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Goran Bezina (D),Genève-Servette HC,40,2,14,16,0.40,24,-3,/player/12299/goran-bezina,2,Goran Bezina,D,2014-2015,nl,12299,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Tschantré (C),EHC Biel-Bienne,32,7,8,15,0.47,12,3,/player/18863/mathieu-tschantre,2,Mathieu Tschantré,C,2014-2015,nl,18863,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philipp Wetzel (RW/C),EHC Biel-Bienne,45,7,8,15,0.33,10,-4,/player/18865/philipp-wetzel,2,Philipp Wetzel,RW/C,2014-2015,nl,18865,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christopher Rivera (C/W),Genève-Servette HC,46,7,8,15,0.33,16,-1,/player/17597/christopher-rivera,2,Christopher Rivera,C/W,2014-2015,nl,17597,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Vukovic (D),Genève-Servette HC,50,5,10,15,0.30,34,15,/player/18484/daniel-vukovic,2,Daniel Vukovic,D,2014-2015,nl,18484,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julian Walker (C/RW),HC Lugano,47,4,11,15,0.32,55,5,/player/12653/julian-walker,2,Julian Walker,C/RW,2014-2015,nl,12653,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathias Seger (D),ZSC Lions,42,1,14,15,0.36,20,8,/player/17995/mathias-seger,2,Mathias Seger,D,2014-2015,nl,17995,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+René Back (D),EHC Kloten,50,0,15,15,0.30,36,-5,/player/18894/rene-back,2,René Back,D,2014-2015,nl,18894,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adrien Lauper (LW),HC Ambrì-Piotta,45,8,6,14,0.31,24,-6,/player/17578/adrien-lauper,2,Adrien Lauper,LW,2014-2015,nl,17578,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thibaut Monnet (LW/C),HC Fribourg-Gottéron,35,6,8,14,0.40,14,-10,/player/9639/thibaut-monnet,2,Thibaut Monnet,LW/C,2014-2015,nl,9639,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Severin Blindenbacher (D),ZSC Lions,46,3,11,14,0.30,22,23,/player/12678/severin-blindenbacher,2,Severin Blindenbacher,D,2014-2015,nl,12678,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Björn Christen (RW),EV Zug,43,2,12,14,0.33,33,1,/player/18476/bjorn-christen,2,Björn Christen,RW,2014-2015,nl,18476,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Ulmer (D),HC Lugano,35,1,13,14,0.40,24,-1,/player/13931/stefan-ulmer,2,Stefan Ulmer,D,2014-2015,nl,13931,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Schneeberger (D),HC Davos,46,1,13,14,0.30,24,16,/player/18686/noah-schneeberger,2,Noah Schneeberger,D,2014-2015,nl,18686,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominik Schlumpf (D),totals,50,1,13,14,0.28,6,10,/player/17686/dominik-schlumpf,2,Dominik Schlumpf,D,2014-2015,nl,17686,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Liniger (C/W),EHC Kloten,50,7,6,13,0.26,24,-5,/player/18947/michael-liniger,2,Michael Liniger,C/W,2014-2015,nl,18947,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julien Vauclair (D),HC Lugano,38,6,7,13,0.34,30,9,/player/12688/julien-vauclair,2,Julien Vauclair,D,2014-2015,nl,12688,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Walser (C),HC Davos,47,6,7,13,0.28,20,-14,/player/34829/samuel-walser,2,Samuel Walser,C,2014-2015,nl,34829,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeff Tambellini (LW/RW),HC Fribourg-Gottéron,30,5,8,13,0.43,10,-2,/player/9509/jeff-tambellini,2,Jeff Tambellini,LW/RW,2014-2015,nl,9509,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alessandro Chiesa (D),HC Lugano,49,5,8,13,0.27,63,16,/player/20678/alessandro-chiesa,2,Alessandro Chiesa,D,2014-2015,nl,20678,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benjamin Chavaillaz (D),HC Ambrì-Piotta,49,4,9,13,0.27,14,1,/player/28405/benjamin-chavaillaz,2,Benjamin Chavaillaz,D,2014-2015,nl,28405,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Kwiatkowski (D),HC Fribourg-Gottéron,42,3,10,13,0.31,67,-5,/player/9024/joel-kwiatkowski,2,Joel Kwiatkowski,D,2014-2015,nl,9024,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Hürlimann (C),SC Rapperswil-Jona Lakers,49,3,10,13,0.27,36,-16,/player/18933/stefan-hurlimann,2,Stefan Hürlimann,C,2014-2015,nl,18933,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philippe Furrer (D),SC Bern,35,2,11,13,0.37,20,15,/player/12664/philippe-furrer,2,Philippe Furrer,D,2014-2015,nl,12664,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Jobin (D),SC Bern,42,2,11,13,0.31,10,5,/player/12661/david-jobin,2,David Jobin,D,2014-2015,nl,12661,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Raffaele Sannitz (C/LW),HC Lugano,48,1,12,13,0.27,36,2,/player/12696/raffaele-sannitz,2,Raffaele Sannitz,C/LW,2014-2015,nl,12696,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc Gautschi (D),HC Ambrì-Piotta,46,0,13,13,0.28,16,-2,/player/16509/marc-gautschi,2,Marc Gautschi,D,2014-2015,nl,16509,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alessio Bertaggia (LW/RW),totals,49,8,4,12,0.24,22,-4,/player/34307/alessio-bertaggia,2,Alessio Bertaggia,LW/RW,2014-2015,nl,34307,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gregory Sciaroni (LW/RW),HC Davos,29,7,5,12,0.41,28,-9,/player/11839/gregory-sciaroni,2,Gregory Sciaroni,LW/RW,2014-2015,nl,11839,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Dostoinov (RW/LW),HC Ambrì-Piotta,44,5,7,12,0.27,10,-15,/player/18623/alexei-dostoinov,2,Alexei Dostoinov,RW/LW,2014-2015,nl,18623,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fabian Schnyder (LW),EV Zug,50,5,7,12,0.24,18,-6,/player/18892/fabian-schnyder,2,Fabian Schnyder,LW,2014-2015,nl,18892,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Bykov (C),HC Fribourg-Gottéron,21,4,8,12,0.57,4,2,/player/10619/andrei-bykov,2,Andrei Bykov,C,2014-2015,nl,10619,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sandro Zangger (RW/LW),totals,36,4,8,12,0.33,10,3,/player/85298/sandro-zangger,2,Sandro Zangger,RW/LW,2014-2015,nl,85298,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dan Weisskopf (D),SC Rapperswil-Jona Lakers,43,3,9,12,0.28,22,-3,/player/18688/dan-weisskopf,2,Dan Weisskopf,D,2014-2015,nl,18688,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick von Gunten (D),EHC Kloten,46,3,9,12,0.26,20,7,/player/12689/patrick-von-gunten,2,Patrick von Gunten,D,2014-2015,nl,12689,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timo Helbling (D),HC Fribourg-Gottéron,45,2,10,12,0.27,86,1,/player/9551/timo-helbling,2,Timo Helbling,D,2014-2015,nl,9551,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Guerra (D),HC Davos,45,1,11,12,0.27,20,-3,/player/66540/samuel-guerra,2,Samuel Guerra,D,2014-2015,nl,66540,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Bång (LW/RW),Lausanne HC,30,6,5,11,0.37,18,-2,/player/4524/daniel-bang,2,Daniel Bång,LW/RW,2014-2015,nl,4524,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roland Gerber (LW/RW),Genève-Servette HC,45,6,5,11,0.24,34,0,/player/18721/roland-gerber,2,Roland Gerber,LW/RW,2014-2015,nl,18721,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cody Almond (C/LW),Genève-Servette HC,20,5,6,11,0.55,24,-1,/player/11683/cody-almond,2,Cody Almond,C/LW,2014-2015,nl,11683,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominic Lammer (RW/LW),EV Zug,44,5,6,11,0.25,41,-9,/player/66509/dominic-lammer,2,Dominic Lammer,RW/LW,2014-2015,nl,66509,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Paolo Duca (C/RW),HC Ambrì-Piotta,48,5,6,11,0.23,47,-16,/player/12638/paolo-duca,2,Paolo Duca,C/RW,2014-2015,nl,12638,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pascal Berger (W/C),SC Bern,50,5,6,11,0.22,10,6,/player/11837/pascal-berger,2,Pascal Berger,W/C,2014-2015,nl,11837,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Déruns (LW/RW),Lausanne HC,36,4,7,11,0.31,8,-7,/player/17594/thomas-deruns,2,Thomas Déruns,LW/RW,2014-2015,nl,17594,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathias Joggi (LW/D),EHC Biel-Bienne,39,4,7,11,0.28,32,-4,/player/9241/mathias-joggi,2,Mathias Joggi,LW/D,2014-2015,nl,9241,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Hasani (LW),HC Fribourg-Gottéron,46,4,7,11,0.24,20,-22,/player/17592/adam-hasani,2,Adam Hasani,LW,2014-2015,nl,17592,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steve Hirschi (D),HC Lugano,33,3,8,11,0.33,20,-1,/player/12683/steve-hirschi,2,Steve Hirschi,D,2014-2015,nl,12683,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Fey (D),EHC Biel-Bienne,49,3,8,11,0.22,16,5,/player/44811/kevin-fey,2,Kevin Fey,D,2014-2015,nl,44811,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adrian Trunz (D),HC Ambrì-Piotta,50,3,8,11,0.22,12,-6,/player/29226/adrian-trunz,2,Adrian Trunz,D,2014-2015,nl,29226,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reto von Arx (C),HC Davos,43,1,10,11,0.26,26,-2,/player/10822/reto-von-arx,2,Reto von Arx,C,2014-2015,nl,10822,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eliot Antonietti (D),Genève-Servette HC,48,1,10,11,0.23,41,1,/player/85315/eliot-antonietti,2,Eliot Antonietti,D,2014-2015,nl,85315,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Francis Bouillon (D),HC Ambrì-Piotta,31,0,11,11,0.35,30,-11,/player/5371/francis-bouillon,2,Francis Bouillon,D,2014-2015,nl,5371,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nils Berger (RW),SC Rapperswil-Jona Lakers,43,8,2,10,0.23,8,-4,/player/34811/nils-berger,2,Nils Berger,RW,2014-2015,nl,34811,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sébastien Reuille (LW/RW),HC Lugano,41,6,4,10,0.24,10,1,/player/18930/sebastien-reuille,2,Sébastien Reuille,LW/RW,2014-2015,nl,18930,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michaël Loichat (LW/RW),SC Bern,46,6,4,10,0.22,14,2,/player/32122/michael-loichat,2,Michaël Loichat,LW/RW,2014-2015,nl,32122,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Bastl (C/W),ZSC Lions,23,5,5,10,0.43,8,3,/player/18460/mark-bastl,2,Mark Bastl,C/W,2014-2015,nl,18460,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gianni Ehrensperger (LW/C),EHC Biel-Bienne,30,5,5,10,0.33,22,-5,/player/18720/gianni-ehrensperger,2,Gianni Ehrensperger,LW/C,2014-2015,nl,18720,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antonio Rizzello (LW/C),SC Rapperswil-Jona Lakers,46,5,5,10,0.22,20,-18,/player/9656/antonio-rizzello,2,Antonio Rizzello,LW/C,2014-2015,nl,9656,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Corsin Casutt (LW),EHC Kloten,48,5,5,10,0.21,6,-3,/player/18478/corsin-casutt,2,Corsin Casutt,LW,2014-2015,nl,18478,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Stucki (RW),HC Ambrì-Piotta,32,4,6,10,0.31,41,-1,/player/91094/christian-stucki,2,Christian Stucki,RW,2014-2015,nl,91094,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tristan Vauclair (LW),HC Fribourg-Gottéron,42,4,6,10,0.24,38,-16,/player/18521/tristan-vauclair,2,Tristan Vauclair,LW,2014-2015,nl,18521,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Diego Kostner (C),HC Lugano,36,3,7,10,0.28,20,-6,/player/34623/diego-kostner,2,Diego Kostner,C,2014-2015,nl,34623,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jim Vandermeer (D),EHC Kloten,43,3,7,10,0.23,39,-4,/player/8838/jim-vandermeer,2,Jim Vandermeer,D,2014-2015,nl,8838,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nolan Diem (C),EV Zug,47,3,7,10,0.21,12,-5,/player/85349/nolan-diem,2,Nolan Diem,C,2014-2015,nl,85349,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alain Birbaum (D),HC Ambrì-Piotta,48,3,7,10,0.21,40,-20,/player/17583/alain-birbaum,2,Alain Birbaum,D,2014-2015,nl,17583,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Schilt (D),HC Fribourg-Gottéron,49,2,8,10,0.20,24,-14,/player/17605/sebastian-schilt,2,Sebastian Schilt,D,2014-2015,nl,17605,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jason Fuchs (C),HC Ambrì-Piotta,39,1,9,10,0.26,8,2,/player/95039/jason-fuchs,2,Jason Fuchs,C,2014-2015,nl,95039,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dario Trutmann (D),Genève-Servette HC,49,1,9,10,0.20,10,-20,/player/34827/dario-trutmann,2,Dario Trutmann,D,2014-2015,nl,34827,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Florian Conz (C),Lausanne HC,39,7,2,9,0.23,12,-4,/player/9650/florian-conz,2,Florian Conz,C,2014-2015,nl,9650,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fabrice Herzog (RW/LW),EV Zug,43,6,3,9,0.21,16,5,/player/94494/fabrice-herzog,2,Fabrice Herzog,RW/LW,2014-2015,nl,94494,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marco Pedretti (RW),SC Rapperswil-Jona Lakers,49,6,3,9,0.18,14,-10,/player/34821/marco-pedretti,2,Marco Pedretti,RW,2014-2015,nl,34821,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jérôme Samson (RW/C),EHC Biel-Bienne,12,5,4,9,0.75,40,-3,/player/14039/jerome-samson,2,Jérôme Samson,RW/C,2014-2015,nl,14039,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Sieber (LW/RW),totals,33,4,5,9,0.27,12,-8,/player/93845/lukas-sieber,2,Lukas Sieber,LW/RW,2014-2015,nl,93845,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arnaud Jacquemet (D/RW),Genève-Servette HC,45,4,5,9,0.20,12,-8,/player/11679/arnaud-jacquemet,2,Arnaud Jacquemet,D/RW,2014-2015,nl,11679,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Caryl Neuenschwander (RW),Lausanne HC,46,4,5,9,0.20,14,-2,/player/9651/caryl-neuenschwander,2,Caryl Neuenschwander,RW,2014-2015,nl,9651,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michaël Ngoy (D),HC Fribourg-Gottéron,50,4,5,9,0.18,20,-11,/player/12685/michael-ngoy,2,Michaël Ngoy,D,2014-2015,nl,12685,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Santeri Alatalo (D),EV Zug,47,3,6,9,0.19,69,7,/player/24582/santeri-alatalo,2,Santeri Alatalo,D,2014-2015,nl,24582,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janick Steinmann (C),HC Lugano,37,2,7,9,0.24,14,2,/player/18893/janick-steinmann,2,Janick Steinmann,C,2014-2015,nl,18893,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marco Maurer (D),HC Lugano,38,2,7,9,0.24,80,6,/player/15151/marco-maurer,2,Marco Maurer,D,2014-2015,nl,15151,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steve Kellenberger (LW/D),EHC Kloten,46,2,7,9,0.20,10,-7,/player/10618/steve-kellenberger,2,Steve Kellenberger,LW/D,2014-2015,nl,10618,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Claudio Cadonau (D),EHC Biel-Bienne,46,1,8,9,0.20,22,2,/player/18468/claudio-cadonau,2,Claudio Cadonau,D,2014-2015,nl,18468,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Claude-Curdin Paschoud (D),HC Davos,50,1,8,9,0.18,6,17,/player/94257/claude-curdin-paschoud,2,Claude-Curdin Paschoud,D,2014-2015,nl,94257,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Larri Leeger (D),Lausanne HC,50,0,9,9,0.18,54,0,/player/18465/larri-leeger,2,Larri Leeger,D,2014-2015,nl,18465,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicolas Thibaudeau (C),SC Rapperswil-Jona Lakers,46,6,2,8,0.17,8,-4,/player/64408/nicolas-thibaudeau,2,Nicolas Thibaudeau,C,2014-2015,nl,64408,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeremy Wick (RW/D),Genève-Servette HC,20,5,3,8,0.40,6,-2,/player/39521/jeremy-wick,2,Jeremy Wick,RW/D,2014-2015,nl,39521,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sven Ryser (RW/LW),totals,40,5,3,8,0.20,42,-3,/player/17702/sven-ryser,2,Sven Ryser,RW/LW,2014-2015,nl,17702,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benjamin Neukom (LW),SC Rapperswil-Jona Lakers,38,4,4,8,0.21,16,-10,/player/92267/benjamin-neukom,2,Benjamin Neukom,LW,2014-2015,nl,92267,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vincent Praplan (C/RW),EHC Kloten,46,4,4,8,0.17,8,-1,/player/85308/vincent-praplan,2,Vincent Praplan,C/RW,2014-2015,nl,85308,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Fritsche (LW/RW),HC Fribourg-Gottéron,50,4,4,8,0.16,18,-26,/player/39763/john-fritsche,2,John Fritsche,LW/RW,2014-2015,nl,39763,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Geering (D),ZSC Lions,25,3,5,8,0.32,0,15,/player/15152/patrick-geering,2,Patrick Geering,D,2014-2015,nl,15152,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eliot Berthon (C/W),EHC Biel-Bienne,25,3,5,8,0.32,6,4,/player/34602/eliot-berthon,2,Eliot Berthon,C/W,2014-2015,nl,34602,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Bianchi (LW),HC Ambrì-Piotta,36,3,5,8,0.22,20,-10,/player/16704/elias-bianchi,2,Elias Bianchi,LW,2014-2015,nl,16704,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicholas Steiner (D),EHC Biel-Bienne,44,3,5,8,0.18,47,2,/player/34826/nicholas-steiner,3,Nicholas Steiner,D,2014-2015,nl,34826,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Malgin (C/W),ZSC Lions,23,2,6,8,0.35,8,4,/player/117376/denis-malgin,3,Denis Malgin,C/W,2014-2015,nl,117376,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Stancescu (LW/RW),EHC Kloten,39,2,6,8,0.21,34,-1,/player/18946/victor-stancescu,3,Victor Stancescu,LW/RW,2014-2015,nl,18946,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Frick (D),EHC Kloten,49,2,6,8,0.16,4,3,/player/85285/lukas-frick,3,Lukas Frick,D,2014-2015,nl,85285,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philippe Rytz (D),Lausanne HC,50,2,6,8,0.16,22,4,/player/12657/philippe-rytz,3,Philippe Rytz,D,2014-2015,nl,12657,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Marti (D),Genève-Servette HC,32,1,7,8,0.25,20,6,/player/85322/christian-marti,3,Christian Marti,D,2014-2015,nl,85322,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emanuel Peter (C),EHC Biel-Bienne,45,1,7,8,0.18,8,-8,/player/18722/emanuel-peter,3,Emanuel Peter,C,2014-2015,nl,18722,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Schlagenhauf (C),HC Ambrì-Piotta,48,1,7,8,0.17,18,-15,/player/11836/roman-schlagenhauf,3,Roman Schlagenhauf,C,2014-2015,nl,11836,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cédric Hächler (D),SC Rapperswil-Jona Lakers,50,0,8,8,0.16,38,-18,/player/70428/cedric-hachler,3,Cédric Hächler,D,2014-2015,nl,70428,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Moser (C/W),SC Bern,28,5,2,7,0.25,18,1,/player/15163/simon-moser,3,Simon Moser,C/W,2014-2015,nl,15163,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Lhotak (LW/RW),HC Ambrì-Piotta,40,5,2,7,0.18,8,-13,/player/67043/lukas-lhotak,3,Lukas Lhotak,LW/RW,2014-2015,nl,67043,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brady Murray (C/W),totals,28,4,3,7,0.25,4,-2,/player/9440/brady-murray,3,Brady Murray,C/W,2014-2015,nl,9440,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yannick Herren (LW),Lausanne HC,32,4,3,7,0.22,10,-3,/player/44871/yannick-herren,3,Yannick Herren,LW,2014-2015,nl,44871,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Obrist (C),SC Rapperswil-Jona Lakers,36,4,3,7,0.19,16,-20,/player/68843/patrick-obrist,3,Patrick Obrist,C,2014-2015,nl,68843,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc Reichert (C/LW),SC Bern,37,3,4,7,0.19,8,3,/player/12662/marc-reichert,3,Marc Reichert,C/LW,2014-2015,nl,12662,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Joensuu (LW),SC Bern,15,2,5,7,0.47,30,0,/player/4218/jesse-joensuu,3,Jesse Joensuu,LW,2014-2015,nl,4218,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Wellinger (D),EHC Biel-Bienne,47,1,6,7,0.15,10,-11,/player/15156/thomas-wellinger,3,Thomas Wellinger,D,2014-2015,nl,15156,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Leone (RW),EHC Kloten,31,3,3,6,0.19,4,-5,/player/85339/robin-leone,3,Robin Leone,RW,2014-2015,nl,85339,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benjamin Antonietti (RW/LW),Lausanne HC,39,3,3,6,0.15,8,-4,/player/28408/benjamin-antonietti,3,Benjamin Antonietti,RW/LW,2014-2015,nl,28408,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Paul Ranger (D),totals,27,2,4,6,0.22,18,-8,/player/8866/paul-ranger,3,Paul Ranger,D,2014-2015,nl,8866,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fabian Lüthi (LW),HC Ambrì-Piotta,34,2,4,6,0.18,6,4,/player/22937/fabian-luthi,3,Fabian Lüthi,LW,2014-2015,nl,22937,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Kreis (D),SC Bern,48,2,4,6,0.13,12,-5,/player/85291/samuel-kreis,3,Samuel Kreis,D,2014-2015,nl,85291,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ralph Stalder (D),Lausanne HC,49,2,4,6,0.12,10,-6,/player/17228/ralph-stalder,3,Ralph Stalder,D,2014-2015,nl,17228,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petteri Wirtanen (C),HC Fribourg-Gottéron,14,1,5,6,0.43,4,-12,/player/4222/petteri-wirtanen,3,Petteri Wirtanen,C,2014-2015,nl,4222,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colby Genoway (RW/C),Lausanne HC,15,1,5,6,0.40,2,0,/player/11507/colby-genoway,3,Colby Genoway,RW/C,2014-2015,nl,11507,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc Abplanalp (D),HC Fribourg-Gottéron,39,1,5,6,0.15,12,-8,/player/17585/marc-abplanalp,3,Marc Abplanalp,D,2014-2015,nl,17585,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Beat Gerber (D),SC Bern,39,1,5,6,0.15,37,4,/player/12667/beat-gerber,3,Beat Gerber,D,2014-2015,nl,12667,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keven Cloutier (C/LW),SC Bern,12,4,1,5,0.42,6,1,/player/30069/keven-cloutier,3,Keven Cloutier,C/LW,2014-2015,nl,30069,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sven Senteler (C/LW),ZSC Lions,40,4,1,5,0.13,8,4,/player/89731/sven-senteler,3,Sven Senteler,C/LW,2014-2015,nl,89731,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Derek Smith (D),ZSC Lions,25,3,2,5,0.20,4,10,/player/14185/derek-smith,3,Derek Smith,D,2014-2015,nl,14185,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Friedli (LW/RW),SC Rapperswil-Jona Lakers,10,2,3,5,0.50,2,1,/player/18939/samuel-friedli,3,Samuel Friedli,LW/RW,2014-2015,nl,18939,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sven Jung (D),totals,21,2,3,5,0.24,8,5,/player/93800/sven-jung,3,Sven Jung,D,2014-2015,nl,93800,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nico Dünner (C/RW),EV Zug,22,2,3,5,0.23,4,-2,/player/85290/nico-dunner,3,Nico Dünner,C/RW,2014-2015,nl,85290,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luca Fazzini (LW/RW),HC Lugano,36,2,3,5,0.14,6,6,/player/90308/luca-fazzini,3,Luca Fazzini,LW/RW,2014-2015,nl,90308,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Flurin Randegger (F/D),SC Bern,50,2,3,5,0.10,22,14,/player/17565/flurin-randegger,3,Flurin Randegger,F/D,2014-2015,nl,17565,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominik Granak (D),HC Fribourg-Gottéron,14,1,4,5,0.36,6,2,/player/11021/dominik-granak,3,Dominik Granak,D,2014-2015,nl,11021,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Beat Forster (D),HC Davos,15,1,4,5,0.33,18,0,/player/12854/beat-forster,3,Beat Forster,D,2014-2015,nl,12854,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cyrill Geyer (D),SC Rapperswil-Jona Lakers,34,1,4,5,0.15,12,-15,/player/12680/cyrill-geyer,3,Cyrill Geyer,D,2014-2015,nl,12680,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Kindschi (D),HC Davos,34,1,4,5,0.15,12,12,/player/94152/simon-kindschi,3,Simon Kindschi,D,2014-2015,nl,94152,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frédéric Iglesias (D),Genève-Servette HC,38,1,4,5,0.13,2,2,/player/32860/frederic-iglesias,3,Frédéric Iglesias,D,2014-2015,nl,32860,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Rouiller (D),EHC Biel-Bienne,18,0,5,5,0.28,4,-3,/player/85323/anthony-rouiller,3,Anthony Rouiller,D,2014-2015,nl,85323,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniele Grassi (LW/RW),HC Ambrì-Piotta,27,3,1,4,0.15,8,-7,/player/85338/daniele-grassi,3,Daniele Grassi,LW/RW,2014-2015,nl,85338,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Raphaël Kuonen (RW/LW),totals,38,2,2,4,0.11,10,-2,/player/45302/raphael-kuonen,3,Raphaël Kuonen,RW/LW,2014-2015,nl,45302,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sandro Brügger (RW),HC Fribourg-Gottéron,42,2,2,4,0.10,8,1,/player/91725/sandro-brugger,3,Sandro Brügger,RW,2014-2015,nl,91725,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benoit Jecker (D),EHC Biel-Bienne,43,2,2,4,0.09,8,-8,/player/93844/benoit-jecker,3,Benoit Jecker,D,2014-2015,nl,93844,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philippe Schelling (D/LW),EHC Kloten,49,2,2,4,0.08,20,4,/player/18469/philippe-schelling,3,Philippe Schelling,D/LW,2014-2015,nl,18469,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jannik Fischer (D),Lausanne HC,50,2,2,4,0.08,22,3,/player/17690/jannik-fischer,3,Jannik Fischer,D,2014-2015,nl,17690,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henrik Tallinder (D),ZSC Lions,16,1,3,4,0.25,12,9,/player/1955/henrik-tallinder,3,Henrik Tallinder,D,2014-2015,nl,1955,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leandro Profico (D/RW),SC Rapperswil-Jona Lakers,23,1,3,4,0.17,8,-4,/player/18777/leandro-profico,3,Leandro Profico,D/RW,2014-2015,nl,18777,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Fischer (LW),Lausanne HC,32,1,3,4,0.13,16,3,/player/18723/simon-fischer,3,Simon Fischer,LW,2014-2015,nl,18723,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Rod (LW/RW),Genève-Servette HC,38,1,3,4,0.11,22,-11,/player/97120/noah-rod,3,Noah Rod,LW/RW,2014-2015,nl,97120,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sven Berger (D),SC Rapperswil-Jona Lakers,47,1,3,4,0.09,30,-6,/player/18936/sven-berger,3,Sven Berger,D,2014-2015,nl,18936,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Ruzicka (RW),Lausanne HC,9,0,4,4,0.44,2,0,/player/8682/stefan-ruzicka,3,Stefan Ruzicka,RW,2014-2015,nl,8682,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luca Camperchioli (D),HC Davos,24,0,4,4,0.17,6,3,/player/34812/luca-camperchioli,3,Luca Camperchioli,D,2014-2015,nl,34812,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Ness (C),HC Fribourg-Gottéron,25,0,4,4,0.16,8,-7,/player/85340/martin-ness,3,Martin Ness,C,2014-2015,nl,85340,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cyrill Bühler (C/LW),EHC Kloten,30,0,4,4,0.13,20,-5,/player/18948/cyrill-buhler,3,Cyrill Bühler,C/LW,2014-2015,nl,18948,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Federico Lardi (D),Lausanne HC,37,0,4,4,0.11,12,1,/player/28406/federico-lardi,3,Federico Lardi,D,2014-2015,nl,28406,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan von Arx (D),HC Davos,42,0,4,4,0.10,20,6,/player/17569/jan-von-arx,3,Jan von Arx,D,2014-2015,nl,17569,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andri Stoffel (D),ZSC Lions,44,0,4,4,0.09,14,1,/player/18467/andri-stoffel,3,Andri Stoffel,D,2014-2015,nl,18467,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Erni (D),EV Zug,47,0,4,4,0.09,22,1,/player/34814/samuel-erni,3,Samuel Erni,D,2014-2015,nl,34814,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Repik (RW),EV Zug,4,2,1,3,0.75,0,2,/player/10481/michal-repik,3,Michal Repik,RW,2014-2015,nl,10481,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Ulmer (RW),EHC Biel-Bienne,9,2,1,3,0.33,0,-5,/player/15219/martin-ulmer,3,Martin Ulmer,RW,2014-2015,nl,15219,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marco Müller (C/W),SC Bern,20,2,1,3,0.15,2,1,/player/85292/marco-muller,3,Marco Müller,C/W,2014-2015,nl,85292,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcel Jenni (LW),EHC Kloten,10,1,2,3,0.30,8,-2,/player/106/marcel-jenni,3,Marcel Jenni,LW,2014-2015,nl,106,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lars Frei (LW/RW),SC Rapperswil-Jona Lakers,15,1,2,3,0.20,2,-5,/player/94496/lars-frei,3,Lars Frei,LW/RW,2014-2015,nl,94496,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Lüthi (D),EV Zug,33,1,2,3,0.09,14,-3,/player/18907/simon-luthi,3,Simon Lüthi,D,2014-2015,nl,18907,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Giacomo Dal Pian (C),HC Lugano,34,1,2,3,0.09,2,-2,/player/85329/giacomo-dal-pian,3,Giacomo Dal Pian,C,2014-2015,nl,85329,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Paul Savary (C/RW),Lausanne HC,44,1,2,3,0.07,10,-4,/player/17599/paul-savary,3,Paul Savary,C/RW,2014-2015,nl,17599,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rajan Sataric (D),SC Rapperswil-Jona Lakers,47,1,2,3,0.06,6,-17,/player/89744/rajan-sataric,3,Rajan Sataric,D,2014-2015,nl,89744,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Geoff Kinrade (D),HC Ambrì-Piotta,5,0,3,3,0.60,4,0,/player/34094/geoff-kinrade,3,Geoff Kinrade,D,2014-2015,nl,34094,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Schommer (LW),SC Rapperswil-Jona Lakers,12,0,3,3,0.25,2,-6,/player/18472/patrick-schommer,3,Patrick Schommer,LW,2014-2015,nl,18472,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc Aeschlimann (F/D),HC Davos,16,0,3,3,0.19,0,-2,/player/41757/marc-aeschlimann,3,Marc Aeschlimann,F/D,2014-2015,nl,41757,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonas Siegenthaler (D),ZSC Lions,41,0,3,3,0.07,39,4,/player/105407/jonas-siegenthaler,3,Jonas Siegenthaler,D,2014-2015,nl,105407,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonas Andersson (RW/LW),EHC Kloten,5,1,1,2,0.40,0,1,/player/704/jonas-andersson,3,Jonas Andersson,RW/LW,2014-2015,nl,704,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janis Sprukts (C),HC Fribourg-Gottéron,7,1,1,2,0.29,0,-3,/player/7420/janis-sprukts,3,Janis Sprukts,C,2014-2015,nl,7420,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mauro Dufner (D),SC Bern,9,1,1,2,0.22,2,2,/player/95329/mauro-dufner,3,Mauro Dufner,D,2014-2015,nl,95329,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Floran Douay (LW),Genève-Servette HC,12,1,1,2,0.17,2,0,/player/95364/floran-douay,3,Floran Douay,LW,2014-2015,nl,95364,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc Grieder (D),HC Ambrì-Piotta,29,1,1,2,0.07,16,4,/player/41041/marc-grieder,3,Marc Grieder,D,2014-2015,nl,41041,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Neuenschwander (C),ZSC Lions,30,1,1,2,0.07,4,-1,/player/67045/jan-neuenschwander,3,Jan Neuenschwander,C,2014-2015,nl,67045,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Remo Heitzmann (C),SC Rapperswil-Jona Lakers,30,1,1,2,0.07,8,-8,/player/99073/remo-heitzmann,3,Remo Heitzmann,C,2014-2015,nl,99073,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Jelovac (D),EHC Biel-Bienne,33,1,1,2,0.06,18,1,/player/94524/igor-jelovac,3,Igor Jelovac,D,2014-2015,nl,94524,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Clarence Kparghai (D),HC Lugano,34,1,1,2,0.06,24,-5,/player/18678/clarence-kparghai,3,Clarence Kparghai,D,2014-2015,nl,18678,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan O'Byrne (D),HC Ambrì-Piotta,13,0,2,2,0.15,16,-5,/player/11722/ryan-o-byrne,3,Ryan O'Byrne,D,2014-2015,nl,11722,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matteo Nodari (D),totals,26,0,2,2,0.08,10,-7,/player/18517/matteo-nodari,3,Matteo Nodari,D,2014-2015,nl,18517,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Zgraggen (D),HC Ambrì-Piotta,28,0,2,2,0.07,10,-7,/player/45749/jesse-zgraggen,3,Jesse Zgraggen,D,2014-2015,nl,45749,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Manuel Gossweiler (D),EHC Biel-Bienne,33,0,2,2,0.06,8,-5,/player/18672/manuel-gossweiler,3,Manuel Gossweiler,D,2014-2015,nl,18672,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Schnyder (D),ZSC Lions,44,0,2,2,0.05,2,0,/player/18464/daniel-schnyder,3,Daniel Schnyder,D,2014-2015,nl,18464,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Redenbach (C),HC Davos,3,1,0,1,0.33,0,2,/player/11478/tyler-redenbach,3,Tyler Redenbach,C,2014-2015,nl,11478,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin St. Pierre (C/LW),Lausanne HC,3,1,0,1,0.33,0,-1,/player/10668/martin-st-pierre,3,Martin St. Pierre,C/LW,2014-2015,nl,10668,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Melvin Merola (RW),HC Fribourg-Gottéron,3,1,0,1,0.33,2,0,/player/91752/melvin-merola,3,Melvin Merola,RW,2014-2015,nl,91752,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johann Morant (D),EV Zug,5,1,0,1,0.20,8,3,/player/29005/johann-morant,3,Johann Morant,D,2014-2015,nl,29005,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Mosimann (LW),EHC Biel-Bienne,6,1,0,1,0.17,0,-3,/player/94018/jan-mosimann,3,Jan Mosimann,LW,2014-2015,nl,94018,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Stoop (D),EHC Kloten,6,1,0,1,0.17,0,-4,/player/15154/lukas-stoop,3,Lukas Stoop,D,2014-2015,nl,15154,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jérôme Bachofner (LW),ZSC Lions,7,1,0,1,0.14,4,3,/player/121121/jerome-bachofner,3,Jérôme Bachofner,LW,2014-2015,nl,121121,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valentin Lüthi (D),SC Rapperswil-Jona Lakers,14,1,0,1,0.07,10,-4,/player/85344/valentin-luthi,3,Valentin Lüthi,D,2014-2015,nl,85344,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evgenï Chiriaev (C),HC Fribourg-Gottéron,2,0,1,1,0.50,0,1,/player/27305/evgeni-chiriaev,3,Evgenï Chiriaev,C,2014-2015,nl,27305,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Maret (D),HC Fribourg-Gottéron,3,0,1,1,0.33,0,1,/player/17682/mathieu-maret,3,Mathieu Maret,D,2014-2015,nl,17682,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Leino (LW/RW),EHC Kloten,4,0,1,1,0.25,0,0,/player/7418/ville-leino,3,Ville Leino,LW/RW,2014-2015,nl,7418,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Flavio Schmutz (C/LW),SC Rapperswil-Jona Lakers,5,0,1,1,0.20,0,1,/player/85357/flavio-schmutz,3,Flavio Schmutz,C/LW,2014-2015,nl,85357,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominik Devaja (LW/RW),EHC Kloten,5,0,1,1,0.20,0,-1,/player/95618/dominik-devaja,3,Dominik Devaja,LW/RW,2014-2015,nl,95618,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cédric Hüsler (LW),SC Rapperswil-Jona Lakers,6,0,1,1,0.17,0,-1,/player/125363/cedric-husler,4,Cédric Hüsler,LW,2014-2015,nl,125363,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fabian Heldner (D),HC Davos,9,0,1,1,0.11,6,0,/player/139244/fabian-heldner,4,Fabian Heldner,D,2014-2015,nl,139244,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Moser (D),EHC Biel-Bienne,10,0,1,1,0.10,8,-3,/player/18908/christian-moser,4,Christian Moser,D,2014-2015,nl,18908,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Tabacek (D),ZSC Lions,11,0,1,1,0.09,0,6,/player/15839/jan-tabacek,4,Jan Tabacek,D,2014-2015,nl,15839,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Gloor (D/C),EHC Biel-Bienne,22,0,1,1,0.05,2,-6,/player/18461/kevin-gloor,4,Kevin Gloor,D/C,2014-2015,nl,18461,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Traber (RW),Genève-Servette HC,29,0,1,1,0.03,41,-4,/player/45482/tim-traber,4,Tim Traber,RW,2014-2015,nl,45482,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yannick Blaser (D),EV Zug,32,0,1,1,0.03,16,2,/player/28871/yannick-blaser,4,Yannick Blaser,D,2014-2015,nl,28871,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gaëtan Augsburger (LW/RW),Lausanne HC,33,0,1,1,0.03,4,-4,/player/15166/gaetan-augsburger,4,Gaëtan Augsburger,LW/RW,2014-2015,nl,15166,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riccardo Sartori (D),HC Lugano,37,0,1,1,0.03,10,-9,/player/93113/riccardo-sartori,4,Riccardo Sartori,D,2014-2015,nl,93113,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reto Kobach (D),HC Ambrì-Piotta,42,0,1,1,0.02,14,-10,/player/12666/reto-kobach,4,Reto Kobach,D,2014-2015,nl,12666,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gian-Andrea Randegger (LW/D),EHC Kloten,44,0,1,1,0.02,30,-2,/player/17232/gian-andrea-randegger,4,Gian-Andrea Randegger,LW/D,2014-2015,nl,17232,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Sidler (D),HC Ambrì-Piotta,45,0,1,1,0.02,12,-13,/player/20603/patrick-sidler,4,Patrick Sidler,D,2014-2015,nl,20603,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sandy Jeannin (C),HC Fribourg-Gottéron,0,0,0,0,-,0,-,/player/10831/sandy-jeannin,4,Sandy Jeannin,C,2014-2015,nl,10831,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Rapuzzi (C/RW),SC Rapperswil-Jona Lakers,0,0,0,0,-,0,0,/player/37764/william-rapuzzi,4,William Rapuzzi,C/RW,2014-2015,nl,37764,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sandro Wiedmer (D),SC Bern,0,0,0,0,-,0,0,/player/45304/sandro-wiedmer,4,Sandro Wiedmer,D,2014-2015,nl,45304,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Francis Verreault-Paul (C/RW),HC Fribourg-Gottéron,0,0,0,0,-,0,-,/player/12124/francis-verreault-paul,4,Francis Verreault-Paul,C/RW,2014-2015,nl,12124,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Misha Moor (D),HC Ambrì-Piotta,0,0,0,0,-,0,-,/player/162812/misha-moor,4,Misha Moor,D,2014-2015,nl,162812,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominic Forget (LW/C),HC Ambrì-Piotta,0,0,0,0,-,0,-,/player/6640/dominic-forget,4,Dominic Forget,LW/C,2014-2015,nl,6640,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Tschannen (LW),Lausanne HC,0,0,0,0,-,0,-,/player/17219/stefan-tschannen,4,Stefan Tschannen,LW,2014-2015,nl,17219,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Loïk Poudrier (C/LW),HC Ambrì-Piotta,0,0,0,0,-,0,-,/player/45165/loik-poudrier,4,Loïk Poudrier,C/LW,2014-2015,nl,45165,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Giannini (D),HC Ambrì-Piotta,0,0,0,0,-,0,-,/player/149490/dylan-giannini,4,Dylan Giannini,D,2014-2015,nl,149490,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Fröhlicher (D),SC Rapperswil-Jona Lakers,0,0,0,0,-,0,0,/player/20681/joel-frohlicher,4,Joel Fröhlicher,D,2014-2015,nl,20681,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Studer (C),EHC Kloten,1,0,0,0,0.00,0,0,/player/85301/thomas-studer,4,Thomas Studer,C,2014-2015,nl,85301,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gianluca Zanzi (LW/RW),HC Lugano,1,0,0,0,0.00,0,0,/player/139257/gianluca-zanzi,4,Gianluca Zanzi,LW/RW,2014-2015,nl,139257,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Loris Müller (C/W),HC Lugano,1,0,0,0,0.00,0,0,/player/95937/loris-muller,4,Loris Müller,C/W,2014-2015,nl,95937,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniele Marghitola (D),HC Fribourg-Gottéron,1,0,0,0,0.00,0,0,/player/16511/daniele-marghitola,4,Daniele Marghitola,D,2014-2015,nl,16511,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alain Brunold (C/LW),HC Fribourg-Gottéron,1,0,0,0,0.00,0,0,/player/28609/alain-brunold,4,Alain Brunold,C/LW,2014-2015,nl,28609,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philipp Wüst (LW),HC Fribourg-Gottéron,1,0,0,0,0.00,0,-1,/player/40156/philipp-wust,4,Philipp Wüst,LW,2014-2015,nl,40156,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominik Diem (C/LW),ZSC Lions,1,0,0,0,0.00,0,0,/player/149625/dominik-diem,4,Dominik Diem,C/LW,2014-2015,nl,149625,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Xeno Büsser (D),ZSC Lions,1,0,0,0,0.00,0,0,/player/94024/xeno-busser,4,Xeno Büsser,D,2014-2015,nl,94024,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nando Jeyabalan (F),SC Rapperswil-Jona Lakers,1,0,0,0,0.00,0,0,/player/94151/nando-jeyabalan,4,Nando Jeyabalan,F,2014-2015,nl,94151,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Lee Hartmann (C/W),EHC Kloten,1,0,0,0,0.00,0,0,/player/94541/jan-lee-hartmann,4,Jan Lee Hartmann,C/W,2014-2015,nl,94541,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julien Bonnet (D),HC Ambrì-Piotta,2,0,0,0,0.00,0,0,/player/17601/julien-bonnet,4,Julien Bonnet,D,2014-2015,nl,17601,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tony Matewa (D),HC Fribourg-Gottéron,2,0,0,0,0.00,0,0,/player/92392/tony-matewa,4,Tony Matewa,D,2014-2015,nl,92392,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luca Knutti (RW),HC Fribourg-Gottéron,2,0,0,0,0.00,0,0,/player/169373/luca-knutti,4,Luca Knutti,RW,2014-2015,nl,169373,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dave Sutter (D),HC Fribourg-Gottéron,2,0,0,0,0.00,0,-1,/player/70435/dave-sutter,4,Dave Sutter,D,2014-2015,nl,70435,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fabio Högger (C/RW),EHC Kloten,2,0,0,0,0.00,0,0,/player/95041/fabio-hogger,4,Fabio Högger,C/RW,2014-2015,nl,95041,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Marchon (C/LW),HC Fribourg-Gottéron,2,0,0,0,0.00,0,-1,/player/116240/nathan-marchon,4,Nathan Marchon,C/LW,2014-2015,nl,116240,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Botta (C),HC Fribourg-Gottéron,2,0,0,0,0.00,0,0,/player/18482/roman-botta,4,Roman Botta,C,2014-2015,nl,18482,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Diego Schwarzenbach (LW),HC Fribourg-Gottéron,2,0,0,0,0.00,0,-1,/player/33596/diego-schwarzenbach,4,Diego Schwarzenbach,LW,2014-2015,nl,33596,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Steinauer (D),EHC Kloten,2,0,0,0,0.00,0,0,/player/95034/joel-steinauer,4,Joel Steinauer,D,2014-2015,nl,95034,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Egli (C/LW),HC Davos,2,0,0,0,0.00,0,0,/player/149521/chris-egli,4,Chris Egli,C/LW,2014-2015,nl,149521,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tino Kessler (C/RW),HC Davos,2,0,0,0,0.00,0,-1,/player/149522/tino-kessler,4,Tino Kessler,C/RW,2014-2015,nl,149522,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Codey Burki (C),HC Fribourg-Gottéron,2,0,0,0,0.00,2,0,/player/10434/codey-burki,4,Codey Burki,C,2014-2015,nl,10434,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aurélien Marti (D),Lausanne HC,3,0,0,0,0.00,0,0,/player/96108/aurelien-marti,4,Aurélien Marti,D,2014-2015,nl,96108,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Horanský (LW),EHC Biel-Bienne,3,0,0,0,0.00,0,-1,/player/101354/stanislav-horansky,4,Stanislav Horanský,LW,2014-2015,nl,101354,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Sartori (RW/D),HC Lugano,3,0,0,0,0.00,0,1,/player/94535/jonathan-sartori,4,Jonathan Sartori,RW/D,2014-2015,nl,94535,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Auguste Impose (LW/RW),Genève-Servette HC,4,0,0,0,0.00,0,0,/player/85351/auguste-impose,4,Auguste Impose,LW/RW,2014-2015,nl,85351,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Félix Girard (C/W),Genève-Servette HC,4,0,0,0,0.00,0,0,/player/89886/felix-girard,4,Félix Girard,C/W,2014-2015,nl,89886,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc Marchon (C/RW),EV Zug,4,0,0,0,0.00,0,-2,/player/95110/marc-marchon,4,Marc Marchon,C/RW,2014-2015,nl,95110,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Balmelli (C),HC Lugano,4,0,0,0,0.00,4,0,/player/85296/lukas-balmelli,4,Lukas Balmelli,C,2014-2015,nl,85296,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jarkko Ruutu (LW),EHC Biel-Bienne,4,0,0,0,0.00,14,-2,/player/2673/jarkko-ruutu,4,Jarkko Ruutu,LW,2014-2015,nl,2673,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Wildhaber (D),HC Fribourg-Gottéron,5,0,0,0,0.00,0,1,/player/93841/david-wildhaber,4,David Wildhaber,D,2014-2015,nl,93841,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roger Karrer (D),ZSC Lions,5,0,0,0,0.00,0,0,/player/149628/roger-karrer,4,Roger Karrer,D,2014-2015,nl,149628,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommi Paakkolanvaara (C),HC Lugano,5,0,0,0,0.00,0,0,/player/7528/tommi-paakkolanvaara,4,Tommi Paakkolanvaara,C,2014-2015,nl,7528,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joey Dupertuis (D),Genève-Servette HC,6,0,0,0,0.00,0,0,/player/94522/joey-dupertuis,4,Joey Dupertuis,D,2014-2015,nl,94522,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Florian Schmuckli (D),ZSC Lions,6,0,0,0,0.00,2,2,/player/85345/florian-schmuckli,4,Florian Schmuckli,D,2014-2015,nl,85345,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sami El Assaoui (D),EHC Kloten,6,0,0,0,0.00,4,-1,/player/66522/sami-el-assaoui,4,Sami El Assaoui,D,2014-2015,nl,66522,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Grossniklaus (D),SC Bern,8,0,0,0,0.00,0,-1,/player/93224/tim-grossniklaus,4,Tim Grossniklaus,D,2014-2015,nl,93224,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fredrik Sitje (C/LW),ZSC Lions,8,0,0,0,0.00,2,-1,/player/66582/fredrik-sitje,4,Fredrik Sitje,C/LW,2014-2015,nl,66582,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philip Åhlström (D),HC Lugano,10,0,0,0,0.00,0,0,/player/85669/philip-ahlstrom,4,Philip Åhlström,D,2014-2015,nl,85669,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Blatter (D),totals,10,0,0,0,0.00,0,0,/player/85317/patrick-blatter,4,Patrick Blatter,D,2014-2015,nl,85317,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Eigenmann (D),SC Rapperswil-Jona Lakers,11,0,0,0,0.00,8,-4,/player/70427/daniel-eigenmann,4,Daniel Eigenmann,D,2014-2015,nl,70427,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Stämpfli (D),EV Zug,15,0,0,0,0.00,6,4,/player/35664/david-stampfli,4,David Stämpfli,D,2014-2015,nl,35664,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matteo Romanenghi (C/LW),HC Lugano,16,0,0,0,0.00,0,-2,/player/94549/matteo-romanenghi,4,Matteo Romanenghi,C/LW,2014-2015,nl,94549,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc Zangger (D),HC Fribourg-Gottéron,17,0,0,0,0.00,0,-4,/player/89733/marc-zangger,4,Marc Zangger,D,2014-2015,nl,89733,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philippe Seydoux (D),Lausanne HC,19,0,0,0,0.00,6,-1,/player/7964/philippe-seydoux,4,Philippe Seydoux,D,2014-2015,nl,7964,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Manuel Grigioni (D),SC Rapperswil-Jona Lakers,20,0,0,0,0.00,6,-4,/player/119517/manuel-grigioni,4,Manuel Grigioni,D,2014-2015,nl,119517,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Ulmann (C),Lausanne HC,22,0,0,0,0.00,4,-2,/player/22462/tim-ulmann,4,Tim Ulmann,C,2014-2015,nl,22462,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reto Schmutz (LW),SC Rapperswil-Jona Lakers,23,0,0,0,0.00,8,-10,/player/34825/reto-schmutz,4,Reto Schmutz,LW,2014-2015,nl,34825,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Edson Harlacher (D),EHC Kloten,30,0,0,0,0.00,6,-9,/player/103838/edson-harlacher,4,Edson Harlacher,D,2014-2015,nl,103838,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxime Montandon (D),HC Fribourg-Gottéron,37,0,0,0,0.00,2,-8,/player/34867/maxime-montandon,4,Maxime Montandon,D,2014-2015,nl,34867,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69

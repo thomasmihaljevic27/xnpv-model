@@ -1,0 +1,363 @@
+player,team,gp,g,a,tp,p_per_gp,pim,plus_minus,link,page,playername,position,season,league,ep_player_id,scrape_date,source,package_version
+Derek Cormier (C),totals,45,38,60,98,2.18,30,-,/player/10906/derek-cormier,1,Derek Cormier,C,2006-2007,sl,10906,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrice Lefebvre (LW),Lausanne HC,45,19,79,98,2.18,50,-,/player/10602/patrice-lefebvre,1,Patrice Lefebvre,LW,2006-2007,sl,10602,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+James Desmarais (C),HC Ajoie,44,40,52,92,2.09,127,-,/player/10900/james-desmarais,1,James Desmarais,C,2006-2007,sl,10900,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Roy (C),HC La Chaux-de-Fonds,45,33,53,86,1.91,64,-,/player/10828/jonathan-roy,1,Jonathan Roy,C,2006-2007,sl,10828,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stéphane Roy (C),HC Ajoie,45,29,52,81,1.80,52,-,/player/10901/stephane-roy,1,Stéphane Roy,C,2006-2007,sl,10901,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Bélanger (C),Lausanne HC,41,48,32,80,1.95,60,-,/player/10905/jesse-belanger,1,Jesse Bélanger,C,2006-2007,sl,10905,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steve Larouche (C),SC Langenthal,44,28,51,79,1.80,50,-,/player/10903/steve-larouche,1,Steve Larouche,C,2006-2007,sl,10903,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Terry Yake (C),EHC Visp,45,26,53,79,1.76,40,-,/player/10908/terry-yake,1,Terry Yake,C,2006-2007,sl,10908,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexandre Tremblay (LW/RW),EHC Biel-Bienne,45,43,33,76,1.69,72,-,/player/3589/alexandre-tremblay,1,Alexandre Tremblay,LW/RW,2006-2007,sl,3589,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominic Forget (LW/C),HC La Chaux-de-Fonds,45,33,41,74,1.64,58,-,/player/6640/dominic-forget,1,Dominic Forget,LW/C,2006-2007,sl,6640,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valeri Shiryayev (D),HC La Chaux-de-Fonds,43,17,52,69,1.60,82,-,/player/27304/valeri-shiryayev,1,Valeri Shiryayev,D,2006-2007,sl,27304,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Rüfenacht (LW/RW),EHC Visp,44,26,35,61,1.39,102,-,/player/17610/thomas-rufenacht,1,Thomas Rüfenacht,LW/RW,2006-2007,sl,17610,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Hellkvist (LW),totals,43,21,39,60,1.40,26,-,/player/349/stefan-hellkvist,1,Stefan Hellkvist,LW,2006-2007,sl,349,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Éric Lecompte (LW),SC Langenthal,36,14,46,60,1.67,61,-,/player/10904/eric-lecompte,1,Éric Lecompte,LW,2006-2007,sl,10904,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steven Barras (LW),HC Ajoie,42,32,27,59,1.40,50,-,/player/21015/steven-barras,1,Steven Barras,LW,2006-2007,sl,21015,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lee Jinman (C),totals,22,22,35,57,2.59,20,-,/player/2565/lee-jinman,1,Lee Jinman,C,2006-2007,sl,2565,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marco Truttmann (RW),totals,45,27,29,56,1.24,20,-,/player/18862/marco-truttmann,1,Marco Truttmann,RW,2006-2007,sl,18862,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Neininger (LW/RW),HC La Chaux-de-Fonds,44,30,25,55,1.25,36,-,/player/31547/michael-neininger,1,Michael Neininger,LW/RW,2006-2007,sl,31547,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Koreshkov (C),HC Martigny,42,21,31,52,1.24,60,-,/player/29004/yevgeni-koreshkov,1,Yevgeni Koreshkov,C,2006-2007,sl,29004,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Müller (C),SC Langenthal,44,22,29,51,1.16,60,-,/player/31549/oliver-muller,1,Oliver Müller,C,2006-2007,sl,31549,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grigorijs Pantelejevs (LW),HC Martigny,43,10,41,51,1.19,34,-,/player/1953/grigorijs-pantelejevs,1,Grigorijs Pantelejevs,LW,2006-2007,sl,1953,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roger Rieder (F),totals,43,17,32,49,1.14,30,-,/player/17233/roger-rieder,1,Roger Rieder,F,2006-2007,sl,17233,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philipp Orlandi (LW),SC Langenthal,42,24,24,48,1.14,14,-,/player/31548/philipp-orlandi,1,Philipp Orlandi,LW,2006-2007,sl,31548,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elvis Clavien (LW),HC Sierre-Anniviers,44,21,27,48,1.09,101,-,/player/34184/elvis-clavien,1,Elvis Clavien,LW,2006-2007,sl,34184,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Richard (C),GC Küsnacht Lions,27,20,27,47,1.74,42,-,/player/28046/mike-richard,1,Mike Richard,C,2006-2007,sl,28046,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grégory Christen (LW),HC Martigny,42,27,18,45,1.07,44,-,/player/12646/gregory-christen,1,Grégory Christen,LW,2006-2007,sl,12646,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Beat Schuler (RW),HC Thurgau,43,25,20,45,1.05,31,-,/player/122077/beat-schuler,1,Beat Schuler,RW,2006-2007,sl,122077,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Rubin (C/RW),EHC Biel-Bienne,44,22,23,45,1.02,97,-,/player/17227/daniel-rubin,1,Daniel Rubin,C/RW,2006-2007,sl,17227,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Florian Conz (C),Lausanne HC,45,12,33,45,1.00,56,-,/player/9650/florian-conz,1,Florian Conz,C,2006-2007,sl,9650,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Omar Tognini (C),HC Thurgau,45,16,27,43,0.96,78,-,/player/16510/omar-tognini,1,Omar Tognini,C,2006-2007,sl,16510,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jean-Jacques Aeschlimann (C),Lausanne HC,45,21,21,42,0.93,28,-,/player/27311/jean-jacques-aeschlimann,1,Jean-Jacques Aeschlimann,C,2006-2007,sl,27311,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pascal Stoller (D),SC Langenthal,40,16,26,42,1.05,40,-,/player/39944/pascal-stoller,1,Pascal Stoller,D,2006-2007,sl,39944,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jörg Reber (D),EHC Biel-Bienne,45,11,31,42,0.93,50,-,/player/18682/jorg-reber,1,Jörg Reber,D,2006-2007,sl,18682,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Krüger (F),EHC Chur,45,18,23,41,0.91,50,-,/player/28837/patrick-kruger,1,Patrick Krüger,F,2006-2007,sl,28837,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sandro Moggi (LW),GC Küsnacht Lions,35,21,19,40,1.14,36,-,/player/17561/sandro-moggi,1,Sandro Moggi,LW,2006-2007,sl,17561,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kristian Gahn (C),EHC Olten,33,13,25,38,1.15,20,-,/player/592/kristian-gahn,1,Kristian Gahn,C,2006-2007,sl,592,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+René Stüssi (RW),HC Thurgau,37,17,20,37,1.00,14,-,/player/41438/rene-stussi,1,René Stüssi,RW,2006-2007,sl,41438,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathias Brägger (F),HC Thurgau,43,17,20,37,0.86,46,-,/player/18696/mathias-bragger,1,Mathias Brägger,F,2006-2007,sl,18696,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emanuel Peter (C),EHC Biel-Bienne,43,12,25,37,0.86,74,-,/player/18722/emanuel-peter,1,Emanuel Peter,C,2006-2007,sl,18722,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karl Knopf (D),totals,43,10,27,37,0.86,50,-,/player/34506/karl-knopf,1,Karl Knopf,D,2006-2007,sl,34506,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gerhard Schneller (RW),totals,42,15,21,36,0.86,28,-,/player/41442/gerhard-schneller,1,Gerhard Schneller,RW,2006-2007,sl,41442,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bruno Brechbühl (LW),Lausanne HC,42,12,24,36,0.86,56,-,/player/28402/bruno-brechbuhl,1,Bruno Brechbühl,LW,2006-2007,sl,28402,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marco Gruber (F),GC Küsnacht Lions,45,17,18,35,0.78,26,-,/player/33581/marco-gruber,1,Marco Gruber,F,2006-2007,sl,33581,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Othmann (C),totals,45,14,21,35,0.78,40,-,/player/28040/robert-othmann,1,Robert Othmann,C,2006-2007,sl,28040,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aurelio Lemm (LW),totals,45,12,23,35,0.78,8,-,/player/15164/aurelio-lemm,1,Aurelio Lemm,LW,2006-2007,sl,15164,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cédric Métrailler (LW),HC Sierre-Anniviers,44,21,13,34,0.77,26,-,/player/34122/cedric-metrailler,1,Cédric Métrailler,LW,2006-2007,sl,34122,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Gloor (D/C),GC Küsnacht Lions,45,12,22,34,0.76,14,-,/player/18461/kevin-gloor,1,Kevin Gloor,D/C,2006-2007,sl,18461,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Dietrich (C),EHC Biel-Bienne,25,10,23,33,1.32,10,-,/player/15117/brandon-dietrich,1,Brandon Dietrich,C,2006-2007,sl,15117,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philippe Faust (D),HC Sierre-Anniviers,43,9,24,33,0.77,97,-,/player/44840/philippe-faust,1,Philippe Faust,D,2006-2007,sl,44840,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tassilo Schwarz (F),EHC Olten,43,18,14,32,0.74,38,-,/player/33593/tassilo-schwarz,1,Tassilo Schwarz,F,2006-2007,sl,33593,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yanick Bodemann (C),EHC Visp,45,12,20,32,0.71,16,-,/player/16052/yanick-bodemann,1,Yanick Bodemann,C,2006-2007,sl,16052,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Beat Heldstab (D),EHC Visp,42,9,23,32,0.76,32,-,/player/28834/beat-heldstab,1,Beat Heldstab,D,2006-2007,sl,28834,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Serge Meyer (D/F),EHC Biel-Bienne,44,7,25,32,0.73,58,-,/player/18679/serge-meyer,1,Serge Meyer,D/F,2006-2007,sl,18679,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adrian Trunz (D),HC Ajoie,45,7,25,32,0.71,32,-,/player/29226/adrian-trunz,1,Adrian Trunz,D,2006-2007,sl,29226,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian Felsner (C/LW),EHC Biel-Bienne,16,14,17,31,1.94,46,-,/player/2009/brian-felsner,1,Brian Felsner,C/LW,2006-2007,sl,2009,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alain Miéville (C),totals,30,13,18,31,1.03,22,-,/player/34315/alain-mieville,1,Alain Miéville,C,2006-2007,sl,34315,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alain Brunold (C/LW),EHC Visp,44,12,19,31,0.70,20,-,/player/28609/alain-brunold,1,Alain Brunold,C/LW,2006-2007,sl,28609,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ronny Keller (D),totals,44,4,27,31,0.70,96,-,/player/28529/ronny-keller,1,Ronny Keller,D,2006-2007,sl,28529,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Beechey (LW/C),EHC Visp,19,17,13,30,1.58,22,-,/player/10907/tyler-beechey,1,Tyler Beechey,LW/C,2006-2007,sl,10907,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Lötscher (RW),totals,34,16,14,30,0.88,18,-,/player/15160/kevin-lotscher,1,Kevin Lötscher,RW,2006-2007,sl,15160,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bernhard Schümperli (C),totals,34,13,17,30,0.88,44,-,/player/21026/bernhard-schumperli,1,Bernhard Schümperli,C,2006-2007,sl,21026,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Xavier Reber (F),totals,39,19,10,29,0.74,66,-,/player/40160/xavier-reber,1,Xavier Reber,F,2006-2007,sl,40160,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andy Béring (C/RW),HC La Chaux-de-Fonds,38,13,14,27,0.71,36,-,/player/31685/andy-bering,1,Andy Béring,C/RW,2006-2007,sl,31685,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philipp Lüber (F),totals,37,11,16,27,0.73,34,-,/player/41430/philipp-luber,1,Philipp Lüber,F,2006-2007,sl,41430,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Giancarlo Hendry (RW),HC Thurgau,38,10,17,27,0.71,50,-,/player/28835/giancarlo-hendry,1,Giancarlo Hendry,RW,2006-2007,sl,28835,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthias Holzer (F/D),GC Küsnacht Lions,45,10,17,27,0.60,86,-,/player/29164/matthias-holzer,1,Matthias Holzer,F/D,2006-2007,sl,29164,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Tschantré (C),EHC Biel-Bienne,43,9,18,27,0.63,44,-,/player/18863/mathieu-tschantre,1,Mathieu Tschantré,C,2006-2007,sl,18863,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexis Vacheron (D),HC La Chaux-de-Fonds,44,3,24,27,0.61,76,-,/player/29228/alexis-vacheron,1,Alexis Vacheron,D,2006-2007,sl,29228,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philipp Wüst (LW),EHC Visp,44,17,9,26,0.59,24,-,/player/40156/philipp-wust,1,Philipp Wüst,LW,2006-2007,sl,40156,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Norman Perrin (F),totals,44,12,14,26,0.59,28,-,/player/22488/norman-perrin,1,Norman Perrin,F,2006-2007,sl,22488,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marco Käser (F),SC Langenthal,45,12,14,26,0.58,69,-,/player/130404/marco-kaser,1,Marco Käser,F,2006-2007,sl,130404,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+René Friedli (RW),HC Ajoie,45,11,15,26,0.58,108,-,/player/28831/rene-friedli,1,René Friedli,RW,2006-2007,sl,28831,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jérémy Gailland (C/W),totals,47,10,16,26,0.55,12,-,/player/22935/jeremy-gailland,1,Jérémy Gailland,C/W,2006-2007,sl,22935,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mauro Beccarelli (F),EHC Biel-Bienne,43,8,18,26,0.60,61,-,/player/18693/mauro-beccarelli,1,Mauro Beccarelli,F,2006-2007,sl,18693,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Diego Schwarzenbach (LW),totals,49,16,9,25,0.51,26,-,/player/33596/diego-schwarzenbach,1,Diego Schwarzenbach,LW,2006-2007,sl,33596,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fabrizio Conte (F),totals,43,13,12,25,0.58,22,-,/player/18519/fabrizio-conte,1,Fabrizio Conte,F,2006-2007,sl,18519,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christophe Brown (RW),HC Sierre-Anniviers,44,12,13,25,0.57,42,-,/player/27197/christophe-brown,1,Christophe Brown,RW,2006-2007,sl,27197,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicolas Bernasconi (D),HC Martigny,41,9,16,25,0.61,62,-,/player/24504/nicolas-bernasconi,1,Nicolas Bernasconi,D,2006-2007,sl,24504,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olivier Schäublin (D),Lausanne HC,45,10,14,24,0.53,113,-,/player/35353/olivier-schaublin,1,Olivier Schäublin,D,2006-2007,sl,35353,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Ulmer (RW),GC Küsnacht Lions,38,6,18,24,0.63,10,-,/player/15219/martin-ulmer,1,Martin Ulmer,RW,2006-2007,sl,15219,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bernie Sigrist (RW),HC Ajoie,30,12,11,23,0.77,68,-,/player/28840/bernie-sigrist,1,Bernie Sigrist,RW,2006-2007,sl,28840,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Wüthrich (C),EHC Olten,44,12,11,23,0.52,12,-,/player/33592/martin-wuthrich,1,Martin Wüthrich,C,2006-2007,sl,33592,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Claudio Moggi (C),GC Küsnacht Lions,26,10,13,23,0.88,68,-,/player/18903/claudio-moggi,1,Claudio Moggi,C,2006-2007,sl,18903,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Botta (C),Lausanne HC,41,11,11,22,0.54,30,-,/player/18482/roman-botta,1,Roman Botta,C,2006-2007,sl,18482,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jim Campbell (RW),EHC Visp,16,8,14,22,1.38,46,-,/player/27208/jim-campbell,1,Jim Campbell,RW,2006-2007,sl,27208,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julien Bonnet (D),HC Ajoie,44,6,16,22,0.50,82,-,/player/17601/julien-bonnet,1,Julien Bonnet,D,2006-2007,sl,17601,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danny Masa (RW),EHC Chur,42,10,11,21,0.50,18,-,/player/28838/danny-masa,1,Danny Masa,RW,2006-2007,sl,28838,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Moser (RW),SC Langenthal,45,8,13,21,0.47,52,-,/player/266050/stefan-moser,1,Stefan Moser,RW,2006-2007,sl,266050,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pierre-Alain Ançay (LW),HC Sierre-Anniviers,35,7,14,21,0.60,53,-,/player/30089/pierre-alain-ancay,1,Pierre-Alain Ançay,LW,2006-2007,sl,30089,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexandre Posse (F),HC Sierre-Anniviers,42,5,16,21,0.50,20,-,/player/21016/alexandre-posse,1,Alexandre Posse,F,2006-2007,sl,21016,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc Abplanalp (D),EHC Visp,45,5,16,21,0.47,10,-,/player/17585/marc-abplanalp,1,Marc Abplanalp,D,2006-2007,sl,17585,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Silvan Lüssy (C),EHC Visp,45,4,17,21,0.47,14,-,/player/17607/silvan-lussy,1,Silvan Lüssy,C,2006-2007,sl,17607,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cyrill Pasche (F),EHC Biel-Bienne,43,13,7,20,0.47,81,-,/player/30087/cyrill-pasche,1,Cyrill Pasche,F,2006-2007,sl,30087,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roland Korsch (LW),HC Thurgau,45,11,9,20,0.44,75,-,/player/41441/roland-korsch,1,Roland Korsch,LW,2006-2007,sl,41441,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas Küng (C/LW),EHC Biel-Bienne,45,9,11,20,0.44,24,-,/player/24883/andreas-kung,1,Andreas Küng,C/LW,2006-2007,sl,24883,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jérémy Mano (F),HC La Chaux-de-Fonds,45,8,12,20,0.44,28,-,/player/45305/jeremy-mano,1,Jérémy Mano,F,2006-2007,sl,45305,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Francesco Bizzozero (D),HC Ajoie,45,5,15,20,0.44,108,-,/player/84277/francesco-bizzozero,1,Francesco Bizzozero,D,2006-2007,sl,84277,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Schuster (D),totals,35,2,18,20,0.57,20,-,/player/18653/christian-schuster,1,Christian Schuster,D,2006-2007,sl,18653,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michel Kamber (D),Lausanne HC,41,2,18,20,0.49,34,-,/player/28836/michel-kamber,1,Michel Kamber,D,2006-2007,sl,28836,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julien Turler (F),HC Martigny,34,11,8,19,0.56,12,-,/player/44831/julien-turler,1,Julien Turler,F,2006-2007,sl,44831,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fadri Lemm (C/W),EHC Chur,35,9,10,19,0.54,20,-,/player/31405/fadri-lemm,2,Fadri Lemm,C/W,2006-2007,sl,31405,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lovis Schönenberger (F),Lausanne HC,44,9,10,19,0.43,20,-,/player/16504/lovis-schonenberger,2,Lovis Schönenberger,F,2006-2007,sl,16504,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Wichser (LW),GC Küsnacht Lions,23,7,12,19,0.83,8,-,/player/20698/martin-wichser,2,Martin Wichser,LW,2006-2007,sl,20698,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Manuel Gossweiler (D),EHC Biel-Bienne,45,3,16,19,0.42,44,-,/player/18672/manuel-gossweiler,2,Manuel Gossweiler,D,2006-2007,sl,18672,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Federico Lardi (D),EHC Visp,45,8,10,18,0.40,20,-,/player/28406/federico-lardi,2,Federico Lardi,D,2006-2007,sl,28406,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sébastien Hostettler (D),HC La Chaux-de-Fonds,45,7,11,18,0.40,36,-,/player/18675/sebastien-hostettler,2,Sébastien Hostettler,D,2006-2007,sl,18675,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rolf Hildebrand (C),EHC Olten,45,7,10,17,0.38,30,-,/player/33603/rolf-hildebrand,2,Rolf Hildebrand,C,2006-2007,sl,33603,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alain Pasqualino (F),totals,26,3,14,17,0.65,14,-,/player/34128/alain-pasqualino,2,Alain Pasqualino,F,2006-2007,sl,34128,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc Gautschi (D),SC Langenthal,31,3,14,17,0.55,62,-,/player/16509/marc-gautschi,2,Marc Gautschi,D,2006-2007,sl,16509,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthoine Lussier (LW),Lausanne HC,41,9,7,16,0.39,20,-,/player/17986/anthoine-lussier,2,Anthoine Lussier,LW,2006-2007,sl,17986,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cyril Aeschlimann (D/RW),totals,45,8,8,16,0.36,22,-,/player/31682/cyril-aeschlimann,2,Cyril Aeschlimann,D/RW,2006-2007,sl,31682,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Tschannen (LW),SC Langenthal,10,6,10,16,1.60,2,-,/player/17219/stefan-tschannen,2,Stefan Tschannen,LW,2006-2007,sl,17219,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc Geiger (D),GC Küsnacht Lions,45,6,10,16,0.36,24,-,/player/22454/marc-geiger,2,Marc Geiger,D,2006-2007,sl,22454,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Fröhlicher (D),EHC Biel-Bienne,45,5,11,16,0.36,80,-,/player/20681/joel-frohlicher,2,Joel Fröhlicher,D,2006-2007,sl,20681,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hans Pienitz (D),GC Küsnacht Lions,43,8,7,15,0.35,68,-,/player/21165/hans-pienitz,2,Hans Pienitz,D,2006-2007,sl,21165,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Micha Schär (F),HC Ajoie,45,8,7,15,0.33,6,-,/player/39953/micha-schar,2,Micha Schär,F,2006-2007,sl,39953,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julien Staudenmann (F),Lausanne HC,43,7,8,15,0.35,50,-,/player/35606/julien-staudenmann,2,Julien Staudenmann,F,2006-2007,sl,35606,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steve Pochon (F),HC La Chaux-de-Fonds,45,6,9,15,0.33,52,-,/player/41085/steve-pochon,2,Steve Pochon,F,2006-2007,sl,41085,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Remo Hirt (RW),totals,44,5,10,15,0.34,44,-,/player/33598/remo-hirt,2,Remo Hirt,RW,2006-2007,sl,33598,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Loic Merz (F),Lausanne HC,45,5,10,15,0.33,30,-,/player/66895/loic-merz,2,Loic Merz,F,2006-2007,sl,66895,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomi Pöllänen (LW),HC Sierre-Anniviers,8,4,11,15,1.88,2,-,/player/7514/tomi-pollanen,2,Tomi Pöllänen,LW,2006-2007,sl,7514,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marco Schüpbach (D),EHC Visp,45,4,11,15,0.33,50,-,/player/29225/marco-schupbach,2,Marco Schüpbach,D,2006-2007,sl,29225,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Clarence Kparghai (D),totals,32,3,12,15,0.47,32,-,/player/18678/clarence-kparghai,2,Clarence Kparghai,D,2006-2007,sl,18678,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc Haueter (D),totals,37,3,12,15,0.41,102,-,/player/28833/marc-haueter,2,Marc Haueter,D,2006-2007,sl,28833,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Boss (D),EHC Olten,41,3,12,15,0.37,46,-,/player/17235/daniel-boss,2,Daniel Boss,D,2006-2007,sl,17235,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Diethelm (D),totals,38,2,13,15,0.39,58,-,/player/28830/roman-diethelm,2,Roman Diethelm,D,2006-2007,sl,28830,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Schild (F),HC Ajoie,44,7,7,14,0.32,24,-,/player/24115/roman-schild,2,Roman Schild,F,2006-2007,sl,24115,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Maurer (C),HC Sierre-Anniviers,34,6,8,14,0.41,20,-,/player/36507/david-maurer,2,David Maurer,C,2006-2007,sl,36507,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roland Kradolfer (D),SC Langenthal,45,6,8,14,0.31,68,-,/player/35900/roland-kradolfer,2,Roland Kradolfer,D,2006-2007,sl,35900,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philipp Wetzel (RW/C),SC Langenthal,26,5,9,14,0.54,28,-,/player/18865/philipp-wetzel,2,Philipp Wetzel,RW/C,2006-2007,sl,18865,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pierino Bigliel (C),EHC Chur,41,5,9,14,0.34,22,-,/player/34508/pierino-bigliel,2,Pierino Bigliel,C,2006-2007,sl,34508,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Dolana (LW),HC Sierre-Anniviers,45,4,10,14,0.31,4,-,/player/24112/tomas-dolana,2,Tomas Dolana,LW,2006-2007,sl,24112,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pascal Wittwer (RW),HC Ajoie,45,4,10,14,0.31,14,-,/player/21152/pascal-wittwer,2,Pascal Wittwer,RW,2006-2007,sl,21152,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc Welti (D),totals,39,3,11,14,0.36,44,-,/player/15153/marc-welti,2,Marc Welti,D,2006-2007,sl,15153,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cédric Aeschlimann (F),EHC Olten,45,3,11,14,0.31,46,-,/player/21029/cedric-aeschlimann,2,Cédric Aeschlimann,F,2006-2007,sl,21029,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michel Fäh (D),HC Thurgau,37,2,12,14,0.38,66,-,/player/28729/michel-fah,2,Michel Fäh,D,2006-2007,sl,28729,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adrien Lauper (LW),totals,40,1,13,14,0.35,14,-,/player/17578/adrien-lauper,2,Adrien Lauper,LW,2006-2007,sl,17578,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pascal Tiegermann (F),GC Küsnacht Lions,27,7,6,13,0.48,56,-,/player/18466/pascal-tiegermann,2,Pascal Tiegermann,F,2006-2007,sl,18466,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luca Triulzi (RW),EHC Visp,23,6,7,13,0.57,22,-,/player/34120/luca-triulzi,2,Luca Triulzi,RW,2006-2007,sl,34120,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Charles Simard (D),HC Sierre-Anniviers,29,5,8,13,0.45,103,-,/player/28084/charles-simard,2,Charles Simard,D,2006-2007,sl,28084,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrea Wegmüller (D),HC Sierre-Anniviers,41,4,9,13,0.32,50,-,/player/33584/andrea-wegmuller,2,Andrea Wegmüller,D,2006-2007,sl,33584,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christoph Hiltebrand (C),EHC Olten,43,4,9,13,0.30,58,-,/player/48312/christoph-hiltebrand,2,Christoph Hiltebrand,C,2006-2007,sl,48312,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc Bühlmann (F),EHC Visp,45,4,9,13,0.29,42,-,/player/44873/marc-buhlmann,2,Marc Bühlmann,F,2006-2007,sl,44873,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Siegwart (F),EHC Olten,45,2,11,13,0.29,32,-,/player/34507/patrick-siegwart,2,Patrick Siegwart,F,2006-2007,sl,34507,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julian Walker (C/RW),EHC Olten,8,8,4,12,1.50,4,-,/player/12653/julian-walker,2,Julian Walker,C/RW,2006-2007,sl,12653,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Damien Eisenring (F),HC La Chaux-de-Fonds,44,7,5,12,0.27,30,-,/player/41084/damien-eisenring,2,Damien Eisenring,F,2006-2007,sl,41084,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas John (D),EHC Chur,44,6,6,12,0.27,88,-,/player/66972/andreas-john,2,Andreas John,D,2006-2007,sl,66972,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Meichtry (D),HC Thurgau,27,5,7,12,0.44,56,-,/player/41432/patrick-meichtry,2,Patrick Meichtry,D,2006-2007,sl,41432,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Sidler (D),GC Küsnacht Lions,43,5,7,12,0.28,54,-,/player/20603/patrick-sidler,2,Patrick Sidler,D,2006-2007,sl,20603,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Cox (C/RW),EHC Visp,7,3,9,12,1.71,6,-,/player/12834/justin-cox,2,Justin Cox,C/RW,2006-2007,sl,12834,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+René Baumgartner (F),SC Langenthal,45,3,9,12,0.27,30,-,/player/28605/rene-baumgartner,2,René Baumgartner,F,2006-2007,sl,28605,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pascal Avanthay (D),totals,39,1,11,12,0.31,61,-,/player/28404/pascal-avanthay,2,Pascal Avanthay,D,2006-2007,sl,28404,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Grogg (F),EHC Biel-Bienne,36,5,6,11,0.31,20,-,/player/35016/stefan-grogg,2,Stefan Grogg,F,2006-2007,sl,35016,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicolas Burdet (F),HC Martigny,39,3,8,11,0.28,22,-,/player/40778/nicolas-burdet,2,Nicolas Burdet,F,2006-2007,sl,40778,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nico Spolidoro (W),EHC Biel-Bienne,43,3,8,11,0.26,50,-,/player/21115/nico-spolidoro,2,Nico Spolidoro,W,2006-2007,sl,21115,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Didier Bochatay (D),SC Langenthal,45,2,9,11,0.24,82,-,/player/28403/didier-bochatay,2,Didier Bochatay,D,2006-2007,sl,28403,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Sigg (D),HC Thurgau,21,7,3,10,0.48,68,-,/player/122078/daniel-sigg,2,Daniel Sigg,D,2006-2007,sl,122078,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yves Sarault (LW),SC Langenthal,5,5,5,10,2.00,4,-,/player/12584/yves-sarault,2,Yves Sarault,LW,2006-2007,sl,12584,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Massimo Piemontesi (F),EHC Chur,42,5,5,10,0.24,14,-,/player/41509/massimo-piemontesi,2,Massimo Piemontesi,F,2006-2007,sl,41509,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Kelly (C/RW),EHC Olten,10,4,6,10,1.00,6,-,/player/1135/justin-kelly,2,Justin Kelly,C/RW,2006-2007,sl,1135,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gaetano Genoni (F),GC Küsnacht Lions,36,4,6,10,0.28,18,-,/player/18470/gaetano-genoni,2,Gaetano Genoni,F,2006-2007,sl,18470,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reto Rietberger (LW),EHC Chur,40,4,6,10,0.25,34,-,/player/34172/reto-rietberger,2,Reto Rietberger,LW,2006-2007,sl,34172,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Schnyder (D),GC Küsnacht Lions,15,2,8,10,0.67,18,-,/player/18464/daniel-schnyder,2,Daniel Schnyder,D,2006-2007,sl,18464,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pascal Lamprecht (D),HC Sierre-Anniviers,42,2,8,10,0.24,86,-,/player/35607/pascal-lamprecht,2,Pascal Lamprecht,D,2006-2007,sl,35607,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Schommer (LW),GC Küsnacht Lions,24,1,9,10,0.42,14,-,/player/18472/patrick-schommer,2,Patrick Schommer,LW,2006-2007,sl,18472,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Boris Leimgruber (LW),HC La Chaux-de-Fonds,45,6,3,9,0.20,22,-,/player/29166/boris-leimgruber,2,Boris Leimgruber,LW,2006-2007,sl,29166,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc Grieder (D),Lausanne HC,32,5,4,9,0.28,38,-,/player/41041/marc-grieder,2,Marc Grieder,D,2006-2007,sl,41041,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rolf Badertscher (F),HC Martigny,36,5,4,9,0.25,22,-,/player/22445/rolf-badertscher,2,Rolf Badertscher,F,2006-2007,sl,22445,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michaël Chételat (F),HC Ajoie,45,5,4,9,0.20,20,-,/player/21030/michael-chetelat,2,Michaël Chételat,F,2006-2007,sl,21030,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Orland Moret (F),HC Martigny,45,4,5,9,0.20,16,-,/player/41558/orland-moret,2,Orland Moret,F,2006-2007,sl,41558,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sandro Bruderer (F),EHC Visp,22,3,6,9,0.41,18,-,/player/21157/sandro-bruderer,2,Sandro Bruderer,F,2006-2007,sl,21157,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ralph Stalder (D),EHC Olten,27,3,6,9,0.33,57,-,/player/17228/ralph-stalder,2,Ralph Stalder,D,2006-2007,sl,17228,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Éric Fortier (F),HC Sierre-Anniviers,7,2,7,9,1.29,12,-,/player/24722/eric-fortier,2,Éric Fortier,F,2006-2007,sl,24722,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Laurent Emery (D),HC La Chaux-de-Fonds,34,2,7,9,0.26,62,-,/player/28728/laurent-emery,2,Laurent Emery,D,2006-2007,sl,28728,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Bieri (F),totals,37,2,7,9,0.24,24,-,/player/39948/daniel-bieri,2,Daniel Bieri,F,2006-2007,sl,39948,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lassi Laakso (D),HC Martigny,44,1,8,9,0.20,66,-,/player/18715/lassi-laakso,2,Lassi Laakso,D,2006-2007,sl,18715,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lionel D'Urso (D),HC Sierre-Anniviers,45,1,8,9,0.20,72,-,/player/21011/lionel-d-urso,2,Lionel D'Urso,D,2006-2007,sl,21011,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Gähler (W),EHC Visp,15,6,2,8,0.53,6,-,/player/28829/stefan-gahler,2,Stefan Gähler,W,2006-2007,sl,28829,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pascal Annen (LW/C),HC Thurgau,41,5,3,8,0.20,43,-,/player/33595/pascal-annen,2,Pascal Annen,LW/C,2006-2007,sl,33595,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sven Helfenstein (LW),GC Küsnacht Lions,4,4,4,8,2.00,6,-,/player/9638/sven-helfenstein,2,Sven Helfenstein,LW,2006-2007,sl,9638,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roland Gerber (LW/RW),GC Küsnacht Lions,33,4,4,8,0.24,41,-,/player/18721/roland-gerber,2,Roland Gerber,LW/RW,2006-2007,sl,18721,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pascal Zbinden (F),totals,47,4,4,8,0.17,52,-,/player/22484/pascal-zbinden,2,Pascal Zbinden,F,2006-2007,sl,22484,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fernando Heynen (D),EHC Visp,43,3,5,8,0.19,34,-,/player/19735/fernando-heynen,2,Fernando Heynen,D,2006-2007,sl,19735,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lionel Page (D),HC Martigny,44,3,5,8,0.18,28,-,/player/137013/lionel-page,2,Lionel Page,D,2006-2007,sl,137013,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordane Hauert (D),HC Ajoie,45,2,6,8,0.18,28,-,/player/21014/jordane-hauert,2,Jordane Hauert,D,2006-2007,sl,21014,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Strasser (RW),HC Thurgau,28,1,7,8,0.29,12,-,/player/41439/christian-strasser,2,Christian Strasser,RW,2006-2007,sl,41439,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Bielmann (D/F),totals,34,5,2,7,0.21,20,-,/player/17577/christian-bielmann,2,Christian Bielmann,D/F,2006-2007,sl,17577,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sascha Schneider (LW),EHC Visp,10,4,3,7,0.70,16,-,/player/33058/sascha-schneider,2,Sascha Schneider,LW,2006-2007,sl,33058,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alain Bartlomé (F),HC Ajoie,45,4,3,7,0.16,16,-,/player/21028/alain-bartlome,2,Alain Bartlomé,F,2006-2007,sl,21028,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matteo Nodari (D),totals,31,3,4,7,0.23,62,-,/player/18517/matteo-nodari,2,Matteo Nodari,D,2006-2007,sl,18517,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miguel Orlando (D),HC Ajoie,45,3,4,7,0.16,38,-,/player/15168/miguel-orlando,2,Miguel Orlando,D,2006-2007,sl,15168,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthias Schoop (LW),GC Küsnacht Lions,42,2,5,7,0.17,18,-,/player/35894/matthias-schoop,2,Matthias Schoop,LW,2006-2007,sl,35894,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antoine Morandi (D),totals,42,2,5,7,0.17,36,-,/player/31460/antoine-morandi,2,Antoine Morandi,D,2006-2007,sl,31460,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicolas Villa (D),Lausanne HC,41,1,6,7,0.17,38,-,/player/15155/nicolas-villa,2,Nicolas Villa,D,2006-2007,sl,15155,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Silvan Anthamatten (D),EHC Chur,42,1,6,7,0.17,52,-,/player/36636/silvan-anthamatten,2,Silvan Anthamatten,D,2006-2007,sl,36636,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riccardo Rigamonti (D),HC Thurgau,44,1,6,7,0.16,16,-,/player/23062/riccardo-rigamonti,2,Riccardo Rigamonti,D,2006-2007,sl,23062,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gregor Thommen (D),EHC Biel-Bienne,45,1,6,7,0.16,56,-,/player/126079/gregor-thommen,2,Gregor Thommen,D,2006-2007,sl,126079,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philippe Schelling (D/LW),GC Küsnacht Lions,44,0,7,7,0.16,104,-,/player/18469/philippe-schelling,2,Philippe Schelling,D/LW,2006-2007,sl,18469,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adrian Brunner (C/LW),Schweiz U-20,10,4,2,6,0.60,8,-,/player/21027/adrian-brunner,2,Adrian Brunner,C/LW,2006-2007,sl,21027,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mauro Juri (C),SC Langenthal,39,4,2,6,0.15,28,-,/player/33578/mauro-juri,2,Mauro Juri,C,2006-2007,sl,33578,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Éric Chouinard (W/C),HC Sierre-Anniviers,4,3,3,6,1.50,0,-,/player/8707/eric-chouinard,3,Éric Chouinard,W/C,2006-2007,sl,8707,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc Werlen (D),EHC Biel-Bienne,26,2,4,6,0.23,16,-,/player/31430/marc-werlen,3,Marc Werlen,D,2006-2007,sl,31430,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominik Hug (D),EHC Chur,42,2,4,6,0.14,83,-,/player/21120/dominik-hug,3,Dominik Hug,D,2006-2007,sl,21120,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Bloch (D),HC La Chaux-de-Fonds,43,2,4,6,0.14,38,-,/player/17234/patrick-bloch,3,Patrick Bloch,D,2006-2007,sl,17234,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zarley Zalapski (D),EHC Chur,5,1,5,6,1.20,36,-,/player/2089/zarley-zalapski,3,Zarley Zalapski,D,2006-2007,sl,2089,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evgenï Chiriaev (C),HC La Chaux-de-Fonds,21,1,5,6,0.29,6,-,/player/27305/evgeni-chiriaev,3,Evgenï Chiriaev,C,2006-2007,sl,27305,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marco Capaul (D),EHC Chur,23,1,5,6,0.26,110,-,/player/29159/marco-capaul,3,Marco Capaul,D,2006-2007,sl,29159,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Florian Andenmatten (F),HC Sierre-Anniviers,43,3,2,5,0.12,32,-,/player/30088/florian-andenmatten,3,Florian Andenmatten,F,2006-2007,sl,30088,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gian-Andrea Randegger (LW/D),EHC Chur,9,2,3,5,0.56,6,-,/player/17232/gian-andrea-randegger,3,Gian-Andrea Randegger,LW/D,2006-2007,sl,17232,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jarkko Schäublin (D/F),SC Langenthal,44,2,3,5,0.11,26,-,/player/33585/jarkko-schaublin,3,Jarkko Schäublin,D/F,2006-2007,sl,33585,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcel Moser (F),totals,12,1,4,5,0.42,10,-,/player/126508/marcel-moser,3,Marcel Moser,F,2006-2007,sl,126508,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roger Summermatter (D),totals,30,1,4,5,0.17,38,-,/player/44861/roger-summermatter,3,Roger Summermatter,D,2006-2007,sl,44861,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Rauch (D),totals,41,1,4,5,0.12,40,-,/player/21012/martin-rauch,3,Martin Rauch,D,2006-2007,sl,21012,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathias Wüst (D),HC Thurgau,45,1,4,5,0.11,58,-,/player/122659/mathias-wust,3,Mathias Wüst,D,2006-2007,sl,122659,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Remo Meister (D),EHC Olten,37,0,5,5,0.14,12,-,/player/33602/remo-meister,3,Remo Meister,D,2006-2007,sl,33602,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Silvano Dubach (F),HC Ajoie,44,0,5,5,0.11,2,-,/player/140100/silvano-dubach,3,Silvano Dubach,F,2006-2007,sl,140100,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philippe Portner (D),EHC Visp,45,0,5,5,0.11,36,-,/player/44862/philippe-portner,3,Philippe Portner,D,2006-2007,sl,44862,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vincent Ermacora (D/F),Lausanne HC,45,0,5,5,0.11,67,-,/player/20652/vincent-ermacora,3,Vincent Ermacora,D/F,2006-2007,sl,20652,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Bashkirov (LW),Lausanne HC,4,3,1,4,1.00,2,-,/player/16743/andrei-bashkirov,3,Andrei Bashkirov,LW,2006-2007,sl,16743,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Hürlimann (LW),Schweiz U-20,9,3,1,4,0.44,6,-,/player/117719/peter-hurlimann,3,Peter Hürlimann,LW,2006-2007,sl,117719,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konrad Bruetsch (RW),SC Langenthal,16,3,1,4,0.25,60,-,/player/265472/konrad-bruetsch,3,Konrad Bruetsch,RW,2006-2007,sl,265472,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christopher Rivera (C/W),EHC Visp,3,2,2,4,1.33,2,-,/player/17597/christopher-rivera,3,Christopher Rivera,C/W,2006-2007,sl,17597,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mirko Murovic (LW),EHC Chur,8,2,2,4,0.50,8,-,/player/18471/mirko-murovic,3,Mirko Murovic,LW,2006-2007,sl,18471,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Larri Leeger (D),GC Küsnacht Lions,10,2,2,4,0.40,8,-,/player/18465/larri-leeger,3,Larri Leeger,D,2006-2007,sl,18465,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jérémie Kamerzin (D),totals,32,2,2,4,0.13,50,-,/player/12669/jeremie-kamerzin,3,Jérémie Kamerzin,D,2006-2007,sl,12669,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Tschudy (D),Lausanne HC,36,2,2,4,0.11,26,-,/player/29227/mark-tschudy,3,Mark Tschudy,D,2006-2007,sl,29227,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Jakob (D),GC Küsnacht Lions,39,2,2,4,0.10,30,-,/player/39251/thomas-jakob,3,Thomas Jakob,D,2006-2007,sl,39251,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steven Schoop (D),totals,42,2,2,4,0.10,30,-,/player/21169/steven-schoop,3,Steven Schoop,D,2006-2007,sl,21169,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yvan Benoit (RW),HC Ajoie,8,1,3,4,0.50,18,-,/player/28606/yvan-benoit,3,Yvan Benoit,RW,2006-2007,sl,28606,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Elich (RW),EHC Chur,9,1,3,4,0.44,24,-,/player/12289/matt-elich,3,Matt Elich,RW,2006-2007,sl,12289,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dario Horber (C),HC Thurgau,29,1,3,4,0.14,14,-,/player/34595/dario-horber,3,Dario Horber,C,2006-2007,sl,34595,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Gurtner (D),SC Langenthal,36,1,3,4,0.11,42,-,/player/33589/patrick-gurtner,3,Patrick Gurtner,D,2006-2007,sl,33589,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Silvan Holdener (D),EHC Chur,39,1,3,4,0.10,94,-,/player/40071/silvan-holdener,3,Silvan Holdener,D,2006-2007,sl,40071,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jürg Dällenbach (D),EHC Biel-Bienne,45,1,3,4,0.09,50,-,/player/28611/jurg-dallenbach,3,Jürg Dällenbach,D,2006-2007,sl,28611,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Stucki (D),EHC Olten,45,1,3,4,0.09,62,-,/player/60406/richard-stucki,3,Richard Stucki,D,2006-2007,sl,60406,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Malik Benturqui (D),Lausanne HC,24,0,4,4,0.17,78,-,/player/30090/malik-benturqui,3,Malik Benturqui,D,2006-2007,sl,30090,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthias Bieber (LW/C),GC Küsnacht Lions,4,2,1,3,0.75,0,-,/player/9243/matthias-bieber,3,Matthias Bieber,LW/C,2006-2007,sl,9243,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jérôme Bonnet (C/W),EHC Visp,6,2,1,3,0.50,6,-,/player/17598/jerome-bonnet,3,Jérôme Bonnet,C/W,2006-2007,sl,17598,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stephan Moser (RW),EHC Visp,8,2,1,3,0.38,8,-,/player/18909/stephan-moser,3,Stephan Moser,RW,2006-2007,sl,18909,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luca Cunti (C),totals,13,2,1,3,0.23,8,-,/player/10902/luca-cunti,3,Luca Cunti,C,2006-2007,sl,10902,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominic Lüthi (D),totals,21,2,1,3,0.14,16,-,/player/30142/dominic-luthi,3,Dominic Lüthi,D,2006-2007,sl,30142,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Frutig (D),EHC Olten,44,2,1,3,0.07,38,-,/player/313912/stefan-frutig,3,Stefan Frutig,D,2006-2007,sl,313912,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gregory Sciaroni (LW/RW),Schweiz U-20,4,1,2,3,0.75,6,-,/player/11839/gregory-sciaroni,3,Gregory Sciaroni,LW/RW,2006-2007,sl,11839,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Ulmann (C),GC Küsnacht Lions,20,1,2,3,0.15,10,-,/player/22462/tim-ulmann,3,Tim Ulmann,C,2006-2007,sl,22462,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valentin Du Bois (D),HC La Chaux-de-Fonds,36,1,2,3,0.08,10,-,/player/39367/valentin-du-bois,3,Valentin Du Bois,D,2006-2007,sl,39367,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Rothen (LW),EHC Biel-Bienne,39,1,2,3,0.08,12,-,/player/92833/patrick-rothen,3,Patrick Rothen,LW,2006-2007,sl,92833,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Landolt (F),EHC Chur,43,1,2,3,0.07,18,-,/player/33853/jordan-landolt,3,Jordan Landolt,F,2006-2007,sl,33853,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcel Wick (D),HC Thurgau,2,0,3,3,1.50,2,-,/player/232326/marcel-wick,3,Marcel Wick,D,2006-2007,sl,232326,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Parati (D),HC Ajoie,44,0,3,3,0.07,10,-,/player/20679/patrick-parati,3,Patrick Parati,D,2006-2007,sl,20679,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian Passmore (C),EHC Biel-Bienne,3,2,0,2,0.67,6,-,/player/12761/brian-passmore,3,Brian Passmore,C,2006-2007,sl,12761,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Flurin Randegger (F/D),EHC Chur,4,2,0,2,0.50,4,-,/player/17565/flurin-randegger,3,Flurin Randegger,F/D,2006-2007,sl,17565,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Rex (F),Lausanne HC,29,2,0,2,0.07,4,-,/player/33084/martin-rex,3,Martin Rex,F,2006-2007,sl,33084,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominic Müller (C),EHC Chur,38,2,0,2,0.05,53,-,/player/31551/dominic-muller,3,Dominic Müller,C,2006-2007,sl,31551,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Spencer Rezek (C/LW),SC Langenthal,42,2,0,2,0.05,14,-,/player/28839/spencer-rezek,3,Spencer Rezek,C/LW,2006-2007,sl,28839,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reto Suri (C/W),Schweiz U-20,1,1,1,2,2.00,0,-,/player/15165/reto-suri,3,Reto Suri,C/W,2006-2007,sl,15165,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philipp Bucher (C),HC Thurgau,3,1,1,2,0.67,0,-,/player/27766/philipp-bucher,3,Philipp Bucher,C,2006-2007,sl,27766,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Schneeberger (D),Schweiz U-20,5,1,1,2,0.40,2,-,/player/18686/noah-schneeberger,3,Noah Schneeberger,D,2006-2007,sl,18686,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ralph Prinz (D),Schweiz U-20,10,1,1,2,0.20,10,-,/player/39940/ralph-prinz,3,Ralph Prinz,D,2006-2007,sl,39940,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lorenz Kienzle (D/RW),totals,11,1,1,2,0.18,4,-,/player/22459/lorenz-kienzle,3,Lorenz Kienzle,D/RW,2006-2007,sl,22459,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grégory Veuthey (D),HC Sierre-Anniviers,11,1,1,2,0.18,20,-,/player/249087/gregory-veuthey,3,Grégory Veuthey,D,2006-2007,sl,249087,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Gasser (D),EHC Visp,16,1,1,2,0.13,6,-,/player/14732/david-gasser,3,David Gasser,D,2006-2007,sl,14732,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mauro Jörg (RW/LW),EHC Chur,20,1,1,2,0.10,0,-,/player/17695/mauro-jorg,3,Mauro Jörg,RW/LW,2006-2007,sl,17695,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vincent Dériaz (F),HC Martigny,28,1,1,2,0.07,28,-,/player/66896/vincent-deriaz,3,Vincent Dériaz,F,2006-2007,sl,66896,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Weibel (D),SC Langenthal,32,1,1,2,0.06,67,-,/player/30970/jordan-weibel,3,Jordan Weibel,D,2006-2007,sl,30970,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Schnyder (D),totals,33,1,1,2,0.06,16,-,/player/33601/simon-schnyder,3,Simon Schnyder,D,2006-2007,sl,33601,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luca Balerna (LW),EHC Chur,8,0,2,2,0.25,16,-,/player/18911/luca-balerna,3,Luca Balerna,LW,2006-2007,sl,18911,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Stoop (D),totals,18,0,2,2,0.11,8,-,/player/15154/lukas-stoop,3,Lukas Stoop,D,2006-2007,sl,15154,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Manuel Zigerli (LW/RW),EHC Biel-Bienne,28,0,2,2,0.07,8,-,/player/18866/manuel-zigerli,3,Manuel Zigerli,LW/RW,2006-2007,sl,18866,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Vaucher (LW/C),HC La Chaux-de-Fonds,30,0,2,2,0.07,0,-,/player/138996/david-vaucher,3,David Vaucher,LW/C,2006-2007,sl,138996,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Célien Girardin (D),HC La Chaux-de-Fonds,38,0,2,2,0.05,26,-,/player/141651/celien-girardin,3,Célien Girardin,D,2006-2007,sl,141651,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danick Daucourt (D),HC La Chaux-de-Fonds,45,0,2,2,0.04,32,-,/player/28612/danick-daucourt,3,Danick Daucourt,D,2006-2007,sl,28612,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christoph Roder (F),EHC Biel-Bienne,4,1,0,1,0.25,2,-,/player/129700/christoph-roder,3,Christoph Roder,F,2006-2007,sl,129700,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Geering (D),GC Küsnacht Lions,4,1,0,1,0.25,4,-,/player/15152/patrick-geering,3,Patrick Geering,D,2006-2007,sl,15152,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Franco Collenberg (D),EHC Olten,4,1,0,1,0.25,4,-,/player/17226/franco-collenberg,3,Franco Collenberg,D,2006-2007,sl,17226,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Heberlein (D/F),totals,6,1,0,1,0.17,2,-,/player/33059/mark-heberlein,3,Mark Heberlein,D/F,2006-2007,sl,33059,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Wohlwend (RW),HC Thurgau,9,1,0,1,0.11,36,-,/player/33856/christian-wohlwend,3,Christian Wohlwend,RW,2006-2007,sl,33856,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leandro Profico (D/RW),EHC Chur,13,1,0,1,0.08,2,-,/player/18777/leandro-profico,3,Leandro Profico,D/RW,2006-2007,sl,18777,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Corey Ruhnke (F),EHC Olten,15,1,0,1,0.07,20,-,/player/19087/corey-ruhnke,3,Corey Ruhnke,F,2006-2007,sl,19087,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Guillaume Pannatier (F),HC Sierre-Anniviers,19,1,0,1,0.05,4,-,/player/35369/guillaume-pannatier,3,Guillaume Pannatier,F,2006-2007,sl,35369,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas Furrer (D),EHC Visp,23,1,0,1,0.04,2,-,/player/17572/andreas-furrer,3,Andreas Furrer,D,2006-2007,sl,17572,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andy Furrer (D/RW),EHC Visp,23,1,0,1,0.04,2,-,/player/28832/andy-furrer,3,Andy Furrer,D/RW,2006-2007,sl,28832,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Florian Dähler (LW),HC Thurgau,33,1,0,1,0.03,10,-,/player/33599/florian-dahler,3,Florian Dähler,LW,2006-2007,sl,33599,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janick Steinmann (C),Schweiz U-20,7,0,1,1,0.14,8,-,/player/18893/janick-steinmann,3,Janick Steinmann,C,2006-2007,sl,18893,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Moser (F),EHC Olten,8,0,1,1,0.13,2,-,/player/163025/roman-moser,3,Roman Moser,F,2006-2007,sl,163025,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sacha Wollgast (D),GC Küsnacht Lions,18,0,1,1,0.06,6,-,/player/21172/sacha-wollgast,3,Sacha Wollgast,D,2006-2007,sl,21172,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fabio Toschini (RW),HC Thurgau,24,0,1,1,0.04,8,-,/player/53491/fabio-toschini,3,Fabio Toschini,RW,2006-2007,sl,53491,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fabio Schumacher (D),EHC Visp,26,0,1,1,0.04,6,-,/player/41073/fabio-schumacher,3,Fabio Schumacher,D,2006-2007,sl,41073,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reto Kläy (D),SC Langenthal,27,0,1,1,0.04,20,-,/player/139463/reto-klay,3,Reto Kläy,D,2006-2007,sl,139463,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andre Bielmann (D/W),HC Sierre-Anniviers,34,0,1,1,0.03,22,-,/player/44846/andre-bielmann,3,Andre Bielmann,D/W,2006-2007,sl,44846,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Flückiger (D),HC Ajoie,45,0,1,1,0.02,10,-,/player/18912/stefan-fluckiger,3,Stefan Flückiger,D,2006-2007,sl,18912,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Iob (LW),EHC Visp,0,0,0,0,-,0,-,/player/15712/anthony-iob,3,Anthony Iob,LW,2006-2007,sl,15712,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Serge Aubin (C/LW),EHC Biel-Bienne,0,0,0,0,-,0,-,/player/8785/serge-aubin,3,Serge Aubin,C/LW,2006-2007,sl,8785,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ari Vallin (D),EHC Visp,0,0,0,0,-,0,-,/player/7524/ari-vallin,3,Ari Vallin,D,2006-2007,sl,7524,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Slegr (D),EHC Biel-Bienne,0,0,0,0,-,0,-,/player/1938/jiri-slegr,3,Jiri Slegr,D,2006-2007,sl,1938,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirby Law (RW),EHC Biel-Bienne,0,0,0,0,-,0,-,/player/10838/kirby-law,3,Kirby Law,RW,2006-2007,sl,10838,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Naumenko (D),EHC Biel-Bienne,0,0,0,0,-,0,-,/player/10651/nick-naumenko,3,Nick Naumenko,D,2006-2007,sl,10651,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eero Somervuori (RW),EHC Biel-Bienne,0,0,0,0,-,0,-,/player/2700/eero-somervuori,3,Eero Somervuori,RW,2006-2007,sl,2700,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Björn Stäheli (D),HC Thurgau,0,0,0,0,-,0,-,/player/121970/bjorn-staheli,3,Björn Stäheli,D,2006-2007,sl,121970,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Niggli (C),HC Sierre-Anniviers,0,0,0,0,-,0,-,/player/126502/stefan-niggli,3,Stefan Niggli,C,2006-2007,sl,126502,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Severin Schmid (D),EHC Visp,0,0,0,0,-,0,-,/player/140118/severin-schmid,3,Severin Schmid,D,2006-2007,sl,140118,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Etienne Froidevaux (C),SC Langenthal,1,0,0,0,0.00,0,-,/player/15159/etienne-froidevaux,4,Etienne Froidevaux,C,2006-2007,sl,15159,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timothé Tuffet (LW),EHC Biel-Bienne,1,0,0,0,0.00,0,-,/player/18864/timothe-tuffet,4,Timothé Tuffet,LW,2006-2007,sl,18864,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antoine Chabloz (F),Lausanne HC,1,0,0,0,0.00,0,-,/player/34313/antoine-chabloz,4,Antoine Chabloz,F,2006-2007,sl,34313,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian Hemmi (D),HC Thurgau,1,0,0,0,0.00,0,-,/player/40054/brian-hemmi,4,Brian Hemmi,D,2006-2007,sl,40054,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Federico Zorzenon (F),Lausanne HC,1,0,0,0,0.00,0,-,/player/47656/federico-zorzenon,4,Federico Zorzenon,F,2006-2007,sl,47656,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Harzenmoser (D),HC Thurgau,1,0,0,0,0.00,0,-,/player/263153/alex-harzenmoser,4,Alex Harzenmoser,D,2006-2007,sl,263153,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julien Rüegg (D),HC La Chaux-de-Fonds,1,0,0,0,0.00,0,-,/player/247689/julien-ruegg,4,Julien Rüegg,D,2006-2007,sl,247689,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Wellinger (D),Schweiz U-20,1,0,0,0,0.00,0,-,/player/15156/thomas-wellinger,4,Thomas Wellinger,D,2006-2007,sl,15156,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Mercier (D),EHC Visp,1,0,0,0,0.00,2,-,/player/17595/jonathan-mercier,4,Jonathan Mercier,D,2006-2007,sl,17595,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alessandro Chiesa (D),EHC Chur,1,0,0,0,0.00,2,-,/player/20678/alessandro-chiesa,4,Alessandro Chiesa,D,2006-2007,sl,20678,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aniket Dhadphale (LW),SC Langenthal,1,0,0,0,0.00,2,-,/player/80879/aniket-dhadphale,4,Aniket Dhadphale,LW,2006-2007,sl,80879,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Desta Kebede (D),Schweiz U-20,1,0,0,0,0.00,2,-,/player/20602/desta-kebede,4,Desta Kebede,D,2006-2007,sl,20602,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gaëtan Augsburger (LW/RW),Lausanne HC,2,0,0,0,0.00,0,-,/player/15166/gaetan-augsburger,4,Gaëtan Augsburger,LW/RW,2006-2007,sl,15166,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Claudio Cadonau (D),GC Küsnacht Lions,2,0,0,0,0.00,0,-,/player/18468/claudio-cadonau,4,Claudio Cadonau,D,2006-2007,sl,18468,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Haas (C/LW),HC Thurgau,2,0,0,0,0.00,0,-,/player/33586/lukas-haas,4,Lukas Haas,C/LW,2006-2007,sl,33586,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fabian Bruderer (C/W),EHC Chur,2,0,0,0,0.00,0,-,/player/44302/fabian-bruderer,4,Fabian Bruderer,C/W,2006-2007,sl,44302,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Kissling (F),EHC Olten,2,0,0,0,0.00,0,-,/player/44304/kevin-kissling,4,Kevin Kissling,F,2006-2007,sl,44304,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sébastien Duc (D),Lausanne HC,2,0,0,0,0.00,0,-,/player/47650/sebastien-duc,4,Sébastien Duc,D,2006-2007,sl,47650,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yves Koch (D),EHC Chur,2,0,0,0,0.00,0,-,/player/88523/yves-koch,4,Yves Koch,D,2006-2007,sl,88523,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Manuel Brasser (F),EHC Olten,2,0,0,0,0.00,0,-,/player/45014/manuel-brasser,4,Manuel Brasser,F,2006-2007,sl,45014,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marco Niggli (F),EHC Chur,2,0,0,0,0.00,0,-,/player/234223/marco-niggli,4,Marco Niggli,F,2006-2007,sl,234223,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Mitteregger (F),EHC Chur,2,0,0,0,0.00,0,-,/player/305453/michael-mitteregger,4,Michael Mitteregger,F,2006-2007,sl,305453,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Raoul Dünser (D),EHC Chur,2,0,0,0,0.00,2,-,/player/44294/raoul-dunser,4,Raoul Dünser,D,2006-2007,sl,44294,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Deny Bärtschi (D/RW),HC Thurgau,2,0,0,0,0.00,4,-,/player/17588/deny-bartschi,4,Deny Bärtschi,D/RW,2006-2007,sl,17588,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pascal Berger (W/C),SC Langenthal,3,0,0,0,0.00,0,-,/player/11837/pascal-berger,4,Pascal Berger,W/C,2006-2007,sl,11837,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryan Cordey (F),EHC Chur,3,0,0,0,0.00,0,-,/player/41119/bryan-cordey,4,Bryan Cordey,F,2006-2007,sl,41119,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Damian Bürgin (D),EHC Visp,3,0,0,0,0.00,0,-,/player/44860/damian-burgin,4,Damian Bürgin,D,2006-2007,sl,44860,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sandro Hirzel (D),EHC Olten,3,0,0,0,0.00,0,-,/player/134073/sandro-hirzel,4,Sandro Hirzel,D,2006-2007,sl,134073,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc Zurbriggen (D),EHC Visp,3,0,0,0,0.00,0,-,/player/277563/marc-zurbriggen,4,Marc Zurbriggen,D,2006-2007,sl,277563,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rémy Rimann (LW/RW),Lausanne HC,3,0,0,0,0.00,2,-,/player/16759/remy-rimann,4,Rémy Rimann,LW/RW,2006-2007,sl,16759,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Ulmer (D),GC Küsnacht Lions,3,0,0,0,0.00,2,-,/player/13931/stefan-ulmer,4,Stefan Ulmer,D,2006-2007,sl,13931,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ramon Schaufelberger (RW),HC Thurgau,3,0,0,0,0.00,2,-,/player/93192/ramon-schaufelberger,4,Ramon Schaufelberger,RW,2006-2007,sl,93192,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alain Bucher (LW),HC Thurgau,3,0,0,0,0.00,6,-,/player/84945/alain-bucher,4,Alain Bucher,LW,2006-2007,sl,84945,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc Wieser (RW),EHC Visp,4,0,0,0,0.00,0,-,/player/17570/marc-wieser,4,Marc Wieser,RW,2006-2007,sl,17570,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yannick Brühlmann (F),HC La Chaux-de-Fonds,4,0,0,0,0.00,0,-,/player/109085/yannick-bruhlmann,4,Yannick Brühlmann,F,2006-2007,sl,109085,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benjamin Chavaillaz (D),Lausanne HC,4,0,0,0,0.00,2,-,/player/28405/benjamin-chavaillaz,4,Benjamin Chavaillaz,D,2006-2007,sl,28405,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Duc (F),Lausanne HC,4,0,0,0,0.00,2,-,/player/47652/mathieu-duc,4,Mathieu Duc,F,2006-2007,sl,47652,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Nideröst (RW),EHC Chur,4,0,0,0,0.00,4,-,/player/84357/michael-niderost,4,Michael Nideröst,RW,2006-2007,sl,84357,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+François Bernheim (F),Lausanne HC,4,0,0,0,0.00,6,-,/player/227638/francois-bernheim,4,François Bernheim,F,2006-2007,sl,227638,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tobias Vestner (D/F),Lausanne HC,5,0,0,0,0.00,0,-,/player/286872/tobias-vestner,4,Tobias Vestner,D/F,2006-2007,sl,286872,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lionel Girardin (D),HC La Chaux-de-Fonds,5,0,0,0,0.00,0,-,/player/45306/lionel-girardin,4,Lionel Girardin,D,2006-2007,sl,45306,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Mosimann (D),SC Langenthal,5,0,0,0,0.00,0,-,/player/45775/lukas-mosimann,4,Lukas Mosimann,D,2006-2007,sl,45775,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Schilt (D),totals,5,0,0,0,0.00,6,-,/player/17605/sebastian-schilt,4,Sebastian Schilt,D,2006-2007,sl,17605,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniele Marghitola (D),Schweiz U-20,5,0,0,0,0.00,14,-,/player/16511/daniele-marghitola,4,Daniele Marghitola,D,2006-2007,sl,16511,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marvin Frunz (F/D),Lausanne HC,6,0,0,0,0.00,0,-,/player/18897/marvin-frunz,4,Marvin Frunz,F/D,2006-2007,sl,18897,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskar Lattner (D/LW/C),HC Thurgau,6,0,0,0,0.00,0,-,/player/33606/oskar-lattner,4,Oskar Lattner,D/LW/C,2006-2007,sl,33606,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexis Weber (RW),HC Thurgau,6,0,0,0,0.00,0,-,/player/34178/alexis-weber,4,Alexis Weber,RW,2006-2007,sl,34178,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Schlagenhauf (C),Schweiz U-20,6,0,0,0,0.00,0,-,/player/11836/roman-schlagenhauf,4,Roman Schlagenhauf,C,2006-2007,sl,11836,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elia Tröndle (LW),HC Thurgau,6,0,0,0,0.00,2,-,/player/166315/elia-trondle,4,Elia Tröndle,LW,2006-2007,sl,166315,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Phillip Ischi (F),EHC Visp,6,0,0,0,0.00,4,-,/player/93119/phillip-ischi,4,Phillip Ischi,F,2006-2007,sl,93119,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Claudio Berchtold (D),EHC Olten,6,0,0,0,0.00,6,-,/player/39941/claudio-berchtold,4,Claudio Berchtold,D,2006-2007,sl,39941,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Grossmann (D),EHC Biel-Bienne,7,0,0,0,0.00,6,-,/player/18512/robin-grossmann,4,Robin Grossmann,D,2006-2007,sl,18512,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michel Zwahlen (D/F),totals,8,0,0,0,0.00,2,-,/player/22483/michel-zwahlen,4,Michel Zwahlen,D/F,2006-2007,sl,22483,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrea Ramôn Riolo (D),totals,8,0,0,0,0.00,6,-,/player/41437/andrea-ramon-riolo,4,Andrea Ramôn Riolo,D,2006-2007,sl,41437,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tobias Frei (D),EHC Olten,11,0,0,0,0.00,2,-,/player/134071/tobias-frei,4,Tobias Frei,D,2006-2007,sl,134071,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marco Model (F),HC Thurgau,11,0,0,0,0.00,2,-,/player/163034/marco-model,4,Marco Model,F,2006-2007,sl,163034,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Frutig (D),EHC Biel-Bienne,19,0,0,0,0.00,4,-,/player/116121/thomas-frutig,4,Thomas Frutig,D,2006-2007,sl,116121,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michaël Bochatay (F),Lausanne HC,20,0,0,0,0.00,4,-,/player/44832/michael-bochatay,4,Michaël Bochatay,F,2006-2007,sl,44832,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Burgener (D),HC Martigny,21,0,0,0,0.00,6,-,/player/140088/markus-burgener,4,Markus Burgener,D,2006-2007,sl,140088,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philippe Praplan (LW),HC Sierre-Anniviers,23,0,0,0,0.00,2,-,/player/233024/philippe-praplan,4,Philippe Praplan,LW,2006-2007,sl,233024,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Moreno Della Santa (F),HC Ajoie,32,0,0,0,0.00,8,-,/player/46796/moreno-della-santa,4,Moreno Della Santa,F,2006-2007,sl,46796,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicolas Dériaz (D),Lausanne HC,-,-,-,-,-,-,-,/player/66897/nicolas-deriaz,4,Nicolas Dériaz,D,2006-2007,sl,66897,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69

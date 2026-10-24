@@ -1,0 +1,63 @@
+prospect_nhle_look.py v1.4 (2026-10-22)
+  input rows: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\prospect_slot_years_rows.csv  (modified 2026-10-22 03:06)
+  input ep: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\ep_out\ep_prospects.db  (modified 2026-10-09 02:24)
+  input nhle: C:\Users\thoma\Desktop\xNPV\10_SOURCE\nhle_temporal.csv  (modified 2026-07-02 13:35)
+  NHLe 2012-13 filled as the mean of 2011-12 and 2013-14 for 113 leagues
+  EP skater rows with games: 449,407; without an NHLe factor (left out): 16,078
+
+rows: 12,996 skater prospect-rows (2,083 players); fingerprint 1a0aa6bb93a0; no production record: 506 (3.9%)
+  NHLe points per 82 (50/30/20), by seasons since the draft (rows with a record):
+     0: n 1,995  median   5.7  90th pct  11.4  corr with star chance 0.46
+     1: n 2,019  median   7.2  90th pct  13.9  corr with star chance 0.36
+     2: n 1,905  median   8.7  90th pct  16.0  corr with star chance 0.31
+     3: n 1,710  median   9.4  90th pct  18.0  corr with star chance 0.26
+    4+: n 4,861  median   9.6  90th pct  19.4  corr with star chance 0.17
+
+COEFFICIENTS ON ALL DRAFTS ($M of remaining surplus; NHLe level in points per 82 games; se in brackets)
+   0 slot                         p_star 17.668 (1.755)
+   0 production                   nhle82 0.195 (0.019)
+   0 slot+production              p_star 15.552 (2.073); nhle82 0.050 (0.017)
+   0 slot+production by position  p_star 15.933 (2.091); nhle_f 0.062 (0.018); nhle_d -0.038 (0.037)
+   0 slot+production curved       p_star 13.572 (1.817); nhle82 -0.123 (0.050); nhle82_sq 0.018 (0.005)
+   0 production curved            nhle82 -0.088 (0.055); nhle82_sq 0.026 (0.006)
+   1 slot                         p_star 16.958 (1.803)
+   1 production                   nhle82 0.124 (0.012)
+   1 slot+production              p_star 13.421 (2.265); nhle82 0.049 (0.014)
+   1 slot+production by position  p_star 13.642 (2.276); nhle_f 0.052 (0.015); nhle_d 0.028 (0.026)
+   1 slot+production curved       p_star 12.911 (2.245); nhle82 -0.110 (0.035); nhle82_sq 0.013 (0.003)
+   1 production curved            nhle82 -0.050 (0.034); nhle82_sq 0.014 (0.003)
+   2 slot                         p_star 14.282 (2.234)
+   2 production                   nhle82 0.073 (0.009)
+   2 slot+production              p_star 9.898 (3.086); nhle82 0.038 (0.013)
+   2 slot+production by position  p_star 10.015 (3.071); nhle_f 0.039 (0.014); nhle_d 0.031 (0.020)
+   2 slot+production curved       p_star 10.561 (3.060); nhle82 -0.095 (0.027); nhle82_sq 0.009 (0.002)
+   2 production curved            nhle82 -0.051 (0.026); nhle82_sq 0.009 (0.002)
+   3 slot                         p_star 6.691 (1.607)
+   3 production                   nhle82 0.041 (0.008)
+   3 slot+production              p_star -0.278 (2.122); nhle82 0.042 (0.010)
+   3 slot+production by position  p_star -0.778 (2.147); nhle_f 0.039 (0.010); nhle_d 0.059 (0.019)
+   3 slot+production curved       p_star 1.774 (2.029); nhle82 -0.056 (0.022); nhle82_sq 0.006 (0.002)
+   3 production curved            nhle82 -0.049 (0.021); nhle82_sq 0.005 (0.002)
+  4+ slot                         p_star 0.644 (0.601)
+  4+ production                   nhle82 0.006 (0.003)
+  4+ slot+production              p_star -1.099 (1.124); nhle82 0.008 (0.004)
+  4+ slot+production by position  p_star -1.109 (1.094); nhle_f 0.008 (0.005); nhle_d 0.009 (0.004)
+  4+ slot+production curved       p_star 0.073 (0.945); nhle82 -0.016 (0.010); nhle82_sq 0.001 (0.001)
+  4+ production curved            nhle82 -0.016 (0.009); nhle82_sq 0.001 (0.001)
+
+HELD-OUT ERROR (each draft predicted from a fit without it; $M of remaining surplus a row; same rows for every arm)
+  slot                         RMSE 2.2615  by k: 0 3.3345, 1 3.0530, 2 2.6954, 3 2.0885, 4+ 0.7625
+  production                   RMSE 2.3338  by k: 0 3.5682, 1 3.1395, 2 2.7075, 3 2.0546, 4+ 0.7605  | beats the slot in 9 of 2,000 redraws
+  slot+production              RMSE 2.2503  by k: 0 3.3246, 1 3.0375, 2 2.6828, 3 2.0608, 4+ 0.7618  | beats the slot in 1,882 of 2,000 redraws
+  slot+production by position  RMSE 2.2502  by k: 0 3.3158, 1 3.0411, 2 2.6863, 3 2.0652, 4+ 0.7626  | beats the slot in 1,824 of 2,000 redraws
+  slot+production curved       RMSE 2.2158  by k: 0 3.2842, 1 2.9882, 2 2.6290, 3 2.0229, 4+ 0.7580  | beats the slot in 1,934 of 2,000 redraws
+  production curved            RMSE 2.2852  by k: 0 3.4664, 1 3.0871, 2 2.6609, 3 2.0179, 4+ 0.7567  | beats the slot in 521 of 2,000 redraws
+  CHOSEN (curved; slot + production for seasons 0-2, production alone from 3) RMSE 2.2151; beats slot in 1,942 of 2,000 redraws
+  CHOSEN (curved; slot + production for seasons 0-2, production alone from 3) RMSE 2.2151; beats slot+production curved in 1,991 of 2,000 redraws
+    by k: 0 3.2842, 1 2.9882, 2 2.6290, 3 2.0179, 4+ 0.7567
+
+WHAT IT MEANS (slot+production, all drafts): a pick at #20 (star chance from the rows) one season after the draft
+  NHLe level at the 25th percentile of one-season-on prospects (4.6 per 82): $1.78M  (slot alone $1.96M)
+  NHLe level at the 50th percentile of one-season-on prospects (7.2 per 82): $1.91M  (slot alone $1.96M)
+  NHLe level at the 75th percentile of one-season-on prospects (10.4 per 82): $2.06M  (slot alone $1.96M)
+  NHLe level at the 90th percentile of one-season-on prospects (13.9 per 82): $2.23M  (slot alone $1.96M)

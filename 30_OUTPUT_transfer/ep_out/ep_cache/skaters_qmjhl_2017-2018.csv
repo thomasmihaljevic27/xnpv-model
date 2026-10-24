@@ -1,0 +1,502 @@
+player,team,gp,g,a,tp,p_per_gp,pim,plus_minus,link,page,playername,position,season,league,ep_player_id,scrape_date,source,package_version
+Alex Barré-Boulet (C/W),Blainville-Boisbriand Armada,65,53,63,116,1.78,67,28,/player/227670/alex-barre-boulet,1,Alex Barré-Boulet,C/W,2017-2018,qmjhl,227670,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vitaly Abramov (RW/LW),totals,56,45,59,104,1.86,67,52,/player/295715/vitaly-abramov,1,Vitaly Abramov,RW/LW,2017-2018,qmjhl,295715,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexandre Alain (C/RW),Blainville-Boisbriand Armada,65,44,43,87,1.34,52,26,/player/213472/alexandre-alain,1,Alexandre Alain,C/RW,2017-2018,qmjhl,213472,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Klima (LW/C),Chicoutimi Saguenéens,68,39,47,86,1.26,54,11,/player/283908/kevin-klima,1,Kevin Klima,LW/C,2017-2018,qmjhl,283908,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxime Comtois (LW/RW),Victoriaville Tigres,54,44,41,85,1.57,79,43,/player/201534/maxime-comtois,1,Maxime Comtois,LW/RW,2017-2018,qmjhl,201534,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Otto Somppi (C),Halifax Mooseheads,59,28,55,83,1.41,28,39,/player/196406/otto-somppi,1,Otto Somppi,C,2017-2018,qmjhl,196406,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Zadina (RW/LW),Halifax Mooseheads,57,44,38,82,1.44,36,23,/player/236471/filip-zadina,1,Filip Zadina,RW/LW,2017-2018,qmjhl,236471,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Kosorenkov (RW/LW),Victoriaville Tigres,63,36,46,82,1.30,46,33,/player/313588/ivan-kosorenkov,1,Ivan Kosorenkov,RW/LW,2017-2018,qmjhl,313588,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexis Lafrenière (RW/LW),Rimouski Océanic,60,42,38,80,1.33,54,35,/player/296697/alexis-lafreniere,1,Alexis Lafrenière,RW/LW,2017-2018,qmjhl,296697,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joe Veleno (C/LW),totals,64,22,57,79,1.23,48,4,/player/271713/joe-veleno,1,Joe Veleno,C/LW,2017-2018,qmjhl,271713,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Martel (RW/LW),Baie-Comeau Drakkar,66,39,38,77,1.17,47,3,/player/256553/jordan-martel,1,Jordan Martel,RW/LW,2017-2018,qmjhl,256553,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeremy McKenna (RW),Moncton Wildcats,68,36,41,77,1.13,43,-3,/player/275807/jeremy-mckenna,1,Jeremy McKenna,RW,2017-2018,qmjhl,275807,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Drake Batherson (RW/C),totals,51,29,48,77,1.51,65,12,/player/195192/drake-batherson,1,Drake Batherson,RW/C,2017-2018,qmjhl,195192,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antoine Morand (C/W),Acadie-Bathurst Titan,66,26,50,76,1.15,57,16,/player/275608/antoine-morand,1,Antoine Morand,C/W,2017-2018,qmjhl,275608,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rafaël Harvey-Pinard (LW/RW),Rouyn-Noranda Huskies,67,26,50,76,1.13,38,34,/player/354123/rafael-harvey-pinard,1,Rafaël Harvey-Pinard,LW/RW,2017-2018,qmjhl,354123,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxime Fortier (RW),Halifax Mooseheads,61,32,43,75,1.23,48,23,/player/213461/maxime-fortier,1,Maxime Fortier,RW,2017-2018,qmjhl,213461,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Abbandonato (C/LW),Rouyn-Noranda Huskies,68,27,48,75,1.10,21,18,/player/252496/peter-abbandonato,1,Peter Abbandonato,C/LW,2017-2018,qmjhl,252496,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+James Phelan (F),totals,64,33,41,74,1.16,82,-11,/player/213470/james-phelan,1,James Phelan,F,2017-2018,qmjhl,213470,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Nadeau (RW),totals,59,25,49,74,1.25,32,8,/player/213705/mathieu-nadeau,1,Mathieu Nadeau,RW,2017-2018,qmjhl,213705,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olivier Galipeau (D),totals,67,25,49,74,1.10,70,39,/player/156090/olivier-galipeau,1,Olivier Galipeau,D,2017-2018,qmjhl,156090,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Dove-McFalls (LW/C),Rimouski Océanic,64,22,51,73,1.14,62,37,/player/135860/samuel-dove-mcfalls,1,Samuel Dove-McFalls,LW/C,2017-2018,qmjhl,135860,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitchell Balmas (W/C),totals,68,42,30,72,1.06,32,21,/player/195642/mitchell-balmas,1,Mitchell Balmas,W/C,2017-2018,qmjhl,195642,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Boucher (LW),Québec Remparts,66,31,38,69,1.05,87,-3,/player/213477/matthew-boucher,1,Matthew Boucher,LW,2017-2018,qmjhl,213477,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Dobson (D),Acadie-Bathurst Titan,67,17,52,69,1.03,52,33,/player/275797/noah-dobson,1,Noah Dobson,D,2017-2018,qmjhl,275797,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Grégoire (D),Sherbrooke Phoenix,67,12,57,69,1.03,39,3,/player/252468/thomas-gregoire,1,Thomas Grégoire,D,2017-2018,qmjhl,252468,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicolas Beaudin (D),Drummondville Voltigeurs,68,12,57,69,1.01,47,27,/player/284924/nicolas-beaudin,1,Nicolas Beaudin,D,2017-2018,qmjhl,284924,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+D'Artagnan Joly (RW),Baie-Comeau Drakkar,55,23,45,68,1.24,45,1,/player/307537/d-artagnan-joly,1,D'Artagnan Joly,RW,2017-2018,qmjhl,307537,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bobby Lynch (RW/C),Drummondville Voltigeurs,67,28,39,67,1.00,26,18,/player/387359/bobby-lynch,1,Bobby Lynch,RW/C,2017-2018,qmjhl,387359,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Phélix Martineau (C),Cape Breton Eagles,68,34,32,66,0.97,74,-1,/player/254780/phelix-martineau,1,Phélix Martineau,C,2017-2018,qmjhl,254780,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicholas Welsh (D),Moncton Wildcats,68,12,54,66,0.97,71,-10,/player/194215/nicholas-welsh,1,Nicholas Welsh,D,2017-2018,qmjhl,194215,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicolas Poulin (LW),Sherbrooke Phoenix,64,35,30,65,1.02,95,5,/player/213755/nicolas-poulin,1,Nicolas Poulin,LW,2017-2018,qmjhl,213755,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joël Teasdale (LW/RW),Blainville-Boisbriand Armada,65,32,33,65,1.00,14,18,/player/201546/joel-teasdale,1,Joël Teasdale,LW/RW,2017-2018,qmjhl,201546,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Boucher (LW/C),Rouyn-Noranda Huskies,66,33,30,63,0.95,43,6,/player/242821/mathieu-boucher,1,Mathieu Boucher,LW/C,2017-2018,qmjhl,242821,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Raphaël Lavoie (C/RW),Halifax Mooseheads,68,30,33,63,0.93,43,10,/player/335712/raphael-lavoie,1,Raphaël Lavoie,C/RW,2017-2018,qmjhl,335712,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeffrey Viel (LW/RW),Acadie-Bathurst Titan,58,39,23,62,1.07,127,29,/player/213441/jeffrey-viel,1,Jeffrey Viel,LW/RW,2017-2018,qmjhl,213441,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Félix Bibeau (C/LW),Rouyn-Noranda Huskies,61,22,40,62,1.02,73,24,/player/284916/felix-bibeau,1,Félix Bibeau,C/LW,2017-2018,qmjhl,284916,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Morgan Adams-Moisan (RW/LW),Drummondville Voltigeurs,68,32,29,61,0.90,67,21,/player/266527/morgan-adams-moisan,1,Morgan Adams-Moisan,RW/LW,2017-2018,qmjhl,266527,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakob Pelletier (LW/C),Moncton Wildcats,60,23,38,61,1.02,20,5,/player/410525/jakob-pelletier,1,Jakob Pelletier,LW/C,2017-2018,qmjhl,410525,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Derek Gentile (RW),totals,67,23,38,61,0.91,24,-4,/player/215473/derek-gentile,1,Derek Gentile,RW,2017-2018,qmjhl,215473,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Maher (RW),Acadie-Bathurst Titan,63,19,42,61,0.97,16,36,/player/226984/jordan-maher,1,Jordan Maher,RW,2017-2018,qmjhl,226984,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Chekhovich (LW/RW),Baie-Comeau Drakkar,65,29,31,60,0.92,28,-11,/player/333786/ivan-chekhovich,1,Ivan Chekhovich,LW/RW,2017-2018,qmjhl,333786,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shawn Boudrias (RW),Gatineau Olympiques,60,28,32,60,1.00,51,0,/player/275589/shawn-boudrias,1,Shawn Boudrias,RW,2017-2018,qmjhl,275589,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philipp Kurashev (C/W),Québec Remparts,59,19,41,60,1.02,24,-4,/player/279238/philipp-kurashev,1,Philipp Kurashev,C/W,2017-2018,qmjhl,279238,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabriel Fortier (LW/C),Baie-Comeau Drakkar,66,26,33,59,0.89,59,-11,/player/335707/gabriel-fortier,1,Gabriel Fortier,LW/C,2017-2018,qmjhl,335707,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Lafrance (F),totals,68,20,39,59,0.87,23,0,/player/354159/simon-lafrance,1,Simon Lafrance,F,2017-2018,qmjhl,354159,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ostap Safin (RW/LW),Saint John Sea Dogs,61,26,32,58,0.95,31,-29,/player/272770/ostap-safin,1,Ostap Safin,RW/LW,2017-2018,qmjhl,272770,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jimmy Huntington (C/LW),Victoriaville Tigres,68,18,40,58,0.85,42,5,/player/254885/jimmy-huntington,1,Jimmy Huntington,C/LW,2017-2018,qmjhl,254885,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bradley Lalonde (D),Baie-Comeau Drakkar,60,13,44,57,0.95,59,-12,/player/213462/bradley-lalonde,1,Bradley Lalonde,D,2017-2018,qmjhl,213462,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Charle-Édouard D'Astous (D),Rimouski Océanic,59,18,38,56,0.95,96,33,/player/255979/charle-edouard-d-astous,1,Charle-Édouard D'Astous,D,2017-2018,qmjhl,255979,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicolas Guay (RW),Drummondville Voltigeurs,68,29,26,55,0.81,53,-6,/player/284917/nicolas-guay,1,Nicolas Guay,RW,2017-2018,qmjhl,284917,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benoit-Olivier Groulx (C/LW),Halifax Mooseheads,68,28,27,55,0.81,100,9,/player/335689/benoit-olivier-groulx,1,Benoit-Olivier Groulx,C/LW,2017-2018,qmjhl,335689,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julien Tessier (C),totals,67,21,33,54,0.81,34,-34,/player/252471/julien-tessier,1,Julien Tessier,C,2017-2018,qmjhl,252471,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Hardie (LW),totals,68,25,28,53,0.78,34,-12,/player/267736/daniel-hardie,1,Daniel Hardie,LW,2017-2018,qmjhl,267736,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Bramwell (LW),totals,55,23,30,53,0.96,17,7,/player/254072/connor-bramwell,1,Connor Bramwell,LW,2017-2018,qmjhl,254072,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yaroslav Alexeyev (LW),Sherbrooke Phoenix,63,20,33,53,0.84,24,7,/player/312821/yaroslav-alexeyev,1,Yaroslav Alexeyev,LW,2017-2018,qmjhl,312821,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arnaud Durandeau (LW/RW),Halifax Mooseheads,67,20,33,53,0.79,56,1,/player/201536/arnaud-durandeau,1,Arnaud Durandeau,LW/RW,2017-2018,qmjhl,201536,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pascal Corbeil (D),Blainville-Boisbriand Armada,46,9,42,51,1.11,14,14,/player/252465/pascal-corbeil,1,Pascal Corbeil,D,2017-2018,qmjhl,252465,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olivier Garneau (LW),Québec Remparts,67,23,27,50,0.75,36,6,/player/256619/olivier-garneau,1,Olivier Garneau,LW,2017-2018,qmjhl,256619,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Drozg (LW),Shawinigan Cataractes,61,16,34,50,0.82,44,-21,/player/265944/jan-drozg,1,Jan Drozg,LW,2017-2018,qmjhl,265944,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Holwell (D),Acadie-Bathurst Titan,67,10,40,50,0.75,26,43,/player/232840/adam-holwell,1,Adam Holwell,D,2017-2018,qmjhl,232840,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Olivier (RW/LW),Sherbrooke Phoenix,67,27,22,49,0.73,90,5,/player/213604/mathieu-olivier,1,Mathieu Olivier,RW/LW,2017-2018,qmjhl,213604,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Kotkov (C/LW),Chicoutimi Saguenéens,61,21,28,49,0.80,20,-5,/player/375738/vladislav-kotkov,1,Vladislav Kotkov,C/LW,2017-2018,qmjhl,375738,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keith Getson (C),Charlottetown Islanders,68,20,29,49,0.72,40,5,/player/194811/keith-getson,1,Keith Getson,C,2017-2018,qmjhl,194811,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Hrehorcak (LW),Rouyn-Noranda Huskies,63,25,23,48,0.76,48,11,/player/234764/patrik-hrehorcak,1,Patrik Hrehorcak,LW,2017-2018,qmjhl,234764,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Zachar (C/W),Sherbrooke Phoenix,57,24,24,48,0.84,14,-14,/player/196093/marek-zachar,1,Marek Zachar,C/W,2017-2018,qmjhl,196093,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitry Zavgorodny (LW/C),Rimouski Océanic,62,26,21,47,0.76,8,17,/player/396918/dmitry-zavgorodny,1,Dmitry Zavgorodny,LW/C,2017-2018,qmjhl,396918,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hugo Roy (C),Sherbrooke Phoenix,64,21,26,47,0.73,18,-12,/player/213784/hugo-roy,1,Hugo Roy,C,2017-2018,qmjhl,213784,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yvan Mongo (LW),Drummondville Voltigeurs,58,18,29,47,0.81,22,28,/player/213567/yvan-mongo,1,Yvan Mongo,LW,2017-2018,qmjhl,213567,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pascal Laberge (C/W),totals,64,17,30,47,0.73,67,1,/player/252492/pascal-laberge,1,Pascal Laberge,C/W,2017-2018,qmjhl,252492,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Henman (C/W),Blainville-Boisbriand Armada,61,9,38,47,0.77,16,11,/player/266778/luke-henman,1,Luke Henman,C/W,2017-2018,qmjhl,266778,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jared McIsaac (D),Halifax Mooseheads,65,9,38,47,0.72,86,14,/player/266786/jared-mcisaac,1,Jared McIsaac,D,2017-2018,qmjhl,266786,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominic Cormier (D),totals,66,9,38,47,0.71,20,37,/player/304383/dominic-cormier,1,Dominic Cormier,D,2017-2018,qmjhl,304383,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vincent Lanoue (D),Victoriaville Tigres,66,7,40,47,0.71,50,20,/player/213750/vincent-lanoue,1,Vincent Lanoue,D,2017-2018,qmjhl,213750,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cédric Desruisseaux (W/C),Drummondville Voltigeurs,64,24,22,46,0.72,25,20,/player/335688/cedric-desruisseaux,1,Cédric Desruisseaux,W/C,2017-2018,qmjhl,335688,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Sutton (C),Québec Remparts,68,22,24,46,0.68,18,-1,/player/270570/jesse-sutton,1,Jesse Sutton,C,2017-2018,qmjhl,270570,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Cyr (D),Rouyn-Noranda Huskies,65,14,32,46,0.71,28,13,/player/327634/william-cyr,1,William Cyr,D,2017-2018,qmjhl,327634,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Félix Robert (C/W),Sherbrooke Phoenix,66,14,32,46,0.70,35,8,/player/301394/felix-robert,1,Félix Robert,C/W,2017-2018,qmjhl,301394,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Noël (D),Val-d'Or Foreurs,68,14,32,46,0.68,24,-53,/player/284907/david-noel,1,David Noël,D,2017-2018,qmjhl,284907,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pierre-Olivier Joseph (D),Charlottetown Islanders,63,13,33,46,0.73,59,-5,/player/284911/pierre-olivier-joseph,1,Pierre-Olivier Joseph,D,2017-2018,qmjhl,284911,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anderson MacDonald (LW),Moncton Wildcats,58,27,18,45,0.78,54,-31,/player/275859/anderson-macdonald,1,Anderson MacDonald,LW,2017-2018,qmjhl,275859,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gregor MacLeod (LW/C),totals,54,19,26,45,0.83,33,10,/player/196166/gregor-macleod,1,Gregor MacLeod,LW/C,2017-2018,qmjhl,196166,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Xavier Simoneau (C/LW),Drummondville Voltigeurs,61,17,28,45,0.74,53,19,/player/376443/xavier-simoneau,1,Xavier Simoneau,C/LW,2017-2018,qmjhl,376443,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Poulin (W/C),Sherbrooke Phoenix,55,16,29,45,0.82,42,13,/player/290171/samuel-poulin,1,Samuel Poulin,W/C,2017-2018,qmjhl,290171,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dawson Theede (C/W),totals,49,22,22,44,0.90,103,-1,/player/250948/dawson-theede,1,Dawson Theede,C/W,2017-2018,qmjhl,250948,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Crossman (LW),Acadie-Bathurst Titan,66,21,23,44,0.67,49,20,/player/275782/ethan-crossman,1,Ethan Crossman,LW,2017-2018,qmjhl,275782,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Harwell (C/RW),Victoriaville Tigres,67,21,23,44,0.66,98,-3,/player/193822/chase-harwell,1,Chase Harwell,C/RW,2017-2018,qmjhl,193822,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel L'Italien (C),Acadie-Bathurst Titan,68,19,25,44,0.65,30,26,/player/252481/samuel-l-italien,1,Samuel L'Italien,C,2017-2018,qmjhl,252481,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vasili Glotov (C),Shawinigan Cataractes,64,29,14,43,0.67,24,-23,/player/313721/vasili-glotov,1,Vasili Glotov,C,2017-2018,qmjhl,313721,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pascal Aquin (LW/C),Charlottetown Islanders,59,24,19,43,0.73,67,10,/player/227644/pascal-aquin,1,Pascal Aquin,LW/C,2017-2018,qmjhl,227644,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+German Rubtsov (C),totals,49,15,28,43,0.88,11,7,/player/312227/german-rubtsov,1,German Rubtsov,C,2017-2018,qmjhl,312227,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Sokolov (LW/RW),Cape Breton Eagles,64,21,21,42,0.66,39,-28,/player/375742/yegor-sokolov,1,Yegor Sokolov,LW/RW,2017-2018,qmjhl,375742,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Moynihan (LW/D),Halifax Mooseheads,66,21,21,42,0.64,113,16,/player/229713/connor-moynihan,1,Connor Moynihan,LW/D,2017-2018,qmjhl,229713,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Koltygin (C),Drummondville Voltigeurs,64,17,25,42,0.66,44,27,/player/273659/pavel-koltygin,1,Pavel Koltygin,C,2017-2018,qmjhl,273659,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Asselin (C/LW),totals,48,13,29,42,0.88,37,-8,/player/254716/samuel-asselin,1,Samuel Asselin,C/LW,2017-2018,qmjhl,254716,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathias Laferrière (C/RW),Cape Breton Eagles,67,12,29,41,0.61,14,-22,/player/382160/mathias-laferriere,1,Mathias Laferrière,C/RW,2017-2018,qmjhl,382160,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radim Salda (D),Saint John Sea Dogs,62,10,31,41,0.66,78,-37,/player/225136/radim-salda,1,Radim Salda,D,2017-2018,qmjhl,225136,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mika Cyr (C/LW),Moncton Wildcats,44,21,19,40,0.91,2,5,/player/272852/mika-cyr,1,Mika Cyr,C/LW,2017-2018,qmjhl,272852,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Katerinakis (RW),Blainville-Boisbriand Armada,51,13,27,40,0.78,24,23,/player/252486/alexander-katerinakis,1,Alexander Katerinakis,RW,2017-2018,qmjhl,252486,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Breton (D),Gatineau Olympiques,59,10,30,40,0.68,50,23,/player/242613/alex-breton,1,Alex Breton,D,2017-2018,qmjhl,242613,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jocktan Chainey (D),Halifax Mooseheads,66,7,33,40,0.61,56,21,/player/267626/jocktan-chainey,1,Jocktan Chainey,D,2017-2018,qmjhl,267626,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Giordano Finoro (RW),Gatineau Olympiques,57,16,23,39,0.68,22,15,/player/267791/giordano-finoro,2,Giordano Finoro,RW,2017-2018,qmjhl,267791,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Mikhnin (RW),Rimouski Océanic,64,15,24,39,0.61,54,14,/player/340005/denis-mikhnin,2,Denis Mikhnin,RW,2017-2018,qmjhl,340005,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hunter Drew (W/D),Charlottetown Islanders,64,8,31,39,0.61,159,12,/player/267823/hunter-drew,2,Hunter Drew,W/D,2017-2018,qmjhl,267823,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Liam Murphy (LW),Acadie-Bathurst Titan,65,20,18,38,0.58,52,9,/player/198329/liam-murphy,2,Liam Murphy,LW,2017-2018,qmjhl,198329,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicolas Ouellet (RW),Val-d'Or Foreurs,54,19,19,38,0.70,21,-9,/player/353977/nicolas-ouellet,2,Nicolas Ouellet,RW,2017-2018,qmjhl,353977,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cameron Askew (C/RW),totals,63,19,19,38,0.60,53,-19,/player/177694/cameron-askew,2,Cameron Askew,C/RW,2017-2018,qmjhl,177694,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Declan Smith (C),Cape Breton Eagles,65,17,21,38,0.58,88,-7,/player/195287/declan-smith,2,Declan Smith,C,2017-2018,qmjhl,195287,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Boucher (C),Saint John Sea Dogs,68,16,22,38,0.56,40,-27,/player/256585/anthony-boucher,2,Anthony Boucher,C,2017-2018,qmjhl,256585,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Hinam (RW),Rouyn-Noranda Huskies,58,12,26,38,0.66,29,-8,/player/216144/tyler-hinam,2,Tyler Hinam,RW,2017-2018,qmjhl,216144,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benjamin Gagné (D),Québec Remparts,66,10,28,38,0.58,79,10,/player/256386/benjamin-gagne,2,Benjamin Gagné,D,2017-2018,qmjhl,256386,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Huntley (D),Québec Remparts,61,9,29,38,0.62,20,-6,/player/216129/christian-huntley,2,Christian Huntley,D,2017-2018,qmjhl,216129,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Kirwan (LW),totals,47,21,16,37,0.79,30,-13,/player/178534/luke-kirwan,2,Luke Kirwan,LW,2017-2018,qmjhl,178534,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Beaucage (RW/LW),Rouyn-Noranda Huskies,56,13,24,37,0.66,37,16,/player/412976/alex-beaucage,2,Alex Beaucage,RW/LW,2017-2018,qmjhl,412976,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cédric Paré (C/LW),Saint John Sea Dogs,60,13,24,37,0.62,61,-14,/player/319958/cedric-pare,2,Cédric Paré,C/LW,2017-2018,qmjhl,319958,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexandre Landreville (C),Gatineau Olympiques,68,12,25,37,0.54,44,-3,/player/227701/alexandre-landreville,2,Alexandre Landreville,C,2017-2018,qmjhl,227701,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam McCormick (D),Cape Breton Eagles,67,7,30,37,0.55,16,-8,/player/275863/adam-mccormick,2,Adam McCormick,D,2017-2018,qmjhl,275863,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Hudgin (LW/C),totals,57,18,18,36,0.63,75,-8,/player/245308/nathan-hudgin,2,Nathan Hudgin,LW/C,2017-2018,qmjhl,245308,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brooklyn Kalmikov (LW/RW),Cape Breton Eagles,58,18,18,36,0.62,22,-7,/player/290173/brooklyn-kalmikov,2,Brooklyn Kalmikov,LW/RW,2017-2018,qmjhl,290173,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kelly Klima (RW),Chicoutimi Saguenéens,58,18,18,36,0.62,72,-15,/player/283907/kelly-klima,2,Kelly Klima,RW,2017-2018,qmjhl,283907,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Kozlov (C),Val-d'Or Foreurs,66,17,19,36,0.55,40,-21,/player/312831/ivan-kozlov,2,Ivan Kozlov,C,2017-2018,qmjhl,312831,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Cheezo (RW),Val-d'Or Foreurs,52,13,23,36,0.69,10,-32,/player/267162/adam-cheezo,2,Adam Cheezo,RW,2017-2018,qmjhl,267162,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeffrey Durocher (C),Gatineau Olympiques,63,13,23,36,0.57,111,-4,/player/252507/jeffrey-durocher,2,Jeffrey Durocher,C,2017-2018,qmjhl,252507,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carson MacKinnon (LW),Rimouski Océanic,65,13,22,35,0.54,30,14,/player/275806/carson-mackinnon,2,Carson MacKinnon,LW,2017-2018,qmjhl,275806,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Xavier Bernard (D),Drummondville Voltigeurs,66,11,24,35,0.53,64,35,/player/335702/xavier-bernard,2,Xavier Bernard,D,2017-2018,qmjhl,335702,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabriel Bilodeau (D),Gatineau Olympiques,66,8,27,35,0.53,130,1,/player/254901/gabriel-bilodeau,2,Gabriel Bilodeau,D,2017-2018,qmjhl,254901,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Saku Vesterinen (D),Charlottetown Islanders,59,7,28,35,0.59,24,-7,/player/325852/saku-vesterinen,2,Saku Vesterinen,D,2017-2018,qmjhl,325852,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jérémie Beaudin (D),Victoriaville Tigres,66,6,29,35,0.53,16,7,/player/252467/jeremie-beaudin,2,Jérémie Beaudin,D,2017-2018,qmjhl,252467,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Grouchy (C),totals,63,17,17,34,0.54,26,2,/player/270769/matthew-grouchy,2,Matthew Grouchy,C,2017-2018,qmjhl,270769,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jérémy Manseau (C),Shawinigan Cataractes,65,13,21,34,0.52,39,-14,/player/255564/jeremy-manseau,2,Jérémy Manseau,C,2017-2018,qmjhl,255564,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Francis (RW/C),Cape Breton Eagles,58,11,23,34,0.59,23,-22,/player/305092/ryan-francis,2,Ryan Francis,RW/C,2017-2018,qmjhl,305092,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pier-Olivier Lacombe (D),Gatineau Olympiques,65,11,23,34,0.52,40,-10,/player/354254/pier-olivier-lacombe,2,Pier-Olivier Lacombe,D,2017-2018,qmjhl,354254,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan-Ty Fournier (C/RW),Cape Breton Eagles,67,17,16,33,0.49,120,6,/player/213452/jordan-ty-fournier,2,Jordan-Ty Fournier,C/RW,2017-2018,qmjhl,213452,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Mizyurin (C),Val-d'Or Foreurs,36,16,17,33,0.92,27,-9,/player/312553/maxim-mizyurin,2,Maxim Mizyurin,C,2017-2018,qmjhl,312553,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Éthier (LW),Blainville-Boisbriand Armada,65,15,18,33,0.51,60,19,/player/307533/thomas-ethier,2,Thomas Éthier,LW,2017-2018,qmjhl,307533,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antoine Demers (C),Shawinigan Cataractes,67,14,19,33,0.49,20,-19,/player/354377/antoine-demers,2,Antoine Demers,C,2017-2018,qmjhl,354377,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Trépanier (LW/RW),totals,52,13,20,33,0.63,33,-3,/player/201547/maxim-trepanier,2,Maxim Trépanier,LW/RW,2017-2018,qmjhl,201547,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rémy Anglehart (C),Blainville-Boisbriand Armada,58,18,14,32,0.55,37,19,/player/319620/remy-anglehart,2,Rémy Anglehart,C,2017-2018,qmjhl,319620,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Houde (C/LW),Chicoutimi Saguenéens,54,16,16,32,0.59,45,-9,/player/241387/samuel-houde,2,Samuel Houde,C/LW,2017-2018,qmjhl,241387,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex-Olivier Voyer (RW),Rimouski Océanic,55,12,20,32,0.58,76,7,/player/201548/alex-olivier-voyer,2,Alex-Olivier Voyer,RW,2017-2018,qmjhl,201548,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabriel Denis (C),Shawinigan Cataractes,66,11,21,32,0.48,24,-23,/player/382862/gabriel-denis,2,Gabriel Denis,C,2017-2018,qmjhl,382862,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Miromanov (D/RW),Moncton Wildcats,38,8,24,32,0.84,12,-14,/player/289399/daniil-miromanov,2,Daniil Miromanov,D/RW,2017-2018,qmjhl,289399,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Dunn (D),Québec Remparts,66,7,25,32,0.48,40,0,/player/249307/sam-dunn,2,Sam Dunn,D,2017-2018,qmjhl,249307,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leon Gawanke (D),Cape Breton Eagles,62,4,28,32,0.52,39,-20,/player/243313/leon-gawanke,2,Leon Gawanke,D,2017-2018,qmjhl,243313,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Seitz (C/LW),Moncton Wildcats,57,17,14,31,0.54,111,-5,/player/300558/dylan-seitz,2,Dylan Seitz,C/LW,2017-2018,qmjhl,300558,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Alexandrov (C/LW),Charlottetown Islanders,66,13,18,31,0.47,22,2,/player/238111/nikita-alexandrov,2,Nikita Alexandrov,C/LW,2017-2018,qmjhl,238111,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Félix Sabourin-Lauzon (C),Victoriaville Tigres,38,11,20,31,0.82,10,7,/player/213786/felix-sabourin-lauzon,2,Félix Sabourin-Lauzon,C,2017-2018,qmjhl,213786,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ross MacDougall (D),Cape Breton Eagles,42,7,24,31,0.74,31,-8,/player/296145/ross-macdougall,2,Ross MacDougall,D,2017-2018,qmjhl,296145,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommy Beaudoin (RW),Rouyn-Noranda Huskies,66,18,12,30,0.45,35,18,/player/354282/tommy-beaudoin,2,Tommy Beaudoin,RW,2017-2018,qmjhl,354282,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Sévigny (LW/C),Victoriaville Tigres,41,13,17,30,0.73,70,5,/player/252475/mathieu-sevigny,2,Mathieu Sévigny,LW/C,2017-2018,qmjhl,252475,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Bergeron (D),Rouyn-Noranda Huskies,67,9,21,30,0.45,23,-4,/player/384414/justin-bergeron,2,Justin Bergeron,D,2017-2018,qmjhl,384414,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keenan MacIsaac (D),Acadie-Bathurst Titan,68,3,27,30,0.44,43,8,/player/215855/keenan-macisaac,2,Keenan MacIsaac,D,2017-2018,qmjhl,215855,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jérémy Diotte (D),Chicoutimi Saguenéens,66,2,28,30,0.45,75,5,/player/353862/jeremy-diotte,2,Jérémy Diotte,D,2017-2018,qmjhl,353862,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sullivan Sparkes (C/LW),Charlottetown Islanders,60,14,15,29,0.48,60,12,/player/283249/sullivan-sparkes,2,Sullivan Sparkes,C/LW,2017-2018,qmjhl,283249,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Tardif (LW),Sherbrooke Phoenix,68,14,15,29,0.43,36,-3,/player/335694/ben-tardif,2,Ben Tardif,LW,2017-2018,qmjhl,335694,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Xavier Parent (LW/C),Halifax Mooseheads,63,13,16,29,0.46,30,-4,/player/241379/xavier-parent,2,Xavier Parent,LW/C,2017-2018,qmjhl,241379,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zachary Lavigne (LW),Chicoutimi Saguenéens,44,12,17,29,0.66,18,7,/player/319627/zachary-lavigne,2,Zachary Lavigne,LW,2017-2018,qmjhl,319627,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vincent Senez-Allaire (RW),Shawinigan Cataractes,48,10,19,29,0.60,62,-12,/player/255500/vincent-senez-allaire,2,Vincent Senez-Allaire,RW,2017-2018,qmjhl,255500,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Légaré (RW/LW),Baie-Comeau Drakkar,62,10,19,29,0.47,43,-4,/player/296698/nathan-legare,2,Nathan Légaré,RW/LW,2017-2018,qmjhl,296698,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Félix Boivin (D),Victoriaville Tigres,68,10,19,29,0.43,28,9,/player/256614/felix-boivin,2,Félix Boivin,D,2017-2018,qmjhl,256614,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Stewart (D),Rimouski Océanic,53,5,24,29,0.55,132,23,/player/200997/chase-stewart,2,Chase Stewart,D,2017-2018,qmjhl,200997,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Hylland (LW/RW),Cape Breton Eagles,57,12,16,28,0.49,29,-1,/player/252491/tyler-hylland,2,Tyler Hylland,LW/RW,2017-2018,qmjhl,252491,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Félix-Antoine Marcotty (RW),Chicoutimi Saguenéens,59,11,17,28,0.47,12,11,/player/384273/felix-antoine-marcotty,2,Félix-Antoine Marcotty,RW,2017-2018,qmjhl,384273,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Beauchamp (W/C),Gatineau Olympiques,65,11,17,28,0.43,57,-3,/player/254836/anthony-beauchamp,2,Anthony Beauchamp,W/C,2017-2018,qmjhl,254836,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Khovanov (C),Moncton Wildcats,29,9,19,28,0.97,36,-1,/player/339559/alexander-khovanov,2,Alexander Khovanov,C,2017-2018,qmjhl,339559,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Benoît (D),Shawinigan Cataractes,63,5,23,28,0.44,67,-37,/player/254891/simon-benoit,2,Simon Benoît,D,2017-2018,qmjhl,254891,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Morgan Nauss (D),Chicoutimi Saguenéens,60,4,24,28,0.47,56,-19,/player/195558/morgan-nauss,2,Morgan Nauss,D,2017-2018,qmjhl,195558,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Reginato (F),Saint John Sea Dogs,40,16,11,27,0.68,73,-14,/player/195639/cole-reginato,2,Cole Reginato,F,2017-2018,qmjhl,195639,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Ryczek (D),Halifax Mooseheads,33,7,20,27,0.82,13,15,/player/297332/jake-ryczek,2,Jake Ryczek,D,2017-2018,qmjhl,297332,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shaun Miller (RW),totals,47,6,21,27,0.57,23,1,/player/216166/shaun-miller,2,Shaun Miller,RW,2017-2018,qmjhl,216166,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tobie Bisson (D),Blainville-Boisbriand Armada,59,4,23,27,0.46,22,45,/player/213820/tobie-bisson,2,Tobie Bisson,D,2017-2018,qmjhl,213820,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robbie Burt (LW),Saint John Sea Dogs,55,14,12,26,0.47,65,-38,/player/273700/robbie-burt,2,Robbie Burt,LW,2017-2018,qmjhl,273700,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Édouard St-Laurent (RW),Baie-Comeau Drakkar,61,14,12,26,0.43,20,-15,/player/335714/edouard-st-laurent,2,Édouard St-Laurent,RW,2017-2018,qmjhl,335714,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Skubel (RW),Drummondville Voltigeurs,60,11,15,26,0.43,16,14,/player/300376/brandon-skubel,2,Brandon Skubel,RW,2017-2018,qmjhl,300376,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dawson Mercer (C/RW),Drummondville Voltigeurs,61,11,15,26,0.43,25,8,/player/320305/dawson-mercer,2,Dawson Mercer,C/RW,2017-2018,qmjhl,320305,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Meisenheimer (RW),totals,56,10,16,26,0.46,40,-1,/player/251679/sam-meisenheimer,2,Sam Meisenheimer,RW,2017-2018,qmjhl,251679,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yan Dion (RW),Val-d'Or Foreurs,64,10,16,26,0.41,48,-29,/player/266499/yan-dion,2,Yan Dion,RW,2017-2018,qmjhl,266499,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam King (RW/LW),Charlottetown Islanders,68,10,16,26,0.38,36,-10,/player/269410/sam-king,2,Sam King,RW/LW,2017-2018,qmjhl,269410,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Aspirot (D),Moncton Wildcats,67,7,19,26,0.39,71,6,/player/354151/jonathan-aspirot,2,Jonathan Aspirot,D,2017-2018,qmjhl,354151,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabriel Proulx (RW),Cape Breton Eagles,57,5,21,26,0.46,38,0,/player/333221/gabriel-proulx,2,Gabriel Proulx,RW,2017-2018,qmjhl,333221,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Chevrier (LW),Baie-Comeau Drakkar,58,5,21,26,0.45,91,-2,/player/255487/simon-chevrier,2,Simon Chevrier,LW,2017-2018,qmjhl,255487,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Will Thompson (D),totals,60,2,24,26,0.43,60,21,/player/206733/will-thompson,2,Will Thompson,D,2017-2018,qmjhl,206733,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Gilbert (RW),Sherbrooke Phoenix,57,11,14,25,0.44,22,-6,/player/255657/kevin-gilbert,2,Kevin Gilbert,RW,2017-2018,qmjhl,255657,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Blier (LW),Shawinigan Cataractes,57,11,14,25,0.44,61,-30,/player/213836/samuel-blier,2,Samuel Blier,LW,2017-2018,qmjhl,213836,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Louis-Filip Côté (LW),Québec Remparts,68,11,14,25,0.37,8,11,/player/267629/louis-filip-cote,2,Louis-Filip Côté,LW,2017-2018,qmjhl,267629,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Coxhead (C/RW),Québec Remparts,68,11,14,25,0.37,22,14,/player/267085/andrew-coxhead,2,Andrew Coxhead,C/RW,2017-2018,qmjhl,267085,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Shestopalov (LW),Gatineau Olympiques,59,6,19,25,0.42,10,4,/player/375744/mikhail-shestopalov,2,Mikhail Shestopalov,LW,2017-2018,qmjhl,375744,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexis Girard (D),Saint John Sea Dogs,62,6,19,25,0.40,54,-16,/player/353863/alexis-girard,2,Alexis Girard,D,2017-2018,qmjhl,353863,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peyton Hoyt (RW),Cape Breton Eagles,52,18,6,24,0.46,43,7,/player/268195/peyton-hoyt,2,Peyton Hoyt,RW,2017-2018,qmjhl,268195,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Bizier (C),Rimouski Océanic,64,10,14,24,0.38,10,11,/player/410615/mathieu-bizier,2,Mathieu Bizier,C,2017-2018,qmjhl,410615,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Isiah Campbell (LW/C),totals,61,9,15,24,0.39,31,-7,/player/391037/isiah-campbell,2,Isiah Campbell,LW/C,2017-2018,qmjhl,391037,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jérôme Gravel (D),Victoriaville Tigres,64,7,17,24,0.38,71,24,/player/275577/jerome-gravel,2,Jérôme Gravel,D,2017-2018,qmjhl,275577,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Ducharme (RW/LW),Acadie-Bathurst Titan,53,11,12,23,0.43,22,5,/player/241385/justin-ducharme,2,Justin Ducharme,RW/LW,2017-2018,qmjhl,241385,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Gagnon (RW),totals,67,10,13,23,0.34,32,0,/player/201538/anthony-gagnon,2,Anthony Gagnon,RW,2017-2018,qmjhl,201538,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vincent Lapalme (C),Chicoutimi Saguenéens,64,9,14,23,0.36,49,-14,/player/275595/vincent-lapalme,2,Vincent Lapalme,C,2017-2018,qmjhl,275595,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jérémy Michel (RW/LW),Val-d'Or Foreurs,65,6,17,23,0.35,16,-26,/player/410602/jeremy-michel,2,Jérémy Michel,RW/LW,2017-2018,qmjhl,410602,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Capannelli (C/LW),Moncton Wildcats,42,3,20,23,0.55,36,-20,/player/201532/adam-capannelli,2,Adam Capannelli,C/LW,2017-2018,qmjhl,201532,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Budgell (LW/C),Charlottetown Islanders,32,10,12,22,0.69,11,2,/player/320295/brett-budgell,2,Brett Budgell,LW/C,2017-2018,qmjhl,320295,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olivier Bourret (LW),Cape Breton Eagles,63,8,14,22,0.35,24,-14,/player/382176/olivier-bourret,2,Olivier Bourret,LW,2017-2018,qmjhl,382176,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Anttalainen (D),Blainville-Boisbriand Armada,61,4,18,22,0.36,47,8,/player/285623/aleksi-anttalainen,2,Aleksi Anttalainen,D,2017-2018,qmjhl,285623,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Le Coultre (D),Moncton Wildcats,61,3,19,22,0.36,34,-31,/player/242289/simon-le-coultre,2,Simon Le Coultre,D,2017-2018,qmjhl,242289,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Charles-Antoine Roy (C),Gatineau Olympiques,66,10,11,21,0.32,19,6,/player/473464/charles-antoine-roy,3,Charles-Antoine Roy,C,2017-2018,qmjhl,473464,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olivier Mathieu (LW),Québec Remparts,66,8,13,21,0.32,85,-8,/player/384411/olivier-mathieu,3,Olivier Mathieu,LW,2017-2018,qmjhl,384411,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wilson Forest (D),Rimouski Océanic,67,4,17,21,0.31,43,16,/player/278085/wilson-forest,3,Wilson Forest,D,2017-2018,qmjhl,278085,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Xavier Bouchard (D),Baie-Comeau Drakkar,65,3,18,21,0.32,52,-30,/player/241374/xavier-bouchard,3,Xavier Bouchard,D,2017-2018,qmjhl,241374,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc-Olivier Duquette (D),Drummondville Voltigeurs,68,3,18,21,0.31,66,9,/player/254741/marc-olivier-duquette,3,Marc-Olivier Duquette,D,2017-2018,qmjhl,254741,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Barron (D),Halifax Mooseheads,51,2,19,21,0.41,8,18,/player/294613/justin-barron,3,Justin Barron,D,2017-2018,qmjhl,294613,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Poirier (RW),Saint John Sea Dogs,65,9,11,20,0.31,86,-32,/player/284929/william-poirier,3,William Poirier,RW,2017-2018,qmjhl,284929,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Henley (D),Val-d'Or Foreurs,54,6,14,20,0.37,112,-26,/player/213711/david-henley,3,David Henley,D,2017-2018,qmjhl,213711,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shawn Element (LW/C),Baie-Comeau Drakkar,62,9,10,19,0.31,85,-18,/player/384443/shawn-element,3,Shawn Element,LW/C,2017-2018,qmjhl,384443,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Poulin (C),Blainville-Boisbriand Armada,40,8,11,19,0.48,20,14,/player/267630/anthony-poulin,3,Anthony Poulin,C,2017-2018,qmjhl,267630,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabriel Sylvestre (D),totals,60,8,11,19,0.32,66,-10,/player/252461/gabriel-sylvestre,3,Gabriel Sylvestre,D,2017-2018,qmjhl,252461,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Da Silva (D),Blainville-Boisbriand Armada,54,6,13,19,0.35,33,-4,/player/268702/ryan-da-silva,3,Ryan Da Silva,D,2017-2018,qmjhl,268702,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Hladonik (C/W),Blainville-Boisbriand Armada,56,4,15,19,0.34,14,12,/player/236757/jan-hladonik,3,Jan Hladonik,C/W,2017-2018,qmjhl,236757,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexandre Couture (LW),Val-d'Or Foreurs,67,4,15,19,0.28,26,-27,/player/335709/alexandre-couture,3,Alexandre Couture,LW,2017-2018,qmjhl,335709,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jarrett Baker (D),Drummondville Voltigeurs,60,3,16,19,0.32,40,25,/player/266569/jarrett-baker,3,Jarrett Baker,D,2017-2018,qmjhl,266569,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Étienne Verrette (D),Québec Remparts,56,1,18,19,0.34,10,15,/player/354274/etienne-verrette,3,Étienne Verrette,D,2017-2018,qmjhl,354274,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Gursoy (RW/LW),Saint John Sea Dogs,60,11,7,18,0.30,43,-24,/player/316682/kevin-gursoy,3,Kevin Gursoy,RW/LW,2017-2018,qmjhl,316682,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Plamondon (C),Shawinigan Cataractes,58,10,8,18,0.31,21,-6,/player/319633/alex-plamondon,3,Alex Plamondon,C,2017-2018,qmjhl,319633,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Médérik Racicot (D),Val-d'Or Foreurs,61,7,11,18,0.30,119,-14,/player/284922/mederik-racicot,3,Médérik Racicot,D,2017-2018,qmjhl,284922,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan MacKinnon (C/LW),Sherbrooke Phoenix,62,7,11,18,0.29,29,-10,/player/266909/evan-mackinnon,3,Evan MacKinnon,C/LW,2017-2018,qmjhl,266909,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vincent Marleau (RW/C),Rouyn-Noranda Huskies,67,6,12,18,0.27,51,-7,/player/354314/vincent-marleau,3,Vincent Marleau,RW/C,2017-2018,qmjhl,354314,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vincent Milot-Ouellet (RW),Chicoutimi Saguenéens,68,6,12,18,0.26,21,-23,/player/319981/vincent-milot-ouellet,3,Vincent Milot-Ouellet,RW,2017-2018,qmjhl,319981,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Neveu (D),Rouyn-Noranda Huskies,67,5,13,18,0.27,37,15,/player/227654/jacob-neveu,3,Jacob Neveu,D,2017-2018,qmjhl,227654,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bastian Eckl (RW),Drummondville Voltigeurs,46,3,15,18,0.39,19,10,/player/269232/bastian-eckl,3,Bastian Eckl,RW,2017-2018,qmjhl,269232,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Liam Stevens (LW/C),Chicoutimi Saguenéens,61,10,7,17,0.28,19,-6,/player/289329/liam-stevens,3,Liam Stevens,LW/C,2017-2018,qmjhl,289329,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Bishop (LW/C),Halifax Mooseheads,53,6,11,17,0.32,57,0,/player/275739/joel-bishop,3,Joel Bishop,LW/C,2017-2018,qmjhl,275739,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hugo Després (C),Rouyn-Noranda Huskies,35,5,12,17,0.49,8,-2,/player/354073/hugo-despres,3,Hugo Després,C,2017-2018,qmjhl,354073,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Darien Kielb (D),Gatineau Olympiques,64,5,12,17,0.27,40,-2,/player/333812/darien-kielb,3,Darien Kielb,D,2017-2018,qmjhl,333812,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Ivan (D),Acadie-Bathurst Titan,48,3,14,17,0.35,12,16,/player/335802/michal-ivan,3,Michal Ivan,D,2017-2018,qmjhl,335802,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yan Aucoin (D),Baie-Comeau Drakkar,62,3,14,17,0.27,84,-6,/player/267625/yan-aucoin,3,Yan Aucoin,D,2017-2018,qmjhl,267625,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexandre Grisé (C),Victoriaville Tigres,59,10,6,16,0.27,30,5,/player/252494/alexandre-grise,3,Alexandre Grisé,C,2017-2018,qmjhl,252494,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Isaiah Gallo-Demetris (C),Baie-Comeau Drakkar,50,8,8,16,0.32,12,-7,/player/284930/isaiah-gallo-demetris,3,Isaiah Gallo-Demetris,C,2017-2018,qmjhl,284930,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Hudson (C/RW),Moncton Wildcats,64,8,8,16,0.25,47,-9,/player/266583/jacob-hudson,3,Jacob Hudson,C/RW,2017-2018,qmjhl,266583,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikael Robidoux (RW/LW),Québec Remparts,41,7,9,16,0.39,80,14,/player/267635/mikael-robidoux,3,Mikael Robidoux,RW/LW,2017-2018,qmjhl,267635,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christopher Benoit (C),Baie-Comeau Drakkar,68,7,9,16,0.24,85,-25,/player/284931/christopher-benoit,3,Christopher Benoit,C,2017-2018,qmjhl,284931,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leon Denny (D),Shawinigan Cataractes,60,6,10,16,0.27,49,-30,/player/266567/leon-denny,3,Leon Denny,D,2017-2018,qmjhl,266567,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jason Horvath (D),Shawinigan Cataractes,48,3,13,16,0.33,24,-15,/player/317607/jason-horvath,3,Jason Horvath,D,2017-2018,qmjhl,317607,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olivier Crête-Belzile (D/LW),Sherbrooke Phoenix,67,3,13,16,0.24,10,9,/player/335704/olivier-crete-belzile,3,Olivier Crête-Belzile,D/LW,2017-2018,qmjhl,335704,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxime Collin (LW),Blainville-Boisbriand Armada,55,11,4,15,0.27,20,0,/player/384431/maxime-collin,3,Maxime Collin,LW,2017-2018,qmjhl,384431,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Desgagnés (LW),Chicoutimi Saguenéens,42,8,7,15,0.36,12,0,/player/335710/mathieu-desgagnes,3,Mathieu Desgagnés,LW,2017-2018,qmjhl,335710,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brady Pataki (RW),Moncton Wildcats,47,8,7,15,0.32,39,-11,/player/254274/brady-pataki,3,Brady Pataki,RW,2017-2018,qmjhl,254274,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Marsh (LW),Charlottetown Islanders,19,6,9,15,0.79,40,0,/player/234343/adam-marsh,3,Adam Marsh,LW,2017-2018,qmjhl,234343,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Green (D),Sherbrooke Phoenix,14,5,10,15,1.07,16,7,/player/195389/luke-green,3,Luke Green,D,2017-2018,qmjhl,195389,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yann-Félix Lapointe (D),Sherbrooke Phoenix,56,5,10,15,0.27,12,-5,/player/384420/yann-felix-lapointe,3,Yann-Félix Lapointe,D,2017-2018,qmjhl,384420,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Kyte (D),Halifax Mooseheads,56,5,10,15,0.27,33,8,/player/326162/patrick-kyte,3,Patrick Kyte,D,2017-2018,qmjhl,326162,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antoine Girard (C),Baie-Comeau Drakkar,50,4,11,15,0.30,48,-13,/player/252482/antoine-girard,3,Antoine Girard,C,2017-2018,qmjhl,252482,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Métis Roelens (C/LW),Gatineau Olympiques,59,4,11,15,0.25,14,1,/player/378219/metis-roelens,3,Métis Roelens,C/LW,2017-2018,qmjhl,378219,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jérémy Groleau (D),Chicoutimi Saguenéens,63,4,11,15,0.24,18,-4,/player/319959/jeremy-groleau,3,Jérémy Groleau,D,2017-2018,qmjhl,319959,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Ortiz (D),Baie-Comeau Drakkar,62,2,13,15,0.24,20,-3,/player/296699/chris-ortiz,3,Chris Ortiz,D,2017-2018,qmjhl,296699,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexandre Joncas (D),Sherbrooke Phoenix,68,1,14,15,0.22,42,6,/player/290177/alexandre-joncas,3,Alexandre Joncas,D,2017-2018,qmjhl,290177,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexis Arsenault (D),Rouyn-Noranda Huskies,65,6,8,14,0.22,59,21,/player/382864/alexis-arsenault,3,Alexis Arsenault,D,2017-2018,qmjhl,382864,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Larose (D),Saint John Sea Dogs,64,5,9,14,0.22,31,-13,/player/241373/nathan-larose,3,Nathan Larose,D,2017-2018,qmjhl,241373,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris McQuaid (D),totals,68,5,9,14,0.21,80,3,/player/275799/chris-mcquaid,3,Chris McQuaid,D,2017-2018,qmjhl,275799,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Walter Flower (D),Halifax Mooseheads,43,3,11,14,0.33,40,8,/player/216188/walter-flower,3,Walter Flower,D,2017-2018,qmjhl,216188,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Laaouan (D),Cape Breton Eagles,49,2,12,14,0.29,30,0,/player/294620/noah-laaouan,3,Noah Laaouan,D,2017-2018,qmjhl,294620,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Bolduc (D),Blainville-Boisbriand Armada,57,2,12,14,0.25,8,16,/player/356985/samuel-bolduc,3,Samuel Bolduc,D,2017-2018,qmjhl,356985,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yannik Bertrand (LW),Rimouski Océanic,24,8,5,13,0.54,65,3,/player/207102/yannik-bertrand,3,Yannik Bertrand,LW,2017-2018,qmjhl,207102,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Hatto (C/LW),Gatineau Olympiques,66,8,5,13,0.20,10,4,/player/534601/samuel-hatto,3,Samuel Hatto,C/LW,2017-2018,qmjhl,534601,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Rafuse (RW),Acadie-Bathurst Titan,66,8,5,13,0.20,51,-2,/player/217549/cole-rafuse,3,Cole Rafuse,RW,2017-2018,qmjhl,217549,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alec Malo (C),Gatineau Olympiques,60,7,6,13,0.22,10,-12,/player/354146/alec-malo,3,Alec Malo,C,2017-2018,qmjhl,354146,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Édouard Ouellet (RW),Victoriaville Tigres,54,5,8,13,0.24,8,3,/player/382863/edouard-ouellet,3,Édouard Ouellet,RW,2017-2018,qmjhl,382863,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Smith (C),Chicoutimi Saguenéens,54,5,8,13,0.24,91,-9,/player/326270/ryan-smith,3,Ryan Smith,C,2017-2018,qmjhl,326270,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Liam Dunda (LW),Moncton Wildcats,33,4,9,13,0.39,66,-5,/player/234450/liam-dunda,3,Liam Dunda,LW,2017-2018,qmjhl,234450,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jérémy Fortin (C/LW),Chicoutimi Saguenéens,62,4,9,13,0.21,28,-12,/player/267631/jeremy-fortin,3,Jérémy Fortin,C/LW,2017-2018,qmjhl,267631,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olivier Desjardins (D),totals,66,4,9,13,0.20,44,2,/player/255325/olivier-desjardins,3,Olivier Desjardins,D,2017-2018,qmjhl,255325,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Casey (C/LW),Charlottetown Islanders,60,8,4,12,0.20,10,-3,/player/275866/thomas-casey,3,Thomas Casey,C/LW,2017-2018,qmjhl,275866,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Imbeault (LW),Shawinigan Cataractes,26,7,5,12,0.46,6,-15,/player/384272/anthony-imbeault,3,Anthony Imbeault,LW,2017-2018,qmjhl,384272,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Paré (C),totals,31,4,8,12,0.39,6,6,/player/304135/justin-pare,3,Justin Paré,C,2017-2018,qmjhl,304135,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Higgins (RW),Halifax Mooseheads,65,4,8,12,0.18,18,4,/player/215875/ben-higgins,3,Ben Higgins,RW,2017-2018,qmjhl,215875,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gerald Blackmore (F),Moncton Wildcats,56,3,9,12,0.21,24,-20,/player/219217/gerald-blackmore,3,Gerald Blackmore,F,2017-2018,qmjhl,219217,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dom Malatesta (C),Acadie-Bathurst Titan,45,2,10,12,0.27,10,3,/player/381710/dom-malatesta,3,Dom Malatesta,C,2017-2018,qmjhl,381710,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karl Boudrias (D),totals,60,2,10,12,0.20,66,-38,/player/382192/karl-boudrias,3,Karl Boudrias,D,2017-2018,qmjhl,382192,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxence Guénette (D),Val-d'Or Foreurs,61,1,11,12,0.20,12,-35,/player/410616/maxence-guenette,3,Maxence Guénette,D,2017-2018,qmjhl,410616,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Kemp (D),Blainville-Boisbriand Armada,46,7,4,11,0.24,42,11,/player/295155/michael-kemp,3,Michael Kemp,D,2017-2018,qmjhl,295155,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Reid (F),Saint John Sea Dogs,35,6,5,11,0.31,31,-12,/player/275774/ben-reid,3,Ben Reid,F,2017-2018,qmjhl,275774,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan Chisholm (LW),Acadie-Bathurst Titan,51,5,6,11,0.22,16,5,/player/317644/logan-chisholm,3,Logan Chisholm,LW,2017-2018,qmjhl,317644,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Taylor Ford (D),Rouyn-Noranda Huskies,46,3,8,11,0.24,49,18,/player/219380/taylor-ford,3,Taylor Ford,D,2017-2018,qmjhl,219380,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Naud (RW),Rouyn-Noranda Huskies,60,3,8,11,0.18,72,-3,/player/284928/samuel-naud,3,Samuel Naud,RW,2017-2018,qmjhl,284928,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jérémy Côté (LW),Victoriaville Tigres,52,2,9,11,0.21,11,-3,/player/319974/jeremy-cote,3,Jérémy Côté,LW,2017-2018,qmjhl,319974,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Smith (D),Victoriaville Tigres,62,2,9,11,0.18,71,-1,/player/252460/andrew-smith,3,Andrew Smith,D,2017-2018,qmjhl,252460,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bailey Webster (D),Saint John Sea Dogs,67,1,10,11,0.16,42,-27,/player/223483/bailey-webster,3,Bailey Webster,D,2017-2018,qmjhl,223483,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Green (C/LW),Saint John Sea Dogs,34,5,5,10,0.29,20,-13,/player/195390/matt-green,3,Matt Green,C/LW,2017-2018,qmjhl,195390,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Charles-Antoine Giguère (LW),Blainville-Boisbriand Armada,53,5,5,10,0.19,15,-7,/player/284915/charles-antoine-giguere,3,Charles-Antoine Giguère,LW,2017-2018,qmjhl,284915,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frédérik Théoret (LW),Shawinigan Cataractes,49,4,6,10,0.20,50,-10,/player/335715/frederik-theoret,3,Frédérik Théoret,LW,2017-2018,qmjhl,335715,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Taylor Egan (D/F),Charlottetown Islanders,50,4,6,10,0.20,22,-8,/player/251670/taylor-egan,3,Taylor Egan,D/F,2017-2018,qmjhl,251670,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaxon Bellamy (D),totals,52,4,6,10,0.19,36,-11,/player/373682/jaxon-bellamy,3,Jaxon Bellamy,D,2017-2018,qmjhl,373682,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joakim Paradis (D),totals,43,3,7,10,0.23,52,-3,/player/354261/joakim-paradis,3,Joakim Paradis,D,2017-2018,qmjhl,354261,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antoine Crête-Belzile (D),Blainville-Boisbriand Armada,51,3,7,10,0.20,20,24,/player/201535/antoine-crete-belzile,3,Antoine Crête-Belzile,D,2017-2018,qmjhl,201535,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Dubois-Tiberghen (D),Shawinigan Cataractes,51,3,7,10,0.20,20,3,/player/452979/simon-dubois-tiberghen,3,Simon Dubois-Tiberghen,D,2017-2018,qmjhl,452979,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sacha Roy (D),Cape Breton Eagles,55,3,7,10,0.18,123,-8,/player/319631/sacha-roy,3,Sacha Roy,D,2017-2018,qmjhl,319631,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ian Smallwood (D),Cape Breton Eagles,36,2,8,10,0.28,19,5,/player/275745/ian-smallwood,3,Ian Smallwood,D,2017-2018,qmjhl,275745,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Lepage (D),totals,47,2,8,10,0.21,77,15,/player/275604/jordan-lepage,3,Jordan Lepage,D,2017-2018,qmjhl,275604,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Parker Bowman (C/LW),Rimouski Océanic,58,2,8,10,0.17,110,-1,/player/326457/parker-bowman,3,Parker Bowman,C/LW,2017-2018,qmjhl,326457,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Picco (D),Québec Remparts,56,1,9,10,0.18,67,6,/player/186423/andrew-picco,3,Andrew Picco,D,2017-2018,qmjhl,186423,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daven Castonguay (D),Drummondville Voltigeurs,57,1,9,10,0.18,64,22,/player/278079/daven-castonguay,3,Daven Castonguay,D,2017-2018,qmjhl,278079,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexandre De Gagné (D),Shawinigan Cataractes,50,0,10,10,0.20,32,-9,/player/449203/alexandre-de-gagne,3,Alexandre De Gagné,D,2017-2018,qmjhl,449203,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olivier Desroches (D),totals,55,0,10,10,0.18,14,-9,/player/296662/olivier-desroches,3,Olivier Desroches,D,2017-2018,qmjhl,296662,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexis Sansfaçon (D),totals,60,0,10,10,0.17,46,2,/player/275580/alexis-sansfacon,3,Alexis Sansfaçon,D,2017-2018,qmjhl,275580,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Crossley (C),Halifax Mooseheads,66,5,4,9,0.14,27,1,/player/195781/brett-crossley,3,Brett Crossley,C,2017-2018,qmjhl,195781,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ludovic Soucy (C),Rimouski Océanic,40,4,5,9,0.23,10,0,/player/417937/ludovic-soucy,3,Ludovic Soucy,C,2017-2018,qmjhl,417937,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jérémy Laframboise (C),Québec Remparts,65,4,5,9,0.14,4,0,/player/335693/jeremy-laframboise,4,Jérémy Laframboise,C,2017-2018,qmjhl,335693,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Boissonneault (C),Blainville-Boisbriand Armada,56,3,6,9,0.16,28,1,/player/334797/mathieu-boissonneault,4,Mathieu Boissonneault,C,2017-2018,qmjhl,334797,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vincent Lampron (D),totals,57,3,6,9,0.16,32,-9,/player/354198/vincent-lampron,4,Vincent Lampron,D,2017-2018,qmjhl,354198,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Pelletier (D),Drummondville Voltigeurs,42,2,7,9,0.21,8,15,/player/410533/thomas-pelletier,4,Thomas Pelletier,D,2017-2018,qmjhl,410533,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Kuzmin (C/D),Moncton Wildcats,48,2,7,9,0.19,27,-8,/player/317044/daniil-kuzmin,4,Daniil Kuzmin,C/D,2017-2018,qmjhl,317044,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicolas Roy (C),Sherbrooke Phoenix,58,2,7,9,0.16,8,4,/player/275609/nicolas-roy,4,Nicolas Roy,C,2017-2018,qmjhl,275609,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Félix-Antoine Drolet (D),Acadie-Bathurst Titan,58,2,7,9,0.16,18,1,/player/415826/felix-antoine-drolet,4,Félix-Antoine Drolet,D,2017-2018,qmjhl,415826,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gregory Kreutzer (D),Drummondville Voltigeurs,53,1,8,9,0.17,14,12,/player/316115/gregory-kreutzer,4,Gregory Kreutzer,D,2017-2018,qmjhl,316115,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Higgins (D),totals,51,0,9,9,0.18,82,2,/player/254627/tyler-higgins,4,Tyler Higgins,D,2017-2018,qmjhl,254627,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Renat Dadadzhanov (D),Shawinigan Cataractes,55,0,9,9,0.16,37,-21,/player/414858/renat-dadadzhanov,4,Renat Dadadzhanov,D,2017-2018,qmjhl,414858,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Guillaume Desmarais (LW),Drummondville Voltigeurs,28,5,3,8,0.29,15,7,/player/382137/guillaume-desmarais,4,Guillaume Desmarais,LW,2017-2018,qmjhl,382137,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Wilson (C),Saint John Sea Dogs,38,5,3,8,0.21,8,-6,/player/318458/luke-wilson,4,Luke Wilson,C,2017-2018,qmjhl,318458,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jason Imbeault (RW),Rimouski Océanic,21,4,4,8,0.38,6,4,/player/284913/jason-imbeault,4,Jason Imbeault,RW,2017-2018,qmjhl,284913,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aiden MacIntosh (C),Saint John Sea Dogs,29,4,4,8,0.28,2,-2,/player/320286/aiden-macintosh,4,Aiden MacIntosh,C,2017-2018,qmjhl,320286,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Dickner (LW),Baie-Comeau Drakkar,54,4,4,8,0.15,8,-5,/player/470012/samuel-dickner,4,Samuel Dickner,LW,2017-2018,qmjhl,470012,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc-André LeCouffe (C),Acadie-Bathurst Titan,40,3,5,8,0.20,10,0,/player/270772/marc-andre-lecouffe,4,Marc-André LeCouffe,C,2017-2018,qmjhl,270772,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elijah Francis (D),Acadie-Bathurst Titan,54,1,7,8,0.15,43,4,/player/255693/elijah-francis,4,Elijah Francis,D,2017-2018,qmjhl,255693,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cayse Ton (C),Charlottetown Islanders,60,5,2,7,0.12,59,-8,/player/287295/cayse-ton,4,Cayse Ton,C,2017-2018,qmjhl,287295,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jérémy Martin (LW),Shawinigan Cataractes,34,4,3,7,0.21,19,-18,/player/295608/jeremy-martin,4,Jérémy Martin,LW,2017-2018,qmjhl,295608,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jean-Simon Bélanger (RW),Baie-Comeau Drakkar,27,3,4,7,0.26,10,0,/player/256560/jean-simon-belanger,4,Jean-Simon Bélanger,RW,2017-2018,qmjhl,256560,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabriel Villeneuve (D),totals,42,3,4,7,0.17,52,-8,/player/384281/gabriel-villeneuve,4,Gabriel Villeneuve,D,2017-2018,qmjhl,384281,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bailey Peach (C/RW),Sherbrooke Phoenix,49,3,4,7,0.14,8,-9,/player/305095/bailey-peach,4,Bailey Peach,C/RW,2017-2018,qmjhl,305095,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Louis-Philippe Denis (LW),Rimouski Océanic,50,2,5,7,0.14,27,-4,/player/472663/louis-philippe-denis,4,Louis-Philippe Denis,LW,2017-2018,qmjhl,472663,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Derek Dicaire (LW),Baie-Comeau Drakkar,24,1,6,7,0.29,0,-6,/player/353835/derek-dicaire,4,Derek Dicaire,LW,2017-2018,qmjhl,353835,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stephen Templeton (D),Chicoutimi Saguenéens,29,1,6,7,0.24,31,-9,/player/239032/stephen-templeton,4,Stephen Templeton,D,2017-2018,qmjhl,239032,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hugo Savinsky (D),Baie-Comeau Drakkar,44,1,6,7,0.16,43,5,/player/384285/hugo-savinsky,4,Hugo Savinsky,D,2017-2018,qmjhl,384285,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendon Clavelle (D),Charlottetown Islanders,56,0,7,7,0.13,22,0,/player/266828/brendon-clavelle,4,Brendon Clavelle,D,2017-2018,qmjhl,266828,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle McGrath (RW),Cape Breton Eagles,33,4,2,6,0.18,4,-10,/player/275752/kyle-mcgrath,4,Kyle McGrath,RW,2017-2018,qmjhl,275752,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max-Antoine Melançon (LW),Shawinigan Cataractes,22,3,3,6,0.27,6,-6,/player/295839/max-antoine-melancon,4,Max-Antoine Melançon,LW,2017-2018,qmjhl,295839,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommy Cardinal (RW),totals,63,3,3,6,0.10,87,-45,/player/275605/tommy-cardinal,4,Tommy Cardinal,RW,2017-2018,qmjhl,275605,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Deakin-Poot (RW/LW),Saint John Sea Dogs,18,2,4,6,0.33,6,-4,/player/300437/nick-deakin-poot,4,Nick Deakin-Poot,RW/LW,2017-2018,qmjhl,300437,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexis Gaboury-Potvin (RW/C),Chicoutimi Saguenéens,28,2,4,6,0.21,10,-3,/player/354140/alexis-gaboury-potvin,4,Alexis Gaboury-Potvin,RW/C,2017-2018,qmjhl,354140,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frédéric Abraham (C),Val-d'Or Foreurs,31,2,4,6,0.19,19,-6,/player/384275/frederic-abraham,4,Frédéric Abraham,C,2017-2018,qmjhl,384275,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Basque (C),Gatineau Olympiques,33,2,4,6,0.18,6,-6,/player/275777/william-basque,4,William Basque,C,2017-2018,qmjhl,275777,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Petten (LW),Halifax Mooseheads,44,2,4,6,0.14,6,4,/player/320309/kyle-petten,4,Kyle Petten,LW,2017-2018,qmjhl,320309,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Tucker (D),Moncton Wildcats,53,2,4,6,0.11,8,-10,/player/348092/jack-tucker,4,Jack Tucker,D,2017-2018,qmjhl,348092,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benjamin Dion (LW),Val-d'Or Foreurs,59,2,4,6,0.10,15,-24,/player/472601/benjamin-dion,4,Benjamin Dion,LW,2017-2018,qmjhl,472601,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Boulianne (LW),totals,24,1,5,6,0.25,0,-5,/player/294700/mathieu-boulianne,4,Mathieu Boulianne,LW,2017-2018,qmjhl,294700,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathaniel Doyon (RW),Charlottetown Islanders,50,1,5,6,0.12,15,-13,/player/384290/nathaniel-doyon,4,Nathaniel Doyon,RW,2017-2018,qmjhl,384290,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Senken (D),Sherbrooke Phoenix,51,1,5,6,0.12,24,-13,/player/286949/connor-senken,4,Connor Senken,D,2017-2018,qmjhl,286949,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Massie (D),Charlottetown Islanders,44,0,6,6,0.14,31,1,/player/354316/noah-massie,4,Noah Massie,D,2017-2018,qmjhl,354316,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Xavier Pouliot (D),Chicoutimi Saguenéens,52,0,6,6,0.12,50,-13,/player/301392/xavier-pouliot,4,Xavier Pouliot,D,2017-2018,qmjhl,301392,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicolas Desgroseilliers (C),Drummondville Voltigeurs,22,4,1,5,0.23,4,-2,/player/254739/nicolas-desgroseilliers,4,Nicolas Desgroseilliers,C,2017-2018,qmjhl,254739,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Leblanc (F),totals,41,3,2,5,0.12,12,-11,/player/275843/sam-leblanc,4,Sam Leblanc,F,2017-2018,qmjhl,275843,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Mason (C),Saint John Sea Dogs,25,2,3,5,0.20,6,-3,/player/267122/kevin-mason,4,Kevin Mason,C,2017-2018,qmjhl,267122,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Landon Quinney (C),Saint John Sea Dogs,27,2,3,5,0.19,26,-8,/player/346699/landon-quinney,4,Landon Quinney,C,2017-2018,qmjhl,346699,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Calvin Martin (C),Val-d'Or Foreurs,28,2,3,5,0.18,8,-27,/player/317893/calvin-martin,4,Calvin Martin,C,2017-2018,qmjhl,317893,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marco Cavalleri (W/C),Victoriaville Tigres,37,2,3,5,0.14,10,-8,/player/382153/marco-cavalleri,4,Marco Cavalleri,W/C,2017-2018,qmjhl,382153,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Dajcar (D),Québec Remparts,42,2,3,5,0.12,20,1,/player/236428/tomas-dajcar,4,Tomas Dajcar,D,2017-2018,qmjhl,236428,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Havlena (D),totals,44,2,3,5,0.11,37,-4,/player/385334/kyle-havlena,4,Kyle Havlena,D,2017-2018,qmjhl,385334,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcel Berube (C),Charlottetown Islanders,31,1,4,5,0.16,28,-2,/player/316996/marcel-berube,4,Marcel Berube,C,2017-2018,qmjhl,316996,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan O'Reilly (D),Saint John Sea Dogs,31,1,4,5,0.16,40,-29,/player/264945/brendan-o-reilly,4,Brendan O'Reilly,D,2017-2018,qmjhl,264945,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Liam Peyton (C/LW),Charlottetown Islanders,38,1,4,5,0.13,17,-3,/player/350928/liam-peyton,4,Liam Peyton,C/LW,2017-2018,qmjhl,350928,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christopher Inniss (D),Rimouski Océanic,52,1,4,5,0.10,34,12,/player/411172/christopher-inniss,4,Christopher Inniss,D,2017-2018,qmjhl,411172,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan MacLellan (D),Cape Breton Eagles,31,0,5,5,0.16,21,-9,/player/266580/ryan-maclellan,4,Ryan MacLellan,D,2017-2018,qmjhl,266580,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Samson (RW),Shawinigan Cataractes,36,0,5,5,0.14,6,-13,/player/382867/mathieu-samson,4,Mathieu Samson,RW,2017-2018,qmjhl,382867,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Barbosa (D),Halifax Mooseheads,38,0,5,5,0.13,10,-3,/player/269122/ryan-barbosa,4,Ryan Barbosa,D,2017-2018,qmjhl,269122,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Allepot (D),Val-d'Or Foreurs,58,0,5,5,0.09,32,-25,/player/542042/anthony-allepot,4,Anthony Allepot,D,2017-2018,qmjhl,542042,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Guilbault (LW),Shawinigan Cataractes,12,3,1,4,0.33,4,-2,/player/252495/samuel-guilbault,4,Samuel Guilbault,LW,2017-2018,qmjhl,252495,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Casey Fox (F),Moncton Wildcats,27,3,1,4,0.15,8,-4,/player/319534/casey-fox,4,Casey Fox,F,2017-2018,qmjhl,319534,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pierrick Dubé (RW),Québec Remparts,39,3,1,4,0.10,2,-3,/player/410529/pierrick-dube,4,Pierrick Dubé,RW,2017-2018,qmjhl,410529,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Corson (C/LW),Baie-Comeau Drakkar,10,2,2,4,0.40,12,-3,/player/304372/noah-corson,4,Noah Corson,C/LW,2017-2018,qmjhl,304372,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Félix Meunier (C),Acadie-Bathurst Titan,13,2,2,4,0.31,12,-5,/player/319629/felix-meunier,4,Félix Meunier,C,2017-2018,qmjhl,319629,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carl-Olivier Dignard (LW),Drummondville Voltigeurs,28,2,2,4,0.14,15,3,/player/405309/carl-olivier-dignard,4,Carl-Olivier Dignard,LW,2017-2018,qmjhl,405309,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Quinn Hanna (D),totals,32,2,2,4,0.13,14,11,/player/317889/quinn-hanna,4,Quinn Hanna,D,2017-2018,qmjhl,317889,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yohan Plamondon (LW),Saint John Sea Dogs,20,1,3,4,0.20,2,-5,/player/335708/yohan-plamondon,4,Yohan Plamondon,LW,2017-2018,qmjhl,335708,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Sibley (D),Saint John Sea Dogs,30,1,3,4,0.13,18,-10,/player/305081/brendan-sibley,4,Brendan Sibley,D,2017-2018,qmjhl,305081,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Ouellet (RW),Rimouski Océanic,41,1,3,4,0.10,12,-1,/player/555506/nathan-ouellet,4,Nathan Ouellet,RW,2017-2018,qmjhl,555506,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony D'Amours (D),Rimouski Océanic,53,1,3,4,0.08,23,6,/player/335683/anthony-d-amours,4,Anthony D'Amours,D,2017-2018,qmjhl,335683,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cooper Jones (D),Halifax Mooseheads,53,1,3,4,0.08,27,-2,/player/229672/cooper-jones,4,Cooper Jones,D,2017-2018,qmjhl,229672,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Arsenault (D),Moncton Wildcats,60,1,3,4,0.07,85,-13,/player/275796/jacob-arsenault,4,Jacob Arsenault,D,2017-2018,qmjhl,275796,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Louis Tardif (D),Baie-Comeau Drakkar,68,1,3,4,0.06,18,-2,/player/284920/louis-tardif,4,Louis Tardif,D,2017-2018,qmjhl,284920,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roddie Sandilands (D),Shawinigan Cataractes,25,0,4,4,0.16,8,-22,/player/297959/roddie-sandilands,4,Roddie Sandilands,D,2017-2018,qmjhl,297959,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benjamin Thibeault (D),Victoriaville Tigres,25,0,4,4,0.16,10,3,/player/384447/benjamin-thibeault,4,Benjamin Thibeault,D,2017-2018,qmjhl,384447,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zachary Lauzon (D),Rouyn-Noranda Huskies,25,0,4,4,0.16,45,7,/player/254662/zachary-lauzon,4,Zachary Lauzon,D,2017-2018,qmjhl,254662,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Félix Paré (RW),Victoriaville Tigres,51,0,4,4,0.08,44,-8,/player/384288/felix-pare,4,Félix Paré,RW,2017-2018,qmjhl,384288,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Smith (D),Saint John Sea Dogs,55,0,4,4,0.07,18,-24,/player/283690/tyler-smith,4,Tyler Smith,D,2017-2018,qmjhl,283690,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Charlebois (D),totals,61,0,4,4,0.07,91,8,/player/252508/mathieu-charlebois,4,Mathieu Charlebois,D,2017-2018,qmjhl,252508,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Cyr-Trottier (C),Val-d'Or Foreurs,64,0,4,4,0.06,25,-13,/player/384452/nathan-cyr-trottier,4,Nathan Cyr-Trottier,C,2017-2018,qmjhl,384452,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olivier Plourde (C),Gatineau Olympiques,8,2,1,3,0.38,22,0,/player/354074/olivier-plourde,4,Olivier Plourde,C,2017-2018,qmjhl,354074,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Lazure (LW),totals,46,2,1,3,0.07,13,-17,/player/354255/justin-lazure,4,Justin Lazure,LW,2017-2018,qmjhl,354255,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Blanchard (C),Acadie-Bathurst Titan,5,1,2,3,0.60,2,3,/player/452983/mathieu-blanchard,4,Mathieu Blanchard,C,2017-2018,qmjhl,452983,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathaël Roy (RW/LW),Sherbrooke Phoenix,8,1,2,3,0.38,2,-1,/player/452970/nathael-roy,4,Nathaël Roy,RW/LW,2017-2018,qmjhl,452970,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Lafrenière (LW),Saint John Sea Dogs,14,1,2,3,0.21,11,-3,/player/354197/alex-lafreniere,4,Alex Lafrenière,LW,2017-2018,qmjhl,354197,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Eastman (LW),Québec Remparts,18,1,2,3,0.17,2,0,/player/245139/austin-eastman,4,Austin Eastman,LW,2017-2018,qmjhl,245139,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riley MacRae (LW),Moncton Wildcats,22,1,2,3,0.14,20,-4,/player/267717/riley-macrae,4,Riley MacRae,LW,2017-2018,qmjhl,267717,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Barrett Dachyshyn (C),Halifax Mooseheads,52,1,2,3,0.06,22,-4,/player/195028/barrett-dachyshyn,4,Barrett Dachyshyn,C,2017-2018,qmjhl,195028,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Frattaroli (C/RW),Gatineau Olympiques,6,0,3,3,0.50,0,0,/player/414867/brandon-frattaroli,4,Brandon Frattaroli,C/RW,2017-2018,qmjhl,414867,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Charles Tremblay (RW),Chicoutimi Saguenéens,24,0,3,3,0.13,13,-4,/player/414619/charles-tremblay,4,Charles Tremblay,RW,2017-2018,qmjhl,414619,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Braeden Virtue (D),Québec Remparts,27,0,3,3,0.11,22,-5,/player/294744/braeden-virtue,4,Braeden Virtue,D,2017-2018,qmjhl,294744,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Monette (D),Chicoutimi Saguenéens,52,0,3,3,0.06,16,-21,/player/43616/simon-monette,4,Simon Monette,D,2017-2018,qmjhl,43616,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Ward (LW),Rouyn-Noranda Huskies,8,2,0,2,0.25,12,-1,/player/223518/kyle-ward,4,Kyle Ward,LW,2017-2018,qmjhl,223518,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabriel Vanier (RW),Blainville-Boisbriand Armada,4,1,1,2,0.50,0,2,/player/254816/gabriel-vanier,4,Gabriel Vanier,RW,2017-2018,qmjhl,254816,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Morin (C),Blainville-Boisbriand Armada,4,1,1,2,0.50,2,0,/player/353975/anthony-morin,4,Anthony Morin,C,2017-2018,qmjhl,353975,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Auger (D),Moncton Wildcats,13,1,1,2,0.15,12,-5,/player/286103/kyle-auger,4,Kyle Auger,D,2017-2018,qmjhl,286103,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc-Antoine Gagné (C),Chicoutimi Saguenéens,15,1,1,2,0.13,7,-1,/player/275586/marc-antoine-gagne,4,Marc-Antoine Gagné,C,2017-2018,qmjhl,275586,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zac Gladu (RW),Val-d'Or Foreurs,17,1,1,2,0.12,18,-2,/player/198442/zac-gladu,4,Zac Gladu,RW,2017-2018,qmjhl,198442,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philippe Fortin (D),Val-d'Or Foreurs,24,1,1,2,0.08,10,-5,/player/335687/philippe-fortin,4,Philippe Fortin,D,2017-2018,qmjhl,335687,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zacharie Ouellet (D),Rouyn-Noranda Huskies,31,1,1,2,0.06,32,0,/player/354072/zacharie-ouellet,4,Zacharie Ouellet,D,2017-2018,qmjhl,354072,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Loïc Jarry (D),Val-d'Or Foreurs,41,1,1,2,0.05,14,-10,/player/472627/loic-jarry,4,Loïc Jarry,D,2017-2018,qmjhl,472627,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kolby Johnson (LW),Sherbrooke Phoenix,41,1,1,2,0.05,51,-16,/player/200696/kolby-johnson,5,Kolby Johnson,LW,2017-2018,qmjhl,200696,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Ianniciello (LW),Rouyn-Noranda Huskies,45,1,1,2,0.04,43,-2,/player/391035/samuel-ianniciello,5,Samuel Ianniciello,LW,2017-2018,qmjhl,391035,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Charlie Roy (D),Shawinigan Cataractes,5,0,2,2,0.40,11,1,/player/213828/charlie-roy,5,Charlie Roy,D,2017-2018,qmjhl,213828,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vincent Martineau (D),Rimouski Océanic,10,0,2,2,0.20,12,3,/player/275578/vincent-martineau,5,Vincent Martineau,D,2017-2018,qmjhl,275578,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Caron (LW/RW),Québec Remparts,14,0,2,2,0.14,17,-2,/player/415819/thomas-caron,5,Thomas Caron,LW/RW,2017-2018,qmjhl,415819,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Tesink (D),Saint John Sea Dogs,15,0,2,2,0.13,2,-4,/player/234517/marcus-tesink,5,Marcus Tesink,D,2017-2018,qmjhl,234517,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Bernard (D),Rimouski Océanic,17,0,2,2,0.12,6,1,/player/295582/jacob-bernard,5,Jacob Bernard,D,2017-2018,qmjhl,295582,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colton McKenna (LW),Moncton Wildcats,17,0,2,2,0.12,17,-10,/player/329773/colton-mckenna,5,Colton McKenna,LW,2017-2018,qmjhl,329773,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Stewart (C),Moncton Wildcats,18,0,2,2,0.11,6,-8,/player/305101/jacob-stewart,5,Jacob Stewart,C,2017-2018,qmjhl,305101,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Anderson (D),Rimouski Océanic,19,0,2,2,0.11,15,3,/player/406694/josh-anderson,5,Josh Anderson,D,2017-2018,qmjhl,406694,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olivier-Luc Haché (C/LW),Rouyn-Noranda Huskies,21,0,2,2,0.10,8,3,/player/284884/olivier-luc-hache,5,Olivier-Luc Haché,C/LW,2017-2018,qmjhl,284884,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Gaudreau (D),Victoriaville Tigres,24,0,2,2,0.08,10,8,/player/469420/adam-gaudreau,5,Adam Gaudreau,D,2017-2018,qmjhl,469420,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jérémie Hébert (D),Baie-Comeau Drakkar,30,0,2,2,0.07,9,-5,/player/320283/jeremie-hebert,5,Jérémie Hébert,D,2017-2018,qmjhl,320283,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Ashe (D),Saint John Sea Dogs,2,1,0,1,0.50,0,2,/player/373641/thomas-ashe,5,Thomas Ashe,D,2017-2018,qmjhl,373641,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Rouleau (LW),Rouyn-Noranda Huskies,4,1,0,1,0.25,0,0,/player/410881/william-rouleau,5,William Rouleau,LW,2017-2018,qmjhl,410881,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zackary Daneau (C),Shawinigan Cataractes,5,1,0,1,0.20,0,1,/player/334810/zackary-daneau,5,Zackary Daneau,C,2017-2018,qmjhl,334810,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lane Cormier (RW),Rouyn-Noranda Huskies,5,1,0,1,0.20,2,2,/player/194606/lane-cormier,5,Lane Cormier,RW,2017-2018,qmjhl,194606,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Gagnon (C),Rouyn-Noranda Huskies,8,1,0,1,0.13,0,-1,/player/410580/mathieu-gagnon,5,Mathieu Gagnon,C,2017-2018,qmjhl,410580,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nolan Gardiner (C),Baie-Comeau Drakkar,8,1,0,1,0.13,2,0,/player/269368/nolan-gardiner,5,Nolan Gardiner,C,2017-2018,qmjhl,269368,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Bower (C),Charlottetown Islanders,8,1,0,1,0.13,4,-2,/player/223558/william-bower,5,William Bower,C,2017-2018,qmjhl,223558,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nico Blachman (RW/C),Rimouski Océanic,8,1,0,1,0.13,14,-1,/player/226439/nico-blachman,5,Nico Blachman,RW/C,2017-2018,qmjhl,226439,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Wojcik (LW),Québec Remparts,9,1,0,1,0.11,7,-2,/player/252489/anthony-wojcik,5,Anthony Wojcik,LW,2017-2018,qmjhl,252489,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominic Cormier (LW),Rimouski Océanic,10,1,0,1,0.10,2,0,/player/299913/dominic-cormier,5,Dominic Cormier,LW,2017-2018,qmjhl,299913,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Kurbatov (F),Victoriaville Tigres,18,1,0,1,0.06,0,-3,/player/356483/yegor-kurbatov,5,Yegor Kurbatov,F,2017-2018,qmjhl,356483,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brock McLeod (F),Charlottetown Islanders,2,0,1,1,0.50,0,1,/player/215491/brock-mcleod,5,Brock McLeod,F,2017-2018,qmjhl,215491,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Isaak Châteauneuf (D),Sherbrooke Phoenix,4,0,1,1,0.25,0,1,/player/384418/isaak-chateauneuf,5,Isaak Châteauneuf,D,2017-2018,qmjhl,384418,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Fontaine (RW),Blainville-Boisbriand Armada,5,0,1,1,0.20,0,1,/player/415794/david-fontaine,5,David Fontaine,RW,2017-2018,qmjhl,415794,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Reeves (LW/D),Gatineau Olympiques,5,0,1,1,0.20,0,-2,/player/415155/lucas-reeves,5,Lucas Reeves,LW/D,2017-2018,qmjhl,415155,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Enrico Di Cesare (C),Victoriaville Tigres,6,0,1,1,0.17,2,0,/player/416080/enrico-di-cesare,5,Enrico Di Cesare,C,2017-2018,qmjhl,416080,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Vaysberg (LW),Shawinigan Cataractes,8,0,1,1,0.13,0,-2,/player/294506/david-vaysberg,5,David Vaysberg,LW,2017-2018,qmjhl,294506,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zachery Bennett (D),totals,9,0,1,1,0.11,9,-2,/player/320317/zachery-bennett,5,Zachery Bennett,D,2017-2018,qmjhl,320317,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Gaumond (C),Rimouski Océanic,11,0,1,1,0.09,10,-1,/player/284912/samuel-gaumond,5,Samuel Gaumond,C,2017-2018,qmjhl,284912,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Wieringa (D),Moncton Wildcats,16,0,1,1,0.06,6,-3,/player/269441/jack-wieringa,5,Jack Wieringa,D,2017-2018,qmjhl,269441,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Lefebvre (RW),Sherbrooke Phoenix,18,0,1,1,0.06,13,-6,/player/307536/simon-lefebvre,5,Simon Lefebvre,RW,2017-2018,qmjhl,307536,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carson Gallant (D),Gatineau Olympiques,24,0,1,1,0.04,6,-2,/player/318491/carson-gallant,5,Carson Gallant,D,2017-2018,qmjhl,318491,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Hungerbuhler (D),Saint John Sea Dogs,24,0,1,1,0.04,6,-10,/player/416085/tyler-hungerbuhler,5,Tyler Hungerbuhler,D,2017-2018,qmjhl,416085,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Duchesne (D),totals,37,0,1,1,0.03,52,-12,/player/273683/samuel-duchesne,5,Samuel Duchesne,D,2017-2018,qmjhl,273683,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brodie MacArthur (F),Moncton Wildcats,1,0,0,0,0.00,0,0,/player/275805/brodie-macarthur,5,Brodie MacArthur,F,2017-2018,qmjhl,275805,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Félix Lafrance (LW),Blainville-Boisbriand Armada,1,0,0,0,0.00,0,0,/player/296696/felix-lafrance,5,Félix Lafrance,LW,2017-2018,qmjhl,296696,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eliott St-Pierre (D),Rimouski Océanic,1,0,0,0,0.00,0,-1,/player/543746/eliott-st-pierre,5,Eliott St-Pierre,D,2017-2018,qmjhl,543746,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vincent Sévigny (D),Victoriaville Tigres,1,0,0,0,0.00,0,0,/player/410874/vincent-sevigny,5,Vincent Sévigny,D,2017-2018,qmjhl,410874,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antoine Lessard (RW),Victoriaville Tigres,1,0,0,0,0.00,0,0,/player/252510/antoine-lessard,5,Antoine Lessard,RW,2017-2018,qmjhl,252510,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc-Antoine Pépin (D),Sherbrooke Phoenix,1,0,0,0,0.00,0,0,/player/542043/marc-antoine-pepin,5,Marc-Antoine Pépin,D,2017-2018,qmjhl,542043,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hunter Martin (D),Sherbrooke Phoenix,1,0,0,0,0.00,0,1,/player/318509/hunter-martin,5,Hunter Martin,D,2017-2018,qmjhl,318509,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Champagne (C),Shawinigan Cataractes,1,0,0,0,0.00,0,0,/player/294768/william-champagne,5,William Champagne,C,2017-2018,qmjhl,294768,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabriel Belley-Pelletier (D),Shawinigan Cataractes,1,0,0,0,0.00,0,0,/player/413559/gabriel-belley-pelletier,5,Gabriel Belley-Pelletier,D,2017-2018,qmjhl,413559,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Grandmaison (F),Rouyn-Noranda Huskies,1,0,0,0,0.00,0,0,/player/283660/max-grandmaison,5,Max Grandmaison,F,2017-2018,qmjhl,283660,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor McCluskey (D),Moncton Wildcats,1,0,0,0,0.00,0,0,/player/373689/connor-mccluskey,5,Connor McCluskey,D,2017-2018,qmjhl,373689,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stephen Fox (RW),Moncton Wildcats,1,0,0,0,0.00,0,-1,/player/317650/stephen-fox,5,Stephen Fox,RW,2017-2018,qmjhl,317650,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Foreman (LW),Moncton Wildcats,1,0,0,0,0.00,0,0,/player/320281/kyle-foreman,5,Kyle Foreman,LW,2017-2018,qmjhl,320281,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Toner (D),Halifax Mooseheads,1,0,0,0,0.00,0,0,/player/272854/denis-toner,5,Denis Toner,D,2017-2018,qmjhl,272854,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexandre Pellerin (RW),Gatineau Olympiques,1,0,0,0,0.00,0,0,/player/295662/alexandre-pellerin,5,Alexandre Pellerin,RW,2017-2018,qmjhl,295662,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zachary Gravel (C),Gatineau Olympiques,1,0,0,0,0.00,0,0,/player/241377/zachary-gravel,5,Zachary Gravel,C,2017-2018,qmjhl,241377,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikisiw Awashish (C),Chicoutimi Saguenéens,1,0,0,0,0.00,0,-1,/player/294697/mikisiw-awashish,5,Mikisiw Awashish,C,2017-2018,qmjhl,294697,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Gallant (C),Charlottetown Islanders,1,0,0,0,0.00,0,-1,/player/275801/evan-gallant,5,Evan Gallant,C,2017-2018,qmjhl,275801,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Laurent Demers (D),Baie-Comeau Drakkar,1,0,0,0,0.00,0,0,/player/410604/laurent-demers,5,Laurent Demers,D,2017-2018,qmjhl,410604,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Desgroseilliers (D),Blainville-Boisbriand Armada,1,0,0,0,0.00,0,-,/player/296341/samuel-desgroseilliers,5,Samuel Desgroseilliers,D,2017-2018,qmjhl,296341,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Xavier Cormier (C),Québec Remparts,1,0,0,0,0.00,0,0,/player/472761/xavier-cormier,5,Xavier Cormier,C,2017-2018,qmjhl,472761,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Liam Leonard (C),Acadie-Bathurst Titan,1,0,0,0,0.00,2,0,/player/275822/liam-leonard,5,Liam Leonard,C,2017-2018,qmjhl,275822,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jérémy Pellerin (C),Victoriaville Tigres,2,0,0,0,0.00,0,0,/player/295840/jeremy-pellerin,5,Jérémy Pellerin,C,2017-2018,qmjhl,295840,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frédérick Denicourt (D),Val-d'Or Foreurs,2,0,0,0,0.00,0,0,/player/354230/frederick-denicourt,5,Frédérick Denicourt,D,2017-2018,qmjhl,354230,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Charles Farmer (LW),Val-d'Or Foreurs,2,0,0,0,0.00,0,0,/player/267634/charles-farmer,5,Charles Farmer,LW,2017-2018,qmjhl,267634,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Régis (D),Rouyn-Noranda Huskies,2,0,0,0,0.00,0,-2,/player/296348/samuel-regis,5,Samuel Régis,D,2017-2018,qmjhl,296348,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zachary Massicotte (D),Rimouski Océanic,2,0,0,0,0.00,0,1,/player/412990/zachary-massicotte,5,Zachary Massicotte,D,2017-2018,qmjhl,412990,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabriel Montreuil (LW),Québec Remparts,2,0,0,0,0.00,0,0,/player/410883/gabriel-montreuil,5,Gabriel Montreuil,LW,2017-2018,qmjhl,410883,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean Stewart (D),Moncton Wildcats,2,0,0,0,0.00,0,1,/player/305083/sean-stewart,5,Sean Stewart,D,2017-2018,qmjhl,305083,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gavin Hart (C),Halifax Mooseheads,2,0,0,0,0.00,0,0,/player/305093/gavin-hart,5,Gavin Hart,C,2017-2018,qmjhl,305093,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Fraser (LW),Blainville-Boisbriand Armada,2,0,0,0,0.00,0,0,/player/373699/cole-fraser,5,Cole Fraser,LW,2017-2018,qmjhl,373699,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+T.J. Shea (F),Charlottetown Islanders,2,0,0,0,0.00,4,0,/player/284375/t-j-shea,5,T.J. Shea,F,2017-2018,qmjhl,284375,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tristan Pelletier (RW/LW),Chicoutimi Saguenéens,3,0,0,0,0.00,0,-1,/player/339271/tristan-pelletier,5,Tristan Pelletier,RW/LW,2017-2018,qmjhl,339271,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Drew Johnston (LW),Charlottetown Islanders,3,0,0,0,0.00,0,0,/player/414860/drew-johnston,5,Drew Johnston,LW,2017-2018,qmjhl,414860,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Lavoie (D),Blainville-Boisbriand Armada,3,0,0,0,0.00,4,3,/player/384296/nathan-lavoie,5,Nathan Lavoie,D,2017-2018,qmjhl,384296,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christophe Farmer (RW),Chicoutimi Saguenéens,4,0,0,0,0.00,0,0,/player/290172/christophe-farmer,5,Christophe Farmer,RW,2017-2018,qmjhl,290172,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Guillaume St-Pierre (RW),Rouyn-Noranda Huskies,4,0,0,0,0.00,0,-2,/player/384427/guillaume-st-pierre,5,Guillaume St-Pierre,RW,2017-2018,qmjhl,384427,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominic Hachey (D),Charlottetown Islanders,4,0,0,0,0.00,0,-1,/player/275858/dominic-hachey,5,Dominic Hachey,D,2017-2018,qmjhl,275858,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zac Arsenault (D),Charlottetown Islanders,4,0,0,0,0.00,0,1,/player/361957/zac-arsenault,5,Zac Arsenault,D,2017-2018,qmjhl,361957,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dallas Maurovic (C),Chicoutimi Saguenéens,4,0,0,0,0.00,2,0,/player/201505/dallas-maurovic,5,Dallas Maurovic,C,2017-2018,qmjhl,201505,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommy Bouchard (LW),Blainville-Boisbriand Armada,4,0,0,0,0.00,2,3,/player/290153/tommy-bouchard,5,Tommy Bouchard,LW,2017-2018,qmjhl,290153,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yan-Cédric Gaudreault (RW),Blainville-Boisbriand Armada,4,0,0,0,0.00,2,-2,/player/384425/yan-cedric-gaudreault,5,Yan-Cédric Gaudreault,RW,2017-2018,qmjhl,384425,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julien Létourneau (LW),Baie-Comeau Drakkar,4,0,0,0,0.00,2,0,/player/410773/julien-letourneau,5,Julien Létourneau,LW,2017-2018,qmjhl,410773,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan White (D),Chicoutimi Saguenéens,4,0,0,0,0.00,4,-2,/player/275746/evan-white,5,Evan White,D,2017-2018,qmjhl,275746,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jean-Mathieu Lavoie (D),Sherbrooke Phoenix,5,0,0,0,0.00,0,0,/player/494812/jean-mathieu-lavoie,5,Jean-Mathieu Lavoie,D,2017-2018,qmjhl,494812,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle West (LW),Charlottetown Islanders,5,0,0,0,0.00,0,-1,/player/267685/kyle-west,5,Kyle West,LW,2017-2018,qmjhl,267685,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zachary Leclerc (D),Saint John Sea Dogs,5,0,0,0,0.00,0,-1,/player/415825/zachary-leclerc,5,Zachary Leclerc,D,2017-2018,qmjhl,415825,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Ferland (D),Chicoutimi Saguenéens,5,0,0,0,0.00,0,-2,/player/410887/thomas-ferland,5,Thomas Ferland,D,2017-2018,qmjhl,410887,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Liam Kidney (LW),Cape Breton Eagles,5,0,0,0,0.00,0,2,/player/318492/liam-kidney,5,Liam Kidney,LW,2017-2018,qmjhl,318492,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack DesRoches (D),Charlottetown Islanders,5,0,0,0,0.00,2,2,/player/284263/jack-desroches,5,Jack DesRoches,D,2017-2018,qmjhl,284263,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan Timmons (F),Val-d'Or Foreurs,5,0,0,0,0.00,4,0,/player/266586/logan-timmons,5,Logan Timmons,F,2017-2018,qmjhl,266586,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zachary Racicot (D),Blainville-Boisbriand Armada,6,0,0,0,0.00,2,2,/player/290149/zachary-racicot,5,Zachary Racicot,D,2017-2018,qmjhl,290149,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Stewart (C),Halifax Mooseheads,6,0,0,0,0.00,4,1,/player/320291/cole-stewart,5,Cole Stewart,C,2017-2018,qmjhl,320291,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Cummings (RW),Shawinigan Cataractes,6,0,0,0,0.00,4,-6,/player/415809/william-cummings,5,William Cummings,RW,2017-2018,qmjhl,415809,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Damian Figueira (D),Drummondville Voltigeurs,6,0,0,0,0.00,5,-1,/player/445414/damian-figueira,5,Damian Figueira,D,2017-2018,qmjhl,445414,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Félix Tourigny (C),Rouyn-Noranda Huskies,7,0,0,0,0.00,2,0,/player/398033/felix-tourigny,5,Félix Tourigny,C,2017-2018,qmjhl,398033,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Émil Lessard-Aydin (LW),Val-d'Or Foreurs,8,0,0,0,0.00,0,-5,/player/388145/emil-lessard-aydin,5,Émil Lessard-Aydin,LW,2017-2018,qmjhl,388145,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Gaucher (C/RW),Val-d'Or Foreurs,10,0,0,0,0.00,4,-5,/player/290162/jacob-gaucher,5,Jacob Gaucher,C/RW,2017-2018,qmjhl,290162,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Émile Lauzon (C),Val-d'Or Foreurs,10,0,0,0,0.00,4,-4,/player/295288/emile-lauzon,5,Émile Lauzon,C,2017-2018,qmjhl,295288,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pierre-Olivier Demers (D),Victoriaville Tigres,11,0,0,0,0.00,14,-2,/player/256578/pierre-olivier-demers,5,Pierre-Olivier Demers,D,2017-2018,qmjhl,256578,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Louis-Philip Fortin (D),Acadie-Bathurst Titan,13,0,0,0,0.00,11,-4,/player/255649/louis-philip-fortin,5,Louis-Philip Fortin,D,2017-2018,qmjhl,255649,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Pryce (LW),Acadie-Bathurst Titan,15,0,0,0,0.00,2,1,/player/272334/nick-pryce,5,Nick Pryce,LW,2017-2018,qmjhl,272334,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ian MacPhee (F),Rouyn-Noranda Huskies,18,0,0,0,0.00,4,-1,/player/266809/ian-macphee,5,Ian MacPhee,F,2017-2018,qmjhl,266809,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc-Olivier Alain (D),Québec Remparts,21,0,0,0,0.00,15,-3,/player/384433/marc-olivier-alain,6,Marc-Olivier Alain,D,2017-2018,qmjhl,384433,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69

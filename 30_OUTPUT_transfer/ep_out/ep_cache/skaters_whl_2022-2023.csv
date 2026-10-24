@@ -1,0 +1,604 @@
+player,team,gp,g,a,tp,p_per_gp,pim,plus_minus,link,page,playername,position,season,league,ep_player_id,scrape_date,source,package_version
+Connor Bedard (C/LW),Regina Pats,57,71,72,143,2.51,62,39,/player/535584/connor-bedard,1,Connor Bedard,C/LW,2022-2023,whl,535584,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Wheatcroft (C/LW),Prince George Cougars,68,47,60,107,1.57,46,14,/player/506229/chase-wheatcroft,1,Chase Wheatcroft,C/LW,2022-2023,whl,506229,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Benson (W/C),Wenatchee Wild,60,36,62,98,1.63,49,68,/player/535582/zach-benson,1,Zach Benson,W/C,2022-2023,whl,535582,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan Stankoven (C/RW),Kamloops Blazers,48,34,63,97,2.02,17,36,/player/556512/logan-stankoven,1,Logan Stankoven,C/RW,2022-2023,whl,556512,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riley Heidt (C/LW),Prince George Cougars,68,25,72,97,1.43,36,-3,/player/565748/riley-heidt,1,Riley Heidt,C/LW,2022-2023,whl,565748,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Cristall (LW),Kelowna Rockets,54,39,56,95,1.76,50,18,/player/603591/andrew-cristall,1,Andrew Cristall,LW,2022-2023,whl,603591,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Savoie (C/W),Wenatchee Wild,62,38,57,95,1.53,26,57,/player/476028/matthew-savoie,1,Matthew Savoie,C/W,2022-2023,whl,476028,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor McClennon (RW),Wenatchee Wild,64,46,46,92,1.44,49,51,/player/201920/connor-mcclennon,1,Connor McClennon,RW,2022-2023,whl,201920,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Koehn Ziemmer (RW/C),Prince George Cougars,68,41,48,89,1.31,43,0,/player/564977/koehn-ziemmer,1,Koehn Ziemmer,RW/C,2022-2023,whl,564977,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jagger Firkus (RW/LW),Moose Jaw Warriors,66,40,48,88,1.33,24,-9,/player/565465/jagger-firkus,1,Jagger Firkus,RW/LW,2022-2023,whl,565465,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Suzdalev (LW/RW),Regina Pats,66,38,48,86,1.30,28,-4,/player/535701/alexander-suzdalev,1,Alexander Suzdalev,LW/RW,2022-2023,whl,535701,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trevor Wong (C/LW),Saskatoon Blades,68,27,59,86,1.26,26,23,/player/560051/trevor-wong,1,Trevor Wong,C/LW,2022-2023,whl,560051,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kai Uchacz (C/RW),Red Deer Rebels,68,50,35,85,1.25,75,21,/player/505754/kai-uchacz,1,Kai Uchacz,C/RW,2022-2023,whl,505754,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Caedan Bankier (C/LW),Kamloops Blazers,57,37,48,85,1.49,23,31,/player/538921/caedan-bankier,1,Caedan Bankier,C/LW,2022-2023,whl,538921,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Howe (LW/C),Regina Pats,67,36,49,85,1.27,74,12,/player/647116/tanner-howe,1,Tanner Howe,LW/C,2022-2023,whl,647116,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jared Davidson (C),Seattle Thunderbirds,60,38,44,82,1.37,46,41,/player/475625/jared-davidson,1,Jared Davidson,C,2022-2023,whl,475625,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Seminoff (RW/C),Kamloops Blazers,62,31,51,82,1.32,44,26,/player/538928/matthew-seminoff,1,Matthew Seminoff,RW/C,2022-2023,whl,538928,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jackson Berezowski (RW/C),Everett Silvertips,62,48,33,81,1.31,41,15,/player/403435/jackson-berezowski,1,Jackson Berezowski,RW/C,2022-2023,whl,403435,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Zloty (D),Wenatchee Wild,64,13,68,81,1.27,36,67,/player/475290/ben-zloty,1,Ben Zloty,D,2022-2023,whl,475290,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olen Zellweger (D),totals,55,32,48,80,1.45,40,30,/player/476596/olen-zellweger,1,Olen Zellweger,D,2022-2023,whl,476596,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabriel Szturc (C/LW),Kelowna Rockets,56,24,55,79,1.41,44,9,/player/426117/gabriel-szturc,1,Gabriel Szturc,C/LW,2022-2023,whl,426117,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nate Danielson (C/RW),Brandon Wheat Kings,68,33,45,78,1.15,38,-12,/player/562426/nate-danielson,1,Nate Danielson,C/RW,2022-2023,whl,562426,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Roest (RW/C),Everett Silvertips,60,32,46,78,1.30,28,19,/player/691875/austin-roest,1,Austin Roest,RW/C,2022-2023,whl,691875,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brayden Yager (C/RW),Moose Jaw Warriors,67,28,50,78,1.16,14,6,/player/565757/brayden-yager,1,Brayden Yager,C/RW,2022-2023,whl,565757,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Svozil (D),Regina Pats,56,11,67,78,1.39,24,27,/player/428002/stanislav-svozil,1,Stanislav Svozil,D,2022-2023,whl,428002,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Conor Geekie (RW/C),Wenatchee Wild,66,35,42,77,1.17,53,51,/player/571034/conor-geekie,1,Conor Geekie,RW/C,2022-2023,whl,571034,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Sidorov (RW/LW),Saskatoon Blades,53,40,36,76,1.43,39,25,/player/679585/yegor-sidorov,1,Yegor Sidorov,RW/LW,2022-2023,whl,679585,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Filmon (LW/RW),Swift Current Broncos,64,47,28,75,1.17,38,4,/player/572099/josh-filmon,1,Josh Filmon,LW/RW,2022-2023,whl,572099,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riley Fiddler-Schultz (C/LW),Calgary Hitmen,64,31,44,75,1.17,57,7,/player/408219/riley-fiddler-schultz,1,Riley Fiddler-Schultz,C/LW,2022-2023,whl,408219,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Ciona (LW/RW),Seattle Thunderbirds,63,28,47,75,1.19,85,47,/player/475634/lucas-ciona,1,Lucas Ciona,LW/RW,2022-2023,whl,475634,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Dragicevic (D),Tri-City Americans,68,15,60,75,1.10,54,-2,/player/529817/lukas-dragicevic,1,Lukas Dragicevic,D,2022-2023,whl,529817,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Owen Pederson (W/C),Wenatchee Wild,65,32,42,74,1.14,38,31,/player/413212/owen-pederson,1,Owen Pederson,W/C,2022-2023,whl,413212,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathew Ward (F),Swift Current Broncos,68,26,48,74,1.09,93,-11,/player/561338/mathew-ward,1,Mathew Ward,F,2022-2023,whl,561338,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hudson Thornton (D),Prince George Cougars,68,23,51,74,1.09,41,13,/player/483418/hudson-thornton,1,Hudson Thornton,D,2022-2023,whl,483418,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Atley Calvert (C/RW),Moose Jaw Warriors,67,40,33,73,1.09,32,1,/player/406413/atley-calvert,1,Atley Calvert,C/RW,2022-2023,whl,406413,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Korchinski (D),Seattle Thunderbirds,54,11,62,73,1.35,54,50,/player/516605/kevin-korchinski,1,Kevin Korchinski,D,2022-2023,whl,516605,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Lisowsky (LW),Saskatoon Blades,65,38,33,71,1.09,36,17,/player/551574/brandon-lisowsky,1,Brandon Lisowsky,LW,2022-2023,whl,551574,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ty Thorpe (F),Vancouver Giants,65,37,34,71,1.09,53,12,/player/201960/ty-thorpe,1,Ty Thorpe,F,2022-2023,whl,201960,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nolan Ritchie (C),Brandon Wheat Kings,67,27,43,70,1.04,56,1,/player/201956/nolan-ritchie,1,Nolan Ritchie,C,2022-2023,whl,201956,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabe Klassen (C/LW),Portland Winterhawks,64,35,34,69,1.08,30,-6,/player/485361/gabe-klassen,1,Gabe Klassen,C/LW,2022-2023,whl,485361,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryder Korczak (C/RW),Moose Jaw Warriors,48,28,41,69,1.44,30,13,/player/201839/ryder-korczak,1,Ryder Korczak,C/RW,2022-2023,whl,201839,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Bertholet (RW),Spokane Chiefs,67,28,41,69,1.03,20,-21,/player/483470/chase-bertholet,1,Chase Bertholet,RW,2022-2023,whl,483470,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Hofer (C/W),totals,66,40,28,68,1.03,112,11,/player/416983/ryan-hofer,1,Ryan Hofer,C/W,2022-2023,whl,416983,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Crnkovic (LW/C),Seattle Thunderbirds,67,30,38,68,1.01,27,48,/player/201916/kyle-crnkovic,1,Kyle Crnkovic,LW/C,2022-2023,whl,201916,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robbie Fromm-Delorme (RW),Portland Winterhawks,65,33,34,67,1.03,38,-1,/player/205285/robbie-fromm-delorme,1,Robbie Fromm-Delorme,RW,2022-2023,whl,205285,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zack Ostapchuk (C/LW),totals,55,31,36,67,1.22,46,28,/player/476029/zack-ostapchuk,1,Zack Ostapchuk,C/LW,2022-2023,whl,476029,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fraser Minten (C/LW),Kamloops Blazers,57,31,36,67,1.18,55,24,/player/529809/fraser-minten,1,Fraser Minten,C/LW,2022-2023,whl,529809,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Levis (C),Kamloops Blazers,68,27,40,67,0.99,34,23,/player/535720/connor-levis,1,Connor Levis,C,2022-2023,whl,535720,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jayden Grubbe (C/RW),Red Deer Rebels,64,18,49,67,1.05,71,10,/player/475192/jayden-grubbe,1,Jayden Grubbe,C/RW,2022-2023,whl,475192,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Hvidston (W/C),Swift Current Broncos,59,21,44,65,1.10,34,15,/player/569232/connor-hvidston,1,Connor Hvidston,W/C,2022-2023,whl,569232,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aidan De La Gorgendiere (D),Saskatoon Blades,65,12,53,65,1.00,44,19,/player/201798/aidan-de-la-gorgendiere,1,Aidan De La Gorgendiere,D,2022-2023,whl,201798,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Masters (D),Kamloops Blazers,66,11,54,65,0.98,35,26,/player/475830/kyle-masters,1,Kyle Masters,D,2022-2023,whl,475830,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denton Mateychuk (D),Moose Jaw Warriors,63,8,57,65,1.03,28,15,/player/570931/denton-mateychuk,1,Denton Mateychuk,D,2022-2023,whl,570931,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sloan Stanick (LW/RW),Prince Albert Raiders,67,31,33,64,0.96,39,0,/player/527498/sloan-stanick,1,Sloan Stanick,LW/RW,2022-2023,whl,527498,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Parker Bell (LW/C),Tri-City Americans,55,25,39,64,1.16,65,4,/player/539062/parker-bell,1,Parker Bell,LW/C,2022-2023,whl,539062,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+James Stefan (RW/LW),Portland Winterhawks,64,22,42,64,1.00,49,-8,/player/480110/james-stefan,1,James Stefan,RW/LW,2022-2023,whl,480110,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luca Cagnoni (D),Portland Winterhawks,67,17,47,64,0.96,46,11,/player/529803/luca-cagnoni,1,Luca Cagnoni,D,2022-2023,whl,529803,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Ernst (F),Tri-City Americans,62,32,31,63,1.02,24,-4,/player/201833/ethan-ernst,1,Ethan Ernst,F,2022-2023,whl,201833,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Conner Roulette (LW/C),Saskatoon Blades,60,24,39,63,1.05,42,19,/player/483386/conner-roulette,1,Conner Roulette,LW/C,2022-2023,whl,483386,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Landon Kosior (D),Prince Albert Raiders,60,17,46,63,1.05,24,3,/player/403796/landon-kosior,1,Landon Kosior,D,2022-2023,whl,403796,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Hemmerling (RW/C),Everett Silvertips,55,21,41,62,1.13,46,-4,/player/558211/ben-hemmerling,1,Ben Hemmerling,RW/C,2022-2023,whl,558211,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daylan Kuefler (LW/RW),Kamloops Blazers,54,31,30,61,1.13,85,32,/player/413108/daylan-kuefler,1,Daylan Kuefler,LW/RW,2022-2023,whl,413108,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reid Schaefer (LW),Seattle Thunderbirds,55,28,33,61,1.11,92,30,/player/506838/reid-schaefer,1,Reid Schaefer,LW,2022-2023,whl,506838,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nico Myatovic (LW/C),Seattle Thunderbirds,68,30,30,60,0.88,41,43,/player/650108/nico-myatovic,1,Nico Myatovic,LW/C,2022-2023,whl,650108,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oasiz Wiesblatt (C/LW),Medicine Hat Tigers,68,26,34,60,0.88,115,19,/player/562425/oasiz-wiesblatt,1,Oasiz Wiesblatt,C/LW,2022-2023,whl,562425,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Tulk (C/RW),Calgary Hitmen,68,24,36,60,0.88,34,-9,/player/638602/oliver-tulk,1,Oliver Tulk,C/RW,2022-2023,whl,638602,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Samson (D),Prince George Cougars,60,18,42,60,1.00,71,11,/player/559018/ethan-samson,1,Ethan Samson,D,2022-2023,whl,559018,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Lee (F),Medicine Hat Tigers,57,32,27,59,1.04,40,6,/player/476671/brendan-lee,1,Brendan Lee,F,2022-2023,whl,476671,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack O'Brien (C),Portland Winterhawks,66,12,47,59,0.89,48,23,/player/538376/jack-o-brien,1,Jack O'Brien,C,2022-2023,whl,538376,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zac Funk (LW/RW),totals,64,26,32,58,0.91,65,34,/player/556514/zac-funk,1,Zac Funk,LW/RW,2022-2023,whl,556514,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Chiasson (C/RW),totals,70,20,38,58,0.83,26,-15,/player/477353/jake-chiasson,1,Jake Chiasson,C/RW,2022-2023,whl,477353,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gracyn Sawchyn (C/RW),Seattle Thunderbirds,58,18,40,58,1.00,68,36,/player/535611/gracyn-sawchyn,1,Gracyn Sawchyn,C/RW,2022-2023,whl,535611,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reese Belton (C),Tri-City Americans,66,18,40,58,0.88,48,21,/player/416993/reese-belton,1,Reese Belton,C,2022-2023,whl,416993,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Poole (RW),totals,49,29,28,57,1.16,52,-4,/player/408602/jake-poole,1,Jake Poole,RW,2022-2023,whl,408602,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean Tschigerl (LW),Calgary Hitmen,60,27,30,57,0.95,33,-3,/player/472873/sean-tschigerl,1,Sean Tschigerl,LW,2022-2023,whl,472873,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jace Isley (C/LW),Red Deer Rebels,67,30,26,56,0.84,80,26,/player/413142/jace-isley,1,Jace Isley,C/LW,2022-2023,whl,413142,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Honzek (LW/C),Vancouver Giants,43,23,33,56,1.30,16,17,/player/578968/samuel-honzek,1,Samuel Honzek,LW/C,2022-2023,whl,578968,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Basha (LW/RW),Medicine Hat Tigers,67,20,36,56,0.84,18,27,/player/677806/andrew-basha,1,Andrew Basha,LW/RW,2022-2023,whl,677806,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carson Golder (LW/RW),totals,64,31,24,55,0.86,52,-7,/player/477356/carson-golder,1,Carson Golder,LW/RW,2022-2023,whl,477356,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Berkly Catton (C/LW),Spokane Chiefs,63,23,32,55,0.87,36,-36,/player/597797/berkly-catton,1,Berkly Catton,C/LW,2022-2023,whl,597797,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Sloan (C/RW),Tri-City Americans,58,20,35,55,0.95,35,7,/player/565725/jake-sloan,1,Jake Sloan,C/RW,2022-2023,whl,565725,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryder Ritchie (RW),Prince Albert Raiders,61,20,35,55,0.90,20,-5,/player/617230/ryder-ritchie,1,Ryder Ritchie,RW,2022-2023,whl,617230,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Shepard (LW),Lethbridge Hurricanes,65,20,35,55,0.85,62,1,/player/201805/cole-shepard,1,Cole Shepard,LW,2022-2023,whl,201805,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Gavin (C/LW),Tri-City Americans,62,22,32,54,0.87,4,-3,/player/597549/jordan-gavin,1,Jordan Gavin,C/LW,2022-2023,whl,597549,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keaton Sorensen (C),Prince Albert Raiders,64,25,28,53,0.83,50,5,/player/201927/keaton-sorensen,1,Keaton Sorensen,C,2022-2023,whl,201927,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Kydd (LW),Kelowna Rockets,50,20,33,53,1.06,37,-3,/player/403772/adam-kydd,1,Adam Kydd,LW,2022-2023,whl,403772,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Mechura (C/LW),Tri-City Americans,58,26,26,52,0.90,28,1,/player/579284/adam-mechura,1,Adam Mechura,C/LW,2022-2023,whl,579284,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Raphael Pelletier (F),totals,65,17,35,52,0.80,30,-11,/player/413134/raphael-pelletier,1,Raphael Pelletier,F,2022-2023,whl,413134,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaden Lipinski (C/RW),Vancouver Giants,66,19,32,51,0.77,55,-6,/player/585619/jaden-lipinski,1,Jaden Lipinski,C/RW,2022-2023,whl,585619,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christoffer Sedoff (D),Red Deer Rebels,59,5,46,51,0.86,24,14,/player/454747/christoffer-sedoff,1,Christoffer Sedoff,D,2022-2023,whl,454747,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jett Jones (C),Lethbridge Hurricanes,67,21,29,50,0.75,65,-10,/player/442336/jett-jones,1,Jett Jones,C,2022-2023,whl,442336,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Calder Anderson (C),Brandon Wheat Kings,65,16,34,50,0.77,37,-6,/player/416934/calder-anderson,1,Calder Anderson,C,2022-2023,whl,416934,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mazden Leslie (D),Vancouver Giants,66,12,38,50,0.76,64,-1,/player/565459/mazden-leslie,1,Mazden Leslie,D,2022-2023,whl,565459,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommaso De Luca (C/LW),Spokane Chiefs,65,16,33,49,0.75,50,-5,/player/692623/tommaso-de-luca,1,Tommaso De Luca,C/LW,2022-2023,whl,692623,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teague Patton (C),Victoria Royals,68,16,33,49,0.72,41,-19,/player/539067/teague-patton,1,Teague Patton,C,2022-2023,whl,539067,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyson Laventure (RW),Lethbridge Hurricanes,62,22,26,48,0.77,39,-1,/player/477546/tyson-laventure,1,Tyson Laventure,RW,2022-2023,whl,477546,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Borya Valis (RW/C),Regina Pats,55,20,28,48,0.87,14,-4,/player/571887/borya-valis,1,Borya Valis,RW/C,2022-2023,whl,571887,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyson Zimmer (RW),Lethbridge Hurricanes,64,19,29,48,0.75,32,-1,/player/568964/tyson-zimmer,1,Tyson Zimmer,RW,2022-2023,whl,568964,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeremy Hanzel (D),Seattle Thunderbirds,66,13,35,48,0.73,65,70,/player/538916/jeremy-hanzel,1,Jeremy Hanzel,D,2022-2023,whl,538916,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carson Lambos (D),Wenatchee Wild,61,12,36,48,0.79,63,60,/player/472875/carson-lambos,1,Carson Lambos,D,2022-2023,whl,472875,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Hyland (LW/C),Brandon Wheat Kings,42,26,21,47,1.12,54,11,/player/476591/brett-hyland,2,Brett Hyland,LW/C,2022-2023,whl,476591,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Yakemchuk (D),Calgary Hitmen,67,19,28,47,0.70,31,-8,/player/599451/carter-yakemchuk,2,Carter Yakemchuk,D,2022-2023,whl,599451,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Deagan McMillan (F),Tri-City Americans,65,17,30,47,0.72,54,15,/player/705302/deagan-mcmillan,2,Deagan McMillan,F,2022-2023,whl,705302,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Nguyen (RW),Portland Winterhawks,66,23,23,46,0.70,64,13,/player/560982/marcus-nguyen,2,Marcus Nguyen,RW,2022-2023,whl,560982,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Alarie (LW/C),Moose Jaw Warriors,65,19,27,46,0.71,20,5,/player/483415/eric-alarie,2,Eric Alarie,LW/C,2022-2023,whl,483415,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Skyler Bruce (RW),totals,63,15,31,46,0.73,30,14,/player/483412/skyler-bruce,2,Skyler Bruce,RW,2022-2023,whl,483412,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Owen Pickering (D),Swift Current Broncos,61,9,36,45,0.74,30,-5,/player/580641/owen-pickering,2,Owen Pickering,D,2022-2023,whl,580641,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan Wormald (F),Lethbridge Hurricanes,66,22,22,44,0.67,52,0,/player/647542/logan-wormald,2,Logan Wormald,F,2022-2023,whl,647542,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cade Hayes (C),Spokane Chiefs,66,21,23,44,0.67,76,-9,/player/403427/cade-hayes,2,Cade Hayes,C,2022-2023,whl,403427,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ty Nash (W/C),totals,64,20,24,44,0.69,54,39,/player/511906/ty-nash,2,Ty Nash,W/C,2022-2023,whl,511906,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kalan Lind (LW),Red Deer Rebels,43,16,28,44,1.02,80,14,/player/569175/kalan-lind,2,Kalan Lind,LW,2022-2023,whl,569175,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ty Cheveldayoff (LW/RW),Spokane Chiefs,59,20,23,43,0.73,113,-15,/player/496403/ty-cheveldayoff,2,Ty Cheveldayoff,LW/RW,2022-2023,whl,496403,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blake Swetlikoff (F),totals,64,15,28,43,0.67,16,-16,/player/481992/blake-swetlikoff,2,Blake Swetlikoff,F,2022-2023,whl,481992,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gavin Hodnett (F),Edmonton Oil Kings,61,12,31,43,0.70,18,-45,/player/597722/gavin-hodnett,2,Gavin Hodnett,F,2022-2023,whl,597722,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grayden Siepmann (D),Calgary Hitmen,61,9,34,43,0.70,22,3,/player/556516/grayden-siepmann,2,Grayden Siepmann,D,2022-2023,whl,556516,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyson Greenway (C),Tri-City Americans,68,27,15,42,0.62,94,-19,/player/476027/tyson-greenway,2,Tyson Greenway,C,2022-2023,whl,476027,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cayden Lindstrom (C/LW),Medicine Hat Tigers,61,19,23,42,0.69,36,11,/player/739213/cayden-lindstrom,2,Cayden Lindstrom,C/LW,2022-2023,whl,739213,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hunter Mayo (D),Red Deer Rebels,67,18,24,42,0.63,59,24,/player/565754/hunter-mayo,2,Hunter Mayo,D,2022-2023,whl,565754,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frantisek Formanek (RW/LW),Red Deer Rebels,66,13,29,42,0.64,104,17,/player/615564/frantisek-formanek,2,Frantisek Formanek,RW/LW,2022-2023,whl,615564,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dallon Melin (LW),Medicine Hat Tigers,67,16,25,41,0.61,38,13,/player/414432/dallon-melin,2,Dallon Melin,LW,2022-2023,whl,414432,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Heslop (RW),Everett Silvertips,66,12,29,41,0.62,10,8,/player/597553/jesse-heslop,2,Jesse Heslop,RW,2022-2023,whl,597553,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dru Krebs (D),Medicine Hat Tigers,67,8,33,41,0.61,36,27,/player/496418/dru-krebs,2,Dru Krebs,D,2022-2023,whl,496418,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Caleb Wyrostok (RW),Swift Current Broncos,52,24,16,40,0.77,95,20,/player/475403/caleb-wyrostok,2,Caleb Wyrostok,RW,2022-2023,whl,475403,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler MacKenzie (F),Medicine Hat Tigers,58,18,22,40,0.69,10,12,/player/505859/tyler-mackenzie,2,Tyler MacKenzie,F,2022-2023,whl,505859,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carson Latimer (RW),totals,53,14,26,40,0.75,28,-6,/player/477385/carson-latimer,2,Carson Latimer,RW,2022-2023,whl,477385,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan Bairos (D),Kamloops Blazers,68,8,32,40,0.59,21,40,/player/486494/logan-bairos,2,Logan Bairos,D,2022-2023,whl,486494,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Caden Price (D),Kelowna Rockets,65,5,35,40,0.62,43,-12,/player/607323/caden-price,2,Caden Price,D,2022-2023,whl,607323,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jalen Luypen (C/LW),Tri-City Americans,38,18,21,39,1.03,36,12,/player/476673/jalen-luypen,2,Jalen Luypen,C/LW,2022-2023,whl,476673,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brady Birnie (F),Swift Current Broncos,68,18,21,39,0.57,32,13,/player/647139/brady-birnie,2,Brady Birnie,F,2022-2023,whl,647139,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dawson Pasternak (F),totals,55,15,24,39,0.71,46,-11,/player/483379/dawson-pasternak,2,Dawson Pasternak,F,2022-2023,whl,483379,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaxsen Wiebe (RW/C),totals,45,14,25,39,0.87,106,13,/player/403791/jaxsen-wiebe,2,Jaxsen Wiebe,RW/C,2022-2023,whl,403791,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Raegan Wiles (D),Spokane Chiefs,65,9,30,39,0.60,21,-27,/player/413065/raegan-wiles,2,Raegan Wiles,D,2022-2023,whl,413065,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Charlie Wright (D),Saskatoon Blades,66,8,31,39,0.59,24,33,/player/475351/charlie-wright,2,Charlie Wright,D,2022-2023,whl,475351,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Herman (LW),Prince Albert Raiders,64,18,20,38,0.59,86,-18,/player/201950/evan-herman,2,Evan Herman,LW,2022-2023,whl,201950,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riley Gannon (RW),Victoria Royals,68,18,20,38,0.56,18,-25,/player/566727/riley-gannon,2,Riley Gannon,RW,2022-2023,whl,566727,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brad Lambert (C/RW),Seattle Thunderbirds,26,17,21,38,1.46,12,27,/player/414961/brad-lambert,2,Brad Lambert,C/RW,2022-2023,whl,414961,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondřej Becher (C/W),Prince George Cougars,63,16,22,38,0.60,37,31,/player/593187/ond%C5%99ej-becher,2,Ondřej Becher,C/W,2022-2023,whl,593187,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Thacker (LW),totals,56,9,29,38,0.68,28,-29,/player/413137/alex-thacker,2,Alex Thacker,LW,2022-2023,whl,413137,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aidan Sutter (D),Everett Silvertips,62,6,32,38,0.61,67,4,/player/566659/aidan-sutter,2,Aidan Sutter,D,2022-2023,whl,566659,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kalem Parker (D),Victoria Royals,68,6,32,38,0.56,64,-44,/player/569257/kalem-parker,2,Kalem Parker,D,2022-2023,whl,569257,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ty Halaburda (C),Vancouver Giants,66,21,16,37,0.56,12,-16,/player/641767/ty-halaburda,2,Ty Halaburda,C,2022-2023,whl,641767,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brayden Boehm (C/W),Medicine Hat Tigers,58,18,19,37,0.64,46,0,/player/539639/brayden-boehm,2,Brayden Boehm,C/W,2022-2023,whl,539639,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel McGinley (D),Swift Current Broncos,61,9,28,37,0.61,50,9,/player/475289/samuel-mcginley,2,Samuel McGinley,D,2022-2023,whl,475289,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Molendyk (D),Saskatoon Blades,67,9,28,37,0.55,37,31,/player/603586/tanner-molendyk,2,Tanner Molendyk,D,2022-2023,whl,603586,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc Lajoie (D),Tri-City Americans,65,5,32,37,0.57,82,-1,/player/476026/marc-lajoie,2,Marc Lajoie,D,2022-2023,whl,476026,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Graham Sward (D),totals,60,4,33,37,0.62,46,43,/player/477345/graham-sward,2,Graham Sward,D,2022-2023,whl,477345,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rylen Roersma (C),Brandon Wheat Kings,65,19,17,36,0.55,26,-7,/player/523476/rylen-roersma,2,Rylen Roersma,C,2022-2023,whl,523476,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Gustafson (C/LW),Seattle Thunderbirds,40,16,20,36,0.90,14,31,/player/511853/jordan-gustafson,2,Jordan Gustafson,C/LW,2022-2023,whl,511853,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Wightman (F),Kelowna Rockets,68,15,21,36,0.53,29,-19,/player/477551/dylan-wightman,2,Dylan Wightman,F,2022-2023,whl,477551,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aidan Litke (F),Portland Winterhawks,50,13,23,36,0.72,36,11,/player/483424/aidan-litke,2,Aidan Litke,F,2022-2023,whl,483424,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jhett Larson (F),Red Deer Rebels,68,18,17,35,0.51,41,4,/player/565752/jhett-larson,2,Jhett Larson,F,2022-2023,whl,565752,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vaughn Watterodt (C),Saskatoon Blades,68,18,17,35,0.51,82,4,/player/565986/vaughn-watterodt,2,Vaughn Watterodt,C,2022-2023,whl,565986,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben King (C/RW),Red Deer Rebels,30,17,18,35,1.17,27,2,/player/201803/ben-king,2,Ben King,C/RW,2022-2023,whl,201803,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Chyzowski (F),Portland Winterhawks,54,14,21,35,0.65,37,-1,/player/561331/kyle-chyzowski,2,Kyle Chyzowski,F,2022-2023,whl,561331,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bogdans Hodass (D),Medicine Hat Tigers,56,11,24,35,0.63,69,14,/player/532642/bogdans-hodass,2,Bogdans Hodass,D,2022-2023,whl,532642,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joe Arntsen (D),Lethbridge Hurricanes,68,11,24,35,0.51,90,-3,/player/483623/joe-arntsen,2,Joe Arntsen,D,2022-2023,whl,483623,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emmitt Finnie (C/LW),Kamloops Blazers,64,9,26,35,0.55,12,11,/player/647529/emmitt-finnie,2,Emmitt Finnie,C/LW,2022-2023,whl,647529,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reid Andresen (D),Medicine Hat Tigers,68,7,28,35,0.51,14,12,/player/603574/reid-andresen,2,Reid Andresen,D,2022-2023,whl,603574,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Davies (LW/C),Swift Current Broncos,62,20,14,34,0.55,131,-2,/player/532703/josh-davies,2,Josh Davies,LW/C,2022-2023,whl,532703,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mats Lindgren (D),Red Deer Rebels,63,11,23,34,0.54,23,11,/player/635389/mats-lindgren,2,Mats Lindgren,D,2022-2023,whl,635389,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Craig Armstrong (C/LW),Red Deer Rebels,65,11,23,34,0.52,71,14,/player/475177/craig-armstrong,2,Craig Armstrong,C/LW,2022-2023,whl,475177,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Caden Brown (F),Prince George Cougars,66,18,15,33,0.50,29,11,/player/638609/caden-brown,2,Caden Brown,F,2022-2023,whl,638609,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Rysavy (LW),Moose Jaw Warriors,47,11,22,33,0.70,19,6,/player/522440/martin-rysavy,2,Martin Rysavy,LW,2022-2023,whl,522440,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Kipkie (D),Victoria Royals,67,8,25,33,0.49,57,-26,/player/535603/justin-kipkie,2,Justin Kipkie,D,2022-2023,whl,535603,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Brown (D),totals,63,4,29,33,0.52,51,-4,/player/477360/tanner-brown,2,Tanner Brown,D,2022-2023,whl,477360,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan McCutcheon (D),Lethbridge Hurricanes,68,4,29,33,0.49,8,-6,/player/565737/logan-mccutcheon,2,Logan McCutcheon,D,2022-2023,whl,565737,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shane Smith (F),Medicine Hat Tigers,66,19,13,32,0.48,58,8,/player/642603/shane-smith,2,Shane Smith,F,2022-2023,whl,642603,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Dubinsky (C),totals,40,18,14,32,0.80,50,8,/player/201510/cole-dubinsky,2,Cole Dubinsky,C,2022-2023,whl,201510,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Scott (F),Victoria Royals,68,14,18,32,0.47,16,-28,/player/563301/tanner-scott,2,Tanner Scott,F,2022-2023,whl,563301,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mac Gross (D),Spokane Chiefs,68,10,22,32,0.47,18,-29,/player/403829/mac-gross,2,Mac Gross,D,2022-2023,whl,403829,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viliam Kmec (D),Prince George Cougars,60,7,25,32,0.53,35,24,/player/527420/viliam-kmec,2,Viliam Kmec,D,2022-2023,whl,527420,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Easton Armstrong (RW/LW),totals,66,19,12,31,0.47,81,1,/player/523759/easton-armstrong,2,Easton Armstrong,RW/LW,2022-2023,whl,523759,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Hodson (F),Victoria Royals,61,17,14,31,0.51,22,-15,/player/486478/matthew-hodson,2,Matthew Hodson,F,2022-2023,whl,486478,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niall Crocker (F),Prince Albert Raiders,66,17,14,31,0.47,34,-10,/player/539642/niall-crocker,2,Niall Crocker,F,2022-2023,whl,539642,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nolan Flamand (F),totals,63,13,18,31,0.49,16,-11,/player/532700/nolan-flamand,2,Nolan Flamand,F,2022-2023,whl,532700,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan McCleary (D),Portland Winterhawks,66,13,18,31,0.47,51,-12,/player/483627/ryan-mccleary,2,Ryan McCleary,D,2022-2023,whl,483627,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aiden Oiring (F),totals,57,12,19,31,0.54,26,-8,/player/599430/aiden-oiring,2,Aiden Oiring,F,2022-2023,whl,599430,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Shipley (D),totals,62,9,22,31,0.50,76,1,/player/641137/luke-shipley,2,Luke Shipley,D,2022-2023,whl,641137,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zakhar Polshakov (C),Brandon Wheat Kings,63,9,22,31,0.49,40,-10,/player/532627/zakhar-polshakov,2,Zakhar Polshakov,C,2022-2023,whl,532627,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sawyer Mynio (D),Seattle Thunderbirds,68,5,26,31,0.46,40,50,/player/603585/sawyer-mynio,2,Sawyer Mynio,D,2022-2023,whl,603585,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rilen Kovacevic (RW/C),totals,56,15,15,30,0.54,114,-34,/player/561368/rilen-kovacevic,2,Rilen Kovacevic,RW/C,2022-2023,whl,561368,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Keller (F),Saskatoon Blades,66,13,17,30,0.45,6,12,/player/682915/jordan-keller,2,Jordan Keller,F,2022-2023,whl,682915,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Wright (C),totals,43,10,20,30,0.70,30,-2,/player/566731/jacob-wright,2,Jacob Wright,C,2022-2023,whl,566731,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Wanner (D),Moose Jaw Warriors,44,8,22,30,0.68,45,23,/player/414967/max-wanner,2,Max Wanner,D,2022-2023,whl,414967,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Streek (F),Spokane Chiefs,63,18,11,29,0.46,45,-11,/player/636664/carter-streek,2,Carter Streek,F,2022-2023,whl,636664,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brayden Schuurman (C/RW),Victoria Royals,39,16,13,29,0.74,26,-19,/player/556509/brayden-schuurman,2,Brayden Schuurman,C/RW,2022-2023,whl,556509,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Boyko (C/RW),totals,62,16,13,29,0.47,20,-36,/player/413127/noah-boyko,2,Noah Boyko,C/RW,2022-2023,whl,413127,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Guenther (RW/LW),Seattle Thunderbirds,20,13,16,29,1.45,18,24,/player/476538/dylan-guenther,2,Dylan Guenther,RW/LW,2022-2023,whl,476538,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Clarke Caswell (LW),Swift Current Broncos,63,9,20,29,0.46,22,-16,/player/597712/clarke-caswell,2,Clarke Caswell,LW,2022-2023,whl,597712,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Carmichael (D),Kelowna Rockets,62,6,23,29,0.47,54,-3,/player/538914/elias-carmichael,2,Elias Carmichael,D,2022-2023,whl,538914,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyson Galloway (D),Calgary Hitmen,64,3,26,29,0.45,90,-3,/player/556515/tyson-galloway,2,Tyson Galloway,D,2022-2023,whl,556515,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rhett Melnyk (F),Edmonton Oil Kings,67,12,16,28,0.42,60,-46,/player/506559/rhett-melnyk,2,Rhett Melnyk,F,2022-2023,whl,506559,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Sydor (F),Kamloops Blazers,68,12,16,28,0.41,18,18,/player/650121/dylan-sydor,2,Dylan Sydor,F,2022-2023,whl,650121,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brayden Edwards (C/RW),Lethbridge Hurricanes,68,10,18,28,0.41,36,3,/player/636658/brayden-edwards,2,Brayden Edwards,C/RW,2022-2023,whl,636658,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Muranov (F),Calgary Hitmen,63,6,22,28,0.44,43,1,/player/690696/maxim-muranov,2,Maxim Muranov,F,2022-2023,whl,690696,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan Dowhaniuk (D),totals,64,6,22,28,0.44,54,-8,/player/413102/logan-dowhaniuk,2,Logan Dowhaniuk,D,2022-2023,whl,413102,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Anderson (D),totals,49,5,23,28,0.57,60,-5,/player/477347/dylan-anderson,2,Dylan Anderson,D,2022-2023,whl,477347,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jayden Wiens (F),Saskatoon Blades,42,17,10,27,0.64,29,1,/player/482437/jayden-wiens,2,Jayden Wiens,F,2022-2023,whl,482437,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Friesen (C/W),Wenatchee Wild,68,14,13,27,0.40,37,10,/player/573365/evan-friesen,2,Evan Friesen,C/W,2022-2023,whl,573365,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colton Dach (C/LW),totals,23,12,15,27,1.17,31,11,/player/413126/colton-dach,2,Colton Dach,C/LW,2022-2023,whl,413126,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Adaszynski (C/LW),Calgary Hitmen,64,12,15,27,0.42,27,-1,/player/643356/david-adaszynski,3,David Adaszynski,C/LW,2022-2023,whl,643356,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matteo Danis (F),Calgary Hitmen,65,12,15,27,0.42,34,0,/player/643449/matteo-danis,3,Matteo Danis,F,2022-2023,whl,643449,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cade Zaplitny (F),Everett Silvertips,68,12,15,27,0.40,54,-22,/player/573364/cade-zaplitny,3,Cade Zaplitny,F,2022-2023,whl,573364,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nolan Allan (D),totals,57,11,16,27,0.47,50,22,/player/482413/nolan-allan,3,Nolan Allan,D,2022-2023,whl,482413,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ashton Ferster (F),Kamloops Blazers,65,11,16,27,0.42,51,15,/player/485357/ashton-ferster,3,Ashton Ferster,F,2022-2023,whl,485357,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter MacAdams (F),totals,52,7,20,27,0.52,38,-9,/player/561334/carter-macadams,3,Carter MacAdams,F,2022-2023,whl,561334,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Malyavin (D),Brandon Wheat Kings,59,6,21,27,0.46,30,-15,/player/699360/andrei-malyavin,3,Andrei Malyavin,D,2022-2023,whl,699360,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Shilo (F),totals,66,12,14,26,0.39,32,4,/player/532628/vladislav-shilo,3,Vladislav Shilo,F,2022-2023,whl,532628,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Bocharov (D),Medicine Hat Tigers,62,11,15,26,0.42,56,15,/player/571919/pavel-bocharov,3,Pavel Bocharov,D,2022-2023,whl,571919,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kooper Gizowski (F),Spokane Chiefs,65,11,15,26,0.40,35,-22,/player/599809/kooper-gizowski,3,Kooper Gizowski,F,2022-2023,whl,599809,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Oremba (F),totals,65,10,16,26,0.40,10,-6,/player/580138/sam-oremba,3,Sam Oremba,F,2022-2023,whl,580138,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carlin Dezainde (LW),Prince George Cougars,66,8,18,26,0.39,56,4,/player/575098/carlin-dezainde,3,Carlin Dezainde,LW,2022-2023,whl,575098,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kaden Hammell (D),totals,67,8,18,26,0.39,34,14,/player/535571/kaden-hammell,3,Kaden Hammell,D,2022-2023,whl,535571,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mason Finley (F),Edmonton Oil Kings,68,15,10,25,0.37,14,-53,/player/691888/mason-finley,3,Mason Finley,F,2022-2023,whl,691888,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joshua Zakreski (F),Portland Winterhawks,67,13,12,25,0.37,20,3,/player/647161/joshua-zakreski,3,Joshua Zakreski,F,2022-2023,whl,647161,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Serraglio (D),Tri-City Americans,68,4,21,25,0.37,43,16,/player/477388/alex-serraglio,3,Alex Serraglio,D,2022-2023,whl,477388,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Quinn Mantei (D),Brandon Wheat Kings,67,2,23,25,0.37,32,10,/player/603571/quinn-mantei,3,Quinn Mantei,D,2022-2023,whl,603571,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Braxton Whitehead (F),Regina Pats,67,10,14,24,0.36,36,-8,/player/558800/braxton-whitehead,3,Braxton Whitehead,F,2022-2023,whl,558800,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reggie Newman (RW),Victoria Royals,51,8,16,24,0.47,99,-30,/player/682921/reggie-newman,3,Reggie Newman,RW,2022-2023,whl,682921,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Alscher (D),Portland Winterhawks,60,8,16,24,0.40,67,-3,/player/537884/marek-alscher,3,Marek Alscher,D,2022-2023,whl,537884,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Drew Englot (C),totals,68,7,17,24,0.35,93,6,/player/403763/drew-englot,3,Drew Englot,C,2022-2023,whl,403763,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tristan Zandee (C/LW),Lethbridge Hurricanes,51,6,18,24,0.47,32,11,/player/475381/tristan-zandee,3,Tristan Zandee,C/LW,2022-2023,whl,475381,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ty Gibson (D),Everett Silvertips,66,6,18,24,0.36,19,-14,/player/538915/ty-gibson,3,Ty Gibson,D,2022-2023,whl,538915,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Pacheco (F),Kelowna Rockets,62,10,13,23,0.37,30,-19,/player/588611/marcus-pacheco,3,Marcus Pacheco,F,2022-2023,whl,588611,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Lies (RW),Saskatoon Blades,56,9,14,23,0.41,82,6,/player/518206/justin-lies,3,Justin Lies,RW,2022-2023,whl,518206,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Mrsic (C/W),Medicine Hat Tigers,58,9,14,23,0.40,20,3,/player/597551/tomas-mrsic,3,Tomas Mrsic,C/W,2022-2023,whl,597551,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Popowich (F),Seattle Thunderbirds,68,9,14,23,0.34,43,14,/player/481762/sam-popowich,3,Sam Popowich,F,2022-2023,whl,481762,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hayden Pakkala (F),Prince Albert Raiders,64,8,15,23,0.36,77,-5,/player/505626/hayden-pakkala,3,Hayden Pakkala,F,2022-2023,whl,505626,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Owen MacNeil (F),Medicine Hat Tigers,66,7,16,23,0.35,38,4,/player/475291/owen-macneil,3,Owen MacNeil,F,2022-2023,whl,475291,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyren Gronick (F),Vancouver Giants,63,4,19,23,0.37,14,-25,/player/569291/kyren-gronick,3,Kyren Gronick,F,2022-2023,whl,569291,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Sotheran (D),Portland Winterhawks,68,4,19,23,0.34,54,14,/player/599349/carter-sotheran,3,Carter Sotheran,D,2022-2023,whl,599349,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jace Weir (D),Red Deer Rebels,68,2,21,23,0.34,26,19,/player/691857/jace-weir,3,Jace Weir,D,2022-2023,whl,691857,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Anderson (F),totals,56,14,8,22,0.39,65,-9,/player/571081/carter-anderson,3,Carter Anderson,F,2022-2023,whl,571081,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Semeniuk (F),Vancouver Giants,54,12,10,22,0.41,15,-11,/player/644378/ethan-semeniuk,3,Ethan Semeniuk,F,2022-2023,whl,644378,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Turner McMillen (F),Kelowna Rockets,65,9,13,22,0.34,88,-16,/player/403440/turner-mcmillen,3,Turner McMillen,F,2022-2023,whl,403440,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hunter St. Martin (LW/RW),Medicine Hat Tigers,61,8,14,22,0.36,55,10,/player/641459/hunter-st-martin,3,Hunter St. Martin,LW/RW,2022-2023,whl,641459,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marshall Finnie (F),Edmonton Oil Kings,64,8,14,22,0.34,113,-47,/player/505715/marshall-finnie,3,Marshall Finnie,F,2022-2023,whl,505715,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blake Eastman (F),Prince George Cougars,66,8,14,22,0.33,93,1,/player/496434/blake-eastman,3,Blake Eastman,F,2022-2023,whl,496434,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shea Van Olm (F),totals,67,8,14,22,0.33,82,-11,/player/575018/shea-van-olm,3,Shea Van Olm,F,2022-2023,whl,575018,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Astashevich (F),Lethbridge Hurricanes,65,7,15,22,0.34,42,-7,/player/619375/anton-astashevich,3,Anton Astashevich,F,2022-2023,whl,619375,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keaton Dowhaniuk (D),Prince George Cougars,67,3,19,22,0.33,74,0,/player/559019/keaton-dowhaniuk,3,Keaton Dowhaniuk,D,2022-2023,whl,559019,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Parker Berge (D),Regina Pats,68,3,19,22,0.32,40,0,/player/476531/parker-berge,3,Parker Berge,D,2022-2023,whl,476531,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hayden Smith (F),Lethbridge Hurricanes,68,14,7,21,0.31,21,3,/player/565001/hayden-smith,3,Hayden Smith,F,2022-2023,whl,565001,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Graham (C/LW),Kelowna Rockets,54,13,8,21,0.39,65,-15,/player/650079/max-graham,3,Max Graham,C/LW,2022-2023,whl,650079,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teydon Trembecky (F),totals,65,12,9,21,0.32,59,-15,/player/599453/teydon-trembecky,3,Teydon Trembecky,F,2022-2023,whl,599453,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carson Wetsch (RW),Calgary Hitmen,45,10,11,21,0.47,22,-11,/player/597550/carson-wetsch,3,Carson Wetsch,RW,2022-2023,whl,597550,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Braeden Lewis (F),Swift Current Broncos,68,6,15,21,0.31,28,1,/player/483503/braeden-lewis,3,Braeden Lewis,F,2022-2023,whl,483503,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luca Hauf (RW/C),Edmonton Oil Kings,45,5,16,21,0.47,22,-22,/player/561615/luca-hauf,3,Luca Hauf,RW/C,2022-2023,whl,561615,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Prokop (D),Seattle Thunderbirds,43,4,17,21,0.49,20,38,/player/201923/luke-prokop,3,Luke Prokop,D,2022-2023,whl,201923,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonas Woo (D),Wenatchee Wild,63,2,19,21,0.33,20,28,/player/597734/jonas-woo,3,Jonas Woo,D,2022-2023,whl,597734,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Baco (RW),Moose Jaw Warriors,54,9,11,20,0.37,50,0,/player/553948/robert-baco,3,Robert Baco,RW,2022-2023,whl,553948,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miguel Marques (RW),Lethbridge Hurricanes,59,8,12,20,0.34,35,1,/player/692787/miguel-marques,3,Miguel Marques,RW,2022-2023,whl,692787,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Pauls (D),Lethbridge Hurricanes,66,7,13,20,0.30,65,11,/player/569256/chase-pauls,3,Chase Pauls,D,2022-2023,whl,569256,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nolan Bentham (D),Lethbridge Hurricanes,54,6,14,20,0.37,50,-5,/player/556510/nolan-bentham,3,Nolan Bentham,D,2022-2023,whl,556510,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jackson Desouza (D),Kelowna Rockets,66,6,14,20,0.30,74,8,/player/481247/jackson-desouza,3,Jackson Desouza,D,2022-2023,whl,481247,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Chadwick (D),Lethbridge Hurricanes,67,5,15,20,0.30,16,9,/player/603568/noah-chadwick,3,Noah Chadwick,D,2022-2023,whl,603568,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dexter Whittle (D),Everett Silvertips,49,0,20,20,0.41,49,0,/player/571038/dexter-whittle,3,Dexter Whittle,D,2022-2023,whl,571038,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Almquist (C/RW),Victoria Royals,40,12,7,19,0.48,14,-5,/player/474745/marcus-almquist,3,Marcus Almquist,C/RW,2022-2023,whl,474745,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riley Ginnell (LW/C),totals,52,10,9,19,0.37,70,-1,/player/475281/riley-ginnell,3,Riley Ginnell,LW/C,2022-2023,whl,475281,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Miller (F),Edmonton Oil Kings,61,10,9,19,0.31,12,-45,/player/643460/cole-miller,3,Cole Miller,F,2022-2023,whl,643460,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ollie Josephson (C),Red Deer Rebels,63,5,14,19,0.30,28,-8,/player/705877/ollie-josephson,3,Ollie Josephson,C,2022-2023,whl,705877,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rhett Parsons (D),Medicine Hat Tigers,68,5,14,19,0.28,83,18,/player/505836/rhett-parsons,3,Rhett Parsons,D,2022-2023,whl,505836,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryder Thompson (D),Portland Winterhawks,57,3,16,19,0.33,12,3,/player/568966/ryder-thompson,3,Ryder Thompson,D,2022-2023,whl,568966,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam McNutt (D),totals,68,3,16,19,0.28,92,10,/player/486486/adam-mcnutt,3,Adam McNutt,D,2022-2023,whl,486486,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blake Gustafson (D),totals,61,2,17,19,0.31,32,25,/player/475614/blake-gustafson,3,Blake Gustafson,D,2022-2023,whl,475614,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tye Spencer (F),Regina Pats,39,11,7,18,0.46,10,-2,/player/569188/tye-spencer,3,Tye Spencer,F,2022-2023,whl,569188,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Beau Courtney (F),Everett Silvertips,47,8,10,18,0.38,16,-14,/player/571886/beau-courtney,3,Beau Courtney,F,2022-2023,whl,571886,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Dereniwsky (RW),Victoria Royals,51,8,10,18,0.35,22,-27,/player/498554/carter-dereniwsky,3,Carter Dereniwsky,RW,2022-2023,whl,498554,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Riche (C),Moose Jaw Warriors,63,8,10,18,0.29,20,-15,/player/603569/ben-riche,3,Ben Riche,C,2022-2023,whl,603569,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Harrison Lodewyk (F),Prince Albert Raiders,66,7,11,18,0.27,35,-13,/player/643387/harrison-lodewyk,3,Harrison Lodewyk,F,2022-2023,whl,643387,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tij Iginla (LW),Seattle Thunderbirds,48,6,12,18,0.38,19,6,/player/679717/tij-iginla,3,Tij Iginla,LW,2022-2023,whl,679717,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dwayne Jean (F),totals,61,6,12,18,0.30,38,-1,/player/559020/dwayne-jean,3,Dwayne Jean,F,2022-2023,whl,559020,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gavin McKenna (LW),Medicine Hat Tigers,16,4,14,18,1.13,0,7,/player/576982/gavin-mckenna,3,Gavin McKenna,LW,2022-2023,whl,576982,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Saige Weinstein (D),Spokane Chiefs,57,4,14,18,0.32,96,-9,/player/612889/saige-weinstein,3,Saige Weinstein,D,2022-2023,whl,612889,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kayden Sadhra-Kang (D),totals,63,1,17,18,0.29,50,13,/player/560054/kayden-sadhra-kang,3,Kayden Sadhra-Kang,D,2022-2023,whl,560054,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+London Hoilett (F),Calgary Hitmen,61,12,5,17,0.28,38,-10,/player/599340/london-hoilett,3,London Hoilett,F,2022-2023,whl,599340,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Hoekstra (F),Moose Jaw Warriors,67,10,7,17,0.25,30,-14,/player/475837/josh-hoekstra,3,Josh Hoekstra,F,2022-2023,whl,475837,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Pillar (RW/C),Saskatoon Blades,28,7,10,17,0.61,31,12,/player/403357/josh-pillar,3,Josh Pillar,RW/C,2022-2023,whl,403357,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryce Pickford (D),Seattle Thunderbirds,54,5,12,17,0.31,50,25,/player/733570/bryce-pickford,3,Bryce Pickford,D,2022-2023,whl,733570,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Whynott (F),Calgary Hitmen,66,5,12,17,0.26,34,-6,/player/636665/brandon-whynott,3,Brandon Whynott,F,2022-2023,whl,636665,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vojtech Port (D),totals,48,4,13,17,0.35,16,-21,/player/657762/vojtech-port,3,Vojtech Port,D,2022-2023,whl,657762,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Layton Feist (D),Regina Pats,68,4,13,17,0.25,43,-29,/player/581035/layton-feist,3,Layton Feist,D,2022-2023,whl,581035,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Johnston (D),Prince Albert Raiders,64,3,14,17,0.27,32,6,/player/569271/eric-johnston,3,Eric Johnston,D,2022-2023,whl,569271,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karter Prosofsky (D),Wenatchee Wild,34,1,16,17,0.50,50,26,/player/486537/karter-prosofsky,3,Karter Prosofsky,D,2022-2023,whl,486537,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Hansen (F),Saskatoon Blades,67,8,8,16,0.24,34,11,/player/599336/lukas-hansen,3,Lukas Hansen,F,2022-2023,whl,599336,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Gudelj (F),Spokane Chiefs,68,8,8,16,0.24,46,-31,/player/647854/jake-gudelj,3,Jake Gudelj,F,2022-2023,whl,647854,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Wilson (F),totals,58,7,9,16,0.28,37,-21,/player/603576/anthony-wilson,3,Anthony Wilson,F,2022-2023,whl,603576,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Mistelbacher (RW),Swift Current Broncos,56,6,10,16,0.29,8,-10,/player/648258/luke-mistelbacher,3,Luke Mistelbacher,RW,2022-2023,whl,648258,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roan Woodward (C),Everett Silvertips,65,6,10,16,0.25,24,-22,/player/647076/roan-woodward,3,Roan Woodward,C,2022-2023,whl,647076,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zack Stringer (LW),Regina Pats,31,5,11,16,0.52,12,-6,/player/394937/zack-stringer,3,Zack Stringer,LW,2022-2023,whl,394937,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomis Marinkovic (F),Calgary Hitmen,56,5,11,16,0.29,39,-7,/player/715278/tomis-marinkovic,3,Tomis Marinkovic,F,2022-2023,whl,715278,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Hoffrogge (D),totals,51,2,14,16,0.31,32,-39,/player/482006/jacob-hoffrogge,3,Jacob Hoffrogge,D,2022-2023,whl,482006,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brayden Crampton (D),Spokane Chiefs,56,2,14,16,0.29,61,-19,/player/715347/brayden-crampton,3,Brayden Crampton,D,2022-2023,whl,715347,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carson Birnie (C),Red Deer Rebels,56,8,7,15,0.27,42,-6,/player/603572/carson-birnie,3,Carson Birnie,C,2022-2023,whl,603572,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Diego Buttazzoni (C/W),Portland Winterhawks,56,6,9,15,0.27,26,-2,/player/708439/diego-buttazzoni,3,Diego Buttazzoni,C/W,2022-2023,whl,708439,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chaz Lucius (C),Portland Winterhawks,6,5,10,15,2.50,0,8,/player/512106/chaz-lucius,3,Chaz Lucius,C,2022-2023,whl,512106,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Talon Brigley (RW/C),Red Deer Rebels,68,5,10,15,0.22,10,-6,/player/643386/talon-brigley,3,Talon Brigley,RW/C,2022-2023,whl,643386,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brenden Pentecost (D),Vancouver Giants,66,4,11,15,0.23,25,-15,/player/617503/brenden-pentecost,3,Brenden Pentecost,D,2022-2023,whl,617503,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carson Haynes (D),Vancouver Giants,50,3,12,15,0.30,47,5,/player/475322/carson-haynes,3,Carson Haynes,D,2022-2023,whl,475322,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logen Hammett (D),Brandon Wheat Kings,68,2,13,15,0.22,58,-18,/player/481984/logen-hammett,3,Logen Hammett,D,2022-2023,whl,481984,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Brenton (D),Moose Jaw Warriors,68,2,13,15,0.22,58,-16,/player/483394/lucas-brenton,4,Lucas Brenton,D,2022-2023,whl,483394,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Bateman (D),Regina Pats,63,1,14,15,0.24,58,13,/player/529544/luke-bateman,4,Luke Bateman,D,2022-2023,whl,529544,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trey Patterson (D),Calgary Hitmen,68,1,14,15,0.22,47,7,/player/506336/trey-patterson,4,Trey Patterson,D,2022-2023,whl,506336,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Harper Lolacher (F),Moose Jaw Warriors,59,11,3,14,0.24,4,-16,/player/647111/harper-lolacher,4,Harper Lolacher,F,2022-2023,whl,647111,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Schelter (F),Portland Winterhawks,52,8,6,14,0.27,41,-2,/player/571898/luke-schelter,4,Luke Schelter,F,2022-2023,whl,571898,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabe Ludwig (LW/C),totals,52,5,9,14,0.27,14,-17,/player/558794/gabe-ludwig,4,Gabe Ludwig,LW/C,2022-2023,whl,558794,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nate Misskey (D),Victoria Royals,65,5,9,14,0.22,66,-19,/player/647080/nate-misskey,4,Nate Misskey,D,2022-2023,whl,647080,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Parr (F),Saskatoon Blades,27,4,10,14,0.52,19,10,/player/599356/tyler-parr,4,Tyler Parr,F,2022-2023,whl,599356,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roger McQueen (C/RW),Brandon Wheat Kings,55,4,10,14,0.25,26,-16,/player/597798/roger-mcqueen,4,Roger McQueen,C/RW,2022-2023,whl,597798,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mason Ward (D),totals,59,4,10,14,0.24,118,2,/player/422105/mason-ward,4,Mason Ward,D,2022-2023,whl,422105,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kurtis Smythe (D),totals,63,2,12,14,0.22,53,13,/player/407655/kurtis-smythe,4,Kurtis Smythe,D,2022-2023,whl,407655,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aapo Sarell (D),Kamloops Blazers,68,2,12,14,0.21,17,17,/player/602491/aapo-sarell,4,Aapo Sarell,D,2022-2023,whl,602491,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Pilling (C),totals,35,10,3,13,0.37,24,-16,/player/643373/nathan-pilling,4,Nathan Pilling,C,2022-2023,whl,643373,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Loïck Daigle (C),Edmonton Oil Kings,26,9,4,13,0.50,16,-23,/player/411466/loick-daigle,4,Loïck Daigle,C,2022-2023,whl,411466,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Dale (F),totals,49,6,7,13,0.27,24,-2,/player/643472/connor-dale,4,Connor Dale,F,2022-2023,whl,643472,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Moore (F),Calgary Hitmen,55,6,7,13,0.24,39,-6,/player/807440/ethan-moore,4,Ethan Moore,F,2022-2023,whl,807440,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elouann Lemonnier (F),Tri-City Americans,57,5,8,13,0.23,27,-4,/player/586600/elouann-lemonnier,4,Elouann Lemonnier,F,2022-2023,whl,586600,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brayden Dube (RW/LW),totals,57,5,8,13,0.23,28,-9,/player/647096/brayden-dube,4,Brayden Dube,RW/LW,2022-2023,whl,647096,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keagan Slaney (D),Calgary Hitmen,60,5,8,13,0.22,94,-14,/player/475175/keagan-slaney,4,Keagan Slaney,D,2022-2023,whl,475175,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Fan (F),Tri-City Americans,67,5,8,13,0.19,45,-7,/player/558787/andrew-fan,4,Andrew Fan,F,2022-2023,whl,558787,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Jamieson (D),Everett Silvertips,65,3,10,13,0.20,50,-13,/player/670790/eric-jamieson,4,Eric Jamieson,D,2022-2023,whl,670790,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Peters (D),totals,71,3,10,13,0.18,32,-14,/player/485348/ethan-peters,4,Ethan Peters,D,2022-2023,whl,485348,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bauer Dumanski (D),Prince George Cougars,68,2,11,13,0.19,32,14,/player/603578/bauer-dumanski,4,Bauer Dumanski,D,2022-2023,whl,603578,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cayden Glover (LW),Prince George Cougars,51,7,5,12,0.24,15,9,/player/571075/cayden-glover,4,Cayden Glover,LW,2022-2023,whl,571075,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grady Lane (F),Spokane Chiefs,66,6,6,12,0.18,113,-26,/player/483502/grady-lane,4,Grady Lane,F,2022-2023,whl,483502,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grayson Burzynski (D),Swift Current Broncos,59,5,7,12,0.20,30,11,/player/648210/grayson-burzynski,4,Grayson Burzynski,D,2022-2023,whl,648210,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tate Schofer (F),Moose Jaw Warriors,60,5,7,12,0.20,46,-1,/player/569275/tate-schofer,4,Tate Schofer,F,2022-2023,whl,569275,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matteo Fabrizi (D),Red Deer Rebels,67,5,7,12,0.18,66,2,/player/643473/matteo-fabrizi,4,Matteo Fabrizi,D,2022-2023,whl,643473,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Cicek (F),Spokane Chiefs,41,4,8,12,0.29,9,-6,/player/572100/michael-cicek,4,Michael Cicek,F,2022-2023,whl,572100,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trae Johnson (LW),totals,67,4,8,12,0.18,48,-25,/player/607353/trae-johnson,4,Trae Johnson,LW,2022-2023,whl,607353,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fischer O'Brien (F),Prince George Cougars,54,3,9,12,0.22,11,-3,/player/533243/fischer-o-brien,4,Fischer O'Brien,F,2022-2023,whl,533243,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Michael (D),Kamloops Blazers,60,3,9,12,0.20,14,14,/player/647535/ryan-michael,4,Ryan Michael,D,2022-2023,whl,647535,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blake Heward (D),Calgary Hitmen,41,2,10,12,0.29,12,1,/player/201836/blake-heward,4,Blake Heward,D,2022-2023,whl,201836,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ty Fraser (F),Wenatchee Wild,52,2,10,12,0.23,14,2,/player/643309/ty-fraser,4,Ty Fraser,F,2022-2023,whl,643309,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan MacKenzie (D),Edmonton Oil Kings,50,1,11,12,0.24,11,-34,/player/618968/ethan-mackenzie,4,Ethan MacKenzie,D,2022-2023,whl,618968,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mekai Sanders (F),Seattle Thunderbirds,56,5,6,11,0.20,31,8,/player/560459/mekai-sanders,4,Mekai Sanders,F,2022-2023,whl,560459,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arjun Bawa (F),totals,61,5,6,11,0.18,60,-2,/player/637759/arjun-bawa,4,Arjun Bawa,F,2022-2023,whl,637759,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryker Singer (F),totals,62,5,6,11,0.18,61,-19,/player/643585/ryker-singer,4,Ryker Singer,F,2022-2023,whl,643585,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Demek (C/W),Kamloops Blazers,15,4,7,11,0.73,14,2,/player/556420/jakub-demek,4,Jakub Demek,C/W,2022-2023,whl,556420,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Sapousek (C/LW),Victoria Royals,21,3,8,11,0.52,8,0,/player/579263/robin-sapousek,4,Robin Sapousek,C/LW,2022-2023,whl,579263,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Charlie Elick (D),Brandon Wheat Kings,56,3,8,11,0.20,38,-8,/player/597844/charlie-elick,4,Charlie Elick,D,2022-2023,whl,597844,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colton Roberts (D),Vancouver Giants,62,3,8,11,0.18,19,-20,/player/671535/colton-roberts,4,Colton Roberts,D,2022-2023,whl,671535,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominik Rymon (LW/C),Everett Silvertips,18,2,9,11,0.61,0,-1,/player/559503/dominik-rymon,4,Dominik Rymon,LW/C,2022-2023,whl,559503,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oren Shtrom (F),totals,24,2,9,11,0.46,2,5,/player/636193/oren-shtrom,4,Oren Shtrom,F,2022-2023,whl,636193,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Gallant (D),Moose Jaw Warriors,53,2,9,11,0.21,22,5,/player/638611/matthew-gallant,4,Matthew Gallant,D,2022-2023,whl,638611,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cosmo Wilson (D),Moose Jaw Warriors,56,2,9,11,0.20,22,-22,/player/698203/cosmo-wilson,4,Cosmo Wilson,D,2022-2023,whl,698203,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William McIsaac (D),Spokane Chiefs,66,2,9,11,0.17,38,-15,/player/597558/william-mcisaac,4,William McIsaac,D,2022-2023,whl,597558,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Saunderson (D),Saskatoon Blades,63,1,10,11,0.17,16,6,/player/571045/ben-saunderson,4,Ben Saunderson,D,2022-2023,whl,571045,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Groening (LW),Brandon Wheat Kings,57,7,3,10,0.18,28,-3,/player/648255/evan-groening,4,Evan Groening,LW,2022-2023,whl,648255,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vincent Lamanna (C),Everett Silvertips,37,4,6,10,0.27,8,-11,/player/507381/vincent-lamanna,4,Vincent Lamanna,C,2022-2023,whl,507381,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Drew Freer (F),Tri-City Americans,52,4,6,10,0.19,34,-7,/player/643374/drew-freer,4,Drew Freer,F,2022-2023,whl,643374,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zane Rowan (F),Regina Pats,55,4,6,10,0.18,30,-16,/player/659812/zane-rowan,4,Zane Rowan,F,2022-2023,whl,659812,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rowan Calvert (F),Saskatoon Blades,57,4,6,10,0.18,15,1,/player/607343/rowan-calvert,4,Rowan Calvert,F,2022-2023,whl,607343,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tristen Doyle (D),Lethbridge Hurricanes,58,4,6,10,0.17,16,2,/player/687833/tristen-doyle,4,Tristen Doyle,D,2022-2023,whl,687833,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Coster Dunn (C),Seattle Thunderbirds,58,4,6,10,0.17,25,10,/player/691224/coster-dunn,4,Coster Dunn,C,2022-2023,whl,691224,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaren Brinson (D),totals,68,3,7,10,0.15,47,-18,/player/560989/jaren-brinson,4,Jaren Brinson,D,2022-2023,whl,560989,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Owen Boucher (D),totals,62,2,8,10,0.16,57,-20,/player/521669/owen-boucher,4,Owen Boucher,D,2022-2023,whl,521669,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Babcock (D),Kelowna Rockets,59,1,9,10,0.17,79,-15,/player/539638/john-babcock,4,John Babcock,D,2022-2023,whl,539638,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Peardon (F),Prince Albert Raiders,51,5,4,9,0.18,29,-5,/player/715763/cole-peardon,4,Cole Peardon,F,2022-2023,whl,715763,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julian Cull (F),Vancouver Giants,67,5,4,9,0.13,22,-12,/player/641762/julian-cull,4,Julian Cull,F,2022-2023,whl,641762,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colton Langkow (F),Vancouver Giants,45,4,5,9,0.20,79,-20,/player/571941/colton-langkow,4,Colton Langkow,F,2022-2023,whl,571941,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steel Quiring (F),totals,55,4,5,9,0.16,25,-23,/player/561342/steel-quiring,4,Steel Quiring,F,2022-2023,whl,561342,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Terrell Goldsmith (D),Prince Albert Raiders,58,3,6,9,0.16,102,-6,/player/638604/terrell-goldsmith,4,Terrell Goldsmith,D,2022-2023,whl,638604,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Friedt-Mohr (D),Tri-City Americans,67,3,6,9,0.13,42,-1,/player/485359/chase-friedt-mohr,4,Chase Friedt-Mohr,D,2022-2023,whl,485359,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hyde Davidson (D),Seattle Thunderbirds,53,2,7,9,0.17,9,11,/player/597842/hyde-davidson,4,Hyde Davidson,D,2022-2023,whl,597842,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justice Christensen (D),Prince Albert Raiders,64,2,7,9,0.14,66,-28,/player/643384/justice-christensen,4,Justice Christensen,D,2022-2023,whl,643384,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Neutens (F),Kelowna Rockets,62,1,8,9,0.15,41,-24,/player/685882/ethan-neutens,4,Ethan Neutens,F,2022-2023,whl,685882,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sammy May (D),Vancouver Giants,63,1,8,9,0.14,18,-20,/player/477387/sammy-may,4,Sammy May,D,2022-2023,whl,477387,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Van Mulligen (D),Medicine Hat Tigers,68,1,8,9,0.13,26,16,/player/642601/josh-van-mulligen,4,Josh Van Mulligen,D,2022-2023,whl,642601,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Easton Kovacs (D),totals,55,0,9,9,0.16,37,-18,/player/559029/easton-kovacs,4,Easton Kovacs,D,2022-2023,whl,559029,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Medernach (F),Wenatchee Wild,46,4,4,8,0.17,28,-1,/player/476640/josh-medernach,4,Josh Medernach,F,2022-2023,whl,476640,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grady Lenton (F),Kelowna Rockets,59,4,4,8,0.14,8,-17,/player/735103/grady-lenton,4,Grady Lenton,F,2022-2023,whl,735103,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Harrison Brunicke (D),Kamloops Blazers,59,4,4,8,0.14,26,3,/player/727518/harrison-brunicke,4,Harrison Brunicke,D,2022-2023,whl,727518,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Zemlak (D),Victoria Royals,56,3,5,8,0.14,62,-18,/player/506860/austin-zemlak,4,Austin Zemlak,D,2022-2023,whl,506860,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicholas Johnson (F),Portland Winterhawks,63,3,5,8,0.13,35,-5,/player/599424/nicholas-johnson,4,Nicholas Johnson,F,2022-2023,whl,599424,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Kowalyk (D),Edmonton Oil Kings,63,3,5,8,0.13,95,-41,/player/643474/carter-kowalyk,4,Carter Kowalyk,D,2022-2023,whl,643474,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Brandwood (D),Kamloops Blazers,67,3,5,8,0.12,62,18,/player/521759/ethan-brandwood,4,Ethan Brandwood,D,2022-2023,whl,521759,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Damian Palmieri (D),Vancouver Giants,67,3,5,8,0.12,132,-26,/player/539636/damian-palmieri,4,Damian Palmieri,D,2022-2023,whl,539636,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matteo Michels (W/C),Regina Pats,52,2,6,8,0.15,10,-11,/player/682734/matteo-michels,4,Matteo Michels,W/C,2022-2023,whl,682734,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dustin Renas (F),Lethbridge Hurricanes,53,2,6,8,0.15,45,-1,/player/603573/dustin-renas,4,Dustin Renas,F,2022-2023,whl,603573,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Dorey (D),Kelowna Rockets,33,1,7,8,0.24,53,-8,/player/561339/noah-dorey,4,Noah Dorey,D,2022-2023,whl,561339,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ephram McNutt (D),Prince George Cougars,55,1,7,8,0.15,10,12,/player/599304/ephram-mcnutt,4,Ephram McNutt,D,2022-2023,whl,599304,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Rybinski (D),Victoria Royals,57,1,7,8,0.14,72,-17,/player/560058/luke-rybinski,4,Luke Rybinski,D,2022-2023,whl,560058,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Seth Tansem (D),Prince Albert Raiders,44,0,8,8,0.18,7,-3,/player/618961/seth-tansem,4,Seth Tansem,D,2022-2023,whl,618961,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Edwards (F),Victoria Royals,49,4,3,7,0.14,95,-11,/player/647544/alex-edwards,4,Alex Edwards,F,2022-2023,whl,647544,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Mittelsteadt (D),totals,53,4,3,7,0.13,38,-11,/player/758760/ethan-mittelsteadt,4,Ethan Mittelsteadt,D,2022-2023,whl,758760,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Bonni (D/F),Spokane Chiefs,58,4,3,7,0.12,33,-16,/player/573362/ben-bonni,4,Ben Bonni,D/F,2022-2023,whl,573362,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Caleb Hadland (RW),Brandon Wheat Kings,38,3,4,7,0.18,6,-7,/player/685904/caleb-hadland,4,Caleb Hadland,RW,2022-2023,whl,685904,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Jordan (D),Moose Jaw Warriors,17,2,5,7,0.41,15,3,/player/201953/cole-jordan,4,Cole Jordan,D,2022-2023,whl,201953,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trae Wilke (F),Lethbridge Hurricanes,35,2,5,7,0.20,16,-1,/player/597802/trae-wilke,4,Trae Wilke,F,2022-2023,whl,597802,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lynden Lakovic (LW/RW),Moose Jaw Warriors,37,2,5,7,0.19,8,-3,/player/597556/lynden-lakovic,4,Lynden Lakovic,LW/RW,2022-2023,whl,597556,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Tsakumis (D),totals,40,2,5,7,0.18,23,-1,/player/647521/niko-tsakumis,4,Niko Tsakumis,D,2022-2023,whl,647521,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Ročák (D),Kelowna Rockets,24,1,6,7,0.29,2,-12,/player/595303/marek-rocak,4,Marek Ročák,D,2022-2023,whl,595303,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ross Stanley (D),totals,39,1,6,7,0.18,13,5,/player/562451/ross-stanley,4,Ross Stanley,D,2022-2023,whl,562451,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reid Larson (D),Edmonton Oil Kings,43,1,6,7,0.16,15,-19,/player/689239/reid-larson,4,Reid Larson,D,2022-2023,whl,689239,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Spizawka (D),Victoria Royals,54,1,6,7,0.13,12,-20,/player/529812/ryan-spizawka,4,Ryan Spizawka,D,2022-2023,whl,529812,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Spencer Shugrue (D),Saskatoon Blades,55,1,6,7,0.13,37,2,/player/512192/spencer-shugrue,4,Spencer Shugrue,D,2022-2023,whl,512192,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wyatt Wilson (D),totals,24,0,7,7,0.29,16,4,/player/483632/wyatt-wilson,4,Wyatt Wilson,D,2022-2023,whl,483632,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Misha Volotovskii (F),Saskatoon Blades,46,4,2,6,0.13,10,2,/player/643715/misha-volotovskii,4,Misha Volotovskii,F,2022-2023,whl,643715,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Thorpe (RW),Vancouver Giants,48,4,2,6,0.13,48,-7,/player/735110/tyler-thorpe,4,Tyler Thorpe,RW,2022-2023,whl,735110,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Thornton (LW),Brandon Wheat Kings,15,3,3,6,0.40,2,2,/player/556513/ben-thornton,5,Ben Thornton,LW,2022-2023,whl,556513,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Billal Noori (F),Calgary Hitmen,21,3,3,6,0.29,15,-3,/player/521658/billal-noori,5,Billal Noori,F,2022-2023,whl,521658,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dawson Seitz (F),Edmonton Oil Kings,45,3,3,6,0.13,49,-35,/player/642602/dawson-seitz,5,Dawson Seitz,F,2022-2023,whl,642602,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brayden Barnett (F),Regina Pats,52,3,3,6,0.12,34,-14,/player/565745/brayden-barnett,5,Brayden Barnett,F,2022-2023,whl,565745,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Mori (D),Portland Winterhawks,58,1,5,6,0.10,25,-3,/player/529804/josh-mori,5,Josh Mori,D,2022-2023,whl,529804,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jason Spizawka (D),Victoria Royals,65,1,5,6,0.09,24,-35,/player/529808/jason-spizawka,5,Jason Spizawka,D,2022-2023,whl,529808,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ty Hurley (F),totals,51,0,6,6,0.12,33,-3,/player/563300/ty-hurley,5,Ty Hurley,F,2022-2023,whl,563300,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan Peskett (F),Kelowna Rockets,40,3,2,5,0.13,28,-9,/player/735778/logan-peskett,5,Logan Peskett,F,2022-2023,whl,735778,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Robson (F),Edmonton Oil Kings,60,3,2,5,0.08,20,-27,/player/580634/luke-robson,5,Luke Robson,F,2022-2023,whl,580634,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gannon Laroque (D),Victoria Royals,4,2,3,5,1.25,0,4,/player/476541/gannon-laroque,5,Gannon Laroque,D,2022-2023,whl,476541,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ian Ferguson (D),Tri-City Americans,16,2,3,5,0.31,18,-1,/player/481408/ian-ferguson,5,Ian Ferguson,D,2022-2023,whl,481408,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaxsin Vaughan (RW/C),Regina Pats,51,2,3,5,0.10,49,-11,/player/617231/jaxsin-vaughan,5,Jaxsin Vaughan,RW/C,2022-2023,whl,617231,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dax Williams (D),Calgary Hitmen,33,1,4,5,0.15,10,-1,/player/711643/dax-williams,5,Dax Williams,D,2022-2023,whl,711643,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Schneider (D),totals,45,1,4,5,0.11,18,4,/player/485365/marek-schneider,5,Marek Schneider,D,2022-2023,whl,485365,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grady Martin (F),Prince Albert Raiders,51,1,4,5,0.10,49,-6,/player/710816/grady-martin,5,Grady Martin,F,2022-2023,whl,710816,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Gabriel (F),Swift Current Broncos,53,1,4,5,0.09,4,-10,/player/647158/connor-gabriel,5,Connor Gabriel,F,2022-2023,whl,647158,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riley Niven (F),Moose Jaw Warriors,17,0,5,5,0.29,14,-4,/player/481951/riley-niven,5,Riley Niven,F,2022-2023,whl,481951,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tom Cadieux (D),totals,34,0,5,5,0.15,35,-29,/player/403342/tom-cadieux,5,Tom Cadieux,D,2022-2023,whl,403342,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ismail Abougouche (D/F),Kelowna Rockets,50,0,5,5,0.10,73,-9,/player/711430/ismail-abougouche,5,Ismail Abougouche,D/F,2022-2023,whl,711430,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Wadsworth (F),Spokane Chiefs,51,0,5,5,0.10,28,-17,/player/709588/cole-wadsworth,5,Cole Wadsworth,F,2022-2023,whl,709588,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Drover (RW),Medicine Hat Tigers,6,2,2,4,0.67,0,5,/player/390096/alex-drover,5,Alex Drover,RW,2022-2023,whl,390096,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyson Buczkowski (D),Prince George Cougars,13,1,3,4,0.31,10,-3,/player/597810/tyson-buczkowski,5,Tyson Buczkowski,D,2022-2023,whl,597810,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rhett Ravndahl (D),Portland Winterhawks,29,1,3,4,0.14,20,-1,/player/603567/rhett-ravndahl,5,Rhett Ravndahl,D,2022-2023,whl,603567,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ashton McNelly (F),Seattle Thunderbirds,37,1,3,4,0.11,48,-1,/player/476598/ashton-mcnelly,5,Ashton McNelly,F,2022-2023,whl,476598,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Camerin Cardona (F),Tri-City Americans,39,1,3,4,0.10,18,-1,/player/763413/camerin-cardona,5,Camerin Cardona,F,2022-2023,whl,763413,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cru Hanas (F),Medicine Hat Tigers,39,1,3,4,0.10,18,-4,/player/787475/cru-hanas,5,Cru Hanas,F,2022-2023,whl,787475,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan MacPherson-Ridgewell (F),Kamloops Blazers,39,1,3,4,0.10,39,2,/player/559030/nathan-macpherson-ridgewell,5,Nathan MacPherson-Ridgewell,F,2022-2023,whl,559030,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Howell (D),Moose Jaw Warriors,44,1,3,4,0.09,8,-3,/player/710606/marek-howell,5,Marek Howell,D,2022-2023,whl,710606,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Bochek (C/RW),Vancouver Giants,48,1,3,4,0.08,59,-24,/player/477362/kyle-bochek,5,Kyle Bochek,C/RW,2022-2023,whl,477362,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cameron Parr (LW),Spokane Chiefs,50,1,3,4,0.08,55,-9,/player/717291/cameron-parr,5,Cameron Parr,LW,2022-2023,whl,717291,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Paszkiewicz (F),Everett Silvertips,54,1,3,4,0.07,9,-10,/player/689192/matthew-paszkiewicz,5,Matthew Paszkiewicz,F,2022-2023,whl,689192,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rylan Gould (C),Swift Current Broncos,64,1,3,4,0.06,26,-9,/player/648206/rylan-gould,5,Rylan Gould,C,2022-2023,whl,648206,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Carrier (F),totals,8,0,4,4,0.50,7,-7,/player/475616/cole-carrier,5,Cole Carrier,F,2022-2023,whl,475616,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyan Grouette (F),Everett Silvertips,56,3,0,3,0.05,17,-19,/player/645741/kyan-grouette,5,Kyan Grouette,F,2022-2023,whl,645741,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steven Arp (F),Wenatchee Wild,4,2,1,3,0.75,2,1,/player/645747/steven-arp,5,Steven Arp,F,2022-2023,whl,645747,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joby Baumuller (F),Brandon Wheat Kings,11,2,1,3,0.27,0,-2,/player/820042/joby-baumuller,5,Joby Baumuller,F,2022-2023,whl,820042,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matty Edwards (RW),Vancouver Giants,40,2,1,3,0.08,72,-5,/player/647185/matty-edwards,5,Matty Edwards,RW,2022-2023,whl,647185,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Calhoon (F),Medicine Hat Tigers,8,1,2,3,0.38,9,1,/player/709583/brett-calhoon,5,Brett Calhoon,F,2022-2023,whl,709583,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Valliant (F),Calgary Hitmen,10,1,2,3,0.30,2,1,/player/597555/chase-valliant,5,Chase Valliant,F,2022-2023,whl,597555,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Caleb Willms (LW),Victoria Royals,10,1,2,3,0.30,4,-1,/player/414435/caleb-willms,5,Caleb Willms,LW,2022-2023,whl,414435,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Ward (D),Swift Current Broncos,33,1,2,3,0.09,12,-8,/player/647522/sam-ward,5,Sam Ward,D,2022-2023,whl,647522,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vojtěch Husinecký (D),Calgary Hitmen,34,1,2,3,0.09,10,-6,/player/689789/vojtech-husinecky,5,Vojtěch Husinecký,D,2022-2023,whl,689789,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rhys Pederson (D),Edmonton Oil Kings,37,1,2,3,0.08,31,-26,/player/725705/rhys-pederson,5,Rhys Pederson,D,2022-2023,whl,725705,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Thompson (D),Portland Winterhawks,40,1,2,3,0.08,16,-1,/player/597742/alex-thompson,5,Alex Thompson,D,2022-2023,whl,597742,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Petruk (F),Everett Silvertips,51,1,2,3,0.06,83,-12,/player/735144/andrew-petruk,5,Andrew Petruk,F,2022-2023,whl,735144,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Fluker (D),Swift Current Broncos,55,1,2,3,0.05,26,-6,/player/597715/josh-fluker,5,Josh Fluker,D,2022-2023,whl,597715,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Tien (F),Moose Jaw Warriors,7,0,3,3,0.43,2,4,/player/539644/thomas-tien,5,Thomas Tien,F,2022-2023,whl,539644,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonah Bevington (F),Portland Winterhawks,7,0,3,3,0.43,6,0,/player/472872/jonah-bevington,5,Jonah Bevington,F,2022-2023,whl,472872,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakob Brook (RW/LW),Regina Pats,7,0,3,3,0.43,10,-1,/player/408637/jakob-brook,5,Jakob Brook,RW/LW,2022-2023,whl,408637,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Borschowa (D),Moose Jaw Warriors,15,0,3,3,0.20,5,-12,/player/647235/samuel-borschowa,5,Samuel Borschowa,D,2022-2023,whl,647235,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicholas Anisimovicz (F),Tri-City Americans,22,0,3,3,0.14,0,-9,/player/597837/nicholas-anisimovicz,5,Nicholas Anisimovicz,F,2022-2023,whl,597837,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Feenan (D),Tri-City Americans,22,0,3,3,0.14,6,1,/player/561333/ben-feenan,5,Ben Feenan,D,2022-2023,whl,561333,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Quentin Bourne (D),Red Deer Rebels,31,0,3,3,0.10,17,2,/player/679635/quentin-bourne,5,Quentin Bourne,D,2022-2023,whl,679635,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Omen Harmacy (D),totals,37,0,3,3,0.08,27,4,/player/648220/omen-harmacy,5,Omen Harmacy,D,2022-2023,whl,648220,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Will Subject (D),Vancouver Giants,49,0,3,3,0.06,28,-3,/player/698056/will-subject,5,Will Subject,D,2022-2023,whl,698056,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Savage (D),Tri-City Americans,61,0,3,3,0.05,4,2,/player/647519/carter-savage,5,Carter Savage,D,2022-2023,whl,647519,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Briley Wood (C/RW),Wenatchee Wild,13,2,0,2,0.15,2,-2,/player/483546/briley-wood,5,Briley Wood,C/RW,2022-2023,whl,483546,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Henry (LW/RW),Brandon Wheat Kings,57,2,0,2,0.04,140,-8,/player/565103/matthew-henry,5,Matthew Henry,LW/RW,2022-2023,whl,565103,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trevor Thurston (D),Prince Albert Raiders,3,1,1,2,0.67,4,-5,/player/407653/trevor-thurston,5,Trevor Thurston,D,2022-2023,whl,407653,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Bear (LW/C),Everett Silvertips,19,1,1,2,0.11,0,-3,/player/597730/carter-bear,5,Carter Bear,LW/C,2022-2023,whl,597730,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Braeden Jockims (F),Portland Winterhawks,23,1,1,2,0.09,6,-5,/player/647187/braeden-jockims,5,Braeden Jockims,F,2022-2023,whl,647187,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Wright (LW),Edmonton Oil Kings,47,1,1,2,0.04,26,-14,/player/709334/ben-wright,5,Ben Wright,LW,2022-2023,whl,709334,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Braeden Wynne (D),Edmonton Oil Kings,52,1,1,2,0.04,12,-42,/player/643369/braeden-wynne,5,Braeden Wynne,D,2022-2023,whl,643369,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Will Munro (F),Kelowna Rockets,52,1,1,2,0.04,12,-11,/player/645744/will-munro,5,Will Munro,F,2022-2023,whl,645744,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Lovsin (F),Seattle Thunderbirds,4,0,2,2,0.50,0,2,/player/691227/simon-lovsin,5,Simon Lovsin,F,2022-2023,whl,691227,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jackson Smith (D),Tri-City Americans,6,0,2,2,0.33,0,3,/player/689872/jackson-smith,5,Jackson Smith,D,2022-2023,whl,689872,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rylan Pearce (D),Kamloops Blazers,8,0,2,2,0.25,2,-1,/player/647040/rylan-pearce,5,Rylan Pearce,D,2022-2023,whl,647040,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Landon Young (D),Wenatchee Wild,11,0,2,2,0.18,0,0,/player/710805/landon-young,5,Landon Young,D,2022-2023,whl,710805,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dallyn Peekeekoot (F),Prince Albert Raiders,11,0,2,2,0.18,4,-6,/player/647013/dallyn-peekeekoot,5,Dallyn Peekeekoot,F,2022-2023,whl,647013,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Parker Alcos (D),Edmonton Oil Kings,12,0,2,2,0.17,2,-2,/player/709618/parker-alcos,5,Parker Alcos,D,2022-2023,whl,709618,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tait Humphries (D),Saskatoon Blades,15,0,2,2,0.13,4,0,/player/705100/tait-humphries,5,Tait Humphries,D,2022-2023,whl,705100,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Graydon Gotaas (D),Edmonton Oil Kings,15,0,2,2,0.13,15,-10,/player/567019/graydon-gotaas,5,Graydon Gotaas,D,2022-2023,whl,567019,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Treycen Wuttunee (RW),Edmonton Oil Kings,20,0,2,2,0.10,23,-12,/player/715204/treycen-wuttunee,5,Treycen Wuttunee,RW,2022-2023,whl,715204,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Zizka (D),Saskatoon Blades,32,0,2,2,0.06,11,6,/player/709528/tomas-zizka,5,Tomas Zizka,D,2022-2023,whl,709528,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Briltz (F),Victoria Royals,35,0,2,2,0.06,13,-8,/player/569289/carter-briltz,5,Carter Briltz,F,2022-2023,whl,569289,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Smyth Rebman (F),Saskatoon Blades,42,0,2,2,0.05,19,4,/player/710600/smyth-rebman,5,Smyth Rebman,F,2022-2023,whl,710600,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Corbin Vaughan (D),Regina Pats,50,0,2,2,0.04,78,-15,/player/617229/corbin-vaughan,5,Corbin Vaughan,D,2022-2023,whl,617229,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cameron Sytsma (D),Everett Silvertips,55,0,2,2,0.04,16,-12,/player/679540/cameron-sytsma,5,Cameron Sytsma,D,2022-2023,whl,679540,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ashton Cumby (D),Wenatchee Wild,55,0,2,2,0.04,43,13,/player/661822/ashton-cumby,5,Ashton Cumby,D,2022-2023,whl,661822,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ty Coupland (F),Swift Current Broncos,2,1,0,1,0.50,0,1,/player/576981/ty-coupland,5,Ty Coupland,F,2022-2023,whl,576981,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Landon Roberts (LW),Swift Current Broncos,2,1,0,1,0.50,8,1,/player/408690/landon-roberts,5,Landon Roberts,LW,2022-2023,whl,408690,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cameron Schmidt (RW),Vancouver Giants,3,1,0,1,0.33,2,2,/player/576988/cameron-schmidt,5,Cameron Schmidt,RW,2022-2023,whl,576988,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Reschny (C/LW),Victoria Royals,4,1,0,1,0.25,2,-8,/player/577070/cole-reschny,5,Cole Reschny,C/LW,2022-2023,whl,577070,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Yatsyshin (F),Prince Albert Raiders,5,1,0,1,0.20,0,1,/player/561330/anton-yatsyshin,5,Anton Yatsyshin,F,2022-2023,whl,561330,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cash Koch (F),Tri-City Americans,5,1,0,1,0.20,2,-2,/player/804725/cash-koch,5,Cash Koch,F,2022-2023,whl,804725,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Hughes (F),Moose Jaw Warriors,6,1,0,1,0.17,0,-2,/player/711234/ethan-hughes,5,Ethan Hughes,F,2022-2023,whl,711234,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Escalus Burlock (F),Red Deer Rebels,8,1,0,1,0.13,0,1,/player/597839/escalus-burlock,5,Escalus Burlock,F,2022-2023,whl,597839,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kayden Longley (F),Kelowna Rockets,8,1,0,1,0.13,0,-5,/player/710599/kayden-longley,5,Kayden Longley,F,2022-2023,whl,710599,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tarin Smith (D),Everett Silvertips,8,1,0,1,0.13,2,-3,/player/597801/tarin-smith,5,Tarin Smith,D,2022-2023,whl,597801,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miles Cooper (C/LW),Wenatchee Wild,8,1,0,1,0.13,4,-3,/player/709817/miles-cooper,5,Miles Cooper,C/LW,2022-2023,whl,709817,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Merrek Arpin (D),Tri-City Americans,11,1,0,1,0.09,4,1,/player/597719/merrek-arpin,5,Merrek Arpin,D,2022-2023,whl,597719,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Landon Hanson (F),Edmonton Oil Kings,18,1,0,1,0.06,2,-11,/player/710598/landon-hanson,5,Landon Hanson,F,2022-2023,whl,710598,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Szabo (F),Edmonton Oil Kings,34,1,0,1,0.03,50,-22,/player/643310/john-szabo,5,John Szabo,F,2022-2023,whl,643310,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Marsden (D),Wenatchee Wild,1,0,1,1,1.00,0,1,/player/728333/kyle-marsden,5,Kyle Marsden,D,2022-2023,whl,728333,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Boucher (LW),Vancouver Giants,2,0,1,1,0.50,0,-1,/player/413130/jacob-boucher,5,Jacob Boucher,LW,2022-2023,whl,413130,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Rowland (F),Kamloops Blazers,3,0,1,1,0.33,2,0,/player/413050/ethan-rowland,5,Ethan Rowland,F,2022-2023,whl,413050,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Corban Almen (F),Regina Pats,4,0,1,1,0.25,0,-2,/player/719305/corban-almen,5,Corban Almen,F,2022-2023,whl,719305,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Mayes (D),Spokane Chiefs,4,0,1,1,0.25,0,-2,/player/735915/nathan-mayes,5,Nathan Mayes,D,2022-2023,whl,735915,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Harrington (F),Spokane Chiefs,4,0,1,1,0.25,2,-4,/player/804748/chase-harrington,5,Chase Harrington,F,2022-2023,whl,804748,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jerrett Ross (D),Victoria Royals,5,0,1,1,0.20,0,-3,/player/802341/jerrett-ross,5,Jerrett Ross,D,2022-2023,whl,802341,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Salvatore Collora (F),Kamloops Blazers,5,0,1,1,0.20,2,-3,/player/529927/salvatore-collora,6,Salvatore Collora,F,2022-2023,whl,529927,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julien Maze (F),Everett Silvertips,5,0,1,1,0.20,4,1,/player/742508/julien-maze,6,Julien Maze,F,2022-2023,whl,742508,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hayden Wheddon (F),Edmonton Oil Kings,6,0,1,1,0.17,0,-2,/player/599341/hayden-wheddon,6,Hayden Wheddon,F,2022-2023,whl,599341,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kobe Verbicky (F),Kamloops Blazers,6,0,1,1,0.17,4,0,/player/539112/kobe-verbicky,6,Kobe Verbicky,F,2022-2023,whl,539112,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Behm (LW/RW),Kamloops Blazers,6,0,1,1,0.17,4,-1,/player/577109/nathan-behm,6,Nathan Behm,LW/RW,2022-2023,whl,577109,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colton Alain (D),Vancouver Giants,7,0,1,1,0.14,0,-2,/player/825450/colton-alain,6,Colton Alain,D,2022-2023,whl,825450,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Braeden Cootes (C/RW),Seattle Thunderbirds,7,0,1,1,0.14,0,4,/player/577080/braeden-cootes,6,Braeden Cootes,C/RW,2022-2023,whl,577080,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Landon Cowper (D),Kelowna Rockets,7,0,1,1,0.14,2,-1,/player/711597/landon-cowper,6,Landon Cowper,D,2022-2023,whl,711597,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Will Jamieson (F),Spokane Chiefs,7,0,1,1,0.14,2,-1,/player/685852/will-jamieson,6,Will Jamieson,F,2022-2023,whl,685852,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kai Knak (D),Seattle Thunderbirds,9,0,1,1,0.11,2,-1,/player/703642/kai-knak,6,Kai Knak,D,2022-2023,whl,703642,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Cousins (F),Kelowna Rockets,9,0,1,1,0.11,6,-1,/player/676264/scott-cousins,6,Scott Cousins,F,2022-2023,whl,676264,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Ivanusec (F),Vancouver Giants,10,0,1,1,0.10,2,1,/player/708442/justin-ivanusec,6,Justin Ivanusec,F,2022-2023,whl,708442,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Deegan Kinniburgh (F),Victoria Royals,10,0,1,1,0.10,2,-3,/player/710813/deegan-kinniburgh,6,Deegan Kinniburgh,F,2022-2023,whl,710813,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ty Plaisier (D),Regina Pats,12,0,1,1,0.08,9,0,/player/646941/ty-plaisier,6,Ty Plaisier,D,2022-2023,whl,646941,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rayan Bettahar (D),Swift Current Broncos,14,0,1,1,0.07,18,0,/player/547264/rayan-bettahar,6,Rayan Bettahar,D,2022-2023,whl,547264,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tayem Gislason (D),totals,16,0,1,1,0.06,6,0,/player/483413/tayem-gislason,6,Tayem Gislason,D,2022-2023,whl,483413,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zackary Shantz (F),totals,17,0,1,1,0.06,2,2,/player/651177/zackary-shantz,6,Zackary Shantz,F,2022-2023,whl,651177,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Bansley (RW/C),Lethbridge Hurricanes,18,0,1,1,0.06,2,-3,/player/647075/zach-bansley,6,Zach Bansley,RW/C,2022-2023,whl,647075,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Owen Harris (D),Brandon Wheat Kings,19,0,1,1,0.05,23,2,/player/571028/owen-harris,6,Owen Harris,D,2022-2023,whl,571028,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aiden Sotas (C),Portland Winterhawks,20,0,1,1,0.05,26,-2,/player/646432/aiden-sotas,6,Aiden Sotas,C,2022-2023,whl,646432,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ashton Tait (F),Kamloops Blazers,22,0,1,1,0.05,4,-6,/player/719261/ashton-tait,6,Ashton Tait,F,2022-2023,whl,719261,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Herman (D),Regina Pats,25,0,1,1,0.04,13,-5,/player/647195/carter-herman,6,Carter Herman,D,2022-2023,whl,647195,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicco Camazzola (D),totals,25,0,1,1,0.04,16,-12,/player/551575/nicco-camazzola,6,Nicco Camazzola,D,2022-2023,whl,551575,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aiden Ziprick (D),Lethbridge Hurricanes,30,0,1,1,0.03,4,-2,/player/645754/aiden-ziprick,6,Aiden Ziprick,D,2022-2023,whl,645754,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Sutter (D),Calgary Hitmen,1,0,0,0,0.00,0,0,/player/564978/matthew-sutter,6,Matthew Sutter,D,2022-2023,whl,564978,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Korte (F),Kamloops Blazers,1,0,0,0,0.00,0,0,/player/618630/luke-korte,6,Luke Korte,F,2022-2023,whl,618630,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Owen Martin (C),Spokane Chiefs,1,0,0,0,0.00,0,0,/player/804375/owen-martin,6,Owen Martin,C,2022-2023,whl,804375,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hayden Paupanekis (C),Spokane Chiefs,1,0,0,0,0.00,0,0,/player/577137/hayden-paupanekis,6,Hayden Paupanekis,C,2022-2023,whl,577137,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Bambrick (D),Wenatchee Wild,1,0,0,0,0.00,0,0,/player/710980/chase-bambrick,6,Chase Bambrick,D,2022-2023,whl,710980,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Bibeau (F),Prince Albert Raiders,1,0,0,0,0.00,0,-2,/player/577127/ethan-bibeau,6,Ethan Bibeau,F,2022-2023,whl,577127,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carsyn Dyck (F),Portland Winterhawks,1,0,0,0,0.00,0,0,/player/597800/carsyn-dyck,6,Carsyn Dyck,F,2022-2023,whl,597800,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Owen Schoettler (D),Spokane Chiefs,1,0,0,0,0.00,0,0,/player/577091/owen-schoettler,6,Owen Schoettler,D,2022-2023,whl,577091,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zane Saab (F),Red Deer Rebels,1,0,0,0,0.00,0,-1,/player/597841/zane-saab,6,Zane Saab,F,2022-2023,whl,597841,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kaleb Hartmann (D),Seattle Thunderbirds,1,0,0,0,0.00,0,-1,/player/804750/kaleb-hartmann,6,Kaleb Hartmann,D,2022-2023,whl,804750,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nishaan Parmar (F),Seattle Thunderbirds,1,0,0,0,0.00,0,0,/player/618958/nishaan-parmar,6,Nishaan Parmar,F,2022-2023,whl,618958,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Morgan Tastad (D),Saskatoon Blades,1,0,0,0,0.00,0,1,/player/795053/morgan-tastad,6,Morgan Tastad,D,2022-2023,whl,795053,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Cozens (F),Lethbridge Hurricanes,1,0,0,0,0.00,0,-2,/player/742394/luke-cozens,6,Luke Cozens,F,2022-2023,whl,742394,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Landen Ward (LW),Lethbridge Hurricanes,1,0,0,0,0.00,0,0,/player/728496/landen-ward,6,Landen Ward,LW,2022-2023,whl,728496,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Sullivan (F),Kamloops Blazers,1,0,0,0,0.00,0,1,/player/709827/max-sullivan,6,Max Sullivan,F,2022-2023,whl,709827,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benjamin Kindel (C),Calgary Hitmen,1,0,0,0,0.00,0,0,/player/576985/benjamin-kindel,6,Benjamin Kindel,C,2022-2023,whl,576985,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Vlooswyk (D),Red Deer Rebels,1,0,0,0,0.00,2,0,/player/801843/luke-vlooswyk,6,Luke Vlooswyk,D,2022-2023,whl,801843,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oli Chenier (F),Prince Albert Raiders,1,0,0,0,0.00,2,0,/player/804335/oli-chenier,6,Oli Chenier,F,2022-2023,whl,804335,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luka Shcherbyna (F),Spokane Chiefs,1,0,0,0,0.00,2,0,/player/708448/luka-shcherbyna,6,Luka Shcherbyna,F,2022-2023,whl,708448,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Nolan (D),Kamloops Blazers,1,0,0,0,0.00,2,1,/player/560984/ryan-nolan,6,Ryan Nolan,D,2022-2023,whl,560984,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesiah Bennett (RW),Prince Albert Raiders,2,0,0,0,0.00,0,0,/player/572086/jesiah-bennett,6,Jesiah Bennett,RW,2022-2023,whl,572086,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan Cunningham (D),Spokane Chiefs,2,0,0,0,0.00,0,-2,/player/660326/logan-cunningham,6,Logan Cunningham,D,2022-2023,whl,660326,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Moroz (F),Prince Albert Raiders,2,0,0,0,0.00,0,0,/player/794669/luke-moroz,6,Luke Moroz,F,2022-2023,whl,794669,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Easton Odut (F),Brandon Wheat Kings,2,0,0,0,0.00,0,0,/player/804404/easton-odut,6,Easton Odut,F,2022-2023,whl,804404,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Degenstein (C/LW),Moose Jaw Warriors,2,0,0,0,0.00,0,0,/player/733534/noah-degenstein,6,Noah Degenstein,C/LW,2022-2023,whl,733534,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kale Tipler (D),Lethbridge Hurricanes,2,0,0,0,0.00,0,0,/player/710547/kale-tipler,6,Kale Tipler,D,2022-2023,whl,710547,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grant Reid (F),Victoria Royals,2,0,0,0,0.00,0,-1,/player/806811/grant-reid,6,Grant Reid,F,2022-2023,whl,806811,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Klippenstein (C),Brandon Wheat Kings,2,0,0,0,0.00,0,0,/player/710985/carter-klippenstein,6,Carter Klippenstein,C,2022-2023,whl,710985,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hayden Chaloner (F),Brandon Wheat Kings,2,0,0,0,0.00,0,0,/player/648227/hayden-chaloner,6,Hayden Chaloner,F,2022-2023,whl,648227,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peyton Kettles (D),Swift Current Broncos,2,0,0,0,0.00,0,0,/player/805696/peyton-kettles,6,Peyton Kettles,D,2022-2023,whl,805696,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Caleb Matthews (F),Victoria Royals,2,0,0,0,0.00,0,0,/player/801840/caleb-matthews,6,Caleb Matthews,F,2022-2023,whl,801840,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Will Sharpe (D),Lethbridge Hurricanes,2,0,0,0,0.00,0,-1,/player/576980/will-sharpe,6,Will Sharpe,D,2022-2023,whl,576980,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sawyer Mayes (C),Calgary Hitmen,2,0,0,0,0.00,0,0,/player/806557/sawyer-mayes,6,Sawyer Mayes,C,2022-2023,whl,806557,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Finley (F),Moose Jaw Warriors,2,0,0,0,0.00,0,-1,/player/679669/max-finley,6,Max Finley,F,2022-2023,whl,679669,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hayden Moore (F),Wenatchee Wild,2,0,0,0,0.00,2,0,/player/724532/hayden-moore,6,Hayden Moore,F,2022-2023,whl,724532,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Conner Radke (RW),Kamloops Blazers,3,0,0,0,0.00,0,-1,/player/725273/conner-radke,6,Conner Radke,RW,2022-2023,whl,725273,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tre Fouquette (D),Prince Albert Raiders,3,0,0,0,0.00,0,-3,/player/569263/tre-fouquette,6,Tre Fouquette,D,2022-2023,whl,569263,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reed Jacobson (F),Edmonton Oil Kings,3,0,0,0,0.00,0,-3,/player/201838/reed-jacobson,6,Reed Jacobson,F,2022-2023,whl,201838,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gavin Schmidt (F),Prince George Cougars,3,0,0,0,0.00,0,-1,/player/584777/gavin-schmidt,6,Gavin Schmidt,F,2022-2023,whl,584777,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karson King (F/D),Swift Current Broncos,3,0,0,0,0.00,0,-2,/player/573359/karson-king,6,Karson King,F/D,2022-2023,whl,573359,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Cairns (F),Portland Winterhawks,3,0,0,0,0.00,0,-1,/player/724543/cole-cairns,6,Cole Cairns,F,2022-2023,whl,724543,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Presley Kerner (F),Edmonton Oil Kings,3,0,0,0,0.00,0,-3,/player/805250/presley-kerner,6,Presley Kerner,F,2022-2023,whl,805250,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Miller (C),Portland Winterhawks,3,0,0,0,0.00,0,-1,/player/577087/ryan-miller,6,Ryan Miller,C,2022-2023,whl,577087,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henry Smith (D),Vancouver Giants,3,0,0,0,0.00,0,0,/player/559034/henry-smith,6,Henry Smith,D,2022-2023,whl,559034,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kadon McCann (F),Medicine Hat Tigers,3,0,0,0,0.00,0,0,/player/799967/kadon-mccann,6,Kadon McCann,F,2022-2023,whl,799967,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hunter Laing (C/RW),Prince George Cougars,3,0,0,0,0.00,0,1,/player/747334/hunter-laing,6,Hunter Laing,C/RW,2022-2023,whl,747334,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Landon McFadden (F),Moose Jaw Warriors,3,0,0,0,0.00,2,-1,/player/720431/landon-mcfadden,6,Landon McFadden,F,2022-2023,whl,720431,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alessandro Segafredo (RW),totals,4,0,0,0,0.00,0,-2,/player/547048/alessandro-segafredo,6,Alessandro Segafredo,RW,2022-2023,whl,547048,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hayden Harsanyi (F),Medicine Hat Tigers,4,0,0,0,0.00,0,-2,/player/577082/hayden-harsanyi,6,Hayden Harsanyi,F,2022-2023,whl,577082,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Terik Parascak (RW),Prince George Cougars,4,0,0,0,0.00,0,1,/player/711384/terik-parascak,6,Terik Parascak,RW,2022-2023,whl,711384,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Kaplan (F),Everett Silvertips,4,0,0,0,0.00,0,-3,/player/728540/lukas-kaplan,6,Lukas Kaplan,F,2022-2023,whl,728540,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Liam Saxberg (D),Swift Current Broncos,4,0,0,0,0.00,4,0,/player/648241/liam-saxberg,6,Liam Saxberg,D,2022-2023,whl,648241,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryson Andregg (D),Edmonton Oil Kings,4,0,0,0,0.00,11,-2,/player/512366/bryson-andregg,6,Bryson Andregg,D,2022-2023,whl,512366,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Mettimano (D),Wenatchee Wild,5,0,0,0,0.00,0,-1,/player/532694/josh-mettimano,6,Josh Mettimano,D,2022-2023,whl,532694,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Schmidt (D),Moose Jaw Warriors,6,0,0,0,0.00,0,2,/player/742505/connor-schmidt,6,Connor Schmidt,D,2022-2023,whl,742505,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakob Oreskovic (F),Vancouver Giants,6,0,0,0,0.00,0,-1,/player/576976/jakob-oreskovic,6,Jakob Oreskovic,F,2022-2023,whl,576976,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle McDonough (F),Portland Winterhawks,6,0,0,0,0.00,0,1,/player/799972/kyle-mcdonough,6,Kyle McDonough,F,2022-2023,whl,799972,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anson McMaster (D),Victoria Royals,6,0,0,0,0.00,2,-4,/player/413333/anson-mcmaster,6,Anson McMaster,D,2022-2023,whl,413333,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Moore (F),Saskatoon Blades,6,0,0,0,0.00,2,1,/player/597806/zach-moore,6,Zach Moore,F,2022-2023,whl,597806,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maximilian Streule (D),Wenatchee Wild,6,0,0,0,0.00,6,-1,/player/637647/maximilian-streule,6,Maximilian Streule,D,2022-2023,whl,637647,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kolten Bridgeman (D),Regina Pats,7,0,0,0,0.00,0,-2,/player/715231/kolten-bridgeman,6,Kolten Bridgeman,D,2022-2023,whl,715231,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan McEneany (F),Vancouver Giants,7,0,0,0,0.00,0,-3,/player/693733/ethan-mceneany,6,Ethan McEneany,F,2022-2023,whl,693733,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hudson Darby (F),Portland Winterhawks,7,0,0,0,0.00,2,-4,/player/716639/hudson-darby,6,Hudson Darby,F,2022-2023,whl,716639,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Temple (C/LW),Regina Pats,8,0,0,0,0.00,0,-6,/player/807555/cole-temple,6,Cole Temple,C/LW,2022-2023,whl,807555,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Makokis (D),Everett Silvertips,8,0,0,0,0.00,0,-3,/player/804726/ethan-makokis,6,Ethan Makokis,D,2022-2023,whl,804726,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jager Gugyelka (D),Edmonton Oil Kings,9,0,0,0,0.00,2,-4,/player/799942/jager-gugyelka,6,Jager Gugyelka,D,2022-2023,whl,799942,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan Greenough (D),Everett Silvertips,9,0,0,0,0.00,4,0,/player/689199/logan-greenough,6,Logan Greenough,D,2022-2023,whl,689199,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Seth Fryer (D),Victoria Royals,9,0,0,0,0.00,4,-3,/player/804735/seth-fryer,6,Seth Fryer,D,2022-2023,whl,804735,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan Linklater (C),Regina Pats,9,0,0,0,0.00,6,-3,/player/569165/logan-linklater,6,Logan Linklater,C,2022-2023,whl,569165,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Owen Berge (F),Moose Jaw Warriors,12,0,0,0,0.00,2,-6,/player/661688/owen-berge,6,Owen Berge,F,2022-2023,whl,661688,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zachary Wilson (F),Prince Albert Raiders,12,0,0,0,0.00,7,-1,/player/612892/zachary-wilson,6,Zachary Wilson,F,2022-2023,whl,612892,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maddix McCagherty (F),Swift Current Broncos,13,0,0,0,0.00,0,-5,/player/597834/maddix-mccagherty,6,Maddix McCagherty,F,2022-2023,whl,597834,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Gould (F),totals,13,0,0,0,0.00,6,-2,/player/643716/tanner-gould,6,Tanner Gould,F,2022-2023,whl,643716,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brady Ness (D),Moose Jaw Warriors,15,0,0,0,0.00,4,-2,/player/661701/brady-ness,6,Brady Ness,D,2022-2023,whl,661701,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Turner (D),Brandon Wheat Kings,22,0,0,0,0.00,10,0,/player/571029/zach-turner,6,Zach Turner,D,2022-2023,whl,571029,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eastyn Mannix (D),Brandon Wheat Kings,25,0,0,0,0.00,2,-7,/player/691205/eastyn-mannix,6,Eastyn Mannix,D,2022-2023,whl,691205,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicholas Andrusiak (D),totals,26,0,0,0,0.00,9,-5,/player/569237/nicholas-andrusiak,7,Nicholas Andrusiak,D,2022-2023,whl,569237,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jackson Romeril (D),totals,31,0,0,0,0.00,9,-3,/player/683071/jackson-romeril,7,Jackson Romeril,D,2022-2023,whl,683071,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Van Eger (RW),Swift Current Broncos,35,0,0,0,0.00,14,-4,/player/647237/van-eger,7,Van Eger,RW,2022-2023,whl,647237,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69

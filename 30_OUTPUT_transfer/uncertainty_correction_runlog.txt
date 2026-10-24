@@ -1,0 +1,38 @@
+uncertainty_correction.py v1.0 (2026-07-27)
+Review item 3.6. Measures only; changes nothing in the chain.
+data dir: C:\Users\thoma\OneDrive\Desktop\xNPV Data
+
+  contracts in the NPV spine: 2909
+  locked rate in force: ALPHA=0.01831864  BETA=0.01924854
+  NOTE: if the price equation has been re-fitted since (interaction specification, censored), these constants will be stale and this measurement is provisional until the chain is rebuilt on the new rate.
+  goalie contracts skipped (out of scope, see header): 318
+  contract-seasons measured: 5712
+  seasons using the held-flat placeholder spread (k>3): 735 (12.9%)
+  seasons sitting exactly at the projection's own zero-WAR floor: 540 (9.5%) -- the symmetric range overstates the upside for these
+
+==========================================================================
+HOW FAR THE OUTPUT MOVES
+==========================================================================
+  mean correction per contract:   $+0.0682M
+  median correction per contract: $+0.0000M
+  largest single correction:      $+1.4347M
+  contracts moving from negative NPV to positive: 9 of 921 currently negative
+
+  by contract length:
+    1yr  n=1369  mean correction $+0.0000M  mean NPV $  +0.95M -> $  +0.95M
+    2yr  n= 840  mean correction $+0.0575M  mean NPV $  +1.22M -> $  +1.28M
+    3yr  n= 257  mean correction $+0.1209M  mean NPV $  -0.64M -> $  -0.52M
+    4yr  n= 139  mean correction $+0.2202M  mean NPV $  -5.44M -> $  -5.22M
+    5yr  n=  73  mean correction $+0.2110M  mean NPV $  -7.88M -> $  -7.67M
+    6yr  n=  69  mean correction $+0.3146M  mean NPV $ -13.30M -> $ -12.99M
+    7yr  n=  61  mean correction $+0.3655M  mean NPV $ -22.07M -> $ -21.71M
+    8yr  n= 101  mean correction $+0.2881M  mean NPV $ -26.74M -> $ -26.46M
+
+  correction by projected production (the shape of the effect):
+    <=0        n= 1410  mean correction $+0.0887M per season
+    0 to 0.5   n= 1642  mean correction $+0.0775M per season
+    0.5 to 1   n=  980  mean correction $+0.0360M per season
+    1 to 2     n= 1066  mean correction $+0.0098M per season
+    >2         n=  614  mean correction $+0.0004M per season
+
+  wrote uncertainty_correction_rows.csv and uncertainty_correction_summary.csv

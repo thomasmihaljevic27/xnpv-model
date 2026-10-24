@@ -1,0 +1,392 @@
+player,team,gp,g,a,tp,p_per_gp,pim,plus_minus,link,page,playername,position,season,league,ep_player_id,scrape_date,source,package_version
+Derek Ryan (C/W),Örebro HK,55,15,45,60,1.09,18,18,/player/67660/derek-ryan,1,Derek Ryan,C/W,2014-2015,shl,67660,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeff Taffe (C),Linköping HC,54,18,41,59,1.09,43,12,/player/9385/jeff-taffe,1,Jeff Taffe,C,2014-2015,shl,9385,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Broc Little (LW),Linköping HC,55,28,19,47,0.85,38,14,/player/34071/broc-little,1,Broc Little,LW,2014-2015,shl,34071,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Micflikier (LW/RW),Linköping HC,54,24,23,47,0.87,26,13,/player/12031/jacob-micflikier,1,Jacob Micflikier,LW/RW,2014-2015,shl,12031,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Johansson (LW),Örebro HK,54,24,22,46,0.85,10,18,/player/2047/martin-johansson,1,Martin Johansson,LW,2014-2015,shl,2047,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathis Olimb (C),Frölunda HC,51,7,39,46,0.90,65,19,/player/4225/mathis-olimb,1,Mathis Olimb,C,2014-2015,shl,4225,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Rosén (C),Växjö Lakers HC,53,23,21,44,0.83,16,27,/player/5738/robert-rosen,1,Robert Rosén,C,2014-2015,shl,5738,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Christensen (C),HV71,46,13,31,44,0.96,14,7,/player/10880/erik-christensen,1,Erik Christensen,C,2014-2015,shl,10880,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Greg Scott (C/RW),Brynäs IF,47,18,24,42,0.89,20,4,/player/15395/greg-scott,1,Greg Scott,C/RW,2014-2015,shl,15395,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bill Sweatt (LW),Brynäs IF,54,19,22,41,0.76,36,3,/player/9322/bill-sweatt,1,Bill Sweatt,LW,2014-2015,shl,9322,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Milan Gulas (RW),Färjestad BK,53,20,20,40,0.75,26,2,/player/22577/milan-gulas,1,Milan Gulas,RW,2014-2015,shl,22577,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Rödin (RW/LW),Brynäs IF,54,19,21,40,0.74,32,-4,/player/7084/anton-rodin,1,Anton Rödin,RW/LW,2014-2015,shl,7084,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cory Murphy (D),Växjö Lakers HC,55,9,30,39,0.71,18,21,/player/3583/cory-murphy,1,Cory Murphy,D,2014-2015,shl,3583,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Johnson (RW),Växjö Lakers HC,55,17,21,38,0.69,14,30,/player/17765/nick-johnson,1,Nick Johnson,RW,2014-2015,shl,17765,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Ryno (C),Leksands IF,49,14,24,38,0.78,36,-20,/player/4120/johan-ryno,1,Johan Ryno,C,2014-2015,shl,4120,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Heed (D),Skellefteå AIK,50,10,27,37,0.74,10,16,/player/10065/tim-heed,1,Tim Heed,D,2014-2015,shl,10065,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomi Sallinen (C/W),Leksands IF,54,19,17,36,0.67,4,-13,/player/11384/tomi-sallinen,1,Tomi Sallinen,C/W,2014-2015,shl,11384,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tuomas Kiiskinen (LW),Växjö Lakers HC,46,17,19,36,0.78,8,27,/player/7505/tuomas-kiiskinen,1,Tuomas Kiiskinen,LW,2014-2015,shl,7505,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mattias Janmark (C/W),Frölunda HC,55,13,23,36,0.65,30,9,/player/16629/mattias-janmark,1,Mattias Janmark,C/W,2014-2015,shl,16629,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mattias Ritola (LW/RW),totals,52,12,24,36,0.69,30,-8,/player/2050/mattias-ritola,1,Mattias Ritola,LW/RW,2014-2015,shl,2050,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas Johnsson (LW/RW),Frölunda HC,55,22,13,35,0.64,34,5,/player/43991/andreas-johnsson,1,Andreas Johnsson,LW/RW,2014-2015,shl,43991,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Per Åslund (LW/RW),Färjestad BK,52,16,19,35,0.67,18,13,/player/3885/per-aslund,1,Per Åslund,LW/RW,2014-2015,shl,3885,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Calof (RW),Skellefteå AIK,53,16,19,35,0.66,18,17,/player/40211/andrew-calof,1,Andrew Calof,RW,2014-2015,shl,40211,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Forssell (C),Skellefteå AIK,52,15,20,35,0.67,10,14,/player/969/erik-forssell,1,Erik Forssell,C,2014-2015,shl,969,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Zackrisson (C/RW),Skellefteå AIK,52,10,25,35,0.67,20,14,/player/2020/patrik-zackrisson,1,Patrik Zackrisson,C/RW,2014-2015,shl,2020,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Hultström (D),totals,53,10,23,33,0.62,20,-11,/player/15878/linus-hultstrom,1,Linus Hultström,D,2014-2015,shl,15878,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Sörensen (W),Djurgårdens IF,50,17,15,32,0.64,30,-3,/player/20065/marcus-sorensen,1,Marcus Sörensen,W,2014-2015,shl,20065,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Liam Reddox (LW),Växjö Lakers HC,55,21,10,31,0.56,6,10,/player/9496/liam-reddox,1,Liam Reddox,LW,2014-2015,shl,9496,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Figren (RW),Frölunda HC,49,16,15,31,0.63,26,16,/player/3636/robin-figren,1,Robin Figren,RW,2014-2015,shl,3636,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonas Junland (D),Linköping HC,55,9,22,31,0.56,32,15,/player/3442/jonas-junland,1,Jonas Junland,D,2014-2015,shl,3442,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Calle Ridderwall (LW/RW),HV71,54,17,13,30,0.56,22,-2,/player/4554/calle-ridderwall,1,Calle Ridderwall,LW/RW,2014-2015,shl,4554,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ted Brithén (C),HV71,44,15,15,30,0.68,10,6,/player/13351/ted-brithen,1,Ted Brithén,C,2014-2015,shl,13351,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Abbott (C),Luleå HF,52,13,17,30,0.58,50,3,/player/12869/chris-abbott,1,Chris Abbott,C,2014-2015,shl,12869,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Viksten (RW),Örebro HK,43,14,15,29,0.67,4,8,/player/7219/daniel-viksten,1,Daniel Viksten,RW,2014-2015,shl,7219,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Kabanov (RW/LW),Skellefteå AIK,43,11,18,29,0.67,20,20,/player/19427/kirill-kabanov,1,Kirill Kabanov,RW/LW,2014-2015,shl,19427,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kristian Näkyvä (D),Luleå HF,55,10,19,29,0.53,42,5,/player/16649/kristian-nakyva,1,Kristian Näkyvä,D,2014-2015,shl,16649,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Gustafsson (D),Frölunda HC,55,4,25,29,0.53,22,2,/player/15372/erik-gustafsson,1,Erik Gustafsson,D,2014-2015,shl,15372,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Görtz (RW/LW),Frölunda HC,53,14,14,28,0.53,6,8,/player/27258/max-gortz,1,Max Görtz,RW/LW,2014-2015,shl,27258,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cam Abbott (LW),Luleå HF,50,11,17,28,0.56,42,1,/player/12059/cam-abbott,1,Cam Abbott,LW,2014-2015,shl,12059,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Welch (D),Växjö Lakers HC,52,5,23,28,0.54,100,19,/player/10323/noah-welch,1,Noah Welch,D,2014-2015,shl,10323,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Toni Rajala (LW/RW),Färjestad BK,31,14,13,27,0.87,12,5,/player/16035/toni-rajala,1,Toni Rajala,LW/RW,2014-2015,shl,16035,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Viitaluoma (C),Örebro HK,55,10,17,27,0.49,22,5,/player/7583/ville-viitaluoma,1,Ville Viitaluoma,C,2014-2015,shl,7583,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Zaar (RW/LW),Luleå HF,55,9,18,27,0.49,18,-4,/player/39009/daniel-zaar,1,Daniel Zaar,RW/LW,2014-2015,shl,39009,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Ljungh (C),Djurgårdens IF,54,8,19,27,0.50,12,-1,/player/13329/markus-ljungh,1,Markus Ljungh,C,2014-2015,shl,13329,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janne Pesonen (LW),Skellefteå AIK,20,16,10,26,1.30,14,4,/player/4285/janne-pesonen,1,Janne Pesonen,LW,2014-2015,shl,4285,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pär Lindholm (C),Skellefteå AIK,54,14,12,26,0.48,55,14,/player/13091/par-lindholm,1,Pär Lindholm,C,2014-2015,shl,13091,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikael Samuelsson (RW),Djurgårdens IF,37,13,13,26,0.70,34,-3,/player/736/mikael-samuelsson,1,Mikael Samuelsson,RW,2014-2015,shl,736,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mattias Sjögren (C),Linköping HC,43,9,17,26,0.60,30,4,/player/4040/mattias-sjogren,1,Mattias Sjögren,C,2014-2015,shl,4040,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Per-Åge Skrøder (LW),MoDo Hockey,51,14,11,25,0.49,49,-4,/player/140/per-age-skroder,1,Per-Åge Skrøder,LW,2014-2015,shl,140,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomi Kallio (RW),Växjö Lakers HC,51,8,17,25,0.49,16,4,/player/2092/tomi-kallio,1,Tomi Kallio,RW,2014-2015,shl,2092,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joakim Eriksson (C),Djurgårdens IF,53,7,18,25,0.47,32,-19,/player/76/joakim-eriksson,1,Joakim Eriksson,C,2014-2015,shl,76,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Vrána (LW/RW),Linköping HC,44,12,12,24,0.55,12,3,/player/101250/jakub-vrana,1,Jakub Vrána,LW/RW,2014-2015,shl,101250,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teemu Laine (LW),HV71,50,11,13,24,0.48,94,-5,/player/3183/teemu-laine,1,Teemu Laine,LW,2014-2015,shl,3183,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Fälth (D),Frölunda HC,50,8,16,24,0.48,32,11,/player/1040/elias-falth,1,Elias Fälth,D,2014-2015,shl,1040,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jared Aulin (C/RW),Örebro HK,47,7,17,24,0.51,6,2,/player/9521/jared-aulin,1,Jared Aulin,C/RW,2014-2015,shl,9521,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mattias Karlsson (D),HV71,54,3,21,24,0.44,14,14,/player/618/mattias-karlsson,1,Mattias Karlsson,D,2014-2015,shl,618,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nichlas Hardt (LW/RW),Linköping HC,47,8,15,23,0.49,18,10,/player/15201/nichlas-hardt,1,Nichlas Hardt,LW/RW,2014-2015,shl,15201,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Weinstock (LW),Örebro HK,55,8,15,23,0.42,20,5,/player/620/marcus-weinstock,1,Marcus Weinstock,LW,2014-2015,shl,620,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anssi Salmela (D),Färjestad BK,42,6,17,23,0.55,28,4,/player/7556/anssi-salmela,1,Anssi Salmela,D,2014-2015,shl,7556,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Toni Kähkönen (LW/RW),Leksands IF,47,6,17,23,0.49,4,-7,/player/10160/toni-kahkonen,1,Toni Kähkönen,LW/RW,2014-2015,shl,10160,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jens Bergenström (LW),Leksands IF,53,15,7,22,0.42,10,-18,/player/876/jens-bergenstrom,1,Jens Bergenström,LW,2014-2015,shl,876,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Önerud (LW/RW),MoDo Hockey,54,15,7,22,0.41,8,-8,/player/4513/simon-onerud,1,Simon Önerud,LW/RW,2014-2015,shl,4513,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Lundh (C/W),Växjö Lakers HC,53,9,13,22,0.42,26,7,/player/3697/patrik-lundh,1,Patrik Lundh,C/W,2014-2015,shl,3697,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Pettersson (C),Skellefteå AIK,53,8,14,22,0.42,18,13,/player/10712/adam-pettersson,1,Adam Pettersson,C,2014-2015,shl,10712,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonas Nordqvist (C),Brynäs IF,53,6,16,22,0.42,8,-9,/player/354/jonas-nordqvist,1,Jonas Nordqvist,C,2014-2015,shl,354,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joakim Hillding (C),Färjestad BK,44,5,17,22,0.50,18,-2,/player/4475/joakim-hillding,1,Joakim Hillding,C,2014-2015,shl,4475,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niclas Andersén (D),Brynäs IF,54,5,17,22,0.41,32,4,/player/3724/niclas-andersen,1,Niclas Andersén,D,2014-2015,shl,3724,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Lundqvist (C),Frölunda HC,55,5,17,22,0.40,18,-10,/player/305/joel-lundqvist,1,Joel Lundqvist,C,2014-2015,shl,305,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Campoli (D),HV71,52,4,18,22,0.42,59,-11,/player/9106/chris-campoli,1,Chris Campoli,D,2014-2015,shl,9106,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Lehtonen (RW),totals,44,10,11,21,0.48,14,-3,/player/5877/mikko-lehtonen,1,Mikko Lehtonen,RW,2014-2015,shl,5877,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gustav Possler (LW/RW),MoDo Hockey,47,9,12,21,0.45,8,0,/player/26019/gustav-possler,1,Gustav Possler,LW/RW,2014-2015,shl,26019,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian Willsie (RW),Örebro HK,55,9,12,21,0.38,16,-4,/player/8768/brian-willsie,1,Brian Willsie,RW,2014-2015,shl,8768,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+János Hári (LW/C),MoDo Hockey,53,6,15,21,0.40,20,1,/player/14416/janos-hari,1,János Hári,LW/C,2014-2015,shl,14416,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marko Anttila (RW/LW),Örebro HK,52,14,6,20,0.38,16,1,/player/4283/marko-anttila,1,Marko Anttila,RW/LW,2014-2015,shl,4283,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Axel Holmström (C),Skellefteå AIK,44,10,10,20,0.45,4,6,/player/86320/axel-holmstrom,1,Axel Holmström,C,2014-2015,shl,86320,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Per Ledin (LW/RW),Luleå HF,41,9,11,20,0.49,34,7,/player/186/per-ledin,1,Per Ledin,LW/RW,2014-2015,shl,186,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Nylander (W/C),MoDo Hockey,21,8,12,20,0.95,6,3,/player/38703/william-nylander,1,William Nylander,W/C,2014-2015,shl,38703,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Persson (C),Färjestad BK,50,8,12,20,0.40,10,-11,/player/686/linus-persson,1,Linus Persson,C,2014-2015,shl,686,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rob Schremp (C),Skellefteå AIK,42,6,14,20,0.48,16,-4,/player/8876/rob-schremp,1,Rob Schremp,C,2014-2015,shl,8876,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikael Wikstrand (D),Frölunda HC,46,5,15,20,0.43,10,3,/player/28992/mikael-wikstrand,1,Mikael Wikstrand,D,2014-2015,shl,28992,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jani Lajunen (C),Växjö Lakers HC,48,5,15,20,0.42,35,11,/player/15653/jani-lajunen,1,Jani Lajunen,C,2014-2015,shl,15653,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Blomqvist (C/RW),Brynäs IF,55,4,16,20,0.36,16,-12,/player/1304/jacob-blomqvist,1,Jacob Blomqvist,C/RW,2014-2015,shl,1304,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Bengtsson (C),HV71,52,13,6,19,0.37,4,4,/player/16796/anton-bengtsson,1,Anton Bengtsson,C,2014-2015,shl,16796,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mattias Tedenby (LW),HV71,53,10,9,19,0.36,32,-3,/player/6013/mattias-tedenby,1,Mattias Tedenby,LW,2014-2015,shl,6013,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskar Sundqvist (C/RW),Skellefteå AIK,41,9,10,19,0.46,34,15,/player/41621/oskar-sundqvist,1,Oskar Sundqvist,C/RW,2014-2015,shl,41621,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Brodin (RW),Brynäs IF,54,7,12,19,0.35,61,-5,/player/10051/daniel-brodin,1,Daniel Brodin,RW,2014-2015,shl,10051,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jere Karalahti (D),HV71,30,6,13,19,0.63,57,-9,/player/3317/jere-karalahti,1,Jere Karalahti,D,2014-2015,shl,3317,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Cehlárik (LW),Luleå HF,46,6,13,19,0.41,6,1,/player/153203/peter-cehlarik,1,Peter Cehlárik,LW,2014-2015,shl,153203,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Högström (D),Djurgårdens IF,53,6,13,19,0.36,30,-8,/player/6403/marcus-hogstrom,1,Marcus Högström,D,2014-2015,shl,6403,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Fogström (C),Luleå HF,53,5,14,19,0.36,26,6,/player/5878/niklas-fogstrom,1,Niklas Fogström,C,2014-2015,shl,5878,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anders Eriksson (C/RW),Örebro HK,55,12,6,18,0.33,53,0,/player/2458/anders-eriksson,1,Anders Eriksson,C/RW,2014-2015,shl,2458,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Forsberg (RW),Luleå HF,51,11,7,18,0.35,33,7,/player/4328/johan-forsberg,1,Johan Forsberg,RW,2014-2015,shl,4328,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Olofsson (LW/RW),MoDo Hockey,39,10,8,18,0.46,4,-1,/player/86308/victor-olofsson,1,Victor Olofsson,LW/RW,2014-2015,shl,86308,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fabian Brunnström (RW),Leksands IF,38,8,10,18,0.47,16,-2,/player/6659/fabian-brunnstrom,1,Fabian Brunnström,RW,2014-2015,shl,6659,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Brodecki (RW/LW),Brynäs IF,47,8,10,18,0.38,10,-4,/player/38747/adam-brodecki,1,Adam Brodecki,RW/LW,2014-2015,shl,38747,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Carlsson (LW/C),HV71,51,8,10,18,0.35,12,-8,/player/3681/patrik-carlsson,1,Patrik Carlsson,LW/C,2014-2015,shl,3681,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Nordgren (RW),MoDo Hockey,51,8,10,18,0.35,18,-2,/player/281/niklas-nordgren,1,Niklas Nordgren,RW,2014-2015,shl,281,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henrik Löwdahl (C),Örebro HK,46,7,11,18,0.39,22,7,/player/810/henrik-lowdahl,1,Henrik Löwdahl,C,2014-2015,shl,810,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Wallace (C/RW),totals,52,7,11,18,0.35,22,-9,/player/9409/tim-wallace,1,Tim Wallace,C/RW,2014-2015,shl,9409,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joonas Nättinen (C),MoDo Hockey,55,7,11,18,0.33,38,-12,/player/16043/joonas-nattinen,1,Joonas Nättinen,C,2014-2015,shl,16043,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rhett Rakhshani (RW),Växjö Lakers HC,51,6,12,18,0.35,37,7,/player/9315/rhett-rakhshani,2,Rhett Rakhshani,RW,2014-2015,shl,9315,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Sandberg (C/RW),HV71,55,6,12,18,0.33,8,4,/player/33931/filip-sandberg,2,Filip Sandberg,C/RW,2014-2015,shl,33931,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Björn Melin (RW/LW),HV71,42,5,13,18,0.43,14,-13,/player/135/bjorn-melin,2,Björn Melin,RW/LW,2014-2015,shl,135,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Wallmark (C),Luleå HF,50,5,13,18,0.36,14,-8,/player/39022/lucas-wallmark,2,Lucas Wallmark,C,2014-2015,shl,39022,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niclas Burström (D),Skellefteå AIK,54,4,14,18,0.33,18,17,/player/7281/niclas-burstrom,2,Niclas Burström,D,2014-2015,shl,7281,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Djoos (D),Brynäs IF,50,5,12,17,0.34,22,-10,/player/33201/christian-djoos,2,Christian Djoos,D,2014-2015,shl,33201,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adrian Kempe (W/C),MoDo Hockey,50,5,12,17,0.34,42,-8,/player/86313/adrian-kempe,2,Adrian Kempe,W/C,2014-2015,shl,86313,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mattias Bäckman (D),Linköping HC,25,4,13,17,0.68,4,0,/player/12949/mattias-backman,2,Mattias Bäckman,D,2014-2015,shl,12949,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Sevc (D),Skellefteå AIK,49,4,13,17,0.35,82,17,/player/7299/martin-sevc,2,Martin Sevc,D,2014-2015,shl,7299,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Sandström (D),Luleå HF,50,4,13,17,0.34,22,-4,/player/175/jan-sandstrom,2,Jan Sandström,D,2014-2015,shl,175,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kent McDonell (RW),Linköping HC,54,3,14,17,0.31,40,0,/player/8745/kent-mcdonell,2,Kent McDonell,RW,2014-2015,shl,8745,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mattias Guter (RW),totals,41,10,6,16,0.39,6,-11,/player/4356/mattias-guter,2,Mattias Guter,RW,2014-2015,shl,4356,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Widing (RW),Skellefteå AIK,53,9,7,16,0.30,20,-3,/player/355/daniel-widing,2,Daniel Widing,RW,2014-2015,shl,355,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artturi Lehkonen (LW/RW),Frölunda HC,47,8,8,16,0.34,12,18,/player/43584/artturi-lehkonen,2,Artturi Lehkonen,LW/RW,2014-2015,shl,43584,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Hedman (LW/RW),Färjestad BK,52,5,11,16,0.31,58,-5,/player/3841/anton-hedman,2,Anton Hedman,LW/RW,2014-2015,shl,3841,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskar Lindblom (LW),Brynäs IF,37,8,7,15,0.41,16,2,/player/86181/oskar-lindblom,2,Oskar Lindblom,LW,2014-2015,shl,86181,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Lundberg (W/C),Skellefteå AIK,49,8,7,15,0.31,22,17,/player/7074/martin-lundberg,2,Martin Lundberg,W/C,2014-2015,shl,7074,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henrik Eriksson (LW),Djurgårdens IF,55,8,7,15,0.27,12,-8,/player/7052/henrik-eriksson,2,Henrik Eriksson,LW,2014-2015,shl,7052,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mats Rosseli-Olsen (LW),Frölunda HC,40,7,8,15,0.38,35,2,/player/18116/mats-rosseli-olsen,2,Mats Rosseli-Olsen,LW,2014-2015,shl,18116,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Johansson (LW/RW),Växjö Lakers HC,51,7,8,15,0.29,61,0,/player/7697/alexander-johansson,2,Alexander Johansson,LW/RW,2014-2015,shl,7697,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Granström (C),Luleå HF,54,7,8,15,0.28,84,-6,/player/2406/jonathan-granstrom,2,Jonathan Granström,C,2014-2015,shl,2406,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Flanagan (C),MoDo Hockey,38,4,11,15,0.39,22,0,/player/18956/kyle-flanagan,2,Kyle Flanagan,C,2014-2015,shl,18956,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Magnus Johansson (D),Linköping HC,48,4,11,15,0.31,10,0,/player/292/magnus-johansson,2,Magnus Johansson,D,2014-2015,shl,292,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonas Almtorp (C),Linköping HC,51,3,12,15,0.29,24,-7,/player/524/jonas-almtorp,2,Jonas Almtorp,C,2014-2015,shl,524,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rickard Wallin (C),Färjestad BK,55,2,13,15,0.27,52,2,/player/114/rickard-wallin,2,Rickard Wallin,C,2014-2015,shl,114,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joakim Nygård (LW),Färjestad BK,44,9,5,14,0.32,10,-7,/player/25858/joakim-nygard,2,Joakim Nygård,LW,2014-2015,shl,25858,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steve Saviano (LW),Djurgårdens IF,53,7,7,14,0.26,6,1,/player/8467/steve-saviano,2,Steve Saviano,LW,2014-2015,shl,8467,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Lasch (RW),Frölunda HC,12,6,8,14,1.17,2,5,/player/12382/ryan-lasch,2,Ryan Lasch,RW,2014-2015,shl,12382,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Åslin (LW/C),totals,47,6,8,14,0.30,14,-8,/player/6555/david-aslin,2,David Åslin,LW/C,2014-2015,shl,6555,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Fiala (W/C),HV71,20,5,9,14,0.70,14,-3,/player/87971/kevin-fiala,2,Kevin Fiala,W/C,2014-2015,shl,87971,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicklas Lasu (C),Frölunda HC,55,5,9,14,0.25,34,2,/player/5016/nicklas-lasu,2,Nicklas Lasu,C,2014-2015,shl,5016,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Albin Carlson (D),MoDo Hockey,37,4,10,14,0.38,8,-6,/player/33367/albin-carlson,2,Albin Carlson,D,2014-2015,shl,33367,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Påhlsson (C),MoDo Hockey,53,4,10,14,0.26,28,-4,/player/732/samuel-pahlsson,2,Samuel Påhlsson,C,2014-2015,shl,732,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Gartner (D),Leksands IF,52,2,12,14,0.27,12,2,/player/4508/robin-gartner,2,Robin Gartner,D,2014-2015,shl,4508,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Rahimi (D),Linköping HC,54,2,12,14,0.26,38,18,/player/3856/daniel-rahimi,2,Daniel Rahimi,D,2014-2015,shl,3856,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Fagerudd (D),Luleå HF,46,1,13,14,0.30,8,-3,/player/40607/marcus-fagerudd,2,Marcus Fagerudd,D,2014-2015,shl,40607,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niclas Lundgren (D),Växjö Lakers HC,55,1,13,14,0.25,8,23,/player/5661/niclas-lundgren,2,Niclas Lundgren,D,2014-2015,shl,5661,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riley Holzapfel (C),HV71,49,7,6,13,0.27,14,1,/player/11059/riley-holzapfel,2,Riley Holzapfel,C,2014-2015,shl,11059,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas Jämtin (LW/RW),HV71,50,7,6,13,0.26,64,-8,/player/30/andreas-jamtin,2,Andreas Jämtin,LW/RW,2014-2015,shl,30,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pathrik Westerholm (C),Brynäs IF,54,7,6,13,0.24,22,-10,/player/13146/pathrik-westerholm,2,Pathrik Westerholm,C,2014-2015,shl,13146,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Enterfeldt (C),Brynäs IF,23,6,7,13,0.57,6,0,/player/3757/sebastian-enterfeldt,2,Sebastian Enterfeldt,C,2014-2015,shl,3757,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Lauritzen (C/LW),Djurgårdens IF,27,6,7,13,0.48,8,-1,/player/681/sebastian-lauritzen,2,Sebastian Lauritzen,C/LW,2014-2015,shl,681,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Røymark (LW/RW),Färjestad BK,55,6,7,13,0.24,12,1,/player/17055/martin-roymark,2,Martin Røymark,LW/RW,2014-2015,shl,17055,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Hennessy (C),Växjö Lakers HC,20,5,8,13,0.65,12,10,/player/10420/josh-hennessy,2,Josh Hennessy,C,2014-2015,shl,10420,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christoffer Törngren (LW/RW),HV71,41,5,8,13,0.32,10,6,/player/37025/christoffer-torngren,2,Christoffer Törngren,LW/RW,2014-2015,shl,37025,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kalle Olsson (LW),Örebro HK,43,5,8,13,0.30,8,11,/player/685/kalle-olsson,2,Kalle Olsson,LW,2014-2015,shl,685,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Norman (C/W),Skellefteå AIK,47,5,8,13,0.28,16,6,/player/7782/john-norman,2,John Norman,C/W,2014-2015,shl,7782,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shawn Lalonde (D),Färjestad BK,50,5,8,13,0.26,84,-5,/player/11246/shawn-lalonde,2,Shawn Lalonde,D,2014-2015,shl,11246,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikael Ahlén (RW),Djurgårdens IF,54,5,8,13,0.24,65,-12,/player/3693/mikael-ahlen,2,Mikael Ahlén,RW,2014-2015,shl,3693,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Motin (D),Örebro HK,51,4,9,13,0.25,51,17,/player/6953/johan-motin,2,Johan Motin,D,2014-2015,shl,6953,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Kapstad (D),Leksands IF,47,3,10,13,0.28,26,-22,/player/38124/kevin-kapstad,2,Kevin Kapstad,D,2014-2015,shl,38124,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dean Kukan (D),Luleå HF,52,3,10,13,0.25,14,2,/player/66177/dean-kukan,2,Dean Kukan,D,2014-2015,shl,66177,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Travis Roche (D),MoDo Hockey,37,2,11,13,0.35,30,-11,/player/10399/travis-roche,2,Travis Roche,D,2014-2015,shl,10399,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Nordlund (D),Djurgårdens IF,45,2,11,13,0.29,26,2,/player/7554/markus-nordlund,2,Markus Nordlund,D,2014-2015,shl,7554,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Ekbom (D),Örebro HK,55,1,12,13,0.24,30,17,/player/4996/viktor-ekbom,2,Viktor Ekbom,D,2014-2015,shl,4996,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Krejčík (D),Örebro HK,50,0,13,13,0.26,10,-11,/player/98156/jakub-krejcik,2,Jakub Krejčík,D,2014-2015,shl,98156,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Harju (LW),Luleå HF,14,7,5,12,0.86,4,0,/player/2349/johan-harju,2,Johan Harju,LW,2014-2015,shl,2349,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Karlsson (C),Linköping HC,49,6,6,12,0.24,18,-4,/player/1282/sebastian-karlsson,2,Sebastian Karlsson,C,2014-2015,shl,1282,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian Connelly (D),Leksands IF,48,2,10,12,0.25,10,-11,/player/33220/brian-connelly,2,Brian Connelly,D,2014-2015,shl,33220,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Klepis (C/RW),Färjestad BK,21,6,5,11,0.52,18,0,/player/9609/jakub-klepis,2,Jakub Klepis,C/RW,2014-2015,shl,9609,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fredric Andersson (C),Linköping HC,55,5,6,11,0.20,16,3,/player/5658/fredric-andersson,2,Fredric Andersson,C,2014-2015,shl,5658,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Rundqvist (C),Djurgårdens IF,42,4,7,11,0.26,4,0,/player/26483/david-rundqvist,2,David Rundqvist,C,2014-2015,shl,26483,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Skogs (D),Örebro HK,43,4,7,11,0.26,26,7,/player/598/tomas-skogs,2,Tomas Skogs,D,2014-2015,shl,598,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luciano Aquino (C/W),Färjestad BK,24,3,8,11,0.46,4,-4,/player/15595/luciano-aquino,2,Luciano Aquino,C/W,2014-2015,shl,15595,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonas Ahnelöv (D),MoDo Hockey,37,3,8,11,0.30,12,5,/player/3790/jonas-ahnelov,2,Jonas Ahnelöv,D,2014-2015,shl,3790,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lawrence Pilut (D),HV71,48,3,8,11,0.23,10,12,/player/84938/lawrence-pilut,2,Lawrence Pilut,D,2014-2015,shl,84938,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Andersson (D),Skellefteå AIK,50,3,8,11,0.22,16,18,/player/973/erik-andersson,2,Erik Andersson,D,2014-2015,shl,973,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christoffer Persson (D),Frölunda HC,51,3,8,11,0.22,52,4,/player/1708/christoffer-persson,2,Christoffer Persson,D,2014-2015,shl,1708,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Damien Fleury (RW/LW),Djurgårdens IF,16,6,4,10,0.63,4,-11,/player/24848/damien-fleury,2,Damien Fleury,RW/LW,2014-2015,shl,24848,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Veli-Matti Savinainen (W/C),Leksands IF,24,5,5,10,0.42,12,-4,/player/10920/veli-matti-savinainen,2,Veli-Matti Savinainen,W/C,2014-2015,shl,10920,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Alvarez (LW),Djurgårdens IF,42,5,5,10,0.24,14,-12,/player/5599/robin-alvarez,2,Robin Alvarez,LW,2014-2015,shl,5599,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Adolfsson (LW/RW),Örebro HK,45,5,5,10,0.22,8,3,/player/4098/johan-adolfsson,2,Johan Adolfsson,LW/RW,2014-2015,shl,4098,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lennart Petrell (LW/RW),Luleå HF,50,5,5,10,0.20,16,-5,/player/4279/lennart-petrell,2,Lennart Petrell,LW/RW,2014-2015,shl,4279,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Sylvegård (LW/RW),Luleå HF,47,4,6,10,0.21,45,2,/player/10450/emil-sylvegard,2,Emil Sylvegård,LW/RW,2014-2015,shl,10450,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ponthus Westerholm (RW),Brynäs IF,53,3,7,10,0.19,20,-10,/player/13147/ponthus-westerholm,2,Ponthus Westerholm,RW,2014-2015,shl,13147,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Erixon (D),Växjö Lakers HC,40,0,10,10,0.25,8,9,/player/5546/sebastian-erixon,2,Sebastian Erixon,D,2014-2015,shl,5546,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeff Tambellini (LW/RW),Växjö Lakers HC,20,6,3,9,0.45,2,4,/player/9509/jeff-tambellini,2,Jeff Tambellini,LW/RW,2014-2015,shl,9509,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Fällström (RW),Djurgårdens IF,22,6,3,9,0.41,10,1,/player/7054/alexander-fallstrom,2,Alexander Fällström,RW,2014-2015,shl,7054,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johannes Salmonsson (LW/RW),Linköping HC,46,5,4,9,0.20,28,-3,/player/1269/johannes-salmonsson,2,Johannes Salmonsson,LW/RW,2014-2015,shl,1269,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radek Smolenak (LW/RW),MoDo Hockey,23,4,5,9,0.39,12,-12,/player/9622/radek-smolenak,2,Radek Smolenak,LW/RW,2014-2015,shl,9622,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Djuse (D),totals,38,4,5,9,0.24,12,-3,/player/20013/emil-djuse,2,Emil Djuse,D,2014-2015,shl,20013,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar von Sivers (D),Brynäs IF,52,4,5,9,0.17,16,-10,/player/4353/oscar-von-sivers,2,Oscar von Sivers,D,2014-2015,shl,4353,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Sigalet (D),Luleå HF,19,3,6,9,0.47,18,0,/player/9485/jonathan-sigalet,2,Jonathan Sigalet,D,2014-2015,shl,9485,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Holmqvist (C),Djurgårdens IF,43,3,6,9,0.21,14,-7,/player/754/michael-holmqvist,2,Michael Holmqvist,C,2014-2015,shl,754,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nichlas Torp (D),MoDo Hockey,44,3,6,9,0.20,74,-6,/player/4509/nichlas-torp,2,Nichlas Torp,D,2014-2015,shl,4509,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Norell (D),Djurgårdens IF,48,3,6,9,0.19,12,-11,/player/38721/robin-norell,2,Robin Norell,D,2014-2015,shl,38721,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karl Fabricius (LW),Luleå HF,54,3,6,9,0.17,4,3,/player/182/karl-fabricius,2,Karl Fabricius,LW,2014-2015,shl,182,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teemu Laakso (D),Växjö Lakers HC,40,2,7,9,0.23,22,8,/player/4417/teemu-laakso,2,Teemu Laakso,D,2014-2015,shl,4417,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Fantenberg (D),Frölunda HC,50,2,7,9,0.18,38,8,/player/13743/oscar-fantenberg,2,Oscar Fantenberg,D,2014-2015,shl,13743,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philip Holm (D),Djurgårdens IF,51,2,7,9,0.18,20,-6,/player/11070/philip-holm,2,Philip Holm,D,2014-2015,shl,11070,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Aho (D),Skellefteå AIK,41,1,8,9,0.22,14,10,/player/67208/sebastian-aho,2,Sebastian Aho,D,2014-2015,shl,67208,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Gunnarsson (D),Färjestad BK,53,1,8,9,0.17,26,-4,/player/13319/daniel-gunnarsson,2,Daniel Gunnarsson,D,2014-2015,shl,13319,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Nilson (W/C),totals,29,4,4,8,0.28,22,-5,/player/728/marcus-nilson,2,Marcus Nilson,W/C,2014-2015,shl,728,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicklas Heinerö (RW),Djurgårdens IF,43,3,5,8,0.19,2,-5,/player/17104/nicklas-heinero,2,Nicklas Heinerö,RW,2014-2015,shl,17104,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Sundh (LW/RW),Linköping HC,53,3,5,8,0.15,10,-7,/player/1297/oscar-sundh,2,Oscar Sundh,LW/RW,2014-2015,shl,1297,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fredrik Lindgren (D),Skellefteå AIK,46,1,7,8,0.17,40,12,/player/881/fredrik-lindgren,2,Fredrik Lindgren,D,2014-2015,shl,881,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Malte Strömwall (RW),totals,47,6,1,7,0.15,47,1,/player/33935/malte-stromwall,2,Malte Strömwall,RW,2014-2015,shl,33935,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joachim Rohdin (RW),Färjestad BK,50,5,2,7,0.14,16,2,/player/10515/joachim-rohdin,2,Joachim Rohdin,RW,2014-2015,shl,10515,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chad Kolarik (RW),Linköping HC,11,4,3,7,0.64,4,-2,/player/9432/chad-kolarik,2,Chad Kolarik,RW,2014-2015,shl,9432,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Bäckman (D),Frölunda HC,33,4,3,7,0.21,16,3,/player/290/christian-backman,2,Christian Bäckman,D,2014-2015,shl,290,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Himelfarb (C),Leksands IF,21,3,4,7,0.33,8,-20,/player/11761/eric-himelfarb,3,Eric Himelfarb,C,2014-2015,shl,11761,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Bohm (D),Frölunda HC,46,3,4,7,0.15,24,0,/player/16726/oliver-bohm,3,Oliver Bohm,D,2014-2015,shl,16726,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Wiklander (LW/RW),Örebro HK,48,3,4,7,0.15,16,2,/player/1039/johan-wiklander,3,Johan Wiklander,LW/RW,2014-2015,shl,1039,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joonas Lehtivuori (D),MoDo Hockey,52,3,4,7,0.13,40,-6,/player/7452/joonas-lehtivuori,3,Joonas Lehtivuori,D,2014-2015,shl,7452,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Josefsson (C),Växjö Lakers HC,55,3,4,7,0.13,18,-7,/player/5750/erik-josefsson,3,Erik Josefsson,C,2014-2015,shl,5750,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juha-Pekka Haataja (RW),MoDo Hockey,16,2,5,7,0.44,6,-3,/player/7530/juha-pekka-haataja,3,Juha-Pekka Haataja,RW,2014-2015,shl,7530,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vyacheslav Trukhno (C/LW),Djurgårdens IF,25,2,5,7,0.28,12,4,/player/4126/vyacheslav-trukhno,3,Vyacheslav Trukhno,C/LW,2014-2015,shl,4126,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pontus Petterström (W/C),Skellefteå AIK,37,2,5,7,0.19,6,6,/player/936/pontus-petterstrom,3,Pontus Petterström,W/C,2014-2015,shl,936,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Per Savilahti Nagander (D),Luleå HF,49,2,5,7,0.14,55,13,/player/1702/per-savilahti-nagander,3,Per Savilahti Nagander,D,2014-2015,shl,1702,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bobbo Petersson (D),Örebro HK,51,2,5,7,0.14,20,-1,/player/13136/bobbo-petersson,3,Bobbo Petersson,D,2014-2015,shl,13136,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Varakas (D),Växjö Lakers HC,53,1,6,7,0.13,36,9,/player/7409/ville-varakas,3,Ville Varakas,D,2014-2015,shl,7409,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Hedman (D),MoDo Hockey,55,1,6,7,0.13,30,-14,/player/1950/oscar-hedman,3,Oscar Hedman,D,2014-2015,shl,1950,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Lindholm (D),Skellefteå AIK,35,0,7,7,0.20,35,12,/player/39019/anton-lindholm,3,Anton Lindholm,D,2014-2015,shl,39019,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kristofer Berglund (D),HV71,53,0,7,7,0.13,18,1,/player/3705/kristofer-berglund,3,Kristofer Berglund,D,2014-2015,shl,3705,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Eriksson Ek (C),Färjestad BK,34,4,2,6,0.18,4,0,/player/139633/joel-eriksson-ek,3,Joel Eriksson Ek,C,2014-2015,shl,139633,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcel Hossa (LW/RW),MoDo Hockey,11,3,3,6,0.55,0,-1,/player/4532/marcel-hossa,3,Marcel Hossa,LW/RW,2014-2015,shl,4532,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gustav Forsling (D),Linköping HC,38,3,3,6,0.16,8,2,/player/86366/gustav-forsling,3,Gustav Forsling,D,2014-2015,shl,86366,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carl Dahlström (D),Linköping HC,55,3,3,6,0.11,12,-2,/player/85666/carl-dahlstrom,3,Carl Dahlström,D,2014-2015,shl,85666,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Gysbers (D),Djurgårdens IF,10,2,4,6,0.60,0,-1,/player/38823/simon-gysbers,3,Simon Gysbers,D,2014-2015,shl,38823,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Josefsson (D),Leksands IF,40,2,4,6,0.15,12,-13,/player/119/daniel-josefsson,3,Daniel Josefsson,D,2014-2015,shl,119,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jens Lööke (RW),Brynäs IF,43,2,4,6,0.14,2,-4,/player/146691/jens-looke,3,Jens Lööke,RW,2014-2015,shl,146691,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joonas Jalvanti (D),Örebro HK,52,2,4,6,0.12,20,9,/player/7951/joonas-jalvanti,3,Joonas Jalvanti,D,2014-2015,shl,7951,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chad Billins (D),Luleå HF,23,1,5,6,0.26,4,-2,/player/38808/chad-billins,3,Chad Billins,D,2014-2015,shl,38808,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Kilström (D),Brynäs IF,50,0,6,6,0.12,28,-6,/player/6485/lukas-kilstrom,3,Lukas Kilström,D,2014-2015,shl,6485,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Jensen Aabo (D),Färjestad BK,50,0,6,6,0.12,43,-10,/player/16082/jesper-jensen-aabo,3,Jesper Jensen Aabo,D,2014-2015,shl,16082,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gustav Rydahl (C),Växjö Lakers HC,44,5,0,5,0.11,43,2,/player/33357/gustav-rydahl,3,Gustav Rydahl,C,2014-2015,shl,33357,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Blidh (LW/RW),Frölunda HC,48,5,0,5,0.10,26,-11,/player/67179/anton-blidh,3,Anton Blidh,LW/RW,2014-2015,shl,67179,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas Hjelm (D),Luleå HF,32,3,2,5,0.16,2,-2,/player/3690/andreas-hjelm,3,Andreas Hjelm,D,2014-2015,shl,3690,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Kylington (D),Färjestad BK,18,2,3,5,0.28,4,-2,/player/142238/oliver-kylington,3,Oliver Kylington,D,2014-2015,shl,142238,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carl Grundström (LW/RW),MoDo Hockey,24,2,3,5,0.21,8,-4,/player/113516/carl-grundstrom,3,Carl Grundström,LW/RW,2014-2015,shl,113516,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Grundel (D),Färjestad BK,40,2,3,5,0.13,12,2,/player/7237/anton-grundel,3,Anton Grundel,D,2014-2015,shl,7237,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tobias Forsberg (RW),Leksands IF,42,2,3,5,0.12,18,-19,/player/3717/tobias-forsberg,3,Tobias Forsberg,RW,2014-2015,shl,3717,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ole-Kristian Tollefsen (D),Färjestad BK,47,2,3,5,0.11,88,-2,/player/3214/ole-kristian-tollefsen,3,Ole-Kristian Tollefsen,D,2014-2015,shl,3214,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas Englund (D),Djurgårdens IF,49,2,3,5,0.10,32,-13,/player/115148/andreas-englund,3,Andreas Englund,D,2014-2015,shl,115148,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Zámorský (D),Örebro HK,10,1,4,5,0.50,8,4,/player/70391/petr-zamorsky,3,Petr Zámorský,D,2014-2015,shl,70391,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tero Koskiranta (C/LW),Färjestad BK,13,1,4,5,0.38,4,1,/player/8064/tero-koskiranta,3,Tero Koskiranta,C/LW,2014-2015,shl,8064,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Magnus Kahnberg (RW),Frölunda HC,26,1,4,5,0.19,10,-3,/player/303/magnus-kahnberg,3,Magnus Kahnberg,RW,2014-2015,shl,303,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ludwig Byström (D),Färjestad BK,38,1,4,5,0.13,18,4,/player/27493/ludwig-bystrom,3,Ludwig Byström,D,2014-2015,shl,27493,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Arell (D),Färjestad BK,43,1,4,5,0.12,16,6,/player/10048/niklas-arell,3,Niklas Arell,D,2014-2015,shl,10048,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Bertilsson (D),Brynäs IF,43,1,4,5,0.12,51,-1,/player/11173/simon-bertilsson,3,Simon Bertilsson,D,2014-2015,shl,11173,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Petrasek (D),HV71,34,0,5,5,0.15,36,-10,/player/201/david-petrasek,3,David Petrasek,D,2014-2015,shl,201,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Arnesson (D),Djurgårdens IF,41,0,5,5,0.12,28,-10,/player/33350/linus-arnesson,3,Linus Arnesson,D,2014-2015,shl,33350,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dennis Persson (D),MoDo Hockey,48,0,5,5,0.10,18,-5,/player/4568/dennis-persson,3,Dennis Persson,D,2014-2015,shl,4568,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stephen Dixon (C/LW),Luleå HF,15,2,2,4,0.27,33,-6,/player/9465/stephen-dixon,3,Stephen Dixon,C/LW,2014-2015,shl,9465,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Söderqvist (C),Växjö Lakers HC,35,2,2,4,0.11,8,-3,/player/43992/robin-soderqvist,3,Robin Söderqvist,C,2014-2015,shl,43992,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Sörensen (RW),Skellefteå AIK,14,1,3,4,0.29,4,5,/player/33472/nick-sorensen,3,Nick Sörensen,RW,2014-2015,shl,33472,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marko Kauppinen (D),MoDo Hockey,15,1,3,4,0.27,14,1,/player/3234/marko-kauppinen,3,Marko Kauppinen,D,2014-2015,shl,3234,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jon Knuts (C),Leksands IF,37,1,3,4,0.11,6,-5,/player/22034/jon-knuts,3,Jon Knuts,C,2014-2015,shl,22034,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Falk (D),Djurgårdens IF,43,1,3,4,0.09,22,-10,/player/18341/alexander-falk,3,Alexander Falk,D,2014-2015,shl,18341,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Öberg (W/C),MoDo Hockey,45,1,3,4,0.09,18,-5,/player/238/peter-oberg,3,Peter Öberg,W/C,2014-2015,shl,238,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Martinsson (D),Växjö Lakers HC,47,1,3,4,0.09,14,-6,/player/21459/eric-martinsson,3,Eric Martinsson,D,2014-2015,shl,21459,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henrik Törnqvist (RW),Linköping HC,48,1,3,4,0.08,6,0,/player/86363/henrik-tornqvist,3,Henrik Törnqvist,RW,2014-2015,shl,86363,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Grönberg (C/LW),Leksands IF,49,1,3,4,0.08,4,-12,/player/29629/martin-gronberg,3,Martin Grönberg,C/LW,2014-2015,shl,29629,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joonas Rönnberg (D),Leksands IF,55,1,3,4,0.07,32,-10,/player/7446/joonas-ronnberg,3,Joonas Rönnberg,D,2014-2015,shl,7446,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Albin Runesson (D),MoDo Hockey,25,0,4,4,0.16,4,0,/player/86306/albin-runesson,3,Albin Runesson,D,2014-2015,shl,86306,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Williamsson (D),HV71,40,0,4,4,0.10,16,-2,/player/18130/jesper-williamsson,3,Jesper Williamsson,D,2014-2015,shl,18130,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Karlsson (D),Linköping HC,50,0,4,4,0.08,28,-1,/player/29695/anton-karlsson,3,Anton Karlsson,D,2014-2015,shl,29695,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Lundberg (LW/RW),Djurgårdens IF,11,2,1,3,0.27,4,-2,/player/22202/emil-lundberg,3,Emil Lundberg,LW/RW,2014-2015,shl,22202,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Oskarsson (D),Luleå HF,27,2,1,3,0.11,6,0,/player/19832/marcus-oskarsson,3,Marcus Oskarsson,D,2014-2015,shl,19832,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Asplund (C/W),Färjestad BK,35,2,1,3,0.09,4,0,/player/139616/rasmus-asplund,3,Rasmus Asplund,C/W,2014-2015,shl,139616,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominik Granak (D),Linköping HC,16,1,2,3,0.19,8,-1,/player/11021/dominik-granak,3,Dominik Granak,D,2014-2015,shl,11021,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Larsson (D),Frölunda HC,20,1,2,3,0.15,6,4,/player/147719/jacob-larsson,3,Jacob Larsson,D,2014-2015,shl,147719,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Slovak (D),Brynäs IF,21,1,2,3,0.14,6,1,/player/8420/tomas-slovak,3,Tomas Slovak,D,2014-2015,shl,8420,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Lindgren (C),Brynäs IF,29,1,2,3,0.10,2,-4,/player/22267/alexander-lindgren,3,Alexander Lindgren,C,2014-2015,shl,22267,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Mannberg (RW),totals,34,1,2,3,0.09,2,-3,/player/10397/daniel-mannberg,3,Daniel Mannberg,RW,2014-2015,shl,10397,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eddie Larsson (D),Växjö Lakers HC,39,1,2,3,0.08,16,4,/player/13304/eddie-larsson,3,Eddie Larsson,D,2014-2015,shl,13304,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Jinesjö Karlsson (C),Frölunda HC,53,1,2,3,0.06,6,-7,/player/33395/erik-jinesjo-karlsson,3,Erik Jinesjö Karlsson,C,2014-2015,shl,33395,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fredrik Händemark (C),Leksands IF,54,1,2,3,0.06,22,-23,/player/27259/fredrik-handemark,3,Fredrik Händemark,C,2014-2015,shl,27259,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Niinimäki (C/RW),Brynäs IF,11,0,3,3,0.27,4,-4,/player/2714/jesse-niinimaki,3,Jesse Niinimäki,C/RW,2014-2015,shl,2714,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Erlandsson (D),Leksands IF,22,0,3,3,0.14,0,-12,/player/33101/simon-erlandsson,3,Simon Erlandsson,D,2014-2015,shl,33101,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lars Bryggman (LW/RW),Luleå HF,31,0,3,3,0.10,8,0,/player/17002/lars-bryggman,3,Lars Bryggman,LW/RW,2014-2015,shl,17002,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arvid Lundberg (D),Skellefteå AIK,47,0,3,3,0.06,30,-1,/player/39021/arvid-lundberg,3,Arvid Lundberg,D,2014-2015,shl,39021,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Cehlin (RW),Leksands IF,13,2,0,2,0.15,4,-5,/player/6047/patrick-cehlin,3,Patrick Cehlin,RW,2014-2015,shl,6047,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Axelsson (LW),Frölunda HC,38,2,0,2,0.05,6,-2,/player/2034/anton-axelsson,3,Anton Axelsson,LW,2014-2015,shl,2034,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pontus Widerström (C),Frölunda HC,44,2,0,2,0.05,12,-4,/player/43993/pontus-widerstrom,3,Pontus Widerström,C,2014-2015,shl,43993,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Ohlsson (LW/RW),Skellefteå AIK,10,1,1,2,0.20,0,0,/player/187813/sebastian-ohlsson,3,Sebastian Ohlsson,LW/RW,2014-2015,shl,187813,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Matheson (D),Linköping HC,11,1,1,2,0.18,4,0,/player/14423/mark-matheson,3,Mark Matheson,D,2014-2015,shl,14423,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tobias Hage (C/LW),Djurgårdens IF,16,1,1,2,0.13,2,-4,/player/13718/tobias-hage,3,Tobias Hage,C/LW,2014-2015,shl,13718,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sondre Olden (LW/RW),Brynäs IF,20,1,1,2,0.10,2,-3,/player/27945/sondre-olden,3,Sondre Olden,LW/RW,2014-2015,shl,27945,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jörgen Sundqvist (D),Brynäs IF,20,1,1,2,0.10,16,0,/player/341/jorgen-sundqvist,3,Jörgen Sundqvist,D,2014-2015,shl,341,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabriel Carlsson (D),Linköping HC,7,0,2,2,0.29,0,3,/player/187919/gabriel-carlsson,3,Gabriel Carlsson,D,2014-2015,shl,187919,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Öhman (D),Skellefteå AIK,9,0,2,2,0.22,6,2,/player/39015/anton-ohman,3,Anton Öhman,D,2014-2015,shl,39015,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Moffatt (RW),Frölunda HC,10,0,2,2,0.20,0,-4,/player/20722/luke-moffatt,3,Luke Moffatt,RW,2014-2015,shl,20722,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Karlsson (W/C),totals,15,0,2,2,0.13,2,-1,/player/88845/anton-karlsson,3,Anton Karlsson,W/C,2014-2015,shl,88845,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Ahl (LW/RW),HV71,15,0,2,2,0.13,2,-2,/player/162177/filip-ahl,3,Filip Ahl,LW/RW,2014-2015,shl,162177,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Axel Eidstedt (D),HV71,26,0,2,2,0.08,20,2,/player/67195/axel-eidstedt,3,Axel Eidstedt,D,2014-2015,shl,67195,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Russell (LW/RW),Leksands IF,32,0,2,2,0.06,8,-14,/player/11056/ryan-russell,3,Ryan Russell,LW/RW,2014-2015,shl,11056,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Ollas Mattsson (D),Djurgårdens IF,34,0,2,2,0.06,4,-8,/player/114812/adam-ollas-mattsson,3,Adam Ollas Mattsson,D,2014-2015,shl,114812,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Olofsson (RW),Färjestad BK,51,0,2,2,0.04,2,-7,/player/25919/johan-olofsson,3,Johan Olofsson,RW,2014-2015,shl,25919,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Westlund (D),Brynäs IF,53,0,2,2,0.04,8,-12,/player/67162/david-westlund,3,David Westlund,D,2014-2015,shl,67162,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Ollas (RW/C),Brynäs IF,2,1,0,1,0.50,0,1,/player/652/jesper-ollas,3,Jesper Ollas,RW/C,2014-2015,shl,652,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Pettersson (W/C),MoDo Hockey,2,1,0,1,0.50,2,-2,/player/27331/emil-pettersson,3,Emil Pettersson,W/C,2014-2015,shl,27331,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Stålberg (RW),Frölunda HC,3,1,0,1,0.33,0,-1,/player/9703/sebastian-stalberg,3,Sebastian Stålberg,RW,2014-2015,shl,9703,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Axel Ottosson (C),MoDo Hockey,11,1,0,1,0.09,2,-3,/player/438/axel-ottosson,3,Axel Ottosson,C,2014-2015,shl,438,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Ejdsell (LW/C),Färjestad BK,12,1,0,1,0.08,0,1,/player/29343/victor-ejdsell,3,Victor Ejdsell,LW/C,2014-2015,shl,29343,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Stenlund (C/RW),HV71,17,1,0,1,0.06,2,-3,/player/142262/kevin-stenlund,3,Kevin Stenlund,C/RW,2014-2015,shl,142262,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikael Johansson (C/LW),Växjö Lakers HC,22,1,0,1,0.05,4,-3,/player/46384/mikael-johansson,3,Mikael Johansson,C/LW,2014-2015,shl,46384,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christoffer Forsberg (C),Färjestad BK,32,1,0,1,0.03,6,-4,/player/40860/christoffer-forsberg,3,Christoffer Forsberg,C,2014-2015,shl,40860,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Johansson (D),Örebro HK,46,1,0,1,0.02,14,-5,/player/5513/stefan-johansson,3,Stefan Johansson,D,2014-2015,shl,5513,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Lindgren (D),MoDo Hockey,4,0,1,1,0.25,0,0,/player/187806/jesper-lindgren,3,Jesper Lindgren,D,2014-2015,shl,187806,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tom Mäkitalo (C),Leksands IF,4,0,1,1,0.25,0,0,/player/38907/tom-makitalo,4,Tom Mäkitalo,C,2014-2015,shl,38907,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carl Persson (LW/RW),HV71,4,0,1,1,0.25,0,0,/player/63012/carl-persson,4,Carl Persson,LW/RW,2014-2015,shl,63012,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Ekarv (C/LW),Luleå HF,8,0,1,1,0.13,2,-1,/player/36622/victor-ekarv,4,Victor Ekarv,C/LW,2014-2015,shl,36622,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Fernholm (D),Djurgårdens IF,10,0,1,1,0.10,12,-4,/player/67/daniel-fernholm,4,Daniel Fernholm,D,2014-2015,shl,67,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petter Hansson (D),Linköping HC,15,0,1,1,0.07,2,0,/player/111641/petter-hansson,4,Petter Hansson,D,2014-2015,shl,111641,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Carlsson (D),Brynäs IF,16,0,1,1,0.06,2,-2,/player/212334/lucas-carlsson,4,Lucas Carlsson,D,2014-2015,shl,212334,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathias Karlsson (C),Linköping HC,17,0,1,1,0.06,0,1,/player/86367/mathias-karlsson,4,Mathias Karlsson,C,2014-2015,shl,86367,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Nyberg (D),Frölunda HC,17,0,1,1,0.06,2,0,/player/146820/john-nyberg,4,John Nyberg,D,2014-2015,shl,146820,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mattias Nørstebø (D),Brynäs IF,20,0,1,1,0.05,4,-2,/player/118177/mattias-norstebo,4,Mattias Nørstebø,D,2014-2015,shl,118177,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Jaros (D),Luleå HF,25,0,1,1,0.04,6,-3,/player/166373/christian-jaros,4,Christian Jaros,D,2014-2015,shl,166373,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Öhman (C/RW),MoDo Hockey,29,0,1,1,0.03,6,-3,/player/38886/victor-ohman,4,Victor Öhman,C/RW,2014-2015,shl,38886,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Deilert (D),Djurgårdens IF,30,0,1,1,0.03,4,0,/player/5507/alexander-deilert,4,Alexander Deilert,D,2014-2015,shl,5507,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Johansson (D),HV71,35,0,1,1,0.03,12,-9,/player/79498/emil-johansson,4,Emil Johansson,D,2014-2015,shl,79498,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonas Frögren (D),Leksands IF,53,0,1,1,0.02,57,-28,/player/97/jonas-frogren,4,Jonas Frögren,D,2014-2015,shl,97,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marius Holtet (RW),Färjestad BK,0,0,0,0,-,0,0,/player/1347/marius-holtet,4,Marius Holtet,RW,2014-2015,shl,1347,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Karlsson (D),HV71,0,0,0,0,-,0,0,/player/22501/simon-karlsson,4,Simon Karlsson,D,2014-2015,shl,22501,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Enström (C/RW),Örebro HK,0,0,0,0,-,0,0,/player/3621/thomas-enstrom,4,Thomas Enström,C/RW,2014-2015,shl,3621,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Bengtsson (D),Frölunda HC,0,0,0,0,-,0,0,/player/67165/lukas-bengtsson,4,Lukas Bengtsson,D,2014-2015,shl,67165,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Lindman (D),Linköping HC,0,0,0,0,-,0,-,/player/97138/victor-lindman,4,Victor Lindman,D,2014-2015,shl,97138,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Einar Emanuelsson (RW),Luleå HF,1,0,0,0,0.00,0,-1,/player/147279/einar-emanuelsson,4,Einar Emanuelsson,RW,2014-2015,shl,147279,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kristian Jensen (LW/RW),Luleå HF,1,0,0,0,0.00,0,0,/player/101902/kristian-jensen,4,Kristian Jensen,LW/RW,2014-2015,shl,101902,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Norbe (D),HV71,1,0,0,0,0.00,0,1,/player/38719/daniel-norbe,4,Daniel Norbe,D,2014-2015,shl,38719,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Fyrpihl (LW),Örebro HK,1,0,0,0,0.00,0,0,/player/38863/rasmus-fyrpihl,4,Rasmus Fyrpihl,LW,2014-2015,shl,38863,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kim Roussakoff (D),Frölunda HC,1,0,0,0,0.00,0,0,/player/146819/kim-roussakoff,4,Kim Roussakoff,D,2014-2015,shl,146819,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakob Marshall Olsson (LW),Frölunda HC,1,0,0,0,0.00,0,0,/player/212533/jakob-marshall-olsson,4,Jakob Marshall Olsson,LW,2014-2015,shl,212533,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Nord (C/RW),Luleå HF,1,0,0,0,0.00,0,0,/player/142261/oscar-nord,4,Oscar Nord,C/RW,2014-2015,shl,142261,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Byström Johansson (RW/C),Växjö Lakers HC,1,0,0,0,0.00,0,0,/player/106455/adam-bystrom-johansson,4,Adam Byström Johansson,RW/C,2014-2015,shl,106455,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas Wingerli (LW/C),Skellefteå AIK,1,0,0,0,0.00,0,0,/player/185257/andreas-wingerli,4,Andreas Wingerli,LW/C,2014-2015,shl,185257,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nils Lagerlöf (D),Frölunda HC,1,0,0,0,0.00,0,0,/player/86068/nils-lagerlof,4,Nils Lagerlöf,D,2014-2015,shl,86068,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavol Skalický (C/RW),Örebro HK,1,0,0,0,0.00,0,-1,/player/172229/pavol-skalicky,4,Pavol Skalický,C/RW,2014-2015,shl,172229,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Thilander (D),Skellefteå AIK,1,0,0,0,0.00,0,0,/player/147733/adam-thilander,4,Adam Thilander,D,2014-2015,shl,147733,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+August Gunnarsson (RW/LW),Färjestad BK,1,0,0,0,0.00,0,0,/player/109931/august-gunnarsson,4,August Gunnarsson,RW/LW,2014-2015,shl,109931,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tobias Sjökvist (C/W),Färjestad BK,1,0,0,0,0.00,0,0,/player/89825/tobias-sjokvist,4,Tobias Sjökvist,C/W,2014-2015,shl,89825,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Ylivainio (LW/RW),Luleå HF,1,0,0,0,0.00,0,0,/player/193416/jesper-ylivainio,4,Jesper Ylivainio,LW/RW,2014-2015,shl,193416,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Blomberg (D),Linköping HC,1,0,0,0,0.00,0,0,/player/44079/anton-blomberg,4,Anton Blomberg,D,2014-2015,shl,44079,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Engsund (D),Frölunda HC,1,0,0,0,0.00,0,-1,/player/38386/oscar-engsund,4,Oscar Engsund,D,2014-2015,shl,38386,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hampus Eriksson (C/W),Brynäs IF,1,0,0,0,0.00,0,0,/player/118779/hampus-eriksson,4,Hampus Eriksson,C/W,2014-2015,shl,118779,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Larsson (RW/LW),Brynäs IF,1,0,0,0,0.00,0,0,/player/38953/oscar-larsson,4,Oscar Larsson,RW/LW,2014-2015,shl,38953,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Albin Lundin (C),Djurgårdens IF,1,0,0,0,0.00,0,-1,/player/101806/albin-lundin,4,Albin Lundin,C,2014-2015,shl,101806,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Karlsson (LW/RW),Färjestad BK,1,0,0,0,0.00,0,-1,/player/86386/martin-karlsson,4,Martin Karlsson,LW/RW,2014-2015,shl,86386,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Vopelka (C/W),Örebro HK,2,0,0,0,0.00,0,0,/player/130739/lukas-vopelka,4,Lukas Vopelka,C/W,2014-2015,shl,130739,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fabian Norberg (D),MoDo Hockey,2,0,0,0,0.00,0,-1,/player/86307/fabian-norberg,4,Fabian Norberg,D,2014-2015,shl,86307,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Mattson (D),Leksands IF,2,0,0,0,0.00,0,-1,/player/55984/jesper-mattson,4,Jesper Mattson,D,2014-2015,shl,55984,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pontus Själin (D),Leksands IF,2,0,0,0,0.00,0,0,/player/86227/pontus-sjalin,4,Pontus Själin,D,2014-2015,shl,86227,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pierre Engvall (LW/RW),Frölunda HC,2,0,0,0,0.00,0,0,/player/147720/pierre-engvall,4,Pierre Engvall,LW/RW,2014-2015,shl,147720,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Alasaari (D),Färjestad BK,2,0,0,0,0.00,0,0,/player/86125/jesper-alasaari,4,Jesper Alasaari,D,2014-2015,shl,86125,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philip Alftberg (D),Brynäs IF,2,0,0,0,0.00,0,0,/player/178012/philip-alftberg,4,Philip Alftberg,D,2014-2015,shl,178012,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kristian Jakobsson (LW/RW),MoDo Hockey,2,0,0,0,0.00,0,-2,/player/86315/kristian-jakobsson,4,Kristian Jakobsson,LW/RW,2014-2015,shl,86315,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Toolanen (C),Luleå HF,2,0,0,0,0.00,0,0,/player/212634/anton-toolanen,4,Anton Toolanen,C,2014-2015,shl,212634,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Dahlström (LW/RW),Frölunda HC,2,0,0,0,0.00,0,0,/player/212530/john-dahlstrom,4,John Dahlström,LW/RW,2014-2015,shl,212530,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kalle Hult (LW/RW),HV71,2,0,0,0,0.00,0,0,/player/61464/kalle-hult,4,Kalle Hult,LW/RW,2014-2015,shl,61464,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Bernhardt (RW/LW),Djurgårdens IF,2,0,0,0,0.00,0,-3,/player/142253/daniel-bernhardt,4,Daniel Bernhardt,RW/LW,2014-2015,shl,142253,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Andersson (D),Skellefteå AIK,2,0,0,0,0.00,0,0,/player/39014/jacob-andersson,4,Jacob Andersson,D,2014-2015,shl,39014,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Brehmer (C/LW),Örebro HK,3,0,0,0,0.00,0,0,/player/29050/anton-brehmer,4,Anton Brehmer,C/LW,2014-2015,shl,29050,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Bergmark (D),Örebro HK,3,0,0,0,0.00,0,0,/player/86210/filip-bergmark,4,Filip Bergmark,D,2014-2015,shl,86210,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Edström (C/RW),Skellefteå AIK,3,0,0,0,0.00,0,-1,/player/39020/elias-edstrom,4,Elias Edström,C/RW,2014-2015,shl,39020,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Deutsch (D),Brynäs IF,3,0,0,0,0.00,0,0,/player/86175/adam-deutsch,4,Adam Deutsch,D,2014-2015,shl,86175,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Åkerman (D),Linköping HC,3,0,0,0,0.00,0,0,/player/107560/jesper-akerman,4,Jesper Åkerman,D,2014-2015,shl,107560,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Cederholm (D),HV71,3,0,0,0,0.00,0,0,/player/169012/jacob-cederholm,4,Jacob Cederholm,D,2014-2015,shl,169012,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Muzito-Bagenda (C/LW),MoDo Hockey,3,0,0,0,0.00,0,0,/player/86197/daniel-muzito-bagenda,4,Daniel Muzito-Bagenda,C/LW,2014-2015,shl,86197,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Léman (D),MoDo Hockey,3,0,0,0,0.00,0,0,/player/187768/jonathan-leman,4,Jonathan Léman,D,2014-2015,shl,187768,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Ölund (C),Brynäs IF,3,0,0,0,0.00,0,0,/player/146700/linus-olund,4,Linus Ölund,C,2014-2015,shl,146700,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Vejdemo (C),Djurgårdens IF,3,0,0,0,0.00,0,0,/player/142243/lukas-vejdemo,4,Lukas Vejdemo,C,2014-2015,shl,142243,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Fakt (C/W),Leksands IF,3,0,0,0,0.00,0,-1,/player/38901/sebastian-fakt,4,Sebastian Fakt,C/W,2014-2015,shl,38901,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Calle Rosén (D),Växjö Lakers HC,3,0,0,0,0.00,2,0,/player/37021/calle-rosen,4,Calle Rosén,D,2014-2015,shl,37021,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Andersson (W/C),HV71,4,0,0,0,0.00,0,0,/player/34229/erik-andersson,4,Erik Andersson,W/C,2014-2015,shl,34229,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Lindblom (C/LW),Brynäs IF,4,0,0,0,0.00,0,-1,/player/62818/marcus-lindblom,4,Marcus Lindblom,C/LW,2014-2015,shl,62818,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Jonsson (D),Luleå HF,4,0,0,0,0.00,2,0,/player/358/robin-jonsson,4,Robin Jonsson,D,2014-2015,shl,358,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Connolly (LW),Leksands IF,5,0,0,0,0.00,0,-3,/player/14391/chris-connolly,4,Chris Connolly,LW,2014-2015,shl,14391,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jens Högbom (D),Luleå HF,5,0,0,0,0.00,0,0,/player/39016/jens-hogbom,4,Jens Högbom,D,2014-2015,shl,39016,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Norberg (C/W),Leksands IF,5,0,0,0,0.00,0,-1,/player/86099/simon-norberg,4,Simon Norberg,C/W,2014-2015,shl,86099,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johannes Nilsson (C/LW),Brynäs IF,6,0,0,0,0.00,0,0,/player/67161/johannes-nilsson,4,Johannes Nilsson,C/LW,2014-2015,shl,67161,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christoffer Ehn (C/LW),Frölunda HC,6,0,0,0,0.00,2,0,/player/115020/christoffer-ehn,4,Christoffer Ehn,C/LW,2014-2015,shl,115020,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Jacobsson (D),Leksands IF,6,0,0,0,0.00,4,-8,/player/4257/robin-jacobsson,4,Robin Jacobsson,D,2014-2015,shl,4257,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fredrik Forsberg (RW),Leksands IF,7,0,0,0,0.00,0,0,/player/99859/fredrik-forsberg,4,Fredrik Forsberg,RW,2014-2015,shl,99859,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Håkansson (C),Linköping HC,7,0,0,0,0.00,0,1,/player/86356/daniel-hakansson,4,Daniel Håkansson,C,2014-2015,shl,86356,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Dahlstrøm (LW/RW),Örebro HK,7,0,0,0,0.00,4,0,/player/9277/robin-dahlstrom,4,Robin Dahlstrøm,LW/RW,2014-2015,shl,9277,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gustav Backström (D),Örebro HK,8,0,0,0,0.00,0,1,/player/32195/gustav-backstrom,4,Gustav Backström,D,2014-2015,shl,32195,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Connolly (C),Leksands IF,8,0,0,0,0.00,2,-2,/player/15676/jack-connolly,4,Jack Connolly,C,2014-2015,shl,15676,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Albin Storm (C/LW),Växjö Lakers HC,11,0,0,0,0.00,0,-2,/player/180201/albin-storm,4,Albin Storm,C/LW,2014-2015,shl,180201,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Claes Nordén (LW/RW),Linköping HC,11,0,0,0,0.00,2,-4,/player/22263/claes-norden,4,Claes Nordén,LW/RW,2014-2015,shl,22263,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carl Ericson (C/W),Leksands IF,11,0,0,0,0.00,2,-3,/player/113274/carl-ericson,4,Carl Ericson,C/W,2014-2015,shl,113274,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Lundberg (C),Brynäs IF,11,0,0,0,0.00,4,-3,/player/512/emil-lundberg,4,Emil Lundberg,C,2014-2015,shl,512,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Donald Brashear (LW),MoDo Hockey,12,0,0,0,0.00,6,-1,/player/9094/donald-brashear,4,Donald Brashear,LW,2014-2015,shl,9094,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christopher Bengtsson (C/LW),MoDo Hockey,13,0,0,0,0.00,6,0,/player/28337/christopher-bengtsson,4,Christopher Bengtsson,C/LW,2014-2015,shl,28337,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Pettersson (D),Skellefteå AIK,14,0,0,0,0.00,0,-1,/player/86321/marcus-pettersson,4,Marcus Pettersson,D,2014-2015,shl,86321,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kalle Jellvert (C),Örebro HK,15,0,0,0,0.00,0,0,/player/86213/kalle-jellvert,4,Kalle Jellvert,C,2014-2015,shl,86213,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskar Lang (LW/RW),Leksands IF,15,0,0,0,0.00,0,-1,/player/139612/oskar-lang,4,Oskar Lang,LW/RW,2014-2015,shl,139612,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Svedberg (D),Leksands IF,20,0,0,0,0.00,4,-5,/player/1169/johan-svedberg,4,Johan Svedberg,D,2014-2015,shl,1169,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Strandberg (C),HV71,24,0,0,0,0.00,0,-3,/player/11085/sebastian-strandberg,4,Sebastian Strandberg,C,2014-2015,shl,11085,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Mårtensson (LW/RW),Leksands IF,46,0,0,0,0.00,55,-9,/player/10277/viktor-martensson,4,Viktor Mårtensson,LW/RW,2014-2015,shl,10277,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69

@@ -1,0 +1,24 @@
+ltir.py v1.0 (2026-10-20)
+  rule: cba (XNPV_LTIR_RULE); the CBA test: 24+ days and 10+ team games
+  spells read: 3,719 on 9 pages; repairs: {'end before start': 10, 'start unreadable': 0, 'TBD': 269}
+  by season (spells; labelled Long-Term IR; meeting the CBA test; counted as LTIR under the rule):
+        spells  labelled  cba_test  ltir
+season                                  
+2017       358        18       176   178
+2018       389        25       177   180
+2019       369        68       180   187
+2020       342        75       137   148
+2021       881        94       259   279
+2022       404        74       211   218
+2023       370       100       213   229
+2024       325        57       152   157
+2025       281        40       146   150
+  labelled LTIR but short of the CBA test (kept: the label is the club's own filing): 75
+  Ryan Ellis: 2017-18 49%, 2019-20 31%, 2020-21 31%, 2021-22 72%, 2022-23 96%, 2023-24 100%, 2024-25 98%, 2025-26 100%
+  Brent Seabrook: 2019-20 48%, 2020-21 91%, 2021-22 90%, 2022-23 96%, 2023-24 100%
+  Nikita Kucherov: 2020-21 91%, 2021-22 40%
+  Marian Hossa: 2017-18 100%, 2018-19 100%, 2019-20 100%, 2020-21 100%
+  Shea Weber: 2017-18 24%, 2018-19 30%, 2021-22 100%, 2022-23 98%, 2023-24 100%, 2024-25 98%, 2025-26 100%
+  Carey Price: 2017-18 13%, 2022-23 96%, 2023-24 100%, 2024-25 98%, 2025-26 100%
+  David Clarkson: 2017-18 100%, 2018-19 100%, 2019-20 100%
+  Bryan Little: 2019-20 78%, 2020-21 91%, 2021-22 80%, 2022-23 98%, 2023-24 100%

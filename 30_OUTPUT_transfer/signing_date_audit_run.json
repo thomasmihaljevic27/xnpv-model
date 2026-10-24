@@ -1,0 +1,58 @@
+{
+  "script_version": "1.0",
+  "n": 2349,
+  "n_dated": 2349,
+  "counts": {
+    "after": 1648,
+    "during": 616,
+    "before": 85
+  },
+  "by_tier": [
+    {
+      "tier": "below 0",
+      "before": 10,
+      "during": 170,
+      "after": 583,
+      "n": 763,
+      "share_before": 0.01310615989515072,
+      "share_before_or_during": 0.23591087811271297
+    },
+    {
+      "tier": "0 to 1",
+      "before": 20,
+      "during": 303,
+      "after": 774,
+      "n": 1097,
+      "share_before": 0.018231540565177756,
+      "share_before_or_during": 0.2944393801276208
+    },
+    {
+      "tier": "1 to 2",
+      "before": 33,
+      "during": 87,
+      "after": 215,
+      "n": 335,
+      "share_before": 0.09850746268656717,
+      "share_before_or_during": 0.3582089552238806
+    },
+    {
+      "tier": "2 to 3",
+      "before": 12,
+      "during": 36,
+      "after": 54,
+      "n": 102,
+      "share_before": 0.11764705882352941,
+      "share_before_or_during": 0.47058823529411764
+    },
+    {
+      "tier": "3+",
+      "before": 10,
+      "during": 20,
+      "after": 22,
+      "n": 52,
+      "share_before": 0.19230769230769232,
+      "share_before_or_during": 0.5769230769230769
+    }
+  ],
+  "elapsed_seconds": 1.5655007362365723
+}

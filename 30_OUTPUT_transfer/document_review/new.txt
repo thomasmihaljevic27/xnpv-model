@@ -1,0 +1,677 @@
+P0 Valuing Players, Draft Picks, and Prospects
+P1 An NHL trade exchanges assets of different kinds: players under contract, draft picks, and prospects who have not yet reached the NHL. To judge whether a club received more than it gave, each asset has to be valued in one currency, as of the trade date. This document explains how each of the three kinds of asset is valued and are put on a comparable scale. Each step says what it does and why; where a choice had to be made, it says what the options were, which was chosen, and why the others were not.
+P2 One real-life trade is used as an example throughout this document to demonstrate how the model values real assets. On September 10, 2018, the Montreal Canadiens traded Max Pacioretty to the Vegas Golden Knights for Tomas Tatar, Nick Suzuki, and a 2019 second-round pick. Pacioretty and Tatar were players under contract, Suzuki was a prospect drafted 13th overall in 2017, and the draft pick originally belonged to Columbus, which Vegas acquired from a previous transaction.
+P3 The data and their sources
+P4 Performance is measured throughout by wins above replacement (WAR): the wins a player added to his team in a season, compared with what a replacement-level player would have added in the same minutes. A replacement-level player is one a club can sign or call up at about the league minimum at any time; in the WAR metric used here, a forward outside his team's top 13 in ice time or a defenceman outside its top 7. WAR suits this model because it states each part of a player's game, at each position, in wins, the unit a club buys with cap room.
+P5 The WAR comes from Patrick Bacon, a data scientist who has published hockey models as TopDownHockey since late 2020 and co-founded HockeyStats.com, where his WAR, NHL equivalency, and draft models are published with their methods. His WAR is built from the NHL's play-by-play and shift records in six parts: even-strength offence and defence, power-play offence, penalty-kill defence, penalties drawn and taken, and shooting. The even-strength and special-teams parts come from a weighted ridge regression that estimates each player's effect on his team's expected goals for and against while separating him from his teammates and opponents (regularized adjusted plus-minus). Shooting is goals scored above expected goals, and goals are converted to wins at about five goals a win, set each season.
+P6 Three things make it a credible source for this model. Its method is published in full (hockeystats.com/methodology/war). At the team level, WAR accounts for 82% of the variation in standings points, by Bacon's own validation. And it is free, public, and available for each NHL skater and goaltender season from 2007-08 on, so each traded player can be valued and the values can be reproduced. Bacon also states its limits: it probably weights shooting too heavily against driving play, and it may miss part of a passer's value. Section 5 checks the forecast against a measure built without it.
+P7 Bacon also supplies the two inputs that come from outside the NHL: the NHL equivalency factors that put a prospect's scoring in other leagues on one scale (Section 7), and the star probability for each draft position (Section 6).
+P8 Contracts, cap hits, and the trade ledger come from PuckPedia, a salary-cap database that records each NHL contract's terms, its cap hit by season, its clauses and arbitration eligibility, and each trade's assets and retained salary; it has been one of the main public sources of NHL contract data since CapFriendly closed in 2024. Cap hits of contracts that ended before 2018-19, which PuckPedia's export does not hold, come from CapWages, a second public cap database. Scoring outside the NHL comes from Elite Prospects, the largest public database of player statistics across junior, college, and professional leagues worldwide. Long-term injured reserve comes from Spotrac's injured-reserve log, a public record of each season's injured players and their reserve status. The draft comes from the NHL's own draft records, and the records behind Game Value, the independent measure of Section 5, from the NHL's play-by-play and shift data. Table 1 defines the terms this document uses.
+P9 Table 1. Model terms
+P10 Weights written 50/30/20 apply to the three seasons before the valuation season, the most recent first, and are rescaled over the seasons the player has, so a missing season is left out rather than counted as zero (two seasons are weighted 62.5/37.5).
+P11 1. Surplus Value
+P12 A club holds an asset only for a finite period of time, either determined by contract length or determined through the NHL's CBA. A player under contract delivers performance in each of those seasons, and the market price of that performance is what clubs pay for it in the market for players. A draft pick or a prospect delivers nothing until its player reaches the NHL; its value is the performance its player is expected to deliver once he does. In each season the club also pays the player's cap hit, the charge his contract makes against the salary cap, whether that contract is an entry-level contract, a qualifying offer, or a negotiated deal. The asset's value to the club is the surplus value it delivers beyond what it costs.
+P13 Under a salary cap ensuring that extracting proper value out of assets is critical, because a club that pays a player less than the market would charge for his performance keeps the difference in cap space, and cap space can buy additional wins through investing it in more players. A player who costs exactly his market price adds nothing a club could not have bought on the open market.
+P14 Surplus value is defined as follows, summed over the seasons the club controls the asset, counted from the valuation season (k = 0):
+P15 surplus = Σ (Vk − Ck) / 1.03k
+P16 V_k is the market price of the performance delivered in season k, and C_k is the cap hit paid for it, both in that season's dollars; dividing by 1.03^k discounts season k at 3% a year. The models differ in how V and C are obtained: for a player under contract, from a forecast of his performance (Sections 2 to 4); for a pick or a prospect, from what drafted players went on to deliver (Sections 6 and 7).
+P17 Cap growth and discounting
+P18 Prices are measured as shares of the salary cap, because the cap sets what a club can spend: a $5 million cap hit was 6.3% of the 2018-19 cap of $79.5 million and 5.2% of the 2025-26 cap of $95.5 million. The cap is projected to grow 3% a year from the valuation season's cap, so a season priced at a share s of the cap is worth s × cap × 1.03^k in that season's dollars. Discounting, done by dividing by 1.03^k returns it to s × cap: on the value side, cap growth and discounting cancel. A cap hit is in fixed dollars, so on the cost side discounting is present: a $5 million cap hit four seasons out counts as $5 million / 1.03^4 = $4.44 million today, because it takes a smaller share of a larger cap.
+P19 The discount rate
+P20 Future seasons have to be discounted at some rate, and salary cap growth has to be projected at some rate. The options were one rate for both (adopted, at 3%); a discount rate above cap growth; no discounting; or a rate that reflects how impatient clubs are.
+P21 One rate for both was adopted because it makes a share of the cap mean the same in any season: a season's worth of performance is worth the same share of the cap whenever it comes, and only a fixed-dollar cost becomes cheaper with time. A higher discount rate would make waiting for a prospect costly, and it would need evidence that clubs value future cap room less than present cap room, which the data do not provide. No discounting would ignore that a fixed cap hit takes a smaller share of a growing cap. A rate for clubs' impatience was rejected for a different reason: whether clubs are impatient is one of the questions the trade study is built to answer, so it cannot be built into the values it tests.
+P22 The cost of this choice is that 3% is a planning assumption. The cap grew 3.4% a year from 2015-16 to 2019-20, 0.6% a year through 2023-24, and 7.6% a year from 2023-24 to 2026-27. The rate matters most for long contracts at a flat cap hit, where it sets how much cheaper the later seasons become: an eight-year contract at a flat cap hit equal to its first season's value gains $6.16 million at 3%, $9.71 million at 5%, and $13.77 million at 7.6%.
+P23 What the three models share
+P24 The three models share the price of a win and the cost rules. Each season is priced on one price line, estimated from what clubs paid for players' forecasted performance (Section 3), and costed by the same rules from the collective bargaining agreement (CBA; Section 4). Because both are shared, a player, a pick, and a prospect are measured in the same currency and can be added together.
+P25 2. Players Under Contract: Forecasting Performance
+P26 A contract commits a club to a cap hit for each of its seasons, and what the club receives is the player's performance in seasons not yet played. For seasons k = 0, 1, 2, ... of his contract:
+P27 value = Σ (pk × Vk − Ck) / 1.03k  +  terminal value
+P28 Here p_k is his chance of playing in season k, V_k is the market price of his forecasted performance in that season if he plays, and C_k is his cap hit. The terminal value is the value of the seasons his club controls after the contract ends (Section 4). This section builds the forecast behind p and V; Section 3 prices it, and Section 4 adds up the contract and the terminal value.
+P29 The forecast has three parts for each season ahead k: his WAR per 82 games if he plays, r_k; his games share if he plays, g_k; and his chance of playing, p_k. His forecasted WAR if he plays is w_k = r_k × g_k, and V_k is the price of w_k. Each part is re-estimated for every valuation season using only seasons completed before it. The fits shown in this document are those for 2025-26, estimated on seasons through 2024-25. A season counts as evidence of a player's ability when he played 10 or more games in it, and WAR in the shortened 2019-20 and 2020-21 seasons is scaled to 82 games. Ages are taken on September 15 of the season's first year, the date the CBA uses.
+P30 The starting level
+P31 A single season of WAR is a noisy measure of a player's ability: a hot shooting season or an injury can influence it greatly. The forecast's starting level is therefore his three most recent seasons, pulled toward the level of players similar to him:
+P32 starting level = 0.65 × own rate + 0.35 × comparable players' level + aging
+P33 own rate = (0.5 × G1 × r1 + 0.3 × G2 × r2 + 0.2 × G3 × r3) / (0.5 × G1 + 0.3 × G2 + 0.2 × G3)
+P34 In the own rate, r_1 is his WAR per 82 games in the most recent season before the valuation season and G_1 his games in it, r_2 and G_2 the season before that, and r_3 and G_3 the one before that; only seasons of 10 or more games count, and a missing season drops out of both sums. Each season's 50/30/20 weight is multiplied by its games, so a 20-game season counts for less than a full one. Comparable players' level, defined below, is measured at the age of his most recent counted season. Aging is the comparable players' change in level from that age to the valuation season.
+P35 For Pacioretty at the trade, his three seasons before 2018-19 were 2.31 WAR per 82 in 2015-16 (82 games), 3.72 WAR per 82 in 2016-17 (81 games), and 0.04 WAR per 82 in 2017-18 (64 games). His own rate is (0.5 × 64 × 0.04 + 0.3 × 81 × 3.72 + 0.2 × 82 × 2.31) / (0.5 × 64 + 0.3 × 81 + 0.2 × 82) = 1.781. His comparable players' level at 28 is 1.328, and their change from 28 to 29 is -0.124. Therefore, his starting level is 0.65 × 1.781 + 0.35 × 1.328 − 0.124 = 1.498 WAR per 82. His poor 2017-18 season and his comparable players both pull him below his two earlier seasons.
+P36 The starting level's decisions
+P37 The starting level required five decisions: how to weight his recent seasons, how to treat seasons with few games, how far to pull him toward similar players, how to move him from his most recent season to the valuation season, and how many games make a season count. Each decision was evaluated using the forecast's error: the root mean squared error of WAR per 82 against what he went on to deliver, on the valuation seasons 2015-16 to 2021-22 (Table 2).
+P38 Table 2. The starting level's decisions
+P39 Root mean squared error of the forecast against what the player went on to deliver, valuation seasons 2015-16 to 2021-22: the starting level and one to five seasons ahead in WAR per 82, season WAR (the chance of playing × WAR per 82 × games share against his season's WAR) in wins. The weights, the pull, and the step were measured on October 4 and 5, 2026 (starting_level_simple_test.py, aging_investigations_abc.py), each against its own baseline that day; the games weighting and the counting season on October 21, 2026, on the model as it now runs (forecast_term_audit.py, 40,510 player-seasons; 36,781 for 20 games, which cannot forecast the rest). p is one-sided, from 2,000 redraws of careers: the share of redraws in which the comparison is reversed.
+P40 Comparable players
+P41 To find players similar to him, each player-season is described by four attributes: how his WAR divides among five components (even-strength offence, even-strength defence, power play, penalty kill, and shooting), his ice time per game, his level, and his trend. His level is his 50/30/20 WAR per 82 at that age, games-weighted as above, over seasons of 20 or more games; his trend is the change in his rate between his two most recent seasons. Each attribute is standardized within position (each measure minus its mean, divided by its standard deviation, so that minutes and wins are on one scale) and given equal weight, so the five style shares together share a quarter of the weight and the remaining attributes share a quarter each. The candidates are other players of the same position at the same age, in seasons before the valuation season. Each candidate's weight falls with his distance d from the player, the square root of the summed squared differences across the attributes:
+P42 weight = exp(−d2 / 2h2)
+P43 where h, the yardstick, is the median distance between two players of the same position (2.52 for forwards and 2.56 for defencemen in the 2025-26 fit). An exact match gets weight 1, a candidate one yardstick away exp(−0.5) = 0.61, and one two yardsticks away exp(−2) = 0.14. This is kernel weighting (Nadaraya 1964; Watson 1964): an average in which closer cases count more, with no fixed number of neighbours. Pacioretty's 280 candidates at 28 carry weights that sum to 132.0; Table 3 lists his five closest.
+P44 Table 3. Max Pacioretty's five closest comparable players at 28
+P45 Weight: exp(−d² / 2h²), 1 for an exact match. Level: each comparable player's 50/30/20 WAR per 82 at that age, games-weighted. Of Pacioretty's 280 candidates.
+P46 A few close matches, or many distant ones, could give an extreme average. The league average for the player's position and age is therefore included alongside the comparable players with a weight of 10:
+P47 comparable players' level = (Σ wiLi + 10 × league level) / (Σ wi + 10)
+P48 where w is each candidate's weight and L his level at that age. Pulling a noisy average toward a group mean in this way lowers its expected error (Efron and Morris 1975). For Pacioretty, his candidates' weighted level of 1.345 and the league level for forwards at 28 of 1.108 give 1.328; with weights summing to 132.0, the league average makes up 7.0% of it.
+P49 Weighting comparable players
+P50 Three settings govern the weights. The yardstick could be one median for all players or one for each position. One for each position was adopted: measured on October 5, 2026, it lowered the forecast's error by less than 0.0001 WAR per 82 (1.3598 one to five seasons ahead for both, at four decimals), but it was lower in nearly every redraw of careers, the players resampled 2,000 times with replacement (one-sided p = 0.005 for the starting level, 0.002 one to five seasons ahead, and <0.001 for season WAR). The yardstick is the median distance between pairs of player-seasons; whether pairs of two seasons by the same player should count toward that median was also tested, and it changed no error at four decimals, so it was dropped. A player is never one of his own comparable players.
+P51 The weight of ten on the league average is a judgement call. Removing it (comparable players alone) left the starting level unchanged but made the forecast one to five seasons ahead worse, a root mean squared error of 1.3678 WAR per 82 against 1.3598 (one-sided p < 0.001 that the weight of ten is better), most for players under 22 (1.8119 against 1.7384), whose comparable players are few. An earlier sweep of the weight from 0.01 to 50 moved the forecast's error by at most 0.16%. 
+P52 Aging
+P53 Players change with age, and how much depends on the player. The starting level is carried forward one season at a time. At each age step, the same pool of comparable players, chosen at his most recent counted age, provides its average change in performance from one age to the next, blended with the league-average change at a weight of ten as above. The change in WAR per 82 is used, not the comparable players' level itself, and those average changes are added to or subtracted from his starting level.
+P54 A player who leaves the league records no decline. If departures were left out, the average change at older ages would come only from players good enough to stay, and the forecast would understate aging. A player who leaves the NHL for good is therefore given one more season at replacement level (WAR 0), at his own most recent season's games, so his departure counts as a decline. In the 2025-26 fit, 937 departures enter this way among 2,266 careers.
+P55 On average a forward improves until 24 and declines after it, by about 0.14 WAR per 82 from 29 to 30 and 0.25 from 34 to 35 (Figure 1, left). Pacioretty's comparable players declined slightly faster than the league average, and his forecast falls from 1.50 WAR per 82 at 29 to 0.64 at 33 (Figure 1, right).
+P56 Figure 1. Aging
+P57 
+P58 Left: the league-average change in level from one age to the next, by position, in the 2025-26 fit, with departures entered at replacement level; each point is drawn at the age reached. Right: Max Pacioretty's forecasted WAR per 82 at the trade, from his comparable players' changes (blue) and, for comparison, from the league-average changes for forwards (orange); grey points are his three seasons before the trade.
+P59 Departed players in the aging curve
+P60 The level given to a departed player's missing season had to be set, and three details decided. Table 4 gives each version's error. Three levels other than replacement were tested: 0.50 and 0.25 WAR per 82 below it, and 0.25 above it. The level 0.25 above replacement gave a lower error one to five seasons ahead and on season WAR, and a higher error at the start. The error was still falling at the highest level tested, so the test does not identify a best level. Zero was kept on principle rather than on the data: replacement level is what a club gets from the player it calls up in his place. A player who misses a season and comes back later is not a departure, since his return shows he was not finished, and a departed season counts his own most recent season's games rather than a full 82. Filling in no departures at all was a wash on season WAR and much worse for players 35 and older, the group it exists for.
+P61 Table 4. Departed players in the aging curve: each version's forecast error
+P62 Root mean squared error on the valuation seasons 2015-16 to 2021-22, 40,510 player-seasons, measured October 5, 2026 (aging_investigations_abc.py v1.0) on the model of that day. Each row changes one setting against the first. The starting level and the rate one to five seasons ahead are in WAR per 82; season WAR, in wins, combines the rate, the games share, and the chance of playing. Players who came back were filled in at zero before (one-sided p < 0.001 that leaving them out is better); the departed season at his own games, p = 0.033 one to five seasons ahead.
+P63 Games share
+P64 WAR accumulates with games, so the forecast needs the share of the 82 games he will play if he plays at all. A regression for each season ahead estimates it from his trailing games share, his trailing WAR, his NHL seasons since his debut, and his age at the valuation season and its square. The two trailing measures are his 50/30/20 averages over seasons of 10 or more games, without the games weighting, because a games share already counts games:
+P65 games share = a + b1 × trailing games share + b2 × seasons since debut + b3 × (age − 27.22) + b4 × (age − 27.22)2 + b5 × trailing WAR
+P66 Age enters less 27.22, the average age of the player-seasons in the 2025-26 fit. Centring changes no forecast: it makes the intercept the games share of a player of average age. With its square, the effect of age can bend: the share falls with age at a rate that changes, and the bottom of that curve falls at about 36. The forecast is capped at 1 and floored at 0, the limits of a share; on the valuation seasons 2015-16 to 2021-22, 1,904 of 40,510 forecasts (4.7%) reach the cap and none falls below 0.05. Table 5 builds the regression for the valuation season up one term at a time, in the 2025-26 fit; Appendix A gives the adopted regression for each season ahead. The trailing games share accounts for most of the fit (R-squared 0.276 alone, 0.303 adopted). Each win of trailing WAR adds 3.8 percentage points of games, about 3.1 games: better players play more. Position is not in the regression: beside trailing WAR, a defenceman term was not statistically significant at the 5% level in any of the 13 seasons ahead fitted (p from 0.404 to 0.964), and dropping it left the forecast's error unchanged (Table 8).
+P67 Table 5. Games share in the valuation season, built up one term at a time
+P68 Least squares on 11,844 player-seasons by 2,168 players: each player's trailing inputs at a valuation season from 2008-09 to 2024-25, and his games share in that season, among seasons he played. Coefficient (standard error, clustered by player) [two-sided p-value]. The adopted column is the model's fit, coefficient for coefficient.
+P69 The form of the games-share regression
+P70 A games share lies between 0 and 1, and a straight line can predict outside that range, which is why the forecast is capped. Table 6 sets out the alternatives tested. A fractional logit (Papke and Wooldridge 1996), a logistic curve fitted to the share so that every prediction lies between 0 and 1, fitted the share better but made season WAR worse, because it predicts worse where the forecast matters most, for regulars who play most of the season. Adding age squared to the straight line improved both and was adopted. The player's quality enters as his trailing WAR total rather than his rate per 82, because the question is whether and how much he plays, and his total already reflects how much he played; a term for trailing WAR above one win helped the share but cost season WAR.
+P71 Table 6. The form of the games-share regression: each version's error
+P72 Root mean squared error on the valuation seasons 2015-16 to 2021-22, measured October 5, 2026 (games_and_playing_de.py, war_input_uniformity_test.py), each test against its own baseline that day: games share in share of 82 games, season WAR in wins. One-sided p from 2,000 redraws of careers that the adopted version is better (games share / season WAR), unless the cell says otherwise.
+P73 Chance of playing
+P74 A contract costs its cap hit whether or not the player plays, but his value accrues only if he does. The chance he plays at least one NHL game in a season is a logistic regression for each season ahead. Its inputs are his age in that season, his trailing WAR and games share, his position, and whether he is under contract for that season on a deal signed by the valuation date:
+P75 log( p / (1 − p) ) = a + c1 × (age − 27.22) + c2 × trailing WAR + c3 × trailing games share + c4 × defenceman + c5 × under contract + c6 × no contract record
+P76 The left side is the log of the odds of playing; a coefficient is the change in those log odds for one more unit of its input, and e raised to a coefficient multiplies the odds. Contract status is visible only from 2018-19, when the contract records start, so an indicator, no contract record, marks the earlier seasons; without it they would read as seasons without a contract. Table 7 builds the regression for the valuation season up one term at a time. Being under contract for the season multiplies the odds of playing by e^2.09 = 8.1 (p < 0.001), and each win of trailing WAR by 2.29. Contract status is read at the valuation date. For a traded player, a contract signed on the trade date itself is left out, as it is from the contract's value (Section 8).
+P77 Table 7. Chance of playing in the valuation season, built up one term at a time
+P78 Logistic regression on 16,421 player-seasons by 2,417 players (valuation seasons 2008-09 to 2024-25), 72.1% of whom played. Coefficient on the log odds (standard error, clustered by player) [two-sided p-value]. McFadden's pseudo R-squared is one minus the fit's log-likelihood over that of a model with the intercept alone; higher is better. The model's own fit adds a negligible penalty (1e-4) against perfectly predicted outcomes; its coefficients differ from these by at most 8e-6.
+P79 Each season ahead has its own chance of playing, so a player can be absent one season and back the next, and the rate if he plays is multiplied by that season's chance once. The event is one NHL game or more, while a season counts as evidence of ability only at 10 games. The two questions differ: whether a past season is good evidence of a player's rate, and whether he is in the NHL at all in a future season. The chance of playing is multiplied by the rate if he plays, so the two must describe the same event; any season with a game is a season he played.
+P80 Of the yes-or-no inputs, contract status moves the odds the most, and two questions about it were tested. The first was when to read it. Reading a contract's status at its signing rather than at July 1 of its first season matters for the 884 contracts signed after July 1. Read at July 1, a contract signed later in the summer is not yet in the data: their mean chance of playing was 0.785, against the 0.916 who actually played. Read at the signing, it was 0.877, and the log loss was 0.2632 against 0.3309 (one-sided p < 0.001; log loss measures how far predicted probabilities sit from what happened, and lower is better). Reading at the signing was adopted. The second was a contract effect that varies with the player's quality: it added nothing (p = 0.87) and was not adopted.
+P81 The regressions are fitted for each season ahead with at least 200 player-seasons of evidence: up to eight seasons ahead for the 2018-19 valuation season and twelve for 2025-26. Past that, the league-wide decline in expected WAR between the last two fitted seasons is continued.
+P82 Terms that are not statistically significant
+P83 Every term in the games-share and chance-of-playing regressions was checked by one rule, set before any result was seen: a term goes if it is not statistically significant at the 5% level and dropping it does not worsen the forecast on the valuation seasons 2015-16 to 2021-22; terms that fail are tested together as well as one at a time; a term that fails on its p-value but improves the forecast is kept only with the reason stated. Table 8 gives the result. The defenceman term in the games share and two terms in the chance of playing, age squared and seasons since debut, failed in most seasons ahead, and dropping all three together lowered the error of season WAR from 0.8064 to 0.8054 wins (p < 0.001); they were dropped. The no-contract-record indicator is not statistically significant in 6 of 10 seasons ahead, but dropping it made season WAR worse (p = 0.0060), so it was kept.
+P84 Table 8. Terms checked for statistical significance, and the forecast without each
+P85 In sample: the 2025-26 fit, every season ahead fitted, two-sided p, errors clustered by player. Season WAR: root mean squared error in wins on 40,510 player-seasons, valuation seasons 2015-16 to 2021-22, against 0.8064 with every term (forecast_term_audit.py, October 21, 2026). The two p columns are one-sided, from 2,000 redraws of careers: the share of redraws in which the version without the term is not better, and in which it is not worse.
+P86 3. Pricing a Season
+P87 The forecast is in wins. The price line converts it to dollars at the rate clubs pay. It is a regression of each contract's cap hit, as a share of the cap in its first season, on the player's forecasted WAR if he plays in that season. It adds a slope for defencemen and a term for the contract's length in years:
+P88 cap share = α + (β + βD × defenceman) × forecasted WAR if he plays + γ × years of term
+P89 The sample is the 2,336 skater contracts past the entry level that started from 2018-19 to 2025-26, each with a forecast at its signing. They were signed by 1,167 players who had a season of 10 or more games in one of the two before. Of these contracts, 521 are at the league minimum, which is a floor rather than a negotiated price: a player at the minimum might have been worth less, but no club can pay less. They are therefore treated as censored in the regression. A contract above the minimum enters the fit through how close the price line comes to its cap hit; a contract at the minimum enters only through how likely the price line is to put the player at or below it (a Tobit regression; Tobin 1958). Treating minimum contracts as negotiated prices would pull the price line toward the minimum and understate what clubs pay per win.
+P90 Table 9. The price line, built up one term at a time
+P91 Censored (Tobit) regression on 2,336 contracts, 521 of them at the league minimum. Coefficients are shares of the cap, shown in millions of dollars at the 2025-26 cap (standard error, clustered by player) [two-sided p-value]; σ is the typical distance of a cap hit from the price line. Log-likelihood in cap-share units, on the same contracts in each column; higher is better. The model prices on the price line locked on October 21, 2026; refitted, its coefficients equal the lock's to within 5e-11 of the cap.
+P92 At the 2025-26 cap, the price line prices a forecasted win at $1.67 million for a forward and $2.06 million for a defenceman, and adds $0.85 million a season for each year of term. A one-year contract for a forward forecast at one win is priced at (-0.0043 + 0.0175 + 0.0089) × $95.5 million = $2.11 million. Figure 2 shows the price line against the contracts it is fitted on.
+P93 Figure 2. The price line
+P94 
+P95 Each point is one contract's cap hit, restated at the 2025-26 cap, against the forecast at its signing of the player's WAR if he plays in its first season. Lines: the adopted price line for one, three, and six years of term, floored at the league minimum.
+P96 The forecast the price line reads
+P97 A club signing a player prices what it expects him to produce, so the price line is fitted on the forecast, the same measure it is applied to, dated at the contract's signing: the forecast uses only the seasons the club had seen when it agreed to the deal. Of the 2,388 contracts in the sample, 446 were signed before the season preceding their first season had finished; a forecast dated at the first season would include that season. In-sample the two datings fit about equally (log-likelihood 4628.7 at the signing against 4624.7 at the first season, with term), so the choice rests on using only what was known.
+P98 The price line is fitted on the forecast of the contract's first season. A club signing a long contract might instead price the performance it expects over every season of it, so the average forecast over the contract's term was tested in its place, as was that average times the chance of playing each season (Table 10). Both fit the cap hits worse in sample and predict them worse for players left out of the fit, in each of 20 repeats. The term premium rises rather than falls on the averages, because long contracts go to players forecast to decline, so the premium is not paying for later performance. The first season's forecast was kept.
+P99 Table 10. The price line on the first season's forecast and on the average over the term
+P100 The same 2,336 contracts and censored regression, with term; per win for forwards, at the 2025-26 cap. Held-out error: root mean squared error of the expected cap hit, $M at the 2025-26 cap, with the players split into five groups, each predicted from a fit on the other four, the split repeated 20 times; the last column counts the repeats in which the version's error is lower than the first season's (term_average_price_line.py, October 21, 2026). Each season's price is linear in the forecast, so pricing each season on its own forecast adds up to pricing the term's average.
+P101 Contract length
+P102 Clubs pay more a season for a longer contract at the same forecast: they buy the security of the player for those years. Table 11 shows it. Without a term for length, the price line overprices one-year contracts by $0.78 million on average and underprices eight-year contracts by $2.87 million; with it, each length's mean is close. Adding term raises the log-likelihood by 646.2 on the same contracts, and its coefficient is statistically significant at the 5% level (p < 0.001). The price line without term is reported beside each value as a sensitivity.
+P103 Table 11. Mean cap hit by contract length, observed and priced
+P104 Mean cap hit of the contracts of each length, and the mean of each price line's expected cap hit for the same contracts, allowing for the league minimum; millions of dollars at the 2025-26 cap.
+P105 The premium buys security, not more wins: tested as a predictor of a player's later production, contract length accounted for at most a sixth of the premium, with opposite signs on Bacon's WAR and on Game Value. A season is priced at the term left at the valuation date, the same for each remaining season, because the comparison is a replacement player with the same forecast signed that day for the rest of the deal. A control season, bought one season at a time, is priced at one year of term, as is each season of a drafted player's career (Section 6).
+P106 Other forms of the price line
+P107 Six other forms were tested against the adopted one on held-out contracts (Table 12). A premium that falls with the player's quality predicted best, mostly through one step: a premium of $1.103 million a year for players forecast below replacement against $0.821 million for everyone else. The flat premium was kept. The step's gain is small, 0.7% of held-out error (1.2718 against 1.2809, in $M), and it adds a term; the premium that varies by forecast group adds two more, which are not statistically significant against the step (p = 0.083). The premium's fall with quality is stated as a limitation. A separate line for restricted free agents predicted 0.17% better, mostly by pricing restricted defencemen higher, at the cost of four more terms; one price line serves both. A squared term and a bend fitted better in-sample only. A separate line for the last four seasons was not statistically significant (p = 0.24), so the price line is stable over the period.
+P108 Table 12. The price line against six alternatives
+P109 Tested on October 5, 2026, on that day's price line and 2,296 contracts (price_line_spec_tests.py v1.0-v1.1). Log-likelihood gain against the adopted price line, with its likelihood-ratio p-value. Held-out error: the root mean squared error of the expected cap hit, $M at the 2025-26 cap, with the contracts split by player into five groups, each predicted from a fit on the other four, the split repeated 20 times. The last column counts the repeats in which the version's error is lower than the adopted price line's.
+P110 The league-minimum floor
+P111 No player is paid less than the league minimum, so a season's price is the price line's price or the minimum, whichever is higher. The forecast is uncertain, and the floor removes only the bottom of its range: for a player near the minimum, the average price over the range of outcomes is above the price of the point forecast. Each season is therefore priced at the expected value of the higher of the two, with the price normally distributed around its point estimate μ. Its standard deviation σ is the forecast's mean absolute miss k seasons ahead (0.68 WAR in the valuation season, rising to 0.90 five seasons ahead) times 1.2533, converted to dollars at the season's price per win; for a normal distribution the standard deviation is the mean absolute deviation times √(π/2) = 1.2533. With F the league minimum and Φ and φ the standard normal distribution and density:
+P112 V = F × Φ(z) + μ × (1 − Φ(z)) + σ × φ(z),   z = (F − μ) / σ
+P113 The first term is the floor times the chance the price falls below it; the second and third are the expected price when it does not. For a player far above the minimum, V equals the price line's price; Pacioretty's adjustment is $62,146 in his first season.
+P114 4. Contract Value and the Terminal Value
+P115 A contract's value is the sum of it’s remaining seasons and the terminal value, the value of the control seasons after it. Written in full for a player valued in season t:
+P116 value = Σ (pk × Vk − Ck) / 1.03k  +  Σ Wj × (Vj − Cj) / 1.03j
+P117 The first sum runs over the seasons k of his contracts; V_k is the floored price of his forecast at the cap expected for that season, cap_t × 1.03^k, so on the value side the growth and the discount cancel. The second sum runs over the control seasons j after the last contract, each weighted by W_j, the chance the club keeps him and he plays (below). The cap hit is subtracted whether or not he plays: an injured or buried player still counts against the cap, so the chance of playing multiplies the value only. The one exception is a player on long-term injured reserve (LTIR) when traded, read from Spotrac's injured-reserve log: a club may exceed the cap by an LTIR player's cap hit, so his cost is charged only in the share of each season he is forecast to play. Retirement can end a cap hit; that relief is not modelled, which errs toward a lower value. The contracts valued are the one he is playing and each extension signed on or before the valuation date; an extension signed later was not known at the valuation, and for a traded player a contract signed on the trade date itself counts as signed after it (Section 8). Each season's cap hit is from PuckPedia, and a contract later bought out is valued at its full signed term until the buyout is known, at the opening of free agency after his most recent season played.
+P118 Control seasons
+P119 When a contract ends with the player a restricted free agent, his club keeps his rights until he can become an unrestricted free agent: it retains him by tendering a qualifying offer. Each control season adds its value less its cost, weighted by the chance that it happens:
+P120 Value: his forecasted WAR if he plays in that season, priced at one year of term, with the floor.
+P121 Cost: the qualifying offer, which the CBA sets from his prior salary; once he is eligible for arbitration, the higher of the qualifying offer and the price line's price of his arbitration years WAR. Through the 2025 offseason the qualifying offer was 110% of a salary up to $660,000, 105% up to $1 million, and 100% above it, never above 120% of the cap hit for contracts starting from 2020-21 and never below the league minimum; the 2026 agreement's bands apply after that. The arbitration WAR is the forecast's own starting level rebuilt at that season, from the seasons before it, times the forecasted games share. Each next qualifying offer is computed on what he was paid.
+P122 Weight: the chance his club qualifies him times the chance he then plays, by his forecasted quality at the decision (Table 13), measured on the qualify-or-walk decisions for skater contracts that ended from 2018-19 to 2024-25. The weights compound from season to season, starting from his chance of playing the contract's last season.
+P123 Walking away: the terminal value ends at the first control season whose surplus is negative, and later seasons count as zero. PuckPedia marks some expiring contracts "UFA no QO", where the club declined to qualify the player; that mark is used only from the opening of free agency after the contract ends, when the decision is known, and before then the walk-away rule prices the choice.
+P124 Table 13. The weight on each control season
+P125 Decisions on skater contracts ending from 2018-19 to 2024-25 with the player a restricted free agent, by his forecast at the decision. Played, if qualified: the share of qualified players who played at least one NHL game the next season, among those who played the contract's last season. A player with no forecast enters the lowest group: a player who could not hold an NHL job is the one a club walks away from.
+P126 Weighting a control season
+P127 A control season happens only if the club qualifies the player and he then plays. Four ways of weighting it were considered. Assuming every season happens gives clubs control they did not exercise: that rule predicted only 18% of the walk-aways observed. Keeping a season only when the player's forecast beats a replacement player's went too far the other way, zeroing 44% of the players clubs kept. The observed qualifying rate for players of his quality was adopted, since it is what clubs actually did. A qualified player still left the league 13.1% of the time, so the chance he plays given that he was qualified is multiplied in. Reusing the forecast's chance of playing instead would count walk-aways twice, once in the qualifying rate and again in a chance of playing estimated on players who include them. The plays-given-qualified rate is measured only on players who played the contract's last season, so an absence in that season is charged once, through the chance of playing the weights compound from, and not again in the weight.
+P128 The cost of a control season
+P129 A player eligible for salary arbitration can push his pay toward his market price, so from eligibility a control season costs the higher of the qualifying offer and the price line's price of his arbitration WAR; before it, the qualifying offer. The same rule costs a drafted player's control seasons (Section 6). Actual contracts were not used as the cost: they record what was negotiated years after the valuation, and long contracts also buy seasons after control ends. Surplus can remain in an arbitration season, but less of it.
+P130 Eligibility comes from PuckPedia's arbitration flag on the expiring contract: a player flagged eligible is eligible from his first control season, and one flagged not eligible from his second (92.4% of 225 players flagged not eligible were eligible a season later, and 99.5% of eligible players stay eligible). The CBA's count of professional seasons (Section 12.1(a)) agreed with the flag for 64.1% of 1,656 contracts and was later for 541, because the data hold no AHL games, so the flag was adopted. The flag is set at the contract's end, so a valuation dated earlier uses eligibility recorded at a later date.
+P131 Walking away
+P132 Control is a right, not an obligation: a club qualifies a player while he is worth it and lets him go when he is not, and once it lets him go it cannot qualify him again later. The terminal value therefore ends at the first control season whose surplus is negative. Counting every control season whatever its surplus would charge the club for seasons it would never pay for.
+P133 Max Pacioretty and Tomas Tatar
+P134 Pacioretty's contract had one season left, 2018-19, at a cap hit of $4.50 million, of which Montreal retained 10% in the trade, so Vegas carries $4.05 million. Vegas also signed him to a four-year extension at $7.00 million a season on the day of the trade; a contract signed on the trade date is left out of a traded player's value and of his chance of playing (Section 8), so his value is the one season. At one year of term his performance is priced at $2.16 million, of which $0.71 million is the term premium; with a 97% chance of playing, that is $2.09 million against the $4.05 million Vegas carries. Had the extension counted, his value would have been -$10.88 million: the price falls short of the $7.00 million cap hit in each of its seasons, by more as he ages and his chance of playing falls.
+P135 Tatar's contract had three seasons left at $5.30 million, of which Vegas retained 9.4%, so Montreal carries $4.80 million a season. Each season's price is below the cap hit Montreal carries, and his value is -$4.06 million at the 2018-19 cap (-$3.36 million on the price line without term). Table 14 values both contracts.
+P136 Table 14. Max Pacioretty's and Tomas Tatar's contracts, valued at the trade
+P137 Millions of dollars at the cap of the valuation season (2018-19, $79.5 million). Age on September 15. Price: the adopted price line's price of his WAR if he plays at the term left, with the floor. Present value = (chance of playing × price − cap hit carried) / 1.03^k, k counted from 2018-19. Pacioretty became an unrestricted free agent at the end of the season, so he has no terminal value; on the price line without term his value is -$0.37 million.
+P138 Goaltenders
+P139 A goaltender's WAR varies far more from season to season than a skater's (Table 15). Across consecutive seasons of 20 or more games, a goaltender's WAR in one season correlates 0.209 with his WAR in the next (95% interval 0.123 to 0.291, 776 pairs by 152 goaltenders), against 0.586 for skaters (0.558 to 0.612, 10,049 pairs); per game, 0.113 against 0.575. The 50/30/20 average of the three seasons before correlates 0.234 with the next season for goaltenders and 0.627 for skaters. A goaltender's own record therefore says much less about his next season, and his forecast keeps less of it.
+P140 A goaltender's forecast is his 50/30/20 average of season WAR (62.5/37.5 with two seasons, the most recent alone with one), keeping 35% of it and pulling 65% toward the league average of 2.19 WAR, plus an age term. The 35% was chosen by cross-validation on held-out goaltenders: each goaltender's seasons were predicted from fits on other goaltenders (928 goaltender-seasons of 20 or more games by 183 goaltenders), and the mean squared error of season WAR was lowest at 35% (7.3294, against 7.3488 at 30% and 7.3302 at 40%). Counting only seasons of 10 or more games, as for skaters, made it worse (7.5670 against 7.5476 on the same seasons), so every season counts.
+P141 Ages are complete for goaltenders, from the NHL's records, and the age term is a straight line in age fitted on the forecast's errors in goaltender-seasons before the valuation season. It lowers the forecast by about 0.10 WAR for each year of age (p < 0.001 in sample) and lowers the held-out error of season WAR by 1.67% (7.2070 against 7.3294; one-sided p = 0.022). Adding age squared lowered it a further 0.19%, and the straight line was kept. The term is applied at his age in each season, so a goaltender's forecast declines as he ages.
+P142 A goaltender's chance of playing each season is a logistic regression for each season ahead on his age, his forecast, and his games share in the most recent season, fitted on seasons before the valuation season, as for skaters but without contract status. Age squared was tested and dropped: it was not statistically significant in any season ahead (p from 0.370 to 0.981), and the log loss was 0.4845 without it against 0.4850 with it. On the valuation seasons 2015-16 to 2021-22 the chance is well calibrated: 0.815 forecast against 0.818 who played in the valuation season, and 0.413 against 0.430 five seasons ahead.
+P143 The goaltender price line has the skater line's form: cap share on the forecast dated at the signing, censored at the league minimum, with a term for contract length, fitted on 333 standard-level goaltender contracts starting from 2015-16 to 2025-26 (57 at the minimum). At the 2025-26 cap it is -$3.03 million plus $2.04 million per forecasted WAR plus $0.78 million a season per year of term. It is fitted on the goaltender's forecast before the age term: what clubs pay follows his record, and fitted on the forecast with the age term the line predicts cap hits worse (held-out error $1.27M against $1.12M a contract, in each of 20 repeats). Each season is then priced on the forecast with the age term, so a contract for an older goaltender is valued on the decline clubs do not price. Each control season has one weight for all goaltenders, 0.893 qualified × 0.859 played = 0.767, from 103 decisions: the qualifying rates do not differ by forecasted quality (p = 0.519).
+P144 Table 15. Goaltenders and skaters, and the goaltender model's choices
+P145 Goaltender-seasons of 20 or more games, 2007-08 to 2025-26; mean squared errors of season WAR on goaltenders left out of the fit, 6 seeds × 5 folds split by goaltender; the chance of playing on the valuation seasons 2015-16 to 2021-22 (goalie_review.py, goalie_play_spec.py, goalie_line_check.py, October 21, 2026).
+P146 5. WAR and Circularity
+P147 Using one source of WAR carries a risk of circularity. The price line is fitted on what clubs paid for players whose forecasts are built from WAR, and the values will be compared with outcomes measured in WAR, so agreement could reflect Bacon's model rather than performance. To check that the forecast measures performance, I compared it with Game Value, a measure built from the NHL's play-by-play and shift records with no input from Bacon’s WAR model. Game Value gives each skater on the ice an equal share of his team's expected goals for and against, adjusted for score-state (tied, leading, trailing), plus the value of the penalties he draws and takes; in its adjusted version (GV-adj), a player is also separated from his linemates and opponents at five-on-five. Across full seasons, team Game Value explains 58.3% of the variation in team goal differential.
+P148 Table 16 compares each measure with the same season's Game Value, across 6,027 player-seasons by 1,319 players from 2017-18 to 2025-26. The forecast is more closely correlated with Game Value than the trailing WAR it is built from (r = 0.624 against 0.588), for forwards and defencemen, and one season further ahead (0.602 against 0.552). The correlation of expected WAR is 0.623 with contract status and 0.624 without it, so the agreement does not come through clubs' contract decisions. Some agreement is expected regardless, since both measures describe the same games.
+P149 Table 16. Correlation of each measure with the same season's Game Value
+P150 Pearson correlation with GV-adj, on 6,027 player-seasons (4,793 one season further). Measured on October 5, 2026 (gv_investigation_f.py), on the forecast of that day.
+P151 6. Draft Picks
+P152 A draft pick has no contract and no player yet. It is a claim on whoever the club selects, so its value has to come from what past selections at the same draft position delivered. Two features of the draft make this hard. Outcomes are uneven: of the 2,316 players drafted from 2007 to 2017, 1,144 played no NHL game while their club held their rights, and the 116 with the most surplus, 5% of the players, delivered 80% of the total. And outcomes arrive slowly: a club holds a drafted player's rights for about nine seasons, so the drafts that can be measured completely are years older than the trades being priced.
+P153 The approach
+P154 Most of the surplus picks produce comes from the few players who become stars. Of the 1,694 skaters drafted from 2007 to 2015, the 100 who became stars (5.9%, by Bacon's definition below, with at least 200 NHL games) delivered 83.3% of the surplus those picks returned. Among the first ten picks, stars were 37.8% of the players and delivered 83.4% of the surplus. A pick is therefore valued as a claim on a chance of a star:
+P155 pick value = star value × star probability for the draft position
+P156 The star probability is the chance that a player taken at that draft position becomes a star. It comes from Patrick Bacon's draft model, the source of the WAR used throughout, which defines a star as a player whose career WAR per 82 games is at least 1.8 for a forward or 1.23 for a defenceman. The star value is the surplus a pick would be worth if its player were certain to become a star. It is estimated below at $18.29 million at the 2025-26 cap; the first overall pick, with a star probability of 74.8%, is worth 0.748 × $18.29 million = $13.67 million.
+P157 What a drafted player delivered
+P158 To learn what a draft position returns, I price each player drafted from 2007 to 2017 the way the player model prices a contract, over the seasons his club held his rights: from his draft to the end of club control, with careers observed through 2025-26. Six drafted players who died before reaching the NHL, while their clubs still controlled them, are left out (Appendix C). The rules for each season are:
+P159 Value: the market price of the performance he delivered (his WAR), on the price line at one year of term, with the league-minimum floor; a goaltender's on the goaltender price line. The pick model is fitted on what happened, so delivered WAR is priced, not a forecast. WAR in the shortened 2012-13, 2019-20, and 2020-21 seasons is scaled to 82 games.
+P160 Cost: first the entry-level maximum for his draft class, counted from his first NHL season, for three, two, or one seasons by his age on September 15 of the year he signed (18 to 21, 22 to 23, 24 or older). Then a chain of one-year qualifying offers, and once he is eligible for arbitration, the higher of the qualifying offer and the price line's price of his arbitration WAR, as for players under contract. He becomes eligible after 4, 3, 2, or 1 seasons of 10 or more NHL games for a signing age of 20 or under, 21, 22 to 23, or 24 or older (CBA Section 12.1(a)).
+P161 A season without an NHL game is worth zero and costs zero, since a minor-league salary does not count against the cap. A season of fewer than 10 games is scaled by its games over 82, since a call-up counts against the cap only for his days on the roster.
+P162 Rights: a player who first played for another club, without having signed with or been traded by the club that drafted him, is worth zero to the pick, since the drafting club let his rights lapse (46 players). One who signed his entry-level contract with the drafting club and was lost later, on waivers or by release, keeps his surplus (21 players): the club held him.
+P163 A career whose total is negative counts as negative.
+P164 A drafted player's seasons have already been played, so each season's value and cost are in that season's dollars, and each season's cap is known. Instead of discounting at 3%, each season is restated at the 2025-26 cap, written cap, by multiplying it by cap over that season's cap:
+P165 surplus = Σ (Vs − Cs) × (cap* / caps)
+P166 This is the discount of Section 1 at the cap's actual growth rather than 3%. On the value side, cap growth and this discount cancel, as in Section 1: a season's value and cost become shares of that season's cap, and the career's surplus is the sum of those shares, stated in 2025-26 dollars.
+P167 Table 17 prices Colton Sissons, taken 50th in 2012 (star probability 4.8%), the draft position of the 2019 pick Montreal received in the example trade. He played 7 NHL seasons within club control; his surplus over them is $0.74 million.
+P168 Table 17. Colton Sissons (2012, #50), from his draft to the end of club control
+P169 Millions of dollars at the 2025-26 cap. Value: his delivered WAR priced on the price line at one year of term. Arbitration: the price of his arbitration WAR (shown), the forecast's own starting level rebuilt at that season, when it exceeds the qualifying offer. Season WAR for 2019-20 and 2020-21 is scaled to 82 games. Club control ended after 2021-22. Of the two 50th picks of 2007-2017 named for this example, he played the more NHL games (756).
+P170 The cost of keeping a drafted player
+P171 How cost is charged once a drafted player is in the NHL moves pick values more than any other choice. The options were what clubs actually paid, or a rule: the entry-level contract, then the qualifying offer, then from arbitration eligibility the higher of the qualifying offer and the price line's price of his arbitration WAR. A star's club usually signs him to a long contract while it still holds his rights, and a player eligible for arbitration can push his pay toward market, so a rule has to price eligibility at market to come near what clubs pay. The arbitration rule was adopted, the same rule that costs a player's control seasons (Section 4). Actual contracts were not used: they bring hindsight into the cost side, since they record what was negotiated years after the draft, and many are long contracts that buy unrestricted seasons as well as the seasons of club control.
+P172 The rule's cost is still below what clubs paid first-round picks (Figure 3): 51% of it for picks 1 to 10, 59% of it for picks 11 to 15, and 64% of it for picks 16 to 32. Picks may therefore still look more valuable relative to players than they are, which is stated as a limitation.
+P173 Figure 3. Value delivered and two measures of cost, first-round picks
+P174 
+P175 Average per first-round skater who played in the NHL for the club that drafted him (2007-2017 drafts), over the seasons his club held his rights, in millions of dollars at the 2025-26 cap: the value of the performance he delivered, his cost under the adopted rule, and what clubs actually paid (each season's cap hit; PuckPedia from 2018-19, CapWages before).
+P176 The shape of value across draft positions
+P177 Value falls steeply over the first ten picks and is close to flat after the first round (Figure 4). Several shapes could describe that fall: a straight line in draft position, its logarithm, the logarithm and its square, or Bacon's star probability times a star value. Each was fitted on all 2,316 picks and scored on drafts left out of its fit: each draft was predicted from a fit on the other ten, and the held-out error is the root mean squared error over all picks (Table 18).
+P178 The adopted shape has the lowest held-out error with a single parameter. A straight line values the first pick at $2.74 million and the logarithm at $7.61 million, against the $17.21 million first picks returned and the adopted $13.67 million. The logarithm with its square comes close, but it turns upward after pick 161, valuing the 200th pick above the 137th. Adding the square of the star probability, or Bacon's probability of a 200-game NHL player, does not predict better (one-sided p = 1.000 and 0.981); once the star probability is in, the NHL-player probability's coefficient is 0.43 (standard error 1.01). Bacon's probability is fitted on largely the same drafts, so its agreement with our surplus is not independent confirmation; applied to our data, his definition marks 5.9% of the skaters drafted from 2007 to 2015 as stars, against the 5.3% his probabilities imply.
+P179 Table 18. Six shapes of value across draft positions
+P180 Values in millions of dollars at the 2025-26 cap, from each shape's fit on all 2,316 picks. Held-out error: each draft predicted from a fit without it; root mean squared error over all picks, $M. One-sided p: the share of 2,000 redraws of the drafts in which the shape's held-out error is not lower than the adopted shape's; a small p would mean the shape predicts better. The lowest error is in bold. Each actual average rests on eleven players, so a single draft changes it a great deal.
+P181 Figure 4. Draft position and surplus
+P182 
+P183 Left: Bacon's star probability by draft position (a logistic regression on pick number with a change of slope at pick 150). Right: the average surplus of the eleven players taken at each draft position (2007-2017), and three of the shapes in the table above. Millions of dollars at the 2025-26 cap.
+P184 The star value
+P185 I regressed each drafted player's surplus on the star probability for his draft position, with no intercept, so a draft position with no chance of a star is worth zero:
+P186 surplus = star value × star probability + error
+P187 The coefficient is the star value, $18.29 million (standard error 1.74). Table 19 adds an intercept, then an intercept for each draft, then draft position with an intercept, then the NHL-player probability, each on the same 2,316 picks. None predicts left-out drafts better (one-sided p of 0.670 or more), and the star value moves by at most $1.12 million. The star value of $18.29 million is not the value of a star: it is the surplus of a pick whose star probability is 100%, which no draft position reaches, and it also includes the surplus of players who become regulars without becoming stars, which rises with the star probability.
+P188 Table 19. The star value, with each term added
+P189 Least squares on 2,316 drafted players, 2007-2017; surplus in millions of dollars at the 2025-26 cap. Coefficient (heteroskedasticity-robust standard error, which allows the size of the misses to differ across players) [two-sided p-value]. Held-out error and one-sided p as in the table of shapes; a left-out draft has no intercept of its own, so the draft-intercept version predicts it at the other drafts' average.
+P190 No intercept and no draft-year terms
+P191 Two additions were considered and left out. A single intercept would give each pick, including a seventh-round pick with almost no chance of a star, a fixed amount of $0.10 million. It is not statistically significant at the 5% level (p = 0.314), yet when it was measured it would have raised the value of all traded picks by 9.5% and of seventh-round picks by 111%, because a fixed amount is large next to their small star values.
+P192 An intercept for each draft would let deep and shallow drafts differ in level. The draft intercepts are jointly statistically significant at the 5% level (p = 0.026): beyond what its star probability predicts, a pick in the best draft delivered $0.80 million and in the weakest -$0.23 million. They are left out because a pick traded before its draft has no intercept of its own: it would have to be valued at the average draft's intercept. Predicting a left-out draft at the average intercept is no better than the adopted model (one-sided p = 0.674). The differences between drafts are carried instead by the next decision.
+P193 One star value for every draft
+P194 Fitted on each draft separately, the star value ranges from $5.25 million for the 2012 draft to $32.47 million for 2015, and the differences are statistically significant (p = 0.0023; Figure 5). Some drafts are deeper than others, so this is expected. What matters is whether the star value drifts over time, because a drift would make an average over eleven drafts wrong for any one trade. Fitted with a linear trend across draft years, the star value rises by $1.35 million a draft (p = 0.014). That rise rests on two drafts. Without 2015 (Connor McDavid, Jack Eichel) and 2016 (Auston Matthews), the trend falls to $0.80 million a draft and is not statistically significant (p = 0.155).
+P195 The model therefore uses one star value for every draft, fitted on all eleven, so each club is taken to expect the same value from a given draft position each year and an exceptional draft as noise. A star value for each trade season, fitted only on drafts whose control had run out by then, would rest the early trade seasons on two or three drafts. The 2015 and 2016 drafts finished after most of the trades studied, so the fit without them, $15.99 million, is reported beside it as a sensitivity; it lowers each pick's value by 13%.
+P196 Figure 5. The star value fitted on each draft
+P197 
+P198 Each dot is the star value fitted on one draft alone (all positions), with bars two standard errors either side. The solid line is the star value fitted on all eleven drafts and used by the model; the dashed line is the same fit without the 2015 and 2016 drafts. Millions of dollars at the 2025-26 cap.
+P199 The value of a pick
+P200 Table 20. The value of a pick at selected draft positions
+P201 Value: the star value ($18.29 million, or $15.99 million without 2015 and 2016) times the star probability, in millions of dollars at the 2025-26 cap.
+P202 Valuing a traded pick
+P203 A pick is often traded before anyone knows its draft position, so one is assigned in three ways, by what was known on the trade date:
+P204 A pick traded during its own draft is given its actual draft position (188 of the 634 traded picks).
+P205 A pick for the coming draft, traded once that season's regular season has started, is given the draft position implied by its original team's place in the standings on the trade date, worst first, by points percentage (156). For 97 of them this lands within three places of the pick's actual draft position, and the median miss is 2.0.
+P206 A pick traded before that season starts, or for a later draft, is given the average star probability of its round (290).
+P207 The round average is used because a team's draft position says little about its position a year or two later. Across the 2005 to 2026 drafts, a team's own first-round position correlates 0.44 with its position in the next draft and 0.34 with its position two drafts later, and moves a median of 6.0 places in a year. The draft position is not purely random, so the round average loses some information. Valued at the positions teams went on to pick, the next first-round pick of a team that just picked in the top five was worth $5.50 million on average, and that of a team that just picked 25th or later $2.51 million, against the round average of $3.79 million. The round average therefore undervalues a weak team's future first-round pick and overvalues a strong team's; it is kept for its simplicity, and the difference is stated as a limitation. The draft lottery and the reordering of playoff teams are not modelled, and a conditional pick is valued as if its condition were met.
+P208 The 2019 second-round pick Montreal received was traded before the 2018-19 season began, so it is given the average star probability over round 2's draft positions, 5.28%, and is worth 0.0528 × $18.29 million = $0.97 million. It became the 50th pick.
+P209 7. Prospects
+P210 A prospect is a drafted player the player model does not yet value: a skater with no NHL season of 10 or more games in the three before the valuation season, or a goaltender with no NHL game in the six before it. The six seasons match the goaltender forecast, which uses any NHL season in the three before and the three before those when the last is missing. This boundary means no player is valued twice or by neither model at a given valuation date.
+P211 The prospect model is fitted on the 2,316 players drafted from 2007 to 2017, in each season from D+1 on in which a player was still a prospect and his club still controlled him. The outcome is his remaining surplus: the surplus he went on to deliver from that season to the end of club control, priced as in Section 6. A prospect traded between the draft and the start of D+1 is valued as in D+1.
+P212 Draft position, and how its value fades
+P213 At the draft, a pick is worth its draft position's star probability times the star value. A prospect starts with his pick's value; the question is how that value changes while he remains unproven. The answer depends on when drafted players reach the NHL. Of the 2,316 drafted players, 43.1% played an NHL season of 10 or more games (a goaltender, an NHL game) before their club's control ended (Figure 6). Of the 110 top-ten picks, 36.4% had reached the NHL by D+1, 76.4% by D+2, and 90.0% by D+3. Of the picks from rounds 3 to 7, 6.0% had reached it by D+3 and 12.9% by D+4, and 29.6% ever did. A top pick still a prospect in D+4 is unusual, and later picks who reach the NHL at all reach it later.
+P214 Figure 6. When drafted players reach the NHL
+P215 
+P216 Drafted players of 2007 to 2017, without the six who died. Each line is the share of a draft group's players who had reached the NHL by each season; the gap above a line at D+9 is the share who never did. Reaching the NHL means a first NHL season of 10 or more games (for a goaltender, a first NHL game), the point at which he is valued by the player model; only seasons within club control are counted.
+P217 I regressed each prospect's remaining surplus on the star probability for his draft position, interacted with an indicator for each season from D+1 to D+4 and one for D+5 onwards, with no intercept. The coefficient for each season is that season's star value: the surplus value if a prospect in that season were certain to become a star.
+P218 remaining surplus = star value for D+n × star probability + error
+P219 For example, a #10 pick (star probability 21.2%) who is still a prospect in D+3 is worth 0.212 × $16.53 million = $3.51 million. A prospect keeps most of his draft position's value through D+3 and loses most of it over the next two seasons (Table 21), because of who is left: by D+4, most top picks who will reach the NHL have done so. The prospects left are mostly later picks and top picks who missed, and among them draft position no longer distinguishes those who will succeed from those who will not.
+P220 Table 21. The star value for a player still a prospect, by season
+P221 Drafted players of 2007 to 2017 still prospects, within club control. Star value in millions of dollars at the 2025-26 cap; one regression with a full set of interaction terms, standard errors clustered by player, since one player appears in several seasons; two-sided p-values. From D+5 on the rows are prospect-seasons from D+5 to D+8 pooled. The pick columns multiply the star value by the star probability for the draft position.
+P222 A separate star value for each season
+P223 In the adopted regression each season from D+1 to D+4 has its own star value, and the seasons from D+5 on, where few prospects remain and little value is left, share one. Three simpler alternatives were tested and rejected. Each restricts how the star value may change from one season to the next, and each was fitted on the same prospect-seasons and scored the same way (Table 22, Figure 7). The first is one value for all seasons: the draft-day value kept for as long as a player remains a prospect (fitted: $15.32 million). The second is a straight-line decline: a starting value plus a fixed change for each season since the draft ($19.29 million in D+1, falling $2.82 million a season). The third is the same percentage decline each season ($19.45 million in D+1, keeping 81.3% each season).
+P224 Figure 7. The star value by season, and three rejected alternatives
+P225 
+P226 Orange: each rejected alternative, fitted on the same prospect-seasons. Blue: the adopted star values with 95% intervals; from D+5 on, one shared value. Millions of dollars at the 2025-26 cap.
+P227 Table 22. Each alternative for the star value against the adopted one
+P228 Held-out error: each draft predicted from a fit without it; root mean squared error in millions of dollars of remaining surplus per prospect-season, over 14,598 prospect-seasons; the lowest is in bold. One-sided p: the share of 2,000 redraws of the drafts in which the adopted model's error is not lower than the alternative's. prospect_fade_rules.py, run on today's data.
+P229 One value for all seasons predicts worse than a separate value for each season (p < 0.001) and nearly doubles the traded prospects' value. The straight-line and same-percentage declines predict about as well (p = 0.389 and 0.135), so the choice does not rest on prediction. I chose a separate value for each season for two reasons. It assumes no shape for the decline, and the estimates hold through D+3 and then fall, which matches when top picks reach the NHL. And the straight-line decline falls past zero: from D+8 a top pick is valued below a late pick, and it puts 15 of the traded prospects below zero. Equal steps from D+1 to D+4 are not rejected at the 5% level (p = 0.070), which is why the straight-line decline predicts about as well.
+P230 A prospect's own outcome in the fit
+P231 A prospect drafted from 2007 to 2017 is valued from a fit that contains his own outcome. Refitting without each prospect's own draft as the main value was rejected for two reasons: it would take eleven fits for each season, and the prospect values would no longer use the same star value as the draft picks traded beside them. His value with his own draft left out is reported beside it; for the traded prospects together it is $70.13 million against $71.34 million.
+P232 Production
+P233 Draft position is one element of what predicts a prospect's value; how much he scores after the draft is another. A player who scores at a high rate in junior, college, or a European league is more likely to reach the NHL and to contribute when he does. Scoring in different leagues is put on one scale with Bacon's NHL equivalency (NHLe) factors. A league's factor is the number of NHL points that one point in that league and season is worth; Bacon estimates it from players who played full seasons in two different leagues in consecutive years, adjusted for a year of development, on a rolling four-season window, so a league's factor changes over time. An OHL point was worth 0.136 NHL points in 2006-07 and 0.120 in 2025-26.
+P234 A season's production is the player's points, from Elite Prospects, times his league-season's NHLe factor, per 82 games, counted for seasons of 10 or more games. His production level weights his three seasons before the valuation season 50/30/20, rescaled over the seasons he has, as each part of the model weights recent seasons. A prospect valued in D+1 is measured on D0, D-1, and D-2, the scoring scouts saw before the draft. A prospect with no counted season (3.9% of prospect-seasons; 489 of the 506 in D+1 or from D+5 on) has a production level of zero, so he is valued on his draft position alone where it is in the model. An indicator for having no record was tested and dropped: it was not statistically significant at the 5% level in D+1 or D+2 (p = 0.053 and 0.067), its D+3 coefficient rests on a single prospect-season, from D+4 it is exactly zero, and without it the held-out error is unchanged. The median production level rises from 5.7 NHLe points per 82 games in D+1 to 9.6 from D+5 on. Goaltenders stay on draft position alone, since NHLe converts only skater scoring and says nothing of goaltender performance.
+P235 Table 23 scores each way of adding production, on the 12,996 prospect-seasons of the 2,083 drafted skaters, against draft position alone.
+P236 Table 23. Held-out error of each way of adding production, against draft position alone
+P237 Held-out error as in the star value's table, here within each season too; one-sided p: the share of redraws in which the candidate's error is not lower than draft position alone's. The best in each column is in bold. The error falls with the season because most prospects still unproven in D+5 or later deliver little or no NHL surplus; compare candidates within a column. prospect_nhle_look.py, run on today's data.
+P238 Production added to draft position
+P239 Production alone predicts worse than draft position alone (one-sided p = 0.996 that it is better), so production does not replace draft position at the draft. Added to draft position, linear production lowers the error in each season from D+1 to D+4, but the improvement is not statistically significant at the 5% level (p = 0.059). Linear and squared production added to draft position is (p = 0.033), and so is the adopted combination (p = 0.029).
+P240 Production squared
+P241 With linear production, each additional NHLe point adds the same dollars. With production squared, each point adds more the higher a prospect already scores. It was added because most of a pick's surplus comes from the few players who become stars. Draft position accounts for part of this, since the first pick's star probability is about ten times the 32nd's. But every prospect at a draft position has the same star probability whatever he scores, and linear production then gives the highest scorers, the prospects most likely to become stars, the same dollars per point as everyone else. The squared term is compared with other forms of production within the full model once age has been added.
+P242 Production in place of draft position from D+4
+P243 Once production is in the model, draft position stops carrying information in D+4: its coefficient is $1.77 million (p = 0.382). From D+5 on it is $0.07 million, indistinguishable from zero (p = 0.938). In the adopted model draft position is kept from D+1 to D+3, and production alone is used from D+4.
+P244 A separate production rate for defencemen was also tested (Table 23). It changes the held-out error by -0.00% against one rate, and its improvement over draft position alone is less consistent (p = 0.088 against 0.059). One rate is kept.
+P245 With production, the model values a prospect in season D+n as follows, where S is the star probability for his draft position and P his production level. Each term is interacted with the season indicators, so the coefficients a, b, and c take a separate value in each season:
+P246 D+1 to D+3:  remaining surplus = a × S + b × P + c × P2 + error
+P247 D+4 and later:  remaining surplus = b × P + c × P2 + error
+P248 Age
+P249 A player who scores at a given rate at 18 is commonly rated a better prospect than one who scores at the same rate at 20: the younger player is further from his peak. Age is the player's age on September 15 of the valuation season, the date the CBA uses. A player is first eligible for the draft in the year he is 18 by September 15, so in D+1 a player drafted at his first opportunity is 18 to 19, and one drafted a year later 19 to 20. Within a season's regression each prospect is the same number of seasons from his draft, so a prospect a year older also scored his points, and was drafted, a year older; across seasons, age and seasons since the draft move almost one for one, which is why age is compared only within a season.
+P250 Table 24. Each way of adding age, against the model without it
+P251 Each candidate keeps the production model (draft position in D+1 to D+3, linear and squared production) and adds the age term shown; one-sided p compares it with the model without age. With both terms against the discount alone, p = 0.617. Held-out error as above; prospect_age_look.py, run on today's data.
+P252 Age as a discount on production
+P253 Two forms were tested. Age as a flat amount subtracts the same dollars for each year of age, whatever the player scores. Age discounting production makes each point worth less the older the player was when he scored it. Both improve on the model without age and are statistically significant at the 5% level (p = 0.0055 and 0.0015), and the discount improves the held-out error more (-0.70% against -0.28%). I chose the discount because it is the larger gain and it measures what age was included for: how much a player's scoring says about him given the age at which he scored. Both terms together are no better than the discount alone. From D+5 on the discount adds nothing, so it applies from D+1 to D+4.
+P254 In D+2, each year of age lowers the value of each NHLe point by $0.062 million (p < 0.001): of two prospects with 10 points, the one a year older, who scored them a year older, is worth $0.62 million less. Figure 8 shows the adopted model for a prospect drafted 13th, in D+2, at three ages.
+P255 Which production terms age discounts
+P256 The adopted term discounts linear production: a point is worth b + e × (age − 18) plus the squared term's share, and the squared term is not discounted. So a year of age costs a low scorer a larger share of his production's value than a high scorer. Four forms that reach the squared term were tested (Table 25). None predicts left-out drafts better at the 5% level (one-sided p from 0.155 to 0.428), and they would move the cost of age from low scorers to high scorers. The discount on linear production alone was kept.
+P257 Table 25. Forms of the age discount
+P258 prospect_age_form_look.py (October 19, 2026, on today's rows); its own refit gives the adopted form 2.1995. What a year of age costs, D+1, as a share of production's value: adopted 54% at 10 points per 82 and 21% at 20; both terms discounted 48% and 27%.
+P259 Three forms of production in the full model
+P260 With age in the model, Table 26 compares three forms of production: linear production, linear and squared production (adopted), and production squared alone.
+P261 Table 26. Three forms of production in the adopted model
+P262 Each form keeps the adopted structure: draft position in D+1 to D+3 and production discounted by age in D+1 to D+4. Held-out error as above, from the age test's procedure (its adopted error reproduced); head to head, p is the share of redraws in which the adopted form's error is not lower than the other form's. The last column is the traded drafted skaters' total value, $M at the 2025-26 cap.
+P263 Linear and squared production predicts better than linear production alone (one-sided p = 0.025). Production squared alone, without the linear term, predicts about as well (held-out error 2.2012 against 2.1995; p = 0.337 that the adopted form is better, 0.663 that squared alone is). It was not adopted because it would raise the traded skaters' value from $68.96 million to $80.49 million without predicting better. With the squared term in, the linear coefficient is not the value of an extra point: an extra point adds the linear coefficient plus twice the squared coefficient times the player's production, so its value grows with production. In the adopted model, with its age discount, an extra point in D+2 for a player drafted at his first opportunity is worth less than nothing only below 2.2 points, under the 25th percentile of 4.6. The linear coefficient determines where the value is lowest; it is not evidence that a little scoring lowers a prospect's value.
+P264 Linear production's coefficient is not statistically significant at the 5% level in any season of the adopted model (Table 27), and it stays: its p-value is not the test of whether it belongs. With production × (age − 18) in the model, b is the linear value of a point for a prospect who is exactly 18 on September 15, and each year older adds e. Measuring age from another starting age changes b and its p-value but no value, because the change in b offsets the change in the age term: the test that b is zero in every season gives p = 0.062 with age measured from 18, 0.006 from 19, and 0.0003 from 20, on the same fitted values. Without linear production, a point's linear value would be forced to zero at whichever age is chosen, so that choice would set the values: the traded drafted prospects would be worth between $75.34 million and $88.09 million as the starting age moves from 18 to 21, against $71.34 million in the adopted model, and none of those versions predicts left-out drafts better (prospect_linear_drop_centre.py v1.1, October 22, 2026). The adopted form is the only one whose values do not depend on where age is measured from.
+P265 The adopted model
+P266 The adopted model values a prospect in season D+n as follows, where A is his age on September 15 of that season. The coefficient e is the age discount: the change in the value of each point of production for each year of age. Age enters less 18, so the age term is zero for an 18-year-old.
+P267 D+1 to D+3:  value = a × S + b × P + c × P2 + e × P × (A − 18)
+P268 D+4:  value = b × P + c × P2 + e × P × (A − 18)
+P269 D+5 and later:  value = b × P + c × P2
+P270 Table 27 gives the regression for each season, and Table 28 builds the D+2 regression up one term at a time; Appendix B does the same for each other season.
+P271 Figure 8. A prospect drafted 13th, in D+2
+P272 
+P273 The adopted model's value against production level, at ages 19, 20, and 21 on September 15 of the valuation season, with Nick Suzuki at the trade. Vertical lines mark the 25th, 50th, 75th, and 90th percentiles of production level among prospects in D+2 with a record. Millions of dollars at the 2025-26 cap.
+P274 Table 27. The adopted prospect model, by season
+P275 Dependent variable: remaining surplus, $M at the 2025-26 cap. One regression with a full set of interaction terms and no intercept, drafted skaters 2007-2017; coefficient (standard error clustered by player) [two-sided p-value]; R-squared measured from zero. Production squared is in squared points (15 points enter as 225). A blank cell: the term is not in that season's model. The low R-squared reflects how uneven outcomes are: most prospects deliver no NHL surplus.
+P276 Table 28. The D+2 regression built up one term at a time
+P277 2,030 skaters who were prospects in D+2; as the previous table. Adding linear production lowers the star value's coefficient; adding its square raises R-squared further; adding age makes the square carry the value of production.
+P278 Nick Suzuki
+P279 Suzuki was traded at the start of his D+2 season. His draft position's star probability is 17.0%, his production level is 15.4 NHLe points per 82 games (above the 90th percentile in D+2, 13.9), and he was 19.1 on September 15, 2018, a player drafted at his first opportunity. Table 29 builds his value from the D+2 regression.
+P280 Table 29. Nick Suzuki's value, term by term
+P281 Millions of dollars at the 2025-26 cap. Contributions are input times coefficient and sum to the adopted value.
+P282 His scoring raises his value from $3.09 million on his draft position to $4.24 million: his production and its square add $3.51 million, and $1.05 million is subtracted for his age. He was among the youngest a D+2 prospect can be; a prospect a year older with his production would be worth $0.95 million less.
+P283 Goaltenders and undrafted players
+P284 NHLe converts scoring, which does not measure a goaltender. Elite Prospects holds goaltenders' save percentages, but no factor translates a save percentage from one league to another, so a goaltender prospect is valued on draft position alone, with the star values above; a save-based measure is untested. Those star values pool skaters and goaltenders. When last measured (October 16, 2026), the star value from D+5 on, on draft position alone, was $2.01 million pooled, $0.16 million for skaters alone (p = 0.64), and $19.35 million for goaltenders alone: nearly all of it is goaltenders' signal. A separate goaltender star value is set aside for later work.
+P285 An undrafted player has no draft rights, so a club holds his NHL rights only through an NHL contract; one on a minor-league contract is worth nothing to an NHL club in this currency. An undrafted player on an NHL contract is valued with the same model, his star probability set to zero and his seasons counted from his first draft-eligible year. The model is fitted on drafted players, including many whose rights lapsed and who delivered nothing, while undrafted players on NHL contracts are players a club chose to sign, so it probably undervalues them.
+P286 The traded prospects
+P287 From July 2017 to March 2022, clubs traded 196 drafted prospects (169 different players, as some were traded more than once) and 53 undrafted prospects on NHL contracts. The adopted model values the drafted prospects at $71.34 million ($62.95 million on draft position alone) and the undrafted at $6.10 million, the largest Brennan Menell at $0.68 million. Table 30 lists the ten most valuable. Of the drafted prospects, 62 are valued below zero, -$3.85 million in total: prospects with that profile, a low scorer from a late draft position, delivered slightly negative surplus on average, because when such players reach the NHL their cost tends to exceed the value of the wins they deliver.
+P288 Table 30. The ten most valuable traded drafted prospects
+P289 Production in NHLe points per 82 games; age on September 15 of the season of the trade; values in millions of dollars at the 2025-26 cap.
+P290 Production from D+5 on
+P291 From D+5 on, neither production term is statistically significant at the 5% level, alone or jointly (chi-squared 4.93 on 2 degrees of freedom, p = 0.085). Dropping them would value every prospect from D+5 on at zero, drafted or undrafted: the traded drafted prospects would fall from $71.34 million to $58.13 million and the 53 undrafted prospects, all valued from D+5 on, from $6.10 million to zero. The held-out error from D+5 on would rise (0.7621 against 0.7567, $M a prospect-season), though not by a statistically significant amount (one-sided p = 0.27; prospect_term_check.py v1.1, October 22, 2026). Production was kept: valuing every late prospect at zero is a stronger claim than the data support, and late bloomers, whose scoring is the only sign of them, keep a value.
+P292 8. The Trade on One Scale
+P293 Sections 2 to 7 value each asset at the trade date. Four rules turn those values into each club's side of a trade: one cap at which to add them, who pays retained salary, how much of the season is left on an in-season trade, and what to do with a contract signed on the trade date. Each was decided with options, set out below, and the Pacioretty trade is then added up under them.
+P294 Adding values at one cap
+P295 A player's value comes out of the player model at the cap of his valuation season ($79.5 million in 2018-19), while picks and prospects are stated at the 2025-26 cap, because their values come from careers restated at it (Section 6). To add the assets of a trade they have to be at one cap. The options were each trade's own valuation season, shares of the cap, or one cap for every trade. One cap for every trade, the 2025-26 cap, was adopted: a player's value is multiplied by the 2025-26 cap over his valuation season's cap, 95.5 / 79.5 = 1.201 for 2018-19. Each trade's own cap would leave trades from different seasons in different units, so they could not be compared or summed. One cap changes the size of a value but never its sign or its order within a trade.
+P296 Retained salary
+P297 A club trading a player can keep part of his cap hit. The options were to charge the acquiring club the full cap hit, or to charge it only the part it carries and charge the retained part to the club that kept it. The second was adopted: a retained share is a real cost to the club that kept it and a real relief to the club that received the player, and charging it to the acquirer would misstate both sides. The retaining club pays the retained share of each remaining season of the contract being played, discounted like the contract; extensions and control seasons are not retained. The retained amounts come from PuckPedia's trade ledger: 72 from its retained-salary fields and 15 recorded only in the text of the asset's row, Tatar's among them. In this trade Montreal kept $450,000 (10%) of Pacioretty's 2018-19 cap hit, $0.54 million at the 2025-26 cap, and Vegas kept $500,000 (9.4%) of Tatar's in each of his three seasons, $1.75 million.
+P298 Trades during the season
+P299 A player traded during the regular season has already played part of it for the club that traded him. The options were to count the whole season for the acquiring club or to count only the part left. The part left was adopted, on both value and cap hit: the regular-season days left on the trade date, the trade day counted, over the season's days. The season's last day is the schedule's as published before the season, not the last game played; 2019-20's pause in March 2020 was not known before it happened, and using it would be look-ahead. A prospect keeps the full season, since his value is the surplus to the end of club control, of which the valuation season accounts for about 2%. This trade was made before opening night, on October 3, 2018, so the whole season was left.
+P300 A contract signed on the trade date
+P301 Vegas signed Pacioretty to a four-year extension on the day of the trade. The options were to count a contract signed on the trade date in the acquirer's value, as the model first did, or to leave it out. Leaving it out was adopted: the contract did not exist when Vegas acquired him, and what Montreal gave up was one season of his old contract. A contract signed on the trade date therefore counts as signed after it. The rule applies to 15 contracts in the trades valued, each signed with the acquiring club: eight extensions (Pacioretty, Mark Stone, Jean-Gabriel Pageau, Justin Faulk, Seth Jones, Nick Jensen, Kyle Turris, and Darcy Kuemper) and seven restricted free agents who signed the day they were traded, who are valued as rights. With the extension, Pacioretty's value would have been -$13.07 million at the 2025-26 cap instead of -$2.35 million.
+P302 The trade
+P303 Table 31 gives each asset two values at the 2025-26 cap: its value to the club that received it, which carries the cap hit less any retained part, and its value to the club that traded it, before the trade, when that club paid the whole cap hit. The retained part is the difference between them. A club's side adds what it received, with any retained salary it pays, and subtracts what it gave up (Table 32, Figure 9). Read this way, a retained share moves value from the retaining club to the acquirer once, and the two clubs' sides sum to zero.
+P304 Table 31. The trade, each asset at the trade date
+P305 Surplus value in millions of dollars at the 2025-26 cap. Pacioretty's and Tatar's values are their player-model values at the 2018-19 cap times 1.201; the retained part is a cost to the club that kept it.
+P306 Table 32. Each club's side of the trade
+P307 Millions of dollars at the 2025-26 cap. Received: the assets each club received, at their value to it, and the retained salary it pays. Given up: the assets it traded, at their value to it before the trade.
+P308 Figure 9. The trade on one scale
+P309 
+P310 Each club's side of the trade at the trade date, in millions of dollars at the 2025-26 cap: what it received, what it gave up, and the difference.
+P311 Montreal received Tatar (-$4.87 million), Suzuki ($4.24 million), and the pick ($0.97 million), and kept paying $0.54 million of Pacioretty's cap hit: -$0.21 million in all. It gave up one season of Pacioretty, worth -$2.89 million to it at his full cap hit. Its side is -$0.21 million less -$2.89 million, $2.69 million, and Vegas's is the reverse, -$2.69 million. At the trade date both players carried contracts priced above their forecasted performance, so each club took on negative surplus value in a player. Montreal took on more of it: Tatar's three seasons and the retained part of Pacioretty's cap hit cost it $5.41 million, against the $2.89 million it shed with Pacioretty's season. Suzuki and the pick, worth $5.21 million together, more than covered the difference.
+P312 9. What the Models Do Not Do
+P313 Fitted on later seasons. The star values for picks and prospects are fitted on the 2007-2017 drafts, whose careers run past many of the trades valued, so a club at the trade could not have known them; a 2007-2017 draftee is also inside the regression that values him. The price line is fitted on contracts that started from 2018-19 to 2025-26, the goaltender price line on contracts that started from 2015-16 to 2025-26, the control-season weights on decisions about contracts that ended from 2018-19 to 2024-25, and the NHLe factors are one 2026 download of a table re-estimated with later seasons. Each runs past many of the trades it prices. The player forecast alone uses only seasons before the valuation season.
+P314 One price of a win. One price line prices each season of each valuation; the length premium is flat although it falls with quality, and restricted free agents are priced on the same line as unrestricted ones.
+P315 Cost of control. The arbitration price still sets a lower cost for first-round picks than clubs paid them, so picks may look more valuable relative to players than they are.
+P316 Goaltenders. The goaltender price line is fitted on the forecast before its age term and applied to the forecast with it, because clubs' pay follows the record; goaltender prospects share one star value with skaters.
+P317 Undrafted prospects. Only those on NHL contracts are valued, on a model fitted on drafted players, so an undrafted player is assumed to convert production as a drafted one does.
+P318 Arbitration eligibility. PuckPedia's flag is set at the contract's end, so a valuation dated earlier uses eligibility recorded at a later date.
+P319 The trade side. A conditional pick is valued as if its condition were met; the draft lottery and the reordering of playoff teams are not modelled; a pick for a later draft is valued at its round's average.
+P320 References
+P321 Efron, B., and C. Morris. 1975. "Data Analysis Using Stein's Estimator and Its Generalizations." Journal of the American Statistical Association 70 (350): 311-319.
+P322 Nadaraya, E. A. 1964. "On Estimating Regression." Theory of Probability and Its Applications 9 (1): 141-142.
+P323 Papke, L. E., and J. M. Wooldridge. 1996. "Econometric Methods for Fractional Response Variables with an Application to 401(k) Plan Participation Rates." Journal of Applied Econometrics 11 (6): 619-632.
+P324 Tobin, J. 1958. "Estimation of Relationships for Limited Dependent Variables." Econometrica 26 (1): 24-36.
+P325 Watson, G. S. 1964. "Smooth Regression Analysis." Sankhyā, Series A 26 (4): 359-372.
+P326 Appendix A. Games Share and Chance of Playing, Each Season Ahead
+P327 The adopted regressions of Table 5 and Table 7 are fitted separately for each season ahead, in the 2025-26 fit. Tables A1 and A2 give each, from the valuation season (0) to five seasons ahead. The trailing games share matters less the further ahead the season, and age more.
+P328 Table A1. Games share, adopted regression, by seasons ahead
+P329 Least squares; coefficient (standard error, clustered by player) [two-sided p-value].
+P330 Table A2. Chance of playing, adopted regression, by seasons ahead
+P331 Logistic regression on the log odds; coefficient (standard error, clustered by player) [two-sided p-value].
+P332 Appendix B. The Prospect Model Built Up, Each Season
+P333 Table 28 builds the prospect model up one term at a time in D+2. Table B1 does the same for each season. Within a season each row adds a term to the row above, except the adopted rows for D+4 and from D+5 on, which leave out draft position, and from D+5 on the age discount.
+P334 Table B1. The prospect model built up one term at a time, by season
+P335 Each block is one season, each row one regression with the full set of season interactions and no intercept. S: star probability; P: production level; N: no production record. Coefficient (standard error, clustered by player) [two-sided p-value]; R-squared measured from zero.
+P336 Appendix C. The Pick Model: Other Choices
+P337 Each row gives a choice made in building the pick model, why it was made, and what the alternative would have done. Where an effect was measured before the arbitration cost was adopted, it is a percentage of the star value then and is marked so.
+P338 Table C1. Other choices in the pick model
+P339 Effects marked "qualifying-offer chain" were measured on October 9, 2026, before the arbitration cost; the others on the model of their date.
+P340 Table C2. Drafted players left out of every fit
+P341 Drafted players of 2007 to 2017 who never played an NHL season and died before their club's control would have ended (deceased_draftees.py, from Wikipedia's list of ice hockey players who died during their careers).
+TABLE 0
+Term | Meaning
+Surplus value | The market price of the performance an asset delivers to its club, less what the club pays for it, summed over the seasons the club controls the asset and discounted 3% a year; "surplus" for short.
+Cap hit | A contract's charge against the salary cap in a season: its average annual value.
+WAR | Bacon's wins above replacement for a season: the wins a player added over a replacement-level player in the same minutes. WAR per 82 is the same scaled to 82 games.
+Valuation season | The season in which an asset is valued, starting July 1. A trade during a season is valued in that season; a trade after its last regular-season game, in the next one.
+Valuation date | The date an asset is valued at: for a traded asset, the trade date.
+Forecasted WAR if he plays | The forecast of a player's WAR per 82 in a season, times his forecasted games share.
+Games share | The share of his team's 82 games a player plays, if he plays at all.
+Chance of playing | The probability that a player plays at least one NHL game in a season.
+Comparable players | Players of the same position and age whose style, ice time, level, and trend were closest to his, each weighted by how close.
+Root mean squared error | A forecast's typical miss: the square root of the average squared difference between forecast and outcome, in the outcome's units (WAR per 82, wins, or dollars); lower is better.
+One-sided p (redraws) | The share of 2,000 redraws, with replacement, of whole careers (or drafts) in which one version's summed error is not lower than another's: how often the data could reverse the comparison. Below 0.05, the difference is statistically significant at the 5% level.
+Price line | The regression of cap hit on forecasted WAR if he plays, position, and contract length: the market price of a season.
+Term | A contract's length in years. A season's price uses the term left at the valuation date.
+Control seasons | The seasons after a contract ends in restricted free agency, until the player can become an unrestricted free agent.
+Terminal value | The value of the control seasons: the surplus of the seasons the club controls after the contract ends.
+Qualifying offer | The one-year offer, set by the collective bargaining agreement (CBA) from the player's prior salary, that keeps a restricted free agent's rights.
+Arbitration price | Once a player is eligible for salary arbitration, the higher of his qualifying offer and the price line's price of his forecasted performance for that season.
+End of club control | The June 30 after a drafted player turns 27, or his seventh season of 40 or more NHL games (30 for a goaltender), whichever comes first (CBA Group 3).
+Draft position | The overall number of a pick.
+Star probability | Bacon's probability that a player taken at a draft position becomes a star: career WAR per 82 of at least 1.8 for a forward or 1.23 for a defenceman.
+Star value | The surplus value of a pick, or a prospect in a given season, certain to become a star.
+Prospect | A drafted player the player model does not yet value: a skater with no NHL season of 10 or more games in the three before the valuation season, or a goaltender with no NHL game in the six before it.
+D+n | Seasons named from the draft: D0 is the season that ends with the draft, D+1 the season after it.
+NHLe | Bacon's NHL equivalency: the NHL points that one point in a given league and season is worth.
+Production level | A prospect's NHLe points per 82 games, weighted 50/30/20 over his three seasons before the valuation season.
+TABLE 1
+Decision | Adopted | Alternatives | Why the adopted one | Evidence (root mean squared error)
+Weights on his recent seasons | 50/30/20 over three seasons | 60/40 over two seasons; eight other fixed three-season weightings | Of the 9 three-season weightings tested, 50/30/20 had the lowest error, and fixed weights need nothing estimated from the data | Starting level, WAR per 82: 50/30/20 1.1708; next best 50/35/15 1.1710, 60/25/15 1.1711, 60/30/10 1.1714
+Seasons with few games | Each season's weight times its games | Plain 50/30/20 on the three rates, the same on both sides of the blend | A 20-game season says less than a full one, and the forecast is significantly more accurate with the games weighting | Starting level 1.1506 against 1.1525; one to five seasons ahead 1.3569 against 1.3593 (WAR per 82); season WAR 0.8064 against 0.8076 wins (p = 0.026)
+Pull toward similar players | Keep 65% of his own rate, 35% his comparable players | Other shares; a three-way blend adding the league average | The share with the lowest error; the three-way blend put no weight on the league average | Starting level, WAR per 82, by share kept: 45% 1.1676, 55% 1.1545, 65% 1.1502, 75% 1.1549; best three-way blend 0.65 / 0.35 / 0.00
+From his most recent season to the valuation season | Add his comparable players' change over the gap | No step: start at his most recent season's level | A player a year older has aged a year | Starting level, WAR per 82: 1.1506 against 1.1611; one to five seasons ahead 1.3598 against 1.3689
+Fewer than three seasons | Rescale the weights over the seasons he has | Count a missing season as zero | A missing NHL season is not replacement-level performance: it may be junior, the AHL, or an injury | Not scored: a design choice
+A counting season | 10 or more NHL games | 5 or 20 games | Ten games is the line the CBA draws for a season of an entry-level contract; 20 forecasts worse, and 5 would move players whose recent seasons were all shorter than 10 games out of the prospect model, a change not tested | Season WAR, wins: 10 games 0.8064, 5 games 0.8048 (p = 0.001); on the rows 20 games can forecast, 10 games 0.8361, 20 games 0.8372 (p = 0.057)
+TABLE 2
+Player | Weight | Level at 28 (WAR per 82)
+Paul Stastny | 0.96 | 1.953
+Justin Abdelkader | 0.93 | 1.300
+Antoine Vermette | 0.92 | 0.830
+Jeff Carter | 0.92 | 2.922
+Tim Connolly | 0.91 | 1.675
+TABLE 3
+Version | Starting level | One to five seasons ahead | Season WAR
+Replacement level, WAR 0 (adopted) | 1.1506 | 1.3598 | 0.8093
+0.50 WAR per 82 below replacement | 1.1494 | 1.3767 | 0.8139
+0.25 below replacement | 1.1499 | 1.3670 | 0.8113
+0.25 above replacement | 1.1515 | 1.3552 | 0.8080
+Players who came back later not filled in (adopted) | 1.1507 | 1.3588 | 0.8089
+A departed season at his own games, not 82 (adopted) | 1.1506 | 1.3596 | 0.8092
+No departed seasons filled in | 1.1509 | 1.3612 | 0.8092
+Short next seasons filled in | 1.1505 | 1.3671 | 0.8123
+TABLE 4
+Term | Trailing gamesshare alone | + seasons sincedebut | + age, agesquared | + trailing WAR(adopted)
+Trailing games share | 0.6716 (0.0119)[<0.001] | 0.6796 (0.0121)[<0.001] | 0.6951 (0.0120)[<0.001] | 0.6246 (0.0132)[<0.001]
+NHL seasons since his debut |  | -0.0016 (0.0007)[0.030] | 0.0060 (0.0009)[<0.001] | 0.0049 (0.0009)[<0.001]
+Age − 27.22 |  |  | -0.0114 (0.0008)[<0.001] | -0.0101 (0.0008)[<0.001]
+(Age − 27.22)² |  |  | 0.0006 (0.0001)[<0.001] | 0.0006 (0.0001)[<0.001]
+Trailing WAR |  |  |  | 0.0376 (0.0024)[<0.001]
+Intercept | 0.2161 (0.0099)[<0.001] | 0.2166 (0.0098)[<0.001] | 0.1656 (0.0103)[<0.001] | 0.1936 (0.0106)[<0.001]
+R-squared | 0.276 | 0.276 | 0.289 | 0.303
+TABLE 5
+Test | Version | Games share | Season WAR | One-sided p
+Form | Straight line (the baseline that day) | 0.2657 | 0.8088 | -
+ | Fractional logit | 0.2636 | 0.8108 | -
+ | Straight line + age squared (adopted) | 0.2654 | 0.8078 | 0.088 / 0.009
+Quality | Trailing WAR total (adopted) |  | 0.8093 | -
+ | Trailing WAR rate per 82 |  | 0.8108 | 0.995 (rate better)
+ | Total + a term for trailing WAR above one win |  | 0.8107 | 0.011 (without it better)
+TABLE 6
+Term | Age alone | + trailing WAR, gamesshare, defenceman | + contract status(adopted)
+Age − 27.22 | -0.171 (0.005)[<0.001] | -0.283 (0.008)[<0.001] | -0.274 (0.008)[<0.001]
+Trailing WAR |  | 0.909 (0.056)[<0.001] | 0.829 (0.057)[<0.001]
+Trailing games share |  | 4.604 (0.153)[<0.001] | 4.474 (0.153)[<0.001]
+Defenceman |  | 0.405 (0.064)[<0.001] | 0.354 (0.066)[<0.001]
+Under contract for the season |  |  | 2.088 (0.092)[<0.001]
+No contract record (season before 2018-19) |  |  | 1.052 (0.075)[<0.001]
+Intercept | 1.250 (0.034)[<0.001] | -1.699 (0.082)[<0.001] | -2.610 (0.103)[<0.001]
+McFadden pseudo R-squared | 0.104 | 0.337 | 0.379
+Log-likelihood | -8,708 | -6,440 | -6,031
+TABLE 7
+Term | Seasons ahead with p > 0.05 | Season WAR without it | p, better without | p, worse without | Decision
+Defenceman (games share) | 13 of 13 | 0.8064 | 0.798 | 0.202 | Dropped
+Age squared (chance of playing) | 13 of 13 | 0.8062 | 0.013 | 0.987 | Dropped
+Seasons since debut (chance of playing) | 7 of 13 | 0.8056 | 0.000 | 1.000 | Dropped
+The three together | - | 0.8054 | 0.000 | 1.000 | Dropped
+No contract record (chance of playing) | 6 of 10 | 0.8067 | 0.994 | 0.006 | Kept: dropping it worsens the forecast
+The games-share floor at 0.05, against 0 | - | 0.8064 | 1.000 | 1.000 | Floor at 0: it never binds
+TABLE 8
+Term | Forecasted WAR alone | + defence slope(the term-freeprice line) | + term(adopted)
+Intercept (α) | 0.836 (0.068)[<0.001] | 0.780 (0.069)[<0.001] | -0.412 (0.062)[<0.001]
+Per forecasted win (β) | 3.121 (0.085)[<0.001] | 2.978 (0.084)[<0.001] | 1.672 (0.078)[<0.001]
+Added per win for a defenceman (β_D) |  | 1.372 (0.202)[<0.001] | 0.389 (0.155)[0.012]
+Per year of term (γ) |  |  | 0.851 (0.026)[<0.001]
+Spread of the price (σ) | 2.121 | 2.084 | 1.489
+Log-likelihood | 3,946.0 | 3,982.5 | 4,628.7
+TABLE 9
+Forecast the price line reads | Per forecasted win | Per year of term | Log-likelihood | Held-out error | Repeats with lower error
+First season (adopted) | $1.67 million | $0.85 million | 4628.7 | $1.27M | -
+Average over the term, if he plays | $1.69 million | $0.94 million | 4607.9 | $1.29M | 0 of 20
+Average over the term × chance of playing | $1.79 million | $0.93 million | 4624.2 | $1.28M | 0 of 20
+TABLE 10
+Years of term | Contracts | Observed | Price line without term | Adopted price line
+1 | 1,045 | $1.40M | $2.19M | $1.49M
+2 | 660 | $1.98M | $2.55M | $2.21M
+3 | 211 | $3.39M | $3.28M | $3.35M
+4 | 134 | $4.65M | $3.60M | $4.35M
+5 | 64 | $5.96M | $4.48M | $5.77M
+6 | 65 | $6.17M | $4.05M | $6.33M
+7 | 61 | $7.85M | $5.03M | $7.74M
+8 | 96 | $9.10M | $6.23M | $9.29M
+TABLE 11
+Version | Log-likelihood gain (p) | Held-out error ($M) | Repeats with lower error
+The adopted price line | - | 1.2809 | -
+A separate line for restricted free agents | +7.9 (p = 0.0034) | 1.2787 | 20 of 20
+A premium that varies by forecast group | +18.5 (p < 0.001) | 1.2712 | 20 of 20
+A higher premium below replacement level (one step) | +16.0 (p < 0.001) | 1.2718 | 20 of 20
+The premium times the forecast | +5.5 (p = 0.0009) | 1.2755 | 20 of 20
+A squared forecast term | +4.1 (p = 0.0042) | 1.2809 | 12 of 20
+A bend at one forecasted win | +1.7 (p = 0.064) | 1.2817 | 2 of 20
+A separate line for 2022-23 to 2025-26 | +2.8 (p = 0.24) | 1.2818 | 5 of 20
+TABLE 12
+Forecasted WAR if he plays | Decisions | Qualified | Played, if qualified | Weight
+3 or more | 10 | 100.0% | 100.0% (of 10) | 1.000
+1 to 3 | 176 | 96.0% | 100.0% (of 166) | 0.960
+0 to 1 | 904 | 78.0% | 88.0% (of 652) | 0.687
+below 0, or no forecast | 1,180 | 65.4% | 67.8% (of 329) | 0.443
+TABLE 13
+Player | Season | Age | WAR per 82 | Games share | WAR if he plays | Chance of playing | Price | Of which term | Cap hit | Carried by the acquirer | Present value
+Pacioretty | 2018-19 | 29 | 1.50 | 0.83 | 1.25 | 0.97 | $2.16M | $0.71M | $4.50M | $4.05M | -$1.96M
+Pacioretty, total |  |  |  |  |  |  |  |  |  |  | -$1.96M
+Tatar | 2018-19 | 27 | 1.45 | 0.91 | 1.32 | 0.99 | $3.62M | $2.13M | $5.30M | $4.80M | -$1.22M
+Tatar | 2019-20 | 28 | 1.26 | 0.88 | 1.11 | 0.98 | $3.43M | $2.19M | $5.30M | $4.80M | -$1.40M
+Tatar | 2020-21 | 29 | 1.15 | 0.89 | 1.02 | 0.96 | $3.41M | $2.25M | $5.30M | $4.80M | -$1.43M
+Tatar, total |  |  |  |  |  |  |  |  |  |  | -$4.06M
+TABLE 14
+Measure or choice | Result
+Season WAR, correlation with the next season | Goaltenders 0.209, skaters 0.586
+WAR per game, correlation with the next season | Goaltenders 0.113, skaters 0.575
+Share of his own record kept | 35%: mean squared error 7.3294 (30%: 7.3488; 40%: 7.3302)
+Age term | −0.10 WAR a year; held out 7.2070 against 7.3294 (p = 0.022)
+Chance of playing | Forecast 0.815 / 0.413 against 0.818 / 0.430 played (now / five seasons ahead)
+Price line fitted on the forecast | Without the age term $1.12M, with it $1.27M held-out error a contract
+TABLE 15
+Measure | All skaters | Forwards | Defencemen | One season further
+Trailing WAR, 50/30/20 | 0.588 | 0.662 | 0.307 | 0.552
+Starting level (per 82) | 0.604 | – | – | –
+Forecasted WAR if he plays | 0.624 | 0.681 | 0.330 | 0.602
+Expected WAR | 0.623 | – | – | –
+Expected WAR without contract status | 0.624 | – | – | –
+TABLE 16
+Season | NHL games | WAR per 82 | Contract charged | Value | Cost | Surplus
+2013-14 | 17 | -0.02 | Entry-level | 0.82 | 1.37 | -0.56
+2015-16 | 34 | 0.78 | Entry-level | 1.74 | 1.24 | 0.50
+2016-17 | 58 | 0.52 | Qualifying offer | 1.31 | 1.27 | 0.04
+2017-18 | 81 | -0.51 | Qualifying offer | 0.83 | 1.27 | -0.45
+2018-19 | 75 | 0.81 | Arbitration (0.36 WAR) | 1.79 | 1.20 | 0.59
+2019-20 | 57 | 0.89 | Arbitration (0.51 WAR) | 1.93 | 1.29 | 0.65
+2020-21 | 54 | 0.59 | Arbitration (0.61 WAR) | 1.42 | 1.45 | -0.03
+Total |  |  |  | 9.84 | 9.09 | 0.74
+TABLE 17
+Shape | Parameters | #1 | #10 | #32 | #64 | Held-out error | One-sided p
+Straight line in draft position | 2 | 2.74 | 2.59 | 2.22 | 1.69 | 3.8580 | 0.998
+Log of draft position | 2 | 7.61 | 4.12 | 2.36 | 1.31 | 3.7235 | 0.978
+Log of draft position and its square | 3 | 13.27 | 4.16 | 1.58 | 0.70 | 3.6615 | 0.802
+Star value × star probability (adopted) | 1 | 13.67 | 3.88 | 1.36 | 0.69 | 3.6581 | -
+Star probability and its square | 2 | 13.92 | 3.82 | 1.33 | 0.67 | 3.6665 | 1.000
+Star and NHL-player probabilities | 2 | 13.25 | 3.97 | 1.46 | 0.74 | 3.6628 | 0.981
+Actual average of the eleven players taken |  | 17.21 | 3.78 | 0.27 | 0.16 |  | 
+TABLE 18
+Term | Adopted | + an intercept | + an interceptfor each draft | + draft positionand an intercept | + NHL-playerprobability
+Star probability (the star value) | 18.29 (1.74)[<0.001] | 17.84 (2.03)[<0.001] | 17.84 (2.01)[<0.001] | 17.29 (2.60)[<0.001] | 17.16 (3.92)[<0.001]
+Intercept |  | 0.097 (0.096)[0.314] | 11, -$0.23M to $0.80Mjointly zero: p = 0.026 | 0.267 (0.331)[0.420] | 
+Draft position |  |  |  | -0.0013 (0.0020)[0.494] | 
+NHL-player probability |  |  |  |  | 0.43 (1.01)[0.672]
+Root mean squared error, in sample | 3.642 | 3.641 | 3.622 | 3.640 | 3.641
+Held-out error | 3.658 | 3.659 | 3.659 | 3.660 | 3.663
+One-sided p, better than adopted | - | 0.670 | 0.674 | 0.755 | 0.981
+TABLE 19
+Draft position | 1 | 2 | 5 | 10 | 13 | 20 | 32 | 50 | 64 | 100 | 150 | 200
+Star probability | 74.8% | 59.0% | 35.6% | 21.2% | 17.0% | 11.6% | 7.4% | 4.8% | 3.7% | 2.4% | 1.6% | 0.4%
+Value | 13.67 | 10.79 | 6.52 | 3.88 | 3.11 | 2.11 | 1.36 | 0.88 | 0.69 | 0.44 | 0.29 | 0.07
+Without 2015 and 2016 | 11.95 | 9.43 | 5.70 | 3.39 | 2.72 | 1.85 | 1.19 | 0.77 | 0.60 | 0.38 | 0.25 | 0.06
+TABLE 20
+Season | Prospect-seasons | Star value (s.e.) | p-value | #1 pick | #13 pick | #32 pick
+D+1 (at the draft) | 2,316 | $18.29M (1.74) | <0.001 | $13.67M | $3.11M | $1.36M
+D+2 | 2,263 | $18.16M (1.81) | <0.001 | $13.58M | $3.09M | $1.35M
+D+3 | 2,134 | $16.53M (2.24) | <0.001 | $12.36M | $2.81M | $1.23M
+D+4 | 1,931 | $9.65M (1.78) | <0.001 | $7.22M | $1.64M | $0.72M
+D+5 and later | 5,954 | $2.68M (0.83) | 0.001 | $2.00M | $0.46M | $0.20M
+TABLE 21
+Alternative | Held-out error | One-sided p | Star value, D+5 | 196 traded prospects, draft position alone | Values below zero
+A separate value for each season (adopted) | 2.6242 | - | 2.68 | $62.95M | 0
+One value for all seasons | 2.6440 | <0.001 | 15.32 | $110.51M | 0
+Straight-line decline | 2.6246 | 0.389 | 8.00 | $70.80M | 15
+Same percentage decline each season | 2.6268 | 0.135 | 8.51 | $75.52M | 0
+TABLE 22
+Candidate | Held-out error | vs draft position alone | D+1 | D+2 | D+3 | D+4 | D+5 and later | One-sided p
+Draft position alone | 2.2615 | - | 3.3345 | 3.0530 | 2.6954 | 2.0885 | 0.7625 | -
+Linear production alone | 2.3338 | +3.19% | 3.5682 | 3.1395 | 2.7075 | 2.0546 | 0.7605 | 0.996
+Draft position + linear production | 2.2503 | -0.50% | 3.3246 | 3.0375 | 2.6828 | 2.0608 | 0.7618 | 0.059
+Draft position + linear production, a separate rate for defencemen | 2.2502 | -0.50% | 3.3158 | 3.0411 | 2.6863 | 2.0652 | 0.7626 | 0.088
+Draft position + linear and squared production | 2.2158 | -2.02% | 3.2842 | 2.9882 | 2.6290 | 2.0229 | 0.7580 | 0.033
+Linear and squared production alone | 2.2852 | +1.05% | 3.4664 | 3.0871 | 2.6609 | 2.0179 | 0.7567 | 0.740
+Adopted: linear and squared production; draft position in D+1 to D+3 only | 2.2151 | -2.05% | 3.2842 | 2.9882 | 2.6290 | 2.0179 | 0.7567 | 0.029
+TABLE 23
+Candidate | Held-out error | vs without age | One-sided p
+Without age (the production model above) | 2.2151 | - | -
+Plus age: a flat amount per year | 2.2089 | -0.28% | 0.0055
+Plus age discounting production, each season | 2.1996 | -0.70% | 0.0015
+Plus both | 2.2008 | -0.64% | 0.026
+Adopted: age discounting production, D+1 to D+4 | 2.1995 | -0.70% | 0.0015
+TABLE 24
+Form | Held-out error | D+1 to D+4 | One-sided p, better than adopted
+Production × age (adopted) | 2.1995 | 2.7820 | -
+Both production and its square discounted | 2.1970 | 2.7788 | 0.237
+Production squared × age, in place of production × age | 2.1970 | 2.7787 | 0.155
+One discount on all of production | 2.1991 | 2.7815 | 0.428
+Age-adjusted points in both terms | 2.1980 | 2.7800 | 0.345
+TABLE 25
+Form | Held-out error | D+1 | D+2 | D+3 | D+4 | D+5 and later | Head to head (one-sided p) | 184 traded skaters
+Linear production | 2.2434 | 3.3201 | 3.0277 | 2.6710 | 2.0483 | 0.7605 | adopted better: 0.025 | $77.47M
+Linear and squared production (adopted) | 2.1995 | 3.2658 | 2.9619 | 2.6037 | 2.0077 | 0.7567 | - | $68.96M
+Production squared alone | 2.2012 | 3.2665 | 2.9645 | 2.6086 | 2.0077 | 0.7577 | adopted better: 0.337 | $80.49M
+TABLE 26
+Term | D+1 | D+2 | D+3 | D+4 | D+5 and later
+Star probability (a) | 11.571 (2.024)[<0.001] | 10.452 (2.483)[<0.001] | 8.149 (3.363)[0.015] |  | 
+Production (b) | -0.074 (0.047)[0.117] | -0.003 (0.036)[0.927] | 0.039 (0.039)[0.309] | 0.046 (0.029)[0.116] | -0.016 (0.009)[0.093]
+Production squared (c) | 0.021 (0.006)[<0.001] | 0.015 (0.004)[<0.001] | 0.010 (0.002)[<0.001] | 0.006 (0.002)[<0.001] | 0.001 (0.001)[0.062]
+Production × (age − 18) (e) | -0.074 (0.021)[<0.001] | -0.062 (0.015)[<0.001] | -0.049 (0.012)[<0.001] | -0.026 (0.009)[0.006] | 
+Prospect-seasons | 2,083 | 2,030 | 1,906 | 1,715 | 5,262
+Players | 2,083 | 2,030 | 1,906 | 1,715 | 1,556
+R-squared | 0.292 | 0.220 | 0.158 | 0.106 | 0.035
+TABLE 27
+Term | (1) Draft positionalone | (2) + production | (3) + productionsquared | (4) Adopted:+ age
+Star probability (a) | 16.958 (1.804)[<0.001] | 13.421 (2.266)[<0.001] | 12.911 (2.246)[<0.001] | 10.452 (2.483)[<0.001]
+Production (b) |  | 0.049 (0.014)[<0.001] | -0.110 (0.035)[0.002] | -0.003 (0.036)[0.927]
+Production squared (c) |  |  | 0.013 (0.003)[<0.001] | 0.015 (0.004)[<0.001]
+Production × (age − 18) (e) |  |  |  | -0.062 (0.015)[<0.001]
+R-squared | 0.162 | 0.173 | 0.205 | 0.220
+TABLE 28
+Term | His input | Coefficient (D+2) | Contribution
+Star probability for his draft position | 0.170 | 10.452 | $1.78M
+Production | 15.37 | -0.0033 | -$0.05M
+Production squared | 236.11 | 0.0151 | $3.56M
+Production × (age − 18) | 16.89 | -0.0621 | -$1.05M
+Value, adopted model |  |  | $4.24M
+Value on draft position alone |  |  | $3.09M
+Value with his draft left out of the fit |  |  | $4.02M
+TABLE 29
+Traded | Player | Drafted | Season | Production | Age | Draft position alone | Adopted
+2018-09-10 | Nick Suzuki | 2017 #13 | D+2 | 15.4 | 19.1 | $3.09M | $4.24M
+2020-02-24 | Janne Kuokkanen | 2016 #43 | D+4 | 25.4 | 21.3 | $0.54M | $2.72M
+2021-11-04 | Peyton Krebs | 2019 #17 | D+3 | 17.2 | 20.6 | $2.22M | $2.51M
+2019-07-29 | Nikita Gusev | 2012 #202 | D+8 | 52.4 | 27.2 | $0.01M | $2.48M
+2017-11-05 | Vladislav Kamenev | 2014 #42 | D+4 | 23.0 | 21.1 | $0.55M | $2.26M
+2019-02-25 | Jonathan Dahlén | 2016 #42 | D+3 | 18.9 | 20.7 | $0.94M | $2.25M
+2019-02-25 | Erik Brännström | 2017 #15 | D+2 | 8.3 | 19.0 | $2.72M | $2.05M
+2019-01-28 | Carl Grundström | 2016 #57 | D+3 | 18.6 | 20.8 | $0.70M | $2.00M
+2019-09-24 | Dominik Bokk | 2018 #25 | D+2 | 11.9 | 19.6 | $1.71M | $1.89M
+2018-02-26 | Brett Howden | 2016 #27 | D+2 | 11.6 | 19.5 | $1.59M | $1.84M
+TABLE 30
+Asset | Traded by | Received by | Valued by | Value to the receiving club | Retained part, paid by the trading club | Value to the trading club before the trade
+Max Pacioretty | Montreal | Vegas | Player model (Sections 2-4) | -$2.35M | -$0.54M | -$2.89M
+Tomas Tatar | Vegas | Montreal | Player model (Sections 2-4) | -$4.87M | -$1.75M | -$6.62M
+Nick Suzuki | Vegas | Montreal | Prospect model (Section 7) | $4.24M |  | $4.24M
+2019 second-round pick | Vegas | Montreal | Pick model (Section 6) | $0.97M |  | $0.97M
+TABLE 31
+Club | Received | Given up | Net: received less given up
+Montreal | -$0.21M | -$2.89M | $2.69M
+Vegas | -$4.10M | -$1.41M | -$2.69M
+TABLE 32
+Term | 0 | 1 | 2 | 3 | 4 | 5
+Trailing games share | 0.6246 (0.0132)[<0.001] | 0.4723 (0.0176)[<0.001] | 0.3990 (0.0201)[<0.001] | 0.3397 (0.0226)[<0.001] | 0.2892 (0.0250)[<0.001] | 0.2722 (0.0285)[<0.001]
+NHL seasons since his debut | 0.0049 (0.0009)[<0.001] | 0.0072 (0.0012)[<0.001] | 0.0110 (0.0014)[<0.001] | 0.0148 (0.0017)[<0.001] | 0.0213 (0.0020)[<0.001] | 0.0055 (0.0025)[0.025]
+Age − 27.22 | -0.0101 (0.0008)[<0.001] | -0.0130 (0.0010)[<0.001] | -0.0149 (0.0011)[<0.001] | -0.0157 (0.0013)[<0.001] | -0.0186 (0.0016)[<0.001] | -0.0124 (0.0019)[<0.001]
+(Age − 27.22)² | 0.0006 (0.0001)[<0.001] | 0.0010 (0.0001)[<0.001] | 0.0012 (0.0002)[<0.001] | 0.0012 (0.0002)[<0.001] | 0.0013 (0.0003)[<0.001] | 0.0012 (0.0003)[<0.001]
+Trailing WAR | 0.0376 (0.0024)[<0.001] | 0.0415 (0.0029)[<0.001] | 0.0391 (0.0033)[<0.001] | 0.0375 (0.0036)[<0.001] | 0.0348 (0.0040)[<0.001] | 0.0384 (0.0043)[<0.001]
+Intercept | 0.1936 (0.0106)[<0.001] | 0.2887 (0.0142)[<0.001] | 0.3246 (0.0165)[<0.001] | 0.3552 (0.0188)[<0.001] | 0.3692 (0.0213)[<0.001] | 0.4615 (0.0246)[<0.001]
+R-squared | 0.303 | 0.212 | 0.174 | 0.153 | 0.147 | 0.115
+Player-seasons | 11,844 | 9,812 | 8,031 | 6,492 | 5,155 | 4,023
+TABLE 33
+Term | 0 | 1 | 2 | 3 | 4 | 5
+Age − 27.22 | -0.274 (0.008)[<0.001] | -0.307 (0.009)[<0.001] | -0.337 (0.010)[<0.001] | -0.365 (0.011)[<0.001] | -0.391 (0.012)[<0.001] | -0.427 (0.014)[<0.001]
+Trailing WAR | 0.829 (0.057)[<0.001] | 0.882 (0.055)[<0.001] | 0.907 (0.054)[<0.001] | 0.882 (0.056)[<0.001] | 0.832 (0.057)[<0.001] | 0.794 (0.059)[<0.001]
+Trailing games share | 4.474 (0.153)[<0.001] | 4.204 (0.155)[<0.001] | 3.964 (0.165)[<0.001] | 3.819 (0.171)[<0.001] | 3.723 (0.182)[<0.001] | 3.723 (0.200)[<0.001]
+Defenceman | 0.354 (0.066)[<0.001] | 0.456 (0.071)[<0.001] | 0.486 (0.078)[<0.001] | 0.512 (0.085)[<0.001] | 0.518 (0.092)[<0.001] | 0.536 (0.102)[<0.001]
+Under contract for the season | 2.088 (0.092)[<0.001] | 1.566 (0.106)[<0.001] | 1.266 (0.148)[<0.001] | 1.068 (0.164)[<0.001] | 1.116 (0.191)[<0.001] | 1.285 (0.246)[<0.001]
+No contract record (season before 2018-19) | 1.052 (0.075)[<0.001] | 0.459 (0.069)[<0.001] | 0.253 (0.072)[<0.001] | 0.149 (0.076)[0.050] | 0.027 (0.080)[0.739] | -0.153 (0.086)[0.076]
+Intercept | -2.610 (0.103)[<0.001] | -2.164 (0.098)[<0.001] | -1.983 (0.104)[<0.001] | -1.873 (0.109)[<0.001] | -1.730 (0.115)[<0.001] | -1.545 (0.124)[<0.001]
+McFadden pseudo R-squared | 0.379 | 0.373 | 0.377 | 0.385 | 0.393 | 0.407
+Player-seasons | 16,421 | 15,408 | 14,406 | 13,393 | 12,407 | 11,413
+TABLE 34
+Season and model | S | P | P² | N | P × (age − 18) | R-squared
+D+1Draft position alone | 17.668 (1.755)[<0.001] |  |  |  | 0.250
++ production | 15.552 (2.073)[<0.001] | 0.050 (0.017)[0.004] |  |  | 0.256
++ production squared | 13.572 (1.817)[<0.001] | -0.123 (0.050)[0.013] | 0.018 (0.005)[<0.001] |  | 0.281
+Adopted: + age | 11.571 (2.024)[<0.001] | -0.074 (0.047)[0.117] | 0.021 (0.006)[<0.001] | -0.074 (0.021)[<0.001] | 0.292
+D+2Draft position alone | 16.958 (1.804)[<0.001] |  |  |  | 0.162
++ production | 13.421 (2.266)[<0.001] | 0.049 (0.014)[<0.001] |  |  | 0.173
++ production squared | 12.911 (2.246)[<0.001] | -0.110 (0.035)[0.002] | 0.013 (0.003)[<0.001] |  | 0.205
+Adopted: + age | 10.452 (2.483)[<0.001] | -0.003 (0.036)[0.927] | 0.015 (0.004)[<0.001] | -0.062 (0.015)[<0.001] | 0.220
+D+3Draft position alone | 14.282 (2.235)[<0.001] |  |  |  | 0.089
++ production | 9.898 (3.086)[0.001] | 0.038 (0.013)[0.004] |  |  | 0.101
++ production squared | 10.561 (3.060)[<0.001] | -0.095 (0.027)[<0.001] | 0.009 (0.002)[<0.001] |  | 0.141
+Adopted: + age | 8.149 (3.363)[0.015] | 0.039 (0.039)[0.309] | 0.010 (0.002)[<0.001] | -0.049 (0.012)[<0.001] | 0.158
+D+4Draft position alone | 6.691 (1.607)[<0.001] |  |  |  | 0.021
++ production | -0.278 (2.122)[0.896] | 0.042 (0.010)[<0.001] |  |  | 0.052
++ production squared | 1.774 (2.029)[0.382] | -0.056 (0.022)[0.011] | 0.006 (0.002)[<0.001] |  | 0.096
+Adopted: production, its square, and age; no draft position |  | 0.046 (0.029)[0.116] | 0.006 (0.002)[<0.001] | -0.026 (0.009)[0.006] | 0.106
+D+5 and laterDraft position alone | 0.644 (0.601)[0.284] |  |  |  | 0.001
++ production | -1.099 (1.124)[0.328] | 0.008 (0.004)[0.054] |  |  | 0.011
++ production squared | 0.073 (0.945)[0.938] | -0.016 (0.010)[0.106] | 0.001 (0.001)[0.063] |  | 0.035
+Adopted: production and its square only |  | -0.016 (0.009)[0.093] | 0.001 (0.001)[0.062] |  | 0.035
+TABLE 35
+Choice | What the model does | Why | What the alternative would do
+End of club control | Unrestricted free agency under CBA Section 10.1(a): 27 as of June 30, or seven seasons of 40 or more games (30 for a goaltender); games played stand in for roster games | The pick secures the player only until he can sign with any club | PuckPedia's projected free-agency year agrees with this rule for 1,151 of the 1,183 drafted players it covers
+Price before regression | Each drafted player's seasons are priced, then his surplus is regressed on the star probability | Regressing WAR on draft position and pricing the prediction treats each player at a position as the average one and blurs the stars, who carry a pick's value | -
+Length of each season's contract | Each season priced at one year of term | An entry-level or qualifying-offer season buys no security beyond that season | Pricing entry-level seasons at the contract's remaining length would add about $2.6 million to a player who plays all three
+Brief call-ups | A season under 10 NHL games has its value and cost scaled by games over 82 | A call-up's cap hit counts only for his days on the roster | Counting each as a full season would lower the mean pick from $1.68 million to $1.50 million (qualifying-offer chain)
+Entry-level slides | Not modelled; the entry-level contract runs by calendar from his first NHL season | The CBA lets an 18- or 19-year-old's contract slide a year when he plays under 10 NHL games, but modelling it changes little | Each pick's value moves by under 0.5% (qualifying-offer chain)
+Careers that lost money | Counted as negative | A player who holds a roster spot while delivering less than his cost was a loss to his club | Flooring each career at zero would raise each pick's value by 4.1% (qualifying-offer chain)
+Rights that lapsed | Zero (46 players); kept when he signed his entry-level contract with the drafting club (21) | Surplus a club never held cannot belong to its pick; a club that signed him held him | The lapsed players held 2.2% of drafted skaters' surplus (qualifying-offer chain)
+Goaltenders | Pooled with skaters, priced on the goaltender price line | At a trade, nobody knows whether a pick will become a goaltender | Goaltenders' value does not follow draft position (Holtby #93, Saros #99, Shesterkin #118); a separate goaltender star value would put a first-overall goaltender near $63 million (qualifying-offer chain)
+Drafted players who died | Left out of every fit (Table C2) | They never had the chance to deliver; left in, each counts as a prospect worth zero after his death | Leaving them out moved the star value from $18.03 million to $18.04 million
+The 2017 draft's last season | Kept | The data end with 2025-26, which cuts 29 of the 217 players' control by one season | Scoring each draft left out already refits without 2017
+CBA Group 6 | Not modelled | Players 25 or older with three professional seasons and under 80 NHL games become free agents early; few drafted players qualify | At its upper bound it lowers the star value by 0.37%
+TABLE 36
+Player | Drafted | Club | Died
+Alexei Cherepanov | 2007, #17 | New York Rangers | October 13, 2008
+Mickey Renaud | 2007, #143 | Calgary Flames | February 18, 2008
+Bryan Rufenach | 2007, #208 | Detroit Red Wings | June 4, 2012
+Scott Winkler | 2008, #89 | Dallas Stars | June 12, 2013
+Kristians Pelss | 2010, #181 | Edmonton Oilers | June 11, 2013
+Daniil Sobchenko | 2011, #166 | San Jose Sharks | September 7, 2011

@@ -1,0 +1,51 @@
+==========================================================================
+ thin_history_check.py  v1.0   [production -- 20_CODE]
+ run 2026-10-04 20:02:56   python 3.14.3
+ source C:\Users\Thomas\Desktop\xNPV\10_SOURCE  (via SOURCE_DIR from the environment/.env)
+==========================================================================
+  [age] xnpv1_birthdates.csv: 3204 keys on a pre-built pkey
+  production age table: birthdate on 99.94% of season rows (C:\Users\Thomas\Desktop\xNPV\30_OUTPUT\WAR_with_age.csv)
+birthdates: production's own join (WAR_with_age.csv, 3204 keys) as primary, then the Elite Prospects scrape for 0 keys it lacks
+age table: C:\Users\Thomas\Desktop\xNPV\30_OUTPUT\WAR_with_age.csv
+rows: 6,916 player-pages, 1,609 players, pages 2015-2021
+
+reproduction: directed start 1.1506, whole 1-5 out 1.3598 (level_games_weighting_test.py v1.0 games / games with the step: 1.1506, 1.3598)
+  PASS
+
+THE DIRECTED START (65% own + 35% comparables, aged), rate per 82, games-weighted
+  bias = predicted minus actual (positive: the start runs high); range = 95% over career resamples
+  group                              rows  players  start RMSE  start bias         95% range  bias 1-5 out
+  all rows                          4,907    1,289      1.1506      +0.030  [-0.006, +0.064]        -0.154
+  (a) 1 season counted                870      738      1.1979      +0.166  [+0.069, +0.257]        -0.059
+  (a) 2 seasons counted               798      653      1.1191      +0.100  [+0.015, +0.186]        -0.152
+  (a) 3 seasons counted             3,239      877      1.1482      -0.008  [-0.052, +0.032]        -0.176
+  (b) one season, 10-19 games         253      207      1.1776      +0.196  [+0.027, +0.368]        -0.054
+  (b) one season, 20-39 games         296      258      1.1920      +0.138  [-0.032, +0.297]        +0.055
+  (b) one season, 40-81 games         303      284      1.2200      +0.186  [+0.036, +0.329]        -0.107
+  (b) one season, 82+ games            18       18      1.0607      -0.035  [-0.543, +0.449]        -0.377
+  (c) trailing games under 41         627      465      1.1932      +0.209  [+0.097, +0.318]        +0.007
+  (c) trailing games 41-81            589      484      1.1197      +0.176  [+0.073, +0.278]        -0.066
+  (c) trailing games 82-163         1,043      676      1.1164      +0.069  [-0.005, +0.144]        -0.155
+  (c) trailing games 164+           2,648      692      1.1614      -0.027  [-0.074, +0.019]        -0.192
+  (d) last counted season t0-1      4,587    1,239      1.1494      +0.028  [-0.010, +0.065]        -0.156
+  (d) last counted season t0-2        238      222      1.1799      +0.068  [-0.123, +0.264]        -0.089
+  (d) last counted season t0-3         82       79      1.2428      +0.212  [-0.167, +0.601]        -0.159
+
+WHICH SIDE RUNS HIGH: start bias with the own rate alone, the comparables alone, and the 65/35 blend
+  DESCRIPTIVE ONLY: best own share on these scored pages, and its RMSE beside 65%'s (not a candidate)
+  group                             own alone  comps alone    65/35   best k  RMSE at k  at 0.65
+  all rows                             +0.054       -0.017   +0.030     0.65     1.1506   1.1506
+  (a) 1 season counted                 +0.053       +0.374   +0.166     0.45     1.1741   1.1979
+  (a) 2 seasons counted                +0.015       +0.259   +0.100     0.60     1.1183   1.1191
+  (a) 3 seasons counted                +0.062       -0.140   -0.008     0.70     1.1469   1.1482
+  (b) one season, 10-19 games          +0.000       +0.561   +0.196     0.30     1.0820   1.1776
+  (b) one season, 20-39 games          -0.070       +0.525   +0.138     0.35     1.1481   1.1920
+  (b) one season, 40-81 games          +0.150       +0.252   +0.186     0.55     1.2148   1.2200
+  (b) one season, 82+ games            +0.034       -0.165   -0.035     1.00     1.0059   1.0607
+  (c) trailing games under 41          +0.008       +0.581   +0.209     0.35     1.1271   1.1932
+  (c) trailing games 41-81             +0.078       +0.357   +0.176     0.60     1.1179   1.1197
+  (c) trailing games 82-163            -0.001       +0.200   +0.069     0.65     1.1164   1.1164
+  (c) trailing games 164+              +0.074       -0.215   -0.027     0.70     1.1601   1.1614
+  (d) last counted season t0-1         +0.060       -0.032   +0.028     0.65     1.1494   1.1494
+  (d) last counted season t0-2         -0.158       +0.488   +0.068     0.55     1.1761   1.1799
+  (d) last counted season t0-3         -0.107       +0.803   +0.212     0.55     1.2351   1.2428

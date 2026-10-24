@@ -1,0 +1,387 @@
+player,team,gp,g,a,tp,p_per_gp,pim,plus_minus,link,page,playername,position,season,league,ep_player_id,scrape_date,source,package_version
+Jesse Ross (RW),Weyburn Red Wings,56,46,45,91,1.63,44,-,/player/65253/jesse-ross,1,Jesse Ross,RW,2011-2012,sjhl,65253,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blake Tatchell (C),Battlefords North Stars,57,42,44,86,1.51,38,-,/player/47588/blake-tatchell,1,Blake Tatchell,C,2011-2012,sjhl,47588,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ian McNulty (LW/C),Melville Millionaires,58,39,47,86,1.48,37,-,/player/58778/ian-mcnulty,1,Ian McNulty,LW/C,2011-2012,sjhl,58778,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Coltyn Sanderson (C),Weyburn Red Wings,57,32,49,81,1.42,62,-,/player/66362/coltyn-sanderson,1,Coltyn Sanderson,C,2011-2012,sjhl,66362,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Johnston (C/LW),Humboldt Broncos,58,29,52,81,1.40,39,-,/player/49105/andrew-johnston,1,Andrew Johnston,C/LW,2011-2012,sjhl,49105,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keegan Bruce (LW),Weyburn Red Wings,58,23,53,76,1.31,42,-,/player/46033/keegan-bruce,1,Keegan Bruce,LW,2011-2012,sjhl,46033,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Smith (D/RW),Estevan Bruins,57,37,37,74,1.30,35,-,/player/49261/dylan-smith,1,Dylan Smith,D/RW,2011-2012,sjhl,49261,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Mireau (C),Melville Millionaires,49,29,42,71,1.45,51,-,/player/64835/jesse-mireau,1,Jesse Mireau,C,2011-2012,sjhl,64835,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Calder Neufeld (LW),Estevan Bruins,54,34,33,67,1.24,78,-,/player/47594/calder-neufeld,1,Calder Neufeld,LW,2011-2012,sjhl,47594,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robbie Ciolfi (LW),Humboldt Broncos,49,28,37,65,1.33,28,-,/player/30492/robbie-ciolfi,1,Robbie Ciolfi,LW,2011-2012,sjhl,30492,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riley Storzuk (LW),Flin Flon Bombers,46,22,36,58,1.26,31,-,/player/56616/riley-storzuk,1,Riley Storzuk,LW,2011-2012,sjhl,56616,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Todd Christian (LW),Notre Dame Hounds,57,25,32,57,1.00,15,-,/player/65225/todd-christian,1,Todd Christian,LW,2011-2012,sjhl,65225,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan McCombie (C/RW),Flin Flon Bombers,58,25,32,57,0.98,91,-,/player/86296/dylan-mccombie,1,Dylan McCombie,C/RW,2011-2012,sjhl,86296,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Olson (RW),Estevan Bruins,58,17,39,56,0.97,18,-,/player/77285/cole-olson,1,Cole Olson,RW,2011-2012,sjhl,77285,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Braeden Johnson (LW),Battlefords North Stars,54,19,36,55,1.02,29,-,/player/45532/braeden-johnson,1,Braeden Johnson,LW,2011-2012,sjhl,45532,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zak Majkowski (C),Yorkton Terriers,56,19,36,55,0.98,73,-,/player/47893/zak-majkowski,1,Zak Majkowski,C,2011-2012,sjhl,47893,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Russell Trudeau (F),Melville Millionaires,42,29,25,54,1.29,22,-,/player/85815/russell-trudeau,1,Russell Trudeau,F,2011-2012,sjhl,85815,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyson Newell (D),Melville Millionaires,57,10,44,54,0.95,104,-,/player/45514/tyson-newell,1,Tyson Newell,D,2011-2012,sjhl,45514,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Penner (C),Flin Flon Bombers,57,21,30,51,0.89,61,-,/player/65274/brett-penner,1,Brett Penner,C,2011-2012,sjhl,65274,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Skyler Hladun (F),La Ronge Ice Wolves,57,20,31,51,0.89,110,-,/player/55694/skyler-hladun,1,Skyler Hladun,F,2011-2012,sjhl,55694,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Waskewitch (RW),Nipawin Hawks,47,16,35,51,1.09,20,-,/player/47592/justin-waskewitch,1,Justin Waskewitch,RW,2011-2012,sjhl,47592,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordon Hoffman (F),totals,55,19,31,50,0.91,99,-,/player/54188/jordon-hoffman,1,Jordon Hoffman,F,2011-2012,sjhl,54188,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cam Blair (LW/C),Flin Flon Bombers,58,20,29,49,0.84,75,-,/player/49826/cam-blair,1,Cam Blair,LW/C,2011-2012,sjhl,49826,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaron Enns (F),La Ronge Ice Wolves,48,23,25,48,1.00,89,-,/player/46800/aaron-enns,1,Aaron Enns,F,2011-2012,sjhl,46800,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Glowa (C),Humboldt Broncos,55,16,31,47,0.85,61,-,/player/70144/matt-glowa,1,Matt Glowa,C,2011-2012,sjhl,70144,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wheaton King (LW),totals,52,14,33,47,0.90,53,-,/player/45472/wheaton-king,1,Wheaton King,LW,2011-2012,sjhl,45472,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Boyer (C),La Ronge Ice Wolves,55,20,26,46,0.84,38,-,/player/74509/nathan-boyer,1,Nathan Boyer,C,2011-2012,sjhl,74509,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeremy Johnson (RW),Yorkton Terriers,56,23,22,45,0.80,30,-,/player/97152/jeremy-johnson,1,Jeremy Johnson,RW,2011-2012,sjhl,97152,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brent Struble (C),Yorkton Terriers,46,14,30,44,0.96,53,38,/player/65570/brent-struble,1,Brent Struble,C,2011-2012,sjhl,65570,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miguel Pereira (RW),Weyburn Red Wings,39,23,20,43,1.10,26,-,/player/104381/miguel-pereira,1,Miguel Pereira,RW,2011-2012,sjhl,104381,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Millin (LW),Notre Dame Hounds,55,21,22,43,0.78,49,-,/player/46964/brandon-millin,1,Brandon Millin,LW,2011-2012,sjhl,46964,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Reichert (C),Nipawin Hawks,56,10,33,43,0.77,37,-,/player/93938/adam-reichert,1,Adam Reichert,C,2011-2012,sjhl,93938,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Balaski (RW),Flin Flon Bombers,41,19,23,42,1.02,16,-,/player/85193/dylan-balaski,1,Dylan Balaski,RW,2011-2012,sjhl,85193,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Greg Ferguson (LW),Notre Dame Hounds,56,19,23,42,0.75,47,-,/player/65247/greg-ferguson,1,Greg Ferguson,LW,2011-2012,sjhl,65247,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Ethier (LW),totals,47,18,24,42,0.89,43,-,/player/66355/jordan-ethier,1,Jordan Ethier,LW,2011-2012,sjhl,66355,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Kennelly (LW),Weyburn Red Wings,56,16,26,42,0.75,132,-,/player/50110/jack-kennelly,1,Jack Kennelly,LW,2011-2012,sjhl,50110,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Miller (RW),Battlefords North Stars,58,16,26,42,0.72,136,-,/player/37234/brett-miller,1,Brett Miller,RW,2011-2012,sjhl,37234,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc-André Carré (LW),La Ronge Ice Wolves,43,10,32,42,0.98,56,-,/player/37605/marc-andre-carre,1,Marc-André Carré,LW,2011-2012,sjhl,37605,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carson Grolla (D),Notre Dame Hounds,57,16,25,41,0.72,121,-,/player/65224/carson-grolla,1,Carson Grolla,D,2011-2012,sjhl,65224,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Mysiorek (RW),totals,51,19,21,40,0.78,31,-,/player/54213/jesse-mysiorek,1,Jesse Mysiorek,RW,2011-2012,sjhl,54213,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brody Luhning (D),Battlefords North Stars,53,11,29,40,0.75,94,-,/player/45631/brody-luhning,1,Brody Luhning,D,2011-2012,sjhl,45631,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Giebel (C/RW),Yorkton Terriers,40,18,21,39,0.98,15,-,/player/59686/tyler-giebel,1,Tyler Giebel,C/RW,2011-2012,sjhl,59686,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Marshall (C),Humboldt Broncos,57,13,25,38,0.67,14,-,/player/40034/ryan-marshall,1,Ryan Marshall,C,2011-2012,sjhl,40034,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Taylor Johnson (C),Humboldt Broncos,45,12,26,38,0.84,59,-,/player/54177/taylor-johnson,1,Taylor Johnson,C,2011-2012,sjhl,54177,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Rollins (C/RW),Battlefords North Stars,55,16,21,37,0.67,4,-,/player/73652/tim-rollins,1,Tim Rollins,C/RW,2011-2012,sjhl,73652,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Hall (LW),Battlefords North Stars,57,13,24,37,0.65,20,-,/player/60395/kyle-hall,1,Kyle Hall,LW,2011-2012,sjhl,60395,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Sookro (C),Yorkton Terriers,55,20,16,36,0.65,16,-,/player/126239/ryan-sookro,1,Ryan Sookro,C,2011-2012,sjhl,126239,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Taylor Duzan (LW),totals,38,18,18,36,0.95,12,-,/player/39695/taylor-duzan,1,Taylor Duzan,LW,2011-2012,sjhl,39695,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Ostertag (RW),totals,57,18,18,36,0.63,18,-,/player/60100/ryan-ostertag,1,Ryan Ostertag,RW,2011-2012,sjhl,60100,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Morgan (C),Notre Dame Hounds,57,18,18,36,0.63,58,-,/player/94334/ben-morgan,1,Ben Morgan,C,2011-2012,sjhl,94334,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeff Datoff (D),Nipawin Hawks,56,12,23,35,0.63,73,-,/player/47436/jeff-datoff,1,Jeff Datoff,D,2011-2012,sjhl,47436,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riley Paterson (F),Yorkton Terriers,53,17,17,34,0.64,77,-,/player/44522/riley-paterson,1,Riley Paterson,F,2011-2012,sjhl,44522,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jay Young (RW/D),Flin Flon Bombers,41,16,18,34,0.83,43,-,/player/93914/jay-young,1,Jay Young,RW/D,2011-2012,sjhl,93914,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Woody Klassen (D),Battlefords North Stars,36,14,20,34,0.94,60,-,/player/39672/woody-klassen,1,Woody Klassen,D,2011-2012,sjhl,39672,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Sagen (LW),Melville Millionaires,53,14,20,34,0.64,52,-,/player/85090/michael-sagen,1,Michael Sagen,LW,2011-2012,sjhl,85090,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Desjarlais (F),Melville Millionaires,56,18,15,33,0.59,32,-,/player/64920/michael-desjarlais,1,Michael Desjarlais,F,2011-2012,sjhl,64920,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitch Doell (C),Nipawin Hawks,56,15,18,33,0.59,44,-,/player/88089/mitch-doell,1,Mitch Doell,C,2011-2012,sjhl,88089,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Taylor Reich (LW),Estevan Bruins,49,14,18,32,0.65,29,-,/player/85091/taylor-reich,1,Taylor Reich,LW,2011-2012,sjhl,85091,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Whitell (D),Weyburn Red Wings,49,11,21,32,0.65,50,-,/player/93956/ryan-whitell,1,Ryan Whitell,D,2011-2012,sjhl,93956,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitch Boucher (D),Notre Dame Hounds,55,7,25,32,0.58,38,-,/player/65226/mitch-boucher,1,Mitch Boucher,D,2011-2012,sjhl,65226,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Clark (D),Flin Flon Bombers,57,3,29,32,0.56,94,-,/player/51829/tanner-clark,1,Tanner Clark,D,2011-2012,sjhl,51829,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandt Weldon (D),Flin Flon Bombers,55,15,16,31,0.56,102,-,/player/84744/brandt-weldon,1,Brandt Weldon,D,2011-2012,sjhl,84744,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Roach (D/F),Humboldt Broncos,48,12,19,31,0.65,60,-,/player/54174/josh-roach,1,Josh Roach,D/F,2011-2012,sjhl,54174,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Schwab (F),Battlefords North Stars,51,11,20,31,0.61,33,-,/player/59988/tanner-schwab,1,Tanner Schwab,F,2011-2012,sjhl,59988,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Paslawski (RW),totals,53,11,20,31,0.58,60,-,/player/65108/tyler-paslawski,1,Tyler Paslawski,RW,2011-2012,sjhl,65108,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Antkowiak (LW),Humboldt Broncos,53,10,21,31,0.58,131,-,/player/51716/adam-antkowiak,1,Adam Antkowiak,LW,2011-2012,sjhl,51716,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Djay McGrath (C),Kindersley Klippers,55,10,21,31,0.56,61,-,/player/37136/djay-mcgrath,1,Djay McGrath,C,2011-2012,sjhl,37136,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Graham Smerek (C/LW),La Ronge Ice Wolves,51,9,22,31,0.61,75,-,/player/44329/graham-smerek,1,Graham Smerek,C/LW,2011-2012,sjhl,44329,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Backhouse (D),Humboldt Broncos,57,3,28,31,0.54,54,-,/player/66560/matthew-backhouse,1,Matthew Backhouse,D,2011-2012,sjhl,66560,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Neil Landry (LW),Humboldt Broncos,51,17,13,30,0.59,64,-,/player/44258/neil-landry,1,Neil Landry,LW,2011-2012,sjhl,44258,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brady Zerr (LW),Nipawin Hawks,57,15,14,29,0.51,55,-,/player/93939/brady-zerr,1,Brady Zerr,LW,2011-2012,sjhl,93939,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Darius Cole (RW),Nipawin Hawks,53,11,18,29,0.55,40,-,/player/84912/darius-cole,1,Darius Cole,RW,2011-2012,sjhl,84912,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joey Davies (C/W),Humboldt Broncos,54,10,19,29,0.54,87,-,/player/62680/joey-davies,1,Joey Davies,C/W,2011-2012,sjhl,62680,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lee Christensen (D),Melville Millionaires,41,5,24,29,0.71,30,-,/player/64843/lee-christensen,1,Lee Christensen,D,2011-2012,sjhl,64843,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Tran (C),La Ronge Ice Wolves,58,13,15,28,0.48,46,-,/player/64815/patrick-tran,1,Patrick Tran,C,2011-2012,sjhl,64815,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Bernard (F),totals,52,17,10,27,0.52,12,-,/player/73767/jesse-bernard,1,Jesse Bernard,F,2011-2012,sjhl,73767,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tad Kozun (LW),Nipawin Hawks,37,16,11,27,0.73,72,-,/player/84751/tad-kozun,1,Tad Kozun,LW,2011-2012,sjhl,84751,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Curtis Oliver (C),Yorkton Terriers,47,15,12,27,0.57,27,-,/player/89205/curtis-oliver,1,Curtis Oliver,C,2011-2012,sjhl,89205,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konrad Litke (F),Flin Flon Bombers,46,14,13,27,0.59,53,-,/player/49978/konrad-litke,1,Konrad Litke,F,2011-2012,sjhl,49978,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Yano (D),Estevan Bruins,50,9,18,27,0.54,47,-,/player/84406/austin-yano,1,Austin Yano,D,2011-2012,sjhl,84406,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jens Johnson (D),Weyburn Red Wings,56,5,22,27,0.48,59,-,/player/66360/jens-johnson,1,Jens Johnson,D,2011-2012,sjhl,66360,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stuart Holland (C),Nipawin Hawks,41,13,13,26,0.63,62,-,/player/65099/stuart-holland,1,Stuart Holland,C,2011-2012,sjhl,65099,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Peterson (LW),Nipawin Hawks,40,12,14,26,0.65,48,-,/player/45029/eric-peterson,1,Eric Peterson,LW,2011-2012,sjhl,45029,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Bradshaw (F),totals,39,11,15,26,0.67,63,-,/player/45753/connor-bradshaw,1,Connor Bradshaw,F,2011-2012,sjhl,45753,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Sloan (LW/C),Melfort Mustangs,34,10,16,26,0.76,20,-,/player/80793/brandon-sloan,1,Brandon Sloan,LW/C,2011-2012,sjhl,80793,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Dochylo (LW),Estevan Bruins,55,10,16,26,0.47,73,-,/player/93934/matt-dochylo,1,Matt Dochylo,LW,2011-2012,sjhl,93934,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jamie Vlanich (RW),Yorkton Terriers,44,9,17,26,0.59,35,-,/player/100295/jamie-vlanich,1,Jamie Vlanich,RW,2011-2012,sjhl,100295,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dayton Shaw (C/D),Notre Dame Hounds,42,8,18,26,0.62,6,-,/player/53150/dayton-shaw,1,Dayton Shaw,C/D,2011-2012,sjhl,53150,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kameren Ballas (D),Humboldt Broncos,53,7,19,26,0.49,10,-,/player/57094/kameren-ballas,1,Kameren Ballas,D,2011-2012,sjhl,57094,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Weisensel (D/F),La Ronge Ice Wolves,58,4,22,26,0.45,69,-,/player/44523/matthew-weisensel,1,Matthew Weisensel,D/F,2011-2012,sjhl,44523,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Lawrence (LW),Humboldt Broncos,37,13,12,25,0.68,17,-,/player/45421/john-lawrence,1,John Lawrence,LW,2011-2012,sjhl,45421,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin McDonald (RW),Kindersley Klippers,53,13,12,25,0.47,26,-,/player/84453/austin-mcdonald,1,Austin McDonald,RW,2011-2012,sjhl,84453,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zac Ashdown (F),La Ronge Ice Wolves,30,11,14,25,0.83,13,-,/player/46054/zac-ashdown,1,Zac Ashdown,F,2011-2012,sjhl,46054,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dillon Schwartzenberger (C/RW),Notre Dame Hounds,43,11,14,25,0.58,48,-,/player/85063/dillon-schwartzenberger,1,Dillon Schwartzenberger,C/RW,2011-2012,sjhl,85063,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Herle (RW/LW),Humboldt Broncos,52,12,12,24,0.46,69,-,/player/39694/andrew-herle,1,Andrew Herle,RW/LW,2011-2012,sjhl,39694,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tayler Thompson (C),Yorkton Terriers,32,8,16,24,0.75,63,-,/player/65582/tayler-thompson,1,Tayler Thompson,C,2011-2012,sjhl,65582,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitch Berg (D),totals,50,8,16,24,0.48,36,-,/player/37240/mitch-berg,1,Mitch Berg,D,2011-2012,sjhl,37240,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett McNevin (LW),La Ronge Ice Wolves,43,7,17,24,0.56,153,-,/player/50000/brett-mcnevin,1,Brett McNevin,LW,2011-2012,sjhl,50000,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Struthers (D),Weyburn Red Wings,41,5,19,24,0.59,25,-,/player/85222/carter-struthers,1,Carter Struthers,D,2011-2012,sjhl,85222,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keven Cann (C),Yorkton Terriers,55,5,19,24,0.44,16,-,/player/93975/keven-cann,1,Keven Cann,C,2011-2012,sjhl,93975,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach MacLellan (D),totals,51,1,23,24,0.47,14,-,/player/93911/zach-maclellan,2,Zach MacLellan,D,2011-2012,sjhl,93911,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Williamson (D),Nipawin Hawks,49,5,18,23,0.47,37,-,/player/85080/jesse-williamson,2,Jesse Williamson,D,2011-2012,sjhl,85080,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Kauk (D),Estevan Bruins,58,4,19,23,0.40,26,-,/player/89178/tyler-kauk,2,Tyler Kauk,D,2011-2012,sjhl,89178,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roger Tagoona (LW),totals,53,10,12,22,0.42,42,-,/player/86288/roger-tagoona,2,Roger Tagoona,LW,2011-2012,sjhl,86288,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Godric Tham (LW),totals,42,9,13,22,0.52,54,-,/player/50003/godric-tham,2,Godric Tham,LW,2011-2012,sjhl,50003,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle McLeod (LW),Yorkton Terriers,46,9,13,22,0.48,8,-,/player/73159/kyle-mcleod,2,Kyle McLeod,LW,2011-2012,sjhl,73159,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Davies (LW),Kindersley Klippers,49,7,15,22,0.45,41,-,/player/52805/kyle-davies,2,Kyle Davies,LW,2011-2012,sjhl,52805,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dallen Hall (D),Flin Flon Bombers,57,4,18,22,0.39,52,-,/player/107575/dallen-hall,2,Dallen Hall,D,2011-2012,sjhl,107575,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Roper (D),Flin Flon Bombers,54,3,19,22,0.41,124,-,/player/49424/david-roper,2,David Roper,D,2011-2012,sjhl,49424,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Tash (LW/C),Melfort Mustangs,54,14,7,21,0.39,78,-,/player/65070/brendan-tash,2,Brendan Tash,LW/C,2011-2012,sjhl,65070,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jarret Zentner (RW/C),Melfort Mustangs,25,10,11,21,0.84,4,-,/player/56806/jarret-zentner,2,Jarret Zentner,RW/C,2011-2012,sjhl,56806,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan Sproule (D),Humboldt Broncos,43,6,15,21,0.49,51,-,/player/85071/logan-sproule,2,Logan Sproule,D,2011-2012,sjhl,85071,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Jelinski (C),Estevan Bruins,44,11,9,20,0.45,87,-,/player/66346/josh-jelinski,2,Josh Jelinski,C,2011-2012,sjhl,66346,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Brykaliuk (F),Estevan Bruins,44,10,10,20,0.45,16,-,/player/85545/matt-brykaliuk,2,Matt Brykaliuk,F,2011-2012,sjhl,85545,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jared Iron (RW/C),La Ronge Ice Wolves,48,8,12,20,0.42,10,-,/player/65271/jared-iron,2,Jared Iron,RW/C,2011-2012,sjhl,65271,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Laird (C),totals,44,7,13,20,0.45,19,-,/player/65579/alex-laird,2,Alex Laird,C,2011-2012,sjhl,65579,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Haaf (D),Kindersley Klippers,57,7,13,20,0.35,76,-,/player/56791/david-haaf,2,David Haaf,D,2011-2012,sjhl,56791,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Froese (LW),Melville Millionaires,35,6,14,20,0.57,12,-,/player/45526/lucas-froese,2,Lucas Froese,LW,2011-2012,sjhl,45526,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Allan Killback (C),Melville Millionaires,56,6,14,20,0.36,36,-,/player/85038/allan-killback,2,Allan Killback,C,2011-2012,sjhl,85038,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Froese (RW/LW),Estevan Bruins,54,15,4,19,0.35,32,-,/player/85196/tanner-froese,2,Tanner Froese,RW/LW,2011-2012,sjhl,85196,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Zbitniff (C),Humboldt Broncos,26,9,10,19,0.73,13,-,/player/85094/adam-zbitniff,2,Adam Zbitniff,C,2011-2012,sjhl,85094,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Catlin Foley (F),Notre Dame Hounds,54,9,10,19,0.35,80,-,/player/65239/catlin-foley,2,Catlin Foley,F,2011-2012,sjhl,65239,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colby Daniels (LW/D),Kindersley Klippers,50,8,11,19,0.38,36,-,/player/84425/colby-daniels,2,Colby Daniels,LW/D,2011-2012,sjhl,84425,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dan Szerlip (LW),Nipawin Hawks,54,7,12,19,0.35,85,-,/player/59762/dan-szerlip,2,Dan Szerlip,LW,2011-2012,sjhl,59762,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Murray (LW),Yorkton Terriers,42,5,14,19,0.45,91,-,/player/65572/nathan-murray,2,Nathan Murray,LW,2011-2012,sjhl,65572,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bob Pond (D),Melville Millionaires,46,3,16,19,0.41,74,-,/player/46962/bob-pond,2,Bob Pond,D,2011-2012,sjhl,46962,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trent Hermary (LW),totals,45,9,9,18,0.40,51,-,/player/107580/trent-hermary,2,Trent Hermary,LW,2011-2012,sjhl,107580,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Hope (D),La Ronge Ice Wolves,49,8,10,18,0.37,101,-,/player/114959/brett-hope,2,Brett Hope,D,2011-2012,sjhl,114959,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brennen Bosovich (C/D),Kindersley Klippers,45,7,11,18,0.40,31,-,/player/84737/brennen-bosovich,2,Brennen Bosovich,C/D,2011-2012,sjhl,84737,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Williams (LW/D),Weyburn Red Wings,38,5,13,18,0.47,102,-,/player/120594/sam-williams,2,Sam Williams,LW/D,2011-2012,sjhl,120594,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Hengen (LW),Estevan Bruins,49,5,13,18,0.37,37,-,/player/49269/michael-hengen,2,Michael Hengen,LW,2011-2012,sjhl,49269,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominic Perrault (D),Estevan Bruins,54,5,13,18,0.33,185,-,/player/37195/dominic-perrault,2,Dominic Perrault,D,2011-2012,sjhl,37195,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keenan Martens (D),Nipawin Hawks,41,4,14,18,0.44,4,-,/player/52386/keenan-martens,2,Keenan Martens,D,2011-2012,sjhl,52386,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Devon McMullen (D),Yorkton Terriers,58,4,14,18,0.31,85,-,/player/85396/devon-mcmullen,2,Devon McMullen,D,2011-2012,sjhl,85396,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brady Norrish (D),Yorkton Terriers,56,6,11,17,0.30,23,-,/player/84583/brady-norrish,2,Brady Norrish,D,2011-2012,sjhl,84583,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Norrish (D),Yorkton Terriers,56,6,11,17,0.30,44,-,/player/84586/chase-norrish,2,Chase Norrish,D,2011-2012,sjhl,84586,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Derek Whitehill (C),Estevan Bruins,56,6,11,17,0.30,64,-,/player/39965/derek-whitehill,2,Derek Whitehill,C,2011-2012,sjhl,39965,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Berg (D),Melfort Mustangs,56,4,13,17,0.30,120,-,/player/32804/carter-berg,2,Carter Berg,D,2011-2012,sjhl,32804,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emrik Guillemette (RW/LW),Humboldt Broncos,15,9,7,16,1.07,4,-,/player/37087/emrik-guillemette,2,Emrik Guillemette,RW/LW,2011-2012,sjhl,37087,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Pickering (LW),Melfort Mustangs,58,9,7,16,0.28,31,-,/player/134459/anthony-pickering,2,Anthony Pickering,LW,2011-2012,sjhl,134459,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Johnstone (RW),Estevan Bruins,49,8,8,16,0.33,59,-,/player/120263/ben-johnstone,2,Ben Johnstone,RW,2011-2012,sjhl,120263,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tayler Balog (C/LW),totals,33,7,9,16,0.48,7,-,/player/55793/tayler-balog,2,Tayler Balog,C/LW,2011-2012,sjhl,55793,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Quinn (LW),Battlefords North Stars,54,6,10,16,0.30,73,-,/player/89176/tanner-quinn,2,Tanner Quinn,LW,2011-2012,sjhl,89176,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Troy Gedny (D),Kindersley Klippers,55,5,11,16,0.29,106,-,/player/56796/troy-gedny,2,Troy Gedny,D,2011-2012,sjhl,56796,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brad Buckingham (LW),Kindersley Klippers,52,10,5,15,0.29,105,-,/player/44935/brad-buckingham,2,Brad Buckingham,LW,2011-2012,sjhl,44935,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Owen (RW),Melville Millionaires,15,8,7,15,1.00,18,-,/player/49068/mark-owen,2,Mark Owen,RW,2011-2012,sjhl,49068,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Landon Hiebert (C/RW),Flin Flon Bombers,46,8,7,15,0.33,38,-,/player/91781/landon-hiebert,2,Landon Hiebert,C/RW,2011-2012,sjhl,91781,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Travis Geislinger (F),Kindersley Klippers,39,6,9,15,0.38,18,-,/player/57017/travis-geislinger,2,Travis Geislinger,F,2011-2012,sjhl,57017,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Avery Van Blaricom (LW),Melfort Mustangs,53,6,9,15,0.28,45,-,/player/107732/avery-van-blaricom,2,Avery Van Blaricom,LW,2011-2012,sjhl,107732,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavlo Zerebecky (LW),La Ronge Ice Wolves,54,6,9,15,0.28,28,-,/player/85198/pavlo-zerebecky,2,Pavlo Zerebecky,LW,2011-2012,sjhl,85198,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Coupal (D),Weyburn Red Wings,57,5,10,15,0.26,39,-,/player/66357/dylan-coupal,2,Dylan Coupal,D,2011-2012,sjhl,66357,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steven Jean (RW),totals,54,4,11,15,0.28,51,-,/player/25751/steven-jean,2,Steven Jean,RW,2011-2012,sjhl,25751,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dillon Forbes (D),Battlefords North Stars,53,3,12,15,0.28,85,-,/player/84435/dillon-forbes,2,Dillon Forbes,D,2011-2012,sjhl,84435,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Boyd Wakelin (RW),Battlefords North Stars,42,10,4,14,0.33,14,-,/player/47589/boyd-wakelin,2,Boyd Wakelin,RW,2011-2012,sjhl,47589,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryne Keller (RW/C),Battlefords North Stars,55,7,7,14,0.25,48,-,/player/84431/ryne-keller,2,Ryne Keller,RW/C,2011-2012,sjhl,84431,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Lund (RW),Kindersley Klippers,41,6,8,14,0.34,108,-,/player/50217/justin-lund,2,Justin Lund,RW,2011-2012,sjhl,50217,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+James McNulty (D),Flin Flon Bombers,37,4,10,14,0.38,119,-,/player/45842/james-mcnulty,2,James McNulty,D,2011-2012,sjhl,45842,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Paul Brisebois (D),Notre Dame Hounds,54,3,11,14,0.26,113,-,/player/84728/paul-brisebois,2,Paul Brisebois,D,2011-2012,sjhl,84728,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Wilkinson (RW),Weyburn Red Wings,38,2,12,14,0.37,65,-,/player/59973/robert-wilkinson,2,Robert Wilkinson,RW,2011-2012,sjhl,59973,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wilson Dumais (LW),totals,32,10,3,13,0.41,97,-,/player/51853/wilson-dumais,2,Wilson Dumais,LW,2011-2012,sjhl,51853,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riley Kieser (C),Humboldt Broncos,31,8,5,13,0.42,20,-,/player/79615/riley-kieser,2,Riley Kieser,C,2011-2012,sjhl,79615,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+T.J. Reeve (RW),Melville Millionaires,32,8,5,13,0.41,13,-,/player/84413/t-j-reeve,2,T.J. Reeve,RW,2011-2012,sjhl,84413,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Kissick (RW),Kindersley Klippers,34,8,5,13,0.38,96,-,/player/84748/tanner-kissick,2,Tanner Kissick,RW,2011-2012,sjhl,84748,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brenden Poncelet (C),Yorkton Terriers,42,4,9,13,0.31,34,-,/player/65584/brenden-poncelet,2,Brenden Poncelet,C,2011-2012,sjhl,65584,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Louis-Joseph Sawyer (D),La Ronge Ice Wolves,50,4,9,13,0.26,50,-,/player/132514/louis-joseph-sawyer,2,Louis-Joseph Sawyer,D,2011-2012,sjhl,132514,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Kuse (D),Notre Dame Hounds,50,4,9,13,0.26,65,-,/player/85095/brandon-kuse,2,Brandon Kuse,D,2011-2012,sjhl,85095,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Lowe-Wylde (LW),Melville Millionaires,54,4,9,13,0.24,28,-,/player/93937/connor-lowe-wylde,2,Connor Lowe-Wylde,LW,2011-2012,sjhl,93937,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Borstmayer (D),Weyburn Red Wings,46,1,12,13,0.28,58,-,/player/45524/tyler-borstmayer,2,Tyler Borstmayer,D,2011-2012,sjhl,45524,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kelly Leismeister (D),Yorkton Terriers,39,0,13,13,0.33,28,-,/player/65574/kelly-leismeister,2,Kelly Leismeister,D,2011-2012,sjhl,65574,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pearce Gourley (LW),Melfort Mustangs,53,6,6,12,0.23,56,-,/player/85070/pearce-gourley,2,Pearce Gourley,LW,2011-2012,sjhl,85070,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Troy Murray (D),Notre Dame Hounds,56,6,6,12,0.21,117,-,/player/65229/troy-murray,2,Troy Murray,D,2011-2012,sjhl,65229,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Byron Sorensen (D),La Ronge Ice Wolves,17,5,7,12,0.71,6,-,/player/46983/byron-sorensen,2,Byron Sorensen,D,2011-2012,sjhl,46983,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brayden Kmita (D/LW),Weyburn Red Wings,51,3,9,12,0.24,169,-,/player/65267/brayden-kmita,2,Brayden Kmita,D/LW,2011-2012,sjhl,65267,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Carleton (C),Weyburn Red Wings,56,3,9,12,0.21,18,-,/player/85232/thomas-carleton,2,Thomas Carleton,C,2011-2012,sjhl,85232,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rob Newton (C/LW),Battlefords North Stars,58,1,11,12,0.21,68,-,/player/48257/rob-newton,2,Rob Newton,C/LW,2011-2012,sjhl,48257,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brennan Ritchie (D),La Ronge Ice Wolves,27,0,12,12,0.44,27,-,/player/66615/brennan-ritchie,2,Brennan Ritchie,D,2011-2012,sjhl,66615,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Lambert (RW),Nipawin Hawks,28,5,6,11,0.39,35,-,/player/49959/michael-lambert,2,Michael Lambert,RW,2011-2012,sjhl,49959,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jared Kambeitz (LW),totals,42,5,6,11,0.26,10,-,/player/106879/jared-kambeitz,2,Jared Kambeitz,LW,2011-2012,sjhl,106879,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Oleniuk (C),totals,29,4,7,11,0.38,6,-,/player/84399/kyle-oleniuk,2,Kyle Oleniuk,C,2011-2012,sjhl,84399,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan Saworski (LW),Notre Dame Hounds,47,4,7,11,0.23,120,-,/player/84631/logan-saworski,2,Logan Saworski,LW,2011-2012,sjhl,84631,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Stechyshyn (D),Melville Millionaires,53,4,7,11,0.21,31,-,/player/49975/john-stechyshyn,2,John Stechyshyn,D,2011-2012,sjhl,49975,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Saunderson (D),Melfort Mustangs,55,4,7,11,0.20,22,-,/player/85083/matt-saunderson,2,Matt Saunderson,D,2011-2012,sjhl,85083,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johney Parise-Cormier (D/F),La Ronge Ice Wolves,26,3,8,11,0.42,24,-,/player/150656/johney-parise-cormier,2,Johney Parise-Cormier,D/F,2011-2012,sjhl,150656,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Kipling (D),totals,39,3,8,11,0.28,46,-,/player/64855/brett-kipling,2,Brett Kipling,D,2011-2012,sjhl,64855,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Bruha (LW),Notre Dame Hounds,39,3,8,11,0.28,68,-,/player/68218/josh-bruha,2,Josh Bruha,LW,2011-2012,sjhl,68218,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Manhas (D),Kindersley Klippers,49,3,8,11,0.22,35,-,/player/93565/chris-manhas,2,Chris Manhas,D,2011-2012,sjhl,93565,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Landon Belchamber (LW/RW),Melfort Mustangs,45,5,5,10,0.22,8,-,/player/107730/landon-belchamber,2,Landon Belchamber,LW/RW,2011-2012,sjhl,107730,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cody Wourms (LW),Melfort Mustangs,25,3,7,10,0.40,23,-,/player/128642/cody-wourms,2,Cody Wourms,LW,2011-2012,sjhl,128642,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kailum Gervais (LW/C),Yorkton Terriers,34,3,7,10,0.29,55,-,/player/85414/kailum-gervais,2,Kailum Gervais,LW/C,2011-2012,sjhl,85414,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Threndyle (LW),Melfort Mustangs,19,2,8,10,0.53,29,-,/player/93931/kyle-threndyle,2,Kyle Threndyle,LW,2011-2012,sjhl,93931,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Poskus (D),totals,36,2,8,10,0.28,28,-,/player/134466/tyler-poskus,2,Tyler Poskus,D,2011-2012,sjhl,134466,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Clinton Pirio (RW/LW),totals,39,2,8,10,0.26,111,-,/player/84624/clinton-pirio,2,Clinton Pirio,RW/LW,2011-2012,sjhl,84624,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Milligan (D),Estevan Bruins,36,1,9,10,0.28,62,-,/player/73860/connor-milligan,2,Connor Milligan,D,2011-2012,sjhl,73860,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lane Harbor (RW),Weyburn Red Wings,40,7,2,9,0.23,14,-,/player/85212/lane-harbor,2,Lane Harbor,RW,2011-2012,sjhl,85212,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colin Mospanchuk (RW),Melville Millionaires,42,6,3,9,0.21,72,-,/player/47129/colin-mospanchuk,2,Colin Mospanchuk,RW,2011-2012,sjhl,47129,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan MacNab (RW),Flin Flon Bombers,52,6,3,9,0.17,78,-,/player/85088/dylan-macnab,2,Dylan MacNab,RW,2011-2012,sjhl,85088,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brodie Eisbrenner (RW),La Ronge Ice Wolves,42,4,5,9,0.21,25,-,/player/50004/brodie-eisbrenner,2,Brodie Eisbrenner,RW,2011-2012,sjhl,50004,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Franklin Cook (D),La Ronge Ice Wolves,51,4,5,9,0.18,20,-,/player/99178/franklin-cook,2,Franklin Cook,D,2011-2012,sjhl,99178,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brock Hounsel (D),Flin Flon Bombers,53,4,5,9,0.17,67,-,/player/120229/brock-hounsel,2,Brock Hounsel,D,2011-2012,sjhl,120229,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blaine Thomson (D),Notre Dame Hounds,48,3,6,9,0.19,77,-,/player/65240/blaine-thomson,2,Blaine Thomson,D,2011-2012,sjhl,65240,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Greg Wiwcharuk (F),Flin Flon Bombers,53,3,6,9,0.17,34,-,/player/57110/greg-wiwcharuk,3,Greg Wiwcharuk,F,2011-2012,sjhl,57110,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Taylor Wasden (F),totals,45,2,7,9,0.20,122,-,/player/54214/taylor-wasden,3,Taylor Wasden,F,2011-2012,sjhl,54214,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Hudema (D),Humboldt Broncos,53,2,7,9,0.17,39,-,/player/44496/nathan-hudema,3,Nathan Hudema,D,2011-2012,sjhl,44496,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Blatz (D),Kindersley Klippers,53,2,7,9,0.17,131,-,/player/84454/brett-blatz,3,Brett Blatz,D,2011-2012,sjhl,84454,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole McCaig (C),Flin Flon Bombers,56,2,7,9,0.16,56,-,/player/70752/cole-mccaig,3,Cole McCaig,C,2011-2012,sjhl,70752,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dustin Skilliter (LW),Nipawin Hawks,48,1,8,9,0.19,69,-,/player/85395/dustin-skilliter,3,Dustin Skilliter,LW,2011-2012,sjhl,85395,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Bollefer (D),Nipawin Hawks,51,1,8,9,0.18,73,-,/player/84749/eric-bollefer,3,Eric Bollefer,D,2011-2012,sjhl,84749,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zane Morin (D),Kindersley Klippers,52,1,8,9,0.17,178,-,/player/59623/zane-morin,3,Zane Morin,D,2011-2012,sjhl,59623,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Bula (D),La Ronge Ice Wolves,57,1,8,9,0.16,107,-,/player/25965/ben-bula,3,Ben Bula,D,2011-2012,sjhl,25965,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean Aschim (C),Melville Millionaires,8,4,4,8,1.00,14,-,/player/45516/sean-aschim,3,Sean Aschim,C,2011-2012,sjhl,45516,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Lamontagne (LW),Yorkton Terriers,24,4,4,8,0.33,4,-,/player/65576/justin-lamontagne,3,Justin Lamontagne,LW,2011-2012,sjhl,65576,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Beau Stewart (LW),totals,46,3,5,8,0.17,16,-,/player/50213/beau-stewart,3,Beau Stewart,LW,2011-2012,sjhl,50213,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Morrison (D),Weyburn Red Wings,44,2,6,8,0.18,39,-,/player/63356/kevin-morrison,3,Kevin Morrison,D,2011-2012,sjhl,63356,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Bird (D),Melville Millionaires,53,2,6,8,0.15,186,-,/player/75833/tyler-bird,3,Tyler Bird,D,2011-2012,sjhl,75833,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jared Samborski (F),Battlefords North Stars,43,1,7,8,0.19,38,-,/player/84442/jared-samborski,3,Jared Samborski,F,2011-2012,sjhl,84442,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Travis Sparrow (D/W),Battlefords North Stars,51,1,7,8,0.16,111,-,/player/37199/travis-sparrow,3,Travis Sparrow,D/W,2011-2012,sjhl,37199,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Curtis Toneff (D),Battlefords North Stars,33,0,8,8,0.24,39,-,/player/59871/curtis-toneff,3,Curtis Toneff,D,2011-2012,sjhl,59871,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Bollefer (D),Nipawin Hawks,34,0,8,8,0.24,28,-,/player/65102/scott-bollefer,3,Scott Bollefer,D,2011-2012,sjhl,65102,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kale Derkson (C/D),Notre Dame Hounds,43,0,8,8,0.19,46,-,/player/66353/kale-derkson,3,Kale Derkson,C/D,2011-2012,sjhl,66353,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Petros (D),Nipawin Hawks,48,0,8,8,0.17,23,-,/player/97627/ben-petros,3,Ben Petros,D,2011-2012,sjhl,97627,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ian Williams (LW/C),Notre Dame Hounds,11,4,3,7,0.64,4,-,/player/119456/ian-williams,3,Ian Williams,LW/C,2011-2012,sjhl,119456,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Baldwin (D),Estevan Bruins,33,2,5,7,0.21,25,-,/player/85790/eric-baldwin,3,Eric Baldwin,D,2011-2012,sjhl,85790,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Parrone (D),Melfort Mustangs,34,2,5,7,0.21,26,-,/player/63148/brandon-parrone,3,Brandon Parrone,D,2011-2012,sjhl,63148,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steven Normand (D/W),Kindersley Klippers,35,2,5,7,0.20,12,-,/player/52389/steven-normand,3,Steven Normand,D/W,2011-2012,sjhl,52389,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Rockwell (D),Yorkton Terriers,45,2,5,7,0.16,140,-,/player/47145/sam-rockwell,3,Sam Rockwell,D,2011-2012,sjhl,47145,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grant Jensen (D),Nipawin Hawks,51,2,5,7,0.14,157,-,/player/102403/grant-jensen,3,Grant Jensen,D,2011-2012,sjhl,102403,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cody Pettapiece (D),Humboldt Broncos,30,1,6,7,0.23,12,-,/player/85093/cody-pettapiece,3,Cody Pettapiece,D,2011-2012,sjhl,85093,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Mann (RW),Weyburn Red Wings,32,1,6,7,0.22,13,-,/player/58203/kevin-mann,3,Kevin Mann,RW,2011-2012,sjhl,58203,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Horn (D/F),Melfort Mustangs,36,1,6,7,0.19,75,-,/player/94324/cole-horn,3,Cole Horn,D/F,2011-2012,sjhl,94324,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cody Brown (D),Melfort Mustangs,49,0,7,7,0.14,46,-,/player/44934/cody-brown,3,Cody Brown,D,2011-2012,sjhl,44934,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Miazga (C),Humboldt Broncos,18,5,1,6,0.33,24,-,/player/85077/david-miazga,3,David Miazga,C,2011-2012,sjhl,85077,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dustin Eberle (C),Melville Millionaires,30,4,2,6,0.20,2,-,/player/93936/dustin-eberle,3,Dustin Eberle,C,2011-2012,sjhl,93936,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirby Ruzesky (C),Melfort Mustangs,22,3,3,6,0.27,21,-,/player/56822/kirby-ruzesky,3,Kirby Ruzesky,C,2011-2012,sjhl,56822,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Allan (RW),Flin Flon Bombers,32,2,4,6,0.19,37,-,/player/89187/andrew-allan,3,Andrew Allan,RW,2011-2012,sjhl,89187,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+James Dombowsky (LW),Notre Dame Hounds,41,2,4,6,0.15,31,-,/player/84629/james-dombowsky,3,James Dombowsky,LW,2011-2012,sjhl,84629,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Schoffer (D),Flin Flon Bombers,23,1,5,6,0.26,31,-,/player/85075/justin-schoffer,3,Justin Schoffer,D,2011-2012,sjhl,85075,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Wharton (D),Humboldt Broncos,37,1,5,6,0.16,83,-,/player/93926/chase-wharton,3,Chase Wharton,D,2011-2012,sjhl,93926,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Corey Kosloski (RW/C),Weyburn Red Wings,39,1,5,6,0.15,12,-,/player/85034/corey-kosloski,3,Corey Kosloski,RW/C,2011-2012,sjhl,85034,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Vandenameele (D),La Ronge Ice Wolves,48,1,5,6,0.13,100,-,/player/85398/alex-vandenameele,3,Alex Vandenameele,D,2011-2012,sjhl,85398,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Daae (LW),Estevan Bruins,5,0,6,6,1.20,17,-,/player/51696/austin-daae,3,Austin Daae,LW,2011-2012,sjhl,51696,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denin Boesch (D),Estevan Bruins,46,0,6,6,0.13,28,-,/player/84401/denin-boesch,3,Denin Boesch,D,2011-2012,sjhl,84401,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Greyeyes (D),La Ronge Ice Wolves,8,3,2,5,0.63,7,-,/player/37223/david-greyeyes,3,David Greyeyes,D,2011-2012,sjhl,37223,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryley Stefanyshyn (RW/C),Yorkton Terriers,16,3,2,5,0.31,0,-,/player/85417/ryley-stefanyshyn,3,Ryley Stefanyshyn,RW/C,2011-2012,sjhl,85417,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brennan Wright (C),La Ronge Ice Wolves,19,3,2,5,0.26,22,-,/player/37720/brennan-wright,3,Brennan Wright,C,2011-2012,sjhl,37720,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Dibella (D),Melville Millionaires,53,2,3,5,0.09,53,-,/player/94970/adam-dibella,3,Adam Dibella,D,2011-2012,sjhl,94970,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stephen Hiff (RW),Notre Dame Hounds,4,1,4,5,1.25,0,-,/player/84716/stephen-hiff,3,Stephen Hiff,RW,2011-2012,sjhl,84716,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyson Valette (RW/C),La Ronge Ice Wolves,26,1,4,5,0.19,25,-,/player/80823/tyson-valette,3,Tyson Valette,RW/C,2011-2012,sjhl,80823,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Sheeran (D),Battlefords North Stars,17,0,5,5,0.29,39,-,/player/59908/matthew-sheeran,3,Matthew Sheeran,D,2011-2012,sjhl,59908,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rhett Blackmur (RW/C),Humboldt Broncos,20,0,5,5,0.25,15,-,/player/120215/rhett-blackmur,3,Rhett Blackmur,RW/C,2011-2012,sjhl,120215,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeff Bartel (D),Estevan Bruins,28,0,5,5,0.18,34,-,/player/85825/jeff-bartel,3,Jeff Bartel,D,2011-2012,sjhl,85825,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Macoretta (D/LW),Weyburn Red Wings,38,0,5,5,0.13,33,-,/player/120249/eric-macoretta,3,Eric Macoretta,D/LW,2011-2012,sjhl,120249,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Baer (D),Yorkton Terriers,41,0,5,5,0.12,40,-,/player/120226/dylan-baer,3,Dylan Baer,D,2011-2012,sjhl,120226,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Pinder (C),Humboldt Broncos,3,2,2,4,1.33,0,0,/player/49982/brett-pinder,3,Brett Pinder,C,2011-2012,sjhl,49982,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Casey Rogers (D),Kindersley Klippers,3,2,2,4,1.33,2,-,/player/44513/casey-rogers,3,Casey Rogers,D,2011-2012,sjhl,44513,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Charette (F),Melfort Mustangs,20,2,2,4,0.20,0,-,/player/69560/brett-charette,3,Brett Charette,F,2011-2012,sjhl,69560,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Elliott (LW),Melville Millionaires,26,2,2,4,0.15,8,-,/player/52808/alex-elliott,3,Alex Elliott,LW,2011-2012,sjhl,52808,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Fitzgerald (LW),Notre Dame Hounds,47,2,2,4,0.09,32,-,/player/152324/ryan-fitzgerald,3,Ryan Fitzgerald,LW,2011-2012,sjhl,152324,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bo Lenard (D/C),Melfort Mustangs,5,1,3,4,0.80,25,-,/player/64845/bo-lenard,3,Bo Lenard,D/C,2011-2012,sjhl,64845,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blake Kirkham (C),Weyburn Red Wings,8,1,3,4,0.50,11,-,/player/93949/blake-kirkham,3,Blake Kirkham,C,2011-2012,sjhl,93949,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Meier (C),Nipawin Hawks,9,1,3,4,0.44,6,-,/player/124105/dylan-meier,3,Dylan Meier,C,2011-2012,sjhl,124105,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jackson Schneider (LW),Weyburn Red Wings,25,1,3,4,0.16,21,-,/player/65263/jackson-schneider,3,Jackson Schneider,LW,2011-2012,sjhl,65263,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Daughtry (F),totals,26,1,3,4,0.15,80,-,/player/97779/jake-daughtry,3,Jake Daughtry,F,2011-2012,sjhl,97779,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Landon Hall (D),Melville Millionaires,8,0,4,4,0.50,0,-,/player/66468/landon-hall,3,Landon Hall,D,2011-2012,sjhl,66468,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jared Williamson (D),totals,26,0,4,4,0.15,22,-,/player/89166/jared-williamson,3,Jared Williamson,D,2011-2012,sjhl,89166,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Curtis Fontaine (F),Melfort Mustangs,6,2,1,3,0.50,0,-,/player/84593/curtis-fontaine,3,Curtis Fontaine,F,2011-2012,sjhl,84593,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Stavert (LW),Notre Dame Hounds,6,1,2,3,0.50,0,-,/player/103462/thomas-stavert,3,Thomas Stavert,LW,2011-2012,sjhl,103462,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zachary Walker (D/F),Melfort Mustangs,38,1,2,3,0.08,37,-,/player/49800/zachary-walker,3,Zachary Walker,D/F,2011-2012,sjhl,49800,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Babe (D),Notre Dame Hounds,48,1,2,3,0.06,92,-,/player/65231/dylan-babe,3,Dylan Babe,D,2011-2012,sjhl,65231,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Njaa (RW),Melfort Mustangs,3,0,3,3,1.00,0,-,/player/120096/brett-njaa,3,Brett Njaa,RW,2011-2012,sjhl,120096,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Parisien (D),Humboldt Broncos,10,0,3,3,0.30,16,-,/player/37095/jonathan-parisien,3,Jonathan Parisien,D,2011-2012,sjhl,37095,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Zimbaluk (D),Melfort Mustangs,15,0,3,3,0.20,6,-,/player/49104/nathan-zimbaluk,3,Nathan Zimbaluk,D,2011-2012,sjhl,49104,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaron Letourneau (D/F),Kindersley Klippers,16,0,3,3,0.19,22,-,/player/57125/aaron-letourneau,3,Aaron Letourneau,D/F,2011-2012,sjhl,57125,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Crabtree (C),Notre Dame Hounds,18,0,3,3,0.17,0,-,/player/146200/thomas-crabtree,3,Thomas Crabtree,C,2011-2012,sjhl,146200,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ty Morgan (C/LW),Melfort Mustangs,23,0,3,3,0.13,61,-,/player/106252/ty-morgan,3,Ty Morgan,C/LW,2011-2012,sjhl,106252,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Clay Van Diest (D),Notre Dame Hounds,4,2,0,2,0.50,0,-,/player/119454/clay-van-diest,3,Clay Van Diest,D,2011-2012,sjhl,119454,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Daniels (F),Estevan Bruins,5,2,0,2,0.40,4,-,/player/40109/chris-daniels,3,Chris Daniels,F,2011-2012,sjhl,40109,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Craig Dworschak (F),Kindersley Klippers,11,2,0,2,0.18,6,-,/player/51707/craig-dworschak,3,Craig Dworschak,F,2011-2012,sjhl,51707,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Klay Kachur (D),Battlefords North Stars,17,2,0,2,0.12,12,-,/player/47167/klay-kachur,3,Klay Kachur,D,2011-2012,sjhl,47167,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Johner (LW),Estevan Bruins,1,1,1,2,2.00,0,-,/player/178016/dylan-johner,3,Dylan Johner,LW,2011-2012,sjhl,178016,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Gerbig (LW),Battlefords North Stars,3,1,1,2,0.67,0,-,/player/84430/jesse-gerbig,3,Jesse Gerbig,LW,2011-2012,sjhl,84430,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Roesslein (RW/C),Weyburn Red Wings,4,1,1,2,0.50,0,-,/player/104082/austin-roesslein,3,Austin Roesslein,RW/C,2011-2012,sjhl,104082,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shain Scheschuk (C/RW),Weyburn Red Wings,11,1,1,2,0.18,0,-,/player/104081/shain-scheschuk,3,Shain Scheschuk,C/RW,2011-2012,sjhl,104081,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Elliot (LW),Kindersley Klippers,13,1,1,2,0.15,4,-,/player/85834/ryan-elliot,3,Ryan Elliot,LW,2011-2012,sjhl,85834,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Fluter (RW/C),Humboldt Broncos,14,1,1,2,0.14,6,-,/player/84428/dylan-fluter,3,Dylan Fluter,RW/C,2011-2012,sjhl,84428,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Odgers (LW),Yorkton Terriers,26,1,1,2,0.08,38,-,/player/85402/john-odgers,3,John Odgers,LW,2011-2012,sjhl,85402,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Klippenstein (D),Weyburn Red Wings,8,0,2,2,0.25,8,-,/player/93955/cole-klippenstein,3,Cole Klippenstein,D,2011-2012,sjhl,93955,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabe Minville (D),Flin Flon Bombers,12,0,2,2,0.17,16,-,/player/45486/gabe-minville,3,Gabe Minville,D,2011-2012,sjhl,45486,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lyndon Soper (D),Estevan Bruins,12,0,2,2,0.17,40,-,/player/85791/lyndon-soper,3,Lyndon Soper,D,2011-2012,sjhl,85791,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dallas Jorgensen (D),Battlefords North Stars,19,0,2,2,0.11,18,-,/player/56797/dallas-jorgensen,3,Dallas Jorgensen,D,2011-2012,sjhl,56797,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Plourde (D),Humboldt Broncos,20,0,2,2,0.10,35,-,/player/37463/william-plourde,3,William Plourde,D,2011-2012,sjhl,37463,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Spencer Crow (RW/D),Melville Millionaires,21,0,2,2,0.10,19,-,/player/85041/spencer-crow,3,Spencer Crow,RW/D,2011-2012,sjhl,85041,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blake Young (LW),Battlefords North Stars,1,1,0,1,1.00,0,-,/player/119258/blake-young,3,Blake Young,LW,2011-2012,sjhl,119258,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kody Thue (D),Kindersley Klippers,1,1,0,1,1.00,0,-,/player/120265/kody-thue,3,Kody Thue,D,2011-2012,sjhl,120265,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elliott Peterson (LW/D),Nipawin Hawks,1,1,0,1,1.00,0,-,/player/119263/elliott-peterson,3,Elliott Peterson,LW/D,2011-2012,sjhl,119263,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jared Martin (LW),Notre Dame Hounds,1,1,0,1,1.00,0,-,/player/120110/jared-martin,3,Jared Martin,LW,2011-2012,sjhl,120110,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Regan Wilton (C/RW),Melfort Mustangs,1,1,0,1,1.00,0,-,/player/84753/regan-wilton,3,Regan Wilton,C/RW,2011-2012,sjhl,84753,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeremy Leclerc (D),Kindersley Klippers,2,1,0,1,0.50,0,-,/player/120220/jeremy-leclerc,3,Jeremy Leclerc,D,2011-2012,sjhl,120220,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner LeSann (C),Yorkton Terriers,2,1,0,1,0.50,0,-,/player/85410/tanner-lesann,3,Tanner LeSann,C,2011-2012,sjhl,85410,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jason Forward (LW),Weyburn Red Wings,2,1,0,1,0.50,2,-,/player/149015/jason-forward,3,Jason Forward,LW,2011-2012,sjhl,149015,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Lee (D),Flin Flon Bombers,4,1,0,1,0.25,0,-,/player/59592/nick-lee,3,Nick Lee,D,2011-2012,sjhl,59592,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan McConnell (C),Melfort Mustangs,5,1,0,1,0.20,2,-,/player/120134/ryan-mcconnell,4,Ryan McConnell,C,2011-2012,sjhl,120134,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chace Nelson (D),Kindersley Klippers,1,0,1,1,1.00,0,-,/player/120239/chace-nelson,4,Chace Nelson,D,2011-2012,sjhl,120239,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Danczak (C/RW),Battlefords North Stars,1,0,1,1,1.00,0,-,/player/120095/carter-danczak,4,Carter Danczak,C/RW,2011-2012,sjhl,120095,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Darcy DeRoose (LW/C),Estevan Bruins,1,0,1,1,1.00,0,-,/player/147340/darcy-deroose,4,Darcy DeRoose,LW/C,2011-2012,sjhl,147340,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dakota Odgers (C/LW),Yorkton Terriers,1,0,1,1,1.00,0,-,/player/120620/dakota-odgers,4,Dakota Odgers,C/LW,2011-2012,sjhl,120620,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wayne Gatza (F/D),Flin Flon Bombers,1,0,1,1,1.00,2,-,/player/45071/wayne-gatza,4,Wayne Gatza,F/D,2011-2012,sjhl,45071,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jason Duret (RW),La Ronge Ice Wolves,2,0,1,1,0.50,0,-,/player/120093/jason-duret,4,Jason Duret,RW,2011-2012,sjhl,120093,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Lees (RW),Weyburn Red Wings,2,0,1,1,0.50,0,-,/player/84416/josh-lees,4,Josh Lees,RW,2011-2012,sjhl,84416,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Lishchynsky (D),Yorkton Terriers,2,0,1,1,0.50,2,-,/player/120127/tanner-lishchynsky,4,Tanner Lishchynsky,D,2011-2012,sjhl,120127,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Boehm (C),Flin Flon Bombers,3,0,1,1,0.33,0,-,/player/119262/brett-boehm,4,Brett Boehm,C,2011-2012,sjhl,119262,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Thorimbert (LW),Kindersley Klippers,3,0,1,1,0.33,2,-,/player/85065/chris-thorimbert,4,Chris Thorimbert,LW,2011-2012,sjhl,85065,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Foster (D),Melfort Mustangs,4,0,1,1,0.25,0,-,/player/85227/mark-foster,4,Mark Foster,D,2011-2012,sjhl,85227,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolas Langley-Rogers (D),Battlefords North Stars,4,0,1,1,0.25,2,-,/player/84634/nikolas-langley-rogers,4,Nikolas Langley-Rogers,D,2011-2012,sjhl,84634,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Rebkowich (LW),Kindersley Klippers,5,0,1,1,0.20,0,-,/player/57172/tyler-rebkowich,4,Tyler Rebkowich,LW,2011-2012,sjhl,57172,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Taylor Fauchoux (LW),Melfort Mustangs,5,0,1,1,0.20,30,-,/player/54229/taylor-fauchoux,4,Taylor Fauchoux,LW,2011-2012,sjhl,54229,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Drew Berkel (RW),Humboldt Broncos,7,0,1,1,0.14,4,-,/player/37688/drew-berkel,4,Drew Berkel,RW,2011-2012,sjhl,37688,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Lewis (LW),Yorkton Terriers,9,0,1,1,0.11,0,-,/player/56597/austin-lewis,4,Austin Lewis,LW,2011-2012,sjhl,56597,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan Maddin (C),Weyburn Red Wings,9,0,1,1,0.11,0,-,/player/52396/logan-maddin,4,Logan Maddin,C,2011-2012,sjhl,52396,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kade Halabuza (D),Kindersley Klippers,10,0,1,1,0.10,4,-,/player/85400/kade-halabuza,4,Kade Halabuza,D,2011-2012,sjhl,85400,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendon Fornwald (LW),Humboldt Broncos,14,0,1,1,0.07,19,-,/player/64854/brendon-fornwald,4,Brendon Fornwald,LW,2011-2012,sjhl,64854,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grayden Turner (D),Battlefords North Stars,16,0,1,1,0.06,44,-,/player/85201/grayden-turner,4,Grayden Turner,D,2011-2012,sjhl,85201,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Conway (F),Flin Flon Bombers,24,0,1,1,0.04,13,-,/player/106250/cole-conway,4,Cole Conway,F,2011-2012,sjhl,106250,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Garrett Zelinski (D),Flin Flon Bombers,0,0,0,0,-,0,-,/player/119259/garrett-zelinski,4,Garrett Zelinski,D,2011-2012,sjhl,119259,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colby Williams (D),Melville Millionaires,0,0,0,0,-,0,-,/player/85035/colby-williams,4,Colby Williams,D,2011-2012,sjhl,85035,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Trimp (C/LW),Flin Flon Bombers,1,0,0,0,0.00,0,-,/player/85394/kyle-trimp,4,Kyle Trimp,C/LW,2011-2012,sjhl,85394,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Wihak (LW),Melfort Mustangs,1,0,0,0,0.00,0,-,/player/39704/adam-wihak,4,Adam Wihak,LW,2011-2012,sjhl,39704,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Travis Marit (C),Weyburn Red Wings,1,0,0,0,0.00,0,-,/player/128868/travis-marit,4,Travis Marit,C,2011-2012,sjhl,128868,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Crosson (D),Estevan Bruins,1,0,0,0,0.00,0,-,/player/93679/ryan-crosson,4,Ryan Crosson,D,2011-2012,sjhl,93679,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gage Rapitta (LW),Nipawin Hawks,1,0,0,0,0.00,0,-,/player/85397/gage-rapitta,4,Gage Rapitta,LW,2011-2012,sjhl,85397,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Kealey (F),La Ronge Ice Wolves,1,0,0,0,0.00,0,-,/player/85030/brett-kealey,4,Brett Kealey,F,2011-2012,sjhl,85030,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blake McMillen (D),Estevan Bruins,1,0,0,0,0.00,0,-,/player/85203/blake-mcmillen,4,Blake McMillen,D,2011-2012,sjhl,85203,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Waterfield (D),Humboldt Broncos,1,0,0,0,0.00,0,-,/player/87295/sam-waterfield,4,Sam Waterfield,D,2011-2012,sjhl,87295,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyson Hudon (D),La Ronge Ice Wolves,1,0,0,0,0.00,0,-,/player/128649/tyson-hudon,4,Tyson Hudon,D,2011-2012,sjhl,128649,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitchell Schwark (C/LW),Kindersley Klippers,1,0,0,0,0.00,0,-,/player/85074/mitchell-schwark,4,Mitchell Schwark,C/LW,2011-2012,sjhl,85074,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kadin Schmaltz (D),Kindersley Klippers,1,0,0,0,0.00,0,-,/player/120232/kadin-schmaltz,4,Kadin Schmaltz,D,2011-2012,sjhl,120232,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cody McKinnon (C),Kindersley Klippers,1,0,0,0,0.00,0,-,/player/120230/cody-mckinnon,4,Cody McKinnon,C,2011-2012,sjhl,120230,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim McGauley (C),Notre Dame Hounds,1,0,0,0,0.00,0,-,/player/97788/tim-mcgauley,4,Tim McGauley,C,2011-2012,sjhl,97788,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Statchuk (D),Kindersley Klippers,1,0,0,0,0.00,0,-,/player/85225/mike-statchuk,4,Mike Statchuk,D,2011-2012,sjhl,85225,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Anholt (LW),Melfort Mustangs,1,0,0,0,0.00,0,-,/player/84756/matt-anholt,4,Matt Anholt,LW,2011-2012,sjhl,84756,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyson Predinchuk (RW/D),Melville Millionaires,1,0,0,0,0.00,0,-,/player/85028/tyson-predinchuk,4,Tyson Predinchuk,RW/D,2011-2012,sjhl,85028,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean Delwo (C/LW),Weyburn Red Wings,1,0,0,0,0.00,0,-,/player/55218/sean-delwo,4,Sean Delwo,C/LW,2011-2012,sjhl,55218,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Barron (RW),Flin Flon Bombers,1,0,0,0,0.00,0,-,/player/121056/brendan-barron,4,Brendan Barron,RW,2011-2012,sjhl,121056,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wyatt Garagan (LW),Estevan Bruins,1,0,0,0,0.00,0,-,/player/85233/wyatt-garagan,4,Wyatt Garagan,LW,2011-2012,sjhl,85233,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jay Aasen (D),Melfort Mustangs,1,0,0,0,0.00,0,-,/player/85229/jay-aasen,4,Jay Aasen,D,2011-2012,sjhl,85229,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Roden (D),Nipawin Hawks,1,0,0,0,0.00,0,-,/player/85082/jesse-roden,4,Jesse Roden,D,2011-2012,sjhl,85082,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Venne (F),Estevan Bruins,1,0,0,0,0.00,0,-,/player/185417/connor-venne,4,Connor Venne,F,2011-2012,sjhl,185417,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rhett Handley (D),Estevan Bruins,1,0,0,0,0.00,0,-,/player/185418/rhett-handley,4,Rhett Handley,D,2011-2012,sjhl,185418,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Troy Dumais (D),Yorkton Terriers,1,0,0,0,0.00,2,-,/player/77503/troy-dumais,4,Troy Dumais,D,2011-2012,sjhl,77503,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaryd Watson (C/RW),La Ronge Ice Wolves,1,0,0,0,0.00,2,-,/player/84600/jaryd-watson,4,Jaryd Watson,C/RW,2011-2012,sjhl,84600,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Garret Lockeridge (LW),Nipawin Hawks,1,0,0,0,0.00,2,-,/player/85042/garret-lockeridge,4,Garret Lockeridge,LW,2011-2012,sjhl,85042,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Halbgewachs (F),Estevan Bruins,2,0,0,0,0.00,0,-,/player/85043/brandon-halbgewachs,4,Brandon Halbgewachs,F,2011-2012,sjhl,85043,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Morrison (D),Estevan Bruins,2,0,0,0,0.00,0,-,/player/158219/scott-morrison,4,Scott Morrison,D,2011-2012,sjhl,158219,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Boyd (LW),La Ronge Ice Wolves,2,0,0,0,0.00,0,-,/player/161831/brendan-boyd,4,Brendan Boyd,LW,2011-2012,sjhl,161831,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Devin Case (C),Notre Dame Hounds,2,0,0,0,0.00,0,-,/player/119403/devin-case,4,Devin Case,C,2011-2012,sjhl,119403,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Travis Baber (D),Nipawin Hawks,2,0,0,0,0.00,0,-,/player/85409/travis-baber,4,Travis Baber,D,2011-2012,sjhl,85409,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dion Antisin (LW),Notre Dame Hounds,2,0,0,0,0.00,0,-,/player/119404/dion-antisin,4,Dion Antisin,LW,2011-2012,sjhl,119404,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brody Jorgenson (RW),Notre Dame Hounds,2,0,0,0,0.00,0,-,/player/119395/brody-jorgenson,4,Brody Jorgenson,RW,2011-2012,sjhl,119395,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Collins (LW),Yorkton Terriers,2,0,0,0,0.00,2,-,/player/126240/tyler-collins,4,Tyler Collins,LW,2011-2012,sjhl,126240,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Craig Fournier (C),Melfort Mustangs,2,0,0,0,0.00,2,-,/player/85215/craig-fournier,4,Craig Fournier,C,2011-2012,sjhl,85215,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Gay (RW),totals,3,0,0,0,0.00,0,-,/player/120125/connor-gay,4,Connor Gay,RW,2011-2012,sjhl,120125,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Curzon (D),Estevan Bruins,3,0,0,0,0.00,0,-,/player/60394/ryan-curzon,4,Ryan Curzon,D,2011-2012,sjhl,60394,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+J.J. Coleshaw (LW/C),Flin Flon Bombers,3,0,0,0,0.00,0,-,/player/84589/j-j-coleshaw,4,J.J. Coleshaw,LW/C,2011-2012,sjhl,84589,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dayton Picard (LW/C),Estevan Bruins,3,0,0,0,0.00,2,-,/player/84405/dayton-picard,4,Dayton Picard,LW/C,2011-2012,sjhl,84405,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brant Henry-Norton (C),Melfort Mustangs,3,0,0,0,0.00,12,-,/player/39705/brant-henry-norton,4,Brant Henry-Norton,C,2011-2012,sjhl,39705,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Cameron (D/RW),La Ronge Ice Wolves,4,0,0,0,0.00,0,-,/player/64753/alex-cameron,4,Alex Cameron,D/RW,2011-2012,sjhl,64753,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Bird (D),Melville Millionaires,4,0,0,0,0.00,0,-,/player/152933/kyle-bird,4,Kyle Bird,D,2011-2012,sjhl,152933,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Recknagle (LW),Battlefords North Stars,4,0,0,0,0.00,2,-,/player/57122/luke-recknagle,4,Luke Recknagle,LW,2011-2012,sjhl,57122,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Pisio (W/D),Humboldt Broncos,4,0,0,0,0.00,33,-,/player/101181/brett-pisio,4,Brett Pisio,W/D,2011-2012,sjhl,101181,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Lightfoot (D),Notre Dame Hounds,5,0,0,0,0.00,0,-,/player/84616/austin-lightfoot,4,Austin Lightfoot,D,2011-2012,sjhl,84616,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Stumborg (D),Humboldt Broncos,5,0,0,0,0.00,2,-,/player/150651/david-stumborg,4,David Stumborg,D,2011-2012,sjhl,150651,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Therrien (LW),Notre Dame Hounds,6,0,0,0,0.00,2,-,/player/119398/eric-therrien,4,Eric Therrien,LW,2011-2012,sjhl,119398,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rylan Badduke (D),Melville Millionaires,6,0,0,0,0.00,4,-,/player/84409/rylan-badduke,4,Rylan Badduke,D,2011-2012,sjhl,84409,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Gray (D),Yorkton Terriers,6,0,0,0,0.00,12,-,/player/152938/tanner-gray,4,Tanner Gray,D,2011-2012,sjhl,152938,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Braeden Raiwet (D),Yorkton Terriers,7,0,0,0,0.00,9,-,/player/84433/braeden-raiwet,4,Braeden Raiwet,D,2011-2012,sjhl,84433,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Travis Lemaire (C),Melville Millionaires,9,0,0,0,0.00,0,-,/player/150707/travis-lemaire,4,Travis Lemaire,C,2011-2012,sjhl,150707,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Rawlins (D),Humboldt Broncos,9,0,0,0,0.00,11,-,/player/57162/jake-rawlins,4,Jake Rawlins,D,2011-2012,sjhl,57162,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Morgan Eaton (F),Kindersley Klippers,9,0,0,0,0.00,26,-,/player/81241/morgan-eaton,4,Morgan Eaton,F,2011-2012,sjhl,81241,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Larre (D),Melfort Mustangs,10,0,0,0,0.00,4,-,/player/150663/john-larre,4,John Larre,D,2011-2012,sjhl,150663,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sheldon Argent (LW),Melfort Mustangs,10,0,0,0,0.00,6,-,/player/85230/sheldon-argent,4,Sheldon Argent,LW,2011-2012,sjhl,85230,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+MacKenzie Ryan (D),Notre Dame Hounds,10,0,0,0,0.00,17,-,/player/84638/mackenzie-ryan,4,MacKenzie Ryan,D,2011-2012,sjhl,84638,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Helmkay (D),La Ronge Ice Wolves,11,0,0,0,0.00,2,-,/player/85081/scott-helmkay,4,Scott Helmkay,D,2011-2012,sjhl,85081,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jon Stephansson (D),Kindersley Klippers,11,0,0,0,0.00,6,-,/player/85788/jon-stephansson,4,Jon Stephansson,D,2011-2012,sjhl,85788,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Schellenberg (D),Estevan Bruins,12,0,0,0,0.00,60,-,/player/44952/dylan-schellenberg,4,Dylan Schellenberg,D,2011-2012,sjhl,44952,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Prpich (C/RW),Battlefords North Stars,13,0,0,0,0.00,13,-,/player/44961/sam-prpich,4,Sam Prpich,C/RW,2011-2012,sjhl,44961,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Virtanen (D),Flin Flon Bombers,16,0,0,0,0.00,13,-,/player/54879/stefan-virtanen,4,Stefan Virtanen,D,2011-2012,sjhl,54879,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andre Parker (LW/C),Melville Millionaires,29,0,0,0,0.00,73,-,/player/85392/andre-parker,4,Andre Parker,LW/C,2011-2012,sjhl,85392,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69

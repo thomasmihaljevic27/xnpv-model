@@ -1,0 +1,645 @@
+player,team,gp,g,a,tp,p_per_gp,pim,plus_minus,link,page,playername,position,season,league,ep_player_id,scrape_date,source,package_version
+Justin Donati (C),Elmira Jackals,63,27,67,94,1.49,83,0,/player/14563/justin-donati,1,Justin Donati,C,2010-2011,echl,14563,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wes Goldie (RW),Alaska Aces,72,46,37,83,1.15,50,25,/player/20530/wes-goldie,1,Wes Goldie,RW,2010-2011,echl,20530,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Derlago (LW),Idaho Steelheads,67,45,36,81,1.21,54,2,/player/11711/mark-derlago,1,Mark Derlago,LW,2010-2011,echl,11711,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kory Karlander (C),Kalamazoo Wings,71,34,46,80,1.13,70,-1,/player/21317/kory-karlander,1,Kory Karlander,C,2010-2011,echl,21317,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trent Daavettila (C/LW),Kalamazoo Wings,71,32,48,80,1.13,24,28,/player/41053/trent-daavettila,1,Trent Daavettila,C/LW,2010-2011,echl,41053,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Ginand (F),Trenton Devils,68,29,46,75,1.10,54,1,/player/24825/ryan-ginand,1,Ryan Ginand,F,2010-2011,echl,24825,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Francis Lemieux (C/RW),Florida Everblades,56,28,45,73,1.30,91,2,/player/11724/francis-lemieux,1,Francis Lemieux,C/RW,2010-2011,echl,11724,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yannick Tifu (C),Elmira Jackals,64,28,45,73,1.14,109,10,/player/14726/yannick-tifu,1,Yannick Tifu,C,2010-2011,echl,14726,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Bohmbach (C/LW),Toledo Walleye,65,28,44,72,1.11,39,16,/player/38106/andrew-bohmbach,1,Andrew Bohmbach,C/LW,2010-2011,echl,38106,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Fournier (C),Kalamazoo Wings,68,38,33,71,1.04,20,21,/player/14443/andrew-fournier,1,Andrew Fournier,C,2010-2011,echl,14443,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian Swanson (C),Alaska Aces,69,24,46,70,1.01,20,12,/player/13642/brian-swanson,1,Brian Swanson,C,2010-2011,echl,13642,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Sarauer (C/LW),Reading Royals,60,25,42,67,1.12,40,15,/player/15047/andrew-sarauer,1,Andrew Sarauer,C/LW,2010-2011,echl,15047,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Forney (LW),Gwinnett Gladiators,66,21,45,66,1.00,79,-1,/player/14868/michael-forney,1,Michael Forney,LW,2010-2011,echl,14868,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Asselin (C/LW),Kalamazoo Wings,69,27,38,65,0.94,33,0,/player/14959/patrick-asselin,1,Patrick Asselin,C/LW,2010-2011,echl,14959,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Huddy (C),Las Vegas Wranglers,58,27,37,64,1.10,22,-15,/player/21364/ryan-huddy,1,Ryan Huddy,C,2010-2011,echl,21364,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexandre Imbeault (C),Florida Everblades,57,36,27,63,1.11,87,-9,/player/12126/alexandre-imbeault,1,Alexandre Imbeault,C,2010-2011,echl,12126,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kael Mouillierat (C/LW),Idaho Steelheads,62,25,38,63,1.02,108,10,/player/38319/kael-mouillierat,1,Kael Mouillierat,C/LW,2010-2011,echl,38319,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jimmy Kilpatrick (C),Greenville Road Warriors,64,19,44,63,0.98,52,2,/player/15569/jimmy-kilpatrick,1,Jimmy Kilpatrick,C,2010-2011,echl,15569,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rob Hennigar (C),Victoria Salmon Kings,61,9,54,63,1.03,40,5,/player/17034/rob-hennigar,1,Rob Hennigar,C,2010-2011,echl,17034,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stéphane Goulet (RW),Bakersfield Condors,67,28,32,60,0.90,52,4,/player/11533/stephane-goulet,1,Stéphane Goulet,RW,2010-2011,echl,11533,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Blight (RW),Reading Royals,46,25,34,59,1.28,52,18,/player/14759/chris-blight,1,Chris Blight,RW,2010-2011,echl,14759,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Howes (LW/D),totals,60,22,37,59,0.98,65,0,/player/15633/scott-howes,1,Scott Howes,LW/D,2010-2011,echl,15633,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Petersen (RW/LW),Wheeling Nailers,40,24,33,57,1.43,30,17,/player/23202/nick-petersen,1,Nick Petersen,RW/LW,2010-2011,echl,23202,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Gordon (C),Reading Royals,56,23,34,57,1.02,53,11,/player/12365/ben-gordon,1,Ben Gordon,C,2010-2011,echl,12365,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Cruthers (RW),Reading Royals,51,22,35,57,1.12,44,7,/player/17821/ryan-cruthers,1,Ryan Cruthers,RW,2010-2011,echl,17821,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Barret Ehgoetz (C),Cincinnati Cyclones,71,19,38,57,0.80,30,6,/player/24256/barret-ehgoetz,1,Barret Ehgoetz,C,2010-2011,echl,24256,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Rankin (RW),Toledo Walleye,63,23,32,55,0.87,53,8,/player/31239/evan-rankin,1,Evan Rankin,RW,2010-2011,echl,31239,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Morrison (C),Ontario Reign,71,20,35,55,0.77,40,-29,/player/17820/jordan-morrison,1,Jordan Morrison,C,2010-2011,echl,17820,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rob Ricci (C/LW),South Carolina Stingrays,67,26,28,54,0.81,32,7,/player/33849/rob-ricci,1,Rob Ricci,C/LW,2010-2011,echl,33849,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Lawrence (LW/C),Stockton Thunder,57,22,32,54,0.95,83,20,/player/9363/chris-lawrence,1,Chris Lawrence,LW/C,2010-2011,echl,9363,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Barlow (LW),Idaho Steelheads,39,18,36,54,1.38,48,-1,/player/38836/evan-barlow,1,Evan Barlow,LW,2010-2011,echl,38836,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Casey Pierro-Zabotel (C),totals,67,18,36,54,0.81,50,17,/player/11590/casey-pierro-zabotel,1,Casey Pierro-Zabotel,C,2010-2011,echl,11590,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Voakes (C),Greenville Road Warriors,60,17,37,54,0.90,28,0,/player/33167/mark-voakes,1,Mark Voakes,C,2010-2011,echl,33167,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc-Olivier Vallerand (RW),Greenville Road Warriors,70,28,25,53,0.76,46,12,/player/32871/marc-olivier-vallerand,1,Marc-Olivier Vallerand,RW,2010-2011,echl,32871,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Hedden (LW),Toledo Walleye,57,32,20,52,0.91,94,-1,/player/49366/mike-hedden,1,Mike Hedden,LW,2010-2011,echl,49366,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Doig (C),totals,62,19,33,52,0.84,68,-10,/player/14006/tyler-doig,1,Tyler Doig,C,2010-2011,echl,14006,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommy Goebel (RW),South Carolina Stingrays,58,17,35,52,0.90,35,6,/player/17073/tommy-goebel,1,Tommy Goebel,RW,2010-2011,echl,17073,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Bowers (C),Greenville Road Warriors,44,16,36,52,1.18,12,11,/player/24298/justin-bowers,1,Justin Bowers,C,2010-2011,echl,24298,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vyacheslav Trukhno (C/LW),Bakersfield Condors,51,12,40,52,1.02,73,4,/player/4126/vyacheslav-trukhno,1,Vyacheslav Trukhno,C/LW,2010-2011,echl,4126,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Street (C/LW),Wheeling Nailers,38,24,27,51,1.34,10,21,/player/12378/ben-street,1,Ben Street,C/LW,2010-2011,echl,12378,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brad Snetsinger (LW),totals,62,21,30,51,0.82,70,-4,/player/13838/brad-snetsinger,1,Brad Snetsinger,LW,2010-2011,echl,13838,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Milan Gajic (C/RW),Victoria Salmon Kings,59,20,31,51,0.86,36,-5,/player/13493/milan-gajic,1,Milan Gajic,C/RW,2010-2011,echl,13493,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fraser Clair (RW),Stockton Thunder,68,20,31,51,0.75,100,6,/player/15113/fraser-clair,1,Fraser Clair,RW,2010-2011,echl,15113,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Aubin (RW/C),Cincinnati Cyclones,68,19,32,51,0.75,78,-2,/player/12486/mathieu-aubin,1,Mathieu Aubin,RW/C,2010-2011,echl,12486,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitch Fadden (C),Florida Everblades,37,15,36,51,1.38,34,-2,/player/11058/mitch-fadden,1,Mitch Fadden,C,2010-2011,echl,11058,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Galivan (LW),Gwinnett Gladiators,58,12,39,51,0.88,49,-17,/player/15051/patrick-galivan,1,Patrick Galivan,LW,2010-2011,echl,15051,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Darryl Lloyd (C),Kalamazoo Wings,72,12,39,51,0.71,130,19,/player/16660/darryl-lloyd,1,Darryl Lloyd,C,2010-2011,echl,16660,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Hayes (RW),Trenton Devils,63,23,27,50,0.79,47,0,/player/9314/ryan-hayes,1,Ryan Hayes,RW,2010-2011,echl,9314,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Connolly (C),Greenville Road Warriors,45,22,28,50,1.11,76,28,/player/33774/brendan-connolly,1,Brendan Connolly,C,2010-2011,echl,33774,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Beca (RW/C),Florida Everblades,62,22,28,50,0.81,34,0,/player/17834/matt-beca,1,Matt Beca,RW/C,2010-2011,echl,17834,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Deeth (F),Utah Grizzlies,66,12,38,50,0.76,78,9,/player/11421/kevin-deeth,1,Kevin Deeth,F,2010-2011,echl,11421,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Ftorek (D/F),Kalamazoo Wings,71,9,41,50,0.70,77,-1,/player/15511/sam-ftorek,1,Sam Ftorek,D/F,2010-2011,echl,15511,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chad Painchaud (RW),Victoria Salmon Kings,56,27,22,49,0.88,37,11,/player/15024/chad-painchaud,1,Chad Painchaud,RW,2010-2011,echl,15024,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Randy Rowe (LW),Toledo Walleye,65,19,30,49,0.75,28,-14,/player/12035/randy-rowe,1,Randy Rowe,LW,2010-2011,echl,12035,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pierre-Luc O'Brien (LW),South Carolina Stingrays,70,16,33,49,0.70,57,12,/player/14561/pierre-luc-o-brien,1,Pierre-Luc O'Brien,LW,2010-2011,echl,14561,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Ianiero (LW),Bakersfield Condors,64,13,36,49,0.77,34,13,/player/15887/andrew-ianiero,1,Andrew Ianiero,LW,2010-2011,echl,15887,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Taylor (C),Kalamazoo Wings,48,25,23,48,1.00,107,4,/player/14011/justin-taylor,1,Justin Taylor,C,2010-2011,echl,14011,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaron Clarke (C),totals,67,21,26,47,0.70,40,-7,/player/16917/aaron-clarke,1,Aaron Clarke,C,2010-2011,echl,16917,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikaël Bédard (RW),Wheeling Nailers,48,20,27,47,0.98,28,20,/player/41494/mikael-bedard,1,Mikaël Bédard,RW,2010-2011,echl,41494,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Shields (F),Greenville Road Warriors,55,16,31,47,0.85,31,18,/player/39116/connor-shields,1,Connor Shields,F,2010-2011,echl,39116,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Mosienko (C),Las Vegas Wranglers,43,15,32,47,1.09,78,-2,/player/15298/tyler-mosienko,1,Tyler Mosienko,C,2010-2011,echl,15298,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Wong (C/LW),Greenville Road Warriors,64,21,25,46,0.72,23,14,/player/11441/brandon-wong,1,Brandon Wong,C/LW,2010-2011,echl,11441,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dan Kissel (LW),totals,72,20,26,46,0.64,18,-21,/player/38479/dan-kissel,1,Dan Kissel,LW,2010-2011,echl,38479,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Naglich (RW/C),Bakersfield Condors,67,17,29,46,0.69,32,3,/player/38556/adam-naglich,1,Adam Naglich,RW/C,2010-2011,echl,38556,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jason Lepine (D),totals,68,10,36,46,0.68,42,10,/player/24426/jason-lepine,1,Jason Lepine,D,2010-2011,echl,24426,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shane Harper (RW),Greenville Road Warriors,48,22,23,45,0.94,20,18,/player/25356/shane-harper,1,Shane Harper,RW,2010-2011,echl,25356,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marty Flichel (RW/C),Idaho Steelheads,58,20,25,45,0.78,48,-7,/player/17941/marty-flichel,1,Marty Flichel,RW/C,2010-2011,echl,17941,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kory Falite (F),Alaska Aces,69,16,29,45,0.65,33,13,/player/38347/kory-falite,1,Kory Falite,F,2010-2011,echl,38347,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Crowder (RW/C),totals,71,14,31,45,0.63,40,2,/player/14857/tim-crowder,1,Tim Crowder,RW/C,2010-2011,echl,14857,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Siddall (RW),Victoria Salmon Kings,66,21,23,44,0.67,164,-5,/player/15048/matthew-siddall,1,Matthew Siddall,RW,2010-2011,echl,15048,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Perry (LW),Elmira Jackals,68,20,24,44,0.65,60,8,/player/14433/adam-perry,1,Adam Perry,LW,2010-2011,echl,14433,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zack Torquato (C),Toledo Walleye,54,11,33,44,0.81,14,3,/player/11401/zack-torquato,1,Zack Torquato,C,2010-2011,echl,11401,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joey Haddad (LW),Wheeling Nailers,50,21,22,43,0.86,93,1,/player/19205/joey-haddad,1,Joey Haddad,LW,2010-2011,echl,19205,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yannick Riendeau (RW/LW),Reading Royals,54,18,25,43,0.80,24,6,/player/24192/yannick-riendeau,1,Yannick Riendeau,RW/LW,2010-2011,echl,24192,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wes Cunningham (D),Greenville Road Warriors,69,7,36,43,0.62,77,19,/player/14442/wes-cunningham,1,Wes Cunningham,D,2010-2011,echl,14442,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeff Prough (RW),Trenton Devils,48,25,17,42,0.88,40,-13,/player/16865/jeff-prough,1,Jeff Prough,RW,2010-2011,echl,16865,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dustin Sproat (LW),Cincinnati Cyclones,56,21,21,42,0.75,67,-4,/player/22929/dustin-sproat,1,Dustin Sproat,LW,2010-2011,echl,22929,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Fulton (LW/C),totals,70,18,23,41,0.59,104,-17,/player/15452/jordan-fulton,1,Jordan Fulton,LW/C,2010-2011,echl,15452,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Regan (D),Elmira Jackals,54,13,28,41,0.76,61,-7,/player/23355/eric-regan,1,Eric Regan,D,2010-2011,echl,23355,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryan Miller (D),Alaska Aces,64,8,33,41,0.64,32,11,/player/14926/bryan-miller,1,Bryan Miller,D,2010-2011,echl,14926,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blair Riley (RW/LW),Las Vegas Wranglers,59,20,20,40,0.68,114,4,/player/38802/blair-riley,1,Blair Riley,RW/LW,2010-2011,echl,38802,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andy Brandt (RW),Gwinnett Gladiators,69,19,21,40,0.58,79,-20,/player/15891/andy-brandt,1,Andy Brandt,RW,2010-2011,echl,15891,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pierre-André Bureau (C),totals,64,10,30,40,0.63,50,13,/player/33123/pierre-andre-bureau,1,Pierre-André Bureau,C,2010-2011,echl,33123,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ross Carlson (RW/LW),Florida Everblades,51,11,28,39,0.76,30,-5,/player/15296/ross-carlson,1,Ross Carlson,RW/LW,2010-2011,echl,15296,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+R.J. Anderson (D),Elmira Jackals,60,7,32,39,0.65,40,16,/player/18033/r-j-anderson,1,R.J. Anderson,D,2010-2011,echl,18033,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Dubuc (LW),Elmira Jackals,39,23,15,38,0.97,56,2,/player/16714/michael-dubuc,1,Michael Dubuc,LW,2010-2011,echl,16714,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trent Campbell (LW),South Carolina Stingrays,45,18,20,38,0.84,32,14,/player/16665/trent-campbell,1,Trent Campbell,LW,2010-2011,echl,16665,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike McKenzie (LW),Florida Everblades,55,18,20,38,0.69,62,-5,/player/33232/mike-mckenzie,1,Mike McKenzie,LW,2010-2011,echl,33232,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shawn Collymore (F),Ontario Reign,62,17,21,38,0.61,36,-28,/player/13483/shawn-collymore,1,Shawn Collymore,F,2010-2011,echl,13483,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Walker (D),Ontario Reign,69,5,33,38,0.55,106,-18,/player/20568/david-walker,1,David Walker,D,2010-2011,echl,20568,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colin Long (C),Las Vegas Wranglers,50,16,21,37,0.74,12,-2,/player/14504/colin-long,1,Colin Long,C,2010-2011,echl,14504,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hugo Carpentier (C),Utah Grizzlies,51,16,21,37,0.73,70,-6,/player/9343/hugo-carpentier,1,Hugo Carpentier,C,2010-2011,echl,9343,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Kraemer (C),Ontario Reign,54,16,21,37,0.69,37,-8,/player/38494/kyle-kraemer,1,Kyle Kraemer,C,2010-2011,echl,38494,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Bourret (RW),Ontario Reign,42,12,25,37,0.88,68,-20,/player/10877/alex-bourret,1,Alex Bourret,RW,2010-2011,echl,10877,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chaz Johnson (RW),Ontario Reign,61,22,14,36,0.59,127,-10,/player/15889/chaz-johnson,1,Chaz Johnson,RW,2010-2011,echl,15889,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rick Cleaver (RW),Victoria Salmon Kings,64,22,14,36,0.56,41,-8,/player/23005/rick-cleaver,1,Rick Cleaver,RW,2010-2011,echl,23005,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Miller (RW/LW),Gwinnett Gladiators,46,20,16,36,0.78,102,7,/player/34710/tim-miller,1,Tim Miller,RW/LW,2010-2011,echl,34710,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Langkow (C),Alaska Aces,56,15,21,36,0.64,30,10,/player/18605/chris-langkow,1,Chris Langkow,C,2010-2011,echl,18605,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Rogers (RW),Toledo Walleye,70,12,24,36,0.51,49,-3,/player/17764/kyle-rogers,1,Kyle Rogers,RW,2010-2011,echl,17764,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Ferguson (C/RW),Utah Grizzlies,51,20,15,35,0.69,183,-5,/player/14328/simon-ferguson,1,Simon Ferguson,C/RW,2010-2011,echl,14328,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Isherwood (D),Alaska Aces,70,15,20,35,0.50,61,3,/player/23337/mark-isherwood,2,Mark Isherwood,D,2010-2011,echl,23337,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Caruana (C),Reading Royals,34,18,16,34,1.00,22,3,/player/17729/matt-caruana,2,Matt Caruana,C,2010-2011,echl,17729,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Casey Haines (LW),Reading Royals,64,18,16,34,0.53,30,-10,/player/38804/casey-haines,2,Casey Haines,LW,2010-2011,echl,38804,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Lampe (C),Elmira Jackals,38,17,17,34,0.89,12,-3,/player/39144/eric-lampe,2,Eric Lampe,C,2010-2011,echl,39144,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jarrett Konkle (LW),Stockton Thunder,39,17,17,34,0.87,19,16,/player/15300/jarrett-konkle,2,Jarrett Konkle,LW,2010-2011,echl,15300,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Carroll (C),Utah Grizzlies,67,14,20,34,0.51,126,-16,/player/23808/marcus-carroll,2,Marcus Carroll,C,2010-2011,echl,23808,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Coulombe (D),Elmira Jackals,51,12,22,34,0.67,32,5,/player/9471/patrick-coulombe,2,Patrick Coulombe,D,2010-2011,echl,9471,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Constant (D),Stockton Thunder,52,11,23,34,0.65,84,10,/player/14853/ryan-constant,2,Ryan Constant,D,2010-2011,echl,14853,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bobby Raymond (D),Florida Everblades,72,8,26,34,0.47,68,26,/player/37385/bobby-raymond,2,Bobby Raymond,D,2010-2011,echl,37385,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Lombardi (RW),Trenton Devils,66,20,13,33,0.50,28,-10,/player/38117/matt-lombardi,2,Matt Lombardi,RW,2010-2011,echl,38117,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan MacMurchy (RW),Victoria Salmon Kings,39,16,17,33,0.85,54,-3,/player/15346/ryan-macmurchy,2,Ryan MacMurchy,RW,2010-2011,echl,15346,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trevor Kell (RW),Trenton Devils,37,14,19,33,0.89,36,9,/player/11326/trevor-kell,2,Trevor Kell,RW,2010-2011,echl,11326,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dan Charleston (RW),Trenton Devils,32,12,21,33,1.03,103,-12,/player/31221/dan-charleston,2,Dan Charleston,RW,2010-2011,echl,31221,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sébastien Piché (D),Toledo Walleye,48,12,21,33,0.69,52,-4,/player/13612/sebastien-piche,2,Sébastien Piché,D,2010-2011,echl,13612,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Turek (D),Victoria Salmon Kings,53,11,22,33,0.62,57,3,/player/12272/ryan-turek,2,Ryan Turek,D,2010-2011,echl,12272,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jared N. Ross (D),Reading Royals,61,8,25,33,0.54,67,0,/player/34983/jared-n-ross,2,Jared N. Ross,D,2010-2011,echl,34983,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dave Leaderer (D),Trenton Devils,68,7,26,33,0.49,48,-22,/player/20207/dave-leaderer,2,Dave Leaderer,D,2010-2011,echl,20207,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olivier Labelle (RW),Reading Royals,38,21,11,32,0.84,105,-2,/player/11565/olivier-labelle,2,Olivier Labelle,RW,2010-2011,echl,11565,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aki Seitsonen (C),Idaho Steelheads,50,16,16,32,0.64,12,-11,/player/4131/aki-seitsonen,2,Aki Seitsonen,C,2010-2011,echl,4131,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Cox (RW),Alaska Aces,56,15,17,32,0.57,32,21,/player/39046/ethan-cox,2,Ethan Cox,RW,2010-2011,echl,39046,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Garry Nunn (RW),Alaska Aces,72,11,21,32,0.44,24,16,/player/15393/garry-nunn,2,Garry Nunn,RW,2010-2011,echl,15393,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brock McBride (C/RW),totals,27,9,23,32,1.19,41,1,/player/34330/brock-mcbride,2,Brock McBride,C/RW,2010-2011,echl,34330,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Clarke (C/D),Utah Grizzlies,64,9,23,32,0.50,90,-13,/player/23113/matt-clarke,2,Matt Clarke,C/D,2010-2011,echl,23113,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blake Parlett (D),Greenville Road Warriors,46,7,25,32,0.70,40,-3,/player/32727/blake-parlett,2,Blake Parlett,D,2010-2011,echl,32727,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steve Vanoosten (D),Stockton Thunder,70,7,25,32,0.46,32,14,/player/38563/steve-vanoosten,2,Steve Vanoosten,D,2010-2011,echl,38563,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Greg Collins (F),Las Vegas Wranglers,60,17,14,31,0.52,86,3,/player/32369/greg-collins,2,Greg Collins,F,2010-2011,echl,32369,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaron Lewadniuk (C),Ontario Reign,69,17,14,31,0.45,62,-15,/player/16700/aaron-lewadniuk,2,Aaron Lewadniuk,C,2010-2011,echl,16700,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bretton Cameron (RW),Stockton Thunder,53,16,15,31,0.58,92,9,/player/37159/bretton-cameron,2,Bretton Cameron,RW,2010-2011,echl,37159,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Pistilli (RW),Florida Everblades,27,15,16,31,1.15,12,13,/player/15625/matthew-pistilli,2,Matthew Pistilli,RW,2010-2011,echl,15625,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jamie Bates (C/RW),Las Vegas Wranglers,23,12,19,31,1.35,11,-8,/player/17704/jamie-bates,2,Jamie Bates,C/RW,2010-2011,echl,17704,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Bushee (D),Wheeling Nailers,67,7,24,31,0.46,48,4,/player/17116/kyle-bushee,2,Kyle Bushee,D,2010-2011,echl,17116,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Broda (C/LW),Bakersfield Condors,32,17,13,30,0.94,39,9,/player/11607/joel-broda,2,Joel Broda,C/LW,2010-2011,echl,11607,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Garet Hunt (LW),Stockton Thunder,60,13,17,30,0.50,248,9,/player/22625/garet-hunt,2,Garet Hunt,LW,2010-2011,echl,22625,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jean-Sébastien Bérubé (LW/RW),Trenton Devils,44,12,18,30,0.68,84,-5,/player/19177/jean-sebastien-berube,2,Jean-Sébastien Bérubé,LW/RW,2010-2011,echl,19177,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jason Pitton (LW),Stockton Thunder,41,10,20,30,0.73,73,8,/player/11492/jason-pitton,2,Jason Pitton,LW,2010-2011,echl,11492,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Éric Castonguay (C/LW),Reading Royals,42,10,20,30,0.71,2,-3,/player/14654/eric-castonguay,2,Éric Castonguay,C/LW,2010-2011,echl,14654,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Gergen (D/LW),totals,62,9,21,30,0.48,36,4,/player/18014/michael-gergen,2,Michael Gergen,D/LW,2010-2011,echl,18014,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Doug Rogers (D/C),Wheeling Nailers,49,8,22,30,0.61,16,-1,/player/15065/doug-rogers,2,Doug Rogers,D/C,2010-2011,echl,15065,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rob Kwiet (D),Reading Royals,56,8,22,30,0.54,39,-4,/player/17833/rob-kwiet,2,Rob Kwiet,D,2010-2011,echl,17833,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Parnham (C),Utah Grizzlies,57,17,12,29,0.51,44,-13,/player/12117/brett-parnham,2,Brett Parnham,C,2010-2011,echl,12117,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Scherer (RW),South Carolina Stingrays,58,17,12,29,0.50,63,2,/player/21397/matt-scherer,2,Matt Scherer,RW,2010-2011,echl,21397,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Ruegsegger (C),totals,58,16,13,29,0.50,40,-9,/player/11444/tyler-ruegsegger,2,Tyler Ruegsegger,C,2010-2011,echl,11444,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Roy (LW),Florida Everblades,67,16,13,29,0.43,107,-14,/player/12151/mathieu-roy,2,Mathieu Roy,LW,2010-2011,echl,12151,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blake Gallagher (C/RW),Las Vegas Wranglers,61,12,17,29,0.48,41,7,/player/38835/blake-gallagher,2,Blake Gallagher,C/RW,2010-2011,echl,38835,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Paul McIlveen (C/RW),totals,56,11,18,29,0.52,40,3,/player/12165/paul-mcilveen,2,Paul McIlveen,C/RW,2010-2011,echl,12165,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Taylor (C),totals,51,10,19,29,0.57,48,0,/player/11745/justin-taylor,2,Justin Taylor,C,2010-2011,echl,11745,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian O'Hanley (D),Cincinnati Cyclones,53,7,22,29,0.55,70,2,/player/11885/brian-o-hanley,2,Brian O'Hanley,D,2010-2011,echl,11885,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+A.J. Thelen (D),Kalamazoo Wings,65,6,23,29,0.45,32,4,/player/11595/a-j-thelen,2,A.J. Thelen,D,2010-2011,echl,11595,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chad Anderson (D),Alaska Aces,67,4,25,29,0.43,77,19,/player/14080/chad-anderson,2,Chad Anderson,D,2010-2011,echl,14080,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Fischer (D),Florida Everblades,64,3,26,29,0.45,43,12,/player/11984/david-fischer,2,David Fischer,D,2010-2011,echl,11984,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Sweetland (LW),Elmira Jackals,38,21,7,28,0.74,10,-6,/player/17862/andrew-sweetland,2,Andrew Sweetland,LW,2010-2011,echl,17862,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tom May (F),Utah Grizzlies,41,16,12,28,0.68,16,2,/player/23045/tom-may,2,Tom May,F,2010-2011,echl,23045,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Pelech (C),Ontario Reign,63,9,19,28,0.44,127,-10,/player/15707/michael-pelech,2,Michael Pelech,C,2010-2011,echl,15707,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jean-François David (D),totals,52,8,20,28,0.54,81,-4,/player/11558/jean-francois-david,2,Jean-François David,D,2010-2011,echl,11558,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pascal Morency (RW),Bakersfield Condors,36,17,10,27,0.75,113,0,/player/14000/pascal-morency,2,Pascal Morency,RW,2010-2011,echl,14000,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Godfrey (D),South Carolina Stingrays,49,15,12,27,0.55,24,7,/player/12512/josh-godfrey,2,Josh Godfrey,D,2010-2011,echl,12512,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bobby Robins (RW),Bakersfield Condors,46,14,13,27,0.59,186,12,/player/10502/bobby-robins,2,Bobby Robins,RW,2010-2011,echl,10502,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jim McKenzie (RW),Stockton Thunder,59,12,15,27,0.46,100,3,/player/14182/jim-mckenzie,2,Jim McKenzie,RW,2010-2011,echl,14182,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Stefanishion (RW),Victoria Salmon Kings,54,10,17,27,0.50,165,-10,/player/8891/matt-stefanishion,2,Matt Stefanishion,RW,2010-2011,echl,8891,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Craig Valette (C),Stockton Thunder,50,9,18,27,0.54,79,-3,/player/10633/craig-valette,2,Craig Valette,C,2010-2011,echl,10633,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+T.J. Fast (D),Cincinnati Cyclones,58,9,18,27,0.47,36,0,/player/11600/t-j-fast,2,T.J. Fast,D,2010-2011,echl,11600,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Orpik (F),Wheeling Nailers,65,8,19,27,0.42,76,-10,/player/11884/andrew-orpik,2,Andrew Orpik,F,2010-2011,echl,11884,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jason DeSantis (D),Wheeling Nailers,45,6,21,27,0.60,38,-20,/player/9423/jason-desantis,2,Jason DeSantis,D,2010-2011,echl,9423,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Craig Switzer (D),Las Vegas Wranglers,55,5,22,27,0.49,46,2,/player/14874/craig-switzer,2,Craig Switzer,D,2010-2011,echl,14874,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Barry Goers (D),Las Vegas Wranglers,64,5,22,27,0.42,38,5,/player/30993/barry-goers,2,Barry Goers,D,2010-2011,echl,30993,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David de Kastrozza (C),South Carolina Stingrays,40,15,11,26,0.65,16,-1,/player/38270/david-de-kastrozza,2,David de Kastrozza,C,2010-2011,echl,38270,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Hutchings (RW/LW),Florida Everblades,51,13,13,26,0.51,41,-9,/player/15380/alex-hutchings,2,Alex Hutchings,RW/LW,2010-2011,echl,15380,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dustin Cameron (LW),totals,49,12,14,26,0.53,31,-13,/player/15737/dustin-cameron,2,Dustin Cameron,LW,2010-2011,echl,15737,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Kashirsky (C),South Carolina Stingrays,34,11,15,26,0.76,33,-1,/player/33612/nikita-kashirsky,2,Nikita Kashirsky,C,2010-2011,echl,33612,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samson Mahbod (RW/C),totals,47,10,16,26,0.55,37,-1,/player/23124/samson-mahbod,2,Samson Mahbod,RW/C,2010-2011,echl,23124,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dustin Collins (C),totals,53,9,17,26,0.49,78,-18,/player/9417/dustin-collins,2,Dustin Collins,C,2010-2011,echl,9417,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaron Bendickson (RW),Gwinnett Gladiators,30,8,18,26,0.87,16,-6,/player/38110/aaron-bendickson,2,Aaron Bendickson,RW,2010-2011,echl,38110,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John-Scott Dickson (LW),totals,54,8,18,26,0.48,19,-4,/player/61857/john-scott-dickson,2,John-Scott Dickson,LW,2010-2011,echl,61857,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Tuzzolino (D),totals,48,7,19,26,0.54,110,2,/player/11327/nick-tuzzolino,2,Nick Tuzzolino,D,2010-2011,echl,11327,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philippe Paquet (D),totals,70,3,23,26,0.37,106,-4,/player/15055/philippe-paquet,2,Philippe Paquet,D,2010-2011,echl,15055,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Geoff Irwin (LW),Idaho Steelheads,57,13,12,25,0.44,38,-6,/player/38320/geoff-irwin,2,Geoff Irwin,LW,2010-2011,echl,38320,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Foreman (D/C),Stockton Thunder,40,10,15,25,0.63,116,6,/player/14434/jordan-foreman,2,Jordan Foreman,D/C,2010-2011,echl,14434,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominic Osman (F/D),Toledo Walleye,56,10,15,25,0.45,53,-10,/player/32703/dominic-osman,2,Dominic Osman,F/D,2010-2011,echl,32703,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tony Zancanaro (F),Trenton Devils,61,10,15,25,0.41,49,-17,/player/13487/tony-zancanaro,2,Tony Zancanaro,F,2010-2011,echl,13487,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris DiDomenico (C/RW),Toledo Walleye,37,9,16,25,0.68,31,-8,/player/11319/chris-didomenico,2,Chris DiDomenico,C/RW,2010-2011,echl,11319,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kiel McLeod (C),Victoria Salmon Kings,40,9,16,25,0.63,83,2,/player/14450/kiel-mcleod,2,Kiel McLeod,C,2010-2011,echl,14450,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Donovan (F),Utah Grizzlies,59,7,18,25,0.42,79,-4,/player/38489/chris-donovan,2,Chris Donovan,F,2010-2011,echl,38489,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxime Tanguay (C),totals,46,6,19,25,0.54,12,-8,/player/11129/maxime-tanguay,2,Maxime Tanguay,C,2010-2011,echl,11129,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Bernhardt (C),Las Vegas Wranglers,47,6,19,25,0.53,29,-3,/player/15397/justin-bernhardt,2,Justin Bernhardt,C,2010-2011,echl,15397,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steven Tarasuk (D),Kalamazoo Wings,65,4,21,25,0.38,53,-3,/player/15588/steven-tarasuk,2,Steven Tarasuk,D,2010-2011,echl,15588,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeff Corey (RW),Ontario Reign,28,11,13,24,0.86,24,-5,/player/11819/jeff-corey,2,Jeff Corey,RW,2010-2011,echl,11819,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Clackson (C),totals,46,10,14,24,0.52,74,6,/player/34052/chris-clackson,2,Chris Clackson,C,2010-2011,echl,34052,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elgin Reid (D),Florida Everblades,46,9,15,24,0.52,63,1,/player/14014/elgin-reid,2,Elgin Reid,D,2010-2011,echl,14014,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Gotto (D),totals,62,9,15,24,0.39,18,14,/player/39321/tyler-gotto,2,Tyler Gotto,D,2010-2011,echl,39321,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Paul Crowder (C),totals,36,8,16,24,0.67,29,-5,/player/24831/paul-crowder,2,Paul Crowder,C,2010-2011,echl,24831,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cédric McNicoll (C),Florida Everblades,29,7,17,24,0.83,8,5,/player/13586/cedric-mcnicoll,2,Cédric McNicoll,C,2010-2011,echl,13586,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Slaney (LW/C),Reading Royals,61,7,17,24,0.39,34,3,/player/14090/robert-slaney,2,Robert Slaney,LW/C,2010-2011,echl,14090,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+P.J. Atherton (D),Victoria Salmon Kings,37,6,18,24,0.65,42,4,/player/12036/p-j-atherton,2,P.J. Atherton,D,2010-2011,echl,12036,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julien Brouillette (D),Greenville Road Warriors,25,11,12,23,0.92,8,16,/player/12123/julien-brouillette,2,Julien Brouillette,D,2010-2011,echl,12123,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Reynolds (F),Cincinnati Cyclones,41,11,12,23,0.56,21,-2,/player/17791/scott-reynolds,2,Scott Reynolds,F,2010-2011,echl,17791,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Guillaume Lefebvre (LW),Bakersfield Condors,28,8,15,23,0.82,72,-2,/player/12252/guillaume-lefebvre,2,Guillaume Lefebvre,LW,2010-2011,echl,12252,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brady Leisenring (RW/LW),Kalamazoo Wings,38,8,15,23,0.61,31,10,/player/10981/brady-leisenring,2,Brady Leisenring,RW/LW,2010-2011,echl,10981,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brad Miller (D/F),totals,43,8,15,23,0.53,22,0,/player/26434/brad-miller,2,Brad Miller,D/F,2010-2011,echl,26434,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cody Purves (RW),Idaho Steelheads,68,8,15,23,0.34,39,-5,/player/93426/cody-purves,2,Cody Purves,RW,2010-2011,echl,93426,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oren Eizenman (C),Elmira Jackals,20,7,16,23,1.15,48,9,/player/14463/oren-eizenman,2,Oren Eizenman,C,2010-2011,echl,14463,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brady Calla (RW/D),Cincinnati Cyclones,35,7,16,23,0.66,30,-2,/player/11658/brady-calla,3,Brady Calla,RW/D,2010-2011,echl,11658,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Darcy Zajac (C/RW),Trenton Devils,32,6,17,23,0.72,35,8,/player/15378/darcy-zajac,3,Darcy Zajac,C/RW,2010-2011,echl,15378,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Paul Flache (F/D),Gwinnett Gladiators,69,6,17,23,0.33,100,-24,/player/15112/paul-flache,3,Paul Flache,F/D,2010-2011,echl,15112,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steve Ward (D),Alaska Aces,69,5,18,23,0.33,44,8,/player/11342/steve-ward,3,Steve Ward,D,2010-2011,echl,11342,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Kraus (C),totals,54,4,19,23,0.43,39,-7,/player/11596/tim-kraus,3,Tim Kraus,C,2010-2011,echl,11596,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dan Ringwald (D),totals,62,1,22,23,0.37,27,0,/player/43078/dan-ringwald,3,Dan Ringwald,D,2010-2011,echl,43078,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Gimblett (LW),Stockton Thunder,43,13,9,22,0.51,98,0,/player/67663/jesse-gimblett,3,Jesse Gimblett,LW,2010-2011,echl,67663,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christiaan Minella (RW),totals,54,11,11,22,0.41,35,-10,/player/38480/christiaan-minella,3,Christiaan Minella,RW,2010-2011,echl,38480,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeremy Akeson (LW),totals,59,11,11,22,0.37,95,-21,/player/24331/jeremy-akeson,3,Jeremy Akeson,LW,2010-2011,echl,24331,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Marshall (RW),Wheeling Nailers,28,10,12,22,0.79,27,-2,/player/31136/david-marshall,3,David Marshall,RW,2010-2011,echl,31136,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Scrymgeour (F),Reading Royals,55,10,12,22,0.40,48,5,/player/38833/john-scrymgeour,3,John Scrymgeour,F,2010-2011,echl,38833,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kory Nagy (C/LW),Trenton Devils,57,9,13,22,0.39,23,-9,/player/19224/kory-nagy,3,Kory Nagy,C/LW,2010-2011,echl,19224,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter LeBlanc (LW/C),Toledo Walleye,22,8,14,22,1.00,6,0,/player/12260/peter-leblanc,3,Peter LeBlanc,LW/C,2010-2011,echl,12260,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Hunter (LW),Cincinnati Cyclones,24,7,15,22,0.92,37,13,/player/14326/dylan-hunter,3,Dylan Hunter,LW,2010-2011,echl,14326,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Swanson (LW),Idaho Steelheads,35,7,15,22,0.63,26,-2,/player/34719/john-swanson,3,John Swanson,LW,2010-2011,echl,34719,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaron Power (D),Las Vegas Wranglers,42,7,15,22,0.52,34,-9,/player/17110/aaron-power,3,Aaron Power,D,2010-2011,echl,17110,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Geoff Paukovich (LW),Las Vegas Wranglers,56,7,15,22,0.39,83,10,/player/9213/geoff-paukovich,3,Geoff Paukovich,LW,2010-2011,echl,9213,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Stoflet (D),Bakersfield Condors,67,5,17,22,0.33,65,15,/player/17857/evan-stoflet,3,Evan Stoflet,D,2010-2011,echl,17857,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Todd Perry (D),Reading Royals,63,4,18,22,0.35,115,9,/player/14033/todd-perry,3,Todd Perry,D,2010-2011,echl,14033,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Donati (RW/LW),Elmira Jackals,18,10,11,21,1.17,34,0,/player/11105/tyler-donati,3,Tyler Donati,RW/LW,2010-2011,echl,11105,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeff Caister (D),totals,54,10,11,21,0.39,29,1,/player/39201/jeff-caister,3,Jeff Caister,D,2010-2011,echl,39201,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+C.J. Stretch (C),Ontario Reign,46,9,12,21,0.46,33,-8,/player/11689/c-j-stretch,3,C.J. Stretch,C,2010-2011,echl,11689,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Chappell (LW),Greenville Road Warriors,53,9,12,21,0.40,38,-5,/player/15709/chris-chappell,3,Chris Chappell,LW,2010-2011,echl,15709,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Pierce (LW),Cincinnati Cyclones,26,8,13,21,0.81,14,8,/player/33262/matt-pierce,3,Matt Pierce,LW,2010-2011,echl,33262,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kris Vernarsky (C),Wheeling Nailers,51,8,13,21,0.41,32,-14,/player/9446/kris-vernarsky,3,Kris Vernarsky,C,2010-2011,echl,9446,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean Berkstresser (F),Greenville Road Warriors,55,8,13,21,0.38,64,0,/player/22936/sean-berkstresser,3,Sean Berkstresser,F,2010-2011,echl,22936,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steve Oleksy (D),Idaho Steelheads,55,7,14,21,0.38,134,6,/player/33848/steve-oleksy,3,Steve Oleksy,D,2010-2011,echl,33848,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dan Eves (LW),totals,43,6,15,21,0.49,27,3,/player/24305/dan-eves,3,Dan Eves,LW,2010-2011,echl,24305,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Drew Paris (D),totals,69,6,15,21,0.30,43,-3,/player/19198/drew-paris,3,Drew Paris,D,2010-2011,echl,19198,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan McGinnis (D),Kalamazoo Wings,30,5,16,21,0.70,23,7,/player/12429/ryan-mcginnis,3,Ryan McGinnis,D,2010-2011,echl,12429,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brent Gauvreau (C),Utah Grizzlies,45,5,16,21,0.47,44,-18,/player/14999/brent-gauvreau,3,Brent Gauvreau,C,2010-2011,echl,14999,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danick Paquette (RW),Gwinnett Gladiators,59,13,7,20,0.34,179,-20,/player/12401/danick-paquette,3,Danick Paquette,RW,2010-2011,echl,12401,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Akim Aliu (W/C/D),Gwinnett Gladiators,16,12,8,20,1.25,22,-8,/player/11116/akim-aliu,3,Akim Aliu,W/C/D,2010-2011,echl,11116,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Junior Lessard (RW),Idaho Steelheads,22,10,10,20,0.91,16,-5,/player/10996/junior-lessard,3,Junior Lessard,RW,2010-2011,echl,10996,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Murovich (C),totals,34,9,11,20,0.59,34,4,/player/23104/tyler-murovich,3,Tyler Murovich,C,2010-2011,echl,23104,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Willie Coetzee (RW),Toledo Walleye,36,9,11,20,0.56,4,-2,/player/23793/willie-coetzee,3,Willie Coetzee,RW,2010-2011,echl,23793,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Vokes (F),Trenton Devils,24,7,13,20,0.83,14,-7,/player/33237/matt-vokes,3,Matt Vokes,F,2010-2011,echl,33237,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Arcobello (RW/C),Stockton Thunder,33,7,13,20,0.61,10,-2,/player/33230/mark-arcobello,3,Mark Arcobello,RW/C,2010-2011,echl,33230,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Burt (LW),Alaska Aces,43,5,15,20,0.47,71,13,/player/17949/scott-burt,3,Scott Burt,LW,2010-2011,echl,17949,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jon Landry (D),Kalamazoo Wings,39,4,16,20,0.51,60,6,/player/28219/jon-landry,3,Jon Landry,D,2010-2011,echl,28219,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Weston Tardy (D),Idaho Steelheads,51,2,18,20,0.39,22,-2,/player/12491/weston-tardy,3,Weston Tardy,D,2010-2011,echl,12491,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Wilson (D),Victoria Salmon Kings,62,1,19,20,0.32,36,-7,/player/13930/mike-wilson,3,Mike Wilson,D,2010-2011,echl,13930,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Derek Couture (RW),Victoria Salmon Kings,25,8,11,19,0.76,76,5,/player/14134/derek-couture,3,Derek Couture,RW,2010-2011,echl,14134,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Lord (C/RW),Wheeling Nailers,26,7,12,19,0.73,74,0,/player/21398/andrew-lord,3,Andrew Lord,C/RW,2010-2011,echl,21398,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin DeVergilio (C),Elmira Jackals,32,7,12,19,0.59,62,-12,/player/34720/kevin-devergilio,3,Kevin DeVergilio,C,2010-2011,echl,34720,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitch Versteeg (D),Kalamazoo Wings,65,7,12,19,0.29,105,9,/player/23168/mitch-versteeg,3,Mitch Versteeg,D,2010-2011,echl,23168,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sébastien Bisaillon (D),Wheeling Nailers,44,6,13,19,0.43,20,2,/player/11340/sebastien-bisaillon,3,Sébastien Bisaillon,D,2010-2011,echl,11340,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Gershon (D),Wheeling Nailers,58,4,15,19,0.33,59,7,/player/48553/michael-gershon,3,Michael Gershon,D,2010-2011,echl,48553,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Smigelski (F),Wheeling Nailers,31,12,6,18,0.58,34,7,/player/59129/alex-smigelski,3,Alex Smigelski,F,2010-2011,echl,59129,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Hauswirth (LW),totals,49,12,6,18,0.37,16,-1,/player/19250/jake-hauswirth,3,Jake Hauswirth,LW,2010-2011,echl,19250,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Derek Nesbitt (LW/RW),Gwinnett Gladiators,11,8,10,18,1.64,6,10,/player/14648/derek-nesbitt,3,Derek Nesbitt,LW/RW,2010-2011,echl,14648,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ned Lukacevic (LW/D),Las Vegas Wranglers,17,8,10,18,1.06,24,3,/player/17817/ned-lukacevic,3,Ned Lukacevic,LW/D,2010-2011,echl,17817,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jean-Marc Beaudoin (F),Bakersfield Condors,58,8,10,18,0.31,24,0,/player/39143/jean-marc-beaudoin,3,Jean-Marc Beaudoin,F,2010-2011,echl,39143,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jerad Stewart (F),Alaska Aces,38,7,11,18,0.47,35,8,/player/32533/jerad-stewart,3,Jerad Stewart,F,2010-2011,echl,32533,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Butcher (C),totals,41,7,11,18,0.44,39,-1,/player/15045/matt-butcher,3,Matt Butcher,C,2010-2011,echl,15045,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Milo (F),totals,50,6,12,18,0.36,36,-18,/player/38273/justin-milo,3,Justin Milo,F,2010-2011,echl,38273,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joey Ryan (D),Bakersfield Condors,53,5,13,18,0.34,146,-1,/player/12266/joey-ryan,3,Joey Ryan,D,2010-2011,echl,12266,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dan Henningson (D),Wheeling Nailers,68,5,13,18,0.26,41,19,/player/34067/dan-henningson,3,Dan Henningson,D,2010-2011,echl,34067,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Graham (D),Florida Everblades,28,4,14,18,0.64,16,-4,/player/14001/ethan-graham,3,Ethan Graham,D,2010-2011,echl,14001,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alain Goulet (D),Reading Royals,43,4,14,18,0.42,29,8,/player/12559/alain-goulet,3,Alain Goulet,D,2010-2011,echl,12559,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Garbutt (W/C),Gwinnett Gladiators,10,10,7,17,1.70,24,11,/player/39057/ryan-garbutt,3,Ryan Garbutt,W/C,2010-2011,echl,39057,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris D'Alvise (C),Stockton Thunder,12,10,7,17,1.42,12,6,/player/34030/chris-d-alvise,3,Chris D'Alvise,C,2010-2011,echl,34030,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Lehman (D),Cincinnati Cyclones,49,7,10,17,0.35,104,6,/player/11756/scott-lehman,3,Scott Lehman,D,2010-2011,echl,11756,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Francis (C/W),Gwinnett Gladiators,26,5,12,17,0.65,16,-8,/player/39226/matt-francis,3,Matt Francis,C/W,2010-2011,echl,39226,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Aiello (D),Stockton Thunder,33,5,12,17,0.52,38,-1,/player/14683/anthony-aiello,3,Anthony Aiello,D,2010-2011,echl,14683,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Klassen (D),Greenville Road Warriors,66,3,14,17,0.26,80,16,/player/37236/sam-klassen,3,Sam Klassen,D,2010-2011,echl,37236,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Schaeffer (D),Las Vegas Wranglers,67,3,14,17,0.25,24,-5,/player/13482/kevin-schaeffer,3,Kevin Schaeffer,D,2010-2011,echl,13482,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dustin Friesen (D),Idaho Steelheads,35,2,15,17,0.49,12,-5,/player/49365/dustin-friesen,3,Dustin Friesen,D,2010-2011,echl,49365,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Cullity (D),South Carolina Stingrays,71,2,15,17,0.24,81,14,/player/38283/patrick-cullity,3,Patrick Cullity,D,2010-2011,echl,38283,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryan Schmidt (D),South Carolina Stingrays,38,1,16,17,0.45,20,7,/player/15021/bryan-schmidt,3,Bryan Schmidt,D,2010-2011,echl,15021,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joe Charlebois (D),totals,64,1,16,17,0.27,76,8,/player/14873/joe-charlebois,3,Joe Charlebois,D,2010-2011,echl,14873,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vince Bellissimo (C/RW),Las Vegas Wranglers,13,9,7,16,1.23,14,1,/player/13396/vince-bellissimo,3,Vince Bellissimo,C/RW,2010-2011,echl,13396,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett O'Malley (C),Ontario Reign,62,9,7,16,0.26,40,-12,/player/43136/brett-o-malley,3,Brett O'Malley,C,2010-2011,echl,43136,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Devin Timberlake (RW),totals,49,8,8,16,0.33,29,-4,/player/39061/devin-timberlake,3,Devin Timberlake,RW,2010-2011,echl,39061,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Dingle (C),Victoria Salmon Kings,56,8,8,16,0.29,45,-10,/player/12379/ryan-dingle,3,Ryan Dingle,C,2010-2011,echl,12379,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Svendsen (F),Kalamazoo Wings,10,7,9,16,1.60,0,7,/player/33254/brandon-svendsen,3,Brandon Svendsen,F,2010-2011,echl,33254,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Higgins (LW/RW),Las Vegas Wranglers,21,7,9,16,0.76,46,-3,/player/24397/chris-higgins,3,Chris Higgins,LW/RW,2010-2011,echl,24397,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Robinson (LW),Cincinnati Cyclones,23,6,10,16,0.70,36,5,/player/48115/brett-robinson,3,Brett Robinson,LW,2010-2011,echl,48115,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kelly Czuy (RW),Stockton Thunder,20,4,12,16,0.80,8,-3,/player/17111/kelly-czuy,3,Kelly Czuy,RW,2010-2011,echl,17111,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Hillier (LW),Elmira Jackals,51,4,12,16,0.31,10,-5,/player/12270/ryan-hillier,3,Ryan Hillier,LW,2010-2011,echl,12270,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brock Wilson (D),Utah Grizzlies,67,3,13,16,0.24,109,-15,/player/17950/brock-wilson,3,Brock Wilson,D,2010-2011,echl,17950,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Ludwig (D),Idaho Steelheads,70,3,13,16,0.23,82,-14,/player/24400/tyler-ludwig,3,Tyler Ludwig,D,2010-2011,echl,24400,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Burgdoerfer (D),Bakersfield Condors,68,2,14,16,0.24,50,20,/player/32546/erik-burgdoerfer,3,Erik Burgdoerfer,D,2010-2011,echl,32546,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Aspenlind (RW/LW),Victoria Salmon Kings,39,1,15,16,0.41,37,-2,/player/11701/josh-aspenlind,3,Josh Aspenlind,RW/LW,2010-2011,echl,11701,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Carroll (LW),Greenville Road Warriors,17,10,5,15,0.88,14,-3,/player/34807/andrew-carroll,3,Andrew Carroll,LW,2010-2011,echl,34807,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lane Caffaro (D),totals,38,6,9,15,0.39,43,-12,/player/34677/lane-caffaro,3,Lane Caffaro,D,2010-2011,echl,34677,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Neal (LW),Idaho Steelheads,46,6,9,15,0.33,10,-6,/player/13667/michael-neal,3,Michael Neal,LW,2010-2011,echl,13667,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Harrison (C),Alaska Aces,41,5,10,15,0.37,31,0,/player/38322/zach-harrison,3,Zach Harrison,C,2010-2011,echl,38322,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Del Monte (C),totals,28,4,11,15,0.54,33,-10,/player/19756/ryan-del-monte,3,Ryan Del Monte,C,2010-2011,echl,19756,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Taylor Vichorek (D),Trenton Devils,68,4,11,15,0.22,95,8,/player/39400/taylor-vichorek,3,Taylor Vichorek,D,2010-2011,echl,39400,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Watson (F),totals,39,3,12,15,0.38,8,-10,/player/17920/chase-watson,3,Chase Watson,F,2010-2011,echl,17920,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Page (D),Toledo Walleye,68,2,13,15,0.22,29,10,/player/38578/kyle-page,3,Kyle Page,D,2010-2011,echl,38578,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+T.J. Reynolds (D),Greenville Road Warriors,71,1,14,15,0.21,206,14,/player/13410/t-j-reynolds,3,T.J. Reynolds,D,2010-2011,echl,13410,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cody Lampl (D),Idaho Steelheads,53,0,15,15,0.28,50,-12,/player/34452/cody-lampl,3,Cody Lampl,D,2010-2011,echl,34452,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Curtis Fraser (RW/LW),Alaska Aces,20,6,8,14,0.70,21,13,/player/14835/curtis-fraser,3,Curtis Fraser,RW/LW,2010-2011,echl,14835,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Corey Cowick (LW/C),Elmira Jackals,31,5,9,14,0.45,76,-3,/player/23812/corey-cowick,3,Corey Cowick,LW/C,2010-2011,echl,23812,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Pietrus (RW),South Carolina Stingrays,63,5,9,14,0.22,53,-9,/player/39058/jordan-pietrus,3,Jordan Pietrus,RW,2010-2011,echl,39058,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ric Jackman (D),Utah Grizzlies,16,4,10,14,0.88,4,3,/player/4485/ric-jackman,3,Ric Jackman,D,2010-2011,echl,4485,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Gabinet (D),Idaho Steelheads,26,4,10,14,0.54,25,-2,/player/16584/mike-gabinet,3,Mike Gabinet,D,2010-2011,echl,16584,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Huxley (LW),Idaho Steelheads,32,4,10,14,0.44,112,7,/player/22626/adam-huxley,3,Adam Huxley,LW,2010-2011,echl,22626,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shawn Germain (D),Ontario Reign,43,4,10,14,0.33,23,-14,/player/19196/shawn-germain,4,Shawn Germain,D,2010-2011,echl,19196,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Duffy (D),totals,56,4,10,14,0.25,28,-18,/player/14876/matt-duffy,4,Matt Duffy,D,2010-2011,echl,14876,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Derek Keller (D),South Carolina Stingrays,29,2,12,14,0.48,8,6,/player/39204/derek-keller,4,Derek Keller,D,2010-2011,echl,39204,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Pender (D),Trenton Devils,52,2,12,14,0.27,42,-22,/player/23456/justin-pender,4,Justin Pender,D,2010-2011,echl,23456,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Fletcher (D),Toledo Walleye,57,2,12,14,0.25,179,0,/player/22713/scott-fletcher,4,Scott Fletcher,D,2010-2011,echl,22713,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jay Cascalenda (D),Bakersfield Condors,60,2,12,14,0.23,26,16,/player/38220/jay-cascalenda,4,Jay Cascalenda,D,2010-2011,echl,38220,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Roberts (D),totals,66,2,12,14,0.21,74,-25,/player/41498/sam-roberts,4,Sam Roberts,D,2010-2011,echl,41498,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brock Sheahan (D),Cincinnati Cyclones,67,2,12,14,0.21,82,-3,/player/24320/brock-sheahan,4,Brock Sheahan,D,2010-2011,echl,24320,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brennan Turner (D),totals,56,1,13,14,0.25,128,2,/player/15316/brennan-turner,4,Brennan Turner,D,2010-2011,echl,15316,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam D'Agostino (F),totals,55,11,2,13,0.24,19,-14,/player/38359/sam-d-agostino,4,Sam D'Agostino,F,2010-2011,echl,38359,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Stokes (D),Toledo Walleye,30,4,9,13,0.43,89,2,/player/11766/ryan-stokes,4,Ryan Stokes,D,2010-2011,echl,11766,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ian McKenzie (RW),Gwinnett Gladiators,55,4,9,13,0.24,55,-21,/player/23824/ian-mckenzie,4,Ian McKenzie,RW,2010-2011,echl,23824,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Popko (F),totals,56,4,9,13,0.23,26,-10,/player/9327/luke-popko,4,Luke Popko,F,2010-2011,echl,9327,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tristan King (C),Idaho Steelheads,24,3,10,13,0.54,13,-4,/player/11654/tristan-king,4,Tristan King,C,2010-2011,echl,11654,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Roeder (D),Cincinnati Cyclones,49,3,10,13,0.27,35,2,/player/38228/kevin-roeder,4,Kevin Roeder,D,2010-2011,echl,38228,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pat Bowen (D),Ontario Reign,53,3,10,13,0.25,32,-10,/player/38786/pat-bowen,4,Pat Bowen,D,2010-2011,echl,38786,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Krug (D),totals,60,3,10,13,0.22,103,-6,/player/40908/matt-krug,4,Matt Krug,D,2010-2011,echl,40908,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Beaverson (D),Ontario Reign,61,3,10,13,0.21,78,-5,/player/11920/luke-beaverson,4,Luke Beaverson,D,2010-2011,echl,11920,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trevor Glass (D),Greenville Road Warriors,50,2,11,13,0.26,26,9,/player/18607/trevor-glass,4,Trevor Glass,D,2010-2011,echl,18607,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Louis Liotti (D),Reading Royals,57,0,13,13,0.23,22,15,/player/37389/louis-liotti,4,Louis Liotti,D,2010-2011,echl,37389,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Zingoni (C/LW),Bakersfield Condors,8,7,5,12,1.50,8,3,/player/14079/peter-zingoni,4,Peter Zingoni,C/LW,2010-2011,echl,14079,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Colbert (D),Gwinnett Gladiators,58,6,6,12,0.21,24,-2,/player/18009/william-colbert,4,William Colbert,D,2010-2011,echl,18009,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tom Zanoski (LW),Gwinnett Gladiators,13,5,7,12,0.92,18,4,/player/16872/tom-zanoski,4,Tom Zanoski,LW,2010-2011,echl,16872,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Schepke (LW),Greenville Road Warriors,15,5,7,12,0.80,8,2,/player/33249/matt-schepke,4,Matt Schepke,LW,2010-2011,echl,33249,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dale Mahovsky (RW),Elmira Jackals,28,4,8,12,0.43,16,-2,/player/67665/dale-mahovsky,4,Dale Mahovsky,RW,2010-2011,echl,67665,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Danis-Pépin (D),Toledo Walleye,33,3,9,12,0.36,35,-12,/player/12267/simon-danis-pepin,4,Simon Danis-Pépin,D,2010-2011,echl,12267,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Donald (D),Reading Royals,45,3,9,12,0.27,101,19,/player/39037/ryan-donald,4,Ryan Donald,D,2010-2011,echl,39037,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dustin Stevenson (D),South Carolina Stingrays,63,3,9,12,0.19,44,-16,/player/39696/dustin-stevenson,4,Dustin Stevenson,D,2010-2011,echl,39696,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cam Brodie (D),Stockton Thunder,60,2,10,12,0.20,51,7,/player/38022/cam-brodie,4,Cam Brodie,D,2010-2011,echl,38022,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Coutu (D),totals,59,1,11,12,0.20,93,-1,/player/22204/justin-coutu,4,Justin Coutu,D,2010-2011,echl,22204,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Merth (D),Wheeling Nailers,69,1,11,12,0.17,90,5,/player/39172/peter-merth,4,Peter Merth,D,2010-2011,echl,39172,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nate Kiser (D),South Carolina Stingrays,70,1,11,12,0.17,125,-10,/player/17101/nate-kiser,4,Nate Kiser,D,2010-2011,echl,17101,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Lawson (D),Florida Everblades,51,0,12,12,0.24,54,-15,/player/9380/kyle-lawson,4,Kyle Lawson,D,2010-2011,echl,9380,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Derek Martin (D),Victoria Salmon Kings,71,0,12,12,0.17,36,5,/player/17711/derek-martin,4,Derek Martin,D,2010-2011,echl,17711,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kelly Miller (C),Wheeling Nailers,21,8,3,11,0.52,22,0,/player/27119/kelly-miller,4,Kelly Miller,C,2010-2011,echl,27119,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jared Staal (RW),Florida Everblades,33,6,5,11,0.33,6,-3,/player/10158/jared-staal,4,Jared Staal,RW,2010-2011,echl,10158,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Nolet (D),Trenton Devils,51,4,7,11,0.22,37,2,/player/19376/martin-nolet,4,Martin Nolet,D,2010-2011,echl,19376,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eddie DelGrosso (D),Las Vegas Wranglers,29,3,8,11,0.38,14,2,/player/31220/eddie-delgrosso,4,Eddie DelGrosso,D,2010-2011,echl,31220,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Brittain (D/C),Elmira Jackals,38,3,8,11,0.29,92,2,/player/15705/josh-brittain,4,Josh Brittain,D/C,2010-2011,echl,15705,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Drew Larman (C),Florida Everblades,57,3,8,11,0.19,30,-3,/player/10370/drew-larman,4,Drew Larman,C,2010-2011,echl,10370,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Geoff Waugh (D),Victoria Salmon Kings,57,3,8,11,0.19,82,-11,/player/12041/geoff-waugh,4,Geoff Waugh,D,2010-2011,echl,12041,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Ross (D),Las Vegas Wranglers,21,2,9,11,0.52,8,-6,/player/11099/nick-ross,4,Nick Ross,D,2010-2011,echl,11099,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean McMonagle (D/C),Las Vegas Wranglers,61,2,9,11,0.18,45,-3,/player/39062/sean-mcmonagle,4,Sean McMonagle,D/C,2010-2011,echl,39062,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cody Wild (D),Reading Royals,25,1,10,11,0.44,4,7,/player/12283/cody-wild,4,Cody Wild,D,2010-2011,echl,12283,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxime Lacroix (C),South Carolina Stingrays,13,7,3,10,0.77,20,-1,/player/10657/maxime-lacroix,4,Maxime Lacroix,C,2010-2011,echl,10657,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Tassone (C),Idaho Steelheads,32,7,3,10,0.31,55,-5,/player/19058/matt-tassone,4,Matt Tassone,C,2010-2011,echl,19058,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Smith (RW),Bakersfield Condors,22,6,4,10,0.45,32,-4,/player/32777/carter-smith,4,Carter Smith,RW,2010-2011,echl,32777,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Taylor (C/RW),Victoria Salmon Kings,23,6,4,10,0.43,14,-2,/player/14087/adam-taylor,4,Adam Taylor,C/RW,2010-2011,echl,14087,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Giffen Nyren (D/C),Utah Grizzlies,29,4,6,10,0.34,57,-8,/player/23800/giffen-nyren,4,Giffen Nyren,D/C,2010-2011,echl,23800,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Vandermeer (D/F),Victoria Salmon Kings,29,4,6,10,0.34,119,3,/player/13413/peter-vandermeer,4,Peter Vandermeer,D/F,2010-2011,echl,13413,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sal Peralta (C),Toledo Walleye,30,4,6,10,0.33,10,-2,/player/22053/sal-peralta,4,Sal Peralta,C,2010-2011,echl,22053,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+J.D. Corbin (LW),Bakersfield Condors,16,3,7,10,0.63,4,2,/player/14460/j-d-corbin,4,J.D. Corbin,LW,2010-2011,echl,14460,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dan Bertram (RW),Las Vegas Wranglers,26,3,7,10,0.38,35,-6,/player/9196/dan-bertram,4,Dan Bertram,RW,2010-2011,echl,9196,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jerry Pollastrone (LW),Las Vegas Wranglers,34,3,7,10,0.29,18,-10,/player/38125/jerry-pollastrone,4,Jerry Pollastrone,LW,2010-2011,echl,38125,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jamie Fritsch (D),Las Vegas Wranglers,54,3,7,10,0.19,56,-3,/player/35342/jamie-fritsch,4,Jamie Fritsch,D,2010-2011,echl,35342,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lee Baldwin (D),Greenville Road Warriors,27,2,8,10,0.37,15,10,/player/40086/lee-baldwin,4,Lee Baldwin,D,2010-2011,echl,40086,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Phillips (D),totals,44,2,8,10,0.23,30,-2,/player/20632/david-phillips,4,David Phillips,D,2010-2011,echl,20632,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carl Hudson (D),Cincinnati Cyclones,57,2,8,10,0.18,132,-3,/player/42871/carl-hudson,4,Carl Hudson,D,2010-2011,echl,42871,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Case (D),totals,69,2,8,10,0.14,32,0,/player/38807/matthew-case,4,Matthew Case,D,2010-2011,echl,38807,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Milnamow (D),totals,58,1,9,10,0.17,18,-2,/player/34092/brendan-milnamow,4,Brendan Milnamow,D,2010-2011,echl,34092,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rylan Kaip (C),Bakersfield Condors,17,8,1,9,0.53,32,-2,/player/14047/rylan-kaip,4,Rylan Kaip,C,2010-2011,echl,14047,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scooter Smith (C),Toledo Walleye,28,5,4,9,0.32,34,-10,/player/18646/scooter-smith,4,Scooter Smith,C,2010-2011,echl,18646,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon DeFazio (LW/RW),Wheeling Nailers,10,4,5,9,0.90,7,5,/player/39097/brandon-defazio,4,Brandon DeFazio,LW/RW,2010-2011,echl,39097,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Price (C),Las Vegas Wranglers,27,4,5,9,0.33,10,0,/player/38116/matt-price,4,Matt Price,C,2010-2011,echl,38116,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Kucharski (F),totals,36,4,5,9,0.25,28,-19,/player/38115/kyle-kucharski,4,Kyle Kucharski,F,2010-2011,echl,38115,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denny Urban (D),Reading Royals,14,3,6,9,0.64,4,-1,/player/39323/denny-urban,4,Denny Urban,D,2010-2011,echl,39323,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt McKnight (C),Idaho Steelheads,16,3,6,9,0.56,6,-3,/player/18016/matt-mcknight,4,Matt McKnight,C,2010-2011,echl,18016,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Hill (D),Ontario Reign,28,3,6,9,0.32,26,-10,/player/33657/jordan-hill,4,Jordan Hill,D,2010-2011,echl,33657,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Bendfeld (D),Stockton Thunder,37,3,6,9,0.24,106,7,/player/11669/jordan-bendfeld,4,Jordan Bendfeld,D,2010-2011,echl,11669,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Sorteberg (D),Utah Grizzlies,42,3,6,9,0.21,36,-11,/player/34065/matt-sorteberg,4,Matt Sorteberg,D,2010-2011,echl,34065,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John de Gray (D),Elmira Jackals,23,2,7,9,0.39,32,5,/player/10676/john-de-gray,4,John de Gray,D,2010-2011,echl,10676,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dallas Jackson (D),totals,39,2,7,9,0.23,16,-11,/player/23331/dallas-jackson,4,Dallas Jackson,D,2010-2011,echl,23331,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brad Cole (D),Greenville Road Warriors,44,2,7,9,0.20,41,0,/player/11624/brad-cole,4,Brad Cole,D,2010-2011,echl,11624,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian McGuirk (LW),Kalamazoo Wings,62,2,7,9,0.15,40,-14,/player/14687/brian-mcguirk,4,Brian McGuirk,LW,2010-2011,echl,14687,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Urquhart (D),Wheeling Nailers,24,1,8,9,0.38,32,7,/player/20206/david-urquhart,4,David Urquhart,D,2010-2011,echl,20206,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dany Massé (LW),Wheeling Nailers,29,1,8,9,0.31,12,-7,/player/14088/dany-masse,4,Dany Massé,LW,2010-2011,echl,14088,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Schulz (D),Utah Grizzlies,49,1,8,9,0.18,67,-7,/player/9481/david-schulz,4,David Schulz,D,2010-2011,echl,9481,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daryl Marcoux (D),totals,54,1,8,9,0.17,34,5,/player/17800/daryl-marcoux,4,Daryl Marcoux,D,2010-2011,echl,17800,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordon Southorn (D),Trenton Devils,35,0,9,9,0.26,38,-13,/player/19076/jordon-southorn,4,Jordon Southorn,D,2010-2011,echl,19076,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Rowe (C/W),Greenville Road Warriors,10,6,2,8,0.80,2,4,/player/38238/andrew-rowe,4,Andrew Rowe,C/W,2010-2011,echl,38238,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Francis (C),Las Vegas Wranglers,21,6,2,8,0.38,2,-16,/player/31074/chris-francis,4,Chris Francis,C,2010-2011,echl,31074,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Lunden (C/LW),Las Vegas Wranglers,11,5,3,8,0.73,8,-2,/player/24832/josh-lunden,4,Josh Lunden,C/LW,2010-2011,echl,24832,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Comrie (D),Cincinnati Cyclones,13,4,4,8,0.62,18,3,/player/18598/adam-comrie,4,Adam Comrie,D,2010-2011,echl,18598,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trevor Hunt (D/F),totals,40,3,5,8,0.20,66,0,/player/38094/trevor-hunt,4,Trevor Hunt,D/F,2010-2011,echl,38094,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Filangieri (D),Gwinnett Gladiators,48,3,5,8,0.17,47,-5,/player/12377/tim-filangieri,4,Tim Filangieri,D,2010-2011,echl,12377,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jason Fredricks (D),totals,60,3,5,8,0.13,32,-7,/player/33773/jason-fredricks,4,Jason Fredricks,D,2010-2011,echl,33773,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Nikiforov (LW/RW),totals,35,2,6,8,0.23,14,-8,/player/13664/vladimir-nikiforov,4,Vladimir Nikiforov,LW/RW,2010-2011,echl,13664,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Gentile (D),Alaska Aces,40,2,6,8,0.20,44,13,/player/9370/brandon-gentile,4,Brandon Gentile,D,2010-2011,echl,9370,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Russ Sinkewich (D),Alaska Aces,42,2,6,8,0.19,55,18,/player/31788/russ-sinkewich,4,Russ Sinkewich,D,2010-2011,echl,31788,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Egener (D),Florida Everblades,44,2,6,8,0.18,147,-5,/player/9464/mike-egener,4,Mike Egener,D,2010-2011,echl,9464,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Gannon (D),Utah Grizzlies,16,1,7,8,0.50,20,-1,/player/38203/jake-gannon,4,Jake Gannon,D,2010-2011,echl,38203,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grant Farrell (D),totals,21,1,7,8,0.38,8,-1,/player/38791/grant-farrell,4,Grant Farrell,D,2010-2011,echl,38791,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joe Finley (D),South Carolina Stingrays,26,1,7,8,0.31,73,-3,/player/12209/joe-finley,4,Joe Finley,D,2010-2011,echl,12209,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Guillaume Monast (D),Idaho Steelheads,48,1,7,8,0.17,38,-19,/player/23450/guillaume-monast,4,Guillaume Monast,D,2010-2011,echl,23450,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mika Suoraniemi (LW),Bakersfield Condors,21,0,8,8,0.38,4,1,/player/12200/mika-suoraniemi,4,Mika Suoraniemi,LW,2010-2011,echl,12200,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cory Conacher (C/W),Cincinnati Cyclones,3,5,2,7,2.33,0,4,/player/33265/cory-conacher,4,Cory Conacher,C/W,2010-2011,echl,33265,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Kushneriuk (D/F),Wheeling Nailers,8,4,3,7,0.88,4,3,/player/40905/chris-kushneriuk,4,Chris Kushneriuk,D/F,2010-2011,echl,40905,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John May (LW),totals,16,4,3,7,0.44,2,0,/player/63084/john-may,4,John May,LW,2010-2011,echl,63084,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Dzielski (D),Alaska Aces,44,4,3,7,0.16,123,-3,/player/18624/alex-dzielski,4,Alex Dzielski,D,2010-2011,echl,18624,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Calder (LW),Bakersfield Condors,5,3,4,7,1.40,6,4,/player/5671/kyle-calder,4,Kyle Calder,LW,2010-2011,echl,5671,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dean Strong (RW),Kalamazoo Wings,6,3,4,7,1.17,2,6,/player/38274/dean-strong,5,Dean Strong,RW,2010-2011,echl,38274,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Germain (F),Trenton Devils,9,3,4,7,0.78,0,-1,/player/38506/matt-germain,5,Matt Germain,F,2010-2011,echl,38506,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erick Lizon (RW),Bakersfield Condors,48,3,4,7,0.15,208,-4,/player/32951/erick-lizon,5,Erick Lizon,RW,2010-2011,echl,32951,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Davies (RW/C),Gwinnett Gladiators,8,2,5,7,0.88,6,0,/player/38107/michael-davies,5,Michael Davies,RW/C,2010-2011,echl,38107,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cody Brookwell (D),Gwinnett Gladiators,48,2,5,7,0.15,27,-4,/player/38212/cody-brookwell,5,Cody Brookwell,D,2010-2011,echl,38212,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joe Rullier (D),Bakersfield Condors,19,1,6,7,0.37,74,-8,/player/11454/joe-rullier,5,Joe Rullier,D,2010-2011,echl,11454,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Kattelus (D/W),Cincinnati Cyclones,25,1,6,7,0.28,13,3,/player/38309/eric-kattelus,5,Eric Kattelus,D/W,2010-2011,echl,38309,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Frank (D),Elmira Jackals,34,1,6,7,0.21,136,-2,/player/12261/chris-frank,5,Chris Frank,D,2010-2011,echl,12261,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grant McNeill (D),South Carolina Stingrays,36,1,6,7,0.19,94,3,/player/11715/grant-mcneill,5,Grant McNeill,D,2010-2011,echl,11715,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jody Pederson (D),totals,41,1,6,7,0.17,12,-4,/player/39094/jody-pederson,5,Jody Pederson,D,2010-2011,echl,39094,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Timkin (LW/RW),Florida Everblades,35,0,7,7,0.20,38,-3,/player/19006/yevgeni-timkin,5,Yevgeni Timkin,LW/RW,2010-2011,echl,19006,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryan Cameron (C/RW),Victoria Salmon Kings,7,3,3,6,0.86,2,-1,/player/11244/bryan-cameron,5,Bryan Cameron,C/RW,2010-2011,echl,11244,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Magnowski (F),Bakersfield Condors,12,3,3,6,0.50,2,7,/player/39093/mark-magnowski,5,Mark Magnowski,F,2010-2011,echl,39093,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris McKelvie (LW/C),Greenville Road Warriors,16,3,3,6,0.38,20,-1,/player/39234/chris-mckelvie,5,Chris McKelvie,LW/C,2010-2011,echl,39234,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Keefe (RW),Toledo Walleye,31,2,4,6,0.19,136,-10,/player/11759/adam-keefe,5,Adam Keefe,RW,2010-2011,echl,11759,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Thomas (D),Trenton Devils,41,2,4,6,0.15,25,-11,/player/15044/andrew-thomas,5,Andrew Thomas,D,2010-2011,echl,15044,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ian McDonald (RW),totals,10,1,5,6,0.60,2,-3,/player/67658/ian-mcdonald,5,Ian McDonald,RW,2010-2011,echl,67658,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Doyle (D),Ontario Reign,12,1,5,6,0.50,0,-1,/player/11390/eric-doyle,5,Eric Doyle,D,2010-2011,echl,11390,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+T.J. Miller (D),Trenton Devils,22,1,5,6,0.27,6,-13,/player/12274/t-j-miller,5,T.J. Miller,D,2010-2011,echl,12274,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tristin Llewellyn (D),Elmira Jackals,33,1,5,6,0.18,29,1,/player/12184/tristin-llewellyn,5,Tristin Llewellyn,D,2010-2011,echl,12184,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian Kilburg (D),Utah Grizzlies,42,1,5,6,0.14,123,4,/player/38327/brian-kilburg,5,Brian Kilburg,D,2010-2011,echl,38327,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Darryl Smith (C),Wheeling Nailers,6,0,6,6,1.00,8,3,/player/13575/darryl-smith,5,Darryl Smith,C,2010-2011,echl,13575,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Berenguer (D),Trenton Devils,8,0,6,6,0.75,6,2,/player/39425/chris-berenguer,5,Chris Berenguer,D,2010-2011,echl,39425,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Lagacé (C/W),Greenville Road Warriors,13,0,6,6,0.46,0,3,/player/17516/jacob-lagace,5,Jacob Lagacé,C/W,2010-2011,echl,17516,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jon Francisco (C),Ontario Reign,12,4,1,5,0.42,2,-1,/player/21372/jon-francisco,5,Jon Francisco,C,2010-2011,echl,21372,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryley Grantham (C),Utah Grizzlies,14,4,1,5,0.36,49,-8,/player/19231/ryley-grantham,5,Ryley Grantham,C,2010-2011,echl,19231,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Stefanovich (W/C),Reading Royals,4,3,2,5,1.25,2,1,/player/9289/mikhail-stefanovich,5,Mikhail Stefanovich,W/C,2010-2011,echl,9289,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Grant (D),Wheeling Nailers,14,3,2,5,0.36,6,-2,/player/11393/alex-grant,5,Alex Grant,D,2010-2011,echl,11393,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Poli (F),Gwinnett Gladiators,17,3,2,5,0.29,13,-7,/player/17099/chris-poli,5,Chris Poli,F,2010-2011,echl,17099,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Milhouse (C),totals,26,3,2,5,0.19,4,3,/player/25905/jonathan-milhouse,5,Jonathan Milhouse,C,2010-2011,echl,25905,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gordon Burnett (D/F),totals,36,3,2,5,0.14,87,8,/player/24296/gordon-burnett,5,Gordon Burnett,D/F,2010-2011,echl,24296,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Schnell (LW),Wheeling Nailers,36,3,2,5,0.14,158,-5,/player/31579/ryan-schnell,5,Ryan Schnell,LW,2010-2011,echl,31579,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Freeman (RW),Victoria Salmon Kings,6,2,3,5,0.83,2,4,/player/11778/scott-freeman,5,Scott Freeman,RW,2010-2011,echl,11778,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hunter Bishop (LW/C),Wheeling Nailers,9,2,3,5,0.56,4,-3,/player/18249/hunter-bishop,5,Hunter Bishop,LW/C,2010-2011,echl,18249,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Garrett Suter (D),Cincinnati Cyclones,16,2,3,5,0.31,36,-4,/player/58628/garrett-suter,5,Garrett Suter,D,2010-2011,echl,58628,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Delahey (D),Ontario Reign,20,2,3,5,0.25,13,-3,/player/19044/matt-delahey,5,Matt Delahey,D,2010-2011,echl,19044,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian Lebler (RW),Elmira Jackals,20,2,3,5,0.25,45,-1,/player/38232/brian-lebler,5,Brian Lebler,RW,2010-2011,echl,38232,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daryl Boyle (D),Alaska Aces,5,1,4,5,1.00,2,4,/player/15126/daryl-boyle,5,Daryl Boyle,D,2010-2011,echl,15126,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Kennedy (C),Florida Everblades,12,1,4,5,0.42,8,1,/player/32178/mike-kennedy,5,Mike Kennedy,C,2010-2011,echl,32178,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johann Kroll (D),South Carolina Stingrays,17,1,4,5,0.29,10,1,/player/17074/johann-kroll,5,Johann Kroll,D,2010-2011,echl,17074,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Generous (D),Reading Royals,22,1,4,5,0.23,20,0,/player/15451/matt-generous,5,Matt Generous,D,2010-2011,echl,15451,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Craig Gaudet (D),totals,28,1,4,5,0.18,20,0,/player/38144/craig-gaudet,5,Craig Gaudet,D,2010-2011,echl,38144,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kane Lafranchise (D),Alaska Aces,22,0,5,5,0.23,6,15,/player/38097/kane-lafranchise,5,Kane Lafranchise,D,2010-2011,echl,38097,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tony Mosey (LW),Florida Everblades,23,3,1,4,0.17,2,0,/player/38140/tony-mosey,5,Tony Mosey,LW,2010-2011,echl,38140,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryan Jurynec (F),Kalamazoo Wings,36,3,1,4,0.11,106,-4,/player/23772/bryan-jurynec,5,Bryan Jurynec,F,2010-2011,echl,23772,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean Backman (RW),Idaho Steelheads,5,2,2,4,0.80,4,2,/player/34717/sean-backman,5,Sean Backman,RW,2010-2011,echl,34717,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dale Mitchell (RW),Reading Royals,5,2,2,4,0.80,14,-7,/player/12113/dale-mitchell,5,Dale Mitchell,RW,2010-2011,echl,12113,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cam Ritchie (D),Victoria Salmon Kings,9,2,2,4,0.44,7,-2,/player/39085/cam-ritchie,5,Cam Ritchie,D,2010-2011,echl,39085,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Yeo (D),South Carolina Stingrays,10,2,2,4,0.40,18,3,/player/11707/dylan-yeo,5,Dylan Yeo,D,2010-2011,echl,11707,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Potacco (F),Trenton Devils,22,2,2,4,0.18,0,-2,/player/38350/mike-potacco,5,Mike Potacco,F,2010-2011,echl,38350,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+James McEwan (LW),Ontario Reign,36,2,2,4,0.11,146,-5,/player/21697/james-mcewan,5,James McEwan,LW,2010-2011,echl,21697,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jean-Claude Sawyer (D),Cincinnati Cyclones,2,1,3,4,2.00,2,-1,/player/12166/jean-claude-sawyer,5,Jean-Claude Sawyer,D,2010-2011,echl,12166,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Favot (LW),Elmira Jackals,6,1,3,4,0.67,4,4,/player/43070/andrew-favot,5,Andrew Favot,LW,2010-2011,echl,43070,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cullen Eddy (D),Greenville Road Warriors,16,1,3,4,0.25,26,2,/player/43010/cullen-eddy,5,Cullen Eddy,D,2010-2011,echl,43010,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Myles Stoesz (W/D),Trenton Devils,37,1,3,4,0.11,165,-8,/player/12426/myles-stoesz,5,Myles Stoesz,W/D,2010-2011,echl,12426,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benn Olson (D),Cincinnati Cyclones,43,1,3,4,0.09,153,-2,/player/19431/benn-olson,5,Benn Olson,D,2010-2011,echl,19431,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Doug Krantz (D),totals,45,1,3,4,0.09,39,-18,/player/21713/doug-krantz,5,Doug Krantz,D,2010-2011,echl,21713,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Jones (D),South Carolina Stingrays,63,1,3,4,0.06,31,-4,/player/9369/zach-jones,5,Zach Jones,D,2010-2011,echl,9369,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jamie Fraser (D),Elmira Jackals,8,0,4,4,0.50,0,2,/player/11493/jamie-fraser,5,Jamie Fraser,D,2010-2011,echl,11493,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc-Antoine Desnoyers (D),Elmira Jackals,12,0,4,4,0.33,10,4,/player/36738/marc-antoine-desnoyers,5,Marc-Antoine Desnoyers,D,2010-2011,echl,36738,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ed Snetsinger (D),totals,30,0,4,4,0.13,32,6,/player/33318/ed-snetsinger,5,Ed Snetsinger,D,2010-2011,echl,33318,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Hepp (D),Idaho Steelheads,39,0,4,4,0.10,71,-1,/player/19253/chris-hepp,5,Chris Hepp,D,2010-2011,echl,19253,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Moucha (C),Elmira Jackals,5,2,1,3,0.60,4,1,/player/103506/martin-moucha,5,Martin Moucha,C,2010-2011,echl,103506,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Gongalsky (LW),Greenville Road Warriors,7,2,1,3,0.43,16,-2,/player/12116/igor-gongalsky,5,Igor Gongalsky,LW,2010-2011,echl,12116,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jason Bailey (RW),Elmira Jackals,8,2,1,3,0.38,6,-1,/player/9374/jason-bailey,5,Jason Bailey,RW,2010-2011,echl,9374,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Garth Murray (LW),Victoria Salmon Kings,8,2,1,3,0.38,23,1,/player/8956/garth-murray,5,Garth Murray,LW,2010-2011,echl,8956,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wes O'Neill (D),Kalamazoo Wings,23,2,1,3,0.13,39,-2,/player/9480/wes-o-neill,5,Wes O'Neill,D,2010-2011,echl,9480,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Tarnasky (LW/C),Florida Everblades,3,1,2,3,1.00,0,2,/player/8846/nick-tarnasky,5,Nick Tarnasky,LW/C,2010-2011,echl,8846,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chad Nehring (C),Idaho Steelheads,5,1,2,3,0.60,0,2,/player/38826/chad-nehring,5,Chad Nehring,C,2010-2011,echl,38826,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Kivisto (D),totals,5,1,2,3,0.60,2,4,/player/32537/john-kivisto,5,John Kivisto,D,2010-2011,echl,32537,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bear Trapp (RW),Idaho Steelheads,5,1,2,3,0.60,9,2,/player/16686/bear-trapp,5,Bear Trapp,RW,2010-2011,echl,16686,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Kurtz (LW),Elmira Jackals,8,1,2,3,0.38,0,2,/player/23413/john-kurtz,5,John Kurtz,LW,2010-2011,echl,23413,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Billy Siers (F),Elmira Jackals,13,1,2,3,0.23,18,1,/player/57620/billy-siers,5,Billy Siers,F,2010-2011,echl,57620,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Greenop (C),Reading Royals,19,1,2,3,0.16,24,3,/player/13632/richard-greenop,5,Richard Greenop,C,2010-2011,echl,13632,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Spencer (C/LW),totals,20,1,2,3,0.15,70,-2,/player/15340/tim-spencer,5,Tim Spencer,C/LW,2010-2011,echl,15340,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Gallant (LW),totals,25,1,2,3,0.12,132,-1,/player/40286/brett-gallant,5,Brett Gallant,LW,2010-2011,echl,40286,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Duff (D),Toledo Walleye,35,1,2,3,0.09,56,-15,/player/66636/nick-duff,5,Nick Duff,D,2010-2011,echl,66636,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Hoffman (LW/C),Elmira Jackals,4,0,3,3,0.75,0,-1,/player/18800/mike-hoffman,5,Mike Hoffman,LW/C,2010-2011,echl,18800,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Kang (LW),Trenton Devils,4,0,3,3,0.75,2,2,/player/15382/matt-kang,5,Matt Kang,LW,2010-2011,echl,15382,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Hansen (D),Wheeling Nailers,6,0,3,3,0.50,6,3,/player/39145/zach-hansen,5,Zach Hansen,D,2010-2011,echl,39145,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shea Guthrie (RW),totals,14,0,3,3,0.21,16,-8,/player/12384/shea-guthrie,5,Shea Guthrie,RW,2010-2011,echl,12384,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Taylor Ellington (D),Victoria Salmon Kings,14,0,3,3,0.21,18,-2,/player/11695/taylor-ellington,5,Taylor Ellington,D,2010-2011,echl,11695,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Phil Youngclaus (D),Cincinnati Cyclones,22,0,3,3,0.14,10,0,/player/17813/phil-youngclaus,5,Phil Youngclaus,D,2010-2011,echl,17813,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Langeraap (C),South Carolina Stingrays,8,2,0,2,0.25,2,2,/player/38333/chase-langeraap,5,Chase Langeraap,C,2010-2011,echl,38333,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Watson (C),totals,11,2,0,2,0.18,2,-3,/player/26331/marcus-watson,5,Marcus Watson,C,2010-2011,echl,26331,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Ryan (D),totals,41,2,0,2,0.05,14,-2,/player/92948/chase-ryan,5,Chase Ryan,D,2010-2011,echl,92948,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brennan Sarazin (LW),Elmira Jackals,1,1,1,2,2.00,0,0,/player/33260/brennan-sarazin,5,Brennan Sarazin,LW,2010-2011,echl,33260,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Mitchell (LW),Elmira Jackals,3,1,1,2,0.67,0,-2,/player/38105/john-mitchell,5,John Mitchell,LW,2010-2011,echl,38105,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Tabisz (D),South Carolina Stingrays,3,1,1,2,0.67,0,-2,/player/58502/nick-tabisz,5,Nick Tabisz,D,2010-2011,echl,58502,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rob Smith (D/F),Las Vegas Wranglers,4,1,1,2,0.50,5,1,/player/18132/rob-smith,5,Rob Smith,D/F,2010-2011,echl,18132,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robbie Smith (F),Las Vegas Wranglers,4,1,1,2,0.50,5,-,/player/39126/robbie-smith,5,Robbie Smith,F,2010-2011,echl,39126,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeremy Tucker (C),totals,5,1,1,2,0.40,0,2,/player/73246/jeremy-tucker,5,Jeremy Tucker,C,2010-2011,echl,73246,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan McLeod (C),Cincinnati Cyclones,5,1,1,2,0.40,6,-1,/player/13954/ryan-mcleod,5,Ryan McLeod,C,2010-2011,echl,13954,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryan Rufenach (D),Toledo Walleye,6,1,1,2,0.33,4,8,/player/15031/bryan-rufenach,5,Bryan Rufenach,D,2010-2011,echl,15031,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Bartlett (RW/LW),Cincinnati Cyclones,6,1,1,2,0.33,6,2,/player/17019/mike-bartlett,5,Mike Bartlett,RW/LW,2010-2011,echl,17019,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Coccimiglio (LW),totals,7,1,1,2,0.29,4,1,/player/43006/brandon-coccimiglio,5,Brandon Coccimiglio,LW,2010-2011,echl,43006,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jean-Philip Chabot (C),Bakersfield Condors,10,1,1,2,0.20,7,-1,/player/18789/jean-philip-chabot,5,Jean-Philip Chabot,C,2010-2011,echl,18789,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vinny Geonnetti (D/F),Elmira Jackals,11,1,1,2,0.18,9,-1,/player/57694/vinny-geonnetti,5,Vinny Geonnetti,D/F,2010-2011,echl,57694,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jon Higgins (F),totals,14,1,1,2,0.14,9,-6,/player/38284/jon-higgins,5,Jon Higgins,F,2010-2011,echl,38284,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Motin (D),Stockton Thunder,14,1,1,2,0.14,12,3,/player/6953/johan-motin,5,Johan Motin,D,2010-2011,echl,6953,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Liambas (LW),Cincinnati Cyclones,15,1,1,2,0.13,72,-3,/player/33873/mike-liambas,6,Mike Liambas,LW,2010-2011,echl,33873,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dustin Molle (D),Idaho Steelheads,16,1,1,2,0.13,6,-6,/player/38564/dustin-molle,6,Dustin Molle,D,2010-2011,echl,38564,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riley Armstrong (C/RW),Utah Grizzlies,2,0,2,2,1.00,4,1,/player/10623/riley-armstrong,6,Riley Armstrong,C/RW,2010-2011,echl,10623,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Thomson (RW),Wheeling Nailers,4,0,2,2,0.50,0,1,/player/46367/mike-thomson,6,Mike Thomson,RW,2010-2011,echl,46367,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colin Reddin (D/C),Las Vegas Wranglers,5,0,2,2,0.40,2,-2,/player/23795/colin-reddin,6,Colin Reddin,D/C,2010-2011,echl,23795,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc-André Bourdon (D),Greenville Road Warriors,5,0,2,2,0.40,14,3,/player/19078/marc-andre-bourdon,6,Marc-André Bourdon,D,2010-2011,echl,19078,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Little (D),Reading Royals,7,0,2,2,0.29,2,6,/player/42681/mike-little,6,Mike Little,D,2010-2011,echl,42681,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vinny Scarsella (RW),Elmira Jackals,8,0,2,2,0.25,2,-2,/player/34036/vinny-scarsella,6,Vinny Scarsella,RW,2010-2011,echl,34036,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yann Sauvé (D),Victoria Salmon Kings,8,0,2,2,0.25,4,-2,/player/11318/yann-sauve,6,Yann Sauvé,D,2010-2011,echl,11318,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jason Weeks (C),Wheeling Nailers,8,0,2,2,0.25,7,-3,/player/32104/jason-weeks,6,Jason Weeks,C,2010-2011,echl,32104,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Pitt (C/LW),Florida Everblades,9,0,2,2,0.22,0,1,/player/31227/scott-pitt,6,Scott Pitt,C/LW,2010-2011,echl,31227,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Sellitto (RW),Kalamazoo Wings,22,0,2,2,0.09,29,-5,/player/95361/mike-sellitto,6,Mike Sellitto,RW,2010-2011,echl,95361,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riley Emmerson (D/LW),Utah Grizzlies,46,0,2,2,0.04,142,-14,/player/11586/riley-emmerson,6,Riley Emmerson,D/LW,2010-2011,echl,11586,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Maiani (C),Wheeling Nailers,1,1,0,1,1.00,0,-1,/player/24896/anthony-maiani,6,Anthony Maiani,C,2010-2011,echl,24896,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Iaquinto (RW),Toledo Walleye,1,1,0,1,1.00,2,1,/player/60594/anthony-iaquinto,6,Anthony Iaquinto,RW,2010-2011,echl,60594,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Engel (D),Reading Royals,2,1,0,1,0.50,0,-1,/player/17615/josh-engel,6,Josh Engel,D,2010-2011,echl,17615,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Kharin (LW/RW),Greenville Road Warriors,3,1,0,1,0.33,2,0,/player/32110/anton-kharin,6,Anton Kharin,LW/RW,2010-2011,echl,32110,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Wilson (D),Toledo Walleye,3,1,0,1,0.33,2,0,/player/8477/mike-wilson,6,Mike Wilson,D,2010-2011,echl,8477,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dean Yakura (C/RW),Idaho Steelheads,5,1,0,1,0.20,2,-1,/player/42691/dean-yakura,6,Dean Yakura,C/RW,2010-2011,echl,42691,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Barr (C),Elmira Jackals,5,1,0,1,0.20,2,0,/player/59051/justin-barr,6,Justin Barr,C,2010-2011,echl,59051,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Boyd (C),Toledo Walleye,6,1,0,1,0.17,0,-3,/player/38579/josh-boyd,6,Josh Boyd,C,2010-2011,echl,38579,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ian O'Connor (F),Reading Royals,6,1,0,1,0.17,7,1,/player/38505/ian-o-connor,6,Ian O'Connor,F,2010-2011,echl,38505,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Burrows (D),Bakersfield Condors,7,1,0,1,0.14,4,5,/player/38278/josh-burrows,6,Josh Burrows,D,2010-2011,echl,38278,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antonin Manavian (D),Bakersfield Condors,7,1,0,1,0.14,9,-1,/player/18044/antonin-manavian,6,Antonin Manavian,D,2010-2011,echl,18044,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jon Mirasty (LW),Elmira Jackals,8,1,0,1,0.13,45,-1,/player/14424/jon-mirasty,6,Jon Mirasty,LW,2010-2011,echl,14424,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tibor Varga (RW),Bakersfield Condors,9,1,0,1,0.11,2,2,/player/41629/tibor-varga,6,Tibor Varga,RW,2010-2011,echl,41629,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andy Willock (C),Elmira Jackals,9,1,0,1,0.11,17,0,/player/55225/andy-willock,6,Andy Willock,C,2010-2011,echl,55225,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mason Graddock (F),Utah Grizzlies,1,0,1,1,1.00,0,-1,/player/43439/mason-graddock,6,Mason Graddock,F,2010-2011,echl,43439,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Reber (C),Utah Grizzlies,1,0,1,1,1.00,0,0,/player/39117/matt-reber,6,Matt Reber,C,2010-2011,echl,39117,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dan Sullivan (RW),Gwinnett Gladiators,1,0,1,1,1.00,2,0,/player/20492/dan-sullivan,6,Dan Sullivan,RW,2010-2011,echl,20492,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Helfrich (RW),Florida Everblades,2,0,1,1,0.50,0,1,/player/39159/tyler-helfrich,6,Tyler Helfrich,RW,2010-2011,echl,39159,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Meyers (D),Utah Grizzlies,2,0,1,1,0.50,2,0,/player/18007/josh-meyers,6,Josh Meyers,D,2010-2011,echl,18007,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean Menton (C),Las Vegas Wranglers,3,0,1,1,0.33,0,1,/player/46709/sean-menton,6,Sean Menton,C,2010-2011,echl,46709,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Morton (LW),Ontario Reign,3,0,1,1,0.33,0,-1,/player/50067/alex-morton,6,Alex Morton,LW,2010-2011,echl,50067,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryan Haczyk (RW),Trenton Devils,3,0,1,1,0.33,0,-1,/player/44093/bryan-haczyk,6,Bryan Haczyk,RW,2010-2011,echl,44093,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Stephens (D),Florida Everblades,3,0,1,1,0.33,0,0,/player/38414/evan-stephens,6,Evan Stephens,D,2010-2011,echl,38414,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian Lashoff (D),Toledo Walleye,3,0,1,1,0.33,0,-1,/player/15481/brian-lashoff,6,Brian Lashoff,D,2010-2011,echl,15481,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Solway (LW),Toledo Walleye,3,0,1,1,0.33,0,0,/player/38574/david-solway,6,David Solway,LW,2010-2011,echl,38574,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Kugryshev (LW/RW),South Carolina Stingrays,3,0,1,1,0.33,2,-2,/player/11865/dmitri-kugryshev,6,Dmitri Kugryshev,LW/RW,2010-2011,echl,11865,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Phillip Ischi (F),Las Vegas Wranglers,3,0,1,1,0.33,2,2,/player/93119/phillip-ischi,6,Phillip Ischi,F,2010-2011,echl,93119,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Hodgman (C),Reading Royals,3,0,1,1,0.33,4,0,/player/14428/justin-hodgman,6,Justin Hodgman,C,2010-2011,echl,14428,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Blatchford (D),Toledo Walleye,3,0,1,1,0.33,4,1,/player/34050/brett-blatchford,6,Brett Blatchford,D,2010-2011,echl,34050,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Harry Young (D/LW),Trenton Devils,3,0,1,1,0.33,12,1,/player/19075/harry-young,6,Harry Young,D/LW,2010-2011,echl,19075,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Quintin Laing (LW),Victoria Salmon Kings,4,0,1,1,0.25,0,0,/player/11751/quintin-laing,6,Quintin Laing,LW,2010-2011,echl,11751,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Reed (LW),Idaho Steelheads,4,0,1,1,0.25,0,-3,/player/38250/kyle-reed,6,Kyle Reed,LW,2010-2011,echl,38250,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean Dolan (RW/C),South Carolina Stingrays,4,0,1,1,0.25,0,0,/player/38109/sean-dolan,6,Sean Dolan,RW/C,2010-2011,echl,38109,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jay Sprague (RW),Kalamazoo Wings,4,0,1,1,0.25,2,0,/player/38244/jay-sprague,6,Jay Sprague,RW,2010-2011,echl,38244,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Don Maloney Jr. (F),Las Vegas Wranglers,4,0,1,1,0.25,4,1,/player/101662/don-maloney-jr,6,Don Maloney Jr.,F,2010-2011,echl,101662,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyson Hobbins (RW),Idaho Steelheads,4,0,1,1,0.25,4,-1,/player/38827/tyson-hobbins,6,Tyson Hobbins,RW,2010-2011,echl,38827,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antoine Roussel (LW/C),Reading Royals,5,0,1,1,0.20,7,-2,/player/12125/antoine-roussel,6,Antoine Roussel,LW/C,2010-2011,echl,12125,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Inman (D),Elmira Jackals,6,0,1,1,0.17,0,0,/player/39043/david-inman,6,David Inman,D,2010-2011,echl,39043,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brad Good (D),Florida Everblades,6,0,1,1,0.17,8,3,/player/64891/brad-good,6,Brad Good,D,2010-2011,echl,64891,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Gurtler (LW),Bakersfield Condors,7,0,1,1,0.14,2,1,/player/43018/mike-gurtler,6,Mike Gurtler,LW,2010-2011,echl,43018,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Morehouse (C/LW),totals,7,0,1,1,0.14,16,-3,/player/21195/chris-morehouse,6,Chris Morehouse,C/LW,2010-2011,echl,21195,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reggie Traccitto (D),Ontario Reign,8,0,1,1,0.13,0,-5,/player/33638/reggie-traccitto,6,Reggie Traccitto,D,2010-2011,echl,33638,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Bartholomay (D/F),Cincinnati Cyclones,9,0,1,1,0.11,2,-4,/player/32691/adam-bartholomay,6,Adam Bartholomay,D/F,2010-2011,echl,32691,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Ström (D),Bakersfield Condors,9,0,1,1,0.11,4,1,/player/4027/sebastian-strom,6,Sebastian Ström,D,2010-2011,echl,4027,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Knowlton (F),Gwinnett Gladiators,9,0,1,1,0.11,6,-7,/player/43269/patrick-knowlton,6,Patrick Knowlton,F,2010-2011,echl,43269,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Drew Akins (C),Gwinnett Gladiators,10,0,1,1,0.10,4,-1,/player/38216/drew-akins,6,Drew Akins,C,2010-2011,echl,38216,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Kearns (D),Idaho Steelheads,10,0,1,1,0.10,6,-1,/player/58528/john-kearns,6,John Kearns,D,2010-2011,echl,58528,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Schwartzbauer (D),Cincinnati Cyclones,12,0,1,1,0.08,4,-2,/player/13478/nathan-schwartzbauer,6,Nathan Schwartzbauer,D,2010-2011,echl,13478,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chad Starling (D),Ontario Reign,14,0,1,1,0.07,16,-1,/player/16859/chad-starling,6,Chad Starling,D,2010-2011,echl,16859,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alan Dorich (D),totals,17,0,1,1,0.06,18,-15,/player/38548/alan-dorich,6,Alan Dorich,D,2010-2011,echl,38548,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Sloane (D/RW),totals,25,0,1,1,0.04,14,1,/player/34028/david-sloane,6,David Sloane,D/RW,2010-2011,echl,34028,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Brodeur (D),Las Vegas Wranglers,52,0,1,1,0.02,43,2,/player/19045/mathieu-brodeur,6,Mathieu Brodeur,D,2010-2011,echl,19045,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Smyth (RW),Cincinnati Cyclones,0,0,0,0,-,0,0,/player/37614/matt-smyth,6,Matt Smyth,RW,2010-2011,echl,37614,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Ambroz (RW),Alaska Aces,0,0,0,0,-,0,-,/player/38519/matt-ambroz,6,Matt Ambroz,RW,2010-2011,echl,38519,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Jones (RW),Stockton Thunder,1,0,0,0,0.00,0,-2,/player/17766/matt-jones,6,Matt Jones,RW,2010-2011,echl,17766,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karl Gagné (F),Bakersfield Condors,1,0,0,0,0.00,0,0,/player/18821/karl-gagne,6,Karl Gagné,F,2010-2011,echl,18821,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stu Bickel (D),Elmira Jackals,1,0,0,0,0.00,0,-3,/player/19451/stu-bickel,6,Stu Bickel,D,2010-2011,echl,19451,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Recio (D),Elmira Jackals,1,0,0,0,0.00,0,1,/player/67497/tim-recio,6,Tim Recio,D,2010-2011,echl,67497,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brent Clarke (C),Cincinnati Cyclones,1,0,0,0,0.00,0,-1,/player/41691/brent-clarke,6,Brent Clarke,C,2010-2011,echl,41691,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colin Nicholson (C),Gwinnett Gladiators,1,0,0,0,0.00,0,-1,/player/18553/colin-nicholson,6,Colin Nicholson,C,2010-2011,echl,18553,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Isaac Merit Waldrop (C),Alaska Aces,1,0,0,0,0.00,0,-1,/player/26329/isaac-merit-waldrop,6,Isaac Merit Waldrop,C,2010-2011,echl,26329,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Tikka (D),Bakersfield Condors,1,0,0,0,0.00,0,0,/player/58503/sam-tikka,6,Sam Tikka,D,2010-2011,echl,58503,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+J.J. Waldrop (F),Bakersfield Condors,1,0,0,0,0.00,0,-1,/player/60525/j-j-waldrop,6,J.J. Waldrop,F,2010-2011,echl,60525,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Todd Orlando (D),Cincinnati Cyclones,1,0,0,0,0.00,0,0,/player/93283/todd-orlando,6,Todd Orlando,D,2010-2011,echl,93283,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brad Townsend (C/LW),Cincinnati Cyclones,1,0,0,0,0.00,0,0,/player/93655/brad-townsend,6,Brad Townsend,C/LW,2010-2011,echl,93655,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joe Tallari (LW),Wheeling Nailers,1,0,0,0,0.00,0,0,/player/13251/joe-tallari,6,Joe Tallari,LW,2010-2011,echl,13251,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Clark (D),Greenville Road Warriors,1,0,0,0,0.00,0,0,/player/32265/chris-clark,6,Chris Clark,D,2010-2011,echl,32265,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Farrer (F),Trenton Devils,1,0,0,0,0.00,0,0,/player/38512/ben-farrer,6,Ben Farrer,F,2010-2011,echl,38512,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Kremyr (LW),Alaska Aces,1,0,0,0,0.00,0,0,/player/38511/jordan-kremyr,6,Jordan Kremyr,LW,2010-2011,echl,38511,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Will Acton (C/LW),Reading Royals,1,0,0,0,0.00,0,0,/player/32173/will-acton,6,Will Acton,C/LW,2010-2011,echl,32173,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chad Klassen (C),Victoria Salmon Kings,1,0,0,0,0.00,0,0,/player/33153/chad-klassen,6,Chad Klassen,C,2010-2011,echl,33153,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Devin Guy (F),Elmira Jackals,1,0,0,0,0.00,2,0,/player/33523/devin-guy,6,Devin Guy,F,2010-2011,echl,33523,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brad MacMillan (RW),Idaho Steelheads,1,0,0,0,0.00,9,0,/player/41293/brad-macmillan,6,Brad MacMillan,RW,2010-2011,echl,41293,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Watson (F),Wheeling Nailers,2,0,0,0,0.00,0,-3,/player/38337/brett-watson,6,Brett Watson,F,2010-2011,echl,38337,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cam Watson (LW),South Carolina Stingrays,2,0,0,0,0.00,0,-5,/player/38589/cam-watson,6,Cam Watson,LW,2010-2011,echl,38589,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Olidis (LW),Florida Everblades,2,0,0,0,0.00,0,-2,/player/44099/ryan-olidis,6,Ryan Olidis,LW,2010-2011,echl,44099,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alec Kirschner (LW),Wheeling Nailers,2,0,0,0,0.00,0,-1,/player/48567/alec-kirschner,6,Alec Kirschner,LW,2010-2011,echl,48567,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Felde (LW),Bakersfield Condors,2,0,0,0,0.00,0,1,/player/11606/erik-felde,6,Erik Felde,LW,2010-2011,echl,11606,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mason Cossette (F),Elmira Jackals,2,0,0,0,0.00,0,1,/player/62640/mason-cossette,6,Mason Cossette,F,2010-2011,echl,62640,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dustin Gazley (LW/RW),Greenville Road Warriors,2,0,0,0,0.00,0,0,/player/38239/dustin-gazley,6,Dustin Gazley,LW/RW,2010-2011,echl,38239,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brock Meadows (D),totals,2,0,0,0,0.00,0,1,/player/40913/brock-meadows,6,Brock Meadows,D,2010-2011,echl,40913,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Raven (F),Cincinnati Cyclones,2,0,0,0,0.00,0,-1,/player/43020/ryan-raven,6,Ryan Raven,F,2010-2011,echl,43020,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacques Lamoureux (C),Alaska Aces,2,0,0,0,0.00,0,0,/player/28003/jacques-lamoureux,6,Jacques Lamoureux,C,2010-2011,echl,28003,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Olimb (D),Florida Everblades,2,0,0,0,0.00,0,-1,/player/38522/eric-olimb,6,Eric Olimb,D,2010-2011,echl,38522,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joe Cucci (C),South Carolina Stingrays,2,0,0,0,0.00,0,0,/player/48853/joe-cucci,6,Joe Cucci,C,2010-2011,echl,48853,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Ross (D),Victoria Salmon Kings,2,0,0,0,0.00,0,-1,/player/38790/adam-ross,6,Adam Ross,D,2010-2011,echl,38790,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean Timkey (F),Toledo Walleye,2,0,0,0,0.00,0,-1,/player/51099/sean-timkey,6,Sean Timkey,F,2010-2011,echl,51099,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pierce Norton (RW),Alaska Aces,2,0,0,0,0.00,2,-1,/player/14860/pierce-norton,7,Pierce Norton,RW,2010-2011,echl,14860,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Dickinson (D),Wheeling Nailers,2,0,0,0,0.00,2,0,/player/39152/brett-dickinson,7,Brett Dickinson,D,2010-2011,echl,39152,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Legein (RW),Greenville Road Warriors,2,0,0,0,0.00,2,0,/player/12460/stefan-legein,7,Stefan Legein,RW,2010-2011,echl,12460,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joe Tolles (D),Florida Everblades,2,0,0,0,0.00,2,1,/player/37880/joe-tolles,7,Joe Tolles,D,2010-2011,echl,37880,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean Curry (D),Toledo Walleye,2,0,0,0,0.00,2,-2,/player/12836/sean-curry,7,Sean Curry,D,2010-2011,echl,12836,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabe Gauthier (C),Victoria Salmon Kings,2,0,0,0,0.00,4,0,/player/11013/gabe-gauthier,7,Gabe Gauthier,C,2010-2011,echl,11013,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitch McColm (D),Florida Everblades,2,0,0,0,0.00,5,-1,/player/37257/mitch-mccolm,7,Mitch McColm,D,2010-2011,echl,37257,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dave Jarman (F),South Carolina Stingrays,2,0,0,0,0.00,6,0,/player/32167/dave-jarman,7,Dave Jarman,F,2010-2011,echl,32167,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryant Molle (D),Alaska Aces,2,0,0,0,0.00,7,3,/player/38566/bryant-molle,7,Bryant Molle,D,2010-2011,echl,38566,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+T.J. Battani (RW),Alaska Aces,2,0,0,0,0.00,9,-1,/player/18617/t-j-battani,7,T.J. Battani,RW,2010-2011,echl,18617,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Garrett Klotz (LW),Greenville Road Warriors,3,0,0,0,0.00,0,0,/player/12519/garrett-klotz,7,Garrett Klotz,LW,2010-2011,echl,12519,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Baxter (D),Reading Royals,3,0,0,0,0.00,0,0,/player/28332/matt-baxter,7,Matt Baxter,D,2010-2011,echl,28332,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steve McClellan (D),Cincinnati Cyclones,3,0,0,0,0.00,0,-3,/player/41102/steve-mcclellan,7,Steve McClellan,D,2010-2011,echl,41102,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Arhontas (F),totals,3,0,0,0,0.00,0,-2,/player/39080/matt-arhontas,7,Matt Arhontas,F,2010-2011,echl,39080,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jimmy Martin (D),Reading Royals,3,0,0,0,0.00,0,0,/player/39033/jimmy-martin,7,Jimmy Martin,D,2010-2011,echl,39033,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Moises Gutierrez (RW),Las Vegas Wranglers,3,0,0,0,0.00,2,0,/player/11694/moises-gutierrez,7,Moises Gutierrez,RW,2010-2011,echl,11694,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leland Fidler (D),Elmira Jackals,3,0,0,0,0.00,2,0,/player/58727/leland-fidler,7,Leland Fidler,D,2010-2011,echl,58727,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Lucyk (D),Gwinnett Gladiators,3,0,0,0,0.00,4,-3,/player/34735/luke-lucyk,7,Luke Lucyk,D,2010-2011,echl,34735,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeff Terminesi (D),Victoria Salmon Kings,4,0,0,0,0.00,0,-1,/player/43028/jeff-terminesi,7,Jeff Terminesi,D,2010-2011,echl,43028,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Reddington (D),Utah Grizzlies,4,0,0,0,0.00,0,-1,/player/18608/mike-reddington,7,Mike Reddington,D,2010-2011,echl,18608,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean Flanagan (C),Las Vegas Wranglers,4,0,0,0,0.00,0,0,/player/39205/sean-flanagan,7,Sean Flanagan,C,2010-2011,echl,39205,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jay Holladay (D),Toledo Walleye,4,0,0,0,0.00,4,-2,/player/33273/jay-holladay,7,Jay Holladay,D,2010-2011,echl,33273,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Woody Klassen (D),Greenville Road Warriors,4,0,0,0,0.00,5,2,/player/39672/woody-klassen,7,Woody Klassen,D,2010-2011,echl,39672,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Affinati (F),Elmira Jackals,4,0,0,0,0.00,7,0,/player/42359/chris-affinati,7,Chris Affinati,F,2010-2011,echl,42359,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trevor Hendrikx (D),Florida Everblades,4,0,0,0,0.00,22,-3,/player/15540/trevor-hendrikx,7,Trevor Hendrikx,D,2010-2011,echl,15540,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Cowie (D),Victoria Salmon Kings,5,0,0,0,0.00,2,-4,/player/38829/matt-cowie,7,Matt Cowie,D,2010-2011,echl,38829,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Craig Lineker (D),Victoria Salmon Kings,5,0,0,0,0.00,4,-4,/player/11703/craig-lineker,7,Craig Lineker,D,2010-2011,echl,11703,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Fletcher (D/F),Cincinnati Cyclones,5,0,0,0,0.00,5,0,/player/58678/tyler-fletcher,7,Tyler Fletcher,D/F,2010-2011,echl,58678,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Richards (LW),Toledo Walleye,5,0,0,0,0.00,14,0,/player/24424/robin-richards,7,Robin Richards,LW,2010-2011,echl,24424,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chad Denny (D),Utah Grizzlies,5,0,0,0,0.00,23,-2,/player/12386/chad-denny,7,Chad Denny,D,2010-2011,echl,12386,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Fukala (F),Florida Everblades,5,0,0,0,0.00,34,0,/player/94719/kevin-fukala,7,Kevin Fukala,F,2010-2011,echl,94719,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ernie Hartlieb (RW),Florida Everblades,6,0,0,0,0.00,0,-3,/player/15246/ernie-hartlieb,7,Ernie Hartlieb,RW,2010-2011,echl,15246,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Baier (D),Reading Royals,6,0,0,0,0.00,0,-3,/player/32349/eric-baier,7,Eric Baier,D,2010-2011,echl,32349,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Deron Cousens (D),Florida Everblades,6,0,0,0,0.00,2,-2,/player/38306/deron-cousens,7,Deron Cousens,D,2010-2011,echl,38306,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Wietecha (D),Elmira Jackals,6,0,0,0,0.00,4,0,/player/38809/scott-wietecha,7,Scott Wietecha,D,2010-2011,echl,38809,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jean-Michel Rizk (RW),Wheeling Nailers,7,0,0,0,0.00,7,0,/player/9497/jean-michel-rizk,7,Jean-Michel Rizk,RW,2010-2011,echl,9497,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Godlewski (D),Trenton Devils,8,0,0,0,0.00,2,-4,/player/39095/matt-godlewski,7,Matt Godlewski,D,2010-2011,echl,39095,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Channing Boe (D),Wheeling Nailers,8,0,0,0,0.00,6,1,/player/38328/channing-boe,7,Channing Boe,D,2010-2011,echl,38328,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommy Maxwell (RW),Victoria Salmon Kings,9,0,0,0,0.00,25,-6,/player/13430/tommy-maxwell,7,Tommy Maxwell,RW,2010-2011,echl,13430,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Neil Graham (F),totals,10,0,0,0,0.00,2,-1,/player/43017/neil-graham,7,Neil Graham,F,2010-2011,echl,43017,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian McMillin (RW),Kalamazoo Wings,14,0,0,0,0.00,13,-6,/player/38199/brian-mcmillin,7,Brian McMillin,RW,2010-2011,echl,38199,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Neil Musselwhite (F),Cincinnati Cyclones,20,0,0,0,0.00,8,-4,/player/55156/neil-musselwhite,7,Neil Musselwhite,F,2010-2011,echl,55156,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+James DeLory (D/W),Cincinnati Cyclones,21,0,0,0,0.00,41,-1,/player/11233/james-delory,7,James DeLory,D/W,2010-2011,echl,11233,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Corey Syvret (D),Kalamazoo Wings,28,0,0,0,0.00,18,-11,/player/11239/corey-syvret,7,Corey Syvret,D,2010-2011,echl,11239,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69

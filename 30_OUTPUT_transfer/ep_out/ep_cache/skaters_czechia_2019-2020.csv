@@ -1,0 +1,454 @@
+player,team,gp,g,a,tp,p_per_gp,pim,plus_minus,link,page,playername,position,season,league,ep_player_id,scrape_date,source,package_version
+Milan Gulas (RW),HC Plzeň,52,35,41,76,1.46,38,3,/player/22577/milan-gulas,1,Milan Gulas,RW,2019-2020,czechia,22577,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Birner (LW),Bílí Tygři Liberec,41,20,41,61,1.49,12,12,/player/9233/michal-birner,1,Michal Birner,LW,2019-2020,czechia,9233,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Libor Hudáček (RW/C),Bílí Tygři Liberec,50,31,29,60,1.20,24,22,/player/17727/libor-hudacek,1,Libor Hudáček,RW/C,2019-2020,czechia,17727,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Rachunek (LW/RW),HC Energie Karlovy Vary,51,25,27,52,1.02,12,-8,/player/19357/tomas-rachunek,1,Tomas Rachunek,LW/RW,2019-2020,czechia,19357,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Zatovic (LW/C),HC Kometa Brno,51,29,21,50,0.98,24,1,/player/22645/martin-zatovic,1,Martin Zatovic,LW/C,2019-2020,czechia,22645,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Stransky (RW/LW),HC Oceláři Třinec,52,23,22,45,0.87,46,13,/player/79504/matej-stransky,1,Matej Stransky,RW/LW,2019-2020,czechia,79504,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavol Skalický (C/RW),BK Mladá Boleslav,51,18,27,45,0.88,50,25,/player/172229/pavol-skalicky,1,Pavol Skalický,C/RW,2019-2020,czechia,172229,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brady Austin (D),Rytíři Kladno,52,18,25,43,0.83,26,-12,/player/45403/brady-austin,1,Brady Austin,D,2019-2020,czechia,45403,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roberts Bukarts (LW/RW),HC Vítkovice,47,16,26,42,0.89,42,-7,/player/11842/roberts-bukarts,1,Roberts Bukarts,LW/RW,2019-2020,czechia,11842,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Mertl (C),HC Plzeň,48,16,24,40,0.83,42,-4,/player/22578/tomas-mertl,1,Tomas Mertl,C,2019-2020,czechia,22578,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radan Lenc (LW/RW),Bílí Tygři Liberec,49,21,18,39,0.80,14,5,/player/99493/radan-lenc,1,Radan Lenc,LW/RW,2019-2020,czechia,99493,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Bulir (C/LW),Bílí Tygři Liberec,36,18,21,39,1.08,16,3,/player/59211/michal-bulir,1,Michal Bulir,C/LW,2019-2020,czechia,59211,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Holík (C),HC Kometa Brno,38,12,27,39,1.03,14,-3,/player/70382/petr-holik,1,Petr Holík,C,2019-2020,czechia,70382,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Pech (C),HC Sparta Praha,52,11,28,39,0.75,28,2,/player/22633/lukas-pech,1,Lukas Pech,C,2019-2020,czechia,22633,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Jarusek (W/C),HC Litvínov,52,22,16,38,0.73,51,0,/player/19366/richard-jarusek,1,Richard Jarusek,W/C,2019-2020,czechia,19366,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Mueller (RW/C),HC Kometa Brno,33,14,24,38,1.15,24,6,/player/9220/peter-mueller,1,Peter Mueller,RW/C,2019-2020,czechia,9220,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Flek (LW/RW),HC Energie Karlovy Vary,51,14,24,38,0.75,4,1,/player/171406/jakub-flek,1,Jakub Flek,LW/RW,2019-2020,czechia,171406,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Vrána (C),HC Oceláři Třinec,47,12,26,38,0.81,14,16,/player/9633/petr-vrana,1,Petr Vrána,C,2019-2020,czechia,9633,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Repik (RW),HC Sparta Praha,47,23,14,37,0.79,42,6,/player/10481/michal-repik,1,Michal Repik,RW,2019-2020,czechia,10481,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radek Smolenak (LW/RW),Mountfield HK,52,23,14,37,0.71,38,6,/player/9622/radek-smolenak,1,Radek Smolenak,LW/RW,2019-2020,czechia,9622,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Hübl (C),HC Litvínov,52,19,18,37,0.71,32,13,/player/10847/viktor-hubl,1,Viktor Hübl,C,2019-2020,czechia,10847,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matyas Kantner (LW/RW),HC Plzeň,52,18,19,37,0.71,30,3,/player/236492/matyas-kantner,1,Matyas Kantner,LW/RW,2019-2020,czechia,236492,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dávid Gríger (C/RW),HC Energie Karlovy Vary,48,15,22,37,0.77,38,-6,/player/96439/david-griger,1,Dávid Gríger,C/RW,2019-2020,czechia,96439,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zbyněk Irgl (RW),HC Olomouc,50,15,22,37,0.74,32,4,/player/10870/zbynek-irgl,1,Zbyněk Irgl,RW,2019-2020,czechia,10870,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antonín Honejsek (C/LW),Berani Zlín,51,13,24,37,0.73,62,6,/player/34788/antonin-honejsek,1,Antonín Honejsek,C/LW,2019-2020,czechia,34788,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Nahodil (C),HC Olomouc,51,18,17,35,0.69,20,14,/player/33050/lukas-nahodil,1,Lukas Nahodil,C,2019-2020,czechia,33050,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Hruska (C),totals,51,14,21,35,0.69,28,10,/player/48419/jan-hruska,1,Jan Hruska,C,2019-2020,czechia,48419,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ladislav Smid (D),Bílí Tygři Liberec,51,6,29,35,0.69,64,2,/player/9225/ladislav-smid,1,Ladislav Smid,D,2019-2020,czechia,9225,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Gernát (D),HC Oceláři Třinec,50,6,28,34,0.68,36,13,/player/89280/martin-gernat,1,Martin Gernát,D,2019-2020,czechia,89280,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radoslav Tybor (RW),HC Dynamo Pardubice,45,18,15,33,0.73,10,1,/player/28095/radoslav-tybor,1,Radoslav Tybor,RW,2019-2020,czechia,28095,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Roman (C),HC Vítkovice,45,14,19,33,0.73,28,-9,/player/11103/ondrej-roman,1,Ondrej Roman,C,2019-2020,czechia,11103,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Plekanec (C),HC Kometa Brno,50,13,20,33,0.66,68,-6,/player/8668/tomas-plekanec,1,Tomas Plekanec,C,2019-2020,czechia,8668,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Kousal (C/LW),HC Dynamo Pardubice,43,10,23,33,0.77,34,-5,/player/18093/robert-kousal,1,Robert Kousal,C/LW,2019-2020,czechia,18093,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Marcinko (C),HC Oceláři Třinec,46,13,19,32,0.70,62,6,/player/9292/tomas-marcinko,1,Tomas Marcinko,C,2019-2020,czechia,9292,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frantisek Lukes (LW/RW),HC Litvínov,49,12,20,32,0.65,26,1,/player/13648/frantisek-lukes,1,Frantisek Lukes,LW/RW,2019-2020,czechia,13648,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Slahar (RW/LW),Berani Zlín,51,11,21,32,0.63,20,6,/player/34804/jakub-slahar,1,Jakub Slahar,RW/LW,2019-2020,czechia,34804,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miroslav Forman (RW),HC Sparta Praha,50,10,22,32,0.64,62,1,/player/109389/miroslav-forman,1,Miroslav Forman,RW,2019-2020,czechia,109389,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Petruzalek (C/RW),HC Litvínov,43,9,23,32,0.74,14,9,/player/9617/jakub-petruzalek,1,Jakub Petruzalek,C/RW,2019-2020,czechia,9617,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Smejkal (LW/C),HC Sparta Praha,47,13,18,31,0.66,51,8,/player/159844/jiri-smejkal,1,Jiri Smejkal,LW/C,2019-2020,czechia,159844,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Zboril (C/LW),BK Mladá Boleslav,51,13,18,31,0.61,38,11,/player/82314/adam-zboril,1,Adam Zboril,C/LW,2019-2020,czechia,82314,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Mandát (C/LW),HC Dynamo Pardubice,50,17,13,30,0.60,24,1,/player/101225/jan-mandat,1,Jan Mandát,C/LW,2019-2020,czechia,101225,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lubos Rob (RW/LW),HC Plzeň,52,16,14,30,0.58,8,6,/player/101261/lubos-rob,1,Lubos Rob,RW/LW,2019-2020,czechia,101261,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ladislav Zikmund (LW/RW),Rytíři Kladno,51,15,15,30,0.59,38,-12,/player/201028/ladislav-zikmund,1,Ladislav Zikmund,LW/RW,2019-2020,czechia,201028,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan O'Donnell (W/C),Rytíři Kladno,51,14,16,30,0.59,12,-13,/player/40229/brendan-o-donnell,1,Brendan O'Donnell,W/C,2019-2020,czechia,40229,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valentin Claireaux (C/RW),Berani Zlín,40,11,19,30,0.75,28,7,/player/34603/valentin-claireaux,1,Valentin Claireaux,C/RW,2019-2020,czechia,34603,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Klepis (C/RW),BK Mladá Boleslav,46,7,23,30,0.65,26,-4,/player/9609/jakub-klepis,1,Jakub Klepis,C/RW,2019-2020,czechia,9609,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaromír Jágr (RW),Rytíři Kladno,38,15,14,29,0.76,28,-10,/player/8627/jaromir-jagr,1,Jaromír Jágr,RW,2019-2020,czechia,8627,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Dufek (W/C),Berani Zlín,46,15,14,29,0.63,28,6,/player/160453/jan-dufek,1,Jan Dufek,W/C,2019-2020,czechia,160453,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Musil (C/W),totals,47,15,14,29,0.62,20,8,/player/160040/pavel-musil,1,Pavel Musil,C/W,2019-2020,czechia,160040,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Rousek (C/W),HC Sparta Praha,52,14,15,29,0.56,14,5,/player/236358/lukas-rousek,1,Lukas Rousek,C/W,2019-2020,czechia,236358,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrej Kudrna (RW/LW),HC Sparta Praha,49,10,19,29,0.59,8,16,/player/19372/andrej-kudrna,1,Andrej Kudrna,RW/LW,2019-2020,czechia,19372,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Hanzl (C),HC Litvínov,45,6,23,29,0.64,10,4,/player/188836/martin-hanzl,1,Martin Hanzl,C,2019-2020,czechia,188836,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Cingel (C),Mountfield HK,52,14,14,28,0.54,12,11,/player/43855/lukas-cingel,1,Lukas Cingel,C,2019-2020,czechia,43855,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Vondrka (RW/LW),totals,46,13,15,28,0.61,20,13,/player/22961/michal-vondrka,1,Michal Vondrka,RW/LW,2019-2020,czechia,22961,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Klimek (LW/C),HC Olomouc,52,11,17,28,0.54,26,9,/player/23524/lukas-klimek,1,Lukas Klimek,LW/C,2019-2020,czechia,23524,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Pavelka (D),totals,47,5,23,28,0.60,20,-3,/player/100224/tomas-pavelka,1,Tomas Pavelka,D,2019-2020,czechia,100224,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominik Lakatos (RW),HC Vítkovice,52,14,13,27,0.52,50,-2,/player/195562/dominik-lakatos,1,Dominik Lakatos,RW,2019-2020,czechia,195562,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Kovařčík (C/RW),HC Oceláři Třinec,52,12,15,27,0.52,8,6,/player/159841/michal-kova%C5%99cik,1,Michal Kovařčík,C/RW,2019-2020,czechia,159841,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rostislav Marosz (C/RW),Bílí Tygři Liberec,51,6,21,27,0.53,16,-2,/player/34795/rostislav-marosz,1,Rostislav Marosz,C/RW,2019-2020,czechia,34795,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Koblasa (RW),HC Energie Karlovy Vary,51,14,12,26,0.51,42,6,/player/100305/petr-koblasa,1,Petr Koblasa,RW,2019-2020,czechia,100305,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Kaspar (LW/RW),totals,43,12,14,26,0.60,22,-17,/player/9616/lukas-kaspar,1,Lukas Kaspar,LW/RW,2019-2020,czechia,9616,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zdeněk Okál (LW/RW),Berani Zlín,42,11,15,26,0.62,22,-1,/player/18094/zdenek-okal,1,Zdeněk Okál,LW/RW,2019-2020,czechia,18094,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Ruzicka (C),HC Sparta Praha,39,10,16,26,0.67,14,3,/player/9283/vladimir-ruzicka,1,Vladimir Ruzicka,C,2019-2020,czechia,9283,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondřej Beránek (LW/RW),HC Energie Karlovy Vary,49,16,9,25,0.51,20,2,/player/212199/ond%C5%99ej-beranek,1,Ondřej Beránek,LW/RW,2019-2020,czechia,212199,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Kostalek (D),HC Sparta Praha,47,14,11,25,0.53,68,-2,/player/100867/jan-kostalek,1,Jan Kostalek,D,2019-2020,czechia,100867,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Ricka (RW/C),HC Sparta Praha,52,13,12,25,0.48,12,13,/player/28103/robert-ricka,1,Robert Ricka,RW/C,2019-2020,czechia,28103,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Najman (C/LW),BK Mladá Boleslav,52,12,13,25,0.48,8,8,/player/161353/ondrej-najman,1,Ondrej Najman,C/LW,2019-2020,czechia,161353,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ziga Jeglic (W/C),totals,38,11,14,25,0.66,34,3,/player/17442/ziga-jeglic,1,Ziga Jeglic,W/C,2019-2020,czechia,17442,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Hrna (LW/RW),HC Oceláři Třinec,52,11,14,25,0.48,6,3,/player/23442/erik-hrna,1,Erik Hrna,LW/RW,2019-2020,czechia,23442,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ales Jergl (RW),Mountfield HK,48,8,17,25,0.52,8,4,/player/176147/ales-jergl,1,Ales Jergl,RW,2019-2020,czechia,176147,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Senkerik (D),HC Energie Karlovy Vary,49,5,20,25,0.51,26,-16,/player/34802/petr-senkerik,1,Petr Senkerik,D,2019-2020,czechia,34802,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexandre Mallet (RW/C),HC Vítkovice,52,14,10,24,0.46,44,-5,/player/37446/alexandre-mallet,1,Alexandre Mallet,RW/C,2019-2020,czechia,37446,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Stach (C),Rytíři Kladno,49,11,13,24,0.49,20,-12,/player/70388/david-stach,1,David Stach,C,2019-2020,czechia,70388,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Schleiss (RW/LW),HC Vítkovice,52,11,13,24,0.46,42,-8,/player/100476/jan-schleiss,1,Jan Schleiss,RW/LW,2019-2020,czechia,100476,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vojtech Nemec (C/LW),HC Plzeň,44,10,14,24,0.55,16,-7,/player/48297/vojtech-nemec,1,Vojtech Nemec,C/LW,2019-2020,czechia,48297,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Tomasek (C/RW),HC Sparta Praha,38,9,15,24,0.63,22,7,/player/205549/david-tomasek,1,David Tomasek,C/RW,2019-2020,czechia,205549,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Mikus (C/LW),HC Energie Karlovy Vary,51,8,16,24,0.47,12,14,/player/95703/tomas-mikus,1,Tomas Mikus,C/LW,2019-2020,czechia,95703,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Chalupa (LW/C),Mountfield HK,50,7,17,24,0.48,20,2,/player/247246/matej-chalupa,1,Matej Chalupa,LW/C,2019-2020,czechia,247246,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Moravčík (D),totals,48,5,19,24,0.50,38,20,/player/128619/michal-moravcik,1,Michal Moravčík,D,2019-2020,czechia,128619,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Stastny (LW),BK Mladá Boleslav,40,14,9,23,0.58,16,5,/player/163956/david-stastny,1,David Stastny,LW,2019-2020,czechia,163956,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Svacina (RW/LW),totals,42,9,14,23,0.55,4,-3,/player/23528/vladimir-svacina,1,Vladimir Svacina,RW/LW,2019-2020,czechia,23528,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ralfs Freibergs (D),Berani Zlín,52,3,20,23,0.44,32,5,/player/28754/ralfs-freibergs,1,Ralfs Freibergs,D,2019-2020,czechia,28754,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aron Chmielewski (LW),HC Oceláři Třinec,52,11,11,22,0.42,28,9,/player/35887/aron-chmielewski,1,Aron Chmielewski,LW,2019-2020,czechia,35887,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radim Zohorna (C),BK Mladá Boleslav,46,10,12,22,0.48,10,4,/player/190526/radim-zohorna,1,Radim Zohorna,C,2019-2020,czechia,190526,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samson Mahbod (RW/C),HC Litvínov,29,9,13,22,0.76,24,-7,/player/23124/samson-mahbod,1,Samson Mahbod,RW/C,2019-2020,czechia,23124,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Kohout (LW),HC Energie Karlovy Vary,51,9,13,22,0.43,24,13,/player/127529/martin-kohout,1,Martin Kohout,LW,2019-2020,czechia,127529,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vaclav Skuhravy (C),HC Energie Karlovy Vary,41,5,17,22,0.54,80,-2,/player/10852/vaclav-skuhravy,1,Vaclav Skuhravy,C,2019-2020,czechia,10852,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Kolar (D),HC Dynamo Pardubice,51,5,17,22,0.43,22,-19,/player/22773/jan-kolar,1,Jan Kolar,D,2019-2020,czechia,22773,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Nemec (D),HC Kometa Brno,50,4,18,22,0.44,26,-6,/player/9610/ondrej-nemec,1,Ondrej Nemec,D,2019-2020,czechia,9610,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Trska (D),HC Vítkovice,51,4,18,22,0.43,38,-8,/player/66016/peter-trska,1,Peter Trska,D,2019-2020,czechia,66016,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vojtech Polak (W/C),HC Energie Karlovy Vary,38,12,9,21,0.55,22,-6,/player/9615/vojtech-polak,1,Vojtech Polak,W/C,2019-2020,czechia,9615,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Zdráhal (LW/RW),totals,45,9,12,21,0.47,6,-4,/player/101252/patrik-zdrahal,1,Patrik Zdráhal,LW/RW,2019-2020,czechia,101252,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vojtěch Budík (D),HC Plzeň,39,3,18,21,0.54,14,4,/player/201615/vojtech-budik,1,Vojtěch Budík,D,2019-2020,czechia,201615,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Strnad (LW),Rytíři Kladno,50,13,7,20,0.40,10,-7,/player/40241/jakub-strnad,1,Jakub Strnad,LW,2019-2020,czechia,40241,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Buchtele (LW),HC Sparta Praha,39,12,8,20,0.51,40,-1,/player/33049/jan-buchtele,1,Jan Buchtele,LW,2019-2020,czechia,33049,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bedřich Köhler (W/C),Berani Zlín,48,11,9,20,0.42,65,-7,/player/23515/bed%C5%99ich-kohler,1,Bedřich Köhler,W/C,2019-2020,czechia,23515,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rastislav Dej (LW/C),HC Vítkovice,49,11,9,20,0.41,20,-12,/player/22643/rastislav-dej,1,Rastislav Dej,LW/C,2019-2020,czechia,22643,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stepan Frysara (C/LW),Berani Zlín,51,9,11,20,0.39,12,4,/player/236772/stepan-frysara,1,Stepan Frysara,C/LW,2019-2020,czechia,236772,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Nosek (D),Berani Zlín,52,7,13,20,0.38,28,0,/player/23707/david-nosek,1,David Nosek,D,2019-2020,czechia,23707,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Ceresnak (D),HC Plzeň,52,5,15,20,0.38,34,-3,/player/66434/peter-ceresnak,1,Peter Ceresnak,D,2019-2020,czechia,66434,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominik Granak (D),HC Energie Karlovy Vary,51,1,19,20,0.39,36,-7,/player/11021/dominik-granak,2,Dominik Granak,D,2019-2020,czechia,11021,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Ordos (RW/LW),Bílí Tygři Liberec,45,12,7,19,0.42,6,5,/player/160503/jan-ordos,2,Jan Ordos,RW/LW,2019-2020,czechia,160503,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Vondracek (LW),HC Energie Karlovy Vary,46,12,7,19,0.41,37,-12,/player/77408/tomas-vondracek,2,Tomas Vondracek,LW,2019-2020,czechia,77408,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Stransky (LW/C),totals,49,11,8,19,0.39,30,-13,/player/190268/simon-stransky,2,Simon Stransky,LW/C,2019-2020,czechia,190268,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Poulicek (C),HC Dynamo Pardubice,38,10,9,19,0.50,14,0,/player/176358/patrik-poulicek,2,Patrik Poulicek,C,2019-2020,czechia,176358,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimír Dravecký (LW/D),HC Oceláři Třinec,52,10,9,19,0.37,14,-1,/player/12404/vladimir-dravecky,2,Vladimír Dravecký,LW/D,2019-2020,czechia,12404,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Kovarcik (LW),HC Oceláři Třinec,52,10,9,19,0.37,28,8,/player/34794/ondrej-kovarcik,2,Ondrej Kovarcik,LW,2019-2020,czechia,34794,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Stritesky (D),HC Energie Karlovy Vary,43,9,10,19,0.44,26,-7,/player/18087/matej-stritesky,2,Matej Stritesky,D,2019-2020,czechia,18087,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Kubis (LW/RW),Berani Zlín,52,9,10,19,0.37,28,-8,/player/17907/pavel-kubis,2,Pavel Kubis,LW/RW,2019-2020,czechia,17907,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Filippi (C),Bílí Tygři Liberec,24,8,11,19,0.79,6,1,/player/70379/tomas-filippi,2,Tomas Filippi,C,2019-2020,czechia,70379,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rostislav Olesz (LW/RW),HC Olomouc,52,8,11,19,0.37,10,-3,/player/8652/rostislav-olesz,2,Rostislav Olesz,LW/RW,2019-2020,czechia,8652,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Milan Doudera (D),HC Oceláři Třinec,52,7,12,19,0.37,10,6,/player/56032/milan-doudera,2,Milan Doudera,D,2019-2020,czechia,56032,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Sevc (D),BK Mladá Boleslav,51,5,14,19,0.37,56,14,/player/7299/martin-sevc,2,Martin Sevc,D,2019-2020,czechia,7299,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Lev (C/W),totals,51,10,8,18,0.35,40,-5,/player/27856/jakub-lev,2,Jakub Lev,C/W,2019-2020,czechia,27856,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Vincour (RW/C),totals,40,9,9,18,0.45,12,-9,/player/12565/tomas-vincour,2,Tomas Vincour,RW/C,2019-2020,czechia,12565,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Orsava (LW/RW),totals,50,9,9,18,0.36,16,-4,/player/34798/jakub-orsava,2,Jakub Orsava,LW/RW,2019-2020,czechia,34798,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Hrbas (D),BK Mladá Boleslav,52,7,11,18,0.35,18,14,/player/53781/marek-hrbas,2,Marek Hrbas,D,2019-2020,czechia,53781,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Kusý (LW/RW),HC Dynamo Pardubice,41,5,13,18,0.44,10,2,/player/213486/denis-kusy,2,Denis Kusý,LW/RW,2019-2020,czechia,213486,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Machac (C),Rytíři Kladno,51,5,13,18,0.35,22,-3,/player/100466/patrik-machac,2,Patrik Machac,C,2019-2020,czechia,100466,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Klima (LW/C),totals,45,11,6,17,0.38,12,0,/player/283908/kevin-klima,2,Kevin Klima,LW/C,2019-2020,czechia,283908,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wojtek Wolski (LW/RW),HC Oceláři Třinec,13,10,7,17,1.31,8,6,/player/8832/wojtek-wolski,2,Wojtek Wolski,LW/RW,2019-2020,czechia,8832,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Stransky (RW/LW),BK Mladá Boleslav,45,9,8,17,0.38,24,3,/player/18091/jan-stransky,2,Jan Stransky,RW/LW,2019-2020,czechia,18091,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Pospisil (RW),HC Litvínov,12,8,9,17,1.42,16,11,/player/9623/tomas-pospisil,2,Tomas Pospisil,RW,2019-2020,czechia,9623,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Ruzicka (RW/LW),HC Oceláři Třinec,18,7,10,17,0.94,2,2,/player/23860/martin-ruzicka,2,Martin Ruzicka,RW/LW,2019-2020,czechia,23860,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Harju (LW),HC Dynamo Pardubice,48,7,10,17,0.35,10,-17,/player/2349/johan-harju,2,Johan Harju,LW,2019-2020,czechia,2349,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Pavlík (D),Mountfield HK,49,7,10,17,0.35,32,12,/player/70387/filip-pavlik,2,Filip Pavlík,D,2019-2020,czechia,70387,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Krenzelok (LW),Bílí Tygři Liberec,51,7,10,17,0.33,12,6,/player/23517/lukas-krenzelok,2,Lukas Krenzelok,LW,2019-2020,czechia,23517,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Janosik (D),totals,52,7,10,17,0.33,50,-16,/player/34749/adam-janosik,2,Adam Janosik,D,2019-2020,czechia,34749,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rudolf Červený (W/C),totals,36,6,11,17,0.47,18,0,/player/14498/rudolf-cerveny,2,Rudolf Červený,W/C,2019-2020,czechia,14498,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Kousal (LW/RW),BK Mladá Boleslav,49,6,11,17,0.35,30,1,/player/225310/pavel-kousal,2,Pavel Kousal,LW/RW,2019-2020,czechia,225310,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juraj Mikus (D),HC Dynamo Pardubice,51,5,12,17,0.33,26,9,/player/12533/juraj-mikus,2,Juraj Mikus,D,2019-2020,czechia,12533,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendon Nash (D),Rytíři Kladno,52,1,16,17,0.33,60,-6,/player/32176/brendon-nash,2,Brendon Nash,D,2019-2020,czechia,32176,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Kolouch (C),HC Olomouc,44,13,3,16,0.36,30,-4,/player/34792/petr-kolouch,2,Petr Kolouch,C,2019-2020,czechia,34792,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Redlich (W),Rytíři Kladno,51,9,7,16,0.31,18,-3,/player/174605/tomas-redlich,2,Tomas Redlich,W,2019-2020,czechia,174605,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matus Sukel (C),HC Sparta Praha,52,9,7,16,0.31,32,9,/player/177055/matus-sukel,2,Matus Sukel,C,2019-2020,czechia,177055,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Jelínek (C),Bílí Tygři Liberec,51,7,9,16,0.31,95,3,/player/23004/petr-jelinek,2,Petr Jelínek,C,2019-2020,czechia,23004,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Ferenc (D),Berani Zlín,52,7,9,16,0.31,38,1,/player/163271/jakub-ferenc,2,Jakub Ferenc,D,2019-2020,czechia,163271,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vilem Burian (LW/RW),HC Olomouc,52,6,10,16,0.31,28,1,/player/56383/vilem-burian,2,Vilem Burian,LW/RW,2019-2020,czechia,56383,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Hrehorcak (LW),HC Oceláři Třinec,47,5,11,16,0.34,30,4,/player/234764/patrik-hrehorcak,2,Patrik Hrehorcak,LW,2019-2020,czechia,234764,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Pláněk (D),BK Mladá Boleslav,52,4,12,16,0.31,12,3,/player/50603/martin-planek,2,Martin Pláněk,D,2019-2020,czechia,50603,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Kaut (C),Rytíři Kladno,52,4,12,16,0.31,36,-9,/player/33046/tomas-kaut,2,Tomas Kaut,C,2019-2020,czechia,33046,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Pyrochta (D),HC Kometa Brno,50,3,13,16,0.32,10,-1,/player/130785/filip-pyrochta,2,Filip Pyrochta,D,2019-2020,czechia,130785,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaroslav Vlach (LW),Bílí Tygři Liberec,47,9,6,15,0.32,73,-1,/player/40997/jaroslav-vlach,2,Jaroslav Vlach,LW,2019-2020,czechia,40997,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Musil (C/LW),Bílí Tygři Liberec,51,9,6,15,0.29,72,0,/player/189422/adam-musil,2,Adam Musil,C/LW,2019-2020,czechia,189422,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Straka (LW),HC Plzeň,46,8,7,15,0.33,44,-1,/player/34805/petr-straka,2,Petr Straka,LW,2019-2020,czechia,34805,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Látal (RW),HC Dynamo Pardubice,46,7,8,15,0.33,10,-7,/player/9282/martin-latal,2,Martin Látal,RW,2019-2020,czechia,9282,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Herman (W/C),Berani Zlín,47,6,9,15,0.32,18,9,/player/41096/jakub-herman,2,Jakub Herman,W/C,2019-2020,czechia,41096,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radovan Pavlik (LW/RW),Mountfield HK,48,6,9,15,0.31,16,7,/player/191041/radovan-pavlik,2,Radovan Pavlik,LW/RW,2019-2020,czechia,191041,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Kodýtek (C),HC Plzeň,52,6,9,15,0.29,32,3,/player/215526/petr-kodytek,2,Petr Kodýtek,C,2019-2020,czechia,215526,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Polasek (D),HC Sparta Praha,34,3,12,15,0.44,30,4,/player/34799/adam-polasek,2,Adam Polasek,D,2019-2020,czechia,34799,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Ondracek (LW/C),Berani Zlín,48,3,12,15,0.31,14,-10,/player/15144/jiri-ondracek,2,Jiri Ondracek,LW/C,2019-2020,czechia,15144,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jérémie Blain (D),HC Sparta Praha,49,3,12,15,0.31,28,12,/player/37074/jeremie-blain,2,Jérémie Blain,D,2019-2020,czechia,37074,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lubos Horky (RW/LW),HC Kometa Brno,47,8,6,14,0.30,22,0,/player/195151/lubos-horky,2,Lubos Horky,RW/LW,2019-2020,czechia,195151,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaroslav Kracík (C),HC Plzeň,31,7,7,14,0.45,14,-2,/player/22789/jaroslav-kracik,2,Jaroslav Kracík,C,2019-2020,czechia,22789,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Kucsera (LW/RW),HC Kometa Brno,44,7,7,14,0.32,10,-6,/player/98155/lukas-kucsera,2,Lukas Kucsera,LW/RW,2019-2020,czechia,98155,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Pour (RW),HC Plzeň,50,7,7,14,0.28,24,-3,/player/272413/jakub-pour,2,Jakub Pour,RW,2019-2020,czechia,272413,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frantisek Gerhat (C/LW),HC Litvínov,43,6,8,14,0.33,6,0,/player/20565/frantisek-gerhat,2,Frantisek Gerhat,C/LW,2019-2020,czechia,20565,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Zachar (C/W),Bílí Tygři Liberec,52,6,8,14,0.27,2,-1,/player/196093/marek-zachar,2,Marek Zachar,C/W,2019-2020,czechia,196093,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Flynn (LW),BK Mladá Boleslav,41,4,10,14,0.34,22,-2,/player/271741/oscar-flynn,2,Oscar Flynn,LW,2019-2020,czechia,271741,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimír Roth (D),HC Oceláři Třinec,29,3,11,14,0.48,12,8,/player/12569/vladimir-roth,2,Vladimír Roth,D,2019-2020,czechia,12569,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Skurek (D),HC Olomouc,35,3,11,14,0.40,12,-10,/player/176165/david-skurek,2,David Skurek,D,2019-2020,czechia,176165,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Raska (C/LW),HC Energie Karlovy Vary,29,7,6,13,0.45,4,3,/player/112413/adam-raska,2,Adam Raska,C/LW,2019-2020,czechia,112413,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Scotka (D),HC Litvínov,46,5,8,13,0.28,12,-6,/player/130953/jan-scotka,2,Jan Scotka,D,2019-2020,czechia,130953,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Koukal (C),Mountfield HK,46,5,8,13,0.28,22,8,/player/22763/petr-koukal,2,Petr Koukal,C,2019-2020,czechia,22763,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Valek (LW),HC Litvínov,45,4,9,13,0.29,28,-12,/player/175491/lukas-valek,2,Lukas Valek,LW,2019-2020,czechia,175491,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Rohan (D),HC Energie Karlovy Vary,49,4,9,13,0.27,8,14,/player/18086/martin-rohan,2,Martin Rohan,D,2019-2020,czechia,18086,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ronald Knot (D),Bílí Tygři Liberec,50,4,9,13,0.26,38,7,/player/100443/ronald-knot,2,Ronald Knot,D,2019-2020,czechia,100443,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Rákos (C),totals,51,4,9,13,0.25,56,-1,/player/10479/daniel-rakos,2,Daniel Rákos,C,2019-2020,czechia,10479,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Travnicek (LW),HC Litvínov,49,3,10,13,0.27,24,-12,/player/22669/michal-travnicek,2,Michal Travnicek,LW,2019-2020,czechia,22669,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Dujsik (D),HC Olomouc,48,2,11,13,0.27,28,-8,/player/164275/tomas-dujsik,2,Tomas Dujsik,D,2019-2020,czechia,164275,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordann Perret (RW),Mountfield HK,48,10,2,12,0.25,28,-1,/player/99556/jordann-perret,2,Jordann Perret,RW,2019-2020,czechia,99556,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Sedlacek (C/LW),Berani Zlín,51,8,4,12,0.24,18,-5,/player/28189/pavel-sedlacek,2,Pavel Sedlacek,C/LW,2019-2020,czechia,28189,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Adamsky (RW/LW),HC Oceláři Třinec,48,7,5,12,0.25,6,-3,/player/22793/martin-adamsky,2,Martin Adamsky,RW/LW,2019-2020,czechia,22793,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Fort (C),Berani Zlín,34,6,6,12,0.35,6,1,/player/102440/tomas-fort,2,Tomas Fort,C,2019-2020,czechia,102440,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oldrich Kotvan (D),Bílí Tygři Liberec,31,5,7,12,0.39,6,3,/player/94229/oldrich-kotvan,2,Oldrich Kotvan,D,2019-2020,czechia,94229,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Ondrusek (D),HC Olomouc,52,4,8,12,0.23,34,18,/player/67529/jiri-ondrusek,2,Jiri Ondrusek,D,2019-2020,czechia,67529,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Plutnar (D),HC Energie Karlovy Vary,51,3,9,12,0.24,34,14,/player/100457/michal-plutnar,2,Michal Plutnar,D,2019-2020,czechia,100457,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Stencel (D),totals,42,2,10,12,0.29,14,1,/player/101097/jan-stencel,2,Jan Stencel,D,2019-2020,czechia,101097,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimír Eminger (D),HC Energie Karlovy Vary,48,2,10,12,0.25,26,6,/player/70378/vladimir-eminger,2,Vladimír Eminger,D,2019-2020,czechia,70378,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar von Sivers (D),totals,50,2,10,12,0.24,26,-10,/player/4353/oscar-von-sivers,2,Oscar von Sivers,D,2019-2020,czechia,4353,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Musil (D),HC Oceláři Třinec,48,1,11,12,0.25,52,5,/player/23298/david-musil,2,David Musil,D,2019-2020,czechia,23298,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miroslav Indrák (RW/LW),totals,30,6,5,11,0.37,22,-4,/player/127262/miroslav-indrak,2,Miroslav Indrák,RW/LW,2019-2020,czechia,127262,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antonín Melka (LW/C),Rytíři Kladno,48,6,5,11,0.23,30,-2,/player/34808/antonin-melka,2,Antonín Melka,LW/C,2019-2020,czechia,34808,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiří Černoch (C/RW),totals,31,5,6,11,0.35,4,2,/player/160502/ji%C5%99i-cernoch,2,Jiří Černoch,C/RW,2019-2020,czechia,160502,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maris Bicevskis (C),totals,43,5,6,11,0.26,22,-2,/player/34652/maris-bicevskis,2,Maris Bicevskis,C,2019-2020,czechia,34652,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Vampola (C/LW),Rytíři Kladno,20,4,7,11,0.55,12,-9,/player/22788/petr-vampola,2,Petr Vampola,C/LW,2019-2020,czechia,22788,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mislav Rosandic (D),totals,47,4,7,11,0.23,16,8,/player/106384/mislav-rosandic,2,Mislav Rosandic,D,2019-2020,czechia,106384,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Dvorak (D),HC Sparta Praha,47,4,7,11,0.23,26,17,/player/189591/tomas-dvorak,2,Tomas Dvorak,D,2019-2020,czechia,189591,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Jaromersky (D),HC Olomouc,49,4,7,11,0.22,16,19,/player/21750/jan-jaromersky,2,Jan Jaromersky,D,2019-2020,czechia,21750,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Pulpan (D),HC Plzeň,38,3,8,11,0.29,26,-5,/player/42302/lukas-pulpan,2,Lukas Pulpan,D,2019-2020,czechia,42302,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Riha (D),HC Litvínov,40,3,8,11,0.28,30,5,/player/109612/jiri-riha,2,Jiri Riha,D,2019-2020,czechia,109612,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Kalina (D),HC Sparta Praha,48,2,9,11,0.23,16,6,/player/216082/petr-kalina,2,Petr Kalina,D,2019-2020,czechia,216082,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskars Cibulskis (D),Mountfield HK,39,1,10,11,0.28,42,-12,/player/19035/oskars-cibulskis,2,Oskars Cibulskis,D,2019-2020,czechia,19035,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Zdráhal (D),HC Dynamo Pardubice,47,1,10,11,0.23,26,13,/player/72690/jan-zdrahal,2,Jan Zdráhal,D,2019-2020,czechia,72690,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Knotek (C),HC Olomouc,37,5,5,10,0.27,30,-7,/player/48291/jan-knotek,2,Jan Knotek,C,2019-2020,czechia,48291,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Novotný (D),Berani Zlín,31,4,6,10,0.32,14,9,/player/160408/martin-novotny,2,Martin Novotný,D,2019-2020,czechia,160408,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Kundratek (D),HC Oceláři Třinec,34,3,7,10,0.29,14,10,/player/13651/tomas-kundratek,2,Tomas Kundratek,D,2019-2020,czechia,13651,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Paulovic (LW/RW),totals,42,3,7,10,0.24,8,0,/player/93903/matej-paulovic,2,Matej Paulovic,LW/RW,2019-2020,czechia,93903,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rhett Holland (D),HC Dynamo Pardubice,48,3,7,10,0.21,63,2,/player/44972/rhett-holland,2,Rhett Holland,D,2019-2020,czechia,44972,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Kindl (LW/C),HC Dynamo Pardubice,30,2,8,10,0.33,12,-10,/player/40244/denis-kindl,2,Denis Kindl,LW/C,2019-2020,czechia,40244,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Docekal (LW),totals,39,2,8,10,0.26,10,1,/player/77406/martin-docekal,3,Martin Docekal,LW,2019-2020,czechia,77406,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Hanousek (D),Bílí Tygři Liberec,49,2,8,10,0.20,30,4,/player/278910/tomas-hanousek,3,Tomas Hanousek,D,2019-2020,czechia,278910,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Graborenko (D),Bílí Tygři Liberec,49,0,10,10,0.20,85,14,/player/17658/roman-graborenko,3,Roman Graborenko,D,2019-2020,czechia,17658,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitch Fillman (D),BK Mladá Boleslav,52,0,10,10,0.19,4,5,/player/37710/mitch-fillman,3,Mitch Fillman,D,2019-2020,czechia,37710,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Dvoracek (LW/RW),HC Sparta Praha,36,6,3,9,0.25,8,-2,/player/70377/david-dvoracek,3,David Dvoracek,LW/RW,2019-2020,czechia,70377,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Zizka (D),Berani Zlín,38,6,3,9,0.24,18,-1,/player/15710/tomas-zizka,3,Tomas Zizka,D,2019-2020,czechia,15710,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Mysak (C/LW),HC Litvínov,26,5,4,9,0.35,2,-12,/player/427906/jan-mysak,3,Jan Mysak,C/LW,2019-2020,czechia,427906,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mário Lunter (LW/RW),BK Mladá Boleslav,28,5,4,9,0.32,4,-2,/player/89437/mario-lunter,3,Mário Lunter,LW/RW,2019-2020,czechia,89437,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Eberle (W/C),HC Plzeň,36,5,4,9,0.25,12,-2,/player/11618/jan-eberle,3,Jan Eberle,W/C,2019-2020,czechia,11618,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frantisek Skladany (RW/C),HC Olomouc,45,5,4,9,0.20,30,-6,/player/13649/frantisek-skladany,3,Frantisek Skladany,RW/C,2019-2020,czechia,13649,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Kudla (D),HC Litvínov,33,4,5,9,0.27,18,15,/player/219542/patrick-kudla,3,Patrick Kudla,D,2019-2020,czechia,219542,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Hovorka (D/F),totals,34,4,5,9,0.26,8,-8,/player/22471/marek-hovorka,3,Marek Hovorka,D/F,2019-2020,czechia,22471,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicolas Werbik (C),HC Vítkovice,50,4,5,9,0.18,16,-7,/player/217036/nicolas-werbik,3,Nicolas Werbik,C,2019-2020,czechia,217036,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Milan Jurcina (D),HC Sparta Praha,29,3,6,9,0.31,48,5,/player/8677/milan-jurcina,3,Milan Jurcina,D,2019-2020,czechia,8677,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Dlapa (D),BK Mladá Boleslav,49,2,7,9,0.18,30,2,/player/88156/ondrej-dlapa,3,Ondrej Dlapa,D,2019-2020,czechia,88156,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Zámorský (D),Mountfield HK,33,1,8,9,0.27,26,-5,/player/70391/petr-zamorsky,3,Petr Zámorský,D,2019-2020,czechia,70391,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Derner (D),Bílí Tygři Liberec,47,0,9,9,0.19,42,15,/player/22660/lukas-derner,3,Lukas Derner,D,2019-2020,czechia,22660,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Zejdl (RW/C),totals,28,4,4,8,0.29,31,-5,/player/95033/lukas-zejdl,3,Lukas Zejdl,RW/C,2019-2020,czechia,95033,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Kana (LW),HC Olomouc,30,4,4,8,0.27,10,0,/player/98112/jan-kana,3,Jan Kana,LW,2019-2020,czechia,98112,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juraj Mikus (C/RW),HC Litvínov,25,3,5,8,0.32,16,-14,/player/9250/juraj-mikus,3,Juraj Mikus,C/RW,2019-2020,czechia,9250,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radim Salda (D),Mountfield HK,37,3,5,8,0.22,28,0,/player/225136/radim-salda,3,Radim Salda,D,2019-2020,czechia,225136,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+André Lakos (D),Rytíři Kladno,38,3,5,8,0.21,46,1,/player/12308/andre-lakos,3,André Lakos,D,2019-2020,czechia,12308,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Vráblík (D),HC Plzeň,51,3,5,8,0.16,32,-3,/player/66760/roman-vrablik,3,Roman Vráblík,D,2019-2020,czechia,66760,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Dragoun (LW),Mountfield HK,28,2,6,8,0.29,8,0,/player/23286/michal-dragoun,3,Michal Dragoun,LW,2019-2020,czechia,23286,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Strapac (LW/C),HC Olomouc,33,2,6,8,0.24,43,3,/player/15147/petr-strapac,3,Petr Strapac,LW/C,2019-2020,czechia,15147,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Kanak (D),HC Plzeň,47,2,6,8,0.17,14,11,/player/130791/lukas-kanak,3,Lukas Kanak,D,2019-2020,czechia,130791,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Daloga (D),HC Sparta Praha,17,1,7,8,0.47,6,10,/player/11855/marek-daloga,3,Marek Daloga,D,2019-2020,czechia,11855,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Krajicek (D),HC Oceláři Třinec,19,1,7,8,0.42,10,-6,/player/8550/lukas-krajicek,3,Lukas Krajicek,D,2019-2020,czechia,8550,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Kehar (D),Rytíři Kladno,49,1,7,8,0.16,12,-9,/player/212279/martin-kehar,3,Martin Kehar,D,2019-2020,czechia,212279,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Ostrizek (LW/C),HC Olomouc,22,4,3,7,0.32,2,-1,/player/38667/david-ostrizek,3,David Ostrizek,LW/C,2019-2020,czechia,38667,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radek Veselý (C/LW),HC Vítkovice,27,3,4,7,0.26,2,-1,/player/131037/radek-vesely,3,Radek Veselý,C/LW,2019-2020,czechia,131037,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Kubalik (RW),totals,30,3,4,7,0.23,8,5,/player/11834/tomas-kubalik,3,Tomas Kubalik,RW,2019-2020,czechia,11834,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Valsky (LW/RW),totals,38,3,4,7,0.18,8,-10,/player/22710/jakub-valsky,3,Jakub Valsky,LW/RW,2019-2020,czechia,22710,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Jurcik (W/C),HC Litvínov,42,3,4,7,0.17,12,-6,/player/156466/ondrej-jurcik,3,Ondrej Jurcik,W/C,2019-2020,czechia,156466,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blaz Gregorc (D),HC Vítkovice,31,2,5,7,0.23,6,-7,/player/12879/blaz-gregorc,3,Blaz Gregorc,D,2019-2020,czechia,12879,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bohumil Jank (D),HC Plzeň,35,2,5,7,0.20,46,-2,/player/34791/bohumil-jank,3,Bohumil Jank,D,2019-2020,czechia,34791,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Krenzelok (D),totals,36,2,5,7,0.19,24,-12,/player/182172/daniel-krenzelok,3,Daniel Krenzelok,D,2019-2020,czechia,182172,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matyas Zelingr (D),Rytíři Kladno,35,1,6,7,0.20,20,-3,/player/236423/matyas-zelingr,3,Matyas Zelingr,D,2019-2020,czechia,236423,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Sidlik (D),totals,48,1,6,7,0.15,44,-18,/player/56029/petr-sidlik,3,Petr Sidlik,D,2019-2020,czechia,56029,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Gazda (D),Berani Zlín,35,4,2,6,0.17,4,-4,/player/236805/daniel-gazda,3,Daniel Gazda,D,2019-2020,czechia,236805,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karel Plasek (LW),HC Kometa Brno,34,3,3,6,0.18,2,5,/player/272426/karel-plasek,3,Karel Plasek,LW,2019-2020,czechia,272426,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Buchta (D),Berani Zlín,36,3,3,6,0.17,18,0,/player/100430/lukas-buchta,3,Lukas Buchta,D,2019-2020,czechia,100430,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vojtech Tomecek (RW),HC Olomouc,33,2,4,6,0.18,6,-8,/player/100579/vojtech-tomecek,3,Vojtech Tomecek,RW,2019-2020,czechia,100579,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Guntis Galvins (D),HC Oceláři Třinec,47,2,4,6,0.13,14,7,/player/12548/guntis-galvins,3,Guntis Galvins,D,2019-2020,czechia,12548,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Sisovsky (RW),HC Vítkovice,8,1,5,6,0.75,4,4,/player/34742/peter-sisovsky,3,Peter Sisovsky,RW,2019-2020,czechia,34742,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stepan Zakharchuk (D),HC Dynamo Pardubice,12,1,5,6,0.50,22,7,/player/22926/stepan-zakharchuk,3,Stepan Zakharchuk,D,2019-2020,czechia,22926,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Erat (RW/LW),HC Kometa Brno,16,1,5,6,0.38,12,-9,/player/8611/martin-erat,3,Martin Erat,RW/LW,2019-2020,czechia,8611,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dalibor Reznicek (D),Berani Zlín,42,1,5,6,0.14,28,2,/player/93411/dalibor-reznicek,3,Dalibor Reznicek,D,2019-2020,czechia,93411,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Réway (LW/C),Rytíři Kladno,17,0,6,6,0.35,0,-10,/player/94282/martin-reway,3,Martin Réway,LW/C,2019-2020,czechia,94282,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matěj Blümel (LW/RW),HC Dynamo Pardubice,31,4,1,5,0.16,18,4,/player/272376/matej-blumel,3,Matěj Blümel,LW/RW,2019-2020,czechia,272376,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Bernad (D),BK Mladá Boleslav,31,3,2,5,0.16,6,4,/player/189995/david-bernad,3,David Bernad,D,2019-2020,czechia,189995,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Baránek (D),HC Litvínov,34,3,2,5,0.15,26,0,/player/212354/marek-baranek,3,Marek Baránek,D,2019-2020,czechia,212354,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Sir (C/RW),Bílí Tygři Liberec,15,2,3,5,0.33,2,3,/player/316647/jan-sir,3,Jan Sir,C/RW,2019-2020,czechia,316647,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Helt (LW/C),HC Litvínov,37,2,3,5,0.14,12,-2,/player/167520/filip-helt,3,Filip Helt,LW/C,2019-2020,czechia,167520,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Svozil (D),HC Kometa Brno,41,2,3,5,0.12,8,-1,/player/428002/stanislav-svozil,3,Stanislav Svozil,D,2019-2020,czechia,428002,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Hajný (LW),Rytíři Kladno,44,2,3,5,0.11,42,-11,/player/194253/jakub-hajny,3,Jakub Hajný,LW,2019-2020,czechia,194253,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Nedomlel (D),Mountfield HK,49,2,3,5,0.10,102,10,/player/79399/richard-nedomlel,3,Richard Nedomlel,D,2019-2020,czechia,79399,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Pruzek (LW),Bílí Tygři Liberec,12,1,4,5,0.42,4,5,/player/236357/jiri-pruzek,3,Jiri Pruzek,LW,2019-2020,czechia,236357,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Piskacek (D),HC Sparta Praha,27,1,4,5,0.19,38,2,/player/13571/jan-piskacek,3,Jan Piskacek,D,2019-2020,czechia,13571,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Doudera (D),HC Litvínov,38,1,4,5,0.13,10,2,/player/161932/lukas-doudera,3,Lukas Doudera,D,2019-2020,czechia,161932,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Svrcek (D),HC Olomouc,46,1,4,5,0.11,30,2,/player/23869/jan-svrcek,3,Jan Svrcek,D,2019-2020,czechia,23869,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Silvester Kusko (C/LW),HC Kometa Brno,49,1,4,5,0.10,14,-2,/player/150085/silvester-kusko,3,Silvester Kusko,C/LW,2019-2020,czechia,150085,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Barinka (D),Rytíři Kladno,49,1,4,5,0.10,26,-14,/player/9611/michal-barinka,3,Michal Barinka,D,2019-2020,czechia,9611,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Výtisk (D),HC Vítkovice,46,0,5,5,0.11,28,2,/player/23422/jan-vytisk,3,Jan Výtisk,D,2019-2020,czechia,23422,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Vyrubalik (D),HC Olomouc,52,0,5,5,0.10,30,-9,/player/23878/martin-vyrubalik,3,Martin Vyrubalik,D,2019-2020,czechia,23878,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondřej Machala (LW),HC Dynamo Pardubice,31,4,0,4,0.13,10,-2,/player/237070/ond%C5%99ej-machala,3,Ondřej Machala,LW,2019-2020,czechia,237070,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Kurka (D),BK Mladá Boleslav,24,3,1,4,0.17,8,7,/player/115619/jiri-kurka,3,Jiri Kurka,D,2019-2020,czechia,115619,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rostislav Martynek (LW),HC Oceláři Třinec,12,2,2,4,0.33,4,-2,/player/23418/rostislav-martynek,3,Rostislav Martynek,LW,2019-2020,czechia,23418,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Kloz (C),HC Dynamo Pardubice,12,2,2,4,0.33,6,-2,/player/10473/jan-kloz,3,Jan Kloz,C,2019-2020,czechia,10473,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radek Pilař (F/D),Mountfield HK,16,2,2,4,0.25,0,1,/player/191118/radek-pila%C5%99,3,Radek Pilař,F/D,2019-2020,czechia,191118,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Szturc (RW),totals,16,2,2,4,0.25,6,-4,/player/11831/roman-szturc,3,Roman Szturc,RW,2019-2020,czechia,11831,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Kofron (RW),HC Oceláři Třinec,24,2,2,4,0.17,2,-5,/player/236759/david-kofron,3,David Kofron,RW,2019-2020,czechia,236759,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Kvasnicka (D),HC Vítkovice,36,2,2,4,0.11,6,-19,/player/236494/david-kvasnicka,3,David Kvasnicka,D,2019-2020,czechia,236494,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrej Nestrasil (RW/C),HC Oceláři Třinec,2,1,3,4,2.00,0,2,/player/19353/andrej-nestrasil,3,Andrej Nestrasil,RW/C,2019-2020,czechia,19353,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vítězslav Bílek (LW),Rytíři Kladno,19,1,3,4,0.21,6,-1,/player/7531/vitezslav-bilek,3,Vítězslav Bílek,LW,2019-2020,czechia,7531,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pawel Zygmunt (RW),HC Litvínov,20,1,3,4,0.20,4,-3,/player/315536/pawel-zygmunt,3,Pawel Zygmunt,RW,2019-2020,czechia,315536,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Zahradnicek (D),HC Oceláři Třinec,22,1,3,4,0.18,6,2,/player/210783/jan-zahradnicek,3,Jan Zahradnicek,D,2019-2020,czechia,210783,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Vitouch (C/LW),HC Sparta Praha,23,1,3,4,0.17,4,3,/player/388095/david-vitouch,3,David Vitouch,C/LW,2019-2020,czechia,388095,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karel Kubát (D),HC Litvínov,23,1,3,4,0.17,20,-15,/player/22678/karel-kubat,3,Karel Kubát,D,2019-2020,czechia,22678,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Kolmann (D),Bílí Tygři Liberec,26,1,3,4,0.15,6,0,/player/28502/petr-kolmann,3,Petr Kolmann,D,2019-2020,czechia,28502,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stepan Novotny (C/RW),HC Oceláři Třinec,26,1,3,4,0.15,8,5,/player/11833/stepan-novotny,3,Stepan Novotny,C/RW,2019-2020,czechia,11833,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Dudas (D),HC Vítkovice,10,0,4,4,0.40,6,7,/player/11640/jesse-dudas,3,Jesse Dudas,D,2019-2020,czechia,11640,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Kovar (D),HC Vítkovice,20,0,4,4,0.20,10,1,/player/97235/lukas-kovar,3,Lukas Kovar,D,2019-2020,czechia,97235,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Popelka (C),Berani Zlín,26,0,4,4,0.15,6,1,/player/129186/michal-popelka,3,Michal Popelka,C,2019-2020,czechia,129186,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dalimil Mikyska (D),totals,37,0,4,4,0.11,2,4,/player/214925/dalimil-mikyska,3,Dalimil Mikyska,D,2019-2020,czechia,214925,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Valenta (D),HC Olomouc,43,0,4,4,0.09,2,-1,/player/70389/tomas-valenta,3,Tomas Valenta,D,2019-2020,czechia,70389,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Guman (RW),HC Vítkovice,31,3,0,3,0.10,6,-13,/player/216677/tomas-guman,3,Tomas Guman,RW,2019-2020,czechia,216677,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Jánský (LW),HC Litvínov,8,2,1,3,0.38,2,2,/player/17904/peter-jansky,3,Peter Jánský,LW,2019-2020,czechia,17904,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Cerny (D),HC Vítkovice,13,2,1,3,0.23,0,1,/player/197957/tomas-cerny,3,Tomas Cerny,D,2019-2020,czechia,197957,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Gaspar (D),Mountfield HK,14,2,1,3,0.21,0,-5,/player/236351/michael-gaspar,3,Michael Gaspar,D,2019-2020,czechia,236351,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Otakar Sik (LW),HC Energie Karlovy Vary,14,2,1,3,0.21,2,0,/player/298150/otakar-sik,3,Otakar Sik,LW,2019-2020,czechia,298150,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Kubík (LW),Mountfield HK,18,2,1,3,0.17,0,-5,/player/195020/adam-kubik,3,Adam Kubík,LW,2019-2020,czechia,195020,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Herman (C/LW),HC Plzeň,21,2,1,3,0.14,8,-3,/player/23436/martin-herman,3,Martin Herman,C/LW,2019-2020,czechia,23436,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Akim Aliu (W/C/D),HC Litvínov,6,1,2,3,0.50,0,-1,/player/11116/akim-aliu,3,Akim Aliu,W/C/D,2019-2020,czechia,11116,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Kremen (LW),HC Energie Karlovy Vary,9,1,2,3,0.33,2,3,/player/405775/adam-kremen,3,Adam Kremen,LW,2019-2020,czechia,405775,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sébastien Piché (D),HC Dynamo Pardubice,9,1,2,3,0.33,6,-8,/player/13612/sebastien-piche,3,Sébastien Piché,D,2019-2020,czechia,13612,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Vildumetz (C/RW),HC Energie Karlovy Vary,14,1,2,3,0.21,4,2,/player/193934/tomas-vildumetz,3,Tomas Vildumetz,C/RW,2019-2020,czechia,193934,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Rolinek (LW),HC Dynamo Pardubice,17,1,2,3,0.18,8,2,/player/10859/tomas-rolinek,3,Tomas Rolinek,LW,2019-2020,czechia,10859,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Hecl (RW),HC Olomouc,19,1,2,3,0.16,4,-7,/player/225466/marek-hecl,3,Marek Hecl,RW,2019-2020,czechia,225466,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Stich (D),HC Litvínov,27,1,2,3,0.11,16,-4,/player/9280/david-stich,3,David Stich,D,2019-2020,czechia,9280,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Vlach (C/LW),totals,31,1,2,3,0.10,16,-17,/player/19014/roman-vlach,4,Roman Vlach,C/LW,2019-2020,czechia,19014,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Baranka (D),HC Kometa Brno,33,1,2,3,0.09,8,0,/player/9654/ivan-baranka,4,Ivan Baranka,D,2019-2020,czechia,9654,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Gulasi (D),HC Kometa Brno,51,1,2,3,0.06,30,-1,/player/23408/michal-gulasi,4,Michal Gulasi,D,2019-2020,czechia,23408,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Kvapil (LW/RW),HC Sparta Praha,4,0,3,3,0.75,4,2,/player/8640/marek-kvapil,4,Marek Kvapil,LW/RW,2019-2020,czechia,8640,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Conor Allen (D),Mountfield HK,8,0,3,3,0.38,2,0,/player/37994/conor-allen,4,Conor Allen,D,2019-2020,czechia,37994,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Edwin Hedberg (LW/RW),HC Litvínov,12,0,3,3,0.25,0,-6,/player/16833/edwin-hedberg,4,Edwin Hedberg,LW/RW,2019-2020,czechia,16833,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Cienciala (C/LW),BK Mladá Boleslav,15,0,3,3,0.20,6,-3,/player/211718/david-cienciala,4,David Cienciala,C/LW,2019-2020,czechia,211718,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Voracek (D),totals,45,0,3,3,0.07,44,-13,/player/12574/tomas-voracek,4,Tomas Voracek,D,2019-2020,czechia,12574,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Kurovsky (LW),HC Vítkovice,16,2,0,2,0.13,4,-5,/player/190237/daniel-kurovsky,4,Daniel Kurovsky,LW,2019-2020,czechia,190237,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Beran (LW),HC Dynamo Pardubice,18,2,0,2,0.11,8,-3,/player/89503/matej-beran,4,Matej Beran,LW,2019-2020,czechia,89503,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stepan Blaha (LW),Rytíři Kladno,39,2,0,2,0.05,2,-3,/player/194280/stepan-blaha,4,Stepan Blaha,LW,2019-2020,czechia,194280,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rickard Palmberg (C/RW),Berani Zlín,11,1,1,2,0.18,8,-9,/player/6931/rickard-palmberg,4,Rickard Palmberg,C/RW,2019-2020,czechia,6931,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Las (F),HC Olomouc,14,1,1,2,0.14,0,0,/player/10477/marek-las,4,Marek Las,F,2019-2020,czechia,10477,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vojtech Strondala (C),HC Kometa Brno,15,1,1,2,0.13,4,-4,/player/298165/vojtech-strondala,4,Vojtech Strondala,C,2019-2020,czechia,298165,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Spacek (RW/LW),Bílí Tygři Liberec,16,1,1,2,0.13,8,1,/player/22662/daniel-spacek,4,Daniel Spacek,RW/LW,2019-2020,czechia,22662,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Němec (LW/C),HC Vítkovice,18,1,1,2,0.11,22,-4,/player/97038/erik-nemec,4,Erik Němec,LW/C,2019-2020,czechia,97038,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Psenicka (C/LW),HC Sparta Praha,19,1,1,2,0.11,4,-1,/player/236656/tomas-psenicka,4,Tomas Psenicka,C/LW,2019-2020,czechia,236656,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Havlin (D),Bílí Tygři Liberec,21,1,1,2,0.10,14,-5,/player/130741/tomas-havlin,4,Tomas Havlin,D,2019-2020,czechia,130741,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Vracovsky (LW),HC Plzeň,24,1,1,2,0.08,8,1,/player/215544/tomas-vracovsky,4,Tomas Vracovsky,LW,2019-2020,czechia,215544,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Polansky (C),HC Oceláři Třinec,33,1,1,2,0.06,8,-4,/player/23421/jiri-polansky,4,Jiri Polansky,C,2019-2020,czechia,23421,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Jenys (C/W),totals,33,1,1,2,0.06,8,-8,/player/112375/pavel-jenys,4,Pavel Jenys,C/W,2019-2020,czechia,112375,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Ivan (D),HC Dynamo Pardubice,36,1,1,2,0.06,6,-9,/player/335802/michal-ivan,4,Michal Ivan,D,2019-2020,czechia,335802,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Prikryl (C/LW),HC Plzeň,9,0,2,2,0.22,2,3,/player/348181/filip-prikryl,4,Filip Prikryl,C/LW,2019-2020,czechia,348181,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Vopelka (C/W),totals,20,0,2,2,0.10,26,-5,/player/130739/lukas-vopelka,4,Lukas Vopelka,C/W,2019-2020,czechia,130739,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Linhart (D),Mountfield HK,21,0,2,2,0.10,2,2,/player/15831/tomas-linhart,4,Tomas Linhart,D,2019-2020,czechia,15831,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Miskar (C),Mountfield HK,23,0,2,2,0.09,10,-6,/player/161906/patrik-miskar,4,Patrik Miskar,C,2019-2020,czechia,161906,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Cerny (D),HC Vítkovice,25,0,2,2,0.08,16,-2,/player/213692/robert-cerny,4,Robert Cerny,D,2019-2020,czechia,213692,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Malec (D),HC Kometa Brno,37,0,2,2,0.05,32,-5,/player/10219/tomas-malec,4,Tomas Malec,D,2019-2020,czechia,10219,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Bartejs (D),HC Kometa Brno,48,0,2,2,0.04,24,1,/player/156434/tomas-bartejs,4,Tomas Bartejs,D,2019-2020,czechia,156434,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Tureček (D),HC Energie Karlovy Vary,1,1,0,1,1.00,0,1,/player/290454/david-turecek,4,David Tureček,D,2019-2020,czechia,290454,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Brabenec (C/LW),HC Kometa Brno,2,1,0,1,0.50,0,1,/player/522504/jakub-brabenec,4,Jakub Brabenec,C/LW,2019-2020,czechia,522504,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Albert Michnac (LW/C),totals,3,1,0,1,0.33,0,0,/player/188976/albert-michnac,4,Albert Michnac,LW/C,2019-2020,czechia,188976,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Jelinek (RW),Rytíři Kladno,7,1,0,1,0.14,0,0,/player/319335/simon-jelinek,4,Simon Jelinek,RW,2019-2020,czechia,319335,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karel Klikorka (D),BK Mladá Boleslav,8,1,0,1,0.13,0,-2,/player/386916/karel-klikorka,4,Karel Klikorka,D,2019-2020,czechia,386916,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Rychlovský (LW/RW),Bílí Tygři Liberec,13,1,0,1,0.08,2,0,/player/386542/jakub-rychlovsky,4,Jakub Rychlovský,LW/RW,2019-2020,czechia,386542,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frantisek Hrdinka (D),BK Mladá Boleslav,18,1,0,1,0.06,4,1,/player/195396/frantisek-hrdinka,4,Frantisek Hrdinka,D,2019-2020,czechia,195396,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jozef Balaz (C/LW),HC Vítkovice,19,1,0,1,0.05,0,-8,/player/272987/jozef-balaz,4,Jozef Balaz,C/LW,2019-2020,czechia,272987,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tobias Handl (C),HC Olomouc,19,1,0,1,0.05,2,2,/player/387565/tobias-handl,4,Tobias Handl,C,2019-2020,czechia,387565,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Safar (D),HC Energie Karlovy Vary,20,1,0,1,0.05,16,0,/player/165004/ondrej-safar,4,Ondrej Safar,D,2019-2020,czechia,165004,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Bodak (D),HC Vítkovice,21,1,0,1,0.05,2,0,/player/275038/martin-bodak,4,Martin Bodak,D,2019-2020,czechia,275038,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Matys (LW),HC Dynamo Pardubice,29,1,0,1,0.03,6,-4,/player/272395/ondrej-matys,4,Ondrej Matys,LW,2019-2020,czechia,272395,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Koran (D),HC Energie Karlovy Vary,1,0,1,1,1.00,2,0,/player/298148/petr-koran,4,Petr Koran,D,2019-2020,czechia,298148,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Poppel (F),Mountfield HK,2,0,1,1,0.50,2,1,/player/352325/petr-poppel,4,Petr Poppel,F,2019-2020,czechia,352325,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Koistinen (D),HC Sparta Praha,7,0,1,1,0.14,0,-3,/player/7440/ville-koistinen,4,Ville Koistinen,D,2019-2020,czechia,7440,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josef Stribrny (LW),HC Litvínov,7,0,1,1,0.14,0,1,/player/130519/josef-stribrny,4,Josef Stribrny,LW,2019-2020,czechia,130519,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Kunc (LW/RW),HC Kometa Brno,7,0,1,1,0.14,2,0,/player/267809/michal-kunc,4,Michal Kunc,LW/RW,2019-2020,czechia,267809,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Suchý (LW/C),HC Plzeň,8,0,1,1,0.13,2,-2,/player/215541/filip-suchy,4,Filip Suchý,LW/C,2019-2020,czechia,215541,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Najman (C/LW),Bílí Tygři Liberec,9,0,1,1,0.11,0,0,/player/322588/adam-najman,4,Adam Najman,C/LW,2019-2020,czechia,322588,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Jandus (D),HC Sparta Praha,10,0,1,1,0.10,0,-2,/player/236651/martin-jandus,4,Martin Jandus,D,2019-2020,czechia,236651,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Mlcak (D),HC Kometa Brno,10,0,1,1,0.10,2,-1,/player/297869/jan-mlcak,4,Jan Mlcak,D,2019-2020,czechia,297869,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Vodný (LW),HC Olomouc,11,0,1,1,0.09,0,-1,/player/51978/michal-vodny,4,Michal Vodný,LW,2019-2020,czechia,51978,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Smetana (D),Rytíři Kladno,11,0,1,1,0.09,4,-5,/player/160082/ondrej-smetana,4,Ondrej Smetana,D,2019-2020,czechia,160082,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Machac (C/LW),HC Dynamo Pardubice,15,0,1,1,0.07,2,2,/player/272392/michal-machac,4,Michal Machac,C/LW,2019-2020,czechia,272392,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Malat (C/LW),HC Plzeň,16,0,1,1,0.06,4,0,/player/427983/sebastian-malat,4,Sebastian Malat,C/LW,2019-2020,czechia,427983,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frenks Razgals (LW/RW),HC Vítkovice,20,0,1,1,0.05,0,-8,/player/154974/frenks-razgals,4,Frenks Razgals,LW/RW,2019-2020,czechia,154974,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matyas Hamrlik (D),Berani Zlín,24,0,1,1,0.04,2,-3,/player/319206/matyas-hamrlik,4,Matyas Hamrlik,D,2019-2020,czechia,319206,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Knotek (C/W),totals,25,0,1,1,0.04,4,-4,/player/12566/tomas-knotek,4,Tomas Knotek,C/W,2019-2020,czechia,12566,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Pribyl (C),HC Sparta Praha,0,0,0,0,-,0,-,/player/101160/daniel-pribyl,4,Daniel Pribyl,C,2019-2020,czechia,101160,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sabahudin Kovacevic (D),BK Mladá Boleslav,0,0,0,0,-,0,-,/player/17240/sabahudin-kovacevic,4,Sabahudin Kovacevic,D,2019-2020,czechia,17240,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Rulik (D),HC Energie Karlovy Vary,1,0,0,0,0.00,0,-3,/player/193937/adam-rulik,4,Adam Rulik,D,2019-2020,czechia,193937,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Matyas (D),HC Oceláři Třinec,1,0,0,0,0.00,0,-2,/player/107181/jakub-matyas,4,Jakub Matyas,D,2019-2020,czechia,107181,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Sestak (D),HC Litvínov,1,0,0,0,0.00,0,-1,/player/212470/david-sestak,4,David Sestak,D,2019-2020,czechia,212470,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Bukac (D),Bílí Tygři Liberec,1,0,0,0,0.00,0,0,/player/247222/daniel-bukac,4,Daniel Bukac,D,2019-2020,czechia,247222,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Houska (RW/C),BK Mladá Boleslav,1,0,0,0,0.00,0,0,/player/297875/vladislav-houska,4,Vladislav Houska,RW/C,2019-2020,czechia,297875,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Krutil (D),HC Sparta Praha,1,0,0,0,0.00,0,-1,/player/427900/michael-krutil,4,Michael Krutil,D,2019-2020,czechia,427900,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Oliva (D),HC Dynamo Pardubice,1,0,0,0,0.00,0,-2,/player/317731/jan-oliva,4,Jan Oliva,D,2019-2020,czechia,317731,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Vozenilek (W/C),HC Dynamo Pardubice,1,0,0,0,0.00,0,0,/player/130950/daniel-vozenilek,4,Daniel Vozenilek,W/C,2019-2020,czechia,130950,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Süss (C),HC Kometa Brno,1,0,0,0,0.00,0,0,/player/214931/jan-suss,4,Jan Süss,C,2019-2020,czechia,214931,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Kveton (C/W),HC Oceláři Třinec,1,0,0,0,0.00,0,-1,/player/9286/david-kveton,4,David Kveton,C/W,2019-2020,czechia,9286,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Matiasek (F),HC Plzeň,1,0,0,0,0.00,0,0,/player/273542/jan-matiasek,4,Jan Matiasek,F,2019-2020,czechia,273542,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Marsoun (RW),BK Mladá Boleslav,1,0,0,0,0.00,0,0,/player/163923/petr-marsoun,4,Petr Marsoun,RW,2019-2020,czechia,163923,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kale Costa (F),HC Dynamo Pardubice,1,0,0,0,0.00,0,-1,/player/290682/kale-costa,4,Kale Costa,F,2019-2020,czechia,290682,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vit Kastanek (D),HC Dynamo Pardubice,1,0,0,0,0.00,0,-2,/player/472419/vit-kastanek,4,Vit Kastanek,D,2019-2020,czechia,472419,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Jelínek (D/F),HC Dynamo Pardubice,1,0,0,0,0.00,0,-2,/player/384378/tomas-jelinek,4,Tomas Jelínek,D/F,2019-2020,czechia,384378,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Kubicek (D),HC Dynamo Pardubice,1,0,0,0,0.00,0,-2,/player/559614/martin-kubicek,4,Martin Kubicek,D,2019-2020,czechia,559614,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zdenek Pavlik (F),HC Dynamo Pardubice,1,0,0,0,0.00,0,-1,/player/579245/zdenek-pavlik,4,Zdenek Pavlik,F,2019-2020,czechia,579245,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vit Rozlilek (F),HC Dynamo Pardubice,1,0,0,0,0.00,0,-1,/player/317732/vit-rozlilek,4,Vit Rozlilek,F,2019-2020,czechia,317732,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Blazej (D),HC Dynamo Pardubice,1,0,0,0,0.00,0,-1,/player/427937/daniel-blazej,4,Daniel Blazej,D,2019-2020,czechia,427937,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Rohlik (LW),HC Dynamo Pardubice,1,0,0,0,0.00,0,-1,/player/385141/ondrej-rohlik,4,Ondrej Rohlik,LW,2019-2020,czechia,385141,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vaclav Leder (D),HC Dynamo Pardubice,1,0,0,0,0.00,0,-1,/player/317730/vaclav-leder,4,Vaclav Leder,D,2019-2020,czechia,317730,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radek Sir (F),HC Dynamo Pardubice,1,0,0,0,0.00,0,-1,/player/427926/radek-sir,4,Radek Sir,F,2019-2020,czechia,427926,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Stastny (C),HC Dynamo Pardubice,1,0,0,0,0.00,0,-1,/player/522471/ondrej-stastny,4,Ondrej Stastny,C,2019-2020,czechia,522471,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Navrátil (LW),Berani Zlín,1,0,0,0,0.00,0,0,/player/247612/jakub-navratil,4,Jakub Navrátil,LW,2019-2020,czechia,247612,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikulas Zboril (D),Berani Zlín,1,0,0,0,0.00,0,-1,/player/213674/mikulas-zboril,4,Mikulas Zboril,D,2019-2020,czechia,213674,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matyas Filip (C),Rytíři Kladno,1,0,0,0,0.00,0,0,/player/279064/matyas-filip,4,Matyas Filip,C,2019-2020,czechia,279064,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Krystof Stuchlik (F),HC Oceláři Třinec,1,0,0,0,0.00,0,0,/player/196836/krystof-stuchlik,4,Krystof Stuchlik,F,2019-2020,czechia,196836,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Kruzik (RW),Rytíři Kladno,1,0,0,0,0.00,0,0,/player/194251/daniel-kruzik,4,Daniel Kruzik,RW,2019-2020,czechia,194251,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Forman (D),HC Kometa Brno,1,0,0,0,0.00,0,0,/player/112433/lukas-forman,4,Lukas Forman,D,2019-2020,czechia,112433,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Psurny (C/LW),Berani Zlín,1,0,0,0,0.00,0,0,/player/9620/roman-psurny,4,Roman Psurny,C/LW,2019-2020,czechia,9620,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Muska (D),Mountfield HK,1,0,0,0,0.00,0,0,/player/236234/jakub-muska,4,Jakub Muska,D,2019-2020,czechia,236234,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Smerha (LW),Rytíři Kladno,1,0,0,0,0.00,0,0,/player/163926/tomas-smerha,4,Tomas Smerha,LW,2019-2020,czechia,163926,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Pohl (D),HC Sparta Praha,1,0,0,0,0.00,0,-1,/player/171122/jan-pohl,4,Jan Pohl,D,2019-2020,czechia,171122,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Langkow (C),HC Litvínov,1,0,0,0,0.00,0,0,/player/18605/chris-langkow,4,Chris Langkow,C,2019-2020,czechia,18605,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominik Chára (F),HC Dynamo Pardubice,1,0,0,0,0.00,0,-2,/player/317726/dominik-chara,4,Dominik Chára,F,2019-2020,czechia,317726,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Brezak (D),HC Litvínov,1,0,0,0,0.00,0,0,/player/196182/jakub-brezak,4,Jakub Brezak,D,2019-2020,czechia,196182,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Havlin (D),HC Sparta Praha,1,0,0,0,0.00,0,0,/player/318816/ondrej-havlin,4,Ondrej Havlin,D,2019-2020,czechia,318816,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Svoboda (LW/RW),HC Kometa Brno,1,0,0,0,0.00,0,0,/player/267811/matej-svoboda,4,Matej Svoboda,LW/RW,2019-2020,czechia,267811,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Záruba (D),HC Energie Karlovy Vary,1,0,0,0,0.00,0,-2,/player/319254/richard-zaruba,4,Richard Záruba,D,2019-2020,czechia,319254,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frantisek Klejna (D),HC Energie Karlovy Vary,1,0,0,0,0.00,0,-2,/player/278820/frantisek-klejna,4,Frantisek Klejna,D,2019-2020,czechia,278820,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Rozhon (F),HC Energie Karlovy Vary,1,0,0,0,0.00,0,-1,/player/428186/petr-rozhon,4,Petr Rozhon,F,2019-2020,czechia,428186,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Baco (RW),HC Energie Karlovy Vary,1,0,0,0,0.00,0,-2,/player/553948/robert-baco,5,Robert Baco,RW,2019-2020,czechia,553948,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Krehlik (F),HC Energie Karlovy Vary,1,0,0,0,0.00,0,0,/player/323787/tomas-krehlik,5,Tomas Krehlik,F,2019-2020,czechia,323787,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vit Jiskra (C/LW),HC Energie Karlovy Vary,1,0,0,0,0.00,0,0,/player/405774/vit-jiskra,5,Vit Jiskra,C/LW,2019-2020,czechia,405774,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Novotny (F),HC Energie Karlovy Vary,1,0,0,0,0.00,0,0,/player/405777/david-novotny,5,David Novotny,F,2019-2020,czechia,405777,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Adamek (C/LW),HC Energie Karlovy Vary,1,0,0,0,0.00,0,-1,/player/472527/lukas-adamek,5,Lukas Adamek,C/LW,2019-2020,czechia,472527,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karel Nedbal (D),HC Dynamo Pardubice,1,0,0,0,0.00,2,-2,/player/225574/karel-nedbal,5,Karel Nedbal,D,2019-2020,czechia,225574,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Kostka (F),HC Dynamo Pardubice,1,0,0,0,0.00,2,-1,/player/317729/martin-kostka,5,Martin Kostka,F,2019-2020,czechia,317729,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Antoníček (RW),HC Dynamo Pardubice,1,0,0,0,0.00,2,-2,/player/274620/petr-antonicek,5,Petr Antoníček,RW,2019-2020,czechia,274620,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matous Kratochvil (F),HC Dynamo Pardubice,2,0,0,0,0.00,0,0,/player/213665/matous-kratochvil,5,Matous Kratochvil,F,2019-2020,czechia,213665,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Chrtek (F),Bílí Tygři Liberec,2,0,0,0,0.00,0,0,/player/247248/ondrej-chrtek,5,Ondrej Chrtek,F,2019-2020,czechia,247248,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Bucek (F),HC Dynamo Pardubice,2,0,0,0,0.00,0,-1,/player/317722/jiri-bucek,5,Jiri Bucek,F,2019-2020,czechia,317722,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matus Hlavac (D),HC Olomouc,2,0,0,0,0.00,0,0,/player/423710/matus-hlavac,5,Matus Hlavac,D,2019-2020,czechia,423710,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Pekr (RW),HC Olomouc,2,0,0,0,0.00,0,-2,/player/67576/matej-pekr,5,Matej Pekr,RW,2019-2020,czechia,67576,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vojtech Dobias (RW),Berani Zlín,2,0,0,0,0.00,0,0,/player/319209/vojtech-dobias,5,Vojtech Dobias,RW,2019-2020,czechia,319209,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yuri Zholobov (C),HC Litvínov,2,0,0,0,0.00,0,0,/player/357292/yuri-zholobov,5,Yuri Zholobov,C,2019-2020,czechia,357292,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Morong (C),Mountfield HK,2,0,0,0,0.00,2,0,/player/316755/matej-morong,5,Matej Morong,C,2019-2020,czechia,316755,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Weinhold (D),HC Energie Karlovy Vary,2,0,0,0,0.00,2,0,/player/216068/martin-weinhold,5,Martin Weinhold,D,2019-2020,czechia,216068,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Gorcik (LW),HC Energie Karlovy Vary,3,0,0,0,0.00,0,-2,/player/101258/sebastian-gorcik,5,Sebastian Gorcik,LW,2019-2020,czechia,101258,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philip Samuelsson (D),Mountfield HK,3,0,0,0,0.00,0,-2,/player/10809/philip-samuelsson,5,Philip Samuelsson,D,2019-2020,czechia,10809,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vojtech Kropacek (C),HC Sparta Praha,3,0,0,0,0.00,0,0,/player/297882/vojtech-kropacek,5,Vojtech Kropacek,C,2019-2020,czechia,297882,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Osmík (C/W),HC Energie Karlovy Vary,3,0,0,0,0.00,0,2,/player/190528/martin-osmik,5,Martin Osmík,C/W,2019-2020,czechia,190528,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Dlouhý (LW/C),Bílí Tygři Liberec,3,0,0,0,0.00,0,0,/player/175098/adam-dlouhy,5,Adam Dlouhý,LW/C,2019-2020,czechia,175098,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radek Jerabek (D),HC Sparta Praha,3,0,0,0,0.00,0,-3,/player/236654/radek-jerabek,5,Radek Jerabek,D,2019-2020,czechia,236654,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Zabloudil (LW),HC Energie Karlovy Vary,3,0,0,0,0.00,0,-3,/player/236439/matej-zabloudil,5,Matej Zabloudil,LW,2019-2020,czechia,236439,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Mert (D),HC Dynamo Pardubice,3,0,0,0,0.00,2,0,/player/272368/jakub-mert,5,Jakub Mert,D,2019-2020,czechia,272368,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Grim (LW),BK Mladá Boleslav,3,0,0,0,0.00,2,0,/player/349237/jan-grim,5,Jan Grim,LW,2019-2020,czechia,349237,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Hrachovsky (D),HC Oceláři Třinec,4,0,0,0,0.00,0,2,/player/224600/ondrej-hrachovsky,5,Ondrej Hrachovsky,D,2019-2020,czechia,224600,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Blaha (LW),Rytíři Kladno,4,0,0,0,0.00,0,0,/player/271922/ondrej-blaha,5,Ondrej Blaha,LW,2019-2020,czechia,271922,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabriel Szturc (C/LW),BK Mladá Boleslav,4,0,0,0,0.00,2,-1,/player/426117/gabriel-szturc,5,Gabriel Szturc,C/LW,2019-2020,czechia,426117,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Jiříček (D),HC Plzeň,4,0,0,0,0.00,2,1,/player/559522/david-ji%C5%99icek,5,David Jiříček,D,2019-2020,czechia,559522,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Kratochvil (F),Berani Zlín,5,0,0,0,0.00,0,-1,/player/213673/simon-kratochvil,5,Simon Kratochvil,F,2019-2020,czechia,213673,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Rouha (LW),HC Dynamo Pardubice,5,0,0,0,0.00,2,-3,/player/427935/michal-rouha,5,Michal Rouha,LW,2019-2020,czechia,427935,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Glover (D),HC Kometa Brno,5,0,0,0,0.00,2,-3,/player/168703/jack-glover,5,Jack Glover,D,2019-2020,czechia,168703,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Troncinsky (D),HC Litvínov,5,0,0,0,0.00,4,0,/player/10485/marek-troncinsky,5,Marek Troncinsky,D,2019-2020,czechia,10485,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Bambula (LW),HC Olomouc,5,0,0,0,0.00,6,0,/player/297660/jan-bambula,5,Jan Bambula,LW,2019-2020,czechia,297660,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Hrádek (D),HC Dynamo Pardubice,6,0,0,0,0.00,0,1,/player/472420/michal-hradek,5,Michal Hrádek,D,2019-2020,czechia,472420,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Haman (D),HC Oceláři Třinec,6,0,0,0,0.00,2,2,/player/161641/filip-haman,5,Filip Haman,D,2019-2020,czechia,161641,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Rutar (D),HC Olomouc,6,0,0,0,0.00,2,-1,/player/428094/adam-rutar,5,Adam Rutar,D,2019-2020,czechia,428094,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicolas Hlava (LW/RW),HC Energie Karlovy Vary,6,0,0,0,0.00,12,-1,/player/172306/nicolas-hlava,5,Nicolas Hlava,LW/RW,2019-2020,czechia,172306,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josef Zajíc (D),Rytíři Kladno,7,0,0,0,0.00,0,-5,/player/190007/josef-zajic,5,Josef Zajíc,D,2019-2020,czechia,190007,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Kratochvíl (RW),HC Kometa Brno,7,0,0,0,0.00,0,0,/player/195126/petr-kratochvil,5,Petr Kratochvíl,RW,2019-2020,czechia,195126,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vratislav Kunst (D),Bílí Tygři Liberec,8,0,0,0,0.00,0,4,/player/247249/vratislav-kunst,5,Vratislav Kunst,D,2019-2020,czechia,247249,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marian Adamek (D),HC Oceláři Třinec,12,0,0,0,0.00,0,-1,/player/185169/marian-adamek,5,Marian Adamek,D,2019-2020,czechia,185169,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Poizl (D),HC Sparta Praha,13,0,0,0,0.00,2,3,/player/348084/daniel-poizl,5,Daniel Poizl,D,2019-2020,czechia,348084,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Branislav Kubka (D),HC Energie Karlovy Vary,13,0,0,0,0.00,8,1,/player/56384/branislav-kubka,5,Branislav Kubka,D,2019-2020,czechia,56384,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Korenek (F),HC Olomouc,14,0,0,0,0.00,2,-4,/player/387566/matej-korenek,5,Matej Korenek,F,2019-2020,czechia,387566,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Pabiska (C),BK Mladá Boleslav,17,0,0,0,0.00,4,-1,/player/22654/lukas-pabiska,5,Lukas Pabiska,C,2019-2020,czechia,22654,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Houdek (D),HC Plzeň,18,0,0,0,0.00,59,-3,/player/317747/michal-houdek,5,Michal Houdek,D,2019-2020,czechia,317747,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Hladonik (C/W),HC Oceláři Třinec,19,0,0,0,0.00,4,-4,/player/236757/jan-hladonik,5,Jan Hladonik,C/W,2019-2020,czechia,236757,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ladislav Romancik (D),Rytíři Kladno,21,0,0,0,0.00,12,-16,/player/177062/ladislav-romancik,5,Ladislav Romancik,D,2019-2020,czechia,177062,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zdenek Cap (D),Mountfield HK,21,0,0,0,0.00,22,-1,/player/48406/zdenek-cap,5,Zdenek Cap,D,2019-2020,czechia,48406,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Kolda (F),HC Plzeň,23,0,0,0,0.00,4,-2,/player/319249/matej-kolda,5,Matej Kolda,F,2019-2020,czechia,319249,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Pochobradský (C/W),HC Dynamo Pardubice,28,0,0,0,0.00,0,-2,/player/272396/michal-pochobradsky,5,Michal Pochobradský,C/W,2019-2020,czechia,272396,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69

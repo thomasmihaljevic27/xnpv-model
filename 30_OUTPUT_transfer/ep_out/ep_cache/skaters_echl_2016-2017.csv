@@ -1,0 +1,857 @@
+player,team,gp,g,a,tp,p_per_gp,pim,plus_minus,link,page,playername,position,season,league,ep_player_id,scrape_date,source,package_version
+Chad Costello (RW),Allen Americans,72,33,89,122,1.69,42,24,/player/11913/chad-costello,1,Chad Costello,RW,2016-2017,echl,11913,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Casey Pierro-Zabotel (C),Colorado Eagles,72,24,64,88,1.22,47,14,/player/11590/casey-pierro-zabotel,1,Casey Pierro-Zabotel,C,2016-2017,echl,11590,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shane Berschbach (RW/LW),Toledo Walleye,70,18,68,86,1.23,25,15,/player/21592/shane-berschbach,1,Shane Berschbach,RW/LW,2016-2017,echl,21592,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brant Harris (C/RW),Florida Everblades,67,32,51,83,1.24,47,29,/player/49262/brant-harris,1,Brant Harris,C/RW,2016-2017,echl,49262,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Vallorani (LW),Brampton Beast,72,32,51,83,1.15,28,8,/player/21593/david-vallorani,1,David Vallorani,LW,2016-2017,echl,21593,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Pacan (C/RW),Brampton Beast,67,41,41,82,1.22,26,13,/player/38052/david-pacan,1,David Pacan,C/RW,2016-2017,echl,38052,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Garbowsky (C),Colorado Eagles,72,36,45,81,1.13,54,32,/player/47165/matt-garbowsky,1,Matt Garbowsky,C,2016-2017,echl,47165,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan O'Donnell (W/C),Florida Everblades,61,41,39,80,1.31,39,32,/player/40229/brendan-o-donnell,1,Brendan O'Donnell,W/C,2016-2017,echl,40229,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Salazar (RW/LW),Colorado Eagles,72,30,47,77,1.07,18,25,/player/18757/luke-salazar,1,Luke Salazar,RW/LW,2016-2017,echl,18757,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Angelo Miceli (C/LW),Greenville Swamp Rabbits,68,22,55,77,1.13,48,-3,/player/88914/angelo-miceli,1,Angelo Miceli,C/LW,2016-2017,echl,88914,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Greger Hanson (RW/LW),Allen Americans,58,35,41,76,1.31,28,18,/player/4548/greger-hanson,1,Greger Hanson,RW/LW,2016-2017,echl,4548,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dane Fox (W/C),Missouri Mavericks,71,34,42,76,1.07,138,-13,/player/45607/dane-fox,1,Dane Fox,W/C,2016-2017,echl,45607,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Cazzola (C),Fort Wayne Komets,67,30,46,76,1.13,50,32,/player/32718/mike-cazzola,1,Mike Cazzola,C,2016-2017,echl,32718,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tylor Spink (C),Toledo Walleye,66,28,48,76,1.15,46,24,/player/77954/tylor-spink,1,Tylor Spink,C,2016-2017,echl,77954,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyson Spink (LW/RW),Toledo Walleye,69,33,42,75,1.09,60,17,/player/77955/tyson-spink,1,Tyson Spink,LW/RW,2016-2017,echl,77955,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Marino (RW),Brampton Beast,72,20,52,72,1.00,76,10,/player/39227/brandon-marino,1,Brandon Marino,RW,2016-2017,echl,39227,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Éric Faille (C/RW),Orlando Solar Bears,57,27,43,70,1.23,32,9,/player/32891/eric-faille,1,Éric Faille,C/RW,2016-2017,echl,32891,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Walters (LW),Rapid City Rush,72,30,39,69,0.96,53,-9,/player/32979/ryan-walters,1,Ryan Walters,LW,2016-2017,echl,32979,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Thomas (RW),Fort Wayne Komets,58,27,42,69,1.19,63,19,/player/54093/kyle-thomas,1,Kyle Thomas,RW,2016-2017,echl,54093,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Berry (RW/C),Florida Everblades,70,24,44,68,0.97,76,5,/player/84764/matt-berry,1,Matt Berry,RW/C,2016-2017,echl,84764,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stephen Perfetto (C/LW),Alaska Aces,51,28,38,66,1.29,28,16,/player/62536/stephen-perfetto,1,Stephen Perfetto,C/LW,2016-2017,echl,62536,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Spencer Asuchak (C/LW),Allen Americans,64,26,40,66,1.03,53,10,/player/37259/spencer-asuchak,1,Spencer Asuchak,C/LW,2016-2017,echl,37259,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shawn Szydlowski (RW),Fort Wayne Komets,50,25,41,66,1.32,94,27,/player/23667/shawn-szydlowski,1,Shawn Szydlowski,RW,2016-2017,echl,23667,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jefferson Dahl (C),Idaho Steelheads,70,22,44,66,0.94,75,11,/player/37772/jefferson-dahl,1,Jefferson Dahl,C,2016-2017,echl,37772,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Sivak (RW),Alaska Aces,53,35,30,65,1.23,26,18,/player/34714/peter-sivak,1,Peter Sivak,RW,2016-2017,echl,34714,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Register (D),Colorado Eagles,72,18,46,64,0.89,59,21,/player/24345/matt-register,1,Matt Register,D,2016-2017,echl,24345,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rob Flick (C/LW),South Carolina Stingrays,60,31,32,63,1.05,160,19,/player/37665/rob-flick,1,Rob Flick,C/LW,2016-2017,echl,37665,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Coffman (C/RW),Alaska Aces,72,26,37,63,0.88,36,-5,/player/51095/tim-coffman,1,Tim Coffman,C/RW,2016-2017,echl,51095,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter MacArthur (C),Adirondack Thunder,63,24,39,63,1.00,24,1,/player/11432/peter-macarthur,1,Peter MacArthur,C,2016-2017,echl,11432,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robbie Czarnik (C/W),Reading Royals,66,24,39,63,0.95,40,20,/player/17501/robbie-czarnik,1,Robbie Czarnik,C/W,2016-2017,echl,17501,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Buzzeo (LW/RW),totals,69,19,44,63,0.91,34,-15,/player/54165/justin-buzzeo,1,Justin Buzzeo,LW/RW,2016-2017,echl,54165,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Bradford (C),totals,62,17,46,63,1.02,34,-6,/player/76435/erik-bradford,1,Erik Bradford,C,2016-2017,echl,76435,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jamie Schaafsma (LW),Fort Wayne Komets,53,17,45,62,1.17,36,15,/player/17916/jamie-schaafsma,1,Jamie Schaafsma,LW,2016-2017,echl,17916,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Taylor (C),Kalamazoo Wings,70,32,29,61,0.87,65,2,/player/14011/justin-taylor,1,Justin Taylor,C,2016-2017,echl,14011,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Luciani (RW),Idaho Steelheads,71,31,30,61,0.86,52,-1,/player/37635/anthony-luciani,1,Anthony Luciani,RW,2016-2017,echl,37635,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Willows (RW),totals,63,22,39,61,0.97,19,6,/player/60188/matt-willows,1,Matt Willows,RW,2016-2017,echl,60188,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Shalla (LW),totals,71,32,28,60,0.85,36,-42,/player/37624/josh-shalla,1,Josh Shalla,LW,2016-2017,echl,37624,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cody Wydo (LW/C),Wheeling Nailers,70,30,30,60,0.86,24,8,/player/60569/cody-wydo,1,Cody Wydo,LW/C,2016-2017,echl,60569,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Francis (C),Quad City Mallards,63,27,33,60,0.95,10,17,/player/31074/chris-francis,1,Chris Francis,C,2016-2017,echl,31074,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+T.J. Foster (C/RW),totals,62,25,35,60,0.97,14,-22,/player/33552/t-j-foster,1,T.J. Foster,C/RW,2016-2017,echl,33552,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John McCarron (C),Florida Everblades,59,24,36,60,1.02,73,17,/player/37867/john-mccarron,1,John McCarron,C,2016-2017,echl,37867,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Kovacs (LW/RW),Quad City Mallards,68,20,40,60,0.88,16,-4,/player/46025/justin-kovacs,1,Justin Kovacs,LW/RW,2016-2017,echl,46025,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Schulze (D),Wheeling Nailers,68,13,47,60,0.88,12,4,/player/121876/kevin-schulze,1,Kevin Schulze,D,2016-2017,echl,121876,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Crandall (F/D),Reading Royals,66,22,36,58,0.88,62,21,/player/88898/justin-crandall,1,Justin Crandall,F/D,2016-2017,echl,88898,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Kirkpatrick (RW/C),Florida Everblades,63,21,37,58,0.92,30,32,/player/32863/michael-kirkpatrick,1,Michael Kirkpatrick,RW/C,2016-2017,echl,32863,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Sorkin (LW/RW),Wheeling Nailers,57,14,43,57,1.00,30,-2,/player/38051/nick-sorkin,1,Nick Sorkin,LW/RW,2016-2017,echl,38051,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Parks (RW),Quad City Mallards,61,29,27,56,0.92,37,19,/player/40237/michael-parks,1,Michael Parks,RW,2016-2017,echl,40237,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Marto (D),Colorado Eagles,69,10,46,56,0.81,23,16,/player/38134/jake-marto,1,Jake Marto,D,2016-2017,echl,38134,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Rankin (RW),Toledo Walleye,66,28,27,55,0.83,49,17,/player/31239/evan-rankin,1,Evan Rankin,RW,2016-2017,echl,31239,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olivier Labelle (RW),Reading Royals,66,27,28,55,0.83,78,1,/player/11565/olivier-labelle,1,Olivier Labelle,RW,2016-2017,echl,11565,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Alderson (RW/LW),Greenville Swamp Rabbits,45,26,29,55,1.22,70,8,/player/45555/brandon-alderson,1,Brandon Alderson,RW/LW,2016-2017,echl,45555,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Garrett Meurs (C/RW),Wheeling Nailers,71,25,30,55,0.77,117,2,/player/45565/garrett-meurs,1,Garrett Meurs,C/RW,2016-2017,echl,45565,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon MacLean (C),Brampton Beast,61,22,33,55,0.90,34,16,/player/15585/brandon-maclean,1,Brandon MacLean,C,2016-2017,echl,15585,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Wideman (RW),Indy Fuel,70,22,33,55,0.79,26,-19,/player/45726/alex-wideman,1,Alex Wideman,RW,2016-2017,echl,45726,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Schneider (RW/LW),totals,61,21,34,55,0.90,40,15,/player/25178/peter-schneider,1,Peter Schneider,RW/LW,2016-2017,echl,25178,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Denis (D),Toledo Walleye,70,15,40,55,0.79,29,40,/player/46005/simon-denis,1,Simon Denis,D,2016-2017,echl,46005,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joe Perry (RW),Orlando Solar Bears,70,35,19,54,0.77,71,15,/player/46790/joe-perry,1,Joe Perry,RW,2016-2017,echl,46790,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Warning (RW/LW),Quad City Mallards,68,24,30,54,0.79,28,5,/player/46015/sam-warning,1,Sam Warning,RW/LW,2016-2017,echl,46015,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+James Henry (LW),Adirondack Thunder,65,20,34,54,0.83,35,-2,/player/41672/james-henry,1,James Henry,LW,2016-2017,echl,41672,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nolan Zajac (D),Toledo Walleye,61,11,43,54,0.89,27,31,/player/39714/nolan-zajac,1,Nolan Zajac,D,2016-2017,echl,39714,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sébastien Sylvestre (C),Elmira Jackals,64,23,30,53,0.83,100,-35,/player/97662/sebastien-sylvestre,1,Sébastien Sylvestre,C,2016-2017,echl,97662,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Pelech (C),totals,69,20,33,53,0.77,143,-5,/player/15707/michael-pelech,1,Michael Pelech,C,2016-2017,echl,15707,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Leitner (C),Manchester Monarchs,51,14,39,53,1.04,27,8,/player/37902/matt-leitner,1,Matt Leitner,C,2016-2017,echl,37902,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ralph Cuddemi (RW),totals,65,27,25,52,0.80,42,-13,/player/96041/ralph-cuddemi,1,Ralph Cuddemi,RW,2016-2017,echl,96041,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Derek Nesbitt (LW/RW),Atlanta Gladiators,72,27,25,52,0.72,20,-20,/player/14648/derek-nesbitt,1,Derek Nesbitt,LW/RW,2016-2017,echl,14648,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Gacek (RW),totals,61,26,26,52,0.85,16,11,/player/60242/alex-gacek,1,Alex Gacek,RW,2016-2017,echl,60242,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh MacDonald (LW/RW),totals,67,23,29,52,0.78,31,-1,/player/82513/josh-macdonald,1,Josh MacDonald,LW/RW,2016-2017,echl,82513,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danny Moynihan (C/LW),Alaska Aces,71,22,30,52,0.73,30,7,/player/132434/danny-moynihan,1,Danny Moynihan,C/LW,2016-2017,echl,132434,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ahti Oksanen (LW/C),Greenville Swamp Rabbits,53,21,31,52,0.98,14,7,/player/56595/ahti-oksanen,1,Ahti Oksanen,LW/C,2016-2017,echl,56595,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rob Linsmayer (C/RW),Idaho Steelheads,65,17,35,52,0.80,53,6,/player/37824/rob-linsmayer,1,Rob Linsmayer,C/RW,2016-2017,echl,37824,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kelly Zajac (C/W),South Carolina Stingrays,59,13,39,52,0.88,14,0,/player/18705/kelly-zajac,1,Kelly Zajac,C/W,2016-2017,echl,18705,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lane Scheidl (LW),Kalamazoo Wings,67,28,23,51,0.76,69,3,/player/37271/lane-scheidl,1,Lane Scheidl,LW,2016-2017,echl,37271,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryan Moore (LW),totals,50,27,24,51,1.02,140,26,/player/84582/bryan-moore,1,Bryan Moore,LW,2016-2017,echl,84582,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Penny (C/LW),Reading Royals,72,25,26,51,0.71,48,5,/player/88678/ryan-penny,1,Ryan Penny,C/LW,2016-2017,echl,88678,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Embach (LW),Fort Wayne Komets,61,18,33,51,0.84,47,10,/player/38805/mike-embach,1,Mike Embach,LW,2016-2017,echl,38805,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joe Diamond (LW),Manchester Monarchs,50,23,27,50,1.00,83,-1,/player/19251/joe-diamond,1,Joe Diamond,LW,2016-2017,echl,19251,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Dunbar (RW),Norfolk Admirals,61,19,31,50,0.82,38,-13,/player/24015/john-dunbar,1,John Dunbar,RW,2016-2017,echl,24015,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Makowski (D),Allen Americans,42,16,34,50,1.19,95,20,/player/37771/david-makowski,1,David Makowski,D,2016-2017,echl,37771,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Atkinson (D),Atlanta Gladiators,66,10,40,50,0.76,67,-7,/player/57028/josh-atkinson,1,Josh Atkinson,D,2016-2017,echl,57028,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian Ward (C),Adirondack Thunder,49,27,22,49,1.00,65,18,/player/75019/brian-ward,1,Brian Ward,C,2016-2017,echl,75019,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alden Hirschfeld (RW/C),Toledo Walleye,55,23,26,49,0.89,27,17,/player/38227/alden-hirschfeld,1,Alden Hirschfeld,RW/C,2016-2017,echl,38227,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Huard (C),Cincinnati Cyclones,72,18,31,49,0.68,55,-15,/player/32880/nick-huard,1,Nick Huard,C,2016-2017,echl,32880,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Doremus (RW),Manchester Monarchs,56,11,38,49,0.88,20,4,/player/56288/daniel-doremus,1,Daniel Doremus,RW,2016-2017,echl,56288,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Will Merchant (LW),Idaho Steelheads,69,21,27,48,0.70,18,0,/player/121872/will-merchant,1,Will Merchant,LW,2016-2017,echl,121872,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Currier (RW),totals,73,20,28,48,0.66,81,-17,/player/49363/tyler-currier,1,Tyler Currier,RW,2016-2017,echl,49363,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steven McParland (C/LW),South Carolina Stingrays,59,19,29,48,0.81,27,0,/player/75880/steven-mcparland,1,Steven McParland,C/LW,2016-2017,echl,75880,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kenton Miller (C),totals,71,31,16,47,0.66,56,-32,/player/26352/kenton-miller,1,Kenton Miller,C,2016-2017,echl,26352,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Neiley (RW/C),Atlanta Gladiators,61,27,20,47,0.77,96,-13,/player/75031/eric-neiley,1,Eric Neiley,RW/C,2016-2017,echl,75031,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gary Steffes (C),Allen Americans,68,21,26,47,0.69,43,19,/player/38223/gary-steffes,1,Gary Steffes,C,2016-2017,echl,38223,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Travis Ewanyk (C),totals,74,20,27,47,0.64,91,-13,/player/37130/travis-ewanyk,1,Travis Ewanyk,C,2016-2017,echl,37130,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris McCarthy (C),Reading Royals,43,19,28,47,1.09,4,7,/player/31277/chris-mccarthy,1,Chris McCarthy,C,2016-2017,echl,31277,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Wallace (C/RW),Alaska Aces,63,18,29,47,0.75,42,2,/player/9409/tim-wallace,1,Tim Wallace,C/RW,2016-2017,echl,9409,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Aubin (RW/C),Utah Grizzlies,71,18,29,47,0.66,30,-6,/player/12486/mathieu-aubin,1,Mathieu Aubin,RW/C,2016-2017,echl,12486,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joe Houk (D),Greenville Swamp Rabbits,69,16,31,47,0.68,30,2,/player/58939/joe-houk,1,Joe Houk,D,2016-2017,echl,58939,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Derek Arnold (C/RW),totals,65,15,32,47,0.72,48,-21,/player/37803/derek-arnold,1,Derek Arnold,C/RW,2016-2017,echl,37803,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brock Higgs (C),Atlanta Gladiators,43,13,34,47,1.09,53,2,/player/39529/brock-higgs,1,Brock Higgs,C,2016-2017,echl,39529,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denver Manderson (LW),Orlando Solar Bears,51,12,35,47,0.92,42,8,/player/19266/denver-manderson,1,Denver Manderson,LW,2016-2017,echl,19266,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joe Basaraba (RW/LW),Idaho Steelheads,72,21,25,46,0.64,59,-1,/player/30055/joe-basaraba,1,Joe Basaraba,RW/LW,2016-2017,echl,30055,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabriel Desjardins (LW),Fort Wayne Komets,64,20,26,46,0.72,38,20,/player/37559/gabriel-desjardins,1,Gabriel Desjardins,LW,2016-2017,echl,37559,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Garrett Thompson (C/LW),Fort Wayne Komets,65,20,26,46,0.71,55,13,/player/60881/garrett-thompson,1,Garrett Thompson,C/LW,2016-2017,echl,60881,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+A.J. Jenks (C/W),Toledo Walleye,46,19,27,46,1.00,47,-3,/player/14643/a-j-jenks,2,A.J. Jenks,C/W,2016-2017,echl,14643,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Darren Nowick (RW/C),Missouri Mavericks,57,21,24,45,0.79,26,-8,/player/93823/darren-nowick,2,Darren Nowick,RW/C,2016-2017,echl,93823,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rocco Carzo (LW),Missouri Mavericks,68,21,24,45,0.66,46,-7,/player/37841/rocco-carzo,2,Rocco Carzo,LW,2016-2017,echl,37841,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shane Walsh (RW),totals,71,19,26,45,0.63,12,-12,/player/60254/shane-walsh,2,Shane Walsh,RW,2016-2017,echl,60254,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Hilbrich (LW),Wheeling Nailers,65,16,29,45,0.69,48,21,/player/60912/christian-hilbrich,2,Christian Hilbrich,LW,2016-2017,echl,60912,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Leveille (F),Brampton Beast,68,13,32,45,0.66,29,-5,/player/31303/chris-leveille,2,Chris Leveille,F,2016-2017,echl,31303,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Kwas (C),Wheeling Nailers,58,20,24,44,0.76,58,-2,/player/44992/jordan-kwas,2,Jordan Kwas,C,2016-2017,echl,44992,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bretton Cameron (RW),Greenville Swamp Rabbits,64,20,24,44,0.69,87,-2,/player/37159/bretton-cameron,2,Bretton Cameron,RW,2016-2017,echl,37159,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gage Quinney (C),Wheeling Nailers,45,18,26,44,0.98,10,4,/player/175458/gage-quinney,2,Gage Quinney,C,2016-2017,echl,175458,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christopher Crane (RW),totals,60,18,26,44,0.73,51,1,/player/37775/christopher-crane,2,Christopher Crane,RW,2016-2017,echl,37775,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Pither (C),Brampton Beast,37,17,27,44,1.19,36,2,/player/11240/luke-pither,2,Luke Pither,C,2016-2017,echl,11240,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Sims (C),Cincinnati Cyclones,59,15,29,44,0.75,34,7,/player/48839/jordan-sims,2,Jordan Sims,C,2016-2017,echl,48839,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nolan LaPorte (C/RW),Quad City Mallards,65,14,30,44,0.68,70,26,/player/90804/nolan-laporte,2,Nolan LaPorte,C/RW,2016-2017,echl,90804,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joël Chouinard (D),Allen Americans,72,10,34,44,0.61,36,47,/player/13783/joel-chouinard,2,Joël Chouinard,D,2016-2017,echl,13783,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jason Binkley (D),Fort Wayne Komets,67,7,37,44,0.66,40,19,/player/60170/jason-binkley,2,Jason Binkley,D,2016-2017,echl,60170,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Wall (D),Adirondack Thunder,66,6,38,44,0.67,37,10,/player/37501/alex-wall,2,Alex Wall,D,2016-2017,echl,37501,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jon Puskar (C),Utah Grizzlies,63,22,21,43,0.68,108,6,/player/37862/jon-puskar,2,Jon Puskar,C,2016-2017,echl,37862,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Sorenson (C),Kalamazoo Wings,71,20,23,43,0.61,69,-5,/player/75071/tanner-sorenson,2,Tanner Sorenson,C,2016-2017,echl,75071,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dennis Kravchenko (C/LW),Adirondack Thunder,41,18,25,43,1.05,63,3,/player/150596/dennis-kravchenko,2,Dennis Kravchenko,C/LW,2016-2017,echl,150596,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Quentin Shore (C/RW),Manchester Monarchs,56,18,25,43,0.77,26,13,/player/90346/quentin-shore,2,Quentin Shore,C/RW,2016-2017,echl,90346,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brady Brassart (C/RW),Quad City Mallards,65,14,29,43,0.66,81,1,/player/45627/brady-brassart,2,Brady Brassart,C/RW,2016-2017,echl,45627,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Murovich (C),Atlanta Gladiators,54,22,20,42,0.78,62,-8,/player/23104/tyler-murovich,2,Tyler Murovich,C,2016-2017,echl,23104,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Cooper (RW),Rapid City Rush,54,16,26,42,0.78,30,-6,/player/97390/mark-cooper,2,Mark Cooper,RW,2016-2017,echl,97390,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shawn O'Donnell (RW/C),Cincinnati Cyclones,47,14,28,42,0.89,37,2,/player/40293/shawn-o-donnell,2,Shawn O'Donnell,RW/C,2016-2017,echl,40293,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Ferrantino (C),Florida Everblades,67,20,21,41,0.61,16,-5,/player/97626/michael-ferrantino,2,Michael Ferrantino,C,2016-2017,echl,97626,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Povorozniouk (C/RW),totals,57,18,23,41,0.72,67,-18,/player/99071/sam-povorozniouk,2,Sam Povorozniouk,C/RW,2016-2017,echl,99071,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brodie Dupont (LW/C),totals,40,16,25,41,1.03,16,-2,/player/11452/brodie-dupont,2,Brodie Dupont,LW/C,2016-2017,echl,11452,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joe Faust (D),Idaho Steelheads,69,14,27,41,0.59,24,5,/player/75022/joe-faust,2,Joe Faust,D,2016-2017,echl,75022,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Brittain (D/C),totals,61,11,30,41,0.67,91,7,/player/15705/josh-brittain,2,Josh Brittain,D/C,2016-2017,echl,15705,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Florian Iberer (D),Reading Royals,70,9,32,41,0.59,25,17,/player/15379/florian-iberer,2,Florian Iberer,D,2016-2017,echl,15379,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Joly (RW),Greenville Swamp Rabbits,29,23,17,40,1.38,10,16,/player/128893/michael-joly,2,Michael Joly,RW,2016-2017,echl,128893,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trevor Mingoia (RW/LW),Atlanta Gladiators,60,21,19,40,0.67,15,-19,/player/151452/trevor-mingoia,2,Trevor Mingoia,RW/LW,2016-2017,echl,151452,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ty Loney (RW),Adirondack Thunder,36,18,22,40,1.11,20,10,/player/66546/ty-loney,2,Ty Loney,RW,2016-2017,echl,66546,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blake Kessel (D),totals,48,10,30,40,0.83,32,-1,/player/12176/blake-kessel,2,Blake Kessel,D,2016-2017,echl,12176,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Kattelus (D/W),Kalamazoo Wings,60,7,33,40,0.67,44,-3,/player/38309/eric-kattelus,2,Eric Kattelus,D/W,2016-2017,echl,38309,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Frazee (RW/C),Atlanta Gladiators,60,19,20,39,0.65,43,-5,/player/24083/thomas-frazee,2,Thomas Frazee,RW/C,2016-2017,echl,24083,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steven Swavely (RW/C),Reading Royals,40,18,21,39,0.98,4,14,/player/74284/steven-swavely,2,Steven Swavely,RW/C,2016-2017,echl,74284,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Misiak (F/D),Rapid City Rush,71,18,21,39,0.55,28,-9,/player/39768/ryan-misiak,2,Ryan Misiak,F/D,2016-2017,echl,39768,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Shattock (RW/C),totals,72,14,25,39,0.54,39,-4,/player/18880/tyler-shattock,2,Tyler Shattock,RW/C,2016-2017,echl,18880,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikkel Aagaard (LW/RW),Adirondack Thunder,38,13,26,39,1.03,51,2,/player/46502/mikkel-aagaard,2,Mikkel Aagaard,LW/RW,2016-2017,echl,46502,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patch Alber (D),Adirondack Thunder,66,3,36,39,0.59,46,4,/player/33921/patch-alber,2,Patch Alber,D,2016-2017,echl,33921,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Perlini (C/RW),totals,60,23,15,38,0.63,22,-10,/player/19180/brett-perlini,2,Brett Perlini,C/RW,2016-2017,echl,19180,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dane Walters (RW),Toledo Walleye,59,21,17,38,0.64,28,28,/player/37745/dane-walters,2,Dane Walters,RW,2016-2017,echl,37745,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hunter Fejes (LW),Rapid City Rush,48,18,20,38,0.79,20,-9,/player/106299/hunter-fejes,2,Hunter Fejes,LW,2016-2017,echl,106299,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Louick Marcotte (RW),Wichita Thunder,62,18,20,38,0.61,47,-17,/player/76350/louick-marcotte,2,Louick Marcotte,RW,2016-2017,echl,76350,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Henry (D),Brampton Beast,69,17,21,38,0.55,74,24,/player/11539/jordan-henry,2,Jordan Henry,D,2016-2017,echl,11539,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew DeBlouw (C),Wichita Thunder,64,14,24,38,0.59,38,-28,/player/84766/matthew-deblouw,2,Matthew DeBlouw,C,2016-2017,echl,84766,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dan Correale (LW),Missouri Mavericks,68,12,26,38,0.56,34,-7,/player/44680/dan-correale,2,Dan Correale,LW,2016-2017,echl,44680,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Daly (D),Utah Grizzlies,59,10,28,38,0.64,46,24,/player/46456/tim-daly,2,Tim Daly,D,2016-2017,echl,46456,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steven Tarasuk (D),totals,67,7,31,38,0.57,45,5,/player/15588/steven-tarasuk,2,Steven Tarasuk,D,2016-2017,echl,15588,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Mychan (LW),Colorado Eagles,34,23,14,37,1.09,64,9,/player/49430/jesse-mychan,2,Jesse Mychan,LW,2016-2017,echl,49430,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Auger (C/LW),Brampton Beast,62,21,16,37,0.60,10,-10,/player/15843/chris-auger,2,Chris Auger,C/LW,2016-2017,echl,15843,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Rupert (LW),Indy Fuel,72,21,16,37,0.51,59,-23,/player/75463/matt-rupert,2,Matt Rupert,LW,2016-2017,echl,75463,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Marchment (C),totals,58,16,21,37,0.64,40,10,/player/95924/jake-marchment,2,Jake Marchment,C,2016-2017,echl,95924,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cory Ward (C),Manchester Monarchs,68,16,21,37,0.54,18,14,/player/90002/cory-ward,2,Cory Ward,C,2016-2017,echl,90002,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frankie Simonelli (D),Norfolk Admirals,49,15,22,37,0.76,30,5,/player/20716/frankie-simonelli,2,Frankie Simonelli,D,2016-2017,echl,20716,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tristan King (C),totals,55,15,22,37,0.67,22,-20,/player/11654/tristan-king,2,Tristan King,C,2016-2017,echl,11654,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter LeBlanc (LW/C),totals,53,13,24,37,0.70,11,-22,/player/12260/peter-leblanc,2,Peter LeBlanc,LW/C,2016-2017,echl,12260,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Gaul (C),South Carolina Stingrays,67,11,26,37,0.55,29,9,/player/17502/patrick-gaul,2,Patrick Gaul,C,2016-2017,echl,17502,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Davis Vandane (D),Elmira Jackals,68,11,26,37,0.54,61,-35,/player/60021/davis-vandane,2,Davis Vandane,D,2016-2017,echl,60021,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Harrison (C),Colorado Eagles,61,9,28,37,0.61,102,19,/player/33568/ryan-harrison,2,Ryan Harrison,C,2016-2017,echl,33568,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zack Kamrass (D),Florida Everblades,58,6,31,37,0.64,18,24,/player/39771/zack-kamrass,2,Zack Kamrass,D,2016-2017,echl,39771,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Morris (LW),Manchester Monarchs,66,16,20,36,0.55,93,9,/player/121880/kevin-morris,2,Kevin Morris,LW,2016-2017,echl,121880,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Greg Wolfe (C/RW),Adirondack Thunder,53,14,22,36,0.68,21,2,/player/37823/greg-wolfe,2,Greg Wolfe,C/RW,2016-2017,echl,37823,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Watling (C),totals,55,13,23,36,0.65,44,5,/player/75207/patrick-watling,2,Patrick Watling,C,2016-2017,echl,75207,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teddy Doherty (D),totals,63,8,28,36,0.57,26,6,/player/106292/teddy-doherty,2,Teddy Doherty,D,2016-2017,echl,106292,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Pereira (LW),Reading Royals,49,19,16,35,0.71,14,1,/player/75014/mike-pereira,2,Mike Pereira,LW,2016-2017,echl,75014,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Pitt (C/LW),Kalamazoo Wings,49,18,17,35,0.71,33,6,/player/78169/josh-pitt,2,Josh Pitt,C/LW,2016-2017,echl,78169,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Roy (D),Allen Americans,40,13,22,35,0.88,18,8,/player/84740/eric-roy,2,Eric Roy,D,2016-2017,echl,84740,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Block (C),Orlando Solar Bears,51,12,23,35,0.69,34,14,/player/39357/austin-block,2,Austin Block,C,2016-2017,echl,39357,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Agosta (D),totals,52,7,28,35,0.67,38,23,/player/38030/justin-agosta,2,Justin Agosta,D,2016-2017,echl,38030,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Kolomatis (D),Manchester Monarchs,61,7,28,35,0.57,10,-11,/player/14642/david-kolomatis,2,David Kolomatis,D,2016-2017,echl,14642,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Prapavessis (D),Greenville Swamp Rabbits,70,7,28,35,0.50,26,0,/player/39594/matt-prapavessis,2,Matt Prapavessis,D,2016-2017,echl,39594,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Beau Schmitz (D),Toledo Walleye,67,4,31,35,0.52,62,25,/player/32747/beau-schmitz,2,Beau Schmitz,D,2016-2017,echl,32747,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trevor Cheek (C),Fort Wayne Komets,35,19,15,34,0.97,80,11,/player/91917/trevor-cheek,2,Trevor Cheek,C,2016-2017,echl,91917,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zac Lynch (C/RW),Manchester Monarchs,34,18,16,34,1.00,28,16,/player/96791/zac-lynch,2,Zac Lynch,C/RW,2016-2017,echl,96791,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Garrett Ladd (LW),Tulsa Oilers,58,17,17,34,0.59,24,1,/player/39387/garrett-ladd,2,Garrett Ladd,LW,2016-2017,echl,39387,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon McNally (W/C),totals,66,16,18,34,0.52,188,-7,/player/75027/brandon-mcnally,2,Brandon McNally,W/C,2016-2017,echl,75027,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Spiro Goulakos (D),Greenville Swamp Rabbits,46,15,19,34,0.74,115,2,/player/64592/spiro-goulakos,2,Spiro Goulakos,D,2016-2017,echl,64592,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Sikura (C/LW),totals,47,14,20,34,0.72,10,11,/player/76371/tyler-sikura,2,Tyler Sikura,C/LW,2016-2017,echl,76371,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Nastasiuk (RW/C),Toledo Walleye,47,13,21,34,0.72,8,9,/player/103947/zach-nastasiuk,2,Zach Nastasiuk,RW/C,2016-2017,echl,103947,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Moon (RW),totals,56,10,24,34,0.61,50,-15,/player/14431/nathan-moon,2,Nathan Moon,RW,2016-2017,echl,14431,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Jean (LW),Idaho Steelheads,68,9,25,34,0.50,48,-1,/player/15426/kyle-jean,2,Kyle Jean,LW,2016-2017,echl,15426,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colin Martin (LW),Utah Grizzlies,47,22,11,33,0.70,43,-12,/player/37657/colin-martin,2,Colin Martin,LW,2016-2017,echl,37657,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shawn Bates (C),Tulsa Oilers,60,18,15,33,0.55,38,-4,/player/24361/shawn-bates,2,Shawn Bates,C,2016-2017,echl,24361,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rihards Bukarts (W),Manchester Monarchs,37,16,17,33,0.89,26,7,/player/52418/rihards-bukarts,2,Rihards Bukarts,W,2016-2017,echl,52418,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joe Devin (RW),South Carolina Stingrays,48,16,17,33,0.69,22,-2,/player/32180/joe-devin,2,Joe Devin,RW,2016-2017,echl,32180,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommy Thompson (RW),Greenville Swamp Rabbits,58,16,17,33,0.57,32,-4,/player/74242/tommy-thompson,2,Tommy Thompson,RW,2016-2017,echl,74242,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Naclerio (C),Atlanta Gladiators,40,14,19,33,0.83,8,-12,/player/121867/mark-naclerio,2,Mark Naclerio,C,2016-2017,echl,121867,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Crisp (LW/C),Brampton Beast,43,14,19,33,0.77,60,-5,/player/89696/connor-crisp,2,Connor Crisp,LW/C,2016-2017,echl,89696,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Petan (C/RW),Quad City Mallards,45,14,19,33,0.73,38,3,/player/48817/alex-petan,2,Alex Petan,C/RW,2016-2017,echl,48817,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kenneth Ryan (RW),totals,44,13,20,33,0.75,28,-32,/player/31278/kenneth-ryan,2,Kenneth Ryan,RW,2016-2017,echl,31278,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Young (D),Rapid City Rush,62,13,20,33,0.53,28,3,/player/39682/michael-young,2,Michael Young,D,2016-2017,echl,39682,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Domenic Monardo (RW),South Carolina Stingrays,43,12,21,33,0.77,24,-5,/player/37741/domenic-monardo,2,Domenic Monardo,RW,2016-2017,echl,37741,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan Nelson (C/RW),totals,49,12,21,33,0.67,65,-11,/player/90312/logan-nelson,2,Logan Nelson,C/RW,2016-2017,echl,90312,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Phil Brewer (RW),Tulsa Oilers,61,11,22,33,0.54,29,-9,/player/39497/phil-brewer,2,Phil Brewer,RW,2016-2017,echl,39497,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Findlay (C),Orlando Solar Bears,29,10,23,33,1.14,40,15,/player/61006/brett-findlay,2,Brett Findlay,C,2016-2017,echl,61006,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stepan Falkovsky (D),Adirondack Thunder,54,21,11,32,0.59,37,-1,/player/248808/stepan-falkovsky,2,Stepan Falkovsky,D,2016-2017,echl,248808,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Darcy Murphy (LW),Tulsa Oilers,55,18,14,32,0.58,27,-2,/player/62673/darcy-murphy,2,Darcy Murphy,LW,2016-2017,echl,62673,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Yogan (C/LW),Cincinnati Cyclones,30,15,17,32,1.07,31,2,/player/13839/andrew-yogan,2,Andrew Yogan,C/LW,2016-2017,echl,13839,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Parker (RW/C),South Carolina Stingrays,59,15,17,32,0.54,10,-4,/player/37752/john-parker,3,John Parker,RW/C,2016-2017,echl,37752,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Biggs (RW),Kalamazoo Wings,58,13,19,32,0.55,42,-14,/player/38619/tyler-biggs,3,Tyler Biggs,RW,2016-2017,echl,38619,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Verhaeghe (C/LW),Missouri Mavericks,16,12,20,32,2.00,4,11,/player/116967/carter-verhaeghe,3,Carter Verhaeghe,C/LW,2016-2017,echl,116967,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Paul Rodrigues (RW),Norfolk Admirals,57,12,20,32,0.56,48,-4,/player/39569/paul-rodrigues,3,Paul Rodrigues,RW,2016-2017,echl,39569,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Nicholls (RW/C),Colorado Eagles,30,11,21,32,1.07,10,11,/player/32770/josh-nicholls,3,Josh Nicholls,RW/C,2016-2017,echl,32770,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Finn (D),Missouri Mavericks,53,11,21,32,0.60,23,-7,/player/82316/matt-finn,3,Matt Finn,D,2016-2017,echl,82316,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christophe Lalancette (C),Tulsa Oilers,69,11,21,32,0.46,33,-17,/player/88659/christophe-lalancette,3,Christophe Lalancette,C,2016-2017,echl,88659,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joseph Benik (C/LW),Norfolk Admirals,35,16,15,31,0.89,10,-3,/player/45709/joseph-benik,3,Joseph Benik,C/LW,2016-2017,echl,45709,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Murphy (RW),totals,65,16,15,31,0.48,22,-3,/player/59680/ben-murphy,3,Ben Murphy,RW,2016-2017,echl,59680,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brenden Miller (D),Orlando Solar Bears,55,15,16,31,0.56,94,17,/player/154705/brenden-miller,3,Brenden Miller,D,2016-2017,echl,154705,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Pollock (C/W),Adirondack Thunder,61,15,16,31,0.51,14,2,/player/84111/brett-pollock,3,Brett Pollock,C/W,2016-2017,echl,84111,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trevor Gerling (RW),totals,66,14,17,31,0.47,42,-16,/player/46690/trevor-gerling,3,Trevor Gerling,RW,2016-2017,echl,46690,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Tansey (D),Missouri Mavericks,44,13,18,31,0.70,48,4,/player/77973/kevin-tansey,3,Kevin Tansey,D,2016-2017,echl,77973,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Terrence Wallin (C/RW),totals,49,12,19,31,0.63,47,-4,/player/150846/terrence-wallin,3,Terrence Wallin,C/RW,2016-2017,echl,150846,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Guillaume Gélinas (D),Quad City Mallards,61,9,22,31,0.51,33,9,/player/92286/guillaume-gelinas,3,Guillaume Gélinas,D,2016-2017,echl,92286,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Bushee (D),Kalamazoo Wings,56,8,23,31,0.55,24,16,/player/17116/kyle-bushee,3,Kyle Bushee,D,2016-2017,echl,17116,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colton Saucerman (D),totals,53,4,27,31,0.58,63,-6,/player/45683/colton-saucerman,3,Colton Saucerman,D,2016-2017,echl,45683,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mason Baptista (C),Fort Wayne Komets,56,16,14,30,0.54,64,3,/player/62739/mason-baptista,3,Mason Baptista,C,2016-2017,echl,62739,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jean-Paul LaFontaine (C),totals,57,13,17,30,0.53,34,11,/player/75047/jean-paul-lafontaine,3,Jean-Paul LaFontaine,C,2016-2017,echl,75047,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Hall (C/LW),totals,35,11,19,30,0.86,26,18,/player/45387/zach-hall,3,Zach Hall,C/LW,2016-2017,echl,45387,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jamie Doornbosch (D),Wichita Thunder,44,10,20,30,0.68,32,-13,/player/30036/jamie-doornbosch,3,Jamie Doornbosch,D,2016-2017,echl,30036,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nolan Descoteaux (D),totals,62,10,20,30,0.48,42,-14,/player/39430/nolan-descoteaux,3,Nolan Descoteaux,D,2016-2017,echl,39430,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Casey Thrush (LW),Elmira Jackals,60,8,22,30,0.50,12,-17,/player/75017/casey-thrush,3,Casey Thrush,LW,2016-2017,echl,75017,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Baier (D),Orlando Solar Bears,57,5,25,30,0.53,14,-5,/player/32349/eric-baier,3,Eric Baier,D,2016-2017,echl,32349,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Gibson (D),Quad City Mallards,64,2,28,30,0.47,44,32,/player/55109/kevin-gibson,3,Kevin Gibson,D,2016-2017,echl,55109,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexis Loiseau (C),Wichita Thunder,30,16,13,29,0.97,6,-14,/player/88710/alexis-loiseau,3,Alexis Loiseau,C,2016-2017,echl,88710,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blake Tatchell (C),Wichita Thunder,56,13,16,29,0.52,22,-15,/player/47588/blake-tatchell,3,Blake Tatchell,C,2016-2017,echl,47588,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Guptill (LW/RW),totals,60,13,16,29,0.48,85,-28,/player/39485/alex-guptill,3,Alex Guptill,LW/RW,2016-2017,echl,39485,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Paul Zanette (RW/LW),totals,52,12,17,29,0.56,16,2,/player/44100/paul-zanette,3,Paul Zanette,RW/LW,2016-2017,echl,44100,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Domenic Alberga (C/LW),Norfolk Admirals,53,12,17,29,0.55,53,-19,/player/39557/domenic-alberga,3,Domenic Alberga,C/LW,2016-2017,echl,39557,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Cherniwchan (RW),South Carolina Stingrays,36,11,18,29,0.81,40,10,/player/38425/andrew-cherniwchan,3,Andrew Cherniwchan,RW,2016-2017,echl,38425,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dyson Stevenson (RW/D),Allen Americans,53,10,19,29,0.55,106,26,/player/67147/dyson-stevenson,3,Dyson Stevenson,RW/D,2016-2017,echl,67147,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austen Brassard (RW),Utah Grizzlies,39,9,20,29,0.74,45,-1,/player/45539/austen-brassard,3,Austen Brassard,RW,2016-2017,echl,45539,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Wesley (D),Florida Everblades,48,9,20,29,0.60,27,19,/player/189578/josh-wesley,3,Josh Wesley,D,2016-2017,echl,189578,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cam Reid (C),Utah Grizzlies,36,8,21,29,0.81,18,-6,/player/40884/cam-reid,3,Cam Reid,C,2016-2017,echl,40884,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Webster (D),Wheeling Nailers,57,5,24,29,0.51,38,13,/player/217503/michael-webster,3,Michael Webster,D,2016-2017,echl,217503,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Bligh (C),totals,41,15,13,28,0.68,4,-10,/player/128393/nick-bligh,3,Nick Bligh,C,2016-2017,echl,128393,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tony Cameranesi (C),Orlando Solar Bears,43,15,13,28,0.65,18,-2,/player/117577/tony-cameranesi,3,Tony Cameranesi,C,2016-2017,echl,117577,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shawn St-Amant (LW/RW),Colorado Eagles,35,13,15,28,0.80,10,12,/player/213568/shawn-st-amant,3,Shawn St-Amant,LW/RW,2016-2017,echl,213568,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danick Paquette (RW),Tulsa Oilers,46,13,15,28,0.61,185,-8,/player/12401/danick-paquette,3,Danick Paquette,RW,2016-2017,echl,12401,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Ciampini (RW/LW),Manchester Monarchs,28,12,16,28,1.00,8,16,/player/76675/daniel-ciampini,3,Daniel Ciampini,RW/LW,2016-2017,echl,76675,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kellan Lain (LW/C),Idaho Steelheads,52,12,16,28,0.54,35,-2,/player/62651/kellan-lain,3,Kellan Lain,LW/C,2016-2017,echl,62651,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Allan McPherson (C/LW),Greenville Swamp Rabbits,30,9,19,28,0.93,15,7,/player/78111/allan-mcpherson,3,Allan McPherson,C/LW,2016-2017,echl,78111,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Perrier (D/LW),South Carolina Stingrays,71,9,19,28,0.39,235,12,/player/37929/marcus-perrier,3,Marcus Perrier,D/LW,2016-2017,echl,37929,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Knodel (D),Cincinnati Cyclones,58,8,20,28,0.48,30,7,/player/38031/eric-knodel,3,Eric Knodel,D,2016-2017,echl,38031,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaynen Rissling (D/LW),Cincinnati Cyclones,66,7,21,28,0.42,64,-6,/player/45481/jaynen-rissling,3,Jaynen Rissling,D/LW,2016-2017,echl,45481,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emerson Clark (LW),Tulsa Oilers,39,15,12,27,0.69,177,-5,/player/45585/emerson-clark,3,Emerson Clark,LW,2016-2017,echl,45585,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gunnar Hughes (LW),Adirondack Thunder,69,14,13,27,0.39,72,2,/player/90282/gunnar-hughes,3,Gunnar Hughes,LW,2016-2017,echl,90282,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Darik Angeli (C/RW),totals,60,13,14,27,0.45,28,-4,/player/46949/darik-angeli,3,Darik Angeli,C/RW,2016-2017,echl,46949,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Friedmann (C/RW),totals,67,13,14,27,0.40,33,-6,/player/76801/david-friedmann,3,David Friedmann,C/RW,2016-2017,echl,76801,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick MacNeil (C),Norfolk Admirals,48,12,15,27,0.56,14,-13,/player/32888/nick-macneil,3,Nick MacNeil,C,2016-2017,echl,32888,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radoslav Illo (C/RW),Missouri Mavericks,53,12,15,27,0.51,35,-1,/player/27025/radoslav-illo,3,Radoslav Illo,C/RW,2016-2017,echl,27025,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Barnes (RW),totals,26,11,16,27,1.04,8,1,/player/19069/tyler-barnes,3,Tyler Barnes,RW,2016-2017,echl,19069,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Belzile (RW/C),Colorado Eagles,17,10,17,27,1.59,18,11,/player/68593/alex-belzile,3,Alex Belzile,RW/C,2016-2017,echl,68593,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach O'Brien (C/RW),Wichita Thunder,32,9,18,27,0.84,4,-21,/player/44601/zach-o-brien,3,Zach O'Brien,C/RW,2016-2017,echl,44601,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Travis Walsh (D),Idaho Steelheads,65,7,20,27,0.42,56,1,/player/48764/travis-walsh,3,Travis Walsh,D,2016-2017,echl,48764,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Billingsley (D),Brampton Beast,60,6,21,27,0.45,36,-1,/player/19151/tim-billingsley,3,Tim Billingsley,D,2016-2017,echl,19151,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Monfredo (D),totals,65,5,22,27,0.42,91,-19,/player/60565/mike-monfredo,3,Mike Monfredo,D,2016-2017,echl,60565,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Pochiro (LW/C),Norfolk Admirals,42,3,24,27,0.64,66,-13,/player/121909/zach-pochiro,3,Zach Pochiro,LW/C,2016-2017,echl,121909,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Pleskach (RW/C),Tulsa Oilers,50,13,13,26,0.52,12,-3,/player/39976/adam-pleskach,3,Adam Pleskach,RW/C,2016-2017,echl,39976,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lindsay Sparks (C/LW),Rapid City Rush,23,12,14,26,1.13,14,-9,/player/39591/lindsay-sparks,3,Lindsay Sparks,C/LW,2016-2017,echl,39591,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Willie Corrin (D),totals,43,10,16,26,0.60,48,7,/player/90967/willie-corrin,3,Willie Corrin,D,2016-2017,echl,90967,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Courtney (RW),Missouri Mavericks,42,9,17,26,0.62,56,4,/player/96341/andrew-courtney,3,Andrew Courtney,RW,2016-2017,echl,96341,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob MacDonald (D),Toledo Walleye,30,7,19,26,0.87,24,12,/player/60064/jacob-macdonald,3,Jacob MacDonald,D,2016-2017,echl,60064,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Desmond Bergin (D),Greenville Swamp Rabbits,60,7,19,26,0.43,10,8,/player/155310/desmond-bergin,3,Desmond Bergin,D,2016-2017,echl,155310,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reggie Traccitto (D),Brampton Beast,66,5,21,26,0.39,34,-8,/player/33638/reggie-traccitto,3,Reggie Traccitto,D,2016-2017,echl,33638,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brad Navin (C),totals,48,10,15,25,0.52,44,2,/player/128391/brad-navin,3,Brad Navin,C,2016-2017,echl,128391,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Eberle (C/W),Allen Americans,57,10,15,25,0.44,108,18,/player/85040/tanner-eberle,3,Tanner Eberle,C/W,2016-2017,echl,85040,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grant Arnold (RW),Quad City Mallards,64,9,16,25,0.39,78,-3,/player/45718/grant-arnold,3,Grant Arnold,RW,2016-2017,echl,45718,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ian Watters (LW),Reading Royals,53,7,18,25,0.47,26,9,/player/37632/ian-watters,3,Ian Watters,LW,2016-2017,echl,37632,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Graham (D),Missouri Mavericks,24,6,19,25,1.04,26,-3,/player/92681/jesse-graham,3,Jesse Graham,D,2016-2017,echl,92681,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Macoy Erkamps (D),Wichita Thunder,58,6,19,25,0.43,50,-8,/player/101580/macoy-erkamps,3,Macoy Erkamps,D,2016-2017,echl,101580,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cam Darcy (C),Kalamazoo Wings,20,5,20,25,1.25,10,11,/player/90353/cam-darcy,3,Cam Darcy,C,2016-2017,echl,90353,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaron Harstad (D),totals,53,5,20,25,0.47,52,7,/player/37787/aaron-harstad,3,Aaron Harstad,D,2016-2017,echl,37787,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steve Weinstein (D),South Carolina Stingrays,43,4,21,25,0.58,6,6,/player/38003/steve-weinstein,3,Steve Weinstein,D,2016-2017,echl,38003,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Garrett Haar (D),totals,54,2,23,25,0.46,42,-10,/player/75060/garrett-haar,3,Garrett Haar,D,2016-2017,echl,75060,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olivier Archambault (LW/RW),South Carolina Stingrays,35,16,8,24,0.69,29,-9,/player/45274/olivier-archambault,3,Olivier Archambault,LW/RW,2016-2017,echl,45274,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Higby (C),Utah Grizzlies,45,14,10,24,0.53,32,-5,/player/60853/erik-higby,3,Erik Higby,C,2016-2017,echl,60853,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cason Hohmann (RW/C),totals,32,11,13,24,0.75,11,-17,/player/46024/cason-hohmann,3,Cason Hohmann,RW/C,2016-2017,echl,46024,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Lynch (C),Indy Fuel,35,11,13,24,0.69,37,-2,/player/31276/kevin-lynch,3,Kevin Lynch,C,2016-2017,echl,31276,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Lane (C),Elmira Jackals,45,11,13,24,0.53,28,-17,/player/90351/matt-lane,3,Matt Lane,C,2016-2017,echl,90351,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Nevins (LW/C),Quad City Mallards,61,11,13,24,0.39,122,-14,/player/97897/jack-nevins,3,Jack Nevins,LW/C,2016-2017,echl,97897,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Wilkins (LW/C),Reading Royals,51,10,14,24,0.47,50,1,/player/48016/matt-wilkins,3,Matt Wilkins,LW/C,2016-2017,echl,48016,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Krause (RW/C),Wheeling Nailers,26,9,15,24,0.92,34,4,/player/75046/adam-krause,3,Adam Krause,RW/C,2016-2017,echl,75046,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brady Vail (C),totals,35,9,15,24,0.69,8,-12,/player/45975/brady-vail,3,Brady Vail,C,2016-2017,echl,45975,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Lake (LW/C),Alaska Aces,70,9,15,24,0.34,89,-6,/player/44344/ben-lake,3,Ben Lake,LW/C,2016-2017,echl,44344,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cullen Bradshaw (C),Adirondack Thunder,30,7,17,24,0.80,8,9,/player/25755/cullen-bradshaw,3,Cullen Bradshaw,C,2016-2017,echl,25755,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cody Sol (D),Fort Wayne Komets,56,7,17,24,0.43,162,39,/player/23108/cody-sol,3,Cody Sol,D,2016-2017,echl,23108,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luc-Olivier Blain (C),Brampton Beast,67,7,17,24,0.36,38,-15,/player/19156/luc-olivier-blain,3,Luc-Olivier Blain,C,2016-2017,echl,19156,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Stern (D),Wheeling Nailers,45,6,18,24,0.53,68,2,/player/75026/brett-stern,3,Brett Stern,D,2016-2017,echl,75026,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Nicastro (D),South Carolina Stingrays,50,5,19,24,0.48,24,3,/player/15519/max-nicastro,3,Max Nicastro,D,2016-2017,echl,15519,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Pettersson (D),Reading Royals,58,4,20,24,0.41,40,12,/player/28988/jesper-pettersson,3,Jesper Pettersson,D,2016-2017,echl,28988,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wes Cunningham (D),Tulsa Oilers,54,3,21,24,0.44,61,2,/player/14442/wes-cunningham,3,Wes Cunningham,D,2016-2017,echl,14442,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc-André Lévesque (D),totals,50,2,22,24,0.48,39,7,/player/45251/marc-andre-levesque,3,Marc-André Lévesque,D,2016-2017,echl,45251,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Henegar (F),Kalamazoo Wings,71,14,9,23,0.32,36,-12,/player/60544/scott-henegar,3,Scott Henegar,F,2016-2017,echl,60544,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Jacklin (C/LW),totals,36,12,11,23,0.64,20,3,/player/46998/scott-jacklin,3,Scott Jacklin,C/LW,2016-2017,echl,46998,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominic Zombo (RW/LW),Cincinnati Cyclones,63,12,11,23,0.37,46,-2,/player/37936/dominic-zombo,3,Dominic Zombo,RW/LW,2016-2017,echl,37936,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Neal (LW),Indy Fuel,21,11,12,23,1.10,25,4,/player/13667/michael-neal,3,Michael Neal,LW,2016-2017,echl,13667,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kale Kessy (LW/RW),Tulsa Oilers,32,11,12,23,0.72,72,-15,/player/26412/kale-kessy,3,Kale Kessy,LW/RW,2016-2017,echl,26412,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Scheid (C),totals,49,11,12,23,0.47,18,-2,/player/87523/eric-scheid,3,Eric Scheid,C,2016-2017,echl,87523,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dalton Smith (LW/RW),Florida Everblades,60,10,13,23,0.38,153,-5,/player/30923/dalton-smith,4,Dalton Smith,LW/RW,2016-2017,echl,30923,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kale Kerbashian (C),totals,35,9,14,23,0.66,4,0,/player/23671/kale-kerbashian,4,Kale Kerbashian,C,2016-2017,echl,23671,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Milos Bubela (C/RW),totals,47,9,14,23,0.49,24,-4,/player/96761/milos-bubela,4,Milos Bubela,C/RW,2016-2017,echl,96761,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ian Lowe (C),Wichita Thunder,64,9,14,23,0.36,81,-15,/player/39230/ian-lowe,4,Ian Lowe,C,2016-2017,echl,39230,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Stanisz (D),totals,60,7,16,23,0.38,58,-24,/player/18825/matt-stanisz,4,Matt Stanisz,D,2016-2017,echl,18825,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Panzarella (D),Quad City Mallards,63,7,16,23,0.37,76,0,/player/37848/andrew-panzarella,4,Andrew Panzarella,D,2016-2017,echl,37848,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Rankin (C/D),Elmira Jackals,68,6,17,23,0.34,61,-26,/player/78130/kyle-rankin,4,Kyle Rankin,C/D,2016-2017,echl,78130,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kenton Helgesen (D/W),totals,50,4,19,23,0.46,19,-8,/player/49967/kenton-helgesen,4,Kenton Helgesen,D/W,2016-2017,echl,49967,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dennis Brown (D),Tulsa Oilers,59,4,19,23,0.39,35,-8,/player/37876/dennis-brown,4,Dennis Brown,D,2016-2017,echl,37876,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brock Montgomery (RW),totals,34,10,12,22,0.65,27,6,/player/45498/brock-montgomery,4,Brock Montgomery,RW,2016-2017,echl,45498,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Darryl Bootland (RW),Colorado Eagles,55,10,12,22,0.40,229,-14,/player/10999/darryl-bootland,4,Darryl Bootland,RW,2016-2017,echl,10999,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikaël Tam (D),Norfolk Admirals,36,9,13,22,0.61,30,-17,/player/37469/mikael-tam,4,Mikaël Tam,D,2016-2017,echl,37469,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Bennett (RW),Elmira Jackals,58,8,14,22,0.38,22,-15,/player/62656/mark-bennett,4,Mark Bennett,RW,2016-2017,echl,62656,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Tesink (C/W),Wichita Thunder,68,7,15,22,0.32,132,-14,/player/56060/ryan-tesink,4,Ryan Tesink,C/W,2016-2017,echl,56060,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin DaSilva (D),Greenville Swamp Rabbits,68,6,16,22,0.32,92,13,/player/39487/justin-dasilva,4,Justin DaSilva,D,2016-2017,echl,39487,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexx Privitera (D),Manchester Monarchs,33,5,17,22,0.67,33,2,/player/38627/alexx-privitera,4,Alexx Privitera,D,2016-2017,echl,38627,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Marshall (D),Atlanta Gladiators,34,5,17,22,0.65,22,-2,/player/40255/ben-marshall,4,Ben Marshall,D,2016-2017,echl,40255,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jackson Houck (RW),Colorado Eagles,45,14,7,21,0.47,14,-5,/player/101590/jackson-houck,4,Jackson Houck,RW,2016-2017,echl,101590,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danick Gauthier (C/LW),totals,62,10,11,21,0.34,71,-2,/player/36727/danick-gauthier,4,Danick Gauthier,C/LW,2016-2017,echl,36727,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+C.J. Eick (LW),Utah Grizzlies,64,10,11,21,0.33,32,-8,/player/60801/c-j-eick,4,C.J. Eick,LW,2016-2017,echl,60801,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Rupert (C/LW),Wichita Thunder,29,9,12,21,0.72,12,-8,/player/75471/ryan-rupert,4,Ryan Rupert,C/LW,2016-2017,echl,75471,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Schempp (C),Missouri Mavericks,43,9,12,21,0.49,30,-5,/player/121949/kyle-schempp,4,Kyle Schempp,C,2016-2017,echl,121949,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Breton (LW),totals,59,9,12,21,0.36,10,-11,/player/59751/justin-breton,4,Justin Breton,LW,2016-2017,echl,59751,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolas Brouillard (D),Orlando Solar Bears,39,7,14,21,0.54,62,-6,/player/128256/nikolas-brouillard,4,Nikolas Brouillard,D,2016-2017,echl,128256,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Blaney (C),Kalamazoo Wings,43,5,16,21,0.49,18,-1,/player/62654/kyle-blaney,4,Kyle Blaney,C,2016-2017,echl,62654,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Brown (LW/C),Greenville Swamp Rabbits,48,4,17,21,0.44,18,-5,/player/37706/tyler-brown,4,Tyler Brown,LW/C,2016-2017,echl,37706,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Landon Oslanski (D),totals,67,4,17,21,0.31,112,-18,/player/45625/landon-oslanski,4,Landon Oslanski,D,2016-2017,echl,45625,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Phil Pietroniro (D),Utah Grizzlies,68,3,18,21,0.31,90,-4,/player/151799/phil-pietroniro,4,Phil Pietroniro,D,2016-2017,echl,151799,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mason Marchment (LW/C),Orlando Solar Bears,35,14,6,20,0.57,27,1,/player/208693/mason-marchment,4,Mason Marchment,LW/C,2016-2017,echl,208693,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Smotherman (LW),Manchester Monarchs,18,12,8,20,1.11,0,-3,/player/11568/jordan-smotherman,4,Jordan Smotherman,LW,2016-2017,echl,11568,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johnny McInnis (RW),totals,52,12,8,20,0.38,21,-1,/player/44974/johnny-mcinnis,4,Johnny McInnis,RW,2016-2017,echl,44974,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yan-Pavel Laplante (C/LW),Alaska Aces,38,9,11,20,0.53,39,-7,/player/128231/yan-pavel-laplante,4,Yan-Pavel Laplante,C/LW,2016-2017,echl,128231,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Ling (RW/C),Brampton Beast,39,9,11,20,0.51,36,3,/player/13407/david-ling,4,David Ling,RW/C,2016-2017,echl,13407,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Bloodoff (LW),totals,43,9,11,20,0.47,31,-6,/player/30440/evan-bloodoff,4,Evan Bloodoff,LW,2016-2017,echl,30440,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Taylor Richart (D),Utah Grizzlies,48,7,13,20,0.42,14,-5,/player/90010/taylor-richart,4,Taylor Richart,D,2016-2017,echl,90010,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Danford (D),Orlando Solar Bears,51,6,14,20,0.39,24,21,/player/60646/ben-danford,4,Ben Danford,D,2016-2017,echl,60646,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Elbrecht (D),totals,65,6,14,20,0.31,163,-2,/player/19262/tyler-elbrecht,4,Tyler Elbrecht,D,2016-2017,echl,19262,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gerrad Grant (LW),Wichita Thunder,67,6,14,20,0.30,40,-18,/player/37560/gerrad-grant,4,Gerrad Grant,LW,2016-2017,echl,37560,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Luukko (D),Reading Royals,70,6,14,20,0.29,22,22,/player/75032/nick-luukko,4,Nick Luukko,D,2016-2017,echl,75032,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+A.J. White (LW/C),Atlanta Gladiators,49,5,15,20,0.41,17,-8,/player/90230/a-j-white,4,A.J. White,LW/C,2016-2017,echl,90230,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dajon Mingo (D/RW),Kalamazoo Wings,67,5,15,20,0.30,33,-19,/player/60474/dajon-mingo,4,Dajon Mingo,D/RW,2016-2017,echl,60474,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joey Leach (D),South Carolina Stingrays,35,4,16,20,0.57,63,8,/player/37152/joey-leach,4,Joey Leach,D,2016-2017,echl,37152,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miles Koules (C/RW),totals,36,4,16,20,0.56,14,-1,/player/90356/miles-koules,4,Miles Koules,C/RW,2016-2017,echl,90356,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Brooks (D),totals,47,3,17,20,0.43,6,4,/player/60431/alex-brooks,4,Alex Brooks,D,2016-2017,echl,60431,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vincent Arseneau (LW/RW),Wichita Thunder,24,12,7,19,0.79,88,-7,/player/37069/vincent-arseneau,4,Vincent Arseneau,LW/RW,2016-2017,echl,37069,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Tanski (C/RW/D),South Carolina Stingrays,47,11,8,19,0.40,16,5,/player/30927/scott-tanski,4,Scott Tanski,C/RW/D,2016-2017,echl,30927,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitch Holmberg (RW),totals,50,11,8,19,0.38,6,-10,/player/26392/mitch-holmberg,4,Mitch Holmberg,RW,2016-2017,echl,26392,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stephen MacAulay (LW/C),Florida Everblades,23,10,9,19,0.83,14,12,/player/37425/stephen-macaulay,4,Stephen MacAulay,LW/C,2016-2017,echl,37425,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaedon Descheneau (RW/C),Norfolk Admirals,26,9,10,19,0.73,10,-6,/player/64576/jaedon-descheneau,4,Jaedon Descheneau,RW/C,2016-2017,echl,64576,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyrell Goulbourne (LW/RW),Reading Royals,36,8,11,19,0.53,35,2,/player/56840/tyrell-goulbourne,4,Tyrell Goulbourne,LW/RW,2016-2017,echl,56840,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gasper Kopitar (W/C),Manchester Monarchs,42,7,12,19,0.45,6,-11,/player/32799/gasper-kopitar,4,Gasper Kopitar,W/C,2016-2017,echl,32799,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Witala (LW/C),Orlando Solar Bears,46,7,12,19,0.41,34,-6,/player/83996/chase-witala,4,Chase Witala,LW/C,2016-2017,echl,83996,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Derik Johnson (D),Reading Royals,70,7,12,19,0.27,68,24,/player/37798/derik-johnson,4,Derik Johnson,D,2016-2017,echl,37798,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabriel Verpaelst (D),totals,71,7,12,19,0.27,186,-20,/player/88970/gabriel-verpaelst,4,Gabriel Verpaelst,D,2016-2017,echl,88970,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyson Fawcett (LW/RW),totals,49,5,14,19,0.39,42,-34,/player/76504/tyson-fawcett,4,Tyson Fawcett,LW/RW,2016-2017,echl,76504,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Brodeur (D),Adirondack Thunder,15,4,15,19,1.27,4,5,/player/19045/mathieu-brodeur,4,Mathieu Brodeur,D,2016-2017,echl,19045,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Charlie Mosey (F),Elmira Jackals,56,4,15,19,0.34,10,-19,/player/85751/charlie-mosey,4,Charlie Mosey,F,2016-2017,echl,85751,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Bradley (D),Orlando Solar Bears,58,4,15,19,0.33,32,-16,/player/62443/chris-bradley,4,Chris Bradley,D,2016-2017,echl,62443,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Phillips (D),totals,49,3,16,19,0.39,22,-25,/player/40164/adam-phillips,4,Adam Phillips,D,2016-2017,echl,40164,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Hardowa (D),Manchester Monarchs,60,3,16,19,0.32,18,3,/player/39616/connor-hardowa,4,Connor Hardowa,D,2016-2017,echl,39616,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Drapluk (D),Tulsa Oilers,68,2,17,19,0.28,50,-12,/player/60206/eric-drapluk,4,Eric Drapluk,D,2016-2017,echl,60206,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riley Weselowski (D),Rapid City Rush,72,2,17,19,0.26,52,6,/player/24303/riley-weselowski,4,Riley Weselowski,D,2016-2017,echl,24303,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Vannelli (D),totals,46,1,18,19,0.41,21,-1,/player/196704/thomas-vannelli,4,Thomas Vannelli,D,2016-2017,echl,196704,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ashton Rome (RW/LW),Manchester Monarchs,36,12,6,18,0.50,59,-12,/player/10637/ashton-rome,4,Ashton Rome,RW/LW,2016-2017,echl,10637,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Derek DeBlois (RW),South Carolina Stingrays,12,10,8,18,1.50,8,8,/player/38062/derek-deblois,4,Derek DeBlois,RW,2016-2017,echl,38062,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Conor Riley (D/F),Adirondack Thunder,41,9,9,18,0.44,44,5,/player/155032/conor-riley,4,Conor Riley,D/F,2016-2017,echl,155032,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brenden Walker (RW),Rapid City Rush,22,7,11,18,0.82,20,-12,/player/39437/brenden-walker,4,Brenden Walker,RW,2016-2017,echl,39437,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shane Bakker (C),Atlanta Gladiators,51,7,11,18,0.35,86,-17,/player/64906/shane-bakker,4,Shane Bakker,C,2016-2017,echl,64906,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Aviani (C),Florida Everblades,22,5,13,18,0.82,38,13,/player/45626/mike-aviani,4,Mike Aviani,C,2016-2017,echl,45626,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Lough (D),Adirondack Thunder,51,4,14,18,0.35,26,6,/player/77972/kevin-lough,4,Kevin Lough,D,2016-2017,echl,77972,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan Roe (D),Florida Everblades,67,3,15,18,0.27,50,15,/player/75025/logan-roe,4,Logan Roe,D,2016-2017,echl,75025,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Derek Army (C/RW),Wheeling Nailers,28,12,5,17,0.61,20,-3,/player/94502/derek-army,4,Derek Army,C/RW,2016-2017,echl,94502,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Margonari (LW/C),South Carolina Stingrays,32,11,6,17,0.53,18,3,/player/65127/dylan-margonari,4,Dylan Margonari,LW/C,2016-2017,echl,65127,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommy Mele (C/LW),Cincinnati Cyclones,40,10,7,17,0.43,19,-5,/player/42686/tommy-mele,4,Tommy Mele,C/LW,2016-2017,echl,42686,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Camara (LW/C),Kalamazoo Wings,25,9,8,17,0.68,50,-9,/player/45561/anthony-camara,4,Anthony Camara,LW/C,2016-2017,echl,45561,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Conner Bleackley (C),Missouri Mavericks,14,7,10,17,1.21,14,1,/player/84020/conner-bleackley,4,Conner Bleackley,C,2016-2017,echl,84020,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Krushelnyski (LW/RW),totals,15,7,10,17,1.13,6,12,/player/25135/alex-krushelnyski,4,Alex Krushelnyski,LW/RW,2016-2017,echl,25135,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Miglio (LW),Rapid City Rush,49,7,10,17,0.35,21,-10,/player/90292/nick-miglio,4,Nick Miglio,LW,2016-2017,echl,90292,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Curt Gogol (D/LW),Florida Everblades,37,6,11,17,0.46,167,6,/player/36709/curt-gogol,4,Curt Gogol,D/LW,2016-2017,echl,36709,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reed Seckel (C/LW),totals,50,6,11,17,0.34,77,-11,/player/37765/reed-seckel,4,Reed Seckel,C/LW,2016-2017,echl,37765,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Globke (C),Toledo Walleye,29,5,12,17,0.59,13,5,/player/134794/alex-globke,4,Alex Globke,C,2016-2017,echl,134794,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Sundher (C),Reading Royals,32,5,12,17,0.53,27,-6,/player/31085/kevin-sundher,4,Kevin Sundher,C,2016-2017,echl,31085,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Anselmini (D),Idaho Steelheads,46,5,12,17,0.37,94,-7,/player/75298/brandon-anselmini,4,Brandon Anselmini,D,2016-2017,echl,75298,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Glen (C/D),Idaho Steelheads,51,5,12,17,0.33,27,14,/player/26425/david-glen,4,David Glen,C/D,2016-2017,echl,26425,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim McGauley (C),South Carolina Stingrays,39,4,13,17,0.44,8,-18,/player/97788/tim-mcgauley,4,Tim McGauley,C,2016-2017,echl,97788,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Trenz (D),Alaska Aces,58,4,13,17,0.29,57,-2,/player/62278/ryan-trenz,4,Ryan Trenz,D,2016-2017,echl,62278,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Wilson (D),Kalamazoo Wings,64,4,13,17,0.27,72,-4,/player/39625/ben-wilson,4,Ben Wilson,D,2016-2017,echl,39625,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Curtis Leonard (D),Fort Wayne Komets,65,4,13,17,0.26,47,30,/player/76864/curtis-leonard,4,Curtis Leonard,D,2016-2017,echl,76864,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Greg Amlong (D),totals,59,3,14,17,0.29,30,-21,/player/89832/greg-amlong,4,Greg Amlong,D,2016-2017,echl,89832,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Troy Donnay (D),Greenville Swamp Rabbits,61,3,14,17,0.28,72,4,/player/92678/troy-donnay,4,Troy Donnay,D,2016-2017,echl,92678,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+James Melindy (D),Wichita Thunder,68,3,14,17,0.25,229,-35,/player/56053/james-melindy,4,James Melindy,D,2016-2017,echl,56053,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Boivin (D),totals,32,2,15,17,0.53,15,2,/player/46789/michael-boivin,4,Michael Boivin,D,2016-2017,echl,46789,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arvin Atwal (D),Cincinnati Cyclones,39,2,15,17,0.44,98,11,/player/102384/arvin-atwal,4,Arvin Atwal,D,2016-2017,echl,102384,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Paul Cianfrini (D),Norfolk Admirals,49,0,17,17,0.35,26,-11,/player/32719/paul-cianfrini,4,Paul Cianfrini,D,2016-2017,echl,32719,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Jenys (C/W),Quad City Mallards,46,12,4,16,0.35,8,-10,/player/112375/pavel-jenys,4,Pavel Jenys,C/W,2016-2017,echl,112375,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Phil Lane (RW),Adirondack Thunder,26,10,6,16,0.62,43,8,/player/39491/phil-lane,4,Phil Lane,RW,2016-2017,echl,39491,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Kea (C),Elmira Jackals,33,9,7,16,0.48,73,-7,/player/83357/justin-kea,4,Justin Kea,C,2016-2017,echl,83357,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colin Mulvey (RW),totals,49,9,7,16,0.33,8,-11,/player/54105/colin-mulvey,4,Colin Mulvey,RW,2016-2017,echl,54105,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Brace (RW/LW),totals,37,8,8,16,0.43,19,-3,/player/42865/adam-brace,4,Adam Brace,RW/LW,2016-2017,echl,42865,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zac Larraza (LW),Utah Grizzlies,15,7,9,16,1.07,16,-5,/player/38623/zac-larraza,4,Zac Larraza,LW,2016-2017,echl,38623,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Charlie Vasaturo (D),Kalamazoo Wings,72,7,9,16,0.22,50,-11,/player/47755/charlie-vasaturo,5,Charlie Vasaturo,D,2016-2017,echl,47755,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Leone (D),totals,38,6,10,16,0.42,10,2,/player/45711/chris-leone,5,Chris Leone,D,2016-2017,echl,45711,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick D'Amico (C),Indy Fuel,38,6,10,16,0.42,20,-14,/player/89189/patrick-d-amico,5,Patrick D'Amico,C,2016-2017,echl,89189,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Johnson (LW),Greenville Swamp Rabbits,43,6,10,16,0.37,23,0,/player/46304/matt-johnson,5,Matt Johnson,LW,2016-2017,echl,46304,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Chatham (RW),Idaho Steelheads,49,6,10,16,0.33,33,-5,/player/114799/connor-chatham,5,Connor Chatham,RW,2016-2017,echl,114799,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Craig Dalrymple (D),Cincinnati Cyclones,62,6,10,16,0.26,18,-10,/player/75855/craig-dalrymple,5,Craig Dalrymple,D,2016-2017,echl,75855,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steven Kaunisto (D),Elmira Jackals,62,5,11,16,0.26,12,-38,/player/38824/steven-kaunisto,5,Steven Kaunisto,D,2016-2017,echl,38824,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Garet Hunt (LW),Alaska Aces,63,4,12,16,0.25,243,-2,/player/22625/garet-hunt,5,Garet Hunt,LW,2016-2017,echl,22625,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Wilson (D),Quad City Mallards,36,3,13,16,0.44,38,17,/player/13930/mike-wilson,5,Mike Wilson,D,2016-2017,echl,13930,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyson Wilson (D),Tulsa Oilers,55,3,13,16,0.29,30,-6,/player/40227/tyson-wilson,5,Tyson Wilson,D,2016-2017,echl,40227,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Krieg (D),totals,57,3,13,16,0.28,46,-10,/player/90096/mike-krieg,5,Mike Krieg,D,2016-2017,echl,90096,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Todd Perry (D),Reading Royals,57,3,13,16,0.28,55,-4,/player/14033/todd-perry,5,Todd Perry,D,2016-2017,echl,14033,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Marcou (D),totals,42,2,14,16,0.38,4,-7,/player/32478/mike-marcou,5,Mike Marcou,D,2016-2017,echl,32478,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Obuchowski (D),Missouri Mavericks,69,2,14,16,0.23,31,-5,/player/86896/ryan-obuchowski,5,Ryan Obuchowski,D,2016-2017,echl,86896,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dysin Mayo (D),Rapid City Rush,25,1,15,16,0.64,4,-8,/player/120638/dysin-mayo,5,Dysin Mayo,D,2016-2017,echl,120638,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Mattson (D),Indy Fuel,63,1,15,16,0.25,24,-10,/player/31269/nick-mattson,5,Nick Mattson,D,2016-2017,echl,31269,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Kuqali (D),totals,63,0,16,16,0.25,25,9,/player/39761/alexander-kuqali,5,Alexander Kuqali,D,2016-2017,echl,39761,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Seth Ambroz (RW),Cincinnati Cyclones,58,11,4,15,0.26,88,3,/player/37875/seth-ambroz,5,Seth Ambroz,RW,2016-2017,echl,37875,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Löfquist (RW/LW),totals,33,9,6,15,0.45,10,-7,/player/113480/lukas-lofquist,5,Lukas Löfquist,RW/LW,2016-2017,echl,113480,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Greg Betzold (LW/C),totals,42,9,6,15,0.36,26,-19,/player/194778/greg-betzold,5,Greg Betzold,LW/C,2016-2017,echl,194778,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Gaarder (RW),totals,33,8,7,15,0.45,12,-5,/player/60659/connor-gaarder,5,Connor Gaarder,RW,2016-2017,echl,60659,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Sanford (RW/C),Colorado Eagles,19,7,8,15,0.79,22,4,/player/101594/cole-sanford,5,Cole Sanford,RW/C,2016-2017,echl,101594,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Hatch (RW/LW),Florida Everblades,32,5,10,15,0.47,16,5,/player/45875/matt-hatch,5,Matt Hatch,RW/LW,2016-2017,echl,45875,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Jardine (D),Colorado Eagles,36,4,11,15,0.42,46,13,/player/54059/sam-jardine,5,Sam Jardine,D,2016-2017,echl,54059,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Gudbranson (D),Quad City Mallards,45,4,11,15,0.33,46,16,/player/42048/alex-gudbranson,5,Alex Gudbranson,D,2016-2017,echl,42048,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Gagnon (D/LW),Brampton Beast,45,4,11,15,0.33,63,10,/player/68741/mathieu-gagnon,5,Mathieu Gagnon,D/LW,2016-2017,echl,68741,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Charlie Dodero (D),Idaho Steelheads,60,4,11,15,0.25,97,-7,/player/37973/charlie-dodero,5,Charlie Dodero,D,2016-2017,echl,37973,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bobby Shea (D),Fort Wayne Komets,23,3,12,15,0.65,55,1,/player/37779/bobby-shea,5,Bobby Shea,D,2016-2017,echl,37779,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Taylor Doherty (D),Orlando Solar Bears,30,3,12,15,0.50,86,21,/player/32723/taylor-doherty,5,Taylor Doherty,D,2016-2017,echl,32723,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan-Ismael Diaby (D),Cincinnati Cyclones,32,3,12,15,0.47,46,-2,/player/94297/jonathan-ismael-diaby,5,Jonathan-Ismael Diaby,D,2016-2017,echl,94297,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miles Liberati (D),totals,46,3,12,15,0.33,12,21,/player/117010/miles-liberati,5,Miles Liberati,D,2016-2017,echl,117010,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danny Fick (D),Wheeling Nailers,69,3,12,15,0.22,74,3,/player/97628/danny-fick,5,Danny Fick,D,2016-2017,echl,97628,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Dyukov (D),Adirondack Thunder,54,2,13,15,0.28,40,16,/player/160657/roman-dyukov,5,Roman Dyukov,D,2016-2017,echl,160657,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Shiplo (D),Atlanta Gladiators,67,2,13,15,0.22,28,-14,/player/62605/tyler-shiplo,5,Tyler Shiplo,D,2016-2017,echl,62605,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Joyaux (D),Tulsa Oilers,54,1,14,15,0.28,22,7,/player/57787/chris-joyaux,5,Chris Joyaux,D,2016-2017,echl,57787,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Caito (D),Toledo Walleye,23,8,6,14,0.61,18,7,/player/121842/matt-caito,5,Matt Caito,D,2016-2017,echl,121842,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Collins (RW),Rapid City Rush,67,8,6,14,0.21,134,-6,/player/48258/anthony-collins,5,Anthony Collins,RW,2016-2017,echl,48258,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shawn Pauly (C),Missouri Mavericks,54,6,8,14,0.26,14,0,/player/60956/shawn-pauly,5,Shawn Pauly,C,2016-2017,echl,60956,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johnny Lazo (C),Colorado Eagles,20,4,10,14,0.70,6,2,/player/14659/johnny-lazo,5,Johnny Lazo,C,2016-2017,echl,14659,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Kurtz (LW),Norfolk Admirals,26,4,10,14,0.54,25,-6,/player/23413/john-kurtz,5,John Kurtz,LW,2016-2017,echl,23413,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Trecapelli (D),totals,41,4,10,14,0.34,36,-12,/player/33654/nick-trecapelli,5,Nick Trecapelli,D,2016-2017,echl,33654,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexis Vanier (D),Wichita Thunder,49,4,10,14,0.29,28,-15,/player/128447/alexis-vanier,5,Alexis Vanier,D,2016-2017,echl,128447,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Travis Brown (D),Allen Americans,36,3,11,14,0.39,20,16,/player/94342/travis-brown,5,Travis Brown,D,2016-2017,echl,94342,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Hill (D),Toledo Walleye,41,3,11,14,0.34,27,15,/player/33657/jordan-hill,5,Jordan Hill,D,2016-2017,echl,33657,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexandre Carrier (RW),totals,45,3,11,14,0.31,75,-7,/player/22860/alexandre-carrier,5,Alexandre Carrier,RW,2016-2017,echl,22860,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jon Jutzi (D),Orlando Solar Bears,45,2,12,14,0.31,10,20,/player/75222/jon-jutzi,5,Jon Jutzi,D,2016-2017,echl,75222,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Miskovic (D),Indy Fuel,51,2,12,14,0.27,60,-12,/player/34337/zach-miskovic,5,Zach Miskovic,D,2016-2017,echl,34337,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Culkin (D),Adirondack Thunder,16,1,13,14,0.88,14,3,/player/88706/ryan-culkin,5,Ryan Culkin,D,2016-2017,echl,88706,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Martell (D),totals,59,1,13,14,0.24,26,-24,/player/37918/brandon-martell,5,Brandon Martell,D,2016-2017,echl,37918,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Gunn (D),Allen Americans,61,1,13,14,0.23,102,20,/player/39755/mike-gunn,5,Mike Gunn,D,2016-2017,echl,39755,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nolan Julseth-White (D),Tulsa Oilers,66,0,14,14,0.21,50,-1,/player/39191/nolan-julseth-white,5,Nolan Julseth-White,D,2016-2017,echl,39191,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian Nugent (LW),Idaho Steelheads,35,10,3,13,0.37,38,5,/player/48349/brian-nugent,5,Brian Nugent,LW,2016-2017,echl,48349,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Sdao (D),Colorado Eagles,61,9,4,13,0.21,177,0,/player/33912/michael-sdao,5,Michael Sdao,D,2016-2017,echl,33912,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wade MacLeod (LW),Allen Americans,13,8,5,13,1.00,16,4,/player/32366/wade-macleod,5,Wade MacLeod,LW,2016-2017,echl,32366,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxime St-Cyr (C),totals,38,8,5,13,0.34,22,-10,/player/76345/maxime-st-cyr,5,Maxime St-Cyr,C,2016-2017,echl,76345,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitchell Heard (C),Florida Everblades,11,6,7,13,1.18,29,3,/player/45566/mitchell-heard,5,Mitchell Heard,C,2016-2017,echl,45566,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dan DeSalvo (RW/C),Tulsa Oilers,12,6,7,13,1.08,2,7,/player/90321/dan-desalvo,5,Dan DeSalvo,RW/C,2016-2017,echl,90321,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Robertson (RW),totals,30,6,7,13,0.43,0,8,/player/97933/matt-robertson,5,Matt Robertson,RW,2016-2017,echl,97933,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommy Olczyk (C),Alaska Aces,44,6,7,13,0.30,4,-3,/player/37945/tommy-olczyk,5,Tommy Olczyk,C,2016-2017,echl,37945,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mackenze Stewart (D/LW),Alaska Aces,70,6,7,13,0.19,117,6,/player/62280/mackenze-stewart,5,Mackenze Stewart,D/LW,2016-2017,echl,62280,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Czarnowczan (D),Toledo Walleye,13,5,8,13,1.00,18,-1,/player/45710/scott-czarnowczan,5,Scott Czarnowczan,D,2016-2017,echl,45710,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+André Bouvet-Morrissette (RW),Idaho Steelheads,35,5,8,13,0.37,16,-1,/player/88921/andre-bouvet-morrissette,5,André Bouvet-Morrissette,RW,2016-2017,echl,88921,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daultan Leveillé (C),totals,31,4,9,13,0.42,12,-12,/player/18599/daultan-leveille,5,Daultan Leveillé,C,2016-2017,echl,18599,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Follmer (D/F),totals,40,4,9,13,0.33,29,15,/player/49221/kyle-follmer,5,Kyle Follmer,D/F,2016-2017,echl,49221,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Charlie Sampair (C),Alaska Aces,44,3,10,13,0.30,6,1,/player/195173/charlie-sampair,5,Charlie Sampair,C,2016-2017,echl,195173,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Drew Baker (D),Atlanta Gladiators,59,3,10,13,0.22,100,-13,/player/49542/drew-baker,5,Drew Baker,D,2016-2017,echl,49542,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teigan Zahn (D),Colorado Eagles,68,3,10,13,0.19,219,1,/player/19183/teigan-zahn,5,Teigan Zahn,D,2016-2017,echl,19183,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Vernace (D),Brampton Beast,23,2,11,13,0.57,12,5,/player/11585/mike-vernace,5,Mike Vernace,D,2016-2017,echl,11585,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Carlsson (D),Indy Fuel,42,2,11,13,0.31,6,-18,/player/3706/jonathan-carlsson,5,Jonathan Carlsson,D,2016-2017,echl,3706,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wade Epp (D),South Carolina Stingrays,66,2,11,13,0.20,106,-5,/player/24554/wade-epp,5,Wade Epp,D,2016-2017,echl,24554,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Corbin Baldwin (D),Idaho Steelheads,72,2,11,13,0.18,130,10,/player/37185/corbin-baldwin,5,Corbin Baldwin,D,2016-2017,echl,37185,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Juha (D),Missouri Mavericks,43,1,12,13,0.30,10,-3,/player/75054/luke-juha,5,Luke Juha,D,2016-2017,echl,75054,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean Zimmerman (D),Colorado Eagles,58,1,12,13,0.22,168,22,/player/10459/sean-zimmerman,5,Sean Zimmerman,D,2016-2017,echl,10459,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Tvrdon (LW/RW),Indy Fuel,21,7,5,12,0.57,10,-13,/player/34760/marek-tvrdon,5,Marek Tvrdon,LW/RW,2016-2017,echl,34760,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Derek Mathers (RW/D),Allen Americans,59,7,5,12,0.20,274,-1,/player/75894/derek-mathers,5,Derek Mathers,RW/D,2016-2017,echl,75894,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kenny Brooks (RW),totals,44,6,6,12,0.27,19,-7,/player/46879/kenny-brooks,5,Kenny Brooks,RW,2016-2017,echl,46879,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathew Santos (RW/LW),Toledo Walleye,49,6,6,12,0.24,35,4,/player/217509/mathew-santos,5,Mathew Santos,RW/LW,2016-2017,echl,217509,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Akim Aliu (W/C/D),totals,13,5,7,12,0.92,61,5,/player/11116/akim-aliu,5,Akim Aliu,W/C/D,2016-2017,echl,11116,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Darryl Lloyd (C),totals,28,5,7,12,0.43,30,-6,/player/16660/darryl-lloyd,5,Darryl Lloyd,C,2016-2017,echl,16660,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryn Chyzyk (C/LW),Indy Fuel,30,5,7,12,0.40,12,-22,/player/66573/bryn-chyzyk,5,Bryn Chyzyk,C/LW,2016-2017,echl,66573,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Ammon (W/C),Wheeling Nailers,36,5,7,12,0.33,32,11,/player/38074/andrew-ammon,5,Andrew Ammon,W/C,2016-2017,echl,38074,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Chapie (RW/LW),Greenville Swamp Rabbits,24,4,8,12,0.50,16,-3,/player/61423/adam-chapie,5,Adam Chapie,RW/LW,2016-2017,echl,61423,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Craig Wyszomirski (D),Manchester Monarchs,45,4,8,12,0.27,40,3,/player/75051/craig-wyszomirski,5,Craig Wyszomirski,D,2016-2017,echl,75051,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vincent Dunn (C/LW),Wichita Thunder,47,4,8,12,0.26,86,-15,/player/126399/vincent-dunn,5,Vincent Dunn,C/LW,2016-2017,echl,126399,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Bolton (D),totals,55,2,10,12,0.22,28,-18,/player/161027/jake-bolton,5,Jake Bolton,D,2016-2017,echl,161027,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Trebish (D),Kalamazoo Wings,60,2,10,12,0.20,77,-4,/player/38816/michael-trebish,5,Michael Trebish,D,2016-2017,echl,38816,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dax Lauwers (D),Alaska Aces,62,2,10,12,0.19,142,5,/player/45840/dax-lauwers,5,Dax Lauwers,D,2016-2017,echl,45840,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Lamarche (D),Reading Royals,26,1,11,12,0.46,31,8,/player/45281/maxim-lamarche,5,Maxim Lamarche,D,2016-2017,echl,45281,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Bonis (LW),Toledo Walleye,9,6,5,11,1.22,2,10,/player/39376/kyle-bonis,5,Kyle Bonis,LW,2016-2017,echl,39376,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabriel Gagné (RW/C),Wichita Thunder,19,6,5,11,0.58,6,-3,/player/156103/gabriel-gagne,5,Gabriel Gagné,RW/C,2016-2017,echl,156103,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian Hart (RW/LW),Kalamazoo Wings,33,6,5,11,0.33,6,-7,/player/131064/brian-hart,5,Brian Hart,RW/LW,2016-2017,echl,131064,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Triston Grant (LW),totals,47,6,5,11,0.23,121,-16,/player/10303/triston-grant,5,Triston Grant,LW,2016-2017,echl,10303,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Donnie Harris (D),Quad City Mallards,50,6,5,11,0.22,37,-3,/player/19265/donnie-harris,5,Donnie Harris,D,2016-2017,echl,19265,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Václav Karabáček (RW/LW),Elmira Jackals,9,5,6,11,1.22,10,4,/player/130789/vaclav-karabacek,5,Václav Karabáček,RW/LW,2016-2017,echl,130789,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rory Rawlyk (D),totals,39,5,6,11,0.28,38,-1,/player/8031/rory-rawlyk,5,Rory Rawlyk,D,2016-2017,echl,8031,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Ruegsegger (C),Alaska Aces,46,5,6,11,0.24,34,-1,/player/11444/tyler-ruegsegger,5,Tyler Ruegsegger,C,2016-2017,echl,11444,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Doty (C/RW),Missouri Mavericks,57,5,6,11,0.19,126,-17,/player/45623/jacob-doty,5,Jacob Doty,C/RW,2016-2017,echl,45623,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jarrett Burton (C),Wheeling Nailers,15,4,7,11,0.73,8,3,/player/39646/jarrett-burton,5,Jarrett Burton,C,2016-2017,echl,39646,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Radja (LW),Elmira Jackals,22,4,7,11,0.50,8,-21,/player/17745/mike-radja,5,Mike Radja,LW,2016-2017,echl,17745,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danny New (D),totals,30,4,7,11,0.37,22,-3,/player/19160/danny-new,5,Danny New,D,2016-2017,echl,19160,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Williams (D),Indy Fuel,53,4,7,11,0.21,128,4,/player/76184/chris-williams,6,Chris Williams,D,2016-2017,echl,76184,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yannick Veilleux (LW),Brampton Beast,11,3,8,11,1.00,31,0,/player/45271/yannick-veilleux,6,Yannick Veilleux,LW,2016-2017,echl,45271,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Gutierrez (C),Manchester Monarchs,12,3,8,11,0.92,8,6,/player/146844/justin-gutierrez,6,Justin Gutierrez,C,2016-2017,echl,146844,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cody Corbett (D),totals,18,3,8,11,0.61,10,8,/player/156115/cody-corbett,6,Cody Corbett,D,2016-2017,echl,156115,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Clark Bishop (C/LW),Florida Everblades,21,3,8,11,0.52,16,1,/player/191376/clark-bishop,6,Clark Bishop,C/LW,2016-2017,echl,191376,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Banwell (D),Utah Grizzlies,37,3,8,11,0.30,43,-4,/player/38263/mike-banwell,6,Mike Banwell,D,2016-2017,echl,38263,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brady Ramsay (RW/C),Indy Fuel,42,3,8,11,0.26,81,-10,/player/48786/brady-ramsay,6,Brady Ramsay,RW/C,2016-2017,echl,48786,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ian Young (D),Elmira Jackals,44,3,8,11,0.25,21,-8,/player/53738/ian-young,6,Ian Young,D,2016-2017,echl,53738,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Segalla (D),Wheeling Nailers,62,3,8,11,0.18,65,0,/player/162870/ryan-segalla,6,Ryan Segalla,D,2016-2017,echl,162870,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shane Conacher (RW),Orlando Solar Bears,25,2,9,11,0.44,4,-10,/player/95854/shane-conacher,6,Shane Conacher,RW,2016-2017,echl,95854,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Haché (D),totals,29,2,9,11,0.38,26,-5,/player/56049/justin-hache,6,Justin Haché,D,2016-2017,echl,56049,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benjamin Dieudé-Fauvel (D),totals,65,2,9,11,0.17,92,-20,/player/18043/benjamin-dieude-fauvel,6,Benjamin Dieudé-Fauvel,D,2016-2017,echl,18043,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carlos Amestoy (C),Utah Grizzlies,22,1,10,11,0.50,5,0,/player/76797/carlos-amestoy,6,Carlos Amestoy,C,2016-2017,echl,76797,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tony Turgeon (D/LW),Manchester Monarchs,38,1,10,11,0.29,79,-2,/player/45976/tony-turgeon,6,Tony Turgeon,D/LW,2016-2017,echl,45976,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johnny Daniels (F),totals,28,6,4,10,0.36,14,-1,/player/97039/johnny-daniels,6,Johnny Daniels,F,2016-2017,echl,97039,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommy Giroux (LW),Norfolk Admirals,15,5,5,10,0.67,2,-2,/player/65167/tommy-giroux,6,Tommy Giroux,LW,2016-2017,echl,65167,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Beauregard (C/RW),Indy Fuel,21,5,5,10,0.48,8,-10,/player/151144/anthony-beauregard,6,Anthony Beauregard,C/RW,2016-2017,echl,151144,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colin Jacobs (C/RW),Atlanta Gladiators,12,4,6,10,0.83,16,-2,/player/32767/colin-jacobs,6,Colin Jacobs,C/RW,2016-2017,echl,32767,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+J.C. Campagna (LW),Adirondack Thunder,16,4,6,10,0.63,6,2,/player/45991/j-c-campagna,6,J.C. Campagna,LW,2016-2017,echl,45991,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt MacKenzie (D),Florida Everblades,17,4,6,10,0.59,15,12,/player/37110/matt-mackenzie,6,Matt MacKenzie,D,2016-2017,echl,37110,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christiaan Minella (RW),Cincinnati Cyclones,26,4,6,10,0.38,13,1,/player/38480/christiaan-minella,6,Christiaan Minella,RW,2016-2017,echl,38480,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Brodzinski (D),Allen Americans,23,3,7,10,0.43,14,-1,/player/118436/michael-brodzinski,6,Michael Brodzinski,D,2016-2017,echl,118436,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Raine (D),Florida Everblades,40,3,7,10,0.25,23,17,/player/73907/kevin-raine,6,Kevin Raine,D,2016-2017,echl,73907,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Tolkinen (D),totals,64,3,7,10,0.16,52,-20,/player/47669/zach-tolkinen,6,Zach Tolkinen,D,2016-2017,echl,47669,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryan Cameron (C/RW),Atlanta Gladiators,17,2,8,10,0.59,10,1,/player/11244/bryan-cameron,6,Bryan Cameron,C/RW,2016-2017,echl,11244,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rick Pinkston (D),totals,27,2,8,10,0.37,34,3,/player/37965/rick-pinkston,6,Rick Pinkston,D,2016-2017,echl,37965,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Press (D),Indy Fuel,30,2,8,10,0.33,14,-25,/player/36616/robin-press,6,Robin Press,D,2016-2017,echl,36616,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Pompeo (D/RW),Norfolk Admirals,39,2,8,10,0.26,41,-4,/player/241059/alex-pompeo,6,Alex Pompeo,D/RW,2016-2017,echl,241059,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Randy Cure (D),totals,57,2,8,10,0.18,40,-5,/player/37980/randy-cure,6,Randy Cure,D,2016-2017,echl,37980,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Garrett Noonan (D),Greenville Swamp Rabbits,24,1,9,10,0.42,18,-10,/player/48219/garrett-noonan,6,Garrett Noonan,D,2016-2017,echl,48219,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Branden Troock (RW),Idaho Steelheads,15,7,2,9,0.60,4,1,/player/51702/branden-troock,6,Branden Troock,RW,2016-2017,echl,51702,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dana Fraser (C),Adirondack Thunder,36,5,4,9,0.25,20,-3,/player/40289/dana-fraser,6,Dana Fraser,C,2016-2017,echl,40289,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryce Van Brabant (LW/C),Idaho Steelheads,15,4,5,9,0.60,10,3,/player/39628/bryce-van-brabant,6,Bryce Van Brabant,LW/C,2016-2017,echl,39628,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Borkowski (LW/C),Toledo Walleye,6,3,6,9,1.50,2,10,/player/40223/michael-borkowski,6,Michael Borkowski,LW/C,2016-2017,echl,40223,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Bailey (C/W),Adirondack Thunder,6,3,6,9,1.50,4,6,/player/31607/matt-bailey,6,Matt Bailey,C/W,2016-2017,echl,31607,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Fedoseyev (F),Adirondack Thunder,17,3,6,9,0.53,9,-1,/player/77130/alexander-fedoseyev,6,Alexander Fedoseyev,F,2016-2017,echl,77130,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Maggio (D/RW),Orlando Solar Bears,33,3,6,9,0.27,77,-2,/player/37729/daniel-maggio,6,Daniel Maggio,D/RW,2016-2017,echl,37729,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ross McMullan (D),Wheeling Nailers,46,3,6,9,0.20,42,4,/player/59745/ross-mcmullan,6,Ross McMullan,D,2016-2017,echl,59745,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Will Weber (D),Fort Wayne Komets,67,3,6,9,0.13,76,4,/player/12515/will-weber,6,Will Weber,D,2016-2017,echl,12515,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Horn (RW),Rapid City Rush,22,2,7,9,0.41,6,-2,/player/75070/christian-horn,6,Christian Horn,RW,2016-2017,echl,75070,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Poe (D),totals,34,2,7,9,0.26,25,-5,/player/39772/jacob-poe,6,Jacob Poe,D,2016-2017,echl,39772,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryce Aneloski (D),totals,12,1,8,9,0.75,2,0,/player/15516/bryce-aneloski,6,Bryce Aneloski,D,2016-2017,echl,15516,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eddie Wittchow (D),Manchester Monarchs,14,1,8,9,0.64,17,9,/player/117575/eddie-wittchow,6,Eddie Wittchow,D,2016-2017,echl,117575,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zachary Bell (D),Idaho Steelheads,32,1,8,9,0.28,56,10,/player/45395/zachary-bell,6,Zachary Bell,D,2016-2017,echl,45395,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Stoflet (D),Utah Grizzlies,45,1,8,9,0.20,50,-13,/player/17857/evan-stoflet,6,Evan Stoflet,D,2016-2017,echl,17857,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Harrison Ruopp (D),Allen Americans,45,1,8,9,0.20,81,-6,/player/45515/harrison-ruopp,6,Harrison Ruopp,D,2016-2017,echl,45515,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Golightly (D),totals,47,1,8,9,0.19,12,-3,/player/97104/chase-golightly,6,Chase Golightly,D,2016-2017,echl,97104,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Nemcik (D),totals,57,1,8,9,0.16,114,-1,/player/96786/martin-nemcik,6,Martin Nemcik,D,2016-2017,echl,96786,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dan Milan (D),Fort Wayne Komets,61,1,8,9,0.15,73,8,/player/88677/dan-milan,6,Dan Milan,D,2016-2017,echl,88677,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Rodewald (C),Wichita Thunder,6,5,3,8,1.33,2,2,/player/84719/jack-rodewald,6,Jack Rodewald,C,2016-2017,echl,84719,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Leavens (RW),Wheeling Nailers,7,5,3,8,1.14,0,2,/player/76192/daniel-leavens,6,Daniel Leavens,RW,2016-2017,echl,76192,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riley Bourbonnais (C),Wheeling Nailers,10,5,3,8,0.80,0,3,/player/121870/riley-bourbonnais,6,Riley Bourbonnais,C,2016-2017,echl,121870,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Levko Koper (LW),Florida Everblades,13,5,3,8,0.62,21,9,/player/18603/levko-koper,6,Levko Koper,LW,2016-2017,echl,18603,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Nowakowski (RW),Cincinnati Cyclones,28,5,3,8,0.29,21,8,/player/44521/dylan-nowakowski,6,Dylan Nowakowski,RW,2016-2017,echl,44521,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Geoff Fortman (D),Rapid City Rush,9,4,4,8,0.89,4,1,/player/125299/geoff-fortman,6,Geoff Fortman,D,2016-2017,echl,125299,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Caleb Herbert (C/RW),Idaho Steelheads,13,4,4,8,0.62,27,-2,/player/40252/caleb-herbert,6,Caleb Herbert,C/RW,2016-2017,echl,40252,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Ognev (F),Tulsa Oilers,23,4,4,8,0.35,8,2,/player/106063/dmitri-ognev,6,Dmitri Ognev,F,2016-2017,echl,106063,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin MacDonald (C),totals,29,4,4,8,0.28,6,3,/player/76571/justin-macdonald,6,Justin MacDonald,C,2016-2017,echl,76571,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Samuels-Thomas (C/LW),totals,9,3,5,8,0.89,2,0,/player/19154/jordan-samuels-thomas,6,Jordan Samuels-Thomas,C/LW,2016-2017,echl,19154,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Gilmour (C),Quad City Mallards,11,3,5,8,0.73,4,0,/player/190084/adam-gilmour,6,Adam Gilmour,C,2016-2017,echl,190084,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Guy LeBoeuf (D),Elmira Jackals,72,3,5,8,0.11,56,-22,/player/77940/guy-leboeuf,6,Guy LeBoeuf,D,2016-2017,echl,77940,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Noreau (D),totals,38,2,6,8,0.21,50,-5,/player/68120/samuel-noreau,6,Samuel Noreau,D,2016-2017,echl,68120,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Schemitsch (D),Manchester Monarchs,17,1,7,8,0.47,6,2,/player/232612/thomas-schemitsch,6,Thomas Schemitsch,D,2016-2017,echl,232612,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dalton Reum (D),Atlanta Gladiators,44,1,7,8,0.18,74,-10,/player/44911/dalton-reum,6,Dalton Reum,D,2016-2017,echl,44911,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Mastrodicasa (D),Rapid City Rush,59,1,7,8,0.14,23,-2,/player/39482/anthony-mastrodicasa,6,Anthony Mastrodicasa,D,2016-2017,echl,39482,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Saverio Posa (D),Cincinnati Cyclones,63,1,7,8,0.13,16,-3,/player/45541/saverio-posa,6,Saverio Posa,D,2016-2017,echl,45541,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danny Federico (D),South Carolina Stingrays,62,0,8,8,0.13,16,19,/player/59737/danny-federico,6,Danny Federico,D,2016-2017,echl,59737,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Sandlak (LW),Toledo Walleye,41,5,2,7,0.17,34,0,/player/45409/carter-sandlak,6,Carter Sandlak,LW,2016-2017,echl,45409,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mario Puskarich (LW/RW),Manchester Monarchs,11,4,3,7,0.64,0,-3,/player/57772/mario-puskarich,6,Mario Puskarich,LW/RW,2016-2017,echl,57772,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin McKay (F),totals,14,4,3,7,0.50,11,0,/player/76373/austin-mckay,6,Austin McKay,F,2016-2017,echl,76373,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Dufour (LW),South Carolina Stingrays,9,3,4,7,0.78,2,0,/player/131616/kevin-dufour,6,Kevin Dufour,LW,2016-2017,echl,131616,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Lefebvre (D),Cincinnati Cyclones,11,3,4,7,0.64,4,0,/player/37480/martin-lefebvre,6,Martin Lefebvre,D,2016-2017,echl,37480,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Orszulak (LW),Adirondack Thunder,14,3,4,7,0.50,20,7,/player/161248/austin-orszulak,6,Austin Orszulak,LW,2016-2017,echl,161248,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexandre Ranger (RW),totals,15,3,4,7,0.47,26,-6,/player/128222/alexandre-ranger,6,Alexandre Ranger,RW,2016-2017,echl,128222,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Carlson (D),totals,35,3,4,7,0.20,23,-8,/player/45681/brandon-carlson,6,Brandon Carlson,D,2016-2017,echl,45681,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brayden Low (C/LW),Rapid City Rush,42,3,4,7,0.17,41,-22,/player/59589/brayden-low,6,Brayden Low,C/LW,2016-2017,echl,59589,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cameron Brown (C),Adirondack Thunder,9,2,5,7,0.78,6,1,/player/96859/cameron-brown,6,Cameron Brown,C,2016-2017,echl,96859,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brycen Martin (D),Elmira Jackals,34,2,5,7,0.21,10,-13,/player/62212/brycen-martin,6,Brycen Martin,D,2016-2017,echl,62212,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Venuto (RW/C),Brampton Beast,36,2,5,7,0.19,13,-3,/player/76782/lucas-venuto,6,Lucas Venuto,RW/C,2016-2017,echl,76782,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timothy Boyle (D),totals,19,0,7,7,0.37,9,3,/player/177682/timothy-boyle,6,Timothy Boyle,D,2016-2017,echl,177682,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitch Jones (D),Alaska Aces,34,0,7,7,0.21,41,0,/player/155239/mitch-jones,6,Mitch Jones,D,2016-2017,echl,155239,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Lang (C/RW),Quad City Mallards,12,4,2,6,0.50,4,0,/player/120657/chase-lang,6,Chase Lang,C/RW,2016-2017,echl,120657,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cam Maclise (RW/C),Colorado Eagles,13,4,2,6,0.46,4,0,/player/26415/cam-maclise,6,Cam Maclise,RW/C,2016-2017,echl,26415,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Betz (RW),totals,24,4,2,6,0.25,27,-3,/player/145951/nick-betz,6,Nick Betz,RW,2016-2017,echl,145951,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Keller (F),Indy Fuel,35,4,2,6,0.17,4,-1,/player/122062/ryan-keller,6,Ryan Keller,F,2016-2017,echl,122062,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Bozon (LW),Manchester Monarchs,14,3,3,6,0.43,0,0,/player/48990/tim-bozon,6,Tim Bozon,LW,2016-2017,echl,48990,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Selman (C),Missouri Mavericks,17,3,3,6,0.35,12,-1,/player/90315/justin-selman,6,Justin Selman,C,2016-2017,echl,90315,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Labbé (D),Quad City Mallards,17,3,3,6,0.35,21,-5,/player/129015/dylan-labbe,6,Dylan Labbé,D,2016-2017,echl,129015,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Megannety (LW),totals,19,3,3,6,0.32,8,-4,/player/62532/patrick-megannety,6,Patrick Megannety,LW,2016-2017,echl,62532,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wade Murphy (RW/LW),Manchester Monarchs,14,2,4,6,0.43,15,-3,/player/48368/wade-murphy,6,Wade Murphy,RW/LW,2016-2017,echl,48368,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaron Gens (D),Allen Americans,24,2,4,6,0.25,22,-2,/player/38560/aaron-gens,6,Aaron Gens,D,2016-2017,echl,38560,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Devin Mantha (RW),Fort Wayne Komets,25,2,4,6,0.24,2,2,/player/39586/devin-mantha,6,Devin Mantha,RW,2016-2017,echl,39586,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Troy Vance (D),totals,53,2,4,6,0.11,12,-17,/player/96876/troy-vance,6,Troy Vance,D,2016-2017,echl,96876,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Folkes (D),Brampton Beast,58,2,4,6,0.10,34,-13,/player/38257/mike-folkes,6,Mike Folkes,D,2016-2017,echl,38257,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike McMurtry (C),Idaho Steelheads,6,1,5,6,1.00,0,-1,/player/78049/mike-mcmurtry,6,Mike McMurtry,C,2016-2017,echl,78049,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Lowney (D),Fort Wayne Komets,14,1,5,6,0.43,2,3,/player/135671/ryan-lowney,6,Ryan Lowney,D,2016-2017,echl,135671,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeff DiNallo (C),Norfolk Admirals,20,1,5,6,0.30,6,-5,/player/62354/jeff-dinallo,6,Jeff DiNallo,C,2016-2017,echl,62354,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Martin (D),Elmira Jackals,24,1,5,6,0.25,12,-10,/player/87528/cole-martin,6,Cole Martin,D,2016-2017,echl,87528,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Mikulovich (D),Rapid City Rush,36,1,5,6,0.17,41,-8,/player/168691/alexander-mikulovich,6,Alexander Mikulovich,D,2016-2017,echl,168691,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Dommett (RW),Greenville Swamp Rabbits,58,1,5,6,0.10,67,-25,/player/54180/andrew-dommett,6,Andrew Dommett,RW,2016-2017,echl,54180,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean O'Rourke (D),Kalamazoo Wings,67,1,5,6,0.09,19,-16,/player/47683/sean-o-rourke,7,Sean O'Rourke,D,2016-2017,echl,47683,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Abt (D),Norfolk Admirals,10,0,6,6,0.60,13,-2,/player/45740/jordan-abt,7,Jordan Abt,D,2016-2017,echl,45740,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Conor O'Donnell (C/LW),Colorado Eagles,24,0,6,6,0.25,27,-6,/player/36712/conor-o-donnell,7,Conor O'Donnell,C/LW,2016-2017,echl,36712,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ty Stanton (D),Orlando Solar Bears,26,0,6,6,0.23,21,-1,/player/84250/ty-stanton,7,Ty Stanton,D,2016-2017,echl,84250,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Hubbs (RW),Tulsa Oilers,14,4,1,5,0.36,9,-4,/player/57117/dylan-hubbs,7,Dylan Hubbs,RW,2016-2017,echl,57117,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joe Pendenza (C),Manchester Monarchs,4,3,2,5,1.25,0,1,/player/39797/joe-pendenza,7,Joe Pendenza,C,2016-2017,echl,39797,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Betker (D),Norfolk Admirals,5,3,2,5,1.00,2,4,/player/102378/ben-betker,7,Ben Betker,D,2016-2017,echl,102378,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Pontarelli (RW),Norfolk Admirals,5,2,3,5,1.00,0,2,/player/212878/michael-pontarelli,7,Michael Pontarelli,RW,2016-2017,echl,212878,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Rothstein (C/W),Rapid City Rush,8,2,3,5,0.63,2,-1,/player/184124/sam-rothstein,7,Sam Rothstein,C/W,2016-2017,echl,184124,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Garrett Clarke (D/LW),Brampton Beast,20,2,3,5,0.25,40,-1,/player/37544/garrett-clarke,7,Garrett Clarke,D/LW,2016-2017,echl,37544,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Miller (RW),totals,33,2,3,5,0.15,2,-9,/player/90317/andrew-miller,7,Andrew Miller,RW,2016-2017,echl,90317,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jérémy Beaudry (D),Wichita Thunder,14,1,4,5,0.36,12,-2,/player/128524/jeremy-beaudry,7,Jérémy Beaudry,D,2016-2017,echl,128524,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Van Allen (D),Alaska Aces,17,1,4,5,0.29,13,-2,/player/46146/chase-van-allen,7,Chase Van Allen,D,2016-2017,echl,46146,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Sergeyev (D),totals,36,1,4,5,0.14,8,-8,/player/168690/dmitri-sergeyev,7,Dmitri Sergeyev,D,2016-2017,echl,168690,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keegan Kanzig (D),Adirondack Thunder,40,1,4,5,0.13,65,10,/player/63193/keegan-kanzig,7,Keegan Kanzig,D,2016-2017,echl,63193,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Pereira (D),totals,6,0,5,5,0.83,0,2,/player/30929/kyle-pereira,7,Kyle Pereira,D,2016-2017,echl,30929,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris LeBlanc (RW),Wichita Thunder,7,0,5,5,0.71,2,0,/player/220346/chris-leblanc,7,Chris LeBlanc,RW,2016-2017,echl,220346,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mason Geertsen (LW/D),Colorado Eagles,9,0,5,5,0.56,14,-1,/player/64567/mason-geertsen,7,Mason Geertsen,LW/D,2016-2017,echl,64567,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Drew Schiestel (D),Indy Fuel,14,0,5,5,0.36,9,-2,/player/12516/drew-schiestel,7,Drew Schiestel,D,2016-2017,echl,12516,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Wuthrich (RW),Kalamazoo Wings,18,0,5,5,0.28,2,-6,/player/58561/austin-wuthrich,7,Austin Wuthrich,RW,2016-2017,echl,58561,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Grasso (RW/D),totals,19,0,5,5,0.26,2,2,/player/39804/nick-grasso,7,Nick Grasso,RW/D,2016-2017,echl,39804,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trevor Ludwig (D),Orlando Solar Bears,27,0,5,5,0.19,14,10,/player/14859/trevor-ludwig,7,Trevor Ludwig,D,2016-2017,echl,14859,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Corey Syvret (D),totals,30,0,5,5,0.17,21,-10,/player/11239/corey-syvret,7,Corey Syvret,D,2016-2017,echl,11239,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiří Fronk (RW/C),Tulsa Oilers,4,4,0,4,1.00,4,1,/player/100462/ji%C5%99i-fronk,7,Jiří Fronk,RW/C,2016-2017,echl,100462,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Mosey (D/F),Indy Fuel,9,3,1,4,0.44,6,-4,/player/49400/evan-mosey,7,Evan Mosey,D/F,2016-2017,echl,49400,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Brown (LW),Colorado Eagles,12,3,1,4,0.33,2,-5,/player/37521/matt-brown,7,Matt Brown,LW,2016-2017,echl,37521,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathon Martin (RW/C),Allen Americans,7,2,2,4,0.57,12,1,/player/101624/jonathon-martin,7,Jonathon Martin,RW/C,2016-2017,echl,101624,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Damir Sharipzyanov (D),Manchester Monarchs,10,2,2,4,0.40,6,7,/player/216568/damir-sharipzyanov,7,Damir Sharipzyanov,D,2016-2017,echl,216568,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Dutra (RW),Norfolk Admirals,12,2,2,4,0.33,0,-2,/player/97548/kyle-dutra,7,Kyle Dutra,RW,2016-2017,echl,97548,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Nikiforov (LW/RW),Alaska Aces,14,2,2,4,0.29,2,3,/player/13664/vladimir-nikiforov,7,Vladimir Nikiforov,LW/RW,2016-2017,echl,13664,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jace Coyle (D),Quad City Mallards,14,2,2,4,0.29,8,-6,/player/18609/jace-coyle,7,Jace Coyle,D,2016-2017,echl,18609,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frank Misuraca (D),totals,40,2,2,4,0.10,0,-4,/player/67209/frank-misuraca,7,Frank Misuraca,D,2016-2017,echl,67209,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Travis Howe (RW/LW),Utah Grizzlies,50,2,2,4,0.08,234,-3,/player/207070/travis-howe,7,Travis Howe,RW/LW,2016-2017,echl,207070,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Sadowy (LW/RW),Toledo Walleye,6,1,3,4,0.67,14,4,/player/194119/dylan-sadowy,7,Dylan Sadowy,LW/RW,2016-2017,echl,194119,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Turner (LW),totals,23,1,3,4,0.17,18,-3,/player/107970/michael-turner,7,Michael Turner,LW,2016-2017,echl,107970,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jared Nightingale (D),Toledo Walleye,26,1,3,4,0.15,66,-5,/player/17027/jared-nightingale,7,Jared Nightingale,D,2016-2017,echl,17027,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Bergin (D),Adirondack Thunder,27,1,3,4,0.15,45,1,/player/19238/mike-bergin,7,Mike Bergin,D,2016-2017,echl,19238,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Travis Armstrong (D),totals,29,1,3,4,0.14,33,-12,/player/78187/travis-armstrong,7,Travis Armstrong,D,2016-2017,echl,78187,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick McCadden (F),Atlanta Gladiators,29,1,3,4,0.14,45,-6,/player/37777/patrick-mccadden,7,Patrick McCadden,F,2016-2017,echl,37777,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Walters (D),Rapid City Rush,34,1,3,4,0.12,8,-4,/player/57161/nick-walters,7,Nick Walters,D,2016-2017,echl,57161,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Flemington (D),totals,37,1,3,4,0.11,53,3,/player/37714/kyle-flemington,7,Kyle Flemington,D,2016-2017,echl,37714,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Taylor Crunk (LW),Fort Wayne Komets,42,1,3,4,0.10,120,-3,/player/147611/taylor-crunk,7,Taylor Crunk,LW,2016-2017,echl,147611,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Todd (C/LW),Quad City Mallards,12,0,4,4,0.33,4,-3,/player/154471/nathan-todd,7,Nathan Todd,C/LW,2016-2017,echl,154471,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+T.J. Sarcona (LW),Rapid City Rush,12,0,4,4,0.33,4,-1,/player/56259/t-j-sarcona,7,T.J. Sarcona,LW,2016-2017,echl,56259,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nelson Armstrong (D),Florida Everblades,12,0,4,4,0.33,6,-1,/player/76516/nelson-armstrong,7,Nelson Armstrong,D,2016-2017,echl,76516,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Baddock (LW/RW),Adirondack Thunder,21,0,4,4,0.19,15,1,/player/83627/brandon-baddock,7,Brandon Baddock,LW/RW,2016-2017,echl,83627,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Windle (D),totals,25,0,4,4,0.16,37,-8,/player/84580/sam-windle,7,Sam Windle,D,2016-2017,echl,84580,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Johnston (D),Cincinnati Cyclones,34,0,4,4,0.12,16,-1,/player/37181/daniel-johnston,7,Daniel Johnston,D,2016-2017,echl,37181,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Rumble (D),Wichita Thunder,3,2,1,3,1.00,4,7,/player/37928/chris-rumble,7,Chris Rumble,D,2016-2017,echl,37928,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Charlie O'Connor (RW/LW),Toledo Walleye,5,2,1,3,0.60,0,4,/player/90903/charlie-o-connor,7,Charlie O'Connor,RW/LW,2016-2017,echl,90903,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Seidel (RW),Norfolk Admirals,11,2,1,3,0.27,0,-4,/player/18955/mike-seidel,7,Mike Seidel,RW,2016-2017,echl,18955,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabryel Paquin-Boudreau (LW),Cincinnati Cyclones,12,2,1,3,0.25,15,-4,/player/151140/gabryel-paquin-boudreau,7,Gabryel Paquin-Boudreau,LW,2016-2017,echl,151140,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitch Zion (C),Brampton Beast,15,2,1,3,0.20,2,-9,/player/40222/mitch-zion,7,Mitch Zion,C,2016-2017,echl,40222,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reid Halabi (RW),Tulsa Oilers,20,2,1,3,0.15,172,0,/player/62148/reid-halabi,7,Reid Halabi,RW,2016-2017,echl,62148,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Raphaël Corriveau (RW),Indy Fuel,35,2,1,3,0.09,60,-5,/player/128514/raphael-corriveau,7,Raphaël Corriveau,RW,2016-2017,echl,128514,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kris Newbury (C/LW),Reading Royals,1,1,2,3,3.00,2,1,/player/11039/kris-newbury,7,Kris Newbury,C/LW,2016-2017,echl,11039,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Werek (C/W),Orlando Solar Bears,2,1,2,3,1.50,2,-1,/player/21591/ethan-werek,7,Ethan Werek,C/W,2016-2017,echl,21591,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris DeSousa (C/LW),Indy Fuel,3,1,2,3,1.00,2,-3,/player/30925/chris-desousa,7,Chris DeSousa,C/LW,2016-2017,echl,30925,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Danforth (RW/C),Reading Royals,3,1,2,3,1.00,2,-1,/player/76146/justin-danforth,7,Justin Danforth,RW/C,2016-2017,echl,76146,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Heinonen (LW),Kalamazoo Wings,5,1,2,3,0.60,2,-1,/player/122002/tyler-heinonen,7,Tyler Heinonen,LW,2016-2017,echl,122002,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Baker (D),Brampton Beast,8,1,2,3,0.38,8,2,/player/39434/justin-baker,7,Justin Baker,D,2016-2017,echl,39434,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Pohlkamp (RW),Toledo Walleye,9,1,2,3,0.33,0,3,/player/177689/matt-pohlkamp,7,Matt Pohlkamp,RW,2016-2017,echl,177689,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Driscoll (F),totals,11,1,2,3,0.27,0,-4,/player/134804/mike-driscoll,7,Mike Driscoll,F,2016-2017,echl,134804,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Woody Hudson (RW),Indy Fuel,11,1,2,3,0.27,7,-9,/player/75042/woody-hudson,7,Woody Hudson,RW,2016-2017,echl,75042,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Schurhamer (D),Manchester Monarchs,12,1,2,3,0.25,4,-1,/player/177698/eric-schurhamer,7,Eric Schurhamer,D,2016-2017,echl,177698,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gus Young (D),Missouri Mavericks,13,1,2,3,0.23,16,-2,/player/38049/gus-young,7,Gus Young,D,2016-2017,echl,38049,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Bahntge (RW),Atlanta Gladiators,14,1,2,3,0.21,2,-5,/player/45897/daniel-bahntge,7,Daniel Bahntge,RW,2016-2017,echl,45897,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Baker (D),totals,19,1,2,3,0.16,12,-4,/player/46732/jake-baker,7,Jake Baker,D,2016-2017,echl,46732,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blake Hietala (RW),Kalamazoo Wings,20,1,2,3,0.15,14,2,/player/39701/blake-hietala,7,Blake Hietala,RW,2016-2017,echl,39701,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miro Karjalainen (D),Idaho Steelheads,24,1,2,3,0.13,21,-1,/player/151918/miro-karjalainen,7,Miro Karjalainen,D,2016-2017,echl,151918,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rob De Fulviis (C),Cincinnati Cyclones,26,1,2,3,0.12,36,-1,/player/62716/rob-de-fulviis,7,Rob De Fulviis,C,2016-2017,echl,62716,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chad Duchesne (D),Greenville Swamp Rabbits,38,1,2,3,0.08,37,-15,/player/149578/chad-duchesne,7,Chad Duchesne,D,2016-2017,echl,149578,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Huntebrinker (C),Reading Royals,8,0,3,3,0.38,5,1,/player/95190/michael-huntebrinker,7,Michael Huntebrinker,C,2016-2017,echl,95190,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Don Olivieri (D),Missouri Mavericks,11,0,3,3,0.27,10,1,/player/97206/don-olivieri,7,Don Olivieri,D,2016-2017,echl,97206,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Shapiro (D),totals,15,0,3,3,0.20,8,1,/player/63072/kyle-shapiro,7,Kyle Shapiro,D,2016-2017,echl,63072,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Geurts (D),Alaska Aces,20,0,3,3,0.15,12,4,/player/65096/matt-geurts,7,Matt Geurts,D,2016-2017,echl,65096,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dryden Hunt (LW/RW),Manchester Monarchs,2,2,0,2,1.00,0,-1,/player/84609/dryden-hunt,7,Dryden Hunt,LW/RW,2016-2017,echl,84609,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julien Nantel (C/LW),Colorado Eagles,5,2,0,2,0.40,0,-3,/player/151707/julien-nantel,7,Julien Nantel,C/LW,2016-2017,echl,151707,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Robinson (RW/LW),totals,5,2,0,2,0.40,2,-2,/player/37791/eric-robinson,7,Eric Robinson,RW/LW,2016-2017,echl,37791,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jason Fram (D),Allen Americans,6,2,0,2,0.33,2,1,/player/102383/jason-fram,7,Jason Fram,D,2016-2017,echl,102383,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Axel Blomqvist (LW/RW),Tulsa Oilers,6,2,0,2,0.33,4,3,/player/69017/axel-blomqvist,7,Axel Blomqvist,LW/RW,2016-2017,echl,69017,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Schoenborn (RW),Allen Americans,6,2,0,2,0.33,7,3,/player/118437/alex-schoenborn,7,Alex Schoenborn,RW,2016-2017,echl,118437,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabriel Beaupré (D),Fort Wayne Komets,11,2,0,2,0.18,14,-6,/player/22857/gabriel-beaupre,7,Gabriel Beaupré,D,2016-2017,echl,22857,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colin Murray (F),totals,16,2,0,2,0.13,4,-3,/player/76125/colin-murray,7,Colin Murray,F,2016-2017,echl,76125,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Harrington (F/D),Florida Everblades,2,1,1,2,1.00,0,1,/player/74383/matt-harrington,7,Matt Harrington,F/D,2016-2017,echl,74383,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Kirkland (C/W),Cincinnati Cyclones,4,1,1,2,0.50,2,2,/player/63133/justin-kirkland,7,Justin Kirkland,C/W,2016-2017,echl,63133,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Richard (C/LW),Cincinnati Cyclones,5,1,1,2,0.40,0,0,/player/155661/anthony-richard,7,Anthony Richard,C/LW,2016-2017,echl,155661,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reece Willcox (D),Reading Royals,5,1,1,2,0.40,0,-1,/player/93550/reece-willcox,7,Reece Willcox,D,2016-2017,echl,93550,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Stefano (C),Elmira Jackals,5,1,1,2,0.40,0,-3,/player/149365/anthony-stefano,7,Anthony Stefano,C,2016-2017,echl,149365,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Hervey (LW),Indy Fuel,5,1,1,2,0.40,0,1,/player/48763/austin-hervey,7,Austin Hervey,LW,2016-2017,echl,48763,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Petgrave (D),Brampton Beast,5,1,1,2,0.40,4,-3,/player/45597/matt-petgrave,7,Matt Petgrave,D,2016-2017,echl,45597,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Boikov (D),Colorado Eagles,7,1,1,2,0.29,2,-1,/player/218306/sergei-boikov,7,Sergei Boikov,D,2016-2017,echl,218306,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dante Salituro (C/RW),totals,7,1,1,2,0.29,2,-5,/player/169595/dante-salituro,7,Dante Salituro,C/RW,2016-2017,echl,169595,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Guillaume Asselin (RW/LW),Brampton Beast,7,1,1,2,0.29,2,-3,/player/23459/guillaume-asselin,7,Guillaume Asselin,RW/LW,2016-2017,echl,23459,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ned Lukacevic (LW/D),Quad City Mallards,8,1,1,2,0.25,0,-6,/player/17817/ned-lukacevic,7,Ned Lukacevic,LW/D,2016-2017,echl,17817,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Perry D'Arrisso (RW/C),Elmira Jackals,8,1,1,2,0.25,5,-5,/player/62599/perry-d-arrisso,7,Perry D'Arrisso,RW/C,2016-2017,echl,62599,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Campbell (D),totals,9,1,1,2,0.22,2,0,/player/33876/tim-campbell,7,Tim Campbell,D,2016-2017,echl,33876,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dean Yakura (C/RW),totals,11,1,1,2,0.18,0,1,/player/42691/dean-yakura,7,Dean Yakura,C/RW,2016-2017,echl,42691,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Jasper (C/LW),Greenville Swamp Rabbits,11,1,1,2,0.18,2,-3,/player/61301/evan-jasper,7,Evan Jasper,C/LW,2016-2017,echl,61301,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Ortiz (F),Rapid City Rush,13,1,1,2,0.15,6,-7,/player/135684/marcus-ortiz,7,Marcus Ortiz,F,2016-2017,echl,135684,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Sandler (LW),Elmira Jackals,17,1,1,2,0.12,95,-2,/player/45707/luke-sandler,8,Luke Sandler,LW,2016-2017,echl,45707,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Prow (D),Wheeling Nailers,1,0,2,2,2.00,0,-2,/player/90323/ethan-prow,8,Ethan Prow,D,2016-2017,echl,90323,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cody Kunyk (C),Alaska Aces,2,0,2,2,1.00,0,1,/player/44471/cody-kunyk,8,Cody Kunyk,C,2016-2017,echl,44471,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Rydström (C),Indy Fuel,2,0,2,2,1.00,0,1,/player/153866/filip-rydstrom,8,Filip Rydström,C,2016-2017,echl,153866,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yann Sauvé (D),Manchester Monarchs,2,0,2,2,1.00,2,-2,/player/11318/yann-sauve,8,Yann Sauvé,D,2016-2017,echl,11318,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dillon Fournier (D),Indy Fuel,4,0,2,2,0.50,0,2,/player/76329/dillon-fournier,8,Dillon Fournier,D,2016-2017,echl,76329,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Troy Power (RW),totals,4,0,2,2,0.50,0,0,/player/37879/troy-power,8,Troy Power,RW,2016-2017,echl,37879,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Derek Docken (D),Toledo Walleye,4,0,2,2,0.50,0,1,/player/46272/derek-docken,8,Derek Docken,D,2016-2017,echl,46272,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Harrison (RW),Adirondack Thunder,4,0,2,2,0.50,5,-1,/player/255304/tim-harrison,8,Tim Harrison,RW,2016-2017,echl,255304,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christopher Dienes (D),Adirondack Thunder,5,0,2,2,0.40,0,4,/player/99595/christopher-dienes,8,Christopher Dienes,D,2016-2017,echl,99595,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Corey Durocher (C/LW),Brampton Beast,5,0,2,2,0.40,2,1,/player/39752/corey-durocher,8,Corey Durocher,C/LW,2016-2017,echl,39752,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Charles-David Beaudoin (D),Tulsa Oilers,5,0,2,2,0.40,12,0,/player/88920/charles-david-beaudoin,8,Charles-David Beaudoin,D,2016-2017,echl,88920,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Bellus (D/F),Indy Fuel,7,0,2,2,0.29,4,0,/player/95000/martin-bellus,8,Martin Bellus,D/F,2016-2017,echl,95000,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chad LaRose (RW/LW),Orlando Solar Bears,8,0,2,2,0.25,6,-1,/player/8990/chad-larose,8,Chad LaRose,RW/LW,2016-2017,echl,8990,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Porter (F),Adirondack Thunder,9,0,2,2,0.22,6,-4,/player/76696/chris-porter,8,Chris Porter,F,2016-2017,echl,76696,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Parker Reno (D),Toledo Walleye,10,0,2,2,0.20,12,3,/player/204305/parker-reno,8,Parker Reno,D,2016-2017,echl,204305,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Roach (D),Atlanta Gladiators,12,0,2,2,0.17,4,-12,/player/47635/alex-roach,8,Alex Roach,D,2016-2017,echl,47635,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vinny Muto (D),Rapid City Rush,12,0,2,2,0.17,4,-11,/player/122132/vinny-muto,8,Vinny Muto,D,2016-2017,echl,122132,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dalton Thrower (D),Brampton Beast,15,0,2,2,0.13,45,3,/player/45529/dalton-thrower,8,Dalton Thrower,D,2016-2017,echl,45529,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Neville (D),South Carolina Stingrays,18,0,2,2,0.11,2,0,/player/122121/nick-neville,8,Nick Neville,D,2016-2017,echl,122121,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Weidauer (D),Brampton Beast,21,0,2,2,0.10,6,-4,/player/97753/christian-weidauer,8,Christian Weidauer,D,2016-2017,echl,97753,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keevin Cutting (D),totals,28,0,2,2,0.07,10,-10,/player/32741/keevin-cutting,8,Keevin Cutting,D,2016-2017,echl,32741,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Hamonic (D),Colorado Eagles,38,0,2,2,0.05,6,-12,/player/87652/justin-hamonic,8,Justin Hamonic,D,2016-2017,echl,87652,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Fournier (LW/RW),Kalamazoo Wings,2,1,0,1,0.50,0,2,/player/37072/stefan-fournier,8,Stefan Fournier,LW/RW,2016-2017,echl,37072,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Paul Geiger (D),Elmira Jackals,2,1,0,1,0.50,2,0,/player/76312/paul-geiger,8,Paul Geiger,D,2016-2017,echl,76312,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Salhany (RW/LW),Reading Royals,3,1,0,1,0.33,0,0,/player/241429/matt-salhany,8,Matt Salhany,RW/LW,2016-2017,echl,241429,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Harms (C/RW),Florida Everblades,4,1,0,1,0.25,4,-1,/player/85814/brendan-harms,8,Brendan Harms,C/RW,2016-2017,echl,85814,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc-Olivier Roy (C/W),Alaska Aces,5,1,0,1,0.20,0,-4,/player/97663/marc-olivier-roy,8,Marc-Olivier Roy,C/W,2016-2017,echl,97663,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stephen Silas (D),Missouri Mavericks,5,1,0,1,0.20,0,0,/player/33613/stephen-silas,8,Stephen Silas,D,2016-2017,echl,33613,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Lewis (F),Norfolk Admirals,5,1,0,1,0.20,2,-3,/player/75599/jack-lewis,8,Jack Lewis,F,2016-2017,echl,75599,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matias Cleland (D),Wheeling Nailers,5,1,0,1,0.20,2,-2,/player/103147/matias-cleland,8,Matias Cleland,D,2016-2017,echl,103147,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaron Berisha (C/RW),Missouri Mavericks,8,1,0,1,0.13,4,-10,/player/186993/aaron-berisha,8,Aaron Berisha,C/RW,2016-2017,echl,186993,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jessey Astles (LW/RW),totals,9,1,0,1,0.11,11,0,/player/45494/jessey-astles,8,Jessey Astles,LW/RW,2016-2017,echl,45494,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Colantone (RW),totals,10,1,0,1,0.10,2,-3,/player/60192/michael-colantone,8,Michael Colantone,RW,2016-2017,echl,60192,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian Cooper (D),Utah Grizzlies,1,0,1,1,1.00,0,0,/player/45698/brian-cooper,8,Brian Cooper,D,2016-2017,echl,45698,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josiah Didier (D),Brampton Beast,1,0,1,1,1.00,0,2,/player/89813/josiah-didier,8,Josiah Didier,D,2016-2017,echl,89813,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jérémie Blain (D),Brampton Beast,2,0,1,1,0.50,0,1,/player/37074/jeremie-blain,8,Jérémie Blain,D,2016-2017,echl,37074,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Hoomaian (F),Kalamazoo Wings,2,0,1,1,0.50,0,2,/player/62451/justin-hoomaian,8,Justin Hoomaian,F,2016-2017,echl,62451,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rob Mann (D),Utah Grizzlies,2,0,1,1,0.50,0,0,/player/76910/rob-mann,8,Rob Mann,D,2016-2017,echl,76910,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Barre (RW/C),Toledo Walleye,2,0,1,1,0.50,0,2,/player/75069/jack-barre,8,Jack Barre,RW/C,2016-2017,echl,75069,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Geoffrion (LW),Quad City Mallards,2,0,1,1,0.50,2,0,/player/37756/sebastian-geoffrion,8,Sebastian Geoffrion,LW,2016-2017,echl,37756,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joseph-Matthew Manno (C),Cincinnati Cyclones,2,0,1,1,0.50,2,1,/player/128388/joseph-matthew-manno,8,Joseph-Matthew Manno,C,2016-2017,echl,128388,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Gentzler (D),Toledo Walleye,2,0,1,1,0.50,7,0,/player/60968/daniel-gentzler,8,Daniel Gentzler,D,2016-2017,echl,60968,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Olsen (C),Tulsa Oilers,3,0,1,1,0.33,0,-2,/player/50187/ryan-olsen,8,Ryan Olsen,C,2016-2017,echl,50187,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nolan Kaiser (D),Adirondack Thunder,3,0,1,1,0.33,2,-2,/player/44898/nolan-kaiser,8,Nolan Kaiser,D,2016-2017,echl,44898,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Hildebrandt (C),Norfolk Admirals,4,0,1,1,0.25,0,-2,/player/97919/tanner-hildebrandt,8,Tanner Hildebrandt,C,2016-2017,echl,97919,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shawn Hulshof (F),Indy Fuel,4,0,1,1,0.25,0,2,/player/149872/shawn-hulshof,8,Shawn Hulshof,F,2016-2017,echl,149872,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andy Huff (LW),Fort Wayne Komets,4,0,1,1,0.25,2,-1,/player/49574/andy-huff,8,Andy Huff,LW,2016-2017,echl,49574,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Comrie (D),Kalamazoo Wings,4,0,1,1,0.25,11,1,/player/18598/adam-comrie,8,Adam Comrie,D,2016-2017,echl,18598,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike McKee (D),Toledo Walleye,4,0,1,1,0.25,16,-2,/player/75053/mike-mckee,8,Mike McKee,D,2016-2017,echl,75053,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Davies (C/RW),Norfolk Admirals,5,0,1,1,0.20,0,-1,/player/20888/ben-davies,8,Ben Davies,C/RW,2016-2017,echl,20888,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc Hetnik (D),Norfolk Admirals,5,0,1,1,0.20,0,2,/player/128531/marc-hetnik,8,Marc Hetnik,D,2016-2017,echl,128531,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brent Tate (C/RW),Fort Wayne Komets,5,0,1,1,0.20,18,-1,/player/45850/brent-tate,8,Brent Tate,C/RW,2016-2017,echl,45850,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Novak (RW),Quad City Mallards,6,0,1,1,0.17,0,-2,/player/90898/kyle-novak,8,Kyle Novak,RW,2016-2017,echl,90898,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Hamilton (D),Manchester Monarchs,6,0,1,1,0.17,2,-2,/player/104854/robert-hamilton,8,Robert Hamilton,D,2016-2017,echl,104854,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colin Sullivan (D),Atlanta Gladiators,6,0,1,1,0.17,6,-2,/player/75063/colin-sullivan,8,Colin Sullivan,D,2016-2017,echl,75063,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Duffy (C),Wichita Thunder,7,0,1,1,0.14,0,-4,/player/19429/ben-duffy,8,Ben Duffy,C,2016-2017,echl,19429,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Bishop (D),Rapid City Rush,8,0,1,1,0.13,2,-8,/player/133787/tyler-bishop,8,Tyler Bishop,D,2016-2017,echl,133787,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frank Schumacher (D),Fort Wayne Komets,9,0,1,1,0.11,2,0,/player/59378/frank-schumacher,8,Frank Schumacher,D,2016-2017,echl,59378,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Collin MacDonald (LW),totals,9,0,1,1,0.11,4,-9,/player/96848/collin-macdonald,8,Collin MacDonald,LW,2016-2017,echl,96848,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Graves (D),Cincinnati Cyclones,9,0,1,1,0.11,9,-1,/player/149615/jacob-graves,8,Jacob Graves,D,2016-2017,echl,149615,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cody Bradley (C),Norfolk Admirals,10,0,1,1,0.10,0,-6,/player/86901/cody-bradley,8,Cody Bradley,C,2016-2017,echl,86901,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Siemer (LW),totals,10,0,1,1,0.10,2,-5,/player/90188/john-siemer,8,John Siemer,LW,2016-2017,echl,90188,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jared VanWormer (RW),Missouri Mavericks,10,0,1,1,0.10,2,-3,/player/60882/jared-vanwormer,8,Jared VanWormer,RW,2016-2017,echl,60882,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Ganly (D),Florida Everblades,11,0,1,1,0.09,0,-6,/player/117753/tyler-ganly,8,Tyler Ganly,D,2016-2017,echl,117753,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steven Delisle (D),South Carolina Stingrays,11,0,1,1,0.09,4,-4,/player/19181/steven-delisle,8,Steven Delisle,D,2016-2017,echl,19181,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Calabrese (D),Norfolk Admirals,12,0,1,1,0.08,2,-2,/player/96865/anthony-calabrese,8,Anthony Calabrese,D,2016-2017,echl,96865,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Kromm (F),Wheeling Nailers,12,0,1,1,0.08,4,3,/player/45311/alex-kromm,8,Alex Kromm,F,2016-2017,echl,45311,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Guillaume Rioux-Legault (D),Kalamazoo Wings,12,0,1,1,0.08,22,-2,/player/128275/guillaume-rioux-legault,8,Guillaume Rioux-Legault,D,2016-2017,echl,128275,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Duco (W/C),Elmira Jackals,0,0,0,0,-,0,0,/player/18616/mike-duco,8,Mike Duco,W/C,2016-2017,echl,18616,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Moore (C/RW),Orlando Solar Bears,0,0,0,0,-,0,0,/player/186409/ryan-moore,8,Ryan Moore,C/RW,2016-2017,echl,186409,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jimmy Mullin (C/RW),Kalamazoo Wings,0,0,0,0,-,0,0,/player/75029/jimmy-mullin,8,Jimmy Mullin,C/RW,2016-2017,echl,75029,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Leone (C),Toledo Walleye,0,0,0,0,-,0,0,/player/102041/michael-leone,8,Michael Leone,C,2016-2017,echl,102041,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Hussar (LW),Indy Fuel,1,0,0,0,0.00,0,0,/player/90247/justin-hussar,8,Justin Hussar,LW,2016-2017,echl,90247,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Giffen Nyren (D/C),Colorado Eagles,1,0,0,0,0.00,0,0,/player/23800/giffen-nyren,8,Giffen Nyren,D/C,2016-2017,echl,23800,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steven Hoshaw (D),Atlanta Gladiators,1,0,0,0,0.00,0,0,/player/37814/steven-hoshaw,8,Steven Hoshaw,D,2016-2017,echl,37814,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Vaive (LW),Cincinnati Cyclones,1,0,0,0,0.00,0,0,/player/11468/justin-vaive,8,Justin Vaive,LW,2016-2017,echl,11468,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Chiarantano (D),Brampton Beast,1,0,0,0,0.00,0,0,/player/62359/matthew-chiarantano,8,Matthew Chiarantano,D,2016-2017,echl,62359,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Jacobs (D),Adirondack Thunder,1,0,0,0,0.00,0,2,/player/168704/josh-jacobs,8,Josh Jacobs,D,2016-2017,echl,168704,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Leen (LW),Brampton Beast,1,0,0,0,0.00,0,0,/player/60183/connor-leen,8,Connor Leen,LW,2016-2017,echl,60183,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Pfeil (D),Greenville Swamp Rabbits,1,0,0,0,0.00,0,-1,/player/54451/brandon-pfeil,8,Brandon Pfeil,D,2016-2017,echl,54451,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Michel (D),Atlanta Gladiators,1,0,0,0,0.00,0,0,/player/162132/ryan-michel,8,Ryan Michel,D,2016-2017,echl,162132,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radel Fazleyev (C/LW),Reading Royals,1,0,0,0,0.00,0,0,/player/231738/radel-fazleyev,8,Radel Fazleyev,C/LW,2016-2017,echl,231738,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Greenside (D),Idaho Steelheads,1,0,0,0,0.00,0,0,/player/37660/brandon-greenside,8,Brandon Greenside,D,2016-2017,echl,37660,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Lubin (D),Utah Grizzlies,1,0,0,0,0.00,0,0,/player/46275/brandon-lubin,8,Brandon Lubin,D,2016-2017,echl,46275,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steve Lebel (LW),Reading Royals,1,0,0,0,0.00,0,0,/player/45122/steve-lebel,8,Steve Lebel,LW,2016-2017,echl,45122,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler VanKleef (F),South Carolina Stingrays,1,0,0,0,0.00,0,0,/player/75847/tyler-vankleef,8,Tyler VanKleef,F,2016-2017,echl,75847,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carl D'Amour-Belizario (D),Elmira Jackals,1,0,0,0,0.00,0,-1,/player/195017/carl-d-amour-belizario,8,Carl D'Amour-Belizario,D,2016-2017,echl,195017,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Collin Valcourt (LW),Alaska Aces,1,0,0,0,0.00,2,0,/player/50095/collin-valcourt,8,Collin Valcourt,LW,2016-2017,echl,50095,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Joseph (D),Elmira Jackals,1,0,0,0,0.00,2,-1,/player/74178/chris-joseph,8,Chris Joseph,D,2016-2017,echl,74178,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Zipp (D),Kalamazoo Wings,1,0,0,0,0.00,2,1,/player/62146/michael-zipp,8,Michael Zipp,D,2016-2017,echl,62146,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Paxton Leroux (LW/RW),Indy Fuel,1,0,0,0,0.00,7,0,/player/76520/paxton-leroux,8,Paxton Leroux,LW/RW,2016-2017,echl,76520,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Sgroi (F),Orlando Solar Bears,1,0,0,0,0.00,17,0,/player/10416/mike-sgroi,8,Mike Sgroi,F,2016-2017,echl,10416,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Bigos (D),Idaho Steelheads,2,0,0,0,0.00,0,-1,/player/38020/kyle-bigos,8,Kyle Bigos,D,2016-2017,echl,38020,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Helewka (LW/C),Allen Americans,2,0,0,0,0.00,0,0,/player/119394/adam-helewka,8,Adam Helewka,LW/C,2016-2017,echl,119394,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Darren McCormick (F),Elmira Jackals,2,0,0,0,0.00,0,0,/player/125298/darren-mccormick,8,Darren McCormick,F,2016-2017,echl,125298,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Drew Smolcynski (RW),Florida Everblades,2,0,0,0,0.00,0,-1,/player/148170/drew-smolcynski,8,Drew Smolcynski,RW,2016-2017,echl,148170,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Bradley (LW),Adirondack Thunder,2,0,0,0,0.00,0,-2,/player/135965/brendan-bradley,8,Brendan Bradley,LW,2016-2017,echl,135965,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jory Mullin (RW),Alaska Aces,2,0,0,0,0.00,0,-1,/player/66624/jory-mullin,8,Jory Mullin,RW,2016-2017,echl,66624,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitch Nylen (D),South Carolina Stingrays,2,0,0,0,0.00,0,-2,/player/222495/mitch-nylen,8,Mitch Nylen,D,2016-2017,echl,222495,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stephen Pietrobon (C),Elmira Jackals,2,0,0,0,0.00,0,-1,/player/97355/stephen-pietrobon,9,Stephen Pietrobon,C,2016-2017,echl,97355,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blake Thompson (D),Orlando Solar Bears,2,0,0,0,0.00,0,-3,/player/89758/blake-thompson,9,Blake Thompson,D,2016-2017,echl,89758,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steve Whitney (C),Norfolk Admirals,2,0,0,0,0.00,2,-2,/player/37882/steve-whitney,9,Steve Whitney,C,2016-2017,echl,37882,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Moore (D/F),Florida Everblades,2,0,0,0,0.00,2,-2,/player/96828/evan-moore,9,Evan Moore,D/F,2016-2017,echl,96828,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Rutt (D),Idaho Steelheads,2,0,0,0,0.00,2,-2,/player/60226/jake-rutt,9,Jake Rutt,D,2016-2017,echl,60226,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Tedesco (LW/C),Wichita Thunder,2,0,0,0,0.00,4,1,/player/149868/daniel-tedesco,9,Daniel Tedesco,LW/C,2016-2017,echl,149868,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Eiserman (D),Utah Grizzlies,2,0,0,0,0.00,6,2,/player/60243/william-eiserman,9,William Eiserman,D,2016-2017,echl,60243,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Neuber (RW),Allen Americans,2,0,0,0,0.00,7,1,/player/23046/kyle-neuber,9,Kyle Neuber,RW,2016-2017,echl,23046,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cody Sharib (LW),Indy Fuel,3,0,0,0,0.00,0,-1,/player/60237/cody-sharib,9,Cody Sharib,LW,2016-2017,echl,60237,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Taylor Carnevale (C),Brampton Beast,3,0,0,0,0.00,0,-1,/player/30930/taylor-carnevale,9,Taylor Carnevale,C,2016-2017,echl,30930,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shane Sooth (C),Quad City Mallards,3,0,0,0,0.00,0,1,/player/20725/shane-sooth,9,Shane Sooth,C,2016-2017,echl,20725,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommy Schutt (RW),Manchester Monarchs,3,0,0,0,0.00,0,-2,/player/122786/tommy-schutt,9,Tommy Schutt,RW,2016-2017,echl,122786,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeff King (D),Orlando Solar Bears,3,0,0,0,0.00,0,-7,/player/205112/jeff-king,9,Jeff King,D,2016-2017,echl,205112,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Calvin Spencer (RW),Tulsa Oilers,3,0,0,0,0.00,0,-1,/player/278710/calvin-spencer,9,Calvin Spencer,RW,2016-2017,echl,278710,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Henderson (D),South Carolina Stingrays,3,0,0,0,0.00,0,-1,/player/204827/mathieu-henderson,9,Mathieu Henderson,D,2016-2017,echl,204827,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Lepine (C),Elmira Jackals,3,0,0,0,0.00,2,-4,/player/77917/robert-lepine,9,Robert Lepine,C,2016-2017,echl,77917,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rhett Holland (D),Idaho Steelheads,3,0,0,0,0.00,2,-1,/player/44972/rhett-holland,9,Rhett Holland,D,2016-2017,echl,44972,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Masella (D),Adirondack Thunder,3,0,0,0,0.00,2,-1,/player/185246/ben-masella,9,Ben Masella,D,2016-2017,echl,185246,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+C.J. Garcia (D),Wheeling Nailers,3,0,0,0,0.00,2,2,/player/196825/c-j-garcia,9,C.J. Garcia,D,2016-2017,echl,196825,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brad Denney (D),Indy Fuel,3,0,0,0,0.00,4,0,/player/60462/brad-denney,9,Brad Denney,D,2016-2017,echl,60462,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Brown (LW/C),Quad City Mallards,3,0,0,0,0.00,5,-2,/player/169254/connor-brown,9,Connor Brown,LW/C,2016-2017,echl,169254,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Cullity (D),Missouri Mavericks,3,0,0,0,0.00,6,0,/player/38283/patrick-cullity,9,Patrick Cullity,D,2016-2017,echl,38283,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brad Townsend (C/LW),Elmira Jackals,3,0,0,0,0.00,9,-2,/player/93655/brad-townsend,9,Brad Townsend,C/LW,2016-2017,echl,93655,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Henderson (LW/C),Norfolk Admirals,4,0,0,0,0.00,0,-3,/player/24098/kevin-henderson,9,Kevin Henderson,LW/C,2016-2017,echl,24098,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keaton Thompson (D),Utah Grizzlies,4,0,0,0,0.00,0,-7,/player/108393/keaton-thompson,9,Keaton Thompson,D,2016-2017,echl,108393,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+MacKenzie Braid (D),Brampton Beast,4,0,0,0,0.00,0,-2,/player/84909/mackenzie-braid,9,MacKenzie Braid,D,2016-2017,echl,84909,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Louis Bélisle (D),Florida Everblades,4,0,0,0,0.00,0,1,/player/110745/louis-belisle,9,Louis Bélisle,D,2016-2017,echl,110745,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Burton (D),Indy Fuel,4,0,0,0,0.00,0,-1,/player/204286/jack-burton,9,Jack Burton,D,2016-2017,echl,204286,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nate Widman (D),Rapid City Rush,4,0,0,0,0.00,0,-4,/player/88902/nate-widman,9,Nate Widman,D,2016-2017,echl,88902,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Derek Rodwell (LW),Colorado Eagles,4,0,0,0,0.00,2,-1,/player/40882/derek-rodwell,9,Derek Rodwell,LW,2016-2017,echl,40882,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vincent Llorca (D),totals,4,0,0,0,0.00,2,1,/player/50328/vincent-llorca,9,Vincent Llorca,D,2016-2017,echl,50328,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean Flanagan (D),Reading Royals,4,0,0,0,0.00,2,0,/player/54200/sean-flanagan,9,Sean Flanagan,D,2016-2017,echl,54200,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Corkey (D),Wheeling Nailers,4,0,0,0,0.00,4,3,/player/51730/brett-corkey,9,Brett Corkey,D,2016-2017,echl,51730,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Hickman (RW),Atlanta Gladiators,4,0,0,0,0.00,10,-8,/player/59878/justin-hickman,9,Justin Hickman,RW,2016-2017,echl,59878,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Huckleby (D),Indy Fuel,5,0,0,0,0.00,0,0,/player/93818/andrew-huckleby,9,Andrew Huckleby,D,2016-2017,echl,93818,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brad Cuzner (F/D),Wichita Thunder,5,0,0,0,0.00,0,-1,/player/45114/brad-cuzner,9,Brad Cuzner,F/D,2016-2017,echl,45114,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Ceglarski (F),Indy Fuel,5,0,0,0,0.00,0,0,/player/164046/jack-ceglarski,9,Jack Ceglarski,F,2016-2017,echl,164046,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Leibinger (D),Quad City Mallards,5,0,0,0,0.00,0,-3,/player/97217/chris-leibinger,9,Chris Leibinger,D,2016-2017,echl,97217,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Micallef (D),Norfolk Admirals,5,0,0,0,0.00,2,0,/player/62723/alex-micallef,9,Alex Micallef,D,2016-2017,echl,62723,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joe Cox (RW),Florida Everblades,5,0,0,0,0.00,2,-3,/player/88681/joe-cox,9,Joe Cox,RW,2016-2017,echl,88681,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ian Harris (C/LW),Brampton Beast,6,0,0,0,0.00,2,-2,/player/248563/ian-harris,9,Ian Harris,C/LW,2016-2017,echl,248563,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carl Tremblay (D),Elmira Jackals,6,0,0,0,0.00,5,-2,/player/129225/carl-tremblay,9,Carl Tremblay,D,2016-2017,echl,129225,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stephon Thorne (LW),totals,6,0,0,0,0.00,14,-1,/player/33617/stephon-thorne,9,Stephon Thorne,LW,2016-2017,echl,33617,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Springer (D),totals,7,0,0,0,0.00,0,-4,/player/38111/eric-springer,9,Eric Springer,D,2016-2017,echl,38111,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Coltyn Sanderson (C),Idaho Steelheads,7,0,0,0,0.00,0,-2,/player/66362/coltyn-sanderson,9,Coltyn Sanderson,C,2016-2017,echl,66362,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean Robertson (D),Utah Grizzlies,7,0,0,0,0.00,0,-2,/player/48356/sean-robertson,9,Sean Robertson,D,2016-2017,echl,48356,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Moran (RW),totals,7,0,0,0,0.00,2,0,/player/151453/mike-moran,9,Mike Moran,RW,2016-2017,echl,151453,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Wetmore (RW),Elmira Jackals,7,0,0,0,0.00,4,-3,/player/75988/joel-wetmore,9,Joel Wetmore,RW,2016-2017,echl,75988,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Luczyk (LW),Elmira Jackals,7,0,0,0,0.00,13,-4,/player/70113/zach-luczyk,9,Zach Luczyk,LW,2016-2017,echl,70113,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Blair (D),Norfolk Admirals,7,0,0,0,0.00,19,1,/player/235931/brandon-blair,9,Brandon Blair,D,2016-2017,echl,235931,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Todd Christian (LW),Elmira Jackals,8,0,0,0,0.00,2,-2,/player/65225/todd-christian,9,Todd Christian,LW,2016-2017,echl,65225,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nelson Gadoury (F),Quad City Mallards,10,0,0,0,0.00,14,-2,/player/84122/nelson-gadoury,9,Nelson Gadoury,F,2016-2017,echl,84122,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Esshaki (D),Norfolk Admirals,15,0,0,0,0.00,0,-1,/player/135697/mark-esshaki,9,Mark Esshaki,D,2016-2017,echl,135697,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Travis Jeke (D/F),totals,16,0,0,0,0.00,6,-2,/player/186483/travis-jeke,9,Travis Jeke,D/F,2016-2017,echl,186483,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robbie Donahoe (D),totals,16,0,0,0,0.00,8,-7,/player/110741/robbie-donahoe,9,Robbie Donahoe,D,2016-2017,echl,110741,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trevor Gillies (LW),South Carolina Stingrays,34,0,0,0,0.00,94,-5,/player/13776/trevor-gillies,9,Trevor Gillies,LW,2016-2017,echl,13776,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69

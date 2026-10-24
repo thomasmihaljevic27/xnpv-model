@@ -1,0 +1,376 @@
+player,team,gp,g,a,tp,p_per_gp,pim,plus_minus,link,page,playername,position,season,league,ep_player_id,scrape_date,source,package_version
+Philip-Michaël Devos (C),HC Ajoie,44,30,68,98,2.23,2,56,/player/37288/philip-michael-devos,1,Philip-Michaël Devos,C,2019-2020,sl,37288,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Hazen (RW),HC Ajoie,38,39,44,83,2.18,32,54,/player/22855/jonathan-hazen,1,Jonathan Hazen,RW,2019-2020,sl,22855,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Éric Faille (C/RW),EHC Kloten,41,19,50,69,1.68,8,35,/player/32891/eric-faille,1,Éric Faille,C/RW,2019-2020,sl,32891,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dion Knelsen (C),EHC Olten,42,27,33,60,1.43,51,35,/player/11397/dion-knelsen,1,Dion Knelsen,C,2019-2020,sl,11397,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Troy Josephs (C/LW),EHC Visp,41,21,36,57,1.39,101,23,/player/117744/troy-josephs,1,Troy Josephs,C/LW,2019-2020,sl,117744,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Coffman (C/RW),HC La Chaux-de-Fonds,43,18,38,56,1.30,37,8,/player/51095/tim-coffman,1,Tim Coffman,C/RW,2019-2020,sl,51095,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Guillaume Asselin (RW/LW),HC Sierre,43,24,29,53,1.23,43,-11,/player/23459/guillaume-asselin,1,Guillaume Asselin,RW/LW,2019-2020,sl,23459,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Garry Nunn (RW),EHC Olten,40,30,22,52,1.30,12,40,/player/15393/garry-nunn,1,Garry Nunn,RW,2019-2020,sl,15393,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Hayes (RW),GC Küsnacht Lions,44,27,25,52,1.18,30,2,/player/9314/ryan-hayes,1,Ryan Hayes,RW,2019-2020,sl,9314,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Van Guilder (C),EHC Visp,41,31,20,51,1.24,22,25,/player/15075/mark-van-guilder,1,Mark Van Guilder,C,2019-2020,sl,15075,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Dolana (LW),EHC Visp,44,11,40,51,1.16,6,26,/player/24112/tomas-dolana,1,Tomas Dolana,LW,2019-2020,sl,24112,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Cameron (C/RW),HC La Chaux-de-Fonds,39,28,20,48,1.23,40,8,/player/39612/brett-cameron,1,Brett Cameron,C/RW,2019-2020,sl,39612,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Figren (RW),EHC Kloten,36,19,29,48,1.33,20,21,/player/3636/robin-figren,1,Robin Figren,RW,2019-2020,sl,3636,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Clark (C),SC Langenthal,44,16,30,46,1.05,65,7,/player/13598/andrew-clark,1,Andrew Clark,C,2019-2020,sl,13598,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Devin Muller (LW),HC Ajoie,44,17,26,43,0.98,26,23,/player/34866/devin-muller,1,Devin Muller,LW,2019-2020,sl,34866,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riley Brace (RW/LW),EHC Winterthur,37,18,24,42,1.14,54,-16,/player/37664/riley-brace,1,Riley Brace,RW/LW,2019-2020,sl,37664,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Backman (W/C),GC Küsnacht Lions,31,16,26,42,1.35,22,1,/player/12967/victor-backman,1,Victor Backman,W/C,2019-2020,sl,12967,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zack Torquato (C),EHC Winterthur,44,10,31,41,0.93,42,-22,/player/11401/zack-torquato,1,Zack Torquato,C,2019-2020,sl,11401,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evgenï Chiriaev (C),EHC Olten,43,14,25,39,0.91,43,14,/player/27305/evgeni-chiriaev,1,Evgenï Chiriaev,C,2019-2020,sl,27305,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominic Forget (LW/C),EHC Kloten,44,14,25,39,0.89,20,12,/player/6640/dominic-forget,1,Dominic Forget,LW/C,2019-2020,sl,6640,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arnaud Montandon (C/W),HC Sierre,36,11,28,39,1.08,24,-9,/player/27315/arnaud-montandon,1,Arnaud Montandon,C/W,2019-2020,sl,27315,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dario Kummer (C/RW),SC Langenthal,41,11,28,39,0.95,20,6,/player/149280/dario-kummer,1,Dario Kummer,C/RW,2019-2020,sl,149280,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Gerlach (C),HCB Ticino Rockets,41,21,17,38,0.93,47,-15,/player/247933/max-gerlach,1,Max Gerlach,C,2019-2020,sl,247933,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joseph Benik (C/LW),SC Langenthal,35,16,22,38,1.09,8,3,/player/45709/joseph-benik,1,Joseph Benik,C/LW,2019-2020,sl,45709,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philippe Rytz (D),EHC Olten,40,9,29,38,0.95,66,25,/player/12657/philippe-rytz,1,Philippe Rytz,D,2019-2020,sl,12657,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Horanský (LW),EHC Olten,22,13,24,37,1.68,14,25,/player/101354/stanislav-horansky,1,Stanislav Horanský,LW,2019-2020,sl,101354,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Éric Castonguay (C/LW),HC Sierre,44,13,24,37,0.84,10,-15,/player/14654/eric-castonguay,1,Éric Castonguay,C/LW,2019-2020,sl,14654,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc Marchon (C/RW),EHC Kloten,42,11,26,37,0.88,56,13,/player/95110/marc-marchon,1,Marc Marchon,C/RW,2019-2020,sl,95110,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Sterchi (RW/LW),SC Langenthal,36,15,21,36,1.00,18,10,/player/85297/simon-sterchi,1,Simon Sterchi,RW/LW,2019-2020,sl,85297,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reto Schmutz (LW),HC Ajoie,43,12,24,36,0.84,14,31,/player/34825/reto-schmutz,1,Reto Schmutz,LW,2019-2020,sl,34825,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Tschannen (LW),SC Langenthal,38,20,15,35,0.92,22,12,/player/17219/stefan-tschannen,1,Stefan Tschannen,LW,2019-2020,sl,17219,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Haas (C/LW),EHC Olten,44,7,26,33,0.75,30,19,/player/33586/lukas-haas,1,Lukas Haas,C/LW,2019-2020,sl,33586,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Makai Holdener (W/C),HC La Chaux-de-Fonds,42,16,16,32,0.76,26,1,/player/153631/makai-holdener,1,Makai Holdener,W/C,2019-2020,sl,153631,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Carbis (LW),HC La Chaux-de-Fonds,37,15,16,31,0.84,44,4,/player/32857/daniel-carbis,1,Daniel Carbis,LW,2019-2020,sl,32857,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vincenzo Küng (C/LW),SC Langenthal,44,14,17,31,0.70,24,-3,/player/114311/vincenzo-kung,1,Vincenzo Küng,C/LW,2019-2020,sl,114311,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fabian Ganz (D),EHC Kloten,44,8,23,31,0.70,26,27,/player/17691/fabian-ganz,1,Fabian Ganz,D,2019-2020,sl,17691,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Melvin Merola (RW),HC Thurgau,44,19,11,30,0.68,16,2,/player/91752/melvin-merola,1,Melvin Merola,RW,2019-2020,sl,91752,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ueli Huber (RW/LW),HC Ajoie,44,14,16,30,0.68,16,5,/player/96671/ueli-huber,1,Ueli Huber,RW/LW,2019-2020,sl,96671,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marco Lehmann (C/W),EHC Kloten,35,12,18,30,0.86,8,16,/player/311528/marco-lehmann,1,Marco Lehmann,C/W,2019-2020,sl,311528,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yannick Brüschweiler (C/LW),GC Küsnacht Lions,32,9,21,30,0.94,48,-6,/player/311380/yannick-bruschweiler,1,Yannick Brüschweiler,C/LW,2019-2020,sl,311380,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niki Altorfer (LW/RW),HC Thurgau,39,8,22,30,0.77,14,7,/player/44826/niki-altorfer,1,Niki Altorfer,LW/RW,2019-2020,sl,44826,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordane Hauert (D),HC Ajoie,44,7,22,29,0.66,26,32,/player/21014/jordane-hauert,1,Jordane Hauert,D,2019-2020,sl,21014,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ramon Knellwolf (F),EHC Kloten,43,17,11,28,0.65,2,20,/player/266754/ramon-knellwolf,1,Ramon Knellwolf,F,2019-2020,sl,266754,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Léonardo Fuhrer (C/RW),GC Küsnacht Lions,44,15,13,28,0.64,18,-4,/player/91746/leonardo-fuhrer,1,Léonardo Fuhrer,C/RW,2019-2020,sl,91746,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thibault Frossard (C),HC Ajoie,43,8,19,27,0.63,22,13,/player/99567/thibault-frossard,1,Thibault Frossard,C,2019-2020,sl,99567,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Jones (C/LW),HC Thurgau,44,8,19,27,0.61,50,14,/player/38011/connor-jones,1,Connor Jones,C/LW,2019-2020,sl,38011,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kellen Jones (LW/C),HC Thurgau,36,11,15,26,0.72,10,13,/player/38013/kellen-jones,1,Kellen Jones,LW/C,2019-2020,sl,38013,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathias Joggi (LW/D),HC Ajoie,39,11,14,25,0.64,44,9,/player/9241/mathias-joggi,1,Mathias Joggi,LW/D,2019-2020,sl,9241,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Bozon (LW/RW),EHC Winterthur,42,11,13,24,0.57,39,-24,/player/92269/kevin-bozon,1,Kevin Bozon,LW/RW,2019-2020,sl,92269,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kaj Suter (C),GC Küsnacht Lions,43,9,15,24,0.56,18,-6,/player/220486/kaj-suter,1,Kaj Suter,C,2019-2020,sl,220486,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thibaut Monnet (LW/C),EHC Winterthur,44,6,18,24,0.55,10,-28,/player/9639/thibaut-monnet,1,Thibaut Monnet,LW/C,2019-2020,sl,9639,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Hasani (LW),HC La Chaux-de-Fonds,30,8,15,23,0.77,34,4,/player/17592/adam-hasani,1,Adam Hasani,LW,2019-2020,sl,17592,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Ryser (D),HC Ajoie,44,8,15,23,0.52,22,26,/player/32855/kevin-ryser,1,Kevin Ryser,D,2019-2020,sl,32855,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Eigenmann (D),EHC Olten,44,6,17,23,0.52,24,24,/player/70427/daniel-eigenmann,1,Daniel Eigenmann,D,2019-2020,sl,70427,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc Geiger (D),GC Küsnacht Lions,41,2,21,23,0.56,34,1,/player/22454/marc-geiger,1,Marc Geiger,D,2019-2020,sl,22454,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicolas Thibaudeau (C),HC Ajoie,43,11,11,22,0.51,6,17,/player/64408/nicolas-thibaudeau,1,Nicolas Thibaudeau,C,2019-2020,sl,64408,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alain Miéville (C),HC La Chaux-de-Fonds,39,10,12,22,0.56,49,7,/player/34315/alain-mieville,1,Alain Miéville,C,2019-2020,sl,34315,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marco Truttmann (RW),totals,35,9,13,22,0.63,8,18,/player/18862/marco-truttmann,1,Marco Truttmann,RW,2019-2020,sl,18862,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Wieser (LW),EHC Winterthur,37,14,7,21,0.57,24,-11,/player/95340/tim-wieser,1,Tim Wieser,LW,2019-2020,sl,95340,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yves Stoffel (LW/RW),EVZ Academy,35,12,9,21,0.60,20,-1,/player/293168/yves-stoffel,1,Yves Stoffel,LW/RW,2019-2020,sl,293168,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andy Ritz (C/RW),EHC Visp,44,10,11,21,0.48,26,6,/player/98323/andy-ritz,1,Andy Ritz,C/RW,2019-2020,sl,98323,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bastien Pouilly (D),HC Ajoie,42,5,16,21,0.50,10,37,/player/135732/bastien-pouilly,1,Bastien Pouilly,D,2019-2020,sl,135732,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nelson Chiquet (LW/RW),GC Küsnacht Lions,42,13,7,20,0.48,56,-8,/player/148706/nelson-chiquet,1,Nelson Chiquet,LW/RW,2019-2020,sl,148706,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Diego Schwarzenbach (LW),EHC Olten,38,11,9,20,0.53,18,4,/player/33596/diego-schwarzenbach,1,Diego Schwarzenbach,LW,2019-2020,sl,33596,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lou Bogdanoff (W),HC La Chaux-de-Fonds,43,11,9,20,0.47,6,-7,/player/113123/lou-bogdanoff,1,Lou Bogdanoff,W,2019-2020,sl,113123,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luca Christen (RW/D),SC Langenthal,44,7,13,20,0.45,12,14,/player/174502/luca-christen,1,Luca Christen,RW/D,2019-2020,sl,174502,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Rouiller (D),EHC Olten,26,3,17,20,0.77,6,12,/player/85323/anthony-rouiller,1,Anthony Rouiller,D,2019-2020,sl,85323,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Xeno Büsser (D),GC Küsnacht Lions,41,1,19,20,0.49,18,-8,/player/94024/xeno-busser,1,Xeno Büsser,D,2019-2020,sl,94024,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arnaud Jaquet (D),HC La Chaux-de-Fonds,43,1,19,20,0.47,12,9,/player/87753/arnaud-jaquet,1,Arnaud Jaquet,D,2019-2020,sl,87753,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Achermann (C),EHC Visp,33,8,11,19,0.58,34,7,/player/94142/oliver-achermann,1,Oliver Achermann,C,2019-2020,sl,94142,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Esbjørn Fogstad Vold (F),EHC Olten,41,8,11,19,0.46,24,6,/player/183147/esbjorn-fogstad-vold,1,Esbjørn Fogstad Vold,F,2019-2020,sl,183147,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fabio Kläy (C),SC Langenthal,44,8,11,19,0.43,12,2,/player/93390/fabio-klay,1,Fabio Kläy,C,2019-2020,sl,93390,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riccardo Sartori (D),EHC Olten,44,8,11,19,0.43,73,17,/player/93113/riccardo-sartori,1,Riccardo Sartori,D,2019-2020,sl,93113,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jason Fritsche (C/RW),HCB Ticino Rockets,43,7,12,19,0.44,40,-18,/player/248375/jason-fritsche,1,Jason Fritsche,C/RW,2019-2020,sl,248375,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antonio Rizzello (LW/C),GC Küsnacht Lions,43,6,13,19,0.44,16,1,/player/9656/antonio-rizzello,1,Antonio Rizzello,LW/C,2019-2020,sl,9656,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sandro Wiedmer (D),EHC Visp,43,3,16,19,0.44,18,11,/player/45304/sandro-wiedmer,1,Sandro Wiedmer,D,2019-2020,sl,45304,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Romano Lemm (RW/C),EHC Kloten,39,12,6,18,0.46,22,7,/player/12693/romano-lemm,1,Romano Lemm,RW/C,2019-2020,sl,12693,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeffrey Füglister (C),EHC Kloten,41,8,10,18,0.44,46,14,/player/32858/jeffrey-fuglister,1,Jeffrey Füglister,C,2019-2020,sl,32858,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Grossniklaus (D),EHC Kloten,33,7,11,18,0.55,18,23,/player/93224/tim-grossniklaus,1,Tim Grossniklaus,D,2019-2020,sl,93224,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yoan Massimino (RW),HC Sierre,37,6,12,18,0.49,12,-15,/player/149730/yoan-massimino,1,Yoan Massimino,RW,2019-2020,sl,149730,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominik Volejnicek (LW/RW),EVZ Academy,37,5,13,18,0.49,8,-23,/player/220971/dominik-volejnicek,1,Dominik Volejnicek,LW/RW,2019-2020,sl,220971,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andy Furrer (D/RW),EHC Visp,42,5,13,18,0.43,18,10,/player/28832/andy-furrer,1,Andy Furrer,D/RW,2019-2020,sl,28832,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Rundqvist (D/C),HC Thurgau,38,10,7,17,0.45,8,1,/player/10020/adam-rundqvist,1,Adam Rundqvist,D/C,2019-2020,sl,10020,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordann Bougro (C/RW),EVZ Academy,22,6,11,17,0.77,4,-3,/player/153870/jordann-bougro,1,Jordann Bougro,C/RW,2019-2020,sl,153870,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cyril Oehen (C/D),EVZ Academy,42,4,13,17,0.40,62,-7,/player/262457/cyril-oehen,1,Cyril Oehen,C/D,2019-2020,sl,262457,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dean Schwenninger (C),EVZ Academy,41,3,14,17,0.41,18,-11,/player/293183/dean-schwenninger,1,Dean Schwenninger,C,2019-2020,sl,293183,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philip Åhlström (D),HC La Chaux-de-Fonds,39,2,15,17,0.44,18,-5,/player/85669/philip-ahlstrom,1,Philip Åhlström,D,2019-2020,sl,85669,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Heinimann (C/LW),HC Sierre,42,10,6,16,0.38,8,-8,/player/164263/thomas-heinimann,1,Thomas Heinimann,C/LW,2019-2020,sl,164263,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Ranov (LW),EHC Visp,39,9,7,16,0.41,8,-2,/player/94260/anton-ranov,1,Anton Ranov,LW,2019-2020,sl,94260,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Eugster (F),EVZ Academy,42,9,7,16,0.38,10,-11,/player/301062/david-eugster,1,David Eugster,F,2019-2020,sl,301062,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alban Rexha (C),EHC Olten,42,8,8,16,0.38,18,12,/player/66497/alban-rexha,1,Alban Rexha,C,2019-2020,sl,66497,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Kristensen (D),EVZ Academy,24,6,10,16,0.67,14,-7,/player/22820/emil-kristensen,1,Emil Kristensen,D,2019-2020,sl,22820,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ramon Tanner (C),HC La Chaux-de-Fonds,36,6,10,16,0.44,38,-6,/player/274787/ramon-tanner,1,Ramon Tanner,C,2019-2020,sl,274787,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alain Birbaum (D),HC Ajoie,44,6,10,16,0.36,8,20,/player/17583/alain-birbaum,1,Alain Birbaum,D,2019-2020,sl,17583,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Willy Riedi (F),GC Küsnacht Lions,44,6,10,16,0.36,10,-4,/player/326106/willy-riedi,1,Willy Riedi,F,2019-2020,sl,326106,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominic Hobi (C/LW),HC Thurgau,33,5,11,16,0.48,2,-6,/player/66541/dominic-hobi,1,Dominic Hobi,C/LW,2019-2020,sl,66541,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas Döpfner (W),EVZ Academy,44,5,11,16,0.36,12,-17,/player/217455/andreas-dopfner,1,Andreas Döpfner,W,2019-2020,sl,217455,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Silvan Wyss (C/D),EHC Olten,40,4,12,16,0.40,30,13,/player/89752/silvan-wyss,1,Silvan Wyss,C/D,2019-2020,sl,89752,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxime Montandon (D),HC Sierre,44,4,12,16,0.36,16,-14,/player/34867/maxime-montandon,1,Maxime Montandon,D,2019-2020,sl,34867,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luca Camperchioli (D),EHC Visp,23,3,13,16,0.70,18,-1,/player/34812/luca-camperchioli,1,Luca Camperchioli,D,2019-2020,sl,34812,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gaëtan Augsburger (LW/RW),HC La Chaux-de-Fonds,41,3,13,16,0.39,2,0,/player/15166/gaetan-augsburger,2,Gaëtan Augsburger,LW/RW,2019-2020,sl,15166,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicholas Steiner (D),EHC Kloten,43,3,13,16,0.37,36,23,/player/34826/nicholas-steiner,2,Nicholas Steiner,D,2019-2020,sl,34826,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Rudolf (C/W),EHC Olten,44,3,13,16,0.36,12,5,/player/156080/michael-rudolf,2,Michael Rudolf,C/W,2019-2020,sl,156080,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jerome Portmann (LW/RW),HCB Ticino Rockets,41,8,7,15,0.37,37,-15,/player/165765/jerome-portmann,2,Jerome Portmann,LW/RW,2019-2020,sl,165765,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Loic Vedova (RW),HCB Ticino Rockets,31,6,9,15,0.48,22,-23,/player/224373/loic-vedova,2,Loic Vedova,RW,2019-2020,sl,224373,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Kindschi (D),EHC Kloten,34,4,11,15,0.44,26,24,/player/94152/simon-kindschi,2,Simon Kindschi,D,2019-2020,sl,94152,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janik Loosli (LW/RW),HC Thurgau,42,8,6,14,0.33,8,2,/player/174553/janik-loosli,2,Janik Loosli,LW/RW,2019-2020,sl,174553,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominic Weder (LW),EHC Olten,41,7,7,14,0.34,16,1,/player/262568/dominic-weder,2,Dominic Weder,LW,2019-2020,sl,262568,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fabian Sutter (C),EHC Kloten,43,7,7,14,0.33,26,11,/player/18902/fabian-sutter,2,Fabian Sutter,C,2019-2020,sl,18902,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rémy Rimann (LW/RW),HC Sierre,40,6,8,14,0.35,12,-7,/player/16759/remy-rimann,2,Rémy Rimann,LW/RW,2019-2020,sl,16759,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fadri Riatsch (RW),EHC Visp,42,6,8,14,0.33,57,0,/player/317934/fadri-riatsch,2,Fadri Riatsch,RW,2019-2020,sl,317934,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Mäder (C),HC Ajoie,43,5,9,14,0.33,8,2,/player/66495/stefan-mader,2,Stefan Mäder,C,2019-2020,sl,66495,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luca Wyss (LW),EVZ Academy,43,3,11,14,0.33,40,-18,/player/312138/luca-wyss,2,Luca Wyss,LW,2019-2020,sl,312138,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Livio Langenegger (F),EVZ Academy,17,9,4,13,0.76,2,6,/player/267201/livio-langenegger,2,Livio Langenegger,F,2019-2020,sl,267201,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steve Kellenberger (LW/D),EHC Kloten,32,7,6,13,0.41,26,17,/player/10618/steve-kellenberger,2,Steve Kellenberger,LW/D,2019-2020,sl,10618,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Alihodzic (C),EHC Winterthur,44,7,6,13,0.30,29,-21,/player/116223/martin-alihodzic,2,Martin Alihodzic,C,2019-2020,sl,116223,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ian Derungs (LW/RW),SC Langenthal,37,6,7,13,0.35,36,-1,/player/311548/ian-derungs,2,Ian Derungs,LW/RW,2019-2020,sl,311548,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dario Wüthrich (D),EVZ Academy,41,5,8,13,0.32,14,-12,/player/274211/dario-wuthrich,2,Dario Wüthrich,D,2019-2020,sl,274211,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Stämpfli (D),EHC Kloten,39,3,10,13,0.33,38,14,/player/35664/david-stampfli,2,David Stämpfli,D,2019-2020,sl,35664,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Serge Weber (D),SC Langenthal,43,3,10,13,0.30,57,22,/player/164268/serge-weber,2,Serge Weber,D,2019-2020,sl,164268,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Barbero (D),HC La Chaux-de-Fonds,38,2,11,13,0.34,14,5,/player/77516/simon-barbero,2,Simon Barbero,D,2019-2020,sl,77516,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aronne Pagnamenta (D),HCB Ticino Rockets,40,2,11,13,0.33,8,-20,/player/244737/aronne-pagnamenta,2,Aronne Pagnamenta,D,2019-2020,sl,244737,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julien Privet (C/LW),HC Ajoie,43,2,11,13,0.30,22,5,/player/98630/julien-privet,2,Julien Privet,C/LW,2019-2020,sl,98630,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frédéric Iglesias (D),HC La Chaux-de-Fonds,23,0,13,13,0.57,12,3,/player/32860/frederic-iglesias,2,Frédéric Iglesias,D,2019-2020,sl,32860,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Lust (C/LW),EVZ Academy,41,8,4,12,0.29,14,-19,/player/220463/thomas-lust,2,Thomas Lust,C/LW,2019-2020,sl,220463,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Schmidt (LW/RW),HC La Chaux-de-Fonds,35,4,8,12,0.34,22,1,/player/35891/konstantin-schmidt,2,Konstantin Schmidt,LW/RW,2019-2020,sl,35891,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karim Del Ponte (D),HCB Ticino Rockets,37,4,8,12,0.32,16,-17,/player/236778/karim-del-ponte,2,Karim Del Ponte,D,2019-2020,sl,236778,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Meier (D),GC Küsnacht Lions,31,3,9,12,0.39,6,8,/player/520239/noah-meier,2,Noah Meier,D,2019-2020,sl,520239,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yves Müller (D),SC Langenthal,31,3,9,12,0.39,28,2,/player/11835/yves-muller,2,Yves Müller,D,2019-2020,sl,11835,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Goran Bezina (D),HC Sierre,32,3,9,12,0.38,39,-1,/player/12299/goran-bezina,2,Goran Bezina,D,2019-2020,sl,12299,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Scheidegger (D),HC Thurgau,44,1,11,12,0.27,18,2,/player/114329/joel-scheidegger,2,Joel Scheidegger,D,2019-2020,sl,114329,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Loosli (W),HC Thurgau,16,6,5,11,0.69,10,3,/player/93781/michael-loosli,2,Michael Loosli,W,2019-2020,sl,93781,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yanick Stampfli (D/C),EVZ Academy,40,6,5,11,0.28,8,-19,/player/350944/yanick-stampfli,2,Yanick Stampfli,D/C,2019-2020,sl,350944,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lars Frei (LW/RW),HC Thurgau,43,6,5,11,0.26,8,-8,/player/94496/lars-frei,2,Lars Frei,LW/RW,2019-2020,sl,94496,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Karaffa (D/F),HC La Chaux-de-Fonds,22,5,6,11,0.50,12,-9,/player/275041/roman-karaffa,2,Roman Karaffa,D/F,2019-2020,sl,275041,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Wildhaber (D),HC Thurgau,36,4,7,11,0.31,14,3,/player/93841/david-wildhaber,2,David Wildhaber,D,2019-2020,sl,93841,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Brändli (C),HC Thurgau,38,4,7,11,0.29,10,-4,/player/95103/patrick-brandli,2,Patrick Brändli,C,2019-2020,sl,95103,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luca Capaul (D),EVZ Academy,41,4,7,11,0.27,54,-16,/player/311539/luca-capaul,2,Luca Capaul,D,2019-2020,sl,311539,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jens Nater (D),EHC Visp,44,4,7,11,0.25,28,4,/player/94255/jens-nater,2,Jens Nater,D,2019-2020,sl,94255,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steve Mason (C/D),EHC Winterthur,38,3,8,11,0.29,10,-25,/player/33762/steve-mason,2,Steve Mason,C/D,2019-2020,sl,33762,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Maret (D),SC Langenthal,40,3,8,11,0.28,18,-6,/player/17682/mathieu-maret,2,Mathieu Maret,D,2019-2020,sl,17682,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rihards Puide (W/C),GC Küsnacht Lions,44,3,8,11,0.25,32,-7,/player/224252/rihards-puide,2,Rihards Puide,W/C,2019-2020,sl,224252,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ramón Diem (C/RW),EHC Winterthur,34,2,9,11,0.32,2,-25,/player/85302/ramon-diem,2,Ramón Diem,C/RW,2019-2020,sl,85302,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hans Pienitz (D),SC Langenthal,44,2,9,11,0.25,26,4,/player/21165/hans-pienitz,2,Hans Pienitz,D,2019-2020,sl,21165,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Roos (D/F),EHC Winterthur,35,1,10,11,0.31,37,-14,/player/90658/michael-roos,2,Michael Roos,D/F,2019-2020,sl,90658,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dan Weisskopf (D),EHC Olten,36,1,10,11,0.31,16,25,/player/18688/dan-weisskopf,2,Dan Weisskopf,D,2019-2020,sl,18688,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Spinell (LW),EHC Visp,35,7,3,10,0.29,20,6,/player/317802/stefan-spinell,2,Stefan Spinell,LW,2019-2020,sl,317802,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marco Cavalleri (W/C),HCB Ticino Rockets,32,6,4,10,0.31,10,-17,/player/382153/marco-cavalleri,2,Marco Cavalleri,W/C,2019-2020,sl,382153,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Küng (D),EHC Winterthur,39,6,4,10,0.26,71,-14,/player/96674/mike-kung,2,Mike Küng,D,2019-2020,sl,96674,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Greg Squires (RW),HCB Ticino Rockets,11,4,6,10,0.91,6,-3,/player/15670/greg-squires,2,Greg Squires,RW,2019-2020,sl,15670,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jules Sturny (RW/LW),EHC Kloten,23,3,7,10,0.43,28,-1,/player/164269/jules-sturny,2,Jules Sturny,RW/LW,2019-2020,sl,164269,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Obrist (C),EHC Kloten,35,3,7,10,0.29,0,9,/player/68843/patrick-obrist,2,Patrick Obrist,C,2019-2020,sl,68843,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Wyniger (D/LW),HC Sierre,36,3,7,10,0.28,26,-27,/player/296750/mike-wyniger,2,Mike Wyniger,D/LW,2019-2020,sl,296750,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nils Berger (RW),EHC Visp,31,2,8,10,0.32,8,7,/player/34811/nils-berger,2,Nils Berger,RW,2019-2020,sl,34811,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Axel Simic (C/RW),GC Küsnacht Lions,12,7,2,9,0.75,2,-2,/player/236816/axel-simic,2,Axel Simic,C/RW,2019-2020,sl,236816,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lee Roberts (RW/LW),HCB Ticino Rockets,27,6,3,9,0.33,6,-4,/player/228308/lee-roberts,2,Lee Roberts,RW/LW,2019-2020,sl,228308,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keijo Weibel (LW/RW),EHC Olten,43,6,3,9,0.21,8,-2,/player/326107/keijo-weibel,2,Keijo Weibel,LW/RW,2019-2020,sl,326107,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Grezet (RW),HC La Chaux-de-Fonds,44,5,4,9,0.20,16,0,/player/44830/samuel-grezet,2,Samuel Grezet,RW,2019-2020,sl,44830,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Auguste Impose (LW/RW),HC Sierre,27,4,5,9,0.33,6,-5,/player/85351/auguste-impose,2,Auguste Impose,LW/RW,2019-2020,sl,85351,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dario Burgener (LW),EHC Visp,29,4,5,9,0.31,12,-6,/player/225577/dario-burgener,2,Dario Burgener,LW,2019-2020,sl,225577,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patric Hofstetter (C),EHC Visp,36,4,5,9,0.25,14,-2,/player/374190/patric-hofstetter,2,Patric Hofstetter,C,2019-2020,sl,374190,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emilijus Krakauskas (RW/LW),EHC Kloten,40,4,5,9,0.23,4,12,/player/242675/emilijus-krakauskas,2,Emilijus Krakauskas,RW/LW,2019-2020,sl,242675,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Braun (D),GC Küsnacht Lions,41,4,5,9,0.22,54,4,/player/149624/alexander-braun,2,Alexander Braun,D,2019-2020,sl,149624,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Devin Stehli (F),EVZ Academy,42,4,5,9,0.21,6,-14,/player/342114/devin-stehli,2,Devin Stehli,F,2019-2020,sl,342114,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mattia Hinterkircher (LW),GC Küsnacht Lions,25,3,6,9,0.36,2,-5,/player/95040/mattia-hinterkircher,2,Mattia Hinterkircher,LW,2019-2020,sl,95040,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adrian Brunner (C/LW),totals,20,2,7,9,0.45,22,-2,/player/21027/adrian-brunner,2,Adrian Brunner,C/LW,2019-2020,sl,21027,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Sigrist (C/LW),GC Küsnacht Lions,14,1,8,9,0.64,6,2,/player/311626/justin-sigrist,2,Justin Sigrist,C/LW,2019-2020,sl,311626,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Franco Collenberg (D),HC Thurgau,43,1,8,9,0.21,36,2,/player/17226/franco-collenberg,2,Franco Collenberg,D,2019-2020,sl,17226,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frantisek Rehak (C/LW),HC Thurgau,26,4,4,8,0.31,12,-2,/player/297876/frantisek-rehak,2,Frantisek Rehak,C/LW,2019-2020,sl,297876,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Petrig (LW),EHC Visp,33,4,4,8,0.24,8,0,/player/296737/jan-petrig,2,Jan Petrig,LW,2019-2020,sl,296737,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc Camichel (F),HCB Ticino Rockets,41,4,4,8,0.20,10,-8,/player/441030/marc-camichel,2,Marc Camichel,F,2019-2020,sl,441030,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yannick Brunner (D),EVZ Academy,39,3,5,8,0.21,8,-7,/player/311538/yannick-brunner,2,Yannick Brunner,D,2019-2020,sl,311538,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fabio Arnold (LW),HC Ajoie,39,3,5,8,0.21,39,-1,/player/120986/fabio-arnold,2,Fabio Arnold,LW,2019-2020,sl,120986,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fabian Berni (LW/RW),GC Küsnacht Lions,44,3,5,8,0.18,8,1,/player/220989/fabian-berni,2,Fabian Berni,LW/RW,2019-2020,sl,220989,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sandro Brügger (RW),EHC Visp,28,2,6,8,0.29,12,-11,/player/91725/sandro-brugger,2,Sandro Brügger,RW,2019-2020,sl,91725,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kelvin Walz (C),SC Langenthal,33,2,6,8,0.24,6,-4,/player/150950/kelvin-walz,2,Kelvin Walz,C,2019-2020,sl,150950,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Vouillamoz (LW/RW),HC Sierre,41,2,6,8,0.20,16,-10,/player/368031/mathieu-vouillamoz,2,Mathieu Vouillamoz,LW/RW,2019-2020,sl,368031,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bernhard Fechtig (D),HC Thurgau,30,1,7,8,0.27,14,7,/player/68846/bernhard-fechtig,2,Bernhard Fechtig,D,2019-2020,sl,68846,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alain Bircher (D),SC Langenthal,36,1,7,8,0.22,20,-3,/player/164265/alain-bircher,2,Alain Bircher,D,2019-2020,sl,164265,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pascal Blaser (D),EHC Winterthur,41,1,7,8,0.20,43,-24,/player/224937/pascal-blaser,2,Pascal Blaser,D,2019-2020,sl,224937,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryan Peter (D),GC Küsnacht Lions,44,1,7,8,0.18,18,-8,/player/94527/bryan-peter,2,Bryan Peter,D,2019-2020,sl,94527,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tom Gerber (LW/RW),SC Langenthal,24,0,8,8,0.33,16,2,/player/90689/tom-gerber,2,Tom Gerber,LW/RW,2019-2020,sl,90689,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cédric Maurer (D),EHC Olten,35,0,8,8,0.23,4,12,/player/96677/cedric-maurer,2,Cédric Maurer,D,2019-2020,sl,96677,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Giacomo Casserini (D),HC Ajoie,44,0,8,8,0.18,14,12,/player/32191/giacomo-casserini,2,Giacomo Casserini,D,2019-2020,sl,32191,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Seiler (D),HC Thurgau,44,0,8,8,0.18,52,4,/player/156091/simon-seiler,2,Simon Seiler,D,2019-2020,sl,156091,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elia Mazzolini (LW),HCB Ticino Rockets,16,4,3,7,0.44,10,-8,/player/158528/elia-mazzolini,2,Elia Mazzolini,LW,2019-2020,sl,158528,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Nyffeler (C/W),SC Langenthal,35,4,3,7,0.20,8,7,/player/311533/robin-nyffeler,2,Robin Nyffeler,C/W,2019-2020,sl,311533,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tino Kessler (C/RW),HCB Ticino Rockets,5,3,4,7,1.40,0,0,/player/149522/tino-kessler,2,Tino Kessler,C/RW,2019-2020,sl,149522,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Neuenschwander (C),HCB Ticino Rockets,40,3,4,7,0.18,32,-23,/player/285717/anthony-neuenschwander,2,Anthony Neuenschwander,C,2019-2020,sl,285717,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fabian Haberstich (LW/RW),EHC Visp,26,2,5,7,0.27,12,-5,/player/103841/fabian-haberstich,2,Fabian Haberstich,LW/RW,2019-2020,sl,103841,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janis Elsener (D/LW),EHC Olten,29,2,5,7,0.24,4,4,/player/212156/janis-elsener,2,Janis Elsener,D/LW,2019-2020,sl,212156,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Bachofner (F/D),totals,35,2,5,7,0.20,22,-22,/player/393153/lucas-bachofner,2,Lucas Bachofner,F/D,2019-2020,sl,393153,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Zahner (C/LW),EHC Winterthur,42,2,5,7,0.17,8,-15,/player/156097/patrick-zahner,2,Patrick Zahner,C/LW,2019-2020,sl,156097,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Lüthi (D),EHC Olten,43,2,5,7,0.16,18,10,/player/18907/simon-luthi,2,Simon Lüthi,D,2019-2020,sl,18907,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Kühni (D),HC La Chaux-de-Fonds,33,1,6,7,0.21,18,4,/player/49004/kevin-kuhni,2,Kevin Kühni,D,2019-2020,sl,49004,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zaccheo Dotti (D),HC Ajoie,44,1,6,7,0.16,16,1,/player/91040/zaccheo-dotti,2,Zaccheo Dotti,D,2019-2020,sl,91040,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Toms Andersons (RW/LW),SC Langenthal,11,0,7,7,0.64,2,-1,/player/108089/toms-andersons,2,Toms Andersons,RW/LW,2019-2020,sl,108089,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andri Spiller (LW/RW),HC Thurgau,6,4,2,6,1.00,0,2,/player/94265/andri-spiller,2,Andri Spiller,LW/RW,2019-2020,sl,94265,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marks Lazarevs (LW/RW),EHC Winterthur,33,4,2,6,0.18,12,-8,/player/95934/marks-lazarevs,2,Marks Lazarevs,LW/RW,2019-2020,sl,95934,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timo Haussener (C/RW),HCB Ticino Rockets,8,3,3,6,0.75,2,-5,/player/165763/timo-haussener,2,Timo Haussener,C/RW,2019-2020,sl,165763,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ludovic Voirol (D/RW),HC La Chaux-de-Fonds,20,3,3,6,0.30,0,-1,/player/327374/ludovic-voirol,3,Ludovic Voirol,D/RW,2019-2020,sl,327374,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eliott Meyrat (D/LW),HC Sierre,27,3,3,6,0.22,30,1,/player/120884/eliott-meyrat,3,Eliott Meyrat,D/LW,2019-2020,sl,120884,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Uinter Guerra (D),EHC Winterthur,40,3,3,6,0.15,48,-12,/player/66535/uinter-guerra,3,Uinter Guerra,D,2019-2020,sl,66535,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc Steiner (D),EHC Visp,42,3,3,6,0.14,28,7,/player/115416/marc-steiner,3,Marc Steiner,D,2019-2020,sl,115416,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gian-Marco Wetter (C/LW),HCB Ticino Rockets,20,2,4,6,0.30,8,-4,/player/364546/gian-marco-wetter,3,Gian-Marco Wetter,C/LW,2019-2020,sl,364546,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Giona Bionda (LW),HCB Ticino Rockets,33,2,4,6,0.18,45,-21,/player/226012/giona-bionda,3,Giona Bionda,LW,2019-2020,sl,226012,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ron Martikainen (F),HCB Ticino Rockets,34,2,4,6,0.18,4,-7,/player/279008/ron-martikainen,3,Ron Martikainen,F,2019-2020,sl,279008,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gian Janett (D),EHC Kloten,18,1,5,6,0.33,0,15,/player/376793/gian-janett,3,Gian Janett,D,2019-2020,sl,376793,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adrian Wetli (W/C),EHC Kloten,22,1,5,6,0.27,0,8,/player/236824/adrian-wetli,3,Adrian Wetli,W/C,2019-2020,sl,236824,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Edson Harlacher (D),totals,27,1,5,6,0.22,34,4,/player/103838/edson-harlacher,3,Edson Harlacher,D,2019-2020,sl,103838,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yves Brantschen (D),EHC Visp,43,1,5,6,0.14,26,2,/player/262440/yves-brantschen,3,Yves Brantschen,D,2019-2020,sl,262440,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Salzgeber (C),EHC Olten,27,4,1,5,0.19,26,5,/player/449073/joel-salzgeber,3,Joel Salzgeber,C,2019-2020,sl,449073,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fabio Hollenstein (C/RW),HC Thurgau,34,4,1,5,0.15,22,-3,/player/224875/fabio-hollenstein,3,Fabio Hollenstein,C/RW,2019-2020,sl,224875,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaison Dubois (LW/RW),HC La Chaux-de-Fonds,39,4,1,5,0.13,8,-2,/player/120878/jaison-dubois,3,Jaison Dubois,LW/RW,2019-2020,sl,120878,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kristian Suleski (D),SC Langenthal,18,3,2,5,0.28,2,6,/player/164023/kristian-suleski,3,Kristian Suleski,D,2019-2020,sl,164023,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ronny Dähler (C/LW),SC Langenthal,19,3,2,5,0.26,2,3,/player/449060/ronny-dahler,3,Ronny Dähler,C/LW,2019-2020,sl,449060,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jari Allevi (LW/RW),EHC Winterthur,26,3,2,5,0.19,4,-4,/player/95036/jari-allevi,3,Jari Allevi,LW/RW,2019-2020,sl,95036,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gill Ducret (C),HC Sierre,37,3,2,5,0.14,16,-1,/player/262436/gill-ducret,3,Gill Ducret,C,2019-2020,sl,262436,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kenny Fellay (C/LW),HC Sierre,41,3,2,5,0.12,6,-9,/player/262424/kenny-fellay,3,Kenny Fellay,C/LW,2019-2020,sl,262424,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dario Meyer (RW),HCB Ticino Rockets,9,2,3,5,0.56,4,-6,/player/108384/dario-meyer,3,Dario Meyer,RW,2019-2020,sl,108384,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Silvan Hess (C),EHC Winterthur,38,2,3,5,0.13,6,-18,/player/230076/silvan-hess,3,Silvan Hess,C,2019-2020,sl,230076,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominik Gyger (LW),SC Langenthal,38,2,3,5,0.13,6,-3,/player/285706/dominik-gyger,3,Dominik Gyger,LW,2019-2020,sl,285706,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mischa Bleiker (RW/LW),EHC Winterthur,39,2,3,5,0.13,6,-15,/player/317923/mischa-bleiker,3,Mischa Bleiker,RW/LW,2019-2020,sl,317923,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aron Welter (F),EVZ Academy,18,1,4,5,0.28,8,-3,/player/376978/aron-welter,3,Aron Welter,F,2019-2020,sl,376978,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Bartko (D),HCB Ticino Rockets,22,1,4,5,0.23,0,-11,/player/210778/jan-bartko,3,Jan Bartko,D,2019-2020,sl,210778,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Zubler (D),HC La Chaux-de-Fonds,36,1,4,5,0.14,49,1,/player/44299/patrick-zubler,3,Patrick Zubler,D,2019-2020,sl,44299,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rihards Melnalksnis (C/LW),SC Langenthal,37,1,4,5,0.14,0,-4,/player/293341/rihards-melnalksnis,3,Rihards Melnalksnis,C/LW,2019-2020,sl,293341,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Prysi (D),HC Ajoie,37,1,4,5,0.14,0,5,/player/332487/david-prysi,3,David Prysi,D,2019-2020,sl,332487,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Calvin Schleiss (C/W),EVZ Academy,42,1,4,5,0.12,2,-23,/player/282631/calvin-schleiss,3,Calvin Schleiss,C/W,2019-2020,sl,282631,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Florian Niedermaier (C/RW),HC Thurgau,42,1,4,5,0.12,4,-6,/player/85299/florian-niedermaier,3,Florian Niedermaier,C/RW,2019-2020,sl,85299,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicolas Dozin (D),HC Sierre,44,1,4,5,0.11,26,-15,/player/89605/nicolas-dozin,3,Nicolas Dozin,D,2019-2020,sl,89605,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mika Henauer (D),SC Langenthal,17,0,5,5,0.29,2,-2,/player/326103/mika-henauer,3,Mika Henauer,D,2019-2020,sl,326103,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fabian Berri (RW),GC Küsnacht Lions,12,3,1,4,0.33,2,0,/player/294667/fabian-berri,3,Fabian Berri,RW,2019-2020,sl,294667,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arnaud Riat (RW),HC Sierre,12,2,2,4,0.33,6,-4,/player/311624/arnaud-riat,3,Arnaud Riat,RW,2019-2020,sl,311624,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Enzo Guebey (D),HC Sierre,30,2,2,4,0.13,24,-18,/player/270301/enzo-guebey,3,Enzo Guebey,D,2019-2020,sl,270301,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Misha Moor (D),HCB Ticino Rockets,32,2,2,4,0.13,61,-7,/player/162812/misha-moor,3,Misha Moor,D,2019-2020,sl,162812,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luca Hischier (C/RW),HCB Ticino Rockets,3,1,3,4,1.33,4,0,/player/93279/luca-hischier,3,Luca Hischier,C/RW,2019-2020,sl,93279,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luca De Nisco (LW),EVZ Academy,18,1,3,4,0.22,0,-6,/player/431870/luca-de-nisco,3,Luca De Nisco,LW,2019-2020,sl,431870,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gianluca Barbei (LW/C),EVZ Academy,27,1,3,4,0.15,6,-14,/player/368101/gianluca-barbei,3,Gianluca Barbei,LW/C,2019-2020,sl,368101,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sandis Smons (D),HC Sierre,29,1,3,4,0.14,18,2,/player/310119/sandis-smons,3,Sandis Smons,D,2019-2020,sl,310119,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jérôme Lanz (F),EHC Olten,36,1,3,4,0.11,8,6,/player/262437/jerome-lanz,3,Jérôme Lanz,F,2019-2020,sl,262437,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fernando Heynen (D),EHC Visp,42,0,4,4,0.10,22,13,/player/19735/fernando-heynen,3,Fernando Heynen,D,2019-2020,sl,19735,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Parati (D),HC Thurgau,44,0,4,4,0.09,12,2,/player/20679/patrick-parati,3,Patrick Parati,D,2019-2020,sl,20679,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuele Pozzorini (D),EHC Winterthur,44,0,4,4,0.09,14,-25,/player/149494/samuele-pozzorini,3,Samuele Pozzorini,D,2019-2020,sl,149494,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominic Buchli (D),HCB Ticino Rockets,14,2,1,3,0.21,29,-11,/player/259778/dominic-buchli,3,Dominic Buchli,D,2019-2020,sl,259778,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Primeau (LW/RW),HC Sierre,25,2,1,3,0.12,14,-14,/player/48818/josh-primeau,3,Josh Primeau,LW/RW,2019-2020,sl,48818,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nico Gurtner (D),EVZ Academy,33,2,1,3,0.09,20,-19,/player/95355/nico-gurtner,3,Nico Gurtner,D,2019-2020,sl,95355,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Staiger (RW),totals,34,2,1,3,0.09,6,-2,/player/118115/anthony-staiger,3,Anthony Staiger,RW,2019-2020,sl,118115,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valentin Pilet (D),HC Ajoie,35,2,1,3,0.09,16,11,/player/187657/valentin-pilet,3,Valentin Pilet,D,2019-2020,sl,187657,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Livio Stadler (D),EVZ Academy,3,1,2,3,1.00,0,0,/player/220967/livio-stadler,3,Livio Stadler,D,2019-2020,sl,220967,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Lutz (F),HCB Ticino Rockets,23,1,2,3,0.13,0,-7,/player/375821/tim-lutz,3,Tim Lutz,F,2019-2020,sl,375821,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcel Raggi (D),EHC Winterthur,26,1,2,3,0.12,12,-6,/player/317615/marcel-raggi,3,Marcel Raggi,D,2019-2020,sl,317615,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Sidler (D),GC Küsnacht Lions,32,1,2,3,0.09,51,-3,/player/20603/patrick-sidler,3,Patrick Sidler,D,2019-2020,sl,20603,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steven Macquat (LW/RW),HC Ajoie,36,1,2,3,0.08,2,-2,/player/135759/steven-macquat,3,Steven Macquat,LW/RW,2019-2020,sl,135759,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miro Zryd (D),EVZ Academy,3,0,3,3,1.00,2,2,/player/134062/miro-zryd,3,Miro Zryd,D,2019-2020,sl,134062,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Massimo Ronchetti (D),HCB Ticino Rockets,17,0,3,3,0.18,14,-10,/player/55499/massimo-ronchetti,3,Massimo Ronchetti,D,2019-2020,sl,55499,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julian Payr (D),HCB Ticino Rockets,22,0,3,3,0.14,8,-8,/player/348282/julian-payr,3,Julian Payr,D,2019-2020,sl,348282,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stéphane Heughebaert (D/C),EHC Olten,24,0,3,3,0.13,4,7,/player/93104/stephane-heughebaert,3,Stéphane Heughebaert,D/C,2019-2020,sl,93104,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Zeiter (D),EHC Visp,28,0,3,3,0.11,12,-3,/player/311546/david-zeiter,3,David Zeiter,D,2019-2020,sl,311546,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+René Back (D),EHC Kloten,29,0,3,3,0.10,12,7,/player/18894/rene-back,3,René Back,D,2019-2020,sl,18894,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Curtis Gass (D),HCB Ticino Rockets,30,0,3,3,0.10,49,-10,/player/151699/curtis-gass,3,Curtis Gass,D,2019-2020,sl,151699,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mick Schüpbach (D),EVZ Academy,37,0,3,3,0.08,14,-21,/player/311521/mick-schupbach,3,Mick Schüpbach,D,2019-2020,sl,311521,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philipp Wetzel (RW/C),HC La Chaux-de-Fonds,39,0,3,3,0.08,26,-6,/player/18865/philipp-wetzel,3,Philipp Wetzel,RW/C,2019-2020,sl,18865,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colin Fontana (D),HC La Chaux-de-Fonds,40,0,3,3,0.08,36,4,/player/139275/colin-fontana,3,Colin Fontana,D,2019-2020,sl,139275,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Silvio Schmutz (D),EHC Winterthur,42,0,3,3,0.07,26,-25,/player/95918/silvio-schmutz,3,Silvio Schmutz,D,2019-2020,sl,95918,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jérôme Bachofner (LW),EVZ Academy,2,2,0,2,1.00,6,0,/player/121121/jerome-bachofner,3,Jérôme Bachofner,LW,2019-2020,sl,121121,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joël Neuenschwander (RW),HCB Ticino Rockets,7,2,0,2,0.29,6,0,/player/285718/joel-neuenschwander,3,Joël Neuenschwander,RW,2019-2020,sl,285718,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc Kämpf (LW),SC Langenthal,1,1,1,2,2.00,0,2,/player/66543/marc-kampf,3,Marc Kämpf,LW,2019-2020,sl,66543,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sven Leuenberger (C/RW),EVZ Academy,1,1,1,2,2.00,0,0,/player/282629/sven-leuenberger,3,Sven Leuenberger,C/RW,2019-2020,sl,282629,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Keränen (W/C),EHC Visp,3,1,1,2,0.67,0,0,/player/16456/michael-keranen,3,Michael Keränen,W/C,2019-2020,sl,16456,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thierry Bader (C),HCB Ticino Rockets,3,1,1,2,0.67,0,-4,/player/217465/thierry-bader,3,Thierry Bader,C,2019-2020,sl,217465,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeremi Gerber (LW/RW),EHC Visp,7,1,1,2,0.29,4,-1,/player/333546/jeremi-gerber,3,Jeremi Gerber,LW/RW,2019-2020,sl,333546,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Rüegsegger (RW),SC Langenthal,7,1,1,2,0.29,4,0,/player/174558/stefan-ruegsegger,3,Stefan Rüegsegger,RW,2019-2020,sl,174558,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Sluka (W),EHC Winterthur,7,1,1,2,0.29,4,-3,/player/444213/filip-sluka,3,Filip Sluka,W,2019-2020,sl,444213,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Greg Halberstadt (RW),EHC Kloten,9,1,1,2,0.22,0,0,/player/377070/greg-halberstadt,3,Greg Halberstadt,RW,2019-2020,sl,377070,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Spannring (LW),HC Thurgau,12,1,1,2,0.17,0,-1,/player/26864/patrick-spannring,3,Patrick Spannring,LW,2019-2020,sl,26864,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Wieszinski (D),SC Langenthal,22,1,1,2,0.09,0,-2,/player/174528/jan-wieszinski,3,Jan Wieszinski,D,2019-2020,sl,174528,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Moser (LW),HC Thurgau,29,1,1,2,0.07,2,-7,/player/148517/joel-moser,3,Joel Moser,LW,2019-2020,sl,148517,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Loic Privet (C),HC Sierre,43,1,1,2,0.05,0,-11,/player/267177/loic-privet,3,Loic Privet,C,2019-2020,sl,267177,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabriel Widmer (D),GC Küsnacht Lions,44,1,1,2,0.05,10,-5,/player/311526/gabriel-widmer,3,Gabriel Widmer,D,2019-2020,sl,311526,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Devesvre (D),HC Sierre,44,1,1,2,0.05,20,-2,/player/98628/thomas-devesvre,3,Thomas Devesvre,D,2019-2020,sl,98628,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Oejdemark (D),HC La Chaux-de-Fonds,4,0,2,2,0.50,0,2,/player/220479/victor-oejdemark,3,Victor Oejdemark,D,2019-2020,sl,220479,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stéphane Patry (C/LW),HC Sierre,10,0,2,2,0.20,0,0,/player/279166/stephane-patry,3,Stéphane Patry,C/LW,2019-2020,sl,279166,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Steinauer (D),HC Thurgau,17,0,2,2,0.12,4,-2,/player/95034/joel-steinauer,3,Joel Steinauer,D,2019-2020,sl,95034,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yannick Hänggi (D),EHC Winterthur,20,0,2,2,0.10,4,-6,/player/137998/yannick-hanggi,3,Yannick Hänggi,D,2019-2020,sl,137998,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shane Mathew (RW),GC Küsnacht Lions,22,0,2,2,0.09,12,-2,/player/317407/shane-mathew,3,Shane Mathew,RW,2019-2020,sl,317407,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sacha Wollgast (D),HC La Chaux-de-Fonds,28,0,2,2,0.07,12,-3,/player/21172/sacha-wollgast,3,Sacha Wollgast,D,2019-2020,sl,21172,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Matewa (D),HCB Ticino Rockets,28,0,2,2,0.07,12,-15,/player/276503/lucas-matewa,3,Lucas Matewa,D,2019-2020,sl,276503,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Neil Kyparissis (LW/RW),HC Sierre,29,0,2,2,0.07,16,-6,/player/262564/neil-kyparissis,3,Neil Kyparissis,LW/RW,2019-2020,sl,262564,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wesley Haueter (D),EHC Visp,34,0,2,2,0.06,16,5,/player/262446/wesley-haueter,3,Wesley Haueter,D,2019-2020,sl,262446,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Guillaume Maillard (C/RW),HC Sierre,1,1,0,1,1.00,0,-1,/player/242290/guillaume-maillard,3,Guillaume Maillard,C/RW,2019-2020,sl,242290,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian Liechti (LW/RW),SC Langenthal,2,1,0,1,0.50,0,1,/player/287327/brian-liechti,3,Brian Liechti,LW/RW,2019-2020,sl,287327,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leandro Profico (D/RW),HC Thurgau,2,1,0,1,0.50,0,1,/player/18777/leandro-profico,3,Leandro Profico,D/RW,2019-2020,sl,18777,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valentin Hofer (RW),EVZ Academy,4,1,0,1,0.25,0,1,/player/502649/valentin-hofer,3,Valentin Hofer,RW,2019-2020,sl,502649,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karim Bouchareb (F),HC La Chaux-de-Fonds,4,1,0,1,0.25,2,0,/player/528725/karim-bouchareb,3,Karim Bouchareb,F,2019-2020,sl,528725,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Axel Andersson (D),GC Küsnacht Lions,12,1,0,1,0.08,2,-7,/player/224387/axel-andersson,3,Axel Andersson,D,2019-2020,sl,224387,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gianluca Zanzi (LW/RW),HC Thurgau,17,1,0,1,0.06,2,-4,/player/139257/gianluca-zanzi,3,Gianluca Zanzi,LW/RW,2019-2020,sl,139257,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryan Abreu De Nobrega (LW),HC Sierre,18,1,0,1,0.06,2,-2,/player/224383/bryan-abreu-de-nobrega,3,Bryan Abreu De Nobrega,LW,2019-2020,sl,224383,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hannes Kasslatter (F),HCB Ticino Rockets,25,1,0,1,0.04,12,-5,/player/317412/hannes-kasslatter,3,Hannes Kasslatter,F,2019-2020,sl,317412,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominik Hardmeier (LW),GC Küsnacht Lions,27,1,0,1,0.04,31,-6,/player/149626/dominik-hardmeier,3,Dominik Hardmeier,LW,2019-2020,sl,149626,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Hofmann (D),HC La Chaux-de-Fonds,31,1,0,1,0.03,30,-1,/player/120879/thomas-hofmann,4,Thomas Hofmann,D,2019-2020,sl,120879,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Zgraggen (D),EVZ Academy,1,0,1,1,1.00,4,3,/player/45749/jesse-zgraggen,4,Jesse Zgraggen,D,2019-2020,sl,45749,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pierric Pouilly (C),HC Ajoie,2,0,1,1,0.50,0,1,/player/416531/pierric-pouilly,4,Pierric Pouilly,C,2019-2020,sl,416531,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dexter Dancs (LW/C),EHC Winterthur,3,0,1,1,0.33,0,-3,/player/102280/dexter-dancs,4,Dexter Dancs,LW/C,2019-2020,sl,102280,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adrien Lauper (LW),HC Ajoie,4,0,1,1,0.25,2,-1,/player/17578/adrien-lauper,4,Adrien Lauper,LW,2019-2020,sl,17578,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Florian Schmuckli (D),HC Thurgau,4,0,1,1,0.25,2,0,/player/85345/florian-schmuckli,4,Florian Schmuckli,D,2019-2020,sl,85345,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Giovanni Morini (C/LW),HCB Ticino Rockets,4,0,1,1,0.25,2,-2,/player/147951/giovanni-morini,4,Giovanni Morini,C/LW,2019-2020,sl,147951,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rémi Vogel (D),EVZ Academy,7,0,1,1,0.14,0,-3,/player/459650/remi-vogel,4,Rémi Vogel,D,2019-2020,sl,459650,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elvis Schläpfer (C),SC Langenthal,9,0,1,1,0.11,2,-6,/player/449082/elvis-schlapfer,4,Elvis Schläpfer,C,2019-2020,sl,449082,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicola Christen (LW/RW),EHC Visp,12,0,1,1,0.08,0,-2,/player/326099/nicola-christen,4,Nicola Christen,LW/RW,2019-2020,sl,326099,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eliot Bernazzi (F),HC Sierre,14,0,1,1,0.07,0,-2,/player/461487/eliot-bernazzi,4,Eliot Bernazzi,F,2019-2020,sl,461487,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julian Mettler (W/C),EHC Kloten,14,0,1,1,0.07,4,2,/player/368105/julian-mettler,4,Julian Mettler,W/C,2019-2020,sl,368105,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Laurent Kälin (D),EHC Kloten,17,0,1,1,0.06,0,-2,/player/342100/laurent-kalin,4,Laurent Kälin,D,2019-2020,sl,342100,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Loic Vouardoux (D),HC Sierre,18,0,1,1,0.06,8,0,/player/311620/loic-vouardoux,4,Loic Vouardoux,D,2019-2020,sl,311620,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bastian Guggenheim (D),SC Langenthal,20,0,1,1,0.05,2,-4,/player/461484/bastian-guggenheim,4,Bastian Guggenheim,D,2019-2020,sl,461484,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lorenzo Glarner (C/LW),HCB Ticino Rockets,20,0,1,1,0.05,8,0,/player/293372/lorenzo-glarner,4,Lorenzo Glarner,C/LW,2019-2020,sl,293372,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rocco Pezzullo (D),HCB Ticino Rockets,26,0,1,1,0.04,18,-12,/player/293164/rocco-pezzullo,4,Rocco Pezzullo,D,2019-2020,sl,293164,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sacha Tosques (D),HCB Ticino Rockets,28,0,1,1,0.04,8,-9,/player/97115/sacha-tosques,4,Sacha Tosques,D,2019-2020,sl,97115,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Guillaume Anex (D),HCB Ticino Rockets,35,0,1,1,0.03,20,-12,/player/367886/guillaume-anex,4,Guillaume Anex,D,2019-2020,sl,367886,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nico Engeler (D/F),HC Thurgau,38,0,1,1,0.03,2,-2,/player/231984/nico-engeler,4,Nico Engeler,D/F,2019-2020,sl,231984,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Claude Schnetzer (D),HC Thurgau,0,0,0,0,-,0,-,/player/280115/claude-schnetzer,4,Claude Schnetzer,D,2019-2020,sl,280115,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mica Moosmann (LW),HC Thurgau,1,0,0,0,0.00,0,0,/player/376972/mica-moosmann,4,Mica Moosmann,LW,2019-2020,sl,376972,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jimmy Richard (F),HC Ajoie,1,0,0,0,0.00,0,1,/player/468707/jimmy-richard,4,Jimmy Richard,F,2019-2020,sl,468707,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joachim Vodoz (RW/LW),HC Ajoie,1,0,0,0,0.00,0,0,/player/187661/joachim-vodoz,4,Joachim Vodoz,RW/LW,2019-2020,sl,187661,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yoann Adatte (D),HC La Chaux-de-Fonds,1,0,0,0,0.00,0,0,/player/317417/yoann-adatte,4,Yoann Adatte,D,2019-2020,sl,317417,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sascha Huber (D),GC Küsnacht Lions,1,0,0,0,0.00,0,0,/player/293174/sascha-huber,4,Sascha Huber,D,2019-2020,sl,293174,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thibaut Henry (LW),HC Ajoie,1,0,0,0,0.00,0,0,/player/459667/thibaut-henry,4,Thibaut Henry,LW,2019-2020,sl,459667,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Pinana (D),HCB Ticino Rockets,1,0,0,0,0.00,0,-1,/player/150544/christian-pinana,4,Christian Pinana,D,2019-2020,sl,150544,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gilian Kohler (LW/RW),HC La Chaux-de-Fonds,1,0,0,0,0.00,0,1,/player/296563/gilian-kohler,4,Gilian Kohler,LW/RW,2019-2020,sl,296563,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sami El Assaoui (D),HC Ajoie,1,0,0,0,0.00,0,1,/player/66522/sami-el-assaoui,4,Sami El Assaoui,D,2019-2020,sl,66522,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcell Révész (F),GC Küsnacht Lions,1,0,0,0,0.00,0,0,/player/346097/marcell-revesz,4,Marcell Révész,F,2019-2020,sl,346097,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leo Zaugg (LW/RW),SC Langenthal,1,0,0,0,0.00,0,0,/player/461492/leo-zaugg,4,Leo Zaugg,LW/RW,2019-2020,sl,461492,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stephan Deluca (RW),HCB Ticino Rockets,1,0,0,0,0.00,0,0,/player/382649/stephan-deluca,4,Stephan Deluca,RW,2019-2020,sl,382649,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas Martinsen (LW/RW),EVZ Academy,1,0,0,0,0.00,0,-1,/player/11958/andreas-martinsen,4,Andreas Martinsen,LW/RW,2019-2020,sl,11958,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yannick Zehnder (C/RW),EVZ Academy,1,0,0,0,0.00,0,1,/player/212162/yannick-zehnder,4,Yannick Zehnder,C/RW,2019-2020,sl,212162,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Schwoerer (D),HC Sierre,1,0,0,0,0.00,0,0,/player/317947/michael-schwoerer,4,Michael Schwoerer,D,2019-2020,sl,317947,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David McIntyre (C/W),EVZ Academy,1,0,0,0,0.00,2,1,/player/12282/david-mcintyre,4,David McIntyre,C/W,2019-2020,sl,12282,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luca Homberger (C/RW),EHC Winterthur,2,0,0,0,0.00,0,0,/player/45015/luca-homberger,4,Luca Homberger,C/RW,2019-2020,sl,45015,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeremy Minder (D),EVZ Academy,2,0,0,0,0.00,0,0,/player/317973/jeremy-minder,4,Jeremy Minder,D,2019-2020,sl,317973,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Bach Nielsen (RW),EVZ Academy,2,0,0,0,0.00,0,0,/player/316722/lukas-bach-nielsen,4,Lukas Bach Nielsen,RW,2019-2020,sl,316722,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sandro Schmid (C/RW),HC Ajoie,2,0,0,0,0.00,0,0,/player/326105/sandro-schmid,4,Sandro Schmid,C/RW,2019-2020,sl,326105,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Thiry (D),EVZ Academy,2,0,0,0,0.00,0,0,/player/187699/thomas-thiry,4,Thomas Thiry,D,2019-2020,sl,187699,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Bärtschi (LW),SC Langenthal,2,0,0,0,0.00,0,0,/player/190967/michael-bartschi,4,Michael Bärtschi,LW,2019-2020,sl,190967,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cyrill Bischofberger (C),HC Thurgau,2,0,0,0,0.00,0,0,/player/266753/cyrill-bischofberger,4,Cyrill Bischofberger,C,2019-2020,sl,266753,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janik Wyss (D),EHC Visp,2,0,0,0,0.00,0,-1,/player/287009/janik-wyss,4,Janik Wyss,D,2019-2020,sl,287009,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colin Gerber (D),SC Langenthal,2,0,0,0,0.00,0,0,/player/174516/colin-gerber,4,Colin Gerber,D,2019-2020,sl,174516,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Per Svensson (D),EHC Kloten,2,0,0,0,0.00,0,-2,/player/5704/per-svensson,4,Per Svensson,D,2019-2020,sl,5704,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jérémy Zürcher (RW),HC Ajoie,2,0,0,0,0.00,2,-1,/player/291305/jeremy-zurcher,4,Jérémy Zürcher,RW,2019-2020,sl,291305,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arnaud Schnegg (C/RW),HC La Chaux-de-Fonds,2,0,0,0,0.00,2,0,/player/333554/arnaud-schnegg,4,Arnaud Schnegg,C/RW,2019-2020,sl,333554,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Egli (C/LW),HCB Ticino Rockets,2,0,0,0,0.00,2,-2,/player/149521/chris-egli,4,Chris Egli,C/LW,2019-2020,sl,149521,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Stucki (RW),HCB Ticino Rockets,2,0,0,0,0.00,2,0,/player/91094/christian-stucki,4,Christian Stucki,RW,2019-2020,sl,91094,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Oana (RW),GC Küsnacht Lions,3,0,0,0,0.00,0,0,/player/368019/samuel-oana,4,Samuel Oana,RW,2019-2020,sl,368019,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Malo Gfeller (D),HC Ajoie,3,0,0,0,0.00,0,0,/player/644536/malo-gfeller,4,Malo Gfeller,D,2019-2020,sl,644536,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Heinen (D),HCB Ticino Rockets,3,0,0,0,0.00,0,1,/player/392082/oliver-heinen,4,Oliver Heinen,D,2019-2020,sl,392082,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Wigger (F),SC Langenthal,3,0,0,0,0.00,0,0,/player/478052/jan-wigger,4,Jan Wigger,F,2019-2020,sl,478052,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philippe Seydoux (D),SC Langenthal,3,0,0,0,0.00,2,0,/player/7964/philippe-seydoux,4,Philippe Seydoux,D,2019-2020,sl,7964,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Incir (RW),HCB Ticino Rockets,3,0,0,0,0.00,2,-1,/player/91048/patrick-incir,4,Patrick Incir,RW,2019-2020,sl,91048,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nando Eggenberger (LW/RW),HCB Ticino Rockets,4,0,0,0,0.00,0,-3,/player/287341/nando-eggenberger,4,Nando Eggenberger,LW/RW,2019-2020,sl,287341,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Lukas Widmer (D),GC Küsnacht Lions,4,0,0,0,0.00,0,-2,/player/293186/samuel-lukas-widmer,4,Samuel Lukas Widmer,D,2019-2020,sl,293186,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adrian Zimmermann (F),GC Küsnacht Lions,4,0,0,0,0.00,0,-1,/player/293187/adrian-zimmermann,4,Adrian Zimmermann,F,2019-2020,sl,293187,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sandro Meier (C),EHC Winterthur,4,0,0,0,0.00,0,-3,/player/250442/sandro-meier,4,Sandro Meier,C,2019-2020,sl,250442,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Loïc In-Albon (D/C/LW),SC Langenthal,4,0,0,0,0.00,6,-2,/player/224996/loic-in-albon,4,Loïc In-Albon,D/C/LW,2019-2020,sl,224996,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marco Lütolf (D),EHC Visp,5,0,0,0,0.00,0,0,/player/595225/marco-lutolf,4,Marco Lütolf,D,2019-2020,sl,595225,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mauro Dufner (D),HC Thurgau,5,0,0,0,0.00,2,-1,/player/95329/mauro-dufner,4,Mauro Dufner,D,2019-2020,sl,95329,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gianluca Burger (D),GC Küsnacht Lions,6,0,0,0,0.00,0,-3,/player/346117/gianluca-burger,4,Gianluca Burger,D,2019-2020,sl,346117,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Silvan Landolt (D),GC Küsnacht Lions,10,0,0,0,0.00,0,-1,/player/293175/silvan-landolt,4,Silvan Landolt,D,2019-2020,sl,293175,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Sigg (D),EHC Winterthur,11,0,0,0,0.00,2,-8,/player/311376/joel-sigg,4,Joel Sigg,D,2019-2020,sl,311376,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Davyd Barandun (D),HCB Ticino Rockets,11,0,0,0,0.00,6,-1,/player/364236/davyd-barandun,4,Davyd Barandun,D,2019-2020,sl,364236,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reto Kobach (D),EHC Winterthur,13,0,0,0,0.00,4,-7,/player/12666/reto-kobach,4,Reto Kobach,D,2019-2020,sl,12666,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riccardo Auriemma (D),EVZ Academy,15,0,0,0,0.00,6,-9,/player/287326/riccardo-auriemma,4,Riccardo Auriemma,D,2019-2020,sl,287326,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nelo Surdez (LW),HC Sierre,17,0,0,0,0.00,0,-1,/player/317422/nelo-surdez,4,Nelo Surdez,LW,2019-2020,sl,317422,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Schwab (C/LW),EVZ Academy,20,0,0,0,0.00,0,-10,/player/367912/robin-schwab,4,Robin Schwab,C/LW,2019-2020,sl,367912,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lars Kellenberger (C/D),HC Thurgau,22,0,0,0,0.00,0,-3,/player/224249/lars-kellenberger,4,Lars Kellenberger,C/D,2019-2020,sl,224249,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lionel Marchand (D/W),GC Küsnacht Lions,25,0,0,0,0.00,0,-7,/player/293176/lionel-marchand,4,Lionel Marchand,D/W,2019-2020,sl,293176,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nico Graf (D),EVZ Academy,38,0,0,0,0.00,6,-6,/player/335199/nico-graf,4,Nico Graf,D,2019-2020,sl,335199,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69

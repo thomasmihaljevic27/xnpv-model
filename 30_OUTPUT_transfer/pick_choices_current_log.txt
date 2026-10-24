@@ -1,0 +1,19 @@
+pick_choices_current.py v1.0 (2026-10-22)
+  input C:\Users\thoma\Desktop\xNPV\30_OUTPUT\pick_curve_scales.csv  (modified 2026-10-22 03:05)
+  input C:\Users\thoma\Desktop\xNPV\30_OUTPUT\pick_curve_players.csv  (modified 2026-10-22 03:05)
+  input C:\Users\thoma\Desktop\xNPV\30_OUTPUT\pick_curve_seasons.csv  (modified 2026-10-22 03:05)
+  input C:\Users\thoma\Desktop\xNPV\30_OUTPUT\draft_pick_linkage.csv  (modified 2026-10-22 03:04)
+
+star value: $18.288594M (pick_curve v1.11: $18.288594M)
+  the mean pick: star value x mean star probability (0.05008) = $0.916M
+  guard: seasons sum to each player's value before the rights rule (largest gap $7.45e-09)
+
+1. brief call-ups as full seasons (1094 seasons under 10 games): star value $17.260M, mean pick $0.86M against $0.92M (-5.6%)
+
+2. entry-level slides (approximate): 101 players have a season that slides; 83 later played seasons move to the entry-level cost; star value $18.321M (+0.18%)
+
+3. careers floored at zero (660 negative careers): star value $19.834M (+8.5%)
+
+4. lapsed rights (40 skaters): 2.5% of drafted skaters' positive career value before the rights rule; 2.6% of the net total
+
+5. goaltenders alone (233): star value $70.97M; at the first pick's star probability (0.748), $53.0M; skaters alone $17.67M

@@ -1,0 +1,63 @@
+[rate] control years priced on: xNPV 1 term-in line  alpha=-0.00430925  beta_F=0.01750927  beta_D=0.02158576
+==========================================================================
+PHASE 1c VALIDATION BATTERY  (QO mechanics self-test passed on import)
+==========================================================================
+
+[1] skater contracts ending 2018-2025: 5,074
+    UFA        2,487   -> TV = 0 (locked)
+    RFA        1,973   -> TV computed
+    UFA no QO    614   -> TV = 0 (locked)
+
+[2] projected first-control-year QO vs the player's ACTUAL next contract:
+    n = 1,439 RFA-expiring contracts with an observed next deal
+    actual cap hit >= projected QO: 48.1% of cases
+    median (actual - QO) = $-0.01M   mean = $+0.69M
+    Reading: at the MEDIAN, real re-signings land almost exactly at the
+    QO -- so QO-cost pricing is approximately right for the typical
+    (fringe) RFA. The positive MEAN gap is concentrated in good players,
+    who really do cost more than their QO to retain -- for them, QO
+    pricing is the team-favourable upper bound on surplus. [paper note]
+    [1.10] qualifying-offer salary source: 1,078 real vs 361 substitutes (25% substituted) -- documented limitation, not a repair
+
+[3] terminal values, valued from each contract's FINAL season:
+    D14(c) calibration table (estimated from the spine this run; bucketed on xNPV 1 forecast, WAR if he plays):
+      bucket     P(qual) FIXED       n    P(qual) PRE-FIX       n
+      star              100.0%      10             100.0%      10
+      regular            96.0%     176              96.0%     176
+      fringe             78.0%     904              78.0%     904
+      negative           65.4%   1,180              70.4%     240
+    open decision 1: P(plays next season | qualified), one-game bar, players who played the contract's final season, and the yearly weight:
+      star      P(plays | qualified) 100.0% (n 10)   weight a year 1.000
+      regular   P(plays | qualified) 100.0% (n 166)   weight a year 0.960
+      fringe    P(plays | qualified)  88.0% (n 652)   weight a year 0.687
+      negative  P(plays | qualified)  67.8% (n 329)   weight a year 0.443
+    [Stage 4] overall walk-away rate: 20.8% (n=1,330, pre-fix) -> 27.0% (n=2,270, fixed)
+    [Stage 4] review expected 21.3% (n=1,231) -> 27.0% (n=2,270), with star/regular/fringe unchanged. Compare the table above.
+    computed for 1,002 contracts (status ok; others: no anchor / data flags)
+    truncation (D13) binds on 1.1% of contracts (raw sum > truncated)
+    bucket             n   median TV     mean TV  (truncated)
+    star 3+           13  $    0.31M  $    2.60M   -> adjusted: $  0.31M med, $  2.58M mean
+    regular 1-3      150  $    0.17M  $    1.08M   -> adjusted: $  0.16M med, $  1.01M mean
+    fringe 0-1       488  $    0.00M  $    0.28M   -> adjusted: $  0.00M med, $  0.19M mean
+    negative         351  $    0.00M  $    0.01M   -> adjusted: $  0.00M med, $  0.00M mean
+    NOTE (D14c, resolved): under the intercept convention alone, fringe
+    and negative players carried inflated TVs (the model predicted only
+    18% of real walk-aways). The adjusted column applies the empirical
+    qualify-rate survival chain above, calibrated from 1,200+ observed
+    team decisions -- reality-weighted, not theory-picked.
+
+[4] spot demos (valued from the contract's final season):
+    Matvei Michkov (valued from 2025, anchor +2.24 WAR, 4 control years, path=xNPV 1):
+      2027-28  WAR +2.53  value $ 4.96M  QO $1.14M  surplus $ +3.82M
+      2028-29  WAR +2.62  value $ 5.26M  QO $1.25M  surplus $ +0.47M
+      2029-30  WAR +2.56  value $ 5.31M  QO $4.79M  surplus $ +0.46M
+      2030-31  WAR +2.73  value $ 5.81M  QO $4.85M  surplus $ +0.38M
+      TERMINAL VALUE: $4.81M adjusted (D14c) | $5.13M unadjusted | $5.13M raw
+    Lane Hutson (valued from 2025, anchor +1.67 WAR, 5 control years, path=xNPV 1):
+      2026-27  WAR +1.54  value $ 3.73M  QO $1.40M  surplus $ +2.33M
+      2027-28  WAR +1.51  value $ 3.77M  QO $1.47M  surplus $ +0.54M
+      2028-29  WAR +1.52  value $ 3.90M  QO $3.23M  surplus $ +0.53M
+      2029-30  WAR +1.40  value $ 3.75M  QO $3.36M  surplus $ +0.38M
+      2030-31  WAR +1.41  value $ 3.88M  QO $3.36M  surplus $ +0.47M
+      TERMINAL VALUE: $3.90M adjusted (D14c) | $4.26M unadjusted | $4.26M raw
+    Wyatt Johnston: ufa_expiry

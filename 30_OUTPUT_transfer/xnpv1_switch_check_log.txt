@@ -1,0 +1,53 @@
+xnpv1_switch_check.py v1.0
+
+--- contract_npv.py under xNPV 0 ---
+  |       Victor Hedman            2025 4yr  $ -21.96M -> $ -20.06M  (+1.89M)
+  |       Jaccob Slavin            2025 8yr  $ -12.07M -> $ -10.18M  (+1.89M)
+  |       Jake McCabe              2025 5yr  $  -7.20M -> $  -5.32M  (+1.88M)
+  |       Vladislav Gavrikov       2025 7yr  $ -29.69M -> $ -27.83M  (+1.87M)
+  |     largest downward -- young players on long deals, whose true
+  |     k-1 quality is lower than the shifted lookup used:
+  |       Juraj Slafkovský         2025 8yr  $ -27.16M -> $ -28.18M  (-1.02M)
+  |       Brock Faber              2025 8yr  $ -51.58M -> $ -52.30M  (-0.73M)
+  |       Mattias Samuelsson       2023 7yr  $ -19.48M -> $ -20.06M  (-0.58M)
+  |       David Savard             2021 4yr  $  -9.28M -> $  -9.81M  (-0.53M)
+  | run log written: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\contract_npv_run_log.txt
+  | NPV spine written: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\contract_npv_spine.csv
+
+--- contract_npv.py under xNPV 1 ---
+  |       contract 2025  k=0  WAR +2.31  S=0.995  disc=1.000  pv $ +6.56M
+  |       contract 2026  k=1  WAR +2.45  S=0.995  disc=0.971  pv $ +7.01M
+  |       terminal 2027  k=2  WAR +2.57  S=0.943  disc=0.943  pv $ +6.82M
+  |       terminal 2028  k=3  WAR +2.62  S=0.890  disc=0.915  pv $ +6.51M
+  |       terminal 2029  k=4  WAR +2.64  S=0.839  disc=0.888  pv $ +6.17M
+  |       terminal 2030  k=5  WAR +2.87  S=0.791  disc=0.863  pv $ +6.33M
+  |       NPV total $+39.40M  (contract +13.57 + terminal +25.83; undiscounted +42.49)
+  |     xNPV 1 forecasts used by this run written: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\xnpv1_forecasts.csv
+  | [5] review item 1.2 (the exit-hazard index audit) -- not applicable: under
+  |     xNPV 1 no skater survival is read from the exit hazard.
+  | run log written: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\contract_npv_run_log.txt
+  | NPV spine written: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\contract_npv_spine.csv
+
+--- checks ---
+  xNPV 0 spine: 2,981 contracts (2,591 skater); skater model label ['xNPV 0']
+  xNPV 1 spine: 3,149 contracts (2,759 skater); skater model label ['xNPV 1']
+  goalies: 390 contracts in both runs, largest change $0
+  skaters: 2,591 priced by both, 0 by xNPV 0 only, 168 by xNPV 1 only
+  on the 2,591 priced by both: 1,696 up, 895 down, 0 unchanged; net $+2,199.8M; median $+0.38M
+    1-2 seasons  1,970 contracts: mean change $+0.30M, contract part $+0.27M, terminal part $+0.03M
+    3-5 seasons    406 contracts: mean change $+1.29M, contract part $+1.26M, terminal part $+0.03M
+    6+ seasons     215 contracts: mean change $+5.04M, contract part $+5.04M, terminal part $+0.00M
+  largest rises:
+    Charlie McAvoy           2022  8yr  $-25.14M -> $-3.75M
+    Leon Draisaitl           2025  8yr  $-9.47M -> $+11.72M
+    Rasmus Dahlin            2024  8yr  $-21.32M -> $-0.63M
+    Miro Heiskanen           2021  8yr  $-34.72M -> $-14.61M
+    Jake Sanderson           2024  8yr  $-28.14M -> $-8.75M
+  largest falls:
+    Evgeni Malkin            2022  4yr  $-9.75M -> $-18.66M
+    William Karlsson         2019  8yr  $+11.22M -> $+2.34M
+    Alex Ovechkin            2021  5yr  $-17.42M -> $-26.15M
+    Tage Thompson            2023  7yr  $+5.34M -> $-2.71M
+    Filip Forsberg           2022  8yr  $-12.54M -> $-19.60M
+
+--- contract-by-contract comparison (npv_spine_compare.py) ---

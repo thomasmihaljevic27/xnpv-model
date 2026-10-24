@@ -1,0 +1,54 @@
+==========================================================================
+ level_games_weighting_test.py  v1.0   [production -- 20_CODE]
+ run 2026-10-04 19:52:14   python 3.14.3
+ source C:\Users\Thomas\Desktop\xNPV\10_SOURCE  (via SOURCE_DIR from the environment/.env)
+==========================================================================
+  [age] xnpv1_birthdates.csv: 3204 keys on a pre-built pkey
+  production age table: birthdate on 99.94% of season rows (C:\Users\Thomas\Desktop\xNPV\30_OUTPUT\WAR_with_age.csv)
+birthdates: production's own join (WAR_with_age.csv, 3204 keys) as primary, then the Elite Prospects scrape for 0 keys it lacks
+age table: C:\Users\Thomas\Desktop\xNPV\30_OUTPUT\WAR_with_age.csv
+rows: 6,916 player-pages, 1,609 players, pages 2015-2021
+  built the plain curve on 7 pages (departures filled in per page: 495-900)
+  built the games-weighted curve on 7 pages (departures filled in per page: 495-900)
+
+reproduction: own games / curve plain, with the step, whole 1-5 out = 1.3596 (aging_level_weights_test.py v1.0 version (c), recorded 1.3596)
+  PASS
+
+RATE PER 82, seasons played, games-weighted; step to the valuation season: yes
+  arm (own / curve)                         start RMSE / MAE    whole 1-5 RMSE / MAE
+  plain / plain                              1.1526 / 0.8938         1.3618 / 1.0498
+  games / games                              1.1506 / 0.8928         1.3598 / 1.0496
+  games own / plain curve (reference)        1.1505 / 0.8925         1.3596 / 1.0497
+  plain own / games curve (reference)        1.1525 / 0.8939         1.3621 / 1.0497
+  by season ahead (RMSE):                      +1       +2       +3       +4       +5
+  plain / plain                            1.2614   1.3276   1.3906   1.4223   1.4625
+  games / games                            1.2597   1.3254   1.3887   1.4189   1.4625
+  games own / plain curve (reference)      1.2600   1.3258   1.3887   1.4181   1.4610
+  plain own / games curve (reference)      1.2611   1.3272   1.3907   1.4232   1.4642
+
+RATE PER 82, seasons played, games-weighted; step to the valuation season: no
+  arm (own / curve)                         start RMSE / MAE    whole 1-5 RMSE / MAE
+  plain / plain                              1.1629 / 0.9055         1.3707 / 1.0548
+  games / games                              1.1611 / 0.9052         1.3689 / 1.0549
+  games own / plain curve (reference)        1.1608 / 0.9047         1.3685 / 1.0548
+  plain own / games curve (reference)        1.1629 / 0.9057         1.3711 / 1.0549
+  by season ahead (RMSE):                      +1       +2       +3       +4       +5
+  plain / plain                            1.2707   1.3375   1.3964   1.4312   1.4736
+  games / games                            1.2694   1.3354   1.3945   1.4280   1.4740
+  games own / plain curve (reference)      1.2693   1.3356   1.3945   1.4270   1.4721
+  plain own / games curve (reference)      1.2707   1.3373   1.3964   1.4322   1.4757
+
+RESAMPLES (of 2,000, whole careers): how often the first arm's squared error is lower
+  step to the valuation season: yes
+    games / games                          vs plain / plain  start  1827   whole  1802
+    games own / plain curve (reference)    vs plain / plain  start  1841   whole  1855
+    plain own / games curve (reference)    vs plain / plain  start  1282   whole   385
+  step to the valuation season: no
+    games / games                          vs plain / plain  start  1759   whole  1752
+    games own / plain curve (reference)    vs plain / plain  start  1848   whole  1857
+    plain own / games curve (reference)    vs plain / plain  start   735   whole   170
+
+BY TRAILING GAMES (step: yes): rows whose shortest counted trailing season is under 41 games (3,149 rows) against the rest (3,767)
+  arm                                       short: start / whole     full: start / whole   bias, short start
+  plain / plain                                  1.1469 / 1.2785         1.1550 / 1.3952   +0.095
+  games / games                                  1.1382 / 1.2718         1.1558 / 1.3951   +0.110

@@ -1,0 +1,193 @@
+term_premium_test.py v1.0 (2026-07-27)
+Review item 2.1. Design fixed by term_premium_test_specification_v1.md.
+source dir: C:\Users\Thomas\Desktop\xNPV\10_SOURCE
+output dir: C:\Users\Thomas\Desktop\xNPV\30_OUTPUT
+
+==========================================================================
+STAGE 1: contract sample and the locked price equation
+==========================================================================
+  full locked sample: n=2349 (specification: 2349)
+  price equation  R2=0.727279 (spec 0.727279)
+    intercept  0.00272035  (spec 0.00272035)
+    per win    0.01040552  = $0.9937M   (spec 0.01040552)
+    per year   0.00859642  = $0.8210M   t=34.5  (spec 0.00859642)
+  mean length 2.3057 (spec 2.3057)
+  share conversion  s = 1.2104 x f
+    s=1.00 requires f=0.8261 wins/season/year of term (4.70 wins/season on an 8-year deal)
+    s=0.25 requires f=0.2065 (1.18 wins/season on an 8-year deal)
+
+  anchor availability, 2018-2023 signings:
+    eligible 2450, anchored 1781, dropped 669 (27.3%)
+    dropped group: mean length 1.306, mean AAV $0.77M, contracts of 6+ years 0
+  K=3 sample: n=1781  starts 2018-2023  mean length 2.240  sd 1.793
+  K=2 sample: n=2070  starts 2018-2024  mean length 2.265  sd 1.813
+  K=4 sample: n=1505  starts 2018-2022  mean length 2.209  sd 1.735
+
+  K=3 composition: forwards 1164, defencemen 617, RFA 838, UFA 943
+  by length: 1yr:832, 2yr:496, 3yr:158, 4yr:101, 5yr:46, 6yr:43, 7yr:41, 8yr:64
+  duplicate contract_id rows in the K=3 sample: 0
+  merged-name contracts (anchor may be another player's): 1
+  alias cases (Sebastian Aho, D): 0
+  contracts with no nhl_id: 0 (0.0%)
+  Stage 1 PASSED.
+
+==========================================================================
+STAGE 2: Game Value outcome (GV-adj), win units
+==========================================================================
+  tables in the database (17):
+    faceoff_events: game_id, event_id, period, time_in_period, situation_code, zone_code, winning_player_id, losing_player_id, event_owner_team_id, scraped_at
+    games: game_id, season, game_type, game_date, away_team, home_team, away_score, home_score, last_period, scraped_at
+    goal_events: game_id, event_idx, period, time_in_period, situation_code, scoring_player, assist1_player, assist2_player, scoring_team_id, scraped_at
+    goalie_games: game_id, player_id, player_name, team, opponent, is_home, starter, shots_against, saves, goals_against, ev_shots_against, pp_shots_against, sh_shots_against, ev_goals_against, pp_goals_against, sh_goals_against, toi_minutes, scraped_at
+    gv_adjusted: player_id, season, toi_5v5_min, ev_rapm, nonev5, penalty, finishing, gv_adj, off60, def60
+    on_ice_event_qc: game_id, event_id, away_expected, home_expected, away_found, home_found, match_ok
+    on_ice_game_qc: game_id, events, events_matched, mismatch_rate, no_shift_data, codes_suspect
+    on_ice_skaters: game_id, event_id, player_id, team, is_home, on_event_team
+    penalty_events: game_id, event_id, period, time_in_period, situation_code, penalty_type, penalty_desc, duration_minutes, committed_by_player_id, drawn_by_player_id, event_owner_team_id, scraped_at
+    player_game_value: game_id, season, game_type, game_date, player_id, player_name, team, onice_xgf_adj, onice_xga_adj, onice_component, pen_drawn, pen_taken, penalty_component, game_value, ixg
+    player_game_value_repl: game_id, season, game_type, game_date, player_id, player_name, team, onice_xgf_adj, onice_xga_adj, onice_component, pen_drawn, pen_taken, penalty_component, game_value, ixg, toi_minutes, position_raw, pos_bucket, season_team_toi, toi_rank, is_replacement, is_regular_season, repl_rate_per60, gv_repl
+    score_state_factors: score_state, ev_xg_share, adjustment_factor
+    shifts: game_id, shift_id, player_id, player_name, team, period, shift_number, start_time, end_time, duration_seconds, scraped_at
+    shot_events: game_id, event_id, period, time_in_period, situation_code, shot_result, zone_code, x_coord, y_coord, shot_type, shooting_player_id, blocking_player_id, goalie_id, event_owner_team_id, scraped_at
+    shot_score_state: game_id, event_id, score_state, score_diff
+    shot_xg: game_id, event_id, season, game_type, shooter_id, team, is_goal, xg, distance, angle, shot_type, strength, rebound, used_recon_strength
+    skater_games: game_id, player_id, player_name, team, opponent, is_home, position, goals, assists, a1, a2, points, plus_minus, pim, sog, hits, blocked_shots, giveaways, takeaways, pp_goals, faceoff_pct, toi_minutes, shifts, scraped_at
+
+  using table `gv_adjusted` with columns: player_id, season, toi_5v5_min, ev_rapm, nonev5, penalty, finishing, gv_adj, off60, def60
+  value=gv_adj  player=player_id  season=season
+  rows read: 8,294
+  no game_type column present; treating the table as already regular-season or season-level. VERIFY this before citing.
+  player-seasons: 8,294  (mean 1.0 source rows each -- near 1.0 means the source was already season-level)
+  seasons covered: 2017-2025
+  realized wins: mean -0.003, sd 0.742, min -2.969, max +4.716
+  player-seasons by season: 2017:890, 2018:906, 2019:883, 2020:913, 2021:1004, 2022:951, 2023:924, 2024:910, 2025:913
+  Stage 2 done.
+
+==========================================================================
+STAGES 3-4: main specification and robustness legs
+==========================================================================
+--------------------------------------------------------------------------
+STAGE 3: join and realized production, K=3
+--------------------------------------------------------------------------
+  identifier overlap: 1007 distinct players
+  contracts with at least one observed season: 1690/1781 (94.9%)
+    Phase 4b achieved 88%; the specification floors this at 80%
+  zero-season diagnostic by contract length:
+    1yr  n= 832  share of seasons at zero= 35.2%  contracts with no observed season=76
+    2yr  n= 496  share of seasons at zero= 15.0%  contracts with no observed season=15
+    3yr  n= 158  share of seasons at zero=  3.2%  contracts with no observed season=0
+    4yr  n= 101  share of seasons at zero=  2.6%  contracts with no observed season=0
+    5yr  n=  46  share of seasons at zero=  0.0%  contracts with no observed season=0
+    6yr  n=  43  share of seasons at zero=  0.8%  contracts with no observed season=0
+    7yr  n=  41  share of seasons at zero=  1.6%  contracts with no observed season=0
+    8yr  n=  64  share of seasons at zero=  2.1%  contracts with no observed season=0
+  corr(length, count of zero seasons) = -0.364
+--------------------------------------------------------------------------
+STAGE 3: join and realized production, K=2
+--------------------------------------------------------------------------
+  identifier overlap: 1086 distinct players
+  contracts with at least one observed season: 1951/2070 (94.3%)
+    Phase 4b achieved 88%; the specification floors this at 80%
+  zero-season diagnostic by contract length:
+    1yr  n= 949  share of seasons at zero= 26.8%  contracts with no observed season=100
+    2yr  n= 587  share of seasons at zero=  9.0%  contracts with no observed season=19
+    3yr  n= 186  share of seasons at zero=  1.9%  contracts with no observed season=0
+    4yr  n= 117  share of seasons at zero=  1.3%  contracts with no observed season=0
+    5yr  n=  52  share of seasons at zero=  0.0%  contracts with no observed season=0
+    6yr  n=  50  share of seasons at zero=  0.0%  contracts with no observed season=0
+    7yr  n=  52  share of seasons at zero=  0.0%  contracts with no observed season=0
+    8yr  n=  77  share of seasons at zero=  1.9%  contracts with no observed season=0
+  corr(length, count of zero seasons) = -0.300
+--------------------------------------------------------------------------
+STAGE 3: join and realized production, K=4
+--------------------------------------------------------------------------
+  identifier overlap: 922 distinct players
+  contracts with at least one observed season: 1433/1505 (95.2%)
+    Phase 4b achieved 88%; the specification floors this at 80%
+  zero-season diagnostic by contract length:
+    1yr  n= 708  share of seasons at zero= 42.2%  contracts with no observed season=62
+    2yr  n= 414  share of seasons at zero= 19.4%  contracts with no observed season=10
+    3yr  n= 136  share of seasons at zero=  5.1%  contracts with no observed season=0
+    4yr  n=  90  share of seasons at zero=  5.6%  contracts with no observed season=0
+    5yr  n=  40  share of seasons at zero=  0.0%  contracts with no observed season=0
+    6yr  n=  41  share of seasons at zero=  1.2%  contracts with no observed season=0
+    7yr  n=  33  share of seasons at zero=  1.5%  contracts with no observed season=0
+    8yr  n=  43  share of seasons at zero=  4.1%  contracts with no observed season=0
+  corr(length, count of zero seasons) = -0.406
+
+  [MAIN  GV-adj, K=3]  n=1781  clusters=1011  R2=0.2570
+    anchor coefficient e = +0.3522 (t=+14.22)
+    term coefficient  f = -0.0135 wins/season/year of term  (se 0.0114, t=-1.18)
+      95% interval on f: [-0.0360, +0.0089]  CONTAINS zero
+    share s = -0.016   interval [-0.044, +0.011]
+    share applied to the value side: 0.000   (bounds: 0.000 = current model, 1.000 = fully term-aware)
+    an 8-year contract implies -0.08 extra wins per season beyond its anchor
+
+  [horizon K=2]  n=2070  clusters=1090  R2=0.2466
+    anchor coefficient e = +0.3521 (t=+16.09)
+    term coefficient  f = -0.0107 wins/season/year of term  (se 0.0110, t=-0.97)
+      95% interval on f: [-0.0322, +0.0109]  CONTAINS zero
+    share s = -0.013   interval [-0.039, +0.013]
+    share applied to the value side: 0.000   (bounds: 0.000 = current model, 1.000 = fully term-aware)
+    an 8-year contract implies -0.06 extra wins per season beyond its anchor
+
+  [horizon K=4]  n=1505  clusters=926  R2=0.2367
+    anchor coefficient e = +0.3345 (t=+11.84)
+    term coefficient  f = -0.0148 wins/season/year of term  (se 0.0128, t=-1.16)
+      95% interval on f: [-0.0400, +0.0103]  CONTAINS zero
+    share s = -0.018   interval [-0.048, +0.012]
+    share applied to the value side: 0.000   (bounds: 0.000 = current model, 1.000 = fully term-aware)
+    an 8-year contract implies -0.08 extra wins per season beyond its anchor
+
+  [position: forwards]  n=1164  clusters=663  R2=0.3769
+    anchor coefficient e = +0.3252 (t=+12.61)
+    term coefficient  f = +0.0273 wins/season/year of term  (se 0.0125, t=+2.19)
+      95% interval on f: [+0.0028, +0.0518]  excludes zero
+    share s = +0.033   interval [+0.003, +0.063]
+    share applied to the value side: 0.033   (bounds: 0.000 = current model, 1.000 = fully term-aware)
+    an 8-year contract implies +0.16 extra wins per season beyond its anchor
+
+  [position: defencemen]  n=617  clusters=348  R2=0.0295
+    anchor coefficient e = +0.1550 (t=+2.76)
+    term coefficient  f = -0.0354 wins/season/year of term  (se 0.0194, t=-1.82)
+      95% interval on f: [-0.0734, +0.0027]  CONTAINS zero
+    share s = -0.043   interval [-0.089, +0.003]
+    share applied to the value side: 0.000   (bounds: 0.000 = current model, 1.000 = fully term-aware)
+    an 8-year contract implies -0.20 extra wins per season beyond its anchor
+
+  [signing status: RFA]  n=838  clusters=597  R2=0.3372
+    anchor coefficient e = +0.3993 (t=+11.03)
+    term coefficient  f = +0.0099 wins/season/year of term  (se 0.0178, t=+0.55)
+      95% interval on f: [-0.0251, +0.0448]  CONTAINS zero
+    share s = +0.012   interval [-0.030, +0.054]
+    share applied to the value side: 0.000   (bounds: 0.000 = current model, 1.000 = fully term-aware)
+    an 8-year contract implies +0.06 extra wins per season beyond its anchor
+
+  [signing status: UFA]  n=943  clusters=585  R2=0.1794
+    anchor coefficient e = +0.2860 (t=+9.70)
+    term coefficient  f = -0.0305 wins/season/year of term  (se 0.0138, t=-2.21)
+      95% interval on f: [-0.0575, -0.0035]  excludes zero
+    share s = -0.037   interval [-0.070, -0.004]
+    share applied to the value side: 0.000   (bounds: 0.000 = current model, 1.000 = fully term-aware)
+    an 8-year contract implies -0.17 extra wins per season beyond its anchor
+
+  [zeros dropped (rejected alternative)]  n=1690  clusters=968  R2=0.2645
+    anchor coefficient e = +0.3583 (t=+14.39)
+    term coefficient  f = -0.0114 wins/season/year of term  (se 0.0115, t=-0.99)
+      95% interval on f: [-0.0340, +0.0112]  CONTAINS zero
+    share s = -0.014   interval [-0.041, +0.014]
+    share applied to the value side: 0.000   (bounds: 0.000 = current model, 1.000 = fully term-aware)
+    an 8-year contract implies -0.07 extra wins per season beyond its anchor
+
+  GV-raw legs: not produced by this run. Re-run with CANDIDATE_TABLES/CANDIDATE_VALUE_COLS pointed at the raw Game Value table (rebased, then zero-sum) and file all three runs together.
+
+==========================================================================
+HEADLINE
+==========================================================================
+  f = -0.0135 wins per season per year of term, 95% interval [-0.0360, +0.0089]
+  share s = -0.016, interval [-0.044, +0.011]
+  share carried on the value side = 0.000
+  bounds: 0.000 is the current model, 1.000 is fully term-aware.
+  f is measured with no Bacon input. The conversion to s multiplies by the Bacon-derived price of a win, so s inherits any error in that level and must be cited alongside f, never instead of it.
+
+  wrote term_premium_test_results.csv, term_premium_test_diagnostics.csv, term_premium_test_sample.csv

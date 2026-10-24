@@ -1,0 +1,693 @@
+player,team,gp,g,a,tp,p_per_gp,pim,plus_minus,link,page,playername,position,season,league,ep_player_id,scrape_date,source,package_version
+Nico Grabas (LW),Chilliwack Chiefs,50,31,45,76,1.52,51,-,/player/647853/nico-grabas,1,Nico Grabas,LW,2025-2026,bchl,647853,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Plandowski (LW),Chilliwack Chiefs,54,29,46,75,1.39,14,-,/player/641263/jack-plandowski,1,Jack Plandowski,LW,2025-2026,bchl,641263,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Good (LW),Brooks Bandits,54,22,48,70,1.30,14,-,/player/577195/jack-good,1,Jack Good,LW,2025-2026,bchl,577195,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Ivashchenko (W),Blackfalds Bulldogs,53,31,38,69,1.30,32,-,/player/875910/nikita-ivashchenko,1,Nikita Ivashchenko,W,2025-2026,bchl,875910,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zachary Benayon (LW),Langley Rivermen,53,36,32,68,1.28,22,-,/player/739356/zachary-benayon,1,Zachary Benayon,LW,2025-2026,bchl,739356,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reese Shaw (C/RW),Chilliwack Chiefs,45,27,40,67,1.49,14,-,/player/603181/reese-shaw,1,Reese Shaw,C/RW,2025-2026,bchl,603181,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tai Ushio (F),Prince George Spruce Kings,47,31,35,66,1.40,79,-,/player/603725/tai-ushio,1,Tai Ushio,F,2025-2026,bchl,603725,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Hall (LW),Cowichan Valley Capitals,52,21,43,64,1.23,16,-,/player/599575/anthony-hall,1,Anthony Hall,LW,2025-2026,bchl,599575,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ruslan Jamaldinov (C/W),West Kelowna Warriors,53,28,35,63,1.19,8,-,/player/705486/ruslan-jamaldinov,1,Ruslan Jamaldinov,C/W,2025-2026,bchl,705486,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Krayer (F),West Kelowna Warriors,54,23,40,63,1.17,22,-,/player/576997/dylan-krayer,1,Dylan Krayer,F,2025-2026,bchl,576997,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Neu (F),Blackfalds Bulldogs,53,27,34,61,1.15,66,-,/player/710576/thomas-neu,1,Thomas Neu,F,2025-2026,bchl,710576,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack McAra (C),Cowichan Valley Capitals,47,24,37,61,1.30,12,-,/player/715851/jack-mcara,1,Jack McAra,C,2025-2026,bchl,715851,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Battaini (F),totals,50,24,37,61,1.22,10,-,/player/535583/chris-battaini,1,Chris Battaini,F,2025-2026,bchl,535583,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joseph Sinclair (F),Sherwood Park Crusaders,54,24,36,60,1.11,14,-,/player/881129/joseph-sinclair,1,Joseph Sinclair,F,2025-2026,bchl,881129,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Braeden O'Keefe (C),Sherwood Park Crusaders,54,21,39,60,1.11,6,-,/player/746358/braeden-o-keefe,1,Braeden O'Keefe,C,2025-2026,bchl,746358,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Lougheed (F),Prince George Spruce Kings,52,20,40,60,1.15,10,-,/player/715830/marcus-lougheed,1,Marcus Lougheed,F,2025-2026,bchl,715830,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Kim (F),Trail Smoke Eaters,52,18,42,60,1.15,20,-,/player/535652/christian-kim,1,Christian Kim,F,2025-2026,bchl,535652,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Liam Fitzpatrick (F),Brooks Bandits,53,34,24,58,1.09,21,-,/player/607342/liam-fitzpatrick,1,Liam Fitzpatrick,F,2025-2026,bchl,607342,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eliot Compton (F),Powell River Kings,49,28,30,58,1.18,62,-,/player/576986/eliot-compton,1,Eliot Compton,F,2025-2026,bchl,576986,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Bruender (F),Nanaimo Clippers,52,28,30,58,1.12,48,-,/player/693994/tanner-bruender,1,Tanner Bruender,F,2025-2026,bchl,693994,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Boris Borin (C),Chilliwack Chiefs,42,14,43,57,1.36,29,-,/player/983692/boris-borin,1,Boris Borin,C,2025-2026,bchl,983692,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tristan Gravenor (F),Cowichan Valley Capitals,53,27,29,56,1.06,10,-,/player/719751/tristan-gravenor,1,Tristan Gravenor,F,2025-2026,bchl,719751,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Isaac Johnson (LW),Brooks Bandits,47,30,24,54,1.15,16,-,/player/694959/isaac-johnson,1,Isaac Johnson,LW,2025-2026,bchl,694959,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hayden Fechner (F),Nanaimo Clippers,53,26,28,54,1.02,16,-,/player/668323/hayden-fechner,1,Hayden Fechner,F,2025-2026,bchl,668323,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Landon Mackie (F),totals,53,25,29,54,1.02,59,-,/player/705880/landon-mackie,1,Landon Mackie,F,2025-2026,bchl,705880,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kye Benoche (F),totals,55,23,30,53,0.96,48,-,/player/866848/kye-benoche,1,Kye Benoche,F,2025-2026,bchl,866848,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artur Gross (RW),Victoria Grizzlies,43,20,33,53,1.23,34,-,/player/725270/artur-gross,1,Artur Gross,RW,2025-2026,bchl,725270,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Kubantsev (RW/LW),Vernon Vipers,47,15,38,53,1.13,52,-,/player/1017868/dmitri-kubantsev,1,Dmitri Kubantsev,RW/LW,2025-2026,bchl,1017868,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Allaby (F),totals,47,14,39,53,1.13,14,-,/player/738445/sam-allaby,1,Sam Allaby,F,2025-2026,bchl,738445,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cash Carter (F),Trail Smoke Eaters,53,26,26,52,0.98,22,-,/player/724750/cash-carter,1,Cash Carter,F,2025-2026,bchl,724750,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Declan Waddick (C),Spruce Grove Saints,49,25,27,52,1.06,33,-,/player/691493/declan-waddick,1,Declan Waddick,C,2025-2026,bchl,691493,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Rimmer (RW),Nanaimo Clippers,53,25,27,52,0.98,77,-,/player/788090/jack-rimmer,1,Jack Rimmer,RW,2025-2026,bchl,788090,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Fortune (F),Nanaimo Clippers,49,15,37,52,1.06,36,-,/player/679632/patrick-fortune,1,Patrick Fortune,F,2025-2026,bchl,679632,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ozbej Rep (D),Prince George Spruce Kings,54,6,46,52,0.96,42,-,/player/708169/ozbej-rep,1,Ozbej Rep,D,2025-2026,bchl,708169,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Natan Éthier (LW),West Kelowna Warriors,41,30,21,51,1.24,36,-,/player/648717/natan-ethier,1,Natan Éthier,LW,2025-2026,bchl,648717,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Dahlen (F),Blackfalds Bulldogs,50,29,22,51,1.02,28,-,/player/597809/luke-dahlen,1,Luke Dahlen,F,2025-2026,bchl,597809,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Harry Ahlberg (F),Brooks Bandits,53,22,29,51,0.96,63,-,/player/773325/harry-ahlberg,1,Harry Ahlberg,F,2025-2026,bchl,773325,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joey Melo (C),Blackfalds Bulldogs,53,18,33,51,0.96,18,-,/player/739330/joey-melo,1,Joey Melo,C,2025-2026,bchl,739330,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Hedley (C),Powell River Kings,52,15,36,51,0.98,24,-,/player/764163/ryan-hedley,1,Ryan Hedley,C,2025-2026,bchl,764163,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Rosensteel (F),Brooks Bandits,44,26,24,50,1.14,32,-,/player/597869/jack-rosensteel,1,Jack Rosensteel,F,2025-2026,bchl,597869,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Mertz (D),Blackfalds Bulldogs,53,8,42,50,0.94,36,-,/player/800956/noah-mertz,1,Noah Mertz,D,2025-2026,bchl,800956,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Csabi (LW),Cranbrook Bucks,53,22,27,49,0.92,20,-,/player/715793/adam-csabi,1,Adam Csabi,LW,2025-2026,bchl,715793,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Boisvert (LW),Nanaimo Clippers,46,19,30,49,1.07,35,-,/player/721162/samuel-boisvert,1,Samuel Boisvert,LW,2025-2026,bchl,721162,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nolan Flynn (LW),Coquitlam Express,52,12,37,49,0.94,20,-,/player/694050/nolan-flynn,1,Nolan Flynn,LW,2025-2026,bchl,694050,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Parker Forlin (C),totals,48,24,24,48,1.00,14,-,/player/800106/parker-forlin,1,Parker Forlin,C,2025-2026,bchl,800106,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Pastro (F),Trail Smoke Eaters,54,24,24,48,0.89,58,-,/player/804923/erik-pastro,1,Erik Pastro,F,2025-2026,bchl,804923,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gavin Nemis (F),Cowichan Valley Capitals,50,20,28,48,0.96,16,-,/player/724518/gavin-nemis,1,Gavin Nemis,F,2025-2026,bchl,724518,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joshua Wiebe (F),totals,51,16,32,48,0.94,10,-,/player/744010/joshua-wiebe,1,Joshua Wiebe,F,2025-2026,bchl,744010,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kai Matthew (F),Alberni Valley Bulldogs,42,21,26,47,1.12,41,-,/player/564981/kai-matthew,1,Kai Matthew,F,2025-2026,bchl,564981,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tre Peck (F),Spruce Grove Saints,52,17,30,47,0.90,12,-,/player/577153/tre-peck,1,Tre Peck,F,2025-2026,bchl,577153,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Gill (F),totals,49,13,33,46,0.94,14,-,/player/726396/brandon-gill,1,Brandon Gill,F,2025-2026,bchl,726396,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Zhukov (F),Brooks Bandits,45,18,27,45,1.00,18,-,/player/896016/alexei-zhukov,1,Alexei Zhukov,F,2025-2026,bchl,896016,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Owen Warnick (F),Victoria Grizzlies,53,16,29,45,0.85,6,-,/player/724533/owen-warnick,1,Owen Warnick,F,2025-2026,bchl,724533,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Wachtel (F),Prince George Spruce Kings,52,23,21,44,0.85,8,-,/player/619059/ryan-wachtel,1,Ryan Wachtel,F,2025-2026,bchl,619059,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Beaudoin (LW/C),Powell River Kings,37,18,26,44,1.19,16,-,/player/597541/marek-beaudoin,1,Marek Beaudoin,LW/C,2025-2026,bchl,597541,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bode Sampair (F),Sherwood Park Crusaders,40,18,26,44,1.10,24,-,/player/791625/bode-sampair,1,Bode Sampair,F,2025-2026,bchl,791625,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wyatt Davis (D),Alberni Valley Bulldogs,53,17,27,44,0.83,30,-,/player/654078/wyatt-davis,1,Wyatt Davis,D,2025-2026,bchl,654078,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Kald (D),Sherwood Park Crusaders,42,16,28,44,1.05,64,-,/player/722798/erik-kald,1,Erik Kald,D,2025-2026,bchl,722798,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Garthe (C),West Kelowna Warriors,43,13,31,44,1.02,12,-,/player/758301/noah-garthe,1,Noah Garthe,C,2025-2026,bchl,758301,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Massimo Fazio (F),Cowichan Valley Capitals,50,10,34,44,0.88,75,-,/player/735104/massimo-fazio,1,Massimo Fazio,F,2025-2026,bchl,735104,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reece Gault (D),Victoria Grizzlies,54,8,36,44,0.81,34,-,/player/804446/reece-gault,1,Reece Gault,D,2025-2026,bchl,804446,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Hesselgrave (C/RW),Prince George Spruce Kings,53,23,20,43,0.81,39,-,/player/722199/carter-hesselgrave,1,Carter Hesselgrave,C/RW,2025-2026,bchl,722199,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kole Keen (F),totals,56,22,21,43,0.77,26,-,/player/719112/kole-keen,1,Kole Keen,F,2025-2026,bchl,719112,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Edvin Nilsson (D),totals,54,7,36,43,0.80,34,-,/player/534820/edvin-nilsson,1,Edvin Nilsson,D,2025-2026,bchl,534820,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Deagan McMillan (F),Vernon Vipers,42,21,21,42,1.00,120,-,/player/705302/deagan-mcmillan,1,Deagan McMillan,F,2025-2026,bchl,705302,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Chiovetti (C),totals,53,14,28,42,0.79,8,-,/player/597786/tyler-chiovetti,1,Tyler Chiovetti,C,2025-2026,bchl,597786,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Pfoh (F),Coquitlam Express,48,10,32,42,0.88,93,-,/player/723958/luke-pfoh,1,Luke Pfoh,F,2025-2026,bchl,723958,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Lepper (D),Salmon Arm Silverbacks,54,9,33,42,0.78,2,-,/player/719017/luke-lepper,1,Luke Lepper,D,2025-2026,bchl,719017,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stevie Grumley (D),Sherwood Park Crusaders,41,17,24,41,1.00,16,-,/player/747968/stevie-grumley,1,Stevie Grumley,D,2025-2026,bchl,747968,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Mikan (C),totals,41,15,26,41,1.00,10,-,/player/863647/michael-mikan,1,Michael Mikan,C,2025-2026,bchl,863647,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benjamin Vreugdenhil (F),Prince George Spruce Kings,46,12,29,41,0.89,4,-,/player/880426/benjamin-vreugdenhil,1,Benjamin Vreugdenhil,F,2025-2026,bchl,880426,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Terpstra (F),Alberni Valley Bulldogs,29,17,22,39,1.34,24,-,/player/603142/jacob-terpstra,1,Jacob Terpstra,F,2025-2026,bchl,603142,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Maro (RW),totals,49,17,22,39,0.80,34,-,/player/651886/christian-maro,1,Christian Maro,RW,2025-2026,bchl,651886,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zachary Coutu (F),Trail Smoke Eaters,52,14,25,39,0.75,38,-,/player/655326/zachary-coutu,1,Zachary Coutu,F,2025-2026,bchl,655326,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Meshcheryakov (C),totals,52,10,29,39,0.75,10,-,/player/619252/nikita-meshcheryakov,1,Nikita Meshcheryakov,C,2025-2026,bchl,619252,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack McMinn (D),Cranbrook Bucks,54,10,29,39,0.72,24,-,/player/711044/jack-mcminn,1,Jack McMinn,D,2025-2026,bchl,711044,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Landon Pappas (D),Nanaimo Clippers,49,8,31,39,0.80,43,-,/player/685916/landon-pappas,1,Landon Pappas,D,2025-2026,bchl,685916,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Dick (F),totals,52,20,18,38,0.73,57,-,/player/642748/connor-dick,1,Connor Dick,F,2025-2026,bchl,642748,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Felix Haiböck (F),Spruce Grove Saints,48,19,19,38,0.79,64,-,/player/619085/felix-haibock,1,Felix Haiböck,F,2025-2026,bchl,619085,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Lang (D),Cowichan Valley Capitals,50,7,31,38,0.76,40,-,/player/653146/adam-lang,1,Adam Lang,D,2025-2026,bchl,653146,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+James Richards (D),Spruce Grove Saints,52,3,35,38,0.73,61,-,/player/619157/james-richards,1,James Richards,D,2025-2026,bchl,619157,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brady Engelkes (F),totals,52,18,19,37,0.71,48,-,/player/665108/brady-engelkes,1,Brady Engelkes,F,2025-2026,bchl,665108,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grant Denuccio (F),Cranbrook Bucks,53,15,22,37,0.70,49,-,/player/675710/grant-denuccio,1,Grant Denuccio,F,2025-2026,bchl,675710,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Kowalski (F),Okotoks Oilers,53,15,22,37,0.70,76,-,/player/665111/michael-kowalski,1,Michael Kowalski,F,2025-2026,bchl,665111,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olivier Chan (C),West Kelowna Warriors,53,13,24,37,0.70,18,-,/player/838802/olivier-chan,1,Olivier Chan,C,2025-2026,bchl,838802,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keifer Miller (RW),Salmon Arm Silverbacks,52,11,26,37,0.71,14,-,/player/643905/keifer-miller,1,Keifer Miller,RW,2025-2026,bchl,643905,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Slade Firkus (F),Cowichan Valley Capitals,54,10,27,37,0.69,20,-,/player/733467/slade-firkus,1,Slade Firkus,F,2025-2026,bchl,733467,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Lariviere (F),Trail Smoke Eaters,54,20,16,36,0.67,15,-,/player/726337/dylan-lariviere,1,Dylan Lariviere,F,2025-2026,bchl,726337,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teague McAllister (F),Alberni Valley Bulldogs,49,19,17,36,0.73,52,-,/player/512139/teague-mcallister,1,Teague McAllister,F,2025-2026,bchl,512139,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Funk (C),Spruce Grove Saints,54,18,18,36,0.67,36,-,/player/599335/brandon-funk,1,Brandon Funk,C,2025-2026,bchl,599335,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Liam Nilsson (D),West Kelowna Warriors,45,17,19,36,0.80,48,-,/player/716776/liam-nilsson,1,Liam Nilsson,D,2025-2026,bchl,716776,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nate Crema (F),Coquitlam Express,54,15,21,36,0.67,20,-,/player/709622/nate-crema,1,Nate Crema,F,2025-2026,bchl,709622,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nolan Dupont (LW),Coquitlam Express,53,12,24,36,0.68,41,-,/player/727519/nolan-dupont,1,Nolan Dupont,LW,2025-2026,bchl,727519,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaron Reierson (RW),Langley Rivermen,25,23,12,35,1.40,4,-,/player/664645/aaron-reierson,1,Aaron Reierson,RW,2025-2026,bchl,664645,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Georgios Stavrianeas (LW),totals,49,20,15,35,0.71,24,-,/player/646705/georgios-stavrianeas,1,Georgios Stavrianeas,LW,2025-2026,bchl,646705,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carson McGinley (F),Coquitlam Express,49,17,18,35,0.71,57,-,/player/784826/carson-mcginley,1,Carson McGinley,F,2025-2026,bchl,784826,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kaslo Ferner (F),Cranbrook Bucks,29,15,20,35,1.21,26,-,/player/679665/kaslo-ferner,1,Kaslo Ferner,F,2025-2026,bchl,679665,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dustin Renas (F),Chilliwack Chiefs,52,15,20,35,0.67,67,-,/player/603573/dustin-renas,1,Dustin Renas,F,2025-2026,bchl,603573,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathis Dufour (C),Brooks Bandits,40,12,23,35,0.88,19,-,/player/873448/mathis-dufour,1,Mathis Dufour,C,2025-2026,bchl,873448,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kent Moors (C),Sherwood Park Crusaders,42,12,23,35,0.83,42,-,/player/643189/kent-moors,1,Kent Moors,C,2025-2026,bchl,643189,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trace Frieden (F),Cowichan Valley Capitals,39,9,26,35,0.90,26,-,/player/577114/trace-frieden,2,Trace Frieden,F,2025-2026,bchl,577114,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maddux Martin (C),totals,44,20,14,34,0.77,6,-,/player/758821/maddux-martin,2,Maddux Martin,C,2025-2026,bchl,758821,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Darius Bachler (F),Langley Rivermen,51,13,21,34,0.67,76,-,/player/647527/darius-bachler,2,Darius Bachler,F,2025-2026,bchl,647527,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Winegard (D),totals,54,8,26,34,0.63,49,-,/player/709768/tanner-winegard,2,Tanner Winegard,D,2025-2026,bchl,709768,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxwell Silver (F),Victoria Grizzlies,37,19,14,33,0.89,12,-,/player/746973/maxwell-silver,2,Maxwell Silver,F,2025-2026,bchl,746973,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Holden Pajor (F),Okotoks Oilers,54,17,16,33,0.61,8,-,/player/855983/holden-pajor,2,Holden Pajor,F,2025-2026,bchl,855983,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joseph Meredith (F),Okotoks Oilers,51,12,21,33,0.65,16,-,/player/829643/joseph-meredith,2,Joseph Meredith,F,2025-2026,bchl,829643,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Bishop (LW/RW),Coquitlam Express,51,21,11,32,0.63,60,-,/player/603199/cole-bishop,2,Cole Bishop,LW/RW,2025-2026,bchl,603199,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mason Loewen (F),Prince George Spruce Kings,52,18,14,32,0.62,14,-,/player/883445/mason-loewen,2,Mason Loewen,F,2025-2026,bchl,883445,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitrijs Dilevka (F),Brooks Bandits,40,13,19,32,0.80,26,-,/player/620162/dmitrijs-dilevka,2,Dmitrijs Dilevka,F,2025-2026,bchl,620162,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Harvey (D),Cowichan Valley Capitals,48,12,20,32,0.67,16,-,/player/711553/ryan-harvey,2,Ryan Harvey,D,2025-2026,bchl,711553,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gleb Semenko (F),totals,49,12,20,32,0.65,22,-,/player/1011314/gleb-semenko,2,Gleb Semenko,F,2025-2026,bchl,1011314,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Owen Fitzgerald (C),totals,51,12,20,32,0.63,50,-,/player/752672/owen-fitzgerald,2,Owen Fitzgerald,C,2025-2026,bchl,752672,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Wilson (F),Okotoks Oilers,36,11,21,32,0.89,26,-,/player/727541/brett-wilson,2,Brett Wilson,F,2025-2026,bchl,727541,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zachary Deleau (D),Brooks Bandits,54,5,27,32,0.59,32,-,/player/686072/zachary-deleau,2,Zachary Deleau,D,2025-2026,bchl,686072,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Charles Béland (LW/RW),Nanaimo Clippers,52,17,14,31,0.60,107,-,/player/726508/charles-beland,2,Charles Béland,LW/RW,2025-2026,bchl,726508,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Sundar (F),Vernon Vipers,42,16,15,31,0.74,45,-,/player/661935/evan-sundar,2,Evan Sundar,F,2025-2026,bchl,661935,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Chouha (F),Langley Rivermen,35,14,17,31,0.89,6,-,/player/597762/christian-chouha,2,Christian Chouha,F,2025-2026,bchl,597762,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Makaio Van Tassel (F),Langley Rivermen,40,11,20,31,0.78,6,-,/player/787532/makaio-van-tassel,2,Makaio Van Tassel,F,2025-2026,bchl,787532,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Levi Eiter (C),Victoria Grizzlies,53,9,22,31,0.58,31,-,/player/673802/levi-eiter,2,Levi Eiter,C,2025-2026,bchl,673802,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Munroe (LW),totals,55,19,11,30,0.55,35,-,/player/689891/michael-munroe,2,Michael Munroe,LW,2025-2026,bchl,689891,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Rousseau (LW),Victoria Grizzlies,24,16,14,30,1.25,26,-,/player/592014/samuel-rousseau,2,Samuel Rousseau,LW,2025-2026,bchl,592014,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolaj Rupi (LW),totals,53,15,15,30,0.57,20,-,/player/709272/nikolaj-rupi,2,Nikolaj Rupi,LW,2025-2026,bchl,709272,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+A.J. Schaaf (C),Chilliwack Chiefs,43,14,16,30,0.70,50,-,/player/790862/a-j-schaaf,2,A.J. Schaaf,C,2025-2026,bchl,790862,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kamyl Chemrouk (C/RW),totals,48,14,16,30,0.63,15,-,/player/877158/kamyl-chemrouk,2,Kamyl Chemrouk,C/RW,2025-2026,bchl,877158,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Toms Trockis (RW/LW),Vernon Vipers,51,14,16,30,0.59,22,-,/player/620168/toms-trockis,2,Toms Trockis,RW/LW,2025-2026,bchl,620168,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Hutzinger (F),Cranbrook Bucks,45,12,18,30,0.67,10,-,/player/745948/konstantin-hutzinger,2,Konstantin Hutzinger,F,2025-2026,bchl,745948,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Oakenfold (F),totals,44,10,20,30,0.68,40,-,/player/641163/carter-oakenfold,2,Carter Oakenfold,F,2025-2026,bchl,641163,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ian Alonso (C),West Kelowna Warriors,45,9,21,30,0.67,34,-,/player/764101/ian-alonso,2,Ian Alonso,C,2025-2026,bchl,764101,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Jenken (D),Victoria Grizzlies,46,8,22,30,0.65,22,-,/player/709782/matthew-jenken,2,Matthew Jenken,D,2025-2026,bchl,709782,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jude Bray (D),Sherwood Park Crusaders,31,7,23,30,0.97,20,-,/player/628094/jude-bray,2,Jude Bray,D,2025-2026,bchl,628094,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Bleicher (D),Powell River Kings,47,7,23,30,0.64,61,-,/player/872616/max-bleicher,2,Max Bleicher,D,2025-2026,bchl,872616,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frédéric Deschênes (D),totals,51,6,24,30,0.59,56,-,/player/666948/frederic-deschenes,2,Frédéric Deschênes,D,2025-2026,bchl,666948,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Croxall (F),Blackfalds Bulldogs,51,16,13,29,0.57,32,-,/player/746518/matthew-croxall,2,Matthew Croxall,F,2025-2026,bchl,746518,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mateu Späth (F),Salmon Arm Silverbacks,37,13,16,29,0.78,42,-,/player/872610/mateu-spath,2,Mateu Späth,F,2025-2026,bchl,872610,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wyatt Blace (C),Alberni Valley Bulldogs,54,12,17,29,0.54,59,-,/player/825446/wyatt-blace,2,Wyatt Blace,C,2025-2026,bchl,825446,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nishaan Parmar (F),Surrey Eagles,31,11,18,29,0.94,19,-,/player/618958/nishaan-parmar,2,Nishaan Parmar,F,2025-2026,bchl,618958,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Lyne (F),Cranbrook Bucks,47,11,18,29,0.62,79,-,/player/353435/samuel-lyne,2,Samuel Lyne,F,2025-2026,bchl,353435,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kazumo Sasaki (F),Prince George Spruce Kings,17,10,19,29,1.71,14,-,/player/603721/kazumo-sasaki,2,Kazumo Sasaki,F,2025-2026,bchl,603721,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Junsu Kwak (F),Cowichan Valley Capitals,49,7,22,29,0.59,8,-,/player/905185/junsu-kwak,2,Junsu Kwak,F,2025-2026,bchl,905185,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olivier Beaulieu (D),Chilliwack Chiefs,24,4,25,29,1.21,20,-,/player/645919/olivier-beaulieu,2,Olivier Beaulieu,D,2025-2026,bchl,645919,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elliot Perreault (F),Nanaimo Clippers,53,18,10,28,0.53,20,-,/player/724557/elliot-perreault,2,Elliot Perreault,F,2025-2026,bchl,724557,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Cardilli (C),Salmon Arm Silverbacks,50,14,14,28,0.56,16,-,/player/623214/anthony-cardilli,2,Anthony Cardilli,C,2025-2026,bchl,623214,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Rowland (D),Cowichan Valley Capitals,54,11,17,28,0.52,52,-,/player/800119/tyler-rowland,2,Tyler Rowland,D,2025-2026,bchl,800119,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxime Ly (C),Sherwood Park Crusaders,51,9,19,28,0.55,55,-,/player/679500/maxime-ly,2,Maxime Ly,C,2025-2026,bchl,679500,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cooper Sharp (D),Sherwood Park Crusaders,54,8,20,28,0.52,50,-,/player/691208/cooper-sharp,2,Cooper Sharp,D,2025-2026,bchl,691208,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitch Kneidel (D),Coquitlam Express,40,5,23,28,0.70,65,-,/player/807369/mitch-kneidel,2,Mitch Kneidel,D,2025-2026,bchl,807369,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Quincy Supprien (LW),Sherwood Park Crusaders,48,16,11,27,0.56,53,-,/player/592818/quincy-supprien,2,Quincy Supprien,LW,2025-2026,bchl,592818,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicholas DiPaolo (C/RW),Blackfalds Bulldogs,48,14,13,27,0.56,4,-,/player/800078/nicholas-dipaolo,2,Nicholas DiPaolo,C/RW,2025-2026,bchl,800078,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hunter Sawka (F),Okotoks Oilers,36,12,15,27,0.75,22,-,/player/641161/hunter-sawka,2,Hunter Sawka,F,2025-2026,bchl,641161,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Davids Livsics (C),Vernon Vipers,52,11,16,27,0.52,12,-,/player/706340/davids-livsics,2,Davids Livsics,C,2025-2026,bchl,706340,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Busch (F),totals,55,11,16,27,0.49,42,-,/player/705670/lucas-busch,2,Lucas Busch,F,2025-2026,bchl,705670,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Melnik (C),Brooks Bandits,22,9,18,27,1.23,12,-,/player/597787/luke-melnik,2,Luke Melnik,C,2025-2026,bchl,597787,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Murray (D),totals,40,8,19,27,0.68,73,-,/player/715481/jordan-murray,2,Jordan Murray,D,2025-2026,bchl,715481,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grady Magner (D),Alberni Valley Bulldogs,51,8,19,27,0.53,12,-,/player/786494/grady-magner,2,Grady Magner,D,2025-2026,bchl,786494,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Junior Podein (F),Spruce Grove Saints,33,6,21,27,0.82,2,-,/player/597575/junior-podein,2,Junior Podein,F,2025-2026,bchl,597575,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexandre Lallier (RW),West Kelowna Warriors,21,5,22,27,1.29,43,-,/player/707048/alexandre-lallier,2,Alexandre Lallier,RW,2025-2026,bchl,707048,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Larioza (D),Nanaimo Clippers,30,5,22,27,0.90,34,-,/player/733431/nathan-larioza,2,Nathan Larioza,D,2025-2026,bchl,733431,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markuss Sieradzkis (F),Chilliwack Chiefs,21,17,9,26,1.24,30,-,/player/620165/markuss-sieradzkis,2,Markuss Sieradzkis,F,2025-2026,bchl,620165,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jamie Hikida (F),Okotoks Oilers,53,16,10,26,0.49,34,-,/player/735109/jamie-hikida,2,Jamie Hikida,F,2025-2026,bchl,735109,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Indiana Grossbard (C/RW),Nanaimo Clippers,54,12,14,26,0.48,20,-,/player/689877/indiana-grossbard,2,Indiana Grossbard,C/RW,2025-2026,bchl,689877,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Léonard (C),Alberni Valley Bulldogs,54,8,18,26,0.48,37,-,/player/597539/samuel-leonard,2,Samuel Léonard,C,2025-2026,bchl,597539,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Caden Tremblay (D),Alberni Valley Bulldogs,45,4,22,26,0.58,69,-,/player/735120/caden-tremblay,2,Caden Tremblay,D,2025-2026,bchl,735120,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trent LeDrew (D),Prince George Spruce Kings,53,1,25,26,0.49,34,-,/player/613076/trent-ledrew,2,Trent LeDrew,D,2025-2026,bchl,613076,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Hussa (F),Blackfalds Bulldogs,43,14,11,25,0.58,79,-,/player/763812/daniel-hussa,2,Daniel Hussa,F,2025-2026,bchl,763812,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joshua Polak (F),Spruce Grove Saints,18,13,12,25,1.39,21,-,/player/720181/joshua-polak,2,Joshua Polak,F,2025-2026,bchl,720181,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brayden Sinclair (C),Trail Smoke Eaters,51,10,15,25,0.49,43,-,/player/647520/brayden-sinclair,2,Brayden Sinclair,C,2025-2026,bchl,647520,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dryden Kuramoto (F),Surrey Eagles,39,8,17,25,0.64,8,-,/player/597552/dryden-kuramoto,2,Dryden Kuramoto,F,2025-2026,bchl,597552,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gavin Rocha (F),totals,22,7,18,25,1.14,16,-,/player/881512/gavin-rocha,2,Gavin Rocha,F,2025-2026,bchl,881512,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitch Patrick (RW),totals,45,12,12,24,0.53,36,-,/player/709824/mitch-patrick,2,Mitch Patrick,RW,2025-2026,bchl,709824,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+River Arnason (F),Prince George Spruce Kings,42,9,15,24,0.57,6,-,/player/628062/river-arnason,2,River Arnason,F,2025-2026,bchl,628062,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Gilmore (F),Cranbrook Bucks,52,9,15,24,0.46,22,-,/player/722930/matthew-gilmore,2,Matthew Gilmore,F,2025-2026,bchl,722930,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dean Toskos (F),Blackfalds Bulldogs,53,8,16,24,0.45,42,-,/player/776104/dean-toskos,2,Dean Toskos,F,2025-2026,bchl,776104,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Bianchi (D),totals,47,7,17,24,0.51,69,-,/player/806658/nick-bianchi,2,Nick Bianchi,D,2025-2026,bchl,806658,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dante Siciliano (D),Brooks Bandits,38,5,19,24,0.63,49,-,/player/691481/dante-siciliano,2,Dante Siciliano,D,2025-2026,bchl,691481,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Geike (F),totals,43,13,10,23,0.53,16,-,/player/720096/jordan-geike,2,Jordan Geike,F,2025-2026,bchl,720096,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Denney (F),Prince George Spruce Kings,45,12,11,23,0.51,73,-,/player/882730/michael-denney,2,Michael Denney,F,2025-2026,bchl,882730,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Azzarone (RW),totals,46,11,12,23,0.50,25,-,/player/1008812/michael-azzarone,2,Michael Azzarone,RW,2025-2026,bchl,1008812,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Dekay (D),Cowichan Valley Capitals,42,9,14,23,0.55,19,-,/player/890279/carter-dekay,2,Carter Dekay,D,2025-2026,bchl,890279,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frantisek Albrecht (RW),Brooks Bandits,38,8,15,23,0.61,78,-,/player/757285/frantisek-albrecht,2,Frantisek Albrecht,RW,2025-2026,bchl,757285,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carsen Lloyd (D),Spruce Grove Saints,43,7,16,23,0.53,58,-,/player/726286/carsen-lloyd,2,Carsen Lloyd,D,2025-2026,bchl,726286,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Koby Francis (RW),Chilliwack Chiefs,23,6,17,23,1.00,26,-,/player/806156/koby-francis,2,Koby Francis,RW,2025-2026,bchl,806156,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Caden Okovita (C/RW),Nanaimo Clippers,23,4,19,23,1.00,25,-,/player/897661/caden-okovita,2,Caden Okovita,C/RW,2025-2026,bchl,897661,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philip Mønnich Hagen (D),West Kelowna Warriors,42,4,19,23,0.55,26,-,/player/743253/philip-monnich-hagen,2,Philip Mønnich Hagen,D,2025-2026,bchl,743253,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blake Jones (D),Nanaimo Clippers,24,1,22,23,0.96,8,-,/player/599337/blake-jones,2,Blake Jones,D,2025-2026,bchl,599337,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Ivanusec (F),Coquitlam Express,46,13,9,22,0.48,30,-,/player/708442/justin-ivanusec,2,Justin Ivanusec,F,2025-2026,bchl,708442,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Giles (RW),totals,31,9,13,22,0.71,26,-,/player/698037/brendan-giles,2,Brendan Giles,RW,2025-2026,bchl,698037,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Louis Jonerheim (LW),Trail Smoke Eaters,31,7,15,22,0.71,16,-,/player/748960/louis-jonerheim,2,Louis Jonerheim,LW,2025-2026,bchl,748960,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Caden Kemkaran Humble (C/W/D),West Kelowna Warriors,49,7,15,22,0.45,35,-,/player/599467/caden-kemkaran-humble,2,Caden Kemkaran Humble,C/W/D,2025-2026,bchl,599467,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Holland (D),Spruce Grove Saints,39,6,16,22,0.56,20,-,/player/679727/max-holland,2,Max Holland,D,2025-2026,bchl,679727,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Boatter (D),Chilliwack Chiefs,54,5,17,22,0.41,22,-,/player/576973/adam-boatter,2,Adam Boatter,D,2025-2026,bchl,576973,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Krisjanis Sarts (D),Blackfalds Bulldogs,49,4,18,22,0.45,16,-,/player/690107/krisjanis-sarts,2,Krisjanis Sarts,D,2025-2026,bchl,690107,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Bosland (D),Blackfalds Bulldogs,54,3,19,22,0.41,22,-,/player/535644/alex-bosland,2,Alex Bosland,D,2025-2026,bchl,535644,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Easton Jacobs (F),Surrey Eagles,48,13,8,21,0.44,70,-,/player/812313/easton-jacobs,2,Easton Jacobs,F,2025-2026,bchl,812313,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kelsen Podworny (F),West Kelowna Warriors,46,10,11,21,0.46,46,-,/player/878847/kelsen-podworny,2,Kelsen Podworny,F,2025-2026,bchl,878847,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendyn Van Oene (F),totals,47,8,13,21,0.45,18,-,/player/878382/brendyn-van-oene,2,Brendyn Van Oene,F,2025-2026,bchl,878382,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cooper Wilson (D),Coquitlam Express,47,5,16,21,0.45,23,-,/player/735789/cooper-wilson,2,Cooper Wilson,D,2025-2026,bchl,735789,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cam Charron (D),totals,51,5,16,21,0.41,4,-,/player/816210/cam-charron,2,Cam Charron,D,2025-2026,bchl,816210,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joseph Gugino (D),Okotoks Oilers,53,2,19,21,0.40,43,-,/player/577034/joseph-gugino,2,Joseph Gugino,D,2025-2026,bchl,577034,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brody Juck (D),Langley Rivermen,54,0,21,21,0.39,50,-,/player/709327/brody-juck,2,Brody Juck,D,2025-2026,bchl,709327,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jared Langdon (C),Blackfalds Bulldogs,34,11,9,20,0.59,16,-,/player/577194/jared-langdon,3,Jared Langdon,C,2025-2026,bchl,577194,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Taite Donkin (F),Cowichan Valley Capitals,44,9,11,20,0.45,6,-,/player/794852/taite-donkin,3,Taite Donkin,F,2025-2026,bchl,794852,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Small (F),totals,46,9,11,20,0.43,43,-,/player/878624/ryan-small,3,Ryan Small,F,2025-2026,bchl,878624,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brady Logue (F),Salmon Arm Silverbacks,48,9,11,20,0.42,24,-,/player/577164/brady-logue,3,Brady Logue,F,2025-2026,bchl,577164,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Walos (F),Salmon Arm Silverbacks,49,7,13,20,0.41,46,-,/player/623187/tanner-walos,3,Tanner Walos,F,2025-2026,bchl,623187,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Longacre (D),Salmon Arm Silverbacks,47,5,15,20,0.43,18,-,/player/730388/cole-longacre,3,Cole Longacre,D,2025-2026,bchl,730388,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Bellamy (D),Prince George Spruce Kings,46,4,16,20,0.43,46,-,/player/639109/evan-bellamy,3,Evan Bellamy,D,2025-2026,bchl,639109,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan DeFeo (F),Alberni Valley Bulldogs,29,3,17,20,0.69,12,-,/player/823104/brendan-defeo,3,Brendan DeFeo,F,2025-2026,bchl,823104,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blake Burke (LW),West Kelowna Warriors,26,12,7,19,0.73,2,-,/player/722822/blake-burke,3,Blake Burke,LW,2025-2026,bchl,722822,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Sinclair (RW),Salmon Arm Silverbacks,30,10,9,19,0.63,29,-,/player/803820/luke-sinclair,3,Luke Sinclair,RW,2025-2026,bchl,803820,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominic Szczygiel (F),Prince George Spruce Kings,45,9,10,19,0.42,6,-,/player/751474/dominic-szczygiel,3,Dominic Szczygiel,F,2025-2026,bchl,751474,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexy Lachaine (F),Spruce Grove Saints,51,9,10,19,0.37,62,-,/player/721170/alexy-lachaine,3,Alexy Lachaine,F,2025-2026,bchl,721170,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cooper Faughnan (F),totals,37,8,11,19,0.51,8,-,/player/722937/cooper-faughnan,3,Cooper Faughnan,F,2025-2026,bchl,722937,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trae Johnson (LW),Victoria Grizzlies,29,7,12,19,0.66,34,-,/player/607353/trae-johnson,3,Trae Johnson,LW,2025-2026,bchl,607353,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Francois Devilliers (D),Brooks Bandits,54,7,12,19,0.35,12,-,/player/603232/francois-devilliers,3,Francois Devilliers,D,2025-2026,bchl,603232,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Esposito (F),totals,56,7,12,19,0.34,26,-,/player/737934/sam-esposito,3,Sam Esposito,F,2025-2026,bchl,737934,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Spencer Rheaume (F),Spruce Grove Saints,54,6,13,19,0.35,73,-,/player/661731/spencer-rheaume,3,Spencer Rheaume,F,2025-2026,bchl,661731,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Barnes (D),Spruce Grove Saints,47,5,14,19,0.40,40,-,/player/825489/brett-barnes,3,Brett Barnes,D,2025-2026,bchl,825489,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Charko (F),Vernon Vipers,31,10,8,18,0.58,10,-,/player/577078/samuel-charko,3,Samuel Charko,F,2025-2026,bchl,577078,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Wright (LW),Powell River Kings,53,10,8,18,0.34,40,-,/player/709334/ben-wright,3,Ben Wright,LW,2025-2026,bchl,709334,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vidar Blixt (RW),Victoria Grizzlies,48,6,12,18,0.38,65,-,/player/708502/vidar-blixt,3,Vidar Blixt,RW,2025-2026,bchl,708502,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Perron (C),Spruce Grove Saints,49,5,13,18,0.37,64,-,/player/692785/adam-perron,3,Adam Perron,C,2025-2026,bchl,692785,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Westhaver (D/C),Powell River Kings,53,5,13,18,0.34,72,-,/player/879590/jake-westhaver,3,Jake Westhaver,D/C,2025-2026,bchl,879590,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Preskar (LW),Salmon Arm Silverbacks,23,4,14,18,0.78,21,-,/player/785420/anthony-preskar,3,Anthony Preskar,LW,2025-2026,bchl,785420,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Paronuzzi (C),Brooks Bandits,29,4,14,18,0.62,16,-,/player/702323/connor-paronuzzi,3,Connor Paronuzzi,C,2025-2026,bchl,702323,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Harijs Cjunskis (D),Brooks Bandits,41,4,14,18,0.44,22,-,/player/818238/harijs-cjunskis,3,Harijs Cjunskis,D,2025-2026,bchl,818238,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Jalbert (F),Langley Rivermen,23,2,16,18,0.78,8,-,/player/767644/connor-jalbert,3,Connor Jalbert,F,2025-2026,bchl,767644,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel D'Alessandro (D),Victoria Grizzlies,28,2,16,18,0.64,8,-,/player/679586/daniel-d-alessandro,3,Daniel D'Alessandro,D,2025-2026,bchl,679586,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Krists Retenais (D),totals,51,2,16,18,0.35,16,-,/player/620158/krists-retenais,3,Krists Retenais,D,2025-2026,bchl,620158,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cade De St. Hubert (RW/LW),Trail Smoke Eaters,20,9,8,17,0.85,12,-,/player/831431/cade-de-st-hubert,3,Cade De St. Hubert,RW/LW,2025-2026,bchl,831431,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Toogood (RW/LW),Salmon Arm Silverbacks,37,9,8,17,0.46,51,-,/player/808718/jack-toogood,3,Jack Toogood,RW/LW,2025-2026,bchl,808718,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Spencer Masters (F),Prince George Spruce Kings,44,9,8,17,0.39,16,-,/player/668309/spencer-masters,3,Spencer Masters,F,2025-2026,bchl,668309,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Koen Senft (F),Salmon Arm Silverbacks,53,8,9,17,0.32,33,-,/player/715234/koen-senft,3,Koen Senft,F,2025-2026,bchl,715234,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Ryan (D),Cowichan Valley Capitals,17,7,10,17,1.00,14,-,/player/703330/michael-ryan,3,Michael Ryan,D,2025-2026,bchl,703330,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carson Lesiuk (F),totals,51,7,10,17,0.33,28,-,/player/705878/carson-lesiuk,3,Carson Lesiuk,F,2025-2026,bchl,705878,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brant Romaniuk (RW),Sherwood Park Crusaders,26,6,11,17,0.65,10,-,/player/890374/brant-romaniuk,3,Brant Romaniuk,RW,2025-2026,bchl,890374,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shawn Leary (D),totals,53,6,11,17,0.32,28,-,/player/710779/shawn-leary,3,Shawn Leary,D,2025-2026,bchl,710779,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas Mikrogiannakis (F),totals,41,5,12,17,0.41,18,-,/player/897592/andreas-mikrogiannakis,3,Andreas Mikrogiannakis,F,2025-2026,bchl,897592,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dracen Campbell (D),Prince George Spruce Kings,52,5,12,17,0.33,60,-,/player/969307/dracen-campbell,3,Dracen Campbell,D,2025-2026,bchl,969307,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brenden Espenell (D),Alberni Valley Bulldogs,29,4,13,17,0.59,20,-,/player/804339/brenden-espenell,3,Brenden Espenell,D,2025-2026,bchl,804339,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Miner (D),Salmon Arm Silverbacks,54,4,13,17,0.31,16,-,/player/599360/scott-miner,3,Scott Miner,D,2025-2026,bchl,599360,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Wittwer (C/W),totals,48,11,5,16,0.33,28,-,/player/741221/erik-wittwer,3,Erik Wittwer,C/W,2025-2026,bchl,741221,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Buckley (C),totals,42,10,6,16,0.38,27,-,/player/705823/ben-buckley,3,Ben Buckley,C,2025-2026,bchl,705823,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Duncan Thompson (F),totals,47,10,6,16,0.34,20,-,/player/879171/duncan-thompson,3,Duncan Thompson,F,2025-2026,bchl,879171,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Havryil Simchuk (C),Cowichan Valley Capitals,23,8,8,16,0.70,8,-,/player/849733/havryil-simchuk,3,Havryil Simchuk,C,2025-2026,bchl,849733,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teo Pisani (F),totals,51,8,8,16,0.31,48,-,/player/723949/teo-pisani,3,Teo Pisani,F,2025-2026,bchl,723949,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Rucireto (C),totals,31,7,9,16,0.52,2,-,/player/661221/richard-rucireto,3,Richard Rucireto,C,2025-2026,bchl,661221,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Bradshaw (LW),totals,37,7,9,16,0.43,57,-,/player/726284/sebastian-bradshaw,3,Sebastian Bradshaw,LW,2025-2026,bchl,726284,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathis Laplante (RW),Prince George Spruce Kings,50,7,9,16,0.32,80,-,/player/724627/mathis-laplante,3,Mathis Laplante,RW,2025-2026,bchl,724627,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Lund (F),Alberni Valley Bulldogs,54,7,9,16,0.30,12,-,/player/819235/eric-lund,3,Eric Lund,F,2025-2026,bchl,819235,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kim Elfving (D),Coquitlam Express,16,6,10,16,1.00,12,-,/player/672601/kim-elfving,3,Kim Elfving,D,2025-2026,bchl,672601,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brady Witkin (F),totals,29,6,10,16,0.55,14,-,/player/809252/brady-witkin,3,Brady Witkin,F,2025-2026,bchl,809252,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antoine Gauthier (C/RW),Blackfalds Bulldogs,29,5,11,16,0.55,6,-,/player/693224/antoine-gauthier,3,Antoine Gauthier,C/RW,2025-2026,bchl,693224,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Harshaan Kaila (F),Langley Rivermen,43,5,11,16,0.37,10,-,/player/893090/harshaan-kaila,3,Harshaan Kaila,F,2025-2026,bchl,893090,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Dinneen (LW),West Kelowna Warriors,24,4,12,16,0.67,21,-,/player/790855/max-dinneen,3,Max Dinneen,LW,2025-2026,bchl,790855,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Will Distad (D),Coquitlam Express,48,3,13,16,0.33,31,-,/player/808326/will-distad,3,Will Distad,D,2025-2026,bchl,808326,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ted Welander (D),Trail Smoke Eaters,34,2,14,16,0.47,8,-,/player/689013/ted-welander,3,Ted Welander,D,2025-2026,bchl,689013,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Dowdall (F),Victoria Grizzlies,46,11,4,15,0.33,120,-,/player/709409/michael-dowdall,3,Michael Dowdall,F,2025-2026,bchl,709409,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jackson Lackas (F),Alberni Valley Bulldogs,22,10,5,15,0.68,10,-,/player/784844/jackson-lackas,3,Jackson Lackas,F,2025-2026,bchl,784844,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jace Rask (F),West Kelowna Warriors,47,10,5,15,0.32,72,-,/player/883615/jace-rask,3,Jace Rask,F,2025-2026,bchl,883615,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Liam Bursaw (C),Salmon Arm Silverbacks,29,9,6,15,0.52,40,-,/player/794834/liam-bursaw,3,Liam Bursaw,C,2025-2026,bchl,794834,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Parker MacDougall (F),Victoria Grizzlies,37,9,6,15,0.41,51,-,/player/878846/parker-macdougall,3,Parker MacDougall,F,2025-2026,bchl,878846,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommy Coccaro (C),Sherwood Park Crusaders,43,8,7,15,0.35,45,-,/player/577028/tommy-coccaro,3,Tommy Coccaro,C,2025-2026,bchl,577028,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leon Bußmann (F),totals,31,7,8,15,0.48,40,-,/player/795799/leon-bu%C3%9Fmann,3,Leon Bußmann,F,2025-2026,bchl,795799,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jackson Froysland (F),Prince George Spruce Kings,28,6,9,15,0.54,4,-,/player/812299/jackson-froysland,3,Jackson Froysland,F,2025-2026,bchl,812299,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maximilian Brunner (F),Chilliwack Chiefs,39,6,9,15,0.38,41,-,/player/820886/maximilian-brunner,3,Maximilian Brunner,F,2025-2026,bchl,820886,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danick St. Pierre (F),Sherwood Park Crusaders,36,4,11,15,0.42,46,-,/player/895016/danick-st-pierre,3,Danick St. Pierre,F,2025-2026,bchl,895016,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Avery Johnson (F),Cowichan Valley Capitals,23,2,13,15,0.65,2,-,/player/729890/avery-johnson,3,Avery Johnson,F,2025-2026,bchl,729890,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kohyn Pipke (D),Spruce Grove Saints,43,2,13,15,0.35,28,-,/player/825486/kohyn-pipke,3,Kohyn Pipke,D,2025-2026,bchl,825486,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Pilkington (D),Chilliwack Chiefs,49,2,13,15,0.31,10,-,/player/964535/luke-pilkington,3,Luke Pilkington,D,2025-2026,bchl,964535,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthias Pape (D),Trail Smoke Eaters,49,2,13,15,0.31,17,-,/player/801858/matthias-pape,3,Matthias Pape,D,2025-2026,bchl,801858,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Hense (D),Trail Smoke Eaters,50,2,13,15,0.30,26,-,/player/802943/max-hense,3,Max Hense,D,2025-2026,bchl,802943,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carson Pavlowich (D),West Kelowna Warriors,54,2,13,15,0.28,26,-,/player/796913/carson-pavlowich,3,Carson Pavlowich,D,2025-2026,bchl,796913,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hugo Daniel (F),totals,44,7,7,14,0.32,29,-,/player/576998/hugo-daniel,3,Hugo Daniel,F,2025-2026,bchl,576998,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicolas Addy (RW/LW),Brooks Bandits,39,6,8,14,0.36,59,-,/player/742592/nicolas-addy,3,Nicolas Addy,RW/LW,2025-2026,bchl,742592,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jared Rothman (F),Salmon Arm Silverbacks,47,6,8,14,0.30,22,-,/player/679649/jared-rothman,3,Jared Rothman,F,2025-2026,bchl,679649,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leim Smith (F),Alberni Valley Bulldogs,39,5,9,14,0.36,38,-,/player/827332/leim-smith,3,Leim Smith,F,2025-2026,bchl,827332,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nate Porter (F),Okotoks Oilers,48,5,9,14,0.29,53,-,/player/619054/nate-porter,3,Nate Porter,F,2025-2026,bchl,619054,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeremiah Mundy (LW/RW),totals,44,4,10,14,0.32,10,-,/player/690433/jeremiah-mundy,3,Jeremiah Mundy,LW/RW,2025-2026,bchl,690433,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Will Subject (D),Nanaimo Clippers,49,4,10,14,0.29,52,-,/player/698056/will-subject,3,Will Subject,D,2025-2026,bchl,698056,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Charlie Vincent (F),Alberni Valley Bulldogs,46,2,12,14,0.30,90,-,/player/792201/charlie-vincent,3,Charlie Vincent,F,2025-2026,bchl,792201,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitrii Nazarov (D),totals,50,2,12,14,0.28,35,-,/player/1011312/dmitrii-nazarov,3,Dmitrii Nazarov,D,2025-2026,bchl,1011312,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaden VanWalleghem (D),Powell River Kings,46,0,14,14,0.30,34,-,/player/1053455/jaden-vanwalleghem,3,Jaden VanWalleghem,D,2025-2026,bchl,1053455,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeremy Poirier (D),Cranbrook Bucks,50,0,14,14,0.28,44,-,/player/875816/jeremy-poirier,3,Jeremy Poirier,D,2025-2026,bchl,875816,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Di Giantommaso (RW),Surrey Eagles,20,8,5,13,0.65,12,-,/player/726220/lucas-di-giantommaso,3,Lucas Di Giantommaso,RW,2025-2026,bchl,726220,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Fiedorczuk (F),Surrey Eagles,31,7,6,13,0.42,28,-,/player/737788/michael-fiedorczuk,3,Michael Fiedorczuk,F,2025-2026,bchl,737788,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Czaja (C),Vernon Vipers,21,6,7,13,0.62,4,-,/player/690478/oliver-czaja,3,Oliver Czaja,C,2025-2026,bchl,690478,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Darik Olson (D),Chilliwack Chiefs,22,6,7,13,0.59,35,-,/player/705672/darik-olson,3,Darik Olson,D,2025-2026,bchl,705672,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Otto Hanson (F),Trail Smoke Eaters,44,6,7,13,0.30,53,-,/player/710609/otto-hanson,3,Otto Hanson,F,2025-2026,bchl,710609,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matic Percic (F),Prince George Spruce Kings,22,5,8,13,0.59,25,-,/player/798984/matic-percic,3,Matic Percic,F,2025-2026,bchl,798984,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Cowgill (D),Cowichan Valley Capitals,31,5,8,13,0.42,23,-,/player/730387/andrew-cowgill,3,Andrew Cowgill,D,2025-2026,bchl,730387,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryder Dembo (C),Cowichan Valley Capitals,33,5,8,13,0.39,8,-,/player/727555/ryder-dembo,3,Ryder Dembo,C,2025-2026,bchl,727555,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Simm (F),Cranbrook Bucks,51,5,8,13,0.25,16,-,/player/806901/nathan-simm,3,Nathan Simm,F,2025-2026,bchl,806901,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rockston Ror-Chow (F),Sherwood Park Crusaders,52,5,8,13,0.25,22,-,/player/878317/rockston-ror-chow,3,Rockston Ror-Chow,F,2025-2026,bchl,878317,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Todd Kilpela (D),Coquitlam Express,35,4,9,13,0.37,14,-,/player/971246/todd-kilpela,3,Todd Kilpela,D,2025-2026,bchl,971246,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Calabria (D),Okotoks Oilers,37,4,9,13,0.35,43,-,/player/675851/luke-calabria,3,Luke Calabria,D,2025-2026,bchl,675851,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Garrett Thom (F),West Kelowna Warriors,54,3,10,13,0.24,31,-,/player/655324/garrett-thom,3,Garrett Thom,F,2025-2026,bchl,655324,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Keller (D),totals,46,2,11,13,0.28,17,-,/player/709818/matthew-keller,3,Matthew Keller,D,2025-2026,bchl,709818,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joven Brar (D),Surrey Eagles,51,0,13,13,0.25,20,-,/player/679541/joven-brar,3,Joven Brar,D,2025-2026,bchl,679541,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Koji Gibson (F),totals,27,6,6,12,0.44,28,-,/player/748449/koji-gibson,3,Koji Gibson,F,2025-2026,bchl,748449,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Paul Wiczek (F/D),Langley Rivermen,38,5,7,12,0.32,84,-,/player/809748/paul-wiczek,4,Paul Wiczek,F/D,2025-2026,bchl,809748,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Karjalainen (D),totals,41,5,7,12,0.29,93,-,/player/747434/niklas-karjalainen,4,Niklas Karjalainen,D,2025-2026,bchl,747434,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Bieksa (F),totals,45,5,7,12,0.27,56,-,/player/744732/cole-bieksa,4,Cole Bieksa,F,2025-2026,bchl,744732,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arjun Bawa (F),Chilliwack Chiefs,32,4,8,12,0.38,31,-,/player/637759/arjun-bawa,4,Arjun Bawa,F,2025-2026,bchl,637759,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Garin Ludwig (D),totals,35,4,8,12,0.34,31,-,/player/853213/garin-ludwig,4,Garin Ludwig,D,2025-2026,bchl,853213,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colton Whitfield (D),Trail Smoke Eaters,41,4,8,12,0.29,25,-,/player/835824/colton-whitfield,4,Colton Whitfield,D,2025-2026,bchl,835824,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Staples (C),Surrey Eagles,19,3,9,12,0.63,4,-,/player/835818/ryan-staples,4,Ryan Staples,C,2025-2026,bchl,835818,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brodie Hankel (F),Spruce Grove Saints,52,3,9,12,0.23,60,-,/player/725300/brodie-hankel,4,Brodie Hankel,F,2025-2026,bchl,725300,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ian Crowley (D),West Kelowna Warriors,53,3,9,12,0.23,21,-,/player/619053/ian-crowley,4,Ian Crowley,D,2025-2026,bchl,619053,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Jakobsen (D),Okotoks Oilers,17,2,10,12,0.71,6,-,/player/729177/markus-jakobsen,4,Markus Jakobsen,D,2025-2026,bchl,729177,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dante Ersoni (D),Powell River Kings,23,2,10,12,0.52,16,-,/player/646087/dante-ersoni,4,Dante Ersoni,D,2025-2026,bchl,646087,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Seth Tansem (D),Vernon Vipers,41,2,10,12,0.29,8,-,/player/618961/seth-tansem,4,Seth Tansem,D,2025-2026,bchl,618961,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Hynes (D),Victoria Grizzlies,54,2,10,12,0.22,24,-,/player/718481/carter-hynes,4,Carter Hynes,D,2025-2026,bchl,718481,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leyton Stewart (D),Cranbrook Bucks,54,1,11,12,0.22,54,-,/player/641288/leyton-stewart,4,Leyton Stewart,D,2025-2026,bchl,641288,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryder DeNys (D),Okotoks Oilers,30,0,12,12,0.40,45,-,/player/804925/ryder-denys,4,Ryder DeNys,D,2025-2026,bchl,804925,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shane Tronoski (F),Cranbrook Bucks,26,5,6,11,0.42,4,-,/player/730390/shane-tronoski,4,Shane Tronoski,F,2025-2026,bchl,730390,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Davis (C),Langley Rivermen,30,5,6,11,0.37,48,-,/player/784259/ben-davis,4,Ben Davis,C,2025-2026,bchl,784259,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Róbert Fedor (F),Spruce Grove Saints,44,5,6,11,0.25,25,-,/player/731910/robert-fedor,4,Róbert Fedor,F,2025-2026,bchl,731910,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aidan Shirey (D),Salmon Arm Silverbacks,46,4,7,11,0.24,52,-,/player/697855/aidan-shirey,4,Aidan Shirey,D,2025-2026,bchl,697855,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marko Lisica (F),Okotoks Oilers,50,4,7,11,0.22,29,-,/player/751045/marko-lisica,4,Marko Lisica,F,2025-2026,bchl,751045,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Hutchinson (D),totals,50,4,7,11,0.22,49,-,/player/798309/cole-hutchinson,4,Cole Hutchinson,D,2025-2026,bchl,798309,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cale Colwell (F),Langley Rivermen,54,4,7,11,0.20,44,-,/player/744627/cale-colwell,4,Cale Colwell,F,2025-2026,bchl,744627,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jace Harder (RW),totals,57,4,7,11,0.19,21,-,/player/804907/jace-harder,4,Jace Harder,RW,2025-2026,bchl,804907,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Landen Ward (LW),Victoria Grizzlies,25,3,8,11,0.44,101,-,/player/728496/landen-ward,4,Landen Ward,LW,2025-2026,bchl,728496,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roy Chung (D),Alberni Valley Bulldogs,27,3,8,11,0.41,8,-,/player/763384/roy-chung,4,Roy Chung,D,2025-2026,bchl,763384,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cooper Struckel (F),Trail Smoke Eaters,46,3,8,11,0.24,8,-,/player/793845/cooper-struckel,4,Cooper Struckel,F,2025-2026,bchl,793845,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Liam Magnuson (D),Vernon Vipers,33,2,9,11,0.33,12,-,/player/805217/liam-magnuson,4,Liam Magnuson,D,2025-2026,bchl,805217,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Liam Loughery (D),totals,37,2,9,11,0.30,6,-,/player/748433/liam-loughery,4,Liam Loughery,D,2025-2026,bchl,748433,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radoslav Dimitrov (D),Blackfalds Bulldogs,46,2,9,11,0.24,14,-,/player/881956/radoslav-dimitrov,4,Radoslav Dimitrov,D,2025-2026,bchl,881956,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dennison Monahan (D),Victoria Grizzlies,54,2,9,11,0.20,22,-,/player/862703/dennison-monahan,4,Dennison Monahan,D,2025-2026,bchl,862703,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Sandilands (F),Spruce Grove Saints,42,7,3,10,0.24,8,-,/player/827299/scott-sandilands,4,Scott Sandilands,F,2025-2026,bchl,827299,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Oothoudt (F),Trail Smoke Eaters,16,6,4,10,0.63,6,-,/player/856916/ryan-oothoudt,4,Ryan Oothoudt,F,2025-2026,bchl,856916,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Akhmadullin (LW/C),Surrey Eagles,29,6,4,10,0.34,22,-,/player/689969/artyom-akhmadullin,4,Artyom Akhmadullin,LW/C,2025-2026,bchl,689969,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Harrison Boldt (F),Nanaimo Clippers,47,6,4,10,0.21,31,-,/player/728402/harrison-boldt,4,Harrison Boldt,F,2025-2026,bchl,728402,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan White (D),Sherwood Park Crusaders,22,5,5,10,0.45,10,-,/player/577187/ryan-white,4,Ryan White,D,2025-2026,bchl,577187,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Vogl (C),Alberni Valley Bulldogs,27,5,5,10,0.37,16,-,/player/797650/patrick-vogl,4,Patrick Vogl,C,2025-2026,bchl,797650,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tadeas Mack (D),totals,41,5,5,10,0.24,45,-,/player/875733/tadeas-mack,4,Tadeas Mack,D,2025-2026,bchl,875733,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Merner (F),West Kelowna Warriors,6,4,6,10,1.67,2,-,/player/618967/ethan-merner,4,Ethan Merner,F,2025-2026,bchl,618967,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Perreault (D),Chilliwack Chiefs,20,4,6,10,0.50,4,-,/player/785536/kevin-perreault,4,Kevin Perreault,D,2025-2026,bchl,785536,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trevor Stewart (D),Surrey Eagles,24,4,6,10,0.42,35,-,/player/797215/trevor-stewart,4,Trevor Stewart,D,2025-2026,bchl,797215,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benedetto-Antonio Masi (LW),Powell River Kings,26,4,6,10,0.38,6,-,/player/877184/benedetto-antonio-masi,4,Benedetto-Antonio Masi,LW,2025-2026,bchl,877184,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Russell (D),totals,44,3,7,10,0.23,28,-,/player/689941/tyler-russell,4,Tyler Russell,D,2025-2026,bchl,689941,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konnor Bissell (F),Cranbrook Bucks,47,3,7,10,0.21,47,-,/player/808810/konnor-bissell,4,Konnor Bissell,F,2025-2026,bchl,808810,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hunter Heisten (D),totals,31,2,8,10,0.32,24,-,/player/853224/hunter-heisten,4,Hunter Heisten,D,2025-2026,bchl,853224,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Marsalek (D),Brooks Bandits,35,2,8,10,0.29,20,-,/player/920752/michal-marsalek,4,Michal Marsalek,D,2025-2026,bchl,920752,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Landon Cowper (D),Victoria Grizzlies,38,2,8,10,0.26,37,-,/player/711597/landon-cowper,4,Landon Cowper,D,2025-2026,bchl,711597,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+James Odyniec (D),Coquitlam Express,46,2,8,10,0.22,25,-,/player/752392/james-odyniec,4,James Odyniec,D,2025-2026,bchl,752392,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Owen Davies (D),Nanaimo Clippers,54,2,8,10,0.19,36,-,/player/739374/owen-davies,4,Owen Davies,D,2025-2026,bchl,739374,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Duhamel (RW),Vernon Vipers,22,1,9,10,0.45,2,-,/player/863972/thomas-duhamel,4,Thomas Duhamel,RW,2025-2026,bchl,863972,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan George (D),Alberni Valley Bulldogs,22,1,9,10,0.45,35,-,/player/864958/ryan-george,4,Ryan George,D,2025-2026,bchl,864958,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miller Kay (C),Nanaimo Clippers,23,6,3,9,0.39,16,-,/player/716346/miller-kay,4,Miller Kay,C,2025-2026,bchl,716346,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Payie (D),totals,33,4,5,9,0.27,20,-,/player/763701/alexander-payie,4,Alexander Payie,D,2025-2026,bchl,763701,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominic Grieco (F),Chilliwack Chiefs,35,4,5,9,0.26,107,-,/player/881341/dominic-grieco,4,Dominic Grieco,F,2025-2026,bchl,881341,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Davidson (D),totals,46,4,5,9,0.20,30,-,/player/881064/max-davidson,4,Max Davidson,D,2025-2026,bchl,881064,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabriel O'Brien (F),Sherwood Park Crusaders,47,4,5,9,0.19,127,-,/player/883241/gabriel-o-brien,4,Gabriel O'Brien,F,2025-2026,bchl,883241,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Liam Hoff (D),Blackfalds Bulldogs,53,4,5,9,0.17,12,-,/player/708441/liam-hoff,4,Liam Hoff,D,2025-2026,bchl,708441,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Drew Roelofs (F),Nanaimo Clippers,13,3,6,9,0.69,13,-,/player/792429/drew-roelofs,4,Drew Roelofs,F,2025-2026,bchl,792429,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Auld (F),Chilliwack Chiefs,39,3,6,9,0.23,24,-,/player/885749/sam-auld,4,Sam Auld,F,2025-2026,bchl,885749,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Conner Broadhead (D),Sherwood Park Crusaders,42,3,6,9,0.21,22,-,/player/784897/conner-broadhead,4,Conner Broadhead,D,2025-2026,bchl,784897,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kalan Anderlini (D),totals,50,3,6,9,0.18,23,-,/player/804741/kalan-anderlini,4,Kalan Anderlini,D,2025-2026,bchl,804741,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Holden Carter (D),Cranbrook Bucks,35,2,7,9,0.26,24,-,/player/786594/holden-carter,4,Holden Carter,D,2025-2026,bchl,786594,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Král (D),Chilliwack Chiefs,39,2,7,9,0.23,32,-,/player/870741/adam-kral,4,Adam Král,D,2025-2026,bchl,870741,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Isaac Holt (D),Prince George Spruce Kings,42,2,7,9,0.21,49,-,/player/684351/isaac-holt,4,Isaac Holt,D,2025-2026,bchl,684351,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hunter Curtis (D),Langley Rivermen,51,2,7,9,0.18,74,-,/player/735710/hunter-curtis,4,Hunter Curtis,D,2025-2026,bchl,735710,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dane Sorensen (D),Brooks Bandits,12,1,8,9,0.75,24,-,/player/577123/dane-sorensen,4,Dane Sorensen,D,2025-2026,bchl,577123,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabriel Anctil (D),Chilliwack Chiefs,23,1,8,9,0.39,32,-,/player/878818/gabriel-anctil,4,Gabriel Anctil,D,2025-2026,bchl,878818,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brady Craik (C),Salmon Arm Silverbacks,24,1,8,9,0.38,48,-,/player/761469/brady-craik,4,Brady Craik,C,2025-2026,bchl,761469,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Matthews (D),Trail Smoke Eaters,30,1,8,9,0.30,33,-,/player/711644/carter-matthews,4,Carter Matthews,D,2025-2026,bchl,711644,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cadel Gourlay (D),Cranbrook Bucks,49,1,8,9,0.18,6,-,/player/825449/cadel-gourlay,4,Cadel Gourlay,D,2025-2026,bchl,825449,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicholas Peragine (F),Cranbrook Bucks,27,4,4,8,0.30,22,-,/player/830419/nicholas-peragine,4,Nicholas Peragine,F,2025-2026,bchl,830419,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Milan Mrsic (F),Chilliwack Chiefs,39,4,4,8,0.21,20,-,/player/961034/milan-mrsic,4,Milan Mrsic,F,2025-2026,bchl,961034,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeff Niehaus (F),Okotoks Oilers,39,4,4,8,0.21,57,-,/player/804857/jeff-niehaus,4,Jeff Niehaus,F,2025-2026,bchl,804857,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Goudreau (F),Okotoks Oilers,18,3,5,8,0.44,12,-,/player/710510/jacob-goudreau,4,Jacob Goudreau,F,2025-2026,bchl,710510,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabriel Simpson (D),totals,39,3,5,8,0.21,13,-,/player/811789/gabriel-simpson,4,Gabriel Simpson,D,2025-2026,bchl,811789,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabriel Bugeaud (LW),totals,24,2,6,8,0.33,8,-,/player/648113/gabriel-bugeaud,4,Gabriel Bugeaud,LW,2025-2026,bchl,648113,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fraser Leonard (D),Prince George Spruce Kings,24,2,6,8,0.33,20,-,/player/725691/fraser-leonard,4,Fraser Leonard,D,2025-2026,bchl,725691,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jayden Veney (D),Chilliwack Chiefs,28,2,6,8,0.29,14,-,/player/693272/jayden-veney,4,Jayden Veney,D,2025-2026,bchl,693272,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shaenen Long (RW),Coquitlam Express,37,2,6,8,0.22,50,-,/player/964278/shaenen-long,4,Shaenen Long,RW,2025-2026,bchl,964278,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Easton Schlender (RW),totals,37,2,6,8,0.22,76,-,/player/803842/easton-schlender,4,Easton Schlender,RW,2025-2026,bchl,803842,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Björk (D),totals,40,2,6,8,0.20,12,-,/player/795313/oscar-bjork,4,Oscar Björk,D,2025-2026,bchl,795313,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Lumsden (D),totals,45,2,6,8,0.18,20,-,/player/876204/john-lumsden,4,John Lumsden,D,2025-2026,bchl,876204,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Ip (D),Surrey Eagles,45,2,6,8,0.18,42,-,/player/817688/anthony-ip,4,Anthony Ip,D,2025-2026,bchl,817688,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eddy Spytz (F),Victoria Grizzlies,28,1,7,8,0.29,32,-,/player/960927/eddy-spytz,4,Eddy Spytz,F,2025-2026,bchl,960927,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Stastny (D),totals,42,0,8,8,0.19,33,-,/player/693745/evan-stastny,4,Evan Stastny,D,2025-2026,bchl,693745,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Finn Kallay (C/LW),totals,52,0,8,8,0.15,6,-,/player/801667/finn-kallay,4,Finn Kallay,C/LW,2025-2026,bchl,801667,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaden Johnson (F),Salmon Arm Silverbacks,18,4,3,7,0.39,6,-,/player/674713/jaden-johnson,4,Jaden Johnson,F,2025-2026,bchl,674713,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Collins (F),Nanaimo Clippers,26,4,3,7,0.27,13,-,/player/787784/justin-collins,4,Justin Collins,F,2025-2026,bchl,787784,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Magnuss Avotins (F),Blackfalds Bulldogs,39,4,3,7,0.18,14,-,/player/928874/magnuss-avotins,4,Magnuss Avotins,F,2025-2026,bchl,928874,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack McDonough (F),Victoria Grizzlies,18,3,4,7,0.39,35,-,/player/783167/jack-mcdonough,4,Jack McDonough,F,2025-2026,bchl,783167,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dario Lass (LW/RW),Vernon Vipers,24,3,4,7,0.29,6,-,/player/619036/dario-lass,4,Dario Lass,LW/RW,2025-2026,bchl,619036,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Wingfield (C/W),totals,30,3,4,7,0.23,108,-,/player/817693/jacob-wingfield,4,Jacob Wingfield,C/W,2025-2026,bchl,817693,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lazarus Ebanoidze (D),Brooks Bandits,31,3,4,7,0.23,22,-,/player/703319/lazarus-ebanoidze,4,Lazarus Ebanoidze,D,2025-2026,bchl,703319,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zachary Chehade (D),totals,34,3,4,7,0.21,19,-,/player/721238/zachary-chehade,4,Zachary Chehade,D,2025-2026,bchl,721238,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grayson Salmon (RW),Alberni Valley Bulldogs,39,3,4,7,0.18,14,-,/player/805879/grayson-salmon,4,Grayson Salmon,RW,2025-2026,bchl,805879,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan Peskett (F),Surrey Eagles,13,2,5,7,0.54,19,-,/player/735778/logan-peskett,4,Logan Peskett,F,2025-2026,bchl,735778,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antoine Cormier (D),totals,33,2,5,7,0.21,8,-,/player/871211/antoine-cormier,4,Antoine Cormier,D,2025-2026,bchl,871211,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Kucherawy (F),Brooks Bandits,34,2,5,7,0.21,39,-,/player/888278/michael-kucherawy,4,Michael Kucherawy,F,2025-2026,bchl,888278,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Devon Mahil (F),Surrey Eagles,38,2,5,7,0.18,25,-,/player/709414/devon-mahil,4,Devon Mahil,F,2025-2026,bchl,709414,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack L'Esperance (D),Coquitlam Express,19,1,6,7,0.37,4,-,/player/760433/jack-l-esperance,4,Jack L'Esperance,D,2025-2026,bchl,760433,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Nolan (RW),Vernon Vipers,25,1,6,7,0.28,18,-,/player/737793/anthony-nolan,4,Anthony Nolan,RW,2025-2026,bchl,737793,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Thomas (D),totals,26,1,6,7,0.27,16,-,/player/709795/matthew-thomas,5,Matthew Thomas,D,2025-2026,bchl,709795,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danny Buckley (LW),Surrey Eagles,29,1,6,7,0.24,23,-,/player/767258/danny-buckley,5,Danny Buckley,LW,2025-2026,bchl,767258,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Valenti (D),totals,33,1,6,7,0.21,18,-,/player/1003977/anthony-valenti,5,Anthony Valenti,D,2025-2026,bchl,1003977,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kenyon McIsaac (D),totals,34,1,6,7,0.21,47,-,/player/735743/kenyon-mcisaac,5,Kenyon McIsaac,D,2025-2026,bchl,735743,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Keyes (F),Sherwood Park Crusaders,40,1,6,7,0.18,21,-,/player/862378/noah-keyes,5,Noah Keyes,F,2025-2026,bchl,862378,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matson Waring (D),totals,44,1,6,7,0.16,35,-,/player/748457/matson-waring,5,Matson Waring,D,2025-2026,bchl,748457,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leith Hunter (D),Alberni Valley Bulldogs,21,0,7,7,0.33,6,-,/player/735793/leith-hunter,5,Leith Hunter,D,2025-2026,bchl,735793,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Miles (D),Nanaimo Clippers,25,0,7,7,0.28,13,-,/player/817846/sebastian-miles,5,Sebastian Miles,D,2025-2026,bchl,817846,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt MacDonald (D),totals,44,0,7,7,0.16,14,-,/player/767265/matt-macdonald,5,Matt MacDonald,D,2025-2026,bchl,767265,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Isaac Fecteau (D),Trail Smoke Eaters,48,0,7,7,0.15,32,-,/player/623176/isaac-fecteau,5,Isaac Fecteau,D,2025-2026,bchl,623176,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hunter Ashton (F),Victoria Grizzlies,34,3,3,6,0.18,35,-,/player/879079/hunter-ashton,5,Hunter Ashton,F,2025-2026,bchl,879079,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Anderson (C),Victoria Grizzlies,12,2,4,6,0.50,41,-,/player/905966/max-anderson,5,Max Anderson,C,2025-2026,bchl,905966,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wyatt Dreger (D),Salmon Arm Silverbacks,26,2,4,6,0.23,27,-,/player/725366/wyatt-dreger,5,Wyatt Dreger,D,2025-2026,bchl,725366,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grady Gustafson (F),Okotoks Oilers,40,2,4,6,0.15,24,-,/player/878928/grady-gustafson,5,Grady Gustafson,F,2025-2026,bchl,878928,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Kelly (D),West Kelowna Warriors,42,2,4,6,0.14,8,-,/player/878919/max-kelly,5,Max Kelly,D,2025-2026,bchl,878919,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brayden Pankey (D),Vernon Vipers,47,2,4,6,0.13,42,-,/player/617228/brayden-pankey,5,Brayden Pankey,D,2025-2026,bchl,617228,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Knorr (C),totals,12,1,5,6,0.50,6,-,/player/728312/lucas-knorr,5,Lucas Knorr,C,2025-2026,bchl,728312,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Owen Leckelt (F),Spruce Grove Saints,27,0,6,6,0.22,7,-,/player/825482/owen-leckelt,5,Owen Leckelt,F,2025-2026,bchl,825482,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Petruk (F),totals,19,4,1,5,0.26,70,-,/player/735144/andrew-petruk,5,Andrew Petruk,F,2025-2026,bchl,735144,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miles Burgin (C),Sherwood Park Crusaders,10,3,2,5,0.50,18,-,/player/679534/miles-burgin,5,Miles Burgin,C,2025-2026,bchl,679534,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Nehring (F),Trail Smoke Eaters,18,3,2,5,0.28,2,-,/player/754829/chase-nehring,5,Chase Nehring,F,2025-2026,bchl,754829,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eduard Mishikov (F),totals,20,3,2,5,0.25,4,-,/player/619105/eduard-mishikov,5,Eduard Mishikov,F,2025-2026,bchl,619105,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lane Sim (LW),Vernon Vipers,26,3,2,5,0.19,18,-,/player/803925/lane-sim,5,Lane Sim,LW,2025-2026,bchl,803925,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Calhoon (F),totals,27,3,2,5,0.19,47,-,/player/709583/brett-calhoon,5,Brett Calhoon,F,2025-2026,bchl,709583,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Casey Bridgewater (D),Powell River Kings,30,3,2,5,0.17,14,-,/player/888239/casey-bridgewater,5,Casey Bridgewater,D,2025-2026,bchl,888239,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dustin Hendry (F),Powell River Kings,37,3,2,5,0.14,24,-,/player/863036/dustin-hendry,5,Dustin Hendry,F,2025-2026,bchl,863036,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Drew Anastasio (D),Trail Smoke Eaters,9,2,3,5,0.56,4,-,/player/723488/drew-anastasio,5,Drew Anastasio,D,2025-2026,bchl,723488,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Drew DellaSalla (F/D),Chilliwack Chiefs,16,2,3,5,0.31,4,-,/player/597754/drew-dellasalla,5,Drew DellaSalla,F/D,2025-2026,bchl,597754,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Russell (F),Vernon Vipers,24,2,3,5,0.21,28,-,/player/888315/brendan-russell,5,Brendan Russell,F,2025-2026,bchl,888315,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Konstantinov (D),Brooks Bandits,26,2,3,5,0.19,21,-,/player/1011309/mark-konstantinov,5,Mark Konstantinov,D,2025-2026,bchl,1011309,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kash Crawford (D),Okotoks Oilers,29,2,3,5,0.17,30,-,/player/807370/kash-crawford,5,Kash Crawford,D,2025-2026,bchl,807370,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Biros (F),Surrey Eagles,44,2,3,5,0.11,12,-,/player/804849/lucas-biros,5,Lucas Biros,F,2025-2026,bchl,804849,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Metelkin (F),Prince George Spruce Kings,7,1,4,5,0.71,0,-,/player/675694/nick-metelkin,5,Nick Metelkin,F,2025-2026,bchl,675694,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rohan Guevarra (F),Blackfalds Bulldogs,16,1,4,5,0.31,4,-,/player/805711/rohan-guevarra,5,Rohan Guevarra,F,2025-2026,bchl,805711,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marco Depedrina (F),Langley Rivermen,23,1,4,5,0.22,8,-,/player/804747/marco-depedrina,5,Marco Depedrina,F,2025-2026,bchl,804747,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaron Zulinick (D),Vernon Vipers,25,1,4,5,0.20,14,-,/player/879242/aaron-zulinick,5,Aaron Zulinick,D,2025-2026,bchl,879242,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicholas Holomego (D),Nanaimo Clippers,25,1,4,5,0.20,25,-,/player/692781/nicholas-holomego,5,Nicholas Holomego,D,2025-2026,bchl,692781,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Braydan Smith (D),Blackfalds Bulldogs,28,1,4,5,0.18,20,-,/player/647117/braydan-smith,5,Braydan Smith,D,2025-2026,bchl,647117,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sullivan Martin (D),Sherwood Park Crusaders,40,1,4,5,0.13,90,-,/player/937095/sullivan-martin,5,Sullivan Martin,D,2025-2026,bchl,937095,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+James Bond (D),Powell River Kings,47,1,4,5,0.11,16,-,/player/812383/james-bond,5,James Bond,D,2025-2026,bchl,812383,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Braden Walters (F),Salmon Arm Silverbacks,19,0,5,5,0.26,0,-,/player/750586/braden-walters,5,Braden Walters,F,2025-2026,bchl,750586,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Owen McCarthy (D),Trail Smoke Eaters,22,0,5,5,0.23,30,-,/player/918491/owen-mccarthy,5,Owen McCarthy,D,2025-2026,bchl,918491,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Charlie Derrheim (D),totals,26,0,5,5,0.19,24,-,/player/735111/charlie-derrheim,5,Charlie Derrheim,D,2025-2026,bchl,735111,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Malachi Freh (D),Cranbrook Bucks,27,0,5,5,0.19,24,-,/player/705710/malachi-freh,5,Malachi Freh,D,2025-2026,bchl,705710,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Tyler Greene (C),Trail Smoke Eaters,10,3,1,4,0.40,4,-,/player/747329/david-tyler-greene,5,David Tyler Greene,C,2025-2026,bchl,747329,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gage Brandon (C),Sherwood Park Crusaders,15,3,1,4,0.27,2,-,/player/897422/gage-brandon,5,Gage Brandon,C,2025-2026,bchl,897422,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yoon Min Shin (F),Surrey Eagles,21,3,1,4,0.19,17,-,/player/1006830/yoon-min-shin,5,Yoon Min Shin,F,2025-2026,bchl,1006830,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Caden Stoltz (F),Trail Smoke Eaters,37,3,1,4,0.11,46,-,/player/881409/caden-stoltz,5,Caden Stoltz,F,2025-2026,bchl,881409,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gairin Michalski (D),Trail Smoke Eaters,6,2,2,4,0.67,0,-,/player/783079/gairin-michalski,5,Gairin Michalski,D,2025-2026,bchl,783079,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Laptev (RW),totals,6,2,2,4,-,0,-,/player/836652/vladimir-laptev,5,Vladimir Laptev,RW,2025-2026,bchl,836652,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teddy Richardson (RW/C),Cowichan Valley Capitals,6,2,2,4,0.67,4,-,/player/784830/teddy-richardson,5,Teddy Richardson,RW/C,2025-2026,bchl,784830,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shane Purves (F),Langley Rivermen,8,2,2,4,0.50,0,-,/player/817694/shane-purves,5,Shane Purves,F,2025-2026,bchl,817694,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hunter Yanick (F),Cowichan Valley Capitals,8,2,2,4,0.50,0,-,/player/808800/hunter-yanick,5,Hunter Yanick,F,2025-2026,bchl,808800,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Pavese (C),Cowichan Valley Capitals,10,2,2,4,0.40,4,-,/player/911170/justin-pavese,5,Justin Pavese,C,2025-2026,bchl,911170,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brec Christenson (F),Sherwood Park Crusaders,13,2,2,4,0.31,48,-,/player/668307/brec-christenson,5,Brec Christenson,F,2025-2026,bchl,668307,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Parker Deschene (F),Salmon Arm Silverbacks,15,2,2,4,0.27,12,-,/player/805453/parker-deschene,5,Parker Deschene,F,2025-2026,bchl,805453,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jackson Gillespie (D),Victoria Grizzlies,22,2,2,4,0.18,8,-,/player/788680/jackson-gillespie,5,Jackson Gillespie,D,2025-2026,bchl,788680,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Giangualano (F),Langley Rivermen,23,2,2,4,0.17,2,-,/player/733527/sam-giangualano,5,Sam Giangualano,F,2025-2026,bchl,733527,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daxton Endicott (LW),West Kelowna Warriors,36,2,2,4,0.11,49,-,/player/883565/daxton-endicott,5,Daxton Endicott,LW,2025-2026,bchl,883565,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Dahlqvist (F),totals,10,1,3,4,0.40,4,-,/player/689392/rasmus-dahlqvist,5,Rasmus Dahlqvist,F,2025-2026,bchl,689392,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reinis Auzins (D),Langley Rivermen,16,1,3,4,0.25,2,-,/player/877004/reinis-auzins,5,Reinis Auzins,D,2025-2026,bchl,877004,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Morrison (F),Surrey Eagles,16,1,3,4,0.25,6,-,/player/841997/jacob-morrison,5,Jacob Morrison,F,2025-2026,bchl,841997,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ty Campbell (D),Chilliwack Chiefs,16,1,3,4,0.25,26,-,/player/574572/ty-campbell,5,Ty Campbell,D,2025-2026,bchl,574572,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxime Lapointe (D),Nanaimo Clippers,23,1,3,4,0.17,14,-,/player/882725/maxime-lapointe,5,Maxime Lapointe,D,2025-2026,bchl,882725,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicklas Numminen (D),Chilliwack Chiefs,25,1,3,4,0.16,6,-,/player/868595/nicklas-numminen,5,Nicklas Numminen,D,2025-2026,bchl,868595,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maverick Hayes (D),Vernon Vipers,26,1,3,4,0.15,46,-,/player/684261/maverick-hayes,5,Maverick Hayes,D,2025-2026,bchl,684261,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brayden Rotach (F),Trail Smoke Eaters,31,1,3,4,0.13,4,-,/player/806889/brayden-rotach,5,Brayden Rotach,F,2025-2026,bchl,806889,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabriel Smith (D),totals,48,1,3,4,0.08,47,-,/player/905991/gabriel-smith,5,Gabriel Smith,D,2025-2026,bchl,905991,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Edwards (F),Chilliwack Chiefs,8,0,4,4,0.50,4,-,/player/577112/max-edwards,5,Max Edwards,F,2025-2026,bchl,577112,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathis Valente (C/RW),Trail Smoke Eaters,10,0,4,4,0.40,0,-,/player/877421/mathis-valente,5,Mathis Valente,C/RW,2025-2026,bchl,877421,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Murray (F),Prince George Spruce Kings,14,0,4,4,0.29,6,-,/player/722928/andrew-murray,5,Andrew Murray,F,2025-2026,bchl,722928,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Quinlan Parry (D),West Kelowna Warriors,15,0,4,4,0.27,4,-,/player/871535/quinlan-parry,5,Quinlan Parry,D,2025-2026,bchl,871535,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kiernan Poulin (D),Blackfalds Bulldogs,16,0,4,4,0.25,2,-,/player/619046/kiernan-poulin,5,Kiernan Poulin,D,2025-2026,bchl,619046,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henry Sampair (D),Okotoks Oilers,16,0,4,4,0.25,4,-,/player/855899/henry-sampair,5,Henry Sampair,D,2025-2026,bchl,855899,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Lee (F),Spruce Grove Saints,19,0,4,4,0.21,12,-,/player/601832/connor-lee,5,Connor Lee,F,2025-2026,bchl,601832,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aidan Fisher (LW),Salmon Arm Silverbacks,21,0,4,4,0.19,8,-,/player/806555/aidan-fisher,5,Aidan Fisher,LW,2025-2026,bchl,806555,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Kelly (D),West Kelowna Warriors,22,0,4,4,0.18,4,-,/player/815063/john-kelly,5,John Kelly,D,2025-2026,bchl,815063,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aidan Malone (D),West Kelowna Warriors,22,0,4,4,0.18,6,-,/player/597561/aidan-malone,5,Aidan Malone,D,2025-2026,bchl,597561,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robby Hoch (D),Prince George Spruce Kings,37,0,4,4,0.11,14,-,/player/707974/robby-hoch,5,Robby Hoch,D,2025-2026,bchl,707974,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Bousquet (D),totals,38,0,4,4,0.11,43,-,/player/804156/jack-bousquet,5,Jack Bousquet,D,2025-2026,bchl,804156,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Anderson (D),Okotoks Oilers,51,0,4,4,0.08,52,-,/player/853641/ethan-anderson,5,Ethan Anderson,D,2025-2026,bchl,853641,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Dekay (F),Cowichan Valley Capitals,9,2,1,3,0.33,0,-,/player/885589/luke-dekay,5,Luke Dekay,F,2025-2026,bchl,885589,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elliott Mullen (C),Cranbrook Bucks,12,2,1,3,0.25,10,-,/player/876365/elliott-mullen,5,Elliott Mullen,C,2025-2026,bchl,876365,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tate O'Brien (D),Salmon Arm Silverbacks,27,2,1,3,0.11,12,-,/player/805898/tate-o-brien,5,Tate O'Brien,D,2025-2026,bchl,805898,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Gobel (F),Powell River Kings,31,2,1,3,0.10,0,-,/player/798323/ethan-gobel,5,Ethan Gobel,F,2025-2026,bchl,798323,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Taylor Curtis (D),totals,44,2,1,3,0.07,12,-,/player/887704/taylor-curtis,5,Taylor Curtis,D,2025-2026,bchl,887704,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roberts Gasuns (F),Surrey Eagles,10,1,2,3,0.30,0,-,/player/690116/roberts-gasuns,5,Roberts Gasuns,F,2025-2026,bchl,690116,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teodor Vápeník (D),Vernon Vipers,10,1,2,3,0.30,8,-,/player/748425/teodor-vapenik,5,Teodor Vápeník,D,2025-2026,bchl,748425,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Kohlmann (F),Victoria Grizzlies,14,1,2,3,0.21,4,-,/player/797653/jack-kohlmann,5,Jack Kohlmann,F,2025-2026,bchl,797653,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Booker Toninato (F),Salmon Arm Silverbacks,16,1,2,3,0.19,13,-,/player/617647/booker-toninato,5,Booker Toninato,F,2025-2026,bchl,617647,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wassim Rabbath (D),Alberni Valley Bulldogs,20,1,2,3,0.15,16,-,/player/886989/wassim-rabbath,5,Wassim Rabbath,D,2025-2026,bchl,886989,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Birch (D),Langley Rivermen,25,1,2,3,0.12,6,-,/player/720418/jack-birch,5,Jack Birch,D,2025-2026,bchl,720418,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shawn Pearson (LW),Cranbrook Bucks,6,0,3,3,0.50,14,-,/player/599571/shawn-pearson,5,Shawn Pearson,LW,2025-2026,bchl,599571,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Greene (RW),West Kelowna Warriors,7,0,3,3,0.43,2,-,/player/718479/kyle-greene,5,Kyle Greene,RW,2025-2026,bchl,718479,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Hikida (F),Okotoks Oilers,12,0,3,3,0.25,21,-,/player/735112/matthew-hikida,5,Matthew Hikida,F,2025-2026,bchl,735112,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Meireles (D),Surrey Eagles,12,0,3,3,0.25,29,-,/player/876180/tyler-meireles,5,Tyler Meireles,D,2025-2026,bchl,876180,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Asher Lucas (F),Blackfalds Bulldogs,14,0,3,3,0.21,12,-,/player/891484/asher-lucas,5,Asher Lucas,F,2025-2026,bchl,891484,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Diachkov (D),Cranbrook Bucks,16,0,3,3,0.19,6,-,/player/619100/daniil-diachkov,5,Daniil Diachkov,D,2025-2026,bchl,619100,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brayden Kaldenbach (D),Alberni Valley Bulldogs,16,0,3,3,0.19,25,-,/player/904776/brayden-kaldenbach,5,Brayden Kaldenbach,D,2025-2026,bchl,904776,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabriel Kenny (D),Spruce Grove Saints,21,0,3,3,0.14,70,-,/player/572110/gabriel-kenny,5,Gabriel Kenny,D,2025-2026,bchl,572110,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brodie Kay (D),Spruce Grove Saints,23,0,3,3,0.13,6,-,/player/443868/brodie-kay,6,Brodie Kay,D,2025-2026,bchl,443868,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Russo (D),West Kelowna Warriors,49,0,3,3,0.06,33,-,/player/748888/tyler-russo,6,Tyler Russo,D,2025-2026,bchl,748888,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Landon Jassmann (F),Surrey Eagles,10,2,0,2,0.20,33,-,/player/679537/landon-jassmann,6,Landon Jassmann,F,2025-2026,bchl,679537,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bradley Schmidt (F),Langley Rivermen,18,2,0,2,0.11,10,-,/player/878948/bradley-schmidt,6,Bradley Schmidt,F,2025-2026,bchl,878948,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Casper Lang (D),Cowichan Valley Capitals,30,2,0,2,0.07,14,-,/player/855898/casper-lang,6,Casper Lang,D,2025-2026,bchl,855898,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Phillips (C),Victoria Grizzlies,3,1,1,2,0.67,0,-,/player/884548/oliver-phillips,6,Oliver Phillips,C,2025-2026,bchl,884548,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grady Hoffman (RW),Salmon Arm Silverbacks,4,1,1,2,0.50,0,-,/player/607319/grady-hoffman,6,Grady Hoffman,RW,2025-2026,bchl,607319,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elijah Kim (F),Cowichan Valley Capitals,5,1,1,2,0.40,2,-,/player/825442/elijah-kim,6,Elijah Kim,F,2025-2026,bchl,825442,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tayjon Street (F),Victoria Grizzlies,5,1,1,2,0.40,27,-,/player/980440/tayjon-street,6,Tayjon Street,F,2025-2026,bchl,980440,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Quinlan Clair (D),Coquitlam Express,9,1,1,2,0.22,6,-,/player/967364/quinlan-clair,6,Quinlan Clair,D,2025-2026,bchl,967364,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Schaefer (D),Alberni Valley Bulldogs,13,1,1,2,0.15,17,-,/player/597871/lucas-schaefer,6,Lucas Schaefer,D,2025-2026,bchl,597871,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cayden Joramo (F),Okotoks Oilers,15,1,1,2,0.13,32,-,/player/847286/cayden-joramo,6,Cayden Joramo,F,2025-2026,bchl,847286,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rylan Hue (F),Brooks Bandits,16,1,1,2,0.13,53,-,/player/795079/rylan-hue,6,Rylan Hue,F,2025-2026,bchl,795079,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Venturo (C),Nanaimo Clippers,20,1,1,2,0.10,12,-,/player/577199/jesse-venturo,6,Jesse Venturo,C,2025-2026,bchl,577199,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cooper Conway (F),Salmon Arm Silverbacks,2,0,2,2,1.00,2,-,/player/664602/cooper-conway,6,Cooper Conway,F,2025-2026,bchl,664602,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kai Mencel (D),Surrey Eagles,5,0,2,2,0.40,33,-,/player/597790/kai-mencel,6,Kai Mencel,D,2025-2026,bchl,597790,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Semancik (F),Surrey Eagles,8,0,2,2,0.25,8,-,/player/731654/simon-semancik,6,Simon Semancik,F,2025-2026,bchl,731654,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dru Mushumanski (F),totals,8,0,2,2,0.25,16,-,/player/597740/dru-mushumanski,6,Dru Mushumanski,F,2025-2026,bchl,597740,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Liam Butsavich (D),Cowichan Valley Capitals,10,0,2,2,0.20,0,-,/player/755085/liam-butsavich,6,Liam Butsavich,D,2025-2026,bchl,755085,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Mishin (F),Sherwood Park Crusaders,10,0,2,2,0.20,2,-,/player/1011307/mikhail-mishin,6,Mikhail Mishin,F,2025-2026,bchl,1011307,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Döme Szongoth (D),Vernon Vipers,10,0,2,2,0.20,8,-,/player/870361/dome-szongoth,6,Döme Szongoth,D,2025-2026,bchl,870361,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Makokis (D),Langley Rivermen,12,0,2,2,0.17,2,-,/player/804726/ethan-makokis,6,Ethan Makokis,D,2025-2026,bchl,804726,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Graham (RW),Surrey Eagles,12,0,2,2,0.17,12,-,/player/880853/tyler-graham,6,Tyler Graham,RW,2025-2026,bchl,880853,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxwell Bennett (F),Powell River Kings,16,0,2,2,0.13,2,-,/player/866512/maxwell-bennett,6,Maxwell Bennett,F,2025-2026,bchl,866512,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+London Taylor (F),Vernon Vipers,16,0,2,2,0.13,4,-,/player/879076/london-taylor,6,London Taylor,F,2025-2026,bchl,879076,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brody Green (RW),Sherwood Park Crusaders,20,0,2,2,0.10,4,-,/player/804336/brody-green,6,Brody Green,RW,2025-2026,bchl,804336,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Danyluk (F),Trail Smoke Eaters,30,0,2,2,0.07,2,-,/player/883629/dylan-danyluk,6,Dylan Danyluk,F,2025-2026,bchl,883629,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Donny Sisson (D),Salmon Arm Silverbacks,30,0,2,2,0.07,33,-,/player/911487/donny-sisson,6,Donny Sisson,D,2025-2026,bchl,911487,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luca DeCubellis (D),Salmon Arm Silverbacks,46,0,2,2,0.04,20,-,/player/855917/luca-decubellis,6,Luca DeCubellis,D,2025-2026,bchl,855917,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emils Skeltins (D),Vernon Vipers,2,1,0,1,0.50,2,-,/player/691597/emils-skeltins,6,Emils Skeltins,D,2025-2026,bchl,691597,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Nottingham (C/LW),Langley Rivermen,2,1,0,1,0.50,4,-,/player/880253/oliver-nottingham,6,Oliver Nottingham,C/LW,2025-2026,bchl,880253,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elliott Turgeon (F),Coquitlam Express,3,1,0,1,0.33,0,-,/player/757054/elliott-turgeon,6,Elliott Turgeon,F,2025-2026,bchl,757054,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blair Erickson (D),Spruce Grove Saints,3,1,0,1,0.33,0,-,/player/884127/blair-erickson,6,Blair Erickson,D,2025-2026,bchl,884127,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gavin Jensen (F),Cranbrook Bucks,3,1,0,1,0.33,0,-,/player/694943/gavin-jensen,6,Gavin Jensen,F,2025-2026,bchl,694943,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brady Whitehead (F),Blackfalds Bulldogs,4,1,0,1,0.25,0,-,/player/879270/brady-whitehead,6,Brady Whitehead,F,2025-2026,bchl,879270,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathaniel Harvey (C),Vernon Vipers,4,1,0,1,0.25,2,-,/player/720682/nathaniel-harvey,6,Nathaniel Harvey,C,2025-2026,bchl,720682,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Borggaard (C),Blackfalds Bulldogs,4,1,0,1,0.25,2,-,/player/603028/austin-borggaard,6,Austin Borggaard,C,2025-2026,bchl,603028,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jachym Prusek (D),Surrey Eagles,4,1,0,1,0.25,2,-,/player/869427/jachym-prusek,6,Jachym Prusek,D,2025-2026,bchl,869427,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Tkac (D),Prince George Spruce Kings,6,1,0,1,0.17,0,-,/player/751084/michal-tkac,6,Michal Tkac,D,2025-2026,bchl,751084,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Divyne Apollon (F),Sherwood Park Crusaders,6,1,0,1,0.17,66,-,/player/724162/divyne-apollon,6,Divyne Apollon,F,2025-2026,bchl,724162,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicholas Morin (D),Nanaimo Clippers,7,1,0,1,0.14,0,-,/player/878904/nicholas-morin,6,Nicholas Morin,D,2025-2026,bchl,878904,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Conrado Calderini (D),Powell River Kings,8,1,0,1,0.13,6,-,/player/679588/conrado-calderini,6,Conrado Calderini,D,2025-2026,bchl,679588,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Brown (F),Chilliwack Chiefs,9,1,0,1,0.11,0,-,/player/805925/cole-brown,6,Cole Brown,F,2025-2026,bchl,805925,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Deacon (F),Okotoks Oilers,9,1,0,1,0.11,0,-,/player/754556/ben-deacon,6,Ben Deacon,F,2025-2026,bchl,754556,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Fennell (D),Cranbrook Bucks,11,1,0,1,0.09,0,-,/player/649135/tanner-fennell,6,Tanner Fennell,D,2025-2026,bchl,649135,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Khaidarov (C),Vernon Vipers,12,1,0,1,0.08,2,-,/player/794660/artyom-khaidarov,6,Artyom Khaidarov,C,2025-2026,bchl,794660,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sammy Hynes (F),Cranbrook Bucks,29,1,0,1,0.03,6,-,/player/710814/sammy-hynes,6,Sammy Hynes,F,2025-2026,bchl,710814,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Spring (F),Surrey Eagles,1,0,1,1,1.00,0,-,/player/725432/sam-spring,6,Sam Spring,F,2025-2026,bchl,725432,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henry Kress (F),Blackfalds Bulldogs,1,0,1,1,1.00,2,-,/player/747973/henry-kress,6,Henry Kress,F,2025-2026,bchl,747973,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Trompeter (F),Sherwood Park Crusaders,2,0,1,1,0.50,0,-,/player/617635/chase-trompeter,6,Chase Trompeter,F,2025-2026,bchl,617635,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Sadowski (F),totals,2,0,1,1,-,0,-,/player/597618/jack-sadowski,6,Jack Sadowski,F,2025-2026,bchl,597618,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eli Friedman (F),Powell River Kings,2,0,1,1,0.50,0,-,/player/599393/eli-friedman,6,Eli Friedman,F,2025-2026,bchl,599393,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juan Copeland (LW),Blackfalds Bulldogs,2,0,1,1,0.50,0,-,/player/710103/juan-copeland,6,Juan Copeland,LW,2025-2026,bchl,710103,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eli Molde (F),Okotoks Oilers,2,0,1,1,0.50,0,-,/player/852667/eli-molde,6,Eli Molde,F,2025-2026,bchl,852667,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Assi (F),Vernon Vipers,2,0,1,1,0.50,0,-,/player/914193/luke-assi,6,Luke Assi,F,2025-2026,bchl,914193,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Malinousky (F),Langley Rivermen,2,0,1,1,0.50,0,-,/player/960833/max-malinousky,6,Max Malinousky,F,2025-2026,bchl,960833,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ayden Heron (C),Powell River Kings,2,0,1,1,0.50,2,-,/player/869039/ayden-heron,6,Ayden Heron,C,2025-2026,bchl,869039,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sylvester Adolfsson (D),Trail Smoke Eaters,4,0,1,1,0.25,0,-,/player/897229/sylvester-adolfsson,6,Sylvester Adolfsson,D,2025-2026,bchl,897229,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hudson Wright (D),Chilliwack Chiefs,5,0,1,1,0.20,0,-,/player/879243/hudson-wright,6,Hudson Wright,D,2025-2026,bchl,879243,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antoine Demers (F),Vernon Vipers,5,0,1,1,0.20,4,-,/player/719776/antoine-demers,6,Antoine Demers,F,2025-2026,bchl,719776,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joseph Melichar (F),Surrey Eagles,5,0,1,1,0.20,4,-,/player/623205/joseph-melichar,6,Joseph Melichar,F,2025-2026,bchl,623205,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Minchello (F),Surrey Eagles,5,0,1,1,0.20,4,-,/player/764020/michael-minchello,6,Michael Minchello,F,2025-2026,bchl,764020,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jett Quaschnick (D),Vernon Vipers,6,0,1,1,0.17,2,-,/player/879193/jett-quaschnick,6,Jett Quaschnick,D,2025-2026,bchl,879193,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zachary Buffone (D),Blackfalds Bulldogs,6,0,1,1,0.17,6,-,/player/935314/zachary-buffone,6,Zachary Buffone,D,2025-2026,bchl,935314,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Drew Gibbons (RW),Powell River Kings,7,0,1,1,0.14,2,-,/player/723295/drew-gibbons,6,Drew Gibbons,RW,2025-2026,bchl,723295,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Léon Buff (C/W),Alberni Valley Bulldogs,7,0,1,1,0.14,6,-,/player/862092/leon-buff,6,Léon Buff,C/W,2025-2026,bchl,862092,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan Duncan (F),Cowichan Valley Capitals,8,0,1,1,0.13,4,-,/player/968894/logan-duncan,6,Logan Duncan,F,2025-2026,bchl,968894,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carson Lynch (F),Powell River Kings,8,0,1,1,0.13,40,-,/player/807165/carson-lynch,6,Carson Lynch,F,2025-2026,bchl,807165,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joshua Lepain (LW),Powell River Kings,9,0,1,1,0.11,4,-,/player/832842/joshua-lepain,6,Joshua Lepain,LW,2025-2026,bchl,832842,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Wonyeneh (F),Salmon Arm Silverbacks,9,0,1,1,0.11,21,-,/player/983218/richard-wonyeneh,6,Richard Wonyeneh,F,2025-2026,bchl,983218,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Melwin Last (D),West Kelowna Warriors,10,0,1,1,0.10,0,-,/player/706313/melwin-last,6,Melwin Last,D,2025-2026,bchl,706313,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryley Cyca (D),Cowichan Valley Capitals,10,0,1,1,0.10,4,-,/player/653142/ryley-cyca,6,Ryley Cyca,D,2025-2026,bchl,653142,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tafari Chingwaru (D),Salmon Arm Silverbacks,10,0,1,1,0.10,7,-,/player/883944/tafari-chingwaru,6,Tafari Chingwaru,D,2025-2026,bchl,883944,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryson Carlyle (D),Coquitlam Express,10,0,1,1,0.10,21,-,/player/705709/bryson-carlyle,6,Bryson Carlyle,D,2025-2026,bchl,705709,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Nettleton (D),Surrey Eagles,11,0,1,1,0.09,0,-,/player/890510/tanner-nettleton,6,Tanner Nettleton,D,2025-2026,bchl,890510,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim St. Pierre (D),Sherwood Park Crusaders,14,0,1,1,0.07,6,-,/player/619049/maxim-st-pierre,6,Maxim St. Pierre,D,2025-2026,bchl,619049,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Haley (D),Okotoks Oilers,16,0,1,1,0.06,26,-,/player/726416/william-haley,6,William Haley,D,2025-2026,bchl,726416,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Dontigny (C),West Kelowna Warriors,20,0,1,1,0.05,2,-,/player/870105/anthony-dontigny,6,Anthony Dontigny,C,2025-2026,bchl,870105,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Holub (D),Powell River Kings,21,0,1,1,0.05,48,-,/player/866717/david-holub,6,David Holub,D,2025-2026,bchl,866717,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Maudie (D),Cranbrook Bucks,23,0,1,1,0.04,8,-,/player/807498/roman-maudie,6,Roman Maudie,D,2025-2026,bchl,807498,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Morrissette-Richer (C),Langley Rivermen,0,0,0,0,-,0,-,/player/888450/victor-morrissette-richer,6,Victor Morrissette-Richer,C,2025-2026,bchl,888450,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carson Clukies (F),Trail Smoke Eaters,0,0,0,0,-,0,-,/player/897932/carson-clukies,6,Carson Clukies,F,2025-2026,bchl,897932,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teghan Mullin (F),Cranbrook Bucks,0,0,0,0,-,0,-,/player/805931/teghan-mullin,6,Teghan Mullin,F,2025-2026,bchl,805931,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Short (F),Brooks Bandits,0,0,0,0,-,0,-,/player/952704/ben-short,6,Ben Short,F,2025-2026,bchl,952704,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Campbell (F),Salmon Arm Silverbacks,0,0,0,0,-,0,-,/player/809061/chase-campbell,6,Chase Campbell,F,2025-2026,bchl,809061,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tadeas Pavlik (F),Brooks Bandits,0,0,0,0,-,0,-,/player/982436/tadeas-pavlik,6,Tadeas Pavlik,F,2025-2026,bchl,982436,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Shushkov (D),Nanaimo Clippers,1,0,0,0,0.00,0,-,/player/799968/maxim-shushkov,6,Maxim Shushkov,D,2025-2026,bchl,799968,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Landon Marleau (C),Spruce Grove Saints,1,0,0,0,0.00,0,-,/player/763763/landon-marleau,6,Landon Marleau,C,2025-2026,bchl,763763,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Remy Hlady (F),Brooks Bandits,1,0,0,0,0.00,0,-,/player/804436/remy-hlady,6,Remy Hlady,F,2025-2026,bchl,804436,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Malcolm Baar (F),Vernon Vipers,1,0,0,0,0.00,0,-,/player/738020/malcolm-baar,6,Malcolm Baar,F,2025-2026,bchl,738020,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William-Francisco Parent (LW/C),Spruce Grove Saints,1,0,0,0,0.00,0,-,/player/755387/william-francisco-parent,6,William-Francisco Parent,LW/C,2025-2026,bchl,755387,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jayden Levesque (C),Surrey Eagles,1,0,0,0,0.00,0,-,/player/911184/jayden-levesque,6,Jayden Levesque,C,2025-2026,bchl,911184,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bowen Burke (D),Vernon Vipers,1,0,0,0,0.00,0,-,/player/618651/bowen-burke,6,Bowen Burke,D,2025-2026,bchl,618651,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Néka Jean (C/LW),Vernon Vipers,1,0,0,0,0.00,0,-,/player/744830/neka-jean,6,Néka Jean,C/LW,2025-2026,bchl,744830,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Stamp-Vincent (F),Cowichan Valley Capitals,1,0,0,0,0.00,0,-,/player/997195/carter-stamp-vincent,6,Carter Stamp-Vincent,F,2025-2026,bchl,997195,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Murray (F),Sherwood Park Crusaders,1,0,0,0,0.00,0,-,/player/888248/ethan-murray,6,Ethan Murray,F,2025-2026,bchl,888248,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Parker Atkinson (F),Cowichan Valley Capitals,1,0,0,0,0.00,0,-,/player/806273/parker-atkinson,6,Parker Atkinson,F,2025-2026,bchl,806273,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Shypitka (D),Cranbrook Bucks,1,0,0,0,0.00,0,-,/player/925672/adam-shypitka,6,Adam Shypitka,D,2025-2026,bchl,925672,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joey Habbe (D),Brooks Bandits,1,0,0,0,0.00,0,-,/player/1038536/joey-habbe,6,Joey Habbe,D,2025-2026,bchl,1038536,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Madden Cruickshank (F),Nanaimo Clippers,1,0,0,0,0.00,0,-,/player/878891/madden-cruickshank,6,Madden Cruickshank,F,2025-2026,bchl,878891,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Barclay (D),Nanaimo Clippers,1,0,0,0,0.00,0,-,/player/879105/nathan-barclay,7,Nathan Barclay,D,2025-2026,bchl,879105,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rolan Amin (F),Nanaimo Clippers,1,0,0,0,0.00,0,-,/player/709620/rolan-amin,7,Rolan Amin,F,2025-2026,bchl,709620,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryland DeMars (F),Nanaimo Clippers,1,0,0,0,0.00,0,-,/player/863770/ryland-demars,7,Ryland DeMars,F,2025-2026,bchl,863770,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Magnus Veldman (D),West Kelowna Warriors,1,0,0,0,0.00,0,-,/player/878930/magnus-veldman,7,Magnus Veldman,D,2025-2026,bchl,878930,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Dahms (F),Powell River Kings,1,0,0,0,0.00,2,-,/player/784815/tyler-dahms,7,Tyler Dahms,F,2025-2026,bchl,784815,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linden Hoskins (D/F),Victoria Grizzlies,1,0,0,0,0.00,2,-,/player/806526/linden-hoskins,7,Linden Hoskins,D/F,2025-2026,bchl,806526,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Payton Mithmuangneua (F),Surrey Eagles,1,0,0,0,0.00,2,-,/player/705303/payton-mithmuangneua,7,Payton Mithmuangneua,F,2025-2026,bchl,705303,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Garrett Trench (F),Vernon Vipers,1,0,0,0,0.00,2,-,/player/964715/garrett-trench,7,Garrett Trench,F,2025-2026,bchl,964715,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Curtis Freeman (LW),Cowichan Valley Capitals,1,0,0,0,0.00,2,-,/player/905990/curtis-freeman,7,Curtis Freeman,LW,2025-2026,bchl,905990,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keagan Lundie (D),Nanaimo Clippers,1,0,0,0,0.00,2,-,/player/878600/keagan-lundie,7,Keagan Lundie,D,2025-2026,bchl,878600,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nolan Oxtoby (F),West Kelowna Warriors,1,0,0,0,0.00,2,-,/player/960818/nolan-oxtoby,7,Nolan Oxtoby,F,2025-2026,bchl,960818,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Harout Arutyunyan (F),Blackfalds Bulldogs,2,0,0,0,0.00,0,-,/player/845625/harout-arutyunyan,7,Harout Arutyunyan,F,2025-2026,bchl,845625,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jase Johnstone (F),Victoria Grizzlies,2,0,0,0,0.00,0,-,/player/877916/jase-johnstone,7,Jase Johnstone,F,2025-2026,bchl,877916,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ji Hyun Jang (D),Surrey Eagles,2,0,0,0,0.00,0,-,/player/926976/ji-hyun-jang,7,Ji Hyun Jang,D,2025-2026,bchl,926976,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vasili Serov (C),Surrey Eagles,2,0,0,0,0.00,0,-,/player/876156/vasili-serov,7,Vasili Serov,C,2025-2026,bchl,876156,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Edwards (D),Vernon Vipers,2,0,0,0,0.00,0,-,/player/647545/ben-edwards,7,Ben Edwards,D,2025-2026,bchl,647545,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grayson Cohen (D),Vernon Vipers,2,0,0,0,0.00,0,-,/player/862704/grayson-cohen,7,Grayson Cohen,D,2025-2026,bchl,862704,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Watson (D),Victoria Grizzlies,2,0,0,0,0.00,0,-,/player/932014/justin-watson,7,Justin Watson,D,2025-2026,bchl,932014,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Ridgway (D),Alberni Valley Bulldogs,2,0,0,0,0.00,0,-,/player/825510/luke-ridgway,7,Luke Ridgway,D,2025-2026,bchl,825510,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brady Desharnais (D),Coquitlam Express,2,0,0,0,0.00,0,-,/player/980586/brady-desharnais,7,Brady Desharnais,D,2025-2026,bchl,980586,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tripp Reynolds III (D),Cowichan Valley Capitals,2,0,0,0,0.00,0,-,/player/864211/tripp-reynolds-iii,7,Tripp Reynolds III,D,2025-2026,bchl,864211,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicholas Russ (LW),Vernon Vipers,2,0,0,0,0.00,0,-,/player/785514/nicholas-russ,7,Nicholas Russ,LW,2025-2026,bchl,785514,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hendrix Whittle (F),Alberni Valley Bulldogs,2,0,0,0,0.00,0,-,/player/1034433/hendrix-whittle,7,Hendrix Whittle,F,2025-2026,bchl,1034433,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Bogatyrev (D),Brooks Bandits,2,0,0,0,0.00,0,-,/player/617414/nikita-bogatyrev,7,Nikita Bogatyrev,D,2025-2026,bchl,617414,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Griffin Carmont (F),Surrey Eagles,2,0,0,0,0.00,0,-,/player/963392/griffin-carmont,7,Griffin Carmont,F,2025-2026,bchl,963392,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trace Anderson (C),Langley Rivermen,2,0,0,0,0.00,0,-,/player/825445/trace-anderson,7,Trace Anderson,C,2025-2026,bchl,825445,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brayden Tremblay (D),Trail Smoke Eaters,2,0,0,0,0.00,0,-,/player/935893/brayden-tremblay,7,Brayden Tremblay,D,2025-2026,bchl,935893,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Kydd (C),Sherwood Park Crusaders,2,0,0,0,0.00,0,-,/player/964179/nathan-kydd,7,Nathan Kydd,C,2025-2026,bchl,964179,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chad Lebeau (D),Powell River Kings,2,0,0,0,0.00,2,-,/player/592817/chad-lebeau,7,Chad Lebeau,D,2025-2026,bchl,592817,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tinius Schiager Ekhaugen (LW),Alberni Valley Bulldogs,2,0,0,0,0.00,2,-,/player/802232/tinius-schiager-ekhaugen,7,Tinius Schiager Ekhaugen,LW,2025-2026,bchl,802232,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Owen Baker (D),Chilliwack Chiefs,2,0,0,0,0.00,2,-,/player/960819/owen-baker,7,Owen Baker,D,2025-2026,bchl,960819,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Nordli (D),Surrey Eagles,2,0,0,0,0.00,2,-,/player/883714/ethan-nordli,7,Ethan Nordli,D,2025-2026,bchl,883714,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskar Aitken-Salmons (F),Cowichan Valley Capitals,2,0,0,0,0.00,2,-,/player/879322/oskar-aitken-salmons,7,Oskar Aitken-Salmons,F,2025-2026,bchl,879322,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keeghan Dunn (C),Vernon Vipers,2,0,0,0,0.00,2,-,/player/804745/keeghan-dunn,7,Keeghan Dunn,C,2025-2026,bchl,804745,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shaun Rios (F),Vernon Vipers,2,0,0,0,0.00,2,-,/player/654451/shaun-rios,7,Shaun Rios,F,2025-2026,bchl,654451,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Magdalinski (F),Coquitlam Express,2,0,0,0,0.00,4,-,/player/887696/tyler-magdalinski,7,Tyler Magdalinski,F,2025-2026,bchl,887696,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Deacon Drummond (F),Vernon Vipers,3,0,0,0,0.00,0,-,/player/708440/deacon-drummond,7,Deacon Drummond,F,2025-2026,bchl,708440,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antonio Bevacqua (C/LW),Salmon Arm Silverbacks,3,0,0,0,0.00,0,-,/player/709798/antonio-bevacqua,7,Antonio Bevacqua,C/LW,2025-2026,bchl,709798,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Florýk (RW/LW),Surrey Eagles,3,0,0,0,0.00,0,-,/player/872510/daniel-floryk,7,Daniel Florýk,RW/LW,2025-2026,bchl,872510,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vince Kalscheur (F),Nanaimo Clippers,3,0,0,0,0.00,0,-,/player/792879/vince-kalscheur,7,Vince Kalscheur,F,2025-2026,bchl,792879,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Gandurov (F),Vernon Vipers,3,0,0,0,0.00,0,-,/player/896223/andrei-gandurov,7,Andrei Gandurov,F,2025-2026,bchl,896223,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kash Nicklin (F),Alberni Valley Bulldogs,3,0,0,0,0.00,0,-,/player/1032009/kash-nicklin,7,Kash Nicklin,F,2025-2026,bchl,1032009,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Putnam (F),Brooks Bandits,3,0,0,0,0.00,0,-,/player/817479/thomas-putnam,7,Thomas Putnam,F,2025-2026,bchl,817479,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Paco Hodgson (D),Victoria Grizzlies,3,0,0,0,0.00,0,-,/player/786618/paco-hodgson,7,Paco Hodgson,D,2025-2026,bchl,786618,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matteo Kokkas (F),Coquitlam Express,3,0,0,0,0.00,0,-,/player/964551/matteo-kokkas,7,Matteo Kokkas,F,2025-2026,bchl,964551,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah J. Smith (D),Prince George Spruce Kings,3,0,0,0,0.00,0,-,/player/898645/noah-j-smith,7,Noah J. Smith,D,2025-2026,bchl,898645,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henry Colbert (F),Vernon Vipers,3,0,0,0,0.00,0,-,/player/888668/henry-colbert,7,Henry Colbert,F,2025-2026,bchl,888668,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keegan Shirley (D),Vernon Vipers,3,0,0,0,0.00,0,-,/player/876719/keegan-shirley,7,Keegan Shirley,D,2025-2026,bchl,876719,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Parker Thompson (F),Cranbrook Bucks,3,0,0,0,0.00,0,-,/player/861983/parker-thompson,7,Parker Thompson,F,2025-2026,bchl,861983,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Edwards (F),Vernon Vipers,3,0,0,0,0.00,2,-,/player/647544/alex-edwards,7,Alex Edwards,F,2025-2026,bchl,647544,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Rowan (D),Trail Smoke Eaters,3,0,0,0,0.00,2,-,/player/1029546/ben-rowan,7,Ben Rowan,D,2025-2026,bchl,1029546,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Vitali (F),Surrey Eagles,3,0,0,0,0.00,2,-,/player/737913/sebastian-vitali,7,Sebastian Vitali,F,2025-2026,bchl,737913,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Cleary (D),Brooks Bandits,3,0,0,0,0.00,2,-,/player/844297/alexander-cleary,7,Alexander Cleary,D,2025-2026,bchl,844297,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Bernardo (D),totals,3,0,0,0,0.00,2,-,/player/879589/jacob-bernardo,7,Jacob Bernardo,D,2025-2026,bchl,879589,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan Broten (D),Okotoks Oilers,3,0,0,0,0.00,4,-,/player/863644/logan-broten,7,Logan Broten,D,2025-2026,bchl,863644,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rylan Bissett (F),Chilliwack Chiefs,4,0,0,0,0.00,0,-,/player/878526/rylan-bissett,7,Rylan Bissett,F,2025-2026,bchl,878526,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hudson Binder (F),Salmon Arm Silverbacks,4,0,0,0,0.00,0,-,/player/727523/hudson-binder,7,Hudson Binder,F,2025-2026,bchl,727523,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brody Barta (F),Brooks Bandits,4,0,0,0,0.00,0,-,/player/844308/brody-barta,7,Brody Barta,F,2025-2026,bchl,844308,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Liam Beaudoin (D),Powell River Kings,4,0,0,0,0.00,0,-,/player/891077/liam-beaudoin,7,Liam Beaudoin,D,2025-2026,bchl,891077,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Murphy (C),Vernon Vipers,4,0,0,0,0.00,0,-,/player/719223/ryan-murphy,7,Ryan Murphy,C,2025-2026,bchl,719223,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bailey Yates (C),Salmon Arm Silverbacks,4,0,0,0,0.00,2,-,/player/737607/bailey-yates,7,Bailey Yates,C,2025-2026,bchl,737607,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Caleb Lankoff (F),West Kelowna Warriors,4,0,0,0,0.00,2,-,/player/891495/caleb-lankoff,7,Caleb Lankoff,F,2025-2026,bchl,891495,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Crosby (F),Prince George Spruce Kings,4,0,0,0,0.00,2,-,/player/855981/adam-crosby,7,Adam Crosby,F,2025-2026,bchl,855981,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Stephen (D),Surrey Eagles,4,0,0,0,0.00,14,-,/player/723349/alexander-stephen,7,Alexander Stephen,D,2025-2026,bchl,723349,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Kryukov (D),Sherwood Park Crusaders,5,0,0,0,0.00,0,-,/player/983963/ilya-kryukov,7,Ilya Kryukov,D,2025-2026,bchl,983963,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bronson Hunt (C),Trail Smoke Eaters,5,0,0,0,0.00,0,-,/player/603682/bronson-hunt,7,Bronson Hunt,C,2025-2026,bchl,603682,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colby Monette (F),Coquitlam Express,5,0,0,0,0.00,2,-,/player/879100/colby-monette,7,Colby Monette,F,2025-2026,bchl,879100,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Declan Bowmaster (RW),Blackfalds Bulldogs,5,0,0,0,0.00,6,-,/player/739349/declan-bowmaster,7,Declan Bowmaster,RW,2025-2026,bchl,739349,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Woodard (D),Powell River Kings,5,0,0,0,0.00,6,-,/player/817959/brett-woodard,7,Brett Woodard,D,2025-2026,bchl,817959,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Braeyen Newans (D),totals,6,0,0,0,0.00,0,-,/player/1034747/braeyen-newans,7,Braeyen Newans,D,2025-2026,bchl,1034747,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trevor Bodie (D),Trail Smoke Eaters,6,0,0,0,0.00,2,-,/player/920643/trevor-bodie,7,Trevor Bodie,D,2025-2026,bchl,920643,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peyten Legg-Cote (D),Nanaimo Clippers,6,0,0,0,0.00,7,-,/player/878936/peyten-legg-cote,7,Peyten Legg-Cote,D,2025-2026,bchl,878936,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nickolas Kovich (F/D),Vernon Vipers,7,0,0,0,0.00,0,-,/player/628107/nickolas-kovich,7,Nickolas Kovich,F/D,2025-2026,bchl,628107,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joseph Delaurentis (F),Alberni Valley Bulldogs,7,0,0,0,0.00,2,-,/player/830414/joseph-delaurentis,7,Joseph Delaurentis,F,2025-2026,bchl,830414,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tristan Williams (D),Powell River Kings,7,0,0,0,0.00,2,-,/player/882731/tristan-williams,7,Tristan Williams,D,2025-2026,bchl,882731,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hudson Gill (D),Nanaimo Clippers,7,0,0,0,0.00,2,-,/player/722762/hudson-gill,7,Hudson Gill,D,2025-2026,bchl,722762,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Hillmann (D),Coquitlam Express,7,0,0,0,0.00,2,-,/player/976584/nathan-hillmann,7,Nathan Hillmann,D,2025-2026,bchl,976584,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Durina (D),Alberni Valley Bulldogs,7,0,0,0,0.00,13,-,/player/731619/richard-durina,7,Richard Durina,D,2025-2026,bchl,731619,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kolby Gapter (D),Brooks Bandits,7,0,0,0,0.00,17,-,/player/816503/kolby-gapter,7,Kolby Gapter,D,2025-2026,bchl,816503,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Mayenburg (D),Powell River Kings,8,0,0,0,0.00,0,-,/player/878879/kyle-mayenburg,7,Kyle Mayenburg,D,2025-2026,bchl,878879,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexandr Skuratov (F),Salmon Arm Silverbacks,9,0,0,0,0.00,2,-,/player/864703/alexandr-skuratov,7,Alexandr Skuratov,F,2025-2026,bchl,864703,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Montaldo (D),Cowichan Valley Capitals,9,0,0,0,0.00,6,-,/player/679652/jack-montaldo,7,Jack Montaldo,D,2025-2026,bchl,679652,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Landon Jamieson (F),Spruce Grove Saints,11,0,0,0,0.00,6,-,/player/706784/landon-jamieson,7,Landon Jamieson,F,2025-2026,bchl,706784,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Liam Wallace (D),Surrey Eagles,12,0,0,0,0.00,0,-,/player/837478/liam-wallace,7,Liam Wallace,D,2025-2026,bchl,837478,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chance Adams (F),Blackfalds Bulldogs,12,0,0,0,0.00,2,-,/player/907520/chance-adams,7,Chance Adams,F,2025-2026,bchl,907520,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pepino Langmeier (F),Powell River Kings,12,0,0,0,0.00,6,-,/player/842997/pepino-langmeier,7,Pepino Langmeier,F,2025-2026,bchl,842997,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Mckay (F),Powell River Kings,12,0,0,0,0.00,45,-,/player/967244/william-mckay,7,William Mckay,F,2025-2026,bchl,967244,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hunter Friedrich (D),totals,13,0,0,0,0.00,2,-,/player/720641/hunter-friedrich,7,Hunter Friedrich,D,2025-2026,bchl,720641,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brady Wassink (D),Trail Smoke Eaters,13,0,0,0,0.00,6,-,/player/800163/brady-wassink,7,Brady Wassink,D,2025-2026,bchl,800163,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benjamin Bertrand (D),Surrey Eagles,14,0,0,0,0.00,10,-,/player/825830/benjamin-bertrand,7,Benjamin Bertrand,D,2025-2026,bchl,825830,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kurtis Kinoshita (F),West Kelowna Warriors,15,0,0,0,0.00,2,-,/player/804906/kurtis-kinoshita,7,Kurtis Kinoshita,F,2025-2026,bchl,804906,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Balkovec (F),Coquitlam Express,19,0,0,0,0.00,14,-,/player/839574/cole-balkovec,7,Cole Balkovec,F,2025-2026,bchl,839574,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69

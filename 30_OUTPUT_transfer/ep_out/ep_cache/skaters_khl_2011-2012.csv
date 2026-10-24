@@ -1,0 +1,664 @@
+player,team,gp,g,a,tp,p_per_gp,pim,plus_minus,link,page,playername,position,season,league,ep_player_id,scrape_date,source,package_version
+Alexander Radulov (RW),Salavat Yulaev Ufa,50,25,38,63,1.26,64,1,/player/8794/alexander-radulov,1,Alexander Radulov,RW,2011-2012,khl,8794,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tony Mårtensson (C),SKA St. Petersburg,54,23,38,61,1.13,10,35,/player/59/tony-martensson,1,Tony Mårtensson,C,2011-2012,khl,59,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Bochenski (RW/LW),Barys Astana,49,27,32,59,1.20,26,4,/player/10260/brandon-bochenski,1,Brandon Bochenski,RW/LW,2011-2012,khl,10260,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vadim Shipachyov (C),Severstal Cherepovets,54,22,37,59,1.09,26,16,/player/19550/vadim-shipachyov,1,Vadim Shipachyov,C,2011-2012,khl,19550,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Dallman (D),Barys Astana,53,18,36,54,1.02,33,13,/player/9129/kevin-dallman,1,Kevin Dallman,D,2011-2012,khl,9129,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Petruzalek (C/RW),Amur Khabarovsk,54,22,28,50,0.93,16,14,/player/9617/jakub-petruzalek,1,Jakub Petruzalek,C/RW,2011-2012,khl,9617,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Morozov (RW),Ak Bars Kazan,53,21,29,50,0.94,24,10,/player/11044/alexei-morozov,1,Alexei Morozov,RW,2011-2012,khl,11044,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Tarasenko (RW/LW),totals,54,23,24,47,0.87,15,18,/player/24787/vladimir-tarasenko,1,Vladimir Tarasenko,RW/LW,2011-2012,khl,24787,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Shirokov (LW),CSKA Moskva,53,18,29,47,0.89,26,6,/player/9264/sergei-shirokov,1,Sergei Shirokov,LW,2011-2012,khl,9264,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danis Zaripov (RW),Ak Bars Kazan,53,25,19,44,0.83,48,16,/player/11045/danis-zaripov,1,Danis Zaripov,RW,2011-2012,khl,11045,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikelis Redlihs (RW),Dinamo Riga,54,13,31,44,0.81,49,-5,/player/5958/mikelis-redlihs,1,Mikelis Redlihs,RW,2011-2012,khl,5958,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Vrána (C),Amur Khabarovsk,46,19,24,43,0.93,12,18,/player/9633/petr-vrana,1,Petr Vrána,C,2011-2012,khl,9633,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teemu Laine (LW),Dinamo Minsk,54,20,22,42,0.78,48,17,/player/3183/teemu-laine,1,Teemu Laine,LW,2011-2012,khl,3183,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Kuznetsov (C/RW),Traktor Chelyabinsk,49,19,22,41,0.84,30,5,/player/34777/yevgeni-kuznetsov,1,Yevgeni Kuznetsov,C/RW,2011-2012,khl,34777,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Thoresen (W/C),SKA St. Petersburg,45,15,26,41,0.91,34,22,/player/3419/patrick-thoresen,1,Patrick Thoresen,W/C,2011-2012,khl,3419,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zbyněk Irgl (RW),Dinamo Minsk,53,16,24,40,0.75,22,14,/player/10870/zbynek-irgl,1,Zbyněk Irgl,RW,2011-2012,khl,10870,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Zherdev (LW/RW),Atlant Mytishchi,53,16,24,40,0.75,74,-2,/player/8620/nikolai-zherdev,1,Nikolai Zherdev,LW/RW,2011-2012,khl,8620,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Prucha (RW/LW),SKA St. Petersburg,52,14,26,40,0.77,20,11,/player/8686/petr-prucha,1,Petr Prucha,RW/LW,2011-2012,khl,8686,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Pestushko (RW),Neftekhimik Nizhnekamsk,51,24,15,39,0.76,28,-5,/player/18925/maxim-pestushko,1,Maxim Pestushko,RW,2011-2012,khl,18925,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Červenka (C/LW),Avangard Omsk,54,23,16,39,0.72,18,-6,/player/15130/roman-cervenka,1,Roman Červenka,C/LW,2011-2012,khl,15130,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Ruzicka (RW),Spartak Moskva,53,22,17,39,0.74,67,0,/player/8682/stefan-ruzicka,1,Stefan Ruzicka,RW,2011-2012,khl,8682,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Thörnberg (LW),Torpedo Nizhny Novgorod,49,20,19,39,0.80,22,9,/player/2058/martin-thornberg,1,Martin Thörnberg,LW,2011-2012,khl,2058,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Mozyakin (LW),Metallurg Magnitogorsk,53,20,19,39,0.74,18,-1,/player/14828/sergei-mozyakin,1,Sergei Mozyakin,LW,2011-2012,khl,14828,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Saprykin (LW),Salavat Yulaev Ufa,50,17,22,39,0.78,54,11,/player/8589/oleg-saprykin,1,Oleg Saprykin,LW,2011-2012,khl,8589,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Kapanen (C),Ak Bars Kazan,54,12,27,39,0.72,24,21,/player/2688/niko-kapanen,1,Niko Kapanen,C,2011-2012,khl,2688,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Milovzorov (RW),totals,51,18,20,38,0.75,41,5,/player/10492/yegor-milovzorov,1,Yegor Milovzorov,RW,2011-2012,khl,10492,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petri Kontiola (C),Traktor Chelyabinsk,53,15,22,37,0.70,34,17,/player/4281/petri-kontiola,1,Petri Kontiola,C,2011-2012,khl,4281,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Mäenpää (D),Amur Khabarovsk,51,14,23,37,0.73,58,18,/player/7965/mikko-maenpaa,1,Mikko Mäenpää,D,2011-2012,khl,7965,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Ryazantsev (D),Traktor Chelyabinsk,51,18,18,36,0.71,40,25,/player/9597/alexander-ryazantsev,1,Alexander Ryazantsev,D,2011-2012,khl,9597,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonas Enlund (LW/C),Sibir Novosibirsk,53,17,19,36,0.68,26,3,/player/8067/jonas-enlund,1,Jonas Enlund,LW/C,2011-2012,khl,8067,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mattias Weinhandl (RW),SKA St. Petersburg,45,13,23,36,0.80,30,25,/player/236/mattias-weinhandl,1,Mattias Weinhandl,RW,2011-2012,khl,236,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Panov (RW),Traktor Chelyabinsk,53,20,15,35,0.66,34,25,/player/15027/konstantin-panov,1,Konstantin Panov,RW,2011-2012,khl,15027,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Anisin (RW),totals,49,19,16,35,0.71,37,0,/player/19484/mikhail-anisin,1,Mikhail Anisin,RW,2011-2012,khl,19484,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Kalinin (D),SKA St. Petersburg,52,15,20,35,0.67,14,17,/player/8673/dmitri-kalinin,1,Dmitri Kalinin,D,2011-2012,khl,8673,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janis Sprukts (C),Dinamo Riga,53,11,24,35,0.66,28,2,/player/7420/janis-sprukts,1,Janis Sprukts,C,2011-2012,khl,7420,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Chudinov (D),Severstal Cherepovets,52,9,26,35,0.67,62,8,/player/11858/maxim-chudinov,1,Maxim Chudinov,D,2011-2012,khl,11858,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Koltsov (D),SKA St. Petersburg,52,3,32,35,0.67,72,16,/player/9567/kirill-koltsov,1,Kirill Koltsov,D,2011-2012,khl,9567,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Grigorenko (RW/C),Salavat Yulaev Ufa,44,19,15,34,0.77,29,5,/player/9566/igor-grigorenko,1,Igor Grigorenko,RW/C,2011-2012,khl,9566,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janne Niskala (D),Atlant Mytishchi,54,12,22,34,0.63,32,12,/player/4278/janne-niskala,1,Janne Niskala,D,2011-2012,khl,4278,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Korolyuk (RW/LW),Neftekhimik Nizhnekamsk,50,8,26,34,0.68,26,-11,/player/10195/alexander-korolyuk,1,Alexander Korolyuk,RW/LW,2011-2012,khl,10195,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vitali Proshkin (D),Salavat Yulaev Ufa,54,4,30,34,0.63,38,1,/player/12454/vitali-proshkin,1,Vitali Proshkin,D,2011-2012,khl,12454,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martins Karsums (LW/RW),Dinamo Riga,54,21,12,33,0.61,46,3,/player/9238/martins-karsums,1,Martins Karsums,LW/RW,2011-2012,khl,9238,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dustin Boyd (C),Barys Astana,53,18,15,33,0.62,16,0,/player/9191/dustin-boyd,1,Dustin Boyd,C,2011-2012,khl,9191,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nigel Dawes (LW),Barys Astana,52,16,17,33,0.63,34,5,/player/9503/nigel-dawes,1,Nigel Dawes,LW,2011-2012,khl,9503,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Kaspar (LW/RW),Barys Astana,52,13,20,33,0.63,44,-1,/player/9616/lukas-kaspar,1,Lukas Kaspar,LW/RW,2011-2012,khl,9616,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Subbotin (LW),Avtomobilist Yekaterinburg,53,6,26,32,0.60,24,8,/player/19571/andrei-subbotin,1,Andrei Subbotin,LW,2011-2012,khl,19571,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juhamatti Aaltonen (W/C),Metallurg Magnitogorsk,54,22,9,31,0.57,26,4,/player/3200/juhamatti-aaltonen,1,Juhamatti Aaltonen,W/C,2011-2012,khl,3200,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcel Hossa (LW/RW),totals,54,14,17,31,0.57,56,-13,/player/4532/marcel-hossa,1,Marcel Hossa,LW/RW,2011-2012,khl,4532,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artemi Panarin (LW),totals,50,13,18,31,0.62,53,6,/player/24664/artemi-panarin,1,Artemi Panarin,LW,2011-2012,khl,24664,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Tikhonov (LW/C),SKA St. Petersburg,42,17,13,30,0.71,18,11,/player/15235/viktor-tikhonov,1,Viktor Tikhonov,LW/C,2011-2012,khl,15235,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lubos Bartecko (LW),Lev Poprad,53,16,14,30,0.57,30,1,/player/5854/lubos-bartecko,1,Lubos Bartecko,LW,2011-2012,khl,5854,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Makarov (C),Torpedo Nizhny Novgorod,41,14,16,30,0.73,46,14,/player/18565/dmitri-makarov,1,Dmitri Makarov,C,2011-2012,khl,18565,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Geoff Platt (W/C),Dinamo Minsk,47,13,17,30,0.64,42,-11,/player/9469/geoff-platt,1,Geoff Platt,W/C,2011-2012,khl,9469,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Guntis Galvins (D),Dinamo Riga,54,8,22,30,0.56,28,11,/player/12548/guntis-galvins,1,Guntis Galvins,D,2011-2012,khl,12548,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juuso Hietanen (D),Torpedo Nizhny Novgorod,47,5,25,30,0.64,18,5,/player/7426/juuso-hietanen,1,Juuso Hietanen,D,2011-2012,khl,7426,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Petrov (RW),Ak Bars Kazan,52,16,13,29,0.56,8,-3,/player/11870/kirill-petrov,1,Kirill Petrov,RW,2011-2012,khl,11870,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Bushuyev (F),Avtomobilist Yekaterinburg,54,15,14,29,0.54,42,7,/player/42138/nikolai-bushuyev,1,Nikolai Bushuyev,F,2011-2012,khl,42138,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Kvapil (LW/RW),Dynamo Moskva,43,12,17,29,0.67,34,11,/player/8640/marek-kvapil,1,Marek Kvapil,LW/RW,2011-2012,khl,8640,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Nilsson (W/C),totals,50,12,17,29,0.58,36,-7,/player/352/robert-nilsson,1,Robert Nilsson,W/C,2011-2012,khl,352,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vitali Sitnikov (LW/C),Yugra Khanty-Mansiysk,54,10,19,29,0.54,42,15,/player/37363/vitali-sitnikov,1,Vitali Sitnikov,LW/C,2011-2012,khl,37363,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kamil Kreps (C),Barys Astana,52,9,20,29,0.56,23,7,/player/9612/kamil-kreps,1,Kamil Kreps,C,2011-2012,khl,9612,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Kaigorodov (C),Metallurg Magnitogorsk,52,8,21,29,0.56,39,-2,/player/9568/alexei-kaigorodov,1,Alexei Kaigorodov,C,2011-2012,khl,9568,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaroslav Obsut (D),Dinamo Minsk,52,5,24,29,0.56,22,-11,/player/3736/jaroslav-obsut,1,Jaroslav Obsut,D,2011-2012,khl,3736,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Netik (LW/RW),Lev Poprad,42,17,11,28,0.67,26,9,/player/17905/tomas-netik,1,Tomas Netik,LW/RW,2011-2012,khl,17905,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juraj Mikus (C/RW),Lev Poprad,44,12,16,28,0.64,46,10,/player/9250/juraj-mikus,1,Juraj Mikus,C/RW,2011-2012,khl,9250,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Tarasov (W/C),Amur Khabarovsk,52,11,17,28,0.54,36,6,/player/18448/dmitri-tarasov,1,Dmitri Tarasov,W/C,2011-2012,khl,18448,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Sushinsky (RW),totals,49,9,19,28,0.57,48,10,/player/9179/maxim-sushinsky,1,Maxim Sushinsky,RW,2011-2012,khl,9179,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Guskov (D),CSKA Moskva,51,9,19,28,0.55,48,6,/player/21043/alexander-guskov,1,Alexander Guskov,D,2011-2012,khl,21043,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Tsvetkov (C),Severstal Cherepovets,51,5,23,28,0.55,42,-10,/player/16745/alexei-tsvetkov,1,Alexei Tsvetkov,C,2011-2012,khl,16745,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Perezhogin (LW/RW),Avangard Omsk,53,17,10,27,0.51,28,6,/player/8669/alexander-perezhogin,1,Alexander Perezhogin,LW/RW,2011-2012,khl,8669,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josef Straka (C),totals,49,15,12,27,0.55,28,5,/player/7970/josef-straka,1,Josef Straka,C,2011-2012,khl,7970,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Corso (C),Dinamo Minsk,50,15,12,27,0.54,64,-7,/player/11573/daniel-corso,1,Daniel Corso,C,2011-2012,khl,11573,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Konkov (LW),Dynamo Moskva,47,10,17,27,0.57,22,17,/player/21071/sergei-konkov,1,Sergei Konkov,LW,2011-2012,khl,21071,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Antipov (LW/RW),Traktor Chelyabinsk,54,10,17,27,0.50,14,0,/player/14378/vladimir-antipov,1,Vladimir Antipov,LW/RW,2011-2012,khl,14378,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Branko Radivojevic (RW),Atlant Mytishchi,43,7,20,27,0.63,24,4,/player/5676/branko-radivojevic,1,Branko Radivojevic,RW,2011-2012,khl,5676,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Korneyev (D),Ak Bars Kazan,53,5,22,27,0.51,20,2,/player/9576/konstantin-korneyev,1,Konstantin Korneyev,D,2011-2012,khl,9576,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gleb Klimenko (LW/RW),SKA St. Petersburg,44,16,10,26,0.59,22,20,/player/19470/gleb-klimenko,1,Gleb Klimenko,LW/RW,2011-2012,khl,19470,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jarkko Immonen (C),Ak Bars Kazan,53,14,12,26,0.49,8,-7,/player/3181/jarkko-immonen,1,Jarkko Immonen,C,2011-2012,khl,3181,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Randy Robitaille (C),Metallurg Novokuznetsk,53,13,13,26,0.49,52,-6,/player/8822/randy-robitaille,1,Randy Robitaille,C,2011-2012,khl,8822,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Starchenko (RW),Barys Astana,45,12,14,26,0.58,41,-4,/player/24633/roman-starchenko,1,Roman Starchenko,RW,2011-2012,khl,24633,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Charles Linglet (LW),Dinamo Minsk,51,12,14,26,0.51,75,4,/player/11737/charles-linglet,1,Charles Linglet,LW,2011-2012,khl,11737,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Ugarov (LW),Torpedo Nizhny Novgorod,51,11,15,26,0.51,36,11,/player/18078/alexei-ugarov,1,Alexei Ugarov,LW,2011-2012,khl,18078,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jori Lehterä (C),Sibir Novosibirsk,25,10,16,26,1.04,10,9,/player/8042/jori-lehtera,1,Jori Lehterä,C,2011-2012,khl,8042,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Kozlov (C/RW),Salavat Yulaev Ufa,36,10,16,26,0.72,8,-2,/player/8699/viktor-kozlov,1,Viktor Kozlov,C/RW,2011-2012,khl,8699,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Krutov (LW),Avtomobilist Yekaterinburg,47,10,16,26,0.55,44,3,/player/18459/alexei-krutov,1,Alexei Krutov,LW,2011-2012,khl,18459,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Podhradský (D),totals,44,9,17,26,0.59,36,-4,/player/12210/peter-podhradsky,1,Peter Podhradský,D,2011-2012,khl,12210,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Arkhipov (C/LW),Neftekhimik Nizhnekamsk,54,9,17,26,0.48,60,-13,/player/9595/denis-arkhipov,1,Denis Arkhipov,C/LW,2011-2012,khl,9595,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Kopeikin (LW),Amur Khabarovsk,53,8,18,26,0.49,18,-6,/player/19570/alexei-kopeikin,1,Alexei Kopeikin,LW,2011-2012,khl,19570,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Zinovyev (C),Salavat Yulaev Ufa,48,7,19,26,0.54,67,0,/player/12285/sergei-zinovyev,1,Sergei Zinovyev,C,2011-2012,khl,12285,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Nikulin (C),Amur Khabarovsk,44,6,20,26,0.59,12,-6,/player/12427/alexander-nikulin,1,Alexander Nikulin,C,2011-2012,khl,12427,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonas Andersson (RW/LW),Atlant Mytishchi,54,15,10,25,0.46,24,-3,/player/704/jonas-andersson,1,Jonas Andersson,RW/LW,2011-2012,khl,704,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Ketov (RW),Severstal Cherepovets,45,13,12,25,0.56,20,9,/player/16751/yevgeni-ketov,1,Yevgeni Ketov,RW,2011-2012,khl,16751,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Skorokhodov (RW),Yugra Khanty-Mansiysk,53,13,12,25,0.47,16,13,/player/20550/igor-skorokhodov,1,Igor Skorokhodov,RW,2011-2012,khl,20550,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Chistov (LW),Traktor Chelyabinsk,54,13,12,25,0.46,32,-1,/player/8520/stanislav-chistov,1,Stanislav Chistov,LW,2011-2012,khl,8520,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Rybin (LW),SKA St. Petersburg,49,12,13,25,0.51,51,15,/player/18843/maxim-rybin,1,Maxim Rybin,LW,2011-2012,khl,18843,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ladislav Nagy (LW/RW),totals,42,8,17,25,0.60,67,-3,/player/5522/ladislav-nagy,1,Ladislav Nagy,LW/RW,2011-2012,khl,5522,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Cibak (C),Neftekhimik Nizhnekamsk,45,7,18,25,0.56,60,8,/player/8637/martin-cibak,1,Martin Cibak,C,2011-2012,khl,8637,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Lyuduchin (RW),Spartak Moskva,37,15,9,24,0.65,40,0,/player/18841/roman-lyuduchin,1,Roman Lyuduchin,RW,2011-2012,khl,18841,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Khlyntsev (F),Yugra Khanty-Mansiysk,48,14,10,24,0.50,32,-10,/player/88895/ivan-khlyntsev,1,Ivan Khlyntsev,F,2011-2012,khl,88895,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Mirnov (RW),Salavat Yulaev Ufa,50,14,10,24,0.48,14,6,/player/11046/igor-mirnov,1,Igor Mirnov,RW,2011-2012,khl,11046,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Parshin (RW),CSKA Moskva,32,12,12,24,0.75,24,-7,/player/9588/denis-parshin,2,Denis Parshin,RW,2011-2012,khl,9588,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Frolov (LW),Avangard Omsk,54,12,12,24,0.44,16,0,/player/8591/alexander-frolov,2,Alexander Frolov,LW,2011-2012,khl,8591,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leo Komarov (C/W),Dynamo Moskva,46,11,13,24,0.52,58,8,/player/7617/leo-komarov,2,Leo Komarov,C/W,2011-2012,khl,7617,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Rolinek (LW),Metallurg Magnitogorsk,52,10,14,24,0.46,22,9,/player/10859/tomas-rolinek,2,Tomas Rolinek,LW,2011-2012,khl,10859,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Khlystov (W/C),Metallurg Magnitogorsk,54,10,14,24,0.44,25,17,/player/18502/denis-khlystov,2,Denis Khlystov,W/C,2011-2012,khl,18502,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Nikulin (D),Ak Bars Kazan,51,9,15,24,0.47,52,3,/player/9558/ilya-nikulin,2,Ilya Nikulin,D,2011-2012,khl,9558,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Zubov (C/W),CSKA Moskva,52,9,15,24,0.46,16,-5,/player/9256/ilya-zubov,2,Ilya Zubov,C/W,2011-2012,khl,9256,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Golovin (LW),Metallurg Novokuznetsk,54,9,15,24,0.44,10,-1,/player/16731/alexander-golovin,2,Alexander Golovin,LW,2011-2012,khl,16731,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Persson (C),CSKA Moskva,53,6,18,24,0.45,28,5,/player/356/niklas-persson,2,Niklas Persson,C,2011-2012,khl,356,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Medvedev (D),Ak Bars Kazan,45,5,19,24,0.53,36,6,/player/16728/yevgeni-medvedev,2,Yevgeni Medvedev,D,2011-2012,khl,16728,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evgeny Artyukhin (RW/LW),SKA St. Petersburg,47,16,7,23,0.49,150,8,/player/8635/evgeny-artyukhin,2,Evgeny Artyukhin,RW/LW,2011-2012,khl,8635,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Kvasha (LW),Neftekhimik Nizhnekamsk,44,10,13,23,0.52,56,-5,/player/8587/oleg-kvasha,2,Oleg Kvasha,LW,2011-2012,khl,8587,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Popov (LW/C),Avangard Omsk,44,9,14,23,0.52,14,2,/player/16735/alexander-popov,2,Alexander Popov,LW/C,2011-2012,khl,16735,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Tereschenko (C),Ak Bars Kazan,50,9,14,23,0.46,26,6,/player/15025/alexei-tereschenko,2,Alexei Tereschenko,C,2011-2012,khl,15025,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Magogin (C),Yugra Khanty-Mansiysk,50,9,14,23,0.46,34,11,/player/42137/igor-magogin,2,Igor Magogin,C,2011-2012,khl,42137,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Kagarlitsky (LW),Metallurg Novokuznetsk,53,9,14,23,0.43,14,4,/player/11862/dmitri-kagarlitsky,2,Dmitri Kagarlitsky,LW,2011-2012,khl,11862,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vyacheslav Kozlov (LW),Dynamo Moskva,44,8,15,23,0.52,22,-3,/player/8544/vyacheslav-kozlov,2,Vyacheslav Kozlov,LW,2011-2012,khl,8544,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Medvedev (C),Metallurg Novokuznetsk,54,8,15,23,0.43,12,0,/player/18442/alexei-medvedev,2,Alexei Medvedev,C,2011-2012,khl,18442,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Denisov (D),SKA St. Petersburg,42,7,16,23,0.55,66,29,/player/9556/denis-denisov,2,Denis Denisov,D,2011-2012,khl,9556,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Václav Nedorost (C/LW),Lev Poprad,37,14,8,22,0.59,22,3,/player/8710/vaclav-nedorost,2,Václav Nedorost,C/LW,2011-2012,khl,8710,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Varnakov (RW),Torpedo Nizhny Novgorod,48,12,10,22,0.46,32,-8,/player/20927/mikhail-varnakov,2,Mikhail Varnakov,RW,2011-2012,khl,20927,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Chernikov (LW),Sibir Novosibirsk,47,11,11,22,0.47,20,-1,/player/16750/alexander-chernikov,2,Alexander Chernikov,LW,2011-2012,khl,16750,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Bulyansky (RW),Yugra Khanty-Mansiysk,52,11,11,22,0.42,30,-2,/player/88896/artyom-bulyansky,2,Artyom Bulyansky,RW,2011-2012,khl,88896,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Soin (C),Dynamo Moskva,52,10,12,22,0.42,61,16,/player/9554/sergei-soin,2,Sergei Soin,C,2011-2012,khl,9554,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Novotny (C),Barys Astana,42,9,13,22,0.52,22,-4,/player/8675/jiri-novotny,2,Jiri Novotny,C,2011-2012,khl,8675,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Deron Quint (D),Traktor Chelyabinsk,47,8,14,22,0.47,42,3,/player/11363/deron-quint,2,Deron Quint,D,2011-2012,khl,11363,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Zackrisson (C/RW),Atlant Mytishchi,54,8,14,22,0.41,36,-7,/player/2020/patrik-zackrisson,2,Patrik Zackrisson,C/RW,2011-2012,khl,2020,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Komaristy (C/RW),Spartak Moskva,54,7,15,22,0.41,38,-11,/player/28108/alexander-komaristy,2,Alexander Komaristy,C/RW,2011-2012,khl,28108,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Fedorov (C),Metallurg Magnitogorsk,43,6,16,22,0.51,36,6,/player/8619/sergei-fedorov,2,Sergei Fedorov,C,2011-2012,khl,8619,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Yakutsenya (RW),Traktor Chelyabinsk,54,12,9,21,0.39,32,12,/player/20517/maxim-yakutsenya,2,Maxim Yakutsenya,RW,2011-2012,khl,20517,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Lehtonen (RW),Severstal Cherepovets,48,11,10,21,0.44,24,-6,/player/5877/mikko-lehtonen,2,Mikko Lehtonen,RW,2011-2012,khl,5877,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Stepanov (RW),Severstal Cherepovets,51,7,14,21,0.41,42,1,/player/16729/alexander-stepanov,2,Alexander Stepanov,RW,2011-2012,khl,16729,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Kalyuzhny (C),Avangard Omsk,41,6,15,21,0.51,18,-9,/player/15029/alexei-kalyuzhny,2,Alexei Kalyuzhny,C,2011-2012,khl,15029,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Krikunov (LW),Torpedo Nizhny Novgorod,45,6,15,21,0.47,26,0,/player/9574/ilya-krikunov,2,Ilya Krikunov,LW,2011-2012,khl,9574,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Baranka (D),Spartak Moskva,47,5,16,21,0.45,40,-3,/player/9654/ivan-baranka,2,Ivan Baranka,D,2011-2012,khl,9654,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Krisjanis Redlihs (D),Dinamo Riga,50,5,16,21,0.42,14,17,/player/12237/krisjanis-redlihs,2,Krisjanis Redlihs,D,2011-2012,khl,12237,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Suglobov (RW),totals,35,13,7,20,0.57,18,7,/player/9602/alexander-suglobov,2,Alexander Suglobov,RW,2011-2012,khl,9602,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ruslan Nurtdinov (LW),Severstal Cherepovets,47,13,7,20,0.43,16,2,/player/18446/ruslan-nurtdinov,2,Ruslan Nurtdinov,LW,2011-2012,khl,18446,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Plotnikov (RW/C),Amur Khabarovsk,53,13,7,20,0.38,70,7,/player/17760/sergei-plotnikov,2,Sergei Plotnikov,RW/C,2011-2012,khl,17760,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Nepryayev (C),SKA St. Petersburg,53,11,9,20,0.38,58,8,/player/12249/ivan-nepryayev,2,Ivan Nepryayev,C,2011-2012,khl,12249,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Ellison (C/W),Torpedo Nizhny Novgorod,25,10,10,20,0.80,14,-1,/player/9145/matt-ellison,2,Matt Ellison,C/W,2011-2012,khl,9145,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton But (LW),Metallurg Magnitogorsk,46,10,10,20,0.43,32,8,/player/9599/anton-but,2,Anton But,LW,2011-2012,khl,9599,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sandis Ozolins (D),Dinamo Riga,50,10,10,20,0.40,28,-17,/player/8690/sandis-ozolins,2,Sandis Ozolins,D,2011-2012,khl,8690,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Yashin (C/W),CSKA Moskva,43,9,11,20,0.47,18,0,/player/8695/alexei-yashin,2,Alexei Yashin,C/W,2011-2012,khl,8695,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Kuzmin (LW),Metallurg Novokuznetsk,52,7,13,20,0.38,32,1,/player/19218/andrei-kuzmin,2,Andrei Kuzmin,LW,2011-2012,khl,19218,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Glinkin (LW),Traktor Chelyabinsk,53,7,13,20,0.38,20,14,/player/19579/anton-glinkin,2,Anton Glinkin,LW,2011-2012,khl,19579,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Glukhov (C/LW),Atlant Mytishchi,50,6,14,20,0.40,24,1,/player/15030/alexei-glukhov,2,Alexei Glukhov,C/LW,2011-2012,khl,15030,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Stepanov (RW),Amur Khabarovsk,53,6,14,20,0.38,20,6,/player/19115/andrei-stepanov,2,Andrei Stepanov,RW,2011-2012,khl,19115,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Bodrov (D),Spartak Moskva,53,6,14,20,0.38,32,-17,/player/9262/denis-bodrov,2,Denis Bodrov,D,2011-2012,khl,9262,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominik Granak (D),Dynamo Moskva,42,5,15,20,0.48,38,12,/player/11021/dominik-granak,2,Dominik Granak,D,2011-2012,khl,11021,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Rybakov (C),Atlant Mytishchi,54,5,15,20,0.37,16,8,/player/19748/alexander-rybakov,2,Alexander Rybakov,C,2011-2012,khl,19748,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Pepelyayev (D),Yugra Khanty-Mansiysk,48,4,16,20,0.42,50,-12,/player/20198/alexei-pepelyayev,2,Alexei Pepelyayev,D,2011-2012,khl,20198,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Timkin (LW/RW),Vityaz Moscow Region,45,13,6,19,0.42,72,-17,/player/19006/yevgeni-timkin,2,Yevgeni Timkin,LW/RW,2011-2012,khl,19006,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskar Osala (LW/C),Neftekhimik Nizhnekamsk,41,12,7,19,0.46,44,-3,/player/8396/oskar-osala,2,Oskar Osala,LW/C,2011-2012,khl,8396,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Abdullin (LW),Avtomobilist Yekaterinburg,51,12,7,19,0.37,46,-10,/player/19671/denis-abdullin,2,Denis Abdullin,LW,2011-2012,khl,19671,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Svitov (C),Salavat Yulaev Ufa,42,10,9,19,0.45,40,-2,/player/3662/alexander-svitov,2,Alexander Svitov,C,2011-2012,khl,3662,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Gorovikov (C),Dynamo Moskva,43,6,13,19,0.44,28,3,/player/15028/konstantin-gorovikov,2,Konstantin Gorovikov,C,2011-2012,khl,15028,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Syomin (C),Avangard Omsk,53,6,13,19,0.36,24,3,/player/15678/dmitri-syomin,2,Dmitri Syomin,C,2011-2012,khl,15678,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Bulis (C/LW),Traktor Chelyabinsk,43,5,14,19,0.44,68,32,/player/8368/jan-bulis,2,Jan Bulis,C/LW,2011-2012,khl,8368,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vitali Shulakov (D),Amur Khabarovsk,49,4,15,19,0.39,18,12,/player/18563/vitali-shulakov,2,Vitali Shulakov,D,2011-2012,khl,18563,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Lemtyugov (LW/RW),totals,43,10,8,18,0.42,16,1,/player/9263/nikolai-lemtyugov,2,Nikolai Lemtyugov,LW/RW,2011-2012,khl,9263,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Averin (RW),Avangard Omsk,47,10,8,18,0.38,8,6,/player/11857/yegor-averin,2,Yegor Averin,RW,2011-2012,khl,11857,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rastislav Spirko (C/LW),Lev Poprad,53,10,8,18,0.34,8,2,/player/9646/rastislav-spirko,2,Rastislav Spirko,C/LW,2011-2012,khl,9646,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Makarov (RW),SKA St. Petersburg,42,9,9,18,0.43,14,12,/player/9591/igor-makarov,2,Igor Makarov,RW,2011-2012,khl,9591,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Upper (C),Atlant Mytishchi,52,9,9,18,0.35,24,-3,/player/18844/dmitri-upper,2,Dmitri Upper,C,2011-2012,khl,18844,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Kalinin (RW/C),Avangard Omsk,53,9,9,18,0.34,20,2,/player/43871/sergei-kalinin,2,Sergei Kalinin,RW/C,2011-2012,khl,43871,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Mikhnov (LW/RW),Metallurg Magnitogorsk,39,8,10,18,0.46,12,5,/player/9353/alexei-mikhnov,2,Alexei Mikhnov,LW/RW,2011-2012,khl,9353,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Stas (C),Dinamo Minsk,43,8,10,18,0.42,20,4,/player/20190/andrei-stas,2,Andrei Stas,C,2011-2012,khl,20190,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Yunkov (C/W),Spartak Moskva,49,8,10,18,0.37,24,-12,/player/9260/mikhail-yunkov,2,Mikhail Yunkov,C/W,2011-2012,khl,9260,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Kulakov (C/RW),Dinamo Minsk,52,8,10,18,0.35,24,0,/player/18069/alexander-kulakov,2,Alexander Kulakov,C/RW,2011-2012,khl,18069,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Yakubov (C),Metallurg Magnitogorsk,52,8,10,18,0.35,26,11,/player/8648/mikhail-yakubov,2,Mikhail Yakubov,C,2011-2012,khl,8648,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Polygalov (C),Neftekhimik Nizhnekamsk,54,8,10,18,0.33,22,-8,/player/18846/igor-polygalov,2,Igor Polygalov,C,2011-2012,khl,18846,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Libor Pivko (LW),Dinamo Minsk,47,7,11,18,0.38,71,18,/player/10217/libor-pivko,2,Libor Pivko,LW,2011-2012,khl,10217,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Yemeleyev (C),Yugra Khanty-Mansiysk,50,7,11,18,0.36,12,-6,/player/18544/igor-yemeleyev,2,Igor Yemeleyev,C,2011-2012,khl,18544,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Tochitsky (C),Vityaz Moscow Region,50,7,11,18,0.36,16,-14,/player/75331/nikita-tochitsky,2,Nikita Tochitsky,C,2011-2012,khl,75331,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Kulyash (D),Ak Bars Kazan,44,6,12,18,0.41,40,7,/player/12300/denis-kulyash,2,Denis Kulyash,D,2011-2012,khl,12300,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Glazachev (LW),totals,45,6,12,18,0.40,16,-5,/player/12239/konstantin-glazachev,2,Konstantin Glazachev,LW,2011-2012,khl,12239,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vyacheslav Belov (D),totals,51,6,12,18,0.35,42,-5,/player/17827/vyacheslav-belov,2,Vyacheslav Belov,D,2011-2012,khl,17827,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Badyukov (C),CSKA Moskva,53,6,12,18,0.34,24,-6,/player/16741/alexei-badyukov,2,Alexei Badyukov,C,2011-2012,khl,16741,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ray Giroux (D),Traktor Chelyabinsk,48,5,13,18,0.38,30,2,/player/12229/ray-giroux,2,Ray Giroux,D,2011-2012,khl,12229,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Simakov (RW),totals,48,5,13,18,0.38,36,-6,/player/16738/alexei-simakov,2,Alexei Simakov,RW,2011-2012,khl,16738,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Zhukov (C/RW),totals,50,5,13,18,0.36,44,-4,/player/849/mikhail-zhukov,2,Mikhail Zhukov,C/RW,2011-2012,khl,849,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vitaly Atyushov (D),Salavat Yulaev Ufa,49,4,14,18,0.37,26,3,/player/12453/vitaly-atyushov,2,Vitaly Atyushov,D,2011-2012,khl,12453,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jyrki Välivaara (D),Metallurg Novokuznetsk,53,2,16,18,0.34,20,-3,/player/2564/jyrki-valivaara,2,Jyrki Välivaara,D,2011-2012,khl,2564,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fredrik Warg (C),Dinamo Riga,49,10,7,17,0.35,59,-18,/player/235/fredrik-warg,2,Fredrik Warg,C,2011-2012,khl,235,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miroslav Blatak (D),Salavat Yulaev Ufa,46,9,8,17,0.37,8,-5,/player/8421/miroslav-blatak,2,Miroslav Blatak,D,2011-2012,khl,8421,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Lugin (RW/LW),Amur Khabarovsk,44,8,9,17,0.39,10,-6,/player/19025/dmitri-lugin,2,Dmitri Lugin,RW/LW,2011-2012,khl,19025,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pyotr Schastlivy (C/LW),Salavat Yulaev Ufa,54,8,9,17,0.31,14,-1,/player/12245/pyotr-schastlivy,2,Pyotr Schastlivy,C/LW,2011-2012,khl,12245,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vadim Berdnikov (C),totals,43,7,10,17,0.40,26,0,/player/19588/vadim-berdnikov,2,Vadim Berdnikov,C,2011-2012,khl,19588,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eduard Lewandowski (RW),Atlant Mytishchi,54,7,10,17,0.31,26,0,/player/18838/eduard-lewandowski,2,Eduard Lewandowski,RW,2011-2012,khl,18838,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Georgi Belousov (LW),Vityaz Moscow Region,37,6,11,17,0.46,16,-8,/player/38660/georgi-belousov,2,Georgi Belousov,LW,2011-2012,khl,38660,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Popov (RW/C),Traktor Chelyabinsk,54,6,11,17,0.31,38,11,/player/9299/andrei-popov,2,Andrei Popov,RW/C,2011-2012,khl,9299,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Yevseyenkov (D),Torpedo Nizhny Novgorod,45,5,12,17,0.38,22,0,/player/84480/alexander-yevseyenkov,2,Alexander Yevseyenkov,D,2011-2012,khl,84480,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+André Benoît (D),Spartak Moskva,53,5,12,17,0.32,34,-1,/player/9460/andre-benoit,2,André Benoît,D,2011-2012,khl,9460,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Staffan Kronwall (D),Severstal Cherepovets,52,4,13,17,0.33,28,10,/player/543/staffan-kronwall,2,Staffan Kronwall,D,2011-2012,khl,543,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Bondarev (D),Metallurg Magnitogorsk,53,2,15,17,0.32,24,7,/player/19459/alexei-bondarev,2,Alexei Bondarev,D,2011-2012,khl,19459,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karel Pilar (D),Lev Poprad,31,1,16,17,0.55,34,3,/player/11485/karel-pilar,2,Karel Pilar,D,2011-2012,khl,11485,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tuukka Mäntylä (D),Neftekhimik Nizhnekamsk,38,0,17,17,0.45,39,-13,/player/2561/tuukka-mantyla,2,Tuukka Mäntylä,D,2011-2012,khl,2561,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Surovy (LW/C),CSKA Moskva,38,11,5,16,0.42,18,-4,/player/8681/tomas-surovy,2,Tomas Surovy,LW/C,2011-2012,khl,8681,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Demagin (LW),totals,45,11,5,16,0.36,8,-4,/player/18072/sergei-demagin,2,Sergei Demagin,LW,2011-2012,khl,18072,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaroslav Kristek (C/RW),Lev Poprad,39,10,6,16,0.41,14,7,/player/9631/jaroslav-kristek,3,Jaroslav Kristek,C/RW,2011-2012,khl,9631,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Lundberg (C),Lev Poprad,54,10,6,16,0.30,26,-8,/player/512/emil-lundberg,3,Emil Lundberg,C,2011-2012,khl,512,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Kokarev (LW/RW),Dynamo Moskva,46,9,7,16,0.35,12,-3,/player/21168/denis-kokarev,3,Denis Kokarev,LW/RW,2011-2012,khl,21168,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grigori Shafigulin (C),Dynamo Moskva,37,8,8,16,0.43,14,0,/player/9586/grigori-shafigulin,3,Grigori Shafigulin,C,2011-2012,khl,9586,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jamie Lundmark (C),Dinamo Riga,47,8,8,16,0.34,52,-11,/player/8759/jamie-lundmark,3,Jamie Lundmark,C,2011-2012,khl,8759,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anatoli Nikontsev (RW),Spartak Moskva,54,8,8,16,0.30,30,-2,/player/19013/anatoli-nikontsev,3,Anatoli Nikontsev,RW,2011-2012,khl,19013,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Potapov (C/W),Torpedo Nizhny Novgorod,39,7,9,16,0.41,12,6,/player/20928/maxim-potapov,3,Maxim Potapov,C/W,2011-2012,khl,20928,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fyodor Fyodorov (LW/C),SKA St. Petersburg,50,7,9,16,0.32,102,9,/player/9559/fyodor-fyodorov,3,Fyodor Fyodorov,LW/C,2011-2012,khl,9559,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Fyodorov (C),Yugra Khanty-Mansiysk,49,6,10,16,0.33,14,-7,/player/18377/yevgeni-fyodorov,3,Yevgeni Fyodorov,C,2011-2012,khl,18377,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Platonov (LW),totals,42,4,12,16,0.38,22,-5,/player/19120/denis-platonov,3,Denis Platonov,LW,2011-2012,khl,19120,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Varlamov (D),Torpedo Nizhny Novgorod,47,4,12,16,0.34,32,-1,/player/17828/yevgeni-varlamov,3,Yevgeni Varlamov,D,2011-2012,khl,17828,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Kuklev (D),Metallurg Novokuznetsk,52,4,12,16,0.31,32,0,/player/19407/mikhail-kuklev,3,Mikhail Kuklev,D,2011-2012,khl,19407,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yakov Rylov (D),CSKA Moskva,29,3,13,16,0.55,14,-4,/player/17825/yakov-rylov,3,Yakov Rylov,D,2011-2012,khl,17825,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Ruzicka (RW/LW),Amur Khabarovsk,33,10,5,15,0.45,14,4,/player/23860/martin-ruzicka,3,Martin Ruzicka,RW/LW,2011-2012,khl,23860,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antti Pihlström (LW/RW),Salavat Yulaev Ufa,31,8,7,15,0.48,16,3,/player/7587/antti-pihlstrom,3,Antti Pihlström,LW/RW,2011-2012,khl,7587,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Meleshko (LW/RW),Dinamo Minsk,54,8,7,15,0.28,12,-3,/player/18079/dmitri-meleshko,3,Dmitri Meleshko,LW/RW,2011-2012,khl,18079,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Burdasov (RW),Traktor Chelyabinsk,53,7,8,15,0.28,16,9,/player/38657/anton-burdasov,3,Anton Burdasov,RW,2011-2012,khl,38657,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Bodrov (C),Ak Bars Kazan,54,7,8,15,0.28,30,-2,/player/9306/yevgeni-bodrov,3,Yevgeni Bodrov,C,2011-2012,khl,9306,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Kryukov (C),Sibir Novosibirsk,44,6,9,15,0.34,52,5,/player/21005/artyom-kryukov,3,Artyom Kryukov,C,2011-2012,khl,21005,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stepan Sannikov (LW/RW),Sibir Novosibirsk,54,6,9,15,0.28,16,0,/player/31401/stepan-sannikov,3,Stepan Sannikov,LW/RW,2011-2012,khl,31401,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonas Junland (D),Barys Astana,46,4,11,15,0.33,30,-10,/player/3442/jonas-junland,3,Jonas Junland,D,2011-2012,khl,3442,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Sokolov (D),Avtomobilist Yekaterinburg,53,3,12,15,0.28,34,-5,/player/18567/denis-sokolov,3,Denis Sokolov,D,2011-2012,khl,18567,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Hutchinson (D),Barys Astana,53,3,12,15,0.28,40,-4,/player/9061/andrew-hutchinson,3,Andrew Hutchinson,D,2011-2012,khl,9061,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Skoula (D),Avangard Omsk,52,2,13,15,0.29,16,-3,/player/8598/martin-skoula,3,Martin Skoula,D,2011-2012,khl,8598,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Vorobyov (D),totals,53,2,13,15,0.28,24,6,/player/9603/dmitri-vorobyov,3,Dmitri Vorobyov,D,2011-2012,khl,9603,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niclas Lucenius (LW/C),Dinamo Riga,53,0,15,15,0.28,33,6,/player/9271/niclas-lucenius,3,Niclas Lucenius,LW/C,2011-2012,khl,9271,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Ignatushkin (C),Amur Khabarovsk,44,10,4,14,0.32,24,7,/player/9575/igor-ignatushkin,3,Igor Ignatushkin,C,2011-2012,khl,9575,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Osipov (D),Amur Khabarovsk,24,9,5,14,0.58,8,5,/player/60812/alexander-osipov,3,Alexander Osipov,D,2011-2012,khl,60812,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Volkov (C/RW),Dynamo Moskva,37,9,5,14,0.38,8,-3,/player/12296/konstantin-volkov,3,Konstantin Volkov,C/RW,2011-2012,khl,12296,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ruslan Zainullin (RW),Torpedo Nizhny Novgorod,49,9,5,14,0.29,22,-5,/player/9562/ruslan-zainullin,3,Ruslan Zainullin,RW,2011-2012,khl,9562,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Mikhailov (RW),Spartak Moskva,35,7,7,14,0.40,16,1,/player/19101/yegor-mikhailov,3,Yegor Mikhailov,RW,2011-2012,khl,19101,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Enver Lisin (RW),Metallurg Magnitogorsk,42,7,7,14,0.33,22,-8,/player/9255/enver-lisin,3,Enver Lisin,RW,2011-2012,khl,9255,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Klepis (C/RW),totals,44,7,7,14,0.32,22,-3,/player/9609/jakub-klepis,3,Jakub Klepis,C/RW,2011-2012,khl,9609,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Talgat Zhailauov (LW),Barys Astana,45,7,7,14,0.31,8,1,/player/22140/talgat-zhailauov,3,Talgat Zhailauov,LW,2011-2012,khl,22140,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Galuzin (C),Torpedo Nizhny Novgorod,54,7,7,14,0.26,36,8,/player/20630/vladimir-galuzin,3,Vladimir Galuzin,C,2011-2012,khl,20630,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jere Karalahti (D),Dinamo Minsk,54,7,7,14,0.26,90,2,/player/3317/jere-karalahti,3,Jere Karalahti,D,2011-2012,khl,3317,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Nesterov (LW/RW),Avangard Omsk,50,6,8,14,0.28,40,3,/player/19390/alexander-nesterov,3,Alexander Nesterov,LW/RW,2011-2012,khl,19390,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gennadi Stolyarov (RW/C),Severstal Cherepovets,41,5,9,14,0.34,32,2,/player/13646/gennadi-stolyarov,3,Gennadi Stolyarov,RW/C,2011-2012,khl,13646,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Bumagin (LW),Metallurg Novokuznetsk,43,5,9,14,0.33,10,-4,/player/9592/alexander-bumagin,3,Alexander Bumagin,LW,2011-2012,khl,9592,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Obukhov (RW),totals,46,5,9,14,0.30,20,-5,/player/19385/dmitri-obukhov,3,Dmitri Obukhov,RW,2011-2012,khl,19385,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vadim Krasnoslobodtsev (LW),Barys Astana,49,5,9,14,0.29,16,-1,/player/22132/vadim-krasnoslobodtsev,3,Vadim Krasnoslobodtsev,LW,2011-2012,khl,22132,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Branislav Mezei (D),Lev Poprad,53,3,11,14,0.26,117,-5,/player/8653/branislav-mezei,3,Branislav Mezei,D,2011-2012,khl,8653,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Krajicek (D),Dinamo Minsk,40,2,12,14,0.35,34,9,/player/8550/lukas-krajicek,3,Lukas Krajicek,D,2011-2012,khl,8550,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rinat Ibragimov (D),Yugra Khanty-Mansiysk,52,2,12,14,0.27,42,13,/player/19125/rinat-ibragimov,3,Rinat Ibragimov,D,2011-2012,khl,19125,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Gorokhov (D),Dynamo Moskva,44,9,4,13,0.30,38,10,/player/21041/ilya-gorokhov,3,Ilya Gorokhov,D,2011-2012,khl,21041,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Spiridonov (RW),totals,38,7,6,13,0.34,6,2,/player/17231/maxim-spiridonov,3,Maxim Spiridonov,RW,2011-2012,khl,17231,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Chernov (LW/RW),Dynamo Moskva,36,6,7,13,0.36,14,10,/player/16744/artyom-chernov,3,Artyom Chernov,LW/RW,2011-2012,khl,16744,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Mikhalyov (C/LW),Dinamo Minsk,51,6,7,13,0.25,24,-3,/player/18073/andrei-mikhalyov,3,Andrei Mikhalyov,C/LW,2011-2012,khl,18073,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Gorbunov (C),Torpedo Nizhny Novgorod,54,6,7,13,0.24,66,-8,/player/18562/vladimir-gorbunov,3,Vladimir Gorbunov,C,2011-2012,khl,18562,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janne Jalasvaara (D),Dynamo Moskva,38,5,8,13,0.34,32,3,/player/7397/janne-jalasvaara,3,Janne Jalasvaara,D,2011-2012,khl,7397,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yury Babenko (C/W),Dynamo Moskva,40,5,8,13,0.33,42,4,/player/19121/yury-babenko,3,Yury Babenko,C/W,2011-2012,khl,19121,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Belov (D),Neftekhimik Nizhnekamsk,49,5,8,13,0.27,55,2,/player/31328/nikolai-belov,3,Nikolai Belov,D,2011-2012,khl,31328,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Drugov (LW),Sibir Novosibirsk,50,5,8,13,0.26,14,6,/player/19575/viktor-drugov,3,Viktor Drugov,LW,2011-2012,khl,19575,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Fedoseyev (F),Vityaz Moscow Region,35,4,9,13,0.37,97,-11,/player/77130/alexander-fedoseyev,3,Alexander Fedoseyev,F,2011-2012,khl,77130,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Vorobyov (C),Yugra Khanty-Mansiysk,44,4,9,13,0.30,12,-1,/player/9561/pavel-vorobyov,3,Pavel Vorobyov,C,2011-2012,khl,9561,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Yunkov (LW),Spartak Moskva,44,4,9,13,0.30,22,-16,/player/19458/alexander-yunkov,3,Alexander Yunkov,LW,2011-2012,khl,19458,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Loginov (D),Metallurg Novokuznetsk,54,4,9,13,0.24,38,-3,/player/19568/vladimir-loginov,3,Vladimir Loginov,D,2011-2012,khl,19568,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Starosta (D),Yugra Khanty-Mansiysk,54,4,9,13,0.24,46,1,/player/12451/tomas-starosta,3,Tomas Starosta,D,2011-2012,khl,12451,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vitali Novopashin (D),Barys Astana,50,3,10,13,0.26,28,13,/player/18503/vitali-novopashin,3,Vitali Novopashin,D,2011-2012,khl,18503,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Solovyov (D),Dynamo Moskva,53,3,10,13,0.25,38,0,/player/21166/maxim-solovyov,3,Maxim Solovyov,D,2011-2012,khl,21166,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Renat Mamashev (D),totals,34,2,11,13,0.38,34,-5,/player/13644/renat-mamashev,3,Renat Mamashev,D,2011-2012,khl,13644,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Kutuzov (D),totals,35,2,11,13,0.37,24,15,/player/18728/alexander-kutuzov,3,Alexander Kutuzov,D,2011-2012,khl,18728,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radik Zakiyev (F),totals,41,2,11,13,0.32,4,0,/player/19739/radik-zakiyev,3,Radik Zakiyev,F,2011-2012,khl,19739,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Megalinsky (D),Metallurg Novokuznetsk,46,2,11,13,0.28,34,6,/player/15679/dmitri-megalinsky,3,Dmitri Megalinsky,D,2011-2012,khl,15679,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yuri Petrov (C),Sibir Novosibirsk,54,2,11,13,0.24,40,3,/player/20422/yuri-petrov,3,Yuri Petrov,C,2011-2012,khl,20422,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Girts Ankipans (RW/C),Dinamo Riga,31,6,6,12,0.39,14,2,/player/20406/girts-ankipans,3,Girts Ankipans,RW/C,2011-2012,khl,20406,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Kovyrshin (C),Severstal Cherepovets,34,6,6,12,0.35,10,0,/player/35684/yevgeni-kovyrshin,3,Yevgeni Kovyrshin,C,2011-2012,khl,35684,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Ivanov (LW/C),Avangard Omsk,50,6,6,12,0.24,14,-2,/player/19752/andrei-ivanov,3,Andrei Ivanov,LW/C,2011-2012,khl,19752,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Tarnasky (LW/C),Vityaz Moscow Region,36,5,7,12,0.33,173,-7,/player/8846/nick-tarnasky,3,Nick Tarnasky,LW/C,2011-2012,khl,8846,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Sidyakin (RW),Severstal Cherepovets,44,5,7,12,0.27,42,-5,/player/18445/andrei-sidyakin,3,Andrei Sidyakin,RW,2011-2012,khl,18445,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Blokhin (D),Yugra Khanty-Mansiysk,46,5,7,12,0.26,54,-9,/player/18708/yevgeni-blokhin,3,Yevgeni Blokhin,D,2011-2012,khl,18708,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Afinogenov (RW/LW),SKA St. Petersburg,23,4,8,12,0.52,36,4,/player/8672/maxim-afinogenov,3,Maxim Afinogenov,RW/LW,2011-2012,khl,8672,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Gubin (C),Spartak Moskva,51,4,8,12,0.24,34,1,/player/19409/oleg-gubin,3,Oleg Gubin,C,2011-2012,khl,19409,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Kuryanov (C),Avangard Omsk,41,3,9,12,0.29,14,-2,/player/12243/anton-kuryanov,3,Anton Kuryanov,C,2011-2012,khl,12243,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Shepelenko (C/RW),Avtomobilist Yekaterinburg,44,3,9,12,0.27,28,-7,/player/19751/andrei-shepelenko,3,Andrei Shepelenko,C/RW,2011-2012,khl,19751,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Vishnevsky (D),Atlant Mytishchi,54,3,9,12,0.22,26,-11,/player/11890/ivan-vishnevsky,3,Ivan Vishnevsky,D,2011-2012,khl,11890,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Nemec (D),Severstal Cherepovets,44,2,10,12,0.27,30,-8,/player/9610/ondrej-nemec,3,Ondrej Nemec,D,2011-2012,khl,9610,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Kostyuchyonok (D),Avtomobilist Yekaterinburg,51,2,10,12,0.24,22,-7,/player/18064/viktor-kostyuchyonok,3,Viktor Kostyuchyonok,D,2011-2012,khl,18064,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grigori Panin (D),Ak Bars Kazan,50,1,11,12,0.24,120,7,/player/16730/grigori-panin,3,Grigori Panin,D,2011-2012,khl,16730,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Koltsov (LW),Salavat Yulaev Ufa,51,1,11,12,0.24,20,-6,/player/8679/konstantin-koltsov,3,Konstantin Koltsov,LW,2011-2012,khl,8679,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Kosourov (F),Metallurg Novokuznetsk,26,8,3,11,0.42,6,3,/player/20524/alexei-kosourov,3,Alexei Kosourov,F,2011-2012,khl,20524,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Musatov (RW),Atlant Mytishchi,42,7,4,11,0.26,18,-1,/player/10628/igor-musatov,3,Igor Musatov,RW,2011-2012,khl,10628,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Osipov (D),Avtomobilist Yekaterinburg,52,7,4,11,0.21,32,-14,/player/10493/denis-osipov,3,Denis Osipov,D,2011-2012,khl,10493,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Tverdovsky (D),totals,36,6,5,11,0.31,26,0,/player/8656/oleg-tverdovsky,3,Oleg Tverdovsky,D,2011-2012,khl,8656,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Streltsov (RW),Avtomobilist Yekaterinburg,46,6,5,11,0.24,14,-13,/player/50300/alexander-streltsov,3,Alexander Streltsov,RW,2011-2012,khl,50300,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Rudenko (LW),Atlant Mytishchi,33,5,6,11,0.33,19,1,/player/21045/konstantin-rudenko,3,Konstantin Rudenko,LW,2011-2012,khl,21045,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stepan Novotny (C/RW),Lev Poprad,34,5,6,11,0.32,16,-2,/player/11833/stepan-novotny,3,Stepan Novotny,C/RW,2011-2012,khl,11833,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Skachkov (RW/LW),Ak Bars Kazan,36,5,6,11,0.31,22,-1,/player/19596/yevgeni-skachkov,3,Yevgeni Skachkov,RW/LW,2011-2012,khl,19596,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Shchitov (D),Neftekhimik Nizhnekamsk,36,5,6,11,0.31,22,-12,/player/19746/nikita-shchitov,3,Nikita Shchitov,D,2011-2012,khl,19746,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitry Altaryov (W/C),totals,39,4,7,11,0.28,22,-1,/player/18319/dmitry-altaryov,3,Dmitry Altaryov,W/C,2011-2012,khl,18319,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Semyonov (D),Atlant Mytishchi,20,3,8,11,0.55,14,4,/player/18024/maxim-semyonov,3,Maxim Semyonov,D,2011-2012,khl,18024,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Khvostov (D),Yugra Khanty-Mansiysk,38,3,8,11,0.29,32,5,/player/84329/yevgeni-khvostov,3,Yevgeni Khvostov,D,2011-2012,khl,84329,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bogdan Kiselevich (D),Severstal Cherepovets,47,3,8,11,0.23,69,1,/player/17755/bogdan-kiselevich,3,Bogdan Kiselevich,D,2011-2012,khl,17755,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Novak (D),Dynamo Moskva,39,2,9,11,0.28,46,8,/player/8663/filip-novak,3,Filip Novak,D,2011-2012,khl,8663,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Seluyanov (D),totals,42,2,9,11,0.26,34,1,/player/19122/alexander-seluyanov,3,Alexander Seluyanov,D,2011-2012,khl,19122,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rafael Batyrshin (D),totals,43,2,9,11,0.26,78,7,/player/44780/rafael-batyrshin,3,Rafael Batyrshin,D,2011-2012,khl,44780,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Korobov (D),Dinamo Minsk,39,1,10,11,0.28,16,12,/player/28547/dmitri-korobov,3,Dmitri Korobov,D,2011-2012,khl,28547,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Hunkes (D),Lev Poprad,48,1,10,11,0.23,32,-2,/player/7916/jiri-hunkes,3,Jiri Hunkes,D,2011-2012,khl,7916,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Kondratyev (D),Salavat Yulaev Ufa,46,0,11,11,0.24,14,-1,/player/9384/maxim-kondratyev,3,Maxim Kondratyev,D,2011-2012,khl,9384,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anssi Salmela (D),Avangard Omsk,22,6,4,10,0.45,14,5,/player/7556/anssi-salmela,3,Anssi Salmela,D,2011-2012,khl,7556,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Tolpeko (LW/RW),Dynamo Moskva,35,6,4,10,0.29,33,2,/player/11407/denis-tolpeko,4,Denis Tolpeko,LW/RW,2011-2012,khl,11407,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Zubarev (D),Atlant Mytishchi,38,6,4,10,0.26,20,0,/player/9257/andrei-zubarev,4,Andrei Zubarev,D,2011-2012,khl,9257,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Alexandrov (RW/LW),totals,26,5,5,10,0.38,4,-6,/player/12297/viktor-alexandrov,4,Viktor Alexandrov,RW/LW,2011-2012,khl,12297,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Kazionov (C/LW),totals,43,5,5,10,0.23,26,5,/player/12233/dmitri-kazionov,4,Dmitri Kazionov,C/LW,2011-2012,khl,12233,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Troshchinsky (D),Vityaz Moscow Region,49,5,5,10,0.20,42,0,/player/18499/alexei-troshchinsky,4,Alexei Troshchinsky,D,2011-2012,khl,18499,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Vesce (C/RW),Torpedo Nizhny Novgorod,18,4,6,10,0.56,8,0,/player/4342/ryan-vesce,4,Ryan Vesce,C/RW,2011-2012,khl,4342,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Petrov (LW),Ak Bars Kazan,31,4,6,10,0.32,16,3,/player/10844/oleg-petrov,4,Oleg Petrov,LW,2011-2012,khl,10844,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filipp Savchenko (F),Avtomobilist Yekaterinburg,37,4,6,10,0.27,12,-9,/player/77109/filipp-savchenko,4,Filipp Savchenko,F,2011-2012,khl,77109,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Knyazev (LW),totals,42,4,6,10,0.24,24,-4,/player/19463/kirill-knyazev,4,Kirill Knyazev,LW,2011-2012,khl,19463,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timofei Shishkanov (LW),totals,46,4,6,10,0.22,24,-8,/player/9390/timofei-shishkanov,4,Timofei Shishkanov,LW,2011-2012,khl,9390,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Trunyov (RW/LW),Severstal Cherepovets,49,4,6,10,0.20,6,-6,/player/19034/maxim-trunyov,4,Maxim Trunyov,RW/LW,2011-2012,khl,19034,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Biryukov (D),Metallurg Magnitogorsk,53,3,7,10,0.19,28,7,/player/19123/yevgeni-biryukov,4,Yevgeni Biryukov,D,2011-2012,khl,19123,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiří Sekáč (LW),Lev Poprad,36,2,8,10,0.28,4,-1,/player/41014/ji%C5%99i-sekac,4,Jiří Sekáč,LW,2011-2012,khl,41014,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Georgijs Pujacs (D),totals,38,2,8,10,0.26,16,8,/player/4053/georgijs-pujacs,4,Georgijs Pujacs,D,2011-2012,khl,4053,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Lesnukhin (LW),Vityaz Moscow Region,42,2,8,10,0.24,14,-14,/player/87761/sergei-lesnukhin,4,Sergei Lesnukhin,LW,2011-2012,khl,87761,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Gavrilin (RW),Barys Astana,43,2,8,10,0.23,36,4,/player/22141/andrei-gavrilin,4,Andrei Gavrilin,RW,2011-2012,khl,22141,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Pervyshin (D),totals,46,2,8,10,0.22,26,9,/player/12231/andrei-pervyshin,4,Andrei Pervyshin,D,2011-2012,khl,12231,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martins Cipulis (LW/RW),Dinamo Riga,48,2,8,10,0.21,18,-4,/player/8506/martins-cipulis,4,Martins Cipulis,LW/RW,2011-2012,khl,8506,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Bykov (D),Metallurg Magnitogorsk,49,2,8,10,0.20,30,0,/player/17971/dmitri-bykov,4,Dmitri Bykov,D,2011-2012,khl,17971,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Lekomtsev (D),Yugra Khanty-Mansiysk,30,1,9,10,0.33,14,10,/player/18967/ivan-lekomtsev,4,Ivan Lekomtsev,D,2011-2012,khl,18967,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yaroslav Tulyakov (F),Vityaz Moscow Region,30,1,9,10,0.33,25,-1,/player/31327/yaroslav-tulyakov,4,Yaroslav Tulyakov,F,2011-2012,khl,31327,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Kuteikin (D),Salavat Yulaev Ufa,33,1,9,10,0.30,26,-1,/player/17975/andrei-kuteikin,4,Andrei Kuteikin,D,2011-2012,khl,17975,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Markov (D),totals,37,0,10,10,0.27,47,-1,/player/8613/daniil-markov,4,Daniil Markov,D,2011-2012,khl,8613,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Mereskin (C),Metallurg Novokuznetsk,35,7,2,9,0.26,10,3,/player/22940/alexander-mereskin,4,Alexander Mereskin,C,2011-2012,khl,22940,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Malyushkin (F),totals,46,6,3,9,0.20,18,-15,/player/19553/ilya-malyushkin,4,Ilya Malyushkin,F,2011-2012,khl,19553,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Dvurechensky (RW/LW),Vityaz Moscow Region,47,6,3,9,0.19,24,-12,/player/34782/nikita-dvurechensky,4,Nikita Dvurechensky,RW/LW,2011-2012,khl,34782,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Brylin (W/C),Metallurg Novokuznetsk,41,5,4,9,0.22,28,-9,/player/8697/sergei-brylin,4,Sergei Brylin,W/C,2011-2012,khl,8697,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Malyshev (RW),Sibir Novosibirsk,48,5,4,9,0.19,10,-5,/player/22846/anton-malyshev,4,Anton Malyshev,RW,2011-2012,khl,22846,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yaroslav Kosov (LW/RW),Metallurg Magnitogorsk,27,4,5,9,0.33,6,6,/player/93879/yaroslav-kosov,4,Yaroslav Kosov,LW/RW,2011-2012,khl,93879,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Piganovich (D),totals,33,4,5,9,0.27,26,-2,/player/19597/oleg-piganovich,4,Oleg Piganovich,D,2011-2012,khl,19597,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilshat Bilalov (D),Amur Khabarovsk,34,4,5,9,0.26,35,-3,/player/19737/ilshat-bilalov,4,Ilshat Bilalov,D,2011-2012,khl,19737,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Radulov (LW),Salavat Yulaev Ufa,35,4,5,9,0.26,16,4,/player/12250/igor-radulov,4,Igor Radulov,LW,2011-2012,khl,12250,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Kugryshev (LW/RW),CSKA Moskva,41,4,5,9,0.22,24,-4,/player/11865/dmitri-kugryshev,4,Dmitri Kugryshev,LW/RW,2011-2012,khl,11865,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vasili Streltsov (C),Avtomobilist Yekaterinburg,50,4,5,9,0.18,61,-21,/player/64528/vasili-streltsov,4,Vasili Streltsov,C,2011-2012,khl,64528,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksandrs Nizivijs (LW/RW),Dinamo Riga,33,3,6,9,0.27,20,-4,/player/4208/aleksandrs-nizivijs,4,Aleksandrs Nizivijs,LW/RW,2011-2012,khl,4208,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vyacheslav Kulyomin (RW),CSKA Moskva,35,3,6,9,0.26,8,-3,/player/17617/vyacheslav-kulyomin,4,Vyacheslav Kulyomin,RW,2011-2012,khl,17617,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Kazionov (LW),Avtomobilist Yekaterinburg,47,3,6,9,0.19,81,-18,/player/12232/denis-kazionov,4,Denis Kazionov,LW,2011-2012,khl,12232,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pasi Puistola (D),Severstal Cherepovets,48,3,6,9,0.19,42,-2,/player/7597/pasi-puistola,4,Pasi Puistola,D,2011-2012,khl,7597,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Pestunov (C),Dynamo Moskva,30,2,7,9,0.30,38,3,/player/9584/dmitri-pestunov,4,Dmitri Pestunov,C,2011-2012,khl,9584,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Petrasek (D),totals,33,2,7,9,0.27,38,-10,/player/201/david-petrasek,4,David Petrasek,D,2011-2012,khl,201,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Korolyov (D),Neftekhimik Nizhnekamsk,46,1,8,9,0.20,44,7,/player/18742/yevgeni-korolyov,4,Yevgeni Korolyov,D,2011-2012,khl,18742,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Kazakovtsev (RW),Severstal Cherepovets,28,5,3,8,0.29,8,5,/player/42338/nikolai-kazakovtsev,4,Nikolai Kazakovtsev,RW,2011-2012,khl,42338,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Volkov (LW),Avangard Omsk,30,5,3,8,0.27,8,6,/player/15026/igor-volkov,4,Igor Volkov,LW,2011-2012,khl,15026,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Zhmakin (LW),totals,31,5,3,8,0.26,16,0,/player/18725/stanislav-zhmakin,4,Stanislav Zhmakin,LW,2011-2012,khl,18725,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Filatov (LW/RW),CSKA Moskva,18,4,4,8,0.44,12,0,/player/11860/nikita-filatov,4,Nikita Filatov,LW/RW,2011-2012,khl,11860,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niclas Bergfors (RW),totals,21,4,4,8,0.38,6,1,/player/2045/niclas-bergfors,4,Niclas Bergfors,RW,2011-2012,khl,2045,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Bocharov (RW),totals,30,4,4,8,0.27,0,2,/player/22928/stanislav-bocharov,4,Stanislav Bocharov,RW,2011-2012,khl,22928,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lasse Kukkonen (D),Metallurg Magnitogorsk,51,4,4,8,0.16,22,10,/player/2717/lasse-kukkonen,4,Lasse Kukkonen,D,2011-2012,khl,2717,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Mosalyov (RW),Dynamo Moskva,26,3,5,8,0.31,12,3,/player/21153/denis-mosalyov,4,Denis Mosalyov,RW,2011-2012,khl,21153,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Nikitenko (C),Torpedo Nizhny Novgorod,29,3,5,8,0.28,2,-2,/player/18500/andrei-nikitenko,4,Andrei Nikitenko,C,2011-2012,khl,18500,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Drozd (C/W),Dinamo Minsk,34,3,5,8,0.24,2,-5,/player/17659/sergei-drozd,4,Sergei Drozd,C/W,2011-2012,khl,17659,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Kudinov (D),Vityaz Moscow Region,35,3,5,8,0.23,30,6,/player/107349/roman-kudinov,4,Roman Kudinov,D,2011-2012,khl,107349,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gints Meija (RW/C),Dinamo Riga,46,3,5,8,0.17,12,2,/player/12728/gints-meija,4,Gints Meija,RW/C,2011-2012,khl,12728,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antti Miettinen (W/C),Ak Bars Kazan,20,2,6,8,0.40,8,-2,/player/2698/antti-miettinen,4,Antti Miettinen,W/C,2011-2012,khl,2698,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Kucheryavenko (C),SKA St. Petersburg,25,2,6,8,0.32,4,7,/player/9590/alexander-kucheryavenko,4,Alexander Kucheryavenko,C,2011-2012,khl,9590,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Vasilyev (D),Torpedo Nizhny Novgorod,31,2,6,8,0.26,10,8,/player/21042/alexei-vasilyev,4,Alexei Vasilyev,D,2011-2012,khl,21042,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Loginov (D),Avtomobilist Yekaterinburg,36,2,6,8,0.22,16,-2,/player/10491/alexander-loginov,4,Alexander Loginov,D,2011-2012,khl,10491,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Berezin (D),Neftekhimik Nizhnekamsk,38,2,6,8,0.21,22,4,/player/24639/maxim-berezin,4,Maxim Berezin,D,2011-2012,khl,24639,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Budkin (D),Spartak Moskva,43,2,6,8,0.19,6,-9,/player/18547/alexander-budkin,4,Alexander Budkin,D,2011-2012,khl,18547,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brent Sopel (D),Metallurg Novokuznetsk,47,2,6,8,0.17,33,-9,/player/10229/brent-sopel,4,Brent Sopel,D,2011-2012,khl,10229,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jozef Stümpel (C),Spartak Moskva,21,1,7,8,0.38,8,-7,/player/8649/jozef-stumpel,4,Jozef Stümpel,C,2011-2012,khl,8649,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Nakládal (D),Salavat Yulaev Ufa,32,1,7,8,0.25,30,5,/player/22769/jakub-nakladal,4,Jakub Nakládal,D,2011-2012,khl,22769,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Georgi Misharin (D),Metallurg Magnitogorsk,44,1,7,8,0.18,42,4,/player/9585/georgi-misharin,4,Georgi Misharin,D,2011-2012,khl,9585,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Peretyagin (D),Amur Khabarovsk,47,1,7,8,0.17,20,-3,/player/17826/sergei-peretyagin,4,Sergei Peretyagin,D,2011-2012,khl,17826,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karl Fabricius (LW),Lev Poprad,48,1,7,8,0.17,20,-11,/player/182/karl-fabricius,4,Karl Fabricius,LW,2011-2012,khl,182,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Sigalet (D),Lev Poprad,49,1,7,8,0.16,30,6,/player/9485/jonathan-sigalet,4,Jonathan Sigalet,D,2011-2012,khl,9485,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Grebeshkov (D),SKA St. Petersburg,46,0,8,8,0.17,51,17,/player/9570/denis-grebeshkov,4,Denis Grebeshkov,D,2011-2012,khl,9570,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Safronov (D),Sibir Novosibirsk,48,0,8,8,0.17,30,2,/player/9557/kirill-safronov,4,Kirill Safronov,D,2011-2012,khl,9557,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Ryabykin (D),totals,49,0,8,8,0.16,30,-3,/player/18323/dmitri-ryabykin,4,Dmitri Ryabykin,D,2011-2012,khl,18323,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Krivonozhkin (W),Sibir Novosibirsk,23,6,1,7,0.30,28,1,/player/20423/maxim-krivonozhkin,4,Maxim Krivonozhkin,W,2011-2012,khl,20423,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fyodor Malykhin (C),Avtomobilist Yekaterinburg,23,5,2,7,0.30,10,-9,/player/77110/fyodor-malykhin,4,Fyodor Malykhin,C,2011-2012,khl,77110,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Lazarev (RW/LW),Metallurg Novokuznetsk,42,5,2,7,0.17,14,0,/player/15179/anton-lazarev,4,Anton Lazarev,RW/LW,2011-2012,khl,15179,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Zavarukhin (C),Spartak Moskva,48,5,2,7,0.15,28,-8,/player/19720/alexei-zavarukhin,4,Alexei Zavarukhin,C,2011-2012,khl,19720,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vyacheslav Buravchikov (D),CSKA Moskva,54,5,2,7,0.13,16,-8,/player/9261/vyacheslav-buravchikov,4,Vyacheslav Buravchikov,D,2011-2012,khl,9261,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Chabada (RW),Lev Poprad,35,4,3,7,0.20,24,-4,/player/8338/martin-chabada,4,Martin Chabada,RW,2011-2012,khl,8338,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Islamov (C),Neftekhimik Nizhnekamsk,36,4,3,7,0.19,8,-3,/player/19749/alexander-islamov,4,Alexander Islamov,C,2011-2012,khl,19749,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Slepyshev (LW),Metallurg Novokuznetsk,39,4,3,7,0.18,2,-8,/player/117748/anton-slepyshev,4,Anton Slepyshev,LW,2011-2012,khl,117748,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Kablukov (C),Atlant Mytishchi,46,4,3,7,0.15,20,0,/player/13965/ilya-kablukov,4,Ilya Kablukov,C,2011-2012,khl,13965,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yury Alexandrov (D),totals,37,3,4,7,0.19,28,7,/player/9297/yury-alexandrov,4,Yury Alexandrov,D,2011-2012,khl,9297,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Belyayev (C),Yugra Khanty-Mansiysk,37,3,4,7,0.19,34,9,/player/19627/maxim-belyayev,4,Maxim Belyayev,C,2011-2012,khl,19627,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Kitarov (C/LW),Dinamo Minsk,53,3,4,7,0.13,20,5,/player/58270/alexander-kitarov,4,Alexander Kitarov,C/LW,2011-2012,khl,58270,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Buturlin (RW),Traktor Chelyabinsk,54,3,4,7,0.13,24,6,/player/9601/alexander-buturlin,4,Alexander Buturlin,RW,2011-2012,khl,9601,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vitali Vishnevski (D),SKA St. Petersburg,54,3,4,7,0.13,89,13,/player/8522/vitali-vishnevski,4,Vitali Vishnevski,D,2011-2012,khl,8522,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lauris Darzins (RW/LW),Ak Bars Kazan,15,2,5,7,0.47,8,3,/player/3202/lauris-darzins,4,Lauris Darzins,RW/LW,2011-2012,khl,3202,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Lapenkov (LW),totals,22,2,5,7,0.32,18,-10,/player/19079/yevgeni-lapenkov,4,Yevgeni Lapenkov,LW,2011-2012,khl,19079,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Bardin (LW),Yugra Khanty-Mansiysk,34,2,5,7,0.21,18,-9,/player/19408/nikolai-bardin,4,Nikolai Bardin,LW,2011-2012,khl,19408,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Barbashev (RW),CSKA Moskva,39,2,5,7,0.18,4,-3,/player/40264/sergei-barbashev,4,Sergei Barbashev,RW,2011-2012,khl,40264,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Chernov (D),Vityaz Moscow Region,39,2,5,7,0.18,38,-10,/player/18447/mikhail-chernov,4,Mikhail Chernov,D,2011-2012,khl,18447,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vyacheslav Seluyanov (D),Avtomobilist Yekaterinburg,46,2,5,7,0.15,24,-12,/player/19400/vyacheslav-seluyanov,4,Vyacheslav Seluyanov,D,2011-2012,khl,19400,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Vasilchenko (D),Traktor Chelyabinsk,48,2,5,7,0.15,68,12,/player/19626/alexei-vasilchenko,4,Alexei Vasilchenko,D,2011-2012,khl,19626,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rudolf Huna (LW),Lev Poprad,49,2,5,7,0.14,14,-13,/player/5679/rudolf-huna,4,Rudolf Huna,LW,2011-2012,khl,5679,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vyacheslav Litovchenko (C/LW),Amur Khabarovsk,26,1,6,7,0.27,4,1,/player/24630/vyacheslav-litovchenko,4,Vyacheslav Litovchenko,C/LW,2011-2012,khl,24630,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander V. Boikov (D),Dynamo Moskva,41,1,6,7,0.17,50,1,/player/18449/alexander-v-boikov,4,Alexander V. Boikov,D,2011-2012,khl,18449,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Yegorshev (D),Severstal Cherepovets,42,1,6,7,0.17,14,1,/player/19403/stanislav-yegorshev,4,Stanislav Yegorshev,D,2011-2012,khl,19403,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grant Lewis (D),Lev Poprad,45,1,6,7,0.16,32,-8,/player/14106/grant-lewis,4,Grant Lewis,D,2011-2012,khl,14106,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Makarov (D),Spartak Moskva,47,1,6,7,0.15,58,-11,/player/20416/denis-makarov,4,Denis Makarov,D,2011-2012,khl,20416,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vyacheslav Solodukhin (LW),totals,19,5,1,6,0.32,2,-2,/player/19032/vyacheslav-solodukhin,4,Vyacheslav Solodukhin,LW,2011-2012,khl,19032,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yuri Trubachyov (C),Salavat Yulaev Ufa,16,4,2,6,0.38,2,-4,/player/9563/yuri-trubachyov,4,Yuri Trubachyov,C,2011-2012,khl,9563,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Monya (RW),CSKA Moskva,21,4,2,6,0.29,2,2,/player/20522/dmitri-monya,4,Dmitri Monya,RW,2011-2012,khl,20522,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Sergeyev (RW),totals,22,4,2,6,0.27,22,0,/player/20629/denis-sergeyev,4,Denis Sergeyev,RW,2011-2012,khl,20629,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Posnov (LW),Vityaz Moscow Region,41,4,2,6,0.15,62,-22,/player/18987/andrei-posnov,5,Andrei Posnov,LW,2011-2012,khl,18987,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Denisov (D),Dinamo Minsk,47,4,2,6,0.13,115,8,/player/14338/vladimir-denisov,5,Vladimir Denisov,D,2011-2012,khl,14338,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fyodor Polishchuk (LW/C),Barys Astana,52,4,2,6,0.12,8,-8,/player/19102/fyodor-polishchuk,5,Fyodor Polishchuk,LW/C,2011-2012,khl,19102,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roberts Bukarts (LW/RW),Dinamo Riga,26,3,3,6,0.23,0,0,/player/11842/roberts-bukarts,5,Roberts Bukarts,LW/RW,2011-2012,khl,11842,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Semyon Valuisky (LW),Torpedo Nizhny Novgorod,34,3,3,6,0.18,18,0,/player/24795/semyon-valuisky,5,Semyon Valuisky,LW,2011-2012,khl,24795,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Kudashov (C),Dynamo Moskva,37,3,3,6,0.16,31,-3,/player/21072/alexei-kudashov,5,Alexei Kudashov,C,2011-2012,khl,21072,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Videll (W/C),Yugra Khanty-Mansiysk,11,2,4,6,0.55,2,-4,/player/604/linus-videll,5,Linus Videll,W/C,2011-2012,khl,604,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Krysanov (C),totals,18,2,4,6,0.33,6,-4,/player/10490/anton-krysanov,5,Anton Krysanov,C,2011-2012,khl,10490,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kristaps Sotnieks (D),Dinamo Riga,49,2,4,6,0.12,41,-10,/player/20404/kristaps-sotnieks,5,Kristaps Sotnieks,D,2011-2012,khl,20404,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gennadi Razin (D),Traktor Chelyabinsk,52,2,4,6,0.12,24,2,/player/18545/gennadi-razin,5,Gennadi Razin,D,2011-2012,khl,18545,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filipp Metlyuk (D),Metallurg Novokuznetsk,54,2,4,6,0.11,38,1,/player/24216/filipp-metlyuk,5,Filipp Metlyuk,D,2011-2012,khl,24216,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Kovalev (RW),Atlant Mytishchi,22,1,5,6,0.27,16,-13,/player/8670/alexei-kovalev,5,Alexei Kovalev,RW,2011-2012,khl,8670,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Savin (D),totals,23,1,5,6,0.26,26,-1,/player/18847/ivan-savin,5,Ivan Savin,D,2011-2012,khl,18847,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Gusev (D),Avangard Omsk,26,1,5,6,0.23,28,-4,/player/21002/sergei-gusev,5,Sergei Gusev,D,2011-2012,khl,21002,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Pivtsakin (D),Avangard Omsk,43,1,5,6,0.14,30,6,/player/43866/nikita-pivtsakin,5,Nikita Pivtsakin,D,2011-2012,khl,43866,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Ryasensky (D),CSKA Moskva,48,1,5,6,0.13,16,-8,/player/10629/yevgeni-ryasensky,5,Yevgeni Ryasensky,D,2011-2012,khl,10629,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Korovkin (D),Vityaz Moscow Region,39,0,6,6,0.15,57,-11,/player/14038/nikita-korovkin,5,Nikita Korovkin,D,2011-2012,khl,14038,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Sazonov (D),totals,44,0,6,6,0.14,103,-22,/player/19593/alexander-sazonov,5,Alexander Sazonov,D,2011-2012,khl,19593,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Belov (D),Avangard Omsk,50,0,6,6,0.12,30,2,/player/20523/anton-belov,5,Anton Belov,D,2011-2012,khl,20523,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Stehlík (D),totals,31,4,1,5,0.16,14,-2,/player/9645/richard-stehlik,5,Richard Stehlík,D,2011-2012,khl,9645,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Romanov (RW),Barys Astana,34,4,1,5,0.15,4,-4,/player/18546/konstantin-romanov,5,Konstantin Romanov,RW,2011-2012,khl,18546,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Sayustov (C),Traktor Chelyabinsk,20,3,2,5,0.25,4,3,/player/15176/dmitri-sayustov,5,Dmitri Sayustov,C,2011-2012,khl,15176,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Tsyganov (D/LW),Avtomobilist Yekaterinburg,31,3,2,5,0.16,8,-6,/player/57972/dmitri-tsyganov,5,Dmitri Tsyganov,D/LW,2011-2012,khl,57972,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Velichkin (LW/RW),totals,42,3,2,5,0.12,24,-15,/player/19129/igor-velichkin,5,Igor Velichkin,LW/RW,2011-2012,khl,19129,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Pashnin (D),CSKA Moskva,50,3,2,5,0.10,68,-2,/player/29170/mikhail-pashnin,5,Mikhail Pashnin,D,2011-2012,khl,29170,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kim Hirschovits (C),Torpedo Nizhny Novgorod,12,2,3,5,0.42,4,-4,/player/3179/kim-hirschovits,5,Kim Hirschovits,C,2011-2012,khl,3179,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Bortnikov (LW/RW),Neftekhimik Nizhnekamsk,31,2,3,5,0.16,18,-8,/player/19731/igor-bortnikov,5,Igor Bortnikov,LW/RW,2011-2012,khl,19731,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Pavlovich (RW),Dinamo Minsk,34,2,3,5,0.15,8,-4,/player/104538/alexander-pavlovich,5,Alexander Pavlovich,RW,2011-2012,khl,104538,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Bogdanovsky (C),totals,37,2,3,5,0.14,12,-10,/player/83045/konstantin-bogdanovsky,5,Konstantin Bogdanovsky,C,2011-2012,khl,83045,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Voroshilo (RW),Sibir Novosibirsk,49,2,3,5,0.10,8,-11,/player/83046/artyom-voroshilo,5,Artyom Voroshilo,RW,2011-2012,khl,83046,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Caslava (D),CSKA Moskva,52,2,3,5,0.10,41,-8,/player/11970/petr-caslava,5,Petr Caslava,D,2011-2012,khl,11970,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Kucherov (RW),CSKA Moskva,18,1,4,5,0.28,4,-1,/player/77237/nikita-kucherov,5,Nikita Kucherov,RW,2011-2012,khl,77237,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Shchadilov (D),Dynamo Moskva,26,1,4,5,0.19,22,10,/player/18444/igor-shchadilov,5,Igor Shchadilov,D,2011-2012,khl,18444,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stepan Zakharchuk (D),Ak Bars Kazan,29,1,4,5,0.17,74,3,/player/22926/stepan-zakharchuk,5,Stepan Zakharchuk,D,2011-2012,khl,22926,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Strbak (D),Lev Poprad,35,1,4,5,0.14,32,4,/player/9177/martin-strbak,5,Martin Strbak,D,2011-2012,khl,9177,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimír Mihálik (D),Lev Poprad,37,1,4,5,0.14,37,-4,/player/9251/vladimir-mihalik,5,Vladimír Mihálik,D,2011-2012,khl,9251,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Mamkin (D),Spartak Moskva,41,1,4,5,0.12,18,-9,/player/106976/mikhail-mamkin,5,Mikhail Mamkin,D,2011-2012,khl,106976,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Shinin (D),Traktor Chelyabinsk,43,1,4,5,0.12,14,4,/player/19406/alexander-shinin,5,Alexander Shinin,D,2011-2012,khl,19406,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Gimayev (D),Salavat Yulaev Ufa,43,1,4,5,0.12,27,5,/player/19551/sergei-gimayev,5,Sergei Gimayev,D,2011-2012,khl,19551,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Voronin (C/RW),Spartak Moskva,48,1,4,5,0.10,6,-13,/player/47582/artyom-voronin,5,Artyom Voronin,C/RW,2011-2012,khl,47582,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Sergeyev (D),CSKA Moskva,49,1,4,5,0.10,48,-5,/player/34772/andrei-sergeyev,5,Andrei Sergeyev,D,2011-2012,khl,34772,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Lyamin (D),Avangard Omsk,49,1,4,5,0.10,53,7,/player/9254/kirill-lyamin,5,Kirill Lyamin,D,2011-2012,khl,9254,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valeri Pokrovsky (D),totals,50,1,4,5,0.10,44,-3,/player/21001/valeri-pokrovsky,5,Valeri Pokrovsky,D,2011-2012,khl,21001,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Malenkikh (D),Torpedo Nizhny Novgorod,52,1,4,5,0.10,43,9,/player/19126/vladimir-malenkikh,5,Vladimir Malenkikh,D,2011-2012,khl,19126,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Romanov (RW/C),Vityaz Moscow Region,54,1,4,5,0.09,34,-12,/player/22185/alexander-romanov,5,Alexander Romanov,RW/C,2011-2012,khl,22185,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dinar Khafizullin (D),Vityaz Moscow Region,50,0,5,5,0.10,26,-20,/player/28106/dinar-khafizullin,5,Dinar Khafizullin,D,2011-2012,khl,28106,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ainars Podzins (LW/C),Dinamo Riga,38,4,0,4,0.11,21,1,/player/42439/ainars-podzins,5,Ainars Podzins,LW/C,2011-2012,khl,42439,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Goncharov (D),Vityaz Moscow Region,20,3,1,4,0.20,4,-1,/player/107280/sergei-goncharov,5,Sergei Goncharov,D,2011-2012,khl,107280,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Shitikov (RW),totals,43,3,1,4,0.09,36,-13,/player/9583/dmitri-shitikov,5,Dmitri Shitikov,RW,2011-2012,khl,9583,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Bobrov (W/C),Atlant Mytishchi,49,3,1,4,0.08,20,-5,/player/19219/viktor-bobrov,5,Viktor Bobrov,W/C,2011-2012,khl,19219,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Goroshansky (C),Torpedo Nizhny Novgorod,17,2,2,4,0.24,6,1,/player/18543/alexander-goroshansky,5,Alexander Goroshansky,C,2011-2012,khl,18543,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Monakhov (LW),SKA St. Petersburg,19,2,2,4,0.21,2,4,/player/77194/sergei-monakhov,5,Sergei Monakhov,LW,2011-2012,khl,77194,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Makarov (LW),totals,36,2,2,4,0.11,16,2,/player/18564/konstantin-makarov,5,Konstantin Makarov,LW,2011-2012,khl,18564,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Bayev (D),totals,39,2,2,4,0.10,34,-8,/player/18842/denis-bayev,5,Denis Bayev,D,2011-2012,khl,18842,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yaroslav Khabarov (D),Metallurg Magnitogorsk,13,1,3,4,0.31,8,7,/player/24791/yaroslav-khabarov,5,Yaroslav Khabarov,D,2011-2012,khl,24791,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Romanovsky (LW/RW),Torpedo Nizhny Novgorod,14,1,3,4,0.29,2,3,/player/22172/alexander-romanovsky,5,Alexander Romanovsky,LW/RW,2011-2012,khl,22172,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Fadeyev (D),Barys Astana,25,1,3,4,0.16,6,1,/player/22133/yevgeni-fadeyev,5,Yevgeni Fadeyev,D,2011-2012,khl,22133,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Andronov (C),CSKA Moskva,29,1,3,4,0.14,4,-2,/player/11856/sergei-andronov,5,Sergei Andronov,C,2011-2012,khl,11856,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Vishnevsky (D),totals,31,1,3,4,0.13,6,-6,/player/24786/dmitri-vishnevsky,5,Dmitri Vishnevsky,D,2011-2012,khl,24786,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Romanov (D),Metallurg Novokuznetsk,31,1,3,4,0.13,58,-11,/player/93176/stanislav-romanov,5,Stanislav Romanov,D,2011-2012,khl,93176,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Gratton (LW),Barys Astana,35,1,3,4,0.11,91,-2,/player/10245/josh-gratton,5,Josh Gratton,LW,2011-2012,khl,10245,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Yezhov (D),Amur Khabarovsk,42,1,3,4,0.10,40,-1,/player/9580/denis-yezhov,5,Denis Yezhov,D,2011-2012,khl,9580,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Zaitsev (D),Sibir Novosibirsk,53,1,3,4,0.08,28,4,/player/34773/nikita-zaitsev,5,Nikita Zaitsev,D,2011-2012,khl,34773,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ion-Georgi Kostev (D),Neftekhimik Nizhnekamsk,13,0,4,4,0.31,10,-1,/player/50303/ion-georgi-kostev,5,Ion-Georgi Kostev,D,2011-2012,khl,50303,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Vlasenkov (LW),totals,26,0,4,4,0.15,10,2,/player/19392/dmitri-vlasenkov,5,Dmitri Vlasenkov,LW,2011-2012,khl,19392,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Petrov (D),totals,45,0,4,4,0.09,50,8,/player/18968/alexei-petrov,5,Alexei Petrov,D,2011-2012,khl,18968,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yuri Butsayev (RW),CSKA Moskva,50,0,4,4,0.08,32,-13,/player/18507/yuri-butsayev,5,Yuri Butsayev,RW,2011-2012,khl,18507,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juris Upitis (RW/C),Dinamo Riga,9,3,0,3,0.33,2,1,/player/34667/juris-upitis,5,Juris Upitis,RW/C,2011-2012,khl,34667,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Korolyov (RW),SKA St. Petersburg,11,3,0,3,0.27,4,5,/player/15175/anton-korolyov,5,Anton Korolyov,RW,2011-2012,khl,15175,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Simon (LW),Metallurg Novokuznetsk,24,3,0,3,0.13,43,-7,/player/8882/chris-simon,5,Chris Simon,LW,2011-2012,khl,8882,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Nosek (D),Neftekhimik Nizhnekamsk,11,2,1,3,0.27,12,-5,/player/23707/david-nosek,5,David Nosek,D,2011-2012,khl,23707,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Mons (RW),Severstal Cherepovets,15,2,1,3,0.20,0,-2,/player/19413/yevgeni-mons,5,Yevgeni Mons,RW,2011-2012,khl,19413,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Gusev (LW),CSKA Moskva,15,2,1,3,0.20,0,-1,/player/75169/nikita-gusev,5,Nikita Gusev,LW,2011-2012,khl,75169,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Potapov (RW/C),Torpedo Nizhny Novgorod,18,2,1,3,0.17,7,0,/player/19010/alexei-potapov,5,Alexei Potapov,RW/C,2011-2012,khl,19010,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Nasybullin (LW),totals,33,2,1,3,0.09,20,-13,/player/93166/daniel-nasybullin,5,Daniel Nasybullin,LW,2011-2012,khl,93166,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jekabs Redlihs (D),Dinamo Riga,46,2,1,3,0.07,35,-5,/player/11562/jekabs-redlihs,5,Jekabs Redlihs,D,2011-2012,khl,11562,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Drozdetsky (RW),Avtomobilist Yekaterinburg,18,1,2,3,0.17,6,-6,/player/18845/alexander-drozdetsky,5,Alexander Drozdetsky,RW,2011-2012,khl,18845,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Pushkaryov (RW/LW),Barys Astana,20,1,2,3,0.15,4,-4,/player/9657/konstantin-pushkaryov,5,Konstantin Pushkaryov,RW/LW,2011-2012,khl,9657,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Konev (D),Traktor Chelyabinsk,22,1,2,3,0.14,20,-2,/player/19576/andrei-konev,5,Andrei Konev,D,2011-2012,khl,19576,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Tyurin (LW),Metallurg Novokuznetsk,23,1,2,3,0.13,16,-4,/player/19569/denis-tyurin,5,Denis Tyurin,LW,2011-2012,khl,19569,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Fisenko (C),Metallurg Novokuznetsk,27,1,2,3,0.11,16,-12,/player/10256/mikhail-fisenko,5,Mikhail Fisenko,C,2011-2012,khl,10256,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Litvinenko (D),Barys Astana,29,1,2,3,0.10,34,3,/player/18537/alexei-litvinenko,5,Alexei Litvinenko,D,2011-2012,khl,18537,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Ogorodnikov (C),Avtomobilist Yekaterinburg,31,1,2,3,0.10,8,-8,/player/11495/sergei-ogorodnikov,5,Sergei Ogorodnikov,C,2011-2012,khl,11495,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Kitsyn (LW),Metallurg Novokuznetsk,32,1,2,3,0.09,13,-17,/player/19425/maxim-kitsyn,5,Maxim Kitsyn,LW,2011-2012,khl,19425,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Kosmachyov (D),Atlant Mytishchi,41,1,2,3,0.07,22,2,/player/9581/dmitri-kosmachyov,5,Dmitri Kosmachyov,D,2011-2012,khl,9581,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskars Cibulskis (D),Dinamo Riga,42,1,2,3,0.07,10,-11,/player/19035/oskars-cibulskis,5,Oskars Cibulskis,D,2011-2012,khl,19035,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Alexeyev (D),Sibir Novosibirsk,46,1,2,3,0.07,18,-3,/player/19558/konstantin-alexeyev,5,Konstantin Alexeyev,D,2011-2012,khl,19558,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Churlyayev (D),Avtomobilist Yekaterinburg,21,0,3,3,0.14,31,-10,/player/9302/mikhail-churlyayev,5,Mikhail Churlyayev,D,2011-2012,khl,9302,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommy Wargh (D),totals,22,0,3,3,0.14,10,-10,/player/3528/tommy-wargh,5,Tommy Wargh,D,2011-2012,khl,3528,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Kurepanov (F),Metallurg Novokuznetsk,28,0,3,3,0.11,8,-3,/player/77207/denis-kurepanov,5,Denis Kurepanov,F,2011-2012,khl,77207,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vasili Tokranov (D),Ak Bars Kazan,33,0,3,3,0.09,14,3,/player/11872/vasili-tokranov,5,Vasili Tokranov,D,2011-2012,khl,11872,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Shefer (D),Severstal Cherepovets,34,0,3,3,0.09,49,-6,/player/9553/andrei-shefer,5,Andrei Shefer,D,2011-2012,khl,9553,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Mamin (C),totals,35,0,3,3,0.09,21,1,/player/15174/maxim-mamin,5,Maxim Mamin,C,2011-2012,khl,15174,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Kruchinin (D),totals,37,0,3,3,0.08,20,-13,/player/18556/andrei-kruchinin,5,Andrei Kruchinin,D,2011-2012,khl,18556,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vadim Khomitsky (D),Ak Bars Kazan,37,0,3,3,0.08,44,-4,/player/11517/vadim-khomitsky,5,Vadim Khomitsky,D,2011-2012,khl,11517,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arvids Rekis (D),Dinamo Riga,39,0,3,3,0.08,28,-3,/player/12549/arvids-rekis,5,Arvids Rekis,D,2011-2012,khl,12549,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Semyonov (D),SKA St. Petersburg,40,0,3,3,0.08,55,7,/player/8650/alexei-semyonov,5,Alexei Semyonov,D,2011-2012,khl,8650,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Katichev (D),Traktor Chelyabinsk,46,0,3,3,0.07,36,16,/player/21099/yevgeni-katichev,5,Yevgeni Katichev,D,2011-2012,khl,21099,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Ozhiganov (D),CSKA Moskva,7,2,0,2,0.29,2,-3,/player/77242/igor-ozhiganov,5,Igor Ozhiganov,D,2011-2012,khl,77242,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ales Jezek (D/F),Lev Poprad,13,2,0,2,0.15,18,-7,/player/18092/ales-jezek,5,Ales Jezek,D/F,2011-2012,khl,18092,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Yemelin (C/RW),Salavat Yulaev Ufa,23,2,0,2,0.09,0,0,/player/38670/sergei-yemelin,6,Sergei Yemelin,C/RW,2011-2012,khl,38670,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Korotkov (C),Amur Khabarovsk,24,2,0,2,0.08,2,-2,/player/20368/yevgeni-korotkov,6,Yevgeni Korotkov,C,2011-2012,khl,20368,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jon Mirasty (LW),Vityaz Moscow Region,30,2,0,2,0.07,197,-4,/player/14424/jon-mirasty,6,Jon Mirasty,LW,2011-2012,khl,14424,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Kruchinin (C/LW),SKA St. Petersburg,8,1,1,2,0.25,2,1,/player/90624/alexei-kruchinin,6,Alexei Kruchinin,C/LW,2011-2012,khl,90624,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yefim Gurkin (D),Salavat Yulaev Ufa,10,1,1,2,0.20,2,0,/player/47549/yefim-gurkin,6,Yefim Gurkin,D,2011-2012,khl,47549,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Mukhachyov (D),Amur Khabarovsk,11,1,1,2,0.18,14,-1,/player/19387/andrei-mukhachyov,6,Andrei Mukhachyov,D,2011-2012,khl,19387,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Kartayev (C),Salavat Yulaev Ufa,12,1,1,2,0.17,4,0,/player/42432/vladislav-kartayev,6,Vladislav Kartayev,C,2011-2012,khl,42432,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Pankov (LW/RW),Salavat Yulaev Ufa,13,1,1,2,0.15,2,0,/player/77206/alexander-pankov,6,Alexander Pankov,LW/RW,2011-2012,khl,77206,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Tatalin (D),Vityaz Moscow Region,14,1,1,2,0.14,4,1,/player/107344/roman-tatalin,6,Roman Tatalin,D,2011-2012,khl,107344,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Shvetsov (RW),totals,15,1,1,2,0.13,2,-2,/player/88227/alexander-shvetsov,6,Alexander Shvetsov,RW,2011-2012,khl,88227,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Prokhorkin (C),CSKA Moskva,15,1,1,2,0.13,4,-1,/player/93769/nikolai-prokhorkin,6,Nikolai Prokhorkin,C,2011-2012,khl,93769,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maris Bicevskis (C),Dinamo Riga,15,1,1,2,0.13,4,0,/player/34652/maris-bicevskis,6,Maris Bicevskis,C,2011-2012,khl,34652,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Balán (C),Lev Poprad,16,1,1,2,0.13,4,-1,/player/13659/stanislav-balan,6,Stanislav Balán,C,2011-2012,khl,13659,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Rozin (D),Torpedo Nizhny Novgorod,18,1,1,2,0.11,10,-5,/player/20525/sergei-rozin,6,Sergei Rozin,D,2011-2012,khl,20525,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Bogomolov (D),Vityaz Moscow Region,20,1,1,2,0.10,4,-7,/player/58627/nikolai-bogomolov,6,Nikolai Bogomolov,D,2011-2012,khl,58627,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Grot (D),totals,20,1,1,2,0.10,12,5,/player/19740/denis-grot,6,Denis Grot,D,2011-2012,khl,19740,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ignat Zemchenko (RW/C),Severstal Cherepovets,22,1,1,2,0.09,7,0,/player/57965/ignat-zemchenko,6,Ignat Zemchenko,RW/C,2011-2012,khl,57965,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Nieminen (LW/RW),totals,22,1,1,2,0.09,18,-6,/player/2661/ville-nieminen,6,Ville Nieminen,LW/RW,2011-2012,khl,2661,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Slovak (D),Dinamo Minsk,31,1,1,2,0.06,25,1,/player/8420/tomas-slovak,6,Tomas Slovak,D,2011-2012,khl,8420,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Mráz (LW/RW),Lev Poprad,3,0,2,2,0.67,0,-1,/player/100323/richard-mraz,6,Richard Mráz,LW/RW,2011-2012,khl,100323,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Lukyanchikov (D),Neftekhimik Nizhnekamsk,3,0,2,2,0.67,2,1,/player/11868/nikolai-lukyanchikov,6,Nikolai Lukyanchikov,D,2011-2012,khl,11868,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radoslav Suchý (D),Avangard Omsk,5,0,2,2,0.40,2,-1,/player/8621/radoslav-suchy,6,Radoslav Suchý,D,2011-2012,khl,8621,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Dudko (C/W),Dinamo Minsk,10,0,2,2,0.20,0,-3,/player/104363/sergei-dudko,6,Sergei Dudko,C/W,2011-2012,khl,104363,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Taratukhin (C),Salavat Yulaev Ufa,10,0,2,2,0.20,10,-5,/player/9569/andrei-taratukhin,6,Andrei Taratukhin,C,2011-2012,khl,9569,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ildar Isangulov (D),Salavat Yulaev Ufa,11,0,2,2,0.18,2,1,/player/42431/ildar-isangulov,6,Ildar Isangulov,D,2011-2012,khl,42431,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Bernatsky (D),Metallurg Magnitogorsk,11,0,2,2,0.18,18,-1,/player/19745/sergei-bernatsky,6,Sergei Bernatsky,D,2011-2012,khl,19745,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Lukoyanov (LW),Ak Bars Kazan,14,0,2,2,0.14,36,-1,/player/93164/artyom-lukoyanov,6,Artyom Lukoyanov,LW,2011-2012,khl,93164,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Berdnikov (RW/LW),Avangard Omsk,16,0,2,2,0.13,4,0,/player/40998/roman-berdnikov,6,Roman Berdnikov,RW/LW,2011-2012,khl,40998,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Velikov (D),Dynamo Moskva,17,0,2,2,0.12,14,-6,/player/21174/maxim-velikov,6,Maxim Velikov,D,2011-2012,khl,21174,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Albert Polinin (D),Avtomobilist Yekaterinburg,23,0,2,2,0.09,18,-9,/player/21007/albert-polinin,6,Albert Polinin,D,2011-2012,khl,21007,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danny Groulx (D),totals,24,0,2,2,0.08,22,-6,/player/11725/danny-groulx,6,Danny Groulx,D,2011-2012,khl,11725,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Rybnitsky (D),Neftekhimik Nizhnekamsk,30,0,2,2,0.07,30,-7,/player/42558/yevgeni-rybnitsky,6,Yevgeni Rybnitsky,D,2011-2012,khl,42558,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zakhar Arzamastsev (D),Metallurg Novokuznetsk,45,0,2,2,0.04,10,-10,/player/43977/zakhar-arzamastsev,6,Zakhar Arzamastsev,D,2011-2012,khl,43977,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Sentyurin (W),Salavat Yulaev Ufa,3,1,0,1,0.33,0,1,/player/18548/sergei-sentyurin,6,Sergei Sentyurin,W,2011-2012,khl,18548,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Dyakov (D),Yugra Khanty-Mansiysk,5,1,0,1,0.20,4,0,/player/77147/kirill-dyakov,6,Kirill Dyakov,D,2011-2012,khl,77147,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Medvedev (LW/RW),Spartak Moskva,6,1,0,1,0.17,2,-1,/player/106970/pavel-medvedev,6,Pavel Medvedev,LW/RW,2011-2012,khl,106970,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Zabolotnev (D),Vityaz Moscow Region,7,1,0,1,0.14,2,0,/player/18542/andrei-zabolotnev,6,Andrei Zabolotnev,D,2011-2012,khl,18542,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Rychagov (C),Avtomobilist Yekaterinburg,9,1,0,1,0.11,4,-2,/player/21159/andrei-rychagov,6,Andrei Rychagov,C,2011-2012,khl,21159,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Paior (C),Traktor Chelyabinsk,13,1,0,1,0.08,2,0,/player/19562/sergei-paior,6,Sergei Paior,C,2011-2012,khl,19562,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Ignatovich (D),Sibir Novosibirsk,13,1,0,1,0.08,4,-1,/player/45001/maxim-ignatovich,6,Maxim Ignatovich,D,2011-2012,khl,45001,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Krysanov (LW),Amur Khabarovsk,14,1,0,1,0.07,12,-2,/player/18674/alexander-krysanov,6,Alexander Krysanov,LW,2011-2012,khl,18674,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kip Brennan (LW),Vityaz Moscow Region,14,1,0,1,0.07,240,-2,/player/9683/kip-brennan,6,Kip Brennan,LW,2011-2012,khl,9683,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Sindel (C/W),Dinamo Riga,21,1,0,1,0.05,16,-9,/player/9229/jakub-sindel,6,Jakub Sindel,C/W,2011-2012,khl,9229,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Kanarsky (D),Metallurg Novokuznetsk,22,1,0,1,0.05,18,-3,/player/19404/pavel-kanarsky,6,Pavel Kanarsky,D,2011-2012,khl,19404,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Savchenko (D),Barys Astana,22,1,0,1,0.05,21,-16,/player/15289/roman-savchenko,6,Roman Savchenko,D,2011-2012,khl,15289,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Belokon (LW),Spartak Moskva,24,1,0,1,0.04,9,-5,/player/44782/sergei-belokon,6,Sergei Belokon,LW,2011-2012,khl,44782,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Lyubimov (LW/RW),CSKA Moskva,7,0,1,1,0.14,0,-1,/player/42434/roman-lyubimov,6,Roman Lyubimov,LW/RW,2011-2012,khl,42434,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Klopov (C/LW),Torpedo Nizhny Novgorod,7,0,1,1,0.14,2,2,/player/19029/dmitri-klopov,6,Dmitri Klopov,C/LW,2011-2012,khl,19029,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Yeryomenko (D),Vityaz Moscow Region,7,0,1,1,0.14,2,-2,/player/50353/yevgeni-yeryomenko,6,Yevgeni Yeryomenko,D,2011-2012,khl,50353,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Alexeyev (RW/LW),Severstal Cherepovets,7,0,1,1,0.14,2,0,/player/10221/nikita-alexeyev,6,Nikita Alexeyev,RW/LW,2011-2012,khl,10221,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Orlov (RW),Avangard Omsk,8,0,1,1,0.13,0,2,/player/45662/yevgeni-orlov,6,Yevgeni Orlov,RW,2011-2012,khl,45662,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Georgi Berdyukov (D),SKA St. Petersburg,8,0,1,1,0.13,2,4,/player/38661/georgi-berdyukov,6,Georgi Berdyukov,D,2011-2012,khl,38661,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Karavayev (D),Sibir Novosibirsk,10,0,1,1,0.10,2,3,/player/43816/artyom-karavayev,6,Artyom Karavayev,D,2011-2012,khl,43816,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Nesterov (D),Traktor Chelyabinsk,10,0,1,1,0.10,4,8,/player/70425/nikita-nesterov,6,Nikita Nesterov,D,2011-2012,khl,70425,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Ishmametyev (D),Barys Astana,11,0,1,1,0.09,2,-1,/player/21148/alexei-ishmametyev,6,Alexei Ishmametyev,D,2011-2012,khl,21148,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Antropov (F),Avtomobilist Yekaterinburg,12,0,1,1,0.08,2,-5,/player/103595/alexander-antropov,6,Alexander Antropov,F,2011-2012,khl,103595,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Chernov (C),Atlant Mytishchi,13,0,1,1,0.08,2,-3,/player/16748/pavel-chernov,6,Pavel Chernov,C,2011-2012,khl,16748,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bohumil Jank (D),Lev Poprad,13,0,1,1,0.08,12,3,/player/34791/bohumil-jank,6,Bohumil Jank,D,2011-2012,khl,34791,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Tarasov (D),Sibir Novosibirsk,14,0,1,1,0.07,14,-4,/player/50302/alexander-tarasov,6,Alexander Tarasov,D,2011-2012,khl,50302,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Denezhkin (RW/LW),Spartak Moskva,15,0,1,1,0.07,0,-6,/player/14383/alexander-denezhkin,6,Alexander Denezhkin,RW/LW,2011-2012,khl,14383,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Lajunen (D),Metallurg Magnitogorsk,15,0,1,1,0.07,4,5,/player/9895/ville-lajunen,6,Ville Lajunen,D,2011-2012,khl,9895,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dan DaSilva (RW),Lev Poprad,15,0,1,1,0.07,10,-3,/player/11681/dan-dasilva,6,Dan DaSilva,RW,2011-2012,khl,11681,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Stasenko (D),Severstal Cherepovets,17,0,1,1,0.06,2,3,/player/41338/nikolai-stasenko,6,Nikolai Stasenko,D,2011-2012,khl,41338,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Ternavsky (D),totals,18,0,1,1,0.06,12,2,/player/18716/artyom-ternavsky,6,Artyom Ternavsky,D,2011-2012,khl,18716,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Matai (F/D),Lev Poprad,19,0,1,1,0.05,8,-7,/player/100308/jakub-matai,6,Jakub Matai,F/D,2011-2012,khl,100308,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Glukhov (RW/C),Amur Khabarovsk,19,0,1,1,0.05,22,-5,/player/10488/mikhail-glukhov,6,Mikhail Glukhov,RW/C,2011-2012,khl,10488,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Nosov (D),Sibir Novosibirsk,20,0,1,1,0.05,16,-5,/player/41718/artyom-nosov,6,Artyom Nosov,D,2011-2012,khl,41718,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Kolesnikov (D),totals,21,0,1,1,0.05,6,-8,/player/15173/andrei-kolesnikov,6,Andrei Kolesnikov,D,2011-2012,khl,15173,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Goroshko (D),Dinamo Minsk,21,0,1,1,0.05,24,-1,/player/28544/oleg-goroshko,6,Oleg Goroshko,D,2011-2012,khl,28544,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander R. Boikov (LW),Severstal Cherepovets,22,0,1,1,0.05,6,-2,/player/20507/alexander-r-boikov,6,Alexander R. Boikov,LW,2011-2012,khl,20507,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Vyglazov (LW),Metallurg Novokuznetsk,23,0,1,1,0.04,6,-6,/player/24625/nikita-vyglazov,6,Nikita Vyglazov,LW,2011-2012,khl,24625,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juris Stals (W/C),Dinamo Riga,26,0,1,1,0.04,10,0,/player/7960/juris-stals,6,Juris Stals,W/C,2011-2012,khl,7960,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Grigoryev (D),Salavat Yulaev Ufa,27,0,1,1,0.04,10,3,/player/20505/mikhail-grigoryev,6,Mikhail Grigoryev,D,2011-2012,khl,20505,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rodrigo Lavins (D),Dinamo Riga,28,0,1,1,0.04,23,-7,/player/6497/rodrigo-lavins,6,Rodrigo Lavins,D,2011-2012,khl,6497,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Pervushin (RW/LW),Avangard Omsk,31,0,1,1,0.03,41,-4,/player/20518/vladimir-pervushin,6,Vladimir Pervushin,RW/LW,2011-2012,khl,20518,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Tyulyapkin (D),Torpedo Nizhny Novgorod,32,0,1,1,0.03,12,0,/player/12235/mikhail-tyulyapkin,6,Mikhail Tyulyapkin,D,2011-2012,khl,12235,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artemi Lakiza (D),Barys Astana,35,0,1,1,0.03,24,-3,/player/22120/artemi-lakiza,6,Artemi Lakiza,D,2011-2012,khl,22120,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Nurislamov (D),totals,40,0,1,1,0.03,34,-13,/player/18978/yevgeni-nurislamov,6,Yevgeni Nurislamov,D,2011-2012,khl,18978,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Golovkov (D),Vityaz Moscow Region,49,0,1,1,0.02,58,-13,/player/17573/igor-golovkov,6,Igor Golovkov,D,2011-2012,khl,17573,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Pronin (RW),CSKA Moskva,52,0,1,1,0.02,48,-12,/player/16747/nikolai-pronin,6,Nikolai Pronin,RW,2011-2012,khl,16747,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Sviyazov (D),Severstal Cherepovets,0,0,0,0,-,0,0,/player/103319/kirill-sviyazov,6,Kirill Sviyazov,D,2011-2012,khl,103319,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Zaitsev (W),Severstal Cherepovets,0,0,0,0,-,0,0,/player/103316/alexei-zaitsev,6,Alexei Zaitsev,W,2011-2012,khl,103316,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Kurazhov (F),Severstal Cherepovets,0,0,0,0,-,0,0,/player/105519/pavel-kurazhov,6,Pavel Kurazhov,F,2011-2012,khl,105519,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Dedunov (RW/LW),Amur Khabarovsk,0,0,0,0,-,0,0,/player/17761/pavel-dedunov,6,Pavel Dedunov,RW/LW,2011-2012,khl,17761,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Koledov (D),Sibir Novosibirsk,0,0,0,0,-,0,0,/player/108381/pavel-koledov,6,Pavel Koledov,D,2011-2012,khl,108381,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Rasskazov (C),Avangard Omsk,0,0,0,0,-,0,0,/player/106193/kirill-rasskazov,6,Kirill Rasskazov,C,2011-2012,khl,106193,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yuri Koksharov (C),Metallurg Novokuznetsk,1,0,0,0,0.00,0,0,/player/45661/yuri-koksharov,6,Yuri Koksharov,C,2011-2012,khl,45661,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Markelov (LW),Sibir Novosibirsk,1,0,0,0,0.00,0,0,/player/18663/vladimir-markelov,6,Vladimir Markelov,LW,2011-2012,khl,18663,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Kulikov (C),Neftekhimik Nizhnekamsk,1,0,0,0,0.00,0,0,/player/42436/pavel-kulikov,6,Pavel Kulikov,C,2011-2012,khl,42436,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Stupin (D),Avtomobilist Yekaterinburg,1,0,0,0,0.00,0,-1,/player/37358/sergei-stupin,6,Sergei Stupin,D,2011-2012,khl,37358,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miks Indrasis (C/LW/RW),Dinamo Riga,1,0,0,0,0.00,0,0,/player/18106/miks-indrasis,6,Miks Indrasis,C/LW/RW,2011-2012,khl,18106,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Konkov (LW),Torpedo Nizhny Novgorod,1,0,0,0,0.00,0,0,/player/58569/roman-konkov,6,Roman Konkov,LW,2011-2012,khl,58569,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Yukseyev (D),Amur Khabarovsk,1,0,0,0,0.00,0,2,/player/26448/alexander-yukseyev,6,Alexander Yukseyev,D,2011-2012,khl,26448,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Pavlov (F),Spartak Moskva,1,0,0,0,0.00,0,0,/player/106971/ilya-pavlov,6,Ilya Pavlov,F,2011-2012,khl,106971,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Tereshchenko (D),Metallurg Magnitogorsk,1,0,0,0,0.00,0,0,/player/47511/sergei-tereshchenko,6,Sergei Tereshchenko,D,2011-2012,khl,47511,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Zemchyonok (D),Spartak Moskva,1,0,0,0,0.00,0,0,/player/106973/artyom-zemchyonok,6,Artyom Zemchyonok,D,2011-2012,khl,106973,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Shumakov (LW),Sibir Novosibirsk,1,0,0,0,0.00,0,0,/player/105666/sergei-shumakov,6,Sergei Shumakov,LW,2011-2012,khl,105666,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Ivanyuzhenkov (F),Vityaz Moscow Region,1,0,0,0,0.00,0,0,/player/58564/anton-ivanyuzhenkov,6,Anton Ivanyuzhenkov,F,2011-2012,khl,58564,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Georgi Shangin (D),Spartak Moskva,1,0,0,0,0.00,2,0,/player/98345/georgi-shangin,6,Georgi Shangin,D,2011-2012,khl,98345,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Larin (F),Vityaz Moscow Region,1,0,0,0,0.00,17,-1,/player/40487/ivan-larin,6,Ivan Larin,F,2011-2012,khl,40487,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janis Andersons (D),Dinamo Riga,2,0,0,0,0.00,0,-1,/player/3826/janis-andersons,7,Janis Andersons,D,2011-2012,khl,3826,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Tatarinov (RW),Avtomobilist Yekaterinburg,2,0,0,0,0.00,0,-2,/player/19111/alexander-tatarinov,7,Alexander Tatarinov,RW,2011-2012,khl,19111,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Rukavishnikov (D),Atlant Mytishchi,2,0,0,0,0.00,0,0,/player/42430/roman-rukavishnikov,7,Roman Rukavishnikov,D,2011-2012,khl,42430,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Stolyarenko (F),Amur Khabarovsk,2,0,0,0,0.00,0,0,/player/102789/nikolai-stolyarenko,7,Nikolai Stolyarenko,F,2011-2012,khl,102789,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Sitnikov (F),Vityaz Moscow Region,2,0,0,0,0.00,0,0,/player/60224/maxim-sitnikov,7,Maxim Sitnikov,F,2011-2012,khl,60224,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karol Csányi (LW),Lev Poprad,2,0,0,0,0.00,0,0,/player/57939/karol-csanyi,7,Karol Csányi,LW,2011-2012,khl,57939,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yuri Skvortsov (F),SKA St. Petersburg,2,0,0,0,0.00,2,-1,/player/77192/yuri-skvortsov,7,Yuri Skvortsov,F,2011-2012,khl,77192,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Skopintsev (D),Dynamo Moskva,2,0,0,0,0.00,2,-1,/player/18535/andrei-skopintsev,7,Andrei Skopintsev,D,2011-2012,khl,18535,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Yeprev (D),Metallurg Novokuznetsk,2,0,0,0,0.00,8,-2,/player/20548/maxim-yeprev,7,Maxim Yeprev,D,2011-2012,khl,20548,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Khudyakov (C),Barys Astana,3,0,0,0,0.00,0,-1,/player/83924/maxim-khudyakov,7,Maxim Khudyakov,C,2011-2012,khl,83924,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Batrak (RW/C),Spartak Moskva,3,0,0,0,0.00,0,0,/player/106990/artyom-batrak,7,Artyom Batrak,RW/C,2011-2012,khl,106990,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bogdan Potekhin (LW/RW),Metallurg Magnitogorsk,3,0,0,0,0.00,0,-1,/player/42437/bogdan-potekhin,7,Bogdan Potekhin,LW/RW,2011-2012,khl,42437,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grigori Serkin (D),SKA St. Petersburg,3,0,0,0,0.00,0,0,/player/87923/grigori-serkin,7,Grigori Serkin,D,2011-2012,khl,87923,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Zakirov (F),Avtomobilist Yekaterinburg,3,0,0,0,0.00,0,0,/player/103599/alexander-zakirov,7,Alexander Zakirov,F,2011-2012,khl,103599,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Kolychev (F),Vityaz Moscow Region,3,0,0,0,0.00,0,-1,/player/160558/yevgeni-kolychev,7,Yevgeni Kolychev,F,2011-2012,khl,160558,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yakov Seleznyov (D),Spartak Moskva,3,0,0,0,0.00,2,-3,/player/11871/yakov-seleznyov,7,Yakov Seleznyov,D,2011-2012,khl,11871,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grigori Zheldakov (D),Spartak Moskva,3,0,0,0,0.00,2,-2,/player/50288/grigori-zheldakov,7,Grigori Zheldakov,D,2011-2012,khl,50288,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Koistinen (D),Salavat Yulaev Ufa,3,0,0,0,0.00,2,1,/player/7440/ville-koistinen,7,Ville Koistinen,D,2011-2012,khl,7440,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ruslan Khasanshin (C),Metallurg Novokuznetsk,4,0,0,0,0.00,0,-1,/player/18558/ruslan-khasanshin,7,Ruslan Khasanshin,C,2011-2012,khl,18558,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Rymarev (RW/LW),Barys Astana,4,0,0,0,0.00,0,0,/player/15278/yevgeni-rymarev,7,Yevgeni Rymarev,RW/LW,2011-2012,khl,15278,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Kuvayev (RW),Dynamo Moskva,4,0,0,0,0.00,0,0,/player/58567/alexander-kuvayev,7,Alexander Kuvayev,RW,2011-2012,khl,58567,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Kozlov (D),Avangard Omsk,4,0,0,0,0.00,0,-3,/player/43862/dmitri-kozlov,7,Dmitri Kozlov,D,2011-2012,khl,43862,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vitali Popov (C),Severstal Cherepovets,4,0,0,0,0.00,2,0,/player/77114/vitali-popov,7,Vitali Popov,C,2011-2012,khl,77114,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Korneyev (RW),Vityaz Moscow Region,5,0,0,0,0.00,0,-2,/player/18549/dmitri-korneyev,7,Dmitri Korneyev,RW,2011-2012,khl,18549,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Glazkov (D),Sibir Novosibirsk,5,0,0,0,0.00,0,0,/player/43819/ivan-glazkov,7,Ivan Glazkov,D,2011-2012,khl,43819,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Stefanovich (W/C),Dinamo Minsk,5,0,0,0,0.00,2,0,/player/9289/mikhail-stefanovich,7,Mikhail Stefanovich,W/C,2011-2012,khl,9289,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Boldyrev (D),Salavat Yulaev Ufa,5,0,0,0,0.00,2,1,/player/25512/ivan-boldyrev,7,Ivan Boldyrev,D,2011-2012,khl,25512,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Luchnikov (F),Sibir Novosibirsk,6,0,0,0,0.00,0,-2,/player/105688/alexei-luchnikov,7,Alexei Luchnikov,F,2011-2012,khl,105688,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Ölvecký (LW/C),Lev Poprad,6,0,0,0,0.00,0,-1,/player/11772/peter-olvecky,7,Peter Ölvecký,LW/C,2011-2012,khl,11772,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Popov (D),Severstal Cherepovets,6,0,0,0,0.00,0,-1,/player/93339/nikita-popov,7,Nikita Popov,D,2011-2012,khl,93339,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Smirnov (C),Severstal Cherepovets,6,0,0,0,0.00,0,-3,/player/42341/andrei-smirnov,7,Andrei Smirnov,C,2011-2012,khl,42341,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Marchenko (D),CSKA Moskva,6,0,0,0,0.00,2,-4,/player/40249/alexei-marchenko,7,Alexei Marchenko,D,2011-2012,khl,40249,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Kostichkin (F),totals,6,0,0,0,0.00,4,-2,/player/77205/nikolai-kostichkin,7,Nikolai Kostichkin,F,2011-2012,khl,77205,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Axyonenko (D),Avtomobilist Yekaterinburg,6,0,0,0,0.00,8,-4,/player/18692/alexander-axyonenko,7,Alexander Axyonenko,D,2011-2012,khl,18692,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Dugin (C),Traktor Chelyabinsk,7,0,0,0,0.00,0,-2,/player/38662/yegor-dugin,7,Yegor Dugin,C,2011-2012,khl,38662,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vadim Mitryakov (LW),Metallurg Novokuznetsk,7,0,0,0,0.00,2,0,/player/44019/vadim-mitryakov,7,Vadim Mitryakov,LW,2011-2012,khl,44019,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaroslav Sarsok (D),Lev Poprad,7,0,0,0,0.00,2,-1,/player/130239/jaroslav-sarsok,7,Jaroslav Sarsok,D,2011-2012,khl,130239,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vadim Yermolayev (LW),Barys Astana,7,0,0,0,0.00,4,0,/player/19127/vadim-yermolayev,7,Vadim Yermolayev,LW,2011-2012,khl,19127,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pyotr Khokhryakov (C),Neftekhimik Nizhnekamsk,8,0,0,0,0.00,0,-1,/player/30520/pyotr-khokhryakov,7,Pyotr Khokhryakov,C,2011-2012,khl,30520,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Zdunov (LW/RW),Metallurg Magnitogorsk,8,0,0,0,0.00,0,1,/player/47546/pavel-zdunov,7,Pavel Zdunov,LW/RW,2011-2012,khl,47546,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bulat Shavaleyev (RW),Ak Bars Kazan,8,0,0,0,0.00,0,0,/player/31292/bulat-shavaleyev,7,Bulat Shavaleyev,RW,2011-2012,khl,31292,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Galimov (RW),Neftekhimik Nizhnekamsk,8,0,0,0,0.00,2,-2,/player/42440/emil-galimov,7,Emil Galimov,RW,2011-2012,khl,42440,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Ustyantsev (F),Avtomobilist Yekaterinburg,8,0,0,0,0.00,2,0,/player/103605/mikhail-ustyantsev,7,Mikhail Ustyantsev,F,2011-2012,khl,103605,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Pristuplyuk (F),Spartak Moskva,8,0,0,0,0.00,2,-3,/player/77159/maxim-pristuplyuk,7,Maxim Pristuplyuk,F,2011-2012,khl,77159,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Klimontov (D),Traktor Chelyabinsk,8,0,0,0,0.00,6,-1,/player/24784/konstantin-klimontov,7,Konstantin Klimontov,D,2011-2012,khl,24784,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andris Dzerins (C/W),Dinamo Riga,9,0,0,0,0.00,0,-2,/player/7261/andris-dzerins,7,Andris Dzerins,C/W,2011-2012,khl,7261,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Albert Yarullin (D),Ak Bars Kazan,10,0,0,0,0.00,2,-2,/player/58559/albert-yarullin,7,Albert Yarullin,D,2011-2012,khl,58559,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Antonovsky (D),Spartak Moskva,10,0,0,0,0.00,4,1,/player/77261/ilya-antonovsky,7,Ilya Antonovsky,D,2011-2012,khl,77261,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Putilov (D),Yugra Khanty-Mansiysk,10,0,0,0,0.00,6,0,/player/89417/kirill-putilov,7,Kirill Putilov,D,2011-2012,khl,89417,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Fernholm (D),Atlant Mytishchi,10,0,0,0,0.00,14,-4,/player/67/daniel-fernholm,7,Daniel Fernholm,D,2011-2012,khl,67,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Bumagin (RW),Barys Astana,11,0,0,0,0.00,0,-7,/player/22137/yevgeni-bumagin,7,Yevgeni Bumagin,RW,2011-2012,khl,22137,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Björn Melin (RW/LW),Dinamo Riga,11,0,0,0,0.00,4,-9,/player/135/bjorn-melin,7,Björn Melin,RW/LW,2011-2012,khl,135,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Barantsev (D),Dynamo Moskva,14,0,0,0,0.00,2,-3,/player/100449/denis-barantsev,7,Denis Barantsev,D,2011-2012,khl,100449,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Dorofeyev (D),Amur Khabarovsk,16,0,0,0,0.00,8,-6,/player/19485/sergei-dorofeyev,7,Sergei Dorofeyev,D,2011-2012,khl,19485,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Darcy Verot (LW),CSKA Moskva,16,0,0,0,0.00,74,-5,/player/12016/darcy-verot,7,Darcy Verot,LW,2011-2012,khl,12016,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeremy Yablonski (RW/LW),Vityaz Moscow Region,16,0,0,0,0.00,174,-2,/player/14184/jeremy-yablonski,7,Jeremy Yablonski,RW/LW,2011-2012,khl,14184,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Kurbatov (D),CSKA Moskva,19,0,0,0,0.00,10,1,/player/15172/yevgeni-kurbatov,7,Yevgeni Kurbatov,D,2011-2012,khl,15172,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Davydov (D),Avtomobilist Yekaterinburg,19,0,0,0,0.00,10,2,/player/93510/ilya-davydov,7,Ilya Davydov,D,2011-2012,khl,93510,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Hellström (D),Lev Poprad,20,0,0,0,0.00,12,-8,/player/3679/alexander-hellstrom,7,Alexander Hellström,D,2011-2012,khl,3679,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Kloucek (D),Lev Poprad,20,0,0,0,0.00,18,-3,/player/9686/tomas-kloucek,7,Tomas Kloucek,D,2011-2012,khl,9686,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Golubev (C/RW),Ak Bars Kazan,22,0,0,0,0.00,11,2,/player/44891/denis-golubev,7,Denis Golubev,C/RW,2011-2012,khl,44891,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Stepanov (D),Avtomobilist Yekaterinburg,24,0,0,0,0.00,14,-11,/player/41029/stefan-stepanov,7,Stefan Stepanov,D,2011-2012,khl,41029,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valeri Knyazev (RW),Sibir Novosibirsk,26,0,0,0,0.00,0,1,/player/41097/valeri-knyazev,7,Valeri Knyazev,RW,2011-2012,khl,41097,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69

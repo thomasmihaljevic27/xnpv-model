@@ -1,0 +1,662 @@
+
+==============================================================================
+join_clauses_to_spine.py  started 22:40:40
+==============================================================================
+join_clauses_to_spine.py v2.1 (2026-10-20)
+========================================================================
+JOIN: cap-space clauses/bonuses -> PuckPedia contract spine
+========================================================================
+[spine] PuckPedia contracts: 6851  players: 3060
+[spine] contracts with NO eliteprospects_id (cannot join): 5
+[spine] expanded to contract-seasons: 15846
+[spine] v2.0: 38 contracts ended early (bought out); counting back from their cut-back end placed 72 rows in seasons before they started, now gone. Their 72 seasons signed for after the buyout are carried as pp_signed_end, not as rows
+[clauses] read from CSV C:/Users/thoma/Desktop/xNPV/10_SOURCE\capspace_clauses.csv
+[clauses] season-rows: 15261; player-seasons with more than one record: 135 (v2.0: matched to a contract by signing date, not collapsed)
+
+[join] v2.0 same-contract records attached: 10668 by signing date (within 14 days), 253 by an equal cap hit; 44 contract-seasons whose player-season has records of another contract only, left unmatched
+[join] MATCH RATE all spine contract-seasons: 10921/15846 = 68.9%
+[join] MATCH RATE within cap-space target players: 10921/11047 = 98.9%
+[join]   (the gap to 100% on all rows is contracts outside the cap-space bounded sample, e.g. non-UFA-signed pre-2018 deals.)
+[join] cap_hit agreement PP vs cap-space on matched rows (<$1): 89.6%
+[join]   (a cross-source check that the (ep_id,season) join landed the right contract; gap = retained salary / rounding / dup contracts.)
+[join] matched contract-seasons carrying a clause: 2666 (24.4%)
+[cap hit] v2.1 model_cap_hit: PuckPedia's, except 8 late signings' later seasons (30 rows) at the clause figure
+
+[rollup] contracts: 6851
+[rollup]   carrying a clause as signed: 518
+[rollup]   carrying a clause ever:      671
+[rollup]   clause status CHANGES across seasons: 344
+[rollup]   (these are why a start-season-only join would mis-measure the clause variable.)
+
+[write] C:/Users/thoma/Desktop/xNPV/30_OUTPUT\contract_season_spine.csv   (15846 rows, one per contract-season)
+[write] C:/Users/thoma/Desktop/xNPV/30_OUTPUT\contract_level_spine.csv (6851 rows, one per contract)
+
+[write] C:/Users/thoma/Desktop/xNPV/30_OUTPUT\join_clauses_runlog.txt
+
+==============================================================================
+war_name_crosswalk.py  started 22:40:48
+==============================================================================
+war_name_crosswalk.py v1.1 (2026-10-21)
+  PuckPedia contract export (cp1252): 3,060 NHL ids
+
+method
+same name                                            2025
+unresolved: no NHL games in the logs (2017-18 on)     970
+game-log match                                         34
+unresolved: no candidate                               29
+unresolved: no season agrees                            2
+
+MATCHED ON THE GAME LOGS: 34 ids
+  8482783  Alexei Kolosov               -> Aleksei Kolosov            (2 seasons agree; game-log match (surname))
+  8482245  Artyom Zub                   -> Artem Zub                  (6 seasons agree; game-log match (surname))
+  8482250  Cal Burke                    -> Callahan Burke             (3 seasons agree; game-log match (surname))
+  8479984  Callan Foote                 -> Cal Foote                  (4 seasons agree; game-log match (surname))
+  8483481  Cameron Lund                 -> Cam Lund                   (1 season agree; game-log match (surname))
+  8481546  Cameron York                 -> Cam York                   (6 seasons agree; game-log match (surname))
+  8476982  Danny O'Regan                -> Daniel O'Regan             (3 seasons agree; game-log match (surname))
+  8483526  Danny Zhilkin                -> Danil Zhilkin              (1 season agree; game-log match (surname))
+  8480328  Dave Gust                    -> David Gust                 (1 season agree; game-log match (surname))
+  8482929  Emil Lilleberg               -> Emil Martinsen Lilleberg   (3 seasons agree; game-log match (surname))
+  8474149  Evgenii Dadonov              -> Evgeny Dadonov             (9 seasons agree; game-log match (surname))
+  8482768  Fyodor Svechkov              -> Fedor Svechkov             (2 seasons agree; game-log match (surname))
+  8484312  Georgii Romanov              -> Georgi Romanov             (1 season agree; game-log match (surname))
+  8481422  Jake Lucchini                -> Jacob Lucchini             (3 seasons agree; game-log match (surname))
+  8482655  Janis Jérôme Moser           -> J.J. Moser                 (4 seasons agree; game-log match (surname; WAR splits a season under Janis Moser, not merged))
+  8476425  Joe Labate                   -> Joseph LaBate              (2 seasons agree; game-log match (surname))
+  8482175  John-Jason Peterka           -> JJ Peterka                 (5 seasons agree; game-log match (surname))
+  8480813  Joseph Veleno                -> Joe Veleno                 (6 seasons agree; game-log match (surname))
+  8482665  Matthew Beniers              -> Matty Beniers              (5 seasons agree; game-log match (surname))
+  8485702  Maxim Shabanov               -> Max Shabanov               (1 season agree; game-log match (surname))
+  8478051  Maxwell Willman              -> Max Willman                (3 seasons agree; game-log match (surname))
+  8478844  Mikhail Vorobyov             -> Mikhail Vorobyev           (2 seasons agree; game-log match (seasons))
+  8480246  Nicklaus Perbix              -> Nick Perbix                (4 seasons agree; game-log match (surname))
+  8481812  Nicolai Knyzhov              -> Nikolai Knyzhov            (4 seasons agree; game-log match (surname))
+  8481537  Nikita Okhotyuk              -> Nikita Okhotiuk            (3 seasons agree; game-log match (seasons))
+  8483668  Niklas Kokko                 -> Nikke Kokko                (1 season agree; game-log match (surname))
+  8476947  Nikolay Prokhorkin           -> Nikolai Prokhorkin         (1 season agree; game-log match (surname))
+  8481521  Ronald Attard                -> Ronnie Attard              (3 seasons agree; game-log match (surname))
+  8482102  Vasiliy Ponomarev            -> Vasily Ponomarev           (2 seasons agree; game-log match (surname))
+  8479510  Yegor Korshkov               -> Egor Korshkov              (1 season agree; game-log match (surname))
+  8481178  Yegor Zamula                 -> Egor Zamula                (6 seasons agree; game-log match (surname))
+  8481708  Zachary Jones                -> Zac Jones                  (5 seasons agree; game-log match (surname))
+  8482737  Zack Bolduc                  -> Zachary Bolduc             (3 seasons agree; game-log match (surname))
+  8481849  Zack Hayes                   -> Zachary Hayes              (1 season agree; game-log match (surname))
+
+UNRESOLVED WITH NHL GAMES: 31
+  8476330  Adam Wilcox                  unresolved: no candidate
+  8477990  Brandon Halverson            unresolved: no candidate
+  8478848  Ales Stezka                  unresolved: no candidate
+  8478903  Adam Huska                   unresolved: no candidate
+  8479016  Landon Bow                   unresolved: no candidate
+  8478933  Michael McNiven              unresolved: no candidate
+  8479288  Kasimir Kaskisuo             unresolved: no candidate
+  8479581  Jack Lafontaine              unresolved: no candidate
+  8479380  Dylan Wells                  unresolved: no candidate
+  8479530  Adam Werner                  unresolved: no candidate
+  8480022  Michael Dipietro             unresolved: no season agrees
+  8480191  Matt Villalta                unresolved: no candidate
+  8480199  Eetu Makiniemi               unresolved: no candidate
+  8480213  Gilles Senn                  unresolved: no candidate
+  8480042  Olle Eriksson Ek             unresolved: no candidate
+  8480363  Kaden Fulcher                unresolved: no candidate
+  8480885  Olivier Rodrigue             unresolved: no candidate
+  8480819  Jakub Skarek                 unresolved: no candidate
+  8481001  Veini Vehvilainen            unresolved: no candidate
+  8481501  Artyom Zagidulin             unresolved: no candidate
+  8481515  Danil Yurtaikin              unresolved: no candidate
+  8481707  Erik Portillo                unresolved: no candidate
+  8481597  Hugo Alnefelt                unresolved: no candidate
+  8478250  Vladimir Tkachyov            unresolved: no candidate
+  8482657  Sebastian Cossa              unresolved: no candidate
+  8482668  Tristan Lennox               unresolved: no candidate
+  8482949  Arseni Sergeyev              unresolved: no candidate
+  8483746  Vyacheslav Buteyets          unresolved: no candidate
+  8483045  Cameron Butler               unresolved: no season agrees
+  8484293  Yaniv Perets                 unresolved: no candidate
+  8484910  Victor Ostman                unresolved: no candidate
+
+wrote war_name_crosswalk.csv and its log in C:\Users\thoma\Desktop\xNPV\30_OUTPUT
+
+==============================================================================
+age_join.py  started 22:40:52
+==============================================================================
+Elite Prospects birthdates read from C:/Users/thoma/Desktop/xNPV/10_SOURCE\ep_birthdates.csv
+=== age_join run log ===
+WAR season-rows: 17123  |  distinct WAR players: 3199
+Age convention: age on 09-15 of the season's starting year
+
+Pass 1 exact matches : 1830
+Pass 2 fuzzy matches : 42
+Pass 3 manual matches: 13
+Pass 4 EP matches     : 1274  (+ 28 hand-corrected)
+Pass 5 sibling fixes : 10
+Implausible auto-matches voided by age gate: 18
+Unmatched players    : 2  (of which last seen 2018+: 2)
+Player match rate    : 99.9%
+Season-rows with age : 17112 / 17123 (99.9%)
+
+Collision resolutions (known same-name pairs):
+   Elias Pettersson       pos=F -> player_id=16947 (exact)
+   Elias Pettersson(D)    pos=D -> player_id=19253 (exact)
+   Sebastian Aho          pos=F -> player_id=6396 (exact)
+   Connor Murphy          pos=D -> player_id=4389 (exact)
+   Josh Anderson          pos=F -> player_id=4869 (exact)
+
+Identifier / name conflicts (review item 1.8):
+   identifiers carrying more than one name: 14
+   rows affected: 70   distinct players involved: 28
+   Each is a declared spelling of one player (SAME_PERSON_SPELLINGS; the
+   guard above stops on any other). They matter for birthdates, which
+   travel with the identifier, and for any join on it: a future join
+   must go through
+   join_on_id_and_name(), which matches on identifier AND name and
+   raises if the two disagree.
+   written: C:/Users/thoma/Desktop/xNPV/30_OUTPUT\age_join_id_conflicts.csv
+     id 5726 -> Nicholas Paul, Nick Paul
+     id 6235 -> Jacob Middleton, Jake Middleton
+     id 6391 -> Nicholas Merkley, Nick Merkley
+     id 6446 -> Thomas Novak, Tommy Novak
+     id 6453 -> Will Borgen, William Borgen
+     id 6851 -> Max Lajoie, Maxime Lajoie
+   guard self-test: fires correctly on a known conflict.
+
+Wrote: C:/Users/thoma/Desktop/xNPV/30_OUTPUT\WAR_with_age.csv (17123 rows), C:/Users/thoma/Desktop/xNPV/30_OUTPUT\age_join_misses.csv (2 rows), C:/Users/thoma/Desktop/xNPV/30_OUTPUT\age_join_log.txt
+
+==============================================================================
+elc_signing_dates.py  started 22:40:56
+==============================================================================
+elc_signing_dates.py v1.4 (2026-10-21)
+  input linkage: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\draft_pick_linkage.csv  (modified 2026-10-22 02:01)
+  input puckpedia: C:\Users\thoma\Desktop\xNPV\10_SOURCE\PuckPedia_Player_Contract_Export_May_22_2026__CONFIDENTIAL.csv  (modified 2026-10-05 00:20)
+
+[1] PuckPedia entry-level contracts with a signing date: 2,081 players (signed 2014-07-12 to 2026-05-21)
+[2] CapWages pages read: 1,864; with a draft line: 1,538; of those with an entry-level signing date: 1,428
+
+[3] drafted players with an NHL game (linkage war_names): 1,865
+    by source: puckpedia 913, capwages 742, none 210
+    PuckPedia and CapWages both present: same signing year 504, different 2; where the year agrees, same signing club 476, different 28
+    signing club held: 1,654 of 1,655 with a signing date
+    no signing date: 210, by draft: 2005 79, 2006 57, 2007 19, 2008 11, 2009 9, 2010 4, 2011 12, 2012 11, 2013 3, 2014 3, 2016 1, 2017 1
+    years from draft to signing: median 1, 0: 464, 1: 472, 2: 356, 3: 196, 4: 117, 5: 37, 6: 8, 7: 5
+    players under contract (PuckPedia entry-level, not in the drafted set): 1,164
+    v1.3: dates set aside, signed after his first NHL season ended (6):
+      2005 #21 Tuukka Rask: capwages 2011-05-05 (first NHL season 2007-08)
+      2008 #77 Michael Hutchinson: puckpedia 2018-07-01 (first NHL season 2013-14)
+      2008 #96 Matt Donovan: puckpedia 2018-11-05 (first NHL season 2011-12)
+      2008 #102 David Ullstrom: puckpedia 2018-05-15 (first NHL season 2011-12)
+      2011 #18 Mark McNeill: puckpedia 2018-07-01 (first NHL season 2015-16)
+      2012 #1 Nail Yakupov: capwages 2013-07-23 (first NHL season 2012-13)
+
+wrote C:\Users\thoma\Desktop\xNPV\30_OUTPUT\elc_signing_dates.csv and its log
+
+==============================================================================
+goalie_birthdates.py  started 22:40:59
+==============================================================================
+goalie_birthdates.py v1.0 (2026-10-21)
+NHL goalie bios: 1,793 goaltender-seasons, 354 goaltenders, seasons 2007-2025 ({'cache': 19})
+Goalies_WAR.csv: 1,639 rows, 1,560 goaltender-seasons, 280 names
+
+SEASONS IN WHICH THE WAR FILE'S NAME HOLDS TWO NHL PLAYERS (team rows summed by goalie_value_engine and the goalie panel): 1
+  Matt Murray 2022-23 (TOR/DAL): two players in one WAR season (8476899 26 games; 8483575 3 games); birthdate of the one with more games
+
+THE MATT MURRAYS: the NHL has 2 goaltenders under the name: 8476899 born 1994-05-25; 8483575 born 1998-02-02
+  2015-16 PIT: WAR games 13, one id -> 8476899 born 1994-05-25
+  2016-17 PIT: WAR games 49, one id -> 8476899 born 1994-05-25
+  2017-18 PIT: WAR games 49, one id -> 8476899 born 1994-05-25
+  2018-19 PIT: WAR games 50, one id -> 8476899 born 1994-05-25
+  2019-20 PIT: WAR games 38, one id -> 8476899 born 1994-05-25
+  2020-21 OTT: WAR games 27, one id -> 8476899 born 1994-05-25
+  2021-22 OTT: WAR games 20, one id -> 8476899 born 1994-05-25
+  2022-23 TOR: WAR games 26, resolved by games -> 8476899 born 1994-05-25
+  2022-23 DAL: WAR games 3, resolved by games -> 8483575 born 1998-02-02
+  2024-25 TOR: WAR games 2, one id -> 8476899 born 1994-05-25
+  2025-26 SEA: WAR games 5, one id -> 8476899 born 1994-05-25
+
+AGAINST PUCKPEDIA: 1,193 goaltender-seasons carry both dates; they disagree for 0 (0 names with one NHL id)
+
+COVERAGE: goaltender-seasons with an NHL birthdate 1,552 of 1,560; with PuckPedia's 1,201; with either 1,560
+  goaltenders: NHL 277 of 280; PuckPedia 187; either 280
+  status one id: 1,551
+  status not in the NHL's records: 8
+  status two players in one WAR season (8476899 26 games; 8483575 3 games); birthdate of the one with more games: 1
+  NO NHL BIRTHDATE: Cal Petersen (2018, 2019, 2020, 2021, 2022, 2023; not in the NHL's records)
+  NO NHL BIRTHDATE: Georgi Romanov (2024; not in the NHL's records)
+  NO NHL BIRTHDATE: Ken Appleby (2017; not in the NHL's records)
+
+written: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\goalie_birthdates.csv
+
+==============================================================================
+goalie_value_engine.py  started 22:41:04
+==============================================================================
+==========================================================================
+STAGE G: the goaltender price line (v2.0: the track-record forecast, kept 35% and pulled toward the league average, dated at the signing, censored at the league minimum, with term)
+==========================================================================
+[rate] control years priced on: xNPV 1 term-in line  alpha=-0.00430925  beta_F=0.01750927  beta_D=0.02158576
+  left out, no forecast at the signing: 160
+  left out, no season in the year before the signing (stale anchor): 81
+  term-in: n=333 (fingerprint 079356e187fe; 57 at the minimum)  alpha=-0.0317074413 ($-3.03M)  beta=0.0213830910 ($2.042M per WAR)  gamma_term=0.0081170278 ($0.775M per year)  sigma=0.01277566  converged True
+  term-free: n=333 (fingerprint 079356e187fe; 57 at the minimum)  alpha=-0.0418477388 ($-4.00M)  beta=0.0362527068 ($3.462M per WAR)  sigma=0.01696536  converged True
+  [guard] term-in against the lock: n 333 (locked 333), fingerprint 079356e187fe (locked 079356e187fe), largest gap 4.6e-11: PASS
+    GOALIE_RATE = dict(alpha=-0.0317074413, beta=0.0213830910, gamma_term=0.0081170278, n=333, sigma=0.01277566, rows_fingerprint="079356e187fe")
+  [guard] term-free against the lock: n 333 (locked 333), fingerprint 079356e187fe (locked 079356e187fe), largest gap 4.5e-11: PASS
+    GOALIE_RATE_TERM_FREE = dict(alpha=-0.0418477388, beta=0.0362527068, gamma_term=0.0000000000, n=333, sigma=0.01696536, rows_fingerprint="079356e187fe")
+==========================================================================
+STAGE L: lambda re-estimation + goalie_value_spine_v2.csv
+==========================================================================
+   PRORATED: lambda* = 0.65   (n=928 season-targets, 183 goalies)  MSE near optimum: {np.float64(0.55): 7.351397, np.float64(0.6): 7.330529, np.float64(0.65): 7.329732, np.float64(0.7): 7.349008, np.float64(0.75): 7.388356}
+
+  --- item 1.1: flat carry into out-years -----------------------
+  locked-file placeholder rows: 181 (85 goaltenders)
+    -> flat carry applied:      98 rows (38 goaltenders)
+    -> never played, retag only:81 rows (45 goaltenders)
+    -> now priced from his own seasons (name crosswalk): 2 rows (Aleksei Kolosov, Nikke Kokko)
+    -> gone, seasons placed before a bought-out deal started (2026-10-19): 0 rows
+  value change on carried rows: mean |diff| $2,322,167/season, max $3,575,591/season, net $-124.0M
+  largest upward corrections (locked file was UNDERvaluing):
+    Igor Shesterkin        6 season(s)  own proj 3.444  +2,684,817/season
+    Ilya Sorokin           5 season(s)  own proj 3.521  +1,929,676/season
+    Logan Thompson         4 season(s)  own proj 3.792  +1,658,094/season
+    Jake Oettinger         6 season(s)  own proj 2.942  +1,429,908/season
+    Jeremy Swayman         5 season(s)  own proj 3.083  +834,767/season
+    Connor Hellebuyck      4 season(s)  own proj 3.287  +394,326/season
+  largest downward corrections (locked file was OVERvaluing):
+    Kevin Lankinen         3 season(s)  own proj 1.620  -3,493,615/season
+    Artur Akhtyamov        2 season(s)  own proj 1.463  -3,452,627/season
+    Thatcher Demko         2 season(s)  own proj 2.111  -3,433,422/season
+    Joonas Korpisalo       1 season(s)  own proj 1.406  -3,412,933/season
+  carry reach (seasons back): min 1, median 2, max 6
+  ---------------------------------------------------------------
+
+  goaltender constants: lambda=0.65; the price line is contract_npv.GOALIE_RATE (333 contracts, fingerprint 079356e187fe)
+  wrote goalie_value_spine_v2.csv: 1,740 rows (995 priced)
+
+run log written: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\goalie_value_engine_run_log.txt
+
+==============================================================================
+skater_forward_projection.py  started 22:41:16
+==============================================================================
+==========================================================================
+LAYER 2 VALIDATION BATTERY  (xNPV 1)
+==========================================================================
+
+[1] Stage 3 constants equal skater_value_engine.NEW_LOCKED: largest gap 0.0e+00
+    in force: xNPV 1 term-in line: $-0.412M + $1.672M per forecast win (forwards), $2.061M (defence), + $0.851M a season per year of remaining term, at the $95.5M ceiling
+    sensitivity: xNPV 1 term-free line: $0.780M + $2.978M per forecast win (forwards), $4.350M (defence)
+
+[2] E[max(price, floor)], closed form against 4,000,000 draws:
+    point $0.50M, spread $1.50M: closed $1,245,942  simulated $1,245,835  (gap $107, 5 s.e. $1,952)
+    point $0.90M, spread $1.00M: closed $1,239,555  simulated $1,240,466  (gap $911, 5 s.e. $1,566)
+    point $3.00M, spread $2.50M: closed $3,255,713  simulated $3,257,055  (gap $1,342, 5 s.e. $5,274)
+  [xNPV 1] birthdates: production's own join (WAR_with_age.csv, 3204 keys) as primary, then the Elite Prospects scrape for 0 keys it lacks
+  [age] xnpv1_birthdates.csv: 3204 keys on a pre-built pkey
+  production age table: birthdate on 99.94% of season rows (C:\Users\thoma\Desktop\xNPV\30_OUTPUT\WAR_with_age.csv)
+  [xNPV 1] page 2023: fitted through season 2022, 1002 players forecast, fitted horizons 0-11, reads contracts: True
+  [xNPV 1] page 2024: fitted through season 2023, 1013 players forecast, fitted horizons 0-12, reads contracts: True
+  [xNPV 1] page 2018: fitted through season 2017, 1001 players forecast, fitted horizons 0-8, reads contracts: True
+  [xNPV 1] page 2021: fitted through season 2020, 986 players forecast, fitted horizons 0-10, reads contracts: True
+  [xNPV 1] page 2025: fitted through season 2024, 983 players forecast, fitted horizons 0-12, reads contracts: True
+  [xNPV 1] page 2022: fitted through season 2021, 1013 players forecast, fitted horizons 0-11, reads contracts: True
+  [xNPV 1] page 2019: fitted through season 2018, 998 players forecast, fitted horizons 0-9, reads contracts: True
+  [xNPV 1] page 2020: fitted through season 2019, 994 players forecast, fitted horizons 0-9, reads contracts: True
+
+[3] 300 sampled contracts (first 2018-2025 season): 163 priced, 137 with no xNPV 1 forecast on their page
+    346 seasons recomputed from forecast, line, cap path and floor: largest gap $0.00e+00
+
+[4] spot demos:
+    Connor McDavid from 2024 (age 27, trailing total 7.54 WAR):
+      2024-25  k=0  WAR if plays +5.72  plays 0.995  value $10.01M  cost $12.50M  surplus $ -2.49M
+      2025-26  k=1  WAR if plays +5.48  plays 0.995  value $ 9.93M  cost $12.50M  surplus $ -2.57M
+    Brad Marchand from 2023 (age 35, trailing total 2.55 WAR):
+      2023-24  k=0  WAR if plays +1.60  plays 0.968  value $ 3.47M  cost $ 6.12M  surplus $ -2.66M
+      2024-25  k=1  WAR if plays +1.31  plays 0.931  value $ 3.17M  cost $ 6.12M  surplus $ -2.96M
+    Matvei Michkov from 2025 (age 20, trailing total 2.24 WAR):
+      2025-26  k=0  WAR if plays +2.15  plays 0.995  value $ 4.88M  cost $ 0.95M  surplus $ +3.93M
+      2026-27  k=1  WAR if plays +2.45  plays 0.995  value $ 5.55M  cost $ 0.95M  surplus $ +4.60M
+
+run log written: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\skater_projection_run_log.txt
+
+==============================================================================
+rfa_terminal_value.py  started 22:42:05
+==============================================================================
+[rate] control years priced on: xNPV 1 term-in line  alpha=-0.00430925  beta_F=0.01750927  beta_D=0.02158576
+  [xNPV 1] birthdates: production's own join (WAR_with_age.csv, 3204 keys) as primary, then the Elite Prospects scrape for 0 keys it lacks
+  [age] xnpv1_birthdates.csv: 3204 keys on a pre-built pkey
+  production age table: birthdate on 99.94% of season rows (C:\Users\thoma\Desktop\xNPV\30_OUTPUT\WAR_with_age.csv)
+  [xNPV 1] page 2019: fitted through season 2018, 998 players forecast, fitted horizons 0-9, reads contracts: True
+  [xNPV 1] page 2020: fitted through season 2019, 994 players forecast, fitted horizons 0-9, reads contracts: True
+  [xNPV 1] page 2021: fitted through season 2020, 986 players forecast, fitted horizons 0-10, reads contracts: True
+  [xNPV 1] page 2022: fitted through season 2021, 1013 players forecast, fitted horizons 0-11, reads contracts: True
+  [xNPV 1] page 2023: fitted through season 2022, 1002 players forecast, fitted horizons 0-11, reads contracts: True
+  [xNPV 1] page 2024: fitted through season 2023, 1013 players forecast, fitted horizons 0-12, reads contracts: True
+  [xNPV 1] page 2025: fitted through season 2024, 983 players forecast, fitted horizons 0-12, reads contracts: True
+==========================================================================
+PHASE 1c VALIDATION BATTERY  (QO mechanics self-test passed on import)
+==========================================================================
+
+[1] skater contracts ending 2018-2025: 5,074
+    UFA        2,487   -> TV = 0 (locked)
+    RFA        1,973   -> TV computed
+    UFA no QO    614   -> TV = 0 (locked)
+
+[2] projected first-control-year QO vs the player's ACTUAL next contract:
+    n = 1,439 RFA-expiring contracts with an observed next deal
+    actual cap hit >= projected QO: 48.1% of cases
+    median (actual - QO) = $-0.01M   mean = $+0.69M
+    Reading: at the MEDIAN, real re-signings land almost exactly at the
+    QO -- so QO-cost pricing is approximately right for the typical
+    (fringe) RFA. The positive MEAN gap is concentrated in good players,
+    who really do cost more than their QO to retain -- for them, QO
+    pricing is the team-favourable upper bound on surplus. [paper note]
+    [1.10] qualifying-offer salary source: 1,078 real vs 361 substitutes (25% substituted) -- documented limitation, not a repair
+
+[3] terminal values, valued from each contract's FINAL season:
+  [xNPV 1] page 2018: fitted through season 2017, 1001 players forecast, fitted horizons 0-8, reads contracts: True
+    D14(c) calibration table (estimated from the spine this run; bucketed on xNPV 1 forecast, WAR if he plays):
+      bucket     P(qual) FIXED       n    P(qual) PRE-FIX       n
+      star              100.0%      10             100.0%      10
+      regular            96.0%     176              96.0%     176
+      fringe             78.0%     904              78.0%     904
+      negative           65.4%   1,180              70.4%     240
+    open decision 1: P(plays next season | qualified), one-game bar, players who played the contract's final season, and the yearly weight:
+      star      P(plays | qualified) 100.0% (n 10)   weight a year 1.000
+      regular   P(plays | qualified) 100.0% (n 166)   weight a year 0.960
+      fringe    P(plays | qualified)  88.0% (n 652)   weight a year 0.687
+      negative  P(plays | qualified)  67.8% (n 329)   weight a year 0.443
+    [Stage 4] overall walk-away rate: 20.8% (n=1,330, pre-fix) -> 27.0% (n=2,270, fixed)
+    [Stage 4] review expected 21.3% (n=1,231) -> 27.0% (n=2,270), with star/regular/fringe unchanged. Compare the table above.
+    computed for 1,002 contracts (status ok; others: no anchor / data flags)
+    truncation (D13) binds on 1.1% of contracts (raw sum > truncated)
+    bucket             n   median TV     mean TV  (truncated)
+    star 3+           13  $    0.31M  $    2.60M   -> adjusted: $  0.31M med, $  2.58M mean
+    regular 1-3      150  $    0.17M  $    1.08M   -> adjusted: $  0.16M med, $  1.01M mean
+    fringe 0-1       488  $    0.00M  $    0.28M   -> adjusted: $  0.00M med, $  0.19M mean
+    negative         351  $    0.00M  $    0.01M   -> adjusted: $  0.00M med, $  0.00M mean
+    NOTE (D14c, resolved): under the intercept convention alone, fringe
+    and negative players carried inflated TVs (the model predicted only
+    18% of real walk-aways). The adjusted column applies the empirical
+    qualify-rate survival chain above, calibrated from 1,200+ observed
+    team decisions -- reality-weighted, not theory-picked.
+
+[4] spot demos (valued from the contract's final season):
+    Matvei Michkov (valued from 2025, anchor +2.24 WAR, 4 control years, path=xNPV 1):
+      2027-28  WAR +2.53  value $ 4.96M  QO $1.14M  surplus $ +3.82M
+      2028-29  WAR +2.62  value $ 5.26M  QO $1.25M  surplus $ +0.47M
+      2029-30  WAR +2.56  value $ 5.31M  QO $4.79M  surplus $ +0.46M
+      2030-31  WAR +2.73  value $ 5.81M  QO $4.85M  surplus $ +0.38M
+      TERMINAL VALUE: $4.81M adjusted (D14c) | $5.13M unadjusted | $5.13M raw
+    Lane Hutson (valued from 2025, anchor +1.67 WAR, 5 control years, path=xNPV 1):
+      2026-27  WAR +1.54  value $ 3.73M  QO $1.40M  surplus $ +2.33M
+      2027-28  WAR +1.51  value $ 3.77M  QO $1.47M  surplus $ +0.54M
+      2028-29  WAR +1.52  value $ 3.90M  QO $3.23M  surplus $ +0.53M
+      2029-30  WAR +1.40  value $ 3.75M  QO $3.36M  surplus $ +0.38M
+      2030-31  WAR +1.41  value $ 3.88M  QO $3.36M  surplus $ +0.47M
+      TERMINAL VALUE: $3.90M adjusted (D14c) | $4.26M unadjusted | $4.26M raw
+    Wyatt Johnston: ufa_expiry
+
+run log written: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\rfa_terminal_value_run_log.txt
+
+==============================================================================
+exit_hazard.py  started 22:43:27
+==============================================================================
+==========================================================================
+EXIT HAZARD ESTIMATION  (GP>=10 skater-seasons, t=2018-2024)
+==========================================================================
+
+player-season transitions: 5,346   age coverage: 100.0%
+overall exit hazard: 10.59% per year
+of exiters, later returned (t+2 or t+3): 18.4% (true exits are ~8.64%/yr)
+
+by transition year (watch 2019->20 and 2020->21 for COVID effects):
+    2018->2019: 12.52%   (n=767)
+    2019->2020: 10.73%   (n=736)
+    2020->2021:  7.42%   (n=728)
+    2021->2022: 12.24%   (n=809)
+    2022->2023: 11.24%   (n=774)
+    2023->2024: 10.12%   (n=771)
+    2024->2025:  9.59%   (n=761)
+
+exit hazard by QUALITY bucket (season WAR):
+    star       0.97%   (n=308)
+    regular    1.10%   (n=1,274)
+    fringe    10.55%   (n=2,048)
+    negative  19.41%   (n=1,716)
+
+exit hazard by AGE group:
+    <=22    6.16%   (n=942)
+    23-26   9.67%   (n=1,892)
+    27-30   8.94%   (n=1,522)
+    31-34  14.43%   (n=776)
+    35+    36.32%   (n=212)
+
+exit hazard, QUALITY x AGE (the candidate lookup table):
+    bucket          <=22     23-26     27-30     31-34       35+
+    star          0.0%(  35)    0.7%( 145)    1.2%(  81)    0.0%(  34)    7.7%(  13)
+    regular       0.5%( 209)    1.0%( 403)    0.7%( 423)    2.0%( 203)    5.6%(  36)
+    fringe        5.5%( 397)    8.9%( 739)    9.0%( 554)   18.4%( 272)   33.3%(  84)
+    negative     11.6%( 301)   18.5%( 605)   17.7%( 464)   21.7%( 267)   58.2%(  79)
+
+==========================================================================
+ITEM 1.4 -- SKATERS: thin cells replaced by the fitted risk model
+==========================================================================
+transitions: 5,344   age unknown (falls through to the bucket marginal): 2
+additive vs full-interaction LR test: chi2=9.36, df=12, p=0.672
+  A high p means the cells carry nothing beyond quality and age
+  acting separately, so main effects are not discarding structure.
+
+raw cell mean (exits/n)  ->  fitted:
+  bucket                    <=22                23-26                27-30                31-34                  35+
+  star         0.00(0/35)-> 0.48   0.69(1/145)-> 0.81    1.23(1/81)-> 0.79    0.00(0/34)-> 1.30    7.69(1/13)-> 4.40
+  regular     0.48(1/209)-> 0.56   0.99(4/403)-> 0.96   0.71(3/423)-> 0.93   1.97(4/203)-> 1.54    5.56(2/36)-> 5.18
+  fringe     5.54(22/397)-> 5.81  8.93(66/739)-> 9.56  9.03(50/554)-> 9.28 18.38(50/272)->14.56  33.33(28/84)->37.26
+  negative  11.63(35/301)->11.1618.51(112/605)->17.73 17.67(82/464)->17.25 21.72(58/267)->25.78  58.23(46/79)->54.76
+  bucket marginals (unknown-age fallback, raw by design): star 0.97%  regular 1.10%  fringe 10.55%  negative 19.41%
+
+fit on well-populated cells (n>=150, 12 cells): worst deviation 4.06pp (negative 31-34, n=267)
+cells that read exactly 0.0% before this change: 2 -- star <=22, star 31-34
+  each now carries the model's rate; none reads zero.
+
+sensitivity, GP>=1 population: 16.43%/yr (higher, as expected -- cup-of-coffee players churn out; the GP>=10 figure is the one that matches the priced population)
+
+run log written: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\exit_hazard_run_log.txt
+
+==============================================================================
+contract_npv.py  started 22:43:30
+==============================================================================
+[rate] control years priced on: xNPV 1 term-in line  alpha=-0.00430925  beta_F=0.01750927  beta_D=0.02158576
+  [xNPV 1] birthdates: production's own join (WAR_with_age.csv, 3204 keys) as primary, then the Elite Prospects scrape for 0 keys it lacks
+  [age] xnpv1_birthdates.csv: 3204 keys on a pre-built pkey
+  production age table: birthdate on 99.94% of season rows (C:\Users\thoma\Desktop\xNPV\30_OUTPUT\WAR_with_age.csv)
+  [xNPV 1] page 2019: fitted through season 2018, 998 players forecast, fitted horizons 0-9, reads contracts: True
+  [xNPV 1] page 2020: fitted through season 2019, 994 players forecast, fitted horizons 0-9, reads contracts: True
+  [xNPV 1] page 2021: fitted through season 2020, 986 players forecast, fitted horizons 0-10, reads contracts: True
+  [xNPV 1] page 2022: fitted through season 2021, 1013 players forecast, fitted horizons 0-11, reads contracts: True
+  [xNPV 1] page 2023: fitted through season 2022, 1002 players forecast, fitted horizons 0-11, reads contracts: True
+  [xNPV 1] page 2024: fitted through season 2023, 1013 players forecast, fitted horizons 0-12, reads contracts: True
+  [xNPV 1] page 2025: fitted through season 2024, 983 players forecast, fitted horizons 0-12, reads contracts: True
+==========================================================================
+PHASE 1d VALIDATION BATTERY
+contract_npv.py v3.4
+==========================================================================
+  skater model: xNPV 1
+  [xNPV 1] page 2018: fitted through season 2017, 1001 players forecast, fitted horizons 0-8, reads contracts: True
+
+[1a] skater valuation season under xNPV 1: 124 sampled rows carry xNPV 1's own
+     forecast (largest gap 0.0e+00)
+[1b] goalie k=0 forecast vs goalie spine: 774 rows, max diff 8.88e-16 WAR
+     rows beyond 1e-9 WAR: 0 -- each one must be a JOIN RECOVERY (this engine's name normalizer finds an NHL history the spine's weaker join missed, e.g. Zachary->Zach Sawchenko); anything else is a real inconsistency.
+
+[1c] goalie control-year weight (open decision 1): 103 decisions, 92 qualified (played the final contract season); P(qualified) 0.893 x P(plays | qualified) 0.859 = 0.767 a year (July 2026 test: 0.909 x 0.867 = 0.788, n 99)
+
+[2] goalie exit hazard (GP>=10 goalie-seasons, t=2018-2024, n=502):
+    overall: 11.55%/yr   age known: 100%
+    <=22   16.13%   (n=31)
+    23-26   5.23%   (n=153)
+    27-30   8.81%   (n=159)
+    31-34  13.64%   (n=110)
+    35+    32.65%   (n=49)
+
+==========================================================================
+ITEM 1.4 -- GOALIES: thin cells replaced by the fitted risk model
+==========================================================================
+transitions: 502   age unknown (falls through to the bucket marginal): 0
+additive vs full-interaction LR test: chi2=10.47, df=12, p=0.575
+  A high p means the cells carry nothing beyond quality and age
+  acting separately, so main effects are not discarding structure.
+
+raw cell mean (exits/n)  ->  fitted:
+  bucket                    <=22                23-26                27-30                31-34                  35+
+  star          0.00(0/4)-> 3.81    0.00(0/51)-> 1.33    4.44(2/45)-> 2.44    5.88(2/34)-> 4.06     0.00(0/7)-> 9.86
+  regular      0.00(0/10)-> 9.07    2.70(1/37)-> 3.29    7.55(4/53)-> 5.93    8.82(3/34)-> 9.64   25.00(4/16)->21.60
+  fringe       12.50(1/8)->21.95   14.81(4/27)-> 8.75   13.79(4/29)->15.08   18.75(3/16)->23.13   45.45(5/11)->43.72
+  negative     44.44(4/9)->24.28    7.89(3/38)-> 9.85   12.50(4/32)->16.84   26.92(7/26)->25.54   46.67(7/15)->46.96
+  bucket marginals (unknown-age fallback, raw by design): star 2.84%  regular 8.00%  fringe 18.68%  negative 20.83%
+
+no cell reaches n=150 (largest is n=53), so there is no well-populated cell to check the fit against -- which is the argument for the model rather than a caveat to it.
+cells that read exactly 0.0% before this change: 4 -- star <=22, star 23-26, star 35+, regular <=22
+  each now carries the model's rate; none reads zero.
+
+[3] full sweep: NPV of every contract from its first season in 2018-2025...
+    priced: 3,196 contracts (2,804 skater, 392 goalie)
+    NPV distribution ($M): p10 -3.41  median +0.13  p90 +2.11
+    discounting bite: median (undiscounted - NPV) = $0.32M
+
+    top 8 ASSET BUNDLES by NPV -- contract + remaining RFA control
+    years (D14c). Cheap control years, not famous extensions, are
+    where surplus lives, so expect young RFA-controlled players here:
+      John Gibson              2019  8yr  NPV $ +30.79M (contract +30.79 / terminal +0.00)
+      Trent Frederic           2025  8yr  NPV $ +23.33M (contract +23.33 / terminal +0.00)
+      Pierre Engvall           2023  7yr  NPV $ +21.60M (contract +21.60 / terminal +0.00)
+      Dylan Guenther           2025  8yr  NPV $ +20.77M (contract +20.77 / terminal +0.00)
+      Joel Eriksson Ek         2021  8yr  NPV $ +20.39M (contract +20.39 / terminal +0.00)
+      Jaccob Slavin            2025  8yr  NPV $ +19.66M (contract +19.66 / terminal +0.00)
+      William Karlsson         2019  8yr  NPV $ +19.43M (contract +19.43 / terminal +0.00)
+      Sam Reinhart             2024  8yr  NPV $ +19.34M (contract +19.34 / terminal +0.00)
+
+    bottom 5 (should read like famous albatrosses):
+      Carey Price              2018  8yr  NPV $ -49.67M
+      Erik Karlsson            2019  8yr  NPV $ -45.46M
+      Drew Doughty             2019  8yr  NPV $ -44.33M
+      Seth Jones               2022  8yr  NPV $ -30.83M
+      Mikko Rantanen           2025  8yr  NPV $ -30.68M
+
+[4] decomposition demo -- Michkov 2025 (contract + terminal):
+      contract 2025  k=0  WAR +2.15  S=0.995  disc=1.000  pv $ +3.91M
+      contract 2026  k=1  WAR +2.45  S=0.995  disc=0.971  pv $ +4.44M
+      terminal 2027  k=2  WAR +2.53  S=0.955  disc=0.943  pv $ +3.44M
+      terminal 2028  k=3  WAR +2.62  S=0.917  disc=0.915  pv $ +0.40M
+      terminal 2029  k=4  WAR +2.56  S=0.881  disc=0.888  pv $ +0.36M
+      terminal 2030  k=5  WAR +2.73  S=0.846  disc=0.863  pv $ +0.28M
+      NPV total $+12.83M  (contract +8.35 + terminal +4.47; undiscounted +13.35)
+
+    xNPV 1 forecasts used by this run written: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\xnpv1_forecasts.csv
+
+run log written: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\contract_npv_run_log.txt
+NPV spine written: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\contract_npv_spine.csv
+
+==============================================================================
+contract_npv_panel.py  started 22:47:21
+==============================================================================
+[rate] control years priced on: xNPV 1 term-in line  alpha=-0.00430925  beta_F=0.01750927  beta_D=0.02158576
+==========================================================================
+CONTRACT NPV PANEL  --  VALIDATION EXHIBIT, NOT A BACK-TEST INPUT
+==========================================================================
+Each contract is valued from EVERY league-year it is active, re-
+anchored on that year's trailing window. Convergence diagnostic only:
+a historical trade is scored on its OWN year's page and no other.
+
+  [xNPV 1] birthdates: production's own join (WAR_with_age.csv, 3204 keys) as primary, then the Elite Prospects scrape for 0 keys it lacks
+  [age] xnpv1_birthdates.csv: 3204 keys on a pre-built pkey
+  production age table: birthdate on 99.94% of season rows (C:\Users\thoma\Desktop\xNPV\30_OUTPUT\WAR_with_age.csv)
+  [xNPV 1] page 2019: fitted through season 2018, 998 players forecast, fitted horizons 0-9, reads contracts: True
+  [xNPV 1] page 2020: fitted through season 2019, 994 players forecast, fitted horizons 0-9, reads contracts: True
+  [xNPV 1] page 2021: fitted through season 2020, 986 players forecast, fitted horizons 0-10, reads contracts: True
+  [xNPV 1] page 2022: fitted through season 2021, 1013 players forecast, fitted horizons 0-11, reads contracts: True
+  [xNPV 1] page 2023: fitted through season 2022, 1002 players forecast, fitted horizons 0-11, reads contracts: True
+  [xNPV 1] page 2024: fitted through season 2023, 1013 players forecast, fitted horizons 0-12, reads contracts: True
+  [xNPV 1] page 2025: fitted through season 2024, 983 players forecast, fitted horizons 0-12, reads contracts: True
+panel jobs (contract x active league-year): 13,004
+  [xNPV 1] page 2018: fitted through season 2017, 1001 players forecast, fitted horizons 0-8, reads contracts: True
+  [xNPV 1] page 2026: fitted through season 2025, 995 players forecast, fitted horizons 0-12, reads contracts: True
+panel rows written: 7,890   (skipped: 5,114 -> {'unpriced_no_anchor': 4488, 'no_contract': 3, 'unpriced_no_history': 623})
+output: contract_npv_panel.csv
+
+==========================================================================
+PANEL VALIDATION VIEWS
+==========================================================================
+
+[1] contracts priced per league-year (page size):
+    2018:   878 contracts   median NPV $-0.26M   incl. a signed extension: 5
+    2019:   886 contracts   median NPV $-0.07M   incl. a signed extension: 1
+    2020:   875 contracts   median NPV $-0.16M   incl. a signed extension: 0
+    2021:   906 contracts   median NPV $-0.28M   incl. a signed extension: 0
+    2022:   953 contracts   median NPV $-0.11M   incl. a signed extension: 0
+    2023:   932 contracts   median NPV $-0.09M   incl. a signed extension: 1
+    2024:   908 contracts   median NPV $-0.08M   incl. a signed extension: 8
+    2025:   901 contracts   median NPV $-0.11M   incl. a signed extension: 6
+    2026:   651 contracts   median NPV $-0.41M   incl. a signed extension: 0
+
+[2] convergence exhibit -- young-star extensions, NPV by page:
+    (negative early = trailing WAR can't see the breakout yet;
+     climbing later = production has arrived in the trailing window)
+    Cale Makar           2020:$+6M  2021:$-1M  2022:$+6M  2023:$-2M  2024:$-9M  2025:$-6M  2026:$-4M
+    Quinn Hughes         2020:$+7M  2021:$-11M  2022:$-11M  2023:$-11M  2024:$-5M  2025:$-2M  2026:$-1M
+    Jack Hughes          2020:$+2M  2021:$+1M  2022:$+19M  2023:$+21M  2024:$+13M  2025:$+9M  2026:$+1M
+    Luke Hughes          2024:$+4M  2025:$-13M  2026:$-19M
+    Auston Matthews      2018:$+12M  2019:$-13M  2020:$-9M  2021:$-6M  2022:$-2M  2023:$-3M  2024:$-4M  2025:$-13M  2026:$-13M
+    Elias Pettersson     2019:$+14M  2020:$+9M  2021:$-4M  2022:$-3M  2023:$-2M  2024:$+3M  2025:$+4M  2025:$-10M  2026:$+1M  2026:$-21M
+
+[3] sample page -- 2024, top 8 and bottom 5 by NPV (ELC seasons
+    excluded from this leaderboard view; they remain in the CSV):
+    (2024 page: 892 veteran-deal rows shown, 16 ELC rows hidden)
+    +  Jaccob Slavin          $ +25.9M  (9yr left)
+    +  Juraj Slafkovský       $ +24.4M  (9yr left)
+    +  Sam Reinhart           $ +19.3M  (8yr left)
+    +  Seth Jarvis            $ +18.5M  (8yr left)
+    +  Owen Tippett           $ +17.9M  (8yr left)
+    +  Gustav Forsling        $ +15.7M  (8yr left)
+    +  Brandon Hagel          $ +15.5M  (8yr left)
+    +  Jesper Bratt           $ +14.3M  (7yr left)
+    ...
+    -  Darnell Nurse          $ -21.9M  (6yr left)
+    -  Zach Werenski          $ -22.0M  (4yr left)
+    -  Johnny Gaudreau        $ -22.2M  (5yr left)
+    -  Sean Couturier         $ -30.5M  (6yr left)
+    -  Jonathan Huberdeau     $ -36.8M  (7yr left)
+
+[4] FIREWALL: this file is a diagnostic. Do NOT join it to trades
+    to score mispricing -- use contract_npv_spine.csv (each trade at
+    its own date). Every row here is tagged artifact_role =
+    'VALIDATION_PANEL_not_backtest_input' so the boundary travels
+    with the data.
+
+run log written: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\contract_npv_panel_run_log.txt
+
+==============================================================================
+player_dashboard.py  started 22:53:19
+==============================================================================
+[rate] control years priced on: xNPV 1 term-in line  alpha=-0.00430925  beta_F=0.01750927  beta_D=0.02158576
+player_dashboard.py v1.4 (2026-10-21)
+refresh record: chain run 2026-10-21 22:40, commit 9441700, 11 upstream steps passed
+==========================================================================
+panel rows: 7,890  players: 1,692
+duplicate player-season pages collapsed (identical values): 38
+  [xNPV 1] birthdates: production's own join (WAR_with_age.csv, 3204 keys) as primary, then the Elite Prospects scrape for 0 keys it lacks
+  [age] xnpv1_birthdates.csv: 3204 keys on a pre-built pkey
+  production age table: birthdate on 99.94% of season rows (C:\Users\thoma\Desktop\xNPV\30_OUTPUT\WAR_with_age.csv)
+  [xNPV 1] page 2019: fitted through season 2018, 998 players forecast, fitted horizons 0-9, reads contracts: True
+  [xNPV 1] page 2020: fitted through season 2019, 994 players forecast, fitted horizons 0-9, reads contracts: True
+  [xNPV 1] page 2021: fitted through season 2020, 986 players forecast, fitted horizons 0-10, reads contracts: True
+  [xNPV 1] page 2022: fitted through season 2021, 1013 players forecast, fitted horizons 0-11, reads contracts: True
+  [xNPV 1] page 2023: fitted through season 2022, 1002 players forecast, fitted horizons 0-11, reads contracts: True
+  [xNPV 1] page 2024: fitted through season 2023, 1013 players forecast, fitted horizons 0-12, reads contracts: True
+  [xNPV 1] page 2025: fitted through season 2024, 983 players forecast, fitted horizons 0-12, reads contracts: True
+  [xNPV 1] page 2018: fitted through season 2017, 1001 players forecast, fitted horizons 0-8, reads contracts: True
+  [xNPV 1] page 2026: fitted through season 2025, 995 players forecast, fitted horizons 0-12, reads contracts: True
+pages re-run through the engine and matched the panel: 7,852
+in-season extension variants added: 743
+bio rows: 1,692  players with contracts: 1,692
+players linked to a draft record (2005-2026 linkage): 1,300
+players with a WAR history: 1,690 (skater name-fallback season rows: 0)
+trade legs for panel players: 1,174 across 744 trades
+wrote C:\Users\thoma\Desktop\xNPV\30_OUTPUT\player_dashboard.html  (5.1 MB)
+CONFIDENTIAL: embeds PuckPedia data. Keep local; do not commit or share.

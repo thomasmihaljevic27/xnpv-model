@@ -1,0 +1,443 @@
+player,team,gp,g,a,tp,p_per_gp,pim,plus_minus,link,page,playername,position,season,league,ep_player_id,scrape_date,source,package_version
+Ryan Lasch (RW),Frölunda HC,52,13,53,66,1.27,8,-1,/player/12382/ryan-lasch,1,Ryan Lasch,RW,2021-2022,shl,12382,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Véronneau (RW),Leksands IF,51,34,26,60,1.18,14,18,/player/206777/max-veronneau,1,Max Véronneau,RW,2021-2022,shl,206777,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Omark (LW),Luleå HF,52,21,37,58,1.12,32,11,/player/4008/linus-omark,1,Linus Omark,LW,2021-2022,shl,4008,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Karlkvist (RW),IK Oskarshamn,49,26,26,52,1.06,2,6,/player/20063/patrik-karlkvist,1,Patrik Karlkvist,RW,2021-2022,shl,20063,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Johnson (C/LW),Skellefteå AIK,51,14,38,52,1.02,16,10,/player/21816/jonathan-johnson,1,Jonathan Johnson,C/LW,2021-2022,shl,21816,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Gynge (RW),Växjö Lakers HC,52,23,25,48,0.92,6,-3,/player/3482/richard-gynge,1,Richard Gynge,RW,2021-2022,shl,3482,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Camper (C/RW),Leksands IF,50,11,37,48,0.96,28,7,/player/15070/carter-camper,1,Carter Camper,C/RW,2021-2022,shl,15070,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ty Rattie (RW),Timrå IK,51,21,26,47,0.92,32,-16,/player/26385/ty-rattie,1,Ty Rattie,RW,2021-2022,shl,26385,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Karlsson (RW/C),Skellefteå AIK,52,26,20,46,0.88,18,10,/player/314906/linus-karlsson,1,Linus Karlsson,RW/C,2021-2022,shl,314906,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leon Bristedt (LW),Rögle BK,46,14,32,46,1.00,78,19,/player/38714/leon-bristedt,1,Leon Bristedt,LW,2021-2022,shl,38714,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Spacek (C/RW),Frölunda HC,49,10,36,46,0.94,33,-5,/player/199564/michael-spacek,1,Michael Spacek,C/RW,2021-2022,shl,199564,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Sörensen (W),Djurgårdens IF,47,20,24,44,0.94,72,3,/player/20065/marcus-sorensen,1,Marcus Sörensen,W,2021-2022,shl,20065,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Ljungh (C),Linköping HC,52,15,29,44,0.85,14,7,/player/13329/markus-ljungh,1,Markus Ljungh,C,2021-2022,shl,13329,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Pudas (D),Skellefteå AIK,42,7,37,44,1.05,32,11,/player/33114/jonathan-pudas,1,Jonathan Pudas,D,2021-2022,shl,33114,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Tambellini (C/LW),Rögle BK,39,24,19,43,1.10,6,24,/player/103529/adam-tambellini,1,Adam Tambellini,C/LW,2021-2022,shl,103529,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fredrik Olofsson (C),IK Oskarshamn,49,15,27,42,0.86,6,2,/player/195218/fredrik-olofsson,1,Fredrik Olofsson,C,2021-2022,shl,195218,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carl Söderberg (C),Malmö Redhawks,52,22,19,41,0.79,47,1,/player/665/carl-soderberg,1,Carl Söderberg,C,2021-2022,shl,665,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Kovács (LW/RW),Örebro HK,52,21,20,41,0.79,26,24,/player/85693/robin-kovacs,1,Robin Kovács,LW/RW,2021-2022,shl,85693,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joakim Nygård (LW),Färjestad BK,52,16,25,41,0.79,30,12,/player/25858/joakim-nygard,1,Joakim Nygård,LW,2021-2022,shl,25858,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pontus Holmberg (W/C),Växjö Lakers HC,46,11,30,41,0.89,44,5,/player/265859/pontus-holmberg,1,Pontus Holmberg,W/C,2021-2022,shl,265859,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rickard Hugg (LW/RW),Skellefteå AIK,52,17,23,40,0.77,0,11,/player/266319/rickard-hugg,1,Rickard Hugg,LW/RW,2021-2022,shl,266319,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Hanzl (C),Timrå IK,52,13,27,40,0.77,32,-14,/player/24429/robin-hanzl,1,Robin Hanzl,C,2021-2022,shl,24429,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikael Ruohomaa (C),Leksands IF,48,12,28,40,0.83,14,-15,/player/50405/mikael-ruohomaa,1,Mikael Ruohomaa,C,2021-2022,shl,50405,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Bengtsson (C),Rögle BK,49,20,19,39,0.80,10,20,/player/16796/anton-bengtsson,1,Anton Bengtsson,C,2021-2022,shl,16796,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Viksten (RW),Färjestad BK,51,18,21,39,0.76,2,-2,/player/7219/daniel-viksten,1,Daniel Viksten,RW,2021-2022,shl,7219,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Persson (D),Växjö Lakers HC,50,8,31,39,0.78,10,3,/player/63003/joel-persson,1,Joel Persson,D,2021-2022,shl,63003,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pontus Andreasson (C),Luleå HF,52,18,20,38,0.73,22,19,/player/212624/pontus-andreasson,1,Pontus Andreasson,C,2021-2022,shl,212624,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kim Rosdahl (RW),IK Oskarshamn,52,18,20,38,0.73,24,8,/player/147674/kim-rosdahl,1,Kim Rosdahl,RW,2021-2022,shl,147674,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Rosén (C),Växjö Lakers HC,39,11,27,38,0.97,16,2,/player/5738/robert-rosen,1,Robert Rosén,C,2021-2022,shl,5738,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joey LaLeggia (D),Timrå IK,52,9,29,38,0.73,24,-23,/player/46961/joey-laleggia,1,Joey LaLeggia,D,2021-2022,shl,46961,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joakim Lindström (RW),Skellefteå AIK,52,11,26,37,0.71,16,5,/player/229/joakim-lindstrom,1,Joakim Lindström,RW,2021-2022,shl,229,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Zackrisson (C/RW),Leksands IF,42,11,25,36,0.86,8,21,/player/2020/patrik-zackrisson,1,Patrik Zackrisson,C/RW,2021-2022,shl,2020,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Ekeståhl Jonsson (D),Rögle BK,52,7,29,36,0.69,20,9,/player/113517/lucas-ekestahl-jonsson,1,Lucas Ekeståhl Jonsson,D,2021-2022,shl,113517,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Per Åslund (LW/RW),Färjestad BK,49,14,21,35,0.71,14,6,/player/3885/per-aslund,1,Per Åslund,LW/RW,2021-2022,shl,3885,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oula Palve (C),Brynäs IF,50,11,24,35,0.70,18,-3,/player/43555/oula-palve,1,Oula Palve,C,2021-2022,shl,43555,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Rödin (RW/LW),Brynäs IF,52,19,15,34,0.65,22,-2,/player/7084/anton-rodin,1,Anton Rödin,RW/LW,2021-2022,shl,7084,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dennis Everberg (RW/LW),Rögle BK,45,16,18,34,0.76,49,23,/player/13549/dennis-everberg,1,Dennis Everberg,RW/LW,2021-2022,shl,13549,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Möller (LW),Skellefteå AIK,49,16,18,34,0.69,18,24,/player/5504/oscar-moller,1,Oscar Möller,LW,2021-2022,shl,5504,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rodrigo Ābols (C/LW),Örebro HK,47,14,20,34,0.72,6,26,/player/154962/rodrigo-%C4%80bols,1,Rodrigo Ābols,C/LW,2021-2022,shl,154962,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olle Lycksell (W/C),Växjö Lakers HC,47,14,20,34,0.72,6,-2,/player/265290/olle-lycksell,1,Olle Lycksell,W/C,2021-2022,shl,265290,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elmer Söderblom (LW/RW),Frölunda HC,52,21,12,33,0.63,10,-10,/player/350706/elmer-soderblom,1,Elmer Söderblom,LW/RW,2021-2022,shl,350706,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Cederqvist (LW/RW),Djurgårdens IF,49,14,18,32,0.65,10,-1,/player/328238/filip-cederqvist,1,Filip Cederqvist,LW/RW,2021-2022,shl,328238,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Ebert (D),Örebro HK,49,9,23,32,0.65,32,23,/player/45972/nick-ebert,1,Nick Ebert,D,2021-2022,shl,45972,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Greg Scott (C/RW),Brynäs IF,52,9,23,32,0.62,8,-2,/player/15395/greg-scott,1,Greg Scott,C/RW,2021-2022,shl,15395,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ludvig Rensfeldt (C),Djurgårdens IF,52,14,17,31,0.60,24,1,/player/13161/ludvig-rensfeldt,1,Ludvig Rensfeldt,C,2021-2022,shl,13161,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Zohorna (C/LW),IK Oskarshamn,51,12,19,31,0.61,38,-7,/player/22772/tomas-zohorna,1,Tomas Zohorna,C/LW,2021-2022,shl,22772,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Nilsson (LW),Färjestad BK,47,9,22,31,0.66,8,3,/player/16958/marcus-nilsson,1,Marcus Nilsson,LW,2021-2022,shl,16958,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joakim Ryan (D),Malmö Redhawks,52,9,22,31,0.60,14,-7,/player/51926/joakim-ryan,1,Joakim Ryan,D,2021-2022,shl,51926,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gustav Rydahl (C),Färjestad BK,44,15,15,30,0.68,53,6,/player/33357/gustav-rydahl,1,Gustav Rydahl,C,2021-2022,shl,33357,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juhani Tyrväinen (C),Luleå HF,36,11,19,30,0.83,76,13,/player/16460/juhani-tyrvainen,1,Juhani Tyrväinen,C,2021-2022,shl,16460,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pathrik Westerholm (C),Malmö Redhawks,49,5,25,30,0.61,12,-7,/player/13146/pathrik-westerholm,1,Pathrik Westerholm,C,2021-2022,shl,13146,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Broc Little (LW),Linköping HC,51,15,14,29,0.57,40,6,/player/34071/broc-little,1,Broc Little,LW,2021-2022,shl,34071,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hynek Zohorna (RW/C),IK Oskarshamn,48,10,19,29,0.60,16,-3,/player/28129/hynek-zohorna,1,Hynek Zohorna,RW/C,2021-2022,shl,28129,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sami Lepistö (D),Luleå HF,39,4,25,29,0.74,24,5,/player/4127/sami-lepisto,1,Sami Lepistö,D,2021-2022,shl,4127,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Russell (RW/C),Linköping HC,42,18,10,28,0.67,14,-5,/player/29181/patrick-russell,1,Patrick Russell,RW/C,2021-2022,shl,29181,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ponthus Westerholm (RW),Malmö Redhawks,52,10,18,28,0.54,41,-10,/player/13147/ponthus-westerholm,1,Ponthus Westerholm,RW,2021-2022,shl,13147,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonas Junland (D),Linköping HC,41,2,26,28,0.68,19,0,/player/3442/jonas-junland,1,Jonas Junland,D,2021-2022,shl,3442,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Glenn Gustafsson (LW/RW),Växjö Lakers HC,52,16,11,27,0.52,27,-1,/player/273529/glenn-gustafsson,1,Glenn Gustafsson,LW/RW,2021-2022,shl,273529,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Lindström (C),Skellefteå AIK,51,14,13,27,0.53,22,20,/player/242668/linus-lindstrom,1,Linus Lindström,C,2021-2022,shl,242668,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Shinnimin (LW),Luleå HF,52,14,13,27,0.52,36,7,/player/37254/brendan-shinnimin,1,Brendan Shinnimin,LW,2021-2022,shl,37254,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Lodin (C/W),Timrå IK,44,12,15,27,0.61,45,-5,/player/287856/viktor-lodin,1,Viktor Lodin,C/W,2021-2022,shl,287856,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Virtanen (D),Färjestad BK,50,8,19,27,0.54,22,9,/player/38090/jesse-virtanen,1,Jesse Virtanen,D,2021-2022,shl,38090,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Öberg (RW),Örebro HK,52,17,9,26,0.50,18,17,/player/313352/linus-oberg,1,Linus Öberg,RW,2021-2022,shl,313352,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Johansson (C),Färjestad BK,43,13,13,26,0.60,30,1,/player/16658/linus-johansson,1,Linus Johansson,C,2021-2022,shl,16658,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rhett Rakhshani (RW),Djurgårdens IF,50,11,15,26,0.52,14,-12,/player/9315/rhett-rakhshani,1,Rhett Rakhshani,RW,2021-2022,shl,9315,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Fröberg (D/C),Luleå HF,52,9,17,26,0.50,14,4,/player/24983/linus-froberg,1,Linus Fröberg,D/C,2021-2022,shl,24983,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Gustafsson (D),Luleå HF,48,3,23,26,0.54,24,13,/player/5545/erik-gustafsson,1,Erik Gustafsson,D,2021-2022,shl,5545,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Hartmann (RW),Timrå IK,49,14,11,25,0.51,12,-14,/player/36626/sebastian-hartmann,1,Sebastian Hartmann,RW,2021-2022,shl,36626,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henrik Törnqvist (RW),Linköping HC,52,12,13,25,0.48,8,-11,/player/86363/henrik-tornqvist,1,Henrik Törnqvist,RW,2021-2022,shl,86363,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carl Persson (LW/RW),Malmö Redhawks,52,11,14,25,0.48,10,1,/player/63012/carl-persson,1,Carl Persson,LW/RW,2021-2022,shl,63012,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jani Lajunen (C),Örebro HK,50,9,16,25,0.50,26,3,/player/15653/jani-lajunen,1,Jani Lajunen,C,2021-2022,shl,15653,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Lundqvist (C),Frölunda HC,52,9,16,25,0.48,28,-4,/player/305/joel-lundqvist,1,Joel Lundqvist,C,2021-2022,shl,305,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Albert Johansson (D),Färjestad BK,52,5,20,25,0.48,24,-6,/player/349991/albert-johansson,1,Albert Johansson,D,2021-2022,shl,349991,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Isac Brännström (LW/RW),Luleå HF,52,13,11,24,0.46,6,16,/player/237839/isac-brannstrom,1,Isac Brännström,LW/RW,2021-2022,shl,237839,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cameron Brace (RW/C),IK Oskarshamn,48,9,15,24,0.50,62,-16,/player/62543/cameron-brace,1,Cameron Brace,RW/C,2021-2022,shl,62543,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lance Bouma (LW),Malmö Redhawks,51,9,15,24,0.47,45,9,/player/16499/lance-bouma,1,Lance Bouma,LW,2021-2022,shl,16499,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Caito (D),Leksands IF,49,3,21,24,0.49,28,7,/player/121842/matt-caito,1,Matt Caito,D,2021-2022,shl,121842,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noel Gunler (RW/LW),Brynäs IF,52,13,10,23,0.44,36,-7,/player/393444/noel-gunler,1,Noel Gunler,RW/LW,2021-2022,shl,393444,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Lantosi (RW/C),totals,48,11,12,23,0.48,31,4,/player/162490/robert-lantosi,1,Robert Lantosi,RW/C,2021-2022,shl,162490,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Komarek (C),Luleå HF,38,9,14,23,0.61,12,-4,/player/17428/konstantin-komarek,1,Konstantin Komarek,C,2021-2022,shl,17428,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brady Ferguson (C),Rögle BK,52,6,17,23,0.44,18,12,/player/190324/brady-ferguson,1,Brady Ferguson,C,2021-2022,shl,190324,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Quenneville (D),IK Oskarshamn,51,4,19,23,0.45,67,-5,/player/166662/david-quenneville,1,David Quenneville,D,2021-2022,shl,166662,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Friberg (RW),Frölunda HC,41,12,10,22,0.54,10,7,/player/13766/max-friberg,1,Max Friberg,RW,2021-2022,shl,13766,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Larsson (LW/RW),Örebro HK,52,12,10,22,0.42,10,2,/player/33209/emil-larsson,1,Emil Larsson,LW/RW,2021-2022,shl,33209,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tobias Rieder (W/C),Växjö Lakers HC,36,11,11,22,0.61,4,10,/player/34851/tobias-rieder,1,Tobias Rieder,W/C,2021-2022,shl,34851,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Blomqvist (C/RW),Timrå IK,48,10,12,22,0.46,18,-12,/player/1304/jacob-blomqvist,1,Jacob Blomqvist,C/RW,2021-2022,shl,1304,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Kloos (C/RW),Leksands IF,45,9,13,22,0.49,18,-7,/player/113322/justin-kloos,1,Justin Kloos,C/RW,2021-2022,shl,113322,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Albin Lundin (C),Timrå IK,49,9,13,22,0.45,14,-18,/player/101806/albin-lundin,1,Albin Lundin,C,2021-2022,shl,101806,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Ashton (RW/LW),Leksands IF,52,7,15,22,0.42,18,-6,/player/21033/carter-ashton,1,Carter Ashton,RW/LW,2021-2022,shl,21033,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Calle Själin (D),Leksands IF,46,6,16,22,0.48,8,-6,/player/266116/calle-sjalin,1,Calle Själin,D,2021-2022,shl,266116,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julius Honka (D),Luleå HF,46,10,11,21,0.46,22,-2,/player/65456/julius-honka,1,Julius Honka,D,2021-2022,shl,65456,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Engsund (D),Luleå HF,49,9,12,21,0.43,45,11,/player/38386/oscar-engsund,1,Oscar Engsund,D,2021-2022,shl,38386,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jens Lööke (RW),Timrå IK,49,8,13,21,0.43,10,-13,/player/146691/jens-looke,1,Jens Lööke,RW,2021-2022,shl,146691,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jens Olsson (D),Frölunda HC,52,7,14,21,0.40,10,0,/player/2360/jens-olsson,1,Jens Olsson,D,2021-2022,shl,2360,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskar Nilsson (D),Skellefteå AIK,48,5,16,21,0.44,36,19,/player/6054/oskar-nilsson,1,Oskar Nilsson,D,2021-2022,shl,6054,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Pettersson (D),Linköping HC,50,5,16,21,0.42,77,-11,/player/28988/jesper-pettersson,1,Jesper Pettersson,D,2021-2022,shl,28988,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chay Genoway (D),Brynäs IF,51,5,16,21,0.41,14,-15,/player/24398/chay-genoway,1,Chay Genoway,D,2021-2022,shl,24398,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Melker Karlsson (RW/C),Skellefteå AIK,50,11,9,20,0.40,20,2,/player/10014/melker-karlsson,1,Melker Karlsson,RW/C,2021-2022,shl,10014,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julius Nättinen (C/W),Växjö Lakers HC,33,8,12,20,0.61,0,0,/player/85961/julius-nattinen,1,Julius Nättinen,C/W,2021-2022,shl,85961,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas Borgman (D),Frölunda HC,24,7,13,20,0.83,47,-5,/player/85683/andreas-borgman,1,Andreas Borgman,D,2021-2022,shl,85683,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jayce Hawryluk (RW/C),Skellefteå AIK,39,8,11,19,0.49,26,-4,/player/120626/jayce-hawryluk,2,Jayce Hawryluk,RW/C,2021-2022,shl,120626,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Dahlström (LW/RW),IK Oskarshamn,52,5,14,19,0.37,0,4,/player/212530/john-dahlstrom,2,John Dahlström,LW/RW,2021-2022,shl,212530,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Wallinder (D),Rögle BK,47,4,15,19,0.40,6,5,/player/482190/william-wallinder,2,William Wallinder,D,2021-2022,shl,482190,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Lauridsen (D),Malmö Redhawks,40,2,17,19,0.48,6,8,/player/12363/markus-lauridsen,2,Markus Lauridsen,D,2021-2022,shl,12363,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Edvinsson (D),Frölunda HC,44,2,17,19,0.43,18,13,/player/394730/simon-edvinsson,2,Simon Edvinsson,D,2021-2022,shl,394730,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Kapla (D),Skellefteå AIK,52,1,18,19,0.37,20,17,/player/121907/michael-kapla,2,Michael Kapla,D,2021-2022,shl,121907,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Sylvegård (RW),Malmö Redhawks,44,11,7,18,0.41,22,-2,/player/288607/marcus-sylvegard,2,Marcus Sylvegård,RW,2021-2022,shl,288607,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Sylvegård (LW/RW),Malmö Redhawks,46,9,9,18,0.39,55,-5,/player/10450/emil-sylvegard,2,Emil Sylvegård,LW/RW,2021-2022,shl,10450,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Mursak (C/RW),Frölunda HC,47,9,9,18,0.38,14,8,/player/11112/jan-mursak,2,Jan Mursak,C/RW,2021-2022,shl,11112,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christoffer Ehn (C/LW),Linköping HC,50,9,9,18,0.36,10,-4,/player/115020/christoffer-ehn,2,Christoffer Ehn,C/LW,2021-2022,shl,115020,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmytro Timashov (RW/LW),Brynäs IF,29,8,10,18,0.62,41,3,/player/115161/dmytro-timashov,2,Dmytro Timashov,RW/LW,2021-2022,shl,115161,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskar Stål Lyrenäs (RW),Rögle BK,47,8,10,18,0.38,4,-4,/player/203936/oskar-stal-lyrenas,2,Oskar Stål Lyrenäs,RW,2021-2022,shl,203936,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomi Sallinen (C/W),Brynäs IF,48,8,10,18,0.38,12,-21,/player/11384/tomi-sallinen,2,Tomi Sallinen,C/W,2021-2022,shl,11384,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kristian Näkyvä (D),Örebro HK,36,6,12,18,0.50,18,1,/player/16649/kristian-nakyva,2,Kristian Näkyvä,D,2021-2022,shl,16649,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fredrik Händemark (C),Malmö Redhawks,40,6,12,18,0.45,8,-11,/player/27259/fredrik-handemark,2,Fredrik Händemark,C,2021-2022,shl,27259,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christopher Mastomäki (C),Örebro HK,52,6,12,18,0.35,16,5,/player/187855/christopher-mastomaki,2,Christopher Mastomäki,C,2021-2022,shl,187855,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Ölund (C),Brynäs IF,51,11,6,17,0.33,6,-5,/player/146700/linus-olund,2,Linus Ölund,C,2021-2022,shl,146700,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Connolly (C),Luleå HF,35,10,7,17,0.49,16,-1,/player/15676/jack-connolly,2,Jack Connolly,C,2021-2022,shl,15676,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Ejdsell (LW/C),Färjestad BK,48,8,9,17,0.35,45,-8,/player/29343/victor-ejdsell,2,Victor Ejdsell,LW/C,2021-2022,shl,29343,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Olesen (LW/RW),Brynäs IF,49,8,9,17,0.35,6,-7,/player/151079/nick-olesen,2,Nick Olesen,LW/RW,2021-2022,shl,151079,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ludvig Larsson (C),Rögle BK,50,8,9,17,0.34,14,9,/player/45020/ludvig-larsson,2,Ludvig Larsson,C,2021-2022,shl,45020,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicklas Danielsson (RW),Brynäs IF,51,6,11,17,0.33,16,3,/player/610/nicklas-danielsson,2,Nicklas Danielsson,RW,2021-2022,shl,610,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Bengtsson (D),Djurgårdens IF,50,5,12,17,0.34,12,-3,/player/23185/rasmus-bengtsson,2,Rasmus Bengtsson,D,2021-2022,shl,23185,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Alvarez (LW),Timrå IK,42,4,13,17,0.40,45,-5,/player/5599/robin-alvarez,2,Robin Alvarez,LW,2021-2022,shl,5599,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Wilsby (D),Skellefteå AIK,51,4,13,17,0.33,28,24,/player/295070/adam-wilsby,2,Adam Wilsby,D,2021-2022,shl,295070,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Heineman (LW/RW),Leksands IF,38,11,5,16,0.42,20,-8,/player/381844/emil-heineman,2,Emil Heineman,LW/RW,2021-2022,shl,381844,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Lindqvist (RW),Färjestad BK,26,9,7,16,0.62,10,1,/player/37048/michael-lindqvist,2,Michael Lindqvist,RW,2021-2022,shl,37048,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Theodor Niederbach (C),Frölunda HC,51,9,7,16,0.31,12,-1,/player/394717/theodor-niederbach,2,Theodor Niederbach,C,2021-2022,shl,394717,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Lundberg (W/C),Växjö Lakers HC,45,8,8,16,0.36,41,9,/player/7074/martin-lundberg,2,Martin Lundberg,W/C,2021-2022,shl,7074,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Eklind (W/C),Brynäs IF,49,8,8,16,0.33,18,3,/player/233155/oscar-eklind,2,Oscar Eklind,W/C,2021-2022,shl,233155,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Eklind (C/LW),Örebro HK,52,8,8,16,0.31,24,6,/player/245764/oliver-eklind,2,Oliver Eklind,C/LW,2021-2022,shl,245764,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Carlsson (LW/C),Frölunda HC,46,7,9,16,0.35,4,0,/player/3681/patrik-carlsson,2,Patrik Carlsson,LW/C,2021-2022,shl,3681,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tony Sund (D),Rögle BK,45,6,10,16,0.36,20,15,/player/115802/tony-sund,2,Tony Sund,D,2021-2022,shl,115802,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob de la Rose (C/W),Färjestad BK,47,6,10,16,0.34,26,3,/player/28436/jacob-de-la-rose,2,Jacob de la Rose,C/W,2021-2022,shl,28436,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Per Svensson (D),Timrå IK,52,6,10,16,0.31,10,-10,/player/5704/per-svensson,2,Per Svensson,D,2021-2022,shl,5704,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Nyström (D),Färjestad BK,46,5,11,16,0.35,4,-10,/player/394715/joel-nystrom,2,Joel Nyström,D,2021-2022,shl,394715,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hardy Häman Aktell (D),Växjö Lakers HC,50,5,11,16,0.32,47,6,/player/242658/hardy-haman-aktell,2,Hardy Häman Aktell,D,2021-2022,shl,242658,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Ekström (LW/RW),Örebro HK,52,5,11,16,0.31,6,-1,/player/349832/elias-ekstrom,2,Elias Ekström,LW/RW,2021-2022,shl,349832,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tom Hedberg (D),Brynäs IF,50,4,12,16,0.32,6,5,/player/262144/tom-hedberg,2,Tom Hedberg,D,2021-2022,shl,262144,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikael Wikstrand (D),Färjestad BK,48,3,13,16,0.33,20,0,/player/28992/mikael-wikstrand,2,Mikael Wikstrand,D,2021-2022,shl,28992,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Leino (C),Örebro HK,50,3,13,16,0.32,26,4,/player/40359/robert-leino,2,Robert Leino,C,2021-2022,shl,40359,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan McKiernan (D),Rögle BK,49,2,14,16,0.33,45,2,/player/31514/ryan-mckiernan,2,Ryan McKiernan,D,2021-2022,shl,31514,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Jonsson (D),Rögle BK,42,1,15,16,0.38,4,9,/player/231612/samuel-jonsson,2,Samuel Jonsson,D,2021-2022,shl,231612,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Kellman (C),Växjö Lakers HC,25,6,9,15,0.60,29,10,/player/33719/joel-kellman,2,Joel Kellman,C,2021-2022,shl,33719,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Sundström (C),Frölunda HC,49,6,9,15,0.31,16,-15,/player/16727/johan-sundstrom,2,Johan Sundström,C,2021-2022,shl,16727,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pontus Själin (D),Luleå HF,42,5,10,15,0.36,16,20,/player/86227/pontus-sjalin,2,Pontus Själin,D,2021-2022,shl,86227,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Norén (D),Leksands IF,45,5,10,15,0.33,38,9,/player/20384/patrik-noren,2,Patrik Norén,D,2021-2022,shl,20384,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Folin (D),Frölunda HC,47,5,10,15,0.32,49,9,/player/9799/christian-folin,2,Christian Folin,D,2021-2022,shl,9799,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Zaar (RW/LW),Rögle BK,16,3,12,15,0.94,4,5,/player/39009/daniel-zaar,2,Daniel Zaar,RW/LW,2021-2022,shl,39009,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nolan Zajac (D),Timrå IK,52,3,12,15,0.29,14,-12,/player/39714/nolan-zajac,2,Nolan Zajac,D,2021-2022,shl,39714,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Ollas Mattsson (D),Malmö Redhawks,52,3,12,15,0.29,16,10,/player/114812/adam-ollas-mattsson,2,Adam Ollas Mattsson,D,2021-2022,shl,114812,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Björk (D),Brynäs IF,52,3,12,15,0.29,26,-1,/player/187811/marcus-bjork,2,Marcus Björk,D,2021-2022,shl,187811,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian Cooper (D),IK Oskarshamn,50,2,13,15,0.30,65,2,/player/45698/brian-cooper,2,Brian Cooper,D,2021-2022,shl,45698,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskar Lang (LW/RW),Leksands IF,50,9,5,14,0.28,4,-15,/player/139612/oskar-lang,2,Oskar Lang,LW/RW,2021-2022,shl,139612,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonas Engström (LW/RW),IK Oskarshamn,52,8,6,14,0.27,8,4,/player/12603/jonas-engstrom,2,Jonas Engström,LW/RW,2021-2022,shl,12603,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Karlsson (LW/RW),Leksands IF,52,8,6,14,0.27,14,-11,/player/10380/martin-karlsson,2,Martin Karlsson,LW/RW,2021-2022,shl,10380,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vilmos Galló (LW/RW),totals,43,7,7,14,0.33,18,8,/player/367/vilmos-gallo,2,Vilmos Galló,LW/RW,2021-2022,shl,367,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nils Åman (C/W),Leksands IF,51,6,8,14,0.27,8,4,/player/343876/nils-aman,2,Nils Åman,C/W,2021-2022,shl,343876,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc-André Gragnani (D),Djurgårdens IF,32,4,10,14,0.44,6,-7,/player/9356/marc-andre-gragnani,2,Marc-André Gragnani,D,2021-2022,shl,9356,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mats Rosseli-Olsen (LW),Frölunda HC,51,4,10,14,0.27,37,7,/player/18116/mats-rosseli-olsen,2,Mats Rosseli-Olsen,LW,2021-2022,shl,18116,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Pilö (D),IK Oskarshamn,52,3,11,14,0.27,18,6,/player/279101/lukas-pilo,2,Lukas Pilö,D,2021-2022,shl,279101,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Eklund (LW/C),Djurgårdens IF,29,1,13,14,0.48,4,-7,/player/394719/william-eklund,2,William Eklund,LW/C,2021-2022,shl,394719,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Andersson (RW/LW),totals,50,9,4,13,0.26,36,-4,/player/292750/linus-andersson,2,Linus Andersson,RW/LW,2021-2022,shl,292750,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Söderlund (LW/RW),Djurgårdens IF,21,6,7,13,0.62,16,-3,/player/188028/tim-soderlund,2,Tim Söderlund,LW/RW,2021-2022,shl,188028,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dick Axelsson (LW),Djurgårdens IF,19,5,8,13,0.68,28,-1,/player/3778/dick-axelsson,2,Dick Axelsson,LW,2021-2022,shl,3778,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Calof (RW),Växjö Lakers HC,34,5,8,13,0.38,6,1,/player/40211/andrew-calof,2,Andrew Calof,RW,2021-2022,shl,40211,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ludvig Claesson (D),Växjö Lakers HC,44,5,8,13,0.30,10,-1,/player/147731/ludvig-claesson,2,Ludvig Claesson,D,2021-2022,shl,147731,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Elliott (D),Frölunda HC,47,5,8,13,0.28,10,-3,/player/15735/stefan-elliott,2,Stefan Elliott,D,2021-2022,shl,15735,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Johansson (LW/RW),Linköping HC,52,4,9,13,0.25,22,-3,/player/7697/alexander-johansson,2,Alexander Johansson,LW/RW,2021-2022,shl,7697,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Andersson (D),Luleå HF,42,3,10,13,0.31,8,13,/player/33378/jonathan-andersson,2,Jonathan Andersson,D,2021-2022,shl,33378,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kalle Östman (C/LW),Malmö Redhawks,44,3,10,13,0.30,16,-2,/player/21380/kalle-ostman,2,Kalle Östman,C/LW,2021-2022,shl,21380,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tom Kühnhackl (W/C),Skellefteå AIK,46,3,10,13,0.28,6,13,/player/17637/tom-kuhnhackl,2,Tom Kühnhackl,W/C,2021-2022,shl,17637,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Zámorský (D),Örebro HK,49,3,10,13,0.27,24,15,/player/70391/petr-zamorsky,2,Petr Zámorský,D,2021-2022,shl,70391,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Andersson (W/C),Timrå IK,51,3,10,13,0.25,0,-10,/player/34229/erik-andersson,2,Erik Andersson,W/C,2021-2022,shl,34229,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Forslund (RW/LW),Växjö Lakers HC,52,8,4,12,0.23,4,-8,/player/30288/emil-forslund,2,Emil Forslund,RW/LW,2021-2022,shl,30288,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Halloran (RW),Örebro HK,20,6,6,12,0.60,10,1,/player/234030/nick-halloran,2,Nick Halloran,RW,2021-2022,shl,234030,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Maxwell (C/LW),Linköping HC,38,6,6,12,0.32,8,1,/player/9337/ben-maxwell,2,Ben Maxwell,C/LW,2021-2022,shl,9337,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christoffer Forsberg (C),Malmö Redhawks,52,6,6,12,0.23,8,0,/player/40860/christoffer-forsberg,2,Christoffer Forsberg,C,2021-2022,shl,40860,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ted Brithén (C),Rögle BK,25,4,8,12,0.48,6,-1,/player/13351/ted-brithen,2,Ted Brithén,C,2021-2022,shl,13351,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Paul Carey (W/C),Djurgårdens IF,41,4,8,12,0.29,12,-19,/player/14386/paul-carey,2,Paul Carey,W/C,2021-2022,shl,14386,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Johnsson (C/LW),IK Oskarshamn,45,4,8,12,0.27,10,2,/player/16813/johan-johnsson,2,Johan Johnsson,C/LW,2021-2022,shl,16813,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joonas Rask (RW),Luleå HF,47,4,8,12,0.26,6,-5,/player/16049/joonas-rask,2,Joonas Rask,RW,2021-2022,shl,16049,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gustav Backström (D),Örebro HK,52,4,8,12,0.23,4,14,/player/32195/gustav-backstrom,2,Gustav Backström,D,2021-2022,shl,32195,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Strandberg (C),Djurgårdens IF,27,3,9,12,0.44,2,-8,/player/11085/sebastian-strandberg,2,Sebastian Strandberg,C,2021-2022,shl,11085,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Norell (D),IK Oskarshamn,50,3,9,12,0.24,34,-12,/player/38721/robin-norell,2,Robin Norell,D,2021-2022,shl,38721,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mattias Göransson (D),Färjestad BK,48,2,10,12,0.25,18,10,/player/38710/mattias-goransson,2,Mattias Göransson,D,2021-2022,shl,38710,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Nyberg (D),totals,51,2,10,12,0.24,22,14,/player/146820/john-nyberg,2,John Nyberg,D,2021-2022,shl,146820,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Olofsson (RW),Malmö Redhawks,52,2,10,12,0.23,6,-7,/player/25919/johan-olofsson,2,Johan Olofsson,RW,2021-2022,shl,25919,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matias Lassen (D),Malmö Redhawks,38,1,11,12,0.32,6,7,/player/148162/matias-lassen,2,Matias Lassen,D,2021-2022,shl,148162,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tobias Ekberg (D),totals,42,0,12,12,0.29,22,-2,/player/30250/tobias-ekberg,2,Tobias Ekberg,D,2021-2022,shl,30250,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marco Kasper (C/LW),Rögle BK,46,7,4,11,0.24,17,-10,/player/560848/marco-kasper,2,Marco Kasper,C/LW,2021-2022,shl,560848,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pontus Åberg (LW/RW),Timrå IK,24,5,6,11,0.46,36,-6,/player/16835/pontus-aberg,2,Pontus Åberg,LW/RW,2021-2022,shl,16835,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Sjödin (C/W),Rögle BK,49,5,6,11,0.22,6,0,/player/471614/linus-sjodin,2,Linus Sjödin,C/W,2021-2022,shl,471614,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miikka Salomäki (W/C),Örebro HK,34,3,8,11,0.32,20,3,/player/43419/miikka-salomaki,2,Miikka Salomäki,W/C,2021-2022,shl,43419,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Johansson (D),Frölunda HC,47,3,8,11,0.23,8,5,/player/316794/filip-johansson,2,Filip Johansson,D,2021-2022,shl,316794,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Bertilsson (D),Brynäs IF,49,2,9,11,0.22,38,-2,/player/11173/simon-bertilsson,2,Simon Bertilsson,D,2021-2022,shl,11173,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Engstrand (LW/RW),Malmö Redhawks,41,7,3,10,0.24,2,0,/player/345134/eric-engstrand,2,Eric Engstrand,LW/RW,2021-2022,shl,345134,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lars Bryggman (LW/RW),Malmö Redhawks,41,7,3,10,0.24,18,-8,/player/17002/lars-bryggman,2,Lars Bryggman,LW/RW,2021-2022,shl,17002,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radan Lenc (LW/RW),Frölunda HC,14,6,4,10,0.71,6,0,/player/99493/radan-lenc,2,Radan Lenc,LW/RW,2021-2022,shl,99493,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicklas Lasu (C),Frölunda HC,46,5,5,10,0.22,53,13,/player/5016/nicklas-lasu,2,Nicklas Lasu,C,2021-2022,shl,5016,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Kelleher (RW),Rögle BK,34,4,6,10,0.29,12,3,/player/151832/tyler-kelleher,3,Tyler Kelleher,RW,2021-2022,shl,151832,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Loibl (RW/C),Skellefteå AIK,42,4,6,10,0.24,6,4,/player/117469/stefan-loibl,3,Stefan Loibl,RW/C,2021-2022,shl,117469,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonas Berglund (C),Luleå HF,51,4,6,10,0.20,4,7,/player/9860/jonas-berglund,3,Jonas Berglund,C,2021-2022,shl,9860,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Josefsson (C),Växjö Lakers HC,51,3,7,10,0.20,18,-16,/player/5750/erik-josefsson,3,Erik Josefsson,C,2021-2022,shl,5750,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philip Samuelsson (D),IK Oskarshamn,52,2,8,10,0.19,32,-5,/player/10809/philip-samuelsson,3,Philip Samuelsson,D,2021-2022,shl,10809,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Lekkerimäki (RW/LW),Djurgårdens IF,26,7,2,9,0.35,0,0,/player/649220/jonathan-lekkerimaki,3,Jonathan Lekkerimäki,RW/LW,2021-2022,shl,649220,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Edström (LW/RW),Rögle BK,43,7,2,9,0.21,6,2,/player/349951/adam-edstrom,3,Adam Edström,LW/RW,2021-2022,shl,349951,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Johansson (LW),Färjestad BK,36,5,4,9,0.25,0,-5,/player/2047/martin-johansson,3,Martin Johansson,LW,2021-2022,shl,2047,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Mustonen (C/LW),Örebro HK,42,5,4,9,0.21,6,9,/player/14811/joel-mustonen,3,Joel Mustonen,C/LW,2021-2022,shl,14811,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Albin Sundsvik (C/W),Skellefteå AIK,47,5,4,9,0.19,16,6,/player/344692/albin-sundsvik,3,Albin Sundsvik,C/W,2021-2022,shl,344692,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carl Mattsson (C/LW),Luleå HF,50,4,5,9,0.18,6,2,/player/345164/carl-mattsson,3,Carl Mattsson,C/LW,2021-2022,shl,345164,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leo Carlsson (C/LW),Örebro HK,35,3,6,9,0.26,4,1,/player/448944/leo-carlsson,3,Leo Carlsson,C/LW,2021-2022,shl,448944,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karl Henriksson (C),Frölunda HC,40,3,6,9,0.23,8,4,/player/376987/karl-henriksson,3,Karl Henriksson,C,2021-2022,shl,376987,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carl-Johan Lerby (D),Malmö Redhawks,51,3,6,9,0.18,24,-14,/player/212714/carl-johan-lerby,3,Carl-Johan Lerby,D,2021-2022,shl,212714,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Molin (C/LW),Brynäs IF,28,2,7,9,0.32,0,3,/player/22269/emil-molin,3,Emil Molin,C/LW,2021-2022,shl,22269,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ludvig Hedström (D),Djurgårdens IF,48,2,7,9,0.19,6,5,/player/344853/ludvig-hedstrom,3,Ludvig Hedström,D,2021-2022,shl,344853,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cameron Schilling (D),Djurgårdens IF,22,1,8,9,0.41,10,3,/player/38226/cameron-schilling,3,Cameron Schilling,D,2021-2022,shl,38226,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Lundqvist (D),Leksands IF,49,1,8,9,0.18,6,-7,/player/343874/alexander-lundqvist,3,Alexander Lundqvist,D,2021-2022,shl,343874,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Mascherin (LW/C),Skellefteå AIK,15,7,1,8,0.53,27,5,/player/240112/adam-mascherin,3,Adam Mascherin,LW/C,2021-2022,shl,240112,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Éric Gélinas (D),totals,25,5,3,8,0.32,14,3,/player/37536/eric-gelinas,3,Éric Gélinas,D,2021-2022,shl,37536,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Pettersson (C),Brynäs IF,46,4,4,8,0.17,12,-7,/player/10712/adam-pettersson,3,Adam Pettersson,C,2021-2022,shl,10712,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Videll (W/C),Djurgårdens IF,11,3,5,8,0.73,0,-3,/player/604/linus-videll,3,Linus Videll,W/C,2021-2022,shl,604,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Theodor Lennström (D),Färjestad BK,11,3,5,8,0.73,8,2,/player/19767/theodor-lennstrom,3,Theodor Lennström,D,2021-2022,shl,19767,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radek Muzik (RW/LW),Luleå HF,48,3,5,8,0.17,10,3,/player/348182/radek-muzik,3,Radek Muzik,RW/LW,2021-2022,shl,348182,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hugo Gustafsson (C/W),Växjö Lakers HC,40,2,6,8,0.20,4,-1,/player/342238/hugo-gustafsson,3,Hugo Gustafsson,C/W,2021-2022,shl,342238,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jon Knuts (C),Leksands IF,40,2,6,8,0.20,12,-1,/player/22034/jon-knuts,3,Jon Knuts,C,2021-2022,shl,22034,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miika Koivisto (D),Växjö Lakers HC,27,1,7,8,0.30,12,-3,/player/45219/miika-koivisto,3,Miika Koivisto,D,2021-2022,shl,45219,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonas Ahnelöv (D),Leksands IF,38,1,7,8,0.21,15,-4,/player/3790/jonas-ahnelov,3,Jonas Ahnelöv,D,2021-2022,shl,3790,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eddie Larsson (D),Linköping HC,50,1,7,8,0.16,30,2,/player/13304/eddie-larsson,3,Eddie Larsson,D,2021-2022,shl,13304,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Hardegård (D),Örebro HK,50,0,8,8,0.16,16,7,/player/201585/marcus-hardegard,3,Marcus Hardegård,D,2021-2022,shl,201585,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Lawner (LW/RW),Färjestad BK,45,4,3,7,0.16,29,-4,/player/349939/oscar-lawner,3,Oscar Lawner,LW/RW,2021-2022,shl,349939,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Muzito-Bagenda (C/LW),IK Oskarshamn,46,4,3,7,0.15,18,-8,/player/86197/daniel-muzito-bagenda,3,Daniel Muzito-Bagenda,C/LW,2021-2022,shl,86197,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Libor Sulak (D),Örebro HK,11,3,4,7,0.64,8,-2,/player/115708/libor-sulak,3,Libor Sulak,D,2021-2022,shl,115708,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arvid Costmar (C),Linköping HC,48,3,4,7,0.15,16,-5,/player/348012/arvid-costmar,3,Arvid Costmar,C,2021-2022,shl,348012,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Walli Walterholm (RW),Timrå IK,50,2,5,7,0.14,10,-13,/player/246501/erik-walli-walterholm,3,Erik Walli Walterholm,RW,2021-2022,shl,246501,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ludvig Nilsson (LW/RW),Växjö Lakers HC,50,2,5,7,0.14,35,-8,/player/67174/ludvig-nilsson,3,Ludvig Nilsson,LW/RW,2021-2022,shl,67174,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pontus Widerström (C),Färjestad BK,52,2,5,7,0.13,43,-9,/player/43993/pontus-widerstrom,3,Pontus Widerström,C,2021-2022,shl,43993,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Johannesson (D),Rögle BK,48,1,6,7,0.15,2,0,/player/342865/samuel-johannesson,3,Samuel Johannesson,D,2021-2022,shl,342865,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petter Granberg (D),Skellefteå AIK,50,1,6,7,0.14,51,2,/player/13901/petter-granberg,3,Petter Granberg,D,2021-2022,shl,13901,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Lilleberg (D),IK Oskarshamn,47,0,7,7,0.15,16,-4,/player/415548/emil-lilleberg,3,Emil Lilleberg,D,2021-2022,shl,415548,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Robertsson (RW),Skellefteå AIK,48,5,1,6,0.13,20,0,/player/473175/simon-robertsson,3,Simon Robertsson,RW,2021-2022,shl,473175,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joakim Thelin (RW),IK Oskarshamn,49,5,1,6,0.12,6,-8,/player/16630/joakim-thelin,3,Joakim Thelin,RW,2021-2022,shl,16630,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Forsell (RW),Färjestad BK,30,4,2,6,0.20,0,0,/player/553744/lucas-forsell,3,Lucas Forsell,RW,2021-2022,shl,553744,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Nässén (C/W),Frölunda HC,36,4,2,6,0.17,14,-3,/player/300505/linus-nassen,3,Linus Nässén,C/W,2021-2022,shl,300505,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Thomas (D),totals,47,4,2,6,0.13,22,6,/player/62287/ben-thomas,3,Ben Thomas,D,2021-2022,shl,62287,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Hrivík (C/LW),Leksands IF,11,3,3,6,0.55,0,-5,/player/17726/marek-hrivik,3,Marek Hrivík,C/LW,2021-2022,shl,17726,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filiph Engsund (C),Djurgårdens IF,46,3,3,6,0.13,16,-6,/player/38389/filiph-engsund,3,Filiph Engsund,C,2021-2022,shl,38389,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Audette (C/LW),Örebro HK,11,2,4,6,0.55,4,-2,/player/128505/daniel-audette,3,Daniel Audette,C/LW,2021-2022,shl,128505,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Lorito (W/C),Djurgårdens IF,14,2,4,6,0.43,8,-4,/player/62740/matt-lorito,3,Matt Lorito,W/C,2021-2022,shl,62740,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Rissanen (D),Örebro HK,23,2,4,6,0.26,16,5,/player/17287/rasmus-rissanen,3,Rasmus Rissanen,D,2021-2022,shl,17287,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Olsson (D),Malmö Redhawks,39,2,4,6,0.15,6,0,/player/420461/anton-olsson,3,Anton Olsson,D,2021-2022,shl,420461,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Olofsson (C),totals,25,1,5,6,0.24,0,-9,/player/316535/jacob-olofsson,3,Jacob Olofsson,C,2021-2022,shl,316535,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christopher Liljewall (C/LW),Timrå IK,28,1,5,6,0.21,8,-10,/player/5650/christopher-liljewall,3,Christopher Liljewall,C/LW,2021-2022,shl,5650,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Birgersson (C/W),Brynäs IF,44,1,5,6,0.14,2,4,/player/294296/oscar-birgersson,3,Oscar Birgersson,C/W,2021-2022,shl,294296,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Worge Kreü (D),IK Oskarshamn,47,1,5,6,0.13,31,4,/player/281973/william-worge-kreu,3,William Worge Kreü,D,2021-2022,shl,281973,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Roos (D),Skellefteå AIK,50,1,5,6,0.12,8,11,/player/344180/filip-roos,3,Filip Roos,D,2021-2022,shl,344180,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Holland (C),Djurgårdens IF,15,0,6,6,0.40,31,-7,/player/24654/peter-holland,3,Peter Holland,C,2021-2022,shl,24654,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erlend Lesund (D),Rögle BK,21,0,6,6,0.29,27,0,/player/73394/erlend-lesund,3,Erlend Lesund,D,2021-2022,shl,73394,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anders Grönlund (D),Frölunda HC,36,4,1,5,0.14,10,-4,/player/4466/anders-gronlund,3,Anders Grönlund,D,2021-2022,shl,4466,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Lindroth (D),Linköping HC,52,4,1,5,0.10,59,0,/player/192059/max-lindroth,3,Max Lindroth,D,2021-2022,shl,192059,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Émile Poirier (C/LW),Djurgårdens IF,11,3,2,5,0.45,13,0,/player/128977/emile-poirier,3,Émile Poirier,C/LW,2021-2022,shl,128977,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Sandberg (C/RW),Skellefteå AIK,22,3,2,5,0.23,8,-2,/player/33931/filip-sandberg,3,Filip Sandberg,C/RW,2021-2022,shl,33931,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jimmy Andersson (LW),Linköping HC,35,3,2,5,0.14,6,0,/player/5501/jimmy-andersson,3,Jimmy Andersson,LW,2021-2022,shl,5501,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julius Bergman (D),Brynäs IF,43,3,2,5,0.12,8,0,/player/38929/julius-bergman,3,Julius Bergman,D,2021-2022,shl,38929,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valtteri Kemiläinen (D),Rögle BK,8,2,3,5,0.63,2,1,/player/58336/valtteri-kemilainen,3,Valtteri Kemiläinen,D,2021-2022,shl,58336,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tom Nilsson (D),Djurgårdens IF,24,2,3,5,0.21,16,-4,/player/33189/tom-nilsson,3,Tom Nilsson,D,2021-2022,shl,33189,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Berglund (C),Djurgårdens IF,26,2,3,5,0.19,8,-2,/player/27465/emil-berglund,3,Emil Berglund,C,2021-2022,shl,27465,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Andersson (D),Växjö Lakers HC,36,2,3,5,0.14,45,5,/player/10071/peter-andersson,3,Peter Andersson,D,2021-2022,shl,10071,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Måns Forsfjäll (D),Skellefteå AIK,45,2,3,5,0.11,8,2,/player/422034/mans-forsfjall,3,Måns Forsfjäll,D,2021-2022,shl,422034,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Westerlund (D),Timrå IK,50,2,3,5,0.10,4,-15,/player/262145/filip-westerlund,3,Filip Westerlund,D,2021-2022,shl,262145,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niclas Bergfors (RW),Djurgårdens IF,50,2,3,5,0.10,8,-16,/player/2045/niclas-bergfors,3,Niclas Bergfors,RW,2021-2022,shl,2045,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskar Kvist (LW/RW),Brynäs IF,39,1,4,5,0.13,4,-2,/player/402325/oskar-kvist,3,Oskar Kvist,LW/RW,2021-2022,shl,402325,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mattias Sjögren (C),Rögle BK,44,1,4,5,0.11,18,-20,/player/4040/mattias-sjogren,3,Mattias Sjögren,C,2021-2022,shl,4040,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Ginning (D),Färjestad BK,51,1,4,5,0.10,42,0,/player/281968/adam-ginning,3,Adam Ginning,D,2021-2022,shl,281968,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Krutil (D),Växjö Lakers HC,21,0,5,5,0.24,4,-1,/player/427900/michael-krutil,3,Michael Krutil,D,2021-2022,shl,427900,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Bohm (D),Timrå IK,30,0,5,5,0.17,8,-9,/player/16726/oliver-bohm,3,Oliver Bohm,D,2021-2022,shl,16726,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Nilsson (C/LW),Frölunda HC,5,3,1,4,0.80,0,-2,/player/33090/jacob-nilsson,3,Jacob Nilsson,C/LW,2021-2022,shl,33090,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juuso Puustinen (RW),Örebro HK,25,3,1,4,0.16,0,-3,/player/8395/juuso-puustinen,3,Juuso Puustinen,RW,2021-2022,shl,8395,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikkel Øby-Olsen (W/C),IK Oskarshamn,35,3,1,4,0.11,0,1,/player/549487/mikkel-oby-olsen,3,Mikkel Øby-Olsen,W/C,2021-2022,shl,549487,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Högström (D),Djurgårdens IF,8,2,2,4,0.50,2,-6,/player/6403/marcus-hogstrom,3,Marcus Högström,D,2021-2022,shl,6403,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Stenman (C),Skellefteå AIK,27,2,2,4,0.15,0,-3,/player/512732/elias-stenman,3,Elias Stenman,C,2021-2022,shl,512732,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Isak Rosén (W/C),Leksands IF,28,2,2,4,0.14,0,2,/player/420269/isak-rosen,3,Isak Rosén,W/C,2021-2022,shl,420269,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hampus Plato (RW),IK Oskarshamn,34,2,2,4,0.12,6,1,/player/472140/hampus-plato,3,Hampus Plato,RW,2021-2022,shl,472140,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carl Jakobsson (LW/RW),Färjestad BK,38,2,2,4,0.11,6,-6,/player/317680/carl-jakobsson,3,Carl Jakobsson,LW/RW,2021-2022,shl,317680,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Arnesson (D),Djurgårdens IF,43,2,2,4,0.09,20,-13,/player/33350/linus-arnesson,3,Linus Arnesson,D,2021-2022,shl,33350,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Erixon (D),Timrå IK,47,2,2,4,0.09,55,-8,/player/6051/tim-erixon,3,Tim Erixon,D,2021-2022,shl,6051,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ziyat Paigin (D),Timrå IK,12,1,3,4,0.33,8,-3,/player/163859/ziyat-paigin,3,Ziyat Paigin,D,2021-2022,shl,163859,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Amil Krupic (D),Växjö Lakers HC,14,1,3,4,0.29,7,2,/player/28927/amil-krupic,3,Amil Krupic,D,2021-2022,shl,28927,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Craig Schira (D),Linköping HC,40,1,3,4,0.10,16,-4,/player/9334/craig-schira,3,Craig Schira,D,2021-2022,shl,9334,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arvid Lundberg (D),Växjö Lakers HC,43,1,3,4,0.09,16,4,/player/39021/arvid-lundberg,3,Arvid Lundberg,D,2021-2022,shl,39021,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kristaps Zile (D),Örebro HK,12,0,4,4,0.33,2,3,/player/214261/kristaps-zile,3,Kristaps Zile,D,2021-2022,shl,214261,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Ekbom (D),Frölunda HC,26,0,4,4,0.15,4,7,/player/4996/viktor-ekbom,3,Viktor Ekbom,D,2021-2022,shl,4996,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Warg (D),totals,51,0,4,4,0.08,16,-9,/player/6870/stefan-warg,3,Stefan Warg,D,2021-2022,shl,6870,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Lauridsen (D),Malmö Redhawks,42,3,0,3,0.07,41,-8,/player/6660/oliver-lauridsen,3,Oliver Lauridsen,D,2021-2022,shl,6660,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Magnus Pääjärvi (LW/RW),Malmö Redhawks,17,2,1,3,0.18,2,-8,/player/6014/magnus-paajarvi,3,Magnus Pääjärvi,LW/RW,2021-2022,shl,6014,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dale Weise (RW),IK Oskarshamn,17,2,1,3,0.18,10,-7,/player/15727/dale-weise,3,Dale Weise,RW,2021-2022,shl,15727,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Ljungman (C/RW),Linköping HC,27,2,1,3,0.11,4,-7,/player/463647/daniel-ljungman,3,Daniel Ljungman,C/RW,2021-2022,shl,463647,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Albin Carlson (D),Timrå IK,29,2,1,3,0.10,8,-2,/player/33367/albin-carlson,3,Albin Carlson,D,2021-2022,shl,33367,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elliot Ekmark (C),Linköping HC,44,2,1,3,0.07,12,-7,/player/411933/elliot-ekmark,3,Elliot Ekmark,C,2021-2022,shl,411933,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Lundh (C/W),Färjestad BK,20,1,2,3,0.15,2,-4,/player/3697/patrik-lundh,3,Patrik Lundh,C/W,2021-2022,shl,3697,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Sondell (D),Luleå HF,28,1,2,3,0.11,14,1,/player/529/daniel-sondell,4,Daniel Sondell,D,2021-2022,shl,529,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kim Johansson (D),Luleå HF,29,1,2,3,0.10,4,-4,/player/240671/kim-johansson,4,Kim Johansson,D,2021-2022,shl,240671,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lian Bichsel (D),Leksands IF,29,1,2,3,0.10,16,-6,/player/665087/lian-bichsel,4,Lian Bichsel,D,2021-2022,shl,665087,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olli Nikupeteri (LW/RW),Luleå HF,33,1,2,3,0.09,2,-4,/player/557162/olli-nikupeteri,4,Olli Nikupeteri,LW/RW,2021-2022,shl,557162,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fredrik Forsberg (LW/RW),totals,45,1,2,3,0.07,4,-3,/player/109979/fredrik-forsberg,4,Fredrik Forsberg,LW/RW,2021-2022,shl,109979,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Modigs (C/W),Linköping HC,15,0,3,3,0.20,0,-3,/player/15877/markus-modigs,4,Markus Modigs,C/W,2021-2022,shl,15877,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Brännstam (D),Djurgårdens IF,17,0,3,3,0.18,2,-3,/player/344798/alex-brannstam,4,Alex Brännstam,D,2021-2022,shl,344798,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juuso Vainio (D),Växjö Lakers HC,21,0,3,3,0.14,2,-5,/player/60915/juuso-vainio,4,Juuso Vainio,D,2021-2022,shl,60915,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josef Ingman (D),Djurgårdens IF,26,0,3,3,0.12,6,-10,/player/67227/josef-ingman,4,Josef Ingman,D,2021-2022,shl,67227,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Forsmark (D),Örebro HK,41,0,3,3,0.07,2,-3,/player/420272/simon-forsmark,4,Simon Forsmark,D,2021-2022,shl,420272,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Mylläri (D),Brynäs IF,51,0,3,3,0.06,43,-3,/player/6017/anton-myllari,4,Anton Mylläri,D,2021-2022,shl,6017,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johannes Salmonsson (LW/RW),IK Oskarshamn,34,2,0,2,0.06,8,-11,/player/1269/johannes-salmonsson,4,Johannes Salmonsson,LW/RW,2021-2022,shl,1269,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeremy Boyce (C/LW),Timrå IK,46,2,0,2,0.04,2,-4,/player/22021/jeremy-boyce,4,Jeremy Boyce,C/LW,2021-2022,shl,22021,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaedon Descheneau (RW/C),Malmö Redhawks,10,1,1,2,0.20,4,0,/player/64576/jaedon-descheneau,4,Jaedon Descheneau,RW/C,2021-2022,shl,64576,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Didrik Strömberg (D),Timrå IK,11,1,1,2,0.18,6,5,/player/38728/didrik-stromberg,4,Didrik Strömberg,D,2021-2022,shl,38728,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Pyrochta (D),Luleå HF,13,1,1,2,0.15,2,-2,/player/130785/filip-pyrochta,4,Filip Pyrochta,D,2021-2022,shl,130785,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Bystedt (C/LW),Linköping HC,15,1,1,2,0.13,0,-2,/player/578760/filip-bystedt,4,Filip Bystedt,C/LW,2021-2022,shl,578760,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pontus Johansson (D),Djurgårdens IF,25,1,1,2,0.08,4,-12,/player/246029/pontus-johansson,4,Pontus Johansson,D,2021-2022,shl,246029,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Liam Öhgren (LW),Djurgårdens IF,25,1,1,2,0.08,6,-7,/player/535698/liam-ohgren,4,Liam Öhgren,LW,2021-2022,shl,535698,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Morten Madsen (C),Timrå IK,35,1,1,2,0.06,2,-7,/player/2613/morten-madsen,4,Morten Madsen,C,2021-2022,shl,2613,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Georg Weigelt (C),Linköping HC,40,1,1,2,0.05,0,1,/player/480052/georg-weigelt,4,Georg Weigelt,C,2021-2022,shl,480052,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philip Granath (RW),Rögle BK,40,1,1,2,0.05,4,-11,/player/517176/philip-granath,4,Philip Granath,RW,2021-2022,shl,517176,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Einar Emanuelsson (RW),Luleå HF,49,1,1,2,0.04,2,-2,/player/147279/einar-emanuelsson,4,Einar Emanuelsson,RW,2021-2022,shl,147279,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Mannberg (RW),Brynäs IF,10,0,2,2,0.20,4,-3,/player/10397/daniel-mannberg,4,Daniel Mannberg,RW,2021-2022,shl,10397,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskars Cibulskis (D),Brynäs IF,11,0,2,2,0.18,0,1,/player/19035/oskars-cibulskis,4,Oskars Cibulskis,D,2021-2022,shl,19035,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Stjernborg (C),Växjö Lakers HC,15,0,2,2,0.13,29,-1,/player/472146/victor-stjernborg,4,Victor Stjernborg,C,2021-2022,shl,472146,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mattias Norlinder (D),Frölunda HC,21,0,2,2,0.10,2,-7,/player/344235/mattias-norlinder,4,Mattias Norlinder,D,2021-2022,shl,344235,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Molldén (D/F),Malmö Redhawks,31,0,2,2,0.06,8,-14,/player/38711/alexander-mollden,4,Alexander Molldén,D/F,2021-2022,shl,38711,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Bjerselius (C),Djurgårdens IF,34,0,2,2,0.06,4,-13,/player/343066/oscar-bjerselius,4,Oscar Bjerselius,C,2021-2022,shl,343066,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vojtěch Mozík (D),Rögle BK,13,1,0,1,0.08,2,0,/player/99009/vojtech-mozik,4,Vojtěch Mozík,D,2021-2022,shl,99009,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Milosevic (D),Frölunda HC,16,1,0,1,0.06,0,-2,/player/486911/stefan-milosevic,4,Stefan Milosevic,D,2021-2022,shl,486911,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Liljegren (LW),Timrå IK,30,1,0,1,0.03,4,-4,/player/37051/viktor-liljegren,4,Viktor Liljegren,LW,2021-2022,shl,37051,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mattias Bäckman (D),Linköping HC,3,0,1,1,0.33,6,-3,/player/12949/mattias-backman,4,Mattias Bäckman,D,2021-2022,shl,12949,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Hedlund (RW),Leksands IF,6,0,1,1,0.17,0,-1,/player/402553/erik-hedlund,4,Erik Hedlund,RW,2021-2022,shl,402553,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jens Westin (D),Färjestad BK,8,0,1,1,0.13,0,1,/player/6417/jens-westin,4,Jens Westin,D,2021-2022,shl,6417,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fredrik Styrman (D),Luleå HF,8,0,1,1,0.13,2,1,/player/9850/fredrik-styrman,4,Fredrik Styrman,D,2021-2022,shl,9850,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Theo Lindstein (D),Brynäs IF,12,0,1,1,0.08,0,-2,/player/704824/theo-lindstein,4,Theo Lindstein,D,2021-2022,shl,704824,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roberts Mamcics (D),Linköping HC,12,0,1,1,0.08,6,-3,/player/91123/roberts-mamcics,4,Roberts Mamcics,D,2021-2022,shl,91123,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Pettersson (D),Örebro HK,17,0,1,1,0.06,0,4,/player/641020/elias-pettersson,4,Elias Pettersson,D,2021-2022,shl,641020,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian Gibbons (W/C),Linköping HC,17,0,1,1,0.06,8,-9,/player/24396/brian-gibbons,4,Brian Gibbons,W/C,2021-2022,shl,24396,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Kandergård (C),Leksands IF,23,0,1,1,0.04,25,-7,/player/350038/jesper-kandergard,4,Jesper Kandergård,C,2021-2022,shl,350038,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Milton Oscarson (C/W),Örebro HK,24,0,1,1,0.04,0,-2,/player/425317/milton-oscarson,4,Milton Oscarson,C/W,2021-2022,shl,425317,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Tärnström (C),Rögle BK,27,0,1,1,0.04,2,-7,/player/546952/oliver-tarnstrom,4,Oliver Tärnström,C,2021-2022,shl,546952,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Cronholm (D),Linköping HC,34,0,1,1,0.03,16,-6,/player/345052/linus-cronholm,4,Linus Cronholm,D,2021-2022,shl,345052,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Josefson (C),Djurgårdens IF,0,0,0,0,-,0,0,/player/7655/jacob-josefson,4,Jacob Josefson,C,2021-2022,shl,7655,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Manuel Ågren (LW/RW),Djurgårdens IF,0,0,0,0,-,0,0,/player/37026/manuel-agren,4,Manuel Ågren,LW/RW,2021-2022,shl,37026,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Fransson (D),Leksands IF,0,0,0,0,-,0,0,/player/507/johan-fransson,4,Johan Fransson,D,2021-2022,shl,507,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mattias Ritola (LW/RW),Leksands IF,0,0,0,0,-,0,0,/player/2050/mattias-ritola,4,Mattias Ritola,LW/RW,2021-2022,shl,2050,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Larsen (D),IK Oskarshamn,1,0,0,0,0.00,0,0,/player/211283/oliver-larsen,4,Oliver Larsen,D,2021-2022,shl,211283,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Albert Lyckåsen (D),Linköping HC,1,0,0,0,0.00,0,0,/player/349388/albert-lyckasen,4,Albert Lyckåsen,D,2021-2022,shl,349388,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hugo Gabrielson (D),Frölunda HC,1,0,0,0,0.00,0,0,/player/423699/hugo-gabrielson,4,Hugo Gabrielson,D,2021-2022,shl,423699,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Ramberg (D),Luleå HF,1,0,0,0,0.00,0,0,/player/448927/lucas-ramberg,4,Lucas Ramberg,D,2021-2022,shl,448927,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Lindblom (D),Luleå HF,1,0,0,0,0.00,0,0,/player/555299/simon-lindblom,4,Simon Lindblom,D,2021-2022,shl,555299,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Lindfors (RW),Malmö Redhawks,1,0,0,0,0.00,0,-2,/player/472149/tim-lindfors,4,Tim Lindfors,RW,2021-2022,shl,472149,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Hemström (RW/C),Brynäs IF,1,0,0,0,0.00,0,0,/player/574663/linus-hemstrom,4,Linus Hemström,RW/C,2021-2022,shl,574663,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Torgersson (LW/RW),Frölunda HC,1,0,0,0,0.00,0,0,/player/407408/daniel-torgersson,4,Daniel Torgersson,LW/RW,2021-2022,shl,407408,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wille Bärehag (C/LW),Leksands IF,1,0,0,0,0.00,0,0,/player/420101/wille-barehag,4,Wille Bärehag,C/LW,2021-2022,shl,420101,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Svante Nordberg (RW),Timrå IK,1,0,0,0,0.00,0,0,/player/463823/svante-nordberg,4,Svante Nordberg,RW,2021-2022,shl,463823,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noel Edfeldt (D),Timrå IK,1,0,0,0,0.00,0,0,/player/394727/noel-edfeldt,4,Noel Edfeldt,D,2021-2022,shl,394727,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gustav Lindström (D),Timrå IK,1,0,0,0,0.00,0,0,/player/473215/gustav-lindstrom,4,Gustav Lindström,D,2021-2022,shl,473215,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskar Larsson (C),Timrå IK,1,0,0,0,0.00,0,0,/player/553577/oskar-larsson,4,Oskar Larsson,C,2021-2022,shl,553577,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gustav Stjernberg (D),Örebro HK,1,0,0,0,0.00,0,0,/player/515083/gustav-stjernberg,4,Gustav Stjernberg,D,2021-2022,shl,515083,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Engström (D),Djurgårdens IF,1,0,0,0,0.00,0,0,/player/491616/adam-engstrom,4,Adam Engström,D,2021-2022,shl,491616,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Edward Björk (D),Luleå HF,1,0,0,0,0.00,0,0,/player/598272/edward-bjork,4,Edward Björk,D,2021-2022,shl,598272,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matteus Söderbom (D),Växjö Lakers HC,1,0,0,0,0.00,0,0,/player/644200/matteus-soderbom,4,Matteus Söderbom,D,2021-2022,shl,644200,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Theo Angesved (D),Frölunda HC,1,0,0,0,0.00,0,0,/player/426936/theo-angesved,4,Theo Angesved,D,2021-2022,shl,426936,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Dahlström (C),Brynäs IF,1,0,0,0,0.00,0,0,/player/406362/adam-dahlstrom,4,Adam Dahlström,C,2021-2022,shl,406362,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olle Norberg (D),Linköping HC,1,0,0,0,0.00,0,0,/player/509852/olle-norberg,4,Olle Norberg,D,2021-2022,shl,509852,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Wahlberg (C/LW),Malmö Redhawks,1,0,0,0,0.00,0,0,/player/643681/anton-wahlberg,4,Anton Wahlberg,C/LW,2021-2022,shl,643681,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Theo Keilin (C/LW),Skellefteå AIK,1,0,0,0,0.00,0,0,/player/485564/theo-keilin,4,Theo Keilin,C/LW,2021-2022,shl,485564,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hugo Wendt (D),Malmö Redhawks,1,0,0,0,0.00,0,0,/player/420446/hugo-wendt,4,Hugo Wendt,D,2021-2022,shl,420446,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nils Bolin (LW),IK Oskarshamn,1,0,0,0,0.00,0,0,/player/508051/nils-bolin,4,Nils Bolin,LW,2021-2022,shl,508051,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zeb Forsfjäll (C),Skellefteå AIK,1,0,0,0,0.00,0,0,/player/648365/zeb-forsfjall,4,Zeb Forsfjäll,C,2021-2022,shl,648365,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arvid Lundberg Brobäck (RW),Leksands IF,1,0,0,0,0.00,0,0,/player/509868/arvid-lundberg-broback,4,Arvid Lundberg Brobäck,RW,2021-2022,shl,509868,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Grahn (D),Rögle BK,1,0,0,0,0.00,2,0,/player/241613/viktor-grahn,4,Viktor Grahn,D,2021-2022,shl,241613,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskar Asplund (D),Rögle BK,1,0,0,0,0.00,2,0,/player/509851/oskar-asplund,4,Oskar Asplund,D,2021-2022,shl,509851,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tom Wandell (C),Brynäs IF,1,0,0,0,0.00,2,0,/player/2021/tom-wandell,4,Tom Wandell,C,2021-2022,shl,2021,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Eriksson (D),Skellefteå AIK,2,0,0,0,0.00,0,0,/player/345594/oscar-eriksson,4,Oscar Eriksson,D,2021-2022,shl,345594,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Schreiber (D),Linköping HC,2,0,0,0,0.00,0,0,/player/412008/martin-schreiber,4,Martin Schreiber,D,2021-2022,shl,412008,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Käkelä (C),Växjö Lakers HC,2,0,0,0,0.00,0,-1,/player/424844/lucas-kakela,4,Lucas Käkelä,C,2021-2022,shl,424844,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Limpar Lantz (C),Örebro HK,2,0,0,0,0.00,0,0,/player/394734/marcus-limpar-lantz,4,Marcus Limpar Lantz,C,2021-2022,shl,394734,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Skärberg (D),Färjestad BK,2,0,0,0,0.00,0,0,/player/568656/martin-skarberg,4,Martin Skärberg,D,2021-2022,shl,568656,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hugo Hell (D),Färjestad BK,2,0,0,0,0.00,0,0,/player/656561/hugo-hell,4,Hugo Hell,D,2021-2022,shl,656561,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Ljunggren (C),Leksands IF,2,0,0,0,0.00,0,-2,/player/21828/daniel-ljunggren,4,Daniel Ljunggren,C,2021-2022,shl,21828,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Persson (D),Örebro HK,2,0,0,0,0.00,0,0,/player/448921/johan-persson,4,Johan Persson,D,2021-2022,shl,448921,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Holmli (RW),Brynäs IF,2,0,0,0,0.00,0,0,/player/403026/joel-holmli,4,Joel Holmli,RW,2021-2022,shl,403026,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rikard Olsén (D),Malmö Redhawks,2,0,0,0,0.00,0,-2,/player/38757/rikard-olsen,4,Rikard Olsén,D,2021-2022,shl,38757,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gustav Karlsson (C/LW),Örebro HK,2,0,0,0,0.00,0,0,/player/543274/gustav-karlsson,4,Gustav Karlsson,C/LW,2021-2022,shl,543274,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Artursson (RW),Färjestad BK,2,0,0,0,0.00,0,0,/player/567169/alexander-artursson,4,Alexander Artursson,RW,2021-2022,shl,567169,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dans Ločmelis (C/LW),Luleå HF,2,0,0,0,0.00,0,0,/player/638391/dans-locmelis,4,Dans Ločmelis,C/LW,2021-2022,shl,638391,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Broberg (D),Malmö Redhawks,2,0,0,0,0.00,2,0,/player/470901/marcus-broberg,4,Marcus Broberg,D,2021-2022,shl,470901,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Lagerberg Hoen (D),Leksands IF,3,0,0,0,0.00,0,0,/player/487621/lucas-lagerberg-hoen,4,Lucas Lagerberg Hoen,D,2021-2022,shl,487621,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hugo Pettersson (C/W),Växjö Lakers HC,4,0,0,0,0.00,0,0,/player/483936/hugo-pettersson,4,Hugo Pettersson,C/W,2021-2022,shl,483936,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Andersson (C/RW),Färjestad BK,4,0,0,0,0.00,0,0,/player/420455/noah-andersson,4,Noah Andersson,C/RW,2021-2022,shl,420455,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Johnsson (RW/LW),Rögle BK,4,0,0,0,0.00,0,-2,/player/411820/oscar-johnsson,4,Oscar Johnsson,RW/LW,2021-2022,shl,411820,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Nilsson (C),Skellefteå AIK,4,0,0,0,0.00,0,0,/player/242575/oscar-nilsson,4,Oscar Nilsson,C,2021-2022,shl,242575,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Johansson (D),Leksands IF,4,0,0,0,0.00,0,-1,/player/701870/anton-johansson,4,Anton Johansson,D,2021-2022,shl,701870,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Douglas Andersson (LW),IK Oskarshamn,4,0,0,0,0.00,0,-1,/player/480045/douglas-andersson,4,Douglas Andersson,LW,2021-2022,shl,480045,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Ljungkrantz (LW/RW),Brynäs IF,5,0,0,0,0.00,0,-2,/player/403021/alexander-ljungkrantz,4,Alexander Ljungkrantz,LW/RW,2021-2022,shl,403021,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Hofbauer (C),Örebro HK,5,0,0,0,0.00,0,0,/player/394738/adam-hofbauer,4,Adam Hofbauer,C,2021-2022,shl,394738,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Magnusson (RW),Linköping HC,5,0,0,0,0.00,0,0,/player/474005/william-magnusson,5,William Magnusson,RW,2021-2022,shl,474005,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Isac Göransson (C),Malmö Redhawks,5,0,0,0,0.00,0,0,/player/221921/isac-goransson,5,Isac Göransson,C,2021-2022,shl,221921,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kalle Bartholdsson (D),Rögle BK,5,0,0,0,0.00,0,-1,/player/387450/kalle-bartholdsson,5,Kalle Bartholdsson,D,2021-2022,shl,387450,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hugo Jonasson (D),IK Oskarshamn,5,0,0,0,0.00,0,0,/player/562541/hugo-jonasson,5,Hugo Jonasson,D,2021-2022,shl,562541,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Lööf (C),Växjö Lakers HC,5,0,0,0,0.00,0,0,/player/455978/linus-loof,5,Linus Lööf,C,2021-2022,shl,455978,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Engvall (LW),Rögle BK,5,0,0,0,0.00,0,0,/player/395298/kevin-engvall,5,Kevin Engvall,LW,2021-2022,shl,395298,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Nilsson (D),Örebro HK,5,0,0,0,0.00,0,2,/player/568901/niklas-nilsson,5,Niklas Nilsson,D,2021-2022,shl,568901,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Charlie Björklund (LW/RW),IK Oskarshamn,5,0,0,0,0.00,0,0,/player/484807/charlie-bjorklund,5,Charlie Björklund,LW/RW,2021-2022,shl,484807,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Strömgren (LW/RW),Rögle BK,6,0,0,0,0.00,0,-1,/player/486944/william-stromgren,5,William Strömgren,LW/RW,2021-2022,shl,486944,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kasper Magnussen (LW),Leksands IF,6,0,0,0,0.00,0,-1,/player/645305/kasper-magnussen,5,Kasper Magnussen,LW,2021-2022,shl,645305,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Calle Odelius (D),Djurgårdens IF,7,0,0,0,0.00,0,-1,/player/607525/calle-odelius,5,Calle Odelius,D,2021-2022,shl,607525,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Sundin (C),Skellefteå AIK,7,0,0,0,0.00,0,0,/player/518250/jacob-sundin,5,Jacob Sundin,C,2021-2022,shl,518250,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gustav Berglund (D),Färjestad BK,7,0,0,0,0.00,0,-1,/player/379956/gustav-berglund,5,Gustav Berglund,D,2021-2022,shl,379956,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Hasa (C/W),Frölunda HC,8,0,0,0,0.00,0,-1,/player/499355/noah-hasa,5,Noah Hasa,C/W,2021-2022,shl,499355,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fabian Wagner (C/RW),Linköping HC,8,0,0,0,0.00,0,-2,/player/448938/fabian-wagner,5,Fabian Wagner,C/RW,2021-2022,shl,448938,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wiktor Nilsson (RW),Djurgårdens IF,8,0,0,0,0.00,0,-1,/player/394720/wiktor-nilsson,5,Wiktor Nilsson,RW,2021-2022,shl,394720,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arvid Eljas (C/LW),Leksands IF,8,0,0,0,0.00,2,-2,/player/394737/arvid-eljas,5,Arvid Eljas,C/LW,2021-2022,shl,394737,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Alm (D),IK Oskarshamn,8,0,0,0,0.00,8,0,/player/10714/johan-alm,5,Johan Alm,D,2021-2022,shl,10714,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Rosander (D),Leksands IF,9,0,0,0,0.00,0,-1,/player/350315/david-rosander,5,David Rosander,D,2021-2022,shl,350315,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nils Strandberg Sarén (D),Djurgårdens IF,9,0,0,0,0.00,0,-1,/player/546800/nils-strandberg-saren,5,Nils Strandberg Sarén,D,2021-2022,shl,546800,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Barklund (C/RW),Örebro HK,10,0,0,0,0.00,2,0,/player/453656/filip-barklund,5,Filip Barklund,C/RW,2021-2022,shl,453656,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Liam Dower-Nilsson (C),Frölunda HC,10,0,0,0,0.00,2,0,/player/411879/liam-dower-nilsson,5,Liam Dower-Nilsson,C,2021-2022,shl,411879,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ludwig Persson (LW/C),Frölunda HC,10,0,0,0,0.00,2,0,/player/423614/ludwig-persson,5,Ludwig Persson,LW/C,2021-2022,shl,423614,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Salomonsson (D),Skellefteå AIK,10,0,0,0,0.00,2,-1,/player/574931/elias-salomonsson,5,Elias Salomonsson,D,2021-2022,shl,574931,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Östlund (C/LW),Djurgårdens IF,11,0,0,0,0.00,0,-2,/player/535699/noah-ostlund,5,Noah Östlund,C/LW,2021-2022,shl,535699,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Johnsen (C),Färjestad BK,11,0,0,0,0.00,2,1,/player/585832/martin-johnsen,5,Martin Johnsen,C,2021-2022,shl,585832,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fred Nilsson (D),Skellefteå AIK,11,0,0,0,0.00,4,1,/player/468144/fred-nilsson,5,Fred Nilsson,D,2021-2022,shl,468144,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Bernhardtz (LW),Växjö Lakers HC,12,0,0,0,0.00,0,-2,/player/407092/viktor-bernhardtz,5,Viktor Bernhardtz,LW,2021-2022,shl,407092,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sigge Grunditz (C),Färjestad BK,12,0,0,0,0.00,0,-2,/player/537319/sigge-grunditz,5,Sigge Grunditz,C,2021-2022,shl,537319,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabriel Säll (LW),Skellefteå AIK,12,0,0,0,0.00,2,4,/player/473174/gabriel-sall,5,Gabriel Säll,LW,2021-2022,shl,473174,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikola Pasic (LW/RW),Linköping HC,13,0,0,0,0.00,0,-2,/player/259121/nikola-pasic,5,Nikola Pasic,LW/RW,2021-2022,shl,259121,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Johansson (LW/C),Timrå IK,14,0,0,0,0.00,0,-7,/player/448922/oliver-johansson,5,Oliver Johansson,LW/C,2021-2022,shl,448922,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas Nilsson (RW),Luleå HF,14,0,0,0,0.00,2,-2,/player/484282/andreas-nilsson,5,Andreas Nilsson,RW,2021-2022,shl,484282,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Myrenberg (D),Linköping HC,15,0,0,0,0.00,2,1,/player/394729/jonathan-myrenberg,5,Jonathan Myrenberg,D,2021-2022,shl,394729,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Hagman (RW),Växjö Lakers HC,17,0,0,0,0.00,4,-3,/player/448928/oscar-hagman,5,Oscar Hagman,RW,2021-2022,shl,448928,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Theodor Johnsson (D),Växjö Lakers HC,18,0,0,0,0.00,2,-5,/player/420460/theodor-johnsson,5,Theodor Johnsson,D,2021-2022,shl,420460,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+August Berg (D),Leksands IF,19,0,0,0,0.00,4,-5,/player/239233/august-berg,5,August Berg,D,2021-2022,shl,239233,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskar Hassel (D),Rögle BK,22,0,0,0,0.00,2,-2,/player/517096/oskar-hassel,5,Oskar Hassel,D,2021-2022,shl,517096,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mattias Hävelid (D),Linköping HC,23,0,0,0,0.00,0,-4,/player/577575/mattias-havelid,5,Mattias Hävelid,D,2021-2022,shl,577575,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William von Barnekow (C/W),Malmö Redhawks,27,0,0,0,0.00,0,-3,/player/420445/william-von-barnekow,5,William von Barnekow,C/W,2021-2022,shl,420445,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Berglund (D),Färjestad BK,34,0,0,0,0.00,0,-4,/player/518260/anton-berglund,5,Anton Berglund,D,2021-2022,shl,518260,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kristofer Berglund (D),Brynäs IF,48,0,0,0,0.00,8,-6,/player/3705/kristofer-berglund,5,Kristofer Berglund,D,2021-2022,shl,3705,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69

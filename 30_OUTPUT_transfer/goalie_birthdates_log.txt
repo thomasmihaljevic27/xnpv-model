@@ -1,0 +1,30 @@
+goalie_birthdates.py v1.0 (2026-10-21)
+NHL goalie bios: 1,793 goaltender-seasons, 354 goaltenders, seasons 2007-2025 ({'cache': 19})
+Goalies_WAR.csv: 1,639 rows, 1,560 goaltender-seasons, 280 names
+
+SEASONS IN WHICH THE WAR FILE'S NAME HOLDS TWO NHL PLAYERS (team rows summed by goalie_value_engine and the goalie panel): 1
+  Matt Murray 2022-23 (TOR/DAL): two players in one WAR season (8476899 26 games; 8483575 3 games); birthdate of the one with more games
+
+THE MATT MURRAYS: the NHL has 2 goaltenders under the name: 8476899 born 1994-05-25; 8483575 born 1998-02-02
+  2015-16 PIT: WAR games 13, one id -> 8476899 born 1994-05-25
+  2016-17 PIT: WAR games 49, one id -> 8476899 born 1994-05-25
+  2017-18 PIT: WAR games 49, one id -> 8476899 born 1994-05-25
+  2018-19 PIT: WAR games 50, one id -> 8476899 born 1994-05-25
+  2019-20 PIT: WAR games 38, one id -> 8476899 born 1994-05-25
+  2020-21 OTT: WAR games 27, one id -> 8476899 born 1994-05-25
+  2021-22 OTT: WAR games 20, one id -> 8476899 born 1994-05-25
+  2022-23 TOR: WAR games 26, resolved by games -> 8476899 born 1994-05-25
+  2022-23 DAL: WAR games 3, resolved by games -> 8483575 born 1998-02-02
+  2024-25 TOR: WAR games 2, one id -> 8476899 born 1994-05-25
+  2025-26 SEA: WAR games 5, one id -> 8476899 born 1994-05-25
+
+AGAINST PUCKPEDIA: 1,193 goaltender-seasons carry both dates; they disagree for 0 (0 names with one NHL id)
+
+COVERAGE: goaltender-seasons with an NHL birthdate 1,552 of 1,560; with PuckPedia's 1,201; with either 1,560
+  goaltenders: NHL 277 of 280; PuckPedia 187; either 280
+  status one id: 1,551
+  status not in the NHL's records: 8
+  status two players in one WAR season (8476899 26 games; 8483575 3 games); birthdate of the one with more games: 1
+  NO NHL BIRTHDATE: Cal Petersen (2018, 2019, 2020, 2021, 2022, 2023; not in the NHL's records)
+  NO NHL BIRTHDATE: Georgi Romanov (2024; not in the NHL's records)
+  NO NHL BIRTHDATE: Ken Appleby (2017; not in the NHL's records)

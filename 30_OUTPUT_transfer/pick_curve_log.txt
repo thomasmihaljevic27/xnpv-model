@@ -1,0 +1,41 @@
+pick_curve.py v1.11 (2026-10-21)
+  input linkage: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\draft_pick_linkage.csv  (modified 2026-10-22 03:04)
+  input WAR: C:\Users\thoma\Desktop\xNPV\10_SOURCE\WAR.csv  (modified 2026-10-16 17:12)
+  input GWAR: C:\Users\thoma\Desktop\xNPV\10_SOURCE\Goalies_WAR.csv  (modified 2026-10-16 17:12)
+  input bacon: C:\Users\thoma\Desktop\xNPV\10_SOURCE\draft_slot_baseline.csv  (modified 2026-07-02 13:35)
+  input trades: C:\Users\thoma\Desktop\xNPV\10_SOURCE\trades.db  (modified 2026-07-02 13:35)
+  input elc: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\elc_signing_dates.csv  (modified 2026-10-22 03:04)
+  skater line: xNPV 1 term-in line alpha -0.0043092485 beta F 0.0175092736 D 0.0215857648 term 0.0089103033
+  goalie line: alpha -0.0317074413 beta 0.0213830910 term 0.0081170278
+
+picks 2007-2017: 2,325; set aside (merged-name exclusion or no birthdate): 3: 2009 #118 FORFEIT; 2011 #69 FORFEIT; 2012 #93 Erik Gustafsson
+  entry-level signing years held: 1,655 drafted players (elc_signing_dates.csv)
+  excluded from every fit (died before reaching the NHL): Alexei Cherepanov, 2007 #17, died 2008-10-13
+  excluded from every fit (died before reaching the NHL): Mickey Renaud, 2007 #143, died 2008-02-18
+  excluded from every fit (died before reaching the NHL): Bryan Rufenach, 2007 #208, died 2012-06-04
+  excluded from every fit (died before reaching the NHL): Scott Winkler, 2008 #89, died 2013-06-12
+  excluded from every fit (died before reaching the NHL): Kristians Pelss, 2010 #181, died 2013-06-11
+  excluded from every fit (died before reaching the NHL): Daniil Sobchenko, 2011 #166, died 2011-09-07
+  guard, window ends vs draft_window_count.csv: 2322 of 2322 equal
+  guard, skater surplus vs pick_cost_and_year_tests: skipped (the price line was re-locked 2026-10-14; the tests were priced on the 2026-10-05 line)
+
+picks priced: 2,322 (233 goalies); played an NHL game: 1,161
+routes: never played 1150, same team 985, traded first 120, lapsed 46, signed by the drafting club 21
+  signed his entry-level deal with the drafting club, kept (v1.9): 21 picks, $8.46M
+surplus zeroed for lapsed rights: $56.3M of $2,348.7M
+
+STAR VALUE ($M at the 2025-26 cap: the surplus of a pick certain to produce a star; through zero, no draft-year terms)
+  main, all eleven drafts:            18.29 (se 1.74)
+  sensitivity, without 2015 and 2016: 15.99 (se 1.56)
+  the qualifying-offer chain (main until 2026-10-13): 32.15 (se 2.78); without 2015 and 2016 28.11 (se 2.58)
+  v1.5 attribution (all eleven drafts): v1.4 rules 13.68 (on the re-locked line); signing age alone 13.98; forecast-consistent arbitration alone 18.07; both (main) 18.29
+  CBA ages read in the signing year for 1,091 of 1,161 players who played; first NHL season stands in for 70
+  control seasons played: 2,656; priced at arbitration: 1,484; priced above the qualifying offer: 1,086
+  first-round picks who played, summed over their control windows ($M at the 2025-26 cap):
+    picks 1-10: value delivered 2,246.7; cost 1,500.5 (1.62x the qualifying-offer chain's 927.9)
+    picks 11-32: value delivered 2,357.7; cost 1,828.2 (1.34x the qualifying-offer chain's 1,364.3)
+
+wrote pick_curve_players.csv, pick_curve_scales.csv, pick_curve_log.txt in C:\Users\thoma\Desktop\xNPV\30_OUTPUT
+
+LATER DRAFTS (2018-2025), priced for the back-test only, in no fit: 1,770 picks, 1,439 seasons played; surplus through 2025-26 $613.6M; routes: never played 1268, same team 449, signed by the drafting club 19, lapsed 19, traded first 15
+wrote pick_curve_later_players.csv and pick_curve_later_seasons.csv

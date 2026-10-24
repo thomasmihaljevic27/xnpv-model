@@ -1,0 +1,26 @@
+control_cost_figure.py v1.4 (2026-10-15)
+  input seasons: C:\Users\Thomas\Desktop\xNPV\30_OUTPUT\pick_curve_seasons.csv  (modified 2026-10-14 18:54)
+  input players: C:\Users\Thomas\Desktop\xNPV\30_OUTPUT\pick_curve_players.csv  (modified 2026-10-14 18:54)
+  input curve_log: C:\Users\Thomas\Desktop\xNPV\30_OUTPUT\pick_curve_log.txt  (modified 2026-10-14 18:54)
+  input pp_seasons: C:\Users\Thomas\Desktop\xNPV\30_OUTPUT\contract_season_spine.csv  (modified 2026-10-14 18:41)
+  pick curve: pick_curve.py v1.5 (2026-10-14)
+  guard: picks 1-10 value 2,241.7, cost 1,498.1 (1.61x the chain's 927.9) equal pick_curve_log.txt (PASS)
+  guard: picks 11-32 value 2,339.2, cost 1,825.9 (1.34x the chain's 1,358.9) equal pick_curve_log.txt (PASS)
+  CapWages folder C:\Users\Thomas\Desktop\xNPV\10_SOURCE\capwages_cache: present, 1,551 pages, 1,252 with a draft line, 1,252 players not in an earlier folder
+  CapWages folder C:\Users\Thomas\Desktop\xNPV\30_OUTPUT\capwages_top_picks: present, 83 pages, 83 with a draft line, 83 players not in an earlier folder
+  CapWages players with a draft line: 1,335
+  seasons priced: 2,065; cap hit from CapWages 1,183, PuckPedia 854, market price rule (no cap hit) 28; CapWages cap hits above the ceiling refused: 6
+
+AVERAGE PER FIRST-ROUND SKATER WHO PLAYED, over his club's control ($M at the 2025-26 cap)
+       band  players  value  cost_qo_chain  cost_market_rule  cost_actual  market_rule_x_chain  actual_x_chain  actual_x_market_rule
+ Picks 1-10      110  20.47           8.48             13.67        27.11                 1.61            3.20                  1.98
+Picks 11-15       53  13.05           7.08              9.71        16.49                 1.37            2.33                  1.70
+Picks 16-32      163   9.63           5.93              7.82        12.23                 1.32            2.06                  1.56
+  cross-check with top_pick_control_look.csv: 321 of 326 players' actual cost within $0.05M (windows and ages moved on 2026-10-14, so some differ)
+
+  wrote C:\Users\Thomas\Desktop\xNPV\30_OUTPUT\control_cost_figure\control_cost.png
+  picks 1-10: 12 of 779 seasons without a cap hit (2%; 12 before 2018-19, 0 from it)
+  picks 11-15: 7 of 339 seasons without a cap hit (2%; 7 before 2018-19, 0 from it)
+  picks 16-32: 9 of 947 seasons without a cap hit (1%; 9 before 2018-19, 0 from it)
+  CapWages folder C:\Users\Thomas\Desktop\xNPV\10_SOURCE\capwages_cache: present, 1,551 pages, 1,252 with a draft line, 1,252 players not in an earlier folder
+  CapWages folder C:\Users\Thomas\Desktop\xNPV\30_OUTPUT\capwages_top_picks: present, 83 pages, 83 with a draft line, 83 players not in an earlier folder

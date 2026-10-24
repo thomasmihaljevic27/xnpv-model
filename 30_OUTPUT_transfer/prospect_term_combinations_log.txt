@@ -1,0 +1,62 @@
+prospect_term_combinations.py v1.0 (2026-10-16)
+  input rows: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\prospect_nhle_rows.csv  (modified 2026-10-16 17:01)
+  input linkage: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\draft_pick_linkage.csv  (modified 2026-09-09 14:23)
+  input form_scores: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\prospect_production_form_scores.csv  (modified 2026-10-16 17:03)
+  input values: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\prospect_values.csv  (modified 2026-10-16 17:01)
+  rows: 13,104 skater prospect-seasons; D+5 and later 5,370 (1,560 players, 11 drafts)
+  traded prospects valued: 250 assets, $76.31M; D+5 and later 174 ($18.97M): 115 drafted skaters, 50 undrafted skaters, 9 goaltenders (draft position alone, unchanged)
+  guard: draft position alone and the adopted model reproduce the recorded held-out errors; the adopted model reproduces value_M (largest gap 4.6e-12) (PASS)
+
+D+5 AND LATER: EACH COMBINATION (DP draft position, P production, P2 production squared, AGE production x age;
+held-out error in $M of remaining surplus per prospect-season; one-sided p from 2,000 redraws; values $M)
+  combination                 D+5 err vs adopt p<adopt   p<DP  all err  joint p D+5 value  change below 0
+  DP + P + P2 + AGE [age - 18]   0.7374   -0.24%   0.227  0.266   2.1800    0.036     23.32   +4.35      45
+  DP + P2 + AGE [age - 18]     0.7375   -0.23%   0.182  0.264   2.1801    0.019     21.07   +2.10      56
+  P2 + AGE [age - 18]          0.7376   -0.21%   0.191  0.268   2.1801    0.074     20.90   +1.93      54
+  P + P2 + AGE [age - 18]      0.7378   -0.18%   0.267  0.277   2.1801    0.139     22.18   +3.21      49
+  DP + P2                      0.7388   -0.06%   0.443  0.238   2.1802    0.046     23.92   +4.95      26
+  DP + P + P2                  0.7390   -0.03%   0.145  0.279   2.1803    0.017     19.66   +0.69      64
+  DP + P2 + AGE                0.7391   -0.01%   0.512  0.285   2.1803    0.016     26.09   +7.12      40
+  P + P2                       0.7392   +0.00%          0.284   2.1803    0.089     18.97   -0.00      70
+  DP + P + P2 + AGE            0.7394   +0.03%   0.585  0.309   2.1803    0.020     22.09   +3.12      60
+  P + P2 + AGE                 0.7398   +0.08%   0.773  0.326   2.1804    0.056     20.90   +1.93      67
+  P2                           0.7401   +0.12%   0.612  0.255   2.1804    0.034     24.25   +5.28       0
+  P2 + AGE                     0.7404   +0.17%   0.715  0.314   2.1805    0.015     26.51   +7.53       9
+  DP + P + AGE [age - 18]      0.7408   +0.21%   0.645  0.272   2.1805    0.024     21.23   +2.26      15
+  DP + P                       0.7415   +0.31%   0.644  0.235   2.1806    0.019     18.12   -0.85      14
+  DP + P + AGE                 0.7422   +0.40%   0.703  0.304   2.1807    0.014     19.83   +0.86      16
+  P + AGE [age - 18]           0.7423   +0.43%   0.711  0.324   2.1807    0.055     18.38   -0.59      10
+  DP + AGE [age - 18]          0.7424   +0.43%   0.663  0.217   2.1807    0.011     13.12   -5.85      18
+  P                            0.7427   +0.47%   0.692  0.284   2.1808    0.031     16.05   -2.92       0
+  AGE [age - 18]               0.7431   +0.53%   0.691  0.270   2.1808    0.025     12.50   -6.47       0
+  DP + AGE                     0.7433   +0.56%   0.675  0.172   2.1809    0.010      5.26  -13.71      31
+  AGE                          0.7434   +0.57%   0.680  0.191   2.1809    0.005      6.15  -12.82       0
+  P + AGE                      0.7434   +0.57%   0.738  0.377   2.1809    0.019     16.81   -2.16       0
+  none                         0.7441   +0.66%   0.701  0.015   2.1810               0.24  -18.73       0
+  DP                           0.7443   +0.69%   0.716          2.1810    0.637      0.85  -18.12       0
+
+COEFFICIENTS (coefficient, clustered standard error, two-sided p)
+  none                      -
+  DP                        DP 0.1593 (0.3373) p 0.637
+  P                         P 0.0061 (0.0028) p 0.031; no_record 0.0020 (0.0053) p 0.710
+  P2                        P2 0.0005 (0.0002) p 0.034; no_record 0.0016 (0.0054) p 0.762
+  AGE                       AGE 0.0034 (0.0012) p 0.005; no_record 0.0020 (0.0053) p 0.710
+  DP + P                    DP -1.9005 (0.6784) p 0.005; P 0.0096 (0.0039) p 0.014; no_record 0.0291 (0.0121) p 0.016
+  DP + P2                   DP -1.8822 (0.7610) p 0.013; P2 0.0006 (0.0003) p 0.026; no_record 0.0284 (0.0131) p 0.030
+  DP + AGE                  DP -0.4187 (0.3398) p 0.218; AGE 0.0038 (0.0013) p 0.003; no_record 0.0079 (0.0067) p 0.235
+  P + P2                    P -0.0160 (0.0092) p 0.081; P2 0.0012 (0.0006) p 0.056; no_record 0.0011 (0.0054) p 0.841
+  P + AGE                   P 0.0072 (0.0052) p 0.167; AGE -0.0013 (0.0031) p 0.681; no_record 0.0020 (0.0053) p 0.710
+  P2 + AGE                  P2 0.0007 (0.0004) p 0.085; AGE -0.0055 (0.0047) p 0.239; no_record 0.0014 (0.0053) p 0.788
+  DP + P + P2               DP -0.7611 (0.3466) p 0.028; P -0.0135 (0.0094) p 0.153; P2 0.0011 (0.0006) p 0.071; no_record 0.0120 (0.0073) p 0.099
+  DP + P + AGE              DP -2.0700 (0.8539) p 0.015; P 0.0122 (0.0071) p 0.084; AGE -0.0025 (0.0035) p 0.469; no_record 0.0315 (0.0145) p 0.029
+  DP + P2 + AGE             DP -1.8138 (0.7049) p 0.010; P2 0.0008 (0.0005) p 0.066; AGE -0.0053 (0.0046) p 0.251; no_record 0.0272 (0.0122) p 0.025
+  P + P2 + AGE              P -0.0139 (0.0074) p 0.060; P2 0.0012 (0.0007) p 0.060; AGE -0.0031 (0.0038) p 0.420; no_record 0.0011 (0.0054) p 0.846
+  DP + P + P2 + AGE         DP -0.9717 (0.3995) p 0.015; P -0.0104 (0.0072) p 0.151; P2 0.0012 (0.0007) p 0.071; AGE -0.0036 (0.0039) p 0.361; no_record 0.0150 (0.0081) p 0.066
+  AGE [age - 18]            AGE 0.0008 (0.0004) p 0.025; no_record 0.0019 (0.0053) p 0.712
+  DP + AGE [age - 18]       DP -1.3233 (0.4411) p 0.003; AGE 0.0011 (0.0004) p 0.009; no_record 0.0208 (0.0090) p 0.020
+  P + AGE [age - 18]        P 0.0248 (0.0140) p 0.077; AGE -0.0030 (0.0018) p 0.099; no_record 0.0020 (0.0053) p 0.701
+  P2 + AGE [age - 18]       P2 0.0013 (0.0007) p 0.051; AGE -0.0030 (0.0016) p 0.067; no_record 0.0011 (0.0054) p 0.847
+  DP + P + AGE [age - 18]   DP -2.2136 (0.8330) p 0.008; P 0.0324 (0.0164) p 0.049; AGE -0.0035 (0.0020) p 0.074; no_record 0.0336 (0.0142) p 0.018
+  DP + P2 + AGE [age - 18]  DP -0.6959 (0.3197) p 0.030; P2 0.0013 (0.0007) p 0.055; AGE -0.0027 (0.0016) p 0.096; no_record 0.0110 (0.0070) p 0.118
+  P + P2 + AGE [age - 18]   P 0.0069 (0.0070) p 0.324; P2 0.0013 (0.0007) p 0.051; AGE -0.0039 (0.0022) p 0.075; no_record 0.0011 (0.0054) p 0.838
+  DP + P + P2 + AGE [age - 18]DP -1.0692 (0.3814) p 0.005; P 0.0117 (0.0077) p 0.132; P2 0.0012 (0.0006) p 0.064; AGE -0.0041 (0.0022) p 0.064; no_record 0.0164 (0.0079) p 0.038

@@ -1,0 +1,49 @@
+trade_asset_values.py v1.2 (2026-10-20)
+  input prospects: prospect_values.csv (modified 2026-10-22 03:06; prospect_values.py v1.12 (2026-10-21))
+  input players: traded_player_values.csv (modified 2026-10-22 03:09; traded_player_values.py v1.6 (2026-10-21))
+  input page2017: page_2017_values.csv (modified 2026-10-22 03:10; page_2017_values.py v1.9 (2026-10-21))
+  input buried: buried_contract_values.csv (modified 2026-10-22 03:09; buried_contract_values.py v1.8 (2026-10-20))
+  input picks: traded_pick_values.csv (modified 2026-10-22 03:05; traded_pick_values.py v1.2 (2026-10-09))
+
+TRADED ASSETS FROM 2017-07-01: 1,648 (927 players, 634 picks; trades.db ends 2022-03-28)
+                                           assets  page_cap_M  cap_2025_M
+source                                                                   
+buried contract                                17        0.00        0.00
+buried contract, 2017 page                      9        0.00        0.00
+not valued                                      3        0.00        0.00
+pick curve (traded_pick_values)               634      343.18      407.11
+player model                                  490     -489.76     -577.14
+player model, 2017 page                        98      -69.69      -88.74
+player model, rights                           56        2.83        3.33
+prospect model                                249       64.73       77.44
+prospect model (zero)                           5        0.00        0.00
+retained salary (player model)                 75      -58.67      -68.92
+retained salary (player model, 2017 page)      12      -18.62      -23.71
+  all valued assets: 1,645; at the page caps $-225.99M, at the 2025-26 cap $-270.64M
+
+  in two files, resolved by the order above (17; the other file's value is listed):
+    2018-02-16 Chris DiDomenico         buried contract, 2017 page: +0.00 at 2025-26 (also: prospect model (zero))
+    2018-02-09 John Albert              buried contract, 2017 page: +0.00 at 2025-26 (also: prospect model (zero))
+    2017-07-01 Tom McCollum             buried contract, 2017 page: +0.00 at 2025-26 (also: prospect model (zero))
+    2019-02-25 Bogdan Kiselevich        buried contract: +0.00 at 2025-26 (also: prospect model (zero))
+    2019-01-14 Cole Schneider           buried contract: +0.00 at 2025-26 (also: prospect model (zero))
+    2018-12-05 Ben Sexton               buried contract: +0.00 at 2025-26 (also: prospect model (zero))
+    2018-10-01 Matt Taormina            buried contract: +0.00 at 2025-26 (also: prospect model (zero))
+    2018-07-12 Andrew Campbell          buried contract: +0.00 at 2025-26 (also: prospect model (zero))
+    2020-02-24 Matt Lorito              buried contract: +0.00 at 2025-26 (also: prospect model (zero))
+    2020-02-24 T.J. Brennan             buried contract: +0.00 at 2025-26 (also: prospect model (zero))
+    2020-02-24 Kyle Criscuolo           buried contract: +0.00 at 2025-26 (also: prospect model (zero))
+    2020-01-17 Oula Palve               buried contract: +0.00 at 2025-26 (also: prospect model (zero))
+    2019-12-30 Chris Mueller            buried contract: +0.00 at 2025-26 (also: prospect model (zero))
+    2019-07-23 David Clarkson           buried contract: +0.00 at 2025-26 (also: prospect model (zero))
+    2021-04-12 Jani Hakanpää            buried contract: +0.00 at 2025-26 (also: prospect model (zero))
+    2021-04-10 Brian Lashoff            buried contract: +0.00 at 2025-26 (also: prospect model (zero))
+    2022-03-19 Kodie Curran             buried contract: +0.00 at 2025-26 (also: prospect model (zero))
+
+  NOT VALUED (3):
+    2018-06-14 Mike Sislo               page 2018: no NHL id
+    2018-02-26 Greg McKegg              page 2017: no contract found (CapWages: no contracts parsed; PuckPedia: none at 2017)
+    2018-02-09 Adam Chapie              page 2017: position unknown (no PuckPedia record, no WAR row under the name)
+
+  retained salary (Thomas, 2026-10-19): 87 player assets carry it; 87 entries charged to the retaining club, $-92.63M at the 2025-26 cap; retained assets valued by the prospect model (no retention applied): 0
+  in-season trades (Thomas, 2026-10-19): 625 player assets traded during a regular season; the season left counted for 433 of the 439 valued outside the prospect model (median share 24.1%)

@@ -1,0 +1,59 @@
+==========================================================================
+CONTRACT NPV PANEL  --  VALIDATION EXHIBIT, NOT A BACK-TEST INPUT
+==========================================================================
+Each contract is valued from EVERY league-year it is active, re-
+anchored on that year's trailing window. Convergence diagnostic only:
+a historical trade is scored on its OWN year's page and no other.
+
+panel jobs (contract x active league-year): 13,004
+panel rows written: 7,890   (skipped: 5,114 -> {'unpriced_no_anchor': 4488, 'no_contract': 3, 'unpriced_no_history': 623})
+output: contract_npv_panel.csv
+
+==========================================================================
+PANEL VALIDATION VIEWS
+==========================================================================
+
+[1] contracts priced per league-year (page size):
+    2018:   878 contracts   median NPV $-0.26M   incl. a signed extension: 5
+    2019:   886 contracts   median NPV $-0.07M   incl. a signed extension: 1
+    2020:   875 contracts   median NPV $-0.16M   incl. a signed extension: 0
+    2021:   906 contracts   median NPV $-0.28M   incl. a signed extension: 0
+    2022:   953 contracts   median NPV $-0.11M   incl. a signed extension: 0
+    2023:   932 contracts   median NPV $-0.09M   incl. a signed extension: 1
+    2024:   908 contracts   median NPV $-0.08M   incl. a signed extension: 8
+    2025:   901 contracts   median NPV $-0.11M   incl. a signed extension: 6
+    2026:   651 contracts   median NPV $-0.41M   incl. a signed extension: 0
+
+[2] convergence exhibit -- young-star extensions, NPV by page:
+    (negative early = trailing WAR can't see the breakout yet;
+     climbing later = production has arrived in the trailing window)
+    Cale Makar           2020:$+6M  2021:$-1M  2022:$+6M  2023:$-2M  2024:$-9M  2025:$-6M  2026:$-4M
+    Quinn Hughes         2020:$+7M  2021:$-11M  2022:$-11M  2023:$-11M  2024:$-5M  2025:$-2M  2026:$-1M
+    Jack Hughes          2020:$+2M  2021:$+1M  2022:$+19M  2023:$+21M  2024:$+13M  2025:$+9M  2026:$+1M
+    Luke Hughes          2024:$+4M  2025:$-13M  2026:$-19M
+    Auston Matthews      2018:$+12M  2019:$-13M  2020:$-9M  2021:$-6M  2022:$-2M  2023:$-3M  2024:$-4M  2025:$-13M  2026:$-13M
+    Elias Pettersson     2019:$+14M  2020:$+9M  2021:$-4M  2022:$-3M  2023:$-2M  2024:$+3M  2025:$+4M  2025:$-10M  2026:$+1M  2026:$-21M
+
+[3] sample page -- 2024, top 8 and bottom 5 by NPV (ELC seasons
+    excluded from this leaderboard view; they remain in the CSV):
+    (2024 page: 892 veteran-deal rows shown, 16 ELC rows hidden)
+    +  Jaccob Slavin          $ +25.9M  (9yr left)
+    +  Juraj Slafkovský       $ +24.4M  (9yr left)
+    +  Sam Reinhart           $ +19.3M  (8yr left)
+    +  Seth Jarvis            $ +18.5M  (8yr left)
+    +  Owen Tippett           $ +17.9M  (8yr left)
+    +  Gustav Forsling        $ +15.7M  (8yr left)
+    +  Brandon Hagel          $ +15.5M  (8yr left)
+    +  Jesper Bratt           $ +14.3M  (7yr left)
+    ...
+    -  Darnell Nurse          $ -21.9M  (6yr left)
+    -  Zach Werenski          $ -22.0M  (4yr left)
+    -  Johnny Gaudreau        $ -22.2M  (5yr left)
+    -  Sean Couturier         $ -30.5M  (6yr left)
+    -  Jonathan Huberdeau     $ -36.8M  (7yr left)
+
+[4] FIREWALL: this file is a diagnostic. Do NOT join it to trades
+    to score mispricing -- use contract_npv_spine.csv (each trade at
+    its own date). Every row here is tagged artifact_role =
+    'VALIDATION_PANEL_not_backtest_input' so the boundary travels
+    with the data.

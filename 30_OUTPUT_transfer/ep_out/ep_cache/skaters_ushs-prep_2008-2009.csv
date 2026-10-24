@@ -1,0 +1,811 @@
+player,team,gp,g,a,tp,p_per_gp,pim,plus_minus,link,page,playername,position,season,league,ep_player_id,scrape_date,source,package_version
+Jimmy Mullin (C/RW),Shattuck St. Mary's 18U Prep,-,62,44,106,-,-,-,/player/75029/jimmy-mullin,1,Jimmy Mullin,C/RW,2008-2009,ushs-prep,75029,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Fällström (RW),Shattuck St. Mary's 18U Prep,52,40,47,87,1.67,52,-,/player/7054/alexander-fallstrom,1,Alexander Fällström,RW,2008-2009,ushs-prep,7054,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Haula (LW/C),Shattuck St. Mary's 18U Prep,53,26,58,84,1.58,46,-,/player/16042/erik-haula,1,Erik Haula,LW/C,2008-2009,ushs-prep,16042,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Day (RW),St. Francis High Prep,39,-,-,79,2.03,-,-,/player/45899/anthony-day,1,Anthony Day,RW,2008-2009,ushs-prep,45899,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Weiniger (F),Phillips Exeter Academy,31,39,30,69,2.23,-,-,/player/58726/daniel-weiniger,1,Daniel Weiniger,F,2008-2009,ushs-prep,58726,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Darcy Greenaway (RW),Lake Forest Academy,46,33,35,68,1.48,8,-,/player/95462/darcy-greenaway,1,Darcy Greenaway,RW,2008-2009,ushs-prep,95462,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chad Goodwin (F),Hebron Academy,29,23,44,67,2.31,-,-,/player/59715/chad-goodwin,1,Chad Goodwin,F,2008-2009,ushs-prep,59715,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Toomey (F),Proctor Academy,31,34,29,63,2.03,-,-,/player/55703/connor-toomey,1,Connor Toomey,F,2008-2009,ushs-prep,55703,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wade Megan (C),South Kent Prep,32,27,36,63,1.97,18,-,/player/38054/wade-megan,1,Wade Megan,C,2008-2009,ushs-prep,38054,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Alfieri (C),Shattuck St. Mary's 18U Prep,53,19,44,63,1.19,46,-,/player/30056/sam-alfieri,1,Sam Alfieri,C,2008-2009,ushs-prep,30056,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kazuma Iwamoto (C),Wyoming Seminary Prep,31,21,41,62,2.00,-,-,/player/54625/kazuma-iwamoto,1,Kazuma Iwamoto,C,2008-2009,ushs-prep,54625,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ridge Garbutt (F),Brewster Academy,31,28,33,61,1.97,-,-,/player/110677/ridge-garbutt,1,Ridge Garbutt,F,2008-2009,ushs-prep,110677,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Hatch (RW/LW),Phillips Exeter Academy,31,14,47,61,1.97,-,-,/player/45875/matt-hatch,1,Matt Hatch,RW/LW,2008-2009,ushs-prep,45875,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wayne Simpson (RW),Lawrence Academy,30,31,29,60,2.00,-,-,/player/49479/wayne-simpson,1,Wayne Simpson,RW,2008-2009,ushs-prep,49479,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stephen Buco (C),Hoosac School,35,27,33,60,1.71,-,-,/player/74010/stephen-buco,1,Stephen Buco,C,2008-2009,ushs-prep,74010,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keith Buehler (W/C),Proctor Academy,31,24,36,60,1.94,-,-,/player/111796/keith-buehler,1,Keith Buehler,W/C,2008-2009,ushs-prep,111796,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Violette (F),St. George's School,24,23,37,60,2.50,-,-,/player/162484/michael-violette,1,Michael Violette,F,2008-2009,ushs-prep,162484,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Berkle (LW),Northwood School,39,26,32,58,1.49,52,-,/player/37253/adam-berkle,1,Adam Berkle,LW,2008-2009,ushs-prep,37253,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Goumas (C/LW),Canterbury School,30,23,35,58,1.93,-,-,/player/45727/kevin-goumas,1,Kevin Goumas,C/LW,2008-2009,ushs-prep,45727,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trevor van Riemsdyk (D),Christian Brothers Academy,29,11,47,58,2.00,18,-,/player/60230/trevor-van-riemsdyk,1,Trevor van Riemsdyk,D,2008-2009,ushs-prep,60230,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Tasiopoulos (F),Proctor Academy,31,32,25,57,1.84,-,-,/player/111798/nick-tasiopoulos,1,Nick Tasiopoulos,F,2008-2009,ushs-prep,111798,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Guillaume Cyr (LW),Brewster Academy,31,26,31,57,1.84,-,-,/player/63960/guillaume-cyr,1,Guillaume Cyr,LW,2008-2009,ushs-prep,63960,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Kreider (LW/RW),Phillips Academy Andover,26,33,23,56,2.15,10,-,/player/37998/chris-kreider,1,Chris Kreider,LW/RW,2008-2009,ushs-prep,37998,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shane Gorman (F),The Gunnery,33,21,35,56,1.70,-,-,/player/104324/shane-gorman,1,Shane Gorman,F,2008-2009,ushs-prep,104324,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Hayes (C/LW),Noble & Greenough School,23,28,27,55,2.39,15,-,/player/40243/kevin-hayes,1,Kevin Hayes,C/LW,2008-2009,ushs-prep,40243,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bill Arnold (C/RW),Noble & Greenough School,29,28,27,55,1.90,-,-,/player/40260/bill-arnold,1,Bill Arnold,C/RW,2008-2009,ushs-prep,40260,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Goldberg (D),Berkshire School,33,27,28,55,1.67,28,-,/player/38043/jake-goldberg,1,Jake Goldberg,D,2008-2009,ushs-prep,38043,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Toczylowski (C),Proctor Academy,31,25,30,55,1.77,-,-,/player/58725/robert-toczylowski,1,Robert Toczylowski,C,2008-2009,ushs-prep,58725,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Kondiles (F),Phillips Exeter Academy,31,19,36,55,1.77,-,-,/player/58881/nick-kondiles,1,Nick Kondiles,F,2008-2009,ushs-prep,58881,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steve Whitney (C),Lawrence Academy,30,20,33,53,1.77,-,-,/player/37882/steve-whitney,1,Steve Whitney,C,2008-2009,ushs-prep,37882,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Larkin (D),Phillips Exeter Academy,35,14,38,52,1.49,30,-,/player/38061/thomas-larkin,1,Thomas Larkin,D,2008-2009,ushs-prep,38061,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Velischek (D),Delbarton School,30,16,35,51,1.70,42,-,/player/38064/alex-velischek,1,Alex Velischek,D,2008-2009,ushs-prep,38064,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dan Rowland (F),Proctor Academy,31,13,38,51,1.65,-,-,/player/56763/dan-rowland,1,Dan Rowland,F,2008-2009,ushs-prep,56763,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Bettencourt (F),Hebron Academy,29,18,31,49,1.69,-,-,/player/244782/andrew-bettencourt,1,Andrew Bettencourt,F,2008-2009,ushs-prep,244782,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Charlie Coyle (C/RW),Thayer Academy,26,20,28,48,1.85,4,-,/player/60251/charlie-coyle,1,Charlie Coyle,C/RW,2008-2009,ushs-prep,60251,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zack Phillips (RW/C),Lawrence Academy,30,19,29,48,1.60,24,-,/player/44594/zack-phillips,1,Zack Phillips,RW/C,2008-2009,ushs-prep,44594,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Schulman (F),The Harvey School,23,27,20,47,2.04,-,-,/player/259848/richard-schulman,1,Richard Schulman,F,2008-2009,ushs-prep,259848,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Cerbino (F),Canterbury School,30,17,30,47,1.57,-,-,/player/54654/chris-cerbino,1,Chris Cerbino,F,2008-2009,ushs-prep,54654,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jean-Paul LaFontaine (C),Shattuck St. Mary's 18U Prep,46,17,30,47,1.02,43,-,/player/75047/jean-paul-lafontaine,1,Jean-Paul LaFontaine,C,2008-2009,ushs-prep,75047,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Pereira (LW),South Kent Prep,35,26,20,46,1.31,12,-,/player/75014/mike-pereira,1,Mike Pereira,LW,2008-2009,ushs-prep,75014,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+James Polk (LW),Shattuck St. Mary's 18U Prep,50,18,28,46,0.92,12,-,/player/75037/james-polk,1,James Polk,LW,2008-2009,ushs-prep,75037,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hugo Turcotte (C),The Winchendon School,28,13,33,46,1.64,-,-,/player/97019/hugo-turcotte,1,Hugo Turcotte,C,2008-2009,ushs-prep,97019,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian Ward (C),The Governor's Academy,30,22,23,45,1.50,-,-,/player/75019/brian-ward,1,Brian Ward,C,2008-2009,ushs-prep,75019,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Novak (RW),The Hill School,29,16,29,45,1.55,-,-,/player/96849/max-novak,1,Max Novak,RW,2008-2009,ushs-prep,96849,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joe Basaraba (RW/LW),Shattuck St. Mary's 18U Prep,54,20,24,44,0.81,54,-,/player/30055/joe-basaraba,1,Joe Basaraba,RW/LW,2008-2009,ushs-prep,30055,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jason Clark (C/LW),Shattuck St. Mary's 18U Prep,52,18,26,44,0.85,68,-,/player/75016/jason-clark,1,Jason Clark,C/LW,2008-2009,ushs-prep,75016,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Cetola (C),Hebron Academy,29,14,30,44,1.52,-,-,/player/59709/andrew-cetola,1,Andrew Cetola,C,2008-2009,ushs-prep,59709,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Terrence Wallin (C/RW),The Gunnery,33,14,30,44,1.33,-,-,/player/150846/terrence-wallin,1,Terrence Wallin,C/RW,2008-2009,ushs-prep,150846,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Phil Arnone (F),The Winchendon School,28,28,15,43,1.54,-,-,/player/110653/phil-arnone,1,Phil Arnone,F,2008-2009,ushs-prep,110653,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcello DeAngelis (F),The Hill School,29,23,20,43,1.48,-,-,/player/183103/marcello-deangelis,1,Marcello DeAngelis,F,2008-2009,ushs-prep,183103,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean Murray (F),Canterbury School,30,18,25,43,1.43,-,-,/player/58921/sean-murray,1,Sean Murray,F,2008-2009,ushs-prep,58921,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Conor Sheary (LW/RW),Cushing Academy,31,16,27,43,1.39,-,-,/player/94484/conor-sheary,1,Conor Sheary,LW/RW,2008-2009,ushs-prep,94484,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kristofer Arvanitakis (LW),Wyoming Seminary Prep,-,25,17,42,-,-,-,/player/66359/kristofer-arvanitakis,1,Kristofer Arvanitakis,LW,2008-2009,ushs-prep,66359,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Attila Pavuk (F),Hoosac School,35,21,21,42,1.20,-,-,/player/28798/attila-pavuk,1,Attila Pavuk,F,2008-2009,ushs-prep,28798,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Craig Carbonneau (F),Malden Catholic High,-,18,24,42,-,-,-,/player/52780/craig-carbonneau,1,Craig Carbonneau,F,2008-2009,ushs-prep,52780,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Hercules (F),The Winchendon School,28,13,29,42,1.50,-,-,/player/55112/adam-hercules,1,Adam Hercules,F,2008-2009,ushs-prep,55112,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Bartlett (F),Buckingham Browne & Nichols,28,11,31,42,1.50,-,-,/player/106871/jack-bartlett,1,Jack Bartlett,F,2008-2009,ushs-prep,106871,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Wieland (F),South Kent Prep,33,23,18,41,1.24,-,-,/player/55239/chris-wieland,1,Chris Wieland,F,2008-2009,ushs-prep,55239,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Conderman (LW),Cushing Academy,31,20,21,41,1.32,-,-,/player/84765/mike-conderman,1,Mike Conderman,LW,2008-2009,ushs-prep,84765,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Sullivan (LW/RW),Berkshire School,33,17,24,41,1.24,48,-,/player/38075/kevin-sullivan,1,Kevin Sullivan,LW/RW,2008-2009,ushs-prep,38075,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thane Heller (LW),The Gunnery,-,15,26,41,-,-,-,/player/59738/thane-heller,1,Thane Heller,LW,2008-2009,ushs-prep,59738,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean Jenkins (F),Hoosac School,35,10,31,41,1.17,-,-,/player/74015/sean-jenkins,1,Sean Jenkins,F,2008-2009,ushs-prep,74015,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Boxill (C/RW),Northwood School,41,24,16,40,0.98,24,-,/player/52729/jonathan-boxill,1,Jonathan Boxill,C/RW,2008-2009,ushs-prep,52729,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Raphaël Pouliot (LW),The Winchendon School,28,22,18,40,1.43,-,-,/player/45272/raphael-pouliot,1,Raphaël Pouliot,LW,2008-2009,ushs-prep,45272,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jory Uhlman (LW),Hoosac School,35,16,24,40,1.14,-,-,/player/98818/jory-uhlman,1,Jory Uhlman,LW,2008-2009,ushs-prep,98818,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Popp (F),Albany Academy,38,27,12,39,1.03,-,-,/player/163236/zach-popp,1,Zach Popp,F,2008-2009,ushs-prep,163236,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Czapka (F),Tabor Academy,25,15,24,39,1.56,-,-,/player/60264/eric-czapka,1,Eric Czapka,F,2008-2009,ushs-prep,60264,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Mezzagno (C),Tabor Academy,25,14,25,39,1.56,-,-,/player/58434/anthony-mezzagno,1,Anthony Mezzagno,C,2008-2009,ushs-prep,58434,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Charles Orzetti (LW),Delbarton School,30,22,16,38,1.27,32,37,/player/72873/charles-orzetti,1,Charles Orzetti,LW,2008-2009,ushs-prep,72873,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Cottam (F),Lawrence Academy,30,19,19,38,1.27,-,-,/player/54144/brendan-cottam,1,Brendan Cottam,F,2008-2009,ushs-prep,54144,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Lutzenkirchen (RW),Brewster Academy,31,19,19,38,1.23,-,-,/player/89086/stefan-lutzenkirchen,1,Stefan Lutzenkirchen,RW,2008-2009,ushs-prep,89086,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Garlasco (F),The Gunnery,-,17,21,38,-,-,-,/player/59375/michael-garlasco,1,Michael Garlasco,F,2008-2009,ushs-prep,59375,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blake Matejcek (F),Shattuck St. Mary's 18U Prep,54,16,22,38,0.70,24,-,/player/58393/blake-matejcek,1,Blake Matejcek,F,2008-2009,ushs-prep,58393,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vinny Scotti (C),The Gunnery,-,14,24,38,-,-,-,/player/96856/vinny-scotti,1,Vinny Scotti,C,2008-2009,ushs-prep,96856,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jayson Megna (C/RW),Tabor Academy,25,13,25,38,1.52,-,-,/player/46027/jayson-megna,1,Jayson Megna,C/RW,2008-2009,ushs-prep,46027,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack McNamara (D),Belmont Hill School,30,13,25,38,1.27,-,-,/player/45689/jack-mcnamara,1,Jack McNamara,D,2008-2009,ushs-prep,45689,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Agosta (D),Berkshire School,32,10,28,38,1.19,34,-,/player/38030/justin-agosta,1,Justin Agosta,D,2008-2009,ushs-prep,38030,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+T.J. Powers (F),Williston Northampton School,-,22,15,37,-,-,-,/player/80133/t-j-powers,1,T.J. Powers,F,2008-2009,ushs-prep,80133,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cam Moniz (F),Hebron Academy,29,17,20,37,1.28,-,-,/player/96796/cam-moniz,1,Cam Moniz,F,2008-2009,ushs-prep,96796,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joseph Fiori (F),The Gunnery,33,17,20,37,1.12,-,-,/player/137120/joseph-fiori,1,Joseph Fiori,F,2008-2009,ushs-prep,137120,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Goodsell (F),Choate Rosemary Hall,-,16,21,37,-,-,-,/player/59714/joel-goodsell,1,Joel Goodsell,F,2008-2009,ushs-prep,59714,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicolas Néron (RW),Holderness School,27,15,22,37,1.37,-,-,/player/54944/nicolas-neron,1,Nicolas Néron,RW,2008-2009,ushs-prep,54944,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Guerriero (C),St. George's School,24,14,23,37,1.54,-,-,/player/59377/patrick-guerriero,1,Patrick Guerriero,C,2008-2009,ushs-prep,59377,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Hunchberger (RW),Milton Academy,28,18,18,36,1.29,-,-,/player/47363/kyle-hunchberger,1,Kyle Hunchberger,RW,2008-2009,ushs-prep,47363,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Flynn (F),Berkshire School,33,11,25,36,1.09,-,-,/player/55679/andrew-flynn,1,Andrew Flynn,F,2008-2009,ushs-prep,55679,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Plageman (RW),Culver Military Academy Prep,38,11,25,36,0.95,0,-,/player/177691/kyle-plageman,1,Kyle Plageman,RW,2008-2009,ushs-prep,177691,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cory McGrath (F),St. Paul's School,26,18,17,35,1.35,-,-,/player/58897/cory-mcgrath,1,Cory McGrath,F,2008-2009,ushs-prep,58897,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Harlow (LW),Noble & Greenough School,29,18,17,35,1.21,-,-,/player/97023/matt-harlow,1,Matt Harlow,LW,2008-2009,ushs-prep,97023,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Brickley (C/W),Belmont Hill School,30,17,18,35,1.17,60,-,/player/45687/connor-brickley,1,Connor Brickley,C/W,2008-2009,ushs-prep,45687,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Blake (F),Belmont Hill School,30,16,19,35,1.17,-,-,/player/58992/michael-blake,1,Michael Blake,F,2008-2009,ushs-prep,58992,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Root (C),Taft School,24,15,20,35,1.46,-,-,/player/59740/jesse-root,1,Jesse Root,C,2008-2009,ushs-prep,59740,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Rakoczy (F),Albany Academy,38,15,20,35,0.92,-,-,/player/836791/matt-rakoczy,1,Matt Rakoczy,F,2008-2009,ushs-prep,836791,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Quinn Smith (LW),Avon Old Farms School,25,13,22,35,1.40,-,-,/player/84731/quinn-smith,1,Quinn Smith,LW,2008-2009,ushs-prep,84731,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Garrett McMullen (C),Northfield Mount Hermon School,33,13,22,35,1.06,-,-,/player/122525/garrett-mcmullen,1,Garrett McMullen,C,2008-2009,ushs-prep,122525,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Abbott (RW),Millbrook School,30,10,25,35,1.17,-,-,/player/60373/matthew-abbott,1,Matthew Abbott,RW,2008-2009,ushs-prep,60373,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Goggin (C),Choate Rosemary Hall,25,14,20,34,1.36,-,-,/player/19063/mark-goggin,1,Mark Goggin,C,2008-2009,ushs-prep,19063,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Karales (F),Pomfret School,-,10,24,34,-,-,-,/player/51317/kevin-karales,1,Kevin Karales,F,2008-2009,ushs-prep,51317,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Demopoulos (LW),Avon Old Farms School,25,8,26,34,1.36,-,-,/player/46900/stefan-demopoulos,1,Stefan Demopoulos,LW,2008-2009,ushs-prep,46900,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeffrey Reppucci (D),Phillips Exeter Academy,31,6,28,34,1.10,-,-,/player/54772/jeffrey-reppucci,1,Jeffrey Reppucci,D,2008-2009,ushs-prep,54772,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gus Young (D),Noble & Greenough School,29,5,29,34,1.17,16,-,/player/38049/gus-young,1,Gus Young,D,2008-2009,ushs-prep,38049,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bo Stafford (F),Brunswick School,25,21,12,33,1.32,-,-,/player/622246/bo-stafford,2,Bo Stafford,F,2008-2009,ushs-prep,622246,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joe Campanelli (RW),Westminster Prep,25,18,15,33,1.32,20,-,/player/19162/joe-campanelli,2,Joe Campanelli,RW,2008-2009,ushs-prep,19162,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robbie Bourdon (F),Taft School,23,16,17,33,1.43,-,-,/player/40145/robbie-bourdon,2,Robbie Bourdon,F,2008-2009,ushs-prep,40145,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Menard (F),The Governor's Academy,28,15,18,33,1.18,-,-,/player/58986/chris-menard,2,Chris Menard,F,2008-2009,ushs-prep,58986,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Dolman (F),The Gunnery,33,15,18,33,1.00,-,-,/player/51065/mike-dolman,2,Mike Dolman,F,2008-2009,ushs-prep,51065,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Hnatko (LW),Westminster Prep,25,13,20,33,1.32,-,-,/player/97529/daniel-hnatko,2,Daniel Hnatko,LW,2008-2009,ushs-prep,97529,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cameron Brown (C),The Rivers School,29,10,23,33,1.14,-,-,/player/96859/cameron-brown,2,Cameron Brown,C,2008-2009,ushs-prep,96859,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Waldman (F),Pomfret School,-,20,12,32,-,-,-,/player/50054/ben-waldman,2,Ben Waldman,F,2008-2009,ushs-prep,50054,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Tyson (C),Westminster Prep,25,17,15,32,1.28,-,-,/player/96863/ryan-tyson,2,Ryan Tyson,C,2008-2009,ushs-prep,96863,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cam Darcy (C),Dexter Southfield School,26,16,16,32,1.23,-,-,/player/90353/cam-darcy,2,Cam Darcy,C,2008-2009,ushs-prep,90353,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon McNally (W/C),Belmont Hill School,30,15,17,32,1.07,-,-,/player/75027/brandon-mcnally,2,Brandon McNally,W/C,2008-2009,ushs-prep,75027,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Michailidis (F),Westminster Prep,25,9,23,32,1.28,-,-,/player/96855/peter-michailidis,2,Peter Michailidis,F,2008-2009,ushs-prep,96855,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Gotovets (D),Shattuck St. Mary's 18U Prep,54,7,25,32,0.59,70,-,/player/17654/kirill-gotovets,2,Kirill Gotovets,D,2008-2009,ushs-prep,17654,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Davidson (F),St. Paul's School,-,19,12,31,-,-,-,/player/51312/alex-davidson,2,Alex Davidson,F,2008-2009,ushs-prep,51312,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Gacek (RW),The Governor's Academy,28,17,14,31,1.11,-,-,/player/60242/alex-gacek,2,Alex Gacek,RW,2008-2009,ushs-prep,60242,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike McCann (F),Salisbury School,27,15,16,31,1.15,-,-,/player/94399/mike-mccann,2,Mike McCann,F,2008-2009,ushs-prep,94399,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladyslav Gavrik (RW/LW),Hebron Academy,29,14,17,31,1.07,-,-,/player/57309/vladyslav-gavrik,2,Vladyslav Gavrik,RW/LW,2008-2009,ushs-prep,57309,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Theriault (F),Millbrook School,30,12,19,31,1.03,-,-,/player/105284/jonathan-theriault,2,Jonathan Theriault,F,2008-2009,ushs-prep,105284,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pier-Andre Marquis (F),Vermont Academy,22,11,20,31,1.41,-,-,/player/110789/pier-andre-marquis,2,Pier-Andre Marquis,F,2008-2009,ushs-prep,110789,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Derek DeBlois (RW),Hotchkiss School,23,10,21,31,1.35,16,-,/player/38062/derek-deblois,2,Derek DeBlois,RW,2008-2009,ushs-prep,38062,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cam Spiro (LW),Tabor Academy,25,17,13,30,1.20,-,-,/player/122658/cam-spiro,2,Cam Spiro,LW,2008-2009,ushs-prep,122658,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean Dunn (F),New Hampton School,-,17,13,30,-,-,-,/player/51108/sean-dunn,2,Sean Dunn,F,2008-2009,ushs-prep,51108,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brooks Dyroff (F),Phillips Academy Andover,26,16,14,30,1.15,-,-,/player/48795/brooks-dyroff,2,Brooks Dyroff,F,2008-2009,ushs-prep,48795,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Borge (F),Hotchkiss School,25,14,16,30,1.20,-,-,/player/96314/mike-borge,2,Mike Borge,F,2008-2009,ushs-prep,96314,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Dempsey (F),The Rivers School,29,13,17,30,1.03,-,-,/player/134807/connor-dempsey,2,Connor Dempsey,F,2008-2009,ushs-prep,134807,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jay Haseley (F),Milton Academy,28,11,19,30,1.07,-,-,/player/54327/jay-haseley,2,Jay Haseley,F,2008-2009,ushs-prep,54327,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Izmirlian (F),The Loomis Chaffee School,23,10,20,30,1.30,-,-,/player/241428/chris-izmirlian,2,Chris Izmirlian,F,2008-2009,ushs-prep,241428,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Garnet Hathaway (RW/LW),Phillips Academy Andover,26,16,13,29,1.12,-,-,/player/75018/garnet-hathaway,2,Garnet Hathaway,RW/LW,2008-2009,ushs-prep,75018,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gunnar Hughes (LW),Salisbury School,27,16,13,29,1.07,-,-,/player/90282/gunnar-hughes,2,Gunnar Hughes,LW,2008-2009,ushs-prep,90282,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+P.T. Donato (F),St. Sebastian's School,28,15,14,29,1.04,-,-,/player/54326/p-t-donato,2,P.T. Donato,F,2008-2009,ushs-prep,54326,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Murmes (F),Kimball Union Academy,36,14,15,29,0.81,-,-,/player/60290/andrew-murmes,2,Andrew Murmes,F,2008-2009,ushs-prep,60290,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+K.J. Tiefenwerth (RW),Avon Old Farms School,25,13,16,29,1.16,-,-,/player/96853/k-j-tiefenwerth,2,K.J. Tiefenwerth,RW,2008-2009,ushs-prep,96853,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Billy Rivellini (F),Choate Rosemary Hall,25,12,17,29,1.16,-,-,/player/49448/billy-rivellini,2,Billy Rivellini,F,2008-2009,ushs-prep,49448,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Adams (D),Malden Catholic High,23,6,23,29,1.26,-,-,/player/40881/mark-adams,2,Mark Adams,D,2008-2009,ushs-prep,40881,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rich Rodeschini (F),Canterbury School,30,21,7,28,0.93,-,-,/player/113373/rich-rodeschini,2,Rich Rodeschini,F,2008-2009,ushs-prep,113373,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joe McCabe (F),New Hampton School,-,19,9,28,-,-,-,/player/59003/joe-mccabe,2,Joe McCabe,F,2008-2009,ushs-prep,59003,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Ammon (W/C),Deerfield Academy,24,17,11,28,1.17,-,-,/player/38074/andrew-ammon,2,Andrew Ammon,W/C,2008-2009,ushs-prep,38074,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brant Sherwood (C),Northfield Mount Hermon School,33,16,12,28,0.85,-,-,/player/60386/brant-sherwood,2,Brant Sherwood,C,2008-2009,ushs-prep,60386,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antoine Laganière (W/C),Deerfield Academy,24,12,16,28,1.17,-,-,/player/19149/antoine-laganiere,2,Antoine Laganière,W/C,2008-2009,ushs-prep,19149,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Brown (F),St. Sebastian's School,28,12,16,28,1.00,-,-,/player/58958/chris-brown,2,Chris Brown,F,2008-2009,ushs-prep,58958,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Zobler (F),New Hampton School,-,12,16,28,-,-,-,/player/51102/kyle-zobler,2,Kyle Zobler,F,2008-2009,ushs-prep,51102,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Bonazza (F),Northfield Mount Hermon School,33,9,19,28,0.85,-,-,/player/97035/andrew-bonazza,2,Andrew Bonazza,F,2008-2009,ushs-prep,97035,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Rayner (D),South Kent Prep,32,6,22,28,0.88,-,-,/player/38080/william-rayner,2,William Rayner,D,2008-2009,ushs-prep,38080,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Shannon (D),Lawrence Academy,30,4,24,28,0.93,-,-,/player/45151/zach-shannon,2,Zach Shannon,D,2008-2009,ushs-prep,45151,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Tobey (D),Berwick Academy,26,15,12,27,1.04,-,-,/player/163990/alex-tobey,2,Alex Tobey,D,2008-2009,ushs-prep,163990,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Cerretani (C/RW),Malden Catholic High,22,13,14,27,1.23,-,-,/player/148498/andrew-cerretani,2,Andrew Cerretani,C/RW,2008-2009,ushs-prep,148498,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Éric Rochefort (F),Holderness School,27,12,15,27,1.00,-,-,/player/94316/eric-rochefort,2,Éric Rochefort,F,2008-2009,ushs-prep,94316,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cody Sharib (LW),New Hampton School,28,12,15,27,0.96,-,-,/player/60237/cody-sharib,2,Cody Sharib,LW,2008-2009,ushs-prep,60237,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Will Gray (F),Belmont Hill School,30,12,15,27,0.90,-,-,/player/112687/will-gray,2,Will Gray,F,2008-2009,ushs-prep,112687,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Mannarino (F),Albany Academy,38,11,16,27,0.71,-,-,/player/157459/nick-mannarino,2,Nick Mannarino,F,2008-2009,ushs-prep,157459,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Garrett Clement (D),South Kent Prep,33,7,20,27,0.82,-,-,/player/96871/garrett-clement,2,Garrett Clement,D,2008-2009,ushs-prep,96871,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Lozzi (F),Phillips Academy Andover,26,6,21,27,1.04,-,-,/player/58729/michael-lozzi,2,Michael Lozzi,F,2008-2009,ushs-prep,58729,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joseph Pascucci (F),Middlesex School,19,4,23,27,1.42,-,-,/player/131885/joseph-pascucci,2,Joseph Pascucci,F,2008-2009,ushs-prep,131885,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Furey (D),Dexter Southfield School,26,4,23,27,1.04,-,-,/player/105275/matt-furey,2,Matt Furey,D,2008-2009,ushs-prep,105275,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Bilotta (F),Worcester Academy,23,16,10,26,1.13,-,-,/player/302976/anthony-bilotta,2,Anthony Bilotta,F,2008-2009,ushs-prep,302976,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danny Linnell (RW),Choate Rosemary Hall,25,15,11,26,1.04,-,-,/player/122879/danny-linnell,2,Danny Linnell,RW,2008-2009,ushs-prep,122879,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Linell (D/F),Choate Rosemary Hall,25,15,11,26,1.04,-,-,/player/74209/daniel-linell,2,Daniel Linell,D/F,2008-2009,ushs-prep,74209,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Weisburger (F),Brunswick School,25,14,12,26,1.04,-,-,/player/310641/ben-weisburger,2,Ben Weisburger,F,2008-2009,ushs-prep,310641,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Sucese (F),Northfield Mount Hermon School,33,12,14,26,0.79,-,-,/player/163095/jonathan-sucese,2,Jonathan Sucese,F,2008-2009,ushs-prep,163095,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trevor Mingoia (RW/LW),Berkshire School,33,12,14,26,0.79,-,-,/player/151452/trevor-mingoia,2,Trevor Mingoia,RW/LW,2008-2009,ushs-prep,151452,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Aasa (C),Shattuck St. Mary's 18U Prep,51,11,15,26,0.51,40,-,/player/13098/jesper-aasa,2,Jesper Aasa,C,2008-2009,ushs-prep,13098,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian Safstrom (C),Phillips Academy Andover,26,7,19,26,1.00,-,-,/player/107336/brian-safstrom,2,Brian Safstrom,C,2008-2009,ushs-prep,107336,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Benmocha (F),South Kent Prep,33,7,19,26,0.79,-,-,/player/51042/david-benmocha,2,David Benmocha,F,2008-2009,ushs-prep,51042,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Lepkowski (D),St. Francis High Prep,40,6,20,26,0.65,-,-,/player/45563/alex-lepkowski,2,Alex Lepkowski,D,2008-2009,ushs-prep,45563,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Travis Ritter (F),Trinity-Pawling School,27,14,11,25,0.93,-,-,/player/357854/travis-ritter,2,Travis Ritter,F,2008-2009,ushs-prep,357854,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stephen Rogers (LW),St. Sebastian's School,28,14,11,25,0.89,-,-,/player/58994/stephen-rogers,2,Stephen Rogers,LW,2008-2009,ushs-prep,58994,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cam Miller (F),Berkshire School,33,12,13,25,0.76,-,-,/player/50741/cam-miller,2,Cam Miller,F,2008-2009,ushs-prep,50741,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Phil Moore (D),Hoosac School,35,12,13,25,0.71,-,-,/player/52777/phil-moore,2,Phil Moore,D,2008-2009,ushs-prep,52777,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Jansson (C),Berwick Academy,20,11,14,25,1.25,-,-,/player/13721/oliver-jansson,2,Oliver Jansson,C,2008-2009,ushs-prep,13721,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tom Gildersleeve (F),North Yarmouth Academy,27,11,14,25,0.93,-,-,/player/163355/tom-gildersleeve,2,Tom Gildersleeve,F,2008-2009,ushs-prep,163355,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richie Pallai (F),Berkshire School,33,9,16,25,0.76,-,-,/player/141531/richie-pallai,2,Richie Pallai,F,2008-2009,ushs-prep,141531,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dennis White (D),Worcester Academy,-,9,16,25,-,-,-,/player/107789/dennis-white,2,Dennis White,D,2008-2009,ushs-prep,107789,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Nilsson (F),Shattuck St. Mary's 18U Prep,54,8,17,25,0.46,14,-,/player/27976/sebastian-nilsson,2,Sebastian Nilsson,F,2008-2009,ushs-prep,27976,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Trepp (D),Brunswick School,25,6,19,25,1.00,-,-,/player/106863/nick-trepp,2,Nick Trepp,D,2008-2009,ushs-prep,106863,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Gacsy (D),Hebron Academy,29,6,19,25,0.86,-,-,/player/96868/chris-gacsy,2,Chris Gacsy,D,2008-2009,ushs-prep,96868,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Sinz (D),Shattuck St. Mary's 18U Prep,50,5,20,25,0.50,30,-,/player/40136/nathan-sinz,2,Nathan Sinz,D,2008-2009,ushs-prep,40136,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joseph Tebano (RW),South Kent Prep,33,13,11,24,0.73,-,-,/player/104321/joseph-tebano,2,Joseph Tebano,RW,2008-2009,ushs-prep,104321,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Bingaman (F),Middlesex School,19,11,13,24,1.26,-,-,/player/135678/nick-bingaman,2,Nick Bingaman,F,2008-2009,ushs-prep,135678,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jim Fuoroli (F),South Kent Prep,33,11,13,24,0.73,-,-,/player/59020/jim-fuoroli,2,Jim Fuoroli,F,2008-2009,ushs-prep,59020,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Moore (F),Trinity-Pawling School,27,9,15,24,0.89,-,-,/player/96866/brandon-moore,2,Brandon Moore,F,2008-2009,ushs-prep,96866,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Russo (D),Salisbury School,27,6,18,24,0.89,-,-,/player/84713/brandon-russo,2,Brandon Russo,D,2008-2009,ushs-prep,84713,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Luce (RW),North Yarmouth Academy,27,15,8,23,0.85,-,-,/player/74374/nick-luce,2,Nick Luce,RW,2008-2009,ushs-prep,74374,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Hyslip (F),Tilton School,-,11,12,23,-,-,-,/player/51315/john-hyslip,2,John Hyslip,F,2008-2009,ushs-prep,51315,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Casey Brugman (F),Cushing Academy,-,11,12,23,-,-,-,/player/55367/casey-brugman,2,Casey Brugman,F,2008-2009,ushs-prep,55367,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Graig Angarella (D),Hoosac School,35,10,13,23,0.66,-,-,/player/74067/graig-angarella,2,Graig Angarella,D,2008-2009,ushs-prep,74067,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Männistö (D),North Yarmouth Academy,34,9,14,23,0.68,-,-,/player/69013/mikko-mannisto,2,Mikko Männistö,D,2008-2009,ushs-prep,69013,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Siracusa (F),Hebron Academy,29,8,15,23,0.79,-,-,/player/61184/matt-siracusa,2,Matt Siracusa,F,2008-2009,ushs-prep,61184,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joey Agliato (F),Canterbury School,30,8,15,23,0.77,-,-,/player/96860/joey-agliato,2,Joey Agliato,F,2008-2009,ushs-prep,96860,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Kader (D),Tabor Academy,25,5,18,23,0.92,-,-,/player/60400/thomas-kader,2,Thomas Kader,D,2008-2009,ushs-prep,60400,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julian Malakorn (F),Pomfret School,-,1,22,23,-,-,-,/player/54127/julian-malakorn,2,Julian Malakorn,F,2008-2009,ushs-prep,54127,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Cole (F),Kimball Union Academy,36,16,6,22,0.61,-,-,/player/121866/ryan-cole,2,Ryan Cole,F,2008-2009,ushs-prep,121866,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew O'Leary (LW),Shattuck St. Mary's 18U Prep,50,12,10,22,0.44,28,-,/player/30057/andrew-o-leary,2,Andrew O'Leary,LW,2008-2009,ushs-prep,30057,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ian Reopel (F),The Winchendon School,28,11,11,22,0.79,-,-,/player/59996/ian-reopel,2,Ian Reopel,F,2008-2009,ushs-prep,59996,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nate Dupere (D),Hebron Academy,29,11,11,22,0.76,-,-,/player/105335/nate-dupere,2,Nate Dupere,D,2008-2009,ushs-prep,105335,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Real Huot (F),The Lawrenceville School,31,10,12,22,0.71,-,-,/player/160569/real-huot,2,Real Huot,F,2008-2009,ushs-prep,160569,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keith Veronesi (F),Berkshire School,33,10,12,22,0.67,-,-,/player/111840/keith-veronesi,2,Keith Veronesi,F,2008-2009,ushs-prep,111840,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Hickey (D),The Harvey School,23,9,13,22,0.96,-,-,/player/260002/brandon-hickey,2,Brandon Hickey,D,2008-2009,ushs-prep,260002,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rob MacGregor (F),Trinity-Pawling School,27,9,13,22,0.81,-,-,/player/58743/rob-macgregor,2,Rob MacGregor,F,2008-2009,ushs-prep,58743,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommy O'Regan (LW),St. Sebastian's School,28,9,13,22,0.79,6,-,/player/75023/tommy-o-regan,2,Tommy O'Regan,LW,2008-2009,ushs-prep,75023,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blake Forkey (F),Avon Old Farms School,25,8,14,22,0.88,-,-,/player/54091/blake-forkey,2,Blake Forkey,F,2008-2009,ushs-prep,54091,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danny Biega (D),Salisbury School,29,8,14,22,0.76,-,-,/player/40194/danny-biega,3,Danny Biega,D,2008-2009,ushs-prep,40194,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bernie Rissmiller (F),Canterbury School,-,8,14,22,-,-,-,/player/54139/bernie-rissmiller,3,Bernie Rissmiller,F,2008-2009,ushs-prep,54139,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Paul Cinquegrana (F),Kent School,-,8,14,22,-,-,-,/player/59746/paul-cinquegrana,3,Paul Cinquegrana,F,2008-2009,ushs-prep,59746,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Persson (C),North Yarmouth Academy,27,7,15,22,0.81,-,-,/player/17105/sebastian-persson,3,Sebastian Persson,C,2008-2009,ushs-prep,17105,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Francis Drolet (C),Salisbury School,27,7,15,22,0.81,-,-,/player/49410/francis-drolet,3,Francis Drolet,C,2008-2009,ushs-prep,49410,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Edwards (C),Milton Academy,28,7,15,22,0.79,-,-,/player/59711/ryan-edwards,3,Ryan Edwards,C,2008-2009,ushs-prep,59711,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keith Campbell (F),The Lawrenceville School,31,7,15,22,0.71,-,-,/player/96874/keith-campbell,3,Keith Campbell,F,2008-2009,ushs-prep,96874,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nils Martin (F),Groton School,22,17,4,21,0.95,-,-,/player/162992/nils-martin,3,Nils Martin,F,2008-2009,ushs-prep,162992,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt MacDonald (F),Pingree School,-,14,7,21,-,-,-,/player/54308/matt-macdonald,3,Matt MacDonald,F,2008-2009,ushs-prep,54308,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicholas Kolb (F),Kents Hill School,23,11,10,21,0.91,-,-,/player/74016/nicholas-kolb,3,Nicholas Kolb,F,2008-2009,ushs-prep,74016,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Chwick (F),Berkshire School,33,11,10,21,0.64,-,-,/player/106873/ben-chwick,3,Ben Chwick,F,2008-2009,ushs-prep,106873,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keven Meehan (LW),Tilton School,-,11,10,21,-,-,-,/player/55964/keven-meehan,3,Keven Meehan,LW,2008-2009,ushs-prep,55964,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommy Dwyer (F),Brunswick School,24,10,11,21,0.88,-,-,/player/153362/tommy-dwyer,3,Tommy Dwyer,F,2008-2009,ushs-prep,153362,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christopher Buquicchio (F),Kent School,25,10,11,21,0.84,-,-,/player/59372/christopher-buquicchio,3,Christopher Buquicchio,F,2008-2009,ushs-prep,59372,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Morgan Mullen (C/RW),Avon Old Farms School,25,10,11,21,0.84,-,-,/player/135366/morgan-mullen,3,Morgan Mullen,C/RW,2008-2009,ushs-prep,135366,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+J.C. Cangelosi (F),Northfield Mount Hermon School,33,7,14,21,0.64,-,-,/player/162971/j-c-cangelosi,3,J.C. Cangelosi,F,2008-2009,ushs-prep,162971,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Francis (D),Proctor Academy,31,6,15,21,0.68,-,-,/player/52651/andrew-francis,3,Andrew Francis,D,2008-2009,ushs-prep,52651,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Edson (LW),Salisbury School,25,12,8,20,0.80,2,-,/player/90304/max-edson,3,Max Edson,LW,2008-2009,ushs-prep,90304,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Jelinek (F),Tabor Academy,25,11,9,20,0.80,-,-,/player/58941/andrew-jelinek,3,Andrew Jelinek,F,2008-2009,ushs-prep,58941,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Beau Roeder (F),Trinity-Pawling School,27,11,9,20,0.74,-,-,/player/128473/beau-roeder,3,Beau Roeder,F,2008-2009,ushs-prep,128473,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cody Ferriero (RW/C),The Governor's Academy,27,10,10,20,0.74,87,-,/player/75021/cody-ferriero,3,Cody Ferriero,RW/C,2008-2009,ushs-prep,75021,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Regan MacLean (F),Tabor Academy,25,9,11,20,0.80,-,-,/player/60404/regan-maclean,3,Regan MacLean,F,2008-2009,ushs-prep,60404,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Donald Kleckner (F),The Lawrenceville School,31,9,11,20,0.65,-,-,/player/59096/donald-kleckner,3,Donald Kleckner,F,2008-2009,ushs-prep,59096,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philippe Hudon (C/RW),Choate Rosemary Hall,23,8,12,20,0.87,-,-,/player/56641/philippe-hudon,3,Philippe Hudon,C/RW,2008-2009,ushs-prep,56641,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Corey Bellamy (F/D),The Winchendon School,28,8,12,20,0.71,-,-,/player/55347/corey-bellamy,3,Corey Bellamy,F/D,2008-2009,ushs-prep,55347,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Hourihan (LW),Noble & Greenough School,24,6,14,20,0.83,12,-,/player/38040/mark-hourihan,3,Mark Hourihan,LW,2008-2009,ushs-prep,38040,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Job (LW),Millbrook School,30,5,15,20,0.67,-,-,/player/110689/matthew-job,3,Matthew Job,LW,2008-2009,ushs-prep,110689,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Harry Radovich (D),Westminster Prep,25,4,16,20,0.80,-,-,/player/50723/harry-radovich,3,Harry Radovich,D,2008-2009,ushs-prep,50723,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mac Lalor (D),St. Sebastian's School,28,2,18,20,0.71,-,-,/player/59748/mac-lalor,3,Mac Lalor,D,2008-2009,ushs-prep,59748,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Tuohy (D),Shattuck St. Mary's 18U Prep,54,1,19,20,0.37,4,-,/player/46700/kevin-tuohy,3,Kevin Tuohy,D,2008-2009,ushs-prep,46700,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan MacDonald (F),Trinity-Pawling School,27,13,6,19,0.70,-,-,/player/361063/brendan-macdonald,3,Brendan MacDonald,F,2008-2009,ushs-prep,361063,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Woody (F),Northfield Mount Hermon School,33,13,6,19,0.58,-,-,/player/97041/josh-woody,3,Josh Woody,F,2008-2009,ushs-prep,97041,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Cowles (LW),Kent School,-,10,9,19,-,-,-,/player/60407/christian-cowles,3,Christian Cowles,LW,2008-2009,ushs-prep,60407,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Garrett Sunda (F),Groton School,22,9,10,19,0.86,-,-,/player/163599/garrett-sunda,3,Garrett Sunda,F,2008-2009,ushs-prep,163599,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Ronan (F/D),Belmont Hill School,30,9,10,19,0.63,-,-,/player/60413/matthew-ronan,3,Matthew Ronan,F/D,2008-2009,ushs-prep,60413,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Armstrong (RW/C),Salisbury School,20,8,11,19,0.95,0,-,/player/97705/kyle-armstrong,3,Kyle Armstrong,RW/C,2008-2009,ushs-prep,97705,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Domsodi (F),Kent School,25,8,11,19,0.76,-,-,/player/46810/mike-domsodi,3,Mike Domsodi,F,2008-2009,ushs-prep,46810,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trevor Hines (F),The Governor's Academy,28,8,11,19,0.68,-,-,/player/54328/trevor-hines,3,Trevor Hines,F,2008-2009,ushs-prep,54328,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Woods (LW/C),Williston Northampton School,29,8,11,19,0.66,28,-,/player/45678/brendan-woods,3,Brendan Woods,LW/C,2008-2009,ushs-prep,45678,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Carr (F),New Hampton School,-,8,11,19,-,-,-,/player/56002/michael-carr,3,Michael Carr,F,2008-2009,ushs-prep,56002,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Potter (F),Brooks School,21,6,13,19,0.90,-,-,/player/240873/nick-potter,3,Nick Potter,F,2008-2009,ushs-prep,240873,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott MacDougall (F),St. Mark's School,21,6,13,19,0.90,-,-,/player/314780/scott-macdougall,3,Scott MacDougall,F,2008-2009,ushs-prep,314780,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Richards (F),Phillips Exeter Academy,31,5,14,19,0.61,-,-,/player/97022/josh-richards,3,Josh Richards,F,2008-2009,ushs-prep,97022,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Young (F),New Hampton School,-,5,14,19,-,-,-,/player/141079/mike-young,3,Mike Young,F,2008-2009,ushs-prep,141079,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Coleman (F),Hotchkiss School,23,4,15,19,0.83,-,-,/player/91249/matt-coleman,3,Matt Coleman,F,2008-2009,ushs-prep,91249,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeff Silengo (C/W),South Kent Prep,33,4,15,19,0.58,-,-,/player/47799/jeff-silengo,3,Jeff Silengo,C/W,2008-2009,ushs-prep,47799,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryan Felice (D),Hebron Academy,29,2,17,19,0.66,-,-,/player/80132/bryan-felice,3,Bryan Felice,D,2008-2009,ushs-prep,80132,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Skroski (D),Wyoming Seminary Prep,-,2,17,19,-,-,-,/player/117970/tyler-skroski,3,Tyler Skroski,D,2008-2009,ushs-prep,117970,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Dugdale (F),Deerfield Academy,24,11,7,18,0.75,-,-,/player/59136/evan-dugdale,3,Evan Dugdale,F,2008-2009,ushs-prep,59136,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Pike (D),Belmont Hill School,30,10,8,18,0.60,-,-,/player/75064/dylan-pike,3,Dylan Pike,D,2008-2009,ushs-prep,75064,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Miyamoto (F),Groton School,22,7,11,18,0.82,-,-,/player/163002/connor-miyamoto,3,Connor Miyamoto,F,2008-2009,ushs-prep,163002,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Fronssdahl (C),Groton School,22,6,12,18,0.82,-,-,/player/287570/scott-fronssdahl,3,Scott Fronssdahl,C,2008-2009,ushs-prep,287570,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colt Steele (F),North Yarmouth Academy,27,6,12,18,0.67,-,-,/player/257727/colt-steele,3,Colt Steele,F,2008-2009,ushs-prep,257727,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeff Menard (D),The Governor's Academy,28,6,12,18,0.64,-,-,/player/58985/jeff-menard,3,Jeff Menard,D,2008-2009,ushs-prep,58985,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ian Canty (D),Hebron Academy,29,6,12,18,0.62,-,-,/player/96798/ian-canty,3,Ian Canty,D,2008-2009,ushs-prep,96798,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Lockwood (F),Berkshire School,33,6,12,18,0.55,-,-,/player/110634/kyle-lockwood,3,Kyle Lockwood,F,2008-2009,ushs-prep,110634,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Herskovitz (D),Taft School,-,6,12,18,-,-,-,/player/47636/matthew-herskovitz,3,Matthew Herskovitz,D,2008-2009,ushs-prep,47636,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dawson Luke (D),Belmont Hill School,30,4,14,18,0.60,-,-,/player/58917/dawson-luke,3,Dawson Luke,D,2008-2009,ushs-prep,58917,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Morin (F),Northfield Mount Hermon School,33,4,14,18,0.55,-,-,/player/59004/matthew-morin,3,Matthew Morin,F,2008-2009,ushs-prep,59004,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benjamin Montgomery (D),Shattuck St. Mary's 18U Prep,47,4,14,18,0.38,8,-,/player/60671/benjamin-montgomery,3,Benjamin Montgomery,D,2008-2009,ushs-prep,60671,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steven Puffer (F),Berkshire School,33,3,15,18,0.55,-,-,/player/614340/steven-puffer,3,Steven Puffer,F,2008-2009,ushs-prep,614340,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Geary (F),Phillips Academy Andover,26,11,6,17,0.65,-,-,/player/51223/josh-geary,3,Josh Geary,F,2008-2009,ushs-prep,51223,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Hughes (F/C),Salisbury School,27,10,7,17,0.63,-,-,/player/38053/kyle-hughes,3,Kyle Hughes,F/C,2008-2009,ushs-prep,38053,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kenny Matheson (LW),Hotchkiss School,26,9,8,17,0.65,-,-,/player/97720/kenny-matheson,3,Kenny Matheson,LW,2008-2009,ushs-prep,97720,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Williamson (F),Phillips Exeter Academy,31,9,8,17,0.55,-,-,/player/129321/ryan-williamson,3,Ryan Williamson,F,2008-2009,ushs-prep,129321,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tucker Blanton (F),Middlesex School,19,8,9,17,0.89,-,-,/player/315024/tucker-blanton,3,Tucker Blanton,F,2008-2009,ushs-prep,315024,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cam Maillet (RW),Worcester Academy,-,8,9,17,-,-,-,/player/55857/cam-maillet,3,Cam Maillet,RW,2008-2009,ushs-prep,55857,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Minter (F),Malden Catholic High,22,7,10,17,0.77,-,-,/player/178421/alex-minter,3,Alex Minter,F,2008-2009,ushs-prep,178421,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Patel (D),Choate Rosemary Hall,25,6,11,17,0.68,-,-,/player/162980/adam-patel,3,Adam Patel,D,2008-2009,ushs-prep,162980,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danny Palumbo (F),Pomfret School,31,6,11,17,0.55,-,-,/player/162956/danny-palumbo,3,Danny Palumbo,F,2008-2009,ushs-prep,162956,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Toshi Terai (F),Brunswick School,25,5,12,17,0.68,-,-,/player/226605/toshi-terai,3,Toshi Terai,F,2008-2009,ushs-prep,226605,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Barrett Kaib (D),Culver Military Academy Prep,47,5,12,17,0.36,-,-,/player/38625/barrett-kaib,3,Barrett Kaib,D,2008-2009,ushs-prep,38625,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Heavey (D),Phillips Academy Andover,26,4,13,17,0.65,-,-,/player/105278/ryan-heavey,3,Ryan Heavey,D,2008-2009,ushs-prep,105278,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Tesink (C/W),Holderness School,28,4,13,17,0.61,-,-,/player/56060/ryan-tesink,3,Ryan Tesink,C/W,2008-2009,ushs-prep,56060,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Heigl (F),Hoosac School,35,10,6,16,0.46,-,-,/player/467814/brett-heigl,3,Brett Heigl,F,2008-2009,ushs-prep,467814,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Eaker (F),The Lawrenceville School,31,9,7,16,0.52,-,-,/player/50009/ryan-eaker,3,Ryan Eaker,F,2008-2009,ushs-prep,50009,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danny O'Regan (C/RW),The Roxbury Latin School,21,8,8,16,0.76,-,-,/player/121936/danny-o-regan,3,Danny O'Regan,C/RW,2008-2009,ushs-prep,121936,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Shiner (F),Lawrence Academy,30,8,8,16,0.53,-,-,/player/133788/scott-shiner,3,Scott Shiner,F,2008-2009,ushs-prep,133788,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Charley Stern (F),Proctor Academy,31,8,8,16,0.52,-,-,/player/135197/charley-stern,3,Charley Stern,F,2008-2009,ushs-prep,135197,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stephen Hickey (RW),Shattuck St. Mary's 18U Prep,44,7,9,16,0.36,54,-,/player/62666/stephen-hickey,3,Stephen Hickey,RW,2008-2009,ushs-prep,62666,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Brofft (D),The Hill School,-,7,9,16,-,-,-,/player/59137/michael-brofft,3,Michael Brofft,D,2008-2009,ushs-prep,59137,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Doherty (RW/LW),Groton School,22,6,10,16,0.73,-,-,/player/177744/michael-doherty,3,Michael Doherty,RW/LW,2008-2009,ushs-prep,177744,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicholas McIntyre (D),Kent School,25,5,11,16,0.64,-,-,/player/46812/nicholas-mcintyre,3,Nicholas McIntyre,D,2008-2009,ushs-prep,46812,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Coffey (D),St. Sebastian's School,28,5,11,16,0.57,-,-,/player/97024/ryan-coffey,3,Ryan Coffey,D,2008-2009,ushs-prep,97024,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc-Antoine Carrier (D),Northwood School,39,5,11,16,0.41,8,-,/player/75020/marc-antoine-carrier,3,Marc-Antoine Carrier,D,2008-2009,ushs-prep,75020,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gordon Nicholson (D),Pomfret School,-,5,11,16,-,-,-,/player/54120/gordon-nicholson,3,Gordon Nicholson,D,2008-2009,ushs-prep,54120,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Ward (F/D),Deerfield Academy,24,4,12,16,0.67,-,-,/player/151465/alex-ward,3,Alex Ward,F/D,2008-2009,ushs-prep,151465,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Buckley (F),The Roxbury Latin School,21,10,5,15,0.71,-,-,/player/183470/thomas-buckley,3,Thomas Buckley,F,2008-2009,ushs-prep,183470,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter McMullen (LW),Delbarton School,30,10,5,15,0.50,6,-,/player/122115/peter-mcmullen,3,Peter McMullen,LW,2008-2009,ushs-prep,122115,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kenny Simon (F),Cushing Academy,-,9,6,15,-,-,-,/player/60197/kenny-simon,3,Kenny Simon,F,2008-2009,ushs-prep,60197,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jackson Brewer (F),The Rivers School,29,7,8,15,0.52,-,-,/player/134803/jackson-brewer,3,Jackson Brewer,F,2008-2009,ushs-prep,134803,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Steele (D),Hotchkiss School,-,7,8,15,-,-,-,/player/58974/chris-steele,3,Chris Steele,D,2008-2009,ushs-prep,58974,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Picking (F),The Governor's Academy,28,6,9,15,0.54,-,-,/player/96784/jake-picking,3,Jake Picking,F,2008-2009,ushs-prep,96784,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Paul Falanga (F),Trinity-Pawling School,27,5,10,15,0.56,-,-,/player/160570/paul-falanga,3,Paul Falanga,F,2008-2009,ushs-prep,160570,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Scott (RW),Holderness School,27,5,10,15,0.56,-,-,/player/170888/jacob-scott,3,Jacob Scott,RW,2008-2009,ushs-prep,170888,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Davis (F),Milton Academy,28,5,10,15,0.54,-,-,/player/112654/chase-davis,3,Chase Davis,F,2008-2009,ushs-prep,112654,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Jamieson (F),Lawrence Academy,30,5,10,15,0.50,-,-,/player/161029/michael-jamieson,3,Michael Jamieson,F,2008-2009,ushs-prep,161029,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mac Bennett (D),Hotchkiss School,15,4,11,15,1.00,-,-,/player/37894/mac-bennett,3,Mac Bennett,D,2008-2009,ushs-prep,37894,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Reardon (D),Noble & Greenough School,21,4,11,15,0.71,-,-,/player/75040/michael-reardon,3,Michael Reardon,D,2008-2009,ushs-prep,75040,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ian Coleman (D),Tabor Academy,25,4,11,15,0.60,-,-,/player/97020/ian-coleman,3,Ian Coleman,D,2008-2009,ushs-prep,97020,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Delic (D),Holderness School,26,4,11,15,0.58,-,-,/player/56397/ivan-delic,4,Ivan Delic,D,2008-2009,ushs-prep,56397,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Harff (D),St. Paul's School,26,4,11,15,0.58,-,-,/player/49411/scott-harff,4,Scott Harff,D,2008-2009,ushs-prep,49411,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Corcoran (D),St. Sebastian's School,28,4,11,15,0.54,-,-,/player/59580/brendan-corcoran,4,Brendan Corcoran,D,2008-2009,ushs-prep,59580,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Chartrain (LW),Holderness School,29,4,11,15,0.52,-,-,/player/97711/matt-chartrain,4,Matt Chartrain,LW,2008-2009,ushs-prep,97711,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Luukko (D),The Gunnery,34,4,11,15,0.44,-,-,/player/75032/nick-luukko,4,Nick Luukko,D,2008-2009,ushs-prep,75032,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabriel Veilleux (RW),Kimball Union Academy,36,4,11,15,0.42,-,-,/player/97763/gabriel-veilleux,4,Gabriel Veilleux,RW,2008-2009,ushs-prep,97763,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Sargent (D),Groton School,22,3,12,15,0.68,-,-,/player/126149/ben-sargent,4,Ben Sargent,D,2008-2009,ushs-prep,126149,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bennett Carroccio (D),Phillips Academy Andover,26,2,13,15,0.58,-,-,/player/59743/bennett-carroccio,4,Bennett Carroccio,D,2008-2009,ushs-prep,59743,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Corey Scammon (D),Cushing Academy,31,2,13,15,0.48,-,-,/player/177732/corey-scammon,4,Corey Scammon,D,2008-2009,ushs-prep,177732,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Paliotta (D),Choate Rosemary Hall,24,1,14,15,0.63,-,-,/player/38626/michael-paliotta,4,Michael Paliotta,D,2008-2009,ushs-prep,38626,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Hickman (F),South Kent Prep,33,9,5,14,0.42,-,-,/player/112792/matt-hickman,4,Matt Hickman,F,2008-2009,ushs-prep,112792,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Albee Daley (F),Albany Academy,38,9,5,14,0.37,-,-,/player/157742/albee-daley,4,Albee Daley,F,2008-2009,ushs-prep,157742,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Placek (RW),Hotchkiss School,23,7,7,14,0.61,-,-,/player/75049/petr-placek,4,Petr Placek,RW,2008-2009,ushs-prep,75049,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Norito Ohuchi (F),Hoosac School,35,6,8,14,0.40,-,-,/player/54070/norito-ohuchi,4,Norito Ohuchi,F,2008-2009,ushs-prep,54070,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Guay (F),Salisbury School,-,6,8,14,-,-,-,/player/59095/john-guay,4,John Guay,F,2008-2009,ushs-prep,59095,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Williams (D),North Yarmouth Academy,27,5,9,14,0.52,-,-,/player/74225/kyle-williams,4,Kyle Williams,D,2008-2009,ushs-prep,74225,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryne Lubert (F),Tilton School,-,5,9,14,-,-,-,/player/51131/ryne-lubert,4,Ryne Lubert,F,2008-2009,ushs-prep,51131,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam DeSanctis (D),The Gunnery,33,4,10,14,0.42,-,-,/player/162988/adam-desanctis,4,Adam DeSanctis,D,2008-2009,ushs-prep,162988,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Dollinger (D),Kimball Union Academy,36,4,10,14,0.39,-,-,/player/97877/josh-dollinger,4,Josh Dollinger,D,2008-2009,ushs-prep,97877,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Naclerio (C),Avon Old Farms School,25,3,11,14,0.56,-,-,/player/121867/mark-naclerio,4,Mark Naclerio,C,2008-2009,ushs-prep,121867,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicolas Lehericey (D),Northwood School,35,3,11,14,0.40,15,-,/player/46194/nicolas-lehericey,4,Nicolas Lehericey,D,2008-2009,ushs-prep,46194,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+James Diblasi (D),Buckingham Browne & Nichols,28,2,12,14,0.50,-,-,/player/1023745/james-diblasi,4,James Diblasi,D,2008-2009,ushs-prep,1023745,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Ogden (D),The Lawrenceville School,31,2,12,14,0.45,-,-,/player/58947/john-ogden,4,John Ogden,D,2008-2009,ushs-prep,58947,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Gallagher (D/F),Northfield Mount Hermon School,33,1,13,14,0.42,-,-,/player/357731/john-gallagher,4,John Gallagher,D/F,2008-2009,ushs-prep,357731,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Éric David (D),Pomfret School,-,7,6,13,-,-,-,/player/78076/eric-david,4,Éric David,D,2008-2009,ushs-prep,78076,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Sprague (F),Thayer Academy,27,6,7,13,0.48,-,-,/player/97026/tim-sprague,4,Tim Sprague,F,2008-2009,ushs-prep,97026,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brad Devereaux (D),The Winchendon School,28,6,7,13,0.46,-,-,/player/109089/brad-devereaux,4,Brad Devereaux,D,2008-2009,ushs-prep,109089,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stephen Brown (F),St. Sebastian's School,28,6,7,13,0.46,-,-,/player/259369/stephen-brown,4,Stephen Brown,F,2008-2009,ushs-prep,259369,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Collin Bourque (RW),Cushing Academy,31,6,7,13,0.42,-,-,/player/196518/collin-bourque,4,Collin Bourque,RW,2008-2009,ushs-prep,196518,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benjamin Goodman (F),Worcester Academy,23,5,8,13,0.57,-,-,/player/203149/benjamin-goodman,4,Benjamin Goodman,F,2008-2009,ushs-prep,203149,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Smigelski (F),Avon Old Farms School,25,5,8,13,0.52,-,-,/player/58893/michael-smigelski,4,Michael Smigelski,F,2008-2009,ushs-prep,58893,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Mleczko (F),Milton Academy,28,5,8,13,0.46,-,-,/player/97021/jonathan-mleczko,4,Jonathan Mleczko,F,2008-2009,ushs-prep,97021,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bobby Sugrue (F),St. Sebastian's School,28,4,9,13,0.46,-,-,/player/113723/bobby-sugrue,4,Bobby Sugrue,F,2008-2009,ushs-prep,113723,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lorne Miller (D),Hoosac School,35,4,9,13,0.37,-,-,/player/78208/lorne-miller,4,Lorne Miller,D,2008-2009,ushs-prep,78208,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Corey Lee (F),The Winchendon School,28,3,10,13,0.46,-,-,/player/60157/corey-lee,4,Corey Lee,F,2008-2009,ushs-prep,60157,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+J.D. Carrabino (D),Millbrook School,30,2,11,13,0.43,50,-,/player/38045/j-d-carrabino,4,J.D. Carrabino,D,2008-2009,ushs-prep,38045,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Neil Fachini (D),South Kent Prep,33,2,11,13,0.39,-,-,/player/59753/neil-fachini,4,Neil Fachini,D,2008-2009,ushs-prep,59753,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ronald Boyd (D),Cushing Academy,35,2,11,13,0.37,35,-,/player/38034/ronald-boyd,4,Ronald Boyd,D,2008-2009,ushs-prep,38034,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zachary Bradanick (D),Cushing Academy,-,1,12,13,-,-,-,/player/60403/zachary-bradanick,4,Zachary Bradanick,D,2008-2009,ushs-prep,60403,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dan Pelletier (F),South Kent Prep,33,8,4,12,0.36,-,-,/player/51304/dan-pelletier,4,Dan Pelletier,F,2008-2009,ushs-prep,51304,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Freitag (F),Berkshire School,33,6,6,12,0.36,-,-,/player/97048/mike-freitag,4,Mike Freitag,F,2008-2009,ushs-prep,97048,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pierce King (F),Hotchkiss School,23,5,7,12,0.52,-,-,/player/261369/pierce-king,4,Pierce King,F,2008-2009,ushs-prep,261369,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wes Rene (F),Choate Rosemary Hall,25,5,7,12,0.48,-,-,/player/129837/wes-rene,4,Wes Rene,F,2008-2009,ushs-prep,129837,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian Troy (D),Cushing Academy,31,5,7,12,0.39,-,-,/player/112785/brian-troy,4,Brian Troy,D,2008-2009,ushs-prep,112785,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Felteau (F),Proctor Academy,31,5,7,12,0.39,-,-,/player/163963/jonathan-felteau,4,Jonathan Felteau,F,2008-2009,ushs-prep,163963,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Riffe (F),Westminster Prep,25,4,8,12,0.48,-,-,/player/58926/kyle-riffe,4,Kyle Riffe,F,2008-2009,ushs-prep,58926,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Latta (D),Tabor Academy,25,4,8,12,0.48,-,-,/player/96846/andrew-latta,4,Andrew Latta,D,2008-2009,ushs-prep,96846,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Mahoney (D),Thayer Academy,27,4,8,12,0.44,-,-,/player/46013/thomas-mahoney,4,Thomas Mahoney,D,2008-2009,ushs-prep,46013,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jared Emmett (F),Canterbury School,30,4,8,12,0.40,-,-,/player/826203/jared-emmett,4,Jared Emmett,F,2008-2009,ushs-prep,826203,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Charles Gallagher (F),Albany Academy,38,4,8,12,0.32,-,-,/player/62051/charles-gallagher,4,Charles Gallagher,F,2008-2009,ushs-prep,62051,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael DeBello (F),Avon Old Farms School,25,3,9,12,0.48,-,-,/player/96764/michael-debello,4,Michael DeBello,F,2008-2009,ushs-prep,96764,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Quigley (F),Hebron Academy,29,3,9,12,0.41,-,-,/player/162134/peter-quigley,4,Peter Quigley,F,2008-2009,ushs-prep,162134,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brad Improta (D),Canterbury School,30,3,9,12,0.40,-,-,/player/111795/brad-improta,4,Brad Improta,D,2008-2009,ushs-prep,111795,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Kacz (F),Canterbury School,-,3,9,12,-,-,-,/player/51320/andrew-kacz,4,Andrew Kacz,F,2008-2009,ushs-prep,51320,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christopher Gorovitz (F),Tilton School,-,3,9,12,-,-,-,/player/56348/christopher-gorovitz,4,Christopher Gorovitz,F,2008-2009,ushs-prep,56348,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julian Ciocco (D),Cushing Academy,-,2,10,12,-,-,-,/player/88693/julian-ciocco,4,Julian Ciocco,D,2008-2009,ushs-prep,88693,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Basist (D),Kimball Union Academy,36,1,11,12,0.33,-,-,/player/59408/michael-basist,4,Michael Basist,D,2008-2009,ushs-prep,59408,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Bertin (F),Deerfield Academy,24,7,4,11,0.46,-,-,/player/110644/erik-bertin,4,Erik Bertin,F,2008-2009,ushs-prep,110644,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ken Pia (F),Hebron Academy,29,7,4,11,0.38,-,-,/player/107793/ken-pia,4,Ken Pia,F,2008-2009,ushs-prep,107793,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Hartnett (RW),Canterbury School,30,7,4,11,0.37,-,-,/player/111800/thomas-hartnett,4,Thomas Hartnett,RW,2008-2009,ushs-prep,111800,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Heaton (F),Choate Rosemary Hall,25,6,5,11,0.44,-,-,/player/137123/max-heaton,4,Max Heaton,F,2008-2009,ushs-prep,137123,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tory Cole (F),Worcester Academy,23,5,6,11,0.48,-,-,/player/501041/tory-cole,4,Tory Cole,F,2008-2009,ushs-prep,501041,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cody Skinner (F),Deerfield Academy,24,5,6,11,0.46,-,-,/player/59131/cody-skinner,4,Cody Skinner,F,2008-2009,ushs-prep,59131,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Paul Plaisir (C),St. Paul's School,26,5,6,11,0.42,-,-,/player/141884/paul-plaisir,4,Paul Plaisir,C,2008-2009,ushs-prep,141884,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karlis Kalvitis (C/D),Shattuck St. Mary's 18U Prep,50,5,6,11,0.22,20,-,/player/34659/karlis-kalvitis,4,Karlis Kalvitis,C/D,2008-2009,ushs-prep,34659,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dan Schuler (RW),Choate Rosemary Hall,-,5,6,11,-,-,-,/player/93567/dan-schuler,4,Dan Schuler,RW,2008-2009,ushs-prep,93567,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stan Smrke (F),Avon Old Farms School,25,4,7,11,0.44,-,-,/player/47341/stan-smrke,4,Stan Smrke,F,2008-2009,ushs-prep,47341,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Hebert (F),North Yarmouth Academy,27,4,7,11,0.41,-,-,/player/129703/simon-hebert,4,Simon Hebert,F,2008-2009,ushs-prep,129703,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cameron O'Brien (D),The Winchendon School,28,4,7,11,0.39,-,-,/player/56128/cameron-o-brien,4,Cameron O'Brien,D,2008-2009,ushs-prep,56128,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Haber (D),Lawrence Academy,30,4,7,11,0.37,-,-,/player/148592/andrew-haber,4,Andrew Haber,D,2008-2009,ushs-prep,148592,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+James Shannon (F),Phillips Exeter Academy,31,4,7,11,0.35,-,-,/player/96371/james-shannon,4,James Shannon,F,2008-2009,ushs-prep,96371,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc-Antoine Lamoureux-Bisson (LW),Albany Academy,38,4,7,11,0.29,-,-,/player/132495/marc-antoine-lamoureux-bisson,4,Marc-Antoine Lamoureux-Bisson,LW,2008-2009,ushs-prep,132495,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Lovejoy (D),Deerfield Academy,24,3,8,11,0.46,-,-,/player/40166/nick-lovejoy,4,Nick Lovejoy,D,2008-2009,ushs-prep,40166,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frank Misuraca (D),Kent School,25,3,8,11,0.44,-,-,/player/67209/frank-misuraca,4,Frank Misuraca,D,2008-2009,ushs-prep,67209,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Gilbert (D),Choate Rosemary Hall,25,3,8,11,0.44,-,-,/player/62637/sam-gilbert,4,Sam Gilbert,D,2008-2009,ushs-prep,62637,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Craven (RW),Phillips Academy Andover,26,3,8,11,0.42,-,-,/player/59093/nick-craven,4,Nick Craven,RW,2008-2009,ushs-prep,59093,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nik Pokulok (D),Northwood School,39,3,8,11,0.28,62,-,/player/19153/nik-pokulok,4,Nik Pokulok,D,2008-2009,ushs-prep,19153,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Reilly (D),The Winchendon School,28,2,9,11,0.39,-,-,/player/130659/evan-reilly,4,Evan Reilly,D,2008-2009,ushs-prep,130659,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Colby (D),The Hill School,-,2,9,11,-,-,-,/player/58907/jake-colby,4,Jake Colby,D,2008-2009,ushs-prep,58907,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Chin (D),Albany Academy,38,1,10,11,0.29,-,-,/player/836521/brendan-chin,4,Brendan Chin,D,2008-2009,ushs-prep,836521,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Corbin McGuire (RW),Taft School,-,7,3,10,-,-,-,/player/90976/corbin-mcguire,4,Corbin McGuire,RW,2008-2009,ushs-prep,90976,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Moran (RW),Taft School,24,6,4,10,0.42,-,-,/player/151453/mike-moran,4,Mike Moran,RW,2008-2009,ushs-prep,151453,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Haney (C),Millbrook School,30,6,4,10,0.33,-,-,/player/76194/evan-haney,4,Evan Haney,C,2008-2009,ushs-prep,76194,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Gellatly (LW),Taft School,24,5,5,10,0.42,-,-,/player/97200/matt-gellatly,4,Matt Gellatly,LW,2008-2009,ushs-prep,97200,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Charlie Vasaturo (D),Avon Old Farms School,25,5,5,10,0.40,-,-,/player/47755/charlie-vasaturo,4,Charlie Vasaturo,D,2008-2009,ushs-prep,47755,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Barre (RW/C),Salisbury School,27,5,5,10,0.37,-,-,/player/75069/jack-barre,4,Jack Barre,RW/C,2008-2009,ushs-prep,75069,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathon Gould (F),The Winchendon School,28,5,5,10,0.36,-,-,/player/55325/jonathon-gould,4,Jonathon Gould,F,2008-2009,ushs-prep,55325,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Dietrick (F),Northfield Mount Hermon School,33,5,5,10,0.30,-,-,/player/125957/jesse-dietrick,4,Jesse Dietrick,F,2008-2009,ushs-prep,125957,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Perron (D),Albany Academy,38,5,5,10,0.26,-,-,/player/243350/kevin-perron,4,Kevin Perron,D,2008-2009,ushs-prep,243350,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Ceglarski (F),The Governor's Academy,28,4,6,10,0.36,-,-,/player/164046/jack-ceglarski,4,Jack Ceglarski,F,2008-2009,ushs-prep,164046,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Doane (RW),Noble & Greenough School,29,4,6,10,0.34,-,-,/player/122365/andrew-doane,4,Andrew Doane,RW,2008-2009,ushs-prep,122365,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Francis Lavoie (D),Hoosac School,35,4,6,10,0.29,-,-,/player/190362/francis-lavoie,4,Francis Lavoie,D,2008-2009,ushs-prep,190362,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Biondo (F),Malden Catholic High,-,4,6,10,-,-,-,/player/60151/brett-biondo,4,Brett Biondo,F,2008-2009,ushs-prep,60151,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christoffer Linder (D),North Yarmouth Academy,27,3,7,10,0.37,-,-,/player/10720/christoffer-linder,4,Christoffer Linder,D,2008-2009,ushs-prep,10720,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Cunningham (F),Salisbury School,27,3,7,10,0.37,-,-,/player/157741/connor-cunningham,4,Connor Cunningham,F,2008-2009,ushs-prep,157741,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Kangas (D),Proctor Academy,31,3,7,10,0.32,-,-,/player/163608/brett-kangas,4,Brett Kangas,D,2008-2009,ushs-prep,163608,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aidan Hartigan (D),Buckingham Browne & Nichols,28,2,8,10,0.36,-,-,/player/246908/aidan-hartigan,4,Aidan Hartigan,D,2008-2009,ushs-prep,246908,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Dagdigian (D),St. Sebastian's School,28,2,8,10,0.36,-,-,/player/323674/jake-dagdigian,4,Jake Dagdigian,D,2008-2009,ushs-prep,323674,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Micah Williams (D),Lawrence Academy,30,2,8,10,0.33,-,-,/player/48488/micah-williams,4,Micah Williams,D,2008-2009,ushs-prep,48488,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nik Garafalo (D),Holderness School,30,2,8,10,0.33,-,-,/player/58698/nik-garafalo,4,Nik Garafalo,D,2008-2009,ushs-prep,58698,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riley Struthers (F),Northfield Mount Hermon School,33,2,8,10,0.30,-,-,/player/76019/riley-struthers,5,Riley Struthers,F,2008-2009,ushs-prep,76019,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabriel Colona (D),Northfield Mount Hermon School,33,2,8,10,0.30,-,-,/player/96783/gabriel-colona,5,Gabriel Colona,D,2008-2009,ushs-prep,96783,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cameron Ford (D),Albany Academy,38,2,8,10,0.26,-,-,/player/836517/cameron-ford,5,Cameron Ford,D,2008-2009,ushs-prep,836517,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Penn Sednaoui (F),St. George's School,24,1,9,10,0.42,-,-,/player/246329/penn-sednaoui,5,Penn Sednaoui,F,2008-2009,ushs-prep,246329,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommy Davis (D),Delbarton School,28,1,9,10,0.36,14,34,/player/128399/tommy-davis,5,Tommy Davis,D,2008-2009,ushs-prep,128399,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan Roe (D),Kent School,25,0,10,10,0.40,-,-,/player/75025/logan-roe,5,Logan Roe,D,2008-2009,ushs-prep,75025,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rafael Turcotte (D),Kimball Union Academy,36,0,10,10,0.28,-,-,/player/148996/rafael-turcotte,5,Rafael Turcotte,D,2008-2009,ushs-prep,148996,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Domos (F),The Rivers School,29,7,2,9,0.31,-,-,/player/129242/brendan-domos,5,Brendan Domos,F,2008-2009,ushs-prep,129242,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joe Prescott (RW),St. Sebastian's School,28,5,4,9,0.32,-,-,/player/128400/joe-prescott,5,Joe Prescott,RW,2008-2009,ushs-prep,128400,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick MacGregor (D),Avon Old Farms School,25,4,5,9,0.36,-,-,/player/96666/patrick-macgregor,5,Patrick MacGregor,D,2008-2009,ushs-prep,96666,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Fitzgerald (F/D),Dexter Southfield School,26,4,5,9,0.35,-,-,/player/162131/brendan-fitzgerald,5,Brendan Fitzgerald,F/D,2008-2009,ushs-prep,162131,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Burke (F),St. Sebastian's School,28,4,5,9,0.32,-,-,/player/230468/brendan-burke,5,Brendan Burke,F,2008-2009,ushs-prep,230468,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nate Morgan (F),Phillips Exeter Academy,31,4,5,9,0.29,-,-,/player/162994/nate-morgan,5,Nate Morgan,F,2008-2009,ushs-prep,162994,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ian Davis (F),Hoosac School,35,4,5,9,0.26,-,-,/player/373354/ian-davis,5,Ian Davis,F,2008-2009,ushs-prep,373354,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nate Michaud (D),Kents Hill School,-,4,5,9,-,-,-,/player/74161/nate-michaud,5,Nate Michaud,D,2008-2009,ushs-prep,74161,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Doyle (F),Deerfield Academy,24,3,6,9,0.38,-,-,/player/111786/matt-doyle,5,Matt Doyle,F,2008-2009,ushs-prep,111786,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Quinn (F),Buckingham Browne & Nichols,28,3,6,9,0.32,-,-,/player/161019/alex-quinn,5,Alex Quinn,F,2008-2009,ushs-prep,161019,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jason Molle (F),Lawrence Academy,30,3,6,9,0.30,-,-,/player/55670/jason-molle,5,Jason Molle,F,2008-2009,ushs-prep,55670,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blake Cormier (D),Middlesex School,19,2,7,9,0.47,-,-,/player/243353/blake-cormier,5,Blake Cormier,D,2008-2009,ushs-prep,243353,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean Spero (D),Millbrook School,30,2,7,9,0.30,-,-,/player/59690/sean-spero,5,Sean Spero,D,2008-2009,ushs-prep,59690,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Gallinek (D),The Lawrenceville School,31,2,7,9,0.29,-,-,/player/314982/brendan-gallinek,5,Brendan Gallinek,D,2008-2009,ushs-prep,314982,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Nilsson (D),Brewster Academy,-,2,7,9,-,-,-,/player/6010/victor-nilsson,5,Victor Nilsson,D,2008-2009,ushs-prep,6010,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Cornele (D),The Winchendon School,28,1,8,9,0.32,-,-,/player/55998/tyler-cornele,5,Tyler Cornele,D,2008-2009,ushs-prep,55998,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shawn Unis (D),Proctor Academy,31,1,8,9,0.29,-,-,/player/56340/shawn-unis,5,Shawn Unis,D,2008-2009,ushs-prep,56340,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+C.J. Chartrain (D),South Kent Prep,33,1,8,9,0.27,-,-,/player/49344/c-j-chartrain,5,C.J. Chartrain,D,2008-2009,ushs-prep,49344,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Barton (F),Worcester Academy,23,0,9,9,0.39,-,-,/player/178523/michael-barton,5,Michael Barton,F,2008-2009,ushs-prep,178523,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Duprey (D),Phillips Academy Andover,26,0,9,9,0.35,-,-,/player/38050/luke-duprey,5,Luke Duprey,D,2008-2009,ushs-prep,38050,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ian Watson (D),Canterbury School,30,0,9,9,0.30,-,-,/player/125648/ian-watson,5,Ian Watson,D,2008-2009,ushs-prep,125648,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Dallaire (RW),The Winchendon School,28,7,1,8,0.29,-,-,/player/56013/adam-dallaire,5,Adam Dallaire,RW,2008-2009,ushs-prep,56013,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ray Zeek (F),Pomfret School,31,6,2,8,0.26,-,-,/player/162997/ray-zeek,5,Ray Zeek,F,2008-2009,ushs-prep,162997,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael McDonagh (F),Phillips Academy Andover,26,5,3,8,0.31,-,-,/player/126896/michael-mcdonagh,5,Michael McDonagh,F,2008-2009,ushs-prep,126896,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Devin Tringale (C/LW),Lawrence Academy,30,5,3,8,0.27,-,-,/player/171828/devin-tringale,5,Devin Tringale,C/LW,2008-2009,ushs-prep,171828,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Pascal (D),Westminster Prep,25,4,4,8,0.32,-,-,/player/104322/alex-pascal,5,Alex Pascal,D,2008-2009,ushs-prep,104322,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+George Pantazapoulos (F),Milton Academy,28,4,4,8,0.29,-,-,/player/162961/george-pantazapoulos,5,George Pantazapoulos,F,2008-2009,ushs-prep,162961,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Baron (D),Cushing Academy,-,4,4,8,-,-,-,/player/110681/scott-baron,5,Scott Baron,D,2008-2009,ushs-prep,110681,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stephen Kelley (RW),Deerfield Academy,22,3,5,8,0.36,-,-,/player/97025/stephen-kelley,5,Stephen Kelley,RW,2008-2009,ushs-prep,97025,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+George DeMello (F),Tabor Academy,25,3,5,8,0.32,-,-,/player/56152/george-demello,5,George DeMello,F,2008-2009,ushs-prep,56152,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Coulombe (D),The Winchendon School,28,3,5,8,0.29,-,-,/player/197023/patrick-coulombe,5,Patrick Coulombe,D,2008-2009,ushs-prep,197023,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitch Chapman (F),Brewster Academy,31,3,5,8,0.26,-,-,/player/1072548/mitch-chapman,5,Mitch Chapman,F,2008-2009,ushs-prep,1072548,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Ledford (F),Culver Military Academy Prep,39,3,5,8,0.21,0,-,/player/177724/tyler-ledford,5,Tyler Ledford,F,2008-2009,ushs-prep,177724,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Fadden (F),Belmont Hill School,30,2,6,8,0.27,-,-,/player/111807/brendan-fadden,5,Brendan Fadden,F,2008-2009,ushs-prep,111807,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kemo William (F/D),Springfield Cathedral High,-,2,6,8,-,11,-,/player/123691/kemo-william,5,Kemo William,F/D,2008-2009,ushs-prep,123691,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+George Russell (D),Hotchkiss School,-,2,6,8,-,-,-,/player/59092/george-russell,5,George Russell,D,2008-2009,ushs-prep,59092,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jed Kiss-Rusk (D),Wyoming Seminary Prep,-,2,6,8,-,-,-,/player/85020/jed-kiss-rusk,5,Jed Kiss-Rusk,D,2008-2009,ushs-prep,85020,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Freyre (D),Taft School,24,1,7,8,0.33,-,-,/player/162949/thomas-freyre,5,Thomas Freyre,D,2008-2009,ushs-prep,162949,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Erbe (D),The Gunnery,33,1,7,8,0.24,-,-,/player/126889/ryan-erbe,5,Ryan Erbe,D,2008-2009,ushs-prep,126889,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Sternberg (D),Culver Military Academy Prep,34,1,7,8,0.24,26,8,/player/78226/zach-sternberg,5,Zach Sternberg,D,2008-2009,ushs-prep,78226,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian Infante (D),Hotchkiss School,-,1,7,8,-,-,-,/player/58940/brian-infante,5,Brian Infante,D,2008-2009,ushs-prep,58940,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julien Shine (D),St. Paul's School,-,1,7,8,-,-,-,/player/100587/julien-shine,5,Julien Shine,D,2008-2009,ushs-prep,100587,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alan Klebansky (D),Deerfield Academy,24,0,8,8,0.33,-,-,/player/96319/alan-klebansky,5,Alan Klebansky,D,2008-2009,ushs-prep,96319,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Derek Henderson (D),Tabor Academy,25,0,8,8,0.32,-,-,/player/97016/derek-henderson,5,Derek Henderson,D,2008-2009,ushs-prep,97016,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Redmond Colson (D),Phillips Academy Andover,26,0,8,8,0.31,-,-,/player/97054/redmond-colson,5,Redmond Colson,D,2008-2009,ushs-prep,97054,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Desmond Bergin (D),St. Sebastian's School,28,0,8,8,0.29,-,-,/player/155310/desmond-bergin,5,Desmond Bergin,D,2008-2009,ushs-prep,155310,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Caldwell (D),Belmont Hill School,30,0,8,8,0.27,-,-,/player/75044/john-caldwell,5,John Caldwell,D,2008-2009,ushs-prep,75044,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Beauregard (D),Tilton School,-,0,8,8,-,-,-,/player/56139/tyler-beauregard,5,Tyler Beauregard,D,2008-2009,ushs-prep,56139,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Esposito (C),Brunswick School,25,5,2,7,0.28,-,-,/player/212938/luke-esposito,5,Luke Esposito,C,2008-2009,ushs-prep,212938,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Kantor (D),Kingswood Oxford School,20,4,3,7,0.35,-,-,/player/124959/ben-kantor,5,Ben Kantor,D,2008-2009,ushs-prep,124959,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Morra (F),The Harvey School,23,4,3,7,0.30,-,-,/player/259851/michael-morra,5,Michael Morra,F,2008-2009,ushs-prep,259851,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Belisle (F),Williston Northampton School,29,4,3,7,0.24,-,-,/player/105331/ethan-belisle,5,Ethan Belisle,F,2008-2009,ushs-prep,105331,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ross Garson (F),Tabor Academy,8,3,4,7,0.88,-,-,/player/54143/ross-garson,5,Ross Garson,F,2008-2009,ushs-prep,54143,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Harvey (F),Worcester Academy,23,3,4,7,0.30,-,-,/player/174868/patrick-harvey,5,Patrick Harvey,F,2008-2009,ushs-prep,174868,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Wierzba (F),Westminster Prep,25,3,4,7,0.28,-,-,/player/57570/william-wierzba,5,William Wierzba,F,2008-2009,ushs-prep,57570,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Lanza (F),Westminster Prep,25,3,4,7,0.28,-,-,/player/106864/nick-lanza,5,Nick Lanza,F,2008-2009,ushs-prep,106864,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Machinski (F),Canterbury School,30,3,4,7,0.23,-,-,/player/826204/scott-machinski,5,Scott Machinski,F,2008-2009,ushs-prep,826204,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Pugh (F),Buckingham Browne & Nichols,28,2,5,7,0.25,-,-,/player/256224/matt-pugh,5,Matt Pugh,F,2008-2009,ushs-prep,256224,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Metcalfe (D),Belmont Hill School,30,2,5,7,0.23,-,-,/player/59018/nick-metcalfe,5,Nick Metcalfe,D,2008-2009,ushs-prep,59018,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Whitney (F),Lawrence Academy,30,2,5,7,0.23,-,-,/player/242084/tyler-whitney,5,Tyler Whitney,F,2008-2009,ushs-prep,242084,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Corvi (F),Millbrook School,30,2,5,7,0.23,-,-,/player/561090/david-corvi,5,David Corvi,F,2008-2009,ushs-prep,561090,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rance Vukovic (D),Kimball Union Academy,-,2,5,7,-,-,-,/player/59407/rance-vukovic,5,Rance Vukovic,D,2008-2009,ushs-prep,59407,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Meads (RW),Tabor Academy,25,1,6,7,0.28,-,-,/player/157745/mark-meads,5,Mark Meads,RW,2008-2009,ushs-prep,157745,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabriel Cromp (D),Trinity-Pawling School,27,1,6,7,0.26,-,-,/player/66259/gabriel-cromp,5,Gabriel Cromp,D,2008-2009,ushs-prep,66259,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Turrin (D),Milton Academy,28,1,6,7,0.25,-,-,/player/162943/jake-turrin,5,Jake Turrin,D,2008-2009,ushs-prep,162943,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Sousa (D),Lawrence Academy,30,1,6,7,0.23,-,-,/player/96861/lucas-sousa,5,Lucas Sousa,D,2008-2009,ushs-prep,96861,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Alletzhauser (D),Millbrook School,30,1,6,7,0.23,-,-,/player/131999/luke-alletzhauser,5,Luke Alletzhauser,D,2008-2009,ushs-prep,131999,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Pritchard (D),Berkshire School,33,1,6,7,0.21,-,-,/player/614339/dylan-pritchard,5,Dylan Pritchard,D,2008-2009,ushs-prep,614339,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Forte (D),Shattuck St. Mary's 18U Prep,48,1,6,7,0.15,28,-,/player/46925/kyle-forte,5,Kyle Forte,D,2008-2009,ushs-prep,46925,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Tierney (D),New Hampton School,-,1,6,7,-,-,-,/player/51776/michael-tierney,5,Michael Tierney,D,2008-2009,ushs-prep,51776,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaron Deutsch (D),Milton Academy,28,0,7,7,0.25,-,-,/player/162941/aaron-deutsch,5,Aaron Deutsch,D,2008-2009,ushs-prep,162941,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Park (D),Noble & Greenough School,29,0,7,7,0.24,-,-,/player/157458/thomas-park,5,Thomas Park,D,2008-2009,ushs-prep,157458,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Plumeri (D),The Hill School,-,0,7,7,-,-,-,/player/122928/peter-plumeri,5,Peter Plumeri,D,2008-2009,ushs-prep,122928,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Heath MacLean (F),Tabor Academy,25,5,1,6,0.24,-,-,/player/185596/heath-maclean,5,Heath MacLean,F,2008-2009,ushs-prep,185596,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jon-Paul Durso (LW),Salisbury School,27,3,3,6,0.22,-,-,/player/150056/jon-paul-durso,5,Jon-Paul Durso,LW,2008-2009,ushs-prep,150056,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Griffin (LW),Buckingham Browne & Nichols,28,3,3,6,0.21,-,-,/player/246907/luke-griffin,5,Luke Griffin,LW,2008-2009,ushs-prep,246907,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Patry (D),Lawrence Academy,30,3,3,6,0.20,-,-,/player/137835/josh-patry,5,Josh Patry,D,2008-2009,ushs-prep,137835,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Freitas (F),Millbrook School,30,3,3,6,0.20,-,-,/player/245663/josh-freitas,5,Josh Freitas,F,2008-2009,ushs-prep,245663,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nate Goss-Woliner (D),Kimball Union Academy,36,3,3,6,0.17,-,-,/player/330311/nate-goss-woliner,5,Nate Goss-Woliner,D,2008-2009,ushs-prep,330311,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Riccio (D),Avon Old Farms School,25,2,4,6,0.24,-,-,/player/54134/alex-riccio,5,Alex Riccio,D,2008-2009,ushs-prep,54134,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Shea (F),Tabor Academy,25,2,4,6,0.24,-,-,/player/179650/tim-shea,5,Tim Shea,F,2008-2009,ushs-prep,179650,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benjamin Iwanowski (D),Kent School,25,2,4,6,0.24,-,-,/player/77987/benjamin-iwanowski,5,Benjamin Iwanowski,D,2008-2009,ushs-prep,77987,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Ballard (RW),Northfield Mount Hermon School,33,2,4,6,0.18,-,-,/player/195379/michael-ballard,5,Michael Ballard,RW,2008-2009,ushs-prep,195379,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petter Aronsson (C),Cushing Academy,-,2,4,6,-,-,-,/player/9866/petter-aronsson,5,Petter Aronsson,C,2008-2009,ushs-prep,9866,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Greg Kreisinger (F),Choate Rosemary Hall,-,2,4,6,-,-,-,/player/104806/greg-kreisinger,5,Greg Kreisinger,F,2008-2009,ushs-prep,104806,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Douglas Jansheden (F),Berwick Academy,26,1,5,6,0.23,-,-,/player/25772/douglas-jansheden,5,Douglas Jansheden,F,2008-2009,ushs-prep,25772,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicholas Garofalo (RW),Trinity-Pawling School,27,1,5,6,0.22,-,-,/player/357372/nicholas-garofalo,5,Nicholas Garofalo,RW,2008-2009,ushs-prep,357372,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timothy Winslow (D),The Governor's Academy,28,1,5,6,0.21,-,-,/player/774447/timothy-winslow,5,Timothy Winslow,D,2008-2009,ushs-prep,774447,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Black (D),Hebron Academy,29,1,5,6,0.21,-,-,/player/195740/kyle-black,5,Kyle Black,D,2008-2009,ushs-prep,195740,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicholas Tierney (F),Belmont Hill School,30,1,5,6,0.20,-,-,/player/112688/nicholas-tierney,5,Nicholas Tierney,F,2008-2009,ushs-prep,112688,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Spurling (D),Berkshire School,33,1,5,6,0.18,-,-,/player/358440/matt-spurling,5,Matt Spurling,D,2008-2009,ushs-prep,358440,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+T.J. Kilbride (D),Hoosac School,35,1,5,6,0.17,-,-,/player/139009/t-j-kilbride,5,T.J. Kilbride,D,2008-2009,ushs-prep,139009,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Stewart (D),Hoosac School,35,1,5,6,0.17,-,-,/player/98815/matthew-stewart,5,Matthew Stewart,D,2008-2009,ushs-prep,98815,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Dolan (D),St. Mark's School,21,0,6,6,0.29,-,-,/player/259863/eric-dolan,6,Eric Dolan,D,2008-2009,ushs-prep,259863,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Phil Vermiglio (D),The Loomis Chaffee School,23,0,6,6,0.26,-,-,/player/185014/phil-vermiglio,6,Phil Vermiglio,D,2008-2009,ushs-prep,185014,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Philie (D),Deerfield Academy,24,0,6,6,0.25,-,-,/player/615495/andrew-philie,6,Andrew Philie,D,2008-2009,ushs-prep,615495,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robbie Donahoe (D),St. Sebastian's School,28,0,6,6,0.21,-,-,/player/110741/robbie-donahoe,6,Robbie Donahoe,D,2008-2009,ushs-prep,110741,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brock Swartwood (D),Millbrook School,30,0,6,6,0.20,-,-,/player/429125/brock-swartwood,6,Brock Swartwood,D,2008-2009,ushs-prep,429125,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jared Tringale (D),Northfield Mount Hermon School,33,0,6,6,0.18,-,-,/player/612286/jared-tringale,6,Jared Tringale,D,2008-2009,ushs-prep,612286,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Bishop (F),Canterbury School,30,4,1,5,0.17,-,-,/player/127398/justin-bishop,6,Justin Bishop,F,2008-2009,ushs-prep,127398,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Cole (LW),Northwood School,11,3,2,5,0.45,-,-,/player/74059/kevin-cole,6,Kevin Cole,LW,2008-2009,ushs-prep,74059,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shayne Bingham (D),Rye Country Day School,13,3,2,5,0.38,-,-,/player/151334/shayne-bingham,6,Shayne Bingham,D,2008-2009,ushs-prep,151334,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Choroszy (F),Brooks School,21,3,2,5,0.24,-,-,/player/991008/jonathan-choroszy,6,Jonathan Choroszy,F,2008-2009,ushs-prep,991008,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Travis Scoggin (F),Vermont Academy,22,3,2,5,0.23,-,-,/player/136632/travis-scoggin,6,Travis Scoggin,F,2008-2009,ushs-prep,136632,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Remington Knight (F),Groton School,22,3,2,5,0.23,-,-,/player/614572/remington-knight,6,Remington Knight,F,2008-2009,ushs-prep,614572,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Spotts (F),Taft School,24,3,2,5,0.21,-,-,/player/104598/kevin-spotts,6,Kevin Spotts,F,2008-2009,ushs-prep,104598,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Doyle (F),Avon Old Farms School,25,3,2,5,0.20,-,-,/player/246324/connor-doyle,6,Connor Doyle,F,2008-2009,ushs-prep,246324,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Digati (F),Milton Academy,28,3,2,5,0.18,-,-,/player/285905/lucas-digati,6,Lucas Digati,F,2008-2009,ushs-prep,285905,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gregory Hennings (D/RW),The Harvey School,21,2,3,5,0.24,-,-,/player/132079/gregory-hennings,6,Gregory Hennings,D/RW,2008-2009,ushs-prep,132079,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Wetzel (F),Deerfield Academy,24,2,3,5,0.21,-,-,/player/110636/nick-wetzel,6,Nick Wetzel,F,2008-2009,ushs-prep,110636,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Harris (F),Kent School,25,2,3,5,0.20,-,-,/player/96843/richard-harris,6,Richard Harris,F,2008-2009,ushs-prep,96843,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christopher Grilk (D),Holderness School,-,2,3,5,-,-,-,/player/56345/christopher-grilk,6,Christopher Grilk,D,2008-2009,ushs-prep,56345,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean De Herder (F),Choate Rosemary Hall,25,1,4,5,0.20,-,-,/player/151816/sean-de-herder,6,Sean De Herder,F,2008-2009,ushs-prep,151816,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian McQuillan (D),Westminster Prep,25,1,4,5,0.20,-,-,/player/112764/brian-mcquillan,6,Brian McQuillan,D,2008-2009,ushs-prep,112764,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Megnia (D),Milton Academy,28,1,4,5,0.18,-,-,/player/96804/michael-megnia,6,Michael Megnia,D,2008-2009,ushs-prep,96804,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Lawrence (F),The Lawrenceville School,31,1,4,5,0.16,-,-,/player/385248/christian-lawrence,6,Christian Lawrence,F,2008-2009,ushs-prep,385248,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philip DiDonato (D),Northfield Mount Hermon School,33,1,4,5,0.15,-,-,/player/58929/philip-didonato,6,Philip DiDonato,D,2008-2009,ushs-prep,58929,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Cordier (D),Berkshire School,33,1,4,5,0.15,-,-,/player/151391/christian-cordier,6,Christian Cordier,D,2008-2009,ushs-prep,151391,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Gervais (D),Hoosac School,35,1,4,5,0.14,-,-,/player/195833/jonathan-gervais,6,Jonathan Gervais,D,2008-2009,ushs-prep,195833,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Douse (D),Pomfret School,-,1,4,5,-,-,-,/player/72088/andrew-douse,6,Andrew Douse,D,2008-2009,ushs-prep,72088,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Acker (F),Westminster Prep,25,0,5,5,0.20,-,-,/player/183575/tim-acker,6,Tim Acker,F,2008-2009,ushs-prep,183575,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joe McNamara (D),Belmont Hill School,30,0,5,5,0.17,2,-,/player/185446/joe-mcnamara,6,Joe McNamara,D,2008-2009,ushs-prep,185446,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Micah Ehiorobo (D),Lawrence Academy,30,0,5,5,0.17,-,-,/player/59097/micah-ehiorobo,6,Micah Ehiorobo,D,2008-2009,ushs-prep,59097,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brady Burns (F),Lawrence Academy,30,0,5,5,0.17,-,-,/player/255919/brady-burns,6,Brady Burns,F,2008-2009,ushs-prep,255919,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Cosgrove (D),Phillips Exeter Academy,31,0,5,5,0.16,-,-,/player/37818/brendan-cosgrove,6,Brendan Cosgrove,D,2008-2009,ushs-prep,37818,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Burke (D),Albany Academy,38,0,5,5,0.13,-,-,/player/836505/patrick-burke,6,Patrick Burke,D,2008-2009,ushs-prep,836505,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Darren Laurie (D),The Gunnery,-,0,5,5,-,-,-,/player/59674/darren-laurie,6,Darren Laurie,D,2008-2009,ushs-prep,59674,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Curran Forgue (F),South Kent Prep,33,3,1,4,0.12,-,-,/player/135314/curran-forgue,6,Curran Forgue,F,2008-2009,ushs-prep,135314,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Tetro (F),Taft School,24,2,2,4,0.17,-,-,/player/161251/matt-tetro,6,Matt Tetro,F,2008-2009,ushs-prep,161251,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Corey Taber (LW),Westminster Prep,25,2,2,4,0.16,-,-,/player/150006/corey-taber,6,Corey Taber,LW,2008-2009,ushs-prep,150006,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Freddy Ketchum (F),Brunswick School,25,2,2,4,0.16,-,-,/player/385247/freddy-ketchum,6,Freddy Ketchum,F,2008-2009,ushs-prep,385247,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colin Benelli (LW),Thayer Academy,27,2,2,4,0.15,-,-,/player/358448/colin-benelli,6,Colin Benelli,LW,2008-2009,ushs-prep,358448,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Scudder (F),The Winchendon School,28,2,2,4,0.14,-,-,/player/18982/adam-scudder,6,Adam Scudder,F,2008-2009,ushs-prep,18982,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Brock (F),Albany Academy,38,2,2,4,0.11,-,-,/player/836794/justin-brock,6,Justin Brock,F,2008-2009,ushs-prep,836794,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kristoffer Lundblad (LW),Cushing Academy,-,2,2,4,-,-,-,/player/21739/kristoffer-lundblad,6,Kristoffer Lundblad,LW,2008-2009,ushs-prep,21739,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Mistretta (F),Taft School,24,1,3,4,0.17,-,-,/player/162944/peter-mistretta,6,Peter Mistretta,F,2008-2009,ushs-prep,162944,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nic Brickley (D),Kent School,25,1,3,4,0.16,-,-,/player/185599/nic-brickley,6,Nic Brickley,D,2008-2009,ushs-prep,185599,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Morrison (D),North Yarmouth Academy,27,1,3,4,0.15,-,-,/player/163353/mike-morrison,6,Mike Morrison,D,2008-2009,ushs-prep,163353,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Wirth (F),The Governor's Academy,28,1,3,4,0.14,-,-,/player/196566/nick-wirth,6,Nick Wirth,F,2008-2009,ushs-prep,196566,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+C.J. Ganss (D),Milton Academy,28,1,3,4,0.14,-,-,/player/243687/c-j-ganss,6,C.J. Ganss,D,2008-2009,ushs-prep,243687,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Birbilis (F),Hebron Academy,29,1,3,4,0.14,-,-,/player/55610/anthony-birbilis,6,Anthony Birbilis,F,2008-2009,ushs-prep,55610,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jay Livermore (D),Millbrook School,30,1,3,4,0.13,-,-,/player/110639/jay-livermore,6,Jay Livermore,D,2008-2009,ushs-prep,110639,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Devin Albert (F),Belmont Hill School,30,1,3,4,0.13,-,-,/player/236190/devin-albert,6,Devin Albert,F,2008-2009,ushs-prep,236190,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Woomer (D),Proctor Academy,31,1,3,4,0.13,-,-,/player/137247/michael-woomer,6,Michael Woomer,D,2008-2009,ushs-prep,137247,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Ciccarello (D),South Kent Prep,33,1,3,4,0.12,-,-,/player/59847/jordan-ciccarello,6,Jordan Ciccarello,D,2008-2009,ushs-prep,59847,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Bremner (D),Northfield Mount Hermon School,33,1,3,4,0.12,-,-,/player/208889/kevin-bremner,6,Kevin Bremner,D,2008-2009,ushs-prep,208889,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Verret (D),Hotchkiss School,-,1,3,4,-,-,-,/player/106339/michael-verret,6,Michael Verret,D,2008-2009,ushs-prep,106339,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Livingston (D),Middlesex School,19,0,4,4,0.21,-,-,/player/364335/thomas-livingston,6,Thomas Livingston,D,2008-2009,ushs-prep,364335,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaron Rocha (D),St. Mark's School,21,0,4,4,0.19,-,-,/player/131781/aaron-rocha,6,Aaron Rocha,D,2008-2009,ushs-prep,131781,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Higgins (D),Kent School,25,0,4,4,0.16,-,-,/player/96802/mark-higgins,6,Mark Higgins,D,2008-2009,ushs-prep,96802,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendon Bourgea (F),St. Paul's School,26,0,4,4,0.15,-,-,/player/162990/brendon-bourgea,6,Brendon Bourgea,F,2008-2009,ushs-prep,162990,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shane Hearn (LW),North Yarmouth Academy,27,0,4,4,0.15,-,-,/player/177711/shane-hearn,6,Shane Hearn,LW,2008-2009,ushs-prep,177711,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+George Crowley (D),The Rivers School,29,0,4,4,0.14,-,-,/player/261095/george-crowley,6,George Crowley,D,2008-2009,ushs-prep,261095,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Tait (F),The Gunnery,-,0,4,4,-,-,-,/player/127429/mike-tait,6,Mike Tait,F,2008-2009,ushs-prep,127429,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emery Edmondson (F),Brewster Academy,31,3,0,3,0.10,-,-,/player/1072556/emery-edmondson,6,Emery Edmondson,F,2008-2009,ushs-prep,1072556,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Mathieu (D),Thayer Academy,27,2,1,3,0.11,-,-,/player/134815/scott-mathieu,6,Scott Mathieu,D,2008-2009,ushs-prep,134815,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+T.A. Demoulas (F),Middlesex School,19,1,2,3,0.16,-,-,/player/257867/t-a-demoulas,6,T.A. Demoulas,F,2008-2009,ushs-prep,257867,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jared Blake (D),Kingswood Oxford School,20,1,2,3,0.15,-,-,/player/487727/jared-blake,6,Jared Blake,D,2008-2009,ushs-prep,487727,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bobby Guidal (F),Vermont Academy,22,1,2,3,0.14,-,-,/player/318074/bobby-guidal,6,Bobby Guidal,F,2008-2009,ushs-prep,318074,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Greg Babbitt (D),The Loomis Chaffee School,23,1,2,3,0.13,-,-,/player/141535/greg-babbitt,6,Greg Babbitt,D,2008-2009,ushs-prep,141535,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thad Reycraft (F),Taft School,24,1,2,3,0.13,-,-,/player/992398/thad-reycraft,6,Thad Reycraft,F,2008-2009,ushs-prep,992398,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Will Laverack (F),Choate Rosemary Hall,25,1,2,3,0.12,-,-,/player/364332/will-laverack,6,Will Laverack,F,2008-2009,ushs-prep,364332,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brad Peterson (D),Thayer Academy,27,1,2,3,0.11,-,-,/player/358412/brad-peterson,6,Brad Peterson,D,2008-2009,ushs-prep,358412,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trevor Braun (LW),Phillips Academy Andover,27,1,2,3,0.11,-,-,/player/97060/trevor-braun,6,Trevor Braun,LW,2008-2009,ushs-prep,97060,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Malik Garvin (F),Hebron Academy,29,1,2,3,0.10,-,-,/player/330177/malik-garvin,6,Malik Garvin,F,2008-2009,ushs-prep,330177,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Messa (C),Lawrence Academy,30,1,2,3,0.10,-,-,/player/196776/william-messa,6,William Messa,C,2008-2009,ushs-prep,196776,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Mason (F),Proctor Academy,31,1,2,3,0.10,-,-,/player/355238/andrew-mason,6,Andrew Mason,F,2008-2009,ushs-prep,355238,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cade Vittum (D),Brewster Academy,31,1,2,3,0.10,-,-,/player/1072547/cade-vittum,6,Cade Vittum,D,2008-2009,ushs-prep,1072547,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Doug MacLean (D),South Kent Prep,33,1,2,3,0.09,-,-,/player/80134/doug-maclean,6,Doug MacLean,D,2008-2009,ushs-prep,80134,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vinnie Smith (F),Kimball Union Academy,36,1,2,3,0.08,-,-,/player/46681/vinnie-smith,6,Vinnie Smith,F,2008-2009,ushs-prep,46681,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jean-Felix Poulin (D),Albany Academy,38,1,2,3,0.08,-,-,/player/836796/jean-felix-poulin,6,Jean-Felix Poulin,D,2008-2009,ushs-prep,836796,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erika Osborne (D),The Harvey School,23,0,3,3,0.13,-,-,/player/538093/erika-osborne,6,Erika Osborne,D,2008-2009,ushs-prep,538093,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ciccio Biundo (D),Trinity-Pawling School,27,0,3,3,0.11,-,-,/player/161888/ciccio-biundo,6,Ciccio Biundo,D,2008-2009,ushs-prep,161888,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Haskell (F),North Yarmouth Academy,27,0,3,3,0.11,-,-,/player/150605/jordan-haskell,6,Jordan Haskell,F,2008-2009,ushs-prep,150605,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Phil Dinner (D),Williston Northampton School,29,0,3,3,0.10,-,-,/player/157743/phil-dinner,6,Phil Dinner,D,2008-2009,ushs-prep,157743,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Baharozian (F),Groton School,22,2,0,2,0.09,-,-,/player/259482/zach-baharozian,6,Zach Baharozian,F,2008-2009,ushs-prep,259482,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jared Quenzel (D),Kingswood Oxford School,20,1,1,2,0.10,-,-,/player/135195/jared-quenzel,6,Jared Quenzel,D,2008-2009,ushs-prep,135195,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Gitlin (F),Kingswood Oxford School,20,1,1,2,0.10,-,-,/player/300145/alexander-gitlin,6,Alexander Gitlin,F,2008-2009,ushs-prep,300145,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Roberto (F),Malden Catholic High,22,1,1,2,0.09,-,-,/player/180928/nick-roberto,6,Nick Roberto,F,2008-2009,ushs-prep,180928,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Flynn (D),Avon Old Farms School,25,1,1,2,0.08,-,-,/player/163006/michael-flynn,6,Michael Flynn,D,2008-2009,ushs-prep,163006,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeffrey Coffin (D),Westminster Prep,25,1,1,2,0.08,-,-,/player/250282/jeffrey-coffin,6,Jeffrey Coffin,D,2008-2009,ushs-prep,250282,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Ryan Francis (C),Westminster Prep,25,1,1,2,0.08,-,-,/player/76925/john-ryan-francis,6,John Ryan Francis,C,2008-2009,ushs-prep,76925,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Kaplan (D),St. Paul's School,26,1,1,2,0.08,-,-,/player/161020/ben-kaplan,6,Ben Kaplan,D,2008-2009,ushs-prep,161020,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Gill (F),Thayer Academy,27,1,1,2,0.07,-,-,/player/302179/patrick-gill,6,Patrick Gill,F,2008-2009,ushs-prep,302179,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Barrett (D),North Yarmouth Academy,27,1,1,2,0.07,-,-,/player/836192/brandon-barrett,6,Brandon Barrett,D,2008-2009,ushs-prep,836192,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Derek Kahr (C),The Rivers School,29,1,1,2,0.07,-,-,/player/261111/derek-kahr,6,Derek Kahr,C,2008-2009,ushs-prep,261111,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Butler (RW),Cushing Academy,31,1,1,2,0.06,-,-,/player/150110/jake-butler,6,Jake Butler,RW,2008-2009,ushs-prep,150110,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Sotak (D),Phillips Exeter Academy,31,1,1,2,0.06,-,-,/player/450175/mike-sotak,6,Mike Sotak,D,2008-2009,ushs-prep,450175,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Torney (D),Berkshire School,33,1,1,2,0.06,-,-,/player/59730/sam-torney,6,Sam Torney,D,2008-2009,ushs-prep,59730,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Hofgesang (D),Albany Academy,38,1,1,2,0.05,-,-,/player/836509/nathan-hofgesang,6,Nathan Hofgesang,D,2008-2009,ushs-prep,836509,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicholas Gallagher (F),Albany Academy,38,1,1,2,0.05,-,-,/player/610390/nicholas-gallagher,6,Nicholas Gallagher,F,2008-2009,ushs-prep,610390,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zander Buttress (F),Brooks School,21,0,2,2,0.10,-,-,/player/257752/zander-buttress,6,Zander Buttress,F,2008-2009,ushs-prep,257752,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Lane (C),Worcester Academy,23,0,2,2,0.09,-,-,/player/132244/william-lane,6,William Lane,C,2008-2009,ushs-prep,132244,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zander Masucci (D),Taft School,24,0,2,2,0.08,-,-,/player/159063/zander-masucci,7,Zander Masucci,D,2008-2009,ushs-prep,159063,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blake Alessandroni (D),Deerfield Academy,24,0,2,2,0.08,-,-,/player/162969/blake-alessandroni,7,Blake Alessandroni,D,2008-2009,ushs-prep,162969,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaycob Megna (D),Tabor Academy,25,0,2,2,0.08,-,-,/player/84762/jaycob-megna,7,Jaycob Megna,D,2008-2009,ushs-prep,84762,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Koorbusch (F),Brunswick School,26,0,2,2,0.08,-,-,/player/314989/connor-koorbusch,7,Connor Koorbusch,F,2008-2009,ushs-prep,314989,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Chester (F),St. Paul's School,26,0,2,2,0.08,-,-,/player/232668/david-chester,7,David Chester,F,2008-2009,ushs-prep,232668,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cameron Smith (F),North Yarmouth Academy,27,0,2,2,0.07,-,-,/player/774477/cameron-smith,7,Cameron Smith,F,2008-2009,ushs-prep,774477,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Völlmin (D),New Hampton School,28,0,2,2,0.07,-,-,/player/163964/mike-vollmin,7,Mike Völlmin,D,2008-2009,ushs-prep,163964,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott McMenimen (D),Tilton School,28,0,2,2,0.07,-,-,/player/161910/scott-mcmenimen,7,Scott McMenimen,D,2008-2009,ushs-prep,161910,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Rautiola (D),The Rivers School,29,0,2,2,0.07,-,-,/player/261099/jack-rautiola,7,Jack Rautiola,D,2008-2009,ushs-prep,261099,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Brown (D),The Hill School,29,0,2,2,0.07,-,-,/player/161332/kyle-brown,7,Kyle Brown,D,2008-2009,ushs-prep,161332,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Gietzen (D),Lawrence Academy,30,0,2,2,0.07,-,-,/player/105276/kyle-gietzen,7,Kyle Gietzen,D,2008-2009,ushs-prep,105276,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Harris (D),Berkshire School,33,0,2,2,0.06,-,-,/player/97061/zach-harris,7,Zach Harris,D,2008-2009,ushs-prep,97061,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brock Battochio (D),Canterbury School,-,0,2,2,-,-,-,/player/97079/brock-battochio,7,Brock Battochio,D,2008-2009,ushs-prep,97079,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian Talbot (F),Boston College High,15,1,0,1,0.07,-,-,/player/138087/brian-talbot,7,Brian Talbot,F,2008-2009,ushs-prep,138087,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ashton Wackym (F),Hotchkiss School,23,1,0,1,0.04,-,-,/player/439089/ashton-wackym,7,Ashton Wackym,F,2008-2009,ushs-prep,439089,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Shamburger (F),Avon Old Farms School,25,1,0,1,0.04,-,-,/player/243341/dylan-shamburger,7,Dylan Shamburger,F,2008-2009,ushs-prep,243341,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Gilmour (C),Thayer Academy,27,1,0,1,0.04,-,-,/player/190084/adam-gilmour,7,Adam Gilmour,C,2008-2009,ushs-prep,190084,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Michaud (F),North Yarmouth Academy,27,1,0,1,0.04,-,-,/player/261515/matt-michaud,7,Matt Michaud,F,2008-2009,ushs-prep,261515,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Riley (C/LW),The Governor's Academy,28,1,0,1,0.04,0,-,/player/161244/jack-riley,7,Jack Riley,C/LW,2008-2009,ushs-prep,161244,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christopher Harlow (F),Buckingham Browne & Nichols,28,1,0,1,0.04,-,-,/player/131914/christopher-harlow,7,Christopher Harlow,F,2008-2009,ushs-prep,131914,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Franklin (F),Noble & Greenough School,29,1,0,1,0.03,-,-,/player/240875/max-franklin,7,Max Franklin,F,2008-2009,ushs-prep,240875,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joe Grasso (F),Brewster Academy,31,1,0,1,0.03,-,-,/player/1072553/joe-grasso,7,Joe Grasso,F,2008-2009,ushs-prep,1072553,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Craig Turner (D),Northfield Mount Hermon School,33,1,0,1,0.03,-,-,/player/157178/craig-turner,7,Craig Turner,D,2008-2009,ushs-prep,157178,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Thyrring (F),Albany Academy,38,1,0,1,0.03,-,-,/player/836795/ryan-thyrring,7,Ryan Thyrring,F,2008-2009,ushs-prep,836795,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eddie Nolan (D),Boston College High,15,0,1,1,0.07,-,-,/player/97017/eddie-nolan,7,Eddie Nolan,D,2008-2009,ushs-prep,97017,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Greg Browne (D),Deerfield Academy,24,0,1,1,0.04,-,-,/player/160534/greg-browne,7,Greg Browne,D,2008-2009,ushs-prep,160534,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tucker Dayton (F),Deerfield Academy,24,0,1,1,0.04,-,-,/player/111784/tucker-dayton,7,Tucker Dayton,F,2008-2009,ushs-prep,111784,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dave Bauchiero (F),Avon Old Farms School,25,0,1,1,0.04,-,-,/player/143310/dave-bauchiero,7,Dave Bauchiero,F,2008-2009,ushs-prep,143310,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Pomarico (D),Westminster Prep,25,0,1,1,0.04,-,-,/player/148348/christian-pomarico,7,Christian Pomarico,D,2008-2009,ushs-prep,148348,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mackenzie Lauzon (F),Westminster Prep,25,0,1,1,0.04,-,-,/player/185666/mackenzie-lauzon,7,Mackenzie Lauzon,F,2008-2009,ushs-prep,185666,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Cobb (D),Thayer Academy,27,0,1,1,0.04,-,-,/player/135256/chris-cobb,7,Chris Cobb,D,2008-2009,ushs-prep,135256,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alan Brown (F),North Yarmouth Academy,27,0,1,1,0.04,-,-,/player/836193/alan-brown,7,Alan Brown,F,2008-2009,ushs-prep,836193,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jared Bein (F),The Winchendon School,28,0,1,1,0.04,-,-,/player/56024/jared-bein,7,Jared Bein,F,2008-2009,ushs-prep,56024,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Richardson (F),Hebron Academy,29,0,1,1,0.03,-,-,/player/121943/evan-richardson,7,Evan Richardson,F,2008-2009,ushs-prep,121943,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Russell Adams (F),Phillips Exeter Academy,31,0,1,1,0.03,-,-,/player/129292/russell-adams,7,Russell Adams,F,2008-2009,ushs-prep,129292,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian Loeb (F),The Lawrenceville School,31,0,1,1,0.03,-,-,/player/385249/brian-loeb,7,Brian Loeb,F,2008-2009,ushs-prep,385249,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Emerson (D),Pomfret School,31,0,1,1,0.03,-,-,/player/277039/chris-emerson,7,Chris Emerson,D,2008-2009,ushs-prep,277039,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Garrett Van Wie (F),Phillips Exeter Academy,31,0,1,1,0.03,-,-,/player/616574/garrett-van-wie,7,Garrett Van Wie,F,2008-2009,ushs-prep,616574,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Madox Summermatter (D),Phillips Exeter Academy,31,0,1,1,0.03,-,-,/player/214429/madox-summermatter,7,Madox Summermatter,D,2008-2009,ushs-prep,214429,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riku Watanabe (F),Pomfret School,31,0,1,1,0.03,-,-,/player/1107326/riku-watanabe,7,Riku Watanabe,F,2008-2009,ushs-prep,1107326,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Fron (D),Albany Academy,38,0,1,1,0.03,-,-,/player/836510/chris-fron,7,Chris Fron,D,2008-2009,ushs-prep,836510,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Strohecker (F),Albany Academy,38,0,1,1,0.03,-,-,/player/836790/scott-strohecker,7,Scott Strohecker,F,2008-2009,ushs-prep,836790,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rob Badger (D),The Gunnery,-,0,1,1,-,-,-,/player/96690/rob-badger,7,Rob Badger,D,2008-2009,ushs-prep,96690,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brad Peltz (LW),Avon Old Farms School,0,0,0,0,-,0,-,/player/40883/brad-peltz,7,Brad Peltz,LW,2008-2009,ushs-prep,40883,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan O'Malley (D),Boston College High,15,0,0,0,0.00,-,-,/player/302190/brendan-o-malley,7,Brendan O'Malley,D,2008-2009,ushs-prep,302190,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Marsters (C),Boston College High,15,0,0,0,0.00,-,-,/player/302187/michael-marsters,7,Michael Marsters,C,2008-2009,ushs-prep,302187,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Cashman (F),Boston College High,15,0,0,0,0.00,-,-,/player/162940/michael-cashman,7,Michael Cashman,F,2008-2009,ushs-prep,162940,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Choi (F),Middlesex School,19,0,0,0,0.00,-,-,/player/308875/simon-choi,7,Simon Choi,F,2008-2009,ushs-prep,308875,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaron August (F),Kingswood Oxford School,20,0,0,0,0.00,-,-,/player/261822/aaron-august,7,Aaron August,F,2008-2009,ushs-prep,261822,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Fenby (F),The Roxbury Latin School,21,0,0,0,0.00,-,-,/player/302811/matthew-fenby,7,Matthew Fenby,F,2008-2009,ushs-prep,302811,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor West (D),St. Mark's School,21,0,0,0,0.00,-,-,/player/302835/connor-west,7,Connor West,D,2008-2009,ushs-prep,302835,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alec Strain (D/F),St. Mark's School,21,0,0,0,0.00,-,-,/player/259862/alec-strain,7,Alec Strain,D/F,2008-2009,ushs-prep,259862,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Hackler (D),Brooks School,21,0,0,0,0.00,-,-,/player/257766/martin-hackler,7,Martin Hackler,D,2008-2009,ushs-prep,257766,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stephen Picard (F),The Loomis Chaffee School,23,0,0,0,0.00,-,-,/player/261832/stephen-picard,7,Stephen Picard,F,2008-2009,ushs-prep,261832,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicholas Gattuso (F),The Harvey School,23,0,0,0,0.00,-,-,/player/260006/nicholas-gattuso,7,Nicholas Gattuso,F,2008-2009,ushs-prep,260006,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Marks (F),The Harvey School,23,0,0,0,0.00,-,-,/player/259850/brett-marks,7,Brett Marks,F,2008-2009,ushs-prep,259850,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Louis Reed (D),Taft School,24,0,0,0,0.00,-,-,/player/161037/louis-reed,7,Louis Reed,D,2008-2009,ushs-prep,161037,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alec Root (D),Taft School,24,0,0,0,0.00,-,-,/player/162957/alec-root,7,Alec Root,D,2008-2009,ushs-prep,162957,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Derek Collins (F),Taft School,24,0,0,0,0.00,-,-,/player/162987/derek-collins,7,Derek Collins,F,2008-2009,ushs-prep,162987,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Morris (D),Deerfield Academy,24,0,0,0,0.00,-,-,/player/185548/michael-morris,7,Michael Morris,D,2008-2009,ushs-prep,185548,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jamie Harrington (F),St. George's School,24,0,0,0,0.00,-,-,/player/260166/jamie-harrington,7,Jamie Harrington,F,2008-2009,ushs-prep,260166,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+George Mencoff (F),St. George's School,24,0,0,0,0.00,-,-,/player/184275/george-mencoff,7,George Mencoff,F,2008-2009,ushs-prep,184275,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivars Plaudis-Lasmanis (D),Avon Old Farms School,25,0,0,0,0.00,-,-,/player/118911/ivars-plaudis-lasmanis,7,Ivars Plaudis-Lasmanis,D,2008-2009,ushs-prep,118911,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick MacDonald (D),Choate Rosemary Hall,25,0,0,0,0.00,-,-,/player/302960/nick-macdonald,7,Nick MacDonald,D,2008-2009,ushs-prep,302960,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Enright (D/F),Westminster Prep,25,0,0,0,0.00,-,-,/player/203329/john-enright,7,John Enright,D/F,2008-2009,ushs-prep,203329,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grahm McGlinchey (F),Berwick Academy,26,0,0,0,0.00,-,-,/player/257303/grahm-mcglinchey,7,Grahm McGlinchey,F,2008-2009,ushs-prep,257303,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Winslow (D),Phillips Academy Andover,26,0,0,0,0.00,-,-,/player/261817/jonathan-winslow,7,Jonathan Winslow,D,2008-2009,ushs-prep,261817,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Nelson (F),Phillips Academy Andover,26,0,0,0,0.00,-,-,/player/131894/peter-nelson,7,Peter Nelson,F,2008-2009,ushs-prep,131894,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Afif El-Solh (F),Trinity-Pawling School,27,0,0,0,0.00,-,-,/player/129695/afif-el-solh,7,Afif El-Solh,F,2008-2009,ushs-prep,129695,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Calnan (RW),Thayer Academy,27,0,0,0,0.00,-,-,/player/178940/chris-calnan,7,Chris Calnan,RW,2008-2009,ushs-prep,178940,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Parker Howard (D/F),North Yarmouth Academy,27,0,0,0,0.00,-,-,/player/261703/parker-howard,7,Parker Howard,D/F,2008-2009,ushs-prep,261703,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+C.J. Davis (D),North Yarmouth Academy,27,0,0,0,0.00,-,-,/player/261693/c-j-davis,7,C.J. Davis,D,2008-2009,ushs-prep,261693,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Fallon (D),Thayer Academy,27,0,0,0,0.00,-,-,/player/97013/connor-fallon,7,Connor Fallon,D,2008-2009,ushs-prep,97013,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Charlie Daigle (D),North Yarmouth Academy,27,0,0,0,0.00,-,-,/player/836197/charlie-daigle,7,Charlie Daigle,D,2008-2009,ushs-prep,836197,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Millett (F),North Yarmouth Academy,27,0,0,0,0.00,-,-,/player/836196/tim-millett,7,Tim Millett,F,2008-2009,ushs-prep,836196,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Finn Hadlock (F),North Yarmouth Academy,27,0,0,0,0.00,-,-,/player/836195/finn-hadlock,7,Finn Hadlock,F,2008-2009,ushs-prep,836195,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gus Wellin (F),North Yarmouth Academy,27,0,0,0,0.00,-,-,/player/836194/gus-wellin,7,Gus Wellin,F,2008-2009,ushs-prep,836194,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Haddad (D),Milton Academy,28,0,0,0,0.00,-,-,/player/135265/john-haddad,7,John Haddad,D,2008-2009,ushs-prep,135265,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Johnson (F),Milton Academy,28,0,0,0,0.00,-,-,/player/185626/connor-johnson,7,Connor Johnson,F,2008-2009,ushs-prep,185626,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Doumeng (D),Hebron Academy,29,0,0,0,0.00,-,-,/player/150111/alex-doumeng,7,Alex Doumeng,D,2008-2009,ushs-prep,150111,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wilson Giraldo (F),Millbrook School,30,0,0,0,0.00,-,-,/player/261884/wilson-giraldo,7,Wilson Giraldo,F,2008-2009,ushs-prep,261884,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marston Garceau (D),Millbrook School,30,0,0,0,0.00,-,-,/player/611660/marston-garceau,7,Marston Garceau,D,2008-2009,ushs-prep,611660,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Killian (D),Delbarton School,30,0,0,0,0.00,-,-,/player/75050/matt-killian,7,Matt Killian,D,2008-2009,ushs-prep,75050,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Graham Henderson (D),Canterbury School,30,0,0,0,0.00,-,-,/player/614889/graham-henderson,7,Graham Henderson,D,2008-2009,ushs-prep,614889,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Albelin (D),Berkshire School,33,0,0,0,0.00,-,-,/player/38077/adam-albelin,7,Adam Albelin,D,2008-2009,ushs-prep,38077,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Peer (D),Northfield Mount Hermon School,33,0,0,0,0.00,-,-,/player/143954/dylan-peer,7,Dylan Peer,D,2008-2009,ushs-prep,143954,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Geoff Lindblad (F),South Kent Prep,33,0,0,0,0.00,-,-,/player/280933/geoff-lindblad,7,Geoff Lindblad,F,2008-2009,ushs-prep,280933,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jason Kornfeld (D),Northfield Mount Hermon School,33,0,0,0,0.00,-,-,/player/612280/jason-kornfeld,7,Jason Kornfeld,D,2008-2009,ushs-prep,612280,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+K.J. Paseka (F),Northfield Mount Hermon School,33,0,0,0,0.00,-,-,/player/261633/k-j-paseka,7,K.J. Paseka,F,2008-2009,ushs-prep,261633,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Dore (F),Northfield Mount Hermon School,33,0,0,0,0.00,-,-,/player/97034/matt-dore,7,Matt Dore,F,2008-2009,ushs-prep,97034,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Corey Wisnowski (D),Berkshire School,33,0,0,0,0.00,-,-,/player/226601/corey-wisnowski,7,Corey Wisnowski,D,2008-2009,ushs-prep,226601,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christopher Zuccaro (F),Kimball Union Academy,36,0,0,0,0.00,-,-,/player/131784/christopher-zuccaro,7,Christopher Zuccaro,F,2008-2009,ushs-prep,131784,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Jangro (F),Tabor Academy,-,-,-,-,-,-,-,/player/51222/michael-jangro,7,Michael Jangro,F,2008-2009,ushs-prep,51222,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Siegel (F),Bridgton Academy,-,-,-,-,-,-,-,/player/54094/eric-siegel,7,Eric Siegel,F,2008-2009,ushs-prep,54094,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean Travis (F),Bridgton Academy,-,-,-,-,-,-,-,/player/54302/sean-travis,7,Sean Travis,F,2008-2009,ushs-prep,54302,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Young (F),Bridgton Academy,-,-,-,-,-,-,-,/player/55335/alex-young,7,Alex Young,F,2008-2009,ushs-prep,55335,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Pryor (D),New Hampton School,-,-,-,-,-,-,-,/player/55624/andrew-pryor,7,Andrew Pryor,D,2008-2009,ushs-prep,55624,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pat Mahoney (D),Bridgton Academy,-,-,-,-,-,-,-,/player/56123/pat-mahoney,7,Pat Mahoney,D,2008-2009,ushs-prep,56123,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Whitney Curtin (D),St. George's School,-,-,-,-,-,-,-,/player/58908/whitney-curtin,7,Whitney Curtin,D,2008-2009,ushs-prep,58908,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Dubuc (C),Millbrook School,-,-,-,-,-,-,-,/player/58964/mathieu-dubuc,7,Mathieu Dubuc,C,2008-2009,ushs-prep,58964,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Skarzynski (D),Lake Forest Academy,-,-,-,-,-,-,-,/player/58973/luke-skarzynski,8,Luke Skarzynski,D,2008-2009,ushs-prep,58973,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Pearl (F),Bridgton Academy,-,-,-,-,-,-,-,/player/59995/ben-pearl,8,Ben Pearl,F,2008-2009,ushs-prep,59995,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominic Panetta (F),Culver Military Academy Prep,-,-,-,-,-,-,-,/player/47376/dominic-panetta,8,Dominic Panetta,F,2008-2009,ushs-prep,47376,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joakim Ryan (D),Christian Brothers Academy,-,-,-,-,-,-,-,/player/51926/joakim-ryan,8,Joakim Ryan,D,2008-2009,ushs-prep,51926,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Rostenkowski (D),Culver Military Academy Prep,-,-,-,-,-,-,-,/player/60842/tyler-rostenkowski,8,Tyler Rostenkowski,D,2008-2009,ushs-prep,60842,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Harry Quast (D),Gilmour Academy,-,-,-,-,-,-,-,/player/60855/harry-quast,8,Harry Quast,D,2008-2009,ushs-prep,60855,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kit Sitterley (LW),Culver Military Academy Prep,-,-,-,-,-,-,-,/player/46922/kit-sitterley,8,Kit Sitterley,LW,2008-2009,ushs-prep,46922,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brock Raffaele (F),Gilmour Academy,-,-,-,-,-,-,-,/player/64464/brock-raffaele,8,Brock Raffaele,F,2008-2009,ushs-prep,64464,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Campana (D),Bridgton Academy,-,-,-,-,-,-,-,/player/74057/kyle-campana,8,Kyle Campana,D,2008-2009,ushs-prep,74057,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+D.J. Haskins (F),Bridgton Academy,-,-,-,-,-,-,-,/player/74151/d-j-haskins,8,D.J. Haskins,F,2008-2009,ushs-prep,74151,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fred Hein (F),Bridgton Academy,-,-,-,-,-,-,-,/player/74153/fred-hein,8,Fred Hein,F,2008-2009,ushs-prep,74153,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danny McAuliffe (F),Lake Forest Academy,-,-,-,-,-,-,-,/player/74392/danny-mcauliffe,8,Danny McAuliffe,F,2008-2009,ushs-prep,74392,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grant Telfer (D),Cushing Academy,-,-,-,-,-,-,-,/player/78204/grant-telfer,8,Grant Telfer,D,2008-2009,ushs-prep,78204,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Collier (D),Taft School,-,-,-,-,-,-,-,/player/97714/ryan-collier,8,Ryan Collier,D,2008-2009,ushs-prep,97714,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Greg Crovo (D),Malden Catholic High,-,-,-,-,-,-,-,/player/104319/greg-crovo,8,Greg Crovo,D,2008-2009,ushs-prep,104319,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Berto (LW),Lake Forest Academy,-,-,-,-,-,-,-,/player/105281/connor-berto,8,Connor Berto,LW,2008-2009,ushs-prep,105281,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Berto (F),Lake Forest Academy,-,-,-,-,-,-,-,/player/105282/kevin-berto,8,Kevin Berto,F,2008-2009,ushs-prep,105282,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Harry Matheson (C),Lake Forest Academy,-,-,-,-,-,-,-,/player/110635/harry-matheson,8,Harry Matheson,C,2008-2009,ushs-prep,110635,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Husek (LW/C),Wyoming Seminary Prep,-,-,-,-,-,-,-,/player/38073/jakub-husek,8,Jakub Husek,LW/C,2008-2009,ushs-prep,38073,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roberto Mormina (RW),Hotchkiss School,-,-,-,-,-,-,-,/player/96318/roberto-mormina,8,Roberto Mormina,RW,2008-2009,ushs-prep,96318,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Wiggins (F),Noble & Greenough School,-,-,-,-,-,-,-,/player/110757/ben-wiggins,8,Ben Wiggins,F,2008-2009,ushs-prep,110757,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Barr (F),Taft School,-,-,-,-,-,-,-,/player/110772/john-barr,8,John Barr,F,2008-2009,ushs-prep,110772,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Beau DeBlois (D),Hotchkiss School,-,-,-,-,-,-,-,/player/110820/beau-deblois,8,Beau DeBlois,D,2008-2009,ushs-prep,110820,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jackson Brandstetter (D),Lake Forest Academy,-,-,-,-,-,-,-,/player/111793/jackson-brandstetter,8,Jackson Brandstetter,D,2008-2009,ushs-prep,111793,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Wainwright (F),Pomfret School,-,-,-,-,-,-,-,/player/111801/ryan-wainwright,8,Ryan Wainwright,F,2008-2009,ushs-prep,111801,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Sokolski (F),St. John's Prep,-,-,-,-,-,-,-,/player/111803/jonathan-sokolski,8,Jonathan Sokolski,F,2008-2009,ushs-prep,111803,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Garrett Sider (F),St. George's School,-,-,-,-,-,-,-,/player/111821/garrett-sider,8,Garrett Sider,F,2008-2009,ushs-prep,111821,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Will Einstein (F),Taft School,-,-,-,-,-,-,-,/player/111843/will-einstein,8,Will Einstein,F,2008-2009,ushs-prep,111843,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Riccio (D),St. John's Prep,-,-,-,-,-,-,-,/player/112716/nick-riccio,8,Nick Riccio,D,2008-2009,ushs-prep,112716,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+J.J. Sabin (D),Tilton School,-,-,-,-,-,-,-,/player/112745/j-j-sabin,8,J.J. Sabin,D,2008-2009,ushs-prep,112745,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jared Lackey (F),Noble & Greenough School,-,-,-,-,-,-,-,/player/112772/jared-lackey,8,Jared Lackey,F,2008-2009,ushs-prep,112772,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artur Kochuev (D),Wyoming Seminary Prep,-,-,-,-,-,-,-,/player/112774/artur-kochuev,8,Artur Kochuev,D,2008-2009,ushs-prep,112774,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Rotondi (D),New Hampton School,-,-,-,-,-,-,-,/player/112786/mike-rotondi,8,Mike Rotondi,D,2008-2009,ushs-prep,112786,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim McAuliffe (F),Vermont Academy,-,-,-,-,-,-,-,/player/113377/tim-mcauliffe,8,Tim McAuliffe,F,2008-2009,ushs-prep,113377,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Ganci (LW),St. Francis High Prep,-,-,-,-,-,-,-,/player/117907/matthew-ganci,8,Matthew Ganci,LW,2008-2009,ushs-prep,117907,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dennis Dering (F),Delbarton School,-,-,-,-,-,-,-,/player/125492/dennis-dering,8,Dennis Dering,F,2008-2009,ushs-prep,125492,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+T.J. Lane (D),Christian Brothers Academy,-,-,-,-,-,-,-,/player/125928/t-j-lane,8,T.J. Lane,D,2008-2009,ushs-prep,125928,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Softy (F),Hotchkiss School,-,-,-,-,-,-,-,/player/126152/ben-softy,8,Ben Softy,F,2008-2009,ushs-prep,126152,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian Rousseau (D),Culver Military Academy Prep,-,-,-,-,-,-,-,/player/126185/brian-rousseau,8,Brian Rousseau,D,2008-2009,ushs-prep,126185,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gordon Bowen (D),The Hill School,-,-,-,-,-,-,-,/player/129325/gordon-bowen,8,Gordon Bowen,D,2008-2009,ushs-prep,129325,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kip Strong (F),Kent School,-,-,-,-,-,-,-,/player/132411/kip-strong,8,Kip Strong,F,2008-2009,ushs-prep,132411,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Gaskin (F),Lake Forest Academy,-,-,-,-,-,-,-,/player/132946/kyle-gaskin,8,Kyle Gaskin,F,2008-2009,ushs-prep,132946,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+George Calcagnini (D),St. Francis High Prep,-,-,-,-,-,-,-,/player/136176/george-calcagnini,8,George Calcagnini,D,2008-2009,ushs-prep,136176,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kip Jennings (LW),Hotchkiss School,-,-,-,-,-,-,-,/player/136188/kip-jennings,8,Kip Jennings,LW,2008-2009,ushs-prep,136188,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pete Sletteland (C),The Loomis Chaffee School,-,-,-,-,-,-,-,/player/136195/pete-sletteland,8,Pete Sletteland,C,2008-2009,ushs-prep,136195,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Stanley (F),The Loomis Chaffee School,-,-,-,-,-,-,-,/player/136557/ryan-stanley,8,Ryan Stanley,F,2008-2009,ushs-prep,136557,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Neil Mackenzie (F),Kimball Union Academy,-,-,-,-,-,-,-,/player/137081/neil-mackenzie,8,Neil Mackenzie,F,2008-2009,ushs-prep,137081,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brad Cadigan (F),Boston College High,-,-,-,-,-,-,-,/player/137874/brad-cadigan,8,Brad Cadigan,F,2008-2009,ushs-prep,137874,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Newsome (F),St. John's Prep,-,-,-,-,-,-,-,/player/137883/chris-newsome,8,Chris Newsome,F,2008-2009,ushs-prep,137883,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Owen (F),Noble & Greenough School,-,-,-,-,-,-,-,/player/137884/peter-owen,8,Peter Owen,F,2008-2009,ushs-prep,137884,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Lucosky (F),The Hill School,-,-,-,-,-,-,-,/player/138605/adam-lucosky,8,Adam Lucosky,F,2008-2009,ushs-prep,138605,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Marchand (F),The Gunnery,-,-,-,-,-,-,-,/player/138606/jonathan-marchand,8,Jonathan Marchand,F,2008-2009,ushs-prep,138606,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabe Blanchet (F),Deerfield Academy,-,-,-,-,-,-,-,/player/139521/gabe-blanchet,8,Gabe Blanchet,F,2008-2009,ushs-prep,139521,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Vandemoer (F),Williston Northampton School,-,-,-,-,-,-,-,/player/141088/kyle-vandemoer,8,Kyle Vandemoer,F,2008-2009,ushs-prep,141088,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Les (F),Williston Northampton School,-,-,-,-,-,-,-,/player/141538/andrew-les,8,Andrew Les,F,2008-2009,ushs-prep,141538,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Chase (F),Phillips Exeter Academy,-,-,-,-,-,-,-,/player/142751/robert-chase,8,Robert Chase,F,2008-2009,ushs-prep,142751,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Jenkins (D),Tilton School,-,-,-,-,-,-,-,/player/142762/alexander-jenkins,8,Alexander Jenkins,D,2008-2009,ushs-prep,142762,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colin Neugold (F),The Loomis Chaffee School,-,-,-,-,-,-,-,/player/144802/colin-neugold,8,Colin Neugold,F,2008-2009,ushs-prep,144802,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gregory Rice (F),Boston College High,-,-,-,-,-,-,-,/player/144877/gregory-rice,8,Gregory Rice,F,2008-2009,ushs-prep,144877,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Collins (D),New Hampton School,-,-,-,-,-,-,-,/player/144890/robert-collins,8,Robert Collins,D,2008-2009,ushs-prep,144890,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ross Scherma (D),Moses Brown School,-,-,-,-,-,-,-,/player/150107/ross-scherma,8,Ross Scherma,D,2008-2009,ushs-prep,150107,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zac Zakas (D),Pingree School,-,-,-,-,-,-,-,/player/150514/zac-zakas,8,Zac Zakas,D,2008-2009,ushs-prep,150514,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christopher Finch (F),St. Paul's School,-,-,-,-,-,-,-,/player/107334/christopher-finch,8,Christopher Finch,F,2008-2009,ushs-prep,107334,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elliot Bostrom (D),Taft School,-,-,-,-,-,-,-,/player/75043/elliot-bostrom,8,Elliot Bostrom,D,2008-2009,ushs-prep,75043,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Zielinski (D),Williston Northampton School,-,-,-,-,-,-,-,/player/138090/matt-zielinski,8,Matt Zielinski,D,2008-2009,ushs-prep,138090,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Kravitz (D),Williston Northampton School,-,-,-,-,-,-,-,/player/105277/ben-kravitz,8,Ben Kravitz,D,2008-2009,ushs-prep,105277,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timothy Sullivan (F),Kents Hill School,-,-,-,-,-,-,-,/player/161277/timothy-sullivan,8,Timothy Sullivan,F,2008-2009,ushs-prep,161277,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Humphrey (F),New Hampton School,-,-,-,-,-,-,-,/player/161309/john-humphrey,8,John Humphrey,F,2008-2009,ushs-prep,161309,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Garrett Lessard (F),Williston Northampton School,-,-,-,-,-,-,-,/player/112751/garrett-lessard,8,Garrett Lessard,F,2008-2009,ushs-prep,112751,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Sullivan (D),Dexter Southfield School,-,-,-,-,-,-,-,/player/161434/michael-sullivan,8,Michael Sullivan,D,2008-2009,ushs-prep,161434,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Riley (F),The Governor's Academy,-,-,-,-,-,-,-,/player/162136/brett-riley,8,Brett Riley,F,2008-2009,ushs-prep,162136,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Lysaght (LW/RW),Kent School,-,-,-,-,-,-,-,/player/62655/kyle-lysaght,8,Kyle Lysaght,LW/RW,2008-2009,ushs-prep,62655,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joe Gehrig (F),New Hampton School,-,-,-,-,-,-,-,/player/176883/joe-gehrig,8,Joe Gehrig,F,2008-2009,ushs-prep,176883,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Horan (F),Berwick Academy,-,-,-,-,-,-,-,/player/177651/david-horan,8,David Horan,F,2008-2009,ushs-prep,177651,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Johnston (F),The Gunnery,-,-,-,-,-,-,-,/player/183367/josh-johnston,8,Josh Johnston,F,2008-2009,ushs-prep,183367,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Moreau (D),Taft School,-,-,-,-,-,-,-,/player/126144/mike-moreau,8,Mike Moreau,D,2008-2009,ushs-prep,126144,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Maskell (D),St. Sebastian's School,-,-,-,-,-,-,-,/player/184186/matt-maskell,8,Matt Maskell,D,2008-2009,ushs-prep,184186,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Anderson (F),Pomfret School,-,-,-,-,-,-,-,/player/185569/ryan-anderson,8,Ryan Anderson,F,2008-2009,ushs-prep,185569,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Taylor Cullinan (F),Tilton School,-,-,-,-,-,-,-,/player/189368/taylor-cullinan,8,Taylor Cullinan,F,2008-2009,ushs-prep,189368,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Kader (D),New Hampton School,-,-,-,-,-,-,-,/player/190538/christian-kader,8,Christian Kader,D,2008-2009,ushs-prep,190538,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Darren Hopkinson (D),Moses Brown School,-,-,-,-,-,-,-,/player/139356/darren-hopkinson,8,Darren Hopkinson,D,2008-2009,ushs-prep,139356,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juho Laitinen (F),Cardigan Mountain School,-,-,-,-,-,-,-,/player/48918/juho-laitinen,8,Juho Laitinen,F,2008-2009,ushs-prep,48918,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frankie DeAugustine (RW),Culver Military Academy Prep,-,-,-,-,-,-,-,/player/45731/frankie-deaugustine,8,Frankie DeAugustine,RW,2008-2009,ushs-prep,45731,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryan Gillentine (F),Kents Hill School,-,-,-,-,-,-,-,/player/161282/bryan-gillentine,8,Bryan Gillentine,F,2008-2009,ushs-prep,161282,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Schmit (RW),Culver Military Academy Prep,-,-,-,-,-,-,-,/player/45675/andrew-schmit,8,Andrew Schmit,RW,2008-2009,ushs-prep,45675,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian Ruwe (D),Hotchkiss School,-,-,-,-,-,-,-,/player/385257/brian-ruwe,8,Brian Ruwe,D,2008-2009,ushs-prep,385257,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colin Blackwell (C/W),St. John's Prep,-,-,-,-,-,-,-,/player/128394/colin-blackwell,8,Colin Blackwell,C/W,2008-2009,ushs-prep,128394,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johnny Daniels (F),Central Catholic High,-,-,-,-,-,-,-,/player/97039/johnny-daniels,8,Johnny Daniels,F,2008-2009,ushs-prep,97039,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zachary Longo (D),St. John's Prep,-,-,-,-,-,-,-,/player/329979/zachary-longo,8,Zachary Longo,D,2008-2009,ushs-prep,329979,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Derek Army (C/RW),Moses Brown School,-,-,-,-,-,-,-,/player/94502/derek-army,8,Derek Army,C/RW,2008-2009,ushs-prep,94502,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Craig Wyszomirski (D),Don Bosco Prep,-,-,-,-,-,-,-,/player/75051/craig-wyszomirski,8,Craig Wyszomirski,D,2008-2009,ushs-prep,75051,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Ambrosia (F),Delbarton School,-,-,-,-,-,-,-,/player/84709/mike-ambrosia,8,Mike Ambrosia,F,2008-2009,ushs-prep,84709,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jimmy Vesey (LW/RW),Belmont Hill School,-,-,-,-,-,-,-,/player/121865/jimmy-vesey,8,Jimmy Vesey,LW/RW,2008-2009,ushs-prep,121865,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeff Salvatore (F),Portsmouth Abbey School,-,-,-,-,-,-,-,/player/261202/jeff-salvatore,8,Jeff Salvatore,F,2008-2009,ushs-prep,261202,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kenny Agostino (LW/C),Delbarton School,-,-,-,-,-,-,-,/player/75015/kenny-agostino,8,Kenny Agostino,LW/C,2008-2009,ushs-prep,75015,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Pirovano (F),Delbarton School,-,-,-,-,-,-,-,/player/96854/michael-pirovano,8,Michael Pirovano,F,2008-2009,ushs-prep,96854,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Castonguay (D),Northwood School,-,-,-,-,-,-,-,/player/58960/mathieu-castonguay,8,Mathieu Castonguay,D,2008-2009,ushs-prep,58960,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Fenwick (F),Northwood School,-,-,-,-,-,-,-,/player/96825/andrew-fenwick,8,Andrew Fenwick,F,2008-2009,ushs-prep,96825,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+T.J. Hermans (F),Northwood School,-,-,-,-,-,-,-,/player/104328/t-j-hermans,8,T.J. Hermans,F,2008-2009,ushs-prep,104328,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Corey Jewell (F),Northwood School,-,-,-,-,-,-,-,/player/140801/corey-jewell,8,Corey Jewell,F,2008-2009,ushs-prep,140801,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Min Seong Kim (D),Northwood School,-,-,-,-,-,-,-,/player/56342/min-seong-kim,9,Min Seong Kim,D,2008-2009,ushs-prep,56342,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben MacLaughlin (RW),Northwood School,-,-,-,-,-,-,-,/player/54298/ben-maclaughlin,9,Ben MacLaughlin,RW,2008-2009,ushs-prep,54298,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Mills (F),Northwood School,-,-,-,-,-,-,-,/player/56007/thomas-mills,9,Thomas Mills,F,2008-2009,ushs-prep,56007,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Robertson (F),Northwood School,-,-,-,-,-,-,-,/player/143840/daniel-robertson,9,Daniel Robertson,F,2008-2009,ushs-prep,143840,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Robertson (F),Northwood School,-,-,-,-,-,-,-,/player/63286/jake-robertson,9,Jake Robertson,F,2008-2009,ushs-prep,63286,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Runner (D),Northwood School,-,-,-,-,-,-,-,/player/138818/andrew-runner,9,Andrew Runner,D,2008-2009,ushs-prep,138818,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Huck Saunders (F),Northwood School,-,-,-,-,-,-,-,/player/47640/huck-saunders,9,Huck Saunders,F,2008-2009,ushs-prep,47640,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Scott (D),Northwood School,-,-,-,-,-,-,-,/player/64636/daniel-scott,9,Daniel Scott,D,2008-2009,ushs-prep,64636,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Stephenson (C/LW),Northwood School,-,-,-,-,-,-,-,/player/66182/alexander-stephenson,9,Alexander Stephenson,C/LW,2008-2009,ushs-prep,66182,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mac Stratford (D),Northwood School,-,-,-,-,-,-,-,/player/49467/mac-stratford,9,Mac Stratford,D,2008-2009,ushs-prep,49467,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69

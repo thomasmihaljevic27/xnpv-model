@@ -1,0 +1,961 @@
+player,team,gp,g,a,tp,p_per_gp,pim,plus_minus,link,page,playername,position,season,league,ep_player_id,scrape_date,source,package_version
+Mikhail Anisin (RW),Krylia Sovetov Moskva,48,36,27,63,1.31,34,17,/player/19484/mikhail-anisin,1,Mikhail Anisin,RW,2007-2008,russia2,19484,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Zuyenkov (F),totals,59,34,25,59,1.00,46,12,/player/181897/maxim-zuyenkov,1,Maxim Zuyenkov,F,2007-2008,russia2,181897,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Trofimov (LW),HK Dmitrov,60,27,31,58,0.97,48,23,/player/99523/alexander-trofimov,1,Alexander Trofimov,LW,2007-2008,russia2,99523,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Lyuduchin (RW),Dizel Penza,60,26,32,58,0.97,44,28,/player/18841/roman-lyuduchin,1,Roman Lyuduchin,RW,2007-2008,russia2,18841,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Blaguta (RW),HK Belgorod,50,23,35,58,1.16,56,7,/player/43817/sergei-blaguta,1,Sergei Blaguta,RW,2007-2008,russia2,43817,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Zhaglin (C),Dizel Penza,60,20,38,58,0.97,83,29,/player/90204/alexei-zhaglin,1,Alexei Zhaglin,C,2007-2008,russia2,90204,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Prudnikov (F),Titan Klin,60,19,39,58,0.97,95,6,/player/181798/andrei-prudnikov,1,Andrei Prudnikov,F,2007-2008,russia2,181798,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Mereskin (C),Neftyanik Leninogorsk,58,23,31,54,0.93,72,8,/player/22940/alexander-mereskin,1,Alexander Mereskin,C,2007-2008,russia2,22940,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilnar Misbakhov (RW),Neftyanik Leninogorsk,57,19,34,53,0.93,38,3,/player/62671/ilnar-misbakhov,1,Ilnar Misbakhov,RW,2007-2008,russia2,62671,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Lugovskoy (C),HK Dmitrov,59,17,36,53,0.90,32,25,/player/99520/viktor-lugovskoy,1,Viktor Lugovskoy,C,2007-2008,russia2,99520,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Ivantsov (LW),Dizel Penza,60,15,38,53,0.88,40,9,/player/90280/vladimir-ivantsov,1,Vladimir Ivantsov,LW,2007-2008,russia2,90280,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Shandurov (LW),Dizel Penza,60,29,23,52,0.87,28,26,/player/117579/dmitri-shandurov,1,Dmitri Shandurov,LW,2007-2008,russia2,117579,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lev Krutokhvostov (F),Kazakhmys Satpaev,49,21,30,51,1.04,80,16,/player/73925/lev-krutokhvostov,1,Lev Krutokhvostov,F,2007-2008,russia2,73925,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Gogolev (RW),Krylia Sovetov Moskva,45,19,32,51,1.13,32,7,/player/31002/dmitri-gogolev,1,Dmitri Gogolev,RW,2007-2008,russia2,31002,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Konnov (F),Kristall Saratov,50,19,31,50,1.00,44,2,/player/197314/dmitri-konnov,1,Dmitri Konnov,F,2007-2008,russia2,197314,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yuri Koksharov (C),Kristall Saratov,56,19,31,50,0.89,52,7,/player/45661/yuri-koksharov,1,Yuri Koksharov,C,2007-2008,russia2,45661,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Fetisov (F),Kazakhmys Satpaev,50,16,34,50,1.00,34,10,/player/172456/alexei-fetisov,1,Alexei Fetisov,F,2007-2008,russia2,172456,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vitali Litvinenko (RW),Sokil Kyiv,59,10,40,50,0.85,28,10,/player/35158/vitali-litvinenko,1,Vitali Litvinenko,RW,2007-2008,russia2,35158,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Gavrilin (RW),Barys Astana,52,21,27,48,0.92,44,19,/player/22141/andrei-gavrilin,1,Andrei Gavrilin,RW,2007-2008,russia2,22141,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Talgat Zhailauov (LW),Barys Astana,46,22,24,46,1.00,21,21,/player/22140/talgat-zhailauov,1,Talgat Zhailauov,LW,2007-2008,russia2,22140,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Tsyrul (LW),Sokil Kyiv,55,22,24,46,0.84,57,8,/player/35110/dmitri-tsyrul,1,Dmitri Tsyrul,LW,2007-2008,russia2,35110,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Baranov (F),totals,55,16,30,46,0.84,100,-9,/player/188777/roman-baranov,1,Roman Baranov,F,2007-2008,russia2,188777,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Dubinin (LW),totals,47,29,16,45,0.96,142,-12,/player/14114/anton-dubinin,1,Anton Dubinin,LW,2007-2008,russia2,14114,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Kasatkin (C),Kazakhmys Satpaev,52,17,28,45,0.87,48,16,/player/73928/konstantin-kasatkin,1,Konstantin Kasatkin,C,2007-2008,russia2,73928,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valeri Kukushkin (F),Dizel Penza,59,24,19,43,0.73,12,11,/player/110870/valeri-kukushkin,1,Valeri Kukushkin,F,2007-2008,russia2,110870,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Bobrov (W/C),Khimik Voskresensk,60,24,19,43,0.72,72,12,/player/19219/viktor-bobrov,1,Viktor Bobrov,W/C,2007-2008,russia2,19219,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Marzoyev (LW),Neftyanik Leninogorsk,58,21,22,43,0.74,61,8,/player/91570/oleg-marzoyev,1,Oleg Marzoyev,LW,2007-2008,russia2,91570,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Koreshkov (LW),totals,49,10,33,43,0.88,20,6,/player/22139/alexander-koreshkov,1,Alexander Koreshkov,LW,2007-2008,russia2,22139,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Kozhevnikov (LW),Titan Klin,59,26,16,42,0.71,163,10,/player/18986/alexander-kozhevnikov,1,Alexander Kozhevnikov,LW,2007-2008,russia2,18986,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marat Valiullin (F),Neftyanik Almetievsk,58,17,25,42,0.72,65,14,/player/84321/marat-valiullin,1,Marat Valiullin,F,2007-2008,russia2,84321,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Khapov (C),Neftyanik Almetievsk,60,17,25,42,0.70,60,14,/player/93169/maxim-khapov,1,Maxim Khapov,C,2007-2008,russia2,93169,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Murzin (RW),HK Dmitrov,56,20,21,41,0.73,34,30,/player/180377/alexei-murzin,1,Alexei Murzin,RW,2007-2008,russia2,180377,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Pozdnyakov (C),Kristall Elektrostal,60,20,21,41,0.68,44,-2,/player/68874/vladimir-pozdnyakov,1,Vladimir Pozdnyakov,C,2007-2008,russia2,68874,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yan Yakutsenya (F),Molot-Prikamie Perm,52,19,22,41,0.79,28,20,/player/187922/yan-yakutsenya,1,Yan Yakutsenya,F,2007-2008,russia2,187922,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Cherbayev (RW),HK Dmitrov,49,17,24,41,0.84,85,4,/player/80287/alexander-cherbayev,1,Alexander Cherbayev,RW,2007-2008,russia2,80287,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexej Faskhoutdinov (RW),CSK VVS Samara,59,14,27,41,0.69,18,-3,/player/1756/alexej-faskhoutdinov,1,Alexej Faskhoutdinov,RW,2007-2008,russia2,1756,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Timakov (C/W),Khimik Voskresensk,50,12,29,41,0.82,48,20,/player/22187/stanislav-timakov,1,Stanislav Timakov,C/W,2007-2008,russia2,22187,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Zotkin (F),Sokil Kyiv,57,19,21,40,0.70,132,15,/player/20508/alexei-zotkin,1,Alexei Zotkin,F,2007-2008,russia2,20508,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Dubinin (F),Kristall Elektrostal,59,19,21,40,0.68,58,-14,/player/27212/andrei-dubinin,1,Andrei Dubinin,F,2007-2008,russia2,27212,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vitali Smolyaninov (C),Barys Astana,51,18,21,39,0.76,54,33,/player/18149/vitali-smolyaninov,1,Vitali Smolyaninov,C,2007-2008,russia2,18149,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Kiryukhin (C/RW),HK Belgorod,60,17,22,39,0.65,44,-15,/player/10489/andrei-kiryukhin,1,Andrei Kiryukhin,C/RW,2007-2008,russia2,10489,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Luchinkin (RW),Khimik Voskresensk,51,25,13,38,0.75,50,17,/player/22186/sergei-luchinkin,1,Sergei Luchinkin,RW,2007-2008,russia2,22186,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Romanov (RW/C),Khimik Voskresensk,46,22,16,38,0.83,42,12,/player/22185/alexander-romanov,1,Alexander Romanov,RW/C,2007-2008,russia2,22185,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vadim Averkin (C),Sokil Kyiv,56,18,20,38,0.68,16,11,/player/36489/vadim-averkin,1,Vadim Averkin,C,2007-2008,russia2,36489,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Belukhin (C),Neftyanik Almetievsk,58,17,21,38,0.66,181,10,/player/44894/yevgeni-belukhin,1,Yevgeni Belukhin,C,2007-2008,russia2,44894,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Tsybin (RW),Toros Neftekamsk,49,16,22,38,0.78,28,22,/player/36490/dmitri-tsybin,1,Dmitri Tsybin,RW,2007-2008,russia2,36490,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Makarov (RW),HK Ryazan,60,15,23,38,0.63,68,-17,/player/114689/sergei-makarov,1,Sergei Makarov,RW,2007-2008,russia2,114689,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vadim Shipachyov (C),HK Belgorod,34,8,30,38,1.12,18,14,/player/19550/vadim-shipachyov,1,Vadim Shipachyov,C,2007-2008,russia2,19550,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Frolov (F),Neftyanik Almetievsk,56,24,13,37,0.66,20,5,/player/173640/yevgeni-frolov,1,Yevgeni Frolov,F,2007-2008,russia2,173640,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Kudashov (F),HK Dmitrov,59,19,18,37,0.63,60,21,/player/99499/andrei-kudashov,1,Andrei Kudashov,F,2007-2008,russia2,99499,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Popov (LW),Dizel Penza,60,16,21,37,0.62,20,8,/player/110869/andrei-popov,1,Andrei Popov,LW,2007-2008,russia2,110869,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grigori Kovtun (F),Ariada-Akpars Volzhsk,52,21,15,36,0.69,22,-1,/player/168057/grigori-kovtun,1,Grigori Kovtun,F,2007-2008,russia2,168057,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yuri Kuznetsov (LW),HK Dmitrov,46,17,19,36,0.78,87,11,/player/34316/yuri-kuznetsov,1,Yuri Kuznetsov,LW,2007-2008,russia2,34316,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Panshin (LW),Molot-Prikamie Perm,51,13,23,36,0.71,28,20,/player/20370/mikhail-panshin,1,Mikhail Panshin,LW,2007-2008,russia2,20370,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Askhat Rakhmatullin (LW),Neftyanik Almetievsk,53,13,23,36,0.68,121,13,/player/30961/askhat-rakhmatullin,1,Askhat Rakhmatullin,LW,2007-2008,russia2,30961,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Ogorodnikov (F),Kazzinc-Torpedo,48,10,26,36,0.75,44,18,/player/73926/andrei-ogorodnikov,1,Andrei Ogorodnikov,F,2007-2008,russia2,73926,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Magogin (C),Avtomobilist Yekaterinburg,52,10,26,36,0.69,26,22,/player/42137/igor-magogin,1,Igor Magogin,C,2007-2008,russia2,42137,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Abramov (F),Ariada-Akpars Volzhsk,59,18,17,35,0.59,50,2,/player/93183/konstantin-abramov,1,Konstantin Abramov,F,2007-2008,russia2,93183,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vadim Krasnoslobodtsev (LW),totals,50,16,19,35,0.70,57,16,/player/22132/vadim-krasnoslobodtsev,1,Vadim Krasnoslobodtsev,LW,2007-2008,russia2,22132,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Klevakin (RW),Krylia Sovetov Moskva,45,13,22,35,0.78,44,10,/player/87249/dmitri-klevakin,1,Dmitri Klevakin,RW,2007-2008,russia2,87249,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Pasternatsky (C),Khimik Voskresensk,54,13,22,35,0.65,32,17,/player/22184/yevgeni-pasternatsky,1,Yevgeni Pasternatsky,C,2007-2008,russia2,22184,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Petrov (C),HK Belgorod,58,13,22,35,0.60,46,-2,/player/90170/roman-petrov,1,Roman Petrov,C,2007-2008,russia2,90170,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vadim Sharifyanov (LW),Toros Neftekamsk,45,12,23,35,0.78,30,3,/player/4519/vadim-sharifyanov,1,Vadim Sharifyanov,LW,2007-2008,russia2,4519,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Vakhrushev (LW),Izhstal Izhevsk,51,12,23,35,0.69,40,3,/player/90918/alexei-vakhrushev,1,Alexei Vakhrushev,LW,2007-2008,russia2,90918,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olexander Matviychuk (LW),Sokil Kyiv,48,22,12,34,0.71,77,13,/player/2091/olexander-matviychuk,1,Olexander Matviychuk,LW,2007-2008,russia2,2091,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Zinin (F),Neftyanik Almetievsk,58,20,14,34,0.59,49,18,/player/93165/igor-zinin,1,Igor Zinin,F,2007-2008,russia2,93165,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Brovin (C),Mechel Chelyabinsk,51,16,18,34,0.67,76,3,/player/67061/sergei-brovin,1,Sergei Brovin,C,2007-2008,russia2,67061,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Pchelyakov (RW),Krylia Sovetov Moskva,52,9,25,34,0.65,108,9,/player/41704/andrei-pchelyakov,1,Andrei Pchelyakov,RW,2007-2008,russia2,41704,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Afonin (F),Toros Neftekamsk,52,16,17,33,0.63,69,9,/player/102047/yevgeni-afonin,1,Yevgeni Afonin,F,2007-2008,russia2,102047,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Albert Sirayev (C),Gazprom-OGU Orenburg,60,16,17,33,0.55,76,-1,/player/89553/albert-sirayev,1,Albert Sirayev,C,2007-2008,russia2,89553,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Solaryov (C),totals,51,14,19,33,0.65,50,11,/player/18140/ilya-solaryov,1,Ilya Solaryov,C,2007-2008,russia2,18140,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Kirillov (C),Neftyanik Leninogorsk,60,14,19,33,0.55,30,8,/player/86903/ivan-kirillov,1,Ivan Kirillov,C,2007-2008,russia2,86903,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Gromov (F),Kapitan Stupino,60,13,20,33,0.55,56,-17,/player/188832/vladislav-gromov,1,Vladislav Gromov,F,2007-2008,russia2,188832,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Tikhonov (D),Neftyanik Leninogorsk,50,12,21,33,0.66,38,14,/player/89981/sergei-tikhonov,1,Sergei Tikhonov,D,2007-2008,russia2,89981,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Bulatov (F),Avtomobilist Yekaterinburg,43,11,22,33,0.77,10,10,/player/18539/alexei-bulatov,1,Alexei Bulatov,F,2007-2008,russia2,18539,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Gordiyuk (C/RW),Khimik Voskresensk,35,10,23,33,0.94,28,13,/player/20426/viktor-gordiyuk,1,Viktor Gordiyuk,C/RW,2007-2008,russia2,20426,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Teslyukevich (D),HK Belgorod,58,10,23,33,0.57,102,4,/player/95541/konstantin-teslyukevich,1,Konstantin Teslyukevich,D,2007-2008,russia2,95541,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Kocherov (F),totals,50,9,24,33,0.66,20,-6,/player/193000/pavel-kocherov,1,Pavel Kocherov,F,2007-2008,russia2,193000,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Vershinin (F),Kristall Elektrostal,54,20,12,32,0.59,70,-16,/player/188984/dmitri-vershinin,1,Dmitri Vershinin,F,2007-2008,russia2,188984,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aidar Miftakhov (F),Ariada-Akpars Volzhsk,58,18,14,32,0.55,12,-10,/player/188771/aidar-miftakhov,1,Aidar Miftakhov,F,2007-2008,russia2,188771,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Safonov (LW),Dizel Penza,59,18,14,32,0.54,22,-1,/player/89391/igor-safonov,1,Igor Safonov,LW,2007-2008,russia2,89391,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Muzychko (RW),Yuzhny Ural Orsk,52,17,15,32,0.62,48,-7,/player/90848/roman-muzychko,1,Roman Muzychko,RW,2007-2008,russia2,90848,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Tunik (LW/C),Kristall Elektrostal,58,17,15,32,0.55,109,-2,/player/9579/yevgeni-tunik,1,Yevgeni Tunik,LW/C,2007-2008,russia2,9579,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Bulyansky (RW),Toros Neftekamsk,48,16,16,32,0.67,48,16,/player/88896/artyom-bulyansky,1,Artyom Bulyansky,RW,2007-2008,russia2,88896,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Utrobin (RW),Ariada-Akpars Volzhsk,59,15,17,32,0.54,28,-3,/player/89394/sergei-utrobin,1,Sergei Utrobin,RW,2007-2008,russia2,89394,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Salnikov (LW),Toros Neftekamsk,50,14,18,32,0.64,64,3,/player/89406/sergei-salnikov,1,Sergei Salnikov,LW,2007-2008,russia2,89406,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Selikhov (F),HK Ryazan,52,14,18,32,0.62,89,-11,/player/99174/yevgeni-selikhov,1,Yevgeni Selikhov,F,2007-2008,russia2,99174,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Terentyev (F),Ariada-Akpars Volzhsk,56,14,18,32,0.57,48,6,/player/184603/pavel-terentyev,1,Pavel Terentyev,F,2007-2008,russia2,184603,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Yerofeyev (D),Krylia Sovetov Moskva,51,12,20,32,0.63,64,7,/player/1665/dmitri-yerofeyev,1,Dmitri Yerofeyev,D,2007-2008,russia2,1665,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vadim Gusev (F),HK Ryazan,49,11,21,32,0.65,20,2,/player/184148/vadim-gusev,1,Vadim Gusev,F,2007-2008,russia2,184148,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Pafifov (F),Titan Klin,60,11,21,32,0.53,30,-5,/player/181802/kirill-pafifov,1,Kirill Pafifov,F,2007-2008,russia2,181802,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Kupreyenkov (F),Kristall Elektrostal,49,10,22,32,0.65,36,-3,/player/188979/alexei-kupreyenkov,1,Alexei Kupreyenkov,F,2007-2008,russia2,188979,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Shamolin (F),Khimik Voskresensk,29,6,26,32,1.10,14,5,/player/20216/dmitri-shamolin,1,Dmitri Shamolin,F,2007-2008,russia2,20216,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Bikkinyayev (F),Khimik Voskresensk,59,16,15,31,0.53,16,3,/player/22182/artyom-bikkinyayev,1,Artyom Bikkinyayev,F,2007-2008,russia2,22182,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Zolotov (LW),HK Dmitrov,44,14,17,31,0.70,18,10,/player/31001/sergei-zolotov,1,Sergei Zolotov,LW,2007-2008,russia2,31001,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Chechin (D),Zauralie Kurgan,52,12,19,31,0.60,85,-5,/player/89559/alexei-chechin,1,Alexei Chechin,D,2007-2008,russia2,89559,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Bukharan (RW),HK Ryazan,55,12,19,31,0.56,64,1,/player/161449/yevgeni-bukharan,1,Yevgeni Bukharan,RW,2007-2008,russia2,161449,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Alexeyev (D),Sputnik Nizhny Tagil,52,10,21,31,0.60,34,6,/player/89416/anton-alexeyev,1,Anton Alexeyev,D,2007-2008,russia2,89416,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Deyev (C),totals,53,10,21,31,0.58,42,9,/player/186395/alexei-deyev,1,Alexei Deyev,C,2007-2008,russia2,186395,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Yevseyev (C),Titan Klin,57,9,22,31,0.54,54,6,/player/166553/maxim-yevseyev,1,Maxim Yevseyev,C,2007-2008,russia2,166553,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Krivonozhkin (D),Kristall Saratov,60,4,27,31,0.52,92,-8,/player/98627/alexei-krivonozhkin,2,Alexei Krivonozhkin,D,2007-2008,russia2,98627,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Bushuyev (F),Izhstal Izhevsk,39,19,11,30,0.77,42,-3,/player/42138/nikolai-bushuyev,2,Nikolai Bushuyev,F,2007-2008,russia2,42138,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Vlasov (F),Mechel Chelyabinsk,52,15,15,30,0.58,80,4,/player/98301/alexei-vlasov,2,Alexei Vlasov,F,2007-2008,russia2,98301,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vadim Rifel (RW),Kazzinc-Torpedo,42,13,17,30,0.71,30,24,/player/73868/vadim-rifel,2,Vadim Rifel,RW,2007-2008,russia2,73868,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matvei Belousov (F),Sputnik Nizhny Tagil,44,13,17,30,0.68,58,-6,/player/197362/matvei-belousov,2,Matvei Belousov,F,2007-2008,russia2,197362,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vyacheslav Andreyev (C),Ariada-Akpars Volzhsk,60,13,17,30,0.50,28,-6,/player/89378/vyacheslav-andreyev,2,Vyacheslav Andreyev,C,2007-2008,russia2,89378,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Khlyntsev (F),Toros Neftekamsk,31,12,18,30,0.97,84,3,/player/88895/ivan-khlyntsev,2,Ivan Khlyntsev,F,2007-2008,russia2,88895,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg V. Smirnov (LW),HK Dmitrov,54,12,18,30,0.56,26,8,/player/42301/oleg-v-smirnov,2,Oleg V. Smirnov,LW,2007-2008,russia2,42301,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Malov (F),Sokil Kyiv,60,12,18,30,0.50,40,9,/player/30962/roman-malov,2,Roman Malov,F,2007-2008,russia2,30962,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Potaichuk (RW/LW),totals,48,10,20,30,0.63,34,5,/player/54243/andrei-potaichuk,2,Andrei Potaichuk,RW/LW,2007-2008,russia2,54243,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Remir Khaidarov (D),Barys Astana,51,9,21,30,0.59,54,20,/player/22138/remir-khaidarov,2,Remir Khaidarov,D,2007-2008,russia2,22138,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eldar Nazhmutdinov (F),Gazovik Tyumen,52,9,21,30,0.58,28,-4,/player/95447/eldar-nazhmutdinov,2,Eldar Nazhmutdinov,F,2007-2008,russia2,95447,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Kholodkov (LW),Izhstal Izhevsk,48,18,11,29,0.60,53,4,/player/93184/dmitri-kholodkov,2,Dmitri Kholodkov,LW,2007-2008,russia2,93184,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Luchkin (C),Molot-Prikamie Perm,51,17,12,29,0.57,75,11,/player/18348/vladislav-luchkin,2,Vladislav Luchkin,C,2007-2008,russia2,18348,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Golovanov (RW/C),Toros Neftekamsk,33,15,14,29,0.88,22,2,/player/89407/stanislav-golovanov,2,Stanislav Golovanov,RW/C,2007-2008,russia2,89407,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Krutov (D),Neftyanik Almetievsk,57,13,16,29,0.51,92,1,/player/93179/yevgeni-krutov,2,Yevgeni Krutov,D,2007-2008,russia2,93179,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Polyudov (F),Izhstal Izhevsk,40,9,20,29,0.73,6,-2,/player/92897/denis-polyudov,2,Denis Polyudov,F,2007-2008,russia2,92897,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Sychyov (RW),Titan Klin,58,15,13,28,0.48,60,-8,/player/26449/roman-sychyov,2,Roman Sychyov,RW,2007-2008,russia2,26449,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aidar Shigapov (RW),totals,41,12,16,28,0.68,42,-12,/player/89557/aidar-shigapov,2,Aidar Shigapov,RW,2007-2008,russia2,89557,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Troitsky (D),Zauralie Kurgan,48,12,16,28,0.58,48,1,/player/103527/alexander-troitsky,2,Alexander Troitsky,D,2007-2008,russia2,103527,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Troshchinsky (C),Kazzinc-Torpedo,50,12,16,28,0.56,62,18,/player/31403/andrei-troshchinsky,2,Andrei Troshchinsky,C,2007-2008,russia2,31403,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Dorofeyev (D),Krylia Sovetov Moskva,51,9,19,28,0.55,32,18,/player/19485/sergei-dorofeyev,2,Sergei Dorofeyev,D,2007-2008,russia2,19485,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Korkin (LW),Neftyanik Leninogorsk,58,9,19,28,0.48,26,7,/player/89410/andrei-korkin,2,Andrei Korkin,LW,2007-2008,russia2,89410,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Nemolodyshev (F),Sputnik Nizhny Tagil,46,7,21,28,0.61,43,-7,/player/37360/sergei-nemolodyshev,2,Sergei Nemolodyshev,F,2007-2008,russia2,37360,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rustam Shangarayev (RW),Neftyanik Almetievsk,55,7,21,28,0.51,44,10,/player/93167/rustam-shangarayev,2,Rustam Shangarayev,RW,2007-2008,russia2,93167,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Fomichyov (D),Neftyanik Leninogorsk,58,6,22,28,0.48,36,5,/player/52084/konstantin-fomichyov,2,Konstantin Fomichyov,D,2007-2008,russia2,52084,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Protopopov (D),HK Belgorod,60,5,23,28,0.47,40,-22,/player/175908/andrei-protopopov,2,Andrei Protopopov,D,2007-2008,russia2,175908,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vyacheslav Sokolov (F),HK Ryazan,47,19,8,27,0.57,48,-3,/player/159225/vyacheslav-sokolov,2,Vyacheslav Sokolov,F,2007-2008,russia2,159225,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Romanov (F),HK Belgorod,55,16,11,27,0.49,22,-6,/player/175911/andrei-romanov,2,Andrei Romanov,F,2007-2008,russia2,175911,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lev Trifonov (C),Avtomobilist Yekaterinburg,47,15,12,27,0.57,22,16,/player/90332/lev-trifonov,2,Lev Trifonov,C,2007-2008,russia2,90332,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vitali Sitnikov (LW/C),Avtomobilist Yekaterinburg,51,15,12,27,0.53,46,22,/player/37363/vitali-sitnikov,2,Vitali Sitnikov,LW/C,2007-2008,russia2,37363,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Kochetkov (F),Molot-Prikamie Perm,52,14,13,27,0.52,22,5,/player/20654/sergei-kochetkov,2,Sergei Kochetkov,F,2007-2008,russia2,20654,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Varitsky (F),Avtomobilist Yekaterinburg,37,10,17,27,0.73,24,9,/player/104294/igor-varitsky,2,Igor Varitsky,F,2007-2008,russia2,104294,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Shikhanov (F),Sputnik Nizhny Tagil,51,9,18,27,0.53,67,7,/player/58095/sergei-shikhanov,2,Sergei Shikhanov,F,2007-2008,russia2,58095,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Naumenko (RW),CSK VVS Samara,52,9,18,27,0.52,40,-10,/player/50085/oleg-naumenko,2,Oleg Naumenko,RW,2007-2008,russia2,50085,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri V. Semyonov (RW),Krylia Sovetov Moskva,51,19,7,26,0.51,99,-5,/player/50296/dmitri-v-semyonov,2,Dmitri V. Semyonov,RW,2007-2008,russia2,50296,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Milyokhin (RW),totals,47,17,9,26,0.55,44,-3,/player/15236/mikhail-milyokhin,2,Mikhail Milyokhin,RW,2007-2008,russia2,15236,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Sevastyanov (F),Kazakhmys Satpaev,43,14,12,26,0.60,16,17,/player/92519/sergei-sevastyanov,2,Sergei Sevastyanov,F,2007-2008,russia2,92519,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Doszhan Yesirkenov (RW),Kazzinc-Torpedo,44,14,12,26,0.59,52,17,/player/73929/doszhan-yesirkenov,2,Doszhan Yesirkenov,RW,2007-2008,russia2,73929,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Kozhevnikov (F),Gazovik Tyumen,45,14,12,26,0.58,18,5,/player/26149/sergei-kozhevnikov,2,Sergei Kozhevnikov,F,2007-2008,russia2,26149,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Kochurov (C),Izhstal Izhevsk,49,13,13,26,0.53,26,9,/player/90880/anton-kochurov,2,Anton Kochurov,C,2007-2008,russia2,90880,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Semyonov (C),Titan Klin,56,13,13,26,0.46,76,4,/player/19621/alexei-semyonov,2,Alexei Semyonov,C,2007-2008,russia2,19621,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Alexandrov (LW),Kazzinc-Torpedo,46,12,14,26,0.57,42,11,/player/73855/sergei-alexandrov,2,Sergei Alexandrov,LW,2007-2008,russia2,73855,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Bumagin (RW),Barys Astana,52,12,14,26,0.50,16,9,/player/22137/yevgeni-bumagin,2,Yevgeni Bumagin,RW,2007-2008,russia2,22137,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Krayev (F),Avtomobilist Yekaterinburg,46,10,16,26,0.57,26,15,/player/22939/maxim-krayev,2,Maxim Krayev,F,2007-2008,russia2,22939,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Yakovenko (D),totals,49,10,16,26,0.53,50,9,/player/22124/sergei-yakovenko,2,Sergei Yakovenko,D,2007-2008,russia2,22124,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Dolgikh (F),Gazprom-OGU Orenburg,54,10,16,26,0.48,78,-11,/player/165527/alexei-dolgikh,2,Alexei Dolgikh,F,2007-2008,russia2,165527,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Pastukh (LW),Sokil Kyiv,59,10,16,26,0.44,42,12,/player/66006/yevgeni-pastukh,2,Yevgeni Pastukh,LW,2007-2008,russia2,66006,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Makarenko (F),HK Belgorod,59,8,18,26,0.44,20,-7,/player/161576/oleg-makarenko,2,Oleg Makarenko,F,2007-2008,russia2,161576,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Petrunin (RW),totals,48,7,19,26,0.54,26,-6,/player/86834/andrei-petrunin,2,Andrei Petrunin,RW,2007-2008,russia2,86834,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Shestakov (C/W),CSK VVS Samara,56,17,8,25,0.45,22,-8,/player/90174/nikita-shestakov,2,Nikita Shestakov,C/W,2007-2008,russia2,90174,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Gulyavtsev (RW),Avtomobilist Yekaterinburg,44,16,9,25,0.57,16,2,/player/41099/alexander-gulyavtsev,2,Alexander Gulyavtsev,RW,2007-2008,russia2,41099,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Timkin (RW),Ariada-Akpars Volzhsk,50,14,11,25,0.50,53,-5,/player/37420/alexei-timkin,2,Alexei Timkin,RW,2007-2008,russia2,37420,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artur Sarvarov (C),Ariada-Akpars Volzhsk,56,14,11,25,0.45,73,-2,/player/41072/artur-sarvarov,2,Artur Sarvarov,C,2007-2008,russia2,41072,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Pridannikov (F),Mechel Chelyabinsk,51,12,13,25,0.49,114,0,/player/92710/oleg-pridannikov,2,Oleg Pridannikov,F,2007-2008,russia2,92710,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Mladin (D),Neftyanik Almetievsk,56,12,13,25,0.45,106,7,/player/93175/konstantin-mladin,2,Konstantin Mladin,D,2007-2008,russia2,93175,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Starodubtsev (F),Molot-Prikamie Perm,50,11,14,25,0.50,36,5,/player/181058/sergei-starodubtsev,2,Sergei Starodubtsev,F,2007-2008,russia2,181058,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Vasyukov (LW),CSK VVS Samara,59,10,15,25,0.42,32,-14,/player/98304/artyom-vasyukov,2,Artyom Vasyukov,LW,2007-2008,russia2,98304,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Petrochinin (D),HK Dmitrov,42,9,16,25,0.60,96,17,/player/31362/yevgeni-petrochinin,2,Yevgeni Petrochinin,D,2007-2008,russia2,31362,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Semyonov (F),totals,33,8,17,25,0.76,14,8,/player/22131/alexander-semyonov,2,Alexander Semyonov,F,2007-2008,russia2,22131,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valeri Obukhov (D),Kazakhmys Satpaev,44,7,18,25,0.57,86,20,/player/74088/valeri-obukhov,2,Valeri Obukhov,D,2007-2008,russia2,74088,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Trusov (F),Metallurg Serov,49,6,19,25,0.51,40,-9,/player/88225/dmitri-trusov,2,Dmitri Trusov,F,2007-2008,russia2,88225,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Belyakov (F),Krylia Sovetov Moskva,57,17,7,24,0.42,81,8,/player/19611/sergei-belyakov,2,Sergei Belyakov,F,2007-2008,russia2,19611,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Barkunov (D),Sputnik Nizhny Tagil,44,12,12,24,0.55,34,-4,/player/60906/alexander-barkunov,2,Alexander Barkunov,D,2007-2008,russia2,60906,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Zimin (F),Sputnik Nizhny Tagil,52,12,12,24,0.46,14,2,/player/90339/anton-zimin,2,Anton Zimin,F,2007-2008,russia2,90339,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Dolgov (F),Kapitan Stupino,58,12,12,24,0.41,32,-21,/player/188826/andrei-dolgov,2,Andrei Dolgov,F,2007-2008,russia2,188826,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Savelyev (RW),Kristall Saratov,58,12,12,24,0.41,42,-11,/player/33769/mikhail-savelyev,2,Mikhail Savelyev,RW,2007-2008,russia2,33769,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Shevtsov (F),totals,40,11,13,24,0.60,50,10,/player/184679/igor-shevtsov,2,Igor Shevtsov,F,2007-2008,russia2,184679,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Larionov (F),totals,40,11,13,24,0.60,62,3,/player/117586/oleg-larionov,2,Oleg Larionov,F,2007-2008,russia2,117586,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yuri Dessert (F),Dizel Penza,47,10,14,24,0.51,68,4,/player/117580/yuri-dessert,2,Yuri Dessert,F,2007-2008,russia2,117580,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Mayer (LW),Kapitan Stupino,46,9,15,24,0.52,58,-10,/player/119288/alexander-mayer,2,Alexander Mayer,LW,2007-2008,russia2,119288,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anatoli Tarabanov (F),Ariada-Akpars Volzhsk,56,9,15,24,0.43,12,0,/player/188780/anatoli-tarabanov,2,Anatoli Tarabanov,F,2007-2008,russia2,188780,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Yevgrafov (C),Neftyanik Leninogorsk,58,9,15,24,0.41,26,-3,/player/90336/alexander-yevgrafov,2,Alexander Yevgrafov,C,2007-2008,russia2,90336,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anatoli Stepanov (RW),Kazakhmys Satpaev,41,8,16,24,0.59,48,2,/player/89408/anatoli-stepanov,2,Anatoli Stepanov,RW,2007-2008,russia2,89408,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Makarov (D),Ariada-Akpars Volzhsk,54,8,16,24,0.44,34,-5,/player/188779/vladislav-makarov,2,Vladislav Makarov,D,2007-2008,russia2,188779,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Lapin (F),Kristall Elektrostal,56,7,17,24,0.43,20,-22,/player/166679/nikolai-lapin,2,Nikolai Lapin,F,2007-2008,russia2,166679,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Lyubimov (F),Gazovik Tyumen,52,6,18,24,0.46,57,-4,/player/181884/yevgeni-lyubimov,2,Yevgeni Lyubimov,F,2007-2008,russia2,181884,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Berkutov (D),Molot-Prikamie Perm,51,5,19,24,0.47,118,1,/player/18839/alexander-berkutov,2,Alexander Berkutov,D,2007-2008,russia2,18839,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vitali Kazarin (LW/C),totals,45,4,20,24,0.53,20,3,/player/95706/vitali-kazarin,2,Vitali Kazarin,LW/C,2007-2008,russia2,95706,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Korolyov (RW),Neftyanik Leninogorsk,27,15,8,23,0.85,30,13,/player/15175/anton-korolyov,2,Anton Korolyov,RW,2007-2008,russia2,15175,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Martynov (F),Kristall Elektrostal,58,14,9,23,0.40,16,-1,/player/166277/andrei-martynov,2,Andrei Martynov,F,2007-2008,russia2,166277,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Sinelyov (W/C),CSK VVS Samara,57,12,11,23,0.40,36,-6,/player/98932/yegor-sinelyov,2,Yegor Sinelyov,W/C,2007-2008,russia2,98932,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Builov (C),Yermak Angarsk,44,11,12,23,0.52,66,-16,/player/129207/alexei-builov,2,Alexei Builov,C,2007-2008,russia2,129207,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Leonov (LW),Zauralie Kurgan,51,11,12,23,0.45,48,4,/player/41899/denis-leonov,2,Denis Leonov,LW,2007-2008,russia2,41899,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Sopin (LW/RW),Kapitan Stupino,36,10,13,23,0.64,6,-3,/player/9589/alexei-sopin,2,Alexei Sopin,LW/RW,2007-2008,russia2,9589,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Koroteyev (LW/RW),Khimik Voskresensk,59,10,13,23,0.39,26,-3,/player/22181/denis-koroteyev,2,Denis Koroteyev,LW/RW,2007-2008,russia2,22181,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Yeremeyev (LW),Barys Astana,35,9,14,23,0.66,24,16,/player/22136/oleg-yeremeyev,2,Oleg Yeremeyev,LW,2007-2008,russia2,22136,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Nikishov (D),totals,48,8,15,23,0.48,100,-2,/player/121764/andrei-nikishov,2,Andrei Nikishov,D,2007-2008,russia2,121764,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yuri Gunko (D),Sokil Kyiv,56,6,17,23,0.41,58,12,/player/35089/yuri-gunko,2,Yuri Gunko,D,2007-2008,russia2,35089,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Shibayev (C),Krylia Sovetov Moskva,57,5,18,23,0.40,42,1,/player/19609/alexander-shibayev,2,Alexander Shibayev,C,2007-2008,russia2,19609,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Gudkov (D),HK Belgorod,60,5,18,23,0.38,108,22,/player/161562/nikolai-gudkov,2,Nikolai Gudkov,D,2007-2008,russia2,161562,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Artyushin (RW),Sputnik Nizhny Tagil,30,16,6,22,0.73,14,7,/player/19578/vladimir-artyushin,2,Vladimir Artyushin,RW,2007-2008,russia2,19578,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Kachkayev (F),Gazprom-OGU Orenburg,59,15,7,22,0.37,10,4,/player/184663/nikolai-kachkayev,2,Nikolai Kachkayev,F,2007-2008,russia2,184663,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Didenko (F),Mechel Chelyabinsk,51,14,8,22,0.43,10,3,/player/186325/andrei-didenko,2,Andrei Didenko,F,2007-2008,russia2,186325,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Rymarev (RW/LW),Kazzinc-Torpedo,48,13,9,22,0.46,12,11,/player/15278/yevgeni-rymarev,2,Yevgeni Rymarev,RW/LW,2007-2008,russia2,15278,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Lesnukhin (LW),Kristall Saratov,60,11,11,22,0.37,36,-13,/player/87761/sergei-lesnukhin,2,Sergei Lesnukhin,LW,2007-2008,russia2,87761,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Shin (LW),Kazzinc-Torpedo,44,10,12,22,0.50,16,5,/player/36836/alexander-shin,2,Alexander Shin,LW,2007-2008,russia2,36836,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Romanov (C),Metallurg Serov,44,10,12,22,0.50,79,4,/player/89864/artyom-romanov,2,Artyom Romanov,C,2007-2008,russia2,89864,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vitali Anikeyev (C),Sputnik Nizhny Tagil,46,10,12,22,0.48,38,-6,/player/92518/vitali-anikeyev,2,Vitali Anikeyev,C,2007-2008,russia2,92518,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Spiridonov (LW),Kazzinc-Torpedo,51,10,12,22,0.43,24,6,/player/27398/andrei-spiridonov,2,Andrei Spiridonov,LW,2007-2008,russia2,27398,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Palkin (C),Yuzhny Ural Orsk,46,9,13,22,0.48,64,-3,/player/62495/sergei-palkin,3,Sergei Palkin,C,2007-2008,russia2,62495,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrej Strakhov (F/D),Khimik Voskresensk,33,8,14,22,0.67,30,11,/player/20496/andrej-strakhov,3,Andrej Strakhov,F/D,2007-2008,russia2,20496,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Uvarov (F),Zauralie Kurgan,49,8,14,22,0.45,10,-2,/player/170871/alexei-uvarov,3,Alexei Uvarov,F,2007-2008,russia2,170871,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Galkin (RW),HK Ryazan,60,6,16,22,0.37,189,-16,/player/184153/alexander-galkin,3,Alexander Galkin,RW,2007-2008,russia2,184153,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Fedulov (D/F),totals,58,4,18,22,0.38,44,4,/player/98934/pavel-fedulov,3,Pavel Fedulov,D/F,2007-2008,russia2,98934,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Kunyakov (D),HK Ryazan,60,3,19,22,0.37,74,-7,/player/90636/andrei-kunyakov,3,Andrei Kunyakov,D,2007-2008,russia2,90636,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Khromov (F),HK Ryazan,59,14,7,21,0.36,28,9,/player/175902/yevgeni-khromov,3,Yevgeni Khromov,F,2007-2008,russia2,175902,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Skorokhodov (RW),HK Belgorod,26,11,10,21,0.81,14,5,/player/20550/igor-skorokhodov,3,Igor Skorokhodov,RW,2007-2008,russia2,20550,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Savchenkov (F),Krylia Sovetov Moskva,29,11,10,21,0.72,71,0,/player/191750/alexander-savchenkov,3,Alexander Savchenkov,F,2007-2008,russia2,191750,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Gusmanov (F),Yuzhny Ural Orsk,41,10,11,21,0.51,38,-18,/player/174211/denis-gusmanov,3,Denis Gusmanov,F,2007-2008,russia2,174211,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Isakov (LW),Gazovik Tyumen,43,10,11,21,0.49,119,-8,/player/38687/yevgeni-isakov,3,Yevgeni Isakov,LW,2007-2008,russia2,38687,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Zhurun (F),Avtomobilist Yekaterinburg,45,10,11,21,0.47,59,13,/player/90338/alexander-zhurun,3,Alexander Zhurun,F,2007-2008,russia2,90338,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Kuznetsov (F),Izhstal Izhevsk,47,10,11,21,0.45,32,4,/player/186335/mikhail-kuznetsov,3,Mikhail Kuznetsov,F,2007-2008,russia2,186335,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Sevastyanov (F),Molot-Prikamie Perm,50,10,11,21,0.42,36,0,/player/89851/vladimir-sevastyanov,3,Vladimir Sevastyanov,F,2007-2008,russia2,89851,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Kolomiyets (F),HK Belgorod,60,10,11,21,0.35,40,-12,/player/175910/dmitri-kolomiyets,3,Dmitri Kolomiyets,F,2007-2008,russia2,175910,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vadim Strelchuk (F),Barys Astana,48,9,12,21,0.44,18,3,/player/22135/vadim-strelchuk,3,Vadim Strelchuk,F,2007-2008,russia2,22135,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Stepanov (D),Krylia Sovetov Moskva,50,9,12,21,0.42,66,27,/player/18985/kirill-stepanov,3,Kirill Stepanov,D,2007-2008,russia2,18985,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Yudnikov (F),Sputnik Nizhny Tagil,50,8,13,21,0.42,26,-2,/player/162181/alexei-yudnikov,3,Alexei Yudnikov,F,2007-2008,russia2,162181,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Churilov (F),Zauralie Kurgan,41,7,14,21,0.51,30,-3,/player/162183/viktor-churilov,3,Viktor Churilov,F,2007-2008,russia2,162183,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Denisov (LW),Toros Neftekamsk,50,7,14,21,0.42,46,3,/player/1630/dmitri-denisov,3,Dmitri Denisov,LW,2007-2008,russia2,1630,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Kozitsyn (C),HK Belgorod,60,7,14,21,0.35,24,-8,/player/175351/andrei-kozitsyn,3,Andrei Kozitsyn,C,2007-2008,russia2,175351,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Renat Gatin (D),Kristall Saratov,51,6,15,21,0.41,126,-6,/player/89565/renat-gatin,3,Renat Gatin,D,2007-2008,russia2,89565,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Kryazhev (LW),totals,42,5,16,21,0.50,20,-1,/player/74082/oleg-kryazhev,3,Oleg Kryazhev,LW,2007-2008,russia2,74082,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Yevseyenkov (D),HK Dmitrov,54,1,20,21,0.39,28,12,/player/84480/alexander-yevseyenkov,3,Alexander Yevseyenkov,D,2007-2008,russia2,84480,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Zubkov (F),Metallurg Serov,52,12,8,20,0.38,34,-3,/player/114688/alexander-zubkov,3,Alexander Zubkov,F,2007-2008,russia2,114688,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Seryogin (F),CSK VVS Samara,53,12,8,20,0.38,16,-8,/player/115868/ilya-seryogin,3,Ilya Seryogin,F,2007-2008,russia2,115868,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Basov (F),Kazakhmys Satpaev,45,10,10,20,0.44,12,-5,/player/84303/stanislav-basov,3,Stanislav Basov,F,2007-2008,russia2,84303,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vyacheslav Seluyanov (D),Toros Neftekamsk,49,10,10,20,0.41,122,15,/player/19400/vyacheslav-seluyanov,3,Vyacheslav Seluyanov,D,2007-2008,russia2,19400,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vyacheslav Karavdin (RW),Mechel Chelyabinsk,52,10,10,20,0.38,24,-4,/player/92520/vyacheslav-karavdin,3,Vyacheslav Karavdin,RW,2007-2008,russia2,92520,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Korotkov (C),Krylia Sovetov Moskva,55,10,10,20,0.36,83,10,/player/20368/yevgeni-korotkov,3,Yevgeni Korotkov,C,2007-2008,russia2,20368,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Gofman (C),CSK VVS Samara,53,9,11,20,0.38,14,-1,/player/89568/alexander-gofman,3,Alexander Gofman,C,2007-2008,russia2,89568,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Kozlov (C),Barys Astana,44,8,12,20,0.45,24,13,/player/22134/roman-kozlov,3,Roman Kozlov,C,2007-2008,russia2,22134,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Ogorodnikov (F),Metallurg Serov,46,8,12,20,0.43,32,-6,/player/114690/sergei-ogorodnikov,3,Sergei Ogorodnikov,F,2007-2008,russia2,114690,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Tsymbalov (F),totals,57,8,12,20,0.35,72,-6,/player/183434/alexei-tsymbalov,3,Alexei Tsymbalov,F,2007-2008,russia2,183434,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Nagornykh (RW),totals,40,7,13,20,0.50,32,-4,/player/91220/dmitri-nagornykh,3,Dmitri Nagornykh,RW,2007-2008,russia2,91220,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Kuznetsov (D/F),Kazakhmys Satpaev,45,6,14,20,0.44,50,-2,/player/99538/andrei-kuznetsov,3,Andrei Kuznetsov,D/F,2007-2008,russia2,99538,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Korenkov (D),Kristall Elektrostal,59,1,19,20,0.34,96,-18,/player/90631/ivan-korenkov,3,Ivan Korenkov,D,2007-2008,russia2,90631,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Pavlov (LW/C),totals,36,12,7,19,0.53,22,-7,/player/78402/yevgeni-pavlov,3,Yevgeni Pavlov,LW/C,2007-2008,russia2,78402,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Obrezha (F),Gazprom-OGU Orenburg,50,12,7,19,0.38,98,-12,/player/157794/dmitri-obrezha,3,Dmitri Obrezha,F,2007-2008,russia2,157794,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Khizhnyakov (C),CSK VVS Samara,58,12,7,19,0.33,81,-7,/player/90399/sergei-khizhnyakov,3,Sergei Khizhnyakov,C,2007-2008,russia2,90399,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Savelyev (F),HK Ryazan,53,11,8,19,0.36,56,6,/player/90633/dmitri-savelyev,3,Dmitri Savelyev,F,2007-2008,russia2,90633,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Yelagin (C),Gazprom-OGU Orenburg,55,11,8,19,0.35,28,-10,/player/90632/kirill-yelagin,3,Kirill Yelagin,C,2007-2008,russia2,90632,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Ikonnikov (C),Yuzhny Ural Orsk,36,10,9,19,0.53,10,-9,/player/119471/yevgeni-ikonnikov,3,Yevgeni Ikonnikov,C,2007-2008,russia2,119471,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Chernikov (F),Zauralie Kurgan,51,9,10,19,0.37,18,-9,/player/117153/maxim-chernikov,3,Maxim Chernikov,F,2007-2008,russia2,117153,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Agapitov (C),Sputnik Nizhny Tagil,48,8,11,19,0.40,28,-7,/player/89861/igor-agapitov,3,Igor Agapitov,C,2007-2008,russia2,89861,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Potyomin (RW),Dizel Penza,49,8,11,19,0.39,38,3,/player/98970/alexei-potyomin,3,Alexei Potyomin,RW,2007-2008,russia2,98970,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Fadeyev (D),Barys Astana,50,8,11,19,0.38,36,22,/player/22133/yevgeni-fadeyev,3,Yevgeni Fadeyev,D,2007-2008,russia2,22133,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Yelizarov (LW),totals,32,7,12,19,0.59,16,-1,/player/60818/sergei-yelizarov,3,Sergei Yelizarov,LW,2007-2008,russia2,60818,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vasili Bizyayev (LW/RW),Yuzhny Ural Orsk,37,7,12,19,0.51,0,1,/player/18376/vasili-bizyayev,3,Vasili Bizyayev,LW/RW,2007-2008,russia2,18376,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Valeyev (LW),totals,38,7,12,19,0.50,109,-9,/player/58597/igor-valeyev,3,Igor Valeyev,LW,2007-2008,russia2,58597,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Orlov (C),Toros Neftekamsk,50,7,12,19,0.38,20,6,/player/9552/maxim-orlov,3,Maxim Orlov,C,2007-2008,russia2,9552,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olexander Yakovenko (C),Sokil Kyiv,51,7,12,19,0.37,41,2,/player/74799/olexander-yakovenko,3,Olexander Yakovenko,C,2007-2008,russia2,74799,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Korneyev (D),Toros Neftekamsk,51,6,13,19,0.37,40,20,/player/107958/vladislav-korneyev,3,Vladislav Korneyev,D,2007-2008,russia2,107958,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Baranov (LW/RW),totals,37,5,14,19,0.51,82,5,/player/58464/konstantin-baranov,3,Konstantin Baranov,LW/RW,2007-2008,russia2,58464,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Zarzhitsky (C),Kazzinc-Torpedo,41,5,14,19,0.46,46,5,/player/73951/nikolai-zarzhitsky,3,Nikolai Zarzhitsky,C,2007-2008,russia2,73951,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Loginov (D),HK Ryazan,52,5,14,19,0.37,70,-9,/player/183419/andrei-loginov,3,Andrei Loginov,D,2007-2008,russia2,183419,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stepan Zakharchuk (D),CSK VVS Samara,59,5,14,19,0.32,125,-17,/player/22926/stepan-zakharchuk,3,Stepan Zakharchuk,D,2007-2008,russia2,22926,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Kharisov (D),Izhstal Izhevsk,51,4,15,19,0.37,73,3,/player/170426/robert-kharisov,3,Robert Kharisov,D,2007-2008,russia2,170426,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Khalim Nigmatullin (D),Khimik Voskresensk,59,4,15,19,0.32,74,13,/player/22180/khalim-nigmatullin,3,Khalim Nigmatullin,D,2007-2008,russia2,22180,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Chukanov (D),HK Dmitrov,54,3,16,19,0.35,48,13,/player/92793/maxim-chukanov,3,Maxim Chukanov,D,2007-2008,russia2,92793,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timur Kalimullin (F),Neftyanik Almetievsk,54,11,7,18,0.33,48,3,/player/89550/timur-kalimullin,3,Timur Kalimullin,F,2007-2008,russia2,89550,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Kornilov (F),Izhstal Izhevsk,26,10,8,18,0.69,12,7,/player/91143/pavel-kornilov,3,Pavel Kornilov,F,2007-2008,russia2,91143,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Kholepa (F),Zauralie Kurgan,49,10,8,18,0.37,26,-4,/player/180890/dmitri-kholepa,3,Dmitri Kholepa,F,2007-2008,russia2,180890,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Semyon Kokuyov (RW),HK Belgorod,26,9,9,18,0.69,4,2,/player/19410/semyon-kokuyov,3,Semyon Kokuyov,RW,2007-2008,russia2,19410,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Morozov (LW),HK Ryazan,46,9,9,18,0.39,28,-9,/player/24315/alexei-morozov,3,Alexei Morozov,LW,2007-2008,russia2,24315,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Kasatkin (F),Kapitan Stupino,53,9,9,18,0.34,72,-13,/player/119092/andrei-kasatkin,3,Andrei Kasatkin,F,2007-2008,russia2,119092,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Shepelev (LW),Kristall Saratov,54,9,9,18,0.33,18,-7,/player/83769/vladimir-shepelev,3,Vladimir Shepelev,LW,2007-2008,russia2,83769,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Zaitsev (F),Gazprom-OGU Orenburg,50,8,10,18,0.36,24,-7,/player/162057/dmitri-zaitsev,3,Dmitri Zaitsev,F,2007-2008,russia2,162057,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Khvostov (D),Avtomobilist Yekaterinburg,51,8,10,18,0.35,24,27,/player/84329/yevgeni-khvostov,3,Yevgeni Khvostov,D,2007-2008,russia2,84329,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vitali Yelisov (F),totals,42,7,11,18,0.43,40,-1,/player/191398/vitali-yelisov,3,Vitali Yelisov,F,2007-2008,russia2,191398,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Nagaitsev (D),HK Ryazan,60,7,11,18,0.30,44,-8,/player/90627/alexander-nagaitsev,3,Alexander Nagaitsev,D,2007-2008,russia2,90627,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Kondrashov (C),totals,34,6,12,18,0.53,8,7,/player/19207/andrei-kondrashov,3,Andrei Kondrashov,C,2007-2008,russia2,19207,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei A. Komarov (D),totals,50,6,12,18,0.36,52,17,/player/84032/alexei-a-komarov,3,Alexei A. Komarov,D,2007-2008,russia2,84032,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Grankin (LW),Krylia Sovetov Moskva,51,6,12,18,0.35,30,3,/player/50611/andrei-grankin,3,Andrei Grankin,LW,2007-2008,russia2,50611,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Sidorenko (RW/LW),Titan Klin,53,6,12,18,0.34,43,-1,/player/40942/kirill-sidorenko,3,Kirill Sidorenko,RW/LW,2007-2008,russia2,40942,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Belsky (D),Dizel Penza,58,4,14,18,0.31,32,5,/player/90185/denis-belsky,3,Denis Belsky,D,2007-2008,russia2,90185,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Chukanov (D),Kristall Elektrostal,60,4,14,18,0.30,78,-1,/player/90907/igor-chukanov,3,Igor Chukanov,D,2007-2008,russia2,90907,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Kravets (F),totals,45,3,15,18,0.40,55,-11,/player/116094/igor-kravets,3,Igor Kravets,F,2007-2008,russia2,116094,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Dylevsky (D),HK Dmitrov,50,3,15,18,0.36,83,16,/player/113108/andrei-dylevsky,3,Andrei Dylevsky,D,2007-2008,russia2,113108,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Gorelov (D),Khimik Voskresensk,54,3,15,18,0.33,92,27,/player/22179/alexander-gorelov,3,Alexander Gorelov,D,2007-2008,russia2,22179,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eduard Shaikhelislamov (D),Dizel Penza,60,3,15,18,0.30,85,9,/player/117582/eduard-shaikhelislamov,3,Eduard Shaikhelislamov,D,2007-2008,russia2,117582,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Polyakov (D),HK Belgorod,60,3,15,18,0.30,109,-13,/player/22938/dmitri-polyakov,3,Dmitri Polyakov,D,2007-2008,russia2,22938,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Volchkov (C),totals,30,11,6,17,0.57,20,1,/player/19081/alexander-volchkov,3,Alexander Volchkov,C,2007-2008,russia2,19081,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Lopatin (D),Gazovik Tyumen,51,11,6,17,0.33,46,-8,/player/91501/andrei-lopatin,3,Andrei Lopatin,D,2007-2008,russia2,91501,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Frolkin (LW),Molot-Prikamie Perm,28,10,7,17,0.61,18,-3,/player/170262/andrei-frolkin,3,Andrei Frolkin,LW,2007-2008,russia2,170262,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Blagoy (D),Sokil Kyiv,54,10,7,17,0.31,86,10,/player/24799/oleg-blagoy,3,Oleg Blagoy,D,2007-2008,russia2,24799,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Malyshev (RW),Kristall Saratov,56,10,7,17,0.30,30,-15,/player/22846/anton-malyshev,3,Anton Malyshev,RW,2007-2008,russia2,22846,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Lyubimov (D),Dizel Penza,35,8,9,17,0.49,22,21,/player/60498/alexander-lyubimov,3,Alexander Lyubimov,D,2007-2008,russia2,60498,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Antosik (F),Kapitan Stupino,25,7,10,17,0.68,55,-1,/player/19393/igor-antosik,3,Igor Antosik,F,2007-2008,russia2,19393,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Petrov (F),Gazovik Tyumen,32,7,10,17,0.53,10,-3,/player/172463/alexei-petrov,3,Alexei Petrov,F,2007-2008,russia2,172463,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Argokov (D),Kazzinc-Torpedo,48,7,10,17,0.35,24,13,/player/71922/artyom-argokov,3,Artyom Argokov,D,2007-2008,russia2,71922,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eduard Dmitriyev (F),Neftyanik Almetievsk,28,6,11,17,0.61,16,6,/player/191421/eduard-dmitriyev,3,Eduard Dmitriyev,F,2007-2008,russia2,191421,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Sobachkin (D),Kristall Elektrostal,54,6,11,17,0.31,102,-14,/player/42309/andrei-sobachkin,3,Andrei Sobachkin,D,2007-2008,russia2,42309,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Syomin (D),totals,55,6,11,17,0.31,48,7,/player/22169/sergei-syomin,3,Sergei Syomin,D,2007-2008,russia2,22169,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Shchevyov (C),Kristall Elektrostal,58,6,11,17,0.29,68,-14,/player/48284/maxim-shchevyov,3,Maxim Shchevyov,C,2007-2008,russia2,48284,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Alexandrov (RW),Mechel Chelyabinsk,42,5,12,17,0.40,30,5,/player/19724/yevgeni-alexandrov,3,Yevgeni Alexandrov,RW,2007-2008,russia2,19724,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Neznamov (F),totals,47,5,12,17,0.36,12,-3,/player/22176/alexander-neznamov,3,Alexander Neznamov,F,2007-2008,russia2,22176,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Lozhkin (D),Ariada-Akpars Volzhsk,58,5,12,17,0.29,114,-10,/player/100023/alexei-lozhkin,3,Alexei Lozhkin,D,2007-2008,russia2,100023,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Kostyukhin (D),Kapitan Stupino,47,4,13,17,0.36,42,-15,/player/19619/konstantin-kostyukhin,3,Konstantin Kostyukhin,D,2007-2008,russia2,19619,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni A. Semyonov (D/C),totals,53,4,13,17,0.32,24,0,/player/89392/yevgeni-a-semyonov,3,Yevgeni A. Semyonov,D/C,2007-2008,russia2,89392,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Vafin (F),Gazprom-OGU Orenburg,44,3,14,17,0.39,63,-7,/player/166801/roman-vafin,4,Roman Vafin,F,2007-2008,russia2,166801,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Gruzdev (D),Kristall Elektrostal,55,3,14,17,0.31,52,-1,/player/165585/ivan-gruzdev,4,Ivan Gruzdev,D,2007-2008,russia2,165585,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Voronov (D),Avtomobilist Yekaterinburg,49,2,15,17,0.35,54,32,/player/37361/alexei-voronov,4,Alexei Voronov,D,2007-2008,russia2,37361,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gleb Klimenko (LW/RW),HK Belgorod,12,11,5,16,1.33,10,7,/player/19470/gleb-klimenko,4,Gleb Klimenko,LW/RW,2007-2008,russia2,19470,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Bordyug (C),totals,31,10,6,16,0.52,20,4,/player/98302/andrei-bordyug,4,Andrei Bordyug,C,2007-2008,russia2,98302,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Yefimov (LW),Krylia Sovetov Moskva,30,9,7,16,0.53,8,-1,/player/91871/alexei-yefimov,4,Alexei Yefimov,LW,2007-2008,russia2,91871,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Osipov (D),CSK VVS Samara,60,9,7,16,0.27,112,-9,/player/92974/dmitri-osipov,4,Dmitri Osipov,D,2007-2008,russia2,92974,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Safronov (F),totals,30,8,8,16,0.53,80,8,/player/20208/yevgeni-safronov,4,Yevgeni Safronov,F,2007-2008,russia2,20208,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Chemerilov (RW/LW),Avtomobilist Yekaterinburg,38,8,8,16,0.42,22,15,/player/89240/yevgeni-chemerilov,4,Yevgeni Chemerilov,RW/LW,2007-2008,russia2,89240,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Yershov (D),HK Dmitrov,42,8,8,16,0.38,69,4,/player/83050/andrei-yershov,4,Andrei Yershov,D,2007-2008,russia2,83050,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Kolesnikov (C),totals,50,8,8,16,0.32,42,-5,/player/90144/maxim-kolesnikov,4,Maxim Kolesnikov,C,2007-2008,russia2,90144,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yakov Ishchenko (D),Sputnik Nizhny Tagil,52,8,8,16,0.31,95,3,/player/87803/yakov-ishchenko,4,Yakov Ishchenko,D,2007-2008,russia2,87803,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Vaulin (F),Dizel Penza,54,8,8,16,0.30,22,4,/player/117583/alexei-vaulin,4,Alexei Vaulin,F,2007-2008,russia2,117583,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilgiz Nuriyev (F),Gazovik Tyumen,51,7,9,16,0.31,34,-10,/player/158261/ilgiz-nuriyev,4,Ilgiz Nuriyev,F,2007-2008,russia2,158261,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Vasilyev (RW),HK Dmitrov,27,6,10,16,0.59,14,12,/player/91568/alexander-vasilyev,4,Alexander Vasilyev,RW,2007-2008,russia2,91568,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Ulyanov (D),totals,49,6,10,16,0.33,143,-10,/player/166839/anton-ulyanov,4,Anton Ulyanov,D,2007-2008,russia2,166839,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Sedov (RW),HK Ryazan,50,6,10,16,0.32,14,-9,/player/55438/pavel-sedov,4,Pavel Sedov,RW,2007-2008,russia2,55438,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Kokorev (D),Molot-Prikamie Perm,52,5,11,16,0.31,172,8,/player/19342/dmitri-kokorev,4,Dmitri Kokorev,D,2007-2008,russia2,19342,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Galkin (D),Khimik Voskresensk,60,5,11,16,0.27,98,7,/player/22178/maxim-galkin,4,Maxim Galkin,D,2007-2008,russia2,22178,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Kachesov (F),Gazovik Tyumen,38,4,12,16,0.42,14,-1,/player/89979/dmitri-kachesov,4,Dmitri Kachesov,F,2007-2008,russia2,89979,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Pugin (D),CSK VVS Samara,59,4,12,16,0.27,70,-6,/player/91566/ilya-pugin,4,Ilya Pugin,D,2007-2008,russia2,91566,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Brezgunov (D),Kapitan Stupino,55,3,13,16,0.29,46,-8,/player/166678/sergei-brezgunov,4,Sergei Brezgunov,D,2007-2008,russia2,166678,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Popov (C/D),Neftyanik Leninogorsk,59,3,13,16,0.27,40,-1,/player/77930/maxim-popov,4,Maxim Popov,C/D,2007-2008,russia2,77930,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Tokarev (C),Gazprom-OGU Orenburg,55,2,14,16,0.29,61,1,/player/115847/artyom-tokarev,4,Artyom Tokarev,C,2007-2008,russia2,115847,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andri Sriubko (D),Sokil Kyiv,60,2,14,16,0.27,122,22,/player/35107/andri-sriubko,4,Andri Sriubko,D,2007-2008,russia2,35107,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Dudrov (F),Sputnik Nizhny Tagil,39,11,4,15,0.38,26,2,/player/89854/vladimir-dudrov,4,Vladimir Dudrov,F,2007-2008,russia2,89854,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danil Pilyugin (F),totals,28,9,6,15,0.54,6,1,/player/22114/danil-pilyugin,4,Danil Pilyugin,F,2007-2008,russia2,22114,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Pelevin (F),Metallurg Serov,44,9,6,15,0.34,42,0,/player/50282/andrei-pelevin,4,Andrei Pelevin,F,2007-2008,russia2,50282,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Starchenko (RW),Kazzinc-Torpedo,45,9,6,15,0.33,28,-2,/player/24633/roman-starchenko,4,Roman Starchenko,RW,2007-2008,russia2,24633,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yuri Dyachenko (F),Sokil Kyiv,31,8,7,15,0.48,22,4,/player/75120/yuri-dyachenko,4,Yuri Dyachenko,F,2007-2008,russia2,75120,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Chernykh (C/RW),totals,24,7,8,15,0.63,18,-1,/player/19732/dmitri-chernykh,4,Dmitri Chernykh,C/RW,2007-2008,russia2,19732,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Talaikov (F),Metallurg Serov,35,7,8,15,0.43,39,0,/player/170669/dmitri-talaikov,4,Dmitri Talaikov,F,2007-2008,russia2,170669,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Vorontsov (LW),Kazzinc-Torpedo,39,7,8,15,0.38,44,6,/player/42139/alexei-vorontsov,4,Alexei Vorontsov,LW,2007-2008,russia2,42139,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Zakharov (F),Toros Neftekamsk,42,7,8,15,0.36,28,9,/player/170429/dmitri-zakharov,4,Dmitri Zakharov,F,2007-2008,russia2,170429,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Lokhanin (LW),Molot-Prikamie Perm,44,7,8,15,0.34,41,-4,/player/99136/dmitri-lokhanin,4,Dmitri Lokhanin,LW,2007-2008,russia2,99136,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Savitsky (D),Sokil Kyiv,44,7,8,15,0.34,50,6,/player/4044/alexander-savitsky,4,Alexander Savitsky,D,2007-2008,russia2,4044,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Kapustin (F),Metallurg Serov,46,7,8,15,0.33,12,-2,/player/118850/sergei-kapustin,4,Sergei Kapustin,F,2007-2008,russia2,118850,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Nasybullin (LW),Neftyanik Almetievsk,55,7,8,15,0.27,22,5,/player/93166/daniel-nasybullin,4,Daniel Nasybullin,LW,2007-2008,russia2,93166,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Alabugin (F),Mechel Chelyabinsk,47,6,9,15,0.32,32,10,/player/109705/yevgeni-alabugin,4,Yevgeni Alabugin,F,2007-2008,russia2,109705,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Belobragin (LW),totals,48,6,9,15,0.31,40,9,/player/162551/mikhail-belobragin,4,Mikhail Belobragin,LW,2007-2008,russia2,162551,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Ponomaryov (C),Molot-Prikamie Perm,52,6,9,15,0.29,40,-3,/player/90905/andrei-ponomaryov,4,Andrei Ponomaryov,C,2007-2008,russia2,90905,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Bukhanko (D),HK Belgorod,55,6,9,15,0.27,64,-7,/player/32964/anton-bukhanko,4,Anton Bukhanko,D,2007-2008,russia2,32964,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Volkov (C/RW),HK Dmitrov,25,5,10,15,0.60,14,-4,/player/12296/konstantin-volkov,4,Konstantin Volkov,C/RW,2007-2008,russia2,12296,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Karpov (D),Toros Neftekamsk,52,5,10,15,0.29,62,2,/player/89402/sergei-karpov,4,Sergei Karpov,D,2007-2008,russia2,89402,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Ignashin (C),Titan Klin,31,4,11,15,0.48,20,5,/player/99132/denis-ignashin,4,Denis Ignashin,C,2007-2008,russia2,99132,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ruslan Talipov (F),totals,44,4,11,15,0.34,16,-2,/player/22163/ruslan-talipov,4,Ruslan Talipov,F,2007-2008,russia2,22163,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Koledayev (D),Kazzinc-Torpedo,51,4,11,15,0.29,79,7,/player/22848/alexei-koledayev,4,Alexei Koledayev,D,2007-2008,russia2,22848,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Smirnov (F),HK Belgorod,60,4,11,15,0.25,36,-4,/player/183418/dmitri-smirnov,4,Dmitri Smirnov,F,2007-2008,russia2,183418,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Grigoryev (D),Avtomobilist Yekaterinburg,24,3,12,15,0.63,20,8,/player/37362/igor-grigoryev,4,Igor Grigoryev,D,2007-2008,russia2,37362,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vyacheslav Mushtayev (LW/RW),Sputnik Nizhny Tagil,35,3,12,15,0.43,10,12,/player/48196/vyacheslav-mushtayev,4,Vyacheslav Mushtayev,LW/RW,2007-2008,russia2,48196,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Terentyev (F),totals,40,3,12,15,0.38,14,-8,/player/197729/stanislav-terentyev,4,Stanislav Terentyev,F,2007-2008,russia2,197729,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Gordeyev (F),Yermak Angarsk,49,3,12,15,0.31,42,-28,/player/161573/sergei-gordeyev,4,Sergei Gordeyev,F,2007-2008,russia2,161573,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vadim Galkin (D),Molot-Prikamie Perm,44,2,13,15,0.34,46,0,/player/187931/vadim-galkin,4,Vadim Galkin,D,2007-2008,russia2,187931,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Gaponov (D),Mechel Chelyabinsk,52,2,13,15,0.29,68,8,/player/89849/vladimir-gaponov,4,Vladimir Gaponov,D,2007-2008,russia2,89849,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Ananyev (D),HK Ryazan,39,10,4,14,0.36,71,-5,/player/108665/igor-ananyev,4,Igor Ananyev,D,2007-2008,russia2,108665,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Belokon (LW),totals,45,10,4,14,0.31,49,-11,/player/44782/sergei-belokon,4,Sergei Belokon,LW,2007-2008,russia2,44782,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adgur Dzhugeliya (D),Kapitan Stupino,22,9,5,14,0.64,66,-5,/player/36704/adgur-dzhugeliya,4,Adgur Dzhugeliya,D,2007-2008,russia2,36704,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Miroshnichenko (D),Kazzinc-Torpedo,47,9,5,14,0.30,69,7,/player/33517/sergei-miroshnichenko,4,Sergei Miroshnichenko,D,2007-2008,russia2,33517,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Borodkin (LW),Sputnik Nizhny Tagil,35,8,6,14,0.40,65,6,/player/64943/anton-borodkin,4,Anton Borodkin,LW,2007-2008,russia2,64943,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Buryak (C),Metallurg Serov,38,7,7,14,0.37,20,-3,/player/5410/andrei-buryak,4,Andrei Buryak,C,2007-2008,russia2,5410,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Vasilyev (F),Mechel Chelyabinsk,40,7,7,14,0.35,16,-3,/player/92709/igor-vasilyev,4,Igor Vasilyev,F,2007-2008,russia2,92709,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Poleshchuk (D),Khimik Voskresensk,56,7,7,14,0.25,48,-8,/player/20369/anton-poleshchuk,4,Anton Poleshchuk,D,2007-2008,russia2,20369,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Sharifyanov (C),totals,33,6,8,14,0.42,14,-4,/player/115772/maxim-sharifyanov,4,Maxim Sharifyanov,C,2007-2008,russia2,115772,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vitali Donika (C/W),Sokil Kyiv,34,6,8,14,0.41,12,7,/player/41764/vitali-donika,4,Vitali Donika,C/W,2007-2008,russia2,41764,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Stulov (LW),totals,44,6,8,14,0.32,18,2,/player/22173/vladimir-stulov,4,Vladimir Stulov,LW,2007-2008,russia2,22173,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Kurvyakov (LW/RW),totals,44,6,8,14,0.32,78,-10,/player/79072/mikhail-kurvyakov,4,Mikhail Kurvyakov,LW/RW,2007-2008,russia2,79072,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Gofman (F),Ariada-Akpars Volzhsk,45,5,9,14,0.31,12,2,/player/19675/anton-gofman,4,Anton Gofman,F,2007-2008,russia2,19675,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Maximenko (LW),Zauralie Kurgan,52,5,9,14,0.27,42,-13,/player/78429/andrei-maximenko,4,Andrei Maximenko,LW,2007-2008,russia2,78429,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilnar Nurgaliyev (D),Gazprom-OGU Orenburg,52,5,9,14,0.27,54,-3,/player/93606/ilnar-nurgaliyev,4,Ilnar Nurgaliyev,D,2007-2008,russia2,93606,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ildar Khairetdinov (D),Gazprom-OGU Orenburg,54,5,9,14,0.26,118,-17,/player/75868/ildar-khairetdinov,4,Ildar Khairetdinov,D,2007-2008,russia2,75868,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Savchenko (D),Kazzinc-Torpedo,47,4,10,14,0.30,26,20,/player/73863/alexei-savchenko,4,Alexei Savchenko,D,2007-2008,russia2,73863,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Fakhrutdinov (D),Sputnik Nizhny Tagil,52,4,10,14,0.27,34,-5,/player/99126/dmitri-fakhrutdinov,4,Dmitri Fakhrutdinov,D,2007-2008,russia2,99126,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Rozhkov (F),Mechel Chelyabinsk,52,4,10,14,0.27,48,4,/player/89863/yegor-rozhkov,4,Yegor Rozhkov,F,2007-2008,russia2,89863,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Leskin (F),totals,32,3,11,14,0.44,51,-1,/player/166754/maxim-leskin,4,Maxim Leskin,F,2007-2008,russia2,166754,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Sarazov (RW),Dizel Penza,48,3,11,14,0.29,24,-8,/player/89551/dmitri-sarazov,4,Dmitri Sarazov,RW,2007-2008,russia2,89551,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vadim Navrotsky (D),Dizel Penza,58,3,11,14,0.24,59,25,/player/117584/vadim-navrotsky,4,Vadim Navrotsky,D,2007-2008,russia2,117584,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Serebryakov (D),Neftyanik Almetievsk,57,1,13,14,0.25,38,20,/player/93182/sergei-serebryakov,4,Sergei Serebryakov,D,2007-2008,russia2,93182,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Korshkov (D),Kazakhmys Satpaev,42,0,14,14,0.33,44,-7,/player/73939/alexei-korshkov,4,Alexei Korshkov,D,2007-2008,russia2,73939,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Golokhvastov (C),totals,42,9,4,13,0.31,24,-2,/player/81310/konstantin-golokhvastov,4,Konstantin Golokhvastov,C,2007-2008,russia2,81310,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Salnikov (LW),totals,33,7,6,13,0.39,14,-2,/player/98305/andrei-salnikov,4,Andrei Salnikov,LW,2007-2008,russia2,98305,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Khovrin (F),totals,33,7,6,13,0.39,34,0,/player/89338/anton-khovrin,4,Anton Khovrin,F,2007-2008,russia2,89338,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Zabolonkov (C),Dizel Penza,38,7,6,13,0.34,16,3,/player/90165/denis-zabolonkov,4,Denis Zabolonkov,C,2007-2008,russia2,90165,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Komissarov (RW),Kazakhmys Satpaev,44,7,6,13,0.30,10,-7,/player/73935/maxim-komissarov,4,Maxim Komissarov,RW,2007-2008,russia2,73935,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Sterligov (D),Yuzhny Ural Orsk,46,7,6,13,0.28,40,-18,/player/161531/dmitri-sterligov,4,Dmitri Sterligov,D,2007-2008,russia2,161531,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Bets (LW),Mechel Chelyabinsk,36,6,7,13,0.36,28,1,/player/67335/maxim-bets,4,Maxim Bets,LW,2007-2008,russia2,67335,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Makarov (F),totals,41,6,7,13,0.32,8,-5,/player/190060/yevgeni-makarov,4,Yevgeni Makarov,F,2007-2008,russia2,190060,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Kostrikov (C),Kazzinc-Torpedo,26,5,8,13,0.50,6,10,/player/19678/yevgeni-kostrikov,4,Yevgeni Kostrikov,C,2007-2008,russia2,19678,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valeri Konev (C/LW),Metallurg Serov,41,5,8,13,0.32,39,-9,/player/104251/valeri-konev,4,Valeri Konev,C/LW,2007-2008,russia2,104251,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Kolesnikov (D),Neftyanik Leninogorsk,47,5,8,13,0.28,52,-3,/player/15173/andrei-kolesnikov,4,Andrei Kolesnikov,D,2007-2008,russia2,15173,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Gribko (D),HK Dmitrov,47,5,8,13,0.28,64,15,/player/160691/yevgeni-gribko,4,Yevgeni Gribko,D,2007-2008,russia2,160691,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Tikhonov (D),CSK VVS Samara,49,5,8,13,0.27,116,0,/player/98834/viktor-tikhonov,4,Viktor Tikhonov,D,2007-2008,russia2,98834,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitrijus Bernatavicius (RW),totals,29,4,9,13,0.45,8,7,/player/21584/dmitrijus-bernatavicius,4,Dmitrijus Bernatavicius,RW,2007-2008,russia2,21584,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Deryabin (F),Metallurg Serov,42,4,9,13,0.31,32,-5,/player/119224/yevgeni-deryabin,4,Yevgeni Deryabin,F,2007-2008,russia2,119224,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Demidov (F),Neftyanik Almetievsk,45,3,10,13,0.29,26,-4,/player/93163/andrei-demidov,4,Andrei Demidov,F,2007-2008,russia2,93163,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Kostyuk (D),Kristall Elektrostal,58,3,10,13,0.22,83,-23,/player/107965/dmitri-kostyuk,4,Dmitri Kostyuk,D,2007-2008,russia2,107965,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Istomin (F),Kapitan Stupino,20,2,11,13,0.65,4,-9,/player/18013/denis-istomin,4,Denis Istomin,F,2007-2008,russia2,18013,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Melyakov (RW),Zauralie Kurgan,24,2,11,13,0.54,38,-4,/player/20989/igor-melyakov,4,Igor Melyakov,RW,2007-2008,russia2,20989,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Antonov (D),Metallurg Serov,49,2,11,13,0.27,30,-15,/player/108743/yevgeni-antonov,4,Yevgeni Antonov,D,2007-2008,russia2,108743,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Susloparov (D),Neftyanik Leninogorsk,56,2,11,13,0.23,28,-1,/player/91567/ilya-susloparov,4,Ilya Susloparov,D,2007-2008,russia2,91567,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Permyakov (D),totals,43,1,12,13,0.30,40,-4,/player/167993/stanislav-permyakov,4,Stanislav Permyakov,D,2007-2008,russia2,167993,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vyacheslav Chistyakov (F),Avtomobilist Yekaterinburg,38,8,4,12,0.32,18,7,/player/37359/vyacheslav-chistyakov,5,Vyacheslav Chistyakov,F,2007-2008,russia2,37359,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Korolyov (F),Zauralie Kurgan,51,8,4,12,0.24,91,-7,/player/193399/andrei-korolyov,5,Andrei Korolyov,F,2007-2008,russia2,193399,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Osipov (D),Gazovik Tyumen,52,8,4,12,0.23,146,-1,/player/60812/alexander-osipov,5,Alexander Osipov,D,2007-2008,russia2,60812,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Babikov (D),Neftyanik Leninogorsk,59,8,4,12,0.20,74,-6,/player/165599/kirill-babikov,5,Kirill Babikov,D,2007-2008,russia2,165599,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Zimakov (D),Krylia Sovetov Moskva,17,7,5,12,0.71,34,-6,/player/19465/sergei-zimakov,5,Sergei Zimakov,D,2007-2008,russia2,19465,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Demchenko (C),totals,24,7,5,12,0.50,18,-6,/player/150878/dmitri-demchenko,5,Dmitri Demchenko,C,2007-2008,russia2,150878,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Shchinov (F),HK Belgorod,55,7,5,12,0.22,38,-12,/player/182133/alexander-shchinov,5,Alexander Shchinov,F,2007-2008,russia2,182133,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olexander Bobkin (F),Sokil Kyiv,23,6,6,12,0.52,49,8,/player/30987/olexander-bobkin,5,Olexander Bobkin,F,2007-2008,russia2,30987,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Grigorov (F),Yermak Angarsk,41,6,6,12,0.29,38,-17,/player/154393/nikolai-grigorov,5,Nikolai Grigorov,F,2007-2008,russia2,154393,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Ivanov (C),Zauralie Kurgan,44,6,6,12,0.27,34,3,/player/38690/alexei-ivanov,5,Alexei Ivanov,C,2007-2008,russia2,38690,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Kulagin (D),Ariada-Akpars Volzhsk,40,5,7,12,0.30,44,0,/player/162499/alexei-kulagin,5,Alexei Kulagin,D,2007-2008,russia2,162499,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rustem Bakhriddinov (D),totals,44,5,7,12,0.27,75,3,/player/44781/rustem-bakhriddinov,5,Rustem Bakhriddinov,D,2007-2008,russia2,44781,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Smelnitsky (LW),Gazovik Tyumen,52,5,7,12,0.23,95,-7,/player/81450/maxim-smelnitsky,5,Maxim Smelnitsky,LW,2007-2008,russia2,81450,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artur Garipov (D),totals,36,4,8,12,0.33,28,13,/player/24581/artur-garipov,5,Artur Garipov,D,2007-2008,russia2,24581,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vyacheslav Simonov (F),totals,38,4,8,12,0.32,14,-2,/player/184655/vyacheslav-simonov,5,Vyacheslav Simonov,F,2007-2008,russia2,184655,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Gromov (D),Titan Klin,40,4,8,12,0.30,28,5,/player/22847/alexander-gromov,5,Alexander Gromov,D,2007-2008,russia2,22847,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matvei Denisov (D),Izhstal Izhevsk,46,4,8,12,0.26,64,6,/player/197680/matvei-denisov,5,Matvei Denisov,D,2007-2008,russia2,197680,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Kolkunov (C),Khimik Voskresensk,24,3,9,12,0.50,24,-1,/player/22177/alexei-kolkunov,5,Alexei Kolkunov,C,2007-2008,russia2,22177,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rustem Kamaletdinov (D),Khimik Voskresensk,26,3,9,12,0.46,16,11,/player/20995/rustem-kamaletdinov,5,Rustem Kamaletdinov,D,2007-2008,russia2,20995,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Vostrikov (C),totals,37,3,9,12,0.32,46,-12,/player/58787/artyom-vostrikov,5,Artyom Vostrikov,C,2007-2008,russia2,58787,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Ponomaryov (D),Molot-Prikamie Perm,47,3,9,12,0.26,58,16,/player/90214/anton-ponomaryov,5,Anton Ponomaryov,D,2007-2008,russia2,90214,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Maslyukov (D),Gazovik Tyumen,50,2,10,12,0.24,130,-8,/player/188891/konstantin-maslyukov,5,Konstantin Maslyukov,D,2007-2008,russia2,188891,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Khramov (C/LW),Izhstal Izhevsk,49,10,1,11,0.22,36,-3,/player/91571/sergei-khramov,5,Sergei Khramov,C/LW,2007-2008,russia2,91571,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Ye. Smirnov (F),totals,38,6,5,11,0.29,22,-7,/player/42300/oleg-ye-smirnov,5,Oleg Ye. Smirnov,F,2007-2008,russia2,42300,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anatoli Vasilyev (C/LW),Gazovik Tyumen,41,6,5,11,0.27,20,0,/player/98988/anatoli-vasilyev,5,Anatoli Vasilyev,C/LW,2007-2008,russia2,98988,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vitali Lyapunov (RW),Izhstal Izhevsk,45,6,5,11,0.24,71,1,/player/55917/vitali-lyapunov,5,Vitali Lyapunov,RW,2007-2008,russia2,55917,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Mantik (D),Yuzhny Ural Orsk,45,6,5,11,0.24,74,-26,/player/190190/konstantin-mantik,5,Konstantin Mantik,D,2007-2008,russia2,190190,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Loginov (C),totals,22,5,6,11,0.50,44,6,/player/19734/denis-loginov,5,Denis Loginov,C,2007-2008,russia2,19734,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Komissarov (LW),Kazzinc-Torpedo,29,5,6,11,0.38,8,0,/player/74079/anton-komissarov,5,Anton Komissarov,LW,2007-2008,russia2,74079,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Zavarzin (LW),Krylia Sovetov Moskva,32,5,6,11,0.34,6,3,/player/77227/vladimir-zavarzin,5,Vladimir Zavarzin,LW,2007-2008,russia2,77227,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Nikitin (D),Titan Klin,32,5,6,11,0.34,61,-5,/player/90375/igor-nikitin,5,Igor Nikitin,D,2007-2008,russia2,90375,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Davletov (RW),Khimik Voskresensk,22,4,7,11,0.50,8,4,/player/22175/mikhail-davletov,5,Mikhail Davletov,RW,2007-2008,russia2,22175,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Chernenko (C),Sokil Kyiv,28,4,7,11,0.39,10,10,/player/89256/sergei-chernenko,5,Sergei Chernenko,C,2007-2008,russia2,89256,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Banashkov (F),Kazakhmys Satpaev,36,4,7,11,0.31,14,0,/player/116051/sergei-banashkov,5,Sergei Banashkov,F,2007-2008,russia2,116051,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Mons (RW),Kapitan Stupino,37,4,7,11,0.30,62,-7,/player/19413/yevgeni-mons,5,Yevgeni Mons,RW,2007-2008,russia2,19413,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Sychyov (D),Izhstal Izhevsk,45,4,7,11,0.24,42,-3,/player/197382/alexander-sychyov,5,Alexander Sychyov,D,2007-2008,russia2,197382,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Kolyubakin (F),Ariada-Akpars Volzhsk,25,3,8,11,0.44,20,-2,/player/89267/sergei-kolyubakin,5,Sergei Kolyubakin,F,2007-2008,russia2,89267,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Dolgikh (LW),totals,30,3,8,11,0.37,24,-7,/player/153283/roman-dolgikh,5,Roman Dolgikh,LW,2007-2008,russia2,153283,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Nikonorov (D),Metallurg Serov,48,3,8,11,0.23,16,-2,/player/158214/anton-nikonorov,5,Anton Nikonorov,D,2007-2008,russia2,158214,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Laptev (D),Molot-Prikamie Perm,52,3,8,11,0.21,54,4,/player/99066/sergei-laptev,5,Sergei Laptev,D,2007-2008,russia2,99066,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Glinkin (LW),Mechel Chelyabinsk,22,2,9,11,0.50,8,1,/player/19579/anton-glinkin,5,Anton Glinkin,LW,2007-2008,russia2,19579,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Vagin (D),Izhstal Izhevsk,30,2,9,11,0.37,36,2,/player/146993/yevgeni-vagin,5,Yevgeni Vagin,D,2007-2008,russia2,146993,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Prigaro (D),Kapitan Stupino,38,2,9,11,0.29,56,-10,/player/19680/anton-prigaro,5,Anton Prigaro,D,2007-2008,russia2,19680,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Yashchenkov (D),Molot-Prikamie Perm,48,2,9,11,0.23,56,17,/player/95543/nikolai-yashchenkov,5,Nikolai Yashchenkov,D,2007-2008,russia2,95543,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Pozin (D),Mechel Chelyabinsk,51,2,9,11,0.22,34,0,/player/95544/dmitri-pozin,5,Dmitri Pozin,D,2007-2008,russia2,95544,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Miroshnikov (D),totals,53,2,9,11,0.21,48,7,/player/152149/alexei-miroshnikov,5,Alexei Miroshnikov,D,2007-2008,russia2,152149,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Selikhov (D),Dizel Penza,60,2,9,11,0.18,54,17,/player/90183/vladimir-selikhov,5,Vladimir Selikhov,D,2007-2008,russia2,90183,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilnaz Zagitov (D),Neftyanik Almetievsk,45,1,10,11,0.24,14,6,/player/91214/ilnaz-zagitov,5,Ilnaz Zagitov,D,2007-2008,russia2,91214,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Yermolayev (D),Neftyanik Almetievsk,54,1,10,11,0.20,195,18,/player/90330/alexei-yermolayev,5,Alexei Yermolayev,D,2007-2008,russia2,90330,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Chubykin (C),Yermak Angarsk,30,7,3,10,0.33,12,-19,/player/19672/sergei-chubykin,5,Sergei Chubykin,C,2007-2008,russia2,19672,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vitali Bogdashkin (F),Mechel Chelyabinsk,35,7,3,10,0.29,6,-1,/player/92516/vitali-bogdashkin,5,Vitali Bogdashkin,F,2007-2008,russia2,92516,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Kochin (F),Titan Klin,38,6,4,10,0.26,18,-8,/player/166267/konstantin-kochin,5,Konstantin Kochin,F,2007-2008,russia2,166267,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Kochegarov (F),totals,24,5,5,10,0.42,20,-3,/player/190062/alexei-kochegarov,5,Alexei Kochegarov,F,2007-2008,russia2,190062,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Sergeyev (D),totals,35,5,5,10,0.29,34,-6,/player/93180/maxim-sergeyev,5,Maxim Sergeyev,D,2007-2008,russia2,93180,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Petrov (F),CSK VVS Samara,50,5,5,10,0.20,74,-15,/player/170866/vladimir-petrov,5,Vladimir Petrov,F,2007-2008,russia2,170866,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ramil Saifullin (LW),Barys Astana,51,5,5,10,0.20,22,7,/player/22129/ramil-saifullin,5,Ramil Saifullin,LW,2007-2008,russia2,22129,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Azat Sharipov (F),Toros Neftekamsk,21,4,6,10,0.48,14,-4,/player/160399/azat-sharipov,5,Azat Sharipov,F,2007-2008,russia2,160399,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Seleznyov (F),totals,34,4,6,10,0.29,35,-4,/player/90622/anton-seleznyov,5,Anton Seleznyov,F,2007-2008,russia2,90622,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Nikulin (D),Gazprom-OGU Orenburg,38,4,6,10,0.26,40,-5,/player/181055/alexei-nikulin,5,Alexei Nikulin,D,2007-2008,russia2,181055,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Smirnov (LW),totals,17,3,7,10,0.59,18,7,/player/9555/alexei-smirnov,5,Alexei Smirnov,LW,2007-2008,russia2,9555,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Ostroushko (D),HK Dmitrov,24,3,7,10,0.42,44,8,/player/19110/artyom-ostroushko,5,Artyom Ostroushko,D,2007-2008,russia2,19110,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Gasnikov (C),Kazzinc-Torpedo,31,3,7,10,0.32,4,7,/player/15279/yevgeni-gasnikov,5,Yevgeni Gasnikov,C,2007-2008,russia2,15279,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Spiridonov (D),Khimik Voskresensk,34,3,7,10,0.29,28,12,/player/22174/vladislav-spiridonov,5,Vladislav Spiridonov,D,2007-2008,russia2,22174,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Nefyodov (C),Sputnik Nizhny Tagil,39,3,7,10,0.26,14,1,/player/91502/ilya-nefyodov,5,Ilya Nefyodov,C,2007-2008,russia2,91502,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Mazunin (D),Kazzinc-Torpedo,49,3,7,10,0.20,60,10,/player/35393/yevgeni-mazunin,5,Yevgeni Mazunin,D,2007-2008,russia2,35393,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Arsenyev (D),Titan Klin,57,3,7,10,0.18,56,6,/player/181797/dmitri-arsenyev,5,Dmitri Arsenyev,D,2007-2008,russia2,181797,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Shemelin (D),totals,44,2,8,10,0.23,50,15,/player/22116/denis-shemelin,5,Denis Shemelin,D,2007-2008,russia2,22116,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Nesterov (D),Gazprom-OGU Orenburg,49,2,8,10,0.20,84,-8,/player/89390/yevgeni-nesterov,5,Yevgeni Nesterov,D,2007-2008,russia2,89390,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Ustyuzhanin (D),Avtomobilist Yekaterinburg,30,1,9,10,0.33,30,1,/player/93628/dmitri-ustyuzhanin,5,Dmitri Ustyuzhanin,D,2007-2008,russia2,93628,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ildar Yubin (D),totals,38,1,9,10,0.26,38,15,/player/22113/ildar-yubin,5,Ildar Yubin,D,2007-2008,russia2,22113,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Petrov (D),Yuzhny Ural Orsk,38,1,9,10,0.26,50,-9,/player/190186/yevgeni-petrov,5,Yevgeni Petrov,D,2007-2008,russia2,190186,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Savosin (C),Avtomobilist Yekaterinburg,29,7,2,9,0.31,24,-1,/player/20200/maxim-savosin,5,Maxim Savosin,C,2007-2008,russia2,20200,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Nosov (D),Avtomobilist Yekaterinburg,41,6,3,9,0.22,36,13,/player/41718/artyom-nosov,5,Artyom Nosov,D,2007-2008,russia2,41718,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Aseyev (F),HK Belgorod,42,6,3,9,0.21,53,-7,/player/122935/mikhail-aseyev,5,Mikhail Aseyev,F,2007-2008,russia2,122935,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Arkhipov (F),Gazovik Tyumen,43,6,3,9,0.21,16,-6,/player/115740/alexander-arkhipov,5,Alexander Arkhipov,F,2007-2008,russia2,115740,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Yevdokimov (D),Titan Klin,51,6,3,9,0.18,54,-2,/player/181793/dmitri-yevdokimov,5,Dmitri Yevdokimov,D,2007-2008,russia2,181793,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Romanovsky (LW/RW),Khimik Voskresensk,14,5,4,9,0.64,40,3,/player/22172/alexander-romanovsky,5,Alexander Romanovsky,LW/RW,2007-2008,russia2,22172,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Kuznetsov (LW),Krylia Sovetov Moskva,15,5,4,9,0.60,32,-10,/player/20500/sergei-kuznetsov,5,Sergei Kuznetsov,LW,2007-2008,russia2,20500,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Zasypkin (F),Avtomobilist Yekaterinburg,17,5,4,9,0.53,12,4,/player/19109/pavel-zasypkin,5,Pavel Zasypkin,F,2007-2008,russia2,19109,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Paior (C),Neftyanik Leninogorsk,19,5,4,9,0.47,10,-3,/player/19562/sergei-paior,5,Sergei Paior,C,2007-2008,russia2,19562,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vitali Golubnichy (F),totals,19,5,4,9,0.47,80,-6,/player/116092/vitali-golubnichy,5,Vitali Golubnichy,F,2007-2008,russia2,116092,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Zolotukhin (C),Yermak Angarsk,52,5,4,9,0.17,62,-36,/player/99128/nikolai-zolotukhin,5,Nikolai Zolotukhin,C,2007-2008,russia2,99128,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Lozhkin (F),Kristall Saratov,59,5,4,9,0.15,24,-7,/player/113213/kirill-lozhkin,5,Kirill Lozhkin,F,2007-2008,russia2,113213,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Stepanov (RW),HK Dmitrov,10,4,5,9,0.90,8,2,/player/19115/andrei-stepanov,5,Andrei Stepanov,RW,2007-2008,russia2,19115,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Akimov (C),totals,24,4,5,9,0.38,6,2,/player/117121/ivan-akimov,5,Ivan Akimov,C,2007-2008,russia2,117121,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Shurupov (C),HK Dmitrov,18,3,6,9,0.50,24,4,/player/91572/andrei-shurupov,5,Andrei Shurupov,C,2007-2008,russia2,91572,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Voshchenikin (F),HK Dmitrov,22,3,6,9,0.41,16,4,/player/190529/oleg-voshchenikin,5,Oleg Voshchenikin,F,2007-2008,russia2,190529,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Biryukov (F),Kapitan Stupino,26,3,6,9,0.35,10,-10,/player/197334/maxim-biryukov,5,Maxim Biryukov,F,2007-2008,russia2,197334,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Pupkov (D),Avtomobilist Yekaterinburg,30,3,6,9,0.30,42,10,/player/20197/yevgeni-pupkov,5,Yevgeni Pupkov,D,2007-2008,russia2,20197,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Kharchenko (C),Sokil Kyiv,33,3,6,9,0.27,40,8,/player/75010/sergei-kharchenko,5,Sergei Kharchenko,C,2007-2008,russia2,75010,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vasili Vinogradov (D),Kapitan Stupino,46,3,6,9,0.20,119,-14,/player/28113/vasili-vinogradov,5,Vasili Vinogradov,D,2007-2008,russia2,28113,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vitali Litvinov (D),Kazakhmys Satpaev,47,3,6,9,0.19,40,11,/player/29173/vitali-litvinov,5,Vitali Litvinov,D,2007-2008,russia2,29173,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Voronenkov (D),totals,49,3,6,9,0.18,60,4,/player/188782/sergei-voronenkov,5,Sergei Voronenkov,D,2007-2008,russia2,188782,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ruslan Abdrakhmanov (F),Toros Neftekamsk,23,2,7,9,0.39,16,3,/player/23205/ruslan-abdrakhmanov,5,Ruslan Abdrakhmanov,F,2007-2008,russia2,23205,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Kuklin (D),totals,31,2,7,9,0.29,69,-20,/player/154013/alexander-kuklin,5,Alexander Kuklin,D,2007-2008,russia2,154013,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Ivanov (C),Izhstal Izhevsk,35,2,7,9,0.26,40,0,/player/95446/denis-ivanov,5,Denis Ivanov,C,2007-2008,russia2,95446,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Pogonin (F),Titan Klin,42,2,7,9,0.21,68,-18,/player/190536/alexei-pogonin,5,Alexei Pogonin,F,2007-2008,russia2,190536,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Ivanov (D),Toros Neftekamsk,44,2,7,9,0.20,36,9,/player/89380/dmitri-ivanov,5,Dmitri Ivanov,D,2007-2008,russia2,89380,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Belov (D),totals,24,1,8,9,0.38,26,-4,/player/31328/nikolai-belov,5,Nikolai Belov,D,2007-2008,russia2,31328,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Kolesnikov (D),Kazzinc-Torpedo,43,1,8,9,0.21,46,25,/player/73853/vladislav-kolesnikov,5,Vladislav Kolesnikov,D,2007-2008,russia2,73853,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dinar Khafizullin (D),Neftyanik Almetievsk,59,1,8,9,0.15,116,24,/player/28106/dinar-khafizullin,6,Dinar Khafizullin,D,2007-2008,russia2,28106,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Volkov (C),Yuzhny Ural Orsk,33,7,1,8,0.24,47,-7,/player/31175/sergei-volkov,6,Sergei Volkov,C,2007-2008,russia2,31175,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Sazonov (F),Izhstal Izhevsk,46,6,2,8,0.17,22,-3,/player/170463/pavel-sazonov,6,Pavel Sazonov,F,2007-2008,russia2,170463,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Teslyuk (D),Metallurg Serov,52,6,2,8,0.15,52,-11,/player/11605/roman-teslyuk,6,Roman Teslyuk,D,2007-2008,russia2,11605,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Petrov (F),Kapitan Stupino,25,5,3,8,0.32,50,-13,/player/24794/dmitri-petrov,6,Dmitri Petrov,F,2007-2008,russia2,24794,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Obukhov (F),Kazakhmys Satpaev,28,5,3,8,0.29,26,-5,/player/116047/alexander-obukhov,6,Alexander Obukhov,F,2007-2008,russia2,116047,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grigori Myakish (F),Kazakhmys Satpaev,37,5,3,8,0.22,10,-7,/player/115892/grigori-myakish,6,Grigori Myakish,F,2007-2008,russia2,115892,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Voloshin (RW),totals,46,5,3,8,0.17,14,1,/player/152144/alexander-voloshin,6,Alexander Voloshin,RW,2007-2008,russia2,152144,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Nikonorov (F),Kristall Elektrostal,48,5,3,8,0.17,26,-13,/player/188983/alexander-nikonorov,6,Alexander Nikonorov,F,2007-2008,russia2,188983,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Savichev (F),Khimik Voskresensk,25,4,4,8,0.32,12,3,/player/22170/roman-savichev,6,Roman Savichev,F,2007-2008,russia2,22170,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Plyuschev (C),totals,26,4,4,8,0.31,38,2,/player/19194/alexander-plyuschev,6,Alexander Plyuschev,C,2007-2008,russia2,19194,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Yakovlev (F),totals,28,4,4,8,0.29,10,0,/player/93602/mikhail-yakovlev,6,Mikhail Yakovlev,F,2007-2008,russia2,93602,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Petushkin (D),HK Dmitrov,49,4,4,8,0.16,34,22,/player/92794/andrei-petushkin,6,Andrei Petushkin,D,2007-2008,russia2,92794,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Volkov (D),Gazprom-OGU Orenburg,28,3,5,8,0.29,42,-5,/player/41416/alexei-volkov,6,Alexei Volkov,D,2007-2008,russia2,41416,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Bozhko (F),totals,31,3,5,8,0.26,12,-4,/player/99562/artyom-bozhko,6,Artyom Bozhko,F,2007-2008,russia2,99562,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Kryukov (F),totals,31,3,5,8,0.26,14,1,/player/150818/alexander-kryukov,6,Alexander Kryukov,F,2007-2008,russia2,150818,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Vasilyev (C),Izhstal Izhevsk,37,3,5,8,0.22,10,-1,/player/92708/igor-vasilyev,6,Igor Vasilyev,C,2007-2008,russia2,92708,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yuri Tobolnov (D),Neftyanik Leninogorsk,52,3,5,8,0.15,62,5,/player/161753/yuri-tobolnov,6,Yuri Tobolnov,D,2007-2008,russia2,161753,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Matukhno (F),Yermak Angarsk,27,2,6,8,0.30,20,-6,/player/195109/yegor-matukhno,6,Yegor Matukhno,F,2007-2008,russia2,195109,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Aleksyuk (D/F),Sokil Kyiv,51,2,6,8,0.16,40,8,/player/115585/vladimir-aleksyuk,6,Vladimir Aleksyuk,D/F,2007-2008,russia2,115585,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vyacheslav Tryasunov (D),Metallurg Serov,51,2,6,8,0.16,56,-13,/player/119225/vyacheslav-tryasunov,6,Vyacheslav Tryasunov,D,2007-2008,russia2,119225,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Topol (LW),totals,22,1,7,8,0.36,10,6,/player/12242/sergei-topol,6,Sergei Topol,LW,2007-2008,russia2,12242,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Chistyakov (LW),Khimik Voskresensk,26,1,7,8,0.31,30,1,/player/22171/alexander-chistyakov,6,Alexander Chistyakov,LW,2007-2008,russia2,22171,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Osipov (D),Krylia Sovetov Moskva,28,1,7,8,0.29,40,2,/player/10493/denis-osipov,6,Denis Osipov,D,2007-2008,russia2,10493,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Medvedev (C),totals,33,1,7,8,0.24,24,-7,/player/98942/pavel-medvedev,6,Pavel Medvedev,C,2007-2008,russia2,98942,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Pakhomov (D),Titan Klin,34,1,7,8,0.24,36,-4,/player/98827/denis-pakhomov,6,Denis Pakhomov,D,2007-2008,russia2,98827,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Chikalin (D),Sputnik Nizhny Tagil,41,1,7,8,0.20,16,-2,/player/92421/alexei-chikalin,6,Alexei Chikalin,D,2007-2008,russia2,92421,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Makeyev (D),Ariada-Akpars Volzhsk,47,1,7,8,0.17,60,-3,/player/186334/alexei-makeyev,6,Alexei Makeyev,D,2007-2008,russia2,186334,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Yushin (C),CSK VVS Samara,48,1,7,8,0.17,42,-11,/player/98351/alexei-yushin,6,Alexei Yushin,C,2007-2008,russia2,98351,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Prokofyev (D),Mechel Chelyabinsk,51,0,8,8,0.16,32,-5,/player/170427/oleg-prokofyev,6,Oleg Prokofyev,D,2007-2008,russia2,170427,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Altukhov (F),Metallurg Serov,26,7,0,7,0.27,47,-1,/player/158890/alexei-altukhov,6,Alexei Altukhov,F,2007-2008,russia2,158890,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Nogin (D/F),Neftyanik Almetievsk,17,6,1,7,0.41,14,2,/player/145048/andrei-nogin,6,Andrei Nogin,D/F,2007-2008,russia2,145048,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Mashanov (F),Yermak Angarsk,20,6,1,7,0.35,22,-12,/player/110527/denis-mashanov,6,Denis Mashanov,F,2007-2008,russia2,110527,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Zakharov (F),Mechel Chelyabinsk,22,5,2,7,0.32,4,-3,/player/92713/igor-zakharov,6,Igor Zakharov,F,2007-2008,russia2,92713,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vasili Mordvinov (RW),Zauralie Kurgan,32,5,2,7,0.22,10,-16,/player/89339/vasili-mordvinov,6,Vasili Mordvinov,RW,2007-2008,russia2,89339,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Chistyakov (RW),Kristall Elektrostal,43,5,2,7,0.16,36,-12,/player/43449/sergei-chistyakov,6,Sergei Chistyakov,RW,2007-2008,russia2,43449,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Yevdokimov (F),Kristall Elektrostal,44,5,2,7,0.16,26,-7,/player/165595/alexei-yevdokimov,6,Alexei Yevdokimov,F,2007-2008,russia2,165595,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vadim Berdnikov (C),HK Dmitrov,10,4,3,7,0.70,4,4,/player/19588/vadim-berdnikov,6,Vadim Berdnikov,C,2007-2008,russia2,19588,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Krechin (LW),Avtomobilist Yekaterinburg,20,4,3,7,0.35,8,0,/player/87605/vladimir-krechin,6,Vladimir Krechin,LW,2007-2008,russia2,87605,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Plotnikov (C),Molot-Prikamie Perm,21,4,3,7,0.33,18,-3,/player/98930/pavel-plotnikov,6,Pavel Plotnikov,C,2007-2008,russia2,98930,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yuri Lyaskovsky (D),Sokil Kyiv,23,4,3,7,0.30,28,8,/player/90575/yuri-lyaskovsky,6,Yuri Lyaskovsky,D,2007-2008,russia2,90575,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Perevozchikov (D),Izhstal Izhevsk,30,4,3,7,0.23,32,8,/player/90914/andrei-perevozchikov,6,Andrei Perevozchikov,D,2007-2008,russia2,90914,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Popov (D),totals,31,4,3,7,0.23,32,-4,/player/19623/roman-popov,6,Roman Popov,D,2007-2008,russia2,19623,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Kurepanov (F),Toros Neftekamsk,38,4,3,7,0.18,2,1,/player/77207/denis-kurepanov,6,Denis Kurepanov,F,2007-2008,russia2,77207,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Selyutin (F),Titan Klin,16,3,4,7,0.44,18,2,/player/190533/sergei-selyutin,6,Sergei Selyutin,F,2007-2008,russia2,190533,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Kachulin (F),totals,19,3,4,7,0.37,18,5,/player/15269/mikhail-kachulin,6,Mikhail Kachulin,F,2007-2008,russia2,15269,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vasili Bobrovnikov (LW),Sokil Kyiv,26,3,4,7,0.27,24,-7,/player/74742/vasili-bobrovnikov,6,Vasili Bobrovnikov,LW,2007-2008,russia2,74742,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Zhmayev (C),Toros Neftekamsk,28,3,4,7,0.25,40,2,/player/99541/vladimir-zhmayev,6,Vladimir Zhmayev,C,2007-2008,russia2,99541,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Stepulev (F),Yermak Angarsk,30,3,4,7,0.23,10,-17,/player/185425/yevgeni-stepulev,6,Yevgeni Stepulev,F,2007-2008,russia2,185425,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vasili Tokranov (D),Neftyanik Almetievsk,30,3,4,7,0.23,24,0,/player/11872/vasili-tokranov,6,Vasili Tokranov,D,2007-2008,russia2,11872,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rustam Yesirkenov (LW),Barys Astana,32,3,4,7,0.22,10,-1,/player/22117/rustam-yesirkenov,6,Rustam Yesirkenov,LW,2007-2008,russia2,22117,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Boldyrev (F),Yuzhny Ural Orsk,32,3,4,7,0.22,16,-10,/player/168080/anton-boldyrev,6,Anton Boldyrev,F,2007-2008,russia2,168080,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Kuznetsov (F),Barys Astana,35,3,4,7,0.20,12,6,/player/22123/roman-kuznetsov,6,Roman Kuznetsov,F,2007-2008,russia2,22123,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Kovalenko (D),Kazzinc-Torpedo,42,3,4,7,0.17,36,2,/player/73933/oleg-kovalenko,6,Oleg Kovalenko,D,2007-2008,russia2,73933,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Petukhov (F),totals,44,3,4,7,0.16,34,-4,/player/22165/yevgeni-petukhov,6,Yevgeni Petukhov,F,2007-2008,russia2,22165,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Paramonov (D),Mechel Chelyabinsk,51,3,4,7,0.14,34,6,/player/92411/mikhail-paramonov,6,Mikhail Paramonov,D,2007-2008,russia2,92411,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vitali Levada (D),Toros Neftekamsk,52,3,4,7,0.13,36,4,/player/183424/vitali-levada,6,Vitali Levada,D,2007-2008,russia2,183424,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Utkin (D),Yermak Angarsk,24,2,5,7,0.29,40,-11,/player/168199/pavel-utkin,6,Pavel Utkin,D,2007-2008,russia2,168199,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Golubev (F),totals,30,2,5,7,0.23,16,-9,/player/89241/anton-golubev,6,Anton Golubev,F,2007-2008,russia2,89241,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Afanasyev (C/D),totals,32,2,5,7,0.22,20,-11,/player/89566/denis-afanasyev,6,Denis Afanasyev,C/D,2007-2008,russia2,89566,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Fyodorov (D),CSK VVS Samara,33,2,5,7,0.21,42,-8,/player/173820/alexander-fyodorov,6,Alexander Fyodorov,D,2007-2008,russia2,173820,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Zimin (D),Khimik Voskresensk,34,2,5,7,0.21,8,22,/player/22168/nikolai-zimin,6,Nikolai Zimin,D,2007-2008,russia2,22168,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Tsyganov (D/LW),Avtomobilist Yekaterinburg,36,2,5,7,0.19,0,5,/player/57972/dmitri-tsyganov,6,Dmitri Tsyganov,D/LW,2007-2008,russia2,57972,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Samokhin (F),Yuzhny Ural Orsk,47,2,5,7,0.15,48,-20,/player/197727/alexander-samokhin,6,Alexander Samokhin,F,2007-2008,russia2,197727,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Tyulyapkin (D),Dizel Penza,48,2,5,7,0.15,50,-1,/player/117585/denis-tyulyapkin,6,Denis Tyulyapkin,D,2007-2008,russia2,117585,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Pashnin (D),Mechel Chelyabinsk,49,2,5,7,0.14,58,2,/player/29170/mikhail-pashnin,6,Mikhail Pashnin,D,2007-2008,russia2,29170,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artemi Lakiza (D),Barys Astana,52,2,5,7,0.13,30,16,/player/22120/artemi-lakiza,6,Artemi Lakiza,D,2007-2008,russia2,22120,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Ignatov (D),Gazprom-OGU Orenburg,52,2,5,7,0.13,56,-19,/player/166802/alexander-ignatov,6,Alexander Ignatov,D,2007-2008,russia2,166802,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Korneyev (RW),Gazovik Tyumen,12,1,6,7,0.58,18,-2,/player/18549/dmitri-korneyev,6,Dmitri Korneyev,RW,2007-2008,russia2,18549,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Ignatov (D),HK Dmitrov,22,1,6,7,0.32,30,11,/player/19130/nikolai-ignatov,6,Nikolai Ignatov,D,2007-2008,russia2,19130,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Polozov (LW),HK Dmitrov,24,1,6,7,0.29,10,0,/player/90913/yevgeni-polozov,6,Yevgeni Polozov,LW,2007-2008,russia2,90913,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eduard Volkov (F),Yermak Angarsk,28,1,6,7,0.25,54,-25,/player/190184/eduard-volkov,6,Eduard Volkov,F,2007-2008,russia2,190184,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ruslan Mozgovoy (D),Metallurg Serov,41,1,6,7,0.17,38,0,/player/115360/ruslan-mozgovoy,6,Ruslan Mozgovoy,D,2007-2008,russia2,115360,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Kuznetsov (D),Dizel Penza,48,1,6,7,0.15,48,8,/player/90181/andrei-kuznetsov,6,Andrei Kuznetsov,D,2007-2008,russia2,90181,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Sokolov (D),Izhstal Izhevsk,48,1,6,7,0.15,72,1,/player/89393/artyom-sokolov,6,Artyom Sokolov,D,2007-2008,russia2,89393,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stepan Mokhov (D),Krylia Sovetov Moskva,51,1,6,7,0.14,42,0,/player/20195/stepan-mokhov,6,Stepan Mokhov,D,2007-2008,russia2,20195,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Zhurikov (D),Avtomobilist Yekaterinburg,12,0,7,7,0.58,6,5,/player/21162/sergei-zhurikov,6,Sergei Zhurikov,D,2007-2008,russia2,21162,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Grigoryev (D),Neftyanik Leninogorsk,38,0,7,7,0.18,66,1,/player/20505/mikhail-grigoryev,6,Mikhail Grigoryev,D,2007-2008,russia2,20505,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Kazantsev (D),Barys Astana,51,0,7,7,0.14,120,15,/player/22122/anton-kazantsev,6,Anton Kazantsev,D,2007-2008,russia2,22122,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Solomonchak (C),Neftyanik Almetievsk,33,5,1,6,0.18,10,4,/player/15351/vladislav-solomonchak,6,Vladislav Solomonchak,C,2007-2008,russia2,15351,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Tsaryov (RW),Barys Astana,17,4,2,6,0.35,14,2,/player/22115/andrei-tsaryov,6,Andrei Tsaryov,RW,2007-2008,russia2,22115,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Kovzalov (F),totals,28,4,2,6,0.21,12,-7,/player/154375/ilya-kovzalov,6,Ilya Kovzalov,F,2007-2008,russia2,154375,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artur Fakhrutdinov (F),Yuzhny Ural Orsk,30,4,2,6,0.20,4,-11,/player/174143/artur-fakhrutdinov,6,Artur Fakhrutdinov,F,2007-2008,russia2,174143,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Lukoyanov (LW),Neftyanik Almetievsk,41,4,2,6,0.15,45,5,/player/93164/artyom-lukoyanov,6,Artyom Lukoyanov,LW,2007-2008,russia2,93164,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Khomyakov (D),HK Ryazan,52,4,2,6,0.12,64,-8,/player/183426/dmitri-khomyakov,6,Dmitri Khomyakov,D,2007-2008,russia2,183426,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Dubrovsky (D),Kazakhmys Satpaev,7,3,3,6,0.86,39,6,/player/74093/dmitri-dubrovsky,6,Dmitri Dubrovsky,D,2007-2008,russia2,74093,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Sirotkin (D),Zauralie Kurgan,19,3,3,6,0.32,14,-1,/player/195311/dmitri-sirotkin,6,Dmitri Sirotkin,D,2007-2008,russia2,195311,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pakhrudin Gimbatov (LW/D),totals,22,3,3,6,0.27,56,-4,/player/99127/pakhrudin-gimbatov,6,Pakhrudin Gimbatov,LW/D,2007-2008,russia2,99127,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Gorelov (F),Zauralie Kurgan,26,3,3,6,0.23,10,-4,/player/187932/andrei-gorelov,6,Andrei Gorelov,F,2007-2008,russia2,187932,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Korolyov (D),totals,36,3,3,6,0.17,63,-9,/player/190058/mikhail-korolyov,6,Mikhail Korolyov,D,2007-2008,russia2,190058,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Abozin (F),Kapitan Stupino,55,3,3,6,0.11,38,-12,/player/109390/kirill-abozin,6,Kirill Abozin,F,2007-2008,russia2,109390,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Lyashko (D),Yuzhny Ural Orsk,19,2,4,6,0.32,6,-3,/player/197726/andrei-lyashko,6,Andrei Lyashko,D,2007-2008,russia2,197726,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei V. Kucherenko (D),Yermak Angarsk,29,2,4,6,0.21,26,-15,/player/162064/andrei-v-kucherenko,6,Andrei V. Kucherenko,D,2007-2008,russia2,162064,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Yazykov (D),totals,37,2,4,6,0.16,14,6,/player/93621/stanislav-yazykov,6,Stanislav Yazykov,D,2007-2008,russia2,93621,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Popkov (C),Kristall Elektrostal,44,2,4,6,0.14,61,-26,/player/90908/alexander-popkov,6,Alexander Popkov,C,2007-2008,russia2,90908,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Novozhilov (F),totals,45,2,4,6,0.13,8,-21,/player/170609/maxim-novozhilov,6,Maxim Novozhilov,F,2007-2008,russia2,170609,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Blokhin (D),Kristall Saratov,47,2,4,6,0.13,80,-5,/player/98354/andrei-blokhin,6,Andrei Blokhin,D,2007-2008,russia2,98354,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Volkov (D),totals,53,2,4,6,0.11,46,-8,/player/90910/oleg-volkov,6,Oleg Volkov,D,2007-2008,russia2,90910,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Artyukhov (D),Yermak Angarsk,20,1,5,6,0.30,32,-17,/player/78794/maxim-artyukhov,6,Maxim Artyukhov,D,2007-2008,russia2,78794,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Mochalov (F),totals,22,1,5,6,0.27,6,-5,/player/161535/vladimir-mochalov,6,Vladimir Mochalov,F,2007-2008,russia2,161535,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Savenkov (D),totals,27,1,5,6,0.22,24,-2,/player/73931/andrei-savenkov,7,Andrei Savenkov,D,2007-2008,russia2,73931,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Zhdanov (D/F),Yermak Angarsk,30,1,5,6,0.20,26,-13,/player/161825/ivan-zhdanov,7,Ivan Zhdanov,D/F,2007-2008,russia2,161825,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rafael Batyrshin (D),totals,36,1,5,6,0.17,72,-8,/player/44780/rafael-batyrshin,7,Rafael Batyrshin,D,2007-2008,russia2,44780,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Perov (D),Sputnik Nizhny Tagil,40,1,5,6,0.15,50,1,/player/98829/alexander-perov,7,Alexander Perov,D,2007-2008,russia2,98829,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Samoilov (D),Zauralie Kurgan,47,1,5,6,0.13,28,7,/player/18374/igor-samoilov,7,Igor Samoilov,D,2007-2008,russia2,18374,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Simonov (D),Kristall Saratov,57,1,5,6,0.11,81,-2,/player/114639/sergei-simonov,7,Sergei Simonov,D,2007-2008,russia2,114639,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Kobzev (D),HK Ryazan,16,0,6,6,0.38,4,-3,/player/197099/oleg-kobzev,7,Oleg Kobzev,D,2007-2008,russia2,197099,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Polyakov (RW),Toros Neftekamsk,13,4,1,5,0.38,10,-2,/player/164540/alexander-polyakov,7,Alexander Polyakov,RW,2007-2008,russia2,164540,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Bochkaryov (LW),Dizel Penza,41,4,1,5,0.12,20,1,/player/90176/sergei-bochkaryov,7,Sergei Bochkaryov,LW,2007-2008,russia2,90176,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aslan Raisov (LW),Neftyanik Leninogorsk,20,3,2,5,0.25,4,-4,/player/17620/aslan-raisov,7,Aslan Raisov,LW,2007-2008,russia2,17620,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Lemeshevsky (F),Yermak Angarsk,23,3,2,5,0.22,6,-19,/player/183725/stanislav-lemeshevsky,7,Stanislav Lemeshevsky,F,2007-2008,russia2,183725,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Grebennikov (F),totals,29,3,2,5,0.17,14,-9,/player/90392/ilya-grebennikov,7,Ilya Grebennikov,F,2007-2008,russia2,90392,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Klimchuk (LW),Yermak Angarsk,30,3,2,5,0.17,55,-18,/player/90625/mikhail-klimchuk,7,Mikhail Klimchuk,LW,2007-2008,russia2,90625,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Putilov (D),Sputnik Nizhny Tagil,31,3,2,5,0.16,10,0,/player/89417/kirill-putilov,7,Kirill Putilov,D,2007-2008,russia2,89417,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Savinov (D/LW),Ariada-Akpars Volzhsk,34,3,2,5,0.15,4,1,/player/150710/alexei-savinov,7,Alexei Savinov,D/LW,2007-2008,russia2,150710,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Mishin (F),Kristall Saratov,35,3,2,5,0.14,18,3,/player/159232/alexander-mishin,7,Alexander Mishin,F,2007-2008,russia2,159232,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vitali Barabash (F),Yermak Angarsk,37,3,2,5,0.14,14,-17,/player/190181/vitali-barabash,7,Vitali Barabash,F,2007-2008,russia2,190181,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Olkhovtsev (D),totals,40,3,2,5,0.13,24,-6,/player/90606/sergei-olkhovtsev,7,Sergei Olkhovtsev,D,2007-2008,russia2,90606,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Osipov (F),totals,21,2,3,5,0.24,14,-1,/player/154396/alexei-osipov,7,Alexei Osipov,F,2007-2008,russia2,154396,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Ostyakov (RW),totals,27,2,3,5,0.19,16,-14,/player/150043/nikolai-ostyakov,7,Nikolai Ostyakov,RW,2007-2008,russia2,150043,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Zubov (D),Zauralie Kurgan,29,2,3,5,0.17,18,-8,/player/111779/pavel-zubov,7,Pavel Zubov,D,2007-2008,russia2,111779,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Butorin (D),Gazprom-OGU Orenburg,36,2,3,5,0.14,20,-15,/player/183743/alexander-butorin,7,Alexander Butorin,D,2007-2008,russia2,183743,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Privalov (D),Yermak Angarsk,38,2,3,5,0.13,24,-17,/player/55916/alexei-privalov,7,Alexei Privalov,D,2007-2008,russia2,55916,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Malyushko (F),Sputnik Nizhny Tagil,17,1,4,5,0.29,22,-3,/player/93600/ilya-malyushko,7,Ilya Malyushko,F,2007-2008,russia2,93600,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yakov Seleznyov (D),Neftyanik Almetievsk,19,1,4,5,0.26,18,8,/player/11871/yakov-seleznyov,7,Yakov Seleznyov,D,2007-2008,russia2,11871,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olexander Vasilevski (RW),Sokil Kyiv,22,1,4,5,0.23,6,5,/player/76885/olexander-vasilevski,7,Olexander Vasilevski,RW,2007-2008,russia2,76885,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Albert Vafin (D),Ariada-Akpars Volzhsk,27,1,4,5,0.19,36,-6,/player/170257/albert-vafin,7,Albert Vafin,D,2007-2008,russia2,170257,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Manankov (D),totals,33,1,4,5,0.15,22,-3,/player/95546/yevgeni-manankov,7,Yevgeni Manankov,D,2007-2008,russia2,95546,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Polushin (F),totals,35,1,4,5,0.14,18,-8,/player/106923/anton-polushin,7,Anton Polushin,F,2007-2008,russia2,106923,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Kudrin (F),Izhstal Izhevsk,49,1,4,5,0.10,16,5,/player/106215/nikita-kudrin,7,Nikita Kudrin,F,2007-2008,russia2,106215,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Viryasov (D),Yuzhny Ural Orsk,49,1,4,5,0.10,38,-17,/player/169622/dmitri-viryasov,7,Dmitri Viryasov,D,2007-2008,russia2,169622,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Dubrovin (D),Mechel Chelyabinsk,49,1,4,5,0.10,61,12,/player/91866/nikita-dubrovin,7,Nikita Dubrovin,D,2007-2008,russia2,91866,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yuri Dolgov (D),totals,53,1,4,5,0.09,78,-4,/player/158258/yuri-dolgov,7,Yuri Dolgov,D,2007-2008,russia2,158258,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Shaposhnikov (F),Kristall Saratov,55,1,4,5,0.09,26,-15,/player/191517/alexei-shaposhnikov,7,Alexei Shaposhnikov,F,2007-2008,russia2,191517,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Romanov (D),Dizel Penza,60,1,4,5,0.08,140,-1,/player/93176/stanislav-romanov,7,Stanislav Romanov,D,2007-2008,russia2,93176,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Ilyin (RW),HK Ryazan,13,0,5,5,0.38,38,-6,/player/197135/vladimir-ilyin,7,Vladimir Ilyin,RW,2007-2008,russia2,197135,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Yushin (D),CSK VVS Samara,18,0,5,5,0.28,14,-1,/player/191403/oleg-yushin,7,Oleg Yushin,D,2007-2008,russia2,191403,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Yurasov (D),HK Ryazan,53,0,5,5,0.09,44,-4,/player/161478/sergei-yurasov,7,Sergei Yurasov,D,2007-2008,russia2,161478,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ruslan Bashkirov (LW),Kristall Elektrostal,12,4,0,4,0.33,22,-1,/player/9301/ruslan-bashkirov,7,Ruslan Bashkirov,LW,2007-2008,russia2,9301,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Vyatkin (F),totals,19,3,1,4,0.21,8,-1,/player/73924/alexei-vyatkin,7,Alexei Vyatkin,F,2007-2008,russia2,73924,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Timertashev (C),Kristall Saratov,23,3,1,4,0.17,10,-3,/player/91219/andrei-timertashev,7,Andrei Timertashev,C,2007-2008,russia2,91219,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Zhukov (D),Yuzhny Ural Orsk,15,2,2,4,0.27,6,-1,/player/174214/alexander-zhukov,7,Alexander Zhukov,D,2007-2008,russia2,174214,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Zelenchev (F),Yuzhny Ural Orsk,18,2,2,4,0.22,6,-6,/player/112402/igor-zelenchev,7,Igor Zelenchev,F,2007-2008,russia2,112402,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Shchukin (F),Gazprom-OGU Orenburg,21,2,2,4,0.19,14,-8,/player/192999/alexander-shchukin,7,Alexander Shchukin,F,2007-2008,russia2,192999,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Fedyashev (F),Kristall Saratov,24,2,2,4,0.17,6,-7,/player/31521/nikolai-fedyashev,7,Nikolai Fedyashev,F,2007-2008,russia2,31521,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Kurdyukov (D),Mechel Chelyabinsk,26,2,2,4,0.15,26,-3,/player/92406/pavel-kurdyukov,7,Pavel Kurdyukov,D,2007-2008,russia2,92406,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timofei Yakushev (D),totals,28,2,2,4,0.14,60,-12,/player/168565/timofei-yakushev,7,Timofei Yakushev,D,2007-2008,russia2,168565,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Voronov (D),Titan Klin,30,2,2,4,0.13,20,-8,/player/81291/sergei-voronov,7,Sergei Voronov,D,2007-2008,russia2,81291,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Ivanov (F),Kristall Elektrostal,44,2,2,4,0.09,26,-9,/player/188985/artyom-ivanov,7,Artyom Ivanov,F,2007-2008,russia2,188985,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Skorykh (F),Gazprom-OGU Orenburg,7,1,3,4,0.57,12,4,/player/122923/anton-skorykh,7,Anton Skorykh,F,2007-2008,russia2,122923,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Kovzalov (F),Yermak Angarsk,16,1,3,4,0.25,4,-8,/player/116049/nikita-kovzalov,7,Nikita Kovzalov,F,2007-2008,russia2,116049,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Pepelyayev (D),totals,19,1,3,4,0.21,14,-1,/player/20198/alexei-pepelyayev,7,Alexei Pepelyayev,D,2007-2008,russia2,20198,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Leonov (RW),Gazovik Tyumen,19,1,3,4,0.21,18,1,/player/84483/dmitri-leonov,7,Dmitri Leonov,RW,2007-2008,russia2,84483,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Kugut (D),Sokil Kyiv,23,1,3,4,0.17,18,0,/player/93607/igor-kugut,7,Igor Kugut,D,2007-2008,russia2,93607,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Rukin (LW/C),Kapitan Stupino,32,1,3,4,0.13,12,-11,/player/93598/andrei-rukin,7,Andrei Rukin,LW/C,2007-2008,russia2,93598,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Ushkov (D),Kazakhmys Satpaev,36,1,3,4,0.11,26,-11,/player/23075/yevgeni-ushkov,7,Yevgeni Ushkov,D,2007-2008,russia2,23075,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Tuchkov (D),Kapitan Stupino,36,1,3,4,0.11,46,-22,/player/182499/dmitri-tuchkov,7,Dmitri Tuchkov,D,2007-2008,russia2,182499,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Vakhrushev (D),Izhstal Izhevsk,38,1,3,4,0.11,40,1,/player/89405/yevgeni-vakhrushev,7,Yevgeni Vakhrushev,D,2007-2008,russia2,89405,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Yegorov (D),Khimik Voskresensk,40,1,3,4,0.10,18,-4,/player/146554/sergei-yegorov,7,Sergei Yegorov,D,2007-2008,russia2,146554,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Panyov (F),Izhstal Izhevsk,19,0,4,4,0.21,6,-3,/player/91211/pavel-panyov,7,Pavel Panyov,F,2007-2008,russia2,91211,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Matveyev (D),totals,29,0,4,4,0.14,6,-1,/player/183402/vladimir-matveyev,7,Vladimir Matveyev,D,2007-2008,russia2,183402,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Vorobyov (F),Toros Neftekamsk,29,0,4,4,0.14,12,-6,/player/26173/artyom-vorobyov,7,Artyom Vorobyov,F,2007-2008,russia2,26173,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Yakovlev (D),Toros Neftekamsk,34,0,4,4,0.12,24,-4,/player/182934/alexander-yakovlev,7,Alexander Yakovlev,D,2007-2008,russia2,182934,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Gorban (D),totals,40,0,4,4,0.10,54,-6,/player/115904/yevgeni-gorban,7,Yevgeni Gorban,D,2007-2008,russia2,115904,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Fast (D),Kazakhmys Satpaev,42,0,4,4,0.10,32,-2,/player/15284/konstantin-fast,7,Konstantin Fast,D,2007-2008,russia2,15284,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Fedoseyev (D),Izhstal Izhevsk,43,0,4,4,0.09,128,-3,/player/19487/mikhail-fedoseyev,7,Mikhail Fedoseyev,D,2007-2008,russia2,19487,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Shalnov (D),Krylia Sovetov Moskva,56,0,4,4,0.07,64,-1,/player/110670/stanislav-shalnov,7,Stanislav Shalnov,D,2007-2008,russia2,110670,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Karaulshchuk (C),Sokil Kyiv,10,2,1,3,0.30,22,1,/player/42203/alexander-karaulshchuk,7,Alexander Karaulshchuk,C,2007-2008,russia2,42203,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Babayev (F),HK Ryazan,11,2,1,3,0.27,4,2,/player/192539/alexander-babayev,7,Alexander Babayev,F,2007-2008,russia2,192539,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Karlov (RW),Sokil Kyiv,12,2,1,3,0.25,4,1,/player/21720/igor-karlov,7,Igor Karlov,RW,2007-2008,russia2,21720,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vitali Gavrilyuk (F),Sokil Kyiv,17,2,1,3,0.18,10,-1,/player/26574/vitali-gavrilyuk,7,Vitali Gavrilyuk,F,2007-2008,russia2,26574,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Mironov (F),Kapitan Stupino,17,2,1,3,0.18,14,-1,/player/197339/andrei-mironov,7,Andrei Mironov,F,2007-2008,russia2,197339,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vyacheslav Mitrofanov (F),HK Ryazan,22,2,1,3,0.14,10,-7,/player/194331/vyacheslav-mitrofanov,7,Vyacheslav Mitrofanov,F,2007-2008,russia2,194331,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Konkin (F),Izhstal Izhevsk,22,2,1,3,0.14,12,-8,/player/194574/maxim-konkin,7,Maxim Konkin,F,2007-2008,russia2,194574,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Yevtushenko (D),Toros Neftekamsk,23,2,1,3,0.13,18,0,/player/197695/pavel-yevtushenko,7,Pavel Yevtushenko,D,2007-2008,russia2,197695,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Savchenko (D),Kazzinc-Torpedo,26,2,1,3,0.12,18,5,/player/15289/roman-savchenko,7,Roman Savchenko,D,2007-2008,russia2,15289,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Gorbunov (D),Zauralie Kurgan,45,2,1,3,0.07,52,-15,/player/89561/roman-gorbunov,7,Roman Gorbunov,D,2007-2008,russia2,89561,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Dzyuban (D),Yermak Angarsk,48,2,1,3,0.06,56,-19,/player/161725/maxim-dzyuban,7,Maxim Dzyuban,D,2007-2008,russia2,161725,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Kvartalnov (LW),Khimik Voskresensk,4,1,2,3,0.75,16,1,/player/22166/dmitri-kvartalnov,7,Dmitri Kvartalnov,LW,2007-2008,russia2,22166,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Utrobin (F),Ariada-Akpars Volzhsk,9,1,2,3,0.33,4,0,/player/190609/alexander-utrobin,7,Alexander Utrobin,F,2007-2008,russia2,190609,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Borozdin (D),Yuzhny Ural Orsk,10,1,2,3,0.30,41,-7,/player/174142/sergei-borozdin,7,Sergei Borozdin,D,2007-2008,russia2,174142,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Dudarov (F),HK Ryazan,11,1,2,3,0.27,0,1,/player/161539/alexander-dudarov,7,Alexander Dudarov,F,2007-2008,russia2,161539,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Bashkirov (RW),Kristall Elektrostal,12,1,2,3,0.25,0,0,/player/11127/roman-bashkirov,7,Roman Bashkirov,RW,2007-2008,russia2,11127,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Parfiryev (D),totals,15,1,2,3,0.20,35,-1,/player/49279/sergei-parfiryev,7,Sergei Parfiryev,D,2007-2008,russia2,49279,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Drozdov (F),Gazprom-OGU Orenburg,16,1,2,3,0.19,6,-4,/player/168564/dmitri-drozdov,7,Dmitri Drozdov,F,2007-2008,russia2,168564,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yuri Zherikhov (D),Yuzhny Ural Orsk,19,1,2,3,0.16,22,-10,/player/119715/yuri-zherikhov,7,Yuri Zherikhov,D,2007-2008,russia2,119715,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vitali Kibenko (D),Titan Klin,25,1,2,3,0.12,8,2,/player/162818/vitali-kibenko,7,Vitali Kibenko,D,2007-2008,russia2,162818,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Smirnov (D),Kapitan Stupino,25,1,2,3,0.12,24,-12,/player/94682/sergei-smirnov,7,Sergei Smirnov,D,2007-2008,russia2,94682,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Taranov (D),totals,25,1,2,3,0.12,28,-12,/player/166547/igor-taranov,7,Igor Taranov,D,2007-2008,russia2,166547,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Shorokhov (D),totals,29,1,2,3,0.10,40,3,/player/5411/alexei-shorokhov,7,Alexei Shorokhov,D,2007-2008,russia2,5411,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Frolov (LW),Toros Neftekamsk,30,1,2,3,0.10,6,0,/player/77208/maxim-frolov,7,Maxim Frolov,LW,2007-2008,russia2,77208,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Milto (D),totals,32,1,2,3,0.09,34,-4,/player/191795/sergei-milto,7,Sergei Milto,D,2007-2008,russia2,191795,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ruslan Alexeyev (D),Ariada-Akpars Volzhsk,33,1,2,3,0.09,20,6,/player/188781/ruslan-alexeyev,7,Ruslan Alexeyev,D,2007-2008,russia2,188781,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Kozin (D),Neftyanik Leninogorsk,34,1,2,3,0.09,16,-4,/player/175977/anton-kozin,7,Anton Kozin,D,2007-2008,russia2,175977,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Shakarimov (D),Kristall Saratov,37,1,2,3,0.08,16,-5,/player/89554/viktor-shakarimov,7,Viktor Shakarimov,D,2007-2008,russia2,89554,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Kutugin (D),totals,39,1,2,3,0.08,24,-7,/player/95548/yegor-kutugin,7,Yegor Kutugin,D,2007-2008,russia2,95548,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Boldyrev (D),Zauralie Kurgan,44,1,2,3,0.07,44,-10,/player/25512/ivan-boldyrev,7,Ivan Boldyrev,D,2007-2008,russia2,25512,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Yapparov (D),Yermak Angarsk,45,1,2,3,0.07,44,-19,/player/197758/sergei-yapparov,7,Sergei Yapparov,D,2007-2008,russia2,197758,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Zhdanov (F),totals,15,0,3,3,0.20,4,-2,/player/21525/yevgeni-zhdanov,7,Yevgeni Zhdanov,F,2007-2008,russia2,21525,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bogdan Kiselevich (D),CSK VVS Samara,16,0,3,3,0.19,12,-4,/player/17755/bogdan-kiselevich,7,Bogdan Kiselevich,D,2007-2008,russia2,17755,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Sharkov (D),Khimik Voskresensk,19,0,3,3,0.16,40,6,/player/22164/andrei-sharkov,8,Andrei Sharkov,D,2007-2008,russia2,22164,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vitali Khlebnikov (F),totals,21,0,3,3,0.14,4,-4,/player/191400/vitali-khlebnikov,8,Vitali Khlebnikov,F,2007-2008,russia2,191400,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Borodin (D),totals,22,0,3,3,0.14,12,1,/player/20520/yevgeni-borodin,8,Yevgeni Borodin,D,2007-2008,russia2,20520,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marat Askarov (D),Avtomobilist Yekaterinburg,28,0,3,3,0.11,43,11,/player/19582/marat-askarov,8,Marat Askarov,D,2007-2008,russia2,19582,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Belousov (D),Yuzhny Ural Orsk,31,0,3,3,0.10,32,-3,/player/20203/alexei-belousov,8,Alexei Belousov,D,2007-2008,russia2,20203,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grigori Timofeyev (D),Gazovik Tyumen,33,0,3,3,0.09,72,-5,/player/197697/grigori-timofeyev,8,Grigori Timofeyev,D,2007-2008,russia2,197697,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Orishchenko (D/F),Neftyanik Almetievsk,36,0,3,3,0.08,28,6,/player/93173/alexander-orishchenko,8,Alexander Orishchenko,D/F,2007-2008,russia2,93173,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Kochetov (D),Metallurg Serov,44,0,3,3,0.07,67,-6,/player/144792/yevgeni-kochetov,8,Yevgeni Kochetov,D,2007-2008,russia2,144792,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Yeliseyev (D),HK Belgorod,60,0,3,3,0.05,60,-8,/player/45034/oleg-yeliseyev,8,Oleg Yeliseyev,D,2007-2008,russia2,45034,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valeri Belykh (F),Molot-Prikamie Perm,6,2,0,2,0.33,2,1,/player/197685/valeri-belykh,8,Valeri Belykh,F,2007-2008,russia2,197685,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Pisarev (F),Ariada-Akpars Volzhsk,9,2,0,2,0.22,4,1,/player/93162/andrei-pisarev,8,Andrei Pisarev,F,2007-2008,russia2,93162,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Utkin (LW/RW),Avtomobilist Yekaterinburg,12,2,0,2,0.17,0,2,/player/19580/dmitri-utkin,8,Dmitri Utkin,LW/RW,2007-2008,russia2,19580,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Vitoshkin (C),Barys Astana,23,2,0,2,0.09,10,-2,/player/15271/stanislav-vitoshkin,8,Stanislav Vitoshkin,C,2007-2008,russia2,15271,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Potapkin (F),totals,23,2,0,2,0.09,12,0,/player/163196/dmitri-potapkin,8,Dmitri Potapkin,F,2007-2008,russia2,163196,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Stupin (D),Sputnik Nizhny Tagil,23,2,0,2,0.09,18,-4,/player/37358/sergei-stupin,8,Sergei Stupin,D,2007-2008,russia2,37358,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yuri Yermolin (F),Gazprom-OGU Orenburg,5,1,1,2,0.40,0,1,/player/170929/yuri-yermolin,8,Yuri Yermolin,F,2007-2008,russia2,170929,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Gribkov (D),HK Ryazan,7,1,1,2,0.29,14,1,/player/197129/roman-gribkov,8,Roman Gribkov,D,2007-2008,russia2,197129,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Piyavin (F),Gazprom-OGU Orenburg,9,1,1,2,0.22,2,-1,/player/191132/dmitri-piyavin,8,Dmitri Piyavin,F,2007-2008,russia2,191132,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Danilov (D),Khimik Voskresensk,9,1,1,2,0.22,6,1,/player/22162/alexei-danilov,8,Alexei Danilov,D,2007-2008,russia2,22162,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yuri Yarutov (F),Kapitan Stupino,11,1,1,2,0.18,6,-3,/player/186338/yuri-yarutov,8,Yuri Yarutov,F,2007-2008,russia2,186338,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Shestakov (F),totals,12,1,1,2,0.17,2,0,/player/165532/anton-shestakov,8,Anton Shestakov,F,2007-2008,russia2,165532,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Glazkov (F),Mechel Chelyabinsk,12,1,1,2,0.17,6,0,/player/116029/alexander-glazkov,8,Alexander Glazkov,F,2007-2008,russia2,116029,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Klishin (D),Ariada-Akpars Volzhsk,15,1,1,2,0.13,10,3,/player/104946/sergei-klishin,8,Sergei Klishin,D,2007-2008,russia2,104946,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Alexeyev (D),Avtomobilist Yekaterinburg,16,1,1,2,0.13,20,-3,/player/19559/kirill-alexeyev,8,Kirill Alexeyev,D,2007-2008,russia2,19559,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Danilin (C),Metallurg Serov,17,1,1,2,0.12,6,-4,/player/98879/dmitri-danilin,8,Dmitri Danilin,C,2007-2008,russia2,98879,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yuri Filatov (D),Yermak Angarsk,17,1,1,2,0.12,55,-10,/player/20497/yuri-filatov,8,Yuri Filatov,D,2007-2008,russia2,20497,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Vasilyev (D),totals,19,1,1,2,0.11,22,-2,/player/188987/dmitri-vasilyev,8,Dmitri Vasilyev,D,2007-2008,russia2,188987,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Skrobot (D/LW),Gazovik Tyumen,27,1,1,2,0.07,18,-2,/player/79370/sergei-skrobot,8,Sergei Skrobot,D/LW,2007-2008,russia2,79370,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Danilov (D),Sputnik Nizhny Tagil,28,1,1,2,0.07,10,1,/player/90912/anton-danilov,8,Anton Danilov,D,2007-2008,russia2,90912,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Kachalov (F),Zauralie Kurgan,28,1,1,2,0.07,12,-8,/player/162487/alexei-kachalov,8,Alexei Kachalov,F,2007-2008,russia2,162487,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Lipin (D),Kazzinc-Torpedo,28,1,1,2,0.07,18,0,/player/115774/alexander-lipin,8,Alexander Lipin,D,2007-2008,russia2,115774,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Repkin (C),Metallurg Serov,29,1,1,2,0.07,12,-6,/player/91218/alexei-repkin,8,Alexei Repkin,C,2007-2008,russia2,91218,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Goryachev (D),Dizel Penza,33,1,1,2,0.06,20,4,/player/90178/sergei-goryachev,8,Sergei Goryachev,D,2007-2008,russia2,90178,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Tanfulu (D),HK Belgorod,37,1,1,2,0.05,28,-9,/player/190530/dmitri-tanfulu,8,Dmitri Tanfulu,D,2007-2008,russia2,190530,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Dashkevich (D),Gazovik Tyumen,43,1,1,2,0.05,34,-2,/player/98343/vladislav-dashkevich,8,Vladislav Dashkevich,D,2007-2008,russia2,98343,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yaroslav Khokhlov (D),HK Ryazan,49,1,1,2,0.04,10,0,/player/106528/yaroslav-khokhlov,8,Yaroslav Khokhlov,D,2007-2008,russia2,106528,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Burtsev (F),Neftyanik Leninogorsk,4,0,2,2,0.50,6,-1,/player/204628/dmitri-burtsev,8,Dmitri Burtsev,F,2007-2008,russia2,204628,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Shalamai (LW),HK Dmitrov,8,0,2,2,0.25,10,-2,/player/20988/sergei-shalamai,8,Sergei Shalamai,LW,2007-2008,russia2,20988,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Salmin (F),totals,9,0,2,2,0.22,2,0,/player/183429/artyom-salmin,8,Artyom Salmin,F,2007-2008,russia2,183429,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Afinogenov (RW),Toros Neftekamsk,9,0,2,2,0.22,4,0,/player/43110/denis-afinogenov,8,Denis Afinogenov,RW,2007-2008,russia2,43110,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Kozlovsky (F),Gazovik Tyumen,10,0,2,2,0.20,2,-2,/player/105910/artyom-kozlovsky,8,Artyom Kozlovsky,F,2007-2008,russia2,105910,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Apalikov (F),Mechel Chelyabinsk,11,0,2,2,0.18,2,0,/player/192996/pavel-apalikov,8,Pavel Apalikov,F,2007-2008,russia2,192996,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Kadeykin (D),Kristall Elektrostal,11,0,2,2,0.18,8,0,/player/58284/anton-kadeykin,8,Anton Kadeykin,D,2007-2008,russia2,58284,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Makoshin (D),Titan Klin,13,0,2,2,0.15,8,-1,/player/89418/anton-makoshin,8,Anton Makoshin,D,2007-2008,russia2,89418,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Vlasov (F),Titan Klin,16,0,2,2,0.13,8,-1,/player/179925/alexander-vlasov,8,Alexander Vlasov,F,2007-2008,russia2,179925,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Lyapin (F),HK Ryazan,17,0,2,2,0.12,2,-7,/player/197156/denis-lyapin,8,Denis Lyapin,F,2007-2008,russia2,197156,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Leonov (F),Kristall Elektrostal,17,0,2,2,0.12,6,-6,/player/57966/andrei-leonov,8,Andrei Leonov,F,2007-2008,russia2,57966,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Minkov (D),Yermak Angarsk,17,0,2,2,0.12,81,-14,/player/193592/yevgeni-minkov,8,Yevgeni Minkov,D,2007-2008,russia2,193592,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Brykin (D),Dizel Penza,20,0,2,2,0.10,22,-2,/player/98964/alexander-brykin,8,Alexander Brykin,D,2007-2008,russia2,98964,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Ledentsov (F),totals,24,0,2,2,0.08,8,-2,/player/179847/dmitri-ledentsov,8,Dmitri Ledentsov,F,2007-2008,russia2,179847,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Mukoseyev (D),CSK VVS Samara,25,0,2,2,0.08,36,-9,/player/87849/igor-mukoseyev,8,Igor Mukoseyev,D,2007-2008,russia2,87849,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Lukyanchikov (D),Khimik Voskresensk,27,0,2,2,0.07,22,4,/player/11868/nikolai-lukyanchikov,8,Nikolai Lukyanchikov,D,2007-2008,russia2,11868,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Shurupov (D),Zauralie Kurgan,27,0,2,2,0.07,22,-10,/player/171814/dmitri-shurupov,8,Dmitri Shurupov,D,2007-2008,russia2,171814,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Korabeynikov (D),Barys Astana,29,0,2,2,0.07,26,8,/player/21535/andrei-korabeynikov,8,Andrei Korabeynikov,D,2007-2008,russia2,21535,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Kramarenko (D),Barys Astana,30,0,2,2,0.07,185,-3,/player/21533/dmitri-kramarenko,8,Dmitri Kramarenko,D,2007-2008,russia2,21533,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniyar Akhmetov (D),Barys Astana,32,0,2,2,0.06,6,6,/player/21536/daniyar-akhmetov,8,Daniyar Akhmetov,D,2007-2008,russia2,21536,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Skopintsev (D),totals,34,0,2,2,0.06,38,-17,/player/188986/sergei-skopintsev,8,Sergei Skopintsev,D,2007-2008,russia2,188986,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Glebov (F),CSK VVS Samara,38,0,2,2,0.05,8,-11,/player/158915/oleg-glebov,8,Oleg Glebov,F,2007-2008,russia2,158915,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Chernikov (D),totals,40,0,2,2,0.05,73,-7,/player/182165/roman-chernikov,8,Roman Chernikov,D,2007-2008,russia2,182165,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Kiselyov (D),CSK VVS Samara,49,0,2,2,0.04,68,-13,/player/150576/anton-kiselyov,8,Anton Kiselyov,D,2007-2008,russia2,150576,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Ushakov (F),Krylia Sovetov Moskva,3,1,0,1,0.33,0,2,/player/163189/igor-ushakov,8,Igor Ushakov,F,2007-2008,russia2,163189,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Yakovlev (D/F),Kazakhmys Satpaev,4,1,0,1,0.25,0,-3,/player/92416/ilya-yakovlev,8,Ilya Yakovlev,D/F,2007-2008,russia2,92416,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Ivanov (RW),totals,5,1,0,1,0.20,0,0,/player/77134/ivan-ivanov,8,Ivan Ivanov,RW,2007-2008,russia2,77134,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Nogikh (F),CSK VVS Samara,5,1,0,1,0.20,0,-2,/player/105909/alexei-nogikh,8,Alexei Nogikh,F,2007-2008,russia2,105909,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Anuryev (D),Krylia Sovetov Moskva,5,1,0,1,0.20,4,5,/player/167036/konstantin-anuryev,8,Konstantin Anuryev,D,2007-2008,russia2,167036,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marat Fakhrutdinov (LW),Neftyanik Almetievsk,6,1,0,1,0.17,8,3,/player/19024/marat-fakhrutdinov,8,Marat Fakhrutdinov,LW,2007-2008,russia2,19024,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Bolshakov (LW),totals,14,1,0,1,0.07,4,-6,/player/161303/stanislav-bolshakov,8,Stanislav Bolshakov,LW,2007-2008,russia2,161303,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Kravchenko (F),totals,14,1,0,1,0.07,6,-4,/player/77128/ivan-kravchenko,8,Ivan Kravchenko,F,2007-2008,russia2,77128,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Bondarev (LW),Khimik Voskresensk,15,1,0,1,0.07,0,1,/player/22146/nikita-bondarev,8,Nikita Bondarev,LW,2007-2008,russia2,22146,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Larionov (D),Yermak Angarsk,17,1,0,1,0.06,6,-8,/player/168201/stanislav-larionov,8,Stanislav Larionov,D,2007-2008,russia2,168201,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Vorobyov (F),Kristall Elektrostal,17,1,0,1,0.06,8,-4,/player/26179/alexei-vorobyov,8,Alexei Vorobyov,F,2007-2008,russia2,26179,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Myasnikov (D),Metallurg Serov,18,1,0,1,0.06,4,3,/player/165952/andrei-myasnikov,8,Andrei Myasnikov,D,2007-2008,russia2,165952,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Bondarenko (F),Yermak Angarsk,19,1,0,1,0.05,10,-10,/player/146534/ivan-bondarenko,8,Ivan Bondarenko,F,2007-2008,russia2,146534,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Nistirenko (F),Kapitan Stupino,22,1,0,1,0.05,16,-8,/player/197347/sergei-nistirenko,8,Sergei Nistirenko,F,2007-2008,russia2,197347,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Novikov (D),Gazovik Tyumen,24,1,0,1,0.04,12,-1,/player/160694/yevgeni-novikov,8,Yevgeni Novikov,D,2007-2008,russia2,160694,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Bondarenko (RW),Kristall Saratov,27,1,0,1,0.04,8,-3,/player/98876/maxim-bondarenko,8,Maxim Bondarenko,RW,2007-2008,russia2,98876,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Zhuravlyov (RW),Yermak Angarsk,30,1,0,1,0.03,106,-15,/player/133463/roman-zhuravlyov,8,Roman Zhuravlyov,RW,2007-2008,russia2,133463,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Berdyshev (D),Gazovik Tyumen,33,1,0,1,0.03,16,-8,/player/119220/anton-berdyshev,8,Anton Berdyshev,D,2007-2008,russia2,119220,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Bochkov (D),Kristall Saratov,45,1,0,1,0.02,56,-3,/player/98625/ilya-bochkov,8,Ilya Bochkov,D,2007-2008,russia2,98625,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Skorokhodov (D),Titan Klin,53,1,0,1,0.02,38,-4,/player/89260/vladimir-skorokhodov,8,Vladimir Skorokhodov,D,2007-2008,russia2,89260,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Vorobyov (RW),Neftyanik Leninogorsk,4,0,1,1,0.25,2,0,/player/26187/maxim-vorobyov,8,Maxim Vorobyov,RW,2007-2008,russia2,26187,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Kiselyov (D),Barys Astana,4,0,1,1,0.25,4,-1,/player/21529/andrei-kiselyov,8,Andrei Kiselyov,D,2007-2008,russia2,21529,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Komendantov (D),Khimik Voskresensk,4,0,1,1,0.25,4,2,/player/22161/alexander-komendantov,8,Alexander Komendantov,D,2007-2008,russia2,22161,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gennadi Lepikhov (F),HK Ryazan,4,0,1,1,0.25,4,0,/player/197151/gennadi-lepikhov,8,Gennadi Lepikhov,F,2007-2008,russia2,197151,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Petushkov (D),Barys Astana,4,0,1,1,0.25,6,0,/player/19622/alexei-petushkov,8,Alexei Petushkov,D,2007-2008,russia2,19622,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Kachur (F),Kapitan Stupino,5,0,1,1,0.20,0,1,/player/164545/denis-kachur,8,Denis Kachur,F,2007-2008,russia2,164545,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Pichkalyov (F),Gazprom-OGU Orenburg,5,0,1,1,0.20,8,-1,/player/116089/alexei-pichkalyov,8,Alexei Pichkalyov,F,2007-2008,russia2,116089,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Shevyakov (F),Yuzhny Ural Orsk,7,0,1,1,0.14,2,-4,/player/154392/maxim-shevyakov,8,Maxim Shevyakov,F,2007-2008,russia2,154392,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Makarov (F),Mechel Chelyabinsk,7,0,1,1,0.14,2,-1,/player/178730/yevgeni-makarov,8,Yevgeni Makarov,F,2007-2008,russia2,178730,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Koskin (F),Titan Klin,7,0,1,1,0.14,6,2,/player/166752/sergei-koskin,8,Sergei Koskin,F,2007-2008,russia2,166752,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Georgi Petrov (D),totals,7,0,1,1,0.14,8,0,/player/21526/georgi-petrov,8,Georgi Petrov,D,2007-2008,russia2,21526,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Barinov (D),totals,7,0,1,1,0.14,10,0,/player/30986/dmitri-barinov,8,Dmitri Barinov,D,2007-2008,russia2,30986,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Koptyayev (F),Kristall Saratov,8,0,1,1,0.13,0,-3,/player/115894/alexei-koptyayev,8,Alexei Koptyayev,F,2007-2008,russia2,115894,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Skorodumov (F),Gazovik Tyumen,8,0,1,1,0.13,2,1,/player/168198/yevgeni-skorodumov,8,Yevgeni Skorodumov,F,2007-2008,russia2,168198,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Kurenkov (C),Sputnik Nizhny Tagil,10,0,1,1,0.10,2,0,/player/20499/dmitri-kurenkov,8,Dmitri Kurenkov,C,2007-2008,russia2,20499,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Demakov (D),Molot-Prikamie Perm,10,0,1,1,0.10,2,4,/player/116050/alexei-demakov,8,Alexei Demakov,D,2007-2008,russia2,116050,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Kostichkin (F),HK Ryazan,10,0,1,1,0.10,4,-1,/player/77205/nikolai-kostichkin,8,Nikolai Kostichkin,F,2007-2008,russia2,77205,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Lemeshevsky (D),Barys Astana,11,0,1,1,0.09,16,0,/player/20204/yevgeni-lemeshevsky,8,Yevgeni Lemeshevsky,D,2007-2008,russia2,20204,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Manukhov (D),Avtomobilist Yekaterinburg,12,0,1,1,0.08,0,4,/player/50299/nikita-manukhov,8,Nikita Manukhov,D,2007-2008,russia2,50299,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Dmitriyev (F),Kristall Elektrostal,12,0,1,1,0.08,10,-4,/player/188982/dmitri-dmitriyev,8,Dmitri Dmitriyev,F,2007-2008,russia2,188982,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vasili Sysa (D),Toros Neftekamsk,13,0,1,1,0.08,8,-1,/player/135559/vasili-sysa,9,Vasili Sysa,D,2007-2008,russia2,135559,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Farafonov (F),Yermak Angarsk,14,0,1,1,0.07,4,-7,/player/191427/dmitri-farafonov,9,Dmitri Farafonov,F,2007-2008,russia2,191427,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Yemelin (F),totals,15,0,1,1,0.07,2,1,/player/50292/konstantin-yemelin,9,Konstantin Yemelin,F,2007-2008,russia2,50292,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Osmolovsky (F),Titan Klin,15,0,1,1,0.07,2,-4,/player/190535/maxim-osmolovsky,9,Maxim Osmolovsky,F,2007-2008,russia2,190535,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Demidov (D),Krylia Sovetov Moskva,15,0,1,1,0.07,22,3,/player/60110/ilya-demidov,9,Ilya Demidov,D,2007-2008,russia2,60110,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Pevchev (D),Kapitan Stupino,15,0,1,1,0.07,28,-8,/player/188824/pavel-pevchev,9,Pavel Pevchev,D,2007-2008,russia2,188824,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vyacheslav Likholetov (D),Mechel Chelyabinsk,15,0,1,1,0.07,35,0,/player/48875/vyacheslav-likholetov,9,Vyacheslav Likholetov,D,2007-2008,russia2,48875,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Brazhnikov (D),Izhstal Izhevsk,17,0,1,1,0.06,6,-4,/player/115876/sergei-brazhnikov,9,Sergei Brazhnikov,D,2007-2008,russia2,115876,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Semyannikov (D),Yermak Angarsk,19,0,1,1,0.05,14,-19,/player/115871/nikita-semyannikov,9,Nikita Semyannikov,D,2007-2008,russia2,115871,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Dolishnya (D),Avtomobilist Yekaterinburg,19,0,1,1,0.05,16,4,/player/19574/alexander-dolishnya,9,Alexander Dolishnya,D,2007-2008,russia2,19574,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Filatov (D),totals,19,0,1,1,0.05,38,-20,/player/150875/dmitri-filatov,9,Dmitri Filatov,D,2007-2008,russia2,150875,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Shishlo (D),HK Dmitrov,20,0,1,1,0.05,8,-1,/player/154401/dmitri-shishlo,9,Dmitri Shishlo,D,2007-2008,russia2,154401,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Koblov (F),Gazovik Tyumen,22,0,1,1,0.05,0,-3,/player/157422/maxim-koblov,9,Maxim Koblov,F,2007-2008,russia2,157422,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Makar Voloshin (F),CSK VVS Samara,22,0,1,1,0.05,14,-5,/player/191407/makar-voloshin,9,Makar Voloshin,F,2007-2008,russia2,191407,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Chumakov (F),Titan Klin,25,0,1,1,0.04,0,-4,/player/166677/pavel-chumakov,9,Pavel Chumakov,F,2007-2008,russia2,166677,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Zobnin (D),totals,30,0,1,1,0.03,8,-11,/player/166607/andrei-zobnin,9,Andrei Zobnin,D,2007-2008,russia2,166607,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Demidenko (D),Kazakhmys Satpaev,33,0,1,1,0.03,8,-6,/player/167843/dmitri-demidenko,9,Dmitri Demidenko,D,2007-2008,russia2,167843,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Zabolotnev (D),totals,33,0,1,1,0.03,24,-18,/player/106987/dmitri-zabolotnev,9,Dmitri Zabolotnev,D,2007-2008,russia2,106987,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pyotr Vardugin (D),Mechel Chelyabinsk,33,0,1,1,0.03,26,1,/player/119094/pyotr-vardugin,9,Pyotr Vardugin,D,2007-2008,russia2,119094,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Tunkhuzin (D),Molot-Prikamie Perm,35,0,1,1,0.03,10,3,/player/17759/stanislav-tunkhuzin,9,Stanislav Tunkhuzin,D,2007-2008,russia2,17759,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Prygunov (D),Neftyanik Almetievsk,36,0,1,1,0.03,36,3,/player/98830/alexei-prygunov,9,Alexei Prygunov,D,2007-2008,russia2,98830,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Solodov (D),Metallurg Serov,38,0,1,1,0.03,6,-7,/player/58421/ilya-solodov,9,Ilya Solodov,D,2007-2008,russia2,58421,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Tunik (F),Krylia Sovetov Moskva,0,0,0,0,-,0,0,/player/115897/vladislav-tunik,9,Vladislav Tunik,F,2007-2008,russia2,115897,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arman Tyulyuberdinov (D),Kazakhmys Satpaev,0,0,0,0,-,0,0,/player/32772/arman-tyulyuberdinov,9,Arman Tyulyuberdinov,D,2007-2008,russia2,32772,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Poloshkov (D),Kazakhmys Satpaev,0,0,0,0,-,0,0,/player/165501/ilya-poloshkov,9,Ilya Poloshkov,D,2007-2008,russia2,165501,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Igoshkin (F),Dizel Penza,0,0,0,0,-,0,0,/player/173984/denis-igoshkin,9,Denis Igoshkin,F,2007-2008,russia2,173984,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Georgi Nikulin (D),Krylia Sovetov Moskva,0,0,0,0,-,0,0,/player/193688/georgi-nikulin,9,Georgi Nikulin,D,2007-2008,russia2,193688,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ruslan Svyrydov (D),Sokil Kyiv,0,0,0,0,-,0,0,/player/58030/ruslan-svyrydov,9,Ruslan Svyrydov,D,2007-2008,russia2,58030,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Katrich (D),Sokil Kyiv,0,0,0,0,-,0,0,/player/31522/kirill-katrich,9,Kirill Katrich,D,2007-2008,russia2,31522,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matvei Zinkov (D),Molot-Prikamie Perm,0,0,0,0,-,0,0,/player/197690/matvei-zinkov,9,Matvei Zinkov,D,2007-2008,russia2,197690,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Onischenko (F),Kazakhmys Satpaev,1,0,0,0,0.00,0,0,/player/28736/oleg-onischenko,9,Oleg Onischenko,F,2007-2008,russia2,28736,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Dementyev (D),Kazzinc-Torpedo,1,0,0,0,0.00,0,0,/player/58288/roman-dementyev,9,Roman Dementyev,D,2007-2008,russia2,58288,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Ryabenko (D),Sokil Kyiv,1,0,0,0,0.00,0,0,/player/89258/konstantin-ryabenko,9,Konstantin Ryabenko,D,2007-2008,russia2,89258,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Khomchenkov (F),Yuzhny Ural Orsk,1,0,0,0,0.00,0,0,/player/93588/alexei-khomchenkov,9,Alexei Khomchenkov,F,2007-2008,russia2,93588,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Georgi Shangin (D),CSK VVS Samara,1,0,0,0,0.00,0,-3,/player/98345/georgi-shangin,9,Georgi Shangin,D,2007-2008,russia2,98345,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Matveyev (LW),Neftyanik Almetievsk,1,0,0,0,0.00,0,0,/player/155440/sergei-matveyev,9,Sergei Matveyev,LW,2007-2008,russia2,155440,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Vorobyov (D),Gazovik Tyumen,1,0,0,0,0.00,0,0,/player/26184/vladimir-vorobyov,9,Vladimir Vorobyov,D,2007-2008,russia2,26184,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eduard Kramarenko (F),HK Belgorod,1,0,0,0,0.00,0,-2,/player/165588/eduard-kramarenko,9,Eduard Kramarenko,F,2007-2008,russia2,165588,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grigori Kryuchkov (F),Neftyanik Leninogorsk,1,0,0,0,0.00,0,0,/player/170099/grigori-kryuchkov,9,Grigori Kryuchkov,F,2007-2008,russia2,170099,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yan Kovalevsky (F),Yermak Angarsk,1,0,0,0,0.00,0,-2,/player/190180/yan-kovalevsky,9,Yan Kovalevsky,F,2007-2008,russia2,190180,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eldar Galimov (F),Neftyanik Leninogorsk,1,0,0,0,0.00,0,0,/player/191408/eldar-galimov,9,Eldar Galimov,F,2007-2008,russia2,191408,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Knyazev (F),Yermak Angarsk,1,0,0,0,0.00,0,0,/player/195111/artyom-knyazev,9,Artyom Knyazev,F,2007-2008,russia2,195111,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Sheyanov (F),Kazakhmys Satpaev,1,0,0,0,0.00,0,0,/player/196092/konstantin-sheyanov,9,Konstantin Sheyanov,F,2007-2008,russia2,196092,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Kosarenkov (F),HK Ryazan,1,0,0,0,0.00,0,0,/player/197153/mikhail-kosarenkov,9,Mikhail Kosarenkov,F,2007-2008,russia2,197153,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Ushakov (D),Mechel Chelyabinsk,1,0,0,0,0.00,2,0,/player/92409/anton-ushakov,9,Anton Ushakov,D,2007-2008,russia2,92409,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Marushev (RW),HK Ryazan,1,0,0,0,0.00,2,0,/player/98882/dmitri-marushev,9,Dmitri Marushev,RW,2007-2008,russia2,98882,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Arkhipov (F),Gazprom-OGU Orenburg,1,0,0,0,0.00,2,-1,/player/197328/yevgeni-arkhipov,9,Yevgeni Arkhipov,F,2007-2008,russia2,197328,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rostislav Koreshkov (F),Barys Astana,2,0,0,0,0.00,0,0,/player/15270/rostislav-koreshkov,9,Rostislav Koreshkov,F,2007-2008,russia2,15270,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yuri Leuto (D),Kapitan Stupino,2,0,0,0,0.00,0,0,/player/43923/yuri-leuto,9,Yuri Leuto,D,2007-2008,russia2,43923,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Stonkus (D),Metallurg Serov,2,0,0,0,0.00,0,-1,/player/58479/alexei-stonkus,9,Alexei Stonkus,D,2007-2008,russia2,58479,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Zavyalov (RW),Kazakhmys Satpaev,2,0,0,0,0.00,0,-1,/player/74095/vladimir-zavyalov,9,Vladimir Zavyalov,RW,2007-2008,russia2,74095,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Veryovkin (D),Molot-Prikamie Perm,2,0,0,0,0.00,0,0,/player/99489/maxim-veryovkin,9,Maxim Veryovkin,D,2007-2008,russia2,99489,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Migulev (F),Yuzhny Ural Orsk,2,0,0,0,0.00,0,-2,/player/115398/dmitri-migulev,9,Dmitri Migulev,F,2007-2008,russia2,115398,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Gulyakov (D),Kristall Elektrostal,2,0,0,0,0.00,0,0,/player/115874/ilya-gulyakov,9,Ilya Gulyakov,D,2007-2008,russia2,115874,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Gordeyev (D),Yermak Angarsk,2,0,0,0,0.00,0,0,/player/129206/yevgeni-gordeyev,9,Yevgeni Gordeyev,D,2007-2008,russia2,129206,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Sakharov (D),Gazprom-OGU Orenburg,2,0,0,0,0.00,0,1,/player/154405/maxim-sakharov,9,Maxim Sakharov,D,2007-2008,russia2,154405,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vyacheslav Sadovnikov (RW),Dizel Penza,2,0,0,0,0.00,0,-1,/player/156538/vyacheslav-sadovnikov,9,Vyacheslav Sadovnikov,RW,2007-2008,russia2,156538,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Muzafarov (D),Yuzhny Ural Orsk,2,0,0,0,0.00,0,0,/player/182136/yevgeni-muzafarov,9,Yevgeni Muzafarov,D,2007-2008,russia2,182136,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vitali Makarevich (D),Kristall Elektrostal,2,0,0,0,0.00,0,0,/player/188978/vitali-makarevich,9,Vitali Makarevich,D,2007-2008,russia2,188978,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Lapitsky (D),Neftyanik Leninogorsk,2,0,0,0,0.00,0,0,/player/191412/sergei-lapitsky,9,Sergei Lapitsky,D,2007-2008,russia2,191412,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Chikin (D),Kristall Saratov,2,0,0,0,0.00,0,0,/player/3412/dmitri-chikin,9,Dmitri Chikin,D,2007-2008,russia2,3412,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Martynenko (F),Gazprom-OGU Orenburg,2,0,0,0,0.00,0,0,/player/197327/maxim-martynenko,9,Maxim Martynenko,F,2007-2008,russia2,197327,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Yegin (D),Neftyanik Leninogorsk,2,0,0,0,0.00,2,0,/player/19472/vladislav-yegin,9,Vladislav Yegin,D,2007-2008,russia2,19472,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Shakhov (D/F),Kazzinc-Torpedo,2,0,0,0,0.00,2,-1,/player/119091/dmitri-shakhov,9,Dmitri Shakhov,D/F,2007-2008,russia2,119091,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Sviridenko (F),Yuzhny Ural Orsk,2,0,0,0,0.00,2,-3,/player/170693/alexander-sviridenko,9,Alexander Sviridenko,F,2007-2008,russia2,170693,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danil Kaskov (F),Avtomobilist Yekaterinburg,3,0,0,0,0.00,0,0,/player/77112/danil-kaskov,9,Danil Kaskov,F,2007-2008,russia2,77112,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valentin Aleksyuk (C),Sokil Kyiv,3,0,0,0,0.00,0,0,/player/115483/valentin-aleksyuk,9,Valentin Aleksyuk,C,2007-2008,russia2,115483,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eldar Abdulayev (F),Kazzinc-Torpedo,3,0,0,0,0.00,0,-1,/player/79379/eldar-abdulayev,9,Eldar Abdulayev,F,2007-2008,russia2,79379,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Khakalo (D),Toros Neftekamsk,3,0,0,0,0.00,0,1,/player/169620/alexei-khakalo,9,Alexei Khakalo,D,2007-2008,russia2,169620,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timur Galimov (F),Neftyanik Almetievsk,3,0,0,0,0.00,0,0,/player/175997/timur-galimov,9,Timur Galimov,F,2007-2008,russia2,175997,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Novozhilov (F),Yermak Angarsk,3,0,0,0,0.00,0,-2,/player/190179/denis-novozhilov,9,Denis Novozhilov,F,2007-2008,russia2,190179,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Zlobin (F),totals,3,0,0,0,0.00,2,-2,/player/35596/mikhail-zlobin,9,Mikhail Zlobin,F,2007-2008,russia2,35596,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vyacheslav Tokarev (C),totals,3,0,0,0,0.00,2,-2,/player/115891/vyacheslav-tokarev,9,Vyacheslav Tokarev,C,2007-2008,russia2,115891,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Shilnikov (D),Gazprom-OGU Orenburg,3,0,0,0,0.00,2,1,/player/160401/mikhail-shilnikov,9,Mikhail Shilnikov,D,2007-2008,russia2,160401,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leonid Primizenkin (D),Metallurg Serov,3,0,0,0,0.00,2,-1,/player/168052/leonid-primizenkin,9,Leonid Primizenkin,D,2007-2008,russia2,168052,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Yevseyev (D),Kazzinc-Torpedo,3,0,0,0,0.00,4,-2,/player/165515/alexander-yevseyev,9,Alexander Yevseyev,D,2007-2008,russia2,165515,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Mezhuyev (D),Ariada-Akpars Volzhsk,3,0,0,0,0.00,8,1,/player/183433/yevgeni-mezhuyev,9,Yevgeni Mezhuyev,D,2007-2008,russia2,183433,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Ageyev (LW),Molot-Prikamie Perm,4,0,0,0,0.00,0,-1,/player/11545/alexander-ageyev,9,Alexander Ageyev,LW,2007-2008,russia2,11545,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Ivanov (LW),Barys Astana,4,0,0,0,0.00,0,-1,/player/11952/nikita-ivanov,9,Nikita Ivanov,LW,2007-2008,russia2,11952,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vitali Zhilyakov (F),Sputnik Nizhny Tagil,4,0,0,0,0.00,0,-1,/player/89856/vitali-zhilyakov,9,Vitali Zhilyakov,F,2007-2008,russia2,89856,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vadim Tikhomirov (D),Kristall Saratov,4,0,0,0,0.00,0,-3,/player/98832/vadim-tikhomirov,9,Vadim Tikhomirov,D,2007-2008,russia2,98832,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Shorikov (LW),Kristall Elektrostal,4,0,0,0,0.00,0,0,/player/61839/andrei-shorikov,9,Andrei Shorikov,LW,2007-2008,russia2,61839,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Nikeshin (D),HK Belgorod,4,0,0,0,0.00,0,-1,/player/165957/andrei-nikeshin,9,Andrei Nikeshin,D,2007-2008,russia2,165957,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Trushkov (D),Kristall Saratov,4,0,0,0,0.00,0,-2,/player/190602/alexander-trushkov,9,Alexander Trushkov,D,2007-2008,russia2,190602,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Tomaz (LW),Yermak Angarsk,4,0,0,0,0.00,2,-1,/player/153476/daniil-tomaz,9,Daniil Tomaz,LW,2007-2008,russia2,153476,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Ivanov (F),Gazovik Tyumen,4,0,0,0,0.00,2,0,/player/164547/andrei-ivanov,9,Andrei Ivanov,F,2007-2008,russia2,164547,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Svinukhov (D),Krylia Sovetov Moskva,4,0,0,0,0.00,2,4,/player/167018/andrei-svinukhov,9,Andrei Svinukhov,D,2007-2008,russia2,167018,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Malyshev (D),Yuzhny Ural Orsk,4,0,0,0,0.00,6,-1,/player/162521/yegor-malyshev,9,Yegor Malyshev,D,2007-2008,russia2,162521,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Novikov (D),Kapitan Stupino,4,0,0,0,0.00,6,1,/player/188823/sergei-novikov,9,Sergei Novikov,D,2007-2008,russia2,188823,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Kostyuk (C),CSK VVS Samara,5,0,0,0,0.00,0,-1,/player/164079/anton-kostyuk,9,Anton Kostyuk,C,2007-2008,russia2,164079,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Melikhov (F),Yermak Angarsk,5,0,0,0,0.00,0,-3,/player/194960/alexei-melikhov,9,Alexei Melikhov,F,2007-2008,russia2,194960,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Berdnikov (D),CSK VVS Samara,5,0,0,0,0.00,2,-1,/player/107055/alexander-berdnikov,9,Alexander Berdnikov,D,2007-2008,russia2,107055,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Goncharov (D),Kristall Elektrostal,5,0,0,0,0.00,2,-2,/player/107280/sergei-goncharov,9,Sergei Goncharov,D,2007-2008,russia2,107280,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Gavrilov (F),totals,5,0,0,0,0.00,2,-4,/player/193591/ivan-gavrilov,9,Ivan Gavrilov,F,2007-2008,russia2,193591,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Lopatin (F),Yuzhny Ural Orsk,5,0,0,0,0.00,6,-6,/player/161919/alexei-lopatin,9,Alexei Lopatin,F,2007-2008,russia2,161919,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ruslan Mambetaliyev (D),Barys Astana,6,0,0,0,0.00,0,0,/player/21521/ruslan-mambetaliyev,9,Ruslan Mambetaliyev,D,2007-2008,russia2,21521,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marat Zaripov (F),Mechel Chelyabinsk,6,0,0,0,0.00,0,0,/player/92651/marat-zaripov,9,Marat Zaripov,F,2007-2008,russia2,92651,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Orlenko (F),Metallurg Serov,6,0,0,0,0.00,0,1,/player/114691/kirill-orlenko,9,Kirill Orlenko,F,2007-2008,russia2,114691,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vyacheslav Tabachkov (C),Krylia Sovetov Moskva,6,0,0,0,0.00,0,0,/player/152143/vyacheslav-tabachkov,9,Vyacheslav Tabachkov,C,2007-2008,russia2,152143,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Airat Gilyazeyev (F),Ariada-Akpars Volzhsk,6,0,0,0,0.00,0,-1,/player/188769/airat-gilyazeyev,9,Airat Gilyazeyev,F,2007-2008,russia2,188769,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Lapin (F),Zauralie Kurgan,6,0,0,0,0.00,0,-1,/player/197718/denis-lapin,10,Denis Lapin,F,2007-2008,russia2,197718,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Prokhorov (D),Krylia Sovetov Moskva,6,0,0,0,0.00,2,-3,/player/170045/ilya-prokhorov,10,Ilya Prokhorov,D,2007-2008,russia2,170045,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Koshcheyev (D),Metallurg Serov,6,0,0,0,0.00,4,3,/player/99410/sergei-koshcheyev,10,Sergei Koshcheyev,D,2007-2008,russia2,99410,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Kozlov (D),HK Belgorod,6,0,0,0,0.00,4,-3,/player/104943/mikhail-kozlov,10,Mikhail Kozlov,D,2007-2008,russia2,104943,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Tutykhin (D),Krylia Sovetov Moskva,6,0,0,0,0.00,4,-2,/player/193240/alexei-tutykhin,10,Alexei Tutykhin,D,2007-2008,russia2,193240,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Zlobin (D),Gazprom-OGU Orenburg,6,0,0,0,0.00,4,1,/player/193408/igor-zlobin,10,Igor Zlobin,D,2007-2008,russia2,193408,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Shulakov (D),Yermak Angarsk,6,0,0,0,0.00,10,-8,/player/161575/dmitri-shulakov,10,Dmitri Shulakov,D,2007-2008,russia2,161575,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Karimov (F),Yermak Angarsk,6,0,0,0,0.00,27,-2,/player/164579/anton-karimov,10,Anton Karimov,F,2007-2008,russia2,164579,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Rastorguyev (F),Yuzhny Ural Orsk,7,0,0,0,0.00,0,-3,/player/150044/dmitri-rastorguyev,10,Dmitri Rastorguyev,F,2007-2008,russia2,150044,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Akolzin (F),Kapitan Stupino,7,0,0,0,0.00,2,1,/player/109668/ilya-akolzin,10,Ilya Akolzin,F,2007-2008,russia2,109668,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleg Tarasov (D),Ariada-Akpars Volzhsk,7,0,0,0,0.00,2,1,/player/108920/oleg-tarasov,10,Oleg Tarasov,D,2007-2008,russia2,108920,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Gorbunov (D),Neftyanik Leninogorsk,7,0,0,0,0.00,2,0,/player/191409/nikita-gorbunov,10,Nikita Gorbunov,D,2007-2008,russia2,191409,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Sokolov (D),HK Ryazan,7,0,0,0,0.00,8,-4,/player/91504/viktor-sokolov,10,Viktor Sokolov,D,2007-2008,russia2,91504,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Kuroyedov (F),Yermak Angarsk,8,0,0,0,0.00,0,-5,/player/130375/maxim-kuroyedov,10,Maxim Kuroyedov,F,2007-2008,russia2,130375,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Sushkov (F),Neftyanik Leninogorsk,8,0,0,0,0.00,0,0,/player/191410/dmitri-sushkov,10,Dmitri Sushkov,F,2007-2008,russia2,191410,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Antropov (D),Barys Astana,8,0,0,0,0.00,2,-1,/player/15283/alexander-antropov,10,Alexander Antropov,D,2007-2008,russia2,15283,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Sidulov (D),Kazakhmys Satpaev,8,0,0,0,0.00,2,3,/player/83833/konstantin-sidulov,10,Konstantin Sidulov,D,2007-2008,russia2,83833,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Vasilyev (RW/C),Neftyanik Leninogorsk,8,0,0,0,0.00,4,-1,/player/30516/alexander-vasilyev,10,Alexander Vasilyev,RW/C,2007-2008,russia2,30516,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Alexeyev (F),Izhstal Izhevsk,8,0,0,0,0.00,4,-2,/player/147134/roman-alexeyev,10,Roman Alexeyev,F,2007-2008,russia2,147134,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Puks (LW),Neftyanik Leninogorsk,8,0,0,0,0.00,4,-1,/player/153602/alexander-puks,10,Alexander Puks,LW,2007-2008,russia2,153602,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vasili Semyonov (D),Yermak Angarsk,8,0,0,0,0.00,10,-10,/player/161582/vasili-semyonov,10,Vasili Semyonov,D,2007-2008,russia2,161582,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Cherepanov (D),Kazakhmys Satpaev,8,0,0,0,0.00,14,3,/player/23070/alexander-cherepanov,10,Alexander Cherepanov,D,2007-2008,russia2,23070,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Bazeyev (LW),CSK VVS Samara,9,0,0,0,0.00,2,-3,/player/160335/pavel-bazeyev,10,Pavel Bazeyev,LW,2007-2008,russia2,160335,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Khlystov (D),Mechel Chelyabinsk,9,0,0,0,0.00,2,0,/player/161527/alexander-khlystov,10,Alexander Khlystov,D,2007-2008,russia2,161527,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Burenin (F),Yuzhny Ural Orsk,9,0,0,0,0.00,4,-2,/player/150744/anton-burenin,10,Anton Burenin,F,2007-2008,russia2,150744,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Yegorov (D/C),Neftyanik Almetievsk,9,0,0,0,0.00,10,-2,/player/22167/sergei-yegorov,10,Sergei Yegorov,D/C,2007-2008,russia2,22167,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Vostryakov (F),Yuzhny Ural Orsk,10,0,0,0,0.00,0,-3,/player/169868/mikhail-vostryakov,10,Mikhail Vostryakov,F,2007-2008,russia2,169868,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Bratukhin (D),Yermak Angarsk,10,0,0,0,0.00,0,-3,/player/193593/anton-bratukhin,10,Anton Bratukhin,D,2007-2008,russia2,193593,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yuri Maslov (D),Izhstal Izhevsk,10,0,0,0,0.00,2,1,/player/91215/yuri-maslov,10,Yuri Maslov,D,2007-2008,russia2,91215,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Ostroukhov (D/C),Avtomobilist Yekaterinburg,10,0,0,0,0.00,2,-1,/player/95545/alexander-ostroukhov,10,Alexander Ostroukhov,D/C,2007-2008,russia2,95545,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Tugolukov (D),Ariada-Akpars Volzhsk,10,0,0,0,0.00,2,-2,/player/183408/nikolai-tugolukov,10,Nikolai Tugolukov,D,2007-2008,russia2,183408,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yuri Mamontov (D),Kapitan Stupino,11,0,0,0,0.00,0,-5,/player/90640/yuri-mamontov,10,Yuri Mamontov,D,2007-2008,russia2,90640,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Vedkalov (RW),Yuzhny Ural Orsk,11,0,0,0,0.00,4,-8,/player/98303/maxim-vedkalov,10,Maxim Vedkalov,RW,2007-2008,russia2,98303,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Lukin (F),Neftyanik Leninogorsk,11,0,0,0,0.00,4,-2,/player/160332/sergei-lukin,10,Sergei Lukin,F,2007-2008,russia2,160332,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Mizyugin (F),Kristall Saratov,11,0,0,0,0.00,6,3,/player/169867/andrei-mizyugin,10,Andrei Mizyugin,F,2007-2008,russia2,169867,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Atamanitsyn (D),Yuzhny Ural Orsk,11,0,0,0,0.00,6,-4,/player/193210/dmitri-atamanitsyn,10,Dmitri Atamanitsyn,D,2007-2008,russia2,193210,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Lange (D),totals,11,0,0,0,0.00,8,-4,/player/160417/andrei-lange,10,Andrei Lange,D,2007-2008,russia2,160417,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Bashchenko (D),Zauralie Kurgan,11,0,0,0,0.00,10,2,/player/197717/andrei-bashchenko,10,Andrei Bashchenko,D,2007-2008,russia2,197717,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Spodarenko (F),Yuzhny Ural Orsk,12,0,0,0,0.00,0,-9,/player/180391/konstantin-spodarenko,10,Konstantin Spodarenko,F,2007-2008,russia2,180391,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilgiz Galiakbirov (F),Toros Neftekamsk,12,0,0,0,0.00,0,-1,/player/191608/ilgiz-galiakbirov,10,Ilgiz Galiakbirov,F,2007-2008,russia2,191608,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ruslan Sindikov (D),Neftyanik Almetievsk,12,0,0,0,0.00,10,-3,/player/165744/ruslan-sindikov,10,Ruslan Sindikov,D,2007-2008,russia2,165744,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Grankin (D),Krylia Sovetov Moskva,13,0,0,0,0.00,2,-2,/player/160400/mikhail-grankin,10,Mikhail Grankin,D,2007-2008,russia2,160400,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Vologzhanin (D),Izhstal Izhevsk,13,0,0,0,0.00,4,-3,/player/197381/ivan-vologzhanin,10,Ivan Vologzhanin,D,2007-2008,russia2,197381,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Gusev (D),totals,13,0,0,0,0.00,8,-1,/player/161937/kirill-gusev,10,Kirill Gusev,D,2007-2008,russia2,161937,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Zykov (D),Gazprom-OGU Orenburg,13,0,0,0,0.00,14,-4,/player/197326/dmitri-zykov,10,Dmitri Zykov,D,2007-2008,russia2,197326,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Knyazev (F),Yermak Angarsk,14,0,0,0,0.00,8,-9,/player/129204/anton-knyazev,10,Anton Knyazev,F,2007-2008,russia2,129204,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Sivokon (D),Metallurg Serov,15,0,0,0,0.00,10,-4,/player/154011/viktor-sivokon,10,Viktor Sivokon,D,2007-2008,russia2,154011,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Leontyev (D),Neftyanik Almetievsk,15,0,0,0,0.00,22,1,/player/178034/konstantin-leontyev,10,Konstantin Leontyev,D,2007-2008,russia2,178034,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Gushchin (D),totals,16,0,0,0,0.00,10,-6,/player/174152/artyom-gushchin,10,Artyom Gushchin,D,2007-2008,russia2,174152,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pyotr Pankov (D),Gazprom-OGU Orenburg,16,0,0,0,0.00,18,2,/player/113438/pyotr-pankov,10,Pyotr Pankov,D,2007-2008,russia2,113438,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vitali Menshikov (D),Metallurg Serov,17,0,0,0,0.00,2,-1,/player/89389/vitali-menshikov,10,Vitali Menshikov,D,2007-2008,russia2,89389,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Ignatov (F),HK Ryazan,17,0,0,0,0.00,6,-9,/player/173588/alexander-ignatov,10,Alexander Ignatov,F,2007-2008,russia2,173588,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Vasilyev (RW),Khimik Voskresensk,17,0,0,0,0.00,14,-3,/player/22145/alexei-vasilyev,10,Alexei Vasilyev,RW,2007-2008,russia2,22145,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Khaliullin (F),Gazprom-OGU Orenburg,20,0,0,0,0.00,2,-10,/player/157680/maxim-khaliullin,10,Maxim Khaliullin,F,2007-2008,russia2,157680,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Zhmayev (D),Titan Klin,20,0,0,0,0.00,38,-1,/player/190534/alexander-zhmayev,10,Alexander Zhmayev,D,2007-2008,russia2,190534,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Kondratyev (D),Ariada-Akpars Volzhsk,21,0,0,0,0.00,6,-4,/player/168092/yevgeni-kondratyev,10,Yevgeni Kondratyev,D,2007-2008,russia2,168092,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adel Galiyev (D),totals,22,0,0,0,0.00,20,-4,/player/192538/adel-galiyev,10,Adel Galiyev,D,2007-2008,russia2,192538,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Bryukhov (D),Gazprom-OGU Orenburg,24,0,0,0,0.00,22,-3,/player/191487/sergei-bryukhov,10,Sergei Bryukhov,D,2007-2008,russia2,191487,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yevgeni Moshkarev (D),CSK VVS Samara,26,0,0,0,0.00,28,-5,/player/44319/yevgeni-moshkarev,10,Yevgeni Moshkarev,D,2007-2008,russia2,44319,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Bero (D),HK Dmitrov,33,0,0,0,0.00,6,3,/player/106598/vladislav-bero,10,Vladislav Bero,D,2007-2008,russia2,106598,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69

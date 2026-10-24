@@ -1,0 +1,415 @@
+player,team,gp,g,a,tp,p_per_gp,pim,plus_minus,link,page,playername,position,season,league,ep_player_id,scrape_date,source,package_version
+David Jankowski (C/RW),Hawkesbury Hawks,60,38,52,90,1.50,22,-,/player/246143/david-jankowski,1,David Jankowski,C/RW,2017-2018,cchl,246143,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Knoblauch (RW),Carleton Place Canadians,62,31,56,87,1.40,72,-,/player/470285/sam-knoblauch,1,Sam Knoblauch,RW,2017-2018,cchl,470285,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Barnaby (C/RW),Pembroke Lumber Kings,62,32,44,76,1.23,69,-,/player/329764/matthew-barnaby,1,Matthew Barnaby,C/RW,2017-2018,cchl,329764,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chiwetin Blacksmith (LW),Ottawa Jr. Senators,59,16,51,67,1.14,32,-,/player/254492/chiwetin-blacksmith,1,Chiwetin Blacksmith,LW,2017-2018,cchl,254492,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pierre-Luc Veillette (C),Ottawa Jr. Senators,61,33,32,65,1.07,22,-,/player/255330/pierre-luc-veillette,1,Pierre-Luc Veillette,C,2017-2018,cchl,255330,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Travis Broughman (RW),Carleton Place Canadians,60,31,34,65,1.08,42,-,/player/438485/travis-broughman,1,Travis Broughman,RW,2017-2018,cchl,438485,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Owen Guy (C),Ottawa Jr. Senators,55,32,32,64,1.16,24,-,/player/251672/owen-guy,1,Owen Guy,C,2017-2018,cchl,251672,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Lalonde (RW),Ottawa Jr. Senators,47,30,30,60,1.28,18,-,/player/267838/nick-lalonde,1,Nick Lalonde,RW,2017-2018,cchl,267838,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Theocharidis (D),Carleton Place Canadians,57,17,41,58,1.02,60,-,/player/268653/tim-theocharidis,1,Tim Theocharidis,D,2017-2018,cchl,268653,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Darcy Walsh (C),Ottawa Jr. Senators,61,23,33,56,0.92,83,-,/player/297957/darcy-walsh,1,Darcy Walsh,C,2017-2018,cchl,297957,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Geoff Kitt (C),Carleton Place Canadians,55,20,36,56,1.02,30,-,/player/200985/geoff-kitt,1,Geoff Kitt,C,2017-2018,cchl,200985,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Browne (RW),Pembroke Lumber Kings,60,23,31,54,0.90,50,-,/player/268645/brendan-browne,1,Brendan Browne,RW,2017-2018,cchl,268645,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luca Nocita (LW),Kanata Lasers,60,14,40,54,0.90,20,-,/player/299492/luca-nocita,1,Luca Nocita,LW,2017-2018,cchl,299492,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Warnholtz (LW),Pembroke Lumber Kings,61,25,28,53,0.87,54,-,/player/299662/connor-warnholtz,1,Connor Warnholtz,LW,2017-2018,cchl,299662,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonny Hill (D),Brockville Braves,62,19,34,53,0.85,72,-,/player/328735/jonny-hill,1,Jonny Hill,D,2017-2018,cchl,328735,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christopher Smith (C),Hawkesbury Hawks,49,25,27,52,1.06,46,-,/player/213440/christopher-smith,1,Christopher Smith,C,2017-2018,cchl,213440,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Blanchette (LW),Rockland Nationals,59,27,24,51,0.86,132,-,/player/256541/mathieu-blanchette,1,Mathieu Blanchette,LW,2017-2018,cchl,256541,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Dicarlo (C),Smiths Falls Bears,61,21,30,51,0.84,8,-,/player/267656/alex-dicarlo,1,Alex Dicarlo,C,2017-2018,cchl,267656,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antoine Bélisle (C),Nepean Raiders,60,19,32,51,0.85,42,-,/player/255629/antoine-belisle,1,Antoine Bélisle,C,2017-2018,cchl,255629,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyson Kirkby (F),totals,52,15,35,50,0.96,86,-,/player/252320/tyson-kirkby,1,Tyson Kirkby,F,2017-2018,cchl,252320,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Holland (C),Brockville Braves,62,24,25,49,0.79,18,-,/player/268504/eric-holland,1,Eric Holland,C,2017-2018,cchl,268504,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Allison (LW),Carleton Place Canadians,61,18,31,49,0.80,23,-,/player/216137/sam-allison,1,Sam Allison,LW,2017-2018,cchl,216137,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konnor MacCormick (LW),Cornwall Colts,58,17,32,49,0.84,75,-,/player/297969/konnor-maccormick,1,Konnor MacCormick,LW,2017-2018,cchl,297969,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Salloum (D),totals,44,12,37,49,1.11,20,-,/player/240389/zach-salloum,1,Zach Salloum,D,2017-2018,cchl,240389,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Larose (C),Smiths Falls Bears,62,19,29,48,0.77,22,-,/player/255549/michael-larose,1,Michael Larose,C,2017-2018,cchl,255549,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ashton Fry (F),Kemptville 73's,56,23,24,47,0.84,66,-,/player/272203/ashton-fry,1,Ashton Fry,F,2017-2018,cchl,272203,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Phil Gilmour (LW),Brockville Braves,61,25,21,46,0.75,28,-,/player/445385/phil-gilmour,1,Phil Gilmour,LW,2017-2018,cchl,445385,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Quinn (RW/LW),Kanata Lasers,49,21,25,46,0.94,24,-,/player/336828/jack-quinn,1,Jack Quinn,RW/LW,2017-2018,cchl,336828,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Malcolm Arseneau (D),totals,61,14,32,46,0.75,82,-,/player/275764/malcolm-arseneau,1,Malcolm Arseneau,D,2017-2018,cchl,275764,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keenan Reynolds (C),totals,48,20,24,44,0.92,68,-,/player/249520/keenan-reynolds,1,Keenan Reynolds,C,2017-2018,cchl,249520,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alec Beaudin-Tougas (F),Hawkesbury Hawks,46,20,23,43,0.93,46,-,/player/325124/alec-beaudin-tougas,1,Alec Beaudin-Tougas,F,2017-2018,cchl,325124,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kari Belec (LW),totals,61,19,24,43,0.70,49,-,/player/223521/kari-belec,1,Kari Belec,LW,2017-2018,cchl,223521,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bennett Stockdale (RW),Kanata Lasers,61,17,26,43,0.70,48,-,/player/299473/bennett-stockdale,1,Bennett Stockdale,RW,2017-2018,cchl,299473,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cameron Hebert (RW),Cornwall Colts,55,16,27,43,0.78,22,-,/player/299543/cameron-hebert,1,Cameron Hebert,RW,2017-2018,cchl,299543,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordi Jefferson (C),Brockville Braves,62,16,27,43,0.69,52,-,/player/268542/jordi-jefferson,1,Jordi Jefferson,C,2017-2018,cchl,268542,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Faith (LW),totals,55,14,29,43,0.78,14,-,/player/251661/eric-faith,1,Eric Faith,LW,2017-2018,cchl,251661,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+J.D. Pogue (LW),Cornwall Colts,41,23,19,42,1.02,70,-,/player/254618/j-d-pogue,1,J.D. Pogue,LW,2017-2018,cchl,254618,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Silas Mattawashish (F),totals,59,21,20,41,0.69,66,-,/player/254499/silas-mattawashish,1,Silas Mattawashish,F,2017-2018,cchl,254499,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Locatelli (RW),totals,56,17,24,41,0.73,44,-,/player/290754/michael-locatelli,1,Michael Locatelli,RW,2017-2018,cchl,290754,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin McRae (F),Cornwall Colts,59,16,25,41,0.69,57,-,/player/326244/justin-mcrae,1,Justin McRae,F,2017-2018,cchl,326244,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike McArthur (LW),totals,56,15,25,40,0.71,109,-,/player/254260/mike-mcarthur,1,Mike McArthur,LW,2017-2018,cchl,254260,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peyton Francis (C),Carleton Place Canadians,57,19,20,39,0.68,16,-,/player/273646/peyton-francis,1,Peyton Francis,C,2017-2018,cchl,273646,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olivier Gauthier (LW),Nepean Raiders,61,18,21,39,0.64,36,-,/player/354235/olivier-gauthier,1,Olivier Gauthier,LW,2017-2018,cchl,354235,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Horvath (C),Nepean Raiders,60,15,24,39,0.65,40,-,/player/297967/ryan-horvath,1,Ryan Horvath,C,2017-2018,cchl,297967,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Élie Boulerice (C),Ottawa Jr. Senators,57,14,25,39,0.68,12,-,/player/251668/elie-boulerice,1,Élie Boulerice,C,2017-2018,cchl,251668,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Bunka (D),Kanata Lasers,55,10,29,39,0.71,66,-,/player/249312/ryan-bunka,1,Ryan Bunka,D,2017-2018,cchl,249312,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Poirier (D),Cornwall Colts,57,15,22,37,0.65,44,-,/player/254961/david-poirier,1,David Poirier,D,2017-2018,cchl,254961,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Jarvis (D),Brockville Braves,50,12,25,37,0.74,79,-,/player/254387/andrew-jarvis,1,Andrew Jarvis,D,2017-2018,cchl,254387,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Cmunt (LW),Carleton Place Canadians,51,17,19,36,0.71,24,-,/player/268924/justin-cmunt,1,Justin Cmunt,LW,2017-2018,cchl,268924,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Tupker (C),Carleton Place Canadians,57,17,19,36,0.63,47,-,/player/300384/zach-tupker,1,Zach Tupker,C,2017-2018,cchl,300384,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommy Tanner (F),Cornwall Colts,45,14,22,36,0.80,26,-,/player/377409/tommy-tanner,1,Tommy Tanner,F,2017-2018,cchl,377409,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fletcher Anderson (RW/C),Hawkesbury Hawks,59,13,23,36,0.61,36,-,/player/388373/fletcher-anderson,1,Fletcher Anderson,RW/C,2017-2018,cchl,388373,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Casey Rhodes (F),Pembroke Lumber Kings,61,13,23,36,0.59,22,-,/player/312329/casey-rhodes,1,Casey Rhodes,F,2017-2018,cchl,312329,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicholas Hawkins (LW),Brockville Braves,61,11,25,36,0.59,38,-,/player/407156/nicholas-hawkins,1,Nicholas Hawkins,LW,2017-2018,cchl,407156,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Thousand (F),Kemptville 73's,61,9,27,36,0.59,18,-,/player/305313/jacob-thousand,1,Jacob Thousand,F,2017-2018,cchl,305313,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Liam Hunter (D),Kemptville 73's,49,8,28,36,0.73,67,-,/player/253478/liam-hunter,1,Liam Hunter,D,2017-2018,cchl,253478,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Griffin McGregor (F),Ottawa Jr. Senators,57,18,17,35,0.61,63,-,/player/300737/griffin-mcgregor,1,Griffin McGregor,F,2017-2018,cchl,300737,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Kamps (RW),Pembroke Lumber Kings,38,17,18,35,0.92,26,-,/player/268912/jacob-kamps,1,Jacob Kamps,RW,2017-2018,cchl,268912,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trevor Coykendall (F),Rockland Nationals,55,16,19,35,0.64,87,-,/player/285058/trevor-coykendall,1,Trevor Coykendall,F,2017-2018,cchl,285058,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc Shannon (C),Smiths Falls Bears,59,13,22,35,0.59,14,-,/player/283293/marc-shannon,1,Marc Shannon,C,2017-2018,cchl,283293,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Liam Markhauser (D),Kanata Lasers,62,12,23,35,0.56,42,-,/player/299476/liam-markhauser,1,Liam Markhauser,D,2017-2018,cchl,299476,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Sleeth (C),Kanata Lasers,56,15,19,34,0.61,61,-,/player/491491/connor-sleeth,1,Connor Sleeth,C,2017-2018,cchl,491491,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zachary Fournier (F),Hawkesbury Hawks,42,13,21,34,0.81,36,-,/player/299462/zachary-fournier,1,Zachary Fournier,F,2017-2018,cchl,299462,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Power (D),Rockland Nationals,62,2,32,34,0.55,36,-,/player/317479/jordan-power,1,Jordan Power,D,2017-2018,cchl,317479,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Falivena (LW),Pembroke Lumber Kings,61,17,16,33,0.54,30,-,/player/267576/peter-falivena,1,Peter Falivena,LW,2017-2018,cchl,267576,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antoine Leblanc (C),Rockland Nationals,58,15,18,33,0.57,29,-,/player/255333/antoine-leblanc,1,Antoine Leblanc,C,2017-2018,cchl,255333,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Cross (C),Pembroke Lumber Kings,46,14,19,33,0.72,83,-,/player/249780/zach-cross,1,Zach Cross,C,2017-2018,cchl,249780,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Mulhearn (F),Cornwall Colts,61,10,23,33,0.54,86,-,/player/302091/ethan-mulhearn,1,Ethan Mulhearn,F,2017-2018,cchl,302091,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alec Taillon (RW),totals,62,16,16,32,0.52,38,-,/player/460928/alec-taillon,1,Alec Taillon,RW,2017-2018,cchl,460928,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitch Larabie (LW),Smiths Falls Bears,60,15,17,32,0.53,16,-,/player/326219/mitch-larabie,1,Mitch Larabie,LW,2017-2018,cchl,326219,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benjamin Tupker (LW),Carleton Place Canadians,61,13,19,32,0.52,30,-,/player/300419/benjamin-tupker,1,Benjamin Tupker,LW,2017-2018,cchl,300419,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Gasuik (F),Hawkesbury Hawks,59,10,22,32,0.54,59,-,/player/300604/matthew-gasuik,1,Matthew Gasuik,F,2017-2018,cchl,300604,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Thorne (D),Carleton Place Canadians,47,5,27,32,0.68,48,-,/player/267093/brett-thorne,1,Brett Thorne,D,2017-2018,cchl,267093,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Conor Smart (RW),Ottawa Jr. Senators,58,13,18,31,0.53,56,-,/player/273740/conor-smart,1,Conor Smart,RW,2017-2018,cchl,273740,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Way (LW),Navan Grads,54,12,19,31,0.57,46,-,/player/251666/alex-way,1,Alex Way,LW,2017-2018,cchl,251666,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Liam Stagg (F),Nepean Raiders,55,10,21,31,0.56,16,-,/player/216120/liam-stagg,1,Liam Stagg,F,2017-2018,cchl,216120,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aidan Girduckis (D),Carleton Place Canadians,51,7,24,31,0.61,93,-,/player/267957/aidan-girduckis,1,Aidan Girduckis,D,2017-2018,cchl,267957,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Frazee (C),totals,54,17,13,30,0.56,40,-,/player/364691/joel-frazee,1,Joel Frazee,C,2017-2018,cchl,364691,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Beatty (F),Rockland Nationals,50,12,18,30,0.60,71,-,/player/354331/connor-beatty,1,Connor Beatty,F,2017-2018,cchl,354331,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Rowe (D),totals,58,11,19,30,0.52,78,-,/player/251925/noah-rowe,1,Noah Rowe,D,2017-2018,cchl,251925,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Manderville (C),totals,59,9,21,30,0.51,22,-,/player/300743/ethan-manderville,1,Ethan Manderville,C,2017-2018,cchl,300743,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Besner (D/F),totals,57,6,24,30,0.53,98,-,/player/245146/simon-besner,1,Simon Besner,D/F,2017-2018,cchl,245146,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Finn Evans (RW),Ottawa Jr. Senators,34,14,14,28,0.82,32,-,/player/273619/finn-evans,1,Finn Evans,RW,2017-2018,cchl,273619,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jean-Sylvain Boyer (LW/C),Rockland Nationals,45,14,14,28,0.62,16,-,/player/326156/jean-sylvain-boyer,1,Jean-Sylvain Boyer,LW/C,2017-2018,cchl,326156,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chad Merrell (LW),Kanata Lasers,36,13,15,28,0.78,42,-,/player/394048/chad-merrell,1,Chad Merrell,LW,2017-2018,cchl,394048,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+James Buckley (F),totals,58,12,16,28,0.48,87,-,/player/300791/james-buckley,1,James Buckley,F,2017-2018,cchl,300791,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colin Stevens (D),Hawkesbury Hawks,50,6,22,28,0.56,64,-,/player/301207/colin-stevens,1,Colin Stevens,D,2017-2018,cchl,301207,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Thomas (D),totals,50,5,22,27,0.54,44,-,/player/257899/michael-thomas,1,Michael Thomas,D,2017-2018,cchl,257899,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michaël Nantais (D),Hawkesbury Hawks,60,4,23,27,0.45,50,-,/player/254629/michael-nantais,1,Michaël Nantais,D,2017-2018,cchl,254629,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keegan Mulhearn (F),Cornwall Colts,59,14,12,26,0.44,20,-,/player/249508/keegan-mulhearn,1,Keegan Mulhearn,F,2017-2018,cchl,249508,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joey McGrath (F),totals,61,8,18,26,0.43,30,-,/player/267700/joey-mcgrath,1,Joey McGrath,F,2017-2018,cchl,267700,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike McPherson (F),Navan Grads,24,9,16,25,1.04,6,-,/player/386895/mike-mcpherson,1,Mike McPherson,F,2017-2018,cchl,386895,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jarrad Vroman (D),Pembroke Lumber Kings,62,9,16,25,0.40,32,-,/player/255936/jarrad-vroman,1,Jarrad Vroman,D,2017-2018,cchl,255936,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Devon Daniels (D),Ottawa Jr. Senators,57,4,21,25,0.44,49,-,/player/271624/devon-daniels,1,Devon Daniels,D,2017-2018,cchl,271624,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Hill (RW),Carleton Place Canadians,43,14,10,24,0.56,34,-,/player/253937/connor-hill,1,Connor Hill,RW,2017-2018,cchl,253937,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Brochu (C),Kanata Lasers,36,13,11,24,0.67,16,-,/player/254881/william-brochu,1,William Brochu,C,2017-2018,cchl,254881,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Dowdall (RW),Smiths Falls Bears,60,13,11,24,0.40,73,-,/player/299247/kyle-dowdall,1,Kyle Dowdall,RW,2017-2018,cchl,299247,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hunter Garlasco (F),Smiths Falls Bears,61,6,18,24,0.39,40,-,/player/229766/hunter-garlasco,1,Hunter Garlasco,F,2017-2018,cchl,229766,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adrien Bisson (D),Ottawa Jr. Senators,47,3,21,24,0.51,68,-,/player/299458/adrien-bisson,1,Adrien Bisson,D,2017-2018,cchl,299458,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Davis Browning (D),Nepean Raiders,53,2,22,24,0.45,64,-,/player/324918/davis-browning,1,Davis Browning,D,2017-2018,cchl,324918,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Coltart (D),Smiths Falls Bears,59,5,18,23,0.39,24,-,/player/299491/ethan-coltart,2,Ethan Coltart,D,2017-2018,cchl,299491,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christopher Theodore (LW),Cornwall Colts,22,16,6,22,1.00,4,-,/player/278108/christopher-theodore,2,Christopher Theodore,LW,2017-2018,cchl,278108,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nic Vlahos (C),Brockville Braves,40,12,10,22,0.55,6,-,/player/250200/nic-vlahos,2,Nic Vlahos,C,2017-2018,cchl,250200,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michaël Marleau (LW),Hawkesbury Hawks,39,4,18,22,0.56,56,-,/player/254736/michael-marleau,2,Michaël Marleau,LW,2017-2018,cchl,254736,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Mack (D),Brockville Braves,48,4,18,22,0.46,14,-,/player/317518/simon-mack,2,Simon Mack,D,2017-2018,cchl,317518,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trevor Poeze (C),Kanata Lasers,48,11,10,21,0.44,10,-,/player/273756/trevor-poeze,2,Trevor Poeze,C,2017-2018,cchl,273756,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frédérick Allaire (C),Brockville Braves,62,9,12,21,0.34,64,-,/player/405178/frederick-allaire,2,Frédérick Allaire,C,2017-2018,cchl,405178,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benjamin Pruneau (C),Rockland Nationals,44,8,13,21,0.48,47,-,/player/354109/benjamin-pruneau,2,Benjamin Pruneau,C,2017-2018,cchl,354109,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Craig McCabe (D),Ottawa Jr. Senators,52,7,14,21,0.40,86,-,/player/349555/craig-mccabe,2,Craig McCabe,D,2017-2018,cchl,349555,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Kerr (D),Brockville Braves,55,7,14,21,0.38,26,-,/player/486114/simon-kerr,2,Simon Kerr,D,2017-2018,cchl,486114,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Beaton (C),Kemptville 73's,60,7,14,21,0.35,2,-,/player/300798/john-beaton,2,John Beaton,C,2017-2018,cchl,300798,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Boivin (LW),Hawkesbury Hawks,49,6,15,21,0.43,92,-,/player/302099/tyler-boivin,2,Tyler Boivin,LW,2017-2018,cchl,302099,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dana Engram (C),totals,36,10,10,20,0.56,12,-,/player/253567/dana-engram,2,Dana Engram,C,2017-2018,cchl,253567,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Haydn Hopkins (C),Carleton Place Canadians,33,8,12,20,0.61,42,-,/player/160138/haydn-hopkins,2,Haydn Hopkins,C,2017-2018,cchl,160138,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Bourhas (LW),Nepean Raiders,37,8,12,20,0.54,61,-,/player/254621/alex-bourhas,2,Alex Bourhas,LW,2017-2018,cchl,254621,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Garrett Meyer (F),Kemptville 73's,59,8,12,20,0.34,106,-,/player/272582/garrett-meyer,2,Garrett Meyer,F,2017-2018,cchl,272582,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arik Breton (C),totals,47,7,13,20,0.43,38,-,/player/251671/arik-breton,2,Arik Breton,C,2017-2018,cchl,251671,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Maika (C),Pembroke Lumber Kings,53,7,13,20,0.38,18,-,/player/300796/noah-maika,2,Noah Maika,C,2017-2018,cchl,300796,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Lavoie (C),Rockland Nationals,60,7,13,20,0.33,58,-,/player/249791/cole-lavoie,2,Cole Lavoie,C,2017-2018,cchl,249791,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Isaac Anderson (C),Ottawa Jr. Senators,55,6,14,20,0.36,46,-,/player/254443/isaac-anderson,2,Isaac Anderson,C,2017-2018,cchl,254443,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Corey Tam (D),Nepean Raiders,62,4,16,20,0.32,14,-,/player/249781/corey-tam,2,Corey Tam,D,2017-2018,cchl,249781,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Douglas (D),Pembroke Lumber Kings,37,3,17,20,0.54,32,-,/player/254252/michael-douglas,2,Michael Douglas,D,2017-2018,cchl,254252,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Humberstone (D),Smiths Falls Bears,58,2,18,20,0.34,49,-,/player/344048/brett-humberstone,2,Brett Humberstone,D,2017-2018,cchl,344048,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cade Townend (D),Carleton Place Canadians,57,1,19,20,0.35,44,-,/player/334734/cade-townend,2,Cade Townend,D,2017-2018,cchl,334734,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Curtis Fabbro (RW),Navan Grads,60,11,8,19,0.32,14,-,/player/317470/curtis-fabbro,2,Curtis Fabbro,RW,2017-2018,cchl,317470,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Conley (RW),Kemptville 73's,58,9,10,19,0.33,14,-,/player/436080/eric-conley,2,Eric Conley,RW,2017-2018,cchl,436080,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Coleton Cianci (C),Navan Grads,61,8,11,19,0.31,8,-,/player/254622/coleton-cianci,2,Coleton Cianci,C,2017-2018,cchl,254622,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bruce Coltart (D),Smiths Falls Bears,47,7,12,19,0.40,12,-,/player/317488/bruce-coltart,2,Bruce Coltart,D,2017-2018,cchl,317488,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+J.J. Boucher (D),Kanata Lasers,57,6,13,19,0.33,102,-,/player/299477/j-j-boucher,2,J.J. Boucher,D,2017-2018,cchl,299477,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kristopher Lalonde (LW),Smiths Falls Bears,60,5,14,19,0.32,22,-,/player/297971/kristopher-lalonde,2,Kristopher Lalonde,LW,2017-2018,cchl,297971,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Graham Denomme (C),Nepean Raiders,61,5,14,19,0.31,24,-,/player/339335/graham-denomme,2,Graham Denomme,C,2017-2018,cchl,339335,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Rowland (D),Pembroke Lumber Kings,62,5,14,19,0.31,106,-,/player/318603/noah-rowland,2,Noah Rowland,D,2017-2018,cchl,318603,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Matton (D),totals,59,3,16,19,0.32,44,-,/player/269845/connor-matton,2,Connor Matton,D,2017-2018,cchl,269845,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Titus (RW),Kemptville 73's,33,9,9,18,0.55,41,-,/player/299438/matthew-titus,2,Matthew Titus,RW,2017-2018,cchl,299438,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shawn Kennedy (LW),totals,30,6,12,18,0.60,42,-,/player/262797/shawn-kennedy,2,Shawn Kennedy,LW,2017-2018,cchl,262797,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Shankar (RW),totals,46,6,12,18,0.39,77,-,/player/334751/jacob-shankar,2,Jacob Shankar,RW,2017-2018,cchl,334751,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Robert (C/RW),Rockland Nationals,20,10,7,17,0.85,16,-,/player/326163/alex-robert,2,Alex Robert,C/RW,2017-2018,cchl,326163,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Drew Shields (C),Rockland Nationals,48,10,7,17,0.35,44,-,/player/339327/drew-shields,2,Drew Shields,C,2017-2018,cchl,339327,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kieran Craig (LW),Hawkesbury Hawks,50,10,7,17,0.34,26,-,/player/339152/kieran-craig,2,Kieran Craig,LW,2017-2018,cchl,339152,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mason Emoff (F),Pembroke Lumber Kings,57,7,10,17,0.30,6,-,/player/460919/mason-emoff,2,Mason Emoff,F,2017-2018,cchl,460919,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Renaud (LW),Nepean Raiders,33,5,12,17,0.52,38,-,/player/252337/jordan-renaud,2,Jordan Renaud,LW,2017-2018,cchl,252337,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Brien (D),Pembroke Lumber Kings,25,3,14,17,0.68,32,-,/player/195629/jake-brien,2,Jake Brien,D,2017-2018,cchl,195629,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Geoff Dempster (C/LW),Nepean Raiders,39,11,5,16,0.41,34,-,/player/299665/geoff-dempster,2,Geoff Dempster,C/LW,2017-2018,cchl,299665,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+James Walker (LW),Brockville Braves,47,2,14,16,0.34,55,-,/player/215500/james-walker,2,James Walker,LW,2017-2018,cchl,215500,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian Bygrave (C),Smiths Falls Bears,56,11,4,15,0.27,28,-,/player/299496/brian-bygrave,2,Brian Bygrave,C,2017-2018,cchl,299496,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicholas Domitrovic (C),totals,49,9,6,15,0.31,20,-,/player/299475/nicholas-domitrovic,2,Nicholas Domitrovic,C,2017-2018,cchl,299475,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Schroeder (F),Kanata Lasers,56,7,8,15,0.27,55,-,/player/299714/tanner-schroeder,2,Tanner Schroeder,F,2017-2018,cchl,299714,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wil Murray (F),Navan Grads,57,7,8,15,0.26,91,-,/player/302094/wil-murray,2,Wil Murray,F,2017-2018,cchl,302094,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaron Brisebois (LW),totals,23,4,11,15,0.65,10,-,/player/278105/aaron-brisebois,2,Aaron Brisebois,LW,2017-2018,cchl,278105,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cameron White (D),Ottawa Jr. Senators,34,4,11,15,0.44,20,-,/player/243296/cameron-white,2,Cameron White,D,2017-2018,cchl,243296,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zac McMahon (D),Brockville Braves,48,4,11,15,0.31,43,-,/player/416729/zac-mcmahon,2,Zac McMahon,D,2017-2018,cchl,416729,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alderic Denis (D/F),totals,55,3,12,15,0.27,32,-,/player/355160/alderic-denis,2,Alderic Denis,D/F,2017-2018,cchl,355160,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicolas Guillemette (D),Hawkesbury Hawks,52,2,13,15,0.29,30,-,/player/390540/nicolas-guillemette,2,Nicolas Guillemette,D,2017-2018,cchl,390540,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeremy Quesnel (RW),Cornwall Colts,54,8,6,14,0.26,32,-,/player/317463/jeremy-quesnel,2,Jeremy Quesnel,RW,2017-2018,cchl,317463,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Walilko (F),Pembroke Lumber Kings,30,7,7,14,0.47,23,-,/player/318597/matthew-walilko,2,Matthew Walilko,F,2017-2018,cchl,318597,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jared Patterson (D),Kemptville 73's,46,7,7,14,0.30,58,-,/player/299561/jared-patterson,2,Jared Patterson,D,2017-2018,cchl,299561,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joshua Spratt (C),Brockville Braves,50,7,7,14,0.28,30,-,/player/424246/joshua-spratt,2,Joshua Spratt,C,2017-2018,cchl,424246,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hayden Hart (F),Smiths Falls Bears,60,6,8,14,0.23,28,-,/player/282587/hayden-hart,2,Hayden Hart,F,2017-2018,cchl,282587,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jared Weber (C/RW),Pembroke Lumber Kings,45,4,10,14,0.31,16,-,/player/315262/jared-weber,2,Jared Weber,C/RW,2017-2018,cchl,315262,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicolas Chartrand (F),Navan Grads,54,4,10,14,0.26,40,-,/player/317450/nicolas-chartrand,2,Nicolas Chartrand,F,2017-2018,cchl,317450,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joshua Stanley (LW),totals,38,3,11,14,0.37,8,-,/player/460926/joshua-stanley,2,Joshua Stanley,LW,2017-2018,cchl,460926,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wade Brennan (D),Rockland Nationals,56,2,12,14,0.25,134,-,/player/297974/wade-brennan,2,Wade Brennan,D,2017-2018,cchl,297974,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christopher Mammas (C),Cornwall Colts,28,1,13,14,0.50,16,-,/player/254496/christopher-mammas,2,Christopher Mammas,C,2017-2018,cchl,254496,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Halle (W),Brockville Braves,29,7,6,13,0.45,8,-,/player/416704/mathieu-halle,2,Mathieu Halle,W,2017-2018,cchl,416704,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Gibson (C),Smiths Falls Bears,50,6,7,13,0.26,40,-,/player/267828/ryan-gibson,2,Ryan Gibson,C,2017-2018,cchl,267828,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jérémy Côté (C),Hawkesbury Hawks,15,5,8,13,0.87,4,-,/player/445255/jeremy-cote,2,Jérémy Côté,C,2017-2018,cchl,445255,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christophe Côté (C),Brockville Braves,50,5,8,13,0.26,34,-,/player/534600/christophe-cote,2,Christophe Côté,C,2017-2018,cchl,534600,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+James Orr (D),Cornwall Colts,39,4,9,13,0.33,53,-,/player/284909/james-orr,2,James Orr,D,2017-2018,cchl,284909,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mackenzie White (C),totals,39,3,10,13,0.33,14,-,/player/300769/mackenzie-white,2,Mackenzie White,C,2017-2018,cchl,300769,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Monteleone (D),Cornwall Colts,47,3,10,13,0.28,125,-,/player/254773/alexander-monteleone,2,Alexander Monteleone,D,2017-2018,cchl,254773,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Johnston (C/LW),Kanata Lasers,59,3,10,13,0.22,16,-,/player/317505/alex-johnston,2,Alex Johnston,C/LW,2017-2018,cchl,317505,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthieu Franche (D),Smiths Falls Bears,61,3,10,13,0.21,46,-,/player/297966/matthieu-franche,2,Matthieu Franche,D,2017-2018,cchl,297966,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Charlie Kiefer (D),Kemptville 73's,36,2,11,13,0.36,8,-,/player/272204/charlie-kiefer,2,Charlie Kiefer,D,2017-2018,cchl,272204,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Pilotte (D),Carleton Place Canadians,21,1,12,13,0.62,23,-,/player/254744/adam-pilotte,2,Adam Pilotte,D,2017-2018,cchl,254744,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aidan Graham (D),Rockland Nationals,55,1,12,13,0.24,10,-,/player/416770/aidan-graham,2,Aidan Graham,D,2017-2018,cchl,416770,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christophe Bohémier (C),Smiths Falls Bears,34,7,5,12,0.35,10,-,/player/390520/christophe-bohemier,2,Christophe Bohémier,C,2017-2018,cchl,390520,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Donovan (F),totals,56,7,5,12,0.21,110,-,/player/300417/ryan-donovan,2,Ryan Donovan,F,2017-2018,cchl,300417,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Rider (RW),Kanata Lasers,47,6,6,12,0.26,75,-,/player/253610/connor-rider,2,Connor Rider,RW,2017-2018,cchl,253610,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Tooke (D),Carleton Place Canadians,18,5,7,12,0.67,10,-,/player/269528/noah-tooke,2,Noah Tooke,D,2017-2018,cchl,269528,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Noonan (F),Kanata Lasers,34,5,7,12,0.35,10,-,/player/300792/connor-noonan,2,Connor Noonan,F,2017-2018,cchl,300792,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Willem Larsen (D),Kanata Lasers,53,4,8,12,0.23,72,-,/player/300779/willem-larsen,2,Willem Larsen,D,2017-2018,cchl,300779,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danny Pion (LW),Ottawa Jr. Senators,19,3,9,12,0.63,28,-,/player/390088/danny-pion,2,Danny Pion,LW,2017-2018,cchl,390088,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Roy (D/F),totals,43,2,10,12,0.28,59,-,/player/334761/lucas-roy,2,Lucas Roy,D/F,2017-2018,cchl,334761,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Neal Samanski (W/C),Kemptville 73's,15,8,3,11,0.73,45,-,/player/202531/neal-samanski,2,Neal Samanski,W/C,2017-2018,cchl,202531,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Ulanov (LW/RW),Kanata Lasers,22,7,4,11,0.50,47,-,/player/418576/kirill-ulanov,2,Kirill Ulanov,LW/RW,2017-2018,cchl,418576,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joey Warywoda (C),Carleton Place Canadians,28,5,6,11,0.39,24,-,/player/326164/joey-warywoda,2,Joey Warywoda,C,2017-2018,cchl,326164,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brady Elder (F),Rockland Nationals,31,5,6,11,0.35,16,-,/player/286953/brady-elder,2,Brady Elder,F,2017-2018,cchl,286953,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brennan Markell (C),Cornwall Colts,15,4,7,11,0.73,4,-,/player/251664/brennan-markell,2,Brennan Markell,C,2017-2018,cchl,251664,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Pryce (LW),Carleton Place Canadians,15,4,7,11,0.73,12,-,/player/272334/nick-pryce,2,Nick Pryce,LW,2017-2018,cchl,272334,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colin McCaughey (F),Nepean Raiders,33,3,8,11,0.33,108,-,/player/229865/colin-mccaughey,2,Colin McCaughey,F,2017-2018,cchl,229865,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Keating (D),Rockland Nationals,46,3,8,11,0.24,35,-,/player/273674/mike-keating,2,Mike Keating,D,2017-2018,cchl,273674,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cameron Beaudry (D),Kanata Lasers,57,3,8,11,0.19,26,-,/player/269106/cameron-beaudry,2,Cameron Beaudry,D,2017-2018,cchl,269106,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joe Alexander (D),Ottawa Jr. Senators,52,2,9,11,0.21,63,-,/player/332274/joe-alexander,2,Joe Alexander,D,2017-2018,cchl,332274,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Kuhl (D),totals,47,1,10,11,0.23,34,-,/player/391946/john-kuhl,2,John Kuhl,D,2017-2018,cchl,391946,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick O'Neal (F),Hawkesbury Hawks,52,6,4,10,0.19,16,-,/player/273929/patrick-o-neal,2,Patrick O'Neal,F,2017-2018,cchl,273929,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Williams (F),Cornwall Colts,21,4,6,10,0.48,8,-,/player/304859/noah-williams,2,Noah Williams,F,2017-2018,cchl,304859,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Gagné (D),Carleton Place Canadians,44,4,6,10,0.23,69,-,/player/243299/josh-gagne,2,Josh Gagné,D,2017-2018,cchl,243299,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dan McIntyre (C),Kanata Lasers,54,4,6,10,0.19,76,-,/player/300797/dan-mcintyre,2,Dan McIntyre,C,2017-2018,cchl,300797,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Searle (D),Smiths Falls Bears,29,3,7,10,0.34,49,-,/player/299443/william-searle,2,William Searle,D,2017-2018,cchl,299443,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben MacDonald (D),totals,57,3,7,10,0.18,38,-,/player/222489/ben-macdonald,2,Ben MacDonald,D,2017-2018,cchl,222489,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Wilkins (D),Cornwall Colts,20,2,8,10,0.50,8,-,/player/322545/alex-wilkins,3,Alex Wilkins,D,2017-2018,cchl,322545,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joseph Samson (F),Cornwall Colts,44,2,8,10,0.23,22,-,/player/302095/joseph-samson,3,Joseph Samson,F,2017-2018,cchl,302095,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bailey Brant (D),totals,51,2,8,10,0.20,38,-,/player/299555/bailey-brant,3,Bailey Brant,D,2017-2018,cchl,299555,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Raphaël Gosselin (C),Rockland Nationals,19,5,4,9,0.47,4,-,/player/256377/raphael-gosselin,3,Raphaël Gosselin,C,2017-2018,cchl,256377,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benjamin Dirven (D),Cornwall Colts,50,4,5,9,0.18,34,-,/player/302106/benjamin-dirven,3,Benjamin Dirven,D,2017-2018,cchl,302106,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Vermaeten (F),Rockland Nationals,35,3,6,9,0.26,4,-,/player/336751/matthew-vermaeten,3,Matthew Vermaeten,F,2017-2018,cchl,336751,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Grant (C),Cornwall Colts,43,3,6,9,0.21,18,-,/player/294757/ethan-grant,3,Ethan Grant,C,2017-2018,cchl,294757,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jarrett Williams (LW),Kemptville 73's,56,3,6,9,0.16,8,-,/player/302070/jarrett-williams,3,Jarrett Williams,LW,2017-2018,cchl,302070,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grant Bondy (D),Kemptville 73's,27,2,7,9,0.33,22,-,/player/311052/grant-bondy,3,Grant Bondy,D,2017-2018,cchl,311052,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaden Luik (D),Carleton Place Canadians,39,2,7,9,0.23,22,-,/player/309291/jaden-luik,3,Jaden Luik,D,2017-2018,cchl,309291,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Meininger (D),Pembroke Lumber Kings,50,2,7,9,0.18,111,-,/player/296551/andrew-meininger,3,Andrew Meininger,D,2017-2018,cchl,296551,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Froese (D),Nepean Raiders,14,4,4,8,0.57,12,-,/player/381947/andrew-froese,3,Andrew Froese,D,2017-2018,cchl,381947,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hunter Fraser (D),totals,32,3,5,8,0.25,39,-,/player/306295/hunter-fraser,3,Hunter Fraser,D,2017-2018,cchl,306295,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Gervais (D),Smiths Falls Bears,59,3,5,8,0.14,76,-,/player/269353/scott-gervais,3,Scott Gervais,D,2017-2018,cchl,269353,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicolas Elia (D),Hawkesbury Hawks,24,2,6,8,0.33,12,-,/player/268938/nicolas-elia,3,Nicolas Elia,D,2017-2018,cchl,268938,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Sutherland (D),Kanata Lasers,51,2,6,8,0.16,33,-,/player/296920/eric-sutherland,3,Eric Sutherland,D,2017-2018,cchl,296920,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Collins (F),Cornwall Colts,54,2,6,8,0.15,22,-,/player/521324/jack-collins,3,Jack Collins,F,2017-2018,cchl,521324,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Harry Sanders (D),Navan Grads,55,2,6,8,0.15,35,-,/player/300736/harry-sanders,3,Harry Sanders,D,2017-2018,cchl,300736,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Smith (F),Navan Grads,50,1,7,8,0.16,121,-,/player/386277/jake-smith,3,Jake Smith,F,2017-2018,cchl,386277,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christopher Grose (D),Pembroke Lumber Kings,58,1,7,8,0.14,20,-,/player/398042/christopher-grose,3,Christopher Grose,D,2017-2018,cchl,398042,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Houle (RW),Rockland Nationals,13,4,3,7,0.54,12,-,/player/254501/simon-houle,3,Simon Houle,RW,2017-2018,cchl,254501,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Church (LW),totals,36,4,3,7,0.19,59,-,/player/299439/adam-church,3,Adam Church,LW,2017-2018,cchl,299439,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Salim Mahi-Beaudry (RW),Pembroke Lumber Kings,9,3,4,7,0.78,0,-,/player/227482/salim-mahi-beaudry,3,Salim Mahi-Beaudry,RW,2017-2018,cchl,227482,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tristan Francis (D),Navan Grads,43,1,6,7,0.16,52,-,/player/299454/tristan-francis,3,Tristan Francis,D,2017-2018,cchl,299454,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jahwara Rennalls (D),Rockland Nationals,45,1,6,7,0.16,26,-,/player/207375/jahwara-rennalls,3,Jahwara Rennalls,D,2017-2018,cchl,207375,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jackson Norlock (D),Pembroke Lumber Kings,50,1,6,7,0.14,34,-,/player/398045/jackson-norlock,3,Jackson Norlock,D,2017-2018,cchl,398045,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Jefferies (RW),Kemptville 73's,59,1,6,7,0.12,16,-,/player/442094/luke-jefferies,3,Luke Jefferies,RW,2017-2018,cchl,442094,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jed Raby (D),Navan Grads,27,0,7,7,0.26,78,-,/player/307026/jed-raby,3,Jed Raby,D,2017-2018,cchl,307026,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roddie Sandilands (D),Cornwall Colts,34,0,7,7,0.21,55,-,/player/297959/roddie-sandilands,3,Roddie Sandilands,D,2017-2018,cchl,297959,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dallas Maurovic (C),totals,28,4,2,6,0.21,4,-,/player/201505/dallas-maurovic,3,Dallas Maurovic,C,2017-2018,cchl,201505,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryson Michel (D),Nepean Raiders,52,4,2,6,0.12,4,-,/player/299465/bryson-michel,3,Bryson Michel,D,2017-2018,cchl,299465,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shane Spencer (C),totals,26,3,3,6,0.23,12,-,/player/327153/shane-spencer,3,Shane Spencer,C,2017-2018,cchl,327153,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johnny Pickering (C/LW),totals,34,3,3,6,0.18,18,-,/player/286901/johnny-pickering,3,Johnny Pickering,C/LW,2017-2018,cchl,286901,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Holtrop (C),Kemptville 73's,53,3,3,6,0.11,16,-,/player/302068/joel-holtrop,3,Joel Holtrop,C,2017-2018,cchl,302068,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Daskas (F),Kemptville 73's,27,2,4,6,0.22,10,-,/player/438548/thomas-daskas,3,Thomas Daskas,F,2017-2018,cchl,438548,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alec Vent (D),Cornwall Colts,43,2,4,6,0.14,18,-,/player/345702/alec-vent,3,Alec Vent,D,2017-2018,cchl,345702,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Tarbell (LW),Hawkesbury Hawks,46,2,4,6,0.13,53,-,/player/494648/tanner-tarbell,3,Tanner Tarbell,LW,2017-2018,cchl,494648,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Clark (RW),Carleton Place Canadians,50,2,4,6,0.12,82,-,/player/525157/jack-clark,3,Jack Clark,RW,2017-2018,cchl,525157,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Orban (D),Nepean Raiders,58,2,4,6,0.10,93,-,/player/299447/tyler-orban,3,Tyler Orban,D,2017-2018,cchl,299447,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Owen Arfstrom (D),Pembroke Lumber Kings,25,1,5,6,0.24,28,-,/player/320656/owen-arfstrom,3,Owen Arfstrom,D,2017-2018,cchl,320656,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hunter Duchesne (F),Hawkesbury Hawks,37,1,5,6,0.16,40,-,/player/326157/hunter-duchesne,3,Hunter Duchesne,F,2017-2018,cchl,326157,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Pearce (LW),totals,18,0,6,6,0.33,34,-,/player/268684/david-pearce,3,David Pearce,LW,2017-2018,cchl,268684,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Templeton (D),Carleton Place Canadians,19,0,6,6,0.32,14,-,/player/438086/martin-templeton,3,Martin Templeton,D,2017-2018,cchl,438086,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Theodore Austin (D),Kanata Lasers,19,0,6,6,0.32,38,-,/player/351026/theodore-austin,3,Theodore Austin,D,2017-2018,cchl,351026,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brant Woodside (D),Cornwall Colts,38,0,6,6,0.16,12,-,/player/302074/brant-woodside,3,Brant Woodside,D,2017-2018,cchl,302074,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joshua Barnes (C),Cornwall Colts,7,3,2,5,0.71,0,-,/player/402762/joshua-barnes,3,Joshua Barnes,C,2017-2018,cchl,402762,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabriel Morin (RW),Ottawa Jr. Senators,9,3,2,5,0.56,4,-,/player/227698/gabriel-morin,3,Gabriel Morin,RW,2017-2018,cchl,227698,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brad Estrada (F),Navan Grads,17,3,2,5,0.29,6,-,/player/308787/brad-estrada,3,Brad Estrada,F,2017-2018,cchl,308787,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Troy Quinn (D),Cornwall Colts,43,3,2,5,0.12,54,-,/player/317032/troy-quinn,3,Troy Quinn,D,2017-2018,cchl,317032,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noel De Kemp (RW),Navan Grads,12,1,4,5,0.42,0,-,/player/317476/noel-de-kemp,3,Noel De Kemp,RW,2017-2018,cchl,317476,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stuart Harley (D),Smiths Falls Bears,39,0,5,5,0.13,20,-,/player/307022/stuart-harley,3,Stuart Harley,D,2017-2018,cchl,307022,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Jurgeneit (D),totals,62,0,5,5,0.08,66,-,/player/334199/jake-jurgeneit,3,Jake Jurgeneit,D,2017-2018,cchl,334199,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tate Leeson (LW),Smiths Falls Bears,22,3,1,4,0.18,14,-,/player/355027/tate-leeson,3,Tate Leeson,LW,2017-2018,cchl,355027,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joseph Crump (RW),totals,31,3,1,4,0.13,52,-,/player/278849/joseph-crump,3,Joseph Crump,RW,2017-2018,cchl,278849,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Raphael Lecours (LW),Nepean Raiders,4,2,2,4,1.00,2,-,/player/251642/raphael-lecours,3,Raphael Lecours,LW,2017-2018,cchl,251642,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cameron Scrivens (LW),Rockland Nationals,11,2,2,4,0.36,4,-,/player/317618/cameron-scrivens,3,Cameron Scrivens,LW,2017-2018,cchl,317618,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter White (F),Pembroke Lumber Kings,12,2,2,4,0.33,16,-,/player/320655/peter-white,3,Peter White,F,2017-2018,cchl,320655,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Bidenti (C),Cornwall Colts,12,1,3,4,0.33,4,-,/player/269884/evan-bidenti,3,Evan Bidenti,C,2017-2018,cchl,269884,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vincent Robillard (C),totals,13,1,3,4,0.31,6,-,/player/269339/vincent-robillard,3,Vincent Robillard,C,2017-2018,cchl,269339,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam van Ettinger (F),Brockville Braves,16,1,3,4,0.25,8,-,/player/354993/adam-van-ettinger,3,Adam van Ettinger,F,2017-2018,cchl,354993,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Axel Côté (D),totals,20,1,3,4,0.20,6,-,/player/301374/axel-cote,3,Axel Côté,D,2017-2018,cchl,301374,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anders Johnson (D),Hawkesbury Hawks,23,1,3,4,0.17,38,-,/player/386112/anders-johnson,3,Anders Johnson,D,2017-2018,cchl,386112,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andre Simard (LW),Pembroke Lumber Kings,29,1,3,4,0.14,10,-,/player/300793/andre-simard,3,Andre Simard,LW,2017-2018,cchl,300793,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Innis (RW),Hawkesbury Hawks,10,0,4,4,0.40,4,-,/player/255501/nathan-innis,3,Nathan Innis,RW,2017-2018,cchl,255501,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Damian Figueira (D),Kemptville 73's,31,0,4,4,0.13,83,-,/player/445414/damian-figueira,3,Damian Figueira,D,2017-2018,cchl,445414,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Dennison (F),Kemptville 73's,5,1,2,3,0.60,0,-,/player/317525/cole-dennison,3,Cole Dennison,F,2017-2018,cchl,317525,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Richardson (LW/RW),Smiths Falls Bears,6,1,2,3,0.50,4,-,/player/317510/ryan-richardson,3,Ryan Richardson,LW/RW,2017-2018,cchl,317510,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeffrey Taylor (C),Kemptville 73's,7,1,2,3,0.43,0,-,/player/317485/jeffrey-taylor,3,Jeffrey Taylor,C,2017-2018,cchl,317485,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joshua Filoso (F),Ottawa Jr. Senators,7,1,2,3,0.43,4,-,/player/299708/joshua-filoso,3,Joshua Filoso,F,2017-2018,cchl,299708,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reece Bolton (RW),Carleton Place Canadians,9,1,2,3,0.33,0,-,/player/300800/reece-bolton,3,Reece Bolton,RW,2017-2018,cchl,300800,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Trudel (C),Navan Grads,11,1,2,3,0.27,0,-,/player/556713/justin-trudel,3,Justin Trudel,C,2017-2018,cchl,556713,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Prestia (D),Smiths Falls Bears,16,1,2,3,0.19,0,-,/player/238522/nick-prestia,3,Nick Prestia,D,2017-2018,cchl,238522,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Meikle (D),totals,18,1,2,3,0.17,47,-,/player/273719/jake-meikle,3,Jake Meikle,D,2017-2018,cchl,273719,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blake Kettyle (F),Smiths Falls Bears,21,1,2,3,0.14,4,-,/player/354997/blake-kettyle,3,Blake Kettyle,F,2017-2018,cchl,354997,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danyk Drouin (LW),totals,22,1,2,3,0.14,10,-,/player/317451/danyk-drouin,3,Danyk Drouin,LW,2017-2018,cchl,317451,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Blad (D),Rockland Nationals,30,1,2,3,0.10,70,-,/player/378053/anthony-blad,3,Anthony Blad,D,2017-2018,cchl,378053,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukash Matthews (D),Rockland Nationals,7,0,3,3,0.43,17,-,/player/398036/lukash-matthews,3,Lukash Matthews,D,2017-2018,cchl,398036,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Von Schoenberg (D),Hawkesbury Hawks,16,0,3,3,0.19,2,-,/player/333524/thomas-von-schoenberg,3,Thomas Von Schoenberg,D,2017-2018,cchl,333524,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Louis Chabot (F),Rockland Nationals,6,2,0,2,0.33,0,-,/player/275719/louis-chabot,3,Louis Chabot,F,2017-2018,cchl,275719,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Osburn (D),Navan Grads,44,2,0,2,0.05,26,-,/player/324911/ethan-osburn,3,Ethan Osburn,D,2017-2018,cchl,324911,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tom Callaghan (F),Brockville Braves,4,1,1,2,0.50,6,-,/player/469919/tom-callaghan,3,Tom Callaghan,F,2017-2018,cchl,469919,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Caza (LW),Hawkesbury Hawks,5,1,1,2,0.40,4,-,/player/304384/david-caza,3,David Caza,LW,2017-2018,cchl,304384,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Xavier Léveillé (D/F),Hawkesbury Hawks,5,1,1,2,0.40,6,-,/player/339153/xavier-leveille,3,Xavier Léveillé,D/F,2017-2018,cchl,339153,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean Ross (C),Carleton Place Canadians,6,1,1,2,0.33,2,-,/player/268525/sean-ross,3,Sean Ross,C,2017-2018,cchl,268525,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brent Hill (RW),Carleton Place Canadians,8,1,1,2,0.25,2,-,/player/258524/brent-hill,3,Brent Hill,RW,2017-2018,cchl,258524,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cameron Sinclair (F),Kanata Lasers,12,1,1,2,0.17,2,-,/player/299423/cameron-sinclair,3,Cameron Sinclair,F,2017-2018,cchl,299423,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Peladeau (LW),Cornwall Colts,12,1,1,2,0.17,31,-,/player/286896/josh-peladeau,3,Josh Peladeau,LW,2017-2018,cchl,286896,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matteas Derraugh (D),Pembroke Lumber Kings,16,1,1,2,0.13,6,-,/player/386345/matteas-derraugh,3,Matteas Derraugh,D,2017-2018,cchl,386345,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rico Rossi (F),Nepean Raiders,21,1,1,2,0.10,10,-,/player/196346/rico-rossi,3,Rico Rossi,F,2017-2018,cchl,196346,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jean-Mathieu Lavoie (D),Hawkesbury Hawks,30,1,1,2,0.07,12,-,/player/494812/jean-mathieu-lavoie,3,Jean-Mathieu Lavoie,D,2017-2018,cchl,494812,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Theo Citrullo (D),Brockville Braves,42,1,1,2,0.05,62,-,/player/416737/theo-citrullo,3,Theo Citrullo,D,2017-2018,cchl,416737,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olivier Schingh-Gomez (D/LW),Rockland Nationals,9,0,2,2,0.22,89,-,/player/213556/olivier-schingh-gomez,3,Olivier Schingh-Gomez,D/LW,2017-2018,cchl,213556,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Giancarlo Romano (D),Pembroke Lumber Kings,10,0,2,2,0.20,8,-,/player/344485/giancarlo-romano,3,Giancarlo Romano,D,2017-2018,cchl,344485,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hughie McHugh (F),Smiths Falls Bears,21,0,2,2,0.10,8,-,/player/283771/hughie-mchugh,3,Hughie McHugh,F,2017-2018,cchl,283771,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+François Drouin (LW),Navan Grads,22,0,2,2,0.09,21,-,/player/302105/francois-drouin,3,François Drouin,LW,2017-2018,cchl,302105,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommy Bertrand (D),Kemptville 73's,22,0,2,2,0.09,21,-,/player/507561/tommy-bertrand,3,Tommy Bertrand,D,2017-2018,cchl,507561,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexis Giguère (D),Kemptville 73's,25,0,2,2,0.08,18,-,/player/278115/alexis-giguere,3,Alexis Giguère,D,2017-2018,cchl,278115,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Lau (D),Cornwall Colts,31,0,2,2,0.06,4,-,/player/272312/sam-lau,3,Sam Lau,D,2017-2018,cchl,272312,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joey Laird (C),Nepean Raiders,1,1,0,1,1.00,12,-,/player/254442/joey-laird,3,Joey Laird,C,2017-2018,cchl,254442,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Vala (C),Carleton Place Canadians,2,1,0,1,0.50,0,-,/player/207902/alex-vala,3,Alex Vala,C,2017-2018,cchl,207902,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Allen (C/LW),Pembroke Lumber Kings,4,1,0,1,0.25,0,-,/player/201478/matthew-allen,4,Matthew Allen,C/LW,2017-2018,cchl,201478,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Collins (F),Rockland Nationals,4,1,0,1,0.25,0,-,/player/317472/william-collins,4,William Collins,F,2017-2018,cchl,317472,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Pawlikowski (F),Kemptville 73's,4,1,0,1,0.25,4,-,/player/300806/ryan-pawlikowski,4,Ryan Pawlikowski,F,2017-2018,cchl,300806,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryland Mosley (LW/RW),Carleton Place Canadians,5,1,0,1,0.20,4,-,/player/300794/ryland-mosley,4,Ryland Mosley,LW/RW,2017-2018,cchl,300794,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexandre Fréchette (C),Navan Grads,6,1,0,1,0.17,0,-,/player/413647/alexandre-frechette,4,Alexandre Fréchette,C,2017-2018,cchl,413647,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janick LaCroix (F),Hawkesbury Hawks,6,1,0,1,0.17,2,-,/player/442120/janick-lacroix,4,Janick LaCroix,F,2017-2018,cchl,442120,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+James Lister (C),Carleton Place Canadians,7,1,0,1,0.14,0,-,/player/317486/james-lister,4,James Lister,C,2017-2018,cchl,317486,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joey Kubachka (C),Brockville Braves,10,1,0,1,0.10,4,-,/player/272252/joey-kubachka,4,Joey Kubachka,C,2017-2018,cchl,272252,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob McIntyre (F),Pembroke Lumber Kings,11,1,0,1,0.09,2,-,/player/455631/jacob-mcintyre,4,Jacob McIntyre,F,2017-2018,cchl,455631,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nolan Marshall (LW),Kanata Lasers,26,1,0,1,0.04,0,-,/player/410938/nolan-marshall,4,Nolan Marshall,LW,2017-2018,cchl,410938,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Mueller (D),Nepean Raiders,52,1,0,1,0.02,10,-,/player/324975/scott-mueller,4,Scott Mueller,D,2017-2018,cchl,324975,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Haymes (F),Navan Grads,1,0,1,1,1.00,0,-,/player/299550/noah-haymes,4,Noah Haymes,F,2017-2018,cchl,299550,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Côté (D),Hawkesbury Hawks,1,0,1,1,1.00,0,-,/player/255961/alex-cote,4,Alex Côté,D,2017-2018,cchl,255961,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Briggs (F),Smiths Falls Bears,1,0,1,1,1.00,0,-,/player/383340/matthew-briggs,4,Matthew Briggs,F,2017-2018,cchl,383340,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Isaiah Baptiste (D),Nepean Raiders,1,0,1,1,1.00,0,-,/player/402774/isaiah-baptiste,4,Isaiah Baptiste,D,2017-2018,cchl,402774,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Karas (D),Pembroke Lumber Kings,2,0,1,1,0.50,0,-,/player/417062/michael-karas,4,Michael Karas,D,2017-2018,cchl,417062,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Lamont (F),Ottawa Jr. Senators,2,0,1,1,0.50,0,-,/player/325948/jacob-lamont,4,Jacob Lamont,F,2017-2018,cchl,325948,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Ieradi (C),Smiths Falls Bears,2,0,1,1,0.50,0,-,/player/336874/anthony-ieradi,4,Anthony Ieradi,C,2017-2018,cchl,336874,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Brazeau (F),Hawkesbury Hawks,2,0,1,1,0.50,0,-,/player/355197/brandon-brazeau,4,Brandon Brazeau,F,2017-2018,cchl,355197,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christopher Frenette-Lemay (F),Rockland Nationals,2,0,1,1,0.50,6,-,/player/275466/christopher-frenette-lemay,4,Christopher Frenette-Lemay,F,2017-2018,cchl,275466,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luka Marinic (F),Nepean Raiders,3,0,1,1,0.33,0,-,/player/354995/luka-marinic,4,Luka Marinic,F,2017-2018,cchl,354995,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Fleming (LW),Ottawa Jr. Senators,4,0,1,1,0.25,0,-,/player/442126/kyle-fleming,4,Kyle Fleming,LW,2017-2018,cchl,442126,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean McGurn (C),Ottawa Jr. Senators,4,0,1,1,0.25,0,-,/player/402767/sean-mcgurn,4,Sean McGurn,C,2017-2018,cchl,402767,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Boucher (LW/C),Rockland Nationals,4,0,1,1,0.25,4,-,/player/342194/evan-boucher,4,Evan Boucher,LW/C,2017-2018,cchl,342194,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antonio Micucci (F),Navan Grads,5,0,1,1,0.20,0,-,/player/251746/antonio-micucci,4,Antonio Micucci,F,2017-2018,cchl,251746,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Birnie (RW),Brockville Braves,5,0,1,1,0.20,0,-,/player/336821/max-birnie,4,Max Birnie,RW,2017-2018,cchl,336821,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nolan Seed (D),Smiths Falls Bears,5,0,1,1,0.20,0,-,/player/413833/nolan-seed,4,Nolan Seed,D,2017-2018,cchl,413833,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ty Gauthier (D),Kanata Lasers,5,0,1,1,0.20,2,-,/player/300801/ty-gauthier,4,Ty Gauthier,D,2017-2018,cchl,300801,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dakota Seaman (RW/LW),Nepean Raiders,5,0,1,1,0.20,2,-,/player/496536/dakota-seaman,4,Dakota Seaman,RW/LW,2017-2018,cchl,496536,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jay Powell (D),Carleton Place Canadians,5,0,1,1,0.20,6,-,/player/304903/jay-powell,4,Jay Powell,D,2017-2018,cchl,304903,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew McGuire (D),Ottawa Jr. Senators,6,0,1,1,0.17,2,-,/player/442111/matthew-mcguire,4,Matthew McGuire,D,2017-2018,cchl,442111,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cameron McLean (D),Kemptville 73's,7,0,1,1,0.14,2,-,/player/309303/cameron-mclean,4,Cameron McLean,D,2017-2018,cchl,309303,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cameron Patton (C),Carleton Place Canadians,8,0,1,1,0.13,0,-,/player/266602/cameron-patton,4,Cameron Patton,C,2017-2018,cchl,266602,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mason Piercey (D),Brockville Braves,8,0,1,1,0.13,2,-,/player/465230/mason-piercey,4,Mason Piercey,D,2017-2018,cchl,465230,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ugo Roik (LW),Kanata Lasers,8,0,1,1,0.13,12,-,/player/251740/ugo-roik,4,Ugo Roik,LW,2017-2018,cchl,251740,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eastan Eckert (D),Carleton Place Canadians,11,0,1,1,0.09,0,-,/player/361014/eastan-eckert,4,Eastan Eckert,D,2017-2018,cchl,361014,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Goodfellow (RW/D),Navan Grads,12,0,1,1,0.08,0,-,/player/300773/adam-goodfellow,4,Adam Goodfellow,RW/D,2017-2018,cchl,300773,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Preston (D),Kemptville 73's,13,0,1,1,0.08,4,-,/player/275830/kyle-preston,4,Kyle Preston,D,2017-2018,cchl,275830,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Davy (D),Brockville Braves,15,0,1,1,0.07,6,-,/player/302085/ben-davy,4,Ben Davy,D,2017-2018,cchl,302085,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabriel Blouin (D),Kanata Lasers,17,0,1,1,0.06,6,-,/player/507556/gabriel-blouin,4,Gabriel Blouin,D,2017-2018,cchl,507556,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Cahill (D),Navan Grads,22,0,1,1,0.05,6,-,/player/302097/ethan-cahill,4,Ethan Cahill,D,2017-2018,cchl,302097,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxime Fortin (D),Hawkesbury Hawks,38,0,1,1,0.03,51,-,/player/286107/maxime-fortin,4,Maxime Fortin,D,2017-2018,cchl,286107,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Barban (C),Navan Grads,39,0,1,1,0.03,47,-,/player/299671/tyler-barban,4,Tyler Barban,C,2017-2018,cchl,299671,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Devin Saumur (F),Kanata Lasers,1,0,0,0,0.00,0,-,/player/299676/devin-saumur,4,Devin Saumur,F,2017-2018,cchl,299676,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Kuciak (D),Kemptville 73's,1,0,0,0,0.00,0,-,/player/355199/adam-kuciak,4,Adam Kuciak,D,2017-2018,cchl,355199,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Malette (LW),Ottawa Jr. Senators,1,0,0,0,0.00,0,-,/player/296292/carter-malette,4,Carter Malette,LW,2017-2018,cchl,296292,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Mills (D),Carleton Place Canadians,1,0,0,0,0.00,0,-,/player/398052/josh-mills,4,Josh Mills,D,2017-2018,cchl,398052,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+George Young (LW),Nepean Raiders,1,0,0,0,0.00,0,-,/player/319531/george-young,4,George Young,LW,2017-2018,cchl,319531,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shawn Timlin (D),Nepean Raiders,1,0,0,0,0.00,0,-,/player/300768/shawn-timlin,4,Shawn Timlin,D,2017-2018,cchl,300768,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexandre Wall (F),Navan Grads,1,0,0,0,0.00,0,-,/player/300745/alexandre-wall,4,Alexandre Wall,F,2017-2018,cchl,300745,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brayden Campeau (C),Carleton Place Canadians,1,0,0,0,0.00,0,-,/player/325946/brayden-campeau,4,Brayden Campeau,C,2017-2018,cchl,325946,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike McInerney (F),Kemptville 73's,1,0,0,0,0.00,0,-,/player/438543/mike-mcinerney,4,Mike McInerney,F,2017-2018,cchl,438543,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Paquette (D),Hawkesbury Hawks,1,0,0,0,0.00,0,-,/player/299464/adam-paquette,4,Adam Paquette,D,2017-2018,cchl,299464,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Carangelo (F),Brockville Braves,1,0,0,0,0.00,0,-,/player/301090/tyler-carangelo,4,Tyler Carangelo,F,2017-2018,cchl,301090,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+James St. Louis (F),Cornwall Colts,1,0,0,0,0.00,0,-,/player/442102/james-st-louis,4,James St. Louis,F,2017-2018,cchl,442102,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Seed (D),Smiths Falls Bears,1,0,0,0,0.00,0,-,/player/355191/matthew-seed,4,Matthew Seed,D,2017-2018,cchl,355191,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julian Recine (C),Kanata Lasers,1,0,0,0,0.00,0,-,/player/413693/julian-recine,4,Julian Recine,C,2017-2018,cchl,413693,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reid Russett (LW),Smiths Falls Bears,1,0,0,0,0.00,0,-,/player/317489/reid-russett,4,Reid Russett,LW,2017-2018,cchl,317489,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Bonfield (RW),Kemptville 73's,1,0,0,0,0.00,0,-,/player/317534/ryan-bonfield,4,Ryan Bonfield,RW,2017-2018,cchl,317534,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emile Cyr (F),Carleton Place Canadians,1,0,0,0,0.00,2,-,/player/398019/emile-cyr,4,Emile Cyr,F,2017-2018,cchl,398019,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antonio Silenu (D),Nepean Raiders,1,0,0,0,0.00,2,-,/player/300778/antonio-silenu,4,Antonio Silenu,D,2017-2018,cchl,300778,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kodiak Whiteduck (LW),Nepean Raiders,2,0,0,0,0.00,0,-,/player/349020/kodiak-whiteduck,4,Kodiak Whiteduck,LW,2017-2018,cchl,349020,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christopher Carr-Ansah (D),Brockville Braves,2,0,0,0,0.00,0,-,/player/418730/christopher-carr-ansah,4,Christopher Carr-Ansah,D,2017-2018,cchl,418730,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pierce Britton (D),Ottawa Jr. Senators,2,0,0,0,0.00,0,-,/player/398027/pierce-britton,4,Pierce Britton,D,2017-2018,cchl,398027,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mason Carter (D),Rockland Nationals,2,0,0,0,0.00,0,-,/player/413630/mason-carter,4,Mason Carter,D,2017-2018,cchl,413630,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rocco Testa-Basi (C),Rockland Nationals,2,0,0,0,0.00,0,-,/player/413637/rocco-testa-basi,4,Rocco Testa-Basi,C,2017-2018,cchl,413637,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aidan Hilton (D),Rockland Nationals,2,0,0,0,0.00,0,-,/player/317469/aidan-hilton,4,Aidan Hilton,D,2017-2018,cchl,317469,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Romain (D),Hawkesbury Hawks,2,0,0,0,0.00,0,-,/player/270776/brett-romain,4,Brett Romain,D,2017-2018,cchl,270776,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Bays (D),Ottawa Jr. Senators,2,0,0,0,0.00,0,-,/player/342195/brendan-bays,4,Brendan Bays,D,2017-2018,cchl,342195,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Simpson (D),Hawkesbury Hawks,2,0,0,0,0.00,0,-,/player/254507/william-simpson,4,William Simpson,D,2017-2018,cchl,254507,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dante Hoffman (D),Kanata Lasers,2,0,0,0,0.00,0,-,/player/336842/dante-hoffman,4,Dante Hoffman,D,2017-2018,cchl,336842,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bobby Dempster (D),Nepean Raiders,2,0,0,0,0.00,0,-,/player/317477/bobby-dempster,4,Bobby Dempster,D,2017-2018,cchl,317477,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathaniel Watson (D),Smiths Falls Bears,2,0,0,0,0.00,0,-,/player/355165/nathaniel-watson,4,Nathaniel Watson,D,2017-2018,cchl,355165,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Liam MacDonald (C),Cornwall Colts,2,0,0,0,0.00,2,-,/player/355144/liam-macdonald,4,Liam MacDonald,C,2017-2018,cchl,355144,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cameron Brown (D),Kemptville 73's,2,0,0,0,0.00,2,-,/player/298129/cameron-brown,4,Cameron Brown,D,2017-2018,cchl,298129,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Owen Scott (D),Kemptville 73's,3,0,0,0,0.00,0,-,/player/300772/owen-scott,4,Owen Scott,D,2017-2018,cchl,300772,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zack Matyasik (RW),Brockville Braves,3,0,0,0,0.00,0,-,/player/362916/zack-matyasik,4,Zack Matyasik,RW,2017-2018,cchl,362916,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Plante (F),Navan Grads,3,0,0,0,0.00,0,-,/player/299451/mathieu-plante,4,Mathieu Plante,F,2017-2018,cchl,299451,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Angelos Tsalafos (C/LW),Brockville Braves,3,0,0,0,0.00,0,-,/player/254626/angelos-tsalafos,4,Angelos Tsalafos,C/LW,2017-2018,cchl,254626,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Carriere (LW),Carleton Place Canadians,3,0,0,0,0.00,0,-,/player/355193/oliver-carriere,4,Oliver Carriere,LW,2017-2018,cchl,355193,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yanic Crete (F),Hawkesbury Hawks,3,0,0,0,0.00,0,-,/player/413642/yanic-crete,4,Yanic Crete,F,2017-2018,cchl,413642,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Theo Todd (RW),Smiths Falls Bears,3,0,0,0,0.00,0,-,/player/355005/theo-todd,4,Theo Todd,RW,2017-2018,cchl,355005,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Sellars (D),Nepean Raiders,3,0,0,0,0.00,2,-,/player/267954/ben-sellars,4,Ben Sellars,D,2017-2018,cchl,267954,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danny Griffith (D),Carleton Place Canadians,3,0,0,0,0.00,2,-,/player/469901/danny-griffith,4,Danny Griffith,D,2017-2018,cchl,469901,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Doherty (C),Ottawa Jr. Senators,3,0,0,0,0.00,4,-,/player/239035/brendan-doherty,4,Brendan Doherty,C,2017-2018,cchl,239035,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Donovan Sebrango (D),Ottawa Jr. Senators,4,0,0,0,0.00,0,-,/player/397738/donovan-sebrango,4,Donovan Sebrango,D,2017-2018,cchl,397738,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cameron Last (LW),Rockland Nationals,4,0,0,0,0.00,0,-,/player/317473/cameron-last,4,Cameron Last,LW,2017-2018,cchl,317473,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Robinson (RW),Navan Grads,4,0,0,0,0.00,0,-,/player/336790/dylan-robinson,4,Dylan Robinson,RW,2017-2018,cchl,336790,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Chouinard (D),Kemptville 73's,4,0,0,0,0.00,0,-,/player/317499/jack-chouinard,4,Jack Chouinard,D,2017-2018,cchl,317499,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Miles (RW),Nepean Raiders,4,0,0,0,0.00,0,-,/player/478882/jack-miles,4,Jack Miles,RW,2017-2018,cchl,478882,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Lafrance (D),Rockland Nationals,4,0,0,0,0.00,2,-,/player/336852/david-lafrance,4,David Lafrance,D,2017-2018,cchl,336852,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Braden Legue (D),Hawkesbury Hawks,4,0,0,0,0.00,2,-,/player/317455/braden-legue,4,Braden Legue,D,2017-2018,cchl,317455,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karim Selim (C),Brockville Braves,4,0,0,0,0.00,2,-,/player/560239/karim-selim,4,Karim Selim,C,2017-2018,cchl,560239,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Myra (F),Nepean Raiders,5,0,0,0,0.00,0,-,/player/216191/jacob-myra,4,Jacob Myra,F,2017-2018,cchl,216191,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Charlebois (D),totals,5,0,0,0,0.00,0,-,/player/317449/alex-charlebois,4,Alex Charlebois,D,2017-2018,cchl,317449,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vincent Roy (C),Kemptville 73's,5,0,0,0,0.00,2,-,/player/254793/vincent-roy,4,Vincent Roy,C,2017-2018,cchl,254793,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Peterson (C/RW),Ottawa Jr. Senators,5,0,0,0,0.00,2,-,/player/342192/dylan-peterson,4,Dylan Peterson,C/RW,2017-2018,cchl,342192,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zakariya Karim (F),Navan Grads,5,0,0,0,0.00,2,-,/player/302111/zakariya-karim,4,Zakariya Karim,F,2017-2018,cchl,302111,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikael Bissonnette (D),Hawkesbury Hawks,5,0,0,0,0.00,14,-,/player/413633/mikael-bissonnette,4,Mikael Bissonnette,D,2017-2018,cchl,413633,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chazka Bush (F),Navan Grads,6,0,0,0,0.00,0,-,/player/413611/chazka-bush,4,Chazka Bush,F,2017-2018,cchl,413611,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean Bailey (D),Navan Grads,6,0,0,0,0.00,0,-,/player/317468/sean-bailey,5,Sean Bailey,D,2017-2018,cchl,317468,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Tremblay (D),Hawkesbury Hawks,6,0,0,0,0.00,2,-,/player/252333/sam-tremblay,5,Sam Tremblay,D,2017-2018,cchl,252333,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joshua Shimizu (LW),Nepean Raiders,6,0,0,0,0.00,2,-,/player/317467/joshua-shimizu,5,Joshua Shimizu,LW,2017-2018,cchl,317467,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew York (D),Kemptville 73's,8,0,0,0,0.00,0,-,/player/336779/matthew-york,5,Matthew York,D,2017-2018,cchl,336779,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Jamer (RW),Navan Grads,8,0,0,0,0.00,0,-,/player/336876/justin-jamer,5,Justin Jamer,RW,2017-2018,cchl,336876,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Roberts (LW),Brockville Braves,8,0,0,0,0.00,2,-,/player/304778/jacob-roberts,5,Jacob Roberts,LW,2017-2018,cchl,304778,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tristan Taillefer (LW),Rockland Nationals,9,0,0,0,0.00,0,-,/player/325947/tristan-taillefer,5,Tristan Taillefer,LW,2017-2018,cchl,325947,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Huntley (D),Navan Grads,9,0,0,0,0.00,2,-,/player/302075/evan-huntley,5,Evan Huntley,D,2017-2018,cchl,302075,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Carroll (F),Rockland Nationals,9,0,0,0,0.00,4,-,/player/300747/ryan-carroll,5,Ryan Carroll,F,2017-2018,cchl,300747,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Quinn McClelland (D),Hawkesbury Hawks,9,0,0,0,0.00,4,-,/player/317457/quinn-mcclelland,5,Quinn McClelland,D,2017-2018,cchl,317457,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Boucha (D),Brockville Braves,9,0,0,0,0.00,4,-,/player/393162/jacob-boucha,5,Jacob Boucha,D,2017-2018,cchl,393162,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henry Scott (C/RW),Nepean Raiders,9,0,0,0,0.00,6,-,/player/418832/henry-scott,5,Henry Scott,C/RW,2017-2018,cchl,418832,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Conor Witherspoon (F),Navan Grads,10,0,0,0,0.00,2,-,/player/329797/conor-witherspoon,5,Conor Witherspoon,F,2017-2018,cchl,329797,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ford Ondrovic (D),totals,40,0,0,0,0.00,2,-,/player/317493/ford-ondrovic,5,Ford Ondrovic,D,2017-2018,cchl,317493,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69

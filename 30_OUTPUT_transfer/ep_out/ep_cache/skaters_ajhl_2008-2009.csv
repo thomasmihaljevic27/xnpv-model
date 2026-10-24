@@ -1,0 +1,554 @@
+player,team,gp,g,a,tp,p_per_gp,pim,plus_minus,link,page,playername,position,season,league,ep_player_id,scrape_date,source,package_version
+Reese Rolheiser (C),Sherwood Park Crusaders,62,33,55,88,1.42,65,-,/player/25743/reese-rolheiser,1,Reese Rolheiser,C,2008-2009,ajhl,25743,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jarret Granberg (F),Brooks Bandits,60,42,44,86,1.43,42,-,/player/24404/jarret-granberg,1,Jarret Granberg,F,2008-2009,ajhl,24404,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Hudson (LW),totals,61,30,51,81,1.33,73,-,/player/24482/scott-hudson,1,Scott Hudson,LW,2008-2009,ajhl,24482,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brance Orbán (LW),Olds Grizzlys,61,37,41,78,1.28,60,-,/player/39607/brance-orban,1,Brance Orbán,LW,2008-2009,ajhl,39607,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Rowney (RW),Grande Prairie Storm,62,35,43,78,1.26,71,-,/player/23959/carter-rowney,1,Carter Rowney,RW,2008-2009,ajhl,23959,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blake Clement (LW),Grande Prairie Storm,60,36,39,75,1.25,163,-,/player/23957/blake-clement,1,Blake Clement,LW,2008-2009,ajhl,23957,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shane Lehman (RW),Spruce Grove Saints,62,29,46,75,1.21,52,-,/player/39608/shane-lehman,1,Shane Lehman,RW,2008-2009,ajhl,39608,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Corban Knight (C),Okotoks Oilers,61,34,38,72,1.18,55,-,/player/38063/corban-knight,1,Corban Knight,C,2008-2009,ajhl,38063,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Matlock (RW),Lloydminster Bobcats,62,33,39,72,1.16,75,-,/player/39609/adam-matlock,1,Adam Matlock,RW,2008-2009,ajhl,39609,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryce Williamson (RW),St. Albert Steel,58,32,38,70,1.21,114,-,/player/39610/bryce-williamson,1,Bryce Williamson,RW,2008-2009,ajhl,39610,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nik Yaremchuk (LW),Sherwood Park Crusaders,60,29,39,68,1.13,50,-,/player/39611/nik-yaremchuk,1,Nik Yaremchuk,LW,2008-2009,ajhl,39611,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Cameron (C/RW),Spruce Grove Saints,55,28,39,67,1.22,59,-,/player/39612/brett-cameron,1,Brett Cameron,C/RW,2008-2009,ajhl,39612,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Turner (LW),Lloydminster Bobcats,60,32,34,66,1.10,24,-,/player/39613/brendan-turner,1,Brendan Turner,LW,2008-2009,ajhl,39613,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zahn Raubenheimer (F),Grande Prairie Storm,60,30,35,65,1.08,39,-,/player/21494/zahn-raubenheimer,1,Zahn Raubenheimer,F,2008-2009,ajhl,21494,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Mirwaldt (LW),Fort McMurray Oil Barons,61,24,41,65,1.07,34,-,/player/39614/jordan-mirwaldt,1,Jordan Mirwaldt,LW,2008-2009,ajhl,39614,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Draper (LW/RW),Spruce Grove Saints,46,31,32,63,1.37,87,-,/player/39615/jordan-draper,1,Jordan Draper,LW/RW,2008-2009,ajhl,39615,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Hardowa (D),Spruce Grove Saints,61,20,43,63,1.03,40,-,/player/39616/connor-hardowa,1,Connor Hardowa,D,2008-2009,ajhl,39616,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jared Jagow (F),Lloydminster Bobcats,44,30,32,62,1.41,34,-,/player/39617/jared-jagow,1,Jared Jagow,F,2008-2009,ajhl,39617,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Switzer (C),Spruce Grove Saints,57,31,30,61,1.07,16,-,/player/39618/brett-switzer,1,Brett Switzer,C,2008-2009,ajhl,39618,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rob Kleebaum (F),Sherwood Park Crusaders,62,31,30,61,0.98,50,-,/player/39619/rob-kleebaum,1,Rob Kleebaum,F,2008-2009,ajhl,39619,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cody Kunyk (C),Sherwood Park Crusaders,61,25,33,58,0.95,61,-,/player/44471/cody-kunyk,1,Cody Kunyk,C,2008-2009,ajhl,44471,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shawn Bates (C),Bonnyville Pontiacs,62,21,37,58,0.94,54,-,/player/24361/shawn-bates,1,Shawn Bates,C,2008-2009,ajhl,24361,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryden McGhee (F),Canmore Eagles,58,23,34,57,0.98,92,-,/player/23980/bryden-mcghee,1,Bryden McGhee,F,2008-2009,ajhl,23980,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mac Caron (F),Fort McMurray Oil Barons,59,30,25,55,0.93,29,-,/player/23984/mac-caron,1,Mac Caron,F,2008-2009,ajhl,23984,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Carr (LW/RW),St. Albert Steel,57,27,28,55,0.96,81,-,/player/39435/daniel-carr,1,Daniel Carr,LW/RW,2008-2009,ajhl,39435,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johnny McInnis (RW),Okotoks Oilers,62,25,30,55,0.89,48,-,/player/44974/johnny-mcinnis,1,Johnny McInnis,RW,2008-2009,ajhl,44974,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nate Fleming (D/C),Spruce Grove Saints,62,16,39,55,0.89,63,-,/player/44482/nate-fleming,1,Nate Fleming,D/C,2008-2009,ajhl,44482,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitch Maxwell (LW),Olds Grizzlys,61,13,42,55,0.90,43,-,/player/24007/mitch-maxwell,1,Mitch Maxwell,LW,2008-2009,ajhl,24007,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Dunbar (RW),Calgary Canucks,62,27,27,54,0.87,30,-,/player/24015/john-dunbar,1,John Dunbar,RW,2008-2009,ajhl,24015,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeff Jubinville (LW),St. Albert Steel,61,19,35,54,0.89,72,-,/player/44508/jeff-jubinville,1,Jeff Jubinville,LW,2008-2009,ajhl,44508,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicholas Blair (F),Sherwood Park Crusaders,53,16,38,54,1.02,180,-,/player/250125/nicholas-blair,1,Nicholas Blair,F,2008-2009,ajhl,250125,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Morgan MacLean (LW),Grande Prairie Storm,51,22,31,53,1.04,56,-,/player/23991/morgan-maclean,1,Morgan MacLean,LW,2008-2009,ajhl,23991,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Nocera (LW),Drumheller Dragons,61,18,35,53,0.87,82,-,/player/103094/robert-nocera,1,Robert Nocera,LW,2008-2009,ajhl,103094,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dakota Dubetz (C),Fort McMurray Oil Barons,60,15,38,53,0.88,60,-,/player/57762/dakota-dubetz,1,Dakota Dubetz,C,2008-2009,ajhl,57762,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Kwas (C),Olds Grizzlys,55,19,33,52,0.95,42,-,/player/44992/jordan-kwas,1,Jordan Kwas,C,2008-2009,ajhl,44992,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Markiewicz (D),Brooks Bandits,56,7,45,52,0.93,75,-,/player/24421/chris-markiewicz,1,Chris Markiewicz,D,2008-2009,ajhl,24421,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Lyons (F),Brooks Bandits,61,27,23,50,0.82,53,-,/player/24412/mark-lyons,1,Mark Lyons,F,2008-2009,ajhl,24412,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeff Young (F),Drumheller Dragons,62,25,25,50,0.81,99,-,/player/57273/jeff-young,1,Jeff Young,F,2008-2009,ajhl,57273,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konrad Becker (F),totals,58,24,26,50,0.86,69,-,/player/237768/konrad-becker,1,Konrad Becker,F,2008-2009,ajhl,237768,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Henry (LW),Bonnyville Pontiacs,60,16,34,50,0.83,30,-,/player/25174/tyler-henry,1,Tyler Henry,LW,2008-2009,ajhl,25174,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cam Creighton (C),Brooks Bandits,57,14,35,49,0.86,60,-,/player/24410/cam-creighton,1,Cam Creighton,C,2008-2009,ajhl,24410,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Hoogenboom (F),Okotoks Oilers,61,26,22,48,0.79,53,-,/player/44962/brandon-hoogenboom,1,Brandon Hoogenboom,F,2008-2009,ajhl,44962,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Williams (F),totals,58,23,25,48,0.83,50,-,/player/26792/matt-williams,1,Matt Williams,F,2008-2009,ajhl,26792,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Reynolds (F),Okotoks Oilers,60,22,26,48,0.80,87,-,/player/44975/kyle-reynolds,1,Kyle Reynolds,F,2008-2009,ajhl,44975,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+James Bannister (F),Okotoks Oilers,42,19,29,48,1.14,28,-,/player/44977/james-bannister,1,James Bannister,F,2008-2009,ajhl,44977,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dennis Rix (C),Grande Prairie Storm,61,12,36,48,0.79,61,-,/player/23939/dennis-rix,1,Dennis Rix,C,2008-2009,ajhl,23939,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Curtis deBruyn (D),Olds Grizzlys,59,10,38,48,0.81,186,-,/player/49338/curtis-debruyn,1,Curtis deBruyn,D,2008-2009,ajhl,49338,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeff Collett (D/F),Calgary Royals,62,24,23,47,0.76,64,-,/player/24459/jeff-collett,1,Jeff Collett,D/F,2008-2009,ajhl,24459,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Aucoin (C),totals,58,21,26,47,0.81,51,-,/player/103117/scott-aucoin,1,Scott Aucoin,C,2008-2009,ajhl,103117,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Way (C),Sherwood Park Crusaders,59,15,32,47,0.80,78,-,/player/44475/david-way,1,David Way,C,2008-2009,ajhl,44475,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shadoe Stoodley (F),Olds Grizzlys,43,21,25,46,1.07,143,-,/player/462576/shadoe-stoodley,1,Shadoe Stoodley,F,2008-2009,ajhl,462576,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Faryna (RW),Drumheller Dragons,54,28,17,45,0.83,162,-,/player/58682/justin-faryna,1,Justin Faryna,RW,2008-2009,ajhl,58682,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cam Lamoureux (F),Drumheller Dragons,58,17,28,45,0.78,41,-,/player/24550/cam-lamoureux,1,Cam Lamoureux,F,2008-2009,ajhl,24550,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Stimson (F),Brooks Bandits,57,15,30,45,0.79,84,-,/player/24413/john-stimson,1,John Stimson,F,2008-2009,ajhl,24413,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ashton Hewson (LW),Bonnyville Pontiacs,42,17,27,44,1.05,121,-,/player/25175/ashton-hewson,1,Ashton Hewson,LW,2008-2009,ajhl,25175,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Hartviksen (F),Canmore Eagles,62,16,28,44,0.71,67,-,/player/24494/michael-hartviksen,1,Michael Hartviksen,F,2008-2009,ajhl,24494,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Fritz (C),Grande Prairie Storm,57,19,24,43,0.75,30,-,/player/23940/tanner-fritz,1,Tanner Fritz,C,2008-2009,ajhl,23940,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Marantz (RW),Olds Grizzlys,60,19,24,43,0.72,114,-,/player/39623/matt-marantz,1,Matt Marantz,RW,2008-2009,ajhl,39623,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kris Foucault (W/C),Canmore Eagles,32,18,23,41,1.28,84,-,/player/32805/kris-foucault,1,Kris Foucault,W/C,2008-2009,ajhl,32805,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean Pollard (F),Calgary Canucks,55,17,24,41,0.75,36,-,/player/24465/sean-pollard,1,Sean Pollard,F,2008-2009,ajhl,24465,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trevor Smyth (F),totals,60,15,26,41,0.68,201,-,/player/24548/trevor-smyth,1,Trevor Smyth,F,2008-2009,ajhl,24548,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cameron Dion (F),Camrose Kodiaks,55,23,17,40,0.73,213,-,/player/70466/cameron-dion,1,Cameron Dion,F,2008-2009,ajhl,70466,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cody Dion (LW),Okotoks Oilers,49,18,22,40,0.82,56,-,/player/44967/cody-dion,1,Cody Dion,LW,2008-2009,ajhl,44967,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Perry (F),Fort McMurray Oil Barons,56,17,23,40,0.71,68,-,/player/250099/mike-perry,1,Mike Perry,F,2008-2009,ajhl,250099,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirk Belyk (RW),Bonnyville Pontiacs,31,16,24,40,1.29,12,-,/player/25173/kirk-belyk,1,Kirk Belyk,RW,2008-2009,ajhl,25173,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Bartoshyk (F),Drumheller Dragons,62,13,27,40,0.65,21,-,/player/24553/patrick-bartoshyk,1,Patrick Bartoshyk,F,2008-2009,ajhl,24553,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Daigle (D),Okotoks Oilers,55,10,30,40,0.73,67,-,/player/40085/justin-daigle,1,Justin Daigle,D,2008-2009,ajhl,40085,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Elkow (C),St. Albert Steel,53,20,19,39,0.74,63,-,/player/51067/scott-elkow,1,Scott Elkow,C,2008-2009,ajhl,51067,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reed Linaker (C),St. Albert Steel,47,19,20,39,0.83,127,-,/player/24225/reed-linaker,1,Reed Linaker,C,2008-2009,ajhl,24225,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lee Reimer (C),Canmore Eagles,51,15,24,39,0.76,42,-,/player/44918/lee-reimer,1,Lee Reimer,C,2008-2009,ajhl,44918,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steven Seigo (D),Bonnyville Pontiacs,47,14,25,39,0.83,19,-,/player/20567/steven-seigo,1,Steven Seigo,D,2008-2009,ajhl,20567,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Lines (D),totals,62,13,26,39,0.63,64,-,/player/24414/brendan-lines,1,Brendan Lines,D,2008-2009,ajhl,24414,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kodie Curran (D),Calgary Canucks,58,9,30,39,0.67,93,-,/player/24432/kodie-curran,1,Kodie Curran,D,2008-2009,ajhl,24432,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joshua Lazowski (C),Spruce Grove Saints,51,13,25,38,0.75,28,-,/player/24287/joshua-lazowski,1,Joshua Lazowski,C,2008-2009,ajhl,24287,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Nowakowski (F),Calgary Royals,58,8,30,38,0.66,53,-,/player/24453/brandon-nowakowski,1,Brandon Nowakowski,F,2008-2009,ajhl,24453,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Small (LW/C),St. Albert Steel,41,14,23,37,0.90,57,-,/player/37120/michael-small,1,Michael Small,LW/C,2008-2009,ajhl,37120,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dave Dziurzynski (LW),Lloydminster Bobcats,54,12,25,37,0.69,185,-,/player/45871/dave-dziurzynski,1,Dave Dziurzynski,LW,2008-2009,ajhl,45871,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Slobodzian (C),Lloydminster Bobcats,51,10,27,37,0.73,14,-,/player/44375/brett-slobodzian,1,Brett Slobodzian,C,2008-2009,ajhl,44375,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Bell (D),Okotoks Oilers,61,8,29,37,0.61,20,-,/player/39639/nick-bell,1,Nick Bell,D,2008-2009,ajhl,39639,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bradley Tierney (F),St. Albert Steel,58,13,23,36,0.62,106,-,/player/57818/bradley-tierney,1,Bradley Tierney,F,2008-2009,ajhl,57818,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+D'Lane Sather (D),Sherwood Park Crusaders,60,11,25,36,0.60,83,-,/player/23995/d-lane-sather,1,D'Lane Sather,D,2008-2009,ajhl,23995,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Johnston (D),Camrose Kodiaks,52,9,27,36,0.69,43,-,/player/59839/jacob-johnston,1,Jacob Johnston,D,2008-2009,ajhl,59839,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Trumble (F),Calgary Canucks,60,13,22,35,0.58,94,-,/player/24431/dylan-trumble,1,Dylan Trumble,F,2008-2009,ajhl,24431,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Carr (RW),Fort McMurray Oil Barons,61,16,18,34,0.56,69,-,/player/44502/david-carr,1,David Carr,RW,2008-2009,ajhl,44502,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt MacKay (C),Calgary Canucks,33,15,19,34,1.03,49,-,/player/24430/matt-mackay,1,Matt MacKay,C,2008-2009,ajhl,24430,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Greg Hennessey (F/D),Bonnyville Pontiacs,46,15,19,34,0.74,244,-,/player/24349/greg-hennessey,1,Greg Hennessey,F/D,2008-2009,ajhl,24349,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicholas Bourgeois (F),Olds Grizzlys,58,15,19,34,0.59,135,-,/player/39624/nicholas-bourgeois,1,Nicholas Bourgeois,F,2008-2009,ajhl,39624,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brad Stebner (D),Fort McMurray Oil Barons,60,5,29,34,0.57,156,-,/player/44351/brad-stebner,1,Brad Stebner,D,2008-2009,ajhl,44351,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan Gabel (F),totals,51,15,18,33,0.65,33,-,/player/24018/logan-gabel,1,Logan Gabel,F,2008-2009,ajhl,24018,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chad Golanowski (LW),Calgary Canucks,62,15,18,33,0.53,46,-,/player/24446/chad-golanowski,1,Chad Golanowski,LW,2008-2009,ajhl,24446,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Clayton Jardine (F),Camrose Kodiaks,58,13,20,33,0.57,75,-,/player/24470/clayton-jardine,1,Clayton Jardine,F,2008-2009,ajhl,24470,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Craig Cuthbert (RW),Bonnyville Pontiacs,38,19,13,32,0.84,49,-,/player/24359/craig-cuthbert,1,Craig Cuthbert,RW,2008-2009,ajhl,24359,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeremy Roberts (F),totals,44,14,18,32,0.73,68,-,/player/103032/jeremy-roberts,1,Jeremy Roberts,F,2008-2009,ajhl,103032,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Travis Bradshaw (LW),Calgary Royals,60,13,19,32,0.53,202,-,/player/110407/travis-bradshaw,1,Travis Bradshaw,LW,2008-2009,ajhl,110407,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cullen Bradshaw (C),Brooks Bandits,59,7,25,32,0.54,70,-,/player/25755/cullen-bradshaw,1,Cullen Bradshaw,C,2008-2009,ajhl,25755,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Smerek (F),Calgary Royals,58,6,26,32,0.55,20,-,/player/24449/chris-smerek,1,Chris Smerek,F,2008-2009,ajhl,24449,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Fitzpatrick (C),Canmore Eagles,55,15,16,31,0.56,87,-,/player/24485/david-fitzpatrick,1,David Fitzpatrick,C,2008-2009,ajhl,24485,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Andreassen (F),St. Albert Steel,37,14,17,31,0.84,95,-,/player/19291/david-andreassen,1,David Andreassen,F,2008-2009,ajhl,19291,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rick Cey (C),Bonnyville Pontiacs,47,14,17,31,0.66,33,-,/player/25176/rick-cey,1,Rick Cey,C,2008-2009,ajhl,25176,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Register (D),Bonnyville Pontiacs,62,14,17,31,0.50,101,-,/player/24345/matt-register,1,Matt Register,D,2008-2009,ajhl,24345,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Doug Reid (RW),Grande Prairie Storm,62,13,18,31,0.50,45,-,/player/23969/doug-reid,2,Doug Reid,RW,2008-2009,ajhl,23969,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Quinn Sproule (D),Okotoks Oilers,59,12,19,31,0.53,90,-,/player/39640/quinn-sproule,2,Quinn Sproule,D,2008-2009,ajhl,39640,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Johnson (D),Fort McMurray Oil Barons,57,9,22,31,0.54,109,-,/player/103085/kyle-johnson,2,Kyle Johnson,D,2008-2009,ajhl,103085,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Hudkins (D/F),Okotoks Oilers,52,7,24,31,0.60,205,-,/player/49459/jesse-hudkins,2,Jesse Hudkins,D/F,2008-2009,ajhl,49459,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bobby Tyson (D),Grande Prairie Storm,62,5,26,31,0.50,104,-,/player/23935/bobby-tyson,2,Bobby Tyson,D,2008-2009,ajhl,23935,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Korpach (F),Calgary Royals,56,18,12,30,0.54,25,-,/player/44698/chris-korpach,2,Chris Korpach,F,2008-2009,ajhl,44698,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Allen (LW/C),Spruce Grove Saints,49,15,15,30,0.61,124,-,/player/24279/scott-allen,2,Scott Allen,LW/C,2008-2009,ajhl,24279,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordie Deagle (F),Brooks Bandits,31,12,18,30,0.97,119,-,/player/25753/jordie-deagle,2,Jordie Deagle,F,2008-2009,ajhl,25753,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Dezman (LW),Spruce Grove Saints,33,12,18,30,0.91,66,-,/player/37164/sam-dezman,2,Sam Dezman,LW,2008-2009,ajhl,37164,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steve Dobbin (F),Brooks Bandits,62,11,19,30,0.48,38,-,/player/25756/steve-dobbin,2,Steve Dobbin,F,2008-2009,ajhl,25756,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wade Bergman (D),Olds Grizzlys,44,10,20,30,0.68,76,-,/player/39638/wade-bergman,2,Wade Bergman,D,2008-2009,ajhl,39638,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trent Colberg (F),Drumheller Dragons,53,9,21,30,0.57,307,-,/player/24556/trent-colberg,2,Trent Colberg,F,2008-2009,ajhl,24556,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Williams (D),Grande Prairie Storm,61,9,21,30,0.49,111,-,/player/23966/matt-williams,2,Matt Williams,D,2008-2009,ajhl,23966,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Derek Rodwell (LW),Okotoks Oilers,41,17,12,29,0.71,69,-,/player/40882/derek-rodwell,2,Derek Rodwell,LW,2008-2009,ajhl,40882,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brody Foster (LW),Lloydminster Bobcats,58,17,12,29,0.50,56,-,/player/44367/brody-foster,2,Brody Foster,LW,2008-2009,ajhl,44367,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Perkins (LW),St. Albert Steel,61,16,13,29,0.48,190,-,/player/44509/alex-perkins,2,Alex Perkins,LW,2008-2009,ajhl,44509,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Hallick (C),totals,50,12,17,29,0.58,105,-,/player/11713/matt-hallick,2,Matt Hallick,C,2008-2009,ajhl,11713,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Olsen (D),Camrose Kodiaks,53,10,19,29,0.55,123,-,/player/19294/dylan-olsen,2,Dylan Olsen,D,2008-2009,ajhl,19294,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew MacWilliam (D),Camrose Kodiaks,57,8,21,29,0.51,220,-,/player/19165/andrew-macwilliam,2,Andrew MacWilliam,D,2008-2009,ajhl,19165,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Spencer Copp (F),totals,59,8,21,29,0.49,75,-,/player/24562/spencer-copp,2,Spencer Copp,F,2008-2009,ajhl,24562,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Heffner (D),Lloydminster Bobcats,52,7,22,29,0.56,55,-,/player/44371/michael-heffner,2,Michael Heffner,D,2008-2009,ajhl,44371,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Algeo (D),Olds Grizzlys,39,6,23,29,0.74,20,-,/player/39436/brendan-algeo,2,Brendan Algeo,D,2008-2009,ajhl,39436,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Winkel (F),Lloydminster Bobcats,62,6,23,29,0.47,41,-,/player/256064/mike-winkel,2,Mike Winkel,F,2008-2009,ajhl,256064,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steven Murray (F),Calgary Canucks,62,15,13,28,0.45,58,-,/player/24440/steven-murray,2,Steven Murray,F,2008-2009,ajhl,24440,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Corey Campbell (F),Olds Grizzlys,61,11,17,28,0.46,159,-,/player/44985/corey-campbell,2,Corey Campbell,F,2008-2009,ajhl,44985,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Young (D),Grande Prairie Storm,52,7,21,28,0.54,42,-,/player/23919/adam-young,2,Adam Young,D,2008-2009,ajhl,23919,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cory Dvornik (F),Calgary Royals,58,10,17,27,0.47,56,-,/player/24564/cory-dvornik,2,Cory Dvornik,F,2008-2009,ajhl,24564,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frank Carbonaro (D),totals,58,7,20,27,0.47,47,-,/player/44989/frank-carbonaro,2,Frank Carbonaro,D,2008-2009,ajhl,44989,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kaare Odegard (D),Canmore Eagles,33,2,25,27,0.82,43,-,/player/24492/kaare-odegard,2,Kaare Odegard,D,2008-2009,ajhl,24492,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Miller (F),Camrose Kodiaks,52,15,11,26,0.50,164,-,/player/24468/kyle-miller,2,Kyle Miller,F,2008-2009,ajhl,24468,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brad McConnell (F),Camrose Kodiaks,28,13,13,26,0.93,42,-,/player/26796/brad-mcconnell,2,Brad McConnell,F,2008-2009,ajhl,26796,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeremy Gerhardt (LW),Bonnyville Pontiacs,54,11,15,26,0.48,151,-,/player/24362/jeremy-gerhardt,2,Jeremy Gerhardt,LW,2008-2009,ajhl,24362,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Slemp (F),Drumheller Dragons,27,10,16,26,0.96,69,-,/player/24551/erik-slemp,2,Erik Slemp,F,2008-2009,ajhl,24551,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeff Barrett (F),Okotoks Oilers,53,10,16,26,0.49,59,-,/player/24016/jeff-barrett,2,Jeff Barrett,F,2008-2009,ajhl,24016,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Horton (F),Canmore Eagles,45,9,17,26,0.58,43,-,/player/44924/tyler-horton,2,Tyler Horton,F,2008-2009,ajhl,44924,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Lee (D),Sherwood Park Crusaders,56,7,19,26,0.46,105,-,/player/44472/josh-lee,2,Josh Lee,D,2008-2009,ajhl,44472,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean Neumeier (F),Olds Grizzlys,50,6,20,26,0.52,124,-,/player/44991/sean-neumeier,2,Sean Neumeier,F,2008-2009,ajhl,44991,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Keizer (C),Spruce Grove Saints,56,13,12,25,0.45,71,-,/player/44484/josh-keizer,2,Josh Keizer,C,2008-2009,ajhl,44484,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Eskesen (LW),Drayton Valley Thunder,62,10,15,25,0.40,86,-,/player/26799/tyler-eskesen,2,Tyler Eskesen,LW,2008-2009,ajhl,26799,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Pao (F),Calgary Canucks,62,10,15,25,0.40,94,-,/player/24448/mike-pao,2,Mike Pao,F,2008-2009,ajhl,24448,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brock Maschmeyer (D),Lloydminster Bobcats,55,1,24,25,0.45,36,-,/player/39629/brock-maschmeyer,2,Brock Maschmeyer,D,2008-2009,ajhl,39629,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Branden Kosolofsky (F),totals,40,12,12,24,0.60,136,-,/player/26797/branden-kosolofsky,2,Branden Kosolofsky,F,2008-2009,ajhl,26797,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Devon Kalinski (LW),Bonnyville Pontiacs,41,11,13,24,0.59,88,-,/player/25745/devon-kalinski,2,Devon Kalinski,LW,2008-2009,ajhl,25745,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cody Fehr (F),Okotoks Oilers,54,9,15,24,0.44,49,-,/player/44969/cody-fehr,2,Cody Fehr,F,2008-2009,ajhl,44969,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jared Stern (D),Calgary Royals,46,6,18,24,0.52,38,-,/player/24464/jared-stern,2,Jared Stern,D,2008-2009,ajhl,24464,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Toews (F),totals,59,6,18,24,0.41,169,-,/player/24419/erik-toews,2,Erik Toews,F,2008-2009,ajhl,24419,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Krishan Kaushal (F),Calgary Canucks,62,6,18,24,0.39,24,-,/player/44525/krishan-kaushal,2,Krishan Kaushal,F,2008-2009,ajhl,44525,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colby Sutton (D),totals,51,5,19,24,0.47,68,-,/player/24522/colby-sutton,2,Colby Sutton,D,2008-2009,ajhl,24522,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Branden Gracel (C),Fort McMurray Oil Barons,38,11,12,23,0.61,20,-,/player/44338/branden-gracel,2,Branden Gracel,C,2008-2009,ajhl,44338,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Duszynski (F),Okotoks Oilers,20,8,15,23,1.15,11,-,/player/44968/chris-duszynski,2,Chris Duszynski,F,2008-2009,ajhl,44968,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Jacobsen (D),Camrose Kodiaks,53,8,15,23,0.43,109,-,/player/24467/david-jacobsen,2,David Jacobsen,D,2008-2009,ajhl,24467,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Fehr (D),Drumheller Dragons,56,8,15,23,0.41,175,-,/player/24560/kyle-fehr,2,Kyle Fehr,D,2008-2009,ajhl,24560,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Matthews (D),totals,55,7,16,23,0.42,37,-,/player/49350/tyler-matthews,2,Tyler Matthews,D,2008-2009,ajhl,49350,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeremy Beirnes (F),Camrose Kodiaks,58,12,10,22,0.38,344,-,/player/19299/jeremy-beirnes,2,Jeremy Beirnes,F,2008-2009,ajhl,19299,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Geddes (F),Calgary Royals,51,11,11,22,0.43,62,-,/player/44944/robert-geddes,2,Robert Geddes,F,2008-2009,ajhl,44944,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitch Kulikowski (F),Calgary Canucks,60,9,13,22,0.37,101,-,/player/24433/mitch-kulikowski,2,Mitch Kulikowski,F,2008-2009,ajhl,24433,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Colonna (F),Canmore Eagles,51,8,14,22,0.43,37,-,/player/24506/brandon-colonna,2,Brandon Colonna,F,2008-2009,ajhl,24506,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colin Bergman (F),Drumheller Dragons,56,8,14,22,0.39,42,-,/player/24558/colin-bergman,2,Colin Bergman,F,2008-2009,ajhl,24558,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Warner (C),totals,53,7,15,22,0.42,26,-,/player/39626/evan-warner,2,Evan Warner,C,2008-2009,ajhl,39626,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cody Rainaldi (C/LW),Drumheller Dragons,40,11,10,21,0.53,133,-,/player/37222/cody-rainaldi,2,Cody Rainaldi,C/LW,2008-2009,ajhl,37222,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Bokla (F),Drumheller Dragons,25,9,12,21,0.84,44,-,/player/223248/john-bokla,2,John Bokla,F,2008-2009,ajhl,223248,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Morello (F),Drumheller Dragons,43,8,13,21,0.49,23,-,/player/39635/justin-morello,2,Justin Morello,F,2008-2009,ajhl,39635,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steven Fernie (F),Canmore Eagles,44,8,13,21,0.48,18,-,/player/39632/steven-fernie,2,Steven Fernie,F,2008-2009,ajhl,39632,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Beau Bertagnolli (RW),Bonnyville Pontiacs,56,7,14,21,0.38,24,-,/player/25744/beau-bertagnolli,2,Beau Bertagnolli,RW,2008-2009,ajhl,25744,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Johnson (RW),Fort McMurray Oil Barons,38,6,15,21,0.55,41,-,/player/44342/adam-johnson,2,Adam Johnson,RW,2008-2009,ajhl,44342,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Penner (LW),Brooks Bandits,44,6,15,21,0.48,235,-,/player/25757/cole-penner,2,Cole Penner,LW,2008-2009,ajhl,25757,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chad Blanleil (D),Spruce Grove Saints,62,6,15,21,0.34,192,-,/player/24288/chad-blanleil,2,Chad Blanleil,D,2008-2009,ajhl,24288,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc Zanoni (D),Calgary Canucks,59,3,18,21,0.36,43,-,/player/24445/marc-zanoni,2,Marc Zanoni,D,2008-2009,ajhl,24445,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc-Antoine Juneau (LW),Bonnyville Pontiacs,42,12,8,20,0.48,61,-,/player/25177/marc-antoine-juneau,2,Marc-Antoine Juneau,LW,2008-2009,ajhl,25177,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Cadrin (RW),Bonnyville Pontiacs,59,10,10,20,0.34,11,-,/player/24356/denis-cadrin,2,Denis Cadrin,RW,2008-2009,ajhl,24356,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Roberts (F),Lloydminster Bobcats,60,10,10,20,0.33,162,-,/player/57768/brendan-roberts,2,Brendan Roberts,F,2008-2009,ajhl,57768,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Grier (F),Camrose Kodiaks,40,7,13,20,0.50,68,-,/player/154798/adam-grier,2,Adam Grier,F,2008-2009,ajhl,154798,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Taylor Fraser (RW),St. Albert Steel,56,6,14,20,0.36,13,-,/player/24224/taylor-fraser,2,Taylor Fraser,RW,2008-2009,ajhl,24224,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ajay Moore (LW),Lloydminster Bobcats,55,5,15,20,0.36,57,-,/player/65218/ajay-moore,2,Ajay Moore,LW,2008-2009,ajhl,65218,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Malcolm Tomlinson (D),Spruce Grove Saints,47,4,16,20,0.43,126,-,/player/44488/malcolm-tomlinson,2,Malcolm Tomlinson,D,2008-2009,ajhl,44488,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Derek Wiedmer (D),totals,49,1,19,20,0.41,108,-,/player/24557/derek-wiedmer,2,Derek Wiedmer,D,2008-2009,ajhl,24557,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lindsay LeBlanc (F),Drayton Valley Thunder,50,9,10,19,0.38,62,-,/player/44269/lindsay-leblanc,2,Lindsay LeBlanc,F,2008-2009,ajhl,44269,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitchell Smith (F),Calgary Canucks,17,8,11,19,1.12,44,-,/player/47005/mitchell-smith,2,Mitchell Smith,F,2008-2009,ajhl,47005,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Goodship (F),St. Albert Steel,21,8,11,19,0.90,12,-,/player/40190/alex-goodship,2,Alex Goodship,F,2008-2009,ajhl,40190,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cody Cartier (RW/LW),Canmore Eagles,54,8,11,19,0.35,43,-,/player/44920/cody-cartier,2,Cody Cartier,RW/LW,2008-2009,ajhl,44920,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Dion (F),Olds Grizzlys,50,6,13,19,0.38,98,-,/player/44982/tanner-dion,2,Tanner Dion,F,2008-2009,ajhl,44982,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Kennedy (F),Drumheller Dragons,46,3,16,19,0.41,26,-,/player/44956/scott-kennedy,2,Scott Kennedy,F,2008-2009,ajhl,44956,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Schmermund (LW),Camrose Kodiaks,37,8,10,18,0.49,14,-,/player/25907/matt-schmermund,2,Matt Schmermund,LW,2008-2009,ajhl,25907,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rodger Craig (F),Okotoks Oilers,50,8,10,18,0.36,52,-,/player/44964/rodger-craig,2,Rodger Craig,F,2008-2009,ajhl,44964,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Lauder (RW),Fort McMurray Oil Barons,53,8,10,18,0.34,180,-,/player/44268/ben-lauder,2,Ben Lauder,RW,2008-2009,ajhl,44268,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mat Hehr (F),Sherwood Park Crusaders,51,6,12,18,0.35,56,-,/player/50042/mat-hehr,2,Mat Hehr,F,2008-2009,ajhl,50042,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Stojan (D),Grande Prairie Storm,58,6,12,18,0.31,95,-,/player/23944/mark-stojan,2,Mark Stojan,D,2008-2009,ajhl,23944,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shaun Rolling (C),Fort McMurray Oil Barons,58,4,14,18,0.31,61,-,/player/44346/shaun-rolling,2,Shaun Rolling,C,2008-2009,ajhl,44346,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Curt Morrison (F),Spruce Grove Saints,34,3,15,18,0.53,149,-,/player/24293/curt-morrison,2,Curt Morrison,F,2008-2009,ajhl,24293,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Corbin Karl (D),Olds Grizzlys,52,2,16,18,0.35,67,-,/player/44986/corbin-karl,2,Corbin Karl,D,2008-2009,ajhl,44986,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Wilkinson (D),St. Albert Steel,32,1,17,18,0.56,35,-,/player/24227/ryan-wilkinson,2,Ryan Wilkinson,D,2008-2009,ajhl,24227,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Matlo (F),totals,54,12,5,17,0.31,72,-,/player/24501/mike-matlo,2,Mike Matlo,F,2008-2009,ajhl,24501,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Giese (C),St. Albert Steel,50,8,9,17,0.34,100,-,/player/44507/michael-giese,2,Michael Giese,C,2008-2009,ajhl,44507,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ashton Reinboldt (C),Drumheller Dragons,46,5,12,17,0.37,73,-,/player/44951/ashton-reinboldt,2,Ashton Reinboldt,C,2008-2009,ajhl,44951,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeremie Perron (D),totals,51,4,13,17,0.33,95,-,/player/24024/jeremie-perron,2,Jeremie Perron,D,2008-2009,ajhl,24024,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brad Ryan (D),Calgary Canucks,59,4,13,17,0.29,174,-,/player/24438/brad-ryan,2,Brad Ryan,D,2008-2009,ajhl,24438,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mason Conway (D),totals,43,3,14,17,0.40,122,-,/player/44335/mason-conway,2,Mason Conway,D,2008-2009,ajhl,44335,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Isak Quakenbush (RW),Drayton Valley Thunder,54,12,4,16,0.30,189,-,/player/44275/isak-quakenbush,2,Isak Quakenbush,RW,2008-2009,ajhl,44275,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Gummer (F),Drayton Valley Thunder,20,9,7,16,0.80,22,-,/player/24517/adam-gummer,2,Adam Gummer,F,2008-2009,ajhl,24517,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christopher Perkin (F),Drayton Valley Thunder,58,9,7,16,0.28,173,-,/player/24514/christopher-perkin,2,Christopher Perkin,F,2008-2009,ajhl,24514,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brenden Turnbull (C),Grande Prairie Storm,60,8,8,16,0.27,152,-,/player/23958/brenden-turnbull,3,Brenden Turnbull,C,2008-2009,ajhl,23958,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andy Singerhouse (F),Okotoks Oilers,37,7,9,16,0.43,36,-,/player/58475/andy-singerhouse,3,Andy Singerhouse,F,2008-2009,ajhl,58475,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colby Kulhanek (LW),Sherwood Park Crusaders,26,6,10,16,0.62,89,-,/player/14096/colby-kulhanek,3,Colby Kulhanek,LW,2008-2009,ajhl,14096,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Chartier (C),Camrose Kodiaks,24,5,11,16,0.67,33,-,/player/24469/nick-chartier,3,Nick Chartier,C,2008-2009,ajhl,24469,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ross Herzog (C),Bonnyville Pontiacs,61,5,11,16,0.26,30,-,/player/24350/ross-herzog,3,Ross Herzog,C,2008-2009,ajhl,24350,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Keeven (D/F),Okotoks Oilers,62,4,12,16,0.26,144,-,/player/60808/scott-keeven,3,Scott Keeven,D/F,2008-2009,ajhl,60808,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Doug Jessey (D),Drumheller Dragons,56,3,13,16,0.29,84,-,/player/39636/doug-jessey,3,Doug Jessey,D,2008-2009,ajhl,39636,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Scott (D),St. Albert Steel,60,3,13,16,0.27,63,-,/player/24226/nick-scott,3,Nick Scott,D,2008-2009,ajhl,24226,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+D.J. McDougall (D),Brooks Bandits,43,2,14,16,0.37,20,-,/player/24416/d-j-mcdougall,3,D.J. McDougall,D,2008-2009,ajhl,24416,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Peden (D),Drayton Valley Thunder,61,2,14,16,0.26,148,-,/player/24223/kyle-peden,3,Kyle Peden,D,2008-2009,ajhl,24223,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan Sceviour (RW/C),Canmore Eagles,51,9,6,15,0.29,24,-,/player/32794/logan-sceviour,3,Logan Sceviour,RW/C,2008-2009,ajhl,32794,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Zandbeek (RW),St. Albert Steel,44,7,8,15,0.34,103,-,/player/24228/robert-zandbeek,3,Robert Zandbeek,RW,2008-2009,ajhl,24228,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brooks Myers (C),Camrose Kodiaks,49,7,8,15,0.31,42,-,/player/44899/brooks-myers,3,Brooks Myers,C,2008-2009,ajhl,44899,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryce Wilson (F),Brooks Bandits,52,6,9,15,0.29,33,-,/player/24009/bryce-wilson,3,Bryce Wilson,F,2008-2009,ajhl,24009,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian Doust (C),totals,19,5,10,15,0.79,31,-,/player/44922/brian-doust,3,Brian Doust,C,2008-2009,ajhl,44922,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Lake (LW/C),Fort McMurray Oil Barons,47,5,10,15,0.32,47,-,/player/44344/ben-lake,3,Ben Lake,LW/C,2008-2009,ajhl,44344,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Smith (D),Grande Prairie Storm,61,2,13,15,0.25,82,-,/player/23907/ryan-smith,3,Ryan Smith,D,2008-2009,ajhl,23907,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brad Bourke (D),St. Albert Steel,21,1,14,15,0.71,20,-,/player/46727/brad-bourke,3,Brad Bourke,D,2008-2009,ajhl,46727,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Seymour (RW),Fort McMurray Oil Barons,40,8,6,14,0.35,127,-,/player/44350/dylan-seymour,3,Dylan Seymour,RW,2008-2009,ajhl,44350,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordon Harrison (LW),Grande Prairie Storm,47,8,6,14,0.30,95,-,/player/23962/jordon-harrison,3,Jordon Harrison,LW,2008-2009,ajhl,23962,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Garneau (LW),Drayton Valley Thunder,18,7,7,14,0.78,20,-,/player/26798/josh-garneau,3,Josh Garneau,LW,2008-2009,ajhl,26798,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Skauge (F),Brooks Bandits,32,7,7,14,0.44,113,-,/player/25754/tyler-skauge,3,Tyler Skauge,F,2008-2009,ajhl,25754,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Hilton (F),Calgary Royals,51,7,7,14,0.27,174,-,/player/44696/richard-hilton,3,Richard Hilton,F,2008-2009,ajhl,44696,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Stephen (C),Canmore Eagles,49,6,8,14,0.29,84,-,/player/44919/adam-stephen,3,Adam Stephen,C,2008-2009,ajhl,44919,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Topher Flanagan (F),Canmore Eagles,51,6,8,14,0.27,61,-,/player/44923/topher-flanagan,3,Topher Flanagan,F,2008-2009,ajhl,44923,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Sieben (C),Drayton Valley Thunder,51,6,8,14,0.27,84,-,/player/44277/eric-sieben,3,Eric Sieben,C,2008-2009,ajhl,44277,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cale Wright (F),Olds Grizzlys,53,6,8,14,0.26,92,-,/player/44998/cale-wright,3,Cale Wright,F,2008-2009,ajhl,44998,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wyatt Hamilton (F),Camrose Kodiaks,22,5,9,14,0.64,102,-,/player/19296/wyatt-hamilton,3,Wyatt Hamilton,F,2008-2009,ajhl,19296,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chad Berglund (F),totals,37,5,9,14,0.38,19,-,/player/44983/chad-berglund,3,Chad Berglund,F,2008-2009,ajhl,44983,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Christie (F),Calgary Canucks,59,5,9,14,0.24,34,-,/player/24444/patrick-christie,3,Patrick Christie,F,2008-2009,ajhl,24444,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Graham Klassen (D),Drumheller Dragons,34,4,10,14,0.41,44,-,/player/24549/graham-klassen,3,Graham Klassen,D,2008-2009,ajhl,24549,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trent Scott (C),totals,39,4,10,14,0.36,32,-,/player/463859/trent-scott,3,Trent Scott,C,2008-2009,ajhl,463859,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett McCullough (D),Calgary Canucks,46,4,10,14,0.30,210,-,/player/45764/brett-mccullough,3,Brett McCullough,D,2008-2009,ajhl,45764,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joe Babey (D),Calgary Royals,47,4,10,14,0.30,85,-,/player/24023/joe-babey,3,Joe Babey,D,2008-2009,ajhl,24023,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Braiden Leth (F),Canmore Eagles,58,4,10,14,0.24,179,-,/player/24496/braiden-leth,3,Braiden Leth,F,2008-2009,ajhl,24496,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dave Lamouche (LW),Okotoks Oilers,15,3,11,14,0.93,14,-,/player/139133/dave-lamouche,3,Dave Lamouche,LW,2008-2009,ajhl,139133,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Wilson (D),Olds Grizzlys,57,3,11,14,0.25,93,-,/player/39625/ben-wilson,3,Ben Wilson,D,2008-2009,ajhl,39625,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Edens (D),St. Albert Steel,57,1,13,14,0.25,269,-,/player/24229/ryan-edens,3,Ryan Edens,D,2008-2009,ajhl,24229,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chad Hohmann (LW),Drumheller Dragons,11,5,8,13,1.18,45,-,/player/24561/chad-hohmann,3,Chad Hohmann,LW,2008-2009,ajhl,24561,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Isley (RW),Bonnyville Pontiacs,13,4,9,13,1.00,16,-,/player/24365/lucas-isley,3,Lucas Isley,RW,2008-2009,ajhl,24365,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Croft (LW),Drayton Valley Thunder,60,3,10,13,0.22,81,-,/player/23976/justin-croft,3,Justin Croft,LW,2008-2009,ajhl,23976,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott McKay (D),Drumheller Dragons,51,2,11,13,0.25,36,-,/player/39637/scott-mckay,3,Scott McKay,D,2008-2009,ajhl,39637,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dave Osborne (D),Brooks Bandits,55,1,12,13,0.24,158,-,/player/24420/dave-osborne,3,Dave Osborne,D,2008-2009,ajhl,24420,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kenny Bradley (F),Camrose Kodiaks,45,8,4,12,0.27,38,-,/player/24481/kenny-bradley,3,Kenny Bradley,F,2008-2009,ajhl,24481,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kory Chisholm (LW),Lloydminster Bobcats,55,6,6,12,0.22,8,-,/player/39630/kory-chisholm,3,Kory Chisholm,LW,2008-2009,ajhl,39630,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Kallal (F),Sherwood Park Crusaders,50,5,7,12,0.24,40,-,/player/44470/chris-kallal,3,Chris Kallal,F,2008-2009,ajhl,44470,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+James Isaacs (D),Fort McMurray Oil Barons,54,4,8,12,0.22,59,-,/player/44339/james-isaacs,3,James Isaacs,D,2008-2009,ajhl,44339,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Skyler Smutek (D),Drayton Valley Thunder,37,3,9,12,0.32,148,-,/player/44285/skyler-smutek,3,Skyler Smutek,D,2008-2009,ajhl,44285,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Berk (D),Fort McMurray Oil Barons,20,2,10,12,0.60,22,-,/player/38771/jordan-berk,3,Jordan Berk,D,2008-2009,ajhl,38771,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bobby Spigott (D),Lloydminster Bobcats,58,1,11,12,0.21,192,-,/player/280251/bobby-spigott,3,Bobby Spigott,D,2008-2009,ajhl,280251,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Deagle (F),Brooks Bandits,52,8,3,11,0.21,80,-,/player/24008/kevin-deagle,3,Kevin Deagle,F,2008-2009,ajhl,24008,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jared Wynia (F),totals,48,6,5,11,0.23,12,-,/player/24499/jared-wynia,3,Jared Wynia,F,2008-2009,ajhl,24499,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shay Neufeld (RW),Camrose Kodiaks,28,4,7,11,0.39,14,-,/player/47584/shay-neufeld,3,Shay Neufeld,RW,2008-2009,ajhl,47584,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryce Van Brabant (LW/C),Spruce Grove Saints,46,4,7,11,0.24,84,-,/player/39628/bryce-van-brabant,3,Bryce Van Brabant,LW/C,2008-2009,ajhl,39628,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steven Kajic (LW),Drumheller Dragons,19,3,8,11,0.58,16,-,/player/24559/steven-kajic,3,Steven Kajic,LW,2008-2009,ajhl,24559,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Quinn Gould (F),totals,28,3,8,11,0.39,20,-,/player/24284/quinn-gould,3,Quinn Gould,F,2008-2009,ajhl,24284,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mat Knoll (D),Lloydminster Bobcats,54,3,8,11,0.20,68,-,/player/44372/mat-knoll,3,Mat Knoll,D,2008-2009,ajhl,44372,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Otis Rabbit (D),Calgary Canucks,44,2,9,11,0.25,50,-,/player/24342/otis-rabbit,3,Otis Rabbit,D,2008-2009,ajhl,24342,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Stasiw (D),Sherwood Park Crusaders,49,2,9,11,0.22,54,-,/player/44474/thomas-stasiw,3,Thomas Stasiw,D,2008-2009,ajhl,44474,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colten Hayes (D),Drumheller Dragons,57,2,9,11,0.19,157,-,/player/44945/colten-hayes,3,Colten Hayes,D,2008-2009,ajhl,44945,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Renwick (D),Canmore Eagles,60,2,9,11,0.18,108,-,/player/24534/evan-renwick,3,Evan Renwick,D,2008-2009,ajhl,24534,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colton Yaremovich (C),Spruce Grove Saints,34,1,10,11,0.32,47,-,/player/44490/colton-yaremovich,3,Colton Yaremovich,C,2008-2009,ajhl,44490,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Altheim (D/W),Canmore Eagles,51,0,11,11,0.22,47,-,/player/39633/jesse-altheim,3,Jesse Altheim,D/W,2008-2009,ajhl,39633,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riley Gillies (RW),Lloydminster Bobcats,42,6,4,10,0.24,97,-,/player/44368/riley-gillies,3,Riley Gillies,RW,2008-2009,ajhl,44368,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Allias Kalinsky (F),Drayton Valley Thunder,20,5,5,10,0.50,22,-,/player/24520/allias-kalinsky,3,Allias Kalinsky,F,2008-2009,ajhl,24520,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Tinordi (RW),Olds Grizzlys,26,5,5,10,0.38,40,-,/player/17869/matt-tinordi,3,Matt Tinordi,RW,2008-2009,ajhl,17869,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Gabriel (D),Sherwood Park Crusaders,28,5,5,10,0.36,204,-,/player/25901/scott-gabriel,3,Scott Gabriel,D,2008-2009,ajhl,25901,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Kanygin (F),totals,38,4,6,10,0.26,8,-,/player/138059/jordan-kanygin,3,Jordan Kanygin,F,2008-2009,ajhl,138059,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benjamin Gallacher (D),Camrose Kodiaks,43,4,6,10,0.23,58,-,/player/39631/benjamin-gallacher,3,Benjamin Gallacher,D,2008-2009,ajhl,39631,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kent Fox (D),totals,50,4,6,10,0.20,65,-,/player/24475/kent-fox,3,Kent Fox,D,2008-2009,ajhl,24475,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Moffett (F/D),Canmore Eagles,51,3,7,10,0.20,48,-,/player/44921/kyle-moffett,3,Kyle Moffett,F/D,2008-2009,ajhl,44921,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeremy Burns (F),Camrose Kodiaks,52,3,7,10,0.19,39,-,/player/44905/jeremy-burns,3,Jeremy Burns,F,2008-2009,ajhl,44905,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robbie Ciolfi (LW),Drayton Valley Thunder,13,2,8,10,0.77,12,-,/player/30492/robbie-ciolfi,3,Robbie Ciolfi,LW,2008-2009,ajhl,30492,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Watt (D),Brooks Bandits,29,2,8,10,0.34,18,-,/player/37183/david-watt,3,David Watt,D,2008-2009,ajhl,37183,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Stachiw (D),Calgary Royals,40,2,8,10,0.25,149,-,/player/24021/thomas-stachiw,3,Thomas Stachiw,D,2008-2009,ajhl,24021,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Slobodian (D),Spruce Grove Saints,60,2,8,10,0.17,80,-,/player/39641/jesse-slobodian,3,Jesse Slobodian,D,2008-2009,ajhl,39641,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Morgan Bell (D),St. Albert Steel,34,1,9,10,0.29,95,-,/player/51237/morgan-bell,3,Morgan Bell,D,2008-2009,ajhl,51237,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Greg Holmberg (D),Sherwood Park Crusaders,53,1,9,10,0.19,82,-,/player/44467/greg-holmberg,3,Greg Holmberg,D,2008-2009,ajhl,44467,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Longley (D),Canmore Eagles,57,1,9,10,0.18,93,-,/player/24505/chris-longley,3,Chris Longley,D,2008-2009,ajhl,24505,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Greg Brown (D),Bonnyville Pontiacs,61,1,9,10,0.16,155,-,/player/25747/greg-brown,3,Greg Brown,D,2008-2009,ajhl,25747,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brennan Menard (RW),St. Albert Steel,17,4,5,9,0.53,53,-,/player/40143/brennan-menard,3,Brennan Menard,RW,2008-2009,ajhl,40143,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex MacMillan (C),Drayton Valley Thunder,18,4,5,9,0.50,28,-,/player/24526/alex-macmillan,3,Alex MacMillan,C,2008-2009,ajhl,24526,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Darcy Osmond (F),Olds Grizzlys,25,4,5,9,0.36,95,-,/player/44519/darcy-osmond,3,Darcy Osmond,F,2008-2009,ajhl,44519,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Aschim (D),St. Albert Steel,31,4,5,9,0.29,30,-,/player/25829/kyle-aschim,3,Kyle Aschim,D,2008-2009,ajhl,25829,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brady Hogg (F),totals,18,3,6,9,0.50,50,-,/player/24516/brady-hogg,3,Brady Hogg,F,2008-2009,ajhl,24516,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Slobodzian (RW),Lloydminster Bobcats,39,3,6,9,0.23,19,-,/player/44374/adam-slobodzian,3,Adam Slobodzian,RW,2008-2009,ajhl,44374,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Lutz (D),Brooks Bandits,44,3,6,9,0.20,242,-,/player/24422/justin-lutz,3,Justin Lutz,D,2008-2009,ajhl,24422,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Pope (F),Calgary Canucks,48,3,6,9,0.19,8,-,/player/44527/david-pope,3,David Pope,F,2008-2009,ajhl,44527,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Kolisniak (W),Bonnyville Pontiacs,19,2,7,9,0.47,28,-,/player/24222/jordan-kolisniak,3,Jordan Kolisniak,W,2008-2009,ajhl,24222,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Jewitt (F),totals,43,2,7,9,0.21,31,-,/player/44524/tyler-jewitt,3,Tyler Jewitt,F,2008-2009,ajhl,44524,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reid Johnson (D),Drayton Valley Thunder,51,1,8,9,0.18,66,-,/player/44267/reid-johnson,3,Reid Johnson,D,2008-2009,ajhl,44267,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryan Frost (D),Sherwood Park Crusaders,57,0,9,9,0.16,41,-,/player/44463/bryan-frost,3,Bryan Frost,D,2008-2009,ajhl,44463,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Conrad Smith (D),Okotoks Oilers,61,0,9,9,0.15,55,-,/player/44965/conrad-smith,3,Conrad Smith,D,2008-2009,ajhl,44965,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Devon Hobbs (C),Drayton Valley Thunder,45,6,2,8,0.18,41,-,/player/25967/devon-hobbs,3,Devon Hobbs,C,2008-2009,ajhl,25967,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blaine Bokenfohr (F),Grande Prairie Storm,44,5,3,8,0.18,55,-,/player/23965/blaine-bokenfohr,3,Blaine Bokenfohr,F,2008-2009,ajhl,23965,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Clinton Senkow (D),totals,61,5,3,8,0.13,135,-,/player/25909/clinton-senkow,3,Clinton Senkow,D,2008-2009,ajhl,25909,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brad Drobot (RW),Calgary Royals,47,4,4,8,0.17,240,-,/player/24019/brad-drobot,3,Brad Drobot,RW,2008-2009,ajhl,24019,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dan Hillman (RW),Lloydminster Bobcats,28,3,5,8,0.29,39,-,/player/46097/dan-hillman,3,Dan Hillman,RW,2008-2009,ajhl,46097,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Gibson (F),Drayton Valley Thunder,30,3,5,8,0.27,6,-,/player/44264/cole-gibson,3,Cole Gibson,F,2008-2009,ajhl,44264,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jessi Hilton (RW),Sherwood Park Crusaders,35,2,6,8,0.23,26,-,/player/37113/jessi-hilton,3,Jessi Hilton,RW,2008-2009,ajhl,37113,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Taylor Swaffield (D),Lloydminster Bobcats,36,1,7,8,0.22,56,-,/player/44353/taylor-swaffield,4,Taylor Swaffield,D,2008-2009,ajhl,44353,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lee Morrow (D),Drumheller Dragons,38,1,7,8,0.21,24,-,/player/44950/lee-morrow,4,Lee Morrow,D,2008-2009,ajhl,44950,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kris Steedsman (D),Fort McMurray Oil Barons,41,0,8,8,0.20,114,-,/player/44352/kris-steedsman,4,Kris Steedsman,D,2008-2009,ajhl,44352,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Barr (LW),Spruce Grove Saints,34,5,2,7,0.21,203,-,/player/47021/tyler-barr,4,Tyler Barr,LW,2008-2009,ajhl,47021,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shawn Proulx (F),Drayton Valley Thunder,55,4,3,7,0.13,154,-,/player/44274/shawn-proulx,4,Shawn Proulx,F,2008-2009,ajhl,44274,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brad Worth (F),Drayton Valley Thunder,21,3,4,7,0.33,8,-,/player/24518/brad-worth,4,Brad Worth,F,2008-2009,ajhl,24518,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blayze Bruyer (LW),totals,37,3,4,7,0.19,8,-,/player/44261/blayze-bruyer,4,Blayze Bruyer,LW,2008-2009,ajhl,44261,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gage Olsen (F),totals,48,3,4,7,0.15,51,-,/player/463642/gage-olsen,4,Gage Olsen,F,2008-2009,ajhl,463642,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Mills (D/F),Calgary Canucks,18,2,5,7,0.39,12,-,/player/24012/kevin-mills,4,Kevin Mills,D/F,2008-2009,ajhl,24012,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Woiken (RW),Sherwood Park Crusaders,25,2,5,7,0.28,6,-,/player/140705/matthew-woiken,4,Matthew Woiken,RW,2008-2009,ajhl,140705,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Wright (D),Fort McMurray Oil Barons,38,2,5,7,0.18,104,-,/player/44354/brendan-wright,4,Brendan Wright,D,2008-2009,ajhl,44354,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trevor Conrad (D),Sherwood Park Crusaders,40,2,5,7,0.18,117,-,/player/44455/trevor-conrad,4,Trevor Conrad,D,2008-2009,ajhl,44455,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Krankowsky (D),Bonnyville Pontiacs,45,2,5,7,0.16,39,-,/player/25749/jordan-krankowsky,4,Jordan Krankowsky,D,2008-2009,ajhl,25749,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carey Koroluk (F),Olds Grizzlys,46,2,5,7,0.15,113,-,/player/24452/carey-koroluk,4,Carey Koroluk,F,2008-2009,ajhl,24452,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nolan Smith (D),Brooks Bandits,52,2,5,7,0.13,86,-,/player/25759/nolan-smith,4,Nolan Smith,D,2008-2009,ajhl,25759,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brennan Volcan (LW),Bonnyville Pontiacs,28,1,6,7,0.25,10,-,/player/25748/brennan-volcan,4,Brennan Volcan,LW,2008-2009,ajhl,25748,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Ross (D),Olds Grizzlys,21,0,7,7,0.33,56,-,/player/24010/max-ross,4,Max Ross,D,2008-2009,ajhl,24010,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Moir (D),Calgary Canucks,28,0,7,7,0.25,0,-,/player/44526/ryan-moir,4,Ryan Moir,D,2008-2009,ajhl,44526,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Bast (RW),Lloydminster Bobcats,17,4,2,6,0.35,9,-,/player/25713/adam-bast,4,Adam Bast,RW,2008-2009,ajhl,25713,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dallas Goodrunning (F),totals,19,3,3,6,0.32,90,-,/player/44265/dallas-goodrunning,4,Dallas Goodrunning,F,2008-2009,ajhl,44265,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cam McWilliam (F),Brooks Bandits,41,3,3,6,0.15,76,-,/player/25758/cam-mcwilliam,4,Cam McWilliam,F,2008-2009,ajhl,25758,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Dowling (D),totals,43,2,4,6,0.14,26,-,/player/39634/chris-dowling,4,Chris Dowling,D,2008-2009,ajhl,39634,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Cornforth (D),Olds Grizzlys,25,1,5,6,0.24,64,-,/player/110411/ryan-cornforth,4,Ryan Cornforth,D,2008-2009,ajhl,110411,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Foreman (D),Spruce Grove Saints,29,1,5,6,0.21,58,-,/player/24294/jordan-foreman,4,Jordan Foreman,D,2008-2009,ajhl,24294,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nolan Kaiser (D),Camrose Kodiaks,39,1,5,6,0.15,67,-,/player/44898/nolan-kaiser,4,Nolan Kaiser,D,2008-2009,ajhl,44898,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Westfall (D),Bonnyville Pontiacs,47,1,5,6,0.13,66,-,/player/25746/michael-westfall,4,Michael Westfall,D,2008-2009,ajhl,25746,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dane Olsen (D),St. Albert Steel,50,1,5,6,0.12,37,-,/player/39627/dane-olsen,4,Dane Olsen,D,2008-2009,ajhl,39627,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Jung (F),Bonnyville Pontiacs,10,0,6,6,0.60,8,-,/player/24357/chris-jung,4,Chris Jung,F,2008-2009,ajhl,24357,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Todd Chinova (RW),Drumheller Dragons,17,0,6,6,0.35,21,-,/player/12133/todd-chinova,4,Todd Chinova,RW,2008-2009,ajhl,12133,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Chabot-Maltais (D),Fort McMurray Oil Barons,24,0,6,6,0.25,19,-,/player/95835/david-chabot-maltais,4,David Chabot-Maltais,D,2008-2009,ajhl,95835,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colton Semenok (D),Canmore Eagles,46,0,6,6,0.13,56,-,/player/24510/colton-semenok,4,Colton Semenok,D,2008-2009,ajhl,24510,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Brkich (D),Drayton Valley Thunder,37,4,1,5,0.14,37,-,/player/24525/scott-brkich,4,Scott Brkich,D,2008-2009,ajhl,24525,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeff Bienvenue (F),Sherwood Park Crusaders,19,3,2,5,0.26,42,-,/player/44409/jeff-bienvenue,4,Jeff Bienvenue,F,2008-2009,ajhl,44409,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brooks Robinson (F),Grande Prairie Storm,16,2,3,5,0.31,25,-,/player/39642/brooks-robinson,4,Brooks Robinson,F,2008-2009,ajhl,39642,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stephen Wall (C),totals,31,2,3,5,0.16,23,-,/player/46748/stephen-wall,4,Stephen Wall,C,2008-2009,ajhl,46748,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David McNeill (F),totals,41,2,3,5,0.12,148,-,/player/463754/david-mcneill,4,David McNeill,F,2008-2009,ajhl,463754,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Juell (RW),Grande Prairie Storm,51,2,3,5,0.10,88,-,/player/20991/josh-juell,4,Josh Juell,RW,2008-2009,ajhl,20991,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Stuart (F),Calgary Royals,12,1,4,5,0.42,25,-,/player/24457/adam-stuart,4,Adam Stuart,F,2008-2009,ajhl,24457,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brad Deagle (D),Brooks Bandits,45,1,4,5,0.11,59,-,/player/25760/brad-deagle,4,Brad Deagle,D,2008-2009,ajhl,25760,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Spencer Jewell (F),Camrose Kodiaks,45,1,4,5,0.11,60,-,/player/44909/spencer-jewell,4,Spencer Jewell,F,2008-2009,ajhl,44909,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nigel Dube (D),Camrose Kodiaks,14,0,5,5,0.36,40,-,/player/24473/nigel-dube,4,Nigel Dube,D,2008-2009,ajhl,24473,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Darren Kramer (C/LW),Grande Prairie Storm,38,4,0,4,0.11,220,-,/player/23970/darren-kramer,4,Darren Kramer,C/LW,2008-2009,ajhl,23970,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Turk (LW),Okotoks Oilers,6,2,2,4,0.67,0,-,/player/26431/jonathan-turk,4,Jonathan Turk,LW,2008-2009,ajhl,26431,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Rose (LW),St. Albert Steel,19,2,2,4,0.21,29,-,/player/45080/justin-rose,4,Justin Rose,LW,2008-2009,ajhl,45080,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colin Dueck (D),Camrose Kodiaks,25,2,2,4,0.16,42,-,/player/24466/colin-dueck,4,Colin Dueck,D,2008-2009,ajhl,24466,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Hartos (F),Calgary Royals,34,2,2,4,0.12,57,-,/player/138291/brett-hartos,4,Brett Hartos,F,2008-2009,ajhl,138291,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeff Houghton (F),Sherwood Park Crusaders,34,2,2,4,0.12,86,-,/player/44414/jeff-houghton,4,Jeff Houghton,F,2008-2009,ajhl,44414,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Courtney Nelson (D),Drayton Valley Thunder,42,2,2,4,0.10,83,-,/player/44289/courtney-nelson,4,Courtney Nelson,D,2008-2009,ajhl,44289,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Davidson (D),Olds Grizzlys,4,0,4,4,1.00,0,-,/player/45525/brandon-davidson,4,Brandon Davidson,D,2008-2009,ajhl,45525,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Sohn (D),Lloydminster Bobcats,29,0,4,4,0.14,112,-,/player/37241/tanner-sohn,4,Tanner Sohn,D,2008-2009,ajhl,37241,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Neil Tarnasky (C),Olds Grizzlys,3,2,1,3,1.00,0,-,/player/45505/neil-tarnasky,4,Neil Tarnasky,C,2008-2009,ajhl,45505,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Harty (F),Olds Grizzlys,6,2,1,3,0.50,7,-,/player/40036/kyle-harty,4,Kyle Harty,F,2008-2009,ajhl,40036,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Frydrysek (C),Drumheller Dragons,8,2,1,3,0.38,31,-,/player/26908/matthew-frydrysek,4,Matthew Frydrysek,C,2008-2009,ajhl,26908,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Corbin Gavin (RW),Grande Prairie Storm,18,2,1,3,0.17,4,-,/player/23968/corbin-gavin,4,Corbin Gavin,RW,2008-2009,ajhl,23968,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cody Chikie (C),Sherwood Park Crusaders,20,2,1,3,0.15,27,-,/player/27394/cody-chikie,4,Cody Chikie,C,2008-2009,ajhl,27394,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Burns (D),Sherwood Park Crusaders,27,2,1,3,0.11,7,-,/player/44411/adam-burns,4,Adam Burns,D,2008-2009,ajhl,44411,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rory Connop (D),Spruce Grove Saints,35,2,1,3,0.09,67,-,/player/44478/rory-connop,4,Rory Connop,D,2008-2009,ajhl,44478,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emery White (F),Olds Grizzlys,7,1,2,3,0.43,10,-,/player/463849/emery-white,4,Emery White,F,2008-2009,ajhl,463849,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Grill Donovan (D),Bonnyville Pontiacs,15,1,2,3,0.20,18,-,/player/27395/alex-grill-donovan,4,Alex Grill Donovan,D,2008-2009,ajhl,27395,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Biggs (F),Calgary Canucks,22,1,2,3,0.14,52,-,/player/24447/mike-biggs,4,Mike Biggs,F,2008-2009,ajhl,24447,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jorden MacSwain (D),Drayton Valley Thunder,34,1,2,3,0.09,56,-,/player/44270/jorden-macswain,4,Jorden MacSwain,D,2008-2009,ajhl,44270,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dru Cotterill (D),Bonnyville Pontiacs,51,1,2,3,0.06,85,-,/player/23999/dru-cotterill,4,Dru Cotterill,D,2008-2009,ajhl,23999,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Remillard (LW),Fort McMurray Oil Barons,1,0,3,3,3.00,0,-,/player/44345/justin-remillard,4,Justin Remillard,LW,2008-2009,ajhl,44345,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shane Innes (C/RW),Drayton Valley Thunder,6,0,3,3,0.50,6,-,/player/44290/shane-innes,4,Shane Innes,C/RW,2008-2009,ajhl,44290,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carl Bjorge (C),Lloydminster Bobcats,16,0,3,3,0.19,29,-,/player/103019/carl-bjorge,4,Carl Bjorge,C,2008-2009,ajhl,103019,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Leibel (D),totals,51,0,3,3,0.06,53,-,/player/24512/mike-leibel,4,Mike Leibel,D,2008-2009,ajhl,24512,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryley Miller (D),Spruce Grove Saints,5,2,0,2,0.40,4,-,/player/21090/ryley-miller,4,Ryley Miller,D,2008-2009,ajhl,21090,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brentt Becker (D),Lloydminster Bobcats,25,2,0,2,0.08,28,-,/player/55142/brentt-becker,4,Brentt Becker,D,2008-2009,ajhl,55142,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Greg Lazoruk (F),Sherwood Park Crusaders,30,2,0,2,0.07,152,-,/player/24281/greg-lazoruk,4,Greg Lazoruk,F,2008-2009,ajhl,24281,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyler Brierley (D),Calgary Royals,40,2,0,2,0.05,68,-,/player/788745/kyler-brierley,4,Kyler Brierley,D,2008-2009,ajhl,788745,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Taylor Elliot (F),Olds Grizzlys,2,1,1,2,1.00,0,-,/player/26402/taylor-elliot,4,Taylor Elliot,F,2008-2009,ajhl,26402,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danny McSween (LW),Spruce Grove Saints,2,1,1,2,1.00,0,-,/player/133332/danny-mcsween,4,Danny McSween,LW,2008-2009,ajhl,133332,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Martinook (W/C),Drayton Valley Thunder,6,1,1,2,0.33,0,-,/player/44271/jordan-martinook,4,Jordan Martinook,W/C,2008-2009,ajhl,44271,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Wood (F),Spruce Grove Saints,6,1,1,2,0.33,2,-,/player/24291/justin-wood,4,Justin Wood,F,2008-2009,ajhl,24291,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Corbiell (D),Drumheller Dragons,10,1,1,2,0.20,20,-,/player/24563/ryan-corbiell,4,Ryan Corbiell,D,2008-2009,ajhl,24563,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Wilkins (D),St. Albert Steel,14,1,1,2,0.14,15,-,/player/47867/jordan-wilkins,4,Jordan Wilkins,D,2008-2009,ajhl,47867,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Grossmann (D),Grande Prairie Storm,14,1,1,2,0.14,72,-,/player/19276/elias-grossmann,4,Elias Grossmann,D,2008-2009,ajhl,19276,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Devon Marshall (D),totals,23,1,1,2,0.09,49,-,/player/44914/devon-marshall,4,Devon Marshall,D,2008-2009,ajhl,44914,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johnathon Sonntag (D),totals,24,1,1,2,0.08,19,-,/player/54199/johnathon-sonntag,4,Johnathon Sonntag,D,2008-2009,ajhl,54199,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andy Williams (C),Brooks Bandits,2,0,2,2,1.00,0,-,/player/26793/andy-williams,4,Andy Williams,C,2008-2009,ajhl,26793,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Drew Todd (RW),Okotoks Oilers,3,0,2,2,0.67,2,-,/player/24497/drew-todd,4,Drew Todd,RW,2008-2009,ajhl,24497,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trevor Whalley (D),Calgary Royals,4,0,2,2,0.50,0,-,/player/44901/trevor-whalley,4,Trevor Whalley,D,2008-2009,ajhl,44901,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Bell (F),Okotoks Oilers,4,0,2,2,0.50,2,-,/player/788738/scott-bell,4,Scott Bell,F,2008-2009,ajhl,788738,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Caylen Walls (D),Drumheller Dragons,6,0,2,2,0.33,2,-,/player/48397/caylen-walls,4,Caylen Walls,D,2008-2009,ajhl,48397,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brock Leavins (F),Brooks Bandits,8,0,2,2,0.25,2,-,/player/126621/brock-leavins,4,Brock Leavins,F,2008-2009,ajhl,126621,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Foy (D),Fort McMurray Oil Barons,8,0,2,2,0.25,15,-,/player/788649/kevin-foy,4,Kevin Foy,D,2008-2009,ajhl,788649,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Resler (D),Spruce Grove Saints,9,0,2,2,0.22,9,-,/player/766382/zach-resler,4,Zach Resler,D,2008-2009,ajhl,766382,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Moser (D),Bonnyville Pontiacs,13,0,2,2,0.15,24,-,/player/24347/anthony-moser,4,Anthony Moser,D,2008-2009,ajhl,24347,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carl Dahlen (D/F),Drayton Valley Thunder,16,0,2,2,0.13,16,-,/player/102883/carl-dahlen,4,Carl Dahlen,D/F,2008-2009,ajhl,102883,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Milne (LW/C),Grande Prairie Storm,19,0,2,2,0.11,8,-,/player/23941/david-milne,4,David Milne,LW/C,2008-2009,ajhl,23941,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Troy Watt (F),Drayton Valley Thunder,19,0,2,2,0.11,32,-,/player/24523/troy-watt,4,Troy Watt,F,2008-2009,ajhl,24523,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Derek Ginnell (F),totals,19,0,2,2,0.11,62,-,/player/25783/derek-ginnell,4,Derek Ginnell,F,2008-2009,ajhl,25783,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommy Adair (F),Calgary Royals,22,0,2,2,0.09,50,-,/player/24025/tommy-adair,4,Tommy Adair,F,2008-2009,ajhl,24025,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Carpenter (D),Bonnyville Pontiacs,26,0,2,2,0.08,10,-,/player/25750/kevin-carpenter,4,Kevin Carpenter,D,2008-2009,ajhl,25750,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shawn Ostrow (F),Camrose Kodiaks,1,1,0,1,1.00,0,-,/player/19289/shawn-ostrow,4,Shawn Ostrow,F,2008-2009,ajhl,19289,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Nowakowski (RW),Calgary Canucks,1,1,0,1,1.00,0,-,/player/44521/dylan-nowakowski,4,Dylan Nowakowski,RW,2008-2009,ajhl,44521,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Willy Sakal (C),Canmore Eagles,2,1,0,1,0.50,0,-,/player/44931/willy-sakal,4,Willy Sakal,C,2008-2009,ajhl,44931,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Westover (D),Drumheller Dragons,2,1,0,1,0.50,6,-,/player/19273/nathan-westover,4,Nathan Westover,D,2008-2009,ajhl,19273,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Baird (LW),Spruce Grove Saints,3,1,0,1,0.33,4,-,/player/44476/john-baird,4,John Baird,LW,2008-2009,ajhl,44476,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Baxter Niziol (LW),Spruce Grove Saints,6,1,0,1,0.17,29,-,/player/24286/baxter-niziol,4,Baxter Niziol,LW,2008-2009,ajhl,24286,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Parks (RW),St. Albert Steel,8,1,0,1,0.13,2,-,/player/45742/tyler-parks,5,Tyler Parks,RW,2008-2009,ajhl,45742,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyson Viehweger (D),Calgary Canucks,8,1,0,1,0.13,17,-,/player/207665/tyson-viehweger,5,Tyson Viehweger,D,2008-2009,ajhl,207665,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Szpak (D),Fort McMurray Oil Barons,1,0,1,1,1.00,0,-,/player/44330/matt-szpak,5,Matt Szpak,D,2008-2009,ajhl,44330,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan McCalpin (LW),Spruce Grove Saints,1,0,1,1,1.00,0,-,/player/44485/brendan-mccalpin,5,Brendan McCalpin,LW,2008-2009,ajhl,44485,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Santini (RW),Olds Grizzlys,1,0,1,1,1.00,0,-,/player/26393/brendan-santini,5,Brendan Santini,RW,2008-2009,ajhl,26393,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Forsyth (LW/C),Drumheller Dragons,1,0,1,1,1.00,0,-,/player/44896/mike-forsyth,5,Mike Forsyth,LW/C,2008-2009,ajhl,44896,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shaun Rountree (F),Olds Grizzlys,1,0,1,1,1.00,0,-,/player/788744/shaun-rountree,5,Shaun Rountree,F,2008-2009,ajhl,788744,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Knelsen (F),Drumheller Dragons,2,0,1,1,0.50,0,-,/player/44957/kyle-knelsen,5,Kyle Knelsen,F,2008-2009,ajhl,44957,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Guillaume Glasspoole (C/RW),Okotoks Oilers,2,0,1,1,0.50,0,-,/player/26413/guillaume-glasspoole,5,Guillaume Glasspoole,C/RW,2008-2009,ajhl,26413,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Porter (D),St. Albert Steel,2,0,1,1,0.50,2,-,/player/78153/austin-porter,5,Austin Porter,D,2008-2009,ajhl,78153,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Sevalrud (D),Camrose Kodiaks,3,0,1,1,0.33,0,-,/player/44908/austin-sevalrud,5,Austin Sevalrud,D,2008-2009,ajhl,44908,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Carthy (LW),Bonnyville Pontiacs,3,0,1,1,0.33,2,-,/player/38027/kevin-carthy,5,Kevin Carthy,LW,2008-2009,ajhl,38027,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Casey Rogers (D),Brooks Bandits,3,0,1,1,0.33,2,-,/player/44513/casey-rogers,5,Casey Rogers,D,2008-2009,ajhl,44513,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Braden Kinnebrew (D),St. Albert Steel,3,0,1,1,0.33,2,-,/player/46162/braden-kinnebrew,5,Braden Kinnebrew,D,2008-2009,ajhl,46162,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Neurauter (D),Olds Grizzlys,4,0,1,1,0.25,5,-,/player/44683/nick-neurauter,5,Nick Neurauter,D,2008-2009,ajhl,44683,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Zellweger (C),Bonnyville Pontiacs,4,0,1,1,0.25,9,-,/player/24346/justin-zellweger,5,Justin Zellweger,C,2008-2009,ajhl,24346,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyadg McGauley (D),Lloydminster Bobcats,5,0,1,1,0.20,6,-,/player/148686/tyadg-mcgauley,5,Tyadg McGauley,D,2008-2009,ajhl,148686,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brodie Welsh (D),Drayton Valley Thunder,6,0,1,1,0.17,4,-,/player/44280/brodie-welsh,5,Brodie Welsh,D,2008-2009,ajhl,44280,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Ness (F),Drayton Valley Thunder,6,0,1,1,0.17,20,-,/player/24544/jordan-ness,5,Jordan Ness,F,2008-2009,ajhl,24544,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Cole (D),Drayton Valley Thunder,7,0,1,1,0.14,31,-,/player/24508/martin-cole,5,Martin Cole,D,2008-2009,ajhl,24508,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Darren Andre (F),Brooks Bandits,8,0,1,1,0.13,2,-,/player/44510/darren-andre,5,Darren Andre,F,2008-2009,ajhl,44510,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Floris (D),Grande Prairie Storm,8,0,1,1,0.13,13,-,/player/23914/kevin-floris,5,Kevin Floris,D,2008-2009,ajhl,23914,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Viola (F),Grande Prairie Storm,11,0,1,1,0.09,2,-,/player/26791/matt-viola,5,Matt Viola,F,2008-2009,ajhl,26791,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Allistair Chapman (D),totals,13,0,1,1,0.08,24,-,/player/44262/allistair-chapman,5,Allistair Chapman,D,2008-2009,ajhl,44262,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Richardson (D),Olds Grizzlys,15,0,1,1,0.07,18,-,/player/24533/matt-richardson,5,Matt Richardson,D,2008-2009,ajhl,24533,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Pinder (D),Calgary Royals,22,0,1,1,0.05,33,-,/player/75864/patrick-pinder,5,Patrick Pinder,D,2008-2009,ajhl,75864,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cody Stackaruk (D),Grande Prairie Storm,29,0,1,1,0.03,147,-,/player/23963/cody-stackaruk,5,Cody Stackaruk,D,2008-2009,ajhl,23963,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitch Kaufmann (D),Grande Prairie Storm,38,0,1,1,0.03,47,-,/player/23967/mitch-kaufmann,5,Mitch Kaufmann,D,2008-2009,ajhl,23967,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shane Oatway (D),Camrose Kodiaks,42,0,1,1,0.02,60,-,/player/44907/shane-oatway,5,Shane Oatway,D,2008-2009,ajhl,44907,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rylan Madoche (C),Bonnyville Pontiacs,0,0,0,0,-,0,-,/player/44259/rylan-madoche,5,Rylan Madoche,C,2008-2009,ajhl,44259,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Johnson (D),Fort McMurray Oil Barons,0,0,0,0,-,0,-,/player/44325/nathan-johnson,5,Nathan Johnson,D,2008-2009,ajhl,44325,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Kosteriva (F/D),Lloydminster Bobcats,0,0,0,0,-,0,-,/player/44358/cole-kosteriva,5,Cole Kosteriva,F/D,2008-2009,ajhl,44358,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Donnachie (F),Sherwood Park Crusaders,0,0,0,0,-,0,-,/player/44412/daniel-donnachie,5,Daniel Donnachie,F,2008-2009,ajhl,44412,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Briner (F),Spruce Grove Saints,0,0,0,0,-,0,-,/player/44477/kevin-briner,5,Kevin Briner,F,2008-2009,ajhl,44477,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Paiement (F),Camrose Kodiaks,0,0,0,0,-,0,-,/player/44900/joel-paiement,5,Joel Paiement,F,2008-2009,ajhl,44900,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Kochan (C),Spruce Grove Saints,0,0,0,0,-,0,-,/player/24283/jordan-kochan,5,Jordan Kochan,C,2008-2009,ajhl,24283,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaron Borejko (D),Spruce Grove Saints,0,0,0,0,-,0,-,/player/24289/aaron-borejko,5,Aaron Borejko,D,2008-2009,ajhl,24289,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jamie Crooks (LW),Lloydminster Bobcats,1,0,0,0,0.00,0,-,/player/26383/jamie-crooks,5,Jamie Crooks,LW,2008-2009,ajhl,26383,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Middleton (D),Grande Prairie Storm,1,0,0,0,0.00,0,-,/player/44251/josh-middleton,5,Josh Middleton,D,2008-2009,ajhl,44251,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Aylward (D),Bonnyville Pontiacs,1,0,0,0,0.00,0,-,/player/44252/andrew-aylward,5,Andrew Aylward,D,2008-2009,ajhl,44252,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Derek Hutton (LW),Bonnyville Pontiacs,1,0,0,0,0.00,0,-,/player/44257/derek-hutton,5,Derek Hutton,LW,2008-2009,ajhl,44257,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Dahl (C),Lloydminster Bobcats,1,0,0,0,0.00,0,-,/player/44357/marcus-dahl,5,Marcus Dahl,C,2008-2009,ajhl,44357,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dillon Simpson (D),Spruce Grove Saints,1,0,0,0,0.00,0,-,/player/44487/dillon-simpson,5,Dillon Simpson,D,2008-2009,ajhl,44487,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Grbavac (RW),Calgary Canucks,1,0,0,0,0.00,0,-,/player/24013/cole-grbavac,5,Cole Grbavac,RW,2008-2009,ajhl,24013,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riley Paterson (F),Calgary Canucks,1,0,0,0,0.00,0,-,/player/44522/riley-paterson,5,Riley Paterson,F,2008-2009,ajhl,44522,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lane Menage (F),Camrose Kodiaks,1,0,0,0,0.00,0,-,/player/26407/lane-menage,5,Lane Menage,F,2008-2009,ajhl,26407,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steven Phee (C),Canmore Eagles,1,0,0,0,0.00,0,-,/player/26391/steven-phee,5,Steven Phee,C,2008-2009,ajhl,26391,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Davis Claffey (D),Canmore Eagles,1,0,0,0,0.00,0,-,/player/44926/davis-claffey,5,Davis Claffey,D,2008-2009,ajhl,44926,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riley Point (LW),Canmore Eagles,1,0,0,0,0.00,0,-,/player/44929/riley-point,5,Riley Point,LW,2008-2009,ajhl,44929,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zack Rassell (RW),Canmore Eagles,1,0,0,0,0.00,0,-,/player/44930/zack-rassell,5,Zack Rassell,RW,2008-2009,ajhl,44930,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Drydn Dow (D),Drumheller Dragons,1,0,0,0,0.00,0,-,/player/44938/drydn-dow,5,Drydn Dow,D,2008-2009,ajhl,44938,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Prpich (C/RW),Okotoks Oilers,1,0,0,0,0.00,0,-,/player/44961/sam-prpich,5,Sam Prpich,C/RW,2008-2009,ajhl,44961,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Faux (F),Olds Grizzlys,1,0,0,0,0.00,0,-,/player/44996/justin-faux,5,Justin Faux,F,2008-2009,ajhl,44996,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Gayle (LW),Canmore Eagles,1,0,0,0,0.00,0,-,/player/45176/daniel-gayle,5,Daniel Gayle,LW,2008-2009,ajhl,45176,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Stahl (D),Drumheller Dragons,1,0,0,0,0.00,0,-,/player/45484/tyler-stahl,5,Tyler Stahl,D,2008-2009,ajhl,45484,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Stack (C),Calgary Royals,1,0,0,0,0.00,0,-,/player/45763/evan-stack,5,Evan Stack,C,2008-2009,ajhl,45763,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+James Braakman (F),Calgary Royals,1,0,0,0,0.00,0,-,/player/44693/james-braakman,5,James Braakman,F,2008-2009,ajhl,44693,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Koopmans (D),Bonnyville Pontiacs,1,0,0,0,0.00,0,-,/player/44979/jordan-koopmans,5,Jordan Koopmans,D,2008-2009,ajhl,44979,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Corkey (D),Calgary Royals,1,0,0,0,0.00,0,-,/player/51730/brett-corkey,5,Brett Corkey,D,2008-2009,ajhl,51730,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeff Dort (D),Bonnyville Pontiacs,1,0,0,0,0.00,0,-,/player/37198/jeff-dort,5,Jeff Dort,D,2008-2009,ajhl,37198,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Madill (D),Okotoks Oilers,1,0,0,0,0.00,0,-,/player/44984/luke-madill,5,Luke Madill,D,2008-2009,ajhl,44984,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kieran O'Neil (C),Okotoks Oilers,1,0,0,0,0.00,0,-,/player/51733/kieran-o-neil,5,Kieran O'Neil,C,2008-2009,ajhl,51733,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Walls (D),Olds Grizzlys,1,0,0,0,0.00,0,-,/player/101486/anthony-walls,5,Anthony Walls,D,2008-2009,ajhl,101486,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Porteous (D),St. Albert Steel,1,0,0,0,0.00,0,-,/player/45743/tyler-porteous,5,Tyler Porteous,D,2008-2009,ajhl,45743,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danny Wheeler (D),Lloydminster Bobcats,1,0,0,0,0.00,0,-,/player/64818/danny-wheeler,5,Danny Wheeler,D,2008-2009,ajhl,64818,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Chenard (D),Fort McMurray Oil Barons,1,0,0,0,0.00,0,-,/player/45667/matthew-chenard,5,Matthew Chenard,D,2008-2009,ajhl,45667,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Spelliscy (D),Fort McMurray Oil Barons,1,0,0,0,0.00,0,-,/player/140399/patrick-spelliscy,5,Patrick Spelliscy,D,2008-2009,ajhl,140399,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cody Ellerby (F),Okotoks Oilers,1,0,0,0,0.00,0,-,/player/766421/cody-ellerby,5,Cody Ellerby,F,2008-2009,ajhl,766421,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lane Wagner (D),Okotoks Oilers,1,0,0,0,0.00,0,-,/player/58761/lane-wagner,5,Lane Wagner,D,2008-2009,ajhl,58761,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dallas Ehrhardt (D),Olds Grizzlys,1,0,0,0,0.00,0,-,/player/45479/dallas-ehrhardt,5,Dallas Ehrhardt,D,2008-2009,ajhl,45479,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johnny Mahovlich (D),Olds Grizzlys,1,0,0,0,0.00,0,-,/player/46023/johnny-mahovlich,5,Johnny Mahovlich,D,2008-2009,ajhl,46023,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Turner Elson (C/LW),St. Albert Steel,1,0,0,0,0.00,0,-,/player/45522/turner-elson,5,Turner Elson,C/LW,2008-2009,ajhl,45522,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+T.J. Short (F),Calgary Canucks,1,0,0,0,0.00,0,-,/player/76466/t-j-short,5,T.J. Short,F,2008-2009,ajhl,76466,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dustin King (C),St. Albert Steel,1,0,0,0,0.00,0,-,/player/788746/dustin-king,5,Dustin King,C,2008-2009,ajhl,788746,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Isaac Reid (LW),St. Albert Steel,1,0,0,0,0.00,0,-,/player/24515/isaac-reid,5,Isaac Reid,LW,2008-2009,ajhl,24515,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dave Williams (F),Brooks Bandits,1,0,0,0,0.00,0,0,/player/70616/dave-williams,5,Dave Williams,F,2008-2009,ajhl,70616,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Graham Smerek (C/LW),Fort McMurray Oil Barons,1,0,0,0,0.00,2,-,/player/44329/graham-smerek,5,Graham Smerek,C/LW,2008-2009,ajhl,44329,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Muscoby (D),Canmore Eagles,1,0,0,0,0.00,2,-,/player/44925/chris-muscoby,5,Chris Muscoby,D,2008-2009,ajhl,44925,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Thompson (F),Olds Grizzlys,1,0,0,0,0.00,2,-,/player/44981/evan-thompson,5,Evan Thompson,F,2008-2009,ajhl,44981,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cam Bush (D/F),St. Albert Steel,1,0,0,0,0.00,2,-,/player/45741/cam-bush,5,Cam Bush,D/F,2008-2009,ajhl,45741,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trenton Roll (D),Calgary Royals,1,0,0,0,0.00,2,-,/player/788613/trenton-roll,5,Trenton Roll,D,2008-2009,ajhl,788613,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle L'Arrivee (F),Calgary Royals,1,0,0,0,0.00,2,-,/player/154800/kyle-l-arrivee,5,Kyle L'Arrivee,F,2008-2009,ajhl,154800,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Page (F),Calgary Canucks,1,0,0,0,0.00,4,-,/player/39621/carter-page,5,Carter Page,F,2008-2009,ajhl,39621,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Todd Callaghan (F),Drumheller Dragons,1,0,0,0,0.00,14,-,/player/44943/todd-callaghan,5,Todd Callaghan,F,2008-2009,ajhl,44943,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rylan Wiest (LW),Camrose Kodiaks,1,0,0,0,0.00,18,-,/player/44904/rylan-wiest,5,Rylan Wiest,LW,2008-2009,ajhl,44904,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Travis Bettenson (F),Grande Prairie Storm,2,0,0,0,0.00,0,-,/player/23978/travis-bettenson,5,Travis Bettenson,F,2008-2009,ajhl,23978,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Nolte (LW),Spruce Grove Saints,2,0,0,0,0.00,0,-,/player/44486/tim-nolte,5,Tim Nolte,LW,2008-2009,ajhl,44486,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brock Hirsche (C),Brooks Bandits,2,0,0,0,0.00,0,-,/player/26386/brock-hirsche,5,Brock Hirsche,C,2008-2009,ajhl,26386,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Jantzie (F),Brooks Bandits,2,0,0,0,0.00,0,-,/player/44511/david-jantzie,5,David Jantzie,F,2008-2009,ajhl,44511,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Kawam (LW),Brooks Bandits,2,0,0,0,0.00,0,-,/player/44512/william-kawam,5,William Kawam,LW,2008-2009,ajhl,44512,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Cochrane (F),Calgary Canucks,2,0,0,0,0.00,0,-,/player/44520/justin-cochrane,5,Justin Cochrane,F,2008-2009,ajhl,44520,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dalton Reum (D),Camrose Kodiaks,2,0,0,0,0.00,0,-,/player/44911/dalton-reum,5,Dalton Reum,D,2008-2009,ajhl,44911,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Stachiw (D),Canmore Eagles,2,0,0,0,0.00,0,-,/player/44932/chris-stachiw,5,Chris Stachiw,D,2008-2009,ajhl,44932,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Sutter (C),Okotoks Oilers,2,0,0,0,0.00,0,-,/player/48665/lukas-sutter,5,Lukas Sutter,C,2008-2009,ajhl,48665,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Bauer (RW),Sherwood Park Crusaders,2,0,0,0,0.00,0,-,/player/27997/jordan-bauer,5,Jordan Bauer,RW,2008-2009,ajhl,27997,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitchell Board (F),Drumheller Dragons,2,0,0,0,0.00,0,-,/player/44692/mitchell-board,5,Mitchell Board,F,2008-2009,ajhl,44692,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Howey (D),Olds Grizzlys,2,0,0,0,0.00,0,-,/player/44973/patrick-howey,5,Patrick Howey,D,2008-2009,ajhl,44973,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Roper (D),Calgary Royals,2,0,0,0,0.00,0,-,/player/49424/david-roper,5,David Roper,D,2008-2009,ajhl,49424,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Maleschuk (D),Calgary Royals,2,0,0,0,0.00,0,-,/player/44704/matt-maleschuk,5,Matt Maleschuk,D,2008-2009,ajhl,44704,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ty Rattie (RW),Brooks Bandits,2,0,0,0,0.00,0,0,/player/26385/ty-rattie,5,Ty Rattie,RW,2008-2009,ajhl,26385,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Skoreyko (F),Bonnyville Pontiacs,2,0,0,0,0.00,0,-,/player/24002/andrew-skoreyko,6,Andrew Skoreyko,F,2008-2009,ajhl,24002,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Holland (RW/C),Olds Grizzlys,2,0,0,0,0.00,0,-,/player/26390/patrick-holland,6,Patrick Holland,RW/C,2008-2009,ajhl,26390,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Farrer (F),Calgary Canucks,2,0,0,0,0.00,0,-,/player/38512/ben-farrer,6,Ben Farrer,F,2008-2009,ajhl,38512,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Greg Lamoureux (RW),Calgary Royals,2,0,0,0,0.00,0,-,/player/45646/greg-lamoureux,6,Greg Lamoureux,RW,2008-2009,ajhl,45646,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Weisensel (D/F),Calgary Canucks,2,0,0,0,0.00,2,-,/player/44523/matthew-weisensel,6,Matthew Weisensel,D/F,2008-2009,ajhl,44523,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Landon Kadatz (F),Calgary Royals,2,0,0,0,0.00,2,-,/player/44994/landon-kadatz,6,Landon Kadatz,F,2008-2009,ajhl,44994,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Corey Allen (F),Fort McMurray Oil Barons,2,0,0,0,0.00,2,-,/player/144936/corey-allen,6,Corey Allen,F,2008-2009,ajhl,144936,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colin McKay (D),Calgary Royals,2,0,0,0,0.00,2,-,/player/54056/colin-mckay,6,Colin McKay,D,2008-2009,ajhl,54056,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cam Hurt (F),Okotoks Oilers,2,0,0,0,0.00,2,-,/player/131958/cam-hurt,6,Cam Hurt,F,2008-2009,ajhl,131958,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Kalinowski (D),St. Albert Steel,2,0,0,0,0.00,2,-,/player/140654/jacob-kalinowski,6,Jacob Kalinowski,D,2008-2009,ajhl,140654,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nolan Marshall (LW),Camrose Kodiaks,2,0,0,0,0.00,4,-,/player/44903/nolan-marshall,6,Nolan Marshall,LW,2008-2009,ajhl,44903,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Halderman (D),Calgary Royals,2,0,0,0,0.00,11,-,/player/126409/jacob-halderman,6,Jacob Halderman,D,2008-2009,ajhl,126409,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steven Bourgeois (D),Olds Grizzlys,2,0,0,0,0.00,14,-,/player/424127/steven-bourgeois,6,Steven Bourgeois,D,2008-2009,ajhl,424127,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kjell Reid (F),Drayton Valley Thunder,3,0,0,0,0.00,0,-,/player/24546/kjell-reid,6,Kjell Reid,F,2008-2009,ajhl,24546,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Hudema (D),St. Albert Steel,3,0,0,0,0.00,0,-,/player/44496/nathan-hudema,6,Nathan Hudema,D,2008-2009,ajhl,44496,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Craig Gans (D),Olds Grizzlys,3,0,0,0,0.00,0,-,/player/44987/craig-gans,6,Craig Gans,D,2008-2009,ajhl,44987,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Lowry (C/LW),Okotoks Oilers,3,0,0,0,0.00,0,-,/player/26409/joel-lowry,6,Joel Lowry,C/LW,2008-2009,ajhl,26409,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andy Avery (D),Calgary Royals,3,0,0,0,0.00,0,-,/player/50001/andy-avery,6,Andy Avery,D,2008-2009,ajhl,50001,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sumeet Wareh (F),Calgary Royals,3,0,0,0,0.00,0,-,/player/50007/sumeet-wareh,6,Sumeet Wareh,F,2008-2009,ajhl,50007,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Heck (F),Camrose Kodiaks,3,0,0,0,0.00,0,-,/player/24472/jordan-heck,6,Jordan Heck,F,2008-2009,ajhl,24472,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frank Skerlak (F),totals,3,0,0,0,0.00,0,-,/player/173723/frank-skerlak,6,Frank Skerlak,F,2008-2009,ajhl,173723,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Dueck (F),Okotoks Oilers,3,0,0,0,0.00,0,-,/player/788742/joel-dueck,6,Joel Dueck,F,2008-2009,ajhl,788742,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shane Wagstaff (D),Olds Grizzlys,3,0,0,0,0.00,0,-,/player/140661/shane-wagstaff,6,Shane Wagstaff,D,2008-2009,ajhl,140661,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Krabben (D),Canmore Eagles,3,0,0,0,0.00,2,-,/player/44913/justin-krabben,6,Justin Krabben,D,2008-2009,ajhl,44913,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bowen Fraser (F),Canmore Eagles,3,0,0,0,0.00,2,-,/player/134609/bowen-fraser,6,Bowen Fraser,F,2008-2009,ajhl,134609,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lewis Laczko (D),Lloydminster Bobcats,3,0,0,0,0.00,4,-,/player/26794/lewis-laczko,6,Lewis Laczko,D,2008-2009,ajhl,26794,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Spencer Pommells (LW),Sherwood Park Crusaders,3,0,0,0,0.00,4,-,/player/26453/spencer-pommells,6,Spencer Pommells,LW,2008-2009,ajhl,26453,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Claffey (D),Drayton Valley Thunder,3,0,0,0,0.00,8,-,/player/47725/mark-claffey,6,Mark Claffey,D,2008-2009,ajhl,47725,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blake Leask (D),Bonnyville Pontiacs,4,0,0,0,0.00,0,-,/player/25752/blake-leask,6,Blake Leask,D,2008-2009,ajhl,25752,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxwell Bolduc (F),Sherwood Park Crusaders,4,0,0,0,0.00,0,-,/player/44410/maxwell-bolduc,6,Maxwell Bolduc,F,2008-2009,ajhl,44410,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Glen (C/D),Spruce Grove Saints,4,0,0,0,0.00,0,-,/player/26425/david-glen,6,David Glen,C/D,2008-2009,ajhl,26425,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keon Vick (D),Brooks Bandits,4,0,0,0,0.00,0,-,/player/24006/keon-vick,6,Keon Vick,D,2008-2009,ajhl,24006,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kurtis Kubel (F),Drayton Valley Thunder,4,0,0,0,0.00,0,-,/player/24541/kurtis-kubel,6,Kurtis Kubel,F,2008-2009,ajhl,24541,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolas Bourget (RW),Bonnyville Pontiacs,4,0,0,0,0.00,2,-,/player/44253/nikolas-bourget,6,Nikolas Bourget,RW,2008-2009,ajhl,44253,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitchell Rose (F),Drayton Valley Thunder,4,0,0,0,0.00,2,-,/player/44276/mitchell-rose,6,Mitchell Rose,F,2008-2009,ajhl,44276,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Zgraggen (D/LW),Brooks Bandits,4,0,0,0,0.00,2,-,/player/167390/mike-zgraggen,6,Mike Zgraggen,D/LW,2008-2009,ajhl,167390,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brent Martin (LW),Spruce Grove Saints,4,0,0,0,0.00,2,-,/player/24478/brent-martin,6,Brent Martin,LW,2008-2009,ajhl,24478,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tom Kroshus (D),totals,4,0,0,0,0.00,4,-,/player/44906/tom-kroshus,6,Tom Kroshus,D,2008-2009,ajhl,44906,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Beisel (D),Calgary Royals,4,0,0,0,0.00,12,-,/player/44687/zach-beisel,6,Zach Beisel,D,2008-2009,ajhl,44687,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Hodges (D),Calgary Canucks,5,0,0,0,0.00,2,-,/player/463731/tyler-hodges,6,Tyler Hodges,D,2008-2009,ajhl,463731,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Berquam (F),Calgary Royals,5,0,0,0,0.00,4,-,/player/24460/brandon-berquam,6,Brandon Berquam,F,2008-2009,ajhl,24460,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brad Sykes (F),Bonnyville Pontiacs,5,0,0,0,0.00,9,-,/player/400603/brad-sykes,6,Brad Sykes,F,2008-2009,ajhl,400603,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steven Nolte (D),Spruce Grove Saints,6,0,0,0,0.00,4,-,/player/44479/steven-nolte,6,Steven Nolte,D,2008-2009,ajhl,44479,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steven Jean (RW),Bonnyville Pontiacs,7,0,0,0,0.00,2,-,/player/25751/steven-jean,6,Steven Jean,RW,2008-2009,ajhl,25751,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keyler Bruce (F),Okotoks Oilers,7,0,0,0,0.00,2,-,/player/44960/keyler-bruce,6,Keyler Bruce,F,2008-2009,ajhl,44960,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Regier (D),Calgary Royals,7,0,0,0,0.00,9,-,/player/788732/matt-regier,6,Matt Regier,D,2008-2009,ajhl,788732,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trevor Bauer (D),Brooks Bandits,10,0,0,0,0.00,13,-,/player/24671/trevor-bauer,6,Trevor Bauer,D,2008-2009,ajhl,24671,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Devon Johnson (D),Drumheller Dragons,10,0,0,0,0.00,13,-,/player/370858/devon-johnson,6,Devon Johnson,D,2008-2009,ajhl,370858,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeff Wright (D),Fort McMurray Oil Barons,15,0,0,0,0.00,27,-,/player/24566/jeff-wright,6,Jeff Wright,D,2008-2009,ajhl,24566,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kodi Sawka (D),St. Albert Steel,16,0,0,0,0.00,56,-,/player/47140/kodi-sawka,6,Kodi Sawka,D,2008-2009,ajhl,47140,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Daroux (F),totals,17,0,0,0,0.00,18,-,/player/24017/jake-daroux,6,Jake Daroux,F,2008-2009,ajhl,24017,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pascal Filiatrault-Veilleux (D),Drayton Valley Thunder,23,0,0,0,0.00,8,-,/player/223507/pascal-filiatrault-veilleux,6,Pascal Filiatrault-Veilleux,D,2008-2009,ajhl,223507,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cory Demko (D),Drumheller Dragons,40,0,0,0,0.00,2,-,/player/788733/cory-demko,6,Cory Demko,D,2008-2009,ajhl,788733,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69

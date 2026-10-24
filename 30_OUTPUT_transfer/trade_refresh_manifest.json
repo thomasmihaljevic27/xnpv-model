@@ -1,0 +1,227 @@
+{
+ "refresh": "trade_refresh.py v1.0 (2026-10-18)",
+ "started": "2026-10-21 23:04",
+ "commit": "9441700",
+ "branch": "main",
+ "uncommitted_code": [
+  "20_CODE/backtest.py",
+  "20_CODE/contract_npv.py",
+  "20_CODE/goalie_value_engine.py",
+  "20_CODE/pick_curve.py",
+  "20_CODE/prospect_values.py",
+  "20_CODE/rights_values.py"
+ ],
+ "behind_upstream": 0,
+ "contract_side_inputs": [
+  {
+   "file": "contract_level_spine.csv",
+   "written": "2026-10-21 22:40",
+   "sha256": "19dc1856b01ddaa1f660be9cf793cef7127e0918aa439f201a40b4f980bdcadb"
+  },
+  {
+   "file": "contract_season_spine.csv",
+   "written": "2026-10-21 22:40",
+   "sha256": "2b15adc9fd89b1cac73321b783bb70da92184dc3f06a4452698aceab3fcf49ef"
+  },
+  {
+   "file": "WAR_with_age.csv",
+   "written": "2026-10-21 22:40",
+   "sha256": "2dc2337c21ffac0121d73b8224a25180e8f599709c5322c440f60a3dbf49ac86"
+  },
+  {
+   "file": "war_name_crosswalk.csv",
+   "written": "2026-10-21 22:40",
+   "sha256": "380f1862a0679e093eca30bd27f651f068351b50aaf65248ac45f8cd683e7f65"
+  },
+  {
+   "file": "goalie_value_spine_v2.csv",
+   "written": "2026-10-21 22:41",
+   "sha256": "5e4b6c88963348c12d0ba5398affd38afefed2e070a274cb691a35204efbe748"
+  },
+  {
+   "file": "contract_npv_panel.csv",
+   "written": "2026-10-21 22:53",
+   "sha256": "e851f7bdba3931532abda3dcedf64d03121ba32dec66ff201ed4ba5d9dcba7ed"
+  }
+ ],
+ "steps": [
+  {
+   "script": "20_CODE/draft_pick_linkage.py",
+   "sha256": "75273d90c3ce362f3e2c8e36354dec9e1df06da00461f7b285dc21665bde9cab",
+   "version": "draft_pick_linkage.py SCRIPT_VERSION 1.3",
+   "seconds": 1.8,
+   "outputs": {
+    "draft_pick_linkage.csv": "5cd955c6e2a27178b5e89b99209d688c17b560d8965c61c4a4179ff2fbff8a98"
+   }
+  },
+  {
+   "script": "25_TESTS/draft_window_count.py",
+   "sha256": "735950923407cdeb77ed900cd3b9c22fa2bac7c2bb3da49ec7bad9b670f95080",
+   "version": "draft_window_count.py v1.0",
+   "seconds": 3.0,
+   "outputs": {
+    "draft_window_count.csv": "2bd4820e285cd06acac4f3d2ecc7539b0c645f17e794d4db7cf32d1d29383f95"
+   }
+  },
+  {
+   "script": "20_CODE/elc_signing_dates.py",
+   "sha256": "fc6e8f9d11c0be8149f42b752364a258bae0121b417e1b3750f5b58cb81d591f",
+   "version": "elc_signing_dates.py v1.4",
+   "seconds": 4.2,
+   "outputs": {
+    "elc_signing_dates.csv": "afd3ac044a6c02dbb621b8465077369c181ece415b84d8e12e8adbe7937c4e03",
+    "elc_signing_dates_log.txt": "45fb1b3ac07b4be8fc96b3f79baf70c0802292cb28cb43c6e95cce5912ef5ddf"
+   }
+  },
+  {
+   "script": "20_CODE/pick_curve.py",
+   "sha256": "e9540e4feede76cddfea427c9cf2c572c3c573c93e82fb609f20419e5cd4c943",
+   "version": "pick_curve.py v1.11",
+   "seconds": 94.5,
+   "outputs": {
+    "pick_curve_players.csv": "1f1f16434947078e2cb15e48361a8013d4f91394bc71251f55ff97c1a0324f5b",
+    "pick_curve_seasons.csv": "191f2e2bdffc582a46bf7eaea9aa289f4cff62c2f8407b37193e65692fbfeedb",
+    "pick_curve_scales.csv": "2453178322a504243312bc4f713c4a0636e5c419bc04897b009ad9715e92d8b2",
+    "pick_curve_log.txt": "8410bf61edd9dde228dea60c9fd2fb78d096b59ab8de798383f1d4e6bfbc1feb"
+   }
+  },
+  {
+   "script": "20_CODE/traded_pick_values.py",
+   "sha256": "520d7346d3073d54b2acdc2407387a743fcb97364d365df49a9b2bf70ab2e43f",
+   "version": "traded_pick_values.py v1.2",
+   "seconds": 1.6,
+   "outputs": {
+    "traded_pick_values.csv": "be74457154e14b278796a9892960f179075a41ed68b413e673bb239d9e286832",
+    "traded_pick_values_log.txt": "f8a9e2001cbc622ca26ec5965a2a1d20ec63fe9715c9f08bdfc4c117c50877bc"
+   }
+  },
+  {
+   "script": "25_TESTS/prospect_slot_years_check.py",
+   "sha256": "f199e751fc8e691b6f8b70bc3dc1ac149a30ac801e5045439660c098cb2d629e",
+   "version": "prospect_slot_years_check.py v1.3",
+   "seconds": 11.2,
+   "outputs": {
+    "prospect_slot_years.csv": "dc943d729ec0c1b6c2696510a9cbb05c497ebebc395f00f1b548a401d2bd762a",
+    "prospect_slot_years_rows.csv": "b1945ee82dbb97a619799ec6dd8c9c46a177d566e453e18161b436fcdb18c3d9",
+    "prospect_slot_years_log.txt": "9f82cca7728bb8040d09059ad62cda8d2c1e6bd07208d07836eefc6236df52cb"
+   }
+  },
+  {
+   "script": "25_TESTS/prospect_nhle_look.py",
+   "sha256": "2caf671caef99ac204b2ce7faf903e78c151335e783fc3140052a0afaaa1bda2",
+   "version": "prospect_nhle_look.py v1.3",
+   "seconds": 9.3,
+   "outputs": {
+    "prospect_nhle_look.csv": "9169ad3087d221e0cb2eca1fa80a3033ed7f856b5e22d0a10170d35d59d6ee28",
+    "prospect_nhle_coefficients.csv": "a9d3768f3ab3a4ec9ccc4dc6fa80499c04d4e70ab1fd6cca496268fb7c517d21",
+    "prospect_nhle_rows.csv": "2295b67d5c4f18239442056d3bddd22ef78e5ea2445417b0bd9ea2b30e74ba3c",
+    "prospect_nhle_look_log.txt": "0275490f7d3cc3d0c65676283b771f158ec097b22451570629e24deacf4b8ab9"
+   }
+  },
+  {
+   "script": "25_TESTS/prospect_age_look.py",
+   "sha256": "1f8d81aa0d987f6d1926c5a5b29b72720fb68cebee0ee5e5bd8678e637624745",
+   "version": "prospect_age_look.py v1.5",
+   "seconds": 6.7,
+   "outputs": {
+    "prospect_age_look.csv": "15c76135f5608e9bbb65c10590afb299a2aa8fd9f6fe5756943161e722d12887",
+    "prospect_age_coefficients.csv": "3b56b22109cc51f5957c0bd5ba3a3407106b59181b6cae53b8f31cbf68d9ba94",
+    "prospect_age_look_log.txt": "f6f2c2053e1f0979106c2a7d63f47ed1b9346d6b5ca6d39142111c4c743f6b2d"
+   }
+  },
+  {
+   "script": "20_CODE/prospect_values.py",
+   "sha256": "381b16bd5241e2b53b7b6dea6d54349f99125e541359cdb0a0e68933e72bd48e",
+   "version": "prospect_values.py v1.12",
+   "seconds": 20.3,
+   "outputs": {
+    "prospect_values.csv": "518f07b5f8842097f6ccfd01b984897ae950cbaa1c63a8478f71b53cf5ebda63",
+    "prospect_star_values.csv": "3aa8aee28874bc1fbd3444dfaf02023c5f3bbc962ab2bc1c0958c57d30db57b3",
+    "prospect_production_fits.csv": "5c999863010cfd27e629ecc1f7fa815d92b1983fd508bf50a29fc15ac91ed76d",
+    "prospect_values_log.txt": "a5f06a33caee9cd533e2d571e5231dcd46b98e1daaf1da6848aea6855a11ec56"
+   }
+  },
+  {
+   "script": "20_CODE/traded_player_values.py",
+   "sha256": "60b7fd83192a75c5ca7713734fa0cf0462c87d46d2660f5c9454654d3cb26b71",
+   "version": "traded_player_values.py v1.6",
+   "seconds": 86.5,
+   "outputs": {
+    "traded_player_values.csv": "c73e74e8c7a12b2230306fad59bad5f9f10452b85245be53149a9c56f75d125b",
+    "traded_player_values_log.txt": "2f061ce40a0cef12052585e203ac6e4fdaf3ec236e76cb86d8414cdc3f600409"
+   }
+  },
+  {
+   "script": "20_CODE/rights_values.py",
+   "sha256": "8fca8873e09cdbc0f1e5836b7925101f4da6b777f3ecb43d606faec406c486d3",
+   "version": "rights_values.py v1.6",
+   "seconds": 59.5,
+   "outputs": {
+    "rights_values.csv": "b25ab8977ad89a607cf0e954117f6ee2185dad854de844e61329dae1d64bc441",
+    "rights_values_log.txt": "3913579d34be78649d3095aa1bbb41d501af3971ae28a2054850c3ec554888ef",
+    "traded_player_values.csv": "92f17aa0b0fb9097525c5341065c40a2cbdb2b31ed9029205fff2ffb3bf49cfa"
+   }
+  },
+  {
+   "script": "20_CODE/buried_contract_values.py",
+   "sha256": "872a4bb97c3c0196d94ed6a957046a440fcc21f7d61d77fcfde36e763bda77f9",
+   "version": "buried_contract_values.py v1.8",
+   "seconds": 6.5,
+   "outputs": {
+    "buried_contract_values.csv": "d686d8223558cb957065319d8a211337cbd2e54657d7d5f1a5dafaf84904f91a",
+    "buried_contract_values_log.txt": "b3e8e9d0de622341355334c51b5f5b6591a28d7b5b6b0a9116dfa86d47176381"
+   }
+  },
+  {
+   "script": "25_TESTS/uncovered_assets_audit.py",
+   "sha256": "ec601454edb80b36306ff36da84dbd8168ee0d25fabef33dc3000d692cd335f0",
+   "version": "uncovered_assets_audit.py v1.1",
+   "seconds": 3.1,
+   "outputs": {
+    "uncovered_assets_audit.csv": "713e76438037309710b47e7a8b9193c616a6f7dbbee2f04ab4f5c491ed0912f7",
+    "uncovered_assets_audit_log.txt": "c237227a15586ea2d745d94a0ef916ff854d3a30708f7258562e9403a06b08a1"
+   }
+  },
+  {
+   "script": "20_CODE/contracts_2017.py",
+   "sha256": "46955d2f5250dca5dde2dbf297bbf2af444d914b30be11f7349a97f79b6f0a6f",
+   "version": "contracts_2017.py v1.1",
+   "seconds": 2.1,
+   "outputs": {
+    "contracts_2017.csv": "b1670c0bc04c0170ffa216261d87972bf39b7004b7c2fc37ee338dfba8a0a6a8",
+    "contracts_2017_log.txt": "4d23b07b776f138399e7c5f910e0a73fb67966adffa2c94211c68cec981e9d85"
+   }
+  },
+  {
+   "script": "20_CODE/page_2017_values.py",
+   "sha256": "bcbc72c3c985dc0a3c0d584c3c2db15b0ccd7777e98861922588c40e20d38959",
+   "version": "page_2017_values.py v1.9",
+   "seconds": 53.0,
+   "outputs": {
+    "page_2017_values.csv": "fd9da60797e641469b41287c5127a777022f23f5d787b55169f77ab37fd4e489",
+    "page_2017_values_log.txt": "c47ea35902970ee9f64f2c979ad12a40bfb607508b97d872d0a6345b5c1f443a"
+   }
+  },
+  {
+   "script": "25_TESTS/uncovered_assets_audit.py",
+   "sha256": "ec601454edb80b36306ff36da84dbd8168ee0d25fabef33dc3000d692cd335f0",
+   "version": "uncovered_assets_audit.py v1.1",
+   "seconds": 2.0,
+   "outputs": {
+    "uncovered_assets_audit.csv": "713e76438037309710b47e7a8b9193c616a6f7dbbee2f04ab4f5c491ed0912f7",
+    "uncovered_assets_audit_log.txt": "c237227a15586ea2d745d94a0ef916ff854d3a30708f7258562e9403a06b08a1"
+   }
+  },
+  {
+   "script": "20_CODE/trade_asset_values.py",
+   "sha256": "de5161857c5afa76281ce4912e412ba919390976c6c04fa8d1855746e7ced5cc",
+   "version": "trade_asset_values.py v1.2",
+   "seconds": 2.1,
+   "outputs": {
+    "trade_asset_values.csv": "8268081e6d6ab783901367d349e848d39945ebdb00700a3848ef71aec8f04190",
+    "trade_asset_values_log.txt": "c8e005033a23577020977525bb891adc85758ce38e6e6ce53f29e47f2de1cc89"
+   }
+  }
+ ],
+ "finished": "2026-10-21 23:10"
+}

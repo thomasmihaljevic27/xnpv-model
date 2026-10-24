@@ -1,0 +1,62 @@
+==========================================================================
+ xnpv1_price_line.py  v2.3
+==========================================================================
+
+[1] the Stage 3 sample: 2,388 contracts (recorded 2,388), fingerprint 12490b6ee630 (recorded 12490b6ee630): same rows
+
+[2] forecasts (skater_forecast v2.4), WAR if he plays in the contract's first season:
+    start-dated (page = start year): 2,386 of 2,388
+    signing-dated (directive 5):     2,336 of 2,388
+      left out, no forecast at signing: 52
+    seasons between the signing page and the start: 0: 1,942, 1: 446
+    rows with both forecasts (every fit below uses exactly these): 2,336, fingerprint d9d1d82777bf
+
+[3] four fits, same 2,336 contracts (the general fitter reproduces the engine's fit, gap 0.0e+00):
+  start-dated, no term (v1.x specification)
+    alpha 0.0079452315  beta_F 0.0308068126 ($2.942M per win)  beta_D_add 0.0142714328 (defence $4.305M per win)
+    sigma 0.02178841  log-likelihood 3,986.6  converged True (max gradient 2.5e-05)
+  SIGNING-dated, no term (directive 5 alone; TERM-FREE line)
+    alpha 0.0081682729  beta_F 0.0311829464 ($2.978M per win)  beta_D_add 0.0143706284 (defence $4.350M per win)
+    sigma 0.02182557  log-likelihood 3,982.5  converged True (max gradient 2.0e-05)
+  start-dated, with term (directive 4 alone)
+    alpha -0.0043600887  beta_F 0.0172509237 ($1.647M per win)  beta_D_add 0.0040808915 (defence $2.037M per win)
+    gamma_term 0.0088891902  ($0.849M a season per year of term)
+    sigma 0.01562519  log-likelihood 4,624.7  converged True (max gradient 1.9e-05)
+  SIGNING-dated, with term (directives 4 + 5; TERM-IN line)
+    alpha -0.0043092485  beta_F 0.0175092736 ($1.672M per win)  beta_D_add 0.0040764912 (defence $2.061M per win)
+    gamma_term 0.0089103033  ($0.851M a season per year of term)
+    sigma 0.01558828  log-likelihood 4,628.7  converged True (max gradient 2.0e-05)
+    log-likelihood gains (same rows and outcome): signing-dating -4.1; term +638.1; both +642.1
+
+[4] mean cap share ($M at the 2025-26 cap) observed against each line, signing-dated forecast
+    by forecast WAR      n  observed  term-free  term-in
+    below 0            453      1.46       1.39     1.41
+    0-0.5             1035      1.71       2.12     1.95
+    0.5-1              479      3.18       3.30     3.25
+    1-2                293      5.40       5.17     5.35
+    2+                  76      9.41       8.89     9.00
+    by term (years) 
+    1                 1045      1.40       2.19     1.49
+    2                  660      1.98       2.55     2.21
+    3                  211      3.39       3.28     3.35
+    4                  134      4.65       3.60     4.35
+    5                   64      5.96       4.48     5.77
+    6                   65      6.17       4.05     6.33
+    7                   61      7.85       5.03     7.74
+    8                   96      9.10       6.23     9.29
+
+[5] RFA qualify rates by quality bucket at the decision, bucketed on xNPV 1 forecast, WAR if he plays:
+    star         1.000 (n   10)
+    regular      0.960 (n  176)
+    fringe       0.780 (n  904)
+    negative     0.654 (n 1180)
+
+[guard] term-in against the lock: n 2336 (locked 2336), fingerprint d9d1d82777bf (locked d9d1d82777bf), largest gap 4.9e-11: PASS
+
+[guard] term-free against the lock: n 2336 (locked 2336), fingerprint d9d1d82777bf (locked d9d1d82777bf), largest gap 5.0e-11: PASS
+
+[6] to lock, in skater_forward_projection.py:
+    XNPV1_RATE = dict(alpha=-0.0043092485, beta=0.0175092736, beta_d_add=0.0040764912,
+        gamma_term=0.0089103033, n=2336, sigma=0.01558828, rows_fingerprint="d9d1d82777bf")
+    XNPV1_RATE_TERM_FREE = dict(alpha=0.0081682729, beta=0.0311829464, beta_d_add=0.0143706284,
+        gamma_term=0.0000000000, n=2336, sigma=0.02182557, rows_fingerprint="d9d1d82777bf")

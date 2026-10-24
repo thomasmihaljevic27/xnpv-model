@@ -1,0 +1,26 @@
+==========================================================================
+LAYER 2 VALIDATION BATTERY  (xNPV 1)
+==========================================================================
+
+[1] Stage 3 constants equal skater_value_engine.NEW_LOCKED: largest gap 0.0e+00
+    in force: xNPV 1 term-in line: $-0.412M + $1.672M per forecast win (forwards), $2.061M (defence), + $0.851M a season per year of remaining term, at the $95.5M ceiling
+    sensitivity: xNPV 1 term-free line: $0.780M + $2.978M per forecast win (forwards), $4.350M (defence)
+
+[2] E[max(price, floor)], closed form against 4,000,000 draws:
+    point $0.50M, spread $1.50M: closed $1,245,942  simulated $1,245,835  (gap $107, 5 s.e. $1,952)
+    point $0.90M, spread $1.00M: closed $1,239,555  simulated $1,240,466  (gap $911, 5 s.e. $1,566)
+    point $3.00M, spread $2.50M: closed $3,255,713  simulated $3,257,055  (gap $1,342, 5 s.e. $5,274)
+
+[3] 300 sampled contracts (first 2018-2025 season): 163 priced, 137 with no xNPV 1 forecast on their page
+    346 seasons recomputed from forecast, line, cap path and floor: largest gap $0.00e+00
+
+[4] spot demos:
+    Connor McDavid from 2024 (age 27, trailing total 7.54 WAR):
+      2024-25  k=0  WAR if plays +5.72  plays 0.995  value $10.01M  cost $12.50M  surplus $ -2.49M
+      2025-26  k=1  WAR if plays +5.48  plays 0.995  value $ 9.93M  cost $12.50M  surplus $ -2.57M
+    Brad Marchand from 2023 (age 35, trailing total 2.55 WAR):
+      2023-24  k=0  WAR if plays +1.60  plays 0.968  value $ 3.47M  cost $ 6.12M  surplus $ -2.66M
+      2024-25  k=1  WAR if plays +1.31  plays 0.931  value $ 3.17M  cost $ 6.12M  surplus $ -2.96M
+    Matvei Michkov from 2025 (age 20, trailing total 2.24 WAR):
+      2025-26  k=0  WAR if plays +2.15  plays 0.995  value $ 4.88M  cost $ 0.95M  surplus $ +3.93M
+      2026-27  k=1  WAR if plays +2.45  plays 0.995  value $ 5.55M  cost $ 0.95M  surplus $ +4.60M

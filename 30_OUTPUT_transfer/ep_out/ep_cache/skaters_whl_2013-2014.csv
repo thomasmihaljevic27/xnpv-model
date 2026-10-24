@@ -1,0 +1,598 @@
+player,team,gp,g,a,tp,p_per_gp,pim,plus_minus,link,page,playername,position,season,league,ep_player_id,scrape_date,source,package_version
+Mitch Holmberg (RW),Spokane Chiefs,72,62,56,118,1.64,25,35,/player/26392/mitch-holmberg,1,Mitch Holmberg,RW,2013-2014,whl,26392,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicolas Petan (C/LW),Portland Winterhawks,63,35,78,113,1.79,69,47,/player/82305/nicolas-petan,1,Nicolas Petan,C/LW,2013-2014,whl,82305,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Bjorkstrand (RW),Portland Winterhawks,69,50,59,109,1.58,36,44,/player/92803/oliver-bjorkstrand,1,Oliver Bjorkstrand,RW,2013-2014,whl,92803,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leon Draisaitl (C/W),Prince Albert Raiders,64,38,67,105,1.64,24,7,/player/71913/leon-draisaitl,1,Leon Draisaitl,C/W,2013-2014,whl,71913,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Reinhart (C/RW),Wenatchee Wild,60,36,69,105,1.75,11,24,/player/95032/sam-reinhart,1,Sam Reinhart,C/RW,2013-2014,whl,95032,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Todd Fiddler (LW),totals,66,50,48,98,1.48,22,1,/player/56590/todd-fiddler,1,Todd Fiddler,LW,2013-2014,whl,56590,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaedon Descheneau (RW/C),Wenatchee Wild,70,44,54,98,1.40,54,27,/player/64576/jaedon-descheneau,1,Jaedon Descheneau,RW/C,2013-2014,whl,64576,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Graham Black (C),Swift Current Broncos,69,34,63,97,1.41,43,18,/player/65272/graham-black,1,Graham Black,C,2013-2014,whl,65272,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henrik Samuelsson (C/RW),Edmonton Oil Kings,65,35,60,95,1.46,97,35,/player/33217/henrik-samuelsson,1,Henrik Samuelsson,C/RW,2013-2014,whl,33217,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Winquist (C),Everett Silvertips,67,47,46,93,1.39,44,19,/player/26421/josh-winquist,1,Josh Winquist,C,2013-2014,whl,26421,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Curtis Valk (C),Medicine Hat Tigers,72,47,45,92,1.28,36,33,/player/45510/curtis-valk,1,Curtis Valk,C,2013-2014,whl,45510,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Leipsic (LW),Portland Winterhawks,60,39,52,91,1.52,111,28,/player/89181/brendan-leipsic,1,Brendan Leipsic,LW,2013-2014,whl,89181,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brayden Point (C),Moose Jaw Warriors,72,36,55,91,1.26,53,-27,/player/62204/brayden-point,1,Brayden Point,C,2013-2014,whl,62204,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chandler Stephenson (C/LW),Regina Pats,69,30,59,89,1.29,65,27,/player/60726/chandler-stephenson,1,Chandler Stephenson,C/LW,2013-2014,whl,60726,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Greg Chase (RW/C),Calgary Hitmen,70,35,50,85,1.21,83,29,/player/84097/greg-chase,1,Greg Chase,RW/C,2013-2014,whl,84097,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brady Brassart (C/RW),Calgary Hitmen,70,35,50,85,1.21,94,11,/player/45627/brady-brassart,1,Brady Brassart,C/RW,2013-2014,whl,45627,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Troy Bourke (C),Prince George Cougars,69,29,56,85,1.23,62,-4,/player/51708/troy-bourke,1,Troy Bourke,C,2013-2014,whl,51708,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trevor Cox (C/LW),Medicine Hat Tigers,70,25,57,82,1.17,46,42,/player/101648/trevor-cox,1,Trevor Cox,C/LW,2013-2014,whl,101648,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase De Leo (LW/C),Portland Winterhawks,72,39,42,81,1.13,36,49,/player/116909/chase-de-leo,1,Chase De Leo,LW/C,2013-2014,whl,116909,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Aviani (C),Spokane Chiefs,69,38,43,81,1.17,116,29,/player/45626/mike-aviani,1,Mike Aviani,C,2013-2014,whl,45626,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Taylor Leier (LW),Portland Winterhawks,62,37,42,79,1.27,42,48,/player/45615/taylor-leier,1,Taylor Leier,LW,2013-2014,whl,45615,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shea Theodore (D),Seattle Thunderbirds,70,22,57,79,1.13,39,19,/player/101581/shea-theodore,1,Shea Theodore,D,2013-2014,whl,101581,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Scherbak (LW/RW),Saskatoon Blades,65,28,50,78,1.20,46,-6,/player/209468/nikita-scherbak,1,Nikita Scherbak,LW/RW,2013-2014,whl,209468,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Myles Bell (LW/RW),Kelowna Rockets,69,42,35,77,1.12,51,21,/player/37197/myles-bell,1,Myles Bell,LW/RW,2013-2014,whl,37197,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Philp (C/RW),Wenatchee Wild,71,31,46,77,1.08,31,2,/player/62115/luke-philp,1,Luke Philp,C/RW,2013-2014,whl,62115,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Burns (LW/C),totals,68,27,50,77,1.13,58,5,/player/45643/nathan-burns,1,Nathan Burns,LW/C,2013-2014,whl,45643,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Curtis Lazar (C/W),Edmonton Oil Kings,58,41,35,76,1.31,30,41,/player/81116/curtis-lazar,1,Curtis Lazar,C/W,2013-2014,whl,81116,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dyson Stevenson (RW/D),Regina Pats,66,38,38,76,1.15,121,23,/player/67147/dyson-stevenson,1,Dyson Stevenson,RW/D,2013-2014,whl,67147,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Morgan Klimchuk (LW/RW),Regina Pats,57,30,44,74,1.30,27,26,/player/62209/morgan-klimchuk,1,Morgan Klimchuk,LW/RW,2013-2014,whl,62209,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Sanford (RW/C),Medicine Hat Tigers,72,33,40,73,1.01,55,47,/player/101594/cole-sanford,1,Cole Sanford,RW/C,2013-2014,whl,101594,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Morrissey (D),Prince Albert Raiders,59,28,45,73,1.24,59,6,/player/62293/josh-morrissey,1,Josh Morrissey,D,2013-2014,whl,62293,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Boston Leier (RW/LW),totals,65,33,39,72,1.11,55,5,/player/45508/boston-leier,1,Boston Leier,RW/LW,2013-2014,whl,45508,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Ully (LW/RW),Kamloops Blazers,69,30,42,72,1.04,34,-7,/player/62241/cole-ully,1,Cole Ully,LW/RW,2013-2014,whl,62241,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Collin Valcourt (LW),totals,71,28,44,72,1.01,90,8,/player/50095/collin-valcourt,1,Collin Valcourt,LW,2013-2014,whl,50095,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Virtanen (RW/LW),Calgary Hitmen,71,45,26,71,1.00,100,23,/player/120197/jake-virtanen,1,Jake Virtanen,RW/LW,2013-2014,whl,120197,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Coda Gordon (LW),Swift Current Broncos,59,26,45,71,1.20,34,9,/player/103707/coda-gordon,1,Coda Gordon,LW,2013-2014,whl,103707,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colby Cave (C),Swift Current Broncos,72,33,37,70,0.97,30,20,/player/84424/colby-cave,1,Colby Cave,C,2013-2014,whl,84424,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Derrick Pouliot (D),Portland Winterhawks,58,17,53,70,1.21,74,40,/player/59741/derrick-pouliot,1,Derrick Pouliot,D,2013-2014,whl,59741,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Bozon (LW),totals,63,33,36,69,1.10,47,9,/player/48990/tim-bozon,1,Tim Bozon,LW,2013-2014,whl,48990,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Conner Bleackley (C),Red Deer Rebels,71,29,39,68,0.96,48,3,/player/84020/conner-bleackley,1,Conner Bleackley,C,2013-2014,whl,84020,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Magee (C/RW),Victoria Royals,65,25,42,67,1.03,52,30,/player/27609/brandon-magee,1,Brandon Magee,C/RW,2013-2014,whl,27609,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jay Merkley (C),Swift Current Broncos,72,34,32,66,0.92,16,11,/player/62211/jay-merkley,1,Jay Merkley,C,2013-2014,whl,62211,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Pochiro (LW/C),Prince George Cougars,63,27,39,66,1.05,123,-14,/player/121909/zach-pochiro,1,Zach Pochiro,LW/C,2013-2014,whl,121909,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rhyse Dieno (RW/C),Red Deer Rebels,65,25,41,66,1.02,36,2,/player/54011/rhyse-dieno,1,Rhyse Dieno,RW/C,2013-2014,whl,54011,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Olsen (C),Kelowna Rockets,71,30,34,64,0.90,73,37,/player/50187/ryan-olsen,1,Ryan Olsen,C,2013-2014,whl,50187,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jayce Hawryluk (RW/C),Brandon Wheat Kings,59,24,40,64,1.08,44,16,/player/120626/jayce-hawryluk,1,Jayce Hawryluk,RW/C,2013-2014,whl,120626,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Popoff (C/LW),Vancouver Giants,72,13,51,64,0.89,34,-12,/player/101593/carter-popoff,1,Carter Popoff,C/LW,2013-2014,whl,101593,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitch Moroz (LW),Edmonton Oil Kings,70,35,28,63,0.90,156,25,/player/48462/mitch-moroz,1,Mitch Moroz,LW,2013-2014,whl,48462,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cain Franson (LW/C),Vancouver Giants,66,30,33,63,0.95,44,0,/player/91530/cain-franson,1,Cain Franson,LW/C,2013-2014,whl,91530,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Delnov (LW/RW),Seattle Thunderbirds,71,29,34,63,0.89,42,-7,/player/160093/alexander-delnov,1,Alexander Delnov,LW/RW,2013-2014,whl,160093,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Pulock (D),Brandon Wheat Kings,66,23,40,63,0.95,18,-4,/player/86761/ryan-pulock,1,Ryan Pulock,D,2013-2014,whl,86761,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reid Gow (D),Spokane Chiefs,65,6,56,62,0.95,77,31,/player/59358/reid-gow,1,Reid Gow,D,2013-2014,whl,59358,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jackson Houck (RW),Vancouver Giants,69,34,27,61,0.88,72,-2,/player/101590/jackson-houck,1,Jackson Houck,RW,2013-2014,whl,101590,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dakota Conroy (RW),Prince Albert Raiders,66,30,31,61,0.92,24,-2,/player/51703/dakota-conroy,1,Dakota Conroy,RW,2013-2014,whl,51703,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cody Corbett (D),Edmonton Oil Kings,65,17,44,61,0.94,37,19,/player/156115/cody-corbett,1,Cody Corbett,D,2013-2014,whl,156115,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Damon Severson (D),Kelowna Rockets,64,15,46,61,0.95,63,47,/player/55867/damon-severson,1,Damon Severson,D,2013-2014,whl,55867,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Edgars Kulda (LW),Edmonton Oil Kings,66,30,30,60,0.91,57,34,/player/52421/edgars-kulda,1,Edgars Kulda,LW,2013-2014,whl,52421,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Klarc Wilson (RW),Prince George Cougars,72,27,33,60,0.83,95,-8,/player/26411/klarc-wilson,1,Klarc Wilson,RW,2013-2014,whl,26411,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim McGauley (C),Brandon Wheat Kings,68,21,39,60,0.88,21,-5,/player/97788/tim-mcgauley,1,Tim McGauley,C,2013-2014,whl,97788,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Madison Bowey (D),Kelowna Rockets,72,21,39,60,0.83,93,44,/player/97787/madison-bowey,1,Madison Bowey,D,2013-2014,whl,97787,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Kulak (D),Vancouver Giants,69,14,46,60,0.87,51,-8,/player/88617/brett-kulak,1,Brett Kulak,D,2013-2014,whl,88617,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Nikolishin (C),Everett Silvertips,72,18,41,59,0.82,16,-4,/player/168681/ivan-nikolishin,1,Ivan Nikolishin,C,2013-2014,whl,168681,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Quenneville (LW),Brandon Wheat Kings,61,25,33,58,0.95,71,3,/player/84092/john-quenneville,1,John Quenneville,LW,2013-2014,whl,84092,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Merkley (RW/C),Kelowna Rockets,66,25,33,58,0.88,46,24,/player/107894/nick-merkley,1,Nick Merkley,RW/C,2013-2014,whl,107894,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Branden Troock (RW),Seattle Thunderbirds,58,24,34,58,1.00,69,1,/player/51702/branden-troock,1,Branden Troock,RW,2013-2014,whl,51702,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rourke Chartier (C),Kelowna Rockets,72,24,34,58,0.81,8,26,/player/120201/rourke-chartier,1,Rourke Chartier,C,2013-2014,whl,120201,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Carroll (RW),Victoria Royals,70,34,23,57,0.81,114,18,/player/93438/austin-carroll,1,Austin Carroll,RW,2013-2014,whl,93438,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Nejezchleb (LW/RW),Brandon Wheat Kings,66,32,25,57,0.86,75,-12,/player/100577/richard-nejezchleb,1,Richard Nejezchleb,LW/RW,2013-2014,whl,100577,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jason Fram (D),Spokane Chiefs,72,6,51,57,0.79,34,26,/player/102383/jason-fram,1,Jason Fram,D,2013-2014,whl,102383,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian Williams (C),Tri-City Americans,72,36,20,56,0.78,34,-3,/player/83881/brian-williams,1,Brian Williams,C,2013-2014,whl,83881,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Axel Blomqvist (LW/RW),totals,65,24,32,56,0.86,24,14,/player/69017/axel-blomqvist,1,Axel Blomqvist,LW/RW,2013-2014,whl,69017,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Franko (LW),totals,67,21,35,56,0.84,14,24,/player/40230/zach-franko,1,Zach Franko,LW,2013-2014,whl,40230,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reid Petryk (C/RW),totals,63,17,39,56,0.89,56,29,/player/45509/reid-petryk,1,Reid Petryk,C/RW,2013-2014,whl,45509,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julius Honka (D),Swift Current Broncos,62,16,40,56,0.90,52,10,/player/65456/julius-honka,1,Julius Honka,D,2013-2014,whl,65456,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Rodewald (C),Moose Jaw Warriors,58,28,27,55,0.95,56,-11,/player/84719/jack-rodewald,1,Jack Rodewald,C,2013-2014,whl,84719,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Pollock (C/W),Edmonton Oil Kings,71,25,30,55,0.77,36,18,/player/84111/brett-pollock,1,Brett Pollock,C/W,2013-2014,whl,84111,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyson Baillie (C/RW),Kelowna Rockets,56,22,33,55,0.98,53,19,/player/63204/tyson-baillie,1,Tyson Baillie,C/RW,2013-2014,whl,63204,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Fioretti (C),Moose Jaw Warriors,65,20,35,55,0.85,88,-30,/player/49981/sam-fioretti,1,Sam Fioretti,C,2013-2014,whl,49981,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rihards Bukarts (W),Brandon Wheat Kings,65,28,26,54,0.83,50,2,/player/52418/rihards-bukarts,1,Rihards Bukarts,W,2013-2014,whl,52418,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Padakin (W/C),Calgary Hitmen,66,27,27,54,0.82,59,35,/player/68358/pavel-padakin,1,Pavel Padakin,W/C,2013-2014,whl,68358,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Walker (C/RW),Victoria Royals,71,24,30,54,0.76,61,17,/player/75089/ben-walker,1,Ben Walker,C/RW,2013-2014,whl,75089,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan Nelson (C/RW),Victoria Royals,59,23,31,54,0.92,38,9,/player/90312/logan-nelson,1,Logan Nelson,C/RW,2013-2014,whl,90312,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathew Barzal (C/RW),Seattle Thunderbirds,59,14,40,54,0.92,20,3,/player/186310/mathew-barzal,1,Mathew Barzal,C/RW,2013-2014,whl,186310,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aspen Sterzer (LW),totals,70,29,24,53,0.76,76,-3,/player/67148/aspen-sterzer,1,Aspen Sterzer,LW,2013-2014,whl,67148,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Travis Brown (D),totals,71,14,39,53,0.75,72,-12,/player/94342/travis-brown,1,Travis Brown,D,2013-2014,whl,94342,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roberts Lipsbergs (W/C),Seattle Thunderbirds,68,33,19,52,0.76,37,1,/player/51912/roberts-lipsbergs,1,Roberts Lipsbergs,W/C,2013-2014,whl,51912,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miles Koules (C/RW),Medicine Hat Tigers,70,25,26,51,0.73,34,3,/player/90356/miles-koules,1,Miles Koules,C/RW,2013-2014,whl,90356,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Eberle (C/W),Moose Jaw Warriors,70,22,29,51,0.73,148,-23,/player/85040/tanner-eberle,1,Tanner Eberle,C/W,2013-2014,whl,85040,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Quenneville (RW/LW),Brandon Wheat Kings,44,21,30,51,1.16,10,-11,/player/57050/peter-quenneville,1,Peter Quenneville,RW/LW,2013-2014,whl,57050,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kenton Helgesen (D/W),Calgary Hitmen,71,10,41,51,0.72,67,31,/player/49967/kenton-helgesen,1,Kenton Helgesen,D/W,2013-2014,whl,49967,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sawyer Lange (D),Prince Albert Raiders,71,7,44,51,0.72,30,-7,/player/84743/sawyer-lange,1,Sawyer Lange,D,2013-2014,whl,84743,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Helewka (LW/C),Spokane Chiefs,62,23,27,50,0.81,32,0,/player/119394/adam-helewka,1,Adam Helewka,LW/C,2013-2014,whl,119394,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Paul Bittner (LW),Portland Winterhawks,63,22,27,49,0.78,27,25,/player/216874/paul-bittner,1,Paul Bittner,LW,2013-2014,whl,216874,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riley Sheen (LW/D),totals,61,19,30,49,0.80,72,-26,/player/80447/riley-sheen,1,Riley Sheen,LW/D,2013-2014,whl,80447,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Pufahl (D),Everett Silvertips,62,15,34,49,0.79,54,6,/player/85100/matt-pufahl,1,Matt Pufahl,D,2013-2014,whl,85100,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Rankin (C/LW),totals,64,20,28,48,0.75,32,0,/player/59972/connor-rankin,1,Connor Rankin,C/LW,2013-2014,whl,59972,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Kirkland (C/W),Kelowna Rockets,68,17,31,48,0.71,40,23,/player/63133/justin-kirkland,1,Justin Kirkland,C/W,2013-2014,whl,63133,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jagger Dirk (D),Wenatchee Wild,69,10,38,48,0.70,50,2,/player/47752/jagger-dirk,1,Jagger Dirk,D,2013-2014,whl,47752,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steven Hodges (C),Victoria Royals,52,21,26,47,0.90,65,20,/player/59554/steven-hodges,1,Steven Hodges,C,2013-2014,whl,59554,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Hickman (RW),Seattle Thunderbirds,67,22,24,46,0.69,154,7,/player/59878/justin-hickman,1,Justin Hickman,RW,2013-2014,whl,59878,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Tkatch (C),Prince George Cougars,72,16,30,46,0.64,42,-12,/player/103411/jordan-tkatch,2,Jordan Tkatch,C,2013-2014,whl,103411,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Hamilton (C/LW),Vancouver Giants,70,13,33,46,0.66,40,5,/player/103717/joel-hamilton,2,Joel Hamilton,C/LW,2013-2014,whl,103717,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Haydn Fleury (D),Red Deer Rebels,70,8,38,46,0.66,46,15,/player/119392/haydn-fleury,2,Haydn Fleury,D,2013-2014,whl,119392,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Bredo (D),Medicine Hat Tigers,72,4,42,46,0.64,51,33,/player/45507/dylan-bredo,2,Dylan Bredo,D,2013-2014,whl,45507,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Revel (C),totals,73,15,30,45,0.62,18,-27,/player/153002/matt-revel,2,Matt Revel,C,2013-2014,whl,153002,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Connolly (D),Kamloops Blazers,72,11,34,45,0.63,34,-35,/player/101578/josh-connolly,2,Josh Connolly,D,2013-2014,whl,101578,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Garrett Haar (D),Portland Winterhawks,61,7,38,45,0.74,55,32,/player/75060/garrett-haar,2,Garrett Haar,D,2013-2014,whl,75060,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reid Gardiner (RW),Prince Albert Raiders,70,22,22,44,0.63,39,2,/player/120199/reid-gardiner,2,Reid Gardiner,RW,2013-2014,whl,120199,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Roach (D),Calgary Hitmen,56,12,32,44,0.79,59,22,/player/47635/alex-roach,2,Alex Roach,D,2013-2014,whl,47635,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Roy (D),Brandon Wheat Kings,66,11,33,44,0.67,51,-9,/player/84740/eric-roy,2,Eric Roy,D,2013-2014,whl,84740,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Sinitsyn (D),Regina Pats,69,10,34,44,0.64,63,5,/player/121902/dmitri-sinitsyn,2,Dmitri Sinitsyn,D,2013-2014,whl,121902,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Gay (RW),Regina Pats,61,19,24,43,0.70,25,13,/player/120125/connor-gay,2,Connor Gay,RW,2013-2014,whl,120125,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jujhar Khaira (LW/C),Everett Silvertips,59,16,27,43,0.73,59,5,/player/93577/jujhar-khaira,2,Jujhar Khaira,LW/C,2013-2014,whl,93577,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Manraj Singh Hayer (C),Everett Silvertips,54,15,28,43,0.80,16,11,/player/47870/manraj-singh-hayer,2,Manraj Singh Hayer,C,2013-2014,whl,47870,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keegan Iverson (RW/C),Portland Winterhawks,67,22,20,42,0.63,70,16,/player/185603/keegan-iverson,2,Keegan Iverson,RW/C,2013-2014,whl,185603,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Gropp (C/LW),Seattle Thunderbirds,59,18,24,42,0.71,22,-5,/player/120198/ryan-gropp,2,Ryan Gropp,C/LW,2013-2014,whl,120198,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc McNulty (D),Prince George Cougars,67,17,25,42,0.63,115,-10,/player/83498/marc-mcnulty,2,Marc McNulty,D,2013-2014,whl,83498,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brady Ramsay (RW/C),Lethbridge Hurricanes,72,15,27,42,0.58,142,-55,/player/48786/brady-ramsay,2,Brady Ramsay,RW/C,2013-2014,whl,48786,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jayden Hart (C/RW),Prince Albert Raiders,59,14,28,42,0.71,66,-9,/player/57169/jayden-hart,2,Jayden Hart,C/RW,2013-2014,whl,57169,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ashton Sautner (D),Edmonton Oil Kings,72,8,34,42,0.58,26,59,/player/84404/ashton-sautner,2,Ashton Sautner,D,2013-2014,whl,84404,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthieu Bellerive (RW),totals,60,18,23,41,0.68,39,-11,/player/56281/matthieu-bellerive,2,Matthieu Bellerive,RW,2013-2014,whl,56281,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Vannelli (D),Medicine Hat Tigers,60,14,27,41,0.68,34,4,/player/196704/thomas-vannelli,2,Thomas Vannelli,D,2013-2014,whl,196704,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dryden Hunt (LW/RW),Regina Pats,62,21,19,40,0.65,64,-3,/player/84609/dryden-hunt,2,Dryden Hunt,LW/RW,2013-2014,whl,84609,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Beau McCue (RW),Tri-City Americans,72,20,20,40,0.56,26,-11,/player/181543/beau-mccue,2,Beau McCue,RW,2013-2014,whl,181543,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Sanvido (RW/C),totals,68,16,24,40,0.59,37,1,/player/49802/connor-sanvido,2,Connor Sanvido,RW/C,2013-2014,whl,49802,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Parker Bowles (LW/C),Tri-City Americans,39,15,25,40,1.03,24,1,/player/83460/parker-bowles,2,Parker Bowles,LW/C,2013-2014,whl,83460,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reid Duke (C),Lethbridge Hurricanes,62,15,25,40,0.65,91,-47,/player/62308/reid-duke,2,Reid Duke,C,2013-2014,whl,62308,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Burroughs (D),Regina Pats,58,8,32,40,0.69,72,14,/player/87758/kyle-burroughs,2,Kyle Burroughs,D,2013-2014,whl,87758,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Tambellini (C/LW),Calgary Hitmen,31,17,22,39,1.26,10,-3,/player/103529/adam-tambellini,2,Adam Tambellini,C/LW,2013-2014,whl,103529,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake DeBrusk (LW),Swift Current Broncos,72,15,24,39,0.54,21,8,/player/84242/jake-debrusk,2,Jake DeBrusk,LW,2013-2014,whl,84242,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dalton Thrower (D),Vancouver Giants,42,12,27,39,0.93,70,9,/player/45529/dalton-thrower,2,Dalton Thrower,D,2013-2014,whl,45529,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Henry (D),totals,70,7,32,39,0.56,42,-19,/player/59234/adam-henry,2,Adam Henry,D,2013-2014,whl,59234,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carson Stadnyk (LW/RW),Everett Silvertips,72,23,15,38,0.53,29,-7,/player/100304/carson-stadnyk,2,Carson Stadnyk,LW/RW,2013-2014,whl,100304,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philip Tot (LW),Tri-City Americans,51,15,23,38,0.75,20,5,/player/45506/philip-tot,2,Philip Tot,LW,2013-2014,whl,45506,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Lewington (D),Medicine Hat Tigers,68,7,31,38,0.56,121,40,/player/88699/tyler-lewington,2,Tyler Lewington,D,2013-2014,whl,88699,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyrell Goulbourne (LW/RW),Kelowna Rockets,68,17,20,37,0.54,114,26,/player/56840/tyrell-goulbourne,2,Tyrell Goulbourne,LW/RW,2013-2014,whl,56840,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Russell Maxwell (C),totals,71,15,22,37,0.52,71,-18,/player/80759/russell-maxwell,2,Russell Maxwell,C,2013-2014,whl,80759,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaynen Rissling (D/LW),Calgary Hitmen,54,8,29,37,0.69,105,4,/player/45481/jaynen-rissling,2,Jaynen Rissling,D/LW,2013-2014,whl,45481,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brycen Martin (D),Swift Current Broncos,72,6,31,37,0.51,42,-16,/player/62212/brycen-martin,2,Brycen Martin,D,2013-2014,whl,62212,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Zgraggen (D),totals,70,5,32,37,0.53,97,26,/player/45749/jesse-zgraggen,2,Jesse Zgraggen,D,2013-2014,whl,45749,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominik Volek (W/C),totals,55,20,16,36,0.65,17,2,/player/100478/dominik-volek,2,Dominik Volek,W/C,2013-2014,whl,100478,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Schoenborn (RW),Portland Winterhawks,72,18,18,36,0.50,121,19,/player/118437/alex-schoenborn,2,Alex Schoenborn,RW,2013-2014,whl,118437,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Nickles (LW),Tri-City Americans,72,17,19,36,0.50,47,6,/player/59918/lucas-nickles,2,Lucas Nickles,LW,2013-2014,whl,59918,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Torrin White (RW),Moose Jaw Warriors,72,16,20,36,0.50,20,-29,/player/62116/torrin-white,2,Torrin White,RW,2013-2014,whl,62116,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Forsberg (D),totals,60,10,26,36,0.60,137,-11,/player/37224/jesse-forsberg,2,Jesse Forsberg,D,2013-2014,whl,37224,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Pilon (D),totals,66,7,29,36,0.55,46,-13,/player/119271/ryan-pilon,2,Ryan Pilon,D,2013-2014,whl,119271,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jamal Watson (D),Lethbridge Hurricanes,63,18,17,35,0.56,58,-35,/player/62238/jamal-watson,2,Jamal Watson,D,2013-2014,whl,62238,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riley Kieser (C),Edmonton Oil Kings,72,14,21,35,0.49,49,25,/player/79615/riley-kieser,2,Riley Kieser,C,2013-2014,whl,79615,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Braden Christoffer (C/LW),Regina Pats,61,13,22,35,0.57,130,-1,/player/88696/braden-christoffer,2,Braden Christoffer,C/LW,2013-2014,whl,88696,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Needham (C),Kamloops Blazers,48,12,23,35,0.73,37,3,/player/88590/matt-needham,2,Matt Needham,C,2013-2014,whl,88590,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riley Stadel (D),Kelowna Rockets,63,10,25,35,0.56,62,12,/player/120211/riley-stadel,2,Riley Stadel,D,2013-2014,whl,120211,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kris Schmidli (C/RW),Kelowna Rockets,68,9,26,35,0.51,46,11,/player/108400/kris-schmidli,2,Kris Schmidli,C/RW,2013-2014,whl,108400,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dysin Mayo (D),Edmonton Oil Kings,63,7,28,35,0.56,50,17,/player/120638/dysin-mayo,2,Dysin Mayo,D,2013-2014,whl,120638,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dillon Heatherington (D),Swift Current Broncos,70,6,29,35,0.50,63,24,/player/62233/dillon-heatherington,2,Dillon Heatherington,D,2013-2014,whl,62233,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cory Millette (LW),totals,63,17,17,34,0.54,26,-26,/player/84717/cory-millette,2,Cory Millette,LW,2013-2014,whl,84717,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jansen Harkins (C/W),Prince George Cougars,67,10,24,34,0.51,18,-9,/player/160158/jansen-harkins,2,Jansen Harkins,C/W,2013-2014,whl,160158,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Cote (D),Victoria Royals,72,6,28,34,0.47,42,-2,/player/85813/brett-cote,2,Brett Cote,D,2013-2014,whl,85813,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rene Hunter (D),Brandon Wheat Kings,63,4,30,34,0.54,70,0,/player/56581/rene-hunter,2,Rene Hunter,D,2013-2014,whl,56581,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brooks Maxwell (RW/D),Red Deer Rebels,60,14,19,33,0.55,25,-3,/player/80764/brooks-maxwell,2,Brooks Maxwell,RW/D,2013-2014,whl,80764,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Zajac (LW/C),Saskatoon Blades,61,11,22,33,0.54,88,-22,/player/101633/nick-zajac,2,Nick Zajac,LW/C,2013-2014,whl,101633,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Witala (LW/C),Prince George Cougars,43,18,14,32,0.74,17,-7,/player/83996/chase-witala,2,Chase Witala,LW/C,2013-2014,whl,83996,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Chartier (RW),Spokane Chiefs,72,14,18,32,0.44,16,2,/player/56820/connor-chartier,2,Connor Chartier,RW,2013-2014,whl,56820,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riley Whittingham (RW),Spokane Chiefs,70,13,19,32,0.46,88,16,/player/62274/riley-whittingham,2,Riley Whittingham,RW,2013-2014,whl,62274,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steven Owre (C),Medicine Hat Tigers,70,12,20,32,0.46,42,6,/player/120797/steven-owre,2,Steven Owre,C,2013-2014,whl,120797,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Vetterl (RW),Wenatchee Wild,72,12,20,32,0.44,47,-2,/player/59939/austin-vetterl,2,Austin Vetterl,RW,2013-2014,whl,59939,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elliott Peterson (LW/D),Calgary Hitmen,59,11,21,32,0.54,43,16,/player/119263/elliott-peterson,2,Elliott Peterson,LW/D,2013-2014,whl,119263,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colby Williams (D),Regina Pats,66,9,23,32,0.48,82,0,/player/85035/colby-williams,2,Colby Williams,D,2013-2014,whl,85035,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dawson Leedahl (LW),Everett Silvertips,70,8,24,32,0.46,66,-3,/player/120223/dawson-leedahl,2,Dawson Leedahl,LW,2013-2014,whl,120223,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chad Robinson (C/LW),Brandon Wheat Kings,72,7,25,32,0.44,31,-7,/player/55868/chad-robinson,2,Chad Robinson,C/LW,2013-2014,whl,55868,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Souto (RW),Kamloops Blazers,47,20,11,31,0.66,49,-3,/player/91872/chase-souto,2,Chase Souto,RW,2013-2014,whl,91872,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Wong (RW/C),Lethbridge Hurricanes,52,17,14,31,0.60,56,-33,/player/62109/tyler-wong,2,Tyler Wong,RW/C,2013-2014,whl,62109,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Calder Brooks (C/LW),totals,66,15,16,31,0.47,14,3,/player/85037/calder-brooks,2,Calder Brooks,C/LW,2013-2014,whl,85037,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wyatt Johnson (C),Red Deer Rebels,61,14,17,31,0.51,77,9,/player/120133/wyatt-johnson,2,Wyatt Johnson,C,2013-2014,whl,120133,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominic Turgeon (C),Portland Winterhawks,65,10,21,31,0.48,31,18,/player/120642/dominic-turgeon,2,Dominic Turgeon,C,2013-2014,whl,120642,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Messier (C),totals,71,10,21,31,0.44,20,-8,/player/84726/marcus-messier,2,Marcus Messier,C,2013-2014,whl,84726,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Thomas (D),Calgary Hitmen,72,7,24,31,0.43,39,11,/player/62287/ben-thomas,2,Ben Thomas,D,2013-2014,whl,62287,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Macoy Erkamps (D),Lethbridge Hurricanes,66,5,26,31,0.47,83,-62,/player/101580/macoy-erkamps,2,Macoy Erkamps,D,2013-2014,whl,101580,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Graeme Craig (D),totals,71,5,26,31,0.44,77,-22,/player/45630/graeme-craig,2,Graeme Craig,D,2013-2014,whl,45630,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brady Gaudet (D),Red Deer Rebels,71,5,26,31,0.44,79,-15,/player/85223/brady-gaudet,2,Brady Gaudet,D,2013-2014,whl,85223,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dalton Sward (C/RW),Vancouver Giants,56,18,12,30,0.54,66,4,/player/58422/dalton-sward,2,Dalton Sward,C/RW,2013-2014,whl,58422,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Soy (C),Victoria Royals,65,15,15,30,0.46,15,1,/player/199395/tyler-soy,2,Tyler Soy,C,2013-2014,whl,199395,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Stovin (C/RW/D),Saskatoon Blades,61,14,16,30,0.49,16,-17,/player/85835/brett-stovin,2,Brett Stovin,C/RW/D,2013-2014,whl,85835,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Sandhu (C/RW),Everett Silvertips,49,13,17,30,0.61,10,-1,/player/120632/tyler-sandhu,2,Tyler Sandhu,C/RW,2013-2014,whl,120632,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Presten Kopek (C),totals,51,10,20,30,0.59,16,1,/player/83506/presten-kopek,2,Presten Kopek,C,2013-2014,whl,83506,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaron Irving (D),Edmonton Oil Kings,63,9,21,30,0.48,88,26,/player/84245/aaron-irving,2,Aaron Irving,D,2013-2014,whl,84245,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carson Perreaux (LW/C),Prince Albert Raiders,72,18,11,29,0.40,41,-18,/player/85550/carson-perreaux,2,Carson Perreaux,LW/C,2013-2014,whl,85550,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Musil (C/LW),Red Deer Rebels,60,11,18,29,0.48,36,5,/player/189422/adam-musil,2,Adam Musil,C/LW,2013-2014,whl,189422,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Busenius (D),totals,68,9,20,29,0.43,58,-34,/player/37165/dylan-busenius,2,Dylan Busenius,D,2013-2014,whl,37165,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colton Heffley (D),Kelowna Rockets,71,8,21,29,0.41,85,24,/player/59469/colton-heffley,2,Colton Heffley,D,2013-2014,whl,59469,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Travis Sanheim (D),Calgary Hitmen,67,5,24,29,0.43,14,25,/player/120938/travis-sanheim,2,Travis Sanheim,D,2013-2014,whl,120938,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Rigby (LW),Kelowna Rockets,51,18,10,28,0.55,50,23,/player/63766/carter-rigby,2,Carter Rigby,LW,2013-2014,whl,63766,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Feser (LW),Red Deer Rebels,46,15,13,28,0.61,23,5,/player/84060/scott-feser,2,Scott Feser,LW,2013-2014,whl,84060,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kohl Bauml (C),Everett Silvertips,65,14,14,28,0.43,12,-13,/player/85087/kohl-bauml,2,Kohl Bauml,C,2013-2014,whl,85087,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zane Jones (LW/RW),totals,53,13,15,28,0.53,68,15,/player/57121/zane-jones,2,Zane Jones,LW/RW,2013-2014,whl,57121,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Liam Stewart (C/LW),Spokane Chiefs,43,7,21,28,0.65,27,13,/player/122003/liam-stewart,2,Liam Stewart,C/LW,2013-2014,whl,122003,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitch Wheaton (D),Kelowna Rockets,57,7,21,28,0.49,38,31,/player/84090/mitch-wheaton,2,Mitch Wheaton,D,2013-2014,whl,84090,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Forsberg (LW/C),Prince George Cougars,44,6,22,28,0.64,33,-24,/player/55940/alex-forsberg,2,Alex Forsberg,LW/C,2013-2014,whl,55940,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rinat Valiyev (D),Wenatchee Wild,55,5,23,28,0.51,68,27,/player/159029/rinat-valiyev,2,Rinat Valiyev,D,2013-2014,whl,159029,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+MacKenzie Johnston (D),totals,66,5,23,28,0.42,30,-39,/player/45493/mackenzie-johnston,2,MacKenzie Johnston,D,2013-2014,whl,45493,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Collin Shirley (LW/C),totals,70,14,13,27,0.39,26,-26,/player/120139/collin-shirley,2,Collin Shirley,LW/C,2013-2014,whl,120139,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Clayton (C),totals,69,12,15,27,0.39,78,-18,/player/59563/chase-clayton,3,Chase Clayton,C,2013-2014,whl,59563,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Tvrdon (LW/RW),Kelowna Rockets,29,11,16,27,0.93,24,8,/player/34760/marek-tvrdon,3,Marek Tvrdon,LW/RW,2013-2014,whl,34760,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mirco Müller (D),Everett Silvertips,60,5,22,27,0.45,31,1,/player/95044/mirco-muller,3,Mirco Müller,D,2013-2014,whl,95044,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominic Zwerger (LW),Spokane Chiefs,53,16,10,26,0.49,20,14,/player/133420/dominic-zwerger,3,Dominic Zwerger,LW,2013-2014,whl,133420,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cameron Hebig (C/W),Saskatoon Blades,67,13,13,26,0.39,20,-35,/player/199897/cameron-hebig,3,Cameron Hebig,C/W,2013-2014,whl,199897,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Gabrielle (LW/RW),Brandon Wheat Kings,49,12,14,26,0.53,68,-2,/player/199921/jesse-gabrielle,3,Jesse Gabrielle,LW/RW,2013-2014,whl,199921,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jens Meilleur (RW),Brandon Wheat Kings,67,11,15,26,0.39,15,3,/player/56601/jens-meilleur,3,Jens Meilleur,RW,2013-2014,whl,56601,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan McVeigh (C),totals,67,11,15,26,0.39,17,2,/player/60706/logan-mcveigh,3,Logan McVeigh,C,2013-2014,whl,60706,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Johnson (C),Swift Current Broncos,72,11,15,26,0.36,74,5,/player/85089/andrew-johnson,3,Andrew Johnson,C,2013-2014,whl,85089,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Becker (D),Medicine Hat Tigers,63,8,18,26,0.41,39,-3,/player/59941/kyle-becker,3,Kyle Becker,D,2013-2014,whl,59941,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Winther (C),totals,31,7,19,26,0.84,24,0,/player/56825/mike-winther,3,Mike Winther,C,2013-2014,whl,56825,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Ast (C/RW),totals,52,17,8,25,0.48,18,8,/player/94469/anthony-ast,3,Anthony Ast,C/RW,2013-2014,whl,94469,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keanu Yamamoto (C/RW),Spokane Chiefs,57,11,14,25,0.44,12,-1,/player/205289/keanu-yamamoto,3,Keanu Yamamoto,C/RW,2013-2014,whl,205289,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Lang (C/RW),Calgary Hitmen,68,10,15,25,0.37,52,13,/player/120657/chase-lang,3,Chase Lang,C/RW,2013-2014,whl,120657,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chad Butcher (C),Medicine Hat Tigers,63,6,19,25,0.40,21,13,/player/120640/chad-butcher,3,Chad Butcher,C,2013-2014,whl,120640,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radel Fazleyev (C/LW),Calgary Hitmen,38,5,20,25,0.66,12,1,/player/231738/radel-fazleyev,3,Radel Fazleyev,C/LW,2013-2014,whl,231738,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Sleptsov (D),Moose Jaw Warriors,66,4,21,25,0.38,44,-20,/player/211771/alexei-sleptsov,3,Alexei Sleptsov,D,2013-2014,whl,211771,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Fushimi (RW),Victoria Royals,62,13,11,24,0.39,22,7,/player/206555/brandon-fushimi,3,Brandon Fushimi,RW,2013-2014,whl,206555,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyson Ness (LW),Kamloops Blazers,48,12,12,24,0.50,12,-15,/player/45082/tyson-ness,3,Tyson Ness,LW,2013-2014,whl,45082,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Giorgio Estephan (C),Lethbridge Hurricanes,64,12,12,24,0.38,18,-25,/player/131304/giorgio-estephan,3,Giorgio Estephan,C,2013-2014,whl,131304,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Taylor Cooper (LW),totals,65,12,12,24,0.37,42,-17,/player/84104/taylor-cooper,3,Taylor Cooper,LW,2013-2014,whl,84104,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Dumba (D),Portland Winterhawks,26,8,16,24,0.92,37,31,/player/53542/matt-dumba,3,Matt Dumba,D,2013-2014,whl,53542,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Foster (C),Vancouver Giants,71,8,16,24,0.34,34,-17,/player/84129/thomas-foster,3,Thomas Foster,C,2013-2014,whl,84129,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitch Topping (D),Tri-City Americans,50,7,17,24,0.48,28,-9,/player/37119/mitch-topping,3,Mitch Topping,D,2013-2014,whl,37119,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shane Danyluk (C),Prince Albert Raiders,71,7,17,24,0.34,29,-15,/player/59916/shane-danyluk,3,Shane Danyluk,C,2013-2014,whl,59916,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chance Braid (LW),Prince Albert Raiders,72,7,17,24,0.33,93,-21,/player/88414/chance-braid,3,Chance Braid,LW,2013-2014,whl,88414,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joe Hicketts (D),Victoria Royals,36,6,18,24,0.67,12,25,/player/120210/joe-hicketts,3,Joe Hicketts,D,2013-2014,whl,120210,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick D'Amico (C),Regina Pats,48,6,18,24,0.50,42,8,/player/89189/patrick-d-amico,3,Patrick D'Amico,C,2013-2014,whl,89189,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Graham (LW),Saskatoon Blades,70,15,8,23,0.33,37,-39,/player/62324/ryan-graham,3,Ryan Graham,LW,2013-2014,whl,62324,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Traber (RW),Vancouver Giants,64,12,11,23,0.36,162,-4,/player/45482/tim-traber,3,Tim Traber,RW,2013-2014,whl,45482,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Proft (C/LW),Spokane Chiefs,72,11,12,23,0.32,145,1,/player/57034/carter-proft,3,Carter Proft,C/LW,2013-2014,whl,57034,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Sutter (C),Red Deer Rebels,45,10,13,23,0.51,76,-6,/player/48665/lukas-sutter,3,Lukas Sutter,C,2013-2014,whl,48665,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Doty (C/RW),Medicine Hat Tigers,68,10,13,23,0.34,83,0,/player/45623/jacob-doty,3,Jacob Doty,C/RW,2013-2014,whl,45623,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Quintin Lisoway (C/LW),Brandon Wheat Kings,69,9,14,23,0.33,13,-2,/player/96220/quintin-lisoway,3,Quintin Lisoway,C/LW,2013-2014,whl,96220,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mads Eller (W/C),Edmonton Oil Kings,54,8,15,23,0.43,54,19,/player/93351/mads-eller,3,Mads Eller,W/C,2013-2014,whl,93351,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Eisenschmid (C/RW),Medicine Hat Tigers,56,7,16,23,0.41,20,-7,/player/44144/markus-eisenschmid,3,Markus Eisenschmid,C/RW,2013-2014,whl,44144,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Morrison (D),Vancouver Giants,65,6,17,23,0.35,23,-7,/player/84093/tyler-morrison,3,Tyler Morrison,D,2013-2014,whl,84093,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mason Geertsen (LW/D),Vancouver Giants,66,4,19,23,0.35,126,-5,/player/64567/mason-geertsen,3,Mason Geertsen,LW/D,2013-2014,whl,64567,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blake Penner (LW/C),Medicine Hat Tigers,52,11,11,22,0.42,33,3,/player/83510/blake-penner,3,Blake Penner,LW/C,2013-2014,whl,83510,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Linaker (C),Kelowna Rockets,70,11,11,22,0.31,19,20,/player/83905/cole-linaker,3,Cole Linaker,C,2013-2014,whl,83905,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Glenn Gawdin (C/RW),Swift Current Broncos,66,10,12,22,0.33,34,-11,/player/192245/glenn-gawdin,3,Glenn Gawdin,C/RW,2013-2014,whl,192245,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Levi Cable (RW/LW),Wenatchee Wild,70,10,12,22,0.31,13,0,/player/85393/levi-cable,3,Levi Cable,RW/LW,2013-2014,whl,85393,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Seth Swenson (RW),totals,68,8,14,22,0.32,37,-31,/player/40266/seth-swenson,3,Seth Swenson,RW,2013-2014,whl,40266,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Lernout (D),Swift Current Broncos,72,8,14,22,0.31,103,7,/player/104226/brett-lernout,3,Brett Lernout,D,2013-2014,whl,104226,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan Fisher (C),Victoria Royals,72,7,15,22,0.31,48,4,/player/84053/logan-fisher,3,Logan Fisher,C,2013-2014,whl,84053,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arvin Atwal (D),Vancouver Giants,58,5,17,22,0.38,83,-9,/player/102384/arvin-atwal,3,Arvin Atwal,D,2013-2014,whl,102384,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ty Stanton (D),Medicine Hat Tigers,65,5,17,22,0.34,50,9,/player/84250/ty-stanton,3,Ty Stanton,D,2013-2014,whl,84250,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blake Orban (D),totals,67,5,17,22,0.33,137,33,/player/49984/blake-orban,3,Blake Orban,D,2013-2014,whl,49984,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brad Morrison (C/LW),Prince George Cougars,55,12,9,21,0.38,12,-4,/player/199394/brad-morrison,3,Brad Morrison,C/LW,2013-2014,whl,199394,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Coulter (C),Brandon Wheat Kings,52,8,13,21,0.40,27,2,/player/147632/tyler-coulter,3,Tyler Coulter,C,2013-2014,whl,147632,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zak Zborosky (RW),Wenatchee Wild,66,8,13,21,0.32,10,-1,/player/120121/zak-zborosky,3,Zak Zborosky,RW,2013-2014,whl,120121,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Betker (D),Everett Silvertips,68,7,14,21,0.31,102,-3,/player/102378/ben-betker,3,Ben Betker,D,2013-2014,whl,102378,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Griffin Reinhart (D),Edmonton Oil Kings,45,4,17,21,0.47,55,20,/player/41183/griffin-reinhart,3,Griffin Reinhart,D,2013-2014,whl,41183,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Gutierrez (C),Tri-City Americans,70,3,18,21,0.30,103,-14,/player/146844/justin-gutierrez,3,Justin Gutierrez,C,2013-2014,whl,146844,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Martin (D),Kelowna Rockets,72,0,21,21,0.29,48,61,/player/87528/cole-martin,3,Cole Martin,D,2013-2014,whl,87528,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jessey Astles (LW/RW),Tri-City Americans,50,11,9,20,0.40,67,0,/player/45494/jessey-astles,3,Jessey Astles,LW/RW,2013-2014,whl,45494,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ty Ronning (RW/LW),Vancouver Giants,56,9,11,20,0.36,4,-8,/player/195952/ty-ronning,3,Ty Ronning,RW/LW,2013-2014,whl,195952,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Uhrich (RW),Moose Jaw Warriors,68,9,11,20,0.29,105,-9,/player/119399/josh-uhrich,3,Josh Uhrich,RW,2013-2014,whl,119399,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brayden Low (C/LW),Everett Silvertips,69,8,12,20,0.29,63,-6,/player/59589/brayden-low,3,Brayden Low,C/LW,2013-2014,whl,59589,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Bertolucci (RW),Edmonton Oil Kings,63,6,14,20,0.32,21,4,/player/101587/luke-bertolucci,3,Luke Bertolucci,RW,2013-2014,whl,101587,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Landon Peel (D),Wenatchee Wild,63,4,16,20,0.32,31,4,/player/59236/landon-peel,3,Landon Peel,D,2013-2014,whl,59236,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Rehill (D),Kamloops Blazers,72,4,16,20,0.28,182,-4,/player/83900/ryan-rehill,3,Ryan Rehill,D,2013-2014,whl,83900,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Layne Viveiros (D),Portland Winterhawks,63,3,17,20,0.32,32,21,/player/98055/layne-viveiros,3,Layne Viveiros,D,2013-2014,whl,98055,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler King (D),totals,69,2,18,20,0.29,42,-1,/player/84615/tyler-king,3,Tyler King,D,2013-2014,whl,84615,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Andrlik (D/F),Prince Albert Raiders,71,2,18,20,0.28,52,-4,/player/105833/tomas-andrlik,3,Tomas Andrlik,D/F,2013-2014,whl,105833,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaimen Yakubowski (LW),totals,58,10,9,19,0.33,158,-3,/player/84450/jaimen-yakubowski,3,Jaimen Yakubowski,LW,2013-2014,whl,84450,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Bajkov (RW/LW),Everett Silvertips,56,9,10,19,0.34,18,-4,/player/199940/patrick-bajkov,3,Patrick Bajkov,RW/LW,2013-2014,whl,199940,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joey Kornelsen (C/RW),Kamloops Blazers,62,9,10,19,0.31,57,-26,/player/37172/joey-kornelsen,3,Joey Kornelsen,C/RW,2013-2014,whl,37172,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grayson Pawlenchuk (C/LW),Red Deer Rebels,44,7,12,19,0.43,8,-4,/player/154486/grayson-pawlenchuk,3,Grayson Pawlenchuk,C/LW,2013-2014,whl,154486,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Bear (D),Seattle Thunderbirds,58,6,13,19,0.33,18,1,/player/197561/ethan-bear,3,Ethan Bear,D,2013-2014,whl,197561,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jerret Smith (D),Seattle Thunderbirds,72,3,16,19,0.26,40,14,/player/128526/jerret-smith,3,Jerret Smith,D,2013-2014,whl,128526,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colton Waltz (D),Brandon Wheat Kings,66,2,17,19,0.29,54,-8,/player/83622/colton-waltz,3,Colton Waltz,D,2013-2014,whl,83622,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryson Gore (C),Moose Jaw Warriors,68,11,7,18,0.26,34,-29,/player/83476/bryson-gore,3,Bryson Gore,C,2013-2014,whl,83476,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan Harland (LW/C),Saskatoon Blades,59,10,8,18,0.31,28,-13,/player/83623/logan-harland,3,Logan Harland,LW/C,2013-2014,whl,83623,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathon Martin (RW/C),Wenatchee Wild,63,10,8,18,0.29,105,-11,/player/101624/jonathon-martin,3,Jonathon Martin,RW/C,2013-2014,whl,101624,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joe Mahon (RW/D),Calgary Hitmen,56,9,9,18,0.32,82,3,/player/145397/joe-mahon,3,Joe Mahon,RW/D,2013-2014,whl,145397,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chad Labelle (C),Medicine Hat Tigers,69,9,9,18,0.26,44,-10,/player/62275/chad-labelle,3,Chad Labelle,C,2013-2014,whl,62275,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alec Baer (C),Vancouver Giants,60,8,10,18,0.30,22,8,/player/227727/alec-baer,3,Alec Baer,C,2013-2014,whl,227727,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam McKechnie (RW/C),totals,66,7,11,18,0.27,50,-8,/player/80818/sam-mckechnie,3,Sam McKechnie,RW/C,2013-2014,whl,80818,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Duperreault (LW),Moose Jaw Warriors,65,6,12,18,0.28,18,-13,/player/119462/ben-duperreault,3,Ben Duperreault,LW,2013-2014,whl,119462,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Griffin Foulk (D),totals,66,4,14,18,0.27,86,-36,/player/118658/griffin-foulk,3,Griffin Foulk,D,2013-2014,whl,118658,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Parker Wotherspoon (D),Tri-City Americans,62,2,16,18,0.29,74,0,/player/195951/parker-wotherspoon,3,Parker Wotherspoon,D,2013-2014,whl,195951,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Hanson (D),Portland Winterhawks,68,2,16,18,0.26,37,17,/player/92998/josh-hanson,3,Josh Hanson,D,2013-2014,whl,92998,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trent Lofthouse (RW/C),totals,47,11,6,17,0.36,33,-9,/player/99087/trent-lofthouse,3,Trent Lofthouse,RW/C,2013-2014,whl,99087,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Travis McEvoy (RW),Vancouver Giants,59,9,8,17,0.29,52,-7,/player/107434/travis-mcevoy,3,Travis McEvoy,RW,2013-2014,whl,107434,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryley Lindgren (C/RW),Brandon Wheat Kings,67,9,8,17,0.25,16,-26,/player/120663/ryley-lindgren,3,Ryley Lindgren,C/RW,2013-2014,whl,120663,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Taylor Crunk (LW),Victoria Royals,70,8,9,17,0.24,81,3,/player/147611/taylor-crunk,3,Taylor Crunk,LW,2013-2014,whl,147611,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Baddock (LW/RW),Edmonton Oil Kings,56,6,11,17,0.30,128,5,/player/83627/brandon-baddock,3,Brandon Baddock,LW/RW,2013-2014,whl,83627,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Bell (D),totals,71,6,11,17,0.24,145,-36,/player/85048/tyler-bell,3,Tyler Bell,D,2013-2014,whl,85048,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Fransoo (D),Victoria Royals,53,4,13,17,0.32,43,0,/player/56582/jordan-fransoo,3,Jordan Fransoo,D,2013-2014,whl,56582,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colby Harmsworth (D),Calgary Hitmen,70,4,13,17,0.24,34,20,/player/85107/colby-harmsworth,3,Colby Harmsworth,D,2013-2014,whl,85107,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole MacDonald (D),Everett Silvertips,63,2,15,17,0.27,37,-9,/player/64573/cole-macdonald,3,Cole MacDonald,D,2013-2014,whl,64573,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Derko (LW),Lethbridge Hurricanes,42,11,5,16,0.38,78,-15,/player/57142/josh-derko,3,Josh Derko,LW,2013-2014,whl,57142,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gage Quinney (C),Prince Albert Raiders,58,8,8,16,0.28,5,6,/player/175458/gage-quinney,3,Gage Quinney,C,2013-2014,whl,175458,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lane Bauer (C),Edmonton Oil Kings,47,7,9,16,0.34,8,5,/player/224829/lane-bauer,3,Lane Bauer,C,2013-2014,whl,224829,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Polei (LW),totals,62,7,9,16,0.26,54,-1,/player/108433/evan-polei,3,Evan Polei,LW,2013-2014,whl,108433,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner LeSann (C),Swift Current Broncos,57,6,10,16,0.28,97,-2,/player/85410/tanner-lesann,3,Tanner LeSann,C,2013-2014,whl,85410,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hunter Shinkaruk (C/LW),Medicine Hat Tigers,18,5,11,16,0.89,29,-2,/player/52391/hunter-shinkaruk,3,Hunter Shinkaruk,C/LW,2013-2014,whl,52391,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Ruopp (D),Prince George Cougars,64,5,11,16,0.25,55,-15,/player/120650/sam-ruopp,3,Sam Ruopp,D,2013-2014,whl,120650,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Cederholm (D),Portland Winterhawks,71,4,12,16,0.23,95,42,/player/38743/anton-cederholm,3,Anton Cederholm,D,2013-2014,whl,38743,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keoni Texeira (D),Portland Winterhawks,65,2,14,16,0.25,30,21,/player/186314/keoni-texeira,4,Keoni Texeira,D,2013-2014,whl,186314,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vukie Mpofu (RW),Red Deer Rebels,65,9,6,15,0.23,46,-2,/player/120224/vukie-mpofu,4,Vukie Mpofu,RW,2013-2014,whl,120224,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zac Mackay (C),Swift Current Broncos,72,9,6,15,0.21,72,-9,/player/87651/zac-mackay,4,Zac Mackay,C,2013-2014,whl,87651,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Geordie Maguire (LW),totals,35,8,7,15,0.43,20,-1,/player/101622/geordie-maguire,4,Geordie Maguire,LW,2013-2014,whl,101622,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Walker (LW),Victoria Royals,48,7,8,15,0.31,23,2,/player/195217/jack-walker,4,Jack Walker,LW,2013-2014,whl,195217,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Němeček (D),Saskatoon Blades,56,5,10,15,0.27,71,-16,/player/101143/david-nemecek,4,David Němeček,D,2013-2014,whl,101143,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matteo Gennaro (C/LW),Prince Albert Raiders,60,5,10,15,0.25,14,-8,/player/131328/matteo-gennaro,4,Matteo Gennaro,C/LW,2013-2014,whl,131328,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ayrton Nikkel (D),Saskatoon Blades,60,5,10,15,0.25,95,-13,/player/100800/ayrton-nikkel,4,Ayrton Nikkel,D,2013-2014,whl,100800,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joe Carvalho (D),Prince George Cougars,65,3,12,15,0.23,20,-9,/player/102283/joe-carvalho,4,Joe Carvalho,D,2013-2014,whl,102283,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Remi Laurencelle (LW/C),totals,58,2,13,15,0.26,23,-6,/player/101616/remi-laurencelle,4,Remi Laurencelle,LW/C,2013-2014,whl,101616,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Grist (D),Kamloops Blazers,62,2,13,15,0.24,167,-34,/player/48363/sam-grist,4,Sam Grist,D,2013-2014,whl,48363,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Hamonic (D),Tri-City Americans,72,1,14,15,0.21,46,0,/player/87652/justin-hamonic,4,Justin Hamonic,D,2013-2014,whl,87652,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Braden Purtill (LW/C),Tri-City Americans,63,9,5,14,0.22,35,-7,/player/197543/braden-purtill,4,Braden Purtill,LW/C,2013-2014,whl,197543,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Palmer (LW/C),totals,60,4,10,14,0.23,23,3,/player/98476/jack-palmer,4,Jack Palmer,LW/C,2013-2014,whl,98476,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markson Bechtold (LW/C),Spokane Chiefs,54,3,11,14,0.26,47,3,/player/120641/markson-bechtold,4,Markson Bechtold,LW/C,2013-2014,whl,120641,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan Aasman (RW),Everett Silvertips,56,3,11,14,0.25,42,3,/player/83512/logan-aasman,4,Logan Aasman,RW,2013-2014,whl,83512,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dallas Valentine (D),Moose Jaw Warriors,69,3,11,14,0.20,44,-28,/player/108317/dallas-valentine,4,Dallas Valentine,D,2013-2014,whl,108317,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jared Hauf (D),Seattle Thunderbirds,72,3,11,14,0.19,128,-22,/player/62236/jared-hauf,4,Jared Hauf,D,2013-2014,whl,62236,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Alfaro (C/LW),Wenatchee Wild,65,2,12,14,0.22,16,-3,/player/108033/matt-alfaro,4,Matt Alfaro,C/LW,2013-2014,whl,108033,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Graham Millar (RW),Saskatoon Blades,61,7,6,13,0.21,37,-22,/player/153013/graham-millar,4,Graham Millar,RW,2013-2014,whl,153013,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Benoit (C/LW),totals,31,6,7,13,0.42,6,-9,/player/85036/erik-benoit,4,Erik Benoit,C/LW,2013-2014,whl,85036,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitch Lipon (C),totals,55,6,7,13,0.24,30,-18,/player/120120/mitch-lipon,4,Mitch Lipon,C,2013-2014,whl,120120,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach McPhee (RW),Wenatchee Wild,65,6,7,13,0.20,47,-19,/player/45636/zach-mcphee,4,Zach McPhee,RW,2013-2014,whl,45636,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Coghlan (D),totals,57,5,8,13,0.23,35,-9,/player/102294/ryan-coghlan,4,Ryan Coghlan,D,2013-2014,whl,102294,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Benson (C),Edmonton Oil Kings,59,5,8,13,0.22,4,2,/player/84238/cole-benson,4,Cole Benson,C,2013-2014,whl,84238,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carson Bolduc (LW),totals,61,5,8,13,0.21,35,-22,/player/120639/carson-bolduc,4,Carson Bolduc,LW,2013-2014,whl,120639,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaron Macklin (LW),totals,67,5,8,13,0.19,99,-23,/player/84018/aaron-macklin,4,Aaron Macklin,LW,2013-2014,whl,84018,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Rossignol (C),Portland Winterhawks,48,4,9,13,0.27,43,0,/player/76446/adam-rossignol,4,Adam Rossignol,C,2013-2014,whl,76446,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Charif (D),Red Deer Rebels,57,3,10,13,0.23,31,13,/player/84228/nick-charif,4,Nick Charif,D,2013-2014,whl,84228,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Wedman (D),Spokane Chiefs,62,3,10,13,0.21,67,7,/player/80252/cole-wedman,4,Cole Wedman,D,2013-2014,whl,80252,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Carlo (D),Tri-City Americans,71,3,10,13,0.18,66,-13,/player/120965/brandon-carlo,4,Brandon Carlo,D,2013-2014,whl,120965,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Thomson (D),totals,29,1,12,13,0.45,22,-14,/player/120209/jordan-thomson,4,Jordan Thomson,D,2013-2014,whl,120209,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colton Bobyk (D),Spokane Chiefs,56,5,7,12,0.21,62,-4,/player/120967/colton-bobyk,4,Colton Bobyk,D,2013-2014,whl,120967,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kolten Olynek (C/RW),Lethbridge Hurricanes,57,4,8,12,0.21,21,-24,/player/120203/kolten-olynek,4,Kolten Olynek,C/RW,2013-2014,whl,120203,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Mrkonijc (RW),Prince George Cougars,69,4,8,12,0.17,25,-15,/player/84255/tyler-mrkonijc,4,Tyler Mrkonijc,RW,2013-2014,whl,84255,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Lees (D),Kelowna Rockets,37,3,9,12,0.32,41,8,/player/62263/jesse-lees,4,Jesse Lees,D,2013-2014,whl,62263,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Plutnar (D),Tri-City Americans,51,3,9,12,0.24,46,-31,/player/100457/michal-plutnar,4,Michal Plutnar,D,2013-2014,whl,100457,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Eansor (C/LW),Seattle Thunderbirds,52,3,9,12,0.23,49,-3,/player/194931/scott-eansor,4,Scott Eansor,C/LW,2013-2014,whl,194931,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miles Warkentine (RW/C),Moose Jaw Warriors,65,3,9,12,0.18,22,-6,/player/120107/miles-warkentine,4,Miles Warkentine,RW/C,2013-2014,whl,120107,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Clayton Kirichenko (D),Saskatoon Blades,70,3,9,12,0.17,53,-35,/player/84112/clayton-kirichenko,4,Clayton Kirichenko,D,2013-2014,whl,84112,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kayle Doetzel (D),Red Deer Rebels,70,2,10,12,0.17,102,2,/player/95222/kayle-doetzel,4,Kayle Doetzel,D,2013-2014,whl,95222,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Staples (D),Medicine Hat Tigers,62,1,11,12,0.19,47,12,/player/196587/matt-staples,4,Matt Staples,D,2013-2014,whl,196587,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Troy Murray (D),Wenatchee Wild,64,0,12,12,0.19,10,-9,/player/199396/troy-murray,4,Troy Murray,D,2013-2014,whl,199396,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Hansen (D/RW),Regina Pats,70,8,3,11,0.16,38,-10,/player/84414/carter-hansen,4,Carter Hansen,D/RW,2013-2014,whl,84414,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Chorney (RW),Red Deer Rebels,58,6,5,11,0.19,22,-5,/player/108440/cole-chorney,4,Cole Chorney,RW,2013-2014,whl,108440,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colton McCarthy (C),Moose Jaw Warriors,63,6,5,11,0.17,57,-4,/player/164249/colton-mccarthy,4,Colton McCarthy,C,2013-2014,whl,164249,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryton Sayers (D),Lethbridge Hurricanes,46,4,7,11,0.24,33,-24,/player/120105/bryton-sayers,4,Bryton Sayers,D,2013-2014,whl,120105,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Vanstone (C/RW),Prince Albert Raiders,55,4,7,11,0.20,35,-10,/player/120242/tim-vanstone,4,Tim Vanstone,C/RW,2013-2014,whl,120242,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Brooks (C/LW),Regina Pats,60,4,7,11,0.18,24,-9,/player/120202/adam-brooks,4,Adam Brooks,C/LW,2013-2014,whl,120202,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Chyzowski (C/LW),Kamloops Blazers,57,3,8,11,0.19,10,-28,/player/199393/nick-chyzowski,4,Nick Chyzowski,C/LW,2013-2014,whl,199393,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hudson Elynuik (C/LW),totals,58,3,8,11,0.19,55,-11,/player/107909/hudson-elynuik,4,Hudson Elynuik,C/LW,2013-2014,whl,107909,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Carroll (D),Edmonton Oil Kings,52,2,9,11,0.21,13,6,/player/84091/ben-carroll,4,Ben Carroll,D,2013-2014,whl,84091,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Landon Cross (D),totals,67,2,9,11,0.16,82,-3,/player/85538/landon-cross,4,Landon Cross,D,2013-2014,whl,85538,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Walters (D),totals,67,2,9,11,0.16,88,-32,/player/57161/nick-walters,4,Nick Walters,D,2013-2014,whl,57161,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Ralph (LW),Edmonton Oil Kings,46,8,2,10,0.22,34,1,/player/108341/brandon-ralph,4,Brandon Ralph,LW,2013-2014,whl,108341,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Darcy Zaharichuk (LW/C),Prince Albert Raiders,52,7,3,10,0.19,12,-1,/player/131281/darcy-zaharichuk,4,Darcy Zaharichuk,LW/C,2013-2014,whl,131281,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam de Champlain (C),Portland Winterhawks,43,6,4,10,0.23,94,-4,/player/97625/adam-de-champlain,4,Adam de Champlain,C,2013-2014,whl,97625,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Kitt (LW),Brandon Wheat Kings,37,5,5,10,0.27,42,-1,/player/120661/brett-kitt,4,Brett Kitt,LW,2013-2014,whl,120661,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Chynoweth (LW),totals,45,4,6,10,0.22,73,-7,/player/83475/ryan-chynoweth,4,Ryan Chynoweth,LW,2013-2014,whl,83475,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeremy McIntosh (D),Spokane Chiefs,70,4,6,10,0.14,94,7,/player/62232/jeremy-mcintosh,4,Jeremy McIntosh,D,2013-2014,whl,62232,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jackson Playfair (RW),totals,70,4,6,10,0.14,108,-18,/player/102226/jackson-playfair,4,Jackson Playfair,RW,2013-2014,whl,102226,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitch Skapski (LW),totals,50,3,7,10,0.20,35,12,/player/120655/mitch-skapski,4,Mitch Skapski,LW,2013-2014,whl,120655,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tate Olson (D),Prince George Cougars,52,2,8,10,0.19,17,0,/player/199682/tate-olson,4,Tate Olson,D,2013-2014,whl,199682,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Juulsen (D),Everett Silvertips,59,2,8,10,0.17,32,12,/player/199905/noah-juulsen,4,Noah Juulsen,D,2013-2014,whl,199905,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lenny Hackman (D),Lethbridge Hurricanes,72,2,8,10,0.14,6,-24,/player/62118/lenny-hackman,4,Lenny Hackman,D,2013-2014,whl,62118,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Guhle (D),Prince Albert Raiders,51,0,10,10,0.20,29,-5,/player/63250/brendan-guhle,4,Brendan Guhle,D,2013-2014,whl,63250,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Taylor Green (D),Brandon Wheat Kings,65,0,10,10,0.15,56,2,/player/102456/taylor-green,4,Taylor Green,D,2013-2014,whl,102456,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Cooke (RW),Moose Jaw Warriors,40,5,4,9,0.23,108,-13,/player/59932/scott-cooke,4,Scott Cooke,RW,2013-2014,whl,59932,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Folk (D),totals,50,5,4,9,0.18,109,-12,/player/120654/carter-folk,4,Carter Folk,D,2013-2014,whl,120654,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mackenze Stewart (D/LW),Prince Albert Raiders,55,5,4,9,0.16,69,-7,/player/62280/mackenze-stewart,4,Mackenze Stewart,D/LW,2013-2014,whl,62280,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Fonteyne (C),Everett Silvertips,61,4,5,9,0.15,10,-10,/player/108439/matt-fonteyne,4,Matt Fonteyne,C,2013-2014,whl,108439,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Taylor Vickerman (LW/C),Tri-City Americans,30,3,6,9,0.30,17,-11,/player/120788/taylor-vickerman,4,Taylor Vickerman,LW/C,2013-2014,whl,120788,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Braylon Shmyr (LW),Brandon Wheat Kings,34,3,6,9,0.26,4,-3,/player/107899/braylon-shmyr,4,Braylon Shmyr,LW,2013-2014,whl,107899,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ty Comrie (C),Tri-City Americans,64,3,6,9,0.14,21,-24,/player/199888/ty-comrie,4,Ty Comrie,C,2013-2014,whl,199888,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nate Looysen (LW),Kamloops Blazers,57,2,7,9,0.16,18,-20,/player/160128/nate-looysen,4,Nate Looysen,LW,2013-2014,whl,160128,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chaz Reddekopp (D),Victoria Royals,40,1,8,9,0.23,33,10,/player/199398/chaz-reddekopp,4,Chaz Reddekopp,D,2013-2014,whl,199398,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gavin Broadhead (C),Medicine Hat Tigers,44,1,8,9,0.20,21,-10,/player/88069/gavin-broadhead,4,Gavin Broadhead,C,2013-2014,whl,88069,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Harris (D),Swift Current Broncos,52,1,8,9,0.17,29,0,/player/120100/jordan-harris,4,Jordan Harris,D,2013-2014,whl,120100,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Isaac Schacher (D),totals,60,1,8,9,0.15,48,22,/player/126625/isaac-schacher,4,Isaac Schacher,D,2013-2014,whl,126625,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Wardley (D),Seattle Thunderbirds,61,1,8,9,0.15,151,-5,/player/80762/evan-wardley,4,Evan Wardley,D,2013-2014,whl,80762,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Davis (D),Everett Silvertips,65,1,8,9,0.14,9,-11,/player/199397/kevin-davis,4,Kevin Davis,D,2013-2014,whl,199397,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Raymond Grewal (D),Prince George Cougars,56,0,9,9,0.16,36,-17,/player/88508/raymond-grewal,4,Raymond Grewal,D,2013-2014,whl,88508,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Edson Harlacher (D),Kamloops Blazers,71,0,9,9,0.13,44,-27,/player/103838/edson-harlacher,4,Edson Harlacher,D,2013-2014,whl,103838,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rodney Southam (RW/C),Tri-City Americans,52,5,3,8,0.15,37,-20,/player/120799/rodney-southam,4,Rodney Southam,RW/C,2013-2014,whl,120799,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linden Penner (RW),totals,40,4,4,8,0.20,37,4,/player/84103/linden-penner,4,Linden Penner,RW,2013-2014,whl,84103,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Craig Leverton (LW),Prince Albert Raiders,50,4,4,8,0.16,31,-13,/player/84584/craig-leverton,4,Craig Leverton,LW,2013-2014,whl,84584,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitch Elliot (LW),Seattle Thunderbirds,66,4,4,8,0.12,128,-16,/player/45624/mitch-elliot,4,Mitch Elliot,LW,2013-2014,whl,45624,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Price (RW/C),Portland Winterhawks,67,4,4,8,0.12,30,-9,/player/199941/ethan-price,4,Ethan Price,RW/C,2013-2014,whl,199941,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Devon McAndrews (LW),Tri-City Americans,52,3,5,8,0.15,53,-15,/player/84236/devon-mcandrews,4,Devon McAndrews,LW,2013-2014,whl,84236,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keegan Kanzig (D),Victoria Royals,63,3,5,8,0.13,99,18,/player/63193/keegan-kanzig,4,Keegan Kanzig,D,2013-2014,whl,63193,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Glover (C/RW),Kelowna Rockets,24,2,6,8,0.33,10,3,/player/120630/austin-glover,4,Austin Glover,C/RW,2013-2014,whl,120630,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keegan Kolesar (RW),Seattle Thunderbirds,60,2,6,8,0.13,45,-7,/player/197560/keegan-kolesar,4,Keegan Kolesar,RW,2013-2014,whl,197560,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Gagnon (D),Victoria Royals,66,2,6,8,0.12,55,10,/player/120637/ryan-gagnon,4,Ryan Gagnon,D,2013-2014,whl,120637,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Roulston (LW),Prince George Cougars,48,1,7,8,0.17,75,-19,/player/102274/brett-roulston,4,Brett Roulston,LW,2013-2014,whl,102274,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kord Pankewicz (D),Brandon Wheat Kings,35,0,8,8,0.23,53,1,/player/64579/kord-pankewicz,4,Kord Pankewicz,D,2013-2014,whl,64579,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Harrison (D),Regina Pats,42,0,8,8,0.19,14,11,/player/202986/chase-harrison,4,Chase Harrison,D,2013-2014,whl,202986,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Shynkaruk (C/LW),Kamloops Blazers,67,4,3,7,0.10,20,-24,/player/120808/jesse-shynkaruk,4,Jesse Shynkaruk,C/LW,2013-2014,whl,120808,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Krienke (LW),Kamloops Blazers,50,3,4,7,0.14,9,-10,/player/108036/eric-krienke,4,Eric Krienke,LW,2013-2014,whl,108036,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc McCoy (C),totals,36,2,5,7,0.19,59,-14,/player/57154/marc-mccoy,4,Marc McCoy,C,2013-2014,whl,57154,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeff Hubic (LW/D),totals,41,1,6,7,0.17,38,-3,/player/85027/jeff-hubic,4,Jeff Hubic,LW/D,2013-2014,whl,85027,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Terrell Draude (C),Calgary Hitmen,47,1,6,7,0.15,9,1,/player/199718/terrell-draude,5,Terrell Draude,C,2013-2014,whl,199718,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reid Zalitach (D),totals,47,1,6,7,0.15,36,-15,/player/120631/reid-zalitach,5,Reid Zalitach,D,2013-2014,whl,120631,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Meyer Nell (LW),Red Deer Rebels,49,1,6,7,0.14,21,-6,/player/199919/meyer-nell,5,Meyer Nell,LW,2013-2014,whl,199919,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Topping (D),Lethbridge Hurricanes,25,0,7,7,0.28,10,-12,/player/79789/joel-topping,5,Joel Topping,D,2013-2014,whl,79789,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Kosterman (D),Prince George Cougars,45,0,7,7,0.16,43,-4,/player/31496/peter-kosterman,5,Peter Kosterman,D,2013-2014,whl,31496,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Spenser Jensen (D),totals,58,0,7,7,0.12,60,-10,/player/62113/spenser-jensen,5,Spenser Jensen,D,2013-2014,whl,62113,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Bobos (D),Prince George Cougars,67,0,7,7,0.10,57,-11,/player/108211/martin-bobos,5,Martin Bobos,D,2013-2014,whl,108211,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kolton Dixon (D),totals,67,0,7,7,0.10,132,-3,/player/84077/kolton-dixon,5,Kolton Dixon,D,2013-2014,whl,84077,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Calvin Spencer (RW),Seattle Thunderbirds,32,3,3,6,0.19,17,-5,/player/278710/calvin-spencer,5,Calvin Spencer,RW,2013-2014,whl,278710,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blair Oneschuk (C),Spokane Chiefs,38,3,3,6,0.16,28,-5,/player/84013/blair-oneschuk,5,Blair Oneschuk,C,2013-2014,whl,84013,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cal Babych (RW),Calgary Hitmen,41,3,3,6,0.15,11,1,/player/199913/cal-babych,5,Cal Babych,RW,2013-2014,whl,199913,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Honey (RW),Seattle Thunderbirds,7,2,4,6,0.86,22,0,/player/103534/connor-honey,5,Connor Honey,RW,2013-2014,whl,103534,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Deven Sideroff (C/RW),Kamloops Blazers,12,2,4,6,0.50,6,-3,/player/202370/deven-sideroff,5,Deven Sideroff,C/RW,2013-2014,whl,202370,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luca Leone (RW),Vancouver Giants,33,2,4,6,0.18,6,-2,/player/195230/luca-leone,5,Luca Leone,RW,2013-2014,whl,195230,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Chirva (LW/RW),Moose Jaw Warriors,58,2,4,6,0.10,15,-4,/player/223783/alexander-chirva,5,Alexander Chirva,LW/RW,2013-2014,whl,223783,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Thrower (D),totals,62,2,4,6,0.10,89,-6,/player/120212/josh-thrower,5,Josh Thrower,D,2013-2014,whl,120212,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Darcy DeRoose (LW/C),Everett Silvertips,35,1,5,6,0.17,37,-9,/player/147340/darcy-deroose,5,Darcy DeRoose,LW/C,2013-2014,whl,147340,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nelson Nogier (D),Saskatoon Blades,37,1,5,6,0.16,25,-2,/player/120646/nelson-nogier,5,Nelson Nogier,D,2013-2014,whl,120646,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirk Johnson (D),Moose Jaw Warriors,61,1,5,6,0.10,73,-20,/player/84069/kirk-johnson,5,Kirk Johnson,D,2013-2014,whl,84069,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joe Gatenby (D),Kelowna Rockets,43,0,6,6,0.14,20,7,/player/199709/joe-gatenby,5,Joe Gatenby,D,2013-2014,whl,199709,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wil Tomchuk (D),totals,51,0,6,6,0.12,33,1,/player/89412/wil-tomchuk,5,Wil Tomchuk,D,2013-2014,whl,89412,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Soltes (LW/RW),Prince George Cougars,15,4,1,5,0.33,10,-10,/player/102975/david-soltes,5,David Soltes,LW/RW,2013-2014,whl,102975,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle O'Connor (C/RW),Wenatchee Wild,42,3,2,5,0.12,4,-11,/player/108056/kyle-o-connor,5,Kyle O'Connor,C/RW,2013-2014,whl,108056,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reid Nemeth (C/LW),Lethbridge Hurricanes,58,3,2,5,0.09,9,-25,/player/108055/reid-nemeth,5,Reid Nemeth,C/LW,2013-2014,whl,108055,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Adamson (RW),Saskatoon Blades,53,2,3,5,0.09,11,-14,/player/147332/austin-adamson,5,Austin Adamson,RW,2013-2014,whl,147332,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Landon Welykholowa (C),totals,34,1,4,5,0.15,8,-6,/player/62228/landon-welykholowa,5,Landon Welykholowa,C,2013-2014,whl,62228,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Hascic (LW),Spokane Chiefs,40,1,4,5,0.13,41,-2,/player/179169/adam-hascic,5,Adam Hascic,LW,2013-2014,whl,179169,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicolais Gomerich (C/RW),Saskatoon Blades,44,1,4,5,0.11,21,-9,/player/120791/nicolais-gomerich,5,Nicolais Gomerich,C/RW,2013-2014,whl,120791,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stephen Hak (D),Regina Pats,16,0,5,5,0.31,7,0,/player/94312/stephen-hak,5,Stephen Hak,D,2013-2014,whl,94312,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Mills (D),Edmonton Oil Kings,35,0,5,5,0.14,15,8,/player/199916/jesse-mills,5,Jesse Mills,D,2013-2014,whl,199916,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Thomas (D),totals,66,0,5,5,0.08,29,-40,/player/83464/matt-thomas,5,Matt Thomas,D,2013-2014,whl,83464,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Harrison (RW),totals,39,4,0,4,0.10,19,-12,/player/88589/luke-harrison,5,Luke Harrison,RW,2013-2014,whl,88589,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Mowbray (RW),Medicine Hat Tigers,35,3,1,4,0.11,11,-4,/player/83461/alex-mowbray,5,Alex Mowbray,RW,2013-2014,whl,83461,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rob Trzonkowski (RW),Vancouver Giants,36,3,1,4,0.11,18,-12,/player/49983/rob-trzonkowski,5,Rob Trzonkowski,RW,2013-2014,whl,49983,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cavin Leth (C),Swift Current Broncos,48,3,1,4,0.08,55,-1,/player/83485/cavin-leth,5,Cavin Leth,C,2013-2014,whl,83485,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Holub (RW),totals,29,2,2,4,0.14,12,-7,/player/120636/michal-holub,5,Michal Holub,RW,2013-2014,whl,120636,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bobby Zinkan (D),Swift Current Broncos,52,2,2,4,0.08,60,9,/player/62259/bobby-zinkan,5,Bobby Zinkan,D,2013-2014,whl,62259,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kristian Khenkel (D),Lethbridge Hurricanes,29,1,3,4,0.14,21,-21,/player/160659/kristian-khenkel,5,Kristian Khenkel,D,2013-2014,whl,160659,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shaun Dosanjh (D),Vancouver Giants,45,1,3,4,0.09,32,-5,/player/120213/shaun-dosanjh,5,Shaun Dosanjh,D,2013-2014,whl,120213,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Adam (D),Everett Silvertips,50,1,3,4,0.08,34,-14,/player/102301/austin-adam,5,Austin Adam,D,2013-2014,whl,102301,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Griffin Mumby (D),Regina Pats,55,1,3,4,0.07,31,0,/player/62234/griffin-mumby,5,Griffin Mumby,D,2013-2014,whl,62234,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dalton Yorke (D),Kelowna Rockets,40,0,4,4,0.10,72,3,/player/153010/dalton-yorke,5,Dalton Yorke,D,2013-2014,whl,153010,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kade Jensen (D),Lethbridge Hurricanes,46,0,4,4,0.09,55,-19,/player/161080/kade-jensen,5,Kade Jensen,D,2013-2014,whl,161080,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Brown (D),Moose Jaw Warriors,52,0,4,4,0.08,28,-6,/player/199922/tyler-brown,5,Tyler Brown,D,2013-2014,whl,199922,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Zipp (D),totals,52,0,4,4,0.08,38,-8,/player/62146/michael-zipp,5,Michael Zipp,D,2013-2014,whl,62146,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Osipov (D/RW),Vancouver Giants,54,3,0,3,0.06,48,-16,/player/250313/dmitri-osipov,5,Dmitri Osipov,D/RW,2013-2014,whl,250313,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trace Elson (RW),Vancouver Giants,15,2,1,3,0.20,11,-8,/player/107473/trace-elson,5,Trace Elson,RW,2013-2014,whl,107473,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas Eder (RW/C),Vancouver Giants,19,2,1,3,0.16,2,-5,/player/95495/andreas-eder,5,Andreas Eder,RW/C,2013-2014,whl,95495,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyson Predinchuk (RW/D),Portland Winterhawks,20,2,1,3,0.15,2,2,/player/85028/tyson-predinchuk,5,Tyson Predinchuk,RW/D,2013-2014,whl,85028,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Hobbs (D),Medicine Hat Tigers,10,1,2,3,0.30,4,1,/player/199904/connor-hobbs,5,Connor Hobbs,D,2013-2014,whl,199904,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lance Yaremchuk (C/LW),Prince Albert Raiders,15,1,2,3,0.20,0,0,/player/120108/lance-yaremchuk,5,Lance Yaremchuk,C/LW,2013-2014,whl,120108,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitchell Friesen (LW),Kamloops Blazers,21,1,2,3,0.14,4,-7,/player/120647/mitchell-friesen,5,Mitchell Friesen,LW,2013-2014,whl,120647,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Wolf (D),Seattle Thunderbirds,27,1,2,3,0.11,12,-7,/player/120958/kevin-wolf,5,Kevin Wolf,D,2013-2014,whl,120958,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeff Rayman (D),Spokane Chiefs,36,1,2,3,0.08,23,-4,/player/153009/jeff-rayman,5,Jeff Rayman,D,2013-2014,whl,153009,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maximilian Kammerer (C/LW),Regina Pats,40,1,2,3,0.08,14,-7,/player/95507/maximilian-kammerer,5,Maximilian Kammerer,C/LW,2013-2014,whl,95507,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dakota Odgers (C/LW),Swift Current Broncos,40,1,2,3,0.08,71,-3,/player/120620/dakota-odgers,5,Dakota Odgers,C/LW,2013-2014,whl,120620,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Cardiff (D),Spokane Chiefs,41,1,2,3,0.07,23,-2,/player/120805/jacob-cardiff,5,Jacob Cardiff,D,2013-2014,whl,120805,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Beck Malenstyn (LW/RW),Calgary Hitmen,5,0,3,3,0.60,4,4,/player/247477/beck-malenstyn,5,Beck Malenstyn,LW/RW,2013-2014,whl,247477,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shane McColgan (RW/C),Portland Winterhawks,10,0,3,3,0.30,18,-8,/player/32798/shane-mccolgan,5,Shane McColgan,RW/C,2013-2014,whl,32798,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henrik Nyberg (RW/LW),Kelowna Rockets,21,0,3,3,0.14,8,2,/player/33347/henrik-nyberg,5,Henrik Nyberg,RW/LW,2013-2014,whl,33347,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shaun McPherson (D/LW),Portland Winterhawks,29,0,3,3,0.10,24,-1,/player/98333/shaun-mcpherson,5,Shaun McPherson,D/LW,2013-2014,whl,98333,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Dea (D),totals,35,0,3,3,0.09,17,-13,/player/84251/tyler-dea,5,Tyler Dea,D,2013-2014,whl,84251,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Kohlhauser (D),totals,41,0,3,3,0.07,23,1,/player/84267/jake-kohlhauser,5,Jake Kohlhauser,D,2013-2014,whl,84267,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Gelinas (LW),Tri-City Americans,42,0,3,3,0.07,47,-8,/player/62312/matthew-gelinas,5,Matthew Gelinas,LW,2013-2014,whl,62312,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Steenbergen (D),Wenatchee Wild,49,0,3,3,0.06,59,-6,/player/84057/jordan-steenbergen,5,Jordan Steenbergen,D,2013-2014,whl,84057,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zack Gonek (F),Prince George Cougars,55,0,3,3,0.05,102,-9,/player/84248/zack-gonek,5,Zack Gonek,F,2013-2014,whl,84248,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stephen Shmoorkoff (D),totals,58,0,3,3,0.05,60,-3,/player/56835/stephen-shmoorkoff,5,Stephen Shmoorkoff,D,2013-2014,whl,56835,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Devan Fafard (D),Red Deer Rebels,69,0,3,3,0.04,159,-16,/player/85404/devan-fafard,5,Devan Fafard,D,2013-2014,whl,85404,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nolan Reid (D),Saskatoon Blades,2,1,1,2,1.00,0,-1,/player/200798/nolan-reid,5,Nolan Reid,D,2013-2014,whl,200798,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Davies (D),Tri-City Americans,7,1,1,2,0.29,6,1,/player/84109/jordan-davies,5,Jordan Davies,D,2013-2014,whl,84109,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Braden Oleksyn (RW/LW),totals,17,1,1,2,0.12,20,3,/player/119264/braden-oleksyn,5,Braden Oleksyn,RW/LW,2013-2014,whl,119264,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Robertson (LW),Edmonton Oil Kings,26,1,1,2,0.08,7,-2,/player/131271/tyler-robertson,5,Tyler Robertson,LW,2013-2014,whl,131271,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Potomak (LW/D),Moose Jaw Warriors,30,1,1,2,0.07,8,-7,/player/101592/brandon-potomak,5,Brandon Potomak,LW/D,2013-2014,whl,101592,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Douglas (D),totals,35,1,1,2,0.06,49,-14,/player/119391/austin-douglas,5,Austin Douglas,D,2013-2014,whl,119391,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Wagner (LW/RW),Regina Pats,42,1,1,2,0.05,18,1,/player/161117/austin-wagner,5,Austin Wagner,LW/RW,2013-2014,whl,161117,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Kryski (LW/C),Kamloops Blazers,4,0,2,2,0.50,0,-2,/player/247053/jake-kryski,5,Jake Kryski,LW/C,2013-2014,whl,247053,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Pochuk (D),totals,10,0,2,2,0.20,8,-3,/player/101607/kevin-pochuk,5,Kevin Pochuk,D,2013-2014,whl,101607,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Lishchynsky (D),Prince George Cougars,26,0,2,2,0.08,10,-3,/player/120127/tanner-lishchynsky,5,Tanner Lishchynsky,D,2013-2014,whl,120127,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brady Reagan (D),Regina Pats,27,0,2,2,0.07,20,2,/player/125683/brady-reagan,5,Brady Reagan,D,2013-2014,whl,125683,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitchell Walter (RW),Edmonton Oil Kings,29,0,2,2,0.07,55,4,/player/120625/mitchell-walter,5,Mitchell Walter,RW,2013-2014,whl,120625,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Amson (LW),Lethbridge Hurricanes,32,0,2,2,0.06,24,-15,/player/119249/carter-amson,5,Carter Amson,LW,2013-2014,whl,119249,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Clouston (D),Kamloops Blazers,51,0,2,2,0.04,61,-2,/player/83497/connor-clouston,5,Connor Clouston,D,2013-2014,whl,83497,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Kaspick (C),Brandon Wheat Kings,1,1,0,1,1.00,0,0,/player/201245/tanner-kaspick,5,Tanner Kaspick,C,2013-2014,whl,201245,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Morgan Geekie (C/RW),Tri-City Americans,1,1,0,1,1.00,0,-1,/player/247912/morgan-geekie,5,Morgan Geekie,C/RW,2013-2014,whl,247912,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Wishnowski (LW),Kelowna Rockets,1,1,0,1,1.00,0,1,/player/253295/tanner-wishnowski,5,Tanner Wishnowski,LW,2013-2014,whl,253295,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nolan Patrick (C),Brandon Wheat Kings,3,1,0,1,0.33,0,3,/player/201274/nolan-patrick,5,Nolan Patrick,C,2013-2014,whl,201274,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mason McCarty (RW),Red Deer Rebels,5,1,0,1,0.20,0,2,/player/131179/mason-mccarty,5,Mason McCarty,RW,2013-2014,whl,131179,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Howden (C/LW),Moose Jaw Warriors,5,1,0,1,0.20,2,0,/player/232712/brett-howden,5,Brett Howden,C/LW,2013-2014,whl,232712,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Dykstra (LW/C),Victoria Royals,6,1,0,1,0.17,0,1,/player/148101/matt-dykstra,5,Matt Dykstra,LW/C,2013-2014,whl,148101,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dane Schioler (RW),Regina Pats,7,1,0,1,0.14,0,-2,/player/120628/dane-schioler,5,Dane Schioler,RW,2013-2014,whl,120628,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carson Samoridny (RW),Regina Pats,10,1,0,1,0.10,15,-4,/player/101099/carson-samoridny,5,Carson Samoridny,RW,2013-2014,whl,101099,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Earl Webb (RW),Red Deer Rebels,13,1,0,1,0.08,0,0,/player/62226/earl-webb,5,Earl Webb,RW,2013-2014,whl,62226,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Stockl (RW),Red Deer Rebels,16,1,0,1,0.06,7,-6,/player/101632/christian-stockl,5,Christian Stockl,RW,2013-2014,whl,101632,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tate Coughlin (RW),Kelowna Rockets,1,0,1,1,1.00,2,1,/player/280231/tate-coughlin,5,Tate Coughlin,RW,2013-2014,whl,280231,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Davis Koch (C/RW),Edmonton Oil Kings,2,0,1,1,0.50,0,1,/player/247141/davis-koch,5,Davis Koch,C/RW,2013-2014,whl,247141,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominic Thom (D),Brandon Wheat Kings,2,0,1,1,0.50,0,3,/player/62281/dominic-thom,5,Dominic Thom,D,2013-2014,whl,62281,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Fiala (D),Spokane Chiefs,2,0,1,1,0.50,2,1,/player/199399/evan-fiala,5,Evan Fiala,D,2013-2014,whl,199399,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Cochrane (D),Everett Silvertips,2,0,1,1,0.50,5,-3,/player/153244/carter-cochrane,5,Carter Cochrane,D,2013-2014,whl,153244,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Barberis (D),Vancouver Giants,3,0,1,1,0.33,0,1,/player/247155/matt-barberis,5,Matt Barberis,D,2013-2014,whl,247155,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Morden (D),Prince Albert Raiders,3,0,1,1,0.33,0,3,/player/56587/evan-morden,5,Evan Morden,D,2013-2014,whl,56587,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaron Hyman (D),Calgary Hitmen,3,0,1,1,0.33,0,3,/player/199652/aaron-hyman,6,Aaron Hyman,D,2013-2014,whl,199652,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jayden Halbgewachs (LW),Moose Jaw Warriors,4,0,1,1,0.25,0,-4,/player/198831/jayden-halbgewachs,6,Jayden Halbgewachs,LW,2013-2014,whl,198831,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Haydn Hopkins (C),Saskatoon Blades,4,0,1,1,0.25,2,0,/player/160138/haydn-hopkins,6,Haydn Hopkins,C,2013-2014,whl,160138,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jari Erricson (LW/C),Prince George Cougars,4,0,1,1,0.25,20,-2,/player/52376/jari-erricson,6,Jari Erricson,LW/C,2013-2014,whl,52376,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake MacLachlan (D),Red Deer Rebels,5,0,1,1,0.20,0,2,/player/120952/jake-maclachlan,6,Jake MacLachlan,D,2013-2014,whl,120952,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Hodder (D),Moose Jaw Warriors,6,0,1,1,0.17,0,-3,/player/45641/zach-hodder,6,Zach Hodder,D,2013-2014,whl,45641,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Loch Morrison (D),Calgary Hitmen,6,0,1,1,0.17,0,5,/player/198134/loch-morrison,6,Loch Morrison,D,2013-2014,whl,198134,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colten Veloso (RW),Portland Winterhawks,6,0,1,1,0.17,0,-2,/player/201106/colten-veloso,6,Colten Veloso,RW,2013-2014,whl,201106,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Faith (D),Wenatchee Wild,10,0,1,1,0.10,9,-1,/player/101642/tanner-faith,6,Tanner Faith,D,2013-2014,whl,101642,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cameron Reagan (D),Kamloops Blazers,11,0,1,1,0.09,2,-4,/player/131280/cameron-reagan,6,Cameron Reagan,D,2013-2014,whl,131280,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Regan Nagy (C/W),Victoria Royals,11,0,1,1,0.09,7,-3,/player/197699/regan-nagy,6,Regan Nagy,C/W,2013-2014,whl,197699,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Bevan (D),Swift Current Broncos,15,0,1,1,0.07,9,-3,/player/120963/cole-bevan,6,Cole Bevan,D,2013-2014,whl,120963,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Marreck (LW),Tri-City Americans,23,0,1,1,0.04,0,-6,/player/102220/justin-marreck,6,Justin Marreck,LW,2013-2014,whl,102220,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ross Hnidy (D),Saskatoon Blades,27,0,1,1,0.04,27,2,/player/120790/ross-hnidy,6,Ross Hnidy,D,2013-2014,whl,120790,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Bosc (LW/D),Swift Current Broncos,39,0,1,1,0.03,11,-7,/player/101601/denis-bosc,6,Denis Bosc,LW/D,2013-2014,whl,101601,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riley Hillis (D),Tri-City Americans,43,0,1,1,0.02,86,-7,/player/206566/riley-hillis,6,Riley Hillis,D,2013-2014,whl,206566,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Bradley (C),Medicine Hat Tigers,0,0,0,0,-,0,0,/player/199714/matt-bradley,6,Matt Bradley,C,2013-2014,whl,199714,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blake Heinrich (D),Portland Winterhawks,0,0,0,0,-,0,0,/player/118645/blake-heinrich,6,Blake Heinrich,D,2013-2014,whl,118645,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyson Helgesen (D),Spokane Chiefs,0,0,0,0,-,0,-,/player/108414/tyson-helgesen,6,Tyson Helgesen,D,2013-2014,whl,108414,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dillon Dubé (LW/C),Kelowna Rockets,0,0,0,0,-,0,0,/player/157256/dillon-dube,6,Dillon Dubé,LW/C,2013-2014,whl,157256,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Quinn Benjafield (RW),Kamloops Blazers,1,0,0,0,0.00,0,0,/player/245572/quinn-benjafield,6,Quinn Benjafield,RW,2013-2014,whl,245572,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rykr Cole (C),Regina Pats,1,0,0,0,0.00,0,0,/player/199178/rykr-cole,6,Rykr Cole,C,2013-2014,whl,199178,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Quenneville (D),Medicine Hat Tigers,1,0,0,0,0.00,0,0,/player/166662/david-quenneville,6,David Quenneville,D,2013-2014,whl,166662,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Parker Smyth (LW),Saskatoon Blades,1,0,0,0,0.00,0,-1,/player/166630/parker-smyth,6,Parker Smyth,LW,2013-2014,whl,166630,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brayden Brown (C),Edmonton Oil Kings,1,0,0,0,0.00,0,-1,/player/161065/brayden-brown,6,Brayden Brown,C,2013-2014,whl,161065,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riley Van Horne (D),Brandon Wheat Kings,1,0,0,0,0.00,0,0,/player/62244/riley-van-horne,6,Riley Van Horne,D,2013-2014,whl,62244,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Foster (D),Calgary Hitmen,1,0,0,0,0.00,0,0,/player/120252/matt-foster,6,Matt Foster,D,2013-2014,whl,120252,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordyn Boyd (LW),Wenatchee Wild,1,0,0,0,0.00,0,-1,/player/38770/jordyn-boyd,6,Jordyn Boyd,LW,2013-2014,whl,38770,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Campese (LW),Victoria Royals,1,0,0,0,0.00,0,0,/player/198131/matthew-campese,6,Matthew Campese,LW,2013-2014,whl,198131,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fraser Bulbuc (LW),Tri-City Americans,1,0,0,0,0.00,0,0,/player/143664/fraser-bulbuc,6,Fraser Bulbuc,LW,2013-2014,whl,143664,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandan Arnold (RW),Swift Current Broncos,1,0,0,0,0.00,0,0,/player/199947/brandan-arnold,6,Brandan Arnold,RW,2013-2014,whl,199947,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxime Lajoie (D),Swift Current Broncos,1,0,0,0,0.00,0,0,/player/161131/maxime-lajoie,6,Maxime Lajoie,D,2013-2014,whl,161131,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Ferguson (RW/C),Prince George Cougars,1,0,0,0,0.00,0,0,/player/102246/austin-ferguson,6,Austin Ferguson,RW/C,2013-2014,whl,102246,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Lazaro (LW),Moose Jaw Warriors,1,0,0,0,0.00,0,0,/player/154292/ethan-lazaro,6,Ethan Lazaro,LW,2013-2014,whl,154292,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chance Patterson (D),Edmonton Oil Kings,1,0,0,0,0.00,0,1,/player/199930/chance-patterson,6,Chance Patterson,D,2013-2014,whl,199930,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Nielsen (D),Lethbridge Hurricanes,1,0,0,0,0.00,0,0,/player/131262/andrew-nielsen,6,Andrew Nielsen,D,2013-2014,whl,131262,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Verrall (D),Prince Albert Raiders,1,0,0,0,0.00,0,0,/player/210306/ben-verrall,6,Ben Verrall,D,2013-2014,whl,210306,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mackenzie Dwyer (D),Saskatoon Blades,1,0,0,0,0.00,0,-3,/player/200319/mackenzie-dwyer,6,Mackenzie Dwyer,D,2013-2014,whl,200319,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Coy Prevost (F/D),Saskatoon Blades,1,0,0,0,0.00,0,0,/player/180710/coy-prevost,6,Coy Prevost,F/D,2013-2014,whl,180710,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxwell James (LW),Tri-City Americans,1,0,0,0,0.00,0,0,/player/199942/maxwell-james,6,Maxwell James,LW,2013-2014,whl,199942,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaron Boyd (C),Prince George Cougars,1,0,0,0,0.00,0,-1,/player/199722/aaron-boyd,6,Aaron Boyd,C,2013-2014,whl,199722,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shane Collins (D),Prince George Cougars,1,0,0,0,0.00,0,0,/player/199901/shane-collins,6,Shane Collins,D,2013-2014,whl,199901,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johnny Wesley (LW),Vancouver Giants,1,0,0,0,0.00,0,0,/player/253262/johnny-wesley,6,Johnny Wesley,LW,2013-2014,whl,253262,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Waltteri Hopponen (LW/RW),Everett Silvertips,1,0,0,0,0.00,2,-1,/player/92047/waltteri-hopponen,6,Waltteri Hopponen,LW/RW,2013-2014,whl,92047,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Del Grosso (LW),Moose Jaw Warriors,1,0,0,0,0.00,2,0,/player/120947/brandon-del-grosso,6,Brandon Del Grosso,LW,2013-2014,whl,120947,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trent Ouellette (C),Regina Pats,1,0,0,0,0.00,4,0,/player/44941/trent-ouellette,6,Trent Ouellette,C,2013-2014,whl,44941,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dexter Bricker (LW),Regina Pats,1,0,0,0,0.00,7,0,/player/120227/dexter-bricker,6,Dexter Bricker,LW,2013-2014,whl,120227,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lane Pederson (C/RW),Seattle Thunderbirds,2,0,0,0,0.00,0,0,/player/199918/lane-pederson,6,Lane Pederson,C/RW,2013-2014,whl,199918,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryely McKinstry (D),Vancouver Giants,2,0,0,0,0.00,0,-1,/player/161058/ryely-mckinstry,6,Ryely McKinstry,D,2013-2014,whl,161058,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kale Clague (D),Brandon Wheat Kings,2,0,0,0,0.00,0,0,/player/108472/kale-clague,6,Kale Clague,D,2013-2014,whl,108472,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Duncan Campbell (C),Brandon Wheat Kings,2,0,0,0,0.00,0,-1,/player/202765/duncan-campbell,6,Duncan Campbell,C,2013-2014,whl,202765,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Gardiner (D),Moose Jaw Warriors,2,0,0,0,0.00,0,0,/player/199894/ryan-gardiner,6,Ryan Gardiner,D,2013-2014,whl,199894,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dante Hannoun (C/RW),Victoria Royals,2,0,0,0,0.00,0,-2,/player/245570/dante-hannoun,6,Dante Hannoun,C/RW,2013-2014,whl,245570,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kolby Johnson (LW),Prince George Cougars,2,0,0,0,0.00,0,-6,/player/200696/kolby-johnson,6,Kolby Johnson,LW,2013-2014,whl,200696,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kole Bryks (D),Vancouver Giants,2,0,0,0,0.00,0,0,/player/108418/kole-bryks,6,Kole Bryks,D,2013-2014,whl,108418,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reed Morison (C),Portland Winterhawks,2,0,0,0,0.00,0,2,/player/293418/reed-morison,6,Reed Morison,C,2013-2014,whl,293418,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Holterhus (LW),Vancouver Giants,2,0,0,0,0.00,0,0,/player/148081/brendan-holterhus,6,Brendan Holterhus,LW,2013-2014,whl,148081,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Anderson (D),Prince George Cougars,2,0,0,0,0.00,2,0,/player/247061/josh-anderson,6,Josh Anderson,D,2013-2014,whl,247061,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Fenske (D),Regina Pats,2,0,0,0,0.00,2,-1,/player/45640/luke-fenske,6,Luke Fenske,D,2013-2014,whl,45640,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Mahura (RW/LW),Prince Albert Raiders,2,0,0,0,0.00,2,-1,/player/79311/luke-mahura,6,Luke Mahura,RW/LW,2013-2014,whl,79311,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brayden Burke (C/LW),Red Deer Rebels,2,0,0,0,0.00,2,0,/player/101647/brayden-burke,6,Brayden Burke,C/LW,2013-2014,whl,101647,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ty Mappin (C),Saskatoon Blades,2,0,0,0,0.00,2,0,/player/120200/ty-mappin,6,Ty Mappin,C,2013-2014,whl,120200,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Spencer Galbraith (RW/D),Calgary Hitmen,2,0,0,0,0.00,7,-1,/player/51713/spencer-galbraith,6,Spencer Galbraith,RW/D,2013-2014,whl,51713,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Devin Oakes (RW),Kamloops Blazers,2,0,0,0,0.00,9,0,/player/84001/devin-oakes,6,Devin Oakes,RW,2013-2014,whl,84001,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kaden Elder (RW),Seattle Thunderbirds,3,0,0,0,0.00,0,-4,/player/247880/kaden-elder,6,Kaden Elder,RW,2013-2014,whl,247880,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nolan Volcan (LW/RW),Seattle Thunderbirds,3,0,0,0,0.00,0,-7,/player/153134/nolan-volcan,6,Nolan Volcan,LW/RW,2013-2014,whl,153134,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Paterson (D),Portland Winterhawks,3,0,0,0,0.00,0,-1,/player/84223/zach-paterson,6,Zach Paterson,D,2013-2014,whl,84223,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Pruden (RW),Saskatoon Blades,3,0,0,0,0.00,0,-1,/player/120979/ryan-pruden,6,Ryan Pruden,RW,2013-2014,whl,120979,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeff de Wit (C),Red Deer Rebels,3,0,0,0,0.00,0,-1,/player/166624/jeff-de-wit,6,Jeff de Wit,C,2013-2014,whl,166624,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Royce Rossignol (D),Moose Jaw Warriors,3,0,0,0,0.00,5,0,/player/120809/royce-rossignol,6,Royce Rossignol,D,2013-2014,whl,120809,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Calladine (C/LW),totals,4,0,0,0,0.00,0,1,/player/85104/austin-calladine,6,Austin Calladine,C/LW,2013-2014,whl,85104,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Overdyk (D),Wenatchee Wild,4,0,0,0,0.00,0,0,/player/154287/dylan-overdyk,6,Dylan Overdyk,D,2013-2014,whl,154287,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Layne Bensmiller (RW),Calgary Hitmen,4,0,0,0,0.00,2,0,/player/166622/layne-bensmiller,6,Layne Bensmiller,RW,2013-2014,whl,166622,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Skyler McKenzie (LW),Portland Winterhawks,5,0,0,0,0.00,0,0,/player/166653/skyler-mckenzie,6,Skyler McKenzie,LW,2013-2014,whl,166653,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Garan Magnes (LW),Edmonton Oil Kings,5,0,0,0,0.00,0,-1,/player/154168/garan-magnes,6,Garan Magnes,LW,2013-2014,whl,154168,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Wellsby (LW),Wenatchee Wild,5,0,0,0,0.00,0,0,/player/199909/austin-wellsby,6,Austin Wellsby,LW,2013-2014,whl,199909,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaeger White (C),Lethbridge Hurricanes,5,0,0,0,0.00,0,-1,/player/163727/jaeger-white,6,Jaeger White,C,2013-2014,whl,163727,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Steel (C/LW),Regina Pats,5,0,0,0,0.00,0,0,/player/154496/sam-steel,6,Sam Steel,C/LW,2013-2014,whl,154496,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan O'Reilly (D),Tri-City Americans,5,0,0,0,0.00,2,-2,/player/264945/brendan-o-reilly,6,Brendan O'Reilly,D,2013-2014,whl,264945,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Shmoorkoff (D),Red Deer Rebels,6,0,0,0,0.00,2,-2,/player/148098/austin-shmoorkoff,6,Austin Shmoorkoff,D,2013-2014,whl,148098,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Greer (D),Portland Winterhawks,6,0,0,0,0.00,2,1,/player/103726/justin-greer,6,Justin Greer,D,2013-2014,whl,103726,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tristan Sieben (LW),Kamloops Blazers,6,0,0,0,0.00,4,-3,/player/57033/tristan-sieben,6,Tristan Sieben,LW,2013-2014,whl,57033,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Benson (LW),Vancouver Giants,7,0,0,0,0.00,0,-1,/player/154220/tyler-benson,6,Tyler Benson,LW,2013-2014,whl,154220,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Wharrie (D),Everett Silvertips,7,0,0,0,0.00,2,-1,/player/199920/jordan-wharrie,6,Jordan Wharrie,D,2013-2014,whl,199920,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathyn Mortlock (D/F),Regina Pats,7,0,0,0,0.00,2,-1,/player/83519/nathyn-mortlock,6,Nathyn Mortlock,D/F,2013-2014,whl,83519,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Smith (D),Prince George Cougars,8,0,0,0,0.00,6,-6,/player/56817/josh-smith,6,Josh Smith,D,2013-2014,whl,56817,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Clint Filbrandt (D),Wenatchee Wild,9,0,0,0,0.00,4,2,/player/62269/clint-filbrandt,6,Clint Filbrandt,D,2013-2014,whl,62269,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kody McDonald (RW/C),Prince George Cougars,9,0,0,0,0.00,10,-4,/player/180744/kody-mcdonald,6,Kody McDonald,RW/C,2013-2014,whl,180744,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Turner Ottenbreit (D),Saskatoon Blades,10,0,0,0,0.00,2,1,/player/199124/turner-ottenbreit,6,Turner Ottenbreit,D,2013-2014,whl,199124,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tye Hand (D),Regina Pats,21,0,0,0,0.00,76,-7,/player/100056/tye-hand,6,Tye Hand,D,2013-2014,whl,100056,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Spencer Meyer (C),Lethbridge Hurricanes,26,0,0,0,0.00,35,-4,/player/120656/spencer-meyer,6,Spencer Meyer,C,2013-2014,whl,120656,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Allan (D),Medicine Hat Tigers,34,0,0,0,0.00,24,1,/player/151581/scott-allan,6,Scott Allan,D,2013-2014,whl,151581,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirk Bear (D),Red Deer Rebels,35,0,0,0,0.00,29,-3,/player/197405/kirk-bear,6,Kirk Bear,D,2013-2014,whl,197405,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Spagrud (LW),Swift Current Broncos,39,0,0,0,0.00,19,-1,/player/85214/justin-spagrud,6,Justin Spagrud,LW,2013-2014,whl,85214,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steven Alldridge (F),totals,39,0,0,0,0.00,99,-17,/player/153006/steven-alldridge,6,Steven Alldridge,F,2013-2014,whl,153006,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rylee Zimmer (C/LW),Regina Pats,44,0,0,0,0.00,8,-5,/player/196660/rylee-zimmer,6,Rylee Zimmer,C/LW,2013-2014,whl,196660,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Sozanski (D),Spokane Chiefs,49,0,0,0,0.00,16,5,/player/107895/matt-sozanski,6,Matt Sozanski,D,2013-2014,whl,107895,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69

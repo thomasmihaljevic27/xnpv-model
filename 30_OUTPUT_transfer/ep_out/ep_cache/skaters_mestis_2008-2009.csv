@@ -1,0 +1,445 @@
+player,team,gp,g,a,tp,p_per_gp,pim,plus_minus,link,page,playername,position,season,league,ep_player_id,scrape_date,source,package_version
+Jarmo Jokila (LW),TuTo Hockey,44,20,37,57,1.30,40,17,/player/4129/jarmo-jokila,1,Jarmo Jokila,LW,2008-2009,mestis,4129,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Liukkonen (RW),KooKoo,45,23,30,53,1.18,34,22,/player/7938/mikko-liukkonen,1,Mikko Liukkonen,RW,2008-2009,mestis,7938,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lou Dickenson (LW),KooKoo,43,28,19,47,1.09,61,11,/player/8096/lou-dickenson,1,Lou Dickenson,LW,2008-2009,mestis,8096,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tuukka Pulliainen (C),TuTo Hockey,43,13,34,47,1.09,32,8,/player/3245/tuukka-pulliainen,1,Tuukka Pulliainen,C,2008-2009,mestis,3245,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markku Vuorisalo (RW),TuTo Hockey,36,19,22,41,1.14,49,11,/player/7932/markku-vuorisalo,1,Markku Vuorisalo,RW,2008-2009,mestis,7932,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teemu Virtala (C),Hokki,35,15,23,38,1.09,26,0,/player/10924/teemu-virtala,1,Teemu Virtala,C,2008-2009,mestis,10924,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jussi Haapasaari (C),Kiekko-Vantaa,39,13,25,38,0.97,20,13,/player/12312/jussi-haapasaari,1,Jussi Haapasaari,C,2008-2009,mestis,12312,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaakko Pellinen (RW),LeKi,42,15,22,37,0.88,0,0,/player/10691/jaakko-pellinen,1,Jaakko Pellinen,RW,2008-2009,mestis,10691,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markku Flinck (C),KooKoo,44,15,22,37,0.84,42,21,/player/11894/markku-flinck,1,Markku Flinck,C,2008-2009,mestis,11894,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jani Keränen (RW),Jokipojat,43,18,18,36,0.84,18,12,/player/7496/jani-keranen,1,Jani Keränen,RW,2008-2009,mestis,7496,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville-Matti Koponen (C/RW),TuTo Hockey,44,11,25,36,0.82,30,8,/player/7559/ville-matti-koponen,1,Ville-Matti Koponen,C/RW,2008-2009,mestis,7559,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kim Nabb (RW/LW),totals,42,12,23,35,0.83,26,21,/player/7937/kim-nabb,1,Kim Nabb,RW/LW,2008-2009,mestis,7937,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Turo Asplund (C),Jukurit,45,9,26,35,0.78,18,5,/player/21059/turo-asplund,1,Turo Asplund,C,2008-2009,mestis,21059,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kory Baker (F),Jukurit,40,14,20,34,0.85,52,5,/player/8367/kory-baker,1,Kory Baker,F,2008-2009,mestis,8367,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timo-Pekka Heikkinen (RW),D Team,39,11,23,34,0.87,14,4,/player/21261/timo-pekka-heikkinen,1,Timo-Pekka Heikkinen,RW,2008-2009,mestis,21261,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Toni Mustonen (C),Jokipojat,40,8,26,34,0.85,40,20,/player/9533/toni-mustonen,1,Toni Mustonen,C,2008-2009,mestis,9533,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sami Puruskainen (LW),Jokipojat,43,7,27,34,0.79,18,16,/player/7495/sami-puruskainen,1,Sami Puruskainen,LW,2008-2009,mestis,7495,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Jämsä (LW),totals,40,11,22,33,0.83,50,5,/player/7935/markus-jamsa,1,Markus Jämsä,LW,2008-2009,mestis,7935,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tapio Ahtonen (C),Jokipojat,38,11,21,32,0.84,26,9,/player/7515/tapio-ahtonen,1,Tapio Ahtonen,C,2008-2009,mestis,7515,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roope Ranta (RW),Kiekko-Vantaa,43,10,22,32,0.74,47,6,/player/10179/roope-ranta,1,Roope Ranta,RW,2008-2009,mestis,10179,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kimmo Happo (RW),Hokki,42,8,24,32,0.76,79,0,/player/7946/kimmo-happo,1,Kimmo Happo,RW,2008-2009,mestis,7946,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Iivo Hokkanen (C),Jukurit,44,7,25,32,0.73,44,2,/player/7432/iivo-hokkanen,1,Iivo Hokkanen,C,2008-2009,mestis,7432,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jussi Tapio (RW),TuTo Hockey,45,15,16,31,0.69,18,8,/player/7804/jussi-tapio,1,Jussi Tapio,RW,2008-2009,mestis,7804,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuli Kivimäki (RW),totals,44,13,18,31,0.70,4,11,/player/17009/samuli-kivimaki,1,Samuli Kivimäki,RW,2008-2009,mestis,17009,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomi Lindfors (LW),Titaanit,45,16,14,30,0.67,14,-21,/player/10929/tomi-lindfors,1,Tomi Lindfors,LW,2008-2009,mestis,10929,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tuomas Takala (C),totals,44,9,21,30,0.68,51,14,/player/7637/tuomas-takala,1,Tuomas Takala,C,2008-2009,mestis,7637,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Uronen (LW),KooKoo,38,14,15,29,0.76,45,14,/player/6425/jesse-uronen,1,Jesse Uronen,LW,2008-2009,mestis,6425,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juha Leimu (D),LeKi,42,13,16,29,0.69,44,2,/player/21207/juha-leimu,1,Juha Leimu,D,2008-2009,mestis,21207,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jarno Koskiranta (C),Jokipojat,45,12,17,29,0.64,24,3,/player/21052/jarno-koskiranta,1,Jarno Koskiranta,C,2008-2009,mestis,21052,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juuso Antonen (LW),LeKi,29,11,18,29,1.00,10,6,/player/8391/juuso-antonen,1,Juuso Antonen,LW,2008-2009,mestis,8391,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lasse Lintula (C),Titaanit,45,8,21,29,0.64,32,-23,/player/7922/lasse-lintula,1,Lasse Lintula,C,2008-2009,mestis,7922,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Paul Cabana (RW),totals,44,17,11,28,0.64,79,1,/player/10423/paul-cabana,1,Paul Cabana,RW,2008-2009,mestis,10423,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tero Forsell (C),TuTo Hockey,22,11,17,28,1.27,12,12,/player/7931/tero-forsell,1,Tero Forsell,C,2008-2009,mestis,7931,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tuomo Laukkanen (C),D Team,32,8,20,28,0.88,28,8,/player/21260/tuomo-laukkanen,1,Tuomo Laukkanen,C,2008-2009,mestis,21260,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tobias Salmelainen (LW),Hokki,37,8,20,28,0.76,46,3,/player/7406/tobias-salmelainen,1,Tobias Salmelainen,LW,2008-2009,mestis,7406,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Jasko (RW),Kiekko-Vantaa,24,20,7,27,1.13,14,13,/player/9643/tomas-jasko,1,Tomas Jasko,RW,2008-2009,mestis,9643,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Silvennoinen (C),SaPKo,41,9,18,27,0.66,34,-11,/player/7578/mikko-silvennoinen,1,Mikko Silvennoinen,C,2008-2009,mestis,7578,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roope Talaja (LW),Kiekko-Vantaa,39,17,9,26,0.67,50,8,/player/21214/roope-talaja,1,Roope Talaja,LW,2008-2009,mestis,21214,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Niinikoski (RW),HeKi,45,15,11,26,0.58,74,97,/player/7118/mikko-niinikoski,1,Mikko Niinikoski,RW,2008-2009,mestis,7118,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samu Pitkänen (C),Jokipojat,44,13,13,26,0.59,10,16,/player/22596/samu-pitkanen,1,Samu Pitkänen,C,2008-2009,mestis,22596,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joonas Koskinen (C),Hokki,44,7,19,26,0.59,8,-1,/player/17987/joonas-koskinen,1,Joonas Koskinen,C,2008-2009,mestis,17987,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aku Joki-Erkkilä (RW),Hokki,38,15,10,25,0.66,14,6,/player/6597/aku-joki-erkkila,1,Aku Joki-Erkkilä,RW,2008-2009,mestis,6597,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tuomas Muhonen (RW),totals,31,14,11,25,0.81,4,7,/player/8036/tuomas-muhonen,1,Tuomas Muhonen,RW,2008-2009,mestis,8036,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sami Mutanen (LW),Jokipojat,40,11,14,25,0.63,6,13,/player/11898/sami-mutanen,1,Sami Mutanen,LW,2008-2009,mestis,11898,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lassi Mattila (C),LeKi,40,11,14,25,0.63,20,1,/player/10258/lassi-mattila,1,Lassi Mattila,C,2008-2009,mestis,10258,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matti Tiihonen (D),SaPKo,44,8,17,25,0.57,32,2,/player/7497/matti-tiihonen,1,Matti Tiihonen,D,2008-2009,mestis,7497,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Esa Kivistö (LW),HeKi,42,13,11,24,0.57,22,-4,/player/7467/esa-kivisto,1,Esa Kivistö,LW,2008-2009,mestis,7467,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juha Koivisto (RW/C),totals,45,11,13,24,0.53,6,13,/player/7942/juha-koivisto,1,Juha Koivisto,RW/C,2008-2009,mestis,7942,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matti-Pekka Pelkonen (D),TuTo Hockey,45,11,13,24,0.53,43,16,/player/11907/matti-pekka-pelkonen,1,Matti-Pekka Pelkonen,D,2008-2009,mestis,11907,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tuomas Tikkanen (LW),Titaanit,41,8,16,24,0.59,54,-19,/player/5784/tuomas-tikkanen,1,Tuomas Tikkanen,LW,2008-2009,mestis,5784,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jose Nippala (RW),LeKi,39,6,18,24,0.62,8,-3,/player/21202/jose-nippala,1,Jose Nippala,RW,2008-2009,mestis,21202,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jarkko Immonen (D),Jokipojat,45,6,18,24,0.53,46,18,/player/21049/jarkko-immonen,1,Jarkko Immonen,D,2008-2009,mestis,21049,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janne Jokila (LW),Hokki,38,13,10,23,0.61,46,-4,/player/3213/janne-jokila,1,Janne Jokila,LW,2008-2009,mestis,3213,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kalle Konsti (RW),SaPKo,44,13,10,23,0.52,22,2,/player/21229/kalle-konsti,1,Kalle Konsti,RW,2008-2009,mestis,21229,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jani Väänänen (RW),SaPKo,44,10,13,23,0.52,28,-14,/player/9548/jani-vaananen,1,Jani Väänänen,RW,2008-2009,mestis,9548,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antti Hölli (LW),totals,36,9,14,23,0.64,30,-2,/player/9714/antti-holli,1,Antti Hölli,LW,2008-2009,mestis,9714,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antti Jaatinen (LW/RW),totals,44,9,14,23,0.52,60,8,/player/9546/antti-jaatinen,1,Antti Jaatinen,LW/RW,2008-2009,mestis,9546,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan-Mikael Järvinen (C),totals,33,6,17,23,0.70,14,-2,/player/9272/jan-mikael-jarvinen,1,Jan-Mikael Järvinen,C,2008-2009,mestis,9272,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jani Savolainen (RW),Jokipojat,37,13,9,22,0.59,6,11,/player/8358/jani-savolainen,1,Jani Savolainen,RW,2008-2009,mestis,8358,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timo Kuuluvainen (LW/RW),totals,38,12,10,22,0.58,20,6,/player/7506/timo-kuuluvainen,1,Timo Kuuluvainen,LW/RW,2008-2009,mestis,7506,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henri Kivioja (RW),KooKoo,36,10,12,22,0.61,26,1,/player/12808/henri-kivioja,1,Henri Kivioja,RW,2008-2009,mestis,12808,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antti Pusa (RW),TuTo Hockey,41,10,12,22,0.54,38,0,/player/14571/antti-pusa,1,Antti Pusa,RW,2008-2009,mestis,14571,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Milan Kopecký (C),Kiekko-Vantaa,29,9,13,22,0.76,28,2,/player/18314/milan-kopecky,1,Milan Kopecký,C,2008-2009,mestis,18314,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Iiro Memonen (C),Hokki,43,7,15,22,0.51,22,4,/player/12774/iiro-memonen,1,Iiro Memonen,C,2008-2009,mestis,12774,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miika Lahti (C),D Team,29,6,16,22,0.76,18,13,/player/4416/miika-lahti,1,Miika Lahti,C,2008-2009,mestis,4416,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jarno Kultanen (D),KooKoo,36,5,17,22,0.61,38,16,/player/2668/jarno-kultanen,1,Jarno Kultanen,D,2008-2009,mestis,2668,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Heikki Puustinen (LW),Jokipojat,45,11,10,21,0.47,26,11,/player/11897/heikki-puustinen,1,Heikki Puustinen,LW,2008-2009,mestis,11897,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antti Ojanen (LW),SaPKo,43,10,11,21,0.49,10,-5,/player/16644/antti-ojanen,1,Antti Ojanen,LW,2008-2009,mestis,16644,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antti Kerälä (C),totals,28,9,12,21,0.75,0,3,/player/15129/antti-kerala,1,Antti Kerälä,C,2008-2009,mestis,15129,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juho Joki-Erkkilä (D/F),LeKi,41,9,12,21,0.51,10,1,/player/21201/juho-joki-erkkila,1,Juho Joki-Erkkilä,D/F,2008-2009,mestis,21201,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tero Kettunen (LW),Jukurit,39,8,13,21,0.54,26,-3,/player/18889/tero-kettunen,1,Tero Kettunen,LW,2008-2009,mestis,18889,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Hagelberg (D),HeKi,43,7,14,21,0.49,38,-10,/player/8043/jan-hagelberg,1,Jan Hagelberg,D,2008-2009,mestis,8043,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tuomas Immonen (D),totals,41,5,16,21,0.51,93,7,/player/7431/tuomas-immonen,1,Tuomas Immonen,D,2008-2009,mestis,7431,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roope Mustonen (RW),Titaanit,43,7,13,20,0.47,47,-15,/player/18493/roope-mustonen,1,Roope Mustonen,RW,2008-2009,mestis,18493,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville-Veikko Väkeväinen (D),HeKi,37,6,14,20,0.54,22,3,/player/7572/ville-veikko-vakevainen,1,Ville-Veikko Väkeväinen,D,2008-2009,mestis,7572,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mika Mäkiaho (RW),Jokipojat,41,10,9,19,0.46,22,12,/player/15841/mika-makiaho,1,Mika Mäkiaho,RW,2008-2009,mestis,15841,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juha Salmu (D),totals,41,7,12,19,0.46,48,-3,/player/1711/juha-salmu,1,Juha Salmu,D,2008-2009,mestis,1711,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jari-Pekka Pajula (C),LeKi,44,7,12,19,0.43,24,-14,/player/8383/jari-pekka-pajula,1,Jari-Pekka Pajula,C,2008-2009,mestis,8383,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Rohtla (C),HeKi,29,6,13,19,0.66,18,-6,/player/12095/jesse-rohtla,1,Jesse Rohtla,C,2008-2009,mestis,12095,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Toni Sihvonen (C),totals,30,6,13,19,0.63,6,10,/player/36/toni-sihvonen,1,Toni Sihvonen,C,2008-2009,mestis,36,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matti Huilla (C),KooKoo,43,4,15,19,0.44,22,1,/player/7437/matti-huilla,1,Matti Huilla,C,2008-2009,mestis,7437,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilkka Kallioinen (D),Jukurit,45,8,10,18,0.40,26,4,/player/21055/ilkka-kallioinen,1,Ilkka Kallioinen,D,2008-2009,mestis,21055,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Poukkula (LW/RW),totals,37,6,12,18,0.49,24,6,/player/22595/markus-poukkula,1,Markus Poukkula,LW/RW,2008-2009,mestis,22595,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Meyer (D),HeKi,42,6,12,18,0.43,101,-12,/player/18887/adam-meyer,1,Adam Meyer,D,2008-2009,mestis,18887,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jouni Virpiö (LW),D Team,14,5,13,18,1.29,6,10,/player/7490/jouni-virpio,1,Jouni Virpiö,LW,2008-2009,mestis,7490,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Kiiskinen (C),HeKi,41,5,13,18,0.44,20,-10,/player/10922/ville-kiiskinen,1,Ville Kiiskinen,C,2008-2009,mestis,10922,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jarkko Heikkinen (D),Hokki,23,4,14,18,0.78,14,0,/player/10926/jarkko-heikkinen,1,Jarkko Heikkinen,D,2008-2009,mestis,10926,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anssi Rantanen (D),Hokki,26,10,7,17,0.65,71,0,/player/10498/anssi-rantanen,1,Anssi Rantanen,D,2008-2009,mestis,10498,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samu Vilkman (LW/RW),KooKoo,38,10,7,17,0.45,20,4,/player/7576/samu-vilkman,1,Samu Vilkman,LW/RW,2008-2009,mestis,7576,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaakko Niemensivu (LW),Titaanit,44,9,8,17,0.39,20,-20,/player/22424/jaakko-niemensivu,1,Jaakko Niemensivu,LW,2008-2009,mestis,22424,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janne Häikiö (C),Jokipojat,44,4,13,17,0.39,16,9,/player/11895/janne-haikio,1,Janne Häikiö,C,2008-2009,mestis,11895,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Harri Pesonen (LW),D Team,10,10,6,16,1.60,10,12,/player/15181/harri-pesonen,1,Harri Pesonen,LW,2008-2009,mestis,15181,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johannes Alanen (LW),LeKi,20,10,6,16,0.80,4,-1,/player/7484/johannes-alanen,1,Johannes Alanen,LW,2008-2009,mestis,7484,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henri Huohvanainen (LW),Jokipojat,45,10,6,16,0.36,14,3,/player/7502/henri-huohvanainen,1,Henri Huohvanainen,LW,2008-2009,mestis,7502,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sami Lähteenmäki (C/W),totals,31,9,7,16,0.52,10,1,/player/12298/sami-lahteenmaki,1,Sami Lähteenmäki,C/W,2008-2009,mestis,12298,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matias Perkkiö (RW),Kiekko-Vantaa,40,9,7,16,0.40,12,-2,/player/22753/matias-perkkio,1,Matias Perkkiö,RW,2008-2009,mestis,22753,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miikka Lindholm (RW),Jukurit,38,8,8,16,0.42,26,5,/player/7980/miikka-lindholm,1,Miikka Lindholm,RW,2008-2009,mestis,7980,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Machulda (LW),SaPKo,17,7,9,16,0.94,12,4,/player/3597/vladimir-machulda,1,Vladimir Machulda,LW,2008-2009,mestis,3597,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonne Hattunen (D),Hokki,32,7,9,16,0.50,22,1,/player/7952/jonne-hattunen,1,Jonne Hattunen,D,2008-2009,mestis,7952,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henri Manninen (RW),Kiekko-Vantaa,41,7,9,16,0.39,59,0,/player/12356/henri-manninen,1,Henri Manninen,RW,2008-2009,mestis,12356,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Velemirovich (C),HeKi,21,6,10,16,0.76,16,-3,/player/13475/tim-velemirovich,2,Tim Velemirovich,C,2008-2009,mestis,13475,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Aikins (C/RW),totals,42,6,10,16,0.38,20,3,/player/13562/justin-aikins,2,Justin Aikins,C/RW,2008-2009,mestis,13562,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markku Erholtz (D),totals,42,5,11,16,0.38,24,14,/player/1124/markku-erholtz,2,Markku Erholtz,D,2008-2009,mestis,1124,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jarno Virkki (D),LeKi,42,5,11,16,0.38,98,-2,/player/8060/jarno-virkki,2,Jarno Virkki,D,2008-2009,mestis,8060,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janne Jaakkola (C),Jukurit,43,5,11,16,0.37,42,-2,/player/21057/janne-jaakkola,2,Janne Jaakkola,C,2008-2009,mestis,21057,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miro Laitinen (C),totals,43,4,12,16,0.37,16,2,/player/9530/miro-laitinen,2,Miro Laitinen,C,2008-2009,mestis,9530,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Vuorisaari (D),Kiekko-Vantaa,32,1,15,16,0.50,14,6,/player/12350/ville-vuorisaari,2,Ville Vuorisaari,D,2008-2009,mestis,12350,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aki Keinänen (RW),TuTo Hockey,14,9,6,15,1.07,8,7,/player/11901/aki-keinanen,2,Aki Keinänen,RW,2008-2009,mestis,11901,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Pehu (RW),Titaanit,40,8,7,15,0.38,24,-21,/player/7438/jesse-pehu,2,Jesse Pehu,RW,2008-2009,mestis,7438,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matti Näätänen (D),Jokipojat,43,6,9,15,0.35,22,3,/player/7659/matti-naatanen,2,Matti Näätänen,D,2008-2009,mestis,7659,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sami Kautto (D),Jukurit,43,6,9,15,0.35,52,-4,/player/7416/sami-kautto,2,Sami Kautto,D,2008-2009,mestis,7416,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Sirén (LW),Kiekko-Vantaa,31,5,10,15,0.48,29,4,/player/12322/mikko-siren,2,Mikko Sirén,LW,2008-2009,mestis,12322,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Topi Riutta (C/LW),SaPKo,33,5,10,15,0.45,20,-19,/player/9549/topi-riutta,2,Topi Riutta,C/LW,2008-2009,mestis,9549,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pete Suonpää (C),totals,26,4,11,15,0.58,38,1,/player/7936/pete-suonpaa,2,Pete Suonpää,C,2008-2009,mestis,7936,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Sellars (D),Jokipojat,33,1,14,15,0.45,97,17,/player/10894/luke-sellars,2,Luke Sellars,D,2008-2009,mestis,10894,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaakko Hagelberg (LW),LeKi,32,7,7,14,0.44,49,-6,/player/7544/jaakko-hagelberg,2,Jaakko Hagelberg,LW,2008-2009,mestis,7544,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Kansikas (C),Titaanit,25,6,8,14,0.56,14,-10,/player/21224/mikko-kansikas,2,Mikko Kansikas,C,2008-2009,mestis,21224,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petteri Muotka (D),D Team,41,6,8,14,0.34,50,5,/player/19813/petteri-muotka,2,Petteri Muotka,D,2008-2009,mestis,19813,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olli Sinkkonen (C),HeKi,42,6,8,14,0.33,24,-7,/player/12358/olli-sinkkonen,2,Olli Sinkkonen,C,2008-2009,mestis,12358,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Veli-Antti Leinonen (D),Hokki,42,6,8,14,0.33,34,3,/player/12321/veli-antti-leinonen,2,Veli-Antti Leinonen,D,2008-2009,mestis,12321,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Jortikka (D),TuTo Hockey,45,6,8,14,0.31,44,14,/player/11906/mikko-jortikka,2,Mikko Jortikka,D,2008-2009,mestis,11906,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Eskelinen (C),totals,28,5,9,14,0.50,10,2,/player/8300/ville-eskelinen,2,Ville Eskelinen,C,2008-2009,mestis,8300,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janne Tavi (LW/RW),totals,31,5,9,14,0.45,2,-5,/player/11385/janne-tavi,2,Janne Tavi,LW/RW,2008-2009,mestis,11385,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kaj Lindström (D),KooKoo,36,5,9,14,0.39,14,11,/player/15328/kaj-lindstrom,2,Kaj Lindström,D,2008-2009,mestis,15328,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaakko Pelkonen (RW),D Team,44,5,9,14,0.32,16,-10,/player/19809/jaakko-pelkonen,2,Jaakko Pelkonen,RW,2008-2009,mestis,19809,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lassi Kokkala (C),totals,28,4,10,14,0.50,10,6,/player/10593/lassi-kokkala,2,Lassi Kokkala,C,2008-2009,mestis,10593,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eero Hyvärinen (D),Jukurit,45,3,11,14,0.31,16,9,/player/7494/eero-hyvarinen,2,Eero Hyvärinen,D,2008-2009,mestis,7494,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sami Suhonen (D),LeKi,36,2,12,14,0.39,8,11,/player/21208/sami-suhonen,2,Sami Suhonen,D,2008-2009,mestis,21208,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Tuominen (F),totals,11,7,6,13,1.18,2,7,/player/31321/martin-tuominen,2,Martin Tuominen,F,2008-2009,mestis,31321,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jussi Pernaa (D),totals,38,7,6,13,0.34,36,10,/player/7459/jussi-pernaa,2,Jussi Pernaa,D,2008-2009,mestis,7459,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Toni Jeskanen (C),Kiekko-Vantaa,33,6,7,13,0.39,6,-3,/player/12313/toni-jeskanen,2,Toni Jeskanen,C,2008-2009,mestis,12313,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Saarenpää (RW),Hokki,37,6,7,13,0.35,6,-2,/player/12319/niko-saarenpaa,2,Niko Saarenpää,RW,2008-2009,mestis,12319,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicolas Besch (D),Jukurit,38,6,7,13,0.34,58,-11,/player/12480/nicolas-besch,2,Nicolas Besch,D,2008-2009,mestis,12480,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janne Ritamäki (RW/LW),HeKi,43,6,7,13,0.30,18,-19,/player/20884/janne-ritamaki,2,Janne Ritamäki,RW/LW,2008-2009,mestis,20884,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jussi-Mikko Makkonen (LW),Jukurit,45,6,7,13,0.29,50,0,/player/7941/jussi-mikko-makkonen,2,Jussi-Mikko Makkonen,LW,2008-2009,mestis,7941,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eetu Heikkinen (D),totals,42,5,8,13,0.31,24,13,/player/7621/eetu-heikkinen,2,Eetu Heikkinen,D,2008-2009,mestis,7621,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joni Isomäki (RW),HeKi,45,5,8,13,0.29,10,-19,/player/12357/joni-isomaki,2,Joni Isomäki,RW,2008-2009,mestis,12357,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Suvanto (C),LeKi,19,4,9,13,0.68,10,1,/player/5684/mikko-suvanto,2,Mikko Suvanto,C,2008-2009,mestis,5684,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Komulainen (C),Hokki,37,4,9,13,0.35,16,6,/player/20876/ville-komulainen,2,Ville Komulainen,C,2008-2009,mestis,20876,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jussi Savolainen (D),Jokipojat,38,1,12,13,0.34,46,16,/player/7508/jussi-savolainen,2,Jussi Savolainen,D,2008-2009,mestis,7508,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jussi Nättinen (C),D Team,44,8,4,12,0.27,43,-6,/player/21256/jussi-nattinen,2,Jussi Nättinen,C,2008-2009,mestis,21256,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teemu Rinkinen (LW/RW),HeKi,12,6,6,12,1.00,4,5,/player/12096/teemu-rinkinen,2,Teemu Rinkinen,LW/RW,2008-2009,mestis,12096,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andy Contois (LW/C),SaPKo,20,6,6,12,0.60,14,-8,/player/14758/andy-contois,2,Andy Contois,LW/C,2008-2009,mestis,14758,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tuomas Nikoskelainen (RW),totals,32,5,7,12,0.38,32,-8,/player/10318/tuomas-nikoskelainen,2,Tuomas Nikoskelainen,RW,2008-2009,mestis,10318,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pietari Kolhonen (RW),Titaanit,43,5,7,12,0.28,67,-4,/player/21226/pietari-kolhonen,2,Pietari Kolhonen,RW,2008-2009,mestis,21226,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Rämä (RW),D Team,44,5,7,12,0.27,16,-3,/player/7950/markus-rama,2,Markus Rämä,RW,2008-2009,mestis,7950,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Väänänen (D),Jokipojat,44,5,7,12,0.27,20,3,/player/11896/ville-vaananen,2,Ville Väänänen,D,2008-2009,mestis,11896,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juhani Kaisjoki (D),Titaanit,44,5,7,12,0.27,36,-29,/player/12314/juhani-kaisjoki,2,Juhani Kaisjoki,D,2008-2009,mestis,12314,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tuomas Nissinen (RW),SaPKo,45,3,9,12,0.27,16,-20,/player/21219/tuomas-nissinen,2,Tuomas Nissinen,RW,2008-2009,mestis,21219,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matti Koistinen (D),Hokki,45,3,9,12,0.27,24,2,/player/7807/matti-koistinen,2,Matti Koistinen,D,2008-2009,mestis,7807,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simo Romo (C),Titaanit,16,2,10,12,0.75,14,0,/player/12918/simo-romo,2,Simo Romo,C,2008-2009,mestis,12918,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mika Niemi (C),LeKi,19,2,10,12,0.63,8,-5,/player/7944/mika-niemi,2,Mika Niemi,C,2008-2009,mestis,7944,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kai Öhberg (D),KooKoo,35,2,10,12,0.34,26,11,/player/18983/kai-ohberg,2,Kai Öhberg,D,2008-2009,mestis,18983,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juuso Akkanen (D),Jokipojat,45,1,11,12,0.27,64,22,/player/9537/juuso-akkanen,2,Juuso Akkanen,D,2008-2009,mestis,9537,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommi Välimaa (LW/RW),LeKi,39,8,3,11,0.28,65,-4,/player/7921/tommi-valimaa,2,Tommi Välimaa,LW/RW,2008-2009,mestis,7921,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Nyholm (RW/LW),Kiekko-Vantaa,25,7,4,11,0.44,10,-9,/player/8393/robert-nyholm,2,Robert Nyholm,RW/LW,2008-2009,mestis,8393,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antti Roppo (RW),totals,15,5,6,11,0.73,2,0,/player/11383/antti-roppo,2,Antti Roppo,RW,2008-2009,mestis,11383,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Ramsay (RW),KooKoo,9,4,7,11,1.22,0,0,/player/7616/mike-ramsay,2,Mike Ramsay,RW,2008-2009,mestis,7616,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henri Sandvik (LW/RW),LeKi,42,4,7,11,0.26,51,-8,/player/14656/henri-sandvik,2,Henri Sandvik,LW/RW,2008-2009,mestis,14656,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Heikki Huovinen (LW),D Team,44,4,7,11,0.25,22,4,/player/19810/heikki-huovinen,2,Heikki Huovinen,LW,2008-2009,mestis,19810,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jami Miettinen (C),SaPKo,32,3,8,11,0.34,38,-14,/player/21241/jami-miettinen,2,Jami Miettinen,C,2008-2009,mestis,21241,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timo Pahkala (LW),totals,33,3,8,11,0.33,20,3,/player/12325/timo-pahkala,2,Timo Pahkala,LW,2008-2009,mestis,12325,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arttu Virtanen (LW),TuTo Hockey,35,3,8,11,0.31,49,1,/player/7604/arttu-virtanen,2,Arttu Virtanen,LW,2008-2009,mestis,7604,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aku Pekkarinen (D),Jokipojat,43,3,8,11,0.26,36,19,/player/7518/aku-pekkarinen,2,Aku Pekkarinen,D,2008-2009,mestis,7518,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Peltosuo (D/F),TuTo Hockey,44,3,8,11,0.25,55,0,/player/11902/ville-peltosuo,2,Ville Peltosuo,D/F,2008-2009,mestis,11902,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pirkka Lahtinen (F),D Team,27,2,9,11,0.41,56,-13,/player/19812/pirkka-lahtinen,2,Pirkka Lahtinen,F,2008-2009,mestis,19812,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erkka Leppänen (D),Jukurit,45,2,9,11,0.24,30,3,/player/4415/erkka-leppanen,2,Erkka Leppänen,D,2008-2009,mestis,4415,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Laine (D),TuTo Hockey,31,1,10,11,0.35,71,9,/player/1187/markus-laine,2,Markus Laine,D,2008-2009,mestis,1187,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ossi Häkkinen (RW),Titaanit,44,7,3,10,0.23,8,-14,/player/21225/ossi-hakkinen,2,Ossi Häkkinen,RW,2008-2009,mestis,21225,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petri Pyhäjärvi (LW),KooKoo,38,4,6,10,0.26,16,4,/player/12348/petri-pyhajarvi,2,Petri Pyhäjärvi,LW,2008-2009,mestis,12348,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Tuomi (D),KooKoo,31,3,7,10,0.32,55,8,/player/18256/niko-tuomi,2,Niko Tuomi,D,2008-2009,mestis,18256,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Topi Ahola (RW),HeKi,33,3,7,10,0.30,8,-7,/player/18888/topi-ahola,2,Topi Ahola,RW,2008-2009,mestis,18888,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rony Ahonen (D),Kiekko-Vantaa,36,2,8,10,0.28,20,2,/player/10510/rony-ahonen,2,Rony Ahonen,D,2008-2009,mestis,10510,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juha-Petteri Purolinna (D),Kiekko-Vantaa,38,2,8,10,0.26,14,-3,/player/10947/juha-petteri-purolinna,2,Juha-Petteri Purolinna,D,2008-2009,mestis,10947,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilkka Heikkilä (C),Titaanit,41,2,8,10,0.24,12,-6,/player/9269/ilkka-heikkila,2,Ilkka Heikkilä,C,2008-2009,mestis,9269,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Panu Pättiniemi (C),Kiekko-Vantaa,43,1,9,10,0.23,22,4,/player/21215/panu-pattiniemi,2,Panu Pättiniemi,C,2008-2009,mestis,21215,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pekka Saittakari (D),HeKi,44,1,9,10,0.23,36,-7,/player/14403/pekka-saittakari,2,Pekka Saittakari,D,2008-2009,mestis,14403,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joni Kotilainen (D),SaPKo,45,1,9,10,0.22,52,-21,/player/21236/joni-kotilainen,2,Joni Kotilainen,D,2008-2009,mestis,21236,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommi Lehtonen (RW),Jukurit,44,8,1,9,0.20,16,-9,/player/12138/tommi-lehtonen,2,Tommi Lehtonen,RW,2008-2009,mestis,12138,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Plyuschev (C),SaPKo,13,6,3,9,0.69,14,1,/player/19194/alexander-plyuschev,2,Alexander Plyuschev,C,2008-2009,mestis,19194,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kaarlo Jormakka (RW),D Team,16,6,3,9,0.56,18,3,/player/9270/kaarlo-jormakka,2,Kaarlo Jormakka,RW,2008-2009,mestis,9270,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tuomo Jormakka (LW),Jukurit,19,6,3,9,0.47,22,7,/player/10930/tuomo-jormakka,2,Tuomo Jormakka,LW,2008-2009,mestis,10930,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aapo Lampinen (RW),KooKoo,44,5,4,9,0.20,55,-3,/player/10936/aapo-lampinen,2,Aapo Lampinen,RW,2008-2009,mestis,10936,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carlo Grünn (LW),Jukurit,17,4,5,9,0.53,6,4,/player/7476/carlo-grunn,2,Carlo Grünn,LW,2008-2009,mestis,7476,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olli Hytönen (D),D Team,36,4,5,9,0.25,18,-4,/player/21257/olli-hytonen,2,Olli Hytönen,D,2008-2009,mestis,21257,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anssi Kostiainen (D),SaPKo,36,4,5,9,0.25,54,-18,/player/21239/anssi-kostiainen,2,Anssi Kostiainen,D,2008-2009,mestis,21239,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Toni Rautakorpi (RW),D Team,38,4,5,9,0.24,14,8,/player/21258/toni-rautakorpi,2,Toni Rautakorpi,RW,2008-2009,mestis,21258,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomi Karlsson (RW),totals,10,3,6,9,0.90,12,7,/player/10927/tomi-karlsson,2,Tomi Karlsson,RW,2008-2009,mestis,10927,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henry Hietaharju (LW),totals,43,3,6,9,0.21,2,7,/player/12327/henry-hietaharju,2,Henry Hietaharju,LW,2008-2009,mestis,12327,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+George Nistas (C),KooKoo,12,2,7,9,0.75,4,4,/player/9717/george-nistas,2,George Nistas,C,2008-2009,mestis,9717,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Prudden (C/LW),totals,25,2,7,9,0.36,10,2,/player/10636/josh-prudden,2,Josh Prudden,C/LW,2008-2009,mestis,10636,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joonas Rask (RW),totals,9,1,8,9,1.00,2,6,/player/16049/joonas-rask,2,Joonas Rask,RW,2008-2009,mestis,16049,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miko Malkamäki (D),LeKi,24,1,8,9,0.38,14,-2,/player/9267/miko-malkamaki,2,Miko Malkamäki,D,2008-2009,mestis,9267,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henri Nuutinen (C),totals,26,1,8,9,0.35,22,-20,/player/8369/henri-nuutinen,2,Henri Nuutinen,C,2008-2009,mestis,8369,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henri Palmroth (D),TuTo Hockey,45,1,8,9,0.20,20,19,/player/7608/henri-palmroth,2,Henri Palmroth,D,2008-2009,mestis,7608,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marko Laurikainen (D),D Team,38,4,4,8,0.21,28,-5,/player/19811/marko-laurikainen,2,Marko Laurikainen,D,2008-2009,mestis,19811,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juha Virtanen (LW/C),Hokki,42,4,4,8,0.19,22,1,/player/10237/juha-virtanen,2,Juha Virtanen,LW/C,2008-2009,mestis,10237,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henri Peltola (F/D),Kiekko-Vantaa,32,3,5,8,0.25,8,0,/player/12806/henri-peltola,2,Henri Peltola,F/D,2008-2009,mestis,12806,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joonas Wedman (RW),Hokki,34,3,5,8,0.24,2,5,/player/18727/joonas-wedman,2,Joonas Wedman,RW,2008-2009,mestis,18727,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Panu Hyyppä (D),D Team,39,3,5,8,0.21,30,-4,/player/21250/panu-hyyppa,2,Panu Hyyppä,D,2008-2009,mestis,21250,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Lustberg (D),SaPKo,43,3,5,8,0.19,20,-27,/player/12355/jesse-lustberg,3,Jesse Lustberg,D,2008-2009,mestis,12355,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Sillanpää (C),Hokki,37,2,6,8,0.22,20,5,/player/7923/aleksi-sillanpaa,3,Aleksi Sillanpää,C,2008-2009,mestis,7923,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommi Vilppu (LW),TuTo Hockey,43,2,6,8,0.19,6,-5,/player/11905/tommi-vilppu,3,Tommi Vilppu,LW,2008-2009,mestis,11905,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matti Hana (D),Hokki,24,1,7,8,0.33,40,12,/player/13708/matti-hana,3,Matti Hana,D,2008-2009,mestis,13708,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Tuomaala (D),SaPKo,40,1,7,8,0.20,50,-7,/player/21238/markus-tuomaala,3,Markus Tuomaala,D,2008-2009,mestis,21238,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilkka Saarela (RW),TuTo Hockey,40,5,2,7,0.18,2,7,/player/14044/ilkka-saarela,3,Ilkka Saarela,RW,2008-2009,mestis,14044,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikael Granlund (C/LW),Suomi U20,6,4,3,7,1.17,10,2,/player/16037/mikael-granlund,3,Mikael Granlund,C/LW,2008-2009,mestis,16037,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nestori Lähde (LW/RW),totals,14,4,3,7,0.50,10,0,/player/11371/nestori-lahde,3,Nestori Lähde,LW/RW,2008-2009,mestis,11371,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Harri Ilvonen (D),LeKi,21,4,3,7,0.33,8,-12,/player/10246/harri-ilvonen,3,Harri Ilvonen,D,2008-2009,mestis,10246,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Heikki Silvennoinen (RW),LeKi,36,4,3,7,0.19,16,-4,/player/22842/heikki-silvennoinen,3,Heikki Silvennoinen,RW,2008-2009,mestis,22842,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Tuhkanen (D),HeKi,19,3,4,7,0.37,8,-9,/player/15180/niko-tuhkanen,3,Niko Tuhkanen,D,2008-2009,mestis,15180,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pentti Nöyränen (RW),totals,22,3,4,7,0.32,10,-17,/player/7394/pentti-noyranen,3,Pentti Nöyränen,RW,2008-2009,mestis,7394,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jarkko Malinen (C),Jokipojat,7,2,5,7,1.00,0,3,/player/10953/jarkko-malinen,3,Jarkko Malinen,C,2008-2009,mestis,10953,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Iikka Törnvall (D),KooKoo,10,2,5,7,0.70,12,4,/player/4421/iikka-tornvall,3,Iikka Törnvall,D,2008-2009,mestis,4421,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Rautee (C),KooKoo,12,2,5,7,0.58,14,0,/player/4196/mikko-rautee,3,Mikko Rautee,C,2008-2009,mestis,4196,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aki Nurminen (D),HeKi,36,2,5,7,0.19,22,-1,/player/12359/aki-nurminen,3,Aki Nurminen,D,2008-2009,mestis,12359,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juhamatti Hietamäki (D),Titaanit,22,1,6,7,0.32,40,-2,/player/7638/juhamatti-hietamaki,3,Juhamatti Hietamäki,D,2008-2009,mestis,7638,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eemeli Koskelainen (C),KooKoo,31,1,6,7,0.23,32,-1,/player/21210/eemeli-koskelainen,3,Eemeli Koskelainen,C,2008-2009,mestis,21210,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Jyrkkiö (D),Suomi U20,9,0,7,7,0.78,4,3,/player/11369/jesse-jyrkkio,3,Jesse Jyrkkiö,D,2008-2009,mestis,11369,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pekka Jormakka (RW/LW),totals,13,4,2,6,0.46,2,0,/player/16046/pekka-jormakka,3,Pekka Jormakka,RW/LW,2008-2009,mestis,16046,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Jaros (F),Kiekko-Vantaa,17,4,2,6,0.35,12,-4,/player/15731/petr-jaros,3,Petr Jaros,F,2008-2009,mestis,15731,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juha Jokiraita (D),Titaanit,43,4,2,6,0.14,30,-17,/player/7304/juha-jokiraita,3,Juha Jokiraita,D,2008-2009,mestis,7304,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilmari Pitkänen (LW/RW),Suomi U20,10,3,3,6,0.60,32,2,/player/17290/ilmari-pitkanen,3,Ilmari Pitkänen,LW/RW,2008-2009,mestis,17290,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ari Gröndahl (D),totals,13,3,3,6,0.46,26,2,/player/16652/ari-grondahl,3,Ari Gröndahl,D,2008-2009,mestis,16652,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Pernula (F),HeKi,15,3,3,6,0.40,10,-6,/player/28218/nick-pernula,3,Nick Pernula,F,2008-2009,mestis,28218,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niclas Lucenius (LW/C),totals,8,2,4,6,0.75,2,9,/player/9271/niclas-lucenius,3,Niclas Lucenius,LW/C,2008-2009,mestis,9271,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henrik Forsberg (D/F),D Team,24,2,4,6,0.25,57,0,/player/7483/henrik-forsberg,3,Henrik Forsberg,D/F,2008-2009,mestis,7483,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jimi Santala (D),Jukurit,27,2,4,6,0.22,16,-1,/player/10181/jimi-santala,3,Jimi Santala,D,2008-2009,mestis,10181,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Amir Palmén (LW),Kiekko-Vantaa,29,2,4,6,0.21,4,-2,/player/22754/amir-palmen,3,Amir Palmén,LW,2008-2009,mestis,22754,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petri Partanen (F),D Team,30,2,4,6,0.20,12,-13,/player/8302/petri-partanen,3,Petri Partanen,F,2008-2009,mestis,8302,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Heiskanen (D),KooKoo,42,2,4,6,0.14,69,9,/player/7575/mikko-heiskanen,3,Mikko Heiskanen,D,2008-2009,mestis,7575,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anssi Laitinen (RW),Jukurit,43,2,4,6,0.14,0,-3,/player/21058/anssi-laitinen,3,Anssi Laitinen,RW,2008-2009,mestis,21058,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Mäntylä (D),Kiekko-Vantaa,44,2,4,6,0.14,30,-1,/player/12316/niko-mantyla,3,Niko Mäntylä,D,2008-2009,mestis,12316,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Camilo Miettinen (RW/C),totals,8,1,5,6,0.75,2,4,/player/10180/camilo-miettinen,3,Camilo Miettinen,RW/C,2008-2009,mestis,10180,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Korhonen (RW/LW),LeKi,8,1,5,6,0.75,4,4,/player/6426/ville-korhonen,3,Ville Korhonen,RW/LW,2008-2009,mestis,6426,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Toni Mäkinen (D/F),Titaanit,21,1,5,6,0.29,10,-2,/player/18494/toni-makinen,3,Toni Mäkinen,D/F,2008-2009,mestis,18494,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Koskela (D),Kiekko-Vantaa,33,1,5,6,0.18,51,6,/player/8045/niko-koskela,3,Niko Koskela,D,2008-2009,mestis,8045,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antti Uitto (D),totals,36,1,5,6,0.17,65,6,/player/11269/antti-uitto,3,Antti Uitto,D,2008-2009,mestis,11269,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teemu Metso (D),Jukurit,39,1,5,6,0.15,47,10,/player/8309/teemu-metso,3,Teemu Metso,D,2008-2009,mestis,8309,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Raine Hartus (D),LeKi,38,0,6,6,0.16,34,-11,/player/21205/raine-hartus,3,Raine Hartus,D,2008-2009,mestis,21205,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Tuomi (C),totals,14,3,2,5,0.36,10,1,/player/20581/mike-tuomi,3,Mike Tuomi,C,2008-2009,mestis,20581,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Valli (LW),Titaanit,34,3,2,5,0.15,6,-15,/player/21223/ville-valli,3,Ville Valli,LW,2008-2009,mestis,21223,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lauri Kinos (D),totals,35,2,3,5,0.14,36,16,/player/3304/lauri-kinos,3,Lauri Kinos,D,2008-2009,mestis,3304,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christoffer Dahla (D),TuTo Hockey,37,2,3,5,0.14,30,14,/player/9722/christoffer-dahla,3,Christoffer Dahla,D,2008-2009,mestis,9722,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Panu Poutanen (LW),KooKoo,40,2,3,5,0.13,38,-6,/player/14045/panu-poutanen,3,Panu Poutanen,LW,2008-2009,mestis,14045,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Björninen (D),HeKi,45,2,3,5,0.11,34,-10,/player/20883/anton-bjorninen,3,Anton Björninen,D,2008-2009,mestis,20883,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Esa Saksinen (D),D Team,18,1,4,5,0.28,10,10,/player/7567/esa-saksinen,3,Esa Saksinen,D,2008-2009,mestis,7567,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Heikki Laine (RW),D Team,18,1,4,5,0.28,16,-11,/player/7414/heikki-laine,3,Heikki Laine,RW,2008-2009,mestis,7414,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Kähönen (LW),Hokki,19,1,4,5,0.26,0,4,/player/20877/niko-kahonen,3,Niko Kähönen,LW,2008-2009,mestis,20877,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aki Tuominen (D),Kiekko-Vantaa,9,0,5,5,0.56,10,-4,/player/5945/aki-tuominen,3,Aki Tuominen,D,2008-2009,mestis,5945,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jari Siira (D),Titaanit,34,0,5,5,0.15,20,-1,/player/21221/jari-siira,3,Jari Siira,D,2008-2009,mestis,21221,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joni Liljeblad (D),totals,38,0,5,5,0.13,20,16,/player/8308/joni-liljeblad,3,Joni Liljeblad,D,2008-2009,mestis,8308,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Korkiakoski (D/F),SaPKo,41,0,5,5,0.12,4,-20,/player/21216/mikko-korkiakoski,3,Mikko Korkiakoski,D/F,2008-2009,mestis,21216,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dan Marklund (D/F),HeKi,44,0,5,5,0.11,46,-14,/player/18890/dan-marklund,3,Dan Marklund,D/F,2008-2009,mestis,18890,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nico Aaltonen (LW/RW),Hokki,5,4,0,4,0.80,0,3,/player/8381/nico-aaltonen,3,Nico Aaltonen,LW/RW,2008-2009,mestis,8381,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommi Laine (C/F),TuTo Hockey,4,3,1,4,1.00,0,5,/player/7613/tommi-laine,3,Tommi Laine,C/F,2008-2009,mestis,7613,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Vaskivuo (LW),Hokki,14,3,1,4,0.29,8,2,/player/30024/mike-vaskivuo,3,Mike Vaskivuo,LW,2008-2009,mestis,30024,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jani Lajunen (C),Suomi U20,2,2,2,4,2.00,0,2,/player/15653/jani-lajunen,3,Jani Lajunen,C,2008-2009,mestis,15653,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joonas Nättinen (C),Suomi U20,5,2,2,4,0.80,0,2,/player/16043/joonas-nattinen,3,Joonas Nättinen,C,2008-2009,mestis,16043,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jasse Ikonen (W/C),Suomi U20,8,2,2,4,0.50,4,0,/player/16146/jasse-ikonen,3,Jasse Ikonen,W/C,2008-2009,mestis,16146,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lauri Taipalus (D),D Team,12,2,2,4,0.33,12,5,/player/21251/lauri-taipalus,3,Lauri Taipalus,D,2008-2009,mestis,21251,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jamie Dowhayko (D),Kiekko-Vantaa,17,2,2,4,0.24,16,-1,/player/15953/jamie-dowhayko,3,Jamie Dowhayko,D,2008-2009,mestis,15953,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antti Jaatinen (D),D Team,19,2,2,4,0.21,8,-1,/player/17884/antti-jaatinen,3,Antti Jaatinen,D,2008-2009,mestis,17884,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teemu Varjamo (LW),D Team,32,2,2,4,0.13,6,-14,/player/21253/teemu-varjamo,3,Teemu Varjamo,LW,2008-2009,mestis,21253,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jani Keinänen (C),HeKi,3,1,3,4,1.33,2,4,/player/7424/jani-keinanen,3,Jani Keinänen,C,2008-2009,mestis,7424,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matias Myttynen (C/LW),Suomi U20,6,1,3,4,0.67,2,3,/player/17289/matias-myttynen,3,Matias Myttynen,C/LW,2008-2009,mestis,17289,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mario Fischer (D),SaPKo,10,1,3,4,0.40,27,-4,/player/11947/mario-fischer,3,Mario Fischer,D,2008-2009,mestis,11947,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jukka Sompi (C),KooKoo,22,1,3,4,0.18,4,1,/player/22504/jukka-sompi,3,Jukka Sompi,C,2008-2009,mestis,22504,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riku Silvennoinen (D),D Team,33,1,3,4,0.12,16,2,/player/21247/riku-silvennoinen,3,Riku Silvennoinen,D,2008-2009,mestis,21247,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kalle Mäkinen (RW),Jukurit,41,1,3,4,0.10,16,-13,/player/9921/kalle-makinen,3,Kalle Mäkinen,RW,2008-2009,mestis,9921,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tero Konttinen (D),KooKoo,8,0,4,4,0.50,10,3,/player/7469/tero-konttinen,3,Tero Konttinen,D,2008-2009,mestis,7469,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tony Vidgren (D),Suomi U20,8,0,4,4,0.50,31,-3,/player/11935/tony-vidgren,3,Tony Vidgren,D,2008-2009,mestis,11935,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vesa Kulmala (D),Kiekko-Vantaa,12,0,4,4,0.33,8,-6,/player/9544/vesa-kulmala,3,Vesa Kulmala,D,2008-2009,mestis,9544,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henry Acres (D),Kiekko-Vantaa,12,0,4,4,0.33,10,12,/player/4769/henry-acres,3,Henry Acres,D,2008-2009,mestis,4769,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaakko Kolari (C),LeKi,19,0,4,4,0.21,22,-1,/player/21199/jaakko-kolari,3,Jaakko Kolari,C,2008-2009,mestis,21199,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henrik Maunula (D),TuTo Hockey,45,0,4,4,0.09,34,-8,/player/8050/henrik-maunula,3,Henrik Maunula,D,2008-2009,mestis,8050,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilkka Vaarasuo (D),D Team,7,3,0,3,0.43,10,2,/player/7482/ilkka-vaarasuo,3,Ilkka Vaarasuo,D,2008-2009,mestis,7482,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaska Vilén (LW/RW),Kiekko-Vantaa,2,2,1,3,1.50,2,3,/player/7588/jaska-vilen,3,Jaska Vilén,LW/RW,2008-2009,mestis,7588,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jarno Lippojoki (D),D Team,12,2,1,3,0.25,4,4,/player/10293/jarno-lippojoki,3,Jarno Lippojoki,D,2008-2009,mestis,10293,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matti Pinomäki (D),Titaanit,23,2,1,3,0.13,20,-18,/player/9545/matti-pinomaki,3,Matti Pinomäki,D,2008-2009,mestis,9545,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jason Platt (D),Titaanit,43,2,1,3,0.07,56,-36,/player/15341/jason-platt,3,Jason Platt,D,2008-2009,mestis,15341,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Toni Rajala (LW/RW),Suomi U20,4,1,2,3,0.75,2,2,/player/16035/toni-rajala,3,Toni Rajala,LW/RW,2008-2009,mestis,16035,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eetu Pöysti (RW),totals,5,1,2,3,0.60,0,1,/player/11380/eetu-poysti,3,Eetu Pöysti,RW,2008-2009,mestis,11380,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tuomas Vänttinen (C/W),D Team,5,1,2,3,0.60,6,3,/player/7579/tuomas-vanttinen,3,Tuomas Vänttinen,C/W,2008-2009,mestis,7579,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ziga Svete (D),Hokki,8,1,2,3,0.38,6,4,/player/17423/ziga-svete,3,Ziga Svete,D,2008-2009,mestis,17423,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommi Leinonen (D),totals,11,1,2,3,0.27,31,-3,/player/7537/tommi-leinonen,3,Tommi Leinonen,D,2008-2009,mestis,7537,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Risto Korhonen (D),LeKi,13,1,2,3,0.23,20,-5,/player/4418/risto-korhonen,3,Risto Korhonen,D,2008-2009,mestis,4418,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mika Luukkainen (D),Titaanit,33,1,2,3,0.09,32,-8,/player/22253/mika-luukkainen,3,Mika Luukkainen,D,2008-2009,mestis,22253,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Tarkiainen (D),KooKoo,41,1,2,3,0.07,48,-4,/player/12346/mikko-tarkiainen,3,Mikko Tarkiainen,D,2008-2009,mestis,12346,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teemu Mustaniemi (RW),Kiekko-Vantaa,44,1,2,3,0.07,8,-9,/player/22755/teemu-mustaniemi,3,Teemu Mustaniemi,RW,2008-2009,mestis,22755,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henri Siivonen (D/LW),SaPKo,44,1,2,3,0.07,16,-13,/player/16650/henri-siivonen,3,Henri Siivonen,D/LW,2008-2009,mestis,16650,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antti Kangasniemi (C),LeKi,4,0,3,3,0.75,4,-2,/player/7453/antti-kangasniemi,3,Antti Kangasniemi,C,2008-2009,mestis,7453,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Palonen (F),Suomi U20,5,0,3,3,0.60,10,-1,/player/18050/niko-palonen,3,Niko Palonen,F,2008-2009,mestis,18050,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roni Andersson (LW/C),totals,6,0,3,3,0.50,2,-1,/player/7471/roni-andersson,3,Roni Andersson,LW/C,2008-2009,mestis,7471,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kimmo Nevalainen (D),Jokipojat,13,0,3,3,0.23,8,2,/player/10928/kimmo-nevalainen,3,Kimmo Nevalainen,D,2008-2009,mestis,10928,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Kluuskeri (D),totals,18,0,3,3,0.17,2,-1,/player/10594/niko-kluuskeri,3,Niko Kluuskeri,D,2008-2009,mestis,10594,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miikka Kuusela (C),LeKi,18,0,3,3,0.17,14,-7,/player/21203/miikka-kuusela,3,Miikka Kuusela,C,2008-2009,mestis,21203,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kim Kauttonen (D/F),totals,32,0,3,3,0.09,14,-6,/player/20797/kim-kauttonen,3,Kim Kauttonen,D/F,2008-2009,mestis,20797,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Kallio (F),HeKi,33,0,3,3,0.09,2,-11,/player/24490/markus-kallio,3,Markus Kallio,F,2008-2009,mestis,24490,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilari Melart (D),totals,10,2,0,2,0.20,10,-1,/player/11374/ilari-melart,3,Ilari Melart,D,2008-2009,mestis,11374,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Iiro Junnila (F),TuTo Hockey,43,2,0,2,0.05,30,-2,/player/14574/iiro-junnila,4,Iiro Junnila,F,2008-2009,mestis,14574,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tatu Backman (C),Hokki,1,1,1,2,2.00,0,1,/player/12400/tatu-backman,4,Tatu Backman,C,2008-2009,mestis,12400,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomi Sallinen (C/W),Suomi U20,1,1,1,2,2.00,0,1,/player/11384/tomi-sallinen,4,Tomi Sallinen,C/W,2008-2009,mestis,11384,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joona Karevaara (RW/LW),LeKi,2,1,1,2,1.00,0,-2,/player/7802/joona-karevaara,4,Joona Karevaara,RW/LW,2008-2009,mestis,7802,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomi Pallassalo (C),Suomi U20,3,1,1,2,0.67,0,1,/player/11378/tomi-pallassalo,4,Tomi Pallassalo,C,2008-2009,mestis,11378,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonne Virtanen (C/W),Titaanit,3,1,1,2,0.67,2,1,/player/8305/jonne-virtanen,4,Jonne Virtanen,C/W,2008-2009,mestis,8305,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matias Sointu (W/C),Suomi U20,3,1,1,2,0.67,2,1,/player/16048/matias-sointu,4,Matias Sointu,W/C,2008-2009,mestis,16048,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomi Tuomainen (D),Jokipojat,7,1,1,2,0.29,0,7,/player/8301/tomi-tuomainen,4,Tomi Tuomainen,D,2008-2009,mestis,8301,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sami Vatanen (D),totals,7,1,1,2,0.29,10,-2,/player/16044/sami-vatanen,4,Sami Vatanen,D,2008-2009,mestis,16044,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kimmo Vesterinen (D),SaPKo,9,1,1,2,0.22,28,-2,/player/10818/kimmo-vesterinen,4,Kimmo Vesterinen,D,2008-2009,mestis,10818,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jussi Onnela (D),KooKoo,23,1,1,2,0.09,14,0,/player/21211/jussi-onnela,4,Jussi Onnela,D,2008-2009,mestis,21211,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Heino (D),LeKi,26,1,1,2,0.08,8,-4,/player/22932/ville-heino,4,Ville Heino,D,2008-2009,mestis,22932,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Puurtinen (D),SaPKo,27,1,1,2,0.07,4,-11,/player/21237/ville-puurtinen,4,Ville Puurtinen,D,2008-2009,mestis,21237,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Haapanen (D),Titaanit,30,1,1,2,0.07,54,-15,/player/18495/mikko-haapanen,4,Mikko Haapanen,D,2008-2009,mestis,18495,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sakari Leino (D),HeKi,31,1,1,2,0.06,14,-11,/player/20881/sakari-leino,4,Sakari Leino,D,2008-2009,mestis,20881,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petteri Laine (C),HeKi,37,1,1,2,0.05,12,-14,/player/12351/petteri-laine,4,Petteri Laine,C,2008-2009,mestis,12351,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Eronen (C),SaPKo,41,1,1,2,0.05,8,-23,/player/21242/erik-eronen,4,Erik Eronen,C,2008-2009,mestis,21242,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elmeri Kaksonen (LW/RW),Titaanit,1,0,2,2,2.00,0,2,/player/15137/elmeri-kaksonen,4,Elmeri Kaksonen,LW/RW,2008-2009,mestis,15137,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kimmo Eronen (D),TuTo Hockey,2,0,2,2,1.00,0,3,/player/1963/kimmo-eronen,4,Kimmo Eronen,D,2008-2009,mestis,1963,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miika Viinamäki (C/D),Suomi U20,3,0,2,2,0.67,0,-1,/player/25390/miika-viinamaki,4,Miika Viinamäki,C/D,2008-2009,mestis,25390,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teemu Hartikainen (C/W),Suomi U20,3,0,2,2,0.67,8,3,/player/11365/teemu-hartikainen,4,Teemu Hartikainen,C/W,2008-2009,mestis,11365,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jukka-Pekka Koistinen (F),LeKi,4,0,2,2,0.50,0,-1,/player/7947/jukka-pekka-koistinen,4,Jukka-Pekka Koistinen,F,2008-2009,mestis,7947,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Raine Räisänen (D),Titaanit,9,0,2,2,0.22,8,2,/player/31464/raine-raisanen,4,Raine Räisänen,D,2008-2009,mestis,31464,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Pukka (D),LeKi,9,0,2,2,0.22,24,3,/player/7593/mikko-pukka,4,Mikko Pukka,D,2008-2009,mestis,7593,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timo Ahonen (D),Kiekko-Vantaa,12,0,2,2,0.17,4,1,/player/12315/timo-ahonen,4,Timo Ahonen,D,2008-2009,mestis,12315,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Kokkonen (C),TuTo Hockey,15,0,2,2,0.13,4,-6,/player/11370/anton-kokkonen,4,Anton Kokkonen,C,2008-2009,mestis,11370,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Heikki Hyvönen (D),totals,21,0,2,2,0.10,41,-2,/player/11366/heikki-hyvonen,4,Heikki Hyvönen,D,2008-2009,mestis,11366,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antti Sierman (D),KooKoo,36,0,2,2,0.06,10,-11,/player/21212/antti-sierman,4,Antti Sierman,D,2008-2009,mestis,21212,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jere Ölander (D),Suomi U20,1,1,0,1,1.00,4,0,/player/11376/jere-olander,4,Jere Ölander,D,2008-2009,mestis,11376,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Niinimäki (C/RW),LeKi,2,1,0,1,0.50,0,0,/player/2714/jesse-niinimaki,4,Jesse Niinimäki,C/RW,2008-2009,mestis,2714,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juuso Honka (LW),Suomi U20,2,1,0,1,0.50,0,0,/player/25389/juuso-honka,4,Juuso Honka,LW,2008-2009,mestis,25389,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teemu Suhonen (D),Suomi U20,2,1,0,1,0.50,0,0,/player/36931/teemu-suhonen,4,Teemu Suhonen,D,2008-2009,mestis,36931,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jani-Petteri Helenius (C),Suomi U20,3,1,0,1,0.33,0,-1,/player/19017/jani-petteri-helenius,4,Jani-Petteri Helenius,C,2008-2009,mestis,19017,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joonas Järvinen (D),Suomi U20,3,1,0,1,0.33,10,3,/player/11368/joonas-jarvinen,4,Joonas Järvinen,D,2008-2009,mestis,11368,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tuomas Mikkonen (LW),D Team,4,1,0,1,0.25,0,0,/player/3218/tuomas-mikkonen,4,Tuomas Mikkonen,LW,2008-2009,mestis,3218,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teemu Paakkarinen (F),Jukurit,4,1,0,1,0.25,0,0,/player/7584/teemu-paakkarinen,4,Teemu Paakkarinen,F,2008-2009,mestis,7584,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sami Blomqvist (RW/LW),Suomi U20,4,1,0,1,0.25,0,1,/player/14933/sami-blomqvist,4,Sami Blomqvist,RW/LW,2008-2009,mestis,14933,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskari Hakomäki (C),totals,6,1,0,1,0.17,2,-1,/player/17008/oskari-hakomaki,4,Oskari Hakomäki,C,2008-2009,mestis,17008,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arttu Reponen (LW),SaPKo,8,1,0,1,0.13,0,-5,/player/31466/arttu-reponen,4,Arttu Reponen,LW,2008-2009,mestis,31466,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Toni Niemi (D),LeKi,9,1,0,1,0.11,2,2,/player/7450/toni-niemi,4,Toni Niemi,D,2008-2009,mestis,7450,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Snellman (LW),LeKi,11,1,0,1,0.09,27,-2,/player/8397/niko-snellman,4,Niko Snellman,LW,2008-2009,mestis,8397,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petteri Tasku (LW),TuTo Hockey,16,1,0,1,0.06,4,-1,/player/7629/petteri-tasku,4,Petteri Tasku,LW,2008-2009,mestis,7629,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joonas Hyttinen (C/RW),SaPKo,21,1,0,1,0.05,6,-8,/player/21243/joonas-hyttinen,4,Joonas Hyttinen,C/RW,2008-2009,mestis,21243,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Vaittinen (RW),D Team,29,1,0,1,0.03,6,-7,/player/21259/jesse-vaittinen,4,Jesse Vaittinen,RW,2008-2009,mestis,21259,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janne Ruohola (D),HeKi,1,0,1,1,1.00,0,3,/player/20880/janne-ruohola,4,Janne Ruohola,D,2008-2009,mestis,20880,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuli Piiroinen (RW),D Team,1,0,1,1,1.00,0,0,/player/7958/samuli-piiroinen,4,Samuli Piiroinen,RW,2008-2009,mestis,7958,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Veikko Karppinen (C),Hokki,1,0,1,1,1.00,0,0,/player/8047/veikko-karppinen,4,Veikko Karppinen,C,2008-2009,mestis,8047,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teemu Toivanen (F),Kiekko-Vantaa,2,0,1,1,0.50,0,1,/player/32985/teemu-toivanen,4,Teemu Toivanen,F,2008-2009,mestis,32985,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antti Mäkilä (RW),Suomi U20,2,0,1,1,0.50,0,0,/player/17866/antti-makila,4,Antti Mäkilä,RW,2008-2009,mestis,17866,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anssi Ranta (D),LeKi,2,0,1,1,0.50,2,0,/player/21206/anssi-ranta,4,Anssi Ranta,D,2008-2009,mestis,21206,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jussi Makkonen (D),Hokki,2,0,1,1,0.50,4,2,/player/11355/jussi-makkonen,4,Jussi Makkonen,D,2008-2009,mestis,11355,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petteri Rasi (LW),Suomi U20,3,0,1,1,0.33,0,-1,/player/16448/petteri-rasi,4,Petteri Rasi,LW,2008-2009,mestis,16448,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olavi Vauhkonen (RW/LW),Suomi U20,3,0,1,1,0.33,4,-2,/player/11387/olavi-vauhkonen,4,Olavi Vauhkonen,RW/LW,2008-2009,mestis,11387,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antti Tyrväinen (W/C),totals,4,0,1,1,0.25,25,-1,/player/11386/antti-tyrvainen,4,Antti Tyrväinen,W/C,2008-2009,mestis,11386,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antti Pehkonen (F),Kiekko-Vantaa,6,0,1,1,0.17,0,-3,/player/25302/antti-pehkonen,4,Antti Pehkonen,F,2008-2009,mestis,25302,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olli-Pekka Komulainen (D),Jukurit,6,0,1,1,0.17,4,-2,/player/7512/olli-pekka-komulainen,4,Olli-Pekka Komulainen,D,2008-2009,mestis,7512,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vesa-Matti Inkeröinen (RW),Hokki,7,0,1,1,0.14,0,0,/player/17121/vesa-matti-inkeroinen,4,Vesa-Matti Inkeröinen,RW,2008-2009,mestis,17121,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jarkko Näppilä (D),LeKi,7,0,1,1,0.14,4,-1,/player/9268/jarkko-nappila,4,Jarkko Näppilä,D,2008-2009,mestis,9268,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jussi Ruohola (D),Kiekko-Vantaa,7,0,1,1,0.14,6,-5,/player/7434/jussi-ruohola,4,Jussi Ruohola,D,2008-2009,mestis,7434,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jussi Kiviluoto (D),HeKi,9,0,1,1,0.11,2,-1,/player/24489/jussi-kiviluoto,4,Jussi Kiviluoto,D,2008-2009,mestis,24489,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ari Kovanen (RW),D Team,9,0,1,1,0.11,2,-3,/player/11453/ari-kovanen,4,Ari Kovanen,RW,2008-2009,mestis,11453,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Toni Kirén (D),Hokki,11,0,1,1,0.09,8,-4,/player/12320/toni-kiren,4,Toni Kirén,D,2008-2009,mestis,12320,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miikka Niiranen (D),D Team,14,0,1,1,0.07,4,-1,/player/21248/miikka-niiranen,4,Miikka Niiranen,D,2008-2009,mestis,21248,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jukka-Pekka Suomalainen (D),Kiekko-Vantaa,16,0,1,1,0.06,4,2,/player/22756/jukka-pekka-suomalainen,4,Jukka-Pekka Suomalainen,D,2008-2009,mestis,22756,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anssi Virkki (D),totals,17,0,1,1,0.06,14,1,/player/16651/anssi-virkki,4,Anssi Virkki,D,2008-2009,mestis,16651,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaakko Räty (LW),HeKi,28,0,1,1,0.04,4,-11,/player/21660/jaakko-raty,4,Jaakko Räty,LW,2008-2009,mestis,21660,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Piispanen (C/F),Jukurit,31,0,1,1,0.03,2,-10,/player/21589/markus-piispanen,4,Markus Piispanen,C/F,2008-2009,mestis,21589,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikael Hallbäck (D),totals,33,0,1,1,0.03,16,3,/player/11911/mikael-hallback,4,Mikael Hallbäck,D,2008-2009,mestis,11911,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joonas Tiainen (D),Titaanit,0,0,0,0,-,0,-,/player/43612/joonas-tiainen,4,Joonas Tiainen,D,2008-2009,mestis,43612,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Honkanen (D),TuTo Hockey,0,0,0,0,-,0,0,/player/40660/mikko-honkanen,4,Mikko Honkanen,D,2008-2009,mestis,40660,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juha Torro (D),Titaanit,0,0,0,0,-,0,-,/player/40868/juha-torro,4,Juha Torro,D,2008-2009,mestis,40868,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olli Kaaronen (LW),Titaanit,0,0,0,0,-,0,-,/player/22505/olli-kaaronen,4,Olli Kaaronen,LW,2008-2009,mestis,22505,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Riska (C/LW),Sport,1,0,0,0,0.00,0,0,/player/17780/erik-riska,4,Erik Riska,C/LW,2008-2009,mestis,17780,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matti Nykänen (RW),KooKoo,1,0,0,0,0.00,0,0,/player/12347/matti-nykanen,4,Matti Nykänen,RW,2008-2009,mestis,12347,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tuomas Juntunen (F),Hokki,1,0,0,0,0.00,0,0,/player/24169/tuomas-juntunen,4,Tuomas Juntunen,F,2008-2009,mestis,24169,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aapo Sepponen (F),Kiekko-Vantaa,1,0,0,0,0.00,0,0,/player/25679/aapo-sepponen,4,Aapo Sepponen,F,2008-2009,mestis,25679,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Riska (C),D Team,1,0,0,0,0.00,0,1,/player/7486/filip-riska,4,Filip Riska,C,2008-2009,mestis,7486,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kalle Koskinen (D),D Team,1,0,0,0,0.00,0,0,/player/555/kalle-koskinen,4,Kalle Koskinen,D,2008-2009,mestis,555,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hannu Väisänen (LW),Kiekko-Vantaa,1,0,0,0,0.00,0,1,/player/7428/hannu-vaisanen,4,Hannu Väisänen,LW,2008-2009,mestis,7428,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Hämäläinen (LW),Titaanit,1,0,0,0,0.00,0,0,/player/31298/niko-hamalainen,4,Niko Hämäläinen,LW,2008-2009,mestis,31298,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matti Heikkinen (D),D Team,1,0,0,0,0.00,0,-1,/player/32982/matti-heikkinen,4,Matti Heikkinen,D,2008-2009,mestis,32982,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Tenovaara (F),SaPKo,1,0,0,0,0.00,0,0,/player/32987/ville-tenovaara,4,Ville Tenovaara,F,2008-2009,mestis,32987,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Sipiläinen (F),KooKoo,1,0,0,0,0.00,0,0,/player/46287/mikko-sipilainen,4,Mikko Sipiläinen,F,2008-2009,mestis,46287,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juha Korkeamäki (D),Suomi U20,1,0,0,0,0.00,0,1,/player/38429/juha-korkeamaki,4,Juha Korkeamäki,D,2008-2009,mestis,38429,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Laakso (D),Suomi U20,1,0,0,0,0.00,0,1,/player/25237/aleksi-laakso,4,Aleksi Laakso,D,2008-2009,mestis,25237,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eero Elo (LW/RW),Suomi U20,1,0,0,0,0.00,0,0,/player/17014/eero-elo,4,Eero Elo,LW/RW,2008-2009,mestis,17014,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aki Kangasmäki (LW/RW),Suomi U20,1,0,0,0,0.00,0,0,/player/11051/aki-kangasmaki,4,Aki Kangasmäki,LW/RW,2008-2009,mestis,11051,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teemu Pulkkinen (RW),Suomi U20,1,0,0,0,0.00,0,0,/player/16036/teemu-pulkkinen,4,Teemu Pulkkinen,RW,2008-2009,mestis,16036,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Honkanen (D/F),KooKoo,1,0,0,0,0.00,0,0,/player/51425/mikko-honkanen,4,Mikko Honkanen,D/F,2008-2009,mestis,51425,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eetu Hannikainen (F),Jukurit,1,0,0,0,0.00,0,0,/player/64973/eetu-hannikainen,4,Eetu Hannikainen,F,2008-2009,mestis,64973,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Junni (D),KooKoo,1,0,0,0,0.00,0,0,/player/38413/markus-junni,4,Markus Junni,D,2008-2009,mestis,38413,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karo Koivunen (RW),HeKi,1,0,0,0,0.00,2,-2,/player/7557/karo-koivunen,4,Karo Koivunen,RW,2008-2009,mestis,7557,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Hietikko (D),Suomi U20,1,0,0,0,0.00,2,1,/player/17285/ville-hietikko,4,Ville Hietikko,D,2008-2009,mestis,17285,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niilo Niemi (F),Hokki,2,0,0,0,0.00,0,0,/player/20878/niilo-niemi,4,Niilo Niemi,F,2008-2009,mestis,20878,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teppo Tieranta (RW),LeKi,2,0,0,0,0.00,0,-2,/player/21200/teppo-tieranta,4,Teppo Tieranta,RW,2008-2009,mestis,21200,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Patala (D),D Team,2,0,0,0,0.00,0,0,/player/16141/markus-patala,4,Markus Patala,D,2008-2009,mestis,16141,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tony Sandberg (D),Kiekko-Vantaa,2,0,0,0,0.00,0,0,/player/32986/tony-sandberg,4,Tony Sandberg,D,2008-2009,mestis,32986,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Keskinen (D),TuTo Hockey,2,0,0,0,0.00,0,0,/player/32989/aleksi-keskinen,4,Aleksi Keskinen,D,2008-2009,mestis,32989,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kalle Harju (F),KooKoo,2,0,0,0,0.00,0,0,/player/51450/kalle-harju,4,Kalle Harju,F,2008-2009,mestis,51450,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Sirén (RW),Suomi U20,2,0,0,0,0.00,0,2,/player/15609/niklas-siren,4,Niklas Sirén,RW,2008-2009,mestis,15609,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Santeri Alatalo (D),Suomi U20,2,0,0,0,0.00,0,0,/player/24582/santeri-alatalo,5,Santeri Alatalo,D,2008-2009,mestis,24582,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nico Manelius (D),Suomi U20,2,0,0,0,0.00,0,0,/player/16047/nico-manelius,5,Nico Manelius,D,2008-2009,mestis,16047,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Toni Jalo (LW),Suomi U20,2,0,0,0,0.00,0,-2,/player/11934/toni-jalo,5,Toni Jalo,LW,2008-2009,mestis,11934,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike McKenna (D),Kiekko-Vantaa,2,0,0,0,0.00,2,2,/player/13953/mike-mckenna,5,Mike McKenna,D,2008-2009,mestis,13953,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teemu Eronen (D),Suomi U20,2,0,0,0,0.00,2,0,/player/17284/teemu-eronen,5,Teemu Eronen,D,2008-2009,mestis,17284,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sami Holappa (C),Suomi U20,2,0,0,0,0.00,2,-1,/player/37313/sami-holappa,5,Sami Holappa,C,2008-2009,mestis,37313,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Laine (D),Suomi U20,2,0,0,0,0.00,2,-1,/player/17865/ville-laine,5,Ville Laine,D,2008-2009,mestis,17865,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joonas Karjalainen (F),Hokki,3,0,0,0,0.00,0,0,/player/20683/joonas-karjalainen,5,Joonas Karjalainen,F,2008-2009,mestis,20683,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomi Pylvänäinen (D/F),LeKi,3,0,0,0,0.00,0,0,/player/10933/tomi-pylvanainen,5,Tomi Pylvänäinen,D/F,2008-2009,mestis,10933,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marko Leppänen (D),SaPKo,3,0,0,0,0.00,0,0,/player/26111/marko-leppanen,5,Marko Leppänen,D,2008-2009,mestis,26111,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antti Kauppila (D),Suomi U20,3,0,0,0,0.00,0,0,/player/16422/antti-kauppila,5,Antti Kauppila,D,2008-2009,mestis,16422,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matti Aho (LW),Kiekko-Vantaa,3,0,0,0,0.00,2,-2,/player/7609/matti-aho,5,Matti Aho,LW,2008-2009,mestis,7609,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kalle Hammar (D),KooKoo,3,0,0,0,0.00,2,0,/player/25422/kalle-hammar,5,Kalle Hammar,D,2008-2009,mestis,25422,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matti Uusivirta (C),Kiekko-Vantaa,3,0,0,0,0.00,4,0,/player/8063/matti-uusivirta,5,Matti Uusivirta,C,2008-2009,mestis,8063,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Veli-Matti Talonen (D),Suomi U20,3,0,0,0,0.00,4,-2,/player/12810/veli-matti-talonen,5,Veli-Matti Talonen,D,2008-2009,mestis,12810,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean Collins (C),Sport,4,0,0,0,0.00,0,-1,/player/11717/sean-collins,5,Sean Collins,C,2008-2009,mestis,11717,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Myasnikov (F),Jukurit,4,0,0,0,0.00,0,0,/player/19147/alexei-myasnikov,5,Alexei Myasnikov,F,2008-2009,mestis,19147,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Ahola (F),Kiekko-Vantaa,4,0,0,0,0.00,0,0,/player/50960/niko-ahola,5,Niko Ahola,F,2008-2009,mestis,50960,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomi Leinonen (F),Jukurit,5,0,0,0,0.00,0,0,/player/21586/tomi-leinonen,5,Tomi Leinonen,F,2008-2009,mestis,21586,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joni Kainulainen (C),KooKoo,5,0,0,0,0.00,0,0,/player/24187/joni-kainulainen,5,Joni Kainulainen,C,2008-2009,mestis,24187,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Lehto (D),Hokki,5,0,0,0,0.00,2,0,/player/17915/joel-lehto,5,Joel Lehto,D,2008-2009,mestis,17915,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aki Ronkainen (C/F),Kiekko-Vantaa,5,0,0,0,0.00,2,-3,/player/21213/aki-ronkainen,5,Aki Ronkainen,C/F,2008-2009,mestis,21213,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juhani Jasu (C),Hokki,5,0,0,0,0.00,2,1,/player/8246/juhani-jasu,5,Juhani Jasu,C,2008-2009,mestis,8246,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johannes Lehto (RW),TuTo Hockey,5,0,0,0,0.00,4,-1,/player/32990/johannes-lehto,5,Johannes Lehto,RW,2008-2009,mestis,32990,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joonas Sivonen (C),Jokipojat,6,0,0,0,0.00,0,0,/player/21050/joonas-sivonen,5,Joonas Sivonen,C,2008-2009,mestis,21050,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petteri Friman (D),LeKi,6,0,0,0,0.00,2,-4,/player/10340/petteri-friman,5,Petteri Friman,D,2008-2009,mestis,10340,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Toomey (C),KooKoo,6,0,0,0,0.00,2,-6,/player/28580/ryan-toomey,5,Ryan Toomey,C,2008-2009,mestis,28580,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Veli-Matti Vittasmäki (D),Suomi U20,6,0,0,0,0.00,6,1,/player/17288/veli-matti-vittasmaki,5,Veli-Matti Vittasmäki,D,2008-2009,mestis,17288,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tuomas Pylkkänen (D),Jukurit,7,0,0,0,0.00,0,-1,/player/21054/tuomas-pylkkanen,5,Tuomas Pylkkänen,D,2008-2009,mestis,21054,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sami Lavonen (F),KooKoo,7,0,0,0,0.00,0,0,/player/25677/sami-lavonen,5,Sami Lavonen,F,2008-2009,mestis,25677,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Iiro Vaittinen (D),D Team,8,0,0,0,0.00,0,1,/player/21252/iiro-vaittinen,5,Iiro Vaittinen,D,2008-2009,mestis,21252,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommi Lipasti (F),HeKi,8,0,0,0,0.00,0,0,/player/32983/tommi-lipasti,5,Tommi Lipasti,F,2008-2009,mestis,32983,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kristian Näkyvä (D),Suomi U20,9,0,0,0,0.00,2,2,/player/16649/kristian-nakyva,5,Kristian Näkyvä,D,2008-2009,mestis,16649,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jani Kiviniemi (RW),totals,14,0,0,0,0.00,4,0,/player/17010/jani-kiviniemi,5,Jani Kiviniemi,RW,2008-2009,mestis,17010,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antti Savolainen (D),totals,14,0,0,0,0.00,6,-9,/player/10337/antti-savolainen,5,Antti Savolainen,D,2008-2009,mestis,10337,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anssi Hintikka (C),D Team,16,0,0,0,0.00,2,-8,/player/21254/anssi-hintikka,5,Anssi Hintikka,C,2008-2009,mestis,21254,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Talas (D),totals,17,0,0,0,0.00,16,-2,/player/17011/markus-talas,5,Markus Talas,D,2008-2009,mestis,17011,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jyri Seppinen (RW),Titaanit,20,0,0,0,0.00,4,-4,/player/22423/jyri-seppinen,5,Jyri Seppinen,RW,2008-2009,mestis,22423,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Heikki Lukkari (D),Hokki,20,0,0,0,0.00,6,1,/player/20796/heikki-lukkari,5,Heikki Lukkari,D,2008-2009,mestis,20796,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joni Kulmakivi (C),Titaanit,25,0,0,0,0.00,8,-7,/player/21222/joni-kulmakivi,5,Joni Kulmakivi,C,2008-2009,mestis,21222,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antti Teerimäki (D),TuTo Hockey,28,0,0,0,0.00,0,1,/player/42026/antti-teerimaki,5,Antti Teerimäki,D,2008-2009,mestis,42026,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Harri Huohvanainen (D),Jokipojat,28,0,0,0,0.00,4,-2,/player/22592/harri-huohvanainen,5,Harri Huohvanainen,D,2008-2009,mestis,22592,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juhani Uusitalo (D),TuTo Hockey,29,0,0,0,0.00,14,-6,/player/21220/juhani-uusitalo,5,Juhani Uusitalo,D,2008-2009,mestis,21220,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jarmo Mikonsaari (D),Kiekko-Vantaa,30,0,0,0,0.00,4,3,/player/22757/jarmo-mikonsaari,5,Jarmo Mikonsaari,D,2008-2009,mestis,22757,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69

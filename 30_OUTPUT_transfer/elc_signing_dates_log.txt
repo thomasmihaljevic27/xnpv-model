@@ -1,0 +1,21 @@
+elc_signing_dates.py v1.4 (2026-10-21)
+  input linkage: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\draft_pick_linkage.csv  (modified 2026-10-22 03:04)
+  input puckpedia: C:\Users\thoma\Desktop\xNPV\10_SOURCE\PuckPedia_Player_Contract_Export_May_22_2026__CONFIDENTIAL.csv  (modified 2026-10-05 00:20)
+
+[1] PuckPedia entry-level contracts with a signing date: 2,081 players (signed 2014-07-12 to 2026-05-21)
+[2] CapWages pages read: 1,864; with a draft line: 1,538; of those with an entry-level signing date: 1,428
+
+[3] drafted players with an NHL game (linkage war_names): 1,865
+    by source: puckpedia 913, capwages 742, none 210
+    PuckPedia and CapWages both present: same signing year 504, different 2; where the year agrees, same signing club 476, different 28
+    signing club held: 1,654 of 1,655 with a signing date
+    no signing date: 210, by draft: 2005 79, 2006 57, 2007 19, 2008 11, 2009 9, 2010 4, 2011 12, 2012 11, 2013 3, 2014 3, 2016 1, 2017 1
+    years from draft to signing: median 1, 0: 464, 1: 472, 2: 356, 3: 196, 4: 117, 5: 37, 6: 8, 7: 5
+    players under contract (PuckPedia entry-level, not in the drafted set): 1,164
+    v1.3: dates set aside, signed after his first NHL season ended (6):
+      2005 #21 Tuukka Rask: capwages 2011-05-05 (first NHL season 2007-08)
+      2008 #77 Michael Hutchinson: puckpedia 2018-07-01 (first NHL season 2013-14)
+      2008 #96 Matt Donovan: puckpedia 2018-11-05 (first NHL season 2011-12)
+      2008 #102 David Ullstrom: puckpedia 2018-05-15 (first NHL season 2011-12)
+      2011 #18 Mark McNeill: puckpedia 2018-07-01 (first NHL season 2015-16)
+      2012 #1 Nail Yakupov: capwages 2013-07-23 (first NHL season 2012-13)

@@ -1,0 +1,446 @@
+player,team,gp,g,a,tp,p_per_gp,pim,plus_minus,link,page,playername,position,season,league,ep_player_id,scrape_date,source,package_version
+Andrew Calof (RW),HK Poprad,53,20,49,69,1.30,12,14,/player/40211/andrew-calof,1,Andrew Calof,RW,2024-2025,slovakia,40211,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Cracknell (RW/C),HK Poprad,54,35,24,59,1.09,16,10,/player/14459/adam-cracknell,1,Adam Cracknell,RW/C,2024-2025,slovakia,14459,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Boucher (LW),HC Banska Bystrica,51,29,29,58,1.14,36,8,/player/213477/matthew-boucher,1,Matthew Boucher,LW,2024-2025,slovakia,213477,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean Josling (RW),HK Dukla Trencin,54,28,30,58,1.07,41,-3,/player/273638/sean-josling,1,Sean Josling,RW,2024-2025,slovakia,273638,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Olson (C/RW),HKM Zvolen,50,32,22,54,1.08,75,-4,/player/161063/kyle-olson,1,Kyle Olson,C/RW,2024-2025,slovakia,161063,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Renars Krastenbergs (C/LW),HK Dukla Michalovce,53,31,19,50,0.94,34,-3,/player/280633/renars-krastenbergs,1,Renars Krastenbergs,C/LW,2024-2025,slovakia,280633,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Ford (C/LW),HK Spisska Nova Ves,52,12,38,50,0.96,39,8,/player/272068/connor-ford,1,Connor Ford,C/LW,2024-2025,slovakia,272068,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Bucek (LW),HK Nitra,53,26,22,48,0.91,48,21,/player/225621/samuel-bucek,1,Samuel Bucek,LW,2024-2025,slovakia,225621,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hunter Fejes (LW),Vlci Zilina,49,24,23,47,0.96,59,13,/player/106299/hunter-fejes,1,Hunter Fejes,LW,2024-2025,slovakia,106299,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Takac (LW),HC Slovan Bratislava,51,17,30,47,0.92,18,17,/player/34758/samuel-takac,1,Samuel Takac,LW,2024-2025,slovakia,34758,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Jones (C/RW),Vlci Zilina,41,24,21,45,1.10,57,7,/player/63266/nick-jones,1,Nick Jones,C/RW,2024-2025,slovakia,63266,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Wedman (C/LW),HC Banska Bystrica,51,24,21,45,0.88,81,12,/player/201359/matthew-wedman,1,Matthew Wedman,C/LW,2024-2025,slovakia,201359,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Stapley (C),HK Dukla Trencin,48,14,31,45,0.94,73,-1,/player/201696/brett-stapley,1,Brett Stapley,C,2024-2025,slovakia,201696,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Faith (LW),HC Banska Bystrica,54,12,33,45,0.83,20,10,/player/553945/roman-faith,1,Roman Faith,LW,2024-2025,slovakia,553945,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Hecl (RW),HKM Zvolen,52,20,24,44,0.85,33,0,/player/225466/marek-hecl,1,Marek Hecl,RW,2024-2025,slovakia,225466,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitchell Hoelscher (C),HC Slovan Bratislava,54,19,25,44,0.81,65,18,/player/360952/mitchell-hoelscher,1,Mitchell Hoelscher,C,2024-2025,slovakia,360952,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Lacka (LW),HK Nitra,54,18,26,44,0.81,44,8,/player/249863/jakub-lacka,1,Jakub Lacka,LW,2024-2025,slovakia,249863,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Pollock (C/W),HC Kosice,44,19,23,42,0.95,61,16,/player/84111/brett-pollock,1,Brett Pollock,C/W,2024-2025,slovakia,84111,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Kestner (RW/LW),HK Spisska Nova Ves,45,16,26,42,0.93,34,9,/player/153872/josh-kestner,1,Josh Kestner,RW/LW,2024-2025,slovakia,153872,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabriel Chicoine (D),HC Banska Bystrica,54,9,33,42,0.78,26,2,/player/255583/gabriel-chicoine,1,Gabriel Chicoine,D,2024-2025,slovakia,255583,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Bakos (LW/RW),HC Slovan Bratislava,44,14,27,41,0.93,55,2,/player/17721/martin-bakos,1,Martin Bakos,LW/RW,2024-2025,slovakia,17721,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miguël Tourigny (D),Vlci Zilina,54,9,32,41,0.76,99,20,/player/201910/miguel-tourigny,1,Miguël Tourigny,D,2024-2025,slovakia,201910,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Branislav Rapac (RW/LW),HK Spisska Nova Ves,49,22,18,40,0.82,45,5,/player/98032/branislav-rapac,1,Branislav Rapac,RW/LW,2024-2025,slovakia,98032,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danick Martel (LW/C),HC Kosice,46,15,25,40,0.87,14,17,/player/129039/danick-martel,1,Danick Martel,LW/C,2024-2025,slovakia,129039,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex-Olivier Voyer (RW),HC Banska Bystrica,53,11,29,40,0.75,34,10,/player/201548/alex-olivier-voyer,1,Alex-Olivier Voyer,RW,2024-2025,slovakia,201548,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Mikus (C/LW),HC Kosice,54,22,17,39,0.72,22,15,/player/95703/tomas-mikus,1,Tomas Mikus,C/LW,2024-2025,slovakia,95703,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Gerlach (C),HK 32 Liptovsky Mikulas,50,18,21,39,0.78,26,-16,/player/247933/max-gerlach,1,Max Gerlach,C,2024-2025,slovakia,247933,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Rockwood (C),HK Dukla Michalovce,33,7,32,39,1.18,39,18,/player/102455/adam-rockwood,1,Adam Rockwood,C,2024-2025,slovakia,102455,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Cotton (D),HK Nitra,48,6,33,39,0.81,51,2,/player/351538/alex-cotton,1,Alex Cotton,D,2024-2025,slovakia,351538,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kamil Walega (C),Vlci Zilina,48,21,17,38,0.79,38,3,/player/472669/kamil-walega,1,Kamil Walega,C,2024-2025,slovakia,472669,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joona Jääskeläinen (LW/RW),HC Kosice,45,20,18,38,0.84,18,21,/player/152190/joona-jaaskelainen,1,Joona Jääskeläinen,LW/RW,2024-2025,slovakia,152190,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marly Quince (C),HK 32 Liptovsky Mikulas,47,19,19,38,0.81,55,-10,/player/118344/marly-quince,1,Marly Quince,C,2024-2025,slovakia,118344,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrej Kudrna (RW/LW),HKM Zvolen,53,19,19,38,0.72,10,2,/player/19372/andrej-kudrna,1,Andrej Kudrna,RW/LW,2024-2025,slovakia,19372,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robby Jackson (LW/C),HK Nitra,54,18,20,38,0.70,20,6,/player/199954/robby-jackson,1,Robby Jackson,LW/C,2024-2025,slovakia,199954,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Zuzin (C/LW),HKM Zvolen,52,13,25,38,0.73,16,4,/player/93317/peter-zuzin,1,Peter Zuzin,C/LW,2024-2025,slovakia,93317,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Liam Pecararo (LW/RW),HC Slovan Bratislava,38,10,28,38,1.00,137,14,/player/98229/liam-pecararo,1,Liam Pecararo,LW/RW,2024-2025,slovakia,98229,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Gildon (D),HC Kosice,53,6,32,38,0.72,127,14,/player/272169/max-gildon,1,Max Gildon,D,2024-2025,slovakia,272169,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Ahl (LW/RW),HK Dukla Trencin,51,11,26,37,0.73,20,-8,/player/162177/filip-ahl,1,Filip Ahl,LW/RW,2024-2025,slovakia,162177,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zack Andrusiak (LW/C),totals,39,18,18,36,0.92,47,-3,/player/247479/zack-andrusiak,1,Zack Andrusiak,LW/C,2024-2025,slovakia,247479,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dante Hannoun (C/RW),HK Spisska Nova Ves,48,15,20,35,0.73,55,5,/player/245570/dante-hannoun,1,Dante Hannoun,C/RW,2024-2025,slovakia,245570,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrej Kukuca (RW/C),totals,52,15,20,35,0.67,16,4,/player/331880/andrej-kukuca,1,Andrej Kukuca,RW/C,2024-2025,slovakia,331880,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sahir Gill (C/LW),HK Nitra,48,13,22,35,0.73,4,7,/player/38017/sahir-gill,1,Sahir Gill,C/LW,2024-2025,slovakia,38017,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Rapuzzi (C/RW),totals,36,17,17,34,0.94,20,-4,/player/37764/william-rapuzzi,1,William Rapuzzi,C/RW,2024-2025,slovakia,37764,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Petras (RW),HC Kosice,49,17,17,34,0.69,45,23,/player/166024/simon-petras,1,Simon Petras,RW,2024-2025,slovakia,166024,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Haralds Egle (C/RW),totals,53,16,18,34,0.64,30,-1,/player/91128/haralds-egle,1,Haralds Egle,C/RW,2024-2025,slovakia,91128,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aurel Naus (RW),HK Poprad,53,15,19,34,0.64,41,23,/player/249707/aurel-naus,1,Aurel Naus,RW,2024-2025,slovakia,249707,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Johnson (C),totals,39,11,23,34,0.87,14,14,/player/94248/ben-johnson,1,Ben Johnson,C,2024-2025,slovakia,94248,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olivier Archambault (LW/RW),HC Kosice,36,9,25,34,0.94,43,13,/player/45274/olivier-archambault,1,Olivier Archambault,LW/RW,2024-2025,slovakia,45274,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan MacKinnon (D),HK Spisska Nova Ves,39,10,23,33,0.85,10,5,/player/84727/ryan-mackinnon,1,Ryan MacKinnon,D,2024-2025,slovakia,84727,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gordie Green (C/RW),HK Dukla Trencin,47,9,24,33,0.70,22,-8,/player/208266/gordie-green,1,Gordie Green,C/RW,2024-2025,slovakia,208266,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Török (RW/LW),HK Poprad,51,18,13,31,0.61,34,7,/player/95413/tomas-torok,1,Tomas Török,RW/LW,2024-2025,slovakia,95413,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Marcinek (C/LW),HKM Zvolen,53,13,18,31,0.58,22,16,/player/275218/patrik-marcinek,1,Patrik Marcinek,C/LW,2024-2025,slovakia,275218,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Milos Bubela (C/RW),HK Nitra,49,12,19,31,0.63,110,12,/player/96761/milos-bubela,1,Milos Bubela,C/RW,2024-2025,slovakia,96761,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sena Acolatse (D/RW),HC Slovan Bratislava,41,11,20,31,0.76,152,-2,/player/33574/sena-acolatse,1,Sena Acolatse,D/RW,2024-2025,slovakia,33574,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Chovan (LW/C),HC Kosice,37,8,23,31,0.84,12,9,/player/23657/michal-chovan,1,Michal Chovan,LW/C,2024-2025,slovakia,23657,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cal Foote (D),HK 32 Liptovsky Mikulas,38,3,27,30,0.79,35,-8,/player/247895/cal-foote,1,Cal Foote,D,2024-2025,slovakia,247895,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aron Chmielewski (LW),totals,44,15,14,29,0.66,34,-17,/player/35887/aron-chmielewski,1,Aron Chmielewski,LW,2024-2025,slovakia,35887,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Collin Adams (LW/C),HC Banska Bystrica,43,14,15,29,0.67,10,5,/player/233489/collin-adams,1,Collin Adams,LW/C,2024-2025,slovakia,233489,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Ritchie (LW),totals,27,12,17,29,1.07,114,5,/player/99036/nick-ritchie,1,Nick Ritchie,LW,2024-2025,slovakia,99036,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Svitana (RW),HK Dukla Michalovce,52,6,23,29,0.56,16,-7,/player/23889/patrik-svitana,1,Patrik Svitana,RW,2024-2025,slovakia,23889,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Ullman (D),HK 32 Liptovsky Mikulas,46,5,24,29,0.63,26,-14,/player/142241/erik-ullman,1,Erik Ullman,D,2024-2025,slovakia,142241,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Leskinen (LW/RW),HK Dukla Trencin,43,17,11,28,0.65,49,-5,/player/149333/ville-leskinen,1,Ville Leskinen,LW/RW,2024-2025,slovakia,149333,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jozef Balaz (C/LW),totals,47,12,16,28,0.60,10,-7,/player/272987/jozef-balaz,1,Jozef Balaz,C/LW,2024-2025,slovakia,272987,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Avtsin (RW/LW),totals,42,16,11,27,0.64,14,2,/player/38656/alexander-avtsin,1,Alexander Avtsin,RW/LW,2024-2025,slovakia,38656,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miroslav Mucha (RW),Vlci Zilina,51,14,13,27,0.53,10,-2,/player/235654/miroslav-mucha,1,Miroslav Mucha,RW,2024-2025,slovakia,235654,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonas Peterek (C/RW),HC Slovan Bratislava,37,12,15,27,0.73,4,8,/player/290467/jonas-peterek,1,Jonas Peterek,C/RW,2024-2025,slovakia,290467,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Hrnka (C),HK Nitra,46,11,16,27,0.59,68,0,/player/93311/tomas-hrnka,1,Tomas Hrnka,C,2024-2025,slovakia,93311,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Albert Michnac (LW/C),HK Dukla Michalovce,48,11,16,27,0.56,43,10,/player/188976/albert-michnac,1,Albert Michnac,LW/C,2024-2025,slovakia,188976,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Drgon (D),HK Dukla Michalovce,46,9,18,27,0.59,30,4,/player/43798/adam-drgon,1,Adam Drgon,D,2024-2025,slovakia,43798,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jayce Hawryluk (RW/C),HC Nove Zamky,23,7,20,27,1.17,55,3,/player/120626/jayce-hawryluk,1,Jayce Hawryluk,RW/C,2024-2025,slovakia,120626,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Teves (D),HC Kosice,54,6,21,27,0.50,16,6,/player/197849/josh-teves,1,Josh Teves,D,2024-2025,slovakia,197849,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Réway (LW/C),HK 32 Liptovsky Mikulas,44,3,24,27,0.61,43,-23,/player/94282/martin-reway,1,Martin Réway,LW/C,2024-2025,slovakia,94282,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Slovacek (D),HK Dukla Michalovce,50,3,24,27,0.54,22,-10,/player/100477/ondrej-slovacek,1,Ondrej Slovacek,D,2024-2025,slovakia,100477,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathanael Halbert (D),HKM Zvolen,46,2,25,27,0.59,51,13,/player/158121/nathanael-halbert,1,Nathanael Halbert,D,2024-2025,slovakia,158121,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Thomas (LW/RW),HC Nove Zamky,22,14,12,26,1.18,54,-1,/player/30686/christian-thomas,1,Christian Thomas,LW/RW,2024-2025,slovakia,30686,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel V. Tkac (C),totals,50,13,13,26,0.52,6,-4,/player/337377/daniel-v-tkac,1,Daniel V. Tkac,C,2024-2025,slovakia,337377,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Topi Rönni (C),HK Dukla Michalovce,44,10,16,26,0.59,26,3,/player/638690/topi-ronni,1,Topi Rönni,C,2024-2025,slovakia,638690,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juraj Majdan (LW/RW),HK Spisska Nova Ves,42,6,20,26,0.62,49,4,/player/34754/juraj-majdan,1,Juraj Majdan,LW/RW,2024-2025,slovakia,34754,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radovan Bondra (LW/RW),totals,54,15,10,25,0.46,61,-3,/player/157407/radovan-bondra,1,Radovan Bondra,LW/RW,2024-2025,slovakia,157407,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Greg Meireles (C),HK Spisska Nova Ves,23,12,13,25,1.09,10,10,/player/286948/greg-meireles,1,Greg Meireles,C,2024-2025,slovakia,286948,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Cederle (W/C),HK Nitra,34,15,9,24,0.71,8,1,/player/328488/sebastian-cederle,1,Sebastian Cederle,W/C,2024-2025,slovakia,328488,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Ritchie (RW),HK Nitra,28,12,12,24,0.86,22,7,/player/45554/brett-ritchie,1,Brett Ritchie,RW,2024-2025,slovakia,45554,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Koys (RW/LW),Vlci Zilina,49,10,14,24,0.49,14,7,/player/60605/patrik-koys,1,Patrik Koys,RW/LW,2024-2025,slovakia,60605,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Suchý (C/RW),HK Poprad,54,10,14,24,0.44,12,7,/player/561721/markus-suchy,1,Markus Suchý,C/RW,2024-2025,slovakia,561721,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Ranford (C/LW),totals,25,7,17,24,0.96,16,-1,/player/24082/brendan-ranford,1,Brendan Ranford,C/LW,2024-2025,slovakia,24082,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oldrich Kotvan (D),HK Poprad,42,6,18,24,0.57,20,0,/player/94229/oldrich-kotvan,1,Oldrich Kotvan,D,2024-2025,slovakia,94229,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Pobezal (C),HK Nitra,42,15,8,23,0.55,24,13,/player/619034/tomas-pobezal,1,Tomas Pobezal,C,2024-2025,slovakia,619034,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jarid Lukosevicius (RW),totals,36,10,13,23,0.64,6,6,/player/102225/jarid-lukosevicius,1,Jarid Lukosevicius,RW,2024-2025,slovakia,102225,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trent Bourque (D),HK Poprad,54,3,20,23,0.43,48,35,/player/239804/trent-bourque,1,Trent Bourque,D,2024-2025,slovakia,239804,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Ortega (RW/LW),HC Slovan Bratislava,26,14,8,22,0.85,2,10,/player/121863/austin-ortega,1,Austin Ortega,RW/LW,2024-2025,slovakia,121863,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Urbanek (C/RW),totals,45,9,13,22,0.49,58,1,/player/275263/jakub-urbanek,1,Jakub Urbanek,C/RW,2024-2025,slovakia,275263,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Galambos (C/LW),Vlci Zilina,47,4,18,22,0.47,8,-1,/player/45936/peter-galambos,1,Peter Galambos,C/LW,2024-2025,slovakia,45936,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brenden Miller (D),Vlci Zilina,38,1,21,22,0.58,45,13,/player/154705/brenden-miller,1,Brenden Miller,D,2024-2025,slovakia,154705,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Macek (RW),HKM Zvolen,54,10,11,21,0.39,12,13,/player/275737/matej-macek,1,Matej Macek,RW,2024-2025,slovakia,275737,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Bjaloncik (C),totals,50,9,12,21,0.42,16,4,/player/234779/peter-bjaloncik,1,Peter Bjaloncik,C,2024-2025,slovakia,234779,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Varga (LW),Vlci Zilina,48,14,6,20,0.42,12,-9,/player/98776/robert-varga,1,Robert Varga,LW,2024-2025,slovakia,98776,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Lapsansky (LW),totals,44,10,10,20,0.45,8,-5,/player/15199/adam-lapsansky,1,Adam Lapsansky,LW,2024-2025,slovakia,15199,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Sukel (RW),HK 32 Liptovsky Mikulas,52,9,11,20,0.38,22,-24,/player/177053/jakub-sukel,1,Jakub Sukel,RW,2024-2025,slovakia,177053,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Bajtek (RW),HK Nitra,45,7,13,20,0.44,100,12,/player/156007/filip-bajtek,1,Filip Bajtek,RW,2024-2025,slovakia,156007,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kaspars Daugavins (RW/C),HK Dukla Michalovce,19,6,14,20,1.05,24,0,/player/11335/kaspars-daugavins,1,Kaspars Daugavins,RW/C,2024-2025,slovakia,11335,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Turan (D),HK Poprad,48,4,16,20,0.42,76,21,/player/388196/oliver-turan,2,Oliver Turan,D,2024-2025,slovakia,388196,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juraj Bezuch (C/LW),totals,40,8,11,19,0.48,8,-1,/player/100459/juraj-bezuch,2,Juraj Bezuch,C/LW,2024-2025,slovakia,100459,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juraj Siska (RW/C),HK Poprad,27,7,12,19,0.70,10,5,/player/152763/juraj-siska,2,Juraj Siska,RW/C,2024-2025,slovakia,152763,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Fominykh (RW),HK Dukla Michalovce,46,6,13,19,0.41,18,1,/player/332213/daniil-fominykh,2,Daniil Fominykh,RW,2024-2025,slovakia,332213,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Michalcin (D),HC Banska Bystrica,54,3,16,19,0.35,22,-1,/player/252416/christian-michalcin,2,Christian Michalcin,D,2024-2025,slovakia,252416,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Ziak (D),HK Spisska Nova Ves,49,6,12,18,0.37,14,5,/player/334889/adam-ziak,2,Adam Ziak,D,2024-2025,slovakia,334889,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Quinn Schmiemann (D),HK Dukla Trencin,37,5,13,18,0.49,94,-4,/player/352013/quinn-schmiemann,2,Quinn Schmiemann,D,2024-2025,slovakia,352013,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Slovák (C),totals,54,5,13,18,0.33,30,-18,/player/15192/marek-slovak,2,Marek Slovák,C,2024-2025,slovakia,15192,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Kolenic (RW),Vlci Zilina,50,9,8,17,0.34,22,6,/player/473352/jakub-kolenic,2,Jakub Kolenic,RW,2024-2025,slovakia,473352,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Krivosik (C/RW),HC Kosice,28,8,9,17,0.61,14,-2,/player/228371/filip-krivosik,2,Filip Krivosik,C/RW,2024-2025,slovakia,228371,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Terry Broadhurst (LW/RW),HK Poprad,35,8,9,17,0.49,10,-10,/player/31612/terry-broadhurst,2,Terry Broadhurst,LW/RW,2024-2025,slovakia,31612,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Soltes (LW/RW),HC Banska Bystrica,41,8,9,17,0.41,8,-4,/player/102975/david-soltes,2,David Soltes,LW/RW,2024-2025,slovakia,102975,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Gilak (RW),HK Poprad,41,8,9,17,0.41,8,10,/player/195816/matej-gilak,2,Matej Gilak,RW,2024-2025,slovakia,195816,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Minárik (C),HC Slovan Bratislava,46,7,10,17,0.37,10,-7,/player/332980/jakub-minarik,2,Jakub Minárik,C,2024-2025,slovakia,332980,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Okolicany (RW),totals,49,7,10,17,0.35,2,6,/player/223454/david-okolicany,2,David Okolicany,RW,2024-2025,slovakia,223454,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Valach (LW/RW),HK Dukla Michalovce,41,6,11,17,0.41,43,-4,/player/235509/marek-valach,2,Marek Valach,LW/RW,2024-2025,slovakia,235509,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Beno (D),HKM Zvolen,48,4,13,17,0.35,20,1,/player/473320/michal-beno,2,Michal Beno,D,2024-2025,slovakia,473320,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Cardwell (D),totals,46,2,15,17,0.37,96,-8,/player/37730/jake-cardwell,2,Jake Cardwell,D,2024-2025,slovakia,37730,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wade Murphy (RW/LW),totals,24,10,6,16,0.67,6,8,/player/48368/wade-murphy,2,Wade Murphy,RW/LW,2024-2025,slovakia,48368,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Sandor (LW),HK 32 Liptovsky Mikulas,44,9,7,16,0.36,10,0,/player/423767/peter-sandor,2,Peter Sandor,LW,2024-2025,slovakia,423767,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Robertson (D),HKM Zvolen,34,4,12,16,0.47,47,7,/player/360914/carter-robertson,2,Carter Robertson,D,2024-2025,slovakia,360914,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Bodak (D),HK Dukla Michalovce,40,4,12,16,0.40,22,-2,/player/275038/martin-bodak,2,Martin Bodak,D,2024-2025,slovakia,275038,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oleksii Myklukha (C),totals,44,3,13,16,0.36,10,6,/player/553480/oleksii-myklukha,2,Oleksii Myklukha,C,2024-2025,slovakia,553480,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Solenský (C/RW),HK Dukla Michalovce,51,8,7,15,0.29,37,-2,/player/191362/samuel-solensky,2,Samuel Solenský,C/RW,2024-2025,slovakia,191362,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Petriska (RW),HC Banska Bystrica,52,8,7,15,0.29,26,-9,/player/473343/jan-petriska,2,Jan Petriska,RW,2024-2025,slovakia,473343,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrej Bires (C/LW),HC Banska Bystrica,40,7,8,15,0.38,24,5,/player/89372/andrej-bires,2,Andrej Bires,C/LW,2024-2025,slovakia,89372,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Sotek (LW/RW),HK Poprad,46,7,8,15,0.33,4,3,/player/485146/alex-sotek,2,Alex Sotek,LW/RW,2024-2025,slovakia,485146,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radovan Pulis (RW/C),HC Slovan Bratislava,38,6,9,15,0.39,6,-1,/player/19367/radovan-pulis,2,Radovan Pulis,RW/C,2024-2025,slovakia,19367,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrej Krajcovic (F),HK Dukla Trencin,53,6,9,15,0.28,6,-3,/player/552395/andrej-krajcovic,2,Andrej Krajcovic,F,2024-2025,slovakia,552395,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Hudec (RW),HK Dukla Trencin,53,6,9,15,0.28,8,-9,/player/97523/denis-hudec,2,Denis Hudec,RW,2024-2025,slovakia,97523,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blake Parlett (D),HC Kosice,50,5,10,15,0.30,73,16,/player/32727/blake-parlett,2,Blake Parlett,D,2024-2025,slovakia,32727,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marko Stacha (D),HK Nitra,32,4,11,15,0.47,55,12,/player/477207/marko-stacha,2,Marko Stacha,D,2024-2025,slovakia,477207,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonas Ahnelöv (D),HC Slovan Bratislava,31,3,12,15,0.48,12,2,/player/3790/jonas-ahnelov,2,Jonas Ahnelöv,D,2024-2025,slovakia,3790,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Auk (D),HK Nitra,35,3,12,15,0.43,37,7,/player/213610/mark-auk,2,Mark Auk,D,2024-2025,slovakia,213610,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reece Scarlett (D),HC Banska Bystrica,51,3,12,15,0.29,57,-1,/player/37209/reece-scarlett,2,Reece Scarlett,D,2024-2025,slovakia,37209,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Dyakov (D),Vlci Zilina,44,1,14,15,0.34,53,3,/player/77147/kirill-dyakov,2,Kirill Dyakov,D,2024-2025,slovakia,77147,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeremy Bracco (LW/RW),totals,11,0,15,15,1.36,0,7,/player/197800/jeremy-bracco,2,Jeremy Bracco,LW/RW,2024-2025,slovakia,197800,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Giorgio Estephan (C),HKM Zvolen,22,7,7,14,0.64,31,0,/player/131304/giorgio-estephan,2,Giorgio Estephan,C,2024-2025,slovakia,131304,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bruno Mraz (C/W),totals,45,6,8,14,0.31,16,-5,/player/58004/bruno-mraz,2,Bruno Mraz,C/W,2024-2025,slovakia,58004,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaedon Descheneau (RW/C),HK Nitra,16,5,9,14,0.88,6,10,/player/64576/jaedon-descheneau,2,Jaedon Descheneau,RW/C,2024-2025,slovakia,64576,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Krajc (RW/LW),HK Dukla Trencin,38,3,11,14,0.37,12,-1,/player/513360/samuel-krajc,2,Samuel Krajc,RW/LW,2024-2025,slovakia,513360,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juraj Valach (D),HK Spisska Nova Ves,46,3,11,14,0.30,34,9,/player/9294/juraj-valach,2,Juraj Valach,D,2024-2025,slovakia,9294,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Bacik (D),HC Slovan Bratislava,52,3,11,14,0.27,73,4,/player/163920/patrik-bacik,2,Patrik Bacik,D,2024-2025,slovakia,163920,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrej Golian (D),HC Slovan Bratislava,42,1,13,14,0.33,53,10,/player/423750/andrej-golian,2,Andrej Golian,D,2024-2025,slovakia,423750,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Lukosik (LW),HC Slovan Bratislava,36,9,4,13,0.36,61,0,/player/513356/adam-lukosik,2,Adam Lukosik,LW,2024-2025,slovakia,513356,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Lamper (LW/RW),HC Kosice,40,8,5,13,0.33,37,2,/player/89373/patrik-lamper,2,Patrik Lamper,LW/RW,2024-2025,slovakia,89373,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Pánik (RW/LW),HC Slovan Bratislava,18,6,7,13,0.72,12,-2,/player/11849/richard-panik,2,Richard Pánik,RW/LW,2024-2025,slovakia,11849,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Romanak (D),HK Spisska Nova Ves,52,6,7,13,0.25,26,10,/player/423666/david-romanak,2,David Romanak,D,2024-2025,slovakia,423666,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Ondrusek (D/F),HC Nove Zamky,53,6,7,13,0.25,6,-28,/player/230743/richard-ondrusek,2,Richard Ondrusek,D/F,2024-2025,slovakia,230743,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Camara (LW/C),HK Nitra,16,5,8,13,0.81,65,0,/player/45561/anthony-camara,2,Anthony Camara,LW/C,2024-2025,slovakia,45561,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Vasas (RW),HK Dukla Michalovce,40,5,8,13,0.33,16,2,/player/249543/filip-vasas,2,Filip Vasas,RW,2024-2025,slovakia,249543,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Rogon (RW),HC Kosice,45,5,8,13,0.29,18,5,/player/196244/patrik-rogon,2,Patrik Rogon,RW,2024-2025,slovakia,196244,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matus Havrila (C),HC Kosice,48,4,9,13,0.27,28,8,/player/313739/matus-havrila,2,Matus Havrila,C,2024-2025,slovakia,313739,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mislav Rosandic (D),HC Kosice,37,3,10,13,0.35,22,13,/player/106384/mislav-rosandic,2,Mislav Rosandic,D,2024-2025,slovakia,106384,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Repcik (C/W),HC Kosice,42,3,10,13,0.31,39,0,/player/642637/peter-repcik,2,Peter Repcik,C/W,2024-2025,slovakia,642637,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shawn Lalonde (D),HC Nove Zamky,30,1,12,13,0.43,103,-11,/player/11246/shawn-lalonde,2,Shawn Lalonde,D,2024-2025,slovakia,11246,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matus Vojtech (RW),HK 32 Liptovsky Mikulas,39,7,5,12,0.31,4,-2,/player/729672/matus-vojtech,2,Matus Vojtech,RW,2024-2025,slovakia,729672,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hugo Kovac (RW),totals,43,7,5,12,0.28,26,-6,/player/473430/hugo-kovac,2,Hugo Kovac,RW,2024-2025,slovakia,473430,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Dzugan (LW/C),HK Spisska Nova Ves,48,7,5,12,0.25,30,-8,/player/335793/robert-dzugan,2,Robert Dzugan,LW/C,2024-2025,slovakia,335793,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Sheehy (C),HKM Zvolen,19,6,6,12,0.63,8,4,/player/118549/tyler-sheehy,2,Tyler Sheehy,C,2024-2025,slovakia,118549,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Drábek (RW),HK Spisska Nova Ves,46,3,9,12,0.26,28,-4,/player/292692/michael-drabek,2,Michael Drábek,RW,2024-2025,slovakia,292692,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Vitalos (D),HK Nitra,52,2,10,12,0.23,24,33,/player/388174/martin-vitalos,2,Martin Vitalos,D,2024-2025,slovakia,388174,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Green (D),HK Nitra,27,1,11,12,0.44,8,-2,/player/195389/luke-green,2,Luke Green,D,2024-2025,slovakia,195389,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Stevuliak (LW),HK Spisska Nova Ves,36,5,6,11,0.31,55,-4,/player/177033/patrik-stevuliak,2,Patrik Stevuliak,LW,2024-2025,slovakia,177033,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Viedensky (C),HKM Zvolen,20,2,9,11,0.55,8,-2,/player/17752/marek-viedensky,2,Marek Viedensky,C,2024-2025,slovakia,17752,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Gachulinec (D),Vlci Zilina,50,1,10,11,0.22,18,7,/player/157656/daniel-gachulinec,2,Daniel Gachulinec,D,2024-2025,slovakia,157656,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Vandas (RW),HK Spisska Nova Ves,45,6,4,10,0.22,79,-8,/player/34757/michael-vandas,2,Michael Vandas,RW,2024-2025,slovakia,34757,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominik Jendek (C/RW),totals,52,6,4,10,0.19,16,-16,/player/473321/dominik-jendek,2,Dominik Jendek,C/RW,2024-2025,slovakia,473321,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Kabac (LW/C),HK Dukla Michalovce,54,6,4,10,0.19,98,-11,/player/177051/michal-kabac,2,Michal Kabac,LW/C,2024-2025,slovakia,177051,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stephen Harper (LW/C/D),HK Spisska Nova Ves,14,5,5,10,0.71,4,4,/player/117022/stephen-harper,2,Stephen Harper,LW/C/D,2024-2025,slovakia,117022,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Turnbull (RW/C),HC Banska Bystrica,14,4,6,10,0.71,0,2,/player/247050/carter-turnbull,2,Carter Turnbull,RW/C,2024-2025,slovakia,247050,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Sramaty (C/W),HKM Zvolen,22,4,6,10,0.45,4,5,/player/557446/marek-sramaty,2,Marek Sramaty,C/W,2024-2025,slovakia,557446,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rastislav Dej (LW/C),Vlci Zilina,38,4,6,10,0.26,6,7,/player/22643/rastislav-dej,2,Rastislav Dej,LW/C,2024-2025,slovakia,22643,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Sencak (C/W),HKM Zvolen,41,4,6,10,0.24,8,11,/player/709737/david-sencak,2,David Sencak,C/W,2024-2025,slovakia,709737,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Branislav Ligas (D),totals,36,3,7,10,0.28,8,-24,/player/336530/branislav-ligas,2,Branislav Ligas,D,2024-2025,slovakia,336530,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Groch (D),HK Spisska Nova Ves,47,3,7,10,0.21,47,-4,/player/542962/simon-groch,2,Simon Groch,D,2024-2025,slovakia,542962,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Starosta (D),HK Dukla Trencin,51,3,7,10,0.20,16,-2,/player/12451/tomas-starosta,2,Tomas Starosta,D,2024-2025,slovakia,12451,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Coskey (RW),HK Poprad,12,2,8,10,0.83,4,-3,/player/284005/cole-coskey,2,Cole Coskey,RW,2024-2025,slovakia,284005,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kristofers Bindulis (D),HKM Zvolen,49,2,8,10,0.20,18,16,/player/137502/kristofers-bindulis,2,Kristofers Bindulis,D,2024-2025,slovakia,137502,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Varga (RW),HK Dukla Michalovce,19,6,3,9,0.47,29,9,/player/295858/adam-varga,2,Adam Varga,RW,2024-2025,slovakia,295858,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Orrin Centazzo (LW),HK Poprad,16,5,4,9,0.56,6,-7,/player/282351/orrin-centazzo,2,Orrin Centazzo,LW,2024-2025,slovakia,282351,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Barcik (D),HK Spisska Nova Ves,40,4,5,9,0.23,10,0,/player/653084/samuel-barcik,2,Samuel Barcik,D,2024-2025,slovakia,653084,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nerijus Alisauskas (D),HK Spisska Nova Ves,51,4,5,9,0.18,39,-1,/player/49559/nerijus-alisauskas,2,Nerijus Alisauskas,D,2024-2025,slovakia,49559,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Thomas (D),HK Poprad,28,3,6,9,0.32,10,10,/player/62287/ben-thomas,2,Ben Thomas,D,2024-2025,slovakia,62287,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Fekiac (C),HKM Zvolen,28,3,6,9,0.32,47,0,/player/95708/viktor-fekiac,2,Viktor Fekiac,C,2024-2025,slovakia,95708,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Chrenko (C),HK Nitra,26,2,7,9,0.35,8,6,/player/752381/tomas-chrenko,2,Tomas Chrenko,C,2024-2025,slovakia,752381,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Boris Cesanek (D),HC Banska Bystrica,45,1,8,9,0.20,81,10,/player/473392/boris-cesanek,2,Boris Cesanek,D,2024-2025,slovakia,473392,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Ferenc (D),HC Kosice,47,1,8,9,0.19,28,15,/player/163271/jakub-ferenc,2,Jakub Ferenc,D,2024-2025,slovakia,163271,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Branislav Kubka (D),HC Slovan Bratislava,47,0,9,9,0.19,30,13,/player/56384/branislav-kubka,2,Branislav Kubka,D,2024-2025,slovakia,56384,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tobias Tomik (C/RW),HK Dukla Trencin,40,6,2,8,0.20,10,0,/player/873403/tobias-tomik,2,Tobias Tomik,C/RW,2024-2025,slovakia,873403,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dalibor Bortnak (C),totals,47,6,2,8,0.17,18,-5,/player/19356/dalibor-bortnak,2,Dalibor Bortnak,C,2024-2025,slovakia,19356,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Kundrik (LW/C),HK Poprad,45,4,4,8,0.18,4,4,/player/275002/peter-kundrik,2,Peter Kundrik,LW/C,2024-2025,slovakia,275002,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matus Hlavac (D),HK Dukla Trencin,50,4,4,8,0.16,43,-7,/player/423710/matus-hlavac,2,Matus Hlavac,D,2024-2025,slovakia,423710,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kalle Maalahti (D),HC Nove Zamky,24,3,5,8,0.33,10,-5,/player/40704/kalle-maalahti,2,Kalle Maalahti,D,2024-2025,slovakia,40704,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arturs Kulda (D),HK Dukla Michalovce,35,3,5,8,0.23,55,7,/player/11357/arturs-kulda,2,Arturs Kulda,D,2024-2025,slovakia,11357,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Melisko (D),HK Dukla Michalovce,44,3,5,8,0.18,10,11,/player/168650/jakub-melisko,2,Jakub Melisko,D,2024-2025,slovakia,168650,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrej Hatala (D),HK Dukla Trencin,50,3,5,8,0.16,10,12,/player/158000/andrej-hatala,2,Andrej Hatala,D,2024-2025,slovakia,158000,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Branislav Mezei (D),HK Nitra,53,3,5,8,0.15,55,16,/player/8653/branislav-mezei,2,Branislav Mezei,D,2024-2025,slovakia,8653,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Stransky (D),totals,36,2,6,8,0.22,12,-4,/player/179173/david-stransky,2,David Stransky,D,2024-2025,slovakia,179173,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Vankus (C),HK 32 Liptovsky Mikulas,52,2,6,8,0.15,53,-8,/player/269668/marek-vankus,2,Marek Vankus,C,2024-2025,slovakia,269668,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Brejcak (D),totals,45,0,8,8,0.18,20,6,/player/41793/daniel-brejcak,3,Daniel Brejcak,D,2024-2025,slovakia,41793,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Misiak (F),HKM Zvolen,26,5,2,7,0.27,6,1,/player/619031/alex-misiak,3,Alex Misiak,F,2024-2025,slovakia,619031,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Smida (C),Vlci Zilina,33,4,3,7,0.21,2,2,/player/214935/sebastian-smida,3,Sebastian Smida,C,2024-2025,slovakia,214935,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Uhrík (LW/C),HK 32 Liptovsky Mikulas,43,4,3,7,0.16,40,-16,/player/58003/michal-uhrik,3,Michal Uhrík,LW/C,2024-2025,slovakia,58003,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Bercik (F),totals,17,3,4,7,0.41,6,-9,/player/873960/ivan-bercik,3,Ivan Bercik,F,2024-2025,slovakia,873960,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Nemec (F),HK Nitra,20,3,4,7,0.35,31,6,/player/752383/adam-nemec,3,Adam Nemec,F,2024-2025,slovakia,752383,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Roman (D),HC Nove Zamky,44,3,4,7,0.16,6,-20,/player/216167/michal-roman,3,Michal Roman,D,2024-2025,slovakia,216167,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Betak (RW/LW),Vlci Zilina,30,2,5,7,0.23,35,3,/player/95416/simon-betak,3,Simon Betak,RW/LW,2024-2025,slovakia,95416,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markuss Komuls (D),HC Nove Zamky,35,2,5,7,0.20,20,-8,/player/217795/markuss-komuls,3,Markuss Komuls,D,2024-2025,slovakia,217795,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Hrasko (D),HK 32 Liptovsky Mikulas,44,2,5,7,0.16,20,-13,/player/34745/peter-hrasko,3,Peter Hrasko,D,2024-2025,slovakia,34745,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Hudec (D),totals,47,2,5,7,0.15,43,2,/player/157998/marek-hudec,3,Marek Hudec,D,2024-2025,slovakia,157998,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Kralovic (D),HC Slovan Bratislava,46,1,6,7,0.15,37,-5,/player/731595/tomas-kralovic,3,Tomas Kralovic,D,2024-2025,slovakia,731595,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Baca (D),HK Nitra,48,1,6,7,0.15,51,-7,/player/177047/matej-baca,3,Matej Baca,D,2024-2025,slovakia,177047,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jozef Sládok (D),HKM Zvolen,50,1,6,7,0.14,40,-8,/player/15391/jozef-sladok,3,Jozef Sládok,D,2024-2025,slovakia,15391,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Výhonský (RW/C),HC Banska Bystrica,24,3,3,6,0.25,4,2,/player/195813/alex-vyhonsky,3,Alex Výhonský,RW/C,2024-2025,slovakia,195813,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dávid Kohút (C),HC Kosice,34,3,3,6,0.18,72,-4,/player/223845/david-kohut,3,Dávid Kohút,C,2024-2025,slovakia,223845,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miroslav Preisinger (C),HC Slovan Bratislava,44,3,3,6,0.14,43,-12,/player/19361/miroslav-preisinger,3,Miroslav Preisinger,C,2024-2025,slovakia,19361,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Golod (C),HC Nove Zamky,14,2,4,6,0.43,10,-10,/player/418614/maxim-golod,3,Maxim Golod,C,2024-2025,slovakia,418614,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Tvrdon (LW/RW),HC Nove Zamky,15,2,4,6,0.40,4,-7,/player/34760/marek-tvrdon,3,Marek Tvrdon,LW/RW,2024-2025,slovakia,34760,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Kozak (D),HC Banska Bystrica,41,2,4,6,0.15,12,8,/player/34743/lukas-kozak,3,Lukas Kozak,D,2024-2025,slovakia,34743,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Boris Zabka (D),HC Banska Bystrica,53,2,4,6,0.11,36,1,/player/579277/boris-zabka,3,Boris Zabka,D,2024-2025,slovakia,579277,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matus Lisy (D),HK Nitra,27,1,5,6,0.22,0,7,/player/806018/matus-lisy,3,Matus Lisy,D,2024-2025,slovakia,806018,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frederik Fekiac (D),HK 32 Liptovsky Mikulas,36,1,5,6,0.17,10,-7,/player/201647/frederik-fekiac,3,Frederik Fekiac,D,2024-2025,slovakia,201647,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Mezovský (D),HK 32 Liptovsky Mikulas,53,1,5,6,0.11,33,-13,/player/102446/filip-mezovsky,3,Filip Mezovský,D,2024-2025,slovakia,102446,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Korencik (D),Vlci Zilina,20,0,6,6,0.30,12,1,/player/275731/marek-korencik,3,Marek Korencik,D,2024-2025,slovakia,275731,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Karaffa (D/F),totals,35,0,6,6,0.17,14,-3,/player/275041/roman-karaffa,3,Roman Karaffa,D/F,2024-2025,slovakia,275041,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matus Holenda (D),Vlci Zilina,44,0,6,6,0.14,24,0,/player/153194/matus-holenda,3,Matus Holenda,D,2024-2025,slovakia,153194,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eduard Simun (C),HC Kosice,27,4,1,5,0.19,2,-3,/player/151739/eduard-simun,3,Eduard Simun,C,2024-2025,slovakia,151739,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teemu Pulkkinen (RW),HK Poprad,16,3,2,5,0.31,14,-10,/player/16036/teemu-pulkkinen,3,Teemu Pulkkinen,RW,2024-2025,slovakia,16036,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karol Csányi (LW),HK Nitra,33,3,2,5,0.15,12,-4,/player/57939/karol-csanyi,3,Karol Csányi,LW,2024-2025,slovakia,57939,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Lalik (D),HK 32 Liptovsky Mikulas,35,3,2,5,0.14,6,-2,/player/473349/lukas-lalik,3,Lukas Lalik,D,2024-2025,slovakia,473349,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Matousek (LW),HC Banska Bystrica,41,3,2,5,0.12,33,-10,/player/66012/tomas-matousek,3,Tomas Matousek,LW,2024-2025,slovakia,66012,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Zaborsky (LW/C),HK Dukla Trencin,8,2,3,5,0.63,2,0,/player/10610/tomas-zaborsky,3,Tomas Zaborsky,LW/C,2024-2025,slovakia,10610,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicolas Guay (RW),HC Nove Zamky,11,2,3,5,0.45,31,-2,/player/284917/nicolas-guay,3,Nicolas Guay,RW,2024-2025,slovakia,284917,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Mlynarovic (RW),HK Poprad,41,2,3,5,0.12,8,1,/player/17734/samuel-mlynarovic,3,Samuel Mlynarovic,RW,2024-2025,slovakia,17734,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Gabriel (C),HK Dukla Michalovce,34,1,4,5,0.15,0,-2,/player/527417/patrik-gabriel,3,Patrik Gabriel,C,2024-2025,slovakia,527417,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eduard Sedivy (D),HC Kosice,36,1,4,5,0.14,24,0,/player/48066/eduard-sedivy,3,Eduard Sedivy,D,2024-2025,slovakia,48066,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Pobezal (D),Vlci Zilina,40,1,4,5,0.13,12,-3,/player/561860/jakub-pobezal,3,Jakub Pobezal,D,2024-2025,slovakia,561860,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Laurencik (D),HK Dukla Trencin,51,1,4,5,0.10,16,0,/player/479340/michal-laurencik,3,Michal Laurencik,D,2024-2025,slovakia,479340,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Clayton Kirichenko (D),totals,32,0,5,5,0.16,12,-10,/player/84112/clayton-kirichenko,3,Clayton Kirichenko,D,2024-2025,slovakia,84112,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vojtech Zelenak (D),HC Banska Bystrica,33,0,5,5,0.15,16,5,/player/252412/vojtech-zelenak,3,Vojtech Zelenak,D,2024-2025,slovakia,252412,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Brejcak (D),HK Dukla Michalovce,37,0,5,5,0.14,63,6,/player/28089/jan-brejcak,3,Jan Brejcak,D,2024-2025,slovakia,28089,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radek Deyl (D),HC Kosice,43,0,5,5,0.12,53,8,/player/28087/radek-deyl,3,Radek Deyl,D,2024-2025,slovakia,28087,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Dudas (LW),HC Slovan Bratislava,46,4,0,4,0.09,2,-12,/player/537894/tomas-dudas,3,Tomas Dudas,LW,2024-2025,slovakia,537894,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Kalis (C),HK Dukla Trencin,23,3,1,4,0.17,0,1,/player/690462/martin-kalis,3,Martin Kalis,C,2024-2025,slovakia,690462,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Zitny (RW/LW),totals,34,3,1,4,0.12,6,-19,/player/223456/roman-zitny,3,Roman Zitny,RW/LW,2024-2025,slovakia,223456,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brayden Tracey (LW/C),HC Slovan Bratislava,7,2,2,4,0.57,2,-1,/player/351169/brayden-tracey,3,Brayden Tracey,LW/C,2024-2025,slovakia,351169,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Ducharme (RW/LW),HC Nove Zamky,13,2,2,4,0.31,10,-6,/player/241385/justin-ducharme,3,Justin Ducharme,RW/LW,2024-2025,slovakia,241385,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dillon Hamaliuk (C/LW),HC Nove Zamky,15,2,2,4,0.27,24,-5,/player/281939/dillon-hamaliuk,3,Dillon Hamaliuk,C/LW,2024-2025,slovakia,281939,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Handlovsky (RW/LW),HC Nove Zamky,16,2,2,4,0.25,4,-9,/player/21685/lukas-handlovsky,3,Lukas Handlovsky,RW/LW,2024-2025,slovakia,21685,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Buc (C/LW),HK Dukla Michalovce,21,2,2,4,0.19,2,-4,/player/10606/david-buc,3,David Buc,C/LW,2024-2025,slovakia,10606,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Kodhaj (F),HC Nove Zamky,31,2,2,4,0.13,8,-12,/player/618988/david-kodhaj,3,David Kodhaj,F,2024-2025,slovakia,618988,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Jasecko (D),totals,22,1,3,4,0.18,14,-9,/player/559572/sebastian-jasecko,3,Sebastian Jasecko,D,2024-2025,slovakia,559572,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Nespala (RW),totals,34,1,3,4,0.12,39,-3,/player/388202/jakub-nespala,3,Jakub Nespala,RW,2024-2025,slovakia,388202,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jimmy Oligny (D),HKM Zvolen,14,0,4,4,0.29,4,-4,/player/45244/jimmy-oligny,3,Jimmy Oligny,D,2024-2025,slovakia,45244,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Kalousek (C),HC Banska Bystrica,22,0,4,4,0.18,6,3,/player/337348/simon-kalousek,3,Simon Kalousek,C,2024-2025,slovakia,337348,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lubomir Malina (D),totals,29,0,4,4,0.14,6,-5,/player/57949/lubomir-malina,3,Lubomir Malina,D,2024-2025,slovakia,57949,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Maier (D),HC Slovan Bratislava,48,0,4,4,0.08,76,0,/player/166425/patrik-maier,3,Patrik Maier,D,2024-2025,slovakia,166425,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miroslav Macejko (D),HK Dukla Trencin,53,0,4,4,0.08,20,-4,/player/70395/miroslav-macejko,3,Miroslav Macejko,D,2024-2025,slovakia,70395,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Juscak (C),Vlci Zilina,25,3,0,3,0.12,4,3,/player/270588/michal-juscak,3,Michal Juscak,C,2024-2025,slovakia,270588,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Taylor (D),HK 32 Liptovsky Mikulas,6,2,1,3,0.50,6,-5,/player/299296/zach-taylor,3,Zach Taylor,D,2024-2025,slovakia,299296,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Bartánus (RW/LW),HC Kosice,16,2,1,3,0.19,4,1,/player/10608/marek-bartanus,3,Marek Bartánus,RW/LW,2024-2025,slovakia,10608,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Jasenec (RW),HC Banska Bystrica,5,1,2,3,0.60,4,5,/player/530662/michal-jasenec,3,Michal Jasenec,RW,2024-2025,slovakia,530662,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ross MacDougall (D),HK Dukla Trencin,6,1,2,3,0.50,2,3,/player/296145/ross-macdougall,3,Ross MacDougall,D,2024-2025,slovakia,296145,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cliff Pu (RW/C),HK Dukla Michalovce,7,1,2,3,0.43,2,2,/player/245616/cliff-pu,3,Cliff Pu,RW/C,2024-2025,slovakia,245616,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vadim Pereskokov (C/LW),totals,12,1,2,3,0.25,4,-5,/player/106668/vadim-pereskokov,3,Vadim Pereskokov,C/LW,2024-2025,slovakia,106668,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Dubravik (LW/RW),Vlci Zilina,19,1,2,3,0.16,0,2,/player/806082/jakub-dubravik,3,Jakub Dubravik,LW/RW,2024-2025,slovakia,806082,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Murin (F),totals,27,1,2,3,0.11,0,1,/player/909231/samuel-murin,3,Samuel Murin,F,2024-2025,slovakia,909231,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Hain (D),HK Nitra,31,1,2,3,0.10,29,3,/player/229186/samuel-hain,3,Samuel Hain,D,2024-2025,slovakia,229186,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Baco (RW),totals,39,1,2,3,0.08,55,-10,/player/553948/robert-baco,3,Robert Baco,RW,2024-2025,slovakia,553948,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karl Boudrias (D),HC Nove Zamky,5,0,3,3,0.60,18,-3,/player/382192/karl-boudrias,3,Karl Boudrias,D,2024-2025,slovakia,382192,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Alger (F),HK Nitra,7,0,3,3,0.43,2,0,/player/248427/austin-alger,3,Austin Alger,F,2024-2025,slovakia,248427,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Suty (RW/LW),HK Spisska Nova Ves,12,0,3,3,0.25,0,-1,/player/653115/martin-suty,3,Martin Suty,RW/LW,2024-2025,slovakia,653115,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Stransky (C),totals,18,0,3,3,0.17,4,0,/player/552391/adam-stransky,3,Adam Stransky,C,2024-2025,slovakia,552391,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Lunter (LW/RW),HKM Zvolen,26,0,3,3,0.12,2,-8,/player/274252/lukas-lunter,3,Lukas Lunter,LW/RW,2024-2025,slovakia,274252,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Sersen (D),HC Slovan Bratislava,28,0,3,3,0.11,6,3,/player/23857/michal-sersen,3,Michal Sersen,D,2024-2025,slovakia,23857,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Bellus (D/F),Vlci Zilina,28,0,3,3,0.11,39,2,/player/95000/martin-bellus,3,Martin Bellus,D/F,2024-2025,slovakia,95000,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Hazala (W/C),HC Nove Zamky,10,2,0,2,0.20,2,-5,/player/870860/richard-hazala,3,Richard Hazala,W/C,2024-2025,slovakia,870860,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Bucko (D),HC Banska Bystrica,20,2,0,2,0.10,8,-2,/player/275257/martin-bucko,3,Martin Bucko,D,2024-2025,slovakia,275257,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Passolt (F),HK Nitra,5,1,1,2,0.40,0,-2,/player/346691/josh-passolt,3,Josh Passolt,F,2024-2025,slovakia,346691,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samson Mahbod (RW/C),HK Dukla Michalovce,5,1,1,2,0.40,4,0,/player/23124/samson-mahbod,3,Samson Mahbod,RW/C,2024-2025,slovakia,23124,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas Strauch (LW/RW),totals,6,1,1,2,0.33,0,0,/player/99208/andreas-strauch,3,Andreas Strauch,LW/RW,2024-2025,slovakia,99208,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Chlan (C),HK Spisska Nova Ves,6,1,1,2,0.33,4,-3,/player/273827/petr-chlan,3,Petr Chlan,C,2024-2025,slovakia,273827,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gianni Fairbrother (D),HKM Zvolen,16,1,1,2,0.13,20,-1,/player/350216/gianni-fairbrother,3,Gianni Fairbrother,D,2024-2025,slovakia,350216,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Capos (D),HC Nove Zamky,19,1,1,2,0.11,4,-24,/player/690458/michal-capos,3,Michal Capos,D,2024-2025,slovakia,690458,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Haluska (LW),totals,24,1,1,2,0.08,2,-10,/player/388217/adam-haluska,3,Adam Haluska,LW,2024-2025,slovakia,388217,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Zigo (LW),HC Kosice,25,1,1,2,0.08,41,1,/player/70401/tomas-zigo,3,Tomas Zigo,LW,2024-2025,slovakia,70401,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adrian Valigura (LW/RW),HC Banska Bystrica,26,1,1,2,0.08,4,0,/player/473389/adrian-valigura,3,Adrian Valigura,LW/RW,2024-2025,slovakia,473389,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Cajkovic (D),totals,28,1,1,2,0.07,42,-21,/player/654036/alex-cajkovic,3,Alex Cajkovic,D,2024-2025,slovakia,654036,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Gron (F),totals,31,1,1,2,0.06,2,-10,/player/732031/stanislav-gron,3,Stanislav Gron,F,2024-2025,slovakia,732031,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Chatrnuch (D),totals,31,1,1,2,0.06,10,-9,/player/341456/michal-chatrnuch,3,Michal Chatrnuch,D,2024-2025,slovakia,341456,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Fatul (D),HK Nitra,7,0,2,2,0.29,8,2,/player/292071/oliver-fatul,3,Oliver Fatul,D,2024-2025,slovakia,292071,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Frankovic (F),totals,12,0,2,2,0.17,0,-9,/player/744171/michal-frankovic,3,Michal Frankovic,F,2024-2025,slovakia,744171,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Petrík (W),HC Nove Zamky,12,0,2,2,0.17,4,-16,/player/656191/viktor-petrik,3,Viktor Petrík,W,2024-2025,slovakia,656191,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marko Hrenak (D),HK Dukla Trencin,15,0,2,2,0.13,2,1,/player/734836/marko-hrenak,3,Marko Hrenak,D,2024-2025,slovakia,734836,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Kalman (D),HK Nitra,15,0,2,2,0.13,4,-2,/player/752380/adam-kalman,3,Adam Kalman,D,2024-2025,slovakia,752380,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frantisek Dej (C),HK Dukla Trencin,15,0,2,2,0.13,18,-4,/player/640612/frantisek-dej,3,Frantisek Dej,C,2024-2025,slovakia,640612,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Novajovsky (D),HC Nove Zamky,19,0,2,2,0.11,6,-5,/player/15191/peter-novajovsky,3,Peter Novajovsky,D,2024-2025,slovakia,15191,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ladislav Romancik (D),totals,21,0,2,2,0.10,16,1,/player/177062/ladislav-romancik,3,Ladislav Romancik,D,2024-2025,slovakia,177062,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Boris Brincko (D),HC Slovan Bratislava,27,0,2,2,0.07,6,2,/player/334892/boris-brincko,3,Boris Brincko,D,2024-2025,slovakia,334892,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Milan Pisoja (D),totals,34,0,2,2,0.06,12,-1,/player/653042/milan-pisoja,4,Milan Pisoja,D,2024-2025,slovakia,653042,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Ruzek (LW),HC Nove Zamky,36,0,2,2,0.06,8,-14,/player/527427/jakub-ruzek,4,Jakub Ruzek,LW,2024-2025,slovakia,527427,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Kukumberg (LW/RW),HC Slovan Bratislava,45,0,2,2,0.04,0,-6,/player/640609/roman-kukumberg,4,Roman Kukumberg,LW/RW,2024-2025,slovakia,640609,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Sluka (D),HK Poprad,48,0,2,2,0.04,2,3,/player/618987/martin-sluka,4,Martin Sluka,D,2024-2025,slovakia,618987,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Gonda (F),HK Spisska Nova Ves,2,1,0,1,0.50,0,0,/player/653118/peter-gonda,4,Peter Gonda,F,2024-2025,slovakia,653118,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexei Dakhnovsky (D),HC Kosice,3,1,0,1,0.33,2,1,/player/730680/alexei-dakhnovsky,4,Alexei Dakhnovsky,D,2024-2025,slovakia,730680,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timotej Sille (C/W),HC Slovan Bratislava,5,1,0,1,0.20,4,0,/player/155114/timotej-sille,4,Timotej Sille,C/W,2024-2025,slovakia,155114,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Bartos (LW/RW),HC Kosice,6,1,0,1,0.17,0,1,/player/605083/jan-bartos,4,Jan Bartos,LW/RW,2024-2025,slovakia,605083,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Robert Bily (D),HK 32 Liptovsky Mikulas,6,1,0,1,0.17,0,-4,/player/744098/alex-robert-bily,4,Alex Robert Bily,D,2024-2025,slovakia,744098,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Jakúbek (RW/LW),totals,7,1,0,1,0.14,2,-1,/player/48286/martin-jakubek,4,Martin Jakúbek,RW/LW,2024-2025,slovakia,48286,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kristof Molnar (RW),HC Nove Zamky,7,1,0,1,0.14,2,-16,/player/744081/kristof-molnar,4,Kristof Molnar,RW,2024-2025,slovakia,744081,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Hamracek (RW),HK Dukla Michalovce,8,1,0,1,0.13,2,0,/player/173173/lukas-hamracek,4,Lukas Hamracek,RW,2024-2025,slovakia,173173,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksei Liniaev (F),HC Nove Zamky,11,1,0,1,0.09,0,-11,/player/712928/aleksei-liniaev,4,Aleksei Liniaev,F,2024-2025,slovakia,712928,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joseph Nardi (C/LW),HK Dukla Michalovce,11,1,0,1,0.09,6,-8,/player/108431/joseph-nardi,4,Joseph Nardi,C/LW,2024-2025,slovakia,108431,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Zilka (LW),HK 32 Liptovsky Mikulas,12,1,0,1,0.08,8,-2,/player/152272/jakub-zilka,4,Jakub Zilka,LW,2024-2025,slovakia,152272,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Skvarek (C/W),totals,13,1,0,1,0.08,0,-1,/player/386970/lukas-skvarek,4,Lukas Skvarek,C/W,2024-2025,slovakia,386970,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Linet (C/LW),HC Nove Zamky,13,1,0,1,0.08,4,-9,/player/83647/jakub-linet,4,Jakub Linet,C/LW,2024-2025,slovakia,83647,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Sojcik (C/RW),HK Dukla Trencin,17,1,0,1,0.06,2,-9,/player/35669/peter-sojcik,4,Peter Sojcik,C/RW,2024-2025,slovakia,35669,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavol Stetka (C),HC Slovan Bratislava,25,1,0,1,0.04,8,-4,/player/561976/pavol-stetka,4,Pavol Stetka,C,2024-2025,slovakia,561976,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Róbert Fedor (F),HK Dukla Michalovce,26,1,0,1,0.04,0,-2,/player/731910/robert-fedor,4,Róbert Fedor,F,2024-2025,slovakia,731910,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Vrabel (C/LW),HC Kosice,1,0,1,1,1.00,0,1,/player/223462/filip-vrabel,4,Filip Vrabel,C/LW,2024-2025,slovakia,223462,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Barilla (F),HK Spisska Nova Ves,2,0,1,1,0.50,0,0,/player/731650/david-barilla,4,David Barilla,F,2024-2025,slovakia,731650,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Novogursky (F),HK Spisska Nova Ves,2,0,1,1,0.50,0,0,/player/744164/denis-novogursky,4,Denis Novogursky,F,2024-2025,slovakia,744164,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Droppa (D),HK 32 Liptovsky Mikulas,2,0,1,1,0.50,0,-3,/player/657477/samuel-droppa,4,Samuel Droppa,D,2024-2025,slovakia,657477,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jerry D'Amigo (RW/LW),HK 32 Liptovsky Mikulas,3,0,1,1,0.33,0,3,/player/31274/jerry-d-amigo,4,Jerry D'Amigo,RW/LW,2024-2025,slovakia,31274,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Kvietok (LW),HC Kosice,4,0,1,1,0.25,0,1,/player/873581/jakub-kvietok,4,Jakub Kvietok,LW,2024-2025,slovakia,873581,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luka Burzan (C/W),HK Dukla Trencin,5,0,1,1,0.20,0,-4,/player/258430/luka-burzan,4,Luka Burzan,C/W,2024-2025,slovakia,258430,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tobias Faith (C/W),HK 32 Liptovsky Mikulas,6,0,1,1,0.17,0,0,/player/725442/tobias-faith,4,Tobias Faith,C/W,2024-2025,slovakia,725442,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Keefer (RW),HKM Zvolen,6,0,1,1,0.17,2,-1,/player/234387/david-keefer,4,David Keefer,RW,2024-2025,slovakia,234387,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Kremnicky (D),HC Nove Zamky,7,0,1,1,0.14,0,-3,/player/537889/adam-kremnicky,4,Adam Kremnicky,D,2024-2025,slovakia,537889,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Kowalczyk (D),HC Nove Zamky,8,0,1,1,0.13,0,-5,/player/273121/daniel-kowalczyk,4,Daniel Kowalczyk,D,2024-2025,slovakia,273121,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kristian Kriska (LW/RW/C),HK 32 Liptovsky Mikulas,8,0,1,1,0.13,0,-2,/player/874252/kristian-kriska,4,Kristian Kriska,LW/RW/C,2024-2025,slovakia,874252,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominik Ventus (D),HC Nove Zamky,8,0,1,1,0.13,8,-13,/player/318812/dominik-ventus,4,Dominik Ventus,D,2024-2025,slovakia,318812,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juraj Jonas Durco (LW),HK Dukla Trencin,9,0,1,1,0.11,4,-2,/player/873405/juraj-jonas-durco,4,Juraj Jonas Durco,LW,2024-2025,slovakia,873405,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frantisek Ridzon (RW/LW),HC Nove Zamky,12,0,1,1,0.08,0,-7,/player/595305/frantisek-ridzon,4,Frantisek Ridzon,RW/LW,2024-2025,slovakia,595305,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Becar (D),HK Dukla Trencin,17,0,1,1,0.06,27,-3,/player/561815/simon-becar,4,Simon Becar,D,2024-2025,slovakia,561815,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Semanak (D),HC Nove Zamky,18,0,1,1,0.06,10,-9,/player/484685/martin-semanak,4,Martin Semanak,D,2024-2025,slovakia,484685,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Barcik (LW),totals,24,0,1,1,0.04,4,-7,/player/657449/adam-barcik,4,Adam Barcik,LW,2024-2025,slovakia,657449,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antonin Bartos (D),HC Kosice,25,0,1,1,0.04,6,1,/player/561832/antonin-bartos,4,Antonin Bartos,D,2024-2025,slovakia,561832,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Rajnoha (D),Vlci Zilina,30,0,1,1,0.03,31,1,/player/274978/erik-rajnoha,4,Erik Rajnoha,D,2024-2025,slovakia,274978,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Kobolka (D),HKM Zvolen,32,0,1,1,0.03,4,1,/player/342972/adam-kobolka,4,Adam Kobolka,D,2024-2025,slovakia,342972,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Tomka (F),HC Banska Bystrica,39,0,1,1,0.03,4,7,/player/811993/lukas-tomka,4,Lukas Tomka,F,2024-2025,slovakia,811993,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Fereta (D),HK Poprad,42,0,1,1,0.02,24,-4,/player/271527/samuel-fereta,4,Samuel Fereta,D,2024-2025,slovakia,271527,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Danielcak (LW),HK Spisska Nova Ves,49,0,1,1,0.02,10,-10,/player/561719/tim-danielcak,4,Tim Danielcak,LW,2024-2025,slovakia,561719,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rastislav Gaspar (RW),HC Banska Bystrica,0,0,0,0,-,0,-,/player/122242/rastislav-gaspar,4,Rastislav Gaspar,RW,2024-2025,slovakia,122242,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Mrázik (RW/C),HK Poprad,0,0,0,0,-,0,-,/player/388216/michal-mrazik,4,Michal Mrázik,RW/C,2024-2025,slovakia,388216,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Beaulieu (D),HC Nove Zamky,0,0,0,0,-,-,-,/player/37422/nathan-beaulieu,4,Nathan Beaulieu,D,2024-2025,slovakia,37422,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Culik (D),HKM Zvolen,1,0,0,0,0.00,0,-1,/player/583217/filip-culik,4,Filip Culik,D,2024-2025,slovakia,583217,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viliam Kurila (F),HK Dukla Michalovce,1,0,0,0,0.00,0,0,/player/605127/viliam-kurila,4,Viliam Kurila,F,2024-2025,slovakia,605127,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavol Prokopovic (F),HK Dukla Michalovce,1,0,0,0,0.00,0,0,/player/731909/pavol-prokopovic,4,Pavol Prokopovic,F,2024-2025,slovakia,731909,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Knizka (D),HK Spisska Nova Ves,1,0,0,0,0.00,0,0,/player/553487/martin-knizka,4,Martin Knizka,D,2024-2025,slovakia,553487,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Marek (C),HK Poprad,1,0,0,0,0.00,0,0,/player/934653/alex-marek,4,Alex Marek,C,2024-2025,slovakia,934653,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jozef Svec (LW),HK Dukla Trencin,1,0,0,0,0.00,0,-1,/player/157397/jozef-svec,4,Jozef Svec,LW,2024-2025,slovakia,157397,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Rojko (F),Vlci Zilina,1,0,0,0,0.00,0,0,/player/657119/filip-rojko,4,Filip Rojko,F,2024-2025,slovakia,657119,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Kizak (F),HK Dukla Michalovce,1,0,0,0,0.00,0,0,/player/875243/samuel-kizak,4,Samuel Kizak,F,2024-2025,slovakia,875243,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Bajza (D),HK Nitra,1,0,0,0,0.00,0,0,/player/873998/matej-bajza,4,Matej Bajza,D,2024-2025,slovakia,873998,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Rusznyak (D),HC Slovan Bratislava,1,0,0,0,0.00,0,-1,/player/873345/patrik-rusznyak,4,Patrik Rusznyak,D,2024-2025,slovakia,873345,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christopher Tayler Podkonicky (F),HKM Zvolen,1,0,0,0,0.00,0,0,/player/935475/christopher-tayler-podkonicky,4,Christopher Tayler Podkonicky,F,2024-2025,slovakia,935475,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Chlepcok (RW/LW),HC Banska Bystrica,1,0,0,0,0.00,0,0,/player/335806/jan-chlepcok,4,Jan Chlepcok,RW/LW,2024-2025,slovakia,335806,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Stefan Lörincz (D),HC Banska Bystrica,1,0,0,0,0.00,0,-1,/player/605133/matej-stefan-lorincz,4,Matej Stefan Lörincz,D,2024-2025,slovakia,605133,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Lachkovic (C/RW),HC Nove Zamky,1,0,0,0,0.00,0,-1,/player/640613/martin-lachkovic,4,Martin Lachkovic,C/RW,2024-2025,slovakia,640613,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Branislav Kotvan (RW/C),HK 32 Liptovsky Mikulas,1,0,0,0,0.00,0,0,/player/513510/branislav-kotvan,4,Branislav Kotvan,RW/C,2024-2025,slovakia,513510,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jozef Mysiak (D),HC Nove Zamky,1,0,0,0,0.00,0,0,/player/557433/jozef-mysiak,4,Jozef Mysiak,D,2024-2025,slovakia,557433,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Gallo (D),HKM Zvolen,1,0,0,0,0.00,0,0,/player/744180/peter-gallo,4,Peter Gallo,D,2024-2025,slovakia,744180,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Kubas (LW/RW),HK 32 Liptovsky Mikulas,1,0,0,0,0.00,0,0,/player/811994/michal-kubas,4,Michal Kubas,LW/RW,2024-2025,slovakia,811994,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Rehák (C),HK 32 Liptovsky Mikulas,1,0,0,0,0.00,0,0,/player/484682/samuel-rehak,4,Samuel Rehák,C,2024-2025,slovakia,484682,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marko Mokras (D),HC Nove Zamky,1,0,0,0,0.00,0,-1,/player/744076/marko-mokras,4,Marko Mokras,D,2024-2025,slovakia,744076,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dan Finda (F),HC Nove Zamky,1,0,0,0,0.00,0,-1,/player/874009/dan-finda,4,Dan Finda,F,2024-2025,slovakia,874009,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teodor Malinak (D),HK 32 Liptovsky Mikulas,1,0,0,0,0.00,0,0,/player/873544/teodor-malinak,4,Teodor Malinak,D,2024-2025,slovakia,873544,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Plucinsky (D),HK Poprad,1,0,0,0,0.00,0,1,/player/874166/samuel-plucinsky,4,Samuel Plucinsky,D,2024-2025,slovakia,874166,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolas Timko (D),HK Spisska Nova Ves,1,0,0,0,0.00,0,-1,/player/806126/nikolas-timko,4,Nikolas Timko,D,2024-2025,slovakia,806126,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Polcik (F),HK Spisska Nova Ves,1,0,0,0,0.00,0,-2,/player/873602/jakub-polcik,4,Jakub Polcik,F,2024-2025,slovakia,873602,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vsevolod Kurovskyi (RW/LW),HK Spisska Nova Ves,1,0,0,0,0.00,0,0,/player/734398/vsevolod-kurovskyi,4,Vsevolod Kurovskyi,RW/LW,2024-2025,slovakia,734398,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emils Gegeris (LW),HC Nove Zamky,1,0,0,0,0.00,2,0,/player/310115/emils-gegeris,4,Emils Gegeris,LW,2024-2025,slovakia,310115,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Nikmon (D),HK Dukla Trencin,1,0,0,0,0.00,2,-1,/player/874194/samuel-nikmon,4,Samuel Nikmon,D,2024-2025,slovakia,874194,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Tkac (D),HC Kosice,1,0,0,0,0.00,2,0,/player/751084/michal-tkac,4,Michal Tkac,D,2024-2025,slovakia,751084,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mario Jamrich (F),HC Banska Bystrica,1,0,0,0,0.00,2,0,/player/556433/mario-jamrich,4,Mario Jamrich,F,2024-2025,slovakia,556433,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patryk Zubek (D),HC Banska Bystrica,1,0,0,0,0.00,2,0,/player/957296/patryk-zubek,4,Patryk Zubek,D,2024-2025,slovakia,957296,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Brejcak (D),HK Spisska Nova Ves,1,0,0,0,0.00,2,-2,/player/731644/marek-brejcak,4,Marek Brejcak,D,2024-2025,slovakia,731644,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Naus (LW/RW),HK 32 Liptovsky Mikulas,2,0,0,0,0.00,0,1,/player/477208/tomas-naus,4,Tomas Naus,LW/RW,2024-2025,slovakia,477208,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Sisovsky (RW),HK Dukla Trencin,2,0,0,0,0.00,0,-1,/player/34742/peter-sisovsky,4,Peter Sisovsky,RW,2024-2025,slovakia,34742,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Pavel Hurtaj (F),HC Slovan Bratislava,2,0,0,0,0.00,0,0,/player/806028/thomas-pavel-hurtaj,4,Thomas Pavel Hurtaj,F,2024-2025,slovakia,806028,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Gron (C),HC Nove Zamky,2,0,0,0,0.00,0,0,/player/10898/stanislav-gron,4,Stanislav Gron,C,2024-2025,slovakia,10898,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gregor Malinak (F),HC Nove Zamky,2,0,0,0,0.00,0,0,/player/645898/gregor-malinak,4,Gregor Malinak,F,2024-2025,slovakia,645898,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Kuba (F),HK 32 Liptovsky Mikulas,2,0,0,0,0.00,0,0,/player/670926/lukas-kuba,4,Lukas Kuba,F,2024-2025,slovakia,670926,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matus Zemko (C),HC Nove Zamky,2,0,0,0,0.00,0,-2,/player/561823/matus-zemko,4,Matus Zemko,C,2024-2025,slovakia,561823,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Bulik (C),HC Nove Zamky,2,0,0,0,0.00,0,-3,/player/709738/michal-bulik,4,Michal Bulik,C,2024-2025,slovakia,709738,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kristian Meszaros (D),HC Banska Bystrica,2,0,0,0,0.00,0,1,/player/484687/kristian-meszaros,4,Kristian Meszaros,D,2024-2025,slovakia,484687,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marko Petras (D),HC Nove Zamky,2,0,0,0,0.00,0,-5,/player/653131/marko-petras,4,Marko Petras,D,2024-2025,slovakia,653131,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marian Mihalik (D),HK 32 Liptovsky Mikulas,2,0,0,0,0.00,0,-1,/player/657434/marian-mihalik,4,Marian Mihalik,D,2024-2025,slovakia,657434,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Stripai (D/F),HK Dukla Michalovce,2,0,0,0,0.00,2,-1,/player/528278/adam-stripai,4,Adam Stripai,D/F,2024-2025,slovakia,528278,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Barto (C/W),HK Dukla Trencin,2,0,0,0,0.00,2,-2,/player/336541/martin-barto,4,Martin Barto,C/W,2024-2025,slovakia,336541,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Sokoli (LW/RW),HC Slovan Bratislava,2,0,0,0,0.00,2,-1,/player/542975/patrik-sokoli,4,Patrik Sokoli,LW/RW,2024-2025,slovakia,542975,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Hajnik (LW/RW),HK Dukla Michalovce,3,0,0,0,0.00,0,0,/player/561988/david-hajnik,4,David Hajnik,LW/RW,2024-2025,slovakia,561988,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Klima (C),HC Banska Bystrica,3,0,0,0,0.00,0,-1,/player/48183/tomas-klima,4,Tomas Klima,C,2024-2025,slovakia,48183,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Zimani (RW/LW),HK 32 Liptovsky Mikulas,3,0,0,0,0.00,0,0,/player/734830/jan-zimani,4,Jan Zimani,RW/LW,2024-2025,slovakia,734830,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Stümpel (C/W),HK Nitra,3,0,0,0,0.00,0,-1,/player/578957/oliver-stumpel,4,Oliver Stümpel,C/W,2024-2025,slovakia,578957,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Holik (RW),HK Dukla Trencin,3,0,0,0,0.00,0,-1,/player/657072/marek-holik,4,Marek Holik,RW,2024-2025,slovakia,657072,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frederik Fecko (D),HKM Zvolen,3,0,0,0,0.00,0,0,/player/653087/frederik-fecko,4,Frederik Fecko,D,2024-2025,slovakia,653087,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Branislav Pavúk (D),HK Dukla Michalovce,3,0,0,0,0.00,0,0,/player/166369/branislav-pavuk,4,Branislav Pavúk,D,2024-2025,slovakia,166369,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Hybsky (F),HKM Zvolen,3,0,0,0,0.00,0,0,/player/922688/samuel-hybsky,5,Samuel Hybsky,F,2024-2025,slovakia,922688,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Luptak (LW/RW),HC Slovan Bratislava,3,0,0,0,0.00,0,-1,/player/640607/matej-luptak,5,Matej Luptak,LW/RW,2024-2025,slovakia,640607,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Zurek (RW),HC Nove Zamky,3,0,0,0,0.00,0,-4,/player/723348/sebastian-zurek,5,Sebastian Zurek,RW,2024-2025,slovakia,723348,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Marcincin (C),HK 32 Liptovsky Mikulas,3,0,0,0,0.00,0,-2,/player/657473/marek-marcincin,5,Marek Marcincin,C,2024-2025,slovakia,657473,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Sechny (C/LW),HC Nove Zamky,3,0,0,0,0.00,2,-2,/player/561981/richard-sechny,5,Richard Sechny,C/LW,2024-2025,slovakia,561981,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Melcher (RW/LW),Vlci Zilina,3,0,0,0,0.00,4,-1,/player/292090/peter-melcher,5,Peter Melcher,RW/LW,2024-2025,slovakia,292090,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Matta (LW),HK Dukla Michalovce,4,0,0,0,0.00,0,-2,/player/875244/ivan-matta,5,Ivan Matta,LW,2024-2025,slovakia,875244,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Novota (RW),HC Nove Zamky,4,0,0,0,0.00,0,-5,/player/561840/alex-novota,5,Alex Novota,RW,2024-2025,slovakia,561840,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leo Krchnavy (D),HC Nove Zamky,4,0,0,0,0.00,0,-13,/player/871384/leo-krchnavy,5,Leo Krchnavy,D,2024-2025,slovakia,871384,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Racz (F),HC Nove Zamky,4,0,0,0,0.00,0,-7,/player/690463/tomas-racz,5,Tomas Racz,F,2024-2025,slovakia,690463,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Ferkodic (RW),HK Nitra,4,0,0,0,0.00,2,-2,/player/657674/max-ferkodic,5,Max Ferkodic,RW,2024-2025,slovakia,657674,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Malcek (W/C),HK 32 Liptovsky Mikulas,4,0,0,0,0.00,4,-1,/player/657074/michal-malcek,5,Michal Malcek,W/C,2024-2025,slovakia,657074,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Vajko (D),Vlci Zilina,5,0,0,0,0.00,0,0,/player/811990/tomas-vajko,5,Tomas Vajko,D,2024-2025,slovakia,811990,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Stas (C),HK 32 Liptovsky Mikulas,5,0,0,0,0.00,0,-2,/player/874238/viktor-stas,5,Viktor Stas,C,2024-2025,slovakia,874238,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Goljer (D),HK Dukla Trencin,6,0,0,0,0.00,0,1,/player/879380/adam-goljer,5,Adam Goljer,D,2024-2025,slovakia,879380,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Stancek (LW),HK Poprad,6,0,0,0,0.00,0,0,/player/561720/michal-stancek,5,Michal Stancek,LW,2024-2025,slovakia,561720,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Áron Meszáros (D),HC Nove Zamky,6,0,0,0,0.00,2,0,/player/849457/aron-meszaros,5,Áron Meszáros,D,2024-2025,slovakia,849457,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Cibak (D),HK Dukla Michalovce,6,0,0,0,0.00,6,-4,/player/304254/jakub-cibak,5,Jakub Cibak,D,2024-2025,slovakia,304254,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Damian Vano (C),HK Dukla Trencin,6,0,0,0,0.00,6,0,/player/542965/damian-vano,5,Damian Vano,C,2024-2025,slovakia,542965,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Jedlicek (W/C),HC Banska Bystrica,7,0,0,0,0.00,0,-1,/player/731545/marek-jedlicek,5,Marek Jedlicek,W/C,2024-2025,slovakia,731545,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Podolinsky (F),HK 32 Liptovsky Mikulas,7,0,0,0,0.00,0,-1,/player/725399/richard-podolinsky,5,Richard Podolinsky,F,2024-2025,slovakia,725399,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Geci (C),HC Nove Zamky,7,0,0,0,0.00,2,-1,/player/527492/alex-geci,5,Alex Geci,C,2024-2025,slovakia,527492,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mário Lunter (LW/RW),HC Kosice,8,0,0,0,0.00,0,-4,/player/89437/mario-lunter,5,Mário Lunter,LW/RW,2024-2025,slovakia,89437,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Vavercak (D),HK Spisska Nova Ves,8,0,0,0,0.00,2,-1,/player/731639/patrik-vavercak,5,Patrik Vavercak,D,2024-2025,slovakia,731639,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Panik (D),HK Nitra,8,0,0,0,0.00,2,2,/player/657677/lukas-panik,5,Lukas Panik,D,2024-2025,slovakia,657677,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Bozon (RW),HK Poprad,9,0,0,0,0.00,0,2,/player/870867/david-bozon,5,David Bozon,RW,2024-2025,slovakia,870867,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Sulovsky (LW),HKM Zvolen,9,0,0,0,0.00,2,-5,/player/388227/michal-sulovsky,5,Michal Sulovsky,LW,2024-2025,slovakia,388227,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Synak (F),HC Nove Zamky,10,0,0,0,0.00,2,-17,/player/579437/marek-synak,5,Marek Synak,F,2024-2025,slovakia,579437,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrej Fabus (D),HC Slovan Bratislava,12,0,0,0,0.00,0,-1,/player/806030/andrej-fabus,5,Andrej Fabus,D,2024-2025,slovakia,806030,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Maruna (C),HK Dukla Trencin,12,0,0,0,0.00,2,0,/player/806074/ondrej-maruna,5,Ondrej Maruna,C,2024-2025,slovakia,806074,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matus Bodnar (LW),HK Poprad,12,0,0,0,0.00,4,-1,/player/271711/matus-bodnar,5,Matus Bodnar,LW,2024-2025,slovakia,271711,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matus Palocko (LW),HK Poprad,13,0,0,0,0.00,2,-7,/player/83455/matus-palocko,5,Matus Palocko,LW,2024-2025,slovakia,83455,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Suty (C),HC Nove Zamky,13,0,0,0,0.00,6,-29,/player/641542/patrik-suty,5,Patrik Suty,C,2024-2025,slovakia,641542,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Konrad (D),HC Nove Zamky,15,0,0,0,0.00,2,-16,/player/657257/adam-konrad,5,Adam Konrad,D,2024-2025,slovakia,657257,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Luza (D),HC Nove Zamky,15,0,0,0,0.00,4,-12,/player/95502/patrik-luza,5,Patrik Luza,D,2024-2025,slovakia,95502,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Mitro (D),HC Kosice,16,0,0,0,0.00,0,0,/player/742927/sebastian-mitro,5,Sebastian Mitro,D,2024-2025,slovakia,742927,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Milan Sejna (RW/C),HK 32 Liptovsky Mikulas,17,0,0,0,0.00,0,-9,/player/734829/alexander-milan-sejna,5,Alexander Milan Sejna,RW/C,2024-2025,slovakia,734829,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Bokros (D),HK Dukla Trencin,22,0,0,0,0.00,14,-7,/player/48623/tomas-bokros,5,Tomas Bokros,D,2024-2025,slovakia,48623,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Marcinko (D),HK Dukla Michalovce,23,0,0,0,0.00,12,-6,/player/561835/jan-marcinko,5,Jan Marcinko,D,2024-2025,slovakia,561835,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Vartovnik (C),HK Spisska Nova Ves,24,0,0,0,0.00,2,-3,/player/9296/lukas-vartovnik,5,Lukas Vartovnik,C,2024-2025,slovakia,9296,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Cunderlik (F),HC Banska Bystrica,27,0,0,0,0.00,4,-2,/player/874018/michal-cunderlik,5,Michal Cunderlik,F,2024-2025,slovakia,874018,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Strban (D),HK 32 Liptovsky Mikulas,33,0,0,0,0.00,2,-3,/player/872678/jakub-strban,5,Jakub Strban,D,2024-2025,slovakia,872678,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominik Jendrol (D),HK 32 Liptovsky Mikulas,43,0,0,0,0.00,22,-2,/player/187791/dominik-jendrol,5,Dominik Jendrol,D,2024-2025,slovakia,187791,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Jokel (LW),HC Kosice,-,-,-,-,-,-,-,/player/19363/oliver-jokel,5,Oliver Jokel,LW,2024-2025,slovakia,19363,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Masnica (C),HC Slovan Bratislava,-,-,-,-,-,-,-,/player/862597/patrik-masnica,5,Patrik Masnica,C,2024-2025,slovakia,862597,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69

@@ -1,0 +1,3030 @@
+nhl_id,draftYear,pick,player,signing_date,source,signing_team,set_aside,signing_year
+8471675,2005,1,Sidney Crosby,2005-09-09,capwages:sidney-crosby.html,PIT,,2005
+8471676,2005,2,Bobby Ryan,2006-03-08,capwages:bobby-ryan.html,ANA,,2006
+8471677,2005,3,Jack Johnson,2007-03-27,capwages:jack-johnson.html,LAK,,2007
+8471678,2005,4,Benoit Pouliot,,none,,,
+8471679,2005,5,Carey Price,2007-04-10,capwages:carey-price.html,MTL,,2007
+8471680,2005,6,Gilbert Brule,,none,,,
+8471681,2005,7,Jack Skille,,none,,,
+8471682,2005,8,Devin Setoguchi,,none,,,
+8471683,2005,9,Brian Lee,,none,,,
+8471684,2005,10,Luc Bourdon,,none,,,
+8471685,2005,11,Anze Kopitar,2005-09-06,capwages:anze-kopitar.html,LAK,,2005
+8471686,2005,12,Marc Staal,2005-09-21,capwages:marc-staal.html,NYR,,2005
+8471689,2005,15,Ryan O'Marra,,none,,,
+8471691,2005,17,Martin Hanzal,,none,,,
+8471692,2005,18,Ryan Parent,,none,,,
+8471693,2005,19,Jakub Kindl,,none,,,
+8471694,2005,20,Kenndal McArdle,,none,,,
+8471695,2005,21,Tuukka Rask,,none,,capwages 2011-05-05,
+8471696,2005,22,Matt Lashoff,,none,,,
+8471697,2005,23,Niclas Bergfors,,none,,,
+8471698,2005,24,T.J. Oshie,,none,,,
+8471699,2005,25,Andrew Cogliano,2007-05-02,capwages:andrew-cogliano.html,EDM,,2007
+8471700,2005,26,Matt Pelech,,none,,,
+8471701,2005,27,Joe Finley,,none,,,
+8471702,2005,28,Matt Niskanen,2007-03-19,capwages:matt-niskanen.html,DAL,,2007
+8471703,2005,29,Steve Downie,,none,,,
+8471704,2005,30,Vladimir Mihalik,,none,,,
+8471705,2005,31,Brendan Mikkelson,,none,,,
+8471707,2005,33,James Neal,2006-10-20,capwages:james-neal.html,DAL,,2006
+8471708,2005,34,Ryan Stoa,,none,,,
+8471709,2005,35,Marc-Edouard Vlasic,,none,,,
+8471710,2005,36,Taylor Chorney,,none,,,
+8471711,2005,37,Scott Jackson,,none,,,
+8471713,2005,39,Petr Kalus,,none,,,
+8471714,2005,40,Michael Sauer,,none,,,
+8471715,2005,41,Ondrej Pavelec,,none,,,
+8471716,2005,42,Justin Abdelkader,,none,,,
+8471663,2005,43,Mike Blunden,,none,,,
+8471669,2005,44,Paul Stastny,2006-07-24,capwages:paul-stastny.html,COL,,2006
+8471670,2005,45,Guillaume Latendresse,,none,,,
+8471671,2005,46,Dustin Kohn,,none,,,
+8471664,2005,51,Mason Raymond,,none,,,
+8471717,2005,55,Adam McQuaid,2007-06-01,capwages:adam-mcquaid.html,BOS,,2007
+8471718,2005,56,Marc-Andre Cliche,,none,,,
+8471719,2005,57,Matt Kassian,,none,,,
+8471724,2005,62,Kris Letang,2006-10-02,capwages:kris-letang.html,PIT,,2006
+8471728,2005,66,Brodie Dupont,,none,,,
+8471729,2005,67,Kris Russell,2007-07-01,capwages:kris-russell.html,CBJ,,2007
+8471730,2005,68,Evan Brophey,,none,,,
+8471733,2005,71,Rich Clune,,none,,,
+8471734,2005,72,Jonathan Quick,2007-03-30,capwages:jonathan-quick.html,LAK,,2007
+8471736,2005,73,Radek Smolenak,,none,,,
+8471738,2005,75,Perttu Lindgren,,none,,,
+8471741,2005,78,Teemu Laakso,,none,,,
+8471742,2005,79,Cody Franson,,none,,,
+8470996,2005,81,Danny Syvret,,none,,,
+8471746,2005,82,Phil Oreskovic,,none,,,
+8471747,2005,83,Mikko Lehtonen,,none,,,
+8471748,2005,84,Mark Fraser,,none,,,
+8471750,2005,85,Ben Bishop,2008-03-11,capwages:ben-bishop.html,STL,,2008
+8471752,2005,87,Marc-Andre Gragnani,,none,,,
+8471753,2005,88,T.J. Hensick,,none,,,
+8471756,2005,91,Oskars Bartulis,,none,,,
+8471760,2005,95,Cody Bass,,none,,,
+8471761,2005,96,Chris Butler,,none,,,
+8471762,2005,97,Chris VandeVelde,,none,,,
+8471764,2005,99,Patrick Davis,,none,,,
+8471766,2005,101,Jared Boll,,none,,,
+8471767,2005,102,Blair Jones,,none,,,
+8471668,2005,103,Mattias Ritola,,none,,,
+8471735,2005,105,Keith Yandle,2006-05-05,capwages:keith-yandle.html,ARI,,2006
+8471743,2005,106,Vladimir Sobotka,,none,,,
+8471768,2005,107,Tom Pyatt,2007-03-12,capwages:tom-pyatt.html,NYR,,2007
+8471769,2005,108,Niklas Hjalmarsson,2007-05-31,capwages:niklas-hjalmarsson.html,CHI,,2007
+8471774,2005,112,Alex Stalock,2009-04-13,capwages:alex-stalock.html,SJS,,2009
+8471778,2005,116,Jordan Lavallee-Smotherman,,none,,,
+8471786,2005,124,Ray Macias,,none,,,
+8471794,2005,132,Darren Helm,2006-09-27,capwages:darren-helm.html,DET,,2006
+8471803,2005,141,Brian Salcido,,none,,,
+8471804,2005,142,Nathan Gerbe,2008-05-06,capwages:nathan-gerbe.html,BUF,,2008
+8471807,2005,146,Tom Wandell,,none,,,
+8471810,2005,149,Derek Joslin,,none,,,
+8471811,2005,150,Cal O'Reilly,,none,,,
+8471816,2005,155,Mark Fayne,,none,,,
+8471817,2005,156,Ryan Reaves,2007-05-23,capwages:ryan-reaves.html,STL,,2007
+8471821,2005,160,Matt Watkins,,none,,,
+8471829,2005,168,Justin Mercier,,none,,,
+8471832,2005,171,Nick Drazenovic,,none,,,
+8471840,2005,179,Brett Sutter,,none,,,
+8471842,2005,181,Tim Kennedy,,none,,,
+8471846,2005,185,Kris Fredheim,,none,,,
+8471848,2005,187,Andrey Zubarev,,none,,,
+8471851,2005,190,Matt D'Agostini,,none,,,
+8471853,2005,192,Nicolas Blanchard,,none,,,
+8471856,2005,195,Joe Vitale,,none,,,
+8471859,2005,200,Sergei Kostitsyn,,none,,,
+8471862,2005,204,Colin Greening,,none,,,
+8471863,2005,205,Mario Bliznak,,none,,,
+8471868,2005,211,Ryan Russell,,none,,,
+8471873,2005,216,Anton Stralman,2007-05-16,capwages:anton-stralman.html,TOR,,2007
+8471879,2005,222,Kyle Cumiskey,,none,,,
+8471885,2005,228,Chad Rau,,none,,,
+8471887,2005,230,Patric Hornqvist,2007-06-01,capwages:patric-hornqvist.html,NSH,,2007
+8473446,2006,1,Erik Johnson,2007-05-14,capwages:erik-johnson.html,STL,,2007
+8473533,2006,2,Jordan Staal,2006-10-02,capwages:jordan-staal.html,PIT,,2006
+8473604,2006,3,Jonathan Toews,2007-05-18,capwages:jonathan-toews.html,CHI,,2007
+8473563,2006,4,Nicklas Backstrom,2007-05-16,capwages:nicklas-backstrom.html,WSH,,2007
+8473548,2006,5,Phil Kessel,2006-08-17,capwages:phil-kessel.html,BOS,,2006
+8473544,2006,6,Derick Brassard,2006-09-21,capwages:derick-brassard.html,CBJ,,2006
+8473449,2006,7,Kyle Okposo,2007-12-20,capwages:kyle-okposo.html,NYI,,2007
+8473526,2006,8,Peter Mueller,,none,,,
+8473536,2006,9,James Sheppard,,none,,,
+8473564,2006,10,Michael Frolik,2008-05-28,capwages:michael-frolik.html,FLA,,2008
+8473541,2006,11,Jonathan Bernier,2006-10-13,capwages:jonathan-bernier.html,LAK,,2006
+8473412,2006,12,Bryan Little,2007-04-20,capwages:bryan-little.html,ATL,,2007
+8473482,2006,13,Jiri Tlusty,,none,,,
+8473546,2006,14,Michael Grabner,2006-09-28,capwages:michael-grabner.html,VAN,,2006
+8473501,2006,16,Ty Wishart,,none,,,
+8473453,2006,17,Trevor Lewis,2006-07-14,capwages:trevor-lewis.html,LAK,,2006
+8473485,2006,18,Chris Stewart,2007-04-03,capwages:chris-stewart.html,COL,,2007
+8473610,2006,21,Bobby Sanguinetti,,none,,,
+8473512,2006,22,Claude Giroux,2007-07-23,capwages:claude-giroux.html,PHI,,2007
+8473575,2006,23,Semyon Varlamov,2007-06-11,capwages:semyon-varlamov.html,WSH,,2007
+8473534,2006,25,Patrik Berglund,,none,,,
+8473414,2006,26,Leland Irving,,none,,,
+8473582,2006,27,Ivan Vishnevskiy,,none,,,
+8473422,2006,28,Nick Foligno,2007-03-21,capwages:nick-foligno.html,OTT,,2007
+8473589,2006,29,Chris Summers,,none,,,
+8473580,2006,30,Matthew Corrente,,none,,,
+8473491,2006,31,Tomas Kana,,none,,,
+8473539,2006,32,Carl Sneep,,none,,,
+8473607,2006,34,Michal Neuvirth,,none,,,
+8473465,2006,36,Jamie McGinn,,none,,,
+8473568,2006,39,Andreas Nodl,,none,,,
+8473558,2006,41,Cory Emmerton,,none,,,
+8473579,2006,44,Nikolay Kulemin,,none,,,
+8473507,2006,45,Jeff Petry,2010-03-29,capwages:jeff-petry.html,EDM,,2010
+8473523,2006,46,Jhonas Enroth,,none,,,
+8473574,2006,47,Shawn Matthias,,none,,,
+8473493,2006,49,Ben Maxwell,,none,,,
+8473473,2006,50,Milan Lucic,2007-08-02,capwages:milan-lucic.html,BOS,,2007
+8473438,2006,53,Mathieu Carle,,none,,,
+8473573,2006,54,Artem Anisimov,2007-07-11,capwages:artem-anisimov.html,NYR,,2007
+8473608,2006,56,Blake Geoffrion,,none,,,
+8473426,2006,57,Mike Weber,,none,,,
+8473514,2006,60,Jesse Joensuu,,none,,,
+8473571,2006,63,Jamie McBain,,none,,,
+8473510,2006,64,Jonas Junland,,none,,,
+8473565,2006,65,Brian Strait,2009-07-01,capwages:brian-strait.html,PIT,,2009
+8473466,2006,66,Ryan White,,none,,,
+8473468,2006,68,Eric Gryba,2010-03-29,capwages:eric-gryba.html,OTT,,2010
+8473461,2006,69,Steve Mason,,none,,,
+8473419,2006,71,Brad Marchand,2007-10-16,capwages:brad-marchand.html,BOS,,2007
+8473504,2006,72,Cal Clutterbuck,2007-05-26,capwages:cal-clutterbuck.html,MIN,,2007
+8473553,2006,74,Jeff Zatkoff,,none,,,
+8473525,2006,75,Theo Peckham,,none,,,
+8473592,2006,77,Vladimir Zharkov,,none,,,
+8473433,2006,78,Kevin Quick,,none,,,
+8473444,2006,79,Jon Matsumoto,,none,,,
+8473542,2006,85,Tom Sestito,,none,,,
+8473431,2006,86,Bud Holloway,,none,,,
+8473484,2006,91,Kaspars Daugavins,,none,,,
+8473496,2006,97,Oskar Osala,,none,,,
+8473503,2006,99,James Reimer,2008-03-19,capwages:james-reimer.html,TOR,,2008
+8473456,2006,100,Rhett Rakhshani,,none,,,
+8473416,2006,103,Michael Caruso,,none,,,
+8473499,2006,106,Reto Berra,,none,,,
+8473560,2006,111,Korbinian Holzer,2010-05-27,capwages:korbinian-holzer.html,TOR,,2010
+8473492,2006,112,Matt Beleskey,,none,,,
+8473614,2006,120,Richard Bachman,2009-03-27,capwages:richard-bachman.html,DAL,,2009
+8473434,2006,125,Chad Johnson,2009-07-13,capwages:chad-johnson.html,NYR,,2009
+8473611,2006,126,Shane Sims,,none,,,
+8473550,2006,128,Andrew Bodnarchuk,,none,,,
+8473511,2006,138,David McIntyre,,none,,,
+8473616,2006,145,Jonathan Rheault,,none,,,
+8473415,2006,147,Alex Biega,2010-05-25,capwages:alex-biega.html,BUF,,2010
+8471508,2006,148,Olivier Magnan,,none,,,
+8473584,2006,160,Andrew MacDonald,,none,,,
+8473537,2006,161,Viktor Stalberg,,none,,,
+8473488,2006,163,Sergei Shirokov,,none,,,
+8473494,2006,172,Petteri Wirtanen,,none,,,
+8473618,2006,177,Mathieu Perreault,2008-03-28,capwages:mathieu-perreault.html,WSH,,2008
+8473463,2006,180,Leo Komarov,2012-05-05,capwages:leo-komarov.html,TOR,,2012
+8473569,2006,182,Jan Mursak,,none,,,
+8473505,2006,186,Peter LeBlanc,,none,,,
+8473432,2006,189,Derek Dorsett,,none,,,
+8473600,2006,196,Benn Ferriero,,none,,,
+8473459,2006,200,Arturs Kulda,,none,,,
+8473562,2006,202,John McCarthy,,none,,,
+8473440,2006,210,Will O'Neill,,none,,,
+8473588,2006,211,Erik Condra,2009-07-01,capwages:erik-condra.html,OTT,,2009
+8474141,2007,1,Patrick Kane,2007-07-25,capwages:patrick-kane.html,CHI,,2007
+8474037,2007,2,James van Riemsdyk,2009-04-01,capwages:james-van-riemsdyk.html,PHI,,2009
+8474068,2007,3,Kyle Turris,2008-03-31,capwages:kyle-turris.html,ARI,,2008
+8474066,2007,4,Thomas Hickey,2007-07-16,capwages:thomas-hickey.html,LAK,,2007
+8473991,2007,5,Karl Alzner,2008-05-22,capwages:karl-alzner.html,WSH,,2008
+8474040,2007,6,Sam Gagner,2007-10-01,capwages:sam-gagner.html,EDM,,2007
+8474161,2007,7,Jakub Voracek,2007-08-02,capwages:jakub-voracek.html,CBJ,,2007
+8474045,2007,8,Zach Hamill,2007-08-08,capwages:zach-hamill.html,BOS,,2007
+8474053,2007,9,Logan Couture,2007-07-19,capwages:logan-couture.html,SJS,,2007
+8474184,2007,10,Keaton Ellerby,2008-05-08,capwages:keaton-ellerby.html,FLA,,2008
+8474091,2007,11,Brandon Sutter,2008-03-26,capwages:brandon-sutter.html,CAR,,2008
+8474151,2007,12,Ryan McDonagh,2010-07-07,capwages:ryan-mcdonagh.html,NYR,,2010
+8474189,2007,13,Lars Eller,2008-05-13,capwages:lars-eller.html,STL,,2008
+8474031,2007,14,Kevin Shattenkirk,2010-04-03,capwages:kevin-shattenkirk.html,COL,,2010
+8474046,2007,15,Alex Plante,2009-05-28,capwages:alex-plante.html,EDM,,2009
+8474121,2007,16,Colton Gillies,2008-03-28,capwages:colton-gillies.html,MIN,,2008
+8474013,2007,18,Ian Cole,2010-03-22,capwages:ian-cole.html,STL,,2010
+8474062,2007,21,Riley Nash,2010-07-19,capwages:riley-nash.html,CAR,,2010
+8474157,2007,22,Max Pacioretty,2008-07-17,capwages:max-pacioretty.html,MTL,,2008
+8474164,2007,23,Jonathon Blum,2007-12-16,capwages:jonathon-blum.html,NSH,,2007
+8474150,2007,24,Mikael Backlund,2008-05-02,capwages:mikael-backlund.html,CGY,,2008
+8474102,2007,26,David Perron,2007-09-05,capwages:david-perron.html,STL,,2007
+8474090,2007,27,Brendan Smith,2010-05-28,capwages:brendan-smith.html,DET,,2010
+8474032,2007,28,Nick Petrecki,2009-03-30,capwages:nick-petrecki.html,SJS,,2009
+8474024,2007,29,Jim O'Brien,,none,,,
+8474113,2007,31,TJ Brennan,2009-04-18,capwages:tj-brennan.html,BUF,,2009
+8474050,2007,32,Brett MacLean,2008-04-28,capwages:brett-maclean.html,ARI,,2008
+8474019,2007,35,Tommy Cross,2012-04-10,capwages:tommy-cross.html,BOS,,2012
+8474035,2007,38,Bill Sweatt,2010-08-19,capwages:bill-sweatt.html,VAN,,2010
+8474153,2007,40,Michal Repik,2007-07-16,capwages:michal-repik.html,FLA,,2007
+8474163,2007,41,Kevin Marshall,2008-07-22,capwages:kevin-marshall.html,PHI,,2008
+8474025,2007,42,Eric Tangradi,2008-12-09,capwages:eric-tangradi.html,ANA,,2008
+8474056,2007,43,P.K. Subban,,none,,,
+8474030,2007,44,Aaron Palushaj,2009-04-03,capwages:aaron-palushaj.html,STL,,2009
+8474002,2007,45,Colby Cohen,2010-04-03,capwages:colby-cohen.html,COL,,2010
+8474095,2007,47,Dana Tyrell,2008-12-11,capwages:dana-tyrell.html,TBL,,2008
+8474114,2007,52,Oscar Moller,2008-04-22,capwages:oscar-moller.html,LAK,,2008
+8474092,2007,54,Jeremy Smith,2008-03-05,capwages:jeremy-smith.html,NSH,,2008
+8474001,2007,55,TJ Galiardi,2008-05-13,capwages:tj-galiardi.html,COL,,2008
+8474049,2007,56,Akim Aliu,2008-08-25,capwages:akim-aliu.html,CHI,,2008
+8474096,2007,58,Nick Spaling,2008-08-26,capwages:nick-spaling.html,NSH,,2008
+8474190,2007,61,Wayne Simmonds,2007-12-28,capwages:wayne-simmonds.html,LAK,,2007
+8474063,2007,62,Mark Katic,,none,,,
+8474139,2007,63,Maxime Macenauer,,none,,,
+8474146,2007,67,Spencer Machacek,,none,,,
+8474076,2007,70,John Negrin,,none,,,
+8474149,2007,71,Evgenii Dadonov,2009-07-10,capwages:evgenii-dadonov.html,FLA,,2009
+8474137,2007,72,Drayson Bowman,2008-07-30,capwages:drayson-bowman.html,CAR,,2008
+8474134,2007,73,Yannick Weber,2008-08-15,capwages:yannick-weber.html,MTL,,2008
+8473986,2007,77,Alex Killorn,2012-03-19,capwages:alex-killorn.html,TBL,,2012
+8474145,2007,78,Robert Bortuzzo,2009-03-23,capwages:robert-bortuzzo.html,PIT,,2009
+8473999,2007,79,Nick Palmieri,2007-10-05,capwages:nick-palmieri.html,NJD,,2007
+8474143,2007,81,Ryan Thang,,none,,,
+8474168,2007,88,Joakim Andersson,2010-04-13,capwages:joakim-andersson.html,DET,,2010
+8474130,2007,89,Corey Tropp,2010-07-06,capwages:corey-tropp.html,BUF,,2010
+8474000,2007,93,Steven Kampfer,2010-03-31,capwages:steven-kampfer.html,BOS,,2010
+8474195,2007,94,Maksim Mayorov,,none,,,
+8474166,2007,95,Alec Martinez,2008-04-29,capwages:alec-martinez.html,LAK,,2008
+8474029,2007,96,Cade Fairchild,,none,,,
+8474059,2007,97,Linus Omark,,none,,,
+8474192,2007,99,Matt Frattin,2011-04-08,capwages:matt-frattin.html,TOR,,2011
+8474089,2007,105,Brad Malone,,none,,,
+8474100,2007,109,Dwight King,2009-05-21,capwages:dwight-king.html,LAK,,2009
+8473992,2007,110,Justin Falk,2008-10-03,capwages:justin-falk.html,MIN,,2008
+8473997,2007,111,Luca Caputi,,none,,,
+8474098,2007,112,Colton Sceviour,2009-01-20,capwages:colton-sceviour.html,DAL,,2009
+8474048,2007,116,Keith Aulie,2009-01-07,capwages:keith-aulie.html,CGY,,2009
+8474094,2007,117,Matt Halischuk,2008-07-01,capwages:matt-halischuk.html,NJD,,2008
+8474005,2007,118,Alex Grant,2008-10-25,capwages:alex-grant.html,,,2008
+8474131,2007,122,Mario Kempe,,none,,,
+8474128,2007,127,Milan Kytnar,,none,,,
+8473994,2007,129,Jamie Benn,2008-07-11,capwages:jamie-benn.html,DAL,,2008
+8474052,2007,132,Chris Terry,2009-05-29,capwages:chris-terry.html,CAR,,2009
+8474008,2007,135,Paul Carey,2012-04-11,capwages:paul-carey.html,COL,,2012
+8474042,2007,140,Cody Almond,2009-03-30,capwages:cody-almond.html,MIN,,2009
+8474162,2007,141,Jake Muzzin,2010-01-04,capwages:jake-muzzin.html,LAK,,2010
+8474154,2007,144,Andreas Thuresson,,none,,,
+8474177,2007,152,Jon Kalinski,,none,,,
+8474152,2007,153,Scott Darling,2014-07-01,capwages:scott-darling.html,CHI,,2014
+8474057,2007,158,Allen York,2011-03-29,capwages:allen-york.html,CBJ,,2011
+8474061,2007,160,Anthony Peluso,2009-03-12,capwages:anthony-peluso.html,STL,,2009
+8474034,2007,161,Patrick Maroon,2007-11-01,capwages:pat-maroon.html,ANA,,2007
+8474135,2007,162,Brett Bellemore,2008-05-15,capwages:brett-bellemore.html,CAR,,2008
+8474018,2007,164,Christopher DiDomenico,,none,,,
+8474085,2007,167,Johan Harju,,none,,,
+8474176,2007,168,Carl Hagelin,2011-04-16,capwages:carl-hagelin.html,NYR,,2011
+8474138,2007,171,Dustin Jeffrey,2007-10-05,capwages:dustin-jeffrey.html,PIT,,2007
+8473989,2007,172,Luke Gazdic,2009-04-03,capwages:luke-gazdic.html,DAL,,2009
+8474009,2007,173,Nick Bonino,2010-03-21,capwages:nick-bonino.html,ANA,,2010
+8474012,2007,175,John Albert,2013-07-06,capwages:john-albert.html,WPG,,2013
+8474038,2007,179,Paul Byron,2009-06-01,capwages:paul-byron.html,BUF,,2009
+8474125,2007,194,Carl Gunnarsson,2009-06-01,capwages:carl-gunnarsson.html,TOR,,2009
+8474077,2007,200,Carson McMillan,,none,,,
+8474027,2007,201,Justin Braun,2010-03-24,capwages:justin-braun.html,SJS,,2010
+8473712,2007,203,Frazer McLaren,2008-04-08,capwages:frazer-mclaren.html,SJS,,2008
+8474074,2007,205,Paul Postma,2009-04-10,capwages:paul-postma.html,ATL,,2009
+8474564,2008,1,Steven Stamkos,2008-07-29,capwages:steven-stamkos.html,TBL,,2008
+8474563,2008,2,Drew Doughty,2008-08-11,capwages:drew-doughty.html,LAK,,2008
+8474567,2008,3,Zach Bogosian,2008-09-04,capwages:zach-bogosian.html,ATL,,2008
+8474565,2008,4,Alex Pietrangelo,2008-09-04,capwages:alex-pietrangelo.html,STL,,2008
+8474568,2008,5,Luke Schenn,2008-10-07,capwages:luke-schenn.html,TOR,,2008
+8474566,2008,6,Nikita Filatov,2008-07-10,capwages:nikita-filatov.html,CBJ,,2008
+8474569,2008,7,Colin Wilson,2009-04-17,capwages:colin-wilson.html,NSH,,2009
+8474571,2008,8,Mikkel Boedker,2008-07-01,capwages:mikkel-boedker.html,ARI,,2008
+8474573,2008,9,Josh Bailey,2008-10-02,capwages:josh-bailey.html,NYI,,2008
+8474570,2008,10,Cody Hodgson,2008-10-05,capwages:cody-hodgson.html,VAN,,2008
+8474574,2008,12,Tyler Myers,2009-05-11,capwages:tyler-myers.html,BUF,,2009
+8474575,2008,13,Colten Teubert,2008-08-28,capwages:colten-teubert.html,EDM,,2008
+8474576,2008,14,Zach Boychuk,2008-10-04,capwages:zach-boychuk.html,CAR,,2008
+8474578,2008,15,Erik Karlsson,2009-05-07,capwages:erik-karlsson.html,OTT,,2009
+8474577,2008,16,Joe Colborne,2010-03-31,capwages:joe-colborne.html,BOS,,2010
+8474581,2008,17,Jake Gardiner,2011-03-15,capwages:jake-gardiner.html,TOR,,2011
+8474579,2008,19,Luca Sbisa,2008-10-01,capwages:luca-sbisa.html,PHI,,2008
+8474584,2008,20,Michael Del Zotto,2009-05-26,capwages:michael-del-zotto.html,NYR,,2009
+8474586,2008,22,Jordan Eberle,2009-03-23,capwages:jordan-eberle.html,EDM,,2009
+8474585,2008,23,Tyler Cuma,2009-07-10,capwages:tyler-cuma.html,MIN,,2009
+8474582,2008,24,Mattias Tedenby,2010-05-14,capwages:mattias-tedenby.html,NJD,,2010
+8474587,2008,25,Greg Nemisz,2009-07-21,capwages:greg-nemisz.html,CGY,,2009
+8474589,2008,26,Tyler Ennis,2009-09-16,capwages:tyler-ennis.html,BUF,,2009
+8474590,2008,27,John Carlson,2008-11-04,capwages:john-carlson.html,WSH,,2008
+8474588,2008,28,Viktor Tikhonov,2008-07-01,capwages:viktor-tikhonov.html,ARI,,2008
+8474593,2008,31,Jacob Markstrom,2010-05-30,capwages:jacob-markstrom.html,FLA,,2010
+8474594,2008,32,Slava Voynov,2008-08-27,capwages:slava-voynov.html,LAK,,2008
+8474592,2008,33,Philip McRae,2009-03-12,capwages:philip-mcrae.html,STL,,2009
+8474596,2008,34,Jake Allen,2008-10-22,capwages:jake-allen.html,STL,,2008
+8474598,2008,35,Nicolas Deschamps,2009-07-16,capwages:nicolas-deschamps.html,ANA,,2009
+8474597,2008,37,Cody Goloubef,2010-04-19,capwages:cody-goloubef.html,CBJ,,2010
+8474600,2008,38,Roman Josi,2010-05-27,capwages:roman-josi.html,NSH,,2010
+8474603,2008,39,Eric O'Dell,,none,,,
+8474604,2008,40,Aaron Ness,2011-03-16,capwages:aaron-ness.html,NYI,,2011
+8474601,2008,41,Yann Sauve,2010-05-26,capwages:yann-sauve.html,VAN,,2010
+8474605,2008,42,Patrick Wiercioch,2010-03-31,capwages:patrick-wiercioch.html,OTT,,2010
+8474602,2008,43,Justin Schultz,2012-06-29,capwages:justin-schultz.html,EDM,,2012
+8474609,2008,44,Luke Adam,2010-04-08,capwages:luke-adam.html,BUF,,2010
+8474610,2008,45,Zac Dalpe,2010-03-18,capwages:zac-dalpe.html,CAR,,2010
+8474606,2008,46,Colby Robak,2010-04-06,capwages:colby-robak.html,FLA,,2010
+8474607,2008,47,Max Sauve,2009-12-01,capwages:max-sauve.html,BOS,,2009
+8474615,2008,49,Jared Staal,2010-05-14,capwages:jared-staal.html,CAR,,2010
+8474611,2008,50,Cameron Gaunce,2009-05-11,capwages:cameron-gaunce.html,COL,,2009
+8474613,2008,51,Derek Stepan,2010-06-09,capwages:derek-stepan.html,NYR,,2010
+8474612,2008,53,Travis Hamonic,2010-05-27,capwages:travis-hamonic.html,NYI,,2010
+8474616,2008,54,Patrice Cormier,2009-02-08,capwages:patrice-cormier.html,NJD,,2009
+8474618,2008,55,Marco Scandella,2009-04-06,capwages:marco-scandella.html,MIN,,2009
+8474625,2008,60,Jimmy Hayes,2011-03-30,capwages:jimmy-hayes.html,CHI,,2011
+8474627,2008,65,Jori Lehtera,2010-05-31,capwages:jori-lehtera.html,STL,,2010
+8474631,2008,67,Marc-Andre Bourdon,,none,,,
+8474629,2008,68,Shawn Lalonde,2009-12-31,capwages:shawn-lalonde.html,CHI,,2009
+8474628,2008,69,Michael Stone,2009-12-09,capwages:michael-stone.html,ARI,,2009
+8474638,2008,74,Andrew Campbell,2008-10-16,capwages:andrew-campbell.html,LAK,,2008
+8474634,2008,75,Evgeny Grachev,2008-09-22,capwages:evgeny-grachev.html,NYR,,2008
+8474636,2008,77,Michael Hutchinson,2010-03-31,capwages:michael-hutchinson.html,BOS,puckpedia 2018-07-01,2010
+8474642,2008,78,Lance Bouma,2009-10-07,capwages:lance-bouma.html,CGY,,2009
+8474250,2008,79,Zack Smith,2008-08-14,capwages:zack-smith.html,OTT,,2008
+8474641,2008,82,Adam Henrique,2009-11-12,capwages:adam-henrique.html,NJD,,2009
+8474646,2008,85,Brandon McMillan,2010-05-27,capwages:brandon-mcmillan.html,ANA,,2010
+8474649,2008,90,Tomas Kundratek,2008-08-25,capwages:tomas-kundratek.html,NYR,,2008
+8474651,2008,93,Braden Holtby,2008-10-20,capwages:braden-holtby.html,WSH,,2008
+8474660,2008,95,David Warsofsky,2011-03-24,capwages:david-warsofsky.html,BOS,,2011
+8474659,2008,96,Matt Donovan,,none,,puckpedia 2018-11-05,
+8474657,2008,97,Jamie Arniel,,none,,,
+8474666,2008,102,David Ullstrom,,none,,puckpedia 2018-05-15,
+8474662,2008,103,Johan Motin,,none,,,
+8474661,2008,105,Michal Jordan,2010-04-16,capwages:michal-jordan.html,CAR,,2010
+8474667,2008,106,Harri Sateri,2010-05-11,capwages:harri-sateri.html,SJS,,2010
+8474670,2008,109,Andre Petersson,2011-04-08,capwages:andre-petersson.html,OTT,,2011
+8474668,2008,111,Dale Weise,2008-09-19,capwages:dale-weise.html,NYR,,2008
+8474673,2008,114,TJ Brodie,2009-07-21,capwages:tj-brodie.html,CGY,,2009
+8474674,2008,117,James Wright,2009-09-26,capwages:james-wright.html,TBL,,2009
+8474683,2008,119,Derek Grant,2011-04-16,capwages:derek-grant.html,OTT,,2011
+8474679,2008,121,Gustav Nyquist,2011-03-25,capwages:gustav-nyquist.html,DET,,2011
+8474682,2008,122,Dustin Tokarski,2008-12-30,capwages:dustin-tokarski.html,TBL,,2008
+8474681,2008,123,Andrei Loktionov,2008-08-27,capwages:andrei-loktionov.html,LAK,,2008
+8474690,2008,126,Kevin Poulin,2011-01-06,capwages:kevin-poulin.html,NYI,,2011
+8474685,2008,127,Matt Calvert,2010-03-18,capwages:matt-calvert.html,CBJ,,2010
+8474688,2008,128,Greg Pateryn,2012-03-28,capwages:greg-pateryn.html,MTL,,2012
+8474691,2008,133,Philippe Cornet,,none,,,
+8474693,2008,135,Tomas Kubalik,2010-05-17,capwages:tomas-kubalik.html,CBJ,,2010
+8474698,2008,137,Brent Regner,2009-07-01,capwages:brent-regner.html,CBJ,,2009
+8474697,2008,139,Mark Borowiecki,2012-03-11,capwages:mark-borowiecki.html,OTT,,2012
+8474705,2008,140,Mark Olver,,none,,,
+8474709,2008,148,Matt Martin,2009-09-04,capwages:matt-martin.html,NYI,,2009
+8474707,2008,149,Philip Larsen,2009-04-20,capwages:philip-larsen.html,DAL,,2009
+8474717,2008,152,Mark Barberio,2010-05-29,capwages:mark-barberio.html,TBL,,2010
+8474716,2008,156,Jared Spurgeon,2010-09-23,capwages:jared-spurgeon.html,MIN,,2010
+8474715,2008,157,Cam Atkinson,2011-03-27,capwages:cam-atkinson.html,CBJ,,2011
+8474722,2008,160,Luke Witkowski,2013-04-01,capwages:luke-witkowski.html,TBL,,2013
+8474719,2008,163,Teemu Hartikainen,2010-05-14,capwages:teemu-hartikainen.html,EDM,,2010
+8474727,2008,169,Ben Smith,2010-04-15,capwages:ben-smith.html,CHI,,2010
+8474730,2008,170,Jonas Holos,,none,,,
+8474731,2008,175,Justin DiBenedetto,,none,,,
+8474739,2008,177,Tommy Wingels,2010-06-01,capwages:tommy-wingels.html,SJS,,2010
+8474736,2008,178,Zac Rinaldo,2009-08-11,capwages:zac-rinaldo.html,PHI,,2009
+8474743,2008,184,Zach Redmond,2011-04-05,capwages:zach-redmond.html,ATL,,2011
+8474218,2008,186,Jason Demers,2008-09-29,capwages:jason-demers.html,SJS,,2008
+8474744,2008,187,Sean Collins,2012-03-29,capwages:sean-collins.html,CBJ,,2012
+8474748,2008,188,Andrew MacWilliam,2013-04-05,capwages:andrew-macwilliam.html,TOR,,2013
+8474749,2008,190,Matt Bartkowski,2010-04-28,capwages:matt-bartkowski.html,BOS,,2010
+8474762,2008,204,Stefan Della Rovere,,none,,,
+8474765,2008,207,Anders Lindback,2010-05-26,capwages:anders-lindback.html,NSH,,2010
+8475166,2009,1,John Tavares,2009-07-15,capwages:john-tavares.html,NYI,,2009
+8475167,2009,2,Victor Hedman,2009-07-09,capwages:victor-hedman.html,TBL,,2009
+8475168,2009,3,Matt Duchene,2009-07-16,capwages:matt-duchene.html,COL,,2009
+8475169,2009,4,Evander Kane,2009-07-20,capwages:evander-kane.html,ATL,,2009
+8475170,2009,5,Brayden Schenn,2010-03-03,capwages:brayden-schenn.html,LAK,,2010
+8475171,2009,6,Oliver Ekman-Larsson,2010-05-24,capwages:oliver-ekman-larsson.html,ARI,,2010
+8475172,2009,7,Nazem Kadri,2009-07-06,capwages:nazem-kadri.html,TOR,,2009
+8475173,2009,8,Scott Glennie,2010-07-13,capwages:scott-glennie.html,DAL,,2010
+8475174,2009,9,Jared Cowen,2010-02-03,capwages:jared-cowen.html,OTT,,2010
+8475175,2009,10,Magnus Paajarvi,2010-06-01,capwages:magnus-paajarvi.html,EDM,,2010
+8475176,2009,11,Ryan Ellis,2009-10-19,capwages:ryan-ellis.html,NSH,,2009
+8475177,2009,12,Calvin de Haan,2010-05-02,capwages:calvin-de-haan.html,NYI,,2010
+8475178,2009,13,Zack Kassian,2010-11-02,capwages:zack-kassian.html,BUF,,2010
+8475179,2009,14,Dmitry Kulikov,2009-09-29,capwages:dmitry-kulikov.html,FLA,,2009
+8475180,2009,15,Peter Holland,2010-04-02,capwages:peter-holland.html,ANA,,2010
+8475181,2009,16,Nick Leddy,2010-07-27,capwages:nick-leddy.html,CHI,,2010
+8475182,2009,17,David Rundblad,2010-06-10,capwages:david-rundblad.html,STL,,2010
+8475183,2009,18,Louis Leblanc,2010-07-30,capwages:louis-leblanc.html,MTL,,2010
+8475184,2009,19,Chris Kreider,2012-04-10,capwages:chris-kreider.html,NYR,,2012
+8475185,2009,20,Jacob Josefson,2010-05-14,capwages:jacob-josefson.html,NJD,,2010
+8475186,2009,21,John Moore,2009-07-21,capwages:john-moore.html,CBJ,,2009
+8475147,2009,22,Jordan Schroeder,2010-03-17,capwages:jordan-schroeder.html,WSH,,2010
+8475148,2009,23,Tim Erixon,2011-06-01,capwages:tim-erixon.html,NYR,,2011
+8475149,2009,24,Marcus Johansson,2010-05-17,capwages:marcus-johansson.html,WSH,,2010
+8475150,2009,25,Jordan Caron,2010-03-31,capwages:jordan-caron.html,BOS,,2010
+8475151,2009,26,Kyle Palmieri,2010-08-03,capwages:kyle-palmieri.html,ANA,,2010
+8475153,2009,28,Dylan Olsen,2010-12-31,capwages:dylan-olsen.html,CHI,,2010
+8475154,2009,29,Carter Ashton,2009-10-02,capwages:carter-ashton.html,TBL,,2009
+8475155,2009,30,Simon Despres,2009-10-07,capwages:simon-despres.html,PIT,,2009
+8475156,2009,31,Mikko Koskinen,2009-07-13,capwages:mikko-koskinen.html,NYI,,2009
+8475157,2009,32,Landon Ferraro,2010-11-02,capwages:landon-ferraro.html,DET,,2010
+8475158,2009,33,Ryan O'Reilly,,none,,,
+8475159,2009,34,Carl Klingberg,2010-05-31,capwages:carl-klingberg.html,ATL,,2010
+8475160,2009,35,Kyle Clifford,2009-09-22,capwages:kyle-clifford.html,LAK,,2009
+8475161,2009,36,Chris Brown,2012-03-29,capwages:chris-brown.html,ARI,,2012
+8475162,2009,37,Mat Clark,2010-03-28,capwages:mat-clark.html,ANA,,2010
+8475163,2009,38,Alex Chiasson,2012-04-15,capwages:alex-chiasson.html,DAL,,2012
+8475164,2009,39,Jakob Silfverberg,,none,,,
+8475165,2009,40,Anton Lander,2011-04-28,capwages:anton-lander.html,EDM,,2011
+8475213,2009,44,Drew Shore,2012-03-26,capwages:drew-shore.html,FLA,,2012
+8475214,2009,45,Jeremy Morin,2010-06-01,capwages:jeremy-morin.html,ATL,,2010
+8475215,2009,46,Robin Lehner,2010-03-30,capwages:robin-lehner.html,OTT,,2010
+8475206,2009,49,Stefan Elliott,2011-03-21,capwages:stefan-elliott.html,COL,,2011
+8475208,2009,51,Brian Dumoulin,2012-04-10,capwages:brian-dumoulin.html,CAR,,2012
+8475209,2009,52,Richard Panik,2011-05-12,capwages:richard-panik.html,TBL,,2011
+8475210,2009,53,Anton Rodin,2010-06-01,capwages:anton-rodin.html,VAN,,2010
+8475199,2009,54,Eric Gelinas,2010-05-19,capwages:eric-gelinas.html,NJD,,2010
+8475200,2009,55,Dmitry Orlov,2011-03-02,capwages:dmitry-orlov.html,WSH,,2011
+8475203,2009,58,Jesse Blacker,2010-03-18,capwages:jesse-blacker.html,TOR,,2010
+8475204,2009,59,Brandon Pirri,2010-08-24,capwages:brandon-pirri.html,CHI,,2010
+8475193,2009,60,Tomas Tatar,2009-09-18,capwages:tomas-tatar.html,DET,,2009
+8475194,2009,61,Philip Samuelsson,2011-04-16,capwages:philip-samuelsson.html,PIT,,2011
+8475195,2009,62,Anders Nilsson,2011-07-06,capwages:anders-nilsson.html,NYI,,2011
+8475196,2009,63,Ben Hanowski,2013-04-12,capwages:ben-hanowski.html,CGY,,2013
+8475197,2009,64,Tyson Barrie,2011-03-25,capwages:tyson-barrie.html,COL,,2011
+8475198,2009,65,Joonas Nattinen,2011-05-26,capwages:joonas-nattinen.html,MTL,,2011
+8475188,2009,66,Brayden McNabb,2011-05-18,capwages:brayden-mcnabb.html,BUF,,2011
+8475190,2009,68,Jamie Devane,2009-11-03,capwages:jamie-devane.html,TOR,,2009
+8475191,2009,69,Reilly Smith,2012-03-26,capwages:reilly-smith.html,DAL,,2012
+8475192,2009,70,Taylor Beck,2010-08-25,capwages:taylor-beck.html,NSH,,2010
+8475247,2009,72,Michael Latta,2010-04-14,capwages:michael-latta.html,NSH,,2010
+8475248,2009,73,Alexander Urbom,2009-09-16,capwages:alexander-urbom.html,NJD,,2009
+8475250,2009,75,Andrej Nestrasil,2011-05-31,capwages:andrej-nestrasil.html,DET,,2011
+8475252,2009,77,Matt Hackett,2010-03-16,capwages:matt-hackett.html,MIN,,2010
+8475243,2009,80,Ryan Bourque,2011-03-16,capwages:ryan-bourque.html,NYR,,2011
+8475246,2009,83,Kevin Connauton,2010-04-28,capwages:kevin-connauton.html,VAN,,2010
+8475235,2009,84,Nicolas Deslauriers,2011-05-31,capwages:nicolas-deslauriers.html,LAK,,2011
+8475236,2009,85,Cody Eakin,2009-10-20,capwages:cody-eakin.html,WSH,,2009
+8475231,2009,92,Casey Cizikas,2011-05-31,capwages:casey-cizikas.html,NYI,,2011
+8475233,2009,94,David Savard,2010-06-03,capwages:david-savard.html,CBJ,,2010
+8475234,2009,95,J-F Berube,,none,,,
+8475223,2009,96,Linden Vey,2011-05-23,capwages:linden-vey.html,LAK,,2011
+8475224,2009,97,Jordan Szwarz,2011-06-01,capwages:jordan-szwarz.html,ARI,,2011
+8475225,2009,98,Craig Smith,2011-07-26,capwages:craig-smith.html,NSH,,2011
+8475227,2009,100,Chris Wideman,2012-03-28,capwages:chris-wideman.html,OTT,,2012
+8475218,2009,102,Mattias Ekholm,2011-05-12,capwages:mattias-ekholm.html,NSH,,2011
+8475219,2009,103,Kristopher Foucault,,none,,,
+8475220,2009,104,Marcus Foligno,2011-05-26,capwages:marcus-foligno.html,BUF,,2011
+8475222,2009,106,Sami Vatanen,2011-05-31,capwages:sami-vatanen.html,ANA,,2011
+8475253,2009,107,Garrett Wilson,2011-07-04,capwages:garrett-wilson.html,FLA,,2011
+8475283,2009,112,Lane MacDermid,2009-04-10,capwages:lane-macdermid.html,BOS,,2009
+8475274,2009,114,Seth Helgeson,2013-04-23,capwages:seth-helgeson.html,NJD,,2013
+8475275,2009,115,Patrick Wey,2013-04-05,capwages:patrick-wey.html,WSH,,2013
+8475277,2009,117,Edward Pasquale,2010-05-14,capwages:edward-pasquale.html,ATL,,2010
+8475278,2009,119,Byron Froese,2011-05-31,capwages:byron-froese.html,CHI,,2011
+8475279,2009,120,Ben Chiarot,2011-03-15,capwages:ben-chiarot.html,ATL,,2011
+8475270,2009,122,Anton Klementyev,,none,,,
+8475264,2009,127,Roman Horak,2011-05-06,capwages:roman-horak.html,NYR,,2011
+8475266,2009,129,Tomas Vincour,2010-03-24,capwages:tomas-vincour.html,DAL,,2010
+8474884,2009,130,Mike Hoffman,2010-08-22,capwages:mike-hoffman.html,OTT,,2010
+8475268,2009,132,Gabriel Bourque,2010-04-15,capwages:gabriel-bourque.html,NSH,,2010
+8475260,2009,135,Corban Knight,2013-07-05,capwages:corban-knight.html,CGY,,2013
+8475263,2009,138,Wade Megan,,none,,,
+8475254,2009,139,Gabriel Dumont,2010-04-30,capwages:gabriel-dumont.html,MTL,,2010
+8475321,2009,147,Phil Varone,,none,,,
+8475323,2009,149,Marcus Kruger,2010-06-18,capwages:marcus-kruger.html,CHI,,2010
+8475324,2009,150,Nick Jensen,2013-05-02,capwages:nick-jensen.html,DET,,2013
+8475314,2009,152,Anders Lee,2012-04-01,capwages:anders-lee.html,NYI,,2012
+8475309,2009,158,Jerry D'Amigo,,none,,,
+8475310,2009,159,Curtis McKenzie,2013-04-23,capwages:curtis-mckenzie.html,DAL,,2013
+8475311,2009,161,Darcy Kuemper,2011-05-26,capwages:darcy-kuemper.html,MIN,,2011
+8475304,2009,165,Scott Timmins,2010-05-12,capwages:scott-timmins.html,FLA,,2010
+8475299,2009,171,Joni Ortio,2011-04-01,capwages:joni-ortio.html,CGY,,2011
+8474892,2009,172,Eric Wellwood,,none,,,
+8475291,2009,175,Garrett Mitchell,2011-03-19,capwages:garrett-mitchell.html,WSH,,2011
+8475292,2009,176,Tyler Randell,2011-04-16,capwages:tyler-randell.html,BOS,,2011
+8475294,2009,178,Rasmus Rissanen,2011-04-04,capwages:rasmus-rissanen.html,CAR,,2011
+8475295,2009,179,Brandon Kozun,2010-04-03,capwages:brandon-kozun.html,LAK,,2010
+8475296,2009,180,Mitch Callahan,2010-04-30,capwages:mitch-callahan.html,DET,,2010
+8475287,2009,182,Erik Haula,2013-04-10,capwages:erik-haula.html,MIN,,2013
+8475325,2009,186,Jordan Nolan,2010-10-05,capwages:jordan-nolan.html,LAK,,2010
+8475342,2009,196,Oliver Lauridsen,2011-03-15,capwages:oliver-lauridsen.html,PHI,,2011
+8475343,2009,198,Nic Dowd,2014-04-01,capwages:nic-dowd.html,LAK,,2014
+8475328,2009,206,Ben Sexton,2014-03-20,capwages:ben-sexton.html,BOS,,2014
+8475332,2009,210,Adam Almquist,2011-05-28,capwages:adam-almquist.html,DET,,2011
+8475791,2010,1,Taylor Hall,2010-07-05,capwages:taylor-hall.html,EDM,,2010
+8475794,2010,2,Tyler Seguin,2010-08-03,capwages:tyler-seguin.html,BOS,,2010
+8475790,2010,3,Erik Gudbranson,2011-06-16,capwages:erik-gudbranson.html,FLA,,2011
+8475793,2010,4,Ryan Johansen,2010-09-09,capwages:ryan-johansen.html,CBJ,,2010
+8475799,2010,5,Nino Niederreiter,2010-09-21,capwages:nino-niederreiter.html,NYI,,2010
+8475792,2010,6,Brett Connolly,2011-07-01,capwages:brett-connolly.html,TBL,,2011
+8475784,2010,7,Jeff Skinner,2010-09-21,capwages:jeff-skinner.html,CAR,,2010
+8475788,2010,8,Alexander Burmistrov,2010-10-05,capwages:alexander-burmistrov.html,ATL,,2010
+8475798,2010,9,Mikael Granlund,2012-05-25,capwages:mikael-granlund.html,MIN,,2012
+8475795,2010,10,Dylan McIlrath,2011-03-06,capwages:dylan-mcilrath.html,NYR,,2011
+8475789,2010,11,Jack Campbell,2010-11-04,capwages:jack-campbell.html,DAL,,2010
+8475764,2010,12,Cam Fowler,2010-07-28,capwages:cam-fowler.html,ANA,,2010
+8475759,2010,13,Brandon Gormley,2010-10-07,capwages:brandon-gormley.html,ARI,,2010
+8475768,2010,14,Jaden Schwartz,2012-03-12,capwages:jaden-schwartz.html,STL,,2012
+8475762,2010,15,Derek Forbort,2013-04-06,capwages:derek-forbort.html,LAK,,2013
+8475765,2010,16,Vladimir Tarasenko,2012-07-02,capwages:vladimir-tarasenko.html,STL,,2012
+8475767,2010,17,Joey Hishon,2011-03-14,capwages:joey-hishon.html,COL,,2011
+8475766,2010,18,Austin Watson,,none,,,
+8475760,2010,19,Nick Bjugstad,2013-04-03,capwages:nick-bjugstad.html,FLA,,2013
+8475761,2010,20,Beau Bennett,2012-04-13,capwages:beau-bennett.html,PIT,,2012
+8475772,2010,21,Riley Sheahan,2012-04-05,capwages:riley-sheahan.html,DET,,2012
+8475797,2010,22,Jarred Tinordi,2011-11-02,capwages:jarred-tinordi.html,MTL,,2011
+8475796,2010,23,Mark Pysyk,2011-06-02,capwages:mark-pysyk.html,BUF,,2011
+8475763,2010,24,Kevin Hayes,2014-08-20,capwages:kevin-hayes.html,NYR,,2014
+8475769,2010,25,Quinton Howden,2011-04-06,capwages:quinton-howden.html,FLA,,2011
+8475744,2010,26,Evgeny Kuznetsov,2014-03-08,capwages:evgeny-kuznetsov.html,WSH,,2014
+8475745,2010,28,Charlie Coyle,2012-03-01,capwages:charlie-coyle.html,MIN,,2012
+8475770,2010,29,Emerson Etem,2011-05-19,capwages:emerson-etem.html,ANA,,2011
+8475754,2010,30,Brock Nelson,2012-04-03,capwages:brock-nelson.html,NYI,,2012
+8475752,2010,31,Tyler Pitlick,2011-04-16,capwages:tyler-pitlick.html,EDM,,2011
+8475756,2010,33,John McFarland,2011-04-21,capwages:john-mcfarland.html,FLA,,2011
+8475748,2010,34,Dalton Smith,2011-08-08,capwages:dalton-smith.html,CBJ,,2011
+8475755,2010,36,Alexander Petrovic,2011-04-18,capwages:alexander-petrovic.html,FLA,,2011
+8475753,2010,37,Justin Faulk,2011-04-16,capwages:justin-faulk.html,CAR,,2011
+8475750,2010,38,Jon Merrill,2013-04-30,capwages:jon-merrill.html,NJD,,2013
+8475757,2010,39,Brett Bulmer,2011-04-21,capwages:brett-bulmer.html,MIN,,2011
+8475749,2010,40,Christian Thomas,2011-05-19,capwages:christian-thomas.html,NYR,,2011
+8475747,2010,41,Patrik Nemeth,2011-04-21,capwages:patrik-nemeth.html,DAL,,2011
+8475758,2010,42,Devante Smith-Pelly,2010-12-29,capwages:devante-smith-pelly.html,ANA,,2010
+8475727,2010,45,Ryan Spooner,2011-07-21,capwages:ryan-spooner.html,BOS,,2011
+8475716,2010,46,Martin Marincin,2011-04-25,capwages:martin-marincin.html,EDM,,2011
+8475726,2010,47,Tyler Toffoli,2011-04-18,capwages:tyler-toffoli.html,LAK,,2011
+8475734,2010,48,Curtis Hamilton,2011-04-18,capwages:curtis-hamilton.html,EDM,,2011
+8475717,2010,49,Calvin Pickard,2011-03-25,capwages:calvin-pickard.html,COL,,2011
+8475736,2010,50,Connor Brickley,2014-05-26,capwages:connor-brickley.html,FLA,,2014
+8475714,2010,51,Calle Jarnkrok,2012-05-31,capwages:calle-jarnkrok.html,DET,,2012
+8475729,2010,53,Mark Alt,2013-04-23,capwages:mark-alt.html,PHI,,2013
+8475718,2010,54,Justin Holl,2016-07-02,capwages:justin-holl.html,TOR,,2016
+8475723,2010,55,Petr Straka,2013-04-13,capwages:petr-straka.html,PHI,,2013
+8475728,2010,56,Johan Larsson,2011-05-24,capwages:johan-larsson.html,MIN,,2011
+8475715,2010,57,Oscar Lindberg,2012-06-02,capwages:oscar-lindberg.html,NYR,,2012
+8475722,2010,59,Jason Zucker,2012-03-27,capwages:jason-zucker.html,MIN,,2012
+8475730,2010,60,Stephen Johns,2014-04-02,capwages:stephen-johns.html,CHI,,2014
+8475735,2010,62,Greg McKegg,,none,,,
+8475733,2010,64,Max Reinhart,2011-07-15,capwages:max-reinhart.html,CGY,,2011
+8475462,2010,66,Radko Gudas,2010-08-09,capwages:radko-gudas.html,TBL,,2010
+8475732,2010,67,Danny Biega,2013-03-16,capwages:danny-biega.html,CAR,,2013
+8475738,2010,70,Jordan Weal,2011-04-18,capwages:jordan-weal.html,LAK,,2011
+8475739,2010,71,Michael Bournival,2011-12-02,capwages:michael-bournival.html,MTL,,2011
+8475810,2010,80,Bryan Rust,2014-04-01,capwages:bryan-rust.html,PIT,,2014
+8475809,2010,84,Scott Wedgewood,2012-03-16,capwages:scott-wedgewood.html,NJD,,2012
+8475816,2010,86,Stanislav Galiev,2011-08-30,capwages:stanislav-galiev.html,WSH,,2011
+8475815,2010,87,Julian Melchiori,2012-03-16,capwages:julian-melchiori.html,WPG,,2012
+8475808,2010,89,Michael Chaput,2012-04-28,capwages:michael-chaput.html,CBJ,,2012
+8475807,2010,90,Joakim Nordstrom,2012-05-29,capwages:joakim-nordstrom.html,CHI,,2012
+8475414,2010,97,Craig Cunningham,2011-07-14,capwages:craig-cunningham.html,BOS,,2011
+8475820,2010,99,Joonas Donskoi,2015-05-19,capwages:joonas-donskoi.html,SJS,,2015
+8475829,2010,103,John Ramage,2013-04-18,capwages:john-ramage.html,CGY,,2013
+8475825,2010,104,Jani Hakanpää,2012-05-21,capwages:jani-hakanpaa.html,STL,,2012
+8475826,2010,105,Justin Shugg,2011-06-18,capwages:justin-shugg.html,CAR,,2011
+8475834,2010,106,Marcus Sorensen,2016-05-13,capwages:marcus-sorensen.html,SJS,,2016
+8475833,2010,108,Bill Arnold,2014-04-11,capwages:bill-arnold.html,CGY,,2014
+8475832,2010,110,Tom Kuhnhackl,2011-03-22,capwages:tom-kuhnhackl.html,PIT,,2011
+8475800,2010,111,Teemu Pulkkinen,2012-05-30,capwages:teemu-pulkkinen.html,DET,,2012
+8475831,2010,112,Philipp Grubauer,2010-10-04,capwages:philipp-grubauer.html,WSH,,2010
+8475774,2010,116,Petter Granberg,2012-05-28,capwages:petter-granberg.html,TOR,,2012
+8475782,2010,117,Morgan Ellis,2012-03-03,capwages:morgan-ellis.html,MTL,,2012
+8475775,2010,119,Tye McGinn,2011-07-14,capwages:tye-mcginn.html,PHI,,2011
+8475780,2010,122,Chris Wagner,2012-04-03,capwages:chris-wagner.html,ANA,,2012
+8475786,2010,123,Zach Hyman,2015-06-24,capwages:zach-hyman.html,TOR,,2015
+8475878,2010,129,Freddie Hamilton,2011-05-26,capwages:freddie-hamilton.html,SJS,,2011
+8475906,2010,131,John Klingberg,2011-05-16,capwages:john-klingberg.html,DAL,,2011
+8475841,2010,132,Tim Heed,2012-05-30,capwages:tim-heed.html,ANA,,2012
+8475907,2010,133,Micheal Ferland,2011-12-05,capwages:micheal-ferland.html,CGY,,2011
+8475845,2010,135,Justin Florek,2012-03-25,capwages:justin-florek.html,BOS,,2012
+8475839,2010,138,Louis Domingue,2011-06-01,capwages:louis-domingue.html,ARI,,2011
+8475844,2010,140,Kenny Agostino,2014-03-17,capwages:kenny-agostino.html,CGY,,2014
+8475852,2010,141,Petr Mrazek,2011-10-27,capwages:petr-mrazek.html,DET,,2011
+8475842,2010,144,Sam Carrick,2012-03-31,capwages:sam-carrick.html,TOR,,2012
+8475848,2010,147,Brendan Gallagher,2011-11-16,capwages:brendan-gallagher.html,MTL,,2011
+8475857,2010,148,Kevin Gravel,2015-06-17,capwages:kevin-gravel.html,LAK,,2015
+8474774,2010,154,Dalton Prout,2011-07-01,capwages:dalton-prout.html,CBJ,,2011
+8475855,2010,157,Jesper Fast,2012-05-31,capwages:jesper-fast.html,NYR,,2012
+8475869,2010,162,Brandon Davidson,2012-06-01,capwages:brandon-davidson.html,EDM,,2012
+8475876,2010,165,Zane McIntyre,,none,,,
+8475868,2010,168,Anthony Bitetto,2012-03-29,capwages:anthony-bitetto.html,NSH,,2012
+8475836,2010,172,Alex Friesen,2012-06-01,capwages:alex-friesen.html,VAN,,2012
+8475913,2010,178,Mark Stone,2011-09-20,capwages:mark-stone.html,OTT,,2011
+8475889,2010,193,Patrick Holland,2012-03-07,capwages:patrick-holland.html,MTL,,2012
+8475893,2010,198,Joonas Rask,,none,,,
+8475896,2010,209,Brendan Ranford,2014-07-03,capwages:brendan-ranford.html,DAL,,2014
+8475902,2010,210,Zach Trotman,2012-03-24,capwages:zach-trotman.html,BOS,,2012
+8476454,2011,1,Ryan Nugent-Hopkins,2011-07-02,capwages:ryan-nugent-hopkins.html,EDM,,2011
+8476455,2011,2,Gabriel Landeskog,2011-07-28,capwages:gabriel-landeskog.html,COL,,2011
+8476456,2011,3,Jonathan Huberdeau,2011-10-11,capwages:jonathan-huberdeau.html,FLA,,2011
+8476457,2011,4,Adam Larsson,2011-07-15,capwages:adam-larsson.html,NJD,,2011
+8476458,2011,5,Ryan Strome,2011-10-06,capwages:ryan-strome.html,NYI,,2011
+8476459,2011,6,Mika Zibanejad,2011-07-13,capwages:mika-zibanejad.html,OTT,,2011
+8476460,2011,7,Mark Scheifele,2011-10-05,capwages:mark-scheifele.html,WPG,,2011
+8476461,2011,8,Sean Couturier,2011-09-26,capwages:sean-couturier.html,PHI,,2011
+8476462,2011,9,Dougie Hamilton,2011-12-08,capwages:dougie-hamilton.html,BOS,,2011
+8476463,2011,10,Jonas Brodin,2011-07-13,capwages:jonas-brodin.html,MIN,,2011
+8476464,2011,11,Duncan Siemens,2011-08-14,capwages:duncan-siemens.html,COL,,2011
+8476465,2011,12,Ryan Murphy,2011-09-19,capwages:ryan-murphy.html,CAR,,2011
+8476466,2011,13,Sven Baertschi,2011-07-05,capwages:sven-baertschi.html,CGY,,2011
+8476467,2011,14,Jamie Oleksiak,2011-10-10,capwages:jamie-oleksiak.html,DAL,,2011
+8476468,2011,15,J.T. Miller,,none,,,
+8476469,2011,16,Joel Armia,2012-06-17,capwages:joel-armia.html,BUF,,2012
+8476470,2011,17,Nathan Beaulieu,2012-05-31,capwages:nathan-beaulieu.html,MTL,,2012
+8476471,2011,18,Mark McNeill,2012-01-01,capwages:mark-mcneill.html,CHI,puckpedia 2018-07-01,2012
+8476472,2011,19,Oscar Klefbom,2012-06-12,capwages:oscar-klefbom.html,EDM,,2012
+8476473,2011,20,Connor Murphy,2011-08-04,capwages:connor-murphy.html,ARI,,2011
+8476474,2011,21,Stefan Noesen,2011-12-22,capwages:stefan-noesen.html,OTT,,2011
+8476476,2011,23,Joe Morrow,2011-08-04,capwages:joe-morrow.html,PIT,,2011
+8476477,2011,24,Matt Puempel,2011-12-23,capwages:matt-puempel.html,OTT,,2011
+8476478,2011,25,Stuart Percy,2011-10-10,capwages:stuart-percy.html,TOR,,2011
+8476479,2011,26,Phillip Danault,2012-01-01,capwages:phillip-danault.html,CHI,,2012
+8476480,2011,27,Vladislav Namestnikov,2012-03-13,capwages:vladislav-namestnikov.html,TBL,,2012
+8476482,2011,29,Nicklas Jensen,2011-09-26,capwages:nicklas-jensen.html,VAN,,2011
+8476483,2011,30,Rickard Rakell,2012-07-02,capwages:rickard-rakell.html,ANA,,2012
+8476426,2011,31,David Musil,2012-01-30,capwages:david-musil.html,EDM,,2012
+8476427,2011,32,Ty Rattie,2012-06-02,capwages:ty-rattie.html,STL,,2012
+8476428,2011,33,Rocco Grimaldi,2014-05-26,capwages:rocco-grimaldi.html,FLA,,2014
+8476429,2011,34,Scott Mayfield,2013-04-05,capwages:scott-mayfield.html,NYI,,2013
+8476430,2011,35,Tomas Jurco,2012-08-07,capwages:tomas-jurco.html,DET,,2012
+8476431,2011,36,Adam Clendening,2012-06-02,capwages:adam-clendening.html,CHI,,2012
+8476432,2011,37,Boone Jenner,2012-03-28,capwages:boone-jenner.html,CBJ,,2012
+8476433,2011,38,Magnus Hellberg,2012-06-16,capwages:magnus-hellberg.html,NSH,,2012
+8476434,2011,39,John Gibson,2012-03-15,capwages:john-gibson.html,ANA,,2012
+8476435,2011,40,Alex Khokhlachev,,none,,,
+8476436,2011,41,Dmitrij Jaskin,2013-04-03,capwages:dmitrij-jaskin.html,STL,,2013
+8476437,2011,42,Victor Rask,2011-10-28,capwages:victor-rask.html,CAR,,2011
+8476438,2011,43,Brandon Saad,2011-10-05,capwages:brandon-saad.html,CHI,,2011
+8476439,2011,44,Brett Ritchie,2012-07-11,capwages:brett-ritchie.html,DAL,,2012
+8476440,2011,45,Markus Granlund,2013-04-23,capwages:markus-granlund.html,CGY,,2013
+8476441,2011,46,Joel Edmundson,2013-03-06,capwages:joel-edmundson.html,STL,,2013
+8476442,2011,47,Matt Nieto,2013-04-01,capwages:matt-nieto.html,SJS,,2013
+8476443,2011,48,Xavier Ouellet,2012-03-25,capwages:xavier-ouellet.html,DET,,2012
+8476444,2011,49,Christopher Gibson,2013-07-20,capwages:christopher-gibson.html,TOR,,2013
+8476445,2011,50,Johan Sundstrom,2012-06-11,capwages:johan-sundstrom.html,NYI,,2012
+8476447,2011,52,Miikka Salomaki,2013-04-24,capwages:miikka-salomaki.html,NSH,,2013
+8476448,2011,53,William Karlsson,2013-05-19,capwages:william-karlsson.html,ANA,,2013
+8476449,2011,54,Scott Harrington,2011-07-26,capwages:scott-harrington.html,PIT,,2011
+8476450,2011,55,Ryan Sproul,2012-03-25,capwages:ryan-sproul.html,DET,,2012
+8476451,2011,56,Lucas Lessio,2012-09-06,capwages:lucas-lessio.html,ARI,,2012
+8476452,2011,57,Tyler Wotherspoon,,none,,,
+8476453,2011,58,Nikita Kucherov,2012-09-11,capwages:nikita-kucherov.html,TBL,,2012
+8476386,2011,61,Shane Prince,2012-07-02,capwages:shane-prince.html,OTT,,2012
+8476388,2011,63,Andrey Pedan,2013-04-02,capwages:andrey-pedan.html,NYI,,2013
+8476389,2011,64,Vincent Trocheck,2012-04-23,capwages:vincent-trocheck.html,FLA,,2012
+8476390,2011,65,Joseph Cramarossa,2013-03-02,capwages:joseph-cramarossa.html,ANA,,2013
+8476391,2011,66,T.J. Tynan,,none,,,
+8476392,2011,67,Adam Lowry,2013-04-16,capwages:adam-lowry.html,WPG,,2013
+8476393,2011,68,Nick Cousins,2013-03-27,capwages:nick-cousins.html,PHI,,2013
+8476394,2011,70,Michael Paliotta,2015-03-28,capwages:michael-paliotta.html,CHI,,2015
+8476396,2011,72,Steven Fogarty,,none,,,
+8476397,2011,73,Keegan Lowe,2013-03-16,capwages:keegan-lowe.html,CAR,,2013
+8476399,2011,75,Blake Coleman,2015-07-01,capwages:blake-coleman.html,NJD,,2015
+8476400,2011,76,Logan Shaw,2013-04-20,capwages:logan-shaw.html,FLA,,2013
+8476401,2011,77,Daniel Catenacci,2012-04-03,capwages:daniel-catenacci.html,BUF,,2012
+8476403,2011,79,Klas Dahlbeck,2012-05-29,capwages:klas-dahlbeck.html,CHI,,2012
+8476404,2011,80,Andy Andreoff,,none,,,
+8476406,2011,82,Nicholas Shore,,none,,,
+8476407,2011,83,Andy Welinski,2016-04-04,capwages:andy-welinski.html,ANA,,2016
+8476410,2011,86,Josh Leivo,2013-03-05,capwages:josh-leivo.html,TOR,,2013
+8476411,2011,87,Jonathan Racine,2013-04-05,capwages:jonathan-racine.html,FLA,,2013
+8476412,2011,88,Jordan Binnington,2012-05-31,capwages:jordan-binnington.html,STL,,2012
+8476414,2011,90,Alexandre Grenier,,none,,,
+8476415,2011,91,Kyle Rau,2015-03-29,capwages:kyle-rau.html,FLA,,2015
+8476416,2011,92,Dillon Simpson,2014-05-26,capwages:dillon-simpson.html,EDM,,2014
+8476418,2011,95,Robbie Russo,2015-08-16,capwages:robbie-russo.html,DET,,2015
+8476419,2011,96,Jean-Gabriel Pageau,2012-06-08,capwages:jean-gabriel-pageau.html,OTT,,2012
+8476422,2011,98,Mike Reilly,2015-07-01,capwages:mike-reilly.html,MIN,,2015
+8476423,2011,99,Reid Boucher,2013-03-16,capwages:reid-boucher.html,NJD,,2013
+8476425,2011,101,Joseph LaBate,2015-05-16,capwages:joseph-labate.html,VAN,,2015
+8476345,2011,103,Gregory Hofmann,,none,,,
+8476346,2011,104,Johnny Gaudreau,2014-04-11,capwages:johnny-gaudreau.html,CGY,,2014
+8476352,2011,110,Michael Mersch,2014-04-01,capwages:michael-mersch.html,LAK,,2014
+8476356,2011,114,Tobias Rieder,2013-04-23,capwages:tobias-rieder.html,ARI,,2013
+8476363,2011,121,Brian Ferlin,2014-05-26,capwages:brian-ferlin.html,BOS,,2014
+8476367,2011,125,John Persson,2012-05-29,capwages:john-persson.html,NYI,,2012
+8476368,2011,126,Fredrik Claesson,2012-05-10,capwages:fredrik-claesson.html,OTT,,2012
+8476370,2011,129,Blake Pietila,2015-05-27,capwages:blake-pietila.html,NJD,,2015
+8476372,2011,131,Nick Seeler,2016-03-26,capwages:nick-seeler.html,MIN,,2016
+8476374,2011,133,Sean Kuraly,2016-03-29,capwages:sean-kuraly.html,BOS,,2016
+8476379,2011,138,Darren Dietz,2013-03-18,capwages:darren-dietz.html,MTL,,2013
+8476381,2011,139,Andrew Shaw,2012-01-03,capwages:andrew-shaw.html,CHI,,2012
+8476384,2011,143,Max Friberg,2012-06-15,capwages:max-friberg.html,ANA,,2012
+8476339,2011,144,Dominik Uher,2012-06-01,capwages:dominik-uher.html,PIT,,2012
+8476300,2011,148,Nikita Nesterov,2013-04-30,capwages:nikita-nesterov.html,TBL,,2013
+8476302,2011,150,Frank Corrado,2011-09-26,capwages:frank-corrado.html,VAN,,2011
+8476303,2011,151,Rob O'Gara,,none,,,
+8476304,2011,152,David Broll,2011-08-01,capwages:david-broll.html,TBL,,2011
+8476310,2011,158,Lukas Sedlak,2013-04-10,capwages:lukas-sedlak.html,CBJ,,2013
+8476312,2011,160,Josh Manson,2014-03-25,capwages:josh-manson.html,ANA,,2014
+8476316,2011,164,Laurent Brossoit,2013-04-04,capwages:laurent-brossoit.html,CGY,,2013
+8476319,2011,167,Nathan Lieuwen,2012-05-06,capwages:nathan-lieuwen.html,BUF,,2012
+8476322,2011,170,Chase Balisy,2015-06-02,capwages:chase-balisy.html,FLA,,2015
+8476323,2011,171,Max McCormick,2014-05-31,capwages:max-mccormick.html,OTT,,2014
+8476326,2011,174,Josh Archibald,,none,,,
+8476329,2011,177,Travis Boyd,2015-04-01,capwages:travis-boyd.html,WSH,,2015
+8476331,2011,179,Dylan DeMelo,2012-04-20,capwages:dylan-demelo.html,SJS,,2012
+8476336,2011,184,Iiro Pakarinen,2014-06-18,capwages:iiro-pakarinen.html,EDM,,2014
+8476341,2011,188,Anton Forsberg,2013-05-28,capwages:anton-forsberg.html,CBJ,,2013
+8476343,2011,190,Garret Sparks,2013-03-20,capwages:garret-sparks.html,TOR,,2013
+8476344,2011,191,Tyler Graovac,2013-04-02,capwages:tyler-graovac.html,MIN,,2013
+8475980,2011,193,Brody Sutter,2012-06-28,capwages:brody-sutter.html,CAR,,2012
+8476278,2011,194,Colin Blackwell,,none,,,
+8476279,2011,195,Jyrki Jokipakka,2012-06-25,capwages:jyrki-jokipakka.html,DAL,,2012
+8476283,2011,199,Alex Broadhurst,2013-06-02,capwages:alex-broadhurst.html,CHI,,2013
+8476285,2011,201,Matthew Peca,2015-04-01,capwages:matthew-peca.html,TBL,,2015
+8476288,2011,204,Ryan Dzingel,2014-04-02,capwages:ryan-dzingel.html,OTT,,2014
+8476289,2011,205,Alexey Marchenko,2013-05-30,capwages:alexey-marchenko.html,DET,,2013
+8476292,2011,208,Ondrej Palat,2011-10-10,capwages:ondrej-palat.html,TBL,,2011
+8476293,2011,209,Scott Wilson,2014-05-26,capwages:scott-wilson.html,PIT,,2014
+8476855,2012,1,Nail Yakupov,,none,,capwages 2013-07-23,
+8476850,2012,2,Ryan Murray,2012-07-25,capwages:ryan-murray.html,CBJ,,2012
+8476851,2012,3,Alex Galchenyuk,,none,,,
+8476852,2012,4,Griffin Reinhart,2012-08-07,capwages:griffin-reinhart.html,NYI,,2012
+8476853,2012,5,Morgan Rielly,2012-08-07,capwages:morgan-rielly.html,TOR,,2012
+8476854,2012,6,Hampus Lindholm,2012-07-16,capwages:hampus-lindholm.html,ANA,,2012
+8476856,2012,7,Mathew Dumba,2012-07-19,capwages:mathew-dumba.html,MIN,,2012
+8476884,2012,8,Derrick Pouliot,2012-09-14,capwages:derrick-pouliot.html,PIT,,2012
+8476885,2012,9,Jacob Trouba,2013-04-02,capwages:jacob-trouba.html,WPG,,2013
+8476886,2012,10,Slater Koekkoek,2013-03-20,capwages:slater-koekkoek.html,TBL,,2013
+8476887,2012,11,Filip Forsberg,2012-07-16,capwages:filip-forsberg.html,WSH,,2012
+8476888,2012,12,Mikhail Grigorenko,2012-07-18,capwages:mikhail-grigorenko.html,BUF,,2012
+8476889,2012,13,Radek Faksa,2012-07-06,capwages:radek-faksa.html,DAL,,2012
+8476878,2012,14,Zemgus Girgensons,2012-07-15,capwages:zemgus-girgensons.html,BUF,,2012
+8476879,2012,15,Cody Ceci,2012-08-23,capwages:cody-ceci.html,OTT,,2012
+8476880,2012,16,Tom Wilson,2012-07-19,capwages:tom-wilson.html,WSH,,2012
+8476881,2012,17,Tomas Hertl,2013-06-03,capwages:tomas-hertl.html,SJS,,2013
+8476882,2012,18,Teuvo Teravainen,2013-08-21,capwages:teuvo-teravainen.html,CHI,,2013
+8476883,2012,19,Andrei Vasilevskiy,2014-05-06,capwages:andrei-vasilevskiy.html,TBL,,2014
+8476872,2012,20,Scott Laughton,2012-08-12,capwages:scott-laughton.html,PHI,,2012
+8476873,2012,21,Mark Jankowski,2016-03-30,capwages:mark-jankowski.html,CGY,,2016
+8476874,2012,22,Olli Maatta,2012-09-14,capwages:olli-maatta.html,PIT,,2012
+8476875,2012,23,Mike Matheson,2015-04-01,capwages:mike-matheson.html,FLA,,2015
+8476876,2012,24,Malcolm Subban,,none,,,
+8476877,2012,25,Jordan Schmaltz,2015-05-28,capwages:jordan-schmaltz.html,STL,,2015
+8476867,2012,26,Brendan Gaunce,2012-08-13,capwages:brendan-gaunce.html,VAN,,2012
+8476868,2012,27,Henrik Samuelsson,2013-04-23,capwages:henrik-samuelsson.html,ARI,,2013
+8476869,2012,28,Brady Skjei,2015-04-01,capwages:brady-skjei.html,NYR,,2015
+8476870,2012,29,Stefan Matteau,2012-08-14,capwages:stefan-matteau.html,NJD,,2012
+8476871,2012,30,Tanner Pearson,2012-08-07,capwages:tanner-pearson.html,LAK,,2012
+8476861,2012,31,Oscar Dansk,2014-05-26,capwages:oscar-dansk.html,CBJ,,2014
+8476866,2012,36,Nicolas Kerdiles,2014-04-05,capwages:nicolas-kerdiles.html,ANA,,2014
+8476857,2012,37,Pontus Aberg,2014-05-26,capwages:pontus-aberg.html,NSH,,2014
+8476858,2012,38,Phillip Di Giuseppe,2014-03-26,capwages:phillip-di-giuseppe.html,CAR,,2014
+8476890,2012,42,Patrick Sieloff,2013-07-22,capwages:patrick-sieloff.html,CGY,,2013
+8476931,2012,44,Jake McCabe,2014-04-02,capwages:jake-mccabe.html,BUF,,2014
+8476932,2012,45,Anthony Stolarz,2013-03-01,capwages:anthony-stolarz.html,PHI,,2013
+8476934,2012,47,Brock McGinn,2013-04-07,capwages:brock-mcginn.html,CAR,,2013
+8476924,2012,49,Martin Frk,2012-07-31,capwages:martin-frk.html,DET,,2012
+8476925,2012,50,Colton Sissons,2012-09-15,capwages:colton-sissons.html,NSH,,2012
+8476927,2012,52,Teddy Blueger,2016-03-22,capwages:teddy-blueger.html,PIT,,2016
+8476919,2012,55,Chris Tierney,2013-03-18,capwages:chris-tierney.html,SJS,,2013
+8476921,2012,58,Jordan Martinook,2012-09-06,capwages:jordan-martinook.html,ARI,,2012
+8476922,2012,59,Boo Nieves,,none,,,
+8476923,2012,60,Damon Severson,2012-09-10,capwages:damon-severson.html,NJD,,2012
+8476913,2012,61,Devin Shore,2015-03-10,capwages:devin-shore.html,DAL,,2015
+8476914,2012,62,Joonas Korpisalo,2014-03-21,capwages:joonas-korpisalo.html,CBJ,,2014
+8476915,2012,63,Jujhar Khaira,,none,,,
+8476917,2012,65,Adam Pelech,2014-03-15,capwages:adam-pelech.html,NYI,,2014
+8476918,2012,66,Jimmy Vesey,2016-08-19,capwages:jimmy-vesey.html,NYR,,2016
+8476907,2012,67,Mackenzie MacEachern,2016-03-30,capwages:mackenzie-maceachern.html,STL,,2016
+8476910,2012,70,Scott Kosmachuk,2013-12-22,capwages:scott-kosmachuk.html,WPG,,2013
+8476911,2012,71,Tanner Richard,2013-04-01,capwages:tanner-richard.html,TBL,,2013
+8476902,2012,74,Esa Lindell,2014-05-26,capwages:esa-lindell.html,DAL,,2014
+8476903,2012,75,Jon Gillies,2015-04-15,capwages:jon-gillies.html,CGY,,2015
+8476904,2012,76,Chris Driedger,2014-04-01,capwages:chris-driedger.html,OTT,,2014
+8476905,2012,77,Chandler Stephenson,2014-05-26,capwages:chandler-stephenson.html,WSH,,2014
+8476906,2012,78,Shayne Gostisbehere,2014-05-26,capwages:shayne-gostisbehere.html,PHI,,2014
+8476897,2012,81,Oskar Sundqvist,2014-06-05,capwages:oskar-sundqvist.html,PIT,,2014
+8476899,2012,83,Matt Murray,2013-09-08,capwages:matt-murray.html,PIT,,2013
+8476891,2012,85,Matt Grzelcyk,2016-04-01,capwages:matt-grzelcyk.html,BOS,,2016
+8476892,2012,86,Colton Parayko,2015-03-10,capwages:colton-parayko.html,STL,,2015
+8475883,2012,87,Frederik Andersen,2012-07-10,capwages:frederik-andersen.html,ANA,,2012
+8476894,2012,89,Brendan Leipsic,2013-05-27,capwages:brendan-leipsic.html,NSH,,2013
+8476981,2012,95,Josh Anderson,2013-11-12,capwages:josh-anderson.html,CBJ,,2013
+8476526,2012,96,Ben Thomson,2014-05-26,capwages:ben-thomson.html,NJD,,2014
+8476971,2012,97,Kevin Roy,2016-04-08,capwages:kevin-roy.html,ANA,,2016
+8476974,2012,100,Thomas Di Pauli,,none,,,
+8476975,2012,101,Cedric Paquette,2013-05-21,capwages:cedric-paquette.html,TBL,,2013
+8476966,2012,104,Gemel Smith,2014-06-05,capwages:gemel-smith.html,DAL,,2014
+8476967,2012,105,Brett Kulak,2014-03-18,capwages:brett-kulak.html,CGY,,2014
+8476960,2012,110,Andreas Athanasiou,2013-11-15,capwages:andreas-athanasiou.html,DET,,2013
+8476953,2012,115,Trevor Carrick,,none,,,
+8476955,2012,117,Taylor Leier,2013-09-09,capwages:taylor-leier.html,PHI,,2013
+8476958,2012,120,Jaccob Slavin,2015-07-01,capwages:jaccob-slavin.html,CAR,,2015
+8476947,2012,121,Nikolai Prokhorkin,2019-05-13,puckpedia,LAK,,2019
+8476948,2012,122,Charles Hudon,2013-05-07,capwages:charles-hudon.html,MTL,,2013
+8476952,2012,126,Dominic Toninato,2017-08-16,puckpedia,COL,,2017
+8476944,2012,129,Brendan Woods,2013-04-10,capwages:brendan-woods.html,CAR,,2013
+8476945,2012,130,Connor Hellebuyck,2014-05-26,capwages:connor-hellebuyck.html,WPG,,2014
+8476495,2012,131,Seth Griffith,,none,,,
+8476941,2012,137,Connor Carrick,2013-09-23,capwages:connor-carrick.html,WSH,,2013
+8476982,2012,138,Danny O'Regan,,none,,,
+8477018,2012,147,Ben Hutton,2015-03-16,capwages:ben-hutton.html,VAN,,2015
+8477021,2012,150,Alex Kerfoot,2017-08-23,puckpedia,COL,,2017
+8476525,2012,151,Colin Miller,2013-07-29,capwages:colin-miller.html,LAK,,2013
+8477015,2012,156,Connor Brown,2013-11-22,capwages:connor-brown.html,TOR,,2013
+8477006,2012,158,Christoph Bertschy,2015-04-26,capwages:christoph-bertschy.html,MIN,,2015
+8477009,2012,161,Jake Dotchin,2014-05-26,capwages:jake-dotchin.html,TBL,,2014
+8477010,2012,162,Joseph Blandisi,2015-01-14,capwages:joseph-blandisi.html,NJD,,2015
+8476999,2012,163,Linus Ullmark,2014-05-31,capwages:linus-ullmark.html,BUF,,2014
+8477003,2012,167,Riley Barber,2015-04-19,capwages:riley-barber.html,WSH,,2015
+8476994,2012,169,Vinnie Hinostroza,2015-03-22,capwages:vinnie-hinostroza.html,CHI,,2015
+8476617,2012,171,Tomas Hyka,2017-06-01,capwages:tomas-hyka.html,VGK,,2017
+8476988,2012,175,Matt Benning,2016-08-27,capwages:matt-benning.html,EDM,,2016
+8476989,2012,176,Petteri Lindbohm,2014-03-21,capwages:petteri-lindbohm.html,STL,,2014
+8476992,2012,179,Marek Mazanec,2013-05-03,capwages:marek-mazanec.html,NSH,,2013
+8476983,2012,181,Paul LaDue,2016-04-29,capwages:paul-ladue.html,LAK,,2016
+8476987,2012,185,Jake Bischoff,2017-03-28,puckpedia,NYI,,2017
+8476536,2012,192,Colin Smith,2013-07-05,capwages:colin-smith.html,COL,,2013
+8477041,2012,193,Brady Austin,2014-05-31,capwages:brady-austin.html,BUF,,2014
+8477043,2012,195,Christian Djoos,2014-05-16,capwages:christian-djoos.html,WSH,,2014
+8477046,2012,198,Joakim Ryan,,none,,,
+8477035,2012,199,Matt Tomkins,,none,,,
+8477038,2012,202,Nikita Gusev,2019-04-14,puckpedia,VGK,,2019
+8477033,2012,209,Viktor Loov,2014-05-26,capwages:viktor-loov.html,TOR,,2014
+8477034,2012,210,Jaycob Megna,2014-04-04,capwages:jaycob-megna.html,ANA,,2014
+8477492,2013,1,Nathan MacKinnon,2013-07-09,capwages:nathan-mackinnon.html,COL,,2013
+8477493,2013,2,Aleksander Barkov,2013-07-14,capwages:aleksander-barkov.html,FLA,,2013
+8477494,2013,3,Jonathan Drouin,2013-07-05,capwages:jonathan-drouin.html,TBL,,2013
+8477495,2013,4,Seth Jones,2013-07-10,capwages:seth-jones.html,NSH,,2013
+8477496,2013,5,Elias Lindholm,2013-07-15,capwages:elias-lindholm.html,CAR,,2013
+8477497,2013,6,Sean Monahan,2013-07-22,capwages:sean-monahan.html,CGY,,2013
+8477498,2013,7,Darnell Nurse,2013-07-27,capwages:darnell-nurse.html,EDM,,2013
+8477499,2013,8,Rasmus Ristolainen,2013-07-12,capwages:rasmus-ristolainen.html,BUF,,2013
+8477500,2013,9,Bo Horvat,2013-08-08,capwages:bo-horvat.html,VAN,,2013
+8477501,2013,10,Valeri Nichushkin,2013-07-06,capwages:valeri-nichushkin.html,DAL,,2013
+8477502,2013,11,Samuel Morin,2013-09-19,capwages:samuel-morin.html,PHI,,2013
+8477503,2013,12,Max Domi,2013-07-14,capwages:max-domi.html,ARI,,2013
+8477504,2013,13,Josh Morrissey,2013-10-09,capwages:josh-morrissey.html,WPG,,2013
+8477505,2013,14,Alexander Wennberg,2014-05-26,capwages:alexander-wennberg.html,CBJ,,2014
+8477506,2013,15,Ryan Pulock,2013-10-01,capwages:ryan-pulock.html,NYI,,2013
+8477507,2013,16,Nikita Zadorov,2013-09-25,capwages:nikita-zadorov.html,BUF,,2013
+8477508,2013,17,Curtis Lazar,2013-09-17,capwages:curtis-lazar.html,OTT,,2013
+8477509,2013,18,Mirco Mueller,2013-09-23,capwages:mirco-mueller.html,SJS,,2013
+8477510,2013,19,Kerby Rychel,2013-12-31,capwages:kerby-rychel.html,CBJ,,2013
+8477511,2013,20,Anthony Mantha,2013-10-19,capwages:anthony-mantha.html,DET,,2013
+8477512,2013,21,Frederik Gauthier,2013-11-27,capwages:frederik-gauthier.html,TOR,,2013
+8477486,2013,22,Emile Poirier,2013-12-31,capwages:emile-poirier.html,CGY,,2013
+8477444,2013,23,Andre Burakovsky,2013-09-08,capwages:andre-burakovsky.html,WSH,,2013
+8477445,2013,24,Hunter Shinkaruk,2013-08-07,capwages:hunter-shinkaruk.html,VAN,,2013
+8477446,2013,25,Michael McCarron,2013-07-14,capwages:michael-mccarron.html,MTL,,2013
+8477447,2013,26,Shea Theodore,2013-10-01,capwages:shea-theodore.html,ANA,,2013
+8477448,2013,27,Marko Dano,2014-03-06,capwages:marko-dano.html,CBJ,,2014
+8477449,2013,28,Morgan Klimchuk,2013-12-18,capwages:morgan-klimchuk.html,CGY,,2013
+8477450,2013,29,Jason Dickinson,2014-05-31,capwages:jason-dickinson.html,DAL,,2014
+8477451,2013,30,Ryan Hartman,2013-11-19,capwages:ryan-hartman.html,CHI,,2013
+8477452,2013,31,Ian McCoshen,2016-07-01,puckpedia,FLA,,2016
+8477453,2013,32,Chris Bigras,2013-09-19,capwages:chris-bigras.html,COL,,2013
+8477454,2013,33,Adam Erne,2014-04-01,capwages:adam-erne.html,TBL,,2014
+8477455,2013,34,Jacob de la Rose,2014-05-26,capwages:jacob-de-la-rose.html,MTL,,2014
+8477456,2013,35,J.T. Compher,2016-04-25,puckpedia,COL,,2016
+8477457,2013,36,Zach Fucale,2013-09-19,capwages:zach-fucale.html,MTL,,2013
+8477458,2013,37,Valentin Zykov,2014-05-27,capwages:valentin-zykov.html,LAK,,2014
+8477460,2013,39,Laurent Dauphin,2014-10-05,capwages:laurent-dauphin.html,ARI,,2014
+8477461,2013,40,Remi Elie,2014-10-05,capwages:remi-elie.html,DAL,,2014
+8477462,2013,41,Robert Hagg,2014-03-21,capwages:robert-hagg.html,PHI,,2014
+8477463,2013,42,Steven Santini,2016-04-08,capwages:steven-santini.html,NJD,,2016
+8477464,2013,43,Nic Petan,,none,,,
+8477465,2013,44,Tristan Jarry,2013-09-08,capwages:tristan-jarry.html,PIT,,2013
+8477466,2013,45,Nick Sorensen,2014-04-02,capwages:nick-sorensen.html,ANA,,2014
+8477467,2013,46,Gustav Olofsson,2014-03-24,capwages:gustav-olofsson.html,MIN,,2014
+8477471,2013,50,Dillon Heatherington,,none,,,
+8477472,2013,51,Carl Dahlstrom,2016-04-14,puckpedia,CHI,,2016
+8477473,2013,52,Justin Bailey,2014-11-02,capwages:justin-bailey.html,BUF,,2014
+8477474,2013,53,Madison Bowey,2014-04-02,capwages:madison-bowey.html,WSH,,2014
+8477476,2013,55,Artturi Lehkonen,2016-05-08,puckpedia,MTL,,2016
+8477478,2013,57,William Carrier,2013-08-19,capwages:william-carrier.html,STL,,2013
+8477479,2013,58,Tyler Bertuzzi,2014-10-17,capwages:tyler-bertuzzi.html,DET,,2014
+8477480,2013,59,Eric Comrie,2013-12-26,capwages:eric-comrie.html,WPG,,2013
+8477482,2013,61,Zachary Sanford,2016-07-11,puckpedia,STL,,2016
+8477484,2013,63,Spencer Martin,2014-10-17,capwages:spencer-martin.html,COL,,2014
+8477488,2013,66,Brett Pesce,2015-03-28,capwages:brett-pesce.html,CAR,,2015
+8477491,2013,69,Nick Baptiste,,none,,,
+8477399,2013,72,Tyrell Goulbourne,2015-03-03,capwages:tyrell-goulbourne.html,PHI,,2015
+8477401,2013,74,John Hayden,2017-03-12,capwages:john-hayden.html,CHI,,2017
+8477402,2013,75,Pavel Buchnevich,2016-05-13,puckpedia,NYR,,2016
+8477404,2013,77,Jake Guentzel,2016-05-23,puckpedia,PIT,,2016
+8477405,2013,78,Marcus Hogberg,2017-03-30,puckpedia,OTT,,2017
+8477406,2013,79,Mattias Janmark,2015-04-27,capwages:mattias-janmark.html,DAL,,2015
+8477407,2013,80,Anthony Duclair,2014-01-09,capwages:anthony-duclair.html,NYR,,2014
+8476545,2013,81,Kurtis Gabriel,2014-03-04,capwages:kurtis-gabriel.html,MIN,,2014
+8477409,2013,82,Carter Verhaeghe,2014-04-02,capwages:carter-verhaeghe.html,TOR,,2014
+8477410,2013,83,Bogdan Yakimov,2014-05-26,capwages:bogdan-yakimov.html,EDM,,2014
+8477413,2013,86,Sven Andrighetto,2013-07-17,capwages:sven-andrighetto.html,MTL,,2013
+8477415,2013,88,Anton Slepyshev,2015-05-28,capwages:anton-slepyshev.html,EDM,,2015
+8477416,2013,89,Oliver Bjorkstrand,2013-12-26,capwages:oliver-bjorkstrand.html,CBJ,,2013
+8477417,2013,90,Peter Cehlarik,2016-06-15,puckpedia,BOS,,2016
+8477076,2013,91,JC Lipon,2013-08-29,capwages:jc-lipon.html,WPG,,2013
+8477419,2013,93,Mason Geertsen,2015-03-24,capwages:mason-geertsen.html,COL,,2015
+8477424,2013,99,Juuse Saros,2015-06-16,capwages:juuse-saros.html,NSH,,2015
+8477425,2013,100,Miles Wood,2016-04-08,capwages:miles-wood.html,NJD,,2016
+8477426,2013,101,Nick Paul,2014-12-21,capwages:nicholas-paul.html,OTT,,2014
+8477427,2013,102,Tobias Lindberg,2015-06-16,capwages:tobias-lindberg.html,OTT,,2015
+8477428,2013,103,Justin Auger,2014-10-05,capwages:justin-auger.html,LAK,,2014
+8477429,2013,104,Andrew Copp,2015-03-28,capwages:andrew-copp.html,WPG,,2015
+8477433,2013,108,Ben Harpur,2014-11-06,capwages:ben-harpur.html,OTT,,2014
+8477435,2013,110,Ryan Graves,2014-03-17,capwages:ryan-graves.html,NYR,,2014
+8477392,2013,118,Hudson Fasching,2016-03-21,capwages:hudson-fasching.html,BUF,,2016
+8477353,2013,121,Tyler Motte,2016-04-06,puckpedia,CHI,,2016
+8477355,2013,123,Will Butcher,2017-08-27,puckpedia,NJD,,2017
+8477357,2013,125,Saku Maenalanen,2018-05-18,puckpedia,CAR,,2018
+8477359,2013,127,Tucker Poolman,2017-03-30,capwages:tucker-poolman.html,WPG,,2017
+8477361,2013,129,Cal Petersen,2017-07-01,puckpedia,LAK,,2017
+8477365,2013,133,Connor Clifton,2018-05-03,puckpedia,BOS,,2018
+8477366,2013,134,Luke Johnson,2016-04-29,puckpedia,CHI,,2016
+8477369,2013,137,Carson Soucy,2017-04-10,puckpedia,MIN,,2017
+8477380,2013,148,Jonny Brodzinski,2015-04-01,capwages:jonny-brodzinski.html,LAK,,2015
+8477384,2013,152,Joshua Brown,2015-04-09,capwages:josh-brown.html,FLA,,2015
+8477391,2013,159,Sean Malone,2017-04-08,capwages:sean-malone.html,BUF,,2017
+8476409,2013,166,Alan Quine,2013-10-01,capwages:alan-quine.html,NYI,,2013
+8477084,2013,170,Mackenzie Skapski,2014-06-05,capwages:mackenzie-skapski.html,NYR,,2014
+8477312,2013,172,Antoine Bibeau,2014-06-05,capwages:antoine-bibeau.html,TOR,,2014
+8477314,2013,174,Brian Pinho,2018-04-04,puckpedia,WSH,,2018
+8477320,2013,180,Anton Blidh,2015-05-28,capwages:anton-blidh.html,BOS,,2015
+8477326,2013,186,Joel Vermin,2013-09-19,capwages:joel-vermin.html,TBL,,2013
+8477330,2013,191,Dominik Kubalik,2019-05-29,puckpedia,CHI,,2019
+8477335,2013,196,Kyle Burroughs,2015-04-08,capwages:kyle-burroughs.html,NYI,,2015
+8477337,2013,198,John Gilmour,2016-08-18,capwages:john-gilmour.html,NYR,,2016
+8477341,2013,202,Andreas Johnsson,2015-06-04,capwages:andreas-johnsson.html,TOR,,2015
+8477343,2013,204,Tyler Lewington,2015-03-04,capwages:tyler-lewington.html,WSH,,2015
+8477346,2013,206,MacKenzie Weegar,2014-05-31,capwages:mackenzie-weegar.html,FLA,,2014
+8477932,2014,1,Aaron Ekblad,2014-09-07,capwages:aaron-ekblad.html,FLA,,2014
+8477933,2014,2,Sam Reinhart,2014-07-12,capwages:sam-reinhart.html,BUF,,2014
+8477934,2014,3,Leon Draisaitl,2014-08-12,capwages:leon-draisaitl.html,EDM,,2014
+8477935,2014,4,Sam Bennett,2014-07-26,capwages:sam-bennett.html,CGY,,2014
+8477936,2014,5,Michael Dal Colle,2014-10-05,puckpedia,NYI,,2014
+8477937,2014,6,Jake Virtanen,2014-07-26,capwages:jake-virtanen.html,VAN,,2014
+8477938,2014,7,Haydn Fleury,2014-08-12,puckpedia,CAR,,2014
+8477939,2014,8,William Nylander,2014-08-18,capwages:william-nylander.html,TOR,,2014
+8477940,2014,9,Nikolaj Ehlers,2014-09-07,capwages:nikolaj-ehlers.html,WPG,,2014
+8477941,2014,10,Nick Ritchie,2014-08-02,capwages:nick-ritchie.html,ANA,,2014
+8477942,2014,11,Kevin Fiala,2014-07-15,puckpedia,NSH,,2014
+8477943,2014,12,Brendan Perlini,2014-07-18,puckpedia,ARI,,2014
+8477944,2014,13,Jakub Vrana,2014-07-15,puckpedia,WSH,,2014
+8477945,2014,14,Julius Honka,2014-07-12,puckpedia,DAL,,2014
+8477946,2014,15,Dylan Larkin,2015-05-21,capwages:dylan-larkin.html,DET,,2015
+8477947,2014,16,Sonny Milano,2014-09-20,puckpedia,CBJ,,2014
+8477948,2014,17,Travis Sanheim,2014-10-05,puckpedia,PHI,,2014
+8477949,2014,18,Alex Tuch,2016-04-13,puckpedia,MIN,,2016
+8477950,2014,19,Tony DeAngelo,2014-12-02,puckpedia,TBL,,2014
+8477951,2014,20,Nick Schmaltz,2016-06-19,puckpedia,CHI,,2016
+8477952,2014,21,Robby Fabbri,2014-09-07,capwages:robby-fabbri.html,STL,,2014
+8477953,2014,22,Kasperi Kapanen,2014-07-12,puckpedia,PIT,,2014
+8477955,2014,24,Jared McCann,2014-07-26,capwages:jared-mccann.html,VAN,,2014
+8477956,2014,25,David Pastrnak,2014-07-15,capwages:david-pastrnak.html,BOS,,2014
+8477957,2014,26,Nikita Scherbak,2014-07-23,puckpedia,MTL,,2014
+8477958,2014,27,Nikolay Goldobin,2014-10-05,puckpedia,SJS,,2014
+8477959,2014,28,Joshua Ho-Sang,2014-10-05,puckpedia,NYI,,2014
+8477960,2014,29,Adrian Kempe,2015-04-15,puckpedia,LAK,,2015
+8477961,2014,30,John Quenneville,2015-07-13,puckpedia,NJD,,2015
+8477962,2014,31,Brendan Lemieux,2015-07-03,puckpedia,WPG,,2015
+8477963,2014,32,Jayce Hawryluk,2016-03-01,puckpedia,FLA,,2016
+8477964,2014,33,Ivan Barbashev,2014-07-23,puckpedia,STL,,2014
+8477967,2014,36,Thatcher Demko,2016-04-20,puckpedia,VAN,,2016
+8477968,2014,37,Alex Nedeljkovic,2015-03-28,puckpedia,CAR,,2015
+8477969,2014,38,Marcus Pettersson,2015-06-12,puckpedia,ANA,,2015
+8477970,2014,39,Vitek Vanecek,2014-07-15,puckpedia,WSH,,2014
+8477971,2014,40,Andreas Englund,2016-04-06,puckpedia,OTT,,2016
+8477972,2014,41,Josh Jacobs,2016-04-08,puckpedia,NJD,,2016
+8477973,2014,42,Vladislav Kamenev,2015-07-10,puckpedia,NSH,,2015
+8477974,2014,43,Ryan MacInnis,2015-04-12,puckpedia,ARI,,2015
+8477979,2014,48,Nicolas Aube-Kubel,2014-10-05,puckpedia,PHI,,2014
+8477981,2014,50,Roland McKeown,2015-04-01,puckpedia,CAR,,2015
+8477983,2014,52,Maxim Letunov,2018-03-14,puckpedia,SJS,,2018
+8477986,2014,55,Brandon Montour,2015-03-16,capwages:brandon-montour.html,ANA,,2015
+8477987,2014,56,Ryan Donato,2018-03-18,puckpedia,BOS,,2018
+8477989,2014,58,Christian Dvorak,2015-04-19,puckpedia,ARI,,2015
+8477992,2014,61,Jonas Johansson,2017-05-31,puckpedia,BUF,,2017
+8477993,2014,62,Justin Kirkland,2016-05-16,puckpedia,NSH,,2016
+8477994,2014,63,Dominic Turgeon,2015-05-16,puckpedia,DET,,2015
+8477996,2014,65,Juho Lammikko,2016-04-15,puckpedia,FLA,,2016
+8477997,2014,66,Nikita Tryamkin,2016-03-08,capwages:nikita-tryamkin.html,VAN,,2016
+8477998,2014,67,Warren Foegele,2017-03-31,puckpedia,CAR,,2017
+8477642,2014,68,Rinat Valiev,2014-07-10,capwages:rinat-valiev.html,TOR,,2014
+8478004,2014,73,Brett Lernout,2014-12-19,puckpedia,MTL,,2014
+8478007,2014,76,Elvis Merzlikins,2019-03-20,puckpedia,CBJ,,2019
+8478009,2014,78,Ilya Sorokin,2020-07-13,puckpedia,NYI,,2020
+8478010,2014,79,Brayden Point,2015-03-28,puckpedia,TBL,,2015
+8478011,2014,80,Louie Belpedio,2018-04-05,puckpedia,MIN,,2018
+8478013,2014,82,Jake Walman,2017-03-28,puckpedia,STL,,2017
+8478017,2014,86,Mark Friedman,2017-03-21,puckpedia,PHI,,2017
+8477573,2014,89,Nathan Walker,2014-07-26,capwages:nathan-walker.html,WSH,,2014
+8478020,2014,90,Michael Amadio,2016-03-13,puckpedia,LAK,,2016
+8478021,2014,91,William Lagesson,2017-04-07,puckpedia,EDM,,2017
+8478024,2014,94,Ville Husso,2016-05-10,puckpedia,STL,,2016
+8478027,2014,97,Lucas Wallmark,2015-06-16,capwages:lucas-wallmark.html,CAR,,2015
+8478028,2014,98,Fredrik Olofsson,,none,,,
+8478029,2014,99,Chase De Leo,,none,,,
+8478031,2014,101,Nelson Nogier,2016-06-01,puckpedia,WPG,,2016
+8478036,2014,106,Christoffer Ehn,2017-04-20,puckpedia,DET,,2017
+8478038,2014,108,Devon Toews,2016-04-15,capwages:devon-toews.html,NYI,,2016
+8478039,2014,109,Kaapo Kahkonen,2018-05-16,puckpedia,MIN,,2018
+8478040,2014,110,Austin Poganski,2018-03-25,puckpedia,STL,,2018
+8478042,2014,112,Viktor Arvidsson,2014-07-15,capwages:viktor-arvidsson.html,NSH,,2014
+8478043,2014,113,Sam Lafferty,2018-03-06,puckpedia,PIT,,2018
+8478046,2014,116,Danton Heinen,2016-04-11,puckpedia,BOS,,2016
+8478047,2014,117,Michael Bunting,2015-07-23,capwages:michael-bunting.html,ARI,,2015
+8478048,2014,118,Igor Shesterkin,2019-05-03,puckpedia,NYR,,2019
+8478049,2014,119,Ben Thomas,2016-03-22,puckpedia,TBL,,2016
+8478051,2014,121,Max Willman,,none,,,
+8478055,2014,126,Gustav Forsling,2016-05-11,puckpedia,CHI,,2016
+8478056,2014,127,Clark Bishop,2016-04-04,puckpedia,CAR,,2016
+8478057,2014,128,Dakota Joshua,2019-07-15,puckpedia,STL,,2019
+8478058,2014,129,CJ Suess,2018-03-25,puckpedia,WPG,,2018
+8478062,2014,133,Dysin Mayo,2015-12-26,puckpedia,ARI,,2015
+8478063,2014,134,Shane Gersich,2018-03-23,puckpedia,WSH,,2018
+8478067,2014,138,Oskar Lindblom,2017-05-30,puckpedia,PHI,,2017
+8478069,2014,140,Daniel Walcott,2015-09-17,capwages:daniel-walcott.html,TBL,,2015
+8478073,2014,144,Anton Lindholm,2016-05-24,puckpedia,COL,,2016
+8478074,2014,145,Anthony Angello,2018-04-05,puckpedia,PIT,,2018
+8478075,2014,146,Anders Bjork,2017-05-30,puckpedia,BOS,,2017
+8478078,2014,149,Rourke Chartier,2014-12-31,puckpedia,SJS,,2014
+8477631,2014,161,Brandon Baddock,2016-06-01,puckpedia,NJD,,2016
+8478099,2014,171,Kevin Labanc,2016-03-09,puckpedia,SJS,,2016
+8478104,2014,176,Sammy Blais,2015-11-13,puckpedia,STL,,2015
+8478106,2014,178,Dylan Sikura,2018-03-25,puckpedia,CHI,,2018
+8478109,2014,181,Victor Olofsson,2018-04-24,puckpedia,BUF,,2018
+8478115,2014,188,Pierre Engvall,2018-05-17,puckpedia,TOR,,2018
+8478131,2014,205,Ondrej Kase,2015-05-16,capwages:ondrej-kase.html,ANA,,2015
+8478133,2014,207,Jake Evans,2018-04-09,puckpedia,MTL,,2018
+8478136,2014,210,Jake Middleton,2017-09-07,puckpedia,SJS,,2017
+8478402,2015,1,Connor McDavid,2015-07-03,capwages:connor-mcdavid.html,EDM,,2015
+8478403,2015,2,Jack Eichel,2015-07-01,capwages:jack-eichel.html,BUF,,2015
+8478440,2015,3,Dylan Strome,2015-07-06,puckpedia,ARI,,2015
+8478483,2015,4,Mitch Marner,2015-07-28,puckpedia,TOR,,2015
+8478396,2015,5,Noah Hanifin,2015-07-11,capwages:noah-hanifin.html,CAR,,2015
+8478401,2015,6,Pavel Zacha,2015-08-11,puckpedia,NJD,,2015
+8478500,2015,7,Ivan Provorov,2015-07-03,puckpedia,PHI,,2015
+8478460,2015,8,Zach Werenski,2016-03-29,puckpedia,CBJ,,2016
+8478414,2015,9,Timo Meier,2015-07-07,puckpedia,SJS,,2015
+8478420,2015,10,Mikko Rantanen,2015-07-14,puckpedia,COL,,2015
+8478474,2015,11,Lawson Crouse,2015-07-15,puckpedia,FLA,,2015
+8478495,2015,12,Denis Gurianov,2016-05-12,puckpedia,DAL,,2016
+8478415,2015,13,Jakub Zboril,2015-07-15,puckpedia,BOS,,2015
+8478498,2015,14,Jake DeBrusk,2015-11-12,puckpedia,BOS,,2015
+8478485,2015,15,Zach Senyshyn,2015-11-12,puckpedia,BOS,,2015
+8478445,2015,16,Mathew Barzal,2015-09-10,puckpedia,NYI,,2015
+8478398,2015,17,Kyle Connor,2016-04-11,puckpedia,WPG,,2016
+8478469,2015,18,Thomas Chabot,2015-09-30,puckpedia,OTT,,2015
+8478431,2015,19,Evgeny Svechnikov,2015-10-02,puckpedia,DET,,2015
+8478493,2015,20,Joel Eriksson Ek,2015-07-13,puckpedia,MIN,,2015
+8478400,2015,21,Colin White,2017-04-02,puckpedia,OTT,,2017
+8478492,2015,22,Ilya Samsonov,2018-05-03,puckpedia,WSH,,2018
+8478444,2015,23,Brock Boeser,2017-03-25,puckpedia,VAN,,2017
+8478439,2015,24,Travis Konecny,2015-07-16,puckpedia,PHI,,2015
+8478458,2015,25,Jack Roslovic,2016-07-18,puckpedia,WPG,,2016
+8478454,2015,26,Noah Juulsen,2015-07-09,puckpedia,MTL,,2015
+8478491,2015,27,Jacob Larsson,2016-05-18,puckpedia,ANA,,2016
+8478463,2015,28,Anthony Beauvillier,2015-10-23,puckpedia,NYI,,2015
+8478506,2015,29,Gabriel Carlsson,2016-04-19,puckpedia,CBJ,,2016
+8478447,2015,30,Nick Merkley,2015-09-03,puckpedia,ARI,,2015
+8478432,2015,32,Christian Fischer,2015-08-20,puckpedia,ARI,,2015
+8478477,2015,33,Mitchell Stephens,2016-04-04,puckpedia,TBL,,2016
+8478408,2015,34,Travis Dermott,2015-07-22,puckpedia,TOR,,2015
+8478427,2015,35,Sebastian Aho,2016-06-13,puckpedia,CAR,,2016
+8478443,2015,37,Brandon Carlo,2015-09-25,puckpedia,BOS,,2015
+8478421,2015,39,A.J. Greer,2016-07-01,puckpedia,COL,,2016
+8478467,2015,40,Nicolas Meloche,2017-03-06,puckpedia,COL,,2017
+8478406,2015,42,Mackenzie Blackwood,2015-12-30,puckpedia,NJD,,2015
+8478416,2015,43,Erik Cernak,2015-07-14,puckpedia,LAK,,2015
+8478417,2015,45,Jakob Forsbacka Karlsson,2017-04-02,puckpedia,BOS,,2017
+8478466,2015,46,Daniel Sprong,2015-08-28,capwages:daniel-sprong.html,PIT,,2015
+8478424,2015,47,Jansen Harkins,2017-04-07,puckpedia,WPG,,2017
+8478488,2015,48,Filip Chlapik,2016-12-22,puckpedia,OTT,,2016
+8478449,2015,49,Roope Hintz,2017-05-04,puckpedia,DAL,,2017
+8478413,2015,50,Jordan Greenway,2018-03-26,puckpedia,MIN,,2018
+8478425,2015,51,Brendan Guhle,2015-07-27,puckpedia,BUF,,2015
+8478468,2015,52,Jeremy Lauzon,2015-11-12,puckpedia,BOS,,2015
+8478397,2015,53,Rasmus Andersson,2015-09-14,puckpedia,CGY,,2015
+8478508,2015,55,Yakov Trenin,2015-07-10,puckpedia,NSH,,2015
+8478407,2015,56,Vince Dunn,2015-09-24,puckpedia,STL,,2015
+8478399,2015,57,Jonas Siegenthaler,2015-07-30,puckpedia,WSH,,2015
+8478831,2015,58,Kevin Stenlund,2017-05-23,puckpedia,CBJ,,2017
+8478430,2015,60,Oliver Kylington,2015-07-15,puckpedia,CGY,,2015
+8478476,2015,63,Kyle Capobianco,2016-10-31,puckpedia,ARI,,2016
+8478465,2015,66,Guillaume Brisebois,2015-12-10,puckpedia,VAN,,2015
+8478480,2015,67,Blake Speers,2016-09-21,puckpedia,NJD,,2016
+8478434,2015,69,Keegan Kolesar,2015-12-20,puckpedia,CBJ,,2015
+8478433,2015,70,Felix Sandstrom,2018-03-28,puckpedia,PHI,,2018
+8478833,2015,71,J.C. Beaudin,2017-03-06,puckpedia,COL,,2017
+8478519,2015,72,Anthony Cirelli,2016-05-19,puckpedia,TBL,,2016
+8478435,2015,75,Dan Vladar,2016-04-26,puckpedia,BOS,,2016
+8478499,2015,76,Adin Hill,2016-04-05,puckpedia,ARI,,2016
+8478470,2015,77,Sam Montembeault,2016-05-10,puckpedia,FLA,,2016
+8478438,2015,85,Tommy Novak,2020-03-25,puckpedia,NSH,,2020
+8478838,2015,87,Lukas Vejdemo,2018-05-02,puckpedia,MTL,,2018
+8478839,2015,89,Aleksi Saarela,2016-06-13,puckpedia,CAR,,2016
+8478502,2015,91,Dennis Gilbert,2018-04-13,puckpedia,CHI,,2018
+8478840,2015,92,Will Borgen,2018-03-25,puckpedia,BUF,,2018
+8478462,2015,96,Nicolas Roy,2016-04-09,puckpedia,CAR,,2016
+8478841,2015,97,Colton White,2016-09-21,puckpedia,NJD,,2016
+8478455,2015,99,Austin Wagner,2017-03-06,puckpedia,LAK,,2017
+8478409,2015,100,Anthony Richard,2015-11-13,puckpedia,NSH,,2015
+8478842,2015,101,Andrei Mironov,2017-05-12,puckpedia,COL,,2017
+8478843,2015,102,Denis Malgin,2016-07-12,puckpedia,FLA,,2016
+8478844,2015,104,Mikhail Vorobyev,2017-04-25,puckpedia,PHI,,2017
+8478846,2015,107,Christian Wolanin,2018-03-21,puckpedia,OTT,,2018
+8478450,2015,112,Parker Wotherspoon,2016-05-02,puckpedia,NYI,,2016
+8478851,2015,115,Alexandre Carrier,2015-11-12,puckpedia,NSH,,2015
+8478446,2015,116,Glenn Gawdin,2017-11-16,puckpedia,CGY,,2017
+8478452,2015,117,Caleb Jones,2016-04-06,puckpedia,EDM,,2016
+8478472,2015,120,Mathieu Joseph,2016-12-24,puckpedia,TBL,,2016
+8478854,2015,121,Ryan Shea,2020-08-19,puckpedia,DAL,,2020
+8478856,2015,123,Conor Garland,2015-12-23,puckpedia,ARI,,2015
+8478451,2015,124,Ethan Bear,2016-07-02,puckpedia,EDM,,2016
+8478857,2015,125,Dmytro Timashov,2015-11-23,puckpedia,TOR,,2015
+8478859,2015,127,Niko Mikkola,2018-05-31,puckpedia,STL,,2018
+8478436,2015,128,David Kase,2018-05-04,puckpedia,PHI,,2018
+8478864,2015,135,Kirill Kaprizov,2020-07-13,puckpedia,MIN,,2020
+8478866,2015,137,Dominik Simon,2015-07-15,capwages:dominik-simon.html,PIT,,2015
+8478868,2015,139,Christian Jaros,2017-05-30,puckpedia,OTT,,2017
+8478486,2015,140,Chase Pearson,2019-03-18,puckpedia,DET,,2019
+8478870,2015,142,Rudolfs Balcers,2017-07-13,puckpedia,SJS,,2017
+8478872,2015,145,Karel Vejmelka,2021-05-04,puckpedia,ARI,,2021
+8478873,2015,148,Troy Terry,2018-03-27,puckpedia,ANA,,2018
+8478874,2015,149,Adam Gaudette,2018-03-26,puckpedia,VAN,,2018
+8478507,2015,154,John Marino,2019-08-08,puckpedia,PIT,,2019
+8478881,2015,157,Brett Seney,2018-03-16,puckpedia,NJD,,2018
+8478442,2015,158,Cooper Marody,2018-04-08,puckpedia,EDM,,2018
+8478882,2015,159,Vladislav Gavrikov,2019-04-13,puckpedia,CBJ,,2019
+8478888,2015,165,Cameron Hughes,2018-03-10,puckpedia,BOS,,2018
+8478233,2015,166,Andrew Mangiapane,2016-03-23,puckpedia,CGY,,2016
+8478891,2015,168,Mason Appleton,2017-07-13,puckpedia,WPG,,2017
+8478147,2015,180,Bokondji Imama,2017-06-01,puckpedia,LAK,,2017
+8478902,2015,183,Erik Kallgren,2019-04-06,puckpedia,ARI,,2019
+8478904,2015,186,Steven Lorentz,2017-04-21,puckpedia,CAR,,2017
+8478905,2015,188,Ivan Fedotov,2022-05-07,puckpedia,PHI,,2022
+8478906,2015,189,Markus Nutivaara,2016-05-03,capwages:markus-nutivaara.html,CBJ,,2016
+8478911,2015,194,Matt Roy,2017-03-27,puckpedia,LAK,,2017
+8478915,2015,198,Sami Niku,2017-05-15,puckpedia,WPG,,2017
+8478916,2015,199,Joey Daccord,2019-04-01,puckpedia,OTT,,2019
+8479318,2016,1,Auston Matthews,2016-07-21,puckpedia,TOR,,2016
+8479339,2016,2,Patrik Laine,2016-07-03,puckpedia,WPG,,2016
+8479400,2016,3,Pierre-Luc Dubois,2016-06-29,puckpedia,CBJ,,2016
+8479344,2016,4,Jesse Puljujarvi,2016-07-13,puckpedia,EDM,,2016
+8479355,2016,5,Olli Juolevi,2016-08-05,puckpedia,VAN,,2016
+8479314,2016,6,Matthew Tkachuk,2016-07-07,puckpedia,CGY,,2016
+8479343,2016,7,Clayton Keller,2017-03-26,puckpedia,ARI,,2017
+8479423,2016,8,Alex Nylander,2016-07-15,puckpedia,BUF,,2016
+8479410,2016,9,Mikhail Sergachev,2016-07-01,puckpedia,MTL,,2016
+8479370,2016,10,Tyson Jost,2017-03-29,puckpedia,COL,,2017
+8479366,2016,11,Logan Brown,2016-08-19,puckpedia,OTT,,2016
+8479415,2016,12,Michael McLeod,2016-10-07,puckpedia,NJD,,2016
+8479402,2016,13,Jake Bean,2016-07-09,puckpedia,CAR,,2016
+8479325,2016,14,Charlie McAvoy,2017-04-10,puckpedia,BOS,,2017
+8479316,2016,15,Luke Kunin,2017-03-23,puckpedia,MIN,,2017
+8479345,2016,16,Jakob Chychrun,2016-07-30,puckpedia,ARI,,2016
+8479371,2016,17,Dante Fabbro,2019-03-27,puckpedia,NSH,,2019
+8479378,2016,18,Logan Stanley,2016-12-06,puckpedia,WPG,,2016
+8479356,2016,19,Kieffer Bellows,2017-09-22,puckpedia,NYI,,2017
+8479395,2016,20,Dennis Cholowski,2017-04-05,puckpedia,DET,,2017
+8479328,2016,21,Julien Gauthier,2016-07-09,puckpedia,CAR,,2016
+8479424,2016,22,German Rubtsov,2017-03-02,puckpedia,PHI,,2017
+8479404,2016,23,Henrik Borgstrom,2018-03-27,puckpedia,FLA,,2018
+8479368,2016,24,Max Jones,2016-08-26,puckpedia,ANA,,2016
+8479362,2016,25,Riley Tufte,2019-04-17,puckpedia,DAL,,2019
+8479420,2016,26,Tage Thompson,2017-03-07,puckpedia,STL,,2017
+8479353,2016,27,Brett Howden,2016-12-27,puckpedia,TBL,,2016
+8479321,2016,28,Lucas Johansen,2017-03-02,puckpedia,WSH,,2017
+8479365,2016,29,Trent Frederic,2018-03-13,puckpedia,BOS,,2018
+8479351,2016,30,Sam Steel,2016-12-20,puckpedia,ANA,,2016
+8479510,2016,31,Egor Korshkov,2019-05-01,puckpedia,TOR,,2019
+8479347,2016,32,Tyler Benson,2016-12-30,puckpedia,EDM,,2016
+8479335,2016,33,Rasmus Asplund,2018-05-23,puckpedia,BUF,,2018
+8479369,2016,34,Andrew Peeke,2019-04-01,puckpedia,CBJ,,2019
+8479385,2016,35,Jordan Kyrou,2016-07-27,puckpedia,STL,,2016
+8479333,2016,37,Libor Hajek,2017-03-21,puckpedia,TBL,,2017
+8479337,2016,39,Alex DeBrincat,2016-11-07,puckpedia,CHI,,2016
+8479414,2016,41,Nathan Bastian,2016-10-19,puckpedia,NJD,,2016
+8479373,2016,42,Jonathan Dahlen,2017-04-21,puckpedia,VAN,,2017
+8479511,2016,43,Janne Kuokkanen,2017-03-23,puckpedia,CAR,,2017
+8479383,2016,44,Boris Katchouk,2017-04-20,puckpedia,TBL,,2017
+8479379,2016,46,Givani Smith,2016-10-17,puckpedia,DET,,2016
+8479398,2016,47,Samuel Girard,2016-09-29,puckpedia,NSH,,2016
+8479394,2016,48,Carter Hart,2016-10-02,puckpedia,PHI,,2016
+8479324,2016,49,Ryan Lindgren,2018-03-22,puckpedia,NYR,,2018
+8479348,2016,51,Kale Clague,2017-03-06,puckpedia,LAK,,2017
+8479322,2016,52,Wade Allison,2020-03-27,puckpedia,PHI,,2020
+8479425,2016,53,Filip Hronek,2016-07-14,puckpedia,DET,,2016
+8479406,2016,55,Filip Gustavsson,2017-06-16,puckpedia,PIT,,2017
+8479346,2016,56,Dillon Dube,2017-03-24,puckpedia,CGY,,2017
+8479336,2016,57,Carl Grundstrom,2017-04-28,puckpedia,TOR,,2017
+8479390,2016,58,Taylor Raddysh,2017-05-15,puckpedia,TBL,,2017
+8479580,2016,60,Dylan Gambrell,2018-03-27,puckpedia,SJS,,2018
+8479512,2016,61,Kasper Bjorkqvist,2019-05-15,puckpedia,PIT,,2019
+8479361,2016,62,Joseph Woll,2019-03-24,puckpedia,TOR,,2019
+8479338,2016,63,Markus Niemelainen,2020-04-30,puckpedia,EDM,,2020
+8479367,2016,64,William Lockwood,2020-03-19,puckpedia,VAN,,2020
+8479411,2016,65,Vitaly Abramov,2016-12-23,puckpedia,CBJ,,2016
+8479323,2016,66,Adam Fox,2019-05-02,puckpedia,NYR,,2019
+8479341,2016,68,Cam Dineen,2017-05-01,puckpedia,ARI,,2017
+8479375,2016,70,William Bitten,2018-03-07,puckpedia,MIN,,2018
+8479315,2016,73,Joey Anderson,2018-04-15,puckpedia,NJD,,2018
+8479514,2016,76,Rem Pitlick,2019-03-22,puckpedia,NSH,,2019
+8479329,2016,78,Frederic Allard,2016-09-30,puckpedia,NSH,,2016
+8479330,2016,80,Brandon Gignac,2016-11-11,puckpedia,NJD,,2016
+8479413,2016,81,Sean Day,2017-03-10,puckpedia,NYR,,2017
+8479358,2016,82,Carsen Twarynski,2018-03-11,puckpedia,PHI,,2018
+8479372,2016,85,Joshua Mahura,2017-05-17,puckpedia,ANA,,2017
+8479578,2016,86,Casey Fitzgerald,2019-03-26,puckpedia,BUF,,2019
+8479516,2016,87,Garrett Pilon,2017-03-30,puckpedia,WSH,,2017
+8478971,2016,88,Connor Ingram,2017-04-04,puckpedia,TBL,,2017
+8479518,2016,90,Fredrik Karlstrom,2020-06-01,puckpedia,DAL,,2020
+8478996,2016,92,Adam Brooks,2017-06-29,puckpedia,TOR,,2017
+8479462,2016,98,Tarmo Reunanen,2019-06-05,puckpedia,NYR,,2019
+8479419,2016,99,Brett Murray,2020-07-31,puckpedia,BUF,,2020
+8479376,2016,100,Victor Mete,2017-03-27,puckpedia,MTL,,2017
+8479387,2016,101,Keaton Middleton,2021-03-31,puckpedia,COL,,2021
+8479573,2016,102,Mikhail Maltsev,2019-05-13,puckpedia,NJD,,2019
+8479520,2016,106,Brandon Duhaime,2019-04-17,puckpedia,MIN,,2019
+8479522,2016,108,Hardy Haman Aktell,2023-04-27,puckpedia,WSH,,2023
+8479382,2016,109,Connor Bunnaman,2017-04-21,puckpedia,PHI,,2017
+8479523,2016,110,Lucas Carlsson,2018-05-21,puckpedia,CHI,,2018
+8479393,2016,111,Noah Gregor,2018-04-06,puckpedia,SJS,,2018
+8479421,2016,112,Jacob Moverare,2016-07-14,puckpedia,LAK,,2016
+8479388,2016,114,Riley Stillman,2018-03-03,puckpedia,FLA,,2018
+8479587,2016,116,Rhett Gardner,2019-03-19,puckpedia,DAL,,2019
+8479525,2016,118,Ross Colton,2018-06-26,puckpedia,TBL,,2018
+8479526,2016,120,Otto Koivula,2018-03-21,puckpedia,NYI,,2018
+8479320,2016,133,Maxime Lajoie,2016-10-03,puckpedia,OTT,,2016
+8479533,2016,135,Joona Koppanen,2017-04-13,puckpedia,BOS,,2017
+8479534,2016,139,Linus Hogberg,2020-05-30,puckpedia,PHI,,2020
+8479364,2016,141,Tim Gettinger,2017-03-15,puckpedia,NYR,,2017
+8479591,2016,142,Michael Eyssimont,2018-03-29,puckpedia,LAK,,2018
+8479359,2016,145,Beck Malenstyn,2017-04-10,puckpedia,WSH,,2017
+8479381,2016,146,Nick Caamano,2017-04-06,puckpedia,DAL,,2017
+8479536,2016,147,Axel Jonsson-Fjallby,2018-05-01,puckpedia,WSH,,2018
+8479542,2016,159,Brandon Hagel,2018-10-30,puckpedia,CHI,,2018
+8479543,2016,160,Michael Pezzetta,2018-03-07,puckpedia,MTL,,2018
+8479594,2016,161,Nathan Clurman,2021-04-05,puckpedia,COL,,2021
+8479407,2016,162,Jesper Bratt,2017-05-12,puckpedia,NJD,,2017
+8479546,2016,165,Oskar Steen,2019-05-03,puckpedia,BOS,,2019
+8479547,2016,166,Matthew Phillips,2017-12-31,puckpedia,CGY,,2017
+8479550,2016,169,Tanner Laczynski,2020-03-23,puckpedia,PHI,,2020
+8479595,2016,173,Blake Hillman,2018-03-27,puckpedia,CHI,,2018
+8479553,2016,175,Maxim Mamin,2017-05-31,puckpedia,FLA,,2017
+8479597,2016,177,Chase Priskie,2019-08-17,puckpedia,CAR,,2019
+8479576,2016,183,Vincent Desharnais,,none,,,
+8479022,2016,184,Rodrigo Abols,2019-05-28,puckpedia,FLA,,2019
+8479557,2016,185,Calvin Thurkauf,2016-12-30,puckpedia,CBJ,,2016
+8479602,2016,192,Jeremy Davies,2019-04-03,puckpedia,NJD,,2019
+8479571,2016,210,Joachim Blichfeld,2017-12-29,puckpedia,SJS,,2017
+8480002,2017,1,Nico Hischier,2017-07-15,puckpedia,NJD,,2017
+8479974,2017,2,Nolan Patrick,2017-07-17,puckpedia,PHI,,2017
+8480036,2017,3,Miro Heiskanen,2017-07-08,puckpedia,DAL,,2017
+8480069,2017,4,Cale Makar,2019-04-14,puckpedia,COL,,2019
+8480012,2017,5,Elias Pettersson,2018-05-25,puckpedia,VAN,,2018
+8479996,2017,6,Cody Glass,2017-07-15,puckpedia,VGK,,2017
+8480072,2017,7,Lias Andersson,2017-07-13,puckpedia,NYR,,2017
+8479999,2017,8,Casey Mittelstadt,2018-03-26,puckpedia,BUF,,2018
+8479992,2017,9,Michael Rasmussen,2017-08-05,puckpedia,DET,,2017
+8480015,2017,10,Owen Tippett,2017-07-19,puckpedia,FLA,,2017
+8480014,2017,11,Gabriel Vilardi,2018-03-01,puckpedia,LAK,,2018
+8480039,2017,12,Martin Necas,2017-07-14,puckpedia,CAR,,2017
+8480018,2017,13,Nick Suzuki,2017-07-15,puckpedia,VGK,,2017
+8479984,2017,14,Cal Foote,2018-04-01,puckpedia,TBL,,2018
+8480073,2017,15,Erik Brannstrom,2017-07-15,puckpedia,VGK,,2017
+8479976,2017,16,Juuso Valimaki,2017-07-21,puckpedia,CGY,,2017
+8480043,2017,17,Timothy Liljegren,2017-07-12,puckpedia,TOR,,2017
+8480001,2017,18,Urho Vaakanainen,2018-06-13,puckpedia,BOS,,2018
+8480064,2017,19,Josh Norris,2019-05-27,puckpedia,OTT,,2019
+8480023,2017,20,Robert Thomas,2017-09-28,puckpedia,STL,,2017
+8480078,2017,21,Filip Chytil,2017-07-14,puckpedia,NYR,,2017
+8479977,2017,22,Kailer Yamamoto,2017-08-10,puckpedia,EDM,,2017
+8480058,2017,23,P.O Joseph,2017-12-04,puckpedia,ARI,,2017
+8480005,2017,24,Kristian Vesalainen,2018-08-26,puckpedia,WPG,,2018
+8480068,2017,25,Ryan Poehling,2019-03-31,puckpedia,MTL,,2019
+8479979,2017,26,Jake Oettinger,2019-03-25,puckpedia,DAL,,2019
+8480028,2017,27,Morgan Frost,2017-08-03,puckpedia,PHI,,2017
+8480032,2017,28,Shane Bowers,2019-03-29,puckpedia,COL,,2019
+8480035,2017,29,Henri Jokiharju,2018-06-12,puckpedia,CHI,,2018
+8480009,2017,30,Eeli Tolvanen,2018-03-29,puckpedia,NSH,,2018
+8480011,2017,31,Klim Kostin,2017-07-05,puckpedia,STL,,2017
+8479982,2017,32,Conor Timmins,2018-03-02,puckpedia,COL,,2018
+8479986,2017,33,Kole Lind,2018-03-01,puckpedia,VAN,,2018
+8479980,2017,34,Nicolas Hague,2017-09-29,puckpedia,VGK,,2017
+8480019,2017,35,Isaac Ratcliffe,2017-08-03,puckpedia,PHI,,2017
+8480003,2017,36,Jesper Boqvist,2019-06-10,puckpedia,NJD,,2019
+8480184,2017,38,Gustav Lindstrom,2018-05-25,puckpedia,DET,,2018
+8480027,2017,39,Jason Robertson,2018-05-03,puckpedia,DAL,,2018
+8480037,2017,40,Aleksi Heponiemi,2019-05-15,puckpedia,FLA,,2019
+8479994,2017,41,Jaret Anderson-Dolan,2017-09-25,puckpedia,LAK,,2017
+8480185,2017,42,Eetu Luostarinen,2019-05-30,puckpedia,CAR,,2019
+8480049,2017,43,Dylan Samberg,2020-04-06,puckpedia,WPG,,2020
+8480074,2017,45,Alexandre Texier,2018-05-22,puckpedia,CBJ,,2018
+8480071,2017,46,Robin Salo,2021-02-12,puckpedia,NYI,,2021
+8480029,2017,47,Alex Formenton,2017-10-02,puckpedia,OTT,,2017
+8480186,2017,48,Alexander Volkov,2017-06-29,puckpedia,TBL,,2017
+8479983,2017,49,Mario Ferraro,2019-04-29,puckpedia,SJS,,2019
+8480031,2017,50,Maxime Comtois,2018-03-03,puckpedia,ANA,,2018
+8480021,2017,53,Jack Studnicka,2017-09-26,puckpedia,BOS,,2017
+8480045,2017,54,Ukko-Pekka Luukkonen,2018-06-14,puckpedia,BUF,,2018
+8479981,2017,55,Jonah Gadjovich,2017-10-16,puckpedia,VAN,,2017
+8480070,2017,57,Ian Mitchell,2020-07-16,puckpedia,CHI,,2020
+8479991,2017,62,Jake Leschyshyn,2018-06-01,puckpedia,VGK,,2018
+8480188,2017,63,Fabian Zetterlund,2019-05-13,puckpedia,NJD,,2019
+8480007,2017,65,Jonas Rondbjerg,2019-05-30,puckpedia,VGK,,2019
+8479987,2017,67,Morgan Geekie,2018-05-09,puckpedia,CAR,,2018
+8480025,2017,69,MacKenzie Entwistle,2018-10-16,puckpedia,CHI,,2018
+8480192,2017,74,Johnathan Kovacevic,2019-03-15,puckpedia,WPG,,2019
+8479973,2017,78,Stuart Skinner,2018-05-14,puckpedia,EDM,,2018
+8480054,2017,81,Reilly Walsh,2020-08-10,puckpedia,NJD,,2020
+8480075,2017,82,Cameron Crotty,2020-04-09,puckpedia,ARI,,2020
+8480041,2017,84,Dmitri Samorukov,2017-09-07,puckpedia,EDM,,2017
+8480193,2017,86,Daniil Tarasov,2019-05-04,puckpedia,CBJ,,2019
+8479985,2017,87,Cale Fleury,2018-10-04,puckpedia,MTL,,2018
+8480063,2017,92,David Farrance,2021-03-28,puckpedia,NSH,,2021
+8480056,2017,95,Jack Rathbone,2020-07-14,puckpedia,VAN,,2020
+8479972,2017,97,Mason Shaw,2018-04-27,puckpedia,MIN,,2018
+8480196,2017,99,Jacob Bryson,2019-04-15,puckpedia,BUF,,2019
+8480060,2017,102,Scott Reedy,2021-04-02,puckpedia,SJS,,2021
+8479998,2017,103,Mikey Anderson,2019-04-23,puckpedia,LAK,,2019
+8480201,2017,107,Maksim Sushko,2018-03-12,puckpedia,PHI,,2018
+8480008,2017,109,Adam Ruzicka,2019-04-12,puckpedia,CGY,,2019
+8480280,2017,111,Jeremy Swayman,2020-03-18,puckpedia,BOS,,2020
+8480281,2017,113,Alexey Toropchenko,2018-12-14,puckpedia,STL,,2018
+8480205,2017,117,Emil Bemstrom,2019-05-14,puckpedia,CBJ,,2019
+8480208,2017,121,Drake Batherson,2017-10-03,puckpedia,OTT,,2017
+8480216,2017,132,Jacob Peterson,2021-04-27,puckpedia,DAL,,2021
+8480220,2017,137,Noah Cates,2022-03-27,puckpedia,PHI,,2022
+8480221,2017,138,Drake Rymsha,2018-08-25,puckpedia,LAK,,2018
+8480222,2017,139,Sebastian Aho,2017-07-05,puckpedia,NYI,,2017
+8480226,2017,143,Marián Studenic,2018-04-02,puckpedia,NJD,,2018
+8480231,2017,150,Jakub Galvas,2021-05-07,puckpedia,CHI,,2021
+8480238,2017,161,Jiri Patera,2020-06-30,puckpedia,VGK,,2020
+8480242,2017,165,Arnaud Durandeau,2019-05-31,puckpedia,NYI,,2019
+8480245,2017,168,Olle Lycksell,2021-05-04,puckpedia,PHI,,2021
+8480246,2017,169,Nick Perbix,2022-03-31,puckpedia,TBL,,2022
+8480247,2017,170,Jonathan Davidsson,2018-05-04,puckpedia,CBJ,,2018
+8480289,2017,174,Morgan Barron,2020-07-31,puckpedia,NYR,,2020
+8480291,2017,177,Skyler Brind'Amour,,none,,,
+8480292,2017,179,Carson Meyer,2021-04-17,puckpedia,CBJ,,2021
+8480252,2017,180,Cole Guttman,2022-08-18,puckpedia,CHI,,2022
+8480053,2017,185,Sasha Chmelevski,2018-04-03,puckpedia,SJS,,2018
+8480259,2017,189,Ben Jones,2018-06-01,puckpedia,VGK,,2018
+8480263,2017,194,Dylan Ferguson,2017-09-28,puckpedia,VGK,,2017
+8480293,2017,196,Wyatt Kalynuk,2020-07-16,puckpedia,CHI,,2020
+8480051,2017,199,Cayden Primeau,2019-03-31,puckpedia,MTL,,2019
+8480267,2017,200,Sammy Walker,2022-08-19,puckpedia,MIN,,2022
+8480274,2017,208,Philip Kemp,2020-11-25,puckpedia,EDM,,2020
+8480275,2017,209,Nick Swaney,2021-04-11,puckpedia,MIN,,2021
+8480276,2017,212,Ivan Chekhovich,2018-04-20,puckpedia,SJS,,2018
+8480839,2018,1,Rasmus Dahlin,2018-07-09,puckpedia,BUF,,2018
+8480830,2018,2,Andrei Svechnikov,2018-07-01,puckpedia,CAR,,2018
+8480829,2018,3,Jesperi Kotkaniemi,2018-07-01,puckpedia,MTL,,2018
+8480801,2018,4,Brady Tkachuk,2018-08-13,puckpedia,OTT,,2018
+8480849,2018,5,Barrett Hayton,2018-07-06,puckpedia,UTA,,2018
+8480821,2018,6,Filip Zadina,2018-07-07,puckpedia,DET,,2018
+8480800,2018,7,Quinn Hughes,2019-03-10,puckpedia,VAN,,2019
+8480871,2018,8,Adam Boqvist,2018-07-01,puckpedia,CHI,,2018
+8480833,2018,9,Vitali Kravtsov,2019-05-02,puckpedia,NYR,,2019
+8480803,2018,10,Evan Bouchard,2018-07-17,puckpedia,EDM,,2018
+8480789,2018,11,Oliver Wahlstrom,2019-03-28,puckpedia,NYI,,2019
+8480865,2018,12,Noah Dobson,2018-08-13,puckpedia,NYI,,2018
+8480848,2018,13,Ty Dellandrea,2018-09-19,puckpedia,DAL,,2018
+8480797,2018,14,Joel Farabee,2019-03-25,puckpedia,PHI,,2019
+8480844,2018,15,Grigori Denisenko,2020-07-15,puckpedia,FLA,,2020
+8480822,2018,16,Martin Kaut,2018-07-05,puckpedia,COL,,2018
+8480883,2018,17,Ty Smith,2018-08-20,puckpedia,NJD,,2018
+8480853,2018,18,Liam Foudy,2018-07-30,puckpedia,CBJ,,2018
+8480845,2018,20,Rasmus Kupari,2018-07-13,puckpedia,LAK,,2018
+8480847,2018,21,Ryan Merkley,2018-07-18,puckpedia,SJS,,2018
+8480817,2018,22,K'Andre Miller,2020-03-13,puckpedia,NYR,,2020
+8480806,2018,23,Isac Lundestrom,2018-08-04,puckpedia,ANA,,2018
+8480879,2018,26,Jacob Bernard-Docker,2021-04-01,puckpedia,OTT,,2021
+8480814,2018,27,Nicolas Beaudin,2018-11-09,puckpedia,CHI,,2018
+8480878,2018,28,Nils Lundkvist,2021-06-03,puckpedia,NYR,,2021
+8480873,2018,29,Rasmus Sandin,2018-07-15,puckpedia,TOR,,2018
+8480813,2018,30,Joe Veleno,2019-05-01,puckpedia,DET,,2019
+8480823,2018,31,Alexander Alexeyev,2018-09-24,puckpedia,WSH,,2018
+8480807,2018,32,Mattias Samuelsson,2020-03-25,puckpedia,BUF,,2020
+8481013,2018,33,Jonatan Berggren,2021-05-20,puckpedia,DET,,2021
+8481058,2018,35,Jesse Ylonen,2020-03-26,puckpedia,MTL,,2020
+8481014,2018,38,Alexander Romanov,2020-07-13,puckpedia,MTL,,2020
+8480802,2018,40,Ryan McLeod,2019-05-01,puckpedia,EDM,,2019
+8480835,2018,42,Jack Drury,2021-07-07,puckpedia,CAR,,2021
+8481016,2018,43,Ruslan Iskhakov,2022-05-26,puckpedia,NYI,,2022
+8481059,2018,45,Scott Perunovich,2020-07-13,puckpedia,STL,,2020
+8480796,2018,46,Martin Fehervary,2018-07-01,puckpedia,WSH,,2018
+8480893,2018,49,Kirill Marchenko,2022-05-03,puckpedia,CBJ,,2022
+8480874,2018,50,Adam Ginning,2022-05-17,puckpedia,PHI,,2022
+8480851,2018,51,Akil Thomas,2019-03-16,puckpedia,LAK,,2019
+8480434,2018,52,Sean Durzi,2019-04-01,puckpedia,LAK,,2019
+8480884,2018,53,Calen Addison,2019-04-06,puckpedia,PIT,,2019
+8480870,2018,54,Bo Groulx,2019-10-09,puckpedia,ANA,,2019
+8480860,2018,55,Kevin Bahl,2019-03-15,puckpedia,ARI,,2019
+8480842,2018,58,Filip Hallander,2018-07-15,puckpedia,PIT,,2018
+8480863,2018,59,Gabriel Fortier,2018-12-19,puckpedia,TBL,,2018
+8481019,2018,60,David Gustafsson,2019-06-13,puckpedia,WPG,,2019
+8480855,2018,63,Jack McBain,2022-03-21,puckpedia,ARI,,2022
+8481020,2018,64,Justus Annunen,2020-04-30,puckpedia,COL,,2020
+8480890,2018,65,Jan Jenik,2019-03-29,puckpedia,ARI,,2019
+8480858,2018,66,Cam Hillis,2020-05-12,puckpedia,MTL,,2020
+8480831,2018,67,Alec Regula,2019-11-11,puckpedia,CHI,,2019
+8480887,2018,71,Jordan Harris,2022-03-26,puckpedia,MTL,,2022
+8480834,2018,73,Ty Emberson,2021-04-07,puckpedia,ARI,,2021
+8480840,2018,75,Oskar Back,2021-04-21,puckpedia,DAL,,2021
+8480977,2018,76,Semyon Der-Arguchintsev,2018-09-21,puckpedia,TOR,,2018
+8480880,2018,77,Jakub Lauko,2018-09-28,puckpedia,BOS,,2018
+8480846,2018,78,Sampo Ranta,2021-04-04,puckpedia,COL,,2021
+8480843,2018,85,Lukas Dostal,2019-05-10,puckpedia,ANA,,2019
+8481024,2018,87,Linus Karlsson,2022-05-26,puckpedia,VAN,,2022
+8480466,2018,88,Joey Keane,2019-03-01,puckpedia,NYR,,2019
+8480980,2018,92,Connor Dewar,2019-03-05,puckpedia,MIN,,2019
+8480836,2018,95,Jonathan Gruden,2019-04-03,puckpedia,OTT,,2019
+8481061,2018,102,Jasper Weatherby,2021-08-24,puckpedia,SJS,,2021
+8481028,2018,105,Martin Pospisil,2019-04-20,puckpedia,CGY,,2019
+8480876,2018,106,Curtis Douglas,2022-03-22,puckpedia,TOR,,2022
+8480981,2018,107,Joel Hofer,2019-03-21,puckpedia,STL,,2019
+8481030,2018,112,Jack St. Ivany,2022-08-20,puckpedia,PIT,,2022
+8481031,2018,114,Ivan Prosvetov,2019-07-01,puckpedia,ARI,,2019
+8481032,2018,115,Paul Cotter,2018-12-28,puckpedia,VGK,,2018
+8480439,2018,118,Mac Hollowell,2019-03-07,puckpedia,TOR,,2019
+8480798,2018,120,Philipp Kurashev,2019-03-12,puckpedia,CHI,,2019
+8481065,2018,126,Angus Crookshank,2021-03-17,puckpedia,OTT,,2021
+8481056,2018,131,Spencer Stastney,2022-03-31,puckpedia,NSH,,2022
+8481033,2018,136,Akira Schmid,2021-05-17,puckpedia,NJD,,2021
+8480988,2018,137,Riley Damiani,2019-04-01,puckpedia,DAL,,2019
+8481070,2018,138,Hugh McGing,2020-03-20,puckpedia,STL,,2020
+8481068,2018,141,Yegor Sharangovich,2018-07-17,puckpedia,NJD,,2018
+8480828,2018,142,Michael Callahan,2022-03-14,puckpedia,BOS,,2022
+8481035,2018,143,Samuel Ersson,2021-06-03,puckpedia,PHI,,2021
+8480820,2018,149,Filip Kral,2020-04-01,puckpedia,TOR,,2020
+8480990,2018,150,Declan Chisholm,2020-05-31,puckpedia,WPG,,2020
+8480992,2018,152,Magnus Chrona,2023-04-10,puckpedia,SJS,,2023
+8480994,2018,155,Damien Giroux,2020-03-23,puckpedia,MIN,,2020
+8480995,2018,156,Pontus Holmberg,2021-06-04,puckpedia,TOR,,2021
+8480867,2018,157,Kevin Mandolese,2020-04-13,puckpedia,OTT,,2020
+8481072,2018,159,Tim Berni,2020-04-02,puckpedia,CBJ,,2020
+8480891,2018,164,Michael Kesselring,2021-03-22,puckpedia,EDM,,2021
+8481042,2018,171,Nikolai Kovalenko,2023-07-25,puckpedia,COL,,2023
+8481003,2018,178,Hunter Drew,2020-03-27,puckpedia,ANA,,2020
+8481077,2018,182,John Leonard,2020-03-31,puckpedia,SJS,,2020
+8481043,2018,183,Cole Koepke,2021-04-14,puckpedia,TBL,,2021
+8481004,2018,193,Josiah Slavin,2021-03-16,puckpedia,CHI,,2021
+8481006,2018,200,Tyler Tucker,2020-03-02,puckpedia,STL,,2020
+8480441,2018,204,Trey Fix-Wolansky,2019-03-15,puckpedia,CBJ,,2019
+8481559,2019,1,Jack Hughes,2019-07-12,puckpedia,NJD,,2019
+8481554,2019,2,Kaapo Kakko,2019-07-11,puckpedia,NYR,,2019
+8481523,2019,3,Kirby Dach,2019-07-08,puckpedia,CHI,,2019
+8481524,2019,4,Bowen Byram,2019-07-19,puckpedia,COL,,2019
+8481532,2019,5,Alex Turcotte,2020-03-11,puckpedia,LAK,,2020
+8481542,2019,6,Moritz Seider,2019-07-14,puckpedia,DET,,2019
+8481528,2019,7,Dylan Cozens,2019-07-15,puckpedia,BUF,,2019
+8481598,2019,8,Philip Broberg,2019-07-04,puckpedia,EDM,,2019
+8481533,2019,9,Trevor Zegras,2020-03-27,puckpedia,ANA,,2020
+8481617,2019,10,Vasily Podkolzin,2021-05-30,puckpedia,VAN,,2021
+8481599,2019,11,Victor Soderstrom,2019-07-07,puckpedia,ARI,,2019
+8481557,2019,12,Matt Boldy,2021-04-01,puckpedia,MIN,,2021
+8481519,2019,13,Spencer Knight,2021-03-31,puckpedia,FLA,,2021
+8481546,2019,14,Cam York,2021-04-01,puckpedia,PHI,,2021
+8481540,2019,15,Cole Caufield,2021-03-27,puckpedia,MTL,,2021
+8481618,2019,16,Alex Newhook,2021-03-31,puckpedia,COL,,2021
+8481522,2019,17,Peyton Krebs,2019-11-16,puckpedia,VGK,,2019
+8481581,2019,18,Thomas Harley,2019-09-23,puckpedia,DAL,,2019
+8481575,2019,19,Lassi Thomson,2019-07-15,puckpedia,OTT,,2019
+8481572,2019,20,Ville Heinola,2019-07-15,puckpedia,WPG,,2019
+8481591,2019,21,Sam Poulin,2019-09-22,puckpedia,PIT,,2019
+8481600,2019,22,Tobias Bjornfot,2019-07-15,puckpedia,LAK,,2019
+8481601,2019,23,Simon Holmstrom,2019-07-15,puckpedia,NYI,,2019
+8481577,2019,24,Philip Tomasino,2019-10-21,puckpedia,NSH,,2019
+8481580,2019,25,Connor McMichael,2019-07-12,puckpedia,WSH,,2019
+8481592,2019,26,Jakob Pelletier,2019-09-23,puckpedia,CGY,,2019
+8481518,2019,27,Nolan Foote,2019-06-25,puckpedia,TBL,,2019
+8481576,2019,28,Ryan Suzuki,2019-09-18,puckpedia,CAR,,2019
+8481530,2019,29,Brayden Tracey,2019-11-27,puckpedia,ANA,,2019
+8481556,2019,30,John Beecher,2022-05-16,puckpedia,BOS,,2022
+8481596,2019,32,Shane Pinto,2021-04-01,puckpedia,OTT,,2021
+8481560,2019,33,Arthur Kaliyev,2020-06-03,puckpedia,LAK,,2020
+8481553,2019,34,Bobby Brink,2022-04-10,puckpedia,PHI,,2022
+8481611,2019,36,Pyotr Kochetkov,2021-04-30,puckpedia,CAR,,2021
+8481544,2019,37,Mads Sogaard,2021-04-13,puckpedia,OTT,,2021
+8481534,2019,38,Raphael Lavoie,2020-03-21,puckpedia,EDM,,2020
+8481605,2019,39,Jackson LaCombe,2023-04-10,puckpedia,ANA,,2023
+8481535,2019,40,Nils Hoglander,2020-04-29,puckpedia,VAN,,2020
+8481527,2019,41,Kaedan Korczak,2019-12-21,puckpedia,VGK,,2019
+8481568,2019,43,Alex Vlasic,2022-03-15,puckpedia,CHI,,2022
+8481585,2019,45,Egor Afanasyev,2019-10-26,puckpedia,NSH,,2019
+8481593,2019,46,Jayden Struble,2023-03-15,puckpedia,MTL,,2023
+8481563,2019,47,Drew Helleson,2022-03-15,puckpedia,ANA,,2022
+8481552,2019,48,Artemi Kniazev,2019-07-02,puckpedia,SJS,,2019
+8481525,2019,49,Matthew Robertson,2019-10-08,puckpedia,NYR,,2019
+8481239,2019,50,Samuel Fagemo,2019-07-11,puckpedia,LAK,,2019
+8481547,2019,51,Simon Lundmark,2021-04-09,puckpedia,WPG,,2021
+8481609,2019,52,Vladislav Kolyachonok,2019-09-13,puckpedia,FLA,,2019
+8481582,2019,53,Nicholas Robertson,2019-09-19,puckpedia,TOR,,2019
+8481517,2019,56,Brett Leason,2019-07-11,puckpedia,WSH,,2019
+8481541,2019,57,Samuel Bolduc,2020-04-30,puckpedia,NYI,,2020
+8481607,2019,60,Albert Johansson,2020-06-05,puckpedia,DET,,2020
+8481537,2019,61,Nikita Okhotiuk,2019-12-30,puckpedia,NJD,,2019
+8481543,2019,62,Nikita Alexandrov,2019-08-01,puckpedia,STL,,2019
+8481737,2019,63,Matt Stienburg,2023-08-18,puckpedia,COL,,2023
+8481555,2019,64,Mattias Norlinder,2021-06-03,puckpedia,MTL,,2021
+8481708,2019,68,Zac Jones,2021-04-13,puckpedia,NYR,,2021
+8481206,2019,69,John Ludvig,2020-03-30,puckpedia,FLA,,2020
+8481536,2019,70,Daniil Misyul,2023-05-01,puckpedia,NJD,,2023
+8481521,2019,72,Ronnie Attard,2022-03-29,puckpedia,PHI,,2022
+8481594,2019,74,Nathan Légaré,2019-09-19,puckpedia,PIT,,2019
+8481550,2019,75,Adam Beckman,2020-03-23,puckpedia,MIN,,2020
+8481558,2019,76,John Farinacci,2023-08-16,puckpedia,BOS,,2023
+8481604,2019,79,Pavel Dorofeyev,2021-01-25,puckpedia,VGK,,2021
+8481578,2019,80,Graeme Clarke,2021-03-04,puckpedia,NJD,,2021
+8481655,2019,81,Cole Schwindt,2020-04-08,puckpedia,FLA,,2020
+8481562,2019,90,Domenick Fensore,2023-04-15,puckpedia,CAR,,2023
+8481656,2019,91,Aliaksei Protas,2019-07-10,puckpedia,WSH,,2019
+8481551,2019,93,Colten Ellis,2021-03-01,puckpedia,STL,,2021
+8481657,2019,94,Viktor Lodin,2021-06-01,puckpedia,OTT,,2021
+8481606,2019,95,Jordan Spence,2020-06-03,puckpedia,LAK,,2020
+8481740,2019,96,Tyce Thompson,2021-03-24,puckpedia,NJD,,2021
+8481711,2019,98,Matias Maccelli,2020-04-28,puckpedia,ARI,,2020
+8481712,2019,100,Matěj  Blümel,2022-06-06,puckpedia,DAL,,2022
+8481567,2019,101,Henry Thrun,2023-03-25,puckpedia,SJS,,2023
+8481743,2019,109,Marc Del Gaizo,2021-04-20,puckpedia,NSH,,2021
+8481715,2019,112,Hunter Skinner,2021-03-29,puckpedia,NYR,,2021
+8481716,2019,114,Dmitri Voronkov,2023-05-04,puckpedia,CBJ,,2023
+8481719,2019,120,Maxwell Crozier,2023-03-21,puckpedia,TBL,,2023
+8481720,2019,124,Nick Abruzzese,2022-03-26,puckpedia,TOR,,2022
+8480355,2019,125,Mark Kastelic,2020-04-09,puckpedia,OTT,,2020
+8481721,2019,129,Arseni Gritsyuk,2025-05-06,puckpedia,NJD,,2025
+8481699,2019,151,Aku Raty,2023-05-03,puckpedia,ARI,,2023
+8481668,2019,156,Arturs Silovs,2019-08-23,puckpedia,VAN,,2019
+8481725,2019,159,Elmer Soderblom,2022-06-09,puckpedia,DET,,2022
+8481751,2019,160,Lukas Rousek,2021-04-20,puckpedia,BUF,,2021
+8481726,2019,161,Adam Edstrom,2022-05-07,puckpedia,NYR,,2022
+8481569,2019,166,Marshall Warren,2024-04-19,puckpedia,NYI,,2024
+8481754,2019,172,Nikita Nesterenko,2023-03-15,puckpedia,ANA,,2023
+8481701,2019,184,Santeri Hatakka,2021-05-10,puckpedia,SJS,,2021
+8481679,2019,187,Maxence Guenette,2021-04-03,puckpedia,OTT,,2021
+8481732,2019,188,Andre Lee,2022-03-29,puckpedia,LAK,,2022
+8481683,2019,195,Aidan McDonough,2023-03-14,puckpedia,VAN,,2023
+8481093,2019,201,Rafael Harvey-Pinard,2021-05-14,puckpedia,MTL,,2021
+8481529,2019,202,Trent Miner,2021-05-27,puckpedia,COL,,2021
+8481703,2019,203,Valtteri Puustinen,2021-05-06,puckpedia,PIT,,2021
+8481704,2019,210,Juuso Parssinen,2021-05-28,puckpedia,NSH,,2021
+8481690,2019,212,Tyler Angle,2021-03-29,puckpedia,CBJ,,2021
+8481692,2019,214,Dustin Wolf,2020-05-01,puckpedia,CGY,,2020
+8482109,2020,1,Alexis Lafrenière,2020-10-12,puckpedia,NYR,,2020
+8482124,2020,2,Quinton Byfield,2020-10-16,puckpedia,LAK,,2020
+8482116,2020,3,Tim Stützle,2020-12-27,puckpedia,OTT,,2020
+8482078,2020,4,Lucas Raymond,2021-04-16,puckpedia,DET,,2021
+8482105,2020,5,Jake Sanderson,2022-03-27,puckpedia,OTT,,2022
+8482142,2020,6,Jamie Drysdale,2020-11-08,puckpedia,ANA,,2020
+8482125,2020,7,Alexander Holtz,2021-04-19,puckpedia,NJD,,2021
+8482097,2020,8,Jack Quinn,2020-11-16,puckpedia,BUF,,2020
+8482079,2020,9,Marco Rossi,2020-10-23,puckpedia,MIN,,2020
+8482149,2020,10,Cole Perfetti,2020-11-09,puckpedia,WPG,,2020
+8482137,2020,11,Yaroslav Askarov,2022-05-16,puckpedia,NSH,,2022
+8482113,2020,12,Anton Lundell,2021-06-07,puckpedia,FLA,,2021
+8482093,2020,13,Seth Jarvis,2020-12-28,puckpedia,CAR,,2020
+8482077,2020,14,Dylan Holloway,2021-04-16,puckpedia,EDM,,2021
+8482087,2020,16,Kaiden Guhle,2020-10-20,puckpedia,MTL,,2020
+8482117,2020,17,Lukas Reichel,2021-06-12,puckpedia,CHI,,2021
+8482110,2020,18,Dawson Mercer,2020-12-29,puckpedia,NJD,,2020
+8482073,2020,19,Braden Schneider,2021-03-03,puckpedia,NYR,,2021
+8482166,2020,20,Shakir Mukhamadullin,2021-12-01,puckpedia,NJD,,2021
+8482475,2020,21,Yegor Chinakhov,2021-05-03,puckpedia,CBJ,,2021
+8482148,2020,22,Hendrix Lapierre,2020-10-27,puckpedia,WSH,,2020
+8482159,2020,23,Tyson Foerster,2020-10-14,puckpedia,PHI,,2020
+8482074,2020,24,Connor Zary,2020-12-31,puckpedia,CGY,,2020
+8482111,2020,25,Justin Barron,2021-04-27,puckpedia,COL,,2021
+8482089,2020,26,Jake Neighbours,2020-10-18,puckpedia,STL,,2020
+8482150,2020,27,Jacob Perreault,2020-11-05,puckpedia,ANA,,2020
+8482092,2020,28,Ridly Greig,2020-12-29,puckpedia,OTT,,2020
+8482153,2020,29,Brendan Brisson,2022-04-30,puckpedia,VGK,,2022
+8482145,2020,30,Mavrik Bourque,2021-03-01,puckpedia,DAL,,2021
+8482103,2020,31,Ozzy Wiesblatt,2020-10-16,puckpedia,SJS,,2020
+8482162,2020,33,Roby Jarventie,2021-04-27,puckpedia,OTT,,2021
+8482175,2020,34,JJ Peterka,2021-06-11,puckpedia,BUF,,2021
+8482169,2020,35,Helge Grans,2021-06-04,puckpedia,LAK,,2021
+8482118,2020,36,Sam Colangelo,2024-04-11,puckpedia,ANA,,2024
+8482177,2020,37,Marat Khusnutdinov,2024-02-28,puckpedia,MIN,,2024
+8482133,2020,38,Thomas Bordeleau,2022-04-16,puckpedia,SJS,,2022
+8482146,2020,42,Luke Evangelista,2020-11-09,puckpedia,NSH,,2020
+8482476,2020,43,Emil Heineman,2022-04-04,puckpedia,MTL,,2022
+8482095,2020,44,Tyler Kleven,2023-03-23,puckpedia,OTT,,2023
+8482122,2020,45,Brock Faber,2023-04-09,puckpedia,MIN,,2023
+8482123,2020,46,Drew Commesso,2023-04-13,puckpedia,CHI,,2023
+8482165,2020,50,Yan Kuznetsov,2021-03-31,puckpedia,CGY,,2021
+8482446,2020,52,Joel Blomqvist,2023-04-06,puckpedia,PIT,,2023
+8482102,2020,53,Vasily Ponomarev,2020-10-13,puckpedia,CAR,,2020
+8482126,2020,54,Emil Andrae,2023-03-27,puckpedia,PHI,,2023
+8482181,2020,56,Tristen Robins,2020-12-30,puckpedia,SJS,,2020
+8482090,2020,57,Jack Finley,2020-12-12,puckpedia,TBL,,2020
+8482511,2020,58,Mason Lohrei,2023-05-10,puckpedia,BOS,,2023
+8482157,2020,60,Will Cuylle,2021-04-19,puckpedia,NYR,,2021
+8481102,2020,61,Egor Sokolov,2020-11-21,puckpedia,OTT,,2020
+8482201,2020,62,Gage Goncalves,2020-12-13,puckpedia,TBL,,2020
+8482131,2020,63,Donovan Sebrango,2021-03-15,puckpedia,DET,,2021
+8482094,2020,65,Daemon Hunt,2021-05-06,puckpedia,MIN,,2021
+8482178,2020,67,Ian Moore,2025-04-12,puckpedia,ANA,,2025
+8482141,2020,68,Lukas Cormier,2020-12-31,puckpedia,VGK,,2020
+8482100,2020,69,Alexander Nikishin,2025-04-26,puckpedia,CAR,,2025
+8482447,2020,71,Leevi Merilainen,2021-06-14,puckpedia,OTT,,2021
+8482147,2020,75,Jean-Luc Foudy,2021-05-25,puckpedia,COL,,2021
+8482101,2020,76,Danil Gushchin,2021-05-17,puckpedia,SJS,,2021
+8482448,2020,78,Samuel Knazko,2021-06-09,puckpedia,CBJ,,2021
+8482172,2020,79,Landon Slaggert,2024-03-11,puckpedia,CHI,,2024
+8482176,2020,81,Wyatt Kaiser,2023-03-14,puckpedia,CHI,,2023
+8482155,2020,83,Alex Laferriere,2023-04-10,puckpedia,LAK,,2023
+8482076,2020,84,Nico Daws,2021-05-05,puckpedia,NJD,,2021
+8482168,2020,85,Maxim Groshev,2023-05-01,puckpedia,TBL,,2023
+8482088,2020,87,Justin Sourdif,2021-09-24,puckpedia,FLA,,2021
+8482479,2020,89,Trevor Kuntar,2023-03-29,puckpedia,BOS,,2023
+8482144,2020,93,Jack Thompson,2021-05-18,puckpedia,TBL,,2021
+8482107,2020,95,Mike Benning,2023-04-12,puckpedia,FLA,,2023
+8482482,2020,101,Adam Wilsby,2022-04-14,puckpedia,NSH,,2022
+8482193,2020,103,Dylan Garand,2021-12-23,puckpedia,NYR,,2021
+8482515,2020,106,Artur Akhtyamov,2023-07-02,puckpedia,TOR,,2023
+8482451,2020,114,Mikael Pyyhtia,2022-05-05,puckpedia,CBJ,,2022
+8482167,2020,117,Bogdan Trineyev,2022-05-04,puckpedia,WSH,,2022
+8482174,2020,122,William Villeneuve,2021-09-25,puckpedia,TOR,,2021
+8482081,2020,124,Sean Farrell,2023-03-26,puckpedia,MTL,,2023
+8482132,2020,134,Brett Berard,2023-03-21,puckpedia,NYR,,2023
+8482452,2020,135,Elliot Desnoyers,2021-05-05,puckpedia,PHI,,2021
+8482487,2020,136,Jakub Dobes,2023-03-31,puckpedia,MTL,,2023
+8482192,2020,141,Isaak Phillips,2021-03-31,puckpedia,CHI,,2021
+8482516,2020,150,Matthew Kessel,2022-03-27,puckpedia,STL,,2022
+8482207,2020,152,William Dufour,2022-04-21,puckpedia,NYI,,2022
+8482460,2020,165,Matt Rempe,2021-11-04,puckpedia,NYR,,2021
+8482496,2020,167,Nils Aman,2022-06-07,puckpedia,VAN,,2022
+8482209,2020,174,Rory Kerins,2022-03-01,puckpedia,CGY,,2022
+8481133,2020,181,Cole Reinhardt,2021-04-16,puckpedia,OTT,,2021
+8482213,2020,182,Riley Duran,2024-03-24,puckpedia,BOS,,2024
+8481806,2020,188,Louis Crevier,2021-11-08,puckpedia,CHI,,2021
+8482197,2020,201,Adam Raska,2021-05-12,puckpedia,SJS,,2021
+8482507,2020,203,Chase Bradley,2024-07-01,puckpedia,COL,,2024
+8481827,2020,204,Ben McCartney,2021-05-27,puckpedia,UTA,,2021
+8482470,2020,205,Ilya Solovyov,2021-04-06,puckpedia,CGY,,2021
+8482187,2020,208,Ronan Seeley,2021-09-24,puckpedia,CAR,,2021
+8482221,2020,212,Devon Levi,2023-03-17,puckpedia,BUF,,2023
+8482525,2020,213,Ryan Tverberg,2023-03-15,puckpedia,TOR,,2023
+8482671,2021,1,Owen Power,2022-04-08,puckpedia,BUF,,2022
+8482665,2021,2,Matty Beniers,2022-04-10,puckpedia,SEA,,2022
+8482745,2021,3,Mason McTavish,2021-08-14,puckpedia,ANA,,2021
+8482684,2021,4,Luke Hughes,2023-04-08,puckpedia,NJD,,2023
+8482660,2021,5,Kent Johnson,2022-04-08,puckpedia,CBJ,,2022
+8482762,2021,6,Simon Edvinsson,2022-04-24,puckpedia,DET,,2022
+8482667,2021,7,William Eklund,2021-08-14,puckpedia,SJS,,2021
+8482730,2021,8,Brandt Clarke,2021-08-10,puckpedia,LAK,,2021
+8482699,2021,9,Dylan Guenther,2021-08-30,puckpedia,UTA,,2021
+8482705,2021,12,Cole Sillinger,2021-08-18,puckpedia,CBJ,,2021
+8482679,2021,13,Matt Coronato,2023-03-26,puckpedia,CGY,,2023
+8482765,2021,14,Isak Rosen,2022-05-31,puckpedia,BUF,,2022
+8482747,2021,16,Brennan Othmann,2021-08-12,puckpedia,NYR,,2021
+8482737,2021,17,Zack Bolduc,2021-08-24,puckpedia,STL,,2021
+8482768,2021,19,Fedor Svechkov,2023-05-06,puckpedia,NSH,,2023
+8482661,2021,20,Jesper Wallstedt,2022-05-16,puckpedia,MIN,,2022
+8482763,2021,21,Fabian Lysell,2021-08-09,puckpedia,BOS,,2021
+8482673,2021,22,Xavier Bourgault,2022-03-31,puckpedia,EDM,,2022
+8482740,2021,23,Wyatt Johnston,2021-09-28,puckpedia,DAL,,2021
+8482713,2021,24,Mackie Samoskevich,2023-05-08,puckpedia,FLA,,2023
+8482781,2021,26,Carson Lambos,2021-08-26,puckpedia,MIN,,2021
+8482742,2021,27,Zachary L'Heureux,2021-07-29,puckpedia,NSH,,2021
+8482712,2021,28,Oskar Olausson,2021-08-06,puckpedia,COL,,2021
+8482784,2021,30,Zach Dean,2021-12-04,puckpedia,VGK,,2021
+8482733,2021,31,Logan Mailloux,2022-10-05,puckpedia,MTL,,2022
+8482700,2021,32,Nolan Allan,2021-09-16,puckpedia,CHI,,2021
+8482803,2021,34,Olen Zellweger,2021-08-13,puckpedia,ANA,,2021
+8482858,2021,35,Ryker Evans,2022-04-24,puckpedia,SEA,,2022
+8482659,2021,37,Josh Doan,2023-03-16,puckpedia,ARI,,2023
+8482859,2021,39,Zack Ostapchuk,2021-09-29,puckpedia,OTT,,2021
+8482666,2021,40,Scott Morrow,2024-04-02,puckpedia,CAR,,2024
+8482766,2021,45,William Stromgren,2023-03-30,puckpedia,CGY,,2023
+8482702,2021,47,Logan Stankoven,2021-09-28,puckpedia,DAL,,2021
+8482787,2021,50,Nikita Chibrikov,2023-05-01,puckpedia,WPG,,2023
+8482758,2021,51,Ville Koivunen,2021-08-15,puckpedia,CAR,,2021
+8482691,2021,52,Aatu Raty,2021-08-14,puckpedia,NYI,,2021
+8482861,2021,55,Vincent Iorio,2021-10-04,puckpedia,WSH,,2021
+8482720,2021,57,Matthew Knies,2023-04-09,puckpedia,TOR,,2023
+8482698,2021,58,Tristan Broz,2024-04-20,puckpedia,PIT,,2024
+8482726,2021,59,Samuel Helenius,2021-08-12,puckpedia,LAK,,2021
+8482655,2021,60,J.J. Moser,2021-08-14,puckpedia,UTA,,2021
+8482703,2021,62,Colton Dach,2021-10-04,puckpedia,CHI,,2021
+8482775,2021,64,Oliver Kapanen,2024-06-15,puckpedia,MTL,,2024
+8482751,2021,67,Ryan Winterton,2022-07-13,puckpedia,SEA,,2022
+8482711,2021,69,Stanislav Svozil,2021-08-14,puckpedia,CBJ,,2021
+8482802,2021,70,Carter Mazur,2023-03-28,puckpedia,DET,,2023
+8482731,2021,76,Tyson Hinds,2022-09-28,puckpedia,ANA,,2022
+8482783,2021,78,Aleksei Kolosov,2023-07-08,puckpedia,PHI,,2023
+8482866,2021,99,Ville Ottavainen,2023-03-20,puckpedia,SEA,,2023
+8482807,2021,105,Ethan Del Mastro,2022-04-23,puckpedia,CHI,,2022
+8482929,2021,107,Emil Lilleberg,2023-06-05,puckpedia,TBL,,2023
+8482809,2021,109,Jackson Blake,2024-04-10,puckpedia,CAR,,2024
+8482715,2021,115,Ryan Ufko,2024-03-29,puckpedia,NSH,,2024
+8482206,2021,121,Ethan Cardwell,2023-04-14,puckpedia,SJS,,2023
+8482663,2021,126,Dylan Duke,2024-04-15,puckpedia,TBL,,2024
+8482873,2021,129,Topias Vilen,2022-05-12,puckpedia,NJD,,2022
+8482874,2021,131,Jacob Melanson,2022-07-13,puckpedia,SEA,,2022
+8482744,2021,133,James Malatesta,2022-12-01,puckpedia,CBJ,,2022
+8482877,2021,144,Jaroslav Chmelar,2024-03-20,puckpedia,NYR,,2024
+8482785,2021,147,Justin Robidas,2023-05-31,puckpedia,CAR,,2023
+8482749,2021,150,Joshua Roy,2022-03-30,puckpedia,MTL,,2022
+8482804,2021,158,Ty Murchison,2025-03-26,puckpedia,PHI,,2025
+8482941,2021,186,Shane Lachance,2025-04-16,puckpedia,NJD,,2025
+8482896,2021,193,Tyson Kozak,2022-08-19,puckpedia,BUF,,2022
+8482947,2021,203,Zakhar Bardakov,2025-04-20,puckpedia,COL,,2025
+8482911,2021,219,Joel Nystrom,2024-05-07,puckpedia,CAR,,2024
+8482953,2021,220,Taylor Makar,2025-03-31,puckpedia,COL,,2025
+8482761,2021,222,Carl Lindbom,2023-06-01,puckpedia,VGK,,2023
+8483515,2022,1,Juraj Slafkovsky,2022-07-13,puckpedia,MTL,,2022
+8483495,2022,2,Simon Nemec,2022-07-14,puckpedia,NJD,,2022
+8483431,2022,3,Logan Cooley,2023-07-27,puckpedia,UTA,,2023
+8483524,2022,4,Shane Wright,2022-07-14,puckpedia,SEA,,2022
+8483445,2022,5,Cutter Gauthier,2024-04-14,puckpedia,ANA,,2024
+8483460,2022,6,David Jiricek,2022-07-13,puckpedia,CBJ,,2022
+8483466,2022,7,Kevin Korchinski,2022-08-11,puckpedia,CHI,,2022
+8483464,2022,8,Marco Kasper,2022-07-13,puckpedia,DET,,2022
+8483512,2022,9,Matt Savoie,2022-07-16,puckpedia,BUF,,2022
+8483490,2022,10,Pavel Mintyukov,2022-07-16,puckpedia,ANA,,2022
+8483447,2022,11,Conor Geekie,2022-07-18,puckpedia,ARI,,2022
+8483485,2022,12,Denton Mateychuk,2022-07-13,puckpedia,CBJ,,2022
+8483493,2022,13,Frank Nazar,2024-04-13,puckpedia,CHI,,2024
+8483487,2022,14,Rutger McGroarty,2024-08-22,puckpedia,PIT,,2024
+8483476,2022,15,Jonathan Lekkerimaki,2023-05-06,puckpedia,VAN,,2023
+8483500,2022,16,Noah Ostlund,2022-07-15,puckpedia,BUF,,2022
+8483465,2022,17,Joakim Kemell,2022-07-16,puckpedia,NSH,,2022
+8483425,2022,18,Lian Bichsel,2023-05-06,puckpedia,DAL,,2023
+8483499,2022,19,Liam Ohgren,2022-07-16,puckpedia,MIN,,2022
+8483491,2022,20,Ivan Miroshnichenko,2023-05-01,puckpedia,WSH,,2023
+8483503,2022,21,Owen Pickering,2022-07-16,puckpedia,PIT,,2022
+8483444,2022,22,Nathan Gaucher,2022-07-28,puckpedia,ANA,,2022
+8483516,2022,23,Jimmy Snuggerud,2025-03-28,puckpedia,STL,,2025
+8483525,2022,24,Danila Yurov,2025-05-16,puckpedia,MIN,,2025
+8483506,2022,25,Sam Rinzel,2025-03-29,puckpedia,CHI,,2025
+8483468,2022,28,Jiri Kulich,2022-07-16,puckpedia,BUF,,2022
+8483472,2022,29,Maveric Lamoureux,2022-08-17,puckpedia,UTA,,2022
+8483471,2022,30,Brad Lambert,2022-10-12,puckpedia,WPG,,2022
+8483455,2022,31,Isaac Howard,2025-07-08,puckpedia,EDM,,2025
+8483513,2022,32,Reid Schaefer,2022-07-16,puckpedia,EDM,,2022
+8483424,2022,33,Owen Beck,2022-10-04,puckpedia,MTL,,2022
+8483481,2022,34,Cameron Lund,2025-03-21,puckpedia,SJS,,2025
+8483489,2022,38,Fraser Minten,2022-10-13,puckpedia,TOR,,2022
+8483432,2022,44,Luca Del Bel Belluz,2022-12-01,puckpedia,CBJ,,2022
+8483429,2022,46,Seamus Casey,2024-05-06,puckpedia,NJD,,2024
+8483452,2022,47,Hunter Haight,2023-03-02,puckpedia,MIN,,2023
+8483497,2022,49,Jani Nyman,2023-06-11,puckpedia,SEA,,2023
+8483482,2022,53,Tristan Luneau,2023-09-07,puckpedia,ANA,,2023
+8483505,2022,54,Matthew Poitras,2023-05-05,puckpedia,BOS,,2023
+8483510,2022,55,Elias Salomonsson,2022-07-16,puckpedia,WPG,,2022
+8483450,2022,57,Ryan Greene,2025-04-13,puckpedia,CHI,,2025
+8483457,2022,62,Lane Hutson,2024-04-12,puckpedia,MTL,,2024
+8483669,2022,63,Adam Sykora,2022-07-16,puckpedia,NYR,,2022
+8483461,2022,69,Devin Kaplan,2025-04-15,puckpedia,PHI,,2025
+8483463,2022,73,Aleksanteri Kaskimaki,2024-05-28,puckpedia,STL,,2024
+8483526,2022,77,Danil Zhilkin,2022-12-30,puckpedia,WPG,,2022
+8483678,2022,80,Elias Pettersson,2023-04-20,puckpedia,VAN,,2023
+8482829,2022,89,Michael Milne,2022-10-19,puckpedia,MIN,,2022
+8483686,2022,92,Adam Engstrom,2024-05-04,puckpedia,MTL,,2024
+8483687,2022,93,Marek Alscher,2023-03-13,puckpedia,FLA,,2023
+8483448,2022,98,Isaiah George,2023-09-13,puckpedia,NYI,,2023
+8483675,2022,103,Kenny Connors,2025-04-03,puckpedia,LAK,,2025
+8483676,2022,104,Stephen Halliday,2024-03-22,puckpedia,OTT,,2024
+8483690,2022,111,Noah Laba,2025-03-18,puckpedia,NYR,,2025
+8483696,2022,114,Cole O'Hara,2025-04-02,puckpedia,NSH,,2025
+8483699,2022,116,Angus Booth,2023-12-29,puckpedia,LAK,,2023
+8483703,2022,118,Sergei Murashov,2024-07-30,puckpedia,PIT,,2024
+8483710,2022,122,Dennis Hildeby,2022-07-13,puckpedia,TOR,,2022
+8483712,2022,125,Ludvig Jansson,2025-05-06,puckpedia,FLA,,2025
+8483728,2022,130,Jared Davidson,2024-05-31,puckpedia,MTL,,2024
+8483017,2022,132,Frederic Brunet,2023-10-05,puckpedia,BOS,,2023
+8483731,2022,133,Alex Bump,2025-04-15,puckpedia,PHI,,2025
+8483733,2022,135,Nikita Grebenkin,2024-04-29,puckpedia,TOR,,2024
+8483435,2022,136,Jorian Donovan,2022-09-23,puckpedia,OTT,,2022
+8483766,2022,153,David Spacek,2023-03-06,puckpedia,MIN,,2023
+8483771,2022,157,Sandis Vilmanis,2024-03-02,puckpedia,FLA,,2024
+8483768,2022,159,Victor Mancini,2024-04-02,puckpedia,NYR,,2024
+8483763,2022,163,Maksymilian Szuber,2023-05-01,puckpedia,UTA,,2023
+8483760,2022,165,Hunter McDonald,2024-04-15,puckpedia,PHI,,2024
+8483756,2022,169,Jared Wright,2025-04-14,puckpedia,LAK,,2025
+8483752,2022,173,Dominic James,2025-09-20,puckpedia,TBL,,2025
+8483467,2022,208,Kirill Kudryavtsev,2023-03-10,puckpedia,VAN,,2023
+8483709,2022,209,Abram Wiebe,2026-04-10,puckpedia,CGY,,2026
+8483433,2022,221,Jack Devine,2025-04-12,puckpedia,FLA,,2025
+8484144,2023,1,Connor Bedard,2023-07-17,puckpedia,CHI,,2023
+8484153,2023,2,Leo Carlsson,2023-07-12,puckpedia,ANA,,2023
+8484166,2023,3,Adam Fantilli,2023-07-01,puckpedia,CBJ,,2023
+8484227,2023,4,Will Smith,2024-05-28,puckpedia,SJS,,2024
+8484220,2023,5,David Reinbacher,2023-07-05,puckpedia,MTL,,2023
+8484386,2023,6,Dmitriy Simashev,2025-05-28,puckpedia,UTA,,2025
+8484387,2023,7,Matvei Michkov,2024-07-01,puckpedia,PHI,,2024
+8484186,2023,8,Ryan Leonard,2025-04-01,puckpedia,WSH,,2025
+8484160,2023,9,Nate Danielson,2023-07-13,puckpedia,DET,,2023
+8484164,2023,10,Dalibor Dvorsky,2023-07-14,puckpedia,STL,,2023
+8484240,2023,11,Tom Willander,2025-05-14,puckpedia,VAN,,2025
+8484388,2023,12,Daniil But,2025-05-28,puckpedia,UTA,,2025
+8484145,2023,13,Zach Benson,2023-07-28,puckpedia,BUF,,2023
+8484242,2023,14,Brayden Yager,2024-07-25,puckpedia,PIT,,2024
+8484241,2023,15,Matthew Wood,2025-03-29,puckpedia,NSH,,2025
+8484180,2023,16,Samuel Honzek,2023-07-26,puckpedia,CGY,,2023
+8484223,2023,17,Axel Sandin-Pellikka,2024-05-06,puckpedia,DET,,2024
+8484197,2023,19,Oliver Moore,2025-03-29,puckpedia,CHI,,2025
+8484148,2023,22,Oliver Bonk,2023-08-21,puckpedia,PHI,,2023
+8484210,2023,23,Gabe Perreault,2025-03-31,puckpedia,NYR,,2025
+8484230,2023,25,Otto Stenberg,2024-05-01,puckpedia,STL,,2024
+8484221,2023,27,Calum Ritchie,2024-07-08,puckpedia,COL,,2024
+8484158,2023,28,Easton Cowan,2023-08-11,puckpedia,TOR,,2023
+8484188,2023,29,Theo Lindstein,2024-03-20,puckpedia,STL,,2024
+8484203,2023,30,Bradly Nadeau,2024-04-07,puckpedia,CAR,,2024
+8484149,2023,34,Gavin Brindley,2024-04-15,puckpedia,CBJ,,2024
+8484168,2023,52,Oscar Fisker Molgaard,2024-06-14,puckpedia,SEA,,2024
+8484177,2023,58,Lenni Hameenaho,2025-05-08,puckpedia,NJD,,2025
+8484392,2023,62,Felix Unger Sorum,2023-07-15,puckpedia,CAR,,2023
+8484185,2023,67,Nick Lardis,2024-04-04,puckpedia,CHI,,2024
+8484170,2023,69,Jacob Fowler,2025-04-04,puckpedia,MTL,,2025
+8484150,2023,75,Hunter Brzustewicz,2024-03-14,puckpedia,CGY,,2024
+8484234,2023,80,Aydar Suniev,2025-04-02,puckpedia,CGY,,2025
+8484169,2023,90,Drew Fortescue,2026-03-21,puckpedia,NYR,,2026
+8484142,2023,95,Denver Barkey,2024-03-04,puckpedia,PHI,,2024
+8484403,2023,101,Florian Xhekaj,2024-04-09,puckpedia,MTL,,2024
+8484406,2023,105,Ty Mueller,2024-03-31,puckpedia,VAN,,2024
+8484214,2023,114,Luca Pinelli,2024-04-23,puckpedia,CBJ,,2024
+8484152,2023,123,Luca Cagnoni,2024-05-22,puckpedia,SJS,,2024
+8484428,2023,139,Charles-Alexis Legault,2024-05-06,puckpedia,CAR,,2024
+8483114,2023,151,Thomas Milic,2024-05-04,puckpedia,WPG,,2024
+8484471,2023,201,Emmitt Finnie,2024-03-27,puckpedia,DET,,2024
+8484801,2024,1,Macklin Celebrini,2024-07-06,puckpedia,SJS,,2024
+8484783,2024,2,Artyom Levshunov,2024-07-06,puckpedia,CHI,,2024
+8484762,2024,3,Beckett Sennecke,2024-07-05,puckpedia,ANA,,2024
+8484984,2024,5,Ivan Demidov,2025-04-08,puckpedia,MTL,,2025
+8484759,2024,7,Carter Yakemchuk,2024-08-06,puckpedia,OTT,,2024
+8484800,2024,8,Berkly Catton,2024-07-05,puckpedia,SEA,,2024
+8484768,2024,9,Zayne Parekh,2024-07-05,puckpedia,CGY,,2024
+8484806,2024,11,Sam Dickinson,2024-07-10,puckpedia,SJS,,2024
+8484798,2024,12,Zeev Buium,2025-04-13,puckpedia,MIN,,2025
+8484779,2024,13,Jett Luchanko,2024-07-06,puckpedia,PHI,,2024
+8484797,2024,14,Konsta Helenius,2024-07-08,puckpedia,BUF,,2024
+8484794,2024,15,Michael Brandsegg-Nygård,2024-07-11,puckpedia,DET,,2024
+8484793,2024,18,Sacha Boisvert,2026-03-16,puckpedia,CHI,,2026
+8484860,2024,28,Matvei Gridin,2024-07-05,puckpedia,CGY,,2024
+8484994,2024,33,Igor Chernyshov,2024-08-01,puckpedia,SJS,,2024
+8484873,2024,43,Cole Hutson,2026-03-15,puckpedia,WSH,,2026
+8484839,2024,44,Harrison Brunicke,2024-07-18,puckpedia,PIT,,2024
+8484999,2024,75,Ilya Protas,2024-07-06,puckpedia,WSH,,2024
+8484529,2024,160,Connor Clattenburg,2024-12-23,puckpedia,EDM,,2024
+8485105,2024,217,Nikita Prishchepov,2024-10-06,puckpedia,COL,,2024
+8485366,2025,1,Matthew Schaefer,2025-08-04,puckpedia,NYI,,2025
+8485402,2025,2,Michael Misa,2025-09-10,puckpedia,SJS,,2025
+8485391,2025,3,Anton Frondell,2025-07-15,puckpedia,CHI,,2025
+8485405,2025,5,Brady Martin,2025-08-20,puckpedia,NSH,,2025
+8485406,2025,6,Porter Martone,2026-03-29,puckpedia,PHI,,2026
+8485395,2025,7,James Hagens,2026-04-08,puckpedia,BOS,,2026
+8485414,2025,11,Benjamin Kindel,2025-07-09,puckpedia,PIT,,2025
+8485385,2025,15,Braeden Cootes,2025-07-09,puckpedia,VAN,,2025
+8485388,2025,16,Victor Eklund,2025-07-14,puckpedia,NYI,,2025
+8462234,,,,2019-03-01,puckpedia,COL,,2019
+8476951,,,,2017-08-21,puckpedia,CBJ,,2017
+8477321,,,,2017-03-13,puckpedia,CHI,,2017
+8477352,,,,2017-03-24,puckpedia,BOS,,2017
+8477372,,,,2019-05-12,puckpedia,TOR,,2019
+8477373,,,,2016-03-26,puckpedia,SJS,,2016
+8477382,,,,2018-03-21,puckpedia,BOS,,2018
+8477387,,,,2017-04-27,puckpedia,NSH,,2017
+8477395,,,,2018-03-20,puckpedia,UTA,,2018
+8477397,,,,2018-03-28,puckpedia,PIT,,2018
+8477414,,,,2016-04-20,puckpedia,ANA,,2016
+8477422,,,,2016-03-29,puckpedia,FLA,,2016
+8477434,,,,2018-05-07,puckpedia,DET,,2018
+8477436,,,,2016-03-24,puckpedia,CHI,,2016
+8477438,,,,2016-03-23,puckpedia,NYI,,2016
+8477442,,,,2016-05-18,puckpedia,MTL,,2016
+8477483,,,,2016-05-16,puckpedia,VAN,,2016
+8477490,,,,2016-03-25,puckpedia,DAL,,2016
+8477638,,,,2016-03-21,puckpedia,CBJ,,2016
+8477843,,,,2018-11-01,puckpedia,MIN,,2018
+8477954,,,,2016-07-02,puckpedia,STL,,2016
+8477965,,,,2015-07-01,puckpedia,CGY,,2015
+8477966,,,,2015-10-13,puckpedia,TBL,,2015
+8477975,,,,2016-03-25,puckpedia,BUF,,2016
+8477976,,,,2015-12-09,puckpedia,DAL,,2015
+8477977,,,,2014-10-05,puckpedia,SJS,,2014
+8477978,,,,2017-04-05,puckpedia,CBJ,,2017
+8477980,,,,2016-05-25,puckpedia,BUF,,2016
+8477982,,,,2015-07-24,puckpedia,NSH,,2015
+8477984,,,,2017-03-23,puckpedia,SJS,,2017
+8477990,,,,2015-07-01,puckpedia,NYR,,2015
+8477995,,,,2018-07-01,puckpedia,BUF,,2018
+8478003,,,,2016-03-11,puckpedia,SJS,,2016
+8478005,,,,2016-05-21,puckpedia,BUF,,2016
+8478008,,,,2015-06-02,puckpedia,CBJ,,2015
+8478012,,,,2016-05-26,puckpedia,DET,,2016
+8478014,,,,2017-03-28,puckpedia,CHI,,2017
+8478015,,,,2016-03-26,puckpedia,UTA,,2016
+8478025,,,,2017-05-11,puckpedia,NYI,,2017
+8478026,,,,2016-06-01,puckpedia,CAR,,2016
+8478034,,,,2017-03-01,puckpedia,EDM,,2017
+8478035,,,,2018-09-27,puckpedia,CBJ,,2018
+8478061,,,,2017-06-15,puckpedia,NSH,,2017
+8478070,,,,2017-03-15,puckpedia,CHI,,2017
+8478076,,,,2015-07-24,puckpedia,MTL,,2015
+8478082,,,,2018-05-08,puckpedia,EDM,,2018
+8478087,,,,2018-06-08,puckpedia,EDM,,2018
+8478093,,,,2017-05-18,puckpedia,DAL,,2017
+8478095,,,,2016-05-24,puckpedia,MIN,,2016
+8478096,,,,2015-05-28,puckpedia,PHI,,2015
+8478097,,,,2017-03-06,puckpedia,VGK,,2017
+8478117,,,,2016-03-15,puckpedia,OTT,,2016
+8478123,,,,2015-06-15,puckpedia,DET,,2015
+8478126,,,,2015-05-16,puckpedia,MIN,,2015
+8478129,,,,2017-03-27,puckpedia,PIT,,2017
+8478130,,,,2016-03-08,puckpedia,COL,,2016
+8478132,,,,2017-03-24,puckpedia,BOS,,2017
+8478135,,,,2016-04-14,puckpedia,LAK,,2016
+8478146,,,,2017-03-02,puckpedia,CHI,,2017
+8478157,,,,2014-09-20,puckpedia,SJS,,2014
+8478165,,,,2016-03-01,puckpedia,SJS,,2016
+8478176,,,,2014-10-05,puckpedia,DET,,2014
+8478178,,,,2018-05-21,puckpedia,CHI,,2018
+8478193,,,,2019-07-01,puckpedia,STL,,2019
+8478194,,,,2016-03-02,puckpedia,SJS,,2016
+8478199,,,,2014-10-05,puckpedia,STL,,2014
+8478204,,,,2017-05-08,puckpedia,NYR,,2017
+8478208,,,,2014-10-05,puckpedia,MIN,,2014
+8478211,,,,2016-03-02,puckpedia,FLA,,2016
+8478224,,,,2019-03-19,puckpedia,CGY,,2019
+8478250,,,,2021-05-29,puckpedia,LAK,,2021
+8478268,,,,2017-10-24,puckpedia,OTT,,2017
+8478394,,,,2015-12-31,puckpedia,NYR,,2015
+8478404,,,,2017-03-21,puckpedia,TOR,,2017
+8478405,,,,2016-10-07,puckpedia,FLA,,2016
+8478410,,,,2016-09-23,puckpedia,OTT,,2016
+8478411,,,,2016-05-18,puckpedia,DAL,,2016
+8478412,,,,2017-04-27,puckpedia,CHI,,2017
+8478419,,,,2015-07-13,puckpedia,ANA,,2015
+8478423,,,,2016-03-30,puckpedia,STL,,2016
+8478426,,,,2015-08-20,puckpedia,CBJ,,2015
+8478441,,,,2016-04-11,puckpedia,TBL,,2016
+8478448,,,,2017-04-14,puckpedia,LAK,,2017
+8478453,,,,2016-07-01,puckpedia,WSH,,2016
+8478456,,,,2016-12-11,puckpedia,BOS,,2016
+8478459,,,,2016-07-01,puckpedia,TBL,,2016
+8478461,,,,2015-07-03,puckpedia,STL,,2015
+8478464,,,,2015-09-13,puckpedia,SJS,,2015
+8478473,,,,2017-03-16,puckpedia,CAR,,2017
+8478481,,,,2016-10-12,puckpedia,NYI,,2016
+8478484,,,,2016-09-30,puckpedia,CHI,,2016
+8478487,,,,2017-06-01,puckpedia,WPG,,2017
+8478490,,,,2017-04-12,puckpedia,UTA,,2017
+8478496,,,,2016-08-05,puckpedia,ANA,,2016
+8478497,,,,2018-03-29,puckpedia,STL,,2018
+8478501,,,,2017-08-26,puckpedia,MIN,,2017
+8478504,,,,2020-03-24,puckpedia,CAR,,2020
+8478505,,,,2018-05-17,puckpedia,TOR,,2018
+8478517,,,,2017-03-09,puckpedia,WPG,,2017
+8478518,,,,2015-11-23,puckpedia,TOR,,2015
+8478834,,,,2015-07-02,puckpedia,DET,,2015
+8478848,,,,2023-05-02,puckpedia,SEA,,2023
+8478849,,,,2018-05-01,puckpedia,LAK,,2018
+8478852,,,,2016-04-01,puckpedia,TBL,,2016
+8478855,,,,2017-04-26,puckpedia,BUF,,2017
+8478863,,,,2019-03-19,puckpedia,DAL,,2019
+8478867,,,,2017-03-31,puckpedia,CAR,,2017
+8478880,,,,2019-07-08,puckpedia,FLA,,2019
+8478884,,,,2016-05-27,puckpedia,COL,,2016
+8478890,,,,2017-06-22,puckpedia,PIT,,2017
+8478894,,,,2017-03-02,puckpedia,WSH,,2017
+8478895,,,,2018-04-20,puckpedia,VAN,,2018
+8478896,,,,2017-04-10,puckpedia,NSH,,2017
+8478900,,,,2018-03-27,puckpedia,CHI,,2018
+8478903,,,,2019-03-09,puckpedia,NYR,,2019
+8478920,,,,2019-04-02,puckpedia,FLA,,2019
+8478921,,,,2017-03-24,puckpedia,MTL,,2017
+8478922,,,,2018-04-26,puckpedia,NSH,,2018
+8478923,,,,2017-04-10,puckpedia,EDM,,2017
+8478933,,,,2015-09-24,puckpedia,MTL,,2015
+8478949,,,,2015-07-07,puckpedia,CBJ,,2015
+8478966,,,,2018-04-24,puckpedia,MTL,,2018
+8478967,,,,2016-10-13,puckpedia,UTA,,2016
+8478970,,,,2017-03-13,puckpedia,VAN,,2017
+8478975,,,,2018-03-18,puckpedia,TOR,,2018
+8478981,,,,2015-10-06,puckpedia,SJS,,2015
+8478995,,,,2015-09-23,puckpedia,CGY,,2015
+8479002,,,,2017-04-10,puckpedia,NYR,,2017
+8479016,,,,2017-03-10,puckpedia,DAL,,2017
+8479020,,,,2016-07-01,puckpedia,MIN,,2016
+8479026,,,,2015-09-21,puckpedia,PHI,,2015
+8479027,,,,2017-10-02,puckpedia,NYR,,2017
+8479032,,,,2016-04-15,puckpedia,CBJ,,2016
+8479034,,,,2018-03-15,puckpedia,NYI,,2018
+8479051,,,,2016-04-01,puckpedia,OTT,,2016
+8479066,,,,2017-03-17,puckpedia,CGY,,2017
+8479176,,,,2018-07-01,puckpedia,VGK,,2018
+8479313,,,,2021-04-13,puckpedia,SJS,,2021
+8479317,,,,2018-03-05,puckpedia,NYR,,2018
+8479331,,,,2019-02-24,puckpedia,NJD,,2019
+8479340,,,,2018-03-29,puckpedia,COL,,2018
+8479342,,,,2019-03-25,puckpedia,CHI,,2019
+8479349,,,,2017-10-02,puckpedia,STL,,2017
+8479350,,,,2020-08-16,puckpedia,BOS,,2020
+8479374,,,,2018-07-13,puckpedia,DAL,,2018
+8479377,,,,2017-11-16,puckpedia,FLA,,2017
+8479380,,,,2017-05-17,puckpedia,EDM,,2017
+8479386,,,,2020-08-18,puckpedia,CHI,,2020
+8479389,,,,2017-10-23,puckpedia,BUF,,2017
+8479391,,,,2017-04-22,puckpedia,ANA,,2017
+8479396,,,,2017-09-25,puckpedia,WPG,,2017
+8479397,,,,2016-07-14,puckpedia,PHI,,2016
+8479399,,,,2017-03-26,puckpedia,STL,,2017
+8479403,,,,2017-03-17,puckpedia,CGY,,2017
+8479405,,,,2018-04-19,puckpedia,TBL,,2018
+8479408,,,,2019-06-13,puckpedia,CGY,,2019
+8479416,,,,2018-09-13,puckpedia,DAL,,2018
+8479447,,,,2017-11-20,puckpedia,FLA,,2017
+8479519,,,,2020-05-01,puckpedia,EDM,,2020
+8479524,,,,2017-07-08,puckpedia,ANA,,2017
+8479530,,,,2019-05-13,puckpedia,COL,,2019
+8479531,,,,2019-05-17,puckpedia,NYR,,2019
+8479532,,,,2018-03-27,puckpedia,CAR,,2018
+8479538,,,,2017-05-09,puckpedia,SJS,,2017
+8479539,,,,2019-05-08,puckpedia,PIT,,2019
+8479544,,,,2022-06-09,puckpedia,NSH,,2022
+8479548,,,,2019-04-15,puckpedia,DET,,2019
+8479551,,,,2021-04-14,puckpedia,NYI,,2021
+8479558,,,,2017-07-01,puckpedia,LAK,,2017
+8479561,,,,2018-03-29,puckpedia,COL,,2018
+8479563,,,,2018-05-02,puckpedia,MIN,,2018
+8479566,,,,2018-04-06,puckpedia,NYI,,2018
+8479570,,,,2019-03-22,puckpedia,TBL,,2019
+8479574,,,,2018-05-19,puckpedia,WPG,,2018
+8479575,,,,2020-03-20,puckpedia,NSH,,2020
+8479581,,,,2022-01-09,puckpedia,CAR,,2022
+8479583,,,,2021-03-19,puckpedia,NYI,,2021
+8479584,,,,2020-03-05,puckpedia,WSH,,2020
+8479588,,,,2018-03-25,puckpedia,STL,,2018
+8479589,,,,2018-07-01,puckpedia,DAL,,2018
+8479596,,,,2020-05-08,puckpedia,NYR,,2020
+8479598,,,,2017-06-30,puckpedia,TBL,,2017
+8479610,,,,2018-05-28,puckpedia,VAN,,2018
+8479613,,,,2017-04-18,puckpedia,ANA,,2017
+8479616,,,,2017-11-03,puckpedia,CBJ,,2017
+8479619,,,,2016-07-15,puckpedia,VAN,,2016
+8479624,,,,2016-07-05,puckpedia,CBJ,,2016
+8479633,,,,2018-03-01,puckpedia,UTA,,2018
+8479636,,,,2018-06-15,puckpedia,CAR,,2018
+8479639,,,,2017-09-20,puckpedia,VGK,,2017
+8479644,,,,2016-09-22,puckpedia,LAK,,2016
+8479656,,,,2017-12-28,puckpedia,EDM,,2017
+8479657,,,,2016-09-25,puckpedia,CHI,,2016
+8479661,,,,2018-04-02,puckpedia,NSH,,2018
+8479671,,,,2019-05-01,puckpedia,NSH,,2019
+8479675,,,,2016-07-26,puckpedia,TOR,,2016
+8479692,,,,2016-10-03,puckpedia,NJD,,2016
+8479696,,,,2016-09-29,puckpedia,DAL,,2016
+8479705,,,,2019-05-29,puckpedia,SJS,,2019
+8479718,,,,2018-03-01,puckpedia,TBL,,2018
+8479722,,,,2016-10-06,puckpedia,UTA,,2016
+8479728,,,,2017-04-28,puckpedia,MTL,,2017
+8479729,,,,2020-04-01,puckpedia,TOR,,2020
+8479734,,,,2017-09-26,puckpedia,MIN,,2017
+8479746,,,,2019-03-01,puckpedia,DAL,,2019
+8479748,,,,2018-06-01,puckpedia,VGK,,2018
+8479772,,,,2017-03-03,puckpedia,VAN,,2017
+8479926,,,,2017-03-02,puckpedia,WSH,,2017
+8479930,,,,2017-03-07,puckpedia,WSH,,2017
+8479931,,,,2017-03-07,puckpedia,WSH,,2017
+8479944,,,,2017-03-14,puckpedia,PIT,,2017
+8479945,,,,2017-03-15,puckpedia,DAL,,2017
+8479946,,,,2017-03-16,puckpedia,CBJ,,2017
+8479951,,,,2017-03-20,puckpedia,ANA,,2017
+8479958,,,,2017-03-23,puckpedia,NYR,,2017
+8479961,,,,2017-03-25,puckpedia,CGY,,2017
+8479962,,,,2017-03-27,puckpedia,NYI,,2017
+8479968,,,,2017-03-27,puckpedia,NYR,,2017
+8479970,,,,2017-03-28,puckpedia,EDM,,2017
+8479975,,,,2022-11-06,puckpedia,TOR,,2022
+8479989,,,,2019-03-21,puckpedia,CAR,,2019
+8479990,,,,2018-09-21,puckpedia,MTL,,2018
+8479993,,,,2018-12-14,puckpedia,TOR,,2018
+8480016,,,,2019-07-02,puckpedia,SJS,,2019
+8480017,,,,2018-03-15,puckpedia,PHI,,2018
+8480020,,,,2017-12-11,puckpedia,MIN,,2017
+8480022,,,,2018-05-31,puckpedia,VAN,,2018
+8480026,,,,2018-12-10,puckpedia,UTA,,2018
+8480030,,,,2018-05-28,puckpedia,ANA,,2018
+8480034,,,,2018-09-21,puckpedia,MTL,,2018
+8480042,,,,2018-04-07,puckpedia,ANA,,2018
+8480044,,,,2018-06-15,puckpedia,VGK,,2018
+8480047,,,,2017-09-28,puckpedia,TBL,,2017
+8480059,,,,2020-03-26,puckpedia,FLA,,2020
+8480061,,,,2021-04-05,puckpedia,NSH,,2021
+8480066,,,,2020-04-02,puckpedia,CHI,,2020
+8480076,,,,2018-03-06,puckpedia,EDM,,2018
+8480080,,,,2017-03-28,puckpedia,NYR,,2017
+8480082,,,,2017-03-29,puckpedia,MIN,,2017
+8480084,,,,2017-03-30,puckpedia,SJS,,2017
+8480089,,,,2017-03-31,puckpedia,ANA,,2017
+8480101,,,,2017-04-10,puckpedia,EDM,,2017
+8480112,,,,2017-04-15,puckpedia,UTA,,2017
+8480113,,,,2017-04-18,puckpedia,LAK,,2017
+8480115,,,,2017-04-20,puckpedia,NJD,,2017
+8480139,,,,2017-04-21,puckpedia,NYR,,2017
+8480144,,,,2017-05-01,puckpedia,CHI,,2017
+8480145,,,,2017-05-01,puckpedia,NYR,,2017
+8480153,,,,2017-05-15,puckpedia,NSH,,2017
+8480157,,,,2017-05-16,puckpedia,TOR,,2017
+8480158,,,,2017-05-16,puckpedia,TOR,,2017
+8480159,,,,2017-05-23,puckpedia,SJS,,2017
+8480161,,,,2017-05-24,puckpedia,DET,,2017
+8480162,,,,2017-05-25,puckpedia,CBJ,,2017
+8480164,,,,2017-05-31,puckpedia,FLA,,2017
+8480190,,,,2020-04-02,puckpedia,CHI,,2020
+8480191,,,,2018-04-27,puckpedia,LAK,,2018
+8480194,,,,2020-06-15,puckpedia,BUF,,2020
+8480195,,,,2020-03-27,puckpedia,ANA,,2020
+8480199,,,,2021-04-30,puckpedia,CAR,,2021
+8480202,,,,2023-07-02,puckpedia,EDM,,2023
+8480203,,,,2019-05-06,puckpedia,CHI,,2019
+8480206,,,,2019-04-30,puckpedia,LAK,,2019
+8480210,,,,2018-05-08,puckpedia,COL,,2018
+8480212,,,,2018-05-06,puckpedia,UTA,,2018
+8480213,,,,2019-04-16,puckpedia,NJD,,2019
+8480217,,,,2020-04-11,puckpedia,LAK,,2020
+8480219,,,,2019-05-23,puckpedia,WPG,,2019
+8480224,,,,2019-05-30,puckpedia,MIN,,2019
+8480225,,,,2020-07-16,puckpedia,VGK,,2020
+8480228,,,,2022-06-10,puckpedia,FLA,,2022
+8480229,,,,2018-03-15,puckpedia,EDM,,2018
+8480233,,,,2021-04-15,puckpedia,NSH,,2021
+8480234,,,,2018-04-24,puckpedia,PIT,,2018
+8480236,,,,2018-09-22,puckpedia,SJS,,2018
+8480237,,,,2021-03-25,puckpedia,NJD,,2021
+8480244,,,,2020-06-15,puckpedia,WPG,,2020
+8480248,,,,2020-03-19,puckpedia,UTA,,2020
+8480255,,,,2017-07-02,puckpedia,FLA,,2017
+8480261,,,,2021-04-06,puckpedia,BUF,,2021
+8480264,,,,2020-06-15,puckpedia,BOS,,2020
+8480266,,,,2018-07-02,puckpedia,WPG,,2018
+8480278,,,,2020-04-15,puckpedia,PIT,,2020
+8480279,,,,2019-05-01,puckpedia,PHI,,2019
+8480283,,,,2018-03-22,puckpedia,WSH,,2018
+8480285,,,,2019-03-02,puckpedia,PIT,,2019
+8480300,,,,2018-03-09,puckpedia,FLA,,2018
+8480304,,,,2017-12-28,puckpedia,SJS,,2017
+8480306,,,,2019-03-21,puckpedia,NYI,,2019
+8480308,,,,2019-03-19,puckpedia,DAL,,2019
+8480313,,,,2020-07-13,puckpedia,VGK,,2020
+8480314,,,,2019-03-12,puckpedia,OTT,,2019
+8480326,,,,2018-07-02,puckpedia,COL,,2018
+8480330,,,,2017-06-27,puckpedia,CGY,,2017
+8480336,,,,2018-07-02,puckpedia,LAK,,2018
+8480341,,,,2017-07-06,puckpedia,PIT,,2017
+8480356,,,,2017-10-03,puckpedia,BOS,,2017
+8480363,,,,2017-10-03,puckpedia,DET,,2017
+8480364,,,,2017-12-26,puckpedia,OTT,,2017
+8480373,,,,2017-07-13,puckpedia,SJS,,2017
+8480378,,,,2017-09-18,puckpedia,MIN,,2017
+8480382,,,,2017-07-17,puckpedia,NYR,,2017
+8480384,,,,2018-07-18,puckpedia,SJS,,2018
+8480394,,,,2017-09-13,puckpedia,PIT,,2017
+8480395,,,,2017-09-25,puckpedia,PIT,,2017
+8480396,,,,2017-09-16,puckpedia,PIT,,2017
+8480404,,,,2021-04-19,puckpedia,BOS,,2021
+8480405,,,,2017-10-02,puckpedia,COL,,2017
+8480420,,,,2017-07-28,puckpedia,CHI,,2017
+8480432,,,,2018-05-09,puckpedia,WSH,,2018
+8480436,,,,2017-10-08,puckpedia,LAK,,2017
+8480443,,,,2020-06-15,puckpedia,WPG,,2020
+8480448,,,,2017-09-19,puckpedia,OTT,,2017
+8480454,,,,2018-03-02,puckpedia,SJS,,2018
+8480459,,,,2020-07-16,puckpedia,CHI,,2020
+8480462,,,,2018-03-24,puckpedia,MTL,,2018
+8480467,,,,2017-11-27,puckpedia,LAK,,2017
+8480468,,,,2022-03-02,puckpedia,EDM,,2022
+8480720,,,,2018-03-04,puckpedia,EDM,,2018
+8480722,,,,2019-05-21,puckpedia,EDM,,2019
+8480727,,,,2018-03-08,puckpedia,VGK,,2018
+8480748,,,,2018-03-20,puckpedia,ANA,,2018
+8480760,,,,2018-03-24,puckpedia,NJD,,2018
+8480761,,,,2018-03-25,puckpedia,STL,,2018
+8480762,,,,2018-03-26,puckpedia,CBJ,,2018
+8480766,,,,2018-03-28,puckpedia,OTT,,2018
+8480769,,,,2018-07-01,puckpedia,DAL,,2018
+8480771,,,,2018-03-29,puckpedia,LAK,,2018
+8480776,,,,2018-03-30,puckpedia,LAK,,2018
+8480779,,,,2018-04-03,puckpedia,NSH,,2018
+8480785,,,,2018-04-05,puckpedia,COL,,2018
+8480791,,,,2018-09-30,puckpedia,WSH,,2018
+8480799,,,,2020-05-28,puckpedia,NYI,,2020
+8480804,,,,2018-10-22,puckpedia,WSH,,2018
+8480805,,,,2020-03-30,puckpedia,LAK,,2020
+8480808,,,,2019-03-16,puckpedia,VAN,,2019
+8480816,,,,2022-04-10,puckpedia,ANA,,2022
+8480819,,,,2018-07-05,puckpedia,NYI,,2018
+8480824,,,,2019-03-19,puckpedia,MIN,,2019
+8480825,,,,2022-09-20,puckpedia,FLA,,2022
+8480826,,,,2018-12-03,puckpedia,NYI,,2018
+8480827,,,,2018-07-11,puckpedia,STL,,2018
+8480838,,,,2021-03-01,puckpedia,BOS,,2021
+8480850,,,,2019-12-27,puckpedia,LAK,,2019
+8480856,,,,2019-03-08,puckpedia,FLA,,2019
+8480857,,,,2020-04-18,puckpedia,LAK,,2020
+8480862,,,,2018-09-28,puckpedia,DET,,2018
+8480869,,,,2021-05-13,puckpedia,SEA,,2021
+8480872,,,,2022-06-13,puckpedia,VAN,,2022
+8480881,,,,2018-10-17,puckpedia,BUF,,2018
+8480882,,,,2021-03-24,puckpedia,DET,,2021
+8480885,,,,2019-05-22,puckpedia,EDM,,2019
+8480892,,,,2021-06-18,puckpedia,UTA,,2021
+8480894,,,,2022-04-26,puckpedia,VGK,,2022
+8480895,,,,2018-04-06,puckpedia,NYI,,2018
+8480898,,,,2018-04-09,puckpedia,DAL,,2018
+8480901,,,,2018-04-10,puckpedia,BOS,,2018
+8480906,,,,2018-04-11,puckpedia,BUF,,2018
+8480913,,,,2018-04-12,puckpedia,UTA,,2018
+8480922,,,,2018-05-02,puckpedia,NYR,,2018
+8480923,,,,2018-05-02,puckpedia,WSH,,2018
+8480924,,,,2018-05-02,puckpedia,MIN,,2018
+8480925,,,,2018-05-02,puckpedia,COL,,2018
+8480926,,,,2018-05-03,puckpedia,NYR,,2018
+8480930,,,,2018-05-07,puckpedia,NSH,,2018
+8480931,,,,2018-05-09,puckpedia,NSH,,2018
+8480932,,,,2018-05-09,puckpedia,WSH,,2018
+8480935,,,,2018-05-15,puckpedia,BUF,,2018
+8480940,,,,2018-05-18,puckpedia,EDM,,2018
+8480943,,,,2018-05-17,puckpedia,TOR,,2018
+8480944,,,,2018-05-17,puckpedia,TOR,,2018
+8480945,,,,2018-05-18,puckpedia,PIT,,2018
+8480946,,,,2018-05-21,puckpedia,CHI,,2018
+8480947,,,,2018-05-21,puckpedia,CHI,,2018
+8480948,,,,2018-08-01,puckpedia,NJD,,2018
+8480949,,,,2018-05-21,puckpedia,DET,,2018
+8480950,,,,2018-05-23,puckpedia,UTA,,2018
+8480952,,,,2018-05-28,puckpedia,MTL,,2018
+8480953,,,,2018-05-28,puckpedia,MTL,,2018
+8480954,,,,2018-05-31,puckpedia,CHI,,2018
+8480955,,,,2018-06-01,puckpedia,FLA,,2018
+8480965,,,,2018-06-06,puckpedia,SJS,,2018
+8480969,,,,2018-07-11,puckpedia,CGY,,2018
+8480979,,,,2022-04-10,puckpedia,UTA,,2022
+8480984,,,,2020-03-10,puckpedia,PHI,,2020
+8480985,,,,2019-03-09,puckpedia,PIT,,2019
+8480986,,,,2021-04-29,puckpedia,NYR,,2021
+8480993,,,,2020-06-01,puckpedia,VGK,,2020
+8480996,,,,2020-04-06,puckpedia,UTA,,2020
+8480997,,,,2020-05-29,puckpedia,DET,,2020
+8480999,,,,2019-09-26,puckpedia,DAL,,2019
+8481000,,,,2019-10-28,puckpedia,STL,,2019
+8481001,,,,2019-06-04,puckpedia,CBJ,,2019
+8481002,,,,2019-05-30,puckpedia,SJS,,2019
+8481005,,,,2019-03-30,puckpedia,CGY,,2019
+8481009,,,,2022-05-02,puckpedia,FLA,,2022
+8481012,,,,2022-03-29,puckpedia,MIN,,2022
+8481015,,,,2022-05-13,puckpedia,NYR,,2022
+8481018,,,,2018-07-01,puckpedia,BOS,,2018
+8481025,,,,2021-03-01,puckpedia,FLA,,2021
+8481029,,,,2022-03-23,puckpedia,NSH,,2022
+8481034,,,,2019-05-06,puckpedia,CHI,,2019
+8481036,,,,2020-03-31,puckpedia,ANA,,2020
+8481037,,,,2022-04-30,puckpedia,MIN,,2022
+8481039,,,,2019-06-10,puckpedia,LAK,,2019
+8481040,,,,2019-05-28,puckpedia,CAR,,2019
+8481041,,,,2020-04-27,puckpedia,CGY,,2020
+8481051,,,,2023-03-25,puckpedia,LAK,,2023
+8481060,,,,2020-05-07,puckpedia,TBL,,2020
+8481063,,,,2020-09-09,puckpedia,TBL,,2020
+8481064,,,,2023-04-07,puckpedia,WSH,,2023
+8481069,,,,2022-03-28,puckpedia,LAK,,2022
+8481071,,,,2022-05-02,puckpedia,COL,,2022
+8481075,,,,2021-03-29,puckpedia,VGK,,2021
+8481082,,,,2019-07-22,puckpedia,BOS,,2019
+8481095,,,,2018-12-14,puckpedia,VAN,,2018
+8481105,,,,2019-05-07,puckpedia,MTL,,2019
+8481112,,,,2020-10-11,puckpedia,ANA,,2020
+8481113,,,,2021-07-30,puckpedia,TOR,,2021
+8481122,,,,2019-03-04,puckpedia,ANA,,2019
+8481124,,,,2018-07-03,puckpedia,NSH,,2018
+8481136,,,,2018-07-06,puckpedia,SJS,,2018
+8481147,,,,2019-03-06,puckpedia,CHI,,2019
+8481157,,,,2021-07-28,puckpedia,BOS,,2021
+8481159,,,,2023-07-11,puckpedia,UTA,,2023
+8481161,,,,2020-03-04,puckpedia,CBJ,,2020
+8481167,,,,2019-09-20,puckpedia,VGK,,2019
+8481178,,,,2018-09-20,puckpedia,PHI,,2018
+8481186,,,,2018-07-23,puckpedia,COL,,2018
+8481192,,,,2021-01-06,puckpedia,VAN,,2021
+8481208,,,,2018-09-24,puckpedia,NJD,,2018
+8481219,,,,2020-04-13,puckpedia,OTT,,2020
+8481228,,,,2019-03-01,puckpedia,TBL,,2019
+8481237,,,,2023-05-20,puckpedia,NYI,,2023
+8481258,,,,2018-09-01,puckpedia,WSH,,2018
+8481422,,,,2019-03-11,puckpedia,PIT,,2019
+8481425,,,,2019-03-12,puckpedia,VAN,,2019
+8481426,,,,2019-03-12,puckpedia,DET,,2019
+8481428,,,,2021-07-28,puckpedia,PHI,,2021
+8481432,,,,2019-03-13,puckpedia,TOR,,2019
+8481433,,,,2019-03-12,puckpedia,DET,,2019
+8481438,,,,2019-03-15,puckpedia,NYR,,2019
+8481441,,,,2019-03-18,puckpedia,WSH,,2019
+8481442,,,,2019-03-18,puckpedia,FLA,,2019
+8481443,,,,2019-03-18,puckpedia,MIN,,2019
+8481469,,,,2019-03-26,puckpedia,NYI,,2019
+8481476,,,,2019-03-30,puckpedia,NYR,,2019
+8481477,,,,2019-04-01,puckpedia,MIN,,2019
+8481478,,,,2019-04-01,puckpedia,VAN,,2019
+8481479,,,,2019-04-01,puckpedia,VAN,,2019
+8481480,,,,2019-04-02,puckpedia,NYI,,2019
+8481481,,,,2019-04-02,puckpedia,LAK,,2019
+8481485,,,,2019-04-03,puckpedia,SJS,,2019
+8481486,,,,2019-04-03,puckpedia,VGK,,2019
+8481491,,,,2022-04-07,puckpedia,EDM,,2022
+8481495,,,,2019-04-05,puckpedia,WSH,,2019
+8481496,,,,2019-04-05,puckpedia,NSH,,2019
+8481497,,,,2019-04-05,puckpedia,NSH,,2019
+8481501,,,,2019-04-09,puckpedia,CGY,,2019
+8481511,,,,2019-04-17,puckpedia,CAR,,2019
+8481512,,,,2019-04-18,puckpedia,NSH,,2019
+8481513,,,,2019-04-19,puckpedia,PIT,,2019
+8481515,,,,2019-04-25,puckpedia,SJS,,2019
+8481516,,,,2019-04-22,puckpedia,SJS,,2019
+8481520,,,,2022-03-18,puckpedia,VGK,,2022
+8481526,,,,2022-03-01,puckpedia,PIT,,2022
+8481538,,,,2023-04-02,puckpedia,ANA,,2023
+8481545,,,,2020-03-26,puckpedia,MIN,,2020
+8481548,,,,2021-04-20,puckpedia,NYR,,2021
+8481549,,,,2019-10-24,puckpedia,SJS,,2019
+8481564,,,,2023-05-28,puckpedia,BUF,,2023
+8481570,,,,2024-04-19,puckpedia,TOR,,2024
+8481573,,,,2019-07-31,puckpedia,VGK,,2019
+8481579,,,,2020-12-30,puckpedia,CAR,,2020
+8481583,,,,2021-03-19,puckpedia,NJD,,2021
+8481587,,,,2023-03-20,puckpedia,DET,,2023
+8481588,,,,2023-03-28,puckpedia,CHI,,2023
+8481589,,,,2020-03-10,puckpedia,TOR,,2020
+8481590,,,,2022-05-21,puckpedia,CGY,,2022
+8481595,,,,2021-05-26,puckpedia,COL,,2021
+8481597,,,,2021-05-01,puckpedia,TBL,,2021
+8481613,,,,2021-03-31,puckpedia,VGK,,2021
+8481614,,,,2022-03-31,puckpedia,TOR,,2022
+8481615,,,,2022-08-17,puckpedia,CAR,,2022
+8481616,,,,2020-04-10,puckpedia,CHI,,2020
+8481622,,,,2019-04-29,puckpedia,DAL,,2019
+8481624,,,,2019-05-06,puckpedia,TOR,,2019
+8481625,,,,2019-05-07,puckpedia,CGY,,2019
+8481626,,,,2019-05-08,puckpedia,BUF,,2019
+8481628,,,,2019-05-10,puckpedia,SJS,,2019
+8481629,,,,2019-05-10,puckpedia,OTT,,2019
+8481630,,,,2019-05-10,puckpedia,CGY,,2019
+8481637,,,,2019-05-23,puckpedia,CHI,,2019
+8481638,,,,2019-05-24,puckpedia,EDM,,2019
+8481639,,,,2019-05-28,puckpedia,DET,,2019
+8481640,,,,2019-05-28,puckpedia,SJS,,2019
+8481641,,,,2019-05-31,puckpedia,DAL,,2019
+8481642,,,,2019-06-01,puckpedia,WPG,,2019
+8481643,,,,2019-06-02,puckpedia,PIT,,2019
+8481649,,,,2019-06-15,puckpedia,WPG,,2019
+8481650,,,,2019-06-15,puckpedia,CBJ,,2019
+8481654,,,,2021-03-01,puckpedia,MTL,,2021
+8481658,,,,2020-12-18,puckpedia,PHI,,2020
+8481662,,,,2022-03-01,puckpedia,WSH,,2022
+8481664,,,,2021-05-31,puckpedia,VGK,,2021
+8481666,,,,2021-05-13,puckpedia,NYI,,2021
+8481667,,,,2021-06-01,puckpedia,STL,,2021
+8481669,,,,2020-05-11,puckpedia,SJS,,2020
+8481672,,,,2020-05-01,puckpedia,MTL,,2020
+8481677,,,,2021-05-24,puckpedia,CAR,,2021
+8481689,,,,2022-05-17,puckpedia,STL,,2022
+8481695,,,,2022-04-09,puckpedia,WPG,,2022
+8481696,,,,2022-03-30,puckpedia,LAK,,2022
+8481697,,,,2021-05-14,puckpedia,CAR,,2021
+8481706,,,,2022-03-23,puckpedia,MIN,,2022
+8481707,,,,2023-04-23,puckpedia,LAK,,2023
+8481709,,,,2021-05-03,puckpedia,EDM,,2021
+8481722,,,,2022-06-13,puckpedia,BUF,,2022
+8481728,,,,2021-06-01,puckpedia,VAN,,2021
+8481738,,,,2021-05-23,puckpedia,TBL,,2021
+8481757,,,,2024-03-19,puckpedia,DET,,2024
+8481758,,,,2021-07-29,puckpedia,PIT,,2021
+8481760,,,,2024-04-15,puckpedia,PHI,,2024
+8481772,,,,2021-03-06,puckpedia,CAR,,2021
+8481789,,,,2022-03-01,puckpedia,SEA,,2022
+8481794,,,,2023-03-01,puckpedia,MTL,,2023
+8481795,,,,2022-07-13,puckpedia,FLA,,2022
+8481812,,,,2019-07-02,puckpedia,SJS,,2019
+8481813,,,,2019-07-01,puckpedia,EDM,,2019
+8481815,,,,2020-03-02,puckpedia,ANA,,2020
+8481817,,,,2022-03-10,puckpedia,NSH,,2022
+8481819,,,,2020-08-07,puckpedia,BOS,,2020
+8481848,,,,2024-12-12,puckpedia,PHI,,2024
+8481849,,,,2021-03-31,puckpedia,VGK,,2021
+8481863,,,,2021-06-07,puckpedia,DAL,,2021
+8481866,,,,2023-07-01,puckpedia,BOS,,2023
+8482051,,,,2020-03-09,puckpedia,DAL,,2020
+8482054,,,,2020-03-10,puckpedia,NYR,,2020
+8482055,,,,2020-03-10,puckpedia,PIT,,2020
+8482058,,,,2020-03-17,puckpedia,PIT,,2020
+8482059,,,,2020-03-17,puckpedia,BOS,,2020
+8482061,,,,2020-03-18,puckpedia,BUF,,2020
+8482062,,,,2020-03-19,puckpedia,NSH,,2020
+8482064,,,,2020-03-20,puckpedia,UTA,,2020
+8482065,,,,2020-03-20,puckpedia,NYR,,2020
+8482066,,,,2020-03-20,puckpedia,CGY,,2020
+8482067,,,,2020-03-20,puckpedia,CGY,,2020
+8482068,,,,2020-03-23,puckpedia,BUF,,2020
+8482069,,,,2020-03-24,puckpedia,CAR,,2020
+8482070,,,,2020-03-24,puckpedia,MIN,,2020
+8482071,,,,2020-03-26,puckpedia,FLA,,2020
+8482072,,,,2020-03-26,puckpedia,BOS,,2020
+8482080,,,,2022-03-31,puckpedia,CAR,,2022
+8482082,,,,2023-03-13,puckpedia,CHI,,2023
+8482083,,,,2022-11-04,puckpedia,BOS,,2022
+8482085,,,,2024-04-05,puckpedia,MIN,,2024
+8482086,,,,2021-12-06,puckpedia,SJS,,2021
+8482091,,,,2020-12-09,puckpedia,NSH,,2020
+8482098,,,,2022-03-16,puckpedia,FLA,,2022
+8482099,,,,2021-04-15,puckpedia,TOR,,2021
+8482106,,,,2022-03-18,puckpedia,DET,,2022
+8482108,,,,2022-05-11,puckpedia,EDM,,2022
+8482120,,,,2022-03-01,puckpedia,DAL,,2022
+8482121,,,,2024-04-14,puckpedia,STL,,2024
+8482130,,,,2022-05-13,puckpedia,TOR,,2022
+8482134,,,,2024-04-16,puckpedia,MTL,,2024
+8482136,,,,2021-04-06,puckpedia,MTL,,2021
+8482138,,,,2023-03-02,puckpedia,VGK,,2023
+8482139,,,,2022-04-09,puckpedia,WPG,,2022
+8482140,,,,2026-05-07,puckpedia,WSH,,2026
+8482143,,,,2021-05-06,puckpedia,MIN,,2021
+8482151,,,,2021-09-06,puckpedia,EDM,,2021
+8482154,,,,2024-04-19,puckpedia,NYI,,2024
+8482156,,,,2021-09-01,puckpedia,STL,,2021
+8482158,,,,2022-05-13,puckpedia,TOR,,2022
+8482160,,,,2021-10-01,puckpedia,LAK,,2021
+8482161,,,,2020-10-12,puckpedia,PHI,,2020
+8482163,,,,2021-05-19,puckpedia,DET,,2021
+8482170,,,,2024-03-24,puckpedia,CGY,,2024
+8482171,,,,2023-03-27,puckpedia,DET,,2023
+8482173,,,,2021-09-24,puckpedia,CGY,,2021
+8482179,,,,2020-04-02,puckpedia,NYR,,2020
+8482188,,,,2022-04-30,puckpedia,WSH,,2022
+8482194,,,,2025-03-25,puckpedia,NJD,,2025
+8482205,,,,2022-03-02,puckpedia,STL,,2022
+8482212,,,,2022-05-02,puckpedia,CAR,,2022
+8482217,,,,2022-05-09,puckpedia,MIN,,2022
+8482222,,,,2020-04-07,puckpedia,TOR,,2020
+8482239,,,,2020-04-21,puckpedia,MTL,,2020
+8482240,,,,2020-04-29,puckpedia,DET,,2020
+8482241,,,,2020-04-29,puckpedia,PIT,,2020
+8482242,,,,2020-04-29,puckpedia,EDM,,2020
+8482243,,,,2020-04-29,puckpedia,PHI,,2020
+8482244,,,,2020-04-29,puckpedia,CGY,,2020
+8482245,,,,2020-05-01,puckpedia,OTT,,2020
+8482246,,,,2020-05-04,puckpedia,SJS,,2020
+8482247,,,,2020-05-04,puckpedia,TOR,,2020
+8482248,,,,2020-05-04,puckpedia,SJS,,2020
+8482250,,,,2021-12-18,puckpedia,COL,,2021
+8482251,,,,2021-05-31,puckpedia,DET,,2021
+8482308,,,,2020-05-29,puckpedia,CHI,,2020
+8482369,,,,2020-03-31,puckpedia,SJS,,2020
+8482438,,,,2020-08-05,puckpedia,FLA,,2020
+8482439,,,,2020-08-21,puckpedia,PIT,,2020
+8482440,,,,2022-07-13,puckpedia,TBL,,2022
+8482445,,,,2020-09-29,puckpedia,NSH,,2020
+8482449,,,,2022-04-05,puckpedia,PIT,,2022
+8482453,,,,2021-08-16,puckpedia,CBJ,,2021
+8482454,,,,2022-05-21,puckpedia,TBL,,2022
+8482456,,,,2022-05-02,puckpedia,PIT,,2022
+8482458,,,,2022-03-17,puckpedia,OTT,,2022
+8482459,,,,2022-05-30,puckpedia,WPG,,2022
+8482463,,,,2022-04-08,puckpedia,TOR,,2022
+8482465,,,,2022-03-10,puckpedia,DAL,,2022
+8482466,,,,2024-05-21,puckpedia,LAK,,2024
+8482468,,,,2025-03-25,puckpedia,SJS,,2025
+8482472,,,,2024-04-19,puckpedia,NYI,,2024
+8482473,,,,2021-04-07,puckpedia,VGK,,2021
+8482477,,,,2022-05-05,puckpedia,ANA,,2022
+8482478,,,,2023-04-28,puckpedia,STL,,2023
+8482484,,,,2023-04-11,puckpedia,VGK,,2023
+8482488,,,,2022-02-19,puckpedia,TOR,,2022
+8482499,,,,2024-04-30,puckpedia,STL,,2024
+8482501,,,,2021-05-03,puckpedia,TBL,,2021
+8482504,,,,2024-03-15,puckpedia,NYR,,2024
+8482512,,,,2025-04-02,puckpedia,VGK,,2025
+8482518,,,,2025-03-30,puckpedia,TBL,,2025
+8482623,,,,2021-03-14,puckpedia,CBJ,,2021
+8482624,,,,2021-03-17,puckpedia,VGK,,2021
+8482629,,,,2021-03-19,puckpedia,UTA,,2021
+8482634,,,,2021-03-28,puckpedia,TOR,,2021
+8482635,,,,2021-03-31,puckpedia,CHI,,2021
+8482636,,,,2021-04-01,puckpedia,TBL,,2021
+8482639,,,,2022-07-15,puckpedia,WPG,,2022
+8482640,,,,2021-03-31,puckpedia,DAL,,2021
+8482641,,,,2021-04-01,puckpedia,FLA,,2021
+8482642,,,,2021-04-02,puckpedia,DAL,,2021
+8482652,,,,2021-04-11,puckpedia,CGY,,2021
+8482654,,,,2021-04-13,puckpedia,PHI,,2021
+8482656,,,,2022-05-04,puckpedia,NYR,,2022
+8482657,,,,2021-08-15,puckpedia,DET,,2021
+8482668,,,,2023-03-01,puckpedia,NYI,,2023
+8482674,,,,2021-12-28,puckpedia,OTT,,2021
+8482676,,,,2024-04-19,puckpedia,COL,,2024
+8482678,,,,2023-03-07,puckpedia,CBJ,,2023
+8482682,,,,2021-08-14,puckpedia,ANA,,2021
+8482683,,,,2025-03-31,puckpedia,WSH,,2025
+8482686,,,,2024-03-27,puckpedia,MIN,,2024
+8482687,,,,2026-03-13,puckpedia,MTL,,2026
+8482688,,,,2021-09-26,puckpedia,VGK,,2021
+8482690,,,,2025-03-24,puckpedia,DAL,,2025
+8482692,,,,2025-03-31,puckpedia,CBJ,,2025
+8482693,,,,2021-12-09,puckpedia,TBL,,2021
+8482695,,,,2021-10-05,puckpedia,DAL,,2021
+8482697,,,,2022-05-11,puckpedia,BUF,,2022
+8482704,,,,2023-05-31,puckpedia,EDM,,2023
+8482706,,,,2023-03-19,puckpedia,EDM,,2023
+8482707,,,,2023-03-09,puckpedia,MIN,,2023
+8482714,,,,2021-08-19,puckpedia,NJD,,2021
+8482716,,,,2024-05-01,puckpedia,STL,,2024
+8482718,,,,2021-11-10,puckpedia,EDM,,2021
+8482724,,,,2022-12-10,puckpedia,VGK,,2022
+8482727,,,,2021-08-14,puckpedia,PHI,,2021
+8482734,,,,2022-07-16,puckpedia,FLA,,2022
+8482739,,,,2022-08-01,puckpedia,BOS,,2022
+8482741,,,,2021-10-01,puckpedia,TOR,,2021
+8482746,,,,2022-05-22,puckpedia,BUF,,2022
+8482748,,,,2022-04-11,puckpedia,LAK,,2022
+8482757,,,,2024-05-15,puckpedia,TBL,,2024
+8482759,,,,2025-06-07,puckpedia,EDM,,2025
+8482777,,,,2024-04-17,puckpedia,DET,,2024
+8482780,,,,2022-04-29,puckpedia,WPG,,2022
+8482801,,,,2023-03-01,puckpedia,PIT,,2023
+8482806,,,,2022-10-14,puckpedia,MTL,,2022
+8482808,,,,2021-10-11,puckpedia,NSH,,2021
+8482815,,,,2021-05-05,puckpedia,TOR,,2021
+8482818,,,,2021-05-12,puckpedia,TBL,,2021
+8482821,,,,2021-05-17,puckpedia,CHI,,2021
+8482824,,,,2022-04-11,puckpedia,SJS,,2022
+8482825,,,,2021-06-03,puckpedia,COL,,2021
+8482828,,,,2022-05-04,puckpedia,MTL,,2022
+8482834,,,,2021-06-14,puckpedia,BOS,,2021
+8482835,,,,2021-06-15,puckpedia,CHI,,2021
+8482839,,,,2024-07-01,puckpedia,CBJ,,2024
+8482860,,,,2021-08-15,puckpedia,CAR,,2021
+8482863,,,,2023-03-02,puckpedia,MIN,,2023
+8482865,,,,2022-04-18,puckpedia,BUF,,2022
+8482867,,,,2024-05-28,puckpedia,NJD,,2024
+8482868,,,,2024-04-02,puckpedia,NYR,,2024
+8482869,,,,2022-10-11,puckpedia,NYR,,2022
+8482875,,,,2025-03-18,puckpedia,VAN,,2025
+8482880,,,,2021-12-19,puckpedia,TOR,,2021
+8482881,,,,2024-03-01,puckpedia,CBJ,,2024
+8482882,,,,2023-06-07,puckpedia,NYI,,2023
+8482888,,,,2024-10-06,puckpedia,CAR,,2024
+8482889,,,,2022-10-30,puckpedia,CGY,,2022
+8482890,,,,2022-12-31,puckpedia,PHI,,2022
+8482891,,,,2022-08-25,puckpedia,DAL,,2022
+8482893,,,,2022-07-18,puckpedia,BOS,,2022
+8482895,,,,2025-05-27,puckpedia,CAR,,2025
+8482902,,,,2022-09-30,puckpedia,EDM,,2022
+8482903,,,,2022-08-01,puckpedia,CHI,,2022
+8482914,,,,2025-07-01,puckpedia,FLA,,2025
+8482916,,,,2023-05-20,puckpedia,BUF,,2023
+8482918,,,,2021-07-28,puckpedia,VAN,,2021
+8482919,,,,2024-03-11,puckpedia,DAL,,2024
+8482920,,,,2021-08-15,puckpedia,WPG,,2021
+8482922,,,,2025-06-01,puckpedia,LAK,,2025
+8482923,,,,2025-04-01,puckpedia,CHI,,2025
+8482924,,,,2024-04-04,puckpedia,UTA,,2024
+8482925,,,,2022-03-27,puckpedia,ANA,,2022
+8482927,,,,2022-06-01,puckpedia,SJS,,2022
+8482928,,,,2026-03-13,puckpedia,NYR,,2026
+8482933,,,,2023-10-08,puckpedia,VGK,,2023
+8482934,,,,2023-04-15,puckpedia,SJS,,2023
+8482936,,,,2022-12-30,puckpedia,ANA,,2022
+8482940,,,,2023-05-15,puckpedia,TOR,,2023
+8482942,,,,2025-08-18,puckpedia,COL,,2025
+8482949,,,,2025-04-14,puckpedia,CGY,,2025
+8482951,,,,2025-03-24,puckpedia,TBL,,2025
+8482952,,,,2025-03-10,puckpedia,PIT,,2025
+8482960,,,,2023-03-02,puckpedia,WSH,,2023
+8482964,,,,2021-10-04,puckpedia,MTL,,2021
+8482982,,,,2022-02-20,puckpedia,CBJ,,2022
+8482993,,,,2025-03-13,puckpedia,PIT,,2025
+8483000,,,,2022-03-01,puckpedia,PIT,,2022
+8483010,,,,2021-09-22,puckpedia,PHI,,2021
+8483012,,,,2023-04-12,puckpedia,SEA,,2023
+8483039,,,,2023-07-03,puckpedia,VAN,,2023
+8483043,,,,2023-07-05,puckpedia,SEA,,2023
+8483045,,,,2023-03-16,puckpedia,CBJ,,2023
+8483052,,,,2024-05-23,puckpedia,LAK,,2024
+8483059,,,,2023-03-02,puckpedia,DAL,,2023
+8483061,,,,2023-07-19,puckpedia,STL,,2023
+8483062,,,,2023-05-01,puckpedia,NYI,,2023
+8483083,,,,2024-03-18,puckpedia,EDM,,2024
+8483085,,,,2024-03-02,puckpedia,NJD,,2024
+8483086,,,,2024-03-07,puckpedia,COL,,2024
+8483090,,,,2025-07-01,puckpedia,BUF,,2025
+8483099,,,,2021-10-11,puckpedia,UTA,,2021
+8483100,,,,2024-03-21,puckpedia,EDM,,2024
+8483102,,,,2022-03-01,puckpedia,TBL,,2022
+8483104,,,,2023-05-20,puckpedia,NYI,,2023
+8483110,,,,2025-05-22,puckpedia,VAN,,2025
+8483122,,,,2022-02-07,puckpedia,FLA,,2022
+8483394,,,,2022-03-10,puckpedia,PIT,,2022
+8483395,,,,2022-03-11,puckpedia,VAN,,2022
+8483397,,,,2022-03-15,puckpedia,BOS,,2022
+8483398,,,,2022-03-15,puckpedia,TBL,,2022
+8483406,,,,2022-03-19,puckpedia,LAK,,2022
+8483407,,,,2022-03-19,puckpedia,NYR,,2022
+8483408,,,,2022-03-20,puckpedia,TBL,,2022
+8483426,,,,2023-04-16,puckpedia,NJD,,2023
+8483427,,,,2023-03-01,puckpedia,STL,,2023
+8483428,,,,2023-06-12,puckpedia,SJS,,2023
+8483430,,,,2025-05-16,puckpedia,WSH,,2025
+8483436,,,,2024-07-09,puckpedia,UTA,,2024
+8483437,,,,2022-07-21,puckpedia,TBL,,2022
+8483438,,,,2023-10-25,puckpedia,BOS,,2023
+8483439,,,,2023-03-31,puckpedia,NJD,,2023
+8483441,,,,2026-04-15,puckpedia,NYI,,2026
+8483442,,,,2023-04-28,puckpedia,SEA,,2023
+8483449,,,,2023-04-10,puckpedia,SEA,,2023
+8483451,,,,2023-11-30,puckpedia,VGK,,2023
+8483453,,,,2023-04-03,puckpedia,CHI,,2023
+8483459,,,,2026-04-11,puckpedia,DET,,2026
+8483470,,,,2023-03-08,puckpedia,DAL,,2023
+8483475,,,,2025-03-28,puckpedia,BUF,,2025
+8483478,,,,2026-04-15,puckpedia,MIN,,2026
+8483480,,,,2023-03-25,puckpedia,CHI,,2023
+8483483,,,,2024-05-26,puckpedia,UTA,,2024
+8483486,,,,2023-03-23,puckpedia,NYR,,2023
+8483488,,,,2022-07-14,puckpedia,MTL,,2022
+8483494,,,,2023-05-11,puckpedia,SEA,,2023
+8483496,,,,2023-05-02,puckpedia,BUF,,2023
+8483498,,,,2022-07-15,puckpedia,NYI,,2022
+8483507,,,,2025-06-14,puckpedia,MTL,,2025
+8483509,,,,2025-04-01,puckpedia,LAK,,2025
+8483511,,,,2022-12-26,puckpedia,VGK,,2022
+8483514,,,,2023-03-29,puckpedia,DAL,,2023
+8483518,,,,2022-07-16,puckpedia,WSH,,2022
+8483519,,,,2024-04-07,puckpedia,CAR,,2024
+8483520,,,,2023-06-15,puckpedia,WPG,,2023
+8483521,,,,2023-07-19,puckpedia,ANA,,2023
+8483523,,,,2025-03-27,puckpedia,VGK,,2025
+8483530,,,,2022-03-24,puckpedia,CHI,,2022
+8483531,,,,2022-03-27,puckpedia,NJD,,2022
+8483532,,,,2022-03-28,puckpedia,WSH,,2022
+8483533,,,,2022-03-28,puckpedia,PIT,,2022
+8483534,,,,2022-03-28,puckpedia,EDM,,2022
+8483535,,,,2022-03-29,puckpedia,PIT,,2022
+8483548,,,,2022-03-30,puckpedia,BOS,,2022
+8483549,,,,2022-03-31,puckpedia,MTL,,2022
+8483550,,,,2022-04-02,puckpedia,NYR,,2022
+8483553,,,,2024-07-02,puckpedia,NYI,,2024
+8483565,,,,2022-04-08,puckpedia,CBJ,,2022
+8483566,,,,2022-04-08,puckpedia,TOR,,2022
+8483567,,,,2022-04-09,puckpedia,BOS,,2022
+8483569,,,,2022-04-12,puckpedia,COL,,2022
+8483570,,,,2022-04-14,puckpedia,COL,,2022
+8483575,,,,2022-10-31,puckpedia,DAL,,2022
+8483579,,,,2022-04-17,puckpedia,WPG,,2022
+8483597,,,,2022-05-05,puckpedia,UTA,,2022
+8483598,,,,2022-05-06,puckpedia,WPG,,2022
+8483599,,,,2022-05-07,puckpedia,SEA,,2022
+8483608,,,,2022-05-16,puckpedia,DET,,2022
+8483609,,,,2022-05-17,puckpedia,CGY,,2022
+8483618,,,,2022-05-20,puckpedia,SJS,,2022
+8483619,,,,2022-05-23,puckpedia,CHI,,2022
+8483620,,,,2022-05-24,puckpedia,CBJ,,2022
+8483630,,,,2022-05-31,puckpedia,ANA,,2022
+8483635,,,,2022-06-09,puckpedia,SEA,,2022
+8483641,,,,2022-06-14,puckpedia,FLA,,2022
+8483654,,,,2025-07-01,puckpedia,BOS,,2025
+8483659,,,,2024-02-15,puckpedia,NJD,,2024
+8483666,,,,2025-05-09,puckpedia,SJS,,2025
+8483668,,,,2023-05-08,puckpedia,SEA,,2023
+8483671,,,,2024-07-01,puckpedia,UTA,,2024
+8483672,,,,2026-04-17,puckpedia,WPG,,2026
+8483673,,,,2023-06-15,puckpedia,OTT,,2023
+8483677,,,,2023-07-25,puckpedia,CHI,,2023
+8483679,,,,2025-03-13,puckpedia,DET,,2025
+8483681,,,,2022-07-16,puckpedia,WSH,,2022
+8483683,,,,2022-07-15,puckpedia,OTT,,2022
+8483684,,,,2025-05-23,puckpedia,SEA,,2025
+8483685,,,,2025-04-12,puckpedia,CHI,,2025
+8483688,,,,2022-11-27,puckpedia,CBJ,,2022
+8483692,,,,2024-05-21,puckpedia,TBL,,2024
+8483695,,,,2022-12-23,puckpedia,DET,,2022
+8483697,,,,2023-07-25,puckpedia,PHI,,2023
+8483704,,,,2025-04-01,puckpedia,BOS,,2025
+8483705,,,,2026-04-15,puckpedia,STL,,2026
+8483711,,,,2023-07-05,puckpedia,WPG,,2023
+8483727,,,,2025-03-30,puckpedia,TBL,,2025
+8483732,,,,2023-05-25,puckpedia,BUF,,2023
+8483736,,,,2026-03-30,puckpedia,FLA,,2026
+8483740,,,,2023-12-07,puckpedia,FLA,,2023
+8483741,,,,2026-04-14,puckpedia,TOR,,2026
+8483745,,,,2023-10-05,puckpedia,SJS,,2023
+8483746,,,,2024-05-01,puckpedia,ANA,,2024
+8483748,,,,2023-11-26,puckpedia,VGK,,2023
+8483750,,,,2025-03-23,puckpedia,NYR,,2025
+8483751,,,,2023-09-26,puckpedia,VAN,,2023
+8483762,,,,2026-03-30,puckpedia,OTT,,2026
+8483764,,,,2022-12-17,puckpedia,STL,,2022
+8483769,,,,2025-04-12,puckpedia,EDM,,2025
+8483772,,,,2023-09-21,puckpedia,CGY,,2023
+8483787,,,,2026-03-18,puckpedia,PHI,,2026
+8483798,,,,2024-10-24,puckpedia,UTA,,2024
+8483799,,,,2023-03-10,puckpedia,DAL,,2023
+8483808,,,,2022-07-13,puckpedia,VAN,,2022
+8483810,,,,2022-07-15,puckpedia,UTA,,2022
+8483829,,,,2022-09-29,puckpedia,VGK,,2022
+8483841,,,,2025-03-14,puckpedia,NJD,,2025
+8483844,,,,2024-03-02,puckpedia,NSH,,2024
+8483847,,,,2023-10-05,puckpedia,EDM,,2023
+8483869,,,,2022-10-03,puckpedia,CBJ,,2022
+8483878,,,,2022-09-30,puckpedia,FLA,,2022
+8483879,,,,2022-11-14,puckpedia,NSH,,2022
+8483890,,,,2025-03-03,puckpedia,VGK,,2025
+8483898,,,,2024-03-21,puckpedia,ANA,,2024
+8483918,,,,2025-04-25,puckpedia,MIN,,2025
+8483920,,,,2023-07-02,puckpedia,WSH,,2023
+8483921,,,,2024-03-01,puckpedia,TBL,,2024
+8483930,,,,2024-03-05,puckpedia,COL,,2024
+8484107,,,,2023-03-02,puckpedia,DET,,2023
+8484110,,,,2023-03-02,puckpedia,ANA,,2023
+8484114,,,,2023-03-06,puckpedia,STL,,2023
+8484115,,,,2023-03-07,puckpedia,PHI,,2023
+8484124,,,,2023-03-18,puckpedia,DAL,,2023
+8484125,,,,2023-03-20,puckpedia,CBJ,,2023
+8484127,,,,2023-03-22,puckpedia,EDM,,2023
+8484135,,,,2023-03-25,puckpedia,WPG,,2023
+8484136,,,,2023-03-26,puckpedia,VAN,,2023
+8484139,,,,2023-10-10,puckpedia,EDM,,2023
+8484140,,,,2024-07-06,puckpedia,WSH,,2024
+8484141,,,,2026-03-31,puckpedia,DET,,2026
+8484143,,,,2023-09-21,puckpedia,WPG,,2023
+8484146,,,,2024-03-15,puckpedia,DAL,,2024
+8484147,,,,2023-09-26,puckpedia,PHI,,2023
+8484151,,,,2024-08-23,puckpedia,STL,,2024
+8484154,,,,2026-03-30,puckpedia,CGY,,2026
+8484155,,,,2023-12-31,puckpedia,VGK,,2023
+8484156,,,,2026-03-23,puckpedia,PHI,,2026
+8484159,,,,2023-07-06,puckpedia,WSH,,2023
+8484161,,,,2026-04-04,puckpedia,DET,,2026
+8484162,,,,2024-03-29,puckpedia,SEA,,2024
+8484163,,,,2023-07-14,puckpedia,LAK,,2023
+8484165,,,,2023-07-15,puckpedia,VGK,,2023
+8484171,,,,2026-04-01,puckpedia,CHI,,2026
+8484173,,,,2023-12-14,puckpedia,TBL,,2023
+8484174,,,,2024-04-29,puckpedia,DET,,2024
+8484175,,,,2024-10-18,puckpedia,UTA,,2024
+8484176,,,,2023-07-12,puckpedia,SJS,,2023
+8484178,,,,2024-03-24,puckpedia,MIN,,2024
+8484181,,,,2026-03-25,puckpedia,UTA,,2026
+8484183,,,,2025-06-03,puckpedia,DET,,2025
+8484184,,,,2024-03-18,puckpedia,MIN,,2024
+8484187,,,,2023-07-06,puckpedia,NSH,,2023
+8484192,,,,2026-03-17,puckpedia,BUF,,2026
+8484194,,,,2026-03-24,puckpedia,DAL,,2026
+8484195,,,,2024-05-28,puckpedia,CHI,,2024
+8484196,,,,2023-07-06,puckpedia,NSH,,2023
+8484198,,,,2024-07-05,puckpedia,CGY,,2024
+8484200,,,,2023-10-04,puckpedia,SJS,,2023
+8484201,,,,2024-03-29,puckpedia,ANA,,2024
+8484202,,,,2023-09-24,puckpedia,VAN,,2023
+8484207,,,,2024-05-05,puckpedia,UTA,,2024
+8484208,,,,2024-06-10,puckpedia,NYI,,2024
+8484213,,,,2023-07-14,puckpedia,PIT,,2023
+8484216,,,,2024-04-03,puckpedia,ANA,,2024
+8484217,,,,2024-04-24,puckpedia,SEA,,2024
+8484218,,,,2024-10-18,puckpedia,BUF,,2024
+8484219,,,,2024-04-21,puckpedia,SEA,,2024
+8484222,,,,2023-07-15,puckpedia,SEA,,2023
+8484224,,,,2024-11-04,puckpedia,FLA,,2024
+8484229,,,,2024-06-01,puckpedia,STL,,2024
+8484231,,,,2026-04-06,puckpedia,MIN,,2026
+8484233,,,,2026-04-01,puckpedia,BUF,,2026
+8484236,,,,2025-04-09,puckpedia,ANA,,2025
+8484238,,,,2023-07-14,puckpedia,BUF,,2023
+8484243,,,,2023-11-17,puckpedia,LAK,,2023
+8484254,,,,2023-03-29,puckpedia,VAN,,2023
+8484255,,,,2023-03-29,puckpedia,COL,,2023
+8484256,,,,2023-03-29,puckpedia,NSH,,2023
+8484259,,,,2023-03-30,puckpedia,COL,,2023
+8484262,,,,2023-03-31,puckpedia,NYI,,2023
+8484263,,,,2023-03-31,puckpedia,NYI,,2023
+8484268,,,,2023-03-31,puckpedia,VAN,,2023
+8484271,,,,2023-04-03,puckpedia,FLA,,2023
+8484287,,,,2023-04-05,puckpedia,VAN,,2023
+8484293,,,,2023-04-11,puckpedia,CAR,,2023
+8484304,,,,2023-04-18,puckpedia,FLA,,2023
+8484310,,,,2025-07-01,puckpedia,TBL,,2025
+8484312,,,,2023-05-03,puckpedia,SJS,,2023
+8484313,,,,2023-05-03,puckpedia,SJS,,2023
+8484314,,,,2023-05-06,puckpedia,OTT,,2023
+8484316,,,,2023-05-08,puckpedia,STL,,2023
+8484321,,,,2023-05-25,puckpedia,OTT,,2023
+8484325,,,,2023-06-05,puckpedia,TBL,,2023
+8484326,,,,2023-06-05,puckpedia,UTA,,2023
+8484372,,,,2023-06-12,puckpedia,FLA,,2023
+8484380,,,,2024-04-12,puckpedia,FLA,,2024
+8484390,,,,2026-05-21,puckpedia,CHI,,2026
+8484391,,,,2024-06-03,puckpedia,ANA,,2024
+8484393,,,,2024-05-29,puckpedia,STL,,2024
+8484395,,,,2025-04-15,puckpedia,ANA,,2025
+8484396,,,,2024-04-03,puckpedia,ANA,,2024
+8484400,,,,2026-03-27,puckpedia,CHI,,2026
+8484404,,,,2025-04-09,puckpedia,WSH,,2025
+8484405,,,,2024-07-19,puckpedia,NJD,,2024
+8484408,,,,2024-09-29,puckpedia,VAN,,2024
+8484409,,,,2026-03-30,puckpedia,OTT,,2026
+8484412,,,,2025-03-03,puckpedia,NSH,,2025
+8484414,,,,2024-05-18,puckpedia,ANA,,2024
+8484415,,,,2025-04-07,puckpedia,SEA,,2025
+8484417,,,,2026-04-02,puckpedia,LAK,,2026
+8484421,,,,2026-04-16,puckpedia,SJS,,2026
+8484427,,,,2025-05-31,puckpedia,PIT,,2025
+8484429,,,,2024-07-03,puckpedia,OTT,,2024
+8484430,,,,2025-03-06,puckpedia,WPG,,2025
+8484433,,,,2025-06-01,puckpedia,SEA,,2025
+8484440,,,,2024-05-01,puckpedia,CAR,,2024
+8484442,,,,2025-04-11,puckpedia,DAL,,2025
+8484455,,,,2025-04-05,puckpedia,EDM,,2025
+8484461,,,,2024-05-20,puckpedia,NYR,,2024
+8484464,,,,2023-12-22,puckpedia,TOR,,2023
+8484466,,,,2025-05-20,puckpedia,VGK,,2025
+8484468,,,,2025-03-11,puckpedia,DAL,,2025
+8484472,,,,2025-05-16,puckpedia,CBJ,,2025
+8484476,,,,2025-09-10,puckpedia,STL,,2025
+8484481,,,,2026-04-01,puckpedia,CGY,,2026
+8484494,,,,2026-04-13,puckpedia,NSH,,2026
+8484507,,,,2024-03-02,puckpedia,TBL,,2024
+8484509,,,,2025-04-02,puckpedia,EDM,,2025
+8484523,,,,2024-03-07,puckpedia,DAL,,2024
+8484525,,,,2025-03-03,puckpedia,PIT,,2025
+8484532,,,,2026-03-14,puckpedia,VGK,,2026
+8484533,,,,2025-04-08,puckpedia,MTL,,2025
+8484534,,,,2023-09-21,puckpedia,OTT,,2023
+8484540,,,,2025-04-10,puckpedia,TOR,,2025
+8484556,,,,2023-10-06,puckpedia,COL,,2023
+8484566,,,,2025-07-03,puckpedia,MIN,,2025
+8484616,,,,2026-03-02,puckpedia,NJD,,2026
+8484636,,,,2025-05-19,puckpedia,TBL,,2025
+8484757,,,,2024-03-02,puckpedia,WSH,,2024
+8484760,,,,2025-04-08,puckpedia,SEA,,2025
+8484761,,,,2024-08-05,puckpedia,CHI,,2024
+8484763,,,,2025-04-18,puckpedia,SJS,,2025
+8484766,,,,2024-07-15,puckpedia,NYI,,2024
+8484767,,,,2025-06-13,puckpedia,ANA,,2025
+8484769,,,,2024-07-06,puckpedia,WSH,,2024
+8484770,,,,2024-10-21,puckpedia,EDM,,2024
+8484772,,,,2024-07-10,puckpedia,WSH,,2024
+8484773,,,,2025-10-03,puckpedia,SEA,,2025
+8484775,,,,2024-09-27,puckpedia,WSH,,2024
+8484777,,,,2024-12-11,puckpedia,CBJ,,2024
+8484781,,,,2024-07-14,puckpedia,CAR,,2024
+8484782,,,,2024-09-29,puckpedia,CGY,,2024
+8484785,,,,2025-03-29,puckpedia,CGY,,2025
+8484786,,,,2024-07-21,puckpedia,UTA,,2024
+8484790,,,,2024-07-02,puckpedia,STL,,2024
+8484792,,,,2025-03-25,puckpedia,STL,,2025
+8484795,,,,2024-07-11,puckpedia,UTA,,2024
+8484796,,,,2024-07-15,puckpedia,DAL,,2024
+8484802,,,,2024-07-19,puckpedia,LAK,,2024
+8484803,,,,2025-04-01,puckpedia,VGK,,2025
+8484804,,,,2024-09-27,puckpedia,PHI,,2024
+8484805,,,,2024-08-02,puckpedia,TOR,,2024
+8484807,,,,2026-03-18,puckpedia,NYI,,2026
+8484808,,,,2025-03-26,puckpedia,CBJ,,2025
+8484810,,,,2025-03-25,puckpedia,STL,,2025
+8484813,,,,2024-03-13,puckpedia,BOS,,2024
+8484815,,,,2024-03-14,puckpedia,VAN,,2024
+8484821,,,,2024-03-18,puckpedia,CGY,,2024
+8484822,,,,2024-03-19,puckpedia,DAL,,2024
+8484829,,,,2024-03-20,puckpedia,DAL,,2024
+8484830,,,,2024-03-22,puckpedia,NYI,,2024
+8484834,,,,2024-03-25,puckpedia,FLA,,2024
+8484835,,,,2024-03-25,puckpedia,DAL,,2024
+8484836,,,,2024-12-31,puckpedia,DET,,2024
+8484837,,,,2026-04-09,puckpedia,PHI,,2026
+8484838,,,,2026-05-19,puckpedia,SEA,,2026
+8484844,,,,2025-03-26,puckpedia,LAK,,2025
+8484845,,,,2026-05-13,puckpedia,SJS,,2026
+8484847,,,,2026-03-25,puckpedia,OTT,,2026
+8484852,,,,2025-06-13,puckpedia,PIT,,2025
+8484853,,,,2026-03-22,puckpedia,ANA,,2026
+8484854,,,,2025-06-14,puckpedia,WPG,,2025
+8484857,,,,2024-07-25,puckpedia,LAK,,2024
+8484858,,,,2025-01-23,puckpedia,CHI,,2025
+8484859,,,,2024-07-06,puckpedia,ANA,,2024
+8484864,,,,2024-12-17,puckpedia,WPG,,2024
+8484865,,,,2026-04-03,puckpedia,STL,,2026
+8484867,,,,2026-04-21,puckpedia,ANA,,2026
+8484869,,,,2024-07-10,puckpedia,PIT,,2024
+8484874,,,,2025-09-22,puckpedia,VAN,,2025
+8484880,,,,2025-04-02,puckpedia,UTA,,2025
+8484887,,,,2025-03-07,puckpedia,SJS,,2025
+8484891,,,,2024-03-29,puckpedia,SEA,,2024
+8484899,,,,2024-04-02,puckpedia,BOS,,2024
+8484900,,,,2024-04-02,puckpedia,FLA,,2024
+8484901,,,,2024-04-01,puckpedia,TOR,,2024
+8484910,,,,2024-04-03,puckpedia,SEA,,2024
+8484911,,,,2024-04-04,puckpedia,SJS,,2024
+8484916,,,,2024-04-04,puckpedia,NJD,,2024
+8484928,,,,2024-04-08,puckpedia,PHI,,2024
+8484929,,,,2024-04-09,puckpedia,CAR,,2024
+8484933,,,,2024-04-10,puckpedia,FLA,,2024
+8484935,,,,2024-04-12,puckpedia,FLA,,2024
+8484938,,,,2024-04-15,puckpedia,DAL,,2024
+8484939,,,,2024-04-15,puckpedia,CGY,,2024
+8484951,,,,2024-04-30,puckpedia,STL,,2024
+8484958,,,,2024-05-16,puckpedia,NYI,,2024
+8484966,,,,2024-06-03,puckpedia,DET,,2024
+8484976,,,,2024-06-13,puckpedia,COL,,2024
+8484996,,,,2025-05-30,puckpedia,COL,,2025
+8484997,,,,2025-03-18,puckpedia,CBJ,,2025
+8484998,,,,2026-05-20,puckpedia,CAR,,2026
+8485000,,,,2026-03-04,puckpedia,NSH,,2026
+8485002,,,,2026-03-23,puckpedia,VGK,,2026
+8485003,,,,2024-07-14,puckpedia,SEA,,2024
+8485005,,,,2024-09-23,puckpedia,NSH,,2024
+8485006,,,,2025-05-20,puckpedia,OTT,,2025
+8485007,,,,2025-05-30,puckpedia,UTA,,2025
+8485008,,,,2026-03-27,puckpedia,MTL,,2026
+8485016,,,,2026-04-15,puckpedia,OTT,,2026
+8485019,,,,2025-03-09,puckpedia,PIT,,2025
+8485037,,,,2025-09-22,puckpedia,MIN,,2025
+8485039,,,,2025-10-25,puckpedia,NYR,,2025
+8485041,,,,2025-07-01,puckpedia,DAL,,2025
+8485045,,,,2026-03-11,puckpedia,PHI,,2026
+8485049,,,,2025-07-15,puckpedia,TOR,,2025
+8485057,,,,2025-03-01,puckpedia,VGK,,2025
+8485070,,,,2025-04-06,puckpedia,WPG,,2025
+8485071,,,,2024-10-25,puckpedia,FLA,,2024
+8485072,,,,2024-11-07,puckpedia,BOS,,2024
+8485074,,,,2025-03-21,puckpedia,MIN,,2025
+8485080,,,,2026-05-07,puckpedia,WSH,,2026
+8485087,,,,2026-04-01,puckpedia,EDM,,2026
+8485091,,,,2026-03-30,puckpedia,TBL,,2026
+8485115,,,,2025-03-01,puckpedia,TOR,,2025
+8485138,,,,2024-09-23,puckpedia,VGK,,2024
+8485142,,,,2025-07-03,puckpedia,OTT,,2025
+8485163,,,,2026-03-27,puckpedia,EDM,,2026
+8485218,,,,2025-12-25,puckpedia,MTL,,2025
+8485251,,,,2025-03-03,puckpedia,VGK,,2025
+8485351,,,,2026-03-22,puckpedia,PIT,,2026
+8485352,,,,2026-03-17,puckpedia,NYI,,2026
+8485358,,,,2026-05-04,puckpedia,CGY,,2026
+8485362,,,,2025-07-16,puckpedia,DET,,2025
+8485368,,,,2025-08-27,puckpedia,CAR,,2025
+8485381,,,,2026-04-04,puckpedia,LAK,,2026
+8485382,,,,2025-09-10,puckpedia,STL,,2025
+8485383,,,,2025-07-04,puckpedia,SEA,,2025
+8485384,,,,2025-12-10,puckpedia,LAK,,2025
+8485386,,,,2025-07-23,puckpedia,TBL,,2025
+8485387,,,,2026-03-23,puckpedia,UTA,,2026
+8485393,,,,2025-07-03,puckpedia,WSH,,2025
+8485394,,,,2026-03-15,puckpedia,DET,,2026
+8485400,,,,2026-04-18,puckpedia,ANA,,2026
+8485401,,,,2025-07-10,puckpedia,VAN,,2025
+8485404,,,,2025-07-15,puckpedia,BUF,,2025
+8485412,,,,2025-07-05,puckpedia,WSH,,2025
+8485413,,,,2025-11-24,puckpedia,PIT,,2025
+8485448,,,,2025-09-02,puckpedia,NYI,,2025
+8485459,,,,2025-03-20,puckpedia,TOR,,2025
+8485462,,,,2025-03-21,puckpedia,NYI,,2025
+8485465,,,,2025-03-24,puckpedia,CGY,,2025
+8485467,,,,2025-03-25,puckpedia,TOR,,2025
+8485468,,,,2025-03-25,puckpedia,DAL,,2025
+8485469,,,,2025-03-25,puckpedia,CBJ,,2025
+8485470,,,,2025-03-25,puckpedia,BUF,,2025
+8485472,,,,2025-03-26,puckpedia,CBJ,,2025
+8485473,,,,2025-03-26,puckpedia,COL,,2025
+8485474,,,,2025-03-26,puckpedia,COL,,2025
+8485483,,,,2025-03-28,puckpedia,PHI,,2025
+8485484,,,,2025-04-01,puckpedia,EDM,,2025
+8485485,,,,2025-03-31,puckpedia,DAL,,2025
+8485489,,,,2025-04-01,puckpedia,NYR,,2025
+8485490,,,,2025-04-01,puckpedia,NYI,,2025
+8485495,,,,2025-04-03,puckpedia,FLA,,2025
+8485496,,,,2025-04-03,puckpedia,BOS,,2025
+8485509,,,,2025-04-13,puckpedia,EDM,,2025
+8485510,,,,2025-04-14,puckpedia,CGY,,2025
+8485511,,,,2025-04-14,puckpedia,EDM,,2025
+8485512,,,,2025-04-14,puckpedia,ANA,,2025
+8485527,,,,2025-04-24,puckpedia,UTA,,2025
+8485538,,,,2025-05-19,puckpedia,BOS,,2025
+8485545,,,,2025-06-11,puckpedia,DET,,2025
+8485563,,,,2026-05-12,puckpedia,CAR,,2026
+8485569,,,,2026-03-21,puckpedia,PIT,,2026
+8485580,,,,2026-04-21,puckpedia,OTT,,2026
+8485594,,,,2026-05-07,puckpedia,UTA,,2026
+8485602,,,,2025-12-22,puckpedia,LAK,,2025
+8485635,,,,2025-09-22,puckpedia,VAN,,2025
+8485636,,,,2026-04-14,puckpedia,NSH,,2026
+8485661,,,,2026-03-01,puckpedia,VGK,,2026
+8485691,,,,2025-09-23,puckpedia,DAL,,2025
+8485702,,,,2025-07-02,puckpedia,NYI,,2025
+8485729,,,,2025-07-16,puckpedia,CHI,,2025
+8486009,,,,2026-03-01,puckpedia,SEA,,2026
+8486056,,,,2026-03-12,puckpedia,CGY,,2026
+8486118,,,,2026-03-13,puckpedia,COL,,2026
+8486125,,,,2026-03-17,puckpedia,TOR,,2026
+8486126,,,,2026-03-18,puckpedia,DAL,,2026
+8486129,,,,2026-03-18,puckpedia,TOR,,2026
+8486130,,,,2026-03-20,puckpedia,DAL,,2026
+8486134,,,,2026-03-23,puckpedia,STL,,2026
+8486135,,,,2026-03-22,puckpedia,PHI,,2026
+8486136,,,,2026-03-24,puckpedia,NYI,,2026
+8486145,,,,2026-03-27,puckpedia,TOR,,2026
+8486148,,,,2026-03-29,puckpedia,BOS,,2026
+8486151,,,,2026-03-30,puckpedia,COL,,2026
+8486160,,,,2026-04-02,puckpedia,LAK,,2026
+8486161,,,,2026-04-02,puckpedia,EDM,,2026
+8486166,,,,2026-04-09,puckpedia,MIN,,2026
+8486169,,,,2026-04-10,puckpedia,PIT,,2026
+8486171,,,,2026-04-11,puckpedia,COL,,2026
+8486173,,,,2026-04-13,puckpedia,CBJ,,2026
+8486174,,,,2026-04-13,puckpedia,DAL,,2026
+8486177,,,,2026-04-13,puckpedia,CBJ,,2026
+8486182,,,,2026-04-15,puckpedia,MIN,,2026
+8486189,,,,2026-04-27,puckpedia,NSH,,2026

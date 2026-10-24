@@ -1,0 +1,49 @@
+retention_recalibration_check.py v1.0 (2026-07-27)
+Review item 4.2. Measures only; adopts nothing.
+
+  regime constants pass the sanity band
+  observable qualify-or-walk decisions: 2270
+  decisions evaluated: 2270 (of which no anchor: 1039)
+  observed overall retention: 73.0%
+
+==========================================================================
+MODEL-IMPLIED RETENTION vs WHAT TEAMS ACTUALLY DID
+==========================================================================
+  'implied' = share of decisions where projected value exceeds the
+  qualifying offer. 'observed' = share teams actually qualified.
+
+  bucket         n   observed   old (in the chain now)    censored, no position      censored + position
+  star          22     100.0%           86.4% (-13.6)           90.9% ( -9.1)           90.9% ( -9.1)
+  regular      190      93.2%           92.6% ( -0.5)           92.1% ( -1.1)           92.6% ( -0.5)
+  fringe       595      79.3%           94.6% (+15.3)           91.1% (+11.8)           91.6% (+12.3)
+  negative    1463      67.3%           90.6% (+23.3)           79.8% (+12.4)           79.6% (+12.3)
+  ALL         2270      73.0%           91.8% (+18.9)           83.9% (+10.9)           84.0% (+11.0)
+
+==========================================================================
+SHARE OF REAL WALK-AWAYS THE MODEL PREDICTS ON ITS OWN
+==========================================================================
+  This is the 18% figure that justified the D14(c) calibration,
+  restated under each price regime.
+
+  old (in the chain now)       predicts   8.3% of the 614 real walk-aways
+  censored, no position        predicts  18.2% of the 614 real walk-aways
+  censored + position          predicts  18.2% of the 614 real walk-aways
+
+==========================================================================
+IS THE STACK OVER-CORRECTING?
+==========================================================================
+  fringe: model implies 91.6% retention against an observed 79.3%. The model remains more generous than teams are, so the D14(c) gate is still doing real work and the stack is not over-correcting.
+  negative: model implies 79.6% retention against an observed 67.3%. The model remains more generous than teams are, so the D14(c) gate is still doing real work and the stack is not over-correcting.
+
+==========================================================================
+SENSITIVITY: the 'worth qualifying' threshold
+==========================================================================
+  A strict value-above-cost rule is arbitrary at the margin. Below,
+  the implied retention rate when the bar is moved by a margin.
+
+    value must exceed QO by $-0.5M -> implied retention  95.8%  (observed 73.0%)
+    value must exceed QO by $+0.0M -> implied retention  84.0%  (observed 73.0%)
+    value must exceed QO by $+0.5M -> implied retention  26.4%  (observed 73.0%)
+    value must exceed QO by $+1.0M -> implied retention  16.7%  (observed 73.0%)
+
+  wrote retention_recalibration_rows.csv and retention_recalibration_summary.csv

@@ -1,0 +1,24 @@
+xnpv0_removal_check.py v1.0
+
+[1] spine written by the pre-removal code: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\contract_npv_spine.csv
+    last written 2026-10-02 18:08
+    3,149 contracts; skater model label ['xNPV 1']
+
+[2] contract_npv.py on the post-removal code
+  |       terminal 2027  k=2  WAR +2.57  S=0.943  disc=0.943  pv $ +6.82M
+  |       terminal 2028  k=3  WAR +2.62  S=0.890  disc=0.915  pv $ +6.51M
+  |       terminal 2029  k=4  WAR +2.64  S=0.839  disc=0.888  pv $ +6.17M
+  |       terminal 2030  k=5  WAR +2.87  S=0.791  disc=0.863  pv $ +6.33M
+  |       NPV total $+39.40M  (contract +13.57 + terminal +25.83; undiscounted +42.49)
+  |     xNPV 1 forecasts used by this run written: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\xnpv1_forecasts.csv
+  | run log written: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\contract_npv_run_log.txt
+  | NPV spine written: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\contract_npv_spine.csv
+
+[3] contract by contract
+    3,149 before, 3,149 after; 0 only before, 0 only after
+    identity fields that differ: {'player_id': 0, 'full_name': 0, 'position': 0, 'n_seasons': 0, 'model': 0}
+    npv_total     contracts that moved: 0   largest move $0
+    npv_contract  contracts that moved: 0   largest move $0
+    npv_terminal  contracts that moved: 0   largest move $0
+
+RESULT: PASS: the removal moved no xNPV 1 value

@@ -1,0 +1,125 @@
+price_line_spec_tests.py v1.1; skater_forecast v2.2
+
+0. GUARD: 2,296 contracts (locked 2,296), fingerprint b9067879bf72 (locked b9067879bf72), largest coefficient gap to the lock 3.9e-11
+   log-likelihood here 4,526.364; xnpv1_price_line's own 4,526.364
+   locked line: alpha -0.4357%, beta 1.7469%, beta_D_add 0.3597%, gamma 0.8932% (s.e. 0.0215%); log-likelihood 4,526.4
+   RFA 1,015, UFA 1,281; starts 2018-21 1,147, 2022-25 1,149; by forecast group: below 0 456, 0 to 1 1,493, 1 to 2 268, 2 or more 79
+
+1. LENGTH AND HIDDEN QUALITY: does length predict realized production beyond the forecast?
+   s = f x beta / gamma, with the locked line's beta 1.7469% and gamma 0.8932% (forwards' price per win): the share of the length premium realized production accounts for
+   f: extra realized wins a season per year of length, holding the control fixed; start-year indicators, standard errors clustered by player
+   window forecasts: 2,296 contracts x 4 seasons from the signing page; the first season equals the price line's forecast (largest gap 0.0e+00); mean chance of playing by season of the window 0.863, 0.699, 0.588, 0.513
+
+  K = 3 (contracts whose first 3 seasons are all observable, starts through 2023)
+    outcome      control                           n  players  control coef         f         95% interval   share s
+    [GV-adj (headline)] seasons at zero 21.1%; corr(length, zero seasons) -0.367; played seasons with no GV-adj value, left out of 'played only': 3
+    zeros in     first season, if he plays     1,739      987       +0.5929   -0.0321 [-0.0535, -0.0107]*   -0.063
+    zeros in     window, if he plays           1,739      987       +0.5985   -0.0305 [-0.0514, -0.0097]*   -0.060
+    zeros in     window, expected              1,739      987       +0.6817   -0.0453 [-0.0667, -0.0239]*   -0.089
+    played only  first season, if he plays     1,645      942       +0.6355   -0.0258 [-0.0477, -0.0038]*   -0.050
+    played only  window, if he plays           1,645      942       +0.6426   -0.0244 [-0.0459, -0.0030]*   -0.048
+    played only  window, expected              1,645      942       +0.7192   -0.0377 [-0.0596, -0.0159]*   -0.074
+    [Bacon WAR] seasons at zero 21.3%; corr(length, zero seasons) -0.364; played seasons with no Bacon WAR value, left out of 'played only': 0
+    zeros in     first season, if he plays     1,739      987       +0.8351   +0.0793 [+0.0511, +0.1075]*   +0.155
+    zeros in     window, if he plays           1,739      987       +0.8458   +0.0810 [+0.0531, +0.1089]*   +0.158
+    zeros in     window, expected              1,739      987       +0.9637   +0.0601 [+0.0315, +0.0886]*   +0.118
+    played only  first season, if he plays     1,645      942       +0.8693   +0.0743 [+0.0455, +0.1032]*   +0.145
+    played only  window, if he plays           1,645      942       +0.8774   +0.0765 [+0.0478, +0.1051]*   +0.150
+    played only  window, expected              1,645      942       +0.9861   +0.0575 [+0.0282, +0.0868]*   +0.112
+
+  K = 2 (contracts whose first 2 seasons are all observable, starts through 2024)
+    outcome      control                           n  players  control coef         f         95% interval   share s
+    [GV-adj (headline)] seasons at zero 15.2%; corr(length, zero seasons) -0.302; played seasons with no GV-adj value, left out of 'played only': 5
+    zeros in     first season, if he plays     2,025    1,068       +0.5964   -0.0297 [-0.0505, -0.0089]*   -0.058
+    zeros in     window, if he plays           2,025    1,068       +0.6026   -0.0293 [-0.0498, -0.0088]*   -0.057
+    zeros in     window, expected              2,025    1,068       +0.6525   -0.0393 [-0.0605, -0.0182]*   -0.077
+    played only  first season, if he plays     1,903    1,010       +0.6276   -0.0236 [-0.0448, -0.0023]*   -0.046
+    played only  window, if he plays           1,903    1,010       +0.6343   -0.0233 [-0.0443, -0.0023]*   -0.046
+    played only  window, expected              1,903    1,010       +0.6801   -0.0324 [-0.0540, -0.0108]*   -0.063
+    [Bacon WAR] seasons at zero 15.2%; corr(length, zero seasons) -0.299; played seasons with no Bacon WAR value, left out of 'played only': 0
+    zeros in     first season, if he plays     2,025    1,068       +0.8376   +0.0784 [+0.0514, +0.1055]*   +0.153
+    zeros in     window, if he plays           2,025    1,068       +0.8429   +0.0796 [+0.0526, +0.1066]*   +0.156
+    zeros in     window, expected              2,025    1,068       +0.9173   +0.0647 [+0.0372, +0.0922]*   +0.127
+    played only  first season, if he plays     1,904    1,011       +0.8618   +0.0752 [+0.0474, +0.1030]*   +0.147
+    played only  window, if he plays           1,904    1,011       +0.8672   +0.0763 [+0.0485, +0.1041]*   +0.149
+    played only  window, expected              1,904    1,011       +0.9342   +0.0630 [+0.0347, +0.0912]*   +0.123
+
+  K = 4 (contracts whose first 4 seasons are all observable, starts through 2022)
+    outcome      control                           n  players  control coef         f         95% interval   share s
+    [GV-adj (headline)] seasons at zero 26.1%; corr(length, zero seasons) -0.410; played seasons with no GV-adj value, left out of 'played only': 4
+    zeros in     first season, if he plays     1,470      907       +0.5614   -0.0329 [-0.0570, -0.0088]*   -0.064
+    zeros in     window, if he plays           1,470      907       +0.5610   -0.0293 [-0.0526, -0.0060]*   -0.057
+    zeros in     window, expected              1,470      907       +0.6637   -0.0438 [-0.0678, -0.0199]*   -0.086
+    played only  first season, if he plays     1,395      867       +0.6147   -0.0243 [-0.0490, +0.0004]    -0.048
+    played only  window, if he plays           1,395      867       +0.6183   -0.0213 [-0.0453, +0.0027]    -0.042
+    played only  window, expected              1,395      867       +0.7127   -0.0339 [-0.0583, -0.0094]*   -0.066
+    [Bacon WAR] seasons at zero 26.2%; corr(length, zero seasons) -0.407; played seasons with no Bacon WAR value, left out of 'played only': 0
+    zeros in     first season, if he plays     1,470      907       +0.8004   +0.0719 [+0.0410, +0.1029]*   +0.141
+    zeros in     window, if he plays           1,470      907       +0.8145   +0.0744 [+0.0441, +0.1046]*   +0.145
+    zeros in     window, expected              1,470      907       +0.9587   +0.0541 [+0.0228, +0.0854]*   +0.106
+    played only  first season, if he plays     1,395      867       +0.8467   +0.0670 [+0.0353, +0.0987]*   +0.131
+    played only  window, if he plays           1,395      867       +0.8566   +0.0703 [+0.0392, +0.1014]*   +0.138
+    played only  window, expected              1,395      867       +0.9906   +0.0523 [+0.0202, +0.0844]*   +0.102
+
+  * the 95% interval excludes zero. Reproduction: the v1.0 cell (K = 3, zeros in, first season) gives back the recorded f for both measures.
+
+2. PRICE-SIDE VARIANTS (same rows, same censored fit; dollars at the 2025-26 cap)
+
+  length x forecast (one term): log-likelihood 4,531.9 (locked specification 4,526.4); gain +5.5, LR 11.06 on 1 df, p 0.0009; converged True
+    years x forecast                 -0.0743% of the cap (s.e. 0.0224%)  $-0.071M
+    core: gamma 0.9596% ($0.916M a year), beta 2.0272%, beta_D_add 0.2897%, alpha -0.5931%
+    length premium a season per year, by forecast: +0 win 0.916M, +1 win 0.845M, +2 win 0.774M, +3 win 0.703M
+
+  length premium by forecast group: log-likelihood 4,544.8 (locked specification 4,526.4); gain +18.5, LR 36.90 on 3 df, p 0.0000; converged True
+    years x [0 to 1]                 -0.3146% of the cap (s.e. 0.0532%)  $-0.300M
+    years x [1 to 2]                 -0.3799% of the cap (s.e. 0.0646%)  $-0.363M
+    years x [2 or more]              -0.3972% of the cap (s.e. 0.0772%)  $-0.379M
+    core: gamma 1.2000% ($1.146M a year), beta 2.0438%, beta_D_add 0.5030%, alpha -0.6210%
+    length premium a season per year, by group: below 0 1.146M, 0 to 1 0.846M, 1 to 2 0.783M, 2 or more 0.767M
+
+  one step: premium below replacement: log-likelihood 4,542.3 (locked specification 4,526.4); gain +16.0, LR 31.93 on 1 df, p 0.0000; converged True
+    years x [0 or more]              -0.2953% of the cap (s.e. 0.0520%)  $-0.282M
+    core: gamma 1.1551% ($1.103M a year), beta 1.9115%, beta_D_add 0.5359%, alpha -0.5390%
+    length premium a season per year: below 0 1.103M, 0 or more 0.821M
+
+  quadratic in the forecast: log-likelihood 4,530.5 (locked specification 4,526.4); gain +4.1, LR 8.20 on 1 df, p 0.0042; converged True
+    forecast squared                 +0.1133% of the cap (s.e. 0.0394%)  $+0.108M
+    core: gamma 0.8910% ($0.851M a year), beta 1.4807%, beta_D_add 0.4644%, alpha -0.3818%
+    price per forecast win (forwards) at 0, 1, 2, 3 wins: 1.414M, 1.630M, 1.847M, 2.063M
+
+  bend at one forecast win: log-likelihood 4,528.1 (locked specification 4,526.4); gain +1.7, LR 3.43 on 1 df, p 0.0640; converged True
+    max(forecast - 1, 0)             +0.3259% of the cap (s.e. 0.1755%)  $+0.311M
+    core: gamma 0.8900% ($0.850M a year), beta 1.5912%, beta_D_add 0.4344%, alpha -0.3907%
+    price per forecast win (forwards): below one win 1.520M, above 1.831M
+
+  separate RFA line: log-likelihood 4,534.2 (locked specification 4,526.4); gain +7.9, LR 15.75 on 4 df, p 0.0034; converged True
+    RFA                              -0.1722% of the cap (s.e. 0.1125%)  $-0.164M
+    RFA x forecast                   -0.1510% of the cap (s.e. 0.1236%)  $-0.144M
+    RFA x defence x forecast         +0.5485% of the cap (s.e. 0.2449%)  $+0.524M
+    RFA x years                      -0.0087% of the cap (s.e. 0.0430%)  $-0.008M
+    core: gamma 0.8917% ($0.852M a year), beta 1.8581%, beta_D_add 0.0791%, alpha -0.3577%
+    RFA against UFA: intercept -0.164M, per forecast win (F) -0.144M, per year of length -0.008M
+
+  separate 2022-2025 line: log-likelihood 4,529.1 (locked specification 4,526.4); gain +2.8, LR 5.54 on 4 df, p 0.2366; converged True
+    2022-25                          +0.1190% of the cap (s.e. 0.1121%)  $+0.114M
+    2022-25 x forecast               -0.0634% of the cap (s.e. 0.1234%)  $-0.061M
+    2022-25 x defence x forecast     +0.0820% of the cap (s.e. 0.2463%)  $+0.078M
+    2022-25 x years                  -0.0676% of the cap (s.e. 0.0437%)  $-0.065M
+    core: gamma 0.9353% ($0.893M a year), beta 1.7814%, beta_D_add 0.3000%, alpha -0.5088%
+    2022-25 against 2018-21: intercept +0.114M, per forecast win (F) -0.061M, per year of length -0.065M
+
+  reproduction: the v1.0 log-likelihoods come back (length premium by forecast group 4,544.8, length x forecast (one term) 4,531.9)
+  per-group premium against the one step: gain +2.5, LR 4.98 on 2 df, p 0.0830 (do the separate 0-1, 1-2 and 2+ premiums add anything once below-replacement players have their own?)
+
+3. HELD-OUT PREDICTION: players split into 5 groups, each held out in turn, 20 repeats (seed 20261005); expected cap hit, $M at the 2025-26 cap
+  reproduction: the v1.0 held-out figures come back (locked specification 1.2809/0.9234, length x forecast (one term) 1.2755/0.9173, length premium by forecast group 1.2712/0.9150, separate RFA line 1.2787/0.9198)
+  specification                            RMSE      MAE   beats locked (RMSE)    (MAE)
+  locked specification                   1.2809   0.9234                               
+  length x forecast (one term)           1.2755   0.9173            20 of 20   20 of 20
+  length premium by forecast group       1.2712   0.9150            20 of 20   20 of 20
+  one step: premium below replacement    1.2718   0.9173            20 of 20   20 of 20
+  quadratic in the forecast              1.2809   0.9246            12 of 20    0 of 20
+  bend at one forecast win               1.2817   0.9249             2 of 20    0 of 20
+  separate RFA line                      1.2787   0.9198            18 of 20   20 of 20
+  separate 2022-2025 line                1.2818   0.9243             5 of 20    4 of 20
+  one step against the per-group premium, same splits: one step lower RMSE in 6 of 20, lower MAE in 0 of 20; mean gap RMSE +0.6k, MAE +2.3k a contract

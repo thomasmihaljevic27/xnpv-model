@@ -1,0 +1,32 @@
+traded_pick_values.py v1.2 (2026-10-09)
+  input scales: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\pick_curve_scales.csv  (modified 2026-10-22 03:05)
+  input trades: C:\Users\thoma\Desktop\xNPV\10_SOURCE\trades.db  (modified 2026-07-02 13:35)
+  input games: C:\Users\thoma\Desktop\xNPV\10_SOURCE\games.csv  (modified 2026-07-03 17:29)
+  input bacon: C:\Users\thoma\Desktop\xNPV\10_SOURCE\draft_slot_baseline.csv  (modified 2026-07-02 13:35)
+  scales from: pick_curve.py v1.11 (2026-10-21)
+  star value: main 18.29, sensitivity (without 2015 and 2016) 15.99
+
+picks traded from 2017-07-01 present in trades.db: 634 (trades.db ends 2022-03-28)
+
+HOW EACH PICK WAS VALUED
+                                                picks  value_M  sensitivity_M
+method                                                                       
+actual slot (traded during the draft)             188    123.2          107.7
+round average (a later draft)                     239    143.8          125.7
+round average (before the season's first game)     51     33.1           28.9
+slot on the trade date                            156    107.1           93.6
+  total: $407.1M; sensitivity $355.9M (-12.6%); conditional picks among them: 113
+
+BY ROUND (mean $M a pick)
+            size  mean   min   max
+pick_round                        
+1             61  2.46  1.36  5.13
+2            116  0.92  0.71  1.28
+3            124  0.56  0.46  0.69
+4            104  0.40  0.34  0.46
+5             84  0.30  0.22  0.35
+6             48  0.15  0.10  0.24
+7             97  0.06  0.04  0.10
+
+PROJECTED AGAINST ACTUAL SLOT (156 picks valued on the trade-date standings): median miss 2 slots, mean 3.3; within 3 slots: 97
+  first-round picks (26): median miss 2, largest 10

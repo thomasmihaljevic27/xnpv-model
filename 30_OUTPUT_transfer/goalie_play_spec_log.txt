@@ -1,0 +1,16 @@
+goalie_play_spec.py v1.0 (2026-10-21)
+rows: 7,025 goaltender-seasons ahead, 259 goaltenders, pages 2009-2025
+
+IN SAMPLE (each season ahead; errors clustered by goaltender): terms with p > 0.05
+  +0 (1,396): age -0.120 (p 0.000); age_sq -0.003 (p 0.370); pw +1.135 (p 0.000); gs +6.498 (p 0.000)
+  +1 (1,313): age -0.235 (p 0.000); age_sq +0.000 (p 0.972); pw +1.100 (p 0.000); gs +5.115 (p 0.000)
+  +2 (1,224): age -0.243 (p 0.000); age_sq -0.004 (p 0.436); pw +0.781 (p 0.000); gs +4.668 (p 0.000)
+  +3 (1,129): age -0.280 (p 0.000); age_sq -0.003 (p 0.560); pw +0.738 (p 0.001); gs +3.442 (p 0.000)
+  +4 (1,026): age -0.345 (p 0.000); age_sq -0.001 (p 0.895); pw +0.728 (p 0.000); gs +2.863 (p 0.000)
+  +5 (937): age -0.372 (p 0.000); age_sq -0.002 (p 0.781); pw +0.815 (p 0.000); gs +2.448 (p 0.000)
+
+HELD OUT (pages 2015-2021, each season ahead fitted on pages whose outcome came before the page): log loss
+  full (age, age squared, forecast, games share)   0.4850 (3,307 rows)
+  no age squared                                   0.4845 (3,307 rows); p that it is better 0.348, p that the full version is better 0.653
+  no forecast                                      0.4963 (3,307 rows); p that it is better 0.945, p that the full version is better 0.055
+  no games share                                   0.4999 (3,307 rows); p that it is better 0.921, p that the full version is better 0.079

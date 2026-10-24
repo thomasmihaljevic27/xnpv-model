@@ -1,0 +1,434 @@
+player,team,gp,g,a,tp,p_per_gp,pim,plus_minus,link,page,playername,position,season,league,ep_player_id,scrape_date,source,package_version
+Joonas Larinmaa (C/W),KeuPa HT,31,13,26,39,1.26,6,14,/player/44556/joonas-larinmaa,1,Joonas Larinmaa,C/W,2020-2021,mestis,44556,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jere-Matias Alanen (C),Ketterä,28,23,14,37,1.32,46,16,/player/152260/jere-matias-alanen,1,Jere-Matias Alanen,C,2020-2021,mestis,152260,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matias Varttinen (RW),Ketterä,29,16,19,35,1.21,16,11,/player/92099/matias-varttinen,1,Matias Varttinen,RW,2020-2021,mestis,92099,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Lahtinen (LW/RW),KOOVEE,27,14,20,34,1.26,10,6,/player/123547/niko-lahtinen,1,Niko Lahtinen,LW/RW,2020-2021,mestis,123547,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Salonen (LW),JoKP,29,13,21,34,1.17,16,9,/player/375907/samuel-salonen,1,Samuel Salonen,LW,2020-2021,mestis,375907,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arttu Rämö (F),Ketterä,31,17,15,32,1.03,10,3,/player/223143/arttu-ramo,1,Arttu Rämö,F,2020-2021,mestis,223143,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erkka Seppälä (C),Kiekko-Vantaa,29,9,22,31,1.07,24,14,/player/277080/erkka-seppala,1,Erkka Seppälä,C,2020-2021,mestis,277080,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tuomas Komulainen (C/LW),Hokki,29,8,23,31,1.07,20,0,/player/56305/tuomas-komulainen,1,Tuomas Komulainen,C/LW,2020-2021,mestis,56305,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roope Reini (D),Ketterä,30,6,25,31,1.03,4,4,/player/285619/roope-reini,1,Roope Reini,D,2020-2021,mestis,285619,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julius Valtonen (RW),Kiekko-Vantaa,29,10,20,30,1.03,18,16,/player/65437/julius-valtonen,1,Julius Valtonen,RW,2020-2021,mestis,65437,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Kiljunen (F),Kiekko-Vantaa,28,16,12,28,1.00,28,15,/player/277053/oliver-kiljunen,1,Oliver Kiljunen,F,2020-2021,mestis,277053,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matias Lainio (F),totals,27,9,19,28,1.04,8,11,/player/152011/matias-lainio,1,Matias Lainio,F,2020-2021,mestis,152011,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oula Kuure (F),KeuPa HT,31,9,19,28,0.90,26,17,/player/196398/oula-kuure,1,Oula Kuure,F,2020-2021,mestis,196398,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Juusola (LW/RW),IPK,27,13,14,27,1.00,6,6,/player/241318/mikko-juusola,1,Mikko Juusola,LW/RW,2020-2021,mestis,241318,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Ahoniemi (RW/LW),Ketterä,30,4,23,27,0.90,94,9,/player/92082/niko-ahoniemi,1,Niko Ahoniemi,RW/LW,2020-2021,mestis,92082,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janne Hämäläinen (LW),totals,30,14,12,26,0.87,16,16,/player/222124/janne-hamalainen,1,Janne Hämäläinen,LW,2020-2021,mestis,222124,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommi Niskanen (F),KeuPa HT,27,10,16,26,0.96,36,3,/player/299313/tommi-niskanen,1,Tommi Niskanen,F,2020-2021,mestis,299313,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Paavo Tyni (D),FPS,29,9,17,26,0.90,14,-11,/player/189698/paavo-tyni,1,Paavo Tyni,D,2020-2021,mestis,189698,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juuso Perttilä (LW),Kiekko-Vantaa,27,7,19,26,0.96,27,2,/player/49649/juuso-perttila,1,Juuso Perttilä,LW,2020-2021,mestis,49649,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karri Forsblom (C),FPS,28,12,13,25,0.89,18,-6,/player/304268/karri-forsblom,1,Karri Forsblom,C,2020-2021,mestis,304268,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roope Mäkitalo (C),Ketterä,30,12,13,25,0.83,16,4,/player/223151/roope-makitalo,1,Roope Mäkitalo,C,2020-2021,mestis,223151,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bastien Maïa (RW/LW),IPK,30,11,14,25,0.83,6,10,/player/164103/bastien-maia,1,Bastien Maïa,RW/LW,2020-2021,mestis,164103,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Ahopelto (C),Hermes,28,9,16,25,0.89,6,0,/player/148551/erik-ahopelto,1,Erik Ahopelto,C,2020-2021,mestis,148551,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kurtis McLean (C),Kiekko-Espoo,31,9,16,25,0.81,26,1,/player/11812/kurtis-mclean,1,Kurtis McLean,C,2020-2021,mestis,11812,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juhani Tamminen (C),FPS,30,7,18,25,0.83,34,-11,/player/53966/juhani-tamminen,1,Juhani Tamminen,C,2020-2021,mestis,53966,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valtteri Lipiäinen (RW),JoKP,26,11,13,24,0.92,4,8,/player/158045/valtteri-lipiainen,1,Valtteri Lipiäinen,RW,2020-2021,mestis,158045,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olli Korhonen (C/LW),JoKP,25,8,16,24,0.96,14,8,/player/161966/olli-korhonen,1,Olli Korhonen,C/LW,2020-2021,mestis,161966,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samu Pyykkönen (C),Hokki,30,16,7,23,0.77,24,9,/player/92023/samu-pyykkonen,1,Samu Pyykkönen,C,2020-2021,mestis,92023,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Heikkinen (C),RoKi,18,7,16,23,1.28,2,8,/player/90771/ville-heikkinen,1,Ville Heikkinen,C,2020-2021,mestis,90771,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juho Koivusaari (F),KeuPa HT,28,14,8,22,0.79,26,12,/player/277085/juho-koivusaari,1,Juho Koivusaari,F,2020-2021,mestis,277085,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jussi Tammela (C/LW),JoKP,30,14,8,22,0.73,26,7,/player/299320/jussi-tammela,1,Jussi Tammela,C/LW,2020-2021,mestis,299320,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Santeri Sillanpää (F),KOOVEE,28,10,12,22,0.79,20,7,/player/178270/santeri-sillanpaa,1,Santeri Sillanpää,F,2020-2021,mestis,178270,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niki Koskinen (LW),IPK,30,10,12,22,0.73,26,11,/player/119728/niki-koskinen,1,Niki Koskinen,LW,2020-2021,mestis,119728,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henry Karjalainen (LW/RW),Ketterä,30,8,14,22,0.73,38,2,/player/64977/henry-karjalainen,1,Henry Karjalainen,LW/RW,2020-2021,mestis,64977,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miika Tiihonen (LW),Ketterä,30,7,15,22,0.73,24,7,/player/279878/miika-tiihonen,1,Miika Tiihonen,LW,2020-2021,mestis,279878,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aapo Ahola (D),IPK,29,6,16,22,0.76,16,-4,/player/279020/aapo-ahola,1,Aapo Ahola,D,2020-2021,mestis,279020,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommi Takaveräjä (F),Kiekko-Espoo,30,11,10,21,0.70,18,10,/player/65985/tommi-takaveraja,1,Tommi Takaveräjä,F,2020-2021,mestis,65985,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaakko Kuusisto (LW),Hokki,30,10,11,21,0.70,10,5,/player/176271/jaakko-kuusisto,1,Jaakko Kuusisto,LW,2020-2021,mestis,176271,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sakari Turtiainen (D),KeuPa HT,19,7,14,21,1.11,14,1,/player/65986/sakari-turtiainen,1,Sakari Turtiainen,D,2020-2021,mestis,65986,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eetu Paasovaara (C),Hermes,28,6,15,21,0.75,55,-8,/player/285561/eetu-paasovaara,1,Eetu Paasovaara,C,2020-2021,mestis,285561,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matias Haaranen (D),KOOVEE,22,3,18,21,0.95,14,2,/player/104396/matias-haaranen,1,Matias Haaranen,D,2020-2021,mestis,104396,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leevi Tukiainen (RW),Peliitat,28,7,13,20,0.71,14,-12,/player/395973/leevi-tukiainen,1,Leevi Tukiainen,RW,2020-2021,mestis,395973,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Liam Finlay (RW/C),KOOVEE,16,6,14,20,1.25,18,1,/player/202405/liam-finlay,1,Liam Finlay,RW/C,2020-2021,mestis,202405,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zdenek Sedlak (RW/C),Hermes,26,6,14,20,0.77,12,8,/player/273128/zdenek-sedlak,1,Zdenek Sedlak,RW/C,2020-2021,mestis,273128,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tatu Kokkola (C),IPK,30,4,16,20,0.67,28,5,/player/199316/tatu-kokkola,1,Tatu Kokkola,C,2020-2021,mestis,199316,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Lahtinen (F),Peliitat,26,8,11,19,0.73,4,-3,/player/221345/markus-lahtinen,1,Markus Lahtinen,F,2020-2021,mestis,221345,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eemeli Takala (LW),Hermes,29,7,12,19,0.66,16,-6,/player/401705/eemeli-takala,1,Eemeli Takala,LW,2020-2021,mestis,401705,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Haaparanta (F),Ketterä,28,6,13,19,0.68,47,7,/player/251261/mikko-haaparanta,1,Mikko Haaparanta,F,2020-2021,mestis,251261,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabin Ville (RW/C),RoKi,11,5,14,19,1.73,25,9,/player/156953/gabin-ville,1,Gabin Ville,RW/C,2020-2021,mestis,156953,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Larinmaa (W/C),TUTO Hockey,30,4,15,19,0.63,8,5,/player/241319/jesper-larinmaa,1,Jesper Larinmaa,W/C,2020-2021,mestis,241319,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teemu Siironen (C),JoKP,31,4,15,19,0.61,26,6,/player/92330/teemu-siironen,1,Teemu Siironen,C,2020-2021,mestis,92330,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joonas Alanne (LW/RW),RoKi,15,11,7,18,1.20,6,14,/player/42350/joonas-alanne,1,Joonas Alanne,LW/RW,2020-2021,mestis,42350,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Kerkkänen (F),Peliitat,26,11,7,18,0.69,12,-3,/player/244807/joel-kerkkanen,1,Joel Kerkkänen,F,2020-2021,mestis,244807,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julius Rantaeskola (RW),Kiekko-Espoo,31,10,8,18,0.58,12,-9,/player/43300/julius-rantaeskola,1,Julius Rantaeskola,RW,2020-2021,mestis,43300,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Poikola (C),TUTO Hockey,30,7,11,18,0.60,24,8,/player/122148/aleksi-poikola,1,Aleksi Poikola,C,2020-2021,mestis,122148,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Atte Karppinen (LW),IPK,18,6,12,18,1.00,2,8,/player/241326/atte-karppinen,1,Atte Karppinen,LW,2020-2021,mestis,241326,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matias Lehtonen (RW/C),TUTO Hockey,18,6,12,18,1.00,20,0,/player/151294/matias-lehtonen,1,Matias Lehtonen,RW/C,2020-2021,mestis,151294,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Esa Lehikoinen (D),JoKP,28,6,12,18,0.64,22,5,/player/7876/esa-lehikoinen,1,Esa Lehikoinen,D,2020-2021,mestis,7876,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Ollikainen (LW/RW),Kiekko-Espoo,23,8,9,17,0.74,28,7,/player/44170/anton-ollikainen,1,Anton Ollikainen,LW/RW,2020-2021,mestis,44170,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joona Koppanen (C),KOOVEE,10,6,11,17,1.70,10,4,/player/279893/joona-koppanen,1,Joona Koppanen,C,2020-2021,mestis,279893,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Järvinen (RW/LW),Kiekko-Espoo,30,4,13,17,0.57,16,0,/player/45355/aleksi-jarvinen,1,Aleksi Järvinen,RW/LW,2020-2021,mestis,45355,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jere Vertanen (D),Peliitat,31,4,13,17,0.55,10,7,/player/332928/jere-vertanen,1,Jere Vertanen,D,2020-2021,mestis,332928,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janne Kumpulainen (LW),KeuPa HT,29,3,14,17,0.59,4,-4,/player/16455/janne-kumpulainen,1,Janne Kumpulainen,LW,2020-2021,mestis,16455,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joona Lankinen (F),Peliitat,31,3,14,17,0.55,8,-11,/player/314445/joona-lankinen,1,Joona Lankinen,F,2020-2021,mestis,314445,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juuso Jämsen (F),Peliitat,19,9,7,16,0.84,4,-14,/player/395978/juuso-jamsen,1,Juuso Jämsen,F,2020-2021,mestis,395978,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Heikki Harju (F),Hermes,28,7,9,16,0.57,8,-2,/player/286064/heikki-harju,1,Heikki Harju,F,2020-2021,mestis,286064,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eetu Peltola (D),Kiekko-Vantaa,28,6,10,16,0.57,6,18,/player/318329/eetu-peltola,1,Eetu Peltola,D,2020-2021,mestis,318329,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Oksanen (RW/LW),Kiekko-Espoo,19,5,11,16,0.84,16,9,/player/221337/emil-oksanen,1,Emil Oksanen,RW/LW,2020-2021,mestis,221337,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jani Siekkinen (D/C),KeuPa HT,31,9,6,15,0.48,22,-3,/player/221563/jani-siekkinen,1,Jani Siekkinen,D/C,2020-2021,mestis,221563,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petteri Villanen (LW),Kiekko-Espoo,26,8,7,15,0.58,4,0,/player/299097/petteri-villanen,1,Petteri Villanen,LW,2020-2021,mestis,299097,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niki Kaila (C/RW),Kiekko-Espoo,29,7,8,15,0.52,4,8,/player/106421/niki-kaila,1,Niki Kaila,C/RW,2020-2021,mestis,106421,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskari Uomala (C),Hermes,29,7,8,15,0.52,8,0,/player/241347/oskari-uomala,1,Oskari Uomala,C,2020-2021,mestis,241347,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sami Anttila (LW/RW),Kiekko-Espoo,12,6,9,15,1.25,20,-2,/player/66310/sami-anttila,1,Sami Anttila,LW/RW,2020-2021,mestis,66310,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juuso Forsström (C/W),SaPKo,15,6,9,15,1.00,33,11,/player/14935/juuso-forsstrom,1,Juuso Forsström,C/W,2020-2021,mestis,14935,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wiljami Kupiainen (D),JoKP,25,5,10,15,0.60,2,0,/player/152015/wiljami-kupiainen,1,Wiljami Kupiainen,D,2020-2021,mestis,152015,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Santeri Aalto (C/LW),totals,30,5,10,15,0.50,4,-1,/player/318245/santeri-aalto,1,Santeri Aalto,C/LW,2020-2021,mestis,318245,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Totte Moberg (C/LW),FPS,30,5,10,15,0.50,28,-4,/player/200236/totte-moberg,1,Totte Moberg,C/LW,2020-2021,mestis,200236,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matias Mustonen (C/W),JoKP,24,4,11,15,0.63,6,-6,/player/218975/matias-mustonen,1,Matias Mustonen,C/W,2020-2021,mestis,218975,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lauri Huhdanpää (C/LW/RW),KOOVEE,26,4,11,15,0.58,14,-2,/player/92088/lauri-huhdanpaa,1,Lauri Huhdanpää,C/LW/RW,2020-2021,mestis,92088,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Atro Leppänen (D),KeuPa HT,29,4,11,15,0.52,4,5,/player/326877/atro-leppanen,1,Atro Leppänen,D,2020-2021,mestis,326877,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justus Mikkonen (F),KeuPa HT,30,4,11,15,0.50,24,0,/player/221074/justus-mikkonen,1,Justus Mikkonen,F,2020-2021,mestis,221074,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Hämäläinen (C/LW),IPK,30,4,11,15,0.50,26,-1,/player/66306/aleksi-hamalainen,1,Aleksi Hämäläinen,C/LW,2020-2021,mestis,66306,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nuutti Viitasalo (D),Kiekko-Vantaa,25,3,12,15,0.60,28,13,/player/285895/nuutti-viitasalo,1,Nuutti Viitasalo,D,2020-2021,mestis,285895,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskari Lemetyinen (C),Peliitat,31,2,13,15,0.48,12,-8,/player/277433/oskari-lemetyinen,1,Oskari Lemetyinen,C,2020-2021,mestis,277433,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonne Jantunen (RW),TUTO Hockey,30,7,7,14,0.47,10,0,/player/280826/jonne-jantunen,1,Jonne Jantunen,RW,2020-2021,mestis,280826,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Sippala (LW/RW),IPK,30,7,7,14,0.47,18,-4,/player/155314/ville-sippala,1,Ville Sippala,LW/RW,2020-2021,mestis,155314,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Lemström (RW),Peliitat,31,7,7,14,0.45,6,0,/player/332926/oscar-lemstrom,1,Oscar Lemström,RW,2020-2021,mestis,332926,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Autio (D),Kiekko-Espoo,16,6,8,14,0.88,12,3,/player/60097/erik-autio,1,Erik Autio,D,2020-2021,mestis,60097,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leevi Lemberg (RW),Kiekko-Espoo,28,6,8,14,0.50,18,2,/player/301314/leevi-lemberg,1,Leevi Lemberg,RW,2020-2021,mestis,301314,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Heikkala (LW),Hermes,29,6,8,14,0.48,6,-6,/player/284835/ville-heikkala,1,Ville Heikkala,LW,2020-2021,mestis,284835,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Laine (RW),TUTO Hockey,29,6,8,14,0.48,12,0,/player/40652/mikko-laine,1,Mikko Laine,RW,2020-2021,mestis,40652,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikke Levo (D),TUTO Hockey,16,5,9,14,0.88,22,-8,/player/65445/mikke-levo,1,Mikke Levo,D,2020-2021,mestis,65445,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Mikkola (D/F),SaPKo,18,5,9,14,0.78,0,0,/player/229941/niko-mikkola,1,Niko Mikkola,D/F,2020-2021,mestis,229941,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jarkko Harjula (RW),Hokki,11,4,10,14,1.27,4,2,/player/85114/jarkko-harjula,1,Jarkko Harjula,RW,2020-2021,mestis,85114,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erno Ripatti (C/D),Peliitat,25,6,7,13,0.52,34,-1,/player/107671/erno-ripatti,1,Erno Ripatti,C/D,2020-2021,mestis,107671,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miro Lehtimäki (F),totals,30,6,7,13,0.43,16,-4,/player/151946/miro-lehtimaki,1,Miro Lehtimäki,F,2020-2021,mestis,151946,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Sjöholm (C),Ketterä,27,5,8,13,0.48,6,7,/player/152192/sebastian-sjoholm,1,Sebastian Sjöholm,C,2020-2021,mestis,152192,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Saku Kivinen (C/LW),JoKP,17,4,9,13,0.76,8,-3,/player/91150/saku-kivinen,1,Saku Kivinen,C/LW,2020-2021,mestis,91150,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juho Korhonen (D),IPK,29,4,9,13,0.45,14,1,/player/284849/juho-korhonen,1,Juho Korhonen,D,2020-2021,mestis,284849,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Saku Forsblom (D),Ketterä,26,2,11,13,0.50,26,9,/player/301567/saku-forsblom,1,Saku Forsblom,D,2020-2021,mestis,301567,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Atte Antinaho (C),KeuPa HT,24,8,4,12,0.50,6,-5,/player/65461/atte-antinaho,2,Atte Antinaho,C,2020-2021,mestis,65461,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lauri Heino (F),JoKP,24,8,4,12,0.50,42,-1,/player/151891/lauri-heino,2,Lauri Heino,F,2020-2021,mestis,151891,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville-Valtteri Mustonen (F),Hokki,27,8,4,12,0.44,55,-7,/player/277064/ville-valtteri-mustonen,2,Ville-Valtteri Mustonen,F,2020-2021,mestis,277064,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karri Aho (D),KOOVEE,26,6,6,12,0.46,4,-1,/player/499176/karri-aho,2,Karri Aho,D,2020-2021,mestis,499176,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Kinnunen (W),Peliitat,20,4,8,12,0.60,0,4,/player/280831/oliver-kinnunen,2,Oliver Kinnunen,W,2020-2021,mestis,280831,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viljami Wacklin (C),Kiekko-Vantaa,22,4,8,12,0.55,12,4,/player/83726/viljami-wacklin,2,Viljami Wacklin,C,2020-2021,mestis,83726,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Räsänen (D),JoKP,23,3,9,12,0.52,8,3,/player/314467/ville-rasanen,2,Ville Räsänen,D,2020-2021,mestis,314467,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeremi Wehmas (D),KOOVEE,26,3,9,12,0.46,8,2,/player/314299/jeremi-wehmas,2,Jeremi Wehmas,D,2020-2021,mestis,314299,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tino Sirén (LW),totals,28,2,10,12,0.43,10,6,/player/221516/tino-siren,2,Tino Sirén,LW,2020-2021,mestis,221516,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Risto Mattila (D),Hokki,18,1,11,12,0.67,10,-1,/player/34832/risto-mattila,2,Risto Mattila,D,2020-2021,mestis,34832,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Viitanen (RW),TUTO Hockey,22,10,1,11,0.50,6,1,/player/283533/mark-viitanen,2,Mark Viitanen,RW,2020-2021,mestis,283533,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oula Uski (C/LW),JoKP,13,7,4,11,0.85,10,8,/player/49628/oula-uski,2,Oula Uski,C/LW,2020-2021,mestis,49628,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janne Katosalmi (RW),IPK,30,7,4,11,0.37,10,-2,/player/89354/janne-katosalmi,2,Janne Katosalmi,RW,2020-2021,mestis,89354,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Hallikas (LW),Ketterä,24,6,5,11,0.46,6,2,/player/251255/jesse-hallikas,2,Jesse Hallikas,LW,2020-2021,mestis,251255,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Smedberg (LW/RW),totals,28,6,5,11,0.39,18,-3,/player/91546/rasmus-smedberg,2,Rasmus Smedberg,LW/RW,2020-2021,mestis,91546,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petteri Haveri (D/F),Peliitat,29,6,5,11,0.38,18,-10,/player/65468/petteri-haveri,2,Petteri Haveri,D/F,2020-2021,mestis,65468,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hugo Gallet (D),IPK,17,4,7,11,0.65,2,0,/player/163429/hugo-gallet,2,Hugo Gallet,D,2020-2021,mestis,163429,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joni Piipponen (LW/RW),KeuPa HT,19,4,7,11,0.58,10,-3,/player/78949/joni-piipponen,2,Joni Piipponen,LW/RW,2020-2021,mestis,78949,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juho Virtanen (C),TUTO Hockey,17,3,8,11,0.65,6,-12,/player/66780/juho-virtanen,2,Juho Virtanen,C,2020-2021,mestis,66780,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jere Rantala (D),Hermes,17,3,8,11,0.65,16,0,/player/90082/jere-rantala,2,Jere Rantala,D,2020-2021,mestis,90082,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olli-Matti Järvelä (LW/RW),RoKi,18,3,8,11,0.61,16,-5,/player/37383/olli-matti-jarvela,2,Olli-Matti Järvelä,LW/RW,2020-2021,mestis,37383,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juho Mäkelä (C/W),TUTO Hockey,21,3,8,11,0.52,65,-5,/player/157199/juho-makela,2,Juho Mäkelä,C/W,2020-2021,mestis,157199,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Silfver (D),Kiekko-Vantaa,28,3,8,11,0.39,24,-16,/player/25257/christian-silfver,2,Christian Silfver,D,2020-2021,mestis,25257,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Liuksiala (C),Ketterä,30,3,8,11,0.37,4,5,/player/310327/jesse-liuksiala,2,Jesse Liuksiala,C,2020-2021,mestis,310327,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Vilén (C),Peliitat,15,2,9,11,0.73,2,-6,/player/395975/elias-vilen,2,Elias Vilén,C,2020-2021,mestis,395975,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Saku Vesterinen (D),totals,27,2,9,11,0.41,6,-3,/player/325852/saku-vesterinen,2,Saku Vesterinen,D,2020-2021,mestis,325852,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Ek (D),totals,29,2,9,11,0.38,14,2,/player/326822/aleksi-ek,2,Aleksi Ek,D,2020-2021,mestis,326822,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olli Aitola (D),KeuPa HT,31,1,10,11,0.35,6,20,/player/43534/olli-aitola,2,Olli Aitola,D,2020-2021,mestis,43534,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Santeri Koponen (D),JoKP,31,1,10,11,0.35,30,-3,/player/152020/santeri-koponen,2,Santeri Koponen,D,2020-2021,mestis,152020,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Ahlgren (RW),Hermes,24,6,4,10,0.42,0,-5,/player/72966/jesper-ahlgren,2,Jesper Ahlgren,RW,2020-2021,mestis,72966,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juuso Nevalainen (RW),IPK,28,5,5,10,0.36,72,-4,/player/152035/juuso-nevalainen,2,Juuso Nevalainen,RW,2020-2021,mestis,152035,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Virtanen (C/RW),Kiekko-Espoo,12,4,6,10,0.83,2,-2,/player/47198/mikko-virtanen,2,Mikko Virtanen,C/RW,2020-2021,mestis,47198,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joni Airo (RW),KeuPa HT,28,4,6,10,0.36,4,-3,/player/395076/joni-airo,2,Joni Airo,RW,2020-2021,mestis,395076,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Kuiri (C/LW),Hokki,23,3,7,10,0.43,20,-3,/player/217422/niko-kuiri,2,Niko Kuiri,C/LW,2020-2021,mestis,217422,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Viskari (F/D),Ketterä,26,3,7,10,0.38,6,7,/player/314443/jesse-viskari,2,Jesse Viskari,F/D,2020-2021,mestis,314443,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mico Luoto (D),Kiekko-Vantaa,28,3,7,10,0.36,10,0,/player/397016/mico-luoto,2,Mico Luoto,D,2020-2021,mestis,397016,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sampo Paulaharju (F),Hokki,30,3,7,10,0.33,2,2,/player/91162/sampo-paulaharju,2,Sampo Paulaharju,F,2020-2021,mestis,91162,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erkki Laiho (C/W),FPS,30,3,7,10,0.33,28,-2,/player/315162/erkki-laiho,2,Erkki Laiho,C/W,2020-2021,mestis,315162,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kasper Elo (C/D),RoKi,8,2,8,10,1.25,4,3,/player/56778/kasper-elo,2,Kasper Elo,C/D,2020-2021,mestis,56778,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olli Valtola (C/LW),TUTO Hockey,27,2,8,10,0.37,34,-4,/player/285618/olli-valtola,2,Olli Valtola,C/LW,2020-2021,mestis,285618,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Atte Huhtela (C),Peliitat,28,2,8,10,0.36,49,-2,/player/318216/atte-huhtela,2,Atte Huhtela,C,2020-2021,mestis,318216,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jere Karlsson (D),TUTO Hockey,30,2,8,10,0.33,8,1,/player/66771/jere-karlsson,2,Jere Karlsson,D,2020-2021,mestis,66771,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joonas Niemelä (C/W),Kiekko-Espoo,10,1,9,10,1.00,33,1,/player/122147/joonas-niemela,2,Joonas Niemelä,C/W,2020-2021,mestis,122147,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joonas Uimonen (D),FPS,27,1,9,10,0.37,8,-11,/player/241336/joonas-uimonen,2,Joonas Uimonen,D,2020-2021,mestis,241336,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teemu Karjalainen (C),FPS,14,6,3,9,0.64,2,-1,/player/65451/teemu-karjalainen,2,Teemu Karjalainen,C,2020-2021,mestis,65451,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eemeli Mäki (F),KOOVEE,23,6,3,9,0.39,12,-4,/player/318289/eemeli-maki,2,Eemeli Mäki,F,2020-2021,mestis,318289,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Elomaa (LW),KOOVEE,16,5,4,9,0.56,18,5,/player/181426/elias-elomaa,2,Elias Elomaa,LW,2020-2021,mestis,181426,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janne Jokinen (RW),FPS,28,5,4,9,0.32,8,-1,/player/277083/janne-jokinen,2,Janne Jokinen,RW,2020-2021,mestis,277083,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henri Knuutinen (LW/RW),IPK,10,4,5,9,0.90,6,7,/player/153702/henri-knuutinen,2,Henri Knuutinen,LW/RW,2020-2021,mestis,153702,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Virtanen (LW/RW),Peliitat,17,4,5,9,0.53,28,-2,/player/318240/niklas-virtanen,2,Niklas Virtanen,LW/RW,2020-2021,mestis,318240,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henri Limma (F),Hermes,22,4,5,9,0.41,30,-4,/player/147530/henri-limma,2,Henri Limma,F,2020-2021,mestis,147530,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valtteri Ilomäki (D),TUTO Hockey,26,4,5,9,0.35,26,-2,/player/221526/valtteri-ilomaki,2,Valtteri Ilomäki,D,2020-2021,mestis,221526,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Salonen (RW),KeuPa HT,6,3,6,9,1.50,4,2,/player/47215/samuel-salonen,2,Samuel Salonen,RW,2020-2021,mestis,47215,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roope Laavainen (D),IPK,11,3,6,9,0.82,6,10,/player/249738/roope-laavainen,2,Roope Laavainen,D,2020-2021,mestis,249738,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arttu Lausniemi (C),Hermes,18,3,6,9,0.50,18,-7,/player/428874/arttu-lausniemi,2,Arttu Lausniemi,C,2020-2021,mestis,428874,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konsta Hirvonen (C/W),Kiekko-Vantaa,27,3,6,9,0.33,18,-4,/player/332312/konsta-hirvonen,2,Konsta Hirvonen,C/W,2020-2021,mestis,332312,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tarmo Reunanen (D),TUTO Hockey,7,2,7,9,1.29,12,7,/player/221513/tarmo-reunanen,2,Tarmo Reunanen,D,2020-2021,mestis,221513,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Moberg (D),RoKi,16,2,7,9,0.56,8,-4,/player/104426/sebastian-moberg,2,Sebastian Moberg,D,2020-2021,mestis,104426,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Saku Salminen (D),TUTO Hockey,24,2,7,9,0.38,18,7,/player/314301/saku-salminen,2,Saku Salminen,D,2020-2021,mestis,314301,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Troshin (D),Hokki,22,1,8,9,0.41,20,1,/player/372920/daniil-troshin,2,Daniil Troshin,D,2020-2021,mestis,372920,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tuomo Viitasalo (D),totals,29,1,8,9,0.31,10,2,/player/229930/tuomo-viitasalo,2,Tuomo Viitasalo,D,2020-2021,mestis,229930,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Jeník (W/C),Ketterä,7,5,3,8,1.14,6,0,/player/247318/jan-jenik,2,Jan Jeník,W/C,2020-2021,mestis,247318,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eero Savilahti (C/LW),KOOVEE,10,5,3,8,0.80,10,6,/player/40362/eero-savilahti,2,Eero Savilahti,C/LW,2020-2021,mestis,40362,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Nieminen (LW/RW),TUTO Hockey,13,5,3,8,0.62,33,3,/player/148546/ville-nieminen,2,Ville Nieminen,LW/RW,2020-2021,mestis,148546,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Colomban (C/LW),RoKi,18,5,3,8,0.44,4,-3,/player/163438/robin-colomban,2,Robin Colomban,C/LW,2020-2021,mestis,163438,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petteri Puhakka (LW/RW),TUTO Hockey,7,4,4,8,1.14,2,4,/player/429284/petteri-puhakka,2,Petteri Puhakka,LW/RW,2020-2021,mestis,429284,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eppu Varjamo (F),KOOVEE,15,4,4,8,0.53,0,-1,/player/318284/eppu-varjamo,2,Eppu Varjamo,F,2020-2021,mestis,318284,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reko Tornberg (D),Hermes,21,4,4,8,0.38,4,-6,/player/66309/reko-tornberg,2,Reko Tornberg,D,2020-2021,mestis,66309,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kristian Tuohilampi (D),TUTO Hockey,21,4,4,8,0.38,34,4,/player/27549/kristian-tuohilampi,2,Kristian Tuohilampi,D,2020-2021,mestis,27549,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eetu Mäki (RW),Kiekko-Vantaa,26,4,4,8,0.31,8,-5,/player/361832/eetu-maki,2,Eetu Mäki,RW,2020-2021,mestis,361832,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jolle Nikander (C),Kiekko-Vantaa,27,4,4,8,0.30,18,-10,/player/318257/jolle-nikander,2,Jolle Nikander,C,2020-2021,mestis,318257,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joni Jurmo (D),Kiekko-Espoo,10,3,5,8,0.80,14,3,/player/530726/joni-jurmo,2,Joni Jurmo,D,2020-2021,mestis,530726,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riku Tuomola (D),FPS,12,3,5,8,0.67,6,3,/player/560522/riku-tuomola,2,Riku Tuomola,D,2020-2021,mestis,560522,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kasperi Torikka (D),totals,25,3,5,8,0.32,8,-6,/player/301572/kasperi-torikka,2,Kasperi Torikka,D,2020-2021,mestis,301572,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jarkko Pynnönen (D),Kiekko-Vantaa,29,3,5,8,0.28,14,2,/player/223133/jarkko-pynnonen,2,Jarkko Pynnönen,D,2020-2021,mestis,223133,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teemu Väyrynen (W/C),JoKP,4,2,6,8,2.00,2,4,/player/152027/teemu-vayrynen,2,Teemu Väyrynen,W/C,2020-2021,mestis,152027,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miro Keskitalo (D),Hokki,19,1,7,8,0.42,42,-3,/player/118326/miro-keskitalo,2,Miro Keskitalo,D,2020-2021,mestis,118326,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timi Lahtinen (LW/RW/C),Kiekko-Espoo,20,1,7,8,0.40,6,7,/player/50677/timi-lahtinen,2,Timi Lahtinen,LW/RW/C,2020-2021,mestis,50677,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Järvinen (D),IPK,28,1,7,8,0.29,32,0,/player/148537/ville-jarvinen,2,Ville Järvinen,D,2020-2021,mestis,148537,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niki Blomberg (D),JoKP,31,1,7,8,0.26,30,8,/player/119726/niki-blomberg,2,Niki Blomberg,D,2020-2021,mestis,119726,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eemeli Jeskanen (LW),totals,29,4,3,7,0.24,46,-8,/player/176272/eemeli-jeskanen,2,Eemeli Jeskanen,LW,2020-2021,mestis,176272,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Topi Hägg (LW),FPS,30,4,3,7,0.23,12,-8,/player/297196/topi-hagg,2,Topi Hägg,LW,2020-2021,mestis,297196,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kasper Simontaival (RW),TUTO Hockey,5,3,4,7,1.40,4,1,/player/397010/kasper-simontaival,2,Kasper Simontaival,RW,2020-2021,mestis,397010,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Karvonen (W/C),TUTO Hockey,12,3,4,7,0.58,8,1,/player/65147/elias-karvonen,2,Elias Karvonen,W/C,2020-2021,mestis,65147,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Seppälä (D),Kiekko-Espoo,14,3,4,7,0.50,63,6,/player/277059/niko-seppala,2,Niko Seppälä,D,2020-2021,mestis,277059,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikael Pakkanen (F),Peliitat,18,3,4,7,0.39,4,4,/player/295988/mikael-pakkanen,2,Mikael Pakkanen,F,2020-2021,mestis,295988,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eetu Pylkkänen (D),totals,22,3,4,7,0.32,10,7,/player/221329/eetu-pylkkanen,2,Eetu Pylkkänen,D,2020-2021,mestis,221329,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konsta Keteli (F),KeuPa HT,30,3,4,7,0.23,18,-1,/player/212474/konsta-keteli,2,Konsta Keteli,F,2020-2021,mestis,212474,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Otto Huttunen (D),IPK,10,2,5,7,0.70,12,4,/player/35619/otto-huttunen,2,Otto Huttunen,D,2020-2021,mestis,35619,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaakko Niskala (D),Hermes,12,2,5,7,0.58,14,2,/player/285771/jaakko-niskala,2,Jaakko Niskala,D,2020-2021,mestis,285771,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matias Rauvola (LW),SaPKo,13,2,5,7,0.54,0,-1,/player/179758/matias-rauvola,2,Matias Rauvola,LW,2020-2021,mestis,179758,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Mäkinen (D),SaPKo,17,2,5,7,0.41,34,-1,/player/65457/william-makinen,2,William Mäkinen,D,2020-2021,mestis,65457,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juuso Ketola (D),Hermes,22,2,5,7,0.32,20,-8,/player/376253/juuso-ketola,2,Juuso Ketola,D,2020-2021,mestis,376253,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juhani Merikanto (D),Kiekko-Espoo,26,2,5,7,0.27,10,7,/player/299106/juhani-merikanto,2,Juhani Merikanto,D,2020-2021,mestis,299106,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jani Kluuskeri (D),KeuPa HT,28,2,5,7,0.25,16,-3,/player/221514/jani-kluuskeri,2,Jani Kluuskeri,D,2020-2021,mestis,221514,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Lahtinen (D),KeuPa HT,31,2,5,7,0.23,14,-2,/player/152002/mikko-lahtinen,2,Mikko Lahtinen,D,2020-2021,mestis,152002,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juho Juvonen (D),JoKP,12,1,6,7,0.58,0,8,/player/476315/juho-juvonen,2,Juho Juvonen,D,2020-2021,mestis,476315,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Waltteri Hopponen (LW/RW),TUTO Hockey,18,1,6,7,0.39,6,0,/player/92047/waltteri-hopponen,2,Waltteri Hopponen,LW/RW,2020-2021,mestis,92047,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arto Laatikainen (D),Kiekko-Espoo,18,1,6,7,0.39,18,3,/player/3248/arto-laatikainen,2,Arto Laatikainen,D,2020-2021,mestis,3248,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julius Reini (D),Hermes,24,1,6,7,0.29,16,-10,/player/396650/julius-reini,2,Julius Reini,D,2020-2021,mestis,396650,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anssi Rantanen (D),FPS,30,1,6,7,0.23,42,-8,/player/10498/anssi-rantanen,3,Anssi Rantanen,D,2020-2021,mestis,10498,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aku Alho (D),Kiekko-Espoo,30,1,6,7,0.23,92,6,/player/176296/aku-alho,3,Aku Alho,D,2020-2021,mestis,176296,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskari Seppälä (D),JoKP,31,1,6,7,0.23,12,3,/player/318243/oskari-seppala,3,Oskari Seppälä,D,2020-2021,mestis,318243,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marlo Koponen (D),Ketterä,23,0,7,7,0.30,28,4,/player/12354/marlo-koponen,3,Marlo Koponen,D,2020-2021,mestis,12354,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erno Hopponen (D),Kiekko-Espoo,26,0,7,7,0.27,12,6,/player/131498/erno-hopponen,3,Erno Hopponen,D,2020-2021,mestis,131498,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomi Iso-Mustajärvi (C),KOOVEE,10,5,1,6,0.60,0,-2,/player/25502/tomi-iso-mustajarvi,3,Tomi Iso-Mustajärvi,C,2020-2021,mestis,25502,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antti Järvelä (RW),RoKi,18,4,2,6,0.33,2,-7,/player/40473/antti-jarvela,3,Antti Järvelä,RW,2020-2021,mestis,40473,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juuso Arola (D),Hokki,18,4,2,6,0.33,4,-2,/player/376053/juuso-arola,3,Juuso Arola,D,2020-2021,mestis,376053,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christoffer Seppelin (LW),Hokki,24,4,2,6,0.25,26,-3,/player/44444/christoffer-seppelin,3,Christoffer Seppelin,LW,2020-2021,mestis,44444,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leevi Aaltonen (LW/RW),IPK,5,3,3,6,1.20,0,0,/player/347570/leevi-aaltonen,3,Leevi Aaltonen,LW/RW,2020-2021,mestis,347570,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskari Kalajanniska (F),TUTO Hockey,9,3,3,6,0.67,0,-4,/player/332940/oskari-kalajanniska,3,Oskari Kalajanniska,F,2020-2021,mestis,332940,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eemeli Ylitalo (D),Hokki,13,3,3,6,0.46,2,2,/player/285161/eemeli-ylitalo,3,Eemeli Ylitalo,D,2020-2021,mestis,285161,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jyri Waajakoski (F),FPS,19,3,3,6,0.32,8,-1,/player/123536/jyri-waajakoski,3,Jyri Waajakoski,F,2020-2021,mestis,123536,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juha Rautiainen (C),Hermes,22,3,3,6,0.27,4,-1,/player/376262/juha-rautiainen,3,Juha Rautiainen,C,2020-2021,mestis,376262,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eetu-Santeri Koivunen (F),totals,27,3,3,6,0.22,22,-9,/player/151884/eetu-santeri-koivunen,3,Eetu-Santeri Koivunen,F,2020-2021,mestis,151884,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roope Kallio (C),TUTO Hockey,28,3,3,6,0.21,22,9,/player/241324/roope-kallio,3,Roope Kallio,C,2020-2021,mestis,241324,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mac Hollowell (D),TUTO Hockey,6,2,4,6,1.00,6,0,/player/267652/mac-hollowell,3,Mac Hollowell,D,2020-2021,mestis,267652,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henri Joki-Erkkilä (D),RoKi,11,2,4,6,0.55,33,-6,/player/21663/henri-joki-erkkila,3,Henri Joki-Erkkilä,D,2020-2021,mestis,21663,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pekka Hartikainen (RW),RoKi,13,2,4,6,0.46,6,-1,/player/285760/pekka-hartikainen,3,Pekka Hartikainen,RW,2020-2021,mestis,285760,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olli-Petteri Viinikainen (D),KOOVEE,26,2,4,6,0.23,36,0,/player/299308/olli-petteri-viinikainen,3,Olli-Petteri Viinikainen,D,2020-2021,mestis,299308,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Kankaanperä (D),JoKP,9,1,5,6,0.67,31,2,/player/3250/markus-kankaanpera,3,Markus Kankaanperä,D,2020-2021,mestis,3250,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Timonen (C),IPK,18,1,5,6,0.33,6,-2,/player/335811/samuel-timonen,3,Samuel Timonen,C,2020-2021,mestis,335811,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matias Sointu (W/C),Kiekko-Vantaa,9,0,6,6,0.67,18,2,/player/16048/matias-sointu,3,Matias Sointu,W/C,2020-2021,mestis,16048,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Kuukka (D),Kiekko-Espoo,15,0,6,6,0.40,4,0,/player/4544/mikko-kuukka,3,Mikko Kuukka,D,2020-2021,mestis,4544,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Kapanen (C),JoKP,5,3,2,5,1.00,12,2,/player/639018/oliver-kapanen,3,Oliver Kapanen,C,2020-2021,mestis,639018,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kasper Piitulainen (RW),SaPKo,17,3,2,5,0.29,12,0,/player/221919/kasper-piitulainen,3,Kasper Piitulainen,RW,2020-2021,mestis,221919,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miika Heiskari (D),Kiekko-Vantaa,19,3,2,5,0.26,0,-4,/player/332302/miika-heiskari,3,Miika Heiskari,D,2020-2021,mestis,332302,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juho Jokiharju (F),Kiekko-Vantaa,19,3,2,5,0.26,31,2,/player/60925/juho-jokiharju,3,Juho Jokiharju,F,2020-2021,mestis,60925,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roope Hirvonen (RW),totals,25,3,2,5,0.20,12,-5,/player/241332/roope-hirvonen,3,Roope Hirvonen,RW,2020-2021,mestis,241332,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Österman (D),Peliitat,17,2,3,5,0.29,0,1,/player/283425/ville-osterman,3,Ville Österman,D,2020-2021,mestis,283425,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joonas Savolainen (LW),SaPKo,18,2,3,5,0.28,6,-3,/player/199152/joonas-savolainen,3,Joonas Savolainen,LW,2020-2021,mestis,199152,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henry Maarnela (D),Ketterä,23,2,3,5,0.22,2,7,/player/104069/henry-maarnela,3,Henry Maarnela,D,2020-2021,mestis,104069,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leevi Kannisto (RW),JoKP,28,2,3,5,0.18,4,-3,/player/221350/leevi-kannisto,3,Leevi Kannisto,RW,2020-2021,mestis,221350,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Sikstus (D),Hokki,29,2,3,5,0.17,39,-1,/player/60049/samuel-sikstus,3,Samuel Sikstus,D,2020-2021,mestis,60049,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonne Brygger (F),JoKP,31,2,3,5,0.16,22,-6,/player/397021/jonne-brygger,3,Jonne Brygger,F,2020-2021,mestis,397021,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Ulander (D),Kiekko-Vantaa,6,1,4,5,0.83,0,3,/player/167539/elias-ulander,3,Elias Ulander,D,2020-2021,mestis,167539,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Santeri Haarala (C),Hokki,13,1,4,5,0.38,6,1,/player/376097/santeri-haarala,3,Santeri Haarala,C,2020-2021,mestis,376097,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Toivo Pennanen (D),Peliitat,13,1,4,5,0.38,43,-8,/player/152019/toivo-pennanen,3,Toivo Pennanen,D,2020-2021,mestis,152019,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Levänen (C/LW),RoKi,18,1,4,5,0.28,12,-8,/player/104398/alex-levanen,3,Alex Levänen,C/LW,2020-2021,mestis,104398,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roope Niskanen (F),Kiekko-Vantaa,21,1,4,5,0.24,0,-3,/player/90798/roope-niskanen,3,Roope Niskanen,F,2020-2021,mestis,90798,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juho-Ville Kyllönen (F/D),Hokki,22,1,4,5,0.23,26,1,/player/228739/juho-ville-kyllonen,3,Juho-Ville Kyllönen,F/D,2020-2021,mestis,228739,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tony Tuupanen (D),Hermes,26,1,4,5,0.19,8,1,/player/465223/tony-tuupanen,3,Tony Tuupanen,D,2020-2021,mestis,465223,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joni Kuoppala (D),Peliitat,30,1,4,5,0.17,10,1,/player/346869/joni-kuoppala,3,Joni Kuoppala,D,2020-2021,mestis,346869,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Santtu Hakanen (C),FPS,15,0,5,5,0.33,20,-9,/player/396708/santtu-hakanen,3,Santtu Hakanen,C,2020-2021,mestis,396708,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Väinölä (F/D),RoKi,18,0,5,5,0.28,6,0,/player/151880/ville-vainola,3,Ville Väinölä,F/D,2020-2021,mestis,151880,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joona Vainio (D),FPS,22,0,5,5,0.23,47,1,/player/189699/joona-vainio,3,Joona Vainio,D,2020-2021,mestis,189699,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Paalanen (F/D),Ketterä,23,0,5,5,0.22,14,-2,/player/40707/ville-paalanen,3,Ville Paalanen,F/D,2020-2021,mestis,40707,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jere Jokinen (RW),FPS,14,4,0,4,0.29,0,-9,/player/375878/jere-jokinen,3,Jere Jokinen,RW,2020-2021,mestis,375878,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miska Ronkainen (LW),FPS,18,4,0,4,0.22,2,-5,/player/379900/miska-ronkainen,3,Miska Ronkainen,LW,2020-2021,mestis,379900,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konsta Kosunen (F/D),Kiekko-Espoo,17,3,1,4,0.24,12,2,/player/176380/konsta-kosunen,3,Konsta Kosunen,F/D,2020-2021,mestis,176380,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Sihvonen (D/F),Peliitat,19,3,1,4,0.21,10,6,/player/376116/niko-sihvonen,3,Niko Sihvonen,D/F,2020-2021,mestis,376116,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jukka-Pekka Kurtelius (F),FPS,23,3,1,4,0.17,8,-2,/player/54334/jukka-pekka-kurtelius,3,Jukka-Pekka Kurtelius,F,2020-2021,mestis,54334,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vertti Vuoksiala (D),Peliitat,15,2,2,4,0.27,4,-3,/player/301693/vertti-vuoksiala,3,Vertti Vuoksiala,D,2020-2021,mestis,301693,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nico Joki (D),JoKP,5,1,3,4,0.80,25,1,/player/115811/nico-joki,3,Nico Joki,D,2020-2021,mestis,115811,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Okko Kangasniemi (F),TUTO Hockey,8,1,3,4,0.50,2,-1,/player/440906/okko-kangasniemi,3,Okko Kangasniemi,F,2020-2021,mestis,440906,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Louka Henault (D),Kiekko-Espoo,12,1,3,4,0.33,22,-1,/player/438076/louka-henault,3,Louka Henault,D,2020-2021,mestis,438076,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sami Aksila (F),SaPKo,14,1,3,4,0.29,0,-2,/player/187401/sami-aksila,3,Sami Aksila,F,2020-2021,mestis,187401,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antti Palojärvi (D),Hermes,15,1,3,4,0.27,2,0,/player/244216/antti-palojarvi,3,Antti Palojärvi,D,2020-2021,mestis,244216,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kimi Kuusela (D),KeuPa HT,15,1,3,4,0.27,4,3,/player/429280/kimi-kuusela,3,Kimi Kuusela,D,2020-2021,mestis,429280,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Santeri Hanska (C),RoKi,18,1,3,4,0.22,14,-3,/player/376146/santeri-hanska,3,Santeri Hanska,C,2020-2021,mestis,376146,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aku Kinnari (C/LW),Kiekko-Vantaa,19,1,3,4,0.21,0,-1,/player/355656/aku-kinnari,3,Aku Kinnari,C/LW,2020-2021,mestis,355656,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Veeti Vuorio (LW),KeuPa HT,21,1,3,4,0.19,8,-2,/player/159743/veeti-vuorio,3,Veeti Vuorio,LW,2020-2021,mestis,159743,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Pellikka (F),JoKP,24,1,3,4,0.17,2,1,/player/209660/mikko-pellikka,3,Mikko Pellikka,F,2020-2021,mestis,209660,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Kokkonen (D),Kiekko-Espoo,25,1,3,4,0.16,6,5,/player/56496/anton-kokkonen,3,Anton Kokkonen,D,2020-2021,mestis,56496,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Lehikoinen (F),KeuPa HT,25,1,3,4,0.16,22,2,/player/332931/niklas-lehikoinen,3,Niklas Lehikoinen,F,2020-2021,mestis,332931,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valtteri Meisaari (D),totals,28,1,3,4,0.14,20,-2,/player/353226/valtteri-meisaari,3,Valtteri Meisaari,D,2020-2021,mestis,353226,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuli Tanhua (D),Ketterä,30,1,3,4,0.13,26,7,/player/92237/samuli-tanhua,3,Samuli Tanhua,D,2020-2021,mestis,92237,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pasi Kouvalainen (RW),IPK,15,0,4,4,0.27,16,-1,/player/40413/pasi-kouvalainen,3,Pasi Kouvalainen,RW,2020-2021,mestis,40413,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Rasinaho (F),KOOVEE,23,0,4,4,0.17,4,-9,/player/376224/rasmus-rasinaho,3,Rasmus Rasinaho,F,2020-2021,mestis,376224,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jami Hänninen (D),Ketterä,24,0,4,4,0.17,20,9,/player/373742/jami-hanninen,3,Jami Hänninen,D,2020-2021,mestis,373742,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miku Ronkainen (LW/RW),FPS,14,3,0,3,0.21,12,-3,/player/187689/miku-ronkainen,3,Miku Ronkainen,LW/RW,2020-2021,mestis,187689,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Pesonen (LW/RW),Kiekko-Espoo,6,2,1,3,0.50,0,2,/player/378623/jesse-pesonen,3,Jesse Pesonen,LW/RW,2020-2021,mestis,378623,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valtteri Pihlajamäki (RW),KeuPa HT,7,2,1,3,0.43,2,2,/player/170434/valtteri-pihlajamaki,3,Valtteri Pihlajamäki,RW,2020-2021,mestis,170434,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lassi Korpela (F),KOOVEE,9,2,1,3,0.33,2,-2,/player/344992/lassi-korpela,3,Lassi Korpela,F,2020-2021,mestis,344992,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henri Tuominen (C),KOOVEE,12,2,1,3,0.25,4,0,/player/38184/henri-tuominen,3,Henri Tuominen,C,2020-2021,mestis,38184,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matias Valta (F),totals,13,2,1,3,0.23,29,-3,/player/221917/matias-valta,3,Matias Valta,F,2020-2021,mestis,221917,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Pelttari (F),KOOVEE,14,2,1,3,0.21,2,-3,/player/376223/ville-pelttari,3,Ville Pelttari,F,2020-2021,mestis,376223,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Felixson (D),IPK,21,2,1,3,0.14,10,3,/player/222116/oliver-felixson,3,Oliver Felixson,D,2020-2021,mestis,222116,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arttu Paaso (D),Hermes,2,1,2,3,1.50,2,1,/player/534233/arttu-paaso,3,Arttu Paaso,D,2020-2021,mestis,534233,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janne Tavi (LW/RW),JoKP,4,1,2,3,0.75,2,3,/player/11385/janne-tavi,3,Janne Tavi,LW/RW,2020-2021,mestis,11385,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Takkunen (D),Kiekko-Espoo,11,1,2,3,0.27,2,-7,/player/396160/daniel-takkunen,3,Daniel Takkunen,D,2020-2021,mestis,396160,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lari Heikkinen (LW/RW),Hokki,12,1,2,3,0.25,12,2,/player/395437/lari-heikkinen,3,Lari Heikkinen,LW/RW,2020-2021,mestis,395437,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Perttu Kiesilä (C),totals,13,1,2,3,0.23,0,-4,/player/321035/perttu-kiesila,3,Perttu Kiesilä,C,2020-2021,mestis,321035,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Einari Luhanka (D),Ketterä,15,1,2,3,0.20,12,5,/player/250068/einari-luhanka,3,Einari Luhanka,D,2020-2021,mestis,250068,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomi Niku (D),KeuPa HT,18,1,2,3,0.17,2,-6,/player/429269/tomi-niku,3,Tomi Niku,D,2020-2021,mestis,429269,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Leppänen (LW/RW),Kiekko-Espoo,18,1,2,3,0.17,4,-1,/player/91102/oscar-leppanen,3,Oscar Leppänen,LW/RW,2020-2021,mestis,91102,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Lahnaviik (LW),Kiekko-Vantaa,21,1,2,3,0.14,14,-9,/player/428788/rasmus-lahnaviik,3,Rasmus Lahnaviik,LW,2020-2021,mestis,428788,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuli Virtanen (D),FPS,22,1,2,3,0.14,6,-12,/player/114706/samuli-virtanen,3,Samuli Virtanen,D,2020-2021,mestis,114706,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eero Nurmi (D),Peliitat,23,1,2,3,0.13,4,-7,/player/375917/eero-nurmi,3,Eero Nurmi,D,2020-2021,mestis,375917,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timi Lehti (D),TUTO Hockey,29,1,2,3,0.10,16,3,/player/315160/timi-lehti,3,Timi Lehti,D,2020-2021,mestis,315160,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eddie Ahlmark (D),totals,30,1,2,3,0.10,14,-3,/player/221679/eddie-ahlmark,3,Eddie Ahlmark,D,2020-2021,mestis,221679,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jere Välitalo (D),RoKi,13,0,3,3,0.23,4,7,/player/395495/jere-valitalo,3,Jere Välitalo,D,2020-2021,mestis,395495,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joona Korhonen (LW/RW),KOOVEE,13,0,3,3,0.23,4,1,/player/556958/joona-korhonen,3,Joona Korhonen,LW/RW,2020-2021,mestis,556958,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Paul Manushin (RW),FPS,13,0,3,3,0.23,35,2,/player/49083/paul-manushin,3,Paul Manushin,RW,2020-2021,mestis,49083,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olli Iisakka (LW/RW),RoKi,14,0,3,3,0.21,10,-13,/player/104419/olli-iisakka,3,Olli Iisakka,LW/RW,2020-2021,mestis,104419,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Sivonen (F),JoKP,15,0,3,3,0.20,0,4,/player/314540/ville-sivonen,3,Ville Sivonen,F,2020-2021,mestis,314540,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskari Kantola (D),Hokki,15,0,3,3,0.20,2,-1,/player/229922/oskari-kantola,3,Oskari Kantola,D,2020-2021,mestis,229922,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lassi Liljamo (F/D),Peliitat,25,0,3,3,0.12,4,-12,/player/376105/lassi-liljamo,3,Lassi Liljamo,F/D,2020-2021,mestis,376105,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joonas Kalliola (LW/C),Kiekko-Espoo,7,2,0,2,0.29,8,3,/player/35611/joonas-kalliola,3,Joonas Kalliola,LW/C,2020-2021,mestis,35611,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samu Kaasinen (F),Hokki,9,2,0,2,0.22,2,0,/player/229961/samu-kaasinen,3,Samu Kaasinen,F,2020-2021,mestis,229961,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Ottavainen (D),KeuPa HT,2,1,1,2,1.00,0,2,/player/530727/ville-ottavainen,4,Ville Ottavainen,D,2020-2021,mestis,530727,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuli Vainionpää (C/D),KOOVEE,2,1,1,2,1.00,12,0,/player/372927/samuli-vainionpaa,4,Samuli Vainionpää,C/D,2020-2021,mestis,372927,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kalle Sippala (LW/RW),IPK,6,1,1,2,0.33,2,-3,/player/397197/kalle-sippala,4,Kalle Sippala,LW/RW,2020-2021,mestis,397197,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Briand (C),Hokki,9,1,1,2,0.22,4,-1,/player/73058/mathieu-briand,4,Mathieu Briand,C,2020-2021,mestis,73058,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Henriksson (D),SaPKo,9,1,1,2,0.22,39,-3,/player/285565/jesper-henriksson,4,Jesper Henriksson,D,2020-2021,mestis,285565,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juuso Nykänen (F),Hermes,10,1,1,2,0.20,0,-2,/player/563484/juuso-nykanen,4,Juuso Nykänen,F,2020-2021,mestis,563484,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valtteri Virtanen (RW),TUTO Hockey,10,1,1,2,0.20,4,0,/player/283536/valtteri-virtanen,4,Valtteri Virtanen,RW,2020-2021,mestis,283536,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko-Matti Paakkola (F),Hokki,12,1,1,2,0.17,6,-2,/player/466889/mikko-matti-paakkola,4,Mikko-Matti Paakkola,F,2020-2021,mestis,466889,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Karlsson (F),FPS,17,1,1,2,0.12,20,-9,/player/103306/aleksi-karlsson,4,Aleksi Karlsson,F,2020-2021,mestis,103306,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Mattila (D),KOOVEE,18,1,1,2,0.11,4,-3,/player/299109/niklas-mattila,4,Niklas Mattila,D,2020-2021,mestis,299109,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erno Räisänen (C/W),Hokki,20,1,1,2,0.10,16,-5,/player/221696/erno-raisanen,4,Erno Räisänen,C/W,2020-2021,mestis,221696,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eetu Torpström (D),IPK,23,1,1,2,0.09,6,-6,/player/222336/eetu-torpstrom,4,Eetu Torpström,D,2020-2021,mestis,222336,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jasper Rannisto (D),TUTO Hockey,24,1,1,2,0.08,8,5,/player/360135/jasper-rannisto,4,Jasper Rannisto,D,2020-2021,mestis,360135,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tuukka Lundell (F),Hermes,26,1,1,2,0.08,10,-6,/player/285155/tuukka-lundell,4,Tuukka Lundell,F,2020-2021,mestis,285155,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teemu Ramstedt (C),Kiekko-Espoo,2,0,2,2,1.00,0,-2,/player/7799/teemu-ramstedt,4,Teemu Ramstedt,C,2020-2021,mestis,7799,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riccardo Lacedelli (RW),Hokki,6,0,2,2,0.33,2,0,/player/151296/riccardo-lacedelli,4,Riccardo Lacedelli,RW,2020-2021,mestis,151296,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kristian Kangas (RW),Hokki,7,0,2,2,0.29,4,-2,/player/56416/kristian-kangas,4,Kristian Kangas,RW,2020-2021,mestis,56416,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henry Mäntylä (D/F),IPK,8,0,2,2,0.25,2,-4,/player/118091/henry-mantyla,4,Henry Mäntylä,D/F,2020-2021,mestis,118091,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juuso Mäenpää (C/LW),IPK,10,0,2,2,0.20,0,-2,/player/534237/juuso-maenpaa,4,Juuso Mäenpää,C/LW,2020-2021,mestis,534237,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jere Helenius (RW/LW),Hokki,12,0,2,2,0.17,0,-3,/player/92122/jere-helenius,4,Jere Helenius,RW/LW,2020-2021,mestis,92122,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rene Pylvänäinen (D),FPS,12,0,2,2,0.17,2,1,/player/397984/rene-pylvanainen,4,Rene Pylvänäinen,D,2020-2021,mestis,397984,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eetu Martikainen (D),Hokki,13,0,2,2,0.15,2,5,/player/287529/eetu-martikainen,4,Eetu Martikainen,D,2020-2021,mestis,287529,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valtteri Niemi (LW/RW),TUTO Hockey,13,0,2,2,0.15,38,0,/player/169811/valtteri-niemi,4,Valtteri Niemi,LW/RW,2020-2021,mestis,169811,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Saukko (D),Hermes,15,0,2,2,0.13,8,2,/player/40526/ville-saukko,4,Ville Saukko,D,2020-2021,mestis,40526,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikke Kettukangas (D/F),Kiekko-Vantaa,16,0,2,2,0.13,26,-1,/player/27554/nikke-kettukangas,4,Nikke Kettukangas,D/F,2020-2021,mestis,27554,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miro Hovinen (D),KOOVEE,19,0,2,2,0.11,2,3,/player/36919/miro-hovinen,4,Miro Hovinen,D,2020-2021,mestis,36919,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jarno Lippojoki (D),Ketterä,22,0,2,2,0.09,2,7,/player/10293/jarno-lippojoki,4,Jarno Lippojoki,D,2020-2021,mestis,10293,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valtteri Määttä (D),IPK,23,0,2,2,0.09,45,5,/player/241328/valtteri-maatta,4,Valtteri Määttä,D,2020-2021,mestis,241328,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olli Sorsa (F),JoKP,24,0,2,2,0.08,4,-10,/player/395060/olli-sorsa,4,Olli Sorsa,F,2020-2021,mestis,395060,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Lammi (D),totals,24,0,2,2,0.08,8,-6,/player/360196/joel-lammi,4,Joel Lammi,D,2020-2021,mestis,360196,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Kautiainen (F),Ketterä,1,1,0,1,1.00,0,1,/player/470450/niko-kautiainen,4,Niko Kautiainen,F,2020-2021,mestis,470450,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Kalaj (C),TUTO Hockey,3,1,0,1,0.33,0,1,/player/271925/adam-kalaj,4,Adam Kalaj,C,2020-2021,mestis,271925,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lassi Vanhatalo (RW/LW),TUTO Hockey,3,1,0,1,0.33,2,2,/player/314290/lassi-vanhatalo,4,Lassi Vanhatalo,RW/LW,2020-2021,mestis,314290,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskar Myllys (D/F),SaPKo,4,1,0,1,0.25,0,-2,/player/558605/oskar-myllys,4,Oskar Myllys,D/F,2020-2021,mestis,558605,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Mäkiaho (LW/RW),FPS,5,1,0,1,0.20,0,-5,/player/396673/daniel-makiaho,4,Daniel Mäkiaho,LW/RW,2020-2021,mestis,396673,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Hjorth (D),IPK,6,1,0,1,0.17,0,-3,/player/300243/eric-hjorth,4,Eric Hjorth,D,2020-2021,mestis,300243,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Santeri Venäläinen (C),Peliitat,7,1,0,1,0.14,4,-3,/player/332951/santeri-venalainen,4,Santeri Venäläinen,C,2020-2021,mestis,332951,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Santeri Suomalainen (F),Ketterä,7,1,0,1,0.14,4,1,/player/150251/santeri-suomalainen,4,Santeri Suomalainen,F,2020-2021,mestis,150251,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Somppi (C),Kiekko-Espoo,9,1,0,1,0.11,2,0,/player/332279/niko-somppi,4,Niko Somppi,C,2020-2021,mestis,332279,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olli Maansaari (C),FPS,9,1,0,1,0.11,6,1,/player/284213/olli-maansaari,4,Olli Maansaari,C,2020-2021,mestis,284213,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Honkanen (F),Peliitat,12,1,0,1,0.08,2,-2,/player/154546/aleksi-honkanen,4,Aleksi Honkanen,F,2020-2021,mestis,154546,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samu Poutanen (F),Kiekko-Vantaa,13,1,0,1,0.08,6,-4,/player/235441/samu-poutanen,4,Samu Poutanen,F,2020-2021,mestis,235441,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Halme (LW/RW),Kiekko-Vantaa,14,1,0,1,0.07,4,-11,/player/280302/aleksi-halme,4,Aleksi Halme,LW/RW,2020-2021,mestis,280302,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Niskanen (LW/RW),Hokki,15,1,0,1,0.07,6,-4,/player/228732/jesse-niskanen,4,Jesse Niskanen,LW/RW,2020-2021,mestis,228732,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bernard Isiguzo (D),Peliitat,15,1,0,1,0.07,43,-7,/player/299102/bernard-isiguzo,4,Bernard Isiguzo,D,2020-2021,mestis,299102,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Tiala (D),KOOVEE,20,1,0,1,0.05,0,-6,/player/372921/aleksi-tiala,4,Aleksi Tiala,D,2020-2021,mestis,372921,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolas Matinpalo (D),KOOVEE,1,0,1,1,1.00,0,0,/player/277430/nikolas-matinpalo,4,Nikolas Matinpalo,D,2020-2021,mestis,277430,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rudi Maarni (C),JoKP,2,0,1,1,0.50,0,2,/player/350625/rudi-maarni,4,Rudi Maarni,C,2020-2021,mestis,350625,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Santeri Airola (D),KOOVEE,2,0,1,1,0.50,0,0,/player/376175/santeri-airola,4,Santeri Airola,D,2020-2021,mestis,376175,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hannes Häkkilä (D),Hermes,2,0,1,1,0.50,0,1,/player/476204/hannes-hakkila,4,Hannes Häkkilä,D,2020-2021,mestis,476204,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riku Seppä (C),Hermes,2,0,1,1,0.50,0,-1,/player/429615/riku-seppa,4,Riku Seppä,C,2020-2021,mestis,429615,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Kemppainen (D),SaPKo,2,0,1,1,0.50,4,0,/player/395420/samuel-kemppainen,4,Samuel Kemppainen,D,2020-2021,mestis,395420,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Valkeejärvi (C/RW),KeuPa HT,6,0,1,1,0.17,0,-1,/player/428818/samuel-valkeejarvi,4,Samuel Valkeejärvi,C/RW,2020-2021,mestis,428818,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Topias Vilén (D),Peliitat,6,0,1,1,0.17,0,-8,/player/557184/topias-vilen,4,Topias Vilén,D,2020-2021,mestis,557184,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mika Koivisto (LW/RW),JoKP,6,0,1,1,0.17,2,-4,/player/40477/mika-koivisto,4,Mika Koivisto,LW/RW,2020-2021,mestis,40477,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christoffer Sedoff (D),FPS,7,0,1,1,0.14,6,-2,/player/454747/christoffer-sedoff,4,Christoffer Sedoff,D,2020-2021,mestis,454747,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nico Vuorijärvi (D),Peliitat,10,0,1,1,0.10,0,-9,/player/25217/nico-vuorijarvi,4,Nico Vuorijärvi,D,2020-2021,mestis,25217,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskari Halme (D),KOOVEE,11,0,1,1,0.09,6,-1,/player/221029/oskari-halme,4,Oskari Halme,D,2020-2021,mestis,221029,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peteris Pujats (LW/RW),FPS,12,0,1,1,0.08,0,-2,/player/49567/peteris-pujats,4,Peteris Pujats,LW/RW,2020-2021,mestis,49567,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Santeri Kananen (LW),KOOVEE,16,0,1,1,0.06,8,-5,/player/372911/santeri-kananen,4,Santeri Kananen,LW,2020-2021,mestis,372911,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eetu Kukka (F),totals,17,0,1,1,0.06,18,-13,/player/360150/eetu-kukka,4,Eetu Kukka,F,2020-2021,mestis,360150,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joona Tala (D),FPS,20,0,1,1,0.05,8,-14,/player/152003/joona-tala,4,Joona Tala,D,2020-2021,mestis,152003,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper-Juhani Ilvessuo (D),KOOVEE,28,0,1,1,0.04,4,-4,/player/221527/jesper-juhani-ilvessuo,4,Jesper-Juhani Ilvessuo,D,2020-2021,mestis,221527,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eetu Moberg (C/W),FPS,28,0,1,1,0.04,22,-9,/player/93093/eetu-moberg,4,Eetu Moberg,C/W,2020-2021,mestis,93093,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nico Nurmikanta (D),Kiekko-Vantaa,0,0,0,0,-,0,-,/player/66662/nico-nurmikanta,4,Nico Nurmikanta,D,2020-2021,mestis,66662,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leevi Juselius (D),Ketterä,0,0,0,0,-,0,0,/player/395964/leevi-juselius,4,Leevi Juselius,D,2020-2021,mestis,395964,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Panu Passiniemi (D),IPK,1,0,0,0,0.00,0,0,/player/466981/panu-passiniemi,4,Panu Passiniemi,D,2020-2021,mestis,466981,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wiljami Myllylä (RW/LW),Hermes,1,0,0,0,0.00,0,0,/player/395086/wiljami-myllyla,4,Wiljami Myllylä,RW/LW,2020-2021,mestis,395086,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Santeri Suistio (D),KeuPa HT,1,0,0,0,0.00,0,0,/player/315161/santeri-suistio,4,Santeri Suistio,D,2020-2021,mestis,315161,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Toni Henttonen (LW/RW),IPK,1,0,0,0,0.00,0,0,/player/78482/toni-henttonen,4,Toni Henttonen,LW/RW,2020-2021,mestis,78482,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Saku Partanen (F),Hokki,1,0,0,0,0.00,0,0,/player/499947/saku-partanen,4,Saku Partanen,F,2020-2021,mestis,499947,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Kaarela (C),RoKi,1,0,0,0,0.00,0,0,/player/376149/elias-kaarela,4,Elias Kaarela,C,2020-2021,mestis,376149,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rayen Petrovický (D),TUTO Hockey,1,0,0,0,0.00,0,0,/player/561820/rayen-petrovicky,4,Rayen Petrovický,D,2020-2021,mestis,561820,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markku Kitunen (F),Kiekko-Vantaa,1,0,0,0,0.00,0,0,/player/318328/markku-kitunen,4,Markku Kitunen,F,2020-2021,mestis,318328,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Taavi Vartiainen (LW/RW),KOOVEE,1,0,0,0,0.00,0,-1,/player/85553/taavi-vartiainen,4,Taavi Vartiainen,LW/RW,2020-2021,mestis,85553,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riku Helin (D),RoKi,1,0,0,0,0.00,0,-1,/player/376148/riku-helin,4,Riku Helin,D,2020-2021,mestis,376148,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Harrison (C/LW),KOOVEE,1,0,0,0,0.00,0,0,/player/529247/brett-harrison,4,Brett Harrison,C/LW,2020-2021,mestis,529247,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomi Mäntynen (F),KeuPa HT,1,0,0,0,0.00,0,0,/player/363702/tomi-mantynen,4,Tomi Mäntynen,F,2020-2021,mestis,363702,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Tuhkanen (D),Kiekko-Vantaa,1,0,0,0,0.00,0,0,/player/465222/oliver-tuhkanen,4,Oliver Tuhkanen,D,2020-2021,mestis,465222,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Holm (LW),Kiekko-Espoo,1,0,0,0,0.00,0,-1,/player/396671/anton-holm,4,Anton Holm,LW,2020-2021,mestis,396671,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Vuorela (D),Kiekko-Espoo,1,0,0,0,0.00,0,-3,/player/496849/jesse-vuorela,4,Jesse Vuorela,D,2020-2021,mestis,496849,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miika Malinen (D),Hermes,1,0,0,0,0.00,0,1,/player/562024/miika-malinen,4,Miika Malinen,D,2020-2021,mestis,562024,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valtteri Himanka (LW/RW),Hermes,1,0,0,0,0.00,0,0,/player/612995/valtteri-himanka,4,Valtteri Himanka,LW/RW,2020-2021,mestis,612995,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Casper Käld (LW),Hermes,1,0,0,0,0.00,0,0,/player/612922/casper-kald,4,Casper Käld,LW,2020-2021,mestis,612922,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Tillander (D),Hermes,1,0,0,0,0.00,0,0,/player/560360/rasmus-tillander,4,Rasmus Tillander,D,2020-2021,mestis,560360,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Paavo Yritys (C/W),Hermes,1,0,0,0,0.00,0,0,/player/562708/paavo-yritys,4,Paavo Yritys,C/W,2020-2021,mestis,562708,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arttu Kiviluoma (RW),Hermes,1,0,0,0,0.00,0,-1,/player/441167/arttu-kiviluoma,4,Arttu Kiviluoma,RW,2020-2021,mestis,441167,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Himmanen (F),KeuPa HT,1,0,0,0,0.00,2,0,/player/438060/niko-himmanen,4,Niko Himmanen,F,2020-2021,mestis,438060,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leevi Karjalainen (D),Ketterä,2,0,0,0,0.00,0,3,/player/397017/leevi-karjalainen,4,Leevi Karjalainen,D,2020-2021,mestis,397017,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kim Nordström (D),Hermes,2,0,0,0,0.00,0,-2,/player/284228/kim-nordstrom,4,Kim Nordström,D,2020-2021,mestis,284228,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antti Haikonen (F/D),JoKP,2,0,0,0,0.00,0,0,/player/602498/antti-haikonen,4,Antti Haikonen,F/D,2020-2021,mestis,602498,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riku Vähäniitty (LW),JoKP,2,0,0,0,0.00,0,0,/player/602880/riku-vahaniitty,4,Riku Vähäniitty,LW,2020-2021,mestis,602880,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Jääskeläinen (RW),Hermes,2,0,0,0,0.00,0,0,/player/561968/joel-jaaskelainen,4,Joel Jääskeläinen,RW,2020-2021,mestis,561968,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roni Huovila (D),Hermes,2,0,0,0,0.00,0,-1,/player/476181/roni-huovila,4,Roni Huovila,D,2020-2021,mestis,476181,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Otto Hokkanen (C/W),Ketterä,2,0,0,0,0.00,0,0,/player/620266/otto-hokkanen,4,Otto Hokkanen,C/W,2020-2021,mestis,620266,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Saku Salmela (D/F),Kiekko-Vantaa,2,0,0,0,0.00,2,-4,/player/25296/saku-salmela,4,Saku Salmela,D/F,2020-2021,mestis,25296,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elmeri Kärkimaa (D),KOOVEE,3,0,0,0,0.00,0,1,/player/470559/elmeri-karkimaa,4,Elmeri Kärkimaa,D,2020-2021,mestis,470559,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jerry Sammalisto (C/W),Hermes,3,0,0,0,0.00,0,-1,/player/280300/jerry-sammalisto,4,Jerry Sammalisto,C/W,2020-2021,mestis,280300,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kaapo Laakkonen (F),IPK,3,0,0,0,0.00,0,0,/player/527126/kaapo-laakkonen,4,Kaapo Laakkonen,F,2020-2021,mestis,527126,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Ruusu (D),KeuPa HT,3,0,0,0,0.00,2,-2,/player/395067/elias-ruusu,4,Elias Ruusu,D,2020-2021,mestis,395067,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joona Tamminen (D),Kiekko-Espoo,3,0,0,0,0.00,2,1,/player/396158/joona-tamminen,5,Joona Tamminen,D,2020-2021,mestis,396158,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Manu Räty (D),TUTO Hockey,4,0,0,0,0.00,0,-1,/player/395784/manu-raty,5,Manu Räty,D,2020-2021,mestis,395784,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Visa Sirviö (D),Hokki,4,0,0,0,0.00,0,-1,/player/395493/visa-sirvio,5,Visa Sirviö,D,2020-2021,mestis,395493,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valtteri Välimäki (C),KOOVEE,4,0,0,0,0.00,0,-1,/player/397070/valtteri-valimaki,5,Valtteri Välimäki,C,2020-2021,mestis,397070,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Pietikäinen (F),Kiekko-Vantaa,4,0,0,0,0.00,0,-3,/player/396150/jesse-pietikainen,5,Jesse Pietikäinen,F,2020-2021,mestis,396150,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommi Pynnönen (D),SaPKo,4,0,0,0,0.00,2,-1,/player/301569/tommi-pynnonen,5,Tommi Pynnönen,D,2020-2021,mestis,301569,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jere Kuivisto (D/F),SaPKo,4,0,0,0,0.00,2,-2,/player/221920/jere-kuivisto,5,Jere Kuivisto,D/F,2020-2021,mestis,221920,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jere Vähäsalo (C),Hermes,4,0,0,0,0.00,2,-3,/player/561910/jere-vahasalo,5,Jere Vähäsalo,C,2020-2021,mestis,561910,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicholas Canade (LW/D),KOOVEE,4,0,0,0,0.00,29,-2,/player/418540/nicholas-canade,5,Nicholas Canade,LW/D,2020-2021,mestis,418540,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joona Erving (D),IPK,5,0,0,0,0.00,0,1,/player/47270/joona-erving,5,Joona Erving,D,2020-2021,mestis,47270,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Perttu Aho (F),KOOVEE,5,0,0,0,0.00,0,-2,/player/372924/perttu-aho,5,Perttu Aho,F,2020-2021,mestis,372924,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tiitus Kempas (F),JoKP,5,0,0,0,0.00,0,0,/player/476324/tiitus-kempas,5,Tiitus Kempas,F,2020-2021,mestis,476324,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Iivari Miikkulainen (F),TUTO Hockey,5,0,0,0,0.00,0,0,/player/438251/iivari-miikkulainen,5,Iivari Miikkulainen,F,2020-2021,mestis,438251,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arttu Venäläinen (D),Hokki,5,0,0,0,0.00,2,-3,/player/332956/arttu-venalainen,5,Arttu Venäläinen,D,2020-2021,mestis,332956,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eemil Heikura (D),Hokki,5,0,0,0,0.00,6,-1,/player/527125/eemil-heikura,5,Eemil Heikura,D,2020-2021,mestis,527125,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janne Riihimäki (F/D),Hokki,6,0,0,0,0.00,0,-3,/player/503898/janne-riihimaki,5,Janne Riihimäki,F/D,2020-2021,mestis,503898,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colton Kerfoot (F),KOOVEE,6,0,0,0,0.00,2,-5,/player/160156/colton-kerfoot,5,Colton Kerfoot,F,2020-2021,mestis,160156,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Atso Lehtinen (D),FPS,6,0,0,0,0.00,2,0,/player/396702/atso-lehtinen,5,Atso Lehtinen,D,2020-2021,mestis,396702,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joonas Sillanpää (D),FPS,6,0,0,0,0.00,10,0,/player/428774/joonas-sillanpaa,5,Joonas Sillanpää,D,2020-2021,mestis,428774,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vili Westerman (D),JoKP,7,0,0,0,0.00,0,-2,/player/499677/vili-westerman,5,Vili Westerman,D,2020-2021,mestis,499677,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lauri Latvala (D),Hermes,7,0,0,0,0.00,4,-4,/player/387264/lauri-latvala,5,Lauri Latvala,D,2020-2021,mestis,387264,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Rautiala (D),Kiekko-Vantaa,8,0,0,0,0.00,2,-1,/player/396663/ville-rautiala,5,Ville Rautiala,D,2020-2021,mestis,396663,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaako Manninen (D),Kiekko-Vantaa,8,0,0,0,0.00,4,-4,/player/470440/jaako-manninen,5,Jaako Manninen,D,2020-2021,mestis,470440,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juuso Hämäläinen (LW/RW),Kiekko-Espoo,8,0,0,0,0.00,27,2,/player/91157/juuso-hamalainen,5,Juuso Hämäläinen,LW/RW,2020-2021,mestis,91157,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antoine Herpin (C),KOOVEE,10,0,0,0,0.00,0,-6,/player/396631/antoine-herpin,5,Antoine Herpin,C,2020-2021,mestis,396631,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arttu Heikkilä (RW),Hermes,10,0,0,0,0.00,2,-8,/player/472651/arttu-heikkila,5,Arttu Heikkilä,RW,2020-2021,mestis,472651,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Troshin (D),KOOVEE,10,0,0,0,0.00,6,1,/player/372922/anton-troshin,5,Anton Troshin,D,2020-2021,mestis,372922,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskari Valli (LW),Hermes,11,0,0,0,0.00,0,-4,/player/326913/oskari-valli,5,Oskari Valli,LW,2020-2021,mestis,326913,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Veeti Lehmuskallio (F),Hermes,11,0,0,0,0.00,2,-1,/player/395095/veeti-lehmuskallio,5,Veeti Lehmuskallio,F,2020-2021,mestis,395095,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Akseli Karjalainen (D),Hermes,11,0,0,0,0.00,14,-8,/player/440663/akseli-karjalainen,5,Akseli Karjalainen,D,2020-2021,mestis,440663,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teemu Kemppainen (F),Hokki,12,0,0,0,0.00,0,-4,/player/400504/teemu-kemppainen,5,Teemu Kemppainen,F,2020-2021,mestis,400504,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janne Ulkuniemi (C),RoKi,12,0,0,0,0.00,0,-4,/player/222985/janne-ulkuniemi,5,Janne Ulkuniemi,C,2020-2021,mestis,222985,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicklas Rintamäki (F),Peliitat,12,0,0,0,0.00,2,-6,/player/241323/nicklas-rintamaki,5,Nicklas Rintamäki,F,2020-2021,mestis,241323,2026-10-04,eliteprospects.com via TopDownHockey_Scraper,6.1.69

@@ -1,0 +1,78 @@
+war_name_crosswalk.py v1.1 (2026-10-21)
+  PuckPedia contract export (cp1252): 3,060 NHL ids
+
+method
+same name                                            2025
+unresolved: no NHL games in the logs (2017-18 on)     970
+game-log match                                         34
+unresolved: no candidate                               29
+unresolved: no season agrees                            2
+
+MATCHED ON THE GAME LOGS: 34 ids
+  8482783  Alexei Kolosov               -> Aleksei Kolosov            (2 seasons agree; game-log match (surname))
+  8482245  Artyom Zub                   -> Artem Zub                  (6 seasons agree; game-log match (surname))
+  8482250  Cal Burke                    -> Callahan Burke             (3 seasons agree; game-log match (surname))
+  8479984  Callan Foote                 -> Cal Foote                  (4 seasons agree; game-log match (surname))
+  8483481  Cameron Lund                 -> Cam Lund                   (1 season agree; game-log match (surname))
+  8481546  Cameron York                 -> Cam York                   (6 seasons agree; game-log match (surname))
+  8476982  Danny O'Regan                -> Daniel O'Regan             (3 seasons agree; game-log match (surname))
+  8483526  Danny Zhilkin                -> Danil Zhilkin              (1 season agree; game-log match (surname))
+  8480328  Dave Gust                    -> David Gust                 (1 season agree; game-log match (surname))
+  8482929  Emil Lilleberg               -> Emil Martinsen Lilleberg   (3 seasons agree; game-log match (surname))
+  8474149  Evgenii Dadonov              -> Evgeny Dadonov             (9 seasons agree; game-log match (surname))
+  8482768  Fyodor Svechkov              -> Fedor Svechkov             (2 seasons agree; game-log match (surname))
+  8484312  Georgii Romanov              -> Georgi Romanov             (1 season agree; game-log match (surname))
+  8481422  Jake Lucchini                -> Jacob Lucchini             (3 seasons agree; game-log match (surname))
+  8482655  Janis Jérôme Moser           -> J.J. Moser                 (4 seasons agree; game-log match (surname; WAR splits a season under Janis Moser, not merged))
+  8476425  Joe Labate                   -> Joseph LaBate              (2 seasons agree; game-log match (surname))
+  8482175  John-Jason Peterka           -> JJ Peterka                 (5 seasons agree; game-log match (surname))
+  8480813  Joseph Veleno                -> Joe Veleno                 (6 seasons agree; game-log match (surname))
+  8482665  Matthew Beniers              -> Matty Beniers              (5 seasons agree; game-log match (surname))
+  8485702  Maxim Shabanov               -> Max Shabanov               (1 season agree; game-log match (surname))
+  8478051  Maxwell Willman              -> Max Willman                (3 seasons agree; game-log match (surname))
+  8478844  Mikhail Vorobyov             -> Mikhail Vorobyev           (2 seasons agree; game-log match (seasons))
+  8480246  Nicklaus Perbix              -> Nick Perbix                (4 seasons agree; game-log match (surname))
+  8481812  Nicolai Knyzhov              -> Nikolai Knyzhov            (4 seasons agree; game-log match (surname))
+  8481537  Nikita Okhotyuk              -> Nikita Okhotiuk            (3 seasons agree; game-log match (seasons))
+  8483668  Niklas Kokko                 -> Nikke Kokko                (1 season agree; game-log match (surname))
+  8476947  Nikolay Prokhorkin           -> Nikolai Prokhorkin         (1 season agree; game-log match (surname))
+  8481521  Ronald Attard                -> Ronnie Attard              (3 seasons agree; game-log match (surname))
+  8482102  Vasiliy Ponomarev            -> Vasily Ponomarev           (2 seasons agree; game-log match (surname))
+  8479510  Yegor Korshkov               -> Egor Korshkov              (1 season agree; game-log match (surname))
+  8481178  Yegor Zamula                 -> Egor Zamula                (6 seasons agree; game-log match (surname))
+  8481708  Zachary Jones                -> Zac Jones                  (5 seasons agree; game-log match (surname))
+  8482737  Zack Bolduc                  -> Zachary Bolduc             (3 seasons agree; game-log match (surname))
+  8481849  Zack Hayes                   -> Zachary Hayes              (1 season agree; game-log match (surname))
+
+UNRESOLVED WITH NHL GAMES: 31
+  8476330  Adam Wilcox                  unresolved: no candidate
+  8477990  Brandon Halverson            unresolved: no candidate
+  8478848  Ales Stezka                  unresolved: no candidate
+  8478903  Adam Huska                   unresolved: no candidate
+  8479016  Landon Bow                   unresolved: no candidate
+  8478933  Michael McNiven              unresolved: no candidate
+  8479288  Kasimir Kaskisuo             unresolved: no candidate
+  8479581  Jack Lafontaine              unresolved: no candidate
+  8479380  Dylan Wells                  unresolved: no candidate
+  8479530  Adam Werner                  unresolved: no candidate
+  8480022  Michael Dipietro             unresolved: no season agrees
+  8480191  Matt Villalta                unresolved: no candidate
+  8480199  Eetu Makiniemi               unresolved: no candidate
+  8480213  Gilles Senn                  unresolved: no candidate
+  8480042  Olle Eriksson Ek             unresolved: no candidate
+  8480363  Kaden Fulcher                unresolved: no candidate
+  8480885  Olivier Rodrigue             unresolved: no candidate
+  8480819  Jakub Skarek                 unresolved: no candidate
+  8481001  Veini Vehvilainen            unresolved: no candidate
+  8481501  Artyom Zagidulin             unresolved: no candidate
+  8481515  Danil Yurtaikin              unresolved: no candidate
+  8481707  Erik Portillo                unresolved: no candidate
+  8481597  Hugo Alnefelt                unresolved: no candidate
+  8478250  Vladimir Tkachyov            unresolved: no candidate
+  8482657  Sebastian Cossa              unresolved: no candidate
+  8482668  Tristan Lennox               unresolved: no candidate
+  8482949  Arseni Sergeyev              unresolved: no candidate
+  8483746  Vyacheslav Buteyets          unresolved: no candidate
+  8483045  Cameron Butler               unresolved: no season agrees
+  8484293  Yaniv Perets                 unresolved: no candidate
+  8484910  Victor Ostman                unresolved: no candidate

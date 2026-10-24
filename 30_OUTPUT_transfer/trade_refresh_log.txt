@@ -1,0 +1,1130 @@
+
+==============================================================================
+20_CODE/draft_pick_linkage.py  started 23:04:05
+==============================================================================
+draft_pick_linkage.py SCRIPT_VERSION 1.3
+[pull] 4765 picks, 2005-2026
+[guards] 25 nhl_ids carry multiple names in WAR_with_age (known age-join pollution; name-agreement rule handles them)
+[guards] 12 names blocked from the exact-name stage
+
+[diag] fitting window 2007-2019: 2759 picks
+link_status
+zero_no_nhl_record      1391
+matched_id              1042
+matched_name             298
+matched_alias             26
+excluded_merged_name       2
+
+[diag] skater match rate by pick bucket (unmatched = never produced NHL WAR = the bust mass):
+           n  match_rate
+bucket                  
+1-1       13       1.000
+2-2       13       1.000
+3-5       39       1.000
+6-10      65       1.000
+11-20    126       0.960
+21-32    148       0.905
+33-50    213       0.732
+51-100   574       0.544
+101-150  585       0.385
+151-224  699       0.266
+
+[diag] goalies: 284 picks, 102 matched (35.9%) -- low rates late in the draft are genuine bust mass
+
+[diag] top-30 skater picks with no NHL record (15) -- each should be a recognizable bust; anything surprising here means a linkage gap, stop and investigate:
+ draftYear  overallPickNumber        playerName
+      2007                 17 Alexei Cherepanov
+      2007                 19   Logan MacMillan
+      2007                 20   Angelo Esposito
+      2007                 25     Patrick White
+      2007                 30         Nick Ross
+      2008                 11        Kyle Beach
+      2008                 21  Anton Gustafsson
+      2008                 29  Daultan Leveille
+      2009                 27  Philippe Paradis
+      2011                 22       Tyler Biggs
+      2011                 28     Zack Phillips
+      2014                 23  Conner Bleackley
+      2018                 19       Jay O'Brien
+      2018                 24   Filip Johansson
+      2018                 25      Dominik Bokk
+
+[done] v1.3: wrote C:/Users/thoma/Desktop/xNPV/30_OUTPUT\draft_pick_linkage.csv (4765 picks)
+[note] Step 2 must: (1) attach WAR rows for EVERY pipe-separated name in war_names, matching on normalized names; (2) SUM goalie rows within (name, Season) -- Goalies_WAR splits traded goalies by team.
+
+==============================================================================
+25_TESTS/draft_window_count.py  started 23:04:07
+==============================================================================
+draft_window_count.py v1.0 (2026-10-09)
+  input: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\draft_pick_linkage.csv  (modified 2026-10-22 03:04)
+  input: C:\Users\thoma\Desktop\xNPV\10_SOURCE\WAR.csv  (modified 2026-10-16 17:12)
+  input: C:\Users\thoma\Desktop\xNPV\10_SOURCE\Goalies_WAR.csv  (modified 2026-10-16 17:12)
+  input: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\contract_level_spine.csv  (modified 2026-10-22 02:40)
+
+picks in classes 2007-2017: 2,325  (goalies 233)
+
+window end unknown (no birthdate or merged-name exclusion): 3
+   2009 #118 FORFEIT (zero_no_nhl_record, birth NaT)
+   2011 #69 FORFEIT (zero_no_nhl_record, birth NaT)
+   2012 #93 Erik Gustafsson (excluded_merged_name, birth 1992-03-14 00:00:00)
+
+WINDOWS RUNNING PAST 2025-26, by draft class
+  (Group 3 = the CBA's age-27 / seven-Accrued-Season rule; with Group 6 = the most
+   Group 6 could shorten windows; 'played' = at least one NHL game by 2025-26)
+           picks  past_g3  past_g3_played  past_g6  past_g6_played
+draftYear                                                         
+2007         211        0               0        0               0
+2008         211        0               0        0               0
+2009         210        0               0        0               0
+2010         210        0               0        0               0
+2011         210        0               0        0               0
+2012         210        0               0        0               0
+2013         211        0               0        0               0
+2014         210        0               0        0               0
+2015         211        0               0        0               0
+2016         211        0               0        0               0
+2017         217       29              15       12              12
+all         2322       29              15       12              12
+
+Group 3: last controlled season (end-year) for windows past 2025-26:
+end_g3
+2027.0    29
+
+By round, classes 2015-2017, Group 3 (past / picks; played NHL among past):
+round                    1                2                3                4                5                6                7
+draftYear                                                                                                                       
+2015       0/30 (0 played)  0/31 (0 played)  0/30 (0 played)  0/30 (0 played)  0/30 (0 played)  0/30 (0 played)  0/30 (0 played)
+2016       0/30 (0 played)  0/31 (0 played)  0/30 (0 played)  0/30 (0 played)  0/30 (0 played)  0/30 (0 played)  0/30 (0 played)
+2017       5/31 (5 played)  4/31 (4 played)  6/31 (2 played)  3/31 (0 played)  4/31 (1 played)  2/31 (2 played)  5/31 (1 played)
+
+CHECK vs PuckPedia ufa_year (1183 drafted players with a PuckPedia contract):
+  difference in seasons (PuckPedia minus this rule), counts:
+diff
+-2.0       3
+-1.0      16
+ 0.0    1151
+ 1.0      13
+  among windows this rule ends by 2025-26: 1131 of 1162 agree
+  PuckPedia earlier than this rule (the roster-games gap would do this): 19
+ draftYear  overall         playerName  is_goalie  nhl_gp  n_accrued    y27     a7  end_g3  pp_ufa
+      2009       46       Robin Lehner       True   364.0          6 2019.0    NaN  2019.0  2017.0
+      2015        2        Jack Eichel      False   690.0          9 2024.0 2024.0  2024.0  2022.0
+      2017       21       Filip Chytil      False   405.0          6 2027.0    NaN  2027.0  2025.0
+      2012        7       Mathew Dumba      False   748.0         10 2022.0 2022.0  2022.0  2021.0
+      2012       19 Andrei Vasilevskiy       True   598.0         10 2022.0 2023.0  2022.0  2021.0
+      2014        6      Jake Virtanen      False   317.0          5 2024.0    NaN  2024.0  2023.0
+      2014       21       Robby Fabbri      False   463.0          7 2023.0 2025.0  2023.0  2022.0
+      2011       39        John Gibson       True   563.0         10 2021.0 2022.0  2021.0  2020.0
+      2015       37      Brandon Carlo      False   692.0          9 2024.0 2024.0  2024.0  2023.0
+      2016        4   Jesse Puljujarvi      False   387.0          5 2025.0    NaN  2025.0  2024.0
+      2016        9  Mikhail Sergachev      False   630.0          8 2025.0 2025.0  2025.0  2024.0
+      2016       26      Tage Thompson      False   528.0          8 2025.0 2025.0  2025.0  2024.0
+      2016      100        Victor Mete      False   248.0          4 2025.0    NaN  2025.0  2024.0
+      2017        1      Nico Hischier      False   609.0          8 2026.0 2025.0  2025.0  2024.0
+      2017        2      Nolan Patrick      False   222.0          3 2026.0    NaN  2026.0  2025.0
+  PuckPedia later than this rule: 13
+ draftYear  overall        playerName  is_goalie  nhl_gp  n_accrued    y27     a7  end_g3  pp_ufa
+      2008        3     Zach Bogosian      False   969.0         16 2018.0 2015.0  2015.0  2016.0
+      2008        9       Josh Bailey      False  1056.0         15 2017.0 2015.0  2015.0  2016.0
+      2008       12       Tyler Myers      False  1138.0         16 2017.0 2016.0  2016.0  2017.0
+      2009       14    Dmitry Kulikov      False  1037.0         16 2018.0 2016.0  2016.0  2017.0
+      2009       24  Marcus Johansson      False  1057.0         15 2018.0 2017.0  2017.0  2018.0
+      2009       33     Ryan O'Reilly      False  1233.0         17 2018.0 2016.0  2016.0  2017.0
+      2010       12        Cam Fowler      False  1124.0         16 2019.0 2017.0  2017.0  2018.0
+      2010       37      Justin Faulk      False  1058.0         15 2019.0 2018.0  2018.0  2019.0
+      2011        2 Gabriel Landeskog      False   798.0         12 2020.0 2018.0  2018.0  2019.0
+      2011        4      Adam Larsson      False  1011.0         14 2020.0 2019.0  2019.0  2020.0
+      2014        1      Aaron Ekblad      False   804.0         12 2023.0 2021.0  2021.0  2022.0
+      2014       23  Conner Bleackley      False     0.0          0 2023.0    NaN  2023.0  2024.0
+      2016      144  Conner Bleackley      False     0.0          0 2023.0    NaN  2023.0  2024.0
+
+wrote C:/Users/thoma/Desktop/xNPV/30_OUTPUT\draft_window_count.csv (2,325 rows)
+
+==============================================================================
+20_CODE/elc_signing_dates.py  started 23:04:10
+==============================================================================
+elc_signing_dates.py v1.4 (2026-10-21)
+  input linkage: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\draft_pick_linkage.csv  (modified 2026-10-22 03:04)
+  input puckpedia: C:\Users\thoma\Desktop\xNPV\10_SOURCE\PuckPedia_Player_Contract_Export_May_22_2026__CONFIDENTIAL.csv  (modified 2026-10-05 00:20)
+
+[1] PuckPedia entry-level contracts with a signing date: 2,081 players (signed 2014-07-12 to 2026-05-21)
+[2] CapWages pages read: 1,864; with a draft line: 1,538; of those with an entry-level signing date: 1,428
+
+[3] drafted players with an NHL game (linkage war_names): 1,865
+    by source: puckpedia 913, capwages 742, none 210
+    PuckPedia and CapWages both present: same signing year 504, different 2; where the year agrees, same signing club 476, different 28
+    signing club held: 1,654 of 1,655 with a signing date
+    no signing date: 210, by draft: 2005 79, 2006 57, 2007 19, 2008 11, 2009 9, 2010 4, 2011 12, 2012 11, 2013 3, 2014 3, 2016 1, 2017 1
+    years from draft to signing: median 1, 0: 464, 1: 472, 2: 356, 3: 196, 4: 117, 5: 37, 6: 8, 7: 5
+    players under contract (PuckPedia entry-level, not in the drafted set): 1,164
+    v1.3: dates set aside, signed after his first NHL season ended (6):
+      2005 #21 Tuukka Rask: capwages 2011-05-05 (first NHL season 2007-08)
+      2008 #77 Michael Hutchinson: puckpedia 2018-07-01 (first NHL season 2013-14)
+      2008 #96 Matt Donovan: puckpedia 2018-11-05 (first NHL season 2011-12)
+      2008 #102 David Ullstrom: puckpedia 2018-05-15 (first NHL season 2011-12)
+      2011 #18 Mark McNeill: puckpedia 2018-07-01 (first NHL season 2015-16)
+      2012 #1 Nail Yakupov: capwages 2013-07-23 (first NHL season 2012-13)
+
+wrote C:\Users\thoma\Desktop\xNPV\30_OUTPUT\elc_signing_dates.csv and its log
+
+==============================================================================
+20_CODE/pick_curve.py  started 23:04:14
+==============================================================================
+[rate] control years priced on: xNPV 1 term-in line  alpha=-0.00430925  beta_F=0.01750927  beta_D=0.02158576
+pick_curve.py v1.11 (2026-10-21)
+  input linkage: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\draft_pick_linkage.csv  (modified 2026-10-22 03:04)
+  input WAR: C:\Users\thoma\Desktop\xNPV\10_SOURCE\WAR.csv  (modified 2026-10-16 17:12)
+  input GWAR: C:\Users\thoma\Desktop\xNPV\10_SOURCE\Goalies_WAR.csv  (modified 2026-10-16 17:12)
+  input bacon: C:\Users\thoma\Desktop\xNPV\10_SOURCE\draft_slot_baseline.csv  (modified 2026-07-02 13:35)
+  input trades: C:\Users\thoma\Desktop\xNPV\10_SOURCE\trades.db  (modified 2026-07-02 13:35)
+  input elc: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\elc_signing_dates.csv  (modified 2026-10-22 03:04)
+  skater line: xNPV 1 term-in line alpha -0.0043092485 beta F 0.0175092736 D 0.0215857648 term 0.0089103033
+  goalie line: alpha -0.0317074413 beta 0.0213830910 term 0.0081170278
+
+picks 2007-2017: 2,325; set aside (merged-name exclusion or no birthdate): 3: 2009 #118 FORFEIT; 2011 #69 FORFEIT; 2012 #93 Erik Gustafsson
+  entry-level signing years held: 1,655 drafted players (elc_signing_dates.csv)
+  [xNPV 1] birthdates: production's own join (WAR_with_age.csv, 3204 keys) as primary, then the Elite Prospects scrape for 0 keys it lacks
+  [age] xnpv1_birthdates.csv: 3204 keys on a pre-built pkey
+  production age table: birthdate on 99.94% of season rows (C:\Users\thoma\Desktop\xNPV\30_OUTPUT\WAR_with_age.csv)
+  [xNPV 1] page 2011: fitted through season 2010, 988 players forecast, fitted horizons 0-2, reads contracts: True
+  [xNPV 1] page 2012: fitted through season 2011, 977 players forecast, fitted horizons 0-3, reads contracts: True
+  [xNPV 1] page 2013: fitted through season 2012, 964 players forecast, fitted horizons 0-4, reads contracts: True
+  [xNPV 1] page 2014: fitted through season 2013, 975 players forecast, fitted horizons 0-5, reads contracts: True
+  [xNPV 1] page 2015: fitted through season 2014, 958 players forecast, fitted horizons 0-6, reads contracts: True
+  [xNPV 1] page 2016: fitted through season 2015, 982 players forecast, fitted horizons 0-7, reads contracts: True
+  [xNPV 1] page 2017: fitted through season 2016, 997 players forecast, fitted horizons 0-7, reads contracts: True
+  [xNPV 1] page 2018: fitted through season 2017, 1001 players forecast, fitted horizons 0-8, reads contracts: True
+  [xNPV 1] page 2019: fitted through season 2018, 998 players forecast, fitted horizons 0-9, reads contracts: True
+  [xNPV 1] page 2020: fitted through season 2019, 994 players forecast, fitted horizons 0-9, reads contracts: True
+  [xNPV 1] page 2021: fitted through season 2020, 986 players forecast, fitted horizons 0-10, reads contracts: True
+  [xNPV 1] page 2022: fitted through season 2021, 1013 players forecast, fitted horizons 0-11, reads contracts: True
+  [xNPV 1] page 2023: fitted through season 2022, 1002 players forecast, fitted horizons 0-11, reads contracts: True
+  [xNPV 1] page 2024: fitted through season 2023, 1013 players forecast, fitted horizons 0-12, reads contracts: True
+  [xNPV 1] page 2025: fitted through season 2024, 983 players forecast, fitted horizons 0-12, reads contracts: True
+  excluded from every fit (died before reaching the NHL): Alexei Cherepanov, 2007 #17, died 2008-10-13
+  excluded from every fit (died before reaching the NHL): Mickey Renaud, 2007 #143, died 2008-02-18
+  excluded from every fit (died before reaching the NHL): Bryan Rufenach, 2007 #208, died 2012-06-04
+  excluded from every fit (died before reaching the NHL): Scott Winkler, 2008 #89, died 2013-06-12
+  excluded from every fit (died before reaching the NHL): Kristians Pelss, 2010 #181, died 2013-06-11
+  excluded from every fit (died before reaching the NHL): Daniil Sobchenko, 2011 #166, died 2011-09-07
+  guard, window ends vs draft_window_count.csv: 2322 of 2322 equal
+  guard, skater surplus vs pick_cost_and_year_tests: skipped (the price line was re-locked 2026-10-14; the tests were priced on the 2026-10-05 line)
+
+picks priced: 2,322 (233 goalies); played an NHL game: 1,161
+routes: never played 1150, same team 985, traded first 120, lapsed 46, signed by the drafting club 21
+  signed his entry-level deal with the drafting club, kept (v1.9): 21 picks, $8.46M
+surplus zeroed for lapsed rights: $56.3M of $2,348.7M
+
+STAR VALUE ($M at the 2025-26 cap: the surplus of a pick certain to produce a star; through zero, no draft-year terms)
+  main, all eleven drafts:            18.29 (se 1.74)
+  sensitivity, without 2015 and 2016: 15.99 (se 1.56)
+  the qualifying-offer chain (main until 2026-10-13): 32.15 (se 2.78); without 2015 and 2016 28.11 (se 2.58)
+  v1.5 attribution (all eleven drafts): v1.4 rules 13.68 (on the re-locked line); signing age alone 13.98; forecast-consistent arbitration alone 18.07; both (main) 18.29
+  CBA ages read in the signing year for 1,091 of 1,161 players who played; first NHL season stands in for 70
+  control seasons played: 2,656; priced at arbitration: 1,484; priced above the qualifying offer: 1,086
+  first-round picks who played, summed over their control windows ($M at the 2025-26 cap):
+    picks 1-10: value delivered 2,246.7; cost 1,500.5 (1.62x the qualifying-offer chain's 927.9)
+    picks 11-32: value delivered 2,357.7; cost 1,828.2 (1.34x the qualifying-offer chain's 1,364.3)
+
+wrote pick_curve_players.csv, pick_curve_scales.csv, pick_curve_log.txt in C:\Users\thoma\Desktop\xNPV\30_OUTPUT
+
+LATER DRAFTS (2018-2025), priced for the back-test only, in no fit: 1,770 picks, 1,439 seasons played; surplus through 2025-26 $613.6M; routes: never played 1268, same team 449, signed by the drafting club 19, lapsed 19, traded first 15
+wrote pick_curve_later_players.csv and pick_curve_later_seasons.csv
+
+==============================================================================
+20_CODE/traded_pick_values.py  started 23:05:49
+==============================================================================
+traded_pick_values.py v1.2 (2026-10-09)
+  input scales: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\pick_curve_scales.csv  (modified 2026-10-22 03:05)
+  input trades: C:\Users\thoma\Desktop\xNPV\10_SOURCE\trades.db  (modified 2026-07-02 13:35)
+  input games: C:\Users\thoma\Desktop\xNPV\10_SOURCE\games.csv  (modified 2026-07-03 17:29)
+  input bacon: C:\Users\thoma\Desktop\xNPV\10_SOURCE\draft_slot_baseline.csv  (modified 2026-07-02 13:35)
+  scales from: pick_curve.py v1.11 (2026-10-21)
+  star value: main 18.29, sensitivity (without 2015 and 2016) 15.99
+
+picks traded from 2017-07-01 present in trades.db: 634 (trades.db ends 2022-03-28)
+
+HOW EACH PICK WAS VALUED
+                                                picks  value_M  sensitivity_M
+method                                                                       
+actual slot (traded during the draft)             188    123.2          107.7
+round average (a later draft)                     239    143.8          125.7
+round average (before the season's first game)     51     33.1           28.9
+slot on the trade date                            156    107.1           93.6
+  total: $407.1M; sensitivity $355.9M (-12.6%); conditional picks among them: 113
+
+BY ROUND (mean $M a pick)
+            size  mean   min   max
+pick_round                        
+1             61  2.46  1.36  5.13
+2            116  0.92  0.71  1.28
+3            124  0.56  0.46  0.69
+4            104  0.40  0.34  0.46
+5             84  0.30  0.22  0.35
+6             48  0.15  0.10  0.24
+7             97  0.06  0.04  0.10
+
+PROJECTED AGAINST ACTUAL SLOT (156 picks valued on the trade-date standings): median miss 2 slots, mean 3.3; within 3 slots: 97
+  first-round picks (26): median miss 2, largest 10
+
+wrote traded_pick_values.csv and its log in C:\Users\thoma\Desktop\xNPV\30_OUTPUT
+
+==============================================================================
+25_TESTS/prospect_slot_years_check.py  started 23:05:51
+==============================================================================
+prospect_slot_years_check.py v1.3 (2026-10-18)
+  input players: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\pick_curve_players.csv  (modified 2026-10-22 03:05)
+  input seasons: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\pick_curve_seasons.csv  (modified 2026-10-22 03:05)
+  input scales: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\pick_curve_scales.csv  (modified 2026-10-22 03:05)
+  guard: at the draft the fit reproduces the pick curve's star value 18.2886 (PASS)
+
+WHO IS A PROSPECT, by seasons since the draft (drafted players 2007-2017)
+  0: 2,316 players; prospects 2,316; player model    0
+  1: 2,316 players; prospects 2,263; player model   53
+  2: 2,316 players; prospects 2,134; player model  182
+  3: 2,316 players; prospects 1,931; player model  385
+  4: 2,316 players; prospects 1,707; player model  609
+  5: 2,316 players; prospects 1,535; player model  781
+  6: 2,316 players; prospects 1,416; player model  900
+  7: 2,316 players; prospects 1,296; player model 1,020
+
+STAR VALUE FOR A PLAYER STILL A PROSPECT ($M at the 2025-26 cap; through zero, no draft-year terms)
+  #1 pick: star chance 0.7475. Left-out range: the star value with each draft left out in turn.
+   0 seasons: star value  18.29 (se 1.74); #1 pick 13.67; left-out range 16.87 to 19.59; prospects 2,316 (2,316 rows); top-10 picks among them 110; with 1+ NHL game 0%
+   1 seasons: star value  18.16 (se 1.81); #1 pick 13.58; left-out range 16.60 to 19.30; prospects 2,263 (2,263 rows); top-10 picks among them 70; with 1+ NHL game 2%
+   2 seasons: star value  16.53 (se 2.24); #1 pick 12.36; left-out range 13.81 to 17.46; prospects 2,134 (2,134 rows); top-10 picks among them 26; with 1+ NHL game 4%
+   3 seasons: star value   9.65 (se 1.78); #1 pick  7.22; left-out range 7.72 to 10.45; prospects 1,931 (1,931 rows); top-10 picks among them 11; with 1+ NHL game 8%
+  4+ seasons: star value   2.68 (se 0.83); #1 pick  2.00; left-out range 1.79 to 3.17; prospects 1,755 (5,954 rows); top-10 picks among them 10; with 1+ NHL game 13%
+
+wrote prospect_slot_years.csv, prospect_slot_years_rows.csv, prospect_slot_years_log.txt in C:\Users\thoma\Desktop\xNPV\30_OUTPUT
+
+==============================================================================
+25_TESTS/prospect_nhle_look.py  started 23:06:02
+==============================================================================
+prospect_nhle_look.py v1.3 (2026-10-16)
+  input rows: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\prospect_slot_years_rows.csv  (modified 2026-10-22 03:06)
+  input ep: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\ep_out\ep_prospects.db  (modified 2026-10-09 02:24)
+  input nhle: C:\Users\thoma\Desktop\xNPV\10_SOURCE\nhle_temporal.csv  (modified 2026-07-02 13:35)
+  NHLe 2012-13 filled as the mean of 2011-12 and 2013-14 for 113 leagues
+  EP skater rows with games: 449,407; without an NHLe factor (left out): 16,078
+
+rows: 12,996 skater prospect-rows (2,083 players); fingerprint 1a0aa6bb93a0; no production record: 506 (3.9%)
+  NHLe points per 82 (50/30/20), by seasons since the draft (rows with a record):
+     0: n 1,995  median   5.7  90th pct  11.4  corr with star chance 0.46
+     1: n 2,019  median   7.2  90th pct  13.9  corr with star chance 0.36
+     2: n 1,905  median   8.7  90th pct  16.0  corr with star chance 0.31
+     3: n 1,710  median   9.4  90th pct  18.0  corr with star chance 0.26
+    4+: n 4,861  median   9.6  90th pct  19.4  corr with star chance 0.17
+
+COEFFICIENTS ON ALL DRAFTS ($M of remaining surplus; NHLe level in points per 82 games; se in brackets)
+   0 slot                         p_star 17.668 (1.755)
+   0 production                   nhle82 0.195 (0.019); no_record 0.078 (0.085)
+   0 slot+production              p_star 15.599 (2.080); nhle82 0.050 (0.017); no_record -0.313 (0.119)
+   0 slot+production by position  p_star 15.982 (2.098); nhle_f 0.062 (0.018); nhle_d -0.039 (0.037); no_record -0.323 (0.120)
+   0 slot+production curved       p_star 13.614 (1.824); nhle82 -0.123 (0.050); nhle82_sq 0.018 (0.005); no_record -0.263 (0.112)
+   0 production curved            nhle82 -0.088 (0.055); nhle82_sq 0.026 (0.006); no_record 0.078 (0.085)
+   1 slot                         p_star 16.958 (1.803)
+   1 production                   nhle82 0.124 (0.012); no_record 0.057 (0.046)
+   1 slot+production              p_star 13.426 (2.267); nhle82 0.049 (0.014); no_record -0.182 (0.073)
+   1 slot+production by position  p_star 13.647 (2.278); nhle_f 0.052 (0.015); nhle_d 0.028 (0.026); no_record -0.186 (0.073)
+   1 slot+production curved       p_star 12.915 (2.247); nhle82 -0.110 (0.035); nhle82_sq 0.013 (0.003); no_record -0.173 (0.072)
+   1 production curved            nhle82 -0.050 (0.034); nhle82_sq 0.014 (0.003); no_record 0.057 (0.046)
+   2 slot                         p_star 14.282 (2.234)
+   2 production                   nhle82 0.073 (0.009); no_record 0.000 (0.000)
+   2 slot+production              p_star 9.898 (3.087); nhle82 0.038 (0.013); no_record -0.050 (0.016)
+   2 slot+production by position  p_star 10.015 (3.072); nhle_f 0.039 (0.014); nhle_d 0.031 (0.020); no_record -0.051 (0.016)
+   2 slot+production curved       p_star 10.561 (3.060); nhle82 -0.095 (0.027); nhle82_sq 0.009 (0.002); no_record -0.053 (0.015)
+   2 production curved            nhle82 -0.051 (0.026); nhle82_sq 0.009 (0.002); no_record 0.000 (0.000)
+   3 slot                         p_star 6.691 (1.607)
+   3 production                   nhle82 0.041 (0.008); no_record 0.000 (0.000)
+   3 slot+production              p_star -0.279 (2.123); nhle82 0.042 (0.010); no_record 0.003 (0.025)
+   3 slot+production by position  p_star -0.778 (2.148); nhle_f 0.039 (0.010); nhle_d 0.059 (0.019); no_record 0.009 (0.026)
+   3 slot+production curved       p_star 1.775 (2.030); nhle82 -0.056 (0.022); nhle82_sq 0.006 (0.002); no_record -0.021 (0.025)
+   3 production curved            nhle82 -0.049 (0.021); nhle82_sq 0.005 (0.002); no_record 0.000 (0.000)
+  4+ slot                         p_star 0.644 (0.601)
+  4+ production                   nhle82 0.006 (0.003); no_record 0.000 (0.000)
+  4+ slot+production              p_star -1.121 (1.148); nhle82 0.008 (0.004); no_record 0.016 (0.017)
+  4+ slot+production by position  p_star -1.133 (1.118); nhle_f 0.008 (0.005); nhle_d 0.009 (0.004); no_record 0.016 (0.016)
+  4+ slot+production curved       p_star 0.075 (0.966); nhle82 -0.016 (0.010); nhle82_sq 0.001 (0.001); no_record -0.001 (0.014)
+  4+ production curved            nhle82 -0.016 (0.009); nhle82_sq 0.001 (0.001); no_record 0.000 (0.000)
+
+HELD-OUT ERROR (each draft predicted from a fit without it; $M of remaining surplus a row; same rows for every arm)
+  slot                         RMSE 2.2615  by k: 0 3.3345, 1 3.0530, 2 2.6954, 3 2.0885, 4+ 0.7625
+  production                   RMSE 2.3338  by k: 0 3.5682, 1 3.1395, 2 2.7075, 3 2.0546, 4+ 0.7605  | beats the slot in 9 of 2,000 redraws
+  slot+production              RMSE 2.2502  by k: 0 3.3240, 1 3.0375, 2 2.6828, 3 2.0609, 4+ 0.7618  | beats the slot in 1,887 of 2,000 redraws
+  slot+production by position  RMSE 2.2501  by k: 0 3.3153, 1 3.0411, 2 2.6863, 3 2.0652, 4+ 0.7626  | beats the slot in 1,831 of 2,000 redraws
+  slot+production curved       RMSE 2.2157  by k: 0 3.2839, 1 2.9882, 2 2.6290, 3 2.0229, 4+ 0.7580  | beats the slot in 1,935 of 2,000 redraws
+  production curved            RMSE 2.2852  by k: 0 3.4664, 1 3.0871, 2 2.6609, 3 2.0179, 4+ 0.7567  | beats the slot in 521 of 2,000 redraws
+  CHOSEN (curved; slot + production for seasons 0-2, production alone from 3) RMSE 2.2150; beats slot in 1,944 of 2,000 redraws
+  CHOSEN (curved; slot + production for seasons 0-2, production alone from 3) RMSE 2.2150; beats slot+production curved in 1,991 of 2,000 redraws
+    by k: 0 3.2839, 1 2.9882, 2 2.6290, 3 2.0179, 4+ 0.7567
+
+WHAT IT MEANS (slot+production, all drafts): a pick at #20 (star chance from the rows) one season after the draft
+  NHLe level at the 25th percentile of one-season-on prospects (4.6 per 82): $1.78M  (slot alone $1.96M)
+  NHLe level at the 50th percentile of one-season-on prospects (7.2 per 82): $1.91M  (slot alone $1.96M)
+  NHLe level at the 75th percentile of one-season-on prospects (10.4 per 82): $2.06M  (slot alone $1.96M)
+  NHLe level at the 90th percentile of one-season-on prospects (13.9 per 82): $2.23M  (slot alone $1.96M)
+
+wrote prospect_nhle_look.csv, prospect_nhle_coefficients.csv, prospect_nhle_rows.csv and the log in C:\Users\thoma\Desktop\xNPV\30_OUTPUT
+
+==============================================================================
+25_TESTS/prospect_age_look.py  started 23:06:11
+==============================================================================
+prospect_age_look.py v1.5 (2026-10-18)
+  input rows: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\prospect_nhle_rows.csv  (modified 2026-10-22 03:06)
+  input nhle_scores: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\prospect_nhle_look.csv  (modified 2026-10-22 03:06)
+  input linkage: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\draft_pick_linkage.csv  (modified 2026-10-22 03:04)
+
+rows: 12,996 (fingerprint 1a0aa6bb93a0, the production look's rows)
+  years past first eligibility, at the draft: first-time eligible (under 0.5) 816; one year older 986; two or more 281
+  correlation with the star chance (at the draft): -0.14; with production: 0.20
+  guard: the chosen arm reproduces the production look's 2.2150 (PASS)
+
+COEFFICIENTS ON ALL DRAFTS (age terms; $M of remaining surplus per year past first eligibility; se in brackets)
+   0 + age                        past_elig -0.359 (0.115)
+   0 + age x production           prod_x_age -0.074 (0.021)
+   0 + age and age x production   past_elig 0.334 (0.271); prod_x_age -0.107 (0.043)
+   1 + age                        past_elig -0.426 (0.107)
+   1 + age x production           prod_x_age -0.062 (0.015)
+   1 + age and age x production   past_elig 0.311 (0.280); prod_x_age -0.088 (0.035)
+   2 + age                        past_elig -0.302 (0.096)
+   2 + age x production           prod_x_age -0.049 (0.012)
+   2 + age and age x production   past_elig 0.553 (0.230); prod_x_age -0.090 (0.027)
+   3 + age                        past_elig -0.153 (0.068)
+   3 + age x production           prod_x_age -0.026 (0.009)
+   3 + age and age x production   past_elig 0.385 (0.211); prod_x_age -0.051 (0.022)
+  4+ + age                        past_elig 0.005 (0.021)
+  4+ + age x production           prod_x_age -0.003 (0.004)
+  4+ + age and age x production   past_elig 0.097 (0.096); prod_x_age -0.009 (0.010)
+
+HELD-OUT ERROR ($M of remaining surplus a row; same rows for every arm)
+  chosen                       RMSE 2.2150 (+0.00%)  by k: 0 3.2839, 1 2.9882, 2 2.6290, 3 2.0179, 4+ 0.7567
+  + age                        RMSE 2.2089 (-0.27%)  by k: 0 3.2759, 1 2.9756, 2 2.6217, 3 2.0157, 4+ 0.7570  | beats the chosen arm in 1,989 of 2,000 redraws
+  + age x production           RMSE 2.1996 (-0.70%)  by k: 0 3.2656, 1 2.9619, 2 2.6037, 3 2.0077, 4+ 0.7577  | beats the chosen arm in 1,997 of 2,000 redraws
+  + age and age x production   RMSE 2.2007 (-0.64%)  by k: 0 3.2709, 1 2.9646, 2 2.5991, 3 2.0073, 4+ 0.7586  | beats the chosen arm in 1,948 of 2,000 redraws
+  + age and age x production against + age x production alone: beats it in 751 of 2,000 redraws
+  age x production in seasons 0-3 only: RMSE 2.1994 (-0.70%); beats chosen in 1,997 of 2,000 redraws
+  age x production in seasons 0-3 only: RMSE 2.1994 (-0.70%); beats + age x production in 1,780 of 2,000 redraws
+
+WHAT IT MEANS: a #20 pick one season after his draft ($M at the average draft; production in NHL-equivalent points per 82)
+  production at the median (7.2): chosen $1.38M
+    first-time eligible, late birthday       + age $1.78M; + age x production $1.70M
+    first-time eligible, mid-year birthday   + age $1.61M; + age x production $1.52M
+    drafted a year older                     + age $1.18M; + age x production $1.08M
+  production at the 90th percentile (13.9): chosen $2.46M
+    first-time eligible, late birthday       + age $3.04M; + age x production $3.55M
+    first-time eligible, mid-year birthday   + age $2.87M; + age x production $3.20M
+    drafted a year older                     + age $2.45M; + age x production $2.34M
+
+wrote prospect_age_look.csv, prospect_age_coefficients.csv and the log in C:\Users\thoma\Desktop\xNPV\30_OUTPUT
+
+==============================================================================
+20_CODE/prospect_values.py  started 23:06:18
+==============================================================================
+prospect_values.py v1.12 (2026-10-21)
+  input pick_curve_players: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\pick_curve_players.csv  (modified 2026-10-22 03:05)
+  input pick_curve_seasons: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\pick_curve_seasons.csv  (modified 2026-10-22 03:05)
+  input pick_curve_scales: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\pick_curve_scales.csv  (modified 2026-10-22 03:05)
+  input linkage: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\draft_pick_linkage.csv  (modified 2026-10-22 03:04)
+  input trades: C:\Users\thoma\Desktop\xNPV\10_SOURCE\trades.db  (modified 2026-07-02 13:35)
+  input WAR: C:\Users\thoma\Desktop\xNPV\10_SOURCE\WAR.csv  (modified 2026-10-16 17:12)
+  input GWAR: C:\Users\thoma\Desktop\xNPV\10_SOURCE\Goalies_WAR.csv  (modified 2026-10-16 17:12)
+  input bacon: C:\Users\thoma\Desktop\xNPV\10_SOURCE\draft_slot_baseline.csv  (modified 2026-07-02 13:35)
+  pick curve: pick_curve.py v1.11 (2026-10-21)
+
+  guard: at the draft the star value reproduces the pick curve's 18.2886 (PASS)
+  guard: star values equal prospect_slot_years_check.py's for 5 of 5 groups (PASS)
+
+STAR VALUE FOR A PLAYER STILL A PROSPECT ($M at the 2025-26 cap), by seasons since the draft
+   0:  18.29 (se 1.74); each draft left out 16.87 to 19.59
+   1:  18.16 (se 1.81); each draft left out 16.60 to 19.30
+   2:  16.53 (se 2.24); each draft left out 13.81 to 17.46
+   3:   9.65 (se 1.78); each draft left out 7.72 to 10.45
+  4+:   2.68 (se 0.83); each draft left out 1.79 to 3.17
+
+STEP TWO (production adjusted to NHL terms; discounted by age in seasons 0-3)
+  training rows: 12,996 skater prospect-rows (2,083 players); no production record 3.9%
+  guard: with the no-record indicator added back, the coefficients equal the production and age looks' for 5 of 5 fits (PASS): the same rows, one term dropped
+  main     0: p_star 11.571 (2.024); nhle82 -0.074 (0.047); nhle82_sq 0.021 (0.006); prod_x_age -0.074 (0.021)
+  main     1: p_star 10.452 (2.483); nhle82 -0.065 (0.034); nhle82_sq 0.015 (0.004); prod_x_age -0.062 (0.015)
+  main     2: p_star 8.149 (3.363); nhle82 -0.059 (0.027); nhle82_sq 0.010 (0.002); prod_x_age -0.049 (0.012)
+  main     3: nhle82 -0.032 (0.018); nhle82_sq 0.006 (0.002); prod_x_age -0.026 (0.009)
+  main    4+: nhle82 -0.016 (0.009); nhle82_sq 0.001 (0.001)
+
+players traded from 2017-07-01: 927 assets (trades.db ends 2022-03-28)
+  PuckPedia contracts (cp1252) 6,851 rows; PuckPedia trades (utf-8) 2,615 rows (identity only: NHL ids for matching, no value input)
+
+HOW EACH TRADED PLAYER WAS TREATED
+                                                                                  assets  value_M
+status                                                                                           
+player model (not a prospect)                                                        512     0.00
+prospect, club control over (worth zero)                                               8     0.00
+prospect, valued                                                                     196    71.34
+undrafted or pre-2005: player model (not a prospect)                                 137     0.00
+undrafted prospect, club control over (worth zero)                                    10     0.00
+undrafted prospect, valued (NHL contract)                                             50     6.10
+undrafted prospect, valued (goalie: slot alone, so zero)                               3     0.00
+undrafted, NHL contract, not valued (no PuckPedia record: no birthdate or EP id)       1     0.00
+undrafted, contract not seen (traded before PuckPedia's coverage: not valued)          6     0.00
+undrafted, signing rights only (contract expired: worth zero)                          4     0.00
+  namesakes rejected by the guard: 2 candidate rows
+
+UNDRAFTED (or drafted before 2005): 211 assets
+                                                                                  assets  value_M
+status                                                                                           
+undrafted or pre-2005: player model (not a prospect)                                 137      0.0
+undrafted prospect, club control over (worth zero)                                    10      0.0
+undrafted prospect, valued (NHL contract)                                             50      6.1
+undrafted prospect, valued (goalie: slot alone, so zero)                               3      0.0
+undrafted, NHL contract, not valued (no PuckPedia record: no birthdate or EP id)       1      0.0
+undrafted, contract not seen (traded before PuckPedia's coverage: not valued)          6      0.0
+undrafted, signing rights only (contract expired: worth zero)                          4      0.0
+    2018-02-26  Jordan Maletta         born 1995-04-30, first eligible 2013, k=4, control ends 2022: $-0.04M; production 10.3 per 82; undrafted prospect, valued (NHL contract)
+    2018-02-26  Victor Ejdsell         born 1995-06-06, first eligible 2013, k=4, control ends 2022: $ 0.05M; production 15.8 per 82; undrafted prospect, valued (NHL contract)
+    2018-06-19  Cody Donaghey          born 1996-05-10, first eligible 2014, k=4, control ends 2023: $-0.05M; production 5.6 per 82; undrafted prospect, valued (NHL contract)
+    2018-07-12  Jordan Maletta         born 1995-04-30, first eligible 2013, k=5, control ends 2022: $-0.05M; production 7.9 per 82; undrafted prospect, valued (NHL contract)
+    2018-07-18  Jacob Graves           born 1995-03-28, first eligible 2013, k=5, control ends 2022: $-0.05M; production 4.7 per 82; undrafted prospect, valued (NHL contract)
+    2018-10-01  Matt Taormina          born 1986-10-20, first eligible 2005, k=13, control ends 2014: $ 0.00M; production nan per 82; undrafted prospect, club control over (worth zero)
+    2018-10-18  Mitch Hults            born 1994-11-13, first eligible 2013, k=5, control ends 2022: $ 0.05M; production 15.7 per 82; undrafted prospect, valued (NHL contract)
+    2018-12-03  Michael Carcone        born 1996-05-19, first eligible 2014, k=4, control ends 2023: $ 0.00M; production 13.4 per 82; undrafted prospect, valued (NHL contract)
+    2018-12-05  Macoy Erkamps          born 1995-02-02, first eligible 2013, k=5, control ends 2022: $-0.05M; production 5.4 per 82; undrafted prospect, valued (NHL contract)
+    2018-12-28  Trevor Murphy          born 1995-07-17, first eligible 2013, k=5, control ends 2023: $ 0.18M; production 20.5 per 82; undrafted prospect, valued (NHL contract)
+    2018-12-28  Giovanni Fiore         born 1996-08-13, first eligible 2014, k=4, control ends 2024: $ 0.03M; production 14.9 per 82; undrafted prospect, valued (NHL contract)
+    2019-01-04  Jimmy Oligny           born 1993-04-30, first eligible 2011, k=7, control ends 2020: $-0.05M; production 7.0 per 82; undrafted prospect, valued (NHL contract)
+    2019-01-11  Jacob Graves           born 1995-03-28, first eligible 2013, k=5, control ends 2022: $-0.05M; production 4.7 per 82; undrafted prospect, valued (NHL contract)
+    2019-01-14  Cole Schneider         born 1990-08-26, first eligible 2008, k=10, control ends 2018: $ 0.00M; production nan per 82; undrafted prospect, club control over (worth zero)
+    2019-01-16  Justin Kloos           born 1993-11-30, first eligible 2012, k=6, control ends 2021: $ 0.22M; production 21.5 per 82; undrafted prospect, valued (NHL contract)
+    2019-01-30  Michael Kapla          born 1994-09-19, first eligible 2013, k=5, control ends 2022: $-0.02M; production 11.8 per 82; undrafted prospect, valued (NHL contract)
+    2019-02-18  Darren Raddysh         born 1996-02-28, first eligible 2014, k=4, control ends 2023: $-0.01M; production 12.3 per 82; undrafted prospect, valued (NHL contract)
+    2019-02-22  Vincent Praplan        born 1994-06-10, first eligible 2012, k=6, control ends 2021: $ 0.30M; production 23.6 per 82; undrafted prospect, valued (NHL contract)
+    2019-02-25  Jean-Sébastien Dea     born 1994-02-08, first eligible 2012, k=6, control ends 2021: $ 0.26M; production 22.7 per 82; undrafted prospect, valued (NHL contract)
+    2019-02-25  Bogdan Kiselevich      born 1990-02-14, first eligible 2008, k=10, control ends 2017: $ 0.00M; production nan per 82; undrafted prospect, club control over (worth zero)
+    2019-02-25  Pär Lindholm           born 1991-10-05, first eligible 2010, k=8, control ends 2019: $ 0.38M; production 25.5 per 82; undrafted prospect, valued (NHL contract)
+    2019-06-29  Jacob MacDonald        born 1993-02-26, first eligible 2011, k=8, control ends 2020: $ 0.32M; production 24.1 per 82; undrafted prospect, valued (NHL contract)
+    2019-07-01  Aaron Luchuk           born 1997-04-05, first eligible 2015, k=4, control ends 2024: $ 0.01M; production 13.5 per 82; undrafted prospect, valued (NHL contract)
+    2019-07-01  Calle Rosén            born 1994-02-02, first eligible 2012, k=7, control ends 2021: $ 0.30M; production 23.6 per 82; undrafted prospect, valued (NHL contract)
+    2019-07-23  David Clarkson         born 1984-03-31, first eligible 2002, k=17, control ends 2011: $ 0.00M; production nan per 82; undrafted prospect, club control over (worth zero)
+    2019-10-26  Jack Rodewald          born 1994-02-14, first eligible 2012, k=7, control ends 2021: $ 0.28M; production 23.2 per 82; undrafted prospect, valued (NHL contract)
+    2019-12-12  Oliwer Kaski           born 1995-09-04, first eligible 2013, k=6, control ends 2023: $ 0.06M; production 16.2 per 82; undrafted prospect, valued (NHL contract)
+    2019-12-17  Ryan Haggerty          born 1993-03-04, first eligible 2011, k=8, control ends 2020: $ 0.34M; production 24.7 per 82; undrafted prospect, valued (NHL contract)
+    2019-12-30  Chris Mueller          born 1986-03-06, first eligible 2004, k=15, control ends 2013: $ 0.00M; production nan per 82; undrafted prospect, club control over (worth zero)
+    2020-01-02  Andrew Sturtz          born 1994-09-21, first eligible 2013, k=6, control ends 2022: $ 0.06M; production 16.3 per 82; undrafted prospect, valued (NHL contract)
+    2020-01-17  Oula Palve             born 1992-02-19, first eligible 2010, k=9, control ends 2019: $ 0.00M; production nan per 82; undrafted prospect, club control over (worth zero)
+    2020-02-19  Mason Marchment        born 1995-06-18, first eligible 2013, k=6, control ends 2022: $ 0.15M; production 19.4 per 82; undrafted prospect, valued (NHL contract)
+    2020-02-19  Aaron Luchuk           born 1997-04-05, first eligible 2015, k=4, control ends 2024: $ 0.01M; production 13.5 per 82; undrafted prospect, valued (NHL contract)
+    2020-02-20  Anthony Greco          born 1993-09-30, first eligible 2012, k=7, control ends 2021: $ 0.39M; production 25.8 per 82; undrafted prospect, valued (NHL contract)
+    2020-02-20  Danick Martel          born 1994-12-12, first eligible 2013, k=6, control ends 2022: $ 0.35M; production 24.7 per 82; undrafted prospect, valued (NHL contract)
+    2020-02-20  Jacob Lucchini         born 1995-05-09, first eligible 2013, k=6, control ends 2022: $-0.01M; production 12.3 per 82; undrafted prospect, valued (NHL contract)
+    2020-02-24  Joel Persson           born 1994-03-04, first eligible 2012, k=7, control ends 2021: $ 0.17M; production 20.1 per 82; undrafted prospect, valued (NHL contract)
+    2020-02-24  Calle Rosén            born 1994-02-02, first eligible 2012, k=7, control ends 2021: $ 0.30M; production 23.6 per 82; undrafted prospect, valued (NHL contract)
+    2020-02-24  Kyle Criscuolo         born 1992-05-05, first eligible 2010, k=9, control ends 2019: $ 0.00M; production nan per 82; undrafted prospect, club control over (worth zero)
+    2020-02-24  Aaron Luchuk           born 1997-04-05, first eligible 2015, k=4, control ends 2024: $ 0.01M; production 13.5 per 82; undrafted prospect, valued (NHL contract)
+    2020-02-24  Emil Djuse             born 1993-10-27, first eligible 2012, k=7, control ends 2021: $-0.01M; production 12.8 per 82; undrafted prospect, valued (NHL contract)
+    2020-02-24  Anthony Greco          born 1993-09-30, first eligible 2012, k=7, control ends 2021: $ 0.39M; production 25.8 per 82; undrafted prospect, valued (NHL contract)
+    2020-02-24  Matt Lorito            born 1990-07-03, first eligible 2008, k=11, control ends 2018: $ 0.00M; production nan per 82; undrafted prospect, club control over (worth zero)
+    2020-02-24  Angus Redmond          born 1995-10-03, first eligible 2014, k=5, control ends 2023: $ 0.00M; production nan per 82; undrafted prospect, valued (goalie: slot alone, so zero)
+    2020-12-21  Zachary Magwood        born 1998-04-22, first eligible 2016, k=4, control ends 2025: $-0.02M; production 11.7 per 82; undrafted prospect, valued (NHL contract)
+    2020-12-21  Michael Carcone        born 1996-05-19, first eligible 2014, k=6, control ends 2023: $ 0.18M; production 20.3 per 82; undrafted prospect, valued (NHL contract)
+    2021-03-12  Mikko Lehtonen         born 1994-01-16, first eligible 2012, k=8, control ends 2021: $ 0.31M; production 24.0 per 82; undrafted prospect, valued (NHL contract)
+    2021-04-07  Mason Jobst            born 1994-02-17, first eligible 2012, k=8, control ends 2021: $ 0.01M; production 14.0 per 82; undrafted prospect, valued (NHL contract)
+    2021-04-10  Brian Lashoff          born 1990-07-16, first eligible 2008, k=12, control ends 2018: $ 0.00M; production nan per 82; undrafted prospect, club control over (worth zero)
+    2021-04-11  Hayden Verbeek         born 1997-10-17, first eligible 2016, k=4, control ends 2025: $-0.05M; production 8.9 per 82; undrafted prospect, valued (NHL contract)
+    2021-04-12  Alexander Barabanov    born 1994-06-17, first eligible 2012, k=8, control ends 2021: $ 0.29M; production 23.4 per 82; undrafted prospect, valued (NHL contract)
+    2021-04-12  Nick DeSimone          born 1994-11-21, first eligible 2013, k=7, control ends 2022: $ 0.12M; production 18.6 per 82; undrafted prospect, valued (NHL contract)
+    2021-04-12  Josh Dickinson         born 1997-11-17, first eligible 2016, k=4, control ends 2025: $ 0.00M; production 13.1 per 82; undrafted prospect, valued (NHL contract)
+    2021-04-12  Brandon Fortunato      born 1996-06-07, first eligible 2014, k=6, control ends 2023: $-0.05M; production 8.9 per 82; undrafted prospect, valued (NHL contract)
+    2021-11-30  Kole Sherwood          born 1997-01-22, first eligible 2015, k=6, control ends 2024: $ 0.01M; production 13.8 per 82; undrafted prospect, valued (NHL contract)
+    2022-02-01  Jimmy Huntington       born 1998-11-18, first eligible 2017, k=4, control ends 2026: $ 0.00M; production 13.4 per 82; undrafted prospect, valued (NHL contract)
+    2022-02-01  Tye Felhaber           born 1998-08-05, first eligible 2016, k=5, control ends 2026: $-0.03M; production 11.2 per 82; undrafted prospect, valued (NHL contract)
+    2022-03-02  Michael McNiven        born 1997-07-09, first eligible 2015, k=6, control ends 2025: $ 0.00M; production nan per 82; undrafted prospect, valued (goalie: slot alone, so zero)
+    2022-03-19  Kodie Curran           born 1989-12-18, first eligible 2008, k=13, control ends 2017: $ 0.00M; production nan per 82; undrafted prospect, club control over (worth zero)
+    2022-03-21  Michael McNiven        born 1997-07-09, first eligible 2015, k=6, control ends 2025: $ 0.00M; production nan per 82; undrafted prospect, valued (goalie: slot alone, so zero)
+    2022-03-21  Brayden Burke          born 1997-01-01, first eligible 2015, k=6, control ends 2024: $ 0.38M; production 25.5 per 82; undrafted prospect, valued (NHL contract)
+    2022-03-23  Brennan Menell         born 1997-05-24, first eligible 2015, k=6, control ends 2024: $ 0.68M; production 31.1 per 82; undrafted prospect, valued (NHL contract)
+    2022-03-28  Brady Lyle             born 1999-06-06, first eligible 2017, k=4, control ends 2026: $ 0.02M; production 14.3 per 82; undrafted prospect, valued (NHL contract)
+  all prospects valued (drafted and undrafted): 249 assets, $77.44M
+
+PROSPECTS VALUED: 196 assets, 169 players, total $71.3M (own draft left out: $70.1M)
+         assets  mean_M  total_M
+k_group                         
+0             7    0.80     5.61
+1            24    0.85    20.40
+2            21    0.91    19.17
+3            24    0.53    12.61
+4+          120    0.11    13.54
+  beyond the fitted seasons (k > 7, valued at the 4+ star value): 2
+  with 1-9 NHL games before the valuation season: 44; flagged signing rights: 40; flagged AHL/junior: 156
+  inside the fit's drafts (2007-2017; the stated overlap): 165
+  basis: production 137, slot + production 47, slot alone (goalie) 12
+  below zero (a remaining surplus can be negative; kept, as the pick curve keeps negative careers): 62, total $-3.85M
+
+TWO VERSIONS SIDE BY SIDE ($M; the same 196 assets)
+  adopted: slot + production, discounted by age  total   71.34; mean 0.364; largest 4.24
+  step one: the slot alone                       total   62.95; mean 0.321; largest 3.09
+  production and age (adopted minus slot alone)  total   +8.39; moved by $0.25M or more: 62 of 196; largest 2.47; rank correlation 0.560
+
+  the twenty most valuable (beside: slot alone, own draft left out):
+    2018-09-10  Nick Suzuki              2017 #13  k=1  $ 4.24M  (slot $ 3.09M, own draft out $ 4.02M)  to MTL
+    2020-02-24  Janne Kuokkanen          2016 #43  k=3  $ 2.72M  (slot $ 0.54M, own draft out $ 2.79M)  to NJD
+    2021-11-04  Peyton Krebs             2019 #17  k=2  $ 2.51M  (slot $ 2.22M, own draft out $ 2.51M)  to BUF
+    2019-07-29  Nikita Gusev             2012 #202 k=7  $ 2.48M  (slot $ 0.01M, own draft out $ 3.04M)  to NJD
+    2017-11-05  Vladislav Kamenev        2014 #42  k=3  $ 2.26M  (slot $ 0.55M, own draft out $ 2.33M)  to COL
+    2019-02-25  Jonathan Dahlén          2016 #42  k=2  $ 2.25M  (slot $ 0.94M, own draft out $ 2.28M)  to SJS
+    2019-02-25  Erik Brännström          2017 #15  k=1  $ 2.05M  (slot $ 2.72M, own draft out $ 1.86M)  to OTT
+    2019-01-28  Carl Grundström          2016 #57  k=2  $ 2.00M  (slot $ 0.70M, own draft out $ 2.02M)  to LAK
+    2019-09-24  Dominik Bokk             2018 #25  k=1  $ 1.89M  (slot $ 1.71M, own draft out $ 1.89M)  to CAR
+    2018-02-26  Brett Howden             2016 #27  k=1  $ 1.84M  (slot $ 1.59M, own draft out $ 1.84M)  to NYR
+    2018-09-13  Joshua Norris            2017 #19  k=1  $ 1.80M  (slot $ 2.20M, own draft out $ 1.66M)  to OTT
+    2018-09-13  Rūdolfs Balcers          2015 #142 k=3  $ 1.80M  (slot $ 0.16M, own draft out $ 1.63M)  to OTT
+    2019-02-22  Vitaly Abramov           2016 #65  k=2  $ 1.80M  (slot $ 0.61M, own draft out $ 1.81M)  to OTT
+    2017-11-05  Shane Bowers             2017 #28  k=0  $ 1.65M  (slot $ 1.54M, own draft out $ 1.56M)  to COL
+    2020-02-16  Nolan Foote              2019 #27  k=0  $ 1.47M  (slot $ 1.60M, own draft out $ 1.47M)  to NJD
+    2021-03-24  Alexander Volkov         2017 #48  k=3  $ 1.44M  (slot $ 0.48M, own draft out $ 1.24M)  to ANA
+    2020-08-25  Filip Hållander          2018 #58  k=2  $ 1.42M  (slot $ 0.68M, own draft out $ 1.42M)  to TOR
+    2019-04-30  Adam Fox                 2016 #66  k=3  $ 1.36M  (slot $ 0.35M, own draft out $ 1.40M)  to NYR
+    2018-06-23  Adam Fox                 2016 #66  k=2  $ 1.31M  (slot $ 0.60M, own draft out $ 1.33M)  to CAR
+    2017-11-05  Samuel Girard            2016 #47  k=1  $ 1.15M  (slot $ 0.93M, own draft out $ 1.15M)  to COL
+
+WHO EACH TRADED PLAYER IS (v1.1: NHL id from PuckPedia first, names second)
+match
+NHL id (PuckPedia trade)                         363
+NHL id (PuckPedia contract + PuckPedia trade)    237
+name                                             131
+NHL id (PuckPedia contract, any cap hit)         112
+NHL id (PuckPedia contract)                       84
+  matched by NHL id: 796; the name rules give the same draftee for 794, a different answer for 2:
+    2018-07-01 Ryan O'Reilly            by id: 2009 #33       by name: 2009 #33; 2018 #98 -> player model (not a prospect)
+    2021-03-12 Mikko Lehtonen           by id: none           by name: 2005 #83       -> undrafted prospect, valued (NHL contract)
+  guard: all 2 disagreements were reviewed (the NHL id is right in each) (PASS)
+
+  not matched to a drafted player: 32 assets, of them flagged AHL/junior 16, signing rights 0, with NHL seasons in the WAR tables 31
+  of them with no NHL season under the name (undrafted, or names not found): Adam Chapie
+  namesake guard: Erik Karlsson (2018-09-13) -> player model (not a prospect)
+  namesake guard: Josh Anderson (2020-10-06) -> player model (not a prospect)
+  past club control (worth zero): Chris DiDomenico (2007 #164, control ended 2016); John Albert (2007 #175, control ended 2016); Tom McCollum (2008 #30, control ended 2017); Ben Sexton (2009 #206, control ended 2018); Andrew Campbell (2008 #74, control ended 2015); T.J. Brennan (2007 #31, control ended 2016); Jani Hakanpää (2010 #104, control ended 2019); Gregory Hofmann (2011 #103, control ended 2020)
+
+wrote prospect_values.csv, prospect_star_values.csv, prospect_production_fits.csv, prospect_values_log.txt in C:\Users\thoma\Desktop\xNPV\30_OUTPUT
+
+==============================================================================
+20_CODE/traded_player_values.py  started 23:06:38
+==============================================================================
+[rate] control years priced on: xNPV 1 term-in line  alpha=-0.00430925  beta_F=0.01750927  beta_D=0.02158576
+traded_player_values.py v1.6 (2026-10-21)
+  [xNPV 1] birthdates: production's own join (WAR_with_age.csv, 3204 keys) as primary, then the Elite Prospects scrape for 0 keys it lacks
+  [age] xnpv1_birthdates.csv: 3204 keys on a pre-built pkey
+  production age table: birthdate on 99.94% of season rows (C:\Users\thoma\Desktop\xNPV\30_OUTPUT\WAR_with_age.csv)
+  [xNPV 1] page 2019: fitted through season 2018, 998 players forecast, fitted horizons 0-9, reads contracts: True
+  [xNPV 1] page 2020: fitted through season 2019, 994 players forecast, fitted horizons 0-9, reads contracts: True
+  [xNPV 1] page 2021: fitted through season 2020, 986 players forecast, fitted horizons 0-10, reads contracts: True
+  [xNPV 1] page 2022: fitted through season 2021, 1013 players forecast, fitted horizons 0-11, reads contracts: True
+  [xNPV 1] page 2023: fitted through season 2022, 1002 players forecast, fitted horizons 0-11, reads contracts: True
+  [xNPV 1] page 2024: fitted through season 2023, 1013 players forecast, fitted horizons 0-12, reads contracts: True
+  [xNPV 1] page 2025: fitted through season 2024, 983 players forecast, fitted horizons 0-12, reads contracts: True
+  [xNPV 1] page 2018: fitted through season 2017, 1001 players forecast, fitted horizons 0-8, reads contracts: True
+
+TRADED PLAYERS VALUED AT THEIR TRADE'S PAGE (2018-19 on): 569 assets
+status
+ok                                                                              490
+rights only (his contract at the page was signed on or after the trade date)     55
+unpriced_no_anchor                                                               14
+no contract at the page                                                           6
+unpriced_no_history                                                               3
+no NHL id                                                                         1
+  priced: 490; npv_total $-489.8M; post-season trades among them: 38
+  trades with an extension signed on or after the trade date, left out (v1.4): 6
+    2019-02-25 Mark Stone
+    2019-02-22 Nick Jensen
+    2018-09-10 Max Pacioretty
+    2020-02-24 Jean-Gabriel Pageau
+    2019-09-24 Justin Faulk
+    2021-07-23 Seth Jones
+  rights only (contract at the page signed on or after the trade date): 55
+    2018-06-30 Joel Armia (page 2018, post-season)
+    2018-06-24 Michael Chaput (page 2018, post-season)
+    2018-06-23 Elias Lindholm (page 2018, post-season)
+    2018-06-23 Noah Hanifin (page 2018, post-season)
+    2018-06-22 Philipp Grubauer (page 2018, post-season)
+    2018-06-15 Max Domi (page 2018, post-season)
+    2018-06-14 Hudson Fasching (page 2018, post-season)
+    2019-06-29 Dominic Toninato (page 2019, post-season)
+    2019-06-28 André Burakovsky (page 2019, post-season)
+    2019-06-24 Anton Forsberg (page 2019, post-season)
+    2019-06-24 Gustav Forsling (page 2019, post-season)
+    2019-06-24 Ryan Hartman (page 2019, post-season)
+    2019-06-22 John Quenneville (page 2019, post-season)
+    2019-06-22 Patrick Marleau (page 2019, post-season)
+    2019-06-17 Jacob Trouba (page 2019, post-season)
+    2019-06-17 Neal Pionk (page 2019, post-season)
+    2019-06-03 Kevin Hayes (page 2019, post-season)
+    2018-08-20 Kerby Rychel (page 2018)
+    2019-08-14 Adam Erne (page 2019)
+    2019-07-01 Alexander Kerfoot (page 2019)
+    2019-07-01 Michael Carcone (page 2019)
+    2019-07-01 Cody Ceci (page 2019)
+    2021-01-23 Jack Roslovic (page 2020)
+    2020-12-11 Dmytro Timashov (page 2020)
+    2020-10-12 Devon Toews (page 2020)
+    2020-10-11 AJ Greer (page 2020)
+    2020-10-10 Joey Anderson (page 2020)
+    2020-10-10 Nikita Zadorov (page 2020)
+    2020-10-07 Luke Kunin (page 2020)
+    2020-10-07 Matt Murray (page 2020)
+    2020-10-06 Max Domi (page 2020)
+    2020-10-06 Josh Anderson (page 2020)
+    2020-10-02 Joshua Brown (page 2020)
+    2020-09-12 Joel Edmundson (page 2020)
+    2020-08-25 Evan Rodrigues (page 2020)
+    2021-07-28 Conor Timmins (page 2021)
+    2021-07-28 Lane Pederson (page 2021)
+    2021-07-28 Warren Foegele (page 2021)
+    2021-07-28 Brennan Menell (page 2021)
+    2021-07-28 Nikita Zadorov (page 2021)
+    2021-07-26 Christian Jaros (page 2021)
+    2021-07-26 Nick Merkley (page 2021)
+    2021-07-24 Sam Reinhart (page 2021)
+    2021-07-24 Brayden Burke (page 2021)
+    2021-07-23 Jake Bean (page 2021)
+    2021-07-23 Conor Garland (page 2021)
+    2021-07-23 Pavel Buchnevich (page 2021)
+    2021-07-22 Jonathan Bernier (page 2021)
+    2021-07-22 Alex Nedeljkovic (page 2021)
+    2021-07-17 Nolan Patrick (page 2021)
+    2021-07-17 Nolan Patrick (page 2021)
+    2021-07-17 Nick DeSimone (page 2021)
+    2021-07-17 Barclay Goodrow (page 2021)
+    2021-07-17 Adin Hill (page 2021)
+    2021-07-17 Jason Dickinson (page 2021)
+  on LTIR when traded (v1.5; ltir.py rule cba): 22, relief $38.20M at the pages' caps
+    2021-07-27 Brent Seabrook: +$14.04M
+    2018-07-12 Marián Hossa: +$10.01M
+    2020-12-27 Marián Gáborík: +$3.50M
+    2022-03-21 Bryan Little: +$2.20M
+    2021-11-04 Johnny Boychuk: +$2.00M
+    2021-07-23 Jay Beagle: +$1.84M
+    2019-02-09 David Schlemko: +$1.02M
+    2021-11-04 Jack Eichel: +$0.86M
+    2020-12-27 Anders Nilsson: +$0.75M
+    2021-11-04 Alex Tuch: +$0.52M
+    2018-09-11 Steven Kampfer: +$0.39M
+    2019-06-27 Erik Haula: +$0.27M
+    2020-10-08 Erik Gudbranson: +$0.24M
+    2020-10-09 Carl Dahlström: +$0.16M
+    2022-02-21 Carter Hutton: +$0.15M
+    2022-03-14 Josh Manson: +$0.07M
+    2022-03-21 Nathan Beaulieu: +$0.05M
+    2020-02-24 Kyle Brodziak: +$0.05M
+    2020-02-24 Sami Vatanen: +$0.03M
+    2021-04-09 Riley Nash: +$0.03M
+    2022-03-21 Johan Larsson: +$0.00M
+    2021-04-12 Adam Gaudette: +$0.00M
+  no contract at the page: 6
+    2019-06-30 Scott Darling (page 2019, post-season)
+    2019-06-22 Tom Pyatt (page 2019, post-season)
+    2019-06-22 Marek Mazanec (page 2019, post-season)
+    2021-04-08 Henrik Borgström (page 2020)
+    2021-02-13 Gregory Hofmann (page 2020)
+    2020-08-25 Pontus Åberg (page 2020)
+
+wrote traded_player_values.csv and its log in C:\Users\thoma\Desktop\xNPV\30_OUTPUT
+
+==============================================================================
+20_CODE/rights_values.py  started 23:08:05
+==============================================================================
+[rate] control years priced on: xNPV 1 term-in line  alpha=-0.00430925  beta_F=0.01750927  beta_D=0.02158576
+rights_values.py v1.6 (2026-10-21)
+  rights assets: 61
+  [xNPV 1] birthdates: production's own join (WAR_with_age.csv, 3204 keys) as primary, then the Elite Prospects scrape for 0 keys it lacks
+  [age] xnpv1_birthdates.csv: 3204 keys on a pre-built pkey
+  production age table: birthdate on 99.94% of season rows (C:\Users\thoma\Desktop\xNPV\30_OUTPUT\WAR_with_age.csv)
+  [xNPV 1] page 2019: fitted through season 2018, 998 players forecast, fitted horizons 0-9, reads contracts: True
+  [xNPV 1] page 2020: fitted through season 2019, 994 players forecast, fitted horizons 0-9, reads contracts: True
+  [xNPV 1] page 2021: fitted through season 2020, 986 players forecast, fitted horizons 0-10, reads contracts: True
+  [xNPV 1] page 2022: fitted through season 2021, 1013 players forecast, fitted horizons 0-11, reads contracts: True
+  [xNPV 1] page 2023: fitted through season 2022, 1002 players forecast, fitted horizons 0-11, reads contracts: True
+  [xNPV 1] page 2024: fitted through season 2023, 1013 players forecast, fitted horizons 0-12, reads contracts: True
+  [xNPV 1] page 2025: fitted through season 2024, 983 players forecast, fitted horizons 0-12, reads contracts: True
+  [xNPV 1] page 2018: fitted through season 2017, 1001 players forecast, fitted horizons 0-8, reads contracts: True
+
+status
+ok                                                   48
+UFA rights: zero                                      8
+no_anchor                                             3
+no expired contract found (PuckPedia or CapWages)     2
+  total $2.83M
+    2019-07-01  Alexander Kerfoot      page 2019 F  RFA        UFA year 2022.0   $  1.36M  ok (PuckPedia)
+    2021-01-23  Jack Roslovic          page 2020 F  RFA        UFA year 2024.0   $  0.33M  ok (PuckPedia)
+    2020-12-11  Dmytro Timashov        page 2020 F  RFA        UFA year 2024.0   $  0.28M  ok (PuckPedia)
+    2020-10-10  Joey Anderson          page 2020 F  RFA        UFA year 2025.0   $  0.21M  ok (PuckPedia)
+    2018-06-23  Noah Hanifin           page 2018 D  RFA        UFA year 2022.0   $  0.20M  ok (CapWages)
+    2021-04-08  Henrik Borgström       page 2020 F  RFA        UFA year 2025.0   $  0.13M  ok (PuckPedia)
+    2019-08-14  Adam Erne              page 2019 F  RFA        UFA year 2022.0   $  0.12M  ok (PuckPedia)
+    2021-07-17  Nolan Patrick          page 2021 F  RFA        UFA year 2025.0   $  0.10M  ok (PuckPedia)
+    2021-07-17  Nolan Patrick          page 2021 F  RFA        UFA year 2025.0   $  0.10M  ok (PuckPedia)
+    2018-06-14  Hudson Fasching        page 2018 F  RFA        UFA year 2023.0   $  0.00M  ok (CapWages)
+    2019-06-30  Scott Darling          page 2019 G  UFA        UFA year 2016.0   $  0.00M  UFA rights: zero (PuckPedia)
+    2019-06-28  André Burakovsky       page 2019 F  RFA        UFA year 2021.0   $  0.00M  ok (PuckPedia)
+    2019-06-24  Ryan Hartman           page 2019 F  RFA        UFA year 2022.0   $  0.00M  ok (PuckPedia)
+    2019-06-22  Tom Pyatt              page 2019 F  UFA        UFA year 2014.0   $  0.00M  UFA rights: zero (PuckPedia)
+    2019-06-24  Anton Forsberg         page 2019 G  RFA        UFA year 2020.0   $  0.00M  ok (PuckPedia)
+    2019-06-24  Gustav Forsling        page 2019 D  RFA        UFA year 2023.0   $  0.00M  ok (PuckPedia)
+    2019-06-22  John Quenneville       page 2019 F  RFA        UFA year 2023.0   $  0.00M  ok (PuckPedia)
+    2019-06-22  Marek Mazanec          page 2019 G  UFA        UFA year 2019.0   $  0.00M  UFA rights: zero (PuckPedia)
+    2019-06-29  Dominic Toninato       page 2019 F  RFA        UFA year 2021.0   $  0.00M  ok (PuckPedia)
+    2018-06-30  Joel Armia             page 2018 F  RFA        UFA year 2020.0   $  0.00M  ok (CapWages)
+    2018-06-22  Philipp Grubauer       page 2018 G  RFA        UFA year 2019.0   $  0.00M  ok (CapWages)
+    2018-06-15  Max Domi               page 2018 F  RFA        UFA year 2022.0   $  0.00M  ok (CapWages)
+    2018-06-24  Michael Chaput         page 2018 F  RFA        UFA year 2019.0   $  0.00M  ok (CapWages)
+    2018-06-23  Elias Lindholm         page 2018 F  RFA        UFA year 2020.0   $  0.00M  ok (CapWages)
+    2019-07-01  Cody Ceci              page 2019 D  RFA        UFA year 2020.0   $  0.00M  ok (PuckPedia)
+    2018-08-20  Kerby Rychel           page 2018 F  RFA        UFA year 2022.0   $  0.00M  ok (CapWages)
+    2019-06-17  Neal Pionk             page 2019 D  RFA        UFA year 2023.0   $  0.00M  ok (PuckPedia)
+    2019-06-03  Kevin Hayes            page 2019 F  UFA        UFA year 2019.0   $  0.00M  UFA rights: zero (PuckPedia)
+    2019-06-17  Jacob Trouba           page 2019 D  RFA        UFA year 2020.0   $  0.00M  ok (PuckPedia)
+    2019-06-22  Patrick Marleau        page 2019 F  UFA        UFA year 2005.0   $  0.00M  UFA rights: zero (PuckPedia)
+    2020-10-12  Devon Toews            page 2020 D  RFA        UFA year 2021.0   $  0.00M  ok (PuckPedia)
+    2020-10-11  AJ Greer               page 2020 F  RFA        UFA year 2024.0   $  0.00M  ok (PuckPedia)
+    2020-10-07  Matt Murray            page 2020 G  RFA        UFA year 2021.0   $  0.00M  ok (PuckPedia)
+    2020-10-06  Max Domi               page 2020 F  RFA        UFA year 2022.0   $  0.00M  ok (PuckPedia)
+    2020-10-06  Josh Anderson          page 2020 F  RFA        UFA year 2021.0   $  0.00M  ok (PuckPedia)
+    2020-10-02  Joshua Brown           page 2020 D  RFA        UFA year 2021.0   $  0.00M  ok (PuckPedia)
+    2020-09-12  Joel Edmundson         page 2020 D  UFA        UFA year 2020.0   $  0.00M  UFA rights: zero (PuckPedia)
+    2020-08-25  Pontus Åberg           page 2020 F  RFA        UFA year 2021.0   $  0.00M  ok (PuckPedia)
+    2020-10-10  Nikita Zadorov         page 2020 D  RFA        UFA year 2022.0   $  0.00M  ok (PuckPedia)
+    2020-10-07  Luke Kunin             page 2020 F  RFA        UFA year 2025.0   $  0.00M  ok (PuckPedia)
+    2021-07-28  Conor Timmins          page 2021 D  RFA        UFA year 2026.0   $  0.00M  ok (PuckPedia)
+    2020-08-25  Evan Rodrigues         page 2020 F  RFA        UFA year 2021.0   $  0.00M  ok (PuckPedia)
+    2021-07-28  Lane Pederson          page 2021 F  RFA        UFA year 2025.0   $  0.00M  ok (PuckPedia)
+    2021-07-28  Warren Foegele         page 2021 F  RFA        UFA year 2023.0   $  0.00M  ok (PuckPedia)
+    2021-07-26  Nick Merkley           page 2021 F  RFA        UFA year 2024.0   $  0.00M  ok (PuckPedia)
+    2021-07-24  Sam Reinhart           page 2021 F  RFA        UFA year 2022.0   $  0.00M  ok (PuckPedia)
+    2021-07-28  Nikita Zadorov         page 2021 D  RFA        UFA year 2022.0   $  0.00M  ok (PuckPedia)
+    2021-07-26  Christian Jaros        page 2021 D  RFA        UFA year 2023.0   $  0.00M  ok (PuckPedia)
+    2021-07-23  Conor Garland          page 2021 F  RFA        UFA year 2023.0   $  0.00M  ok (PuckPedia)
+    2021-07-23  Jake Bean              page 2021 D  RFA        UFA year 2025.0   $  0.00M  ok (PuckPedia)
+    2021-07-22  Jonathan Bernier       page 2021 G  UFA        UFA year 2015.0   $  0.00M  UFA rights: zero (PuckPedia)
+    2021-07-23  Pavel Buchnevich       page 2021 F  RFA        UFA year 2022.0   $  0.00M  ok (PuckPedia)
+    2021-07-22  Alex Nedeljkovic       page 2021 G  RFA        UFA year 2023.0   $  0.00M  ok (PuckPedia)
+    2021-07-17  Barclay Goodrow        page 2021 F  UFA        UFA year 2020.0   $  0.00M  UFA rights: zero (PuckPedia)
+    2021-07-17  Adin Hill              page 2021 G  RFA        UFA year 2023.0   $  0.00M  ok (PuckPedia)
+    2021-07-17  Jason Dickinson        page 2021 F  RFA        UFA year 2023.0   $  0.00M  ok (PuckPedia)
+    2019-07-01  Michael Carcone        page 2019 F  RFA        UFA year 2023.0             no_anchor (PuckPedia)
+    2021-02-13  Gregory Hofmann        page 2020 nan nan        UFA year -             no expired contract found (PuckPedia or CapWages) (nan)
+    2021-07-28  Brennan Menell         page 2021 nan nan        UFA year -             no expired contract found (PuckPedia or CapWages) (nan)
+    2021-07-24  Brayden Burke          page 2021 F  RFA        UFA year 2024.0             no_anchor (PuckPedia)
+    2021-07-17  Nick DeSimone          page 2021 D  RFA        UFA year 2022.0             no_anchor (PuckPedia)
+  written back into traded_player_values.csv: 56 assets ($2.83M); left without a value: 5
+
+wrote rights_values.csv and its log in C:\Users\thoma\Desktop\xNPV\30_OUTPUT
+
+==============================================================================
+20_CODE/buried_contract_values.py  started 23:09:04
+==============================================================================
+buried_contract_values.py v1.8 (2026-10-20)
+
+TRADED VETERANS ON NHL CONTRACTS NEITHER MODEL VALUES (from the 2018-19 page): 17 assets, 16 players
+  value (cost above the burial allowance, at the 2025-26 cap): $0.00M; beside it, the full cap hit (D16(i)'s rule): $-12.34M; on LTIR when traded (v1.8, relieved in full): 2, $-4.89M
+  2019-02-25  Bogdan Kiselevich      cap hit $0.925M to 2018-19: $  0.00M (full cap hit $ -0.24M); to WPG
+  2019-01-14  Cole Schneider         cap hit $0.650M to 2018-19: $  0.00M (full cap hit $ -0.35M); to NSH
+  2018-12-05  Ben Sexton             cap hit $0.725M to 2018-19: $  0.00M (full cap hit $ -0.58M); to PIT
+  2018-10-01  Matt Taormina          cap hit $0.650M to 2018-19: $  0.00M (full cap hit $ -0.78M); to CGY
+  2018-07-12  Andrew Campbell        cap hit $0.650M to 2018-19: $  0.00M (full cap hit $ -0.78M); to CHI
+  2020-02-24  Matt Lorito            cap hit $0.675M to 2019-20: $  0.00M (full cap hit $ -0.17M); to TOR
+  2020-02-24  T.J. Brennan           cap hit $0.675M to 2019-20: $  0.00M (full cap hit $ -0.17M); to CHI
+  2020-02-24  Kyle Criscuolo         cap hit $0.700M to 2019-20: $  0.00M (full cap hit $ -0.18M); to ANA
+  2020-01-17  Oula Palve             cap hit $0.792M to 2019-20: $  0.00M (full cap hit $ -0.39M); to DAL
+  2019-12-30  Chris Mueller          cap hit $0.700M to 2019-20: $  0.00M (full cap hit $ -0.43M); to ANA
+  2019-07-23  David Clarkson         cap hit $5.250M to 2019-20: $  0.00M (full cap hit $ -6.15M); to TOR
+  2021-04-12  Jani Hakanpää          cap hit $0.750M to 2020-21: $  0.00M (full cap hit $ -0.20M); to CAR
+  2021-04-10  Brian Lashoff          cap hit $0.700M to 2020-21: $  0.00M (full cap hit $ -0.21M); to TBL
+  2022-03-21  Andrew Hammond         cap hit $0.750M to 2021-22: $  0.00M (full cap hit $ -0.18M); to NJD
+  2022-03-19  Kodie Curran           cap hit $1.000M to 2021-22: $  0.00M (full cap hit $ -0.25M); to BOS
+  2022-02-12  Andrew Hammond         cap hit $0.750M to 2021-22: $  0.00M (full cap hit $ -0.34M); to MTL
+  2021-07-31  Spencer Martin         cap hit $0.800M to 2021-22: $  0.00M (full cap hit $ -0.94M); to VAN
+
+wrote buried_contract_values.csv and its log in C:\Users\thoma\Desktop\xNPV\30_OUTPUT
+
+==============================================================================
+25_TESTS/uncovered_assets_audit.py  started 23:09:11
+==============================================================================
+uncovered_assets_audit.py v1.1 (2026-10-14)
+  input values: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\prospect_values.csv  (modified 2026-10-22 03:06)
+  input panel: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\contract_npv_panel.csv  (modified 2026-10-22 02:53)
+  input linkage: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\draft_pick_linkage.csv  (modified 2026-10-22 03:04)
+
+TRADED PLAYER ASSETS from 2017-07-01: 927
+covered_by
+player model               490
+prospect model             249
+player model, 2017 page     98
+player model, rights        56
+buried-contract rule        26
+neither                      8
+
+NEITHER MODEL (8 assets), by reason:
+why
+rights only at the page (post-season trade; not valued)    5
+not identified (no NHL id)                                 2
+traded before the player model's first page (2018-19)      1
+
+  of them on an NHL contract running on the trade date (PuckPedia): 0 assets, 0 players; cap hits total $0.00M a season
+
+  traded before the player model's first page: 1 assets (1 players); prospect-model statuses among them: player model (not a prospect) 1
+
+wrote uncovered_assets_audit.csv and its log in C:\Users\thoma\Desktop\xNPV\30_OUTPUT
+
+==============================================================================
+20_CODE/contracts_2017.py  started 23:09:14
+==============================================================================
+contracts_2017.py v1.1 (2026-10-18)
+  traded player assets of 2017-18 no model values: 109 (99 players)
+
+status
+contract found         107
+no contracts parsed      2
+  check against trades.db's cap hit (assets listed with one): 54 of 75 equal
+    differ: 2018-02-26 Patrick Maroon: trades.db $1,500,000, CapWages $2,000,000 (Standard Contract (Extension), signed 2014-08-12)
+    differ: 2018-02-26 Tomas Tatar: trades.db $4,800,000, CapWages $5,300,000 (Standard Contract, signed 2017-07-21)
+    differ: 2018-02-26 Jason Chimera: trades.db $1,125,000, CapWages $2,250,000 (35+ Contract, signed 2016-07-01)
+    differ: 2018-02-26 Paul Stastny: trades.db $3,500,000, CapWages $7,000,000 (Standard Contract, signed 2014-07-01)
+    differ: 2018-02-25 Tomas Plekanec: trades.db $3,000,000, CapWages $6,000,000 (Standard Contract (Extension), signed 2015-10-16)
+    differ: 2018-02-25 Rick Nash: trades.db $3,900,000, CapWages $7,800,000 (Standard Contract (Extension), signed 2009-07-03)
+    differ: 2018-02-25 Matt Beleskey: trades.db $1,900,000, CapWages $3,800,000 (Standard Contract, signed 2015-07-01)
+    differ: 2018-02-23 Derick Brassard: trades.db $3,000,000, CapWages $5,000,000 (Standard Contract, signed 2014-07-27)
+    differ: 2018-02-21 Tobias Rieder: trades.db $1,891,250, CapWages $2,225,000 (Standard Contract, signed 2016-10-03)
+    differ: 2018-02-20 Eric Fehr: trades.db $975,000, CapWages $2,000,000 (Standard Contract, signed 2015-07-28)
+    differ: 2018-02-19 Petr Mrázek: trades.db $2,000,000, CapWages $4,000,000 (Standard Contract, signed 2016-07-27)
+    differ: 2018-02-14 Dion Phaneuf: trades.db $5,250,000, CapWages $7,000,000 (Standard Contract (Extension), signed 2013-12-31)
+    differ: 2018-01-22 Jeff Zatkoff: trades.db $450,000, CapWages $900,000 (Standard Contract, signed 2016-07-01)
+    differ: 2017-12-30 Dalton Prout: trades.db $550,000, CapWages $1,575,000 (Standard Contract (Extension), signed 2016-03-25)
+    differ: 2017-12-30 Eddie Läck: trades.db $350,000, CapWages $2,750,000 (Standard Contract (Extension), signed 2015-10-03)
+    differ: 2017-11-14 Louis Domingue: trades.db $25,000, CapWages $1,050,000 (Standard Contract (Extension), signed 2016-06-27)
+    differ: 2017-11-05 Andrew Hammond: trades.db $325,000, CapWages $1,350,000 (Standard Contract (Extension), signed 2015-05-20)
+    differ: 2017-09-17 Jason Demers: trades.db $3,937,500, CapWages $4,500,000 (Standard Contract, signed 2016-07-02)
+    differ: 2017-07-04 Marcus Krüger: trades.db $2,775,000, CapWages $3,083,333 (Standard Contract (Extension), signed 2016-03-08)
+    differ: 2017-07-02 Marcus Krüger: trades.db $2,775,000, CapWages $3,083,333 (Standard Contract (Extension), signed 2016-03-08)
+    differ: 2017-07-01 Alexei Emelin: trades.db $3,000,000, CapWages $4,100,000 (Standard Contract (Extension), signed 2013-11-01)
+  no contracts parsed: 2018-02-26 Greg McKegg
+  no contracts parsed: 2017-12-19 Josh Archibald
+
+wrote contracts_2017.csv and its log in C:\Users\thoma\Desktop\xNPV\30_OUTPUT
+
+==============================================================================
+20_CODE/page_2017_values.py  started 23:09:16
+==============================================================================
+[rate] control years priced on: xNPV 1 term-in line  alpha=-0.00430925  beta_F=0.01750927  beta_D=0.02158576
+page_2017_values.py v1.9 (2026-10-21)
+  assets: 109 (99 players), traded 2017-18, no model valued
+  [xNPV 1] birthdates: production's own join (WAR_with_age.csv, 3204 keys) as primary, then the Elite Prospects scrape for 0 keys it lacks
+  [age] xnpv1_birthdates.csv: 3204 keys on a pre-built pkey
+  production age table: birthdate on 99.94% of season rows (C:\Users\thoma\Desktop\xNPV\30_OUTPUT\WAR_with_age.csv)
+  [xNPV 1] page 2019: fitted through season 2018, 998 players forecast, fitted horizons 0-9, reads contracts: True
+  [xNPV 1] page 2020: fitted through season 2019, 994 players forecast, fitted horizons 0-9, reads contracts: True
+  [xNPV 1] page 2021: fitted through season 2020, 986 players forecast, fitted horizons 0-10, reads contracts: True
+  [xNPV 1] page 2022: fitted through season 2021, 1013 players forecast, fitted horizons 0-11, reads contracts: True
+  [xNPV 1] page 2023: fitted through season 2022, 1002 players forecast, fitted horizons 0-11, reads contracts: True
+  [xNPV 1] page 2024: fitted through season 2023, 1013 players forecast, fitted horizons 0-12, reads contracts: True
+  [xNPV 1] page 2025: fitted through season 2024, 983 players forecast, fitted horizons 0-12, reads contracts: True
+  [xNPV 1] page 2017: fitted through season 2016, 997 players forecast, fitted horizons 0-7, reads contracts: True
+
+status
+ok                                                                            98
+buried veteran (cost above burial)                                             9
+no contract found (CapWages: no contracts parsed; PuckPedia: none at 2017)     1
+position unknown (no PuckPedia record, no WAR row under the name)              1
+
+  priced: 107 assets; npv_total $-69.7M (contract $-72.5M, terminal $2.8M)
+    2018-02-14  Dion Phaneuf             D $7.000M to 2020-21 (UFA): $ -12.92M
+    2018-02-14  Marián Gáborík           F $4.875M to 2020-21 (UFA): $ -11.49M
+    2017-11-05  Matt Duchene             F $6.000M to 2018-19 (UFA): $  -5.81M
+    2017-11-30  Sami Vatanen             D $4.875M to 2019-20 (UFA): $  -3.95M
+    2017-07-01  Colin Wilson             F $3.938M to 2018-19 (UFA): $  -3.89M
+    2017-09-17  Jamie McGinn             F $3.333M to 2018-19 (UFA): $  -3.58M
+    2017-07-02  Marcus Krüger            F $3.083M to 2018-19 (UFA): $  -3.57M
+    2017-07-04  Marcus Krüger            F $3.083M to 2018-19 (UFA): $  -3.57M
+    2018-02-23  Derick Brassard          F $5.000M to 2018-19 (UFA): $  -3.38M
+    2017-09-17  Jason Demers             D $4.500M to 2020-21 (UFA): $  -3.00M
+    2018-02-26  Tomas Tatar              F $5.300M to 2020-21 (UFA): $  -2.68M
+    2017-07-01  Alexei Emelin            D $4.100M to 2017-18 (UFA): $  -2.19M
+    2017-11-30  Adam Henrique            F $4.000M to 2018-19 (UFA): $  -1.72M
+    2018-02-14  Nate Thompson            F $1.650M to 2018-19 (UFA): $  -1.69M
+    2017-07-02  Marcus Johansson         F $4.583M to 2018-19 (UFA): $  -1.41M
+    2017-11-05  Kyle Turris              F $3.500M to 2017-18 (UFA): $  -1.38M
+    2018-02-26  Ryan McDonagh            D $4.700M to 2018-19 (UFA): $  -1.23M
+    2018-02-23  Derick Brassard          F $5.000M to 2018-19 (UFA): $  -0.96M
+    2017-10-21  Riley Sheahan            F $2.075M to 2017-18 (UFA (No QO)): $  -0.96M
+    2018-02-25  Matt Beleskey            F $3.800M to 2019-20 (UFA): $  -0.88M
+    2018-02-26  Evander Kane             F $5.250M to 2017-18 (UFA): $  -0.86M
+    2018-01-10  Richard Pánik            F $2.800M to 2018-19 (UFA): $  -0.84M
+    2017-12-30  Eddie Läck               G $2.750M to 2017-18 (UFA): $  -0.71M
+    2018-02-25  Troy Grosenick           G $0.650M to 2018-19 (UFA): $  -0.63M
+    2017-11-05  Andrew Hammond           G $1.350M to 2017-18 (UFA): $  -0.55M
+    2017-10-09  Dustin Tokarski          G $0.650M to 2017-18 (UFA): $  -0.52M
+    2017-12-30  Dalton Prout             D $1.575M to 2017-18 (UFA): $  -0.52M
+    2018-02-25  Tomas Plekanec           F $6.000M to 2017-18 (UFA): $  -0.50M
+    2018-02-25  Rick Nash                F $7.800M to 2017-18 (UFA): $  -0.47M
+    2017-10-28  Scott Wedgewood          G $0.650M to 2017-18 (UFA (Group 6)): $  -0.41M
+    2017-11-14  Michael Leighton         G $0.650M to 2017-18 (UFA): $  -0.39M
+    2018-02-25  Ryan Spooner             F $2.825M to 2017-18 (RFA (Arb)): $  -0.38M
+    2018-02-26  Paul Stastny             F $7.000M to 2017-18 (UFA): $  -0.36M
+    2017-12-19  Michael Leighton         G $0.650M to 2017-18 (UFA): $  -0.30M
+    2017-10-03  Andrey Pedan             D $0.750M to 2017-18 (RFA (Arb)): $  -0.29M
+    2018-02-20  Eric Fehr                F $2.000M to 2017-18 (UFA): $  -0.26M
+    2018-02-23  Ian Cole                 D $2.100M to 2017-18 (UFA): $  -0.24M
+    2018-02-26  Thomas Vanek             F $2.000M to 2017-18 (UFA): $  -0.23M
+    2018-02-26  Ian Cole                 D $2.100M to 2017-18 (UFA): $  -0.22M
+    2017-11-14  Mike Cammalleri          F $1.000M to 2017-18 (UFA): $  -0.22M
+    2018-02-21  Tobias Rieder            F $2.225M to 2017-18 (UFA (No QO)): $  -0.13M
+    2018-02-26  J.T. Miller              F $2.750M to 2017-18 (RFA (Arb)): $  -0.13M
+    2018-02-25  Mark Letestu             F $1.800M to 2017-18 (UFA): $  -0.12M
+    2018-02-25  Mark Letestu             F $1.800M to 2017-18 (UFA): $  -0.12M
+    2018-02-21  Scott Wedgewood          G $0.650M to 2017-18 (UFA (Group 6)): $  -0.12M
+    2017-10-04  Nicolas Deslauriers      F $0.775M to 2017-18 (UFA): $  -0.11M
+    2018-02-24  Brandon Davidson         D $1.425M to 2017-18 (UFA (No QO)): $  -0.11M
+    2018-02-26  Patrick Maroon           F $2.000M to 2017-18 (UFA): $  -0.10M
+    2018-02-19  Petr Mrázek              G $4.000M to 2017-18 (UFA (No QO)): $  -0.09M
+    2018-02-20  Nick Holden              D $1.650M to 2017-18 (UFA): $  -0.09M
+    2018-02-25  Brandon Bollig           F $0.650M to 2017-18 (UFA): $  -0.06M
+    2018-01-22  Jeff Zatkoff             G $0.900M to 2017-18 (UFA): $  -0.06M
+    2018-02-26  Jason Chimera            F $2.250M to 2017-18 (UFA): $  -0.05M
+    2018-02-21  Darcy Kuemper            G $0.650M to 2017-18 (UFA): $  -0.05M
+    2018-02-23  Ryan Reaves              F $1.125M to 2017-18 (UFA): $  -0.05M
+    2018-02-26  Vladislav Namestnikov    F $1.938M to 2017-18 (RFA (Arb)): $  -0.05M
+    2018-02-26  Chris Bigras             D $0.843M to 2017-18 (RFA): $  -0.04M
+    2017-10-03  Derrick Pouliot          D $0.800M to 2017-18 (UFA (No QO)): $  -0.03M
+    2017-11-23  Torrey Mitchell          F $1.200M to 2017-18 (UFA): $  -0.03M
+    2018-02-25  Kerby Rychel             F $0.863M to 2017-18 (RFA): $  -0.02M
+    2018-01-10  Laurent Dauphin          F $0.745M to 2017-18 (RFA): $  -0.02M
+    2018-02-26  Tyler Gaudet             F $0.650M to 2017-18 (UFA (Group 6)): $  -0.00M
+    2018-02-16  Chris DiDomenico         F $0.613M to 2017-18 (UFA): $   0.00M  [buried]
+    2018-02-09  John Albert              F $0.650M to 2017-18 (UFA): $   0.00M  [buried]
+    2017-10-04  Kyle Baun                F $0.625M to 2017-18 (UFA (Group 6)): $   0.00M  [buried]
+    2017-07-01  Tom McCollum             G $0.613M to 2017-18 (UFA): $   0.00M  [buried]
+    2018-02-26  Trevor Murphy            D $0.640M to 2017-18 (RFA): $   0.00M  [buried]
+    2018-02-25  Kyle Baun                F $0.625M to 2017-18 (UFA (Group 6)): $   0.00M  [buried]
+    2018-02-26  Pierre-Cédric Labrie     F $0.650M to 2017-18 (UFA): $   0.00M  [buried]
+    2018-02-21  Jakub Jeřábek            D $0.925M to 2017-18 (UFA): $   0.00M  [buried]
+    2018-02-26  Philip Holm              D $0.925M to 2017-18 (RFA (Arb)): $   0.00M  [buried]
+    2018-02-26  Joe Morrow               D $0.650M to 2017-18 (UFA (No QO)): $   0.03M
+    2017-11-14  Tye McGinn               F $0.650M to 2017-18 (UFA): $   0.03M
+    2018-02-26  Jussi Jokinen            F $1.100M to 2017-18 (UFA): $   0.04M
+    2018-02-22  Michael Grabner          F $1.650M to 2017-18 (UFA): $   0.05M
+    2017-10-04  Zach Redmond             D $0.613M to 2017-18 (UFA): $   0.05M
+    2018-02-26  Nick Shore               F $0.925M to 2017-18 (UFA (No QO)): $   0.05M
+    2018-02-14  Nick Shore               F $0.925M to 2017-18 (UFA (No QO)): $   0.06M
+    2017-12-19  Jamie Oleksiak           D $0.965M to 2017-18 (RFA (Arb)): $   0.06M
+    2018-02-26  Josh Jooris              F $0.775M to 2017-18 (UFA): $   0.07M
+    2018-01-04  Al Montoya               G $1.062M to 2018-19 (UFA): $   0.08M
+    2018-02-16  Nikita Soshnikov         F $0.737M to 2017-18 (RFA (Arb)): $   0.08M
+    2018-02-26  Tommy Wingels            F $0.750M to 2017-18 (UFA): $   0.08M
+    2017-10-04  Andreas Martinsen        F $0.675M to 2017-18 (UFA): $   0.09M
+    2018-02-26  Chris Wagner             F $0.637M to 2017-18 (UFA): $   0.11M
+    2018-02-25  Rinat Valiev             D $0.778M to 2017-18 (RFA): $   0.13M
+    2017-10-21  Matt Puempel             F $0.725M to 2017-18 (RFA (Arb)): $   0.13M
+    2018-01-10  Adam Clendening          D $0.650M to 2017-18 (UFA (No QO)): $   0.13M
+    2017-11-30  Adam Cracknell           F $0.675M to 2017-18 (UFA): $   0.14M
+    2018-02-19  Michal Kempný            D $0.900M to 2017-18 (UFA): $   0.15M
+    2018-01-10  Anthony Duclair          F $1.200M to 2017-18 (UFA (No QO)): $   0.15M
+    2017-11-14  Jussi Jokinen            F $1.100M to 2017-18 (UFA): $   0.16M
+    2018-02-26  Tyler Motte              F $0.925M to 2018-19 (RFA (Arb)): $   0.16M
+    2017-12-14  Michael Latta            F $0.650M to 2017-18 (UFA): $   0.18M
+    2017-10-21  Ryan Sproul              D $0.625M to 2017-18 (UFA (Group 6)): $   0.18M
+    2018-02-22  Frank Vatrano            F $0.792M to 2017-18 (RFA (Arb)): $   0.19M
+    2017-12-08  Nic Dowd                 F $0.640M to 2017-18 (UFA): $   0.34M
+    2017-11-14  Louis Domingue           G $1.050M to 2017-18 (RFA (Arb)): $   0.37M
+    2018-02-26  Mike Reilly              D $0.725M to 2018-19 (RFA (Arb)): $   0.39M
+    2018-02-25  Pontus Åberg             F $0.650M to 2018-19 (UFA (No QO)): $   0.50M
+    2017-10-06  Calvin Pickard           G $1.000M to 2017-18 (RFA (Arb)): $   0.55M
+    2017-12-19  Josh Archibald           PuckPedia (no CapWages contract): $   0.58M
+    2017-11-30  Peter Holland            F $0.675M to 2018-19 (UFA): $   0.60M
+    2017-12-04  Scott Wilson             F $0.625M to 2017-18 (UFA (No QO)): $   0.62M
+    2017-11-30  Joseph Blandisi          F $0.680M to 2018-19 (RFA (Arb)): $   0.83M
+    2017-10-21  Scott Wilson             F $0.625M to 2017-18 (UFA (No QO)): $   0.84M
+    2018-02-26  Ryan Hartman             F $0.863M to 2017-18 (RFA): $   2.80M
+  no contract found (CapWages: no contracts parsed; PuckPedia: none at 2017): 2018-02-26 Greg McKegg
+  position unknown (no PuckPedia record, no WAR row under the name): 2018-02-09 Adam Chapie
+
+wrote page_2017_values.csv and its log in C:\Users\thoma\Desktop\xNPV\30_OUTPUT
+
+==============================================================================
+25_TESTS/uncovered_assets_audit.py  started 23:10:09
+==============================================================================
+uncovered_assets_audit.py v1.1 (2026-10-14)
+  input values: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\prospect_values.csv  (modified 2026-10-22 03:06)
+  input panel: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\contract_npv_panel.csv  (modified 2026-10-22 02:53)
+  input linkage: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\draft_pick_linkage.csv  (modified 2026-10-22 03:04)
+
+TRADED PLAYER ASSETS from 2017-07-01: 927
+covered_by
+player model               490
+prospect model             249
+player model, 2017 page     98
+player model, rights        56
+buried-contract rule        26
+neither                      8
+
+NEITHER MODEL (8 assets), by reason:
+why
+rights only at the page (post-season trade; not valued)    5
+not identified (no NHL id)                                 2
+traded before the player model's first page (2018-19)      1
+
+  of them on an NHL contract running on the trade date (PuckPedia): 0 assets, 0 players; cap hits total $0.00M a season
+
+  traded before the player model's first page: 1 assets (1 players); prospect-model statuses among them: player model (not a prospect) 1
+
+wrote uncovered_assets_audit.csv and its log in C:\Users\thoma\Desktop\xNPV\30_OUTPUT
+
+==============================================================================
+20_CODE/trade_asset_values.py  started 23:10:11
+==============================================================================
+trade_asset_values.py v1.2 (2026-10-20)
+  input prospects: prospect_values.csv (modified 2026-10-22 03:06; prospect_values.py v1.12 (2026-10-21))
+  input players: traded_player_values.csv (modified 2026-10-22 03:09; traded_player_values.py v1.6 (2026-10-21))
+  input page2017: page_2017_values.csv (modified 2026-10-22 03:10; page_2017_values.py v1.9 (2026-10-21))
+  input buried: buried_contract_values.csv (modified 2026-10-22 03:09; buried_contract_values.py v1.8 (2026-10-20))
+  input picks: traded_pick_values.csv (modified 2026-10-22 03:05; traded_pick_values.py v1.2 (2026-10-09))
+
+TRADED ASSETS FROM 2017-07-01: 1,648 (927 players, 634 picks; trades.db ends 2022-03-28)
+                                           assets  page_cap_M  cap_2025_M
+source                                                                   
+buried contract                                17        0.00        0.00
+buried contract, 2017 page                      9        0.00        0.00
+not valued                                      3        0.00        0.00
+pick curve (traded_pick_values)               634      343.18      407.11
+player model                                  490     -489.76     -577.14
+player model, 2017 page                        98      -69.69      -88.74
+player model, rights                           56        2.83        3.33
+prospect model                                249       64.73       77.44
+prospect model (zero)                           5        0.00        0.00
+retained salary (player model)                 75      -58.67      -68.92
+retained salary (player model, 2017 page)      12      -18.62      -23.71
+  all valued assets: 1,645; at the page caps $-225.99M, at the 2025-26 cap $-270.64M
+
+  in two files, resolved by the order above (17; the other file's value is listed):
+    2018-02-16 Chris DiDomenico         buried contract, 2017 page: +0.00 at 2025-26 (also: prospect model (zero))
+    2018-02-09 John Albert              buried contract, 2017 page: +0.00 at 2025-26 (also: prospect model (zero))
+    2017-07-01 Tom McCollum             buried contract, 2017 page: +0.00 at 2025-26 (also: prospect model (zero))
+    2019-02-25 Bogdan Kiselevich        buried contract: +0.00 at 2025-26 (also: prospect model (zero))
+    2019-01-14 Cole Schneider           buried contract: +0.00 at 2025-26 (also: prospect model (zero))
+    2018-12-05 Ben Sexton               buried contract: +0.00 at 2025-26 (also: prospect model (zero))
+    2018-10-01 Matt Taormina            buried contract: +0.00 at 2025-26 (also: prospect model (zero))
+    2018-07-12 Andrew Campbell          buried contract: +0.00 at 2025-26 (also: prospect model (zero))
+    2020-02-24 Matt Lorito              buried contract: +0.00 at 2025-26 (also: prospect model (zero))
+    2020-02-24 T.J. Brennan             buried contract: +0.00 at 2025-26 (also: prospect model (zero))
+    2020-02-24 Kyle Criscuolo           buried contract: +0.00 at 2025-26 (also: prospect model (zero))
+    2020-01-17 Oula Palve               buried contract: +0.00 at 2025-26 (also: prospect model (zero))
+    2019-12-30 Chris Mueller            buried contract: +0.00 at 2025-26 (also: prospect model (zero))
+    2019-07-23 David Clarkson           buried contract: +0.00 at 2025-26 (also: prospect model (zero))
+    2021-04-12 Jani Hakanpää            buried contract: +0.00 at 2025-26 (also: prospect model (zero))
+    2021-04-10 Brian Lashoff            buried contract: +0.00 at 2025-26 (also: prospect model (zero))
+    2022-03-19 Kodie Curran             buried contract: +0.00 at 2025-26 (also: prospect model (zero))
+
+  NOT VALUED (3):
+    2018-06-14 Mike Sislo               page 2018: no NHL id
+    2018-02-26 Greg McKegg              page 2017: no contract found (CapWages: no contracts parsed; PuckPedia: none at 2017)
+    2018-02-09 Adam Chapie              page 2017: position unknown (no PuckPedia record, no WAR row under the name)
+
+  retained salary (Thomas, 2026-10-19): 87 player assets carry it; 87 entries charged to the retaining club, $-92.63M at the 2025-26 cap; retained assets valued by the prospect model (no retention applied): 0
+  in-season trades (Thomas, 2026-10-19): 625 player assets traded during a regular season; the season left counted for 433 of the 439 valued outside the prospect model (median share 24.1%)
+
+wrote trade_asset_values.csv and its log in C:\Users\thoma\Desktop\xNPV\30_OUTPUT

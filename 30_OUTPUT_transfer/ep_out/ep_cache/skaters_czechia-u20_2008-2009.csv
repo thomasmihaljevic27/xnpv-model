@@ -1,0 +1,695 @@
+player,team,gp,g,a,tp,p_per_gp,pim,plus_minus,link,page,playername,position,season,league,ep_player_id,scrape_date,source,package_version
+Ondrej Sedivy (W/C),HC Vítkovice U20,37,29,51,80,2.16,71,33,/player/19007/ondrej-sedivy,1,Ondrej Sedivy,W/C,2008-2009,czechia-u20,19007,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antonín Melka (LW/C),HC Kladno U20,46,37,34,71,1.54,56,4,/player/34808/antonin-melka,1,Antonín Melka,LW/C,2008-2009,czechia-u20,34808,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Bursik (F),HC Vítkovice U20,42,35,36,71,1.69,58,37,/player/33041/tomas-bursik,1,Tomas Bursik,F,2008-2009,czechia-u20,33041,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaroslav Hafenrichter (LW),HC Slavia Praha U20,44,21,41,62,1.41,149,11,/player/48288/jaroslav-hafenrichter,1,Jaroslav Hafenrichter,LW,2008-2009,czechia-u20,48288,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Havlik (F/D),HC Znojemsti Orli U20,46,21,40,61,1.33,111,17,/player/23887/adam-havlik,1,Adam Havlik,F/D,2008-2009,czechia-u20,23887,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondřej Palát (LW/RW),HC Vítkovice U20,42,23,33,56,1.33,14,38,/player/18097/ond%C5%99ej-palat,1,Ondřej Palát,LW/RW,2008-2009,czechia-u20,18097,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Lev (C/W),HC Plzeň U20,44,24,31,55,1.25,50,14,/player/27856/jakub-lev,1,Jakub Lev,C/W,2008-2009,czechia-u20,27856,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Muzik (F),totals,42,20,34,54,1.29,18,14,/player/24793/jakub-muzik,1,Jakub Muzik,F,2008-2009,czechia-u20,24793,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Kotrba (F),BK Mladá Boleslav U20,45,23,29,52,1.16,46,19,/player/28104/adam-kotrba,1,Adam Kotrba,F,2008-2009,czechia-u20,28104,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bohumil Herman (F),HC Slezan Opava U20,41,19,32,51,1.24,64,12,/player/164433/bohumil-herman,1,Bohumil Herman,F,2008-2009,czechia-u20,164433,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Milotínský (LW),BK Mladá Boleslav U20,46,30,20,50,1.09,10,16,/player/67775/michal-milotinsky,1,Michal Milotínský,LW,2008-2009,czechia-u20,67775,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Rohan (C/LW),HC Energie Karlovy Vary U20,46,22,28,50,1.09,84,8,/player/29780/tomas-rohan,1,Tomas Rohan,C/LW,2008-2009,czechia-u20,29780,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jozef Kentos (RW),HC Slovan Ústečtí Lvi U20,44,24,25,49,1.11,54,-1,/player/34753/jozef-kentos,1,Jozef Kentos,RW,2008-2009,czechia-u20,34753,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Vrdlovec (C),HC Slavia Praha U20,43,22,27,49,1.14,16,4,/player/36469/daniel-vrdlovec,1,Daniel Vrdlovec,C,2008-2009,czechia-u20,36469,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Buchtele (LW),HC Pardubice U20,46,25,23,48,1.04,87,19,/player/33049/jan-buchtele,1,Jan Buchtele,LW,2008-2009,czechia-u20,33049,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Havlicek (C),HC Slovan Ústečtí Lvi U20,26,23,25,48,1.85,61,19,/player/24428/ondrej-havlicek,1,Ondrej Havlicek,C,2008-2009,czechia-u20,24428,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Jancek (F),BK Mladá Boleslav U20,46,20,27,47,1.02,81,0,/player/57792/richard-jancek,1,Richard Jancek,F,2008-2009,czechia-u20,57792,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josef Rezek (F),HC Mountfield U20,46,17,30,47,1.02,71,6,/player/34345/josef-rezek,1,Josef Rezek,F,2008-2009,czechia-u20,34345,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Belay (F),BK Mladá Boleslav U20,46,15,32,47,1.02,64,13,/player/98107/martin-belay,1,Martin Belay,F,2008-2009,czechia-u20,98107,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Sajdl (LW),HC Znojemsti Orli U20,45,24,22,46,1.02,64,13,/player/36508/jakub-sajdl,1,Jakub Sajdl,LW,2008-2009,czechia-u20,36508,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Ostrizek (LW/C),HC Oceláři Třinec U20,40,17,29,46,1.15,89,15,/player/38667/david-ostrizek,1,David Ostrizek,LW/C,2008-2009,czechia-u20,38667,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Kafka (RW),HC Sparta Praha U20,34,28,17,45,1.32,40,13,/player/28114/petr-kafka,1,Petr Kafka,RW,2008-2009,czechia-u20,28114,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Mlynek (F),HC Slezan Opava U20,45,21,24,45,1.00,46,1,/player/164423/michal-mlynek,1,Michal Mlynek,F,2008-2009,czechia-u20,164423,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Pitule (C/LW),HC Plzeň U20,42,21,23,44,1.05,44,7,/player/37392/tomas-pitule,1,Tomas Pitule,C/LW,2008-2009,czechia-u20,37392,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frantisek Gerhat (C/LW),HC Litvínov U20,42,19,25,44,1.05,2,19,/player/20565/frantisek-gerhat,1,Frantisek Gerhat,C/LW,2008-2009,czechia-u20,20565,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rostislav Marosz (C/RW),HC Oceláři Třinec U20,45,18,26,44,0.98,119,9,/player/34795/rostislav-marosz,1,Rostislav Marosz,C/RW,2008-2009,czechia-u20,34795,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Kana (RW),HC Vítkovice U20,23,22,21,43,1.87,85,17,/player/13579/jan-kana,1,Jan Kana,RW,2008-2009,czechia-u20,13579,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Cesnek (F),HC Slavia Praha U20,35,21,22,43,1.23,81,9,/player/19021/jan-cesnek,1,Jan Cesnek,F,2008-2009,czechia-u20,19021,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antonín Honejsek (C/LW),HC Zlín U20,39,21,22,43,1.10,33,15,/player/34788/antonin-honejsek,1,Antonín Honejsek,C/LW,2008-2009,czechia-u20,34788,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Finsterle (LW),HC Zlín U20,46,21,22,43,0.93,40,18,/player/50176/lukas-finsterle,1,Lukas Finsterle,LW,2008-2009,czechia-u20,50176,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Liska (F),Bílí Tygři Liberec U20,41,18,25,43,1.05,54,-6,/player/34810/tomas-liska,1,Tomas Liska,F,2008-2009,czechia-u20,34810,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anatoli Protasenya (LW/C),HC Havířov Panthers U20,43,28,14,42,0.98,28,3,/player/17667/anatoli-protasenya,1,Anatoli Protasenya,LW/C,2008-2009,czechia-u20,17667,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Miculka (LW/C),HC Oceláři Třinec U20,37,17,25,42,1.14,52,9,/player/48122/lukas-miculka,1,Lukas Miculka,LW/C,2008-2009,czechia-u20,48122,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonas Krepelka (C),HC Kladno U20,46,15,27,42,0.91,36,3,/player/34809/jonas-krepelka,1,Jonas Krepelka,C,2008-2009,czechia-u20,34809,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivo Jelsik (F),HC Poruba U20,41,24,17,41,1.00,41,12,/player/252282/ivo-jelsik,1,Ivo Jelsik,F,2008-2009,czechia-u20,252282,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Vrana (F),HC Vítkovice U20,46,17,24,41,0.89,32,27,/player/124652/lukas-vrana,1,Lukas Vrana,F,2008-2009,czechia-u20,124652,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Dolezal (LW),HC Slavia Praha U20,41,15,26,41,1.00,94,8,/player/18099/tomas-dolezal,1,Tomas Dolezal,LW,2008-2009,czechia-u20,18099,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Radil (LW/RW),HC Pardubice U20,36,13,28,41,1.14,40,19,/player/22785/lukas-radil,1,Lukas Radil,LW/RW,2008-2009,czechia-u20,22785,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Coufal (F/D),HC Olomouc U20,44,22,18,40,0.91,52,6,/player/67533/viktor-coufal,1,Viktor Coufal,F/D,2008-2009,czechia-u20,67533,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Chlouba (LW),KLH Chomutov U20,38,15,25,40,1.05,24,9,/player/34387/roman-chlouba,1,Roman Chlouba,LW,2008-2009,czechia-u20,34387,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Lunak (LW/C),totals,34,15,24,39,1.15,14,10,/player/46252/lukas-lunak,1,Lukas Lunak,LW/C,2008-2009,czechia-u20,46252,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Bíza (F),HC Litvínov U20,45,22,16,38,0.84,44,23,/player/72304/jan-biza,1,Jan Bíza,F,2008-2009,czechia-u20,72304,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Kupec (C),HC Kladno U20,45,17,21,38,0.84,68,-3,/player/13939/jan-kupec,1,Jan Kupec,C,2008-2009,czechia-u20,13939,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Kaut (C),HC Pardubice U20,46,16,22,38,0.83,70,8,/player/33046/tomas-kaut,1,Tomas Kaut,C,2008-2009,czechia-u20,33046,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Koschatzky (F),HC Slezan Opava U20,44,15,23,38,0.86,90,-12,/player/164435/adam-koschatzky,1,Adam Koschatzky,F,2008-2009,czechia-u20,164435,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juraj Jurík (RW/C),totals,42,14,24,38,0.90,36,-1,/player/93320/juraj-jurik,1,Juraj Jurík,RW/C,2008-2009,czechia-u20,93320,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Maly (F),HK Hokej Šumperk 2003 U20,42,14,24,38,0.90,51,2,/player/190729/tomas-maly,1,Tomas Maly,F,2008-2009,czechia-u20,190729,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Ferebauer (LW/D),HC Mountfield U20,34,28,9,37,1.09,24,20,/player/33055/jiri-ferebauer,1,Jiri Ferebauer,LW/D,2008-2009,czechia-u20,33055,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Orsava (LW/RW),HC Oceláři Třinec U20,46,24,13,37,0.80,61,16,/player/34798/jakub-orsava,1,Jakub Orsava,LW/RW,2008-2009,czechia-u20,34798,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Puna (F),HC Zlín U20,43,20,17,37,0.86,6,20,/player/17741/david-puna,1,David Puna,F,2008-2009,czechia-u20,17741,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Zejdl (RW/C),HC Slavia Praha U20,38,19,18,37,0.97,40,8,/player/95033/lukas-zejdl,1,Lukas Zejdl,RW/C,2008-2009,czechia-u20,95033,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Klimsa (W/C),HC Havířov Panthers U20,45,19,18,37,0.82,94,-4,/player/28388/david-klimsa,1,David Klimsa,W/C,2008-2009,czechia-u20,28388,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Topinka (F),HC Energie Karlovy Vary U20,44,10,27,37,0.84,12,1,/player/74625/jan-topinka,1,Jan Topinka,F,2008-2009,czechia-u20,74625,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Maruna (LW),HC Havířov Panthers U20,41,12,24,36,0.88,54,-6,/player/28389/jan-maruna,1,Jan Maruna,LW,2008-2009,czechia-u20,28389,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Cavrk (LW),HC Slezan Opava U20,45,10,26,36,0.80,28,-5,/player/87058/anton-cavrk,1,Anton Cavrk,LW,2008-2009,czechia-u20,87058,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Maxa (C),HC Litvínov U20,36,18,17,35,0.97,78,13,/player/22677/jakub-maxa,1,Jakub Maxa,C,2008-2009,czechia-u20,22677,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Polodna (RW/C),HC Mountfield U20,42,18,17,35,0.83,137,-9,/player/11263/stanislav-polodna,1,Stanislav Polodna,RW/C,2008-2009,czechia-u20,11263,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Vitek (F),HC Slezan Opava U20,45,14,21,35,0.78,18,-12,/player/164432/jakub-vitek,1,Jakub Vitek,F,2008-2009,czechia-u20,164432,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Rezac (RW),HC Poruba U20,45,14,21,35,0.78,42,14,/player/122947/petr-rezac,1,Petr Rezac,RW,2008-2009,czechia-u20,122947,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Ricka (RW/C),HC Havířov Panthers U20,33,20,14,34,1.03,36,2,/player/28103/robert-ricka,1,Robert Ricka,RW/C,2008-2009,czechia-u20,28103,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Stehlik (RW),HC Kometa Brno U20,44,19,15,34,0.77,62,-1,/player/82313/ondrej-stehlik,1,Ondrej Stehlik,RW,2008-2009,czechia-u20,82313,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Poletín (W/C),HC Slavia Praha U20,46,18,16,34,0.74,28,2,/player/34800/michal-poletin,1,Michal Poletín,W/C,2008-2009,czechia-u20,34800,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Marecek (F),HC Energie Karlovy Vary U20,44,15,19,34,0.77,36,-3,/player/74623/jakub-marecek,1,Jakub Marecek,F,2008-2009,czechia-u20,74623,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Branislav Varga (RW),Bílí Tygři Liberec U20,38,11,23,34,0.89,46,0,/player/136776/branislav-varga,1,Branislav Varga,RW,2008-2009,czechia-u20,136776,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radek Vlasanek (RW),HC Slezan Opava U20,26,19,14,33,1.27,84,-3,/player/13572/radek-vlasanek,1,Radek Vlasanek,RW,2008-2009,czechia-u20,13572,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Loskot (F),BK Mladá Boleslav U20,28,19,14,33,1.18,47,8,/player/36810/marek-loskot,1,Marek Loskot,F,2008-2009,czechia-u20,36810,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Horák (C),HC Mountfield U20,31,16,17,33,1.06,14,13,/player/18089/roman-horak,1,Roman Horák,C,2008-2009,czechia-u20,18089,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Svanhal (RW),HC Kometa Brno U20,45,16,17,33,0.73,115,-11,/player/44400/ondrej-svanhal,1,Ondrej Svanhal,RW,2008-2009,czechia-u20,44400,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juraj Majdan (LW/RW),HC Litvínov U20,36,14,19,33,0.92,52,14,/player/34754/juraj-majdan,1,Juraj Majdan,LW/RW,2008-2009,czechia-u20,34754,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Poricky (F),VHK Vsetín U20,44,14,19,33,0.75,88,-20,/player/164802/jakub-poricky,1,Jakub Poricky,F,2008-2009,czechia-u20,164802,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Hanzl (D),HC Sparta Praha U20,45,8,25,33,0.73,32,15,/player/67615/jan-hanzl,1,Jan Hanzl,D,2008-2009,czechia-u20,67615,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Bulir (C/LW),Bílí Tygři Liberec U20,44,21,11,32,0.73,69,2,/player/59211/michal-bulir,1,Michal Bulir,C/LW,2008-2009,czechia-u20,59211,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Zalcik (RW),HK Hokej Šumperk 2003 U20,44,20,12,32,0.73,52,-21,/player/37009/lukas-zalcik,1,Lukas Zalcik,RW,2008-2009,czechia-u20,37009,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Stoklasa (LW),HC Pardubice U20,44,16,16,32,0.73,48,14,/player/18095/filip-stoklasa,1,Filip Stoklasa,LW,2008-2009,czechia-u20,18095,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Noga (F),totals,38,15,17,32,0.84,20,13,/player/60061/jiri-noga,1,Jiri Noga,F,2008-2009,czechia-u20,60061,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radovan Vajda (F),HC Poruba U20,44,14,18,32,0.73,34,14,/player/159854/radovan-vajda,1,Radovan Vajda,F,2008-2009,czechia-u20,159854,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Krejcik (RW),BK Mladá Boleslav U20,46,14,18,32,0.70,32,10,/player/56381/lukas-krejcik,1,Lukas Krejcik,RW,2008-2009,czechia-u20,56381,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Grmela (F),HC Kometa Brno U20,45,13,19,32,0.71,36,1,/player/44399/jan-grmela,1,Jan Grmela,F,2008-2009,czechia-u20,44399,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Badura (F),HC Slezan Opava U20,44,11,21,32,0.73,16,6,/player/164437/pavel-badura,1,Pavel Badura,F,2008-2009,czechia-u20,164437,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Peska (F),HK Hokej Šumperk 2003 U20,42,18,13,31,0.74,16,5,/player/191841/michal-peska,1,Michal Peska,F,2008-2009,czechia-u20,191841,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Slaba (F),HC Sparta Praha U20,44,18,13,31,0.70,72,-3,/player/28116/jan-slaba,1,Jan Slaba,F,2008-2009,czechia-u20,28116,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Preucil (F),HC Litvínov U20,44,18,13,31,0.70,125,16,/player/28379/tomas-preucil,1,Tomas Preucil,F,2008-2009,czechia-u20,28379,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Skalický (F),Bílí Tygři Liberec U20,44,16,15,31,0.70,40,-4,/player/34803/daniel-skalicky,1,Daniel Skalický,F,2008-2009,czechia-u20,34803,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Soula (F),HC Zlín U20,44,11,20,31,0.70,20,8,/player/77786/martin-soula,1,Martin Soula,F,2008-2009,czechia-u20,77786,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matous Venkrbec (C/LW),HC Olomouc U20,31,10,21,31,1.00,38,11,/player/67527/matous-venkrbec,1,Matous Venkrbec,C/LW,2008-2009,czechia-u20,67527,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Holomek (D),HC Slovan Ústečtí Lvi U20,40,10,21,31,0.78,110,7,/player/67571/ondrej-holomek,1,Ondrej Holomek,D,2008-2009,czechia-u20,67571,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ales Frieb (F),HC Olomouc U20,32,9,22,31,0.97,40,-5,/player/19369/ales-frieb,1,Ales Frieb,F,2008-2009,czechia-u20,19369,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Zavrel (F),HC Litvínov U20,45,15,15,30,0.67,34,10,/player/147394/marek-zavrel,1,Marek Zavrel,F,2008-2009,czechia-u20,147394,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Seidler (F),HC Vítkovice U20,45,13,17,30,0.67,63,19,/player/138389/petr-seidler,1,Petr Seidler,F,2008-2009,czechia-u20,138389,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaroslav Kus (C),KLH Chomutov U20,35,11,19,30,0.86,16,-4,/player/67757/jaroslav-kus,1,Jaroslav Kus,C,2008-2009,czechia-u20,67757,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Bojer (RW),HC Litvínov U20,41,10,20,30,0.73,32,2,/player/24277/jan-bojer,1,Jan Bojer,RW,2008-2009,czechia-u20,24277,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Slovák (F),HC Vítkovice U20,45,18,11,29,0.64,36,30,/player/124649/petr-slovak,1,Petr Slovák,F,2008-2009,czechia-u20,124649,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Blaga (F),HC Slezan Opava U20,40,17,12,29,0.73,18,7,/player/251324/richard-blaga,1,Richard Blaga,F,2008-2009,czechia-u20,251324,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Szturc (RW),HC Vítkovice U20,22,15,14,29,1.32,63,21,/player/11831/roman-szturc,1,Roman Szturc,RW,2008-2009,czechia-u20,11831,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Hofmeister (F),KLH Chomutov U20,46,15,14,29,0.63,58,3,/player/67765/jakub-hofmeister,1,Jakub Hofmeister,F,2008-2009,czechia-u20,67765,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Drtina (D),HC Pardubice U20,46,11,18,29,0.63,78,6,/player/33048/marek-drtina,1,Marek Drtina,D,2008-2009,czechia-u20,33048,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Bláha (RW),HC Kladno U20,40,9,20,29,0.73,127,-1,/player/22611/jan-blaha,1,Jan Bláha,RW,2008-2009,czechia-u20,22611,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Becvar (F),KLH Chomutov U20,36,18,10,28,0.78,83,4,/player/164930/jiri-becvar,1,Jiri Becvar,F,2008-2009,czechia-u20,164930,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Skacel (F),HC Olomouc U20,44,16,12,28,0.64,6,-13,/player/36961/patrik-skacel,1,Patrik Skacel,F,2008-2009,czechia-u20,36961,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Kachlik (F),HC Slavia Praha U20,25,14,14,28,1.12,30,4,/player/48290/jakub-kachlik,1,Jakub Kachlik,F,2008-2009,czechia-u20,48290,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Prikryl (F),HK Hokej Šumperk 2003 U20,44,14,14,28,0.64,85,-3,/player/27612/jan-prikryl,2,Jan Prikryl,F,2008-2009,czechia-u20,27612,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vit Jonak (RW),HC Plzeň U20,45,14,14,28,0.62,62,4,/player/94976/vit-jonak,2,Vit Jonak,RW,2008-2009,czechia-u20,94976,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Rác (C/RW),HC Olomouc U20,43,13,15,28,0.65,38,4,/player/67535/roman-rac,2,Roman Rác,C/RW,2008-2009,czechia-u20,67535,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Bartosek (F),HC Poruba U20,37,12,16,28,0.76,59,-22,/player/160065/michal-bartosek,2,Michal Bartosek,F,2008-2009,czechia-u20,160065,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Lattner (D/F),HC Znojemsti Orli U20,44,12,16,28,0.64,34,-9,/player/36155/jan-lattner,2,Jan Lattner,D/F,2008-2009,czechia-u20,36155,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ales Jezek (D/F),HC Mountfield U20,45,12,16,28,0.62,124,9,/player/18092/ales-jezek,2,Ales Jezek,D/F,2008-2009,czechia-u20,18092,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Jeřábek (D),HC Plzeň U20,40,8,20,28,0.70,32,8,/player/33045/jakub-je%C5%99abek,2,Jakub Jeřábek,D,2008-2009,czechia-u20,33045,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Surovec (F),VHK Vsetín U20,30,16,11,27,0.90,99,-9,/player/230762/martin-surovec,2,Martin Surovec,F,2008-2009,czechia-u20,230762,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ugo Dobias (F),HC Pardubice U20,41,16,11,27,0.66,20,7,/player/169742/ugo-dobias,2,Ugo Dobias,F,2008-2009,czechia-u20,169742,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radim Haas (F),HC Havířov Panthers U20,46,11,16,27,0.59,14,10,/player/51919/radim-haas,2,Radim Haas,F,2008-2009,czechia-u20,51919,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Prindis (D),HC Energie Karlovy Vary U20,28,10,17,27,0.96,79,0,/player/74624/petr-prindis,2,Petr Prindis,D,2008-2009,czechia-u20,74624,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Hostalek (F),HC Plzeň U20,46,10,17,27,0.59,42,1,/player/110980/ondrej-hostalek,2,Ondrej Hostalek,F,2008-2009,czechia-u20,110980,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Schneider (RW/LW),totals,42,19,7,26,0.62,18,2,/player/25178/peter-schneider,2,Peter Schneider,RW/LW,2008-2009,czechia-u20,25178,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Popolansky (F),HC Kometa Brno U20,45,15,11,26,0.58,83,-17,/player/82306/tomas-popolansky,2,Tomas Popolansky,F,2008-2009,czechia-u20,82306,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Kovalsky (F),HC Znojemsti Orli U20,42,14,12,26,0.62,40,3,/player/123478/lukas-kovalsky,2,Lukas Kovalsky,F,2008-2009,czechia-u20,123478,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Kovář (C),HC Plzeň U20,13,13,13,26,2.00,24,6,/player/18083/jan-kova%C5%99,2,Jan Kovář,C,2008-2009,czechia-u20,18083,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Krystof Kafan (F),HC Litvínov U20,45,9,17,26,0.58,40,5,/player/19005/krystof-kafan,2,Krystof Kafan,F,2008-2009,czechia-u20,19005,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Gois (LW),HC Zlín U20,45,7,19,26,0.58,61,8,/player/118410/jiri-gois,2,Jiri Gois,LW,2008-2009,czechia-u20,118410,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Varecha (F),Bílí Tygři Liberec U20,40,6,20,26,0.65,20,5,/player/47491/lukas-varecha,2,Lukas Varecha,F,2008-2009,czechia-u20,47491,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Kolouch (C),HC Vítkovice U20,41,15,10,25,0.61,12,21,/player/34792/petr-kolouch,2,Petr Kolouch,C,2008-2009,czechia-u20,34792,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Husák (D),HC Sparta Praha U20,45,13,12,25,0.56,76,10,/player/85929/patrik-husak,2,Patrik Husák,D,2008-2009,czechia-u20,85929,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Morkes (F),HC Sparta Praha U20,34,12,13,25,0.74,31,2,/player/57531/petr-morkes,2,Petr Morkes,F,2008-2009,czechia-u20,57531,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Kutlak (RW),HC Sparta Praha U20,45,10,15,25,0.56,65,17,/player/141327/stefan-kutlak,2,Stefan Kutlak,RW,2008-2009,czechia-u20,141327,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Trojan (F),HC Plzeň U20,41,8,17,25,0.61,30,3,/player/210111/martin-trojan,2,Martin Trojan,F,2008-2009,czechia-u20,210111,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Hora (D),HC Litvínov U20,45,8,17,25,0.56,83,12,/player/34789/daniel-hora,2,Daniel Hora,D,2008-2009,czechia-u20,34789,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Vitek (F),SK Horácká Slavia Třebíč U20,44,18,6,24,0.55,65,-22,/player/67949/david-vitek,2,David Vitek,F,2008-2009,czechia-u20,67949,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miroslav Majer (RW),HC Energie Karlovy Vary U20,36,16,8,24,0.67,91,2,/player/190061/miroslav-majer,2,Miroslav Majer,RW,2008-2009,czechia-u20,190061,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josef Kremecek (F),HC Zlín U20,40,15,9,24,0.60,44,2,/player/120825/josef-kremecek,2,Josef Kremecek,F,2008-2009,czechia-u20,120825,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mario Kalina (F),HC Poruba U20,45,14,10,24,0.53,67,-21,/player/159842/mario-kalina,2,Mario Kalina,F,2008-2009,czechia-u20,159842,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mario Potocek (F),HC Oceláři Třinec U20,36,13,11,24,0.67,44,3,/player/17738/mario-potocek,2,Mario Potocek,F,2008-2009,czechia-u20,17738,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Briza (F),HC Slovan Ústečtí Lvi U20,44,11,13,24,0.55,64,-5,/player/169025/tomas-briza,2,Tomas Briza,F,2008-2009,czechia-u20,169025,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Dzemla (F),HC Slezan Opava U20,42,10,14,24,0.57,68,-7,/player/164438/patrik-dzemla,2,Patrik Dzemla,F,2008-2009,czechia-u20,164438,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Vavra (F),VHK Vsetín U20,46,10,14,24,0.52,38,-24,/player/164779/tomas-vavra,2,Tomas Vavra,F,2008-2009,czechia-u20,164779,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Broz (D),HC Slovan Ústečtí Lvi U20,37,8,16,24,0.65,28,5,/player/19019/vladimir-broz,2,Vladimir Broz,D,2008-2009,czechia-u20,19019,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radim Herman (RW),HC Mountfield U20,46,7,17,24,0.52,65,3,/player/34787/radim-herman,2,Radim Herman,RW,2008-2009,czechia-u20,34787,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Vernek (F),BK Mladá Boleslav U20,44,14,9,23,0.52,50,-8,/player/197905/jan-vernek,2,Jan Vernek,F,2008-2009,czechia-u20,197905,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Straka (LW),HC Plzeň U20,27,13,10,23,0.85,6,4,/player/34805/petr-straka,2,Petr Straka,LW,2008-2009,czechia-u20,34805,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Krutis (F),SK Horácká Slavia Třebíč U20,46,11,12,23,0.50,32,-24,/player/211719/petr-krutis,2,Petr Krutis,F,2008-2009,czechia-u20,211719,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ján Niko (D),Bílí Tygři Liberec U20,41,10,13,23,0.56,180,-7,/player/77375/jan-niko,2,Ján Niko,D,2008-2009,czechia-u20,77375,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Kalinovic (F),KLH Chomutov U20,37,9,14,23,0.62,64,-2,/player/74622/martin-kalinovic,2,Martin Kalinovic,F,2008-2009,czechia-u20,74622,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lubos Hlavsa (F),HK Hokej Šumperk 2003 U20,46,8,15,23,0.50,38,-27,/player/223204/lubos-hlavsa,2,Lubos Hlavsa,F,2008-2009,czechia-u20,223204,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Planovsky (D),HC Slezan Opava U20,38,7,16,23,0.61,101,7,/player/229204/jan-planovsky,2,Jan Planovsky,D,2008-2009,czechia-u20,229204,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Toupal (F),HC Mountfield U20,39,7,16,23,0.59,44,5,/player/252002/ondrej-toupal,2,Ondrej Toupal,F,2008-2009,czechia-u20,252002,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Kania (D),HC Oceláři Třinec U20,31,6,17,23,0.74,24,8,/player/23444/jakub-kania,2,Jakub Kania,D,2008-2009,czechia-u20,23444,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Feferle (F),totals,43,6,17,23,0.53,56,14,/player/252009/david-feferle,2,David Feferle,F,2008-2009,czechia-u20,252009,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Werner Hartmann (D),HC Vítkovice U20,43,6,17,23,0.53,112,45,/player/23534/werner-hartmann,2,Werner Hartmann,D,2008-2009,czechia-u20,23534,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Pekarik (C),HC Litvínov U20,19,5,18,23,1.21,40,-7,/player/14438/ondrej-pekarik,2,Ondrej Pekarik,C,2008-2009,czechia-u20,14438,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Rutta (D),KLH Chomutov U20,38,4,19,23,0.61,26,4,/player/18090/jan-rutta,2,Jan Rutta,D,2008-2009,czechia-u20,18090,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Sramek (F),HC Slovan Ústečtí Lvi U20,37,13,9,22,0.59,20,3,/player/86459/martin-sramek,2,Martin Sramek,F,2008-2009,czechia-u20,86459,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Slahar (RW/LW),HC Zlín U20,27,11,11,22,0.81,18,18,/player/34804/jakub-slahar,2,Jakub Slahar,RW/LW,2008-2009,czechia-u20,34804,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Petruska (C),HC Plzeň U20,32,10,12,22,0.69,14,2,/player/63921/patrik-petruska,2,Patrik Petruska,C,2008-2009,czechia-u20,63921,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Pláněk (D),HC Znojemsti Orli U20,45,10,12,22,0.49,94,8,/player/50603/martin-planek,2,Martin Pláněk,D,2008-2009,czechia-u20,50603,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Brzobohatý (F),HC Kometa Brno U20,43,9,13,22,0.51,32,-2,/player/82307/michal-brzobohaty,2,Michal Brzobohatý,F,2008-2009,czechia-u20,82307,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Vondracek (LW),SK Horácká Slavia Třebíč U20,46,9,13,22,0.48,32,-24,/player/77408/tomas-vondracek,2,Tomas Vondracek,LW,2008-2009,czechia-u20,77408,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Marek (LW),HC Mountfield U20,46,7,15,22,0.48,63,0,/player/129520/jakub-marek,2,Jakub Marek,LW,2008-2009,czechia-u20,129520,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaroslav Hertl (D),HC Slavia Praha U20,36,5,17,22,0.61,54,8,/player/12575/jaroslav-hertl,2,Jaroslav Hertl,D,2008-2009,czechia-u20,12575,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Zákoutský (D),HC Slovan Ústečtí Lvi U20,46,4,18,22,0.48,48,4,/player/77385/jan-zakoutsky,2,Jan Zákoutský,D,2008-2009,czechia-u20,77385,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Senkerik (D),HC Zlín U20,46,3,19,22,0.48,42,7,/player/34802/petr-senkerik,2,Petr Senkerik,D,2008-2009,czechia-u20,34802,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Mizerik (F),Bílí Tygři Liberec U20,44,11,10,21,0.48,20,0,/player/105863/lukas-mizerik,2,Lukas Mizerik,F,2008-2009,czechia-u20,105863,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Drnec (F),HC Slovan Ústečtí Lvi U20,44,11,10,21,0.48,52,6,/player/164759/tomas-drnec,2,Tomas Drnec,F,2008-2009,czechia-u20,164759,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karel Kesner (F),SK Horácká Slavia Třebíč U20,44,9,12,21,0.48,60,-23,/player/163057/karel-kesner,2,Karel Kesner,F,2008-2009,czechia-u20,163057,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Tuma (RW),HC Sparta Praha U20,46,9,12,21,0.46,34,-3,/player/34806/david-tuma,2,David Tuma,RW,2008-2009,czechia-u20,34806,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Plachtovic (F),VHK Vsetín U20,36,8,13,21,0.58,30,6,/player/174215/jiri-plachtovic,2,Jiri Plachtovic,F,2008-2009,czechia-u20,174215,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Simkovic (F),HC Poruba U20,43,8,13,21,0.49,87,-5,/player/160070/stefan-simkovic,2,Stefan Simkovic,F,2008-2009,czechia-u20,160070,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josef Pour (D),HC Kladno U20,40,7,14,21,0.53,81,-1,/player/170189/josef-pour,2,Josef Pour,D,2008-2009,czechia-u20,170189,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Kucsera (LW/RW),HC Vítkovice U20,45,7,14,21,0.47,30,23,/player/98155/lukas-kucsera,2,Lukas Kucsera,LW/RW,2008-2009,czechia-u20,98155,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Matula (D),HC Zlín U20,43,3,18,21,0.49,16,25,/player/21119/lukas-matula,2,Lukas Matula,D,2008-2009,czechia-u20,21119,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Velechovský (F),BK Mladá Boleslav U20,42,9,11,20,0.48,12,4,/player/169193/filip-velechovsky,2,Filip Velechovský,F,2008-2009,czechia-u20,169193,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Frk (RW/LW),HC Energie Karlovy Vary U20,16,8,12,20,1.25,6,7,/player/56033/martin-frk,2,Martin Frk,RW/LW,2008-2009,czechia-u20,56033,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vaclav Truhlar (F),HC Znojemsti Orli U20,46,8,12,20,0.43,76,-16,/player/163050/vaclav-truhlar,2,Vaclav Truhlar,F,2008-2009,czechia-u20,163050,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Polasek (D),HC Vítkovice U20,38,7,13,20,0.53,68,39,/player/34799/adam-polasek,2,Adam Polasek,D,2008-2009,czechia-u20,34799,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Sikela (RW),totals,39,6,14,20,0.51,18,5,/player/87514/matej-sikela,2,Matej Sikela,RW,2008-2009,czechia-u20,87514,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Tollinger (D),HC Energie Karlovy Vary U20,45,4,16,20,0.44,82,13,/player/160520/michal-tollinger,2,Michal Tollinger,D,2008-2009,czechia-u20,160520,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Vachovec (C),HC Energie Karlovy Vary U20,32,11,8,19,0.59,51,-3,/player/40246/michal-vachovec,2,Michal Vachovec,C,2008-2009,czechia-u20,40246,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Kominek (RW),HC Kometa Brno U20,45,11,8,19,0.42,12,-14,/player/82309/tomas-kominek,2,Tomas Kominek,RW,2008-2009,czechia-u20,82309,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Pánik (RW/LW),HC Oceláři Třinec U20,16,10,9,19,1.19,36,5,/player/11849/richard-panik,2,Richard Pánik,RW/LW,2008-2009,czechia-u20,11849,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Schmidt (D),HC Energie Karlovy Vary U20,28,9,10,19,0.68,24,1,/player/22647/tomas-schmidt,2,Tomas Schmidt,D,2008-2009,czechia-u20,22647,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Vodný (LW),HC Zlín U20,46,9,10,19,0.41,12,1,/player/51978/michal-vodny,2,Michal Vodný,LW,2008-2009,czechia-u20,51978,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaroslav Kedrst (F),Bílí Tygři Liberec U20,32,7,12,19,0.59,26,-1,/player/175106/jaroslav-kedrst,2,Jaroslav Kedrst,F,2008-2009,czechia-u20,175106,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Zich (D/F),HC Mountfield U20,37,6,13,19,0.51,20,19,/player/76162/petr-zich,2,Petr Zich,D/F,2008-2009,czechia-u20,76162,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Kindl (LW/C),HC Pardubice U20,40,6,13,19,0.48,40,0,/player/40244/denis-kindl,2,Denis Kindl,LW/C,2008-2009,czechia-u20,40244,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Kadorek (D),HC Oceláři Třinec U20,40,5,14,19,0.48,121,18,/player/67585/petr-kadorek,2,Petr Kadorek,D,2008-2009,czechia-u20,67585,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Vitasek (D),HC Slezan Opava U20,41,3,16,19,0.46,62,7,/player/60927/ondrej-vitasek,2,Ondrej Vitasek,D,2008-2009,czechia-u20,60927,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eduard Kadela (F),SK Horácká Slavia Třebíč U20,39,11,7,18,0.46,30,-9,/player/67951/eduard-kadela,2,Eduard Kadela,F,2008-2009,czechia-u20,67951,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Vlach (C/LW),HC Zlín U20,13,8,10,18,1.38,16,2,/player/19014/roman-vlach,2,Roman Vlach,C/LW,2008-2009,czechia-u20,19014,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Eberle (W/C),HC Kladno U20,14,8,10,18,1.29,28,5,/player/11618/jan-eberle,2,Jan Eberle,W/C,2008-2009,czechia-u20,11618,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Vcislak (F),HC Vítkovice U20,42,8,10,18,0.43,16,14,/player/184831/jan-vcislak,2,Jan Vcislak,F,2008-2009,czechia-u20,184831,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miroslav Forman (RW),HC Sparta Praha U20,40,7,11,18,0.45,46,8,/player/109389/miroslav-forman,2,Miroslav Forman,RW,2008-2009,czechia-u20,109389,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Krupka (D),KLH Chomutov U20,43,7,11,18,0.42,61,5,/player/164794/jan-krupka,2,Jan Krupka,D,2008-2009,czechia-u20,164794,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Docekal (LW),SK Horácká Slavia Třebíč U20,46,7,11,18,0.39,44,-25,/player/77406/martin-docekal,2,Martin Docekal,LW,2008-2009,czechia-u20,77406,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Sys (F),VHK Vsetín U20,34,4,14,18,0.53,40,-20,/player/174199/marek-sys,2,Marek Sys,F,2008-2009,czechia-u20,174199,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Grin (D),totals,35,3,15,18,0.51,12,4,/player/188716/jakub-grin,2,Jakub Grin,D,2008-2009,czechia-u20,188716,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Stehlík (D),HC Znojemsti Orli U20,44,3,15,18,0.41,30,3,/player/123472/jakub-stehlik,2,Jakub Stehlík,D,2008-2009,czechia-u20,123472,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Gulda (D),HC Slezan Opava U20,40,2,16,18,0.45,81,-3,/player/77751/tomas-gulda,2,Tomas Gulda,D,2008-2009,czechia-u20,77751,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Prokop (D),HC Vítkovice U20,43,1,17,18,0.42,64,28,/player/124655/lukas-prokop,2,Lukas Prokop,D,2008-2009,czechia-u20,124655,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Rufer (F),HC Oceláři Třinec U20,42,10,7,17,0.40,14,11,/player/154759/adam-rufer,2,Adam Rufer,F,2008-2009,czechia-u20,154759,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Hajek (F),HC Kometa Brno U20,37,9,8,17,0.46,74,-4,/player/28245/tomas-hajek,2,Tomas Hajek,F,2008-2009,czechia-u20,28245,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Klima (F),SK Horácká Slavia Třebíč U20,34,8,9,17,0.50,77,-13,/player/122349/jakub-klima,2,Jakub Klima,F,2008-2009,czechia-u20,122349,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Palascak (F),HC Slavia Praha U20,38,8,9,17,0.45,50,0,/player/168443/david-palascak,2,David Palascak,F,2008-2009,czechia-u20,168443,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Toman (F),HC Oceláři Třinec U20,37,7,10,17,0.46,50,-4,/player/116306/michal-toman,2,Michal Toman,F,2008-2009,czechia-u20,116306,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Dostal (F),HC Olomouc U20,42,4,13,17,0.40,40,-4,/player/160986/patrik-dostal,3,Patrik Dostal,F,2008-2009,czechia-u20,160986,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Trojan (D),HC Olomouc U20,45,4,13,17,0.38,95,5,/player/173153/tomas-trojan,3,Tomas Trojan,D,2008-2009,czechia-u20,173153,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frantisek Pospisil (D),HC Znojemsti Orli U20,45,3,14,17,0.38,78,5,/player/36156/frantisek-pospisil,3,Frantisek Pospisil,D,2008-2009,czechia-u20,36156,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Martycak (F),VHK Vsetín U20,39,11,5,16,0.41,57,-21,/player/222786/jakub-martycak,3,Jakub Martycak,F,2008-2009,czechia-u20,222786,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Cervenka (F),VHK Vsetín U20,32,10,6,16,0.50,26,-9,/player/161289/martin-cervenka,3,Martin Cervenka,F,2008-2009,czechia-u20,161289,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Surovcik (F),VHK Vsetín U20,40,10,6,16,0.40,26,-5,/player/252435/jakub-surovcik,3,Jakub Surovcik,F,2008-2009,czechia-u20,252435,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karel Richter (F),HC Poruba U20,45,10,6,16,0.36,50,-9,/player/124653/karel-richter,3,Karel Richter,F,2008-2009,czechia-u20,124653,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Kubo (F),VHK Vsetín U20,40,9,7,16,0.40,32,-23,/player/161794/martin-kubo,3,Martin Kubo,F,2008-2009,czechia-u20,161794,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vojtech Hosek (F),HC Kladno U20,40,8,8,16,0.40,24,-2,/player/186934/vojtech-hosek,3,Vojtech Hosek,F,2008-2009,czechia-u20,186934,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Capcara (LW),totals,41,8,8,16,0.39,77,-21,/player/122842/robert-capcara,3,Robert Capcara,LW,2008-2009,czechia-u20,122842,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Soustal (F),HK Hokej Šumperk 2003 U20,43,8,8,16,0.37,52,-24,/player/74041/petr-soustal,3,Petr Soustal,F,2008-2009,czechia-u20,74041,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Alexa (F),HC Znojemsti Orli U20,39,7,9,16,0.41,34,-10,/player/174059/roman-alexa,3,Roman Alexa,F,2008-2009,czechia-u20,174059,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Szakal (F),KLH Chomutov U20,30,5,11,16,0.53,8,-4,/player/164805/adam-szakal,3,Adam Szakal,F,2008-2009,czechia-u20,164805,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Kuzel (D/F),HC Kladno U20,43,5,11,16,0.37,34,11,/player/86418/lukas-kuzel,3,Lukas Kuzel,D/F,2008-2009,czechia-u20,86418,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Hruby (D),totals,36,3,13,16,0.44,79,2,/player/198877/martin-hruby,3,Martin Hruby,D,2008-2009,czechia-u20,198877,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Zeman (D),HC Plzeň U20,38,1,15,16,0.42,34,-8,/player/171350/petr-zeman,3,Petr Zeman,D,2008-2009,czechia-u20,171350,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ladislav Nguyen (F),KLH Chomutov U20,42,9,6,15,0.36,67,-10,/player/219765/ladislav-nguyen,3,Ladislav Nguyen,F,2008-2009,czechia-u20,219765,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Hanzl (C),HC Slovan Ústečtí Lvi U20,11,8,7,15,1.36,12,7,/player/24429/robin-hanzl,3,Robin Hanzl,C,2008-2009,czechia-u20,24429,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Indrych (LW),HC Zlín U20,36,8,7,15,0.42,6,4,/player/52507/martin-indrych,3,Martin Indrych,LW,2008-2009,czechia-u20,52507,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Rousal (F),HC Plzeň U20,37,7,8,15,0.41,91,1,/player/210108/adam-rousal,3,Adam Rousal,F,2008-2009,czechia-u20,210108,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Klhufek (LW/C),HC Zlín U20,35,5,10,15,0.43,14,4,/player/109329/pavel-klhufek,3,Pavel Klhufek,LW/C,2008-2009,czechia-u20,109329,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Mackal (F),HC Litvínov U20,42,5,10,15,0.36,12,5,/player/175472/jiri-mackal,3,Jiri Mackal,F,2008-2009,czechia-u20,175472,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Sullmann (D),HC Plzeň U20,42,5,10,15,0.36,85,-1,/player/18833/alexander-sullmann,3,Alexander Sullmann,D,2008-2009,czechia-u20,18833,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Krejci (D),HC Slavia Praha U20,32,4,11,15,0.47,40,0,/player/34793/daniel-krejci,3,Daniel Krejci,D,2008-2009,czechia-u20,34793,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vojtech Bartos (F),HC Poruba U20,44,4,11,15,0.34,28,-17,/player/67130/vojtech-bartos,3,Vojtech Bartos,F,2008-2009,czechia-u20,67130,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Panek (F),HC Olomouc U20,46,4,11,15,0.33,38,-4,/player/209793/jiri-panek,3,Jiri Panek,F,2008-2009,czechia-u20,209793,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Rohan (D),HC Energie Karlovy Vary U20,41,3,12,15,0.37,32,4,/player/18086/martin-rohan,3,Martin Rohan,D,2008-2009,czechia-u20,18086,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Malek (F),HC Olomouc U20,39,11,3,14,0.36,30,-5,/player/187057/matej-malek,3,Matej Malek,F,2008-2009,czechia-u20,187057,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Klima (F),Bílí Tygři Liberec U20,27,9,5,14,0.52,16,2,/player/136492/jakub-klima,3,Jakub Klima,F,2008-2009,czechia-u20,136492,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Vítek (RW),VHK Vsetín U20,34,8,6,14,0.41,16,1,/player/161785/david-vitek,3,David Vítek,RW,2008-2009,czechia-u20,161785,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Okenka (F),HC Zlín U20,37,7,7,14,0.38,65,-2,/player/194856/matej-okenka,3,Matej Okenka,F,2008-2009,czechia-u20,194856,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Petran (F),HC Slavia Praha U20,32,6,8,14,0.44,8,10,/player/252097/tomas-petran,3,Tomas Petran,F,2008-2009,czechia-u20,252097,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Wrobel (F),HC Havířov Panthers U20,42,5,9,14,0.33,28,-8,/player/172988/tomas-wrobel,3,Tomas Wrobel,F,2008-2009,czechia-u20,172988,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bohumil Jank (D),HC Mountfield U20,46,5,9,14,0.30,42,7,/player/34791/bohumil-jank,3,Bohumil Jank,D,2008-2009,czechia-u20,34791,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Reschowsky (D),HC Kometa Brno U20,37,4,10,14,0.38,30,-17,/player/220741/david-reschowsky,3,David Reschowsky,D,2008-2009,czechia-u20,220741,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Slavík (D),totals,46,2,12,14,0.30,40,4,/player/164599/marek-slavik,3,Marek Slavík,D,2008-2009,czechia-u20,164599,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Skocovsky (D/F),HC Poruba U20,36,1,13,14,0.39,79,-4,/player/36962/david-skocovsky,3,David Skocovsky,D/F,2008-2009,czechia-u20,36962,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Bajtek (RW),HC Oceláři Třinec U20,38,9,4,13,0.34,75,0,/player/156007/filip-bajtek,3,Filip Bajtek,RW,2008-2009,czechia-u20,156007,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Čurda (LW),HC Kladno U20,42,9,4,13,0.31,20,-3,/player/174595/martin-curda,3,Martin Čurda,LW,2008-2009,czechia-u20,174595,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Trojan (LW),HC Znojemsti Orli U20,46,7,6,13,0.28,34,-3,/player/123482/jan-trojan,3,Jan Trojan,LW,2008-2009,czechia-u20,123482,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Chochola (F),Bílí Tygři Liberec U20,27,6,7,13,0.48,30,2,/player/169817/jakub-chochola,3,Jakub Chochola,F,2008-2009,czechia-u20,169817,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vaclav Becvar (F),HC Kladno U20,36,6,7,13,0.36,14,-8,/player/174109/vaclav-becvar,3,Vaclav Becvar,F,2008-2009,czechia-u20,174109,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Vosmik (D),HC Sparta Praha U20,42,6,7,13,0.31,73,1,/player/46251/petr-vosmik,3,Petr Vosmik,D,2008-2009,czechia-u20,46251,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Chara (F),HC Sparta Praha U20,46,6,7,13,0.28,26,-1,/player/253137/jiri-chara,3,Jiri Chara,F,2008-2009,czechia-u20,253137,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaroslav Ceska (F),HC Litvínov U20,36,5,8,13,0.36,30,-2,/player/164762/jaroslav-ceska,3,Jaroslav Ceska,F,2008-2009,czechia-u20,164762,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Gula (D),HC Litvínov U20,45,5,8,13,0.29,42,25,/player/67120/jiri-gula,3,Jiri Gula,D,2008-2009,czechia-u20,67120,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Vokal (F),HC Slavia Praha U20,31,4,9,13,0.42,58,-1,/player/252099/jakub-vokal,3,Jakub Vokal,F,2008-2009,czechia-u20,252099,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Zemanek (F),HC Kometa Brno U20,37,4,9,13,0.35,12,-4,/player/82311/jiri-zemanek,3,Jiri Zemanek,F,2008-2009,czechia-u20,82311,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Musil (D),HC Zlín U20,38,4,9,13,0.34,52,17,/player/120826/jakub-musil,3,Jakub Musil,D,2008-2009,czechia-u20,120826,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Toman (D),HC Oceláři Třinec U20,43,4,9,13,0.30,122,13,/player/123147/jakub-toman,3,Jakub Toman,D,2008-2009,czechia-u20,123147,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Filippi (C),Bílí Tygři Liberec U20,26,3,10,13,0.50,35,3,/player/70379/tomas-filippi,3,Tomas Filippi,C,2008-2009,czechia-u20,70379,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Böhm (F),totals,30,3,10,13,0.43,20,5,/player/251577/lukas-bohm,3,Lukas Böhm,F,2008-2009,czechia-u20,251577,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Miklovic (F),KLH Chomutov U20,33,3,10,13,0.39,75,-7,/player/164943/petr-miklovic,3,Petr Miklovic,F,2008-2009,czechia-u20,164943,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Tomis (D),HC Poruba U20,33,2,11,13,0.39,52,-8,/player/159435/petr-tomis,3,Petr Tomis,D,2008-2009,czechia-u20,159435,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stepan Spacek (D),HC Oceláři Třinec U20,44,2,11,13,0.30,46,-6,/player/209264/stepan-spacek,3,Stepan Spacek,D,2008-2009,czechia-u20,209264,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vaclav Cejka (D),HC Litvínov U20,45,2,11,13,0.29,58,17,/player/19018/vaclav-cejka,3,Vaclav Cejka,D,2008-2009,czechia-u20,19018,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Hauer (F),KLH Chomutov U20,31,7,5,12,0.39,54,-5,/player/226958/david-hauer,3,David Hauer,F,2008-2009,czechia-u20,226958,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Kapec (F),HC Pardubice U20,44,7,5,12,0.27,50,7,/player/212264/lukas-kapec,3,Lukas Kapec,F,2008-2009,czechia-u20,212264,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Fara (F),totals,33,5,7,12,0.36,20,9,/player/123499/jakub-fara,3,Jakub Fara,F,2008-2009,czechia-u20,123499,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexandr Bozilov (D),HC Slezan Opava U20,38,5,7,12,0.32,24,1,/player/170443/alexandr-bozilov,3,Alexandr Bozilov,D,2008-2009,czechia-u20,170443,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Svatopluk Merka (F),totals,44,5,7,12,0.27,44,-17,/player/125516/svatopluk-merka,3,Svatopluk Merka,F,2008-2009,czechia-u20,125516,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Strapac (LW/C),HC Vítkovice U20,9,3,9,12,1.33,35,6,/player/15147/petr-strapac,3,Petr Strapac,LW/C,2008-2009,czechia-u20,15147,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ladislav Masa (F),HC Kladno U20,34,3,9,12,0.35,8,-15,/player/174601/ladislav-masa,3,Ladislav Masa,F,2008-2009,czechia-u20,174601,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zbynek Vozdecky (D),HC Kometa Brno U20,44,3,9,12,0.27,20,3,/player/82476/zbynek-vozdecky,3,Zbynek Vozdecky,D,2008-2009,czechia-u20,82476,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Vodak (D),HC Zlín U20,42,2,10,12,0.29,40,15,/player/161285/tomas-vodak,3,Tomas Vodak,D,2008-2009,czechia-u20,161285,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Janacek (D),HC Olomouc U20,31,1,11,12,0.39,52,2,/player/15140/martin-janacek,3,Martin Janacek,D,2008-2009,czechia-u20,15140,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josef Müller (D),HC Litvínov U20,36,1,11,12,0.33,24,9,/player/164798/josef-muller,3,Josef Müller,D,2008-2009,czechia-u20,164798,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Kadela (D),SK Horácká Slavia Třebíč U20,40,1,11,12,0.30,72,-15,/player/67950/roman-kadela,3,Roman Kadela,D,2008-2009,czechia-u20,67950,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Ustrnul (D),HC Olomouc U20,41,1,11,12,0.29,52,9,/player/251289/petr-ustrnul,3,Petr Ustrnul,D,2008-2009,czechia-u20,251289,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Simurda (D),VHK Vsetín U20,42,1,11,12,0.29,36,-10,/player/194342/jan-simurda,3,Jan Simurda,D,2008-2009,czechia-u20,194342,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Zalud (D),HC Kometa Brno U20,45,1,11,12,0.27,14,7,/player/166395/filip-zalud,3,Filip Zalud,D,2008-2009,czechia-u20,166395,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Kousalík (D),HC Litvínov U20,45,1,11,12,0.27,28,10,/player/54258/petr-kousalik,3,Petr Kousalík,D,2008-2009,czechia-u20,54258,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Valigura (F),VHK Vsetín U20,36,8,3,11,0.31,47,-16,/player/210381/martin-valigura,3,Martin Valigura,F,2008-2009,czechia-u20,210381,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Vanis (F),HC Mountfield U20,36,7,4,11,0.31,8,-3,/player/160540/marek-vanis,3,Marek Vanis,F,2008-2009,czechia-u20,160540,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radek Lemfeld (F),Bílí Tygři Liberec U20,28,6,5,11,0.39,34,-6,/player/188862/radek-lemfeld,3,Radek Lemfeld,F,2008-2009,czechia-u20,188862,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Jagr (F),Bílí Tygři Liberec U20,29,6,5,11,0.38,43,0,/player/25164/petr-jagr,3,Petr Jagr,F,2008-2009,czechia-u20,25164,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Branislav Horváth (D),HC Slavia Praha U20,35,6,5,11,0.31,16,2,/player/11851/branislav-horvath,3,Branislav Horváth,D,2008-2009,czechia-u20,11851,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Georg Mavrojanidis (F),HC Slavia Praha U20,39,6,5,11,0.28,11,-9,/player/119721/georg-mavrojanidis,3,Georg Mavrojanidis,F,2008-2009,czechia-u20,119721,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marian Prasek (F),HC Olomouc U20,42,6,5,11,0.26,4,-7,/player/252288/marian-prasek,3,Marian Prasek,F,2008-2009,czechia-u20,252288,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Zacpálek (D),HK Hokej Šumperk 2003 U20,36,5,6,11,0.31,28,-9,/player/84168/michal-zacpalek,3,Michal Zacpálek,D,2008-2009,czechia-u20,84168,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Antoncik (RW),HC Sparta Praha U20,37,5,6,11,0.30,20,10,/player/160545/simon-antoncik,3,Simon Antoncik,RW,2008-2009,czechia-u20,160545,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaroslav Sarsok (D),HC Slovan Ústečtí Lvi U20,37,5,6,11,0.30,34,2,/player/130239/jaroslav-sarsok,3,Jaroslav Sarsok,D,2008-2009,czechia-u20,130239,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Rys (LW),BK Mladá Boleslav U20,27,4,7,11,0.41,10,8,/player/40240/jiri-rys,3,Jiri Rys,LW,2008-2009,czechia-u20,40240,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antonín Pechanec (C),HC Havířov Panthers U20,36,4,7,11,0.31,4,-2,/player/67129/antonin-pechanec,3,Antonín Pechanec,C,2008-2009,czechia-u20,67129,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominik Vanek (F),HC Energie Karlovy Vary U20,44,4,7,11,0.25,34,-5,/player/160576/dominik-vanek,3,Dominik Vanek,F,2008-2009,czechia-u20,160576,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Zahora (F),HC Energie Karlovy Vary U20,21,3,8,11,0.52,20,5,/player/162577/matej-zahora,3,Matej Zahora,F,2008-2009,czechia-u20,162577,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Indra (RW),KLH Chomutov U20,22,3,8,11,0.50,16,-9,/player/14366/marek-indra,3,Marek Indra,RW,2008-2009,czechia-u20,14366,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Krutil (D),HC Havířov Panthers U20,40,3,8,11,0.28,103,4,/player/162180/michal-krutil,3,Michal Krutil,D,2008-2009,czechia-u20,162180,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Szabo (F),VHK Vsetín U20,29,2,9,11,0.38,49,-2,/player/47389/michal-szabo,3,Michal Szabo,F,2008-2009,czechia-u20,47389,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Soukup (D),BK Mladá Boleslav U20,44,1,10,11,0.25,82,-9,/player/36804/matej-soukup,3,Matej Soukup,D,2008-2009,czechia-u20,36804,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josef Havlík (D),HK Hokej Šumperk 2003 U20,46,0,11,11,0.24,44,-10,/player/259998/josef-havlik,3,Josef Havlík,D,2008-2009,czechia-u20,259998,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valeri Chalyavin (F),HC Energie Karlovy Vary U20,25,8,2,10,0.40,2,-4,/player/208523/valeri-chalyavin,3,Valeri Chalyavin,F,2008-2009,czechia-u20,208523,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Krenek (F),SK Horácká Slavia Třebíč U20,43,7,3,10,0.23,42,-22,/player/77407/david-krenek,3,David Krenek,F,2008-2009,czechia-u20,77407,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karol Csányi (LW),KLH Chomutov U20,23,6,4,10,0.43,14,-3,/player/57939/karol-csanyi,3,Karol Csányi,LW,2008-2009,czechia-u20,57939,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Cech (F),HC Zlín U20,33,5,5,10,0.30,48,2,/player/251690/michal-cech,3,Michal Cech,F,2008-2009,czechia-u20,251690,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Pilar (F),HC Pardubice U20,39,5,5,10,0.26,47,6,/player/55902/lukas-pilar,3,Lukas Pilar,F,2008-2009,czechia-u20,55902,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Ridel (F),HC Slovan Ústečtí Lvi U20,43,5,5,10,0.23,14,-16,/player/164782/petr-ridel,3,Petr Ridel,F,2008-2009,czechia-u20,164782,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Mistecky (F),HC Slovan Ústečtí Lvi U20,21,4,6,10,0.48,4,1,/player/164767/lukas-mistecky,3,Lukas Mistecky,F,2008-2009,czechia-u20,164767,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marian Mlynar (D),HC Poruba U20,31,4,6,10,0.32,100,-6,/player/123106/marian-mlynar,3,Marian Mlynar,D,2008-2009,czechia-u20,123106,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frantisek Humpolicek (D),totals,34,4,6,10,0.29,34,0,/player/253135/frantisek-humpolicek,3,Frantisek Humpolicek,D,2008-2009,czechia-u20,253135,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Hrdlicka (F),HC Kladno U20,38,4,6,10,0.26,45,-10,/player/259574/ondrej-hrdlicka,4,Ondrej Hrdlicka,F,2008-2009,czechia-u20,259574,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Semrád (D),totals,40,4,6,10,0.25,34,-10,/player/129823/martin-semrad,4,Martin Semrád,D,2008-2009,czechia-u20,129823,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Misura (C),HC Kometa Brno U20,13,3,7,10,0.77,8,-1,/player/11853/matej-misura,4,Matej Misura,C,2008-2009,czechia-u20,11853,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Blazek (D),HC Slavia Praha U20,42,3,7,10,0.24,40,15,/player/140689/michal-blazek,4,Michal Blazek,D,2008-2009,czechia-u20,140689,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Nosek (LW/C),HC Pardubice U20,23,2,8,10,0.43,8,8,/player/102439/tomas-nosek,4,Tomas Nosek,LW/C,2008-2009,czechia-u20,102439,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Vopalka (F),Bílí Tygři Liberec U20,27,2,8,10,0.37,18,-7,/player/113761/jan-vopalka,4,Jan Vopalka,F,2008-2009,czechia-u20,113761,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Hanousek (D),totals,35,2,8,10,0.29,56,6,/player/67131/jiri-hanousek,4,Jiri Hanousek,D,2008-2009,czechia-u20,67131,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radek Spiler (D),HC Plzeň U20,36,2,8,10,0.28,75,4,/player/24267/radek-spiler,4,Radek Spiler,D,2008-2009,czechia-u20,24267,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Dolezal (D),totals,42,2,8,10,0.24,26,6,/player/34786/ondrej-dolezal,4,Ondrej Dolezal,D,2008-2009,czechia-u20,34786,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Novotný (D),HK Hokej Šumperk 2003 U20,43,2,8,10,0.23,115,-8,/player/160408/martin-novotny,4,Martin Novotný,D,2008-2009,czechia-u20,160408,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jindřich Barák (D),HC Slavia Praha U20,40,1,9,10,0.25,72,16,/player/41094/jind%C5%99ich-barak,4,Jindřich Barák,D,2008-2009,czechia-u20,41094,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oldrich Horak (D),HC Zlín U20,42,1,9,10,0.24,65,5,/player/34790/oldrich-horak,4,Oldrich Horak,D,2008-2009,czechia-u20,34790,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Jindrich (D),HC Havířov Panthers U20,43,1,9,10,0.23,30,-4,/player/61243/tomas-jindrich,4,Tomas Jindrich,D,2008-2009,czechia-u20,61243,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominik Stehlik (D),HC Kladno U20,43,1,9,10,0.23,69,-16,/player/251217/dominik-stehlik,4,Dominik Stehlik,D,2008-2009,czechia-u20,251217,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Skoumal (C),HK Hokej Šumperk 2003 U20,34,6,3,9,0.26,34,-6,/player/160411/michal-skoumal,4,Michal Skoumal,C,2008-2009,czechia-u20,160411,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Svoboda (F),HK Hokej Šumperk 2003 U20,44,6,3,9,0.20,32,-14,/player/210090/martin-svoboda,4,Martin Svoboda,F,2008-2009,czechia-u20,210090,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Zizka (D),KLH Chomutov U20,25,5,4,9,0.36,18,-4,/player/67782/michal-zizka,4,Michal Zizka,D,2008-2009,czechia-u20,67782,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Chaloupka (F),HC Havířov Panthers U20,32,5,4,9,0.28,40,-2,/player/99038/jan-chaloupka,4,Jan Chaloupka,F,2008-2009,czechia-u20,99038,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miroslav Hudak (F),HC Energie Karlovy Vary U20,37,5,4,9,0.24,34,3,/player/159064/miroslav-hudak,4,Miroslav Hudak,F,2008-2009,czechia-u20,159064,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominik Hegyi (C),HC Oceláři Třinec U20,40,5,4,9,0.23,22,-9,/player/162024/dominik-hegyi,4,Dominik Hegyi,C,2008-2009,czechia-u20,162024,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Protivny (F),BK Mladá Boleslav U20,18,4,5,9,0.50,10,4,/player/99572/michal-protivny,4,Michal Protivny,F,2008-2009,czechia-u20,99572,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bohumil Slavicek (F),HC Havířov Panthers U20,41,4,5,9,0.22,8,0,/player/106183/bohumil-slavicek,4,Bohumil Slavicek,F,2008-2009,czechia-u20,106183,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Vráblík (D),HC Mountfield U20,46,4,5,9,0.20,52,14,/player/66760/roman-vrablik,4,Roman Vráblík,D,2008-2009,czechia-u20,66760,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Plichta (F),HC Sparta Praha U20,16,3,6,9,0.56,18,-1,/player/95459/michal-plichta,4,Michal Plichta,F,2008-2009,czechia-u20,95459,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Kozar (F),HC Kometa Brno U20,17,3,6,9,0.53,39,-3,/player/194857/lukas-kozar,4,Lukas Kozar,F,2008-2009,czechia-u20,194857,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Krivohlavek (C),HC Havířov Panthers U20,20,3,6,9,0.45,10,4,/player/67122/jan-krivohlavek,4,Jan Krivohlavek,C,2008-2009,czechia-u20,67122,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Baxa (RW),HC Plzeň U20,46,3,6,9,0.20,30,-5,/player/171368/jan-baxa,4,Jan Baxa,RW,2008-2009,czechia-u20,171368,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Kroupa (F),KLH Chomutov U20,28,2,7,9,0.32,26,3,/player/209905/patrik-kroupa,4,Patrik Kroupa,F,2008-2009,czechia-u20,209905,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Farda (D),VHK Vsetín U20,30,2,7,9,0.30,32,-10,/player/161722/jiri-farda,4,Jiri Farda,D,2008-2009,czechia-u20,161722,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Spok (D),HC Poruba U20,34,2,7,9,0.26,36,-10,/player/253092/daniel-spok,4,Daniel Spok,D,2008-2009,czechia-u20,253092,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Hoda (D),HC Oceláři Třinec U20,39,2,7,9,0.23,51,-1,/player/12568/david-hoda,4,David Hoda,D,2008-2009,czechia-u20,12568,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Zak (F),totals,22,1,8,9,0.41,4,-6,/player/209737/martin-zak,4,Martin Zak,F,2008-2009,czechia-u20,209737,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Janosik (D),Bílí Tygři Liberec U20,22,1,8,9,0.41,12,9,/player/34749/adam-janosik,4,Adam Janosik,D,2008-2009,czechia-u20,34749,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Simon (D),BK Mladá Boleslav U20,40,1,8,9,0.23,72,-3,/player/106653/martin-simon,4,Martin Simon,D,2008-2009,czechia-u20,106653,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antonin Hruska (D),HC Havířov Panthers U20,40,1,8,9,0.23,77,-4,/player/67123/antonin-hruska,4,Antonin Hruska,D,2008-2009,czechia-u20,67123,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Müller (D),Bílí Tygři Liberec U20,41,1,8,9,0.22,79,2,/player/77374/david-muller,4,David Müller,D,2008-2009,czechia-u20,77374,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Vrba (D),BK Mladá Boleslav U20,44,0,9,9,0.20,85,19,/player/99031/lukas-vrba,4,Lukas Vrba,D,2008-2009,czechia-u20,99031,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radim Blazej (F),HC Poruba U20,34,6,2,8,0.24,16,-8,/player/116345/radim-blazej,4,Radim Blazej,F,2008-2009,czechia-u20,116345,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karel Sodomka (F),HC Pardubice U20,9,5,3,8,0.89,24,3,/player/175615/karel-sodomka,4,Karel Sodomka,F,2008-2009,czechia-u20,175615,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valeri Knyazev (RW),HC Sparta Praha U20,21,5,3,8,0.38,14,0,/player/41097/valeri-knyazev,4,Valeri Knyazev,RW,2008-2009,czechia-u20,41097,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Kopun (F),totals,29,4,4,8,0.28,4,-1,/player/116303/marek-kopun,4,Marek Kopun,F,2008-2009,czechia-u20,116303,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gasper Jordan (C),SK Horácká Slavia Třebíč U20,46,4,4,8,0.17,60,-20,/player/20813/gasper-jordan,4,Gasper Jordan,C,2008-2009,czechia-u20,20813,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Jachym (F),KLH Chomutov U20,16,3,5,8,0.50,8,3,/player/164937/marek-jachym,4,Marek Jachym,F,2008-2009,czechia-u20,164937,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vojtech Zidek (D),HC Slezan Opava U20,44,3,5,8,0.18,121,-7,/player/193913/vojtech-zidek,4,Vojtech Zidek,D,2008-2009,czechia-u20,193913,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Poskocil (D),HC Pardubice U20,45,3,5,8,0.18,80,10,/player/33047/lukas-poskocil,4,Lukas Poskocil,D,2008-2009,czechia-u20,33047,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Malý (D),BK Mladá Boleslav U20,13,2,6,8,0.62,24,3,/player/28100/robin-maly,4,Robin Malý,D,2008-2009,czechia-u20,28100,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Strnad (LW),HC Kladno U20,32,2,6,8,0.25,10,-20,/player/40241/jakub-strnad,4,Jakub Strnad,LW,2008-2009,czechia-u20,40241,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaroslav Kopac (F),HC Poruba U20,36,2,6,8,0.22,26,-12,/player/162364/jaroslav-kopac,4,Jaroslav Kopac,F,2008-2009,czechia-u20,162364,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Havelka (D),HC Litvínov U20,44,2,6,8,0.18,30,-4,/player/72303/jakub-havelka,4,Jakub Havelka,D,2008-2009,czechia-u20,72303,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Dostal (D),KLH Chomutov U20,44,2,6,8,0.18,57,-2,/player/159040/jiri-dostal,4,Jiri Dostal,D,2008-2009,czechia-u20,159040,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Stritesky (D),HC Litvínov U20,11,1,7,8,0.73,10,6,/player/18087/matej-stritesky,4,Matej Stritesky,D,2008-2009,czechia-u20,18087,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Kulda (D),Bílí Tygři Liberec U20,34,1,7,8,0.24,32,3,/player/253057/jan-kulda,4,Jan Kulda,D,2008-2009,czechia-u20,253057,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Kovacsik (D),KLH Chomutov U20,21,0,8,8,0.38,24,4,/player/87512/lukas-kovacsik,4,Lukas Kovacsik,D,2008-2009,czechia-u20,87512,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radan Lenc (LW/RW),BK Mladá Boleslav U20,26,5,2,7,0.27,10,5,/player/99493/radan-lenc,4,Radan Lenc,LW/RW,2008-2009,czechia-u20,99493,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaroslav Vlach (LW),Bílí Tygři Liberec U20,13,4,3,7,0.54,45,-1,/player/40997/jaroslav-vlach,4,Jaroslav Vlach,LW,2008-2009,czechia-u20,40997,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Stepanek (F),HC Kometa Brno U20,26,4,3,7,0.27,12,3,/player/82308/petr-stepanek,4,Petr Stepanek,F,2008-2009,czechia-u20,82308,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Branislav Bendík (LW/RW),HC Pardubice U20,37,4,3,7,0.19,24,-2,/player/46211/branislav-bendik,4,Branislav Bendík,LW/RW,2008-2009,czechia-u20,46211,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Hobza (D),Bílí Tygři Liberec U20,26,3,4,7,0.27,81,-12,/player/46249/tomas-hobza,4,Tomas Hobza,D,2008-2009,czechia-u20,46249,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Hamrozi (F),HC Oceláři Třinec U20,29,3,4,7,0.24,14,4,/player/171786/jakub-hamrozi,4,Jakub Hamrozi,F,2008-2009,czechia-u20,171786,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radek Seidl (LW/RW),HC Mountfield U20,31,3,4,7,0.23,6,-3,/player/129519/radek-seidl,4,Radek Seidl,LW/RW,2008-2009,czechia-u20,129519,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Horvath (F),HC Znojemsti Orli U20,31,3,4,7,0.23,22,3,/player/123486/ondrej-horvath,4,Ondrej Horvath,F,2008-2009,czechia-u20,123486,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Chocholacek (D),HC Zlín U20,32,3,4,7,0.22,45,15,/player/209463/jan-chocholacek,4,Jan Chocholacek,D,2008-2009,czechia-u20,209463,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Baránek (F),HC Slovan Ústečtí Lvi U20,37,3,4,7,0.19,38,-11,/player/164713/martin-baranek,4,Martin Baránek,F,2008-2009,czechia-u20,164713,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominik Krause (D),HC Olomouc U20,44,3,4,7,0.16,74,-12,/player/116300/dominik-krause,4,Dominik Krause,D,2008-2009,czechia-u20,116300,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Dietz (D),HC Mountfield U20,46,3,4,7,0.15,60,11,/player/72289/stanislav-dietz,4,Stanislav Dietz,D,2008-2009,czechia-u20,72289,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Kempný (D),HC Kometa Brno U20,23,2,5,7,0.30,91,-10,/player/18088/michal-kempny,4,Michal Kempný,D,2008-2009,czechia-u20,18088,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Mistoler (F),HC Energie Karlovy Vary U20,36,2,5,7,0.19,51,-9,/player/209456/tomas-mistoler,4,Tomas Mistoler,F,2008-2009,czechia-u20,209456,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Jiranek (C/LW),BK Mladá Boleslav U20,38,2,5,7,0.18,24,-7,/player/99335/tomas-jiranek,4,Tomas Jiranek,C/LW,2008-2009,czechia-u20,99335,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ales Sova (D),HC Kometa Brno U20,43,2,5,7,0.16,68,-3,/player/44398/ales-sova,4,Ales Sova,D,2008-2009,czechia-u20,44398,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Krejnus (D),HC Pardubice U20,30,1,6,7,0.23,34,8,/player/72689/robert-krejnus,4,Robert Krejnus,D,2008-2009,czechia-u20,72689,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Hruzik (D),HC Vítkovice U20,35,1,6,7,0.20,30,17,/player/123152/lukas-hruzik,4,Lukas Hruzik,D,2008-2009,czechia-u20,123152,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vaclav Cizek (D),totals,40,1,6,7,0.18,98,2,/player/33052/vaclav-cizek,4,Vaclav Cizek,D,2008-2009,czechia-u20,33052,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Mazanec (D),totals,15,0,7,7,0.47,50,-1,/player/28101/martin-mazanec,4,Martin Mazanec,D,2008-2009,czechia-u20,28101,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dan Ruzicka (D),HC Plzeň U20,34,0,7,7,0.21,54,9,/player/34801/dan-ruzicka,4,Dan Ruzicka,D,2008-2009,czechia-u20,34801,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Sochor (F),SK Horácká Slavia Třebíč U20,40,4,2,6,0.15,4,-16,/player/156394/michal-sochor,4,Michal Sochor,F,2008-2009,czechia-u20,156394,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Panek (F),HC Kladno U20,18,3,3,6,0.33,41,-2,/player/28601/patrik-panek,4,Patrik Panek,F,2008-2009,czechia-u20,28601,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Sovík (LW),HC Sparta Praha U20,31,3,3,6,0.19,18,-1,/player/85930/robert-sovik,4,Robert Sovík,LW,2008-2009,czechia-u20,85930,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Videlka (C),HC Havířov Panthers U20,40,3,3,6,0.15,37,-10,/player/67127/david-videlka,4,David Videlka,C,2008-2009,czechia-u20,67127,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Bartos (C),HC Znojemsti Orli U20,13,2,4,6,0.46,2,-4,/player/122976/david-bartos,4,David Bartos,C,2008-2009,czechia-u20,122976,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Panuska (D),HC Litvínov U20,29,2,4,6,0.21,10,-1,/player/159046/jiri-panuska,4,Jiri Panuska,D,2008-2009,czechia-u20,159046,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Medricky (F),HC Kladno U20,38,2,4,6,0.16,20,-1,/player/162765/patrik-medricky,4,Patrik Medricky,F,2008-2009,czechia-u20,162765,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mario Lacika (D),BK Mladá Boleslav U20,40,2,4,6,0.15,73,17,/player/227367/mario-lacika,4,Mario Lacika,D,2008-2009,czechia-u20,227367,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Vidlák (F),HC Poruba U20,22,1,5,6,0.27,6,-2,/player/211249/martin-vidlak,4,Martin Vidlák,F,2008-2009,czechia-u20,211249,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Hatas (D),Bílí Tygři Liberec U20,33,1,5,6,0.18,36,4,/player/77373/marek-hatas,4,Marek Hatas,D,2008-2009,czechia-u20,77373,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Václav Drahorád (D),HC Slovan Ústečtí Lvi U20,36,1,5,6,0.17,32,-9,/player/160080/vaclav-drahorad,4,Václav Drahorád,D,2008-2009,czechia-u20,160080,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Tomecek (D),HC Energie Karlovy Vary U20,37,1,5,6,0.16,26,-11,/player/160522/jan-tomecek,4,Jan Tomecek,D,2008-2009,czechia-u20,160522,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Jurcak (D),HC Slovan Ústečtí Lvi U20,38,1,5,6,0.16,39,-10,/player/253055/jakub-jurcak,4,Jakub Jurcak,D,2008-2009,czechia-u20,253055,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Voracek (D),HC Vítkovice U20,13,0,6,6,0.46,12,14,/player/12574/tomas-voracek,4,Tomas Voracek,D,2008-2009,czechia-u20,12574,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Drtil (D),HK Hokej Šumperk 2003 U20,33,0,6,6,0.18,26,-14,/player/160418/tomas-drtil,4,Tomas Drtil,D,2008-2009,czechia-u20,160418,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miroslav Kopic (F),Bílí Tygři Liberec U20,11,4,1,5,0.45,16,0,/player/28458/miroslav-kopic,4,Miroslav Kopic,F,2008-2009,czechia-u20,28458,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Chladek (F),HC Slovan Ústečtí Lvi U20,17,4,1,5,0.29,16,-7,/player/164716/ondrej-chladek,4,Ondrej Chladek,F,2008-2009,czechia-u20,164716,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Dohnal (D),HC Slezan Opava U20,43,4,1,5,0.12,102,-13,/player/158325/jiri-dohnal,4,Jiri Dohnal,D,2008-2009,czechia-u20,158325,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radim Ostrcil (D),HC Olomouc U20,5,3,2,5,1.00,10,0,/player/12572/radim-ostrcil,4,Radim Ostrcil,D,2008-2009,czechia-u20,12572,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Culek (LW),HC Plzeň U20,12,3,2,5,0.42,10,3,/player/34785/jakub-culek,4,Jakub Culek,LW,2008-2009,czechia-u20,34785,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Suk (F),HC Kladno U20,21,3,2,5,0.24,8,-6,/player/259993/ondrej-suk,4,Ondrej Suk,F,2008-2009,czechia-u20,259993,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Janicek (F),HC Slovan Ústečtí Lvi U20,34,3,2,5,0.15,16,-8,/player/209731/michal-janicek,4,Michal Janicek,F,2008-2009,czechia-u20,209731,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Matysz (F),HC Havířov Panthers U20,39,3,2,5,0.13,18,-7,/player/162380/jan-matysz,4,Jan Matysz,F,2008-2009,czechia-u20,162380,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Palicka (F),HC Oceláři Třinec U20,39,3,2,5,0.13,18,-2,/player/209904/filip-palicka,4,Filip Palicka,F,2008-2009,czechia-u20,209904,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Polacek (D),HC Poruba U20,22,2,3,5,0.23,12,0,/player/188026/michal-polacek,4,Michal Polacek,D,2008-2009,czechia-u20,188026,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ladislav Havlik (D),HC Pardubice U20,35,2,3,5,0.14,40,9,/player/70381/ladislav-havlik,4,Ladislav Havlik,D,2008-2009,czechia-u20,70381,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Kapr (D),VHK Vsetín U20,39,2,3,5,0.13,52,-10,/player/210376/david-kapr,5,David Kapr,D,2008-2009,czechia-u20,210376,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrej Sustr (D),HC Plzeň U20,13,1,4,5,0.38,14,5,/player/44405/andrej-sustr,5,Andrej Sustr,D,2008-2009,czechia-u20,44405,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Pojezny (F),HC Slovan Ústečtí Lvi U20,32,1,4,5,0.16,35,-3,/player/211676/jakub-pojezny,5,Jakub Pojezny,F,2008-2009,czechia-u20,211676,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Hnilicka (F),HC Kometa Brno U20,36,1,4,5,0.14,0,-5,/player/82467/lukas-hnilicka,5,Lukas Hnilicka,F,2008-2009,czechia-u20,82467,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Rajnoch (D),HC Oceláři Třinec U20,39,1,4,5,0.13,30,6,/player/253641/lukas-rajnoch,5,Lukas Rajnoch,D,2008-2009,czechia-u20,253641,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vaclav Jaros (D),SK Horácká Slavia Třebíč U20,40,1,4,5,0.13,34,-33,/player/158657/vaclav-jaros,5,Vaclav Jaros,D,2008-2009,czechia-u20,158657,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Rozlivka (D),HC Pardubice U20,42,1,4,5,0.12,36,6,/player/175659/jakub-rozlivka,5,Jakub Rozlivka,D,2008-2009,czechia-u20,175659,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Mikulastik (D),BK Mladá Boleslav U20,44,1,4,5,0.11,28,5,/player/147573/tomas-mikulastik,5,Tomas Mikulastik,D,2008-2009,czechia-u20,147573,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Kopel (D),HC Havířov Panthers U20,32,0,5,5,0.16,57,1,/player/28386/tomas-kopel,5,Tomas Kopel,D,2008-2009,czechia-u20,28386,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radim Spusta (D),HC Poruba U20,33,0,5,5,0.15,22,-8,/player/209753/radim-spusta,5,Radim Spusta,D,2008-2009,czechia-u20,209753,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Fabián (D/F),VHK Vsetín U20,35,0,5,5,0.14,56,-8,/player/251682/michal-fabian,5,Michal Fabián,D/F,2008-2009,czechia-u20,251682,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Koci (F),HC Slovan Ústečtí Lvi U20,39,0,5,5,0.13,22,-10,/player/243948/jakub-koci,5,Jakub Koci,F,2008-2009,czechia-u20,243948,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Galajda (F),HC Poruba U20,23,3,1,4,0.17,16,-9,/player/124656/marek-galajda,5,Marek Galajda,F,2008-2009,czechia-u20,124656,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Nemec (F),SK Horácká Slavia Třebíč U20,44,3,1,4,0.09,12,-27,/player/252454/lukas-nemec,5,Lukas Nemec,F,2008-2009,czechia-u20,252454,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Havran (D),HC Mountfield U20,4,2,2,4,1.00,18,1,/player/22593/martin-havran,5,Martin Havran,D,2008-2009,czechia-u20,22593,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Herman (W/C),HC Zlín U20,11,2,2,4,0.36,4,4,/player/41096/jakub-herman,5,Jakub Herman,W/C,2008-2009,czechia-u20,41096,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Musial (F),HC Slezan Opava U20,16,2,2,4,0.25,2,0,/player/255079/tomas-musial,5,Tomas Musial,F,2008-2009,czechia-u20,255079,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Veselý (F),HC Slezan Opava U20,16,2,2,4,0.25,6,1,/player/169945/jakub-vesely,5,Jakub Veselý,F,2008-2009,czechia-u20,169945,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Mulac (F),Bílí Tygři Liberec U20,25,2,2,4,0.16,12,-5,/player/169935/jakub-mulac,5,Jakub Mulac,F,2008-2009,czechia-u20,169935,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Breza (F),totals,26,2,2,4,0.15,6,-4,/player/211446/michal-breza,5,Michal Breza,F,2008-2009,czechia-u20,211446,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Vild (D),BK Mladá Boleslav U20,26,2,2,4,0.15,14,-8,/player/192567/martin-vild,5,Martin Vild,D,2008-2009,czechia-u20,192567,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Spurny (D),HC Olomouc U20,27,2,2,4,0.15,59,-7,/player/220645/roman-spurny,5,Roman Spurny,D,2008-2009,czechia-u20,220645,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Capek (F),HC Pardubice U20,31,2,2,4,0.13,6,-3,/player/188808/ondrej-capek,5,Ondrej Capek,F,2008-2009,czechia-u20,188808,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Mach (F),HC Slezan Opava U20,39,2,2,4,0.10,16,-1,/player/116043/marek-mach,5,Marek Mach,F,2008-2009,czechia-u20,116043,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vaclav Polivka (LW),HC Plzeň U20,40,2,2,4,0.10,26,-6,/player/210107/vaclav-polivka,5,Vaclav Polivka,LW,2008-2009,czechia-u20,210107,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Pindur (D),HC Poruba U20,44,2,2,4,0.09,90,-15,/player/251340/jiri-pindur,5,Jiri Pindur,D,2008-2009,czechia-u20,251340,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Roman (C),HC Vítkovice U20,4,1,3,4,1.00,0,3,/player/11103/ondrej-roman,5,Ondrej Roman,C,2008-2009,czechia-u20,11103,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Hlinka (C/RW),HC Vítkovice U20,4,1,3,4,1.00,2,3,/player/19362/michal-hlinka,5,Michal Hlinka,C/RW,2008-2009,czechia-u20,19362,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Koudela (F),BK Mladá Boleslav U20,7,1,3,4,0.57,4,0,/player/70384/david-koudela,5,David Koudela,F,2008-2009,czechia-u20,70384,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Sznapka (D),VHK Vsetín U20,19,1,3,4,0.21,10,-22,/player/159390/jan-sznapka,5,Jan Sznapka,D,2008-2009,czechia-u20,159390,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Kovar (D),HC Vítkovice U20,21,1,3,4,0.19,18,13,/player/97235/lukas-kovar,5,Lukas Kovar,D,2008-2009,czechia-u20,97235,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zdenek Sadil (D),VHK Vsetín U20,29,1,3,4,0.14,16,-14,/player/171793/zdenek-sadil,5,Zdenek Sadil,D,2008-2009,czechia-u20,171793,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frantisek Rosenberg (D),HC Kometa Brno U20,31,1,3,4,0.13,30,6,/player/178018/frantisek-rosenberg,5,Frantisek Rosenberg,D,2008-2009,czechia-u20,178018,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Matejcek (F),HC Pardubice U20,32,1,3,4,0.13,12,0,/player/67121/ondrej-matejcek,5,Ondrej Matejcek,F,2008-2009,czechia-u20,67121,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Matejicek (D),HC Zlín U20,33,1,3,4,0.12,18,-8,/player/98157/martin-matejicek,5,Martin Matejicek,D,2008-2009,czechia-u20,98157,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vilem Juran (F),HC Kometa Brno U20,34,1,3,4,0.12,8,-3,/player/82466/vilem-juran,5,Vilem Juran,F,2008-2009,czechia-u20,82466,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Pezda (D),totals,36,1,3,4,0.11,10,-20,/player/83732/samuel-pezda,5,Samuel Pezda,D,2008-2009,czechia-u20,83732,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Jasko (D),KLH Chomutov U20,36,1,3,4,0.11,10,-10,/player/57947/david-jasko,5,David Jasko,D,2008-2009,czechia-u20,57947,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miloslav Jachym (D),HC Mountfield U20,37,1,3,4,0.11,59,4,/player/82475/miloslav-jachym,5,Miloslav Jachym,D,2008-2009,czechia-u20,82475,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Meciar (D),SK Horácká Slavia Třebíč U20,41,1,3,4,0.10,44,-20,/player/161760/tomas-meciar,5,Tomas Meciar,D,2008-2009,czechia-u20,161760,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Sobotka (D),Bílí Tygři Liberec U20,44,1,3,4,0.09,16,-3,/player/160431/martin-sobotka,5,Martin Sobotka,D,2008-2009,czechia-u20,160431,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ales Jurcik (D),HC Havířov Panthers U20,18,0,4,4,0.22,18,1,/player/158182/ales-jurcik,5,Ales Jurcik,D,2008-2009,czechia-u20,158182,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Kotrba (D),SK Horácká Slavia Třebíč U20,30,0,4,4,0.13,34,-20,/player/211382/pavel-kotrba,5,Pavel Kotrba,D,2008-2009,czechia-u20,211382,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikhail Jaskin (D),VHK Vsetín U20,33,0,4,4,0.12,28,-6,/player/162759/mikhail-jaskin,5,Mikhail Jaskin,D,2008-2009,czechia-u20,162759,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Dopita (F),HC Olomouc U20,39,0,4,4,0.10,8,-16,/player/253066/jiri-dopita,5,Jiri Dopita,F,2008-2009,czechia-u20,253066,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josef Ptacnik (F),totals,40,0,4,4,0.10,18,-12,/player/164949/josef-ptacnik,5,Josef Ptacnik,F,2008-2009,czechia-u20,164949,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Vrba (D),HC Kladno U20,41,0,4,4,0.10,56,-6,/player/253752/lukas-vrba,5,Lukas Vrba,D,2008-2009,czechia-u20,253752,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vaclav Dokoupil (D),HK Hokej Šumperk 2003 U20,44,0,4,4,0.09,102,-14,/player/259997/vaclav-dokoupil,5,Vaclav Dokoupil,D,2008-2009,czechia-u20,259997,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Veselý (D),HC Sparta Praha U20,46,0,4,4,0.09,44,0,/player/27833/jan-vesely,5,Jan Veselý,D,2008-2009,czechia-u20,27833,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Smid (C),HC Kladno U20,46,0,4,4,0.09,70,0,/player/169984/jakub-smid,5,Jakub Smid,C,2008-2009,czechia-u20,169984,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Katreniak (C),HC Havířov Panthers U20,14,3,0,3,0.21,2,-1,/player/96281/matej-katreniak,5,Matej Katreniak,C,2008-2009,czechia-u20,96281,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Heindl (F),KLH Chomutov U20,25,3,0,3,0.12,14,-4,/player/164936/tomas-heindl,5,Tomas Heindl,F,2008-2009,czechia-u20,164936,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Sumerauer (F),HC Mountfield U20,31,3,0,3,0.10,24,0,/player/129686/lukas-sumerauer,5,Lukas Sumerauer,F,2008-2009,czechia-u20,129686,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimír Stejskal (F),HC Mountfield U20,4,2,1,3,0.75,6,0,/player/37388/vladimir-stejskal,5,Vladimír Stejskal,F,2008-2009,czechia-u20,37388,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arnoldas Bosas (RW),HC Sparta Praha U20,5,2,1,3,0.60,6,-1,/player/15230/arnoldas-bosas,5,Arnoldas Bosas,RW,2008-2009,czechia-u20,15230,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Svaty (D),HC Znojemsti Orli U20,6,2,1,3,0.50,6,0,/player/88165/jan-svaty,5,Jan Svaty,D,2008-2009,czechia-u20,88165,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Libor Kadlcik (F),BK Mladá Boleslav U20,16,2,1,3,0.19,45,-1,/player/106680/libor-kadlcik,5,Libor Kadlcik,F,2008-2009,czechia-u20,106680,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Sefcik (F),HC Havířov Panthers U20,18,2,1,3,0.17,18,-1,/player/48069/david-sefcik,5,David Sefcik,F,2008-2009,czechia-u20,48069,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Koubek (F),HC Slavia Praha U20,32,2,1,3,0.09,10,-9,/player/171210/jan-koubek,5,Jan Koubek,F,2008-2009,czechia-u20,171210,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimír Cink (RW),HK Hokej Šumperk 2003 U20,33,2,1,3,0.09,10,-20,/player/160403/vladimir-cink,5,Vladimír Cink,RW,2008-2009,czechia-u20,160403,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Kolcava (D),KLH Chomutov U20,34,2,1,3,0.09,14,-1,/player/164940/daniel-kolcava,5,Daniel Kolcava,D,2008-2009,czechia-u20,164940,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hynek Zohorna (RW/C),HC Slavia Praha U20,4,1,2,3,0.75,4,-1,/player/28129/hynek-zohorna,5,Hynek Zohorna,RW/C,2008-2009,czechia-u20,28129,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Kubalik (RW),HC Plzeň U20,4,1,2,3,0.75,10,1,/player/11834/tomas-kubalik,5,Tomas Kubalik,RW,2008-2009,czechia-u20,11834,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Touska (F),HC Kometa Brno U20,6,1,2,3,0.50,4,2,/player/252242/marek-touska,5,Marek Touska,F,2008-2009,czechia-u20,252242,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Edgars Ulescenko (RW),HC Slavia Praha U20,7,1,2,3,0.43,12,3,/player/19031/edgars-ulescenko,5,Edgars Ulescenko,RW,2008-2009,czechia-u20,19031,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Plzak (D),HC Poruba U20,22,1,2,3,0.14,10,0,/player/190108/michal-plzak,5,Michal Plzak,D,2008-2009,czechia-u20,190108,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Kukla (D),HC Slezan Opava U20,23,1,2,3,0.13,12,-2,/player/197043/adam-kukla,5,Adam Kukla,D,2008-2009,czechia-u20,197043,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcel Stepanek (F),HC Kometa Brno U20,26,1,2,3,0.12,20,2,/player/193749/marcel-stepanek,5,Marcel Stepanek,F,2008-2009,czechia-u20,193749,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Axman (D),HC Olomouc U20,27,1,2,3,0.11,22,-6,/player/211226/michal-axman,5,Michal Axman,D,2008-2009,czechia-u20,211226,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Gottwald (D),HC Oceláři Třinec U20,32,1,2,3,0.09,26,-2,/player/197784/michael-gottwald,5,Michael Gottwald,D,2008-2009,czechia-u20,197784,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Malina (D),HC Olomouc U20,35,1,2,3,0.09,32,-7,/player/259994/adam-malina,5,Adam Malina,D,2008-2009,czechia-u20,259994,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Divis (D),Bílí Tygři Liberec U20,37,1,2,3,0.08,14,-10,/player/221036/patrik-divis,5,Patrik Divis,D,2008-2009,czechia-u20,221036,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Karlik (D),totals,38,1,2,3,0.08,37,-1,/player/77402/lukas-karlik,5,Lukas Karlik,D,2008-2009,czechia-u20,77402,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oldrich Heza (F),HC Olomouc U20,40,1,2,3,0.08,14,-9,/player/176143/oldrich-heza,5,Oldrich Heza,F,2008-2009,czechia-u20,176143,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Ryzuk (D),HC Energie Karlovy Vary U20,42,1,2,3,0.07,54,-9,/player/14008/jiri-ryzuk,5,Jiri Ryzuk,D,2008-2009,czechia-u20,14008,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Hucl (D),HC Plzeň U20,44,1,2,3,0.07,52,-1,/player/87403/jan-hucl,5,Jan Hucl,D,2008-2009,czechia-u20,87403,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Klimek (LW),VHK Vsetín U20,6,0,3,3,0.50,0,-2,/player/178864/david-klimek,5,David Klimek,LW,2008-2009,czechia-u20,178864,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaromír Kverka (C),HC Energie Karlovy Vary U20,7,0,3,3,0.43,4,2,/player/70385/jaromir-kverka,5,Jaromír Kverka,C,2008-2009,czechia-u20,70385,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Drabek (D),Bílí Tygři Liberec U20,21,0,3,3,0.14,64,0,/player/209784/peter-drabek,5,Peter Drabek,D,2008-2009,czechia-u20,209784,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Ctveracek (D),SK Horácká Slavia Třebíč U20,28,0,3,3,0.11,55,-18,/player/170942/jiri-ctveracek,5,Jiri Ctveracek,D,2008-2009,czechia-u20,170942,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Rybnikar (D),HC Vítkovice U20,33,0,3,3,0.09,16,10,/player/48065/jakub-rybnikar,5,Jakub Rybnikar,D,2008-2009,czechia-u20,48065,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Vondracek (D),HC Pardubice U20,37,0,3,3,0.08,47,5,/player/167930/david-vondracek,5,David Vondracek,D,2008-2009,czechia-u20,167930,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Kysela (D),HC Slezan Opava U20,38,0,3,3,0.08,38,7,/player/158368/daniel-kysela,5,Daniel Kysela,D,2008-2009,czechia-u20,158368,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dalibor Reznicek (D),HC Zlín U20,41,0,3,3,0.07,16,-2,/player/93411/dalibor-reznicek,5,Dalibor Reznicek,D,2008-2009,czechia-u20,93411,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Korinek (D),HC Sparta Praha U20,41,0,3,3,0.07,44,-3,/player/22808/jakub-korinek,5,Jakub Korinek,D,2008-2009,czechia-u20,22808,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Latner (D),HC Znojemsti Orli U20,41,0,3,3,0.07,65,-3,/player/163044/tomas-latner,5,Tomas Latner,D,2008-2009,czechia-u20,163044,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Eis (F),HC Sparta Praha U20,5,2,0,2,0.40,0,1,/player/105892/stanislav-eis,5,Stanislav Eis,F,2008-2009,czechia-u20,105892,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Sorejs (F),Bílí Tygři Liberec U20,11,2,0,2,0.18,8,-2,/player/194806/matej-sorejs,5,Matej Sorejs,F,2008-2009,czechia-u20,194806,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas Hampl (F),HC Energie Karlovy Vary U20,16,2,0,2,0.13,22,-1,/player/147459/andreas-hampl,5,Andreas Hampl,F,2008-2009,czechia-u20,147459,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Oppelt (F),Bílí Tygři Liberec U20,29,2,0,2,0.07,18,-3,/player/169936/tomas-oppelt,5,Tomas Oppelt,F,2008-2009,czechia-u20,169936,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Zientek (D),HC Havířov Panthers U20,42,2,0,2,0.05,32,5,/player/116182/marek-zientek,5,Marek Zientek,D,2008-2009,czechia-u20,116182,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Rehak (LW),HC Vítkovice U20,2,1,1,2,1.00,2,2,/player/101158/adam-rehak,5,Adam Rehak,LW,2008-2009,czechia-u20,101158,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Hellar (F),HC Slavia Praha U20,5,1,1,2,0.40,2,-1,/player/177351/michal-hellar,5,Michal Hellar,F,2008-2009,czechia-u20,177351,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Matejka (LW),HC Plzeň U20,7,1,1,2,0.29,24,-2,/player/19371/lukas-matejka,5,Lukas Matejka,LW,2008-2009,czechia-u20,19371,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ladislav Pulec (D),Bílí Tygři Liberec U20,13,1,1,2,0.15,16,-3,/player/169938/ladislav-pulec,5,Ladislav Pulec,D,2008-2009,czechia-u20,169938,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaroslav Flieger (F),HC Energie Karlovy Vary U20,16,1,1,2,0.13,4,-4,/player/164934/jaroslav-flieger,5,Jaroslav Flieger,F,2008-2009,czechia-u20,164934,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Fusek (F),HC Energie Karlovy Vary U20,17,1,1,2,0.12,6,-2,/player/254993/adam-fusek,5,Adam Fusek,F,2008-2009,czechia-u20,254993,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Bokros (D),HC Zlín U20,17,1,1,2,0.12,26,4,/player/48623/tomas-bokros,5,Tomas Bokros,D,2008-2009,czechia-u20,48623,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Jakubal (F),HC Energie Karlovy Vary U20,18,1,1,2,0.11,16,-1,/player/162568/tomas-jakubal,5,Tomas Jakubal,F,2008-2009,czechia-u20,162568,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Pavlík (D),HC Oceláři Třinec U20,18,1,1,2,0.11,22,3,/player/70387/filip-pavlik,5,Filip Pavlík,D,2008-2009,czechia-u20,70387,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Drda (D/F),totals,29,1,1,2,0.07,2,-9,/player/162747/lukas-drda,6,Lukas Drda,D/F,2008-2009,czechia-u20,162747,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Stejskal (F),HK Hokej Šumperk 2003 U20,34,1,1,2,0.06,10,-9,/player/255276/david-stejskal,6,David Stejskal,F,2008-2009,czechia-u20,255276,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Stejskal (D),HC Slovan Ústečtí Lvi U20,35,1,1,2,0.06,40,-8,/player/252098/jan-stejskal,6,Jan Stejskal,D,2008-2009,czechia-u20,252098,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Makovsky (D),HC Mountfield U20,35,1,1,2,0.06,49,6,/player/83375/jakub-makovsky,6,Jakub Makovsky,D,2008-2009,czechia-u20,83375,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Martinek (D),HC Slezan Opava U20,39,1,1,2,0.05,26,-2,/player/98991/michal-martinek,6,Michal Martinek,D,2008-2009,czechia-u20,98991,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Mlejnek (D),SK Horácká Slavia Třebíč U20,43,1,1,2,0.05,97,-18,/player/163059/viktor-mlejnek,6,Viktor Mlejnek,D,2008-2009,czechia-u20,163059,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kamil Kinkor (F),HC Kladno U20,9,0,2,2,0.22,2,-5,/player/77386/kamil-kinkor,6,Kamil Kinkor,F,2008-2009,czechia-u20,77386,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivo Sigmund (F),HK Hokej Šumperk 2003 U20,13,0,2,2,0.15,10,-5,/player/259999/ivo-sigmund,6,Ivo Sigmund,F,2008-2009,czechia-u20,259999,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Kocur (D),VHK Vsetín U20,17,0,2,2,0.12,26,-8,/player/253748/michal-kocur,6,Michal Kocur,D,2008-2009,czechia-u20,253748,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Zabojnik (D),HC Zlín U20,25,0,2,2,0.08,28,0,/player/160288/lukas-zabojnik,6,Lukas Zabojnik,D,2008-2009,czechia-u20,160288,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radek Vyslouzil (F),HC Znojemsti Orli U20,26,0,2,2,0.08,18,-1,/player/28898/radek-vyslouzil,6,Radek Vyslouzil,F,2008-2009,czechia-u20,28898,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Svaricek (D),SK Horácká Slavia Třebíč U20,29,0,2,2,0.07,4,-15,/player/253143/robin-svaricek,6,Robin Svaricek,D,2008-2009,czechia-u20,253143,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Sima (D),HC Slavia Praha U20,29,0,2,2,0.07,10,-2,/player/140687/ondrej-sima,6,Ondrej Sima,D,2008-2009,czechia-u20,140687,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Vyskocil (D),HC Kladno U20,30,0,2,2,0.07,68,-1,/player/28641/tomas-vyskocil,6,Tomas Vyskocil,D,2008-2009,czechia-u20,28641,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Kolar (F),KLH Chomutov U20,32,0,2,2,0.06,22,-9,/player/220750/marek-kolar,6,Marek Kolar,F,2008-2009,czechia-u20,220750,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Zdráhal (D),HC Pardubice U20,32,0,2,2,0.06,46,9,/player/72690/jan-zdrahal,6,Jan Zdráhal,D,2008-2009,czechia-u20,72690,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Saska (F),KLH Chomutov U20,36,0,2,2,0.06,28,-2,/player/164775/petr-saska,6,Petr Saska,F,2008-2009,czechia-u20,164775,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ladislav Boska (F),HC Mountfield U20,38,0,2,2,0.05,22,-1,/player/196959/ladislav-boska,6,Ladislav Boska,F,2008-2009,czechia-u20,196959,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Ruprecht (D),HC Plzeň U20,45,0,2,2,0.04,16,-3,/player/152400/jakub-ruprecht,6,Jakub Ruprecht,D,2008-2009,czechia-u20,152400,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Fryc (D),HK Hokej Šumperk 2003 U20,46,0,2,2,0.04,28,-17,/player/220504/jakub-fryc,6,Jakub Fryc,D,2008-2009,czechia-u20,220504,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Chocholac (F),KLH Chomutov U20,2,1,0,1,0.50,0,1,/player/252020/martin-chocholac,6,Martin Chocholac,F,2008-2009,czechia-u20,252020,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Podesva (F),VHK Vsetín U20,3,1,0,1,0.33,0,0,/player/123105/jan-podesva,6,Jan Podesva,F,2008-2009,czechia-u20,123105,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Trska (D),VHK Vsetín U20,5,1,0,1,0.20,8,1,/player/66016/peter-trska,6,Peter Trska,D,2008-2009,czechia-u20,66016,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Hanták (C),KLH Chomutov U20,6,1,0,1,0.17,2,-3,/player/70380/filip-hantak,6,Filip Hanták,C,2008-2009,czechia-u20,70380,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Sulc (D),HC Slovan Ústečtí Lvi U20,11,1,0,1,0.09,22,1,/player/28297/ondrej-sulc,6,Ondrej Sulc,D,2008-2009,czechia-u20,28297,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Kaplan (D),KLH Chomutov U20,11,1,0,1,0.09,39,-9,/player/228348/daniel-kaplan,6,Daniel Kaplan,D,2008-2009,czechia-u20,228348,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Szymon Urbanczyk (D),HC Havířov Panthers U20,13,1,0,1,0.08,2,-5,/player/28571/szymon-urbanczyk,6,Szymon Urbanczyk,D,2008-2009,czechia-u20,28571,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Dvorak (D),HC Slovan Ústečtí Lvi U20,13,1,0,1,0.08,16,-4,/player/164761/filip-dvorak,6,Filip Dvorak,D,2008-2009,czechia-u20,164761,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vaclav Chomic (C),HC Poruba U20,14,1,0,1,0.07,6,-6,/player/117196/vaclav-chomic,6,Vaclav Chomic,C,2008-2009,czechia-u20,117196,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Spila (D),HC Znojemsti Orli U20,17,1,0,1,0.06,24,-2,/player/27570/matej-spila,6,Matej Spila,D,2008-2009,czechia-u20,27570,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Libor Rajsky (D),SK Horácká Slavia Třebíč U20,21,1,0,1,0.05,10,-9,/player/255122/libor-rajsky,6,Libor Rajsky,D,2008-2009,czechia-u20,255122,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Pinka (D),HC Havířov Panthers U20,28,1,0,1,0.04,24,-1,/player/57950/richard-pinka,6,Richard Pinka,D,2008-2009,czechia-u20,57950,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Chvostek (D),HC Oceláři Třinec U20,30,1,0,1,0.03,10,9,/player/164597/filip-chvostek,6,Filip Chvostek,D,2008-2009,czechia-u20,164597,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Marecek (F),HC Olomouc U20,32,1,0,1,0.03,6,-9,/player/255070/ondrej-marecek,6,Ondrej Marecek,F,2008-2009,czechia-u20,255070,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frantisek Dvorak (D),SK Horácká Slavia Třebíč U20,33,1,0,1,0.03,28,-11,/player/255120/frantisek-dvorak,6,Frantisek Dvorak,D,2008-2009,czechia-u20,255120,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kriss Kupcus (D),HK Hokej Šumperk 2003 U20,34,1,0,1,0.03,20,-13,/player/46352/kriss-kupcus,6,Kriss Kupcus,D,2008-2009,czechia-u20,46352,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Zítka (D),HC Kometa Brno U20,40,1,0,1,0.03,30,-5,/player/72496/petr-zitka,6,Petr Zítka,D,2008-2009,czechia-u20,72496,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radko Gudas (D),HC Kladno U20,2,0,1,1,0.50,0,2,/player/18085/radko-gudas,6,Radko Gudas,D,2008-2009,czechia-u20,18085,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Snejdr (D),HC Pardubice U20,2,0,1,1,0.50,0,0,/player/189279/jakub-snejdr,6,Jakub Snejdr,D,2008-2009,czechia-u20,189279,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominik Uher (C/LW),HC Oceláři Třinec U20,2,0,1,1,0.50,2,0,/player/41098/dominik-uher,6,Dominik Uher,C/LW,2008-2009,czechia-u20,41098,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Ruzbasan (F),HC Havířov Panthers U20,3,0,1,1,0.33,0,0,/player/198928/jakub-ruzbasan,6,Jakub Ruzbasan,F,2008-2009,czechia-u20,198928,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Kudlacek (F),HC Sparta Praha U20,3,0,1,1,0.33,0,-1,/player/209490/tomas-kudlacek,6,Tomas Kudlacek,F,2008-2009,czechia-u20,209490,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Vlasin (D),SK Horácká Slavia Třebíč U20,3,0,1,1,0.33,0,1,/player/211328/michal-vlasin,6,Michal Vlasin,D,2008-2009,czechia-u20,211328,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Hemský (F),HC Pardubice U20,4,0,1,1,0.25,2,-2,/player/105893/marek-hemsky,6,Marek Hemský,F,2008-2009,czechia-u20,105893,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Sykora (F),HC Energie Karlovy Vary U20,5,0,1,1,0.20,2,0,/player/25137/tomas-sykora,6,Tomas Sykora,F,2008-2009,czechia-u20,25137,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Gancarcik (D),VHK Vsetín U20,5,0,1,1,0.20,2,-1,/player/162178/patrik-gancarcik,6,Patrik Gancarcik,D,2008-2009,czechia-u20,162178,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Koblizek (F),HC Znojemsti Orli U20,6,0,1,1,0.17,0,-1,/player/255069/marek-koblizek,6,Marek Koblizek,F,2008-2009,czechia-u20,255069,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Bernad (F),HK Hokej Šumperk 2003 U20,8,0,1,1,0.13,4,-5,/player/171400/jakub-bernad,6,Jakub Bernad,F,2008-2009,czechia-u20,171400,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Funk (D),HC Energie Karlovy Vary U20,9,0,1,1,0.11,2,-1,/player/162567/martin-funk,6,Martin Funk,D,2008-2009,czechia-u20,162567,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Vecera (D),HC Poruba U20,9,0,1,1,0.11,2,-7,/player/255157/jan-vecera,6,Jan Vecera,D,2008-2009,czechia-u20,255157,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Hrbas (D),HC Plzeň U20,9,0,1,1,0.11,4,1,/player/53781/marek-hrbas,6,Marek Hrbas,D,2008-2009,czechia-u20,53781,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Sidak (F),HC Kometa Brno U20,9,0,1,1,0.11,6,-2,/player/82474/matej-sidak,6,Matej Sidak,F,2008-2009,czechia-u20,82474,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Parma (D),HC Poruba U20,10,0,1,1,0.10,8,-4,/player/198749/jiri-parma,6,Jiri Parma,D,2008-2009,czechia-u20,198749,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Petracek (D),HC Kladno U20,10,0,1,1,0.10,30,3,/player/19364/tomas-petracek,6,Tomas Petracek,D,2008-2009,czechia-u20,19364,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Kellner (F),HC Energie Karlovy Vary U20,11,0,1,1,0.09,12,-7,/player/158345/david-kellner,6,David Kellner,F,2008-2009,czechia-u20,158345,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Pastor (D),HC Vítkovice U20,13,0,1,1,0.08,18,0,/player/90607/tomas-pastor,6,Tomas Pastor,D,2008-2009,czechia-u20,90607,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josef Klement (D),HC Mountfield U20,17,0,1,1,0.06,16,-2,/player/19008/josef-klement,6,Josef Klement,D,2008-2009,czechia-u20,19008,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Barcak (F),HC Poruba U20,18,0,1,1,0.06,4,-8,/player/188033/jan-barcak,6,Jan Barcak,F,2008-2009,czechia-u20,188033,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Schusser (D),HC Energie Karlovy Vary U20,22,0,1,1,0.05,12,5,/player/153750/adam-schusser,6,Adam Schusser,D,2008-2009,czechia-u20,153750,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Belatka (D),SK Horácká Slavia Třebíč U20,24,0,1,1,0.04,16,-11,/player/211376/martin-belatka,6,Martin Belatka,D,2008-2009,czechia-u20,211376,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Vyhnalek (F),SK Horácká Slavia Třebíč U20,24,0,1,1,0.04,16,-8,/player/253144/pavel-vyhnalek,6,Pavel Vyhnalek,F,2008-2009,czechia-u20,253144,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Pospisil (D),HC Kometa Brno U20,28,0,1,1,0.04,4,-14,/player/181249/lukas-pospisil,6,Lukas Pospisil,D,2008-2009,czechia-u20,181249,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Korycansky (D),HC Olomouc U20,29,0,1,1,0.03,16,-2,/player/123142/lukas-korycansky,6,Lukas Korycansky,D,2008-2009,czechia-u20,123142,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Dlapa (D),HC Energie Karlovy Vary U20,32,0,1,1,0.03,34,-8,/player/88156/ondrej-dlapa,6,Ondrej Dlapa,D,2008-2009,czechia-u20,88156,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Kusak (D),HC Znojemsti Orli U20,34,0,1,1,0.03,12,6,/player/123501/lukas-kusak,6,Lukas Kusak,D,2008-2009,czechia-u20,123501,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivo Lukes (D),VHK Vsetín U20,34,0,1,1,0.03,42,-24,/player/210377/ivo-lukes,6,Ivo Lukes,D,2008-2009,czechia-u20,210377,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Riha (D),HC Slovan Ústečtí Lvi U20,35,0,1,1,0.03,10,-14,/player/252044/david-riha,6,David Riha,D,2008-2009,czechia-u20,252044,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Drvota (D),HC Sparta Praha U20,38,0,1,1,0.03,10,-2,/player/209470/lukas-drvota,6,Lukas Drvota,D,2008-2009,czechia-u20,209470,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Poles (F),HK Hokej Šumperk 2003 U20,39,0,1,1,0.03,29,-9,/player/197167/jiri-poles,6,Jiri Poles,F,2008-2009,czechia-u20,197167,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Pacanda (F),HC Plzeň U20,0,0,0,0,-,0,-,/player/42092/tomas-pacanda,6,Tomas Pacanda,F,2008-2009,czechia-u20,42092,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Racuk (W),HC Litvínov U20,0,0,0,0,-,0,-,/player/75175/marek-racuk,6,Marek Racuk,W,2008-2009,czechia-u20,75175,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiří Jebavý (D),HC Slavia Praha U20,0,0,0,0,-,0,-,/player/19423/ji%C5%99i-jebavy,6,Jiří Jebavý,D,2008-2009,czechia-u20,19423,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Horehled (F),VHK Vsetín U20,1,0,0,0,0.00,0,-1,/player/83418/petr-horehled,6,Petr Horehled,F,2008-2009,czechia-u20,83418,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Pavelka (D),HC Vítkovice U20,1,0,0,0,0.00,0,0,/player/100224/tomas-pavelka,6,Tomas Pavelka,D,2008-2009,czechia-u20,100224,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Jaroch (D),HC Havířov Panthers U20,1,0,0,0,0.00,0,1,/player/112430/tomas-jaroch,6,Tomas Jaroch,D,2008-2009,czechia-u20,112430,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Balint (D),HC Havířov Panthers U20,1,0,0,0,0.00,0,0,/player/116302/jan-balint,6,Jan Balint,D,2008-2009,czechia-u20,116302,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Luzny (D),HC Poruba U20,1,0,0,0,0.00,0,0,/player/116350/ondrej-luzny,6,Ondrej Luzny,D,2008-2009,czechia-u20,116350,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Kozak (LW),VHK Vsetín U20,1,0,0,0,0.00,0,0,/player/147554/jiri-kozak,6,Jiri Kozak,LW,2008-2009,czechia-u20,147554,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Jurcik (W/C),HC Litvínov U20,1,0,0,0,0.00,0,0,/player/156466/ondrej-jurcik,6,Ondrej Jurcik,W/C,2008-2009,czechia-u20,156466,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frantisek Mala (F),KLH Chomutov U20,1,0,0,0,0.00,0,0,/player/160524/frantisek-mala,6,Frantisek Mala,F,2008-2009,czechia-u20,160524,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Bolfik (F),VHK Vsetín U20,1,0,0,0,0.00,0,-2,/player/163042/lukas-bolfik,6,Lukas Bolfik,F,2008-2009,czechia-u20,163042,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Patak (F),SK Horácká Slavia Třebíč U20,1,0,0,0,0.00,0,0,/player/168441/lukas-patak,6,Lukas Patak,F,2008-2009,czechia-u20,168441,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Dobrovolný (D),SK Horácká Slavia Třebíč U20,1,0,0,0,0.00,0,0,/player/172299/david-dobrovolny,6,David Dobrovolný,D,2008-2009,czechia-u20,172299,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Benes (D),HC Pardubice U20,1,0,0,0,0.00,0,0,/player/176347/petr-benes,6,Petr Benes,D,2008-2009,czechia-u20,176347,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Svetlik (F),HC Pardubice U20,1,0,0,0,0.00,0,0,/player/179775/jiri-svetlik,6,Jiri Svetlik,F,2008-2009,czechia-u20,179775,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Cerny (D),HC Slovan Ústečtí Lvi U20,1,0,0,0,0.00,0,-1,/player/188906/marek-cerny,6,Marek Cerny,D,2008-2009,czechia-u20,188906,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Zeman (F),HC Olomouc U20,1,0,0,0,0.00,0,0,/player/190960/tomas-zeman,6,Tomas Zeman,F,2008-2009,czechia-u20,190960,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Basnar (F),SK Horácká Slavia Třebíč U20,1,0,0,0,0.00,0,0,/player/209267/robert-basnar,6,Robert Basnar,F,2008-2009,czechia-u20,209267,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Zeman (F),KLH Chomutov U20,1,0,0,0,0.00,0,0,/player/209459/lukas-zeman,6,Lukas Zeman,F,2008-2009,czechia-u20,209459,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Jetmar (F),HC Pardubice U20,1,0,0,0,0.00,0,0,/player/223013/jan-jetmar,6,Jan Jetmar,F,2008-2009,czechia-u20,223013,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karel Kamenik (F),HC Havířov Panthers U20,1,0,0,0,0.00,0,0,/player/229179/karel-kamenik,6,Karel Kamenik,F,2008-2009,czechia-u20,229179,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Komma (F),HC Litvínov U20,1,0,0,0,0.00,0,0,/player/253062/petr-komma,6,Petr Komma,F,2008-2009,czechia-u20,253062,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaroslav Necesal (F),HK Hokej Šumperk 2003 U20,1,0,0,0,0.00,0,0,/player/255072/jaroslav-necesal,6,Jaroslav Necesal,F,2008-2009,czechia-u20,255072,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Synek (D),VHK Vsetín U20,1,0,0,0,0.00,0,-1,/player/255827/richard-synek,6,Richard Synek,D,2008-2009,czechia-u20,255827,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radomir Djoric (F),VHK Vsetín U20,1,0,0,0,0.00,0,-3,/player/255999/radomir-djoric,6,Radomir Djoric,F,2008-2009,czechia-u20,255999,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ladislav Hruska (D),HC Slavia Praha U20,1,0,0,0,0.00,2,-1,/player/86838/ladislav-hruska,6,Ladislav Hruska,D,2008-2009,czechia-u20,86838,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Teper (D),HC Oceláři Třinec U20,1,0,0,0,0.00,2,0,/player/116203/jakub-teper,6,Jakub Teper,D,2008-2009,czechia-u20,116203,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Uhlir (F),HC Mountfield U20,1,0,0,0,0.00,2,0,/player/231783/lukas-uhlir,6,Lukas Uhlir,F,2008-2009,czechia-u20,231783,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Karagavrilidis (D),HC Litvínov U20,1,0,0,0,0.00,2,0,/player/253061/daniel-karagavrilidis,6,Daniel Karagavrilidis,D,2008-2009,czechia-u20,253061,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Duda (D),HC Havířov Panthers U20,2,0,0,0,0.00,0,-1,/player/116336/jan-duda,6,Jan Duda,D,2008-2009,czechia-u20,116336,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ales Hybner (F),HC Sparta Praha U20,2,0,0,0,0.00,0,0,/player/171128/ales-hybner,7,Ales Hybner,F,2008-2009,czechia-u20,171128,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Bednar (LW),HC Kometa Brno U20,2,0,0,0,0.00,0,0,/player/193750/jan-bednar,7,Jan Bednar,LW,2008-2009,czechia-u20,193750,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Loskot (F),KLH Chomutov U20,2,0,0,0,0.00,0,0,/player/194875/jiri-loskot,7,Jiri Loskot,F,2008-2009,czechia-u20,194875,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vit Cermak (F),HC Slezan Opava U20,2,0,0,0,0.00,0,0,/player/197053/vit-cermak,7,Vit Cermak,F,2008-2009,czechia-u20,197053,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Peroutka (D),SK Horácká Slavia Třebíč U20,2,0,0,0,0.00,0,0,/player/211377/jiri-peroutka,7,Jiri Peroutka,D,2008-2009,czechia-u20,211377,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Misner (F),HC Sparta Praha U20,2,0,0,0,0.00,0,1,/player/222315/jan-misner,7,Jan Misner,F,2008-2009,czechia-u20,222315,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Zima (F),HC Kometa Brno U20,2,0,0,0,0.00,0,0,/player/252995/jiri-zima,7,Jiri Zima,F,2008-2009,czechia-u20,252995,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Molak (F),SK Horácká Slavia Třebíč U20,2,0,0,0,0.00,0,-1,/player/253142/michal-molak,7,Michal Molak,F,2008-2009,czechia-u20,253142,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Rejda (D),HC Pardubice U20,2,0,0,0,0.00,0,0,/player/255265/tomas-rejda,7,Tomas Rejda,D,2008-2009,czechia-u20,255265,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Sobotka (D),HC Sparta Praha U20,2,0,0,0,0.00,2,-2,/player/116112/daniel-sobotka,7,Daniel Sobotka,D,2008-2009,czechia-u20,116112,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Madar (F),Bílí Tygři Liberec U20,2,0,0,0,0.00,2,-1,/player/147390/patrik-madar,7,Patrik Madar,F,2008-2009,czechia-u20,147390,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Matustik (F),HC Vítkovice U20,2,0,0,0,0.00,2,0,/player/160847/martin-matustik,7,Martin Matustik,F,2008-2009,czechia-u20,160847,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Simanovsky (D),HC Slovan Ústečtí Lvi U20,2,0,0,0,0.00,2,0,/player/188909/martin-simanovsky,7,Martin Simanovsky,D,2008-2009,czechia-u20,188909,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Fousek (F),HC Pardubice U20,2,0,0,0,0.00,2,0,/player/218763/ondrej-fousek,7,Ondrej Fousek,F,2008-2009,czechia-u20,218763,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Bartejs (D),Bílí Tygři Liberec U20,2,0,0,0,0.00,4,0,/player/156434/tomas-bartejs,7,Tomas Bartejs,D,2008-2009,czechia-u20,156434,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Prikazsky (D),Bílí Tygři Liberec U20,2,0,0,0,0.00,4,-2,/player/169940/jan-prikazsky,7,Jan Prikazsky,D,2008-2009,czechia-u20,169940,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Jergl (D),HC Olomouc U20,2,0,0,0,0.00,4,-2,/player/176144/jiri-jergl,7,Jiri Jergl,D,2008-2009,czechia-u20,176144,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Tyralik (D),VHK Vsetín U20,2,0,0,0,0.00,4,1,/player/210380/david-tyralik,7,David Tyralik,D,2008-2009,czechia-u20,210380,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Kos (D),HC Kometa Brno U20,2,0,0,0,0.00,4,2,/player/220336/adam-kos,7,Adam Kos,D,2008-2009,czechia-u20,220336,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Lenoch (D),HC Pardubice U20,2,0,0,0,0.00,8,2,/player/70386/patrik-lenoch,7,Patrik Lenoch,D,2008-2009,czechia-u20,70386,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Faksa (D),HC Slezan Opava U20,3,0,0,0,0.00,0,-3,/player/158334/martin-faksa,7,Martin Faksa,D,2008-2009,czechia-u20,158334,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Chvostek (F),HC Oceláři Třinec U20,3,0,0,0,0.00,0,0,/player/160544/michal-chvostek,7,Michal Chvostek,F,2008-2009,czechia-u20,160544,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+René Kajaba (F),VHK Vsetín U20,3,0,0,0,0.00,0,0,/player/162018/rene-kajaba,7,René Kajaba,F,2008-2009,czechia-u20,162018,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danko Deveri (F),SK Horácká Slavia Třebíč U20,3,0,0,0,0.00,0,-1,/player/163288/danko-deveri,7,Danko Deveri,F,2008-2009,czechia-u20,163288,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jevgenijus Cugajus (D),HC Sparta Praha U20,3,0,0,0,0.00,0,0,/player/68652/jevgenijus-cugajus,7,Jevgenijus Cugajus,D,2008-2009,czechia-u20,68652,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Pejchar (F),HC Plzeň U20,3,0,0,0,0.00,0,0,/player/196230/tomas-pejchar,7,Tomas Pejchar,F,2008-2009,czechia-u20,196230,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Jemeljanov (D),HC Energie Karlovy Vary U20,3,0,0,0,0.00,0,-1,/player/252021/anton-jemeljanov,7,Anton Jemeljanov,D,2008-2009,czechia-u20,252021,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rene Tomis (F),HC Oceláři Třinec U20,3,0,0,0,0.00,0,0,/player/259800/rene-tomis,7,Rene Tomis,F,2008-2009,czechia-u20,259800,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Zvatora (D),HC Vítkovice U20,3,0,0,0,0.00,4,5,/player/101157/michal-zvatora,7,Michal Zvatora,D,2008-2009,czechia-u20,101157,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Václav Lacek (D),Bílí Tygři Liberec U20,3,0,0,0,0.00,4,-1,/player/151036/vaclav-lacek,7,Václav Lacek,D,2008-2009,czechia-u20,151036,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Wszolek (F),KLH Chomutov U20,4,0,0,0,0.00,0,0,/player/162874/martin-wszolek,7,Martin Wszolek,F,2008-2009,czechia-u20,162874,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Sedy (RW),HC Znojemsti Orli U20,4,0,0,0,0.00,0,0,/player/166556/adam-sedy,7,Adam Sedy,RW,2008-2009,czechia-u20,166556,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karel Skrdle (D),KLH Chomutov U20,4,0,0,0,0.00,0,-2,/player/220752/karel-skrdle,7,Karel Skrdle,D,2008-2009,czechia-u20,220752,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Vojta (D),HC Oceláři Třinec U20,4,0,0,0,0.00,0,0,/player/251567/lukas-vojta,7,Lukas Vojta,D,2008-2009,czechia-u20,251567,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Kozak (F),HC Slovan Ústečtí Lvi U20,4,0,0,0,0.00,0,-5,/player/255148/jan-kozak,7,Jan Kozak,F,2008-2009,czechia-u20,255148,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Marek (D),HC Oceláři Třinec U20,4,0,0,0,0.00,0,0,/player/259801/michal-marek,7,Michal Marek,D,2008-2009,czechia-u20,259801,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Kloucek (F),KLH Chomutov U20,4,0,0,0,0.00,2,-2,/player/172327/david-kloucek,7,David Kloucek,F,2008-2009,czechia-u20,172327,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Kvapil (D),HC Olomouc U20,4,0,0,0,0.00,2,-3,/player/211312/martin-kvapil,7,Martin Kvapil,D,2008-2009,czechia-u20,211312,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Houser (D),BK Mladá Boleslav U20,4,0,0,0,0.00,4,1,/player/115700/martin-houser,7,Martin Houser,D,2008-2009,czechia-u20,115700,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Kabelac (D),HC Litvínov U20,4,0,0,0,0.00,4,-1,/player/159042/petr-kabelac,7,Petr Kabelac,D,2008-2009,czechia-u20,159042,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Houdek (F),HC Sparta Praha U20,4,0,0,0,0.00,4,-1,/player/27593/marek-houdek,7,Marek Houdek,F,2008-2009,czechia-u20,27593,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Pohl (D),HC Sparta Praha U20,5,0,0,0,0.00,0,-1,/player/171122/jan-pohl,7,Jan Pohl,D,2008-2009,czechia-u20,171122,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Blumentrit (D),HC Plzeň U20,5,0,0,0,0.00,2,0,/player/176969/tomas-blumentrit,7,Tomas Blumentrit,D,2008-2009,czechia-u20,176969,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Kubik (F),KLH Chomutov U20,5,0,0,0,0.00,4,-1,/player/244247/lukas-kubik,7,Lukas Kubik,F,2008-2009,czechia-u20,244247,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Sladký (F),HC Sparta Praha U20,5,0,0,0,0.00,6,-1,/player/168150/jan-sladky,7,Jan Sladký,F,2008-2009,czechia-u20,168150,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Zíka (F),HC Znojemsti Orli U20,6,0,0,0,0.00,0,-3,/player/123484/jakub-zika,7,Jakub Zíka,F,2008-2009,czechia-u20,123484,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Svaricek (D),BK Mladá Boleslav U20,6,0,0,0,0.00,2,2,/player/116276/filip-svaricek,7,Filip Svaricek,D,2008-2009,czechia-u20,116276,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Strnad (D),BK Mladá Boleslav U20,6,0,0,0,0.00,2,-2,/player/259757/ivan-strnad,7,Ivan Strnad,D,2008-2009,czechia-u20,259757,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Holík (C),HC Zlín U20,6,0,0,0,0.00,4,-2,/player/70382/petr-holik,7,Petr Holík,C,2008-2009,czechia-u20,70382,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lubos Kalousek (F),HC Litvínov U20,7,0,0,0,0.00,0,-1,/player/255057/lubos-kalousek,7,Lubos Kalousek,F,2008-2009,czechia-u20,255057,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Jupa (D),HC Kladno U20,7,0,0,0,0.00,0,-4,/player/255108/patrik-jupa,7,Patrik Jupa,D,2008-2009,czechia-u20,255108,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Kozak (F),HC Kladno U20,7,0,0,0,0.00,0,-3,/player/259751/michal-kozak,7,Michal Kozak,F,2008-2009,czechia-u20,259751,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Svec (RW),HC Energie Karlovy Vary U20,7,0,0,0,0.00,2,0,/player/178686/marek-svec,7,Marek Svec,RW,2008-2009,czechia-u20,178686,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Vagner (D),HC Pardubice U20,7,0,0,0,0.00,2,-1,/player/197433/ondrej-vagner,7,Ondrej Vagner,D,2008-2009,czechia-u20,197433,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Jankovsky (F),SK Horácká Slavia Třebíč U20,7,0,0,0,0.00,4,-4,/player/168229/marek-jankovsky,7,Marek Jankovsky,F,2008-2009,czechia-u20,168229,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Vasek (RW),Bílí Tygři Liberec U20,7,0,0,0,0.00,4,-1,/player/169942/martin-vasek,7,Martin Vasek,RW,2008-2009,czechia-u20,169942,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Zahora (F),HC Energie Karlovy Vary U20,7,0,0,0,0.00,6,-2,/player/169526/daniel-zahora,7,Daniel Zahora,F,2008-2009,czechia-u20,169526,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Warneke (D),HC Sparta Praha U20,7,0,0,0,0.00,6,-3,/player/255107/jan-warneke,7,Jan Warneke,D,2008-2009,czechia-u20,255107,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jachym Suchanek (F),HC Slavia Praha U20,9,0,0,0,0.00,0,-5,/player/177359/jachym-suchanek,7,Jachym Suchanek,F,2008-2009,czechia-u20,177359,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Hajek (F),BK Mladá Boleslav U20,9,0,0,0,0.00,2,-2,/player/99057/david-hajek,7,David Hajek,F,2008-2009,czechia-u20,99057,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Student (F),totals,9,0,0,0,0.00,2,-3,/player/253106/jiri-student,7,Jiri Student,F,2008-2009,czechia-u20,253106,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Valenta (D),HC Zlín U20,9,0,0,0,0.00,4,2,/player/70389/tomas-valenta,7,Tomas Valenta,D,2008-2009,czechia-u20,70389,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Zakovcik (D),HK Hokej Šumperk 2003 U20,9,0,0,0,0.00,4,-2,/player/173238/tomas-zakovcik,7,Tomas Zakovcik,D,2008-2009,czechia-u20,173238,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Lucák (F),HC Oceláři Třinec U20,9,0,0,0,0.00,6,-1,/player/244346/jan-lucak,7,Jan Lucák,F,2008-2009,czechia-u20,244346,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Pavlica (F),HK Hokej Šumperk 2003 U20,11,0,0,0,0.00,8,-6,/player/193919/ondrej-pavlica,7,Ondrej Pavlica,F,2008-2009,czechia-u20,193919,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Sedlacek (D),HC Slezan Opava U20,11,0,0,0,0.00,8,-1,/player/28179/michal-sedlacek,7,Michal Sedlacek,D,2008-2009,czechia-u20,28179,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Nemec (F),VHK Vsetín U20,12,0,0,0,0.00,0,-6,/player/172140/tomas-nemec,7,Tomas Nemec,F,2008-2009,czechia-u20,172140,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vojtech Pribyl (D),totals,12,0,0,0,0.00,18,6,/player/210239/vojtech-pribyl,7,Vojtech Pribyl,D,2008-2009,czechia-u20,210239,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Strnad (F),HC Plzeň U20,13,0,0,0,0.00,2,1,/player/255085/jakub-strnad,7,Jakub Strnad,F,2008-2009,czechia-u20,255085,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vojtech Sik (D),HC Energie Karlovy Vary U20,13,0,0,0,0.00,4,-3,/player/162579/vojtech-sik,7,Vojtech Sik,D,2008-2009,czechia-u20,162579,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Stromsik (F),HC Olomouc U20,13,0,0,0,0.00,4,-1,/player/230085/marek-stromsik,7,Marek Stromsik,F,2008-2009,czechia-u20,230085,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Tesar (D),HC Kometa Brno U20,13,0,0,0,0.00,14,-1,/player/88162/ondrej-tesar,7,Ondrej Tesar,D,2008-2009,czechia-u20,88162,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Ledvon (D),HC Vítkovice U20,13,0,0,0,0.00,14,8,/player/198748/michal-ledvon,7,Michal Ledvon,D,2008-2009,czechia-u20,198748,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Rusek (D),HC Poruba U20,13,0,0,0,0.00,14,-2,/player/253090/filip-rusek,7,Filip Rusek,D,2008-2009,czechia-u20,253090,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Slanina (F),HC Slezan Opava U20,14,0,0,0,0.00,0,-2,/player/82999/robin-slanina,7,Robin Slanina,F,2008-2009,czechia-u20,82999,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Lindner (F),HC Litvínov U20,15,0,0,0,0.00,2,-1,/player/209585/michael-lindner,7,Michael Lindner,F,2008-2009,czechia-u20,209585,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Sykora (F),HC Plzeň U20,15,0,0,0,0.00,4,-1,/player/196234/matej-sykora,7,Matej Sykora,F,2008-2009,czechia-u20,196234,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Boris Kun (D),HC Znojemsti Orli U20,15,0,0,0,0.00,6,2,/player/150302/boris-kun,7,Boris Kun,D,2008-2009,czechia-u20,150302,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zdenek Burda (F),SK Horácká Slavia Třebíč U20,15,0,0,0,0.00,6,-13,/player/168163/zdenek-burda,7,Zdenek Burda,F,2008-2009,czechia-u20,168163,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Stindl (D),VHK Vsetín U20,16,0,0,0,0.00,22,-17,/player/82312/petr-stindl,7,Petr Stindl,D,2008-2009,czechia-u20,82312,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Martycak (F),HC Oceláři Třinec U20,18,0,0,0,0.00,6,-6,/player/222793/tomas-martycak,7,Tomas Martycak,F,2008-2009,czechia-u20,222793,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vojtech Zavoral (F),HC Pardubice U20,18,0,0,0,0.00,8,1,/player/255083/vojtech-zavoral,7,Vojtech Zavoral,F,2008-2009,czechia-u20,255083,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Voznica (F),HC Poruba U20,19,0,0,0,0.00,14,-7,/player/176162/jakub-voznica,7,Jakub Voznica,F,2008-2009,czechia-u20,176162,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Dumbrovsky (D),HC Slezan Opava U20,20,0,0,0,0.00,0,1,/player/259995/tomas-dumbrovsky,7,Tomas Dumbrovsky,D,2008-2009,czechia-u20,259995,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Arazim (D),BK Mladá Boleslav U20,20,0,0,0,0.00,4,-1,/player/98890/jan-arazim,7,Jan Arazim,D,2008-2009,czechia-u20,98890,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Simek (F),HC Plzeň U20,20,0,0,0,0.00,4,-3,/player/169031/martin-simek,7,Martin Simek,F,2008-2009,czechia-u20,169031,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karolis Sveikauskas (D),HC Slovan Ústečtí Lvi U20,20,0,0,0,0.00,8,-5,/player/70819/karolis-sveikauskas,7,Karolis Sveikauskas,D,2008-2009,czechia-u20,70819,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaroslav Beranek (D),HC Slavia Praha U20,20,0,0,0,0.00,16,-4,/player/251242/jaroslav-beranek,7,Jaroslav Beranek,D,2008-2009,czechia-u20,251242,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Pulchart (D),HC Kladno U20,23,0,0,0,0.00,10,-3,/player/252961/ondrej-pulchart,7,Ondrej Pulchart,D,2008-2009,czechia-u20,252961,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Jedlicka (D),HC Olomouc U20,24,0,0,0,0.00,18,-4,/player/161717/robert-jedlicka,7,Robert Jedlicka,D,2008-2009,czechia-u20,161717,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jannik Herm (F),HC Plzeň U20,30,0,0,0,0.00,8,-4,/player/88493/jannik-herm,7,Jannik Herm,F,2008-2009,czechia-u20,88493,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Pavlicek (D),HC Mountfield U20,30,0,0,0,0.00,8,1,/player/160541/david-pavlicek,7,David Pavlicek,D,2008-2009,czechia-u20,160541,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Slansky (D),HC Kladno U20,30,0,0,0,0.00,10,-9,/player/170013/jan-slansky,7,Jan Slansky,D,2008-2009,czechia-u20,170013,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Gaisler (D),HC Slavia Praha U20,31,0,0,0,0.00,20,-9,/player/252096/erik-gaisler,7,Erik Gaisler,D,2008-2009,czechia-u20,252096,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69

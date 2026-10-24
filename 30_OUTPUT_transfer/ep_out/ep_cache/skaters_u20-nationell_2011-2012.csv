@@ -1,0 +1,736 @@
+player,team,gp,g,a,tp,p_per_gp,pim,plus_minus,link,page,playername,position,season,league,ep_player_id,scrape_date,source,package_version
+Mattias Janmark (C/W),AIK J20,40,23,38,61,1.53,30,20,/player/16629/mattias-janmark,1,Mattias Janmark,C/W,2011-2012,u20-nationell,16629,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Johnson (C/LW),Frölunda HC J20,48,24,35,59,1.23,59,22,/player/21816/jonathan-johnson,1,Jonathan Johnson,C/LW,2011-2012,u20-nationell,21816,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Svensson (C),Malmö Redhawks J20,50,19,36,55,1.10,42,5,/player/28055/niklas-svensson,1,Niklas Svensson,C,2011-2012,u20-nationell,28055,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Måns Krüger (C/RW),MODO Hockey J20,44,13,42,55,1.25,34,16,/player/20051/mans-kruger,1,Måns Krüger,C/RW,2011-2012,u20-nationell,20051,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Douglas Lögdal (C),Timrå IK J20,47,20,32,52,1.11,14,25,/player/16998/douglas-logdal,1,Douglas Lögdal,C,2011-2012,u20-nationell,16998,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Fröberg (D/C),Färjestad BK J20,43,17,35,52,1.21,63,12,/player/24983/linus-froberg,1,Linus Fröberg,D/C,2011-2012,u20-nationell,24983,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicolai Meyer (W/C),Malmö Redhawks J20,46,21,30,51,1.11,56,7,/player/33795/nicolai-meyer,1,Nicolai Meyer,W/C,2011-2012,u20-nationell,33795,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Werneman (C/W),Timrå IK J20,42,29,21,50,1.19,32,17,/player/20775/linus-werneman,1,Linus Werneman,C/W,2011-2012,u20-nationell,20775,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Fagerudd (D),Luleå HF J20,41,16,34,50,1.22,53,12,/player/40607/marcus-fagerudd,1,Marcus Fagerudd,D,2011-2012,u20-nationell,40607,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Lindholm (C/RW),Brynäs IF J20,36,14,35,49,1.36,45,24,/player/33387/elias-lindholm,1,Elias Lindholm,C/RW,2011-2012,u20-nationell,33387,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Selin (RW),Skellefteå AIK J20,45,25,22,47,1.04,4,20,/player/19782/sebastian-selin,1,Sebastian Selin,RW,2011-2012,u20-nationell,19782,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joakim Nygård (LW),Färjestad BK J20,49,16,30,46,0.94,42,22,/player/25858/joakim-nygard,1,Joakim Nygård,LW,2011-2012,u20-nationell,25858,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olle Liss (RW),Leksands IF J20,45,22,23,45,1.00,57,1,/player/20392/olle-liss,1,Olle Liss,RW,2011-2012,u20-nationell,20392,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Modigs (C/W),Linköping HC J20,48,23,21,44,0.92,47,13,/player/15877/markus-modigs,1,Markus Modigs,C/W,2011-2012,u20-nationell,15877,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Öhman (LW),Linköping HC J20,42,20,24,44,1.05,12,8,/player/13022/victor-ohman,1,Victor Öhman,LW,2011-2012,u20-nationell,13022,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Porsberger (RW),Luleå HF J20,46,19,25,44,0.96,26,5,/player/27059/johan-porsberger,1,Johan Porsberger,RW,2011-2012,u20-nationell,27059,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthias Sundberg (C/RW),Huddinge IK J20,50,14,30,44,0.88,46,13,/player/19818/matthias-sundberg,1,Matthias Sundberg,C/RW,2011-2012,u20-nationell,19818,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Arvidsson (LW/RW),Skellefteå AIK J20,43,25,17,42,0.98,18,3,/player/27484/viktor-arvidsson,1,Viktor Arvidsson,LW/RW,2011-2012,u20-nationell,27484,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskar Fredriksson (LW),Skellefteå AIK J20,45,18,24,42,0.93,28,12,/player/19800/oskar-fredriksson,1,Oskar Fredriksson,LW,2011-2012,u20-nationell,19800,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+André Burakovsky (LW/RW),Malmö Redhawks J20,42,17,25,42,1.00,43,-3,/player/38705/andre-burakovsky,1,André Burakovsky,LW/RW,2011-2012,u20-nationell,38705,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Molin (C/LW),Brynäs IF J20,29,15,27,42,1.45,45,13,/player/22269/emil-molin,1,Emil Molin,C/LW,2011-2012,u20-nationell,22269,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+János Hári (LW/C),MODO Hockey J20,24,17,24,41,1.71,113,12,/player/14416/janos-hari,1,János Hári,LW/C,2011-2012,u20-nationell,14416,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicklas Heinerö (RW),AIK J20,31,16,25,41,1.32,8,23,/player/17104/nicklas-heinero,1,Nicklas Heinerö,RW,2011-2012,u20-nationell,17104,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gustav Possler (LW/RW),MODO Hockey J20,37,23,17,40,1.08,14,17,/player/26019/gustav-possler,1,Gustav Possler,LW/RW,2011-2012,u20-nationell,26019,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Agust Carlsson (C),Rögle BK J20,42,17,23,40,0.95,41,16,/player/21449/agust-carlsson,1,Agust Carlsson,C,2011-2012,u20-nationell,21449,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joakim Persson (C),Leksands IF J20,47,17,23,40,0.85,65,9,/player/16639/joakim-persson,1,Joakim Persson,C,2011-2012,u20-nationell,16639,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christopher Bengtsson (C/LW),Färjestad BK J20,49,17,23,40,0.82,36,-1,/player/28337/christopher-bengtsson,1,Christopher Bengtsson,C/LW,2011-2012,u20-nationell,28337,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mattias Granlund (LW/RW),Skellefteå AIK J20,43,20,19,39,0.91,59,19,/player/19783/mattias-granlund,1,Mattias Granlund,LW/RW,2011-2012,u20-nationell,19783,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Axel Wemmenborn (C),Rögle BK J20,47,15,24,39,0.83,20,14,/player/14984/axel-wemmenborn,1,Axel Wemmenborn,C,2011-2012,u20-nationell,14984,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Johnsson (C/LW),HV71 J20,48,13,26,39,0.81,30,16,/player/16813/johan-johnsson,1,Johan Johnsson,C/LW,2011-2012,u20-nationell,16813,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Lindgren (C),Brynäs IF J20,43,9,30,39,0.91,16,18,/player/22267/alexander-lindgren,1,Alexander Lindgren,C,2011-2012,u20-nationell,22267,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pontus Netterberg (RW),HV71 J20,36,25,13,38,1.06,12,11,/player/13177/pontus-netterberg,1,Pontus Netterberg,RW,2011-2012,u20-nationell,13177,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikael Frycklund (C),VIK Västerås HK J20,45,15,23,38,0.84,112,-2,/player/29266/mikael-frycklund,1,Mikael Frycklund,C,2011-2012,u20-nationell,29266,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Palm (LW),AIK J20,41,14,24,38,0.93,8,24,/player/18333/rasmus-palm,1,Rasmus Palm,LW,2011-2012,u20-nationell,18333,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Zaar (RW/LW),Rögle BK J20,44,14,24,38,0.86,28,6,/player/39009/daniel-zaar,1,Daniel Zaar,RW/LW,2011-2012,u20-nationell,39009,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Björn Hjärpe (LW/C),Södertälje SK J20,46,14,24,38,0.83,84,6,/player/6494/bjorn-hjarpe,1,Björn Hjärpe,LW/C,2011-2012,u20-nationell,6494,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Holmkvist (LW),Malmö Redhawks J20,49,14,24,38,0.78,103,3,/player/21453/viktor-holmkvist,1,Viktor Holmkvist,LW,2011-2012,u20-nationell,21453,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Öhrn (C/LW),Timrå IK J20,43,13,25,38,0.88,58,10,/player/27471/daniel-ohrn,1,Daniel Öhrn,C/LW,2011-2012,u20-nationell,27471,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Pettersson (LW),VIK Västerås HK J20,49,18,19,37,0.76,28,5,/player/32995/oscar-pettersson,1,Oscar Pettersson,LW,2011-2012,u20-nationell,32995,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kristoffer Wikner (RW),Frölunda HC J20,41,17,20,37,0.90,12,12,/player/13179/kristoffer-wikner,1,Kristoffer Wikner,RW,2011-2012,u20-nationell,13179,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Mattsson (RW),Leksands IF J20,45,17,20,37,0.82,26,-10,/player/25856/simon-mattsson,1,Simon Mattsson,RW,2011-2012,u20-nationell,25856,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Carlsson (LW),Tingsryds AIF J20,48,16,21,37,0.77,14,7,/player/21643/kevin-carlsson,1,Kevin Carlsson,LW,2011-2012,u20-nationell,21643,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fredric Weigel (C),Djurgårdens IF J20,34,12,25,37,1.09,42,1,/player/10388/fredric-weigel,1,Fredric Weigel,C,2011-2012,u20-nationell,10388,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henrik Persson (C/LW),Leksands IF J20,47,12,25,37,0.79,35,1,/player/29620/henrik-persson,1,Henrik Persson,C/LW,2011-2012,u20-nationell,29620,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Wallmark (C),Skellefteå AIK J20,37,11,26,37,1.00,14,16,/player/39022/lucas-wallmark,1,Lucas Wallmark,C,2011-2012,u20-nationell,39022,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joakim Thelin (RW),AIK J20,45,27,9,36,0.80,12,20,/player/16630/joakim-thelin,1,Joakim Thelin,RW,2011-2012,u20-nationell,16630,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dennis Fröland (D),Brynäs IF J20,44,20,16,36,0.82,10,4,/player/4453/dennis-froland,1,Dennis Fröland,D,2011-2012,u20-nationell,4453,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tobias Törnkvist (RW),Rögle BK J20,48,16,20,36,0.75,173,13,/player/34883/tobias-tornkvist,1,Tobias Törnkvist,RW,2011-2012,u20-nationell,34883,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Calle Andersson (D),Färjestad BK J20,49,12,24,36,0.73,56,5,/player/30181/calle-andersson,1,Calle Andersson,D,2011-2012,u20-nationell,30181,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Kellman (C),Malmö Redhawks J20,47,20,15,35,0.74,18,-1,/player/33719/joel-kellman,1,Joel Kellman,C,2011-2012,u20-nationell,33719,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Görtz (RW/LW),Färjestad BK J20,28,17,18,35,1.25,6,11,/player/27258/max-gortz,1,Max Görtz,RW/LW,2011-2012,u20-nationell,27258,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mattias Skog (C/LW),Frölunda HC J20,48,13,22,35,0.73,10,13,/player/13115/mattias-skog,1,Mattias Skog,C/LW,2011-2012,u20-nationell,13115,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Jigmalm (C/LW),Linköping HC J20,37,16,18,34,0.92,18,6,/player/15022/victor-jigmalm,1,Victor Jigmalm,C/LW,2011-2012,u20-nationell,15022,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henri Snäll (D),Luleå HF J20,40,16,18,34,0.85,28,-1,/player/19799/henri-snall,1,Henri Snäll,D,2011-2012,u20-nationell,19799,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Sandberg (C/RW),HV71 J20,43,14,20,34,0.79,48,20,/player/33931/filip-sandberg,1,Filip Sandberg,C/RW,2011-2012,u20-nationell,33931,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Karlkvist (RW),Södertälje SK J20,48,13,21,34,0.71,14,-4,/player/20063/patrik-karlkvist,1,Patrik Karlkvist,RW,2011-2012,u20-nationell,20063,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Rundqvist (C),Färjestad BK J20,47,8,26,34,0.72,43,17,/player/26483/david-rundqvist,1,David Rundqvist,C,2011-2012,u20-nationell,26483,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Dyk (RW),HV71 J20,31,21,12,33,1.06,6,17,/player/14990/sebastian-dyk,1,Sebastian Dyk,RW,2011-2012,u20-nationell,14990,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christopher Fish (RW),Linköping HC J20,45,16,17,33,0.73,57,19,/player/20257/christopher-fish,1,Christopher Fish,RW,2011-2012,u20-nationell,20257,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Jinesjö Karlsson (C),Frölunda HC J20,47,14,19,33,0.70,70,-4,/player/33395/erik-jinesjo-karlsson,1,Erik Jinesjö Karlsson,C,2011-2012,u20-nationell,33395,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Svanström (D),Södertälje SK J20,47,13,20,33,0.70,20,-19,/player/14970/anton-svanstrom,1,Anton Svanström,D,2011-2012,u20-nationell,14970,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Martinsson (D),Rögle BK J20,47,7,26,33,0.70,71,19,/player/21459/eric-martinsson,1,Eric Martinsson,D,2011-2012,u20-nationell,21459,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas Johnsson (LW/RW),Frölunda HC J20,42,19,13,32,0.76,75,17,/player/43991/andreas-johnsson,1,Andreas Johnsson,LW/RW,2011-2012,u20-nationell,43991,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Kask (C/LW),Färjestad BK J20,49,18,14,32,0.65,14,1,/player/20431/stefan-kask,1,Stefan Kask,C/LW,2011-2012,u20-nationell,20431,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ludvig Nilsson (LW/RW),Timrå IK J20,47,16,16,32,0.68,32,31,/player/67174/ludvig-nilsson,1,Ludvig Nilsson,LW/RW,2011-2012,u20-nationell,67174,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Frödén (RW),Huddinge IK J20,44,15,17,32,0.73,28,-1,/player/89970/jesper-froden,1,Jesper Frödén,RW,2011-2012,u20-nationell,89970,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Sandström (LW),Luleå HF J20,44,14,18,32,0.73,32,3,/player/15752/marcus-sandstrom,1,Marcus Sandström,LW,2011-2012,u20-nationell,15752,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Söderqvist (C),Frölunda HC J20,48,11,21,32,0.67,58,11,/player/43992/robin-soderqvist,1,Robin Söderqvist,C,2011-2012,u20-nationell,43992,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Grenholm (RW),Växjö Lakers HC J20,49,7,25,32,0.65,18,-9,/player/20020/anton-grenholm,1,Anton Grenholm,RW,2011-2012,u20-nationell,20020,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ludwig Blomstrand (LW),Djurgårdens IF J20,41,16,15,31,0.76,62,11,/player/21651/ludwig-blomstrand,1,Ludwig Blomstrand,LW,2011-2012,u20-nationell,21651,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rok Leber (C),HV71 J20,45,14,17,31,0.69,18,21,/player/20811/rok-leber,1,Rok Leber,C,2011-2012,u20-nationell,20811,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Felix Maegaard Scheel (LW/RW),Rögle BK J20,27,12,19,31,1.15,50,10,/player/23951/felix-maegaard-scheel,1,Felix Maegaard Scheel,LW/RW,2011-2012,u20-nationell,23951,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Haga (C/LW),Luleå HF J20,42,11,20,31,0.74,30,10,/player/33668/michael-haga,1,Michael Haga,C/LW,2011-2012,u20-nationell,33668,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Östman (D),Timrå IK J20,47,6,25,31,0.66,38,4,/player/22203/joel-ostman,1,Joel Östman,D,2011-2012,u20-nationell,22203,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ponthus Westerholm (RW),Malmö Redhawks J20,25,12,18,30,1.20,16,2,/player/13147/ponthus-westerholm,1,Ponthus Westerholm,RW,2011-2012,u20-nationell,13147,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Bohman (D),MODO Hockey J20,40,10,20,30,0.75,47,8,/player/16808/marcus-bohman,1,Marcus Bohman,D,2011-2012,u20-nationell,16808,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Pudas (D),Skellefteå AIK J20,45,7,23,30,0.67,16,13,/player/33114/jonathan-pudas,1,Jonathan Pudas,D,2011-2012,u20-nationell,33114,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Lissäng (LW),Huddinge IK J20,42,21,8,29,0.69,46,7,/player/22029/tim-lissang,1,Tim Lissäng,LW,2011-2012,u20-nationell,22029,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Olofsson (RW),Färjestad BK J20,43,16,13,29,0.67,39,8,/player/25919/johan-olofsson,1,Johan Olofsson,RW,2011-2012,u20-nationell,25919,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Magnusson (RW),Växjö Lakers HC J20,48,16,13,29,0.60,53,-26,/player/19773/sebastian-magnusson,1,Sebastian Magnusson,RW,2011-2012,u20-nationell,19773,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Olofsson (LW/RW),MODO Hockey J20,24,15,14,29,1.21,8,11,/player/15213/jesper-olofsson,1,Jesper Olofsson,LW/RW,2011-2012,u20-nationell,15213,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Vesterberg (RW/C),MODO Hockey J20,45,15,14,29,0.64,18,-2,/player/32071/tim-vesterberg,1,Tim Vesterberg,RW/C,2011-2012,u20-nationell,32071,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Persson (C),Djurgårdens IF J20,40,12,17,29,0.73,10,18,/player/17105/sebastian-persson,1,Sebastian Persson,C,2011-2012,u20-nationell,17105,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roberto Gliga (C),Tingsryds AIF J20,45,12,17,29,0.64,14,4,/player/50435/roberto-gliga,1,Roberto Gliga,C,2011-2012,u20-nationell,50435,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ludvig Jansson Blomquist (C),Södertälje SK J20,48,11,18,29,0.60,22,-17,/player/20062/ludvig-jansson-blomquist,1,Ludvig Jansson Blomquist,C,2011-2012,u20-nationell,20062,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christoffer Gozzi (C),AIK J20,39,9,20,29,0.74,12,6,/player/28956/christoffer-gozzi,1,Christoffer Gozzi,C,2011-2012,u20-nationell,28956,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gustav Rydahl (C),Frölunda HC J20,46,8,21,29,0.63,50,1,/player/33357/gustav-rydahl,1,Gustav Rydahl,C,2011-2012,u20-nationell,33357,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ludwig Byström (D),MODO Hockey J20,34,7,22,29,0.85,101,2,/player/27493/ludwig-bystrom,1,Ludwig Byström,D,2011-2012,u20-nationell,27493,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sanny Hafström (LW/RW),Rögle BK J20,48,19,9,28,0.58,39,6,/player/29965/sanny-hafstrom,1,Sanny Hafström,LW/RW,2011-2012,u20-nationell,29965,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Danielsson (C),Brynäs IF J20,44,15,13,28,0.64,18,10,/player/9846/jesper-danielsson,1,Jesper Danielsson,C,2011-2012,u20-nationell,9846,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gustav Borglin (LW/RW),Tingsryds AIF J20,47,14,14,28,0.60,26,-1,/player/29704/gustav-borglin,1,Gustav Borglin,LW/RW,2011-2012,u20-nationell,29704,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christoffer Törngren (LW/RW),Tingsryds AIF J20,42,11,17,28,0.67,20,3,/player/37025/christoffer-torngren,1,Christoffer Törngren,LW/RW,2011-2012,u20-nationell,37025,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Nyström (LW),MODO Hockey J20,32,9,19,28,0.88,16,-1,/player/32070/erik-nystrom,1,Erik Nyström,LW,2011-2012,u20-nationell,32070,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Karlsson (D),Malmö Redhawks J20,48,6,22,28,0.58,62,-11,/player/22501/simon-karlsson,1,Simon Karlsson,D,2011-2012,u20-nationell,22501,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henrik Messfeldt (LW/RW),Brynäs IF J20,45,17,10,27,0.60,28,0,/player/24984/henrik-messfeldt,1,Henrik Messfeldt,LW/RW,2011-2012,u20-nationell,24984,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Wedin (LW/RW),Timrå IK J20,33,12,15,27,0.82,34,9,/player/27461/anton-wedin,1,Anton Wedin,LW/RW,2011-2012,u20-nationell,27461,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Hällströmer (RW),VIK Västerås HK J20,47,10,17,27,0.57,18,-13,/player/21791/martin-hallstromer,1,Martin Hällströmer,RW,2011-2012,u20-nationell,21791,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Edwin Hedberg (LW/RW),MODO Hockey J20,43,17,9,26,0.60,87,0,/player/16833/edwin-hedberg,1,Edwin Hedberg,LW/RW,2011-2012,u20-nationell,16833,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Nilsson (C/RW),Växjö Lakers HC J20,41,14,12,26,0.63,73,9,/player/32647/sebastian-nilsson,1,Sebastian Nilsson,C/RW,2011-2012,u20-nationell,32647,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Tholander (LW/RW),HV71 J20,25,13,13,26,1.04,8,16,/player/12856/jonathan-tholander,1,Jonathan Tholander,LW/RW,2011-2012,u20-nationell,12856,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Dahse (LW/RW),Växjö Lakers HC J20,27,13,13,26,0.96,53,3,/player/21450/robin-dahse,2,Robin Dahse,LW/RW,2011-2012,u20-nationell,21450,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hannes Johansson (C/RW),Tingsryds AIF J20,46,12,14,26,0.57,4,0,/player/28051/hannes-johansson,2,Hannes Johansson,C/RW,2011-2012,u20-nationell,28051,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Eriksson (RW/LW),Brynäs IF J20,41,11,15,26,0.63,12,0,/player/22268/johan-eriksson,2,Johan Eriksson,RW/LW,2011-2012,u20-nationell,22268,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Højbjerg (RW),Djurgårdens IF J20,43,11,15,26,0.60,8,1,/player/33491/martin-hojbjerg,2,Martin Højbjerg,RW,2011-2012,u20-nationell,33491,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sonny Karlsson (LW/RW),Mora IK J20,42,9,17,26,0.62,55,-18,/player/29630/sonny-karlsson,2,Sonny Karlsson,LW/RW,2011-2012,u20-nationell,29630,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Appel (D),Färjestad BK J20,50,7,19,26,0.52,38,8,/player/27255/jesper-appel,2,Jesper Appel,D,2011-2012,u20-nationell,27255,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Rotbakken (D),Brynäs IF J20,40,5,21,26,0.65,58,9,/player/13288/linus-rotbakken,2,Linus Rotbakken,D,2011-2012,u20-nationell,13288,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Weiskog (LW/RW),VIK Västerås HK J20,50,14,11,25,0.50,117,-8,/player/18233/kevin-weiskog,2,Kevin Weiskog,LW/RW,2011-2012,u20-nationell,18233,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Näslund (LW),Frölunda HC J20,41,13,12,25,0.61,49,-1,/player/19758/patrik-naslund,2,Patrik Näslund,LW,2011-2012,u20-nationell,19758,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Gunnarsson (C/RW),MODO Hockey J20,38,9,16,25,0.66,14,10,/player/31524/david-gunnarsson,2,David Gunnarsson,C/RW,2011-2012,u20-nationell,31524,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Bengtsson (C),HV71 J20,39,8,17,25,0.64,8,6,/player/16796/anton-bengtsson,2,Anton Bengtsson,C,2011-2012,u20-nationell,16796,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Söderberg (C/LW),AIK J20,45,7,18,25,0.56,31,1,/player/15728/michael-soderberg,2,Michael Söderberg,C/LW,2011-2012,u20-nationell,15728,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tony Söderman (RW/LW),Mora IK J20,38,15,9,24,0.63,18,-13,/player/28979/tony-soderman,2,Tony Söderman,RW/LW,2011-2012,u20-nationell,28979,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Dahl (RW),Tingsryds AIF J20,32,14,10,24,0.75,70,-6,/player/10564/simon-dahl,2,Simon Dahl,RW,2011-2012,u20-nationell,10564,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gustav Björklund (C/W),totals,22,12,12,24,1.09,39,10,/player/22027/gustav-bjorklund,2,Gustav Björklund,C/W,2011-2012,u20-nationell,22027,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niclas Sköld (RW),Södertälje SK J20,45,12,12,24,0.53,70,-19,/player/15370/niclas-skold,2,Niclas Sköld,RW,2011-2012,u20-nationell,15370,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carl-Johan Möller (C),IF Björklöven J20,47,11,13,24,0.51,51,-22,/player/10950/carl-johan-moller,2,Carl-Johan Möller,C,2011-2012,u20-nationell,10950,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karl-Anton Ivarsson (LW),VIK Västerås HK J20,33,9,15,24,0.73,28,1,/player/13325/karl-anton-ivarsson,2,Karl-Anton Ivarsson,LW,2011-2012,u20-nationell,13325,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikkel Højbjerg (LW),Djurgårdens IF J20,40,9,15,24,0.60,24,6,/player/33493/mikkel-hojbjerg,2,Mikkel Højbjerg,LW,2011-2012,u20-nationell,33493,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Gustafsson (LW/RW),Huddinge IK J20,46,9,15,24,0.52,117,17,/player/89964/viktor-gustafsson,2,Viktor Gustafsson,LW/RW,2011-2012,u20-nationell,89964,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Byström Johansson (RW),Färjestad BK J20,41,8,16,24,0.59,77,4,/player/16770/eric-bystrom-johansson,2,Eric Byström Johansson,RW,2011-2012,u20-nationell,16770,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Sterling Berglund (LW),Huddinge IK J20,42,8,16,24,0.57,20,-17,/player/20052/robert-sterling-berglund,2,Robert Sterling Berglund,LW,2011-2012,u20-nationell,20052,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arvid Skogh (D),AIK J20,43,7,17,24,0.56,82,2,/player/15350/arvid-skogh,2,Arvid Skogh,D,2011-2012,u20-nationell,15350,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Djoos (D),Brynäs IF J20,40,3,21,24,0.60,22,11,/player/33201/christian-djoos,2,Christian Djoos,D,2011-2012,u20-nationell,33201,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Marklund (LW/C),Skellefteå AIK J20,40,2,22,24,0.60,56,-1,/player/7059/sam-marklund,2,Sam Marklund,LW/C,2011-2012,u20-nationell,7059,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskar Drugge (D),Södertälje SK J20,43,2,22,24,0.56,26,-14,/player/13848/oskar-drugge,2,Oskar Drugge,D,2011-2012,u20-nationell,13848,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Lindqvist Hansen (LW/RW),Rögle BK J20,17,16,7,23,1.35,6,16,/player/21452/alexander-lindqvist-hansen,2,Alexander Lindqvist Hansen,LW/RW,2011-2012,u20-nationell,21452,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Ehlers (C/RW),Malmö Redhawks J20,35,12,11,23,0.66,54,3,/player/30196/sebastian-ehlers,2,Sebastian Ehlers,C/RW,2011-2012,u20-nationell,30196,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Johansson (RW),Huddinge IK J20,47,9,14,23,0.49,4,-8,/player/22022/victor-johansson,2,Victor Johansson,RW,2011-2012,u20-nationell,22022,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Sylwander (C/LW),Rögle BK J20,29,7,16,23,0.79,42,11,/player/21467/daniel-sylwander,2,Daniel Sylwander,C/LW,2011-2012,u20-nationell,21467,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Mäkitaavola (C/LW),Luleå HF J20,39,5,18,23,0.59,22,12,/player/41624/emil-makitaavola,2,Emil Mäkitaavola,C/LW,2011-2012,u20-nationell,41624,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Forslund (D),Rögle BK J20,43,4,19,23,0.53,77,8,/player/19479/rasmus-forslund,2,Rasmus Forslund,D,2011-2012,u20-nationell,19479,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Glad (D),Färjestad BK J20,46,3,20,23,0.50,124,12,/player/6929/daniel-glad,2,Daniel Glad,D,2011-2012,u20-nationell,6929,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Lindholm (LW),Brynäs IF J20,31,14,8,22,0.71,56,1,/player/20241/oliver-lindholm,2,Oliver Lindholm,LW,2011-2012,u20-nationell,20241,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Tano (LW/RW),Skellefteå AIK J20,45,12,10,22,0.49,40,4,/player/19801/anton-tano,2,Anton Tano,LW/RW,2011-2012,u20-nationell,19801,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Näslund (D),HV71 J20,48,8,14,22,0.46,32,10,/player/11091/viktor-naslund,2,Viktor Näslund,D,2011-2012,u20-nationell,11091,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Persson (RW),IF Björklöven J20,36,7,15,22,0.61,14,-20,/player/14976/oscar-persson,2,Oscar Persson,RW,2011-2012,u20-nationell,14976,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Zaar (D),Rögle BK J20,44,7,15,22,0.50,81,12,/player/13065/jonathan-zaar,2,Jonathan Zaar,D,2011-2012,u20-nationell,13065,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Edgars Cgojevs (LW/RW),AIK J20,41,11,10,21,0.51,2,-2,/player/32993/edgars-cgojevs,2,Edgars Cgojevs,LW/RW,2011-2012,u20-nationell,32993,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Hägg (LW/RW),Djurgårdens IF J20,43,10,11,21,0.49,38,-1,/player/16826/christian-hagg,2,Christian Hägg,LW/RW,2011-2012,u20-nationell,16826,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Svedlund (D/F),VIK Västerås HK J20,49,9,12,21,0.43,10,-10,/player/25937/linus-svedlund,2,Linus Svedlund,D/F,2011-2012,u20-nationell,25937,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakob Lilja (LW),Rögle BK J20,20,8,13,21,1.05,16,6,/player/16800/jakob-lilja,2,Jakob Lilja,LW,2011-2012,u20-nationell,16800,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joachim Nermark (C/LW),Linköping HC J20,31,8,13,21,0.68,14,10,/player/16772/joachim-nermark,2,Joachim Nermark,C/LW,2011-2012,u20-nationell,16772,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathias Anttila (RW),Huddinge IK J20,47,8,13,21,0.45,40,-4,/player/16642/mathias-anttila,2,Mathias Anttila,RW,2011-2012,u20-nationell,16642,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julius Selle Larsson (C/RW),HV71 J20,45,6,15,21,0.47,10,2,/player/15919/julius-selle-larsson,2,Julius Selle Larsson,C/RW,2011-2012,u20-nationell,15919,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dean Kukan (D),Luleå HF J20,42,5,16,21,0.50,8,5,/player/66177/dean-kukan,2,Dean Kukan,D,2011-2012,u20-nationell,66177,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Lagerblad (RW),Växjö Lakers HC J20,47,5,16,21,0.45,22,-13,/player/46380/erik-lagerblad,2,Erik Lagerblad,RW,2011-2012,u20-nationell,46380,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bobbo Petersson (D),Linköping HC J20,47,3,18,21,0.45,38,13,/player/13136/bobbo-petersson,2,Bobbo Petersson,D,2011-2012,u20-nationell,13136,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Manuel Ågren (LW/RW),Färjestad BK J20,36,10,10,20,0.56,12,0,/player/37026/manuel-agren,2,Manuel Ågren,LW/RW,2011-2012,u20-nationell,37026,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Dånge (LW),Tingsryds AIF J20,47,8,12,20,0.43,52,-2,/player/21642/johan-dange,2,Johan Dånge,LW,2011-2012,u20-nationell,21642,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fabian Lundh (C),Växjö Lakers HC J20,48,8,12,20,0.42,60,-28,/player/21454/fabian-lundh,2,Fabian Lundh,C,2011-2012,u20-nationell,21454,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Lillieström Karlsson (C/W),AIK J20,25,7,13,20,0.80,33,2,/player/28943/david-lilliestrom-karlsson,2,David Lillieström Karlsson,C/W,2011-2012,u20-nationell,28943,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Felix Eriksson (C),Brynäs IF J20,43,7,13,20,0.47,6,-11,/player/13160/felix-eriksson,2,Felix Eriksson,C,2011-2012,u20-nationell,13160,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Fogelström (LW),Huddinge IK J20,50,7,13,20,0.40,40,-4,/player/32840/jonathan-fogelstrom,2,Jonathan Fogelström,LW,2011-2012,u20-nationell,32840,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Otto Jaksch (D),Frölunda HC J20,41,6,14,20,0.49,69,5,/player/16965/otto-jaksch,2,Otto Jaksch,D,2011-2012,u20-nationell,16965,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Wahlkvist (C),AIK J20,43,6,14,20,0.47,10,12,/player/29465/adam-wahlkvist,2,Adam Wahlkvist,C,2011-2012,u20-nationell,29465,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jim Gustafsson (D),Djurgårdens IF J20,43,4,16,20,0.47,37,5,/player/18173/jim-gustafsson,2,Jim Gustafsson,D,2011-2012,u20-nationell,18173,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Petersson (D),HV71 J20,48,4,16,20,0.42,10,10,/player/32645/simon-petersson,2,Simon Petersson,D,2011-2012,u20-nationell,32645,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Villiam Haag (RW),Frölunda HC J20,45,13,6,19,0.42,12,10,/player/16790/villiam-haag,2,Villiam Haag,RW,2011-2012,u20-nationell,16790,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Johansson (RW/C),Skellefteå AIK J20,39,9,10,19,0.49,16,-3,/player/16820/jesper-johansson,2,Jesper Johansson,RW/C,2011-2012,u20-nationell,16820,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lars Bryggman (LW/RW),Skellefteå AIK J20,41,9,10,19,0.46,20,0,/player/17002/lars-bryggman,2,Lars Bryggman,LW/RW,2011-2012,u20-nationell,17002,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik de la Rose (D),Leksands IF J20,26,7,12,19,0.73,20,10,/player/19976/erik-de-la-rose,2,Erik de la Rose,D,2011-2012,u20-nationell,19976,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carl Åman (RW),Huddinge IK J20,45,7,12,19,0.42,32,-7,/player/22028/carl-aman,2,Carl Åman,RW,2011-2012,u20-nationell,22028,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kimmy Skogland (LW),Färjestad BK J20,21,6,13,19,0.90,20,3,/player/19906/kimmy-skogland,2,Kimmy Skogland,LW,2011-2012,u20-nationell,19906,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Nordh (D),Malmö Redhawks J20,42,6,13,19,0.45,42,9,/player/21447/scott-nordh,2,Scott Nordh,D,2011-2012,u20-nationell,21447,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Blom (C),IF Björklöven J20,42,6,13,19,0.45,118,-14,/player/29899/anton-blom,2,Anton Blom,C,2011-2012,u20-nationell,29899,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fredrik Björklund (RW),Mora IK J20,32,5,14,19,0.59,39,-5,/player/20381/fredrik-bjorklund,2,Fredrik Björklund,RW,2011-2012,u20-nationell,20381,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niclas Frahmer (D),Växjö Lakers HC J20,47,5,14,19,0.40,40,-11,/player/33394/niclas-frahmer,2,Niclas Frahmer,D,2011-2012,u20-nationell,33394,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Raymond Bamberg (RW),Luleå HF J20,40,4,15,19,0.48,20,5,/player/20754/raymond-bamberg,2,Raymond Bamberg,RW,2011-2012,u20-nationell,20754,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Wennberg (C/LW),Djurgårdens IF J20,42,1,18,19,0.45,6,7,/player/37041/alexander-wennberg,2,Alexander Wennberg,C/LW,2011-2012,u20-nationell,37041,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Måns Pettersson (C),Södertälje SK J20,48,11,7,18,0.38,34,-8,/player/26950/mans-pettersson,2,Måns Pettersson,C,2011-2012,u20-nationell,26950,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Holmström (D),Tingsryds AIF J20,48,9,9,18,0.38,30,-8,/player/32640/david-holmstrom,2,David Holmström,D,2011-2012,u20-nationell,32640,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fredrik Händemark (C),Leksands IF J20,27,7,11,18,0.67,42,-2,/player/27259/fredrik-handemark,2,Fredrik Händemark,C,2011-2012,u20-nationell,27259,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikael Johansson (C/LW),Växjö Lakers HC J20,34,6,12,18,0.53,27,5,/player/46384/mikael-johansson,2,Mikael Johansson,C/LW,2011-2012,u20-nationell,46384,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Johansson (D),Tingsryds AIF J20,40,5,13,18,0.45,24,-3,/player/21638/simon-johansson,2,Simon Johansson,D,2011-2012,u20-nationell,21638,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Folin (D),Frölunda HC J20,42,3,15,18,0.43,52,25,/player/21860/niklas-folin,2,Niklas Folin,D,2011-2012,u20-nationell,21860,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Harila (LW/RW),Luleå HF J20,40,12,5,17,0.43,50,3,/player/15795/sebastian-harila,2,Sebastian Harila,LW/RW,2011-2012,u20-nationell,15795,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mattias Wigley (C/LW),Huddinge IK J20,43,11,6,17,0.40,16,-5,/player/89965/mattias-wigley,2,Mattias Wigley,C/LW,2011-2012,u20-nationell,89965,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Vidmar (LW/RW),Malmö Redhawks J20,45,10,7,17,0.38,22,-9,/player/30188/sebastian-vidmar,2,Sebastian Vidmar,LW/RW,2011-2012,u20-nationell,30188,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henrik Olsén (C/RW),Mora IK J20,14,9,8,17,1.21,8,-3,/player/19909/henrik-olsen,2,Henrik Olsén,C/RW,2011-2012,u20-nationell,19909,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Collberg (RW),Frölunda HC J20,21,9,8,17,0.81,18,5,/player/16836/sebastian-collberg,2,Sebastian Collberg,RW,2011-2012,u20-nationell,16836,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Bärgård (LW/RW),Linköping HC J20,39,9,8,17,0.44,36,4,/player/21650/jesper-bargard,2,Jesper Bärgård,LW/RW,2011-2012,u20-nationell,21650,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Byström (RW),Timrå IK J20,43,9,8,17,0.40,47,-15,/player/22197/viktor-bystrom,2,Viktor Byström,RW,2011-2012,u20-nationell,22197,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gustav Eckerberg (C),Linköping HC J20,42,8,9,17,0.40,6,0,/player/22264/gustav-eckerberg,2,Gustav Eckerberg,C,2011-2012,u20-nationell,22264,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Holmén (LW/RW),Djurgårdens IF J20,43,7,10,17,0.40,24,0,/player/18346/rasmus-holmen,2,Rasmus Holmén,LW/RW,2011-2012,u20-nationell,18346,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Lager (C/W),AIK J20,20,5,12,17,0.85,30,3,/player/34282/jacob-lager,2,Jacob Lager,C/W,2011-2012,u20-nationell,34282,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hampus Lindholm (D),Rögle BK J20,28,5,12,17,0.61,16,25,/player/34882/hampus-lindholm,2,Hampus Lindholm,D,2011-2012,u20-nationell,34882,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas Wingren (LW),Rögle BK J20,30,5,12,17,0.57,8,6,/player/39002/andreas-wingren,2,Andreas Wingren,LW,2011-2012,u20-nationell,39002,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Windlert (D),AIK J20,45,5,12,17,0.38,14,8,/player/22040/filip-windlert,2,Filip Windlert,D,2011-2012,u20-nationell,22040,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommi Juntunen (D),Frölunda HC J20,47,5,12,17,0.36,6,17,/player/27256/tommi-juntunen,2,Tommi Juntunen,D,2011-2012,u20-nationell,27256,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philip Igglund (C),Södertälje SK J20,48,5,12,17,0.35,16,-22,/player/13279/philip-igglund,2,Philip Igglund,C,2011-2012,u20-nationell,13279,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Björkung (D),Djurgårdens IF J20,42,4,13,17,0.40,26,2,/player/30195/victor-bjorkung,2,Victor Björkung,D,2011-2012,u20-nationell,30195,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Hägg (D),MODO Hockey J20,44,4,13,17,0.39,46,9,/player/27397/robert-hagg,2,Robert Hägg,D,2011-2012,u20-nationell,27397,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Green (D),VIK Västerås HK J20,47,2,15,17,0.36,12,-10,/player/15755/marcus-green,2,Marcus Green,D,2011-2012,u20-nationell,15755,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philip Martinsson (D),Frölunda HC J20,39,1,16,17,0.44,18,14,/player/13163/philip-martinsson,2,Philip Martinsson,D,2011-2012,u20-nationell,13163,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Johansson (RW/C),Luleå HF J20,47,12,4,16,0.34,18,10,/player/16809/oscar-johansson,2,Oscar Johansson,RW/C,2011-2012,u20-nationell,16809,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Larsson (LW/RW),Brynäs IF J20,29,10,6,16,0.55,65,-4,/player/33209/emil-larsson,2,Emil Larsson,LW/RW,2011-2012,u20-nationell,33209,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nils Andersson (D),Växjö Lakers HC J20,8,9,7,16,2.00,4,6,/player/10516/nils-andersson,2,Nils Andersson,D,2011-2012,u20-nationell,10516,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Fransson (LW),Tingsryds AIF J20,31,8,8,16,0.52,8,-6,/player/30191/jesper-fransson,2,Jesper Fransson,LW,2011-2012,u20-nationell,30191,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskar Back (RW),HV71 J20,36,8,8,16,0.44,29,2,/player/16821/oskar-back,2,Oskar Back,RW,2011-2012,u20-nationell,16821,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Larsson (C),Timrå IK J20,40,8,8,16,0.40,38,-2,/player/20776/robin-larsson,3,Robin Larsson,C,2011-2012,u20-nationell,20776,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Stendahl (RW),VIK Västerås HK J20,41,6,10,16,0.39,46,4,/player/29267/adam-stendahl,3,Adam Stendahl,RW,2011-2012,u20-nationell,29267,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ludvig Marklund (LW),Skellefteå AIK J20,42,6,10,16,0.38,2,1,/player/6839/ludvig-marklund,3,Ludvig Marklund,LW,2011-2012,u20-nationell,6839,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Åkerlund (C),VIK Västerås HK J20,42,6,10,16,0.38,30,-10,/player/17249/oscar-akerlund,3,Oscar Åkerlund,C,2011-2012,u20-nationell,17249,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Bihorac (C),Tingsryds AIF J20,31,5,11,16,0.52,6,-19,/player/22901/emil-bihorac,3,Emil Bihorac,C,2011-2012,u20-nationell,22901,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonas Vestman (D),Mora IK J20,43,5,11,16,0.37,30,-21,/player/21712/jonas-vestman,3,Jonas Vestman,D,2011-2012,u20-nationell,21712,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Pettersson (D),Linköping HC J20,41,3,13,16,0.39,30,4,/player/28988/jesper-pettersson,3,Jesper Pettersson,D,2011-2012,u20-nationell,28988,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommy Stenqvist (D),Timrå IK J20,23,2,14,16,0.70,30,11,/player/34090/tommy-stenqvist,3,Tommy Stenqvist,D,2011-2012,u20-nationell,34090,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Rydell (D),Mora IK J20,39,9,6,15,0.38,16,-16,/player/11067/david-rydell,3,David Rydell,D,2011-2012,u20-nationell,11067,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Målar Johansson (C),Leksands IF J20,40,8,7,15,0.38,12,2,/player/29624/filip-malar-johansson,3,Filip Målar Johansson,C,2011-2012,u20-nationell,29624,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Engsund (D),HV71 J20,47,8,7,15,0.32,144,12,/player/38386/oscar-engsund,3,Oscar Engsund,D,2011-2012,u20-nationell,38386,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Palmebjörk (C),IF Björklöven J20,27,6,9,15,0.56,12,-16,/player/13806/daniel-palmebjork,3,Daniel Palmebjörk,C,2011-2012,u20-nationell,13806,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dennis Nordström (W/C),AIK J20,33,5,10,15,0.45,16,6,/player/39874/dennis-nordstrom,3,Dennis Nordström,W/C,2011-2012,u20-nationell,39874,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Grönberg (C/LW),Leksands IF J20,37,5,10,15,0.41,8,-2,/player/29629/martin-gronberg,3,Martin Grönberg,C/LW,2011-2012,u20-nationell,29629,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Lahti (C),Luleå HF J20,44,5,10,15,0.34,8,3,/player/14977/emil-lahti,3,Emil Lahti,C,2011-2012,u20-nationell,14977,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Nilsson (C/LW),Tingsryds AIF J20,30,4,11,15,0.50,28,-3,/player/33090/jacob-nilsson,3,Jacob Nilsson,C/LW,2011-2012,u20-nationell,33090,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Almen Bibic (D),Leksands IF J20,40,4,11,15,0.38,127,10,/player/29611/almen-bibic,3,Almen Bibic,D,2011-2012,u20-nationell,29611,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karl Johansson (D),Brynäs IF J20,45,4,11,15,0.33,16,2,/player/13188/karl-johansson,3,Karl Johansson,D,2011-2012,u20-nationell,13188,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Fernholm (D),Huddinge IK J20,47,3,12,15,0.32,12,1,/player/37054/simon-fernholm,3,Simon Fernholm,D,2011-2012,u20-nationell,37054,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Bolin (D),Tingsryds AIF J20,38,2,13,15,0.39,14,7,/player/21457/viktor-bolin,3,Viktor Bolin,D,2011-2012,u20-nationell,21457,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Arnesson (D),Djurgårdens IF J20,40,2,13,15,0.38,20,7,/player/33350/linus-arnesson,3,Linus Arnesson,D,2011-2012,u20-nationell,33350,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Claes Nordén (LW/RW),Linköping HC J20,42,7,7,14,0.33,34,-6,/player/22263/claes-norden,3,Claes Nordén,LW/RW,2011-2012,u20-nationell,22263,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alfred Larsson (C/LW),Malmö Redhawks J20,48,7,7,14,0.29,22,-10,/player/30192/alfred-larsson,3,Alfred Larsson,C/LW,2011-2012,u20-nationell,30192,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ronny Hansson (LW),Växjö Lakers HC J20,50,7,7,14,0.28,52,-22,/player/13989/ronny-hansson,3,Ronny Hansson,LW,2011-2012,u20-nationell,13989,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Höglund (C/W),MODO Hockey J20,42,6,8,14,0.33,73,2,/player/21654/sebastian-hoglund,3,Sebastian Höglund,C/W,2011-2012,u20-nationell,21654,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Bergkvist (C/LW),HV71 J20,45,6,8,14,0.31,2,6,/player/31214/filip-bergkvist,3,Filip Bergkvist,C/LW,2011-2012,u20-nationell,31214,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jens Rasmusson (C),Södertälje SK J20,45,6,8,14,0.31,16,-11,/player/37043/jens-rasmusson,3,Jens Rasmusson,C,2011-2012,u20-nationell,37043,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joakim Erdugan (RW),Linköping HC J20,46,6,8,14,0.30,10,4,/player/33454/joakim-erdugan,3,Joakim Erdugan,RW,2011-2012,u20-nationell,33454,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kristoffer Pihlqvist (LW/C),HV71 J20,48,6,8,14,0.29,22,-1,/player/28022/kristoffer-pihlqvist,3,Kristoffer Pihlqvist,LW/C,2011-2012,u20-nationell,28022,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Porsefjord (RW),Växjö Lakers HC J20,50,5,9,14,0.28,49,-8,/player/19482/jesper-porsefjord,3,Jesper Porsefjord,RW,2011-2012,u20-nationell,19482,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kristoffer Melin (C),Mora IK J20,30,4,10,14,0.47,10,-8,/player/16877/kristoffer-melin,3,Kristoffer Melin,C,2011-2012,u20-nationell,16877,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pontus Eriksson (LW),Växjö Lakers HC J20,34,4,10,14,0.41,41,-6,/player/20444/pontus-eriksson,3,Pontus Eriksson,LW,2011-2012,u20-nationell,20444,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Gustafsson (D),Djurgårdens IF J20,21,3,11,14,0.67,14,3,/player/15372/erik-gustafsson,3,Erik Gustafsson,D,2011-2012,u20-nationell,15372,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philip Åman (RW),HV71 J20,42,3,11,14,0.33,10,0,/player/28021/philip-aman,3,Philip Åman,RW,2011-2012,u20-nationell,28021,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mattias Holfve (D),Leksands IF J20,46,3,11,14,0.30,18,-11,/player/20383/mattias-holfve,3,Mattias Holfve,D,2011-2012,u20-nationell,20383,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Måns Hermansson (D),Tingsryds AIF J20,50,3,11,14,0.28,56,-8,/player/32638/mans-hermansson,3,Måns Hermansson,D,2011-2012,u20-nationell,32638,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Rönning (D),Huddinge IK J20,50,3,11,14,0.28,88,-7,/player/19905/filip-ronning,3,Filip Rönning,D,2011-2012,u20-nationell,19905,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Söder (RW),Djurgårdens IF J20,15,10,3,13,0.87,8,2,/player/7062/stefan-soder,3,Stefan Söder,RW,2011-2012,u20-nationell,7062,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Danielsson (F),Mora IK J20,36,9,4,13,0.36,37,-11,/player/16876/marcus-danielsson,3,Marcus Danielsson,F,2011-2012,u20-nationell,16876,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Blomgren (LW),Växjö Lakers HC J20,30,8,5,13,0.43,18,-10,/player/10392/erik-blomgren,3,Erik Blomgren,LW,2011-2012,u20-nationell,10392,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Westin (LW/RW),MODO Hockey J20,17,7,6,13,0.76,20,-6,/player/13078/john-westin,3,John Westin,LW/RW,2011-2012,u20-nationell,13078,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Petersson (RW),Södertälje SK J20,27,7,6,13,0.48,8,-4,/player/13150/rasmus-petersson,3,Rasmus Petersson,RW,2011-2012,u20-nationell,13150,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Anderberg (RW),IF Björklöven J20,33,7,6,13,0.39,10,-7,/player/16637/eric-anderberg,3,Eric Anderberg,RW,2011-2012,u20-nationell,16637,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Sandor (LW),Mora IK J20,44,7,6,13,0.30,14,-15,/player/33196/kevin-sandor,3,Kevin Sandor,LW,2011-2012,u20-nationell,33196,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pontus Widerström (C),Frölunda HC J20,48,7,6,13,0.27,20,4,/player/43993/pontus-widerstrom,3,Pontus Widerström,C,2011-2012,u20-nationell,43993,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Ekeståhl Jonsson (C),IF Björklöven J20,22,5,8,13,0.59,16,-12,/player/21988/victor-ekestahl-jonsson,3,Victor Ekeståhl Jonsson,C,2011-2012,u20-nationell,21988,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Spångberg (D),AIK J20,38,5,8,13,0.34,45,5,/player/34107/jacob-spangberg,3,Jacob Spångberg,D,2011-2012,u20-nationell,34107,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fredrik Widén (D),Färjestad BK J20,42,5,8,13,0.31,57,1,/player/33362/fredrik-widen,3,Fredrik Widén,D,2011-2012,u20-nationell,33362,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Fornell (C/LW),Linköping HC J20,45,5,8,13,0.29,38,-4,/player/37047/marcus-fornell,3,Marcus Fornell,C/LW,2011-2012,u20-nationell,37047,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Persson (RW),MODO Hockey J20,19,4,9,13,0.68,0,8,/player/25980/jesper-persson,3,Jesper Persson,RW,2011-2012,u20-nationell,25980,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob de la Rose (C/W),Leksands IF J20,28,4,9,13,0.46,24,-6,/player/28436/jacob-de-la-rose,3,Jacob de la Rose,C/W,2011-2012,u20-nationell,28436,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Forsberg (LW),IF Björklöven J20,41,4,9,13,0.32,4,-17,/player/27496/rasmus-forsberg,3,Rasmus Forsberg,LW,2011-2012,u20-nationell,27496,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Eklund (D),Huddinge IK J20,29,3,10,13,0.45,16,0,/player/22026/martin-eklund,3,Martin Eklund,D,2011-2012,u20-nationell,22026,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cédric Hächler (D),Malmö Redhawks J20,46,3,10,13,0.28,26,-5,/player/70428/cedric-hachler,3,Cédric Hächler,D,2011-2012,u20-nationell,70428,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olov Håkansson (RW),MODO Hockey J20,42,2,11,13,0.31,37,2,/player/16810/olov-hakansson,3,Olov Håkansson,RW,2011-2012,u20-nationell,16810,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas Öhrnberg (LW/RW),Frölunda HC J20,47,2,11,13,0.28,14,14,/player/13181/andreas-ohrnberg,3,Andreas Öhrnberg,LW/RW,2011-2012,u20-nationell,13181,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Rönning (D),HV71 J20,48,2,11,13,0.27,14,10,/player/20053/alex-ronning,3,Alex Rönning,D,2011-2012,u20-nationell,20053,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Lindström (C/RW),Rögle BK J20,25,1,12,13,0.52,8,3,/player/32817/anton-lindstrom,3,Anton Lindström,C/RW,2011-2012,u20-nationell,32817,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fredrik Winge (D),VIK Västerås HK J20,29,1,12,13,0.45,42,3,/player/21794/fredrik-winge,3,Fredrik Winge,D,2011-2012,u20-nationell,21794,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arvid Lundberg (D),Skellefteå AIK J20,28,0,13,13,0.46,2,8,/player/39021/arvid-lundberg,3,Arvid Lundberg,D,2011-2012,u20-nationell,39021,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fredrik Sjödin (D),MODO Hockey J20,38,0,13,13,0.34,8,13,/player/16832/fredrik-sjodin,3,Fredrik Sjödin,D,2011-2012,u20-nationell,16832,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Lindmark (D),AIK J20,45,6,6,12,0.27,106,22,/player/25671/niklas-lindmark,3,Niklas Lindmark,D,2011-2012,u20-nationell,25671,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Felix Scharnke (C),VIK Västerås HK J20,49,6,6,12,0.24,18,-18,/player/29059/felix-scharnke,3,Felix Scharnke,C,2011-2012,u20-nationell,29059,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathias Bromé (LW/RW),VIK Västerås HK J20,34,5,7,12,0.35,16,-10,/player/89968/mathias-brome,3,Mathias Bromé,LW/RW,2011-2012,u20-nationell,89968,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Kraus (D),Huddinge IK J20,35,5,7,12,0.34,34,5,/player/19824/filip-kraus,3,Filip Kraus,D,2011-2012,u20-nationell,19824,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joakim Broberg (C/W),Linköping HC J20,48,5,7,12,0.25,12,-2,/player/30199/joakim-broberg,3,Joakim Broberg,C/W,2011-2012,u20-nationell,30199,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pathrik Westerholm (C),Malmö Redhawks J20,5,4,8,12,2.40,2,3,/player/13146/pathrik-westerholm,3,Pathrik Westerholm,C,2011-2012,u20-nationell,13146,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Thörnberg (LW/RW),HV71 J20,11,4,8,12,1.09,12,6,/player/11087/jesper-thornberg,3,Jesper Thörnberg,LW/RW,2011-2012,u20-nationell,11087,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christoffer Göransson (C),IF Björklöven J20,27,4,8,12,0.44,78,-26,/player/13808/christoffer-goransson,3,Christoffer Göransson,C,2011-2012,u20-nationell,13808,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henrik Bengtsson (LW),Tingsryds AIF J20,38,4,8,12,0.32,28,-13,/player/22879/henrik-bengtsson,3,Henrik Bengtsson,LW,2011-2012,u20-nationell,22879,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christoffer Sjöholm (RW),totals,40,4,8,12,0.30,4,-7,/player/28946/christoffer-sjoholm,3,Christoffer Sjöholm,RW,2011-2012,u20-nationell,28946,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mattias Kalin (C/LW),Djurgårdens IF J20,41,4,8,12,0.29,20,5,/player/37040/mattias-kalin,3,Mattias Kalin,C/LW,2011-2012,u20-nationell,37040,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Johansson (D),MODO Hockey J20,42,4,8,12,0.29,14,12,/player/29690/adam-johansson,3,Adam Johansson,D,2011-2012,u20-nationell,29690,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joakim Lindo (LW),Huddinge IK J20,42,4,8,12,0.29,24,-11,/player/22020/joakim-lindo,3,Joakim Lindo,LW,2011-2012,u20-nationell,22020,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Albin Carlson (D),MODO Hockey J20,31,3,9,12,0.39,31,0,/player/33367/albin-carlson,3,Albin Carlson,D,2011-2012,u20-nationell,33367,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Brehmer (C/LW),Linköping HC J20,36,3,9,12,0.33,8,3,/player/29050/anton-brehmer,3,Anton Brehmer,C/LW,2011-2012,u20-nationell,29050,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Oskarsson (D),Luleå HF J20,16,2,10,12,0.75,6,4,/player/19832/marcus-oskarsson,3,Marcus Oskarsson,D,2011-2012,u20-nationell,19832,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gustaf Berling (C/W),Rögle BK J20,25,2,10,12,0.48,6,-2,/player/39007/gustaf-berling,3,Gustaf Berling,C/W,2011-2012,u20-nationell,39007,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mattias Nilsson (D),Leksands IF J20,43,2,10,12,0.28,40,4,/player/22497/mattias-nilsson,3,Mattias Nilsson,D,2011-2012,u20-nationell,22497,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Svensson (D),Skellefteå AIK J20,41,1,11,12,0.29,10,9,/player/15325/adam-svensson,3,Adam Svensson,D,2011-2012,u20-nationell,15325,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henrik Nyberg (RW/LW),Djurgårdens IF J20,31,7,4,11,0.35,10,1,/player/33347/henrik-nyberg,3,Henrik Nyberg,RW/LW,2011-2012,u20-nationell,33347,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fredrik Arvebratt (C),Malmö Redhawks J20,46,6,5,11,0.24,6,-3,/player/60321/fredrik-arvebratt,3,Fredrik Arvebratt,C,2011-2012,u20-nationell,60321,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philip Fousinette (RW),IF Björklöven J20,21,5,6,11,0.52,8,-9,/player/26020/philip-fousinette,3,Philip Fousinette,RW,2011-2012,u20-nationell,26020,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskar Gerhardsson (D),Malmö Redhawks J20,32,5,6,11,0.34,8,5,/player/30189/oskar-gerhardsson,3,Oskar Gerhardsson,D,2011-2012,u20-nationell,30189,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fredrik Falk (RW),Linköping HC J20,39,5,6,11,0.28,10,3,/player/13039/fredrik-falk,3,Fredrik Falk,RW,2011-2012,u20-nationell,13039,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Nyström (LW/RW),Södertälje SK J20,43,5,6,11,0.26,10,-9,/player/36072/alexander-nystrom,3,Alexander Nyström,LW/RW,2011-2012,u20-nationell,36072,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Björnsson (RW),Rögle BK J20,45,5,6,11,0.24,12,5,/player/31725/lukas-bjornsson,3,Lukas Björnsson,RW,2011-2012,u20-nationell,31725,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskar Johansson (C),Mora IK J20,47,4,7,11,0.23,42,-23,/player/27050/oskar-johansson,3,Oskar Johansson,C,2011-2012,u20-nationell,27050,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Bengtsson (D),Rögle BK J20,15,3,8,11,0.73,8,11,/player/23185/rasmus-bengtsson,3,Rasmus Bengtsson,D,2011-2012,u20-nationell,23185,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Edlund (D),Timrå IK J20,15,2,9,11,0.73,12,-4,/player/14472/patrik-edlund,3,Patrik Edlund,D,2011-2012,u20-nationell,14472,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Ottosson (D),Linköping HC J20,16,2,9,11,0.69,10,3,/player/13142/sebastian-ottosson,3,Sebastian Ottosson,D,2011-2012,u20-nationell,13142,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskar Norlöv (LW/RW),Rögle BK J20,20,2,9,11,0.55,0,2,/player/39008/oskar-norlov,3,Oskar Norlöv,LW/RW,2011-2012,u20-nationell,39008,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fredrik Eriksson (D),IF Björklöven J20,29,2,9,11,0.38,12,-9,/player/32361/fredrik-eriksson,3,Fredrik Eriksson,D,2011-2012,u20-nationell,32361,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erlend Lesund (D),Timrå IK J20,40,2,9,11,0.28,22,4,/player/73394/erlend-lesund,3,Erlend Lesund,D,2011-2012,u20-nationell,73394,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Karlsson (D),Linköping HC J20,48,2,9,11,0.23,18,0,/player/29695/anton-karlsson,3,Anton Karlsson,D,2011-2012,u20-nationell,29695,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Backman (D),Södertälje SK J20,48,2,9,11,0.23,69,-13,/player/33426/eric-backman,3,Eric Backman,D,2011-2012,u20-nationell,33426,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tobias Ställborn (D),totals,49,2,9,11,0.22,185,-12,/player/12950/tobias-stallborn,3,Tobias Ställborn,D,2011-2012,u20-nationell,12950,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskar Nordlund (LW),Leksands IF J20,31,9,1,10,0.32,10,-4,/player/16137/oskar-nordlund,3,Oskar Nordlund,LW,2011-2012,u20-nationell,16137,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Søberg (RW/LW),Frölunda HC J20,25,5,5,10,0.40,14,3,/player/73397/markus-soberg,3,Markus Søberg,RW/LW,2011-2012,u20-nationell,73397,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakob Kullberg (C/RW),Frölunda HC J20,26,5,5,10,0.38,8,11,/player/43995/jakob-kullberg,3,Jakob Kullberg,C/RW,2011-2012,u20-nationell,43995,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Pöllä (C),Brynäs IF J20,40,5,5,10,0.25,16,3,/player/33206/adam-polla,4,Adam Pöllä,C,2011-2012,u20-nationell,33206,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Blomqvist (C),Luleå HF J20,41,4,6,10,0.24,8,2,/player/27045/emil-blomqvist,4,Emil Blomqvist,C,2011-2012,u20-nationell,27045,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskar Lindstedt (D),AIK J20,45,4,6,10,0.22,36,-2,/player/18337/oskar-lindstedt,4,Oskar Lindstedt,D,2011-2012,u20-nationell,18337,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joachim Rohdin (RW),Brynäs IF J20,8,3,7,10,1.25,4,7,/player/10515/joachim-rohdin,4,Joachim Rohdin,RW,2011-2012,u20-nationell,10515,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Högberg (D),Tingsryds AIF J20,30,3,7,10,0.33,22,-2,/player/21640/anton-hogberg,4,Anton Högberg,D,2011-2012,u20-nationell,21640,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Fredriksson (D),Färjestad BK J20,44,3,7,10,0.23,16,9,/player/33361/simon-fredriksson,4,Simon Fredriksson,D,2011-2012,u20-nationell,33361,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Aronsson (D),AIK J20,36,2,8,10,0.28,79,20,/player/22008/victor-aronsson,4,Victor Aronsson,D,2011-2012,u20-nationell,22008,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fredrik Gesar (RW),Leksands IF J20,44,2,8,10,0.23,10,-9,/player/29625/fredrik-gesar,4,Fredrik Gesar,RW,2011-2012,u20-nationell,29625,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas Nilsson (D),IF Björklöven J20,39,1,9,10,0.26,32,-23,/player/13803/andreas-nilsson,4,Andreas Nilsson,D,2011-2012,u20-nationell,13803,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mattias Thunman Hälldahl (D),Timrå IK J20,42,1,9,10,0.24,20,6,/player/25878/mattias-thunman-halldahl,4,Mattias Thunman Hälldahl,D,2011-2012,u20-nationell,25878,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philip Bowall (D),Linköping HC J20,43,1,9,10,0.23,22,9,/player/33452/philip-bowall,4,Philip Bowall,D,2011-2012,u20-nationell,33452,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Edström (D),Skellefteå AIK J20,11,0,10,10,0.91,4,-1,/player/13096/rasmus-edstrom,4,Rasmus Edström,D,2011-2012,u20-nationell,13096,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Falk (D),HV71 J20,43,0,10,10,0.23,14,9,/player/14971/adam-falk,4,Adam Falk,D,2011-2012,u20-nationell,14971,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Rönnbäck (D),Luleå HF J20,45,0,10,10,0.22,108,11,/player/20738/viktor-ronnback,4,Viktor Rönnbäck,D,2011-2012,u20-nationell,20738,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ted Johansson (RW),Luleå HF J20,16,5,4,9,0.56,29,7,/player/16643/ted-johansson,4,Ted Johansson,RW,2011-2012,u20-nationell,16643,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Dahlström (RW/LW),Södertälje SK J20,17,5,4,9,0.53,12,-10,/player/23141/jacob-dahlstrom,4,Jacob Dahlström,RW/LW,2011-2012,u20-nationell,23141,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zebastian Possler (C),IF Björklöven J20,20,5,4,9,0.45,107,-24,/player/13807/zebastian-possler,4,Zebastian Possler,C,2011-2012,u20-nationell,13807,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonatan Nielsen (D),Linköping HC J20,38,5,4,9,0.24,24,9,/player/23547/jonatan-nielsen,4,Jonatan Nielsen,D,2011-2012,u20-nationell,23547,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fredric Anderberg (LW),Djurgårdens IF J20,39,5,4,9,0.23,22,-1,/player/34098/fredric-anderberg,4,Fredric Anderberg,LW,2011-2012,u20-nationell,34098,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henrik Samuelsson (C/RW),MODO Hockey J20,16,4,5,9,0.56,22,2,/player/33217/henrik-samuelsson,4,Henrik Samuelsson,C/RW,2011-2012,u20-nationell,33217,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Lalander (LW),Färjestad BK J20,20,4,5,9,0.45,10,-7,/player/29078/max-lalander,4,Max Lalander,LW,2011-2012,u20-nationell,29078,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Halling (D),VIK Västerås HK J20,34,4,5,9,0.26,18,-9,/player/94216/alexander-halling,4,Alexander Halling,D,2011-2012,u20-nationell,94216,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakob Wallin (C),Södertälje SK J20,35,4,5,9,0.26,4,-13,/player/44047/jakob-wallin,4,Jakob Wallin,C,2011-2012,u20-nationell,44047,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philip Wadén (RW/C),Leksands IF J20,40,4,5,9,0.23,8,-7,/player/14356/philip-waden,4,Philip Wadén,RW/C,2011-2012,u20-nationell,14356,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Nilsson (D),VIK Västerås HK J20,16,3,6,9,0.56,6,-1,/player/15746/robin-nilsson,4,Robin Nilsson,D,2011-2012,u20-nationell,15746,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Mångs (D),Malmö Redhawks J20,26,3,6,9,0.35,32,6,/player/13066/victor-mangs,4,Victor Mångs,D,2011-2012,u20-nationell,13066,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tobias Ekberg (D),Leksands IF J20,47,3,6,9,0.19,18,-16,/player/30250/tobias-ekberg,4,Tobias Ekberg,D,2011-2012,u20-nationell,30250,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommy Johansson (D),Timrå IK J20,26,2,7,9,0.35,43,0,/player/22198/tommy-johansson,4,Tommy Johansson,D,2011-2012,u20-nationell,22198,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Hansen (D),Södertälje SK J20,31,2,7,9,0.29,10,-6,/player/33439/adam-hansen,4,Adam Hansen,D,2011-2012,u20-nationell,33439,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Dypbukt (RW),Djurgårdens IF J20,37,2,7,9,0.24,18,5,/player/29295/alexander-dypbukt,4,Alexander Dypbukt,RW,2011-2012,u20-nationell,29295,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Cabeza (D),Huddinge IK J20,38,2,7,9,0.24,103,-13,/player/12214/kevin-cabeza,4,Kevin Cabeza,D,2011-2012,u20-nationell,12214,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Andersson (D),AIK J20,41,2,7,9,0.22,30,-3,/player/33378/jonathan-andersson,4,Jonathan Andersson,D,2011-2012,u20-nationell,33378,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Falk (D),Djurgårdens IF J20,42,2,7,9,0.21,18,3,/player/18341/alexander-falk,4,Alexander Falk,D,2011-2012,u20-nationell,18341,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Lundmark (D),Skellefteå AIK J20,41,1,8,9,0.22,16,-4,/player/14969/emil-lundmark,4,Emil Lundmark,D,2011-2012,u20-nationell,14969,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Carnestad (D),Malmö Redhawks J20,28,0,9,9,0.32,18,1,/player/21409/emil-carnestad,4,Emil Carnestad,D,2011-2012,u20-nationell,21409,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Mannberg (RW),Luleå HF J20,11,5,3,8,0.73,4,1,/player/10397/daniel-mannberg,4,Daniel Mannberg,RW,2011-2012,u20-nationell,10397,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Lissäng (D),Djurgårdens IF J20,34,5,3,8,0.24,10,9,/player/22030/marcus-lissang,4,Marcus Lissäng,D,2011-2012,u20-nationell,22030,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Andersson (W/C),HV71 J20,38,5,3,8,0.21,8,0,/player/34229/erik-andersson,4,Erik Andersson,W/C,2011-2012,u20-nationell,34229,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas Gunnarsson (C),Tingsryds AIF J20,41,5,3,8,0.20,36,-6,/player/46314/andreas-gunnarsson,4,Andreas Gunnarsson,C,2011-2012,u20-nationell,46314,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Örnskog (C),HV71 J20,32,4,4,8,0.25,6,-1,/player/37029/max-ornskog,4,Max Örnskog,C,2011-2012,u20-nationell,37029,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kenny Källström (D),Leksands IF J20,7,3,5,8,1.14,10,-3,/player/6554/kenny-kallstrom,4,Kenny Källström,D,2011-2012,u20-nationell,6554,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Isak Ahrling (D),totals,21,3,5,8,0.38,16,-29,/player/13804/isak-ahrling,4,Isak Ahrling,D,2011-2012,u20-nationell,13804,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Bengtsson (D),Mora IK J20,25,3,5,8,0.32,37,-4,/player/67165/lukas-bengtsson,4,Lukas Bengtsson,D,2011-2012,u20-nationell,67165,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Flavio Schmutz (C/LW),VIK Västerås HK J20,31,3,5,8,0.26,18,-1,/player/85357/flavio-schmutz,4,Flavio Schmutz,C/LW,2011-2012,u20-nationell,85357,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Cederholm (D),Rögle BK J20,41,3,5,8,0.20,71,10,/player/38743/anton-cederholm,4,Anton Cederholm,D,2011-2012,u20-nationell,38743,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Tärnblom (D),Huddinge IK J20,47,3,5,8,0.17,42,-4,/player/89961/jonathan-tarnblom,4,Jonathan Tärnblom,D,2011-2012,u20-nationell,89961,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konstantin Komarek (C),Luleå HF J20,9,2,6,8,0.89,4,3,/player/17428/konstantin-komarek,4,Konstantin Komarek,C,2011-2012,u20-nationell,17428,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Sundgren (D),totals,36,2,6,8,0.22,30,-5,/player/8374/rasmus-sundgren,4,Rasmus Sundgren,D,2011-2012,u20-nationell,8374,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Rachidi (D),Luleå HF J20,43,2,6,8,0.19,40,12,/player/19845/adam-rachidi,4,Adam Rachidi,D,2011-2012,u20-nationell,19845,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dan Pettersson (C),Mora IK J20,16,1,7,8,0.50,16,-3,/player/16875/dan-pettersson,4,Dan Pettersson,C,2011-2012,u20-nationell,16875,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Bognesand (D),Brynäs IF J20,42,1,7,8,0.19,36,9,/player/13159/linus-bognesand,4,Linus Bognesand,D,2011-2012,u20-nationell,13159,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonas Emmerdahl (D),VIK Västerås HK J20,12,5,2,7,0.58,4,2,/player/14413/jonas-emmerdahl,4,Jonas Emmerdahl,D,2011-2012,u20-nationell,14413,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Bohm (D),Frölunda HC J20,23,5,2,7,0.30,14,2,/player/16726/oliver-bohm,4,Oliver Bohm,D,2011-2012,u20-nationell,16726,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emanuel Mejrud (RW),Tingsryds AIF J20,42,5,2,7,0.17,18,-17,/player/22877/emanuel-mejrud,4,Emanuel Mejrud,RW,2011-2012,u20-nationell,22877,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Lindén (RW),Luleå HF J20,41,4,3,7,0.17,4,6,/player/27487/victor-linden,4,Victor Lindén,RW,2011-2012,u20-nationell,27487,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikael Wikstrand (D),Mora IK J20,11,3,4,7,0.64,2,3,/player/28992/mikael-wikstrand,4,Mikael Wikstrand,D,2011-2012,u20-nationell,28992,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Mustonen (C/LW),Skellefteå AIK J20,11,3,4,7,0.64,16,0,/player/14811/joel-mustonen,4,Joel Mustonen,C/LW,2011-2012,u20-nationell,14811,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathias Franzén (LW/RW),AIK J20,13,3,4,7,0.54,4,-6,/player/18331/mathias-franzen,4,Mathias Franzén,LW/RW,2011-2012,u20-nationell,18331,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Karlsson (D),Huddinge IK J20,24,3,4,7,0.29,8,-6,/player/37055/victor-karlsson,4,Victor Karlsson,D,2011-2012,u20-nationell,37055,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wilhelm Westlund (D),Färjestad BK J20,33,3,4,7,0.21,12,3,/player/38745/wilhelm-westlund,4,Wilhelm Westlund,D,2011-2012,u20-nationell,38745,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philip Andersson (C),MODO Hockey J20,33,3,4,7,0.21,49,0,/player/27500/philip-andersson,4,Philip Andersson,C,2011-2012,u20-nationell,27500,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Kvapil (D),Luleå HF J20,35,3,4,7,0.20,18,0,/player/56031/tomas-kvapil,4,Tomas Kvapil,D,2011-2012,u20-nationell,56031,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Hoffman (D/F),IF Björklöven J20,36,3,4,7,0.19,56,-37,/player/20067/jesper-hoffman,4,Jesper Hoffman,D/F,2011-2012,u20-nationell,20067,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Milton (C/W),AIK J20,39,3,4,7,0.18,14,1,/player/32828/oscar-milton,4,Oscar Milton,C/W,2011-2012,u20-nationell,32828,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Åkesson (C/RW),Rögle BK J20,10,2,5,7,0.70,2,3,/player/39001/sebastian-akesson,4,Sebastian Åkesson,C/RW,2011-2012,u20-nationell,39001,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Strandberg (C),HV71 J20,11,2,5,7,0.64,2,4,/player/11085/sebastian-strandberg,4,Sebastian Strandberg,C,2011-2012,u20-nationell,11085,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fredrik Bergman (C),Huddinge IK J20,28,2,5,7,0.25,4,-10,/player/14573/fredrik-bergman,4,Fredrik Bergman,C,2011-2012,u20-nationell,14573,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Kling (D),IF Björklöven J20,33,2,5,7,0.21,180,-29,/player/20763/anton-kling,4,Anton Kling,D,2011-2012,u20-nationell,20763,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Ljunggren (C),Brynäs IF J20,36,2,5,7,0.19,6,-7,/player/21828/daniel-ljunggren,4,Daniel Ljunggren,C,2011-2012,u20-nationell,21828,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Nilsson (C/W),Timrå IK J20,45,2,5,7,0.16,38,-12,/player/12994/johan-nilsson,4,Johan Nilsson,C/W,2011-2012,u20-nationell,12994,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Nordin (RW),Timrå IK J20,45,2,5,7,0.16,38,-12,/player/13822/johan-nordin,4,Johan Nordin,RW,2011-2012,u20-nationell,13822,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Ekberg (D),Södertälje SK J20,46,2,5,7,0.15,10,-3,/player/23140/emil-ekberg,4,Emil Ekberg,D,2011-2012,u20-nationell,23140,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Fantenberg (D),HV71 J20,9,1,6,7,0.78,8,8,/player/13743/oscar-fantenberg,4,Oscar Fantenberg,D,2011-2012,u20-nationell,13743,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jimmie Jansson Lorek (D),VIK Västerås HK J20,18,1,6,7,0.39,4,-5,/player/44054/jimmie-jansson-lorek,4,Jimmie Jansson Lorek,D,2011-2012,u20-nationell,44054,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Strindö (D),Frölunda HC J20,30,1,6,7,0.23,6,5,/player/43989/rasmus-strindo,4,Rasmus Strindö,D,2011-2012,u20-nationell,43989,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Johansson (C/W),Växjö Lakers HC J20,34,1,6,7,0.21,4,-7,/player/37036/patrik-johansson,4,Patrik Johansson,C/W,2011-2012,u20-nationell,37036,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Karlsson (RW),Södertälje SK J20,48,1,6,7,0.15,16,-13,/player/15371/jesper-karlsson,4,Jesper Karlsson,RW,2011-2012,u20-nationell,15371,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Eriksson (D),Timrå IK J20,11,0,7,7,0.64,6,1,/player/20374/johan-eriksson,4,Johan Eriksson,D,2011-2012,u20-nationell,20374,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Idoff (C),Malmö Redhawks J20,24,0,7,7,0.29,10,-9,/player/16791/marcus-idoff,4,Marcus Idoff,C,2011-2012,u20-nationell,16791,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Öhman (RW/C),Luleå HF J20,38,0,7,7,0.18,10,1,/player/11182/marcus-ohman,4,Marcus Öhman,RW/C,2011-2012,u20-nationell,11182,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pontus Åberg (LW/RW),Djurgårdens IF J20,6,4,2,6,1.00,0,7,/player/16835/pontus-aberg,4,Pontus Åberg,LW/RW,2011-2012,u20-nationell,16835,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kristoffer Lundblad (LW),Växjö Lakers HC J20,16,4,2,6,0.38,29,-1,/player/21739/kristoffer-lundblad,4,Kristoffer Lundblad,LW,2011-2012,u20-nationell,21739,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Pettersson (W/C),Timrå IK J20,17,4,2,6,0.35,10,-1,/player/27331/emil-pettersson,4,Emil Pettersson,W/C,2011-2012,u20-nationell,27331,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joakim Brännström (C),Skellefteå AIK J20,34,4,2,6,0.18,18,-9,/player/27476/joakim-brannstrom,4,Joakim Brännström,C,2011-2012,u20-nationell,27476,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Håkansson (RW),Malmö Redhawks J20,36,4,2,6,0.17,27,3,/player/16801/linus-hakansson,4,Linus Håkansson,RW,2011-2012,u20-nationell,16801,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jens Westerdahl (D),AIK J20,41,4,2,6,0.15,36,12,/player/18330/jens-westerdahl,4,Jens Westerdahl,D,2011-2012,u20-nationell,18330,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Bengtsson (C),Rögle BK J20,28,3,3,6,0.21,22,-2,/player/41180/adam-bengtsson,4,Adam Bengtsson,C,2011-2012,u20-nationell,41180,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petter Granberg (D),Skellefteå AIK J20,5,2,4,6,1.20,6,8,/player/13901/petter-granberg,4,Petter Granberg,D,2011-2012,u20-nationell,13901,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roger Olsson (C/RW),Malmö Redhawks J20,6,2,4,6,1.00,0,3,/player/10396/roger-olsson,4,Roger Olsson,C/RW,2011-2012,u20-nationell,10396,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kim Lennhammer (D),Djurgårdens IF J20,9,2,4,6,0.67,6,5,/player/8317/kim-lennhammer,4,Kim Lennhammer,D,2011-2012,u20-nationell,8317,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joakim Westberg (C),Huddinge IK J20,32,2,4,6,0.19,12,-5,/player/17106/joakim-westberg,4,Joakim Westberg,C,2011-2012,u20-nationell,17106,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henrik Warman (D),Linköping HC J20,33,2,4,6,0.18,12,-2,/player/20255/henrik-warman,4,Henrik Warman,D,2011-2012,u20-nationell,20255,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Pernhem (D),IF Björklöven J20,37,2,4,6,0.16,28,-9,/player/33332/max-pernhem,4,Max Pernhem,D,2011-2012,u20-nationell,33332,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Amil Krupic (D),Rögle BK J20,42,2,4,6,0.14,22,4,/player/28927/amil-krupic,4,Amil Krupic,D,2011-2012,u20-nationell,28927,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Svensson (RW),Malmö Redhawks J20,43,2,4,6,0.14,12,-9,/player/14981/jonathan-svensson,4,Jonathan Svensson,RW,2011-2012,u20-nationell,14981,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Johansson-Martis (D),HV71 J20,44,2,4,6,0.14,16,9,/player/16816/anton-johansson-martis,4,Anton Johansson-Martis,D,2011-2012,u20-nationell,16816,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Berglund (C),Timrå IK J20,13,1,5,6,0.46,8,-1,/player/27465/emil-berglund,4,Emil Berglund,C,2011-2012,u20-nationell,27465,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Farbäck (D),Växjö Lakers HC J20,44,1,5,6,0.14,16,-13,/player/37020/viktor-farback,4,Viktor Farbäck,D,2011-2012,u20-nationell,37020,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Eriksson (D),Luleå HF J20,47,1,5,6,0.13,63,6,/player/27043/marcus-eriksson,4,Marcus Eriksson,D,2011-2012,u20-nationell,27043,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gustav Berglund (D),Växjö Lakers HC J20,48,1,5,6,0.13,49,-12,/player/37014/gustav-berglund,4,Gustav Berglund,D,2011-2012,u20-nationell,37014,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Jacksson (D),Mora IK J20,43,0,6,6,0.14,26,-18,/player/38466/jesper-jacksson,5,Jesper Jacksson,D,2011-2012,u20-nationell,38466,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fredrik Sandberg (D),Malmö Redhawks J20,46,0,6,6,0.13,18,0,/player/26974/fredrik-sandberg,5,Fredrik Sandberg,D,2011-2012,u20-nationell,26974,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ludvig Magnusson (RW),Leksands IF J20,31,5,0,5,0.16,8,1,/player/29621/ludvig-magnusson,5,Ludvig Magnusson,RW,2011-2012,u20-nationell,29621,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leon Bristedt (LW),Linköping HC J20,10,4,1,5,0.50,0,-2,/player/38714/leon-bristedt,5,Leon Bristedt,LW,2011-2012,u20-nationell,38714,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Nilsson (C/W),Tingsryds AIF J20,12,3,2,5,0.42,8,3,/player/14791/patrick-nilsson,5,Patrick Nilsson,C/W,2011-2012,u20-nationell,14791,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Suvanto (D),Leksands IF J20,17,3,2,5,0.29,2,1,/player/21803/david-suvanto,5,David Suvanto,D,2011-2012,u20-nationell,21803,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kalle Andersson (D),Mora IK J20,43,3,2,5,0.12,6,-17,/player/28991/kalle-andersson,5,Kalle Andersson,D,2011-2012,u20-nationell,28991,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Forsberg (D),VIK Västerås HK J20,44,3,2,5,0.11,67,-11,/player/31259/oliver-forsberg,5,Oliver Forsberg,D,2011-2012,u20-nationell,31259,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Lundberg (RW/C),IF Björklöven J20,3,2,3,5,1.67,12,3,/player/3869/marcus-lundberg,5,Marcus Lundberg,RW/C,2011-2012,u20-nationell,3869,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Kinisjärvi (C),VIK Västerås HK J20,6,2,3,5,0.83,0,6,/player/13323/markus-kinisjarvi,5,Markus Kinisjärvi,C,2011-2012,u20-nationell,13323,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petter Emanuelsson (RW),Skellefteå AIK J20,6,2,3,5,0.83,0,1,/player/13005/petter-emanuelsson,5,Petter Emanuelsson,RW,2011-2012,u20-nationell,13005,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Sörensen (W),Skellefteå AIK J20,8,2,3,5,0.63,57,-1,/player/20065/marcus-sorensen,5,Marcus Sörensen,W,2011-2012,u20-nationell,20065,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Bengtsson (LW/RW),Färjestad BK J20,12,2,3,5,0.42,4,4,/player/67173/sebastian-bengtsson,5,Sebastian Bengtsson,LW/RW,2011-2012,u20-nationell,67173,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Aho (D),IF Björklöven J20,31,2,3,5,0.16,6,-14,/player/15209/samuel-aho,5,Samuel Aho,D,2011-2012,u20-nationell,15209,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Skoglund (RW),AIK J20,35,2,3,5,0.14,8,-3,/player/33195/jonathan-skoglund,5,Jonathan Skoglund,RW,2011-2012,u20-nationell,33195,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mattias Blomberg (C/D),Färjestad BK J20,38,2,3,5,0.13,39,-2,/player/16806/mattias-blomberg,5,Mattias Blomberg,C/D,2011-2012,u20-nationell,16806,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Jonsson (D),Tingsryds AIF J20,48,2,3,5,0.10,101,-15,/player/23257/viktor-jonsson,5,Viktor Jonsson,D,2011-2012,u20-nationell,23257,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Åman (D),Timrå IK J20,8,1,4,5,0.63,2,-4,/player/27457/anton-aman,5,Anton Åman,D,2011-2012,u20-nationell,27457,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Dahlberg Karlsson (RW),Huddinge IK J20,11,1,4,5,0.45,14,-2,/player/10391/rasmus-dahlberg-karlsson,5,Rasmus Dahlberg Karlsson,RW,2011-2012,u20-nationell,10391,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Calle Rosén (D),Frölunda HC J20,24,1,4,5,0.21,4,8,/player/37021/calle-rosen,5,Calle Rosén,D,2011-2012,u20-nationell,37021,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Berglin (D),IF Björklöven J20,27,1,4,5,0.19,8,-8,/player/26013/adam-berglin,5,Adam Berglin,D,2011-2012,u20-nationell,26013,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Albin Ljunggren (RW),VIK Västerås HK J20,30,1,4,5,0.17,18,-2,/player/44063/albin-ljunggren,5,Albin Ljunggren,RW,2011-2012,u20-nationell,44063,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petter Runesson (D),MODO Hockey J20,38,1,4,5,0.13,24,-2,/player/19768/petter-runesson,5,Petter Runesson,D,2011-2012,u20-nationell,19768,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Jacobsson (D),Frölunda HC J20,48,1,4,5,0.10,10,-2,/player/16838/filip-jacobsson,5,Filip Jacobsson,D,2011-2012,u20-nationell,16838,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gustaf Burström (D),Skellefteå AIK J20,34,0,5,5,0.15,22,4,/player/27482/gustaf-burstrom,5,Gustaf Burström,D,2011-2012,u20-nationell,27482,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Bergqvist (F/D),Brynäs IF J20,36,0,5,5,0.14,34,5,/player/32815/adam-bergqvist,5,Adam Bergqvist,F/D,2011-2012,u20-nationell,32815,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Hedlund (D),Huddinge IK J20,41,0,5,5,0.12,26,-16,/player/26259/simon-hedlund,5,Simon Hedlund,D,2011-2012,u20-nationell,26259,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Gefwert (D),VIK Västerås HK J20,43,0,5,5,0.12,49,-5,/player/33346/marcus-gefwert,5,Marcus Gefwert,D,2011-2012,u20-nationell,33346,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Eklund (LW/RW),IF Björklöven J20,21,4,0,4,0.19,33,-20,/player/33118/marcus-eklund,5,Marcus Eklund,LW/RW,2011-2012,u20-nationell,33118,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Lundmark (LW),AIK J20,14,3,1,4,0.29,0,0,/player/16893/johan-lundmark,5,Johan Lundmark,LW,2011-2012,u20-nationell,16893,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Lennartsson (RW/LW),Färjestad BK J20,17,3,1,4,0.24,30,-8,/player/16807/viktor-lennartsson,5,Viktor Lennartsson,RW/LW,2011-2012,u20-nationell,16807,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carl-Johan Meyer (D),Brynäs IF J20,29,3,1,4,0.14,8,8,/player/36613/carl-johan-meyer,5,Carl-Johan Meyer,D,2011-2012,u20-nationell,36613,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Friberg (RW),Timrå IK J20,2,2,2,4,2.00,0,0,/player/13766/max-friberg,5,Max Friberg,RW,2011-2012,u20-nationell,13766,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Janolhs (LW/C),Leksands IF J20,3,2,2,4,1.33,0,0,/player/9773/martin-janolhs,5,Martin Janolhs,LW/C,2011-2012,u20-nationell,9773,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Sandström (LW/RW),Leksands IF J20,4,2,2,4,1.00,0,-2,/player/7002/lucas-sandstrom,5,Lucas Sandström,LW/RW,2011-2012,u20-nationell,7002,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Deilert (D),Leksands IF J20,4,2,2,4,1.00,6,-2,/player/5507/alexander-deilert,5,Alexander Deilert,D,2011-2012,u20-nationell,5507,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Winborg (C),AIK J20,5,2,2,4,0.80,0,0,/player/67169/adam-winborg,5,Adam Winborg,C,2011-2012,u20-nationell,67169,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Lundberg (LW/RW),Södertälje SK J20,6,2,2,4,0.67,2,2,/player/22202/emil-lundberg,5,Emil Lundberg,LW/RW,2011-2012,u20-nationell,22202,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Cehlárik (LW),Luleå HF J20,8,2,2,4,0.50,2,4,/player/153203/peter-cehlarik,5,Peter Cehlárik,LW,2011-2012,u20-nationell,153203,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeremy Boyce (C/LW),Timrå IK J20,9,2,2,4,0.44,0,-7,/player/22021/jeremy-boyce,5,Jeremy Boyce,C/LW,2011-2012,u20-nationell,22021,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Alm (D),Skellefteå AIK J20,9,2,2,4,0.44,6,0,/player/10714/johan-alm,5,Johan Alm,D,2011-2012,u20-nationell,10714,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Axel Wester (C),totals,10,2,2,4,0.40,4,-16,/player/21814/axel-wester,5,Axel Wester,C,2011-2012,u20-nationell,21814,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petter Domeij (C),IF Björklöven J20,14,2,2,4,0.29,4,-7,/player/13809/petter-domeij,5,Petter Domeij,C,2011-2012,u20-nationell,13809,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+André Reinholdsson (C),Södertälje SK J20,31,2,2,4,0.13,4,-15,/player/28949/andre-reinholdsson,5,André Reinholdsson,C,2011-2012,u20-nationell,28949,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Wingqvist (D),VIK Västerås HK J20,32,2,2,4,0.13,12,-12,/player/43743/anton-wingqvist,5,Anton Wingqvist,D,2011-2012,u20-nationell,43743,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ahlbin Hernod (D),Mora IK J20,35,2,2,4,0.11,43,-24,/player/62993/ahlbin-hernod,5,Ahlbin Hernod,D,2011-2012,u20-nationell,62993,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Steen (C/RW),Skellefteå AIK J20,42,2,2,4,0.10,10,-8,/player/13724/alexander-steen,5,Alexander Steen,C/RW,2011-2012,u20-nationell,13724,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olle Vennström (LW/RW),IF Björklöven J20,45,2,2,4,0.09,52,-28,/player/20018/olle-vennstrom,5,Olle Vennström,LW/RW,2011-2012,u20-nationell,20018,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Lindberg (C),Skellefteå AIK J20,2,1,3,4,2.00,2,1,/player/10711/oscar-lindberg,5,Oscar Lindberg,C,2011-2012,u20-nationell,10711,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Nylander (W/C),Södertälje SK J20,8,1,3,4,0.50,2,-8,/player/38703/william-nylander,5,William Nylander,W/C,2011-2012,u20-nationell,38703,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kristoffer Backman (LW/RW),MODO Hockey J20,11,1,3,4,0.36,6,4,/player/21989/kristoffer-backman,5,Kristoffer Backman,LW/RW,2011-2012,u20-nationell,21989,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carl Lejon (D),Rögle BK J20,13,1,3,4,0.31,4,-2,/player/13523/carl-lejon,5,Carl Lejon,D,2011-2012,u20-nationell,13523,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fredric Larsson (D),Brynäs IF J20,14,1,3,4,0.29,24,2,/player/38937/fredric-larsson,5,Fredric Larsson,D,2011-2012,u20-nationell,38937,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Klefbom (D),Färjestad BK J20,15,1,3,4,0.27,0,-4,/player/16804/oscar-klefbom,5,Oscar Klefbom,D,2011-2012,u20-nationell,16804,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Forslind (D),Linköping HC J20,19,1,3,4,0.21,44,3,/player/30302/rasmus-forslind,5,Rasmus Forslind,D,2011-2012,u20-nationell,30302,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carl Nisser (D),Malmö Redhawks J20,23,1,3,4,0.17,8,2,/player/20068/carl-nisser,5,Carl Nisser,D,2011-2012,u20-nationell,20068,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Nordmark (C),Mora IK J20,29,1,3,4,0.14,14,-5,/player/44064/oliver-nordmark,5,Oliver Nordmark,C,2011-2012,u20-nationell,44064,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Bergmark (D),Mora IK J20,34,1,3,4,0.12,10,-10,/player/86210/filip-bergmark,5,Filip Bergmark,D,2011-2012,u20-nationell,86210,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Forsell (LW),Skellefteå AIK J20,34,1,3,4,0.12,14,-5,/player/16819/simon-forsell,5,Simon Forsell,LW,2011-2012,u20-nationell,16819,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cristopher Norlin (C),VIK Västerås HK J20,36,1,3,4,0.11,14,-13,/player/33449/cristopher-norlin,5,Cristopher Norlin,C,2011-2012,u20-nationell,33449,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Blomqvist (D),HV71 J20,39,1,3,4,0.10,104,6,/player/16827/filip-blomqvist,5,Filip Blomqvist,D,2011-2012,u20-nationell,16827,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Gantz (D),totals,41,1,3,4,0.10,30,-10,/player/13322/erik-gantz,5,Erik Gantz,D,2011-2012,u20-nationell,13322,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Lindholm (D),Skellefteå AIK J20,43,1,3,4,0.09,20,9,/player/39019/anton-lindholm,5,Anton Lindholm,D,2011-2012,u20-nationell,39019,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Larsson (D),Leksands IF J20,46,1,3,4,0.09,14,-7,/player/29615/johan-larsson,5,Johan Larsson,D,2011-2012,u20-nationell,29615,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dennis Everberg (RW/LW),Rögle BK J20,3,0,4,4,1.33,0,2,/player/13549/dennis-everberg,5,Dennis Everberg,RW/LW,2011-2012,u20-nationell,13549,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nils Lidberg (D),Färjestad BK J20,16,0,4,4,0.25,4,7,/player/33364/nils-lidberg,5,Nils Lidberg,D,2011-2012,u20-nationell,33364,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Viklander (LW),Mora IK J20,17,0,4,4,0.24,31,2,/player/27051/simon-viklander,5,Simon Viklander,LW,2011-2012,u20-nationell,27051,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kalle Östman (C/LW),Leksands IF J20,20,0,4,4,0.20,10,-1,/player/21380/kalle-ostman,5,Kalle Östman,C/LW,2011-2012,u20-nationell,21380,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adrian Larsson (D),IF Björklöven J20,27,0,4,4,0.15,14,-15,/player/26010/adrian-larsson,5,Adrian Larsson,D,2011-2012,u20-nationell,26010,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Munter (D),Timrå IK J20,29,0,4,4,0.14,16,7,/player/16787/victor-munter,5,Victor Munter,D,2011-2012,u20-nationell,16787,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Berkander (C),Tingsryds AIF J20,36,0,4,4,0.11,4,-10,/player/22903/richard-berkander,5,Richard Berkander,C,2011-2012,u20-nationell,22903,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philip Venturi (D),Linköping HC J20,40,0,4,4,0.10,55,10,/player/14208/philip-venturi,5,Philip Venturi,D,2011-2012,u20-nationell,14208,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Alfredsson Jakobsson (RW),Timrå IK J20,8,3,0,3,0.38,4,3,/player/23683/oscar-alfredsson-jakobsson,5,Oscar Alfredsson Jakobsson,RW,2011-2012,u20-nationell,23683,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Santesson (D),Rögle BK J20,18,3,0,3,0.17,2,5,/player/28048/anton-santesson,5,Anton Santesson,D,2011-2012,u20-nationell,28048,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petter Segersten (C/LW),Timrå IK J20,20,3,0,3,0.15,4,-11,/player/20764/petter-segersten,5,Petter Segersten,C/LW,2011-2012,u20-nationell,20764,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikael Persson Riis (LW),IF Björklöven J20,2,2,1,3,1.50,0,-2,/player/6710/mikael-persson-riis,5,Mikael Persson Riis,LW,2011-2012,u20-nationell,6710,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Wännström (RW),Brynäs IF J20,5,2,1,3,0.60,2,1,/player/9782/sebastian-wannstrom,5,Sebastian Wännström,RW,2011-2012,u20-nationell,9782,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Gunnarsson (D),Luleå HF J20,6,2,1,3,0.50,8,5,/player/13319/daniel-gunnarsson,5,Daniel Gunnarsson,D,2011-2012,u20-nationell,13319,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicklas Strid (D/F),Brynäs IF J20,10,2,1,3,0.30,2,1,/player/33214/nicklas-strid,5,Nicklas Strid,D/F,2011-2012,u20-nationell,33214,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Lindell (C),Frölunda HC J20,12,2,1,3,0.25,2,3,/player/38909/viktor-lindell,5,Viktor Lindell,C,2011-2012,u20-nationell,38909,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Paulovic (LW/RW),Färjestad BK J20,12,2,1,3,0.25,6,-2,/player/93903/matej-paulovic,5,Matej Paulovic,LW/RW,2011-2012,u20-nationell,93903,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Hansson (D),Rögle BK J20,18,2,1,3,0.17,6,-4,/player/86135/niklas-hansson,5,Niklas Hansson,D,2011-2012,u20-nationell,86135,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benjámin Nemes (C),Djurgårdens IF J20,29,2,1,3,0.10,2,-3,/player/30194/benjamin-nemes,5,Benjámin Nemes,C,2011-2012,u20-nationell,30194,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Conrad Vikström (D),totals,38,2,1,3,0.08,16,-14,/player/20428/conrad-vikstrom,5,Conrad Vikström,D,2011-2012,u20-nationell,20428,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rickard Sundlöf (C),Timrå IK J20,45,2,1,3,0.07,4,-15,/player/33335/rickard-sundlof,5,Rickard Sundlöf,C,2011-2012,u20-nationell,33335,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskar Humble (D),Tingsryds AIF J20,3,1,2,3,1.00,2,1,/player/11136/oskar-humble,5,Oskar Humble,D,2011-2012,u20-nationell,11136,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Johansson (D),Huddinge IK J20,4,1,2,3,0.75,4,0,/player/16956/robin-johansson,5,Robin Johansson,D,2011-2012,u20-nationell,16956,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Svedberg (D),Frölunda HC J20,6,1,2,3,0.50,4,4,/player/13538/viktor-svedberg,5,Viktor Svedberg,D,2011-2012,u20-nationell,13538,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Adolfsson (C),Rögle BK J20,9,1,2,3,0.33,4,4,/player/31732/jesper-adolfsson,5,Jesper Adolfsson,C,2011-2012,u20-nationell,31732,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Larsson (D),Färjestad BK J20,10,1,2,3,0.30,12,3,/player/5702/johan-larsson,5,Johan Larsson,D,2011-2012,u20-nationell,5702,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hampus Olsson (LW/RW),Rögle BK J20,14,1,2,3,0.21,4,-1,/player/67235/hampus-olsson,5,Hampus Olsson,LW/RW,2011-2012,u20-nationell,67235,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Elfsberg (C),Leksands IF J20,20,1,2,3,0.15,8,-3,/player/34912/patrik-elfsberg,5,Patrik Elfsberg,C,2011-2012,u20-nationell,34912,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Lundmark (D),totals,22,1,2,3,0.14,12,-1,/player/19779/john-lundmark,5,John Lundmark,D,2011-2012,u20-nationell,19779,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fredrik Lovén (D),Djurgårdens IF J20,32,1,2,3,0.09,14,-1,/player/21649/fredrik-loven,5,Fredrik Lovén,D,2011-2012,u20-nationell,21649,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gustav Lindh (D),Leksands IF J20,33,1,2,3,0.09,8,-3,/player/29616/gustav-lindh,5,Gustav Lindh,D,2011-2012,u20-nationell,29616,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ludvig Tallkvist (RW),Mora IK J20,39,1,2,3,0.08,14,-19,/player/33429/ludvig-tallkvist,5,Ludvig Tallkvist,RW,2011-2012,u20-nationell,33429,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas Molinder (D/C),Timrå IK J20,1,0,3,3,3.00,0,3,/player/2049/andreas-molinder,5,Andreas Molinder,D/C,2011-2012,u20-nationell,2049,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Byström (C),MODO Hockey J20,4,0,3,3,0.75,6,1,/player/13079/anton-bystrom,5,Anton Byström,C,2011-2012,u20-nationell,13079,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Wetterstrand (RW),HV71 J20,5,0,3,3,0.60,0,-1,/player/38707/alexander-wetterstrand,5,Alexander Wetterstrand,RW,2011-2012,u20-nationell,38707,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Lööv (D),Södertälje SK J20,5,0,3,3,0.60,2,0,/player/20058/viktor-loov,5,Viktor Lööv,D,2011-2012,u20-nationell,20058,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jens Högbom (D),Luleå HF J20,13,0,3,3,0.23,2,2,/player/39016/jens-hogbom,6,Jens Högbom,D,2011-2012,u20-nationell,39016,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Andersson (D),Malmö Redhawks J20,13,0,3,3,0.23,6,3,/player/86137/rasmus-andersson,6,Rasmus Andersson,D,2011-2012,u20-nationell,86137,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Norbe (D),Växjö Lakers HC J20,24,0,3,3,0.13,43,-10,/player/38719/daniel-norbe,6,Daniel Norbe,D,2011-2012,u20-nationell,38719,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonas Halvarsson (D),Mora IK J20,39,0,3,3,0.08,18,-8,/player/27091/jonas-halvarsson,6,Jonas Halvarsson,D,2011-2012,u20-nationell,27091,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kim Sehlstedt (D),IF Björklöven J20,44,0,3,3,0.07,8,-21,/player/46821/kim-sehlstedt,6,Kim Sehlstedt,D,2011-2012,u20-nationell,46821,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Romfors (RW),HV71 J20,7,2,0,2,0.29,2,2,/player/37031/victor-romfors,6,Victor Romfors,RW,2011-2012,u20-nationell,37031,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Vall (D/LW),Timrå IK J20,8,2,0,2,0.25,12,0,/player/22194/rasmus-vall,6,Rasmus Vall,D/LW,2011-2012,u20-nationell,22194,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julius Persson (C/LW),Färjestad BK J20,11,2,0,2,0.18,2,0,/player/33001/julius-persson,6,Julius Persson,C/LW,2011-2012,u20-nationell,33001,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jim Engström (C),Mora IK J20,18,2,0,2,0.11,27,-7,/player/25450/jim-engstrom,6,Jim Engström,C,2011-2012,u20-nationell,25450,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Malmberg (C),Malmö Redhawks J20,21,2,0,2,0.10,10,-3,/player/30755/anton-malmberg,6,Anton Malmberg,C,2011-2012,u20-nationell,30755,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Steenson (LW),Växjö Lakers HC J20,26,2,0,2,0.08,12,-10,/player/20446/viktor-steenson,6,Viktor Steenson,LW,2011-2012,u20-nationell,20446,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Pavel (D),Södertälje SK J20,48,2,0,2,0.04,95,-15,/player/33397/niklas-pavel,6,Niklas Pavel,D,2011-2012,u20-nationell,33397,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Hilmerson (C/LW),Mora IK J20,1,1,1,2,2.00,0,2,/player/7795/alexander-hilmerson,6,Alexander Hilmerson,C/LW,2011-2012,u20-nationell,7795,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Ericson (D),IF Björklöven J20,1,1,1,2,2.00,2,-1,/player/13093/jesper-ericson,6,Jesper Ericson,D,2011-2012,u20-nationell,13093,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Olsson (LW),Rögle BK J20,2,1,1,2,1.00,0,1,/player/8241/simon-olsson,6,Simon Olsson,LW,2011-2012,u20-nationell,8241,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Owesson (LW/RW),Tingsryds AIF J20,2,1,1,2,1.00,2,-1,/player/14022/filip-owesson,6,Filip Owesson,LW/RW,2011-2012,u20-nationell,14022,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henrik Eriksson (LW),Mora IK J20,3,1,1,2,0.67,0,2,/player/7052/henrik-eriksson,6,Henrik Eriksson,LW,2011-2012,u20-nationell,7052,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Rosell (C/F),HV71 J20,3,1,1,2,0.67,2,1,/player/37030/emil-rosell,6,Emil Rosell,C/F,2011-2012,u20-nationell,37030,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fabian Gunnarsson (C/W),Färjestad BK J20,4,1,1,2,0.50,2,1,/player/38712/fabian-gunnarsson,6,Fabian Gunnarsson,C/W,2011-2012,u20-nationell,38712,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philip Nielsen (LW),Växjö Lakers HC J20,4,1,1,2,0.50,2,-4,/player/62984/philip-nielsen,6,Philip Nielsen,LW,2011-2012,u20-nationell,62984,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henrik Nilsson (D),AIK J20,5,1,1,2,0.40,10,2,/player/13024/henrik-nilsson,6,Henrik Nilsson,D,2011-2012,u20-nationell,13024,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mattias Bäckman (D),Linköping HC J20,6,1,1,2,0.33,0,2,/player/12949/mattias-backman,6,Mattias Bäckman,D,2011-2012,u20-nationell,12949,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Björklund (LW),Brynäs IF J20,8,1,1,2,0.25,0,0,/player/38945/jonathan-bjorklund,6,Jonathan Björklund,LW,2011-2012,u20-nationell,38945,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pontus Engström (LW/RW),Södertälje SK J20,11,1,1,2,0.18,0,1,/player/33440/pontus-engstrom,6,Pontus Engström,LW/RW,2011-2012,u20-nationell,33440,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Henriksson (RW),Färjestad BK J20,11,1,1,2,0.18,2,-2,/player/34230/alexander-henriksson,6,Alexander Henriksson,RW,2011-2012,u20-nationell,34230,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Isak Nyström (LW),MODO Hockey J20,18,1,1,2,0.11,6,-2,/player/27494/isak-nystrom,6,Isak Nyström,LW,2011-2012,u20-nationell,27494,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mattias Saari (C/RW),Timrå IK J20,19,1,1,2,0.11,2,-3,/player/27473/mattias-saari,6,Mattias Saari,C/RW,2011-2012,u20-nationell,27473,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Noteng (D),VIK Västerås HK J20,19,1,1,2,0.11,10,-1,/player/55746/markus-noteng,6,Markus Noteng,D,2011-2012,u20-nationell,55746,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Ström (D),Växjö Lakers HC J20,27,1,1,2,0.07,10,-1,/player/21862/erik-strom,6,Erik Ström,D,2011-2012,u20-nationell,21862,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ludvig Lundberg (LW),IF Björklöven J20,32,1,1,2,0.06,4,-17,/player/19780/ludvig-lundberg,6,Ludvig Lundberg,LW,2011-2012,u20-nationell,19780,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Sågström (D),Brynäs IF J20,34,1,1,2,0.06,30,7,/player/15751/alexander-sagstrom,6,Alexander Sågström,D,2011-2012,u20-nationell,15751,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Martinsson (D),Södertälje SK J20,41,1,1,2,0.05,12,-11,/player/20060/sebastian-martinsson,6,Sebastian Martinsson,D,2011-2012,u20-nationell,20060,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jimmie Ericsson (LW/RW),Skellefteå AIK J20,1,0,2,2,2.00,0,0,/player/1103/jimmie-ericsson,6,Jimmie Ericsson,LW/RW,2011-2012,u20-nationell,1103,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Blomberg (D),Linköping HC J20,3,0,2,2,0.67,4,1,/player/44079/anton-blomberg,6,Anton Blomberg,D,2011-2012,u20-nationell,44079,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Hägglund (C),Skellefteå AIK J20,4,0,2,2,0.50,0,2,/player/62973/markus-hagglund,6,Markus Hägglund,C,2011-2012,u20-nationell,62973,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Carlsson (C/RW),Huddinge IK J20,5,0,2,2,0.40,0,-1,/player/89967/lucas-carlsson,6,Lucas Carlsson,C/RW,2011-2012,u20-nationell,89967,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Olsson (C),Timrå IK J20,7,0,2,2,0.29,10,-1,/player/22193/simon-olsson,6,Simon Olsson,C,2011-2012,u20-nationell,22193,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tom Nilsson (D),Mora IK J20,10,0,2,2,0.20,2,2,/player/33189/tom-nilsson,6,Tom Nilsson,D,2011-2012,u20-nationell,33189,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Crus Rydberg (C/W),Linköping HC J20,10,0,2,2,0.20,6,-6,/player/32639/victor-crus-rydberg,6,Victor Crus Rydberg,C/W,2011-2012,u20-nationell,32639,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tobias Näsgårde (C),Tingsryds AIF J20,16,0,2,2,0.13,0,-5,/player/62799/tobias-nasgarde,6,Tobias Näsgårde,C,2011-2012,u20-nationell,62799,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Nilsson (D),Tingsryds AIF J20,16,0,2,2,0.13,2,1,/player/18711/sebastian-nilsson,6,Sebastian Nilsson,D,2011-2012,u20-nationell,18711,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Oléhn (D),Växjö Lakers HC J20,20,0,2,2,0.10,0,9,/player/50672/lukas-olehn,6,Lukas Oléhn,D,2011-2012,u20-nationell,50672,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Winge (LW),VIK Västerås HK J20,20,0,2,2,0.10,4,-6,/player/28994/elias-winge,6,Elias Winge,LW,2011-2012,u20-nationell,28994,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Hanses (D),Mora IK J20,27,0,2,2,0.07,20,-11,/player/38465/joel-hanses,6,Joel Hanses,D,2011-2012,u20-nationell,38465,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Erlandsson (D),Leksands IF J20,28,0,2,2,0.07,14,-2,/player/33101/simon-erlandsson,6,Simon Erlandsson,D,2011-2012,u20-nationell,33101,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mattias Håkansson (D),Tingsryds AIF J20,31,0,2,2,0.06,2,-5,/player/21764/mattias-hakansson,6,Mattias Håkansson,D,2011-2012,u20-nationell,21764,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Albin Wikström (D),Skellefteå AIK J20,41,0,2,2,0.05,22,-7,/player/19235/albin-wikstrom,6,Albin Wikström,D,2011-2012,u20-nationell,19235,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Charlie Sterner (C/LW),VIK Västerås HK J20,48,0,2,2,0.04,14,-24,/player/32123/charlie-sterner,6,Charlie Sterner,C/LW,2011-2012,u20-nationell,32123,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Ljungh (C),VIK Västerås HK J20,1,1,0,1,1.00,0,0,/player/13329/markus-ljungh,6,Markus Ljungh,C,2011-2012,u20-nationell,13329,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kalle Ekelund (D),Mora IK J20,1,1,0,1,1.00,2,-3,/player/14194/kalle-ekelund,6,Kalle Ekelund,D,2011-2012,u20-nationell,14194,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Magnus Nygren (D),Färjestad BK J20,1,1,0,1,1.00,2,-1,/player/10538/magnus-nygren,6,Magnus Nygren,D,2011-2012,u20-nationell,10538,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jon Palmebjörk (RW),IF Björklöven J20,1,1,0,1,1.00,2,0,/player/3417/jon-palmebjork,6,Jon Palmebjörk,RW,2011-2012,u20-nationell,3417,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskar Sundqvist (C/RW),Skellefteå AIK J20,2,1,0,1,0.50,0,1,/player/41621/oskar-sundqvist,6,Oskar Sundqvist,C/RW,2011-2012,u20-nationell,41621,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Nykvist (LW),Tingsryds AIF J20,2,1,0,1,0.50,6,-1,/player/10565/sebastian-nykvist,6,Sebastian Nykvist,LW,2011-2012,u20-nationell,10565,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Vrána (LW/RW),Linköping HC J20,3,1,0,1,0.33,2,2,/player/101250/jakub-vrana,6,Jakub Vrána,LW/RW,2011-2012,u20-nationell,101250,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonas Vidlund (D),Huddinge IK J20,3,1,0,1,0.33,2,-3,/player/12976/jonas-vidlund,6,Jonas Vidlund,D,2011-2012,u20-nationell,12976,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Axel Blomqvist (LW/RW),Rögle BK J20,4,1,0,1,0.25,0,0,/player/69017/axel-blomqvist,6,Axel Blomqvist,LW/RW,2011-2012,u20-nationell,69017,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Bergman (D),Huddinge IK J20,4,1,0,1,0.25,2,0,/player/12970/alexander-bergman,6,Alexander Bergman,D,2011-2012,u20-nationell,12970,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philip Holm (D),Djurgårdens IF J20,4,1,0,1,0.25,4,1,/player/11070/philip-holm,6,Philip Holm,D,2011-2012,u20-nationell,11070,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Casper Mikaelsson (LW),VIK Västerås HK J20,6,1,0,1,0.17,0,0,/player/62939/casper-mikaelsson,6,Casper Mikaelsson,LW,2011-2012,u20-nationell,62939,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Carlsson (LW),Mora IK J20,6,1,0,1,0.17,4,-2,/player/35647/alexander-carlsson,6,Alexander Carlsson,LW,2011-2012,u20-nationell,35647,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Olsson (D),Tingsryds AIF J20,7,1,0,1,0.14,4,5,/player/13709/linus-olsson,6,Linus Olsson,D,2011-2012,u20-nationell,13709,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Albin Tyllgren (D),Färjestad BK J20,9,1,0,1,0.11,0,1,/player/38995/albin-tyllgren,6,Albin Tyllgren,D,2011-2012,u20-nationell,38995,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Zehnal (RW),Luleå HF J20,10,1,0,1,0.10,0,-2,/player/28978/ondrej-zehnal,6,Ondrej Zehnal,RW,2011-2012,u20-nationell,28978,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Albin Östman (C),Leksands IF J20,17,1,0,1,0.06,22,-3,/player/21379/albin-ostman,6,Albin Östman,C,2011-2012,u20-nationell,21379,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Svedberg (D),Leksands IF J20,1,0,1,1,1.00,0,1,/player/1169/johan-svedberg,6,Johan Svedberg,D,2011-2012,u20-nationell,1169,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Andersson (LW),Växjö Lakers HC J20,1,0,1,1,1.00,0,0,/player/2612/johan-andersson,6,Johan Andersson,LW,2011-2012,u20-nationell,2612,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Granberg (LW),IF Björklöven J20,1,0,1,1,1.00,0,1,/player/4516/niklas-granberg,6,Niklas Granberg,LW,2011-2012,u20-nationell,4516,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jens Persson (C),IF Björklöven J20,1,0,1,1,1.00,2,-2,/player/2253/jens-persson,6,Jens Persson,C,2011-2012,u20-nationell,2253,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Olsson (C),Tingsryds AIF J20,2,0,1,1,0.50,0,0,/player/13140/jesper-olsson,6,Jesper Olsson,C,2011-2012,u20-nationell,13140,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+André Pison (LW),Malmö Redhawks J20,2,0,1,1,0.50,0,1,/player/88572/andre-pison,6,André Pison,LW,2011-2012,u20-nationell,88572,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mattias Göransson (D),Brynäs IF J20,2,0,1,1,0.50,0,1,/player/38710/mattias-goransson,6,Mattias Göransson,D,2011-2012,u20-nationell,38710,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Stensson (D),Leksands IF J20,2,0,1,1,0.50,0,0,/player/28339/simon-stensson,6,Simon Stensson,D,2011-2012,u20-nationell,28339,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Spigerhäll (RW/LW),IF Björklöven J20,2,0,1,1,0.50,0,-2,/player/33120/daniel-spigerhall,6,Daniel Spigerhäll,RW/LW,2011-2012,u20-nationell,33120,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathias Åhman (D),MODO Hockey J20,2,0,1,1,0.50,2,1,/player/41606/mathias-ahman,6,Mathias Åhman,D,2011-2012,u20-nationell,41606,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Thorell (LW),Färjestad BK J20,2,0,1,1,0.50,2,0,/player/13038/erik-thorell,6,Erik Thorell,LW,2011-2012,u20-nationell,13038,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Hultström (D),Linköping HC J20,2,0,1,1,0.50,2,-1,/player/15878/linus-hultstrom,6,Linus Hultström,D,2011-2012,u20-nationell,15878,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lawrence Pilut (D),HV71 J20,3,0,1,1,0.33,0,0,/player/84938/lawrence-pilut,6,Lawrence Pilut,D,2011-2012,u20-nationell,84938,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Belmin Mesanovic (RW),Malmö Redhawks J20,3,0,1,1,0.33,0,1,/player/38931/belmin-mesanovic,6,Belmin Mesanovic,RW,2011-2012,u20-nationell,38931,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tom Linder (D),Växjö Lakers HC J20,3,0,1,1,0.33,2,0,/player/3570/tom-linder,6,Tom Linder,D,2011-2012,u20-nationell,3570,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Ljung (D),Malmö Redhawks J20,4,0,1,1,0.25,2,2,/player/30185/linus-ljung,6,Linus Ljung,D,2011-2012,u20-nationell,30185,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Dahlroth (D),Timrå IK J20,5,0,1,1,0.20,2,-4,/player/9851/jesper-dahlroth,6,Jesper Dahlroth,D,2011-2012,u20-nationell,9851,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Berglind (D),Brynäs IF J20,5,0,1,1,0.20,6,0,/player/14989/victor-berglind,6,Victor Berglind,D,2011-2012,u20-nationell,14989,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christoffer Forsberg (C),Färjestad BK J20,6,0,1,1,0.17,0,1,/player/40860/christoffer-forsberg,6,Christoffer Forsberg,C,2011-2012,u20-nationell,40860,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tobias Björklund (D),Färjestad BK J20,6,0,1,1,0.17,0,3,/player/40937/tobias-bjorklund,6,Tobias Björklund,D,2011-2012,u20-nationell,40937,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Andersson (D/F),Mora IK J20,6,0,1,1,0.17,0,0,/player/115155/emil-andersson,6,Emil Andersson,D/F,2011-2012,u20-nationell,115155,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Forsberg (W/C),Leksands IF J20,6,0,1,1,0.17,2,0,/player/29626/filip-forsberg,6,Filip Forsberg,W/C,2011-2012,u20-nationell,29626,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Pettersson (C/W),Frölunda HC J20,6,0,1,1,0.17,2,0,/player/43990/alexander-pettersson,6,Alexander Pettersson,C/W,2011-2012,u20-nationell,43990,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Björn Jonsson (F),Mora IK J20,7,0,1,1,0.14,2,-2,/player/29627/bjorn-jonsson,6,Björn Jonsson,F,2011-2012,u20-nationell,29627,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskar Orrpars (C),Djurgårdens IF J20,7,0,1,1,0.14,14,-2,/player/11062/oskar-orrpars,6,Oskar Orrpars,C,2011-2012,u20-nationell,11062,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Libelin Bäckström Valliant (D),IF Björklöven J20,8,0,1,1,0.13,2,-9,/player/39018/libelin-backstrom-valliant,6,Libelin Bäckström Valliant,D,2011-2012,u20-nationell,39018,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus von der Geest (C/LW),Tingsryds AIF J20,9,0,1,1,0.11,2,1,/player/16839/marcus-von-der-geest,6,Marcus von der Geest,C/LW,2011-2012,u20-nationell,16839,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas Karlsson (C),Färjestad BK J20,12,0,1,1,0.08,31,-6,/player/28989/andreas-karlsson,6,Andreas Karlsson,C,2011-2012,u20-nationell,28989,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Carlsson (LW),Växjö Lakers HC J20,17,0,1,1,0.06,0,-3,/player/89810/victor-carlsson,6,Victor Carlsson,LW,2011-2012,u20-nationell,89810,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rickard Smångs (D),Mora IK J20,18,0,1,1,0.06,2,-1,/player/38898/rickard-smangs,6,Rickard Smångs,D,2011-2012,u20-nationell,38898,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Seger (D),Mora IK J20,18,0,1,1,0.06,10,-10,/player/32289/jonathan-seger,6,Jonathan Seger,D,2011-2012,u20-nationell,32289,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Edvin Johansson (LW/RW),VIK Västerås HK J20,18,0,1,1,0.06,33,-6,/player/44061/edvin-johansson,6,Edvin Johansson,LW/RW,2011-2012,u20-nationell,44061,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Albin Byström (C),IF Björklöven J20,20,0,1,1,0.05,6,-9,/player/38876/albin-bystrom,6,Albin Byström,C,2011-2012,u20-nationell,38876,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joacim Löfgren (D/F),IF Björklöven J20,23,0,1,1,0.04,8,-2,/player/45611/joacim-lofgren,6,Joacim Löfgren,D/F,2011-2012,u20-nationell,45611,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Ludwig (D),Tingsryds AIF J20,29,0,1,1,0.03,4,-9,/player/32816/richard-ludwig,6,Richard Ludwig,D,2011-2012,u20-nationell,32816,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hampus Hällgren (C),IF Björklöven J20,30,0,1,1,0.03,6,-9,/player/23599/hampus-hallgren,7,Hampus Hällgren,C,2011-2012,u20-nationell,23599,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Casper Häggström (RW),IF Björklöven J20,30,0,1,1,0.03,6,-15,/player/21987/casper-haggstrom,7,Casper Häggström,RW,2011-2012,u20-nationell,21987,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joshua Karlsson (D/C),Mora IK J20,30,0,1,1,0.03,6,-5,/player/30203/joshua-karlsson,7,Joshua Karlsson,D/C,2011-2012,u20-nationell,30203,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Hansson Geidon (RW/D),Rögle BK J20,0,0,0,0,-,0,-,/player/34881/jacob-hansson-geidon,7,Jacob Hansson Geidon,RW/D,2011-2012,u20-nationell,34881,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Karlsson (C),VIK Västerås HK J20,0,0,0,0,-,0,-,/player/19432/william-karlsson,7,William Karlsson,C,2011-2012,u20-nationell,19432,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Norell (D),Djurgårdens IF J20,0,0,0,0,-,0,-,/player/38721/robin-norell,7,Robin Norell,D,2011-2012,u20-nationell,38721,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philip Borggren (D),Rögle BK J20,0,0,0,0,-,0,-,/player/38997/philip-borggren,7,Philip Borggren,D,2011-2012,u20-nationell,38997,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Russell (RW/C),Linköping HC J20,1,0,0,0,0.00,0,0,/player/29181/patrick-russell,7,Patrick Russell,RW/C,2011-2012,u20-nationell,29181,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Everlöf (D),Frölunda HC J20,1,0,0,0,0.00,0,0,/player/43984/kevin-everlof,7,Kevin Everlöf,D,2011-2012,u20-nationell,43984,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Rosén (D),Växjö Lakers HC J20,1,0,0,0,0.00,0,0,/player/13988/adam-rosen,7,Adam Rosén,D,2011-2012,u20-nationell,13988,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Jakobsson (RW),VIK Västerås HK J20,1,0,0,0,0.00,0,0,/player/16837/niklas-jakobsson,7,Niklas Jakobsson,RW,2011-2012,u20-nationell,16837,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonas Jakobsen (D),AIK J20,1,0,0,0,0.00,0,-1,/player/15354/jonas-jakobsen,7,Jonas Jakobsen,D,2011-2012,u20-nationell,15354,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonas Sandberg (RW),MODO Hockey J20,1,0,0,0,0.00,0,0,/player/38883/jonas-sandberg,7,Jonas Sandberg,RW,2011-2012,u20-nationell,38883,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nils Rygaard (C/RW),Linköping HC J20,1,0,0,0,0.00,0,0,/player/86368/nils-rygaard,7,Nils Rygaard,C/RW,2011-2012,u20-nationell,86368,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Axel Haglind (D),Huddinge IK J20,1,0,0,0,0.00,0,0,/player/434/axel-haglind,7,Axel Haglind,D,2011-2012,u20-nationell,434,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Stenbacka (LW/RW),HV71 J20,1,0,0,0,0.00,0,-2,/player/70508/david-stenbacka,7,David Stenbacka,LW/RW,2011-2012,u20-nationell,70508,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeff Karlborg (LW/RW),Huddinge IK J20,1,0,0,0,0.00,0,-1,/player/3490/jeff-karlborg,7,Jeff Karlborg,LW/RW,2011-2012,u20-nationell,3490,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mads Eller (W/C),Frölunda HC J20,1,0,0,0,0.00,0,0,/player/93351/mads-eller,7,Mads Eller,W/C,2011-2012,u20-nationell,93351,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas Borgman (D),Timrå IK J20,1,0,0,0,0.00,0,0,/player/85683/andreas-borgman,7,Andreas Borgman,D,2011-2012,u20-nationell,85683,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Engström (D),Brynäs IF J20,1,0,0,0,0.00,0,0,/player/38935/simon-engstrom,7,Simon Engström,D,2011-2012,u20-nationell,38935,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonas Brodin (D),Färjestad BK J20,1,0,0,0,0.00,0,0,/player/19980/jonas-brodin,7,Jonas Brodin,D,2011-2012,u20-nationell,19980,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Folke (LW),Mora IK J20,1,0,0,0,0.00,0,0,/player/67159/emil-folke,7,Emil Folke,LW,2011-2012,u20-nationell,67159,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Brodecki (RW/LW),Brynäs IF J20,1,0,0,0,0.00,0,0,/player/38747/adam-brodecki,7,Adam Brodecki,RW/LW,2011-2012,u20-nationell,38747,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henrik Karlsson (D),Mora IK J20,1,0,0,0,0.00,0,-1,/player/6566/henrik-karlsson,7,Henrik Karlsson,D,2011-2012,u20-nationell,6566,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sonny Hertzberg (D),Frölunda HC J20,1,0,0,0,0.00,0,0,/player/67234/sonny-hertzberg,7,Sonny Hertzberg,D,2011-2012,u20-nationell,67234,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jens Westin (D),MODO Hockey J20,1,0,0,0,0.00,0,-2,/player/6417/jens-westin,7,Jens Westin,D,2011-2012,u20-nationell,6417,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tobias Hahne (D),Leksands IF J20,1,0,0,0,0.00,0,0,/player/38890/tobias-hahne,7,Tobias Hahne,D,2011-2012,u20-nationell,38890,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pontus Thörnberg (C/RW),HV71 J20,1,0,0,0,0.00,0,0,/player/147716/pontus-thornberg,7,Pontus Thörnberg,C/RW,2011-2012,u20-nationell,147716,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kristian Nervik Nilsen (RW),Brynäs IF J20,1,0,0,0,0.00,0,0,/player/52170/kristian-nervik-nilsen,7,Kristian Nervik Nilsen,RW,2011-2012,u20-nationell,52170,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josef Ingman (D),MODO Hockey J20,1,0,0,0,0.00,0,0,/player/67227/josef-ingman,7,Josef Ingman,D,2011-2012,u20-nationell,67227,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Liljegren (LW),Djurgårdens IF J20,1,0,0,0,0.00,0,-3,/player/37051/viktor-liljegren,7,Viktor Liljegren,LW,2011-2012,u20-nationell,37051,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tobias Lindberg (C),Djurgårdens IF J20,1,0,0,0,0.00,0,-1,/player/85671/tobias-lindberg,7,Tobias Lindberg,C,2011-2012,u20-nationell,85671,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Esbjörs (D),HV71 J20,1,0,0,0,0.00,0,-1,/player/67177/lucas-esbjors,7,Lucas Esbjörs,D,2011-2012,u20-nationell,67177,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Linnander (C),HV71 J20,1,0,0,0,0.00,0,0,/player/7034/johan-linnander,7,Johan Linnander,C,2011-2012,u20-nationell,7034,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Bäcklund (C),Malmö Redhawks J20,1,0,0,0,0.00,0,0,/player/33471/elias-backlund,7,Elias Bäcklund,C,2011-2012,u20-nationell,33471,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Nerle (D),Växjö Lakers HC J20,1,0,0,0,0.00,0,0,/player/65841/robert-nerle,7,Robert Nerle,D,2011-2012,u20-nationell,65841,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kim Carlsson (D),Tingsryds AIF J20,1,0,0,0,0.00,0,0,/player/47096/kim-carlsson,7,Kim Carlsson,D,2011-2012,u20-nationell,47096,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Nilsson (D),Mora IK J20,1,0,0,0,0.00,0,0,/player/91478/daniel-nilsson,7,Daniel Nilsson,D,2011-2012,u20-nationell,91478,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Nylin (D),Mora IK J20,1,0,0,0,0.00,0,-1,/player/86190/jonathan-nylin,7,Jonathan Nylin,D,2011-2012,u20-nationell,86190,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Lagemyr (RW/C),Tingsryds AIF J20,1,0,0,0,0.00,2,-1,/player/9802/johan-lagemyr,7,Johan Lagemyr,RW/C,2011-2012,u20-nationell,9802,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mika Zibanejad (C/RW),Djurgårdens IF J20,1,0,0,0,0.00,2,0,/player/23856/mika-zibanejad,7,Mika Zibanejad,C/RW,2011-2012,u20-nationell,23856,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Johansson (C),Mora IK J20,1,0,0,0,0.00,2,0,/player/9789/jonathan-johansson,7,Jonathan Johansson,C,2011-2012,u20-nationell,9789,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+André Astley (C),Mora IK J20,1,0,0,0,0.00,2,0,/player/33750/andre-astley,7,André Astley,C,2011-2012,u20-nationell,33750,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carl Åsell (LW/RW),Mora IK J20,1,0,0,0,0.00,2,0,/player/35649/carl-asell,7,Carl Åsell,LW/RW,2011-2012,u20-nationell,35649,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Melin (C),Mora IK J20,1,0,0,0,0.00,2,1,/player/38905/anton-melin,7,Anton Melin,C,2011-2012,u20-nationell,38905,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fredrik Claesson (D),Djurgårdens IF J20,1,0,0,0,0.00,2,0,/player/14412/fredrik-claesson,7,Fredrik Claesson,D,2011-2012,u20-nationell,14412,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Molin (D),IF Björklöven J20,1,0,0,0,0.00,2,1,/player/4538/oscar-molin,7,Oscar Molin,D,2011-2012,u20-nationell,4538,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jim Hauswald (D),Huddinge IK J20,1,0,0,0,0.00,4,-1,/player/12971/jim-hauswald,7,Jim Hauswald,D,2011-2012,u20-nationell,12971,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Albin Karlsson (RW/LW),Tingsryds AIF J20,2,0,0,0,0.00,0,0,/player/36623/albin-karlsson,7,Albin Karlsson,RW/LW,2011-2012,u20-nationell,36623,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thimmy Garbenius (D),Södertälje SK J20,2,0,0,0,0.00,0,-3,/player/44035/thimmy-garbenius,7,Thimmy Garbenius,D,2011-2012,u20-nationell,44035,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Rundgren (D),Timrå IK J20,2,0,0,0,0.00,0,-1,/player/12465/rasmus-rundgren,7,Rasmus Rundgren,D,2011-2012,u20-nationell,12465,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Athley Delfalk (D),Huddinge IK J20,2,0,0,0,0.00,0,0,/player/44023/samuel-athley-delfalk,7,Samuel Athley Delfalk,D,2011-2012,u20-nationell,44023,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carl Carlsson (D),Leksands IF J20,2,0,0,0,0.00,0,-1,/player/67225/carl-carlsson,7,Carl Carlsson,D,2011-2012,u20-nationell,67225,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Haaraoja (C/RW),Leksands IF J20,2,0,0,0,0.00,0,-2,/player/38864/oscar-haaraoja,7,Oscar Haaraoja,C/RW,2011-2012,u20-nationell,38864,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Wigerskog (RW),Leksands IF J20,2,0,0,0,0.00,0,-2,/player/38865/max-wigerskog,7,Max Wigerskog,RW,2011-2012,u20-nationell,38865,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Perstedt (D),Frölunda HC J20,2,0,0,0,0.00,0,1,/player/43988/sam-perstedt,7,Sam Perstedt,D,2011-2012,u20-nationell,43988,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Eriksson (D),IF Björklöven J20,2,0,0,0,0.00,0,0,/player/4290/alexander-eriksson,7,Alexander Eriksson,D,2011-2012,u20-nationell,4290,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Karlsson (C/RW),Tingsryds AIF J20,2,0,0,0,0.00,0,-1,/player/73611/adam-karlsson,7,Adam Karlsson,C/RW,2011-2012,u20-nationell,73611,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tom Mäkitalo (C),Leksands IF J20,2,0,0,0,0.00,0,0,/player/38907/tom-makitalo,7,Tom Mäkitalo,C,2011-2012,u20-nationell,38907,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tom Jankovic (LW/RW),HV71 J20,2,0,0,0,0.00,0,-1,/player/67204/tom-jankovic,7,Tom Jankovic,LW/RW,2011-2012,u20-nationell,67204,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Kellman (D),Linköping HC J20,2,0,0,0,0.00,0,0,/player/38928/anton-kellman,7,Anton Kellman,D,2011-2012,u20-nationell,38928,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Sjölin (RW),Växjö Lakers HC J20,2,0,0,0,0.00,0,0,/player/65842/michael-sjolin,7,Michael Sjölin,RW,2011-2012,u20-nationell,65842,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hampus Forsling (LW),Linköping HC J20,2,0,0,0,0.00,0,0,/player/44075/hampus-forsling,7,Hampus Forsling,LW,2011-2012,u20-nationell,44075,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Munge (F),Malmö Redhawks J20,2,0,0,0,0.00,2,-1,/player/71881/kevin-munge,7,Kevin Munge,F,2011-2012,u20-nationell,71881,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kristoffer Brun (D),AIK J20,2,0,0,0,0.00,2,1,/player/37035/kristoffer-brun,7,Kristoffer Brun,D,2011-2012,u20-nationell,37035,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Klang (C/RW),Växjö Lakers HC J20,3,0,0,0,0.00,0,0,/player/43735/jacob-klang,7,Jacob Klang,C/RW,2011-2012,u20-nationell,43735,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Fors (D),Djurgårdens IF J20,3,0,0,0,0.00,0,-1,/player/67172/alexander-fors,7,Alexander Fors,D,2011-2012,u20-nationell,67172,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tobias Liljendahl (RW/C),Djurgårdens IF J20,3,0,0,0,0.00,0,0,/player/35347/tobias-liljendahl,7,Tobias Liljendahl,RW/C,2011-2012,u20-nationell,35347,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Ekman Larsson (D),Leksands IF J20,3,0,0,0,0.00,0,-,/player/32642/kevin-ekman-larsson,7,Kevin Ekman Larsson,D,2011-2012,u20-nationell,32642,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Mattson (D),Leksands IF J20,3,0,0,0,0.00,0,0,/player/55984/jesper-mattson,7,Jesper Mattson,D,2011-2012,u20-nationell,55984,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kalle Hult (LW/RW),Malmö Redhawks J20,3,0,0,0,0.00,0,0,/player/61464/kalle-hult,7,Kalle Hult,LW/RW,2011-2012,u20-nationell,61464,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mirza Omer (LW),Tingsryds AIF J20,3,0,0,0,0.00,0,-1,/player/151001/mirza-omer,7,Mirza Omer,LW,2011-2012,u20-nationell,151001,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskar Forslund (C),VIK Västerås HK J20,3,0,0,0,0.00,0,-1,/player/44055/oskar-forslund,7,Oskar Forslund,C,2011-2012,u20-nationell,44055,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Miljak (D),Växjö Lakers HC J20,3,0,0,0,0.00,0,-3,/player/111643/patrik-miljak,7,Patrik Miljak,D,2011-2012,u20-nationell,111643,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kasper Emanuelsson (D),Mora IK J20,3,0,0,0,0.00,0,0,/player/38899/kasper-emanuelsson,7,Kasper Emanuelsson,D,2011-2012,u20-nationell,38899,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Linus Pellfolk (LW/C),Mora IK J20,3,0,0,0,0.00,0,0,/player/50234/linus-pellfolk,7,Linus Pellfolk,LW/C,2011-2012,u20-nationell,50234,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Fakt (C/W),Leksands IF J20,3,0,0,0,0.00,0,-2,/player/38901/sebastian-fakt,7,Sebastian Fakt,C/W,2011-2012,u20-nationell,38901,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tom Nilsson (D),Färjestad BK J20,3,0,0,0,0.00,0,0,/player/33360/tom-nilsson,7,Tom Nilsson,D,2011-2012,u20-nationell,33360,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Karlsson (D),AIK J20,3,0,0,0,0.00,0,2,/player/37037/robin-karlsson,7,Robin Karlsson,D,2011-2012,u20-nationell,37037,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Höglund (LW/RW),Timrå IK J20,3,0,0,0,0.00,0,-1,/player/27468/simon-hoglund,7,Simon Höglund,LW/RW,2011-2012,u20-nationell,27468,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas Sojé (D),VIK Västerås HK J20,3,0,0,0,0.00,2,2,/player/30335/andreas-soje,7,Andreas Sojé,D,2011-2012,u20-nationell,30335,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Axel Walltott (D),Djurgårdens IF J20,3,0,0,0,0.00,2,0,/player/33625/axel-walltott,7,Axel Walltott,D,2011-2012,u20-nationell,33625,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gustav Jobs (RW),Leksands IF J20,3,0,0,0,0.00,2,-2,/player/29628/gustav-jobs,7,Gustav Jobs,RW,2011-2012,u20-nationell,29628,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Panelin Borg (D),Rögle BK J20,3,0,0,0,0.00,2,1,/player/13540/victor-panelin-borg,7,Victor Panelin Borg,D,2011-2012,u20-nationell,13540,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roger Lundmark (D),AIK J20,4,0,0,0,0.00,0,-1,/player/33198/roger-lundmark,7,Roger Lundmark,D,2011-2012,u20-nationell,33198,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Ström (C),Brynäs IF J20,4,0,0,0,0.00,0,-2,/player/20246/adam-strom,7,Adam Ström,C,2011-2012,u20-nationell,20246,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Engström (C/LW),MODO Hockey J20,4,0,0,0,0.00,0,0,/player/62956/simon-engstrom,7,Simon Engström,C/LW,2011-2012,u20-nationell,62956,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Molnar (LW/RW),Huddinge IK J20,4,0,0,0,0.00,0,-2,/player/37046/anton-molnar,7,Anton Molnar,LW/RW,2011-2012,u20-nationell,37046,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Lander (D),Timrå IK J20,4,0,0,0,0.00,0,-4,/player/38723/filip-lander,7,Filip Lander,D,2011-2012,u20-nationell,38723,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Synnelius (D/LW),Rögle BK J20,4,0,0,0,0.00,0,1,/player/4604/jesper-synnelius,7,Jesper Synnelius,D/LW,2011-2012,u20-nationell,4604,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joakim Albertsson (D),Huddinge IK J20,4,0,0,0,0.00,0,0,/player/99623/joakim-albertsson,7,Joakim Albertsson,D,2011-2012,u20-nationell,99623,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Näslund (D),Timrå IK J20,4,0,0,0,0.00,2,-2,/player/20006/erik-naslund,7,Erik Näslund,D,2011-2012,u20-nationell,20006,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gustav Backström (D),MODO Hockey J20,4,0,0,0,0.00,2,-1,/player/32195/gustav-backstrom,7,Gustav Backström,D,2011-2012,u20-nationell,32195,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Stoppel (C),Djurgårdens IF J20,4,0,0,0,0.00,2,0,/player/44024/victor-stoppel,7,Victor Stoppel,C,2011-2012,u20-nationell,44024,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Löf (D),Brynäs IF J20,4,0,0,0,0.00,2,1,/player/9778/simon-lof,7,Simon Löf,D,2011-2012,u20-nationell,9778,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Wahldén (D),Malmö Redhawks J20,4,0,0,0,0.00,2,0,/player/38994/viktor-wahlden,7,Viktor Wahldén,D,2011-2012,u20-nationell,38994,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carl Persson (LW/RW),Tingsryds AIF J20,4,0,0,0,0.00,2,-2,/player/63012/carl-persson,7,Carl Persson,LW/RW,2011-2012,u20-nationell,63012,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Ytterell (D),Södertälje SK J20,4,0,0,0,0.00,6,3,/player/19658/alexander-ytterell,7,Alexander Ytterell,D,2011-2012,u20-nationell,19658,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Bergendahl (RW/LW),Timrå IK J20,4,0,0,0,0.00,6,-1,/player/38737/adam-bergendahl,7,Adam Bergendahl,RW/LW,2011-2012,u20-nationell,38737,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas Rosenstam (D),IF Björklöven J20,4,0,0,0,0.00,27,-9,/player/19857/andreas-rosenstam,7,Andreas Rosenstam,D,2011-2012,u20-nationell,19857,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Guymon (D),VIK Västerås HK J20,5,0,0,0,0.00,0,0,/player/122663/nathan-guymon,8,Nathan Guymon,D,2011-2012,u20-nationell,122663,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Svensson (D),Rögle BK J20,5,0,0,0,0.00,0,-1,/player/22876/alexander-svensson,8,Alexander Svensson,D,2011-2012,u20-nationell,22876,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Wallin (D),Brynäs IF J20,5,0,0,0,0.00,0,1,/player/32824/filip-wallin,8,Filip Wallin,D,2011-2012,u20-nationell,32824,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskar Söderberg (C/LW),MODO Hockey J20,5,0,0,0,0.00,0,0,/player/38885/oskar-soderberg,8,Oskar Söderberg,C/LW,2011-2012,u20-nationell,38885,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carl-Wictor Ebefeldt (C/W),Tingsryds AIF J20,5,0,0,0,0.00,0,-2,/player/38999/carl-wictor-ebefeldt,8,Carl-Wictor Ebefeldt,C/W,2011-2012,u20-nationell,38999,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Felix Lundqvist (D),Huddinge IK J20,5,0,0,0,0.00,0,0,/player/410/felix-lundqvist,8,Felix Lundqvist,D,2011-2012,u20-nationell,410,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Friberger (LW),Tingsryds AIF J20,5,0,0,0,0.00,0,-3,/player/67168/lukas-friberger,8,Lukas Friberger,LW,2011-2012,u20-nationell,67168,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Öhman (C/RW),MODO Hockey J20,6,0,0,0,0.00,0,-3,/player/38886/victor-ohman,8,Victor Öhman,C/RW,2011-2012,u20-nationell,38886,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Näslund (C/RW),HV71 J20,6,0,0,0,0.00,0,-2,/player/67203/markus-naslund,8,Markus Näslund,C/RW,2011-2012,u20-nationell,67203,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+André Curley (D),Tingsryds AIF J20,6,0,0,0,0.00,0,-5,/player/33715/andre-curley,8,André Curley,D,2011-2012,u20-nationell,33715,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christoffer Jokiharju-Lindhøj (D),Malmö Redhawks J20,6,0,0,0,0.00,2,-5,/player/50172/christoffer-jokiharju-lindhoj,8,Christoffer Jokiharju-Lindhøj,D,2011-2012,u20-nationell,50172,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Eriksson (LW/RW),Timrå IK J20,6,0,0,0,0.00,2,-3,/player/26213/emil-eriksson,8,Emil Eriksson,LW/RW,2011-2012,u20-nationell,26213,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fredrik Lindström (D),Linköping HC J20,7,0,0,0,0.00,2,0,/player/67623/fredrik-lindstrom,8,Fredrik Lindström,D,2011-2012,u20-nationell,67623,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joakim Hälleström (RW/LW),Mora IK J20,8,0,0,0,0.00,0,-7,/player/67170/joakim-hallestrom,8,Joakim Hälleström,RW/LW,2011-2012,u20-nationell,67170,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ludwig Loeffel (D),Växjö Lakers HC J20,8,0,0,0,0.00,0,0,/player/101797/ludwig-loeffel,8,Ludwig Loeffel,D,2011-2012,u20-nationell,101797,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas Arbinger (RW),VIK Västerås HK J20,8,0,0,0,0.00,4,-1,/player/43745/andreas-arbinger,8,Andreas Arbinger,RW,2011-2012,u20-nationell,43745,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olle Eriksson (LW),Timrå IK J20,9,0,0,0,0.00,0,-2,/player/13194/olle-eriksson,8,Olle Eriksson,LW,2011-2012,u20-nationell,13194,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joakim Lilliehöök (D),Djurgårdens IF J20,9,0,0,0,0.00,2,2,/player/34100/joakim-lilliehook,8,Joakim Lilliehöök,D,2011-2012,u20-nationell,34100,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ludwig Hallesjö (D),Frölunda HC J20,9,0,0,0,0.00,4,4,/player/43986/ludwig-hallesjo,8,Ludwig Hallesjö,D,2011-2012,u20-nationell,43986,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Persson (C),Tingsryds AIF J20,10,0,0,0,0.00,2,-5,/player/73610/adam-persson,8,Adam Persson,C,2011-2012,u20-nationell,73610,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Dahlbom (LW/RW),Färjestad BK J20,10,0,0,0,0.00,4,-3,/player/33358/johan-dahlbom,8,Johan Dahlbom,LW/RW,2011-2012,u20-nationell,33358,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Rättyä Landgren (D),Tingsryds AIF J20,11,0,0,0,0.00,2,-3,/player/22878/sebastian-rattya-landgren,8,Sebastian Rättyä Landgren,D,2011-2012,u20-nationell,22878,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Kristoffersson (C),VIK Västerås HK J20,12,0,0,0,0.00,2,-5,/player/32994/daniel-kristoffersson,8,Daniel Kristoffersson,C,2011-2012,u20-nationell,32994,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oscar Kafle (C),Färjestad BK J20,12,0,0,0,0.00,8,2,/player/19904/oscar-kafle,8,Oscar Kafle,C,2011-2012,u20-nationell,19904,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Fredriksson (D),IF Björklöven J20,13,0,0,0,0.00,4,-3,/player/46820/william-fredriksson,8,William Fredriksson,D,2011-2012,u20-nationell,46820,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olle Persson (D),Timrå IK J20,13,0,0,0,0.00,14,-1,/player/20005/olle-persson,8,Olle Persson,D,2011-2012,u20-nationell,20005,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Jonason (C),IF Björklöven J20,15,0,0,0,0.00,0,-4,/player/26016/victor-jonason,8,Victor Jonason,C,2011-2012,u20-nationell,26016,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Svangård (LW/RW),Växjö Lakers HC J20,15,0,0,0,0.00,0,-4,/player/111528/victor-svangard,8,Victor Svangård,LW/RW,2011-2012,u20-nationell,111528,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kim Lilja (LW),Luleå HF J20,19,0,0,0,0.00,20,-1,/player/13795/kim-lilja,8,Kim Lilja,LW,2011-2012,u20-nationell,13795,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jens Ericsson (C),AIK J20,20,0,0,0,0.00,0,-2,/player/21653/jens-ericsson,8,Jens Ericsson,C,2011-2012,u20-nationell,21653,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Johnsson (D),Växjö Lakers HC J20,20,0,0,0,0.00,2,-11,/player/34059/erik-johnsson,8,Erik Johnsson,D,2011-2012,u20-nationell,34059,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Almqvist (D),Växjö Lakers HC J20,21,0,0,0,0.00,2,-4,/player/65844/daniel-almqvist,8,Daniel Almqvist,D,2011-2012,u20-nationell,65844,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zsombor Molnár (C),Mora IK J20,21,0,0,0,0.00,4,-8,/player/54932/zsombor-molnar,8,Zsombor Molnár,C,2011-2012,u20-nationell,54932,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Widén (D),Malmö Redhawks J20,22,0,0,0,0.00,4,-3,/player/25089/jesper-widen,8,Jesper Widén,D,2011-2012,u20-nationell,25089,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Athley (LW),Växjö Lakers HC J20,23,0,0,0,0.00,16,-3,/player/65836/tim-athley,8,Tim Athley,LW,2011-2012,u20-nationell,65836,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69

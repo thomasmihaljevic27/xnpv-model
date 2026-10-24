@@ -1,0 +1,60 @@
+ep_nhl_bridge.py SCRIPT_VERSION 1.1
+[slots] EP 4765 picks, NHL Records 4765 picks; years whose counts differ: 0
+[join] slots on one side only: 0
+[join] slots with no player on at least one side (forfeited/void or missing id): 5
+         2009 #118: EP=No selection was made NHL=FORFEIT
+         2011 #69: EP=No selection was made NHL=FORFEIT
+         2020 #49: EP=No selection was made NHL=FORFEIT
+         2021 #11: EP=No selection was made NHL=FORFEIT
+         2026 #63: EP=No selection was made NHL=FORFEIT
+[check] full-name agreement 4469/4760; surname agreement 4699/4760; neither: 61
+         2006 #27: EP 'Ivan Vishnevsky' vs NHL 'Ivan Vishnevskiy'
+         2006 #44: EP 'Nikolai Kulyomin' vs NHL 'Nikolay Kulemin'
+         2006 #209: EP 'Per Johnsson' vs NHL 'Per Jonsson'
+         2007 #106: EP 'Maxim Grachyov' vs NHL 'Maxim Gratchev'
+         2007 #202: EP 'Sergei Gaiduchenko' vs NHL 'Sergei Gayduchenko'
+         2008 #8: EP 'Mikkel Bødker' vs NHL 'Mikkel Boedker'
+         2008 #75: EP 'Yevgeni Grachyov' vs NHL 'Evgeny Grachev'
+         2008 #138: EP 'Maxim Trunyov' vs NHL 'Maxim Trunev'
+         2008 #147: EP 'Kyle DeCoste' vs NHL 'Kyle De Coste'
+         2008 #150: EP 'Alexander Pechursky' vs NHL 'Alexander Pechurskiy'
+         2008 #161: EP 'Mats Frøshaug' vs NHL 'Mats Froshaug'
+         2008 #170: EP 'Jonas Holøs' vs NHL 'Jonas Holos'
+         2010 #86: EP 'Stanislav Galiyev' vs NHL 'Stanislav Galiev'
+         2010 #151: EP 'Mirko Höfflin' vs NHL 'Mirko Hoefflin'
+         2011 #13: EP 'Sven Bärtschi' vs NHL 'Sven Baertschi'
+         2011 #40: EP 'Alexander Khokhlachyov' vs NHL 'Alex Khokhlachev'
+         2011 #117: EP 'Steffen Søberg' vs NHL 'Steffen Soberg'
+         2012 #19: EP 'Andrei Vasilevsky' vs NHL 'Andrei Vasilevskiy'
+         2012 #52: EP 'Teodors Blugers' vs NHL 'Teddy Blueger'
+         2012 #170: EP 'James DeHaas' vs NHL 'James de Haas'
+         2012 #201: EP 'Valeri Vasilyev' vs NHL 'Valeri Vasiliev'
+         2013 #18: EP 'Mirco Müller' vs NHL 'Mirco Mueller'
+         2013 #165: EP 'Markus Søberg' vs NHL 'Markus Soberg'
+         2014 #33: EP 'Ivan Barbashyov' vs NHL 'Ivan Barbashev'
+         2014 #68: EP 'Rinat Valiyev' vs NHL 'Rinat Valiev'
+         2014 #118: EP 'Igor Shestyorkin' vs NHL 'Igor Shesterkin'
+         2014 #168: EP 'Radel Fazleyev' vs NHL 'Radel Fazleev'
+         2014 #201: EP 'Alexander Kadeikin' vs NHL 'Alexander Kadeykin'
+         2015 #12: EP 'Denis Guryanov' vs NHL 'Denis Gurianov'
+         2015 #79: EP 'Sergei Zborovsky' vs NHL 'Sergey Zborovskiy'
+         2015 #80: EP 'Brent Gates' vs NHL 'Brent Gates Jr.'
+         2015 #104: EP 'Mikhail Vorobyov' vs NHL 'Mikhail Vorobyev'
+         2015 #185: EP 'Nikita Korostelyov' vs NHL 'Nikita Korostelev'
+         2016 #9: EP 'Mikhail Sergachyov' vs NHL 'Mikhail Sergachev'
+         2016 #122: EP 'Vladimir Bobylyov' vs NHL 'Vladimir Bobylev'
+         2017 #65: EP 'Jonas Røndbjerg' vs NHL 'Jonas Rondbjerg'
+         2017 #70: EP 'Andrei Altybarmakyan' vs NHL 'Andrei Altybarmakian'
+         2017 #98: EP 'Nikita Popugayev' vs NHL 'Nikita Popugaev'
+         2017 #125: EP 'Igor Shvyryov' vs NHL 'Igor Shvyrev'
+         2017 #141: EP 'Fyodor Gordeyev' vs NHL 'Fedor Gordeev'
+[check] birthdate agreement 4734/4760 drafted players with an EP bio
+[check] EP ids mapping to >1 NHL id: 0; NHL ids mapping to >1 EP id: 0
+[exception] PuckPedia's EP id 186888 read as 121879 (duplicate Elite Prospects profile)
+[puckpedia] 3055 distinct (EP id, NHL id) pairs; EP ids with >1 NHL id inside PuckPedia itself: 0
+[validate] drafted players in both sources: 2234; NHL id agrees: 2233 (99.96%); disagrees: 1
+         EP 201705 (Nick Henry): draft slot -> 8479997, PuckPedia -> 8462234
+[exception] EP 201705: NHL id 8479997 kept over PuckPedia's 8462234 (draft record and EP bio agree)
+[bridge] rows by status: draft_slot_only 2517, both_agree 2233, puckpedia_only 821, conflict_resolved 1
+[guard] NHL ids claimed by >1 EP id in the final bridge: 0
+[done] v1.1: wrote C:/Users/Thomas/Desktop/xNPV/30_OUTPUT\ep_out\ep_nhl_bridge.csv (5572 EP ids)

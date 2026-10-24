@@ -1,0 +1,415 @@
+player,team,gp,g,a,tp,p_per_gp,pim,plus_minus,link,page,playername,position,season,league,ep_player_id,scrape_date,source,package_version
+Marcus Sörensen (W),HC Fribourg-Gottéron,52,31,32,63,1.21,30,30,/player/20065/marcus-sorensen,1,Marcus Sörensen,W,2023-2024,nl,20065,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Calvin Thürkauf (C/LW),HC Lugano,52,28,32,60,1.15,34,26,/player/186336/calvin-thurkauf,1,Calvin Thürkauf,C/LW,2023-2024,nl,186336,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Spacek (C/RW),HC Ambrì-Piotta,48,17,33,50,1.04,10,11,/player/199564/michael-spacek,1,Michael Spacek,C/RW,2023-2024,nl,199564,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominik Kahun (C/W),SC Bern,47,15,35,50,1.06,6,5,/player/71940/dominik-kahun,1,Dominik Kahun,C/W,2023-2024,nl,71940,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Joly (RW),HC Lugano,48,20,28,48,1.00,10,22,/player/128893/michael-joly,1,Michael Joly,RW,2023-2024,nl,128893,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Wallmark (C),HC Fribourg-Gottéron,49,20,27,47,0.96,43,23,/player/39022/lucas-wallmark,1,Lucas Wallmark,C,2023-2024,nl,39022,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Malgin (C/W),ZSC Lions,48,18,29,47,0.98,26,14,/player/117376/denis-malgin,1,Denis Malgin,C/W,2023-2024,nl,117376,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Carr (LW/RW),HC Lugano,39,17,29,46,1.18,63,21,/player/39435/daniel-carr,1,Daniel Carr,LW/RW,2023-2024,nl,39435,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Stransky (RW/LW),HC Davos,51,22,19,41,0.80,24,22,/player/79504/matej-stransky,1,Matej Stransky,RW/LW,2023-2024,nl,79504,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lino Martschini (RW),EV Zug,52,22,19,41,0.79,12,6,/player/70432/lino-martschini,1,Lino Martschini,RW,2023-2024,nl,70432,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Saarela (C),SCL Tigers,50,18,23,41,0.82,8,-13,/player/94117/aleksi-saarela,1,Aleksi Saarela,C,2023-2024,nl,94117,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sakari Manninen (C/LW),Genève-Servette HC,50,18,23,41,0.82,26,-7,/player/45226/sakari-manninen,1,Sakari Manninen,C/LW,2023-2024,nl,45226,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antti Suomela (C),Lausanne HC,52,12,29,41,0.79,10,11,/player/73292/antti-suomela,1,Antti Suomela,C,2023-2024,nl,73292,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris DiDomenico (C/RW),HC Fribourg-Gottéron,52,12,29,41,0.79,30,-1,/player/11319/chris-didomenico,1,Chris DiDomenico,C/RW,2023-2024,nl,11319,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Frödén (RW),ZSC Lions,47,22,18,40,0.85,18,17,/player/89970/jesper-froden,1,Jesper Frödén,RW,2023-2024,nl,89970,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Toni Rajala (LW/RW),EHC Biel-Bienne,51,18,22,40,0.78,41,9,/player/16035/toni-rajala,1,Toni Rajala,LW/RW,2023-2024,nl,16035,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christoph Bertschy (C/RW),HC Fribourg-Gottéron,52,18,22,40,0.77,38,6,/player/85327/christoph-bertschy,1,Christoph Bertschy,C/RW,2023-2024,nl,85327,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Červenka (C/LW),SC Rapperswil-Jona Lakers,47,12,28,40,0.85,28,0,/player/15130/roman-cervenka,1,Roman Červenka,C/LW,2023-2024,nl,15130,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Derek Grant (C/W),ZSC Lions,50,18,21,39,0.78,22,15,/player/18242/derek-grant,1,Derek Grant,C/W,2023-2024,nl,18242,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Gunderson (D),HC Fribourg-Gottéron,51,5,34,39,0.76,12,19,/player/15125/ryan-gunderson,1,Ryan Gunderson,D,2023-2024,nl,15125,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julian Schmutz (C/RW),SCL Tigers,51,21,17,38,0.75,63,-5,/player/85295/julian-schmutz,1,Julian Schmutz,C/RW,2023-2024,nl,85295,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rudolfs Balcers (LW/RW),ZSC Lions,50,20,18,38,0.76,18,12,/player/153652/rudolfs-balcers,1,Rudolfs Balcers,LW/RW,2023-2024,nl,153652,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Laurent Dauphin (C/LW),HC Ambrì-Piotta,44,16,22,38,0.86,70,13,/player/126400/laurent-dauphin,1,Laurent Dauphin,C/LW,2023-2024,nl,126400,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Audette (C/LW),HC Ajoie,51,13,25,38,0.75,8,-23,/player/128505/daniel-audette,1,Daniel Audette,C/LW,2023-2024,nl,128505,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sami Vatanen (D),Genève-Servette HC,48,9,29,38,0.79,10,2,/player/16044/sami-vatanen,1,Sami Vatanen,D,2023-2024,nl,16044,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valentin Nussbaumer (C/LW),HC Davos,52,21,16,37,0.71,16,16,/player/332479/valentin-nussbaumer,1,Valentin Nussbaumer,C/LW,2023-2024,nl,332479,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Damien Riat (W/C),Lausanne HC,50,18,19,37,0.74,20,10,/player/153634/damien-riat,1,Damien Riat,W/C,2023-2024,nl,153634,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Arcobello (RW/C),HC Lugano,50,14,23,37,0.74,16,8,/player/33230/mark-arcobello,1,Mark Arcobello,RW/C,2023-2024,nl,33230,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc Michaelis (LW/C),EV Zug,50,13,24,37,0.74,14,13,/player/71958/marc-michaelis,1,Marc Michaelis,LW/C,2023-2024,nl,71958,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean Malone (C),SCL Tigers,51,13,24,37,0.73,16,-14,/player/118664/sean-malone,1,Sean Malone,C,2023-2024,nl,118664,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vili Saarijärvi (D),SCL Tigers,50,8,29,37,0.74,10,-8,/player/122954/vili-saarijarvi,1,Vili Saarijärvi,D,2023-2024,nl,122954,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Moy (C/RW),SC Rapperswil-Jona Lakers,52,17,19,36,0.69,14,-17,/player/118545/tyler-moy,1,Tyler Moy,C/RW,2023-2024,nl,118545,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Hazen (RW),HC Ajoie,51,15,20,35,0.69,8,-13,/player/22855/jonathan-hazen,1,Jonathan Hazen,RW,2023-2024,nl,22855,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominik Egli (D),HC Davos,45,7,28,35,0.78,16,18,/player/262443/dominik-egli,1,Dominik Egli,D,2023-2024,nl,262443,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fabrice Herzog (RW/LW),EV Zug,52,18,16,34,0.65,14,6,/player/94494/fabrice-herzog,1,Fabrice Herzog,RW/LW,2023-2024,nl,94494,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juho Lammikko (C/LW),ZSC Lions,44,11,23,34,0.77,28,20,/player/151955/juho-lammikko,1,Juho Lammikko,C/LW,2023-2024,nl,151955,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joakim Nordström (C/LW),HC Davos,51,11,23,34,0.67,51,10,/player/18332/joakim-nordstrom,1,Joakim Nordström,C/LW,2023-2024,nl,18332,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luca Fazzini (LW/RW),HC Lugano,51,16,17,33,0.65,46,-11,/player/90308/luca-fazzini,1,Luca Fazzini,LW/RW,2023-2024,nl,90308,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valtteri Filppula (C/LW),Genève-Servette HC,51,11,22,33,0.65,22,-6,/player/3197/valtteri-filppula,1,Valtteri Filppula,C/LW,2023-2024,nl,3197,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jason Fuchs (C),Lausanne HC,52,15,17,32,0.62,10,2,/player/95039/jason-fuchs,1,Jason Fuchs,C,2023-2024,nl,95039,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marco Lehmann (C/W),SC Bern,48,14,18,32,0.67,12,2,/player/311528/marco-lehmann,1,Marco Lehmann,C/W,2023-2024,nl,311528,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Teemu Hartikainen (C/W),Genève-Servette HC,51,8,24,32,0.63,14,-7,/player/11365/teemu-hartikainen,1,Teemu Hartikainen,C/W,2023-2024,nl,11365,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob de la Rose (C/W),HC Fribourg-Gottéron,51,16,15,31,0.61,12,1,/player/28436/jacob-de-la-rose,1,Jacob de la Rose,C/W,2023-2024,nl,28436,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sven Andrighetto (W/C),ZSC Lions,40,13,18,31,0.78,8,13,/player/70426/sven-andrighetto,1,Sven Andrighetto,W/C,2023-2024,nl,70426,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gaëtan Haas (C),EHC Biel-Bienne,45,12,19,31,0.69,22,16,/player/34816/gaetan-haas,1,Gaëtan Haas,C,2023-2024,nl,34816,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Inti Pestoni (LW),HC Ambrì-Piotta,47,12,19,31,0.66,33,3,/player/34822/inti-pestoni,1,Inti Pestoni,LW,2023-2024,nl,34822,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benjamin Baumgartner (C),SC Bern,50,12,19,31,0.62,25,5,/player/333572/benjamin-baumgartner,1,Benjamin Baumgartner,C,2023-2024,nl,333572,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ramon Untersander (D),SC Bern,52,4,27,31,0.60,6,-7,/player/17688/ramon-untersander,1,Ramon Untersander,D,2023-2024,nl,17688,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Virtanen (D),HC Ambrì-Piotta,51,13,17,30,0.59,18,1,/player/38090/jesse-virtanen,1,Jesse Virtanen,D,2023-2024,nl,38090,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jere Sallinen (LW/C),EHC Biel-Bienne,52,13,17,30,0.58,32,2,/player/15136/jere-sallinen,1,Jere Sallinen,LW/C,2023-2024,nl,15136,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Théo Rochette (C),Lausanne HC,47,12,18,30,0.64,37,4,/player/291301/theo-rochette,1,Théo Rochette,C,2023-2024,nl,291301,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Lehtonen (D),ZSC Lions,51,4,26,30,0.59,10,28,/player/56196/mikko-lehtonen,1,Mikko Lehtonen,D,2023-2024,nl,56196,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dario Bürgler (RW),HC Ambrì-Piotta,48,12,17,29,0.60,6,2,/player/10617/dario-burgler,1,Dario Bürgler,RW,2023-2024,nl,10617,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Ang (RW/C),EHC Kloten,52,11,18,29,0.56,42,-21,/player/251447/jonathan-ang,1,Jonathan Ang,RW/C,2023-2024,nl,251447,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Heed (D),HC Ambrì-Piotta,45,6,23,29,0.64,8,-1,/player/10065/tim-heed,1,Tim Heed,D,2023-2024,nl,10065,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Bengtsson (D),EV Zug,48,5,24,29,0.60,10,6,/player/67165/lukas-bengtsson,1,Lukas Bengtsson,D,2023-2024,nl,67165,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Axel Simic (C/RW),EHC Kloten,52,18,10,28,0.54,8,-9,/player/236816/axel-simic,1,Axel Simic,C/RW,2023-2024,nl,236816,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Bozon (LW),Lausanne HC,51,16,12,28,0.55,8,8,/player/48990/tim-bozon,1,Tim Bozon,LW,2023-2024,nl,48990,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakob Lilja (LW),HC Ambrì-Piotta,49,10,18,28,0.57,14,1,/player/16800/jakob-lilja,1,Jakob Lilja,LW,2023-2024,nl,16800,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Kovář (C),EV Zug,47,9,19,28,0.60,40,7,/player/18083/jan-kova%C5%99,1,Jan Kovář,C,2023-2024,nl,18083,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dennis Rasmussen (C),HC Davos,46,7,21,28,0.61,16,17,/player/9985/dennis-rasmussen,1,Dennis Rasmussen,C,2023-2024,nl,9985,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yannick Rathgeb (D),EHC Biel-Bienne,49,7,21,28,0.57,34,4,/player/95055/yannick-rathgeb,1,Yannick Rathgeb,D,2023-2024,nl,95055,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kristian Näkyvä (D),HC Davos,49,6,22,28,0.57,18,15,/player/16649/kristian-nakyva,1,Kristian Näkyvä,D,2023-2024,nl,16649,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Djoos (D),Lausanne HC,49,4,24,28,0.57,6,0,/player/33201/christian-djoos,1,Christian Djoos,D,2023-2024,nl,33201,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joona Luoto (LW/RW),SC Bern,45,18,9,27,0.60,20,14,/player/157201/joona-luoto,1,Joona Luoto,LW/RW,2023-2024,nl,157201,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ken Jäger (C/RW),Lausanne HC,51,12,15,27,0.53,14,10,/player/262426/ken-jager,1,Ken Jäger,C/RW,2023-2024,nl,262426,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Denis Hollenstein (LW/RW),ZSC Lions,44,10,17,27,0.61,20,13,/player/11838/denis-hollenstein,1,Denis Hollenstein,LW/RW,2023-2024,nl,11838,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joël Vermin (F/D),SC Bern,52,11,15,26,0.50,18,-4,/player/34828/joel-vermin,1,Joël Vermin,F/D,2023-2024,nl,34828,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Killian Mottet (LW),HC Fribourg-Gottéron,51,10,16,26,0.51,14,5,/player/34820/killian-mottet,1,Killian Mottet,LW,2023-2024,nl,34820,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joey LaLeggia (D),HC Lugano,39,9,17,26,0.67,10,-1,/player/46961/joey-laleggia,1,Joey LaLeggia,D,2023-2024,nl,46961,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Klas Dahlbeck (D),HC Davos,52,7,19,26,0.50,28,30,/player/13266/klas-dahlbeck,1,Klas Dahlbeck,D,2023-2024,nl,13266,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Romain Loeffel (D),SC Bern,51,4,22,26,0.51,51,-4,/player/17681/romain-loeffel,1,Romain Loeffel,D,2023-2024,nl,17681,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miikka Salomäki (W/C),Lausanne HC,37,11,14,25,0.68,26,10,/player/43419/miikka-salomaki,1,Miikka Salomäki,W/C,2023-2024,nl,43419,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leon Bristedt (LW),HC Davos,39,11,14,25,0.64,16,5,/player/38714/leon-bristedt,1,Leon Bristedt,LW,2023-2024,nl,38714,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Corban Knight (C),SC Bern,41,11,14,25,0.61,4,-20,/player/38063/corban-knight,1,Corban Knight,C,2023-2024,nl,38063,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tino Kessler (C/RW),EHC Biel-Bienne,50,11,14,25,0.50,33,7,/player/149522/tino-kessler,1,Tino Kessler,C/RW,2023-2024,nl,149522,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiří Sekáč (LW),Lausanne HC,43,8,17,25,0.58,70,-4,/player/41014/ji%C5%99i-sekac,1,Jiří Sekáč,LW,2023-2024,nl,41014,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas Borgman (D),HC Fribourg-Gottéron,51,6,19,25,0.49,20,8,/player/85683/andreas-borgman,1,Andreas Borgman,D,2023-2024,nl,85683,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dean Kukan (D),ZSC Lions,40,3,22,25,0.63,8,18,/player/66177/dean-kukan,1,Dean Kukan,D,2023-2024,nl,66177,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tristan Scherwey (LW/RW),SC Bern,51,12,12,24,0.47,23,3,/player/17685/tristan-scherwey,1,Tristan Scherwey,LW/RW,2023-2024,nl,17685,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Yakovenko (D),EHC Biel-Bienne,32,7,17,24,0.75,10,7,/player/309547/alexander-yakovenko,1,Alexander Yakovenko,D,2023-2024,nl,309547,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dario Simion (LW/RW),EV Zug,51,16,7,23,0.45,6,-5,/player/85341/dario-simion,1,Dario Simion,LW/RW,2023-2024,nl,85341,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc-Antoine Pouliot (C/RW),Genève-Servette HC,51,14,9,23,0.45,26,-6,/player/8919/marc-antoine-pouliot,1,Marc-Antoine Pouliot,C/RW,2023-2024,nl,8919,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Morley (C),EHC Kloten,41,12,11,23,0.56,16,-14,/player/47860/tyler-morley,1,Tyler Morley,C,2023-2024,nl,47860,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Harri Pesonen (LW),SCL Tigers,49,11,12,23,0.47,26,-10,/player/15181/harri-pesonen,1,Harri Pesonen,LW,2023-2024,nl,15181,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vincent Praplan (C/RW),Genève-Servette HC,52,10,13,23,0.44,55,-2,/player/85308/vincent-praplan,1,Vincent Praplan,C/RW,2023-2024,nl,85308,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sven Senteler (C/LW),EV Zug,42,9,14,23,0.55,12,2,/player/89731/sven-senteler,1,Sven Senteler,C/LW,2023-2024,nl,89731,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miro Aaltonen (C/LW),EHC Kloten,46,9,14,23,0.50,18,-23,/player/44162/miro-aaltonen,1,Miro Aaltonen,C/LW,2023-2024,nl,44162,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Jooris (C/RW),Genève-Servette HC,52,12,10,22,0.42,28,-4,/player/76087/josh-jooris,1,Josh Jooris,C/RW,2023-2024,nl,76087,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andres Ambühl (W/C),HC Davos,52,9,13,22,0.42,8,13,/player/12672/andres-ambuhl,1,Andres Ambühl,W/C,2023-2024,nl,12672,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Kovács (LW/RW),Lausanne HC,36,8,14,22,0.61,14,10,/player/85693/robin-kovacs,1,Robin Kovács,LW/RW,2023-2024,nl,85693,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominic Zwerger (LW),HC Ambrì-Piotta,36,4,18,22,0.61,6,-2,/player/133420/dominic-zwerger,1,Dominic Zwerger,LW,2023-2024,nl,133420,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian O'Neill (C),EV Zug,29,10,11,21,0.72,10,17,/player/16709/brian-o-neill,1,Brian O'Neill,C,2023-2024,nl,16709,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Olofsson (LW/RW),EHC Biel-Bienne,36,10,11,21,0.58,8,2,/player/15213/jesper-olofsson,1,Jesper Olofsson,LW/RW,2023-2024,nl,15213,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc Marchon (C/RW),EHC Kloten,50,10,11,21,0.42,83,-11,/player/95110/marc-marchon,1,Marc Marchon,C/RW,2023-2024,nl,95110,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominic Lammer (RW/LW),SC Rapperswil-Jona Lakers,52,8,13,21,0.40,16,-7,/player/66509/dominic-lammer,1,Dominic Lammer,RW/LW,2023-2024,nl,66509,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julius Honka (D),totals,43,5,16,21,0.49,16,5,/player/65456/julius-honka,1,Julius Honka,D,2023-2024,nl,65456,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lawrence Pilut (D),Lausanne HC,52,5,16,21,0.40,26,14,/player/84938/lawrence-pilut,1,Lawrence Pilut,D,2023-2024,nl,84938,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Enzo Corvi (C),HC Davos,43,4,17,21,0.49,14,4,/player/88219/enzo-corvi,1,Enzo Corvi,C,2023-2024,nl,88219,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Schroeder (C),SC Rapperswil-Jona Lakers,48,3,18,21,0.44,10,-19,/player/11466/jordan-schroeder,1,Jordan Schroeder,C,2023-2024,nl,11466,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommaso De Luca (C/LW),HC Ambrì-Piotta,41,11,9,20,0.49,12,5,/player/692623/tommaso-de-luca,2,Tommaso De Luca,C/LW,2023-2024,nl,692623,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Saku Mäenalanen (LW/C),SCL Tigers,44,11,9,20,0.45,40,-9,/player/73109/saku-maenalanen,2,Saku Mäenalanen,LW/C,2023-2024,nl,73109,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas Wingerli (LW/C),EV Zug,49,11,9,20,0.41,16,-2,/player/185257/andreas-wingerli,2,Andreas Wingerli,LW/C,2023-2024,nl,185257,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmytro Timashov (RW/LW),HC Ajoie,35,9,11,20,0.57,30,-7,/player/115161/dmytro-timashov,2,Dmytro Timashov,RW/LW,2023-2024,nl,115161,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicklas Jensen (RW/LW),SC Rapperswil-Jona Lakers,37,9,11,20,0.54,18,-19,/player/32422/nicklas-jensen,2,Nicklas Jensen,RW/LW,2023-2024,nl,32422,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grégory Hofmann (LW),EV Zug,28,8,12,20,0.71,6,15,/player/66536/gregory-hofmann,2,Grégory Hofmann,LW,2023-2024,nl,66536,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thierry Bader (C),SC Bern,46,10,9,19,0.41,8,2,/player/217465/thierry-bader,2,Thierry Bader,C,2023-2024,nl,217465,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julien Sprunger (RW),HC Fribourg-Gottéron,52,9,10,19,0.37,10,-2,/player/9242/julien-sprunger,2,Julien Sprunger,RW,2023-2024,nl,9242,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johnny Kneubuehler (C/RW),HC Ambrì-Piotta,52,9,10,19,0.37,32,-3,/player/187696/johnny-kneubuehler,2,Johnny Kneubuehler,C/RW,2023-2024,nl,187696,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dario Rohrbach (RW),SCL Tigers,52,8,11,19,0.37,10,-10,/player/262566/dario-rohrbach,2,Dario Rohrbach,RW,2023-2024,nl,262566,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vinzenz Rohrer (C/RW),ZSC Lions,49,7,12,19,0.39,10,9,/player/406803/vinzenz-rohrer,2,Vinzenz Rohrer,C/RW,2023-2024,nl,406803,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominik Diem (C/LW),EHC Kloten,50,5,14,19,0.38,4,-7,/player/149625/dominik-diem,2,Dominik Diem,C/LW,2023-2024,nl,149625,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Ojamäki (RW),EHC Kloten,50,5,14,19,0.38,4,-27,/player/66785/niko-ojamaki,2,Niko Ojamäki,RW,2023-2024,nl,66785,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+T.J. Brennan (D),HC Ajoie,35,4,15,19,0.54,20,-12,/player/12169/t-j-brennan,2,T.J. Brennan,D,2023-2024,nl,12169,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Hansson (D),EV Zug,45,2,17,19,0.42,30,14,/player/86135/niklas-hansson,2,Niklas Hansson,D,2023-2024,nl,86135,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Rod (LW/RW),Genève-Servette HC,45,12,6,18,0.40,45,-1,/player/97120/noah-rod,2,Noah Rod,LW/RW,2023-2024,nl,97120,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frédérik Gauthier (C),HC Ajoie,44,10,8,18,0.41,18,-21,/player/128500/frederik-gauthier,2,Frédérik Gauthier,C,2023-2024,nl,128500,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thibault Frossard (C),HC Ajoie,51,9,9,18,0.35,19,-11,/player/99567/thibault-frossard,2,Thibault Frossard,C,2023-2024,nl,99567,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henrik Haapala (LW/RW),totals,28,7,11,18,0.64,12,3,/player/60736/henrik-haapala,2,Henrik Haapala,LW/RW,2023-2024,nl,60736,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc Wieser (RW),HC Davos,49,7,11,18,0.37,16,-7,/player/17570/marc-wieser,2,Marc Wieser,RW,2023-2024,nl,17570,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Marchon (C/LW),HC Fribourg-Gottéron,43,6,12,18,0.42,4,3,/player/116240/nathan-marchon,2,Nathan Marchon,C/LW,2023-2024,nl,116240,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Aebischer (D),SC Rapperswil-Jona Lakers,51,5,13,18,0.35,16,-15,/player/327373/david-aebischer,2,David Aebischer,D,2023-2024,nl,327373,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Heponiemi (C/W),EHC Biel-Bienne,22,7,10,17,0.77,10,4,/player/284816/aleksi-heponiemi,2,Aleksi Heponiemi,C/W,2023-2024,nl,284816,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Le Coultre (D),Genève-Servette HC,52,7,10,17,0.33,20,-11,/player/242289/simon-le-coultre,2,Simon Le Coultre,D,2023-2024,nl,242289,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeremy Wick (RW/D),SC Rapperswil-Jona Lakers,52,5,12,17,0.33,32,1,/player/39521/jeremy-wick,2,Jeremy Wick,RW/D,2023-2024,nl,39521,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juuso Riikola (D),SCL Tigers,43,3,14,17,0.40,20,-1,/player/56938/juuso-riikola,2,Juuso Riikola,D,2023-2024,nl,56938,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Walser (C),HC Fribourg-Gottéron,51,11,5,16,0.31,14,6,/player/34829/samuel-walser,2,Samuel Walser,C,2023-2024,nl,34829,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Formenton (LW),HC Ambrì-Piotta,24,10,6,16,0.67,22,1,/player/273622/alex-formenton,2,Alex Formenton,LW,2023-2024,nl,273622,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yannick-Lennart Albrecht (C/LW),SC Rapperswil-Jona Lakers,41,10,6,16,0.39,16,-3,/player/97195/yannick-lennart-albrecht,2,Yannick-Lennart Albrecht,C/LW,2023-2024,nl,97195,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Egli (C/LW),HC Davos,49,10,6,16,0.33,55,4,/player/149521/chris-egli,2,Chris Egli,C/LW,2023-2024,nl,149521,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Moser (C/W),SC Bern,52,8,8,16,0.31,16,-8,/player/15163/simon-moser,2,Simon Moser,C/W,2023-2024,nl,15163,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Frk (RW/LW),totals,33,7,9,16,0.48,10,-9,/player/56033/martin-frk,2,Martin Frk,RW/LW,2023-2024,nl,56033,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Noreau (D),SC Rapperswil-Jona Lakers,38,6,10,16,0.42,18,-12,/player/12153/maxim-noreau,2,Maxim Noreau,D,2023-2024,nl,12153,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sandro Schmid (C/RW),HC Fribourg-Gottéron,52,6,10,16,0.31,16,2,/player/326105/sandro-schmid,2,Sandro Schmid,C/RW,2023-2024,nl,326105,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+André Heim (C),HC Ambrì-Piotta,40,5,11,16,0.40,8,0,/player/174541/andre-heim,2,André Heim,C,2023-2024,nl,174541,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Granlund (C/LW),HC Lugano,20,4,12,16,0.80,10,1,/player/19426/markus-granlund,2,Markus Granlund,C/LW,2023-2024,nl,19426,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Santeri Alatalo (D),HC Lugano,47,4,12,16,0.34,18,6,/player/24582/santeri-alatalo,2,Santeri Alatalo,D,2023-2024,nl,24582,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrea Glauser (D),Lausanne HC,47,4,12,16,0.34,26,10,/player/126282/andrea-glauser,2,Andrea Glauser,D,2023-2024,nl,126282,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Marti (D),ZSC Lions,50,2,14,16,0.32,43,13,/player/85322/christian-marti,2,Christian Marti,D,2023-2024,nl,85322,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Attilio Biasca (C/LW),EV Zug,42,10,5,15,0.36,10,3,/player/596665/attilio-biasca,2,Attilio Biasca,C/LW,2023-2024,nl,596665,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Künzle (RW/LW),EHC Biel-Bienne,29,8,7,15,0.52,14,3,/player/99566/mike-kunzle,2,Mike Künzle,RW/LW,2023-2024,nl,99566,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Guillaume Asselin (RW/LW),HC Ajoie,29,8,7,15,0.52,16,-16,/player/23459/guillaume-asselin,2,Guillaume Asselin,RW/LW,2023-2024,nl,23459,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yannick Frehner (RW),HC Davos,50,7,8,15,0.30,39,4,/player/262451/yannick-frehner,2,Yannick Frehner,RW,2023-2024,nl,262451,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Damien Brunner (RW/LW),EHC Biel-Bienne,37,6,9,15,0.41,12,-3,/player/18949/damien-brunner,2,Damien Brunner,RW/LW,2023-2024,nl,18949,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Giovanni Morini (C/LW),HC Lugano,41,6,9,15,0.37,14,1,/player/147951/giovanni-morini,2,Giovanni Morini,C/LW,2023-2024,nl,147951,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benoit Jecker (D),HC Fribourg-Gottéron,51,6,9,15,0.29,6,16,/player/93844/benoit-jecker,2,Benoit Jecker,D,2023-2024,nl,93844,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fabio Hofer (RW),EHC Biel-Bienne,29,8,6,14,0.48,14,3,/player/20612/fabio-hofer,2,Fabio Hofer,RW,2023-2024,nl,20612,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yannick Zehnder (C/RW),ZSC Lions,43,7,7,14,0.33,8,10,/player/212162/yannick-zehnder,2,Yannick Zehnder,C/RW,2023-2024,nl,212162,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Baltisberger (RW),ZSC Lions,48,7,7,14,0.29,14,3,/player/57928/chris-baltisberger,2,Chris Baltisberger,RW,2023-2024,nl,57928,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alessio Bertaggia (LW/RW),Genève-Servette HC,49,6,8,14,0.29,31,-4,/player/34307/alessio-bertaggia,2,Alessio Bertaggia,LW/RW,2023-2024,nl,34307,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Éric Gélinas (D),HC Ajoie,30,5,9,14,0.47,33,-10,/player/37536/eric-gelinas,2,Éric Gélinas,D,2023-2024,nl,37536,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyen Sopa (RW),HC Ajoie,33,5,9,14,0.42,2,-8,/player/375827/kyen-sopa,2,Kyen Sopa,RW,2023-2024,nl,375827,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arttu Ruotsalainen (C),HC Lugano,43,5,9,14,0.33,8,-8,/player/152112/arttu-ruotsalainen,2,Arttu Ruotsalainen,C,2023-2024,nl,152112,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tanner Richard (C),Genève-Servette HC,31,4,10,14,0.45,34,0,/player/41755/tanner-richard,2,Tanner Richard,C,2023-2024,nl,41755,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Calle Andersson (D),HC Lugano,46,4,10,14,0.30,8,-2,/player/30181/calle-andersson,2,Calle Andersson,D,2023-2024,nl,30181,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Lööv (D),EHC Biel-Bienne,29,3,11,14,0.48,14,9,/player/20058/viktor-loov,2,Viktor Lööv,D,2023-2024,nl,20058,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leandro Profico (D/RW),EHC Kloten,52,1,13,14,0.27,16,-7,/player/18777/leandro-profico,2,Leandro Profico,D/RW,2023-2024,nl,18777,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keanu Derungs (LW),EHC Kloten,43,10,3,13,0.30,14,-17,/player/502648/keanu-derungs,2,Keanu Derungs,LW,2023-2024,nl,502648,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nico Dünner (C/RW),SC Rapperswil-Jona Lakers,39,7,6,13,0.33,18,-4,/player/85290/nico-dunner,2,Nico Dünner,C/RW,2023-2024,nl,85290,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Hügli (RW/LW),Lausanne HC,40,7,6,13,0.33,14,7,/player/95042/michael-hugli,2,Michael Hügli,RW/LW,2023-2024,nl,95042,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gian-Marco Wetter (C/LW),SC Rapperswil-Jona Lakers,44,6,7,13,0.30,12,-9,/player/364546/gian-marco-wetter,2,Gian-Marco Wetter,C/LW,2023-2024,nl,364546,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bernd Wolf (D),HC Lugano,46,6,7,13,0.28,4,8,/player/149517/bernd-wolf,2,Bernd Wolf,D,2023-2024,nl,149517,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Winnik (W/C),Genève-Servette HC,36,5,8,13,0.36,36,-4,/player/11480/daniel-winnik,2,Daniel Winnik,W/C,2023-2024,nl,11480,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Philip-Michaël Devos (C),HC Ajoie,37,4,9,13,0.35,6,-10,/player/37288/philip-michael-devos,2,Philip-Michaël Devos,C,2023-2024,nl,37288,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Berni (D),Genève-Servette HC,41,4,9,13,0.32,16,-5,/player/296565/tim-berni,2,Tim Berni,D,2023-2024,nl,296565,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Meier (D),SCL Tigers,48,3,10,13,0.27,6,-8,/player/520239/noah-meier,2,Noah Meier,D,2023-2024,nl,520239,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Inaki Baragano (D),SC Rapperswil-Jona Lakers,45,1,12,13,0.29,8,-2,/player/291290/inaki-baragano,2,Inaki Baragano,D,2023-2024,nl,291290,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Livio Stadler (D),EV Zug,46,1,12,13,0.28,2,22,/player/220967/livio-stadler,2,Livio Stadler,D,2023-2024,nl,220967,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mirco Müller (D),HC Lugano,51,1,12,13,0.25,33,19,/player/95044/mirco-muller,2,Mirco Müller,D,2023-2024,nl,95044,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Frick (D),Lausanne HC,52,1,12,13,0.25,18,18,/player/85285/lukas-frick,2,Lukas Frick,D,2023-2024,nl,85285,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Raphael Díaz (D),HC Fribourg-Gottéron,49,0,13,13,0.27,32,11,/player/17892/raphael-diaz,2,Raphael Díaz,D,2023-2024,nl,17892,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Raffl (LW/RW),Lausanne HC,14,6,6,12,0.86,8,8,/player/15216/michael-raffl,2,Michael Raffl,LW/RW,2023-2024,nl,15216,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luca Cunti (C),EHC Biel-Bienne,42,6,6,12,0.29,22,1,/player/10902/luca-cunti,2,Luca Cunti,C,2023-2024,nl,10902,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Loosli (W),EHC Kloten,49,6,6,12,0.24,12,-7,/player/93781/michael-loosli,2,Michael Loosli,W,2023-2024,nl,93781,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Knak (RW/LW),HC Davos,32,5,7,12,0.38,8,6,/player/293158/simon-knak,2,Simon Knak,RW/LW,2023-2024,nl,293158,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrei Bykov (C),HC Fribourg-Gottéron,38,5,7,12,0.32,4,6,/player/10619/andrei-bykov,2,Andrei Bykov,C,2023-2024,nl,10619,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nando Eggenberger (LW/RW),HC Ambrì-Piotta,42,5,7,12,0.29,27,-1,/player/287341/nando-eggenberger,2,Nando Eggenberger,LW/RW,2023-2024,nl,287341,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leon Muggli (D),EV Zug,42,3,9,12,0.29,18,13,/player/795529/leon-muggli,2,Leon Muggli,D,2023-2024,nl,795529,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Floran Douay (LW),HC Ambrì-Piotta,52,3,9,12,0.23,24,-8,/player/95364/floran-douay,2,Floran Douay,LW,2023-2024,nl,95364,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Nemeth (D),SC Bern,41,2,10,12,0.29,22,12,/player/10383/patrik-nemeth,2,Patrik Nemeth,D,2023-2024,nl,10383,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sven Jung (D),HC Davos,52,2,10,12,0.23,22,12,/player/93800/sven-jung,2,Sven Jung,D,2023-2024,nl,93800,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tobias Geisser (D),EV Zug,35,1,11,12,0.34,4,12,/player/274212/tobias-geisser,2,Tobias Geisser,D,2023-2024,nl,274212,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Kreis (D),SC Bern,44,0,12,12,0.27,19,-13,/player/85291/samuel-kreis,2,Samuel Kreis,D,2023-2024,nl,85291,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mischa Ramel (C),EHC Kloten,25,7,4,11,0.44,4,3,/player/622109/mischa-ramel,2,Mischa Ramel,C,2023-2024,nl,622109,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Djuse (D),SC Rapperswil-Jona Lakers,35,6,5,11,0.31,28,9,/player/20013/emil-djuse,2,Emil Djuse,D,2023-2024,nl,20013,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dario Allenspach (C/W),EV Zug,51,5,6,11,0.22,35,2,/player/539789/dario-allenspach,2,Dario Allenspach,C/W,2023-2024,nl,539789,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sandro Forrer (LW/RW),SC Rapperswil-Jona Lakers,48,3,8,11,0.23,18,0,/player/224938/sandro-forrer,2,Sandro Forrer,LW/RW,2023-2024,nl,224938,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Fey (D),HC Ajoie,49,3,8,11,0.22,43,-8,/player/44811/kevin-fey,2,Kevin Fey,D,2023-2024,nl,44811,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Theodor Lennström (D),Genève-Servette HC,17,2,9,11,0.65,4,6,/player/19767/theodor-lennstrom,2,Theodor Lennström,D,2023-2024,nl,19767,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Fora (D),HC Davos,32,1,10,11,0.34,49,-7,/player/93107/michael-fora,2,Michael Fora,D,2023-2024,nl,93107,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Reinbacher (D),EHC Kloten,35,1,10,11,0.31,18,-15,/player/703646/david-reinbacher,2,David Reinbacher,D,2023-2024,nl,703646,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sandro Zangger (RW/LW),SC Rapperswil-Jona Lakers,51,7,3,10,0.20,4,3,/player/85298/sandro-zangger,2,Sandro Zangger,RW/LW,2023-2024,nl,85298,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Flavio Schmutz (C/LW),SCL Tigers,40,4,6,10,0.25,26,-1,/player/85357/flavio-schmutz,2,Flavio Schmutz,C/LW,2023-2024,nl,85357,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Enzo Guebey (D),HC Davos,36,3,7,10,0.28,29,7,/player/270301/enzo-guebey,2,Enzo Guebey,D,2023-2024,nl,270301,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Willy Riedi (F),ZSC Lions,43,3,7,10,0.23,18,6,/player/326106/willy-riedi,2,Willy Riedi,F,2023-2024,nl,326106,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Quenneville (LW),HC Lugano,20,2,8,10,0.50,16,5,/player/84092/john-quenneville,2,John Quenneville,LW,2023-2024,nl,84092,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rocco Pezzullo (D),HC Ambrì-Piotta,48,2,8,10,0.21,12,7,/player/293164/rocco-pezzullo,2,Rocco Pezzullo,D,2023-2024,nl,293164,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fabian Maier (D),SC Rapperswil-Jona Lakers,52,2,8,10,0.19,22,0,/player/91229/fabian-maier,2,Fabian Maier,D,2023-2024,nl,91229,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Pokka (D),totals,34,0,10,10,0.29,10,-8,/player/45222/ville-pokka,2,Ville Pokka,D,2023-2024,nl,45222,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Jurco (LW/RW),HC Davos,17,6,3,9,0.53,6,-3,/player/34751/tomas-jurco,2,Tomas Jurco,LW/RW,2023-2024,nl,34751,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Diego Kostner (C),HC Ambrì-Piotta,32,5,4,9,0.28,12,1,/player/34623/diego-kostner,3,Diego Kostner,C,2023-2024,nl,34623,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thierry Schild (C/RW),SC Bern,43,5,4,9,0.21,8,-1,/player/665098/thierry-schild,3,Thierry Schild,C/RW,2023-2024,nl,665098,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Verboon (RW/C),HC Lugano,52,4,5,9,0.17,10,-4,/player/333596/matthew-verboon,3,Matthew Verboon,RW/C,2023-2024,nl,333596,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yannick Weber (D),ZSC Lions,52,4,5,9,0.17,14,13,/player/10615/yannick-weber,3,Yannick Weber,D,2023-2024,nl,10615,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zac Leslie (D),SC Rapperswil-Jona Lakers,21,3,6,9,0.43,4,1,/player/78063/zac-leslie,3,Zac Leslie,D,2023-2024,nl,78063,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zaccheo Dotti (D),HC Ambrì-Piotta,41,1,8,9,0.22,24,3,/player/91040/zaccheo-dotti,3,Zaccheo Dotti,D,2023-2024,nl,91040,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Grossmann (D),EHC Biel-Bienne,52,1,8,9,0.17,24,10,/player/18512/robin-grossmann,3,Robin Grossmann,D,2023-2024,nl,18512,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matteo Romanenghi (C/LW),HC Ajoie,47,5,3,8,0.17,20,-11,/player/94549/matteo-romanenghi,3,Matteo Romanenghi,C/LW,2023-2024,nl,94549,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gilian Kohler (LW/RW),HC Ajoie,28,4,4,8,0.29,6,-7,/player/296563/gilian-kohler,3,Gilian Kohler,LW/RW,2023-2024,nl,296563,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Bodenmann (LW/RW),ZSC Lions,43,4,4,8,0.19,10,0,/player/15167/simon-bodenmann,3,Simon Bodenmann,LW/RW,2023-2024,nl,15167,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fabian Ritzmann (LW),SC Bern,52,4,4,8,0.15,31,-1,/player/502679/fabian-ritzmann,3,Fabian Ritzmann,LW,2023-2024,nl,502679,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Rask (C/LW),SC Rapperswil-Jona Lakers,24,3,5,8,0.33,6,-9,/player/15747/victor-rask,3,Victor Rask,C/LW,2023-2024,nl,15747,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luca Hischier (C/RW),EHC Biel-Bienne,35,3,5,8,0.23,6,-2,/player/93279/luca-hischier,3,Luca Hischier,C/RW,2023-2024,nl,93279,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dario Meyer (RW),EHC Kloten,37,3,5,8,0.22,37,-16,/player/108384/dario-meyer,3,Dario Meyer,RW,2023-2024,nl,108384,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicholas Steiner (D),EHC Kloten,46,3,5,8,0.17,57,-2,/player/34826/nicholas-steiner,3,Nicholas Steiner,D,2023-2024,nl,34826,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Beat Forster (D),EHC Biel-Bienne,50,3,5,8,0.16,14,0,/player/12854/beat-forster,3,Beat Forster,D,2023-2024,nl,12854,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mauro Jörg (RW/LW),HC Fribourg-Gottéron,51,3,5,8,0.16,4,3,/player/17695/mauro-jorg,3,Mauro Jörg,RW/LW,2023-2024,nl,17695,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yanik Burren (D),EHC Biel-Bienne,41,2,6,8,0.20,6,1,/player/164008/yanik-burren,3,Yanik Burren,D,2023-2024,nl,164008,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marco Miranda (LW),Genève-Servette HC,44,2,6,8,0.18,18,-13,/player/224073/marco-miranda,3,Marco Miranda,LW,2023-2024,nl,224073,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fabian Heldner (D),Lausanne HC,50,2,6,8,0.16,8,12,/player/139244/fabian-heldner,3,Fabian Heldner,D,2023-2024,nl,139244,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luca Christen (RW/D),EHC Biel-Bienne,43,1,7,8,0.19,12,-11,/player/174502/luca-christen,3,Luca Christen,RW/D,2023-2024,nl,174502,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steve Kellenberger (LW/D),EHC Kloten,52,0,8,8,0.15,26,-26,/player/10618/steve-kellenberger,3,Steve Kellenberger,LW/D,2023-2024,nl,10618,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Sigrist (C/LW),ZSC Lions,45,5,2,7,0.16,25,10,/player/311626/justin-sigrist,3,Justin Sigrist,C/LW,2023-2024,nl,311626,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Makai Holdener (W/C),Lausanne HC,46,5,2,7,0.15,6,2,/player/153631/makai-holdener,3,Makai Holdener,W/C,2023-2024,nl,153631,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Harrison Schreiber (C/LW),EHC Kloten,49,4,3,7,0.14,41,-11,/player/424461/harrison-schreiber,3,Harrison Schreiber,C/LW,2023-2024,nl,424461,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sven Leuenberger (C/RW),EV Zug,52,4,3,7,0.13,26,-3,/player/282629/sven-leuenberger,3,Sven Leuenberger,C/RW,2023-2024,nl,282629,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Louis (C/LW),SCL Tigers,14,3,4,7,0.50,0,-3,/player/151833/anthony-louis,3,Anthony Louis,C/LW,2023-2024,nl,151833,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Salzgeber (C),SCL Tigers,43,2,5,7,0.16,10,-9,/player/449073/joel-salzgeber,3,Joel Salzgeber,C,2023-2024,nl,449073,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marco Zanetti (RW),HC Lugano,50,2,5,7,0.14,12,-5,/player/487627/marco-zanetti,3,Marco Zanetti,RW,2023-2024,nl,487627,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominik Binias (F),HC Fribourg-Gottéron,51,2,5,7,0.14,0,-2,/player/539790/dominik-binias,3,Dominik Binias,F,2023-2024,nl,539790,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mika Henauer (D),totals,31,1,6,7,0.23,12,-14,/player/326103/mika-henauer,3,Mika Henauer,D,2023-2024,nl,326103,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cody Almond (C/LW),Lausanne HC,40,1,6,7,0.18,51,-1,/player/11683/cody-almond,3,Cody Almond,C/LW,2023-2024,nl,11683,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Scheidegger (D),HC Ajoie,45,1,6,7,0.16,14,-5,/player/114329/joel-scheidegger,3,Joel Scheidegger,D,2023-2024,nl,114329,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aurélien Marti (D),Lausanne HC,49,1,6,7,0.14,16,6,/player/96108/aurelien-marti,3,Aurélien Marti,D,2023-2024,nl,96108,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Peltonen (D),HC Lugano,52,1,6,7,0.13,16,16,/player/250065/jesper-peltonen,3,Jesper Peltonen,D,2023-2024,nl,250065,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Liekit Reichle (F),EHC Biel-Bienne,29,0,7,7,0.24,0,-1,/player/548287/liekit-reichle,3,Liekit Reichle,F,2023-2024,nl,548287,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Manix Landry (C),HC Ambrì-Piotta,48,6,0,6,0.13,2,-14,/player/410586/manix-landry,3,Manix Landry,C,2023-2024,nl,410586,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Cormier (C/W),HC Lugano,38,5,1,6,0.16,6,-4,/player/201779/cole-cormier,3,Cole Cormier,C/W,2023-2024,nl,201779,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Bozon (LW/RW),HC Ajoie,38,4,2,6,0.16,6,-8,/player/92269/kevin-bozon,3,Kevin Bozon,LW/RW,2023-2024,nl,92269,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicolas Baechler (F),ZSC Lions,27,3,3,6,0.22,8,2,/player/641879/nicolas-baechler,3,Nicolas Baechler,F,2023-2024,nl,641879,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Zgraggen (D),totals,40,3,3,6,0.15,14,-8,/player/45749/jesse-zgraggen,3,Jesse Zgraggen,D,2023-2024,nl,45749,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eliot Berthon (C/W),Genève-Servette HC,40,3,3,6,0.15,14,2,/player/34602/eliot-berthon,3,Eliot Berthon,C/W,2023-2024,nl,34602,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keijo Weibel (LW/RW),SCL Tigers,47,3,3,6,0.13,12,-6,/player/326107/keijo-weibel,3,Keijo Weibel,LW/RW,2023-2024,nl,326107,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Jelovac (D),Lausanne HC,36,2,4,6,0.17,49,2,/player/94524/igor-jelovac,3,Igor Jelovac,D,2023-2024,nl,94524,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniele Grassi (LW/RW),HC Ambrì-Piotta,41,2,4,6,0.15,28,-11,/player/85338/daniele-grassi,3,Daniele Grassi,LW/RW,2023-2024,nl,85338,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nico Gross (D),EV Zug,43,2,4,6,0.14,32,-3,/player/319554/nico-gross,3,Nico Gross,D,2023-2024,nl,319554,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ramon Tanner (C),totals,50,2,4,6,0.12,28,-13,/player/274787/ramon-tanner,3,Ramon Tanner,C,2023-2024,nl,274787,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bastian Guggenheim (D),SCL Tigers,40,1,5,6,0.15,49,-6,/player/461484/bastian-guggenheim,3,Bastian Guggenheim,D,2023-2024,nl,461484,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arnaud Jacquemet (D/RW),Genève-Servette HC,49,1,5,6,0.12,10,-2,/player/11679/arnaud-jacquemet,3,Arnaud Jacquemet,D/RW,2023-2024,nl,11679,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Geering (D),ZSC Lions,52,1,5,6,0.12,14,9,/player/15152/patrick-geering,3,Patrick Geering,D,2023-2024,nl,15152,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian Zanetti (D),SCL Tigers,38,0,6,6,0.16,8,-5,/player/577448/brian-zanetti,3,Brian Zanetti,D,2023-2024,nl,577448,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Thiry (D),HC Ajoie,52,0,6,6,0.12,18,-8,/player/187699/thomas-thiry,3,Thomas Thiry,D,2023-2024,nl,187699,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jérémie Bärtschi (RW),EHC Biel-Bienne,33,4,1,5,0.15,8,-1,/player/291292/jeremie-bartschi,3,Jérémie Bärtschi,RW,2023-2024,nl,291292,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Cajka (C/LW),SC Rapperswil-Jona Lakers,42,4,1,5,0.12,31,-9,/player/297881/petr-cajka,3,Petr Cajka,C/LW,2023-2024,nl,297881,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maximilian Streule (D),HC Fribourg-Gottéron,46,3,2,5,0.11,72,-2,/player/637647/maximilian-streule,3,Maximilian Streule,D,2023-2024,nl,637647,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas Eder (RW/C),EV Zug,10,2,3,5,0.50,27,0,/player/95495/andreas-eder,3,Andreas Eder,RW/C,2023-2024,nl,95495,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jérôme Bachofner (LW),EHC Biel-Bienne,36,2,3,5,0.14,4,-4,/player/121121/jerome-bachofner,3,Jérôme Bachofner,LW,2023-2024,nl,121121,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Vouardoux (D),SC Rapperswil-Jona Lakers,44,2,3,5,0.11,6,-1,/player/291304/nathan-vouardoux,3,Nathan Vouardoux,D,2023-2024,nl,291304,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nolan Diem (C),SCL Tigers,16,1,4,5,0.31,6,0,/player/85349/nolan-diem,3,Nolan Diem,C,2023-2024,nl,85349,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Louis Robin (RW),EV Zug,31,1,4,5,0.16,2,4,/player/540116/louis-robin,3,Louis Robin,RW,2023-2024,nl,540116,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Raphael Prassl (C/RW),HC Davos,34,1,4,5,0.15,14,-1,/player/220481/raphael-prassl,3,Raphael Prassl,C/RW,2023-2024,nl,220481,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Guillaume Maillard (C/RW),Genève-Servette HC,35,1,4,5,0.14,11,0,/player/242290/guillaume-maillard,3,Guillaume Maillard,C/RW,2023-2024,nl,242290,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Guerra (D),HC Lugano,35,1,4,5,0.14,16,-4,/player/66540/samuel-guerra,3,Samuel Guerra,D,2023-2024,nl,66540,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simone Terraneo (D),HC Ambrì-Piotta,38,1,4,5,0.13,12,3,/player/691660/simone-terraneo,3,Simone Terraneo,D,2023-2024,nl,691660,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reto Schmutz (LW),HC Ajoie,38,1,4,5,0.13,12,-15,/player/34825/reto-schmutz,3,Reto Schmutz,LW,2023-2024,nl,34825,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mauro Dufner (D),HC Fribourg-Gottéron,43,1,4,5,0.12,18,5,/player/95329/mauro-dufner,3,Mauro Dufner,D,2023-2024,nl,95329,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominik Schlumpf (D),EV Zug,50,1,4,5,0.10,28,1,/player/17686/dominik-schlumpf,3,Dominik Schlumpf,D,2023-2024,nl,17686,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Giancarlo Chanton (D),Genève-Servette HC,51,0,5,5,0.10,8,-11,/player/551665/giancarlo-chanton,3,Giancarlo Chanton,D,2023-2024,nl,551665,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Erni (D),SCL Tigers,39,3,1,4,0.10,22,-11,/player/34814/samuel-erni,3,Samuel Erni,D,2023-2024,nl,34814,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskars Lapinskis (F),SCL Tigers,52,3,1,4,0.08,31,-10,/player/485479/oskars-lapinskis,3,Oskars Lapinskis,F,2023-2024,nl,485479,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gregory Sciaroni (LW/RW),HC Ajoie,27,2,2,4,0.15,8,-6,/player/11839/gregory-sciaroni,3,Gregory Sciaroni,LW/RW,2023-2024,nl,11839,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rico Gredig (LW/C),HC Davos,28,2,2,4,0.14,6,-4,/player/741930/rico-gredig,3,Rico Gredig,LW/C,2023-2024,nl,741930,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reto Schäppi (C/LW),ZSC Lions,45,2,2,4,0.09,22,4,/player/17684/reto-schappi,3,Reto Schäppi,C/LW,2023-2024,nl,17684,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Petrini (F),SCL Tigers,47,2,2,4,0.09,6,-6,/player/293163/patrick-petrini,3,Patrick Petrini,F,2023-2024,nl,293163,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Davyd Barandun (D),HC Davos,51,2,2,4,0.08,16,-3,/player/364236/davyd-barandun,3,Davyd Barandun,D,2023-2024,nl,364236,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Völlmin (D),Genève-Servette HC,52,2,2,4,0.08,14,2,/player/163964/mike-vollmin,3,Mike Völlmin,D,2023-2024,nl,163964,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marco Müller (C/W),HC Lugano,14,1,3,4,0.29,2,-7,/player/85292/marco-muller,3,Marco Müller,C/W,2023-2024,nl,85292,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colton Sceviour (C/W),SC Bern,20,1,3,4,0.20,4,-9,/player/12557/colton-sceviour,3,Colton Sceviour,C/W,2023-2024,nl,12557,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Delémont (D),EHC Biel-Bienne,32,1,3,4,0.13,16,4,/player/291294/noah-delemont,3,Noah Delémont,D,2023-2024,nl,291294,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ronalds Kenins (LW/RW),Lausanne HC,36,1,3,4,0.11,22,-7,/player/22458/ronalds-kenins,3,Ronalds Kenins,LW/RW,2023-2024,nl,22458,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joël Genazzi (D/F),Lausanne HC,50,1,3,4,0.08,14,1,/player/17593/joel-genazzi,3,Joël Genazzi,D/F,2023-2024,nl,17593,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Harrington (D),ZSC Lions,14,0,4,4,0.29,2,4,/player/39653/scott-harrington,3,Scott Harrington,D,2023-2024,nl,39653,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Claudio Cadonau (D),SCL Tigers,43,0,4,4,0.09,10,-7,/player/18468/claudio-cadonau,3,Claudio Cadonau,D,2023-2024,nl,18468,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roger Karrer (D),Genève-Servette HC,46,0,4,4,0.09,12,0,/player/149628/roger-karrer,3,Roger Karrer,D,2023-2024,nl,149628,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rajan Sataric (D),EHC Kloten,52,0,4,4,0.08,10,-9,/player/89744/rajan-sataric,3,Rajan Sataric,D,2023-2024,nl,89744,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeremi Gerber (LW/RW),HC Lugano,34,3,0,3,0.09,8,-7,/player/333546/jeremi-gerber,3,Jeremi Gerber,LW/RW,2023-2024,nl,333546,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reto Suri (C/W),EV Zug,15,2,1,3,0.20,6,0,/player/15165/reto-suri,3,Reto Suri,C/W,2023-2024,nl,15165,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gian-Marco Hammerer (F),HC Davos,35,2,1,3,0.09,6,1,/player/486023/gian-marco-hammerer,3,Gian-Marco Hammerer,F,2023-2024,nl,486023,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pascal Berger (W/C),SCL Tigers,52,2,1,3,0.06,31,-11,/player/11837/pascal-berger,3,Pascal Berger,W/C,2023-2024,nl,11837,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yanick Sablatnig (RW),SC Bern,19,1,2,3,0.16,4,0,/player/287330/yanick-sablatnig,3,Yanick Sablatnig,RW,2023-2024,nl,287330,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alain Birbaum (D),HC Ajoie,34,1,2,3,0.09,8,-12,/player/17583/alain-birbaum,3,Alain Birbaum,D,2023-2024,nl,17583,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marco Maurer (D),totals,37,1,2,3,0.08,43,-13,/player/15151/marco-maurer,3,Marco Maurer,D,2023-2024,nl,15151,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Kindschi (D),totals,39,1,2,3,0.08,20,-5,/player/94152/simon-kindschi,3,Simon Kindschi,D,2023-2024,nl,94152,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Rundqvist (D/C),HC Ajoie,42,1,2,3,0.07,14,-13,/player/10020/adam-rundqvist,3,Adam Rundqvist,D/C,2023-2024,nl,10020,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leandro Hausheer (D),HC Lugano,42,1,2,3,0.07,31,-3,/player/605293/leandro-hausheer,3,Leandro Hausheer,D,2023-2024,nl,605293,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miro Zryd (D),SCL Tigers,45,1,2,3,0.07,14,-9,/player/134062/miro-zryd,3,Miro Zryd,D,2023-2024,nl,134062,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dario Trutmann (D),ZSC Lions,46,1,2,3,0.07,16,15,/player/34827/dario-trutmann,3,Dario Trutmann,D,2023-2024,nl,34827,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colin Gerber (D),SC Rapperswil-Jona Lakers,46,1,2,3,0.07,43,-9,/player/174516/colin-gerber,3,Colin Gerber,D,2023-2024,nl,174516,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Ekeståhl Jonsson (D),EHC Kloten,16,0,3,3,0.19,6,-3,/player/113517/lucas-ekestahl-jonsson,3,Lucas Ekeståhl Jonsson,D,2023-2024,nl,113517,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luca Capaul (D),SC Rapperswil-Jona Lakers,20,0,3,3,0.15,6,-4,/player/311539/luca-capaul,3,Luca Capaul,D,2023-2024,nl,311539,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matteo Nodari (D),EHC Kloten,32,0,3,3,0.09,16,-5,/player/18517/matteo-nodari,4,Matteo Nodari,D,2023-2024,nl,18517,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joshua Fahrni (C),SC Bern,35,0,3,3,0.09,4,-10,/player/546739/joshua-fahrni,4,Joshua Fahrni,C,2023-2024,nl,546739,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Claude-Curdin Paschoud (D),SC Bern,38,0,3,3,0.08,0,2,/player/94257/claude-curdin-paschoud,4,Claude-Curdin Paschoud,D,2023-2024,nl,94257,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valentin Pilet (D),HC Ajoie,45,0,3,3,0.07,18,-13,/player/187657/valentin-pilet,4,Valentin Pilet,D,2023-2024,nl,187657,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riley Sheen (LW/D),EV Zug,7,2,0,2,0.29,2,0,/player/80447/riley-sheen,4,Riley Sheen,LW/D,2023-2024,nl,80447,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julian Walker (C/RW),HC Lugano,21,2,0,2,0.10,4,-5,/player/12653/julian-walker,4,Julian Walker,C/RW,2023-2024,nl,12653,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Fuss (C),SC Bern,31,2,0,2,0.06,8,-2,/player/444501/noah-fuss,4,Noah Fuss,C,2023-2024,nl,444501,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Etter (C),HC Fribourg-Gottéron,3,1,1,2,0.67,0,2,/player/576749/kevin-etter,4,Kevin Etter,C,2023-2024,nl,576749,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dario Kummer (C/RW),SC Bern,3,1,1,2,0.67,0,3,/player/149280/dario-kummer,4,Dario Kummer,C/RW,2023-2024,nl,149280,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rihards Bukarts (W),EHC Biel-Bienne,11,1,1,2,0.18,0,-1,/player/52418/rihards-bukarts,4,Rihards Bukarts,W,2023-2024,nl,52418,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valentin Hofer (RW),HC Ambrì-Piotta,15,1,1,2,0.13,2,0,/player/502649/valentin-hofer,4,Valentin Hofer,RW,2023-2024,nl,502649,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stéphane Patry (C/LW),HC Lugano,15,1,1,2,0.13,2,-2,/player/279166/stephane-patry,4,Stéphane Patry,C/LW,2023-2024,nl,279166,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ueli Huber (RW/LW),HC Ajoie,20,1,1,2,0.10,0,-9,/player/96671/ueli-huber,4,Ueli Huber,RW/LW,2023-2024,nl,96671,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steven Macquat (LW/RW),HC Ajoie,23,1,1,2,0.09,0,-3,/player/135759/steven-macquat,4,Steven Macquat,LW/RW,2023-2024,nl,135759,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roberts Cjunskis (F),HC Lugano,28,1,1,2,0.07,6,-5,/player/532639/roberts-cjunskis,4,Roberts Cjunskis,F,2023-2024,nl,532639,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tobias Fohrler (D),HC Ambrì-Piotta,44,1,1,2,0.05,52,0,/player/148120/tobias-fohrler,4,Tobias Fohrler,D,2023-2024,nl,148120,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simon Seiler (D),HC Fribourg-Gottéron,46,1,1,2,0.04,45,1,/player/156091/simon-seiler,4,Simon Seiler,D,2023-2024,nl,156091,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yanick Stampfli (D/C),EHC Biel-Bienne,47,1,1,2,0.04,8,-6,/player/350944/yanick-stampfli,4,Yanick Stampfli,D/C,2023-2024,nl,350944,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Mustonen (C/LW),HC Davos,3,0,2,2,0.67,0,-1,/player/50679/aleksi-mustonen,4,Aleksi Mustonen,C/LW,2023-2024,nl,50679,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Henry (C),ZSC Lions,5,0,2,2,0.40,0,1,/player/624057/joel-henry,4,Joel Henry,C,2023-2024,nl,624057,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nic Balestra (D),EV Zug,12,0,2,2,0.17,2,1,/player/781193/nic-balestra,4,Nic Balestra,D,2023-2024,nl,781193,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Beaulieu (D),EHC Kloten,13,0,2,2,0.15,2,-6,/player/37422/nathan-beaulieu,4,Nathan Beaulieu,D,2023-2024,nl,37422,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dave Sutter (D),HC Fribourg-Gottéron,19,0,2,2,0.11,6,3,/player/70435/dave-sutter,4,Dave Sutter,D,2023-2024,nl,70435,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mats Alge (LW),SC Rapperswil-Jona Lakers,23,0,2,2,0.09,4,-1,/player/596664/mats-alge,4,Mats Alge,LW,2023-2024,nl,596664,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marco Pedretti (RW),Lausanne HC,23,0,2,2,0.09,6,-1,/player/34821/marco-pedretti,4,Marco Pedretti,RW,2023-2024,nl,34821,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Isacco Dotti (D),HC Ambrì-Piotta,28,0,2,2,0.07,10,3,/player/85319/isacco-dotti,4,Isacco Dotti,D,2023-2024,nl,85319,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Kellenberger (D),EHC Kloten,29,0,2,2,0.07,6,-1,/player/201672/matthew-kellenberger,4,Matthew Kellenberger,D,2023-2024,nl,201672,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christophe Cavalleri (C),Genève-Servette HC,33,0,2,2,0.06,8,2,/player/465366/christophe-cavalleri,4,Christophe Cavalleri,C,2023-2024,nl,465366,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Phil Baltisberger (D),totals,37,0,2,2,0.05,4,0,/player/94020/phil-baltisberger,4,Phil Baltisberger,D,2023-2024,nl,94020,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elia Riva (D),EV Zug,44,0,2,2,0.05,12,-3,/player/229800/elia-riva,4,Elia Riva,D,2023-2024,nl,229800,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jannik Fischer (D),HC Ajoie,44,0,2,2,0.05,16,-8,/player/17690/jannik-fischer,4,Jannik Fischer,D,2023-2024,nl,17690,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dario Wüthrich (D),HC Ambrì-Piotta,49,0,2,2,0.04,16,-2,/player/274211/dario-wuthrich,4,Dario Wüthrich,D,2023-2024,nl,274211,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hunter Garlent (C),EHC Kloten,2,1,0,1,0.50,0,0,/player/116990/hunter-garlent,4,Hunter Garlent,C,2023-2024,nl,116990,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Connolly (RW),SC Rapperswil-Jona Lakers,9,1,0,1,0.11,4,-7,/player/23297/brett-connolly,4,Brett Connolly,RW,2023-2024,nl,23297,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mario Kempe (W/C),HC Lugano,9,1,0,1,0.11,4,-5,/player/4407/mario-kempe,4,Mario Kempe,W/C,2023-2024,nl,4407,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lilian Garessus (C),HC Ajoie,27,1,0,1,0.04,0,-2,/player/542995/lilian-garessus,4,Lilian Garessus,C,2023-2024,nl,542995,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Santiago Näf (F),SC Bern,2,0,1,1,0.50,0,-2,/player/539882/santiago-naf,4,Santiago Näf,F,2023-2024,nl,539882,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gaël Christe (D),EHC Biel-Bienne,4,0,1,1,0.25,0,3,/player/703558/gael-christe,4,Gaël Christe,D,2023-2024,nl,703558,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Felcman (C),SCL Tigers,5,0,1,1,0.20,0,2,/player/782897/jiri-felcman,4,Jiri Felcman,C,2023-2024,nl,782897,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Deniss Smirnovs (C),EHC Kloten,6,0,1,1,0.17,0,-4,/player/310112/deniss-smirnovs,4,Deniss Smirnovs,C,2023-2024,nl,310112,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arno Nussbaumer (D),EV Zug,6,0,1,1,0.17,4,-2,/player/552669/arno-nussbaumer,4,Arno Nussbaumer,D,2023-2024,nl,552669,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antoine Guignard (W),Genève-Servette HC,12,0,1,1,0.08,0,1,/player/636840/antoine-guignard,4,Antoine Guignard,W,2023-2024,nl,636840,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yannick Brüschweiler (C/LW),HC Ambrì-Piotta,14,0,1,1,0.07,4,-1,/player/311380/yannick-bruschweiler,4,Yannick Brüschweiler,C/LW,2023-2024,nl,311380,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lorenzo Canonica (C),HC Lugano,15,0,1,1,0.07,0,0,/player/541803/lorenzo-canonica,4,Lorenzo Canonica,C,2023-2024,nl,541803,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bastien Pouilly (D),HC Ajoie,15,0,1,1,0.07,4,-4,/player/135732/bastien-pouilly,4,Bastien Pouilly,D,2023-2024,nl,135732,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Ustinkov (D),ZSC Lions,18,0,1,1,0.06,0,6,/player/800542/daniil-ustinkov,4,Daniil Ustinkov,D,2023-2024,nl,800542,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonas Taibel (C/LW),SC Rapperswil-Jona Lakers,19,0,1,1,0.05,0,-4,/player/529832/jonas-taibel,4,Jonas Taibel,C/LW,2023-2024,nl,529832,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Grossniklaus (D),SC Rapperswil-Jona Lakers,21,0,1,1,0.05,6,-15,/player/93224/tim-grossniklaus,4,Tim Grossniklaus,D,2023-2024,nl,93224,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dario Sidler (D),totals,27,0,1,1,0.04,2,-10,/player/596668/dario-sidler,4,Dario Sidler,D,2023-2024,nl,596668,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Peltonen (F),totals,29,0,1,1,0.03,2,-2,/player/250072/aleksi-peltonen,4,Aleksi Peltonen,F,2023-2024,nl,250072,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Obrist (C),EHC Kloten,29,0,1,1,0.03,11,-2,/player/68843/patrick-obrist,4,Patrick Obrist,C,2023-2024,nl,68843,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elvis Schläpfer (C),EHC Biel-Bienne,30,0,1,1,0.03,2,-12,/player/449082/elvis-schlapfer,4,Elvis Schläpfer,C,2023-2024,nl,449082,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Muggli (F),EV Zug,30,0,1,1,0.03,8,1,/player/596667/tim-muggli,4,Tim Muggli,F,2023-2024,nl,596667,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Fabio Arnold (LW),HC Ajoie,30,0,1,1,0.03,33,-5,/player/120986/fabio-arnold,4,Fabio Arnold,LW,2023-2024,nl,120986,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ian Derungs (LW/RW),totals,32,0,1,1,0.03,2,-10,/player/311548/ian-derungs,4,Ian Derungs,LW/RW,2023-2024,nl,311548,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxime Montandon (D),HC Lugano,0,0,0,0,-,0,0,/player/34867/maxime-montandon,4,Maxime Montandon,D,2023-2024,nl,34867,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arnaud Montandon (C/W),HC Lugano,0,0,0,0,-,0,0,/player/27315/arnaud-montandon,4,Arnaud Montandon,C/W,2023-2024,nl,27315,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jorden Gähler (D/C),HC Davos,0,0,0,0,-,0,0,/player/85350/jorden-gahler,4,Jorden Gähler,D/C,2023-2024,nl,85350,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lars Steiner (RW),HC Davos,0,0,0,0,-,0,0,/player/889131/lars-steiner,4,Lars Steiner,RW,2023-2024,nl,889131,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yannick Blaser (D),ZSC Lions,0,0,0,0,-,0,0,/player/28871/yannick-blaser,4,Yannick Blaser,D,2023-2024,nl,28871,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Virgile Thévoz (D/LW),Lausanne HC,0,0,0,0,-,0,-,/player/312162/virgile-thevoz,4,Virgile Thévoz,D/LW,2023-2024,nl,312162,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Nicolet (RW),HC Fribourg-Gottéron,1,0,0,0,0.00,0,0,/player/502671/kevin-nicolet,4,Kevin Nicolet,RW,2023-2024,nl,502671,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benjamin Bougro (C),Lausanne HC,1,0,0,0,0.00,0,0,/player/382870/benjamin-bougro,4,Benjamin Bougro,C,2023-2024,nl,382870,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthias Mémeteau (C/RW),Lausanne HC,1,0,0,0,0.00,0,-1,/player/336131/matthias-memeteau,4,Matthias Mémeteau,C/RW,2023-2024,nl,336131,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marlon Graf (F),ZSC Lions,1,0,0,0,0.00,0,1,/player/577453/marlon-graf,4,Marlon Graf,F,2023-2024,nl,577453,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Silvan Landolt (D),ZSC Lions,1,0,0,0,0.00,0,0,/player/293175/silvan-landolt,4,Silvan Landolt,D,2023-2024,nl,293175,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luca Gauch (LW/RW),HC Fribourg-Gottéron,1,0,0,0,0.00,0,1,/player/595241/luca-gauch,4,Luca Gauch,LW/RW,2023-2024,nl,595241,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aris Häfliger (D),HC Ambrì-Piotta,1,0,0,0,0.00,0,0,/player/619283/aris-hafliger,4,Aris Häfliger,D,2023-2024,nl,619283,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Santeen Golja (C),HC Lugano,1,0,0,0,0.00,0,0,/player/618991/santeen-golja,4,Santeen Golja,C,2023-2024,nl,618991,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Loris Wey (C/RW),EV Zug,1,0,0,0,0.00,0,0,/player/669807/loris-wey,4,Loris Wey,C/RW,2023-2024,nl,669807,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leonardo Domenichelli (C/RW),HC Lugano,1,0,0,0,0.00,0,0,/player/683695/leonardo-domenichelli,4,Leonardo Domenichelli,C/RW,2023-2024,nl,683695,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nadir Scilacci (D),HC Ambrì-Piotta,1,0,0,0,0.00,0,-1,/player/749306/nadir-scilacci,4,Nadir Scilacci,D,2023-2024,nl,749306,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Baptiste Vouardoux (D),Genève-Servette HC,1,0,0,0,0.00,0,-1,/player/704316/baptiste-vouardoux,4,Baptiste Vouardoux,D,2023-2024,nl,704316,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Quentin Delmas (D),Genève-Servette HC,1,0,0,0,0.00,0,0,/player/574140/quentin-delmas,4,Quentin Delmas,D,2023-2024,nl,574140,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cory Emmerton (C),HC Fribourg-Gottéron,1,0,0,0,0.00,0,0,/player/9348/cory-emmerton,4,Cory Emmerton,C,2023-2024,nl,9348,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxime Mariéthoz (RW),Genève-Servette HC,1,0,0,0,0.00,0,0,/player/746123/maxime-mariethoz,4,Maxime Mariéthoz,RW,2023-2024,nl,746123,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Guillaume Kaser (C/LW),EHC Biel-Bienne,1,0,0,0,0.00,0,0,/player/761298/guillaume-kaser,4,Guillaume Kaser,C/LW,2023-2024,nl,761298,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timo Bünzli (D),ZSC Lions,1,0,0,0,0.00,0,0,/player/711933/timo-bunzli,4,Timo Bünzli,D,2023-2024,nl,711933,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Léonardo Fuhrer (C/RW),Lausanne HC,1,0,0,0,0.00,0,0,/player/91746/leonardo-fuhrer,4,Léonardo Fuhrer,C/RW,2023-2024,nl,91746,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Tennyson (D),HC Lugano,1,0,0,0,0.00,0,-1,/player/37796/matt-tennyson,4,Matt Tennyson,D,2023-2024,nl,37796,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benjamin Quinn (D),ZSC Lions,1,0,0,0,0.00,0,1,/player/529824/benjamin-quinn,4,Benjamin Quinn,D,2023-2024,nl,529824,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noam Holzer (LW),HC Fribourg-Gottéron,1,0,0,0,0.00,0,0,/player/788668/noam-holzer,4,Noam Holzer,LW,2023-2024,nl,788668,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josselin Dufey (F),HC Ambrì-Piotta,2,0,0,0,0.00,0,0,/player/411523/josselin-dufey,4,Josselin Dufey,F,2023-2024,nl,411523,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Pastori (D),HC Ambrì-Piotta,2,0,0,0,0.00,0,-2,/player/449176/michael-pastori,4,Michael Pastori,D,2023-2024,nl,449176,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janis Embacher (C/RW),SC Rapperswil-Jona Lakers,2,0,0,0,0.00,0,-1,/player/738310/janis-embacher,4,Janis Embacher,C/RW,2023-2024,nl,738310,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luca Deussen (D),EHC Kloten,2,0,0,0,0.00,0,0,/player/596662/luca-deussen,4,Luca Deussen,D,2023-2024,nl,596662,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nils Rhyn (D),SC Bern,3,0,0,0,0.00,0,0,/player/788403/nils-rhyn,4,Nils Rhyn,D,2023-2024,nl,788403,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jared McIsaac (D),HC Ambrì-Piotta,3,0,0,0,0.00,0,0,/player/266786/jared-mcisaac,4,Jared McIsaac,D,2023-2024,nl,266786,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leandro Hinder (D),EHC Kloten,3,0,0,0,0.00,0,0,/player/559924/leandro-hinder,4,Leandro Hinder,D,2023-2024,nl,559924,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Basile Sansonnens (D),HC Fribourg-Gottéron,4,0,0,0,0.00,0,0,/player/824430/basile-sansonnens,4,Basile Sansonnens,D,2023-2024,nl,824430,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Grégoire (D),HC Fribourg-Gottéron,4,0,0,0,0.00,0,-1,/player/252468/thomas-gregoire,4,Thomas Grégoire,D,2023-2024,nl,252468,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Schilt (D),SCL Tigers,4,0,0,0,0.00,2,-3,/player/17605/sebastian-schilt,4,Sebastian Schilt,D,2023-2024,nl,17605,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yanik Lichtensteiger (D),HC Davos,4,0,0,0,0.00,2,-2,/player/743453/yanik-lichtensteiger,4,Yanik Lichtensteiger,D,2023-2024,nl,743453,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Meile (D),SC Bern,5,0,0,0,0.00,0,0,/player/687347/nick-meile,4,Nick Meile,D,2023-2024,nl,687347,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vincent Ryser (F),SC Bern,5,0,0,0,0.00,0,-1,/player/549912/vincent-ryser,4,Vincent Ryser,F,2023-2024,nl,549912,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Hornecker (LW/RW),SC Rapperswil-Jona Lakers,5,0,0,0,0.00,0,-2,/player/681848/jan-hornecker,4,Jan Hornecker,LW/RW,2023-2024,nl,681848,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arno Snellman (D),HC Lugano,6,0,0,0,0.00,0,0,/player/628573/arno-snellman,4,Arno Snellman,D,2023-2024,nl,628573,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Nico Antenen (LW),EV Zug,6,0,0,0,0.00,0,-1,/player/801192/robin-nico-antenen,4,Robin Nico Antenen,LW,2023-2024,nl,801192,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alessandro Villa (D),HC Lugano,6,0,0,0,0.00,0,1,/player/363816/alessandro-villa,4,Alessandro Villa,D,2023-2024,nl,363816,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kai Lukas Münger (LW),HC Ajoie,6,0,0,0,0.00,0,0,/player/633196/kai-lukas-munger,4,Kai Lukas Münger,LW,2023-2024,nl,633196,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthias Rossi (RW),SCL Tigers,6,0,0,0,0.00,2,-4,/player/34823/matthias-rossi,5,Matthias Rossi,RW,2023-2024,nl,34823,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rafael Meier (LW/RW),EHC Kloten,6,0,0,0,0.00,2,-2,/player/743455/rafael-meier,5,Rafael Meier,LW/RW,2023-2024,nl,743455,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Schneeberger (D),HC Davos,7,0,0,0,0.00,0,1,/player/18686/noah-schneeberger,5,Noah Schneeberger,D,2023-2024,nl,18686,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Schwendeler (D),ZSC Lions,10,0,0,0,0.00,0,2,/player/624658/jan-schwendeler,5,Jan Schwendeler,D,2023-2024,nl,624658,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonas Schwab (D),SCL Tigers,11,0,0,0,0.00,2,-4,/player/649925/jonas-schwab,5,Jonas Schwab,D,2023-2024,nl,649925,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mattheo Reinhard (C),EHC Biel-Bienne,13,0,0,0,0.00,2,-2,/player/547652/mattheo-reinhard,5,Mattheo Reinhard,C,2023-2024,nl,547652,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julian Parrée (C/LW),HC Davos,14,0,0,0,0.00,0,0,/player/605285/julian-parree,5,Julian Parrée,C/LW,2023-2024,nl,605285,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kilian Zündel (D),HC Ambrì-Piotta,14,0,0,0,0.00,2,-1,/player/291223/kilian-zundel,5,Kilian Zündel,D,2023-2024,nl,291223,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Marchon (LW),EHC Kloten,17,0,0,0,0.00,6,-2,/player/596666/joel-marchon,5,Joel Marchon,LW,2023-2024,nl,596666,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Heinen (D),HC Davos,17,0,0,0,0.00,10,-4,/player/392082/oliver-heinen,5,Oliver Heinen,D,2023-2024,nl,392082,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Louis Füllemann (D),SC Bern,21,0,0,0,0.00,2,-3,/player/644535/louis-fullemann,5,Louis Füllemann,D,2023-2024,nl,644535,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Timo Jenni (W/C),SCL Tigers,23,0,0,0,0.00,0,-3,/player/529831/timo-jenni,5,Timo Jenni,W/C,2023-2024,nl,529831,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Minder (D),HC Davos,34,0,0,0,0.00,2,-1,/player/637650/tim-minder,5,Tim Minder,D,2023-2024,nl,637650,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Lindemann (D/C),EHC Kloten,45,0,0,0,0.00,10,-5,/player/444620/kevin-lindemann,5,Kevin Lindemann,D/C,2023-2024,nl,444620,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69

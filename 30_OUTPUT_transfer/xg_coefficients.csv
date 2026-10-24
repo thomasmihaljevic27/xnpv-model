@@ -1,0 +1,17 @@
+feature,coefficient,plain_reading
+(intercept),-0.7022321802607966,"baseline log-odds: a 0-ft, dead-center, non-rebound wrist shot at even strength"
+distance,-0.058593090736193836,negative = lowers scoring odds; positive = raises
+angle,-0.014142640843748677,negative = lowers scoring odds; positive = raises
+rebound,0.23056851486699398,negative = lowers scoring odds; positive = raises
+shot_type=backhand,-0.412425154566675,negative = lowers scoring odds; positive = raises
+shot_type=bat,-0.22702326221570876,negative = lowers scoring odds; positive = raises
+shot_type=between-legs,-0.10031451664178286,negative = lowers scoring odds; positive = raises
+shot_type=cradle,0.007541509689916831,negative = lowers scoring odds; positive = raises
+shot_type=deflected,-0.513932933246913,negative = lowers scoring odds; positive = raises
+shot_type=poke,-0.33420093411346774,negative = lowers scoring odds; positive = raises
+shot_type=slap,0.5360154314191123,negative = lowers scoring odds; positive = raises
+shot_type=snap,0.3860579643249574,negative = lowers scoring odds; positive = raises
+shot_type=tip-in,-0.6194739349788878,negative = lowers scoring odds; positive = raises
+shot_type=wrap-around,-0.9252296999650846,negative = lowers scoring odds; positive = raises
+strength=PP,0.31041367225854094,negative = lowers scoring odds; positive = raises
+strength=SH,0.06759126142122564,negative = lowers scoring odds; positive = raises

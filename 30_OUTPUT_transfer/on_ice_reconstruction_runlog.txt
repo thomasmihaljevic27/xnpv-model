@@ -1,0 +1,45 @@
+[2026-07-07T01:30:13+00:00] Ensuring indexes on shifts and shot_events (one-time cost)...
+[2026-07-07T01:30:18+00:00] Rebuilding output tables on_ice_skaters and on_ice_event_qc...
+[2026-07-07T01:30:18+00:00] 11868 games to process.
+[2026-07-07T01:30:22+00:00]   500/11868 games done (569,654 on-ice rows so far)
+[2026-07-07T01:30:25+00:00]   1000/11868 games done (1,151,876 on-ice rows so far)
+[2026-07-07T01:30:27+00:00]   1500/11868 games done (1,729,072 on-ice rows so far)
+[2026-07-07T01:30:29+00:00]   2000/11868 games done (2,293,748 on-ice rows so far)
+[2026-07-07T01:30:31+00:00]   2500/11868 games done (2,857,882 on-ice rows so far)
+[2026-07-07T01:30:33+00:00]   3000/11868 games done (3,419,071 on-ice rows so far)
+[2026-07-07T01:30:36+00:00]   3500/11868 games done (3,973,059 on-ice rows so far)
+[2026-07-07T01:30:38+00:00]   4000/11868 games done (4,537,653 on-ice rows so far)
+[2026-07-07T01:30:40+00:00]   4500/11868 games done (5,068,851 on-ice rows so far)
+[2026-07-07T01:30:42+00:00]   5000/11868 games done (5,612,322 on-ice rows so far)
+[2026-07-07T01:30:44+00:00]   5500/11868 games done (6,163,397 on-ice rows so far)
+[2026-07-07T01:30:46+00:00]   6000/11868 games done (6,722,577 on-ice rows so far)
+[2026-07-07T01:30:49+00:00]   6500/11868 games done (7,295,312 on-ice rows so far)
+[2026-07-07T01:30:51+00:00]   7000/11868 games done (7,863,540 on-ice rows so far)
+[2026-07-07T01:30:53+00:00]   7500/11868 games done (8,434,877 on-ice rows so far)
+[2026-07-07T01:30:55+00:00]   8000/11868 games done (9,027,349 on-ice rows so far)
+[2026-07-07T01:30:57+00:00]   8500/11868 games done (9,623,826 on-ice rows so far)
+[2026-07-07T01:31:00+00:00]   9000/11868 games done (10,220,015 on-ice rows so far)
+[2026-07-07T01:31:02+00:00]   9500/11868 games done (10,811,710 on-ice rows so far)
+[2026-07-07T01:31:05+00:00]   10000/11868 games done (11,397,739 on-ice rows so far)
+[2026-07-07T01:31:07+00:00]   10500/11868 games done (11,920,523 on-ice rows so far)
+[2026-07-07T01:31:08+00:00]   11000/11868 games done (12,186,450 on-ice rows so far)
+[2026-07-07T01:31:10+00:00]   11500/11868 games done (12,503,036 on-ice rows so far)
+[2026-07-07T01:31:12+00:00] ============================================================
+[2026-07-07T01:31:12+00:00] VALIDATION SUMMARY
+[2026-07-07T01:31:12+00:00]   shot events seen:              1,389,125
+[2026-07-07T01:31:12+00:00]   shootout attempts excluded:    5,806 (by design)
+[2026-07-07T01:31:12+00:00]   non-roster shift rows dropped (roster-truth rule; goalies + the 3 corrupt-feed games): 90,530
+[2026-07-07T01:31:12+00:00]   duplicate unclosed shifts dropped: 896 (known NHL feed glitch; harmless echoes of real shifts)
+[2026-07-07T01:31:12+00:00]   unclosed final shifts recovered:   54 (end set to period end / next-shift bound)
+[2026-07-07T01:31:12+00:00]   duplicate on-ice memberships absorbed: 28,510 (same player listed twice in feed; counted once)
+[2026-07-07T01:31:12+00:00]   events skipped, shooter untaggable: 0
+[2026-07-07T01:31:12+00:00]   events reconstructed + QC'd:   1,383,319
+[2026-07-07T01:31:12+00:00]   raw match vs situation_code:   1,306,574 (94.45%)
+[2026-07-07T01:31:12+00:00]   games with NO league shift data (no on-ice possible; codes still valid): 582 games, 68,215 events
+[2026-07-07T01:31:12+00:00]   suspect-code games (stuck league codes, NOT reconstruction errors): 116 games, 4,814 mismatches
+[2026-07-07T01:31:12+00:00]   HEADLINE match rate excluding both categories: 99.71%
+[2026-07-07T01:31:12+00:00]   flagged mismatches in clean games (kept, match_ok=0): 3,716
+[2026-07-07T01:31:12+00:00]   on_ice_skaters rows written:   12,886,519
+[2026-07-07T01:31:12+00:00]   Clean-game match rate within expected range (~99.9%). OK.
+[2026-07-07T01:31:12+00:00] ============================================================
+[2026-07-07T01:31:12+00:00] Summary written to C:\Users\thoma\OneDrive\Desktop\test\on_ice_validation_summary.csv

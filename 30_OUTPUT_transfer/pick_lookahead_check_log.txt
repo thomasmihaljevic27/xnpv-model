@@ -1,0 +1,34 @@
+pick_lookahead_check.py v1.0 (2026-10-09)
+  input players: C:\Users\Thomas\Desktop\xNPV\30_OUTPUT\pick_first_look_players.csv  (modified 2026-10-09 16:27)
+  input fl_log: C:\Users\Thomas\Desktop\xNPV\30_OUTPUT\pick_first_look_log.txt  (modified 2026-10-09 16:27)
+  input bacon: C:\Users\Thomas\Desktop\xNPV\10_SOURCE\draft_slot_baseline.csv  (modified 2026-07-02 13:35)
+  input trades: C:\Users\Thomas\Desktop\xNPV\10_SOURCE\trades.db  (modified 2026-07-02 13:35)
+
+pooled scale, all eleven classes: 31.37 ($M per 100% star chance)
+
+A. SHAPE BY ERA
+  2007-2011: 948 picks; scale 26.68 (se 3.29); log(pick) added to the star chance: +0.268 (se 0.529, p 0.612)
+     actual / predicted by pick range (1.00 = the shape fits): 1-5: 0.87, 6-15: 1.20, 16-32: 0.93, 33-64: 1.08, 65-128: 0.43, 129-217: 1.76
+  2012-2017: 1,141 picks; scale 35.26 (se 4.21); log(pick) added to the star chance: -0.168 (se 0.645, p 0.794)
+     actual / predicted by pick range (1.00 = the shape fits): 1-5: 0.94, 6-15: 1.05, 16-32: 1.16, 33-64: 0.77, 65-128: 1.28, 129-217: 1.18
+
+B. THE SCALE KNOWABLE AT EACH TRADE SEASON (classes drafted T-9 or earlier)
+  2017-18: classes 2007-2008 (2), scale 26.31 (se 6.18), -16% against pooled; #1 $19.7M, #10 $5.6M, #32 $1.95M
+  2018-19: classes 2007-2009 (3), scale 27.94 (se 4.59), -11% against pooled; #1 $20.9M, #10 $5.9M, #32 $2.07M
+  2019-20: classes 2007-2010 (4), scale 27.70 (se 3.76), -12% against pooled; #1 $20.7M, #10 $5.9M, #32 $2.05M
+  2020-21: classes 2007-2011 (5), scale 26.68 (se 3.29), -15% against pooled; #1 $19.9M, #10 $5.7M, #32 $1.98M
+  2021-22: classes 2007-2012 (6), scale 24.10 (se 3.10), -23% against pooled; #1 $18.0M, #10 $5.1M, #32 $1.79M
+  2022-23: classes 2007-2013 (7), scale 24.54 (se 2.74), -22% against pooled; #1 $18.3M, #10 $5.2M, #32 $1.82M
+  2023-24: classes 2007-2014 (8), scale 26.00 (se 2.66), -17% against pooled; #1 $19.4M, #10 $5.5M, #32 $1.93M
+  2024-25: classes 2007-2015 (9), scale 29.44 (se 2.84), -6% against pooled; #1 $22.0M, #10 $6.2M, #32 $2.18M
+
+C. PICKS TRADED FROM 2017-07-01 with a final slot: 633
+  total value, pooled scale $666.1M; knowable scale $557.5M (-16.3%)
+      picks  pooled  knowable  change %
+T                                      
+2017    115   115.8      97.1     -16.1
+2018    154   168.0     149.6     -10.9
+2019     67    68.1      60.1     -11.7
+2020    133   110.7      94.2     -14.9
+2021    164   203.6     156.4     -23.2
+  first-round picks (61): mean $3.82M pooled, $3.19M knowable

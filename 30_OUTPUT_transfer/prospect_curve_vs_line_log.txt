@@ -1,0 +1,89 @@
+prospect_curve_vs_line.py v1.5 (2026-10-22)
+  input rows: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\prospect_nhle_rows.csv  (modified 2026-10-22 13:05)
+  input nhle_scores: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\prospect_nhle_look.csv  (modified 2026-10-22 13:05)
+  input age_scores: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\prospect_age_look.csv  (modified 2026-10-22 13:05)
+  input linkage: C:\Users\thoma\Desktop\xNPV\30_OUTPUT\draft_pick_linkage.csv  (modified 2026-10-22 03:04)
+
+rows: 12,996 skater prospect-rows, 2,083 players (fingerprint 1a0aa6bb93a0)
+  guards: the slot alone, comparison 1's two arms, the chosen arm and the adopted arm reproduce the recorded held-out errors; the redraws against the slot alone reproduce 1,882 and 1,934 (PASS)
+
+CURVED AGAINST STRAIGHT, HEAD TO HEAD (held-out error, $M of remaining surplus per prospect-season; lower is better)
+
+  1. slot in every season (Table 2's two rows)
+     straight 2.2503   curved 2.2158   (-1.53%)
+       D+1            straight 3.3246  curved 3.2842
+       D+2            straight 3.0375  curved 2.9882
+       D+3            straight 2.6828  curved 2.6290
+       D+4            straight 2.0608  curved 2.0229
+       D+5 and later  straight 0.7618  curved 0.7580
+     curved lower in 1,925 of 2,000 redraws: one-sided p = 0.0375  (the pick curve's bar, 1,950: not met)
+     drafts where curved is lower: 8 of 11; the draft most against it, 2007, takes back 19% of the gains in the drafts for it (summed squared error, straight minus curved, $M squared): 2015 +826.7, 2010 +430.2, 2011 +365.3, 2016 +362.6, 2017 +310.1, 2009 +219.5, 2014 +194.4, 2012 +3.3, 2013 -85.2, 2008 -102.5, 2007 -524.9
+
+  2. slot in D+1 to D+3 only, without age
+     straight 2.2494   curved 2.2151   (-1.52%)
+       D+1            straight 3.3246  curved 3.2842
+       D+2            straight 3.0375  curved 2.9882
+       D+3            straight 2.6828  curved 2.6290
+       D+4            straight 2.0546  curved 2.0179
+       D+5 and later  straight 0.7605  curved 0.7567
+     curved lower in 1,916 of 2,000 redraws: one-sided p = 0.0420  (the pick curve's bar, 1,950: not met)
+     drafts where curved is lower: 8 of 11; the draft most against it, 2007, takes back 20% of the gains in the drafts for it (summed squared error, straight minus curved, $M squared): 2015 +831.2, 2010 +440.8, 2016 +368.6, 2011 +366.0, 2017 +303.5, 2009 +223.0, 2014 +196.2, 2012 +5.4, 2013 -82.5, 2008 -102.9, 2007 -560.0
+
+  3. the adopted model, with age discounting production in D+1 to D+4
+     straight 2.2434   curved 2.1995   (-1.96%)
+       D+1            straight 3.3201  curved 3.2658
+       D+2            straight 3.0277  curved 2.9619
+       D+3            straight 2.6710  curved 2.6037
+       D+4            straight 2.0483  curved 2.0077
+       D+5 and later  straight 0.7605  curved 0.7567
+     curved lower in 1,951 of 2,000 redraws: one-sided p = 0.0245  (the pick curve's bar, 1,950: met)
+     drafts where curved is lower: 9 of 11; the draft most against it, 2007, takes back 19% of the gains in the drafts for it (summed squared error, straight minus curved, $M squared): 2015 +1006.3, 2016 +500.3, 2010 +430.6, 2011 +413.2, 2017 +346.0, 2014 +241.3, 2009 +200.9, 2012 +37.4, 2013 +21.9, 2008 -48.9, 2007 -613.8
+
+THE SQUARED TERM IN THE ADOPTED MODEL, ON ALL DRAFTS (coefficient on production squared; robust se; two-sided p)
+  D+1            0.021 (0.006)  p = 0.0002
+  D+2            0.015 (0.004)  p = 0.0000
+  D+3            0.010 (0.002)  p = 0.0000
+  D+4            0.006 (0.002)  p = 0.0005
+  D+5 and later  0.001 (0.001)  p = 0.0618
+
+THE 2007 DRAFT IN THE ADOPTED MODEL (summed squared error, straight minus curved; positive = curved better)
+  by season: D+1 -474.4, D+2 -4.3, D+3 -89.5, D+4 -43.7, D+5 and later -1.9
+  production seasons behind the level in D+1: mean 0.91 for 2007 draftees, 2.04 for 2009-2017
+  the rows most against the curve ($M; production in points per 82):
+    Sam Gagner               #6    D+1    production  24.9 (1 seasons)  delivered  -2.26  straight  6.97  curved 17.52  gain  -306.0
+    Patrick Kane             #1    D+1    production  27.9 (1 seasons)  delivered  14.54  straight 13.01  curved 24.44  gain   -95.7
+    Linus Omark              #97   D+3    production  32.1 (3 seasons)  delivered  -1.74  straight -0.12  curved  5.45  gain   -49.0
+    Linus Omark              #97   D+4    production  35.2 (3 seasons)  delivered  -1.74  straight  0.22  curved  4.23  gain   -31.8
+    Ryan McDonagh            #12   D+1    production   2.6 (1 seasons)  delivered  15.48  straight  2.94  curved  1.80  gain   -29.7
+    Brett MacLean            #32   D+1    production  16.4 (1 seasons)  delivered  -0.63  straight  2.27  curved  5.40  gain   -28.0
+    Zach Hamill              #8    D+1    production  16.1 (1 seasons)  delivered  -0.55  straight  4.77  curved  6.75  gain   -24.9
+    Ryan McDonagh            #12   D+2    production   4.1 (2 seasons)  delivered  15.48  straight  2.54  curved  1.79  gain   -20.1
+
+PRODUCTION SQUARED ALONE (drops the production term; the curve then bottoms out at zero production)
+
+  2. slot in D+1 to D+3 only, without age
+     squared alone 2.2261   curved 2.2151   straight 2.2494
+       D+1            squared alone 3.2966  curved 3.2842  straight 3.3246
+       D+2            squared alone 3.0051  curved 2.9882  straight 3.0375
+       D+3            squared alone 2.6501  curved 2.6290  straight 2.6828
+       D+4            squared alone 2.0240  curved 2.0179  straight 2.0546
+       D+5 and later  squared alone 0.7577  curved 0.7567  straight 0.7605
+     squared alone lower than curved in 199 of 2,000 redraws (one-sided p = 0.9005)
+     squared alone lower than straight in 1,950 of 2,000 redraws (one-sided p = 0.0250)
+
+  3. the adopted model, with age discounting production in D+1 to D+4
+     squared alone 2.2012   curved 2.1995   straight 2.2434
+       D+1            squared alone 3.2665  curved 3.2658  straight 3.3201
+       D+2            squared alone 2.9645  curved 2.9619  straight 3.0277
+       D+3            squared alone 2.6086  curved 2.6037  straight 2.6710
+       D+4            squared alone 2.0077  curved 2.0077  straight 2.0483
+       D+5 and later  squared alone 0.7577  curved 0.7567  straight 0.7605
+     squared alone lower than curved in 673 of 2,000 redraws (one-sided p = 0.6635)
+     squared alone lower than straight in 1,975 of 2,000 redraws (one-sided p = 0.0125)
+
+  squared alone with age, on all drafts (coefficient, robust se, two-sided p):
+    D+1            p_star 10.967 (1.930) p 0.000; nhle82_sq 0.017 (0.004) p 0.000; prod_x_age -0.088 (0.023) p 0.000
+    D+2            p_star 9.244 (2.330) p 0.000; nhle82_sq 0.012 (0.002) p 0.000; prod_x_age -0.073 (0.016) p 0.000
+    D+3            p_star 6.184 (3.058) p 0.043; nhle82_sq 0.008 (0.002) p 0.000; prod_x_age -0.058 (0.012) p 0.000
+    D+4            nhle82_sq 0.004 (0.001) p 0.000; prod_x_age -0.031 (0.010) p 0.003
+    D+5 and later  nhle82_sq 0.000 (0.000) p 0.035

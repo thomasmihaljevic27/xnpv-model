@@ -1,0 +1,53 @@
+pick_star_and_rights_checks.py v1.1 (2026-10-09)
+  input linkage: C:\Users\Thomas\Desktop\xNPV\30_OUTPUT\draft_pick_linkage.csv  (modified 2026-09-09 14:23)
+  input WAR: C:\Users\Thomas\Desktop\xNPV\10_SOURCE\WAR.csv  (modified 2026-09-09 01:38)
+  input players: C:\Users\Thomas\Desktop\xNPV\30_OUTPUT\pick_first_look_players.csv  (modified 2026-10-13 14:37)
+  input fl_log: C:\Users\Thomas\Desktop\xNPV\30_OUTPUT\pick_first_look_log.txt  (modified 2026-10-13 14:37)
+  input bacon: C:\Users\Thomas\Desktop\xNPV\10_SOURCE\draft_slot_baseline.csv  (modified 2026-07-02 13:35)
+  input trades: C:\Users\Thomas\Desktop\xNPV\10_SOURCE\trades.db  (modified 2026-07-02 13:35)
+
+CHECK 1: STAR AND NHLER RATES, OURS AGAINST BACON'S (skaters)
+  classes 2007-2015: 1,700 picks, 100 stars (5.9%; Bacon 5.3%), NHLers 27.8% (Bacon 23.0%)
+  picks   n  stars  our star %  +/- 2se  Bacon star %  our NHLer %  Bacon NHLer %
+    1-1   9      6        66.7     31.4          74.8        100.0           98.5
+    2-3  18     10        55.6     23.4          53.8        100.0           95.3
+   4-10  63     18        28.6     11.4          29.4         88.9           84.4
+  11-20  87     19        21.8      8.9          15.0         74.7           66.0
+  21-32 101      8         7.9      5.4           9.1         46.5           49.2
+  33-64 259     13         5.0      2.7           5.1         35.5           31.0
+ 65-128 510     16         3.1      1.5           2.6         21.2           15.7
+129-217 653     10         1.5      1.0           1.0         11.9            6.9
+  classes 2016-2017 (careers running): 389 picks, 26 stars (6.7%; Bacon 5.2%), NHLers 22.4% (Bacon 22.7%)
+  picks   n  stars  our star %  +/- 2se  Bacon star %  our NHLer %  Bacon NHLer %
+    1-1   2      2       100.0      0.0          74.8        100.0           98.5
+    2-3   4      3        75.0     43.3          53.8        100.0           95.3
+   4-10  14      5        35.7     25.6          29.4         78.6           84.4
+  11-20  20      7        35.0     21.3          15.0         80.0           65.9
+  21-32  23      1         4.3      8.5           9.0         52.2           49.0
+  33-64  57      3         5.3      5.9           5.2         35.1           31.6
+ 65-128 112      3         2.7      3.1           2.6         11.6           15.7
+129-217 157      2         1.3      1.8           0.9          5.7            6.7
+
+CHECK 2: WHO COLLECTED THE PICK'S VALUE (1,080 drafted skaters who played; total surplus $3,517.7M)
+              players  surplus_M  share of total %
+route                                             
+neither            55       79.1               2.2
+same team         915     3239.4              92.1
+traded first      110      199.2               5.7
+
+largest surpluses not collected through the drafting club or a trade:
+ draftYear  pick            player team  first_start first_teams   route  surplus
+      2008   156    Jared Spurgeon  NYI       2010.0         MIN neither    24.11
+      2016   159     Brandon Hagel  BUF       2019.0         CHI neither    19.39
+      2007   141       Jake Muzzin  PIT       2010.0         LAK neither    15.28
+      2010    24       Kevin Hayes  CHI       2014.0         NYR neither     8.64
+      2010    99    Joonas Donskoi  FLA       2015.0         SJS neither     5.23
+      2012   175      Matt Benning  BOS       2016.0         EDM neither     4.44
+      2007     4     Thomas Hickey  LAK       2012.0         NYI neither     4.14
+      2013   123      Will Butcher  COL       2017.0         NJD neither     4.10
+      2012   150      Alex Kerfoot  NJD       2017.0         COL neither     3.56
+      2010   106   Marcus Sorensen  OTT       2016.0         SJS neither     2.44
+      2008    43    Justin Schultz  ANA       2012.0         EDM neither     1.29
+      2016   142 Michael Eyssimont  LAK       2021.0         WPG neither     0.81
+
+pooled scale: as adopted 31.37; with lapsed or unexplained routes at zero 31.22 (-0.5%)

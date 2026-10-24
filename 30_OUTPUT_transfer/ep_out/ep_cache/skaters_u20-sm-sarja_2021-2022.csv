@@ -1,0 +1,876 @@
+player,team,gp,g,a,tp,p_per_gp,pim,plus_minus,link,page,playername,position,season,league,ep_player_id,scrape_date,source,package_version
+Jure Povse (F),Sport U20,40,15,39,54,1.35,24,-4,/player/581378/jure-povse,1,Jure Povse,F,2021-2022,u20-sm-sarja,581378,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vili Munkki (LW),TPS U20,43,21,32,53,1.23,8,7,/player/534247/vili-munkki,1,Vili Munkki,LW,2021-2022,u20-sm-sarja,534247,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jimi Rönkkönen (C),HPK U20,41,19,34,53,1.29,14,6,/player/466866/jimi-ronkkonen,1,Jimi Rönkkönen,C,2021-2022,u20-sm-sarja,466866,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Okko Kangasniemi (F),SaiPa U20,36,18,35,53,1.47,32,27,/player/440906/okko-kangasniemi,1,Okko Kangasniemi,F,2021-2022,u20-sm-sarja,440906,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Akseli Mäkinen (C),KooKoo U20,41,29,20,49,1.20,57,20,/player/465401/akseli-makinen,1,Akseli Mäkinen,C,2021-2022,u20-sm-sarja,465401,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leevi Viitala (RW),Ässät U20,30,28,21,49,1.63,22,25,/player/428872/leevi-viitala,1,Leevi Viitala,RW,2021-2022,u20-sm-sarja,428872,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samu Salminen (C/LW),Jokerit U20,44,19,29,48,1.09,34,12,/player/554239/samu-salminen,1,Samu Salminen,C/LW,2021-2022,u20-sm-sarja,554239,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miika Herrala (LW),SaiPa U20,32,15,31,46,1.44,48,5,/player/428829/miika-herrala,1,Miika Herrala,LW,2021-2022,u20-sm-sarja,428829,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kim Nieminen (RW),Pelicans U20,43,18,27,45,1.05,12,11,/player/470995/kim-nieminen,1,Kim Nieminen,RW,2021-2022,u20-sm-sarja,470995,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kalle Myllymaa (C),Ässät U20,28,11,34,45,1.61,16,18,/player/534265/kalle-myllymaa,1,Kalle Myllymaa,C,2021-2022,u20-sm-sarja,534265,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Veikka Halonen (RW),KalPa U20,40,15,28,43,1.08,26,8,/player/395475/veikka-halonen,1,Veikka Halonen,RW,2021-2022,u20-sm-sarja,395475,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miro Järvenpää (RW),Kärpät U20,44,15,28,43,0.98,12,1,/player/525656/miro-jarvenpaa,1,Miro Järvenpää,RW,2021-2022,u20-sm-sarja,525656,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskari Luoto (C),Tappara U20,41,21,21,42,1.02,38,15,/player/534246/oskari-luoto,1,Oskari Luoto,C,2021-2022,u20-sm-sarja,534246,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomi Palo (RW),HPK U20,43,21,20,41,0.95,16,-2,/player/438232/tomi-palo,1,Tomi Palo,RW,2021-2022,u20-sm-sarja,438232,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martynas Grinius (F),Sport U20,34,19,22,41,1.21,18,11,/player/470453/martynas-grinius,1,Martynas Grinius,F,2021-2022,u20-sm-sarja,470453,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksanteri Kaskimäki (C),HIFK U20,31,19,21,40,1.29,20,19,/player/640621/aleksanteri-kaskimaki,1,Aleksanteri Kaskimäki,C,2021-2022,u20-sm-sarja,640621,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kasper Koskinen (F),TPS U20,42,19,21,40,0.95,24,9,/player/396653/kasper-koskinen,1,Kasper Koskinen,F,2021-2022,u20-sm-sarja,396653,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konsta Kapanen (LW),KalPa U20,39,17,23,40,1.03,40,7,/player/639024/konsta-kapanen,1,Konsta Kapanen,LW,2021-2022,u20-sm-sarja,639024,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Topias Mönkäre (F),SaiPa U20,43,14,26,40,0.93,26,-11,/player/396569/topias-monkare,1,Topias Mönkäre,F,2021-2022,u20-sm-sarja,396569,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ossi-Petteri Jaakola (LW/RW),KooKoo U20,45,14,26,40,0.89,24,11,/player/442622/ossi-petteri-jaakola,1,Ossi-Petteri Jaakola,LW/RW,2021-2022,u20-sm-sarja,442622,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Juhola (C),Ässät U20,40,20,19,39,0.98,24,28,/player/628483/patrik-juhola,1,Patrik Juhola,C,2021-2022,u20-sm-sarja,628483,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andreas Okany (C/RW),KalPa U20,38,19,20,39,1.03,79,13,/player/428864/andreas-okany,1,Andreas Okany,C/RW,2021-2022,u20-sm-sarja,428864,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matic Török (RW/LW),KooKoo U20,40,18,21,39,0.98,20,3,/player/532610/matic-torok,1,Matic Török,RW/LW,2021-2022,u20-sm-sarja,532610,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viljam Sandvik (C),HIFK U20,34,10,29,39,1.15,4,15,/player/496616/viljam-sandvik,1,Viljam Sandvik,C,2021-2022,u20-sm-sarja,496616,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kasper Halttunen (RW/LW),Jokerit U20,41,24,14,38,0.93,75,10,/player/709538/kasper-halttunen,1,Kasper Halttunen,RW/LW,2021-2022,u20-sm-sarja,709538,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Topias Kaski (RW),Jukurit U20,41,22,16,38,0.93,10,13,/player/470711/topias-kaski,1,Topias Kaski,RW,2021-2022,u20-sm-sarja,470711,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joonas Lohisalo (LW/RW),Kärpät U20,41,17,21,38,0.93,10,3,/player/557213/joonas-lohisalo,1,Joonas Lohisalo,LW/RW,2021-2022,u20-sm-sarja,557213,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Simo Heinonen (LW/RW),KooKoo U20,43,15,23,38,0.88,20,11,/player/563882/simo-heinonen,1,Simo Heinonen,LW/RW,2021-2022,u20-sm-sarja,563882,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jussi Malmi (F),Sport U20,39,12,26,38,0.97,16,-4,/player/557221/jussi-malmi,1,Jussi Malmi,F,2021-2022,u20-sm-sarja,557221,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lenni Hämeenaho (RW),Ässät U20,42,21,16,37,0.88,12,7,/player/642183/lenni-hameenaho,1,Lenni Hämeenaho,RW,2021-2022,u20-sm-sarja,642183,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Nyppeli (F),KOOVEE U20,38,20,17,37,0.97,18,-11,/player/466703/jesse-nyppeli,1,Jesse Nyppeli,F,2021-2022,u20-sm-sarja,466703,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juuso Fagerström (C/LW),Jukurit U20,42,14,23,37,0.88,14,17,/player/396141/juuso-fagerstrom,1,Juuso Fagerström,C/LW,2021-2022,u20-sm-sarja,396141,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Veikka Hahl (RW),Jukurit U20,45,21,15,36,0.80,8,27,/player/470666/veikka-hahl,1,Veikka Hahl,RW,2021-2022,u20-sm-sarja,470666,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jami Virtanen (LW/RW),Ässät U20,31,19,17,36,1.16,26,25,/player/396175/jami-virtanen,1,Jami Virtanen,LW/RW,2021-2022,u20-sm-sarja,396175,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janne Naukkarinen (C/W),SaiPa U20,40,17,19,36,0.90,14,21,/player/638768/janne-naukkarinen,1,Janne Naukkarinen,C/W,2021-2022,u20-sm-sarja,638768,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Soijärvi (C),Jukurit U20,39,11,25,36,0.92,30,10,/player/318148/aleksi-soijarvi,1,Aleksi Soijärvi,C,2021-2022,u20-sm-sarja,318148,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Santeri Peltola (F),Tappara U20,45,8,28,36,0.80,42,4,/player/396997/santeri-peltola,1,Santeri Peltola,F,2021-2022,u20-sm-sarja,396997,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Taneli Kovaniemi (C),Sport U20,29,21,14,35,1.21,10,4,/player/395510/taneli-kovaniemi,1,Taneli Kovaniemi,C,2021-2022,u20-sm-sarja,395510,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Antti-Roiko (C/LW),Kärpät U20,36,13,22,35,0.97,4,8,/player/429270/aleksi-antti-roiko,1,Aleksi Antti-Roiko,C/LW,2021-2022,u20-sm-sarja,429270,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miko Matikka (RW/LW),Jokerit U20,30,19,14,33,1.10,22,6,/player/628519/miko-matikka,1,Miko Matikka,RW/LW,2021-2022,u20-sm-sarja,628519,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomi-Petteri Ansio (F),TUTO Hockey U20,38,15,18,33,0.87,41,-1,/player/428871/tomi-petteri-ansio,1,Tomi-Petteri Ansio,F,2021-2022,u20-sm-sarja,428871,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikael Menna (C),Pelicans U20,45,14,19,33,0.73,10,3,/player/470994/mikael-menna,1,Mikael Menna,C,2021-2022,u20-sm-sarja,470994,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vertti Jantunen (C),Kiekko-Espoo U20,36,13,20,33,0.92,8,-7,/player/554240/vertti-jantunen,1,Vertti Jantunen,C,2021-2022,u20-sm-sarja,554240,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Verneri Arkko (D),Jukurit U20,44,9,24,33,0.75,38,22,/player/556915/verneri-arkko,1,Verneri Arkko,D,2021-2022,u20-sm-sarja,556915,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luka Nyman (D),Lukko U20,43,8,25,33,0.77,18,-4,/player/397014/luka-nyman,1,Luka Nyman,D,2021-2022,u20-sm-sarja,397014,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Sinkkonen (LW),SaiPa U20,30,18,14,32,1.07,32,8,/player/499514/aleksi-sinkkonen,1,Aleksi Sinkkonen,LW,2021-2022,u20-sm-sarja,499514,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Santeri Sulku (W/C),Jokerit U20,35,13,19,32,0.91,30,11,/player/535841/santeri-sulku,1,Santeri Sulku,W/C,2021-2022,u20-sm-sarja,535841,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eerik Kantola (F),Kärpät U20,44,13,19,32,0.73,97,7,/player/557163/eerik-kantola,1,Eerik Kantola,F,2021-2022,u20-sm-sarja,557163,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valtteri Välimäki (C),KOOVEE U20,32,12,19,31,0.97,10,-3,/player/397070/valtteri-valimaki,1,Valtteri Välimäki,C,2021-2022,u20-sm-sarja,397070,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaron Hakala (W/C),Kärpät U20,37,12,19,31,0.84,14,-4,/player/526042/aaron-hakala,1,Aaron Hakala,W/C,2021-2022,u20-sm-sarja,526042,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eetu Santanen (F),SaiPa U20,39,12,19,31,0.79,20,-8,/player/438449/eetu-santanen,1,Eetu Santanen,F,2021-2022,u20-sm-sarja,438449,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Verner Miettinen (C),Kiekko-Espoo U20,35,11,20,31,0.89,14,-5,/player/556755/verner-miettinen,1,Verner Miettinen,C,2021-2022,u20-sm-sarja,556755,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matias Laaksonen (LW),Kiekko-Espoo U20 Ch,22,10,21,31,1.41,4,6,/player/415864/matias-laaksonen,1,Matias Laaksonen,LW,2021-2022,u20-sm-sarja,415864,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Topi Heiskanen (D),KalPa U20,34,10,21,31,0.91,12,5,/player/499416/topi-heiskanen,1,Topi Heiskanen,D,2021-2022,u20-sm-sarja,499416,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viljami Jokirinne (D),Ilves U20,43,9,22,31,0.72,28,0,/player/638693/viljami-jokirinne,1,Viljami Jokirinne,D,2021-2022,u20-sm-sarja,638693,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niilo Romppanen (D),Jukurit U20,42,5,26,31,0.74,24,29,/player/476318/niilo-romppanen,1,Niilo Romppanen,D,2021-2022,u20-sm-sarja,476318,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Nurmi (LW/RW),KooKoo U20,40,15,15,30,0.75,6,-11,/player/618610/jesse-nurmi,1,Jesse Nurmi,LW/RW,2021-2022,u20-sm-sarja,618610,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Lottonen (C/W),Karhu-Kissat U20,26,13,17,30,1.15,10,7,/player/466471/jesse-lottonen,1,Jesse Lottonen,C/W,2021-2022,u20-sm-sarja,466471,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jere Kivimäki (LW),Tappara U20,43,10,20,30,0.70,12,11,/player/376221/jere-kivimaki,1,Jere Kivimäki,LW,2021-2022,u20-sm-sarja,376221,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Onni Leppänen (C/W),Jokerit U20,44,8,22,30,0.68,26,5,/player/525650/onni-leppanen,1,Onni Leppänen,C/W,2021-2022,u20-sm-sarja,525650,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aron Kiviharju (D),TPS U20,35,7,23,30,0.86,8,15,/player/526036/aron-kiviharju,1,Aron Kiviharju,D,2021-2022,u20-sm-sarja,526036,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Liukkonen (F),SaiPa U20,37,14,15,29,0.78,2,3,/player/602894/mikko-liukkonen,1,Mikko Liukkonen,F,2021-2022,u20-sm-sarja,602894,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eero Klintrup (RW),Kärpät U20,34,13,16,29,0.85,10,7,/player/557166/eero-klintrup,1,Eero Klintrup,RW,2021-2022,u20-sm-sarja,557166,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Topi Rönni (C),Tappara U20,30,11,18,29,0.97,53,9,/player/638690/topi-ronni,1,Topi Rönni,C,2021-2022,u20-sm-sarja,638690,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eero Niemi (RW),Ässät U20,31,10,19,29,0.94,18,14,/player/534238/eero-niemi,1,Eero Niemi,RW,2021-2022,u20-sm-sarja,534238,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathias Hänninen (F),Jokerit U20,31,9,20,29,0.94,14,3,/player/375958/mathias-hanninen,1,Mathias Hänninen,F,2021-2022,u20-sm-sarja,375958,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valtteri Karnaranta (LW),Ässät U20,24,8,21,29,1.21,0,15,/player/534243/valtteri-karnaranta,1,Valtteri Karnaranta,LW,2021-2022,u20-sm-sarja,534243,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville-Pekka Pietilä (C),Sport U20,29,7,22,29,1.00,10,-14,/player/534205/ville-pekka-pietila,1,Ville-Pekka Pietilä,C,2021-2022,u20-sm-sarja,534205,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert von Gerdten (D),HIFK U20,44,5,24,29,0.66,28,14,/player/470693/robert-von-gerdten,1,Robert von Gerdten,D,2021-2022,u20-sm-sarja,470693,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kasper Kulonummi (D),Jokerit U20,40,3,26,29,0.73,12,7,/player/601094/kasper-kulonummi,1,Kasper Kulonummi,D,2021-2022,u20-sm-sarja,601094,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Ruusunen (LW),HIFK U20,40,15,13,28,0.70,16,2,/player/565355/rasmus-ruusunen,1,Rasmus Ruusunen,LW,2021-2022,u20-sm-sarja,565355,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Pärssinen (D),Tappara U20,37,13,15,28,0.76,50,5,/player/534178/jiri-parssinen,1,Jiri Pärssinen,D,2021-2022,u20-sm-sarja,534178,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bine Masic (D),Sport U20,28,9,19,28,1.00,16,7,/player/581143/bine-masic,1,Bine Masic,D,2021-2022,u20-sm-sarja,581143,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riku Uusikartano (C),Pelicans U20,41,7,21,28,0.68,32,5,/player/534175/riku-uusikartano,1,Riku Uusikartano,C,2021-2022,u20-sm-sarja,534175,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaani Holopainen (F),HIFK U20,36,17,10,27,0.75,37,8,/player/465216/jaani-holopainen,1,Jaani Holopainen,F,2021-2022,u20-sm-sarja,465216,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Koponen (F),KalPa U20,17,16,11,27,1.59,18,9,/player/556890/elias-koponen,1,Elias Koponen,F,2021-2022,u20-sm-sarja,556890,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Väinö Sirkiä (RW),TPS U20,43,12,15,27,0.63,22,11,/player/495838/vaino-sirkia,1,Väinö Sirkiä,RW,2021-2022,u20-sm-sarja,495838,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Otto Jaatinen (C),KalPa U20,41,10,17,27,0.66,26,-2,/player/601096/otto-jaatinen,1,Otto Jaatinen,C,2021-2022,u20-sm-sarja,601096,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eemil Lampi (RW),totals,25,9,18,27,1.08,16,3,/player/602501/eemil-lampi,1,Eemil Lampi,RW,2021-2022,u20-sm-sarja,602501,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Mäkiaho (LW/RW),HPK U20,26,9,18,27,1.04,12,6,/player/396673/daniel-makiaho,1,Daniel Mäkiaho,LW/RW,2021-2022,u20-sm-sarja,396673,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riku Tuomola (D),KooKoo U20,30,9,18,27,0.90,26,12,/player/560522/riku-tuomola,1,Riku Tuomola,D,2021-2022,u20-sm-sarja,560522,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeremi Tammela (C/RW),Lukko U20,37,9,18,27,0.73,12,-8,/player/556891/jeremi-tammela,1,Jeremi Tammela,C/RW,2021-2022,u20-sm-sarja,556891,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miko Rautama (F),Pelicans U20,44,7,20,27,0.61,8,10,/player/470996/miko-rautama,1,Miko Rautama,F,2021-2022,u20-sm-sarja,470996,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juuso Harmanen (F),Kiekko-Espoo U20 Ch,23,20,6,26,1.13,8,10,/player/496855/juuso-harmanen,1,Juuso Harmanen,F,2021-2022,u20-sm-sarja,496855,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Otto Pasonen (C),totals,44,17,9,26,0.59,75,-10,/player/556851/otto-pasonen,1,Otto Pasonen,C,2021-2022,u20-sm-sarja,556851,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Helander (LW),JYP U20,40,15,11,26,0.65,16,-2,/player/499067/jesse-helander,1,Jesse Helander,LW,2021-2022,u20-sm-sarja,499067,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Onni Boman (C),JYP U20,42,12,14,26,0.62,8,4,/player/429283/onni-boman,1,Onni Boman,C,2021-2022,u20-sm-sarja,429283,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Akseli Pennanen (F),Karhu-Kissat U20,25,9,17,26,1.04,26,2,/player/565334/akseli-pennanen,1,Akseli Pennanen,F,2021-2022,u20-sm-sarja,565334,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kasper Lundell (C/RW),HIFK U20,31,8,18,26,0.84,24,10,/player/628584/kasper-lundell,1,Kasper Lundell,C/RW,2021-2022,u20-sm-sarja,628584,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juuso Aaltonen (RW),Ässät U20,33,7,19,26,0.79,4,-5,/player/479334/juuso-aaltonen,1,Juuso Aaltonen,RW,2021-2022,u20-sm-sarja,479334,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Santeri Haarala (C),Sport U20,17,6,20,26,1.53,6,3,/player/376097/santeri-haarala,1,Santeri Haarala,C,2021-2022,u20-sm-sarja,376097,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskari Kuntonen (C),KooKoo U20,24,6,20,26,1.08,29,12,/player/557196/oskari-kuntonen,1,Oskari Kuntonen,C,2021-2022,u20-sm-sarja,557196,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joona Kumpula (C),Jokerit U20,44,15,10,25,0.57,30,11,/player/601638/joona-kumpula,1,Joona Kumpula,C,2021-2022,u20-sm-sarja,601638,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Kiiskinen (RW),Pelicans U20,38,13,12,25,0.66,0,2,/player/734492/jesse-kiiskinen,1,Jesse Kiiskinen,RW,2021-2022,u20-sm-sarja,734492,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samppa Saarinen (D/C),HPK U20,42,13,12,25,0.60,40,-10,/player/437923/samppa-saarinen,1,Samppa Saarinen,D/C,2021-2022,u20-sm-sarja,437923,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vili Kukkola (RW),Tappara U20,45,13,12,25,0.56,43,3,/player/556854/vili-kukkola,1,Vili Kukkola,RW,2021-2022,u20-sm-sarja,556854,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Satosaari (D),Pelicans U20,34,12,13,25,0.74,30,15,/player/428800/patrik-satosaari,1,Patrik Satosaari,D,2021-2022,u20-sm-sarja,428800,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonne Toivonen (C),Ilves U20,31,11,14,25,0.81,26,-2,/player/470683/jonne-toivonen,1,Jonne Toivonen,C,2021-2022,u20-sm-sarja,470683,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Atte Tiitinen (LW),JYP U20,40,10,15,25,0.63,34,1,/player/462187/atte-tiitinen,1,Atte Tiitinen,LW,2021-2022,u20-sm-sarja,462187,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Akkila (C),Ketterä U20,25,9,16,25,1.00,22,-1,/player/395764/aleksi-akkila,1,Aleksi Akkila,C,2021-2022,u20-sm-sarja,395764,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Atte Peltonen (LW),Pelicans U20,44,9,16,25,0.57,30,3,/player/557198/atte-peltonen,2,Atte Peltonen,LW,2021-2022,u20-sm-sarja,557198,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niclas Tenhovuori (RW),Jokerit U20,15,8,17,25,1.67,12,9,/player/534248/niclas-tenhovuori,2,Niclas Tenhovuori,RW,2021-2022,u20-sm-sarja,534248,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samo Meritähti (D),Sport U20,40,8,17,25,0.63,30,4,/player/628578/samo-meritahti,2,Samo Meritähti,D,2021-2022,u20-sm-sarja,628578,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leevi Kinnunen (C),Jukurit U20,30,7,18,25,0.83,4,7,/player/525655/leevi-kinnunen,2,Leevi Kinnunen,C,2021-2022,u20-sm-sarja,525655,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Hamara (D),Tappara U20,32,6,19,25,0.78,16,5,/player/559537/tomas-hamara,2,Tomas Hamara,D,2021-2022,u20-sm-sarja,559537,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Verneri Metsänen (RW),Ilves U20,20,4,21,25,1.25,63,0,/player/428803/verneri-metsanen,2,Verneri Metsänen,RW,2021-2022,u20-sm-sarja,428803,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Osku Koivistoinen (C),totals,22,11,13,24,1.09,8,4,/player/465404/osku-koivistoinen,2,Osku Koivistoinen,C,2021-2022,u20-sm-sarja,465404,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Onni Korkka (D),Lukko U20,34,11,13,24,0.71,26,8,/player/396626/onni-korkka,2,Onni Korkka,D,2021-2022,u20-sm-sarja,396626,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jasper Matilainen (LW),Pelicans U20,43,11,13,24,0.56,0,7,/player/438057/jasper-matilainen,2,Jasper Matilainen,LW,2021-2022,u20-sm-sarja,438057,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aapo Holtinkoski (D),KooKoo U20,34,9,15,24,0.71,14,-4,/player/395423/aapo-holtinkoski,2,Aapo Holtinkoski,D,2021-2022,u20-sm-sarja,395423,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joona Mourujärvi (D),Kärpät U20,36,6,18,24,0.67,14,18,/player/557160/joona-mourujarvi,2,Joona Mourujärvi,D,2021-2022,u20-sm-sarja,557160,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tom Leppä (C),Jokerit U20,37,5,19,24,0.65,20,18,/player/691489/tom-leppa,2,Tom Leppä,C,2021-2022,u20-sm-sarja,691489,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valtteri Viirret (D),Ässät U20,37,4,20,24,0.65,30,11,/player/642178/valtteri-viirret,2,Valtteri Viirret,D,2021-2022,u20-sm-sarja,642178,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Verneri Hellman (D),Ässät U20,29,2,22,24,0.83,18,17,/player/605101/verneri-hellman,2,Verneri Hellman,D,2021-2022,u20-sm-sarja,605101,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Seppälä (LW/RW),HIFK U20,27,12,11,23,0.85,12,15,/player/499075/jesse-seppala,2,Jesse Seppälä,LW/RW,2021-2022,u20-sm-sarja,499075,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tuomas Örn (C),RoKi U20,44,12,11,23,0.52,10,-16,/player/472625/tuomas-orn,2,Tuomas Örn,C,2021-2022,u20-sm-sarja,472625,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arttu Korsumäki (LW),RoKi U20,45,10,13,23,0.51,8,-21,/player/472623/arttu-korsumaki,2,Arttu Korsumäki,LW,2021-2022,u20-sm-sarja,472623,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joni Virolainen (LW),Jukurit U20,43,9,14,23,0.53,37,7,/player/638694/joni-virolainen,2,Joni Virolainen,LW,2021-2022,u20-sm-sarja,638694,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miro Tauslahti (LW),HIFK U20,39,8,15,23,0.59,28,8,/player/639009/miro-tauslahti,2,Miro Tauslahti,LW,2021-2022,u20-sm-sarja,639009,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Veeti Kuhta (F),HIFK U20,33,6,17,23,0.70,0,4,/player/543770/veeti-kuhta,2,Veeti Kuhta,F,2021-2022,u20-sm-sarja,543770,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Isiguzo (C),Kiekko-Espoo U20,40,14,8,22,0.55,12,2,/player/466855/patrick-isiguzo,2,Patrick Isiguzo,C,2021-2022,u20-sm-sarja,466855,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leevi Kukkasniemi (RW),Jukurit U20,37,12,10,22,0.59,20,3,/player/476366/leevi-kukkasniemi,2,Leevi Kukkasniemi,RW,2021-2022,u20-sm-sarja,476366,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viljami Nieminen (LW),Tappara U20,32,10,12,22,0.69,10,5,/player/470568/viljami-nieminen,2,Viljami Nieminen,LW,2021-2022,u20-sm-sarja,470568,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miro Markkula (F),Lukko U20,33,9,13,22,0.67,22,4,/player/397000/miro-markkula,2,Miro Markkula,F,2021-2022,u20-sm-sarja,397000,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Topi Puikkonen (LW),Ilves U20,35,8,14,22,0.63,14,-2,/player/638722/topi-puikkonen,2,Topi Puikkonen,LW,2021-2022,u20-sm-sarja,638722,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Shikera (F),TPS U20,35,8,14,22,0.63,24,2,/player/545095/jan-shikera,2,Jan Shikera,F,2021-2022,u20-sm-sarja,545095,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kasperi Lehtonen (D),HPK U20,28,7,15,22,0.79,12,1,/player/441078/kasperi-lehtonen,2,Kasperi Lehtonen,D,2021-2022,u20-sm-sarja,441078,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Heikkilä (LW/RW),KOOVEE U20,38,7,15,22,0.58,16,-14,/player/638695/erik-heikkila,2,Erik Heikkilä,LW/RW,2021-2022,u20-sm-sarja,638695,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valtteri Lahtinen (F),Tappara U20,39,6,16,22,0.56,55,12,/player/556853/valtteri-lahtinen,2,Valtteri Lahtinen,F,2021-2022,u20-sm-sarja,556853,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kalle Ervasti (D),Lukko U20,42,6,16,22,0.52,54,10,/player/470503/kalle-ervasti,2,Kalle Ervasti,D,2021-2022,u20-sm-sarja,470503,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valtteri Hapuli (RW),Karhu-Kissat U20,26,3,19,22,0.85,0,-2,/player/428875/valtteri-hapuli,2,Valtteri Hapuli,RW,2021-2022,u20-sm-sarja,428875,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arttu Kärki (D),Tappara U20,36,2,20,22,0.61,16,16,/player/638705/arttu-karki,2,Arttu Kärki,D,2021-2022,u20-sm-sarja,638705,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Verneri Ahonen (C/W),HPK U20,41,2,20,22,0.54,4,-3,/player/556850/verneri-ahonen,2,Verneri Ahonen,C/W,2021-2022,u20-sm-sarja,556850,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Järventie (LW),Ilves U20,20,13,8,21,1.05,16,7,/player/540337/emil-jarventie,2,Emil Järventie,LW,2021-2022,u20-sm-sarja,540337,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Iivari Miikkulainen (F),TUTO Hockey U20,30,13,8,21,0.70,31,-18,/player/438251/iivari-miikkulainen,2,Iivari Miikkulainen,F,2021-2022,u20-sm-sarja,438251,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sakke Vallius (RW),KalPa U20,44,13,8,21,0.48,98,0,/player/563721/sakke-vallius,2,Sakke Vallius,RW,2021-2022,u20-sm-sarja,563721,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Otto Pitkänen (C),TUTO Hockey U20,44,10,11,21,0.48,4,0,/player/579736/otto-pitkanen,2,Otto Pitkänen,C,2021-2022,u20-sm-sarja,579736,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Koskipirtti (C/W),Kiekko-Espoo U20,38,8,13,21,0.55,0,-8,/player/648374/max-koskipirtti,2,Max Koskipirtti,C/W,2021-2022,u20-sm-sarja,648374,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lenni Hämäläinen (RW/LW),Lukko U20,39,7,14,21,0.54,12,-3,/player/499076/lenni-hamalainen,2,Lenni Hämäläinen,RW/LW,2021-2022,u20-sm-sarja,499076,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joni Loukkojärvi (D),Ässät U20,43,7,14,21,0.49,16,33,/player/557239/joni-loukkojarvi,2,Joni Loukkojärvi,D,2021-2022,u20-sm-sarja,557239,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Santeri Seppälä (C),Hermes U20,23,6,15,21,0.91,45,-8,/player/498944/santeri-seppala,2,Santeri Seppälä,C,2021-2022,u20-sm-sarja,498944,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jerkko Virtala (D),Ässät U20,38,4,17,21,0.55,22,23,/player/534209/jerkko-virtala,2,Jerkko Virtala,D,2021-2022,u20-sm-sarja,534209,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elmeri Asmundela (C),totals,28,3,18,21,0.75,8,-2,/player/499453/elmeri-asmundela,2,Elmeri Asmundela,C,2021-2022,u20-sm-sarja,499453,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kasper Mäenpää (D),Sport U20,44,3,18,21,0.48,10,-3,/player/470644/kasper-maenpaa,2,Kasper Mäenpää,D,2021-2022,u20-sm-sarja,470644,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valtteri Savolainen (LW),HPK U20,33,13,7,20,0.61,35,-1,/player/551959/valtteri-savolainen,2,Valtteri Savolainen,LW,2021-2022,u20-sm-sarja,551959,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niilo Suvanto (C),KooKoo U20,45,12,8,20,0.44,32,3,/player/602888/niilo-suvanto,2,Niilo Suvanto,C,2021-2022,u20-sm-sarja,602888,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tuukka Mäntymäki (F),KOOVEE U20,25,11,9,20,0.80,16,-11,/player/479297/tuukka-mantymaki,2,Tuukka Mäntymäki,F,2021-2022,u20-sm-sarja,479297,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eetu Liukas (LW/RW),TPS U20,13,10,10,20,1.54,14,5,/player/470708/eetu-liukas,2,Eetu Liukas,LW/RW,2021-2022,u20-sm-sarja,470708,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilari Vähäuski (F),TUTO Hockey U20,14,10,10,20,1.43,4,4,/player/375961/ilari-vahauski,2,Ilari Vähäuski,F,2021-2022,u20-sm-sarja,375961,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benjamin Rautiainen (C/LW),Ilves U20,31,10,10,20,0.65,24,-17,/player/710221/benjamin-rautiainen,2,Benjamin Rautiainen,C/LW,2021-2022,u20-sm-sarja,710221,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Kiik (F),TUTO Hockey U20,24,9,11,20,0.83,10,3,/player/345526/rasmus-kiik,2,Rasmus Kiik,F,2021-2022,u20-sm-sarja,345526,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kasper Vähärautio (D),Jokerit U20,32,9,11,20,0.63,20,25,/player/554233/kasper-vaharautio,2,Kasper Vähärautio,D,2021-2022,u20-sm-sarja,554233,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leo Ring (F),TUTO Hockey U20,16,8,12,20,1.25,0,0,/player/428789/leo-ring,2,Leo Ring,F,2021-2022,u20-sm-sarja,428789,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kalle Väisänen (RW/LW),TPS U20,17,8,12,20,1.18,18,2,/player/559937/kalle-vaisanen,2,Kalle Väisänen,RW/LW,2021-2022,u20-sm-sarja,559937,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leevi Paakkala (D),Karhu-Kissat U20,25,7,13,20,0.80,45,-1,/player/360136/leevi-paakkala,2,Leevi Paakkala,D,2021-2022,u20-sm-sarja,360136,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lauri Raiman (C/W),Pelicans U20,42,7,13,20,0.48,18,4,/player/535839/lauri-raiman,2,Lauri Raiman,C/W,2021-2022,u20-sm-sarja,535839,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ron Gustafsson (LW),KooKoo U20,40,4,16,20,0.50,16,-2,/player/565373/ron-gustafsson,2,Ron Gustafsson,LW,2021-2022,u20-sm-sarja,565373,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aapo Siivonen (D),KooKoo U20,45,4,16,20,0.44,18,11,/player/535193/aapo-siivonen,2,Aapo Siivonen,D,2021-2022,u20-sm-sarja,535193,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Ruotsalainen (D),Kärpät U20,38,3,17,20,0.53,12,19,/player/557202/ville-ruotsalainen,2,Ville Ruotsalainen,D,2021-2022,u20-sm-sarja,557202,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wiljami Myllylä (RW/LW),totals,31,12,7,19,0.61,20,-4,/player/395086/wiljami-myllyla,2,Wiljami Myllylä,RW/LW,2021-2022,u20-sm-sarja,395086,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Pugachyov (RW/LW),KalPa U20,35,10,9,19,0.54,2,-5,/player/512909/artyom-pugachyov,2,Artyom Pugachyov,RW/LW,2021-2022,u20-sm-sarja,512909,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aatu Aarnio (D),TPS U20,45,10,9,19,0.42,55,15,/player/375948/aatu-aarnio,2,Aatu Aarnio,D,2021-2022,u20-sm-sarja,375948,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valtteri Kekarainen (F),Ketterä U20,19,9,10,19,1.00,6,-1,/player/332845/valtteri-kekarainen,2,Valtteri Kekarainen,F,2021-2022,u20-sm-sarja,332845,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tony Mollberg (C),Karhu-Kissat U20,23,8,11,19,0.83,24,-3,/player/396576/tony-mollberg,2,Tony Mollberg,C,2021-2022,u20-sm-sarja,396576,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tuomas Salonaho (LW),Ketterä U20,24,8,11,19,0.79,14,1,/player/563876/tuomas-salonaho,2,Tuomas Salonaho,LW,2021-2022,u20-sm-sarja,563876,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Kivioja (C/W),Kiekko-Espoo U20,41,8,11,19,0.46,22,-1,/player/560359/aleksi-kivioja,2,Aleksi Kivioja,C/W,2021-2022,u20-sm-sarja,560359,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Topias Hynninen (C/LW),KalPa U20,41,6,13,19,0.46,43,-1,/player/618609/topias-hynninen,2,Topias Hynninen,C/LW,2021-2022,u20-sm-sarja,618609,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Kangasniemi (F),JYP U20,26,4,15,19,0.73,39,2,/player/556744/emil-kangasniemi,2,Emil Kangasniemi,F,2021-2022,u20-sm-sarja,556744,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Bláha (D),TUTO Hockey U20,22,1,18,19,0.86,14,4,/player/428180/marek-blaha,2,Marek Bláha,D,2021-2022,u20-sm-sarja,428180,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tommi Männistö (RW),Tappara U20,41,11,7,18,0.44,39,2,/player/602874/tommi-mannisto,2,Tommi Männistö,RW,2021-2022,u20-sm-sarja,602874,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antti Myllyaho (F),Kärpät U20,43,11,7,18,0.42,44,11,/player/534204/antti-myllyaho,2,Antti Myllyaho,F,2021-2022,u20-sm-sarja,534204,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samu Bau (C),HIFK U20,36,10,8,18,0.50,20,-2,/player/634873/samu-bau,2,Samu Bau,C,2021-2022,u20-sm-sarja,634873,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaroslav Chmelař (RW/LW),Jokerit U20,39,9,9,18,0.46,26,11,/player/579280/jaroslav-chmelar%CC%8C,2,Jaroslav Chmelař,RW/LW,2021-2022,u20-sm-sarja,579280,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuli Aaltonen (LW/RW),Ässät U20,31,8,10,18,0.58,16,17,/player/396628/samuli-aaltonen,2,Samuli Aaltonen,LW/RW,2021-2022,u20-sm-sarja,396628,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eeti Tuominen (RW),KOOVEE U20,36,8,10,18,0.50,14,-6,/player/601816/eeti-tuominen,2,Eeti Tuominen,RW,2021-2022,u20-sm-sarja,601816,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Venni Tolppola (C/RW),Kiekko-Espoo U20,37,8,10,18,0.49,10,-7,/player/638635/venni-tolppola,2,Venni Tolppola,C/RW,2021-2022,u20-sm-sarja,638635,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Santeri Koskela (C),JYP U20,19,7,11,18,0.95,12,-5,/player/556750/santeri-koskela,2,Santeri Koskela,C,2021-2022,u20-sm-sarja,556750,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elmeri Laakso (D),SaiPa U20,25,7,11,18,0.72,16,12,/player/535838/elmeri-laakso,2,Elmeri Laakso,D,2021-2022,u20-sm-sarja,535838,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petteri Riihinen (D),Pelicans U20,35,7,11,18,0.51,36,9,/player/395962/petteri-riihinen,2,Petteri Riihinen,D,2021-2022,u20-sm-sarja,395962,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Kuiri (LW),KalPa U20,44,7,11,18,0.41,6,-3,/player/563720/rasmus-kuiri,2,Rasmus Kuiri,LW,2021-2022,u20-sm-sarja,563720,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aatu Jämsen (RW/LW),Pelicans U20,11,6,12,18,1.64,6,15,/player/557189/aatu-jamsen,2,Aatu Jämsen,RW/LW,2021-2022,u20-sm-sarja,557189,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juraj Slafkovský (RW/LW),TPS U20,11,6,12,18,1.64,6,6,/player/527423/juraj-slafkovsky,2,Juraj Slafkovský,RW/LW,2021-2022,u20-sm-sarja,527423,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaro Mäkinen (F),totals,29,6,12,18,0.62,4,10,/player/428804/aaro-makinen,2,Aaro Mäkinen,F,2021-2022,u20-sm-sarja,428804,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskari Vuorio (C),totals,42,6,12,18,0.43,26,6,/player/526049/oskari-vuorio,2,Oskari Vuorio,C,2021-2022,u20-sm-sarja,526049,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sampsa Huoponen (RW),totals,44,6,12,18,0.41,18,18,/player/556926/sampsa-huoponen,2,Sampsa Huoponen,RW,2021-2022,u20-sm-sarja,556926,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Ketonen (F),Lukko U20,45,5,13,18,0.40,16,6,/player/628798/niklas-ketonen,2,Niklas Ketonen,F,2021-2022,u20-sm-sarja,628798,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roope Turunen (F),SaiPa U20,16,4,14,18,1.13,28,-7,/player/428876/roope-turunen,2,Roope Turunen,F,2021-2022,u20-sm-sarja,428876,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stepan Nemec (D),Jukurit U20,29,3,15,18,0.62,12,8,/player/522318/stepan-nemec,2,Stepan Nemec,D,2021-2022,u20-sm-sarja,522318,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joonas Liimatainen (D),Jukurit U20,35,3,15,18,0.51,2,8,/player/549256/joonas-liimatainen,2,Joonas Liimatainen,D,2021-2022,u20-sm-sarja,549256,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Saarinen (D),HIFK U20,43,3,15,18,0.42,60,1,/player/556833/emil-saarinen,2,Emil Saarinen,D,2021-2022,u20-sm-sarja,556833,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kasper Holm (RW),Sport U20,20,11,6,17,0.85,4,-4,/player/641009/kasper-holm,2,Kasper Holm,RW,2021-2022,u20-sm-sarja,641009,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kasper Seppälä (F),Sport U20,40,11,6,17,0.43,44,-13,/player/472658/kasper-seppala,2,Kasper Seppälä,F,2021-2022,u20-sm-sarja,472658,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Lampinen (D),RoKi U20,45,11,6,17,0.38,2,-26,/player/557223/emil-lampinen,2,Emil Lampinen,D,2021-2022,u20-sm-sarja,557223,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Kalliosalo (F),Ilves U20,24,10,7,17,0.71,4,6,/player/428802/jesse-kalliosalo,2,Jesse Kalliosalo,F,2021-2022,u20-sm-sarja,428802,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Sotti (RW),Karhu-Kissat U20,26,9,8,17,0.65,8,1,/player/628522/elias-sotti,2,Elias Sotti,RW,2021-2022,u20-sm-sarja,628522,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jasse Mäkäräinen (F),totals,41,9,8,17,0.41,44,-13,/player/499413/jasse-makarainen,2,Jasse Mäkäräinen,F,2021-2022,u20-sm-sarja,499413,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Niemi (C/W),Sport U20,42,9,8,17,0.40,6,-23,/player/563520/ville-niemi,2,Ville Niemi,C/W,2021-2022,u20-sm-sarja,563520,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Feetu Knihti (C/LW),Ässät U20,17,8,9,17,1.00,8,7,/player/556872/feetu-knihti,2,Feetu Knihti,C/LW,2021-2022,u20-sm-sarja,556872,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Kumpulainen (C/LW),Pelicans U20,43,8,9,17,0.40,2,7,/player/689399/rasmus-kumpulainen,2,Rasmus Kumpulainen,C/LW,2021-2022,u20-sm-sarja,689399,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskari Mikkonen (D),KalPa U20,32,7,10,17,0.53,38,6,/player/470660/oskari-mikkonen,2,Oskari Mikkonen,D,2021-2022,u20-sm-sarja,470660,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Talvikunnas (F),totals,39,7,10,17,0.44,2,-13,/player/551964/oliver-talvikunnas,3,Oliver Talvikunnas,F,2021-2022,u20-sm-sarja,551964,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tuomas Uronen (W/C),HIFK U20,24,6,11,17,0.71,43,2,/player/540333/tuomas-uronen,3,Tuomas Uronen,W/C,2021-2022,u20-sm-sarja,540333,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matias Kutvonen (D),Kiekko-Espoo U20 Ch,26,6,11,17,0.65,18,12,/player/428780/matias-kutvonen,3,Matias Kutvonen,D,2021-2022,u20-sm-sarja,428780,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Mäkelä (F),totals,18,5,12,17,0.94,6,-2,/player/470535/anton-makela,3,Anton Mäkelä,F,2021-2022,u20-sm-sarja,470535,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eemil Laurell (F),KOOVEE U20,26,5,12,17,0.65,8,-3,/player/710224/eemil-laurell,3,Eemil Laurell,F,2021-2022,u20-sm-sarja,710224,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joni Hyvärinen (D),Jukurit U20,29,5,12,17,0.59,18,18,/player/471003/joni-hyvarinen,3,Joni Hyvärinen,D,2021-2022,u20-sm-sarja,471003,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jere Ohtonen (C),Jukurit U20,35,5,12,17,0.49,24,11,/player/551351/jere-ohtonen,3,Jere Ohtonen,C,2021-2022,u20-sm-sarja,551351,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Mykkänen (D),KalPa U20,36,5,12,17,0.47,8,5,/player/556886/joel-mykkanen,3,Joel Mykkänen,D,2021-2022,u20-sm-sarja,556886,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Laukkanen (D),Karhu-Kissat U20,22,4,13,17,0.77,16,-3,/player/470477/robin-laukkanen,3,Robin Laukkanen,D,2021-2022,u20-sm-sarja,470477,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jimi Kaasinen (D),KOOVEE U20,33,4,13,17,0.52,30,-16,/player/441118/jimi-kaasinen,3,Jimi Kaasinen,D,2021-2022,u20-sm-sarja,441118,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Malinen (D),JYP U20,33,3,14,17,0.52,20,-1,/player/556743/aleksi-malinen,3,Aleksi Malinen,D,2021-2022,u20-sm-sarja,556743,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jere Virolainen (C),Tappara U20,43,3,14,17,0.40,44,6,/player/525661/jere-virolainen,3,Jere Virolainen,C,2021-2022,u20-sm-sarja,525661,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jasper Viitala (LW),Kiekko-Espoo U20 Ch,19,8,8,16,0.84,8,3,/player/476209/jasper-viitala,3,Jasper Viitala,LW,2021-2022,u20-sm-sarja,476209,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eetu Kontio (F),Jukurit U20,35,8,8,16,0.46,10,9,/player/602499/eetu-kontio,3,Eetu Kontio,F,2021-2022,u20-sm-sarja,602499,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Penttilä (RW),Kiekko-Espoo U20 Ch,15,7,9,16,1.07,47,10,/player/560361/jesse-penttila,3,Jesse Penttilä,RW,2021-2022,u20-sm-sarja,560361,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juha Pukkila (C),Lukko U20,33,7,9,16,0.48,48,2,/player/396177/juha-pukkila,3,Juha Pukkila,C,2021-2022,u20-sm-sarja,396177,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roni Karvinen (LW/C),SaiPa U20,10,6,10,16,1.60,4,6,/player/470457/roni-karvinen,3,Roni Karvinen,LW/C,2021-2022,u20-sm-sarja,470457,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Otto Hokkanen (C/W),SaiPa U20,14,6,10,16,1.14,22,10,/player/620266/otto-hokkanen,3,Otto Hokkanen,C/W,2021-2022,u20-sm-sarja,620266,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Klaus Kaspar Jõgi (LW),totals,27,6,10,16,0.59,12,8,/player/538367/klaus-kaspar-j%C3%B5gi,3,Klaus Kaspar Jõgi,LW,2021-2022,u20-sm-sarja,538367,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arttu Alasiurua (C/LW),Kärpät U20,33,6,10,16,0.48,12,5,/player/618607/arttu-alasiurua,3,Arttu Alasiurua,C/LW,2021-2022,u20-sm-sarja,618607,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justus Ojala (C),HPK U20,41,6,10,16,0.39,8,-9,/player/551963/justus-ojala,3,Justus Ojala,C,2021-2022,u20-sm-sarja,551963,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kimi Kuusela (D),JYP U20,28,5,11,16,0.57,34,19,/player/429280/kimi-kuusela,3,Kimi Kuusela,D,2021-2022,u20-sm-sarja,429280,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Atte Lehikoinen (D),KalPa U20,42,2,14,16,0.38,16,-3,/player/556904/atte-lehikoinen,3,Atte Lehikoinen,D,2021-2022,u20-sm-sarja,556904,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matias Rantonen (F),Karhu-Kissat U20,18,11,4,15,0.83,10,7,/player/565348/matias-rantonen,3,Matias Rantonen,F,2021-2022,u20-sm-sarja,565348,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesperi Kaukonen (RW),Ässät U20,33,10,5,15,0.45,12,5,/player/638703/jesperi-kaukonen,3,Jesperi Kaukonen,RW,2021-2022,u20-sm-sarja,638703,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikolai Hakala (C),Ilves U20,11,9,6,15,1.36,6,8,/player/638714/nikolai-hakala,3,Nikolai Hakala,C,2021-2022,u20-sm-sarja,638714,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joni Airo (RW),JYP U20,14,9,6,15,1.07,2,2,/player/395076/joni-airo,3,Joni Airo,RW,2021-2022,u20-sm-sarja,395076,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jere Lassila (C),JYP U20,17,8,7,15,0.88,14,4,/player/526041/jere-lassila,3,Jere Lassila,C,2021-2022,u20-sm-sarja,526041,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Vaahtoranta (RW),totals,24,8,7,15,0.63,6,7,/player/294574/oliver-vaahtoranta,3,Oliver Vaahtoranta,RW,2021-2022,u20-sm-sarja,294574,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arttu Kiviluoma (RW),Hermes U20,26,8,7,15,0.58,10,-12,/player/441167/arttu-kiviluoma,3,Arttu Kiviluoma,RW,2021-2022,u20-sm-sarja,441167,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vili Alitalo (C/W),HPK U20,42,8,7,15,0.36,12,-11,/player/551966/vili-alitalo,3,Vili Alitalo,C/W,2021-2022,u20-sm-sarja,551966,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Kapanen (C),KalPa U20,11,7,8,15,1.36,0,4,/player/639018/oliver-kapanen,3,Oliver Kapanen,C,2021-2022,u20-sm-sarja,639018,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wilhelm Juvonen (F),Karhu-Kissat U20,21,7,8,15,0.71,24,1,/player/396164/wilhelm-juvonen,3,Wilhelm Juvonen,F,2021-2022,u20-sm-sarja,396164,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riku Tohila (C),JYP U20,41,7,8,15,0.37,32,6,/player/476211/riku-tohila,3,Riku Tohila,C,2021-2022,u20-sm-sarja,476211,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Perttu Harjula (F),totals,32,6,9,15,0.47,14,-1,/player/534173/perttu-harjula,3,Perttu Harjula,F,2021-2022,u20-sm-sarja,534173,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Lindholm (F),TUTO Hockey U20,35,6,9,15,0.43,2,-7,/player/579712/ville-lindholm,3,Ville Lindholm,F,2021-2022,u20-sm-sarja,579712,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aapo Sarell (D),SaiPa U20,39,6,9,15,0.38,32,6,/player/602491/aapo-sarell,3,Aapo Sarell,D,2021-2022,u20-sm-sarja,602491,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miska Merkkiniemi (D),RoKi U20,43,6,9,15,0.35,24,-28,/player/602489/miska-merkkiniemi,3,Miska Merkkiniemi,D,2021-2022,u20-sm-sarja,602489,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jimi Suomi (D),TPS U20,12,5,10,15,1.25,14,6,/player/525662/jimi-suomi,3,Jimi Suomi,D,2021-2022,u20-sm-sarja,525662,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Onni Käyhkö (D),Pelicans U20,41,5,10,15,0.37,8,16,/player/557188/onni-kayhko,3,Onni Käyhkö,D,2021-2022,u20-sm-sarja,557188,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Rissanen (F/D),RoKi U20,41,5,10,15,0.37,38,-14,/player/576428/aleksi-rissanen,3,Aleksi Rissanen,F/D,2021-2022,u20-sm-sarja,576428,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hugo Rikkilä (D),SaiPa U20,12,4,11,15,1.25,10,-1,/player/428869/hugo-rikkila,3,Hugo Rikkilä,D,2021-2022,u20-sm-sarja,428869,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juuso Saarinen (F),TPS U20,20,4,11,15,0.75,4,1,/player/534216/juuso-saarinen,3,Juuso Saarinen,F,2021-2022,u20-sm-sarja,534216,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pyry Puolakka (F),Kiekko-Espoo U20,33,4,11,15,0.45,30,-4,/player/396672/pyry-puolakka,3,Pyry Puolakka,F,2021-2022,u20-sm-sarja,396672,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Kemppainen (C),HPK U20,44,4,11,15,0.34,38,2,/player/557165/patrik-kemppainen,3,Patrik Kemppainen,C,2021-2022,u20-sm-sarja,557165,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Forslund (C),Pelicans U20,12,3,12,15,1.25,4,7,/player/466854/alexander-forslund,3,Alexander Forslund,C,2021-2022,u20-sm-sarja,466854,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Tuhkanen (D),Jokerit U20,23,3,12,15,0.65,4,8,/player/465222/oliver-tuhkanen,3,Oliver Tuhkanen,D,2021-2022,u20-sm-sarja,465222,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Santeri Siitonen (D),KooKoo U20,43,2,13,15,0.35,14,11,/player/499515/santeri-siitonen,3,Santeri Siitonen,D,2021-2022,u20-sm-sarja,499515,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Jääskeläinen (RW),Hermes U20,22,8,6,14,0.64,10,2,/player/561968/joel-jaaskelainen,3,Joel Jääskeläinen,RW,2021-2022,u20-sm-sarja,561968,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maks Mikkola (F),Kärpät U20,33,8,6,14,0.42,8,-2,/player/628892/maks-mikkola,3,Maks Mikkola,F,2021-2022,u20-sm-sarja,628892,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskari Määttä (LW),RoKi U20,44,8,6,14,0.32,6,-27,/player/545626/oskari-maatta,3,Oskari Määttä,LW,2021-2022,u20-sm-sarja,545626,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valtteri Himanka (LW/RW),Hermes U20,24,6,8,14,0.58,40,-12,/player/612995/valtteri-himanka,3,Valtteri Himanka,LW/RW,2021-2022,u20-sm-sarja,612995,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomi Alanko (LW),RoKi U20,31,6,8,14,0.45,16,-18,/player/472626/tomi-alanko,3,Tomi Alanko,LW,2021-2022,u20-sm-sarja,472626,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valtteri Lindroos (F),Lukko U20,35,6,8,14,0.40,61,2,/player/528524/valtteri-lindroos,3,Valtteri Lindroos,F,2021-2022,u20-sm-sarja,528524,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joose Virtanen (RW),Jokerit U20,43,6,8,14,0.33,10,4,/player/534267/joose-virtanen,3,Joose Virtanen,RW,2021-2022,u20-sm-sarja,534267,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Käyrä (F),Lukko U20,17,5,9,14,0.82,12,4,/player/395075/aleksi-kayra,3,Aleksi Käyrä,F,2021-2022,u20-sm-sarja,395075,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juho Järvelä (C),Jukurit U20,22,5,9,14,0.64,20,4,/player/556920/juho-jarvela,3,Juho Järvelä,C,2021-2022,u20-sm-sarja,556920,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luka Tiihonen (D),Tappara U20,39,5,9,14,0.36,14,18,/player/525659/luka-tiihonen,3,Luka Tiihonen,D,2021-2022,u20-sm-sarja,525659,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Knazko (D),TPS U20,15,4,10,14,0.93,4,6,/player/423667/samuel-knazko,3,Samuel Knazko,D,2021-2022,u20-sm-sarja,423667,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sami Jokinen (C/LW),totals,36,4,10,14,0.39,14,-7,/player/470665/sami-jokinen,3,Sami Jokinen,C/LW,2021-2022,u20-sm-sarja,470665,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leevi Tanskanen (D),HIFK U20,40,4,10,14,0.35,14,6,/player/454748/leevi-tanskanen,3,Leevi Tanskanen,D,2021-2022,u20-sm-sarja,454748,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Gabriel (C),SaiPa U20,29,3,11,14,0.48,0,7,/player/527417/patrik-gabriel,3,Patrik Gabriel,C,2021-2022,u20-sm-sarja,527417,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eetu Tiusanen (C/LW),Jukurit U20,33,3,11,14,0.42,12,15,/player/556919/eetu-tiusanen,3,Eetu Tiusanen,C/LW,2021-2022,u20-sm-sarja,556919,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julius Vesaaja (F),Pelicans U20,34,3,11,14,0.41,42,3,/player/395966/julius-vesaaja,3,Julius Vesaaja,F,2021-2022,u20-sm-sarja,395966,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juho Heinonen (F),Sport U20,43,3,11,14,0.33,32,-3,/player/638735/juho-heinonen,3,Juho Heinonen,F,2021-2022,u20-sm-sarja,638735,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikael Koskimies (D),SaiPa U20,22,2,12,14,0.64,6,0,/player/395762/mikael-koskimies,3,Mikael Koskimies,D,2021-2022,u20-sm-sarja,395762,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Karlsson (D),Kiekko-Espoo U20,33,2,12,14,0.42,6,-4,/player/499485/niko-karlsson,3,Niko Karlsson,D,2021-2022,u20-sm-sarja,499485,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leevi Juntunen (D/F),Sport U20,41,2,12,14,0.34,38,-2,/player/454749/leevi-juntunen,3,Leevi Juntunen,D/F,2021-2022,u20-sm-sarja,454749,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eetu Palovaara (D),Ässät U20,42,1,13,14,0.33,34,-1,/player/472619/eetu-palovaara,3,Eetu Palovaara,D,2021-2022,u20-sm-sarja,472619,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Santeri Haakana (D),Jokerit U20,43,1,13,14,0.33,2,16,/player/619513/santeri-haakana,3,Santeri Haakana,D,2021-2022,u20-sm-sarja,619513,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Morten Jürgens (C/W),Kiekko-Espoo U20,14,7,6,13,0.93,18,1,/player/345525/morten-jurgens,3,Morten Jürgens,C/W,2021-2022,u20-sm-sarja,345525,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Trakht (W),Lukko U20,27,6,7,13,0.48,10,-2,/player/538851/daniil-trakht,3,Daniil Trakht,W,2021-2022,u20-sm-sarja,538851,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Iiro Halme (LW),totals,34,6,7,13,0.38,12,0,/player/628893/iiro-halme,3,Iiro Halme,LW,2021-2022,u20-sm-sarja,628893,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Libor Nemec (RW/LW),Lukko U20,35,6,7,13,0.37,22,9,/player/542971/libor-nemec,3,Libor Nemec,RW/LW,2021-2022,u20-sm-sarja,542971,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juho Hallikas (D),SaiPa U20,21,3,10,13,0.62,0,11,/player/638762/juho-hallikas,3,Juho Hallikas,D,2021-2022,u20-sm-sarja,638762,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Paakkala (F),Karhu-Kissat U20,16,2,11,13,0.81,10,1,/player/709577/anton-paakkala,3,Anton Paakkala,F,2021-2022,u20-sm-sarja,709577,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Atso Lehtinen (D),HPK U20,17,2,11,13,0.76,2,2,/player/396702/atso-lehtinen,3,Atso Lehtinen,D,2021-2022,u20-sm-sarja,396702,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roni Huovila (D),RoKi U20,43,1,12,13,0.30,6,-30,/player/476181/roni-huovila,3,Roni Huovila,D,2021-2022,u20-sm-sarja,476181,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jasper Rantanen (F),Kiekko-Espoo U20,30,11,1,12,0.40,8,-2,/player/462193/jasper-rantanen,3,Jasper Rantanen,F,2021-2022,u20-sm-sarja,462193,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Kettunen (C/W),Ketterä U20,21,7,5,12,0.57,29,-5,/player/444428/aleksi-kettunen,3,Aleksi Kettunen,C/W,2021-2022,u20-sm-sarja,444428,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mika Mäki (F),KOOVEE U20,32,7,5,12,0.38,10,-7,/player/479280/mika-maki,3,Mika Mäki,F,2021-2022,u20-sm-sarja,479280,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matias Hautala (D),Tappara U20,41,7,5,12,0.29,4,-4,/player/396993/matias-hautala,3,Matias Hautala,D,2021-2022,u20-sm-sarja,396993,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Rantanen (F),totals,43,7,5,12,0.28,45,3,/player/602497/niklas-rantanen,3,Niklas Rantanen,F,2021-2022,u20-sm-sarja,602497,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antoine Herpin (C),KOOVEE U20,24,6,6,12,0.50,8,-14,/player/396631/antoine-herpin,3,Antoine Herpin,C,2021-2022,u20-sm-sarja,396631,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Topi Jalonen (C),KOOVEE U20,33,6,6,12,0.36,42,-20,/player/556848/topi-jalonen,3,Topi Jalonen,C,2021-2022,u20-sm-sarja,556848,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aatu Laakso (C),HIFK U20,38,6,6,12,0.32,8,-3,/player/440872/aatu-laakso,3,Aatu Laakso,C,2021-2022,u20-sm-sarja,440872,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joonatan Lempiäinen (W),SaiPa U20,16,5,7,12,0.75,4,11,/player/649696/joonatan-lempiainen,3,Joonatan Lempiäinen,W,2021-2022,u20-sm-sarja,649696,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Galimberti (F),Pelicans U20,30,5,7,12,0.40,6,5,/player/489353/thomas-galimberti,3,Thomas Galimberti,F,2021-2022,u20-sm-sarja,489353,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Topias Saramäki (LW/RW),TUTO Hockey U20,30,5,7,12,0.40,12,-3,/player/558609/topias-saramaki,3,Topias Saramäki,LW/RW,2021-2022,u20-sm-sarja,558609,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leevi Hyypiä (F),RoKi U20,34,5,7,12,0.35,12,-20,/player/496802/leevi-hyypia,3,Leevi Hyypiä,F,2021-2022,u20-sm-sarja,496802,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Ragan (LW),TPS U20,43,5,7,12,0.28,16,0,/player/473373/jakub-ragan,3,Jakub Ragan,LW,2021-2022,u20-sm-sarja,473373,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Otto Salin (D),HIFK U20,11,4,8,12,1.09,10,12,/player/638727/otto-salin,3,Otto Salin,D,2021-2022,u20-sm-sarja,638727,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Wolin (D),KOOVEE U20,18,4,8,12,0.67,26,-8,/player/466862/adam-wolin,3,Adam Wolin,D,2021-2022,u20-sm-sarja,466862,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rayen Petrovický (D),TUTO Hockey U20,22,4,8,12,0.55,6,-6,/player/561820/rayen-petrovicky,3,Rayen Petrovický,D,2021-2022,u20-sm-sarja,561820,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sayam Limtong (LW/RW),Ketterä U20,24,4,8,12,0.50,4,-11,/player/557191/sayam-limtong,3,Sayam Limtong,LW/RW,2021-2022,u20-sm-sarja,557191,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aatu Käkränen (F),Ketterä U20,23,3,9,12,0.52,14,-5,/player/580060/aatu-kakranen,3,Aatu Käkränen,F,2021-2022,u20-sm-sarja,580060,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Meriläinen (LW),HPK U20,36,3,9,12,0.33,18,1,/player/563722/niklas-merilainen,3,Niklas Meriläinen,LW,2021-2022,u20-sm-sarja,563722,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jimi Gustafsson (F),KooKoo U20,37,3,9,12,0.32,34,5,/player/549254/jimi-gustafsson,3,Jimi Gustafsson,F,2021-2022,u20-sm-sarja,549254,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eetu Laine (C),TUTO Hockey U20,37,3,9,12,0.32,71,-27,/player/560585/eetu-laine,3,Eetu Laine,C,2021-2022,u20-sm-sarja,560585,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Srdinko (D),KooKoo U20,39,2,10,12,0.31,16,5,/player/522394/adam-srdinko,3,Adam Srdinko,D,2021-2022,u20-sm-sarja,522394,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arttu Paaso (D),Kärpät U20,13,1,11,12,0.92,14,0,/player/534233/arttu-paaso,4,Arttu Paaso,D,2021-2022,u20-sm-sarja,534233,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valter Lindqvist (C),Hermes U20,22,7,4,11,0.50,64,-3,/player/472657/valter-lindqvist,4,Valter Lindqvist,C,2021-2022,u20-sm-sarja,472657,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petteri Salmi (F),Karhu-Kissat U20,24,7,4,11,0.46,10,-3,/player/642440/petteri-salmi,4,Petteri Salmi,F,2021-2022,u20-sm-sarja,642440,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joonas Parviainen (C/W),HPK U20,35,7,4,11,0.31,45,-1,/player/499439/joonas-parviainen,4,Joonas Parviainen,C/W,2021-2022,u20-sm-sarja,499439,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Iivari Säkkinen (F),Lukko U20,19,6,5,11,0.58,8,1,/player/499425/iivari-sakkinen,4,Iivari Säkkinen,F,2021-2022,u20-sm-sarja,499425,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justus Juntunen (F),KooKoo U20,35,6,5,11,0.31,6,1,/player/557116/justus-juntunen,4,Justus Juntunen,F,2021-2022,u20-sm-sarja,557116,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksei Liniaev (F),Ketterä U20,23,5,6,11,0.48,16,-1,/player/712928/aleksei-liniaev,4,Aleksei Liniaev,F,2021-2022,u20-sm-sarja,712928,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kasperi Kinnunen (F),SaiPa U20,34,5,6,11,0.32,8,-1,/player/534174/kasperi-kinnunen,4,Kasperi Kinnunen,F,2021-2022,u20-sm-sarja,534174,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maks Percic (D),Kiekko-Espoo U20,34,5,6,11,0.32,30,-1,/player/682496/maks-percic,4,Maks Percic,D,2021-2022,u20-sm-sarja,682496,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leevi Karppinen (F),RoKi U20,44,5,6,11,0.25,8,-31,/player/619512/leevi-karppinen,4,Leevi Karppinen,F,2021-2022,u20-sm-sarja,619512,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sisu Yliniemi (C),Kärpät U20,17,4,7,11,0.65,10,6,/player/525658/sisu-yliniemi,4,Sisu Yliniemi,C,2021-2022,u20-sm-sarja,525658,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Chrenka (LW),Jukurit U20,35,4,7,11,0.31,65,3,/player/559508/samuel-chrenka,4,Samuel Chrenka,LW,2021-2022,u20-sm-sarja,559508,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julius Ikonen (RW),Ilves U20,43,4,7,11,0.26,6,-18,/player/638715/julius-ikonen,4,Julius Ikonen,RW,2021-2022,u20-sm-sarja,638715,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Välilä (C),Tappara U20,44,4,7,11,0.25,10,-4,/player/562538/emil-valila,4,Emil Välilä,C,2021-2022,u20-sm-sarja,562538,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Deniss Kontseus (F),KOOVEE U20,16,3,8,11,0.69,2,1,/player/706893/deniss-kontseus,4,Deniss Kontseus,F,2021-2022,u20-sm-sarja,706893,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sami Päivärinta (C),Lukko U20,16,3,8,11,0.69,6,0,/player/608512/sami-paivarinta,4,Sami Päivärinta,C,2021-2022,u20-sm-sarja,608512,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valtteri Talvitie (D),totals,26,3,8,11,0.42,24,-1,/player/556754/valtteri-talvitie,4,Valtteri Talvitie,D,2021-2022,u20-sm-sarja,556754,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Perttu Kauhanen (F),KalPa U20,39,3,8,11,0.28,10,-4,/player/462191/perttu-kauhanen,4,Perttu Kauhanen,F,2021-2022,u20-sm-sarja,462191,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valtteri Vuosjoki (D),KOOVEE U20,25,2,9,11,0.44,48,-12,/player/556949/valtteri-vuosjoki,4,Valtteri Vuosjoki,D,2021-2022,u20-sm-sarja,556949,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frans Kulmala (D),TPS U20,41,2,9,11,0.27,4,-5,/player/557098/frans-kulmala,4,Frans Kulmala,D,2021-2022,u20-sm-sarja,557098,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonatan Pajala (D/F),Hermes U20,25,1,10,11,0.44,55,-21,/player/428865/jonatan-pajala,4,Jonatan Pajala,D/F,2021-2022,u20-sm-sarja,428865,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Liiri (D),JYP U20,39,1,10,11,0.28,10,-2,/player/499414/niko-liiri,4,Niko Liiri,D,2021-2022,u20-sm-sarja,499414,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justus Jaakkola (D),TUTO Hockey U20,41,1,10,11,0.27,22,-4,/player/534232/justus-jaakkola,4,Justus Jaakkola,D,2021-2022,u20-sm-sarja,534232,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joonas Kaartinen (D),KooKoo U20,44,0,11,11,0.25,26,3,/player/557267/joonas-kaartinen,4,Joonas Kaartinen,D,2021-2022,u20-sm-sarja,557267,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jere Jokinen (RW),HPK U20,9,7,3,10,1.11,4,8,/player/375878/jere-jokinen,4,Jere Jokinen,RW,2021-2022,u20-sm-sarja,375878,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rrahim Curri (F),Tappara U20,44,7,3,10,0.23,39,-5,/player/534235/rrahim-curri,4,Rrahim Curri,F,2021-2022,u20-sm-sarja,534235,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eelis Myllyniemi (D/F),RoKi U20,30,6,4,10,0.33,8,-8,/player/642150/eelis-myllyniemi,4,Eelis Myllyniemi,D/F,2021-2022,u20-sm-sarja,642150,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Balázs Varga (RW),JYP U20,26,5,5,10,0.38,12,-1,/player/571834/balazs-varga,4,Balázs Varga,RW,2021-2022,u20-sm-sarja,571834,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Otto Mykrä (W/C),Kärpät U20,42,5,5,10,0.24,28,1,/player/525654/otto-mykra,4,Otto Mykrä,W/C,2021-2022,u20-sm-sarja,525654,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Otto Heinonen (D),Ilves U20,26,4,6,10,0.38,10,-10,/player/670429/otto-heinonen,4,Otto Heinonen,D,2021-2022,u20-sm-sarja,670429,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskar Selin (D),Ilves U20,31,4,6,10,0.32,24,-7,/player/556953/oskar-selin,4,Oskar Selin,D,2021-2022,u20-sm-sarja,556953,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Gullichsen (F),Lukko U20,43,4,6,10,0.23,20,-6,/player/537684/alexander-gullichsen,4,Alexander Gullichsen,F,2021-2022,u20-sm-sarja,537684,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noel Pietilä (D),Lukko U20,11,3,7,10,0.91,18,5,/player/375822/noel-pietila,4,Noel Pietilä,D,2021-2022,u20-sm-sarja,375822,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elmeri Hällfors (F),Lukko U20,22,3,7,10,0.45,18,-6,/player/557297/elmeri-hallfors,4,Elmeri Hällfors,F,2021-2022,u20-sm-sarja,557297,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Saarinen (D),Ketterä U20,24,3,7,10,0.42,44,0,/player/467391/aleksi-saarinen,4,Aleksi Saarinen,D,2021-2022,u20-sm-sarja,467391,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joonas Virtanen (RW),totals,35,3,7,10,0.29,6,-4,/player/556937/joonas-virtanen,4,Joonas Virtanen,RW,2021-2022,u20-sm-sarja,556937,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vili Westerman (D),SaiPa U20,39,3,7,10,0.26,22,19,/player/499677/vili-westerman,4,Vili Westerman,D,2021-2022,u20-sm-sarja,499677,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Laurila (F),KOOVEE U20,17,2,8,10,0.59,2,-6,/player/628696/markus-laurila,4,Markus Laurila,F,2021-2022,u20-sm-sarja,628696,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Risto Saarinen (C/W),TUTO Hockey U20,19,2,8,10,0.53,0,-9,/player/396629/risto-saarinen,4,Risto Saarinen,C/W,2021-2022,u20-sm-sarja,396629,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Holttinen (D),HIFK U20,34,2,8,10,0.29,32,1,/player/499457/oliver-holttinen,4,Oliver Holttinen,D,2021-2022,u20-sm-sarja,499457,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eeli Lehtinen (D),Pelicans U20,39,2,8,10,0.26,2,11,/player/566280/eeli-lehtinen,4,Eeli Lehtinen,D,2021-2022,u20-sm-sarja,566280,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Ahlroth (D),Tappara U20,45,2,8,10,0.22,56,13,/player/557282/jesper-ahlroth,4,Jesper Ahlroth,D,2021-2022,u20-sm-sarja,557282,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arttu Kuivas (D),HIFK U20,21,1,9,10,0.48,68,0,/player/619514/arttu-kuivas,4,Arttu Kuivas,D,2021-2022,u20-sm-sarja,619514,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jani Utriainen (D),Jukurit U20,24,1,9,10,0.42,6,5,/player/642216/jani-utriainen,4,Jani Utriainen,D,2021-2022,u20-sm-sarja,642216,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leevi Siren (D),Kiekko-Espoo U20 Ch,26,0,10,10,0.38,14,13,/player/628504/leevi-siren,4,Leevi Siren,D,2021-2022,u20-sm-sarja,628504,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Veeti Hietaniemi (D),Ilves U20,28,0,10,10,0.36,20,-23,/player/638710/veeti-hietaniemi,4,Veeti Hietaniemi,D,2021-2022,u20-sm-sarja,638710,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joona Veikkola (LW),Ilves U20,7,6,3,9,1.29,86,4,/player/503711/joona-veikkola,4,Joona Veikkola,LW,2021-2022,u20-sm-sarja,503711,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sampo Joro (C),JYP U20,15,6,3,9,0.60,14,7,/player/562293/sampo-joro,4,Sampo Joro,C,2021-2022,u20-sm-sarja,562293,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Santtu Hakanen (C),HPK U20,13,5,4,9,0.69,22,-1,/player/396708/santtu-hakanen,4,Santtu Hakanen,C,2021-2022,u20-sm-sarja,396708,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sampo Oiva (F),RoKi U20,40,5,4,9,0.23,26,-20,/player/639220/sampo-oiva,4,Sampo Oiva,F,2021-2022,u20-sm-sarja,639220,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Saira (F),totals,12,4,5,9,0.75,16,-6,/player/611821/patrik-saira,4,Patrik Saira,F,2021-2022,u20-sm-sarja,611821,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Pelttari (F),KOOVEE U20,21,4,5,9,0.43,12,-12,/player/556857/joel-pelttari,4,Joel Pelttari,F,2021-2022,u20-sm-sarja,556857,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Piikki (LW),KooKoo U20,30,4,5,9,0.30,26,-8,/player/557277/mikko-piikki,4,Mikko Piikki,LW,2021-2022,u20-sm-sarja,557277,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Liukka (F),SaiPa U20,35,4,5,9,0.26,12,-13,/player/557248/niklas-liukka,4,Niklas Liukka,F,2021-2022,u20-sm-sarja,557248,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Veeti Löytynoja (F),Kärpät U20,37,4,5,9,0.24,2,0,/player/545627/veeti-loytynoja,4,Veeti Löytynoja,F,2021-2022,u20-sm-sarja,545627,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Ylitalo (RW),Lukko U20,6,3,6,9,1.50,2,9,/player/318256/niklas-ylitalo,4,Niklas Ylitalo,RW,2021-2022,u20-sm-sarja,318256,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Talka (F),Karhu-Kissat U20,20,3,6,9,0.45,6,1,/player/602509/niko-talka,4,Niko Talka,F,2021-2022,u20-sm-sarja,602509,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henri Hietala (D),SaiPa U20,29,3,6,9,0.31,20,2,/player/467394/henri-hietala,4,Henri Hietala,D,2021-2022,u20-sm-sarja,467394,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kasper Soini (D),Jokerit U20,33,3,6,9,0.27,8,0,/player/566274/kasper-soini,4,Kasper Soini,D,2021-2022,u20-sm-sarja,566274,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakob Stan (F),RoKi U20,34,3,6,9,0.26,16,-16,/player/658204/jakob-stan,4,Jakob Stan,F,2021-2022,u20-sm-sarja,658204,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Pieniniemi (D),Kärpät U20,34,3,6,9,0.26,22,-2,/player/709463/emil-pieniniemi,4,Emil Pieniniemi,D,2021-2022,u20-sm-sarja,709463,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Niinistö (C),TPS U20,40,3,6,9,0.23,8,2,/player/602963/joel-niinisto,4,Joel Niinistö,C,2021-2022,u20-sm-sarja,602963,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eemeli Saari (D),TPS U20,43,3,6,9,0.21,8,0,/player/525632/eemeli-saari,4,Eemeli Saari,D,2021-2022,u20-sm-sarja,525632,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rudi Maarni (C),Kiekko-Espoo U20 Ch,8,2,7,9,1.13,2,5,/player/350625/rudi-maarni,4,Rudi Maarni,C,2021-2022,u20-sm-sarja,350625,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valtteri Koskela (D),JYP U20,19,2,7,9,0.47,31,0,/player/499415/valtteri-koskela,4,Valtteri Koskela,D,2021-2022,u20-sm-sarja,499415,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskari Utriainen (F),totals,33,2,7,9,0.27,18,-4,/player/499463/oskari-utriainen,4,Oskari Utriainen,F,2021-2022,u20-sm-sarja,499463,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eetu Apila (LW),Sport U20,39,2,7,9,0.23,54,-11,/player/473777/eetu-apila,4,Eetu Apila,LW,2021-2022,u20-sm-sarja,473777,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Otto Pirskanen (LW),KalPa U20,42,2,7,9,0.21,6,-2,/player/556898/otto-pirskanen,4,Otto Pirskanen,LW,2021-2022,u20-sm-sarja,556898,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Sorjonen (F),SaiPa U20,26,1,8,9,0.35,2,2,/player/560550/aleksi-sorjonen,4,Aleksi Sorjonen,F,2021-2022,u20-sm-sarja,560550,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Heljanko (F),HIFK U20,4,6,2,8,2.00,0,4,/player/360146/rasmus-heljanko,4,Rasmus Heljanko,F,2021-2022,u20-sm-sarja,360146,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joonatan Rouhiainen (LW),Jukurit U20,41,6,2,8,0.20,6,3,/player/556858/joonatan-rouhiainen,4,Joonatan Rouhiainen,LW,2021-2022,u20-sm-sarja,556858,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Toivainen (LW/RW),HIFK U20,16,5,3,8,0.50,0,6,/player/526047/rasmus-toivainen,4,Rasmus Toivainen,LW/RW,2021-2022,u20-sm-sarja,526047,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kasperi Väätäinen (LW),Hermes U20,22,4,4,8,0.36,6,-8,/player/580092/kasperi-vaatainen,4,Kasperi Väätäinen,LW,2021-2022,u20-sm-sarja,580092,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tom Grönblom (D),totals,15,3,5,8,0.53,20,-2,/player/375825/tom-gronblom,4,Tom Grönblom,D,2021-2022,u20-sm-sarja,375825,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tuomas Kähkönen (F),Kiekko-Espoo U20 Ch,17,3,5,8,0.47,6,-2,/player/396575/tuomas-kahkonen,4,Tuomas Kähkönen,F,2021-2022,u20-sm-sarja,396575,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tuukka Hietamäki (C),KOOVEE U20,22,3,5,8,0.36,6,-11,/player/574113/tuukka-hietamaki,4,Tuukka Hietamäki,C,2021-2022,u20-sm-sarja,574113,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tino Aunala (D),JYP U20,41,3,5,8,0.20,12,3,/player/629372/tino-aunala,4,Tino Aunala,D,2021-2022,u20-sm-sarja,629372,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Vuorela (D),Kiekko-Espoo U20,11,2,6,8,0.73,6,4,/player/496849/jesse-vuorela,4,Jesse Vuorela,D,2021-2022,u20-sm-sarja,496849,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valtteri Jeskanen (D),HPK U20,13,2,6,8,0.62,2,0,/player/380669/valtteri-jeskanen,4,Valtteri Jeskanen,D,2021-2022,u20-sm-sarja,380669,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jami Kurjanen (D),KOOVEE U20,16,2,6,8,0.50,8,1,/player/525625/jami-kurjanen,4,Jami Kurjanen,D,2021-2022,u20-sm-sarja,525625,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eelis Lopina (F),RoKi U20,19,2,6,8,0.42,45,-5,/player/583338/eelis-lopina,4,Eelis Lopina,F,2021-2022,u20-sm-sarja,583338,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leevi Juselius (D),Ketterä U20,23,2,6,8,0.35,12,-4,/player/395964/leevi-juselius,4,Leevi Juselius,D,2021-2022,u20-sm-sarja,395964,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janne Koivisto (D),Ilves U20,27,2,6,8,0.30,4,-1,/player/556951/janne-koivisto,4,Janne Koivisto,D,2021-2022,u20-sm-sarja,556951,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Perttu Iso-Kuortti (F),Kiekko-Espoo U20,27,2,6,8,0.30,4,1,/player/440795/perttu-iso-kuortti,4,Perttu Iso-Kuortti,F,2021-2022,u20-sm-sarja,440795,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Iivari Heikkinen (RW),Kärpät U20,31,2,6,8,0.26,8,-6,/player/617820/iivari-heikkinen,4,Iivari Heikkinen,RW,2021-2022,u20-sm-sarja,617820,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Semen Kareev (F),TPS U20,37,2,6,8,0.22,39,8,/player/515359/semen-kareev,4,Semen Kareev,F,2021-2022,u20-sm-sarja,515359,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaanus Pajala (D),KalPa U20,42,2,6,8,0.19,38,5,/player/639016/jaanus-pajala,4,Jaanus Pajala,D,2021-2022,u20-sm-sarja,639016,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nooa Innanmaa (D),totals,43,2,6,8,0.19,61,-20,/player/491363/nooa-innanmaa,4,Nooa Innanmaa,D,2021-2022,u20-sm-sarja,491363,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eemeli Koskenvuo (D/F),totals,45,2,6,8,0.18,8,-15,/player/498303/eemeli-koskenvuo,4,Eemeli Koskenvuo,D/F,2021-2022,u20-sm-sarja,498303,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Mursinoff (D),Ketterä U20,23,1,7,8,0.35,4,-15,/player/638763/aleksi-mursinoff,4,Aleksi Mursinoff,D,2021-2022,u20-sm-sarja,638763,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Santtu Kahi (D/F),Karhu-Kissat U20,23,1,7,8,0.35,6,2,/player/642433/santtu-kahi,4,Santtu Kahi,D/F,2021-2022,u20-sm-sarja,642433,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Kettunen (D),TUTO Hockey U20,39,1,7,8,0.21,14,-7,/player/556690/elias-kettunen,4,Elias Kettunen,D,2021-2022,u20-sm-sarja,556690,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Strbak (D),Jokerit U20,39,1,7,8,0.21,26,17,/player/595301/maxim-strbak,4,Maxim Strbak,D,2021-2022,u20-sm-sarja,595301,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Heikari (D),Hermes U20,16,4,3,7,0.44,20,-5,/player/440919/anton-heikari,4,Anton Heikari,D,2021-2022,u20-sm-sarja,440919,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Bares (F),Pelicans U20,17,4,3,7,0.41,2,5,/player/158059/adam-bares,4,Adam Bares,F,2021-2022,u20-sm-sarja,158059,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Åkerlund (LW),Hermes U20,17,4,3,7,0.41,16,-6,/player/641006/william-akerlund,4,William Åkerlund,LW,2021-2022,u20-sm-sarja,641006,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miska Vilppola (LW),Ässät U20,38,4,3,7,0.18,4,1,/player/561914/miska-vilppola,4,Miska Vilppola,LW,2021-2022,u20-sm-sarja,561914,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonni Kärkkäinen (F),HIFK U20,43,4,3,7,0.16,6,-6,/player/549258/jonni-karkkainen,4,Jonni Kärkkäinen,F,2021-2022,u20-sm-sarja,549258,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Vilén (C),Pelicans U20,4,3,4,7,1.75,4,2,/player/395975/elias-vilen,4,Elias Vilén,C,2021-2022,u20-sm-sarja,395975,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Holm (LW),Kiekko-Espoo U20,20,3,4,7,0.35,4,-3,/player/396671/anton-holm,4,Anton Holm,LW,2021-2022,u20-sm-sarja,396671,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dani Scheiman (W),Jokerit U20,25,3,4,7,0.28,6,0,/player/534266/dani-scheiman,5,Dani Scheiman,W,2021-2022,u20-sm-sarja,534266,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Rantanen (C),Pelicans U20,35,3,4,7,0.20,12,6,/player/602488/jesse-rantanen,5,Jesse Rantanen,C,2021-2022,u20-sm-sarja,602488,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Grönlund (D),Lukko U20,45,3,4,7,0.16,6,-3,/player/440915/niklas-gronlund,5,Niklas Grönlund,D,2021-2022,u20-sm-sarja,440915,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaro Rokio (F),Ketterä U20,17,2,5,7,0.41,2,-10,/player/395976/aaro-rokio,5,Aaro Rokio,F,2021-2022,u20-sm-sarja,395976,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Niemi (D),SaiPa U20,17,2,5,7,0.41,6,1,/player/478114/aleksi-niemi,5,Aleksi Niemi,D,2021-2022,u20-sm-sarja,478114,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Casper Käld (LW),Hermes U20,26,2,5,7,0.27,49,-9,/player/612922/casper-kald,5,Casper Käld,LW,2021-2022,u20-sm-sarja,612922,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaro Kautto (RW),Ässät U20,36,2,5,7,0.19,4,2,/player/556870/aaro-kautto,5,Aaro Kautto,RW,2021-2022,u20-sm-sarja,556870,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eetu Tervo (RW),TPS U20,42,2,5,7,0.17,10,-1,/player/608524/eetu-tervo,5,Eetu Tervo,RW,2021-2022,u20-sm-sarja,608524,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jami Uusinarkaus (F),RoKi U20,43,2,5,7,0.16,16,-18,/player/472621/jami-uusinarkaus,5,Jami Uusinarkaus,F,2021-2022,u20-sm-sarja,472621,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hannes Häkkilä (D),Jukurit U20,14,1,6,7,0.50,6,-5,/player/476204/hannes-hakkila,5,Hannes Häkkilä,D,2021-2022,u20-sm-sarja,476204,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joona Niittymäki (RW),Kiekko-Espoo U20 Ch,17,1,6,7,0.41,14,4,/player/638636/joona-niittymaki,5,Joona Niittymäki,RW,2021-2022,u20-sm-sarja,638636,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Usko Laaksonen (F),TUTO Hockey U20,31,1,6,7,0.23,4,-4,/player/721762/usko-laaksonen,5,Usko Laaksonen,F,2021-2022,u20-sm-sarja,721762,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riku Vähäniitty (LW),JYP U20,34,1,6,7,0.21,12,-2,/player/602880/riku-vahaniitty,5,Riku Vähäniitty,LW,2021-2022,u20-sm-sarja,602880,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viljami Korpela (F),HPK U20,35,1,6,7,0.20,10,0,/player/534245/viljami-korpela,5,Viljami Korpela,F,2021-2022,u20-sm-sarja,534245,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eetu Heikkilä (D),Sport U20,38,1,6,7,0.18,12,-4,/player/642179/eetu-heikkila,5,Eetu Heikkilä,D,2021-2022,u20-sm-sarja,642179,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elmeri Salama (D),TPS U20,22,0,7,7,0.32,4,4,/player/557100/elmeri-salama,5,Elmeri Salama,D,2021-2022,u20-sm-sarja,557100,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Huttunen (D),HIFK U20,32,0,7,7,0.22,26,10,/player/628579/aleksi-huttunen,5,Aleksi Huttunen,D,2021-2022,u20-sm-sarja,628579,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Sihvonen (F),HPK U20,35,0,7,7,0.20,22,-3,/player/437924/anton-sihvonen,5,Anton Sihvonen,F,2021-2022,u20-sm-sarja,437924,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Topias Männikkö (D),HPK U20,35,0,7,7,0.20,43,0,/player/638732/topias-mannikko,5,Topias Männikkö,D,2021-2022,u20-sm-sarja,638732,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ales Cech (D),Kärpät U20,38,0,7,7,0.18,40,4,/player/527438/ales-cech,5,Ales Cech,D,2021-2022,u20-sm-sarja,527438,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juhani Luhtavaara (C),Kärpät U20,41,0,7,7,0.17,8,4,/player/557220/juhani-luhtavaara,5,Juhani Luhtavaara,C,2021-2022,u20-sm-sarja,557220,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Toivo Laaksonen (RW),TUTO Hockey U20,18,5,1,6,0.33,6,-5,/player/721755/toivo-laaksonen,5,Toivo Laaksonen,RW,2021-2022,u20-sm-sarja,721755,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskari Hult (LW/RW),Jokerit U20,20,5,1,6,0.30,4,3,/player/526046/oskari-hult,5,Oskari Hult,LW/RW,2021-2022,u20-sm-sarja,526046,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Perttu Ahola (LW),RoKi U20,28,5,1,6,0.21,60,-28,/player/395439/perttu-ahola,5,Perttu Ahola,LW,2021-2022,u20-sm-sarja,395439,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eelis Uuttu (LW/RW),Karhu-Kissat U20,14,4,2,6,0.43,6,-4,/player/394881/eelis-uuttu,5,Eelis Uuttu,LW/RW,2021-2022,u20-sm-sarja,394881,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Wilho Korpela (C),SaiPa U20,26,4,2,6,0.23,2,5,/player/563880/wilho-korpela,5,Wilho Korpela,C,2021-2022,u20-sm-sarja,563880,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eemil Rautio (C),HPK U20,36,4,2,6,0.17,16,-13,/player/556856/eemil-rautio,5,Eemil Rautio,C,2021-2022,u20-sm-sarja,556856,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Lehtinen (F),Kiekko-Espoo U20 Ch,8,3,3,6,0.75,2,2,/player/628509/joel-lehtinen,5,Joel Lehtinen,F,2021-2022,u20-sm-sarja,628509,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Werner Vilkki (C),totals,20,3,3,6,0.30,4,2,/player/444451/werner-vilkki,5,Werner Vilkki,C,2021-2022,u20-sm-sarja,444451,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeremias Myllynen (D/F),Ketterä U20,26,3,3,6,0.23,12,-5,/player/557236/jeremias-myllynen,5,Jeremias Myllynen,D/F,2021-2022,u20-sm-sarja,557236,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Kotikivi (D),Sport U20,35,3,3,6,0.17,35,-9,/player/470525/mikko-kotikivi,5,Mikko Kotikivi,D,2021-2022,u20-sm-sarja,470525,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Iisai Pesonen (C),KalPa U20,36,3,3,6,0.17,10,3,/player/535842/iisai-pesonen,5,Iisai Pesonen,C,2021-2022,u20-sm-sarja,535842,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Lahtinen (C/LW),Ilves U20,6,2,4,6,1.00,6,-1,/player/710227/niko-lahtinen,5,Niko Lahtinen,C/LW,2021-2022,u20-sm-sarja,710227,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marijus Dumcius (C),Sport U20,9,2,4,6,0.67,0,-1,/player/658997/marijus-dumcius,5,Marijus Dumcius,C,2021-2022,u20-sm-sarja,658997,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josef Slavicek (RW),TUTO Hockey U20,16,2,4,6,0.38,8,-6,/player/472472/josef-slavicek,5,Josef Slavicek,RW,2021-2022,u20-sm-sarja,472472,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Otto Kosonen (F),SaiPa U20,17,2,4,6,0.35,2,-4,/player/444417/otto-kosonen,5,Otto Kosonen,F,2021-2022,u20-sm-sarja,444417,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Paavo Karjalainen (LW),Ilves U20,21,2,4,6,0.29,10,-7,/player/638720/paavo-karjalainen,5,Paavo Karjalainen,LW,2021-2022,u20-sm-sarja,638720,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilja Peltola (C),Ketterä U20,26,2,4,6,0.23,2,-6,/player/557247/ilja-peltola,5,Ilja Peltola,C,2021-2022,u20-sm-sarja,557247,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaro Kesäjärvi (D),totals,28,2,4,6,0.21,32,-2,/player/560543/aaro-kesajarvi,5,Aaro Kesäjärvi,D,2021-2022,u20-sm-sarja,560543,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikael Tapio (D),HPK U20,34,2,4,6,0.18,34,6,/player/556710/mikael-tapio,5,Mikael Tapio,D,2021-2022,u20-sm-sarja,556710,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roni Kuusikko (LW),JYP U20,43,2,4,6,0.14,29,-3,/player/556745/roni-kuusikko,5,Roni Kuusikko,LW,2021-2022,u20-sm-sarja,556745,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Pakaslahti (D),Kärpät U20,44,2,4,6,0.14,12,6,/player/557207/aleksi-pakaslahti,5,Aleksi Pakaslahti,D,2021-2022,u20-sm-sarja,557207,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Pesonen (LW/RW),Kiekko-Espoo U20,8,1,5,6,0.75,2,-1,/player/378623/jesse-pesonen,5,Jesse Pesonen,LW/RW,2021-2022,u20-sm-sarja,378623,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miro Hölli (C),Ilves U20,12,1,5,6,0.50,8,-3,/player/652536/miro-holli,5,Miro Hölli,C,2021-2022,u20-sm-sarja,652536,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tuomas Hynninen (RW),KalPa U20,20,1,5,6,0.30,2,-6,/player/535840/tuomas-hynninen,5,Tuomas Hynninen,RW,2021-2022,u20-sm-sarja,535840,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Ossipov (D),Pelicans U20,32,1,5,6,0.19,12,8,/player/557238/robert-ossipov,5,Robert Ossipov,D,2021-2022,u20-sm-sarja,557238,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janne Meri (D),KOOVEE U20,32,1,5,6,0.19,14,-19,/player/576832/janne-meri,5,Janne Meri,D,2021-2022,u20-sm-sarja,576832,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valtteri Aliranta (C),JYP U20,41,1,5,6,0.15,26,-6,/player/580020/valtteri-aliranta,5,Valtteri Aliranta,C,2021-2022,u20-sm-sarja,580020,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eetu Onikki (D),KOOVEE U20,22,0,6,6,0.27,47,-1,/player/470562/eetu-onikki,5,Eetu Onikki,D,2021-2022,u20-sm-sarja,470562,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Santeri Virta (F),Kiekko-Espoo U20,28,0,6,6,0.21,6,-1,/player/440788/santeri-virta,5,Santeri Virta,F,2021-2022,u20-sm-sarja,440788,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joona Korhonen (LW/RW),Ilves U20,6,4,1,5,0.83,0,2,/player/556958/joona-korhonen,5,Joona Korhonen,LW/RW,2021-2022,u20-sm-sarja,556958,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskar Komarov (RW),HIFK U20,31,4,1,5,0.16,12,-6,/player/487974/oskar-komarov,5,Oskar Komarov,RW,2021-2022,u20-sm-sarja,487974,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kasper Maaranen (D),totals,34,4,1,5,0.15,18,-5,/player/576388/kasper-maaranen,5,Kasper Maaranen,D,2021-2022,u20-sm-sarja,576388,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niclas Karjalainen (D),TUTO Hockey U20,36,4,1,5,0.14,125,-8,/player/560355/niclas-karjalainen,5,Niclas Karjalainen,D,2021-2022,u20-sm-sarja,560355,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Kautiainen (F),SaiPa U20,7,3,2,5,0.71,2,0,/player/470450/niko-kautiainen,5,Niko Kautiainen,F,2021-2022,u20-sm-sarja,470450,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Paavo Lind (D),KalPa U20,28,3,2,5,0.18,14,9,/player/602969/paavo-lind,5,Paavo Lind,D,2021-2022,u20-sm-sarja,602969,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Dolgopyatov (RW),RoKi U20,4,2,3,5,1.25,0,-2,/player/395627/nikita-dolgopyatov,5,Nikita Dolgopyatov,RW,2021-2022,u20-sm-sarja,395627,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aki-Petteri Antti-Roiko (F),totals,6,2,3,5,0.83,4,2,/player/429287/aki-petteri-antti-roiko,5,Aki-Petteri Antti-Roiko,F,2021-2022,u20-sm-sarja,429287,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tony Tuupanen (D),Hermes U20,7,2,3,5,0.71,0,-4,/player/465223/tony-tuupanen,5,Tony Tuupanen,D,2021-2022,u20-sm-sarja,465223,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Skytte (F),Kiekko-Espoo U20 Ch,7,2,3,5,0.71,0,6,/player/556941/alex-skytte,5,Alex Skytte,F,2021-2022,u20-sm-sarja,556941,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kalle Hällfors (D),Ilves U20,8,2,3,5,0.63,33,0,/player/428801/kalle-hallfors,5,Kalle Hällfors,D,2021-2022,u20-sm-sarja,428801,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lari Posti (LW/RW),Kiekko-Espoo U20,9,2,3,5,0.56,4,-4,/player/499077/lari-posti,5,Lari Posti,LW/RW,2021-2022,u20-sm-sarja,499077,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matias Myllykoski (D),Jokerit U20,17,2,3,5,0.29,2,5,/player/601095/matias-myllykoski,5,Matias Myllykoski,D,2021-2022,u20-sm-sarja,601095,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskari Pyydysmäki (F),KOOVEE U20,20,2,3,5,0.25,16,-10,/player/470680/oskari-pyydysmaki,5,Oskari Pyydysmäki,F,2021-2022,u20-sm-sarja,470680,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kaius Forsell (C/W),totals,23,2,3,5,0.22,6,2,/player/437915/kaius-forsell,5,Kaius Forsell,C/W,2021-2022,u20-sm-sarja,437915,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Iiro Soininen (D),Ketterä U20,26,2,3,5,0.19,26,-5,/player/640193/iiro-soininen,5,Iiro Soininen,D,2021-2022,u20-sm-sarja,640193,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roope Markula (LW/C),totals,33,2,3,5,0.15,30,0,/player/396599/roope-markula,5,Roope Markula,LW/C,2021-2022,u20-sm-sarja,396599,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eetu Joki (D),totals,34,2,3,5,0.15,48,-10,/player/534264/eetu-joki,5,Eetu Joki,D,2021-2022,u20-sm-sarja,534264,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Mäkinen (C),JYP U20,36,2,3,5,0.14,24,-7,/player/556748/samuel-makinen,5,Samuel Mäkinen,C,2021-2022,u20-sm-sarja,556748,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Kos (LW/C),Ilves U20,4,1,4,5,1.25,2,-1,/player/522505/jakub-kos,5,Jakub Kos,LW/C,2021-2022,u20-sm-sarja,522505,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Iiro Törhönen (D/F),TUTO Hockey U20,18,1,4,5,0.28,8,-5,/player/428867/iiro-torhonen,5,Iiro Törhönen,D/F,2021-2022,u20-sm-sarja,428867,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bence Horváth (LW),KalPa U20,21,1,4,5,0.24,2,5,/player/642827/bence-horvath,5,Bence Horváth,LW,2021-2022,u20-sm-sarja,642827,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Santeri Yli-Suutala (D),RoKi U20,23,1,4,5,0.22,8,-14,/player/428837/santeri-yli-suutala,5,Santeri Yli-Suutala,D,2021-2022,u20-sm-sarja,428837,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Kyynäräinen (RW),HIFK U20,30,1,4,5,0.17,6,1,/player/628582/anton-kyynarainen,5,Anton Kyynäräinen,RW,2021-2022,u20-sm-sarja,628582,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juuso Vesala (D),Sport U20,31,1,4,5,0.16,8,-22,/player/641000/juuso-vesala,5,Juuso Vesala,D,2021-2022,u20-sm-sarja,641000,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Veeti Huumo (C/D),Ässät U20,32,1,4,5,0.16,4,4,/player/642162/veeti-huumo,5,Veeti Huumo,C/D,2021-2022,u20-sm-sarja,642162,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Onni Järvinen (F),KOOVEE U20,33,1,4,5,0.15,8,-16,/player/556956/onni-jarvinen,5,Onni Järvinen,F,2021-2022,u20-sm-sarja,556956,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaro Pieniniemi (D),Kärpät U20,38,1,4,5,0.13,8,-3,/player/602889/aaro-pieniniemi,5,Aaro Pieniniemi,D,2021-2022,u20-sm-sarja,602889,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Waltteri Mattila (D),Lukko U20,38,1,4,5,0.13,12,-4,/player/628794/waltteri-mattila,5,Waltteri Mattila,D,2021-2022,u20-sm-sarja,628794,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Iiro Karppinen (D),Jokerit U20,38,1,4,5,0.13,16,-2,/player/619515/iiro-karppinen,5,Iiro Karppinen,D,2021-2022,u20-sm-sarja,619515,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karri Aho (D),Ilves U20,2,0,5,5,2.50,0,2,/player/499176/karri-aho,5,Karri Aho,D,2021-2022,u20-sm-sarja,499176,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Lammi (D),TUTO Hockey U20,3,0,5,5,1.67,4,2,/player/360196/joel-lammi,5,Joel Lammi,D,2021-2022,u20-sm-sarja,360196,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Hjorth (D),KalPa U20,3,0,5,5,1.67,6,2,/player/300243/eric-hjorth,5,Eric Hjorth,D,2021-2022,u20-sm-sarja,300243,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eemeli Virtanen (D),Ässät U20,8,0,5,5,0.63,0,4,/player/556868/eemeli-virtanen,5,Eemeli Virtanen,D,2021-2022,u20-sm-sarja,556868,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anttoni Putkonen (D/F),Kärpät U20,17,0,5,5,0.29,8,4,/player/580396/anttoni-putkonen,5,Anttoni Putkonen,D/F,2021-2022,u20-sm-sarja,580396,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kasperi Syrjälä (D),Karhu-Kissat U20,18,0,5,5,0.28,6,8,/player/504182/kasperi-syrjala,5,Kasperi Syrjälä,D,2021-2022,u20-sm-sarja,504182,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janne Välimaa (D),totals,25,0,5,5,0.20,47,4,/player/638686/janne-valimaa,5,Janne Välimaa,D,2021-2022,u20-sm-sarja,638686,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juho Hintikka (D),KalPa U20,26,0,5,5,0.19,6,3,/player/535835/juho-hintikka,5,Juho Hintikka,D,2021-2022,u20-sm-sarja,535835,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Vuorinen (D),HIFK U20,27,0,5,5,0.19,29,6,/player/709571/rasmus-vuorinen,5,Rasmus Vuorinen,D,2021-2022,u20-sm-sarja,709571,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Haverinen (D),RoKi U20,28,0,5,5,0.18,12,-13,/player/612152/daniel-haverinen,5,Daniel Haverinen,D,2021-2022,u20-sm-sarja,612152,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tadeas Tuma (D),TUTO Hockey U20,31,0,5,5,0.16,45,1,/player/527436/tadeas-tuma,5,Tadeas Tuma,D,2021-2022,u20-sm-sarja,527436,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Saku Tikkanen (D),JYP U20,40,0,5,5,0.13,67,-1,/player/556741/saku-tikkanen,5,Saku Tikkanen,D,2021-2022,u20-sm-sarja,556741,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Veeti Romppanen (F),SaiPa U20,21,4,0,4,0.19,6,-13,/player/580067/veeti-romppanen,5,Veeti Romppanen,F,2021-2022,u20-sm-sarja,580067,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Chizhikov (F),Ketterä U20,3,3,1,4,1.33,0,4,/player/440407/yegor-chizhikov,5,Yegor Chizhikov,F,2021-2022,u20-sm-sarja,440407,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliver Suni (F),Lukko U20,5,3,1,4,0.80,0,2,/player/467383/oliver-suni,5,Oliver Suni,F,2021-2022,u20-sm-sarja,467383,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jalmari Mäkelä (LW),totals,16,3,1,4,0.25,4,-13,/player/642402/jalmari-makela,5,Jalmari Mäkelä,LW,2021-2022,u20-sm-sarja,642402,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Hölsömäki (F),Lukko U20,18,3,1,4,0.22,6,-6,/player/534213/thomas-holsomaki,5,Thomas Hölsömäki,F,2021-2022,u20-sm-sarja,534213,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joona Saarelainen (C/RW),Jukurit U20,2,2,2,4,2.00,0,1,/player/785788/joona-saarelainen,5,Joona Saarelainen,C/RW,2021-2022,u20-sm-sarja,785788,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jani Nyman (RW),Ilves U20,3,2,2,4,1.33,0,3,/player/611825/jani-nyman,5,Jani Nyman,RW,2021-2022,u20-sm-sarja,611825,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jere Henriksson (RW),Tappara U20,7,2,2,4,0.57,0,1,/player/360149/jere-henriksson,5,Jere Henriksson,RW,2021-2022,u20-sm-sarja,360149,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tuomas Eklund (D/F),totals,7,2,2,4,0.57,4,0,/player/557142/tuomas-eklund,6,Tuomas Eklund,D/F,2021-2022,u20-sm-sarja,557142,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elmeri Kärkimaa (D),KOOVEE U20,10,2,2,4,0.40,12,-11,/player/470559/elmeri-karkimaa,6,Elmeri Kärkimaa,D,2021-2022,u20-sm-sarja,470559,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miro Keltikangas (F),Ilves U20,11,2,2,4,0.36,0,-5,/player/710222/miro-keltikangas,6,Miro Keltikangas,F,2021-2022,u20-sm-sarja,710222,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Tuulari (LW),Kiekko-Espoo U20 Ch,11,2,2,4,0.36,0,2,/player/628583/sebastian-tuulari,6,Sebastian Tuulari,LW,2021-2022,u20-sm-sarja,628583,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Bezuglov (F),Hermes U20,14,2,2,4,0.29,16,-4,/player/676879/kirill-bezuglov,6,Kirill Bezuglov,F,2021-2022,u20-sm-sarja,676879,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eetu Nikkilä (D),Ketterä U20,16,2,2,4,0.25,24,5,/player/467392/eetu-nikkila,6,Eetu Nikkilä,D,2021-2022,u20-sm-sarja,467392,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matti Heikkinen (F),Jokerit U20,17,2,2,4,0.24,0,-1,/player/557315/matti-heikkinen,6,Matti Heikkinen,F,2021-2022,u20-sm-sarja,557315,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kristian Mäkinen (F),JYP U20,21,2,2,4,0.19,4,-5,/player/428814/kristian-makinen,6,Kristian Mäkinen,F,2021-2022,u20-sm-sarja,428814,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justus Inhala (D),Kiekko-Espoo U20,21,2,2,4,0.19,6,0,/player/628502/justus-inhala,6,Justus Inhala,D,2021-2022,u20-sm-sarja,628502,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nico Lappalainen (F),Sport U20,21,2,2,4,0.19,6,-9,/player/498901/nico-lappalainen,6,Nico Lappalainen,F,2021-2022,u20-sm-sarja,498901,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Niemeläinen (D),totals,23,2,2,4,0.17,12,-4,/player/556930/anton-niemelainen,6,Anton Niemeläinen,D,2021-2022,u20-sm-sarja,556930,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tobias Valtonen (D),TPS U20,26,2,2,4,0.15,4,12,/player/602964/tobias-valtonen,6,Tobias Valtonen,D,2021-2022,u20-sm-sarja,602964,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henri Kivistö (D),KOOVEE U20,29,2,2,4,0.14,2,-19,/player/723568/henri-kivisto,6,Henri Kivistö,D,2021-2022,u20-sm-sarja,723568,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leevi Karjalainen (D),SaiPa U20,5,1,3,4,0.80,6,4,/player/397017/leevi-karjalainen,6,Leevi Karjalainen,D,2021-2022,u20-sm-sarja,397017,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peetu Kiukas (D),SaiPa U20,8,1,3,4,0.50,2,0,/player/709489/peetu-kiukas,6,Peetu Kiukas,D,2021-2022,u20-sm-sarja,709489,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juho Nyppeli (F),Ilves U20,10,1,3,4,0.40,0,-7,/player/710223/juho-nyppeli,6,Juho Nyppeli,F,2021-2022,u20-sm-sarja,710223,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julius Huttula (RW),Karhu-Kissat U20,10,1,3,4,0.40,2,-4,/player/468657/julius-huttula,6,Julius Huttula,RW,2021-2022,u20-sm-sarja,468657,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kasper Selin (D),Ilves U20,12,1,3,4,0.33,8,-2,/player/526038/kasper-selin,6,Kasper Selin,D,2021-2022,u20-sm-sarja,526038,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lauri Flytström (D),Kiekko-Espoo U20 Ch,12,1,3,4,0.33,16,-3,/player/628514/lauri-flytstrom,6,Lauri Flytström,D,2021-2022,u20-sm-sarja,628514,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Ondris (LW/RW),KooKoo U20,17,1,3,4,0.24,4,-5,/player/537890/adam-ondris,6,Adam Ondris,LW/RW,2021-2022,u20-sm-sarja,537890,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Kulintsev (D),JYP U20,26,1,3,4,0.15,2,-5,/player/557237/daniil-kulintsev,6,Daniil Kulintsev,D,2021-2022,u20-sm-sarja,557237,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eemeli Tykkyläinen (D),totals,28,1,3,4,0.14,26,-2,/player/628898/eemeli-tykkylainen,6,Eemeli Tykkyläinen,D,2021-2022,u20-sm-sarja,628898,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jimi Junkkari (D),Pelicans U20,36,1,3,4,0.11,12,11,/player/706922/jimi-junkkari,6,Jimi Junkkari,D,2021-2022,u20-sm-sarja,706922,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jimi Enckell (D),KooKoo U20,40,1,3,4,0.10,8,4,/player/470474/jimi-enckell,6,Jimi Enckell,D,2021-2022,u20-sm-sarja,470474,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Grönlund (D),Lukko U20,41,1,3,4,0.10,26,-7,/player/603026/thomas-gronlund,6,Thomas Grönlund,D,2021-2022,u20-sm-sarja,603026,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Takkunen (D),Kiekko-Espoo U20,7,0,4,4,0.57,4,-2,/player/396160/daniel-takkunen,6,Daniel Takkunen,D,2021-2022,u20-sm-sarja,396160,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sami Salmela (D),Hermes U20,18,0,4,4,0.22,4,-14,/player/519267/sami-salmela,6,Sami Salmela,D,2021-2022,u20-sm-sarja,519267,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Tillander (D),Hermes U20,18,0,4,4,0.22,8,-2,/player/560360/rasmus-tillander,6,Rasmus Tillander,D,2021-2022,u20-sm-sarja,560360,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Konidaris (D),totals,22,0,4,4,0.18,4,-3,/player/611822/daniel-konidaris,6,Daniel Konidaris,D,2021-2022,u20-sm-sarja,611822,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Lisov (D),RoKi U20,23,0,4,4,0.17,20,-28,/player/395785/sergei-lisov,6,Sergei Lisov,D,2021-2022,u20-sm-sarja,395785,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Bolder (D),Karhu-Kissat U20,24,0,4,4,0.17,8,-1,/player/553213/thomas-bolder,6,Thomas Bolder,D,2021-2022,u20-sm-sarja,553213,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juhani Järvenpää (D),KooKoo U20,25,0,4,4,0.16,10,4,/player/642193/juhani-jarvenpaa,6,Juhani Järvenpää,D,2021-2022,u20-sm-sarja,642193,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lari Pöllänen (D),SaiPa U20,31,0,4,4,0.13,4,2,/player/467393/lari-pollanen,6,Lari Pöllänen,D,2021-2022,u20-sm-sarja,467393,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Topias Saikkonen (D),HPK U20,31,0,4,4,0.13,20,-1,/player/554230/topias-saikkonen,6,Topias Saikkonen,D,2021-2022,u20-sm-sarja,554230,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eemeli Hellsten (D),Ässät U20,35,0,4,4,0.11,2,10,/player/619516/eemeli-hellsten,6,Eemeli Hellsten,D,2021-2022,u20-sm-sarja,619516,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arttu Elonen-Kulmala (D),Kiekko-Espoo U20,36,0,4,4,0.11,16,5,/player/499080/arttu-elonen-kulmala,6,Arttu Elonen-Kulmala,D,2021-2022,u20-sm-sarja,499080,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Stepanov (F),KOOVEE U20,15,3,0,3,0.20,2,2,/player/706894/nikita-stepanov,6,Nikita Stepanov,F,2021-2022,u20-sm-sarja,706894,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eevert Eloranta (F),TPS U20,27,3,0,3,0.11,6,0,/player/534212/eevert-eloranta,6,Eevert Eloranta,F,2021-2022,u20-sm-sarja,534212,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viljami Haarala (F),Sport U20,39,3,0,3,0.08,10,-14,/player/557290/viljami-haarala,6,Viljami Haarala,F,2021-2022,u20-sm-sarja,557290,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Nizhnikov (RW),TUTO Hockey U20,3,2,1,3,1.00,0,2,/player/335964/kirill-nizhnikov,6,Kirill Nizhnikov,RW,2021-2022,u20-sm-sarja,335964,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Krivokrasov (RW),Jukurit U20,5,2,1,3,0.60,2,1,/player/393569/nikita-krivokrasov,6,Nikita Krivokrasov,RW,2021-2022,u20-sm-sarja,393569,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antti Sjögren (LW),Kiekko-Espoo U20 Ch,8,2,1,3,0.38,2,0,/player/498300/antti-sjogren,6,Antti Sjögren,LW,2021-2022,u20-sm-sarja,498300,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaako Manninen (D),Jokerit U20,8,2,1,3,0.38,8,2,/player/470440/jaako-manninen,6,Jaako Manninen,D,2021-2022,u20-sm-sarja,470440,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Mattola (F),Jukurit U20,12,2,1,3,0.25,0,2,/player/613760/ville-mattola,6,Ville Mattola,F,2021-2022,u20-sm-sarja,613760,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus-Santeri Korhonen (D),Ketterä U20,20,2,1,3,0.15,41,-10,/player/478119/rasmus-santeri-korhonen,6,Rasmus-Santeri Korhonen,D,2021-2022,u20-sm-sarja,478119,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rami Määttä (D),Ässät U20,2,1,2,3,1.50,0,5,/player/534171/rami-maatta,6,Rami Määttä,D,2021-2022,u20-sm-sarja,534171,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Veeti Lehmuskallio (F),Hermes U20,3,1,2,3,1.00,0,-3,/player/395095/veeti-lehmuskallio,6,Veeti Lehmuskallio,F,2021-2022,u20-sm-sarja,395095,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Kuismin (C),Kiekko-Espoo U20 Ch,4,1,2,3,0.75,0,4,/player/556756/rasmus-kuismin,6,Rasmus Kuismin,C,2021-2022,u20-sm-sarja,556756,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lari Heikkinen (LW/RW),Sport U20,5,1,2,3,0.60,0,-1,/player/395437/lari-heikkinen,6,Lari Heikkinen,LW/RW,2021-2022,u20-sm-sarja,395437,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Pereira (F),TUTO Hockey U20,6,1,2,3,0.50,4,-7,/player/583865/michael-pereira,6,Michael Pereira,F,2021-2022,u20-sm-sarja,583865,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miikka Sundgren (C),KalPa U20,9,1,2,3,0.33,2,1,/player/623913/miikka-sundgren,6,Miikka Sundgren,C,2021-2022,u20-sm-sarja,623913,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominik Petr (C/LW),Lukko U20,10,1,2,3,0.30,2,-1,/player/619021/dominik-petr,6,Dominik Petr,C/LW,2021-2022,u20-sm-sarja,619021,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marko Huhtanen (D),Ilves U20,10,1,2,3,0.30,14,1,/player/470674/marko-huhtanen,6,Marko Huhtanen,D,2021-2022,u20-sm-sarja,470674,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juho Saikkonen (D/F),Hermes U20,11,1,2,3,0.27,0,-4,/player/428811/juho-saikkonen,6,Juho Saikkonen,D/F,2021-2022,u20-sm-sarja,428811,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilya Ostroushko (F),Ketterä U20,11,1,2,3,0.27,0,-2,/player/669700/ilya-ostroushko,6,Ilya Ostroushko,F,2021-2022,u20-sm-sarja,669700,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vilho Airola (F),Ketterä U20,19,1,2,3,0.16,2,-15,/player/444399/vilho-airola,6,Vilho Airola,F,2021-2022,u20-sm-sarja,444399,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frans Virtanen (LW),Hermes U20,24,1,2,3,0.13,4,-13,/player/726218/frans-virtanen,6,Frans Virtanen,LW,2021-2022,u20-sm-sarja,726218,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miro Ahvenlampi (F),Kärpät U20,24,1,2,3,0.13,8,-2,/player/642198/miro-ahvenlampi,6,Miro Ahvenlampi,F,2021-2022,u20-sm-sarja,642198,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kasperi Lehtinen (D),totals,24,1,2,3,0.13,55,-10,/player/529774/kasperi-lehtinen,6,Kasperi Lehtinen,D,2021-2022,u20-sm-sarja,529774,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aapo Tervonen (F),Ketterä U20,26,1,2,3,0.12,8,-7,/player/478124/aapo-tervonen,6,Aapo Tervonen,F,2021-2022,u20-sm-sarja,478124,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Minkkinen (D),JYP U20,27,1,2,3,0.11,10,-6,/player/670449/niko-minkkinen,6,Niko Minkkinen,D,2021-2022,u20-sm-sarja,670449,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jami Tuokkola (D),KOOVEE U20,34,1,2,3,0.09,6,-14,/player/611906/jami-tuokkola,6,Jami Tuokkola,D,2021-2022,u20-sm-sarja,611906,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Haavisto (D/W),Ilves U20,38,1,2,3,0.08,18,-2,/player/705631/niko-haavisto,6,Niko Haavisto,D/W,2021-2022,u20-sm-sarja,705631,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Perttu (C),Ketterä U20,1,0,3,3,3.00,2,2,/player/310328/mikko-perttu,6,Mikko Perttu,C,2021-2022,u20-sm-sarja,310328,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leevi Teissala (RW),HIFK U20,3,0,3,3,1.00,4,-1,/player/429279/leevi-teissala,6,Leevi Teissala,RW,2021-2022,u20-sm-sarja,429279,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Tulensalo (D),Kiekko-Espoo U20 Ch,6,0,3,3,0.50,6,5,/player/440787/daniel-tulensalo,6,Daniel Tulensalo,D,2021-2022,u20-sm-sarja,440787,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Blomqvist (F),Hermes U20,8,0,3,3,0.38,2,0,/player/495906/elias-blomqvist,6,Elias Blomqvist,F,2021-2022,u20-sm-sarja,495906,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leevi Korhonen (RW),Ketterä U20,8,0,3,3,0.38,2,-5,/player/535199/leevi-korhonen,6,Leevi Korhonen,RW,2021-2022,u20-sm-sarja,535199,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Iiro Raikamo (LW),Kiekko-Espoo U20 Ch,9,0,3,3,0.33,0,1,/player/556940/iiro-raikamo,6,Iiro Raikamo,LW,2021-2022,u20-sm-sarja,556940,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Horáček (D),Hermes U20,11,0,3,3,0.27,0,1,/player/560622/petr-horacek,6,Petr Horáček,D,2021-2022,u20-sm-sarja,560622,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kalle Helenius (RW),Tappara U20,11,0,3,3,0.27,6,0,/player/638692/kalle-helenius,6,Kalle Helenius,RW,2021-2022,u20-sm-sarja,638692,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Kuusla (LW/RW),Jokerit U20,12,0,3,3,0.25,12,5,/player/618608/emil-kuusla,6,Emil Kuusla,LW/RW,2021-2022,u20-sm-sarja,618608,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ekku Leino (D),Pelicans U20,15,0,3,3,0.20,18,2,/player/601634/ekku-leino,6,Ekku Leino,D,2021-2022,u20-sm-sarja,601634,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Veeti Falck (D),KalPa U20,18,0,3,3,0.17,2,1,/player/613754/veeti-falck,6,Veeti Falck,D,2021-2022,u20-sm-sarja,613754,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Saku Raassina (F),KOOVEE U20,18,0,3,3,0.17,18,-18,/player/466867/saku-raassina,6,Saku Raassina,F,2021-2022,u20-sm-sarja,466867,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jere Vähäsalo (C),totals,20,0,3,3,0.15,2,-18,/player/561910/jere-vahasalo,6,Jere Vähäsalo,C,2021-2022,u20-sm-sarja,561910,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Keihäs (RW),TPS U20,21,0,3,3,0.14,4,-2,/player/638701/robin-keihas,6,Robin Keihäs,RW,2021-2022,u20-sm-sarja,638701,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roope Loukasvuori (D),Kärpät U20,23,0,3,3,0.13,28,0,/player/628889/roope-loukasvuori,6,Roope Loukasvuori,D,2021-2022,u20-sm-sarja,628889,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Heinonen (D),totals,24,0,3,3,0.13,2,0,/player/602510/aleksi-heinonen,6,Aleksi Heinonen,D,2021-2022,u20-sm-sarja,602510,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Ruusu (D),JYP U20,25,0,3,3,0.12,10,-9,/player/395067/elias-ruusu,6,Elias Ruusu,D,2021-2022,u20-sm-sarja,395067,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Veeti Mononen (LW),Jokerit U20,26,0,3,3,0.12,6,4,/player/601091/veeti-mononen,6,Veeti Mononen,LW,2021-2022,u20-sm-sarja,601091,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Severi Savijoki (D),HPK U20,32,0,3,3,0.09,6,0,/player/466863/severi-savijoki,6,Severi Savijoki,D,2021-2022,u20-sm-sarja,466863,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Akseli Ulvila (LW),Ässät U20,41,0,3,3,0.07,12,2,/player/441106/akseli-ulvila,6,Akseli Ulvila,LW,2021-2022,u20-sm-sarja,441106,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Kaarela (C),RoKi U20,6,2,0,2,0.33,6,-2,/player/376149/elias-kaarela,6,Elias Kaarela,C,2021-2022,u20-sm-sarja,376149,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Nurmi (F),TUTO Hockey U20,15,2,0,2,0.13,2,-2,/player/723547/aleksi-nurmi,6,Aleksi Nurmi,F,2021-2022,u20-sm-sarja,723547,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joni Kivinen (D),Tappara U20,28,2,0,2,0.07,4,1,/player/549260/joni-kivinen,6,Joni Kivinen,D,2021-2022,u20-sm-sarja,549260,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Onni Rekola (D),Pelicans U20,30,2,0,2,0.07,10,2,/player/639072/onni-rekola,6,Onni Rekola,D,2021-2022,u20-sm-sarja,639072,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vili Halonen (RW),KalPa U20,2,1,1,2,1.00,0,1,/player/556899/vili-halonen,6,Vili Halonen,RW,2021-2022,u20-sm-sarja,556899,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Verner Valojärvi (C/W),Sport U20,2,1,1,2,1.00,2,2,/player/726144/verner-valojarvi,6,Verner Valojärvi,C/W,2021-2022,u20-sm-sarja,726144,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiro Frilander (RW),Jukurit U20,3,1,1,2,0.67,0,-2,/player/707819/jiro-frilander,6,Jiro Frilander,RW,2021-2022,u20-sm-sarja,707819,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Onni Karvinen (F),Karhu-Kissat U20,4,1,1,2,0.50,0,1,/player/557115/onni-karvinen,6,Onni Karvinen,F,2021-2022,u20-sm-sarja,557115,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Santeri Elo (LW),TPS U20,5,1,1,2,0.40,0,0,/player/691488/santeri-elo,6,Santeri Elo,LW,2021-2022,u20-sm-sarja,691488,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Veeti Väisänen (D),KooKoo U20,5,1,1,2,0.40,0,4,/player/793158/veeti-vaisanen,6,Veeti Väisänen,D,2021-2022,u20-sm-sarja,793158,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Lampi (F),Kiekko-Espoo U20 Ch,7,1,1,2,0.29,2,-3,/player/470697/rasmus-lampi,6,Rasmus Lampi,F,2021-2022,u20-sm-sarja,470697,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Oden (F),Jukurit U20,7,1,1,2,0.29,10,-2,/player/395511/markus-oden,6,Markus Oden,F,2021-2022,u20-sm-sarja,395511,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nestor Noiva (RW),Jokerit U20,9,1,1,2,0.22,0,3,/player/638726/nestor-noiva,6,Nestor Noiva,RW,2021-2022,u20-sm-sarja,638726,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roope Tossavainen (LW/RW),KalPa U20,9,1,1,2,0.22,0,-2,/player/636949/roope-tossavainen,6,Roope Tossavainen,LW/RW,2021-2022,u20-sm-sarja,636949,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Manu Mäkelä (LW/RW),Ässät U20,9,1,1,2,0.22,4,-4,/player/709459/manu-makela,6,Manu Mäkelä,LW/RW,2021-2022,u20-sm-sarja,709459,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leevi Sorvali (D),Tappara U20,9,1,1,2,0.22,8,-1,/player/534241/leevi-sorvali,6,Leevi Sorvali,D,2021-2022,u20-sm-sarja,534241,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Paavo Yritys (C/W),Hermes U20,10,1,1,2,0.20,2,-5,/player/562708/paavo-yritys,6,Paavo Yritys,C/W,2021-2022,u20-sm-sarja,562708,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henri Hattunen (D),Ässät U20,11,1,1,2,0.18,0,0,/player/709581/henri-hattunen,7,Henri Hattunen,D,2021-2022,u20-sm-sarja,709581,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Severi Artto (F),TUTO Hockey U20,12,1,1,2,0.17,2,0,/player/689402/severi-artto,7,Severi Artto,F,2021-2022,u20-sm-sarja,689402,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rudolfs Brinkmanis (D),Karhu-Kissat U20,12,1,1,2,0.17,2,-4,/player/532641/rudolfs-brinkmanis,7,Rudolfs Brinkmanis,D,2021-2022,u20-sm-sarja,532641,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pyry Paakki (D),Pelicans U20,14,1,1,2,0.14,0,1,/player/557183/pyry-paakki,7,Pyry Paakki,D,2021-2022,u20-sm-sarja,557183,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kie Vähäkangas (C/RW),HIFK U20,15,1,1,2,0.13,29,-1,/player/628524/kie-vahakangas,7,Kie Vähäkangas,C/RW,2021-2022,u20-sm-sarja,628524,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kalle Kangas (D),Jokerit U20,16,1,1,2,0.13,8,5,/player/725201/kalle-kangas,7,Kalle Kangas,D,2021-2022,u20-sm-sarja,725201,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valtteri Pulli (D),TPS U20,17,1,1,2,0.12,8,4,/player/397096/valtteri-pulli,7,Valtteri Pulli,D,2021-2022,u20-sm-sarja,397096,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Kuronen (RW),Tappara U20,19,1,1,2,0.11,0,0,/player/499676/rasmus-kuronen,7,Rasmus Kuronen,RW,2021-2022,u20-sm-sarja,499676,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Santeri Antikainen (F),TPS U20,19,1,1,2,0.11,2,2,/player/557103/santeri-antikainen,7,Santeri Antikainen,F,2021-2022,u20-sm-sarja,557103,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Tuovinen (F),KalPa U20,24,1,1,2,0.08,6,-4,/player/639022/niklas-tuovinen,7,Niklas Tuovinen,F,2021-2022,u20-sm-sarja,639022,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Topi Tikkanen (D),Ilves U20,29,1,1,2,0.07,24,-1,/player/713713/topi-tikkanen,7,Topi Tikkanen,D,2021-2022,u20-sm-sarja,713713,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noel Sovelius (F),KOOVEE U20,33,1,1,2,0.06,10,-24,/player/579750/noel-sovelius,7,Noel Sovelius,F,2021-2022,u20-sm-sarja,579750,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Topias Vilén (D),Pelicans U20,1,0,2,2,2.00,0,-1,/player/557184/topias-vilen,7,Topias Vilén,D,2021-2022,u20-sm-sarja,557184,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elis Hede (F),HIFK U20,2,0,2,2,1.00,0,2,/player/467928/elis-hede,7,Elis Hede,F,2021-2022,u20-sm-sarja,467928,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aatu Pohjalainen (F),Pelicans U20,3,0,2,2,0.67,0,1,/player/706932/aatu-pohjalainen,7,Aatu Pohjalainen,F,2021-2022,u20-sm-sarja,706932,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Veeti Moilanen (F),SaiPa U20,3,0,2,2,0.67,0,2,/player/709493/veeti-moilanen,7,Veeti Moilanen,F,2021-2022,u20-sm-sarja,709493,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eemil Savolainen (D),KooKoo U20,3,0,2,2,0.67,0,3,/player/638746/eemil-savolainen,7,Eemil Savolainen,D,2021-2022,u20-sm-sarja,638746,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viljami Istala (D),SaiPa U20,4,0,2,2,0.50,0,-4,/player/376185/viljami-istala,7,Viljami Istala,D,2021-2022,u20-sm-sarja,376185,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Eliseev (RW),Jokerit U20,4,0,2,2,0.50,0,2,/player/695879/maxim-eliseev,7,Maxim Eliseev,RW,2021-2022,u20-sm-sarja,695879,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leevi Siira (D),totals,4,0,2,2,0.50,4,-2,/player/473773/leevi-siira,7,Leevi Siira,D,2021-2022,u20-sm-sarja,473773,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tuukka Tieksola (RW),Kärpät U20,5,0,2,2,0.40,2,0,/player/395512/tuukka-tieksola,7,Tuukka Tieksola,RW,2021-2022,u20-sm-sarja,395512,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Mäkinen (RW),Hermes U20,5,0,2,2,0.40,4,1,/player/580005/niklas-makinen,7,Niklas Mäkinen,RW,2021-2022,u20-sm-sarja,580005,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juuso Kekarainen (F),HPK U20,7,0,2,2,0.29,2,2,/player/557117/juuso-kekarainen,7,Juuso Kekarainen,F,2021-2022,u20-sm-sarja,557117,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kalle Savonjousi (RW),Ilves U20,9,0,2,2,0.22,0,-5,/player/710226/kalle-savonjousi,7,Kalle Savonjousi,RW,2021-2022,u20-sm-sarja,710226,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Salminen (D),KOOVEE U20,11,0,2,2,0.18,2,8,/player/815654/niklas-salminen,7,Niklas Salminen,D,2021-2022,u20-sm-sarja,815654,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kasper Saarijärvi (D),Karhu-Kissat U20,11,0,2,2,0.18,2,-3,/player/470443/kasper-saarijarvi,7,Kasper Saarijärvi,D,2021-2022,u20-sm-sarja,470443,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Manu Räty (D),TUTO Hockey U20,11,0,2,2,0.18,4,0,/player/395784/manu-raty,7,Manu Räty,D,2021-2022,u20-sm-sarja,395784,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kalle Keskinen (D),KOOVEE U20,14,0,2,2,0.14,8,-3,/player/575233/kalle-keskinen,7,Kalle Keskinen,D,2021-2022,u20-sm-sarja,575233,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niilopekka Muhonen (D),KalPa U20,16,0,2,2,0.13,4,-4,/player/692903/niilopekka-muhonen,7,Niilopekka Muhonen,D,2021-2022,u20-sm-sarja,692903,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lauri Toikka (D),Jukurit U20,17,0,2,2,0.12,8,0,/player/534234/lauri-toikka,7,Lauri Toikka,D,2021-2022,u20-sm-sarja,534234,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kaapo Johansson (D),RoKi U20,19,0,2,2,0.11,0,-5,/player/709504/kaapo-johansson,7,Kaapo Johansson,D,2021-2022,u20-sm-sarja,709504,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lauri Romppainen (D),Karhu-Kissat U20,19,0,2,2,0.11,4,5,/player/629875/lauri-romppainen,7,Lauri Romppainen,D,2021-2022,u20-sm-sarja,629875,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Manu Isopoussu (LW),Karhu-Kissat U20,19,0,2,2,0.11,6,-7,/player/628517/manu-isopoussu,7,Manu Isopoussu,LW,2021-2022,u20-sm-sarja,628517,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Otto Latvala (D),Karhu-Kissat U20,24,0,2,2,0.08,10,-10,/player/629873/otto-latvala,7,Otto Latvala,D,2021-2022,u20-sm-sarja,629873,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lenni Suutari (F),Lukko U20,31,0,2,2,0.06,2,-4,/player/562028/lenni-suutari,7,Lenni Suutari,F,2021-2022,u20-sm-sarja,562028,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matvei Chekhov (D),RoKi U20,32,0,2,2,0.06,51,-15,/player/561727/matvei-chekhov,7,Matvei Chekhov,D,2021-2022,u20-sm-sarja,561727,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Esa Kylmäniemi (D/F),KOOVEE U20,33,0,2,2,0.06,8,-18,/player/615262/esa-kylmaniemi,7,Esa Kylmäniemi,D/F,2021-2022,u20-sm-sarja,615262,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oula Hakasalo (D),RoKi U20,34,0,2,2,0.06,18,-13,/player/576429/oula-hakasalo,7,Oula Hakasalo,D,2021-2022,u20-sm-sarja,576429,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Krystian Lisowski (LW/C),Kiekko-Espoo U20 Ch,1,1,0,1,1.00,0,1,/player/696879/krystian-lisowski,7,Krystian Lisowski,LW/C,2021-2022,u20-sm-sarja,696879,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Talo (LW/RW),Kiekko-Espoo U20 Ch,1,1,0,1,1.00,0,0,/player/714385/aleksi-talo,7,Aleksi Talo,LW/RW,2021-2022,u20-sm-sarja,714385,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joona Myllyaho (F),Sport U20,1,1,0,1,1.00,2,1,/player/710697/joona-myllyaho,7,Joona Myllyaho,F,2021-2022,u20-sm-sarja,710697,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Ottavainen (D),JYP U20,1,1,0,1,1.00,12,1,/player/530727/ville-ottavainen,7,Ville Ottavainen,D,2021-2022,u20-sm-sarja,530727,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eetu Koivunen (D),TPS U20,2,1,0,1,0.50,0,1,/player/535836/eetu-koivunen,7,Eetu Koivunen,D,2021-2022,u20-sm-sarja,535836,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roope Tuomioksa (LW),HIFK U20,2,1,0,1,0.50,0,1,/player/653655/roope-tuomioksa,7,Roope Tuomioksa,LW,2021-2022,u20-sm-sarja,653655,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juuso Partanen (D),Kiekko-Espoo U20 Ch,2,1,0,1,0.50,0,-1,/player/745881/juuso-partanen,7,Juuso Partanen,D,2021-2022,u20-sm-sarja,745881,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Perälä (C),Kiekko-Espoo U20 Ch,2,1,0,1,0.50,0,-1,/player/674499/jesse-perala,7,Jesse Perälä,C,2021-2022,u20-sm-sarja,674499,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Gröhn (F),SaiPa U20,2,1,0,1,0.50,0,1,/player/653670/niklas-grohn,7,Niklas Gröhn,F,2021-2022,u20-sm-sarja,653670,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valerii Rykov (RW),Hermes U20,2,1,0,1,0.50,0,0,/player/473358/valerii-rykov,7,Valerii Rykov,RW,2021-2022,u20-sm-sarja,473358,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joona Mutka (C),Jukurit U20,2,1,0,1,0.50,0,-3,/player/642253/joona-mutka,7,Joona Mutka,C,2021-2022,u20-sm-sarja,642253,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Potsinok (F),Sport U20,3,1,0,1,0.33,0,3,/player/660419/erik-potsinok,7,Erik Potsinok,F,2021-2022,u20-sm-sarja,660419,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskari Koponen (C),Ilves U20,4,1,0,1,0.25,4,-1,/player/658589/oskari-koponen,7,Oskari Koponen,C,2021-2022,u20-sm-sarja,658589,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tatu Lindholm (D),Ilves U20,5,1,0,1,0.20,0,1,/player/556950/tatu-lindholm,7,Tatu Lindholm,D,2021-2022,u20-sm-sarja,556950,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicholas Canade (LW/D),Sport U20,5,1,0,1,0.20,0,-11,/player/418540/nicholas-canade,7,Nicholas Canade,LW/D,2021-2022,u20-sm-sarja,418540,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aapo Nokkala (D),Tappara U20,5,1,0,1,0.20,4,-2,/player/603486/aapo-nokkala,7,Aapo Nokkala,D,2021-2022,u20-sm-sarja,603486,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaron Koskinen (D),TUTO Hockey U20,5,1,0,1,0.20,4,-3,/player/658584/aaron-koskinen,7,Aaron Koskinen,D,2021-2022,u20-sm-sarja,658584,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Axel Skinnari (RW),Pelicans U20,6,1,0,1,0.17,0,0,/player/638740/axel-skinnari,7,Axel Skinnari,RW,2021-2022,u20-sm-sarja,638740,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oiva Keskinen (C/LW),Tappara U20,7,1,0,1,0.14,2,-7,/player/628486/oiva-keskinen,7,Oiva Keskinen,C/LW,2021-2022,u20-sm-sarja,628486,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Grigory Semenov (D),Ketterä U20,7,1,0,1,0.14,2,0,/player/683133/grigory-semenov,7,Grigory Semenov,D,2021-2022,u20-sm-sarja,683133,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Paavo Hiltunen (D),HIFK U20,8,1,0,1,0.13,2,-3,/player/638642/paavo-hiltunen,7,Paavo Hiltunen,D,2021-2022,u20-sm-sarja,638642,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eero Mikola (C),Ilves U20,8,1,0,1,0.13,4,-4,/player/534272/eero-mikola,7,Eero Mikola,C,2021-2022,u20-sm-sarja,534272,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskari Lahtinen (D),TUTO Hockey U20,9,1,0,1,0.11,16,-6,/player/376272/oskari-lahtinen,7,Oskari Lahtinen,D,2021-2022,u20-sm-sarja,376272,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeremia Hjulfors (D),Hermes U20,11,1,0,1,0.09,0,-3,/player/640995/jeremia-hjulfors,7,Jeremia Hjulfors,D,2021-2022,u20-sm-sarja,640995,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaakko Laine (D),TUTO Hockey U20,15,1,0,1,0.07,0,-1,/player/658583/jaakko-laine,7,Jaakko Laine,D,2021-2022,u20-sm-sarja,658583,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Juříček (F),totals,16,1,0,1,0.06,2,-3,/player/641537/filip-ju%C5%99icek,7,Filip Juříček,F,2021-2022,u20-sm-sarja,641537,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mirko Hänninen (F),HPK U20,17,1,0,1,0.06,4,-6,/player/534270/mirko-hanninen,7,Mirko Hänninen,F,2021-2022,u20-sm-sarja,534270,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Isaac Langdon (C),RoKi U20,18,1,0,1,0.06,10,-18,/player/402989/isaac-langdon,7,Isaac Langdon,C,2021-2022,u20-sm-sarja,402989,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miro Heikkilä (D),HIFK U20,29,1,0,1,0.03,12,-11,/player/628588/miro-heikkila,7,Miro Heikkilä,D,2021-2022,u20-sm-sarja,628588,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samu Vesterlund (C),Sport U20,1,0,1,1,1.00,0,-2,/player/639234/samu-vesterlund,7,Samu Vesterlund,C,2021-2022,u20-sm-sarja,639234,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Albin Eriksson (RW/LW),Ässät U20,1,0,1,1,1.00,0,2,/player/265297/albin-eriksson,7,Albin Eriksson,RW/LW,2021-2022,u20-sm-sarja,265297,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Helenius (C/LW),JYP U20,1,0,1,1,1.00,0,1,/player/554237/samuel-helenius,7,Samuel Helenius,C/LW,2021-2022,u20-sm-sarja,554237,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brad Lambert (C/RW),JYP U20,1,0,1,1,1.00,0,1,/player/414961/brad-lambert,7,Brad Lambert,C/RW,2021-2022,u20-sm-sarja,414961,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Toivo Kupila (F),Kiekko-Espoo U20 Ch,1,0,1,1,1.00,0,-2,/player/709458/toivo-kupila,7,Toivo Kupila,F,2021-2022,u20-sm-sarja,709458,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aatu Wulff (C),Jokerit U20,1,0,1,1,1.00,0,0,/player/611988/aatu-wulff,7,Aatu Wulff,C,2021-2022,u20-sm-sarja,611988,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luka Vodlan (C),KooKoo U20,2,0,1,1,0.50,0,1,/player/527491/luka-vodlan,7,Luka Vodlan,C,2021-2022,u20-sm-sarja,527491,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Hemming (RW/LW),Kiekko-Espoo U20,2,0,1,1,0.50,0,0,/player/689033/emil-hemming,7,Emil Hemming,RW/LW,2021-2022,u20-sm-sarja,689033,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Atte Uusikartano (C),TUTO Hockey U20,2,0,1,1,0.50,0,-2,/player/865074/atte-uusikartano,7,Atte Uusikartano,C,2021-2022,u20-sm-sarja,865074,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juuso Nykänen (F),Hermes U20,2,0,1,1,0.50,2,1,/player/563484/juuso-nykanen,7,Juuso Nykänen,F,2021-2022,u20-sm-sarja,563484,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kalle Loponen (D),KooKoo U20,2,0,1,1,0.50,2,4,/player/395424/kalle-loponen,7,Kalle Loponen,D,2021-2022,u20-sm-sarja,395424,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Potsinok (F),Sport U20,2,0,1,1,0.50,2,1,/player/660420/marek-potsinok,7,Marek Potsinok,F,2021-2022,u20-sm-sarja,660420,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jirko Tukiainen (D),Ilves U20,2,0,1,1,0.50,2,2,/player/689396/jirko-tukiainen,7,Jirko Tukiainen,D,2021-2022,u20-sm-sarja,689396,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Akseli Karjalainen (D),Hermes U20,2,0,1,1,0.50,4,0,/player/440663/akseli-karjalainen,7,Akseli Karjalainen,D,2021-2022,u20-sm-sarja,440663,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Somppi (C),Kiekko-Espoo U20,3,0,1,1,0.33,0,-1,/player/332279/niko-somppi,7,Niko Somppi,C,2021-2022,u20-sm-sarja,332279,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kasper Sallinen (D),Pelicans U20,3,0,1,1,0.33,0,-2,/player/638729/kasper-sallinen,7,Kasper Sallinen,D,2021-2022,u20-sm-sarja,638729,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Heimosalmi (D),Ässät U20,3,0,1,1,0.33,0,-2,/player/601642/aleksi-heimosalmi,7,Aleksi Heimosalmi,D,2021-2022,u20-sm-sarja,601642,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Snellman (C/RW),Kiekko-Espoo U20 Ch,3,0,1,1,0.33,6,0,/player/602481/alexander-snellman,7,Alexander Snellman,C/RW,2021-2022,u20-sm-sarja,602481,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artturi Inkala (F),Kiekko-Espoo U20 Ch,4,0,1,1,0.25,2,-1,/player/534225/artturi-inkala,7,Artturi Inkala,F,2021-2022,u20-sm-sarja,534225,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Matinmikko (D),Ässät U20,4,0,1,1,0.25,4,2,/player/395504/aleksi-matinmikko,7,Aleksi Matinmikko,D,2021-2022,u20-sm-sarja,395504,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vili Toivonen (LW/RW),HPK U20,4,0,1,1,0.25,4,-1,/player/693287/vili-toivonen,7,Vili Toivonen,LW/RW,2021-2022,u20-sm-sarja,693287,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artur Seniut (D),Sport U20,6,0,1,1,0.17,2,2,/player/667572/artur-seniut,7,Artur Seniut,D,2021-2022,u20-sm-sarja,667572,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Talvikunnas (D),HPK U20,6,0,1,1,0.17,4,-4,/player/657845/niklas-talvikunnas,7,Niklas Talvikunnas,D,2021-2022,u20-sm-sarja,657845,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anton Sikorski (C/W),RoKi U20,6,0,1,1,0.17,14,-7,/player/395431/anton-sikorski,7,Anton Sikorski,C/W,2021-2022,u20-sm-sarja,395431,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maxim Korpimäki (F),Tappara U20,6,0,1,1,0.17,16,-1,/player/628488/maxim-korpimaki,7,Maxim Korpimäki,F,2021-2022,u20-sm-sarja,628488,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomek Haula (LW),Lukko U20,7,0,1,1,0.14,2,2,/player/658552/tomek-haula,7,Tomek Haula,LW,2021-2022,u20-sm-sarja,658552,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jimi Suksia (F),KOOVEE U20,7,0,1,1,0.14,6,-3,/player/470571/jimi-suksia,7,Jimi Suksia,F,2021-2022,u20-sm-sarja,470571,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joakim Huikkala (D),Ässät U20,7,0,1,1,0.14,14,0,/player/438250/joakim-huikkala,7,Joakim Huikkala,D,2021-2022,u20-sm-sarja,438250,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jerry Välipirtti (D),TUTO Hockey U20,8,0,1,1,0.13,0,-7,/player/403939/jerry-valipirtti,7,Jerry Välipirtti,D,2021-2022,u20-sm-sarja,403939,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tane Hannola (F),KOOVEE U20,8,0,1,1,0.13,2,-3,/player/534242/tane-hannola,7,Tane Hannola,F,2021-2022,u20-sm-sarja,534242,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ossi Palosaari (D/F),Hermes U20,8,0,1,1,0.13,4,-2,/player/560629/ossi-palosaari,7,Ossi Palosaari,D/F,2021-2022,u20-sm-sarja,560629,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Veeti Vähäkainu (C),Hermes U20,8,0,1,1,0.13,16,-4,/player/641005/veeti-vahakainu,7,Veeti Vähäkainu,C,2021-2022,u20-sm-sarja,641005,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leon Ruohomäki (F),TUTO Hockey U20,9,0,1,1,0.11,2,0,/player/535843/leon-ruohomaki,7,Leon Ruohomäki,F,2021-2022,u20-sm-sarja,535843,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Santeri Vilén (F),TPS U20,10,0,1,1,0.10,0,3,/player/642373/santeri-vilen,8,Santeri Vilén,F,2021-2022,u20-sm-sarja,642373,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Felix Söderblom (C),TPS U20,11,0,1,1,0.09,0,0,/player/511497/felix-soderblom,8,Felix Söderblom,C,2021-2022,u20-sm-sarja,511497,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Björkgren (C),Sport U20,11,0,1,1,0.09,0,-4,/player/639235/rasmus-bjorkgren,8,Rasmus Björkgren,C,2021-2022,u20-sm-sarja,639235,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskari Jokimutka (D),TUTO Hockey U20,11,0,1,1,0.09,0,-4,/player/608544/oskari-jokimutka,8,Oskari Jokimutka,D,2021-2022,u20-sm-sarja,608544,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Topi Vuori (D),Jokerit U20,12,0,1,1,0.08,0,-2,/player/706908/topi-vuori,8,Topi Vuori,D,2021-2022,u20-sm-sarja,706908,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaro Virtanen (F),Ässät U20,13,0,1,1,0.08,0,-3,/player/628792/aaro-virtanen,8,Aaro Virtanen,F,2021-2022,u20-sm-sarja,628792,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Harri Eskola (D),RoKi U20,15,0,1,1,0.07,0,-14,/player/472616/harri-eskola,8,Harri Eskola,D,2021-2022,u20-sm-sarja,472616,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Virtanen (D),TPS U20,19,0,1,1,0.05,12,4,/player/495841/elias-virtanen,8,Elias Virtanen,D,2021-2022,u20-sm-sarja,495841,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elliot Cederberg (D),Hermes U20,23,0,1,1,0.04,14,-13,/player/560540/elliot-cederberg,8,Elliot Cederberg,D,2021-2022,u20-sm-sarja,560540,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sever Bilgili (D),Tappara U20,25,0,1,1,0.04,6,-6,/player/470564/sever-bilgili,8,Sever Bilgili,D,2021-2022,u20-sm-sarja,470564,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Jombik (D),TUTO Hockey U20,26,0,1,1,0.04,4,-1,/player/557383/adam-jombik,8,Adam Jombik,D,2021-2022,u20-sm-sarja,557383,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Urho Tapper (D),TUTO Hockey U20,28,0,1,1,0.04,2,-5,/player/628513/urho-tapper,8,Urho Tapper,D,2021-2022,u20-sm-sarja,628513,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Atte Rajala (D),HPK U20,30,0,1,1,0.03,12,-4,/player/555002/atte-rajala,8,Atte Rajala,D,2021-2022,u20-sm-sarja,555002,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Cubo (D),Lukko U20,36,0,1,1,0.03,10,-2,/player/353110/ondrej-cubo,8,Ondrej Cubo,D,2021-2022,u20-sm-sarja,353110,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juuso Orava (LW),Jokerit U20,0,0,0,0,-,0,-,/player/628520/juuso-orava,8,Juuso Orava,LW,2021-2022,u20-sm-sarja,628520,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sampo Nieminen (D),Jokerit U20,0,0,0,0,-,0,-,/player/565335/sampo-nieminen,8,Sampo Nieminen,D,2021-2022,u20-sm-sarja,565335,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kasper Puutio (D),KalPa U20,0,0,0,0,-,0,-,/player/467380/kasper-puutio,8,Kasper Puutio,D,2021-2022,u20-sm-sarja,467380,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juuso Mäenpää (C/LW),KalPa U20,0,0,0,0,-,0,-,/player/534237/juuso-maenpaa,8,Juuso Mäenpää,C/LW,2021-2022,u20-sm-sarja,534237,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Axel Rindell (D),Kärpät U20,0,0,0,0,-,0,-,/player/375833/axel-rindell,8,Axel Rindell,D,2021-2022,u20-sm-sarja,375833,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janis Svanenbergs (C),Lukko U20,0,0,0,0,-,0,-,/player/489301/janis-svanenbergs,8,Janis Svanenbergs,C,2021-2022,u20-sm-sarja,489301,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benjamin Korhonen (C/W),KalPa U20,0,0,0,0,-,0,-,/player/428862/benjamin-korhonen,8,Benjamin Korhonen,C/W,2021-2022,u20-sm-sarja,428862,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janne Riihimäki (F/D),Hermes U20,0,0,0,0,-,0,0,/player/503898/janne-riihimaki,8,Janne Riihimäki,F/D,2021-2022,u20-sm-sarja,503898,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Topias Liljamo (LW),Hermes U20,0,0,0,0,-,0,0,/player/428877/topias-liljamo,8,Topias Liljamo,LW,2021-2022,u20-sm-sarja,428877,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Kotajärvi (D),Hermes U20,0,0,0,0,-,0,0,/player/858129/jesper-kotajarvi,8,Jesper Kotajärvi,D,2021-2022,u20-sm-sarja,858129,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Rautiala (D),Kiekko-Espoo U20,1,0,0,0,0.00,0,-2,/player/396663/ville-rautiala,8,Ville Rautiala,D,2021-2022,u20-sm-sarja,396663,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Onni Ruohomaa (C),TPS U20,1,0,0,0,0.00,0,0,/player/739773/onni-ruohomaa,8,Onni Ruohomaa,C,2021-2022,u20-sm-sarja,739773,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Juhola (C),Lukko U20,1,0,0,0,0.00,0,-1,/player/638682/jesse-juhola,8,Jesse Juhola,C,2021-2022,u20-sm-sarja,638682,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Arkiomaa (D),HIFK U20,1,0,0,0,0.00,0,-1,/player/747310/ville-arkiomaa,8,Ville Arkiomaa,D,2021-2022,u20-sm-sarja,747310,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Simonen (F),Karhu-Kissat U20,1,0,0,0,0.00,0,-2,/player/709454/joel-simonen,8,Joel Simonen,F,2021-2022,u20-sm-sarja,709454,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janne Liukkonen (F),Ketterä U20,1,0,0,0,0.00,0,0,/player/478126/janne-liukkonen,8,Janne Liukkonen,F,2021-2022,u20-sm-sarja,478126,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Riihelä (F),KOOVEE U20,1,0,0,0,0.00,0,0,/player/724696/mikko-riihela,8,Mikko Riihelä,F,2021-2022,u20-sm-sarja,724696,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joona Tamminen (D),Kiekko-Espoo U20,1,0,0,0,0.00,0,0,/player/396158/joona-tamminen,8,Joona Tamminen,D,2021-2022,u20-sm-sarja,396158,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jere Välitalo (D),RoKi U20,1,0,0,0,0.00,0,0,/player/395495/jere-valitalo,8,Jere Välitalo,D,2021-2022,u20-sm-sarja,395495,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Shekhovtsov (D),Ketterä U20,1,0,0,0,0.00,0,-2,/player/514676/yegor-shekhovtsov,8,Yegor Shekhovtsov,D,2021-2022,u20-sm-sarja,514676,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aatu Karjalainen (W/C),HIFK U20,1,0,0,0,0.00,0,0,/player/699788/aatu-karjalainen,8,Aatu Karjalainen,W/C,2021-2022,u20-sm-sarja,699788,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Nousiainen (F),TPS U20,1,0,0,0,0.00,0,0,/player/526050/rasmus-nousiainen,8,Rasmus Nousiainen,F,2021-2022,u20-sm-sarja,526050,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jose Savolainen (F),Pelicans U20,1,0,0,0,0.00,0,0,/player/796067/jose-savolainen,8,Jose Savolainen,F,2021-2022,u20-sm-sarja,796067,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julius Kokko (F),HIFK U20,1,0,0,0,0.00,0,0,/player/668821/julius-kokko,8,Julius Kokko,F,2021-2022,u20-sm-sarja,668821,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nestori Sirenne (F),SaiPa U20,1,0,0,0,0.00,0,0,/player/653671/nestori-sirenne,8,Nestori Sirenne,F,2021-2022,u20-sm-sarja,653671,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Marttila (D),Hermes U20,1,0,0,0,0.00,0,1,/player/641003/rasmus-marttila,8,Rasmus Marttila,D,2021-2022,u20-sm-sarja,641003,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hannes Tiainen (LW),HIFK U20,1,0,0,0,0.00,0,-1,/player/747454/hannes-tiainen,8,Hannes Tiainen,LW,2021-2022,u20-sm-sarja,747454,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Mourujärvi (C),Kärpät U20,1,0,0,0,0.00,0,-1,/player/747440/elias-mourujarvi,8,Elias Mourujärvi,C,2021-2022,u20-sm-sarja,747440,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Jansson (F),Kärpät U20,1,0,0,0,0.00,0,-1,/player/723073/elias-jansson,8,Elias Jansson,F,2021-2022,u20-sm-sarja,723073,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martti Laosmaa (C),Kiekko-Espoo U20 Ch,1,0,0,0,0.00,0,-2,/player/674514/martti-laosmaa,8,Martti Laosmaa,C,2021-2022,u20-sm-sarja,674514,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomi Autere (F),Kiekko-Espoo U20 Ch,1,0,0,0,0.00,0,1,/player/642441/tomi-autere,8,Tomi Autere,F,2021-2022,u20-sm-sarja,642441,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Otso Ylitalo (C/LW),Kärpät U20,1,0,0,0,0.00,0,0,/player/691487/otso-ylitalo,8,Otso Ylitalo,C/LW,2021-2022,u20-sm-sarja,691487,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Skog (RW),HPK U20,1,0,0,0,0.00,0,0,/player/670470/aleksi-skog,8,Aleksi Skog,RW,2021-2022,u20-sm-sarja,670470,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaro Lampi (D),HIFK U20,1,0,0,0,0.00,0,0,/player/709569/aaro-lampi,8,Aaro Lampi,D,2021-2022,u20-sm-sarja,709569,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Heikki Ruohonen (C),Kiekko-Espoo U20,1,0,0,0,0.00,0,0,/player/618952/heikki-ruohonen,8,Heikki Ruohonen,C,2021-2022,u20-sm-sarja,618952,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oliwer Kyllinen (LW),Ässät U20,1,0,0,0,0.00,0,-1,/player/796213/oliwer-kyllinen,8,Oliwer Kyllinen,LW,2021-2022,u20-sm-sarja,796213,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kasper Winqvist (LW),Kiekko-Espoo U20 Ch,1,0,0,0,0.00,0,-1,/player/674506/kasper-winqvist,8,Kasper Winqvist,LW,2021-2022,u20-sm-sarja,674506,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eero Winter (RW),Karhu-Kissat U20,1,0,0,0,0.00,0,-1,/player/726127/eero-winter,8,Eero Winter,RW,2021-2022,u20-sm-sarja,726127,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuel Sisik (LW),SaiPa U20,1,0,0,0,0.00,0,0,/player/595286/samuel-sisik,8,Samuel Sisik,LW,2021-2022,u20-sm-sarja,595286,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Jokinen (D),Hermes U20,1,0,0,0,0.00,0,0,/player/726216/niko-jokinen,8,Niko Jokinen,D,2021-2022,u20-sm-sarja,726216,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peetu Laiho (D),Kiekko-Espoo U20 Ch,1,0,0,0,0.00,0,2,/player/657843/peetu-laiho,8,Peetu Laiho,D,2021-2022,u20-sm-sarja,657843,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesper Kotkansalo (F),Kiekko-Espoo U20 Ch,1,0,0,0,0.00,0,0,/player/674501/jesper-kotkansalo,8,Jesper Kotkansalo,F,2021-2022,u20-sm-sarja,674501,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Aura (D),Kiekko-Espoo U20 Ch,1,0,0,0,0.00,0,-1,/player/642783/elias-aura,8,Elias Aura,D,2021-2022,u20-sm-sarja,642783,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lauri Saastamoinen (LW),Jokerit U20,1,0,0,0,0.00,0,1,/player/670473/lauri-saastamoinen,8,Lauri Saastamoinen,LW,2021-2022,u20-sm-sarja,670473,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksi Airaksinen (RW),Jokerit U20,1,0,0,0,0.00,0,0,/player/709540/aleksi-airaksinen,8,Aleksi Airaksinen,RW,2021-2022,u20-sm-sarja,709540,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arttu Paqvalin (D),Jokerit U20,1,0,0,0,0.00,0,0,/player/709550/arttu-paqvalin,8,Arttu Paqvalin,D,2021-2022,u20-sm-sarja,709550,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sisu Pokka (F),RoKi U20,1,0,0,0,0.00,0,-1,/player/738213/sisu-pokka,8,Sisu Pokka,F,2021-2022,u20-sm-sarja,738213,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ville Puotiniemi (C),RoKi U20,1,0,0,0,0.00,0,-1,/player/659049/ville-puotiniemi,8,Ville Puotiniemi,C,2021-2022,u20-sm-sarja,659049,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ilari Salmi (D),TUTO Hockey U20,1,0,0,0,0.00,0,-,/player/709465/ilari-salmi,8,Ilari Salmi,D,2021-2022,u20-sm-sarja,709465,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Topias Timonen (D),KOOVEE U20,1,0,0,0,0.00,2,0,/player/815658/topias-timonen,8,Topias Timonen,D,2021-2022,u20-sm-sarja,815658,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Tallqvist (F),Kiekko-Espoo U20 Ch,1,0,0,0,0.00,2,-1,/player/674507/rasmus-tallqvist,8,Rasmus Tallqvist,F,2021-2022,u20-sm-sarja,674507,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Jyväsjärvi (C),Kiekko-Espoo U20 Ch,1,0,0,0,0.00,2,-1,/player/648375/jan-jyvasjarvi,8,Jan Jyväsjärvi,C,2021-2022,u20-sm-sarja,648375,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kirill Ustinov (F),TUTO Hockey U20,2,0,0,0,0.00,0,0,/player/569013/kirill-ustinov,8,Kirill Ustinov,F,2021-2022,u20-sm-sarja,569013,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Oksanen (F),TUTO Hockey U20,2,0,0,0,0.00,0,0,/player/581333/daniel-oksanen,8,Daniel Oksanen,F,2021-2022,u20-sm-sarja,581333,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eppu Varjamo (F),KOOVEE U20,2,0,0,0,0.00,0,-3,/player/318284/eppu-varjamo,8,Eppu Varjamo,F,2021-2022,u20-sm-sarja,318284,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eemeli Mäki (F),KOOVEE U20,2,0,0,0,0.00,0,-3,/player/318289/eemeli-maki,8,Eemeli Mäki,F,2021-2022,u20-sm-sarja,318289,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nemo Pajula (D),Ilves U20,2,0,0,0,0.00,0,1,/player/793529/nemo-pajula,8,Nemo Pajula,D,2021-2022,u20-sm-sarja,793529,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kasper Kuoppala (D),Ilves U20,2,0,0,0,0.00,0,0,/player/710219/kasper-kuoppala,8,Kasper Kuoppala,D,2021-2022,u20-sm-sarja,710219,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Veeti Mähönen (D),Ilves U20,2,0,0,0,0.00,0,-1,/player/648443/veeti-mahonen,8,Veeti Mähönen,D,2021-2022,u20-sm-sarja,648443,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alan Lobis (C),KooKoo U20,2,0,0,0,0.00,0,-1,/player/477968/alan-lobis,8,Alan Lobis,C,2021-2022,u20-sm-sarja,477968,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robin Mürkel (C/W),Karhu-Kissat U20,2,0,0,0,0.00,0,0,/player/499096/robin-murkel,8,Robin Mürkel,C/W,2021-2022,u20-sm-sarja,499096,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riku Badorek (F),Kiekko-Espoo U20 Ch,2,0,0,0,0.00,0,2,/player/468652/riku-badorek,8,Riku Badorek,F,2021-2022,u20-sm-sarja,468652,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikko Tuomela (C),JYP U20,2,0,0,0,0.00,0,-1,/player/579706/mikko-tuomela,8,Mikko Tuomela,C,2021-2022,u20-sm-sarja,579706,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roope Rajala (LW/RW),Ilves U20,2,0,0,0,0.00,0,-1,/player/618950/roope-rajala,8,Roope Rajala,LW/RW,2021-2022,u20-sm-sarja,618950,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaakko Mäkeläinen (F),TUTO Hockey U20,2,0,0,0,0.00,0,0,/player/725477/jaakko-makelainen,8,Jaakko Mäkeläinen,F,2021-2022,u20-sm-sarja,725477,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Topi Sipilä (D),Hermes U20,2,0,0,0,0.00,0,-1,/player/395421/topi-sipila,8,Topi Sipilä,D,2021-2022,u20-sm-sarja,395421,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eetu Levänen (LW),Lukko U20,2,0,0,0,0.00,0,0,/player/540335/eetu-levanen,8,Eetu Levänen,LW,2021-2022,u20-sm-sarja,540335,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Tanskanen (LW),SaiPa U20,2,0,0,0,0.00,0,-1,/player/576391/max-tanskanen,8,Max Tanskanen,LW,2021-2022,u20-sm-sarja,576391,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Pulkkinen (D),JYP U20,2,0,0,0,0.00,0,-1,/player/709399/jesse-pulkkinen,8,Jesse Pulkkinen,D,2021-2022,u20-sm-sarja,709399,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ossi-Veikka Vuontisvaara (D),JYP U20,2,0,0,0,0.00,0,-2,/player/641973/ossi-veikka-vuontisvaara,8,Ossi-Veikka Vuontisvaara,D,2021-2022,u20-sm-sarja,641973,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Veeti Valtonen (RW),Ketterä U20,2,0,0,0,0.00,0,-1,/player/638764/veeti-valtonen,8,Veeti Valtonen,RW,2021-2022,u20-sm-sarja,638764,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Onni Kontunen (RW),SaiPa U20,2,0,0,0,0.00,0,-3,/player/659216/onni-kontunen,8,Onni Kontunen,RW,2021-2022,u20-sm-sarja,659216,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vennu Korpi-Halkola (F),JYP U20,2,0,0,0,0.00,0,0,/player/783955/vennu-korpi-halkola,8,Vennu Korpi-Halkola,F,2021-2022,u20-sm-sarja,783955,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arttu Rantanen (C),JYP U20,2,0,0,0,0.00,0,-2,/player/602508/arttu-rantanen,8,Arttu Rantanen,C,2021-2022,u20-sm-sarja,602508,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erkki Ikäläinen (D),JYP U20,2,0,0,0,0.00,0,-2,/player/603004/erkki-ikalainen,8,Erkki Ikäläinen,D,2021-2022,u20-sm-sarja,603004,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jere Rekola (D),JYP U20,2,0,0,0,0.00,0,-3,/player/602217/jere-rekola,8,Jere Rekola,D,2021-2022,u20-sm-sarja,602217,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Norbert Bendegúz Antal (F),JYP U20,2,0,0,0,0.00,0,-1,/player/560328/norbert-bendeguz-antal,8,Norbert Bendegúz Antal,F,2021-2022,u20-sm-sarja,560328,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miska Poikselkä (D),Sport U20,2,0,0,0,0.00,0,1,/player/694355/miska-poikselka,8,Miska Poikselkä,D,2021-2022,u20-sm-sarja,694355,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eeli Topp (RW),Sport U20,2,0,0,0,0.00,0,-1,/player/639232/eeli-topp,8,Eeli Topp,RW,2021-2022,u20-sm-sarja,639232,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alvar Summanen (D),HIFK U20,2,0,0,0,0.00,0,-1,/player/670458/alvar-summanen,8,Alvar Summanen,D,2021-2022,u20-sm-sarja,670458,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eeka Kangas (F),Sport U20,2,0,0,0,0.00,0,-1,/player/639230/eeka-kangas,8,Eeka Kangas,F,2021-2022,u20-sm-sarja,639230,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Veeti Koivunen (C),Pelicans U20,2,0,0,0,0.00,2,0,/player/638736/veeti-koivunen,8,Veeti Koivunen,C,2021-2022,u20-sm-sarja,638736,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leevi Pelkonen (LW),Ilves U20,2,0,0,0,0.00,2,0,/player/747460/leevi-pelkonen,8,Leevi Pelkonen,LW,2021-2022,u20-sm-sarja,747460,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julius Miettinen (C/W),HIFK U20,2,0,0,0,0.00,2,0,/player/709575/julius-miettinen,8,Julius Miettinen,C/W,2021-2022,u20-sm-sarja,709575,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Saku Järvenpää (LW),JYP U20,2,0,0,0,0.00,2,-1,/player/561967/saku-jarvenpaa,8,Saku Järvenpää,LW,2021-2022,u20-sm-sarja,561967,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jooseppi Hiltunen (D),JYP U20,2,0,0,0,0.00,2,-3,/player/629352/jooseppi-hiltunen,8,Jooseppi Hiltunen,D,2021-2022,u20-sm-sarja,629352,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jarkko Turpeenniemi (F),JYP U20,2,0,0,0,0.00,2,-2,/player/639219/jarkko-turpeenniemi,9,Jarkko Turpeenniemi,F,2021-2022,u20-sm-sarja,639219,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arvi Viinikkala (LW/RW),JYP U20,2,0,0,0,0.00,2,-2,/player/642152/arvi-viinikkala,9,Arvi Viinikkala,LW/RW,2021-2022,u20-sm-sarja,642152,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tuomas Mäkinen (RW),JYP U20,2,0,0,0,0.00,2,-3,/player/629376/tuomas-makinen,9,Tuomas Mäkinen,RW,2021-2022,u20-sm-sarja,629376,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konsta Nurmi (D/F),Ilves U20,2,0,0,0,0.00,2,1,/player/695614/konsta-nurmi,9,Konsta Nurmi,D/F,2021-2022,u20-sm-sarja,695614,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Emil Karjalainen (C),Ässät U20,2,0,0,0,0.00,2,-2,/player/612126/emil-karjalainen,9,Emil Karjalainen,C,2021-2022,u20-sm-sarja,612126,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Kienberger (F),Karhu-Kissat U20,2,0,0,0,0.00,2,-2,/player/655948/jan-kienberger,9,Jan Kienberger,F,2021-2022,u20-sm-sarja,655948,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jimi Lämsä (D),RoKi U20,2,0,0,0,0.00,2,-1,/player/748625/jimi-lamsa,9,Jimi Lämsä,D,2021-2022,u20-sm-sarja,748625,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Atte Heinänen (D),totals,2,0,0,0,0.00,4,-1,/player/674508/atte-heinanen,9,Atte Heinänen,D,2021-2022,u20-sm-sarja,674508,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konsta Frantsila (RW),Ilves U20,3,0,0,0,0.00,0,-5,/player/812647/konsta-frantsila,9,Konsta Frantsila,RW,2021-2022,u20-sm-sarja,812647,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Veeti Väisänen (C),Kiekko-Espoo U20 Ch,3,0,0,0,0.00,0,2,/player/528549/veeti-vaisanen,9,Veeti Väisänen,C,2021-2022,u20-sm-sarja,528549,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juho Tikkanen (D),Jukurit U20,3,0,0,0,0.00,0,-3,/player/725732/juho-tikkanen,9,Juho Tikkanen,D,2021-2022,u20-sm-sarja,725732,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niko Korkola (D),Tappara U20,3,0,0,0,0.00,0,-1,/player/747437/niko-korkola,9,Niko Korkola,D,2021-2022,u20-sm-sarja,747437,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valtteri Siikala (LW/C),HIFK U20,3,0,0,0,0.00,0,0,/player/709579/valtteri-siikala,9,Valtteri Siikala,LW/C,2021-2022,u20-sm-sarja,709579,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eicca Happonen (D),KalPa U20,3,0,0,0,0.00,0,-1,/player/707813/eicca-happonen,9,Eicca Happonen,D,2021-2022,u20-sm-sarja,707813,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valtteri Maurola (RW),JYP U20,3,0,0,0,0.00,2,0,/player/580021/valtteri-maurola,9,Valtteri Maurola,RW,2021-2022,u20-sm-sarja,580021,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sisu-Petteri Lehtonen (D),TPS U20,3,0,0,0,0.00,2,0,/player/525631/sisu-petteri-lehtonen,9,Sisu-Petteri Lehtonen,D,2021-2022,u20-sm-sarja,525631,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Veikka Mäki-Runsas (F),RoKi U20,3,0,0,0,0.00,2,-3,/player/783450/veikka-maki-runsas,9,Veikka Mäki-Runsas,F,2021-2022,u20-sm-sarja,783450,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eddie Björkskog (F),Hermes U20,3,0,0,0,0.00,2,-3,/player/641010/eddie-bjorkskog,9,Eddie Björkskog,F,2021-2022,u20-sm-sarja,641010,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eino Kauranen (LW),totals,3,0,0,0,0.00,2,-2,/player/709505/eino-kauranen,9,Eino Kauranen,LW,2021-2022,u20-sm-sarja,709505,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Juuti (F),SaiPa U20,3,0,0,0,0.00,2,1,/player/747432/joel-juuti,9,Joel Juuti,F,2021-2022,u20-sm-sarja,747432,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luukas Korpela (D),Ässät U20,3,0,0,0,0.00,2,-1,/player/710655/luukas-korpela,9,Luukas Korpela,D,2021-2022,u20-sm-sarja,710655,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jerry Santala (D),Ässät U20,3,0,0,0,0.00,4,-4,/player/612509/jerry-santala,9,Jerry Santala,D,2021-2022,u20-sm-sarja,612509,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Arttu Huttu (D),KalPa U20,4,0,0,0,0.00,0,2,/player/602529/arttu-huttu,9,Arttu Huttu,D,2021-2022,u20-sm-sarja,602529,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yegor Antonov (F),TUTO Hockey U20,4,0,0,0,0.00,0,1,/player/395858/yegor-antonov,9,Yegor Antonov,F,2021-2022,u20-sm-sarja,395858,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tuomas Turppa (F),RoKi U20,4,0,0,0,0.00,0,-2,/player/659048/tuomas-turppa,9,Tuomas Turppa,F,2021-2022,u20-sm-sarja,659048,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sebastian Soini (D),Ilves U20,4,0,0,0,0.00,0,-2,/player/793533/sebastian-soini,9,Sebastian Soini,D,2021-2022,u20-sm-sarja,793533,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Benjamin Middleton (D),RoKi U20,4,0,0,0,0.00,2,-3,/player/783448/benjamin-middleton,9,Benjamin Middleton,D,2021-2022,u20-sm-sarja,783448,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joona Väisänen (D),totals,4,0,0,0,0.00,2,-1,/player/709508/joona-vaisanen,9,Joona Väisänen,D,2021-2022,u20-sm-sarja,709508,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vertti Sieppi (D),HPK U20,4,0,0,0,0.00,2,-1,/player/470469/vertti-sieppi,9,Vertti Sieppi,D,2021-2022,u20-sm-sarja,470469,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Koikkalainen (D),SaiPa U20,4,0,0,0,0.00,2,-3,/player/696048/rasmus-koikkalainen,9,Rasmus Koikkalainen,D,2021-2022,u20-sm-sarja,696048,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hugo Berg (D),Ketterä U20,4,0,0,0,0.00,12,0,/player/557242/hugo-berg,9,Hugo Berg,D,2021-2022,u20-sm-sarja,557242,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tuomas Engberg (F),KooKoo U20,5,0,0,0,0.00,0,-2,/player/597475/tuomas-engberg,9,Tuomas Engberg,F,2021-2022,u20-sm-sarja,597475,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Krister Mörönen (LW),Ilves U20,5,0,0,0,0.00,0,-2,/player/793541/krister-moronen,9,Krister Mörönen,LW,2021-2022,u20-sm-sarja,793541,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miko Uutela (RW),Ilves U20,5,0,0,0,0.00,0,-5,/player/793543/miko-uutela,9,Miko Uutela,RW,2021-2022,u20-sm-sarja,793543,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Visa Sirviö (D),Sport U20,5,0,0,0,0.00,0,-4,/player/395493/visa-sirvio,9,Visa Sirviö,D,2021-2022,u20-sm-sarja,395493,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Seppänen (D),Kärpät U20,5,0,0,0,0.00,0,1,/player/709464/niklas-seppanen,9,Niklas Seppänen,D,2021-2022,u20-sm-sarja,709464,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miro Pirhonen (LW),Sport U20,5,0,0,0,0.00,0,-2,/player/617818/miro-pirhonen,9,Miro Pirhonen,LW,2021-2022,u20-sm-sarja,617818,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eemeli Boelius (LW),Ässät U20,5,0,0,0,0.00,0,-1,/player/565308/eemeli-boelius,9,Eemeli Boelius,LW,2021-2022,u20-sm-sarja,565308,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valtteri Suni (LW),HPK U20,5,0,0,0,0.00,2,-5,/player/396709/valtteri-suni,9,Valtteri Suni,LW,2021-2022,u20-sm-sarja,396709,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Otto Sjölund (D),Hermes U20,5,0,0,0,0.00,2,-2,/player/597994/otto-sjolund,9,Otto Sjölund,D,2021-2022,u20-sm-sarja,597994,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Verneri Isoeskeli (F),KOOVEE U20,5,0,0,0,0.00,4,-4,/player/638717/verneri-isoeskeli,9,Verneri Isoeskeli,F,2021-2022,u20-sm-sarja,638717,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tom Sojer (D),KooKoo U20,6,0,0,0,0.00,0,-1,/player/581433/tom-sojer,9,Tom Sojer,D,2021-2022,u20-sm-sarja,581433,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aapo Naakka (RW),HPK U20,6,0,0,0,0.00,0,-2,/player/563879/aapo-naakka,9,Aapo Naakka,RW,2021-2022,u20-sm-sarja,563879,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joose Pesonen (D),KalPa U20,6,0,0,0,0.00,0,-3,/player/618604/joose-pesonen,9,Joose Pesonen,D,2021-2022,u20-sm-sarja,618604,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ossi Saikkonen (LW),Hermes U20,6,0,0,0,0.00,0,-1,/player/561969/ossi-saikkonen,9,Ossi Saikkonen,LW,2021-2022,u20-sm-sarja,561969,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hessu Malmstedt (LW),Kiekko-Espoo U20,6,0,0,0,0.00,2,0,/player/499659/hessu-malmstedt,9,Hessu Malmstedt,LW,2021-2022,u20-sm-sarja,499659,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johan Fisk (D),Jukurit U20,6,0,0,0,0.00,2,0,/player/642213/johan-fisk,9,Johan Fisk,D,2021-2022,u20-sm-sarja,642213,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Oskari Alapuranen (D),TUTO Hockey U20,6,0,0,0,0.00,4,1,/player/614329/oskari-alapuranen,9,Oskari Alapuranen,D,2021-2022,u20-sm-sarja,614329,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Olli Österman (F),Pelicans U20,7,0,0,0,0.00,0,-3,/player/535192/olli-osterman,9,Olli Österman,F,2021-2022,u20-sm-sarja,535192,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Puustinen (D),Karhu-Kissat U20,7,0,0,0,0.00,0,-4,/player/440144/jesse-puustinen,9,Jesse Puustinen,D,2021-2022,u20-sm-sarja,440144,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valtteri Lehtosaari (RW/LW),JYP U20,7,0,0,0,0.00,0,-2,/player/618606/valtteri-lehtosaari,9,Valtteri Lehtosaari,RW/LW,2021-2022,u20-sm-sarja,618606,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Verneri Viitala (RW),KOOVEE U20,7,0,0,0,0.00,2,-5,/player/470681/verneri-viitala,9,Verneri Viitala,RW,2021-2022,u20-sm-sarja,470681,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juuso Lehtimäki (F),TUTO Hockey U20,7,0,0,0,0.00,2,-3,/player/796220/juuso-lehtimaki,9,Juuso Lehtimäki,F,2021-2022,u20-sm-sarja,796220,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niklas Kiiskilä (D),Hermes U20,7,0,0,0,0.00,2,-6,/player/561905/niklas-kiiskila,9,Niklas Kiiskilä,D,2021-2022,u20-sm-sarja,561905,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frans Jalasti (D),Kiekko-Espoo U20 Ch,7,0,0,0,0.00,2,8,/player/465220/frans-jalasti,9,Frans Jalasti,D,2021-2022,u20-sm-sarja,465220,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peetu Pitkäkoski (D),Karhu-Kissat U20,7,0,0,0,0.00,4,-3,/player/709570/peetu-pitkakoski,9,Peetu Pitkäkoski,D,2021-2022,u20-sm-sarja,709570,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Iiro Hakkarainen (LW/RW),Kiekko-Espoo U20,7,0,0,0,0.00,8,-1,/player/668143/iiro-hakkarainen,9,Iiro Hakkarainen,LW/RW,2021-2022,u20-sm-sarja,668143,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Elias Valjakka (D),JYP U20,8,0,0,0,0.00,0,-4,/player/556742/elias-valjakka,9,Elias Valjakka,D,2021-2022,u20-sm-sarja,556742,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Kanto (F),Karhu-Kissat U20,8,0,0,0,0.00,0,-3,/player/555021/alex-kanto,9,Alex Kanto,F,2021-2022,u20-sm-sarja,555021,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aki Jokela (D),Lukko U20,8,0,0,0,0.00,2,2,/player/652598/aki-jokela,9,Aki Jokela,D,2021-2022,u20-sm-sarja,652598,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valtteri Laine (D),TUTO Hockey U20,8,0,0,0,0.00,2,-1,/player/725480/valtteri-laine,9,Valtteri Laine,D,2021-2022,u20-sm-sarja,725480,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Konsta Kakko (D/F),TPS U20,9,0,0,0,0.00,10,-1,/player/688324/konsta-kakko,9,Konsta Kakko,D/F,2021-2022,u20-sm-sarja,688324,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matti Kahanpää (D/F),KooKoo U20,10,0,0,0,0.00,0,-2,/player/555007/matti-kahanpaa,9,Matti Kahanpää,D/F,2021-2022,u20-sm-sarja,555007,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jere Koponen (F),Ketterä U20,13,0,0,0,0.00,2,1,/player/557246/jere-koponen,9,Jere Koponen,F,2021-2022,u20-sm-sarja,557246,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Tyatinkin (F),KOOVEE U20,13,0,0,0,0.00,6,-4,/player/543204/nikita-tyatinkin,9,Nikita Tyatinkin,F,2021-2022,u20-sm-sarja,543204,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Samuli Louhipuro (LW),TUTO Hockey U20,14,0,0,0,0.00,0,0,/player/538366/samuli-louhipuro,9,Samuli Louhipuro,LW,2021-2022,u20-sm-sarja,538366,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mika Mönkkönen (D),Pelicans U20,15,0,0,0,0.00,4,-3,/player/620264/mika-monkkonen,9,Mika Mönkkönen,D,2021-2022,u20-sm-sarja,620264,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Atte Manninen (D),Hermes U20,15,0,0,0,0.00,4,-12,/player/641004/atte-manninen,9,Atte Manninen,D,2021-2022,u20-sm-sarja,641004,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Heikki Lappi (D),Ketterä U20,15,0,0,0,0.00,6,1,/player/556916/heikki-lappi,9,Heikki Lappi,D,2021-2022,u20-sm-sarja,556916,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henri Tikka (D),Ilves U20,16,0,0,0,0.00,2,-3,/player/638706/henri-tikka,9,Henri Tikka,D,2021-2022,u20-sm-sarja,638706,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antti Kuivas (D),JYP U20,17,0,0,0,0.00,6,-3,/player/628891/antti-kuivas,9,Antti Kuivas,D,2021-2022,u20-sm-sarja,628891,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrik Tasavuori (LW/RW),HIFK U20,18,0,0,0,0.00,6,-8,/player/628580/patrik-tasavuori,9,Patrik Tasavuori,LW/RW,2021-2022,u20-sm-sarja,628580,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antti Haikonen (F/D),Tappara U20,19,0,0,0,0.00,4,1,/player/602498/antti-haikonen,9,Antti Haikonen,F/D,2021-2022,u20-sm-sarja,602498,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Toni Rand (D/F),TPS U20,21,0,0,0,0.00,2,2,/player/568945/toni-rand,9,Toni Rand,D/F,2021-2022,u20-sm-sarja,568945,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Henri Spoof (RW/LW),JYP U20,25,0,0,0,0.00,6,-3,/player/629379/henri-spoof,9,Henri Spoof,RW/LW,2021-2022,u20-sm-sarja,629379,2026-10-05,eliteprospects.com via TopDownHockey_Scraper,6.1.69

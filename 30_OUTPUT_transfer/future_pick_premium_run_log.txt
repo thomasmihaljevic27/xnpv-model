@@ -1,0 +1,12 @@
+future_pick_premium.py SCRIPT_VERSION 2.0 (slot_curve 2.0)
+[guard] sample vs 2026-07-28 record: all_pick 119/119, cross 56/56, one_for_one 39/39, same_round 35/35, bundles 17/17
+
+[round_mean] slot sources: known slot 71, round mean 61
+[round_mean] pooled d (least squares, 17 bundles) = 0.459; per-trade d solvable in (0,1] for 8 of 17, range 0.222 to 0.779
+[round_mean] Spearman(sweetener, slot gap) = 0.016 (recorded 0.735)
+
+[own_slot] slot sources: known slot 71, own R1 position 61
+[own_slot] pooled d (least squares, 17 bundles) = 0.512; per-trade d solvable in (0,1] for 8 of 17, range 0.295 to 0.779
+[own_slot] Spearman(sweetener, slot gap) = 0.238 (recorded 0.735)
+
+Recorded 2026-07-28 (pre-rebuild curve): 0.486 round-mean, 0.510 own-slot; about 0.503 on the approximated rebuilt curve. Not a reproduction target (fitting criterion unrecorded; own-slot rule revised 2026-09-28).

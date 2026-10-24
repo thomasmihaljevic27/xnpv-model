@@ -1,0 +1,48 @@
+{
+  "script_version": "1.0",
+  "n": 2347,
+  "test_years": [
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "specs": [
+    "base",
+    "quad",
+    "age",
+    "ageXwar",
+    "rfa",
+    "length",
+    "single",
+    "w1w2",
+    "rate",
+    "shrunk",
+    "kitchen",
+    "w1w2+age",
+    "w1w2+age+gp"
+  ],
+  "kitchen_full_sample_coefs": {
+    "const": 0.04553640960655134,
+    "war": 0.010694188215778312,
+    "dxwar": -0.001437349000925498,
+    "age": -0.0036035117076039123,
+    "age2": 6.958398554785272e-05,
+    "rfa": 0.004459316580114414,
+    "length": 0.008971348422867153,
+    "single": -0.013833139625968485
+  },
+  "tier_counts": {
+    "0 to 1": 789,
+    "below 0": 590,
+    "1 to 2": 274,
+    "2 to 3": 76,
+    "3+": 40
+  },
+  "elapsed_seconds": 13.194612979888916,
+  "input_hashes": {
+    "20_CODE\\skater_value_engine.py": "f604ecd960775edf8e43cc15c2d8d92e128481b275a2b9af172d89d42d913c78"
+  }
+}

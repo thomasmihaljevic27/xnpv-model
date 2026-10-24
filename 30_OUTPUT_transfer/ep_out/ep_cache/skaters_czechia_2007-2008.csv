@@ -1,0 +1,432 @@
+player,team,gp,g,a,tp,p_per_gp,pim,plus_minus,link,page,playername,position,season,league,ep_player_id,scrape_date,source,package_version
+Petr Ton (RW/LW),HC Sparta Praha,50,27,16,43,0.86,8,-3,/player/10866/petr-ton,1,Petr Ton,RW/LW,2007-2008,czechia,10866,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Patera (C),Rytiri Kladno,52,19,22,41,0.79,68,-5,/player/1601/pavel-patera,1,Pavel Patera,C,2007-2008,czechia,1601,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaroslav Balastik (LW/RW),Berani Zlin,52,29,11,40,0.77,72,-4,/player/8618/jaroslav-balastik,1,Jaroslav Balastik,LW/RW,2007-2008,czechia,8618,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaroslav Kalla (RW),Rytiri Kladno,52,17,23,40,0.77,38,14,/player/7290/jaroslav-kalla,1,Jaroslav Kalla,RW,2007-2008,czechia,7290,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frantisek Lukes (LW/RW),HC Litvinov,52,17,22,39,0.75,38,14,/player/13648/frantisek-lukes,1,Frantisek Lukes,LW/RW,2007-2008,czechia,13648,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Peterek (RW),HC Ocelari Trinec,52,8,31,39,0.75,46,7,/player/10868/jan-peterek,1,Jan Peterek,RW,2007-2008,czechia,10868,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Duras (LW/RW),HC Plzen,52,20,17,37,0.71,24,4,/player/22787/michal-duras,1,Michal Duras,LW/RW,2007-2008,czechia,22787,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Netik (LW/RW),HC Sparta Praha,49,15,22,37,0.76,64,2,/player/17905/tomas-netik,1,Tomas Netik,LW/RW,2007-2008,czechia,17905,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaroslav Bednar (LW/RW),HC Slavia Praha,40,25,11,36,0.90,61,14,/player/10863/jaroslav-bednar,1,Jaroslav Bednar,LW/RW,2007-2008,czechia,10863,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Hruska (RW),HC Slavia Praha,52,22,13,35,0.67,16,11,/player/10864/david-hruska,1,David Hruska,RW,2007-2008,czechia,10864,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Divisek (C),HC Plzen,52,21,14,35,0.67,133,-17,/player/9627/tomas-divisek,1,Tomas Divisek,C,2007-2008,czechia,9627,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Ujčík (LW),HC Vitkovice,51,19,16,35,0.69,79,7,/player/7523/viktor-ujcik,1,Viktor Ujčík,LW,2007-2008,czechia,7523,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Vampola (C/LW),HC Plzen,52,15,20,35,0.67,72,17,/player/22788/petr-vampola,1,Petr Vampola,C/LW,2007-2008,czechia,22788,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Tomik (RW),HC Ocelari Trinec,52,23,11,34,0.65,30,0,/player/6637/robert-tomik,1,Robert Tomik,RW,2007-2008,czechia,6637,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomáš Kůrka (LW/RW),Motor Ceske Budejovice,52,19,15,34,0.65,20,15,/player/7503/toma%C5%A1-k%C5%AFrka,1,Tomáš Kůrka,LW/RW,2007-2008,czechia,7503,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Viktor Hübl (C),Motor Ceske Budejovice,52,20,13,33,0.63,40,18,/player/10847/viktor-hubl,1,Viktor Hübl,C,2007-2008,czechia,10847,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Kumstat (LW/RW),Energie Karlovy Vary,52,19,13,32,0.62,24,5,/player/10853/petr-kumstat,1,Petr Kumstat,LW/RW,2007-2008,czechia,10853,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Rolinek (LW),HC Dynamo Pardubice,48,16,16,32,0.67,34,4,/player/10859/tomas-rolinek,1,Tomas Rolinek,LW,2007-2008,czechia,10859,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Leska (C),Berani Zlin,52,5,27,32,0.62,44,-11,/player/6454/petr-leska,1,Petr Leska,C,2007-2008,czechia,6454,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Sýkora (RW),HC Dynamo Pardubice,42,23,8,31,0.74,38,-1,/player/10858/petr-sykora,1,Petr Sýkora,RW,2007-2008,czechia,10858,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vaclav Skuhravy (C),Energie Karlovy Vary,52,20,11,31,0.60,80,7,/player/10852/vaclav-skuhravy,1,Vaclav Skuhravy,C,2007-2008,czechia,10852,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Fabus (C),HC Plzen,49,18,13,31,0.63,24,12,/player/5873/peter-fabus,1,Peter Fabus,C,2007-2008,czechia,5873,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juraj Stefanka (LW/C),HC Ocelari Trinec,52,14,17,31,0.60,96,-6,/player/23417/juraj-stefanka,1,Juraj Stefanka,LW/C,2007-2008,czechia,23417,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Reichel (C),HC Litvinov,51,23,7,30,0.59,62,10,/player/10850/robert-reichel,1,Robert Reichel,C,2007-2008,czechia,10850,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Červenka (C/LW),HC Slavia Praha,41,19,11,30,0.73,72,20,/player/15130/roman-cervenka,1,Roman Červenka,C/LW,2007-2008,czechia,15130,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Vlasak (LW/RW),HC Plzen,52,16,14,30,0.58,30,-14,/player/10455/tomas-vlasak,1,Tomas Vlasak,LW/RW,2007-2008,czechia,10455,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josef Beránek (C/LW),HC Slavia Praha,50,15,15,30,0.60,42,11,/player/10865/josef-beranek,1,Josef Beránek,C/LW,2007-2008,czechia,10865,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiří Dopita (C),HC Orli Znojmo,42,14,16,30,0.71,18,12,/player/10873/ji%C5%99i-dopita,1,Jiří Dopita,C,2007-2008,czechia,10873,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Procházka (RW),Rytiri Kladno,52,21,8,29,0.56,26,-1,/player/1607/martin-prochazka,1,Martin Procházka,RW,2007-2008,czechia,1607,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Leos Cermak (C),Bili Tygri Liberec,40,20,9,29,0.73,85,14,/player/15131/leos-cermak,1,Leos Cermak,C,2007-2008,czechia,15131,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Simanek (W/C),Motor Ceske Budejovice,52,18,11,29,0.56,14,5,/player/22571/jiri-simanek,1,Jiri Simanek,W/C,2007-2008,czechia,22571,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rastislav Spirko (C/LW),Slovan Ustecti Lvi,51,16,13,29,0.57,22,-14,/player/9646/rastislav-spirko,1,Rastislav Spirko,C/LW,2007-2008,czechia,9646,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Selingr (RW),HC Orli Znojmo,49,15,13,28,0.57,30,8,/player/23858/pavel-selingr,1,Pavel Selingr,RW,2007-2008,czechia,23858,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiří Burger (C),HC Vitkovice,45,14,13,27,0.60,64,-15,/player/10872/ji%C5%99i-burger,1,Jiří Burger,C,2007-2008,czechia,10872,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Plodek (C),Bili Tygri Liberec,39,15,11,26,0.67,12,5,/player/22652/jan-plodek,1,Jan Plodek,C,2007-2008,czechia,22652,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Sailer (RW/C),Motor Ceske Budejovice,51,13,13,26,0.51,40,7,/player/22572/petr-sailer,1,Petr Sailer,RW/C,2007-2008,czechia,22572,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vojtech Kubincak (LW),HC Litvinov,51,10,16,26,0.51,26,11,/player/10851/vojtech-kubincak,1,Vojtech Kubincak,LW,2007-2008,czechia,10851,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaroslav Kracík (C),HC Plzen,48,7,19,26,0.54,73,2,/player/22789/jaroslav-kracik,1,Jaroslav Kracík,C,2007-2008,czechia,22789,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rostislav Martynek (LW),HC Ocelari Trinec,47,21,4,25,0.53,28,6,/player/23418/rostislav-martynek,1,Rostislav Martynek,LW,2007-2008,czechia,23418,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Nedvěd (C),HC Sparta Praha,45,20,5,25,0.56,98,-7,/player/8684/petr-nedved,1,Petr Nedvěd,C,2007-2008,czechia,8684,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Micka (LW/RW),HC Slavia Praha,49,19,6,25,0.51,32,4,/player/13658/tomas-micka,1,Tomas Micka,LW/RW,2007-2008,czechia,13658,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Janku (RW),Slovan Ustecti Lvi,47,15,10,25,0.53,24,-6,/player/22444/pavel-janku,1,Pavel Janku,RW,2007-2008,czechia,22444,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Hudec (LW/C),Motor Ceske Budejovice,50,10,15,25,0.50,78,3,/player/10848/michal-hudec,1,Michal Hudec,LW/C,2007-2008,czechia,10848,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Melenovsky (C),Energie Karlovy Vary,50,17,7,24,0.48,107,7,/player/22630/marek-melenovsky,1,Marek Melenovsky,C,2007-2008,czechia,22630,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kamil Brabenec (LW/C),Motor Ceske Budejovice,44,13,11,24,0.55,44,5,/player/504/kamil-brabenec,1,Kamil Brabenec,LW/C,2007-2008,czechia,504,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Benda (C/D),HC Litvinov,45,10,14,24,0.53,50,-3,/player/5300/jan-benda,1,Jan Benda,C/D,2007-2008,czechia,5300,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Milan Toman (D),Motor Ceske Budejovice,50,7,17,24,0.48,84,25,/player/17083/milan-toman,1,Milan Toman,D,2007-2008,czechia,17083,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Václav Benák (D),HC Plzen,50,7,17,24,0.48,88,5,/player/17084/vaclav-benak,1,Václav Benák,D,2007-2008,czechia,17084,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radek Belohlav (LW),Rytiri Kladno,51,5,9,24,0.47,24,2,/player/22597/radek-belohlav,1,Radek Belohlav,LW,2007-2008,czechia,22597,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Sindel (C/W),HC Plzen,45,19,4,23,0.51,16,-1,/player/9229/jakub-sindel,1,Jakub Sindel,C/W,2007-2008,czechia,9229,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Tvrdik (RW),HC Dynamo Pardubice,51,18,5,23,0.45,38,2,/player/22761/michal-tvrdik,1,Michal Tvrdik,RW,2007-2008,czechia,22761,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Jenacek (RW),HC Litvinov,52,16,7,23,0.44,36,1,/player/22668/martin-jenacek,1,Martin Jenacek,RW,2007-2008,czechia,22668,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Langhammer (LW),HC Sparta Praha,52,14,9,23,0.44,30,11,/player/23047/jakub-langhammer,1,Jakub Langhammer,LW,2007-2008,czechia,23047,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Klimenta (RW/LW),Bili Tygri Liberec,43,13,10,23,0.53,16,7,/player/22653/tomas-klimenta,1,Tomas Klimenta,RW/LW,2007-2008,czechia,22653,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Jares (D),HC Orli Znojmo,52,11,11,22,0.42,102,0,/player/17085/richard-jares,1,Richard Jares,D,2007-2008,czechia,17085,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radim Hruska (C),HC Vitkovice,52,12,9,21,0.40,24,3,/player/23514/radim-hruska,1,Radim Hruska,C,2007-2008,czechia,23514,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Pabiska (C),Bili Tygri Liberec,45,9,12,21,0.47,22,6,/player/22654/lukas-pabiska,1,Lukas Pabiska,C,2007-2008,czechia,22654,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaroslav Svoboda (RW),HC Orli Znojmo,38,12,8,20,0.53,60,4,/player/8594/jaroslav-svoboda,1,Jaroslav Svoboda,RW,2007-2008,czechia,8594,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radek Duda (RW/LW),HC Slavia Praha,28,11,9,20,0.71,80,5,/player/8388/radek-duda,1,Radek Duda,RW/LW,2007-2008,czechia,8388,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Kostal (RW),Energie Karlovy Vary,52,10,10,20,0.38,59,5,/player/22631/jan-kostal,1,Jan Kostal,RW,2007-2008,czechia,22631,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Igor Rataj (RW),HC Slavia Praha,52,10,10,20,0.38,91,8,/player/19415/igor-rataj,1,Igor Rataj,RW,2007-2008,czechia,19415,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Václav Novák (RW),totals,46,9,11,20,0.43,42,-18,/player/22447/vaclav-novak,1,Václav Novák,RW,2007-2008,czechia,22447,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Pucher (C),HC Dynamo Pardubice,48,6,14,20,0.42,22,-5,/player/22762/peter-pucher,1,Peter Pucher,C,2007-2008,czechia,22762,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Horna (RW/C),Rytiri Kladno,52,15,4,19,0.37,28,4,/player/22598/tomas-horna,1,Tomas Horna,RW/C,2007-2008,czechia,22598,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Rachunek (W/C),Berani Zlin,42,13,6,19,0.45,34,-6,/player/9605/ivan-rachunek,1,Ivan Rachunek,W/C,2007-2008,czechia,9605,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ľubomír Vaic (LW/C),HC Sparta Praha,52,10,9,19,0.37,69,-3,/player/10857/%C4%BDubomir-vaic,1,Ľubomír Vaic,LW/C,2007-2008,czechia,10857,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Sivek (C),HC Sparta Praha,46,9,10,19,0.41,94,-9,/player/9604/michal-sivek,1,Michal Sivek,C,2007-2008,czechia,9604,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Valdemar Jirus (D),Bili Tygri Liberec,49,8,11,19,0.39,34,6,/player/22655/valdemar-jirus,1,Valdemar Jirus,D,2007-2008,czechia,22655,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lubomir Sekeras (D),HC Ocelari Trinec,46,7,12,19,0.41,36,-6,/player/3674/lubomir-sekeras,1,Lubomir Sekeras,D,2007-2008,czechia,3674,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Branda (RW),HC Litvinov,45,6,13,19,0.42,28,-8,/player/7301/daniel-branda,1,Daniel Branda,RW,2007-2008,czechia,7301,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lubomir Korhon (LW),HC Ocelari Trinec,49,14,4,18,0.37,34,-3,/player/2061/lubomir-korhon,1,Lubomir Korhon,LW,2007-2008,czechia,2061,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Kveton (C/RW),Motor Ceske Budejovice,46,13,5,18,0.39,16,15,/player/22573/lukas-kveton,1,Lukas Kveton,C/RW,2007-2008,czechia,22573,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Cetkovsky (LW),HC Dynamo Pardubice,43,12,6,18,0.42,79,-11,/player/17909/jiri-cetkovsky,1,Jiri Cetkovsky,LW,2007-2008,czechia,17909,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Jánský (LW),HC Litvinov,47,11,7,18,0.38,40,-3,/player/17904/peter-jansky,1,Peter Jánský,LW,2007-2008,czechia,17904,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Ruzicka (RW/LW),HC Orli Znojmo,42,10,8,18,0.43,20,-6,/player/23860/martin-ruzicka,1,Martin Ruzicka,RW/LW,2007-2008,czechia,23860,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vaclav Pletka (LW),Bili Tygri Liberec,26,9,9,18,0.69,38,5,/player/10855/vaclav-pletka,1,Vaclav Pletka,LW,2007-2008,czechia,10855,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radim Bičánek (D),HC Orli Znojmo,45,8,10,18,0.40,109,-1,/player/23859/radim-bicanek,1,Radim Bičánek,D,2007-2008,czechia,23859,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Pazourek (C),Slovan Ustecti Lvi,52,8,10,18,0.35,42,-9,/player/22446/david-pazourek,1,David Pazourek,C,2007-2008,czechia,22446,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Grof (D),Energie Karlovy Vary,51,7,11,18,0.35,24,-2,/player/22632/jakub-grof,1,Jakub Grof,D,2007-2008,czechia,22632,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Koukal (C),HC Dynamo Pardubice,50,6,12,18,0.36,34,0,/player/22763/petr-koukal,1,Petr Koukal,C,2007-2008,czechia,22763,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Hlavačka (D),totals,46,4,14,18,0.39,46,20,/player/3584/martin-hlavacka,1,Martin Hlavačka,D,2007-2008,czechia,3584,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radim Kucharczyk (RW),HC Orli Znojmo,38,12,5,17,0.45,24,4,/player/3586/radim-kucharczyk,1,Radim Kucharczyk,RW,2007-2008,czechia,3586,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Milan Procházka (LW/RW),Energie Karlovy Vary,50,11,6,17,0.34,38,1,/player/22634/milan-prochazka,1,Milan Procházka,LW/RW,2007-2008,czechia,22634,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Hubacek (LW/RW),HC Vitkovice,40,10,7,17,0.43,89,-9,/player/10871/petr-hubacek,1,Petr Hubacek,LW/RW,2007-2008,czechia,10871,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radovan Somik (RW/LW),HC Dynamo Pardubice,49,10,7,17,0.35,20,3,/player/5678/radovan-somik,1,Radovan Somik,RW/LW,2007-2008,czechia,5678,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Vesely (LW),Motor Ceske Budejovice,52,10,7,17,0.33,50,14,/player/17903/ondrej-vesely,1,Ondrej Vesely,LW,2007-2008,czechia,17903,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Vondrka (RW/LW),HC Slavia Praha,52,9,8,17,0.33,20,15,/player/22961/michal-vondrka,1,Michal Vondrka,RW/LW,2007-2008,czechia,22961,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frantisek Skladany (RW/C),Energie Karlovy Vary,52,9,8,17,0.33,24,-9,/player/13649/frantisek-skladany,1,Frantisek Skladany,RW/C,2007-2008,czechia,13649,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Sevc (D),Rytiri Kladno,50,8,9,17,0.34,156,-4,/player/7299/martin-sevc,1,Martin Sevc,D,2007-2008,czechia,7299,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Dvorak (LW/RW),HC Plzen,51,8,9,17,0.33,76,-6,/player/22790/michal-dvorak,1,Michal Dvorak,LW/RW,2007-2008,czechia,22790,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Vak (C),Motor Ceske Budejovice,52,8,9,17,0.33,38,16,/player/22574/tomas-vak,1,Tomas Vak,C,2007-2008,czechia,22574,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Pech (C),Energie Karlovy Vary,50,6,11,17,0.34,51,-4,/player/22633/lukas-pech,1,Lukas Pech,C,2007-2008,czechia,22633,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bedřich Köhler (W/C),HC Vitkovice,52,5,12,17,0.33,44,5,/player/23515/bed%C5%99ich-kohler,1,Bedřich Köhler,W/C,2007-2008,czechia,23515,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Kadlec (D),HC Slavia Praha,40,2,15,17,0.43,60,16,/player/10862/petr-kadlec,1,Petr Kadlec,D,2007-2008,czechia,10862,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dusan Andrasovsky (RW),totals,39,11,5,16,0.41,38,-2,/player/22774/dusan-andrasovsky,1,Dusan Andrasovsky,RW,2007-2008,czechia,22774,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Zib (D),Bili Tygri Liberec,41,10,6,16,0.39,52,6,/player/15813/lukas-zib,1,Lukas Zib,D,2007-2008,czechia,15813,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Divis (RW),Rytiri Kladno,48,10,6,16,0.33,14,14,/player/22599/richard-divis,1,Richard Divis,RW,2007-2008,czechia,22599,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Kasparik (C),Bili Tygri Liberec,52,8,8,16,0.31,58,10,/player/22656/pavel-kasparik,1,Pavel Kasparik,C,2007-2008,czechia,22656,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Sup (LW),HC Slavia Praha,52,8,8,16,0.31,66,10,/player/17981/michal-sup,1,Michal Sup,LW,2007-2008,czechia,17981,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Martinec (C),Slovan Ustecti Lvi,46,7,9,16,0.35,18,-14,/player/22448/tomas-martinec,1,Tomas Martinec,C,2007-2008,czechia,22448,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Vykoukal (D),HC Sparta Praha,49,3,13,16,0.33,72,6,/player/1890/jiri-vykoukal,2,Jiri Vykoukal,D,2007-2008,czechia,1890,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Kveton (C/W),HC Ocelari Trinec,28,10,5,15,0.54,10,5,/player/9286/david-kveton,2,David Kveton,C/W,2007-2008,czechia,9286,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Peter Barinka (RW),totals,37,9,6,15,0.41,18,9,/player/21107/peter-barinka,2,Peter Barinka,RW,2007-2008,czechia,21107,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stepan Hrebejk (RW/C),Motor Ceske Budejovice,44,9,6,15,0.34,60,9,/player/22575/stepan-hrebejk,2,Stepan Hrebejk,RW/C,2007-2008,czechia,22575,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vítězslav Bílek (LW),Energie Karlovy Vary,36,8,7,15,0.42,26,-2,/player/7531/vitezslav-bilek,2,Vítězslav Bílek,LW,2007-2008,czechia,7531,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Erat (RW),HC Orli Znojmo,42,8,7,15,0.36,48,1,/player/23861/roman-erat,2,Roman Erat,RW,2007-2008,czechia,23861,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Jurecka (D),HC Vitkovice,52,8,7,15,0.29,50,1,/player/23516/petr-jurecka,2,Petr Jurecka,D,2007-2008,czechia,23516,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Ruzicka (C),HC Slavia Praha,42,7,8,15,0.36,18,8,/player/9283/vladimir-ruzicka,2,Vladimir Ruzicka,C,2007-2008,czechia,9283,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Simicek (C),HC Vitkovice,42,7,8,15,0.36,68,7,/player/13654/roman-simicek,2,Roman Simicek,C,2007-2008,czechia,13654,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radek Procházka (C),HC Orli Znojmo,44,7,8,15,0.34,16,-3,/player/23862/radek-prochazka,2,Radek Procházka,C,2007-2008,czechia,23862,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaroslav Kristek (C/RW),Energie Karlovy Vary,51,6,9,15,0.29,28,8,/player/9631/jaroslav-kristek,2,Jaroslav Kristek,C/RW,2007-2008,czechia,9631,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Ludvík (C),HC Plzen,48,11,3,14,0.29,28,0,/player/22791/david-ludvik,2,David Ludvík,C,2007-2008,czechia,22791,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tibor Melicharek (RW/C),HC Sparta Praha,52,11,3,14,0.27,14,-4,/player/10897/tibor-melicharek,2,Tibor Melicharek,RW/C,2007-2008,czechia,10897,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Záhorovský (LW),Berani Zlin,41,9,5,14,0.34,32,0,/player/23706/martin-zahorovsky,2,Martin Záhorovský,LW,2007-2008,czechia,23706,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Libor Pivko (LW),HC Dynamo Pardubice,28,7,7,14,0.50,28,-2,/player/10217/libor-pivko,2,Libor Pivko,LW,2007-2008,czechia,10217,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miroslav Hlinka (C),totals,39,7,7,14,0.36,61,-5,/player/227/miroslav-hlinka,2,Miroslav Hlinka,C,2007-2008,czechia,227,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ales Padelek (LW),totals,42,7,7,14,0.33,12,-3,/player/23863/ales-padelek,2,Ales Padelek,LW,2007-2008,czechia,23863,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Gřegořek (D),Motor Ceske Budejovice,49,6,8,14,0.29,52,10,/player/22576/petr-g%C5%99ego%C5%99ek,2,Petr Gřegořek,D,2007-2008,czechia,22576,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Zizka (D),HC Slavia Praha,48,5,9,14,0.29,76,30,/player/15710/tomas-zizka,2,Tomas Zizka,D,2007-2008,czechia,15710,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Tomica (C),HC Slavia Praha,47,4,10,14,0.30,61,11,/player/15842/marek-tomica,2,Marek Tomica,C,2007-2008,czechia,15842,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josef Reznicek (D),Energie Karlovy Vary,49,2,12,14,0.29,54,-3,/player/22635/josef-reznicek,2,Josef Reznicek,D,2007-2008,czechia,22635,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Hanzlik (D),Energie Karlovy Vary,43,8,5,13,0.30,38,6,/player/22637/jiri-hanzlik,2,Jiri Hanzlik,D,2007-2008,czechia,22637,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Hamrlík (D),Berani Zlin,49,8,5,13,0.27,66,-6,/player/23708/martin-hamrlik,2,Martin Hamrlík,D,2007-2008,czechia,23708,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Slegr (D),HC Litvinov,45,7,6,13,0.29,121,5,/player/1938/jiri-slegr,2,Jiri Slegr,D,2007-2008,czechia,1938,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Caloun (RW),Slovan Ustecti Lvi,23,6,7,13,0.57,16,-13,/player/3574/jan-caloun,2,Jan Caloun,RW,2007-2008,czechia,3574,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Václav Nedorost (C/LW),Bili Tygri Liberec,27,6,7,13,0.48,34,4,/player/8710/vaclav-nedorost,2,Václav Nedorost,C/LW,2007-2008,czechia,8710,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Strba (RW),HC Sparta Praha,35,6,7,13,0.37,56,2,/player/21776/martin-strba,2,Martin Strba,RW,2007-2008,czechia,21776,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Nosek (D),Berani Zlin,48,6,7,13,0.27,74,1,/player/23707/david-nosek,2,David Nosek,D,2007-2008,czechia,23707,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Havir (D),HC Dynamo Pardubice,44,5,8,13,0.30,70,-3,/player/22764/david-havir,2,David Havir,D,2007-2008,czechia,22764,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Visek (LW/RW),Bili Tygri Liberec,47,5,8,13,0.28,20,9,/player/10856/jan-visek,2,Jan Visek,LW/RW,2007-2008,czechia,10856,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Snopek (D),HC Dynamo Pardubice,52,4,9,13,0.25,94,7,/player/1901/jan-snopek,2,Jan Snopek,D,2007-2008,czechia,1901,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Dobron (D),Energie Karlovy Vary,52,3,10,13,0.25,64,5,/player/22636/michal-dobron,2,Michal Dobron,D,2007-2008,czechia,22636,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zdenek Skorepa (RW),HC Ocelari Trinec,44,9,3,12,0.27,12,-16,/player/23419/zdenek-skorepa,2,Zdenek Skorepa,RW,2007-2008,czechia,23419,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Milan Kraft (C),Energie Karlovy Vary,29,8,4,12,0.41,37,-3,/player/9630/milan-kraft,2,Milan Kraft,C,2007-2008,czechia,9630,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Demel (RW),HC Orli Znojmo,47,7,5,12,0.26,46,1,/player/23864/tomas-demel,2,Tomas Demel,RW,2007-2008,czechia,23864,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Kubis (LW/RW),Berani Zlin,52,7,5,12,0.23,60,2,/player/17907/pavel-kubis,2,Pavel Kubis,LW/RW,2007-2008,czechia,17907,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Klepis (C/RW),HC Slavia Praha,24,5,7,12,0.50,22,4,/player/9609/jakub-klepis,2,Jakub Klepis,C/RW,2007-2008,czechia,9609,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karel Plasek (LW/C),HC Orli Znojmo,52,5,7,12,0.23,36,-14,/player/23865/karel-plasek,2,Karel Plasek,LW/C,2007-2008,czechia,23865,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+René Vydarený (D),Motor Ceske Budejovice,52,4,8,12,0.23,28,8,/player/9636/rene-vydareny,2,René Vydarený,D,2007-2008,czechia,9636,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Mokrejs (C),Berani Zlin,45,10,1,11,0.24,30,-4,/player/23709/petr-mokrejs,2,Petr Mokrejs,C,2007-2008,czechia,23709,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Psurny (RW),Berani Zlin,32,8,3,11,0.34,20,-1,/player/13662/michal-psurny,2,Michal Psurny,RW,2007-2008,czechia,13662,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Tomasek (C),HC Vitkovice,51,8,3,11,0.22,46,-2,/player/23518/martin-tomasek,2,Martin Tomasek,C,2007-2008,czechia,23518,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Blazek (C),HC Dynamo Pardubice,32,7,4,11,0.34,8,2,/player/22765/tomas-blazek,2,Tomas Blazek,C,2007-2008,czechia,22765,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Krenzelok (LW),HC Vitkovice,41,6,5,11,0.27,38,-1,/player/23517/lukas-krenzelok,2,Lukas Krenzelok,LW,2007-2008,czechia,23517,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radek Gardon (C),Rytiri Kladno,44,6,5,11,0.25,42,-5,/player/22603/radek-gardon,2,Radek Gardon,C,2007-2008,czechia,22603,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karol Sloboda (D),HC Slavia Praha,49,6,5,11,0.22,48,13,/player/19416/karol-sloboda,2,Karol Sloboda,D,2007-2008,czechia,19416,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Kuchler (LW/C),Rytiri Kladno,52,6,5,11,0.21,36,-10,/player/22602/jiri-kuchler,2,Jiri Kuchler,LW/C,2007-2008,czechia,22602,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Curilla (C),Rytiri Kladno,50,5,6,11,0.22,30,-2,/player/22601/marek-curilla,2,Marek Curilla,C,2007-2008,czechia,22601,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lubomír Vosátko (D),Berani Zlin,50,5,6,11,0.22,70,-3,/player/23448/lubomir-vosatko,2,Lubomír Vosátko,D,2007-2008,czechia,23448,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miroslav Okal (RW),Berani Zlin,40,4,7,11,0.28,44,1,/player/23711/miroslav-okal,2,Miroslav Okal,RW,2007-2008,czechia,23711,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Angel Krstev (D),Bili Tygri Liberec,52,4,7,11,0.21,102,-5,/player/17908/angel-krstev,2,Angel Krstev,D,2007-2008,czechia,17908,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Hunkes (D),Bili Tygri Liberec,51,3,8,11,0.22,62,-2,/player/7916/jiri-hunkes,2,Jiri Hunkes,D,2007-2008,czechia,7916,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Galvas (D),Berani Zlin,46,2,9,11,0.24,38,0,/player/23710/lukas-galvas,2,Lukas Galvas,D,2007-2008,czechia,23710,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Sachl (RW),Bili Tygri Liberec,35,8,2,10,0.29,16,-4,/player/3596/petr-sachl,2,Petr Sachl,RW,2007-2008,czechia,3596,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Starý (W/C),HC Dynamo Pardubice,39,8,2,10,0.26,24,2,/player/22766/jan-stary,2,Jan Starý,W/C,2007-2008,czechia,22766,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Seman (D),HC Ocelari Trinec,45,6,4,10,0.22,42,0,/player/23420/daniel-seman,2,Daniel Seman,D,2007-2008,czechia,23420,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Milan Gulas (RW),totals,40,4,6,10,0.25,30,1,/player/22577/milan-gulas,2,Milan Gulas,RW,2007-2008,czechia,22577,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Tomas (RW),totals,50,4,6,10,0.20,58,-5,/player/21782/roman-tomas,2,Roman Tomas,RW,2007-2008,czechia,21782,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Milan Hluchý (LW),Energie Karlovy Vary,45,7,2,9,0.20,61,3,/player/22639/milan-hluchy,2,Milan Hluchý,LW,2007-2008,czechia,22639,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Saffer (F),Slovan Ustecti Lvi,47,7,2,9,0.19,55,-18,/player/9711/adam-saffer,2,Adam Saffer,F,2007-2008,czechia,9711,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Tomajko (LW),Rytiri Kladno,37,6,3,9,0.24,28,3,/player/22604/jan-tomajko,2,Jan Tomajko,LW,2007-2008,czechia,22604,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Róbert Petrovický (C),HC Vitkovice,11,5,4,9,0.82,8,5,/player/1916/robert-petrovicky,2,Róbert Petrovický,C,2007-2008,czechia,1916,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Travnicek (LW),HC Litvinov,40,5,4,9,0.23,58,2,/player/22669/michal-travnicek,2,Michal Travnicek,LW,2007-2008,czechia,22669,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mario Cartelli (D),HC Plzen,40,5,4,9,0.23,67,-2,/player/18146/mario-cartelli,2,Mario Cartelli,D,2007-2008,czechia,18146,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Malec (D),HC Ocelari Trinec,52,5,4,9,0.17,88,4,/player/10219/tomas-malec,2,Tomas Malec,D,2007-2008,czechia,10219,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Tenkrát (RW),Rytiri Kladno,13,4,5,9,0.69,18,2,/player/3730/petr-tenkrat,2,Petr Tenkrát,RW,2007-2008,czechia,3730,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivo Prorok (RW),HC Vitkovice,22,4,5,9,0.41,72,-3,/player/23519/ivo-prorok,2,Ivo Prorok,RW,2007-2008,czechia,23519,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zdenek Blatny (LW),Bili Tygri Liberec,23,4,5,9,0.39,73,0,/player/8636/zdenek-blatny,2,Zdenek Blatny,LW,2007-2008,czechia,8636,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miroslav Zalesak (RW),HC Ocelari Trinec,25,4,5,9,0.36,55,-6,/player/6664/miroslav-zalesak,2,Miroslav Zalesak,RW,2007-2008,czechia,6664,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Moravec (LW),HC Ocelari Trinec,26,4,5,9,0.35,34,-1,/player/7302/david-moravec,2,David Moravec,LW,2007-2008,czechia,7302,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Nemec (D),Energie Karlovy Vary,52,4,5,9,0.17,30,-4,/player/9610/ondrej-nemec,2,Ondrej Nemec,D,2007-2008,czechia,9610,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miroslav Duben (D),Energie Karlovy Vary,52,4,5,9,0.17,48,1,/player/22638/miroslav-duben,2,Miroslav Duben,D,2007-2008,czechia,22638,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Hanzlík (D),HC Sparta Praha,52,4,5,9,0.17,97,-1,/player/23281/jan-hanzlik,2,Jan Hanzlík,D,2007-2008,czechia,23281,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrej Novotný (D),Slovan Ustecti Lvi,43,3,6,9,0.21,61,-18,/player/22449/andrej-novotny,2,Andrej Novotný,D,2007-2008,czechia,22449,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Jasecko (D),HC Plzen,52,3,6,9,0.17,62,1,/player/491/stanislav-jasecko,2,Stanislav Jasecko,D,2007-2008,czechia,491,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Cakajik (D),HC Plzen,52,3,6,9,0.17,106,-16,/player/22792/martin-cakajik,2,Martin Cakajik,D,2007-2008,czechia,22792,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Adamsky (RW/LW),HC Plzen,33,6,2,8,0.24,26,4,/player/22793/martin-adamsky,2,Martin Adamsky,RW/LW,2007-2008,czechia,22793,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Hranac (D),HC Litvinov,41,5,3,8,0.20,115,-3,/player/22670/jan-hranac,2,Jan Hranac,D,2007-2008,czechia,22670,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Las (F),HC Plzen,44,5,3,8,0.18,28,3,/player/10477/marek-las,2,Marek Las,F,2007-2008,czechia,10477,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Cerny (C/LW),HC Litvinov,51,5,3,8,0.16,36,-4,/player/10472/jakub-cerny,2,Jakub Cerny,C/LW,2007-2008,czechia,10472,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zdenek Nedved (RW),Rytiri Kladno,29,4,4,8,0.28,28,7,/player/20854/zdenek-nedved,2,Zdenek Nedved,RW,2007-2008,czechia,20854,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Procházka (LW),Bili Tygri Liberec,43,4,4,8,0.19,63,-2,/player/22657/stanislav-prochazka,2,Stanislav Procházka,LW,2007-2008,czechia,22657,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Dolezal (RW/LW),HC Slavia Praha,49,4,4,8,0.16,24,8,/player/19417/jiri-dolezal,2,Jiri Dolezal,RW/LW,2007-2008,czechia,19417,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Hájek (D),Rytiri Kladno,51,4,4,8,0.16,26,10,/player/18321/david-hajek,2,David Hájek,D,2007-2008,czechia,18321,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Kubos (D),HC Vitkovice,42,3,5,8,0.19,24,-9,/player/23520/petr-kubos,2,Petr Kubos,D,2007-2008,czechia,23520,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Psurny (C/LW),Berani Zlin,45,3,5,8,0.18,46,-1,/player/9620/roman-psurny,2,Roman Psurny,C/LW,2007-2008,czechia,9620,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Cech (LW),Berani Zlin,39,2,6,8,0.21,54,2,/player/21545/martin-cech,2,Martin Cech,LW,2007-2008,czechia,21545,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaroslav Koma (D),totals,42,2,6,8,0.19,36,-1,/player/22671/jaroslav-koma,2,Jaroslav Koma,D,2007-2008,czechia,22671,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Kloboucek (LW),Slovan Ustecti Lvi,45,2,6,8,0.18,60,-6,/player/22450/jan-kloboucek,2,Jan Kloboucek,LW,2007-2008,czechia,22450,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stanislav Balán (C),Berani Zlin,46,2,6,8,0.17,46,2,/player/13659/stanislav-balan,2,Stanislav Balán,C,2007-2008,czechia,13659,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ales Pisa (D),HC Dynamo Pardubice,31,0,8,8,0.26,81,0,/player/10860/ales-pisa,2,Ales Pisa,D,2007-2008,czechia,10860,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Sicak (D),Motor Ceske Budejovice,50,0,8,8,0.16,20,11,/player/3581/vladimir-sicak,2,Vladimir Sicak,D,2007-2008,czechia,3581,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Polansky (C),HC Ocelari Trinec,30,5,2,7,0.23,38,2,/player/23421/jiri-polansky,2,Jiri Polansky,C,2007-2008,czechia,23421,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radek Haman (C),HC Orli Znojmo,47,5,2,7,0.15,26,-12,/player/23866/radek-haman,2,Radek Haman,C,2007-2008,czechia,23866,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Milan Antos (C/RW),Slovan Ustecti Lvi,19,4,3,7,0.37,16,0,/player/22451/milan-antos,2,Milan Antos,C/RW,2007-2008,czechia,22451,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Pozivil (D),HC Litvinov,41,4,3,7,0.17,32,12,/player/19020/lukas-pozivil,2,Lukas Pozivil,D,2007-2008,czechia,19020,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zdenek Ondrej (RW),HC Dynamo Pardubice,44,4,3,7,0.16,46,-17,/player/22767/zdenek-ondrej,2,Zdenek Ondrej,RW,2007-2008,czechia,22767,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Moravec (D),Bili Tygri Liberec,47,4,3,7,0.15,60,9,/player/22658/jiri-moravec,2,Jiri Moravec,D,2007-2008,czechia,22658,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radek Matejovsky (RW),HC Plzen,49,4,3,7,0.14,113,-12,/player/22794/radek-matejovsky,2,Radek Matejovsky,RW,2007-2008,czechia,22794,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Kolar (RW),HC Dynamo Pardubice,17,3,4,7,0.41,14,5,/player/22768/jan-kolar,2,Jan Kolar,RW,2007-2008,czechia,22768,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ctirad Ovcacik (D),HC Vitkovice,42,3,4,7,0.17,46,-4,/player/23521/ctirad-ovcacik,3,Ctirad Ovcacik,D,2007-2008,czechia,23521,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Gulasi (D),HC Vitkovice,44,3,4,7,0.16,62,-5,/player/23408/michal-gulasi,3,Michal Gulasi,D,2007-2008,czechia,23408,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Cernosek (D),HC Sparta Praha,44,3,4,7,0.16,74,-5,/player/17906/marek-cernosek,3,Marek Cernosek,D,2007-2008,czechia,17906,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Dragoun (LW),HC Sparta Praha,43,1,6,7,0.16,40,6,/player/23286/michal-dragoun,3,Michal Dragoun,LW,2007-2008,czechia,23286,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Pacal (D),HC Ocelari Trinec,48,0,7,7,0.15,40,-5,/player/22810/tomas-pacal,3,Tomas Pacal,D,2007-2008,czechia,22810,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Mojzis (D),HC Orli Znojmo,31,5,1,6,0.19,36,5,/player/23868/pavel-mojzis,3,Pavel Mojzis,D,2007-2008,czechia,23868,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Hasek (C),Slovan Ustecti Lvi,44,5,1,6,0.14,80,-8,/player/22453/jiri-hasek,3,Jiri Hasek,C,2007-2008,czechia,22453,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Mertl (C),Motor Ceske Budejovice,51,5,1,6,0.12,34,6,/player/22578/tomas-mertl,3,Tomas Mertl,C,2007-2008,czechia,22578,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Milan Bartovic (RW/LW),Bili Tygri Liberec,29,4,2,6,0.21,22,-4,/player/9634/milan-bartovic,3,Milan Bartovic,RW/LW,2007-2008,czechia,9634,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zdeněk Bahenský (RW/LW),totals,33,4,2,6,0.18,40,5,/player/9235/zdenek-bahensky,3,Zdeněk Bahenský,RW/LW,2007-2008,czechia,9235,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Pojkar (D),Slovan Ustecti Lvi,42,4,2,6,0.14,84,-15,/player/22452/david-pojkar,3,David Pojkar,D,2007-2008,czechia,22452,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jindrich Kotrla (LW),Motor Ceske Budejovice,49,4,2,6,0.12,48,9,/player/17910/jindrich-kotrla,3,Jindrich Kotrla,LW,2007-2008,czechia,17910,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radim Skuhrovec (D),HC Litvinov,52,4,2,6,0.12,74,5,/player/22672/radim-skuhrovec,3,Radim Skuhrovec,D,2007-2008,czechia,22672,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Cech (LW),Berani Zlin,48,3,3,6,0.13,24,-7,/player/23712/filip-cech,3,Filip Cech,LW,2007-2008,czechia,23712,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Puncochar (D),HC Litvinov,50,3,3,6,0.12,75,0,/player/9606/petr-puncochar,3,Petr Puncochar,D,2007-2008,czechia,9606,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Svrcek (D),HC Orli Znojmo,46,2,4,6,0.13,77,9,/player/23869/jan-svrcek,3,Jan Svrcek,D,2007-2008,czechia,23869,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Mudroch (D),totals,48,2,4,6,0.13,51,-1,/player/22640/petr-mudroch,3,Petr Mudroch,D,2007-2008,czechia,22640,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Výtisk (D),HC Ocelari Trinec,29,1,5,6,0.21,77,-9,/player/23422/jan-vytisk,3,Jan Výtisk,D,2007-2008,czechia,23422,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Tabacek (D),HC Sparta Praha,37,0,6,6,0.16,38,-1,/player/15839/jan-tabacek,3,Jan Tabacek,D,2007-2008,czechia,15839,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Klimt (LW),Slovan Ustecti Lvi,27,4,1,5,0.19,16,-8,/player/22455/tomas-klimt,3,Tomas Klimt,LW,2007-2008,czechia,22455,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Zucker (LW),Energie Karlovy Vary,30,4,1,5,0.17,10,-1,/player/22641/david-zucker,3,David Zucker,LW,2007-2008,czechia,22641,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Posmyk (D),totals,42,4,1,5,0.12,34,1,/player/12732/marek-posmyk,3,Marek Posmyk,D,2007-2008,czechia,12732,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frantisek Mrazek (LW),Slovan Ustecti Lvi,46,4,1,5,0.11,68,-18,/player/3634/frantisek-mrazek,3,Frantisek Mrazek,LW,2007-2008,czechia,3634,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Weissmann (LW),HC Vitkovice,17,3,2,5,0.29,4,-1,/player/23522/erik-weissmann,3,Erik Weissmann,LW,2007-2008,czechia,23522,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Bednarik (RW/C),HC Litvinov,31,2,3,5,0.16,12,-3,/player/22673/lukas-bednarik,3,Lukas Bednarik,RW/C,2007-2008,czechia,22673,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antonin Dusek (C),Bili Tygri Liberec,50,2,3,5,0.10,12,-6,/player/22659/antonin-dusek,3,Antonin Dusek,C,2007-2008,czechia,22659,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Drtina (D),HC Slavia Praha,52,2,3,5,0.10,18,3,/player/19414/jiri-drtina,3,Jiri Drtina,D,2007-2008,czechia,19414,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Machulda (LW),HC Litvinov,29,1,4,5,0.17,10,-3,/player/3597/vladimir-machulda,3,Vladimir Machulda,LW,2007-2008,czechia,3597,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radim Tesarik (D),HC Orli Znojmo,31,1,4,5,0.16,26,1,/player/23870/radim-tesarik,3,Radim Tesarik,D,2007-2008,czechia,23870,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Boris Zabka (D),Bili Tygri Liberec,46,1,4,5,0.11,133,4,/player/20/boris-zabka,3,Boris Zabka,D,2007-2008,czechia,20,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Vala (LW/C),HC Vitkovice,35,4,0,4,0.11,4,-12,/player/23523/petr-vala,3,Petr Vala,LW/C,2007-2008,czechia,23523,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zbynek Sklenicka (D/LW),HC Litvinov,40,4,0,4,0.10,20,-6,/player/22674/zbynek-sklenicka,3,Zbynek Sklenicka,D/LW,2007-2008,czechia,22674,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Linhart (D),HC Dynamo Pardubice,52,4,0,4,0.08,66,-4,/player/15831/tomas-linhart,3,Tomas Linhart,D,2007-2008,czechia,15831,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Vantuch (C/LW),Bili Tygri Liberec,37,3,1,4,0.11,30,-5,/player/10604/lukas-vantuch,3,Lukas Vantuch,C/LW,2007-2008,czechia,10604,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Milan Voboril (D),HC Litvinov,51,3,1,4,0.08,36,0,/player/22676/milan-voboril,3,Milan Voboril,D,2007-2008,czechia,22676,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Derner (D),totals,40,2,2,4,0.10,58,-6,/player/22660/lukas-derner,3,Lukas Derner,D,2007-2008,czechia,22660,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Zapotocny (D),Slovan Ustecti Lvi,43,2,2,4,0.09,50,-6,/player/22457/daniel-zapotocny,3,Daniel Zapotocny,D,2007-2008,czechia,22457,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Novak (D),Motor Ceske Budejovice,45,2,2,4,0.09,50,20,/player/8663/filip-novak,3,Filip Novak,D,2007-2008,czechia,8663,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Klimek (LW/C),HC Vitkovice,47,2,2,4,0.09,42,-12,/player/23524/lukas-klimek,3,Lukas Klimek,LW/C,2007-2008,czechia,23524,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Zeman (D),Slovan Ustecti Lvi,47,2,2,4,0.09,65,-18,/player/22456/jiri-zeman,3,Jiri Zeman,D,2007-2008,czechia,22456,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Hes (D),HC Vitkovice,50,2,2,4,0.08,64,-7,/player/22709/jiri-hes,3,Jiri Hes,D,2007-2008,czechia,22709,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Beroun (RW),HC Orli Znojmo,51,2,2,4,0.08,20,-4,/player/23875/jiri-beroun,3,Jiri Beroun,RW,2007-2008,czechia,23875,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radek Hubacek (C),HC Vitkovice,23,1,3,4,0.17,14,-2,/player/23525/radek-hubacek,3,Radek Hubacek,C,2007-2008,czechia,23525,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Prosek (D),Energie Karlovy Vary,24,1,3,4,0.17,12,4,/player/22642/roman-prosek,3,Roman Prosek,D,2007-2008,czechia,22642,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Vagner (D),Slovan Ustecti Lvi,35,1,3,4,0.11,30,-10,/player/18018/martin-vagner,3,Martin Vagner,D,2007-2008,czechia,18018,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vaclav Koci (D),Bili Tygri Liberec,36,1,3,4,0.11,24,2,/player/21785/vaclav-koci,3,Vaclav Koci,D,2007-2008,czechia,21785,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleksandrs Jerofejevs (D),HC Sparta Praha,46,1,3,4,0.09,71,2,/player/9738/aleksandrs-jerofejevs,3,Aleksandrs Jerofejevs,D,2007-2008,czechia,9738,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Rindos (C),HC Litvinov,48,1,3,4,0.08,14,-2,/player/22675/lukas-rindos,3,Lukas Rindos,C,2007-2008,czechia,22675,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Trnka (D),HC Vitkovice,48,1,3,4,0.08,70,2,/player/7303/pavel-trnka,3,Pavel Trnka,D,2007-2008,czechia,7303,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Stepanek (D),Rytiri Kladno,49,1,3,4,0.08,40,3,/player/3591/martin-stepanek,3,Martin Stepanek,D,2007-2008,czechia,3591,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Nadasdi (D),Rytiri Kladno,49,1,3,4,0.08,42,12,/player/22606/tomas-nadasdi,3,Tomas Nadasdi,D,2007-2008,czechia,22606,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivo Kotaska (D),HC Orli Znojmo,50,1,3,4,0.08,32,-9,/player/23876/ivo-kotaska,3,Ivo Kotaska,D,2007-2008,czechia,23876,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ales Pavlas (D),Rytiri Kladno,26,0,4,4,0.15,18,-1,/player/22605/ales-pavlas,3,Ales Pavlas,D,2007-2008,czechia,22605,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Skoda (C/D),HC Vitkovice,9,2,1,3,0.33,4,-1,/player/23526/vladimir-skoda,3,Vladimir Skoda,C/D,2007-2008,czechia,23526,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Kubalik (RW),HC Plzen,20,2,1,3,0.15,8,0,/player/11834/tomas-kubalik,3,Tomas Kubalik,RW,2007-2008,czechia,11834,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaroslav Nedved (D),HC Sparta Praha,29,2,1,3,0.10,85,-4,/player/15438/jaroslav-nedved,3,Jaroslav Nedved,D,2007-2008,czechia,15438,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Kloucek (D),Berani Zlin,30,2,1,3,0.10,142,-8,/player/9686/tomas-kloucek,3,Tomas Kloucek,D,2007-2008,czechia,9686,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miroslav Durak (D),Berani Zlin,42,2,1,3,0.07,91,-2,/player/13661/miroslav-durak,3,Miroslav Durak,D,2007-2008,czechia,13661,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frantisek Ptacek (D),HC Sparta Praha,45,2,1,3,0.07,32,-13,/player/23289/frantisek-ptacek,3,Frantisek Ptacek,D,2007-2008,czechia,23289,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Výborný (D),HC Ocelari Trinec,5,1,2,3,0.60,0,5,/player/23423/martin-vyborny,3,Martin Výborný,D,2007-2008,czechia,23423,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Vondracek (RW/C),HC Sparta Praha,13,1,2,3,0.23,10,4,/player/23287/roman-vondracek,3,Roman Vondracek,RW/C,2007-2008,czechia,23287,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jekabs Redlihs (D),HC Plzen,13,1,2,3,0.23,14,6,/player/11562/jekabs-redlihs,3,Jekabs Redlihs,D,2007-2008,czechia,11562,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Kana (RW/C),totals,13,1,2,3,0.23,16,-2,/player/9236/tomas-kana,3,Tomas Kana,RW/C,2007-2008,czechia,9236,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Nakládal (D),HC Dynamo Pardubice,14,1,2,3,0.21,20,2,/player/22769/jakub-nakladal,3,Jakub Nakládal,D,2007-2008,czechia,22769,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Zubicek (D),Berani Zlin,30,1,2,3,0.10,51,-10,/player/23713/pavel-zubicek,3,Pavel Zubicek,D,2007-2008,czechia,23713,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Evan (D),Slovan Ustecti Lvi,37,1,2,3,0.08,52,-9,/player/22460/jakub-evan,3,Jakub Evan,D,2007-2008,czechia,22460,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrej Nedorost (C/W),Slovan Ustecti Lvi,38,1,2,3,0.08,36,-12,/player/9672/andrej-nedorost,3,Andrej Nedorost,C/W,2007-2008,czechia,9672,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Havel (C),totals,40,1,2,3,0.08,34,-4,/player/22466/michal-havel,3,Michal Havel,C,2007-2008,czechia,22466,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Smach (D),Rytiri Kladno,42,1,2,3,0.07,22,2,/player/22607/ondrej-smach,3,Ondrej Smach,D,2007-2008,czechia,22607,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Dresler (D),HC Plzen,46,1,2,3,0.07,52,8,/player/22795/jan-dresler,3,Jan Dresler,D,2007-2008,czechia,22795,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Kolarik (D),HC Slavia Praha,52,1,2,3,0.06,50,15,/player/18317/pavel-kolarik,3,Pavel Kolarik,D,2007-2008,czechia,18317,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Borovanský (RW),HC Slavia Praha,14,0,3,3,0.21,8,0,/player/19419/michal-borovansky,3,Michal Borovanský,RW,2007-2008,czechia,19419,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Angel Nikolov (D),totals,41,0,3,3,0.07,49,8,/player/5686/angel-nikolov,3,Angel Nikolov,D,2007-2008,czechia,5686,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Horava (D),Slovan Ustecti Lvi,42,0,3,3,0.07,85,-11,/player/22464/petr-horava,3,Petr Horava,D,2007-2008,czechia,22464,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Steber (C/RW),HC Ocelari Trinec,44,0,3,3,0.07,36,-3,/player/13652/jan-steber,3,Jan Steber,C/RW,2007-2008,czechia,13652,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Szturc (RW),HC Vitkovice,7,2,0,2,0.29,4,-2,/player/11831/roman-szturc,3,Roman Szturc,RW,2007-2008,czechia,11831,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Frolík (C/LW),Rytiri Kladno,8,2,0,2,0.25,2,-1,/player/22608/martin-frolik,3,Martin Frolík,C/LW,2007-2008,czechia,22608,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zbynek Hampl (LW),HC Ocelari Trinec,17,2,0,2,0.12,10,-1,/player/15148/zbynek-hampl,3,Zbynek Hampl,LW,2007-2008,czechia,15148,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Mrna (RW/C),HC Sparta Praha,20,2,0,2,0.10,8,0,/player/23292/pavel-mrna,3,Pavel Mrna,RW/C,2007-2008,czechia,23292,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Sagat (RW/LW),Slovan Ustecti Lvi,29,2,0,2,0.07,16,-8,/player/9647/martin-sagat,3,Martin Sagat,RW/LW,2007-2008,czechia,9647,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Bolf (D/LW),Motor Ceske Budejovice,37,2,0,2,0.05,24,3,/player/22363/lukas-bolf,3,Lukas Bolf,D/LW,2007-2008,czechia,22363,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Zdrahal (RW),HC Vitkovice,3,1,1,2,0.67,0,1,/player/23527/pavel-zdrahal,3,Pavel Zdrahal,RW,2007-2008,czechia,23527,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rastislav Dej (LW/C),Energie Karlovy Vary,13,1,1,2,0.15,4,-2,/player/22643/rastislav-dej,3,Rastislav Dej,LW/C,2007-2008,czechia,22643,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Marusak (D),HC Vitkovice,13,1,1,2,0.15,14,3,/player/10506/jiri-marusak,3,Jiri Marusak,D,2007-2008,czechia,10506,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Liscak (C),Slovan Ustecti Lvi,15,1,1,2,0.13,20,-9,/player/22467/robert-liscak,3,Robert Liscak,C,2007-2008,czechia,22467,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Seda (D),HC Dynamo Pardubice,32,1,1,2,0.06,38,8,/player/22770/michal-seda,3,Michal Seda,D,2007-2008,czechia,22770,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcin Kolusz (D/F),HC Ocelari Trinec,43,1,1,2,0.05,8,-7,/player/13650/marcin-kolusz,3,Marcin Kolusz,D/F,2007-2008,czechia,13650,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Lucka (D),Berani Zlin,43,1,1,2,0.05,24,2,/player/23714/martin-lucka,3,Martin Lucka,D,2007-2008,czechia,23714,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Dobrovolny (D),HC Plzen,44,1,1,2,0.05,58,-7,/player/22796/jiri-dobrovolny,3,Jiri Dobrovolny,D,2007-2008,czechia,22796,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Frolo (D),Motor Ceske Budejovice,45,1,1,2,0.04,64,7,/player/22579/tomas-frolo,3,Tomas Frolo,D,2007-2008,czechia,22579,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Chvatal (D),HC Orli Znojmo,51,1,1,2,0.04,48,-12,/player/15514/marek-chvatal,3,Marek Chvatal,D,2007-2008,czechia,15514,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Premysl Sedlak (LW),Rytiri Kladno,3,0,2,2,0.67,0,2,/player/22609/premysl-sedlak,3,Premysl Sedlak,LW,2007-2008,czechia,22609,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zdenek Pavelek (LW),HC Ocelari Trinec,11,0,2,2,0.18,8,0,/player/23424/zdenek-pavelek,3,Zdenek Pavelek,LW,2007-2008,czechia,23424,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Klejna (C),HC Dynamo Pardubice,15,0,2,2,0.13,4,0,/player/22771/michal-klejna,3,Michal Klejna,C,2007-2008,czechia,22771,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Gyna (D),Slovan Ustecti Lvi,25,0,2,2,0.08,18,-9,/player/22465/vladimir-gyna,3,Vladimir Gyna,D,2007-2008,czechia,22465,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vlastimil Kroupa (D),HC Ocelari Trinec,28,0,2,2,0.07,38,-9,/player/22682/vlastimil-kroupa,3,Vlastimil Kroupa,D,2007-2008,czechia,22682,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Nemecek (D),totals,52,0,2,2,0.04,24,4,/player/19421/roman-nemecek,3,Roman Nemecek,D,2007-2008,czechia,19421,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Chmelir (D),HC Orli Znojmo,5,1,0,1,0.20,0,0,/player/23877/lukas-chmelir,3,Lukas Chmelir,D,2007-2008,czechia,23877,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrej Podkonicky (LW/C),Bili Tygri Liberec,5,1,0,1,0.20,2,-4,/player/12448/andrej-podkonicky,3,Andrej Podkonicky,LW/C,2007-2008,czechia,12448,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vojtech Polak (W/C),Energie Karlovy Vary,5,1,0,1,0.20,4,0,/player/9615/vojtech-polak,3,Vojtech Polak,W/C,2007-2008,czechia,9615,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Novák (D),HC Slavia Praha,5,1,0,1,0.20,8,-2,/player/12234/jan-novak,4,Jan Novák,D,2007-2008,czechia,12234,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Bohac (LW/C),HC Vitkovice,6,1,0,1,0.17,2,-1,/player/21665/daniel-bohac,4,Daniel Bohac,LW/C,2007-2008,czechia,21665,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Rapac (LW/RW),Bili Tygri Liberec,9,1,0,1,0.11,2,-2,/player/11636/richard-rapac,4,Richard Rapac,LW/RW,2007-2008,czechia,11636,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Míka (RW),Slovan Ustecti Lvi,11,1,0,1,0.09,4,-1,/player/9628/petr-mika,4,Petr Míka,RW,2007-2008,czechia,9628,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Branislav Janos (LW),HC Vitkovice,13,1,0,1,0.08,12,-4,/player/7975/branislav-janos,4,Branislav Janos,LW,2007-2008,czechia,7975,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Kubena (RW),Energie Karlovy Vary,15,1,0,1,0.07,4,0,/player/15324/pavel-kubena,4,Pavel Kubena,RW,2007-2008,czechia,15324,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladimir Svacina (RW/LW),HC Vitkovice,16,1,0,1,0.06,8,-3,/player/23528/vladimir-svacina,4,Vladimir Svacina,RW/LW,2007-2008,czechia,23528,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Houdek (D),Slovan Ustecti Lvi,16,1,0,1,0.06,14,-4,/player/22468/tomas-houdek,4,Tomas Houdek,D,2007-2008,czechia,22468,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Rákos (C),HC Dynamo Pardubice,16,1,0,1,0.06,27,0,/player/10479/daniel-rakos,4,Daniel Rákos,C,2007-2008,czechia,10479,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Svagrovsky (RW),HC Sparta Praha,20,1,0,1,0.05,10,-3,/player/11307/david-svagrovsky,4,David Svagrovsky,RW,2007-2008,czechia,11307,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Kazatel (F),Rytiri Kladno,21,1,0,1,0.05,8,0,/player/9281/michal-kazatel,4,Michal Kazatel,F,2007-2008,czechia,9281,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaroslav Mrázek (D),HC Vitkovice,22,1,0,1,0.05,18,3,/player/9619/jaroslav-mrazek,4,Jaroslav Mrázek,D,2007-2008,czechia,9619,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Rudovský (C),Rytiri Kladno,29,1,0,1,0.03,33,-1,/player/9712/jan-rudovsky,4,Jan Rudovský,C,2007-2008,czechia,9712,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Tuma (D),HC Litvinov,35,1,0,1,0.03,56,-2,/player/11403/martin-tuma,4,Martin Tuma,D,2007-2008,czechia,11403,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Svarny (D),totals,38,1,0,1,0.03,16,-1,/player/13653/ivan-svarny,4,Ivan Svarny,D,2007-2008,czechia,13653,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Podlesak (C),HC Sparta Praha,41,1,0,1,0.02,6,0,/player/8053/martin-podlesak,4,Martin Podlesak,C,2007-2008,czechia,8053,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Václav Meidl (C/LW),HC Orli Znojmo,41,1,0,1,0.02,24,-6,/player/12114/vaclav-meidl,4,Václav Meidl,C/LW,2007-2008,czechia,12114,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Holub (D),Bili Tygri Liberec,44,1,0,1,0.02,24,-2,/player/13655/jan-holub,4,Jan Holub,D,2007-2008,czechia,13655,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Vasicek (D),HC Slavia Praha,44,1,0,1,0.02,59,-2,/player/19418/jiri-vasicek,4,Jiri Vasicek,D,2007-2008,czechia,19418,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Janis Andersons (D),HC Ocelari Trinec,46,1,0,1,0.02,4,-3,/player/3826/janis-andersons,4,Janis Andersons,D,2007-2008,czechia,3826,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rok Pajič (RW/C),Slovan Ustecti Lvi,2,0,1,1,0.50,2,1,/player/16066/rok-pajic,4,Rok Pajič,RW/C,2007-2008,czechia,16066,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Sebesta (LW),HC Vitkovice,3,0,1,1,0.33,0,-1,/player/23529/pavel-sebesta,4,Pavel Sebesta,LW,2007-2008,czechia,23529,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Kriz (D),HC Orli Znojmo,6,0,1,1,0.17,2,-2,/player/23880/ondrej-kriz,4,Ondrej Kriz,D,2007-2008,czechia,23880,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Libor Prochazka (D),Rytiri Kladno,8,0,1,1,0.13,12,0,/player/1602/libor-prochazka,4,Libor Prochazka,D,2007-2008,czechia,1602,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Baron Becker (F),HC Sparta Praha,9,0,1,1,0.11,4,0,/player/14849/baron-becker,4,Baron Becker,F,2007-2008,czechia,14849,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miroslav Holec (LW),HC Slavia Praha,11,0,1,1,0.09,4,1,/player/19420/miroslav-holec,4,Miroslav Holec,LW,2007-2008,czechia,19420,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Sklenář (LW/RW),HC Slavia Praha,12,0,1,1,0.08,0,0,/player/15146/jakub-sklena%C5%99,4,Jakub Sklenář,LW/RW,2007-2008,czechia,15146,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Strapac (LW/C),HC Vitkovice,12,0,1,1,0.08,6,-2,/player/15147/petr-strapac,4,Petr Strapac,LW/C,2007-2008,czechia,15147,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Kundratek (D),HC Ocelari Trinec,14,0,1,1,0.07,10,1,/player/13651/tomas-kundratek,4,Tomas Kundratek,D,2007-2008,czechia,13651,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Cachotsky (LW),HC Orli Znojmo,15,0,1,1,0.07,6,-3,/player/23879/tomas-cachotsky,4,Tomas Cachotsky,LW,2007-2008,czechia,23879,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Vyrubalik (D),HC Orli Znojmo,15,0,1,1,0.07,10,1,/player/23878/martin-vyrubalik,4,Martin Vyrubalik,D,2007-2008,czechia,23878,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Richter (D),HC Dynamo Pardubice,17,0,1,1,0.06,6,-12,/player/12255/martin-richter,4,Martin Richter,D,2007-2008,czechia,12255,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Martinec (D),HC Plzen,19,0,1,1,0.05,6,0,/player/15141/lukas-martinec,4,Lukas Martinec,D,2007-2008,czechia,15141,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Zelenka (RW),HC Sparta Praha,29,0,1,1,0.03,4,-3,/player/23293/jiri-zelenka,4,Jiri Zelenka,RW,2007-2008,czechia,23293,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Schnabel (D),Rytiri Kladno,34,0,1,1,0.03,133,-3,/player/1934/robert-schnabel,4,Robert Schnabel,D,2007-2008,czechia,1934,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Zohorna (C/LW),HC Dynamo Pardubice,41,0,1,1,0.02,14,-6,/player/22772/tomas-zohorna,4,Tomas Zohorna,C/LW,2007-2008,czechia,22772,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Kolar (D),HC Dynamo Pardubice,43,0,1,1,0.02,22,-10,/player/22773/jan-kolar,4,Jan Kolar,D,2007-2008,czechia,22773,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karel Hromas (LW),HC Sparta Praha,52,0,1,1,0.02,42,-2,/player/9234/karel-hromas,4,Karel Hromas,LW,2007-2008,czechia,9234,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Kloz (C),Slovan Ustecti Lvi,0,0,0,0,-,0,-,/player/10473/jan-kloz,4,Jan Kloz,C,2007-2008,czechia,10473,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Jezek (LW),Motor Ceske Budejovice,0,0,0,0,-,0,-,/player/22583/ondrej-jezek,4,Ondrej Jezek,LW,2007-2008,czechia,22583,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Trojovsky (D),HC Plzen,0,0,0,0,-,0,-,/player/22797/matej-trojovsky,4,Matej Trojovsky,D,2007-2008,czechia,22797,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Troliga (LW/C),HC Orli Znojmo,0,0,0,0,-,0,-,/player/13657/tomas-troliga,4,Tomas Troliga,LW/C,2007-2008,czechia,13657,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Pavlu (D),Rytiri Kladno,0,0,0,0,-,0,0,/player/26105/michal-pavlu,4,Michal Pavlu,D,2007-2008,czechia,26105,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radek Míka (D),Berani Zlin,0,0,0,0,-,0,0,/player/21123/radek-mika,4,Radek Míka,D,2007-2008,czechia,21123,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Radko Gudas (D),Rytiri Kladno,0,0,0,0,-,0,-,/player/18085/radko-gudas,4,Radko Gudas,D,2007-2008,czechia,18085,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Kousal (C/LW),HC Dynamo Pardubice,0,0,0,0,-,0,0,/player/18093/robert-kousal,4,Robert Kousal,C/LW,2007-2008,czechia,18093,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Radil (LW/RW),HC Dynamo Pardubice,0,0,0,0,-,0,0,/player/22785/lukas-radil,4,Lukas Radil,LW/RW,2007-2008,czechia,22785,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Stejskal (F),Berani Zlin,0,0,0,0,-,0,0,/player/160412/martin-stejskal,4,Martin Stejskal,F,2007-2008,czechia,160412,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Kolafa (D),Rytiri Kladno,0,0,0,0,-,0,-,/player/18453/tomas-kolafa,4,Tomas Kolafa,D,2007-2008,czechia,18453,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ugo Dobias (F),HC Dynamo Pardubice,0,0,0,0,-,0,0,/player/169742/ugo-dobias,4,Ugo Dobias,F,2007-2008,czechia,169742,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Sedivy (W/C),HC Vitkovice,0,0,0,0,-,0,-,/player/19007/ondrej-sedivy,4,Ondrej Sedivy,W/C,2007-2008,czechia,19007,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Werner Hartmann (D),HC Vitkovice,0,0,0,0,-,0,-,/player/23534/werner-hartmann,4,Werner Hartmann,D,2007-2008,czechia,23534,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Matejka (F),Berani Zlin,0,0,0,0,-,0,0,/player/21180/jan-matejka,4,Jan Matejka,F,2007-2008,czechia,21180,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lukas Matula (D),Berani Zlin,0,0,0,0,-,0,0,/player/21119/lukas-matula,4,Lukas Matula,D,2007-2008,czechia,21119,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lauris Darzins (RW/LW),HC Ocelari Trinec,1,0,0,0,0.00,0,0,/player/3202/lauris-darzins,4,Lauris Darzins,RW/LW,2007-2008,czechia,3202,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Ruzicka (D),Rytiri Kladno,1,0,0,0,0.00,0,0,/player/9287/david-ruzicka,4,David Ruzicka,D,2007-2008,czechia,9287,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ladislav Slizek (RW),totals,1,0,0,0,0.00,0,0,/player/1054/ladislav-slizek,4,Ladislav Slizek,RW,2007-2008,czechia,1054,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Vrba (F),HC Ocelari Trinec,1,0,0,0,0.00,0,0,/player/21544/tomas-vrba,4,Tomas Vrba,F,2007-2008,czechia,21544,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Kubes (F),HC Slavia Praha,1,0,0,0,0.00,0,-1,/player/21783/vladislav-kubes,4,Vladislav Kubes,F,2007-2008,czechia,21783,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Novák (LW),Slovan Ustecti Lvi,1,0,0,0,0.00,0,0,/player/22472/martin-novak,4,Martin Novák,LW,2007-2008,czechia,22472,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Bauer (D/LW),Energie Karlovy Vary,1,0,0,0,0.00,0,0,/player/22644/jakub-bauer,4,Jakub Bauer,D/LW,2007-2008,czechia,22644,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Rumpel (RW),Energie Karlovy Vary,1,0,0,0,0.00,0,0,/player/11668/jakub-rumpel,4,Jakub Rumpel,RW,2007-2008,czechia,11668,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Kriz (LW),Bili Tygri Liberec,1,0,0,0,0.00,0,-1,/player/22664/pavel-kriz,4,Pavel Kriz,LW,2007-2008,czechia,22664,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Maxa (C),HC Litvinov,1,0,0,0,0.00,0,0,/player/22677/jakub-maxa,4,Jakub Maxa,C,2007-2008,czechia,22677,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ladislav Jindrich (RW),HC Dynamo Pardubice,1,0,0,0,0.00,0,0,/player/22775/ladislav-jindrich,4,Ladislav Jindrich,RW,2007-2008,czechia,22775,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Rozum (LW),HC Vitkovice,1,0,0,0,0.00,0,0,/player/23531/petr-rozum,4,Petr Rozum,LW,2007-2008,czechia,23531,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Barton (D),HC Orli Znojmo,1,0,0,0,0.00,0,-2,/player/23881/jakub-barton,4,Jakub Barton,D,2007-2008,czechia,23881,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Horák (C),Motor Ceske Budejovice,1,0,0,0,0.00,0,0,/player/18089/roman-horak,4,Roman Horák,C,2007-2008,czechia,18089,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Borek Slama (D),Slovan Ustecti Lvi,1,0,0,0,0.00,2,0,/player/22473/borek-slama,4,Borek Slama,D,2007-2008,czechia,22473,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josef Revay (D),Rytiri Kladno,1,0,0,0,0.00,2,1,/player/22610/josef-revay,4,Josef Revay,D,2007-2008,czechia,22610,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Miksan (LW),HC Vitkovice,1,0,0,0,0.00,2,0,/player/23530/david-miksan,4,David Miksan,LW,2007-2008,czechia,23530,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Balcik (D),HC Ocelari Trinec,1,0,0,0,0.00,6,-2,/player/23426/martin-balcik,4,Martin Balcik,D,2007-2008,czechia,23426,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaroslav Boruvka (D),HC Slavia Praha,2,0,0,0,0.00,0,0,/player/19424/jaroslav-boruvka,4,Jaroslav Boruvka,D,2007-2008,czechia,19424,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vít Budínský (RW),Energie Karlovy Vary,2,0,0,0,0.00,0,-1,/player/22648/vit-budinsky,4,Vít Budínský,RW,2007-2008,czechia,22648,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Opatovsky (LW),HC Ocelari Trinec,2,0,0,0,0.00,0,-2,/player/23443/martin-opatovsky,4,Martin Opatovsky,LW,2007-2008,czechia,23443,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Filip Seman (C),HC Vitkovice,2,0,0,0,0.00,0,0,/player/23532/filip-seman,4,Filip Seman,C,2007-2008,czechia,23532,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Milan Mikulík (C),Motor Ceske Budejovice,2,0,0,0,0.00,2,0,/player/22582/milan-mikulik,4,Milan Mikulík,C,2007-2008,czechia,22582,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Ivan (C),HC Ocelari Trinec,2,0,0,0,0.00,2,-1,/player/23425/marek-ivan,4,Marek Ivan,C,2007-2008,czechia,23425,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Stanek (D),HC Plzen,2,0,0,0,0.00,4,3,/player/22801/pavel-stanek,4,Pavel Stanek,D,2007-2008,czechia,22801,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Kocman (LW),HC Plzen,3,0,0,0,0.00,0,0,/player/22798/jakub-kocman,4,Jakub Kocman,LW,2007-2008,czechia,22798,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Stritesky (D),HC Litvinov,3,0,0,0,0.00,2,-1,/player/18087/matej-stritesky,4,Matej Stritesky,D,2007-2008,czechia,18087,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakub Kania (D),HC Ocelari Trinec,3,0,0,0,0.00,4,3,/player/23444/jakub-kania,4,Jakub Kania,D,2007-2008,czechia,23444,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Novák (D),HC Vitkovice,3,0,0,0,0.00,6,0,/player/6040/michal-novak,4,Michal Novák,D,2007-2008,czechia,6040,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Hovorka (D/F),Slovan Ustecti Lvi,4,0,0,0,0.00,0,0,/player/22471/marek-hovorka,4,Marek Hovorka,D/F,2007-2008,czechia,22471,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Brunec (RW),Berani Zlin,4,0,0,0,0.00,0,1,/player/23716/tomas-brunec,4,Tomas Brunec,RW,2007-2008,czechia,23716,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Taborsky (D),HC Dynamo Pardubice,4,0,0,0,0.00,2,-1,/player/21566/martin-taborsky,4,Martin Taborsky,D,2007-2008,czechia,21566,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Zatovic (LW/C),Energie Karlovy Vary,4,0,0,0,0.00,4,-1,/player/22645/martin-zatovic,4,Martin Zatovic,LW/C,2007-2008,czechia,22645,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Schmidt (D),Energie Karlovy Vary,4,0,0,0,0.00,4,0,/player/22647/tomas-schmidt,4,Tomas Schmidt,D,2007-2008,czechia,22647,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Procházka (D),Slovan Ustecti Lvi,4,0,0,0,0.00,4,2,/player/22475/michal-prochazka,4,Michal Procházka,D,2007-2008,czechia,22475,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Semorád (RW/LW),HC Dynamo Pardubice,5,0,0,0,0.00,2,-1,/player/15145/jan-semorad,4,Jan Semorád,RW/LW,2007-2008,czechia,15145,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Zukal (D),Slovan Ustecti Lvi,5,0,0,0,0.00,4,0,/player/15186/marek-zukal,4,Marek Zukal,D,2007-2008,czechia,15186,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Suchy (D),HC Vitkovice,5,0,0,0,0.00,8,-1,/player/10482/jiri-suchy,4,Jiri Suchy,D,2007-2008,czechia,10482,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Charles Cook (D),HC Sparta Praha,6,0,0,0,0.00,0,-1,/player/10413/charles-cook,4,Charles Cook,D,2007-2008,czechia,10413,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Pánik (RW/LW),HC Ocelari Trinec,6,0,0,0,0.00,0,-3,/player/11849/richard-panik,4,Richard Pánik,RW/LW,2007-2008,czechia,11849,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Stransky (RW/LW),HC Plzen,6,0,0,0,0.00,2,0,/player/18091/jan-stransky,4,Jan Stransky,RW/LW,2007-2008,czechia,18091,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kamil Tvrdek (LW),Energie Karlovy Vary,6,0,0,0,0.00,2,-2,/player/22646/kamil-tvrdek,4,Kamil Tvrdek,LW,2007-2008,czechia,22646,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josef Melichar (D),Motor Ceske Budejovice,6,0,0,0,0.00,4,2,/player/8680/josef-melichar,4,Josef Melichar,D,2007-2008,czechia,8680,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robert Krajci (LW),Slovan Ustecti Lvi,6,0,0,0,0.00,4,-2,/player/22469/robert-krajci,4,Robert Krajci,LW,2007-2008,czechia,22469,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miloslav Cermak (LW),HC Slavia Praha,7,0,0,0,0.00,2,-2,/player/19422/miloslav-cermak,4,Miloslav Cermak,LW,2007-2008,czechia,19422,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Pilusa (LW),Berani Zlin,7,0,0,0,0.00,2,-5,/player/23715/jiri-pilusa,4,Jiri Pilusa,LW,2007-2008,czechia,23715,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Machacek (D),Motor Ceske Budejovice,7,0,0,0,0.00,4,1,/player/22584/petr-machacek,5,Petr Machacek,D,2007-2008,czechia,22584,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Milos Sykora (LW),HC Plzen,7,0,0,0,0.00,6,-1,/player/22799/milos-sykora,5,Milos Sykora,LW,2007-2008,czechia,22799,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Vsetecka (D),HC Orli Znojmo,8,0,0,0,0.00,0,3,/player/23626/david-vsetecka,5,David Vsetecka,D,2007-2008,czechia,23626,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Sedlák (D),HC Vitkovice,8,0,0,0,0.00,4,-4,/player/19355/adam-sedlak,5,Adam Sedlák,D,2007-2008,czechia,19355,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiří Jebavý (D),HC Slavia Praha,8,0,0,0,0.00,4,0,/player/19423/ji%C5%99i-jebavy,5,Jiří Jebavý,D,2007-2008,czechia,19423,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petr Preucil (LW),Slovan Ustecti Lvi,8,0,0,0,0.00,8,-1,/player/15838/petr-preucil,5,Petr Preucil,LW,2007-2008,czechia,15838,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juris Stals (W/C),HC Ocelari Trinec,8,0,0,0,0.00,12,-2,/player/7960/juris-stals,5,Juris Stals,W/C,2007-2008,czechia,7960,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ctibor Jech (LW),Bili Tygri Liberec,10,0,0,0,0.00,2,0,/player/22663/ctibor-jech,5,Ctibor Jech,LW,2007-2008,czechia,22663,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Karel Kubát (D),HC Litvinov,10,0,0,0,0.00,12,2,/player/22678/karel-kubat,5,Karel Kubát,D,2007-2008,czechia,22678,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Richard Stehlík (D),HC Sparta Praha,10,0,0,0,0.00,20,0,/player/9645/richard-stehlik,5,Richard Stehlík,D,2007-2008,czechia,9645,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lubomir Stach (D),HC Orli Znojmo,12,0,0,0,0.00,0,-3,/player/13656/lubomir-stach,5,Lubomir Stach,D,2007-2008,czechia,13656,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Mikula (LW),HC Vitkovice,12,0,0,0,0.00,0,-1,/player/10607/ondrej-mikula,5,Ondrej Mikula,LW,2007-2008,czechia,10607,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Kuchejda (RW),Motor Ceske Budejovice,12,0,0,0,0.00,2,-3,/player/10476/david-kuchejda,5,David Kuchejda,RW,2007-2008,czechia,10476,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Antonin Boruta (D),Berani Zlin,12,0,0,0,0.00,4,-6,/player/15142/antonin-boruta,5,Antonin Boruta,D,2007-2008,czechia,15142,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Martin Rýgl (D),Bili Tygri Liberec,12,0,0,0,0.00,4,0,/player/22661/martin-rygl,5,Martin Rýgl,D,2007-2008,czechia,22661,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Hruska (F),Bili Tygri Liberec,12,0,0,0,0.00,6,0,/player/13551/ondrej-hruska,5,Ondrej Hruska,F,2007-2008,czechia,13551,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Protivny (D),HC Sparta Praha,12,0,0,0,0.00,10,0,/player/23294/tomas-protivny,5,Tomas Protivny,D,2007-2008,czechia,23294,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ondrej Pozivil (D),HC Litvinov,13,0,0,0,0.00,10,-3,/player/10480/ondrej-pozivil,5,Ondrej Pozivil,D,2007-2008,czechia,10480,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Blaha (LW),HC Dynamo Pardubice,14,0,0,0,0.00,2,-2,/player/22776/tomas-blaha,5,Tomas Blaha,LW,2007-2008,czechia,22776,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matej Cunik (D),HC Sparta Praha,14,0,0,0,0.00,4,-1,/player/23296/matej-cunik,5,Matej Cunik,D,2007-2008,czechia,23296,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Hrna (LW/RW),HC Ocelari Trinec,14,0,0,0,0.00,4,-5,/player/23442/erik-hrna,5,Erik Hrna,LW/RW,2007-2008,czechia,23442,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roman Vlach (C/LW),Berani Zlin,15,0,0,0,0.00,2,-2,/player/19014/roman-vlach,5,Roman Vlach,C/LW,2007-2008,czechia,19014,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jan Herman (RW/LW),Slovan Ustecti Lvi,15,0,0,0,0.00,6,-8,/player/22474/jan-herman,5,Jan Herman,RW/LW,2007-2008,czechia,22474,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jiri Ondracek (LW/C),Berani Zlin,17,0,0,0,0.00,8,-6,/player/15144/jiri-ondracek,5,Jiri Ondracek,LW/C,2007-2008,czechia,15144,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Brnak (D),Energie Karlovy Vary,18,0,0,0,0.00,4,2,/player/22443/tomas-brnak,5,Tomas Brnak,D,2007-2008,czechia,22443,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michal Barinka (D),HC Vitkovice,19,0,0,0,0.00,24,-4,/player/9611/michal-barinka,5,Michal Barinka,D,2007-2008,czechia,9611,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marek Troncinsky (D),Rytiri Kladno,23,0,0,0,0.00,20,1,/player/10485/marek-troncinsky,5,Marek Troncinsky,D,2007-2008,czechia,10485,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tomas Ficenc (D),Slovan Ustecti Lvi,26,0,0,0,0.00,18,-6,/player/22470/tomas-ficenc,5,Tomas Ficenc,D,2007-2008,czechia,22470,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Libor Ustrnul (D),Energie Karlovy Vary,29,0,0,0,0.00,22,3,/player/10854/libor-ustrnul,5,Libor Ustrnul,D,2007-2008,czechia,10854,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Spacek (RW/LW),Bili Tygri Liberec,33,0,0,0,0.00,30,-5,/player/22662/daniel-spacek,5,Daniel Spacek,RW/LW,2007-2008,czechia,22662,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ján Mucha (D),Motor Ceske Budejovice,39,0,0,0,0.00,18,-2,/player/22581/jan-mucha,5,Ján Mucha,D,2007-2008,czechia,22581,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69

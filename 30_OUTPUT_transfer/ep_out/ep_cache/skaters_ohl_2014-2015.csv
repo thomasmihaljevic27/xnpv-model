@@ -1,0 +1,497 @@
+player,team,gp,g,a,tp,p_per_gp,pim,plus_minus,link,page,playername,position,season,league,ep_player_id,scrape_date,source,package_version
+Dylan Strome (C),Erie Otters,68,45,84,129,1.90,32,47,/player/228107/dylan-strome,1,Dylan Strome,C,2014-2015,ohl,228107,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitchell Marner (RW/C),London Knights,63,44,82,126,2.00,53,36,/player/223194/mitchell-marner,1,Mitchell Marner,RW/C,2014-2015,ohl,223194,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor McDavid (C),Erie Otters,47,44,76,120,2.55,48,60,/player/183442/connor-mcdavid,1,Connor McDavid,C,2014-2015,ohl,183442,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joseph Blandisi (C/LW),Barrie Colts,68,52,60,112,1.65,126,18,/player/99041/joseph-blandisi,1,Joseph Blandisi,C/LW,2014-2015,ohl,99041,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christian Dvorak (C/LW),London Knights,66,41,68,109,1.65,24,33,/player/194889/christian-dvorak,1,Christian Dvorak,C/LW,2014-2015,ohl,194889,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Labanc (RW/LW),Barrie Colts,68,31,76,107,1.57,55,13,/player/133841/kevin-labanc,1,Kevin Labanc,RW/LW,2014-2015,ohl,133841,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex DeBrincat (RW/LW),Erie Otters,68,51,53,104,1.53,73,59,/player/231275/alex-debrincat,1,Alex DeBrincat,RW/LW,2014-2015,ohl,231275,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Mangiapane (W/C),Barrie Colts,68,43,61,104,1.53,54,24,/player/223199/andrew-mangiapane,1,Andrew Mangiapane,W/C,2014-2015,ohl,223199,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Domi (C/W),London Knights,57,32,70,102,1.79,66,24,/player/95484/max-domi,1,Max Domi,C/W,2014-2015,ohl,95484,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Bertuzzi (LW/RW),Guelph Storm,68,43,55,98,1.44,91,26,/player/125028/tyler-bertuzzi,1,Tyler Bertuzzi,LW/RW,2014-2015,ohl,125028,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sergei Tolchinsky (RW/LW),Soo Greyhounds,61,30,65,95,1.56,10,41,/player/108653/sergei-tolchinsky,1,Sergei Tolchinsky,RW/LW,2014-2015,ohl,108653,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Dal Colle (LW),Oshawa Generals,56,42,51,93,1.66,18,32,/player/152047/michael-dal-colle,1,Michael Dal Colle,LW,2014-2015,ohl,152047,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tony DeAngelo (D),totals,55,25,64,89,1.62,115,34,/player/89818/tony-deangelo,1,Tony DeAngelo,D,2014-2015,ohl,89818,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Carter Verhaeghe (C/LW),Niagara IceDogs,68,33,49,82,1.21,38,21,/player/116967/carter-verhaeghe,1,Carter Verhaeghe,C/LW,2014-2015,ohl,116967,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jared McCann (C/W),Soo Greyhounds,56,34,47,81,1.45,27,30,/player/189369/jared-mccann,1,Jared McCann,C/W,2014-2015,ohl,189369,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Platzer (C),Owen Sound Attack,68,34,47,81,1.19,46,13,/player/126916/kyle-platzer,1,Kyle Platzer,C,2014-2015,ohl,126916,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Cassels (C),Oshawa Generals,54,30,51,81,1.50,100,34,/player/118659/cole-cassels,1,Cole Cassels,C,2014-2015,ohl,118659,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joshua Ho-Sang (RW),totals,60,17,64,81,1.35,46,7,/player/161290/joshua-ho-sang,1,Joshua Ho-Sang,RW,2014-2015,ohl,161290,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dante Salituro (C/RW),Ottawa 67's,68,37,41,78,1.15,38,-1,/player/169595/dante-salituro,1,Dante Salituro,C/RW,2014-2015,ohl,169595,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tobias Lindberg (C),Oshawa Generals,67,32,46,78,1.16,14,33,/player/85671/tobias-lindberg,1,Tobias Lindberg,C,2014-2015,ohl,85671,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Nastasiuk (RW/C),Owen Sound Attack,64,35,42,77,1.20,34,9,/player/103947/zach-nastasiuk,1,Zach Nastasiuk,RW/C,2014-2015,ohl,103947,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Remi Elie (C/LW),totals,63,30,46,76,1.21,38,27,/player/127847/remi-elie,1,Remi Elie,C/LW,2014-2015,ohl,127847,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Rupert (LW),London Knights,61,30,45,75,1.23,74,19,/player/75463/matt-rupert,1,Matt Rupert,LW,2014-2015,ohl,75463,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Sadowy (LW/RW),Saginaw Spirit,65,42,32,74,1.14,66,5,/player/194119/dylan-sadowy,1,Dylan Sadowy,LW/RW,2014-2015,ohl,194119,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Bunting (LW/RW),Soo Greyhounds,57,37,37,74,1.30,39,44,/player/245191/michael-bunting,1,Michael Bunting,LW/RW,2014-2015,ohl,245191,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Erik Bradford (C),totals,69,28,45,73,1.06,34,-10,/player/76435/erik-bradford,1,Erik Bradford,C,2014-2015,ohl,76435,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pius Suter (C/W),Guelph Storm,61,43,29,72,1.18,28,25,/player/135775/pius-suter,1,Pius Suter,C/W,2014-2015,ohl,135775,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jason Dickinson (C/LW),Guelph Storm,56,27,44,71,1.27,32,12,/player/117018/jason-dickinson,1,Jason Dickinson,C/LW,2014-2015,ohl,117018,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Amadio (W/C),North Bay Battalion,68,24,47,71,1.04,18,30,/player/151385/michael-amadio,1,Michael Amadio,W/C,2014-2015,ohl,151385,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Bigras (D),Owen Sound Attack,62,20,51,71,1.15,52,9,/player/117736/chris-bigras,1,Chris Bigras,D,2014-2015,ohl,117736,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Bailey (RW/LW),totals,57,34,35,69,1.21,44,6,/player/116970/justin-bailey,1,Justin Bailey,RW/LW,2014-2015,ohl,116970,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Travis Konecny (RW/LW),Ottawa 67's,60,29,39,68,1.13,34,-1,/player/205148/travis-konecny,1,Travis Konecny,RW/LW,2014-2015,ohl,205148,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael McCarron (RW/C),totals,56,28,40,68,1.21,128,25,/player/135703/michael-mccarron,1,Michael McCarron,RW/C,2014-2015,ohl,135703,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sonny Milano (LW),Plymouth Whalers,50,22,46,68,1.36,24,-17,/player/189415/sonny-milano,1,Sonny Milano,LW,2014-2015,ohl,189415,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blake Speers (C/RW),Soo Greyhounds,57,24,43,67,1.18,12,25,/player/186413/blake-speers,1,Blake Speers,C/RW,2014-2015,ohl,186413,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Paul (LW/C),North Bay Battalion,58,37,29,66,1.14,49,25,/player/149617/nick-paul,1,Nick Paul,LW/C,2014-2015,ohl,149617,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Mistele (LW/RW),totals,60,37,27,64,1.07,34,8,/player/117000/matt-mistele,1,Matt Mistele,LW/RW,2014-2015,ohl,117000,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicholas Baptiste (C/RW),totals,53,32,32,64,1.21,26,9,/player/106161/nicholas-baptiste,1,Nicholas Baptiste,C/RW,2014-2015,ohl,106161,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rasmus Andersson (D),Barrie Colts,67,12,52,64,0.96,88,14,/player/86137/rasmus-andersson,1,Rasmus Andersson,D,2014-2015,ohl,86137,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jimmy Lodge (C/RW),totals,58,28,35,63,1.09,53,1,/player/151451/jimmy-lodge,1,Jimmy Lodge,C/RW,2014-2015,ohl,151451,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trevor Murphy (D),Windsor Spitfires,59,24,39,63,1.07,104,-15,/player/110850/trevor-murphy,1,Trevor Murphy,D,2014-2015,ohl,110850,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitchell Vande Sompel (D),Oshawa Generals,58,12,51,63,1.09,38,31,/player/204918/mitchell-vande-sompel,1,Mitchell Vande Sompel,D,2014-2015,ohl,204918,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Ritchie (LW),totals,48,29,33,62,1.29,113,1,/player/99036/nick-ritchie,1,Nick Ritchie,LW,2014-2015,ohl,99036,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Moutrey (C/W),totals,62,25,37,62,1.00,54,19,/player/117024/nick-moutrey,1,Nick Moutrey,C/W,2014-2015,ohl,117024,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan MacInnis (C),Kitchener Rangers,67,25,37,62,0.93,28,-8,/player/168707/ryan-macinnis,1,Ryan MacInnis,C,2014-2015,ohl,168707,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Lemieux (LW),Barrie Colts,57,41,19,60,1.05,145,-9,/player/177647/brendan-lemieux,1,Brendan Lemieux,LW,2014-2015,ohl,177647,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Perlini (LW),Niagara IceDogs,43,26,34,60,1.40,22,15,/player/186992/brendan-perlini,1,Brendan Perlini,LW,2014-2015,ohl,186992,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Kujawinski (C),totals,61,34,25,59,0.97,30,19,/player/125026/ryan-kujawinski,1,Ryan Kujawinski,C,2014-2015,ohl,125026,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gabe Guertler (C),Soo Greyhounds,67,27,30,57,0.85,39,35,/player/118431/gabe-guertler,1,Gabe Guertler,C,2014-2015,ohl,118431,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vince Dunn (D),Niagara IceDogs,68,18,38,56,0.82,59,8,/player/161816/vince-dunn,1,Vince Dunn,D,2014-2015,ohl,161816,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Billy Jenkins (C),Niagara IceDogs,68,15,41,56,0.82,27,3,/player/92680/billy-jenkins,1,Billy Jenkins,C,2014-2015,ohl,92680,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Clarke (C),Peterborough Petes,58,23,32,55,0.95,40,-9,/player/82516/michael-clarke,1,Michael Clarke,C,2014-2015,ohl,82516,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brenden Miller (D),North Bay Battalion,65,19,36,55,0.85,91,8,/player/154705/brenden-miller,1,Brenden Miller,D,2014-2015,ohl,154705,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Robinson (LW),Kitchener Rangers,62,25,29,54,0.87,85,9,/player/143834/brandon-robinson,1,Brandon Robinson,LW,2014-2015,ohl,143834,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Betz (RW),Erie Otters,60,22,32,54,0.90,72,34,/player/145951/nick-betz,1,Nick Betz,RW,2014-2015,ohl,145951,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Scott (C),Barrie Colts,68,30,23,53,0.78,39,26,/player/149405/justin-scott,1,Justin Scott,C,2014-2015,ohl,149405,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Korostelyov (LW/RW),Sarnia Sting,55,24,29,53,0.96,18,4,/player/183258/nikita-korostelyov,1,Nikita Korostelyov,LW/RW,2014-2015,ohl,183258,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh MacDonald (LW/RW),Peterborough Petes,63,29,23,52,0.83,30,-7,/player/82513/josh-macdonald,1,Josh MacDonald,LW/RW,2014-2015,ohl,82513,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Subban (D),Belleville Bulls,63,25,27,52,0.83,62,-12,/player/97951/jordan-subban,1,Jordan Subban,D,2014-2015,ohl,97951,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Maletta (C),Niagara IceDogs,68,24,28,52,0.76,41,7,/player/117011/jordan-maletta,1,Jordan Maletta,C,2014-2015,ohl,117011,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Cornel (C/RW),Peterborough Petes,66,14,38,52,0.79,35,-24,/player/154475/eric-cornel,1,Eric Cornel,C/RW,2014-2015,ohl,154475,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryson Cianfrone (C),Brampton Steelheads,63,13,39,52,0.83,22,-4,/player/117734/bryson-cianfrone,1,Bryson Cianfrone,C,2014-2015,ohl,117734,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lawson Crouse (LW/RW),Kingston Frontenacs,56,29,22,51,0.91,70,10,/player/205155/lawson-crouse,1,Lawson Crouse,LW/RW,2014-2015,ohl,205155,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Campagna (C),Plymouth Whalers,64,26,25,51,0.80,41,-8,/player/83994/matt-campagna,1,Matt Campagna,C,2014-2015,ohl,83994,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony DiFruscia (LW),Niagara IceDogs,68,26,25,51,0.75,130,6,/player/189579/anthony-difruscia,1,Anthony DiFruscia,LW,2014-2015,ohl,189579,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Robby Fabbri (C/W),Guelph Storm,30,25,26,51,1.70,40,9,/player/156923/robby-fabbri,1,Robby Fabbri,C/W,2014-2015,ohl,156923,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Slater Doggett (C),Windsor Spitfires,57,25,26,51,0.89,52,-12,/player/117629/slater-doggett,1,Slater Doggett,C,2014-2015,ohl,117629,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryan Moore (LW),Soo Greyhounds,59,23,27,50,0.85,110,27,/player/84582/bryan-moore,1,Bryan Moore,LW,2014-2015,ohl,84582,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bradley Latour (C/LW),Oshawa Generals,68,22,28,50,0.74,36,40,/player/136775/bradley-latour,1,Bradley Latour,C/LW,2014-2015,ohl,136775,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hunter Smith (RW),Oshawa Generals,57,23,26,49,0.86,122,21,/player/117017/hunter-smith,1,Hunter Smith,RW,2014-2015,ohl,117017,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Marchese (LW),totals,49,17,32,49,1.00,18,-1,/player/62703/chris-marchese,1,Chris Marchese,LW,2014-2015,ohl,62703,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Nikandrov (LW/C),Sarnia Sting,68,16,33,49,0.72,16,-2,/player/117019/daniel-nikandrov,1,Daniel Nikandrov,LW/C,2014-2015,ohl,117019,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Schemitsch (D),Owen Sound Attack,68,14,35,49,0.72,36,0,/player/232612/thomas-schemitsch,1,Thomas Schemitsch,D,2014-2015,ohl,232612,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Venuto (RW/C),totals,68,23,25,48,0.71,16,-19,/player/76782/lucas-venuto,1,Lucas Venuto,RW/C,2014-2015,ohl,76782,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitchell Stephens (C),Saginaw Spirit,62,22,26,48,0.77,44,-17,/player/186392/mitchell-stephens,1,Mitchell Stephens,C,2014-2015,ohl,186392,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Miller (C),totals,70,21,27,48,0.69,45,-10,/player/213263/david-miller,1,David Miller,C,2014-2015,ohl,213263,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Spencer Watson (RW),Kingston Frontenacs,41,20,28,48,1.17,10,10,/player/189462/spencer-watson,1,Spencer Watson,RW,2014-2015,ohl,189462,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Darren Raddysh (D),Erie Otters,60,14,34,48,0.80,38,32,/player/205556/darren-raddysh,1,Darren Raddysh,D,2014-2015,ohl,205556,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zac Leslie (D),Guelph Storm,57,11,37,48,0.84,57,6,/player/78063/zac-leslie,1,Zac Leslie,D,2014-2015,ohl,78063,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Sterk (C),totals,60,20,27,47,0.78,45,20,/player/116999/josh-sterk,1,Josh Sterk,C,2014-2015,ohl,116999,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Todd (C/LW),Ottawa 67's,63,19,28,47,0.75,12,9,/player/154471/nathan-todd,1,Nathan Todd,C/LW,2014-2015,ohl,154471,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeremiah Addison (W/C),Ottawa 67's,63,19,28,47,0.75,49,3,/player/169051/jeremiah-addison,1,Jeremiah Addison,W/C,2014-2015,ohl,169051,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Milne (LW),Owen Sound Attack,66,22,24,46,0.70,60,-8,/player/96999/daniel-milne,1,Daniel Milne,LW,2014-2015,ohl,96999,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Semyon Babintsev (W/C),Brampton Steelheads,54,18,28,46,0.85,20,9,/player/190484/semyon-babintsev,1,Semyon Babintsev,W/C,2014-2015,ohl,190484,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jean Dupuy (C/W),Soo Greyhounds,54,18,28,46,0.85,52,40,/player/101949/jean-dupuy,1,Jean Dupuy,C/W,2014-2015,ohl,101949,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Senyshyn (RW),Soo Greyhounds,66,26,19,45,0.68,17,30,/player/245108/zach-senyshyn,1,Zach Senyshyn,RW,2014-2015,ohl,245108,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cristiano DiGiacinto (C/LW),Windsor Spitfires,63,21,24,45,0.71,100,-16,/player/204054/cristiano-digiacinto,1,Cristiano DiGiacinto,C/LW,2014-2015,ohl,204054,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Crus Rydberg (C/W),Plymouth Whalers,55,15,30,45,0.82,34,-9,/player/32639/victor-crus-rydberg,1,Victor Crus Rydberg,C/W,2014-2015,ohl,32639,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Jenys (C/W),Sudbury Wolves,63,15,30,45,0.71,45,-36,/player/112375/pavel-jenys,1,Pavel Jenys,C/W,2014-2015,ohl,112375,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan McEneny (D),Kingston Frontenacs,68,9,36,45,0.66,71,-5,/player/76082/evan-mceneny,1,Evan McEneny,D,2014-2015,ohl,76082,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Travis Dermott (D),Erie Otters,61,8,37,45,0.74,53,23,/player/214673/travis-dermott,1,Travis Dermott,D,2014-2015,ohl,214673,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Juho Lammikko (C/LW),Kingston Frontenacs,64,18,26,44,0.69,36,23,/player/151955/juho-lammikko,1,Juho Lammikko,C/LW,2014-2015,ohl,151955,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Garrett Hooey (C),Barrie Colts,68,17,27,44,0.65,103,13,/player/92686/garrett-hooey,1,Garrett Hooey,C,2014-2015,ohl,92686,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Carlisle (D),Oshawa Generals,68,7,37,44,0.65,63,40,/player/139381/chris-carlisle,1,Chris Carlisle,D,2014-2015,ohl,139381,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gustav Bouramman (D),Soo Greyhounds,67,5,39,44,0.66,14,33,/player/142252/gustav-bouramman,1,Gustav Bouramman,D,2014-2015,ohl,142252,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Graham Knott (LW/C),Niagara IceDogs,59,25,18,43,0.73,33,1,/player/225057/graham-knott,1,Graham Knott,LW/C,2014-2015,ohl,225057,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Pancel (LW),totals,64,22,21,43,0.67,37,-24,/player/97825/nathan-pancel,1,Nathan Pancel,LW,2014-2015,ohl,97825,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan Brown (C/LW),Windsor Spitfires,56,17,26,43,0.77,20,-8,/player/248391/logan-brown,1,Logan Brown,C/LW,2014-2015,ohl,248391,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Greg Betzold (LW/C),Peterborough Petes,49,24,18,42,0.86,35,-10,/player/194778/greg-betzold,1,Greg Betzold,LW/C,2014-2015,ohl,194778,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Petrus Palmu (RW/LW),Owen Sound Attack,62,22,20,42,0.68,20,4,/player/112892/petrus-palmu,1,Petrus Palmu,RW/LW,2014-2015,ohl,112892,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Gustavsen (LW),Belleville Bulls,67,20,22,42,0.63,108,-4,/player/97335/brett-gustavsen,2,Brett Gustavsen,LW,2014-2015,ohl,97335,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Julius Bergman (D),London Knights,60,13,29,42,0.70,78,-3,/player/38929/julius-bergman,2,Julius Bergman,D,2014-2015,ohl,38929,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaron Berisha (C/RW),totals,63,25,16,41,0.65,32,-10,/player/186993/aaron-berisha,2,Aaron Berisha,C/RW,2014-2015,ohl,186993,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jamie Lewis (C),Windsor Spitfires,57,19,22,41,0.72,16,-34,/player/96473/jamie-lewis,2,Jamie Lewis,C,2014-2015,ohl,96473,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Darby Llewellyn (LW/RW),Kitchener Rangers,68,18,23,41,0.60,26,5,/player/189414/darby-llewellyn,2,Darby Llewellyn,LW/RW,2014-2015,ohl,189414,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Burnside (D),Brampton Steelheads,66,16,25,41,0.62,41,-5,/player/155325/josh-burnside,2,Josh Burnside,D,2014-2015,ohl,155325,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mikkel Aagaard (LW/RW),Niagara IceDogs,59,15,26,41,0.69,16,5,/player/46502/mikkel-aagaard,2,Mikkel Aagaard,LW/RW,2014-2015,ohl,46502,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Cramarossa (C),Belleville Bulls,65,13,28,41,0.63,20,11,/player/152046/michael-cramarossa,2,Michael Cramarossa,C,2014-2015,ohl,152046,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Schmalz (RW/C),Sudbury Wolves,66,24,16,40,0.61,68,-57,/player/189373/matt-schmalz,2,Matt Schmalz,RW/C,2014-2015,ohl,189373,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hunter Garlent (C),Peterborough Petes,52,19,21,40,0.77,40,-17,/player/116990/hunter-garlent,2,Hunter Garlent,C,2014-2015,ohl,116990,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Brown (LW/C),Saginaw Spirit,68,19,21,40,0.59,98,-18,/player/169254/connor-brown,2,Connor Brown,LW/C,2014-2015,ohl,169254,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Wood (D),North Bay Battalion,67,16,24,40,0.60,18,2,/player/189639/kyle-wood,2,Kyle Wood,D,2014-2015,ohl,189639,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stephen Pierog (C),totals,68,13,27,40,0.59,37,-16,/player/110816/stephen-pierog,2,Stephen Pierog,C,2014-2015,ohl,110816,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Capobianco (D),Sudbury Wolves,68,10,30,40,0.59,54,-49,/player/225186/kyle-capobianco,2,Kyle Capobianco,D,2014-2015,ohl,225186,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kurtis MacDermid (LW/D),Erie Otters,61,8,32,40,0.66,129,20,/player/98183/kurtis-macdermid,2,Kurtis MacDermid,LW/D,2014-2015,ohl,98183,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brendan Bell (LW),Ottawa 67's,62,22,17,39,0.63,63,-9,/player/95230/brendan-bell,2,Brendan Bell,LW,2014-2015,ohl,95230,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Devlin (D),Brampton Steelheads,66,20,19,39,0.59,100,-12,/player/76158/brandon-devlin,2,Brandon Devlin,D,2014-2015,ohl,76158,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Henriksson (RW),North Bay Battalion,68,20,19,39,0.57,45,8,/player/34230/alexander-henriksson,2,Alexander Henriksson,RW,2014-2015,ohl,34230,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Niki Petti (C/LW),Belleville Bulls,66,18,21,39,0.59,10,-11,/player/189372/niki-petti,2,Niki Petti,C/LW,2014-2015,ohl,189372,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Welychka (C/RW),totals,58,17,22,39,0.67,20,-12,/player/82504/brett-welychka,2,Brett Welychka,C/RW,2014-2015,ohl,82504,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Povorozniouk (C/RW),Windsor Spitfires,68,15,24,39,0.57,34,-30,/player/99071/sam-povorozniouk,2,Sam Povorozniouk,C/RW,2014-2015,ohl,99071,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hayden Hodgson (RW/LW),Sarnia Sting,59,23,15,38,0.64,62,-11,/player/188193/hayden-hodgson,2,Hayden Hodgson,RW/LW,2014-2015,ohl,188193,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Conor McGlynn (C),Kingston Frontenacs,67,22,16,38,0.57,81,12,/player/116991/conor-mcglynn,2,Conor McGlynn,C,2014-2015,ohl,116991,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Miles Liberati (D),North Bay Battalion,67,11,27,38,0.57,41,21,/player/117010/miles-liberati,2,Miles Liberati,D,2014-2015,ohl,117010,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus McIvor (D),North Bay Battalion,68,5,33,38,0.56,54,26,/player/88039/marcus-mcivor,2,Marcus McIvor,D,2014-2015,ohl,88039,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tye Felhaber (LW/C),Saginaw Spirit,63,20,17,37,0.59,19,-8,/player/251448/tye-felhaber,2,Tye Felhaber,LW/C,2014-2015,ohl,251448,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Chatham (RW),Plymouth Whalers,48,17,20,37,0.77,47,1,/player/114799/connor-chatham,2,Connor Chatham,RW,2014-2015,ohl,114799,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brent Pedersen (LW/RW),totals,69,17,20,37,0.54,59,12,/player/126917/brent-pedersen,2,Brent Pedersen,LW/RW,2014-2015,ohl,126917,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steven Lorentz (C/LW),Peterborough Petes,59,16,21,37,0.63,15,-1,/player/204707/steven-lorentz,2,Steven Lorentz,C/LW,2014-2015,ohl,204707,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blake Siebenaler (D),Niagara IceDogs,66,12,25,37,0.56,30,7,/player/192880/blake-siebenaler,2,Blake Siebenaler,D,2014-2015,ohl,192880,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rob Polesello (LW/C),Kingston Frontenacs,38,17,19,36,0.95,26,4,/player/94245/rob-polesello,2,Rob Polesello,LW/C,2014-2015,ohl,94245,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stephen Harper (LW/C/D),Belleville Bulls,62,16,20,36,0.58,52,1,/player/117022/stephen-harper,2,Stephen Harper,LW/C/D,2014-2015,ohl,117022,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Holden Cook (C/RW),Owen Sound Attack,42,15,21,36,0.86,36,-1,/player/95458/holden-cook,2,Holden Cook,C/RW,2014-2015,ohl,95458,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jordan Kyrou (RW),Sarnia Sting,63,13,23,36,0.57,12,8,/player/269034/jordan-kyrou,2,Jordan Kyrou,RW,2014-2015,ohl,269034,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Cirelli (C),Oshawa Generals,68,13,23,36,0.53,22,34,/player/274875/anthony-cirelli,2,Anthony Cirelli,C,2014-2015,ohl,274875,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Max Iafrate (D),Kitchener Rangers,59,12,24,36,0.61,131,-2,/player/72754/max-iafrate,2,Max Iafrate,D,2014-2015,ohl,72754,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ray Huether (C),North Bay Battalion,66,12,24,36,0.55,22,-5,/player/82617/ray-huether,2,Ray Huether,C,2014-2015,ohl,82617,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean Day (D),Brampton Steelheads,61,10,26,36,0.59,62,-27,/player/228106/sean-day,2,Sean Day,D,2014-2015,ohl,228106,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Lintuniemi (D),Ottawa 67's,58,7,29,36,0.62,22,-5,/player/50668/alex-lintuniemi,2,Alex Lintuniemi,D,2014-2015,ohl,50668,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Jenkins (D),totals,70,7,29,36,0.51,36,12,/player/205495/kyle-jenkins,2,Kyle Jenkins,D,2014-2015,ohl,205495,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Spinozzi (D),Sarnia Sting,67,7,28,35,0.52,81,16,/player/104602/kevin-spinozzi,2,Kevin Spinozzi,D,2014-2015,ohl,104602,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Davis Brown (LW),Sarnia Sting,57,20,14,34,0.60,26,-13,/player/116975/davis-brown,2,Davis Brown,LW,2014-2015,ohl,116975,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Studnicka (C),Ottawa 67's,57,18,16,34,0.60,59,-2,/player/148249/sam-studnicka,2,Sam Studnicka,C,2014-2015,ohl,148249,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Pavel Zacha (C/LW),Sarnia Sting,37,16,18,34,0.92,56,5,/player/130786/pavel-zacha,2,Pavel Zacha,C/LW,2014-2015,ohl,130786,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Cairns (LW),totals,39,16,18,34,0.87,10,2,/player/89697/luke-cairns,2,Luke Cairns,LW,2014-2015,ohl,89697,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hayden McCool (C/LW),totals,64,15,19,34,0.53,64,-32,/player/234483/hayden-mccool,2,Hayden McCool,C/LW,2014-2015,ohl,234483,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gustaf Franzén (C/RW),Kitchener Rangers,65,15,19,34,0.52,30,-4,/player/86358/gustaf-franzen,2,Gustaf Franzén,C/RW,2014-2015,ohl,86358,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Damir Sharipzyanov (D),Owen Sound Attack,66,9,25,34,0.52,59,13,/player/216568/damir-sharipzyanov,2,Damir Sharipzyanov,D,2014-2015,ohl,216568,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathieu Henderson (D),Plymouth Whalers,68,5,29,34,0.50,28,-15,/player/204827/mathieu-henderson,2,Mathieu Henderson,D,2014-2015,ohl,204827,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jakob Chychrun (D),Sarnia Sting,42,16,17,33,0.79,37,-11,/player/243386/jakob-chychrun,2,Jakob Chychrun,D,2014-2015,ohl,243386,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+C.J. Yakimowicz (RW/C),London Knights,63,13,20,33,0.52,95,3,/player/276562/c-j-yakimowicz,2,C.J. Yakimowicz,RW/C,2014-2015,ohl,276562,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trent Fox (LW),totals,64,13,20,33,0.52,27,6,/player/224990/trent-fox,2,Trent Fox,LW,2014-2015,ohl,224990,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Darnell Nurse (D),Soo Greyhounds,36,10,23,33,0.92,58,18,/player/97352/darnell-nurse,2,Darnell Nurse,D,2014-2015,ohl,97352,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frank Hora (D),Kitchener Rangers,66,4,29,33,0.50,72,13,/player/190654/frank-hora,2,Frank Hora,D,2014-2015,ohl,190654,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Magyar (RW/C),Kitchener Rangers,65,16,16,32,0.49,18,-7,/player/135423/nick-magyar,2,Nick Magyar,RW/C,2014-2015,ohl,135423,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Artyomov (RW),Saginaw Spirit,68,14,18,32,0.47,30,-13,/player/265921/artyom-artyomov,2,Artyom Artyomov,RW,2014-2015,ohl,265921,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Barwell (C),totals,63,13,19,32,0.51,10,-6,/player/225183/jesse-barwell,2,Jesse Barwell,C,2014-2015,ohl,225183,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett McKenzie (C/LW),North Bay Battalion,68,11,21,32,0.47,38,8,/player/207349/brett-mckenzie,2,Brett McKenzie,C/LW,2014-2015,ohl,207349,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roland McKeown (D),Kingston Frontenacs,65,7,25,32,0.49,57,1,/player/189364/roland-mckeown,2,Roland McKeown,D,2014-2015,ohl,189364,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Schutt (LW),Kingston Frontenacs,65,16,15,31,0.48,35,-7,/player/78301/sam-schutt,2,Sam Schutt,LW,2014-2015,ohl,78301,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Bitten (RW/C),Plymouth Whalers,63,15,16,31,0.49,16,-11,/player/245965/william-bitten,2,William Bitten,RW/C,2014-2015,ohl,245965,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cody Payne (RW),Niagara IceDogs,53,13,18,31,0.58,29,8,/player/91624/cody-payne,2,Cody Payne,RW,2014-2015,ohl,91624,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Tomasek (C/RW),Belleville Bulls,61,13,18,31,0.51,16,-10,/player/205549/david-tomasek,2,David Tomasek,C/RW,2014-2015,ohl,205549,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Troy Lajeunesse (C),Sarnia Sting,64,12,19,31,0.48,22,-6,/player/253969/troy-lajeunesse,2,Troy Lajeunesse,C,2014-2015,ohl,253969,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Luff (RW/LW),Belleville Bulls,64,9,22,31,0.48,20,-6,/player/238487/matt-luff,2,Matt Luff,RW/LW,2014-2015,ohl,238487,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Corey Pawley (LW),Kingston Frontenacs,67,8,23,31,0.46,24,-6,/player/112809/corey-pawley,2,Corey Pawley,LW,2014-2015,ohl,112809,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Murphy (D/F),Erie Otters,56,6,25,31,0.55,20,20,/player/116984/patrick-murphy,2,Patrick Murphy,D/F,2014-2015,ohl,116984,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Harpur (D),totals,57,5,26,31,0.54,62,10,/player/144069/ben-harpur,2,Ben Harpur,D,2014-2015,ohl,144069,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Hill (LW/RW),totals,60,14,16,30,0.50,52,-11,/player/195473/tyler-hill,2,Tyler Hill,LW/RW,2014-2015,ohl,195473,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Markus Søberg (RW/LW),Windsor Spitfires,61,13,17,30,0.49,26,-16,/player/73397/markus-soberg,2,Markus Søberg,RW/LW,2014-2015,ohl,73397,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Laishram (C/W),Belleville Bulls,56,11,19,30,0.54,26,-1,/player/245116/adam-laishram,2,Adam Laishram,C/W,2014-2015,ohl,245116,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Stefano (C),totals,62,11,19,30,0.48,23,-19,/player/149365/anthony-stefano,2,Anthony Stefano,C,2014-2015,ohl,149365,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dakota Mermis (D),totals,66,6,24,30,0.45,86,48,/player/56311/dakota-mermis,2,Dakota Mermis,D,2014-2015,ohl,56311,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Spencer (D),Peterborough Petes,67,6,24,30,0.45,64,-15,/player/225188/matt-spencer,2,Matt Spencer,D,2014-2015,ohl,225188,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Santino Centorame (D),Owen Sound Attack,66,5,25,30,0.45,76,12,/player/199281/santino-centorame,2,Santino Centorame,D,2014-2015,ohl,199281,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aiden Jamieson (D),London Knights,68,0,30,30,0.44,21,23,/player/245232/aiden-jamieson,2,Aiden Jamieson,D,2014-2015,ohl,245232,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Bastian (RW/C),Brampton Steelheads,68,17,12,29,0.43,22,-29,/player/245157/nathan-bastian,2,Nathan Bastian,RW/C,2014-2015,ohl,245157,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Mascherin (LW/C),Kitchener Rangers,62,12,17,29,0.47,18,-7,/player/240112/adam-mascherin,2,Adam Mascherin,LW/C,2014-2015,ohl,240112,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael McLeod (C),Brampton Steelheads,63,12,17,29,0.46,33,-23,/player/240821/michael-mcleod,2,Michael McLeod,C,2014-2015,ohl,240821,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mathew Santos (RW/LW),North Bay Battalion,67,11,18,29,0.43,42,6,/player/217509/mathew-santos,2,Mathew Santos,RW/LW,2014-2015,ohl,217509,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ethan Szypula (C),Owen Sound Attack,59,10,19,29,0.49,54,4,/player/224988/ethan-szypula,2,Ethan Szypula,C,2014-2015,ohl,224988,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Moore (C/RW),totals,57,7,22,29,0.51,66,-9,/player/186409/ryan-moore,2,Ryan Moore,C/RW,2014-2015,ohl,186409,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nevin Guy (D),Ottawa 67's,68,1,28,29,0.43,30,-14,/player/106180/nevin-guy,2,Nevin Guy,D,2014-2015,ohl,106180,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Renaud (F),Sarnia Sting,65,13,15,28,0.43,45,2,/player/196355/alex-renaud,2,Alex Renaud,F,2014-2015,ohl,196355,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Curtis Meighan (C),totals,67,7,21,28,0.42,26,4,/player/77963/curtis-meighan,2,Curtis Meighan,C,2014-2015,ohl,77963,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dmitri Sergeyev (D),Kitchener Rangers,54,5,23,28,0.52,44,8,/player/168690/dmitri-sergeyev,2,Dmitri Sergeyev,D,2014-2015,ohl,168690,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Taylor Raddysh (RW/LW),Erie Otters,58,21,6,27,0.47,13,-8,/player/245610/taylor-raddysh,2,Taylor Raddysh,RW/LW,2014-2015,ohl,245610,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Pettit (C),Erie Otters,60,16,11,27,0.45,10,-4,/player/204921/kyle-pettit,2,Kyle Pettit,C,2014-2015,ohl,204921,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Lindberg (C),Sarnia Sting,59,13,14,27,0.46,31,-4,/player/204243/brandon-lindberg,2,Brandon Lindberg,C,2014-2015,ohl,204243,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Everett Clark (C),Brampton Steelheads,64,11,16,27,0.42,64,-14,/player/232613/everett-clark,2,Everett Clark,C,2014-2015,ohl,232613,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Owen MacDonald (C/RW),London Knights,60,10,17,27,0.45,65,-9,/player/199280/owen-macdonald,2,Owen MacDonald,C/RW,2014-2015,ohl,199280,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeff Corbett (D),Sudbury Wolves,65,8,19,27,0.42,20,-59,/player/96462/jeff-corbett,2,Jeff Corbett,D,2014-2015,ohl,96462,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Middleton (D),Ottawa 67's,64,4,23,27,0.42,62,11,/player/150872/jacob-middleton,2,Jacob Middleton,D,2014-2015,ohl,150872,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Harris (C/W),Sudbury Wolves,53,12,14,26,0.49,13,-39,/player/116968/jacob-harris,2,Jacob Harris,C/W,2014-2015,ohl,116968,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mason Marchment (LW/C),Erie Otters,54,8,18,26,0.48,29,12,/player/208693/mason-marchment,2,Mason Marchment,LW/C,2014-2015,ohl,208693,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Saigeon (C/LW),Belleville Bulls,62,8,18,26,0.42,48,-12,/player/239031/brandon-saigeon,2,Brandon Saigeon,C/LW,2014-2015,ohl,239031,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dominik Masin (D),Peterborough Petes,48,7,19,26,0.54,70,-13,/player/127501/dominik-masin,2,Dominik Masin,D,2014-2015,ohl,127501,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Davies (W/D),Kitchener Rangers,62,12,13,25,0.40,27,5,/player/238521/mike-davies,2,Mike Davies,W/D,2014-2015,ohl,238521,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Mantha (D),Niagara IceDogs,52,10,15,25,0.48,45,21,/player/203339/ryan-mantha,2,Ryan Mantha,D,2014-2015,ohl,203339,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tim Gettinger (LW/C),Soo Greyhounds,54,10,15,25,0.46,13,10,/player/272570/tim-gettinger,2,Tim Gettinger,LW/C,2014-2015,ohl,272570,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keigan Goetz (RW),Soo Greyhounds,62,10,15,25,0.40,80,9,/player/204710/keigan-goetz,3,Keigan Goetz,RW,2014-2015,ohl,204710,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaron Haydon (D),Niagara IceDogs,60,8,17,25,0.42,104,3,/player/189374/aaron-haydon,3,Aaron Haydon,D,2014-2015,ohl,189374,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stefan Leblanc (D),Brampton Steelheads,64,8,17,25,0.39,69,-18,/player/205498/stefan-leblanc,3,Stefan Leblanc,D,2014-2015,ohl,205498,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Harding (C),Oshawa Generals,60,12,12,24,0.40,8,15,/player/210458/sam-harding,3,Sam Harding,C,2014-2015,ohl,210458,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aidan Wallace (C/LW),Oshawa Generals,65,12,12,24,0.37,35,14,/player/117015/aidan-wallace,3,Aidan Wallace,C/LW,2014-2015,ohl,117015,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Bennett (C/LW),Kingston Frontenacs,11,11,13,24,2.18,14,4,/player/189371/sam-bennett,3,Sam Bennett,C/LW,2014-2015,ohl,189371,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Graham (LW),Ottawa 67's,60,9,15,24,0.40,31,3,/player/205552/connor-graham,3,Connor Graham,LW,2014-2015,ohl,205552,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Ringuette (D),Saginaw Spirit,65,9,15,24,0.37,73,-7,/player/81618/jake-ringuette,3,Jake Ringuette,D,2014-2015,ohl,81618,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kris Bennett (C/LW),Saginaw Spirit,61,8,16,24,0.39,28,-16,/player/205488/kris-bennett,3,Kris Bennett,C/LW,2014-2015,ohl,205488,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Maksimovich (LW/RW),Erie Otters,56,6,18,24,0.43,14,5,/player/245623/kyle-maksimovich,3,Kyle Maksimovich,LW/RW,2014-2015,ohl,245623,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joe Manchurek (LW),Oshawa Generals,56,5,19,24,0.43,24,13,/player/157134/joe-manchurek,3,Joe Manchurek,LW,2014-2015,ohl,157134,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bobby MacIntyre (LW),Brampton Steelheads,59,5,19,24,0.41,43,-15,/player/217854/bobby-macintyre,3,Bobby MacIntyre,LW,2014-2015,ohl,217854,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jared Steege (LW/C),totals,67,11,12,23,0.34,34,1,/player/160675/jared-steege,3,Jared Steege,LW/C,2014-2015,ohl,160675,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Marchment (C),totals,51,10,13,23,0.45,45,14,/player/95924/jake-marchment,3,Jake Marchment,C,2014-2015,ohl,95924,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Boston (C),Guelph Storm,55,10,13,23,0.42,16,4,/player/245113/tyler-boston,3,Tyler Boston,C,2014-2015,ohl,245113,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stephen Desrocher (D),Oshawa Generals,66,10,13,23,0.35,41,33,/player/205526/stephen-desrocher,3,Stephen Desrocher,D,2014-2015,ohl,205526,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aaron Luchuk (C/LW),Windsor Spitfires,67,10,13,23,0.34,10,-20,/player/225066/aaron-luchuk,3,Aaron Luchuk,C/LW,2014-2015,ohl,225066,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Lemcke (D),Belleville Bulls,64,9,14,23,0.36,79,-6,/player/244978/justin-lemcke,3,Justin Lemcke,D,2014-2015,ohl,244978,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cordell James (C),Barrie Colts,66,9,14,23,0.35,19,2,/player/205494/cordell-james,3,Cordell James,C,2014-2015,ohl,205494,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Victor Mete (D),London Knights,58,7,16,23,0.40,14,19,/player/232703/victor-mete,3,Victor Mete,D,2014-2015,ohl,232703,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Webster (D),Barrie Colts,62,6,17,23,0.37,64,29,/player/217503/michael-webster,3,Michael Webster,D,2014-2015,ohl,217503,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Troy Donnay (D),Erie Otters,45,4,19,23,0.51,53,26,/player/92678/troy-donnay,3,Troy Donnay,D,2014-2015,ohl,92678,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Crawford (D),Saginaw Spirit,58,2,21,23,0.40,45,-13,/player/225297/marcus-crawford,3,Marcus Crawford,D,2014-2015,ohl,225297,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeff King (D),Sarnia Sting,59,2,21,23,0.39,32,0,/player/205112/jeff-king,3,Jeff King,D,2014-2015,ohl,205112,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dan Desrochers (C),Sudbury Wolves,66,13,9,22,0.33,92,-55,/player/102053/dan-desrochers,3,Dan Desrochers,C,2014-2015,ohl,102053,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chad Heffernan (LW/C),totals,56,11,11,22,0.39,122,-21,/player/160792/chad-heffernan,3,Chad Heffernan,LW/C,2014-2015,ohl,160792,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vladislav Kodola (C),totals,56,7,15,22,0.39,18,-14,/player/250349/vladislav-kodola,3,Vladislav Kodola,C,2014-2015,ohl,250349,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Colton White (D),Soo Greyhounds,67,6,16,22,0.33,30,38,/player/204911/colton-white,3,Colton White,D,2014-2015,ohl,204911,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan de Haan (D),totals,54,4,18,22,0.41,19,-26,/player/118237/evan-de-haan,3,Evan de Haan,D,2014-2015,ohl,118237,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Boland (D),totals,61,4,18,22,0.36,73,20,/player/92272/connor-boland,3,Connor Boland,D,2014-2015,ohl,92272,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Greg DiTomaso (D),totals,65,3,19,22,0.34,38,-2,/player/205489/greg-ditomaso,3,Greg DiTomaso,D,2014-2015,ohl,205489,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Travis Barron (C/LW),Ottawa 67's,64,12,9,21,0.33,22,4,/player/252446/travis-barron,3,Travis Barron,C/LW,2014-2015,ohl,252446,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Devon Paliani (C/RW),totals,64,8,13,21,0.33,37,-23,/player/204927/devon-paliani,3,Devon Paliani,C/RW,2014-2015,ohl,204927,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zachary Bratina (LW),North Bay Battalion,30,7,14,21,0.70,39,0,/player/169086/zachary-bratina,3,Zachary Bratina,LW,2014-2015,ohl,169086,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Charley Graaskamp (C),totals,60,6,15,21,0.35,38,-13,/player/136414/charley-graaskamp,3,Charley Graaskamp,C,2014-2015,ohl,136414,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Brown (D),Oshawa Generals,60,6,15,21,0.35,92,49,/player/82512/josh-brown,3,Josh Brown,D,2014-2015,ohl,82512,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Gianluca Curcuruto (D),Plymouth Whalers,40,4,17,21,0.53,22,-14,/player/91686/gianluca-curcuruto,3,Gianluca Curcuruto,D,2014-2015,ohl,91686,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Yuill (D),Belleville Bulls,67,4,17,21,0.31,16,-16,/player/97380/alex-yuill,3,Alex Yuill,D,2014-2015,ohl,97380,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jalen Chatfield (D),Windsor Spitfires,60,1,20,21,0.35,35,-19,/player/205562/jalen-chatfield,3,Jalen Chatfield,D,2014-2015,ohl,205562,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Laser (D),Barrie Colts,68,1,20,21,0.31,51,20,/player/97551/jonathan-laser,3,Jonathan Laser,D,2014-2015,ohl,97551,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Ang (RW/C),Peterborough Petes,59,10,10,20,0.34,18,-20,/player/251447/jonathan-ang,3,Jonathan Ang,RW/C,2014-2015,ohl,251447,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brody Silk (C),Sudbury Wolves,57,9,11,20,0.35,74,-57,/player/83992/brody-silk,3,Brody Silk,C,2014-2015,ohl,83992,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Gillard (LW),Niagara IceDogs,55,5,15,20,0.36,15,-4,/player/205491/matt-gillard,3,Matt Gillard,LW,2014-2015,ohl,205491,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Anthony Salinitri (C/LW),totals,50,8,11,19,0.38,8,3,/player/254246/anthony-salinitri,3,Anthony Salinitri,C/LW,2014-2015,ohl,254246,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Verbeek (C/LW),Kingston Frontenacs,47,7,12,19,0.40,28,-3,/player/189461/ryan-verbeek,3,Ryan Verbeek,C/LW,2014-2015,ohl,189461,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Kirwan (LW),Windsor Spitfires,59,7,12,19,0.32,27,-19,/player/178534/luke-kirwan,3,Luke Kirwan,LW,2014-2015,ohl,178534,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Givani Smith (RW/LW),totals,61,7,12,19,0.31,76,7,/player/252472/givani-smith,3,Givani Smith,RW/LW,2014-2015,ohl,252472,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+C.J. Garcia (D),totals,55,4,15,19,0.35,47,11,/player/196825/c-j-garcia,3,C.J. Garcia,D,2014-2015,ohl,196825,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Bushnell (RW),Sarnia Sting,52,10,8,18,0.35,120,-4,/player/204938/noah-bushnell,3,Noah Bushnell,RW,2014-2015,ohl,204938,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trent Mallette (RW),totals,61,10,8,18,0.30,45,6,/player/189016/trent-mallette,3,Trent Mallette,RW,2014-2015,ohl,189016,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitch Jones (D),Plymouth Whalers,58,9,9,18,0.31,157,-14,/player/155239/mitch-jones,3,Mitch Jones,D,2014-2015,ohl,155239,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Roy Radke (RW),Barrie Colts,64,9,9,18,0.28,29,-5,/player/232637/roy-radke,3,Roy Radke,RW,2014-2015,ohl,232637,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Johnny Corneil (C/LW),Niagara IceDogs,52,4,14,18,0.35,19,-2,/player/245115/johnny-corneil,3,Johnny Corneil,C/LW,2014-2015,ohl,245115,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Phil Baltisberger (D),Guelph Storm,55,4,14,18,0.33,90,6,/player/94020/phil-baltisberger,3,Phil Baltisberger,D,2014-2015,ohl,94020,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Hore (D),Soo Greyhounds,55,2,16,18,0.33,25,48,/player/155326/tyler-hore,3,Tyler Hore,D,2014-2015,ohl,155326,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Garrett McFadden (D),Guelph Storm,56,2,16,18,0.32,58,3,/player/238755/garrett-mcfadden,3,Garrett McFadden,D,2014-2015,ohl,238755,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick White (C),Sarnia Sting,43,11,6,17,0.40,13,8,/player/168824/patrick-white,3,Patrick White,C,2014-2015,ohl,168824,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Fanjoy (C/RW),Ottawa 67's,52,9,8,17,0.33,20,2,/player/207366/ben-fanjoy,3,Ben Fanjoy,C/RW,2014-2015,ohl,207366,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ivan Kashtanov (LW),Sudbury Wolves,67,6,11,17,0.25,20,-23,/player/265118/ivan-kashtanov,3,Ivan Kashtanov,LW,2014-2015,ohl,265118,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jeffrey Gilligan (C),Owen Sound Attack,58,9,7,16,0.28,23,-11,/player/169284/jeffrey-gilligan,3,Jeffrey Gilligan,C,2014-2015,ohl,169284,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Busch (RW/C),totals,67,8,8,16,0.24,96,8,/player/161814/jacob-busch,3,Jacob Busch,RW/C,2014-2015,ohl,161814,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Maguire (LW/RW),Peterborough Petes,68,8,8,16,0.24,46,-14,/player/161817/josh-maguire,3,Josh Maguire,LW/RW,2014-2015,ohl,161817,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chris Martenet (D),London Knights,64,7,9,16,0.25,49,4,/player/226615/chris-martenet,3,Chris Martenet,D,2014-2015,ohl,226615,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Yannick Rathgeb (D),Plymouth Whalers,34,5,11,16,0.47,54,-2,/player/95055/yannick-rathgeb,3,Yannick Rathgeb,D,2014-2015,ohl,95055,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Francesco Vilardi (C),Plymouth Whalers,68,5,11,16,0.24,22,-29,/player/151852/francesco-vilardi,3,Francesco Vilardi,C,2014-2015,ohl,151852,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hampus Olsson (LW/RW),North Bay Battalion,62,4,12,16,0.26,31,-8,/player/67235/hampus-olsson,3,Hampus Olsson,LW/RW,2014-2015,ohl,67235,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Crawley (D),London Knights,64,3,13,16,0.25,86,6,/player/258636/brandon-crawley,3,Brandon Crawley,D,2014-2015,ohl,258636,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Ganly (D),Soo Greyhounds,38,2,14,16,0.42,33,15,/player/117753/tyler-ganly,3,Tyler Ganly,D,2014-2015,ohl,117753,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Carroll (D),Guelph Storm,62,2,14,16,0.26,46,5,/player/240028/noah-carroll,3,Noah Carroll,D,2014-2015,ohl,240028,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Steven Varga (D),Peterborough Petes,67,2,14,16,0.24,8,-8,/player/117003/steven-varga,3,Steven Varga,D,2014-2015,ohl,117003,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kenny Huether (RW),Oshawa Generals,53,11,4,15,0.28,14,2,/player/245209/kenny-huether,3,Kenny Huether,RW,2014-2015,ohl,245209,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Bunnaman (C),Kitchener Rangers,67,10,5,15,0.22,18,2,/player/267790/connor-bunnaman,3,Connor Bunnaman,C,2014-2015,ohl,267790,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mason Kohn (C/LW),Kitchener Rangers,52,7,8,15,0.29,49,-2,/player/226458/mason-kohn,3,Mason Kohn,C/LW,2014-2015,ohl,226458,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cullen Mercer (C),Plymouth Whalers,68,7,8,15,0.22,25,-25,/player/204682/cullen-mercer,3,Cullen Mercer,C,2014-2015,ohl,204682,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Craievich (RW),totals,68,6,9,15,0.22,18,-12,/player/205108/adam-craievich,3,Adam Craievich,RW,2014-2015,ohl,205108,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Brack (C),Owen Sound Attack,57,5,10,15,0.26,88,7,/player/232630/justin-brack,3,Justin Brack,C,2014-2015,ohl,232630,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cory Genovese (D),Erie Otters,60,4,11,15,0.25,104,24,/player/97635/cory-genovese,3,Cory Genovese,D,2014-2015,ohl,97635,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stephen Nosad (RW),totals,61,3,12,15,0.25,19,1,/player/116980/stephen-nosad,3,Stephen Nosad,RW,2014-2015,ohl,116980,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitchell Fitzmorris (LW),Niagara IceDogs,46,2,13,15,0.33,27,-3,/player/116992/mitchell-fitzmorris,3,Mitchell Fitzmorris,LW,2014-2015,ohl,116992,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Christopher Paquette (C),Niagara IceDogs,54,7,7,14,0.26,10,-2,/player/252451/christopher-paquette,3,Christopher Paquette,C,2014-2015,ohl,252451,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean Callaghan (D),totals,58,5,9,14,0.24,142,-17,/player/148361/sean-callaghan,3,Sean Callaghan,D,2014-2015,ohl,148361,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Médric Mercier (D),Soo Greyhounds,46,4,10,14,0.30,21,21,/player/206779/medric-mercier,3,Médric Mercier,D,2014-2015,ohl,206779,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Prophet (D),totals,66,3,11,14,0.21,73,-4,/player/176557/brandon-prophet,3,Brandon Prophet,D,2014-2015,ohl,176557,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Taylor Davis (D),Ottawa 67's,53,2,12,14,0.26,32,10,/player/151519/taylor-davis,3,Taylor Davis,D,2014-2015,ohl,151519,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Burns (D),Windsor Spitfires,65,0,14,14,0.22,37,-25,/player/238490/andrew-burns,3,Andrew Burns,D,2014-2015,ohl,238490,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Sills (LW/RW/C),Plymouth Whalers,67,8,5,13,0.19,113,-21,/player/177504/connor-sills,3,Connor Sills,LW/RW/C,2014-2015,ohl,177504,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Hotchkiss (C/LW),Guelph Storm,63,6,7,13,0.21,22,-16,/player/252457/matt-hotchkiss,3,Matt Hotchkiss,C/LW,2014-2015,ohl,252457,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alexander Mikulovich (D),Niagara IceDogs,58,4,9,13,0.22,80,7,/player/168691/alexander-mikulovich,3,Alexander Mikulovich,D,2014-2015,ohl,168691,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Will Petschenig (D/F),Oshawa Generals,45,3,10,13,0.29,43,25,/player/116966/will-petschenig,3,Will Petschenig,D/F,2014-2015,ohl,116966,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matthew Kreis (C),Barrie Colts,56,3,10,13,0.23,2,-3,/player/238729/matthew-kreis,3,Matthew Kreis,C,2014-2015,ohl,238729,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Liam Maaskant (D),Kitchener Rangers,62,3,10,13,0.21,145,12,/player/117347/liam-maaskant,3,Liam Maaskant,D,2014-2015,ohl,117347,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chadd Bauman (D),totals,63,3,10,13,0.21,50,-3,/player/126923/chadd-bauman,3,Chadd Bauman,D,2014-2015,ohl,126923,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitchell Webb (LW),Saginaw Spirit,68,3,10,13,0.19,36,-17,/player/234466/mitchell-webb,3,Mitchell Webb,LW,2014-2015,ohl,234466,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathan Duchesne (D),totals,60,2,11,13,0.22,105,-41,/player/189410/jonathan-duchesne,3,Jonathan Duchesne,D,2014-2015,ohl,189410,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Turner (LW),Oshawa Generals,41,6,6,12,0.29,24,8,/player/107970/michael-turner,3,Michael Turner,LW,2014-2015,ohl,107970,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Grzelewski (LW),London Knights,36,5,7,12,0.33,13,6,/player/200984/zach-grzelewski,3,Zach Grzelewski,LW,2014-2015,ohl,200984,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Travis Wood (LW),totals,54,5,7,12,0.22,14,-7,/player/122133/travis-wood,3,Travis Wood,LW,2014-2015,ohl,122133,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Pezzetta (LW/C),Sudbury Wolves,61,5,7,12,0.20,56,-28,/player/269038/michael-pezzetta,3,Michael Pezzetta,LW/C,2014-2015,ohl,269038,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Drake Rymsha (C),London Knights,62,5,7,12,0.19,51,-5,/player/268925/drake-rymsha,3,Drake Rymsha,C,2014-2015,ohl,268925,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brian Brosnan (D),Niagara IceDogs,53,4,8,12,0.23,32,0,/player/193017/brian-brosnan,3,Brian Brosnan,D,2014-2015,ohl,193017,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Fellows (LW),Erie Otters,60,4,8,12,0.20,10,9,/player/234474/patrick-fellows,4,Patrick Fellows,LW,2014-2015,ohl,234474,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Carrick (D),Barrie Colts,37,3,9,12,0.32,40,-3,/player/69392/josh-carrick,4,Josh Carrick,D,2014-2015,ohl,69392,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Saban (D),totals,50,1,11,12,0.24,34,3,/player/234470/jesse-saban,4,Jesse Saban,D,2014-2015,ohl,234470,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Zeppieri (C),Sudbury Wolves,61,1,11,12,0.20,35,-33,/player/234479/david-zeppieri,4,David Zeppieri,C,2014-2015,ohl,234479,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Core (D),Sarnia Sting,63,1,11,12,0.19,30,-2,/player/204693/zach-core,4,Zach Core,D,2014-2015,ohl,204693,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chad Duchesne (D),Kingston Frontenacs,66,1,11,12,0.18,63,0,/player/149578/chad-duchesne,4,Chad Duchesne,D,2014-2015,ohl,149578,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler MacArthur (D),Owen Sound Attack,63,0,12,12,0.19,90,-5,/player/244976/tyler-macarthur,4,Tyler MacArthur,D,2014-2015,ohl,244976,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zachary Poirier (C),North Bay Battalion,60,8,3,11,0.18,18,-3,/player/251673/zachary-poirier,4,Zachary Poirier,C,2014-2015,ohl,251673,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Bryce Yetman (RW),Plymouth Whalers,29,6,5,11,0.38,6,-11,/player/245114/bryce-yetman,4,Bryce Yetman,RW,2014-2015,ohl,245114,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Blake Clarke (LW),Saginaw Spirit,31,4,7,11,0.35,20,-18,/player/121997/blake-clarke,4,Blake Clarke,LW,2014-2015,ohl,121997,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jared Walsh (D),Brampton Steelheads,53,3,8,11,0.21,18,-29,/player/205522/jared-walsh,4,Jared Walsh,D,2014-2015,ohl,205522,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Patrick Sanvido (D),Windsor Spitfires,59,3,8,11,0.19,62,-19,/player/189460/patrick-sanvido,4,Patrick Sanvido,D,2014-2015,ohl,189460,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Ming (LW),Belleville Bulls,56,1,10,11,0.20,28,-13,/player/171021/andrew-ming,4,Andrew Ming,LW,2014-2015,ohl,171021,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brady Pataki (RW),Sudbury Wolves,58,6,4,10,0.17,23,-14,/player/254274/brady-pataki,4,Brady Pataki,RW,2014-2015,ohl,254274,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Wesley (D),Plymouth Whalers,63,5,5,10,0.16,67,-18,/player/189578/josh-wesley,4,Josh Wesley,D,2014-2015,ohl,189578,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Hayden Verbeek (C/LW),Soo Greyhounds,51,4,6,10,0.20,12,9,/player/241023/hayden-verbeek,4,Hayden Verbeek,C/LW,2014-2015,ohl,241023,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marc Stevens (RW/C),Guelph Storm,68,4,6,10,0.15,77,-7,/player/205501/marc-stevens,4,Marc Stevens,RW/C,2014-2015,ohl,205501,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+James McEwan (C),Guelph Storm,45,3,7,10,0.22,18,-5,/player/205172/james-mcewan,4,James McEwan,C,2014-2015,ohl,205172,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joel Wigle (RW),totals,30,2,8,10,0.33,17,-6,/player/92682/joel-wigle,4,Joel Wigle,RW,2014-2015,ohl,92682,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Damian Bourne (LW),Brampton Steelheads,55,1,9,10,0.18,62,-32,/player/156894/damian-bourne,4,Damian Bourne,LW,2014-2015,ohl,156894,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zack Pittman (D),Ottawa 67's,41,0,10,10,0.24,25,3,/player/134784/zack-pittman,4,Zack Pittman,D,2014-2015,ohl,134784,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jaden Lindo (RW),Owen Sound Attack,49,7,2,9,0.18,34,-6,/player/189413/jaden-lindo,4,Jaden Lindo,RW,2014-2015,ohl,189413,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Danny Vanderwiel (D/LW),Plymouth Whalers,41,6,3,9,0.22,20,-10,/player/118440/danny-vanderwiel,4,Danny Vanderwiel,D/LW,2014-2015,ohl,118440,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Foss (C),totals,50,6,3,9,0.18,26,-12,/player/264586/ryan-foss,4,Ryan Foss,C,2014-2015,ohl,264586,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Vincent Scognamiglio (RW),Plymouth Whalers,64,5,4,9,0.14,95,-6,/player/206577/vincent-scognamiglio,4,Vincent Scognamiglio,RW,2014-2015,ohl,206577,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Quentin Maksimovich (C),Erie Otters,65,5,4,9,0.14,28,-10,/player/232625/quentin-maksimovich,4,Quentin Maksimovich,C,2014-2015,ohl,232625,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cliff Pu (RW/C),totals,41,4,5,9,0.22,4,-3,/player/245616/cliff-pu,4,Cliff Pu,RW/C,2014-2015,ohl,245616,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Hawerchuk (LW),Barrie Colts,59,4,5,9,0.15,26,-12,/player/269099/ben-hawerchuk,4,Ben Hawerchuk,LW,2014-2015,ohl,269099,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonah Gadjovich (LW/RW),Owen Sound Attack,60,4,5,9,0.15,59,-3,/player/252476/jonah-gadjovich,4,Jonah Gadjovich,LW/RW,2014-2015,ohl,252476,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniil Vertiy (LW),Windsor Spitfires,49,3,6,9,0.18,22,-8,/player/269408/daniil-vertiy,4,Daniil Vertiy,LW,2014-2015,ohl,269408,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Coyle (LW/C),Peterborough Petes,56,3,6,9,0.16,4,1,/player/240023/josh-coyle,4,Josh Coyle,LW/C,2014-2015,ohl,240023,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Liam Murray (D),Windsor Spitfires,63,3,6,9,0.14,90,-6,/player/240390/liam-murray,4,Liam Murray,D,2014-2015,ohl,240390,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Caamano (LW/RW),Plymouth Whalers,64,3,6,9,0.14,29,-16,/player/252448/nick-caamano,4,Nick Caamano,LW/RW,2014-2015,ohl,252448,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Liam Dunda (LW),totals,53,2,7,9,0.17,58,-6,/player/234450/liam-dunda,4,Liam Dunda,LW,2014-2015,ohl,234450,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keaton Middleton (D),Saginaw Spirit,61,2,7,9,0.15,58,-12,/player/249597/keaton-middleton,4,Keaton Middleton,D,2014-2015,ohl,249597,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cameron Lizotte (D),Peterborough Petes,67,2,7,9,0.13,129,-15,/player/197876/cameron-lizotte,4,Cameron Lizotte,D,2014-2015,ohl,197876,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Holmes (D),Saginaw Spirit,57,1,8,9,0.16,29,-7,/player/245098/michael-holmes,4,Michael Holmes,D,2014-2015,ohl,245098,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Black (D),Sarnia Sting,63,1,8,9,0.14,30,-13,/player/241005/alex-black,4,Alex Black,D,2014-2015,ohl,241005,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Walters (D),Owen Sound Attack,63,0,9,9,0.14,12,3,/player/238514/connor-walters,4,Connor Walters,D,2014-2015,ohl,238514,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+T.J. Fergus (D),Erie Otters,45,2,6,8,0.18,18,13,/player/225098/t-j-fergus,4,T.J. Fergus,D,2014-2015,ohl,225098,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Graeme Brown (D),Windsor Spitfires,65,2,6,8,0.12,82,-19,/player/169600/graeme-brown,4,Graeme Brown,D,2014-2015,ohl,169600,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Doug Blaisdell (D),Kitchener Rangers,66,2,6,8,0.12,55,-20,/player/234367/doug-blaisdell,4,Doug Blaisdell,D,2014-2015,ohl,234367,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Mayo (D),totals,56,1,7,8,0.14,27,-11,/player/205154/cole-mayo,4,Cole Mayo,D,2014-2015,ohl,205154,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Joshua Chapman (D),Sarnia Sting,44,0,8,8,0.18,84,-4,/player/97457/joshua-chapman,4,Joshua Chapman,D,2014-2015,ohl,97457,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Hidi (LW),London Knights,23,5,2,7,0.30,14,-4,/player/116973/jack-hidi,4,Jack Hidi,LW,2014-2015,ohl,116973,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+John Warren (LW),London Knights,27,5,2,7,0.26,2,-9,/player/204916/john-warren,4,John Warren,LW,2014-2015,ohl,204916,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Pastorious (RW),Barrie Colts,45,4,3,7,0.16,79,1,/player/146884/nick-pastorious,4,Nick Pastorious,RW,2014-2015,ohl,146884,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Di Perna (D),Kitchener Rangers,53,3,4,7,0.13,14,-2,/player/189407/dylan-di-perna,4,Dylan Di Perna,D,2014-2015,ohl,189407,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Maurizio Colella (C/LW),Belleville Bulls,57,3,4,7,0.12,15,-14,/player/245120/maurizio-colella,4,Maurizio Colella,C/LW,2014-2015,ohl,245120,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artyom Vladimirov (D),Peterborough Petes,56,2,5,7,0.13,10,-10,/player/265481/artyom-vladimirov,4,Artyom Vladimirov,D,2014-2015,ohl,265481,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Clapham (D),Sudbury Wolves,56,2,5,7,0.13,33,-17,/player/225191/austin-clapham,4,Austin Clapham,D,2014-2015,ohl,225191,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shaun Bily (C),Erie Otters,36,1,6,7,0.19,18,-1,/player/233501/shaun-bily,4,Shaun Bily,C,2014-2015,ohl,233501,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Timms (D),Peterborough Petes,49,1,6,7,0.14,14,-17,/player/267713/matt-timms,4,Matt Timms,D,2014-2015,ohl,267713,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Conor Cummins (D),Sudbury Wolves,66,1,6,7,0.11,26,-49,/player/161820/conor-cummins,4,Conor Cummins,D,2014-2015,ohl,161820,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jarkko Parikka (D),Kingston Frontenacs,68,1,6,7,0.10,14,-2,/player/104067/jarkko-parikka,4,Jarkko Parikka,D,2014-2015,ohl,104067,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Graves (D),Kingston Frontenacs,62,0,7,7,0.11,118,-7,/player/149615/jacob-graves,4,Jacob Graves,D,2014-2015,ohl,149615,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Baird (LW),North Bay Battalion,53,5,1,6,0.11,81,-5,/player/238503/mike-baird,4,Mike Baird,LW,2014-2015,ohl,238503,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Artur Tyanulin (LW),Ottawa 67's,13,3,3,6,0.46,2,2,/player/266824/artur-tyanulin,4,Artur Tyanulin,LW,2014-2015,ohl,266824,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Sherman (LW),North Bay Battalion,30,3,3,6,0.20,10,-1,/player/252445/david-sherman,4,David Sherman,LW,2014-2015,ohl,252445,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Manchurek (LW),Windsor Spitfires,34,3,3,6,0.18,18,-2,/player/204928/mark-manchurek,4,Mark Manchurek,LW,2014-2015,ohl,204928,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zack Dorval (C),Kingston Frontenacs,56,3,3,6,0.11,72,-13,/player/211402/zack-dorval,4,Zack Dorval,C,2014-2015,ohl,211402,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Timleck (RW),Peterborough Petes,57,3,3,6,0.11,14,-19,/player/268934/adam-timleck,4,Adam Timleck,RW,2014-2015,ohl,268934,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mac Hollowell (D),Soo Greyhounds,11,2,4,6,0.55,4,2,/player/267652/mac-hollowell,4,Mac Hollowell,D,2014-2015,ohl,267652,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Kosack (D),North Bay Battalion,31,2,4,6,0.19,6,-4,/player/149401/austin-kosack,4,Austin Kosack,D,2014-2015,ohl,149401,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam McPhail (RW),Saginaw Spirit,50,2,4,6,0.12,32,-13,/player/204216/adam-mcphail,4,Adam McPhail,RW,2014-2015,ohl,204216,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sonny Hertzberg (D),Oshawa Generals,32,1,5,6,0.19,16,20,/player/67234/sonny-hertzberg,4,Sonny Hertzberg,D,2014-2015,ohl,67234,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cody Thompson (LW),Brampton Steelheads,36,1,5,6,0.17,43,-13,/player/116979/cody-thompson,4,Cody Thompson,LW,2014-2015,ohl,116979,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tait Seguin (LW/D),London Knights,47,1,5,6,0.13,71,-6,/player/84721/tait-seguin,4,Tait Seguin,LW/D,2014-2015,ohl,84721,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Di Carlo (D),Plymouth Whalers,41,0,6,6,0.15,12,-2,/player/245172/alex-di-carlo,4,Alex Di Carlo,D,2014-2015,ohl,245172,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Sensky (D),Plymouth Whalers,54,0,6,6,0.11,19,0,/player/234352/tyler-sensky,4,Tyler Sensky,D,2014-2015,ohl,234352,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cole Candella (D),Belleville Bulls,60,0,6,6,0.10,12,-4,/player/247116/cole-candella,4,Cole Candella,D,2014-2015,ohl,247116,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Marcus Dickerson (RW),Brampton Steelheads,43,3,2,5,0.12,6,-9,/player/291853/marcus-dickerson,4,Marcus Dickerson,RW,2014-2015,ohl,291853,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Heeps (C),Owen Sound Attack,35,2,3,5,0.14,8,-1,/player/223066/ryan-heeps,4,Ryan Heeps,C,2014-2015,ohl,223066,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adrian Carbonara (RW),Barrie Colts,39,2,3,5,0.13,40,-3,/player/234463/adrian-carbonara,4,Adrian Carbonara,RW,2014-2015,ohl,234463,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake O'Donnell (D),Sarnia Sting,16,1,4,5,0.31,2,3,/player/267951/jake-o-donnell,4,Jake O'Donnell,D,2014-2015,ohl,267951,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan DeNoble (C/LW),Peterborough Petes,20,1,4,5,0.25,4,-2,/player/245294/logan-denoble,4,Logan DeNoble,C/LW,2014-2015,ohl,245294,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Shoemaker (D),North Bay Battalion,39,1,4,5,0.13,0,-1,/player/245255/mark-shoemaker,4,Mark Shoemaker,D,2014-2015,ohl,245255,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nick Zottl (D),Brampton Steelheads,45,1,4,5,0.11,88,-16,/player/150816/nick-zottl,4,Nick Zottl,D,2014-2015,ohl,150816,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Burghardt (LW/C),Guelph Storm,54,1,4,5,0.09,11,-10,/player/267953/luke-burghardt,4,Luke Burghardt,LW/C,2014-2015,ohl,267953,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Bricknell (C/RW),Belleville Bulls,58,1,4,5,0.09,53,-14,/player/245100/jake-bricknell,4,Jake Bricknell,C/RW,2014-2015,ohl,245100,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ted Nichol (C),Kingston Frontenacs,59,1,4,5,0.08,10,-13,/player/245111/ted-nichol,4,Ted Nichol,C,2014-2015,ohl,245111,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Welsh (D),Kitchener Rangers,15,0,5,5,0.33,0,2,/player/117007/thomas-welsh,4,Thomas Welsh,D,2014-2015,ohl,117007,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Billitier (D),Kingston Frontenacs,30,0,5,5,0.17,2,-4,/player/168700/nathan-billitier,4,Nathan Billitier,D,2014-2015,ohl,168700,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ben Gleason (D),London Knights,41,0,5,5,0.12,16,-1,/player/233504/ben-gleason,4,Ben Gleason,D,2014-2015,ohl,233504,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Shankar (D),North Bay Battalion,44,0,5,5,0.11,19,-4,/player/207915/zach-shankar,4,Zach Shankar,D,2014-2015,ohl,207915,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Stewart (D),Saginaw Spirit,48,0,5,5,0.10,51,-5,/player/200997/chase-stewart,4,Chase Stewart,D,2014-2015,ohl,200997,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Josh Defarias (D),totals,22,2,2,4,0.18,4,1,/player/234453/josh-defarias,4,Josh Defarias,D,2014-2015,ohl,234453,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan McDonald (C),Ottawa 67's,26,2,2,4,0.15,9,-9,/player/207376/dylan-mcdonald,4,Dylan McDonald,C,2014-2015,ohl,207376,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Bignell (D),Belleville Bulls,35,1,3,4,0.11,58,4,/player/92052/adam-bignell,4,Adam Bignell,D,2014-2015,ohl,92052,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Keenan Reynolds (C),Owen Sound Attack,42,1,3,4,0.10,25,6,/player/249520/keenan-reynolds,4,Keenan Reynolds,C,2014-2015,ohl,249520,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jason Smith (C),Brampton Steelheads,46,1,3,4,0.09,12,-11,/player/238555/jason-smith,4,Jason Smith,C,2014-2015,ohl,238555,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Zach Wilkie (D/W),Niagara IceDogs,52,1,3,4,0.08,48,-6,/player/171035/zach-wilkie,4,Zach Wilkie,D/W,2014-2015,ohl,171035,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Cody Caron (RW),totals,64,1,3,4,0.06,102,-22,/player/156339/cody-caron,4,Cody Caron,RW,2014-2015,ohl,156339,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Peters (D),Plymouth Whalers,8,0,4,4,0.50,14,2,/player/196066/alex-peters,4,Alex Peters,D,2014-2015,ohl,196066,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stephen Templeton (D),Oshawa Generals,36,0,4,4,0.11,26,5,/player/239032/stephen-templeton,4,Stephen Templeton,D,2014-2015,ohl,239032,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt McCartney (C),Peterborough Petes,43,0,4,4,0.09,84,-5,/player/151858/matt-mccartney,4,Matt McCartney,C,2014-2015,ohl,151858,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Reagan O'Grady (D),totals,54,0,4,4,0.07,29,-21,/player/266436/reagan-o-grady,4,Reagan O'Grady,D,2014-2015,ohl,266436,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Rhodes (D),Guelph Storm,59,0,4,4,0.07,31,-4,/player/245141/kyle-rhodes,4,Kyle Rhodes,D,2014-2015,ohl,245141,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan Stanley (D),Windsor Spitfires,59,0,4,4,0.07,60,-25,/player/240108/logan-stanley,4,Logan Stanley,D,2014-2015,ohl,240108,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Groulx (RW),Ottawa 67's,11,2,1,3,0.27,4,-3,/player/207890/kevin-groulx,4,Kevin Groulx,RW,2014-2015,ohl,207890,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Hall (D),Guelph Storm,37,2,1,3,0.08,14,-7,/player/204939/austin-hall,5,Austin Hall,D,2014-2015,ohl,204939,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Gerhart (RW),Brampton Steelheads,47,2,1,3,0.06,6,-16,/player/245099/austin-gerhart,5,Austin Gerhart,RW,2014-2015,ohl,245099,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Owen Green (LW/C),North Bay Battalion,46,1,2,3,0.07,12,1,/player/232937/owen-green,5,Owen Green,LW/C,2014-2015,ohl,232937,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Lukezic (D),Ottawa 67's,12,0,3,3,0.25,2,1,/player/216807/brandon-lukezic,5,Brandon Lukezic,D,2014-2015,ohl,216807,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Logan Schmidt (D),Kitchener Rangers,18,0,3,3,0.17,4,-12,/player/223377/logan-schmidt,5,Logan Schmidt,D,2014-2015,ohl,223377,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mark Bzowey (C),Kitchener Rangers,45,0,3,3,0.07,27,-9,/player/238488/mark-bzowey,5,Mark Bzowey,C,2014-2015,ohl,238488,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Orban (D),totals,46,0,3,3,0.07,57,-7,/player/207903/ryan-orban,5,Ryan Orban,D,2014-2015,ohl,207903,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riley Bruce (D),North Bay Battalion,52,0,3,3,0.06,32,-2,/player/245105/riley-bruce,5,Riley Bruce,D,2014-2015,ohl,245105,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stephen Gibson (D),Brampton Steelheads,56,2,0,2,0.04,44,-27,/player/245154/stephen-gibson,5,Stephen Gibson,D,2014-2015,ohl,245154,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Field (RW),Kingston Frontenacs,57,2,0,2,0.04,99,-11,/player/291854/sam-field,5,Sam Field,RW,2014-2015,ohl,291854,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Eric Henderson (LW/C),London Knights,4,1,1,2,0.50,0,2,/player/253952/eric-henderson,5,Eric Henderson,LW/C,2014-2015,ohl,253952,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Hancock (LW/C),Owen Sound Attack,9,1,1,2,0.22,0,1,/player/268928/kevin-hancock,5,Kevin Hancock,LW/C,2014-2015,ohl,268928,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Thomas Lattavo (RW),Brampton Steelheads,10,1,1,2,0.20,2,-3,/player/232614/thomas-lattavo,5,Thomas Lattavo,RW,2014-2015,ohl,232614,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chiwetin Blacksmith (LW),Barrie Colts,17,1,1,2,0.12,0,-1,/player/254492/chiwetin-blacksmith,5,Chiwetin Blacksmith,LW,2014-2015,ohl,254492,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Collins (D/LW),Plymouth Whalers,22,1,1,2,0.09,2,2,/player/251678/jacob-collins,5,Jacob Collins,D/LW,2014-2015,ohl,251678,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Shawn Tessier (D),Kingston Frontenacs,41,1,1,2,0.05,6,1,/player/215162/shawn-tessier,5,Shawn Tessier,D,2014-2015,ohl,215162,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitchell Kreis (D),London Knights,6,0,2,2,0.33,0,4,/player/238730/mitchell-kreis,5,Mitchell Kreis,D,2014-2015,ohl,238730,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brody Morris (D),Belleville Bulls,9,0,2,2,0.22,13,4,/player/161818/brody-morris,5,Brody Morris,D,2014-2015,ohl,161818,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brenden Trottier (C),Sarnia Sting,10,0,2,2,0.20,0,-2,/player/245254/brenden-trottier,5,Brenden Trottier,C,2014-2015,ohl,245254,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Boris Katchouk (LW/C),Soo Greyhounds,12,0,2,2,0.17,17,0,/player/269859/boris-katchouk,5,Boris Katchouk,LW/C,2014-2015,ohl,269859,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Locke (D),North Bay Battalion,17,0,2,2,0.12,12,3,/player/161822/kyle-locke,5,Kyle Locke,D,2014-2015,ohl,161822,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brody Milne (LW),Sudbury Wolves,25,0,2,2,0.08,8,-21,/player/152516/brody-milne,5,Brody Milne,LW,2014-2015,ohl,152516,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Kilgour (LW),Kitchener Rangers,26,0,2,2,0.08,6,-1,/player/254491/jack-kilgour,5,Jack Kilgour,LW,2014-2015,ohl,254491,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathon Masters (D/F),Sudbury Wolves,29,0,2,2,0.07,36,-11,/player/203241/jonathon-masters,5,Jonathon Masters,D/F,2014-2015,ohl,203241,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jesse Hilton (C/LW),Guelph Storm,36,0,2,2,0.06,10,-1,/player/254076/jesse-hilton,5,Jesse Hilton,C/LW,2014-2015,ohl,254076,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tyler Nother (D),London Knights,40,0,2,2,0.05,54,-8,/player/238741/tyler-nother,5,Tyler Nother,D,2014-2015,ohl,238741,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Hanley (D),Belleville Bulls,45,0,2,2,0.04,21,-14,/player/250944/jack-hanley,5,Jack Hanley,D,2014-2015,ohl,250944,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Adam Donnelly (C),Brampton Steelheads,46,0,2,2,0.04,35,-15,/player/257898/adam-donnelly,5,Adam Donnelly,C,2014-2015,ohl,257898,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Troy Henley (D),totals,52,0,2,2,0.04,31,-25,/player/191261/troy-henley,5,Troy Henley,D,2014-2015,ohl,191261,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Scott Teskey (RW),Kitchener Rangers,2,1,0,1,0.50,0,1,/player/97349/scott-teskey,5,Scott Teskey,RW,2014-2015,ohl,97349,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Pearce (LW),Ottawa 67's,4,1,0,1,0.25,2,-1,/player/268684/david-pearce,5,David Pearce,LW,2014-2015,ohl,268684,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brook Hiddink (C/RW),Sudbury Wolves,8,1,0,1,0.13,0,-8,/player/152733/brook-hiddink,5,Brook Hiddink,C/RW,2014-2015,ohl,152733,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kevin Klima (LW/C),London Knights,16,1,0,1,0.06,8,-2,/player/283908/kevin-klima,5,Kevin Klima,LW/C,2014-2015,ohl,283908,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Webb (LW),Saginaw Spirit,49,1,0,1,0.02,17,-11,/player/234464/jack-webb,5,Jack Webb,LW,2014-2015,ohl,234464,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Luke Mercer (D),Niagara IceDogs,3,0,1,1,0.33,0,3,/player/82643/luke-mercer,5,Luke Mercer,D,2014-2015,ohl,82643,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Evan Krassey (RW/C),Niagara IceDogs,3,0,1,1,0.33,0,1,/player/271631/evan-krassey,5,Evan Krassey,RW/C,2014-2015,ohl,271631,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Taylor Egan (D/F),Erie Otters,3,0,1,1,0.33,0,3,/player/251670/taylor-egan,5,Taylor Egan,D/F,2014-2015,ohl,251670,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Kopacka (C/W),Soo Greyhounds,4,0,1,1,0.25,0,1,/player/233512/jack-kopacka,5,Jack Kopacka,C/W,2014-2015,ohl,233512,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riley MacRae (LW),Erie Otters,4,0,1,1,0.25,0,-1,/player/267717/riley-macrae,5,Riley MacRae,LW,2014-2015,ohl,267717,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mack Lemmon (RW),Kingston Frontenacs,5,0,1,1,0.20,2,-1,/player/117016/mack-lemmon,5,Mack Lemmon,RW,2014-2015,ohl,117016,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Burgess (LW),Sudbury Wolves,8,0,1,1,0.13,0,-5,/player/125024/connor-burgess,5,Connor Burgess,LW,2014-2015,ohl,125024,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Langdon (C),Niagara IceDogs,8,0,1,1,0.13,0,-1,/player/267578/kyle-langdon,5,Kyle Langdon,C,2014-2015,ohl,267578,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mike Vlajkov (D),Ottawa 67's,13,0,1,1,0.08,7,-5,/player/151416/mike-vlajkov,5,Mike Vlajkov,D,2014-2015,ohl,151416,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Campbell (RW),Sarnia Sting,14,0,1,1,0.07,4,-3,/player/240107/chase-campbell,5,Chase Campbell,RW,2014-2015,ohl,240107,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Watson (D),Plymouth Whalers,22,0,1,1,0.05,8,-5,/player/190938/matt-watson,5,Matt Watson,D,2014-2015,ohl,190938,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Matt Mercer (D),Ottawa 67's,23,0,1,1,0.04,7,0,/player/225061/matt-mercer,5,Matt Mercer,D,2014-2015,ohl,225061,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Bean (D),Brampton Steelheads,30,0,1,1,0.03,8,-5,/player/190086/justin-bean,5,Justin Bean,D,2014-2015,ohl,190086,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Cascagnette (LW),Kitchener Rangers,33,0,1,1,0.03,11,-1,/player/204865/jacob-cascagnette,5,Jacob Cascagnette,LW,2014-2015,ohl,204865,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Trent Bourque (D),Sudbury Wolves,34,0,1,1,0.03,10,-17,/player/239804/trent-bourque,5,Trent Bourque,D,2014-2015,ohl,239804,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jake Gilmour (RW),Kingston Frontenacs,43,0,1,1,0.02,6,-2,/player/213259/jake-gilmour,5,Jake Gilmour,RW,2014-2015,ohl,213259,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Hargrave (RW),Owen Sound Attack,0,0,0,0,-,0,0,/player/124973/brett-hargrave,5,Brett Hargrave,RW,2014-2015,ohl,124973,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brandon Shea (C),Windsor Spitfires,0,0,0,0,-,0,-,/player/114802/brandon-shea,5,Brandon Shea,C,2014-2015,ohl,114802,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Frankie Pucci (C),Erie Otters,1,0,0,0,0.00,0,1,/player/240003/frankie-pucci,5,Frankie Pucci,C,2014-2015,ohl,240003,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Domenico Commisso (C),Oshawa Generals,1,0,0,0,0.00,0,0,/player/245619/domenico-commisso,5,Domenico Commisso,C,2014-2015,ohl,245619,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+William Brown (D),Ottawa 67's,1,0,0,0,0.00,0,0,/player/249796/william-brown,5,William Brown,D,2014-2015,ohl,249796,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rylee McKinnon (D),Peterborough Petes,1,0,0,0,0.00,0,0,/player/208632/rylee-mckinnon,5,Rylee McKinnon,D,2014-2015,ohl,208632,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Austin Grzenia (RW),Kingston Frontenacs,1,0,0,0,0.00,0,0,/player/271341/austin-grzenia,5,Austin Grzenia,RW,2014-2015,ohl,271341,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Stephan Seeger (LW),Oshawa Generals,1,0,0,0,0.00,2,0,/player/249640/stephan-seeger,5,Stephan Seeger,LW,2014-2015,ohl,249640,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Chase Hawley (D),Sudbury Wolves,1,0,0,0,0.00,5,0,/player/245122/chase-hawley,5,Chase Hawley,D,2014-2015,ohl,245122,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+David Eccles (D),Soo Greyhounds,2,0,0,0,0.00,0,-1,/player/205535/david-eccles,5,David Eccles,D,2014-2015,ohl,205535,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Lucas Chiodo (C),Barrie Colts,2,0,0,0,0.00,0,-2,/player/268666/lucas-chiodo,5,Lucas Chiodo,C,2014-2015,ohl,268666,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Migliaccio (LW),Guelph Storm,2,0,0,0,0.00,0,0,/player/150904/ryan-migliaccio,5,Ryan Migliaccio,LW,2014-2015,ohl,150904,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sam Natale (C),Guelph Storm,2,0,0,0,0.00,0,0,/player/223375/sam-natale,5,Sam Natale,C,2014-2015,ohl,223375,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikita Yazkov (LW),Windsor Spitfires,2,0,0,0,0.00,2,-1,/player/214198/nikita-yazkov,5,Nikita Yazkov,LW,2014-2015,ohl,214198,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitchell Mendonca (C),Belleville Bulls,2,0,0,0,0.00,2,0,/player/238519/mitchell-mendonca,5,Mitchell Mendonca,C,2014-2015,ohl,238519,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Mitchell Byrne (D),Erie Otters,2,0,0,0,0.00,2,-1,/player/268926/mitchell-byrne,5,Mitchell Byrne,D,2014-2015,ohl,268926,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nathan Mater (LW),Sarnia Sting,2,0,0,0,0.00,9,0,/player/75711/nathan-mater,5,Nathan Mater,LW,2014-2015,ohl,75711,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kyle Moore (RW),North Bay Battalion,3,0,0,0,0.00,0,-1,/player/269072/kyle-moore,5,Kyle Moore,RW,2014-2015,ohl,269072,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Justin Long (D),Guelph Storm,3,0,0,0,0.00,0,0,/player/245184/justin-long,5,Justin Long,D,2014-2015,ohl,245184,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nikko Sablone (RW/D),Windsor Spitfires,3,0,0,0,0.00,2,-1,/player/204249/nikko-sablone,5,Nikko Sablone,RW/D,2014-2015,ohl,204249,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brett Primeau (RW),Kingston Frontenacs,3,0,0,0,0.00,2,0,/player/245187/brett-primeau,5,Brett Primeau,RW,2014-2015,ohl,245187,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Tristen Elie (LW/C),London Knights,3,0,0,0,0.00,4,-1,/player/207334/tristen-elie,5,Tristen Elie,LW/C,2014-2015,ohl,207334,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Nicholas Sicoly (C/LW),Guelph Storm,4,0,0,0,0.00,0,0,/player/204217/nicholas-sicoly,5,Nicholas Sicoly,C/LW,2014-2015,ohl,204217,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jack Wieringa (D),Niagara IceDogs,4,0,0,0,0.00,0,1,/player/269441/jack-wieringa,5,Jack Wieringa,D,2014-2015,ohl,269441,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Andrew Abou-Assaly (LW),Ottawa 67's,4,0,0,0,0.00,4,-1,/player/187088/andrew-abou-assaly,5,Andrew Abou-Assaly,LW,2014-2015,ohl,187088,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Alex Annecchiarico (D/F),Owen Sound Attack,4,0,0,0,0.00,4,-1,/player/169291/alex-annecchiarico,5,Alex Annecchiarico,D/F,2014-2015,ohl,169291,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Dylan Callaghan (RW),Sudbury Wolves,5,0,0,0,0.00,5,-2,/player/147486/dylan-callaghan,5,Dylan Callaghan,RW,2014-2015,ohl,147486,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jonathon Schaefer (D),Niagara IceDogs,6,0,0,0,0.00,2,1,/player/267714/jonathon-schaefer,5,Jonathon Schaefer,D,2014-2015,ohl,267714,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Sean Allen (D),Kitchener Rangers,6,0,0,0,0.00,11,-3,/player/267781/sean-allen,5,Sean Allen,D,2014-2015,ohl,267781,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Vendramin (RW),Sarnia Sting,7,0,0,0,0.00,0,-1,/player/125005/ryan-vendramin,5,Ryan Vendramin,RW,2014-2015,ohl,125005,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Michael Silveri (LW/C),Sudbury Wolves,8,0,0,0,0.00,0,0,/player/244899/michael-silveri,5,Michael Silveri,LW/C,2014-2015,ohl,244899,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jacob Friend (D),Owen Sound Attack,8,0,0,0,0.00,6,5,/player/253249/jacob-friend,5,Jacob Friend,D,2014-2015,ohl,253249,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Franco Sproviero (C/LW),Sarnia Sting,8,0,0,0,0.00,9,-1,/player/269485/franco-sproviero,5,Franco Sproviero,C/LW,2014-2015,ohl,269485,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Hall (D),Kitchener Rangers,8,0,0,0,0.00,11,0,/player/254039/connor-hall,5,Connor Hall,D,2014-2015,ohl,254039,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Brock Philips (D),Guelph Storm,8,0,0,0,0.00,14,1,/player/269863/brock-philips,5,Brock Philips,D,2014-2015,ohl,269863,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Riley Stillman (D),Oshawa Generals,9,0,0,0,0.00,5,0,/player/252469/riley-stillman,5,Riley Stillman,D,2014-2015,ohl,252469,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Levi Tetrault (D),Guelph Storm,9,0,0,0,0.00,6,-1,/player/254271/levi-tetrault,5,Levi Tetrault,D,2014-2015,ohl,254271,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kody Gagnon (D),Barrie Colts,10,0,0,0,0.00,2,-2,/player/245205/kody-gagnon,5,Kody Gagnon,D,2014-2015,ohl,245205,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Noah Robinson (RW),Brampton Steelheads,11,0,0,0,0.00,2,-2,/player/234467/noah-robinson,5,Noah Robinson,RW,2014-2015,ohl,234467,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Connor Schlichting (D),Sarnia Sting,12,0,0,0,0.00,15,-3,/player/244980/connor-schlichting,5,Connor Schlichting,D,2014-2015,ohl,244980,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Ryan Valentini (C/W),London Knights,15,0,0,0,0.00,10,1,/player/274870/ryan-valentini,5,Ryan Valentini,C/W,2014-2015,ohl,274870,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Kelly Klima (RW),London Knights,15,0,0,0,0.00,17,-2,/player/283907/kelly-klima,5,Kelly Klima,RW,2014-2015,ohl,283907,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Daniel Robertson (D),Oshawa Generals,16,0,0,0,0.00,4,4,/player/205139/daniel-robertson,5,Daniel Robertson,D,2014-2015,ohl,205139,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Rocky Kaura (D),Barrie Colts,29,0,0,0,0.00,18,8,/player/234472/rocky-kaura,5,Rocky Kaura,D,2014-2015,ohl,234472,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Jarett Meyer (D),Owen Sound Attack,34,0,0,0,0.00,18,-7,/player/248324/jarett-meyer,5,Jarett Meyer,D,2014-2015,ohl,248324,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69
+Aleks Rapp (RW),Guelph Storm,35,0,0,0,0.00,16,-7,/player/238728/aleks-rapp,5,Aleks Rapp,RW,2014-2015,ohl,238728,2026-09-28,eliteprospects.com via TopDownHockey_Scraper,6.1.69

@@ -1,0 +1,43 @@
+uncertainty_correction_v2.py v2.0 (2026-07-27)
+Re-measures review item 3.6 against the corrected rate.
+Reads the patch's own columns; reconstructs nothing.
+
+  rate in force: intercept $1.2652M, $2.0277M per win (F), $2.3018M per win (D)
+  contracts in the NPV spine: 2909
+  goalie contracts skipped (out of scope): 318
+  contract-seasons measured: 5712
+  consistency check passed on every row
+  seasons using the held-flat placeholder spread (k>3): 735 (12.9%)
+  rows whose position did not resolve to F or D: 0
+
+==========================================================================
+THE CORRECTION NOW IN FORCE
+==========================================================================
+  mean per contract:   $+0.1470M (at the old rate: $+0.0682M)
+  change vs the old-rate measurement: +116%
+  median per contract: $+0.0000M
+  largest:             $+2.9002M
+  contracts the correction moves from negative to positive: 35 (at the old rate: 9 of 921)
+
+  shape by projected production -- MUST fall as production rises:
+    <=0        n= 1410  mean correction $+0.1822M per season
+    0 to 0.5   n= 1642  mean correction $+0.1611M per season
+    0.5 to 1   n=  980  mean correction $+0.0805M per season
+    1 to 2     n= 1066  mean correction $+0.0235M per season
+    >2         n=  614  mean correction $+0.0011M per season
+
+  by position (defencemen carry a steeper slope, so a wider spread):
+    D: n= 2011  mean correction $+0.1608M per season
+    F: n= 3701  mean correction $+0.0818M per season
+
+  by contract length:
+    1yr  n=1369  mean correction $+0.0000M   mean NPV without $  +0.56M -> with $  +0.56M
+    2yr  n= 840  mean correction $+0.1431M   mean NPV without $  +0.63M -> with $  +0.78M
+    3yr  n= 257  mean correction $+0.2613M   mean NPV without $  -1.19M -> with $  -0.92M
+    4yr  n= 139  mean correction $+0.4498M   mean NPV without $  -6.11M -> with $  -5.67M
+    5yr  n=  73  mean correction $+0.4151M   mean NPV without $  -8.51M -> with $  -8.09M
+    6yr  n=  69  mean correction $+0.6222M   mean NPV without $ -14.08M -> with $ -13.46M
+    7yr  n=  61  mean correction $+0.7302M   mean NPV without $ -22.72M -> with $ -21.99M
+    8yr  n= 101  mean correction $+0.5940M   mean NPV without $ -26.94M -> with $ -26.35M
+
+  wrote uncertainty_correction_v2_rows.csv

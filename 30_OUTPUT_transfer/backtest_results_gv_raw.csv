@@ -1,0 +1,32 @@
+test,group,n_trades,estimate,lo95,hi95,p,n_assets,forecast_sum_M,outcome_sum_M,realised_sum_M,n_sides
+A. slope of outcome net on forecast net (1 = the forecast's gaps come true),all complete trades,563.0,0.7424204500092547,0.533019194292531,0.9704944032827671,0.0,,,,,
+A. correlation of forecast net and outcome net,all complete trades,563.0,0.5473062875808365,0.4037826676299179,0.6595410859822447,0.0,,,,,
+A. share of trades whose favoured club came out ahead (0.5 = a coin),all complete trades,563.0,0.5867620751341681,0.546590821812596,0.6281138790035588,0.0,,,,,
+"A, sensitivity: realised only (nothing revalued)",all complete trades,563.0,0.6857401621741932,0.46019781187698333,0.9321420163491794,0.0,,,,,
+"A, sensitivity: trades with a conditional pick left out",no conditional pick,470.0,0.7568813896554363,0.5142228089832168,0.9532419027642566,0.0,,,,,
+C7. slope by timing,in-season,330.0,0.5984609697103139,0.3944268110438514,0.954993613112528,0.0,,,,,
+C7. slope by timing,off-season,233.0,0.8226412544317904,0.541245232882297,1.0875755454411875,0.0,,,,,
+B. mean outcome minus forecast per asset,players,422.0,0.07019253990571891,-0.12102667096234153,0.2624278611286453,0.499,664.0,-662.0660137519852,-615.4581672545878,-610.7414254327734,
+B. mean outcome minus forecast per asset,picks,376.0,-0.14062676107039948,-0.2977472055020597,0.03506804244413505,0.108,633.0,406.17631374639905,317.1595739888362,260.30375838487674,
+B. mean outcome minus forecast per asset,prospects,190.0,0.12192255377485943,-0.12874492612026506,0.3885179749402508,0.368,253.0,77.48909041392002,108.33549651895945,108.38566991316324,
+B. mean outcome minus forecast per asset,retained,79.0,0.020020060734463642,-0.0034146874527824396,0.059449265039511714,0.185,87.0,-92.63216904071366,-90.89042375681532,-90.89042375681532,
+"B, decomposition (not in the protocol): players on the forecast's cap path",players,,0.10764956379991877,,,,664.0,-662.0660137519852,-590.5867033888392,,
+"B, sensitivity: picks on the sensitivity star value",picks,,-0.05990129208142538,,,,633.0,355.0770918763785,317.1595739888362,,
+C1. received the picks and prospects for players: forecast,g_futures,275.0,1.527194526542202,1.2242576562795984,1.8680000705514317,0.0,,,,,275.0
+C1. received the picks and prospects for players: outcome,g_futures,275.0,1.090853755102123,0.6414567547380698,1.5701439433864113,0.0,,,,,275.0
+C1. received the picks and prospects for players: outcome - forecast,g_futures,275.0,-0.436340771440079,-0.8232494770378159,-0.010553356998027171,0.044,,,,,275.0
+"C2. higher in the standings, in-season two-team trades: forecast",g_buyer,315.0,-0.5701916183356432,-0.808119948929875,-0.30410227796436706,0.0,,,,,315.0
+"C2. higher in the standings, in-season two-team trades: outcome",g_buyer,315.0,-0.46564171080975686,-0.828858864504085,-0.13294783648269765,0.006,,,,,315.0
+"C2. higher in the standings, in-season two-team trades: outcome - forecast",g_buyer,315.0,0.1045499075258864,-0.24395625705202306,0.4392348367780399,0.554,,,,,315.0
+C3. received a skater with a 3+ trailing WAR total: forecast,g_star,1.0,-0.7561814746286171,-0.7561814746286171,-0.7561814746286171,0.0,,,,,1.0
+C3. received a skater with a 3+ trailing WAR total: outcome,g_star,1.0,10.853932601239496,10.853932601239496,10.853932601239496,0.0,,,,,1.0
+C3. received a skater with a 3+ trailing WAR total: outcome - forecast,g_star,1.0,11.610114075868113,11.610114075868113,11.610114075868113,0.0,,,,,1.0
+C4. retained salary: forecast,g_retained,79.0,1.2895250211207299,0.6909945960486884,2.1146784857403835,0.0,,,,,86.0
+C4. retained salary: outcome,g_retained,79.0,1.4319541099425435,0.47341139459900144,2.5227223733867197,0.001,,,,,86.0
+C4. retained salary: outcome - forecast,g_retained,79.0,0.14242908882181365,-0.7392858003021648,1.0998517377536354,0.801,,,,,86.0
+C5. received nothing recorded: forecast,g_nothing_back,41.0,0.6307305792249569,0.13772576258242,1.3073008084213598,0.003,,,,,41.0
+C5. received nothing recorded: outcome,g_nothing_back,41.0,0.4638031598244783,0.11063983714510425,0.9302531558285648,0.0,,,,,41.0
+C5. received nothing recorded: outcome - forecast,g_nothing_back,41.0,-0.16692741940047856,-0.5910517915315263,0.1524958942315839,0.405,,,,,41.0
+C6. received a player with a no-trade or no-move clause: forecast,g_clause,62.0,-2.952116523558835,-4.066416914124669,-1.9898266673049092,0.0,,,,,66.0
+C6. received a player with a no-trade or no-move clause: outcome,g_clause,62.0,-2.570772207804886,-4.195690156166084,-1.305051467943596,0.0,,,,,66.0
+C6. received a player with a no-trade or no-move clause: outcome - forecast,g_clause,62.0,0.38134431575394917,-1.088012075002759,1.710719911004509,0.567,,,,,66.0
