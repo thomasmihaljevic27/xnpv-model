@@ -44,6 +44,10 @@ draft-year terms; "a" = years past first eligibility):
   age-adjusted points, straight line  P* = P (1 + d a); b P* + c P*^2   prospect_age_form_look.py's arm, again
   age-adjusted points, discounted     P* = P / y^a; b P* + c P*^2       points discounted at base y a year (X/y^z)
   production's value, discounted      (b P + c P^2) / y^a               the value from production discounted at base y
+  P(1 + P), discounted (v1.1)         b P (1 + P) / y^a                 Thomas, 2026-10-23: one coefficient on P + P^2
+                                                                        (the two tied 1:1), discounted at base y; one
+                                                                        coefficient fewer than adopted. Against the arm
+                                                                        above it measures the tie alone
   The last three are not linear in d or y. They are fitted by PROFILING: for each d (or log y) on a grid from -1.5 to
   1.5 in steps of 0.002, the other coefficients by least squares; the grid's best is refined by a bounded search
   between its two neighbours (scipy minimize_scalar, tolerance 1e-10). GUARD: the grid's best lies inside the grid.
@@ -83,7 +87,7 @@ from dotenv import load_dotenv
 from scipy.optimize import minimize_scalar
 from scipy.stats import norm as normal
 
-SCRIPT_VERSION = "prospect_age_discount_look.py v1.0 (2026-10-23)"
+SCRIPT_VERSION = "prospect_age_discount_look.py v1.1 (2026-10-23)"   # v1.1: the one-coefficient discounted form (Thomas)
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 LOG = []
@@ -113,9 +117,10 @@ ARMS = {"no_age": "no age",
         "pair": "production x age + age alone",
         "adj_line": "age-adjusted points, straight line",
         "adj_disc": "age-adjusted points, discounted",
-        "val_disc": "production's value, discounted"}
-PROFILED = ("adj_line", "adj_disc", "val_disc")
-LOGBASE = ("adj_disc", "val_disc")     # profiled on log y; reported as y
+        "val_disc": "production's value, discounted",
+        "one_disc": "P(1 + P), discounted, one coefficient"}
+PROFILED = ("adj_line", "adj_disc", "val_disc", "one_disc")
+LOGBASE = ("adj_disc", "val_disc", "one_disc")     # profiled on log y; reported as y
 OLD_FORM = {"no_age": "no age", "adopted": "production x age (adopted)",
             "adj_line": "age-adjusted points in both terms"}   # prospect_age_form_look.py's names for the guard
 
@@ -165,6 +170,8 @@ def design(arm, A, g, theta=None):
     if arm == "val_disc":                                 # (b P + c P^2) / y^a
         m = np.exp(-theta * a)
         return np.column_stack(cols + [P * m, P2 * m]), names + ["nhle82", "nhle82_sq"]
+    if arm == "one_disc":                                 # b P (1 + P) / y^a: the linear and squared terms tied 1:1
+        return np.column_stack(cols + [(P + P2) * np.exp(-theta * a)]), names + ["p_1_plus_p"]
     raise ValueError(arm)
 
 
@@ -309,7 +316,7 @@ S = pd.DataFrame(scores)
 
 # ---- statistical significance ---------------------------------------------------------------------------------
 SHORT = {"p_star": "star", "nhle82": "P", "nhle82_sq": "P^2", "prod_x_age": "P x age", "age": "age", "d": "d",
-         "y": "y"}
+         "y": "y", "p_1_plus_p": "P(1+P)"}
 log("\nCOEFFICIENTS AND SIGNIFICANCE, D+1 TO D+4 (age centred at 18; $M; robust standard errors in brackets; p two-")
 log("sided; for y the test is y = 1, no discount; for d, d = 0; star chance omitted from the display)")
 coef = []
