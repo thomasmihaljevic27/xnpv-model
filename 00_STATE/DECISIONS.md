@@ -3765,3 +3765,18 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   appendix and Thomas's edits kept. `25_TESTS/pick_choices_current.py` v1.0 re-measured Appendix C's five qualifying-offer-era
   effects on the arbitration cost. MANIFEST updated. Session log: sessions/2026-10-22.md.
 
+### Change log, 2026-10-23 (Stata data for the pick and prospect regressions)
+
+- TOOL (Thomas: "create a small handful of master csvs that I can use when in stata"): `20_CODE/stata_export.py` v1.0
+  writes the pick curve's and the prospect model's regression data to `30_OUTPUT/stata/` (draft_players.csv,
+  prospect_seasons.csv, production_seasons.csv) from prospect_values' own functions, and refits the pick curve and
+  "Valuing Prospects" Tables 2 and 9 from the CSVs (all five checks PASS on prospect_values v1.12, pick_curve v1.11).
+  Codebook: `40_DOCS/Stata_Data_Codebook.md`. No model change. CLAUDE.md: the run line and two rules (wait for data Thomas
+  can supply; no Stata runs unasked). MANIFEST: two rows. Session log: sessions/2026-10-23.md.
+
+- TOOL (Thomas: "you should probably create stata csvs for everything"; scope and "every page" his): 
+  `20_CODE/stata_export_players.py` v1.0 (the skater and goalie price lines; the games share, chance of playing and goalie
+  age term on every page 2010-2026) and `20_CODE/stata_export_backtest.py` v1.0 (the back-test's tests A, B and C for the
+  WAR and both Game Value runs; Game Value's validation regressions and goals per win). Every refit from the CSVs equals
+  the model (the locked lines to 1e-8, the page fits to 1e-9 and 1e-6, the back-test's 29 estimates a run to 1e-9).
+  No model change. Codebook rewritten for all fourteen CSVs; CLAUDE.md run line; MANIFEST rows.

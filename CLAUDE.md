@@ -173,6 +173,14 @@ first: `$env:XNPV_OUTCOME_METRIC = "gv_adj"`, and remove it afterwards (`Remove-
 Its rules, tests and groups are in `40_DOCS/Backtest_Protocol.md`, committed before the first run; a change to any of
 them after a run goes in as a dated amendment saying what changed and why.
 
+Stata data (2026-10-23): every regression's rows as CSVs in `30_OUTPUT/stata/`, from three scripts, each run after
+what it reads: `python 20_CODE/stata_export.py` (the pick curve and the prospect model; after `prospect_values.py`, about
+two minutes), `python 20_CODE/stata_export_players.py` (the skater and goalie price lines, and the games share, chance of
+playing and goalie age term on every page 2010-2026; after the dashboard chain, about two minutes) and
+`python 20_CODE/stata_export_backtest.py` (the back-test's tests and Game Value's regressions; after `backtest.py` and its
+Game Value runs). Each refits its regressions from the CSVs as written and stops on any difference from the model.
+Columns, samples, the equations and Stata commands: `40_DOCS/Stata_Data_Codebook.md`.
+
 To answer questions about the curve on the spot: `python 25_TESTS/pick_lookup.py --help`. Each finding in
 `Valuing Draft Picks.docx`, with its command and expected value: `40_DOCS/Valuing_Draft_Picks_Reproduction.md`.
 `draft_pick_linkage.py` v1.2 (2026-10-18, commit bc8db88) added sixteen hand-verified WAR spellings; the four finished
@@ -607,6 +615,13 @@ tests pinned to the old prospect rows (`prospect_curve_vs_line.py`, `prospect_pr
   previous and last meaning final" (2026-10-21).
 - **Don't run several tested figures through a paragraph.** Four errors and two p-values in prose drew "Shit like this
   is where a table is helpful" (2026-10-21); so did a list of five comparable players with their weights.
+- **Don't build around data Thomas can supply.** The desktop lacked the laptop's outputs and the Elite Prospects
+  database; the export was written and tested on made-up data in a scratch copy instead. Thomas: "you said yourself this
+  desktop is missing data you need, why not just let me transfer data first?" (2026-10-23). When a machine is missing an
+  input, stop, list the exact files and the version line each should show, and wait for him to copy them.
+- **Don't run Stata unasked.** A check of the export in Stata batch mode drew "why are you running stata commands?"
+  (2026-10-23). Running the regressions in Stata is Thomas's work for the supervisor, who asked to see him run them; the
+  model's checks run in Python. Write Stata commands for him to run, and say they are untested in Stata.
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised
