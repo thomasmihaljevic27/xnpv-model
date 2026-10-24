@@ -8,6 +8,22 @@
 
 ## Live (audited 2026-10-14)
 
+**From the supervisor meeting of 2026-10-23 (session 2026-10-23 has the full list in Thomas's words).** Before Tuesday
+2026-10-27, when the supervisor prints the document:
+1. Do: test the prospect model's age term as age on its own and as age-adjusted production with its square, against
+   production x (age - 18); Thomas added "some form of actual discounting (X/y^z)". **Run 2026-10-23**
+   (`25_TESTS/prospect_age_discount_look.py` v1.0; session 2026-10-23, its last section). Decide (Thomas): which age
+   form the model uses. Nothing in the model changed.
+2. Do: rerun everything downstream once the age form is decided.
+3. Do: R-squared, statistical significance and economic significance as the main fit measures in the document; held-out
+   error at most a supplementary note.
+4. Do: write each regression's equation out in full.
+5. Do: reword the defencemen test ("a separate regression was run using a defenceman dummy interacted with production").
+6. Do: send the updated "Valuing Prospects".
+After the supervisor's trip and Thomas's two exams: Thomas runs every regression in the document in Stata in front of
+the supervisor (the data: `30_OUTPUT/stata/`). Loose threads: Nick Suzuki's dashboard value (-$0.03M); the supervisor
+wants trade values soon.
+
 **Done 2026-10-21: the round-2 model work (session 2026-10-21).** The forecast audit's decisions, the re-lock, the
 whole-term pricing test (not adopted; to be stated as tested in the player document), goalie birthdates from the NHL,
 the prospect model without the no-record indicator, the goaltender rebuild (age term, chance of playing by season ahead,
@@ -30,10 +46,11 @@ and prospects for players gains in forecast and outcome. Next, in order:
 2a. Done 2026-10-20: LTIR relief built from Spotrac's pages and adopted ("Label + CBA test"); the back-test's slope
    0.741, the players' shortfall gone (session 2026-10-20). Not done: a third reading (label plus season-ending IR spells
    only) was offered and not chosen.
-3. Decide (Thomas): whether to run draftee costs at actual pay as a sensitivity for the futures-for-players group (the
-   costing flag of 2026-10-09 bears on it directly).
-4. Decide (Thomas): the declared star group (3+ trailing WAR) holds one club side; whether a lower line is run, labelled
-   as chosen after the run.
+3. Decided 2026-10-23 (Thomas: "No don't run draftee costs at actual pay"): no actual-pay sensitivity for the
+   futures-for-players group.
+4. Decided 2026-10-23 (Thomas: "don't include the star line at all in the back test but we can revisit that later"):
+   the star group is left out of the back-test's reported results (protocol amendment 5). `backtest.py` v1.6 still
+   computes it; the code is unchanged until the back-test is next edited. Later (Thomas): revisit the star group.
 
 **Done 2026-10-20 (adopted; Thomas: "Adopt both"): the back-test's three accounting rules, built on the contract-table fix (session log 2026-10-18, its 2026-10-20 section).** Details: the season left in days, on value and cap (the last day from the schedule published before the season); prospects keep the full season; the retaining club pays the retained part. Laptop: the join at the 2025-26 cap $-525.63M -> $-357.29M ($-534.21M with the contract fix alone). The 15 retentions recorded only in the ledger's text were added the same day (below). Decided 2026-10-19 (Thomas):
 1. "2025-26": every value is added at the 2025-26 cap (`trade_asset_values.csv`'s `value_2025_cap_M`).
@@ -106,9 +123,9 @@ received less given up: Montreal +$2.70M, Vegas -$2.70M at the 2025-26 cap). His
 `40_DOCS/Valuing_Players_Feedback.md`; his annotated v2 is in `90_ARCHIVE/2026-10-21/`. Then decide (Thomas):
 - Draft intercepts in the pick curve: an intercept for each draft is jointly statistically significant at 5% (p = 0.020)
   and does not predict left-out drafts better (one-sided p = 0.719 on 2026-10-21 data). The document gives as the reason
-  for leaving them out that a pick traded before its draft has no intercept of its own (Claude's wording): confirm or
-  replace it.
-- Check the five references the document cites (Efron and Morris 1975; Nadaraya 1964; Papke and Wooldridge 1996; Tobin
+  for leaving them out that a pick traded before its draft has no intercept of its own (Claude's wording). **Confirmed
+  2026-10-23 (Thomas).**
+- Later (Thomas, 2026-10-23: "i'll check later the doc is provisional atp anyways"): check the five references the document cites (Efron and Morris 1975; Nadaraya 1964; Papke and Wooldridge 1996; Tobin
   1958; Watson 1964).
 (Done since v2: the same-day extension left out and the 15 text-only retentions charged, both 2026-10-20; the cap at
 which a trade's sides are added, 2025-26, 2026-10-19.)

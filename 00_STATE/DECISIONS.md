@@ -3780,3 +3780,14 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   WAR and both Game Value runs; Game Value's validation regressions and goals per win). Every refit from the CSVs equals
   the model (the locked lines to 1e-8, the page fits to 1e-9 and 1e-6, the back-test's 29 estimates a run to 1e-9).
   No model change. Codebook rewritten for all fourteen CSVs; CLAUDE.md run line; MANIFEST rows.
+
+### Change log, 2026-10-23b (back-test and document items decided; the age tests run)
+
+- DECIDED (Thomas): no draftee-costs-at-actual-pay sensitivity; the star group left out of the back-test's reported
+  results, to revisit later (`40_DOCS/Backtest_Protocol.md` amendment 5; `backtest.py` unchanged); the reason for no
+  draft intercepts in the pick curve confirmed; the five references to be checked later.
+- TEST (the supervisor meeting's action item; Thomas: "some form of actual discounting (X/y^z)"):
+  `25_TESTS/prospect_age_discount_look.py` v1.0 scores age alone, age-adjusted points (a straight-line markdown and a
+  discount P / y^age) and production's value discounted against production x age, on R-squared, significance (the
+  discount's by resampling players) and economic significance, held-out error beside. No model change; the form is
+  Thomas's decision. WORK_QUEUE: the meeting's action items added. MANIFEST: one row. Session log: sessions/2026-10-23.md.

@@ -111,6 +111,10 @@ an outcome was measured; none changes a group, a test or a sensitivity. The firs
 4. **The qualifying-offer look-ahead** (v1.3; Thomas: "Fix the QO look ahead"). The forecast reads "UFA no QO" only
    once the club's decision is known; the outcome reads the label itself (no control seasons for a player the club
    did not qualify).
+5. **The star group set aside** (2026-10-23; Thomas: "don't include the star line at all in the back test but we can
+   revisit that later"). Group C3 (the club that received a skater with a 3+ trailing WAR total) holds one club side
+   in the run, too few to test. It is left out of the reported results; no lower line is substituted. `backtest.py`
+   v1.6 still computes it. Changes a group, unlike amendments 1 to 4.
 
 ## The Game Value check (declared 2026-10-20, before it was run; Thomas: "Run the Game Value check on the back-test's outcomes, as the protocol says")
 

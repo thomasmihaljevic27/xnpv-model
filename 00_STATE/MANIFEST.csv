@@ -420,3 +420,4 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 40_DOCS,Stata_Data_Codebook.md,model,hashable,2026-10-23,8ceb7e704b580a58496bb105239c9bc47237b3c0,24831,2026-10-23,yes,git,"the Stata CSVs (all fourteen): columns, samples, equations, commands"
 20_CODE,stata_export_players.py,model,hashable,2026-10-23,7be211ffac0b3892bd62849b042cea7ac57ecaab,21118,2026-10-23,yes,git,"v1.0: the player model's regressions (price lines; forecast pieces every page) as CSVs for Stata"
 20_CODE,stata_export_backtest.py,model,hashable,2026-10-23,029b974b22a8c9911f01627336882afc6d2c5c4d,13986,2026-10-23,yes,git,"v1.0: the back-test's tests and Game Value's regressions as CSVs for Stata"
+25_TESTS,prospect_age_discount_look.py,prospect,hashable,2026-10-23,6e69b7ad356a27c9c82161617a813cc7676b047d,33875,2026-10-23,yes,git,"v1.0: the meeting's age forms and discounting (X/y^z); report only"
