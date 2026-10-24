@@ -1023,7 +1023,9 @@ minus the seasons since his draft minus 18.5 (within a season group, "older now"
   (p = 0.62) or D+5 on (p = 0.076), kept there because every term varies by season. Added on the supervisor's measures
   (significance decides; held-out error a supplementary note). Which rule governs later choices (that one, or held-out
   error deciding) was put to Thomas and not answered in words. Not added: defenceman x production squared (with it, p = 0.106), defenceman x star chance
-  (p = 0.139). The pick curve's defenceman x star chance (p = 0.002) is not adopted: open.
+  (p = 0.139). The pick curve's defenceman x star chance (p = 0.002) is not adopted (Thomas, 2026-10-24: "Keep one star
+  value in the pick curve; report the defenceman result in the document as tested (a pick traded before its draft has
+  no position)").
 
 ---
 

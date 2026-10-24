@@ -3822,3 +3822,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   `backtest.py` v1.7 and both Game Value runs (slope 0.748; verdicts unchanged), `stata_export.py` v1.1 and
   `stata_export_backtest.py` (PASS). Traded prospects: drafted $76.28M, undrafted $7.09M. PROJECT_STATE (prospects,
   back-test rows), WORK_QUEUE item 5, codebook, MANIFEST, CLAUDE.md (one rule), session log sessions/2026-10-23.md.
+
+### Change log, 2026-10-24e (one star value in the pick curve)
+
+- DECIDED (Thomas): the pick curve keeps one star value; defenceman x star chance (p = 0.002) reported in the document as
+  tested, a pick traded before its draft having no position. No code change. Session log sessions/2026-10-23.md.
