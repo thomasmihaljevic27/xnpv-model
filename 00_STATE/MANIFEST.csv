@@ -422,3 +422,4 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 20_CODE,stata_export_backtest.py,model,hashable,2026-10-23,029b974b22a8c9911f01627336882afc6d2c5c4d,13986,2026-10-23,yes,git,"v1.0: the back-test's tests and Game Value's regressions as CSVs for Stata"
 25_TESTS,prospect_age_discount_look.py,prospect,hashable,2026-10-23,127f48a513b1d8f46d46035668218d54e9bdca5f,34719,2026-10-23,yes,git,"v1.1: + the one-coefficient discounted form P(1+P)/y^age (Thomas); report only"
 25_TESTS,prospect_pooled_terms_look.py,prospect,hashable,2026-10-24,24fd3fab70f0e1221af6010ce4154fac2a10b2c4,20523,2026-10-24,yes,git,"v1.0: each prospect term by season or pooled; report only"
+25_TESTS,defence_terms_look.py,draft,hashable,2026-10-24,bcf7e5656047610446365beffc154cc7d8f3c8e9,20461,2026-10-24,yes,git,"v1.0: defenceman (and goaltender) terms in the pick curve and prospect model; report only"

@@ -3806,3 +3806,11 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - DECIDED (Thomas: "for now I will say to keep the model as is"): production x age stays the prospect model's age term;
   the discount forms are recorded as tested (MODEL_DIRECTIVES directive 6). No code change, no rerun. WORK_QUEUE items 1
   and 2 closed. Session log: sessions/2026-10-23.md.
+
+### Change log, 2026-10-24c (defenceman terms in the pick curve and the prospect model)
+
+- TEST (Thomas: "i want you to run all those tests"): `25_TESTS/defence_terms_look.py` v1.0. Pick curve: defenceman x
+  star chance statistically significant (p = 0.002; defencemen $11.15M against $21.04M); with goaltender x star chance,
+  goaltenders $70.97M. Prospect model: defenceman x production jointly significant (p = 0.033), held-out not better at 5%;
+  defenceman x star chance not (p = 0.139). No model change; Thomas decides. WORK_QUEUE item 5, MANIFEST, session log
+  sessions/2026-10-23.md.
