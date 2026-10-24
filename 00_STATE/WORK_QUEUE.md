@@ -14,6 +14,10 @@
    production x (age - 18); Thomas added "some form of actual discounting (X/y^z)". **Run 2026-10-23**
    (`25_TESTS/prospect_age_discount_look.py` v1.0; session 2026-10-23, its last section). Decide (Thomas): which age
    form the model uses. Nothing in the model changed.
+1a. Done 2026-10-24 (Thomas: "you might as well run a test"): whether every term needs its own coefficient in each
+   season after the draft (`25_TESTS/prospect_pooled_terms_look.py` v1.0). The adopted model, every term by season, is
+   best on R-squared, adjusted R-squared and held-out error; pooling production across seasons is rejected (Wald
+   p = 3.2e-07), pooling the age term too (p = 0.018). No change.
 2. Do: rerun everything downstream once the age form is decided.
 3. Do: R-squared, statistical significance and economic significance as the main fit measures in the document; held-out
    error at most a supplementary note.

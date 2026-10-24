@@ -3791,3 +3791,12 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   discount P / y^age) and production's value discounted against production x age, on R-squared, significance (the
   discount's by resampling players) and economic significance, held-out error beside. No model change; the form is
   Thomas's decision. WORK_QUEUE: the meeting's action items added. MANIFEST: one row. Session log: sessions/2026-10-23.md.
+
+### Change log, 2026-10-24 (do the prospect terms need their own coefficient each season?)
+
+- TEST (Thomas, from the supervisor's question): `25_TESTS/prospect_pooled_terms_look.py` v1.0 pools production, the
+  age term, or both across the seasons after the draft (only the star chance by season in the last). The adopted model,
+  every term by season, is best on R-squared (0.1998 against 0.1577 to 0.1983), adjusted R-squared and held-out error;
+  equal coefficients are rejected for production (Wald p = 3.2e-07) and the age term (p = 0.018). Verdicts checked under
+  three age measures. No model change. Also: the y profile and the Stata steps for the discounted-points form (chat).
+  WORK_QUEUE, MANIFEST, session log sessions/2026-10-23.md.
