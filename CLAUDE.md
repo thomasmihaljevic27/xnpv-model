@@ -541,6 +541,11 @@ tests pinned to the old prospect rows (`prospect_curve_vs_line.py`, `prospect_pr
   the code kept fitting each season alone. Thomas: "Just make the regression actually be the interaction terms. I
   feel like I've said this multiple times" (2026-10-16). Change the code to run the asked-for method, keep the old
   route only as a guard, and describe what runs.
+- **Don't define an interaction's indicator by its value alone; say what kind of variable it is and what it does to the
+  coefficient.** "I_{nt} equals 1 when season t is D+n and 0 otherwise" read to Thomas as true of every season any player
+  plays ("Sidney Crosby is in his D+21"). He asked for: "I is a set of dummy variables for D+1 to D+5, each which will do XYZ
+  to the coefficient theta" (2026-10-27). Name the set of dummies and its groups, say that exactly one is 1 for each row,
+  and say that interacting it with the term gives that term a separate coefficient in each group, which is estimated.
 - **Don't write "reliable" for a test result.** Thomas: "Be specific. You mean statistically significant"
   (2026-10-16). Say "statistically significant at the 5% level", with the p-value.
 - **Don't introduce rejected alternatives as if the model used them.** "Three simpler rules each restrict how the
