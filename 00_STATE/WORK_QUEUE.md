@@ -20,9 +20,14 @@
    best on R-squared, adjusted R-squared and held-out error; pooling production across seasons is rejected (Wald
    p = 3.2e-07), pooling the age term too (p = 0.018). No change.
 2. Not needed (2026-10-24): the age form is unchanged, so nothing downstream moves.
-3. Do: R-squared, statistical significance and economic significance as the main fit measures in the document; held-out
-   error at most a supplementary note.
-4. Do: write each regression's equation out in full.
+3. Done 2026-10-27 ("Valuing Prospects" v4.0, session 2026-10-27): R-squared (from zero), Wald tests of the added terms
+   and dollars on the traded prospects as the fit measures; held-out error a last column in each table.
+4. Done 2026-10-27: each regression's equation in full, as Word equations, each time a term is added; the remaining NPV
+   formula with its cap restatement in the opening.
+4a. Read (Thomas), new in v4.0 under the significance rule: the straight-line fade of the star value is not rejected
+   (equal drops D+1 to D+4, p = 0.070; the separate values kept for the two stated reasons); production squared from
+   D+5 on is significant alone (p = 0.047) while the pair is not (p = 0.138); one version without linear production
+   (age from 18) has a slightly lower held-out error (2.1965 against 2.1970). Each is stated in the document.
 5. Do: reword the defencemen test ("a separate regression was run using a defenceman dummy interacted with production").
    Re-run 2026-10-24 on the model as it now stands (Thomas: "i want you to run all those tests"; `25_TESTS/
    defence_terms_look.py` v1.0, which also tests the star chance by position in the pick curve and the prospect model).
@@ -32,8 +37,11 @@
    (defencemen's star value $11.15M against forwards' $21.04M, p = 0.002) is reported in the document as tested, with
    the reason: a pick traded before its draft has no position. Decide (Thomas): which rule
    governs model choices from here: significance decides with held-out error a note (the supervisor's), or held-out
-   error decides.
-6. Do: send the updated "Valuing Prospects".
+   error decides. ("Valuing Prospects" v4.0 is written on the supervisor's rule, 2026-10-27.) The wording, the
+   defenceman section (Section 4) and the pick curve's result as tested: done in v4.0, 2026-10-27.
+6. Do (Thomas): read "Valuing Prospects" v4.0 (built 2026-10-27, 19 pages), then send it.
+6a. Later: the codebook gives Stata commands for the adopted model and the build-up only; v4.0's new comparisons (the
+   Wald tests of Tables 3, 6, 8, 11 and 12) have none yet.
 After the supervisor's trip and Thomas's two exams: Thomas runs every regression in the document in Stata in front of
 the supervisor (the data: `30_OUTPUT/stata/`). Loose threads: Nick Suzuki's dashboard value (-$0.03M); the supervisor
 wants trade values soon.

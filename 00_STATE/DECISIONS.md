@@ -3827,3 +3827,16 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 
 - DECIDED (Thomas): the pick curve keeps one star value; defenceman x star chance (p = 0.002) reported in the document as
   tested, a pick traded before its draft having no position. No code change. Session log sessions/2026-10-23.md.
+
+### Change log, 2026-10-27 ("Valuing Prospects" v4.0)
+
+- DOCUMENT (Thomas: "rebuild Valuing Prospects now with all of those changes, carrying my Word edits into the builder"):
+  `25_TESTS/prospect_doc_figures.py` v4.0 fits every model the document compares with one engine on the 12,996
+  prospect-seasons (R-squared from zero, adjusted, Wald tests clustered by player, traded totals, held-out error); guards
+  PASS (the adopted model's columns, fitted values and each traded prospect's value; seven held-out errors, three
+  R-squared and the defenceman test reproduce their recorded tests). `25_TESTS/prospect_model_doc.js` v4.0 builds
+  `40_DOCS/Supervisor_Drafts/Valuing Prospects.docx` (19 pages): the meeting of 2026-10-23's measures and full equations;
+  Section 4 Defencemen (the meeting's wording; the pick curve's position result as tested); the age-form and pooled-terms
+  tests; xNPV / remaining NPV for "surplus"; Thomas's v3.0 Word edits carried in and checked present. No model change.
+  His edited v3.0 is in git (acc5d67) and `90_ARCHIVE/2026-10-27/`. Codebook table numbers updated. MANIFEST four rows.
+  WORK_QUEUE items 3 to 6. Session log sessions/2026-10-27.md.

@@ -20,7 +20,7 @@ date and term). Check PuckPedia's terms before giving them to anyone.
 | Regression | Files | Section |
 |---|---|---|
 | The draft pick curve | draft_players.csv | 1 |
-| The prospect model (Valuing Prospects Tables 2, 6, 9 and 10) | prospect_seasons.csv, production_seasons.csv | 1 |
+| The prospect model (Valuing Prospects v4.0 Tables 1, 4, 9 and 10; v3.0 numbered them 2, 6, 9 and 10) | prospect_seasons.csv, production_seasons.csv | 1 |
 | The skater and goalie price lines | price_line_skaters.csv, price_line_goalies.csv | 2 |
 | The skater games share and chance of playing, every page | skater_forecast_pairs.csv, forecast_fits.csv | 2 |
 | The goalie age term and chance of playing, every page | goalie_age_rows.csv, goalie_play_rows.csv, forecast_fits.csv | 2 |
@@ -160,14 +160,14 @@ through-zero form.
     import delimited using "draft_players.csv", clear
     regress career_npv_m p_star if excluded_deceased == 0, noconstant vce(robust)
 
-### 2. The star value by season (Valuing Prospects, Table 2)
+### 2. The star value by season (Valuing Prospects v4.0, Table 1)
 
     remaining NPV = sum over n of a_n x S x 1[D+n] + error,    n = 1, 2, 3, 4, and 5 and later
 
     import delimited using "prospect_seasons.csv", clear
     regress remaining_npv_m ibn.season_group#c.p_star if sample_star == 1, noconstant vce(cluster player_id)
 
-### 3. Draft position and linear and squared production, before age (Table 6)
+### 3. Draft position and linear and squared production, before age (Table 4)
 
     remaining NPV = sum over n of (a_n x S + b_n x P + c_n x P^2) x 1[D+n] + error
 
@@ -181,7 +181,7 @@ season (added 2026-10-24):
 
     remaining NPV = sum over n = 1..3 of a_n x S x 1[D+n]
                   + sum over all n of (b_n x P + c_n x P^2 + f_n x D x P) x 1[D+n]
-                  + sum over n = 1..4 of e_n x P x (A - 18) x 1[D+n] + error
+                  + sum over n = 1..4 of d_n x P x (A - 18) x 1[D+n] + error
 
     generate s_early  = p_star * (season_group <= 3)
     generate age_term = prod_x_age_m18 * (season_group <= 4)
@@ -207,7 +207,7 @@ coefficients are the table's column; its standard errors are clustered by player
     regress remaining_npv_m ibn.season_group#c.(p_star nhle82) if sample_production == 1, noconstant vce(cluster player_id)
     regress remaining_npv_m ibn.season_group#c.(p_star nhle82 nhle82_sq) if sample_production == 1, noconstant vce(cluster player_id)
 
-Column (4) adds the age term. The adopted model (section 4) adds production for defencemen to it.
+Column (4) adds the age term; column (5), the adopted model (section 4), adds production for defencemen to it.
 
 ### 6. A defenceman dummy interacted with production
 
