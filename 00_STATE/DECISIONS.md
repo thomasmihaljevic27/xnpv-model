@@ -3847,3 +3847,10 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   carried in (his copy committed before the rebuild); the pooled-terms section and the discounted-points table cut, the
   Defencemen section trimmed; 5,581 words, 18 pages. No model change. MANIFEST two rows, WORK_QUEUE item 6, session log
   sessions/2026-10-27.md.
+
+### Change log, 2026-10-27c ("Valuing Prospects" v4.2)
+
+- DOCUMENT: Thomas's Word edits of v4.1 carried into `prospect_model_doc.js` v4.2 (his copy committed first, 43b4ecb);
+  his two comments answered: the same percentage decline of the star value tested (`prospect_doc_figures.py` v4.1,
+  delta-method Wald, p = 0.094, not rejected) and "the season he was drafted (D0)". No model change. MANIFEST three rows,
+  WORK_QUEUE item 6, session log sessions/2026-10-27.md.

@@ -68,7 +68,7 @@ import matplotlib                                                  # noqa: E402
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt                                    # noqa: E402
 
-SCRIPT_VERSION = "prospect_doc_figures.py v4.0 (2026-10-27)"   # v4.0: one engine for every model; R-squared, Wald tests, dollars; defenceman x production
+SCRIPT_VERSION = "prospect_doc_figures.py v4.1 (2026-10-27)"   # v4.1: the same-percentage test; v4.0: one engine for every model; R-squared, Wald tests, dollars; defenceman x production
 OUT, SRC = Path(os.environ["OUTPUT_DIR"]), Path(os.environ["SOURCE_DIR"])
 FIG = OUT / "prospect_doc"
 FIG.mkdir(exist_ok=True)
@@ -136,6 +136,24 @@ for i in range(4):
     Rm[i, i], Rm[i, i + 1] = 1.0, -1.0
 w = m_s.wald_test(Rm, use_f=False, scalar=True)
 N["fade_wald_one"] = {"chi2": float(w.statistic), "df": 4, "p": float(w.pvalue)}
+# v4.1 (Thomas, 2026-10-27: "Might as well do a test"): the same percentage decline as a restriction of the adopted
+# star values, as the equal-drops test is: the same share kept from D+1 to D+2, D+2 to D+3 and D+3 to D+4, i.e.
+# t2/t1 = t3/t2 = t4/t3, written g = (t2^2 - t1 t3, t3^2 - t2 t4) = 0. Non-linear, so a delta-method Wald test:
+# chi2 = g' (J V J')^-1 g, J the Jacobian of g, V the clustered covariance of the five star values (2 restrictions).
+th, V_ = np.asarray(m_s.params), np.asarray(m_s.cov_params())
+g_ = np.array([th[1] ** 2 - th[0] * th[2], th[2] ** 2 - th[1] * th[3]])
+J_ = np.array([[-th[2], 2 * th[1], -th[0], 0.0, 0.0], [0.0, -th[3], 2 * th[2], -th[1], 0.0]])
+chi_r = float(g_ @ np.linalg.solve(J_ @ V_ @ J_.T, g_))
+from scipy import stats as _st                                       # noqa: E402
+N["fade_wald_ratio"] = {"chi2": chi_r, "df": 2, "p": float(_st.chi2.sf(chi_r, 2)),
+                        "shares": [float(th[1] / th[0]), float(th[2] / th[1]), float(th[3] / th[2])]}
+# the same delta-method form reproduces the equal-drops test (a linear restriction, so it must equal it exactly)
+gl = np.array([th[1] - th[0] - (th[2] - th[1]), th[2] - th[1] - (th[3] - th[2])])
+Jl = np.array([[1.0, -2.0, 1.0, 0.0, 0.0], [0.0, 1.0, -2.0, 1.0, 0.0]])
+chi_l = float(gl @ np.linalg.solve(Jl @ V_ @ Jl.T, gl))
+assert abs(chi_l - N["fade_wald_steps"]["chi2"]) < 1e-6, (chi_l, N["fade_wald_steps"]["chi2"])   # GUARD
+print(f"  same percentage decline, D+1 to D+4: chi2(2) = {chi_r:.2f}, p = {N['fade_wald_ratio']['p']:.3g} "
+      f"(guard: the equal-drops test reproduced, chi2 {chi_l:.4f})")
 N["star_r2_by_k"] = {g: 1 - float(np.sum((y_s[srows["k_group"].values == g]
                                          - st_s[g][0][0] * srows["p_star"].values[srows["k_group"].values == g]) ** 2))
                      / float(np.sum(y_s[srows["k_group"].values == g] ** 2)) for g in GROUPS}
