@@ -1,5 +1,6 @@
-// prospect_model_doc.js v4.3 -- builds "Valuing Prospects.docx" (40_DOCS/Supervisor_Drafts/).
+// prospect_model_doc.js v4.4 -- builds "Valuing Prospects.docx" (40_DOCS/Supervisor_Drafts/).
 //
+// v4.4 (2026-10-27): Thomas's Word edit of v4.3 (14:11) carried in: no Coefficients column in Tables 2, 3, 5 and 6.
 // v4.3 (2026-10-27, session 2026-10-27; Thomas: "Apply cuts 1 to 19 and the 2,316 fix"): the before-age coefficient table
 // cut (it is column (3) of the build-up tables); no adjusted R-squared columns; Table 3's candidate (5) cut and the
 // candidates renumbered; Table 7 without the undrafted column; Table 8 without the Drafts row; the #10 example, the top-ten
@@ -184,10 +185,10 @@ const drafted = (nm) => MT[nm].drafted;
 const kids = [];
 const add = (...xs) => xs.flat().forEach((x) => kids.push(x));
 // a model row for a comparison table: coefficients, R-squared, adjusted, test, traded drafted, held-out
-const mrow = (label, nm, test) => [label, comma(M[nm].n_coef), f4(M[nm].r2), test, f2(drafted(nm)), f4(M[nm].rmse)];
-const MHEAD = ["Model", "Coefficients", "R-squared", "Test of the added terms (p)", `${TR.drafted} traded drafted prospects ($M)`, "Held-out error ($M)"];
-const MW = [3800, 1050, 1000, 1900, 1400, 1100];
-const mbold = (names) => bestKeys(names.map((nm) => [null, null, M[nm].r2]), [2]);
+const mrow = (label, nm, test) => [label, f4(M[nm].r2), test, f2(drafted(nm)), f4(M[nm].rmse)];
+const MHEAD = ["Model", "R-squared", "Test of the added terms (p)", `${TR.drafted} traded drafted prospects ($M)`, "Held-out error ($M)"];
+const MW = [4300, 1100, 2150, 1500, 1150];
+const mbold = (names) => bestKeys(names.map((nm) => [null, M[nm].r2]), [1]);
 
 add(new Paragraph({ spacing: { after: 40 }, children: [new TextRun({ text: "Valuing Prospects", bold: true, size: 40, font: FONT })] }));
 
@@ -226,10 +227,10 @@ const fadeRows = [["A separate value for each season (adopted: a full set of int
   ["Straight-line decline (one interaction term)", "straight line", `${f3(N.fade_wald_steps.p)} (equal drops, D+1 to D+4)`],
   ["Same percentage decline each season", "same percentage", `${f3(N.fade_wald_ratio.p)} (equal shares, D+1 to D+4)`]];
 add(TT("fade", "Each alternative for the star value against the adopted one"));
-add(TABLE(["Alternative", "Coefficients", "R-squared", "Test against the adopted model (p)", "Star value, D+5 ($M)", `${TR.drafted} traded prospects, draft position alone ($M)`, "Values below zero", "Held-out error ($M)"],
-  fadeRows.map(([lab, r, t]) => [lab, comma(FR[r].params), f4(FR[r].r2), t, f2(N.fade_curve[r][4]), f2(FS[r].total), comma(FS[r].below_zero), f4(FS[r].rmse)]),
-  [2800, 950, 950, 1650, 950, 1350, 900, 950], [1, 2, 4, 5, 6, 7],
-  bestKeys(fadeRows.map(([, r]) => [null, null, FR[r].r2]), [2])));
+add(TABLE(["Alternative", "R-squared", "Test against the adopted model (p)", "Star value, D+5 ($M)", `${TR.drafted} traded prospects, draft position alone ($M)`, "Values below zero", "Held-out error ($M)"],
+  fadeRows.map(([lab, r, t]) => [lab, f4(FR[r].r2), t, f2(N.fade_curve[r][4]), f2(FS[r].total), comma(FS[r].below_zero), f4(FS[r].rmse)]),
+  [3200, 950, 1750, 950, 1400, 950, 1000], [1, 3, 4, 5, 6],
+  bestKeys(fadeRows.map(([, r]) => [null, FR[r].r2]), [1])));
 add(CAPTION(`R-squared measured from zero over the ${comma(N.fade_rows)} prospect-seasons; the highest is in bold. The test against the adopted model is a Wald test in the adopted regression, standard errors clustered by player: for one value for every season, that the five star values are equal; for the straight line, that the star value falls by the same amount from D+1 to D+2, D+2 to D+3, and D+3 to D+4; for the same percentage decline, that it keeps the same share of itself over those three steps (a non-linear restriction, tested by the delta method). Held-out error: each of the 11 drafts is predicted from a fit on the other ten, and the error is the root mean squared error in millions of dollars of remaining NPV per prospect-season; lower is better.`));
 add(P(`One value for every season is rejected: the star values are not equal across seasons (Wald ${pq(N.fade_wald_one.p)}). Neither the straight-line decline (p = ${f3(N.fade_wald_steps.p)}) nor the same percentage decline (p = ${f3(N.fade_wald_ratio.p)}) is rejected at the 5% level. I chose a separate value for each season for two reasons. First, it imposes no shape on the decline, and the estimates hold through D+3 and then fall, which matches when top picks reach the NHL (${F("arrival")}). Second, the straight-line decline keeps falling past zero: from D+8 it values a top pick below a late pick, which makes no logical sense, and it values ${FS["straight line"].below_zero} of the ${TR.drafted} traded prospects below zero. A prospect drafted from 2007 to 2017 is valued from a fit that contains his own outcome, so that prospects and the draft picks traded beside them use the same star value.`));
 
@@ -251,7 +252,7 @@ const prodRows = [
   ["(5) As (4), draft position in D+1 to D+3 only", "s2", `vs (4), without draft position in D+4 and later: ${pt(TS.slot_late.p)}`],
   ["(6) As (5), production squared alone", "s2_sq_alone", `vs (5), without linear production: ${pt(TS.lin_s2.p)}`]];
 add(TT("prod", "Production added to draft position: each candidate's fit"));
-add(TABLE(MHEAD.map((h, i) => (i === 0 ? "Candidate" : h)), prodRows.map(([lab, nm, t]) => mrow(lab, nm, t)), MW, [1, 2, 4, 5], mbold(prodRows.map((r) => r[1]))));
+add(TABLE(MHEAD.map((h, i) => (i === 0 ? "Candidate" : h)), prodRows.map(([lab, nm, t]) => mrow(lab, nm, t)), MW, [1, 3, 4], mbold(prodRows.map((r) => r[1]))));
 add(CAPTION(`Each candidate is one regression with the full set of interaction terms (each term its own coefficient in each season, D+1 to D+4 and D+5 and later), fitted on the same ${comma(N.prod_rows.rows)} prospect-seasons of ${comma(N.prod_rows.players)} drafted skaters, 2007-2017, before age (Section 3) and the defenceman term (Section 4). R-squared measured from zero; the highest is in bold. Test of the added terms: Wald test, standard errors clustered by player, that the coefficients named are zero in every season where they appear; for (5) and (6), the test of the terms dropped. Traded drafted prospects: goaltenders on draft position alone, $M at the 2025-26 cap. Held-out error as in ${T("fade")}.`));
 add(H2("Production added to draft position"));
 add(P(`Linear production alone accounts for less of remaining NPV than draft position alone (R-squared ${f4(M.lin_alone.r2)} against ${f4(M.slot.r2)}), so production does not replace draft position at the draft. Added to draft position, production is statistically significant: linear production with ${pq(TS.lin_vs_slot.p)}, and linear and squared production together with ${pq(TS.prod_vs_slot.p)}.`));
@@ -290,7 +291,7 @@ const ageRows = [
   ["(9) Plus both", "s3_both", `vs (8), the flat amount: ${pt(TS.flat_given_disc.p)}`],
   ["(10) As (8), the discount from D+5 on as well", "s3_age_late", `vs (8): ${pt(TS.age_late.p)}`]];
 add(TT("age", "Each age candidate added to the Section 2 model (draft position + linear and squared production)"));
-add(TABLE(MHEAD.map((h, i) => (i === 0 ? "Candidate" : h)), ageRows.map(([lab, nm, t]) => mrow(lab, nm, t)), MW, [1, 2, 4, 5], mbold(ageRows.map((r) => r[1]))));
+add(TABLE(MHEAD.map((h, i) => (i === 0 ? "Candidate" : h)), ageRows.map(([lab, nm, t]) => mrow(lab, nm, t)), MW, [1, 3, 4], mbold(ageRows.map((r) => r[1]))));
 add(CAPTION(`As ${T("prod")}, on the same prospect-seasons; candidate (5) is the model of Section 2. Age is his age on September 15 of the valuation season, less 18.`));
 add(H2("Age as a discount on production"));
 const d2 = C.s3["1"].A.b;
@@ -314,7 +315,7 @@ const defRows = [
   ["(12) As (11), plus defenceman × production squared", "adopted_dq", `vs (11): ${pt(TS.dq.p)}`],
   ["(13) As (11), plus defenceman × star probability, D+1 to D+3", "adopted_ds", `vs (11): ${pt(TS.ds.p)}`]];
 add(TT("def", "Defenceman terms added to the Section 3 model"));
-add(TABLE(MHEAD, defRows.map(([lab, nm, t]) => mrow(lab, nm, t)), MW, [1, 2, 4, 5], mbold(defRows.map((r) => r[1]))));
+add(TABLE(MHEAD, defRows.map(([lab, nm, t]) => mrow(lab, nm, t)), MW, [1, 3, 4], mbold(defRows.map((r) => r[1]))));
 add(CAPTION(`As ${T("prod")}, on the same prospect-seasons.`));
 add(P(`The defenceman term is statistically significant (${pq(TS.def.p)}) and positive in each season. A #20 pick in D+2 who is 19.5 and scores 20 points is worth ${mil(E.fwd_20_k1)} as a forward and ${mil(E.def_20_k1_value)} as a defenceman. Defenceman × production squared (p = ${f3(TS.dq.p)}) and a separate star value for defencemen (p = ${f3(TS.ds.p)}) are not statistically significant given it.`));
 const PD = N.pick_def;
