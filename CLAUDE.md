@@ -541,6 +541,12 @@ tests pinned to the old prospect rows (`prospect_curve_vs_line.py`, `prospect_pr
   the code kept fitting each season alone. Thomas: "Just make the regression actually be the interaction terms. I
   feel like I've said this multiple times" (2026-10-16). Change the code to run the asked-for method, keep the old
   route only as a guard, and describe what runs.
+- **Don't let a document grow with each round of tests.** "Valuing Prospects" v4.0 added the meeting's measures, a defenceman
+  section and every new test with its own table, and Thomas: "overall it's gotten too big. The additions, while useful, seem
+  to be a bit larger than they really should be" (2026-10-27). His cuts and the ones he accepted: totals restated in prose
+  ("went from X to Y"), statistics a table already shows, a table of rejected variants (one or two sentences instead), a
+  table that repeats another's column, adjusted R-squared beside R-squared, counts and medians, robustness asides, date
+  lines. Before handing over a rebuilt document, count its words against the last version and justify each addition.
 - **Don't define an interaction's indicator by its value alone; say what kind of variable it is and what it does to the
   coefficient.** "I_{nt} equals 1 when season t is D+n and 0 otherwise" read to Thomas as true of every season any player
   plays ("Sidney Crosby is in his D+21"). He asked for: "I is a set of dummy variables for D+1 to D+5, each which will do XYZ
