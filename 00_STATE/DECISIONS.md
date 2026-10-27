@@ -3840,3 +3840,10 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   tests; xNPV / remaining NPV for "surplus"; Thomas's v3.0 Word edits carried in and checked present. No model change.
   His edited v3.0 is in git (acc5d67) and `90_ARCHIVE/2026-10-27/`. Codebook table numbers updated. MANIFEST four rows.
   WORK_QUEUE items 3 to 6. Session log sessions/2026-10-27.md.
+
+### Change log, 2026-10-27b ("Valuing Prospects" v4.1, shorter)
+
+- DOCUMENT (Thomas: "Just try to shorten the document a bit"): `prospect_model_doc.js` v4.1; his four Word edits of v4.0
+  carried in (his copy committed before the rebuild); the pooled-terms section and the discounted-points table cut, the
+  Defencemen section trimmed; 5,581 words, 18 pages. No model change. MANIFEST two rows, WORK_QUEUE item 6, session log
+  sessions/2026-10-27.md.

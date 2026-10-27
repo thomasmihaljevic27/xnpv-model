@@ -39,9 +39,10 @@
    governs model choices from here: significance decides with held-out error a note (the supervisor's), or held-out
    error decides. ("Valuing Prospects" v4.0 is written on the supervisor's rule, 2026-10-27.) The wording, the
    defenceman section (Section 4) and the pick curve's result as tested: done in v4.0, 2026-10-27.
-6. Do (Thomas): read "Valuing Prospects" v4.0 (built 2026-10-27, 19 pages), then send it.
+6. Do (Thomas): read "Valuing Prospects" v4.1 (built 2026-10-27, 18 pages: v4.0 shortened on his instruction, his Word
+   edits carried in), then send it.
 6a. Later: the codebook gives Stata commands for the adopted model and the build-up only; v4.0's new comparisons (the
-   Wald tests of Tables 3, 6, 8, 11 and 12) have none yet.
+   Wald tests of Tables 3, 6, 7 and 10 of v4.1) have none yet.
 After the supervisor's trip and Thomas's two exams: Thomas runs every regression in the document in Stata in front of
 the supervisor (the data: `30_OUTPUT/stata/`). Loose threads: Nick Suzuki's dashboard value (-$0.03M); the supervisor
 wants trade values soon.
