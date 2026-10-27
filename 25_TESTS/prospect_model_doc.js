@@ -1,5 +1,11 @@
-// prospect_model_doc.js v4.2 -- builds "Valuing Prospects.docx" (40_DOCS/Supervisor_Drafts/).
+// prospect_model_doc.js v4.3 -- builds "Valuing Prospects.docx" (40_DOCS/Supervisor_Drafts/).
 //
+// v4.3 (2026-10-27, session 2026-10-27; Thomas: "Apply cuts 1 to 19 and the 2,316 fix"): the before-age coefficient table
+// cut (it is column (3) of the build-up tables); no adjusted R-squared columns; Table 3's candidate (5) cut and the
+// candidates renumbered; Table 7 without the undrafted column; Table 8 without the Drafts row; the #10 example, the top-ten
+// counts, the D+4 coefficients, the no-record detail, the significance list under Table 8, restatements and a date
+// line cut; "Production squared alone" and the own-outcome note folded into their neighbours; the six left out of
+// 2,322 said in one clause.
 // v4.2 (2026-10-27, session 2026-10-27): Thomas's Word edits of v4.1 (his copy of 13:52, commit 43b4ecb) carried in: the
 // deceased-draftee paragraph cut; "therefore", "busts", "Done as in the player model"; the production paragraph's
 // weighting, counts and medians cut; the age paragraphs shortened; why linear production stays as one paragraph, its
@@ -121,7 +127,7 @@ const SUB = (b, i) => ["_", b, i];
 const SQ = (b) => ["^", b, "2"];
 
 // tables and figures numbered from one list each, so a reference written before its table is right
-const TABS = ["star", "fade", "prod", "prodcoef", "settings", "age", "def", "adopted", "build2", "suzuki", "versions"];
+const TABS = ["star", "fade", "prod", "settings", "age", "def", "adopted", "build2", "suzuki", "versions"];
 const APPX = { b0: "B1", b2: "B2", b3: "B3", b4: "B4", ageforms: "B5" };
 const FIGS = ["arrival", "fade", "nhle", "production", "age", "traded"];
 const tn = (k) => { if (APPX[k]) return APPX[k]; const i = TABS.indexOf(k); if (i < 0) throw new Error(`table ${k}`); return String(i + 1); };
@@ -175,21 +181,20 @@ const G = ["0", "1", "2", "3", "4+"];
 const SEAS = { "0": "D+1", "1": "D+2", "2": "D+3", "3": "D+4", "4+": "D+5 and later" };
 const maxP = (name, col, gs) => Math.max(...gs.map((g) => C[name][g][col].p));
 const drafted = (nm) => MT[nm].drafted;
-const NOREC = { p: [0.053, 0.067, 0.015], joint: 0.039, with: 2.1994, without: 2.1995 };
 const kids = [];
 const add = (...xs) => xs.flat().forEach((x) => kids.push(x));
 // a model row for a comparison table: coefficients, R-squared, adjusted, test, traded drafted, held-out
-const mrow = (label, nm, test) => [label, comma(M[nm].n_coef), f4(M[nm].r2), f4(M[nm].adj), test, f2(drafted(nm)), f4(M[nm].rmse)];
-const MHEAD = ["Model", "Coefficients", "R-squared", "Adjusted R-squared", "Test of the added terms (p)", `${TR.drafted} traded drafted prospects ($M)`, "Held-out error ($M)"];
-const MW = [3500, 1050, 1000, 1050, 1500, 1350, 1000];
-const mbold = (names) => bestKeys(names.map((nm) => [null, null, M[nm].r2, M[nm].adj]), [2, 3]);
+const mrow = (label, nm, test) => [label, comma(M[nm].n_coef), f4(M[nm].r2), test, f2(drafted(nm)), f4(M[nm].rmse)];
+const MHEAD = ["Model", "Coefficients", "R-squared", "Test of the added terms (p)", `${TR.drafted} traded drafted prospects ($M)`, "Held-out error ($M)"];
+const MW = [3800, 1050, 1000, 1900, 1400, 1100];
+const mbold = (names) => bestKeys(names.map((nm) => [null, null, M[nm].r2]), [2]);
 
 add(new Paragraph({ spacing: { after: 40 }, children: [new TextRun({ text: "Valuing Prospects", bold: true, size: 40, font: FONT })] }));
 
 // ---- opening ----------------------------------------------------------------------------------------------
 add(P("A prospect is a player the player model does not yet value. For a skater, that is a player with no NHL season of 10 or more games in the three seasons before the valuation date. For a goaltender, it is a player with no NHL game in the six seasons before it. The goaltender forecast uses any NHL season in the three before and looks back three more when the most recent is missing."));
 add(P("A prospect is valued in the same currency as a draft pick and a contract: the expected net present value (xNPV) of his remaining NHL seasons until his club's control ends. Control ends when he becomes an unrestricted free agent under the collective agreement, at 27 or after seven seasons on an NHL roster. Each season counts the market price of the wins he delivers, less what the club pays to keep him. That cost is the entry-level salary, then the qualifying offer, or the arbitration price once he is eligible. A season outside the NHL counts as zero."));
-add(P(`The prospect model is fitted on ${comma(k("0").players)} of the ${comma(k("0").players + 6)} players drafted from 2007 to 2017 whose careers are long enough to observe. Seasons are named from the draft: D0 is the draft season, which ends with the draft, and D+1 is the season after it, and so on. The outcome is each player's remaining NPV, measured in each season from D+1 on in which he was still a prospect and his club still controlled him. A prospect traded between the draft and the start of D+1 is valued as in D+1.`));
+add(P(`The prospect model is fitted on ${comma(k("0").players)} of the ${comma(k("0").players + 6)} players drafted from 2007 to 2017; the other six died before reaching the NHL. Seasons are named from the draft: D0 is the draft season, which ends with the draft, and D+1 is the season after it, and so on. The outcome is each player's remaining NPV, measured in each season from D+1 on in which he was still a prospect and his club still controlled him. A prospect traded between the draft and the start of D+1 is valued as in D+1.`));
 
 // ---- 1. draft position -------------------------------------------------------------------------------------------
 add(H1("1. Draft Position and How Its Value Fades"));
@@ -201,19 +206,18 @@ add(FIGURE("arrival", "fig_arrival.png", "When drafted players reach the NHL",
 add(P("To measure how the value of draft position changes, I regressed each prospect's remaining NPV on the star probability for his draft position, interacted with an indicator for each season from D+1 to D+4 and one for D+5 onwards, using every season in which a drafted player was still a prospect and still under his club's control. The coefficient for each season is that season's star value, which is what a prospect still unproven in that season would be worth if he were certain to become a star. As in the draft pick curve, the regression has no intercept, so a draft position with no star probability is worth zero:"));
 add(EQ([SUB("remaining NPV", "it"), " = ", ["sum", "n", [SUB("θ", "n"), SUB("I", "nt"), SUB("S", "i")]], " + ", SUB("ε", "it")]));
 add(P("In this equation, S_{i} is the star probability for player i’s draft position, which is the chance that a player taken there becomes a star. It comes from Patrick Bacon’s draft model, the same source as the draft pick curve. I_{nt} is a set of five dummy variables, one for each season group: D+1, D+2, D+3, D+4, and D+5 or later. Each dummy equals 1 when the prospect-season falls in its group and 0 otherwise. Interacting it with S_{i} gives the star probability a separate coefficient θ_{n} in each group, so θ_{n} is the star value for that group."));
-add(P(`For example, a #10 pick (star probability ${f1(100 * PS["10"])}%) who is still a prospect in D+3 is worth ${f3(PS["10"])} × ${mil(k("2").star)} = ${mil(PS["10"] * k("2").star)}.`));
 add(TT("star", "The star value for a player still a prospect, by season"));
 add(TABLE(["Season", "Prospects", "Star value (s.e.)", "p-value", "R-squared", "#1 pick", "#10 pick", "#32 pick", "Top-10 picks still prospects"],
   S1.map((r) => [r.k === "0" ? "D+1 (from the draft)" : SEAS[r.k], r.k === "4+" ? `${comma(r.players)} (${comma(r.rows)} prospect-seasons)` : comma(r.players),
     `${money(r.star)} (${f2(r.se)})`, pfmt(r.p), f3(N.star_r2_by_k[r.k]), money(r.pick1), money(r.pick10), money(r.pick32), comma(r.top10)]),
   [1450, 1450, 1250, 750, 850, 850, 850, 850, 1000], [1, 2, 3, 4, 5, 6, 7, 8]));
 add(CAPTION(`Drafted players 2007-2017 still prospects in each season (D+1 is the season after the draft). Star value in millions of dollars at the 2025-26 cap; standard errors clustered by player, since one player appears in several seasons; two-sided p-values. R-squared within each season, measured from zero. The pick columns multiply the star value by Bacon's star probability (${f1(100 * PS["1"])}%, ${f1(100 * PS["10"])}% and ${f1(100 * PS["32"])}%).`));
-add(P(`A prospect keeps most of his draft position's value through D+3 (${mil(k("1").star)} in D+2 and ${mil(k("2").star)} in D+3) and loses most of it over the next two seasons (${mil(k("3").star)} in D+4 and ${mil(k("4+").star)} from D+5 on). Each estimate is statistically significant at the ${Math.max(...S1.map((r) => r.p)) < 0.01 ? "1%" : "5%"} level. The value falls sharply after D+3 because of who is left. By D+4, nearly every top pick who will reach the NHL has done so, therefore the prospects still unproven are mostly later picks and the top picks who were busts: of the ${A10.n} top-ten picks of 2007-2017, ${k("2").top10} were still prospects in D+3 and ${k("3").top10} in D+4. Among the prospects left, draft position no longer separates the players who will succeed from those who will not.`));
+add(P(`A prospect keeps most of his draft position's value through D+3 (${mil(k("1").star)} in D+2 and ${mil(k("2").star)} in D+3) and loses most of it over the next two seasons (${mil(k("3").star)} in D+4 and ${mil(k("4+").star)} from D+5 on). Each estimate is statistically significant at the ${Math.max(...S1.map((r) => r.p)) < 0.01 ? "1%" : "5%"} level. The value falls sharply after D+3 because of who is left. By D+4, nearly every top pick who will reach the NHL has done so, therefore the prospects still unproven are mostly later picks and the top picks who were busts. Among the prospects left, draft position no longer separates the players who will succeed from those who will not.`));
 
 add(H2("A separate star value for each season"));
 add(P(`The adopted regression gives each season its own star value from D+1 to D+4, and one shared value from D+5 on, where few prospects remain and little value is left. Three simpler alternatives were tested and rejected. Each restricts how the star value may change from one season to the next, and each was fitted on the same ${comma(N.fade_rows)} prospect-seasons (${F("fade")}, ${T("fade")}):`));
 add(BULLET(`One value for every season, the draft-day value kept for as long as a player remains a prospect (fitted: ${mil(N.fade_curve["no fade"][0])}).`));
-add(BULLET(`A straight-line decline: the star value equals a starting value plus a fixed change for each season since the draft. This is one regression with a single interaction term, star probability × seasons since the draft. Fitted: ${mil(N.fade_curve["straight line"][0])} in D+1, falling ${mil(N.fade_curve["straight line"][0] - N.fade_curve["straight line"][1])} a season.`));
+add(BULLET(`A straight-line decline: the star value equals a starting value plus a fixed change for each season since the draft. Fitted: ${mil(N.fade_curve["straight line"][0])} in D+1, falling ${mil(N.fade_curve["straight line"][0] - N.fade_curve["straight line"][1])} a season.`));
 add(BULLET(`The same percentage decline each season: the value keeps a fixed share of itself each season. Fitted: ${mil(N.fade_curve["same percentage"][0])} in D+1, keeping ${f1(100 * N.fade_curve["same percentage"][1] / N.fade_curve["same percentage"][0])}% each season.`));
 add(FIGURE("fade", "fig_star_value.png", "The star value by season, and three rejected alternatives",
   `Orange: each rejected alternative, fitted on the same prospect-seasons. Blue: the adopted star values (${T("star")}) with 95% intervals; from D+5 on, one shared value drawn as a line with its interval as a band. Millions of dollars at the 2025-26 cap.`));
@@ -222,14 +226,12 @@ const fadeRows = [["A separate value for each season (adopted: a full set of int
   ["Straight-line decline (one interaction term)", "straight line", `${f3(N.fade_wald_steps.p)} (equal drops, D+1 to D+4)`],
   ["Same percentage decline each season", "same percentage", `${f3(N.fade_wald_ratio.p)} (equal shares, D+1 to D+4)`]];
 add(TT("fade", "Each alternative for the star value against the adopted one"));
-add(TABLE(["Alternative", "Coefficients", "R-squared", "Adjusted R-squared", "Test against the adopted model (p)", "Star value, D+5 ($M)", `${TR.drafted} traded prospects, draft position alone ($M)`, "Values below zero", "Held-out error ($M)"],
-  fadeRows.map(([lab, r, t]) => [lab, comma(FR[r].params), f4(FR[r].r2), f4(FR[r].adj), t, f2(N.fade_curve[r][4]), f2(FS[r].total), comma(FS[r].below_zero), f4(FS[r].rmse)]),
-  [2500, 900, 850, 900, 1500, 850, 1250, 800, 850], [1, 2, 3, 5, 6, 7, 8],
-  bestKeys(fadeRows.map(([, r]) => [null, null, FR[r].r2, FR[r].adj]), [2, 3])));
+add(TABLE(["Alternative", "Coefficients", "R-squared", "Test against the adopted model (p)", "Star value, D+5 ($M)", `${TR.drafted} traded prospects, draft position alone ($M)`, "Values below zero", "Held-out error ($M)"],
+  fadeRows.map(([lab, r, t]) => [lab, comma(FR[r].params), f4(FR[r].r2), t, f2(N.fade_curve[r][4]), f2(FS[r].total), comma(FS[r].below_zero), f4(FS[r].rmse)]),
+  [2800, 950, 950, 1650, 950, 1350, 900, 950], [1, 2, 4, 5, 6, 7],
+  bestKeys(fadeRows.map(([, r]) => [null, null, FR[r].r2]), [2])));
 add(CAPTION(`R-squared measured from zero over the ${comma(N.fade_rows)} prospect-seasons; the highest is in bold. The test against the adopted model is a Wald test in the adopted regression, standard errors clustered by player: for one value for every season, that the five star values are equal; for the straight line, that the star value falls by the same amount from D+1 to D+2, D+2 to D+3, and D+3 to D+4; for the same percentage decline, that it keeps the same share of itself over those three steps (a non-linear restriction, tested by the delta method). Held-out error: each of the 11 drafts is predicted from a fit on the other ten, and the error is the root mean squared error in millions of dollars of remaining NPV per prospect-season; lower is better.`));
-add(P(`One value for every season is rejected: the star values are not equal across seasons (Wald ${pq(N.fade_wald_one.p)}). Neither the straight-line decline (p = ${f3(N.fade_wald_steps.p)}) nor the same percentage decline (p = ${f3(N.fade_wald_ratio.p)}) is rejected at the 5% level. I chose a separate value for each season for two reasons. First, it imposes no shape on the decline, and the estimates hold through D+3 and then fall, which matches when top picks reach the NHL (${F("arrival")}). Second, the straight-line decline keeps falling past zero: from D+8 it values a top pick below a late pick, which makes no logical sense, and it values ${FS["straight line"].below_zero} of the ${TR.drafted} traded prospects below zero.`));
-add(H2("A prospect's own outcome in the fit"));
-add(P("A prospect drafted from 2007 to 2017 is valued from a fit that contains his own outcome. Refitting without each prospect's own draft as the main value was rejected for two reasons. It would take eleven fits for each season, and the prospect values would no longer use the same star value as the draft picks traded beside them."));
+add(P(`One value for every season is rejected: the star values are not equal across seasons (Wald ${pq(N.fade_wald_one.p)}). Neither the straight-line decline (p = ${f3(N.fade_wald_steps.p)}) nor the same percentage decline (p = ${f3(N.fade_wald_ratio.p)}) is rejected at the 5% level. I chose a separate value for each season for two reasons. First, it imposes no shape on the decline, and the estimates hold through D+3 and then fall, which matches when top picks reach the NHL (${F("arrival")}). Second, the straight-line decline keeps falling past zero: from D+8 it values a top pick below a late pick, which makes no logical sense, and it values ${FS["straight line"].below_zero} of the ${TR.drafted} traded prospects below zero. A prospect drafted from 2007 to 2017 is valued from a fit that contains his own outcome, so that prospects and the draft picks traded beside them use the same star value.`));
 
 // ---- 2. production ------------------------------------------------------------------------------------------
 add(H1("2. Production Adjusted to NHL Terms"));
@@ -246,35 +248,25 @@ const prodRows = [
   ["(2) Linear production alone", "lin_alone", "-"],
   ["(3) Draft position + linear production", "slot_lin", `vs (1): ${pt(TS.lin_vs_slot.p)}`],
   ["(4) Draft position + linear and squared production", "slot_linsq", `vs (3): ${pt(TS.sq_given_lin.p)}`],
-  ["(5) Linear and squared production alone", "linsq_alone", `vs (4), without draft position: ${pt(TS.slot_all.p)}`],
-  ["(6) As (4), draft position in D+1 to D+3 only", "s2", `vs (4), without draft position in D+4 and later: ${pt(TS.slot_late.p)}`],
-  ["(7) As (6), production squared alone", "s2_sq_alone", `vs (6), without linear production: ${pt(TS.lin_s2.p)}`]];
+  ["(5) As (4), draft position in D+1 to D+3 only", "s2", `vs (4), without draft position in D+4 and later: ${pt(TS.slot_late.p)}`],
+  ["(6) As (5), production squared alone", "s2_sq_alone", `vs (5), without linear production: ${pt(TS.lin_s2.p)}`]];
 add(TT("prod", "Production added to draft position: each candidate's fit"));
-add(TABLE(MHEAD.map((h, i) => (i === 0 ? "Candidate" : h)), prodRows.map(([lab, nm, t]) => mrow(lab, nm, t)), MW, [1, 2, 3, 5, 6], mbold(prodRows.map((r) => r[1]))));
-add(CAPTION(`Each candidate is one regression with the full set of interaction terms (each term its own coefficient in each season, D+1 to D+4 and D+5 and later), fitted on the same ${comma(N.prod_rows.rows)} prospect-seasons of ${comma(N.prod_rows.players)} drafted skaters, 2007-2017, before age (Section 3) and the defenceman term (Section 4). R-squared measured from zero; the highest is in bold. Test of the added terms: Wald test, standard errors clustered by player, that the coefficients named are zero in every season where they appear; for (5), (6) and (7), the test of the terms dropped. Traded drafted prospects: goaltenders on draft position alone, $M at the 2025-26 cap. Held-out error as in ${T("fade")}.`));
+add(TABLE(MHEAD.map((h, i) => (i === 0 ? "Candidate" : h)), prodRows.map(([lab, nm, t]) => mrow(lab, nm, t)), MW, [1, 2, 4, 5], mbold(prodRows.map((r) => r[1]))));
+add(CAPTION(`Each candidate is one regression with the full set of interaction terms (each term its own coefficient in each season, D+1 to D+4 and D+5 and later), fitted on the same ${comma(N.prod_rows.rows)} prospect-seasons of ${comma(N.prod_rows.players)} drafted skaters, 2007-2017, before age (Section 3) and the defenceman term (Section 4). R-squared measured from zero; the highest is in bold. Test of the added terms: Wald test, standard errors clustered by player, that the coefficients named are zero in every season where they appear; for (5) and (6), the test of the terms dropped. Traded drafted prospects: goaltenders on draft position alone, $M at the 2025-26 cap. Held-out error as in ${T("fade")}.`));
 add(H2("Production added to draft position"));
-add(P(`Linear production alone accounts for less of remaining NPV than draft position alone (R-squared ${f4(M.lin_alone.r2)} against ${f4(M.slot.r2)}), so production does not replace draft position at the draft. Added to draft position, production is statistically significant: linear production with ${pq(TS.lin_vs_slot.p)}, and linear and squared production together with ${pq(TS.prod_vs_slot.p)}. Undrafted prospects, who have no draft position, use the adopted model with the star probability set to zero (Section 5).`));
+add(P(`Linear production alone accounts for less of remaining NPV than draft position alone (R-squared ${f4(M.lin_alone.r2)} against ${f4(M.slot.r2)}), so production does not replace draft position at the draft. Added to draft position, production is statistically significant: linear production with ${pq(TS.lin_vs_slot.p)}, and linear and squared production together with ${pq(TS.prod_vs_slot.p)}.`));
 const cu1 = C.slot_linsq["1"], st1 = C.slot_lin["1"];
 const qa = cu1.Q.b, qb = cu1.P.b - st1.P.b, qc = (cu1.S.b - st1.S.b) * N.fig_production.p20;
 const crossAt = (-qb + Math.sqrt(qb * qb - 4 * qa * qc)) / (2 * qa);
 const turn1 = -cu1.P.b / (2 * cu1.Q.b);
 add(H2("Production squared"));
 add(P(`With linear production, each additional NHLe point adds the same dollars. With the production squared term, each point adds more the higher a prospect already scores. I added it because most of a pick's value comes from the few players who become stars. Draft position already captures part of this: the star probability for the first pick is ${f1(100 * PS["1"])}%, about ${Math.round(PS["1"] / PS["32"])} times the ${f1(100 * PS["32"])}% for the 32nd. But every prospect taken at the same draft position has the same star probability, whatever he scores. Linear production then gives the highest scorers at a draft position, the prospects most likely to become stars, the same dollars per point as every other prospect; with the squared term, their value rises faster.`));
-add(P(`The squared term is statistically significant over linear production (${pq(TS.sq_given_lin.p)}) and raises R-squared from ${f4(M.slot_lin.r2)} to ${f4(M.slot_linsq.r2)} (${F("production")}).`));
+add(P(`The squared term is statistically significant over linear production (${pq(TS.sq_given_lin.p)}) and raises R-squared from ${f4(M.slot_lin.r2)} to ${f4(M.slot_linsq.r2)} (${F("production")}). Production squared alone, without linear production (candidate (6)), is rejected: dropping linear production is statistically significant (${pq(TS.lin_s2.p)}). Once age enters, this test depends on where age is measured from, which Section 4 takes up.`));
 add(FIGURE("production", "fig_production.png", "A #20 pick in D+2: xNPV against production, before age",
   `xNPV in millions of dollars at the 2025-26 cap for a #20 pick (star probability ${f1(100 * N.fig_production.p20)}%) in D+2, from candidates (1), (3) and (4) of ${T("prod")}. Production is NHLe points per 82 games, weighted 50/30/20 over the three seasons before the valuation season. Vertical lines mark the 25th, 50th, 75th and 90th percentiles of production among prospects in D+2 (${f1(N.prod_pct_k1["25"])}, ${f1(N.prod_pct_k1["50"])}, ${f1(N.prod_pct_k1["75"])} and ${f1(N.prod_pct_k1["90"])} points).`));
 add(P(`Up to ${f1(crossAt)} points (above the 75th percentile), the line with the squared term sits below the linear one, by at most ${mil(N.fig_production.gap_max)}, and it dips slightly before it rises. The dip comes from the negative linear coefficient: in D+2 an extra point adds ${f3(cu1.P.b)} + 2 × ${f4(cu1.Q.b)} × production million dollars, which is positive above ${f1(turn1)} points, below the 25th percentile of ${f1(N.prod_pct_k1["25"])}. The negative coefficient sets where the value bottoms out; it is not evidence that a little scoring lowers a prospect's value.`));
 add(H2("Production in place of draft position from D+4"));
-const sl3 = C.slot_linsq["3"].S, sl4 = C.slot_linsq["4+"].S;
-add(P(`Once production is in the model, draft position stops carrying information in D+4 (${T("prodcoef")}). Its coefficient is ${mil(sl3.b)} (standard error ${f2(sl3.se)}, p = ${f3(sl3.p)}) in D+4 and ${mil(sl4.b)} (standard error ${f2(sl4.se)}, p = ${f3(sl4.p)}) from D+5 on, and the two together give p = ${f3(TS.slot_late.p)}. Neither is statistically significant at the 5% level: once a prospect's production is known, his draft position adds nothing to his value from D+4 on. The adopted model keeps draft position from D+1 to D+3 and uses production alone from D+4, which leaves R-squared at ${f4(M.s2.r2)} against ${f4(M.slot_linsq.r2)} (candidate (6) of ${T("prod")}).`));
-add(TT("prodcoef", "Draft position and linear and squared production in each season, before age"));
-add(TABLE(["Term", ...G.map((g) => SEAS[g])],
-  [["Star probability for his draft position", "S", 3], ["Production (NHLe points per 82)", "P", 3], ["Production squared", "Q", 4]]
-    .map(([lab, c, d]) => [lab, ...G.map((g) => coefCell(C.slot_linsq[g][c], d))]),
-  [2600, 1350, 1350, 1350, 1350, 1350], [1, 2, 3, 4, 5]));
-add(CAPTION(`Candidate (4) of ${T("prod")}. Dependent variable: remaining NPV in millions of dollars at the 2025-26 cap. Each cell gives the coefficient, its standard error clustered by player in parentheses and its two-sided p-value in brackets. The table is one regression with the full set of interaction terms: each column holds that season's coefficients.`));
-add(H2("Production squared alone"));
-add(P(`Production squared alone, without linear production (candidate (7)), is rejected: dropping linear production is statistically significant (${pq(TS.lin_s2.p)}). Once age enters, this test depends on where age is measured from, which Section 4 takes up.`));
+add(P(`Once production is in the model, draft position stops carrying information in D+4: its coefficients in D+4 and from D+5 on are together not statistically significant (p = ${f3(TS.slot_late.p)}; column (3) of ${T("build2")} and Appendix B). Once a prospect's production is known, his draft position adds nothing to his value from D+4 on. The adopted model keeps draft position from D+1 to D+3 and uses production alone from D+4, which leaves R-squared at ${f4(M.s2.r2)} against ${f4(M.slot_linsq.r2)} (candidate (5) of ${T("prod")}).`));
 add(P("With production, the model values a prospect as follows, where P_{it} is his production level in NHLe points per 82 games in season t and the other symbols are as in Section 1. Each term is multiplied by the indicator for each season (a full set of interaction terms), so the coefficients a_{n}, b_{n} and c_{n} take a separate value in each season: a_{n} is the value of the star probability, and b_{n} and c_{n} together give the value of production. Draft position is out from D+4, so a_{4} = a_{5} = 0."));
 add(EQ([SUB("remaining NPV", "it"), " = ", ["sum", "n", [SUB("I", "nt"), ["()", [SUB("a", "n"), SUB("S", "i"), " + ", SUB("b", "n"), SUB("P", "it"), " + ", SUB("c", "n"), ["^", SUB("P", "it"), "2"]]]]], " + ", SUB("ε", "it")]));
 add(TT("settings", "The production measure's settings"));
@@ -285,28 +277,28 @@ add(TABLE(["Setting", "Adopted", "Alternative", "Why"], [
   ["Goaltenders", "Draft position alone", "A save-based measure (not tested)", "NHLe converts scoring, which says nothing about a goaltender. Elite Prospects holds goaltenders' save percentages, but no factor translates a save percentage from one league to another; a save-based measure is untested."],
   ["No production record", "Production level zero: valued on draft position alone where it is in the model", "An indicator for having no record", "Its significance rests on a single prospect-season (the paragraph after this table)"],
 ], [1900, 2100, 1700, 3600]));
-add(P(`Each setting is applied identically to each candidate in ${T("prod")}. An indicator for having no production record was tested and dropped. In D+1 and D+2 it was not statistically significant at the 5% level (p = ${NOREC.p[0]} and ${NOREC.p[1]}); in D+3 it was (p = ${NOREC.p[2]}), on a single prospect-season; from D+4 on it was exactly zero, because none of the prospects without a record in those seasons delivered any NPV. Over D+1 to D+3 together it was statistically significant (p = ${NOREC.joint}), but that result rests on the one prospect-season in D+3, the held-out error was ${NOREC.with} with it and ${NOREC.without} without it, and no traded prospect's value changed.`));
+add(P(`Each setting is applied identically to each candidate in ${T("prod")}. An indicator for having no production record was tested and dropped: its statistical significance rests on a single prospect-season in D+3, and no traded prospect's value changed.`));
 
 // ---- 3. age ------------------------------------------------------------------------------------------------
 add(H1("3. Age"));
 add(P("A player who scores at a given rate at 18 is commonly rated a better prospect than one who scores at the same rate at 20. This section tests whether the data agree. Age is the player's age on September 15 of the valuation season, the date the collective agreement uses. A player is first eligible for the draft in the year he is 18 by September 15, so in D+1 a player drafted at his first opportunity is 18 to 19, and one drafted a year later is 19 to 20."));
 add(P(`Within a season's regression each prospect is the same number of seasons from the season he was drafted (D0), so a prospect a year older now also scored his points, and was drafted, a year older; age cannot be confused with time since the draft there. Across all seasons the two move almost one for one (correlation ${f3(N.age_corr.age_vs_k)}), which is why age enters each season with its own coefficient.`));
 const ageRows = [
-  ["(6) Section 2 model: draft position in D+1 to D+3, linear and squared production", "s2", "-"],
-  ["(8) Plus age as a flat amount, D+1 to D+4", "s3_flat", `vs (6): ${pt(TS.flat.p)}`],
-  ["(9) Plus age discounting production, D+1 to D+4 (adopted)", "s3", `vs (6): ${pt(TS.disc.p)}`],
-  ["(10) Plus both", "s3_both", `vs (9), the flat amount: ${pt(TS.flat_given_disc.p)}`],
-  ["(11) As (9), the discount from D+5 on as well", "s3_age_late", `vs (9): ${pt(TS.age_late.p)}`]];
+  ["(5) Section 2 model: draft position in D+1 to D+3, linear and squared production", "s2", "-"],
+  ["(7) Plus age as a flat amount, D+1 to D+4", "s3_flat", `vs (5): ${pt(TS.flat.p)}`],
+  ["(8) Plus age discounting production, D+1 to D+4 (adopted)", "s3", `vs (5): ${pt(TS.disc.p)}`],
+  ["(9) Plus both", "s3_both", `vs (8), the flat amount: ${pt(TS.flat_given_disc.p)}`],
+  ["(10) As (8), the discount from D+5 on as well", "s3_age_late", `vs (8): ${pt(TS.age_late.p)}`]];
 add(TT("age", "Each age candidate added to the Section 2 model (draft position + linear and squared production)"));
-add(TABLE(MHEAD.map((h, i) => (i === 0 ? "Candidate" : h)), ageRows.map(([lab, nm, t]) => mrow(lab, nm, t)), MW, [1, 2, 3, 5, 6], mbold(ageRows.map((r) => r[1]))));
-add(CAPTION(`As ${T("prod")}, on the same prospect-seasons; candidate (6) is the model of Section 2. Age is his age on September 15 of the valuation season, less 18. With both terms in (10), the discount given the flat amount gives p = ${f4(TS.disc_given_flat.p)}.`));
+add(TABLE(MHEAD.map((h, i) => (i === 0 ? "Candidate" : h)), ageRows.map(([lab, nm, t]) => mrow(lab, nm, t)), MW, [1, 2, 4, 5], mbold(ageRows.map((r) => r[1]))));
+add(CAPTION(`As ${T("prod")}, on the same prospect-seasons; candidate (5) is the model of Section 2. Age is his age on September 15 of the valuation season, less 18.`));
 add(H2("Age as a discount on production"));
 const d2 = C.s3["1"].A.b;
-add(P(`Two forms were tested. Age as a flat amount subtracts the same dollars for each year of age, whatever the player scores. Age discounting production makes each point of production worth less the older the player was when he scored it by a fixed amount. In D+2 that amount is $${f3(-d2)} million (${T("ageforms")}), so of two prospects with 10 points, the one who is a year older is worth ${mil(-10 * d2)} less. The flat amount costs a D+2 prospect ${mil(-C.s3_flat["1"].F.b)} a year whatever he scores, a scorer and a prospect with no points alike.`));
+add(P(`Two forms were tested. Age as a flat amount subtracts the same dollars for each year of age, whatever the player scores. Age discounting production makes each point of production worth less the older the player was when he scored it by a fixed amount. In D+2 that amount is $${f3(-d2)} million (${T("ageforms")}), so of two prospects with 10 points, the one who is a year older is worth ${mil(-10 * d2)} less. The flat amount costs a D+2 prospect ${mil(-C.s3_flat["1"].F.b)} a year whatever he scores.`));
 add(P(`Each form is statistically significant on its own (${pq(TS.flat.p)} for the flat amount, ${pq(TS.disc.p)} for the discount). With both in the model, the discount stays statistically significant (${pq(TS.disc_given_flat.p)}) and the flat amount does not (p = ${f3(TS.flat_given_disc.p)}), so the discount is adopted. It also better measures what age was included to account for, which is how much a player's scoring says about him given his age.`));
-add(P(`From D+5 on, the discount is not statistically significant (p = ${f3(TS.age_late.p)}; candidate (11)), so the adopted model applies it from D+1 to D+4 only, where it is statistically significant in each season (p ≤ ${f3(maxP("s3", "A", ["0", "1", "2", "3"]))}, ${T("ageforms")}).`));
+add(P(`From D+5 on, the discount is not statistically significant (p = ${f3(TS.age_late.p)}; candidate (10)), so the adopted model applies it from D+1 to D+4 only, where it is statistically significant in each season (p ≤ ${f3(maxP("s3", "A", ["0", "1", "2", "3"]))}, ${T("ageforms")}).`));
 add(FIGURE("age", "fig_age.png", "A #20 pick in D+2: the age discount",
-  `xNPV in millions of dollars at the 2025-26 cap under candidate (9) for a #20 pick in D+2 with a production record, at three ages on September 15 of his D+2 season. A player drafted at his first opportunity is 19 to 20 then. Percentile lines as in ${F("production")}.`));
+  `xNPV in millions of dollars at the 2025-26 cap under candidate (8) for a #20 pick in D+2 with a production record, at three ages on September 15 of his D+2 season. A player drafted at his first opportunity is 19 to 20 then. Percentile lines as in ${F("production")}.`));
 const DF = N.disc_forms;
 add(P(`Applying the discount to the points themselves, so that a point scored a year older counts as a fraction of a point, was tested in four forms and rejected. The closest, age-adjusted points, fits slightly better in the sample (R-squared ${f4(DF.adj_disc.r2)} against ${f4(DF.adopted.r2)}), but it is not nested in the adopted model, so neither can be tested against the other, and its held-out error is not lower by a statistically significant amount (p = ${f2(N.disc_p_heldout)}).`));
 add(P("With age, the model values a prospect as follows, where A_{it} is his age on September 15 of season t and the other symbols are as in Section 2. The coefficient d_{n} is the age discount in season D+n: the change in the value of each point of production for each year of age. Age enters less 18, so the age term is zero for an 18-year-old. The discount is out from D+5, so d_{5} = 0."));
@@ -317,21 +309,19 @@ add(H1("4. Defencemen"));
 const MP = N.prod_median_pos, DM = N.def_moved;
 add(P(`Defencemen score less than forwards: among prospects with a production record in D+2, the median defenceman scores ${f1(MP["1"].D)} NHLe points per 82 games and the median forward ${f1(MP["1"].F)}. To test whether a defenceman's point is worth a different amount, a separate regression was run using a defenceman dummy interacted with production: D_{i} is 1 for a defenceman and 0 for a forward, and D_{i} × P_{it} enters in each season with its own coefficient f_{n}. Of the ${comma(N.prod_rows.players)} drafted skaters in the fit, ${comma(N.prod_rows.defencemen)} are defencemen.`));
 const defRows = [
-  ["(9) Section 3 model", "s3", "-"],
-  ["(12) Plus defenceman × production (adopted)", "adopted", `vs (9): ${pt(TS.def.p)}`],
-  ["(13) As (12), plus defenceman × production squared", "adopted_dq", `vs (12): ${pt(TS.dq.p)}`],
-  ["(14) As (12), plus defenceman × star probability, D+1 to D+3", "adopted_ds", `vs (12): ${pt(TS.ds.p)}`]];
+  ["(8) Section 3 model", "s3", "-"],
+  ["(11) Plus defenceman × production (adopted)", "adopted", `vs (8): ${pt(TS.def.p)}`],
+  ["(12) As (11), plus defenceman × production squared", "adopted_dq", `vs (11): ${pt(TS.dq.p)}`],
+  ["(13) As (11), plus defenceman × star probability, D+1 to D+3", "adopted_ds", `vs (11): ${pt(TS.ds.p)}`]];
 add(TT("def", "Defenceman terms added to the Section 3 model"));
-add(TABLE([...MHEAD.map((h, i) => (i === 0 ? "Model" : h)).slice(0, 6), `${TR.undrafted} undrafted prospects ($M)`, "Held-out error ($M)"],
-  defRows.map(([lab, nm, t]) => { const r = mrow(lab, nm, t); return [...r.slice(0, 6), f2(MT[nm].undrafted), r[6]]; }),
-  [3000, 950, 900, 1000, 1300, 1200, 1100, 950], [1, 2, 3, 5, 6, 7], mbold(defRows.map((r) => r[1]))));
-add(CAPTION(`As ${T("prod")}, on the same prospect-seasons. The undrafted prospects are all valued from D+5 on (Section 5).`));
+add(TABLE(MHEAD, defRows.map(([lab, nm, t]) => mrow(lab, nm, t)), MW, [1, 2, 4, 5], mbold(defRows.map((r) => r[1]))));
+add(CAPTION(`As ${T("prod")}, on the same prospect-seasons.`));
 add(P(`The defenceman term is statistically significant (${pq(TS.def.p)}) and positive in each season. A #20 pick in D+2 who is 19.5 and scores 20 points is worth ${mil(E.fwd_20_k1)} as a forward and ${mil(E.def_20_k1_value)} as a defenceman. Defenceman × production squared (p = ${f3(TS.dq.p)}) and a separate star value for defencemen (p = ${f3(TS.ds.p)}) are not statistically significant given it.`));
 const PD = N.pick_def;
 add(H2("The adopted model"));
 add(P("With the defenceman term, the adopted model values a prospect as follows, where D_{i} is 1 for a defenceman and the other symbols are as in Section 3:"));
 add(EQ([SUB("remaining NPV", "it"), " = ", ["sum", "n", [SUB("I", "nt"), ["()", [SUB("a", "n"), SUB("S", "i"), " + ", SUB("b", "n"), SUB("P", "it"), " + ", SUB("c", "n"), ["^", SUB("P", "it"), "2"], " + ", SUB("d", "n"), SUB("P", "it"), ["()", [SUB("A", "it"), " - 18"]], " + ", SUB("f", "n"), SUB("D", "i"), SUB("P", "it")]]]], " + ", SUB("ε", "it")]));
-add(P("Draft position is out from D+4 (a_{4} = a_{5} = 0) and the age discount from D+5 (d_{5} = 0). A prospect's xNPV in season D+n is the same sum without the error: a_{n}S + b_{n}P + c_{n}P^{2} + d_{n}P(A − 18) + f_{n}DP."));
+add(P("Draft position is out from D+4 (a_{4} = a_{5} = 0) and the age discount from D+5 (d_{5} = 0)."));
 const t9 = [["Star probability for his draft position (a)", "S", 3], ["Production (b)", "P", 3], ["Production squared (c)", "Q", 4],
   ["Production × (age − 18) (d)", "A", 3], ["Defenceman × production (f)", "D", 3]];
 const AC_ = N.adopted_counts;
@@ -339,12 +329,12 @@ add(TT("adopted", "The adopted model: regression by season"));
 add(TABLE(["Term", ...G.map((g) => SEAS[g])], [
   ...t9.map(([lab, c, d]) => [lab, ...G.map((g) => coefCell(C.adopted[g][c], d))]),
   ["Prospect-seasons", ...G.map((g) => comma(AC_[g].rows))], ["Players", ...G.map((g) => comma(AC_[g].players))],
-  ["Drafts", ...G.map((g) => comma(AC_[g].drafts))], ["R-squared", ...G.map((g) => f3(N.season_r2.adopted[g]))]],
+  ["R-squared", ...G.map((g) => f3(N.season_r2.adopted[g]))]],
   [2600, 1350, 1350, 1350, 1350, 1350], [1, 2, 3, 4, 5]));
-add(CAPTION(`As ${T("prodcoef")}. Production squared is in squared points (15 points enter as 225); age is on September 15 of the valuation season. R-squared within each season, measured from zero; over all ${comma(N.prod_rows.rows)} prospect-seasons it is ${f4(M.adopted.r2)} (adjusted ${f4(M.adopted.adj)}). The low R-squared reflects how uneven outcomes are: most prospects deliver no NHL value.`));
+add(CAPTION(`Dependent variable: remaining NPV in millions of dollars at the 2025-26 cap. Each cell gives the coefficient, its standard error clustered by player in parentheses and its two-sided p-value in brackets. The table is one regression with the full set of interaction terms: each column holds that season's coefficients. Production squared is in squared points (15 points enter as 225); age is on September 15 of the valuation season. R-squared within each season, measured from zero; over all ${comma(N.prod_rows.rows)} prospect-seasons it is ${f4(M.adopted.r2)}. The low R-squared reflects how uneven outcomes are: most prospects deliver no NHL value.`));
 const nsD = G.filter((g) => !sig(C.adopted[g].D.p)).map((g) => SEAS[g]);
 const sigQ = G.filter((g) => sig(C.adopted[g].Q.p)).map((g) => SEAS[g]);
-add(P(`In the adopted model, draft position is statistically significant in each season where it enters (p ≤ ${f3(maxP("adopted", "S", ["0", "1", "2"]))}), production squared in ${sigQ.length === 5 ? "each season" : sigQ.join(", ")} (p ≤ ${f3(Math.max(...G.filter((g) => sig(C.adopted[g].Q.p)).map((g) => C.adopted[g].Q.p)))}), and the age discount in each season from D+1 to D+4 (p ≤ ${f3(maxP("adopted", "A", ["0", "1", "2", "3"]))}). The defenceman term is statistically significant in ${listAnd(G.filter((g) => sig(C.adopted[g].D.p)).map((g) => SEAS[g]))}, not in ${nsD.join(" or ")}; it is kept in each season because the five together are statistically significant (p = ${f3(TS.def.p)}). Linear production is not statistically significant in any season; the next two subsections say why it stays, and why production stays from D+5 on.`));
+add(P(`The defenceman term is statistically significant in ${listAnd(G.filter((g) => sig(C.adopted[g].D.p)).map((g) => SEAS[g]))}, not in ${nsD.join(" or ")}; it is kept in each season because the five together are statistically significant (p = ${f3(TS.def.p)}). Linear production is not statistically significant in any season; the next two subsections say why it stays, and why production stays from D+5 on.`));
 add(P(`${T("build2")} shows the D+2 regression built up one term at a time, in the order of this document: draft position alone, then production, then its square, then age, then the defenceman term. Each column adds one term to the column before it, on the same prospect-seasons; Appendix B gives the same table for each other season.`));
 const BSPEC = ["slot", "slot_lin", "slot_linsq", "s3", "adopted"];
 const BT = (g) => TABLE(["Term", "(1) Draft position alone", "(2) + production", "(3) + production squared", "(4) + age", "(5) Adopted: + defenceman"], [
@@ -353,7 +343,7 @@ const BT = (g) => TABLE(["Term", "(1) Draft position alone", "(2) + production",
   [2400, 1350, 1350, 1350, 1350, 1400], [1, 2, 3, 4, 5]);
 add(TT("build2", "The D+2 regression built up one term at a time"));
 add(BT("1"));
-add(CAPTION(`As ${T("adopted")}. Column (5) is the adopted D+2 regression (${T("adopted")}); columns (1) to (3) are candidates (1), (3) and (4) of ${T("prod")}, and column (4) candidate (9) of ${T("age")}.`));
+add(CAPTION(`As ${T("adopted")}. Column (5) is the adopted D+2 regression (${T("adopted")}); columns (1) to (3) are candidates (1), (3) and (4) of ${T("prod")}, and column (4) candidate (8) of ${T("age")}.`));
 add(H2("Why linear production stays"));
 const LZ = TS.lin_zero;
 add(P(`Linear production's coefficient b is not statistically significant at the 5% level in any season (${T("adopted")}). It stays because its p-value is not the test of whether it belongs. With production × (age − 18) in the model, b is the linear value of a point for a prospect who is exactly 18 on September 15, and each year older adds d. Measuring age from another starting age changes b and its p-value but no value, because the change in b offsets the change in the age term. The test that b is zero in every season gives p = ${f3(LZ["18"].p)} with age measured from 18, ${pq(LZ["19"].p)} from 19 and ${pq(LZ["20"].p)} from 20, on the same fitted values. Dropping b would set a point's linear value to zero at whichever starting age is chosen, so the values would depend on a choice the data give no way to make.`));
@@ -381,11 +371,11 @@ add(P(`From July 2017 to March 2022, clubs traded ${TR.drafted} drafted prospect
 add(TT("versions", `The ${TR.drafted} traded drafted prospects under each model`));
 const vers = [["Draft position alone, draft-day value however long ago (no fade)", TR.slot_no_fade], ["Draft position alone, star value by season (Section 1)", TR.tot_slot],
   ["(3) Draft position + linear production, draft position in each season", drafted("slot_lin")], ["(4) Draft position + linear and squared production, draft position in each season", drafted("slot_linsq")],
-  ["(6) Linear and squared production, draft position in D+1 to D+3 only (Section 2)", drafted("s2")], ["(8) Plus age as a flat amount", drafted("s3_flat")],
-  ["(10) Plus age as a flat amount and discounting production", drafted("s3_both")], ["(9) Plus age discounting production, D+1 to D+4 (Section 3)", drafted("s3")],
-  ["(12) Adopted: plus defenceman × production (Section 4)", TR.tot_main], ["Adopted, each prospect's draft left out of the fit", TR.tot_own_out]];
+  ["(5) Linear and squared production, draft position in D+1 to D+3 only (Section 2)", drafted("s2")], 
+  ["(8) Plus age discounting production, D+1 to D+4 (Section 3)", drafted("s3")],
+  ["(11) Adopted: plus defenceman × production (Section 4)", TR.tot_main], ["Adopted, each prospect's draft left out of the fit", TR.tot_own_out]];
 add(TABLE(["Model", "Total xNPV", "vs adopted"], vers.map(([lab, v]) => [lab, money(v), Math.abs(v - TR.tot_main) < 1e-9 ? "-" : money(v - TR.tot_main)]),
-  [5600, 1700, 1700], [1, 2], new Set(), [8]));
+  [5600, 1700, 1700], [1, 2], new Set(), [vers.findIndex(([lab]) => lab.includes("Adopted: plus"))]));
 add(CAPTION(`Millions of dollars at the 2025-26 cap; ${TR.skaters_priced} skaters priced under each model and ${TR.others_on_slot} goaltenders on draft position alone in each. Each model applies its fit on all drafts 2007-2017 to each prospect at the season of his trade; the numbers in parentheses are the candidates of ${T("prod")}, ${T("age")} and ${T("def")}.`));
 add(P(`Production, age and position change many prospects' values. Moving from draft position alone to the adopted model moves ${TR.moved_025} of the ${TR.drafted} values by $0.25 million or more and leaves ${TR.top20_same_slot} of the 20 most valuable prospects in the top 20 (rank correlation ${f3(TR.rank)}).`));
 add(P(`A value can be below zero. Of the ${TR.drafted} drafted prospects, ${TR.neg_drafted} are valued below zero, ${mil(TR.neg_drafted_sum)} in total; of all ${TR.drafted + TR.undrafted} prospects valued, ${TR.neg_all} are, the lowest at ${mil(TR.neg_min)}. A value below zero means that prospects with that profile, a low scorer from a late draft position, delivered a slightly negative NPV on average in the data: when such players reach the NHL, their cost tends to exceed the value of the wins they deliver. Negative careers count, as in the draft pick curve.`));
@@ -402,7 +392,7 @@ add(TABLE(["Decision", "Adopted", "Alternative", "Why", "Effect"], [
   ["Currency", "Remaining NPV to the end of the club's control", "Entry-level years only", "A club controls a drafted player to 27 or seven roster seasons, long after his entry-level contract; one scale with picks and contracts", "Not measured; the entry-level years alone omit the control years"],
   ["Who is a prospect", "The player model's entry point (no 10+ game season in three; goaltenders no game in six)", "Any NHL game sends him to the player model", "No player is valued twice or by neither model", "The alternative would change the player model's forecast"],
   ["Undrafted prospects", "On NHL contracts only", "All undrafted players", "Only an NHL contract gives a club NHL rights", `${TR.undrafted} assets, ${money(TR.tot_undrafted)}`],
-  ["Trades after the regular season", "Valued at the next season", "The season just ended", "The season's games are played and its data complete at the trade", "23 traded prospects move, -$3.51M in total (recorded October 14, 2026)"],
+  ["Trades after the regular season", "Valued at the next season", "The season just ended", "The season's games are played and its data complete at the trade", "23 traded prospects move, -$3.51M in total"],
 ], [1500, 2100, 1600, 2300, 1800]));
 add(H1("Appendix B. The Regressions Built Up One Term at a Time"));
 for (const [key, g] of [["b0", "0"], ["b2", "2"], ["b3", "3"], ["b4", "4+"]]) {
@@ -418,7 +408,7 @@ add(TT("ageforms", "The age terms in each tested form"));
 add(TABLE(["Form and term", ...G.slice(0, 4).map((g) => SEAS[g])],
   formsB.map(([lab, nm, c]) => [lab, ...G.slice(0, 4).map((g) => coefCell(C[nm][g][c]))]),
   [3300, 1500, 1500, 1500, 1500], [1, 2, 3, 4]));
-add(CAPTION(`Candidates (8), (9) and (10) of ${T("age")}. Coefficients in millions of dollars per year of age (flat) or per NHLe point per year of age (discount), standard errors clustered by player in parentheses and two-sided p-values in brackets; each form is one regression with the full set of interaction terms and the production terms of Section 2. Age is his age on September 15 of the valuation season, less 18.`));
+add(CAPTION(`Candidates (7), (8) and (9) of ${T("age")}. Coefficients in millions of dollars per year of age (flat) or per NHLe point per year of age (discount), standard errors clustered by player in parentheses and two-sided p-values in brackets; each form is one regression with the full set of interaction terms and the production terms of Section 2. Age is his age on September 15 of the valuation season, less 18.`));
 
 const doc = new Document({
   creator: "Thomas Mihaljevic", title: "Valuing Prospects",

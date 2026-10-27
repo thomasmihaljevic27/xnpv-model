@@ -3854,3 +3854,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   his two comments answered: the same percentage decline of the star value tested (`prospect_doc_figures.py` v4.1,
   delta-method Wald, p = 0.094, not rejected) and "the season he was drafted (D0)". No model change. MANIFEST three rows,
   WORK_QUEUE item 6, session log sessions/2026-10-27.md.
+
+### Change log, 2026-10-27d ("Valuing Prospects" v4.3)
+
+- DOCUMENT (Thomas: "Apply cuts 1 to 19 and the 2,316 fix"): `prospect_model_doc.js` v4.3; 4,903 words, 16 pages. No
+  model change. MANIFEST two rows, WORK_QUEUE item 6, session log sessions/2026-10-27.md.
