@@ -234,6 +234,83 @@ both is in the file:
 - Age-adjusted production and its square: `prod_x_age_m18` and either its square, or `nhle82_sq` x `age_m18`.
   These are two different variables, and they mean different things.
 
+### 8. Every significance test in "Valuing Prospects" v4.3 (written 2026-10-27, untested in Stata)
+
+Each test is a Wald test after the regression named, errors clustered by player, as `25_TESTS/prospect_doc_figures.py`
+v4.1 runs them (the p-values it should give are in brackets). Stata names an interaction coefficient
+`n.season_group#c.var`; `test` with several equations tests them jointly. Set these up once:
+
+    import delimited using "prospect_seasons.csv", clear
+    generate s_early   = p_star * (season_group <= 3)
+    generate age_term  = prod_x_age_m18 * (season_group <= 4)
+    generate flat_term = age_m18 * (season_group <= 4)
+    local sg season_group
+    local cl noconstant vce(cluster player_id)
+
+**Table 2, the star value's alternatives** (`sample_star == 1`):
+
+    regress remaining_npv_m ibn.`sg'#c.p_star if sample_star == 1, `cl'
+    * one value for every season: the five star values equal  [p < 0.001]
+    test 1.`sg'#c.p_star = 2.`sg'#c.p_star = 3.`sg'#c.p_star = 4.`sg'#c.p_star = 5.`sg'#c.p_star
+    * straight-line decline: equal drops from D+1 to D+4  [p = 0.070]
+    test (2.`sg'#c.p_star - 1.`sg'#c.p_star = 3.`sg'#c.p_star - 2.`sg'#c.p_star) ///
+         (3.`sg'#c.p_star - 2.`sg'#c.p_star = 4.`sg'#c.p_star - 3.`sg'#c.p_star)
+    * same percentage decline: equal shares from D+1 to D+4, non-linear, so testnl (the delta method)  [p = 0.094]
+    testnl (_b[2.`sg'#c.p_star]^2 = _b[1.`sg'#c.p_star]*_b[3.`sg'#c.p_star]) ///
+           (_b[3.`sg'#c.p_star]^2 = _b[2.`sg'#c.p_star]*_b[4.`sg'#c.p_star])
+
+**Table 3, production** (`sample_production == 1` from here on):
+
+    regress remaining_npv_m ibn.`sg'#c.(p_star nhle82) if sample_production == 1, `cl'
+    testparm ibn.`sg'#c.nhle82                                  // (3) vs (1)  [p = 0.0013]
+    regress remaining_npv_m ibn.`sg'#c.(p_star nhle82 nhle82_sq) if sample_production == 1, `cl'
+    testparm ibn.`sg'#c.nhle82 ibn.`sg'#c.nhle82_sq             // production vs draft position alone  [p < 0.001]
+    testparm ibn.`sg'#c.nhle82_sq                               // (4) vs (3)  [p < 0.001]
+    test 4.`sg'#c.p_star 5.`sg'#c.p_star                        // (5) vs (4): draft position in D+4 and later  [p = 0.653]
+    regress remaining_npv_m ibn.`sg'#c.(s_early nhle82 nhle82_sq) if sample_production == 1, `cl'
+    testparm ibn.`sg'#c.nhle82                                  // (6) vs (5): without linear production  [p = 0.0011]
+
+**Table 5, age** (on candidate (5)):
+
+    regress remaining_npv_m ibn.`sg'#c.(s_early nhle82 nhle82_sq flat_term) if sample_production == 1, `cl'
+    testparm ibn.`sg'#c.flat_term                               // (7) vs (5)  [p = 0.0067]
+    regress remaining_npv_m ibn.`sg'#c.(s_early nhle82 nhle82_sq age_term) if sample_production == 1, `cl'
+    testparm ibn.`sg'#c.age_term                                // (8) vs (5)  [p < 0.001]
+    regress remaining_npv_m ibn.`sg'#c.(s_early nhle82 nhle82_sq flat_term age_term) if sample_production == 1, `cl'
+    testparm ibn.`sg'#c.flat_term                               // (9): the flat amount given the discount  [p = 0.736]
+    testparm ibn.`sg'#c.age_term                                // (9): the discount given the flat amount  [p = 0.013]
+    regress remaining_npv_m ibn.`sg'#c.(s_early nhle82 nhle82_sq prod_x_age_m18) if sample_production == 1, `cl'
+    test 5.`sg'#c.prod_x_age_m18                                // (10) vs (8): the discount from D+5 on  [p = 0.079]
+
+The flat term has no production to absorb a change of where age is measured from, so its fit depends on it; with
+`years_past_elig` in place of `age_m18` the verdict is the same (alone p = 0.0024; given the discount p = 0.172).
+
+**Table 6, defencemen** (on candidate (8)):
+
+    regress remaining_npv_m ibn.`sg'#c.(s_early nhle82 nhle82_sq age_term prod_x_defence) if sample_production == 1, `cl'
+    testparm ibn.`sg'#c.prod_x_defence                          // (11) vs (8)  [p = 0.033]
+    test 5.`sg'#c.nhle82 5.`sg'#c.nhle82_sq                     // production from D+5 on, together  [p = 0.138]
+    generate dq = nhle82_sq * is_defence
+    generate ds = s_early * is_defence
+    regress remaining_npv_m ibn.`sg'#c.(s_early nhle82 nhle82_sq age_term prod_x_defence dq) if sample_production == 1, `cl'
+    testparm ibn.`sg'#c.dq                                      // (12) vs (11)  [p = 0.553]
+    regress remaining_npv_m ibn.`sg'#c.(s_early nhle82 nhle82_sq age_term prod_x_defence ds) if sample_production == 1, `cl'
+    testparm ibn.`sg'#c.ds                                      // (13) vs (11)  [p = 0.342]
+
+**Why linear production stays**: linear production's coefficient zero in every season, with age measured from 18, 19
+and 20. Each regression gives the same fitted values; only the test moves:
+
+    foreach c in 18 19 20 {
+        generate age_term_`c' = nhle82 * (age - `c') * (season_group <= 4)
+        quietly regress remaining_npv_m ibn.`sg'#c.(s_early nhle82 nhle82_sq age_term_`c' prod_x_defence) ///
+            if sample_production == 1, `cl'
+        testparm ibn.`sg'#c.nhle82                              // [p = 0.061, 0.0054, < 0.001]
+    }
+
+R-squared in the tables is the uncentered R-squared each `regress ..., noconstant` prints (`e(r2)`). Held-out error has
+no Stata command here: it is a loop of 11 fits, each leaving one draft out (`25_TESTS/prospect_doc_figures.py`,
+`fit_design`).
+
 # 2. The player model
 
 ## The price lines (price_line_skaters.csv, price_line_goalies.csv)

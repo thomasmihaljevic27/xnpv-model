@@ -1463,3 +1463,13 @@ was cut at 300 characters; the rest is the recommendation he was answering). Sta
 6. **The two Matt Murrays** are kept apart in every goaltender reading (2022-23: Toronto 26 games, the elder; Dallas 3,
    the younger).
 7. **Kept:** the pooled control-season weight (0.767; qualifying rates do not differ by forecast group, p = 0.519).
+
+## How model choices are tested and reported (Thomas, 2026-10-27)
+
+"For our testing we should use both, but in the document only when relevant (most of the times we just state p value,
+but if a p test is inconclusive we can bring it up)." Every candidate is scored both ways: statistical significance (the
+Wald test of the terms it adds or drops, errors clustered by player) and held-out error (each draft predicted from a fit
+on the others). A reader-facing document states the p-value; it reports held-out error only where the significance test
+is inconclusive (not significant at the 5% level, or no test exists because the forms are not nested). Status: decided;
+"Valuing Prospects" v4.3 (sent) predates it and keeps a held-out column; the player document is rewritten on it
+(2026-10-27).

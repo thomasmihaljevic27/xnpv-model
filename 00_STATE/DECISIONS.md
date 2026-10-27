@@ -3859,3 +3859,12 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 
 - DOCUMENT (Thomas: "Apply cuts 1 to 19 and the 2,316 fix"): `prospect_model_doc.js` v4.3; 4,903 words, 16 pages. No
   model change. MANIFEST two rows, WORK_QUEUE item 6, session log sessions/2026-10-27.md.
+
+### Change log, 2026-10-27e (the reporting rule; Stata commands; the player document v4.3)
+
+- DECIDED (Thomas): every model choice is tested by significance and held-out error; a document states the p-value and
+  reports held-out error only where the significance test is inconclusive (MODEL_DIRECTIVES, 2026-10-27).
+- DOCUMENT: codebook section 8 (Stata commands for each test in "Valuing Prospects" v4.3, untested in Stata); "Valuing
+  Players, Draft Picks, and Prospects" v4.3 (`model_doc.js` v4.3, `model_doc_figures.py` v4.2, every guard PASS) on the
+  model as of today and the rule; Thomas's two Word edits of v4.2 carried in. No model change. "Valuing Prospects" sent
+  (Thomas). MANIFEST four rows, WORK_QUEUE items 5, 6 and 6a, session log sessions/2026-10-27.md.

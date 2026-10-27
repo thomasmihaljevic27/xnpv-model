@@ -50,7 +50,7 @@ import matplotlib                                                  # noqa: E402
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt                                    # noqa: E402
 
-SCRIPT_VERSION = "model_doc_figures.py v4.1 (2026-10-22)"   # v4.1: figure labels say NPV and xNPV, not surplus (Thomas); v4.0: the model after 2026-10-21 (round-2 notes)
+SCRIPT_VERSION = "model_doc_figures.py v4.2 (2026-10-27)"   # v4.2: the prospect model with defenceman x production; the prospect document's tests read in; v4.1: figure labels say NPV and xNPV, not surplus (Thomas); v4.0: the model after 2026-10-21 (round-2 notes)
 OUT, SRC = Path(os.environ["OUTPUT_DIR"]), Path(os.environ["SOURCE_DIR"])
 FIG = OUT / "model_doc"
 FIG.mkdir(exist_ok=True)
@@ -649,10 +649,12 @@ FORMS = {"adopted": lambda g: adopted_cols(g),
          "production squared alone": lambda g: [c for c in adopted_cols(g) if c != "nhle82"]}
 fe = {nm: heldout(fn) for nm, fn in FORMS.items()}
 fsse = {nm: pd.Series(e ** 2).groupby(prow["draftYear"]).sum() for nm, e in fe.items()}
-age_look = pd.read_csv(OUT / "prospect_age_look.csv").set_index("arm")
+# v4.2: the adopted model has defenceman x production (prospect_values v1.13), measured by defence_terms_look.py's arm
+dlk_ = pd.read_csv(OUT / "defence_terms_look.csv")
+dlk_ = dlk_[(dlk_["part"] == "prospect model") & (dlk_["arm"] == "+ D x P")].iloc[0]
 ad_rmse = float(np.sqrt(np.mean(fe["adopted"] ** 2)))
-guard("prospects: the replicated held-out error equals the age test's adopted arm",
-      abs(ad_rmse - age_look.loc["age x production, seasons 0-3", "rmse_M"]) < 1e-6, f"({ad_rmse:.6f})")
+guard("prospects: the replicated held-out error equals the defence test's adopted arm",
+      abs(ad_rmse - float(dlk_["rmse_heldout_M"])) < 1e-6, f"({ad_rmse:.6f})")
 FORM = {nm: {"rmse": float(np.sqrt(np.mean(e ** 2))),
              "by_k": {g: float(np.sqrt(np.mean(e[prow.index[prow["k_group"].astype(str) == g]] ** 2))) for g in G5}}
         for nm, e in fe.items()}
@@ -673,6 +675,7 @@ tsk["no_record"] = (tsk["n_prod_seasons"].fillna(0) == 0).astype(float)
 tsk["nhle82"] = tsk["nhle82"].fillna(0.0)
 tsk["nhle82_sq"] = tsk["nhle82"] ** 2
 tsk["prod_x_age"] = tsk["nhle82"] * tsk["past_elig"]
+tsk["d_x_prod"] = tsk["nhle82"] * tsk["is_d_model"].astype(float)          # v4.2: defenceman x production
 FORM_TRADED = {}
 for nm, fn in FORMS.items():
     cb = {g: fn(g) for g in G5}
@@ -692,7 +695,8 @@ sz = pv_[(pv_["player_name"] == "Nick Suzuki") & (pv_["trade_date"] == TRADE_DAT
 k_sz = str(int(sz["seasons_since_draft"]))
 co = {c: t["b"] for c, t in ADO[k_sz]["terms"].items()}
 inp = {"p_star": float(sz["p_star"]), "nhle82": float(sz["nhle82"]), "nhle82_sq": float(sz["nhle82"]) ** 2, "no_record": 0.0,
-       "prod_x_age18": float(sz["nhle82"]) * (float(sz["past_elig"]) + int(sz["seasons_since_draft"]))}
+       "prod_x_age18": float(sz["nhle82"]) * (float(sz["past_elig"]) + int(sz["seasons_since_draft"])),
+       "d_x_prod": float(sz["nhle82"]) * float(sz["is_d_model"])}          # v4.2: defenceman x production
 parts = {c: co[c] * inp[c] for c in co}
 guard("Suzuki: his parts add to his value", abs(sum(parts.values()) - sz["value_M"]) < 1e-9, f"({sum(parts.values()):.6f} vs {sz['value_M']:.6f})")
 d2 = prow[(prow["k_group"].astype(str) == k_sz) & (prow["no_record"] == 0)]["nhle82"]
@@ -730,6 +734,15 @@ PRS["arrival"] = {g: x.set_index("season")[["arrived", "share_of_all"]].to_dict(
 guard("prospects: the fade test's adopted column equals the star values",
       max(abs(a - PRS["star"][g]["b"]) for a, g in zip(PRS["fade"]["curves"]["separate"][:5], G5)) < 1e-9)
 guard("prospects: the production test's rows are the model's", int(PRS["nhle_look"][0]["rows"]) == len(prow))
+# v4.2: every model the prospect document compares, with R-squared, Wald tests and traded totals (prospect_doc_figures.py
+# v4.1, guarded against the live model); the player document's prospect section reports from it
+pdoc_ = json.loads((OUT / "prospect_doc" / "numbers.json").read_text(encoding="utf-8"))
+assert pdoc_["script"].startswith("prospect_doc_figures.py v4."), pdoc_["script"]
+guard("prospects: the prospect document's adopted traded total equals this run's",
+      abs(pdoc_["traded"]["tot_main"] - PRS["traded"]["tot_drafted"]) < 1e-6)
+PRS["doc"] = {k_: pdoc_[k_] for k_ in ("models", "tests", "model_traded", "coefs", "season_r2", "fade_wald_one",
+                                         "fade_wald_steps", "fade_wald_ratio", "fade_r2", "pick_def", "disc_forms",
+                                         "disc_p_heldout", "econ", "prod_median_pos", "prod_rows", "worked", "def_moved")}
 N["prospects"] = PRS
 log(f"  prospects: star values " + " / ".join(f"{PRS['star'][g]['b']:.2f}" for g in G5) + f"; Suzuki ${sz['value_M']:.3f}M; "
     f"forms held-out: " + ", ".join(f"{k} {v['rmse']:.4f}" for k, v in FORM.items()))

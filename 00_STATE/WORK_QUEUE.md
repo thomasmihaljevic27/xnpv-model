@@ -35,14 +35,15 @@
    (`prospect_values.py` v1.13); the trade chain, the back-test, its Game Value check and the Stata exports re-run on
    the desktop. **Decided 2026-10-24 (Thomas): one star value in the pick curve**; the defenceman result
    (defencemen's star value $11.15M against forwards' $21.04M, p = 0.002) is reported in the document as tested, with
-   the reason: a pick traded before its draft has no position. Decide (Thomas): which rule
-   governs model choices from here: significance decides with held-out error a note (the supervisor's), or held-out
-   error decides. ("Valuing Prospects" v4.0 is written on the supervisor's rule, 2026-10-27.) The wording, the
+   the reason: a pick traded before its draft has no position. **Decided 2026-10-27 (Thomas), the rule for model
+   choices:** "For our testing we should use both, but in the document only when relevant (most of the times we just
+   state p value, but if a p test is inconclusive we can bring it up)": every test runs both significance and held-out
+   error; a document reports the p-value, and held-out error only where the significance test is inconclusive. The wording, the
    defenceman section (Section 4) and the pick curve's result as tested: done in v4.0, 2026-10-27.
-6. Do (Thomas): read "Valuing Prospects" v4.3 (built 2026-10-27, 16 pages: v4.0 shortened on his instructions, his
-   Word edits of v4.0 and v4.1 carried in, his two comments answered), then send it.
-6a. Later: the codebook gives Stata commands for the adopted model and the build-up only; v4.0's new comparisons (the
-   Wald tests of Tables 2, 3, 5 and 6 of v4.3, the same-percentage test among them) have none yet.
+6. Done 2026-10-27 (Thomas): "Valuing Prospects" sent (v4.3 with his 14:11 edit).
+6a. Done 2026-10-27: Stata commands for every significance test in "Valuing Prospects" v4.3 (codebook section 8;
+   untested in Stata). Done 2026-10-27 (Thomas: "Rewrite that document"): "Valuing Players, Draft Picks, and Prospects"
+   v4.3 on the model as of today and the reporting rule. Read (Thomas): v4.3.
 After the supervisor's trip and Thomas's two exams: Thomas runs every regression in the document in Stata in front of
 the supervisor (the data: `30_OUTPUT/stata/`). Loose threads: Nick Suzuki's dashboard value (-$0.03M); the supervisor
 wants trade values soon.
