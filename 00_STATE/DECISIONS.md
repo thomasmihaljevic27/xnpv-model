@@ -3868,3 +3868,14 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   Players, Draft Picks, and Prospects" v4.3 (`model_doc.js` v4.3, `model_doc_figures.py` v4.2, every guard PASS) on the
   model as of today and the rule; Thomas's two Word edits of v4.2 carried in. No model change. "Valuing Prospects" sent
   (Thomas). MANIFEST four rows, WORK_QUEUE items 5, 6 and 6a, session log sessions/2026-10-27.md.
+
+### Change log, 2026-11-08 (decisions on open items; the Stata walkthrough)
+
+- DECIDED (Thomas): undrafted prospects all on NHL contracts, and the chance of playing before 2019 not seeing contracts,
+  are stated limitations (STANDING_FLAGS); no save-percentage test for goaltender prospects. DROPPED: the back-test's star
+  group, goaltender prospects, the five references (for now). LATER: offer sheets, "not at this time". WORK_QUEUE updated.
+- BUILT (Thomas: "simple and ready to go", one command, comprehensive): `stata_refresh.py` v1.0, `stata_expected.py`
+  v1.0, `stata_walkthrough_template.do`, `xnpv_load.do`; `stata_export.py` v1.2, `stata_export_players.py` v1.1,
+  `stata_export_backtest.py` v1.1; the guide `40_DOCS/Stata_Data_Codebook.md` rewritten step by step (steps 0 to 32).
+  Every export guard PASS; every recorded Wald statistic reproduced from the CSVs. No model change; untested in Stata.
+  CLAUDE.md's Stata paragraph, MANIFEST eight rows, session log sessions/2026-11-08.md.

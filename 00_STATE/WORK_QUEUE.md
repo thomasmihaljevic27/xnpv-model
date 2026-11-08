@@ -45,8 +45,13 @@
    untested in Stata). Done 2026-10-27 (Thomas: "Rewrite that document"): "Valuing Players, Draft Picks, and Prospects"
    v4.3 on the model as of today and the reporting rule. Read (Thomas): v4.3.
 After the supervisor's trip and Thomas's two exams: Thomas runs every regression in the document in Stata in front of
-the supervisor (the data: `30_OUTPUT/stata/`). Loose threads: Nick Suzuki's dashboard value (-$0.03M); the supervisor
-wants trade values soon.
+the supervisor (the data: `30_OUTPUT/stata/`). Thomas, 2026-11-08: "ensure that all the stata stuff is simple and ready
+to go", the guide step by step, every data source pulled in one command at the start, comprehensive across the three
+pillars (session 2026-11-08). **Done 2026-11-08:** `python 20_CODE/stata_refresh.py` builds the 13 CSVs,
+`xnpv_load.do` (every file in one command) and `xnpv_walkthrough.do` (steps 0 to 32, each with the figure Stata should
+print); the guide is `40_DOCS/Stata_Data_Codebook.md`; untested in Stata. Re-run it after the trade chain and the back-test
+are next re-run. Loose threads: Nick Suzuki's dashboard value (-$0.03M; Thomas, 2026-11-08: "I'll update
+the dashboard and come back to you"); the supervisor wants trade values soon.
 
 **Done 2026-10-21: the round-2 model work (session 2026-10-21).** The forecast audit's decisions, the re-lock, the
 whole-term pricing test (not adopted; to be stated as tested in the player document), goalie birthdates from the NHL,
@@ -74,7 +79,8 @@ and prospects for players gains in forecast and outcome. Next, in order:
    futures-for-players group.
 4. Decided 2026-10-23 (Thomas: "don't include the star line at all in the back test but we can revisit that later"):
    the star group is left out of the back-test's reported results (protocol amendment 5). `backtest.py` v1.6 still
-   computes it; the code is unchanged until the back-test is next edited. Later (Thomas): revisit the star group.
+   computes it; the code is unchanged until the back-test is next edited. Dropped 2026-11-08 (Thomas: "don't worry about
+   star group in the back tests"): no revisit.
 
 **Done 2026-10-20 (adopted; Thomas: "Adopt both"): the back-test's three accounting rules, built on the contract-table fix (session log 2026-10-18, its 2026-10-20 section).** Details: the season left in days, on value and cap (the last day from the schedule published before the season); prospects keep the full season; the retaining club pays the retained part. Laptop: the join at the 2025-26 cap $-525.63M -> $-357.29M ($-534.21M with the contract fix alone). The 15 retentions recorded only in the ledger's text were added the same day (below). Decided 2026-10-19 (Thomas):
 1. "2025-26": every value is added at the 2025-26 cap (`trade_asset_values.csv`'s `value_2025_cap_M`).
@@ -149,7 +155,8 @@ received less given up: Montreal +$2.70M, Vegas -$2.70M at the 2025-26 cap). His
   and does not predict left-out drafts better (one-sided p = 0.719 on 2026-10-21 data). The document gives as the reason
   for leaving them out that a pick traded before its draft has no intercept of its own (Claude's wording). **Confirmed
   2026-10-23 (Thomas).**
-- Later (Thomas, 2026-10-23: "i'll check later the doc is provisional atp anyways"): check the five references the document cites (Efron and Morris 1975; Nadaraya 1964; Papke and Wooldridge 1996; Tobin
+- Dropped for now 2026-11-08 (Thomas: "don't worry for now about the references"). Was, later (Thomas, 2026-10-23:
+  "i'll check later the doc is provisional atp anyways"): check the five references the document cites (Efron and Morris 1975; Nadaraya 1964; Papke and Wooldridge 1996; Tobin
   1958; Watson 1964).
 (Done since v2: the same-day extension left out and the 15 text-only retentions charged, both 2026-10-20; the cap at
 which a trade's sides are added, 2025-26, 2026-10-19.)
@@ -174,13 +181,15 @@ PASS; Table 6's note corrected. Decided: D+5-and-later skater prospects keep the
 prospect model (Thomas), settling the draft regression's form below. Star value $18.04M; traded picks $401.6M;
 traded prospects $75.60M (drafted $69.82M); "Valuing Prospects" rebuilt (v2.5).
 
-**Later (Thomas, 2026-10-16): goaltender prospects.** Thomas: "maybe we can return to the goalies another day." What the
+**Dropped 2026-11-08 (Thomas: "don't worry about goalie prospects").** Was, later (Thomas, 2026-10-16): goaltender
+prospects. Thomas: "maybe we can return to the goalies another day." What the
 record shows: from D+5 on, the pooled star value ($2.01M) is almost all goaltenders' signal; goaltender prospect-seasons
 alone give $19.35M (p < 0.001), skaters $0.16M (p = 0.64). Session 2026-10-16b.
 
 **Read (Thomas): the revised "Valuing Prospects" (built 2026-10-15, session 2026-10-15b, 16 pages).** Then decide (Thomas):
 whether undrafted players' selection (all on NHL contracts) is a stated limitation or something to investigate, and
-whether to test a save-percentage measure for goaltenders (stated as untested in the document). The revision itself: Answered in
+whether to test a save-percentage measure for goaltenders (stated as untested in the document). **Decided 2026-11-08
+(Thomas): a stated limitation (STANDING_FLAGS); no save-percentage test.** The revision itself: Answered in
 session 2026-10-15b. Decided there: age fully adopted, no age-removed version (Thomas's note; code and document not yet
 changed); the full curve kept; deceased draftees excluded (built) and to be listed. His note on centring age at 18:
 "seems like the simpler solution" (same values; not yet changed). Tests for the document: `prospect_curve_vs_line.py`,
@@ -229,7 +238,7 @@ after the regular season are valued (adopted 2026-10-14, `rights_values.py`). 91
 are under utilized. We can model that somehow." How to model it is not yet decided. As of today nothing in `20_CODE/`
 models an offer sheet (one comment in `page_2017_values.py`). The supervisor (2026-10-15): about 12-14 offer sheets in the cap era, too few
 for statistics; put it aside until the paper is done ("you're having creep here"). Thomas: "at a minimum this is
-like a later thing".
+like a later thing". Thomas, 2026-11-08: "I would like to see the offer sheet stuff investigated but not at this time."
 
 **Done 2026-10-14 (Thomas's decisions on the audit).**
 - 60/40 checks retired (commit 35cbb62): `skater_value_engine.py` v2.0 (a library), `goalie_value_engine.py` v1.3,
@@ -253,9 +262,8 @@ like a later thing".
 - Until the model is complete: the defence premium (entry "xNPV 1 follow-ups" item 5 below); the nine-season
   participation window; the long-deal gap; the star under-forecast; the offsetting biases for thin histories
   (2026-10-05).
-- Unruled: the chance of playing before 2019 cannot see contracts (2026-10-05). The queue said to decide at
-  step 6 whether those valuations are read differently or the gap is stated as a limitation; no ruling is in
-  the record.
+- Ruled 2026-11-08 (Thomas): the chance of playing before 2019 cannot see contracts (2026-10-05) is a stated
+  limitation (STANDING_FLAGS); those valuations are not read differently.
 - Draft, for the back-test: the 113 conditional picks among the traded picks (met or not); a slot-aware value
   for future first-round picks (the round average undervalues a weak team's future first: $9.5M against
   $6.6M under the old chain).

@@ -173,13 +173,15 @@ first: `$env:XNPV_OUTCOME_METRIC = "gv_adj"`, and remove it afterwards (`Remove-
 Its rules, tests and groups are in `40_DOCS/Backtest_Protocol.md`, committed before the first run; a change to any of
 them after a run goes in as a dated amendment saying what changed and why.
 
-Stata data (2026-10-23): every regression's rows as CSVs in `30_OUTPUT/stata/`, from three scripts, each run after
-what it reads: `python 20_CODE/stata_export.py` (the pick curve and the prospect model; after `prospect_values.py`, about
-two minutes), `python 20_CODE/stata_export_players.py` (the skater and goalie price lines, and the games share, chance of
-playing and goalie age term on every page 2010-2026; after the dashboard chain, about two minutes) and
-`python 20_CODE/stata_export_backtest.py` (the back-test's tests and Game Value's regressions; after `backtest.py` and its
-Game Value runs). Each refits its regressions from the CSVs as written and stops on any difference from the model.
-Columns, samples, the equations and Stata commands: `40_DOCS/Stata_Data_Codebook.md`.
+Stata data (2026-10-23; one command since 2026-11-08): `python 20_CODE/stata_refresh.py`, after the dashboard chain,
+the trade chain and the back-test with its Game Value runs. It runs the three exports in order (`stata_export.py`: the
+pick curve and the prospect model; `stata_export_players.py`: the price lines and the forecast pieces on every page;
+`stata_export_backtest.py`: the back-test and Game Value), each of which refits its regressions from the CSVs as written
+and stops on any difference from the model; then it fills `20_CODE/stata_walkthrough_template.do` with the figure each
+command should print (computed as Stata computes them, `stata_expected.py`) and writes `30_OUTPUT/stata/` with the 13
+CSVs, `xnpv_load.do` (loads them all with one command) and `xnpv_walkthrough.do` (every regression and test, step by
+step). The guide, with the same step numbers: `40_DOCS/Stata_Data_Codebook.md`. A new regression or reported test goes
+in the export that owns its data, the template and the guide together.
 
 To answer questions about the curve on the spot: `python 25_TESTS/pick_lookup.py --help`. Each finding in
 `Valuing Draft Picks.docx`, with its command and expected value: `40_DOCS/Valuing_Draft_Picks_Reproduction.md`.

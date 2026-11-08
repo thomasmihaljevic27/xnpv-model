@@ -1,5 +1,14 @@
 """
-stata_export.py -- the draft pick curve's and the prospect model's regression data as flat CSVs, for Stata (v1.0).
+stata_export.py -- the draft pick curve's and the prospect model's regression data as flat CSVs, for Stata (v1.2).
+
+v1.2 (2026-11-08; Thomas: "ensure that all the stata stuff is simple and ready to go", "comprehensive as far as
+regressions we can run"): every derived variable a test in the documents uses is a column, so the Stata walkthrough
+needs no generate line (draft_players.csv: p_nhler, log_pick, log_pick_sq, p_star_sq, is_d_draft, p_star_x_d_draft,
+p_star_trend; prospect_seasons.csv: s_early, age_term, flat_term, prod_sq_x_defence, s_early_x_defence, age_term_19,
+age_term_20); and every figure the walkthrough's commands should print, computed from the CSVs as Stata computes it
+(stata_expected.py), is written to stata/expected_picks_prospects.json for stata_refresh.py to put in the do-file.
+The pick curve's tests in "Valuing Players, Draft Picks, and Prospects" (the nested table, one star value for every
+draft, the trend, defencemen, the other shapes) are checked against model_doc_figures.py's numbers where they exist.
 
 WHY: every regression in "Valuing Draft Picks" and "Valuing Prospects" should be reproducible by hand in Stata from
 files on disk (supervisor meeting, 2026-10-23). This script writes those files. It builds no data of its own: every
@@ -39,8 +48,9 @@ import pandas as pd
 import statsmodels.api as sm
 
 import prospect_values as PV
+import stata_expected as SE
 
-SCRIPT_VERSION = "stata_export.py v1.1 (2026-10-24)"   # v1.1: prod_x_defence (prospect_values v1.13)
+SCRIPT_VERSION = "stata_export.py v1.2 (2026-11-08)"   # v1.2: test columns, expected figures; v1.1: prod_x_defence
 OUTPUT_DIR, SOURCE_DIR = PV.OUTPUT_DIR, PV.SOURCE_DIR
 OUT = OUTPUT_DIR / "stata"
 TOL = 1e-9
@@ -79,6 +89,189 @@ def stacked(frame, cols_by_group):
             names.append((g, c))
     m = ols(frame["remaining_npv_m"].values, np.column_stack(blocks), frame["player_id"].values)
     return {n: (float(m.params[i]), float(m.bse[i])) for i, n in enumerate(names)}, m
+
+
+def expected_figures(P, R):
+    """v1.2: what each command in the walkthrough's Parts 1 and 2 should print, from the CSVs as written, computed as
+    Stata computes it (stata_expected.py). Step numbers are the do-file's. Where the documents' own runs recorded the
+    same test, its Wald statistic is checked against them (chi2 = F x q) and the script stops on a difference."""
+    E = SE.Expected()
+    log("\nEXPECTED FIGURES (Parts 1 and 2 of the do-file; Stata's conventions)")
+    mdoc = OUTPUT_DIR / "model_doc" / "numbers.json"
+    pdoc = OUTPUT_DIR / "prospect_doc" / "numbers.json"
+    import json
+    MD = json.loads(mdoc.read_text(encoding="utf-8")) if mdoc.exists() else None
+    PD = json.loads(pdoc.read_text(encoding="utf-8")) if pdoc.exists() else None
+
+    def same(label, mine, doc, tol=1e-6):
+        """A figure the documents recorded: stop unless this CSV gives it back."""
+        assert abs(mine - doc) <= tol * max(1.0, abs(doc)), (label, mine, doc)
+        log(f"    = the document's run: {label} {doc:.6g} (PASS)")
+
+    # ---- Part 1: draft picks ----------------------------------------------------------------------------------------
+    pk = P[P["excluded_deceased"] == 0].reset_index(drop=True)
+    y = pk["career_npv_m"]
+    m1 = SE.OLS(y, pk[["p_star"]], ["p_star"], robust=True)
+    sc = pd.read_csv(OUTPUT_DIR / "pick_curve_scales.csv").set_index("scale_kind")
+    assert abs(m1.coef("p_star") - sc.loc["main", "scale_M"]) < TOL
+    E.add("S1_B", m1.coef("p_star"), "{:.3f}"); E.add("S1_SE", m1.sei("p_star"), "{:.3f}")
+    E.add("S1_N", f"{m1.n:,}"); E.add("S1_R2", m1.r2, "{:.4f}")
+    log(f"  step 1, the pick curve: star value {m1.coef('p_star'):.4f} ({m1.sei('p_star'):.4f}), N {m1.n}, "
+        f"R-squared {m1.r2:.4f} (uncentered)")
+
+    sub = pk[~pk["draft_year"].isin([2015, 2016])]
+    m2 = SE.OLS(sub["career_npv_m"], sub[["p_star"]], ["p_star"], robust=True)
+    assert abs(m2.coef("p_star") - sc.loc["sensitivity", "scale_M"]) < TOL
+    E.add("S2_B", m2.coef("p_star"), "{:.3f}"); E.add("S2_SE", m2.sei("p_star"), "{:.3f}"); E.add("S2_N", f"{m2.n:,}")
+    log(f"  step 2, without the 2015 and 2016 drafts: {m2.coef('p_star'):.4f} ({m2.sei('p_star'):.4f}) = the sensitivity")
+
+    shapes = MD["picks"]["shapes"] if MD else None
+    m3a = SE.OLS(y, pk[["p_star"]], ["p_star"], robust=True, const=True)
+    E.add("S3A_B", m3a.coef("p_star"), "{:.3f}"); E.add("S3A_C", m3a.coef("_cons"), "{:.3f}"); E.p("S3A_CP", m3a.pval("_cons"))
+    if shapes:
+        same("+ an intercept, the intercept", m3a.coef("_cons"), shapes["star probability and an intercept"]["terms"]["intercept"]["b"])
+    D = pd.get_dummies(pk["draft_year"], dtype=float)
+    yrs = [int(c) for c in D.columns]
+    m3b = SE.OLS(y, np.column_stack([pk["p_star"], D.to_numpy()]), ["p_star"] + [f"{c}.draft_year" for c in yrs], robust=True)
+    F3b, p3b = m3b.zero([f"{c}.draft_year" for c in yrs])
+    E.add("S3B_B", m3b.coef("p_star"), "{:.3f}"); E.add("S3B_F", F3b, "{:.2f}"); E.p("S3B_P", p3b)
+    if MD:
+        same("draft intercepts jointly zero, chi2", F3b * len(yrs), MD["picks"]["draft_intercepts"]["joint_zero"]["chi2"])
+    m3c = SE.OLS(y, pk[["p_star", "pick"]], ["p_star", "pick"], robust=True, const=True)
+    E.add("S3C_B", m3c.coef("p_star"), "{:.3f}"); E.add("S3C_PICK", m3c.coef("pick"), "{:.4f}")
+    E.p("S3C_PICKP", m3c.pval("pick")); E.p("S3C_CP", m3c.pval("_cons"))
+    m3d = SE.OLS(y, pk[["p_star", "p_nhler"]], ["p_star", "p_nhler"], robust=True)
+    E.add("S3D_B", m3d.coef("p_star"), "{:.3f}"); E.add("S3D_N", m3d.coef("p_nhler"), "{:.3f}"); E.p("S3D_NP", m3d.pval("p_nhler"))
+    if shapes:
+        same("+ NHL-player probability, its coefficient", m3d.coef("p_nhler"), shapes["star and NHL-player probabilities"]["terms"]["p_nhler"]["b"])
+    log(f"  step 3: + intercept {m3a.coef('_cons'):.4f} (p {m3a.pval('_cons'):.4f}); draft intercepts F {F3b:.3f} "
+        f"(p {p3b:.4f}); + pick p {m3c.pval('pick'):.4f}; + NHL-player probability p {m3d.pval('p_nhler'):.4f}")
+
+    Xd = np.column_stack([pk["p_star"] * (pk["draft_year"] == c) for c in yrs])
+    m4 = SE.OLS(y, Xd, [f"{c}.draft_year#c.p_star" for c in yrs], robust=True)
+    F4, p4 = m4.test([{f"{yrs[i]}.draft_year#c.p_star": 1.0, f"{yrs[i + 1]}.draft_year#c.p_star": -1.0}
+                      for i in range(len(yrs) - 1)])
+    lo_, hi_ = int(np.argmin(m4.b)), int(np.argmax(m4.b))
+    E.add("S4_LO", f"{m4.b[lo_]:.2f} ({yrs[lo_]})"); E.add("S4_HI", f"{m4.b[hi_]:.2f} ({yrs[hi_]})")
+    E.add("S4_F", F4, "{:.2f}"); E.p("S4_P", p4)
+    if MD:
+        same("one star value for every draft, chi2", F4 * (len(yrs) - 1), MD["picks"]["equal_test"]["chi2"])
+    m4t = SE.OLS(y, pk[["p_star", "p_star_trend"]], ["p_star", "p_star_trend"], robust=True)
+    m4s = SE.OLS(sub["career_npv_m"], sub[["p_star", "p_star_trend"]], ["p_star", "p_star_trend"], robust=True)
+    E.add("S4_T", m4t.coef("p_star_trend"), "{:.3f}"); E.p("S4_TP", m4t.pval("p_star_trend"))
+    E.add("S4_TS", m4s.coef("p_star_trend"), "{:.3f}"); E.p("S4_TSP", m4s.pval("p_star_trend"))
+    if MD:
+        same("the trend", m4t.coef("p_star_trend"), MD["picks"]["trend"]["all"]["b"])
+        same("the trend without 2015 and 2016", m4s.coef("p_star_trend"), MD["picks"]["trend"]["without_2015_2016"]["b"])
+    log(f"  step 4: per draft {m4.b[lo_]:.2f} to {m4.b[hi_]:.2f}, equal F {F4:.3f} (p {p4:.4f}); trend "
+        f"{m4t.coef('p_star_trend'):+.3f} (p {m4t.pval('p_star_trend'):.4f}), without 2015-16 "
+        f"{m4s.coef('p_star_trend'):+.3f} (p {m4s.pval('p_star_trend'):.4f})")
+
+    m5 = SE.OLS(y, pk[["p_star", "p_star_x_d_draft"]], ["p_star", "p_star_x_d_draft"], robust=True)
+    E.add("S5_F", m5.coef("p_star"), "{:.2f}"); E.add("S5_DADD", m5.coef("p_star_x_d_draft"), "{:.2f}")
+    E.add("S5_D", m5.coef("p_star") + m5.coef("p_star_x_d_draft"), "{:.2f}"); E.p("S5_P", m5.pval("p_star_x_d_draft"))
+    E.add("S5_R2", m5.r2, "{:.4f}")
+    if PD:
+        same("defencemen's star value", m5.coef("p_star") + m5.coef("p_star_x_d_draft"), PD["pick_def"]["d"])
+    log(f"  step 5: forwards and goaltenders {m5.coef('p_star'):.3f}, defencemen "
+        f"{m5.coef('p_star') + m5.coef('p_star_x_d_draft'):.3f} (p {m5.pval('p_star_x_d_draft'):.4f})")
+
+    for key, cols, const in (("S6A", ["pick"], True), ("S6B", ["log_pick"], True),
+                             ("S6C", ["log_pick", "log_pick_sq"], True), ("S6D", ["p_star", "p_star_sq"], False)):
+        m = SE.OLS(y, pk[cols], cols, robust=True, const=const)
+        E.add(key, "; ".join(f"{n} {m.coef(n):.4f}" for n in m.names))
+        log(f"  step 6 ({key}): " + E.v[key])
+
+    # ---- Part 2: prospects ------------------------------------------------------------------------------------------
+    st = R[R["sample_star"] == 1].reset_index(drop=True)
+    sp = R[R["sample_production"] == 1].reset_index(drop=True)
+    G = [1, 2, 3, 4, 5]
+    LAB = {g: GROUP_LABEL[g].replace(" and later", "+") for g in G}
+
+    def stk(frame, cols, groups=G):
+        X, names = SE.interact(frame, {g: cols for g in groups})
+        keep = [j for j in range(X.shape[1]) if np.any(X[:, j] != 0)]        # Stata omits an all-zero column
+        return SE.OLS(frame["remaining_npv_m"], X[:, keep], [names[j] for j in keep], cluster=frame["player_id"])
+
+    def present(m, col):
+        return [f"{g}.{col}" for g in G if f"{g}.{col}" in m.names]
+
+    def chk(label, m_test, key):
+        """the prospect document's chi2 for the same test (prospect_doc_figures.py)."""
+        if PD is None:
+            return
+        rec = PD["tests"].get(key) if key in PD.get("tests", {}) else PD.get(key)
+        if isinstance(rec, dict) and "chi2" in rec:
+            same(label + ", chi2", m_test[0] * rec["df"], rec["chi2"])
+
+    m7 = stk(st, ["p_star"])
+    E.add("S7", "; ".join(f"{LAB[g]} {m7.coef(f'{g}.p_star'):.2f} ({m7.sei(f'{g}.p_star'):.2f})" for g in G))
+    sv = pd.read_csv(OUTPUT_DIR / "prospect_star_values.csv")
+    sv = sv[sv["left_out"] == "none"].set_index("k_group")
+    for k_, g in GROUP_NUM.items():
+        assert abs(m7.coef(f"{g}.p_star") - sv.loc[k_, "star_value_M"]) < TOL
+    E.add("S7_N", f"{m7.n:,}")
+    log(f"  step 7, star value by season: {E.v['S7']}")
+    t1 = m7.test([{f"{g}.p_star": 1.0, f"{g + 1}.p_star": -1.0} for g in G[:-1]])
+    # equal drops: (b2 - b1) = (b3 - b2) and (b3 - b2) = (b4 - b3)
+    t2 = m7.test([{"1.p_star": 1.0, "2.p_star": -2.0, "3.p_star": 1.0}, {"2.p_star": 1.0, "3.p_star": -2.0, "4.p_star": 1.0}])
+    t3 = m7.testnl([lambda b: b["2.p_star"] ** 2 - b["1.p_star"] * b["3.p_star"],
+                    lambda b: b["3.p_star"] ** 2 - b["2.p_star"] * b["4.p_star"]])
+    for key, t in (("S8_ONE", t1), ("S8_LINE", t2), ("S8_PCT", t3)):
+        E.add(key + "_F", t[0], "{:.2f}"); E.p(key + "_P", t[1])
+    chk("one value for every season", t1, "fade_wald_one"); chk("straight-line decline", t2, "fade_wald_steps")
+    chk("same percentage decline", t3, "fade_wald_ratio")
+    log(f"  step 8: one value p {t1[1]:.4f}; straight line p {t2[1]:.4f}; same percentage p {t3[1]:.4f}")
+
+    m9a = stk(sp, ["p_star", "nhle82"])
+    t = m9a.zero(present(m9a, "nhle82")); E.p("S9_LIN", t[1]); chk("linear production", t, "lin_vs_slot")
+    m9b = stk(sp, ["p_star", "nhle82", "nhle82_sq"])
+    t = m9b.zero(present(m9b, "nhle82") + present(m9b, "nhle82_sq")); E.p("S9_PROD", t[1]); chk("production", t, "prod_vs_slot")
+    t = m9b.zero(present(m9b, "nhle82_sq")); E.p("S9_SQ", t[1]); chk("production squared", t, "sq_given_lin")
+    t = m9b.zero(["4.p_star", "5.p_star"]); E.p("S9_LATE", t[1]); chk("draft position from D+4", t, "slot_late")
+    m9c = stk(sp, ["s_early", "nhle82", "nhle82_sq"])
+    t = m9c.zero(present(m9c, "nhle82")); E.p("S9_NOLIN", t[1]); chk("without linear production", t, "lin_s2")
+    log(f"  step 9: linear {E.v['S9_LIN']}; production {E.v['S9_PROD']}; squared {E.v['S9_SQ']}; "
+        f"draft position D+4 on {E.v['S9_LATE']}; linear on candidate (5) {E.v['S9_NOLIN']}")
+
+    m10a = stk(sp, ["s_early", "nhle82", "nhle82_sq", "flat_term"])
+    t = m10a.zero(present(m10a, "flat_term")); E.p("S10_FLAT", t[1]); chk("age as a flat amount", t, "flat")
+    m10b = stk(sp, ["s_early", "nhle82", "nhle82_sq", "age_term"])
+    t = m10b.zero(present(m10b, "age_term")); E.p("S10_DISC", t[1]); chk("age discounting production", t, "disc")
+    m10c = stk(sp, ["s_early", "nhle82", "nhle82_sq", "flat_term", "age_term"])
+    t = m10c.zero(present(m10c, "flat_term")); E.p("S10_FGD", t[1]); chk("flat given discount", t, "flat_given_disc")
+    t = m10c.zero(present(m10c, "age_term")); E.p("S10_DGF", t[1]); chk("discount given flat", t, "disc_given_flat")
+    m10d = stk(sp, ["s_early", "nhle82", "nhle82_sq", "prod_x_age_m18"])
+    t = m10d.zero(["5.prod_x_age_m18"]); E.p("S10_LATE", t[1]); chk("the discount from D+5 on", t, "age_late")
+    log(f"  step 10: flat {E.v['S10_FLAT']}; discount {E.v['S10_DISC']}; flat given discount {E.v['S10_FGD']}; "
+        f"discount given flat {E.v['S10_DGF']}; discount from D+5 {E.v['S10_LATE']}")
+
+    adopted = ["s_early", "nhle82", "nhle82_sq", "age_term", "prod_x_defence"]
+    m11 = stk(sp, adopted)
+    t = m11.zero(present(m11, "prod_x_defence")); E.p("S11_DEF", t[1]); chk("defenceman x production", t, "def")
+    t = m11.zero(["5.nhle82", "5.nhle82_sq"]); E.p("S11_LATEPROD", t[1]); chk("production from D+5 on", t, "late_prod")
+    m11q = stk(sp, adopted + ["prod_sq_x_defence"])
+    t = m11q.zero(present(m11q, "prod_sq_x_defence")); E.p("S11_DQ", t[1]); chk("defenceman x production squared", t, "dq")
+    m11s = stk(sp, adopted + ["s_early_x_defence"])
+    t = m11s.zero(present(m11s, "s_early_x_defence")); E.p("S11_DS", t[1]); chk("defenceman x draft position", t, "ds")
+    # the adopted model's coefficients, against prospect_values' (age as the document writes it)
+    names = {"s_early": "S", "nhle82": "P", "nhle82_sq": "P2", "age_term": "PxAge", "prod_x_defence": "PxD"}
+    for g in G:
+        E.add(f"S12_{g}", "; ".join(f"{names[c]} {m11.coef(f'{g}.{c}'):.4f} ({m11.sei(f'{g}.{c}'):.4f})"
+                                    for c in adopted if f"{g}.{c}" in m11.names))
+    E.add("S12_N", f"{m11.n:,}"); E.add("S12_R2", m11.r2, "{:.4f}")
+    log(f"  step 11: defenceman x production {E.v['S11_DEF']}; production from D+5 {E.v['S11_LATEPROD']}; "
+        f"x production squared {E.v['S11_DQ']}; x draft position {E.v['S11_DS']}")
+    log(f"  step 12, the adopted model ({m11.n:,} prospect-seasons, R-squared {m11.r2:.4f} uncentered):")
+    for g in G:
+        log(f"    {LAB[g]:<5} {E.v[f'S12_{g}']}")
+
+    for c, col in ((18, "age_term"), (19, "age_term_19"), (20, "age_term_20")):
+        m = stk(sp, ["s_early", "nhle82", "nhle82_sq", col, "prod_x_defence"])
+        E.p(f"S13_{c}", m.zero(present(m, "nhle82"))[1])
+    log(f"  step 13: linear production zero, age from 18 / 19 / 20: {E.v['S13_18']} / {E.v['S13_19']} / {E.v['S13_20']}")
+    E.write(OUT / "expected_picks_prospects.json")
+    log(f"  wrote expected_picks_prospects.json ({len(E.v)} figures)")
 
 
 def main():
@@ -122,6 +315,18 @@ def main():
         "career_war": ident["war"], "route": ident["route"],
         "career_npv_m": ident["surplus"] / 1e6,                                     # the pick curve's outcome
         "excluded_deceased": ident["excluded_deceased"].astype(int)})
+    # v1.2: the variables of the pick curve's tests ("Valuing Players, Draft Picks, and Prospects", Section 6)
+    bac = pd.read_csv(SOURCE_DIR / "draft_slot_baseline.csv").set_index("draft_pick")
+    players["p_nhler"] = players["pick"].map(bac["p_nhler"])                     # Bacon's NHL-player probability
+    assert players["p_nhler"].notna().all()
+    players["log_pick"] = np.log(players["pick"].astype(float))
+    players["log_pick_sq"] = players["log_pick"] ** 2
+    players["p_star_sq"] = players["p_star"] ** 2
+    # the pick curve's defenceman test reads the NHL draft record's position (defence_terms_look.py), not Elite
+    # Prospects' (is_defence, the prospect model's)
+    players["is_d_draft"] = (players["position"].astype(str) == "D").astype(int)
+    players["p_star_x_d_draft"] = players["p_star"] * players["is_d_draft"]
+    players["p_star_trend"] = players["p_star"] * (players["draft_year"] - 2012)    # model_doc_figures: draft - 2012
     players.to_csv(OUT / "draft_players.csv", index=False)
 
     # ---- 2. prospect_seasons.csv ------------------------------------------------------------------------------------
@@ -157,6 +362,15 @@ def main():
         "prod_x_defence": feats["d_x_prod"]})                                        # v1.1: production x is_defence
     rows["season_group_label"] = rows["season_group"].map(GROUP_LABEL)
     assert rows["season_group"].notna().all()
+    # v1.2: the variables of the prospect document's tests, so Stata needs no generate line
+    early, upto4 = (rows["season_group"] <= 3).astype(float), (rows["season_group"] <= 4).astype(float)
+    rows["s_early"] = rows["p_star"] * early                                     # draft position, D+1 to D+3
+    rows["age_term"] = rows["prod_x_age_m18"] * upto4                            # production x (age - 18), D+1 to D+4
+    rows["flat_term"] = rows["age_m18"] * upto4                                  # age on its own, D+1 to D+4
+    rows["prod_sq_x_defence"] = rows["nhle82_sq"] * rows["is_defence"]
+    rows["s_early_x_defence"] = rows["s_early"] * rows["is_defence"]
+    rows["age_term_19"] = rows["nhle82"] * (rows["age"] - 19.0) * upto4          # age measured from 19
+    rows["age_term_20"] = rows["nhle82"] * (rows["age"] - 20.0) * upto4          # and from 20
     rows.to_csv(OUT / "prospect_seasons.csv", index=False)
 
     # ---- 3. production_seasons.csv ----------------------------------------------------------------------------------
@@ -215,7 +429,7 @@ def main():
     s1 = R[R["sample_star"] == 1]
     st, _ = stacked(s1, {g: ["p_star"] for g in range(1, 6)})
     svm = sv[sv["left_out"] == "none"].set_index("k_group")
-    log("\n  check 3: star value by season (Valuing Prospects Table 2), from prospect_seasons.csv:")
+    log("\n  check 3: star value by season (Valuing Prospects v4.3, Table 1), from prospect_seasons.csv:")
     for k_, g in GROUP_NUM.items():
         b, se = st[(g, "p_star")]
         assert abs(b - svm.loc[k_, "star_value_M"]) < TOL and abs(se - svm.loc[k_, "se_M"]) < TOL, k_
@@ -237,7 +451,7 @@ def main():
     cols_doc = {g: [c.replace("prod_x_years_past_elig", "prod_x_age_m18") for c in cs] for g, cs in cols_code.items()}
     st_doc, m_doc = stacked(s2, cols_doc)
     assert float(np.max(np.abs(m_doc.fittedvalues - m_code.fittedvalues))) < TOL       # the same values
-    log("\n  check 4: the adopted model (Valuing Prospects Table 9), from prospect_seasons.csv, age less 18:")
+    log("\n  check 4: the adopted model (Valuing Prospects v4.3, Table 7), from prospect_seasons.csv, age less 18:")
     names = {"p_star": "star probability", "nhle82": "production", "nhle82_sq": "production squared",
              "prod_x_age_m18": "production x (age - 18)", "prod_x_defence": "production x defenceman"}
     for gnum, cs in cols_doc.items():
@@ -267,6 +481,7 @@ def main():
     assert set(rate) == set(mine) and max(abs(rate[k_] - mine[k_]) for k_ in rate) < TOL
     log(f"\n  check 5: production_seasons.csv gives the model's NHLe rate for all {len(rate):,} player-seasons (PASS)")
 
+    expected_figures(P, R)
     (OUT / "stata_export_log.txt").write_text("\n".join(LOG), encoding="utf-8")
 
 

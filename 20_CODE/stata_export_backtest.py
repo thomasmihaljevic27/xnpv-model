@@ -1,5 +1,12 @@
 """
-stata_export_backtest.py -- the back-test's tests and the Game Value chain's regressions as flat CSVs, for Stata (v1.0).
+stata_export_backtest.py -- the back-test's tests and the Game Value chain's regressions as flat CSVs, for Stata (v1.1).
+
+v1.1 (2026-11-08; Thomas: "simple and ready to go"): the flags each test needs are columns, so Stata needs no generate
+line: backtest_club_sides.csv gains favoured (the club the forecast favoured in its trade) and ahead, ahead_gv_adj,
+ahead_gv_raw (1 when the outcome net is above zero);
+backtest_assets.csv gains miss_m, miss_m_gv_adj, miss_m_gv_raw (outcome less forecast). And every figure the
+walkthrough's Part 4 should print, in stata/expected_backtest.json. The star group (C3) stays in the CSV, as backtest.py
+computes it, but is not in the walkthrough (protocol amendment 5; Thomas, 2026-11-08: "don't worry about star group").
 
 WHY: every regression the model runs should be reproducible by hand in Stata from files on disk (supervisor meeting,
 2026-10-23; Thomas: "create stata csvs for everything"). stata_export.py covers the draft pick curve and the prospect
@@ -45,8 +52,9 @@ from dotenv import load_dotenv
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 load_dotenv()
 import trade_sides as TSD                        # noqa: E402
+import stata_expected as SE                      # noqa: E402
 
-SCRIPT_VERSION = "stata_export_backtest.py v1.0 (2026-10-23)"
+SCRIPT_VERSION = "stata_export_backtest.py v1.1 (2026-11-08)"   # v1.1: test flags as columns, expected figures
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 GAMELOG_DB = Path(os.environ["GAMELOG_DB"])
 OUT = OUTPUT_DIR / "stata"
@@ -58,6 +66,33 @@ LOG = []
 def log(s=""):
     print(s, flush=True)
     LOG.append(str(s))
+
+
+EXP = SE.Expected()
+
+
+def record(lab, got, c, ac, ya, y):
+    """v1.1: the figures Part 4 of the do-file should print, for one run (war, gv_adj, gv_raw)."""
+    K = {"war": "W", "gv_adj": "GA", "gv_raw": "GR"}[lab]
+    g = {k[0]: v for k, v in got.items()}
+    EXP.add(f"S23_{K}_SLOPE", g["A. slope of outcome net on forecast net (1 = the forecast's gaps come true)"], "{:.4f}")
+    EXP.add(f"S23_{K}_R", g["A. correlation of forecast net and outcome net"], "{:.4f}")
+    EXP.add(f"S23_{K}_AHEAD", g["A. share of trades whose favoured club came out ahead (0.5 = a coin)"], "{:.4f}")
+    if lab != "war":
+        return
+    assert float((c["miss_m"] - (c[y] - c["forecast_net_m"])).abs().max()) < TOL   # miss_m is outcome less forecast
+    EXP.add("S23_N", f"{len(c):,} club sides ({c['trade_id'].nunique()} trades)")
+    EXP.add("S24_REAL", g["A, sensitivity: realised only (nothing revalued)"], "{:.4f}")
+    EXP.add("S24_NOCOND", g["A, sensitivity: trades with a conditional pick left out"], "{:.4f}")
+    timing = {k[1]: v for k, v in got.items() if k[0] == "C7. slope by timing"}
+    EXP.add("S25_IN", timing["in-season"], "{:.4f}"); EXP.add("S25_OFF", timing["off-season"], "{:.4f}")
+    b = {k[1]: v for k, v in got.items() if k[0] == "B. mean outcome minus forecast per asset"}
+    EXP.add("S26", "; ".join(f"{k_} {b[k_]:+.4f}" for k_ in ("picks", "players", "prospects", "retained")))
+    for col, key in (("g_futures", "C1"), ("g_buyer", "C2"), ("g_retained", "C4"), ("g_nothing_back", "C5"),
+                     ("g_clause", "C6")):
+        gs = c[c[col] == 1]
+        EXP.add(f"S27_{key}", f"forecast {gs['forecast_net_m'].mean():+.4f}, outcome {gs[y].mean():+.4f}, "
+                              f"outcome less forecast {(gs[y] - gs['forecast_net_m']).mean():+.4f} ({len(gs)} club sides)")
 
 
 # =============================== 1. the back-test ======================================================================
@@ -89,6 +124,15 @@ def backtest():
     for c in [c for c in sides.columns if sides[c].dtype == bool]:
         sides[c] = sides[c].astype(int)
     assets["complete_trade"] = assets["trade_id"].isin(set(sides.loc[sides["complete"] == 1, "trade_id"])).astype(int)
+    # v1.1: the tests' flags as columns (each as the check below computes it)
+    top = sides.groupby("trade_id")["forecast_net_m"].transform("max")
+    first_top = sides.index.isin(sides.groupby("trade_id")["forecast_net_m"].idxmax())   # pandas idxmax: first on a tie
+    sides["favoured"] = (first_top & (sides["forecast_net_m"] > 0) & (sides["forecast_net_m"] == top)).astype(int)
+    # has_conditional_pick is already the trade's (trade_sides.py reads every asset the trade moved), the same on each side
+    assert (sides.groupby("trade_id")["has_conditional_pick"].nunique() == 1).all()
+    for suf in ("", "_gv_adj", "_gv_raw"):
+        sides[f"ahead{suf}"] = (sides[f"outcome_net_m{suf}"] > 0).astype(int)
+        assets[f"miss_m{suf}"] = assets[f"outcome_m{suf}"] - assets["forecast_m"]
     sides.to_csv(OUT / "backtest_club_sides.csv", index=False)
     assets.to_csv(OUT / "backtest_assets.csv", index=False)
     S = pd.read_csv(OUT / "backtest_club_sides.csv")
@@ -136,6 +180,12 @@ def backtest():
             got[(f"{labg}: forecast", col)] = float(gs["forecast_net_m"].mean())
             got[(f"{labg}: outcome", col)] = float(gs[y].mean())
             got[(f"{labg}: outcome - forecast", col)] = float((gs[y] - gs["forecast_net_m"]).mean())
+        # v1.1: the columns the walkthrough uses give the same figures
+        assert abs(float(c.loc[c["favoured"] == 1, "ahead" + ("" if lab == "war" else f"_{lab}")].mean())
+                   - got[("A. share of trades whose favoured club came out ahead (0.5 = a coin)", "all complete trades")]) < TOL
+        assert abs(slope(c[c["has_conditional_pick"] == 0])
+                   - got[("A, sensitivity: trades with a conditional pick left out", "no conditional pick")]) < TOL
+        record(lab, got, c, ac, ya, y)
         n = 0
         for k_, v in got.items():
             assert k_ in want, (lab, k_)
@@ -214,6 +264,10 @@ def game_value():
         b1, _ = fit(x["wins"].to_numpy(float), x["goal_diff_in_play"].to_numpy(float))
         assert len(x) == r.n_teams and round(1 / b1[1], 3) == round(r.goals_per_win, 3), (r.season, 1 / b1[1])
     log(f"  check 2: goals per win in each of {len(gw)} seasons = goals_per_win_by_season.csv (PASS)")
+    EXP.add("S30_B", b[1], "{:.4f}"); EXP.add("S30_R2", r2, "{:.4f}"); EXP.add("S30_N", f"{len(G):,}")
+    EXP.add("S31_B", bs[1], "{:.4f}"); EXP.add("S31_R2", r2s, "{:.4f}"); EXP.add("S31_N", f"{len(sv):,}")
+    EXP.add("S32_B", bg[1], "{:.5f}"); EXP.add("S32_GPW", 1 / bg[1], "{:.3f}")
+    EXP.add("S32_BY", ", ".join(f"{r.season[:4]}-{r.season[6:]} {r.goals_per_win:.3f}" for r in gw.itertuples()))
 
 
 def main():
@@ -223,6 +277,8 @@ def main():
     backtest()
     log("\nTHE GAME VALUE CHAIN")
     game_value()
+    EXP.write(OUT / "expected_backtest.json")
+    log(f"\n  wrote expected_backtest.json ({len(EXP.v)} figures)")
     (OUT / "stata_export_backtest_log.txt").write_text("\n".join(LOG), encoding="utf-8")
 
 
