@@ -3879,3 +3879,11 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   `stata_export_backtest.py` v1.1; the guide `40_DOCS/Stata_Data_Codebook.md` rewritten step by step (steps 0 to 32).
   Every export guard PASS; every recorded Wald statistic reproduced from the CSVs. No model change; untested in Stata.
   CLAUDE.md's Stata paragraph, MANIFEST eight rows, session log sessions/2026-11-08.md.
+
+### Change log, 2026-11-08b (the Stata guide as commands only)
+
+- DOCUMENT (Thomas: "I wanted the md file to just be the command I need to write out to get the regression for each
+  thing"; "I want to import csvs"): `40_DOCS/Stata_Data_Codebook.md` is the commands alone by pillar; each section imports
+  its CSV; `xnpv_load.do` (frames) retired to `90_ARCHIVE/2026-11-08/`; the do-file renumbered 1 to 31 to match;
+  `stata_refresh.py` v1.1 checks the guide against the do-file. No model change. CLAUDE.md rule; MANIFEST three rows and one
+  removed; session log sessions/2026-11-08.md.

@@ -178,10 +178,11 @@ the trade chain and the back-test with its Game Value runs. It runs the three ex
 pick curve and the prospect model; `stata_export_players.py`: the price lines and the forecast pieces on every page;
 `stata_export_backtest.py`: the back-test and Game Value), each of which refits its regressions from the CSVs as written
 and stops on any difference from the model; then it fills `20_CODE/stata_walkthrough_template.do` with the figure each
-command should print (computed as Stata computes them, `stata_expected.py`) and writes `30_OUTPUT/stata/` with the 13
-CSVs, `xnpv_load.do` (loads them all with one command) and `xnpv_walkthrough.do` (every regression and test, step by
-step). The guide, with the same step numbers: `40_DOCS/Stata_Data_Codebook.md`. A new regression or reported test goes
-in the export that owns its data, the template and the guide together.
+command should print (computed as Stata computes them, `stata_expected.py`) and writes `30_OUTPUT/stata/` with the CSVs
+and `xnpv_walkthrough.do`. In Stata each section imports its CSV with `import delimited` (no frames, no combined dataset).
+The guide, `40_DOCS/Stata_Data_Codebook.md`, is the commands alone, by pillar, with the do-file's step numbers; the
+runner stops if a guide command is missing from the do-file. A new regression or reported test goes in the export that
+owns its data, the template and the guide together.
 
 To answer questions about the curve on the spot: `python 25_TESTS/pick_lookup.py --help`. Each finding in
 `Valuing Draft Picks.docx`, with its command and expected value: `40_DOCS/Valuing_Draft_Picks_Reproduction.md`.
@@ -641,6 +642,13 @@ tests pinned to the old prospect rows (`prospect_curve_vs_line.py`, `prospect_pr
   of one against the other exists). The next recommendation then leaned on held-out error the other way, and he said the
   replies contradicted each other (2026-10-24). Say what each p-value tests against (no discount, or the current model),
   and state the rule a recommendation applies before applying it.
+- **Don't redesign how Thomas works when he asks for something to be simpler.** Asked for the Stata data "pulled in a
+  single command at the beginning", a build loaded thirteen files into Stata frames, which left the Variables window
+  empty, and the guide grew into an explainer with codebook tables. Thomas: "When I load the data it should just all be
+  there in the variables section. I wanted the md file to just be the command I need to write out to get the regression
+  for each thing." A second reading, one stacked dataset, drew "I didn't say it all had to be one dataset. I want to
+  import csvs" (2026-11-08). Keep the plain, standard route (import a CSV, run the command); when a request admits more
+  than one build, ask which before building.
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised

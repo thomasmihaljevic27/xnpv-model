@@ -47,9 +47,10 @@
 After the supervisor's trip and Thomas's two exams: Thomas runs every regression in the document in Stata in front of
 the supervisor (the data: `30_OUTPUT/stata/`). Thomas, 2026-11-08: "ensure that all the stata stuff is simple and ready
 to go", the guide step by step, every data source pulled in one command at the start, comprehensive across the three
-pillars (session 2026-11-08). **Done 2026-11-08:** `python 20_CODE/stata_refresh.py` builds the 13 CSVs,
-`xnpv_load.do` (every file in one command) and `xnpv_walkthrough.do` (steps 0 to 32, each with the figure Stata should
-print); the guide is `40_DOCS/Stata_Data_Codebook.md`; untested in Stata. Re-run it after the trade chain and the back-test
+pillars (session 2026-11-08). **Done 2026-11-08:** `python 20_CODE/stata_refresh.py` builds the CSVs and
+`xnpv_walkthrough.do` (steps 1 to 31, each with the figure Stata should print); the guide,
+`40_DOCS/Stata_Data_Codebook.md`, is the commands alone by pillar, each section importing its CSV (Thomas: "I want to
+import csvs"); untested in Stata. Re-run it after the trade chain and the back-test
 are next re-run. Loose threads: Nick Suzuki's dashboard value (-$0.03M; Thomas, 2026-11-08: "I'll update
 the dashboard and come back to you"); the supervisor wants trade values soon.
 

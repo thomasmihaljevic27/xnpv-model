@@ -5,21 +5,17 @@
 * from {{VERSIONS}}
 *
 * HOW TO USE IT
-*   1. In Stata: File > Change Working Directory..., and pick 30_OUTPUT/stata/ (the folder this file is in).
-*   2. Open this file in the Do-file Editor. Run the first block (Step 0) to load every data file.
-*   3. Then run one step at a time: select its lines and press Ctrl+D. Each command is followed by a comment saying
-*      what Stata should print. Those figures were computed from these same CSVs, the way Stata computes them, when
-*      this file was built. A difference in the last digit shown can be rounding or the optimiser (tobit, logit);
-*      anything larger is a real difference.
+*   1. In Stata, change the working directory to 30_OUTPUT/stata/ (the folder this file is in): File > Change
+*      Working Directory..., or cd "...\30_OUTPUT\stata".
+*   2. Each part begins by importing its CSV; its variables then show in the Variables window.
+*   3. Run one step at a time: select its lines and press Ctrl+D. Each command is followed by a comment saying what
+*      Stata should print, computed from these same CSVs, the way Stata computes them, when this file was built. A
+*      difference in the last digit shown can be rounding or the optimiser (tobit, logit); anything larger is real.
 *
 * Units: every money figure is in millions of dollars at the 2025-26 cap ($95.5M). D+1 is the season after the draft.
-* The guide that explains each step in hockey terms: 40_DOCS/Stata_Data_Codebook.md (same step numbers).
+* The same commands, without the expected figures: 40_DOCS/Stata_Data_Codebook.md.
 * These commands were written from the model's code and have not yet been run in Stata.
 * =====================================================================================================================
-
-
-* ---- STEP 0. Load every data file (13 CSVs), each into its own frame -------------------------------------------------
-do xnpv_load.do
 
 
 * =====================================================================================================================
@@ -28,7 +24,7 @@ do xnpv_load.do
 * end of club control. Every regression here has one row per player and robust standard errors.
 * The six players who died before reaching the NHL are left out of every fit (excluded_deceased == 1).
 * =====================================================================================================================
-frame change picks
+import delimited using "draft_players.csv", clear
 
 * ---- STEP 1. The pick curve: career NPV on the pick's star probability, through zero -----------------------------------
 * The coefficient is the star value: what a 100% chance of drafting a star would be worth.
@@ -97,7 +93,7 @@ regress career_npv_m p_star p_star_sq if excluded_deceased == 0, noconstant vce(
 * (50/30/20 over the three seasons before); nhle82_sq = its square; s_early = p_star in D+1 to D+3 only;
 * age_term = nhle82 x (age - 18) in D+1 to D+4 only; prod_x_defence = nhle82 for a defenceman.
 * =====================================================================================================================
-frame change prospects
+import delimited using "prospect_seasons.csv", clear
 
 * ---- STEP 7. The star value in each season after the draft (Valuing Prospects, Table 1) -------------------------------
 regress remaining_npv_m ibn.season_group#c.p_star if sample_star == 1, noconstant vce(cluster player_id)
@@ -153,7 +149,7 @@ regress remaining_npv_m ibn.season_group#c.(s_early nhle82 nhle82_sq prod_x_age_
 test 5.season_group#c.prod_x_age_m18
 * Should print: {{S10_LATE}}
 
-* ---- STEPS 11 and 12. Defencemen (Table 6) and the adopted model (Table 7) -------------------------------------------
+* ---- STEP 11. Defencemen (Table 6) and the adopted model (Table 7) -------------------------------------------
 regress remaining_npv_m ibn.season_group#c.(s_early nhle82 nhle82_sq age_term prod_x_defence) if sample_production == 1, noconstant vce(cluster player_id)
 * Stata lists s_early from D+4 and age_term from D+5 as omitted: they are zero there by design, not estimated.
 * Should print, by season (coefficient, clustered s.e.; S draft position, P production, P2 its square,
@@ -174,7 +170,7 @@ regress remaining_npv_m ibn.season_group#c.(s_early nhle82 nhle82_sq age_term pr
 testparm ibn.season_group#c.s_early_x_defence
 * Should print: {{S11_DS}} (a defenceman's draft position: not significant)
 
-* ---- STEP 13. Why linear production stays: its test depends on where age is measured from -------------------------------
+* ---- STEP 12. Why linear production stays: its test depends on where age is measured from -------------------------------
 * The three regressions give the same fitted values; only the test of linear production moves.
 foreach v in age_term age_term_19 age_term_20 {
     quietly regress remaining_npv_m ibn.season_group#c.(s_early nhle82 nhle82_sq `v' prod_x_defence) if sample_production == 1, noconstant vce(cluster player_id)
@@ -186,9 +182,9 @@ foreach v in age_term age_term_19 age_term_20 {
 * =====================================================================================================================
 * PART 3. PLAYERS: what clubs pay for forecast performance, and how the forecast is built
 * =====================================================================================================================
-frame change skater_lines
+import delimited using "price_line_skaters.csv", clear
 
-* ---- STEP 14. The skater price line ---------------------------------------------------------------------------------
+* ---- STEP 13. The skater price line ---------------------------------------------------------------------------------
 * Cap hit (cap_m) on forecast WAR at the signing (xwar), a defenceman's extra per win, and years of term. It is a
 * tobit, censored below at the league minimum (min_m): a contract at the minimum says only that his market price was
 * at or below it.
@@ -200,7 +196,7 @@ tobit cap_m xwar c.xwar#c.is_d term_years, ll(min_m)
 tobit cap_m xwar c.xwar#c.is_d term_years, ll(min_m) vce(cluster player_num)
 * Should print: s.e. xwar {{S14_WCSE}}; c.xwar#c.is_d {{S14_DCSE}}; term_years {{S14_TCSE}}; _cons {{S14_CCSE}}
 
-* ---- STEP 15. The price line built up: wins, then the defence slope, then term --------------------------------------
+* ---- STEP 14. The price line built up: wins, then the defence slope, then term --------------------------------------
 quietly tobit cap_m xwar, ll(min_m)
 estimates store wins
 quietly tobit cap_m xwar c.xwar#c.is_d, ll(min_m)
@@ -214,7 +210,7 @@ lrtest defence adopted
 * (log likelihoods: wins {{S15_LLW}}, + defence {{S15_LLWD}}, + term {{S14_LL}})
 * The line without term is the term-free line, the sensitivity: xwar {{S15_FW}}, c.xwar#c.is_d {{S15_FD}}
 
-* ---- STEP 16. Other forms of the price line, each against the adopted one ---------------------------------------------
+* ---- STEP 15. Other forms of the price line, each against the adopted one ---------------------------------------------
 * A separate line for restricted free agents (intercept, both slopes and term)
 quietly tobit cap_m xwar c.xwar#c.is_d term_years is_rfa c.is_rfa#c.xwar c.is_rfa#c.xwar#c.is_d c.is_rfa#c.term_years, ll(min_m)
 lrtest adopted .
@@ -248,15 +244,15 @@ quietly tobit cap_m xwar c.xwar#c.is_d term_years start_2022_on c.start_2022_on#
 lrtest adopted .
 * Should print: LR chi2(4) = {{S16_LATE_LR}}, {{S16_LATE_P}}
 
-* ---- STEP 17. Pricing on the forecast over the whole term (tested, not adopted) ---------------------------------------
+* ---- STEP 16. Pricing on the forecast over the whole term (tested, not adopted) ---------------------------------------
 * Not nested in the adopted line, so compare log likelihoods (higher fits better): adopted {{S14_LL}}
 tobit cap_m xwar_term_avg c.xwar_term_avg#c.is_d term_years, ll(min_m)
 * Should print: log likelihood {{S17_AVG}} (term average of WAR if he plays; xwar_term_avg {{S17_AVG_W}})
 tobit cap_m xwar_term_avg_exp c.xwar_term_avg_exp#c.is_d term_years, ll(min_m)
 * Should print: log likelihood {{S17_EXP}} (term average times the chance of playing; {{S17_EXP_W}})
 
-* ---- STEP 18. The goaltender price line ------------------------------------------------------------------------------
-frame change goalie_lines
+* ---- STEP 17. The goaltender price line ------------------------------------------------------------------------------
+import delimited using "price_line_goalies.csv", clear
 tobit cap_m xwar term_years, ll(min_m)
 estimates store g_adopted
 * Should print: xwar {{S18_W}} ({{S18_WSE}}); term_years {{S18_T}} ({{S18_TSE}}); _cons {{S18_C}} ({{S18_CSE}});
@@ -265,10 +261,10 @@ quietly tobit cap_m xwar, ll(min_m)
 lrtest . g_adopted
 * Should print: LR chi2(1) = {{S18_LR}}, {{S18_P}} (without term: xwar {{S18_FREE_W}}, log likelihood {{S18_FREE_LL}})
 
-* ---- STEP 19. The skater games share, on the 2025-26 page ------------------------------------------------------------
+* ---- STEP 18. The skater games share, on the 2025-26 page ------------------------------------------------------------
 * The model fits this on every valuation page using only seasons before it; here, the 2025-26 page (season < 2025)
 * and the valuation season itself (h == 0, no seasons ahead). Least squares with a constant, clustered by player.
-frame change skater_pairs
+import delimited using "skater_forecast_pairs.csv", clear
 * Built up one term at a time: his trailing games share; + seasons since debut; + age and age squared; + trailing WAR
 quietly regress y_gp_share tr_gp_share if h == 0 & season < 2025, vce(cluster career_num)
 display e(r2)
@@ -291,7 +287,7 @@ forvalues s = 0/5 {
 }
 * Should print: is_d p by season ahead {{S19_DEF_P}}
 
-* ---- STEP 20. The skater chance of playing, on the 2025-26 page -------------------------------------------------------
+* ---- STEP 19. The skater chance of playing, on the 2025-26 page -------------------------------------------------------
 * A logit: did he play one NHL game or more in the season (y_played)?
 * Built up: age; + trailing WAR, games share and defenceman; + contract status (the adopted regression, the last)
 quietly logit y_played p_age_c if h == 0 & season < 2025, vce(cluster career_num)
@@ -314,16 +310,16 @@ forvalues s = 0/5 {
 }
 * Should print: p_age_c2 p by season ahead {{S20_SQ_P}}; exp_seasons p {{S20_EXP_P}}
 * (The model's own logit is very lightly penalised, so its coefficients differ from Stata's by at most 0.0002;
-* forecast_fits.csv, in the "fits" frame, lists the model's coefficients for every page.)
+* forecast_fits.csv lists the model's coefficients for every page.)
 
-* ---- STEP 21. The goaltender age term, on the 2025-26 page -----------------------------------------------------------
+* ---- STEP 20. The goaltender age term, on the 2025-26 page -----------------------------------------------------------
 * What the track-record forecast misses (WAR less the pulled trailing value), on age
-frame change goalie_age
+import delimited using "goalie_age_rows.csv", clear
 regress war_less_pulled age_c if season < 2025
 * Should print: age_c {{S21_B}} WAR a year (s.e. {{S21_SE}}, {{S21_P}}); {{S21_N}} observations
 
-* ---- STEP 22. The goaltender chance of playing, on the 2025-26 page ---------------------------------------------------
-frame change goalie_play
+* ---- STEP 21. The goaltender chance of playing, on the 2025-26 page ---------------------------------------------------
+import delimited using "goalie_play_rows.csv", clear
 logit played age_c pulled gp_share_last if h == 0 & season < 2025
 * Should print: age_c {{S22_AGE_C}}; pulled {{S22_PULLED}}; gp_share_last {{S22_GP_SHARE_LAST}}; _cons {{S22__CONS}};
 *               {{S22_N}} observations
@@ -340,9 +336,9 @@ forvalues s = 0/{{S22_HMAX}} {
 * on what happened (realised through 2025-26, the rest revalued at 2026-27). The tests use the trades where every
 * asset has an outcome (complete == 1). The rules and groups: 40_DOCS/Backtest_Protocol.md.
 * =====================================================================================================================
-frame change sides
+import delimited using "backtest_club_sides.csv", clear
 
-* ---- STEP 23. Test A: the outcome on the forecast, through zero (1 = the forecast's gaps come true) -------------------
+* ---- STEP 22. Test A: the outcome on the forecast, through zero (1 = the forecast's gaps come true) -------------------
 regress outcome_net_m forecast_net_m if complete == 1, noconstant
 * Should print: forecast_net_m {{S23_W_SLOPE}}; {{S23_N}}
 correlate forecast_net_m outcome_net_m if complete == 1
@@ -350,25 +346,19 @@ correlate forecast_net_m outcome_net_m if complete == 1
 mean ahead if complete == 1 & favoured == 1
 * Should print: {{S23_W_AHEAD}} (the share of trades whose favoured club came out ahead; 0.5 would be a coin)
 
-* ---- STEP 24. Test A's sensitivities ---------------------------------------------------------------------------------
+* ---- STEP 23. Test A's sensitivities ---------------------------------------------------------------------------------
 regress realised_net_m forecast_net_m if complete == 1, noconstant
 * Should print: {{S24_REAL}} (realised seasons only, nothing revalued)
 regress outcome_net_m forecast_net_m if complete == 1 & has_conditional_pick == 0, noconstant
 * Should print: {{S24_NOCOND}} (trades with a conditional pick left out)
 
-* ---- STEP 25. Test A by timing ---------------------------------------------------------------------------------------
+* ---- STEP 24. Test A by timing ---------------------------------------------------------------------------------------
 regress outcome_net_m forecast_net_m if complete == 1 & during_regular_season == 1, noconstant
 * Should print: {{S25_IN}} (in-season trades)
 regress outcome_net_m forecast_net_m if complete == 1 & during_regular_season == 0, noconstant
 * Should print: {{S25_OFF}} (off-season trades)
 
-* ---- STEP 26. Test B: outcome less forecast, per asset, by class -----------------------------------------------------
-frame change assets
-mean miss_m if complete_trade == 1, over(asset_class)
-* Should print: {{S26}}
-
-* ---- STEP 27. Test C: the protocol's groups (each club side's mean forecast, outcome, and outcome less forecast) ------
-frame change sides
+* ---- STEP 25. Test C: the protocol's groups (each club side's mean forecast, outcome, and outcome less forecast) ------
 mean forecast_net_m outcome_net_m miss_m if complete == 1 & g_futures == 1
 * Should print: {{S27_C1}} (C1: received picks and prospects for players)
 mean forecast_net_m outcome_net_m miss_m if complete == 1 & g_buyer == 1
@@ -380,7 +370,7 @@ mean forecast_net_m outcome_net_m miss_m if complete == 1 & g_nothing_back == 1
 mean forecast_net_m outcome_net_m miss_m if complete == 1 & g_clause == 1
 * Should print: {{S27_C6}} (C6: received a player with a no-trade or no-move clause)
 
-* ---- STEP 28. Test A on Game Value instead of WAR (the check that the outcome does not just repeat the forecast) -------
+* ---- STEP 26. Test A on Game Value instead of WAR (the check that the outcome does not just repeat the forecast) -------
 regress outcome_net_m_gv_adj forecast_net_m if complete == 1, noconstant
 correlate forecast_net_m outcome_net_m_gv_adj if complete == 1
 mean ahead_gv_adj if complete == 1 & favoured == 1
@@ -390,26 +380,32 @@ correlate forecast_net_m outcome_net_m_gv_raw if complete == 1
 mean ahead_gv_raw if complete == 1 & favoured == 1
 * Should print: slope {{S23_GR_SLOPE}}; correlation {{S23_GR_R}}; share ahead {{S23_GR_AHEAD}} (Game Value, raw)
 
-* ---- STEP 29. Test A's interval, by resampling trades -----------------------------------------------------------------
+* ---- STEP 27. Test A's interval, by resampling trades -----------------------------------------------------------------
 * The model draws 2,000 resamples of trades (a trade's sides move together). Stata's draws differ from Python's, so
 * the interval will be close to the model's, not equal.
 bootstrap _b, reps(2000) seed(20261020) cluster(trade_id): regress outcome_net_m forecast_net_m if complete == 1, noconstant
 
 
+* ---- STEP 28. Test B: outcome less forecast, per asset, by class -----------------------------------------------------
+import delimited using "backtest_assets.csv", clear
+mean miss_m if complete_trade == 1, over(asset_class)
+* Should print: {{S26}}
+
+
 * =====================================================================================================================
 * PART 5. GAME VALUE: does it track goals and wins?
 * =====================================================================================================================
-* ---- STEP 30. Team-games: in-play goal differential on the team's summed Game Value ------------------------------------
-frame change gv_games
+* ---- STEP 29. Team-games: in-play goal differential on the team's summed Game Value ------------------------------------
+import delimited using "gv_team_games.csv", clear
 regress goal_diff_in_play game_value_sum
 * Should print: game_value_sum {{S30_B}}; R-squared {{S30_R2}}; {{S30_N}} observations
 
-* ---- STEP 31. Team-seasons ------------------------------------------------------------------------------------------
-frame change gv_seasons
+* ---- STEP 30. Team-seasons ------------------------------------------------------------------------------------------
+import delimited using "gv_team_seasons.csv", clear
 regress gv_goal_diff game_value_sum
 * Should print: game_value_sum {{S31_B}}; R-squared {{S31_R2}}; {{S31_N}} observations
 
-* ---- STEP 32. Goals per win: wins on goal differential; goals per win is one over the slope -------------------------
+* ---- STEP 31. Goals per win: wins on goal differential; goals per win is one over the slope -------------------------
 regress wins goal_diff_in_play
 display "goals per win: " 1/_b[goal_diff_in_play]
 * Should print: goal_diff_in_play {{S32_B}}; goals per win {{S32_GPW}}

@@ -1,35 +1,35 @@
 """
 =============================================================================
- stata_refresh.py   v1.0                            Launcher (2026-11-08)
+ stata_refresh.py   v1.1                            Launcher (2026-11-08)
 =============================================================================
  WHAT THIS DOES (plain English)
  ------------------------------
- One command builds everything the Stata walkthrough needs, in
- 30_OUTPUT/stata/:
-   - the 13 CSV files: every row and variable of every regression the model
-     runs, plus the variables its tests use (three exports, in order);
-   - xnpv_load.do: loads all 13 files into Stata with one command;
-   - xnpv_walkthrough.do: every regression and test, step by step, each
-     followed by the figure Stata should print, filled in from this run.
- Thomas asked for it (2026-11-08): "ensure that all the stata stuff is simple
- and ready to go ... that all data sources are pulled in a single command at
- the beginning". The guide is 40_DOCS/Stata_Data_Codebook.md.
+ One command builds everything needed to run the model's regressions in
+ Stata, in 30_OUTPUT/stata/:
+   - the CSV files: every row and variable of every regression the model
+     runs, plus the variables its tests use. In Stata each is read with
+     import delimited, and its variables show in the Variables window;
+   - xnpv_walkthrough.do: the commands, in the guide's order, each followed
+     by the figure Stata should print, filled in from this run.
+ The guide, 40_DOCS/Stata_Data_Codebook.md, is the commands alone, by pillar
+ (Thomas, 2026-11-08: "just the command I need to write out to get the
+ regression for each thing"; "I want to import csvs"). This script stops if
+ any command in the guide is not in the do-file, so the two cannot drift.
 
  THE STEPS, IN ORDER (each must finish cleanly or the run stops)
    1  stata_export.py            draft picks and prospects   (about 15 seconds)
-   2  stata_export_players.py    the player model            (about 1 minute)
+   2  stata_export_players.py    the player model            (1 to 3 minutes)
    3  stata_export_backtest.py   the back-test, Game Value   (about 10 seconds)
-   4  fill stata_walkthrough_template.do with the three exports' expected
-      figures; copy xnpv_load.do; check that every file it loads exists.
+   4  fill stata_walkthrough_template.do with the expected figures; check
+      that every file it imports exists and every guide command is in it
  Each export refits every regression from its CSVs and stops on any
- difference from the model, so a run that finishes means the CSVs are the
- model's. It changes no value and writes nothing outside 30_OUTPUT/stata/.
+ difference from the model. It changes no value and writes nothing outside
+ 30_OUTPUT/stata/.
 
  WHEN TO RUN IT
    After everything it reads is current: the dashboard chain
    (dashboard_refresh.py), then the trade chain (trade_refresh.py), then the
    back-test and its two Game Value runs (backtest.py). It does not run those.
-   Each export prints which versions wrote what it reads.
 
  HOW TO RUN (repo root):   python 20_CODE/stata_refresh.py
 =============================================================================
@@ -38,7 +38,6 @@
 import json
 import os
 import re
-import shutil
 import subprocess
 import sys
 import time
@@ -47,18 +46,18 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "stata_refresh.py v1.0 (2026-11-08)"
+SCRIPT_VERSION = "stata_refresh.py v1.1 (2026-11-08)"   # v1.1: CSVs imported section by section (no frames); the guide is commands only
 CODE = Path(__file__).resolve().parent
 REPO = CODE.parent
+sys.path.insert(0, str(CODE))
 load_dotenv(REPO / ".env")
 OUT = Path(os.environ["OUTPUT_DIR"]) / "stata"
 TEMPLATE = CODE / "stata_walkthrough_template.do"
-LOADER = CODE / "xnpv_load.do"
+GUIDE = REPO / "40_DOCS" / "Stata_Data_Codebook.md"
 STEPS = [("stata_export.py", "expected_picks_prospects.json"),
          ("stata_export_players.py", "expected_players.json"),
          ("stata_export_backtest.py", "expected_backtest.json")]
 LOG = []
-
 
 def say(s=""):
     print(s, flush=True)
@@ -100,16 +99,30 @@ def run(script):
     return want, time.time() - t0
 
 
+def command_lines(text, comment):
+    """The command lines of a do-file (comment = '*') or of the guide's code blocks (comment = None)."""
+    if comment is None:
+        blocks = re.findall(r"```stata\n(.*?)```", text, re.S)
+        text = "\n".join(blocks)
+    out = []
+    for l in text.splitlines():
+        l = re.sub(r"\s*//.*$", "", l).rstrip()
+        if l.strip() and not l.lstrip().startswith("*"):
+            out.append(l.strip())
+    return out
+
+
 def main():
     say(SCRIPT_VERSION)
     say(f"  writing to {OUT.resolve()}; code at {git_commit()}")
     OUT.mkdir(parents=True, exist_ok=True)
     expected, versions = {}, []
+    n = len(STEPS) + 1
     for i, (script, js) in enumerate(STEPS, 1):
         f = OUT / js
         if f.exists():
             f.unlink()                                       # never read a figure left by an earlier run
-        say(f"\n[{i}/{len(STEPS) + 1}] {script}")
+        say(f"\n[{i}/{n}] {script}")
         v, secs = run(script)
         if not f.exists():
             raise SystemExit(f"STOPPED: {script} finished but wrote no {js}.")
@@ -120,7 +133,7 @@ def main():
         versions.append(v)
         say(f"  {v}: done in {secs / 60:.1f} min, {len(part)} expected figures")
 
-    say(f"\n[{len(STEPS) + 1}/{len(STEPS) + 1}] the do-files")
+    say(f"\n[{n}/{n}] the do-file and the guide check")
     expected["BUILT"] = f"{datetime.now():%Y-%m-%d %H:%M} (code at {git_commit()})"
     expected["VERSIONS"] = "; ".join(versions)
     text = TEMPLATE.read_text(encoding="utf-8")
@@ -128,21 +141,29 @@ def main():
     missing = sorted(keys - set(expected))
     if missing:
         raise SystemExit(f"STOPPED: the template asks for figures no export computed: {missing}")
-    unused = sorted(set(expected) - keys)
     for k in keys:
         text = text.replace("{{" + k + "}}", expected[k])
     assert "{{" not in text and "}}" not in text
     (OUT / "xnpv_walkthrough.do").write_text(text, encoding="utf-8")
-    shutil.copyfile(LOADER, OUT / "xnpv_load.do")
-    loads = re.findall(r'import delimited using "([^"]+)"', LOADER.read_text(encoding="utf-8"))
-    absent = [c for c in loads if not (OUT / c).exists()]
+    if (OUT / "xnpv_load.do").exists():                      # v1.0's frame loader, no longer used
+        (OUT / "xnpv_load.do").unlink()
+    imports = sorted(set(re.findall(r'import delimited using "([^"]+)"', text)))
+    gone = [c for c in imports if not (OUT / c).exists()]
+    if gone:
+        raise SystemExit(f"STOPPED: the do-file imports files that are not there: {gone}")
+    do_cmds = command_lines(text, "*")
+    guide_cmds = command_lines(GUIDE.read_text(encoding="utf-8"), None)
+    absent = [c for c in guide_cmds if c not in do_cmds]
     if absent:
-        raise SystemExit(f"STOPPED: xnpv_load.do loads files that are not there: {absent}")
-    say(f"  wrote xnpv_walkthrough.do ({len(keys)} expected figures filled in) and xnpv_load.do "
-        f"(loads {len(loads)} files, all present)")
+        raise SystemExit(f"STOPPED: commands in the guide that the do-file does not run: {absent}")
+    unshown = [c for c in do_cmds if c not in guide_cmds]
+    say(f"  wrote xnpv_walkthrough.do ({len(keys)} expected figures filled in); the guide's {len(guide_cmds)} commands "
+        f"are all in it" + (f"; {len(unshown)} do-file lines are not in the guide: {unshown}" if unshown else ""))
+    unused = sorted(set(expected) - keys - {"BUILT", "VERSIONS"})
     if unused:
-        say(f"  note: {len(unused)} computed figures are not shown in the walkthrough: {', '.join(unused)}")
-    say(f"\nDone. In Stata: change the working directory to {OUT.resolve()}, open xnpv_walkthrough.do, run Step 0.")
+        say(f"  note: {len(unused)} computed figures are not shown in the do-file: {', '.join(unused)}")
+    say(f"\nDone. In Stata: cd \"{OUT.resolve()}\", then run the guide's commands section by section "
+        f"({len(imports)} CSVs, all present)")
     (OUT / "stata_refresh_log.txt").write_text("\n".join(LOG), encoding="utf-8")
 
 
