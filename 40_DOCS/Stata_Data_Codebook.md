@@ -12,9 +12,9 @@ Then in Stata, work from the folder the CSVs are in:
 cd "C:\Users\thoma\Desktop\xNPV\30_OUTPUT\stata"
 ```
 
-Each section starts by importing its CSV. The line above each command (starting with `*`) says what it does; Stata
-skips those lines, so a block can be pasted in whole. `30_OUTPUT/stata/xnpv_walkthrough.do` has the same commands, with
-the figure each one should print.
+Each section starts by importing its CSV. Above each block: what it does and its equation. Each block is only Stata
+commands, one per line, so it can be pasted straight into the Command window. `30_OUTPUT/stata/xnpv_walkthrough.do` has
+the same commands, with the figure each one should print.
 
 The same option words recur:
 
@@ -31,7 +31,7 @@ The same option words recur:
 | `logit` | A regression for a yes/no outcome: the chance of a yes |
 | `estimates store n`, `lrtest` | Save a fit under a name; compare two nested fits (does the bigger one fit significantly better?) |
 | `quietly` | Fit without printing the table |
-| `* Equation:` | The regression written out: a, b, c ... are the coefficients Stata estimates; e is the error; `_n` means one coefficient for each season after the draft; L(x) is the logistic function 1/(1 + exp(-x)); max(league_min, ...) is the tobit's floor |
+| Equation | The regression written out: a, b, c ... are the coefficients Stata estimates; e is the error; `_n` means one coefficient for each season after the draft; L(x) is the logistic function 1/(1 + exp(-x)); max(league_min, ...) is the tobit's floor |
 
 ---
 
@@ -59,85 +59,143 @@ import delimited using "draft_players.csv", clear
 
 ### 1. The pick curve
 
+Regress career NPV on star probability, leaving out deceased players; no constant, robust standard errors. The coefficient on star_prob is the star value: what a 100% star chance is worth.
+
+Equation: `career_npv = b*star_prob + e`
+
 ```stata
-* Regress career NPV on star probability, leaving out deceased players; no constant, robust standard errors.
-* The coefficient on star_prob is the star value: what a 100% star chance is worth.
-* Equation: career_npv = b*star_prob + e
 regress career_npv star_prob if deceased == 0, noconstant vce(robust)
 ```
 
 ### 2. Without the 2015 and 2016 drafts
 
+The same regression, also leaving out the 2015 and 2016 drafts (the sensitivity).
+
+Equation: `career_npv = b*star_prob + e` (drafts 2007-2017 without 2015 and 2016)
+
 ```stata
-* The same regression, also leaving out the 2015 and 2016 drafts (the sensitivity).
-* Equation: career_npv = b*star_prob + e   (drafts 2007-2017 without 2015 and 2016)
 regress career_npv star_prob if deceased == 0 & !inlist(draft_year, 2015, 2016), noconstant vce(robust)
 ```
 
 ### 3. Each term added to the pick curve
 
+Add a constant: regress career NPV on star probability with an intercept; robust standard errors.
+
+Equation: `career_npv = a + b*star_prob + e`
+
 ```stata
-* Add a constant: regress career NPV on star probability with an intercept; robust standard errors.
-* Equation: career_npv = a + b*star_prob + e
 regress career_npv star_prob if deceased == 0, vce(robust)
+```
 
-* Add an intercept for each draft year: star probability plus a dummy per draft, no overall constant.
-* Equation: career_npv = a_year + b*star_prob + e   (a_year: one intercept for each draft year)
+Add an intercept for each draft year: star probability plus a dummy per draft, no overall constant.
+
+Equation: `career_npv = a_year + b*star_prob + e` (a_year: one intercept for each draft year)
+
+```stata
 regress career_npv star_prob ibn.draft_year if deceased == 0, noconstant vce(robust)
-* Test that all eleven draft intercepts are zero.
+```
+
+Test that all eleven draft intercepts are zero.
+
+```stata
 testparm ibn.draft_year
+```
 
-* Add the overall pick number and a constant.
-* Equation: career_npv = a + b*star_prob + c*pick + e
+Add the overall pick number and a constant.
+
+Equation: `career_npv = a + b*star_prob + c*pick + e`
+
+```stata
 regress career_npv star_prob pick if deceased == 0, vce(robust)
+```
 
-* Add the chance of becoming an NHL player; no constant.
-* Equation: career_npv = b*star_prob + c*nhl_prob + e
+Add the chance of becoming an NHL player; no constant.
+
+Equation: `career_npv = b*star_prob + c*nhl_prob + e`
+
+```stata
 regress career_npv star_prob nhl_prob if deceased == 0, noconstant vce(robust)
 ```
 
 ### 4. One star value for every draft
 
-```stata
-* Regress career NPV on star probability with a separate star value for each draft year; no constant.
-* Equation: career_npv = b_year*star_prob + e   (b_year: one star value for each draft year)
-regress career_npv ibn.draft_year#c.star_prob if deceased == 0, noconstant vce(robust)
-* Test that the eleven star values are all equal.
-testparm ibn.draft_year#c.star_prob, equal
+Regress career NPV on star probability with a separate star value for each draft year; no constant.
 
-* Regress career NPV on star probability and its trend across draft years: does the star value drift over time?
-* Equation: career_npv = b*star_prob + t*star_prob_x_year + e   (star value in draft year y = b + t*(y - 2012))
+Equation: `career_npv = b_year*star_prob + e` (b_year: one star value for each draft year)
+
+```stata
+regress career_npv ibn.draft_year#c.star_prob if deceased == 0, noconstant vce(robust)
+```
+
+Test that the eleven star values are all equal.
+
+```stata
+testparm ibn.draft_year#c.star_prob, equal
+```
+
+Regress career NPV on star probability and its trend across draft years: does the star value drift over time?
+
+Equation: `career_npv = b*star_prob + t*star_prob_x_year + e` (star value in draft year y = b + t*(y - 2012))
+
+```stata
 regress career_npv star_prob star_prob_x_year if deceased == 0, noconstant vce(robust)
-* The same trend, leaving out the 2015 and 2016 drafts.
-* Equation: career_npv = b*star_prob + t*star_prob_x_year + e   (drafts without 2015 and 2016)
+```
+
+The same trend, leaving out the 2015 and 2016 drafts.
+
+Equation: `career_npv = b*star_prob + t*star_prob_x_year + e` (drafts without 2015 and 2016)
+
+```stata
 regress career_npv star_prob star_prob_x_year if deceased == 0 & !inlist(draft_year, 2015, 2016), noconstant vce(robust)
 ```
 
 ### 5. A star value for defencemen
 
+Regress career NPV on star probability and on star probability for defencemen; no constant. star_prob's coefficient is forwards' and goaltenders' star value; star_prob_def's is what defencemen's differs by.
+
+Equation: `career_npv = b*star_prob + d*star_prob_def + e` (defencemen's star value = b + d)
+
 ```stata
-* Regress career NPV on star probability and on star probability for defencemen; no constant.
-* star_prob's coefficient is forwards' and goaltenders' star value; star_prob_def's is what defencemen's differs by.
-* Equation: career_npv = b*star_prob + d*star_prob_def + e   (defencemen's star value = b + d)
 regress career_npv star_prob star_prob_def if deceased == 0, noconstant vce(robust)
-* Add the two coefficients: defencemen's star value.
+```
+
+Add the two coefficients: defencemen's star value.
+
+```stata
 lincom star_prob + star_prob_def
 ```
 
 ### 6. Other shapes
 
+Career NPV on the overall pick number: a straight line with a constant.
+
+Equation: `career_npv = a + b*pick + e`
+
 ```stata
-* Career NPV on the overall pick number: a straight line with a constant.
-* Equation: career_npv = a + b*pick + e
 regress career_npv pick if deceased == 0, vce(robust)
-* Career NPV on the log of the pick, with a constant.
-* Equation: career_npv = a + b*log_pick + e
+```
+
+Career NPV on the log of the pick, with a constant.
+
+Equation: `career_npv = a + b*log_pick + e`
+
+```stata
 regress career_npv log_pick if deceased == 0, vce(robust)
-* Career NPV on the log of the pick and its square, with a constant.
-* Equation: career_npv = a + b*log_pick + c*log_pick_sq + e
+```
+
+Career NPV on the log of the pick and its square, with a constant.
+
+Equation: `career_npv = a + b*log_pick + c*log_pick_sq + e`
+
+```stata
 regress career_npv log_pick log_pick_sq if deceased == 0, vce(robust)
-* Career NPV on star probability and its square, no constant.
-* Equation: career_npv = b*star_prob + c*star_prob_sq + e
+```
+
+Career NPV on star probability and its square, no constant.
+
+Equation: `career_npv = b*star_prob + c*star_prob_sq + e`
+
+```stata
 regress career_npv star_prob star_prob_sq if deceased == 0, noconstant vce(robust)
 ```
 
@@ -176,119 +234,220 @@ D+5 and later), no constant, and standard errors clustered by player.
 
 ### 7. The star value in each season after the draft
 
+Regress remaining NPV on star probability, a separate star value for each season after the draft; all prospects.
+
+Equation: `remaining_npv = a_n*star_prob + e`
+
 ```stata
-* Regress remaining NPV on star probability, a separate star value for each season after the draft; all prospects.
-* Equation: remaining_npv = a_n*star_prob + e
 regress remaining_npv ibn.dplus#c.star_prob if prospect == 1, noconstant vce(cluster player_id)
 ```
 
 ### 8. How the star value fades
 
+A test reads the most recent regression, so refit step 7 first (not printed).
+
+Equation: `remaining_npv = a_n*star_prob + e`
+
 ```stata
-* A test reads the most recent regression, so refit step 7 first (not printed).
-* Equation: remaining_npv = a_n*star_prob + e
 quietly regress remaining_npv ibn.dplus#c.star_prob if prospect == 1, noconstant vce(cluster player_id)
+```
 
-* Test that the star value is the same in all five seasons.
+Test that the star value is the same in all five seasons.
+
+```stata
 test 1.dplus#c.star_prob = 2.dplus#c.star_prob = 3.dplus#c.star_prob = 4.dplus#c.star_prob = 5.dplus#c.star_prob
+```
 
-* Test that it falls by the same amount each season from D+1 to D+4 (a straight line).
-test (2.dplus#c.star_prob - 1.dplus#c.star_prob = 3.dplus#c.star_prob - 2.dplus#c.star_prob) ///
-     (3.dplus#c.star_prob - 2.dplus#c.star_prob = 4.dplus#c.star_prob - 3.dplus#c.star_prob)
+Test that it falls by the same amount each season from D+1 to D+4 (a straight line).
 
-* Test that it falls by the same percentage each season from D+1 to D+4.
-testnl (_b[2.dplus#c.star_prob]^2 = _b[1.dplus#c.star_prob]*_b[3.dplus#c.star_prob]) ///
-       (_b[3.dplus#c.star_prob]^2 = _b[2.dplus#c.star_prob]*_b[4.dplus#c.star_prob])
+```stata
+test (2.dplus#c.star_prob - 1.dplus#c.star_prob = 3.dplus#c.star_prob - 2.dplus#c.star_prob) (3.dplus#c.star_prob - 2.dplus#c.star_prob = 4.dplus#c.star_prob - 3.dplus#c.star_prob)
+```
+
+Test that it falls by the same percentage each season from D+1 to D+4.
+
+```stata
+testnl (_b[2.dplus#c.star_prob]^2 = _b[1.dplus#c.star_prob]*_b[3.dplus#c.star_prob]) (_b[3.dplus#c.star_prob]^2 = _b[2.dplus#c.star_prob]*_b[4.dplus#c.star_prob])
 ```
 
 ### 9. Production
 
+Regress remaining NPV on star probability and production; skater prospects.
+
+Equation: `remaining_npv = a_n*star_prob + b_n*nhle_pts + e`
+
 ```stata
-* Regress remaining NPV on star probability and production; skater prospects.
-* Equation: remaining_npv = a_n*star_prob + b_n*nhle_pts + e
 regress remaining_npv ibn.dplus#c.(star_prob nhle_pts) if skater_prospect == 1, noconstant vce(cluster player_id)
-* Test that production adds nothing (its five coefficients are zero).
+```
+
+Test that production adds nothing (its five coefficients are zero).
+
+```stata
 testparm ibn.dplus#c.nhle_pts
+```
 
-* Add production squared.
-* Equation: remaining_npv = a_n*star_prob + b_n*nhle_pts + c_n*nhle_pts_sq + e
+Add production squared.
+
+Equation: `remaining_npv = a_n*star_prob + b_n*nhle_pts + c_n*nhle_pts_sq + e`
+
+```stata
 regress remaining_npv ibn.dplus#c.(star_prob nhle_pts nhle_pts_sq) if skater_prospect == 1, noconstant vce(cluster player_id)
-* Test that production and its square together add nothing.
-testparm ibn.dplus#c.nhle_pts ibn.dplus#c.nhle_pts_sq
-* Test that production squared adds nothing beyond linear production.
-testparm ibn.dplus#c.nhle_pts_sq
-* Test that star probability adds nothing in D+4 and from D+5 on.
-test 4.dplus#c.star_prob 5.dplus#c.star_prob
+```
 
-* Keep star probability only in D+1 to D+3 (star_prob_d1to3), with production and its square.
-* Equation: remaining_npv = a_n*star_prob_d1to3 + b_n*nhle_pts + c_n*nhle_pts_sq + e
+Test that production and its square together add nothing.
+
+```stata
+testparm ibn.dplus#c.nhle_pts ibn.dplus#c.nhle_pts_sq
+```
+
+Test that production squared adds nothing beyond linear production.
+
+```stata
+testparm ibn.dplus#c.nhle_pts_sq
+```
+
+Test that star probability adds nothing in D+4 and from D+5 on.
+
+```stata
+test 4.dplus#c.star_prob 5.dplus#c.star_prob
+```
+
+Keep star probability only in D+1 to D+3 (star_prob_d1to3), with production and its square.
+
+Equation: `remaining_npv = a_n*star_prob_d1to3 + b_n*nhle_pts + c_n*nhle_pts_sq + e`
+
+```stata
 regress remaining_npv ibn.dplus#c.(star_prob_d1to3 nhle_pts nhle_pts_sq) if skater_prospect == 1, noconstant vce(cluster player_id)
-* Test that linear production adds nothing beside its square.
+```
+
+Test that linear production adds nothing beside its square.
+
+```stata
 testparm ibn.dplus#c.nhle_pts
 ```
 
 ### 10. Age
 
+Add age on its own (age - 18, D+1 to D+4) to draft position and production.
+
+Equation: `remaining_npv = a_n*star_prob_d1to3 + b_n*nhle_pts + c_n*nhle_pts_sq + g_n*age_minus18 + e`
+
 ```stata
-* Add age on its own (age - 18, D+1 to D+4) to draft position and production.
-* Equation: remaining_npv = a_n*star_prob_d1to3 + b_n*nhle_pts + c_n*nhle_pts_sq + g_n*age_minus18 + e
 regress remaining_npv ibn.dplus#c.(star_prob_d1to3 nhle_pts nhle_pts_sq age_minus18) if skater_prospect == 1, noconstant vce(cluster player_id)
-* Test that age on its own adds nothing.
-testparm ibn.dplus#c.age_minus18
+```
 
-* Instead add production x (age - 18), D+1 to D+4: each point worth less the older he is when he scores it.
-* Equation: remaining_npv = a_n*star_prob_d1to3 + b_n*nhle_pts + c_n*nhle_pts_sq + d_n*nhle_x_age18 + e
+Test that age on its own adds nothing.
+
+```stata
+testparm ibn.dplus#c.age_minus18
+```
+
+Instead add production x (age - 18), D+1 to D+4: each point worth less the older he is when he scores it.
+
+Equation: `remaining_npv = a_n*star_prob_d1to3 + b_n*nhle_pts + c_n*nhle_pts_sq + d_n*nhle_x_age18 + e`
+
+```stata
 regress remaining_npv ibn.dplus#c.(star_prob_d1to3 nhle_pts nhle_pts_sq nhle_x_age18) if skater_prospect == 1, noconstant vce(cluster player_id)
-* Test that production x age adds nothing.
-testparm ibn.dplus#c.nhle_x_age18
+```
 
-* Add both.
-* Equation: remaining_npv = a_n*star_prob_d1to3 + b_n*nhle_pts + c_n*nhle_pts_sq + g_n*age_minus18 + d_n*nhle_x_age18 + e
+Test that production x age adds nothing.
+
+```stata
+testparm ibn.dplus#c.nhle_x_age18
+```
+
+Add both.
+
+Equation: `remaining_npv = a_n*star_prob_d1to3 + b_n*nhle_pts + c_n*nhle_pts_sq + g_n*age_minus18 + d_n*nhle_x_age18 + e`
+
+```stata
 regress remaining_npv ibn.dplus#c.(star_prob_d1to3 nhle_pts nhle_pts_sq age_minus18 nhle_x_age18) if skater_prospect == 1, noconstant vce(cluster player_id)
-* Test age on its own, given production x age.
-testparm ibn.dplus#c.age_minus18
-* Test production x age, given age on its own.
-testparm ibn.dplus#c.nhle_x_age18
+```
 
-* Production x (age - 18) in every season, including D+5 and later.
-* Equation: remaining_npv = a_n*star_prob_d1to3 + b_n*nhle_pts + c_n*nhle_pts_sq + d_n*nhle_x_age18_all + e
+Test age on its own, given production x age.
+
+```stata
+testparm ibn.dplus#c.age_minus18
+```
+
+Test production x age, given age on its own.
+
+```stata
+testparm ibn.dplus#c.nhle_x_age18
+```
+
+Production x (age - 18) in every season, including D+5 and later.
+
+Equation: `remaining_npv = a_n*star_prob_d1to3 + b_n*nhle_pts + c_n*nhle_pts_sq + d_n*nhle_x_age18_all + e`
+
+```stata
 regress remaining_npv ibn.dplus#c.(star_prob_d1to3 nhle_pts nhle_pts_sq nhle_x_age18_all) if skater_prospect == 1, noconstant vce(cluster player_id)
-* Test that it adds nothing from D+5 on.
+```
+
+Test that it adds nothing from D+5 on.
+
+```stata
 test 5.dplus#c.nhle_x_age18_all
 ```
 
 ### 11. The adopted prospect model, and the defenceman tests
 
+The adopted model: remaining NPV on star probability (D+1 to D+3), production, its square, production x (age - 18) (D+1 to D+4) and production for defencemen; skater prospects.
+
+Equation: `remaining_npv = a_n*star_prob_d1to3 + b_n*nhle_pts + c_n*nhle_pts_sq + d_n*nhle_x_age18 + f_n*nhle_pts_def + e` (the adopted model)
+
 ```stata
-* The adopted model: remaining NPV on star probability (D+1 to D+3), production, its square, production x (age - 18)
-* (D+1 to D+4) and production for defencemen; skater prospects.
-* Equation: remaining_npv = a_n*star_prob_d1to3 + b_n*nhle_pts + c_n*nhle_pts_sq + d_n*nhle_x_age18 + f_n*nhle_pts_def + e   (the adopted model)
 regress remaining_npv ibn.dplus#c.(star_prob_d1to3 nhle_pts nhle_pts_sq nhle_x_age18 nhle_pts_def) if skater_prospect == 1, noconstant vce(cluster player_id)
-* Test that the defenceman terms add nothing.
+```
+
+Test that the defenceman terms add nothing.
+
+```stata
 testparm ibn.dplus#c.nhle_pts_def
-* Test that production and its square add nothing from D+5 on.
+```
+
+Test that production and its square add nothing from D+5 on.
+
+```stata
 test 5.dplus#c.nhle_pts 5.dplus#c.nhle_pts_sq
+```
 
-* Add production squared for defencemen.
-* Equation: remaining_npv = a_n*star_prob_d1to3 + b_n*nhle_pts + c_n*nhle_pts_sq + d_n*nhle_x_age18 + f_n*nhle_pts_def + q_n*nhle_pts_sq_def + e
+Add production squared for defencemen.
+
+Equation: `remaining_npv = a_n*star_prob_d1to3 + b_n*nhle_pts + c_n*nhle_pts_sq + d_n*nhle_x_age18 + f_n*nhle_pts_def + q_n*nhle_pts_sq_def + e`
+
+```stata
 regress remaining_npv ibn.dplus#c.(star_prob_d1to3 nhle_pts nhle_pts_sq nhle_x_age18 nhle_pts_def nhle_pts_sq_def) if skater_prospect == 1, noconstant vce(cluster player_id)
-* Test that it adds nothing.
-testparm ibn.dplus#c.nhle_pts_sq_def
+```
 
-* Add star probability for defencemen.
-* Equation: remaining_npv = a_n*star_prob_d1to3 + b_n*nhle_pts + c_n*nhle_pts_sq + d_n*nhle_x_age18 + f_n*nhle_pts_def + s_n*star_prob_d1to3_def + e
+Test that it adds nothing.
+
+```stata
+testparm ibn.dplus#c.nhle_pts_sq_def
+```
+
+Add star probability for defencemen.
+
+Equation: `remaining_npv = a_n*star_prob_d1to3 + b_n*nhle_pts + c_n*nhle_pts_sq + d_n*nhle_x_age18 + f_n*nhle_pts_def + s_n*star_prob_d1to3_def + e`
+
+```stata
 regress remaining_npv ibn.dplus#c.(star_prob_d1to3 nhle_pts nhle_pts_sq nhle_x_age18 nhle_pts_def star_prob_d1to3_def) if skater_prospect == 1, noconstant vce(cluster player_id)
-* Test that it adds nothing.
+```
+
+Test that it adds nothing.
+
+```stata
 testparm ibn.dplus#c.star_prob_d1to3_def
 ```
 
 ### 12. Linear production, with age measured from 18, 19 and 20
 
+For age measured from 18, then 19, then 20: fit the adopted model (without printing it), then test that linear production adds nothing. The three fits give the same values; only this test changes.
+
+Equation: `remaining_npv = a_n*star_prob_d1to3 + b_n*nhle_pts + c_n*nhle_pts_sq + d_n*nhle_pts*(age - 18, 19 or 20) + f_n*nhle_pts_def + e`
+
 ```stata
-* For age measured from 18, then 19, then 20: fit the adopted model (without printing it), then test that linear
-* production adds nothing. The three fits give the same values; only this test changes.
 foreach v in nhle_x_age18 nhle_x_age19 nhle_x_age20 {
-    * Equation: remaining_npv = a_n*star_prob_d1to3 + b_n*nhle_pts + c_n*nhle_pts_sq + d_n*nhle_pts*(age - 18, 19 or 20) + f_n*nhle_pts_def + e
     quietly regress remaining_npv ibn.dplus#c.(star_prob_d1to3 nhle_pts nhle_pts_sq `v' nhle_pts_def) if skater_prospect == 1, noconstant vce(cluster player_id)
     testparm ibn.dplus#c.nhle_pts
 }
@@ -324,33 +483,60 @@ import delimited using "price_line_skaters.csv", clear
 
 ### 13. The skater price line
 
+Tobit of cap hit on forecast WAR, a defenceman's extra per forecast win, and years of term; floor at the league minimum.
+
+Equation: `cap_hit = max(league_min, a + b*war_fcst + d*war_fcst*defence + g*term + e)` (the adopted price line)
+
 ```stata
-* Tobit of cap hit on forecast WAR, a defenceman's extra per forecast win, and years of term; floor at the league minimum.
-* Equation: cap_hit = max(league_min, a + b*war_fcst + d*war_fcst*defence + g*term + e)   (the adopted price line)
 tobit cap_hit war_fcst c.war_fcst#c.defence term, ll(league_min)
-* The same, with standard errors clustered by player.
-* Equation: cap_hit = max(league_min, a + b*war_fcst + d*war_fcst*defence + g*term + e)
+```
+
+The same, with standard errors clustered by player.
+
+Equation: `cap_hit = max(league_min, a + b*war_fcst + d*war_fcst*defence + g*term + e)`
+
+```stata
 tobit cap_hit war_fcst c.war_fcst#c.defence term, ll(league_min) vce(cluster player_id)
 ```
 
 ### 14. The price line built up
 
+Cap hit on forecast WAR only; save as "wins".
+
+Equation: `cap_hit = max(league_min, a + b*war_fcst + e)`
+
 ```stata
-* Cap hit on forecast WAR only; save as "wins".
-* Equation: cap_hit = max(league_min, a + b*war_fcst + e)
 quietly tobit cap_hit war_fcst, ll(league_min)
 estimates store wins
-* Add a defenceman's extra per win; save as "defence".
-* Equation: cap_hit = max(league_min, a + b*war_fcst + d*war_fcst*defence + e)
+```
+
+Add a defenceman's extra per win; save as "defence".
+
+Equation: `cap_hit = max(league_min, a + b*war_fcst + d*war_fcst*defence + e)`
+
+```stata
 quietly tobit cap_hit war_fcst c.war_fcst#c.defence, ll(league_min)
 estimates store defence
-* Add years of term (the adopted line); save as "adopted".
-* Equation: cap_hit = max(league_min, a + b*war_fcst + d*war_fcst*defence + g*term + e)
+```
+
+Add years of term (the adopted line); save as "adopted".
+
+Equation: `cap_hit = max(league_min, a + b*war_fcst + d*war_fcst*defence + g*term + e)`
+
+```stata
 quietly tobit cap_hit war_fcst c.war_fcst#c.defence term, ll(league_min)
 estimates store adopted
-* Does the defence term improve on wins only?
+```
+
+Does the defence term improve on wins only?
+
+```stata
 lrtest wins defence
-* Does term improve on wins and defence?
+```
+
+Does term improve on wins and defence?
+
+```stata
 lrtest defence adopted
 ```
 
@@ -358,48 +544,82 @@ lrtest defence adopted
 
 Each fits the adopted line plus one change, then tests whether the change improves the fit.
 
+Fit the adopted line (not printed) and save it as "adopted": every test below compares with it.
+
+Equation: `cap_hit = max(league_min, a + b*war_fcst + d*war_fcst*defence + g*term + e)`
+
 ```stata
-* Fit the adopted line (not printed) and save it as "adopted": every test below compares with it.
-* Equation: cap_hit = max(league_min, a + b*war_fcst + d*war_fcst*defence + g*term + e)
 quietly tobit cap_hit war_fcst c.war_fcst#c.defence term, ll(league_min)
 estimates store adopted
+```
 
-* A separate line for RFA signings: their own intercept, price per win, defence extra and term premium.
-* Equation: cap_hit = max(league_min, a + b*war_fcst + d*war_fcst*defence + g*term + r0*rfa + r1*rfa*war_fcst + r2*rfa*war_fcst*defence + r3*rfa*term + e)
+A separate line for RFA signings: their own intercept, price per win, defence extra and term premium.
+
+Equation: `cap_hit = max(league_min, a + b*war_fcst + d*war_fcst*defence + g*term + r0*rfa + r1*rfa*war_fcst + r2*rfa*war_fcst*defence + r3*rfa*term + e)`
+
+```stata
 quietly tobit cap_hit war_fcst c.war_fcst#c.defence term rfa c.rfa#c.war_fcst c.rfa#c.war_fcst#c.defence c.rfa#c.term, ll(league_min)
 lrtest adopted .
+```
 
-* A term premium that changes with the forecast (term x forecast WAR).
-* Equation: cap_hit = max(league_min, a + b*war_fcst + d*war_fcst*defence + g*term + k*term*war_fcst + e)
+A term premium that changes with the forecast (term x forecast WAR).
+
+Equation: `cap_hit = max(league_min, a + b*war_fcst + d*war_fcst*defence + g*term + k*term*war_fcst + e)`
+
+```stata
 quietly tobit cap_hit war_fcst c.war_fcst#c.defence term c.term#c.war_fcst, ll(league_min)
 lrtest adopted .
+```
 
-* A term premium for each forecast group (below 0, 0 to 1, 1 to 2, 2 or more wins); save as "groups".
-* Equation: cap_hit = max(league_min, a + b*war_fcst + d*war_fcst*defence + g*term + g1*term_war0to1 + g2*term_war1to2 + g3*term_war2plus + e)
+A term premium for each forecast group (below 0, 0 to 1, 1 to 2, 2 or more wins); save as "groups".
+
+Equation: `cap_hit = max(league_min, a + b*war_fcst + d*war_fcst*defence + g*term + g1*term_war0to1 + g2*term_war1to2 + g3*term_war2plus + e)`
+
+```stata
 quietly tobit cap_hit war_fcst c.war_fcst#c.defence term term_war0to1 term_war1to2 term_war2plus, ll(league_min)
 estimates store groups
 lrtest adopted groups
+```
 
-* One premium below replacement level (forecast under 0) and another above; save as "onestep".
-* Equation: cap_hit = max(league_min, a + b*war_fcst + d*war_fcst*defence + g*term + g0*term_war0plus + e)
+One premium below replacement level (forecast under 0) and another above; save as "onestep".
+
+Equation: `cap_hit = max(league_min, a + b*war_fcst + d*war_fcst*defence + g*term + g0*term_war0plus + e)`
+
+```stata
 quietly tobit cap_hit war_fcst c.war_fcst#c.defence term term_war0plus, ll(league_min)
 estimates store onestep
 lrtest adopted onestep
-* Do the groups improve on the one step?
-lrtest onestep groups
+```
 
-* Forecast WAR squared.
-* Equation: cap_hit = max(league_min, a + b*war_fcst + d*war_fcst*defence + g*term + q*war_fcst^2 + e)
+Do the groups improve on the one step?
+
+```stata
+lrtest onestep groups
+```
+
+Forecast WAR squared.
+
+Equation: `cap_hit = max(league_min, a + b*war_fcst + d*war_fcst*defence + g*term + q*war_fcst^2 + e)`
+
+```stata
 quietly tobit cap_hit war_fcst c.war_fcst#c.defence term c.war_fcst#c.war_fcst, ll(league_min)
 lrtest adopted .
+```
 
-* A different price per win above one forecast win.
-* Equation: cap_hit = max(league_min, a + b*war_fcst + d*war_fcst*defence + g*term + k*war_fcst_over1 + e)
+A different price per win above one forecast win.
+
+Equation: `cap_hit = max(league_min, a + b*war_fcst + d*war_fcst*defence + g*term + k*war_fcst_over1 + e)`
+
+```stata
 quietly tobit cap_hit war_fcst c.war_fcst#c.defence term war_fcst_over1, ll(league_min)
 lrtest adopted .
+```
 
-* A separate line for contracts starting 2022-23 to 2025-26.
-* Equation: cap_hit = max(league_min, a + b*war_fcst + d*war_fcst*defence + g*term + s0*start_2022plus + s1*start_2022plus*war_fcst + s2*start_2022plus*war_fcst*defence + s3*start_2022plus*term + e)
+A separate line for contracts starting 2022-23 to 2025-26.
+
+Equation: `cap_hit = max(league_min, a + b*war_fcst + d*war_fcst*defence + g*term + s0*start_2022plus + s1*start_2022plus*war_fcst + s2*start_2022plus*war_fcst*defence + s3*start_2022plus*term + e)`
+
+```stata
 quietly tobit cap_hit war_fcst c.war_fcst#c.defence term start_2022plus c.start_2022plus#c.war_fcst c.start_2022plus#c.war_fcst#c.defence c.start_2022plus#c.term, ll(league_min)
 lrtest adopted .
 ```
@@ -408,12 +628,19 @@ lrtest adopted .
 
 Not nested in the adopted line, so compare the log likelihood each prints with the adopted line's (higher fits better).
 
+The price line with forecast WAR averaged over the contract's term in place of the first season's.
+
+Equation: `cap_hit = max(league_min, a + b*war_fcst_term_avg + d*war_fcst_term_avg*defence + g*term + e)`
+
 ```stata
-* The price line with forecast WAR averaged over the contract's term in place of the first season's.
-* Equation: cap_hit = max(league_min, a + b*war_fcst_term_avg + d*war_fcst_term_avg*defence + g*term + e)
 tobit cap_hit war_fcst_term_avg c.war_fcst_term_avg#c.defence term, ll(league_min)
-* The same, with each season's forecast times his chance of playing.
-* Equation: cap_hit = max(league_min, a + b*war_exp_term_avg + d*war_exp_term_avg*defence + g*term + e)
+```
+
+The same, with each season's forecast times his chance of playing.
+
+Equation: `cap_hit = max(league_min, a + b*war_exp_term_avg + d*war_exp_term_avg*defence + g*term + e)`
+
+```stata
 tobit cap_hit war_exp_term_avg c.war_exp_term_avg#c.defence term, ll(league_min)
 ```
 
@@ -432,15 +659,26 @@ import delimited using "price_line_goalies.csv", clear
 
 ### 17. The goaltender price line
 
+Tobit of goaltender cap hit on forecast WAR and years of term; floor at the league minimum. Save as "g_adopted".
+
+Equation: `cap_hit = max(league_min, a + b*war_fcst + g*term + e)` (the adopted goaltender line)
+
 ```stata
-* Tobit of goaltender cap hit on forecast WAR and years of term; floor at the league minimum. Save as "g_adopted".
-* Equation: cap_hit = max(league_min, a + b*war_fcst + g*term + e)   (the adopted goaltender line)
 tobit cap_hit war_fcst term, ll(league_min)
 estimates store g_adopted
-* Without term (not printed).
-* Equation: cap_hit = max(league_min, a + b*war_fcst + e)
+```
+
+Without term (not printed).
+
+Equation: `cap_hit = max(league_min, a + b*war_fcst + e)`
+
+```stata
 quietly tobit cap_hit war_fcst, ll(league_min)
-* Does term improve the fit?
+```
+
+Does term improve the fit?
+
+```stata
 lrtest . g_adopted
 ```
 
@@ -473,60 +711,105 @@ clustered by player. `seasons_ahead == 0` is the valuation season itself.
 
 ### 18. The games share
 
+Games share on trailing games share; print its R-squared.
+
+Equation: `gp_share = a + b1*gp_share_trail + e`
+
 ```stata
-* Games share on trailing games share; print its R-squared.
-* Equation: gp_share = a + b1*gp_share_trail + e
 quietly regress gp_share gp_share_trail if seasons_ahead == 0 & season < 2025, vce(cluster player_id)
 display e(r2)
-* Add seasons since debut; print R-squared.
-* Equation: gp_share = a + b1*gp_share_trail + b2*seasons_since_debut + e
+```
+
+Add seasons since debut; print R-squared.
+
+Equation: `gp_share = a + b1*gp_share_trail + b2*seasons_since_debut + e`
+
+```stata
 quietly regress gp_share gp_share_trail seasons_since_debut if seasons_ahead == 0 & season < 2025, vce(cluster player_id)
 display e(r2)
-* Add age and age squared; print R-squared.
-* Equation: gp_share = a + b1*gp_share_trail + b2*seasons_since_debut + b3*age_minus27 + b4*age_minus27_sq + e
+```
+
+Add age and age squared; print R-squared.
+
+Equation: `gp_share = a + b1*gp_share_trail + b2*seasons_since_debut + b3*age_minus27 + b4*age_minus27_sq + e`
+
+```stata
 quietly regress gp_share gp_share_trail seasons_since_debut age_minus27 age_minus27_sq if seasons_ahead == 0 & season < 2025, vce(cluster player_id)
 display e(r2)
-* Add trailing WAR: the adopted games-share regression.
-* Equation: gp_share = a + b1*gp_share_trail + b2*seasons_since_debut + b3*age_minus27 + b4*age_minus27_sq + b5*war_trail + e   (the adopted games share)
-regress gp_share gp_share_trail seasons_since_debut age_minus27 age_minus27_sq war_trail if seasons_ahead == 0 & season < 2025, vce(cluster player_id)
+```
 
-* The adopted regression for each season ahead, 0 to 5.
+Add trailing WAR: the adopted games-share regression.
+
+Equation: `gp_share = a + b1*gp_share_trail + b2*seasons_since_debut + b3*age_minus27 + b4*age_minus27_sq + b5*war_trail + e` (the adopted games share)
+
+```stata
+regress gp_share gp_share_trail seasons_since_debut age_minus27 age_minus27_sq war_trail if seasons_ahead == 0 & season < 2025, vce(cluster player_id)
+```
+
+The adopted regression for each season ahead, 0 to 5.
+
+Equation: `gp_share = a + b1*gp_share_trail + b2*seasons_since_debut + b3*age_minus27 + b4*age_minus27_sq + b5*war_trail + e`
+
+```stata
 forvalues s = 0/5 {
-    * Equation: gp_share = a + b1*gp_share_trail + b2*seasons_since_debut + b3*age_minus27 + b4*age_minus27_sq + b5*war_trail + e
     regress gp_share gp_share_trail seasons_since_debut age_minus27 age_minus27_sq war_trail if seasons_ahead == `s' & season < 2025, vce(cluster player_id)
 }
+```
 
-* The same with the defenceman dummy added, for each season ahead (read defence's p-value; it was dropped).
+The same with the defenceman dummy added, for each season ahead (read defence's p-value; it was dropped).
+
+Equation: `gp_share = a + b1*gp_share_trail + b2*seasons_since_debut + b3*age_minus27 + b4*age_minus27_sq + b5*war_trail + b6*defence + e`
+
+```stata
 forvalues s = 0/5 {
-    * Equation: gp_share = a + b1*gp_share_trail + b2*seasons_since_debut + b3*age_minus27 + b4*age_minus27_sq + b5*war_trail + b6*defence + e
     regress gp_share gp_share_trail seasons_since_debut age_minus27 age_minus27_sq war_trail defence if seasons_ahead == `s' & season < 2025, vce(cluster player_id)
 }
 ```
 
 ### 19. The chance of playing
 
+Logit of whether he played on his age that season; print the pseudo R-squared.
+
+Equation: `Pr(played = 1) = L(a + c1*age_minus27_season)`
+
 ```stata
-* Logit of whether he played on his age that season; print the pseudo R-squared.
-* Equation: Pr(played = 1) = L(a + c1*age_minus27_season)
 quietly logit played age_minus27_season if seasons_ahead == 0 & season < 2025, vce(cluster player_id)
 display e(r2_p)
-* Add trailing WAR, trailing games share and the defenceman dummy; print the pseudo R-squared.
-* Equation: Pr(played = 1) = L(a + c1*age_minus27_season + c2*war_trail + c3*gp_share_trail + c4*defence)
+```
+
+Add trailing WAR, trailing games share and the defenceman dummy; print the pseudo R-squared.
+
+Equation: `Pr(played = 1) = L(a + c1*age_minus27_season + c2*war_trail + c3*gp_share_trail + c4*defence)`
+
+```stata
 quietly logit played age_minus27_season war_trail gp_share_trail defence if seasons_ahead == 0 & season < 2025, vce(cluster player_id)
 display e(r2_p)
-* Add contract status: the adopted chance-of-playing regression.
-* Equation: Pr(played = 1) = L(a + c1*age_minus27_season + c2*war_trail + c3*gp_share_trail + c4*defence + c5*under_contract + c6*pre_2018)   (the adopted chance of playing)
-logit played age_minus27_season war_trail gp_share_trail defence under_contract pre_2018 if seasons_ahead == 0 & season < 2025, vce(cluster player_id)
+```
 
-* The adopted regression for each season ahead, 0 to 5.
+Add contract status: the adopted chance-of-playing regression.
+
+Equation: `Pr(played = 1) = L(a + c1*age_minus27_season + c2*war_trail + c3*gp_share_trail + c4*defence + c5*under_contract + c6*pre_2018)` (the adopted chance of playing)
+
+```stata
+logit played age_minus27_season war_trail gp_share_trail defence under_contract pre_2018 if seasons_ahead == 0 & season < 2025, vce(cluster player_id)
+```
+
+The adopted regression for each season ahead, 0 to 5.
+
+Equation: `Pr(played = 1) = L(a + c1*age_minus27_season + c2*war_trail + c3*gp_share_trail + c4*defence + c5*under_contract + c6*pre_2018)`
+
+```stata
 forvalues s = 0/5 {
-    * Equation: Pr(played = 1) = L(a + c1*age_minus27_season + c2*war_trail + c3*gp_share_trail + c4*defence + c5*under_contract + c6*pre_2018)
     logit played age_minus27_season war_trail gp_share_trail defence under_contract pre_2018 if seasons_ahead == `s' & season < 2025, vce(cluster player_id)
 }
+```
 
-* The same with age squared and seasons since debut added, for each season ahead (read their p-values; both dropped).
+The same with age squared and seasons since debut added, for each season ahead (read their p-values; both dropped).
+
+Equation: `Pr(played = 1) = L(a + c1*age_minus27_season + c2*war_trail + c3*gp_share_trail + c4*defence + c5*under_contract + c6*pre_2018 + c7*age_minus27_season_sq + c8*seasons_since_debut)`
+
+```stata
 forvalues s = 0/5 {
-    * Equation: Pr(played = 1) = L(a + c1*age_minus27_season + c2*war_trail + c3*gp_share_trail + c4*defence + c5*under_contract + c6*pre_2018 + c7*age_minus27_season_sq + c8*seasons_since_debut)
     logit played age_minus27_season war_trail gp_share_trail defence under_contract pre_2018 age_minus27_season_sq seasons_since_debut if seasons_ahead == `s' & season < 2025, vce(cluster player_id)
 }
 ```
@@ -545,9 +828,11 @@ import delimited using "goalie_age_rows.csv", clear
 
 ### 20. The goaltender age term
 
+Regress how far a goaltender's WAR beat his track-record forecast on his age, seasons before 2025-26, with a constant.
+
+Equation: `war_minus_fcst = a + b*age_minus27 + e`
+
 ```stata
-* Regress how far a goaltender's WAR beat his track-record forecast on his age, seasons before 2025-26, with a constant.
-* Equation: war_minus_fcst = a + b*age_minus27 + e
 regress war_minus_fcst age_minus27 if season < 2025
 ```
 
@@ -569,14 +854,20 @@ import delimited using "goalie_play_rows.csv", clear
 
 ### 21. The goaltender chance of playing
 
-```stata
-* Logit of whether a goaltender played, on his age, his forecast WAR and his most recent season's games; valuation season.
-* Equation: Pr(played = 1) = L(a + c1*age_minus27_season + c2*war_fcst + c3*gp_share_recent)
-logit played age_minus27_season war_fcst gp_share_recent if seasons_ahead == 0 & season < 2025
+Logit of whether a goaltender played, on his age, his forecast WAR and his most recent season's games; valuation season.
 
-* The same with age squared added, for each season ahead 0 to 12 (read age_minus27_season_sq's p-value; it was dropped).
+Equation: `Pr(played = 1) = L(a + c1*age_minus27_season + c2*war_fcst + c3*gp_share_recent)`
+
+```stata
+logit played age_minus27_season war_fcst gp_share_recent if seasons_ahead == 0 & season < 2025
+```
+
+The same with age squared added, for each season ahead 0 to 12 (read age_minus27_season_sq's p-value; it was dropped).
+
+Equation: `Pr(played = 1) = L(a + c1*age_minus27_season + c2*war_fcst + c3*gp_share_recent + c4*age_minus27_season_sq)`
+
+```stata
 forvalues s = 0/12 {
-    * Equation: Pr(played = 1) = L(a + c1*age_minus27_season + c2*war_fcst + c3*gp_share_recent + c4*age_minus27_season_sq)
     logit played age_minus27_season war_fcst gp_share_recent age_minus27_season_sq if seasons_ahead == `s' & season < 2025
 }
 ```
@@ -615,64 +906,111 @@ import delimited using "backtest_club_sides.csv", clear
 
 ### 22. Test A: outcome on forecast
 
+Regress each club's outcome on its forecast, no constant, complete trades: a slope of 1 means the forecast's gaps come true.
+
+Equation: `net_outcome = b*net_fcst + e` (b = 1: the forecast's gaps come true)
+
 ```stata
-* Regress each club's outcome on its forecast, no constant, complete trades: a slope of 1 means the forecast's gaps come true.
-* Equation: net_outcome = b*net_fcst + e   (b = 1: the forecast's gaps come true)
 regress net_outcome net_fcst if complete == 1, noconstant
-* The correlation between forecast and outcome.
+```
+
+The correlation between forecast and outcome.
+
+```stata
 correlate net_fcst net_outcome if complete == 1
-* The share of trades in which the club the forecast favoured came out ahead (0.5 would be a coin flip).
+```
+
+The share of trades in which the club the forecast favoured came out ahead (0.5 would be a coin flip).
+
+```stata
 mean came_out_ahead if complete == 1 & favoured == 1
 ```
 
 ### 23. Test A: realised seasons only, and without conditional picks
 
+The same slope with the outcome counted on realised seasons only.
+
+Equation: `net_realised = b*net_fcst + e`
+
 ```stata
-* The same slope with the outcome counted on realised seasons only.
-* Equation: net_realised = b*net_fcst + e
 regress net_realised net_fcst if complete == 1, noconstant
-* The same slope leaving out trades with a conditional pick.
-* Equation: net_outcome = b*net_fcst + e   (trades without a conditional pick)
+```
+
+The same slope leaving out trades with a conditional pick.
+
+Equation: `net_outcome = b*net_fcst + e` (trades without a conditional pick)
+
+```stata
 regress net_outcome net_fcst if complete == 1 & conditional_pick == 0, noconstant
 ```
 
 ### 24. Test A: in-season and off-season trades
 
+The slope for trades made during the regular season.
+
+Equation: `net_outcome = b*net_fcst + e` (in-season trades)
+
 ```stata
-* The slope for trades made during the regular season.
-* Equation: net_outcome = b*net_fcst + e   (in-season trades)
 regress net_outcome net_fcst if complete == 1 & in_season == 1, noconstant
-* The slope for trades made outside it.
-* Equation: net_outcome = b*net_fcst + e   (off-season trades)
+```
+
+The slope for trades made outside it.
+
+Equation: `net_outcome = b*net_fcst + e` (off-season trades)
+
+```stata
 regress net_outcome net_fcst if complete == 1 & in_season == 0, noconstant
 ```
 
 ### 25. Test C: the groups
 
+For each group, the mean forecast, mean outcome and mean miss (outcome less forecast) of its club sides. C1: clubs that received picks and prospects for players.
+
 ```stata
-* For each group, the mean forecast, mean outcome and mean miss (outcome less forecast) of its club sides.
-* C1: clubs that received picks and prospects for players.
 mean net_fcst net_outcome net_miss if complete == 1 & c1_futures == 1
-* C2: the club higher in the standings, in-season two-team trades.
+```
+
+C2: the club higher in the standings, in-season two-team trades.
+
+```stata
 mean net_fcst net_outcome net_miss if complete == 1 & c2_buyer == 1
-* C4: clubs in trades with retained salary.
+```
+
+C4: clubs in trades with retained salary.
+
+```stata
 mean net_fcst net_outcome net_miss if complete == 1 & c4_retained == 1
-* C5: clubs that received nothing recorded.
+```
+
+C5: clubs that received nothing recorded.
+
+```stata
 mean net_fcst net_outcome net_miss if complete == 1 & c5_nothing_back == 1
-* C6: clubs that received a player with a no-trade or no-move clause.
+```
+
+C6: clubs that received a player with a no-trade or no-move clause.
+
+```stata
 mean net_fcst net_outcome net_miss if complete == 1 & c6_clause == 1
 ```
 
 ### 26. Test A on Game Value
 
+Test A's slope, correlation and share ahead with the outcome measured on Game Value (adjusted).
+
+Equation: `net_outcome_gvadj = b*net_fcst + e`
+
 ```stata
-* Test A's slope, correlation and share ahead with the outcome measured on Game Value (adjusted).
-* Equation: net_outcome_gvadj = b*net_fcst + e
 regress net_outcome_gvadj net_fcst if complete == 1, noconstant
 correlate net_fcst net_outcome_gvadj if complete == 1
 mean came_out_ahead_gvadj if complete == 1 & favoured == 1
-* The same on Game Value (raw).
-* Equation: net_outcome_gvraw = b*net_fcst + e
+```
+
+The same on Game Value (raw).
+
+Equation: `net_outcome_gvraw = b*net_fcst + e`
+
+```stata
 regress net_outcome_gvraw net_fcst if complete == 1, noconstant
 correlate net_fcst net_outcome_gvraw if complete == 1
 mean came_out_ahead_gvraw if complete == 1 & favoured == 1
@@ -680,9 +1018,11 @@ mean came_out_ahead_gvraw if complete == 1 & favoured == 1
 
 ### 27. Test A's interval
 
+Refit Test A's slope on 2,000 resamples of whole trades (both sides of a trade together) for its interval.
+
+Equation: `net_outcome = b*net_fcst + e` (refitted on each resample)
+
 ```stata
-* Refit Test A's slope on 2,000 resamples of whole trades (both sides of a trade together) for its interval.
-* Equation: net_outcome = b*net_fcst + e, refitted on each resample
 bootstrap _b, reps(2000) seed(20261020) cluster(trade_id): regress net_outcome net_fcst if complete == 1, noconstant
 ```
 
@@ -700,8 +1040,9 @@ import delimited using "backtest_assets.csv", clear
 
 ### 28. Test B: by asset class
 
+The mean miss (outcome less forecast) per traded asset, for each asset class.
+
 ```stata
-* The mean miss (outcome less forecast) per traded asset, for each asset class.
 mean miss if complete == 1, over(asset_class)
 ```
 
@@ -722,9 +1063,11 @@ import delimited using "gv_team_games.csv", clear
 
 ### 29. Goal differential on Game Value, by game
 
+Regress each team's goal differential in a game on its skaters' summed Game Value, with a constant.
+
+Equation: `goal_diff = a + b*game_value + e`
+
 ```stata
-* Regress each team's goal differential in a game on its skaters' summed Game Value, with a constant.
-* Equation: goal_diff = a + b*game_value + e
 regress goal_diff game_value
 ```
 
@@ -744,24 +1087,32 @@ import delimited using "gv_team_seasons.csv", clear
 
 ### 30. Goal differential on Game Value, by season
 
+Regress each team's season goal differential on its skaters' summed Game Value, with a constant.
+
+Equation: `goal_diff_gv_games = a + b*game_value + e`
+
 ```stata
-* Regress each team's season goal differential on its skaters' summed Game Value, with a constant.
-* Equation: goal_diff_gv_games = a + b*game_value + e
 regress goal_diff_gv_games game_value
 ```
 
 ### 31. Goals per win
 
+Regress team wins on goal differential, all seasons together; goals per win is one over the slope.
+
+Equation: `wins = a + b*goal_diff + e` (goals per win = 1/b)
+
 ```stata
-* Regress team wins on goal differential, all seasons together; goals per win is one over the slope.
-* Equation: wins = a + b*goal_diff + e   (goals per win = 1/b)
 regress wins goal_diff
 display "goals per win: " 1/_b[goal_diff]
+```
 
-* For each season: the same regression (not printed), then that season's goals per win.
+For each season: the same regression (not printed), then that season's goals per win.
+
+Equation: `wins = a + b*goal_diff + e` (one season at a time)
+
+```stata
 levelsof season, local(ss)
 foreach s of local ss {
-    * Equation: wins = a + b*goal_diff + e, one season at a time
     quietly regress wins goal_diff if season == `s'
     display "`s'  goals per win " %6.3f 1/_b[goal_diff]
 }

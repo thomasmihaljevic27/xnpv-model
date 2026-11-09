@@ -150,12 +150,10 @@ quietly regress remaining_npv ibn.dplus#c.star_prob if prospect == 1, noconstant
 test 1.dplus#c.star_prob = 2.dplus#c.star_prob = 3.dplus#c.star_prob = 4.dplus#c.star_prob = 5.dplus#c.star_prob
 * Should print: F = {{S8_ONE_F}}, {{S8_ONE_P}}
 * A straight-line decline: equal drops from D+1 to D+4
-test (2.dplus#c.star_prob - 1.dplus#c.star_prob = 3.dplus#c.star_prob - 2.dplus#c.star_prob) ///
-     (3.dplus#c.star_prob - 2.dplus#c.star_prob = 4.dplus#c.star_prob - 3.dplus#c.star_prob)
+test (2.dplus#c.star_prob - 1.dplus#c.star_prob = 3.dplus#c.star_prob - 2.dplus#c.star_prob) (3.dplus#c.star_prob - 2.dplus#c.star_prob = 4.dplus#c.star_prob - 3.dplus#c.star_prob)
 * Should print: F = {{S8_LINE_F}}, {{S8_LINE_P}}
 * The same percentage decline each season: equal ratios from D+1 to D+4 (non-linear, so testnl)
-testnl (_b[2.dplus#c.star_prob]^2 = _b[1.dplus#c.star_prob]*_b[3.dplus#c.star_prob]) ///
-       (_b[3.dplus#c.star_prob]^2 = _b[2.dplus#c.star_prob]*_b[4.dplus#c.star_prob])
+testnl (_b[2.dplus#c.star_prob]^2 = _b[1.dplus#c.star_prob]*_b[3.dplus#c.star_prob]) (_b[3.dplus#c.star_prob]^2 = _b[2.dplus#c.star_prob]*_b[4.dplus#c.star_prob])
 * Should print: F = {{S8_PCT_F}}, {{S8_PCT_P}}
 
 * ---- STEP 9. Production (Table 3), skaters only (skater_prospect == 1 from here on) ---------------------------------

@@ -3912,3 +3912,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 
 - DOCUMENT: steps 8 and 15 refit the regression their tests read (Thomas's first Stata run stopped at step 8 run alone).
   No model change. MANIFEST two rows; session log sessions/2026-11-09.md.
+
+### Change log, 2026-11-09c (paste-ready Stata blocks)
+
+- DOCUMENT (Thomas): every command on one line (no `///`); the guide's blocks hold only commands, with each description
+  and equation as text above it. No model change. MANIFEST two rows; session log sessions/2026-11-09.md.
