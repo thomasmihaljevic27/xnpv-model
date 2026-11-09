@@ -3917,3 +3917,10 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 
 - DOCUMENT (Thomas): every command on one line (no `///`); the guide's blocks hold only commands, with each description
   and equation as text above it. No model change. MANIFEST two rows; session log sessions/2026-11-09.md.
+
+### Change log, 2026-11-09d (a defenceman dummy tested)
+
+- TESTED (Thomas: "run the test"; report only): `25_TESTS/defence_dummy_look.py` v1.0. A defenceman dummy in the prospect
+  model is not statistically significant alone (p = 0.092) and adds nothing given defenceman x production (p = 0.20), which
+  stays significant given the dummy (p = 0.0044); held-out error lowest for the adopted model. No model change. MANIFEST one
+  row; session log sessions/2026-11-09.md.

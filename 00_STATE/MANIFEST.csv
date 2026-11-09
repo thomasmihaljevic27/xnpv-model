@@ -426,3 +426,4 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 20_CODE,stata_expected.py,model,hashable,2026-11-08,02e2a6d10d3b053e50549bb79585ab6c596b887b,11238,2026-11-08,yes,git,"v1.0: Stata's conventions for the do-file's expected figures (library)"
 20_CODE,stata_refresh.py,model,hashable,2026-11-09,1a5fb8fe706672918e9870c39ce47c34a08f954e,15014,2026-11-09,yes,git,"v1.2: the Stata names (RENAMES) and the old-name check"
 20_CODE,stata_walkthrough_template.do,model,hashable,2026-11-09,1cdefcf0335b9653ef9748b78a78cef057b02653,43366,2026-11-09,yes,git,"v1.2: the new names; an equation line per regression"
+25_TESTS,defence_dummy_look.py,draft,hashable,2026-11-09,910f10ae7090ae2a3e3e1375780a7304cdfe02b0,14807,2026-11-09,yes,git,"v1.0: a defenceman dummy against defenceman x production in the prospect model (report only)"
