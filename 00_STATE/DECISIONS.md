@@ -3907,3 +3907,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   `40_DOCS/Stata_Data_Codebook.md` in the new names with 68 equation lines. Every check PASS; key regressions refitted from
   the renamed CSVs equal the do-file's figures. No model change. CLAUDE.md's Stata paragraph; MANIFEST three rows; session
   log sessions/2026-11-09.md.
+
+### Change log, 2026-11-09b (each Stata step runs on its own)
+
+- DOCUMENT: steps 8 and 15 refit the regression their tests read (Thomas's first Stata run stopped at step 8 run alone).
+  No model change. MANIFEST two rows; session log sessions/2026-11-09.md.

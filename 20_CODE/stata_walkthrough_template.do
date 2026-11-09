@@ -143,6 +143,9 @@ regress remaining_npv ibn.dplus#c.star_prob if prospect == 1, noconstant vce(clu
 * Should print: {{S7}}; {{S7_N}} observations
 
 * ---- STEP 8. How the star value fades (Table 2): three simpler rules, each tested and rejected or not ------------------
+* A test reads the most recent regression, so refit step 7 first (not printed).
+* Equation: remaining_npv = a_n*star_prob + e
+quietly regress remaining_npv ibn.dplus#c.star_prob if prospect == 1, noconstant vce(cluster player_id)
 * One value for every season
 test 1.dplus#c.star_prob = 2.dplus#c.star_prob = 3.dplus#c.star_prob = 4.dplus#c.star_prob = 5.dplus#c.star_prob
 * Should print: F = {{S8_ONE_F}}, {{S8_ONE_P}}
@@ -285,6 +288,10 @@ lrtest defence adopted
 * The line without term is the term-free line, the sensitivity: war_fcst {{S15_FW}}, c.war_fcst#c.defence {{S15_FD}}
 
 * ---- STEP 15. Other forms of the price line, each against the adopted one ---------------------------------------------
+* Fit the adopted line (not printed) and save it as "adopted": every test below compares with it.
+* Equation: cap_hit = max(league_min, a + b*war_fcst + d*war_fcst*defence + g*term + e)
+quietly tobit cap_hit war_fcst c.war_fcst#c.defence term, ll(league_min)
+estimates store adopted
 * A separate line for restricted free agents (intercept, both slopes and term)
 * Equation: cap_hit = max(league_min, a + b*war_fcst + d*war_fcst*defence + g*term + r0*rfa + r1*rfa*war_fcst + r2*rfa*war_fcst*defence + r3*rfa*term + e)
 quietly tobit cap_hit war_fcst c.war_fcst#c.defence term rfa c.rfa#c.war_fcst c.rfa#c.war_fcst#c.defence c.rfa#c.term, ll(league_min)

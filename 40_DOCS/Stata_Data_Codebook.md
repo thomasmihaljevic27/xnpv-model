@@ -184,9 +184,11 @@ regress remaining_npv ibn.dplus#c.star_prob if prospect == 1, noconstant vce(clu
 
 ### 8. How the star value fades
 
-These tests use the regression in step 7.
-
 ```stata
+* A test reads the most recent regression, so refit step 7 first (not printed).
+* Equation: remaining_npv = a_n*star_prob + e
+quietly regress remaining_npv ibn.dplus#c.star_prob if prospect == 1, noconstant vce(cluster player_id)
+
 * Test that the star value is the same in all five seasons.
 test 1.dplus#c.star_prob = 2.dplus#c.star_prob = 3.dplus#c.star_prob = 4.dplus#c.star_prob = 5.dplus#c.star_prob
 
@@ -357,6 +359,11 @@ lrtest defence adopted
 Each fits the adopted line plus one change, then tests whether the change improves the fit.
 
 ```stata
+* Fit the adopted line (not printed) and save it as "adopted": every test below compares with it.
+* Equation: cap_hit = max(league_min, a + b*war_fcst + d*war_fcst*defence + g*term + e)
+quietly tobit cap_hit war_fcst c.war_fcst#c.defence term, ll(league_min)
+estimates store adopted
+
 * A separate line for RFA signings: their own intercept, price per win, defence extra and term premium.
 * Equation: cap_hit = max(league_min, a + b*war_fcst + d*war_fcst*defence + g*term + r0*rfa + r1*rfa*war_fcst + r2*rfa*war_fcst*defence + r3*rfa*term + e)
 quietly tobit cap_hit war_fcst c.war_fcst#c.defence term rfa c.rfa#c.war_fcst c.rfa#c.war_fcst#c.defence c.rfa#c.term, ll(league_min)
