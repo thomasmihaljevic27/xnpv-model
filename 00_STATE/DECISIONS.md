@@ -3899,3 +3899,11 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - DOCUMENT (Thomas: "I need to know what the commands do"): a plain-English line above every command in
   `40_DOCS/Stata_Data_Codebook.md` and a table of the recurring option words. No model change. MANIFEST one row; session
   log sessions/2026-11-08.md.
+
+### Change log, 2026-11-09 (the Stata names and equations)
+
+- DECIDED (Thomas: "Apply as listed"): plain names for every variable the Stata commands use; leaner CSVs; an equation
+  line per regression. BUILT: `stata_refresh.py` v1.2 (`RENAMES`, `check_names`), the do-file template and
+  `40_DOCS/Stata_Data_Codebook.md` in the new names with 68 equation lines. Every check PASS; key regressions refitted from
+  the renamed CSVs equal the do-file's figures. No model change. CLAUDE.md's Stata paragraph; MANIFEST three rows; session
+  log sessions/2026-11-09.md.

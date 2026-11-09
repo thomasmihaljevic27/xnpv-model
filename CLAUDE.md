@@ -179,7 +179,8 @@ pick curve and the prospect model; `stata_export_players.py`: the price lines an
 `stata_export_backtest.py`: the back-test and Game Value), each of which refits its regressions from the CSVs as written
 and stops on any difference from the model; then it fills `20_CODE/stata_walkthrough_template.do` with the figure each
 command should print (computed as Stata computes them, `stata_expected.py`) and writes `30_OUTPUT/stata/` with the CSVs
-and `xnpv_walkthrough.do`. In Stata each section imports its CSV with `import delimited` (no frames, no combined dataset).
+and `xnpv_walkthrough.do`. In Stata each section imports its CSV with `import delimited` (no frames, no combined dataset). The Stata CSVs carry plain names
+(`stata_refresh.RENAMES`, 2026-11-09), applied after the exports pass; the exports and the model keep their own names.
 The guide, `40_DOCS/Stata_Data_Codebook.md`, is the commands alone, by pillar, with the do-file's step numbers; the
 runner stops if a guide command is missing from the do-file. A new regression or reported test goes in the export that
 owns its data, the template and the guide together.
