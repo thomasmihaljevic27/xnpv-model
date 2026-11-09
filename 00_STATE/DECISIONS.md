@@ -3893,3 +3893,9 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - DOCUMENT (Thomas: a short description of the variables involved): a variable table under each Load block of
   `40_DOCS/Stata_Data_Codebook.md`; `label variable` lines after each import in the do-file template. No model change.
   MANIFEST three rows; session log sessions/2026-11-08.md.
+
+### Change log, 2026-11-08d (each Stata command in plain English)
+
+- DOCUMENT (Thomas: "I need to know what the commands do"): a plain-English line above every command in
+  `40_DOCS/Stata_Data_Codebook.md` and a table of the recurring option words. No model change. MANIFEST one row; session
+  log sessions/2026-11-08.md.
