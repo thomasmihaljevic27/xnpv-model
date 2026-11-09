@@ -156,7 +156,7 @@ def main():
     absent = [c for c in guide_cmds if c not in do_cmds]
     if absent:
         raise SystemExit(f"STOPPED: commands in the guide that the do-file does not run: {absent}")
-    unshown = [c for c in do_cmds if c not in guide_cmds]
+    unshown = [c for c in do_cmds if c not in guide_cmds and not c.startswith("label variable")]   # labels: do-file only
     say(f"  wrote xnpv_walkthrough.do ({len(keys)} expected figures filled in); the guide's {len(guide_cmds)} commands "
         f"are all in it" + (f"; {len(unshown)} do-file lines are not in the guide: {unshown}" if unshown else ""))
     unused = sorted(set(expected) - keys - {"BUILT", "VERSIONS"})

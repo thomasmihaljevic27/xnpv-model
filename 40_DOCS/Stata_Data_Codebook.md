@@ -25,6 +25,20 @@ figure each one should print.
 import delimited using "draft_players.csv", clear
 ```
 
+| Variable | What it is |
+|---|---|
+| `career_npv_m` | Career NPV to the club that drafted him, $M (the outcome) |
+| `p_star` | Chance a pick at his draft position becomes a star (Bacon) |
+| `excluded_deceased` | 1 for the six players who died before reaching the NHL |
+| `draft_year` | Draft year |
+| `pick` | Overall pick number |
+| `p_nhler` | Chance a pick at his draft position becomes an NHL player (Bacon) |
+| `p_star_trend` | p_star x (draft year - 2012): lets the star value drift by draft |
+| `p_star_x_d_draft` | p_star if he was drafted as a defenceman, else 0 |
+| `log_pick` | Log of the overall pick |
+| `log_pick_sq` | log_pick squared |
+| `p_star_sq` | p_star squared |
+
 ### 1. The pick curve
 
 ```stata
@@ -91,6 +105,28 @@ regress career_npv_m p_star p_star_sq if excluded_deceased == 0, noconstant vce(
 ```stata
 import delimited using "prospect_seasons.csv", clear
 ```
+
+| Variable | What it is |
+|---|---|
+| `remaining_npv_m` | His NPV from this season to the end of club control, $M (the outcome) |
+| `season_group` | Season after the draft: 1 = D+1, 2 = D+2, 3 = D+3, 4 = D+4, 5 = D+5 and later |
+| `sample_star` | 1 for a prospect-season (every position) |
+| `sample_production` | 1 for a skater prospect-season |
+| `player_id` | The player (draft year x 1000 + pick): standard errors clustered on it |
+| `p_star` | Chance a pick at his draft position becomes a star (Bacon) |
+| `s_early` | p_star in D+1 to D+3, 0 later |
+| `nhle82` | Production: NHLe points per 82 games, 50/30/20 over the 3 seasons before |
+| `nhle82_sq` | nhle82 squared |
+| `age_term` | nhle82 x (age - 18) in D+1 to D+4, 0 later |
+| `prod_x_age_m18` | nhle82 x (age - 18) in every season |
+| `flat_term` | Age - 18 in D+1 to D+4, 0 later (age on its own; tested, not adopted) |
+| `prod_x_defence` | nhle82 for a defenceman, else 0 |
+| `prod_sq_x_defence` | nhle82_sq for a defenceman, else 0 |
+| `s_early_x_defence` | s_early for a defenceman, else 0 |
+| `age_term_19` | nhle82 x (age - 19) in D+1 to D+4, 0 later |
+| `age_term_20` | nhle82 x (age - 20) in D+1 to D+4, 0 later |
+
+`ibn.season_group#c.(x y)` gives x and y a separate coefficient in each season after the draft (D+1 to D+5 and later).
 
 ### 7. The star value in each season after the draft
 
@@ -187,6 +223,26 @@ foreach v in age_term age_term_19 age_term_20 {
 import delimited using "price_line_skaters.csv", clear
 ```
 
+| Variable | What it is |
+|---|---|
+| `cap_m` | Cap hit, $M at the 2025-26 cap (the outcome) |
+| `min_m` | League minimum, $M at the 2025-26 cap (the tobit's lower limit) |
+| `xwar` | Forecast WAR if he plays in the contract's first season, at the signing |
+| `is_d` | 1 for a defenceman |
+| `term_years` | Years of term |
+| `player_num` | The player: standard errors clustered on it |
+| `is_rfa` | 1 for an RFA signing |
+| `term_x_0to1` | term_years if xwar is 0 to 1, else 0 |
+| `term_x_1to2` | term_years if xwar is 1 to 2, else 0 |
+| `term_x_2plus` | term_years if xwar is 2 or more, else 0 |
+| `term_x_0plus` | term_years if xwar is 0 or more, else 0 |
+| `xwar_over1` | xwar above 1 (xwar - 1), 0 below |
+| `start_2022_on` | 1 if the contract starts in 2022-23 or later |
+| `xwar_term_avg` | Forecast WAR if he plays, averaged over the contract's term |
+| `xwar_term_avg_exp` | xwar_term_avg with each season x his chance of playing |
+
+`c.xwar#c.is_d` is xwar x is_d: a defenceman's extra price per win.
+
 ### 13. The skater price line
 
 ```stata
@@ -255,6 +311,13 @@ tobit cap_m xwar_term_avg_exp c.xwar_term_avg_exp#c.is_d term_years, ll(min_m)
 import delimited using "price_line_goalies.csv", clear
 ```
 
+| Variable | What it is |
+|---|---|
+| `cap_m` | Cap hit, $M at the 2025-26 cap (the outcome) |
+| `min_m` | League minimum, $M at the 2025-26 cap (the tobit's lower limit) |
+| `xwar` | Forecast WAR at the signing: 35% his 50/30/20 WAR, 65% league average |
+| `term_years` | Years of term |
+
 ### 17. The goaltender price line
 
 ```stata
@@ -269,6 +332,24 @@ lrtest . g_adopted
 ```stata
 import delimited using "skater_forecast_pairs.csv", clear
 ```
+
+| Variable | What it is |
+|---|---|
+| `h` | Seasons ahead of the valuation season (0 = the valuation season) |
+| `season` | The season forecast; season < 2025 = the rows the 2025-26 valuation uses |
+| `career_num` | The player: standard errors clustered on it |
+| `y_gp_share` | Share of his team's games he played that season (outcome) |
+| `tr_gp_share` | His share of team games, 50/30/20 over the 3 seasons before |
+| `exp_seasons` | Seasons since his NHL debut |
+| `age_c` | Age at the valuation season - 27.22 |
+| `age_c2` | age_c squared |
+| `tw_war` | His WAR, 50/30/20 over the 3 seasons before |
+| `is_d` | 1 for a defenceman |
+| `y_played` | 1 if he played an NHL game that season (outcome) |
+| `p_age_c` | Age in the season forecast - 27.22 |
+| `p_age_c2` | p_age_c squared |
+| `under_contract` | 1 if a contract signed by July 1 covers that season |
+| `contract_unknown` | 1 for seasons before 2018-19, which the contract data cannot see |
 
 ### 18. The games share
 
@@ -320,6 +401,12 @@ forvalues s = 0/5 {
 import delimited using "goalie_age_rows.csv", clear
 ```
 
+| Variable | What it is |
+|---|---|
+| `war_less_pulled` | Goaltender's WAR less his track-record forecast (outcome) |
+| `age_c` | Age - 27.22 |
+| `season` | Season; season < 2025 = the rows the 2025-26 valuation uses |
+
 ### 20. The goaltender age term
 
 ```stata
@@ -331,6 +418,16 @@ regress war_less_pulled age_c if season < 2025
 ```stata
 import delimited using "goalie_play_rows.csv", clear
 ```
+
+| Variable | What it is |
+|---|---|
+| `played` | 1 if he played an NHL game that season (outcome) |
+| `h` | Seasons ahead of the valuation season (0 = the valuation season) |
+| `season` | The season forecast; season < 2025 = the rows the 2025-26 valuation uses |
+| `age_c` | Age in the season forecast - 27.22 |
+| `age_c2` | age_c squared |
+| `pulled` | His track-record forecast WAR |
+| `gp_share_last` | His games in the season before the valuation season / 82 |
 
 ### 21. The goaltender chance of playing
 
@@ -352,6 +449,28 @@ forvalues s = 0/12 {
 ```stata
 import delimited using "backtest_club_sides.csv", clear
 ```
+
+| Variable | What it is |
+|---|---|
+| `forecast_net_m` | Forecast: what the club received less what it gave up, $M |
+| `outcome_net_m` | Outcome on WAR: realised through 2025-26, the rest revalued, $M |
+| `realised_net_m` | Outcome on WAR, realised seasons only, $M |
+| `complete` | 1 if every asset in the trade has an outcome (the tests' sample) |
+| `favoured` | 1 for the club the forecast favoured in the trade |
+| `ahead` | 1 if outcome_net_m is above zero |
+| `has_conditional_pick` | 1 if the trade includes a conditional pick |
+| `during_regular_season` | 1 for an in-season trade |
+| `miss_m` | outcome_net_m - forecast_net_m |
+| `g_futures` | Group C1: received picks and prospects for players |
+| `g_buyer` | Group C2: higher in the standings, in-season two-team trade |
+| `g_retained` | Group C4: retained salary in the trade |
+| `g_nothing_back` | Group C5: received nothing recorded |
+| `g_clause` | Group C6: received a player with a no-trade or no-move clause |
+| `outcome_net_m_gv_adj` | Outcome on Game Value (adjusted), $M |
+| `outcome_net_m_gv_raw` | Outcome on Game Value (raw), $M |
+| `ahead_gv_adj` | 1 if outcome_net_m_gv_adj is above zero |
+| `ahead_gv_raw` | 1 if outcome_net_m_gv_raw is above zero |
+| `trade_id` | The trade: resampled as a unit |
 
 ### 22. Test A: outcome on forecast
 
@@ -408,6 +527,12 @@ bootstrap _b, reps(2000) seed(20261020) cluster(trade_id): regress outcome_net_m
 import delimited using "backtest_assets.csv", clear
 ```
 
+| Variable | What it is |
+|---|---|
+| `miss_m` | The asset's outcome less its forecast, $M |
+| `complete_trade` | 1 if the asset's trade is in the tests' sample |
+| `asset_class` | players, picks, prospects or retained salary |
+
 ### 28. Test B: by asset class
 
 ```stata
@@ -424,6 +549,11 @@ mean miss_m if complete_trade == 1, over(asset_class)
 import delimited using "gv_team_games.csv", clear
 ```
 
+| Variable | What it is |
+|---|---|
+| `goal_diff_in_play` | Team's goal differential in the game, shootout goal removed |
+| `game_value_sum` | Team's skaters' Game Value in the game, summed |
+
 ### 29. Goal differential on Game Value, by game
 
 ```stata
@@ -435,6 +565,14 @@ regress goal_diff_in_play game_value_sum
 ```stata
 import delimited using "gv_team_seasons.csv", clear
 ```
+
+| Variable | What it is |
+|---|---|
+| `gv_goal_diff` | Goal differential in the games with Game Value |
+| `game_value_sum` | Team's skaters' Game Value over the season, summed |
+| `wins` | Team wins |
+| `goal_diff_in_play` | Team's goal differential, shootout goals removed |
+| `season` | Season (20172018 = 2017-18) |
 
 ### 30. Goal differential on Game Value, by season
 

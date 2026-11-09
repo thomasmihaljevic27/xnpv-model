@@ -3887,3 +3887,9 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   its CSV; `xnpv_load.do` (frames) retired to `90_ARCHIVE/2026-11-08/`; the do-file renumbered 1 to 31 to match;
   `stata_refresh.py` v1.1 checks the guide against the do-file. No model change. CLAUDE.md rule; MANIFEST three rows and one
   removed; session log sessions/2026-11-08.md.
+
+### Change log, 2026-11-08c (the Stata variables described)
+
+- DOCUMENT (Thomas: a short description of the variables involved): a variable table under each Load block of
+  `40_DOCS/Stata_Data_Codebook.md`; `label variable` lines after each import in the do-file template. No model change.
+  MANIFEST three rows; session log sessions/2026-11-08.md.
