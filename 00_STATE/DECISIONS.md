@@ -3932,3 +3932,11 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - DECIDED (Thomas: "Yes, dollar gap"): exploratory cuts are measured by the dollar gap per club side, not a ratio.
 - RUN (report only): `25_TESTS/backtest_cuts.py` v1.0 on cuts declared in `40_DOCS/Backtest_Protocol.md` before they were
   computed (commit ba0e7c4). Results in sessions/2026-11-11.md. No model change. MANIFEST one row.
+
+### Change log, 2026-11-11b (the PuckPedia trades export reconciled against the trade ledger)
+
+- CHECKED (Thomas: "Extend", "Yes, reconcile"; report only): `25_TESTS/trade_ledger_reconcile.py` v1.1. From 2019-20 on the
+  export holds 317 of the ledger's 320 trades and the same acquiring club for 1,037 of 1,044 matched assets; the cap-hit
+  differences are retention, minor-league players and buried-contract relief. The export lacks the ledger's minor-league
+  and signing-rights flags and 14 of 71 conditional flags. No model change; nothing extended. MANIFEST one row; session
+  log sessions/2026-11-11.md.
