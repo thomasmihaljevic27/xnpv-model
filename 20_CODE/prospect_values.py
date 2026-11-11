@@ -491,6 +491,12 @@ def main():
                 gap = max(gap, abs(b[i] - float(ref.iloc[0])))
         assert gap < 1e-9, gap
         log(f"  guard: the coefficients equal defence_terms_look.py's defenceman x production arm (largest gap {gap:.1e}) (PASS)")
+    else:
+        # 2026-11-11: the reference was measured on the pick curve before v1.12 (the rights rule on the ledger to 2026 moved
+        # one fitted player, Fredrik Olofsson, and these coefficients by up to 6e-4). It was set aside in
+        # 30_OUTPUT/_before_switch/ and defence_terms_look.py cannot re-measure it (its own guard is pinned to
+        # prospect_age_form_look.py's earlier figures), so this guard does not run until that test is rebuilt.
+        log("  guard NOT RUN: no defence_terms_coefficients.csv (the defenceman x production reference predates pick_curve v1.12)")
     for v in VERSIONS:
         for g in ("0", "1", "2", "3", "4+"):
             cols, b, se = fits[(v, g, "none")]
