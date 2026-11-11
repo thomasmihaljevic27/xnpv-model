@@ -116,6 +116,16 @@ an outcome was measured; none changes a group, a test or a sensitivity. The firs
    in the run, too few to test. It is left out of the reported results; no lower line is substituted. `backtest.py`
    v1.6 still computes it. Changes a group, unlike amendments 1 to 4.
 
+6. **Draftees traded after March 2022** (2026-11-11; Thomas: "Yes, switch"). The pick curve's rule for rights that
+   lapsed (rule 7 above) read `trades.db`, which ends 2022-03-28, so a draftee traded after that date who debuted for
+   his new club counted as lost for nothing and his pick's outcome as zero. From `pick_curve.py` v1.12 the rule reads
+   the ledger carried to March 2026 (`trade_ledger_extend.py`). Measured before the switch, in a scratch run: the
+   forecast side barely moves (one player in the fit, the star value down $200, no traded pick's value by more than
+   $56); eleven draftees of 2018-2023 change from lapsed to traded (Brock Faber +$4.29M, Cutter Gauthier +$6.65M),
+   four of them drafted with a pick traded in the declared window (five assets, +$8.4M of outcome). Corrects how an
+   outcome is measured; changes no group, test or sensitivity. The results before it are kept in
+   `30_OUTPUT/_before_switch/`.
+
 ## The Game Value check (declared 2026-10-20, before it was run; Thomas: "Run the Game Value check on the back-test's outcomes, as the protocol says")
 
 The locked validators (DECISIONS, 2026-07-04 and 2026-07-14): Game Value adjusted (GV-adj) primary, Game Value raw

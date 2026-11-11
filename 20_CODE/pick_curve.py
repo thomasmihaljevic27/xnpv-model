@@ -60,7 +60,12 @@ ONE DRAFTED PLAYER'S SURPLUS (classes 2007-2017, every selection, all positions)
      v1.9 (Thomas, 2026-10-19: "Count the 22"): NOT lapsed, and kept, when he signed his
      entry-level deal with the drafting club (elc_signing_dates.csv signing_team, the
      club of the source his signing date comes from): the club held him and lost him
-     later (waivers, release). Route "signed by the drafting club". A trade missed by the
+     later (waivers, release). Route "signed by the drafting club".
+     v1.12 (Thomas, 2026-11-11: "Yes, switch"): the trades are read from OUTPUT_DIR/trades_extended.db
+     (trade_ledger_extend.py: trades.db, which ends 2022-03-28, plus PuckPedia's trades to March 2026). On
+     trades.db alone a draftee traded after March 2022 who debuted for his new club counted as lapsed: one
+     player in the fit (Fredrik Olofsson; the star value moved by $200) and eleven in the later drafts
+     (Brock Faber, Cutter Gauthier). Run trade_ledger_extend.py first. A trade missed by the
      name rule is matched under trades.db's spelling (TRADE_NAMES, hand-verified).
   9. GOALIES are pooled with skaters in one scale [decided 2026-10-09].
 
@@ -134,7 +139,7 @@ import pandas as pd
 import statsmodels.api as sm
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "pick_curve.py v1.11 (2026-10-21)"   # v1.11: goaltenders on their own line at one year of term (contract_npv v3.4); the two Matt Murrays apart; v1.10: later drafts priced for the back-test; v1.9: signed by the drafting club kept; v1.8: CBA age on the calendar
+SCRIPT_VERSION = "pick_curve.py v1.12 (2026-11-11)"   # v1.12: the rights rule reads the trade ledger carried to March 2026 (trades_extended.db), so a draftee traded after 2022-03-28 is no longer counted as lost for nothing (Thomas: "Yes, switch"); v1.11: goaltenders on their own line at one year of term (contract_npv v3.4); the two Matt Murrays apart; v1.10: later drafts priced for the back-test; v1.9: signed by the drafting club kept; v1.8: CBA age on the calendar
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import skater_forward_projection as sfp          # noqa: E402  skater price line, cap and minimum tables
@@ -156,7 +161,7 @@ def log(s=""):
 log(SCRIPT_VERSION)
 F = {"linkage": OUTPUT_DIR / "draft_pick_linkage.csv", "WAR": SOURCE_DIR / "WAR.csv",
      "GWAR": SOURCE_DIR / "Goalies_WAR.csv", "bacon": SOURCE_DIR / "draft_slot_baseline.csv",
-     "trades": SOURCE_DIR / "trades.db", "elc": OUTPUT_DIR / "elc_signing_dates.csv"}
+     "trades": OUTPUT_DIR / "trades_extended.db",   # v1.12: the ledger carried to 2026 (trade_ledger_extend.py) "elc": OUTPUT_DIR / "elc_signing_dates.csv"}
 for k, p in F.items():
     log(f"  input {k}: {p.resolve()}  (modified {pd.Timestamp(p.stat().st_mtime, unit='s'):%Y-%m-%d %H:%M})")
 

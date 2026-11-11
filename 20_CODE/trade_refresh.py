@@ -126,7 +126,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "trade_refresh.py v1.0 (2026-10-18)"
+SCRIPT_VERSION = "trade_refresh.py v1.1 (2026-11-11)"   # v1.1: the extended ledger built before the pick curve; goalie_birthdates.csv copied into a test folder
 
 CODE_DIR = Path(__file__).resolve().parent
 REPO = CODE_DIR.parent
@@ -145,6 +145,9 @@ CHAIN = [
     ("20_CODE/elc_signing_dates.py",            # also step 4 of dashboard_refresh.py
      ["elc_signing_dates.csv", "elc_signing_dates_log.txt"],
      "entry-level signing years"),
+    ("20_CODE/trade_ledger_extend.py",          # 2026-11-11: pick_curve.py v1.12 reads trades_extended.db (its rights rule)
+     ["trades_extended.db", "trade_ledger_extend_log.txt"],
+     "the trade ledger carried to 2026"),
     ("20_CODE/pick_curve.py",
      ["pick_curve_players.csv", "pick_curve_seasons.csv", "pick_curve_scales.csv", "pick_curve_log.txt"],
      "pick curve"),
