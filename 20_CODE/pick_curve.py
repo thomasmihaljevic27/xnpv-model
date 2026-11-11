@@ -161,7 +161,8 @@ def log(s=""):
 log(SCRIPT_VERSION)
 F = {"linkage": OUTPUT_DIR / "draft_pick_linkage.csv", "WAR": SOURCE_DIR / "WAR.csv",
      "GWAR": SOURCE_DIR / "Goalies_WAR.csv", "bacon": SOURCE_DIR / "draft_slot_baseline.csv",
-     "trades": OUTPUT_DIR / "trades_extended.db",   # v1.12: the ledger carried to 2026 (trade_ledger_extend.py) "elc": OUTPUT_DIR / "elc_signing_dates.csv"}
+     "trades": OUTPUT_DIR / "trades_extended.db",   # v1.12: the ledger carried to 2026 (trade_ledger_extend.py)
+     "elc": OUTPUT_DIR / "elc_signing_dates.csv"}
 for k, p in F.items():
     log(f"  input {k}: {p.resolve()}  (modified {pd.Timestamp(p.stat().st_mtime, unit='s'):%Y-%m-%d %H:%M})")
 
