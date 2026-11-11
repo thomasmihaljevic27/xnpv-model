@@ -204,3 +204,26 @@ buyer's side (C2) by cap era; buyers who received no rental; final-season unrest
 single asset in cut 13 split into a player or a pick or prospect; cut 14a's club side by its most distant pick; cut
 14b's rows by round; the club whose whole return was round 6-7 picks. Main players of unknown position or age are
 reported as their own rows (the 2017 page's players with no NHL id).
+
+## The extended trades (declared 2026-11-11, before any group was computed on them; Thomas: "Extend", "Yes, build it")
+
+The trades after 2022-03-28 come from PuckPedia's trades export (`trade_ledger_extend.py`, rules in its docstring;
+`trades_extended.db`), valued by the same chain into `30_OUTPUT/_extended_run/`. The confirmatory run stays the declared
+window, 2017-07-01 to 2022-03-28; its 1,648 asset values are unchanged in the extended run. Read before this note was
+written: the extended run's tests A and B and one line of C6.
+
+- **Complete trades only, as before.** A trade with a pick for a draft not yet held has no outcome and is out (927 of
+  1,085 trades are in). The outcome of a recent trade is mostly the models' re-valuation at 2026-27, so for trades from
+  2022-23 on the forecast net is the firmer column.
+- **Replication.** Each result the exploratory cuts found on 2017-22 is recomputed on the trades after 2022-03-28 alone,
+  which played no part in finding it: the club higher in the standings in the deadline window and in the rest of the
+  season, with and without a rental; picks and prospects for players (C1); retained salary (C4); the main player aged
+  28 to 31, and 23 and under; the main player a defenceman, a forward; clause and no clause at $3M or more; one asset for
+  two or more; picks by round (asset level); contracts with three or more seasons left (asset level); picks valued at
+  the round average, one draft later. A result replicates when the new trades give the same sign with a 95% interval
+  excluding zero.
+- **Cuts that were blocked.** Cap era in three parts: before 2020-03-12, 2020-03-12 to 2022-06-30 (flat cap), from
+  2022-07-01. Trend by trade season 2017-18 to 2025-26. Retained salary by period: to 2021-22, 2022-23 to 2024-25,
+  2025-26 (the season of the retention rule change; its date is not verified here).
+- **Deadlines added:** 2023-03-03, 2024-03-08, 2025-03-07, 2026-03-06 (each the busiest trade date of its season in
+  the ledger).
