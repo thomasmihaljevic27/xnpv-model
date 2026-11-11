@@ -149,3 +149,52 @@ The locked validators (DECISIONS, 2026-07-04 and 2026-07-14): Game Value adjuste
 - The 2026-27 re-valuation is itself a forecast; it is largest for the 2022-2025 picks.
 - A club's own gains (fit, playoffs, a Cup) are outside the currency: regular-season wins only.
 - Multiple groups: seven groups and two class tests; a single p below 0.05 among them is weak evidence alone.
+
+## Exploratory cuts (declared 2026-11-11, before any of them was computed; Thomas: "Time to look into findings")
+
+These cuts were chosen after the protocol's results (tests A, B, C and the Game Value check) had been read. They are
+exploratory: none replaces a protocol test, and with this many groups a single p below 0.05 is weak evidence.
+Script: `25_TESTS/backtest_cuts.py`, reading the 2026-10-24 run's files (`backtest_sides*.csv`, `backtest_assets*.csv`).
+
+**The measure** (Thomas, 2026-11-11: "Yes, dollar gap"). Per club side, in $M at the 2025-26 cap: the forecast net (what
+the models valued the club's side at on the trade date: below zero means the club paid more than the models' value),
+the outcome net on Bacon's WAR, and the outcome net on Game Value adjusted (skaters' realised seasons Bacon-free;
+goaltenders keep Bacon's WAR). Each group: club sides, trades, median and interquartile range of the forecast net, and
+the mean of each of the three with a 95% interval from 2,000 resamples of trades (seed 20261111). The ratio of value
+sent to value received is not used: it is defined for 429 of 1,135 club sides. Asset-level rows (outcome minus forecast
+per asset) follow test B.
+
+**A club side's main player** is the player it received with the highest cap hit in the trade ledger (a fact of the
+contract, not a model value, so group membership does not select on the forecast). Players are the assets the player
+model values (contracts, rights, buried contracts, the 2017 page), not prospects.
+
+1. **Position:** the main player's position (F, D, G). Asset-level: players by position.
+2. **Age:** the main player's age on the trade date: 23 and under, 24 to 27, 28 to 31, 32 and over.
+3. **Asset class:** two-team trades by what changed hands: players for players, players for picks and prospects (C1),
+   picks and prospects both ways, mixed (a side received both).
+4. **Contract status** of the main player at the trade: entry-level contract; final season, restricted at expiry;
+   final season, unrestricted at expiry (a rental when traded in-season); two seasons left; three or more; rights only.
+5. **Former top prospects not broken out (5b only):** a player drafted in the top 15, traded in his D+5 season or later
+   (the page at least four years after his draft), whose 50/30/20 trailing WAR total before the page is below the mean
+   season WAR per 82 of top-15 picks in D+5 and later, measured on the 2005-2012 drafts' seasons through 2016-17
+   (before every trade here). Group: the club that received him.
+6. **Timing:** off-season; deadline window (the 14 days up to and including the deadline: 2018-02-26, 2019-02-25,
+   2020-02-24, 2021-04-12, 2022-03-21); rest of the regular season. Test A's slope and the buyer's side in each.
+7. **Buyers:** C2's club higher in the standings, split by the gap in points percentage (above or below the median gap),
+   and crossed with 4 (received a rental) and 6 (deadline window).
+9. **Retention:** C4 by timing; three-team trades counted.
+10. **Clauses:** C6's club against clubs whose main player had no clause, both restricted to main players with a cap
+    hit of $3M or more.
+11. **Cap era:** trades before 2020-03-12 (the pause) against after. Tests A and C1 in each.
+12. **Over time:** by trade season 2017-18 to 2021-22: the mean absolute forecast net per trade and C1's forecast net.
+13. **Quantity for quality:** two-team trades where one club received one asset and the other two or more (retained
+    salary not counted). Group: the club that received the single asset.
+14. **Future picks:** by years between the trade's next draft and the pick's draft (0, 1, 2+). (a) asset-level outcome
+    minus forecast; (b) for picks valued at the round average, the actual selection number minus the round's middle
+    selection; (c) trades with a conditional pick against without (conditions are not modelled).
+15. **Late picks:** asset-level outcome minus forecast by round (1, 2, 3-4, 5, 6-7), and picks forecast or selected
+    at 151 or later.
+
+Not run, and why: 5a (untraded players are not valued at each date), 8 (no club cap payroll by date), 9's amendment
+split and 11's post-flat era (the trades end 2022-03-28), 16 (offer sheets: not built), GM tenure and injury status
+(no data).
