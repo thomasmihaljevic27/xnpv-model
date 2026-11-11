@@ -3924,3 +3924,11 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   model is not statistically significant alone (p = 0.092) and adds nothing given defenceman x production (p = 0.20), which
   stays significant given the dummy (p = 0.0044); held-out error lowest for the adopted model. No model change. MANIFEST one
   row; session log sessions/2026-11-09.md.
+
+### Change log, 2026-11-11 (the back-test's exploratory cuts)
+
+- CHECKED: the back-test's outputs (2026-10-24) are current; the 2026-11-08 dashboard refresh left the contract-side
+  inputs byte-identical (the 2026-11-08 log's "moved the contract side" is corrected in sessions/2026-11-11.md).
+- DECIDED (Thomas: "Yes, dollar gap"): exploratory cuts are measured by the dollar gap per club side, not a ratio.
+- RUN (report only): `25_TESTS/backtest_cuts.py` v1.0 on cuts declared in `40_DOCS/Backtest_Protocol.md` before they were
+  computed (commit ba0e7c4). Results in sessions/2026-11-11.md. No model change. MANIFEST one row.

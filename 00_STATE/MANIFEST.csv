@@ -427,3 +427,4 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 20_CODE,stata_refresh.py,model,hashable,2026-11-09,1a5fb8fe706672918e9870c39ce47c34a08f954e,15014,2026-11-09,yes,git,"v1.2: the Stata names (RENAMES) and the old-name check"
 20_CODE,stata_walkthrough_template.do,model,hashable,2026-11-09,1cdefcf0335b9653ef9748b78a78cef057b02653,43366,2026-11-09,yes,git,"v1.2: the new names; an equation line per regression"
 25_TESTS,defence_dummy_look.py,draft,hashable,2026-11-09,910f10ae7090ae2a3e3e1375780a7304cdfe02b0,14807,2026-11-09,yes,git,"v1.0: a defenceman dummy against defenceman x production in the prospect model (report only)"
+25_TESTS,backtest_cuts.py,backtest,hashable,2026-11-11a,675b8d5fdf8d51739e7084bb3117f06233b60783,29610,2026-11-11,yes,git,"v1.0: the back-test's exploratory cuts (protocol, 2026-11-11): each group's forecast net and outcome on WAR and Game Value, reading the 2026-10-24 run"

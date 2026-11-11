@@ -198,3 +198,9 @@ model values (contracts, rights, buried contracts, the 2017 page), not prospects
 Not run, and why: 5a (untraded players are not valued at each date), 8 (no club cap payroll by date), 9's amendment
 split and 11's post-flat era (the trades end 2022-03-28), 16 (offer sheets: not built), GM tenure and injury status
 (no data).
+
+**Rows added when the script was written (2026-11-11, before any result was read; none replaces a declared row):** the
+buyer's side (C2) by cap era; buyers who received no rental; final-season unrestricted players by when traded; the
+single asset in cut 13 split into a player or a pick or prospect; cut 14a's club side by its most distant pick; cut
+14b's rows by round; the club whose whole return was round 6-7 picks. Main players of unknown position or age are
+reported as their own rows (the 2017 page's players with no NHL id).
