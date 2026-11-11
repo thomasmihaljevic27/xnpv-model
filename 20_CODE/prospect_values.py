@@ -160,7 +160,20 @@ FIRST_FORMS = {"tony": "anthony", "josh": "joshua", "mike": "michael", "alex": "
                "evgenii": "evgeni", "yegor": "egor"}
 # v1.1: assets where the NHL id and the name rules disagree, each read on 2026-10-14 (the id is right in both)
 REVIEWED_DISAGREEMENTS = {("2018-07-01", "Ryan O'Reilly"),      # the 2009 #33 veteran ($7.5M), not the 2018 #98 draftee
-                          ("2021-03-12", "Mikko Lehtonen")}     # the KHL defenceman, not the 2005 #83 draftee
+                          ("2021-03-12", "Mikko Lehtonen"),     # the KHL defenceman, not the 2005 #83 draftee
+                          # 2026-11-11, the extended ledger (PuckPedia's spellings, which the name rules do not match to the
+                          # draft record's): each read, the id's draftee is the player (Claude, from the draft record's pick and
+                          # the export's NHL id; not yet read by Thomas)
+                          ("2023-02-26", "Callan Foote"),       # Cal Foote, 2017 #14
+                          ("2023-02-28", "Patrick Puistola"),   # Patrik Puistola, 2019 #73
+                          ("2023-03-10", "Jonathan Dugan"),     # Jack Dugan, 2017 #142
+                          ("2023-07-02", "Pat Maroon"), ("2024-03-08", "Pat Maroon"),   # Patrick Maroon, 2007 #161
+                          ("2024-03-07", "Emilio Pettersen"),   # Mathias Emilio Pettersen, 2018 #167
+                          ("2024-03-07", "Vasiliy Ponomarev"),  # Vasily Ponomarev, 2020 #53
+                          ("2024-06-29", "Janis Jérôme  Moser"),    # J.J. Moser, 2021 #60
+                          ("2024-11-04", "Ronald Attard"),      # Ronnie Attard, 2019 #72
+                          ("2025-03-05", "Thomas Novak"),       # Tommy Novak, 2015 #85
+                          ("2025-06-25", "John-Jason Peterka")}     # JJ Peterka, 2020 #34
 INITIAL_FORMS = {"po joseph": "pierre olivier joseph", "jf berube": "jean francois berube"}   # after joining
 
 LOG = []
@@ -413,7 +426,7 @@ def main():
     F = {"pick_curve_players": OUTPUT_DIR / "pick_curve_players.csv",
          "pick_curve_seasons": OUTPUT_DIR / "pick_curve_seasons.csv",
          "pick_curve_scales": OUTPUT_DIR / "pick_curve_scales.csv",
-         "linkage": OUTPUT_DIR / "draft_pick_linkage.csv", "trades": SOURCE_DIR / "trades.db",
+         "linkage": OUTPUT_DIR / "draft_pick_linkage.csv", "trades": __import__("trade_page").ledger_path(),
          "WAR": SOURCE_DIR / "WAR.csv", "GWAR": SOURCE_DIR / "Goalies_WAR.csv",
          "bacon": SOURCE_DIR / "draft_slot_baseline.csv"}
     for k, p in F.items():

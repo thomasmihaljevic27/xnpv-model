@@ -3940,3 +3940,13 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   differences are retention, minor-league players and buried-contract relief. The export lacks the ledger's minor-league
   and signing-rights flags and 14 of 71 conditional flags. No model change; nothing extended. MANIFEST one row; session
   log sessions/2026-11-11.md.
+
+### Change log, 2026-11-11c (the trade ledger extended to March 2026; the cuts replicated)
+
+- BUILT (Thomas: "Yes, build it"): `trade_ledger_extend.py` v1.0 writes `30_OUTPUT/trades_extended.db` from PuckPedia's
+  trades export (518 trades after 2022-03-28); the trade scripts read it only when `XNPV_TRADES_DB` names it. Validated
+  on 2019-22 (844 of 855 matched assets equal to $1,000). `pick_curve.py` not switched (it would change the fit).
+- FIXED: `trade_refresh.py --output-dir` copies `goalie_birthdates.csv`. `prospect_values.py`: eleven reviewed spellings.
+- RUN (report only): the trade chain and back-test on the extended ledger into `30_OUTPUT/_extended_run/`;
+  `backtest_cuts.py` v1.1 on the new and all trades, declared in the protocol first. The declared window's values and
+  results are unchanged. No model change. MANIFEST rows updated; session log sessions/2026-11-11.md.

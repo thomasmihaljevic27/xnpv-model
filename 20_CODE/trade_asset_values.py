@@ -78,7 +78,8 @@ def main():
     rv = pd.read_csv(OUTPUT_DIR / "rights_values.csv").set_index("asset_id")            # v1.1: rights' season share
     p17, bu, pk = pd.read_csv(files["page2017"]), pd.read_csv(files["buried"]), pd.read_csv(files["picks"])
 
-    con = sqlite3.connect(SOURCE_DIR / "trades.db")
+    import trade_page as TP_                                             # the ledger's path (XNPV_TRADES_DB)
+    con = sqlite3.connect(TP_.ledger_path())
     a = pd.read_sql("select a.asset_id, a.trade_id, t.trade_date, a.asset_type, a.player_name, a.pick_year, a.pick_round, "
                     "a.pick_original_team, a.from_team, l.acquiring_team, a.retained_aav from trade_assets a "
                     "join trades t using(trade_id) join trade_legs l using(leg_id) where t.trade_date >= ?",

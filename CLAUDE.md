@@ -166,6 +166,15 @@ The back-test, after `trade_refresh.py` (both by hand; not in its chain):
     python 20_CODE/trade_sides.py   # each club's side of each trade, zero-sum
     python 20_CODE/backtest.py      # outcomes, club sides, the protocol's tests (about 10 minutes)
 
+The extended trades (2026-11-11): `python 20_CODE/trade_ledger_extend.py` writes `30_OUTPUT/trades_extended.db`, a copy of
+`trades.db` plus PuckPedia's trades after 2022-03-28 in the same tables (its rules are in its docstring; `trades.db` is
+never written). The trade scripts read it only when the environment variable `XNPV_TRADES_DB` holds its full path
+(`trade_page.ledger_path()`); `pick_curve.py` always reads `trades.db`. Run the chain and back-test on it into their own
+folder, never into `30_OUTPUT` itself: set `XNPV_TRADES_DB`, then `python 20_CODE/trade_refresh.py --output-dir
+30_OUTPUT/_extended_run`, then `trade_sides.py` and `backtest.py` with `OUTPUT_DIR` set to that folder. The cuts:
+`python 25_TESTS/backtest_cuts.py` with `XNPV_CUTS_SCOPE` unset (the declared window), `new` or `all` (the last two with
+`OUTPUT_DIR` on the extended folder). The declared window, 2017-07-01 to 2022-03-28, stays the confirmatory run.
+
 The Game Value check (2026-10-20): the same script with XNPV_OUTCOME_METRIC=gv_adj, then gv_raw (outputs carry the
 metric's suffix), then `python 25_TESTS/backtest_gv_compare.py` for the protocol's verdicts. In PowerShell set the variable
 first: `$env:XNPV_OUTCOME_METRIC = "gv_adj"`, and remove it afterwards (`Remove-Item Env:XNPV_OUTCOME_METRIC`).

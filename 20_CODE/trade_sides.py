@@ -67,7 +67,8 @@ def asset_class(source):
 
 def trade_clubs():
     """{trade_id: sorted clubs} from trades.db's legs, and {asset_id: is_conditional}."""
-    con = sqlite3.connect(SOURCE_DIR / "trades.db")
+    import trade_page as TP_                                             # the ledger's path (XNPV_TRADES_DB)
+    con = sqlite3.connect(TP_.ledger_path())
     legs = pd.read_sql("select trade_id, acquiring_team from trade_legs", con)
     clubs = legs.groupby("trade_id")["acquiring_team"].apply(lambda s: sorted(set(s))).to_dict()
     cond = pd.read_sql("select asset_id, is_conditional from trade_assets", con).set_index("asset_id")["is_conditional"]

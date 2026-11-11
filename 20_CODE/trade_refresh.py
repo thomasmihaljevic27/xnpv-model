@@ -195,7 +195,8 @@ CHAIN = [
 # chain's outputs (dashboard_refresh.py writes them), then the caches and
 # scraped stores no runner writes. Their write dates are printed and recorded.
 CONTRACT_SIDE = ["contract_level_spine.csv", "contract_season_spine.csv", "WAR_with_age.csv",
-                 "war_name_crosswalk.csv", "goalie_value_spine_v2.csv", "contract_npv_panel.csv"]
+                 "war_name_crosswalk.csv", "goalie_value_spine_v2.csv", "contract_npv_panel.csv",
+                 "goalie_birthdates.csv"]   # 2026-11-11: traded_player_values reads it (goalies, since 2026-10-21); a --output-dir run stopped without it
 CACHE_DIRS = ["draft_raw",            # NHL Records draft data, one JSON per year (step 1 pulls missing years)
               "ep_out",               # Elite Prospects store (ep_prospects.db)
               "capwages_top_picks", "capwages_elc", "capwages_2017"]   # cached CapWages pages

@@ -35,6 +35,15 @@ load_dotenv()
 SOURCE_DIR = Path(os.environ["SOURCE_DIR"])
 
 
+def ledger_path() -> Path:
+    """The trade ledger every trade script reads (2026-11-11). SOURCE_DIR/trades.db unless the environment variable
+    XNPV_TRADES_DB names another file in the same layout (trade_ledger_extend.py's trades_extended.db, the ledger carried
+    past 2022-03-28 from PuckPedia's export). Unset, nothing changes. pick_curve.py does not use this: its rights rule
+    stays on trades.db until Thomas decides otherwise (an extended ledger would change the pick curve's fit)."""
+    p = os.environ.get("XNPV_TRADES_DB")
+    return Path(p) if p else SOURCE_DIR / "trades.db"
+
+
 @lru_cache(maxsize=1)
 def regular_season_end() -> dict:
     """{season start year: date of its last regular-season game} from games.csv."""
@@ -115,7 +124,7 @@ def retention() -> pd.DataFrame:
     mentions a retention is in the table. Trades from RETENTION_FROM (2017-07-01, the first the model values): before it
     the ledger's cap hit is not always the acquirer's share (Jordan Leopold, 2014: $500,000 kept of $2,250,000 is
     written as 22.2%), so the share cannot be checked there."""
-    con = sqlite3.connect(SOURCE_DIR / "trades.db")
+    con = sqlite3.connect(ledger_path())
     a = pd.read_sql("select a.asset_id, a.cap_hit_aav, a.retention_pct, a.retained_aav, a.raw_text from trade_assets a "
                     "join trades t using(trade_id) where t.trade_date >= ?", con, params=(RETENTION_FROM,))
     m = a["raw_text"].fillna("").str.extract(RETAINED_TEXT)

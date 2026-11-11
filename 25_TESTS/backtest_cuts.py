@@ -38,11 +38,19 @@ from dotenv import load_dotenv
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "20_CODE"))
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
-SCRIPT_VERSION = "backtest_cuts.py v1.0 (2026-11-11)"
+SCRIPT_VERSION = "backtest_cuts.py v1.1 (2026-11-11)"   # v1.1: the extended trades (scope), three cap eras, retention by period
+# Which trades (protocol, "The extended trades"): "declared" = 2017-07-01 to 2022-03-28 (the default, and the only scope
+# the live 30_OUTPUT holds); "new" = after 2022-03-28 (the replication); "all". Set XNPV_CUTS_SCOPE; run with OUTPUT_DIR
+# pointing at 30_OUTPUT/_extended_run for "new" and "all".
+SCOPE = os.environ.get("XNPV_CUTS_SCOPE", "declared")
+assert SCOPE in ("declared", "new", "all")
+SUFFIX = "" if SCOPE == "declared" else f"_{SCOPE}"
+DECLARED_END = "2022-03-28"
 N_BOOT, SEED = 2000, 20261111
-DEADLINES = ["2018-02-26", "2019-02-25", "2020-02-24", "2021-04-12", "2022-03-21"]
+DEADLINES = ["2018-02-26", "2019-02-25", "2020-02-24", "2021-04-12", "2022-03-21", "2023-03-03", "2024-03-08", "2025-03-07", "2026-03-06"]
 DRAFT_END = {2017: "2017-06-24", 2018: "2018-06-23", 2019: "2019-06-22", 2020: "2020-10-07", 2021: "2021-07-24",
-             2022: "2022-07-08", 2023: "2023-06-29", 2024: "2024-06-29", 2025: "2025-06-28"}
+             2022: "2022-07-08", 2023: "2023-06-29", 2024: "2024-06-29", 2025: "2025-06-28",
+             2026: "2026-06-30", 2027: "2027-06-30", 2028: "2028-06-30", 2029: "2029-06-30"}   # 2026 on: not yet held, end of June assumed
 PAUSE = pd.Timestamp("2020-03-12")
 LOG, ROWS = [], []
 
@@ -150,6 +158,7 @@ def slope_table(cut, groups, rng):
 def main():
     rng = np.random.default_rng(SEED)
     log(SCRIPT_VERSION)
+    log(f"  scope: {SCOPE}; reads {OUTPUT_DIR}")
     for f in ("backtest_log.txt", "backtest_log_gv_adj.txt"):
         log(f"  reads the run: {(OUTPUT_DIR / f).read_text(encoding='utf-8').splitlines()[0:2]}")
     # ---- club sides, both outcomes --------------------------------------------------------------------------------------
@@ -173,12 +182,17 @@ def main():
 
     # GUARD: the protocol's groups reproduce from these frames (recorded 2026-10-24: C1 275 sides +1.54 / +0.90 / GV +1.009;
     # C2 315 sides -0.57; C6 66 sides -2.95)
-    c1 = s[s["g_futures"]]
+    ref = s[s["trade_date"] <= DECLARED_END]          # the declared window, whatever the scope: it must not have moved
+    c1 = ref[ref["g_futures"]]
     assert len(c1) == 275 and abs(c1["net_M"].mean() - 1.54) < 0.005 and abs(c1["out_net_M"].mean() - 0.900) < 0.001
     assert abs(c1["gv_net_M"].mean() - 1.009) < 0.001
-    assert s["g_buyer"].sum() == 315 and abs(s.loc[s["g_buyer"], "net_M"].mean() + 0.57) < 0.005
-    assert s["g_clause"].sum() == 66 and abs(s.loc[s["g_clause"], "net_M"].mean() + 2.95) < 0.005
+    assert ref["g_buyer"].sum() == 315 and abs(ref.loc[ref["g_buyer"], "net_M"].mean() + 0.57) < 0.005
+    assert ref["g_clause"].sum() == 66 and abs(ref.loc[ref["g_clause"], "net_M"].mean() + 2.95) < 0.005
     log(f"  reference check PASS: the protocol's C1 (275 sides), C2 (315) and C6 (66) reproduce their recorded means")
+    if SCOPE == "declared":
+        s, a = s[s["trade_date"] <= DECLARED_END].copy(), a[a["trade_date"] <= DECLARED_END].copy()
+    elif SCOPE == "new":
+        s, a = s[s["trade_date"] > DECLARED_END].copy(), a[a["trade_date"] > DECLARED_END].copy()
     log(f"  {s['trade_id'].nunique()} complete trades, {len(s)} club sides, {len(a)} assets; $M at the 2025-26 cap")
 
     # ---- each player asset's facts at the trade ---------------------------------------------------------------------------
@@ -321,7 +335,10 @@ def main():
     r_ = m[m["g_retained"]]
     side_table("9. RETENTION: the club that retained salary",
                [("all (the protocol's C4)", r_)] + [(k, r_[r_["timing"] == k]) for k in tim] +
-               [("in a three-team trade", r_[r_["n_clubs"] == 3])], rng)
+               [("in a three-team trade", r_[r_["n_clubs"] == 3]),
+                ("trade seasons to 2021-22", r_[r_["date"] < "2022-07-01"]),
+                ("trade seasons 2022-23 to 2024-25", r_[(r_["date"] >= "2022-07-01") & (r_["date"] < "2025-07-01")]),
+                ("trade season 2025-26", r_[r_["date"] >= "2025-07-01"])], rng)
     log(f"  three-team trades in the back-test: {m.loc[m['n_clubs'] == 3, 'trade_id'].nunique()}")
     # ======== 10 clauses ====================================================================================================
     big = m[(m["cap_hit"] >= 3_000_000) & (m["valuation_page"] >= 2018)]
@@ -331,8 +348,8 @@ def main():
                f"${big.loc[big['clause'] == 0, 'cap_hit'].median() / 1e6:.2f}M; median age {big.loc[big['clause'] == 1, 'age'].median():.1f} and "
                f"{big.loc[big['clause'] == 0, 'age'].median():.1f}")
     # ======== 11 era ========================================================================================================
-    m["era"] = np.where(m["date"] < PAUSE, "before 2020-03-12", "2020-03-12 on (flat cap)")
-    eras = ["before 2020-03-12", "2020-03-12 on (flat cap)"]
+    m["era"] = np.where(m["date"] < PAUSE, "before 2020-03-12", np.where(m["date"] < "2022-07-01", "2020-03-12 to 2022-06-30 (flat cap)", "2022-07-01 on"))
+    eras = ["before 2020-03-12", "2020-03-12 to 2022-06-30 (flat cap)", "2022-07-01 on"]
     slope_table("11. CAP ERA: does the models' verdict come true", [(k, m[m["era"] == k]) for k in eras], rng)
     side_table("11. CAP ERA: the club that received picks and prospects for players (C1)",
                [(k, m[m["g_futures"] & (m["era"] == k)]) for k in eras], rng)
@@ -404,8 +421,8 @@ def main():
          .rename("only_late").reset_index().rename(columns={"acquiring_team": "club"}), on=key)
     side_table("15. the club whose whole return was picks in rounds 6 and 7", [("only round 6-7 picks received", late_only[late_only["only_late"]])], rng)
 
-    pd.DataFrame(ROWS).to_csv(OUTPUT_DIR / "backtest_cuts.csv", index=False)
-    (OUTPUT_DIR / "backtest_cuts_log.txt").write_text("\n".join(LOG), encoding="utf-8")
+    pd.DataFrame(ROWS).to_csv(OUTPUT_DIR / f"backtest_cuts{SUFFIX}.csv", index=False)
+    (OUTPUT_DIR / f"backtest_cuts{SUFFIX}_log.txt").write_text("\n".join(LOG), encoding="utf-8")
     log(f"\nwrote backtest_cuts.csv ({len(ROWS)} rows) and backtest_cuts_log.txt")
 
 

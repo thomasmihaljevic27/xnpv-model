@@ -61,7 +61,7 @@ def log(s=""):
 
 
 log(SCRIPT_VERSION)
-F = {"scales": OUTPUT_DIR / "pick_curve_scales.csv", "trades": SOURCE_DIR / "trades.db",
+F = {"scales": OUTPUT_DIR / "pick_curve_scales.csv", "trades": Path(os.environ.get("XNPV_TRADES_DB") or SOURCE_DIR / "trades.db"),   # as trade_page.ledger_path()
      "games": SOURCE_DIR / "games.csv", "bacon": SOURCE_DIR / "draft_slot_baseline.csv"}
 for k, p in F.items():
     log(f"  input {k}: {p.resolve()}  (modified {pd.Timestamp(p.stat().st_mtime, unit='s'):%Y-%m-%d %H:%M})")
