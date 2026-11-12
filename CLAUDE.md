@@ -169,7 +169,8 @@ The back-test, after `trade_refresh.py` (both by hand; not in its chain):
 The extended trades (2026-11-11): `python 20_CODE/trade_ledger_extend.py` writes `30_OUTPUT/trades_extended.db`, a copy of
 `trades.db` plus PuckPedia's trades after 2022-03-28 in the same tables (its rules are in its docstring; `trades.db` is
 never written). The trade scripts read it only when the environment variable `XNPV_TRADES_DB` holds its full path
-(`trade_page.ledger_path()`); `pick_curve.py` always reads `trades.db`. Run the chain and back-test on it into their own
+(`trade_page.ledger_path()`). `pick_curve.py` (v1.12, Thomas: "Yes, switch") always reads `trades_extended.db` for its rule on
+rights that lapsed, so `trade_refresh.py` builds that ledger first (18 steps). Run the chain and back-test on it into their own
 folder, never into `30_OUTPUT` itself: set `XNPV_TRADES_DB`, then `python 20_CODE/trade_refresh.py --output-dir
 30_OUTPUT/_extended_run`, then `trade_sides.py` and `backtest.py` with `OUTPUT_DIR` set to that folder. The cuts:
 `python 25_TESTS/backtest_cuts.py` with `XNPV_CUTS_SCOPE` unset (the declared window), `new` or `all` (the last two with
@@ -232,6 +233,14 @@ tests pinned to the old prospect rows (`prospect_curve_vs_line.py`, `prospect_pr
   pre-D20 rate (0.0184516 / 0.0202139) and the D20 rate (0.01831864 / 0.01924854) are retired; their
   reproduction guards were removed with the 60/40 checks on 2026-10-14 (Thomas). The Stage 3 constants stay
   in `skater_value_engine.NEW_LOCKED` as the fallback line, no longer re-fitted.
+- **Don't change anything upstream of the prospect model or the pick curve without listing the pinned checks it will
+  trip.** The pick curve's switch to the ledger carried to 2026 moved one fitted player and the fourth digit of a few
+  coefficients, and stopped three things in turn (2026-11-11): `prospect_values.py`'s guard against the defenceman
+  test's coefficients, `backtest_cuts.py`'s reference means, and `stata_export.py`'s check against the documents'
+  `numbers.json`. The finished tests behind them (`prospect_age_form_look.py`, `prospect_pooled_terms_look.py`,
+  `defence_terms_look.py`) are pinned to each other and reproduce only from git before commit e8a2bfc. Before such a
+  change, grep for the readers of each output it moves, and tell Thomas which checks will stop and what setting each
+  aside costs. `stata_refresh.py` rewrites CSVs before its checks finish: a stopped run leaves the Stata folder half new.
 - **Don't trust file size as an integrity check.** Pre-rebuild and post-rebuild
   `draft_yield_curve.csv` are both exactly 845 bytes with different contents. Compare hashes.
 - **Don't trust an output because a script ran.** Several scripts carry reproduction guards that

@@ -3950,3 +3950,14 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - RUN (report only): the trade chain and back-test on the extended ledger into `30_OUTPUT/_extended_run/`;
   `backtest_cuts.py` v1.1 on the new and all trades, declared in the protocol first. The declared window's values and
   results are unchanged. No model change. MANIFEST rows updated; session log sessions/2026-11-11.md.
+
+### Change log, 2026-11-11d (the pick curve's rights rule on the ledger to 2026)
+
+- MODEL (Thomas: "Yes, switch"): `pick_curve.py` v1.12 reads `trades_extended.db` for the rule on rights that lapsed. One
+  fitted player changes (the star value $18.288594M -> $18.288394M); eleven draftees of 2018-2023 change from lapsed to
+  traded. `trade_refresh.py` v1.1 (18 steps). Protocol amendment 6.
+- RE-RUN: the trade chain, back-test, Game Value check, cuts and Stata files, live and extended. Declared back-test:
+  picks' mean outcome minus forecast -0.198 -> -0.188; nothing else moves beyond the second decimal.
+- SET ASIDE: `defence_terms_coefficients.csv` (the prospect step's defenceman guard does not run) and the documents'
+  `numbers.json` files (the Stata export's document checks do not run); each predates the switch and its test cannot be
+  re-run as written. Copies in `30_OUTPUT/_before_switch/`. MANIFEST rows updated; session log sessions/2026-11-11.md.
