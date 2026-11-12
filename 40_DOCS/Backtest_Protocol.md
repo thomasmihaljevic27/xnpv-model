@@ -275,7 +275,9 @@ yearly factor. The factors for 2019, 2021 and 2024 are confirmed by the sheets t
 of its tier; Kotkaniemi; Broberg $4,580,917 and Holloway $2,290,457, each the top of its tier); those for 2018, 2020,
 2022, 2023 and 2025 are recalled, not read from a printed source (each consistent across two tiers to six digits).
 Reported by tier and premium: contracts, the share with a positive payoff, the mean and median payoff; and the four
-sheets tendered 2018 to 2025 priced at their own terms. An upper bound: the original club's right to match, players
+sheets tendered 2018 to 2025 priced at their own terms. (Dated note, 2026-11-12, after the run: Thomas supplied the printed thresholds for every year 2018 to 2025; each
+equals the build above to within $3 and no contract changed tier. The script now reads the printed table.)
+An upper bound: the original club's right to match, players
 ineligible for a sheet, the offering club's need to hold its own picks, and league norms are not modelled, and a
 contract signed under a club's exclusive rights understates what a sheet would have had to pay.
 

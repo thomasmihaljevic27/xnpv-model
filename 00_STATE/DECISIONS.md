@@ -3968,3 +3968,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   extended run, declared in the protocol first (bc1118c). Results in sessions/2026-11-12.md. The general managers' dates
   are Wikipedia's club lists; five of the eight offer-sheet threshold years are recalled, not read from a printed source.
   No model change. MANIFEST one row.
+
+### Change log, 2026-11-12b (offer-sheet thresholds as printed)
+
+- DATA (Thomas supplied the 2018-2025 table): `backtest_cuts_more.py` v1.2 reads the printed thresholds. No result
+  changes (no contract changes tier). MANIFEST one row; session log sessions/2026-11-12.md.

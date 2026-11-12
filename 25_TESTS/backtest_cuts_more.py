@@ -16,8 +16,7 @@ BAKED-IN ASSUMPTIONS (the protocol's declared rules; each is repeated where it i
     in D+5 and later through 2016-17, and the trailing total is the forecast's 50/30/20 over seasons of 10+ games
     (backtest.trailing_total's rule, re-implemented here on WAR_with_age.csv)
   - a panel value is stated at the 2025-26 cap by the ratio of ceilings, as trade_asset_values.py
-  - payroll is an estimate (see cut 8); offer-sheet thresholds for 2018, 2020, 2022, 2023 and 2025 are recalled, not read
-    from a printed source (see OFFER_FACTOR)
+  - payroll is an estimate (see cut 8); the offer-sheet thresholds are the printed ones for every year (OFFER_BOUNDS)
   - the general managers' dates are Wikipedia's club lists, read 2026-11-12 (GM_TENURES)
 
 INPUTS: OUTPUT_DIR/backtest_sides.csv, backtest_sides_gv_adj.csv, backtest_assets.csv, prospect_values.csv,
@@ -43,7 +42,7 @@ import contract_source as CS                         # noqa: E402
 import skater_forward_projection as SFP              # noqa: E402  the cap ceilings
 
 SOURCE_DIR, OUTPUT_DIR = Path(os.environ["SOURCE_DIR"]), Path(os.environ["OUTPUT_DIR"])
-SCRIPT_VERSION = "backtest_cuts_more.py v1.1 (2026-11-12)"   # v1.1: the tier bound's rounding; the tendered sheet matched on AAV (two Sebastian Ahos)
+SCRIPT_VERSION = "backtest_cuts_more.py v1.2 (2026-11-12)"   # v1.2: the offer-sheet thresholds as printed (Thomas's table), every year; v1.1: the tier bound's rounding; the tendered sheet matched on AAV (two Sebastian Ahos)
 N_BOOT, SEED = 2000, 20261112
 CAP = SFP.CAP_CEILING
 CAP_NOW = CAP[2025]
@@ -51,13 +50,20 @@ DECLARED_END = "2022-03-28"
 log = BC.log
 
 # ---- offer-sheet compensation (cut 16) ---------------------------------------------------------------------------------
-# The CBA's 2005 brackets (Wikipedia "Offer sheet", read 2026-11-12) scale each year with the average league salary:
-# upper bound of tier i in year y = BASE[i] x OFFER_FACTOR[y]. 2019, 2021 and 2024 are confirmed by the sheets tendered at
-# the top of a tier (Aho $8,454,000 = 4 x 2.113716 to the dollar's rounding; Broberg $4,580,917 and Holloway $2,290,457).
-# 2018, 2020, 2022, 2023, 2025: RECALLED by Claude, not read from a printed source; each agrees across two tiers to six digits.
-OFFER_BASE = [0.66e6, 1e6, 2e6, 3e6, 4e6, 5e6]
-OFFER_FACTOR = {2018: 2.029659, 2019: 2.113716, 2020: 2.181545, 2021: 2.055364, 2022: 2.100742, 2023: 2.145061,
-                2024: 2.290457, 2025: 2.340037}
+# The upper bound of each compensation tier, by offseason, as printed in the table Thomas supplied on 2026-11-12 (its
+# sources: Pro Hockey Rumors 2018 and 2020, Colligan Hockey 2019, Sportsnet 2021; 2022-2025 from the same table). v1.0-v1.1
+# built these from the 2005 brackets times a yearly factor recalled by Claude; every printed figure equals that build to
+# within $3, so no contract changes tier except by the $10 of slack v1.1 needed and v1.2 drops.
+OFFER_BOUNDS = {
+    2018: [1_339_575, 2_029_659, 4_059_322, 6_088_980, 8_118_641, 10_148_302],
+    2019: [1_395_053, 2_113_716, 4_227_437, 6_341_152, 8_454_871, 10_568_589],
+    2020: [1_439_820, 2_181_545, 4_363_095, 6_544_640, 8_726_188, 10_907_735],
+    2021: [1_356_540, 2_055_364, 4_110_732, 6_166_096, 8_221_463, 10_276_829],
+    2022: [1_386_490, 2_100_742, 4_201_488, 6_302_230, 8_402_975, 10_503_720],
+    2023: [1_415_740, 2_145_061, 4_290_125, 6_435_186, 8_580_250, 10_725_314],
+    2024: [1_511_701, 2_290_457, 4_580_917, 6_871_374, 9_161_834, 11_452_294],
+    2025: [1_544_424, 2_340_037, 4_680_076, 7_020_113, 9_360_153, 11_700_192],
+}
 OFFER_TIERS = ["none", "3rd", "2nd", "1st and 3rd", "1st, 2nd and 3rd", "two 1sts, 2nd and 3rd", "four 1sts"]
 OFFER_PICKS = [[], [3], [2], [1, 3], [1, 2, 3], [1, 1, 2, 3], [1, 1, 1, 1]]          # rounds owed
 TENDERED = [("Sebastian Aho", 2019, 5, 8_454_000, "matched"), ("Jesperi Kotkaniemi", 2021, 1, 6_100_015, "not matched"),
@@ -411,8 +417,7 @@ def cut_16(rng):
 
     def tier(aav, term, y):
         comp = aav * term / min(term, 5)
-        # $10 of slack: the factors are rounded to six digits (Broberg's $4,580,917 is the top of its tier, 2 x 2.290457 + $3)
-        return int(sum(comp > b * OFFER_FACTOR[y] + 10 for b in OFFER_BASE))
+        return int(sum(comp > b for b in OFFER_BOUNDS[y]))
 
     def payoff(npv, aav, term, y, prem):
         extra = prem * aav * sum(1 / 1.03 ** k for k in range(int(term)))                 # the extra cap hit, discounted
