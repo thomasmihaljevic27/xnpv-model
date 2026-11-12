@@ -3961,3 +3961,10 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - SET ASIDE: `defence_terms_coefficients.csv` (the prospect step's defenceman guard does not run) and the documents'
   `numbers.json` files (the Stata export's document checks do not run); each predates the switch and its test cannot be
   re-run as written. Copies in `30_OUTPUT/_before_switch/`. MANIFEST rows updated; session log sessions/2026-11-11.md.
+
+### Change log, 2026-11-12 (four more exploratory cuts: top picks held, cap pressure, offer sheets, GM tenure)
+
+- RUN (Thomas: "continue with 5a, 8, 16, and GM tenure"; report only): `25_TESTS/backtest_cuts_more.py` v1.1 on the
+  extended run, declared in the protocol first (bc1118c). Results in sessions/2026-11-12.md. The general managers' dates
+  are Wikipedia's club lists; five of the eight offer-sheet threshold years are recalled, not read from a printed source.
+  No model change. MANIFEST one row.
