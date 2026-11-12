@@ -237,3 +237,50 @@ written: the extended run's tests A and B and one line of C6.
   2025-26 (the season of the retention rule change; its date is not verified here).
 - **Deadlines added:** 2023-03-03, 2024-03-08, 2025-03-07, 2026-03-06 (each the busiest trade date of its season in
   the ledger).
+
+## Four more exploratory cuts (declared 2026-11-12, before any was computed; Thomas: "continue with 5a, 8, 16, and GM tenure")
+
+Script: `25_TESTS/backtest_cuts_more.py`, reading the extended run (`30_OUTPUT/_extended_run/`, every complete trade
+2017-07-01 to 2026-03-13), with the declared window (to 2022-03-28) shown beside each main row. Measures and intervals
+as the exploratory cuts above (2,000 resamples of trades, seed 20261112). All four are exploratory.
+
+**5a. Former top-15 picks who have not broken out: are they held too long?** Not a trade test: every skater drafted in
+the top 15 from 2009 to 2020, at every July 1 page from 2018 to 2025 on which the player model values a contract of
+his (the contract panel) and which is his D+5 season or later, traded or not. Below the benchmark as in 5b (50/30/20
+trailing WAR total before the page under 1.078). By season since the draft: players; mean and median model value
+($M at the 2025-26 cap); the share traded in the next twelve months (the ledger carried to 2026); the share at or above
+the benchmark at any later page (a later break-out); and, for those not traded, the change in model value to the next
+page. Limit: the model's value stands in for what he would have fetched, which no data records for a player who was
+not traded; cut 5b gives what the market paid for the traded ones.
+
+**8. Cap pressure.** (i) Paying to move a contract, by the trade's structure alone (no model value picks the group):
+two-team trades in which one club sent a player with a cap hit of $2.5M or more together with a pick or prospect, and
+received no player with a cap hit of $1M or more. Reported: trades; the cap dollars cleared (cap hit times the seasons
+left, the trade season by its share left; $M at the 2025-26 cap); the models' value of the picks and prospects sent
+with him; that value per $1M of cap cleared; the receiving club's forecast net and outcome. (ii) Club payroll on the
+trade date, an estimate: the cap hits (`model_cap_hit`, the page's season) of every player whose most recent NHL
+regular-season game in the 365 days before the trade was for that club, as a share of that season's cap. In-season
+two-team trades at least 20 days after the season's first game. Clubs in the top third of payroll share against the
+rest: forecast net and outcome. The estimate leaves out long-term injured reserve, players buried in the minors,
+retained salary and bonus overages.
+
+**16. Offer sheets (a what-if, not a back-test).** Every standard contract in the PuckPedia export signed from 2018 on
+by a restricted free agent (signing status RFA) that the contract panel values at its first season. Value to a club
+that had signed him to the same term by offer sheet at his actual average annual value plus 0%, 10% and 20%: the
+panel's value of the contract (control seasons after it included) less the extra cap hit each season, discounted at 3%,
+less the compensation picks at the pick curve's round-average values (the offering club's own picks; a first-round
+pick in each of the next two or four drafts where the tier asks for them). The tier is read on total value divided by
+the lesser of the term and five, as the CBA. Thresholds: the 2005 base ($660,000, $1M, $2M, $3M, $4M, $5M) times a
+yearly factor. The factors for 2019, 2021 and 2024 are confirmed by the sheets tendered (Aho $8,454,000 a year, the top
+of its tier; Kotkaniemi; Broberg $4,580,917 and Holloway $2,290,457, each the top of its tier); those for 2018, 2020,
+2022, 2023 and 2025 are recalled, not read from a printed source (each consistent across two tiers to six digits).
+Reported by tier and premium: contracts, the share with a positive payoff, the mean and median payoff; and the four
+sheets tendered 2018 to 2025 priced at their own terms. An upper bound: the original club's right to match, players
+ineligible for a sheet, the offering club's need to hold its own picks, and league norms are not modelled, and a
+contract signed under a club's exclusive rights understates what a sheet would have had to pay.
+
+**GM tenure.** General managers and their dates from each club's Wikipedia list (86 tenures, read 2026-11-12). A new
+general manager: the first 365 days of a person's time in the job at a club (an interim spell that becomes permanent
+counts from its first day). Group: a club that sent a player whose contract was signed before that person took the
+job, in that first year; against clubs sending a player under a general manager past his first year. The player is the
+one with the highest cap hit the club sent. Forecast net and outcome for the sending club.
