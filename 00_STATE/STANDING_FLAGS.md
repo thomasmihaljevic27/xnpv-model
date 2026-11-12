@@ -1443,3 +1443,19 @@ said to import production's rules while it restated two of them; the named table
 line while fitting two. Each time the code moved and the sentence stayed. The rule that follows:
 where a paragraph asserts a property of a calculation, name the check that holds that property in
 the paragraph, so the two are edited together or not at all.
+
+
+## The remaining-term rule sets the level of every traded contract's value (found 2026-11-12; open for Thomas)
+
+A contract season is priced on the term remaining at the valuation date (directive 4 as built: `contract_npv.py` v2.1,
+`skater_forward_projection.py`), while its cap hit was set on the whole term. A contract fair at signing with T seasons,
+valued with R left, is therefore short by gamma x R x (T - R) of a cap ($0.851M a season per year of term run down, at the
+2025-26 cap) with no change in the player. Measured (`25_TESTS/contract_value_by_age.py`, session 2026-11-12): multi-year
+contracts average -$1.77M one season after signing and -$7.82M four seasons after, and the rule's shortfall alone gives
+-$1.88M and -$7.71M; the 938 traded skater contracts sum to -$1,079M as valued and to about +$285M with each season
+priced on its contract's original term. The back-test's outcome uses the forecast's term, so it carries the same
+shortfall: outcome minus forecast is unaffected, but the level of both is. Findings that a club acquiring a player
+comes out behind (age 28 to 31, defencemen, deadline rentals, clause players, cap dumps, picks and prospects for
+players seen from the other side) are stated at this level. An approximate adjustment shrinks them and reverses none
+of the four protocol groups checked. Not decided: whether a mid-contract season is priced on the remaining term, the
+original term, or no term.

@@ -3973,3 +3973,10 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 
 - DATA (Thomas supplied the 2018-2025 table): `backtest_cuts_more.py` v1.2 reads the printed thresholds. No result
   changes (no contract changes tier). MANIFEST one row; session log sessions/2026-11-12.md.
+
+### Change log, 2026-11-12c (why traded contracts carry negative values)
+
+- TESTED (Thomas: "start with 1"; report only): `25_TESTS/contract_value_by_age.py` v1.1. The negative level of traded
+  players' values is the remaining-term rule (directive 4 as built), measured on every contract as it ages; selection
+  adds under $1M and the forecast is not the source. STANDING_FLAGS entry; no model change. MANIFEST one row; session
+  log sessions/2026-11-12.md.
