@@ -219,6 +219,24 @@ XNPV1_RATE_TERM_FREE = dict(alpha=0.0081682729, beta=0.0311829464, beta_d_add=0.
                             gamma_term=0.0, n=2336, sigma=0.02182557, rows_fingerprint="d9d1d82777bf")
 
 
+# SENSITIVITY SWITCH (2026-11-12, Thomas: "Yes, run it"; STANDING_FLAGS "The remaining-term rule"). Unset or "remaining":
+# the model as decided (directive 4), every contract season priced on the term LEFT at the valuation date. "original":
+# each contract season is priced on the SIGNED length of the contract it belongs to, so a contract fair when signed is
+# not marked down as its term runs out. Read only by the back-test's sensitivity run; no default output uses it.
+TERM_BASIS = os.environ.get("XNPV_TERM_BASIS", "remaining")
+assert TERM_BASIS in ("remaining", "original"), TERM_BASIS
+
+
+def signed_term(r, fallback):
+    """The signed length, in seasons, of the contract a season row belongs to (TERM_BASIS = "original"): the season
+    spine's pp_signed_end - pp_first_season + 1 (a bought-out deal at its full signed term, as contract_terms), or the
+    2017 page's own orig_first / orig_end; `fallback` (the seasons left) where a row carries neither."""
+    for a, b in (("pp_first_season", "pp_signed_end"), ("orig_first", "orig_end")):
+        if a in r.index and b in r.index and pd.notna(r[a]) and pd.notna(r[b]):
+            return max(int(r[b]) - int(r[a]) + 1, 1)
+    return int(fallback)
+
+
 def price_constants(model=None, term_free=False):
     """(alpha, beta_F, beta_D, gamma_term, label): the price line skater
     seasons are priced on, in cap share (per win; per year of term). The only
@@ -593,7 +611,8 @@ class SkaterProjector:
             w = float(f["war_if_plays"])
             ceil = cap_path(valuation_season, k)
             lm = league_min_path(season)
-            val_raw = (_alpha + _slope * w + _gamma * term_years) * ceil
+            term_k = signed_term(r, term_years) if TERM_BASIS == "original" else term_years
+            val_raw = (_alpha + _slope * w + _gamma * term_k) * ceil
             sd_w = war_if_plays_sd(k)
             val = expected_floored_value(val_raw, _slope * sd_w * ceil, lm)   # D10 floor
             val_raw_f = (_af + _slopef * w) * ceil                            # term-free
@@ -620,8 +639,8 @@ class SkaterProjector:
                 "cap_ceiling_exante": ceil, "league_min": lm,
                 "posgrp": _posgrp, "slope_used": _slope,
                 "alpha_used": _alpha, "price_line": _line,
-                "term_years": term_years, "gamma_used": _gamma,
-                "term_premium_dollars": _gamma * term_years * ceil,
+                "term_years": term_k, "gamma_used": _gamma,
+                "term_premium_dollars": _gamma * term_k * ceil,
                 "value_dollars_term_free": val_f,
                 "surplus_dollars_term_free": val_f - r["cost"],
                 "value_dollars": val, "floor_bound": val_raw < lm,
@@ -699,7 +718,7 @@ def validate():
         fc = sp.forecaster.forecast(r["nk"], t0, len(pr) - 1)
         slope = bd if posgrp_from_nk(r["nk"]).startswith("D") else bf
         slopef = bdf if posgrp_from_nk(r["nk"]).startswith("D") else bff
-        assert (pr["term_years"] == len(pr)).all(), "the remaining term is not the seasons left"
+        assert TERM_BASIS == "original" or (pr["term_years"] == len(pr)).all(), "the remaining term is not the seasons left"
         for k, x in pr.iterrows():
             ceil = cap_path(t0, int(x["k"]))
             wk = float(fc.iloc[int(x["k"])]["war_if_plays"])

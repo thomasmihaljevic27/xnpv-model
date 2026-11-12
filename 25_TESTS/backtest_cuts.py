@@ -38,7 +38,7 @@ from dotenv import load_dotenv
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "20_CODE"))
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
-SCRIPT_VERSION = "backtest_cuts.py v1.2 (2026-11-11)"   # v1.2: the reference check on the back-test after pick_curve v1.12; v1.1: the extended trades (scope), three cap eras, retention by period
+SCRIPT_VERSION = "backtest_cuts.py v1.3 (2026-11-12)"   # v1.3: the reference check skipped, and said so, under the original-term sensitivity; v1.2: the reference check on the back-test after pick_curve v1.12; v1.1: the extended trades (scope), three cap eras, retention by period
 # Which trades (protocol, "The extended trades"): "declared" = 2017-07-01 to 2022-03-28 (the default, and the only scope
 # the live 30_OUTPUT holds); "new" = after 2022-03-28 (the replication); "all". Set XNPV_CUTS_SCOPE; run with OUTPUT_DIR
 # pointing at 30_OUTPUT/_extended_run for "new" and "all".
@@ -183,13 +183,16 @@ def main():
     # GUARD: the protocol's groups reproduce from these frames (recorded 2026-11-11, after pick_curve v1.12; on 2026-10-24 the
     # outcomes were +0.900 and GV +1.009: C1 275 sides +1.54 / +0.913 / GV +1.022;
     # C2 315 sides -0.57; C6 66 sides -2.95)
-    ref = s[s["trade_date"] <= DECLARED_END]          # the declared window, whatever the scope: it must not have moved
-    c1 = ref[ref["g_futures"]]
-    assert len(c1) == 275 and abs(c1["net_M"].mean() - 1.54) < 0.005 and abs(c1["out_net_M"].mean() - 0.913) < 0.001
-    assert abs(c1["gv_net_M"].mean() - 1.022) < 0.001
-    assert ref["g_buyer"].sum() == 315 and abs(ref.loc[ref["g_buyer"], "net_M"].mean() + 0.57) < 0.005
-    assert ref["g_clause"].sum() == 66 and abs(ref.loc[ref["g_clause"], "net_M"].mean() + 2.95) < 0.005
-    log(f"  reference check PASS: the protocol's C1 (275 sides), C2 (315) and C6 (66) reproduce their recorded means")
+    if os.environ.get("XNPV_TERM_BASIS", "remaining") == "remaining":
+        ref = s[s["trade_date"] <= DECLARED_END]          # the declared window, whatever the scope: it must not have moved
+        c1 = ref[ref["g_futures"]]
+        assert len(c1) == 275 and abs(c1["net_M"].mean() - 1.54) < 0.005 and abs(c1["out_net_M"].mean() - 0.913) < 0.001
+        assert abs(c1["gv_net_M"].mean() - 1.022) < 0.001
+        assert ref["g_buyer"].sum() == 315 and abs(ref.loc[ref["g_buyer"], "net_M"].mean() + 0.57) < 0.005
+        assert ref["g_clause"].sum() == 66 and abs(ref.loc[ref["g_clause"], "net_M"].mean() + 2.95) < 0.005
+        log(f"  reference check PASS: the protocol's C1 (275 sides), C2 (315) and C6 (66) reproduce their recorded means")
+    else:
+        log("  reference check NOT RUN: the original-term sensitivity (XNPV_TERM_BASIS), whose group means differ by design")
     if SCOPE == "declared":
         s, a = s[s["trade_date"] <= DECLARED_END].copy(), a[a["trade_date"] <= DECLARED_END].copy()
     elif SCOPE == "new":

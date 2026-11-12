@@ -241,6 +241,7 @@ import numpy as np
 import pandas as pd
 
 from skater_forward_projection import valuation_as_of, page_date
+from skater_forward_projection import TERM_BASIS, signed_term   # the term sensitivity switch (2026-11-12)
 from skater_forward_projection import (SkaterProjector, cap_path,
                                        league_min_path, norm_name,
                                        CAP_GROWTH, CAP_CEILING,
@@ -837,7 +838,8 @@ class NPVEngine:
                 season = int(r["season_start"])
                 _k, w_k, p_k = fc[k]
                 ceil = cap_path(t0, k)
-                val = max(goalie_line(w_k, term_years, term_free) * ceil, league_min_path(season))   # D10 floor
+                term_k = (signed_term(r, term_years) if TERM_BASIS == "original" else term_years)   # the sensitivity switch
+                val = max(goalie_line(w_k, term_k, term_free) * ceil, league_min_path(season))   # D10 floor
                 disc = (1 + G) ** (-k)
                 # v3.1: a trade's season left (k = 0) and the acquirer's share of a retained contract's cap hit
                 wsh = share if k == 0 else 1.0

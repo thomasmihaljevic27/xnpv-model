@@ -286,3 +286,19 @@ general manager: the first 365 days of a person's time in the job at a club (an 
 counts from its first day). Group: a club that sent a player whose contract was signed before that person took the
 job, in that first year; against clubs sending a player under a general manager past his first year. The player is the
 one with the highest cap hit the club sent. Forecast net and outcome for the sending club.
+
+## Sensitivity: each contract season priced on its contract's original term (declared 2026-11-12, before it was run; Thomas: "Yes, run it")
+
+Why: `25_TESTS/contract_value_by_age.py` showed that the level of every traded contract's value follows from pricing a
+contract season on the term left at the valuation date while its cap hit was set on the whole term (STANDING_FLAGS,
+"The remaining-term rule"). The model as decided is unchanged. This run changes one thing: with the environment
+variable `XNPV_TERM_BASIS=original`, a contract season is priced on the signed length of the contract it belongs to
+(a bought-out deal at its full signed term), in the forecast and in the outcome alike. Control seasons, draftees'
+seasons, picks and prospects stay at one year of term; goaltenders' contract seasons follow the same switch on their
+own line; the price lines are not re-fitted. Read before this note: the approximate adjustment of four groups in the
+check above.
+
+Run on the ledger carried to 2026 into `30_OUTPUT/_original_term_run/`. Reported beside the run as decided: tests A and
+B; the protocol's groups; every exploratory cut on the declared window, the trades after 2022-03-28 and all trades
+(`backtest_cuts.py`, whose check against the recorded group means is skipped under the switch and says so). A finding is
+called robust to the term rule when it keeps its sign with a 95% interval excluding zero under both.

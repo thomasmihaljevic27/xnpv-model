@@ -480,6 +480,11 @@ def main():
                 names_note.append(f"{r['player_name']} ({name}): no WAR season in the three before page {y}")
             c = d[d["row_type"] == "contract"].sort_values("season_start")
             term = int(s.get("term_years", len(c)))
+            # the sensitivity switch (SFP.TERM_BASIS = "original"): each season on its own contract's signed length, as its forecast
+            tmap = {}
+            if SFP.TERM_BASIS == "original":
+                for _, m_ in mine.iterrows():
+                    tmap[int(m_["contract_id"])] = SFP.signed_term(m_, term)
             real = rev = ret = capfx = lt_M = 0.0
             names_lt = (name, r["player_name"])
             lt_now = LT.known_on_ltir(names_lt, page_date(NOW), crow0["nhl_id"])     # v1.4: on LTIR at 2026-27
@@ -493,6 +498,7 @@ def main():
                 keep = (1.0 - rpct) if int(q["contract_id"]) == int(chain_ids[0]) else 1.0
                 f = share if z == y else 1.0
                 cost = float(q["cost_dollars"])
+                term = tmap.get(int(q["contract_id"]), term) if tmap else term
                 cut = CUT.get(int(q["contract_id"]))
                 post_cut = cut is not None and z > cut[0]           # v1.2: a season after his buyout
                 if post_cut:
@@ -670,6 +676,7 @@ def main():
             seasons = [(int(q["season_start"]), float(q["cost_dollars"]), int(q["contract_id"]) == int(s["chain"][0]))
                        for _, q in c.iterrows()]
             ctrl, ch, flag = [], None, None
+            term17 = {}
         else:
             f = K.find_page(r["player_name"])
             cons = K.parse_contracts(K.page_lines(f.read_text(encoding="utf-8", errors="ignore")))
@@ -693,8 +700,11 @@ def main():
             base = chain[-1].get("base", {}).get(end)
             ch = Chain(float(base) if base else float(chain[-1]["seasons"][end]), float(chain[-1]["seasons"][end]), False)
             flag = (1 if "Arb" in raw else 0) if rfa else None
+            # the sensitivity switch: each season on its own CapWages contract's length, as page_2017_values' forecast
+            term17 = {z_: len(cc["seasons"]) for cc in chain for z_ in cc["seasons"]} if SFP.TERM_BASIS == "original" else {}
         term = len(seasons)
         for z, cost, first in seasons:
+            term = term17.get(z, term)
             keep = (1.0 - rpct) if first else 1.0
             f = share if z == 2017 else 1.0
             if z <= LAST:

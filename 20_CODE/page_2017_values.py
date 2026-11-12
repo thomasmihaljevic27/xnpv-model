@@ -190,6 +190,7 @@ def main():
                             "posgrp": pg, "full_name": wname, "nk": nn + "|" + pg, "nname": nn,
                             "cost": c["seasons"][y], "cs_cap_hit": c["seasons"][y], "pp_cap_hit": c["seasons"][y],
                             "pp_aav": c["seasons"][y], "cs_nhl_salary": c.get("base", {}).get(y),
+                            "orig_first": min(c["seasons"]), "orig_end": max(c["seasons"]),   # read only under XNPV_TERM_BASIS=original
                             "bd": bd, "birthdate": bd, "pp_expiry": c.get("expiry_status"),
                             # v1.7: a "UFA (No QO)" expiry keeps its UFA year: the engine reads the label only once
                             # the decision is known (rfa_terminal_value.expiry_known), after a 2017-18 trade
