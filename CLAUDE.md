@@ -176,6 +176,12 @@ folder, never into `30_OUTPUT` itself: set `XNPV_TRADES_DB`, then `python 20_COD
 `python 25_TESTS/backtest_cuts.py` with `XNPV_CUTS_SCOPE` unset (the declared window), `new` or `all` (the last two with
 `OUTPUT_DIR` on the extended folder). The declared window, 2017-07-01 to 2022-03-28, stays the confirmatory run.
 
+The term sensitivity (2026-11-12): the model prices a contract season on the term left at the valuation date (directive 4).
+With the environment variable `XNPV_TERM_BASIS=original`, each contract season is priced on its contract's signed length
+instead, in the forecast and the back-test's outcome alike (`skater_forward_projection.signed_term`). It is a sensitivity
+only, run into `30_OUTPUT/_original_term_run/` exactly as the extended run with the variable set; never set it for a run
+into `30_OUTPUT` or `_extended_run`. Unset, nothing changes. Why it exists: `STANDING_FLAGS.md`, "The remaining-term rule".
+
 The Game Value check (2026-10-20): the same script with XNPV_OUTCOME_METRIC=gv_adj, then gv_raw (outputs carry the
 metric's suffix), then `python 25_TESTS/backtest_gv_compare.py` for the protocol's verdicts. In PowerShell set the variable
 first: `$env:XNPV_OUTCOME_METRIC = "gv_adj"`, and remove it afterwards (`Remove-Item Env:XNPV_OUTCOME_METRIC`).

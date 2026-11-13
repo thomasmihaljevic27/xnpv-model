@@ -3980,3 +3980,12 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   players' values is the remaining-term rule (directive 4 as built), measured on every contract as it ages; selection
   adds under $1M and the forecast is not the source. STANDING_FLAGS entry; no model change. MANIFEST one row; session
   log sessions/2026-11-12.md.
+
+### Change log, 2026-11-12d (the original-term sensitivity)
+
+- BUILT, off by default: `XNPV_TERM_BASIS=original` (`skater_forward_projection.py`, `contract_npv.py`,
+  `page_2017_values.py`, `backtest.py`); unset, every extended-run value is reproduced exactly. Protocol declaration
+  before the run. `backtest_cuts.py` v1.3.
+- RUN (report only): the back-test and every cut on the original term, into `30_OUTPUT/_original_term_run/`. Traded
+  players' forecast -$1,028.5M -> -$108.1M; priced findings mostly hold, outcome findings mostly do not (session
+  2026-11-12). No model change: directive 4's term basis is open for Thomas. MANIFEST rows updated.
