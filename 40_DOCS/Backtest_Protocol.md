@@ -302,3 +302,18 @@ Run on the ledger carried to 2026 into `30_OUTPUT/_original_term_run/`. Reported
 B; the protocol's groups; every exploratory cut on the declared window, the trades after 2022-03-28 and all trades
 (`backtest_cuts.py`, whose check against the recorded group means is skipped under the switch and says so). A finding is
 called robust to the term rule when it keeps its sign with a 95% interval excluding zero under both.
+
+## Test: does a longer contract predict out-performing the forecast? (declared 2026-11-13, before it was built or run; Thomas: "Yes, run it")
+
+Decides between the two ways of pricing a mid-contract season (STANDING_FLAGS, "The remaining-term rule"). Sample: the
+price line's 2,336 skater contracts (`30_OUTPUT/term_average_price_line_rows.csv`: standard UFA and RFA contracts
+starting 2018-2025, forecast dated at the signing). For each contract season through 2025-26: the forecast's expected
+season WAR from the signing page (chance of playing x WAR if he plays, `xnpv1_forecasts.csv`, the career key from
+`player_season_table`), against the delivered season WAR (the harness's target, `forecast_harness.outcomes`: a season
+not played is zero, short seasons on 82 games). The miss, delivered minus expected, is converted to dollars with the
+price line's slope (forwards and defencemen apart) at the 2025-26 cap. Regressed on the contract's length in years, for
+the first, second and third season of the contract separately (so the forecast horizon is the same within each fit),
+controlling for the forecast and defence; a second fit adds signing status and age; a third puts the forecast in
+fifths. Intervals: 2,000 resamples of players. Benchmark: a coefficient of $0.851M a season per year of term would
+mean the whole term premium is quality the forecast misses (original term); zero would mean it buys length alone
+(remaining term). Script to be written: `25_TESTS/term_quality_test.py`.
