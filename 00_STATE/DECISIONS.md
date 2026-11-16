@@ -4021,3 +4021,10 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   findings added; the 2026-10-22 sections moved to History unchanged. WORK_QUEUE: a new live list (six items, each with
   what Thomas is asked to do); the old one kept, renamed. CLAUDE.md's state summary updated. Session logs 2026-10-23 to
   2026-11-15 read; commits checked against them.
+
+### Change log, 2026-11-15f (clustered standard errors; outcome on price by group)
+
+- RUN (Thomas: "Yes, re-run them"; report only; declared 762307a): `25_TESTS/groups_clustered.py` v1.0. Clustered
+  intervals equal the resampled ones (width ratio 0.95 to 1.06). Holm, declared window: four outcome groups on WAR. With
+  the price held, no group's outcome differs from what its price predicts in the declared window, except defencemen in
+  the joint regression. MANIFEST one row; session log sessions/2026-11-15.md.
