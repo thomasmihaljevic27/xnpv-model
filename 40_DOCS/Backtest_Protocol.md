@@ -333,3 +333,14 @@ club paid to move (cut 8(i)); sent a player under a new general manager on his p
 2017-2026 (the extended run) and the declared window. Intervals: 2,000 resamples of trades, seed 20261115. Each
 characteristic's coefficient alone is reported beside its coefficient with the others, so a reader sees which shrink.
 The model as decided (the term left).
+
+## The seasons played only (declared 2026-11-15, before it was run; Thomas: "Yes, run it")
+
+For recent trades most of the outcome is the models' re-valuation at 2026-27, so an outcome finding may rest on the model
+agreeing with itself. With `XNPV_OUTCOME_PART=played`, `backtest_cuts.py` v1.5 and `joint_regression.py` v1.2 read each
+club side's outcome through 2025-26 only (the back-test's existing "realised only" column; the re-valued seasons set to
+zero) and each asset's realised part; the forecast is unchanged, so outcome minus forecast is not read under it. Run on
+the declared window, the trades after 2022-03-28 and all trades, and the joint regression on all trades and the declared
+window. An outcome finding is called independent of the re-valuation when it keeps its sign with a 95% interval
+excluding zero on the seasons played. Expected in advance: recent trades' outcomes shrink toward zero (few seasons
+played), so the trades after 2022-03-28 have the least power under it.

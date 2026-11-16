@@ -44,7 +44,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
-SCRIPT_VERSION = "joint_regression.py v1.1 (2026-11-15)"   # v1.1: three typical deals read from the joint fit
+PLAYED = os.environ.get("XNPV_OUTCOME_PART", "all") == "played"
+TAG = "_played" if PLAYED else ""
+SCRIPT_VERSION = "joint_regression.py v1.2 (2026-11-15)"   # v1.2: XNPV_OUTCOME_PART=played; WAR outcome read from backtest_sides.csv; v1.1: three typical deals read from the joint fit
 N_BOOT, SEED = 2000, 20261115
 DECLARED_END = "2022-03-28"
 LOG, OUT = [], []
@@ -91,8 +93,11 @@ def main():
     t["t_single"] = s["single_for_many"].astype(bool)
     t["t_dump"] = s["took_dump"]
     t["t_newgm"] = s["new_gm_predecessor"]
-    gv = pd.read_csv(OUTPUT_DIR / "backtest_sides_gv_adj.csv")[key + ["out_net_M"]].rename(columns={"out_net_M": "gv_net_M"})
-    t = t.merge(s[key + ["net_M", "out_net_M"]], on=key).merge(gv, on=key)
+    part = "real_net_M" if PLAYED else "out_net_M"            # v1.2: the seasons played only, with XNPV_OUTCOME_PART=played
+    gv = pd.read_csv(OUTPUT_DIR / "backtest_sides_gv_adj.csv")[key + [part]].rename(columns={part: "gv_net_M"})
+    war = pd.read_csv(OUTPUT_DIR / "backtest_sides.csv")[key + [part]].rename(columns={part: "out_net_M"})
+    t = t.merge(s[key + ["net_M"]], on=key).merge(war, on=key).merge(gv, on=key)
+    log(f"  outcome: {'the seasons played through 2025-26 only (the 2026-27 re-valuation left out)' if PLAYED else 'realised through 2025-26 plus the rest re-valued at 2026-27'}")
     assert len(t) == len(s)                                                          # GUARD: one row a side
     # one row a two-team trade: A minus B
     n = t.groupby("trade_id")["club"].transform("size")
@@ -170,8 +175,8 @@ def main():
                 cells.append(f"{e:+.2f} [{lo_:+.2f},{hi_:+.2f}]")
                 OUT.append({"scope": scope, "trait": "deal: " + lab, "outcome": y_, "together": e, "lo": lo_, "hi": hi_})
             log(f"    {lab:<56}" + "".join(f"{x:>22}" for x in cells))
-    pd.DataFrame(OUT).to_csv(OUTPUT_DIR / "joint_regression.csv", index=False)
-    (OUTPUT_DIR / "joint_regression_log.txt").write_text("\n".join(LOG), encoding="utf-8")
+    pd.DataFrame(OUT).to_csv(OUTPUT_DIR / f"joint_regression{TAG}.csv", index=False)
+    (OUTPUT_DIR / f"joint_regression{TAG}_log.txt").write_text("\n".join(LOG), encoding="utf-8")
 
 
 if __name__ == "__main__":

@@ -38,13 +38,17 @@ from dotenv import load_dotenv
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "20_CODE"))
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
-SCRIPT_VERSION = "backtest_cuts.py v1.4 (2026-11-15)"   # v1.4: each club side's traits written (backtest_cuts*_sides.csv) for joint_regression.py; v1.3: the reference check skipped, and said so, under the original-term sensitivity; v1.2: the reference check on the back-test after pick_curve v1.12; v1.1: the extended trades (scope), three cap eras, retention by period
+SCRIPT_VERSION = "backtest_cuts.py v1.5 (2026-11-15)"   # v1.5: XNPV_OUTCOME_PART=played, the seasons played only; v1.4: each club side's traits written (backtest_cuts*_sides.csv) for joint_regression.py; v1.3: the reference check skipped, and said so, under the original-term sensitivity; v1.2: the reference check on the back-test after pick_curve v1.12; v1.1: the extended trades (scope), three cap eras, retention by period
 # Which trades (protocol, "The extended trades"): "declared" = 2017-07-01 to 2022-03-28 (the default, and the only scope
 # the live 30_OUTPUT holds); "new" = after 2022-03-28 (the replication); "all". Set XNPV_CUTS_SCOPE; run with OUTPUT_DIR
 # pointing at 30_OUTPUT/_extended_run for "new" and "all".
 SCOPE = os.environ.get("XNPV_CUTS_SCOPE", "declared")
 assert SCOPE in ("declared", "new", "all")
-SUFFIX = "" if SCOPE == "declared" else f"_{SCOPE}"
+# v1.5: XNPV_OUTCOME_PART=played reads the outcome through 2025-26 only (the seasons played; the 2026-27 re-valuation set to
+# zero), for forecast and outcome alike unchanged on the forecast side. Outputs carry "_played".
+PART = os.environ.get("XNPV_OUTCOME_PART", "all")
+assert PART in ("all", "played"), PART
+SUFFIX = ("" if SCOPE == "declared" else f"_{SCOPE}") + ("_played" if PART == "played" else "")
 DECLARED_END = "2022-03-28"
 N_BOOT, SEED = 2000, 20261111
 DEADLINES = ["2018-02-26", "2019-02-25", "2020-02-24", "2021-04-12", "2022-03-21", "2023-03-03", "2024-03-08", "2025-03-07", "2026-03-06"]
@@ -167,6 +171,8 @@ def main():
     key = ["trade_id", "club"]
     assert (s[key + ["net_M"]].round(6) == sg[key + ["net_M"]].round(6)).all().all()   # GUARD: one forecast, same rows, both runs
     s["gv_net_M"] = sg["out_net_M"].values
+    if PART == "played":                                   # v1.5: the seasons played only
+        s["out_net_M"], s["gv_net_M"] = s["real_net_M"], sg["real_net_M"].values
     s = s[s["complete"]].copy()
     s["date"] = pd.to_datetime(s["trade_date"])
     # ---- assets, both outcomes ------------------------------------------------------------------------------------------
@@ -175,6 +181,8 @@ def main():
     assert (a["asset_id"].values == ag["asset_id"].values).all() and np.allclose(           # GUARD: same assets, same forecast
         a["value_2025_cap_M"].fillna(0), ag["value_2025_cap_M"].fillna(0))
     a["value"] = a["value_2025_cap_M"]
+    if PART == "played":                                   # v1.5: an asset's realised part only
+        a["outcome_M"], ag["outcome_M"] = a["realised_M"], ag["realised_M"]
     a["d_war"] = a["outcome_M"] - a["value"]
     a["d_gv"] = ag["outcome_M"].values - a["value"]
     a = a[a["trade_id"].isin(s["trade_id"]) & a["outcome_M"].notna()].copy()
@@ -183,7 +191,7 @@ def main():
     # GUARD: the protocol's groups reproduce from these frames (recorded 2026-11-11, after pick_curve v1.12; on 2026-10-24 the
     # outcomes were +0.900 and GV +1.009: C1 275 sides +1.54 / +0.913 / GV +1.022;
     # C2 315 sides -0.57; C6 66 sides -2.95)
-    if os.environ.get("XNPV_TERM_BASIS", "remaining") == "remaining":
+    if os.environ.get("XNPV_TERM_BASIS", "remaining") == "remaining" and PART == "all":
         ref = s[s["trade_date"] <= DECLARED_END]          # the declared window, whatever the scope: it must not have moved
         c1 = ref[ref["g_futures"]]
         assert len(c1) == 275 and abs(c1["net_M"].mean() - 1.54) < 0.005 and abs(c1["out_net_M"].mean() - 0.913) < 0.001
@@ -192,7 +200,7 @@ def main():
         assert ref["g_clause"].sum() == 66 and abs(ref.loc[ref["g_clause"], "net_M"].mean() + 2.95) < 0.005
         log(f"  reference check PASS: the protocol's C1 (275 sides), C2 (315) and C6 (66) reproduce their recorded means")
     else:
-        log("  reference check NOT RUN: the original-term sensitivity (XNPV_TERM_BASIS), whose group means differ by design")
+        log("  reference check NOT RUN: a sensitivity (XNPV_TERM_BASIS or XNPV_OUTCOME_PART), whose group means differ by design")
     if SCOPE == "declared":
         s, a = s[s["trade_date"] <= DECLARED_END].copy(), a[a["trade_date"] <= DECLARED_END].copy()
     elif SCOPE == "new":
