@@ -38,7 +38,7 @@ from dotenv import load_dotenv
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "20_CODE"))
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
-SCRIPT_VERSION = "backtest_cuts.py v1.3 (2026-11-12)"   # v1.3: the reference check skipped, and said so, under the original-term sensitivity; v1.2: the reference check on the back-test after pick_curve v1.12; v1.1: the extended trades (scope), three cap eras, retention by period
+SCRIPT_VERSION = "backtest_cuts.py v1.4 (2026-11-15)"   # v1.4: each club side's traits written (backtest_cuts*_sides.csv) for joint_regression.py; v1.3: the reference check skipped, and said so, under the original-term sensitivity; v1.2: the reference check on the back-test after pick_curve v1.12; v1.1: the extended trades (scope), three cap eras, retention by period
 # Which trades (protocol, "The extended trades"): "declared" = 2017-07-01 to 2022-03-28 (the default, and the only scope
 # the live 30_OUTPUT holds); "new" = after 2022-03-28 (the replication); "all". Set XNPV_CUTS_SCOPE; run with OUTPUT_DIR
 # pointing at 30_OUTPUT/_extended_run for "new" and "all".
@@ -425,6 +425,13 @@ def main():
          .rename("only_late").reset_index().rename(columns={"acquiring_team": "club"}), on=key)
     side_table("15. the club whose whole return was picks in rounds 6 and 7", [("only round 6-7 picks received", late_only[late_only["only_late"]])], rng)
 
+    # v1.4: each club side's traits, read by joint_regression.py (one row a complete club side)
+    rcv = lambda x: set(zip(x["trade_id"], x["acquiring_team"]))                    # noqa: E731
+    u_, o_ = rcv(under), rcv(over)
+    m["top15_below"] = [(t, c) in u_ for t, c in zip(m["trade_id"], m["club"])]
+    m["top15_above"] = [(t, c) in o_ for t, c in zip(m["trade_id"], m["club"])]
+    m["single_for_many"] = m.index.isin(qd.index)
+    m.drop(columns=["date"]).to_csv(OUTPUT_DIR / f"backtest_cuts{SUFFIX}_sides.csv", index=False)
     pd.DataFrame(ROWS).to_csv(OUTPUT_DIR / f"backtest_cuts{SUFFIX}.csv", index=False)
     (OUTPUT_DIR / f"backtest_cuts{SUFFIX}_log.txt").write_text("\n".join(LOG), encoding="utf-8")
     log(f"\nwrote backtest_cuts.csv ({len(ROWS)} rows) and backtest_cuts_log.txt")

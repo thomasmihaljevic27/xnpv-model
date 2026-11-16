@@ -42,7 +42,7 @@ import contract_source as CS                         # noqa: E402
 import skater_forward_projection as SFP              # noqa: E402  the cap ceilings
 
 SOURCE_DIR, OUTPUT_DIR = Path(os.environ["SOURCE_DIR"]), Path(os.environ["OUTPUT_DIR"])
-SCRIPT_VERSION = "backtest_cuts_more.py v1.2 (2026-11-12)"   # v1.2: the offer-sheet thresholds as printed (Thomas's table), every year; v1.1: the tier bound's rounding; the tendered sheet matched on AAV (two Sebastian Ahos)
+SCRIPT_VERSION = "backtest_cuts_more.py v1.3 (2026-11-15)"   # v1.3: the general-manager flags per sending side written for joint_regression.py; v1.2: the offer-sheet thresholds as printed (Thomas's table), every year; v1.1: the tier bound's rounding; the tendered sheet matched on AAV (two Sebastian Ahos)
 N_BOOT, SEED = 2000, 20261112
 CAP = SFP.CAP_CEILING
 CAP_NOW = CAP[2025]
@@ -492,6 +492,9 @@ def cut_gm(rng, s, a):
         f"for {int(g['signed'].notna().sum())}")
     new = g[(g["days"] >= 0) & (g["days"] < 365)]
     newp = new[new["signed"] < new["since"]]
+    # v1.3: the sending side's flag, read by joint_regression.py
+    g.assign(new_gm_predecessor=g.index.isin(newp.index), new_gm=g.index.isin(new.index))[
+        ["trade_id", "club", "gm", "days", "new_gm", "new_gm_predecessor"]].to_csv(OUTPUT_DIR / "backtest_cuts_more_gm_sides.csv", index=False)
     old = g[g["days"] >= 365]
     log(f"  in a first year: {len(new)} sides by {new.groupby(['club', 'gm']).ngroups} general managers; of them the player's contract predates him: {len(newp)}")
     BC.side_table("GM: the club that SENT its highest-paid player in the trade", [

@@ -317,3 +317,19 @@ controlling for the forecast and defence; a second fit adds signing status and a
 fifths. Intervals: 2,000 resamples of players. Benchmark: a coefficient of $0.851M a season per year of term would
 mean the whole term premium is quality the forecast misses (original term); zero would mean it buys length alone
 (remaining term). Script to be written: `25_TESTS/term_quality_test.py`.
+
+## Which findings survive each other (declared 2026-11-15, before it was built; Thomas: "Yes, run it")
+
+The exploratory cuts are largely the same trades seen from different sides. One regression, `25_TESTS/joint_regression.py`,
+puts the characteristics together. Two-team complete trades; one row a trade; the outcome is one club's net (club A, the
+first in alphabetical order); each characteristic enters as club A's indicator minus club B's (+1, 0 or -1), with no
+constant, so a coefficient is what having the characteristic, rather than the other club having it, does to a club's net,
+the others held. Outcomes: the forecast net (priced), the outcome net on WAR, on Game Value. Characteristics, each as
+defined in its cut: took picks and prospects for players (C1); higher in the standings in the deadline window; higher in
+the standings in the rest of the regular season; received a rental (main player in his final season, unrestricted at
+expiry, traded in-season); retained salary; main player aged 28 to 31; 32 or over; a defenceman; carrying a no-trade or
+no-move clause; a former top-15 pick below the benchmark; received one asset for two or more; took a contract another
+club paid to move (cut 8(i)); sent a player under a new general manager on his predecessor's contract. Scopes: all trades
+2017-2026 (the extended run) and the declared window. Intervals: 2,000 resamples of trades, seed 20261115. Each
+characteristic's coefficient alone is reported beside its coefficient with the others, so a reader sees which shrink.
+The model as decided (the term left).
