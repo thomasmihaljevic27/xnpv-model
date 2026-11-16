@@ -54,7 +54,7 @@ load_dotenv()
 import trade_sides as TSD                        # noqa: E402
 import stata_expected as SE                      # noqa: E402
 
-SCRIPT_VERSION = "stata_export_backtest.py v1.1 (2026-11-08)"   # v1.1: test flags as columns, expected figures
+SCRIPT_VERSION = "stata_export_backtest.py v1.2 (2026-11-15)"   # v1.2: the findings (groups, Thomas's regression, the joint regression); v1.1: test flags as columns, expected figures
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 GAMELOG_DB = Path(os.environ["GAMELOG_DB"])
 OUT = OUTPUT_DIR / "stata"
@@ -270,6 +270,78 @@ def game_value():
     EXP.add("S32_BY", ", ".join(f"{r.season[:4]}-{r.season[6:]} {r.goals_per_win:.3f}" for r in gw.itertuples()))
 
 
+
+# =============================== 3. the findings (v1.2, 2026-11-15) ===================================================
+FINDINGS = [('futures', 't_futures', 'took picks and prospects for players'), ('deadline_buyer', 't_deadline_buyer', 'higher in the standings, deadline window'), ('other_buyer', 't_other_buyer', 'higher in the standings, rest of the regular season'), ('rental', 't_rental', 'received a rental'), ('retained', 't_retained', 'retained salary'), ('age28_31', 't_age28', 'main player aged 28 to 31'), ('age32_plus', 't_age32', 'main player 32 or over'), ('defence', 't_def', 'main player a defenceman'), ('clause', 't_clause', 'main player with a no-trade or no-move clause'), ('top15_below', 't_top15', 'a former top-15 pick below the benchmark'), ('one_for_many', 't_single', 'received one asset for two or more'), ('took_dump', 't_dump', 'took a contract another club paid to move'), ('new_gm_sold', 't_newgm', "sold under a new GM, his predecessor's contract"), ('nothing_back', 't_nothing', 'received nothing recorded')]
+
+
+def findings():
+    """v1.2 (Thomas, 2026-11-15: "I'd also like some way to verify what you're saying through stata"): the club sides of
+    every complete trade 2017-2026 with the fourteen groups as 0/1 columns, and the two-team trades as club A minus club
+    B, from the extended run (25_TESTS/groups_clustered.py's sides(), the same rules). Expected figures: each group's
+    means with standard errors clustered by trade, Thomas's regression (outcome on the priced net, the group and their
+    product, clustered), and the joint regression with robust errors, all on the declared window, as Stata computes
+    them. CHECK: each equals groups_clustered.csv's figure (to 1e-9)."""
+    import importlib.util
+    ext = OUTPUT_DIR / "_extended_run"
+    spec = importlib.util.spec_from_file_location("groups_clustered", Path(__file__).resolve().parents[1] / "25_TESTS" / "groups_clustered.py")
+    GC = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(GC)
+    GC.OUTPUT_DIR = ext
+    t = GC.sides()
+    real = pd.read_csv(ext / "backtest_sides.csv")[["trade_id", "club", "real_net_M"]]
+    t = t.merge(real, on=["trade_id", "club"])
+    out = pd.DataFrame({"trade_id": t["trade_id"], "club": t["club"], "trade_date": t["trade_date"],
+                        "declared": (t["trade_date"] <= "2022-03-28").astype(int),
+                        "net_fcst": t["net_M"], "net_outcome": t["out_net_M"], "net_outcome_gv": t["gv_net_M"],
+                        "net_realised": t["real_net_M"]})
+    for nm, col, _ in FINDINGS:
+        out[nm] = t[col].astype(int)
+    out.to_csv(OUT / "findings_club_sides.csv", index=False)
+    n = out.groupby("trade_id")["club"].transform("size")
+    two = out[n == 2].sort_values(["trade_id", "club"])
+    A = two.groupby("trade_id").nth(0).set_index("trade_id")
+    B = two.groupby("trade_id").nth(1).set_index("trade_id")
+    tr = pd.DataFrame({"trade_id": A.index, "declared": A["declared"].values, "a_net_fcst": A["net_fcst"].values,
+                       "a_net_outcome": A["net_outcome"].values, "a_net_outcome_gv": A["net_outcome_gv"].values})
+    for nm, _, _ in FINDINGS[:-1]:
+        tr["d_" + nm] = (A[nm] - B[nm]).values
+    tr.to_csv(OUT / "findings_trades.csv", index=False)
+    S = pd.read_csv(OUT / "findings_club_sides.csv")
+    TR = pd.read_csv(OUT / "findings_trades.csv")
+    log(f"\n  findings: {len(S):,} club sides ({S['trade_id'].nunique()} trades), {len(TR)} two-team trades; declared window {int(S['declared'].sum())} sides")
+    ref = pd.read_csv(ext / "groups_clustered.csv")
+    ref = ref[ref["scope"] == "DECLARED WINDOW"]
+    D = S[S["declared"] == 1]
+    ys = [("net_fcst", "priced"), ("net_outcome", "outcome, WAR"), ("net_outcome_gv", "outcome, Game Value")]
+    for nm, _, lab in FINDINGS:
+        g = D[D[nm] == 1]
+        cells = []
+        for y, ylab in ys:
+            m = SE.OLS(g[y], np.ones(len(g)), ["_cons"], cluster=g["trade_id"])
+            r = ref[(ref["part"] == "group mean") & (ref["group"] == next(l for l, cc in GC.GROUPS if cc == dict((a, b) for a, b, _ in FINDINGS)[nm])) & (ref["outcome"] == ylab)]
+            assert len(r) == 1 and abs(r["estimate"].iloc[0] - m.coef("_cons")) < TOL and abs(r["se"].iloc[0] - m.sei("_cons")) < 1e-6, (nm, y)
+            cells.append(f"{y} {m.coef('_cons'):+.4f} (se {m.sei('_cons'):.4f})")
+        EXP.add(f"F_MEAN_{nm}", "; ".join(cells) + f" ({len(g)} club sides)")
+        for y, key in (("net_outcome", "W"), ("net_outcome_gv", "G")):
+            X = np.column_stack([D["net_fcst"], D[nm], D[nm] * D["net_fcst"]])
+            m = SE.OLS(D[y], X, ["net_fcst", "g", "gxp"], cluster=D["trade_id"], const=True)
+            ylab = "outcome, WAR" if key == "W" else "outcome, Game Value"
+            gl = next(l for l, cc in GC.GROUPS if cc == dict((a, b) for a, b, _ in FINDINGS)[nm])
+            r = ref[(ref["part"] == "outcome on price") & (ref["group"] == gl) & (ref["outcome"] == ylab)]
+            assert len(r) == 1 and abs(r["c"].iloc[0] - m.coef("g")) < TOL and abs(r["d"].iloc[0] - m.coef("gxp")) < TOL, (nm, y)
+            EXP.add(f"F_C_{nm}_{key}", f"1.{nm} {m.coef('g'):+.4f} (se {m.sei('g'):.4f}, p {m.pval('g'):.4f}); "
+                                      f"1.{nm}#c.net_fcst {m.coef('gxp'):+.4f} (se {m.sei('gxp'):.4f}); net_fcst {m.coef('net_fcst'):.4f}")
+    DT = TR[TR["declared"] == 1]
+    cols = ["d_" + nm for nm, _, _ in FINDINGS[:-1]]
+    cols = [c for c in cols if (DT[c] != 0).sum() >= 5]
+    for y, key, extra in (("a_net_fcst", "P", []), ("a_net_outcome", "W", []), ("a_net_outcome_gv", "G", []),
+                          ("a_net_outcome", "WP", ["a_net_fcst"]), ("a_net_outcome_gv", "GP", ["a_net_fcst"])):
+        m = SE.OLS(DT[y], DT[cols + extra], cols + extra, robust=True)
+        EXP.add(f"F_JOINT_{key}", "; ".join(f"{c[2:] if c.startswith('d_') else c} {m.coef(c):+.3f} ({m.sei(c):.3f})" for c in cols + extra))
+    EXP.add("F_JOINT_N", f"{len(DT)} two-team trades")
+    log("  findings checks PASS: each group's means and Thomas's regression equal groups_clustered.csv's")
+
 def main():
     log(SCRIPT_VERSION)
     OUT.mkdir(parents=True, exist_ok=True)
@@ -277,6 +349,7 @@ def main():
     backtest()
     log("\nTHE GAME VALUE CHAIN")
     game_value()
+    findings()
     EXP.write(OUT / "expected_backtest.json")
     log(f"\n  wrote expected_backtest.json ({len(EXP.v)} figures)")
     (OUT / "stata_export_backtest_log.txt").write_text("\n".join(LOG), encoding="utf-8")

@@ -50,7 +50,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "stata_refresh.py v1.2 (2026-11-09)"   # v1.2: the Stata names (RENAMES); v1.1: CSVs imported section by section
+SCRIPT_VERSION = "stata_refresh.py v1.3 (2026-11-15)"   # v1.3: the findings CSVs; v1.2: the Stata names (RENAMES); v1.1: CSVs imported section by section
 CODE = Path(__file__).resolve().parent
 REPO = CODE.parent
 sys.path.insert(0, str(CODE))
@@ -115,6 +115,8 @@ RENAMES = {
     "backtest_assets.csv": {
         "trade_id": "trade_id", "trade_date": "trade_date", "name": "asset", "acquiring_team": "acquiring_team",
         "asset_class": "asset_class", "complete_trade": "complete", "miss_m": "miss"},
+    "findings_club_sides.csv": {"trade_id": "trade_id", "club": "club", "trade_date": "trade_date", "declared": "declared", "net_fcst": "net_fcst", "net_outcome": "net_outcome", "net_outcome_gv": "net_outcome_gv", "net_realised": "net_realised", "futures": "futures", "deadline_buyer": "deadline_buyer", "other_buyer": "other_buyer", "rental": "rental", "retained": "retained", "age28_31": "age28_31", "age32_plus": "age32_plus", "defence": "defence", "clause": "clause", "top15_below": "top15_below", "one_for_many": "one_for_many", "took_dump": "took_dump", "new_gm_sold": "new_gm_sold", "nothing_back": "nothing_back"},
+    "findings_trades.csv": {"trade_id": "trade_id", "declared": "declared", "a_net_fcst": "a_net_fcst", "a_net_outcome": "a_net_outcome", "a_net_outcome_gv": "a_net_outcome_gv", "d_futures": "d_futures", "d_deadline_buyer": "d_deadline_buyer", "d_other_buyer": "d_other_buyer", "d_rental": "d_rental", "d_retained": "d_retained", "d_age28_31": "d_age28_31", "d_age32_plus": "d_age32_plus", "d_defence": "d_defence", "d_clause": "d_clause", "d_top15_below": "d_top15_below", "d_one_for_many": "d_one_for_many", "d_took_dump": "d_took_dump", "d_new_gm_sold": "d_new_gm_sold"},
     "gv_team_games.csv": {
         "game_id": "game_id", "season": "season", "team": "team", "goal_diff_in_play": "goal_diff",
         "game_value_sum": "game_value"},

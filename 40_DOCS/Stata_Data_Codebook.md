@@ -1117,3 +1117,131 @@ foreach s of local ss {
     display "`s'  goals per win " %6.3f 1/_b[goal_diff]
 }
 ```
+
+## Findings
+
+Every result in the findings table, on the declared window (2017-07-01 to 2022-03-28). Standard errors are clustered by
+trade, because a trade's two club sides are mirror images. The do-file prints each figure the model gives beside its command.
+
+### Load: findings, club sides
+
+```stata
+import delimited using "findings_club_sides.csv", clear
+```
+
+| Variable | What it is |
+|---|---|
+| `net_fcst` | Priced: what the club received less what it gave up, at the models' values, $M |
+| `net_outcome` | Outcome on WAR: what the assets delivered, $M |
+| `net_outcome_gv` | Outcome on Game Value, $M |
+| `declared` | 1 for a trade in the declared window |
+| `trade_id` | The trade: standard errors are clustered on it |
+| `futures` | 1 for a club side that took picks and prospects for players |
+| `deadline_buyer` | 1 for a club side that higher in the standings, deadline window |
+| `other_buyer` | 1 for a club side that higher in the standings, rest of the regular season |
+| `rental` | 1 for a club side that received a rental |
+| `retained` | 1 for a club side that retained salary |
+| `age28_31` | 1 for a club side that received a main player aged 28 to 31 |
+| `age32_plus` | 1 for a club side that received a main player 32 or over |
+| `defence` | 1 for a club side that received a main player a defenceman |
+| `clause` | 1 for a club side that received a main player with a no-trade or no-move clause |
+| `top15_below` | 1 for a club side that a former top-15 pick below the benchmark |
+| `one_for_many` | 1 for a club side that received one asset for two or more |
+| `took_dump` | 1 for a club side that took a contract another club paid to move |
+| `new_gm_sold` | 1 for a club side that sold under a new GM, his predecessor's contract |
+| `nothing_back` | 1 for a club side that received nothing recorded |
+
+### 32. Each group's mean priced net and outcome
+
+The mean of each net for the group's club sides, with standard errors clustered by trade. A mean below zero: the group came out behind.
+
+```stata
+mean net_fcst net_outcome net_outcome_gv if declared == 1 & futures == 1, vce(cluster trade_id)
+mean net_fcst net_outcome net_outcome_gv if declared == 1 & deadline_buyer == 1, vce(cluster trade_id)
+mean net_fcst net_outcome net_outcome_gv if declared == 1 & other_buyer == 1, vce(cluster trade_id)
+mean net_fcst net_outcome net_outcome_gv if declared == 1 & rental == 1, vce(cluster trade_id)
+mean net_fcst net_outcome net_outcome_gv if declared == 1 & retained == 1, vce(cluster trade_id)
+mean net_fcst net_outcome net_outcome_gv if declared == 1 & age28_31 == 1, vce(cluster trade_id)
+mean net_fcst net_outcome net_outcome_gv if declared == 1 & age32_plus == 1, vce(cluster trade_id)
+mean net_fcst net_outcome net_outcome_gv if declared == 1 & defence == 1, vce(cluster trade_id)
+mean net_fcst net_outcome net_outcome_gv if declared == 1 & clause == 1, vce(cluster trade_id)
+mean net_fcst net_outcome net_outcome_gv if declared == 1 & top15_below == 1, vce(cluster trade_id)
+mean net_fcst net_outcome net_outcome_gv if declared == 1 & one_for_many == 1, vce(cluster trade_id)
+mean net_fcst net_outcome net_outcome_gv if declared == 1 & took_dump == 1, vce(cluster trade_id)
+mean net_fcst net_outcome net_outcome_gv if declared == 1 & new_gm_sold == 1, vce(cluster trade_id)
+mean net_fcst net_outcome net_outcome_gv if declared == 1 & nothing_back == 1, vce(cluster trade_id)
+```
+
+### 33. Outcome on price, by group (the outcome beyond what the price predicts)
+
+Each club's outcome regressed on its priced net, the group, and the two multiplied, on every club side, clustered by trade.
+The coefficient on `1.group` is the group's outcome beyond what its price predicts; the one on `1.group#c.net_fcst` is
+whether the models' verdict comes true more or less in the group.
+
+Equation: `net_outcome = a + b*net_fcst + c*group + d*group*net_fcst + e`
+
+On WAR:
+
+```stata
+regress net_outcome c.net_fcst##i.futures if declared == 1, vce(cluster trade_id)
+regress net_outcome c.net_fcst##i.deadline_buyer if declared == 1, vce(cluster trade_id)
+regress net_outcome c.net_fcst##i.other_buyer if declared == 1, vce(cluster trade_id)
+regress net_outcome c.net_fcst##i.rental if declared == 1, vce(cluster trade_id)
+regress net_outcome c.net_fcst##i.retained if declared == 1, vce(cluster trade_id)
+regress net_outcome c.net_fcst##i.age28_31 if declared == 1, vce(cluster trade_id)
+regress net_outcome c.net_fcst##i.age32_plus if declared == 1, vce(cluster trade_id)
+regress net_outcome c.net_fcst##i.defence if declared == 1, vce(cluster trade_id)
+regress net_outcome c.net_fcst##i.clause if declared == 1, vce(cluster trade_id)
+regress net_outcome c.net_fcst##i.top15_below if declared == 1, vce(cluster trade_id)
+regress net_outcome c.net_fcst##i.one_for_many if declared == 1, vce(cluster trade_id)
+regress net_outcome c.net_fcst##i.took_dump if declared == 1, vce(cluster trade_id)
+regress net_outcome c.net_fcst##i.new_gm_sold if declared == 1, vce(cluster trade_id)
+regress net_outcome c.net_fcst##i.nothing_back if declared == 1, vce(cluster trade_id)
+```
+
+On Game Value:
+
+```stata
+regress net_outcome_gv c.net_fcst##i.futures if declared == 1, vce(cluster trade_id)
+regress net_outcome_gv c.net_fcst##i.deadline_buyer if declared == 1, vce(cluster trade_id)
+regress net_outcome_gv c.net_fcst##i.other_buyer if declared == 1, vce(cluster trade_id)
+regress net_outcome_gv c.net_fcst##i.rental if declared == 1, vce(cluster trade_id)
+regress net_outcome_gv c.net_fcst##i.retained if declared == 1, vce(cluster trade_id)
+regress net_outcome_gv c.net_fcst##i.age28_31 if declared == 1, vce(cluster trade_id)
+regress net_outcome_gv c.net_fcst##i.age32_plus if declared == 1, vce(cluster trade_id)
+regress net_outcome_gv c.net_fcst##i.defence if declared == 1, vce(cluster trade_id)
+regress net_outcome_gv c.net_fcst##i.clause if declared == 1, vce(cluster trade_id)
+regress net_outcome_gv c.net_fcst##i.top15_below if declared == 1, vce(cluster trade_id)
+regress net_outcome_gv c.net_fcst##i.one_for_many if declared == 1, vce(cluster trade_id)
+regress net_outcome_gv c.net_fcst##i.took_dump if declared == 1, vce(cluster trade_id)
+regress net_outcome_gv c.net_fcst##i.new_gm_sold if declared == 1, vce(cluster trade_id)
+regress net_outcome_gv c.net_fcst##i.nothing_back if declared == 1, vce(cluster trade_id)
+```
+
+### Load: findings, two-team trades
+
+```stata
+import delimited using "findings_trades.csv", clear
+```
+
+| Variable | What it is |
+|---|---|
+| `a_net_fcst`, `a_net_outcome`, `a_net_outcome_gv` | Club A's priced net and outcomes (club A: the first club alphabetically) |
+| `d_` + group | Club A's group indicator minus club B's: +1, 0 or -1 |
+| `declared` | 1 for a trade in the declared window |
+
+### 34. The joint regression
+
+All the groups together, one row a trade, no constant, robust standard errors (each row is a trade, so this is clustering by
+trade). Then the outcome with the priced net added.
+
+Equation: `a_net_outcome = sum over groups of c_k * d_k + e`
+
+```stata
+regress a_net_fcst d_futures d_deadline_buyer d_other_buyer d_rental d_retained d_age28_31 d_age32_plus d_defence d_clause d_top15_below d_one_for_many d_took_dump d_new_gm_sold if declared == 1, noconstant vce(robust)
+regress a_net_outcome d_futures d_deadline_buyer d_other_buyer d_rental d_retained d_age28_31 d_age32_plus d_defence d_clause d_top15_below d_one_for_many d_took_dump d_new_gm_sold if declared == 1, noconstant vce(robust)
+regress a_net_outcome_gv d_futures d_deadline_buyer d_other_buyer d_rental d_retained d_age28_31 d_age32_plus d_defence d_clause d_top15_below d_one_for_many d_took_dump d_new_gm_sold if declared == 1, noconstant vce(robust)
+regress a_net_outcome d_futures d_deadline_buyer d_other_buyer d_rental d_retained d_age28_31 d_age32_plus d_defence d_clause d_top15_below d_one_for_many d_took_dump d_new_gm_sold a_net_fcst if declared == 1, noconstant vce(robust)
+regress a_net_outcome_gv d_futures d_deadline_buyer d_other_buyer d_rental d_retained d_age28_31 d_age32_plus d_defence d_clause d_top15_below d_one_for_many d_took_dump d_new_gm_sold a_net_fcst if declared == 1, noconstant vce(robust)
+```
+

@@ -589,3 +589,133 @@ foreach s of local ss {
     display "`s'  goals per win " %6.3f 1/_b[goal_diff]
 }
 * Should print: {{S32_BY}}
+
+
+* =====================================================================================================================
+* PART 6. THE FINDINGS: each group, with standard errors clustered by trade (declared window, 2017-07-01 to 2022-03-28)
+* =====================================================================================================================
+* ---- STEP 32. Each group's mean forecast and outcome, standard errors clustered by trade --------------------------
+import delimited using "findings_club_sides.csv", clear
+label variable net_fcst "Priced: what the club received less what it gave up, at the models' values, \$M"
+label variable net_outcome "Outcome on WAR: what the assets delivered, \$M"
+label variable net_outcome_gv "Outcome on Game Value, \$M"
+label variable declared "1 for a trade from 2017-07-01 to 2022-03-28 (the declared window)"
+label variable trade_id "The trade: standard errors clustered on it"
+label variable futures "1: took picks and prospects for players"
+label variable deadline_buyer "1: higher in the standings, deadline window"
+label variable other_buyer "1: higher in the standings, rest of the regular season"
+label variable rental "1: received a rental"
+label variable retained "1: retained salary"
+label variable age28_31 "1: main player aged 28 to 31"
+label variable age32_plus "1: main player 32 or over"
+label variable defence "1: main player a defenceman"
+label variable clause "1: main player with a no-trade or no-move clause"
+label variable top15_below "1: a former top-15 pick below the benchmark"
+label variable one_for_many "1: received one asset for two or more"
+label variable took_dump "1: took a contract another club paid to move"
+label variable new_gm_sold "1: sold under a new GM, his predecessor's contract"
+label variable nothing_back "1: received nothing recorded"
+mean net_fcst net_outcome net_outcome_gv if declared == 1 & futures == 1, vce(cluster trade_id)
+* Should print: {{F_MEAN_futures}} (took picks and prospects for players)
+mean net_fcst net_outcome net_outcome_gv if declared == 1 & deadline_buyer == 1, vce(cluster trade_id)
+* Should print: {{F_MEAN_deadline_buyer}} (higher in the standings, deadline window)
+mean net_fcst net_outcome net_outcome_gv if declared == 1 & other_buyer == 1, vce(cluster trade_id)
+* Should print: {{F_MEAN_other_buyer}} (higher in the standings, rest of the regular season)
+mean net_fcst net_outcome net_outcome_gv if declared == 1 & rental == 1, vce(cluster trade_id)
+* Should print: {{F_MEAN_rental}} (received a rental)
+mean net_fcst net_outcome net_outcome_gv if declared == 1 & retained == 1, vce(cluster trade_id)
+* Should print: {{F_MEAN_retained}} (retained salary)
+mean net_fcst net_outcome net_outcome_gv if declared == 1 & age28_31 == 1, vce(cluster trade_id)
+* Should print: {{F_MEAN_age28_31}} (main player aged 28 to 31)
+mean net_fcst net_outcome net_outcome_gv if declared == 1 & age32_plus == 1, vce(cluster trade_id)
+* Should print: {{F_MEAN_age32_plus}} (main player 32 or over)
+mean net_fcst net_outcome net_outcome_gv if declared == 1 & defence == 1, vce(cluster trade_id)
+* Should print: {{F_MEAN_defence}} (main player a defenceman)
+mean net_fcst net_outcome net_outcome_gv if declared == 1 & clause == 1, vce(cluster trade_id)
+* Should print: {{F_MEAN_clause}} (main player with a no-trade or no-move clause)
+mean net_fcst net_outcome net_outcome_gv if declared == 1 & top15_below == 1, vce(cluster trade_id)
+* Should print: {{F_MEAN_top15_below}} (a former top-15 pick below the benchmark)
+mean net_fcst net_outcome net_outcome_gv if declared == 1 & one_for_many == 1, vce(cluster trade_id)
+* Should print: {{F_MEAN_one_for_many}} (received one asset for two or more)
+mean net_fcst net_outcome net_outcome_gv if declared == 1 & took_dump == 1, vce(cluster trade_id)
+* Should print: {{F_MEAN_took_dump}} (took a contract another club paid to move)
+mean net_fcst net_outcome net_outcome_gv if declared == 1 & new_gm_sold == 1, vce(cluster trade_id)
+* Should print: {{F_MEAN_new_gm_sold}} (sold under a new GM, his predecessor's contract)
+mean net_fcst net_outcome net_outcome_gv if declared == 1 & nothing_back == 1, vce(cluster trade_id)
+* Should print: {{F_MEAN_nothing_back}} (received nothing recorded)
+
+* ---- STEP 33. Outcome on price, by group: outcome = a + b*priced + c*group + d*group*priced, clustered by trade ------
+regress net_outcome c.net_fcst##i.futures if declared == 1, vce(cluster trade_id)
+* Should print: {{F_C_futures_W}} (took picks and prospects for players, WAR)
+regress net_outcome c.net_fcst##i.deadline_buyer if declared == 1, vce(cluster trade_id)
+* Should print: {{F_C_deadline_buyer_W}} (higher in the standings, deadline window, WAR)
+regress net_outcome c.net_fcst##i.other_buyer if declared == 1, vce(cluster trade_id)
+* Should print: {{F_C_other_buyer_W}} (higher in the standings, rest of the regular season, WAR)
+regress net_outcome c.net_fcst##i.rental if declared == 1, vce(cluster trade_id)
+* Should print: {{F_C_rental_W}} (received a rental, WAR)
+regress net_outcome c.net_fcst##i.retained if declared == 1, vce(cluster trade_id)
+* Should print: {{F_C_retained_W}} (retained salary, WAR)
+regress net_outcome c.net_fcst##i.age28_31 if declared == 1, vce(cluster trade_id)
+* Should print: {{F_C_age28_31_W}} (main player aged 28 to 31, WAR)
+regress net_outcome c.net_fcst##i.age32_plus if declared == 1, vce(cluster trade_id)
+* Should print: {{F_C_age32_plus_W}} (main player 32 or over, WAR)
+regress net_outcome c.net_fcst##i.defence if declared == 1, vce(cluster trade_id)
+* Should print: {{F_C_defence_W}} (main player a defenceman, WAR)
+regress net_outcome c.net_fcst##i.clause if declared == 1, vce(cluster trade_id)
+* Should print: {{F_C_clause_W}} (main player with a no-trade or no-move clause, WAR)
+regress net_outcome c.net_fcst##i.top15_below if declared == 1, vce(cluster trade_id)
+* Should print: {{F_C_top15_below_W}} (a former top-15 pick below the benchmark, WAR)
+regress net_outcome c.net_fcst##i.one_for_many if declared == 1, vce(cluster trade_id)
+* Should print: {{F_C_one_for_many_W}} (received one asset for two or more, WAR)
+regress net_outcome c.net_fcst##i.took_dump if declared == 1, vce(cluster trade_id)
+* Should print: {{F_C_took_dump_W}} (took a contract another club paid to move, WAR)
+regress net_outcome c.net_fcst##i.new_gm_sold if declared == 1, vce(cluster trade_id)
+* Should print: {{F_C_new_gm_sold_W}} (sold under a new GM, his predecessor's contract, WAR)
+regress net_outcome c.net_fcst##i.nothing_back if declared == 1, vce(cluster trade_id)
+* Should print: {{F_C_nothing_back_W}} (received nothing recorded, WAR)
+regress net_outcome_gv c.net_fcst##i.futures if declared == 1, vce(cluster trade_id)
+* Should print: {{F_C_futures_G}} (took picks and prospects for players, Game Value)
+regress net_outcome_gv c.net_fcst##i.deadline_buyer if declared == 1, vce(cluster trade_id)
+* Should print: {{F_C_deadline_buyer_G}} (higher in the standings, deadline window, Game Value)
+regress net_outcome_gv c.net_fcst##i.other_buyer if declared == 1, vce(cluster trade_id)
+* Should print: {{F_C_other_buyer_G}} (higher in the standings, rest of the regular season, Game Value)
+regress net_outcome_gv c.net_fcst##i.rental if declared == 1, vce(cluster trade_id)
+* Should print: {{F_C_rental_G}} (received a rental, Game Value)
+regress net_outcome_gv c.net_fcst##i.retained if declared == 1, vce(cluster trade_id)
+* Should print: {{F_C_retained_G}} (retained salary, Game Value)
+regress net_outcome_gv c.net_fcst##i.age28_31 if declared == 1, vce(cluster trade_id)
+* Should print: {{F_C_age28_31_G}} (main player aged 28 to 31, Game Value)
+regress net_outcome_gv c.net_fcst##i.age32_plus if declared == 1, vce(cluster trade_id)
+* Should print: {{F_C_age32_plus_G}} (main player 32 or over, Game Value)
+regress net_outcome_gv c.net_fcst##i.defence if declared == 1, vce(cluster trade_id)
+* Should print: {{F_C_defence_G}} (main player a defenceman, Game Value)
+regress net_outcome_gv c.net_fcst##i.clause if declared == 1, vce(cluster trade_id)
+* Should print: {{F_C_clause_G}} (main player with a no-trade or no-move clause, Game Value)
+regress net_outcome_gv c.net_fcst##i.top15_below if declared == 1, vce(cluster trade_id)
+* Should print: {{F_C_top15_below_G}} (a former top-15 pick below the benchmark, Game Value)
+regress net_outcome_gv c.net_fcst##i.one_for_many if declared == 1, vce(cluster trade_id)
+* Should print: {{F_C_one_for_many_G}} (received one asset for two or more, Game Value)
+regress net_outcome_gv c.net_fcst##i.took_dump if declared == 1, vce(cluster trade_id)
+* Should print: {{F_C_took_dump_G}} (took a contract another club paid to move, Game Value)
+regress net_outcome_gv c.net_fcst##i.new_gm_sold if declared == 1, vce(cluster trade_id)
+* Should print: {{F_C_new_gm_sold_G}} (sold under a new GM, his predecessor's contract, Game Value)
+regress net_outcome_gv c.net_fcst##i.nothing_back if declared == 1, vce(cluster trade_id)
+* Should print: {{F_C_nothing_back_G}} (received nothing recorded, Game Value)
+
+* ---- STEP 34. The joint regression: club A minus club B, no constant, robust standard errors --------------------
+import delimited using "findings_trades.csv", clear
+label variable a_net_fcst "Club A's priced net, \$M"
+label variable a_net_outcome "Club A's outcome on WAR, \$M"
+label variable a_net_outcome_gv "Club A's outcome on Game Value, \$M"
+label variable declared "1 for a trade in the declared window"
+* Should print, on {{F_JOINT_N}}:
+regress a_net_fcst d_futures d_deadline_buyer d_other_buyer d_rental d_retained d_age28_31 d_age32_plus d_defence d_clause d_top15_below d_one_for_many d_took_dump d_new_gm_sold if declared == 1, noconstant vce(robust)
+* Should print: {{F_JOINT_P}}
+regress a_net_outcome d_futures d_deadline_buyer d_other_buyer d_rental d_retained d_age28_31 d_age32_plus d_defence d_clause d_top15_below d_one_for_many d_took_dump d_new_gm_sold if declared == 1, noconstant vce(robust)
+* Should print: {{F_JOINT_W}}
+regress a_net_outcome_gv d_futures d_deadline_buyer d_other_buyer d_rental d_retained d_age28_31 d_age32_plus d_defence d_clause d_top15_below d_one_for_many d_took_dump d_new_gm_sold if declared == 1, noconstant vce(robust)
+* Should print: {{F_JOINT_G}}
+regress a_net_outcome d_futures d_deadline_buyer d_other_buyer d_rental d_retained d_age28_31 d_age32_plus d_defence d_clause d_top15_below d_one_for_many d_took_dump d_new_gm_sold a_net_fcst if declared == 1, noconstant vce(robust)
+* Should print: {{F_JOINT_WP}} (the priced net held)
+regress a_net_outcome_gv d_futures d_deadline_buyer d_other_buyer d_rental d_retained d_age28_31 d_age32_plus d_defence d_clause d_top15_below d_one_for_many d_took_dump d_new_gm_sold a_net_fcst if declared == 1, noconstant vce(robust)
+* Should print: {{F_JOINT_GP}} (the priced net held)

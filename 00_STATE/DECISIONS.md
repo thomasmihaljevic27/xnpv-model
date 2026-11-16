@@ -4035,3 +4035,9 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   delivered their forecast by games, ice time and every part of WAR; defenceman club sides came out as priced. The
   price-held defenceman coefficient was the contrast with forward sides, which beat their price on what they gave. The
   reading that the models overvalue defencemen is withdrawn. MANIFEST one row; session log sessions/2026-11-15.md.
+
+### Change log, 2026-11-15h (the findings in Stata)
+
+- BUILT (Thomas: "some way to verify what you're saying through stata"): `stata_export_backtest.py` v1.2 (two CSVs and
+  their expected figures, checked against `groups_clustered.csv`), `stata_refresh.py` v1.3, the do-file template's Part 6
+  and the guide's "Findings" section. Untested in Stata. MANIFEST rows; session log sessions/2026-11-15.md.
