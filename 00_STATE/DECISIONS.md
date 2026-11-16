@@ -4041,3 +4041,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - BUILT (Thomas: "some way to verify what you're saying through stata"): `stata_export_backtest.py` v1.2 (two CSVs and
   their expected figures, checked against `groups_clustered.csv`), `stata_refresh.py` v1.3, the do-file template's Part 6
   and the guide's "Findings" section. Untested in Stata. MANIFEST rows; session log sessions/2026-11-15.md.
+
+### Change log, 2026-11-15i (the bullet-point writeup)
+
+- DOCUMENT (Thomas): `40_DOCS/Back-test Findings and Methods.docx`, built by `25_TESTS/findings_doc.js` v1.0 on the five
+  agreed take-aways. No model change. MANIFEST one row; session log sessions/2026-11-15.md.
