@@ -4028,3 +4028,10 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   intervals equal the resampled ones (width ratio 0.95 to 1.06). Holm, declared window: four outcome groups on WAR. With
   the price held, no group's outcome differs from what its price predicts in the declared window, except defencemen in
   the joint regression. MANIFEST one row; session log sessions/2026-11-15.md.
+
+### Change log, 2026-11-15g (the defenceman checks)
+
+- RUN (Thomas: "Yes, run them"; report only; declared 345700a): `25_TESTS/defence_checks.py` v1.1. Traded defencemen
+  delivered their forecast by games, ice time and every part of WAR; defenceman club sides came out as priced. The
+  price-held defenceman coefficient was the contrast with forward sides, which beat their price on what they gave. The
+  reading that the models overvalue defencemen is withdrawn. MANIFEST one row; session log sessions/2026-11-15.md.

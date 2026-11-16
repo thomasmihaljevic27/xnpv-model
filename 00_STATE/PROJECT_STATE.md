@@ -76,7 +76,10 @@ The sections as they stood at the 2026-10-22 refresh are in History, as written.
 - Outcome findings that survive the other characteristics (`joint_regression.py`, 913 two-team trades) AND the seasons
   played alone, on WAR and Game Value: the club acquiring a main player aged 28 to 31 (-$1.12M a side on WAR; -$1.03M on
   the seasons played), one with a no-trade or no-move clause (-$1.48M; -$1.41M), a defenceman (-$0.82M; -$0.70M; Game
-  Value is weak for defencemen). Typical deal: a clause veteran aged 28 to 31 for picks, the buyer -$3.07M on WAR.
+  Value is weak for defencemen; `defence_checks.py`, 2026-11-15: traded defencemen delivered their forecast by games, ice
+  time and every part of WAR, so the result is the price, not the measure). Typical deal: a clause veteran aged 28 to 31 for
+  picks, the buyer -$3.07M on WAR. With the price held (`groups_clustered.py`), no group comes out beyond what its price
+  predicts in the declared window: the outcomes bear out the models' prices.
 - Pricing findings (the price differs from the models' value; the outcome difference does not survive the others):
   picks and prospects for players (+$0.89M a side priced), taking a contract to clear cap (-$3.50M; cap space costs
   $0.096M of futures per $1M cleared), one asset for two or more (-$0.66M), a new general manager selling his
