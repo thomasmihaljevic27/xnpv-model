@@ -8,7 +8,7 @@
 
 ## Live (audited 2026-11-15)
 
-1. Decide (Thomas): the writeup's three to five take-aways, before any drafting (CLAUDE.md: an agreed spine first).
+1. Done 2026-11-15: the writeup's five take-aways agreed (session 2026-11-15). Next: the draft, on that spine.
 2. Read (Thomas): the eleven spelling cases added to `prospect_values.REVIEWED_DISAGREEMENTS` on 2026-11-11 (Cal Foote,
    Patrik Puistola, Jack Dugan, Pat Maroon twice, Emilio Pettersen, Vasily Ponomarev, J.J. Moser, Ronnie Attard, Tommy
    Novak, JJ Peterka), each marked read by Claude only.
