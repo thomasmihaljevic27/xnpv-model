@@ -4007,3 +4007,9 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   Outcome results that survive the others: main player 28 to 31, a clause, a defenceman. Pricing only: futures for
   players, cap dumps, one asset for two or more, the new GM. Deadline buyer and retained salary absorbed. MANIFEST rows;
   session log sessions/2026-11-15.md.
+
+### Change log, 2026-11-15d (the seasons played only)
+
+- RUN (Thomas: "Yes, run it"; report only; declared 49cf206): the cuts and the joint regression on the outcome through
+  2025-26 only. The three surviving outcome findings (age 28 to 31, a clause, a defenceman) hold on the seasons played.
+  `backtest_cuts.py` v1.5, `joint_regression.py` v1.2. Session log sessions/2026-11-15.md.
