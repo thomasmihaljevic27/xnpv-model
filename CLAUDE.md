@@ -32,7 +32,10 @@ As of the 2026-10-14 refresh (PROJECT_STATE v3.4, "Current state" and "Model as 
 contracts are priced on xNPV 1 with the five player directives built; the draft pick curve and the traded-pick
 values are built, with the arbitration cost for control seasons adopted on both sides (2026-10-13); the
 prospect model is built (2026-10-14: slot, production adjusted to NHL terms and age, undrafted players on NHL
-contracts with the slot at zero, `prospect_values.py`), each addition Thomas's; the back-test has not started.
+contracts with the slot at zero, `prospect_values.py`), each addition Thomas's. As of the 2026-11-15 refresh (PROJECT_STATE
+v3.6): the back-test is run on the declared window and on all trades to March 2026, with its exploratory cuts, the joint
+regression and the term and seasons-played sensitivities; the findings are in PROJECT_STATE's "Current state"; the next
+step is the writeup's spine.
 Built 2026-10-15: drafted players who died before reaching the NHL are left out of every fit (`deceased_draftees.py`), and
 the prospect model has no age-removed version (age centred at 18; `prospect_values.py` v1.7).
 Built 2026-10-14: every age the model reads follows the CBA (September 15; drafted players' signing ages in the

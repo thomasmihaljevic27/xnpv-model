@@ -6,7 +6,20 @@
      prospect specification lives in MODEL_DIRECTIVES.md directive 6 (the old sequence docs were archived
      2026-10-09). -->
 
-## Live (audited 2026-10-14)
+## Live (audited 2026-11-15)
+
+1. Decide (Thomas): the writeup's three to five take-aways, before any drafting (CLAUDE.md: an agreed spine first).
+2. Read (Thomas): the eleven spelling cases added to `prospect_values.REVIEWED_DISAGREEMENTS` on 2026-11-11 (Cal Foote,
+   Patrik Puistola, Jack Dugan, Pat Maroon twice, Emilio Pettersen, Vasily Ponomarev, J.J. Moser, Ronnie Attard, Tommy
+   Novak, JJ Peterka), each marked read by Claude only.
+3. Bring (Thomas): the effective date of the 2025-26 retention rule change (cut 9's split; not verified).
+4. Decide later (Thomas, "Leave for now", 2026-11-11): whether to rebuild the three finished prospect tests and the
+   documents' `numbers.json` on today's model, so the defenceman guard and the Stata document check run again.
+5. Do (Thomas): run the Stata guide's commands (untested in Stata); the Stata files are on the model of 2026-11-11.
+6. Ask (dated 2026-11-08, untouched since): does Nick Suzuki's dashboard value still need a look?
+
+## Earlier live list (audited 2026-10-14, items to 2026-11-09), kept as written
+
 
 **From the supervisor meeting of 2026-10-23 (session 2026-10-23 has the full list in Thomas's words).** Before Tuesday
 2026-10-27, when the supervisor prints the document:
