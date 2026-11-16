@@ -4000,3 +4000,10 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 
 - DECIDED (Thomas: "Keep term left"): mid-contract seasons stay priced on the term left (directive 4 as built). The
   original-term run is the sensitivity. No code change. STANDING_FLAGS entry closed; session log sessions/2026-11-15.md.
+
+### Change log, 2026-11-15c (which findings survive each other)
+
+- RUN (Thomas: "Yes, run it"; report only; declared 15a705d): `25_TESTS/joint_regression.py` v1.1 on 913 two-team trades.
+  Outcome results that survive the others: main player 28 to 31, a clause, a defenceman. Pricing only: futures for
+  players, cap dumps, one asset for two or more, the new GM. Deadline buyer and retained salary absorbed. MANIFEST rows;
+  session log sessions/2026-11-15.md.
