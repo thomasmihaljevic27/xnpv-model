@@ -3989,3 +3989,9 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - RUN (report only): the back-test and every cut on the original term, into `30_OUTPUT/_original_term_run/`. Traded
   players' forecast -$1,028.5M -> -$108.1M; priced findings mostly hold, outcome findings mostly do not (session
   2026-11-12). No model change: directive 4's term basis is open for Thomas. MANIFEST rows updated.
+
+### Change log, 2026-11-15 (does term carry quality the forecast misses?)
+
+- TESTED (Thomas: "Yes, run it"; report only; declared 9ff10d0): `25_TESTS/term_quality_test.py` v1.1. Per extra year of
+  term, out-performance of +$0.08M to +$0.17M a season, 9% to 20% of the term premium. No model change; the term basis
+  stays open for Thomas. STANDING_FLAGS updated; MANIFEST one row; session log sessions/2026-11-15.md.

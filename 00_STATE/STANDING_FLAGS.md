@@ -1459,3 +1459,9 @@ comes out behind (age 28 to 31, defencemen, deadline rentals, clause players, ca
 players seen from the other side) are stated at this level. An approximate adjustment shrinks them and reverses none
 of the four protocol groups checked. Not decided: whether a mid-contract season is priced on the remaining term, the
 original term, or no term.
+
+Update 2026-11-15 (`25_TESTS/term_quality_test.py`): longer contracts out-perform their signing-dated forecast by
+$0.08M to $0.17M a season per extra year of term (statistically significant at the 5% level in a contract's first and
+second seasons, with the forecast, position, signing status and age held), against the $0.851M the term premium pays:
+a tenth to a fifth of the premium is quality the forecast misses. The remaining-term rule is the closer of the two;
+the original-term sensitivity overstates mid-contract players. Still Thomas's choice.
