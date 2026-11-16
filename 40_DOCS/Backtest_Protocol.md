@@ -363,3 +363,25 @@ nothing recorded (C5). For each group and each outcome (priced net, outcome net 
 The joint regression is re-fitted with robust standard errors (its rows are trades, so clustering by trade is the
 plain robust error), and once more with the priced net added as a regressor (Thomas's form, all traits together).
 No group, outcome or rule changes; the resampled intervals stay beside each new one.
+
+## Is the defenceman result the measures' weakness on defence? (declared 2026-11-15, before it was built; Thomas: "Yes, run them")
+
+The finding: clubs acquiring a defenceman come out worse than even their price predicts (joint regression, price held),
+on WAR and on Game Value, and both measures are built from shot-and-shift data, weak on defence. Script
+`25_TESTS/defence_checks.py`, report only, the model as decided.
+0. The loose end: per asset, traded defencemen delivered about what was forecast (test B by position), yet the club sides
+   fall short. For club sides whose main player is a defenceman (and, beside, a forward), the side's outcome minus its
+   priced net is split into the main player's own miss, the other assets received, and the assets given.
+1. Games against quality per game. For every skater the forecast covers, at every July 1 page 2018-2025, seasons one to
+   three ahead through 2025-26: delivered minus expected season WAR is split exactly into a games part ((games share
+   delivered - expected) x forecast rate per 82) and a per-game part (games share delivered x (rate delivered - forecast
+   rate)). Defencemen against forwards; players traded in the twelve months after the page against not traded.
+2. Ice time. Each such season's ice time per game against the player's own 50/30/20 trailing ice time per game before
+   the page (seasons of 10+ games): traded against not, within each position. Ice time is the coaches' choice and uses
+   no WAR model.
+3. Bacon's WAR by part. The same seasons' per-82 rates of even-strength offence, even-strength defence, power play,
+   penalty kill, penalties and shooting, each against the player's own 50/30/20 trailing rate: traded defencemen
+   against untraded.
+Intervals: 2,000 resamples of players, seed 20261115. Reading declared in advance: a shortfall carried by games (1), by
+ice time (2), or by parts other than even-strength defence (3) is not the measures' weakness on defence; a shortfall
+carried by the per-game part and by even-strength defence alone, with ice time held up, points at the measures.
