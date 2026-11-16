@@ -344,3 +344,22 @@ the declared window, the trades after 2022-03-28 and all trades, and the joint r
 window. An outcome finding is called independent of the re-valuation when it keeps its sign with a 95% interval
 excluding zero on the seasons played. Expected in advance: recent trades' outcomes shrink toward zero (few seasons
 played), so the trades after 2022-03-28 have the least power under it.
+
+## Standard errors clustered by trade, and outcome on price by group (declared 2026-11-15, before it was built; Thomas: "Yes, re-run them")
+
+Why: the group results were averages with intervals from 2,000 resamples of trades. The same problem (a trade's two
+sides are mirror images, so club sides are not independent) is solved in the standard way by robust standard errors
+clustered by trade. Script: `25_TESTS/groups_clustered.py`, on the extended run's club sides (the model as decided; all
+trades, the declared window and the trades after 2022-03-28 as subsets).
+
+Groups: the joint regression's thirteen characteristics, each as a club-side indicator, and the club that received
+nothing recorded (C5). For each group and each outcome (priced net, outcome net on WAR, on Game Value):
+1. The group's mean, with a standard error clustered by trade, beside the resampled interval it replaces.
+2. Thomas's regression, on every club side: outcome net = a + b x priced net + c x (in the group) + d x (in the group x
+   priced net), clustered by trade. c is the group's outcome beyond what its price predicts (the mispricing reading);
+   d is whether the models' verdict comes true differently in the group. Run on the outcome on WAR and on Game Value.
+3. Holm's adjustment of the p-values across the fourteen groups, separately for each outcome and each scope; the
+   declared window is the primary scope, the trades after 2022-03-28 the replication.
+The joint regression is re-fitted with robust standard errors (its rows are trades, so clustering by trade is the
+plain robust error), and once more with the priced net added as a regressor (Thomas's form, all traits together).
+No group, outcome or rule changes; the resampled intervals stay beside each new one.
