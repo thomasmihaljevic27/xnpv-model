@@ -1465,3 +1465,5 @@ $0.08M to $0.17M a season per extra year of term (statistically significant at t
 second seasons, with the forecast, position, signing status and age held), against the $0.851M the term premium pays:
 a tenth to a fifth of the premium is quality the forecast misses. The remaining-term rule is the closer of the two;
 the original-term sensitivity overstates mid-contract players. Still Thomas's choice.
+Decided 2026-11-15 (Thomas: "Keep term left"): the model keeps the remaining-term rule; the original-term run is reported
+as a sensitivity (an upper bound). Closed.

@@ -3995,3 +3995,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - TESTED (Thomas: "Yes, run it"; report only; declared 9ff10d0): `25_TESTS/term_quality_test.py` v1.1. Per extra year of
   term, out-performance of +$0.08M to +$0.17M a season, 9% to 20% of the term premium. No model change; the term basis
   stays open for Thomas. STANDING_FLAGS updated; MANIFEST one row; session log sessions/2026-11-15.md.
+
+### Change log, 2026-11-15b (term basis)
+
+- DECIDED (Thomas: "Keep term left"): mid-contract seasons stay priced on the term left (directive 4 as built). The
+  original-term run is the sensitivity. No code change. STANDING_FLAGS entry closed; session log sessions/2026-11-15.md.
