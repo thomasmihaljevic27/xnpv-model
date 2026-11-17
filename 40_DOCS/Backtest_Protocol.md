@@ -385,3 +385,17 @@ on WAR and on Game Value, and both measures are built from shot-and-shift data, 
 Intervals: 2,000 resamples of players, seed 20261115. Reading declared in advance: a shortfall carried by games (1), by
 ice time (2), or by parts other than even-strength defence (3) is not the measures' weakness on defence; a shortfall
 carried by the per-game part and by even-strength defence alone, with ice time held up, points at the measures.
+
+## Why do clubs overpay for clause players? (declared 2026-11-17, before it was built; Thomas: "Yes, run them")
+
+The clause result holds with the age bands held (joint regression). Three explanations are tested, report only, script
+`25_TESTS/clause_checks.py`, all trades and the declared window, the model as decided:
+1. A marker of a free-agent contract. The joint regression is re-fitted with two more differences between the clubs:
+   the main player's contract signed as an unrestricted free agent (PuckPedia's signing status; unknown counts 0, the
+   count printed), and his cap hit ($M). If the clause coefficient falls to zero and the free-agent coefficient takes
+   its place, the clause marks a free-agent contract.
+2. Reputation. For main players with a cap hit of $3M or more: his 50/30/20 trailing WAR total before the trade's page
+   less the forecast's expected WAR for the first season (chance of playing x WAR if he plays), clause against no
+   clause; and whether the club's priced net falls as that gap grows, with and without the clause held.
+3. The season. The clause group's means, off-season against in-season trades, standard errors clustered by trade.
+Each answers its own question; none excludes the others.
