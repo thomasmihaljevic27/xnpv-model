@@ -4060,3 +4060,10 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   clause, futures-for-players, cap-dump and 32+ results and replicates after 2022. Without it, clubs overpay for players
   aged 28 and over, former top-15 picks and clause players (price and outcome), defencemen (outcome). Trade prices follow
   about a quarter of contract-value differences. Take-aways open for Thomas. MANIFEST one row; session log 2026-11-17.
+
+### Change log, 2026-11-17c (who is overpaid on mature outcomes; model error or the market)
+
+- RUN (Thomas: "Yes, run both"; report only; declared b2ad2f3): `25_TESTS/who_overpaid_checks.py` v1.1. Clause and
+  former-top-15-pick results replicate after 2022 and on the seasons played; age 28 to 31 on the seasons played and the
+  declared window. With model error removed (two-stage) prices follow about 40 cents per dollar of contract value.
+  MANIFEST one row; session log sessions/2026-11-17.md.
