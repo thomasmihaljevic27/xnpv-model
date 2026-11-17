@@ -399,3 +399,24 @@ The clause result holds with the age bands held (joint regression). Three explan
    clause; and whether the club's priced net falls as that gap grows, with and without the clause held.
 3. The season. The clause group's means, off-season against in-season trades, standard errors clustered by trade.
 Each answers its own question; none excludes the others.
+
+## What the cap hit explains, and who clubs pay more than they are worth (declared 2026-11-17, before it was built; Thomas: "the more interesting finding is to follow the pattern of who is overpaid")
+
+The clause checks found the main player's cap hit carries the clause result. A contract's xNPV is its forecasted
+performance value less its cap hit, so "clubs overpay for expensive contracts" is partly the model's own definition.
+Script `25_TESTS/who_overpaid.py`, report only, all trades and the declared window, standard errors clustered by trade.
+A. What else the cap hit explains: the joint regression's thirteen coefficients with and without the main player's cap
+   hit; and the cap hit's coefficient on the trades after 2022-03-28 alone (its replication).
+B. How prices follow a contract's value. For club sides with a main player: the price paid for him is what the club gave
+   up less everything else it received, at the models' values. It is regressed on his contract's two parts: the value of
+   his forecasted performance (with his control seasons) and the present value of his cap hit over the seasons left
+   (cap hit x the share of the season left, then each further season, each divided by 1.03^k, stated at the 2025-26 cap;
+   retention and injured-reserve relief left out, so approximate). A price that follows each part in full has both
+   coefficients at 1 (the cost with a minus sign). Outcome beside: the same with the assets' delivered values.
+C. Who clubs pay more than they are worth, with the cap hit left out: the club's overpay (minus its priced net) and its
+   realised loss (minus its outcome net), on club sides with a main player, regressed on his characteristics measured
+   before the trade: age band (27 and under the base), defenceman, a clause, signed as an unrestricted free agent,
+   seasons left (one the base), his production (50/30/20 trailing WAR total), his record above the forecast (trailing
+   total less expected first-season WAR), his games share in the most recent season, and a former top-15 pick. All
+   together, then each alone.
+Exploratory: each term was chosen after the earlier results were read.
