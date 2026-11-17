@@ -1,6 +1,7 @@
-// findings_doc.js v1.0 -- builds "Back-test Findings and Methods.docx" (40_DOCS/), a bullet-point draft of the back-test's
+// findings_doc.js v1.1 -- builds "Back-test Findings and Methods.docx" (40_DOCS/), a bullet-point draft of the back-test's
 // methods and findings on the five take-aways agreed 2026-11-15 (Thomas: "give me a word doc of bullet points but show
-// numerical results").
+// numerical results"). v1.1 (2026-11-17; Thomas: "Yes, rebuild them"): Sections 3 to 6 on the rebuilt take-aways
+// (who is overpaid; how prices follow contract quality), from who_overpaid.py and who_overpaid_checks.py.
 //
 // NUMBERS: each figure is a constant below, read from the run log or results file named beside it (all written
 // 2026-11-11 to 2026-11-15 on the model as decided: each contract season on the term left). Declared window = trades
@@ -102,6 +103,10 @@ add(B("Group means. For each group of club sides (for example, clubs that acquir
   B("Game Value. A second measure of what a skater delivered, built from the NHL's game logs (on-ice expected goals for and against, "
     + "adjusted for score, plus penalties drawn and taken), with no Bacon inputs. It is put on WAR's scale by matching the league's mean "
     + "and spread each season. Each test is run on both measures; goaltenders keep WAR."),
+  B("Who is overpaid. For each club side with a main player, minus its priced net (the overpay) and minus its outcome net "
+    + "(the loss) are regressed on the main player's characteristics together, clustered by trade (Section 3)."),
+  B("Error in the models' values. Where a model value is used to explain a price, error in that value pulls the estimate "
+    + "toward zero; two-stage least squares, with what the contract delivered as the instrument, removes it (Section 4)."),
   B("Seasons played only. Each test is run again with the seasons from 2026-27 on set to zero, so no outcome rests on the models' own "
     + "re-valuation."),
   B("Each group and test was written into the back-test protocol and committed before it was computed. The groups beyond the "
@@ -124,74 +129,105 @@ add(B("With standard errors clustered by trade, the slope in the declared window
   B("Without any dollar rate, the net wins each club received on WAR and on Game Value correlate at 0.90 (1,133 club sides)."));
 
 // ==== 3. take-away 2 ====
-add(H1("3. Clubs Overpay for Players Aged 28 to 31, Defencemen and Clause Players"));
-add(B("The club that acquires such a player pays more than the models' value and comes out behind by about the amount it overpaid."));
-add(table(["Club acquiring", "Sides", "Priced", "Outcome, WAR", "Outcome, Game Value", "Beyond its price, WAR", "After 2022, WAR"], [
-  ["A main player aged 28 to 31", "159", "-1.56 (0.31)", "-1.49 (0.44), Holm p 0.008", "-1.56 (0.46), Holm p 0.008", "-0.28 (0.36)", "-0.87 (0.26), Holm p 0.009"],
-  ["A defenceman", "181", "-0.99 (0.24)", "-1.00 (0.31), Holm p 0.015", "-1.17 (0.33), Holm p 0.006", "-0.22 (0.27)", "-0.57 (0.21), Holm p 0.046"],
-  ["A player with a no-trade or no-move clause", "66", "-2.95 (0.53)", "-2.50 (0.65), Holm p 0.002", "-2.66 (0.79), Holm p 0.008", "-0.22 (0.84)", "-1.61 (0.39), Holm p < 0.001"],
-], [22, 7, 11, 16, 16, 12, 16]));
-add(NOTE("Declared window unless headed otherwise. The main player is the player with the highest cap hit the club received. "
-  + "\"Beyond its price\" is the group coefficient of the outcome-on-price regression; none is statistically significant at the 5% level. "
-  + "Source: groups_clustered.py v1.0."));
-add(B("With the other groups held (joint regression, all trades, outcome on WAR): aged 28 to 31 -1.12 (p = 0.001); a clause -1.48 "
-  + "(p = 0.009); a defenceman -0.82 (p = 0.002). On the seasons played only: -1.03 (p = 0.003), -1.41 (p = 0.006) and -0.70 (p = 0.006)."),
-  B("A typical deal: a clause veteran aged 28 to 31 for picks and prospects. The buying club is priced at -3.36 [-4.41, -2.40] and "
-    + "comes out at -3.07 [-4.42, -1.89] on WAR."),
-  B("Traded defencemen delivered their forecast: delivered less expected WAR a season -0.02 [-0.08, +0.04] (880 seasons, 253 players). "
-    + "Neither games played, ice time nor any part of WAR shows a shortfall specific to defencemen, so the result does not come from "
-    + "the measures' weakness on defence."));
+add(H1("3. Clubs Overpay for Age, Draft Pedigree and Clauses"));
+add(B("Clubs pay more than a player is worth for three things they can see before the trade: age (28 and over), draft "
+  + "pedigree (a former top-15 pick) and a no-trade or no-move clause. Those that do come out behind by about as much."),
+  B("How it is measured. For each club side with a main player (the player with the highest cap hit the club received), "
+    + "the overpay is minus the club's priced net and the loss is minus its outcome net. Both are regressed on the main "
+    + "player's characteristics together: his age band, defenceman, a clause, signed as an unrestricted free agent, seasons "
+    + "left, his production (50/30/20 trailing WAR total), his record above the forecast, his games share in the most "
+    + "recent season and a former top-15 pick. His cap hit is left out, because a contract's xNPV is already its "
+    + "performance value less its cap hit."));
+add(table(["Club acquiring a main player who is", "Overpay, all trades", "Loss on WAR, all trades", "Loss on Game Value, all trades",
+  "Loss on WAR, 2017-22, seasons played", "Loss on WAR, after 2022"], [
+  ["Aged 28 to 31", "+1.60*", "+1.78*", "+1.74*", "+2.07*", "+0.82"],
+  ["Aged 32 or over", "+2.03*", "+1.17", "+1.45*", "+1.43", "+0.47"],
+  ["On a contract with a clause", "+1.69*", "+1.55*", "+1.49*", "+1.94*", "+1.22*"],
+  ["A former top-15 pick", "+1.53*", "+1.52*", "+1.62*", "+1.37", "+1.50*"],
+], [30, 13, 14, 15, 15, 13]));
+add(NOTE("$M a side, all characteristics held together; the base is a forward aged 27 or under with one season left. * = "
+  + "statistically significant at the 5% level, standard errors clustered by trade. 735 club sides (540 trades) for all trades; "
+  + "431 for 2017-22; 304 after 2022. Source: who_overpaid.py v1.0, who_overpaid_checks.py v1.1."));
+add(B("Clauses and draft pedigree hold in price and in results on the trades after 2022 alone, and on the seasons played "
+  + "alone. In 2017-22 alone the pedigree result is the same size (+1.37) but not statistically significant (p = 0.11)."),
+  B("Age 28 to 31 holds in price and results in 2017-22 and on the seasons played. On the trades after 2022 the overpay "
+    + "replicates (+1.24, p = 0.039); the loss (+0.82) is not yet statistically significant, as those trades have fewer "
+    + "seasons played."),
+  B("Players aged 32 or over are overpaid in price (+2.03); the results bear it out on Game Value only."),
+  B("A strong recent record, high production and a full games share each predict an overpay alone, but none does once "
+    + "age and pedigree are held."),
+  B("Contracts with three or more seasons left are overpaid in price (+2.71) but not in results (+0.20): the gap comes "
+    + "from pricing each season on the term left (Section 6)."),
+  B("The same pattern by groups, 2017-22: clubs acquiring a main player aged 28 to 31 were priced at -1.56 (0.31) and came "
+    + "out at -1.49 (0.44); those acquiring a clause player at -2.95 (0.53) and -2.50 (0.65), each statistically significant "
+    + "after Holm's adjustment."));
 
 // ==== 4. take-away 3 ====
-add(H1("4. Clubs Selling Players for Picks and Prospects Come Out Ahead"));
-add(table(["Club that received only picks and prospects", "Sides", "Priced", "Outcome, WAR", "Outcome, Game Value"], [
-  ["Declared window", "275", "+1.54 (0.18)", "+0.91 (0.25), Holm p 0.003", "+1.02 (0.24), Holm p < 0.001"],
-  ["After 2022", "159", "+1.20", "+0.77 (0.22), Holm p 0.006", "+0.75"],
-], [34, 8, 14, 22, 22]));
-add(NOTE("Source: groups_clustered.py v1.0 and backtest_cuts.py v1.5."));
-add(B("This holds although picks themselves deliver less than forecast: -0.188 a pick in the declared window, -0.233 across all trades."),
-  B("With the other groups held (all trades), the seller's priced gain is +0.89 (p < 0.001) and its outcome +0.47 (p = 0.071): the "
-    + "outcome gain is partly carried by the age and clauses of the players the buying clubs take."));
+add(H1("4. Trade Prices Reflect About 40 Cents of Each Dollar of Contract Quality"));
+add(B("A contract's xNPV is the value of its forecasted performance (with the control seasons after it) less the present "
+  + "value of its cap hit. The price paid for a main player is what the club gave up less everything else it received, at "
+  + "the models' values. A market that priced contracts fully would move the price $1 for each $1 of performance value and "
+  + "-$1 for each $1 of cost."));
+add(table(["Price paid, per $1 of", "Performance value", "Cap-hit cost"], [
+  ["The models' value", "+0.26 (0.11)", "-0.27 (0.10)"],
+  ["The value as delivered", "+0.19 (0.09)", "-0.23 (0.09)"],
+  ["The models' value, its error removed (instrument: as delivered)", "+0.41 [+0.05, +0.76]", "-0.39 [-0.67, -0.07]"],
+  ["The same (instrument: the seasons played only)", "+0.39 [+0.00, +0.75]", "-0.37 [-0.65, -0.05]"],
+], [52, 24, 24]));
+add(NOTE("886 club sides, all trades; standard errors clustered by trade, intervals from 2,000 resamples of trades. The cost is "
+  + "approximate (injured-reserve relief left out). Error in the models' values pulls the first row toward zero; the two-stage "
+  + "rows remove it. In 2017-22 alone the two-stage estimates are +0.33 and -0.33, with intervals that include zero. Source: "
+  + "who_overpaid.py v1.0, who_overpaid_checks.py v1.1."));
+add(B("A player on a bargain contract therefore sells for too little, and one on an expensive contract for too much."),
+  B("This is why clubs that sell players for picks and prospects come out ahead: they are usually shedding expensive "
+    + "contracts. Priced +1.54 (0.18) a side and an outcome of +0.91 (0.25) in 2017-22; +0.77 (0.22) after 2022. With the "
+    + "main player's cap hit held, the result is -0.10, not statistically significant."),
+  B("Each $1M of the main player's cap hit costs the acquiring club 0.98 in price and 0.54 in outcome (all trades), and 0.76 "
+    + "and 0.44 on the trades after 2022 alone, each statistically significant at the 5% level."),
+  B("Cap dumps (43 trades in which a club sent a player at $2.5M or more with a pick or prospect and took back no player "
+    + "at $1M or more) are the same pattern: $0.096M of picks and prospects attached per $1M of cap cleared [0.057, 0.154], "
+    + "and the club taking the contract comes out behind."));
 
 // ==== 5. take-away 4 ====
-add(H1("5. What Looks Like Timing or Deal Structure Is the Player"));
+add(H1("5. What Is Not Mispriced, and What Has Not Changed"));
 add(table(["Group", "Sides", "Priced, alone", "Outcome WAR, alone", "Outcome WAR, others held"], [
   ["Higher in the standings, deadline window (14 days)", "193", "-0.92 (0.13)", "-0.54 (0.21), Holm p 0.089", "+0.01 (p 0.94)"],
   ["Retained salary", "86", "+1.30 (0.35)", "+1.03 (0.48), Holm p 0.274", "+0.27 (p 0.62)"],
   ["Received a rental (final season, unrestricted, in-season)", "260", "-0.35 (0.09)", "-0.16 (0.15)", "read with the deal below"],
-  ["Took a contract another club paid to move", "23", "-4.90 (0.88)", "-2.73 (1.02), Holm p 0.077", "-1.19 (p 0.10)"],
   ["Received one asset for two or more", "178", "-1.40 (0.22)", "-0.48 (0.37)", "-0.08 (p 0.77)"],
   ["Sold under a new general manager, his predecessor's contract", "65", "+1.69 (0.52)", "+0.36 (0.68)", "-0.12 (p 0.83)"],
 ], [36, 8, 14, 22, 20]));
-add(NOTE("\"Alone\": the group's mean, declared window. \"Others held\": the joint regression, all trades. Source: groups_clustered.py "
+add(NOTE("\"Alone\": the group's mean, 2017-22. \"Others held\": the joint regression, all trades. Source: groups_clustered.py "
   + "v1.0, joint_regression.py v1.2."));
-add(B("Deadline buying and retained salary carry no effect of their own; the player taken and the picks given carry them. A deadline "
-  + "rental for picks and prospects is priced at +0.02 [-0.36, +0.38] for the buyer and comes out at +0.47 [-0.04, +1.03]; the same "
-  + "rental aged 28 to 31 comes out at -0.65 [-1.31, -0.01]."),
-  B("Cap dumps. In 43 trades a club sent a player at $2.5M or more with a pick or prospect and took back no player at $1M or more. It "
-    + "cleared $8.3M of cap on average and attached $0.096M of picks and prospects per $1M cleared [0.057, 0.154]."),
-  B("New general managers. Selling a player signed by the predecessor in the first 365 days in the job gets more than the models' "
-    + "value (+1.69 in the declared window, +1.41 after 2022); the outcome difference does not hold with the other groups held."),
-  B("Offer sheets, a what-if on 1,215 contracts signed by restricted free agents since 2018, at the same term and the signed average "
+add(B("No change over time. The size of the gap between the price paid and the models' value changed by -0.019 a season "
+  + "[-0.084, +0.052] from 2017-18 to 2025-26. This uses trade-day prices only, which are complete for every trade."),
+  B("Deadline buying and retained salary carry no effect of their own; the player taken and the picks given carry them. A "
+    + "deadline rental for picks and prospects is priced at +0.02 [-0.36, +0.38] for the buyer and comes out at +0.47 "
+    + "[-0.04, +1.03]."),
+  B("One asset for two or more, and a new general manager selling his predecessor's players: the price differs from the "
+    + "models' value, and the results point the same way without reaching statistical significance."),
+  B("Defencemen. Traded defencemen delivered their forecast (-0.02 WAR a season [-0.08, +0.04]), by games, ice time and "
+    + "each part of WAR. Clubs acquiring a defenceman came out where their price said; clubs acquiring a forward came out "
+    + "better than theirs, because they tend to pay with picks and picks under-deliver."),
+  B("Offer sheets, a what-if on 1,215 contracts signed by restricted free agents since 2018 at the same term and average "
     + "annual value, less the compensation picks at the pick curve's values:"),
-  B("Positive payoff for 61% at the signed value, 54% at 10% more, 45% at 20% more; most of it below the compensation line (683 "
-    + "contracts, mean +1.01).", 1),
+  B("Positive payoff for 61% at the signed value, 54% at 10% more, 45% at 20% more; most of it below the compensation line "
+    + "(683 contracts, mean +1.01).", 1),
   B("Where a first-round pick is owed (terms of seven seasons or fewer): positive for 18 of 146, 10 of 169 and 4 of 189.", 1),
-  B("The four sheets tendered 2018 to 2025, at their own terms: Aho (2019) -17.08, Kotkaniemi (2021) -9.64, Broberg (2024) -6.95, "
-    + "Holloway (2024) -1.33. Matching rights are not modelled, so this is an upper bound on how much offer sheets are under-used.", 1),
-  B("Former top-15 picks below the benchmark at D+5 or later (134 players): 42% of the 125 with a later contract season reached the "
-    + "benchmark later. Kept from D+5, their xNPV fell by 1.31 [-2.23, -0.43] by the next July; from D+6 on the change is not "
-    + "statistically significant."),
-  B("Not findings: rentals as such; restricted free agents in their final season (outcome +0.45 [-0.33, +1.42]); learning over time "
-    + "(the size of the gap between the price paid and the models' value changes by -0.019 a season [-0.084, +0.052]); picks in rounds 6 and 7, priced "
-    + "at 0.09 each and delivering 0.09 less."));
+  B("The four sheets tendered 2018 to 2025, at their own terms: Aho (2019) -17.08, Kotkaniemi (2021) -9.64, Broberg (2024) "
+    + "-6.95, Holloway (2024) -1.33. Matching rights are not modelled, so this is an upper bound on how much offer sheets "
+    + "are under-used.", 1),
+  B("Former top-15 picks below the benchmark at D+5 or later (134 players): 42% of the 125 with a later contract season "
+    + "reached the benchmark later. Kept from D+5, their xNPV fell by 1.31 [-2.23, -0.43] by the next July."),
+  B("Picks in rounds 6 and 7 are priced at 0.09 each and deliver 0.09 less; restricted free agents in their final season "
+    + "show no gap (outcome +0.45 [-0.33, +1.42])."));
 
 // ==== 6. take-away 5 ====
-add(H1("6. The Mispricing Is in the Price, and One Modelling Choice Sets Its Reach"));
-add(B("No group comes out beyond what its trade-day price predicts. In the declared window, none of the fourteen group coefficients "
-  + "of the outcome-on-price regression is statistically significant at the 5% level, on WAR or on Game Value."),
-  B("The term rule. Each year of term is worth 0.0089 of a cap a season ($0.851M), and a contract season is priced on the term left. "
-    + "A contract fair when signed is therefore marked down as its term runs out:"));
+add(H1("6. The Mispricing Is in the Price, and What Limits the Evidence"));
+add(B("No group comes out beyond what its trade-day price predicts. In 2017-22, none of the fourteen group coefficients of the "
+  + "outcome-on-price regression is statistically significant at the 5% level, on WAR or on Game Value."),
+  B("The term rule. Each year of term is worth 0.0089 of a cap a season ($0.851M), and a contract season is priced on the term "
+    + "left. A contract fair when signed is therefore marked down as its term runs out:"));
 add(table(["Standard contracts of two or more seasons", "At signing", "1 season on", "2 seasons on", "3 seasons on", "4 seasons on"], [
   ["Mean xNPV", "-0.58", "-1.77", "-4.90", "-6.93", "-7.82"],
   ["The term rule's shortfall alone", "0.00", "-1.88", "-4.83", "-6.71", "-7.71"],
@@ -199,16 +235,20 @@ add(table(["Standard contracts of two or more seasons", "At signing", "1 season 
 add(NOTE("Every skater contract at every July 1, 2018 to 2025. Source: contract_value_by_age.py v1.1."));
 add(B("Priced on each contract's original term instead, the traded players sum to -108.1 rather than -1,028.5. Of the club-side "
   + "results whose interval excludes zero, 49 of 52 priced results still do (all trades), against 5 of 30 outcome results on WAR."),
-  B("Longer contracts out-perform their forecast by 0.076 to 0.174 a season per extra year of term (statistically significant at the 5% "
-    + "level in a contract's first and second seasons): 9% to 20% of the term premium. Most of the premium is not performance the "
-    + "forecast misses, which supports pricing on the term left."),
+  B("Longer contracts out-perform their forecast by 0.076 to 0.174 a season per extra year of term (statistically significant at "
+    + "the 5% level in a contract's first and second seasons): 9% to 20% of the term premium, which supports pricing on the "
+    + "term left."),
   B("Limits:"),
+  B("Results of trades after 2022 rest partly on the models valuing again picks and prospects that have not reached the NHL. "
+    + "Each finding in Section 3 is shown on the seasons played as well.", 1),
+  B("The characteristics in Sections 3 and 4 were chosen after the first results were read; they are exploratory, and their "
+    + "replication on the trades after 2022 is the main defence against chance.", 1),
   B("Wins are regular-season only; playoff value is outside the currency.", 1),
   B("The forecast and the outcome convert wins to dollars on the same price line; Game Value removes the shared performance "
     + "measure, not the shared rate.", 1),
   B("Game Value agrees with the WAR-based forecast at r = 0.65 for forwards and r = 0.30 for defencemen.", 1),
-  B("Only traded assets are observed, apart from the top-15 picks check.", 1),
-  B("Conditional picks are valued as unconditional (94 trades in the declared window).", 1));
+  B("Only traded assets are observed, apart from the top-15 picks check; conditional picks are valued as unconditional "
+    + "(94 trades in 2017-22).", 1));
 
 const doc = new Document({
   creator: "xNPV", title: "Trade Back-test: Methods and Findings",
@@ -230,4 +270,4 @@ const doc = new Document({
     children: body,
   }],
 });
-Packer.toBuffer(doc).then((buf) => { fs.writeFileSync(OUTFILE, buf); console.log("findings_doc.js v1.0 wrote " + OUTFILE); });
+Packer.toBuffer(doc).then((buf) => { fs.writeFileSync(OUTFILE, buf); console.log("findings_doc.js v1.1 wrote " + OUTFILE); });

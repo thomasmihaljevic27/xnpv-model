@@ -8,7 +8,7 @@
 
 ## Live (audited 2026-11-15)
 
-1. Done 2026-11-15: the writeup's five take-aways agreed (session 2026-11-15). Next: the draft, on that spine.
+1. Done 2026-11-17: the take-aways rebuilt and the bullet writeup rebuilt on them (`40_DOCS/Back-test Findings and Methods.docx`). Read (Thomas): the writeup.
 2. Read (Thomas): the eleven spelling cases added to `prospect_values.REVIEWED_DISAGREEMENTS` on 2026-11-11 (Cal Foote,
    Patrik Puistola, Jack Dugan, Pat Maroon twice, Emilio Pettersen, Vasily Ponomarev, J.J. Moser, Ronnie Attard, Tommy
    Novak, JJ Peterka), each marked read by Claude only.

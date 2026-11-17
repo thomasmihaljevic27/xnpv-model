@@ -4067,3 +4067,9 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   former-top-15-pick results replicate after 2022 and on the seasons played; age 28 to 31 on the seasons played and the
   declared window. With model error removed (two-stage) prices follow about 40 cents per dollar of contract value.
   MANIFEST one row; session log sessions/2026-11-17.md.
+
+### Change log, 2026-11-17d (the take-aways and the writeup rebuilt)
+
+- DECIDED (Thomas: "Yes, rebuild them"): take-aways 2 and 3 replaced by who is overpaid (age, pedigree, clauses) and how
+  prices follow contract quality (about 40 cents a dollar). `findings_doc.js` v1.1 rebuilds the writeup. MANIFEST one row;
+  session log sessions/2026-11-17.md.
