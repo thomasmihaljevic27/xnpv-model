@@ -4053,3 +4053,10 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   the main player's cap hit (each $1M: -0.98 priced, -0.54 outcome); not the free-agent signing, not reputation. The cap
   hit also absorbs the futures-for-players result. Take-aways 2 and 3 open for Thomas. MANIFEST one row; session log
   sessions/2026-11-17.md.
+
+### Change log, 2026-11-17b (what the cap hit explains; who clubs overpay)
+
+- RUN (Thomas; report only, exploratory; declared bd58087): `25_TESTS/who_overpaid.py` v1.0. The cap hit absorbs the
+  clause, futures-for-players, cap-dump and 32+ results and replicates after 2022. Without it, clubs overpay for players
+  aged 28 and over, former top-15 picks and clause players (price and outcome), defencemen (outcome). Trade prices follow
+  about a quarter of contract-value differences. Take-aways open for Thomas. MANIFEST one row; session log 2026-11-17.
