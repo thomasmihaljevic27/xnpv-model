@@ -420,3 +420,15 @@ C. Who clubs pay more than they are worth, with the cap hit left out: the club's
    total less expected first-season WAR), his games share in the most recent season, and a former top-15 pick. All
    together, then each alone.
 Exploratory: each term was chosen after the earlier results were read.
+
+## Two checks on who is overpaid and on how prices follow a contract (declared 2026-11-17, before they were built; Thomas: "Yes, run both")
+
+Script `25_TESTS/who_overpaid_checks.py`, report only, building its rows with `who_overpaid.build()`.
+1. Immature outcomes. The "who" regression (part C of who_overpaid.py) on the trades after 2022-03-28 alone, and on all
+   trades and the declared window with each club's result counted on the seasons played through 2025-26 only (the
+   re-valuation at 2026-27 set to zero). The overpay (the trade-day grade) is unchanged by either; only the loss moves.
+2. Model error or the market. Part B's price paid for the main player regressed on the value of his performance as
+   delivered (his asset's outcome plus the same cost), and on the seasons played only; then the price regressed on the
+   model's performance value with that value instrumented by the delivered value (two-stage least squares), which
+   removes the pull toward zero from error in the model's value if that error is unrelated to the luck in what was
+   delivered. Standard errors clustered by trade (the instrumented fit's by 2,000 resamples of trades, seed 20261117).
