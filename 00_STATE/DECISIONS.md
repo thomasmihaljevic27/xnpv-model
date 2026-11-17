@@ -4073,3 +4073,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - DECIDED (Thomas: "Yes, rebuild them"): take-aways 2 and 3 replaced by who is overpaid (age, pedigree, clauses) and how
   prices follow contract quality (about 40 cents a dollar). `findings_doc.js` v1.1 rebuilds the writeup. MANIFEST one row;
   session log sessions/2026-11-17.md.
+
+### Change log, 2026-11-17e (the writeup rewritten for readability)
+
+- DOCUMENT (Thomas): `findings_doc.js` v2.0 writes `40_DOCS/Trade Back-test, What We Found and How.docx`, rewritten from
+  scratch in plain point form; findings unchanged. MANIFEST one row; session log sessions/2026-11-17.md.
