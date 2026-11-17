@@ -4046,3 +4046,10 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 
 - DOCUMENT (Thomas): `40_DOCS/Back-test Findings and Methods.docx`, built by `25_TESTS/findings_doc.js` v1.0 on the five
   agreed take-aways. No model change. MANIFEST one row; session log sessions/2026-11-15.md.
+
+### Change log, 2026-11-17 (the clause checks)
+
+- RUN (Thomas: "Yes, run them"; report only; declared 89f1b3b): `25_TESTS/clause_checks.py` v1.2. The clause effect is
+  the main player's cap hit (each $1M: -0.98 priced, -0.54 outcome); not the free-agent signing, not reputation. The cap
+  hit also absorbs the futures-for-players result. Take-aways 2 and 3 open for Thomas. MANIFEST one row; session log
+  sessions/2026-11-17.md.
