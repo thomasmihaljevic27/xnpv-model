@@ -9,10 +9,9 @@
 ## Live (audited 2026-11-15)
 
 1. Done 2026-11-18: the writeup revised on Thomas's 35 comments (`40_DOCS/Trade Back-test, What We Found and How, revised.docx`;
-   his commented copy is the file without ", revised"). Read (Thomas): the revision. Decide (Thomas): whether the main test
-   moves to trades fully played out (197 of 563 in 2017-22, 18 of 633 picks), or stays as it is with those trades as a check;
-   whether Holm's adjustment stays out. Decide (Thomas): whether to re-run the Section 3 regression with each season priced
-   on the term signed (most group realized values lose significance under it; that regression was never run that way).
+   his commented copy is the file without ", revised"). Read (Thomas): the revision. Decided 2026-11-18 (Thomas: "Keep
+   it as a check, remove Holm, no re-run"): the played-out trades stay a check beside the main test; Holm's adjustment
+   stays out; the Section 3 regression is not re-run on the term signed (the writeup says it was not).
 2. Read (Thomas): the eleven spelling cases added to `prospect_values.REVIEWED_DISAGREEMENTS` on 2026-11-11 (Cal Foote,
    Patrik Puistola, Jack Dugan, Pat Maroon twice, Emilio Pettersen, Vasily Ponomarev, J.J. Moser, Ronnie Attard, Tommy
    Novak, JJ Peterka), each marked read by Claude only.

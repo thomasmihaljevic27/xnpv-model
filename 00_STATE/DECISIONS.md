@@ -4086,3 +4086,5 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   changes). RUN (Thomas's request; report only; declared after a first count): `25_TESTS/played_out_trades.py` v1.0, 197
   of 563 trades in 2017-22 fully played out. WORK_QUEUE live item 1 and the offer-sheet entry; protocol amendment; MANIFEST
   two rows; session log sessions/2026-11-18.md.
+- DECIDED (Thomas: "Keep it as a check, remove Holm, no re-run"): played-out trades a check, not the main test; Holm's
+  adjustment out of the writeup; no signed-term re-run of the who-is-overpaid regression. WORK_QUEUE live item 1; session log.
