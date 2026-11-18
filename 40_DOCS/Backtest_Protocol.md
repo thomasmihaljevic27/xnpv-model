@@ -444,3 +444,18 @@ club ahead (also with sides whose realized value is exactly zero set aside, sinc
 swaps in which nothing ever played), the slope through zero, the correlation and its square, with 95% intervals from
 2,000 resamples of trades (seed 20261118); declared window, after 2022-03-28, and all trades. No test or group in this
 protocol changes; whether the main test should move to played-out trades is Thomas's decision.
+
+## Who is overpaid, with each characteristic taken from any player received (declared 2026-11-18, before it was built; Thomas: "I would be interested in seeing the results done without this rule and just if they got that type of asset at all")
+
+Script `25_TESTS/who_overpaid_any.py`, report only, on the same club sides as `who_overpaid.py` part C (735, all trades;
+the same overpay, loss on WAR and loss on Game Value). One change: each yes-or-no characteristic is 1 when ANY player the
+club received has it, not only the main player (the highest cap hit). The players counted are the same pool the main
+player is chosen from (`backtest_assets` player rows valued by the player model or as buried contracts). The yes-or-no
+characteristics: aged 28 to 31, aged 32 or over, a defenceman, a no-trade or no-move clause, signed as an unrestricted free
+agent, two seasons left, three or more seasons left, a former top-15 pick. Each player's fact is built by the rule the
+main player's uses (age from the birthdate at the trade date; clause and seasons left from the contract running at the
+page; position from the asset; draft position from the prospect inventory). The three measured characteristics
+(production, record above the forecast, games share) stay the main player's, as they measure an amount, not a type of
+player. Guard: on clubs that received one player, each any-player flag equals the main player's. Reported beside the
+main-player figures: all trades; the declared window on the seasons played only; the trades after 2022-03-28; and how
+many clubs each characteristic adds. Standard errors clustered by trade. Exploratory, as part C.
