@@ -4078,3 +4078,11 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 
 - DOCUMENT (Thomas): `findings_doc.js` v2.0 writes `40_DOCS/Trade Back-test, What We Found and How.docx`, rewritten from
   scratch in plain point form; findings unchanged. MANIFEST one row; session log sessions/2026-11-17.md.
+
+### Change log, 2026-11-18 (the writeup revised on Thomas's comments)
+
+- DOCUMENT (Thomas's 35 comments and edits): `findings_doc.js` v2.1 writes `40_DOCS/Trade Back-test, What We Found and How,
+  revised.docx`; offer sheets dropped from the paper (Thomas); Holm's adjustment left out pending his call (no finding
+  changes). RUN (Thomas's request; report only; declared after a first count): `25_TESTS/played_out_trades.py` v1.0, 197
+  of 563 trades in 2017-22 fully played out. WORK_QUEUE live item 1 and the offer-sheet entry; protocol amendment; MANIFEST
+  two rows; session log sessions/2026-11-18.md.

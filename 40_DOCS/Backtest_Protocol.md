@@ -432,3 +432,15 @@ Script `25_TESTS/who_overpaid_checks.py`, report only, building its rows with `w
    model's performance value with that value instrumented by the delivered value (two-stage least squares), which
    removes the pull toward zero from error in the model's value if that error is unrelated to the luck in what was
    delivered. Standard errors clustered by trade (the instrumented fit's by 2,000 resamples of trades, seed 20261117).
+
+## Amendment, 2026-11-18: the headline on trades fully played out (requested after a first look)
+
+Thomas, commenting on the writeup: "I still think it may be best to not include any of the models own valuations when
+doing this comparison ... but I want to know how much it shrinks the sample size". A first count was run before this entry
+was written, so this check is declared after its result was seen. Script `25_TESTS/played_out_trades.py`, report only. A
+trade is fully played out when no asset in it carries any value re-assigned by the models at 2026-27 (each asset's
+`revalued_M` zero to $1e-6). On those trades, beside all complete trades, Test A as `backtest.py` computes it: the favoured
+club ahead (also with sides whose realized value is exactly zero set aside, since many played-out trades are minor-league
+swaps in which nothing ever played), the slope through zero, the correlation and its square, with 95% intervals from
+2,000 resamples of trades (seed 20261118); declared window, after 2022-03-28, and all trades. No test or group in this
+protocol changes; whether the main test should move to played-out trades is Thomas's decision.

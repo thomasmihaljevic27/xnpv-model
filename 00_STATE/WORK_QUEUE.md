@@ -8,7 +8,11 @@
 
 ## Live (audited 2026-11-15)
 
-1. Done 2026-11-17: the take-aways rebuilt and the bullet writeup rebuilt on them (`40_DOCS/Back-test Findings and Methods.docx`). Read (Thomas): the writeup.
+1. Done 2026-11-18: the writeup revised on Thomas's 35 comments (`40_DOCS/Trade Back-test, What We Found and How, revised.docx`;
+   his commented copy is the file without ", revised"). Read (Thomas): the revision. Decide (Thomas): whether the main test
+   moves to trades fully played out (197 of 563 in 2017-22, 18 of 633 picks), or stays as it is with those trades as a check;
+   whether Holm's adjustment stays out. Decide (Thomas): whether to re-run the Section 3 regression with each season priced
+   on the term signed (most group realized values lose significance under it; that regression was never run that way).
 2. Read (Thomas): the eleven spelling cases added to `prospect_values.REVIEWED_DISAGREEMENTS` on 2026-11-11 (Cal Foote,
    Patrik Puistola, Jack Dugan, Pat Maroon twice, Emilio Pettersen, Vasily Ponomarev, J.J. Moser, Ronnie Attard, Tommy
    Novak, JJ Peterka), each marked read by Claude only.
@@ -252,7 +256,10 @@ after the regular season are valued (adopted 2026-10-14, `rights_values.py`). 91
 are under utilized. We can model that somehow." How to model it is not yet decided. As of today nothing in `20_CODE/`
 models an offer sheet (one comment in `page_2017_values.py`). The supervisor (2026-10-15): about 12-14 offer sheets in the cap era, too few
 for statistics; put it aside until the paper is done ("you're having creep here"). Thomas: "at a minimum this is
-like a later thing". Thomas, 2026-11-08: "I would like to see the offer sheet stuff investigated but not at this time."
+like a later thing". Thomas, 2026-11-08: "I would like to see the offer sheet stuff investigated but not at this time." The what-if run as
+the back-test's cut 16 (2026-11-15) was dropped from the writeup (Thomas, 2026-11-18: "we can remove offer sheet analysis
+from the paper. I think this way of looking at offer sheets isn't intuitive and is too different from how we're determining
+other stuff and there isn't even a result").
 
 **Done 2026-10-14 (Thomas's decisions on the audit).**
 - 60/40 checks retired (commit 35cbb62): `skater_value_engine.py` v2.0 (a library), `goalie_value_engine.py` v1.3,
