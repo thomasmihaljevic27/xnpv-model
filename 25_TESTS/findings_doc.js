@@ -1,6 +1,8 @@
 // findings_doc.js v2.1 -- builds "Trade Back-test, What We Found and How, revised.docx" (40_DOCS/); v2.0 built "Trade
 // Back-test, What We Found and How.docx" (Thomas's commented copy of it is kept in git); v1.x "Back-test Findings and Methods.docx".
 //
+// v2.4 (2026-11-18; Thomas: "Move to limits"): the term section (its table and two bullets) becomes one limit.
+//
 // v2.3 (2026-11-18): Thomas's second round (14 comments and his edits on the v2.1 file), carried verbatim: title "Findings";
 // the opening bullets and "The data" cut; "valued at the same market rate"; "For each club what it actually received less
 // what it gave up is its realized value."; "valued again by the appropriate model"; "Step 3: look at categories of trades";
@@ -54,7 +56,7 @@ const {
 const ROOT = path.resolve(__dirname, "..");
 const OUTFILE = process.env.DOC_OUT || path.join(ROOT, "40_DOCS", "Trade Back-test Findings.docx")   // v2.3: a new file; the ", revised" file holds Thomas's second round of notes
 const FONT = "Arial";
-const VERSION = "findings_doc.js v2.3";
+const VERSION = "findings_doc.js v2.4";
 
 // ---- building blocks ---------------------------------------------------------------------------------------------------
 // A string is plain text; ["Label", "text"] as L() gives a bold lead-in label followed by plain text.
@@ -315,31 +317,14 @@ add(H2("The mispricing is captured by the model"));
 add(B("No type of trade, on average, over- or under-performed the models' prediction in a statistically significant way: "
   + "across the fourteen groups tested in 2017-22, each club's realized value compared with what its trade-day grade "
   + "predicted, on WAR and on Game Value, the smallest p-value is 0.063."));
-add(H2("How term is priced"));
-add(B("Each season of a contract carries a term premium: the models add 0.89% of the cap ($0.851M at the 2025-26 cap) for each "
-  + "year of term, because for the same forecasted performance clubs pay more a season on longer contracts."),
-  B("A contract is valued only over the seasons it has left. The question is which term each of those seasons uses: the term "
-    + "left at the valuation date, or the term the contract was signed for. A player with two seasons left on a six-year "
-    + "deal is valued over two seasons either way; on the term left each season carries two years of premium, on the term "
-    + "signed six."),
-  B("The models use the term left, so a contract fair when signed is marked down as its term runs out:"));
-add(table(["Contracts of two or more seasons", "At signing", "1 season on", "2 seasons on", "3 seasons on", "4 seasons on"], [
-  ["Average xNPV", "-0.58", "-1.77", "-4.90", "-6.93", "-7.82"],
-  ["The term rule's markdown alone", "0.00", "-1.88", "-4.83", "-6.71", "-7.71"],
-], [34, 13, 13, 13, 13, 14]));
-add(NOTE("Every skater contract at every July 1, 2018 to 2025."));
-add(B(L("Why the term left.", "The term signed would be right only if the premium bought performance the forecast misses, "
-  + "because the player would then deliver it in every season, his last two included. Longer contracts do out-perform their "
-  + "forecast, but by little: 0.076 to 0.174 WAR a season for each extra year of term, statistically significant at the 5% "
-  + "level only in a contract's first and second seasons. That is worth 9% to 20% of the premium. The other 80% to 91% buys "
-  + "no performance, so the models count only the term that remains.")),
-  B(L("What the choice changes.", "Priced on the term signed, the traded players' total xNPV is -$108.1M rather than "
-    + "-$1,028.5M. Most trade-day grades by group stay as they are: of the 52 groups whose grade is statistically significant "
-    + "(all trades), 49 still are. Most realized values by group do not: of the 30 whose realized value on WAR is "
-    + "statistically significant, 5 still are. The regression in Section 3 has not been re-run on the term signed.")));
 add(H2("The limits"));
 add(B(L("Recent realized values are part forecast.", "Picks and prospects traded after 2022 have mostly not reached the NHL, so "
   + "their realized values rest partly on the models.")),
+  B(L("How term is priced.", "Each year of term adds 0.89% of the cap ($0.851M) to a season's value, and each season counts the "
+    + "term left on the contract, not the term it was signed for, because longer contracts out-perform their forecast by only "
+    + "9% to 20% of that premium. The choice matters for the realized values: with each season priced on the term signed, 49 "
+    + "of the 52 trade-day grades by group that are statistically significant stay so, but only 5 of the 30 realized values "
+    + "on WAR. The regression in Section 3 has not been re-run that way.")),
   B(L("Declared and found.", "The clause group and the clubs selling players for picks and prospects are groups declared "
     + "before the main test was first run, and both differ from zero in it. The age and draft pedigree results, and Section "
     + "4, were found after the first results were read; for those, replication on the trades after 2022 is the main defence "

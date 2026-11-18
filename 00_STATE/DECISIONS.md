@@ -4095,3 +4095,4 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - DOCUMENT (Thomas's second round): `findings_doc.js` v2.3 writes `40_DOCS/Trade Back-test Findings.docx`; RUN
   `who_overpaid_checks.py` v1.2 (resampled standard errors and p-values for the two-stage rows; intervals unchanged).
   WORK_QUEUE 1 and 1b (his note for the paper); MANIFEST rows; session log.
+- DOCUMENT (Thomas: "Move to limits"): `findings_doc.js` v2.4, the term section folded into one limit. MANIFEST row.
