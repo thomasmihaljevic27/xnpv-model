@@ -465,3 +465,20 @@ Amendment, 2026-11-18 (after the first run of `who_overpaid_any.py`): Thomas mad
 with the highest cap"). v1.1 adds the columns the writeup reports as replications under the main-player rule: the
 trade-day grade after 2022-03-28, the loss on WAR in the declared window, and the loss on the seasons played across all
 trades. Nothing else changes.
+
+## The categories built from one player, with each taken from any player (declared 2026-11-18, before it was built; Thomas: "yes check all other categories for the any player version")
+
+Script `25_TESTS/groups_any.py`, report only, on `groups_clustered.py`'s club sides (the extended run). Of its fourteen
+categories, two are already built from any player received (a no-trade or no-move clause, backtest.py's C6; a former
+top-15 pick below the top-15 benchmark, backtest_cuts.py cut 5b) and seven are not about a player. Five are built from
+one player, and each gets an any-player version: received a rental (any player received in his final season,
+unrestricted at expiry, traded in-season); aged 28 to 31 and aged 32 or over (any player received); a defenceman (any
+player received); sold under a new general manager (any player sent whose contract was signed before that manager's first
+day, in his first 365 days; the main-player version uses the highest-paid player sent). Each player's facts follow the
+rule the one-player version uses (backtest_cuts.py's contract status, ages from the birthdate at the trade date,
+backtest_cuts_more.py's general managers). Reported beside the existing figures, standard errors clustered by trade:
+(1) each group's mean trade-day grade and realized value (WAR, Game Value), declared window; (2) the outcome-on-price
+coefficient c for each group (beyond its price), declared window, WAR and Game Value; (3) the joint regression on all
+trades with the five replaced together, robust standard errors. Guards: the one-player figures reproduce
+groups_clustered.py's; on sides with one player received (or sent, for the manager), each any-player flag equals the
+one-player flag. No other group, test or rule changes.
