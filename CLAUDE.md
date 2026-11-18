@@ -677,6 +677,11 @@ tests pinned to the old prospect rows (`prospect_curve_vs_line.py`, `prospect_pr
   for each thing." A second reading, one stacked dataset, drew "I didn't say it all had to be one dataset. I want to
   import csvs" (2026-11-08). Keep the plain, standard route (import a CSV, run the command); when a request admits more
   than one build, ask which before building.
+- **Don't leave a variant Thomas asked to see as a side check without asking whether it replaces the main one.** Asked to
+  see who is overpaid "without this rule and just if they got that type of asset at all", the any-player version was run
+  and added as one bullet beside the main-player table. Thomas: "I thought we agreed to switch to just yes or no on the
+  trade types" (2026-11-18). When the variant is his idea and he likes it, ask in the same reply whether it becomes the
+  main specification, and say what changes in the findings if it does.
 - **Don't let a document address its own reader.** Anything going to Karl (the `40_DOCS/`
   explainer set, status reports, review write-ups) must not name him, reference "the meeting,"
   or frame itself as a response to specific feedback ("this document answers...," "raised

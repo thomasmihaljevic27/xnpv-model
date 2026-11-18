@@ -42,7 +42,7 @@ from dotenv import load_dotenv
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 EXT = OUTPUT_DIR / "_extended_run"
-SCRIPT_VERSION = "who_overpaid_any.py v1.0 (2026-11-18)"
+SCRIPT_VERSION = "who_overpaid_any.py v1.1 (2026-11-18)"   # v1.1: three more columns for the replications (Thomas made the any-player rule the main one)
 DECLARED_END = "2022-03-28"
 LOG, OUT = [], []
 
@@ -146,7 +146,11 @@ def main():
             ("loss, WAR", "all trades", d["trade_id"].notna(), "loss"),
             ("loss, Game Value", "all trades", d["trade_id"].notna(), "loss_gv"),
             ("loss, WAR, 2017-22 played", "declared", d["trade_date"] <= DECLARED_END, "loss_played"),
-            ("loss, WAR, after 2022", "after", d["trade_date"] > DECLARED_END, "loss")]
+            ("loss, WAR, after 2022", "after", d["trade_date"] > DECLARED_END, "loss"),
+            # v1.1: the replications the writeup reports beside the main table
+            ("overpay, after 2022", "after", d["trade_date"] > DECLARED_END, "overpay"),
+            ("loss, WAR, 2017-22", "declared", d["trade_date"] <= DECLARED_END, "loss"),
+            ("loss, WAR, played, all trades", "all trades", d["trade_id"].notna(), "loss_played")]
     log("\nWHO IS OVERPAID: main player -> any player received ($M a side, positive = paid more / lost more; * = p < 0.05, "
         "clustered by trade)")
     log(f"  {'characteristic':<34}" + "".join(f"{c[0]:>30}" for c in cols))

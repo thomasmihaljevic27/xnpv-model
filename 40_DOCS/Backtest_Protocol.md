@@ -459,3 +459,9 @@ page; position from the asset; draft position from the prospect inventory). The 
 player. Guard: on clubs that received one player, each any-player flag equals the main player's. Reported beside the
 main-player figures: all trades; the declared window on the seasons played only; the trades after 2022-03-28; and how
 many clubs each characteristic adds. Standard errors clustered by trade. Exploratory, as part C.
+
+Amendment, 2026-11-18 (after the first run of `who_overpaid_any.py`): Thomas made the any-player rule the main one for the
+"who is overpaid" regression ("I thought we agreed to switch to just yes or no on the trade types, not by if it's the player
+with the highest cap"). v1.1 adds the columns the writeup reports as replications under the main-player rule: the
+trade-day grade after 2022-03-28, the loss on WAR in the declared window, and the loss on the seasons played across all
+trades. Nothing else changes.

@@ -4096,3 +4096,7 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   `who_overpaid_checks.py` v1.2 (resampled standard errors and p-values for the two-stage rows; intervals unchanged).
   WORK_QUEUE 1 and 1b (his note for the paper); MANIFEST rows; session log.
 - DOCUMENT (Thomas: "Move to limits"): `findings_doc.js` v2.4, the term section folded into one limit. MANIFEST row.
+- DECIDED (Thomas: "switch to just yes or no on the trade types, not by if it's the player with the highest cap"): the
+  who-is-overpaid regression uses each characteristic from any player received; the main-player rule is a sensitivity.
+  RUN `who_overpaid_any.py` v1.1 (protocol amendment). DOCUMENT `findings_doc.js` v2.5. CLAUDE.md rule added. MANIFEST rows;
+  WORK_QUEUE item 1; session log.
