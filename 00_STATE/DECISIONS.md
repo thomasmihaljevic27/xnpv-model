@@ -4103,3 +4103,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - DECIDED (Thomas: "I want to report both sides. One with the biggest contract lens and one without it"; replaces the
   any-player-only decision above): both rules reported side by side. DOCUMENT `findings_doc.js` v2.6. WORK_QUEUE 1a;
   MANIFEST row; session log.
+- DECIDED (Thomas: "Keep age as a headline finding, yes check all other categories for the any player version"). RUN
+  (report only; declared dbd6855): `25_TESTS/groups_any.py` v1.0, the five one-player categories with an any-player version;
+  no conclusion changes. DOCUMENT `findings_doc.js` v2.7. WORK_QUEUE 1a; MANIFEST rows; session log.

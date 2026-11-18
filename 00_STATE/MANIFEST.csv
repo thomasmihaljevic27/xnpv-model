@@ -441,4 +441,5 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,played_out_trades.py,backtest,hashable,2026-11-18,4f65e622021b31a5f45d0e22047a714b3c960acf,4268,2026-11-18,yes,git,"v1.0: the headline on trades fully played out (nothing left to forecast)"
 25_TESTS,who_overpaid_checks.py,backtest,hashable,2026-11-18,d1d918889c4f0677ce9505dc4cae0b6c054107a1,9813,2026-11-18,yes,git,"v1.2: two-stage rows with resampled standard errors and p-values (v1.1 intervals unchanged)"
 25_TESTS,who_overpaid_any.py,backtest,hashable,2026-11-18,02f17dff1988112d8e61a308c259e095606610c6,11479,2026-11-18,yes,git,"v1.1: the any-player rule (the main one since 2026-11-18), with the replication columns"
-25_TESTS,findings_doc.js,docs,hashable,2026-11-18,b98b0c4a46cf8dd0540ba644236830d4cb388b5a,35449,2026-11-18,yes,git,"v2.6: Section 3 under both rules (main player and any player); writes 40_DOCS/Trade Back-test Findings.docx"
+25_TESTS,findings_doc.js,docs,hashable,2026-11-18,a896e8b9bdf65528cb5a0eae412c15735a7cf68d,36968,2026-11-18,yes,git,"v2.7: Section 5 groups with their rule and any-player rows; writes 40_DOCS/Trade Back-test Findings.docx"
+25_TESTS,groups_any.py,backtest,hashable,2026-11-18,a905efcd4eba4b175632183059dc941096774ca9,14480,2026-11-18,yes,git,"v1.0: the five one-player categories with an any-player version"
