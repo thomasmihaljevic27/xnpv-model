@@ -1144,7 +1144,7 @@ import delimited using "findings_club_sides.csv", clear
 | `age28_31` | 1 for a club side that received a main player aged 28 to 31 |
 | `age32_plus` | 1 for a club side that received a main player 32 or over |
 | `defence` | 1 for a club side that received a main player a defenceman |
-| `clause` | 1 for a club side that received a main player with a no-trade or no-move clause |
+| `clause` | 1 for a club side that received any player with a no-trade or no-move clause |
 | `top15_below` | 1 for a club side that a former top-15 pick below the benchmark |
 | `one_for_many` | 1 for a club side that received one asset for two or more |
 | `took_dump` | 1 for a club side that took a contract another club paid to move |

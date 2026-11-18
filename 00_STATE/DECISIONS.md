@@ -4088,3 +4088,7 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   two rows; session log sessions/2026-11-18.md.
 - DECIDED (Thomas: "Keep it as a check, remove Holm, no re-run"): played-out trades a check, not the main test; Holm's
   adjustment out of the writeup; no signed-term re-run of the who-is-overpaid regression. WORK_QUEUE live item 1; session log.
+- RUN (Thomas; report only; declared 947764b): `25_TESTS/who_overpaid_any.py` v1.0, who is overpaid with each characteristic
+  from any player received; the findings keep their direction and significance on all trades, age and pedigree about a
+  fifth smaller. FOUND: the clause flag is any player received (backtest.py g_clause), mislabelled "main player" since;
+  writeup builder v2.2 (not yet written to 40_DOCS) and the Stata codebook corrected. MANIFEST rows; session log.

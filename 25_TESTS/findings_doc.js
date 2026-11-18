@@ -1,6 +1,10 @@
 // findings_doc.js v2.1 -- builds "Trade Back-test, What We Found and How, revised.docx" (40_DOCS/); v2.0 built "Trade
 // Back-test, What We Found and How.docx" (Thomas's commented copy of it is kept in git); v1.x "Back-test Findings and Methods.docx".
 //
+// v2.2 (2026-11-18): the clause flag described as it is built (any player received, backtest.py's g_clause; it was called the
+// main player's); a bullet on the any-player version of the who-is-overpaid regression (who_overpaid_any.py v1.0). Not yet
+// written to 40_DOCS: Thomas has the v2.1 file open with edits of his own to carry first.
+//
 // v2.1 (2026-11-18): Thomas's 35 comments on v2.0 and his own edits, carried verbatim (grades "sum to zero"; "Each asset is
 // followed after the trade and what it actually delivered is valued at the same prices."; "Standard errors are clustered by
 // trade."; "Creating one metric to evaluate players, picks and prospects works ... the result is replicable when using an
@@ -38,7 +42,7 @@ const {
 const ROOT = path.resolve(__dirname, "..");
 const OUTFILE = process.env.DOC_OUT || path.join(ROOT, "40_DOCS", "Trade Back-test, What We Found and How, revised.docx")   // v2.1: a new file; v2.0's holds Thomas's comments
 const FONT = "Arial";
-const VERSION = "findings_doc.js v2.1";
+const VERSION = "findings_doc.js v2.2";
 
 // ---- building blocks ---------------------------------------------------------------------------------------------------
 // A string is plain text; ["Label", "text"] as L() gives a bold lead-in label followed by plain text.
@@ -170,7 +174,8 @@ add(H2("How it was measured"));
 add(B("Each club's main player is the player with the highest cap hit it received. A club joins a group through its main "
   + "player only: for example, a club is in the former top-15 pick group when its main player is a former top-15 pick, not "
   + "when a former top-15 pick came with a more expensive player. Of the 1,152 clubs that received a player, 1,026 received "
-  + "only one; the rule decides the main player for the other 126."),
+  + "only one; the rule decides the main player for the other 126. The clause is the exception: a club is in the clause "
+  + "group when any player it received has a no-trade or no-move clause."),
   B("An overpay is the club's trade-day grade with its sign reversed: a club that gave up $2M more than it received, at the "
     + "models' values, overpaid by $2M, and a club that gained has a negative overpay. A loss is the club's realized value "
     + "with its sign reversed."),
@@ -186,7 +191,7 @@ add(H2("What was found"));
 add(table(["Club acquiring a main player who is", "Overpay", "Loss, WAR", "Loss, Game Value", "Loss, WAR, 2017-22, played seasons only", "Loss, WAR, after 2022"], [
   ["Aged 28 to 31", "1.60*", "1.78*", "1.74*", "2.07*", "0.82"],
   ["Aged 32 or over", "2.03*", "1.17", "1.45*", "1.43", "0.47"],
-  ["On a contract with a clause", "1.69*", "1.55*", "1.49*", "1.94*", "1.22*"],
+  ["With a clause (any player received)", "1.69*", "1.55*", "1.49*", "1.94*", "1.22*"],
   ["A former top-15 pick", "1.53*", "1.52*", "1.62*", "1.37", "1.50*"],
 ], [30, 12, 12, 14, 18, 14]));
 add(NOTE("$M a club, all trades unless the column says otherwise. * = statistically significant at the 5% level, standard "
@@ -197,6 +202,11 @@ add(B(L("The clause and former top-15 pick findings", "hold in both overpay and 
   B(L("The age 28 to 31 finding", "holds in both overpay and loss in 2017-22 and on played seasons only. On the trades after "
     + "2022 the overpay result replicates (1.24, p = 0.039); the loss (0.82) points the same way but is not yet statistically "
     + "significant, as those trades have fewer seasons played.")),
+  B(L("Without the main-player rule.", "If each characteristic counts when any player the club received has it, the three "
+    + "findings keep their direction and statistical significance on all trades: aged 28 to 31, overpay 1.30 and loss 1.28; "
+    + "former top-15 pick, 1.30 and 1.29; clause, 1.80 and 1.71. The age and draft pedigree figures are about a fifth smaller, "
+    + "and the age 28 to 31 loss on played seasons in 2017-22 is no longer statistically significant (1.35, p = 0.16). Only "
+    + "78 of the 735 clubs received two or more players.")),
   B(L("Grouped the simple way,", "2017-22: clubs acquiring a player aged 28 to 31 overpaid by 1.56 (0.31) and lost 1.49 (0.44); "
     + "clubs acquiring a clause player overpaid by 2.95 (0.53) and lost 2.50 (0.65). Each is statistically significant at the "
     + "5% level (p = 0.001 or less).")));
