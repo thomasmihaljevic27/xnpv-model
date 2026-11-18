@@ -14,10 +14,11 @@
    his commented copy is the file without ", revised"). Read (Thomas): the revision. Decided 2026-11-18 (Thomas: "Keep
    it as a check, remove Holm, no re-run"): the played-out trades stay a check beside the main test; Holm's adjustment
    stays out; the Section 3 regression is not re-run on the term signed (the writeup says it was not).
-1a. Decide (Thomas): with the any-player rule now the main one (2026-11-18), whether age 28 to 31 stays a headline finding
-   (its realized value is significant across all trades, p = 0.039, but not in 2017-22 alone, p = 0.10, after 2022 alone,
-   p = 0.12, or on played seasons, p = 0.081); and whether Section 5's group rows (defenceman, former top-15 below the
-   average) move to the any-player rule too (they are group means and joint-regression terms on the main player).
+1a. Decided 2026-11-18 (Thomas: "I want to report both sides. One with the biggest contract lens and one without it"): the
+   who-is-overpaid regression is reported under both rules, side by side (findings_doc.js v2.6). Decide (Thomas): whether age
+   28 to 31 stays a headline finding (by the main player its realized value holds in 2017-22 and on played seasons; by any
+   player it does not, p = 0.10 and 0.081); whether Section 5's group rows (defenceman, former top-15 below the average)
+   also get an any-player version.
 1b. For the final paper, not the findings document (Thomas, 2026-11-18, a comment on the cap-dump result): "I would like a
    note in the final paper about why transacting like this is still rational. There is a cap floor to reach, unused cap is
    inefficient, etc. Getting paid to take on money when the alternative was to not spend the cap space at all is still an

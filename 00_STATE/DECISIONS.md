@@ -4100,3 +4100,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   who-is-overpaid regression uses each characteristic from any player received; the main-player rule is a sensitivity.
   RUN `who_overpaid_any.py` v1.1 (protocol amendment). DOCUMENT `findings_doc.js` v2.5. CLAUDE.md rule added. MANIFEST rows;
   WORK_QUEUE item 1; session log.
+- DECIDED (Thomas: "I want to report both sides. One with the biggest contract lens and one without it"; replaces the
+  any-player-only decision above): both rules reported side by side. DOCUMENT `findings_doc.js` v2.6. WORK_QUEUE 1a;
+  MANIFEST row; session log.
