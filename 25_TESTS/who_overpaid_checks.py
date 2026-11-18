@@ -29,7 +29,7 @@ from dotenv import load_dotenv
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 EXT = OUTPUT_DIR / "_extended_run"
-SCRIPT_VERSION = "who_overpaid_checks.py v1.1 (2026-11-17)"   # v1.1: the two-stage fit also instrumented by the seasons played only
+SCRIPT_VERSION = "who_overpaid_checks.py v1.2 (2026-11-18)"   # v1.2: the two-stage rows also log the resampled standard error and p-values (Thomas: "Standard errors and p values should be shown for all these tables"); same seed, same intervals; v1.1: the two-stage fit also instrumented by the seasons played only
 DECLARED_END = "2022-03-28"
 N_BOOT, SEED = 2000, 20261117
 LOG, OUT = [], []
@@ -115,10 +115,17 @@ def main():
             e = tsls(bb, inst)
             boots = np.array([tsls(pd.concat([by[i] for i in ids[rng.integers(0, len(ids), len(ids))]]), inst)[:2] for _ in range(N_BOOT)])
             lo, hi = np.percentile(boots, [2.5, 97.5], axis=0)
+            se = boots.std(axis=0, ddof=1)
+            # v1.2: two-sided resampled p-values: against 0, and against a full response (+1 performance, -1 cost)
+            p0 = [min(1.0, 2 * min((boots[:, i] <= 0).mean(), (boots[:, i] >= 0).mean())) for i in (0, 1)]
+            p1 = [min(1.0, 2 * min((boots[:, i] <= v).mean(), (boots[:, i] >= v).mean())) for i, v in ((0, 1.0), (1, -1.0))]
             log(f"  {scope:<18}{lab:<46}{f'{e[0]:+.2f} [{lo[0]:+.2f}, {hi[0]:+.2f}]':>26}"
                 f"{f'{e[1]:+.2f} [{lo[1]:+.2f}, {hi[1]:+.2f}]':>26}   (first stage: {e[2]:+.2f} per $1, t = {e[3]:.1f})")
+            log(f"  {'':<18}{'  resampled se; p against 0; p against a full response':<46}"
+                f"{f'({se[0]:.2f}) p={p0[0]:.4f}; p={p1[0]:.4f}':>26}{f'({se[1]:.2f}) p={p0[1]:.4f}; p={p1[1]:.4f}':>26}")
             OUT.append({"check": "2", "scope": scope, "model": lab, "perf": e[0], "perf_lo": lo[0], "perf_hi": hi[0],
-                        "cost": e[1], "cost_lo": lo[1], "cost_hi": hi[1], "first_stage": e[2], "first_t": e[3], "n": len(bb)})
+                        "cost": e[1], "cost_lo": lo[1], "cost_hi": hi[1], "first_stage": e[2], "first_t": e[3], "n": len(bb),
+                        "perf_se": se[0], "perf_p": p0[0], "perf_p_full": p1[0], "cost_se": se[1], "cost_p": p0[1], "cost_p_full": p1[1]})
     log("  (a price that follows each part in full: +1.00 on performance value, -1.00 on cost)")
     pd.DataFrame(OUT).to_csv(OUTPUT_DIR / "who_overpaid_checks.csv", index=False)
     (OUTPUT_DIR / "who_overpaid_checks_log.txt").write_text("\n".join(LOG), encoding="utf-8")

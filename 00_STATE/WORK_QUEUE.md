@@ -8,10 +8,19 @@
 
 ## Live (audited 2026-11-15)
 
-1. Done 2026-11-18: the writeup revised on Thomas's 35 comments (`40_DOCS/Trade Back-test, What We Found and How, revised.docx`;
+1. Done 2026-11-18: the writeup revised on Thomas's 35 comments, then on his second round of 14 (`40_DOCS/Trade Back-test
+   Findings.docx`, findings_doc.js v2.3; the second round's notes are in the ", revised" file, the first round's in the file
+   without it). Earlier: (`40_DOCS/Trade Back-test, What We Found and How, revised.docx`;
    his commented copy is the file without ", revised"). Read (Thomas): the revision. Decided 2026-11-18 (Thomas: "Keep
    it as a check, remove Holm, no re-run"): the played-out trades stay a check beside the main test; Holm's adjustment
    stays out; the Section 3 regression is not re-run on the term signed (the writeup says it was not).
+1b. For the final paper, not the findings document (Thomas, 2026-11-18, a comment on the cap-dump result): "I would like a
+   note in the final paper about why transacting like this is still rational. There is a cap floor to reach, unused cap is
+   inefficient, etc. Getting paid to take on money when the alternative was to not spend the cap space at all is still an
+   optimal move. It's just that it seems teams do not extract as much value as they possibly should be, but there may be
+   negotiating dynamics at play (teams who would otherwise leave that cap space unused have less leverage because either
+   their alternative is not necessarily to make a deal with another team, but rather to not spend the money at all, or
+   because they are required by the CBA to spend that money)".
 2. Read (Thomas): the eleven spelling cases added to `prospect_values.REVIEWED_DISAGREEMENTS` on 2026-11-11 (Cal Foote,
    Patrik Puistola, Jack Dugan, Pat Maroon twice, Emilio Pettersen, Vasily Ponomarev, J.J. Moser, Ronnie Attard, Tommy
    Novak, JJ Peterka), each marked read by Claude only.

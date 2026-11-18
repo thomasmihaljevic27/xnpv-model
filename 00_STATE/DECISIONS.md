@@ -4092,3 +4092,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   from any player received; the findings keep their direction and significance on all trades, age and pedigree about a
   fifth smaller. FOUND: the clause flag is any player received (backtest.py g_clause), mislabelled "main player" since;
   writeup builder v2.2 (not yet written to 40_DOCS) and the Stata codebook corrected. MANIFEST rows; session log.
+- DOCUMENT (Thomas's second round): `findings_doc.js` v2.3 writes `40_DOCS/Trade Back-test Findings.docx`; RUN
+  `who_overpaid_checks.py` v1.2 (resampled standard errors and p-values for the two-stage rows; intervals unchanged).
+  WORK_QUEUE 1 and 1b (his note for the paper); MANIFEST rows; session log.
