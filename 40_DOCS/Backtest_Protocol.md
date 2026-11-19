@@ -622,3 +622,7 @@ variables, so one of them has to be dropped. Drop the below average one"): `one_
 pick below the top-15 average from the merged regression under both rules; the former top-15 pick stays. v1.1 also logs the
 correlation between the two terms' differences in v1.0's rows. Nothing else changes; guard 2 still reproduces part 5 with
 all its terms.
+Decided, 2026-11-19 (Thomas: "Yes, rewrite"): the merged regression (`one_regression.py` v1.1, without the below-average
+top-15 term) replaces the two regressions in the findings document. Its rows, terms and finding rule are as declared above;
+the document's player-characteristic and types-of-trade tables both come from it. The categories' averages on their own
+(Step 4) are unchanged.

@@ -38,7 +38,7 @@ from dotenv import load_dotenv
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 EXT = OUTPUT_DIR / "_extended_run"
-SCRIPT_VERSION = "one_regression.py v1.1 (2026-11-19)"   # v1.1: the former top-15 pick below the average dropped (Thomas)
+SCRIPT_VERSION = "one_regression.py v1.2 (2026-11-19)"   # v1.2: logs the clubs with two or more players (log only); v1.1: the former top-15 pick below the average dropped (Thomas)
 BELOW = {"main player rule": "m_top15", "any player rule": "t_top15"}     # the below-average top-15 term, by rule
 DECLARED_END = "2022-03-28"
 YS = [("trade-day grade", "net_M"), ("realized value, WAR", "out_net_M"), ("realized value, Game Value", "gv_net_M"),
@@ -161,6 +161,9 @@ def main():
     A, B = A[~drop], B[~drop]
     log(f"  trades dropped for a player with an unknown characteristic: {int(drop.sum())}; trades in the fit: {len(A)}")
     log(f"  clubs that received a player: {int(A['recv'].sum() + B['recv'].sum())} of {2 * len(A)}")
+    npl = f.groupby(key).size()                                       # v1.2 (log only): clubs with two or more players
+    m2 = sum(int(npl.get((tid, s["club"]), 0) >= 2) for X in (A, B) for tid, s in X.iterrows())
+    log(f"  of them, received two or more players: {m2}")
     for rule, top in (("main player rule", "top15"), ("any player rule", "any_top15")):
         dx, dy = A[BELOW[rule]].astype(float) - B[BELOW[rule]].astype(float), A[top].astype(float) - B[top].astype(float)
         log(f"  {rule}: correlation of the two top-15 terms' differences {np.corrcoef(dx, dy)[0, 1]:.2f}; trades where the "
