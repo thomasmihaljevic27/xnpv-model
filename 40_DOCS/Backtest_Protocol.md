@@ -652,3 +652,9 @@ the model already holds, in this order, and only where it was missing; every fac
 The any player rule's per-player facts are filled the same way. A trade is still left out only when a main player's
 birthdate cannot be found. Guards: on every fact already known, the filling rule reproduces it (recent WAR, forecast,
 games share, age bands); the guards of v1.1 stay. Reported as v1.1 was, beside v1.1's figures.
+Amendment, 2026-11-19, before the regression was run with the filled facts: building the fill showed that every goalie's
+games share was 0 in who_overpaid and player_facts (both read WAR_with_age, a skater table). Goalies were never main players
+in the fits run so far (their recent WAR was blank), but under the any player rule a goalie received beside a skater
+pulled the club's cap-weighted games share down. facts_fill.py v1.1: a goalie's games share is read from the goalie WAR
+table, by name, the same season and rule, replacing the 0; a skater's missing games share is read by NHL id where one was
+recovered (who_overpaid's rule), and by name only where none was.
