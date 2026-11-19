@@ -4128,3 +4128,5 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - RUN (Thomas: "Replace 28-31 and 32+ with just 28+ ... curious"; report only; protocol 395c98c): age_band_test.py v1.0,
   groups_any.py v1.3 part 6, traits_test.py v1.1. The findings document unchanged. WORK_QUEUE 1c (the traits tested, for
   the paper's second reader); MANIFEST rows; session log.
+- DECIDED (Thomas: "Keep the two bands"): age 28 to 31 and 32 or over stay the main specification; 28 and over is a
+  sensitivity only (age_band_test.py, groups_any.py part 6). Session log.

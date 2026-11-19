@@ -36,7 +36,8 @@
    showed anything: with weight held, +0.36 a club per inch on realized WAR (p = 0.027) but not on the trade-day grade
    (p = 0.15), and not alone (p = 0.17). Also tested and not findings, already in the document or protocol: future picks by
    draft distance, conditional picks, the cap era, change over time. Listed as not testable (no data): GM tenure, injury
-   status. The age bands' sensitivity (28 and over against 28 to 31 and 32 and over): see the 2026-11-18 session log.
+   status. The age bands' sensitivity (28 and over against 28 to 31 and 32 and over; Thomas: "Keep the two bands"): see
+   the 2026-11-18 session log.
 2. Read (Thomas): the eleven spelling cases added to `prospect_values.REVIEWED_DISAGREEMENTS` on 2026-11-11 (Cal Foote,
    Patrik Puistola, Jack Dugan, Pat Maroon twice, Emilio Pettersen, Vasily Ponomarev, J.J. Moser, Ronnie Attard, Tommy
    Novak, JJ Peterka), each marked read by Claude only.
