@@ -617,3 +617,8 @@ every Section 3 player characteristic added to every type of trade.
 - `groups_any.py` v1.4 writes each side's flags (`groups_any_sides.csv`) for this script; no figure of its own changes.
 Reported: every coefficient under both rules, and which meet the document's finding rule (the trade-day grade and the
 realized value statistically significant at the 5% level, same sign), with Game Value and the seasons played as checks.
+Amendment, 2026-11-19 (Thomas: "there's probably a lot of multicolinearity going on with the two different top 15 pick
+variables, so one of them has to be dropped. Drop the below average one"): `one_regression.py` v1.1 drops the former top-15
+pick below the top-15 average from the merged regression under both rules; the former top-15 pick stays. v1.1 also logs the
+correlation between the two terms' differences in v1.0's rows. Nothing else changes; guard 2 still reproduces part 5 with
+all its terms.
