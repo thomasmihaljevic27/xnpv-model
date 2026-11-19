@@ -560,3 +560,26 @@ the one instrumented by the delivered value, which counts the forecast seasons o
    under each rule, (i) how many late-picks-only clubs are also futures-for-players clubs, and the sum of the two groups'
    coefficients with its robust 95% interval; (ii) joint_regression.py's "deadline rental for picks and prospects" profile
    (rental + deadline buyer - futures for players) on this fit, with its robust 95% interval.
+
+## Handedness, size, playoff performance and birthplace (declared 2026-11-18, before it was built; Thomas: "I want to see handedness, size, playoff performance, and European or not"; "Both terms", "Height and weight", "Fetch spring 2017")
+
+Script `25_TESTS/traits_test.py`, report only, on `who_overpaid_any.py` v1.4's club sides in the declared window (431),
+both rules, standard errors clustered by trade. Outcomes: the trade-day grade, the realized value on WAR, on Game Value,
+and on the seasons played only. Each player's facts, by his NHL id (PuckPedia's contract export, the model's own contract
+provider; one row a player):
+- right shot: PuckPedia `shoots` is "right" (a goalie, or a player with no recorded side, counts as no);
+- right-shot defenceman: right shot and the asset's position D;
+- height (inches) and weight (per 10 lb), PuckPedia `height` and `weight`;
+- born in Europe: PuckPedia `country` (birth country) is neither Canada nor the USA; unknown counts as no;
+- playoff points: his points in the most recent NHL playoffs completed before the trade date (zero if he played no game
+  in them). The 2018-2022 playoffs from the game logs (`skater_games`, game type 3); the 2017 playoffs from the NHL's
+  public stats API (skater summary, 2016-17, game type 3), fetched once and saved under `10_SOURCE/raw/`. Guard: the API's
+  2017-18 playoff points equal the game logs' for every player.
+Main player rule: the main player's facts. Any player rule: the yes-or-no facts are 1 when any player received has them;
+height, weight and playoff points are averages over the players received weighted by cap hit (as the other measured
+characteristics, v1.3), over the players whose figure is known.
+Reported: (1) each new term alone (the outcome on that term alone); (2) all of them added together to the Section 3
+regression, with every existing characteristic held; the clause, age 28 to 31 and defenceman coefficients in that
+extended fit beside v1.4's. Guard: on the same rows, the fit without the new terms reproduces v1.4's declared-window
+coefficients. A new term is a finding by the document's rule (statistically significant at the 5% level, same sign, on
+the trade-day grade and the realized value); Game Value and the seasons played are its checks.
