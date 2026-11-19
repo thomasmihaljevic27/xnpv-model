@@ -626,3 +626,29 @@ Decided, 2026-11-19 (Thomas: "Yes, rewrite"): the merged regression (`one_regres
 top-15 term) replaces the two regressions in the findings document. Its rows, terms and finding rule are as declared above;
 the document's player-characteristic and types-of-trade tables both come from it. The categories' averages on their own
 (Step 4) are unchanged.
+
+## Recovering the trades the one regression left out (declared 2026-11-19, before it was built; Thomas: "Go and try to reconcile this. I want as many usable trades in the sample as possible")
+
+`one_regression.py` v1.1 left out 125 of 556 trades: 154 club sides whose main player had an age, recent WAR, record above
+the forecast or games share missing. The causes, counted: goalies (54 sides; the back-test leaves their recent WAR blank
+by design and the skater forecast has none); players traded as rights or on buried contracts (24; the back-test fills no
+recent WAR for those asset types); players on the 2017 page (84; the saved forecasts start at 2018, and most of these
+players have no NHL id in prospect_values, so no birthdate or games share was looked up). v2.0 fills each fact from data
+the model already holds, in this order, and only where it was missing; every fact already known stays as it was.
+- Name: backtest_assets' WAR spelling, else page_2017_values' war_name, else the asset's name. NHL id: prospect_values,
+  else traded_player_values, else page_2017_values.
+- Birthdate: by NHL id (contract_level_spine, WAR_with_age, goalie_birthdates), else by name (WAR_with_age for skaters,
+  goalie_birthdates for goalies), one value required. Age at the trade date as before.
+- Recent WAR: the back-test's own rule (backtest.trailing_total: 50/30/20 over the three seasons before the page, seasons
+  of 10+ games, rescaled), on the WAR table found by name (backtest.seasons_for's spelling rule); goalies on the goalie WAR
+  table, the same rule. No qualifying season: 0.
+- Forecast for the season of the trade: skaters, the player model's at the page (xnpv1_forecasts.csv; for the 2017 page,
+  skater_forecast.ContractForecaster's page 2017, fitted here and written to 30_OUTPUT/xnpv1_forecasts_2017.csv); goalies,
+  the goalie model's forecast_war at the page (goalie_value_spine_v2.csv). No forecast: 0 (v1.3's rule for the any player
+  rule's measures). Record above the forecast = recent WAR - forecast.
+- Games share: the season before the page, as now (by NHL id in WAR_with_age), else from the WAR table by name; goalies
+  from the goalie WAR table. No games: 0.
+- Seasons left, 2017 page, where the contract spine has no 2017 row: page_2017_values' contract_last_season - 2017 + 1.
+The any player rule's per-player facts are filled the same way. A trade is still left out only when a main player's
+birthdate cannot be found. Guards: on every fact already known, the filling rule reproduces it (recent WAR, forecast,
+games share, age bands); the guards of v1.1 stay. Reported as v1.1 was, beside v1.1's figures.
