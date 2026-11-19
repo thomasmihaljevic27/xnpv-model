@@ -43,6 +43,7 @@ OUTPUTS: OUTPUT_DIR/who_overpaid_any_log.txt, who_overpaid_any.csv
 """
 import importlib.util
 import os
+import sys
 from pathlib import Path
 
 import numpy as np
@@ -53,7 +54,7 @@ from dotenv import load_dotenv
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 EXT = OUTPUT_DIR / "_extended_run"
-SCRIPT_VERSION = "who_overpaid_any.py v1.4 (2026-11-18)"   # v1.4: the trade-day grade and Game Value columns on the declared window (the findings document moves to it); v1.3: the any player rule's measures as cap-weighted averages (Thomas: "Cap-weighted"); v1.2: each rule applied to every characteristic (the main player's clause; totals for the measures); v1.1: three more columns for the replications (Thomas made the any-player rule the main one)
+SCRIPT_VERSION = "who_overpaid_any.py v1.5 (2026-11-19)"   # v1.5: the clause from clause_fill.clause_set (backtest.py v1.8's rule); v1.4: the trade-day grade and Game Value columns on the declared window (the findings document moves to it); v1.3: the any player rule's measures as cap-weighted averages (Thomas: "Cap-weighted"); v1.2: each rule applied to every characteristic (the main player's clause; totals for the measures); v1.1: three more columns for the replications (Thomas made the any-player rule the main one)
 DECLARED_END = "2022-03-28"
 LOG, OUT = [], []
 
@@ -89,10 +90,11 @@ def player_facts(CS, PST, SEASON_GAMES):
         ufa.append(int(str(st.get(int(x["contract_id"]), "")).startswith("UFA")))
     pl["left"], pl["ufa"] = left, ufa
     # clause: backtest.py's rule, through traded_player_values' nhl_id and page
-    cl = set((int(x), int(y)) for x, y, z in zip(ss["nhl_id"], ss["season_start"], ss["has_any_clause"]) if pd.notna(x) and z == 1)
-    tpv = pd.read_csv(EXT / "traded_player_values.csv").set_index("asset_id")
-    pl["clause"] = [int(x in tpv.index and pd.notna(tpv.at[x, "nhl_id"]) and (int(tpv.at[x, "nhl_id"]), int(tpv.at[x, "valuation_page"])) in cl)
-                    for x in pl["asset_id"]]
+    # v1.5: clause_fill.clause_set (the spine where it holds a matched record, else the CapWages page)
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "20_CODE"))
+    import clause_fill as CF
+    cl_assets = CF.clause_set(EXT)
+    pl["clause"] = [int(int(x) in cl_assets) for x in pl["asset_id"]]
     # v1.2: each player's measured facts, by who_overpaid.build's and clause_checks.main_players' rules
     w = pd.read_csv(OUTPUT_DIR / "WAR_with_age.csv", usecols=["Player", "nhl_id", "Season", "GP"]).dropna(subset=["nhl_id"])
     w["y"] = 2000 + w["Season"].str[:2].astype(int)
@@ -145,8 +147,13 @@ def main():
     # GUARD 1: the main-player fit is who_overpaid.py's
     m = sm.OLS(d["overpay"], sm.add_constant(d[cc])).fit(cov_type="cluster", cov_kwds={"groups": d["trade_id"]})
     m2 = sm.OLS(d["loss"], sm.add_constant(d[cc])).fit(cov_type="cluster", cov_kwds={"groups": d["trade_id"]})
-    assert abs(m.params["top15"] - 1.53) < 0.005 and abs(m2.params["top15"] - 1.52) < 0.005, (m.params["top15"], m2.params["top15"])
-    log(f"  check 1: the main-player fit gives who_overpaid.py's figures back ({len(d)} sides; top-15 +1.53 / +1.52) (PASS)")
+    # v1.5: who_overpaid.csv's figures as written (they moved with the clause fill and the sellers for just picks and
+    # prospects, protocol 2026-11-19); was a pinned +1.53 / +1.52
+    wo = pd.read_csv(OUTPUT_DIR / "who_overpaid.csv")
+    wo = wo[(wo["part"] == "C") & (wo["term"] == "former top-15 pick") & (wo["scope"] == "all trades")].set_index("outcome")
+    want = (float(wo.at["overpay", "together"]), float(wo.at["loss", "together"]))
+    assert abs(m.params["top15"] - want[0]) < 1e-9 and abs(m2.params["top15"] - want[1]) < 1e-9, (m.params["top15"], m2.params["top15"], want)
+    log(f"  check 1: the main-player fit gives who_overpaid.py's figures back ({len(d)} sides; top-15 {want[0]:+.2f} / {want[1]:+.2f}) (PASS)")
 
     f = player_facts(CC.CS, CC.PST, WO.SEASON_GAMES)
     anyf = f.groupby(key)[flags].max()

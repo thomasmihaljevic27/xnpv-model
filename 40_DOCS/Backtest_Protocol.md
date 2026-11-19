@@ -758,3 +758,8 @@ Unchanged by construction and checked: test A, the asset classes, the price per 
 will stop: who_overpaid_checks' guard (who_overpaid's former top-15 coefficients), re-pinned to who_overpaid.csv's new
 figures; backtest_cuts.py's C1 reference means and the Stata exports' checks, which are not re-run here and are stale
 until they are. The RFA arbitration rule stays as decided 2026-10-14 (Thomas: "Keep the 10-14 rule"); no value moves.
+Amendment, 2026-11-19, during the re-run (before any analysis figure was read): the re-run list above missed
+`backtest_cuts.py`, which writes the club sides' flags (`backtest_cuts_all_sides.csv`) that groups_clustered and
+groups_any read; it is re-run on the extended run (scope all) after backtest.py, and its reference check is re-pinned to
+backtest.py v1.8's groups, read from the re-run back-test: C1 137 sides (+1.28 trade-day, +0.904 realized WAR, +0.946 Game
+Value), C6 88 sides (-2.81 trade-day); C2 unchanged (315, -0.57). groups_clustered, already run on the old flags, is re-run.

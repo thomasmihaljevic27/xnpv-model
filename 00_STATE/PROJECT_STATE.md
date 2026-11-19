@@ -92,6 +92,9 @@ The sections as they stood at the 2026-10-22 refresh are in History, as written.
   (v2.2, a goalie indicator beside the defenceman one). The clause's trade-day overpay is mostly its cap hit
   (clause_disguise.py); its realized loss is not. The former top-15 pick and goalies are not findings. The price follows about 40 cents
   per $1 of contract value (all trades, corrected on the seasons played, 0.39 [0.00, 0.75]).
+  v3.8 (2026-11-19): clauses filled from CapWages (clause_fill.py), sellers for just picks and prospects, the
+  regression two rows a trade clustered by trade; the same three findings, the clause now significant in every test
+  under both rules.
   DONE 2026-11-19 (Thomas, after speaking with Karl: "He agreed with the model and findings methods as is currently
   written in the documents ... He said not to worry about adjustments"; "the model findings are done as is per the
   documents methods"): the findings document v3.5 is the findings; no adjusted p-values. Every figure in it checked

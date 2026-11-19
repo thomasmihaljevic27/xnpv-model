@@ -4,7 +4,7 @@
 (directive 6); flags below about the yield curve, Rule A/B, bands and pick conventions describe retired
 work. Flags about the data (linkage cases, birthdates, id conflicts) still apply.
 
-**The clause flag reads a missing clause record as no clause (found 2026-11-19, building a worked example).** In the
+**FIXED 2026-11-19 (Thomas: "This has to be fixed"; `clause_fill.py` v1.0, `backtest.py` v1.8): gaps filled from CapWages pages; 6 NHL players still unknown, named in clause_fill_log.txt. Kept as a record.** **The clause flag reads a missing clause record as no clause (found 2026-11-19, building a worked example).** In the
 findings regression (`one_regression.py` v2.2, 556 trades), 103 of the 577 main players have no clause record at their
 page and are counted as no clause: 71 have no contract-spine row (65 of them on the 2017 page, whose contracts come from
 CapWages with no clause field), and 32 have a spine row whose clause record did not match (`join_clauses_to_spine.py`;

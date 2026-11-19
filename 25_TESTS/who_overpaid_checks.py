@@ -29,7 +29,7 @@ from dotenv import load_dotenv
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 EXT = OUTPUT_DIR / "_extended_run"
-SCRIPT_VERSION = "who_overpaid_checks.py v1.2 (2026-11-18)"   # v1.2: the two-stage rows also log the resampled standard error and p-values (Thomas: "Standard errors and p values should be shown for all these tables"); same seed, same intervals; v1.1: the two-stage fit also instrumented by the seasons played only
+SCRIPT_VERSION = "who_overpaid_checks.py v1.3 (2026-11-19)"   # v1.3: the guard reads who_overpaid.csv instead of pinned figures; v1.2: the two-stage rows also log the resampled standard error and p-values (Thomas: "Standard errors and p values should be shown for all these tables"); same seed, same intervals; v1.1: the two-stage fit also instrumented by the seasons played only
 DECLARED_END = "2022-03-28"
 N_BOOT, SEED = 2000, 20261117
 LOG, OUT = [], []
@@ -66,8 +66,13 @@ def main():
     # GUARD: all trades, together, gives who_overpaid.py's recorded coefficients back (former top-15 pick +1.53 / +1.52)
     m = sm.OLS(d["overpay"], sm.add_constant(d[cc])).fit(cov_type="cluster", cov_kwds={"groups": d["trade_id"]})
     m2 = sm.OLS(d["loss"], sm.add_constant(d[cc])).fit(cov_type="cluster", cov_kwds={"groups": d["trade_id"]})
-    assert abs(m.params["top15"] - 1.53) < 0.005 and abs(m2.params["top15"] - 1.52) < 0.005, (m.params["top15"], m2.params["top15"])
-    log("  check: the all-trades fit gives who_overpaid.py's figures back (former top-15 pick +1.53 / +1.52) (PASS)")
+    # v1.3 (2026-11-19): the figures read from who_overpaid.csv as written (they moved with the clause fill and the
+    # sellers for just picks and prospects, protocol 2026-11-19); was a pinned +1.53 / +1.52
+    wo = pd.read_csv(OUTPUT_DIR / "who_overpaid.csv")
+    wo = wo[(wo["part"] == "C") & (wo["term"] == "former top-15 pick") & (wo["scope"] == "all trades")].set_index("outcome")
+    want = (float(wo.at["overpay", "together"]), float(wo.at["loss", "together"]))
+    assert abs(m.params["top15"] - want[0]) < 1e-9 and abs(m2.params["top15"] - want[1]) < 1e-9, (m.params["top15"], m2.params["top15"], want)
+    log(f"  check: the all-trades fit gives who_overpaid.py's figures back (former top-15 pick {want[0]:+.2f} / {want[1]:+.2f}) (PASS)")
     log("\n1. WHO IS OVERPAID: the same regression, all characteristics together ($M a side; * = statistically significant at 5%)")
     specs = [("after 2022-03-28 alone", d["trade_date"] > DECLARED_END, ["overpay", "loss", "loss_gv"]),
              ("all trades, seasons played only", pd.Series(True, index=d.index), ["overpay", "loss_played", "loss_gv_played"]),

@@ -40,6 +40,7 @@ OUTPUTS: OUTPUT_DIR/groups_any_log.txt, groups_any.csv
 """
 import importlib.util
 import os
+import sys
 import sqlite3
 from pathlib import Path
 
@@ -51,7 +52,7 @@ from dotenv import load_dotenv
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 EXT = OUTPUT_DIR / "_extended_run"
-SCRIPT_VERSION = "groups_any.py v1.4 (2026-11-19)"   # v1.4: writes each side's flags (groups_any_sides.csv); v1.3: part 6, aged 28 or over in place of the two bands; v1.2: the joint regression on the declared window, the final-season restricted free agent and late picks added; v1.1: retained salary, former top-15 below and the final-season restricted free agent under both rules; late picks; the joint regression with one rule throughout
+SCRIPT_VERSION = "groups_any.py v1.5 (2026-11-19)"   # v1.5: the main player's clause from clause_fill.clause_set (backtest.py v1.8's rule); the sellers for just picks and prospects come from backtest.py v1.8; v1.4: writes each side's flags (groups_any_sides.csv); v1.3: part 6, aged 28 or over in place of the two bands; v1.2: the joint regression on the declared window, the final-season restricted free agent and late picks added; v1.1: retained salary, former top-15 below and the final-season restricted free agent under both rules; late picks; the joint regression with one rule throughout
 DECLARED_END = "2022-03-28"
 LOG, OUT = [], []
 FIVE = [("rental", "t_rental"), ("aged 28 to 31", "t_age28"), ("aged 32 or over", "t_age32"),
@@ -265,10 +266,11 @@ def main():
     t["m_retained"] = [bool(k in main_snt.index and (k[0], k[1], main_snt.at[k, "name"]) in ret_set) for k in zip(t["trade_id"], t["club"])]
     t["a_retained"] = t["t_retained"].astype(bool)
     # the clause: backtest.py's rule on the main player received alone (any: g_clause)
-    ss2 = pd.read_csv(EXT / "contract_season_spine.csv", usecols=["nhl_id", "season_start", "has_any_clause"])
-    cl = set((int(x), int(y)) for x, y, z in zip(ss2["nhl_id"], ss2["season_start"], ss2["has_any_clause"]) if pd.notna(x) and z == 1)
-    tpv = pd.read_csv(EXT / "traded_player_values.csv").set_index("asset_id")
-    hc = lambda x: bool(x in tpv.index and pd.notna(tpv.at[x, "nhl_id"]) and (int(tpv.at[x, "nhl_id"]), int(tpv.at[x, "valuation_page"])) in cl)  # noqa: E731
+    # v1.5: clause_fill.clause_set (the spine where it holds a matched record, else the CapWages page)
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "20_CODE"))
+    import clause_fill as CF
+    cl_assets = CF.clause_set(EXT)
+    hc = lambda x: int(x) in cl_assets  # noqa: E731
     t["m_clause"] = [hc(main_rec.at[k, "asset_id"]) if k in main_rec.index else False for k in zip(t["trade_id"], t["club"])]
     t["a_clause"] = t["t_clause"].astype(bool)
     one_r, one_s = t[t["n_received_players"] == 1], t[t["n_sent_players"] == 1]

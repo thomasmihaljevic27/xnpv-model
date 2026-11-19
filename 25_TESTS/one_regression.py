@@ -5,7 +5,7 @@ section 3 regression and a section 4 regression"; "let's see the results of this
 
 DESIGN: groups_any.py part 5's. Each two-team trade in the declared window (to 2022-03-28) once, the first club's value
 regressed on the differences between the two clubs (A minus B), no constant (B's value is A's with the sign reversed),
-robust (HC1) standard errors, a yes-or-no difference that is non-zero in fewer than five trades dropped.
+robust (HC1) standard errors (v2.3: two rows a trade, clustered by trade), a yes-or-no difference that is non-zero in fewer than five trades dropped.
 TERMS, by the rule:
   types of trade (groups_any_sides.csv, groups_any.py v1.4): selling a player for picks and prospects, the deadline buyer,
     the other in-season buyer, rental, retained salary, former top-15 pick below the top-15 average, one asset for two or
@@ -42,7 +42,7 @@ from dotenv import load_dotenv
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 EXT = OUTPUT_DIR / "_extended_run"
-SCRIPT_VERSION = "one_regression.py v2.2 (2026-11-19)"   # v2.2: a goalie indicator beside the defenceman one; missing positions filled; v2.1: the rows built in frame() (results unchanged); v2.0: missing player facts filled (facts_fill.py); v1.2: logs the clubs with two or more players (log only); v1.1: the former top-15 pick below the average dropped (Thomas)
+SCRIPT_VERSION = "one_regression.py v2.3 (2026-11-19)"   # v2.3: two rows a trade, standard errors clustered by trade, coefficients unchanged (Thomas); v2.2: a goalie indicator beside the defenceman one; missing positions filled; v2.1: the rows built in frame() (results unchanged); v2.0: missing player facts filled (facts_fill.py); v1.2: logs the clubs with two or more players (log only); v1.1: the former top-15 pick below the average dropped (Thomas)
 BELOW = {"main player rule": "m_top15", "any player rule": "t_top15"}     # the below-average top-15 term, by rule
 DECLARED_END = "2022-03-28"
 YS = [("trade-day grade", "net_M"), ("realized value, WAR", "out_net_M"), ("realized value, Game Value", "gv_net_M"),
@@ -88,10 +88,25 @@ def load(name):
 
 
 def joint(A, B, cols, flags):
+    """v2.3 (Thomas, 2026-11-19: "I'd like it if it were presented that way"): each two-team trade enters as TWO rows,
+    one a club: the club's value on its side minus the other side in each characteristic (what it received less what it
+    sent), no constant, standard errors clustered by trade. The second club's row is the first's with every sign
+    reversed, so the coefficients equal the one-row fit's (GUARD, to 1e-9); only the standard errors' small-sample
+    correction differs. A result's nobs is 2 x the trades (callers report nobs // 2 as trades)."""
     X = pd.DataFrame({c: A[c].astype(float) - B[c].astype(float) for c in cols}, index=A.index)
     keep = [c for c in cols if c not in flags or (X[c] != 0).sum() >= 5]
     X = X[keep]
-    return {y: sm.OLS(A[y], X).fit(cov_type="HC1") for _, y in YS}, keep
+    X2 = pd.concat([X, -X], ignore_index=True)
+    groups = np.r_[A.index.values, A.index.values]
+    out = {}
+    for _, y in YS:
+        ya, yb = A[y].astype(float), B[y].astype(float)
+        assert np.allclose(ya.values, -yb.values, atol=1e-6), f"{y}: the two clubs' values are not mirror images"
+        m = sm.OLS(pd.concat([ya, yb], ignore_index=True), X2).fit(cov_type="cluster", cov_kwds={"groups": groups})
+        one = sm.OLS(ya, X).fit()
+        assert np.allclose(m.params.values, one.params.values, atol=1e-9), f"{y}: two rows and one row differ"
+        out[y] = m
+    return out, keep
 
 
 def frame():
@@ -192,7 +207,7 @@ def main():
         cols = [c for c in P5[rule] if c not in DUP[rule] and c != BELOW[rule]] + PC[rule] + ["recv"]
         fl = set(cols) - {"trailing_war", "rep_gap", "gp_share_last", "avg_war", "avg_gap", "avg_gs"}
         res[rule] = joint(A, B, cols, fl)
-    log("\nONE REGRESSION, declared window ($M a club, positive = the club gained; robust standard errors)")
+    log("\nONE REGRESSION, declared window ($M a club, positive = the club gained; two rows a trade, standard errors clustered by trade)")
     log("  F = a finding (trade-day grade and realized WAR both p < 0.05, same sign); checks: g = Game Value p < 0.05 same sign,"
         " s = seasons played p < 0.05 same sign")
     for rule in P5:
@@ -205,7 +220,7 @@ def main():
                 m = fs[y]
                 cells.append(f"{m.params[k]:+.2f} ({m.bse[k]:.2f}) p={m.pvalues[k]:.3f}")
                 ps.append(m.pvalues[k]); bs.append(m.params[k])
-                OUT.append({"rule": rule, "term": NAME[k], "col": k, "outcome": ylab, "n_trades": int(m.nobs),
+                OUT.append({"rule": rule, "term": NAME[k], "col": k, "outcome": ylab, "n_trades": int(m.nobs) // 2,
                             "estimate": m.params[k], "se": m.bse[k], "p": m.pvalues[k]})
             same = lambda i: ps[i] < 0.05 and np.sign(bs[i]) == np.sign(bs[0])      # noqa: E731
             tag = ("F" + ("g" if same(2) else "") + ("s" if same(3) else "")) if (ps[0] < 0.05 and same(1)) else ""

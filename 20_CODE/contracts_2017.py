@@ -34,7 +34,7 @@ from pathlib import Path
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "contracts_2017.py v1.1 (2026-10-18)"   # v1.1: a page without contracts counts as missing
+SCRIPT_VERSION = "contracts_2017.py v1.2 (2026-11-19)"   # v1.2: parse_contracts also keeps each season's Clause cell (clause_fill.py; nothing written here changes); v1.1: a page without contracts counts as missing
 load_dotenv()
 SOURCE_DIR, OUTPUT_DIR = Path(os.environ["SOURCE_DIR"]), Path(os.environ["OUTPUT_DIR"])
 CACHE_FETCH = OUTPUT_DIR / "capwages_2017"
@@ -104,6 +104,10 @@ def parse_contracts(lines):
                 # past the term ($0, no AAV; Kyle Turris's Nashville deal shows 2024-25 to 2027-28 after 2023-24)
                 if len(money) > 1:
                     c["seasons"][y] = float(money[1].replace("$", "").replace(",", ""))
+                    # v1.2 (2026-11-19, clause_fill.py): the season's Clause cell, the cells between the season label
+                    # and the first dollar amount ("M-NTC, NMC", "-", or none); read by clause_fill.py only
+                    first = next((n for n, x in enumerate(lines[j + 1:k]) if MONEY.match(x)), 0)
+                    c.setdefault("clause", {})[y] = " ".join(lines[j + 1:j + 1 + first])
                     # base salary (the fifth dollar cell), which starts the qualifying-offer chain at expiry
                     c.setdefault("base", {})[y] = (float(money[4].replace("$", "").replace(",", ""))
                                                    if len(money) > 4 else None)

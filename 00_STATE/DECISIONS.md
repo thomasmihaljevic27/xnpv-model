@@ -4169,3 +4169,9 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - DOCUMENT (Thomas's notes on v3.6, his copy f9b0fa2): findings_doc.js v3.7, his edits carried (no bold lead-ins; labels,
   captions and bullets cut; the types of trade table to two columns; "No Change over time"; "Limitations"); Step 5 lists
   all 23 variables ("Best to just list all variables"). Two worked examples given in chat. MANIFEST row; session log.
+- DECIDED (Thomas, 2026-11-19): "Keep the 10-14 rule" for the arbitration price (RFA re-signing pay measured at about
+  zero, not built); the clause gap filled from CapWages ("has to be fixed"); the seller group "sold a player for just picks
+  and prospects"; the regression presented two rows a trade ("I'd like it if it were presented that way"). BUILT (protocol
+  05cc924): clause_fill.py v1.0, backtest.py v1.8, backtest_cuts.py v1.6 (re-pinned), one_regression.py v2.3, readers
+  re-pointed; every guard PASS; the findings unchanged. DOCUMENT findings_doc.js v3.8. STANDING_FLAGS (the clause flag
+  fixed); PROJECT_STATE; WORK_QUEUE 1a; MANIFEST rows; session log.

@@ -64,7 +64,7 @@ import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "backtest.py v1.7 (2026-10-24)"   # v1.7: the prospect model's defenceman x production (prospect_values v1.13); v1.6: goaltenders on contract_npv v3.4 (own line with term, age term, chance of playing by season ahead); v1.5: the Game Value check (XNPV_OUTCOME_METRIC), wins delivered; v1.4: LTIR relief; v1.3: "UFA no QO" known only after the decision; v1.2: seasons after a buyout; v1.1: the ledger's spelling when the spine's has no WAR rows
+SCRIPT_VERSION = "backtest.py v1.8 (2026-11-19)"   # v1.8: the clause group from clause_fill.clause_set (the spine, then CapWages); the seller group for just picks and prospects (Thomas); v1.7: the prospect model's defenceman x production (prospect_values v1.13); v1.6: goaltenders on contract_npv v3.4 (own line with term, age term, chance of playing by season ahead); v1.5: the Game Value check (XNPV_OUTCOME_METRIC), wins delivered; v1.4: LTIR relief; v1.3: "UFA no QO" known only after the decision; v1.2: seasons after a buyout; v1.1: the ledger's spelling when the spine's has no WAR rows
 load_dotenv()
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import contract_npv as CN                                     # noqa: E402  the engine, goalie line and hazard
@@ -1123,7 +1123,8 @@ def analyse(a):
             continue
         i, j = g.index
         for x, y in ((i, j), (j, i)):
-            if s.at[x, "got_futures"] and not s.at[y, "got_futures"] and s.at[y, "got_players"]:
+            # v1.8 (Thomas, 2026-11-19: "sold a player for just picks and prospects"): and x received no player
+            if s.at[x, "got_futures"] and not s.at[x, "got_players"] and not s.at[y, "got_futures"] and s.at[y, "got_players"]:
                 g1[x] = True
     s["g_futures"] = g1
     # standings at the trade date (points percentage, games before it)
@@ -1157,13 +1158,11 @@ def analyse(a):
     ret = ok[ok["asset_type"] == "retained salary"]
     s["g_retained"] = s.apply(lambda r: ((ret["trade_id"] == r.trade_id) & (ret["acquiring_team"] == r.club)).any(), axis=1)
     s["g_nothing_back"] = s["n_received"] == 0
-    # clauses: the season spine's clause flag for the player's contract in the trade's page season
-    ss = pd.read_csv(OUTPUT_DIR / "contract_season_spine.csv", usecols=["nhl_id", "season_start", "has_any_clause"])
-    cl = set((int(a), int(b)) for a, b, c in zip(ss["nhl_id"], ss["season_start"], ss["has_any_clause"])
-             if pd.notna(a) and c == 1)
-    tpv = pd.read_csv(OUTPUT_DIR / "traded_player_values.csv").set_index("asset_id")
-    pl_cl = pl[pl["asset_id"].map(lambda x: x in tpv.index and pd.notna(tpv.at[x, "nhl_id"])
-                                  and (int(tpv.at[x, "nhl_id"]), int(tpv.at[x, "valuation_page"])) in cl)]
+    # clauses (v1.8): clause_fill.clause_set, the season spine's flag where it holds a matched record for the trade's
+    # page season, else the player's CapWages page (clause_fill.py, run first in this folder)
+    import clause_fill as CF
+    cl_assets = CF.clause_set(OUTPUT_DIR)
+    pl_cl = pl[pl["asset_id"].astype(int).isin(cl_assets)]
     s["g_clause"] = s.apply(lambda r: ((pl_cl["trade_id"] == r.trade_id) & (pl_cl["acquiring_team"] == r.club)).any(), axis=1)
     s.to_csv(OUTPUT_DIR / f"backtest_sides{SUFFIX}.csv", index=False)
 
