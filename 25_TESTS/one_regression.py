@@ -42,7 +42,7 @@ from dotenv import load_dotenv
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 EXT = OUTPUT_DIR / "_extended_run"
-SCRIPT_VERSION = "one_regression.py v2.1 (2026-11-19)"   # v2.1: the rows built in frame() (results unchanged); v2.0: missing player facts filled (facts_fill.py); v1.2: logs the clubs with two or more players (log only); v1.1: the former top-15 pick below the average dropped (Thomas)
+SCRIPT_VERSION = "one_regression.py v2.2 (2026-11-19)"   # v2.2: a goalie indicator beside the defenceman one; missing positions filled; v2.1: the rows built in frame() (results unchanged); v2.0: missing player facts filled (facts_fill.py); v1.2: logs the clubs with two or more players (log only); v1.1: the former top-15 pick below the average dropped (Thomas)
 BELOW = {"main player rule": "m_top15", "any player rule": "t_top15"}     # the below-average top-15 term, by rule
 DECLARED_END = "2022-03-28"
 YS = [("trade-day grade", "net_M"), ("realized value, WAR", "out_net_M"), ("realized value, Game Value", "gv_net_M"),
@@ -55,9 +55,9 @@ P5 = {"main player rule": ["t_futures", "t_deadline_buyer", "t_other_buyer", "t_
                           "a_def", "t_clause", "t_top15", "t_single", "t_dump", "a_newgm", "a_rfa", "t_late"]}
 # the player characteristics each rule enters (who_overpaid_any v1.4's names)
 PC = {"main player rule": ["age28", "age32", "defence", "main_clause", "ufa", "left2", "left3", "top15", "trailing_war",
-                           "rep_gap", "gp_share_last"],
+                           "rep_gap", "gp_share_last", "goalie"],
       "any player rule": ["any_age28", "any_age32", "any_defence", "any_clause", "any_ufa", "any_left2", "any_left3",
-                          "any_top15", "avg_war", "avg_gap", "avg_gs"]}
+                          "any_top15", "avg_war", "avg_gap", "avg_gs", "any_goalie"]}   # v2.2: goalie (Thomas)
 DUP = {"main player rule": {"t_age28": "age28", "t_age32": "age32", "t_def": "defence", "m_clause": "main_clause"},
        "any player rule": {"a_age28": "any_age28", "a_age32": "any_age32", "a_def": "any_defence", "t_clause": "any_clause"}}
 NAME = {"t_futures": "sold a player for picks and prospects", "t_deadline_buyer": "higher in the standings, deadline",
@@ -70,7 +70,8 @@ NAME = {"t_futures": "sold a player for picks and prospects", "t_deadline_buyer"
 for r in PC:
     for k, lab in zip(PC[r], ["aged 28 to 31", "aged 32 or over", "defenceman", "clause", "signed as a free agent",
                               "two seasons left", "three or more seasons left", "former top-15 pick",
-                              "production, each WAR", "record above the forecast, each WAR", "games share, all against none"]):
+                              "production, each WAR", "record above the forecast, each WAR", "games share, all against none",
+                              "goalie"]):
         NAME[k] = lab
 
 
@@ -103,7 +104,7 @@ def frame():
     t = t.merge(pd.read_csv(EXT / "backtest_sides.csv")[key + ["real_net_M"]], on=key, how="left")
     n0 = len(t)
     # ---- the any player rule's characteristics (who_overpaid_any.py v1.3/v1.4, its main()) ----
-    flags = ["age28", "age32", "defence", "clause", "ufa", "left2", "left3", "top15"]
+    flags = ["age28", "age32", "defence", "clause", "ufa", "left2", "left3", "top15", "goalie"]   # v2.2: goalie
     f = WA.player_facts(CC.CS, CC.PST, WO.SEASON_GAMES)
     # v2.0 (Thomas: "I want as many usable trades in the sample as possible"): the missing facts filled (facts_fill.py)
     cc0 = ["age28", "age32", "defence", "clause", "ufa", "left2", "left3", "trailing_war", "rep_gap", "gp_share_last", "top15"]
@@ -137,7 +138,9 @@ def frame():
     sides = set(map(tuple, t[key].values))
     assert set(map(tuple, f[key].drop_duplicates().values)) & sides == set(map(tuple, t.loc[t["recv"] == 1, key].values))
     # GUARD 1: part 5's age, defenceman and clause flags equal who_overpaid's on sides with a known player
-    kp = t[(t["recv"] == 1) & ~t["unknown"] & known0.values]                  # v2.0: the sides known before the fill
+    pf_side = f.groupby(key)["pos_filled"].max().reindex(pd.MultiIndex.from_frame(t[key])).fillna(0).values == 1
+    # v2.0: the sides known before the fill; v2.2: and with no player whose position was filled
+    kp = t[(t["recv"] == 1) & ~t["unknown"] & known0.values & ~pf_side]
     pairs = [("t_age28", "age28"), ("t_age32", "age32"), ("t_def", "defence"), ("m_clause", "main_clause"),
              ("a_age28", "any_age28"), ("a_age32", "any_age32"), ("a_def", "any_defence"), ("t_clause", "any_clause")]
     bad = {a: int((kp[a].astype(int) != kp[b].fillna(0).astype(int)).sum()) for a, b in pairs}

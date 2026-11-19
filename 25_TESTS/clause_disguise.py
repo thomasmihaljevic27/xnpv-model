@@ -37,7 +37,7 @@ load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 EXT = OUTPUT_DIR / "_extended_run"
 ROOT = Path(__file__).resolve().parent.parent
-SCRIPT_VERSION = "clause_disguise.py v1.0 (2026-11-19)"
+SCRIPT_VERSION = "clause_disguise.py v1.1 (2026-11-19)"   # v1.1: on one_regression v2.2 (the goalie indicator); no code change
 LOG, OUT = [], []
 
 

@@ -31,7 +31,7 @@ load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 EXT = OUTPUT_DIR / "_extended_run"
 ROOT = Path(__file__).resolve().parent.parent
-FILL_VERSION = "facts_fill.py v1.1 (2026-11-19)"   # v1.1: games share by recovered NHL id; goalies from the goalie table
+FILL_VERSION = "facts_fill.py v1.2 (2026-11-19)"   # v1.2: missing positions filled, a goalie flag; v1.1: games share by recovered NHL id; goalies from the goalie table
 
 
 def forecasts(CC, log):
@@ -77,6 +77,28 @@ def fill(t, f, WO, CC, log):
         p["a_" + c] = p["asset_id"].map(a[c])
     p["spell"] = p["a_war_spelling"].fillna(p["asset_id"].map(p17["war_name"])).fillna(p["a_name"])
     p["nid"] = p["asset_id"].map(pv).fillna(p["asset_id"].map(tpv)).fillna(p["asset_id"].map(p17["nhl_id"]))
+    # v1.2 (protocol b309c1e): a missing position, from page_2017_values, PuckPedia by NHL id, WAR_with_age by name, else
+    # goalie when the name is only in the goalie WAR table; known positions unchanged
+    known_pos = p["a_pos"].notna()
+    pos = p["a_pos"].copy()
+    pos = pos.fillna(p["asset_id"].map(p17["position"]))
+    cpos = CC.CS.load_contracts()[0][["nhl_id", "position"]].dropna().drop_duplicates("nhl_id")
+    pp = cpos.set_index(cpos["nhl_id"].astype(int))["position"].map(
+        {"Defense": "D", "Center": "F", "Left Wing": "F", "Right Wing": "F", "Goaltender": "G"})
+    pos = pos.fillna(pd.Series([pp.get(int(i)) if pd.notna(i) else None for i in p["nid"]], index=p.index))
+    wp = pd.read_csv(OUTPUT_DIR / "WAR_with_age.csv", usecols=["Player", "Position"]).dropna()
+    wp = wp.assign(n=wp["Player"].map(PV.norm)).groupby("n")["Position"].agg(lambda x: x.unique())
+    wp = {k: v[0] for k, v in wp.items() if len(v) == 1}
+    pos = pos.fillna(p["spell"].map(lambda s: wp.get(PV.norm(s))))
+    gnames = set(BT.TABLES[True].index.get_level_values(0))
+    pos = pos.fillna(p["spell"].map(lambda s: "G" if PV.norm(s) in gnames else None))
+    assert (pos[known_pos] == p.loc[known_pos, "a_pos"]).all()                     # GUARD: known positions unchanged
+    log(f"  fill: positions missing {int((~known_pos).sum())}, filled {int((~known_pos & pos.notna()).sum())} "
+        f"({pos[~known_pos].value_counts().to_dict()}), still unknown {int(pos.isna().sum())}")
+    p["a_pos"] = pos
+    p["pos"] = pos
+    p["goalie"] = (pos == "G").astype(int)
+    p["defence"] = (pos == "D").astype(int)
     p["gk"] = p["a_pos"] == "G"
     page = p["a_valuation_page"].astype(int)
     date = pd.to_datetime(p["a_trade_date"])
@@ -195,5 +217,10 @@ def fill(t, f, WO, CC, log):
     t.loc[lmiss, "left3"] = pick("left3")[lmiss].astype(float)
     global LAST
     LAST = p                                                               # the filled player table, for checks
-    f_out = p[f.columns]
+    pmiss = has & t["pos"].isna()
+    t.loc[pmiss, "pos"] = pick("pos")[pmiss]
+    t["defence"] = (t["pos"] == "D").astype(float)
+    t["goalie"] = (t["pos"] == "G").astype(float)
+    p["pos_filled"] = (~known_pos).astype(int)
+    f_out = p[list(f.columns) + ["goalie", "pos_filled"]]
     return t, f_out
