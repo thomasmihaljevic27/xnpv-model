@@ -675,3 +675,10 @@ A clause "in disguise" is read as: its coefficient on the trade-day grade and on
 statistically significant at the 5% level once a cost term is held. The cost term was left out of the main regression on
 purpose (a contract's value is its performance less its cost, so holding cost constant asks a different question); this is
 a reading of the finding, not a change to the specification.
+Added the same day, before anything was built (Thomas: "Maybe a clause is indicitive of a reputation, so teams overpay for
+reputation and that appears in the form of a trade clause"): 4. Reputation. Two measures of a player's track record, from the
+WAR table by name (backtest.seasons_for, goalies on the goalie table), every season before the page: career WAR (the sum),
+and his best single season's WAR. Under the any player rule each is the cap-weighted average over the players received, as
+the other measures. Each is added to the regression alone, then the two together, then with the cap hit; the clause, age
+28 to 31 and reputation coefficients reported. Read with 2: if the clause stops being statistically significant once
+reputation is held, it is a marker of reputation; if only once the cap hit is held, a marker of an expensive contract.
