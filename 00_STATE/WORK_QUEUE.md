@@ -28,6 +28,15 @@
    negotiating dynamics at play (teams who would otherwise leave that cap space unused have less leverage because either
    their alternative is not necessarily to make a deal with another team, but rather to not spend the money at all, or
    because they are required by the CBA to spend that money)".
+1c. For the final paper (Thomas, 2026-11-18): "Keep note of what we just tested though because the professor who will
+   review my paper after Karl and I are done working on it is a puckhead, so I imagine he may wonder about these variables
+   too." Tested and not in the findings document (Thomas: "No that's okay"): handedness (right shot; right-shot defenceman),
+   size (height, weight per 10 lb), playoff points in the most recent playoffs, born in Europe; `25_TESTS/traits_test.py`
+   v1.0, protocol 973c3e8, log 30_OUTPUT/traits_test_log.txt. 2017-22, 431 clubs, both rules: none a finding. Only height
+   showed anything: with weight held, +0.36 a club per inch on realized WAR (p = 0.027) but not on the trade-day grade
+   (p = 0.15), and not alone (p = 0.17). Also tested and not findings, already in the document or protocol: future picks by
+   draft distance, conditional picks, the cap era, change over time. Listed as not testable (no data): GM tenure, injury
+   status. The age bands' sensitivity (28 and over against 28 to 31 and 32 and over): see the 2026-11-18 session log.
 2. Read (Thomas): the eleven spelling cases added to `prospect_values.REVIEWED_DISAGREEMENTS` on 2026-11-11 (Cal Foote,
    Patrik Puistola, Jack Dugan, Pat Maroon twice, Emilio Pettersen, Vasily Ponomarev, J.J. Moser, Ronnie Attard, Tommy
    Novak, JJ Peterka), each marked read by Claude only.

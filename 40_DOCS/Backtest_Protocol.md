@@ -583,3 +583,14 @@ regression, with every existing characteristic held; the clause, age 28 to 31 an
 extended fit beside v1.4's. Guard: on the same rows, the fit without the new terms reproduces v1.4's declared-window
 coefficients. A new term is a finding by the document's rule (statistically significant at the 5% level, same sign, on
 the trade-day grade and the realized value); Game Value and the seasons played are its checks.
+
+## Age 28 and over in place of the two age bands (declared 2026-11-18, before it was built; Thomas: "Replace 28-31 and 32+ with just 28+, I'm mostly just curious if the way you define the age bands affects anything")
+
+Report only, a sensitivity of the age bands; nothing reported changes. One yes-or-no term, aged 28 or over at the trade
+date (the main player's, or any player received), replaces the two terms aged 28 to 31 and aged 32 or over; every other
+term, row, rule and standard error unchanged. Run in both regressions on the declared window: (1) the who-is-overpaid
+regression (`25_TESTS/age_band_test.py`, on `traits_test.py`'s rebuilt rows; guard: the two-band fit reproduces
+`who_overpaid_any.py` v1.4), outcomes the trade-day grade and the realized value on WAR, Game Value and the seasons played;
+(2) the joint regression (`groups_any.py` v1.3, part 6, on part 5's design; guard: part 5's fit reproduces), the trade-day
+grade and the realized value on WAR and Game Value. Reported: the 28-and-over coefficient beside the two bands', and the
+clause and defenceman coefficients in each fit. A player whose age is unknown counts as no, as in the two-band flags.
