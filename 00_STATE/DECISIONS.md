@@ -4122,3 +4122,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - DECIDED (Thomas: "Yes, move to Section 3"): the defenceman is a finding under the main player rule (joint regression,
   2017-22); it does not meet the rule in the Section 3 regression or under the any player rule, and the document says so.
   DOCUMENT findings_doc.js v3.1. WORK_QUEUE 1a; PROJECT_STATE line; MANIFEST row; session log.
+- DECIDED (Thomas: "I want to see handedness, size, playoff performance, and European or not"; "Both terms", "Height and
+  weight", "Fetch spring 2017"). RUN (report only; protocol 973c3e8): `25_TESTS/traits_test.py` v1.0. None is a finding.
+  MANIFEST row; session log.

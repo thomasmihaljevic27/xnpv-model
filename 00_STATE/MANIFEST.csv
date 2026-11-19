@@ -444,3 +444,4 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,who_overpaid.py,backtest,hashable,2026-11-18,d66ff9c0428fb061e653300b954030b082c6f298,14252,2026-11-18,yes,git,"v1.1: part A logs the futures seller with the cap hit on the declared window"
 25_TESTS,who_overpaid_any.py,backtest,hashable,2026-11-18,52fdb588a76632223e9f225065e6c6efc5210001,18054,2026-11-18,yes,git,"v1.4: the trade-day grade and Game Value columns on the declared window"
 25_TESTS,findings_doc.js,docs,hashable,2026-11-18,a28e149a545a0d1792f3a63bb607f92f0aefb6c8,43314,2026-11-18,yes,git,"v3.1: the defenceman a Section 3 finding (main player rule); writes 40_DOCS/Trade Back-test Findings.docx"
+25_TESTS,traits_test.py,backtest,hashable,2026-11-18,fd6e3e9c79e4928570a3a1b9285440860620d8ca,14872,2026-11-18,yes,git,"v1.0: handedness, size, playoff points and birthplace in the who-is-overpaid regression, declared window"
