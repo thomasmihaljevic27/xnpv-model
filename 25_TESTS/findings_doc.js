@@ -1,6 +1,20 @@
 // findings_doc.js v2.1 -- builds "Trade Back-test, What We Found and How, revised.docx" (40_DOCS/); v2.0 built "Trade
 // Back-test, What We Found and How.docx" (Thomas's commented copy of it is kept in git); v1.x "Back-test Findings and Methods.docx".
 //
+// v3.0 (2026-11-18): Thomas's fourth round (6 comments and his edits on the v2.9 file), his edits carried verbatim ("the
+// team received"; "is the same under both rules"; "actually lost value"; "counting each trade only once" and the 5% sentence
+// cut; "may also require that player have their salary retained"; "double check each finding" and the colon labels; "the
+// following characteristics"; "(defined as the player with the highest cap hit)"; Section 3's "What it means" and the
+// declared-first sentence cut; "market value increase"; "along with"; "Team higher in the standings"; "Team retained
+// salary"; "final contract season"). The declared window throughout (Thomas: "I would do 2017-22 for both trade day and
+// realized value"; protocol amendment 2ec8523), except Section 4 on all trades with the correction instrumented by the
+// seasons played ("All trades, played seasons"). Step 4 says how an average is tested; Step 5 shortened and Section 3's
+// "How it was measured" moved into it; the "other samples" table gone; the final-season restricted free agent and late
+// picks in the joint regression, with its trade-day column (groups_any.py v1.2); who_overpaid_any.py v1.4,
+// who_overpaid.py v1.1, trend_both.py v1.1. Repetition cut: figures restated from a table, the measures' rule restated in
+// a caption, the not-about-a-player note, the age-in-one-regression bullet (moved to Section 3), the by-construction
+// paragraph (the trend is now on played-out years). Previous body: git show 68fcf09^:25_TESTS/findings_doc.js.
+//
 // v2.9 (2026-11-18; Thomas: "Cap-weighted"): under the any player rule the three measured characteristics are averages
 // over the players received, weighted by cap hit (who_overpaid_any.py v1.3); the any player figures updated.
 //
@@ -81,7 +95,7 @@ const {
 const ROOT = path.resolve(__dirname, "..");
 const OUTFILE = process.env.DOC_OUT || path.join(ROOT, "40_DOCS", "Trade Back-test Findings.docx")   // v2.3: a new file; the ", revised" file holds Thomas's second round of notes
 const FONT = "Arial";
-const VERSION = "findings_doc.js v2.9";
+const VERSION = "findings_doc.js v3.0";
 
 // ---- building blocks ---------------------------------------------------------------------------------------------------
 // A string is plain text; ["Label", "text"] as L() gives a bold lead-in label followed by plain text.
@@ -129,15 +143,19 @@ add(new Paragraph({ heading: HeadingLevel.TITLE, children: [T("Findings")] }));
 
 // ==== 1 ====
 // a bold label held with the table that follows it
+const MR = "Main player rule", AR = "Any player rule";
 const LABEL = (t) => new Paragraph({ keepNext: true, spacing: { before: 120, after: 60 }, children: [T(t, { bold: true })] });
 add(H1("1. How a Finding Is Made"));
 add(H2("Step 1: grade every trade on trade day"));
-add(B("Every player, pick and prospect in a trade gets a dollar value from the models, using only what was known that day. "
+// v3.0 (Thomas: "I think it hurts the models credibility to include these trades"; "I would do 2017-22 for both trade day
+// and realized value"): the sample and its reason
+add(B("The trades are the 563 made from July 1, 2017 to March 28, 2022. Later trades are left out: more of their realized "
+  + "value would be the models' forecast standing in for seasons not yet played."),
+  B("Every player, pick and prospect in a trade gets a dollar value from the models, using only what was known that day. "
   + "This value is its expected net present value (xNPV)."),
   B(L("A player's value", "is what his forecasted performance is worth on the market, less what he costs against the cap, "
     + "over the rest of his contract, with the seasons of continued team control included for restricted free agents.")),
   B(L("A pick's or a prospect's value", "is what a pick in that spot, or a prospect with that record, has typically turned into.")),
-  // v2.8: Thomas's wording
   B("What each club received less what it gave up is the club's trade-day grade. A positive grade means it got more value "
     + "than it gave; negative means it paid too much. The two clubs' grades always sum to zero."));
 add(H2("Step 2: see how each trade actually turned out"));
@@ -158,56 +176,69 @@ add(B("k counts the seasons left from the trade (k = 0 is the season of the trad
     + "pick is followed to the player drafted with it; a pick or prospect who has not reached the NHL by 2026-27 is valued "
     + "again by the appropriate model."));
 add(H2("Step 3: sort the clubs into categories of trades"));
-// v2.8 (Thomas: "I think just generally this fits best in section 1"): the two rules, in his wording, moved from Section 3
+// v3.0: Thomas's edits ("the team received", "is the same under both rules"); the counts on 2017-22
 add(B("A category is a type of trade, for example acquiring a player aged 28 to 31, or buying at the trade deadline. Each "
   + "club is either in a category or not."),
   B("There are two ways to categorize teams based on the trade, if the main player received in the trade met a certain "
     + "criterion, or if any player received in the trade met a certain criteria:"),
   B(L("Main player rule:", "a club is in a group when its main player has the characteristic; for example, it is in the "
     + "former top-15 pick group when its main player is a former top-15 pick. The main player is defined as the player with "
-    + "the highest cap hit it received."), 1),
-  B(L("Any player rule:", "a club is in a group when any player it received has the characteristic. Of the 735 clubs in "
-    + "Section 3's regressions, only 78 received two or more players, so this method is a type of robustness check."), 1),
+    + "the highest cap hit the team received."), 1),
+  B(L("Any player rule:", "a club is in a group when any player it received has the characteristic. Of the 431 clubs in "
+    + "Section 3's regressions, only 45 received two or more players, so this method is a type of robustness check."), 1),
   B("Each result is reported under both rules. A category about a player sent, such as retained salary, uses the main "
     + "player sent (the highest cap hit) or any player sent. A category not about a player, such as buying at the deadline, "
-    + "holds the same clubs under both rules."));
+    + "is the same under both rules."));
 add(H2("Step 4: test each category on its own"));
+// v3.0 (Thomas: "How though"): how the average is tested; his edits ("actually lost value"; "counting each trade only
+// once"; the 5% sentence cut)
 add(B("For each category, the clubs in it are averaged twice: once on their trade-day grades and once on their realized "
   + "values."),
   B("Each average is tested against zero. A negative average trade-day grade means clubs making that type of trade paid more "
-    + "than the models' value; a negative average realized value means they lost value."),
+    + "than the models' value; a negative average realized value means they actually lost value."),
+  B("The test divides the average by its standard error, which measures how much the average would vary from one sample of "
+    + "trades to another. The p-value is the chance of an average at least that far from zero if clubs making that type of "
+    + "trade in truth broke even."),
   B("The two clubs in a trade are mirror images of each other, so they are not two independent observations. Standard "
-    + "errors are therefore clustered by trade: each trade counts once. A p-value below 0.05 means the average is "
-    + "statistically significant at the 5% level."));
+    + "errors are therefore clustered by trade, counting each trade only once."));
 add(H2("Step 5: hold the other characteristics constant"));
-add(B("Characteristics overlap. A club acquiring a 30-year-old at the trade deadline might also take on a clause and give up "
-  + "picks. A regression puts all the characteristics in at once, so each one's effect is measured with the others held "
-  + "fixed."),
-  B("Two regressions are run on the same characteristics: one on the clubs' trade-day grades, the other on their realized "
-    + "values. Each characteristic's coefficient is the difference it makes to a club's value with the other "
-    + "characteristics held constant."),
-  B(L("Section 3", "regresses the grade and the realized value of each club that received a player on the characteristics of "
-    + "the players it received, with standard errors clustered by trade.")),
-  B(L("Section 5", "takes each two-team trade once: the first club's value is regressed on the difference between the two "
-    + "clubs' characteristics, with no constant, because the second club's value is the first club's with the sign "
-    + "reversed. Each trade is one row, so its standard errors are robust ones.")));
+// v3.0 (Thomas: "Just state that two regressions are then run on both trade day and realized value and which variables";
+// "it just feels like this belongs in Section 1"): Section 3's "How it was measured" moved here, his edits verbatim
+add(B("Characteristics overlap. A club acquiring a 30-year-old at the trade deadline may also require that player have their "
+  + "salary retained or give up picks. Two regressions are therefore run, one on the clubs' trade-day grades and one on their "
+  + "realized values, with all the characteristics in at once."),
+  B(L("In Section 3,", "the club's trade-day grade and its realized value are each regressed on the following characteristics: "
+    + "age, position, clause, signed as an unrestricted free agent, seasons left on contract, production (recent WAR, "
+    + "weighted 50/30/20 across the three most recent seasons), how much that production exceeds its forecast, the share of "
+    + "games played in the most recent season, and whether a player is a former top-15 draft pick. Standard errors are "
+    + "clustered by trade.")),
+  B("Under the main player rule each characteristic is the main player's (defined as the player with the highest cap hit). "
+    + "Under the any player rule a yes-or-no characteristic, such as the clause, counts when any player received has it; "
+    + "production, how much it exceeds its forecast and the games share are averages over the players received, weighted by "
+    + "cap hit.", 1),
+  B("The cap hit is left out on purpose. A contract's value is already its performance value less its cap hit, so \"clubs "
+    + "overpay for expensive players\" would be circular.", 1),
+  B(L("In Section 5,", "each two-team trade is taken once, and the first club's value is regressed on the differences between "
+    + "the two clubs in every category of trade: those in the Section 5 table, the two age groups and the clause, selling a "
+    + "player for picks and prospects, buying earlier in the season while higher in the standings, and taking on a contract "
+    + "to clear cap. There is no constant, because the second club's value is the first club's with the sign reversed. Each "
+    + "trade is one row, so its standard errors are robust ones.")));
 add(H2("Step 6: what counts as a finding"));
 add(B("A finding must show in both the trade-day grade and the realized value: the characteristic is statistically "
   + "significant at the 5% level in both regressions, with the same sign."));
-add(H2("Step 7: try to break each finding"));
-add(B(L("Fresh trades.", "Does the finding hold on the trades after March 2022, which were not in the sample of trades in which "
-  + "it was first found?")),
-  B(L("A second performance measure.", "Does it hold when performance is measured with Game Value instead of WAR?")),
-  B(L("Played seasons only.", "Does it hold when a club's realized value counts only the seasons played through 2025-26, with "
+// v3.0: his title and colons; the fresh-trades check removed (Thomas: "I want this removed")
+add(H2("Step 7: double check each finding"));
+add(B(L("A second performance measure:", "Does it hold when performance is measured with Game Value instead of WAR?")),
+  B(L("Played seasons only:", "Does it hold when a club's realized value counts only the seasons played through 2025-26, with "
     + "no model projection of the seasons after?")));
 
 // ==== 2 ====
 add(H1("2. The Models Predict How Trades Turn Out"));
-add(table(["", "2017-22, WAR", "2017-22, Game Value", "All trades, WAR"], [
-  ["Favoured club came out ahead", "57.1% [53.3, 61.1]\np = 0.001", "56.9% [52.9, 60.8]\np = 0.001", "60.7% [57.5, 63.9]\np < 0.001"],
-  ["Slope of realized value on trade-day grade", "0.749 [0.553, 0.901]\np < 0.001", "0.731 [0.530, 0.957]\np < 0.001", "0.633 [0.463, 0.782]\np < 0.001"],
-  ["R-squared", "0.309", "0.296", "0.262"],
-], [34, 22, 24, 20]));
+add(table(["", "WAR", "Game Value"], [
+  ["Favoured club came out ahead", "57.1% [53.3, 61.1]\np = 0.001", "56.9% [52.9, 60.8]\np = 0.001"],
+  ["Slope of realized value on trade-day grade", "0.749 [0.553, 0.901]\np < 0.001", "0.731 [0.530, 0.957]\np < 0.001"],
+  ["R-squared", "0.309", "0.296"],
+], [40, 30, 30]));
 add(NOTE("The slope is how far a club's realized value moves for each $1 of its trade-day grade: 1 means the predicted gap "
   + "shows up in full on average, 0 that the grade predicts nothing. R-squared is the share of the variation in realized "
   + "values that the trade-day grades account for. The two answer different questions: the prediction is close to right on "
@@ -216,74 +247,34 @@ add(NOTE("The slope is how far a club's realized value moves for each $1 of its 
 add(B(L("What it means.", "Creating one metric to evaluate players, picks and prospects works: about three-quarters of the gap "
   + "predicted on trade day shows up in the realized value, and the result is replicable when using an alternative metric to "
   + "evaluate performance.")),
-  B(L("By type of asset (2017-22),", "realized minus predicted value per asset acquired: players +0.104 [-0.078, +0.294] (664 "
-    + "assets); prospects +0.158 [-0.138, +0.521] (253); picks -0.188 [-0.330, -0.041] (633). Only picks fall short of their "
+  B(L("By type of asset,", "realized minus predicted value per asset acquired: players +0.104 [-0.078, +0.294] (664 assets); "
+    + "prospects +0.158 [-0.138, +0.521] (253); picks -0.188 [-0.330, -0.041] (633). Only picks fall short of their "
     + "prediction by a statistically significant amount.")));
 
 // ==== 3 ====
-add(H1("3. Clubs Overpay for Players Aged 28 to 31, Former Top-15 Picks and Players with Contract Clauses"));
-add(H2("How it was measured"));
-add(B("The club's trade-day grade and its realized value are each regressed on these characteristics: age, position, clause, "
-  + "signed as an unrestricted free agent, seasons left on contract, production (recent WAR, weighted 50/30/20 across the "
-  + "three most recent seasons), how much that production exceeds its forecast, the share of games played in the most "
-  + "recent season, and whether a player is a former top-15 draft pick."),
-  // v2.8 (Thomas: "Why not just actually do the analysis under both methods?"; the measures: "in the any player model it
-  // should be your recommended option"): each rule applied to every characteristic (who_overpaid_any.py v1.2)
-  B("Under the main player rule each characteristic is the main player's. Under the any player rule a yes-or-no "
-    + "characteristic, such as the clause, counts when any player received has it; production, how much it exceeds its "
-    + "forecast and the games share are averages over the players received, weighted by cap hit."),
-  B("The cap hit is left out on purpose. A contract's value is already its performance value less its cap hit, so \"clubs "
-    + "overpay for expensive players\" would be circular."));
-add(H2("Findings"));
-const S3HEAD = (who) => [who, "Trade-day grade", "Realized value, WAR", "Realized value, Game Value",
-  "Realized value, WAR, 2017-22, played seasons only", "Realized value, WAR, after 2022"];
-add(LABEL("By the main player rule"));
-add(table(S3HEAD("Club whose main player acquired is"), [
-  ["Aged 28 to 31", "-1.53 (0.43)\np < 0.001", "-1.72 (0.60)\np = 0.004", "-1.69 (0.62)\np = 0.006", "-1.96 (0.89)\np = 0.027", "-0.86 (0.57)\np = 0.13"],
-  ["On a contract with a clause", "-2.04 (0.59)\np < 0.001", "-1.85 (0.63)\np = 0.003", "-1.73 (0.67)\np = 0.010", "-2.49 (1.05)\np = 0.017", "-1.10 (0.50)\np = 0.027"],
-  ["A former top-15 pick", "-1.51 (0.45)\np < 0.001", "-1.50 (0.57)\np = 0.009", "-1.60 (0.62)\np = 0.010", "-1.34 (0.84)\np = 0.11", "-1.51 (0.54)\np = 0.005"],
-], [26, 14, 14, 15, 17, 14]));
-add(LABEL("By the any player rule"));
-add(table(S3HEAD("Club acquiring any player who is"), [
-  ["Aged 28 to 31", "-1.24 (0.47)\np = 0.008", "-1.27 (0.63)\np = 0.043", "-1.48 (0.68)\np = 0.028", "-1.36 (0.98)\np = 0.16", "-0.77 (0.49)\np = 0.12"],
-  ["On a contract with a clause", "-1.79 (0.50)\np < 0.001", "-1.70 (0.54)\np = 0.002", "-1.55 (0.61)\np = 0.010", "-2.19 (0.90)\np = 0.015", "-1.24 (0.53)\np = 0.019"],
-  ["A former top-15 pick", "-1.35 (0.47)\np = 0.004", "-1.29 (0.59)\np = 0.027", "-1.33 (0.65)\np = 0.041", "-1.15 (0.86)\np = 0.18", "-1.22 (0.52)\np = 0.018"],
-], [26, 14, 14, 15, 17, 14]));
-add(LABEL("The same regressions on other samples"));
-add(table(["Club acquiring", "Rule", "Trade-day grade, after 2022", "Realized value, WAR, 2017-22", "Realized value, WAR, played seasons only, all trades"], [
-  ["A player aged 28 to 31", "Main player rule", "-1.27 (0.60)\np = 0.034", "-2.31 (0.94)\np = 0.014", "-1.41 (0.56)\np = 0.012"],
-  ["", "Any player rule", "-1.46 (0.54)\np = 0.007", "-1.67 (1.04)\np = 0.11", "-1.01 (0.59)\np = 0.087"],
-  ["A player with a clause", "Main player rule", "-1.61 (0.68)\np = 0.017", "-2.64 (1.15)\np = 0.022", "-1.71 (0.57)\np = 0.003"],
-  ["", "Any player rule", "-1.64 (0.67)\np = 0.015", "-2.20 (0.92)\np = 0.016", "-1.55 (0.51)\np = 0.002"],
-  ["A former top-15 pick", "Main player rule", "-1.71 (0.63)\np = 0.007", "-1.55 (0.90)\np = 0.088", "-1.20 (0.52)\np = 0.022"],
-  ["", "Any player rule", "-1.63 (0.62)\np = 0.008", "-1.36 (0.93)\np = 0.14", "-1.02 (0.54)\np = 0.058"],
-], [22, 18, 20, 20, 20]));
+// v3.0: on 2017-22 (who_overpaid_any.py v1.4); one table with each rule's rows
+add(H1("3. Clubs Overpay for Players with Contract Clauses and, by the Main Player Rule, Players Aged 28 to 31"));
+add(table(["Club acquiring", "Rule", "Trade-day grade", "Realized value, WAR", "Realized value, Game Value", "Realized value, WAR, played seasons only"], [
+  ["A player with a clause", MR, "-2.71 (0.97)\np = 0.005", "-2.64 (1.15)\np = 0.022", "-2.50 (1.20)\np = 0.038", "-2.49 (1.05)\np = 0.017"],
+  ["", AR, "-2.21 (0.72)\np = 0.002", "-2.20 (0.92)\np = 0.016", "-2.05 (1.03)\np = 0.047", "-2.19 (0.90)\np = 0.015"],
+  ["A player aged 28 to 31", MR, "-1.53 (0.59)\np = 0.009", "-2.31 (0.94)\np = 0.014", "-2.27 (0.97)\np = 0.019", "-1.96 (0.89)\np = 0.027"],
+  ["", AR, "-1.07 (0.69)\np = 0.12", "-1.67 (1.04)\np = 0.11", "-2.01 (1.14)\np = 0.077", "-1.36 (0.98)\np = 0.16"],
+], [20, 16, 16, 16, 16, 16]));
 add(NOTE("Figures in millions of dollars as of the 2025-26 salary cap. Negative means the club paid more than the models' value "
   + "(trade-day grade) or lost value (realized value). Standard errors in brackets, clustered by trade. All characteristics "
-  + "are in each regression together; the other terms are in Section 5. 735 clubs (540 trades) for all trades; 431 for "
-  + "2017-22; 304 after 2022."));
-// v2.8 (Thomas: "kinda a slog to read"): one plain claim a bullet; the replication figures are in the third table
+  + "are in each regression together; the other terms are in Section 5. 431 clubs (313 trades)."));
 add(B(L("The clause finding", "holds in each test under both rules. Clubs that take on a player with a no-trade or no-move "
-  + "clause pay more than the models' value and lose value: in 2017-22 alone, after 2022 alone, and on played seasons only.")),
-  B(L("The former top-15 pick finding", "holds after 2022 alone under both rules. It is weaker on the earlier trades. In "
-    + "2017-22 alone its realized value is not statistically significant under either rule (p = 0.088 and 0.14). On played "
-    + "seasons only it is under the main player rule (p = 0.022) but not under the any player rule (p = 0.058).")),
-  B(L("The age 28 to 31 finding", "depends on the rule. Under the main player rule clubs overpay and lose value in each test "
-    + "except one: the realized value after 2022 alone (p = 0.13). Under the any player rule clubs overpay and lose value "
-    + "across all trades (p = 0.043 on WAR, 0.028 on Game Value), but the realized value is not statistically significant "
-    + "in 2017-22 alone, after 2022 alone, or on played seasons only.")),
-  B(L("Why the rules differ.", "Under the any player rule a cheaper second player who is 28 to 31 or a former top-15 pick puts "
-    + "his club in the group. The figures are smaller that way: by about a fifth to a quarter for age, and by about a tenth "
-    + "for the clause and former top-15 picks.")),
-  B(L("Grouped the simple way,", "2017-22: clubs acquiring a player with a clause had a trade-day grade of -3.38 (0.63) and a "
-    + "realized value of -2.92 (0.74) under the main player rule, and -2.95 (0.53) and -2.50 (0.65) under the any player "
-    + "rule; each is statistically significant at the 5% level (p < 0.001). The any player version was declared before the "
-    + "main test was first run.")));
-add(H2("What it means"));
-add(B("Clubs pay for the name, the draft pedigree and the past, more than for what the player is likely to deliver in the "
-  + "future."),
-  B("Each of the three findings holds with the others fixed: paying more for a 29-year-old is separate from paying more for a "
-    + "former high pick or for a clause."));
+  + "clause pay more than the models' value and lose value, on WAR, on Game Value and on played seasons only.")),
+  B(L("The age 28 to 31 finding", "holds in each test under the main player rule. Under the any player rule none of its four "
+    + "figures is statistically significant (the smallest p-value is 0.077, on Game Value).")),
+  B(L("Why the rules differ.", "Under the any player rule a cheaper second player who is 28 to 31 puts his club in the group. "
+    + "The figures are smaller that way, by 11% to 31% for age and by 12% to 18% for the clause.")),
+  B(L("With every category of trade held constant", "as well (the Section 5 regression), both findings stand: the clause under "
+    + "both rules (p = 0.011 or less), and age under the main player rule (trade-day grade -1.07, p = 0.004; realized value "
+    + "-1.36, p = 0.024) but not under the any player rule (p = 0.074 and 0.082).")),
+  B(L("Grouped the simple way,", "clubs acquiring a player with a clause had a trade-day grade of -3.38 (0.63) and a realized "
+    + "value of -2.92 (0.74) under the main player rule, and -2.95 (0.53) and -2.50 (0.65) under the any player rule; each "
+    + "is statistically significant at the 5% level (p < 0.001).")));
 
 // ==== 4 ====
 add(H1("4. Teams Respond to Only About 40% of a Contract's Value"));
@@ -294,159 +285,152 @@ add(B("Each main player's contract is split into two parts: the value of his for
   B("The price the club paid for its main player alone is the models' value of everything it gave up, less the models' value "
     + "of everything else it received in the trade. A price belongs to one player, so this section uses the main player rule "
     + "only."),
+  // v3.0 (Thomas: "the finding about how the trades respond to contract value shouldn't be changed"; "All trades, played
+  // seasons"): every trade to March 2026, the correction instrumented by the seasons played
+  B("This section uses every trade to March 2026. The price is set on trade day, and the correction below uses only the "
+    + "seasons played, so no forecast enters it."),
   B("A market that priced contracts correctly would pay more for players on value contracts and less for overpaid players."),
   B(L("A correction for the models' own error:", "The models' values are estimates, and part of each is error. The price "
     + "cannot follow that error, so regressing the price on the models' value gives a smaller slope than the market's true "
     + "response. Two-stage least squares removes this in two steps. First, the models' value is regressed on what the "
-    + "contract actually delivered; this keeps only the part of the models' value that the player's real performance bears "
-    + "out. Second, the price is regressed on that part. The result says whether the low response belongs to the market or "
-    + "to the models' error.")));
+    + "contract actually delivered in the seasons played through 2025-26; this keeps only the part of the models' value that "
+    + "the player's real performance bears out. Second, the price is regressed on that part. The result says whether the low "
+    + "response belongs to the market or to the models' error.")));
 add(H2("Findings"));
-// v2.8 (Thomas: "it is unclear what this table is communicating just from looking at it"): a title, plain row and column
-// names, and the full-response benchmark in the note
 add(LABEL("How much the price paid for a player moves for each $1 of his contract's two parts"));
-add(table(["How the contract's two parts are measured", "Price change per $1 more performance value", "Price change per $1 more cap cost"], [
+add(table(["How the contract's two parts are measured", "Price change per $1 market value increase", "Price change per $1 more cap cost"], [
   ["The models' value on trade day", "+0.26 (0.11)\np = 0.017", "-0.27 (0.10)\np = 0.007"],
-  ["What the contract actually delivered", "+0.19 (0.09)\np = 0.027", "-0.23 (0.09)\np = 0.008"],
-  ["The models' value, corrected for its error (two-stage least squares)", "+0.41 (0.18)\np = 0.030", "-0.39 (0.15)\np = 0.020"],
-  ["The same, corrected using played seasons only", "+0.39 (0.19)\np = 0.045", "-0.37 (0.16)\np = 0.028"],
+  ["What the contract delivered in the seasons played", "+0.18 (0.09)\np = 0.048", "-0.22 (0.09)\np = 0.014"],
+  ["The models' value, corrected for its error (two-stage least squares)", "+0.39 (0.19)\np = 0.045", "-0.37 (0.16)\np = 0.028"],
 ], [46, 27, 27]));
 add(NOTE("A market that priced contracts in full would move the price by +1.00 for each $1 of performance value and by -1.00 "
-  + "for each $1 of cap cost. 886 clubs, all trades. Standard errors in brackets, clustered by trade; for the corrected "
-  + "rows, standard errors and p-values by resampling trades. The p-values test against zero; against a full dollar (+1 "
-  + "and -1), each corrected figure has p = 0.001 or less. The cap cost is approximate (injured-reserve relief left out). In "
-  + "2017-22 alone the corrected figures are +0.33 (0.29) and -0.33 (0.21): not statistically different from zero (p = 0.24 "
-  + "and 0.14), but statistically different from a full dollar (p = 0.012 and 0.001)."));
+  + "for each $1 of cap cost. 886 clubs, all trades to March 2026. Standard errors in brackets, clustered by trade; for the "
+  + "corrected row, standard errors and p-values by resampling trades. The p-values test against zero; against a full "
+  + "dollar (+1 and -1), each corrected figure has p < 0.001. The cap cost is approximate (injured-reserve relief left out). "
+  + "In 2017-22 alone the corrected figures are +0.34 (0.29) and -0.34 (0.21): not statistically different from zero "
+  + "(p = 0.20 and 0.10), but statistically different from a full dollar (p = 0.023 and 0.001)."));
 add(H2("What it means"));
 add(B("About 40 cents is far below a full dollar, and the confidence interval excludes a full dollar, so the market does not "
   + "separate good contracts from bad ones by as much as it should."),
-  // v2.8: both values after 2022 (Thomas: "Is this trade day or realized? It should say both"); his "get fair value"
-  B(L("This is why clubs selling players for picks and prospects come out ahead.", "Their trade-day grade is +1.54 (0.18) and "
-    + "their realized value +0.91 (0.25) in 2017-22; after 2022 they are +1.20 (0.26) and +0.77 (0.22). The players they "
-    + "sell are mostly on expensive contracts, and the buyers do not charge enough for the cost. Once the cap hit of the "
-    + "player sold is held fixed, teams selling players for picks and prospects get fair value (all trades: trade-day grade "
-    + "-0.14, p = 0.38; realized value -0.10, p = 0.73): the gain comes from shedding the contract, not from taking picks and "
-    + "prospects.")),
-  B(L("Cap dumps are the same pattern.", "In 43 trades a club sent a player at $2.5M or more with a pick or prospect and took "
-    + "back no player at $1M or more. It attached $0.096M of picks and prospects for each $1M of cap cleared [0.057, 0.154], "
-    + "and the club taking the contract came out behind.")));
+  B(L("This is why clubs selling players for picks and prospects come out ahead.", "In 2017-22 their trade-day grade is +1.54 "
+    + "(0.18) and their realized value +0.91 (0.25). The players they sell are mostly on expensive contracts, and the buyers "
+    + "do not charge enough for the cost. Once the cap hit of the player sold is held fixed, teams selling players for picks "
+    + "and prospects get fair value (trade-day grade -0.13, p = 0.56; realized value -0.12, p = 0.79): the gain comes from "
+    + "shedding the contract, not from taking picks and prospects.")),
+  B(L("Cap dumps are the same pattern.", "In 23 trades in 2017-22 a club sent a player at $2.5M or more along with a pick or "
+    + "prospect and took back no player at $1M or more. It attached $0.083M of picks and prospects for each $1M of cap "
+    + "cleared [0.036, 0.157], and the club taking the contract came out behind (realized value -2.73 [-4.76, -0.82]).")));
 
 // ==== 5 ====
 add(H1("5. What Is Not Mispriced"));
 add(H2("Categories of trades"));
-// v2.8 (Thomas: "this could absolutely be split between the two model types"): each category under both rules
-// (groups_any.py v1.1); late picks and final-season restricted free agents moved into the table
-const MR = "Main player rule", AR = "Any player rule", NR = "Not in the regression";
-add(table(["Group", "Rule", "Clubs", "Trade-day grade, alone", "Realized value, alone", "Realized value, other factors held constant"], [
-  ["Higher in the standings, last 14 days before the deadline", MR, "193", "-0.92 (0.13)\np < 0.001", "-0.54 (0.21)\np = 0.010", "-0.01 (0.17)\np = 0.97"],
-  ["", AR, "193", "-0.92 (0.13)\np < 0.001", "-0.54 (0.21)\np = 0.010", "+0.02 (0.18)\np = 0.89"],
-  ["Kept part of the salary of a player it sent (retained salary)", MR, "84", "+1.32 (0.36)\np < 0.001", "+0.98 (0.50)\np = 0.052", "+0.11 (0.49)\np = 0.82"],
-  ["", AR, "86", "+1.30 (0.35)\np < 0.001", "+1.03 (0.48)\np = 0.034", "+0.24 (0.51)\np = 0.64"],
-  ["Received a rental (final season, unrestricted, in season)", MR, "260", "-0.35 (0.09)\np < 0.001", "-0.16 (0.15)\np = 0.30", "+0.90 (0.28)\np = 0.001"],
-  ["", AR, "265", "-0.33 (0.09)\np < 0.001", "-0.08 (0.16)\np = 0.60", "+0.85 (0.30)\np = 0.005"],
-  ["Received a defenceman", MR, "181", "-0.99 (0.24)\np < 0.001", "-1.00 (0.31)\np = 0.001", "-0.84 (0.29)\np = 0.004"],
-  ["", AR, "194", "-0.81 (0.21)\np < 0.001", "-0.74 (0.27)\np = 0.006", "-0.70 (0.27)\np = 0.009"],
-  ["Received a former top-15 pick below the top-15 average, D+5 or later", MR, "56", "-1.44 (0.66)\np = 0.029", "-1.11 (0.78)\np = 0.16", "-0.64 (0.50)\np = 0.21"],
-  ["", AR, "60", "-1.02 (0.65)\np = 0.12", "-1.32 (0.80)\np = 0.10", "-0.98 (0.54)\np = 0.069"],
-  ["Received a restricted free agent in his final contract season", MR, "55", "+0.78 (0.34)\np = 0.021", "+0.45 (0.45)\np = 0.31", NR],
-  ["", AR, "58", "+0.49 (0.26)\np = 0.060", "+0.45 (0.42)\np = 0.29", NR],
-  ["Received only picks in rounds 6 and 7", MR, "77", "+0.08 (0.08)\np = 0.31", "-0.07 (0.19)\np = 0.73", NR],
-  ["", AR, "77", "+0.08 (0.08)\np = 0.31", "-0.07 (0.19)\np = 0.73", NR],
-  ["Received one asset for two or more", MR, "178", "-1.40 (0.22)\np < 0.001", "-0.48 (0.37)\np = 0.19", "-0.06 (0.27)\np = 0.83"],
-  ["", AR, "178", "-1.40 (0.22)\np < 0.001", "-0.48 (0.37)\np = 0.19", "-0.11 (0.27)\np = 0.70"],
-  ["Sold under a new general manager, his predecessor's contract", MR, "65", "+1.69 (0.52)\np = 0.001", "+0.36 (0.68)\np = 0.60", "-0.13 (0.55)\np = 0.81"],
-  ["", AR, "65", "+1.69 (0.52)\np = 0.001", "+0.36 (0.68)\np = 0.60", "-0.12 (0.57)\np = 0.83"],
-], [27, 17, 7, 16, 16, 17]));
-add(NOTE("$M a club; positive means the club gained. \"Alone\": the group's average, 2017-22. \"Other factors held constant\": "
-  + "all categories in one regression, all trades, each built by the row's rule; the restricted free agent and late-pick "
-  + "groups are not in it. Three groups are not about a player (the deadline, picks in rounds 6 and 7, and one asset for two "
-  + "or more), so they hold the same clubs under both rules, and only their last column differs, because the other "
-  + "categories in the regression change. Standard errors in brackets, clustered by trade."));
+// v3.0: on 2017-22; the trade-day grade with the other factors held constant beside the realized value; the restricted
+// free agent and late picks in the regression (Thomas: "Well it really should be added to the regression"); groups_any.py
+// v1.2 part 5; his row labels
+add(table(["Group", "Rule", "Clubs", "Trade-day grade, alone", "Realized value, alone", "Trade-day grade, other factors held constant", "Realized value, other factors held constant"], [
+  ["Team higher in the standings, last 14 days before the deadline", MR, "193", "-0.92 (0.13)\np < 0.001", "-0.54 (0.21)\np = 0.010", "-0.16 (0.17)\np = 0.34", "-0.14 (0.25)\np = 0.56"],
+  ["", AR, "193", "-0.92 (0.13)\np < 0.001", "-0.54 (0.21)\np = 0.010", "-0.15 (0.17)\np = 0.38", "-0.17 (0.26)\np = 0.51"],
+  ["Team retained salary", MR, "84", "+1.32 (0.36)\np < 0.001", "+0.98 (0.50)\np = 0.052", "-0.24 (0.41)\np = 0.55", "-0.02 (0.62)\np = 0.98"],
+  ["", AR, "86", "+1.30 (0.35)\np < 0.001", "+1.03 (0.48)\np = 0.034", "-0.10 (0.49)\np = 0.83", "+0.25 (0.68)\np = 0.71"],
+  ["Received a rental (final contract season, unrestricted, in season)", MR, "260", "-0.35 (0.09)\np < 0.001", "-0.16 (0.15)\np = 0.30", "+1.31 (0.25)\np < 0.001", "+1.20 (0.44)\np = 0.006"],
+  ["", AR, "265", "-0.33 (0.09)\np < 0.001", "-0.08 (0.16)\np = 0.60", "+1.27 (0.24)\np < 0.001", "+1.35 (0.48)\np = 0.005"],
+  ["Received a defenceman", MR, "181", "-0.99 (0.24)\np < 0.001", "-1.00 (0.31)\np = 0.001", "-0.52 (0.26)\np = 0.048", "-1.12 (0.40)\np = 0.005"],
+  ["", AR, "194", "-0.81 (0.21)\np < 0.001", "-0.74 (0.27)\np = 0.006", "-0.42 (0.27)\np = 0.12", "-0.83 (0.37)\np = 0.026"],
+  ["Received a former top-15 pick below the top-15 average, D+5 or later", MR, "56", "-1.44 (0.66)\np = 0.029", "-1.11 (0.78)\np = 0.16", "-0.68 (0.57)\np = 0.23", "-0.43 (0.77)\np = 0.58"],
+  ["", AR, "60", "-1.02 (0.65)\np = 0.12", "-1.32 (0.80)\np = 0.10", "-0.48 (0.57)\np = 0.40", "-0.99 (0.83)\np = 0.23"],
+  ["Received a restricted free agent in his final contract season", MR, "55", "+0.78 (0.34)\np = 0.021", "+0.45 (0.45)\np = 0.31", "+1.40 (0.30)\np < 0.001", "+0.83 (0.58)\np = 0.15"],
+  ["", AR, "58", "+0.49 (0.26)\np = 0.060", "+0.45 (0.42)\np = 0.29", "+1.33 (0.33)\np < 0.001", "+1.16 (0.61)\np = 0.057"],
+  ["Received only picks in rounds 6 and 7", MR, "77", "+0.08 (0.08)\np = 0.31", "-0.07 (0.19)\np = 0.73", "-0.79 (0.22)\np < 0.001", "-0.83 (0.36)\np = 0.022"],
+  ["", AR, "77", "+0.08 (0.08)\np = 0.31", "-0.07 (0.19)\np = 0.73", "-0.79 (0.21)\np < 0.001", "-0.72 (0.36)\np = 0.046"],
+  ["Received one asset for two or more", MR, "178", "-1.40 (0.22)\np < 0.001", "-0.48 (0.37)\np = 0.19", "-0.65 (0.19)\np < 0.001", "+0.04 (0.40)\np = 0.92"],
+  ["", AR, "178", "-1.40 (0.22)\np < 0.001", "-0.48 (0.37)\np = 0.19", "-0.66 (0.20)\np = 0.001", "+0.04 (0.40)\np = 0.92"],
+  ["Sold under a new general manager, his predecessor's contract", MR, "65", "+1.69 (0.52)\np = 0.001", "+0.36 (0.68)\np = 0.60", "+0.51 (0.49)\np = 0.30", "-0.86 (0.76)\np = 0.26"],
+  ["", AR, "65", "+1.69 (0.52)\np = 0.001", "+0.36 (0.68)\np = 0.60", "+0.63 (0.56)\np = 0.26", "-0.75 (0.81)\np = 0.36"],
+], [22, 16, 6, 14, 14, 14, 14]));
+add(NOTE("$M a club; positive means the club gained. \"Alone\": the group's average, standard errors clustered by trade. "
+  + "\"Other factors held constant\": every category in one regression, each built by the row's rule, robust standard "
+  + "errors. For the three groups not about a player, only the held-constant columns differ between the rules, because the "
+  + "other categories in the regression change. Standard errors in brackets."));
 add(B(L("The deadline-buying and retained-salary results", "disappear once the player taken and the picks given are held "
-  + "fixed. Alone, the deadline buyer's realized value is statistically significant, and so is retained salary's under the "
-  + "any player rule (p = 0.034; main player rule p = 0.052); with the other factors held constant, none is.")),
-  B(L("The rental result", "turns positive with other factors held constant (+0.90 under the main player rule, +0.85 under the "
-    + "any player rule) because a rental is usually paid for with picks and prospects, which the regression counts "
-    + "separately (across trades the two are linked at a correlation of 0.50 in size). Taken together, the usual deadline "
-    + "deal, a rental for picks and prospects, is priced about even for the buyer (+0.02 [-0.36, +0.38]) and turns out about "
-    + "even (+0.47 [-0.04, +1.03]).")),
-  B(L("The defenceman result", "is not a mispricing of defencemen, under either rule. With the other factors held constant, the "
-    + "trade-day grade is not statistically significant (main player rule -0.27, p = 0.20; any player rule -0.18, p = 0.38); "
-    + "the realized value stays negative. That gap is not in the defencemen: traded defencemen delivered their forecast "
-    + "(-0.02 WAR a season [-0.08, +0.04]) in games, ice time and each part of WAR, and clubs acquiring one came out where "
-    + "their trade-day grade predicted (realized minus predicted -0.02 [-0.42, +0.39], 2017-22). It shows because the "
-    + "comparison is clubs acquiring forwards, who came out better than their grade (+0.47 [+0.19, +0.76]), mostly because "
-    + "they paid with picks, and picks under-deliver (Section 2).")),
+  + "fixed: with the other factors held constant, none of their figures is statistically significant.")),
+  B(L("The rental result", "turns positive with other factors held constant because a rental is usually paid for with picks "
+    + "and prospects, which the regression counts separately. Taken together, the usual deadline deal, a rental for picks "
+    + "and prospects, is priced about even for the buyer (-0.18 [-0.65, +0.29] under the main player rule, -0.31 [-0.73, "
+    + "+0.12] under the any player rule) and turns out about even (+0.30 [-0.43, +1.03] and +0.26 [-0.46, +0.98]).")),
+  B(L("Defencemen.", "Under the main player rule, with the other factors held constant, clubs acquiring a defenceman pay more "
+    + "on trade day (-0.52, p = 0.048) and lose value (-1.12, p = 0.005). In the Section 3 regression the trade-day grade "
+    + "falls short of statistical significance (-0.73, p = 0.062), and under the any player rule it falls short in both "
+    + "regressions (p = 0.12 and 0.16). Traded defencemen delivered their forecast (-0.02 WAR a season [-0.08, +0.04]) in "
+    + "games, ice time and each part of WAR, and clubs acquiring one came out where their trade-day grade predicted "
+    + "(realized minus predicted -0.02 [-0.42, +0.39]). Part of the gap is the comparison: clubs acquiring forwards came out "
+    + "better than their grade (+0.47 [+0.19, +0.76]), mostly because they paid with picks, and picks under-deliver "
+    + "(Section 2).")),
   B(L("Former top-15 picks below the top-15 average:", "The group is the main player received (main player rule), or any player "
     + "received (any player rule), who is a former top-15 pick and whose output five or more seasons after his draft (D+5 or "
-    + "later) is below the average for top-15 picks at that stage (1.08 WAR a season). Under the main player rule its "
-    + "trade-day grade is statistically significant (-1.44, p = 0.029); under neither rule is its realized value. Across the "
-    + "league, 42% of 125 such players later reached that average.")),
-  B(L("Restricted free agents in their final contract season.", "Under the main player rule clubs acquiring one gain on trade "
-    + "day (+0.78, p = 0.021); under neither rule is the realized value statistically significant.")),
-  B(L("Late picks.", "Each pick in rounds 6 and 7 is valued at $0.09M on trade day, on average, and delivers $0.09M less "
-    + "(p = 0.001), so about nothing. Clubs whose whole return was late picks were neither ahead nor behind.")),
-  B(L("One asset for two or more, and a new general manager selling his predecessor's players:", "the trade-day grade differs "
-    + "from zero, but the realized value is not statistically significant, alone or with the other factors held constant. "
-    + "The manager's group is the same under both rules: no club in it sent a second player signed by the predecessor.")),
-  // v2.8 (Thomas: "What still has none? What is none? Not a complete thought")
-  B(L("Age, with every category in one regression.", "Clubs acquiring a player aged 28 to 31 lose value under both rules (main "
-    + "player rule -1.07, p = 0.005; any player rule -0.96, p = 0.018). Clubs acquiring a player aged 32 or over do not lose "
-    + "value by a statistically significant amount under either rule (-0.16, p = 0.74; -0.11, p = 0.82).")));
+    + "later) is below the average for top-15 picks at that stage (1.08 WAR a season). Across the league, 42% of 125 such "
+    + "players later reached that average.")),
+  B(L("Restricted free agents in their final contract season:", "With the other factors held constant, clubs acquiring one "
+    + "gain on trade day under both rules, but the realized value is not statistically significant under either.")),
+  B(L("Late picks:", "Each pick in rounds 6 and 7 is valued at $0.09M on trade day, on average, and delivers $0.09M less "
+    + "(p = 0.001), so about nothing. Clubs whose whole return was late picks were neither ahead nor behind on their own. "
+    + "With the other factors held constant the group is negative because it is measured beside the other categories its "
+    + "clubs are in: 29 of its 77 clubs sold a player for those picks, and the regression credits a club selling a player for "
+    + "picks and prospects with a gain (+1.32 on trade day, main player rule). The two together are +0.53 [-0.04, +1.10] on "
+    + "trade day and -0.07 [-1.07, +0.93] realized: a player sold for late picks alone does not bring the seller's usual "
+    + "gain. Most of the other 48 clubs swapped one pick for another.")),
+  B(L("One asset for two or more, and a new general manager selling his predecessor's players:", "neither realized value is "
+    + "statistically significant, alone or with the other factors held constant. The manager's group is the same under both "
+    + "rules: no club in it sent a second player signed by the predecessor.")));
 add(H2("Other characteristics in the Section 3 regressions"));
-// v2.8 (Thomas: "What are we measuring about the main players production"): each measure named by what it is
 add(table(["Characteristic", "Rule", "Trade-day grade", "Realized value, WAR", "Realized value, Game Value"], [
-  ["A player aged 32 or over", MR, "-1.86 (0.68)\np = 0.006", "-1.03 (0.71)\np = 0.15", "-1.34 (0.70)\np = 0.055"],
-  ["", AR, "-1.70 (0.68)\np = 0.013", "-0.59 (0.74)\np = 0.43", "-1.02 (0.71)\np = 0.15"],
-  ["A player with three or more seasons left", MR, "-2.67 (0.57)\np < 0.001", "-0.17 (0.73)\np = 0.81", "-0.54 (0.70)\np = 0.44"],
-  ["", AR, "-2.60 (0.58)\np < 0.001", "-0.15 (0.73)\np = 0.84", "-0.68 (0.70)\np = 0.33"],
-  ["Recent production: each extra WAR a season (WAR weighted 50/30/20 over the three most recent seasons)", MR, "+0.06 (0.48)\np = 0.90", "-0.39 (0.54)\np = 0.47", "+0.07 (0.46)\np = 0.88"],
-  ["", AR, "+0.28 (0.49)\np = 0.58", "-0.27 (0.57)\np = 0.63", "+0.22 (0.52)\np = 0.67"],
-  ["Recent production above the models' forecast for the season of the trade: each extra WAR", MR, "-0.29 (1.36)\np = 0.83", "+1.29 (1.62)\np = 0.43", "+0.07 (1.54)\np = 0.96"],
-  ["", AR, "-1.32 (1.36)\np = 0.33", "+0.86 (1.67)\np = 0.61", "-0.33 (1.72)\np = 0.85"],
-  ["Share of games played in the most recent season: all games against none", MR, "-0.20 (0.59)\np = 0.73", "-0.36 (0.56)\np = 0.52", "-0.98 (0.47)\np = 0.039"],
-  ["", AR, "-0.21 (0.60)\np = 0.72", "-0.54 (0.56)\np = 0.34", "-1.16 (0.47)\np = 0.014"],
+  ["A former top-15 pick", MR, "-1.35 (0.64)\np = 0.034", "-1.55 (0.90)\np = 0.088", "-1.39 (0.97)\np = 0.15"],
+  ["", AR, "-1.06 (0.68)\np = 0.12", "-1.36 (0.93)\np = 0.14", "-1.07 (1.02)\np = 0.30"],
+  ["A player aged 32 or over", MR, "-1.02 (1.10)\np = 0.35", "-1.44 (1.26)\np = 0.25", "-1.60 (1.18)\np = 0.17"],
+  ["", AR, "-0.79 (1.09)\np = 0.47", "-0.87 (1.30)\np = 0.50", "-1.29 (1.24)\np = 0.30"],
+  ["A player with three or more seasons left", MR, "-2.48 (0.73)\np < 0.001", "-0.29 (1.06)\np = 0.79", "-0.58 (1.02)\np = 0.57"],
+  ["", AR, "-2.29 (0.71)\np = 0.001", "-0.19 (1.05)\np = 0.85", "-0.73 (0.99)\np = 0.46"],
+  ["Recent production: each extra WAR a season (WAR weighted 50/30/20 over the three most recent seasons)", MR, "-0.13 (0.66)\np = 0.85", "-0.21 (0.77)\np = 0.79", "+0.04 (0.63)\np = 0.95"],
+  ["", AR, "+0.17 (0.71)\np = 0.81", "+0.04 (0.82)\np = 0.96", "+0.37 (0.71)\np = 0.60"],
+  ["Recent production above the models' forecast for the season of the trade: each extra WAR", MR, "+0.04 (1.76)\np = 0.98", "+0.86 (2.26)\np = 0.70", "+0.03 (2.16)\np = 0.99"],
+  ["", AR, "-1.42 (1.84)\np = 0.44", "+0.16 (2.34)\np = 0.95", "-0.70 (2.41)\np = 0.77"],
+  ["Share of games played in the most recent season: all games against none", MR, "-0.88 (0.87)\np = 0.31", "-0.64 (0.92)\np = 0.49", "-1.42 (0.76)\np = 0.062"],
+  ["", AR, "-1.00 (0.88)\np = 0.26", "-0.93 (0.90)\np = 0.30", "-1.75 (0.74)\np = 0.018"],
 ], [34, 17, 16, 17, 17]));
 add(NOTE("Each figure is the change in the club's value for the characteristic, with the others held constant: for a yes-or-no "
-  + "characteristic, against a club without it; for production, for each extra WAR a season. Under the main player rule "
-  + "each measure is the main player's; under the any player rule, the average over the players received, weighted by cap "
-  + "hit. The same two regressions as the Section 3 tables, all trades, 735 clubs. Standard "
-  + "errors in brackets, clustered by trade."));
-add(B(L("Players aged 32 or over.", "Clubs overpay for them under both rules (trade-day grade -1.86 and -1.70). The realized "
-  + "value is not statistically significant on either measure under either rule (the smallest p-value is 0.055).")),
-  B(L("Long contracts.", "Clubs overpay on trade day for a player with three or more seasons left (-2.67 and -2.60), but the "
-    + "realized value is small and not statistically significant under either rule.")),
-  B(L("A strong recent record, high production and a full share of games.", "Alone, under the main player rule, each predicts a "
-    + "lower trade-day grade (-2.31 per WAR above the forecast, -0.70 per WAR of production, -1.74 for a full games share; "
-    + "p = 0.001 or less each), but none does with the others held: their effect alone came from the age and draft pedigree "
-    + "they overlap with. The games share keeps a realized effect on Game Value only, under both rules.")));
+  + "characteristic, against a club without it; for production, for each extra WAR a season. The same two regressions as "
+  + "the Section 3 table, 431 clubs. Standard errors in brackets, clustered by trade."));
+add(B(L("Former top-15 picks.", "Under the main player rule clubs pay more for them on trade day, but the realized value is not "
+  + "statistically significant under either rule.")),
+  B(L("Long contracts and players aged 32 or over.", "Clubs overpay on trade day for a player with three or more seasons left, "
+    + "under both rules, but the realized value is not statistically significant. For players aged 32 or over no figure "
+    + "is.")),
+  B(L("A strong recent record, high production and a full share of games:", "Alone, under the main player rule, each predicts "
+    + "a lower trade-day grade (-2.56 per WAR above the forecast, -0.81 per WAR of production, -2.24 for a full games share; "
+    + "each statistically significant at the 5% level), but none does with the others held: their effect alone came from "
+    + "the age and draft pedigree they overlap with. The games share keeps a realized effect on Game Value under the any "
+    + "player rule only.")));
 add(H2("Change over time"));
-// v2.8: his wording; the p-value (Thomas: "Need that p value") and the realized value beside the trade-day grade (Thomas:
-// "Why not use both?"), trend_both.py v1.0
-add(B(L("No change over time.", "There is found no difference in how efficiently teams transacted over time. The average size "
-  + "of the gap between the price paid and the models' value changed by -0.019 a season [-0.084, +0.052] from 2017-18 to "
-  + "2025-26, which is not statistically significant (p = 0.58).")),
-  B(L("On the realized value", "the gap shrinks by 0.132 a season (0.047, p = 0.005), from 2.21 for the 2017-18 trades to 0.45 for "
-    + "the 2025-26 trades. That decline is expected whatever clubs did: the more recent a trade, the more of its realized "
-    + "value is the models' own forecast, and the fewer seasons its assets have had to turn out better or worse than "
-    + "predicted.")));
+// v3.0: on 2017-22 (trend_both.py v1.1)
+add(B(L("No change over time.", "There is found no difference in how efficiently teams transacted over time. From 2017-18 to "
+  + "2021-22 the average size of the gap between the price paid and the models' value changed by +0.092 a season (0.094, "
+  + "p = 0.33), and the gap in realized value by -0.051 a season (0.122, p = 0.67).")));
 
 // ==== 6 ====
 add(H1("6. How Far the Evidence Reaches"));
 add(H2("The mispricing is captured by the model"));
 add(B("No type of trade, on average, over- or under-performed the models' prediction in a statistically significant way: "
-  + "across the sixteen groups tested in 2017-22, under either rule, each club's realized value compared with what its "
-  + "trade-day grade predicted, on WAR and on Game Value, the smallest p-value is 0.063."));
+  + "across the sixteen groups tested, under either rule, each club's realized value compared with what its trade-day grade "
+  + "predicted, on WAR and on Game Value, the smallest p-value is 0.063."));
 add(H2("The limits"));
-add(B(L("Recent realized values are partly forecasted.", "Picks and prospects traded after 2022 have mostly not reached the NHL, "
-  + "so their values rest partly from the models.")),
+add(B(L("Realized values are partly forecasted.", "For these trades that is mostly picks and prospects who have not yet reached "
+  + "the NHL, and contracts that run past 2025-26.")),
   B(L("Regular-season wins only.", "A contender's playoff run is outside the currency.")),
   B(L("A shared dollar rate.", "The forecast and the realized value convert wins to dollars on the same price line. Game Value "
     + "removes the shared performance measure, not the shared rate.")),
   B(L("Game Value is weaker on defence.", "It agrees with the WAR-based forecast at r = 0.65 for forwards and r = 0.30 for "
     + "defencemen.")),
   B(L("Traded assets only.", "Only traded assets are observed, apart from the top-15 picks check, and conditional picks are "
-    + "valued as unconditional (94 trades in 2017-22).")));
+    + "valued as unconditional (94 trades).")));
 
 const doc = new Document({
   creator: "xNPV", title: "Findings",

@@ -32,6 +32,8 @@ REPORTS, standard errors clustered by trade, beside the one-player figures:
   1 each group's mean trade-day grade and realized value (WAR, Game Value), declared window
   2 the outcome-on-price coefficient c (the group beyond its price), declared window, WAR and Game Value
   3 the joint regression (groups_clustered.py part 4's design), all trades, the five replaced together
+  5 (v1.2) the joint regression with one rule throughout, declared window, with the final-season restricted free agent
+    and the late-picks-only club added; guard: the same code reproduces part 4 on all trades without them
 
 INPUTS: OUTPUT_DIR/_extended_run (the back-test's sides and assets, spines, page_2017_values.csv, gm sides, trades db)
 OUTPUTS: OUTPUT_DIR/groups_any_log.txt, groups_any.csv
@@ -49,7 +51,7 @@ from dotenv import load_dotenv
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 EXT = OUTPUT_DIR / "_extended_run"
-SCRIPT_VERSION = "groups_any.py v1.1 (2026-11-18)"   # v1.1: retained salary, former top-15 below and the final-season restricted free agent under both rules; late picks; the joint regression with one rule throughout
+SCRIPT_VERSION = "groups_any.py v1.2 (2026-11-18)"   # v1.2: the joint regression on the declared window, the final-season restricted free agent and late picks added; v1.1: retained salary, former top-15 below and the final-season restricted free agent under both rules; late picks; the joint regression with one rule throughout
 DECLARED_END = "2022-03-28"
 LOG, OUT = [], []
 FIVE = [("rental", "t_rental"), ("aged 28 to 31", "t_age28"), ("aged 32 or over", "t_age32"),
@@ -342,6 +344,64 @@ def main():
                 OUT.append({"part": "v1.1 joint, one rule, all trades", "group": nm[g], "rule": rule, "outcome": ylab,
                             "estimate": m.params[k], "se": m.bse[k], "p": m.pvalues[k]})
             log(f"  {(nm[g] if rule.startswith('main') else ''):<46}{rule:>18}" + "".join(f"{c:>30}" for c in cells))
+    # ==== v1.2: the joint regression, one rule throughout, on the DECLARED WINDOW, with the restricted free agent in his
+    # final season and the club whose whole return was late picks added (protocol amendment 2026-11-18; Thomas: "Well it
+    # really should be added to the regression"). Same design as part 4: two-team trades, first club minus second, no
+    # constant, robust standard errors; a group with fewer than five non-zero differences drops out.
+    def joint(rows, cols):
+        X = pd.DataFrame({g: rows[0][g].astype(int) - rows[1][g].astype(int) for g in cols}, index=rows[0].index)
+        X = X.loc[:, (X != 0).sum() >= 5]
+        return {y: sm.OLS(rows[0][y], X).fit(cov_type="HC1") for _, y in GC.YS}
+    # GUARD: this code on all trades without the two groups reproduces part 4's fits under both rules
+    for rule in ("main player rule", "any player rule"):
+        g4 = joint((A, B), fit4[rule][1])
+        assert all(np.allclose(g4[y].params.values, fit4[rule][0][y].params.values) for _, y in GC.YS), rule
+    log("\n5. THE JOINT REGRESSION, ONE RULE THROUGHOUT, DECLARED WINDOW, the restricted free agent and late picks added")
+    log("  check 6: the same code on all trades without the two groups reproduces part 4 under both rules (PASS)")
+    dmask = A["trade_date"] <= DECLARED_END
+    Ad, Bd = A[dmask], B[dmask]
+    add = {"main player rule": ["m_rfa", "t_late"], "any player rule": ["a_rfa", "t_late"]}
+    nm5 = {**nm, "m_rfa": "restricted free agent, final season", "a_rfa": "restricted free agent, final season",
+           "t_late": "only picks in rounds 6 and 7", "m_clause": nm["t_clause"], "m_retained": nm["t_retained"], "m_top15": nm["t_top15"]}
+    fit5 = {rule: (joint((Ad, Bd), fit4[rule][1] + add[rule]), fit4[rule][1] + add[rule]) for rule in add}
+    log(f"  {len(Ad)} two-team trades; robust standard errors; club A's value on A minus B")
+    log(f"  {'characteristic':<46}{'rule':>18}" + "".join(f"{y:>30}" for y, _ in GC.YS))
+    for i in range(len(fit5["main player rule"][1])):
+        for rule in ("main player rule", "any player rule"):
+            ms, cols = fit5[rule]
+            k = cols[i]
+            cells = []
+            for ylab, y in GC.YS:
+                m = ms[y]
+                if k not in m.params.index:
+                    cells.append("dropped"); continue
+                cells.append(f"{m.params[k]:+.2f} ({m.bse[k]:.2f}) p={m.pvalues[k]:.3f}")
+                OUT.append({"part": "v1.2 joint, one rule, declared window, two groups added",
+                            "group": nm5[fit5["main player rule"][1][i]], "rule": rule,           # one label a group, both rules
+                            "outcome": ylab, "estimate": m.params[k], "se": m.bse[k], "p": m.pvalues[k]})
+            log(f"  {(nm5[k] if rule.startswith('main') else ''):<46}{rule:>18}" + "".join(f"{c:>30}" for c in cells))
+    # v1.2 reading aids (declared before they were run): the late-picks group's overlap with futures for players, and two
+    # sums of coefficients with robust 95% intervals (from the fit's own covariance)
+    def combo(m, w):
+        v = np.array([w.get(k, 0.0) for k in m.params.index])
+        b, se = float(v @ m.params.values), float(np.sqrt(v @ m.cov_params().values @ v))
+        return f"{b:+.2f} [{b - 1.96 * se:+.2f}, {b + 1.96 * se:+.2f}]", b, se
+    dd = t[dec]
+    lt = dd[dd["t_late"]]
+    log(f"  late-picks-only clubs, declared window: {len(lt)}; of them also futures for players: {int(lt['t_futures'].sum())}")
+    for rule in ("main player rule", "any player rule"):
+        ms, cols = fit5[rule]
+        tr = dict(zip(base, fit4[rule][1]))                  # each base group's column under this rule (t_rental -> a_rental)
+        for lab, w0 in (("late picks only + futures for players", {"t_late": 1, "t_futures": 1}),
+                       ("deadline rental for picks and prospects", {"t_rental": 1, "t_deadline_buyer": 1, "t_futures": -1})):
+            w = {tr.get(k, k): x for k, x in w0.items()}
+            assert all(k in ms["net_M"].params.index for k in w), (rule, w)   # GUARD: every term of the sum is in the fit
+            cells = []
+            for ylab, y in GC.YS:
+                s, b, se = combo(ms[y], w)
+                cells.append(s)
+                OUT.append({"part": "v1.2 profile, declared window", "group": lab, "rule": rule, "outcome": ylab, "estimate": b, "se": se})
+            log(f"  {lab:<46}{rule:>18}" + "".join(f"{c:>30}" for c in cells))
     pd.DataFrame(OUT).to_csv(OUTPUT_DIR / "groups_any.csv", index=False)
     (OUTPUT_DIR / "groups_any_log.txt").write_text("\n".join(LOG), encoding="utf-8")
 

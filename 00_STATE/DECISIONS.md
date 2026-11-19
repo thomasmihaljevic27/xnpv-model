@@ -4113,3 +4113,9 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - DECIDED (Thomas: "Cap-weighted"): under the any player rule, production, the record above the forecast and the games share
   are cap-weighted averages over the players received. RUN who_overpaid_any.py v1.3 (protocol amendment 5452b68). DOCUMENT
   findings_doc.js v2.9. WORK_QUEUE 1a closed; MANIFEST rows; session log.
+- DECIDED (Thomas: "I would do 2017-22 for both trade day and realized value"; "All trades, played seasons"): the findings
+  document on the declared window; Section 4 on all trades with the correction instrumented by the seasons played; the
+  final-season restricted free agent and late picks added to the joint regression ("it really should be added"). RUN
+  (report only; protocol 2ec8523, 906b4c2): who_overpaid_any.py v1.4, groups_any.py v1.2, trend_both.py v1.1,
+  who_overpaid.py v1.1. DOCUMENT findings_doc.js v3.0 (his annotated copy 68fcf09). PROJECT_STATE line; WORK_QUEUE 1a
+  (the defenceman question open); MANIFEST rows; session log.

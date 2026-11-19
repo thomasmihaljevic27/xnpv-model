@@ -16,7 +16,11 @@
    stays out; the Section 3 regression is not re-run on the term signed (the writeup says it was not).
 1a. Decided 2026-11-18: both rules reported, each applied to every characteristic and category; under the any player rule
    production, the record above the forecast and the games share are averages over the players received, weighted by cap hit
-   (Thomas: "Cap-weighted"). Age 28 to 31 stays a headline finding. findings_doc.js v2.9.
+   (Thomas: "Cap-weighted"). The findings document on the declared window (Thomas: "I would do 2017-22 for both trade day
+   and realized value"), Section 4 on all trades with the correction on the seasons played ("All trades, played seasons").
+   findings_doc.js v3.0. Age 28 to 31 stays a headline (main player rule). Decide (Thomas): whether the defenceman, which
+   meets the finding rule in the joint regression under the main player rule (trade-day -0.52, p = 0.048; realized -1.12,
+   p = 0.005) but not in the Section 3 regression (trade-day p = 0.062) or under the any player rule, counts as a finding.
 1b. For the final paper, not the findings document (Thomas, 2026-11-18, a comment on the cap-dump result): "I would like a
    note in the final paper about why transacting like this is still rational. There is a cap floor to reach, unused cap is
    inefficient, etc. Getting paid to take on money when the alternative was to not spend the cap space at all is still an

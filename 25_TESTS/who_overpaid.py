@@ -48,7 +48,7 @@ import skater_forward_projection as SFP              # noqa: E402
 
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 EXT = OUTPUT_DIR / "_extended_run"
-SCRIPT_VERSION = "who_overpaid.py v1.0 (2026-11-17)"
+SCRIPT_VERSION = "who_overpaid.py v1.1 (2026-11-18)"   # v1.1: part A logs the futures-for-players coefficient on the declared window and after 2022
 DECLARED_END = "2022-03-28"
 CAP = SFP.CAP_CEILING
 CAP_NOW = CAP[2025]
@@ -158,13 +158,18 @@ def main():
     for scope, msk in (("declared window", (dates <= DECLARED_END).values), ("after 2022-03-28 (replication)", (dates > DECLARED_END).values)):
         Xs = X.loc[msk, cols + ["cap_M"]]
         Xs = Xs.loc[:, (Xs != 0).sum() >= 5]
-        cells = []
+        cells, fut = [], []
         for y in ("net_M", "out_net_M", "gv_net_M"):
             m = sm.OLS(A.loc[msk, y], Xs).fit(cov_type="HC1")
             cells.append(f"{y} {fmt(m, 'cap_M')}")
+            # v1.1: the futures-for-players coefficient beside it (protocol amendment 2026-11-18)
+            fut.append(f"{y} {fmt(m, 't_futures')}")
+            OUT.append({"part": "A, scope", "term": "futures for players", "scope": scope, "outcome": y, "with": m.params["t_futures"],
+                        "se": m.bse["t_futures"], "p": m.pvalues["t_futures"]})
             OUT.append({"part": "A, scope", "term": "cap hit, per $1M", "scope": scope, "outcome": y, "with": m.params["cap_M"],
                         "se": m.bse["cap_M"], "p": m.pvalues["cap_M"]})
         log(f"  cap hit per $1M, {scope} ({int(msk.sum())} trades): " + "; ".join(cells))
+        log(f"  futures for players, with the cap hit, {scope}: " + "; ".join(fut))
 
     # ---- B ---------------------------------------------------------------------------------------------------------------
     d = t[t["perf"].notna() & t["price"].notna()].copy()

@@ -14,6 +14,9 @@ forecast) and have had fewer seasons to spread out, so the realized trend leans 
 
 GUARD: the trade-day slope reproduces cut 12's -0.019 $M a season.
 
+v1.1 (protocol amendment 2026-11-18): the same two slopes on the declared window's trades (to 2022-03-28), 2017-18 to
+2021-22, where the findings document now reports.
+
 INPUTS: OUTPUT_DIR/_extended_run/backtest_cuts_all_sides.csv. OUTPUTS: OUTPUT_DIR/trend_both_log.txt, trend_both.csv
 """
 import os
@@ -27,7 +30,7 @@ from dotenv import load_dotenv
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 EXT = OUTPUT_DIR / "_extended_run"
-SCRIPT_VERSION = "trend_both.py v1.0 (2026-11-18)"
+SCRIPT_VERSION = "trend_both.py v1.1 (2026-11-18)"   # v1.1: also the declared window's seasons, 2017-18 to 2021-22
 N_BOOT, SEED = 2000, 20261118
 LOG, OUT = [], []
 
@@ -44,20 +47,22 @@ def main():
     m["season"] = m["date"].map(lambda d: d.year if d.month >= 7 else d.year - 1)     # cut 12's season
     rng = np.random.default_rng(SEED)
     log(f"  {m['trade_id'].nunique()} trades, seasons {m['season'].min()} to {m['season'].max()}")
-    for lab, col in (("trade-day grade", "net_M"), ("realized value, WAR", "out_net_M")):
-        tr = m.groupby("trade_id").agg(size=(col, lambda x: x.abs().max()), season=("season", "first"))
-        fit = sm.OLS(tr["size"], sm.add_constant(tr["season"].astype(float))).fit(cov_type="HC1")
-        b, se, p = float(fit.params["season"]), float(fit.bse["season"]), float(fit.pvalues["season"])
-        ids = tr.index.values
-        bs = np.array([np.polyfit(*tr.loc[ids[rng.integers(0, len(ids), len(ids))]][["season", "size"]].T.values, 1)[0]
-                       for _ in range(N_BOOT)])
-        if col == "net_M":
-            assert abs(b + 0.019) < 0.0005, b                                       # GUARD: cut 12
-        means = tr.groupby("season")["size"].mean().round(2).to_dict()
-        log(f"  {lab:<22} slope {b:+.3f} $M a season (se {se:.3f}) p = {p:.3f}; resampled [{np.percentile(bs, 2.5):+.3f}, "
-            f"{np.percentile(bs, 97.5):+.3f}]; mean size by season {means}")
-        OUT.append({"value": lab, "n_trades": len(tr), "slope": b, "se": se, "p": p,
-                    "lo": np.percentile(bs, 2.5), "hi": np.percentile(bs, 97.5)})
+    for scope, mm in (("all trades", m), ("declared window", m[m["trade_date"] <= "2022-03-28"])):
+        log(f"  {scope}: {mm['trade_id'].nunique()} trades, seasons {mm['season'].min()} to {mm['season'].max()}")
+        for lab, col in (("trade-day grade", "net_M"), ("realized value, WAR", "out_net_M")):
+          tr = mm.groupby("trade_id").agg(size=(col, lambda x: x.abs().max()), season=("season", "first"))
+          fit = sm.OLS(tr["size"], sm.add_constant(tr["season"].astype(float))).fit(cov_type="HC1")
+          b, se, p = float(fit.params["season"]), float(fit.bse["season"]), float(fit.pvalues["season"])
+          ids = tr.index.values
+          bs = np.array([np.polyfit(*tr.loc[ids[rng.integers(0, len(ids), len(ids))]][["season", "size"]].T.values, 1)[0]
+                         for _ in range(N_BOOT)])
+          if col == "net_M" and scope == "all trades":
+              assert abs(b + 0.019) < 0.0005, b                                       # GUARD: cut 12
+          means = tr.groupby("season")["size"].mean().round(2).to_dict()
+          log(f"  {lab:<22} slope {b:+.3f} $M a season (se {se:.3f}) p = {p:.3f}; resampled [{np.percentile(bs, 2.5):+.3f}, "
+              f"{np.percentile(bs, 97.5):+.3f}]; mean size by season {means}")
+          OUT.append({"scope": scope, "value": lab, "n_trades": len(tr), "slope": b, "se": se, "p": p,
+                      "lo": np.percentile(bs, 2.5), "hi": np.percentile(bs, 97.5)})
     log("  check: the trade-day slope reproduces backtest_cuts.py cut 12's -0.019 (PASS)")
     pd.DataFrame(OUT).to_csv(OUTPUT_DIR / "trend_both.csv", index=False)
     (OUTPUT_DIR / "trend_both_log.txt").write_text("\n".join(LOG), encoding="utf-8")

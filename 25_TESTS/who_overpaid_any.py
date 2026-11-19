@@ -24,6 +24,8 @@ EACH PLAYER'S FACTS, by the rule the main player's use:
              "main player with a clause", is ALREADY this any-player flag; the guard below checks it reproduces exactly.
 A fact unknown for a player counts as "no" for him (a missing age, contract or pick cannot make a side's flag 1).
 
+v1.4: two more columns, the trade-day grade and the Game Value loss on the declared window.
+
 v1.2 (declared in the protocol before it was built; Thomas: "In the main player model it should look at the production and
 etc of the main player acquired, and in the any player model it should be your recommended option"): each rule applied to
 every characteristic. Main player rule: the clause too is the main player's (backtest.py's rule on him alone). Any player
@@ -51,7 +53,7 @@ from dotenv import load_dotenv
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 EXT = OUTPUT_DIR / "_extended_run"
-SCRIPT_VERSION = "who_overpaid_any.py v1.3 (2026-11-18)"   # v1.3: the any player rule's measures as cap-weighted averages (Thomas: "Cap-weighted"); v1.2: each rule applied to every characteristic (the main player's clause; totals for the measures); v1.1: three more columns for the replications (Thomas made the any-player rule the main one)
+SCRIPT_VERSION = "who_overpaid_any.py v1.4 (2026-11-18)"   # v1.4: the trade-day grade and Game Value columns on the declared window (the findings document moves to it); v1.3: the any player rule's measures as cap-weighted averages (Thomas: "Cap-weighted"); v1.2: each rule applied to every characteristic (the main player's clause; totals for the measures); v1.1: three more columns for the replications (Thomas made the any-player rule the main one)
 DECLARED_END = "2022-03-28"
 LOG, OUT = [], []
 
@@ -161,6 +163,9 @@ def main():
     log(f"  check 3: sides with one player received ({len(one)}): any-player flag differs from the main player's: {bad}")
     assert all(v == 0 for k, v in bad.items() if k not in ("ufa",)), bad
     log(f"  sides with two or more players received: {int((d['n_players'] >= 2).sum())} of {len(d)}")
+    dw = d[d["trade_date"] <= DECLARED_END]
+    log(f"  declared window (v1.4): {int((dw['n_players'] >= 2).sum())} of {len(dw)} sides with two or more players received; "
+        f"{dw['trade_id'].nunique()} trades")
     log("\n  clubs flagged: main player -> any player received")
     for c in flags:
         log(f"    {labels[c]:<32}{int(d[c].sum()):>5} -> {int(d[f'any_{c}'].sum()):>5}")
@@ -175,7 +180,10 @@ def main():
             # v1.1: the replications the writeup reports beside the main table
             ("overpay, after 2022", "after", d["trade_date"] > DECLARED_END, "overpay"),
             ("loss, WAR, 2017-22", "declared", d["trade_date"] <= DECLARED_END, "loss"),
-            ("loss, WAR, played, all trades", "all trades", d["trade_id"].notna(), "loss_played")]
+            ("loss, WAR, played, all trades", "all trades", d["trade_id"].notna(), "loss_played"),
+            # v1.4: the findings document reports the declared window throughout (protocol amendment 2026-11-18)
+            ("overpay, 2017-22", "declared", d["trade_date"] <= DECLARED_END, "overpay"),
+            ("loss, Game Value, 2017-22", "declared", d["trade_date"] <= DECLARED_END, "loss_gv")]
     log("\nWHO IS OVERPAID: main player -> any player received ($M a side, positive = paid more / lost more; * = p < 0.05, "
         "clustered by trade)")
     log(f"  {'characteristic':<34}" + "".join(f"{c[0]:>30}" for c in cols))
