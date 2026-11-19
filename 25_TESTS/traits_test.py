@@ -47,7 +47,7 @@ OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 SOURCE_DIR = Path(os.environ["SOURCE_DIR"])
 GAMELOG_DB = Path(os.environ["GAMELOG_DB"])
 EXT = OUTPUT_DIR / "_extended_run"
-SCRIPT_VERSION = "traits_test.py v1.0 (2026-11-18)"
+SCRIPT_VERSION = "traits_test.py v1.1 (2026-11-18)"   # v1.1: the rows built in frame(), shared with age_band_test.py; results unchanged
 DECLARED_END = "2022-03-28"
 PLAYOFFS_2017_END = pd.Timestamp("2017-06-11")
 LOG, OUT = [], []
@@ -101,8 +101,8 @@ def playoff_points():
     return pts, ends.sort_index()
 
 
-def main():
-    log(SCRIPT_VERSION)
+def frame():
+    """who_overpaid_any.py v1.4's declared-window rows, both rules, with guard 1 (v1.1: shared with age_band_test.py)."""
     WO = load("who_overpaid")
     WA = load("who_overpaid_any")
     CC = WO.load("clause_checks")
@@ -142,7 +142,12 @@ def main():
             got = pd.Series(-m.params[xs].values, index=ref.index)       # who_overpaid_both lists terms in cc's order
             assert np.allclose(got.values, ref.values, atol=1e-9), (rule, col)
     log("  check 1: the base fits reproduce who_overpaid_any.py v1.4's declared-window coefficients, both rules (PASS)")
+    return WO, CC, d, f, key, flags, cc, cc_m, cc_a
 
+
+def main():
+    log(SCRIPT_VERSION)
+    WO, CC, d, f, key, flags, cc, cc_m, cc_a = frame()
     # ---- the new facts, a player at a time ----
     pv = pd.read_csv(EXT / "prospect_values.csv", low_memory=False)[["asset_id", "nhl_id"]].drop_duplicates("asset_id")
     a = pd.read_csv(EXT / "backtest_assets.csv")[["asset_id", "pos", "trade_date"]].drop_duplicates("asset_id")

@@ -51,7 +51,7 @@ from dotenv import load_dotenv
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 EXT = OUTPUT_DIR / "_extended_run"
-SCRIPT_VERSION = "groups_any.py v1.2 (2026-11-18)"   # v1.2: the joint regression on the declared window, the final-season restricted free agent and late picks added; v1.1: retained salary, former top-15 below and the final-season restricted free agent under both rules; late picks; the joint regression with one rule throughout
+SCRIPT_VERSION = "groups_any.py v1.3 (2026-11-18)"   # v1.3: part 6, aged 28 or over in place of the two bands; v1.2: the joint regression on the declared window, the final-season restricted free agent and late picks added; v1.1: retained salary, former top-15 below and the final-season restricted free agent under both rules; late picks; the joint regression with one rule throughout
 DECLARED_END = "2022-03-28"
 LOG, OUT = [], []
 FIVE = [("rental", "t_rental"), ("aged 28 to 31", "t_age28"), ("aged 32 or over", "t_age32"),
@@ -402,6 +402,38 @@ def main():
                 cells.append(s)
                 OUT.append({"part": "v1.2 profile, declared window", "group": lab, "rule": rule, "outcome": ylab, "estimate": b, "se": se})
             log(f"  {lab:<46}{rule:>18}" + "".join(f"{c:>30}" for c in cells))
+    # ==== v1.3: part 6, aged 28 or over in place of the two age bands (protocol amendment 2026-11-18; Thomas: "Replace
+    # 28-31 and 32+ with just 28+"). Part 5's design and rows; one flag replaces the two under each rule.
+    t["t_age28p"] = t["t_age28"].astype(bool) | t["t_age32"].astype(bool)
+    t["a_age28p"] = t["a_age28"].astype(bool) | t["a_age32"].astype(bool)
+    two6 = t[n == 2].sort_values(key)
+    A6 = two6.groupby("trade_id").nth(0).set_index("trade_id")
+    B6 = two6.groupby("trade_id").nth(1).set_index("trade_id")
+    m6 = A6["trade_date"] <= DECLARED_END
+    A6d, B6d = A6[m6], B6[m6]
+    log("\n6. THE JOINT REGRESSION, DECLARED WINDOW, AGED 28 OR OVER IN PLACE OF THE TWO BANDS (part 5 otherwise)")
+    for rule in ("main player rule", "any player rule"):
+        cols5 = fit5[rule][1]
+        g5 = joint((A6d, B6d), cols5)                                       # GUARD: part 5 reproduces on these rows
+        assert all(np.allclose(g5[y].params.values, fit5[rule][0][y].params.values) for _, y in GC.YS), rule
+        b28 = [c for c in cols5 if c.endswith("age28")][0]
+        b32 = [c for c in cols5 if c.endswith("age32")][0]
+        cols6 = [(b28 + "p") if c == b28 else c for c in cols5 if c != b32]
+        g6 = joint((A6d, B6d), cols6)
+        clause = [c for c in cols5 if c.endswith("clause")][0]
+        dfn = [c for c in cols5 if c.endswith("_def")][0]
+        log(f"  {rule} (part 5 reproduces: PASS)")
+        for lab, fs, k in (("aged 28 to 31 (two bands)", fit5[rule][0], b28), ("aged 32 or over (two bands)", fit5[rule][0], b32),
+                           ("aged 28 or over (one term)", g6, b28 + "p"), ("clause, two bands", fit5[rule][0], clause),
+                           ("clause, one term", g6, clause), ("defenceman, two bands", fit5[rule][0], dfn),
+                           ("defenceman, one term", g6, dfn)):
+            cells = []
+            for ylab, y in GC.YS:
+                m = fs[y]
+                cells.append(f"{m.params[k]:+.2f} ({m.bse[k]:.2f}) p={m.pvalues[k]:.3f}")
+                OUT.append({"part": "v1.3 joint, declared window, 28 or over", "group": lab, "rule": rule, "outcome": ylab,
+                            "estimate": m.params[k], "se": m.bse[k], "p": m.pvalues[k]})
+            log(f"    {lab:<32}" + "".join(f"{c:>30}" for c in cells))
     pd.DataFrame(OUT).to_csv(OUTPUT_DIR / "groups_any.csv", index=False)
     (OUTPUT_DIR / "groups_any_log.txt").write_text("\n".join(LOG), encoding="utf-8")
 

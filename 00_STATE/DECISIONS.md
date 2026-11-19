@@ -4125,3 +4125,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - DECIDED (Thomas: "I want to see handedness, size, playoff performance, and European or not"; "Both terms", "Height and
   weight", "Fetch spring 2017"). RUN (report only; protocol 973c3e8): `25_TESTS/traits_test.py` v1.0. None is a finding.
   MANIFEST row; session log.
+- RUN (Thomas: "Replace 28-31 and 32+ with just 28+ ... curious"; report only; protocol 395c98c): age_band_test.py v1.0,
+  groups_any.py v1.3 part 6, traits_test.py v1.1. The findings document unchanged. WORK_QUEUE 1c (the traits tested, for
+  the paper's second reader); MANIFEST rows; session log.
