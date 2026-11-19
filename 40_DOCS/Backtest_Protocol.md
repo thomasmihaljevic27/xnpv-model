@@ -712,3 +712,18 @@ constant, robust standard errors, the four outcomes).
    is the one the document uses is Thomas's decision after seeing both. Disclosed: the adjusted figures on the document's
    fit were computed in chat before this declaration, from `one_regression.csv` (main player rule, set (a): age 28 to 31
    and the clause 0.038, defenceman 0.14; set (b): 0.072, 0.072, 0.20); the cap-hit fit's were not.
+
+## The one regression on the trades after 2022 (declared 2026-11-19, before it was built; Thomas: "I guess run the regression")
+
+The replication Thomas chose on 2026-11-18 as the guard against chance findings ("remove Holm"; replication on the trades
+after 2022 the stated guard), not yet run on the one regression. Report only. Script `25_TESTS/one_regression_replication.py`,
+on `one_regression.py` v2.2's frame: the same terms, rules, design (each two-team trade once, the first club's value on the
+two clubs' differences, no constant, robust standard errors, a yes-or-no difference non-zero in fewer than five trades
+dropped) and four outcomes, on the two-team trades dated after 2022-03-28 (357 trades seen in a count before this note; no
+coefficient was computed). Guard: the same code on the declared window reproduces one_regression.csv on every term.
+Reading, by the protocol's replication rule (same sign, 95% interval excluding zero): a declared-window finding (the clause
+under both rules; age 28 to 31 and the defenceman under the main player rule) replicates in full when its trade-day grade
+and realized value on WAR both do; on trade day only when only the trade-day grade does. Caveat stated in advance: these
+trades' realized values are mostly the models' re-valuation at 2026-27 (few seasons played), so their realized column is
+weak evidence and the seasons-played column has little power; the trade-day grade is the firm column. Every term reported.
+The findings document is not changed until Thomas has seen the result.
