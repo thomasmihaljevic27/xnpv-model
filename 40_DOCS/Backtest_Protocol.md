@@ -693,3 +693,22 @@ defenceman one under each rule (main player rule: the main player is a goalie; a
 each position is compared with forwards. Guard: positions already known are unchanged. Everything else as v2.0. Reported
 beside v2.0; `clause_disguise.py` rerun on it (v1.1, reading the same frame). The findings document is not changed until
 Thomas has seen the result.
+
+## The cap hit held constant, and p-values adjusted for the number of terms tested (declared 2026-11-19, before it was built; Thomas: "I guess run the tests")
+
+Two checks raised by an outside review of the findings document. Report only; the findings document is not changed until
+Thomas has seen the result. Script `25_TESTS/findings_checks.py`, on `one_regression.py` v2.2's frame (the 556 two-team
+trades of the declared window, both rules, each trade once, the first club's value on the two clubs' differences, no
+constant, robust standard errors, the four outcomes).
+1. The cap hit held constant. The regression as in the document with one term added: the cap hit in $M (main player rule:
+   the main player's cap hit; any player rule: the total cap hit of the players received; a club that received no player,
+   0). Every term's coefficient reported beside the document's fit, with the finding rule unchanged (trade-day grade and
+   realized value on WAR both statistically significant at the 5% level, same sign; Game Value and seasons played as the
+   checks). Guard: the clause and age 28 to 31 coefficients equal `clause_disguise.py`'s "+ cap hit" fit.
+2. Adjusted p-values. Each term's p-value as a finding is the larger of its trade-day and realized-WAR p-values (both must
+   pass), or 1 where the two signs differ. These are adjusted by the Benjamini-Hochberg method, which controls the expected
+   share of false findings among those declared, at 5%. Two sets of terms, each rule separately: (a) the 12 player
+   characteristics; (b) all 23 terms in the regression. Reported for the document's fit and for the cap-hit fit. Which set
+   is the one the document uses is Thomas's decision after seeing both. Disclosed: the adjusted figures on the document's
+   fit were computed in chat before this declaration, from `one_regression.csv` (main player rule, set (a): age 28 to 31
+   and the clause 0.038, defenceman 0.14; set (b): 0.072, 0.072, 0.20); the cap-hit fit's were not.
