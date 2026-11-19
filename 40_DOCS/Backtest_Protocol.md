@@ -727,3 +727,34 @@ and realized value on WAR both do; on trade day only when only the trade-day gra
 trades' realized values are mostly the models' re-valuation at 2026-27 (few seasons played), so their realized column is
 weak evidence and the seasons-played column has little power; the trade-day grade is the firm column. Every term reported.
 The findings document is not changed until Thomas has seen the result.
+
+## Clauses filled from CapWages, the seller group narrowed, and the regression two rows a trade (declared 2026-11-19, before any is built; Thomas: the clause gap "has to be fixed"; the seller group "should be 'sold a player for just picks and prospects'"; "I'd like it if it were presented that way")
+
+1. **Clauses.** 103 of the 577 main players in the one regression had no clause record at their page (65 on the 2017
+   page, whose contracts come from CapWages; 6 more with no contract-spine row; 32 whose cap-space record carries the
+   wrong seasons, e.g. Kessel's eight-year deal stamped from 2009-10) and were counted as no clause. From this
+   amendment, a traded player's clause at his page is: the contract spine's flag where the spine has a matched clause
+   record for (his NHL id, the page season); otherwise his CapWages page's Clause cell for that season, on the contract
+   running at the trade (signed on or before the trade date; the latest such if two), any NTC or NMC (full or modified)
+   counting as a clause and "-" or blank as none; used only when that season's cap hit on the page is within $1,000 of
+   the cap hit the model holds for him (an identity check against a namesake's page). Pages: the cached CapWages copies;
+   five more fetched with Thomas's approval (Hossa, Berglund, Schlemko, Schneider, Oleksy). One function
+   (`20_CODE/clause_fill.py`) gives each traded asset's clause, and every reader (backtest.py's clause group,
+   who_overpaid_any.player_facts, groups_any) calls it. Reported: how many assets each source decides; where both
+   sources exist, how often CapWages agrees with the spine; any asset still unknown (counted as no clause, and named).
+   No asset's value changes: clauses are read only by the back-test's groups and their tests.
+2. **The seller group.** Was (C1): the club received a pick or prospect, the other club received none and received a
+   player. Now: the same, and the club received no player: "sold a player for just picks and prospects" (277 sides in
+   2017-22 become 137; 539 to 266 in all trades). The name changes with it everywhere it is reported.
+3. **The regression, two rows a trade.** one_regression's fit enters each two-team trade as two rows, one a club: the
+   club's value on its side minus the other side, in each characteristic (what it received less what it sent),
+   standard errors clustered by trade. Guard: coefficients equal the one-row fit's to 1e-9 (shown 2026-11-19: equal to
+   6.7e-15; standard errors within about 1%). Every script that calls one_regression.joint (clause_disguise,
+   findings_checks, one_regression_replication) moves with it.
+Re-run, in order: clause_fill (both output folders), backtest.py (the declared window's folder and the extended run;
+WAR, Game Value adjusted and raw where they were run), backtest_gv_compare, groups_clustered, groups_any, who_overpaid,
+who_overpaid_checks, who_overpaid_any, one_regression, clause_disguise, findings_checks, one_regression_replication.
+Unchanged by construction and checked: test A, the asset classes, the price per contract part. Pinned figures that
+will stop: who_overpaid_checks' guard (who_overpaid's former top-15 coefficients), re-pinned to who_overpaid.csv's new
+figures; backtest_cuts.py's C1 reference means and the Stata exports' checks, which are not re-run here and are stale
+until they are. The RFA arbitration rule stays as decided 2026-10-14 (Thomas: "Keep the 10-14 rule"); no value moves.
