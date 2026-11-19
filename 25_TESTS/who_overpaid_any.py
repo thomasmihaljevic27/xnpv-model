@@ -27,9 +27,10 @@ A fact unknown for a player counts as "no" for him (a missing age, contract or p
 v1.2 (declared in the protocol before it was built; Thomas: "In the main player model it should look at the production and
 etc of the main player acquired, and in the any player model it should be your recommended option"): each rule applied to
 every characteristic. Main player rule: the clause too is the main player's (backtest.py's rule on him alone). Any player
-rule: the yes-or-no flags as above; production and the record above the forecast are TOTALS over the players received;
+rule: the yes-or-no flags as above; production and the record above the forecast are (v1.3) AVERAGES over the players
+received, weighted by cap hit (v1.2 summed them);
 the games share is their average weighted by cap hit. A player's missing production, forecast or games count is zero
-(the rows stay the main-player fit's 735 sides). Guards 4 and 5: on one-player sides the totals equal the main player's
+(the rows stay the main-player fit's 735 sides). Guards 4 and 5: on one-player sides the averages equal the main player's
 figures and the two clause flags agree; the main asset chosen here is who_overpaid.build's. Output who_overpaid_both.csv.
 
 GUARDS: (1) the all-trades main-player fit reproduces who_overpaid.py's recorded figures (former top-15 pick +1.53 / +1.52);
@@ -50,7 +51,7 @@ from dotenv import load_dotenv
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 EXT = OUTPUT_DIR / "_extended_run"
-SCRIPT_VERSION = "who_overpaid_any.py v1.2 (2026-11-18)"   # v1.2: each rule applied to every characteristic (the main player's clause; totals for the measures); v1.1: three more columns for the replications (Thomas made the any-player rule the main one)
+SCRIPT_VERSION = "who_overpaid_any.py v1.3 (2026-11-18)"   # v1.3: the any player rule's measures as cap-weighted averages (Thomas: "Cap-weighted"); v1.2: each rule applied to every characteristic (the main player's clause; totals for the measures); v1.1: three more columns for the replications (Thomas made the any-player rule the main one)
 DECLARED_END = "2022-03-28"
 LOG, OUT = [], []
 
@@ -203,21 +204,26 @@ def main():
     d["main_clause"] = main_a["clause"].reindex(di.index).fillna(0).astype(int).values
     g = f.assign(tw=f["trailing_war"].fillna(0), gap=f["trailing_war"].fillna(0) - f["expected_war"].fillna(0),
                  gs=f["gp_share"].fillna(0), cw=f["cap_hit"].fillna(0))
-    g["cwgs"] = g["cw"] * g["gs"]
-    tot = g.groupby(key).agg(tot_war=("tw", "sum"), tot_gap=("gap", "sum"), cw=("cw", "sum"), cwgs=("cwgs", "sum"), gs_mean=("gs", "mean"))
-    tot["avg_gs"] = np.where(tot["cw"] > 0, tot["cwgs"] / tot["cw"].where(tot["cw"] > 0, 1), tot["gs_mean"])
-    d = d.join(tot[["tot_war", "tot_gap", "avg_gs"]], on=key)
+    # v1.3: each measure the cap-weighted average over the players received (the plain average where no cap hit is known)
+    for c in ("tw", "gap", "gs"):
+        g[f"cw_{c}"] = g["cw"] * g[c]
+    tot = g.groupby(key).agg(cw=("cw", "sum"), cw_tw=("cw_tw", "sum"), cw_gap=("cw_gap", "sum"), cw_gs=("cw_gs", "sum"),
+                             m_tw=("tw", "mean"), m_gap=("gap", "mean"), m_gs=("gs", "mean"))
+    den = tot["cw"].where(tot["cw"] > 0, 1)
+    for c, out in (("tw", "avg_war"), ("gap", "avg_gap"), ("gs", "avg_gs")):
+        tot[out] = np.where(tot["cw"] > 0, tot[f"cw_{c}"] / den, tot[f"m_{c}"])
+    d = d.join(tot[["avg_war", "avg_gap", "avg_gs"]], on=key)
     one = d[d["n_players"] == 1]
-    dif = {"production": float((one["tot_war"] - one["trailing_war"]).abs().max()), "record": float((one["tot_gap"] - one["rep_gap"]).abs().max()),
+    dif = {"production": float((one["avg_war"] - one["trailing_war"]).abs().max()), "record": float((one["avg_gap"] - one["rep_gap"]).abs().max()),
            "games share": float((one["avg_gs"] - one["gp_share_last"]).abs().max()), "clause": int((one["main_clause"] != one["any_clause"]).sum())}
-    log(f"\n  check 4 (v1.2): one-player sides ({len(one)}): largest gap, totals against the main player's figures, and clause flags differing: {dif}")
+    log(f"\n  check 4 (v1.3): one-player sides ({len(one)}): largest gap, averages against the main player's figures, and clause flags differing: {dif}")
     assert max(dif["production"], dif["record"], dif["games share"]) < 1e-9 and dif["clause"] == 0, dif
     log("  (PASS)")
     log(f"  clubs with a clause: main player {int(d['main_clause'].sum())}, any player {int(d['any_clause'].sum())}")
     cc_m = [("main_clause" if c == "clause" else c) for c in cc]
-    cc_a = [f"any_{c}" if c in flags else {"trailing_war": "tot_war", "rep_gap": "tot_gap", "gp_share_last": "avg_gs"}.get(c, c) for c in cc]
+    cc_a = [f"any_{c}" if c in flags else {"trailing_war": "avg_war", "rep_gap": "avg_gap", "gp_share_last": "avg_gs"}.get(c, c) for c in cc]
     both = []
-    log("\nWHO IS OVERPAID, EACH RULE ON EVERY CHARACTERISTIC (v1.2): main player rule | any player rule; estimate (se) p")
+    log("\nWHO IS OVERPAID, EACH RULE ON EVERY CHARACTERISTIC (v1.3, cap-weighted averages): main player rule | any player rule; estimate (se) p")
     log(f"  {'characteristic':<34}" + "".join(f"{c[0]:>30}" for c in cols))
     fit2 = {}
     for lab, scope, msk, y in cols:
