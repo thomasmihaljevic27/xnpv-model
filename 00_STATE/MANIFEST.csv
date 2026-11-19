@@ -467,3 +467,5 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,clause_disguise.py,backtest,hashable,2026-11-19,22e1f7fb4d3ae538afd6edc5f2b85910bc2e84cc,11780,2026-11-19,yes,git,"trades reported as half the rows of one_regression v2.3's two-row fit (run 2026-11-19)"
 25_TESTS,findings_checks.py,backtest,hashable,2026-11-19,686e8caf917684cb5fd8847dacfab96872976547,9785,2026-11-19,yes,git,"trades reported as half the rows of one_regression v2.3's two-row fit (run 2026-11-19)"
 25_TESTS,one_regression_replication.py,backtest,hashable,2026-11-19,40e038cec6390e1b41470e29ff23e88faf675885,7699,2026-11-19,yes,git,"trades reported as half the rows of one_regression v2.3's two-row fit (run 2026-11-19)"
+20_CODE,stata_export_findings.py,backtest,hashable,2026-11-19,e458ed32b27d8d0239afcb40d8568399f28a575b,22386,2026-11-19,yes,git,"v1.0: the findings document's data as one CSV for Stata (findings_data.csv), its do-file and checks"
+40_DOCS,Stata_Findings_Codebook.md,docs,hashable,2026-11-19,be22a4b22bfc5513c5a094c02ace9ced86260179,15119,2026-11-19,yes,git,"the findings document's Stata commands, styled as Stata_Data_Codebook.md"

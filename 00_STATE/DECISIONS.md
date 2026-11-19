@@ -4178,3 +4178,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - RUN (Thomas: "Yes, re-run them"): the stale readers of the back-test's flags on backtest.py v1.8: backtest_cuts.py (six
   runs), joint_regression.py (two), clause_checks.py v1.3 (guard reads joint_regression.csv), stata_refresh.py; every check
   PASS. WORK_QUEUE 1a; MANIFEST row; session log.
+- BUILT (Thomas: "I need a csv for all the data and a stata codebook styled like the last codebook"; scope chosen: the
+  findings document): stata_export_findings.py v1.0 (findings_data.csv, findings_walkthrough.do; six checks PASS) and
+  40_DOCS/Stata_Findings_Codebook.md. MANIFEST rows; session log; CLAUDE.md run line.

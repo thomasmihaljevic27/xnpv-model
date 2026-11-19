@@ -204,6 +204,11 @@ The guide, `40_DOCS/Stata_Data_Codebook.md`, is the commands alone, by pillar, w
 runner stops if a guide command is missing from the do-file. A new regression or reported test goes in the export that
 owns its data, the template and the guide together.
 
+The findings document's data for Stata (2026-11-19): `python 20_CODE/stata_export_findings.py`, after the back-test and
+the findings scripts, writes `30_OUTPUT/stata/findings_data.csv` (one row a club side, every section's sample a yes/no
+column) and `findings_walkthrough.do`; the guide is `40_DOCS/Stata_Findings_Codebook.md`. It stops if the CSV, read
+back, does not give the model's figures.
+
 To answer questions about the curve on the spot: `python 25_TESTS/pick_lookup.py --help`. Each finding in
 `Valuing Draft Picks.docx`, with its command and expected value: `40_DOCS/Valuing_Draft_Picks_Reproduction.md`.
 `draft_pick_linkage.py` v1.2 (2026-10-18, commit bc8db88) added sixteen hand-verified WAR spellings; the four finished
