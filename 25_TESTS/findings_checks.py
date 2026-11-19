@@ -136,7 +136,7 @@ def main():
             log(f"  {name:<40}{d:>36}   {w:>40}{g:>22}{s:>22}  {tag(doc) if k in keep0 else ''} -> {tag(wc)}")
             for lab, y in OR.YS:
                 OUT.append({"part": "cap hit held", "rule": rule, "term": name, "col": k, "outcome": lab,
-                            "n_trades": int(wc[y].nobs), "estimate": wc[y].params[k], "se": wc[y].bse[k],
+                            "n_trades": int(wc[y].nobs) // 2, "estimate": wc[y].params[k], "se": wc[y].bse[k],
                             "p": wc[y].pvalues[k]})
 
     # ---- 2 adjusted p-values ----

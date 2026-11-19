@@ -183,10 +183,10 @@ def main():
                 for y in ("net_M", "out_net_M"):
                     m = fs[y]
                     cells.append(f"{m.params[c]:+.2f} ({m.bse[c]:.2f}) p={m.pvalues[c]:.3f}")
-                    OUT.append({"part": lab, "rule": rule, "term": nm, "outcome": y, "n_trades": int(m.nobs),
+                    OUT.append({"part": lab, "rule": rule, "term": nm, "outcome": y, "n_trades": int(m.nobs) // 2,
                                 "estimate": m.params[c], "se": m.bse[c], "p": m.pvalues[c]})
                 parts.append(f"{nm}: {cells[0]} | {cells[1]}")
-            log(f"  {lab:<36} ({int(fs['net_M'].nobs)} trades)")
+            log(f"  {lab:<36} ({int(fs['net_M'].nobs) // 2} trades)")
             for s_ in parts:
                 log(f"      {s_}")
     log("  check: the fit with nothing added reproduces one_regression.csv's clause coefficient, both rules (PASS)")
