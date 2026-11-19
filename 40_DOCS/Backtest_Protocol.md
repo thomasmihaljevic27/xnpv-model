@@ -482,3 +482,37 @@ coefficient c for each group (beyond its price), declared window, WAR and Game V
 trades with the five replaced together, robust standard errors. Guards: the one-player figures reproduce
 groups_clustered.py's; on sides with one player received (or sent, for the manager), each any-player flag equals the
 one-player flag. No other group, test or rule changes.
+
+## Every category and characteristic under both rules, and the change over time on both values (declared 2026-11-18, before it was built; Thomas's notes on the findings document: "Why not just actually do the analysis under both methods?", "You could ask 'did any player have salary retained' or 'did the main player have salary retained'", "Why not use both? Why be inconsistent with how we're measuring this")
+
+Report only; no test or group above changes. Three parts.
+
+1. `25_TESTS/who_overpaid_any.py` v1.2, the "who is overpaid" regression with each rule applied to every characteristic
+(Thomas: "In the main player model it should look at the production and etc of the main player acquired, and in the any
+player model it should be your recommended option"). Main player rule: every characteristic is the main player's,
+including the clause (the main player's contract at the page has a no-trade or no-move clause, backtest.py's rule applied
+to him alone). Any player rule: the eight yes-or-no characteristics are 1 when any player received has them (v1.1's
+flags); production and the record above the forecast are the totals over every player received; the games share is the
+average over the players received, weighted by cap hit. A player's missing production, forecast or games count counts as
+zero; the rows are v1.1's 735 club sides. Guards: v1.1's two fits reproduce first; on sides with one player received, the
+any-player totals equal the main player's figures and the main-player clause equals the any-player clause. The same eight
+columns as v1.1.
+
+2. `25_TESTS/groups_any.py` v1.1, Section 5's categories under both rules. New versions: retained salary (main player rule:
+the club kept part of the salary of the highest-paid player it sent; any player rule: of any player sent, backtest.py's
+g_retained); a former top-15 pick below the top-15 benchmark (main player rule: the main player received is one, by
+backtest_cuts.py cut 5b's rule and benchmark; any player rule: cut 5b's flag); a restricted free agent in his final contract
+season (main player received, backtest_cuts.py's status; any player received). One category not about a player is added
+to the table: the club whose whole return was picks in rounds 6 and 7 (backtest_cuts.py cut 15's rule). Reported, declared
+window, clustered by trade: each group's mean trade-day grade and realized value (WAR, Game Value) and the
+outcome-on-price coefficient c. And the joint regression on all trades (groups_clustered.py part 4's design) run twice,
+once with every player category on the main player rule (the clause and retained salary included) and once with every
+one on the any player rule; the two new groups are not added to it. Guards: v1.0's checks; the any-player retained and
+top-15 flags equal groups_clustered.py's; on sides with one player received (sent, for retention), each pair of flags
+agrees.
+
+3. `25_TESTS/trend_both.py` v1.0, the change over time: backtest_cuts.py cut 12's trend (per trade, the larger absolute
+club net, regressed on the trade's season, 2017-18 to 2025-26) on the trade-day grade and on the realized value (WAR),
+with robust standard errors and p-values beside cut 12's resampled interval. Guard: the trade-day slope reproduces cut
+12's -0.019. Expected, and stated with the result: realized values of recent trades are partly forecast and have had
+fewer seasons to spread out, so the realized trend leans downward by construction.
