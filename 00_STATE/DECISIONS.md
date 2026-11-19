@@ -4119,3 +4119,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   (report only; protocol 2ec8523, 906b4c2): who_overpaid_any.py v1.4, groups_any.py v1.2, trend_both.py v1.1,
   who_overpaid.py v1.1. DOCUMENT findings_doc.js v3.0 (his annotated copy 68fcf09). PROJECT_STATE line; WORK_QUEUE 1a
   (the defenceman question open); MANIFEST rows; session log.
+- DECIDED (Thomas: "Yes, move to Section 3"): the defenceman is a finding under the main player rule (joint regression,
+  2017-22); it does not meet the rule in the Section 3 regression or under the any player rule, and the document says so.
+  DOCUMENT findings_doc.js v3.1. WORK_QUEUE 1a; PROJECT_STATE line; MANIFEST row; session log.
