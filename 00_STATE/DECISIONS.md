@@ -4147,3 +4147,5 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   trades, the clause reading in one bullet; his 11:30 edit carried (716960f). PROJECT_STATE; WORK_QUEUE 1a; MANIFEST; log.
 - RUN (Thomas: "yes add the goalie indicator and rerun"; protocol b309c1e): facts_fill.py v1.2, one_regression.py v2.2,
   clause_disguise.py v1.1. The defenceman is a finding again under the main player rule. Document not yet changed.
+- DOCUMENT (Thomas: "Yes, rebuild it"): findings_doc.js v3.5 on one_regression v2.2 (the goalie indicator); his 12:17
+  edits carried (482f24b); Step 5's design bullet reworded. PROJECT_STATE; MANIFEST; session log.

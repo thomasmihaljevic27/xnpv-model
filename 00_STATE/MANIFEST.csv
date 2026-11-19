@@ -445,7 +445,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,age_band_test.py,backtest,hashable,2026-11-18,72334011fa4df903477116e536c4f9e1303bd550,4361,2026-11-18,yes,git,"v1.0: aged 28 or over in place of the two bands, who-is-overpaid regression, declared window"
 25_TESTS,traits_test.py,backtest,hashable,2026-11-18,bad8719a72fcfde2db670716528edf9e9c8aadcb,15200,2026-11-18,yes,git,"v1.1: rows built in frame(), shared with age_band_test.py"
 25_TESTS,groups_any.py,backtest,hashable,2026-11-19,1754e027ab663a28a7f37c2c308a753df5aeb99d,32026,2026-11-19,yes,git,"v1.4: writes groups_any_sides.csv for one_regression.py; results unchanged"
-25_TESTS,findings_doc.js,docs,hashable,2026-11-19,3d72b71965a4d7967d063b48f500f548b04ea4a1,41718,2026-11-19,yes,git,"v3.4: Section 3 on all 556 trades, the clause reading; writes 40_DOCS/Trade Back-test Findings.docx"
 25_TESTS,facts_fill.py,backtest,hashable,2026-11-19,dbada8eb9e112688bb2eed524a38761deecf68ba,14479,2026-11-19,yes,git,"v1.2: missing positions filled, a goalie flag"
 25_TESTS,one_regression.py,backtest,hashable,2026-11-19,322ad877de153db1fb7df8475bb3266b0e461747,14902,2026-11-19,yes,git,"v2.2: a goalie indicator beside the defenceman one"
 25_TESTS,clause_disguise.py,backtest,hashable,2026-11-19,f03a60c5a93204c16d303dc2edb6aea19ab5c76c,11770,2026-11-19,yes,git,"v1.1: on one_regression v2.2"
+25_TESTS,findings_doc.js,docs,hashable,2026-11-19,8105429023bab8474d7972f476c08d2ce7765083,42238,2026-11-19,yes,git,"v3.5: the goalie indicator, the defenceman a finding again; writes 40_DOCS/Trade Back-test Findings.docx"
