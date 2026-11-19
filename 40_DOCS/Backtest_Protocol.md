@@ -556,3 +556,7 @@ the one instrumented by the delivered value, which counts the forecast seasons o
       coefficient on the declared window (it already logs the cap hit's coefficient there). Guard: the all-trades figures
       (-0.14 trade-day, -0.10 realized WAR) reproduce.
    The cap-dump figures are read from `backtest_cuts_more.py`'s existing declared-window line.
+   Added the same day, before these were run: to read the declared-window joint regression, `groups_any.py` v1.2 also logs,
+   under each rule, (i) how many late-picks-only clubs are also futures-for-players clubs, and the sum of the two groups'
+   coefficients with its robust 95% interval; (ii) joint_regression.py's "deadline rental for picks and prospects" profile
+   (rental + deadline buyer - futures for players) on this fit, with its robust 95% interval.
