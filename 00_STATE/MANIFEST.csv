@@ -452,3 +452,4 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,findings_checks.py,backtest,hashable,2026-11-19,760dbc6a07c48e107d34e6da643015f1e6cb87db,9780,2026-11-19,yes,git,"v1.0: the cap hit held in the one regression; Benjamini-Hochberg adjusted p-values (report only)"
 25_TESTS,one_regression_replication.py,backtest,hashable,2026-11-19,acc9301d9a1f545e6588da4a53e822ab9230472f,7689,2026-11-19,yes,git,"v1.0: the one regression on the trades after 2022 (report only)"
 25_TESTS,findings_doc.js,docs,hashable,2026-11-19,e9a110b637cd1b397cacd2dac45828159da45b8a,42696,2026-11-19,yes,git,"v3.6: three wording points from the final figure check; writes 40_DOCS/Trade Back-test Findings.docx"
+25_TESTS,findings_doc.js,docs,hashable,2026-11-19,511b49f42478ecd7addf815f5ac02d85b656a861,38755,2026-11-19,yes,git,"v3.7: Thomas's notes on v3.6 carried; Step 5 lists the 23 variables; writes 40_DOCS/Trade Back-test Findings.docx"

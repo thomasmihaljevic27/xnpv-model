@@ -4166,3 +4166,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   figure in the document against its output. PROJECT_STATE line; WORK_QUEUE 1a; session log.
 - DOCUMENT (Thomas: "Yes, fix them"): findings_doc.js v3.6, the three wording points from the figure check (two-team trades
   named in Step 5; age 6% to 27%; the benchmark per 82 games). No figure or finding changed. MANIFEST row; session log.
+- DOCUMENT (Thomas's notes on v3.6, his copy f9b0fa2): findings_doc.js v3.7, his edits carried (no bold lead-ins; labels,
+  captions and bullets cut; the types of trade table to two columns; "No Change over time"; "Limitations"); Step 5 lists
+  all 23 variables ("Best to just list all variables"). Two worked examples given in chat. MANIFEST row; session log.
