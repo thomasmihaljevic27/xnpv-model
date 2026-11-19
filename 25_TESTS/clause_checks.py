@@ -41,7 +41,7 @@ import player_season_table as PST                    # noqa: E402
 
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 EXT = OUTPUT_DIR / "_extended_run"
-SCRIPT_VERSION = "clause_checks.py v1.2 (2026-11-17)"   # v1.2: each added term alone   # v1.1: the main players after 2022 found (the extended inventory)
+SCRIPT_VERSION = "clause_checks.py v1.3 (2026-11-19)"   # v1.3: the guard reads joint_regression.csv instead of a pinned -1.62; v1.2: each added term alone   # v1.1: the main players after 2022 found (the extended inventory)
 DECLARED_END = "2022-03-28"
 LOG, OUT = [], []
 
@@ -145,8 +145,12 @@ def main():
                         "coef": m0.params["t_clause"], "se": m0.bse["t_clause"], "p": m0.pvalues["t_clause"]})
     # GUARD: the "before" fit is joint_regression.py's (all trades, priced: +-1.62 on the clause)
     ref = [o for o in OUT if o["scope"] == "all trades" and o["outcome"] == "priced" and o["model"] == "before"][0]["coef"]
-    assert abs(ref - (-1.62)) < 0.005, ref
-    log("  check: the 'before' fit gives the joint regression's clause coefficient back (all trades, priced -1.62) (PASS)")
+    # v1.3 (2026-11-19): joint_regression.csv's figure as written (it moved with the clause fill and the sellers for just
+    # picks and prospects, protocol 2026-11-19); was a pinned -1.62
+    jr = pd.read_csv(EXT / "joint_regression.csv")
+    want = float(jr[(jr["scope"] == "ALL TRADES 2017-2026") & (jr["trait"] == "main player with a clause") & (jr["outcome"] == "net_M")]["together"].iloc[0])
+    assert abs(ref - want) < 1e-6, (ref, want)
+    log(f"  check: the 'before' fit gives the joint regression's clause coefficient back (all trades, priced {want:+.2f}) (PASS)")
 
     # ---- 2. reputation ------------------------------------------------------------------------------------------------------
     big = t[has & (t["cap_hit"] >= 3e6) & t["rep_gap"].notna()].copy()
