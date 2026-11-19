@@ -4106,3 +4106,7 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - DECIDED (Thomas: "Keep age as a headline finding, yes check all other categories for the any player version"). RUN
   (report only; declared dbd6855): `25_TESTS/groups_any.py` v1.0, the five one-player categories with an any-player version;
   no conclusion changes. DOCUMENT `findings_doc.js` v2.7. WORK_QUEUE 1a; MANIFEST rows; session log.
+- DECIDED (Thomas, third round of notes on the findings document): every characteristic and category under both rules; under
+  the any player rule the measured characteristics are totals (games share cap-weighted). RUN (report only; declared 247f5d6):
+  who_overpaid_any.py v1.2, groups_any.py v1.1, trend_both.py v1.0. DOCUMENT findings_doc.js v2.8 (his annotated copy
+  committed first, 0689571). WORK_QUEUE 1a; MANIFEST rows; session log.

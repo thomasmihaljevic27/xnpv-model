@@ -14,10 +14,12 @@
    his commented copy is the file without ", revised"). Read (Thomas): the revision. Decided 2026-11-18 (Thomas: "Keep
    it as a check, remove Holm, no re-run"): the played-out trades stay a check beside the main test; Holm's adjustment
    stays out; the Section 3 regression is not re-run on the term signed (the writeup says it was not).
-1a. Decided 2026-11-18: the who-is-overpaid regression is reported under both rules (Thomas: "I want to report both sides.
-   One with the biggest contract lens and one without it"); age 28 to 31 stays a headline finding (Thomas: "Keep age as a
-   headline finding"); the five back-test categories built from one player also carry an any-player version
-   (groups_any.py v1.0; no conclusion changes). findings_doc.js v2.7.
+1a. Decided 2026-11-18: both rules reported, each applied to every characteristic and category (Thomas: "In the main player
+   model it should look at the production and etc of the main player acquired, and in the any player model it should be your
+   recommended option": totals for production and the record above the forecast, games share weighted by cap hit).
+   findings_doc.js v2.8. Decide (Thomas): whether age 28 to 31 stays a headline finding now that, under the any player rule
+   with totals, its realized value on WAR is p = 0.052 across all trades (Game Value p = 0.029); under the main player rule it
+   holds in each test but the realized value after 2022 (p = 0.13).
 1b. For the final paper, not the findings document (Thomas, 2026-11-18, a comment on the cap-dump result): "I would like a
    note in the final paper about why transacting like this is still rational. There is a cap floor to reach, unused cap is
    inefficient, etc. Getting paid to take on money when the alternative was to not spend the cap space at all is still an

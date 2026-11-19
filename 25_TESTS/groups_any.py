@@ -49,7 +49,7 @@ from dotenv import load_dotenv
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 EXT = OUTPUT_DIR / "_extended_run"
-SCRIPT_VERSION = "groups_any.py v1.0 (2026-11-18)"
+SCRIPT_VERSION = "groups_any.py v1.1 (2026-11-18)"   # v1.1: retained salary, former top-15 below and the final-season restricted free agent under both rules; late picks; the joint regression with one rule throughout
 DECLARED_END = "2022-03-28"
 LOG, OUT = [], []
 FIVE = [("rental", "t_rental"), ("aged 28 to 31", "t_age28"), ("aged 32 or over", "t_age32"),
@@ -226,6 +226,122 @@ def main():
                 OUT.append({"part": "joint, all trades", "group": nm[g], "rule": rule, "outcome": ylab,
                             "estimate": m.params[k], "se": m.bse[k], "p": m.pvalues[k]})
         log(f"  {nm[g]:<46}" + "".join(f"{c:>44}" for c in cells))
+    # ==== v1.1: the remaining categories under both rules, and the joint regression with one rule throughout =============
+    log("\n" + "=" * 100 + "\nv1.1: EVERY CATEGORY UNDER BOTH RULES")
+    pv2 = pd.read_csv(EXT / "prospect_values.csv", low_memory=False)[["asset_id", "pick", "draftYear"]].drop_duplicates("asset_id")
+    pl = pl.merge(pv2, on="asset_id", how="left")
+    by_cap = pl.sort_values("cap_hit", ascending=False, kind="stable")
+    main_rec = by_cap.drop_duplicates(["trade_id", "acquiring_team"]).set_index(["trade_id", "acquiring_team"])
+    main_snt = by_cap.drop_duplicates(["trade_id", "sender"]).set_index(["trade_id", "sender"])
+    ix = pd.MultiIndex.from_frame(t[key])
+    # former top-15 pick below the benchmark: backtest_cuts.py cut 5b's rule and benchmark, per player
+    pcp, pcs = pd.read_csv(EXT / "pick_curve_players.csv"), pd.read_csv(EXT / "pick_curve_seasons.csv")
+    top = pcp[(pcp["pick"] <= 15) & pcp["draftYear"].between(2005, 2012) & (pcp["is_goalie"] != True)]   # noqa: E712
+    grid = [(r.draftYear, r.pick, y) for r in top.itertuples() for y in range(int(r.draftYear) + 4, min(2016, int(r.window_end) - 1) + 1)]
+    wv = pcs.set_index(["draftYear", "pick", "season"])["war_82"]
+    bench = float(np.mean([wv.get(k, 0.0) for k in grid]))
+    pl["top15_under"] = ((pl["pick"] <= 15) & ((pl["valuation_page"] - pl["draftYear"]) >= 4) & (pl["pos"] != "G")
+                         & (pl["trailing_war"] < bench))
+    main_rec = main_rec.join(pl.drop_duplicates("asset_id").set_index("asset_id")["top15_under"], on="asset_id")
+    t["m_top15"] = main_rec["top15_under"].reindex(ix).fillna(False).astype(bool).values
+    a_top = pl[pl["top15_under"]].groupby(["trade_id", "acquiring_team"]).size()
+    t["a_top15"] = pd.Series(1, index=a_top.index).reindex(ix).fillna(0).astype(bool).values
+    assert (t["a_top15"] == t["t_top15"].astype(bool)).all()                    # GUARD: cut 5b's flag reproduced
+    log(f"  check 3: benchmark {bench:.3f} WAR; the any-player top-15 flag equals groups_clustered's on all {len(t)} sides (PASS)")
+    # a restricted free agent in his final contract season: backtest_cuts.py's status
+    t["m_rfa"] = (main_rec["cstatus"].reindex(ix) == "final season, restricted at expiry").fillna(False).astype(bool).values
+    a_rfa = pl[pl["cstatus"] == "final season, restricted at expiry"].groupby(["trade_id", "acquiring_team"]).size()
+    t["a_rfa"] = pd.Series(1, index=a_rfa.index).reindex(ix).fillna(0).astype(bool).values
+    cs_ = pd.read_csv(EXT / "backtest_cuts_all_sides.csv")[key + ["cstatus", "n_received", "n_clubs"]]
+    tt = t[key].merge(cs_, on=key, how="left")
+    assert (t["m_rfa"].values == (tt["cstatus"] == "final season, restricted at expiry").values).all()   # GUARD
+    log("  check 4: the main-player restricted-free-agent flag equals backtest_cuts.py's main player status on every side (PASS)")
+    # retained salary: the retaining club kept part of the salary of the main player it sent (any: backtest.py's g_retained)
+    a_all = pd.read_csv(EXT / "backtest_assets.csv")
+    ret = a_all[a_all["asset_type"] == "retained salary"]
+    ret_set = set(zip(ret["trade_id"], ret["acquiring_team"], ret["name"].str.replace("retained: ", "", regex=False)))
+    t["m_retained"] = [bool(k in main_snt.index and (k[0], k[1], main_snt.at[k, "name"]) in ret_set) for k in zip(t["trade_id"], t["club"])]
+    t["a_retained"] = t["t_retained"].astype(bool)
+    # the clause: backtest.py's rule on the main player received alone (any: g_clause)
+    ss2 = pd.read_csv(EXT / "contract_season_spine.csv", usecols=["nhl_id", "season_start", "has_any_clause"])
+    cl = set((int(x), int(y)) for x, y, z in zip(ss2["nhl_id"], ss2["season_start"], ss2["has_any_clause"]) if pd.notna(x) and z == 1)
+    tpv = pd.read_csv(EXT / "traded_player_values.csv").set_index("asset_id")
+    hc = lambda x: bool(x in tpv.index and pd.notna(tpv.at[x, "nhl_id"]) and (int(tpv.at[x, "nhl_id"]), int(tpv.at[x, "valuation_page"])) in cl)  # noqa: E731
+    t["m_clause"] = [hc(main_rec.at[k, "asset_id"]) if k in main_rec.index else False for k in zip(t["trade_id"], t["club"])]
+    t["a_clause"] = t["t_clause"].astype(bool)
+    one_r, one_s = t[t["n_received_players"] == 1], t[t["n_sent_players"] == 1]
+    agree = {"top-15": int((one_r["m_top15"] != one_r["a_top15"]).sum()), "restricted": int((one_r["m_rfa"] != one_r["a_rfa"]).sum()),
+             "clause": int((one_r["m_clause"] != one_r["a_clause"]).sum()), "retained (one player sent)": int((one_s["m_retained"] != one_s["a_retained"]).sum())}
+    log(f"  check 5: one player received (sent, for retention): flags differing between the rules: {agree}")
+    assert all(v == 0 for v in agree.values()), agree
+    log("  (PASS)")
+    # the club whose whole return was picks in rounds 6 and 7 (backtest_cuts.py cut 15; not about a player)
+    tpk = pd.read_csv(EXT / "traded_pick_values.csv")[["asset_id", "pick_round"]]
+    late_ids = set(tpk.loc[tpk["pick_round"] >= 6, "asset_id"])
+    aa = a_all[a_all["asset_type"] != "retained salary"].assign(late=lambda x: (x["asset_type"] == "pick") & x["asset_id"].isin(late_ids))
+    only = aa.groupby(["trade_id", "acquiring_team"])["late"].all()
+    t["t_late"] = (pd.Series(only).reindex(ix).fillna(False).astype(bool).values & (tt["n_received"] > 0).values & (tt["n_clubs"] == 2).values)
+    for lab, o, n_ in (("retained salary", "m_retained", "a_retained"), ("former top-15 pick below benchmark", "m_top15", "a_top15"),
+                       ("restricted free agent, final season", "m_rfa", "a_rfa"), ("a clause", "m_clause", "a_clause"),
+                       ("only picks in rounds 6 and 7 (not about a player)", "t_late", "t_late")):
+        log(f"    {lab:<52} all trades {int(t[o].sum()):>4} -> {int(t[n_].sum()):>4}; declared window {int(t.loc[dec, o].sum())} -> {int(t.loc[dec, n_].sum())}")
+    d = t[dec]
+    new = [("retained salary", "m_retained", "a_retained"), ("former top-15 pick below benchmark", "m_top15", "a_top15"),
+           ("restricted free agent, final season", "m_rfa", "a_rfa"), ("only picks in rounds 6 and 7", "t_late", "t_late"),
+           ("a clause", "m_clause", "a_clause")]
+    log("\n1b. GROUP MEANS, declared window: main player rule -> any player rule; mean (clustered se) p")
+    for lab, o, n_ in new:
+        cells = []
+        for ylab, y in GC.YS:
+            r = []
+            for rule, f in (("main player", o), ("any player", n_)):
+                x = d[d[f].astype(bool)]
+                b, se, lo, hi, p = GC.clustered_mean(x[y].to_numpy(float), x["trade_id"].to_numpy())
+                r.append(f"{b:+.2f} ({se:.2f}) p={p:.3f}")
+                OUT.append({"part": "v1.1 group mean, declared window", "group": lab, "rule": rule, "outcome": ylab, "n": len(x),
+                            "estimate": b, "se": se, "p": p})
+            cells.append(" -> ".join(r))
+        log(f"  {lab:<46} sides {int(d[o].sum())} -> {int(d[n_].sum())}")
+        log("     " + " | ".join(f"{GC.YS[i][0]}: {c}" for i, c in enumerate(cells)))
+    log("\n2b. OUTCOME ON PRICE, declared window: c (clustered by trade): main player rule -> any player rule")
+    for ylab, y in GC.YS[1:]:
+        for lab, o, n_ in new:
+            r = []
+            for rule, f in (("main player", o), ("any player", n_)):
+                X = pd.DataFrame({"const": 1.0, "priced": d["net_M"], "G": d[f].astype(float), "GxP": d[f].astype(float) * d["net_M"]})
+                m = sm.OLS(d[y], X).fit(cov_type="cluster", cov_kwds={"groups": d["trade_id"]})
+                r.append(f"{m.params['G']:+.2f} ({m.bse['G']:.2f}) p={m.pvalues['G']:.3f}")
+                OUT.append({"part": "v1.1 beyond its price, declared window", "group": lab, "rule": rule, "outcome": ylab,
+                            "estimate": m.params["G"], "se": m.bse["G"], "p": m.pvalues["G"]})
+            log(f"  {ylab:<22}{lab:<46}{' -> '.join(r)}")
+    # the joint regression with ONE rule throughout (the two new groups not added)
+    two = t[n == 2].sort_values(key)
+    A = two.groupby("trade_id").nth(0).set_index("trade_id")
+    B = two.groupby("trade_id").nth(1).set_index("trade_id")
+    main_sw = {"t_clause": "m_clause", "t_retained": "m_retained", "t_top15": "m_top15"}
+    any_sw = {**swap}
+    fit4 = {}
+    for rule, cols in (("main player rule", [main_sw.get(g, g) for g in base]), ("any player rule", [any_sw.get(g, g) for g in base])):
+        X = pd.DataFrame({g: A[g].astype(int) - B[g].astype(int) for g in cols}, index=A.index)
+        X = X.loc[:, (X != 0).sum() >= 5]
+        fit4[rule] = ({y: sm.OLS(A[y], X).fit(cov_type="HC1") for _, y in GC.YS}, cols)
+    # GUARD: the any-player rule fit is part 3's any-player fit (the clause, retention and top-15 were already any-player there)
+    assert all(np.allclose(fit4["any player rule"][0][y].params.values, fits["any player"][y].params.values) for _, y in GC.YS)
+    log(f"\n4. THE JOINT REGRESSION, ONE RULE THROUGHOUT, all trades, {len(A)} two-team trades, robust se (any-player fit = part 3's: PASS)")
+    log(f"  {'characteristic':<46}{'rule':>18}" + "".join(f"{y:>30}" for y, _ in GC.YS))
+    for i, g in enumerate(base):
+        for rule in ("main player rule", "any player rule"):
+            ms, cols = fit4[rule]
+            k = cols[i]
+            cells = []
+            for ylab, y in GC.YS:
+                m = ms[y]
+                if k not in m.params.index:
+                    cells.append("dropped"); continue
+                cells.append(f"{m.params[k]:+.2f} ({m.bse[k]:.2f}) p={m.pvalues[k]:.3f}")
+                OUT.append({"part": "v1.1 joint, one rule, all trades", "group": nm[g], "rule": rule, "outcome": ylab,
+                            "estimate": m.params[k], "se": m.bse[k], "p": m.pvalues[k]})
+            log(f"  {(nm[g] if rule.startswith('main') else ''):<46}{rule:>18}" + "".join(f"{c:>30}" for c in cells))
     pd.DataFrame(OUT).to_csv(OUTPUT_DIR / "groups_any.csv", index=False)
     (OUTPUT_DIR / "groups_any_log.txt").write_text("\n".join(LOG), encoding="utf-8")
 

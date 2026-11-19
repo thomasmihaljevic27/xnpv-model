@@ -24,6 +24,14 @@ EACH PLAYER'S FACTS, by the rule the main player's use:
              "main player with a clause", is ALREADY this any-player flag; the guard below checks it reproduces exactly.
 A fact unknown for a player counts as "no" for him (a missing age, contract or pick cannot make a side's flag 1).
 
+v1.2 (declared in the protocol before it was built; Thomas: "In the main player model it should look at the production and
+etc of the main player acquired, and in the any player model it should be your recommended option"): each rule applied to
+every characteristic. Main player rule: the clause too is the main player's (backtest.py's rule on him alone). Any player
+rule: the yes-or-no flags as above; production and the record above the forecast are TOTALS over the players received;
+the games share is their average weighted by cap hit. A player's missing production, forecast or games count is zero
+(the rows stay the main-player fit's 735 sides). Guards 4 and 5: on one-player sides the totals equal the main player's
+figures and the two clause flags agree; the main asset chosen here is who_overpaid.build's. Output who_overpaid_both.csv.
+
 GUARDS: (1) the all-trades main-player fit reproduces who_overpaid.py's recorded figures (former top-15 pick +1.53 / +1.52);
 (2) the any-player clause flag equals g_clause on every side; (3) on sides that received one player, each any-player flag
 equals the main player's (age bands, defenceman, top-15, seasons left; ufa within clause_checks' rule).
@@ -42,7 +50,7 @@ from dotenv import load_dotenv
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 EXT = OUTPUT_DIR / "_extended_run"
-SCRIPT_VERSION = "who_overpaid_any.py v1.1 (2026-11-18)"   # v1.1: three more columns for the replications (Thomas made the any-player rule the main one)
+SCRIPT_VERSION = "who_overpaid_any.py v1.2 (2026-11-18)"   # v1.2: each rule applied to every characteristic (the main player's clause; totals for the measures); v1.1: three more columns for the replications (Thomas made the any-player rule the main one)
 DECLARED_END = "2022-03-28"
 LOG, OUT = [], []
 
@@ -52,7 +60,7 @@ def log(s=""):
     LOG.append(s)
 
 
-def player_facts(CS):
+def player_facts(CS, PST, SEASON_GAMES):
     """One row per player asset in the main-player pool, with the eight yes-or-no facts."""
     a = pd.read_csv(EXT / "backtest_assets.csv")
     pv = pd.read_csv(EXT / "prospect_values.csv", low_memory=False)[["asset_id", "nhl_id", "cap_hit", "pick"]].drop_duplicates("asset_id")
@@ -82,7 +90,23 @@ def player_facts(CS):
     tpv = pd.read_csv(EXT / "traded_player_values.csv").set_index("asset_id")
     pl["clause"] = [int(x in tpv.index and pd.notna(tpv.at[x, "nhl_id"]) and (int(tpv.at[x, "nhl_id"]), int(tpv.at[x, "valuation_page"])) in cl)
                     for x in pl["asset_id"]]
+    # v1.2: each player's measured facts, by who_overpaid.build's and clause_checks.main_players' rules
+    w = pd.read_csv(OUTPUT_DIR / "WAR_with_age.csv", usecols=["Player", "nhl_id", "Season", "GP"]).dropna(subset=["nhl_id"])
+    w["y"] = 2000 + w["Season"].str[:2].astype(int)
+    gp = w.groupby(["nhl_id", "y"])["GP"].sum()
+    pl["gp_share"] = [np.nan if pd.isna(n_) or pd.isna(p) else
+                      min(float(gp.get((n_, int(p) - 1), 0.0)) / SEASON_GAMES.get(int(p) - 1, 82), 1.0)
+                      for n_, p in zip(pl["nhl_id"], pl["valuation_page"])]
+    ck = w[["Player", "nhl_id"]].dropna().drop_duplicates("nhl_id").set_index("nhl_id")["Player"].map(PST.career_key)
+    fc = pd.read_csv(OUTPUT_DIR / "xnpv1_forecasts.csv", usecols=["career_key", "page", "h", "p_play", "war_if_plays"])
+    fc = fc[fc["h"] == 0].set_index(["career_key", "page"])
+    ex = []
+    for r in pl.itertuples():
+        k = (ck.get(r.nhl_id), int(r.valuation_page)) if pd.notna(r.nhl_id) else None
+        ex.append(float(fc.at[k, "p_play"] * fc.at[k, "war_if_plays"]) if k is not None and k in fc.index else np.nan)
+    pl["expected_war"] = ex
     f = pd.DataFrame({"trade_id": pl["trade_id"], "club": pl["acquiring_team"], "asset_id": pl["asset_id"]})
+    f["cap_hit"], f["trailing_war"], f["expected_war"], f["gp_share"] = pl["cap_hit"], pl["trailing_war"], pl["expected_war"], pl["gp_share"]
     f["age28"] = pl["age"].between(28, 32, inclusive="left").astype(int)
     f["age32"] = (pl["age"] >= 32).astype(int)
     f["defence"] = (pl["pos"] == "D").astype(int)
@@ -121,7 +145,7 @@ def main():
     assert abs(m.params["top15"] - 1.53) < 0.005 and abs(m2.params["top15"] - 1.52) < 0.005, (m.params["top15"], m2.params["top15"])
     log(f"  check 1: the main-player fit gives who_overpaid.py's figures back ({len(d)} sides; top-15 +1.53 / +1.52) (PASS)")
 
-    f = player_facts(CC.CS)
+    f = player_facts(CC.CS, CC.PST, WO.SEASON_GAMES)
     anyf = f.groupby(key)[flags].max()
     nrec = f.groupby(key).size().rename("n_players")
     d = d.join(anyf.add_prefix("any_"), on=key).join(nrec, on=key)
@@ -172,6 +196,45 @@ def main():
         log(f"  {labels[c]:<34}" + "".join(f"{x:>30}" for x in cells))
     log("  (sides: all trades " + str(len(d)) + "; 2017-22 " + str(int((d['trade_date'] <= DECLARED_END).sum())) + "; after 2022 "
         + str(int((d['trade_date'] > DECLARED_END).sum())) + ")")
+    # ---- v1.2: each rule applied to every characteristic --------------------------------------------------------------
+    main_a = f.sort_values("cap_hit", ascending=False, kind="stable").drop_duplicates(key).set_index(key)
+    di = d.set_index(key)
+    assert (main_a["asset_id"].reindex(di.index) == di["asset_id"]).all()          # GUARD 5a: the same main asset
+    d["main_clause"] = main_a["clause"].reindex(di.index).fillna(0).astype(int).values
+    g = f.assign(tw=f["trailing_war"].fillna(0), gap=f["trailing_war"].fillna(0) - f["expected_war"].fillna(0),
+                 gs=f["gp_share"].fillna(0), cw=f["cap_hit"].fillna(0))
+    g["cwgs"] = g["cw"] * g["gs"]
+    tot = g.groupby(key).agg(tot_war=("tw", "sum"), tot_gap=("gap", "sum"), cw=("cw", "sum"), cwgs=("cwgs", "sum"), gs_mean=("gs", "mean"))
+    tot["avg_gs"] = np.where(tot["cw"] > 0, tot["cwgs"] / tot["cw"].where(tot["cw"] > 0, 1), tot["gs_mean"])
+    d = d.join(tot[["tot_war", "tot_gap", "avg_gs"]], on=key)
+    one = d[d["n_players"] == 1]
+    dif = {"production": float((one["tot_war"] - one["trailing_war"]).abs().max()), "record": float((one["tot_gap"] - one["rep_gap"]).abs().max()),
+           "games share": float((one["avg_gs"] - one["gp_share_last"]).abs().max()), "clause": int((one["main_clause"] != one["any_clause"]).sum())}
+    log(f"\n  check 4 (v1.2): one-player sides ({len(one)}): largest gap, totals against the main player's figures, and clause flags differing: {dif}")
+    assert max(dif["production"], dif["record"], dif["games share"]) < 1e-9 and dif["clause"] == 0, dif
+    log("  (PASS)")
+    log(f"  clubs with a clause: main player {int(d['main_clause'].sum())}, any player {int(d['any_clause'].sum())}")
+    cc_m = [("main_clause" if c == "clause" else c) for c in cc]
+    cc_a = [f"any_{c}" if c in flags else {"trailing_war": "tot_war", "rep_gap": "tot_gap", "gp_share_last": "avg_gs"}.get(c, c) for c in cc]
+    both = []
+    log("\nWHO IS OVERPAID, EACH RULE ON EVERY CHARACTERISTIC (v1.2): main player rule | any player rule; estimate (se) p")
+    log(f"  {'characteristic':<34}" + "".join(f"{c[0]:>30}" for c in cols))
+    fit2 = {}
+    for lab, scope, msk, y in cols:
+        dd = d[msk]
+        for rule, xs in (("main", cc_m), ("any", cc_a)):
+            fit2[(lab, rule)] = sm.OLS(dd[y], sm.add_constant(dd[xs])).fit(cov_type="cluster", cov_kwds={"groups": dd["trade_id"]})
+    for i, c in enumerate(cc):
+        for rule, xs in (("main", cc_m), ("any", cc_a)):
+            cells = []
+            for lab, scope, msk, y in cols:
+                m_ = fit2[(lab, rule)]
+                k = xs[i]
+                cells.append(f"{m_.params[k]:+.2f} ({m_.bse[k]:.2f}) p={m_.pvalues[k]:.3f}")
+                both.append({"term": labels[c], "rule": rule, "column": lab, "n": int(m_.nobs), "estimate": m_.params[k],
+                             "se": m_.bse[k], "p": m_.pvalues[k]})
+            log(f"  {(labels[c] if rule == 'main' else ''):<26}{rule:>8}" + "".join(f"{x:>30}" for x in cells))
+    pd.DataFrame(both).to_csv(OUTPUT_DIR / "who_overpaid_both.csv", index=False)
     pd.DataFrame(OUT).to_csv(OUTPUT_DIR / "who_overpaid_any.csv", index=False)
     (OUTPUT_DIR / "who_overpaid_any_log.txt").write_text("\n".join(LOG), encoding="utf-8")
 
