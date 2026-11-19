@@ -4132,3 +4132,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   sensitivity only (age_band_test.py, groups_any.py part 6). Session log.
 - DOCUMENT (2026-11-19; Thomas's fifth round, "Maybe swap sections 4 and 5"): findings_doc.js v3.2, Sections 4 and 5
   swapped, the defenceman in Section 4 with its regression; his annotated copy 479489f. MANIFEST row; session log 2026-11-19.
+- RUN (report only; protocol 0349335; Thomas: "let's see the results of this change"): one_regression.py v1.0, the two
+  regressions merged; groups_any.py v1.4 (flags written, results unchanged). Open: whether it replaces the two. MANIFEST
+  rows; session log.

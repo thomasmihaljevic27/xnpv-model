@@ -51,7 +51,7 @@ from dotenv import load_dotenv
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 EXT = OUTPUT_DIR / "_extended_run"
-SCRIPT_VERSION = "groups_any.py v1.3 (2026-11-18)"   # v1.3: part 6, aged 28 or over in place of the two bands; v1.2: the joint regression on the declared window, the final-season restricted free agent and late picks added; v1.1: retained salary, former top-15 below and the final-season restricted free agent under both rules; late picks; the joint regression with one rule throughout
+SCRIPT_VERSION = "groups_any.py v1.4 (2026-11-19)"   # v1.4: writes each side's flags (groups_any_sides.csv); v1.3: part 6, aged 28 or over in place of the two bands; v1.2: the joint regression on the declared window, the final-season restricted free agent and late picks added; v1.1: retained salary, former top-15 below and the final-season restricted free agent under both rules; late picks; the joint regression with one rule throughout
 DECLARED_END = "2022-03-28"
 LOG, OUT = [], []
 FIVE = [("rental", "t_rental"), ("aged 28 to 31", "t_age28"), ("aged 32 or over", "t_age32"),
@@ -434,6 +434,9 @@ def main():
                 OUT.append({"part": "v1.3 joint, declared window, 28 or over", "group": lab, "rule": rule, "outcome": ylab,
                             "estimate": m.params[k], "se": m.bse[k], "p": m.pvalues[k]})
             log(f"    {lab:<32}" + "".join(f"{c:>30}" for c in cells))
+    # v1.4: each side's flags for one_regression.py (protocol 2026-11-19); no figure here changes
+    flag_cols = [c for c in t.columns if c.startswith(("t_", "a_", "m_"))]
+    t[key + ["trade_date"] + flag_cols].to_csv(OUTPUT_DIR / "groups_any_sides.csv", index=False)
     pd.DataFrame(OUT).to_csv(OUTPUT_DIR / "groups_any.csv", index=False)
     (OUTPUT_DIR / "groups_any_log.txt").write_text("\n".join(LOG), encoding="utf-8")
 
