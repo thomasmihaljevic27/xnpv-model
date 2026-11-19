@@ -20,7 +20,8 @@
    and realized value"), Section 4 on all trades with the correction on the seasons played ("All trades, played seasons").
    findings_doc.js v3.3 (2026-11-19): one regression in place of two (Thomas: "Yes, rewrite"); the below-average top-15 term
    dropped ("Drop the below average one"). Findings: the clause (both rules), age 28 to 31 and a former top-15 pick (main
-   player rule). The defenceman is not a finding there. Write the document to 40_DOCS once Thomas closes it.
+   player rule). The defenceman is not a finding there. v3.4 (2026-11-19): all 556 trades (facts_fill.py); the former
+   top-15 pick no longer a finding; the clause reading added (clause_disguise.py). Written to 40_DOCS.
 1b. For the final paper, not the findings document (Thomas, 2026-11-18, a comment on the cap-dump result): "I would like a
    note in the final paper about why transacting like this is still rational. There is a cap floor to reach, unused cap is
    inefficient, etc. Getting paid to take on money when the alternative was to not spend the cap space at all is still an

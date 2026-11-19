@@ -87,9 +87,10 @@ The sections as they stood at the 2026-10-22 refresh are in History, as written.
 - Absorbed by the others: the deadline buyer and the retaining club (the player taken and the picks given carry them).
 - The findings document (2026-11-19, `findings_doc.js` v3.3; one regression in place of two, Thomas: "Yes, rewrite"):
   every result on the declared window, both rules (main player, any player received); player characteristics and types
-  of trade in one regression on two-team trades (`one_regression.py` v1.1, 431 trades). Findings: a player with a no-trade
-  or no-move clause under both rules; aged 28 to 31 and a former top-15 pick under the main player rule only (top-15 fails
-  both checks). The defenceman loses value but its trade-day grade is not significant. The price follows about 40 cents
+  of trade in one regression on all 556 two-team trades (`one_regression.py` v2.0, v3.4 of the document). Findings: a
+  player with a no-trade or no-move clause under both rules; aged 28 to 31 under the main player rule. The clause's trade-day
+  overpay is mostly its cap hit (clause_disguise.py); its realized loss is not. The former top-15 pick and the defenceman
+  are not findings. The price follows about 40 cents
   per $1 of contract value (all trades, corrected on the seasons played, 0.39 [0.00, 0.75]).
 - Not findings: rentals as such, RFA control years, learning over time (-$0.02M a season), late picks (they return
   nothing, priced at nothing), offer sheets (a what-if: positive mostly below the compensation line; 18 of 146 where a

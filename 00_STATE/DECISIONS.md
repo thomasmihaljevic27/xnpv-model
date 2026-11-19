@@ -4143,3 +4143,5 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   one_regression.py v2.0, all 556 trades. The findings document not yet updated. MANIFEST rows; session log.
 - RUN (Thomas: "What are the chances that the clause finding is a different finding in disguise?"; report only; protocol
   7de3900, 8cf492b): clause_disguise.py v1.0; one_regression.py v2.1. MANIFEST rows; session log.
+- DOCUMENT (Thomas: "Yes, rebuild with it. Just keep the new clause discussion brief"): findings_doc.js v3.4 on all 556
+  trades, the clause reading in one bullet; his 11:30 edit carried (716960f). PROJECT_STATE; WORK_QUEUE 1a; MANIFEST; log.
