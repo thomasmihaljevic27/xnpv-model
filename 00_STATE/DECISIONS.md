@@ -4164,3 +4164,5 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   documents methods"): the findings document v3.5 stands; no adjusted p-values; the cap-hit and after-2022 runs stay
   report only (Thomas did not ask Karl about the replication and expects the same answer). CHECKED the same day: every
   figure in the document against its output. PROJECT_STATE line; WORK_QUEUE 1a; session log.
+- DOCUMENT (Thomas: "Yes, fix them"): findings_doc.js v3.6, the three wording points from the figure check (two-team trades
+  named in Step 5; age 6% to 27%; the benchmark per 82 games). No figure or finding changed. MANIFEST row; session log.

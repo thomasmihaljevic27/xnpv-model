@@ -1,6 +1,10 @@
 // findings_doc.js v2.1 -- builds "Trade Back-test, What We Found and How, revised.docx" (40_DOCS/); v2.0 built "Trade
 // Back-test, What We Found and How.docx" (Thomas's commented copy of it is kept in git); v1.x "Back-test Findings and Methods.docx".
 //
+// v3.6 (2026-11-19; Thomas: "Yes, fix them"): three wording points from the final figure check: Step 5 says the
+// regressions use the 556 two-team trades (7 three-team trades left out); "Why the rules differ" age range 6% to 27% (from
+// the estimates, as the other two ranges; 27.4%); the top-15 benchmark "1.08 WAR per 82 games a season".
+//
 // v3.5 (2026-11-19; Thomas: "Yes, rebuild it"): one_regression.py v2.2 with the goalie indicator: the defenceman a finding
 // again under the main player rule, a goalie row; Thomas's 12:17 edits carried ("in xNPV"; the negative-average bullet,
 // Section 3's "How it was measured" and "Main player rule." cut; the types of trade merged into Step 5's bullet; colons);
@@ -126,7 +130,7 @@ const {
 const ROOT = path.resolve(__dirname, "..");
 const OUTFILE = process.env.DOC_OUT || path.join(ROOT, "40_DOCS", "Trade Back-test Findings.docx")   // v2.3: a new file; the ", revised" file holds Thomas's second round of notes
 const FONT = "Arial";
-const VERSION = "findings_doc.js v3.5";
+const VERSION = "findings_doc.js v3.6";
 
 // ---- building blocks ---------------------------------------------------------------------------------------------------
 // A string is plain text; ["Label", "text"] as L() gives a bold lead-in label followed by plain text.
@@ -228,7 +232,8 @@ add(B("Two regressions are run, one on the clubs' trade-day grades and one on th
   // v3.5 (Thomas: "Gonna need this reworded"): the reworded design bullet, as sent in chat
   B("Each regression compares the two clubs in a trade: the first club's value is regressed on how the two clubs differ in "
     + "each characteristic. There is no constant, because one club's gain is the other's loss. A club that received no "
-    + "player gets zero for each player characteristic, plus a separate term marking that it received no player."));
+    + "player gets zero for each player characteristic, plus a separate term marking that it received no player. The "
+    + "regressions use the 556 two-team trades; the 7 trades among three clubs are left out."));
 add(H2("Step 6: What Counts as a Finding"));
 add(B("A finding must show in both the trade-day grade and the realized value: the characteristic is statistically "
   + "significant at the 5% level in both regressions, with the same sign."));
@@ -286,7 +291,7 @@ add(B(L("The clause finding", "holds under both rules. Clubs that take on a play
     + "acquiring forwards came out better than their grade (+0.47 [+0.19, +0.76]), mostly because they paid with picks, and "
     + "picks under-deliver (Section 2).")),
   B(L("Why the rules differ.", "Under the any player rule a cheaper second player who is 28 to 31, or a defenceman, puts "
-    + "his club in the group, so the estimates are smaller than under the main player rule: by 6% to 28% for age, 23% to 30% "
+    + "his club in the group, so the estimates are smaller than under the main player rule: by 6% to 27% for age, 23% to 30% "
     + "for defencemen and 11% to 14% for the clause.")),
   B(L("On its own (Step 4),", "the average club acquiring a player with a clause had a trade-day grade of -3.38 (0.63) and a "
     + "realized value of -2.92 (0.74) under the main player rule, and -2.95 (0.53) and -2.50 (0.65) under the any player "
@@ -357,7 +362,7 @@ add(B(L("None of these types of trade is a finding.", "With everything else held
     + "held constant neither figure is statistically significant.")),
   B(L("Former top-15 picks below the top-15 average:", "The group is the main player received (main player rule), or any player "
     + "received (any player rule), who is a former top-15 pick and whose output five or more seasons after his draft (D+5 or "
-    + "later) is below the average for top-15 picks at that stage (1.08 WAR a season). It is left out of the regression "
+    + "later) is below the average for top-15 picks at that stage (1.08 WAR per 82 games a season). It is left out of the regression "
     + "because it is almost the same group as the former top-15 picks (the two move together at a correlation of 0.84). "
     + "Across the league, 42% of 125 such players later reached that average.")),
   B(L("Late picks:", "Each pick in rounds 6 and 7 is valued at $0.09M on trade day, on average, and delivers $0.09M less "
