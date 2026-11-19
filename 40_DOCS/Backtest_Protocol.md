@@ -658,3 +658,20 @@ in the fits run so far (their recent WAR was blank), but under the any player ru
 pulled the club's cap-weighted games share down. facts_fill.py v1.1: a goalie's games share is read from the goalie WAR
 table, by name, the same season and rule, replacing the 0; a skater's missing games share is read by NHL id where one was
 recovered (who_overpaid's rule), and by name only where none was.
+
+## Is the clause finding another finding in disguise? (declared 2026-11-19, before it was built; Thomas: "What are the chances that the clause finding is a different finding in disguise? ... clause players are players who are of a higher reputation in the league, they may carry higher cap hits, they may be more likely to become cap dumps")
+
+Report only. Script `25_TESTS/clause_disguise.py`, on `one_regression.py` v2.0's 556 two-team trades in the declared window,
+both rules, the same design, outcomes and robust standard errors.
+1. Profile: clubs whose main player has a clause against those whose main player has none (main player rule): mean cap hit,
+   age, seasons left, recent WAR, record above the forecast, share signed as an unrestricted free agent, share former
+   top-15 picks, share of the clubs that took the contract to clear cap, share at the deadline.
+2. The regression with the contract's cost added, each alone, then together, as separate fits: (a) the cap hit ($M;
+   main player rule: the main player's; any player rule: the total over the players received); (b) the present value of
+   the cap hit over the seasons left ($M at the 2025-26 cap, who_overpaid.build's `cost`; any player rule: the total);
+   (c) both. Reported: the clause, age 28 to 31 and cost coefficients in each fit, beside the fit without them.
+3. Cap dumps: the regression without the trades where a club took a contract to clear cap; the clause coefficient.
+A clause "in disguise" is read as: its coefficient on the trade-day grade and on realized value is no longer
+statistically significant at the 5% level once a cost term is held. The cost term was left out of the main regression on
+purpose (a contract's value is its performance less its cost, so holding cost constant asks a different question); this is
+a reading of the finding, not a change to the specification.
