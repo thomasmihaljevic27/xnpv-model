@@ -4139,3 +4139,5 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   left out of the merged regression. Still report only. MANIFEST row; session log.
 - DECIDED (Thomas: "Yes, rewrite"): one regression replaces the two in the findings document (protocol e289869);
   findings_doc.js v3.3 (not yet written: the document is open). PROJECT_STATE line; WORK_QUEUE 1a; MANIFEST; session log.
+- RUN (Thomas: "I want as many usable trades in the sample as possible"; protocol d9c96d9, 89d191a): facts_fill.py v1.1,
+  one_regression.py v2.0, all 556 trades. The findings document not yet updated. MANIFEST rows; session log.

@@ -24,6 +24,10 @@ OUTCOMES: trade-day grade (net_M), realized value on WAR (out_net_M), Game Value
 v1.1 (2026-11-19; Thomas: "Drop the below average one"): the former top-15 pick below the top-15 average is left out
 under both rules (it is a subset of the former top-15 pick); the correlation of the two terms is logged.
 
+v2.0 (2026-11-19; Thomas: "I want as many usable trades in the sample as possible"): every missing player fact filled by
+facts_fill.py's declared rules before the rows are chosen; a trade is left out only when a main player's birthdate is
+unknown.
+
 OUTPUTS: OUTPUT_DIR/one_regression_log.txt, one_regression.csv
 """
 import importlib.util
@@ -38,7 +42,7 @@ from dotenv import load_dotenv
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 EXT = OUTPUT_DIR / "_extended_run"
-SCRIPT_VERSION = "one_regression.py v1.2 (2026-11-19)"   # v1.2: logs the clubs with two or more players (log only); v1.1: the former top-15 pick below the average dropped (Thomas)
+SCRIPT_VERSION = "one_regression.py v2.0 (2026-11-19)"   # v2.0: missing player facts filled (facts_fill.py); v1.2: logs the clubs with two or more players (log only); v1.1: the former top-15 pick below the average dropped (Thomas)
 BELOW = {"main player rule": "m_top15", "any player rule": "t_top15"}     # the below-average top-15 term, by rule
 DECLARED_END = "2022-03-28"
 YS = [("trade-day grade", "net_M"), ("realized value, WAR", "out_net_M"), ("realized value, Game Value", "gv_net_M"),
@@ -100,6 +104,10 @@ def main():
     # ---- the any player rule's characteristics (who_overpaid_any.py v1.3/v1.4, its main()) ----
     flags = ["age28", "age32", "defence", "clause", "ufa", "left2", "left3", "top15"]
     f = WA.player_facts(CC.CS, CC.PST, WO.SEASON_GAMES)
+    # v2.0 (Thomas: "I want as many usable trades in the sample as possible"): the missing facts filled (facts_fill.py)
+    cc0 = ["age28", "age32", "defence", "clause", "ufa", "left2", "left3", "trailing_war", "rep_gap", "gp_share_last", "top15"]
+    known0 = t["name"].notna() & t[cc0 + ["age"]].notna().all(axis=1)          # known before the fill (guard 1's rows)
+    t, f = load("facts_fill").fill(t, f, WO, CC, log)
     t = t.join(f.groupby(key)[flags].max().add_prefix("any_"), on=key)
     main_a = f.sort_values("cap_hit", ascending=False, kind="stable").drop_duplicates(key).set_index(key)
     ti = t.set_index(key)
@@ -128,7 +136,7 @@ def main():
     sides = set(map(tuple, t[key].values))
     assert set(map(tuple, f[key].drop_duplicates().values)) & sides == set(map(tuple, t.loc[t["recv"] == 1, key].values))
     # GUARD 1: part 5's age, defenceman and clause flags equal who_overpaid's on sides with a known player
-    kp = t[(t["recv"] == 1) & ~t["unknown"]]
+    kp = t[(t["recv"] == 1) & ~t["unknown"] & known0.values]                  # v2.0: the sides known before the fill
     pairs = [("t_age28", "age28"), ("t_age32", "age32"), ("t_def", "defence"), ("m_clause", "main_clause"),
              ("a_age28", "any_age28"), ("a_age32", "any_age32"), ("a_def", "any_defence"), ("t_clause", "any_clause")]
     bad = {a: int((kp[a].astype(int) != kp[b].fillna(0).astype(int)).sum()) for a, b in pairs}
