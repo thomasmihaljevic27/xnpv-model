@@ -4158,3 +4158,9 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   regression on the 357 two-team trades after 2022 (the guard chosen 2026-11-18). Age 28 to 31 replicates in full; the
   clause on trade day only (realized values after 2022 mostly re-valuation); the defenceman does not replicate. Document
   unchanged. WORK_QUEUE 1a; MANIFEST row; session log.
+- DECIDED (Thomas, 2026-11-19, after speaking with Karl: "He agreed with the model and findings methods as is currently
+  written in the documents. So we are looking at trade day and realized value and we are investigating on both the main
+  player and any player rules. He said not to worry about adjustments"; "the model findings are done as is per the
+  documents methods"): the findings document v3.5 stands; no adjusted p-values; the cap-hit and after-2022 runs stay
+  report only (Thomas did not ask Karl about the replication and expects the same answer). CHECKED the same day: every
+  figure in the document against its output. PROJECT_STATE line; WORK_QUEUE 1a; session log.

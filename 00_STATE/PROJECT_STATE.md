@@ -92,6 +92,12 @@ The sections as they stood at the 2026-10-22 refresh are in History, as written.
   (v2.2, a goalie indicator beside the defenceman one). The clause's trade-day overpay is mostly its cap hit
   (clause_disguise.py); its realized loss is not. The former top-15 pick and goalies are not findings. The price follows about 40 cents
   per $1 of contract value (all trades, corrected on the seasons played, 0.39 [0.00, 0.75]).
+  DONE 2026-11-19 (Thomas, after speaking with Karl: "He agreed with the model and findings methods as is currently
+  written in the documents ... He said not to worry about adjustments"; "the model findings are done as is per the
+  documents methods"): the findings document v3.5 is the findings; no adjusted p-values. Every figure in it checked
+  against the outputs the same day (sessions/2026-11-19.md). Report-only checks beside it, not in the document:
+  findings_checks.py (the cap hit held; adjusted p-values), one_regression_replication.py (after 2022: age 28 to 31
+  replicates, the clause on trade day, the defenceman not).
 - Not findings: rentals as such, RFA control years, learning over time (-$0.02M a season), late picks (they return
   nothing, priced at nothing), offer sheets (a what-if: positive mostly below the compensation line; 18 of 146 where a
   first-round pick is owed).
