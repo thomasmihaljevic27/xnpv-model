@@ -682,3 +682,14 @@ and his best single season's WAR. Under the any player rule each is the cap-weig
 the other measures. Each is added to the regression alone, then the two together, then with the cap hit; the clause, age
 28 to 31 and reputation coefficients reported. Read with 2: if the clause stops being statistically significant once
 reputation is held, it is a marker of reputation; if only once the cap hit is held, a marker of an expensive contract.
+
+## A goalie indicator in the one regression (declared 2026-11-19, before it was built; Thomas: "the only positional dummy variable is Defence. So the state is: Defenceman, or Forward or Goalie. That probably isn't correct"; "yes add the goalie indicator and rerun")
+
+Since the facts were filled (facts_fill.py), 54 clubs' main players are goalies, and 32 main players have no position in
+backtest_assets, so both were compared as forwards. `facts_fill.py` v1.2 fills a missing position, in order: page_2017_values'
+position, PuckPedia's position by NHL id, WAR_with_age's position by name, and goalie when the name is found in the goalie WAR
+table only; each mapped to forward, defenceman or goalie. `one_regression.py` v2.2 adds a goalie indicator beside the
+defenceman one under each rule (main player rule: the main player is a goalie; any player rule: any player received is), so
+each position is compared with forwards. Guard: positions already known are unchanged. Everything else as v2.0. Reported
+beside v2.0; `clause_disguise.py` rerun on it (v1.1, reading the same frame). The findings document is not changed until
+Thomas has seen the result.
