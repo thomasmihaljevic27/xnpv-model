@@ -24,7 +24,8 @@
    top-15 pick no longer a finding; the clause reading added (clause_disguise.py). Written to 40_DOCS.
    Open (2026-11-19, an outside review; findings_checks.py): decide whether the document shows the cap hit held (age
    28 to 31 survives it, the defenceman and the clause keep only their realized loss) and adjusted p-values (decided
-   out on 2026-11-18 in favour of replication after 2022, which the one regression has not had). Decide whether to run it.
+   out on 2026-11-18 in favour of replication after 2022). Replication run (one_regression_replication.py): age 28 to 31
+   replicates in full, the clause on trade day only, the defenceman not. Decide whether the defenceman stays a finding.
 1b. For the final paper, not the findings document (Thomas, 2026-11-18, a comment on the cap-dump result): "I would like a
    note in the final paper about why transacting like this is still rational. There is a cap floor to reach, unused cap is
    inefficient, etc. Getting paid to take on money when the alternative was to not spend the cap space at all is still an

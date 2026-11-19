@@ -4154,3 +4154,7 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   keep a realized loss but lose the trade-day overpay; the cap hit is itself a finding. Benjamini-Hochberg: age and the clause
   0.037 over the 12 characteristics, 0.072 over all 23 terms. The 2026-11-18 decision (Holm out; replication after 2022 the
   guard) stands unless Thomas changes it. Document unchanged. WORK_QUEUE 1a; MANIFEST row; session log.
+- RUN (Thomas: "I guess run the regression"; report only; protocol 9c83408): one_regression_replication.py v1.0, the one
+  regression on the 357 two-team trades after 2022 (the guard chosen 2026-11-18). Age 28 to 31 replicates in full; the
+  clause on trade day only (realized values after 2022 mostly re-valuation); the defenceman does not replicate. Document
+  unchanged. WORK_QUEUE 1a; MANIFEST row; session log.

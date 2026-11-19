@@ -450,3 +450,4 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,clause_disguise.py,backtest,hashable,2026-11-19,f03a60c5a93204c16d303dc2edb6aea19ab5c76c,11770,2026-11-19,yes,git,"v1.1: on one_regression v2.2"
 25_TESTS,findings_doc.js,docs,hashable,2026-11-19,8105429023bab8474d7972f476c08d2ce7765083,42238,2026-11-19,yes,git,"v3.5: the goalie indicator, the defenceman a finding again; writes 40_DOCS/Trade Back-test Findings.docx"
 25_TESTS,findings_checks.py,backtest,hashable,2026-11-19,760dbc6a07c48e107d34e6da643015f1e6cb87db,9780,2026-11-19,yes,git,"v1.0: the cap hit held in the one regression; Benjamini-Hochberg adjusted p-values (report only)"
+25_TESTS,one_regression_replication.py,backtest,hashable,2026-11-19,acc9301d9a1f545e6588da4a53e822ab9230472f,7689,2026-11-19,yes,git,"v1.0: the one regression on the trades after 2022 (report only)"
