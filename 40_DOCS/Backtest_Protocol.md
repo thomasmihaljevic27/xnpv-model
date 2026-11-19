@@ -522,3 +522,37 @@ games share are each the average over the players received, weighted by cap hit,
 received, as the yes-or-no characteristics do. A player's missing figure still counts as zero; a club whose players
 received carry no cap hit takes the plain average. `who_overpaid_any.py` v1.3. The guard on one-player sides is unchanged
 (the average of one player is his own figure). Nothing else changes.
+
+## The findings document on the declared window, the price-response correction on the seasons played, and two groups added to the joint regression (declared 2026-11-18, before any new figure was built; Thomas's fourth round of notes on the findings document)
+
+Amendment to what the findings document reports. No test, group or rule above changes; the figures already run stay in
+their logs.
+
+1. The declared window throughout (Thomas: "I think it hurts the models credibility to include these trades because
+temporally a larger share of trades post 2022 rely on the models projections standing in for realized results"; "I would
+do 2017-22 for both trade day and realized value"). Every trade-day grade and realized value the document reports is on
+the declared window, 2017-07-01 to 2022-03-28, the window committed before the first run. The trades after 2022-03-28,
+and the "fresh trades" check that used them, leave the document. The checks that stay: Game Value in place of WAR, and the
+seasons played only.
+
+2. The exception: how prices follow a contract's two parts (`who_overpaid_checks.py`; Thomas: "the finding about how the
+trades respond to contract value shouldn't be changed", then "All trades, played seasons"). It keeps all trades. The price
+is set on trade day; its correction for error in the models' value is the two-stage fit instrumented by the performance
+value over the seasons played only (no forecast enters it), already run (v1.1). That fit becomes the headline in place of
+the one instrumented by the delivered value, which counts the forecast seasons of recent trades.
+
+3. New figures, all on the declared window, report only:
+   a. `who_overpaid_any.py` v1.4: two more columns under both rules, the trade-day grade and the realized value on Game
+      Value in the declared window; and the number of clubs there with two or more players received. Guards unchanged.
+   b. `groups_any.py` v1.2: the joint regression with one rule throughout (part 4's design) on the declared window, with
+      two groups added (Thomas, on "Not in the regression": "Well it really should be added to the regression"): a
+      restricted free agent in his final contract season (main player rule: the main player received; any player rule:
+      any player received; v1.1's flags) and the club whose whole return was picks in rounds 6 and 7 (v1.1's flag, the
+      same under both rules). A group with fewer than five non-zero differences drops out, as in part 4. Guard: the same
+      code on all trades without the two groups reproduces part 4's fits.
+   c. `trend_both.py` v1.1: the change over time on both values, also on the declared window's seasons (2017-18 to
+      2021-22). Guard unchanged (the all-trades trade-day slope, -0.019).
+   d. `who_overpaid.py` v1.1: part A's joint regression with the main player's cap hit, the futures-for-players
+      coefficient on the declared window (it already logs the cap hit's coefficient there). Guard: the all-trades figures
+      (-0.14 trade-day, -0.10 realized WAR) reproduce.
+   The cap-dump figures are read from `backtest_cuts_more.py`'s existing declared-window line.
