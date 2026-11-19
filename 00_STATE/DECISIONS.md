@@ -4149,3 +4149,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   clause_disguise.py v1.1. The defenceman is a finding again under the main player rule. Document not yet changed.
 - DOCUMENT (Thomas: "Yes, rebuild it"): findings_doc.js v3.5 on one_regression v2.2 (the goalie indicator); his 12:17
   edits carried (482f24b); Step 5's design bullet reworded. PROJECT_STATE; MANIFEST; session log.
+- RUN (Thomas: "I guess run the tests"; report only; protocol a7e1a09): findings_checks.py v1.0, an outside review's two
+  checks on the one regression. Cap hit held, main player rule: age 28 to 31 stays a finding; the defenceman and the clause
+  keep a realized loss but lose the trade-day overpay; the cap hit is itself a finding. Benjamini-Hochberg: age and the clause
+  0.037 over the 12 characteristics, 0.072 over all 23 terms. The 2026-11-18 decision (Holm out; replication after 2022 the
+  guard) stands unless Thomas changes it. Document unchanged. WORK_QUEUE 1a; MANIFEST row; session log.
