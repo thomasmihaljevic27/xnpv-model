@@ -442,7 +442,7 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,trend_both.py,backtest,hashable,2026-11-18,b8374efbf2e11f6d5a0aa255b81ac8ad6f3eda3c,4011,2026-11-18,yes,git,"v1.1: the change over time also on the declared window"
 25_TESTS,who_overpaid.py,backtest,hashable,2026-11-18,d66ff9c0428fb061e653300b954030b082c6f298,14252,2026-11-18,yes,git,"v1.1: part A logs the futures seller with the cap hit on the declared window"
 25_TESTS,who_overpaid_any.py,backtest,hashable,2026-11-18,52fdb588a76632223e9f225065e6c6efc5210001,18054,2026-11-18,yes,git,"v1.4: the trade-day grade and Game Value columns on the declared window"
-25_TESTS,findings_doc.js,docs,hashable,2026-11-18,a28e149a545a0d1792f3a63bb607f92f0aefb6c8,43314,2026-11-18,yes,git,"v3.1: the defenceman a Section 3 finding (main player rule); writes 40_DOCS/Trade Back-test Findings.docx"
 25_TESTS,age_band_test.py,backtest,hashable,2026-11-18,72334011fa4df903477116e536c4f9e1303bd550,4361,2026-11-18,yes,git,"v1.0: aged 28 or over in place of the two bands, who-is-overpaid regression, declared window"
 25_TESTS,groups_any.py,backtest,hashable,2026-11-18,8f3ea7cff9f43ba84af812a882aaefbdd43ea2fb,31701,2026-11-18,yes,git,"v1.3: part 6, aged 28 or over in the joint regression, declared window"
 25_TESTS,traits_test.py,backtest,hashable,2026-11-18,bad8719a72fcfde2db670716528edf9e9c8aadcb,15200,2026-11-18,yes,git,"v1.1: rows built in frame(), shared with age_band_test.py"
+25_TESTS,findings_doc.js,docs,hashable,2026-11-19,67068827947b220506acf32ee41922dbc197b69b,41483,2026-11-19,yes,git,"v3.2: Sections 4 and 5 swapped, the defenceman in Section 4; writes 40_DOCS/Trade Back-test Findings.docx"

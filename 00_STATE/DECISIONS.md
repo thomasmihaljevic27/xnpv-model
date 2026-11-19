@@ -4130,3 +4130,5 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   the paper's second reader); MANIFEST rows; session log.
 - DECIDED (Thomas: "Keep the two bands"): age 28 to 31 and 32 or over stay the main specification; 28 and over is a
   sensitivity only (age_band_test.py, groups_any.py part 6). Session log.
+- DOCUMENT (2026-11-19; Thomas's fifth round, "Maybe swap sections 4 and 5"): findings_doc.js v3.2, Sections 4 and 5
+  swapped, the defenceman in Section 4 with its regression; his annotated copy 479489f. MANIFEST row; session log 2026-11-19.
