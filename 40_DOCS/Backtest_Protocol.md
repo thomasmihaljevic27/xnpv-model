@@ -594,3 +594,26 @@ regression (`25_TESTS/age_band_test.py`, on `traits_test.py`'s rebuilt rows; gua
 (2) the joint regression (`groups_any.py` v1.3, part 6, on part 5's design; guard: part 5's fit reproduces), the trade-day
 grade and the realized value on WAR and Game Value. Reported: the 28-and-over coefficient beside the two bands', and the
 clause and defenceman coefficients in each fit. A player whose age is unknown counts as no, as in the two-band flags.
+
+## One regression in place of two (declared 2026-11-19, before it was built; Thomas: "It seems strange to have a section 3 regression and a section 4 regression, especially when the two regressions share a variable which turns out to be a finding in one but not the other"; "let's see the results of this change")
+
+Report only until Thomas decides whether it replaces the two; nothing reported changes yet. Script
+`25_TESTS/one_regression.py`. Design: `groups_any.py` part 5's (each two-team trade once, the first club's value on the
+differences between the two clubs, no constant, robust standard errors), on the declared window, under each rule, with
+every Section 3 player characteristic added to every type of trade.
+- Types of trade (part 5's, by the rule): selling a player for picks and prospects, the deadline buyer, the other in-season
+  buyer, rental, retained salary, a former top-15 pick below the top-15 average, one asset for two or more, taking a
+  contract to clear cap, a new general manager selling his predecessor's player, a restricted free agent in his final
+  season, only picks in rounds 6 and 7.
+- Player characteristics (who_overpaid_any.py v1.4's, by the rule): aged 28 to 31, aged 32 or over, defenceman, clause,
+  signed as an unrestricted free agent, two seasons left, three or more seasons left, former top-15 pick, production, record
+  above the forecast, games share. Each appears once (part 5's age, defenceman and clause flags are the same
+  characteristics and are not entered twice; guard: they equal who_overpaid's on every side with a player).
+- A club that received no player valued by the player model: every player characteristic 0, and a "received a player"
+  indicator (0 or 1) enters. A club that received such a player with any characteristic unknown: the trade is dropped
+  (counted and reported).
+- Outcomes: the trade-day grade, the realized value on WAR, on Game Value, and on the seasons played only.
+- Guard: the same code with the player characteristics removed and no trade dropped reproduces part 5's coefficients.
+- `groups_any.py` v1.4 writes each side's flags (`groups_any_sides.csv`) for this script; no figure of its own changes.
+Reported: every coefficient under both rules, and which meet the document's finding rule (the trade-day grade and the
+realized value statistically significant at the 5% level, same sign), with Game Value and the seasons played as checks.
