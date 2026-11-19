@@ -21,6 +21,9 @@ GUARDS: (1) part 5's age, defenceman and clause flags equal who_overpaid's on ev
 rules; (2) the same code with only part 5's terms, on part 5's rows, reproduces part 5's coefficients (groups_any.csv).
 OUTCOMES: trade-day grade (net_M), realized value on WAR (out_net_M), Game Value (gv_net_M), seasons played (real_net_M).
 
+v1.1 (2026-11-19; Thomas: "Drop the below average one"): the former top-15 pick below the top-15 average is left out
+under both rules (it is a subset of the former top-15 pick); the correlation of the two terms is logged.
+
 OUTPUTS: OUTPUT_DIR/one_regression_log.txt, one_regression.csv
 """
 import importlib.util
@@ -35,7 +38,8 @@ from dotenv import load_dotenv
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 EXT = OUTPUT_DIR / "_extended_run"
-SCRIPT_VERSION = "one_regression.py v1.0 (2026-11-19)"
+SCRIPT_VERSION = "one_regression.py v1.1 (2026-11-19)"   # v1.1: the former top-15 pick below the average dropped (Thomas)
+BELOW = {"main player rule": "m_top15", "any player rule": "t_top15"}     # the below-average top-15 term, by rule
 DECLARED_END = "2022-03-28"
 YS = [("trade-day grade", "net_M"), ("realized value, WAR", "out_net_M"), ("realized value, Game Value", "gv_net_M"),
       ("realized value, seasons played", "real_net_M")]
@@ -157,9 +161,14 @@ def main():
     A, B = A[~drop], B[~drop]
     log(f"  trades dropped for a player with an unknown characteristic: {int(drop.sum())}; trades in the fit: {len(A)}")
     log(f"  clubs that received a player: {int(A['recv'].sum() + B['recv'].sum())} of {2 * len(A)}")
+    for rule, top in (("main player rule", "top15"), ("any player rule", "any_top15")):
+        dx, dy = A[BELOW[rule]].astype(float) - B[BELOW[rule]].astype(float), A[top].astype(float) - B[top].astype(float)
+        log(f"  {rule}: correlation of the two top-15 terms' differences {np.corrcoef(dx, dy)[0, 1]:.2f}; trades where the "
+            f"below-average term differs {int((dx != 0).sum())}, the top-15 term {int((dy != 0).sum())}")
     res = {}
     for rule in P5:
-        cols = [c for c in P5[rule] if c not in DUP[rule]] + PC[rule] + ["recv"]
+        # v1.1 (Thomas: "Drop the below average one"): the below-average top-15 term left out; the former top-15 pick stays
+        cols = [c for c in P5[rule] if c not in DUP[rule] and c != BELOW[rule]] + PC[rule] + ["recv"]
         fl = set(cols) - {"trailing_war", "rep_gap", "gp_share_last", "avg_war", "avg_gap", "avg_gs"}
         res[rule] = joint(A, B, cols, fl)
     log("\nONE REGRESSION, declared window ($M a club, positive = the club gained; robust standard errors)")

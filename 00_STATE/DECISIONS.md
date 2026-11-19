@@ -4135,3 +4135,5 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - RUN (report only; protocol 0349335; Thomas: "let's see the results of this change"): one_regression.py v1.0, the two
   regressions merged; groups_any.py v1.4 (flags written, results unchanged). Open: whether it replaces the two. MANIFEST
   rows; session log.
+- RUN (Thomas: "Drop the below average one"; protocol 08b8a87): one_regression.py v1.1, the below-average top-15 term
+  left out of the merged regression. Still report only. MANIFEST row; session log.
