@@ -516,3 +516,9 @@ club net, regressed on the trade's season, 2017-18 to 2025-26) on the trade-day 
 with robust standard errors and p-values beside cut 12's resampled interval. Guard: the trade-day slope reproduces cut
 12's -0.019. Expected, and stated with the result: realized values of recent trades are partly forecast and have had
 fewer seasons to spread out, so the realized trend leans downward by construction.
+
+Amendment, 2026-11-18 (Thomas: "Cap-weighted"): under the any player rule, production, the record above the forecast and the
+games share are each the average over the players received, weighted by cap hit, so each describes the type of player
+received, as the yes-or-no characteristics do. A player's missing figure still counts as zero; a club whose players
+received carry no cap hit takes the plain average. `who_overpaid_any.py` v1.3. The guard on one-player sides is unchanged
+(the average of one player is his own figure). Nothing else changes.
