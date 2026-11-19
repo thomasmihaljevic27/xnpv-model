@@ -453,3 +453,4 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,one_regression_replication.py,backtest,hashable,2026-11-19,acc9301d9a1f545e6588da4a53e822ab9230472f,7689,2026-11-19,yes,git,"v1.0: the one regression on the trades after 2022 (report only)"
 25_TESTS,findings_doc.js,docs,hashable,2026-11-19,e9a110b637cd1b397cacd2dac45828159da45b8a,42696,2026-11-19,yes,git,"v3.6: three wording points from the final figure check; writes 40_DOCS/Trade Back-test Findings.docx"
 25_TESTS,findings_doc.js,docs,hashable,2026-11-19,511b49f42478ecd7addf815f5ac02d85b656a861,38755,2026-11-19,yes,git,"v3.7: Thomas's notes on v3.6 carried; Step 5 lists the 23 variables; writes 40_DOCS/Trade Back-test Findings.docx"
+25_TESTS,rfa_arb_pay_look.py,player,hashable,2026-11-19,4e6233f31b1f6bae8f1016666f7e42c200db2c2a,5162,2026-11-19,yes,git,"v1.0: arbitration-eligible RFA re-signing pay against the locked line (report only)"
