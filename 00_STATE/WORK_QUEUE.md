@@ -18,9 +18,9 @@
    production, the record above the forecast and the games share are averages over the players received, weighted by cap hit
    (Thomas: "Cap-weighted"). The findings document on the declared window (Thomas: "I would do 2017-22 for both trade day
    and realized value"), Section 4 on all trades with the correction on the seasons played ("All trades, played seasons").
-   findings_doc.js v3.1. Age 28 to 31 stays a headline (main player rule). The defenceman is a finding under the main player
-   rule (Thomas: "Yes, move to Section 3"): it meets the rule in the joint regression (trade-day -0.52, p = 0.048; realized
-   -1.12, p = 0.005), not in the Section 3 regression (trade-day p = 0.062) or under the any player rule; the document says so.
+   findings_doc.js v3.3 (2026-11-19): one regression in place of two (Thomas: "Yes, rewrite"); the below-average top-15 term
+   dropped ("Drop the below average one"). Findings: the clause (both rules), age 28 to 31 and a former top-15 pick (main
+   player rule). The defenceman is not a finding there. Write the document to 40_DOCS once Thomas closes it.
 1b. For the final paper, not the findings document (Thomas, 2026-11-18, a comment on the cap-dump result): "I would like a
    note in the final paper about why transacting like this is still rational. There is a cap floor to reach, unused cap is
    inefficient, etc. Getting paid to take on money when the alternative was to not spend the cap space at all is still an

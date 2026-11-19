@@ -4137,3 +4137,5 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   rows; session log.
 - RUN (Thomas: "Drop the below average one"; protocol 08b8a87): one_regression.py v1.1, the below-average top-15 term
   left out of the merged regression. Still report only. MANIFEST row; session log.
+- DECIDED (Thomas: "Yes, rewrite"): one regression replaces the two in the findings document (protocol e289869);
+  findings_doc.js v3.3 (not yet written: the document is open). PROJECT_STATE line; WORK_QUEUE 1a; MANIFEST; session log.

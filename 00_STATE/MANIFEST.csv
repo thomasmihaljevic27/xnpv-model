@@ -444,6 +444,6 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,who_overpaid_any.py,backtest,hashable,2026-11-18,52fdb588a76632223e9f225065e6c6efc5210001,18054,2026-11-18,yes,git,"v1.4: the trade-day grade and Game Value columns on the declared window"
 25_TESTS,age_band_test.py,backtest,hashable,2026-11-18,72334011fa4df903477116e536c4f9e1303bd550,4361,2026-11-18,yes,git,"v1.0: aged 28 or over in place of the two bands, who-is-overpaid regression, declared window"
 25_TESTS,traits_test.py,backtest,hashable,2026-11-18,bad8719a72fcfde2db670716528edf9e9c8aadcb,15200,2026-11-18,yes,git,"v1.1: rows built in frame(), shared with age_band_test.py"
-25_TESTS,findings_doc.js,docs,hashable,2026-11-19,67068827947b220506acf32ee41922dbc197b69b,41483,2026-11-19,yes,git,"v3.2: Sections 4 and 5 swapped, the defenceman in Section 4; writes 40_DOCS/Trade Back-test Findings.docx"
 25_TESTS,groups_any.py,backtest,hashable,2026-11-19,1754e027ab663a28a7f37c2c308a753df5aeb99d,32026,2026-11-19,yes,git,"v1.4: writes groups_any_sides.csv for one_regression.py; results unchanged"
-25_TESTS,one_regression.py,backtest,hashable,2026-11-19,c2083ae535e4cf6582b11d7c92336e6114a3c740,13099,2026-11-19,yes,git,"v1.1: the merged regression without the below-average top-15 term"
+25_TESTS,findings_doc.js,docs,hashable,2026-11-19,be9602cf52e545d8e90e8edd8943efc8072feb13,40474,2026-11-19,yes,git,"v3.3: one regression in place of two; writes 40_DOCS/Trade Back-test Findings.docx"
+25_TESTS,one_regression.py,backtest,hashable,2026-11-19,cf8220e001607d9ceea8f1d02ea6fe478493abb0,13431,2026-11-19,yes,git,"v1.2: logs the clubs with two or more players; results unchanged"
