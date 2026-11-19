@@ -447,4 +447,5 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,groups_any.py,backtest,hashable,2026-11-19,1754e027ab663a28a7f37c2c308a753df5aeb99d,32026,2026-11-19,yes,git,"v1.4: writes groups_any_sides.csv for one_regression.py; results unchanged"
 25_TESTS,findings_doc.js,docs,hashable,2026-11-19,be9602cf52e545d8e90e8edd8943efc8072feb13,40474,2026-11-19,yes,git,"v3.3: one regression in place of two; writes 40_DOCS/Trade Back-test Findings.docx"
 25_TESTS,facts_fill.py,backtest,hashable,2026-11-19,b42cbeb08d33bf9e79838d6fa634dc3333b5eb53,12557,2026-11-19,yes,git,"v1.1: fills the missing player facts for one_regression.py (declared rules); goalies' games share from the goalie table"
-25_TESTS,one_regression.py,backtest,hashable,2026-11-19,dd3c2ded2590d0acc1b62f4fcb23eaa2cbd71682,14226,2026-11-19,yes,git,"v2.0: missing facts filled; all 556 trades"
+25_TESTS,clause_disguise.py,backtest,hashable,2026-11-19,39c7d0b440c9d1fa735086d718e6be6938976109,11698,2026-11-19,yes,git,"v1.0: the clause finding with cost, cap hit, reputation and cap dumps held"
+25_TESTS,one_regression.py,backtest,hashable,2026-11-19,7dedef8ec32592e0df869d1d0b22d0822c408953,14544,2026-11-19,yes,git,"v2.1: rows built in frame(), shared with clause_disguise.py; results unchanged"

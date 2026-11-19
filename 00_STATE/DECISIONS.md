@@ -4141,3 +4141,5 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   findings_doc.js v3.3 (not yet written: the document is open). PROJECT_STATE line; WORK_QUEUE 1a; MANIFEST; session log.
 - RUN (Thomas: "I want as many usable trades in the sample as possible"; protocol d9c96d9, 89d191a): facts_fill.py v1.1,
   one_regression.py v2.0, all 556 trades. The findings document not yet updated. MANIFEST rows; session log.
+- RUN (Thomas: "What are the chances that the clause finding is a different finding in disguise?"; report only; protocol
+  7de3900, 8cf492b): clause_disguise.py v1.0; one_regression.py v2.1. MANIFEST rows; session log.
