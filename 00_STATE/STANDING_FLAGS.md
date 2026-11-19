@@ -4,6 +4,15 @@
 (directive 6); flags below about the yield curve, Rule A/B, bands and pick conventions describe retired
 work. Flags about the data (linkage cases, birthdates, id conflicts) still apply.
 
+**The clause flag reads a missing clause record as no clause (found 2026-11-19, building a worked example).** In the
+findings regression (`one_regression.py` v2.2, 556 trades), 103 of the 577 main players have no clause record at their
+page and are counted as no clause: 71 have no contract-spine row (65 of them on the 2017 page, whose contracts come from
+CapWages with no clause field), and 32 have a spine row whose clause record did not match (`join_clauses_to_spine.py`;
+has_any_clause blank). Among them Phil Kessel (2019, an eight-team trade list in the records for 2014-16), David Backes
+(2019) and Loui Eriksson (2021). Main players with a record: 65 clause, 409 none. `backtest.py`'s g_clause and
+`who_overpaid_any.py` read has_any_clause == 1, so a blank is a 0. Not measured: how many of the 103 had a clause, or
+what the clause coefficient is without them. Open for Thomas.
+
 **The pick curve's scale uses later drafts (look-ahead, measured 2026-10-09).** `25_TESTS/
 pick_lookahead_check.py` v1.0. SHAPE: Bacon's star-chance shape fits each era alone (log(pick) added:
 2007-2011 +0.27, se 0.53, p 0.61; 2012-2017 -0.17, se 0.65, p 0.79), so a curve shaped on early drafts
