@@ -149,7 +149,7 @@ const {
 const ROOT = path.resolve(__dirname, "..");
 const OUTFILE = process.env.DOC_OUT || path.join(ROOT, "40_DOCS", "Trade Back-test Findings.docx")   // v2.3: a new file; the ", revised" file holds Thomas's second round of notes
 const FONT = "Arial";
-const VERSION = "findings_doc.js v3.12";
+const VERSION = "findings_doc.js v3.13";   // v3.13: "over the rest of team control" in the regression sentence (Thomas)
 
 // ---- building blocks ---------------------------------------------------------------------------------------------------
 // A string is plain text; ["Label", "text"] as L() gives a bold lead-in label followed by plain text.
@@ -387,7 +387,7 @@ add(B("Each player's contract is split into two parts: the value of his forecast
     + "of everything else it received in the trade."),
   // v3.9: Thomas's sentence, with the agreed terms ("the value of his forecasted performance", "present value") and the
   // review's coefficient wording
-  B("The price paid for the player is regressed on the value of his forecasted performance over the rest of his contract "
+  B("The price paid for the player is regressed on the value of his forecasted performance over the rest of team control "
     + "and the present value of his cap hit. In a market that priced contracts correctly, the performance coefficient would "
     + "equal +1 and the cap-cost coefficient would equal -1."),
   B("This section uses every trade to March 2026. The price is set on trade day, and the correction below uses only the "
