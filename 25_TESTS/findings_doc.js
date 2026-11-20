@@ -149,7 +149,7 @@ const {
 const ROOT = path.resolve(__dirname, "..");
 const OUTFILE = process.env.DOC_OUT || path.join(ROOT, "40_DOCS", "Trade Back-test Findings.docx")   // v2.3: a new file; the ", revised" file holds Thomas's second round of notes
 const FONT = "Arial";
-const VERSION = "findings_doc.js v3.9";
+const VERSION = "findings_doc.js v3.10";
 
 // ---- building blocks ---------------------------------------------------------------------------------------------------
 // A string is plain text; ["Label", "text"] as L() gives a bold lead-in label followed by plain text.
@@ -406,9 +406,8 @@ add(table(["Measurement", "Price change per $1 market value increase", "Price ch
   ["The models' value, corrected for its error (two-stage least squares)", "+0.39 (0.19)\np = 0.045", "-0.37 (0.16)\np = 0.028"],
 ], [46, 27, 27]));
 add(NOTE("886 clubs, all trades to March 2026. Standard errors in brackets, clustered by trade."));
-add(B("At about 40 cents on the dollar, with a 95% interval that excludes $1, the market falls well short of separating "
-  + "good contracts from bad ones."),
-  B(L("This is why clubs selling players for just picks and prospects come out ahead.", "In 2017-22 their trade-day grade is +1.28 "
+// v3.10 (Thomas: "Yes, cut it"): the 40-cents bullet cut; his two-stage passage says it before the table
+add(B(L("This is why clubs selling players for just picks and prospects come out ahead.", "In 2017-22 their trade-day grade is +1.28 "
     + "(0.18) and their realized value +0.90 (0.24). The players they sell carry higher cap hits than the average traded player "
     + "($1.71M against $1.45M a season), and buyers do not discount enough for that cost. Once the cap hit of the player sold is held fixed, the gain is gone (trade-day "
     + "grade -0.63, p = 0.013; realized value -0.55, p = 0.17): it comes from shedding the contract, not from taking picks "

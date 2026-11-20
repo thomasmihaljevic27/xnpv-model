@@ -4183,3 +4183,4 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   40_DOCS/Stata_Findings_Codebook.md. MANIFEST rows; session log; CLAUDE.md run line.
 - DOCUMENT (Thomas: "Yes, make those changes at the rebuild"): findings_doc.js v3.9, his 21:01 edits (29a7abb) and the
   outside review's accepted prose changes. No figure changed. MANIFEST row; session log.
+- DOCUMENT (Thomas: "Yes, cut it"): findings_doc.js v3.10, the repeated 40-cents bullet cut. Session log; MANIFEST row.
