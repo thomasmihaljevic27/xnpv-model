@@ -4184,3 +4184,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - DOCUMENT (Thomas: "Yes, make those changes at the rebuild"): findings_doc.js v3.9, his 21:01 edits (29a7abb) and the
   outside review's accepted prose changes. No figure changed. MANIFEST row; session log.
 - DOCUMENT (Thomas: "Yes, cut it"): findings_doc.js v3.10, the repeated 40-cents bullet cut. Session log; MANIFEST row.
+- DOCUMENT (Thomas: "teams overpaid for D despite them meeting their projections, which is a result of being compared to
+  forwards"): findings_doc.js v3.11, his saved edits (4a92b7e) carried and the picks clause cut (defence_gap_split.py).
+  A first build wrote over his saved copy; restored from a copy; CLAUDE.md rule added. MANIFEST row; session log.

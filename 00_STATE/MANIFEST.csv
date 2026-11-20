@@ -472,3 +472,4 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,findings_doc.js,docs,hashable,2026-11-19,59117a9e878ad85e88a19733199336c64b47ed14,40816,2026-11-19,yes,git,"v3.9: Thomas's 21:01 edits carried; the outside review's accepted changes; writes 40_DOCS/Trade Back-test Findings.docx"
 25_TESTS,findings_doc.js,docs,hashable,2026-11-19,c7814c0a86a4984a3c3cb050f5b64753d3163346,40765,2026-11-19,yes,git,"v3.10: the repeated 40-cents bullet cut (Thomas)"
 25_TESTS,defence_gap_split.py,backtest,hashable,2026-11-19,23312d4688538c13720c8b697c5a993e2d27aca9,6203,2026-11-19,yes,git,"v1.0: the defenceman gap split by what was given (report only)"
+25_TESTS,findings_doc.js,docs,hashable,2026-11-19,21262452fcc3e57049db3093cb6c6f77ec9a98a5,41288,2026-11-19,yes,git,"v3.11: Thomas's saved edits carried; the picks clause cut from the defenceman bullet"

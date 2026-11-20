@@ -608,6 +608,11 @@ tests pinned to the old prospect rows (`prospect_curve_vs_line.py`, `prospect_pr
   copy he was sent, paragraph by paragraph (deletions included, not only `w:ins`/`w:del`), carry each edit into the
   builder verbatim, and check after the build that each is present. Never write over a file he has open or has saved
   edits into.
+- **Don't check the document's status and rebuild it in one command.** On 2026-11-19 a rebuild ran in the same command
+  as `git status`, which printed "M": Thomas had saved a rewrite of the defenceman bullet and three other edits, and the
+  build wrote over them (a copy taken just before the build saved them). Check the status first, on its own; if the file
+  is modified, stop, commit his copy as his, diff it against the last build, carry every edit into the builder, and only
+  then rebuild.
 - **Don't personify the model or its parts.** "On the cost side only the discount acts" drew: "The Discount is not a
   noun and it cannot act. This is a MAJOR tell of AI writing. Do not personify things in the model" (2026-10-21). A
   discount, forecast, regression or price line does not act, know, ask, see, read or learn; say what is done to what:

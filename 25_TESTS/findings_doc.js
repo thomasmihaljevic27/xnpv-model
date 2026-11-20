@@ -149,7 +149,7 @@ const {
 const ROOT = path.resolve(__dirname, "..");
 const OUTFILE = process.env.DOC_OUT || path.join(ROOT, "40_DOCS", "Trade Back-test Findings.docx")   // v2.3: a new file; the ", revised" file holds Thomas's second round of notes
 const FONT = "Arial";
-const VERSION = "findings_doc.js v3.10";
+const VERSION = "findings_doc.js v3.11";
 
 // ---- building blocks ---------------------------------------------------------------------------------------------------
 // A string is plain text; ["Label", "text"] as L() gives a bold lead-in label followed by plain text.
@@ -236,9 +236,8 @@ add(B("For each category, the clubs in it are averaged twice: once on their trad
   B("Each group's average is tested against zero by dividing it by its standard error. The two "
     + "clubs in a trade are mirror images of each other, so they are not two independent observations. Standard errors are "
     + "therefore clustered by trade, counting each trade only once."));
-add(H2("Step 5: Run a Regression"));
-add(B("Two regressions are run, one on trade-day grades and one on realized values, controlling for all characteristics "
-  + "simultaneously."),
+add(H2("Step 5: Run Regressions"));                  // v3.11: his title
+add(B("Two regressions are run, one on trade-day grades and one on realized values."),   // v3.11: his cut
   // v3.7 (Thomas: "Best to just list all variables"): the 23 terms, as one_regression.py v2.2 enters them
   B("The club's trade-day grade and its realized value are each regressed on the following 23 variables:"),
   B("The player received (12): aged 28 to 31; aged 32 or over (each against 27 or under); a defenceman; a goalie (each "
@@ -252,7 +251,7 @@ add(B("Two regressions are run, one on trade-day grades and one on realized valu
     + "his predecessor; received a restricted free agent in his final contract season; received only picks in rounds 6 and 7.", 1),
   B("Whether the club received a player at all (1).", 1),
   B("Under the main player rule each characteristic is the main player's. Under the any player rule a yes-or-no "
-    + "characteristic, such as the clause, counts when any player received has it. Production, how much it exceeds its "
+    + "characteristic, such as a contract clause, counts when any player received has it. Production, how much it exceeds its "
     + "forecast, and the games share are averages over the players received, weighted by cap hit."),
   // v3.8 (Thomas, 2026-11-19: "I'd like it if it were presented that way"): two rows a trade, clustered by trade
   B("Each trade enters each regression twice, once for each club. The club's value is regressed on what it received less "
@@ -313,11 +312,16 @@ add(B(L("The clause finding", "holds under both rules and in each test. Clubs ac
     + "statistically significant (p = 0.11 and 0.10).")),
   B(L("The defenceman finding", "holds in each test under the main player rule. Under the any player rule the trade-day "
     + "grade is not statistically significant (p = 0.072).")),
-  B(L("Defencemen are overpaid, not misjudged:", "traded defencemen delivered their forecast (-0.02 WAR a season [-0.08, "
-    + "+0.04]) in games, ice time and each part of WAR, and clubs acquiring one came out where their trade-day grade "
-    + "predicted (realized minus predicted -0.02 [-0.42, +0.39]). Part of the realized gap is the comparison: clubs "
-    + "acquiring forwards came out better than their grade (+0.47 [+0.19, +0.76]), mostly because they paid with picks, and "
-    + "picks under-deliver (Section 2).")),
+  // v3.11 (Thomas: "say we have the evidence that teams overpaid for D despite them meeting their projections, which is a
+  // result of being compared to forwards"): the picks explanation cut (defence_gap_split.py: picks are about a quarter of
+  // a forward-defenceman difference that is not significant)
+  // v3.11: Thomas's own rewrite of this bullet (his copy 4a92b7e), verbatim, with only the picks clause cut
+  B(L("Defencemen are overpaid for, not misjudged.", "Traded defencemen met their forecasts across games played, ice time, "
+    + "and every component of WAR (-0.02 WAR per season [-0.08, +0.04]). Accordingly, clubs acquiring a defenceman "
+    + "finished right where their trade-day grade predicted (realized minus predicted value of -$0.02M [-$0.42M, "
+    + "+$0.39M]). The larger realized gap in the regression (-$1.42M vs. -$0.66M on trade day) is partly a baseline "
+    + "effect: defencemen are measured against forwards, and clubs acquiring forwards beat their trade-day grades "
+    + "(+$0.47M [+$0.19M, +$0.76M]).")),
   B(L("Why the rules differ:", "Under the any player rule a cheaper second player who is 28 to 31, or a defenceman, puts "
     + "his club in the group, so the effects are smaller than under the main player rule: by 8% to 32% for age and 17% to 28% "
     + "for defencemen. For contract clauses, however, the effects are 5% to 7% larger under the any player rule.")),
