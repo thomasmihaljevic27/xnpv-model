@@ -55,7 +55,7 @@ import stata_expected as SE                                                  # n
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 EXT = OUTPUT_DIR / "_extended_run"
 OUT = OUTPUT_DIR / "stata"
-SCRIPT_VERSION = "stata_export_findings.py v1.0 (2026-11-19)"
+SCRIPT_VERSION = "stata_export_findings.py v1.1 (2026-11-19)"   # v1.1: plain variable names (Thomas: "variable names that make sense"); nothing else changes
 DECLARED_END = "2022-03-28"
 TOL = 1e-9
 LOG, DO = [], []
@@ -75,6 +75,41 @@ JSTEM = {"t_futures": "j_sold_picks", "t_deadline_buyer": "j_deadline_buyer", "t
          "t_rental": "j_rental", "t_retained": "j_retained", "t_age28": "j_age28_31", "t_age32": "j_age32_plus",
          "t_def": "j_defence", "t_clause": "j_clause", "t_top15": "j_top15_below", "t_single": "j_one_for_many",
          "t_dump": "j_took_dump", "t_newgm": "j_new_gm", "cap_M": "j_cap"}
+# v1.1 (Thomas, 2026-11-19: "could you make the csv have variable names that make sense or are more obvious what they
+# mean?"): the CSV and the do-file carry these names (at most 32 characters, lower case, as Stata takes them); the
+# script works on the short names and maps them at the end (the checks read the CSV back under the plain names)
+_TYPE = {"sold_picks": "sold_for_just_picks", "deadline_buyer": "deadline_buyer", "earlier_buyer": "buyer_earlier_in_season",
+         "rental": "got_rental", "retained": "retained_salary", "one_for_many": "got_one_for_two_or_more",
+         "took_dump": "took_cap_dump", "new_gm": "new_gm_sold_old_contract", "rfa_final": "got_final_year_rfa",
+         "late_picks": "got_only_late_picks", "age28_31": "age_28_31", "age32_plus": "age_32_plus", "defence": "defenceman",
+         "goalie": "goalie", "clause": "clause", "ufa_signed": "signed_as_ufa", "left2": "two_seasons_left",
+         "left3_plus": "three_plus_seasons_left", "top15": "former_top15_pick", "production": "recent_war",
+         "above_fcst": "war_above_forecast", "games_share": "games_played_share", "got_player": "got_a_player"}
+NICE = {"grade": "tradeday_grade", "real_war": "realized_war", "real_gv": "realized_gamevalue",
+        "real_played": "realized_war_played_only", "declared": "in_2017_22", "favoured": "favoured_by_grade",
+        "ahead_war": "came_out_ahead_war", "ahead_gv": "came_out_ahead_gamevalue", "in_reg": "in_main_regression",
+        "cd_cap": "main_cap_hit", "cd_career": "main_career_war", "cd_best": "main_best_season_war",
+        "dump_trade": "trade_had_cap_dump", "own_clause_main": "own_main_player_has_clause",
+        "own_clause_any": "own_any_player_has_clause", "own_seller": "own_sold_for_just_picks", "in_price": "in_price_regression",
+        "price": "price_paid_main_player", "perf_value": "performance_value", "cap_cost": "cap_hit_cost",
+        "perf_played": "performance_delivered", "first_club": "one_row_per_trade",
+        "j_sold_picks": "grp_sold_for_just_picks", "j_deadline_buyer": "grp_deadline_buyer",
+        "j_earlier_buyer": "grp_buyer_earlier_in_season", "j_rental": "grp_got_rental", "j_retained": "grp_retained_salary",
+        "j_age28_31": "grp_age_28_31", "j_age32_plus": "grp_age_32_plus", "j_defence": "grp_defenceman", "j_clause": "grp_clause",
+        "j_top15_below": "grp_top15_below_average", "j_one_for_many": "grp_got_one_for_two_or_more",
+        "j_took_dump": "grp_took_cap_dump", "j_new_gm": "grp_new_gm_sold_old_contract", "j_cap": "grp_cap_hit"}
+for _k, _v in _TYPE.items():
+    NICE[f"m_{_k}"], NICE[f"a_{_k}"] = f"main_{_v}", f"any_{_v}"
+assert all(len(v) <= 32 for v in NICE.values()) and len(set(NICE.values())) == len(NICE), "Stata names: unique, <= 32"
+SHORT = {v: k for k, v in NICE.items()}
+
+
+def plain(line):
+    """The do-file's command and expect lines under the plain names (whole words only)."""
+    import re
+    return re.sub(r"\b[a-z][a-z0-9_]*\b", lambda m: NICE.get(m.group(0), m.group(0)), line)
+
+
 YS = [("grade", "net_M"), ("real_war", "out_net_M"), ("real_gv", "gv_net_M"), ("real_played", "real_net_M")]
 
 
@@ -191,8 +226,9 @@ def main():
     d = d.rename(columns={"net_M": "grade", "out_net_M": "real_war", "gv_net_M": "real_gv", "real_net_M": "real_played"})
     d = d.sort_values(key).reset_index(drop=True)
     OUT.mkdir(exist_ok=True)
-    d.to_csv(OUT / "findings_data.csv", index=False)
+    d.rename(columns=NICE).to_csv(OUT / "findings_data.csv", index=False)
     D = pd.read_csv(OUT / "findings_data.csv")                         # every check reads the CSV as written
+    D = D.rename(columns=SHORT)                                        # back to the short names the checks use
     log(f"  wrote findings_data.csv: {len(D):,} rows, {D.shape[1]} variables; in_reg {int(D['in_reg'].sum()):,} rows "
         f"({int(D['in_reg'].sum()) // 2} trades), in_price {int(D['in_price'].sum()):,}, first_club {int(D['first_club'].sum()):,}")
 
@@ -241,7 +277,7 @@ def main():
                 n_ok += 1
             figs = "; ".join(f"{nm} {o.coef(nm):+.4f} ({pfmt(o.pval(nm))})" for nm in names if nm.split("_", 1)[1] in
                              ("clause", "age28_31", "defence"))
-            do(f"2. Section 3, {rule}, {ystata}: the club's side less the other's, two rows a trade",
+            do(f"2. Section 3, {rule}, {NICE[ystata]}: the club's side less the other's, two rows a trade",
                f"regress {ystata} {' '.join(names)} if in_reg == 1, noconstant vce(cluster trade_id)", figs)
     log(f"  check 2: Section 3's regression from the CSV equals one_regression.csv on {n_ok} coefficients and standard errors (PASS)")
 
@@ -260,7 +296,7 @@ def main():
             eq(o.coef("m_clause"), w["estimate"].iloc[0], f"clause {lab} {y}")
             eq(o.sei("m_clause"), w["se"].iloc[0], f"clause {lab} {y} se")
             cond = "in_reg == 1" + (" & dump_trade == 0" if msk else "")
-            do(f"3. the clause, {lab} ({ystata})", f"regress {ystata} {' '.join(use)} if {cond}, noconstant vce(cluster trade_id)",
+            do(f"3. the clause, {lab} ({NICE[ystata]})", f"regress {ystata} {' '.join(use)} if {cond}, noconstant vce(cluster trade_id)",
                f"m_clause {expect(o, 'm_clause')}" + (f"; cd_cap {expect(o, 'cd_cap')}" if "cd_cap" in add else ""))
     log("  check 3: the clause with the cap hit, with reputation and without the cap dumps equal clause_disguise.csv (PASS)")
 
@@ -302,7 +338,7 @@ def main():
         w = wor[(wor["part"] == "A, scope") & (wor["term"] == "futures for players") & (wor["scope"] == "declared window") & (wor["outcome"] == y)]
         eq(o.coef("j_sold_picks"), w["with"].iloc[0], f"sellers with the cap hit {y}")
         eq(o.sei("j_sold_picks"), w["se"].iloc[0], f"sellers with the cap hit {y} se")
-        do(f"5. Section 4: the sellers with the cap hit of the player sold held fixed ({ystata})",
+        do(f"5. Section 4: the sellers with the cap hit of the player sold held fixed ({NICE[ystata]})",
            f"regress {ystata} {' '.join(jn)} if first_club == 1 & declared == 1, noconstant vce(robust)",
            f"j_sold_picks {expect(o, 'j_sold_picks')}; j_cap {expect(o, 'j_cap')}")
     log("  check 5: the sellers with the cap hit held equal who_overpaid.csv (PASS)")
@@ -316,7 +352,7 @@ def main():
         eq(o.coef(x), woc.at[lab, "perf"], f"price on {x}")
         eq(o.sei(x), woc.at[lab, "perf_se"], f"price on {x} se")
         eq(o.coef("cap_cost"), woc.at[lab, "cost"], f"price on cost ({x})")
-        do(f"6. Section 4: the price paid on {x} and the cap cost", f"regress price {x} cap_cost if in_price == 1, vce(cluster trade_id)",
+        do(f"6. Section 4: the price paid on {NICE[x]} and the cap cost", f"regress price {x} cap_cost if in_price == 1, vce(cluster trade_id)",
            f"{x} {expect(o, x)}; cap_cost {expect(o, 'cap_cost')}")
     first = sm.OLS(P["perf_value"], sm.add_constant(P[["perf_played", "cap_cost"]])).fit()
     second = sm.OLS(P["price"], sm.add_constant(pd.DataFrame({"hat": first.fittedvalues, "cap_cost": P["cap_cost"]}))).fit()
@@ -331,7 +367,8 @@ def main():
        f"perf_played {first.params['perf_played']:+.4f} (t = {first.tvalues['perf_played']:.1f})")
     log("  check 6: Section 4's price fits equal who_overpaid_checks.csv (two-stage: coefficients) (PASS)")
 
-    (OUT / "findings_walkthrough.do").write_text("\n".join(DO), encoding="utf-8")
+    out = [x if x.startswith("* ") and not x.startswith("*   expect:") else plain(x) for x in DO]
+    (OUT / "findings_walkthrough.do").write_text("\n".join(out), encoding="utf-8")
     (OUT / "stata_export_findings_log.txt").write_text("\n".join(LOG), encoding="utf-8")
     log(f"  wrote findings_walkthrough.do ({sum(1 for x in DO if x.startswith(('regress', 'mean', 'ivregress')))} commands)")
 

@@ -4187,3 +4187,5 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - DOCUMENT (Thomas: "teams overpaid for D despite them meeting their projections, which is a result of being compared to
   forwards"): findings_doc.js v3.11, his saved edits (4a92b7e) carried and the picks clause cut (defence_gap_split.py).
   A first build wrote over his saved copy; restored from a copy; CLAUDE.md rule added. MANIFEST row; session log.
+- RUN (Thomas: "variable names that make sense"): stata_export_findings.py v1.1, plain names in the findings CSV, do-file
+  and codebook; six checks PASS. MANIFEST rows; session log.

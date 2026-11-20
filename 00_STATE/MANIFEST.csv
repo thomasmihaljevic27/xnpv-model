@@ -473,3 +473,5 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,findings_doc.js,docs,hashable,2026-11-19,c7814c0a86a4984a3c3cb050f5b64753d3163346,40765,2026-11-19,yes,git,"v3.10: the repeated 40-cents bullet cut (Thomas)"
 25_TESTS,defence_gap_split.py,backtest,hashable,2026-11-19,23312d4688538c13720c8b697c5a993e2d27aca9,6203,2026-11-19,yes,git,"v1.0: the defenceman gap split by what was given (report only)"
 25_TESTS,findings_doc.js,docs,hashable,2026-11-19,21262452fcc3e57049db3093cb6c6f77ec9a98a5,41288,2026-11-19,yes,git,"v3.11: Thomas's saved edits carried; the picks clause cut from the defenceman bullet"
+20_CODE,stata_export_findings.py,backtest,hashable,2026-11-19,18fca85cb4a6899499e5f1c0f39f140dcb4c809f,25750,2026-11-19,yes,git,"plain variable names in findings_data.csv (Thomas)"
+40_DOCS,Stata_Findings_Codebook.md,docs,hashable,2026-11-19,7234f46fa96faf6783f0635f20cd6ce60da020b9,19814,2026-11-19,yes,git,"plain variable names in findings_data.csv (Thomas)"
