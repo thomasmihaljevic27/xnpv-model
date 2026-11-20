@@ -763,3 +763,12 @@ Amendment, 2026-11-19, during the re-run (before any analysis figure was read): 
 groups_any read; it is re-run on the extended run (scope all) after backtest.py, and its reference check is re-pinned to
 backtest.py v1.8's groups, read from the re-run back-test: C1 137 sides (+1.28 trade-day, +0.904 realized WAR, +0.946 Game
 Value), C6 88 sides (-2.81 trade-day); C2 unchanged (315, -0.57). groups_clustered, already run on the old flags, is re-run.
+
+## Is the defenceman gap the picks forwards' buyers paid with? (declared 2026-11-19, before it was built; Thomas: "is that true? Is that driving the difference?")
+
+Report only. Script `25_TESTS/defence_gap_split.py`: defence_checks.py part 0's exact split of each club side's realized
+minus predicted value (its rows, main player position and rule), with the assets GIVEN split further into picks, prospects
+(prospect model) and players, for clubs whose main player is a defenceman and a forward, declared window and all trades;
+and the forward-minus-defenceman difference of each part. Intervals: 2,000 resamples of trades, seed 20261119. Also the
+share of each group's clubs that gave a pick. Read: the document's sentence ("mostly because they paid with picks, and
+picks under-deliver") holds only if the picks given account for most of the forward-minus-defenceman difference.
