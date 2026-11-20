@@ -4181,3 +4181,5 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - BUILT (Thomas: "I need a csv for all the data and a stata codebook styled like the last codebook"; scope chosen: the
   findings document): stata_export_findings.py v1.0 (findings_data.csv, findings_walkthrough.do; six checks PASS) and
   40_DOCS/Stata_Findings_Codebook.md. MANIFEST rows; session log; CLAUDE.md run line.
+- DOCUMENT (Thomas: "Yes, make those changes at the rebuild"): findings_doc.js v3.9, his 21:01 edits (29a7abb) and the
+  outside review's accepted prose changes. No figure changed. MANIFEST row; session log.
