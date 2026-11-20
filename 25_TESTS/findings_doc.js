@@ -149,7 +149,7 @@ const {
 const ROOT = path.resolve(__dirname, "..");
 const OUTFILE = process.env.DOC_OUT || path.join(ROOT, "40_DOCS", "Trade Back-test Findings.docx")   // v2.3: a new file; the ", revised" file holds Thomas's second round of notes
 const FONT = "Arial";
-const VERSION = "findings_doc.js v3.11";
+const VERSION = "findings_doc.js v3.12";
 
 // ---- building blocks ---------------------------------------------------------------------------------------------------
 // A string is plain text; ["Label", "text"] as L() gives a bold lead-in label followed by plain text.
@@ -381,15 +381,14 @@ add(B("The gap between the price paid and the models' value did not change over 
 // v3.2: the contract-value section, formerly Section 4, with Thomas's edits ("is a result of the market or due to the
 // models' error"; "Measurement"; his caption)
 add(H1("4. Teams Respond to Only About 40% of a Contract's Value"));
-add(B("Each player's contract is split into two parts: the value of his forecasted performance over the rest of the "
-  + "contract (with the seasons of continued team control included for restricted free agents), and the present value of "
-  + "his cap hit over the seasons left."),
+add(B("Each player's contract is split into two parts: the value of his forecasted performance over the rest of team "
+  + "control, and the present value of his cap hit over the seasons left."),           // v3.12: his edit
   B("The price the club paid for its main player alone is the models' value of everything it gave up, less the models' value "
     + "of everything else it received in the trade."),
   // v3.9: Thomas's sentence, with the agreed terms ("the value of his forecasted performance", "present value") and the
   // review's coefficient wording
   B("The price paid for the player is regressed on the value of his forecasted performance over the rest of his contract "
-    + "and the present value of his cap hit. In a market that priced contracts fully, the performance coefficient would "
+    + "and the present value of his cap hit. In a market that priced contracts correctly, the performance coefficient would "
     + "equal +1 and the cap-cost coefficient would equal -1."),
   B("This section uses every trade to March 2026. The price is set on trade day, and the correction below uses only the "
     + "seasons played."),                                          // v3.7: his cut
@@ -435,6 +434,89 @@ add(B(L("Realized values are partly forecasted.", "For these trades that is most
     + "defencemen.")),
   B(L("Traded assets only.", "Only traded assets are observed.")),
   B(L("Conditional picks.", "Conditional picks are valued as unconditional (94 trades).")));
+
+// ==== appendix ====
+// v3.12 (Thomas, 2026-11-20: "put full regression result tables in at the end"; scope "the two the findings rest on"):
+// Section 3's regression, every variable, each rule (one_regression.csv v2.3; R-squared without a constant refitted from
+// stata/findings_data.csv), and Section 4's price regressions (who_overpaid_checks.csv; constants, R-squared and the
+// first stage refitted from the same CSV; the two-stage standard errors resampled, as there)
+add(H1("Appendix: Full Regression Results"));
+add(LABEL("Table A1. Section 3's regression, main player rule"));
+add(table(["Variable", "Trade-day grade", "Realized value, WAR", "Realized value, Game Value", "Realized value, WAR, played seasons only"], [
+  ["Aged 28 to 31", "-1.12 (0.38)\np = 0.003", "-1.68 (0.63)\np = 0.008", "-1.64 (0.65)\np = 0.012", "-1.55 (0.61)\np = 0.011"],
+  ["Aged 32 or over", "-0.70 (0.52)\np = 0.18", "-0.51 (0.67)\np = 0.45", "-0.66 (0.65)\np = 0.31", "-0.48 (0.62)\np = 0.44"],
+  ["Defenceman", "-0.66 (0.31)\np = 0.037", "-1.42 (0.44)\np = 0.001", "-1.67 (0.51)\np = 0.001", "-1.39 (0.42)\np < 0.001"],
+  ["Goalie", "-0.63 (0.62)\np = 0.31", "-1.37 (0.70)\np = 0.049", "-1.64 (0.59)\np = 0.006", "-1.34 (0.62)\np = 0.030"],
+  ["No-trade or no-move clause", "-1.62 (0.49)\np = 0.001", "-2.58 (0.77)\np < 0.001", "-2.50 (0.87)\np = 0.004", "-2.71 (0.75)\np < 0.001"],
+  ["Signed as an unrestricted free agent", "+0.36 (0.27)\np = 0.19", "+0.69 (0.42)\np = 0.10", "+0.80 (0.47)\np = 0.087", "+0.66 (0.41)\np = 0.10"],
+  ["Two seasons left", "-1.09 (0.54)\np = 0.044", "-0.43 (0.84)\np = 0.61", "-0.14 (1.02)\np = 0.89", "-0.40 (0.83)\np = 0.63"],
+  ["Three or more seasons left", "-2.85 (0.82)\np < 0.001", "+0.11 (1.45)\np = 0.94", "-0.15 (1.34)\np = 0.91", "+0.38 (1.39)\np = 0.78"],
+  ["Former top-15 draft pick", "-1.48 (0.62)\np = 0.016", "-1.33 (0.79)\np = 0.091", "-1.08 (0.81)\np = 0.18", "-1.11 (0.71)\np = 0.12"],
+  ["Recent production, each WAR", "-0.26 (0.31)\np = 0.41", "-0.01 (0.39)\np = 0.98", "-0.03 (0.34)\np = 0.93", "+0.03 (0.36)\np = 0.94"],
+  ["Production above the forecast, each WAR", "+0.44 (0.37)\np = 0.24", "+0.22 (0.46)\np = 0.63", "+0.18 (0.41)\np = 0.66", "+0.11 (0.43)\np = 0.79"],
+  ["Games share, all games against none", "-0.83 (0.64)\np = 0.19", "-1.41 (0.73)\np = 0.053", "-1.93 (0.60)\np = 0.001", "-1.33 (0.64)\np = 0.038"],
+  ["Sold a player for just picks and prospects", "+0.15 (0.28)\np = 0.58", "+0.45 (0.45)\np = 0.32", "+0.16 (0.42)\np = 0.70", "+0.40 (0.43)\np = 0.36"],
+  ["Team higher in the standings, last 14 days before the deadline", "-0.20 (0.15)\np = 0.19", "-0.08 (0.25)\np = 0.74", "-0.18 (0.25)\np = 0.46", "+0.00 (0.24)\np = 0.99"],
+  ["Team higher in the standings, earlier in the season", "+0.16 (0.25)\np = 0.51", "+0.21 (0.28)\np = 0.45", "+0.24 (0.23)\np = 0.31", "+0.14 (0.25)\np = 0.59"],
+  ["Received a rental", "+0.19 (0.38)\np = 0.61", "+0.67 (0.67)\np = 0.32", "+0.80 (0.73)\np = 0.27", "+0.62 (0.63)\np = 0.33"],
+  ["Team retained salary", "-0.13 (0.49)\np = 0.78", "-0.44 (0.68)\np = 0.52", "-0.37 (0.71)\np = 0.60", "-0.70 (0.62)\np = 0.26"],
+  ["Received one asset for two or more", "-0.82 (0.20)\np < 0.001", "-0.21 (0.41)\np = 0.61", "-0.20 (0.38)\np = 0.59", "-0.20 (0.39)\np = 0.61"],
+  ["Took on a contract to clear cap", "-2.94 (0.80)\np < 0.001", "-1.06 (0.98)\np = 0.28", "-0.96 (1.15)\np = 0.41", "-0.75 (0.89)\np = 0.40"],
+  ["A new general manager selling a contract signed by his predecessor", "+0.49 (0.46)\np = 0.29", "-0.60 (0.73)\np = 0.41", "+0.19 (0.74)\np = 0.79", "-0.84 (0.69)\np = 0.22"],
+  ["Received a restricted free agent in his final contract season", "+0.20 (0.42)\np = 0.64", "+0.14 (0.77)\np = 0.86", "-0.12 (0.82)\np = 0.88", "+0.23 (0.74)\np = 0.76"],
+  ["Received only picks in rounds 6 and 7", "-0.43 (0.24)\np = 0.080", "-0.59 (0.41)\np = 0.15", "-0.57 (0.45)\np = 0.20", "-0.56 (0.40)\np = 0.16"],
+  ["Received a player at all", "+1.02 (0.48)\np = 0.032", "+1.52 (0.66)\np = 0.022", "+1.67 (0.60)\np = 0.005", "+1.35 (0.59)\np = 0.022"],
+  ["Trades (two rows each)", "556", "556", "556", "556"],
+  ["R-squared (no constant)", "0.415", "0.145", "0.165", "0.145"],
+], [36, 16, 16, 16, 16]));
+add(NOTE("Each trade enters twice, once for each club; each variable is the club's side less the other club's (what it "
+  + "received less what it sent away). The first twelve variables describe the player received, the next ten the type of "
+  + "trade. No constant. Figures in millions of dollars as of the 2025-26 salary cap; standard errors in brackets, clustered "
+  + "by trade."));
+add(LABEL("Table A2. Section 3's regression, any player rule"));
+add(table(["Variable", "Trade-day grade", "Realized value, WAR", "Realized value, Game Value", "Realized value, WAR, played seasons only"], [
+  ["Aged 28 to 31", "-0.76 (0.48)\np = 0.11", "-1.20 (0.74)\np = 0.10", "-1.51 (0.79)\np = 0.057", "-1.16 (0.69)\np = 0.094"],
+  ["Aged 32 or over", "-0.45 (0.63)\np = 0.48", "-0.08 (0.81)\np = 0.92", "-0.43 (0.78)\np = 0.58", "-0.12 (0.73)\np = 0.87"],
+  ["Defenceman", "-0.54 (0.30)\np = 0.072", "-1.10 (0.39)\np = 0.005", "-1.19 (0.37)\np = 0.001", "-1.06 (0.36)\np = 0.003"],
+  ["Goalie", "-0.63 (0.60)\np = 0.30", "-0.92 (0.66)\np = 0.17", "-1.14 (0.58)\np = 0.050", "-0.95 (0.59)\np = 0.11"],
+  ["No-trade or no-move clause", "-1.74 (0.48)\np < 0.001", "-2.72 (0.79)\np < 0.001", "-2.62 (0.92)\np = 0.005", "-2.84 (0.77)\np < 0.001"],
+  ["Signed as an unrestricted free agent", "+0.44 (0.33)\np = 0.18", "+0.54 (0.58)\np = 0.35", "+0.76 (0.75)\np = 0.31", "+0.54 (0.57)\np = 0.34"],
+  ["Two seasons left", "-1.07 (0.44)\np = 0.016", "-0.40 (0.79)\np = 0.61", "-0.38 (0.88)\np = 0.66", "-0.37 (0.76)\np = 0.62"],
+  ["Three or more seasons left", "-2.94 (0.80)\np < 0.001", "-0.06 (1.43)\np = 0.97", "-0.81 (1.29)\np = 0.53", "+0.20 (1.37)\np = 0.89"],
+  ["Former top-15 draft pick", "-1.44 (0.62)\np = 0.021", "-1.33 (0.80)\np = 0.097", "-0.94 (0.85)\np = 0.27", "-1.09 (0.72)\np = 0.13"],
+  ["Recent production, each WAR", "-0.23 (0.35)\np = 0.51", "+0.11 (0.41)\np = 0.79", "+0.22 (0.33)\np = 0.50", "+0.17 (0.37)\np = 0.66"],
+  ["Production above the forecast, each WAR", "+0.23 (0.43)\np = 0.59", "+0.05 (0.50)\np = 0.92", "-0.09 (0.43)\np = 0.83", "-0.07 (0.45)\np = 0.88"],
+  ["Games share, all games against none", "-0.60 (0.68)\np = 0.38", "-0.97 (0.73)\np = 0.18", "-1.54 (0.60)\np = 0.010", "-0.97 (0.65)\np = 0.13"],
+  ["Sold a player for just picks and prospects", "+0.23 (0.28)\np = 0.41", "+0.51 (0.44)\np = 0.25", "+0.18 (0.42)\np = 0.67", "+0.45 (0.43)\np = 0.30"],
+  ["Team higher in the standings, last 14 days before the deadline", "-0.22 (0.15)\np = 0.15", "-0.14 (0.26)\np = 0.59", "-0.25 (0.25)\np = 0.32", "-0.05 (0.25)\np = 0.84"],
+  ["Team higher in the standings, earlier in the season", "+0.18 (0.26)\np = 0.48", "+0.25 (0.30)\np = 0.39", "+0.30 (0.24)\np = 0.22", "+0.17 (0.26)\np = 0.51"],
+  ["Received a rental", "+0.11 (0.38)\np = 0.76", "+0.77 (0.65)\np = 0.24", "+0.71 (0.68)\np = 0.30", "+0.75 (0.60)\np = 0.21"],
+  ["Team retained salary", "-0.22 (0.50)\np = 0.66", "-0.22 (0.71)\np = 0.75", "-0.21 (0.72)\np = 0.77", "-0.49 (0.64)\np = 0.44"],
+  ["Received one asset for two or more", "-0.93 (0.20)\np < 0.001", "-0.32 (0.41)\np = 0.44", "-0.30 (0.38)\np = 0.43", "-0.29 (0.39)\np = 0.45"],
+  ["Took on a contract to clear cap", "-3.14 (0.79)\np < 0.001", "-1.28 (0.98)\np = 0.19", "-1.10 (1.15)\np = 0.34", "-0.94 (0.90)\np = 0.30"],
+  ["A new general manager selling a contract signed by his predecessor", "+0.54 (0.50)\np = 0.28", "-0.59 (0.76)\np = 0.44", "+0.08 (0.76)\np = 0.92", "-0.85 (0.71)\np = 0.24"],
+  ["Received a restricted free agent in his final contract season", "+0.44 (0.39)\np = 0.25", "+0.65 (0.70)\np = 0.35", "-0.12 (0.72)\np = 0.87", "+0.68 (0.66)\np = 0.30"],
+  ["Received only picks in rounds 6 and 7", "-0.45 (0.23)\np = 0.052", "-0.57 (0.40)\np = 0.15", "-0.55 (0.45)\np = 0.22", "-0.54 (0.40)\np = 0.17"],
+  ["Received a player at all", "+0.76 (0.42)\np = 0.071", "+0.95 (0.61)\np = 0.12", "+1.28 (0.60)\np = 0.034", "+0.83 (0.55)\np = 0.14"],
+  ["Trades (two rows each)", "556", "556", "556", "556"],
+  ["R-squared (no constant)", "0.405", "0.133", "0.154", "0.133"],
+], [36, 16, 16, 16, 16]));
+add(NOTE("As Table A1, with each player characteristic counted when any player received has it (production, its "
+  + "excess over the forecast and the games share averaged over the players received, weighted by cap hit)."));
+add(LABEL("Table A3. Section 4's regressions: the price paid for the main player"));
+add(table(["Variable", "Price on the models' value", "Price on what the seasons played delivered", "Price, two-stage least squares", "First stage: the models' value on what was delivered"], [
+  ["Performance value: the models' forecast", "+0.26 (0.11)\np = 0.017", "", "", ""],
+  ["Performance value: what the seasons played delivered", "", "+0.18 (0.09)\np = 0.048", "", "+0.47 (0.02)\np < 0.001"],
+  ["Performance value: the forecast, corrected (two-stage)", "", "", "+0.39 (0.19)\np = 0.045", ""],
+  ["Cap cost (present value of the cap hit)", "-0.27 (0.10)\np = 0.007", "-0.22 (0.09)\np = 0.014", "-0.37 (0.16)\np = 0.028", "+0.37 (0.02)\np < 0.001"],
+  ["Constant", "-0.21 (0.11)\np = 0.058", "-0.19 (0.11)\np = 0.090", "-0.17", "-0.06 (0.07)\np = 0.41"],
+  ["Clubs (trades)", "886 (640)", "886 (640)", "886 (640)", "886 (640)"],
+  ["R-squared", "0.057", "0.049", "", "0.926"],
+], [36, 16, 16, 16, 16]));
+add(NOTE("All trades to March 2026, main player rule. The first three columns regress the price paid for the main player; "
+  + "the fourth regresses the models' performance value, and its prediction is the corrected performance value in the "
+  + "third. Standard errors in brackets, clustered by trade, except the third column's, which come from 2,000 resamples "
+  + "of trades, and the fourth's, which are ordinary."));
 
 const doc = new Document({
   creator: "xNPV", title: "Findings",

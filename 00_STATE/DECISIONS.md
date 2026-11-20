@@ -4189,3 +4189,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   A first build wrote over his saved copy; restored from a copy; CLAUDE.md rule added. MANIFEST row; session log.
 - RUN (Thomas: "variable names that make sense"): stata_export_findings.py v1.1, plain names in the findings CSV, do-file
   and codebook; six checks PASS. MANIFEST rows; session log.
+- DOCUMENT (2026-11-20; Thomas: "put full regression result tables in at the end"; scope: the two regressions the findings
+  rest on): findings_doc.js v3.12, Tables A1-A3 (190 cells checked against the outputs); his two Section 4 edits
+  (8f15144) carried. MANIFEST row; session log 2026-11-20.
