@@ -9,7 +9,7 @@ pd.DataFrame.to_csv = lambda *a, **k: None           # nothing written
 pathlib.Path.write_text = lambda *a, **k: None
 
 def mod(name):
-    spec = importlib.util.spec_from_file_location(name, f"{T}\{name}.py")
+    spec = importlib.util.spec_from_file_location(name, f"{T}\\{name}.py")
     m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m); return m
 
 OR = mod("one_regression")
@@ -70,6 +70,5 @@ for rule in ("main", "any"):
             if gt[which] < 0.05 and rw[which] < 0.05 and np.sign(gt["b"]) == np.sign(rw["b"]):
                 fnd.append(gt["term"])
         print(rule, which, "findings:", fnd)
-R.to_csv  # (no-op)
-pd.DataFrame.to_csv = pd.core.generic.NDFrame.to_csv
-R.to_csv(r"C:\Users\thoma\AppData\Local\Temp\claude\bd60dca1ecd460d1\fba58235-91de-43ca-a456-be284a29ba2c\scratchpad\one_row_pcheck.csv", index=False)
+pd.DataFrame.to_csv = pd.core.generic.NDFrame.to_csv   # writing restored for this script's own output only
+R.to_csv(r"C:\Users\thoma\Desktop\xNPV\30_OUTPUT\one_row_pcheck.csv", index=False)
