@@ -4194,3 +4194,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   (8f15144) carried. MANIFEST row; session log 2026-11-20.
 - DOCUMENT (Thomas: "Yes, match it"): findings_doc.js v3.13, "over the rest of team control" in Section 4's regression
   sentence. MANIFEST row; session log.
+- CHECK (2026-11-21; Thomas: "Yes, check the p-values first"): 25_TESTS/one_row_pcheck.py, every two-row fit refitted on
+  one row a trade with robust standard errors; no finding changes; the goalie's realized-WAR p 0.049 -> 0.052. Whether to
+  switch is open. Session log 2026-11-21.
