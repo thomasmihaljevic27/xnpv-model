@@ -37,7 +37,7 @@ load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 EXT = OUTPUT_DIR / "_extended_run"
 ROOT = Path(__file__).resolve().parent.parent
-SCRIPT_VERSION = "clause_disguise.py v1.1 (2026-11-19)"   # v1.1: on one_regression v2.2 (the goalie indicator); no code change
+SCRIPT_VERSION = "clause_disguise.py v1.2 (2026-11-21)"   # v1.2: on one_regression v2.4 (one row a trade); trades = nobs; v1.1: on one_regression v2.2 (the goalie indicator); no code change
 LOG, OUT = [], []
 
 
@@ -183,10 +183,10 @@ def main():
                 for y in ("net_M", "out_net_M"):
                     m = fs[y]
                     cells.append(f"{m.params[c]:+.2f} ({m.bse[c]:.2f}) p={m.pvalues[c]:.3f}")
-                    OUT.append({"part": lab, "rule": rule, "term": nm, "outcome": y, "n_trades": int(m.nobs) // 2,
+                    OUT.append({"part": lab, "rule": rule, "term": nm, "outcome": y, "n_trades": int(m.nobs),
                                 "estimate": m.params[c], "se": m.bse[c], "p": m.pvalues[c]})
                 parts.append(f"{nm}: {cells[0]} | {cells[1]}")
-            log(f"  {lab:<36} ({int(fs['net_M'].nobs) // 2} trades)")
+            log(f"  {lab:<36} ({int(fs['net_M'].nobs)} trades)")
             for s_ in parts:
                 log(f"      {s_}")
     log("  check: the fit with nothing added reproduces one_regression.csv's clause coefficient, both rules (PASS)")

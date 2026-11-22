@@ -772,3 +772,17 @@ minus predicted value (its rows, main player position and rule), with the assets
 and the forward-minus-defenceman difference of each part. Intervals: 2,000 resamples of trades, seed 20261119. Also the
 share of each group's clubs that gave a pick. Read: the document's sentence ("mostly because they paid with picks, and
 picks under-deliver") holds only if the picks given account for most of the forward-minus-defenceman difference.
+
+## The regression back to one row a trade (declared 2026-11-21, before it is built; Thomas: "Yes, switch")
+
+Presentation of the 2026-11-19 amendment's item 3, reversed. one_regression's fit enters each two-team trade once, the
+first club's row (its value on its side minus the other side in each characteristic, no constant), with
+heteroskedasticity-robust (HC1) standard errors. Coefficients are unchanged (the two-row fit's equal the one-row fit's to
+1e-9). Checked before the switch (`25_TESTS/one_row_pcheck.py`, 2026-11-21): over every fit that calls one_regression.joint,
+standard errors are 1.0% to 1.6% larger, no p-value moves more than 0.008, no finding or check changes status; nine
+term-outcome p-values cross 0.05, none a finding (in the document: the goalie, main player rule, realized WAR, 0.049 to
+0.052). Every caller of one_regression.joint (clause_disguise, findings_checks, one_regression_replication) moves with it.
+Re-run, in order: one_regression, clause_disguise, findings_checks, one_regression_replication, then
+stata_export_findings (its Section 3 commands on `one_row_per_trade == 1` with `vce(robust)`). Section 2's slope is not
+changed: it is fitted on every club of 563 trades, some of three clubs, and its interval comes from resampling trades.
+Nothing else moves.

@@ -7,7 +7,8 @@ last codebook"; scope: the findings document, one CSV, one row a club side).
 ROWS: one per club side of every complete trade from 2017-07-01 to 2026-03-13 (the extended run's backtest_sides.csv,
 complete == True). Yes/no columns pick out each section's sample:
   declared    the trade is in the declared window (to 2022-03-28): Sections 2 and 3
-  in_reg      the 556 two-team trades of Section 3's regression (one_regression.py v2.3's frame): both clubs' rows
+  in_reg      the 556 two-team trades of Section 3's regression (one_regression.py's frame): both clubs' rows (v1.2: the
+              regression reads one of them, first_club == 1; the other row is its mirror image)
   in_price    the 886 club sides with a main player valued by the player model and a cost (Section 4)
   first_club  1 for the first club (alphabetically) of a two-team trade: who_overpaid.py part A's one row a trade
 
@@ -30,7 +31,8 @@ regression, every term, both rules, four outcomes (one_regression.csv); the clau
 without the cap dumps (clause_disguise.csv); the clause and seller averages (groups_any.csv, groups_clustered.csv); the
 sellers with the cap hit held (who_overpaid.csv); Section 4's three price fits (who_overpaid_checks.csv; the two-stage
 coefficients only, its standard errors there being resampled). The do-file's expected figures are computed as Stata
-computes them (stata_expected.OLS: clustered errors G/(G-1) x (N-1)/(N-K), p-values on t with G-1 degrees of freedom; the
+computes them (stata_expected.OLS: robust errors HC1, p-values on t with N-K degrees of freedom; clustered errors
+G/(G-1) x (N-1)/(N-K), p-values on t with G-1 degrees of freedom; the
 document's p-values use the normal, so a third decimal can differ).
 
 OUTPUTS: 30_OUTPUT/stata/findings_data.csv, findings_walkthrough.do, stata_export_findings_log.txt
@@ -55,7 +57,7 @@ import stata_expected as SE                                                  # n
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 EXT = OUTPUT_DIR / "_extended_run"
 OUT = OUTPUT_DIR / "stata"
-SCRIPT_VERSION = "stata_export_findings.py v1.1 (2026-11-19)"   # v1.1: plain variable names (Thomas: "variable names that make sense"); nothing else changes
+SCRIPT_VERSION = "stata_export_findings.py v1.2 (2026-11-21)"   # v1.2: Section 3 on one row a trade (one_row_per_trade == 1), robust errors (Thomas: "Yes, switch"); v1.1: plain variable names (Thomas: "variable names that make sense"); nothing else changes
 DECLARED_END = "2022-03-28"
 TOL = 1e-9
 LOG, DO = [], []
@@ -242,7 +244,7 @@ def main():
 
     DO.extend([f"* findings_walkthrough.do -- written by {SCRIPT_VERSION}",
            "* Every regression in the findings document, from findings_data.csv. Each command's expected figure is",
-           "* computed as Stata computes it (clustered p-values on t with G-1 degrees of freedom).", "",
+           "* computed as Stata computes it (robust p-values on t with N-K degrees of freedom, clustered on G-1).", "",
            'cd "C:\\Users\\thoma\\Desktop\\xNPV\\30_OUTPUT\\stata"', 'import delimited using "findings_data.csv", clear', ""])
 
     # 1. test A (Section 2)
@@ -264,12 +266,16 @@ def main():
 
     # 2. Section 3's regression, both rules, four outcomes
     R = D[D["in_reg"] == 1]
+    # v1.2 (Thomas, 2026-11-21: "Yes, switch"): one row a trade, the first club's (one_regression.py v2.4); the other row
+    # is its mirror image, so which club is read does not change a coefficient or a robust standard error
+    R1 = R[R["first_club"] == 1]
+    assert len(R1) == len(R) // 2 == R1["trade_id"].nunique(), "one row for each of the regression's trades"
     n_ok = 0
     for rule, pre in (("main player rule", "m_"), ("any player rule", "a_")):
         names = [nm for _, nm in reg_cols[rule]]
         for ystata, ylab in zip([y for y, _ in YS], ["trade-day grade", "realized value, WAR", "realized value, Game Value",
                                                        "realized value, seasons played"]):
-            o = SE.OLS(R[ystata], R[names], names, cluster=R["trade_id"])
+            o = SE.OLS(R1[ystata], R1[names], names, robust=True)
             rr = ref[(ref["rule"] == rule) & (ref["outcome"] == ylab)].set_index("col")
             for col, nm in reg_cols[rule]:
                 eq(o.coef(nm), rr.at[col, "estimate"], f"{rule} {ylab} {nm}")
@@ -277,8 +283,8 @@ def main():
                 n_ok += 1
             figs = "; ".join(f"{nm} {o.coef(nm):+.4f} ({pfmt(o.pval(nm))})" for nm in names if nm.split("_", 1)[1] in
                              ("clause", "age28_31", "defence"))
-            do(f"2. Section 3, {rule}, {NICE[ystata]}: the club's side less the other's, two rows a trade",
-               f"regress {ystata} {' '.join(names)} if in_reg == 1, noconstant vce(cluster trade_id)", figs)
+            do(f"2. Section 3, {rule}, {NICE[ystata]}: the first club's side less the other's, one row a trade",
+               f"regress {ystata} {' '.join(names)} if in_reg == 1 & first_club == 1, noconstant vce(robust)", figs)
     log(f"  check 2: Section 3's regression from the CSV equals one_regression.csv on {n_ok} coefficients and standard errors (PASS)")
 
     # 3. the clause investigation (main player rule)
@@ -286,17 +292,17 @@ def main():
     names = [nm for _, nm in reg_cols["main player rule"]]
     for lab, add, msk in (("+ cap hit", ["cd_cap"], None), ("+ career WAR and best season", ["cd_career", "cd_best"], None),
                           ("without the cap-dump trades", [], "nodump")):
-        RR = R[R["dump_trade"] == 0] if msk else R
+        RR = R1[R1["dump_trade"] == 0] if msk else R1
         # one_regression.joint's rule: a yes/no difference non-zero in fewer than five trades is left out of the fit
         cont = {"m_production", "m_above_fcst", "m_games_share"} | set(add)
-        use = [x for x in names + add if x in cont or (RR[x] != 0).sum() // 2 >= 5]
+        use = [x for x in names + add if x in cont or (RR[x] != 0).sum() >= 5]
         for ystata, y in (("grade", "net_M"), ("real_war", "out_net_M")):
-            o = SE.OLS(RR[ystata], RR[use], use, cluster=RR["trade_id"])
+            o = SE.OLS(RR[ystata], RR[use], use, robust=True)
             w = cdr[(cdr["part"] == lab) & (cdr["rule"] == "main player rule") & (cdr["term"] == "clause") & (cdr["outcome"] == y)]
             eq(o.coef("m_clause"), w["estimate"].iloc[0], f"clause {lab} {y}")
             eq(o.sei("m_clause"), w["se"].iloc[0], f"clause {lab} {y} se")
-            cond = "in_reg == 1" + (" & dump_trade == 0" if msk else "")
-            do(f"3. the clause, {lab} ({NICE[ystata]})", f"regress {ystata} {' '.join(use)} if {cond}, noconstant vce(cluster trade_id)",
+            cond = "in_reg == 1 & first_club == 1" + (" & dump_trade == 0" if msk else "")
+            do(f"3. the clause, {lab} ({NICE[ystata]})", f"regress {ystata} {' '.join(use)} if {cond}, noconstant vce(robust)",
                f"m_clause {expect(o, 'm_clause')}" + (f"; cd_cap {expect(o, 'cd_cap')}" if "cd_cap" in add else ""))
     log("  check 3: the clause with the cap hit, with reputation and without the cap dumps equal clause_disguise.csv (PASS)")
 

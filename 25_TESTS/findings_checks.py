@@ -35,7 +35,7 @@ from statsmodels.stats.multitest import multipletests
 
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
-SCRIPT_VERSION = "findings_checks.py v1.0 (2026-11-19)"
+SCRIPT_VERSION = "findings_checks.py v1.1 (2026-11-21)"   # v1.1: on one_regression v2.4 (one row a trade); trades = nobs
 CONT = {"trailing_war", "rep_gap", "gp_share_last", "avg_war", "avg_gap", "avg_gs"}   # the continuous terms (as one_regression)
 LOG, OUT = [], []
 
@@ -136,7 +136,7 @@ def main():
             log(f"  {name:<40}{d:>36}   {w:>40}{g:>22}{s:>22}  {tag(doc) if k in keep0 else ''} -> {tag(wc)}")
             for lab, y in OR.YS:
                 OUT.append({"part": "cap hit held", "rule": rule, "term": name, "col": k, "outcome": lab,
-                            "n_trades": int(wc[y].nobs) // 2, "estimate": wc[y].params[k], "se": wc[y].bse[k],
+                            "n_trades": int(wc[y].nobs), "estimate": wc[y].params[k], "se": wc[y].bse[k],
                             "p": wc[y].pvalues[k]})
 
     # ---- 2 adjusted p-values ----

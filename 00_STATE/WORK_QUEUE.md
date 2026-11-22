@@ -29,6 +29,7 @@
    Karl): the findings stand as the document's methods give them (trade-day grade and realized value, both rules); no
    adjustments (Karl: "not to worry about adjustments"); the replication not asked of Karl, Thomas expects the same answer.
    The findings document v3.5 is done; every figure checked against the outputs 2026-11-19.
+   v3.14 (2026-11-21): back to one row a trade, robust standard errors (Thomas: "Yes, switch"); no finding changes.
    v3.8 (2026-11-19): clause fill, sellers for just picks and prospects, two rows a trade; every reader of the
    back-test's flags re-run the same day (backtest_cuts, joint_regression, clause_checks, the Stata exports).
 1b. For the final paper, not the findings document (Thomas, 2026-11-18, a comment on the cap-dump result): "I would like a

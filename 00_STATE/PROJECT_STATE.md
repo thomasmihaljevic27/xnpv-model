@@ -95,6 +95,9 @@ The sections as they stood at the 2026-10-22 refresh are in History, as written.
   v3.8 (2026-11-19): clauses filled from CapWages (clause_fill.py), sellers for just picks and prospects, the
   regression two rows a trade clustered by trade; the same three findings, the clause now significant in every test
   under both rules.
+  v3.14 (2026-11-21, Thomas: "Yes, switch"): the regression back to one row a trade with robust standard errors
+  (one_regression.py v2.4); coefficients unchanged, standard errors 1.0% to 1.6% larger, no finding changes
+  (one_row_pcheck.py); the goalie's realized-WAR p 0.049 to 0.052. Thomas's saved edits of the same day carried.
   DONE 2026-11-19 (Thomas, after speaking with Karl: "He agreed with the model and findings methods as is currently
   written in the documents ... He said not to worry about adjustments"; "the model findings are done as is per the
   documents methods"): the findings document v3.5 is the findings; no adjusted p-values. Every figure in it checked

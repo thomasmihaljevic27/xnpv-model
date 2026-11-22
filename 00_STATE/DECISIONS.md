@@ -4197,3 +4197,7 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
 - CHECK (2026-11-21; Thomas: "Yes, check the p-values first"): 25_TESTS/one_row_pcheck.py, every two-row fit refitted on
   one row a trade with robust standard errors; no finding changes; the goalie's realized-WAR p 0.049 -> 0.052. Whether to
   switch is open. Session log 2026-11-21.
+- REGRESSION (2026-11-21; Thomas: "Yes, switch"): Section 3's regression back to one row a trade with robust (HC1)
+  standard errors (one_regression.py v2.4; protocol amendment of the date); callers, the Stata export (v1.2) and the
+  codebook moved with it; findings_doc.js v3.14 built with Thomas's saved edits (d6eccf3) carried. No finding changes.
+  MANIFEST rows; PROJECT_STATE and WORK_QUEUE notes; session log 2026-11-21.

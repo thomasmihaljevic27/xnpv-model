@@ -28,7 +28,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
-SCRIPT_VERSION = "one_regression_replication.py v1.0 (2026-11-19)"
+SCRIPT_VERSION = "one_regression_replication.py v1.1 (2026-11-21)"   # v1.1: on one_regression v2.4 (one row a trade); trades = nobs
 CONT = {"trailing_war", "rep_gap", "gp_share_last", "avg_war", "avg_gap", "avg_gs"}   # the continuous terms (as one_regression)
 FINDINGS = {"main player rule": ["main_clause", "age28", "defence"], "any player rule": ["any_clause"]}   # the document's
 LOG, OUT = [], []
@@ -90,7 +90,7 @@ def main():
         " same sign); T = trade-day only; g, s as before")
     for rule in OR.P5:
         fd, kd, fa, ka = res[rule]
-        log(f"\n  {rule}  ({int(fa['net_M'].nobs) // 2} trades)")
+        log(f"\n  {rule}  ({int(fa['net_M'].nobs)} trades)")
         log(f"  {'term':<42}{'2017-22: trade-day | realized':>34}   {'after 2022: trade-day':>26}{'realized, WAR':>24}"
             f"{'Game Value':>20}{'seasons played':>20}  after 2022")
         for k in kd:
@@ -107,7 +107,7 @@ def main():
             mark = "  <- finding 2017-22" if k in FINDINGS[rule] else ""
             log(f"  {OR.NAME[k]:<42}{dl:>34}   {cells[0]:>26}{cells[1]:>24}{cells[2]:>20}{cells[3]:>20}  {tag}{mark}")
             for (lab, y), b, p in zip(OR.YS, bs, ps):
-                OUT.append({"rule": rule, "term": OR.NAME[k], "col": k, "outcome": lab, "n_trades": int(fa[y].nobs) // 2,
+                OUT.append({"rule": rule, "term": OR.NAME[k], "col": k, "outcome": lab, "n_trades": int(fa[y].nobs),
                             "estimate": b, "se": fa[y].bse[k], "p": p, "finding_2017_22": k in FINDINGS[rule]})
 
     log("\nTHE DOCUMENT'S FINDINGS, after 2022 (the declared reading)")
