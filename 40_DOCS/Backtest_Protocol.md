@@ -848,3 +848,13 @@ declared window reproduces top10_swap.csv. READING (one_regression_replication's
 full when its trade-day grade and realized WAR after 2022 both have the declared window's sign with p < 0.05; on trade day
 only when only the trade-day grade does. These trades' realized values are mostly the models' re-valuation at 2026-27, so
 the trade-day grade is the firm column.
+
+## Amendment, 2026-11-24: one WAR row moved to its player (Thomas: "Fix it"; written before the re-run's results were read)
+
+WAR.csv leaves the b.1988 Erik Gustafsson's 2013-14 PHI season under the plain name the b.1992 Erik Gustafsson carries, so
+the skater forecast read it as the b.1992 player's season at age 21. `20_CODE/war_rows.py` moves that row to "Erik
+Gustafsson 88" in every reader of WAR.csv that keeps the two apart (age_join, player_season_table, skater_value_engine,
+exit_hazard); the source file is not written. The forecast's training rows change by one season, so every contract value
+can move slightly; the contract chain, the trade chain, the back-test with its Game Value runs and their readers are
+re-run on the declared window and the extended ledger. No rule, test or group of the protocol changes. If the price line
+no longer reproduces its lock within its tolerance, the re-run stops for Thomas's decision.
