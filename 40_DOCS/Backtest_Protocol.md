@@ -786,3 +786,36 @@ Re-run, in order: one_regression, clause_disguise, findings_checks, one_regressi
 stata_export_findings (its Section 3 commands on `one_row_per_trade == 1` with `vce(robust)`). Section 2's slope is not
 changed: it is fitted on every club of 563 trades, some of three clubs, and its interval comes from resampling trades.
 Nothing else moves.
+
+## Realized value stopped when the club trades the asset on (declared 2026-11-24, before it is built; Thomas: "Yes, test it"; "His value at the flip"; "Players and picks")
+
+Sensitivity only, from Karl's question at the 2026-11-23 meeting (a player acquired and then traded on carries his later
+seasons back to the first trade). Counted first (`25_TESTS/repeat_traded_players.py`): 342 of the 885 player assets in
+Section 3's 556 trades were traded again later. The protocol's outcome is unchanged; this is reported beside it.
+
+THE RULE. An asset (player, prospect, rights or pick) that the acquiring club trades away later, at any date in the ledger
+carried to 2026-03-13, has its outcome for the FIRST trade replaced by: (1) the realised part of the seasons the club
+held him, by the outcome's own pricing (the same price lines, costs, retention, LTIR and season shares); a season in which
+he was traded on during the regular season counts the part before the second trade (its part after the first trade, or the
+whole season, less its part after the second trade, by the in-season rule of 2026-10-20); a prospect or pick counts only
+seasons before the second trade's page (the rule that prospects keep the full season); a pick traded on before its draft
+holds no season; (2) nothing revalued at 2026-27 (every second trade is before that page); (3) the EXIT VALUE: the model's
+trade-day value of the asset in the second trade at the 2025-26 cap, as the second trade's club sides charge it to the
+seller (its value plus any retained part). The bound "nothing after the flip" is (1) and (2) alone.
+
+WHICH LATER TRADE. The asset's next appearance in the ledger after the first trade's date (players and prospects by name,
+accents and punctuation removed; a pick by its year, round and original club before its draft, and by the drafted player's
+name after it). It is a flip only if the club that acquired it in the first trade is the one sending it; if the next
+appearance has another sender (he left by waivers, free agency or a trade the ledger lacks) the outcome is unchanged and the
+case is counted. Same-day appearances, multi-team trades with no sender recorded, unvalued second-trade assets and the
+outcome-equals-forecast routes (buried contracts, the prospect model's zeros) are left unchanged and counted.
+
+BUILT AS a switch in `backtest.py` (XNPV_STOP_AT_FLIP=1; unset, nothing changes), run on the extended ledger with outputs
+suffixed `_flipstop` in `30_OUTPUT/_extended_run/`. GUARDS: for every flipped asset the held part plus the part after the
+flip equals its full outcome to $1e-9M; every asset not flipped has the extended run's outcome exactly.
+
+READ. `25_TESTS/flip_stop_check.py` (report only): Section 3's regression (one_regression.frame and joint, both rules, the
+556 trades, every regressor and the trade-day grade identical to the document's, asserted) refitted with realized value on
+WAR and on seasons played replaced by the stop run's, with exit value and with nothing after the flip. A finding holds if
+its realized coefficient keeps p < 0.05 and the trade-day sign. Game Value is not re-run. Section 4 is unaffected (its
+outcome is the trade-day price). Nothing in the findings document changes unless Thomas decides it.
