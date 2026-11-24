@@ -4210,3 +4210,6 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   codebook for replication, and the share of players traded more than once. Thomas's cap-share idea and Karl's top-10
   remark queued as 0f and 0g; the four wordings flagged 2026-11-21 and the findings file's uncommitted rename as 0h; the
   parked items read back as 7. No decision taken. WORK_QUEUE; session log 2026-11-23.
+- CHECK (2026-11-23; Thomas: "Yes, count it"; Karl's question at the meeting): 25_TESTS/repeat_traded_players.py v1.0.
+  Of Section 3's 556 trades, 153 of 698 players (21.9%) are in two or more; 342 of 885 player assets (38.6%) were traded
+  again later (to 2026-03-13). Report only; no finding changed or tested. WORK_QUEUE 0e; MANIFEST row; session log.

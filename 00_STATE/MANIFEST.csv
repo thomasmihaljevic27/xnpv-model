@@ -484,3 +484,4 @@ path,filename,pillar,class,session_id,dbx_content_hash,size_bytes,handoff_date,v
 25_TESTS,one_row_pcheck.py,backtest,hashable,2026-11-21,8c59a99801afb695c4238dbdfb0ebba3d4bb0d67,4346,2026-11-21,yes,git,"v1.0: every two-row fit refitted on one row (report only); no finding changes"
 20_CODE,stata_export_findings.py,backtest,hashable,2026-11-21,758ac03bf3478980bd53e87c3b4c2d3aba29aba4,26399,2026-11-21,yes,git,"v1.2: Section 3 commands on one_row_per_trade == 1 with vce(robust)"
 25_TESTS,findings_doc.js,docs,hashable,2026-11-21,006ce14c0de0f56afae60a8f0dd43265f6077108,50279,2026-11-21,yes,git,"v3.14: Section 3 on one row a trade; Thomas's saved edits of 2026-11-21 (d6eccf3) carried"
+25_TESTS,repeat_traded_players.py,backtest,hashable,2026-11-23,8b3b4d2aec05f4ad90647c803912044a47f7aa07,4720,2026-11-23,yes,git,"v1.0: players in more than one of Section 3's 556 trades, and traded again later (report only)"

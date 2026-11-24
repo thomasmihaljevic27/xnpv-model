@@ -22,6 +22,8 @@ review, the changes and his sign-off inside it ("sooner is better").
    `price_line_skaters.csv`, `price_line_goalies.csv` and `findings_data.csv` may be sent.
 0e. Count: the share of traded players who appear in more than one trade (Karl: "I'd be interested to see how many players
    appear in multiple ... Like, what proportion are we talking about here?"; Thomas guessed about 5%).
+   **Counted 2026-11-23** (`25_TESTS/repeat_traded_players.py` v1.0): 153 of 698 players (21.9%) are in two or more of
+   the 556 trades; 342 of 885 player assets (38.6%) were traded again later, to 2026-03-13 (session 2026-11-23).
 0f. Decide (Thomas, his own idea in the meeting): whether dollar figures are shown as a share of the salary cap.
 0g. Karl's remark, nothing asked: "Did you try doing like more restrictive, like top 10? ... Might pick up significance if
    you do that, but who knows."
