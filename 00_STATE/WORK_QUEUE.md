@@ -45,7 +45,7 @@ Order (Thomas, 2026-11-24): the items that need Thomas first, then 0g, then the 
 0h. Do (Thomas, 2026-11-24: "All changes agreed to for now, I can edit myself later anyways"): the four wordings flagged on
    2026-11-21 changed in the builder at the next build. Decided: the file keeps the name `40_DOCS/Findings.docx` (Thomas:
    "Just keep it findings"; `findings_doc.js` writes it).
-0i. Do (Thomas, 2026-11-24: "update project state"): the PROJECT_STATE refresh (due 2026-11-22).
+0i. Done 2026-11-24 (Thomas: "update project state"): PROJECT_STATE v3.7, next due 2026-12-01.
 
 1. Done 2026-11-18: the writeup revised on Thomas's 35 comments, then on his second round of 14 (`40_DOCS/Trade Back-test
    Findings.docx`, findings_doc.js v2.3; the second round's notes are in the ", revised" file, the first round's in the file

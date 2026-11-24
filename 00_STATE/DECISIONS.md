@@ -4244,3 +4244,12 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   documents' numbers.json rebuilt; prospect_values' defenceman guard and stata_export's 24 document checks PASS again. No
   model value moved. Erik Gustafsson checked: one 2013-14 season misattributed in the forecast's data, read by no trade
   (fix or record: Thomas). MANIFEST rows; WORK_QUEUE 4, 7; session log.
+
+### Change log, 2026-11-24b (PROJECT_STATE v3.7 refresh)
+
+- REFRESH (Thomas: "update project state"; due 2026-11-22): PROJECT_STATE v3.7, Generated 2026-11-24, due 2026-12-01. The
+  current state, the model as built, the figures in force and the inventory rewritten from the code and the runs of
+  2026-11-17 to 2026-11-24; the 2026-11-15 sections moved to History unchanged; session logs 2026-11-17 to 2026-11-24 read
+  against `git log` (every commit in the window has its session entry). STANDING_FLAGS: the Gustafsson check, the goalie
+  exit risk's look-ahead a stated limitation. CLAUDE.md: the state paragraph and the rebuilt prospect tests. One open
+  question for Thomas: the Gustafsson row (fix or record).

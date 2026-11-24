@@ -32,10 +32,11 @@ As of the 2026-10-14 refresh (PROJECT_STATE v3.4, "Current state" and "Model as 
 contracts are priced on xNPV 1 with the five player directives built; the draft pick curve and the traded-pick
 values are built, with the arbitration cost for control seasons adopted on both sides (2026-10-13); the
 prospect model is built (2026-10-14: slot, production adjusted to NHL terms and age, undrafted players on NHL
-contracts with the slot at zero, `prospect_values.py`), each addition Thomas's. As of the 2026-11-15 refresh (PROJECT_STATE
-v3.6): the back-test is run on the declared window and on all trades to March 2026, with its exploratory cuts, the joint
-regression and the term and seasons-played sensitivities; the findings are in PROJECT_STATE's "Current state"; the next
-step is the writeup's spine.
+contracts with the slot at zero, `prospect_values.py`), each addition Thomas's. As of the 2026-11-24 refresh (PROJECT_STATE
+v3.7): the model is built and the findings document (`40_DOCS/Findings.docx`) was presented to Karl on 2026-11-23 with no
+change asked; the findings and the checks beside them are in PROJECT_STATE's "Current state"; the work now is the
+write-up in four chunks (player model, pick model, prospect model, findings) for the end-of-December deadline, in
+WORK_QUEUE's top block.
 Built 2026-10-15: drafted players who died before reaching the NHL are left out of every fit (`deceased_draftees.py`), and
 the prospect model has no age-removed version (age centred at 18; `prospect_values.py` v1.7).
 Built 2026-10-14: every age the model reads follows the CBA (September 15; drafted players' signing ages in the
@@ -259,7 +260,8 @@ tests pinned to the old prospect rows (`prospect_curve_vs_line.py`, `prospect_pr
   coefficients, and stopped three things in turn (2026-11-11): `prospect_values.py`'s guard against the defenceman
   test's coefficients, `backtest_cuts.py`'s reference means, and `stata_export.py`'s check against the documents'
   `numbers.json`. The finished tests behind them (`prospect_age_form_look.py`, `prospect_pooled_terms_look.py`,
-  `defence_terms_look.py`) are pinned to each other and reproduce only from git before commit e8a2bfc. Before such a
+  `defence_terms_look.py`, `prospect_age_discount_look.py`) are pinned to each other; rebuilt on today's model on
+  2026-11-24 (Thomas: "Build"), with the documents' `numbers.json`, so all three checks run again. Before such a
   change, grep for the readers of each output it moves, and tell Thomas which checks will stop and what setting each
   aside costs. `stata_refresh.py` rewrites CSVs before its checks finish: a stopped run leaves the Stata folder half new.
 - **Don't trust file size as an integrity check.** Pre-rebuild and post-rebuild

@@ -179,7 +179,8 @@ report of it must say the pages were not unseen (ledger lines labelled CLOUD COD
 `claude/aging-model-questions-fl340y` merged into `main`. New `40_DOCS/Model_Changes_September_2026.md`
 (plain-English account of the aging, age-table, birthdate and exit-risk changes). Two more birthdate
 corrections are in `age_join.py` (take effect at its next run). The goalie exit risk is still
-2018-2024: a pre-valuation version needs goalie birthdates for pre-2018 retirees first.
+2018-2024: a pre-valuation version needs goalie birthdates for pre-2018 retirees first. **Decided 2026-11-24 (Thomas: "Limitation only"):** not built; the look-ahead before 2018 is stated as a limitation in
+the final paper (WORK_QUEUE item 8).
 
 **D18 revised: skater exit hazard fitted per valuation page, 2026-09-28h.** Adopted by Thomas.
 `contract_npv.py` v1.5 builds the skater table per page on transitions 2007 to t0-2
@@ -1270,6 +1271,10 @@ residuals and currency comparisons; fix and rerun development work before furthe
 - **Corrections have run one way (NEW 2026-07-27)** — six of the Stage 1 fixes moved contract values upward and none moved them systematically down. Each is defensible alone; the pattern is what invites a question. Present Stage 1 as a set with a stated net effect in the robustness section rather than as separate corrections scattered through the methodology.
 - **Qualifying-offer salary substitute (NEW 2026-07-27, item 1.10)** — ~25% of qualifying offers are computed from average annual value because no final-year salary exists, which switches off the CBA's 120%-of-cap-hit ceiling in exactly the cases it was written for. Direction: offer understated → control-year cost understated → **surplus overstated**. Now tagged in the output (`qo_salary_source`) and counted in the run log. Not fixable with current data; needs per-season salary coverage extended.
 - ~~**Stage 2-5 review changes not locally verified (NEW 2026-07-28)**~~ — **CLOSED 2026-09-09.** All four are now run locally and reproduce: the new skater price equation (Stage 3 rate, in force through `skater_forward_projection.py`), the retention-calibration fix (Stage 4, 21.3%→27.0% buckets unmoved), the rebuilt draft curve (to the cent), and the Stage 2 length-term null test (`term_premium_test.py` — decisive null, every spec constant exact, value-side share 0.000). Not provisional any more. GV-raw robustness legs of the Stage 2 test remain an optional, un-run extension.
+- **Checked 2026-11-24:** the pick curve keeps the two apart; the skater forecast does not (forecast_config.MERGED_WAR_NAMES
+  holds only Ryan Johnson and Nathan Smith), and WAR_with_age gives the 2013-14 PHI row to the b.1992 player (NHL id 8476979,
+  age 21). No traded valuation reads it (his trades are valued on the three seasons before pages 2019, 2020, 2022); it
+  enters his 2015 and 2016 dashboard pages and one season of the forecast's training rows. Fix or record: Thomas.
 - **Erik Gustafsson = third WAR.csv merged name (2026-07-19)** — joins Ryan Johnson and Nathan Smith (13-14 PHI row is the undrafted b.1988 player; 15-16+ is the 2012-drafted b.1992 player). Standing rule applied: 2012 #93 pick excluded from the curve. Also: **Goalies_WAR splits traded goalies into one row per team per season** (78 duplicate name-seasons) — always SUM within name-season.
 
 ---

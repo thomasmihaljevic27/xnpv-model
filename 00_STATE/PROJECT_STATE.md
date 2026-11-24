@@ -6,10 +6,10 @@
      This file holds: objective, model spec, current build state, the data/scripts inventory,
      locked regression results, per-pillar status, and the file-management protocol. -->
 
-**Generated:** 2026-11-15
-**Refresh due:** 2026-11-22 (7-day cadence)
+**Generated:** 2026-11-24
+**Refresh due:** 2026-12-01 (7-day cadence)
 **Maintained by:** Claude, at session close (see the DECISIONS.md change log)
-**File version:** 3.6 (v3.6 refresh 2026-11-15: the current state, the model as built, the figures in force and the inventory rewritten from the code and the runs of 2026-11-11 to 2026-11-15; the back-test's findings added; the 2026-10-22 sections moved to History unchanged; session logs 2026-10-23 to 2026-11-15 read; see DECISIONS 2026-11-15e. v3.5 refresh 2026-10-22: the current state, the model as built, the figures in force and the inventory rewritten from the code and the 2026-10-21 runs; the 2026-10-14 sections moved to History unchanged; session logs 2026-10-14 to 2026-10-21 read; see DECISIONS 2026-10-22. v3.4 refresh 2026-10-14: the current state, the model as built and the figures in force rewritten from the code; the inventory replaced; the dated entries, the old model spec, the old inventory, the retired-rebuild section and the old regression record moved to History unchanged. Session logs 2026-09-28 to 2026-10-14 checked against the dated entries: each has one. See the DECISIONS.md 2026-10-14b entry. v3.3: v3.3 refresh 2026-09-28: every session log since 2026-09-08 checked as referenced in the state files; inventory and pending list reconciled; see the DECISIONS.md 2026-09-28k entry. v3.2 restructure 2026-09-09: PROJECT_STATE.md split into four state files + a per-session log; see DECISIONS.md change log. Not a weekly refresh — Generated / Refresh-due unchanged.)
+**File version:** 3.7 (v3.7 refresh 2026-11-24: the current state, the model as built, the figures in force and the inventory rewritten from the code and the runs of 2026-11-17 to 2026-11-24; the findings, the write-up plan and the checks added; the 2026-11-15 sections moved to History unchanged; session logs 2026-11-17 to 2026-11-24 read; see DECISIONS 2026-11-24. v3.6 refresh 2026-11-15: the current state, the model as built, the figures in force and the inventory rewritten from the code and the runs of 2026-11-11 to 2026-11-15; the back-test's findings added; the 2026-10-22 sections moved to History unchanged; session logs 2026-10-23 to 2026-11-15 read; see DECISIONS 2026-11-15e. v3.5 refresh 2026-10-22: the current state, the model as built, the figures in force and the inventory rewritten from the code and the 2026-10-21 runs; the 2026-10-14 sections moved to History unchanged; session logs 2026-10-14 to 2026-10-21 read; see DECISIONS 2026-10-22. v3.4 refresh 2026-10-14: the current state, the model as built and the figures in force rewritten from the code; the inventory replaced; the dated entries, the old model spec, the old inventory, the retired-rebuild section and the old regression record moved to History unchanged. Session logs 2026-09-28 to 2026-10-14 checked against the dated entries: each has one. See the DECISIONS.md 2026-10-14b entry. v3.3: v3.3 refresh 2026-09-28: every session log since 2026-09-08 checked as referenced in the state files; inventory and pending list reconciled; see the DECISIONS.md 2026-09-28k entry. v3.2 restructure 2026-09-09: PROJECT_STATE.md split into four state files + a per-session log; see DECISIONS.md change log. Not a weekly refresh — Generated / Refresh-due unchanged.)
 
 > **Refresh note (2026-09-08).** The previous snapshot was v2.9, generated 2026-07-29 and due
 > 2026-08-05. It ran six weeks stale. Two sessions in that window went unrecorded on every
@@ -54,119 +54,101 @@ This is a soft trigger: it works only because this file sits in context each cha
 Put all three trade-asset classes — rostered players, draft picks, non-roster prospects — on one common scale: projected surplus value in dollars over a defined horizon, risk- and time-adjusted. Then back-test historical trades against realized outcomes to find categories of systematic mispricing. The cross-asset integration is the central contribution. Audience: economics faculty (supervisor **Karl**, econometrics) and sports-analytics practitioners. Karl weighs identification (circularity, look-ahead, selection) most heavily.
 
 ---
-## Current state (refresh 2026-11-15)
+## Current state (refresh 2026-11-24)
 
-Written from the code that runs (versions as each script prints them) and the session logs 2026-10-23 to 2026-11-15.
-The sections as they stood at the 2026-10-22 refresh are in History, as written.
+Written from the code that runs (versions as each script prints them), the runs of 2026-11-17 to 2026-11-24 and the
+session logs 2026-11-17 to 2026-11-24. The sections as they stood at the 2026-11-15 refresh are in History, as written.
+The model is built; the work now is the write-up for Karl (deadline end of December; WORK_QUEUE's top block).
 
 | Pillar | State | Code |
 |---|---|---|
-| Skater contracts | xNPV 1 (D33); unchanged since the 2026-10-21 re-lock. A contract season is priced on the term LEFT at the valuation date (directive 4; kept, Thomas 2026-11-15, after the term-as-quality test); an original-term switch exists for the sensitivity only | `skater_forecast.py` v2.4, `participation_model.py` v2.0, `skater_forward_projection.py` (`TERM_BASIS`, off), `rfa_terminal_value.py` v2.9, `contract_npv.py` v3.4 |
-| Goalie contracts | Unchanged since 2026-10-21 | `contract_npv.py` v3.4, `goalie_value_engine.py`, `goalie_birthdates.py` v1.0 |
-| Draft picks | The rights rule reads the trade ledger carried to 2026 (2026-11-11, Thomas: "Yes, switch"): one fitted player moved, the star value $18.288594M -> $18.288394M | `pick_curve.py` v1.12, `traded_pick_values.py` v1.2 |
-| Prospects | Unchanged since 2026-10-24 (defenceman x production). The guard against the defenceman test's coefficients does not run (its reference predates pick_curve v1.12; left for now, Thomas 2026-11-11) | `prospect_values.py` v1.13 |
-| Trades | Two ledgers. `trades.db` (CapFriendly, to 2022-03-28) for the declared window; `trades_extended.db` (that plus 518 PuckPedia trades to 2026-03-13, validated on 2019-22: 844 of 855 matched assets equal to $1,000) for the extended run | `trade_ledger_extend.py` v1.0, `trade_page.ledger_path()`, `trade_refresh.py` v1.1 (18 steps) |
-| Back-test | Run on the protocol, the declared window 2017-07-01 to 2022-03-28 (confirmatory) and all trades to 2026-03-13 (extended); the exploratory cuts, the joint regression, the original-term and seasons-played sensitivities, all declared before they were computed | `backtest.py` v1.7, `trade_sides.py` v1.0; `25_TESTS/backtest_cuts.py` v1.5, `backtest_cuts_more.py` v1.3, `joint_regression.py` v1.2, `contract_value_by_age.py` v1.1, `term_quality_test.py` v1.1 |
-| Stata | Refreshed 2026-11-11 on the switched pick curve; its check against the documents' recorded figures does not run (their `numbers.json` set aside); commands untested in Stata | `stata_refresh.py` v1.2 |
+| Skater contracts | Unchanged since the 2026-10-21 re-lock (xNPV 1, D33; the term left at the valuation date) | `skater_forecast.py` v2.4, `participation_model.py` v2.0, `skater_forward_projection.py`, `rfa_terminal_value.py` v2.9, `contract_npv.py` v3.4 |
+| Goalie contracts | Unchanged since 2026-10-21. The exit risk is fitted on 2018-2024 for every page, a look-ahead before 2018: a stated limitation (Thomas, 2026-11-24: "Limitation only") | `contract_npv.py` v3.4, `goalie_value_engine.py` |
+| Draft picks | Unchanged since 2026-11-11 | `pick_curve.py` v1.12, `traded_pick_values.py` v1.2 |
+| Prospects | Unchanged since 2026-10-24. Its defenceman guard runs again (2026-11-24): the finished tests it reads were rebuilt on today's model | `prospect_values.py` v1.13 |
+| Trades | Unchanged since 2026-11-11 (two ledgers); clause records filled from CapWages where PuckPedia has none (2026-11-19) | `trade_ledger_extend.py` v1.0, `trade_refresh.py` v1.1, `clause_fill.py` v1.0 |
+| Back-test | Re-run 2026-11-19 (v1.8: the clause fill; sellers for just picks and prospects); headline figures unchanged. A stop-at-flip switch added 2026-11-24 (v1.9, a sensitivity) | `backtest.py` v1.9, `trade_sides.py` v1.0 |
+| Findings | `40_DOCS/Findings.docx` (renamed by Thomas, 2026-11-24), `findings_doc.js` v3.14: one regression, one row a trade, robust standard errors; Section 4's price regressions; an appendix of full tables | `25_TESTS/one_regression.py` v2.4, `who_overpaid_checks.py` v1.3 |
+| Stata | Pillar exports rebuilt 2026-11-24 with all 24 checks against the documents' recorded figures passing; the findings export (2026-11-21) separate. Thomas has run some of the commands, not all | `stata_refresh.py` v1.2, `stata_export_findings.py` v1.2 |
 
-**The back-test's findings (2026-11-11 to 2026-11-15; sessions 2026-11-11, 2026-11-12, 2026-11-15).**
-- Headline (declared window, after pick_curve v1.12): slope of outcome on the models' verdict 0.749 [0.553, 0.901];
-  favoured club ahead 57.1%; picks delivered $0.188M less than forecast each [-0.330, -0.041]; players and prospects not
-  distinguishable from their forecast. All trades: slope 0.633 [0.463, 0.782], favoured club 60.7%.
-- Outcome findings that survive the other characteristics (`joint_regression.py`, 913 two-team trades) AND the seasons
-  played alone, on WAR and Game Value: the club acquiring a main player aged 28 to 31 (-$1.12M a side on WAR; -$1.03M on
-  the seasons played), one with a no-trade or no-move clause (-$1.48M; -$1.41M), a defenceman (-$0.82M; -$0.70M; Game
-  Value is weak for defencemen; `defence_checks.py`, 2026-11-15: traded defencemen delivered their forecast by games, ice
-  time and every part of WAR, so the result is the price, not the measure). Typical deal: a clause veteran aged 28 to 31 for
-  picks, the buyer -$3.07M on WAR. With the price held (`groups_clustered.py`), no group comes out beyond what its price
-  predicts in the declared window: the outcomes bear out the models' prices.
-- Pricing findings (the price differs from the models' value; the outcome difference does not survive the others):
-  picks and prospects for players (+$0.89M a side priced), taking a contract to clear cap (-$3.50M; cap space costs
-  $0.096M of futures per $1M cleared), one asset for two or more (-$0.66M), a new general manager selling his
-  predecessor's contracts (+$1.05M, all trades only).
-- Absorbed by the others: the deadline buyer and the retaining club (the player taken and the picks given carry them).
-- The findings document (2026-11-19, `findings_doc.js` v3.3; one regression in place of two, Thomas: "Yes, rewrite"):
-  every result on the declared window, both rules (main player, any player received); player characteristics and types
-  of trade in one regression on all 556 two-team trades (`one_regression.py` v2.0, v3.4 of the document). Findings: a
-  player with a no-trade or no-move clause under both rules; aged 28 to 31 and a defenceman under the main player rule
-  (v2.2, a goalie indicator beside the defenceman one). The clause's trade-day overpay is mostly its cap hit
-  (clause_disguise.py); its realized loss is not. The former top-15 pick and goalies are not findings. The price follows about 40 cents
-  per $1 of contract value (all trades, corrected on the seasons played, 0.39 [0.00, 0.75]).
-  v3.8 (2026-11-19): clauses filled from CapWages (clause_fill.py), sellers for just picks and prospects, the
-  regression two rows a trade clustered by trade; the same three findings, the clause now significant in every test
-  under both rules.
-  v3.14 (2026-11-21, Thomas: "Yes, switch"): the regression back to one row a trade with robust standard errors
-  (one_regression.py v2.4); coefficients unchanged, standard errors 1.0% to 1.6% larger, no finding changes
-  (one_row_pcheck.py); the goalie's realized-WAR p 0.049 to 0.052. Thomas's saved edits of the same day carried.
-  DONE 2026-11-19 (Thomas, after speaking with Karl: "He agreed with the model and findings methods as is currently
-  written in the documents ... He said not to worry about adjustments"; "the model findings are done as is per the
-  documents methods"): the findings document v3.5 is the findings; no adjusted p-values. Every figure in it checked
-  against the outputs the same day (sessions/2026-11-19.md). Report-only checks beside it, not in the document:
-  findings_checks.py (the cap hit held; adjusted p-values), one_regression_replication.py (after 2022: age 28 to 31
-  replicates, the clause on trade day, the defenceman not).
-- Not findings: rentals as such, RFA control years, learning over time (-$0.02M a season), late picks (they return
-  nothing, priced at nothing), offer sheets (a what-if: positive mostly below the compensation line; 18 of 146 where a
-  first-round pick is owed).
-- The level of traded players' values is set by the remaining-term rule (STANDING_FLAGS, closed 2026-11-15): the
-  original-term run moves traded players' forecast from -$1,028.5M to -$108.1M and leaves 5 of 30 outcome rows
-  significant on WAR; longer contracts out-perform their forecast by 9% to 20% of the term premium only.
+**The findings (the document; sessions 2026-11-17 to 2026-11-21).**
+- Section 2 (declared window, 563 trades): the slope of outcome on the models' verdict 0.749 [0.553, 0.901]; favoured club
+  ahead 57.1%; picks delivered $0.188M less than forecast each [-0.330, -0.041]. All trades to 2026-03-13: slope 0.633.
+- Section 3 (the 556 two-team trades of 2017-22, 23 variables, both rules; a finding = trade-day grade and realized WAR
+  both p < 0.05, the same sign; `one_regression.csv`), $M a club, trade-day then realized: a player with a no-trade or
+  no-move clause (main player rule -1.62, -2.58; any player rule -1.74, -2.72); aged 28 to 31 (main player rule -1.12,
+  -1.68); a defenceman (main player rule -0.66, -1.42). Not findings: the former top-15 pick, goalies, 32 and over, and the
+  rest. Karl at the 2026-11-23 meeting: no change asked.
+- Section 4 (all trades, trade-day price): the price follows about 40 cents per $1 of contract value (two-stage, seasons
+  played as the instrument, 0.39 [0.00, 0.75]); cap dumps attach $0.083M of futures per $1M cleared.
+- Checks beside it, report only: Game Value and played-out trades (in the document); the cap hit held and adjusted
+  p-values (`findings_checks.py`); after 2022 (`one_regression_replication.py`: age 28 to 31 in full, the clause on trade
+  day, the defenceman not); realized value stopped at a second trade (`flip_stop_check.py`, 2026-11-24: every finding
+  holds; not in the write-up, Thomas); 21.9% of players in two or more of the 556 trades (`repeat_traded_players.py`).
+- Exploratory, to go in the findings as such (Thomas, 2026-11-24: "As exploratory"): the former top-10 pick in place of the
+  top-15 (`top10_swap.py`): main player rule trade-day -2.03 (p = 0.018), realized -2.43 (0.013); any player rule -2.04
+  (0.013), -2.30 (0.017); Game Value not met (0.070, 0.075). After 2022 (`top10_replication.py`): realized value only
+  (-1.67, p = 0.033; -1.53, 0.043; trade-day p 0.100, 0.119).
 
-## Model as built (2026-11-15)
+**The write-up (decided 2026-11-24).** Four chunks for Karl, each about half an hour's reading: the player model, the pick
+model, the prospect model (from "Valuing Players, Draft Picks, and Prospects", finished and split), then the findings
+(`Findings.docx`, split); a new flow diagram; a figures and regressions document beside each; a sparse codebook for each
+document, the CSVs checked; dollar figures as a share of the cap. The limitations for the final paper are collected in
+WORK_QUEUE item 8.
 
-As in the 2026-10-22 section (History), with these changes since:
-- **Term.** Every contract season is priced on the term left at the valuation date (unchanged, now decided). With
-  `XNPV_TERM_BASIS=original` each is priced on its contract's signed length (`skater_forward_projection.signed_term`), in
-  the skater and goaltender valuations, the 2017 page and the back-test's outcome; a sensitivity only, never set for a
-  run into `30_OUTPUT` or `_extended_run`. Unset, every value is reproduced exactly (checked on 3,238 assets).
-- **Pick curve.** The rule for rights that lapsed reads `30_OUTPUT/trades_extended.db` (`pick_curve.py` v1.12), so
-  `trade_refresh.py` builds that ledger first.
-- **Trade ledger.** `trade_ledger_extend.py`'s ten rules (its docstring): non-trades and voided trades left out; the
-  cap hit net of retention; retained salary from the export's cumulative figure less earlier rows; a minor-leaguer is a
-  player with no NHL game in the 365 days before the trade; signing rights a $0 cap hit; selection numbers only for drafts
-  held by May 2026.
+## Model as built (2026-11-24)
 
-## Figures in force (read from the code and the runs of 2026-11-11 to 2026-11-15)
+As in the 2026-11-15 section (History), with these changes since:
+- **Clause records.** A main player with no PuckPedia clause record is filled from his CapWages page (`clause_fill.py`
+  v1.0, 2026-11-19); 6 NHL players remain unknown (clause_fill_log.txt) and count as no clause.
+- **The back-test's groups.** The seller group is a club that sold a player for just picks and prospects (v1.8).
+- **Stop at the flip (sensitivity).** With `XNPV_STOP_AT_FLIP=1`, `backtest.py` v1.9 holds an asset its acquirer traded on
+  later only to that trade and credits the model's trade-day value of it there; outputs `_flipstop`. Unset, nothing
+  changes. Protocol, "Realized value stopped when the club trades the asset on".
+- **The findings regression.** One regression of the first club's value on the two clubs' differences in 23
+  characteristics and types of trade, no constant, one row a trade, robust (HC1) standard errors (`one_regression.py`
+  v2.4); missing player facts filled by declared rules (`facts_fill.py` v1.2).
+- **Known data error, not fixed (2026-11-24; fix or record: Thomas).** WAR.csv leaves the b.1988 Erik Gustafsson's 2013-14
+  PHI season under the plain name, and the skater forecast gives it to the b.1992 player (age 21); no traded valuation
+  reads it (STANDING_FLAGS).
+
+## Figures in force (read from the code and the runs of 2026-11-19 to 2026-11-24)
 
 | What | Value | Where |
 |---|---|---|
 | Skater line, term-in (`XNPV1_RATE`, locked 2026-10-21) | alpha -0.0043092485; beta 0.0175092736; defence +0.0040764912; gamma_term 0.0089103033; n 2,336 | `skater_forward_projection.py` |
 | At the 2025-26 cap | $1.672M per forecast win (forwards), $2.061M (defence), +$0.851M a season per year of term | same |
 | Goaltender line (`GOALIE_RATE`, locked 2026-10-21) | alpha -0.0317074413; beta 0.0213830910; gamma_term 0.0081170278 | `contract_npv.py` |
-| Star value | $18.29M (18.288394, se 1.74); without 2015-2016 $15.99M (2026-11-11) | `pick_curve.py` v1.12 |
-| Traded picks (634, declared window) | $407.11M; sensitivity $355.89M | `traded_pick_values.py` |
-| Traded prospects (declared window) | 271 valued, $83.34M at the 2025-26 cap | `prospect_values.py` |
+| Star value | $18.29M (18.2884, robust se 1.74) | `pick_curve.py` v1.12 |
 | Traded assets, declared window | 1,645 valued: $-264.74M at the 2025-26 cap | `trade_asset_values.py` |
 | Traded assets, all trades to 2026-03-13 | 3,234 valued: $-472.09M | `_extended_run/trade_asset_values.csv` |
-| Back-test, declared window (2026-11-11) | slope 0.749 [0.553, 0.901]; correlation 0.556; favoured club ahead 57.1%; picks -$0.188M an asset [-0.330, -0.041]; Game Value verdicts 11 / 7 / 2 / 1 | `backtest.py` v1.7 |
-| Back-test, all trades (2026-11-11) | 927 complete trades of 1,085; slope 0.633 [0.463, 0.782]; favoured club 60.7%; picks -$0.233M | `_extended_run/backtest_log.txt` |
-| Term premium explained by out-performance | 9% to 20% (+$0.076M to +$0.174M a season per year of term) | `term_quality_test.py` v1.1 |
-| Offer-sheet thresholds 2018-2025 | as printed (Thomas's table, 2026-11-12) | `backtest_cuts_more.OFFER_BOUNDS` |
+| Back-test, declared window (v1.8, 2026-11-19) | 563 complete trades of 567; slope 0.749 [0.553, 0.901]; correlation 0.556; favoured club ahead 57.1% [53.3, 61.1]; picks -$0.188M an asset [-0.330, -0.041] | `backtest_log.txt` |
+| Back-test, all trades (v1.8) | 927 complete trades of 1,085; slope 0.633 [0.463, 0.782]; favoured club 60.7% | `_extended_run/backtest_log.txt` |
+| Section 3's findings | as in Current state; 556 trades | `one_regression.csv` |
+| Price response (Section 4) | 0.39 [0.00, 0.75] per $1 (two-stage, seasons played); first stage +0.47 per $1, t = 21.3 | `who_overpaid_checks_log.txt` |
 | Discount and cap growth | 3% each | D11, D17 |
 
-## Data and scripts (2026-11-15)
+## Data and scripts (2026-11-24)
 
-**Source data (`10_SOURCE/`, never written by code).** As 2026-10-22, plus: the PuckPedia trades export is now read
-(`trade_ledger_extend.py`; it was identity-only before). Hand tables held in code with their sources: general managers'
-tenures (each club's Wikipedia list, read 2026-11-12, `backtest_cuts_more.GM_TENURES`); offer-sheet thresholds
-(`OFFER_BOUNDS`).
+**Source data (`10_SOURCE/`).** As 2026-11-15, plus CapWages contract pages read for clause records (`clause_fill.py`).
+The retention rule's change took effect September 16, 2026 (Thomas), after the ledger's last trade.
 
-**Live code (`20_CODE/`, 58 scripts).** As 2026-10-22, with: `trade_ledger_extend.py` v1.0 (new); `trade_refresh.py`
-v1.1 (18 steps; the ledger before the pick curve; `goalie_birthdates.csv` copied into a test folder); `pick_curve.py`
-v1.12; `trade_page.py` (`ledger_path()`); `trade_sides.py`, `trade_asset_values.py`, `prospect_values.py`,
-`traded_pick_values.py` read the ledger `XNPV_TRADES_DB` names; `skater_forward_projection.py`, `contract_npv.py`,
-`page_2017_values.py`, `backtest.py` carry the term switch; `prospect_values.py` (eleven reviewed spellings; the
-defenceman guard says when it does not run); the Stata chain (`stata_refresh.py` v1.2, `stata_export*.py`,
-`stata_expected.py`, `stata_walkthrough_template.do`, 2026-11-08/09).
+**Live code (`20_CODE/`, 60 scripts).** As 2026-11-15, with: `backtest.py` v1.9 (the clause fill, the seller group, the
+stop-at-flip switch); `clause_fill.py` v1.0 (new); `stata_export_findings.py` v1.2 (new 2026-11-19: `findings_data.csv`,
+`findings_walkthrough.do`, guide `40_DOCS/Stata_Findings_Codebook.md`).
 
-**Back-test analyses (`25_TESTS/`).** `backtest_cuts.py` v1.5 (`XNPV_CUTS_SCOPE`, `XNPV_OUTCOME_PART`),
-`backtest_cuts_more.py` v1.3 (top picks held, cap pressure, offer sheets, general managers), `joint_regression.py` v1.2,
-`contract_value_by_age.py` v1.1, `term_quality_test.py` v1.1, `trade_ledger_reconcile.py` v1.1.
+**Findings and checks (`25_TESTS/`).** `one_regression.py` v2.4, `facts_fill.py` v1.2, `clause_disguise.py` v1.2,
+`findings_checks.py` v1.1, `one_regression_replication.py` v1.1, `one_row_pcheck.py`, `who_overpaid_checks.py` v1.3,
+`defence_gap_split.py` v1.0, `findings_doc.js` v3.14 (writes `40_DOCS/Findings.docx`); 2026-11-23/24:
+`repeat_traded_players.py` v1.0, `flip_stop_check.py` v1.0, `top10_swap.py` v1.0, `top10_replication.py` v1.0. Rebuilt on
+today's model (2026-11-24): `prospect_age_form_look.py` v1.2, `prospect_pooled_terms_look.py` v1.1, `defence_terms_look.py`
+v1.1, `prospect_age_discount_look.py` v1.2; the documents' `numbers.json` (`model_doc_figures.py`, `prospect_doc_figures.py`).
 
-**Run folders (`30_OUTPUT/`).** The live files (declared window); `_extended_run/` (all trades); `_original_term_run/`
-(the term sensitivity); `_before_switch/` (the 2026-10-24 results and three set-aside reference files).
+**Run folders (`30_OUTPUT/`).** As 2026-11-15, plus the `_flipstop` files in `_extended_run/`. The documents' number files
+now hold today's figures, a fourth digit off the documents Karl was sent.
 
-**Pending data items.** The PuckPedia export refresh (May 2026); the mid-season allocation application (Phase 4a-ii,
-dated 2026-07: ask whether it still applies).
+**Pending data items.** None for the write-up; the PuckPedia export refresh is closed (the model is frozen for the
+write-up, 2026-11-24).
 
 ## Pointers
 
@@ -425,6 +407,122 @@ file changed and no locked decision was reopened.
 ---
 
 ## History (kept as written)
+
+### The sections as of the 2026-11-15 refresh, superseded 2026-11-24
+
+#### Current state (refresh 2026-11-15)
+
+Written from the code that runs (versions as each script prints them) and the session logs 2026-10-23 to 2026-11-15.
+The sections as they stood at the 2026-10-22 refresh are in History, as written.
+
+| Pillar | State | Code |
+|---|---|---|
+| Skater contracts | xNPV 1 (D33); unchanged since the 2026-10-21 re-lock. A contract season is priced on the term LEFT at the valuation date (directive 4; kept, Thomas 2026-11-15, after the term-as-quality test); an original-term switch exists for the sensitivity only | `skater_forecast.py` v2.4, `participation_model.py` v2.0, `skater_forward_projection.py` (`TERM_BASIS`, off), `rfa_terminal_value.py` v2.9, `contract_npv.py` v3.4 |
+| Goalie contracts | Unchanged since 2026-10-21 | `contract_npv.py` v3.4, `goalie_value_engine.py`, `goalie_birthdates.py` v1.0 |
+| Draft picks | The rights rule reads the trade ledger carried to 2026 (2026-11-11, Thomas: "Yes, switch"): one fitted player moved, the star value $18.288594M -> $18.288394M | `pick_curve.py` v1.12, `traded_pick_values.py` v1.2 |
+| Prospects | Unchanged since 2026-10-24 (defenceman x production). The guard against the defenceman test's coefficients does not run (its reference predates pick_curve v1.12; left for now, Thomas 2026-11-11) | `prospect_values.py` v1.13 |
+| Trades | Two ledgers. `trades.db` (CapFriendly, to 2022-03-28) for the declared window; `trades_extended.db` (that plus 518 PuckPedia trades to 2026-03-13, validated on 2019-22: 844 of 855 matched assets equal to $1,000) for the extended run | `trade_ledger_extend.py` v1.0, `trade_page.ledger_path()`, `trade_refresh.py` v1.1 (18 steps) |
+| Back-test | Run on the protocol, the declared window 2017-07-01 to 2022-03-28 (confirmatory) and all trades to 2026-03-13 (extended); the exploratory cuts, the joint regression, the original-term and seasons-played sensitivities, all declared before they were computed | `backtest.py` v1.7, `trade_sides.py` v1.0; `25_TESTS/backtest_cuts.py` v1.5, `backtest_cuts_more.py` v1.3, `joint_regression.py` v1.2, `contract_value_by_age.py` v1.1, `term_quality_test.py` v1.1 |
+| Stata | Refreshed 2026-11-11 on the switched pick curve; its check against the documents' recorded figures does not run (their `numbers.json` set aside); commands untested in Stata | `stata_refresh.py` v1.2 |
+
+**The back-test's findings (2026-11-11 to 2026-11-15; sessions 2026-11-11, 2026-11-12, 2026-11-15).**
+- Headline (declared window, after pick_curve v1.12): slope of outcome on the models' verdict 0.749 [0.553, 0.901];
+  favoured club ahead 57.1%; picks delivered $0.188M less than forecast each [-0.330, -0.041]; players and prospects not
+  distinguishable from their forecast. All trades: slope 0.633 [0.463, 0.782], favoured club 60.7%.
+- Outcome findings that survive the other characteristics (`joint_regression.py`, 913 two-team trades) AND the seasons
+  played alone, on WAR and Game Value: the club acquiring a main player aged 28 to 31 (-$1.12M a side on WAR; -$1.03M on
+  the seasons played), one with a no-trade or no-move clause (-$1.48M; -$1.41M), a defenceman (-$0.82M; -$0.70M; Game
+  Value is weak for defencemen; `defence_checks.py`, 2026-11-15: traded defencemen delivered their forecast by games, ice
+  time and every part of WAR, so the result is the price, not the measure). Typical deal: a clause veteran aged 28 to 31 for
+  picks, the buyer -$3.07M on WAR. With the price held (`groups_clustered.py`), no group comes out beyond what its price
+  predicts in the declared window: the outcomes bear out the models' prices.
+- Pricing findings (the price differs from the models' value; the outcome difference does not survive the others):
+  picks and prospects for players (+$0.89M a side priced), taking a contract to clear cap (-$3.50M; cap space costs
+  $0.096M of futures per $1M cleared), one asset for two or more (-$0.66M), a new general manager selling his
+  predecessor's contracts (+$1.05M, all trades only).
+- Absorbed by the others: the deadline buyer and the retaining club (the player taken and the picks given carry them).
+- The findings document (2026-11-19, `findings_doc.js` v3.3; one regression in place of two, Thomas: "Yes, rewrite"):
+  every result on the declared window, both rules (main player, any player received); player characteristics and types
+  of trade in one regression on all 556 two-team trades (`one_regression.py` v2.0, v3.4 of the document). Findings: a
+  player with a no-trade or no-move clause under both rules; aged 28 to 31 and a defenceman under the main player rule
+  (v2.2, a goalie indicator beside the defenceman one). The clause's trade-day overpay is mostly its cap hit
+  (clause_disguise.py); its realized loss is not. The former top-15 pick and goalies are not findings. The price follows about 40 cents
+  per $1 of contract value (all trades, corrected on the seasons played, 0.39 [0.00, 0.75]).
+  v3.8 (2026-11-19): clauses filled from CapWages (clause_fill.py), sellers for just picks and prospects, the
+  regression two rows a trade clustered by trade; the same three findings, the clause now significant in every test
+  under both rules.
+  v3.14 (2026-11-21, Thomas: "Yes, switch"): the regression back to one row a trade with robust standard errors
+  (one_regression.py v2.4); coefficients unchanged, standard errors 1.0% to 1.6% larger, no finding changes
+  (one_row_pcheck.py); the goalie's realized-WAR p 0.049 to 0.052. Thomas's saved edits of the same day carried.
+  DONE 2026-11-19 (Thomas, after speaking with Karl: "He agreed with the model and findings methods as is currently
+  written in the documents ... He said not to worry about adjustments"; "the model findings are done as is per the
+  documents methods"): the findings document v3.5 is the findings; no adjusted p-values. Every figure in it checked
+  against the outputs the same day (sessions/2026-11-19.md). Report-only checks beside it, not in the document:
+  findings_checks.py (the cap hit held; adjusted p-values), one_regression_replication.py (after 2022: age 28 to 31
+  replicates, the clause on trade day, the defenceman not).
+- Not findings: rentals as such, RFA control years, learning over time (-$0.02M a season), late picks (they return
+  nothing, priced at nothing), offer sheets (a what-if: positive mostly below the compensation line; 18 of 146 where a
+  first-round pick is owed).
+- The level of traded players' values is set by the remaining-term rule (STANDING_FLAGS, closed 2026-11-15): the
+  original-term run moves traded players' forecast from -$1,028.5M to -$108.1M and leaves 5 of 30 outcome rows
+  significant on WAR; longer contracts out-perform their forecast by 9% to 20% of the term premium only.
+
+#### Model as built (2026-11-15)
+
+As in the 2026-10-22 section (History), with these changes since:
+- **Term.** Every contract season is priced on the term left at the valuation date (unchanged, now decided). With
+  `XNPV_TERM_BASIS=original` each is priced on its contract's signed length (`skater_forward_projection.signed_term`), in
+  the skater and goaltender valuations, the 2017 page and the back-test's outcome; a sensitivity only, never set for a
+  run into `30_OUTPUT` or `_extended_run`. Unset, every value is reproduced exactly (checked on 3,238 assets).
+- **Pick curve.** The rule for rights that lapsed reads `30_OUTPUT/trades_extended.db` (`pick_curve.py` v1.12), so
+  `trade_refresh.py` builds that ledger first.
+- **Trade ledger.** `trade_ledger_extend.py`'s ten rules (its docstring): non-trades and voided trades left out; the
+  cap hit net of retention; retained salary from the export's cumulative figure less earlier rows; a minor-leaguer is a
+  player with no NHL game in the 365 days before the trade; signing rights a $0 cap hit; selection numbers only for drafts
+  held by May 2026.
+
+#### Figures in force (read from the code and the runs of 2026-11-11 to 2026-11-15)
+
+| What | Value | Where |
+|---|---|---|
+| Skater line, term-in (`XNPV1_RATE`, locked 2026-10-21) | alpha -0.0043092485; beta 0.0175092736; defence +0.0040764912; gamma_term 0.0089103033; n 2,336 | `skater_forward_projection.py` |
+| At the 2025-26 cap | $1.672M per forecast win (forwards), $2.061M (defence), +$0.851M a season per year of term | same |
+| Goaltender line (`GOALIE_RATE`, locked 2026-10-21) | alpha -0.0317074413; beta 0.0213830910; gamma_term 0.0081170278 | `contract_npv.py` |
+| Star value | $18.29M (18.288394, se 1.74); without 2015-2016 $15.99M (2026-11-11) | `pick_curve.py` v1.12 |
+| Traded picks (634, declared window) | $407.11M; sensitivity $355.89M | `traded_pick_values.py` |
+| Traded prospects (declared window) | 271 valued, $83.34M at the 2025-26 cap | `prospect_values.py` |
+| Traded assets, declared window | 1,645 valued: $-264.74M at the 2025-26 cap | `trade_asset_values.py` |
+| Traded assets, all trades to 2026-03-13 | 3,234 valued: $-472.09M | `_extended_run/trade_asset_values.csv` |
+| Back-test, declared window (2026-11-11) | slope 0.749 [0.553, 0.901]; correlation 0.556; favoured club ahead 57.1%; picks -$0.188M an asset [-0.330, -0.041]; Game Value verdicts 11 / 7 / 2 / 1 | `backtest.py` v1.7 |
+| Back-test, all trades (2026-11-11) | 927 complete trades of 1,085; slope 0.633 [0.463, 0.782]; favoured club 60.7%; picks -$0.233M | `_extended_run/backtest_log.txt` |
+| Term premium explained by out-performance | 9% to 20% (+$0.076M to +$0.174M a season per year of term) | `term_quality_test.py` v1.1 |
+| Offer-sheet thresholds 2018-2025 | as printed (Thomas's table, 2026-11-12) | `backtest_cuts_more.OFFER_BOUNDS` |
+| Discount and cap growth | 3% each | D11, D17 |
+
+#### Data and scripts (2026-11-15)
+
+**Source data (`10_SOURCE/`, never written by code).** As 2026-10-22, plus: the PuckPedia trades export is now read
+(`trade_ledger_extend.py`; it was identity-only before). Hand tables held in code with their sources: general managers'
+tenures (each club's Wikipedia list, read 2026-11-12, `backtest_cuts_more.GM_TENURES`); offer-sheet thresholds
+(`OFFER_BOUNDS`).
+
+**Live code (`20_CODE/`, 58 scripts).** As 2026-10-22, with: `trade_ledger_extend.py` v1.0 (new); `trade_refresh.py`
+v1.1 (18 steps; the ledger before the pick curve; `goalie_birthdates.csv` copied into a test folder); `pick_curve.py`
+v1.12; `trade_page.py` (`ledger_path()`); `trade_sides.py`, `trade_asset_values.py`, `prospect_values.py`,
+`traded_pick_values.py` read the ledger `XNPV_TRADES_DB` names; `skater_forward_projection.py`, `contract_npv.py`,
+`page_2017_values.py`, `backtest.py` carry the term switch; `prospect_values.py` (eleven reviewed spellings; the
+defenceman guard says when it does not run); the Stata chain (`stata_refresh.py` v1.2, `stata_export*.py`,
+`stata_expected.py`, `stata_walkthrough_template.do`, 2026-11-08/09).
+
+**Back-test analyses (`25_TESTS/`).** `backtest_cuts.py` v1.5 (`XNPV_CUTS_SCOPE`, `XNPV_OUTCOME_PART`),
+`backtest_cuts_more.py` v1.3 (top picks held, cap pressure, offer sheets, general managers), `joint_regression.py` v1.2,
+`contract_value_by_age.py` v1.1, `term_quality_test.py` v1.1, `trade_ledger_reconcile.py` v1.1.
+
+**Run folders (`30_OUTPUT/`).** The live files (declared window); `_extended_run/` (all trades); `_original_term_run/`
+(the term sensitivity); `_before_switch/` (the 2026-10-24 results and three set-aside reference files).
+
+**Pending data items.** The PuckPedia export refresh (May 2026); the mid-season allocation application (Phase 4a-ii,
+dated 2026-07: ask whether it still applies).
 
 ### The sections as of the 2026-10-22 refresh, superseded 2026-11-15
 
