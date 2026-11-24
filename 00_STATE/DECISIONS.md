@@ -4237,3 +4237,5 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   top-10 pick on the 357 trades after 2022: same sign, about half the size; realized WAR p = 0.033 and 0.043, trade-day
   grade p = 0.100 and 0.119: "realized value only" by the declared reading. Nothing in the findings document changed.
   MANIFEST row; WORK_QUEUE 0g; session log.
+- DECISION (2026-11-24, Thomas: "As exploratory"): the former top-10 pick in the findings as an exploratory result, not
+  a finding; written at the next findings build. WORK_QUEUE 0g; session log.

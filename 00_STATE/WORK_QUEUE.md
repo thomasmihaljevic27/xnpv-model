@@ -38,8 +38,10 @@ Order (Thomas, 2026-11-24): the items that need Thomas first, then 0g, then the 
    -2.43, p = 0.013; any: -2.04, p = 0.013; -2.30, p = 0.017); Game Value not met (p = 0.070, 0.075); no other term changes.
    Exploratory (a specification search). **Replicated 2026-11-24** (Thomas: "Yes, replicate it"; `25_TESTS/
    top10_replication.py`): after 2022 the same sign at about half the size; realized WAR p = 0.033 and 0.043, the trade-day
-   grade p = 0.100 and 0.119, so "realized value only" by the declared reading (31 trades differ). Decide (Thomas): whether
-   it goes in the findings, and how (session 2026-11-24).
+   grade p = 0.100 and 0.119, so "realized value only" by the declared reading (31 trades differ). Decided 2026-11-24
+   (Thomas: "As exploratory"): in the findings as an exploratory result, beside the three findings and not counted as one:
+   both rules' 2017-22 figures, that it was tried after the top-15 fell short, and the replication after 2022 (realized
+   value only). Do: at the next findings build, with 0f and 0h; the findings codebook (0d) carries its command.
 0h. Do (Thomas, 2026-11-24: "All changes agreed to for now, I can edit myself later anyways"): the four wordings flagged on
    2026-11-21 changed in the builder at the next build. Decided: the file keeps the name `40_DOCS/Findings.docx` (Thomas:
    "Just keep it findings"; `findings_doc.js` writes it).
