@@ -96,7 +96,8 @@ Order (Thomas, 2026-11-24): the items that need Thomas first, then 0g, then the 
 3. Answered 2026-11-24 (Thomas): the retention rule change took effect September 16, 2026. That is after the ledger's last
    trade (2026-03-13), so no trade in the back-test is under the new rule; cut 9's 2025-26 group is before the change
    (protocol amendment of 2026-11-24). No figure moves.
-4. Do (Thomas, 2026-11-24: "Build"; was "Leave for now", 2026-11-11): rebuild the three finished prospect tests and the
+4. Done 2026-11-24 (session 2026-11-24): the four finished prospect tests rebuilt, the defenceman guard and the Stata
+   document checks running again (24 PASS). Was: Do (Thomas, 2026-11-24: "Build"; was "Leave for now", 2026-11-11): rebuild the three finished prospect tests and the
    documents' `numbers.json` on today's model, so the defenceman guard and the Stata document check run again.
 5. Do (Thomas): run the Stata guide's commands (untested in Stata); the Stata files are on the model of 2026-11-11.
    (2026-11-23: the files in `30_OUTPUT/stata/` were rewritten 2026-11-19, the findings files 2026-11-21; needed before 0d.)
@@ -116,7 +117,9 @@ Order (Thomas, 2026-11-24): the items that need Thomas first, then 0g, then the 
      line); the market holdout (the trades after 2022 as the replication, 2026-11-19); the Arbitration Cost Update note's
      Figure 1 (a point-in-time note); the PuckPedia export refresh (the model frozen for the write-up).
    - Dropped: the league-minimum floor stress test; the nine-season participation window.
-   - Do (Claude): confirm the model keeps the two Erik Gustafssons apart (the WAR file merges them, STANDING_FLAGS 2026-07-19).
+   - Checked 2026-11-24 (Claude): the pick curve keeps them apart; the skater forecast gives the b.1988 player's 2013-14
+     PHI season to the b.1992 player; no traded valuation reads it. Decide (Thomas): fix (a model change, every chain re-run)
+     or record it as known (session 2026-11-24).
    - Stated as limitations in the paper (item 8).
 8. For the final paper's limitations (Thomas, 2026-11-24): playoffs not counted (a rental is valued on the regular
    season); a clause's cost, and trades a clause forced, not measured; the forecast low on six-to-eight-year deals (about

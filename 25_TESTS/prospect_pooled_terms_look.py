@@ -63,7 +63,7 @@ import pandas as pd
 import statsmodels.api as sm
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "prospect_pooled_terms_look.py v1.0 (2026-10-24)"
+SCRIPT_VERSION = "prospect_pooled_terms_look.py v1.1 (2026-11-24)"   # v1.1: rebuilt on today's model (Thomas: "Build"): the traded-values guard against prospect_age_form_look v1.2's adopted arm
 load_dotenv(Path.cwd() / ".env")
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 LOG = []
@@ -302,12 +302,17 @@ for am in AGE_MEASURES:
         m, _ = FITS[(am, arm)]
         X, _ = design(tg, t["p_star"].fillna(0.0).values, t["nhle82"].values.astype(float), t_age[am], arm)
         V[(am, arm)] = pd.Series(X @ m.params, index=t.index)
-gap_v = float((V[("ype18", "adopted")] - t["value_M"]).abs().max())
+# v1.1 (2026-11-24, rebuilt on today's model; Thomas: "Build"): the live value_M carries the defenceman x production term
+# (prospect_values v1.13), which this test's arms do not; the adopted arm must reproduce prospect_age_form_look v1.2's
+# adopted arm, whose own guard ties it to the live fits, and the changes are measured from it
+af = pd.read_csv(OUTPUT_DIR / "prospect_age_form_traded.csv").set_index("asset_id")["production x age (adopted)"]
+gap_v = float((V[("ype18", "adopted")] - t["asset_id"].map(af).values).abs().max())
 assert gap_v < 1e-6, gap_v                                                                                       # GUARD
+t["value_M"] = V[("ype18", "adopted")]
 base_d = t.loc[drafted, "value_M"].sum() + fixed.loc[fixed_d, "value_M"].sum()
 base_u = t.loc[~drafted, "value_M"].sum()
-log(f"\nTHE TRADED PROSPECTS (guard: the adopted arm reproduces prospect_values.csv's value_M, largest gap {gap_v:.1e} "
-    f"(PASS)); {n_dr} drafted ({int(fixed_d.sum())} goalies on draft position alone, the same in every arm), "
+log(f"\nTHE TRADED PROSPECTS (guard: the adopted arm reproduces prospect_age_form_look.py's adopted arm, largest gap "
+    f"{gap_v:.1e} (PASS)); {n_dr} drafted ({int(fixed_d.sum())} goalies on draft position alone, the same in every arm), "
     f"{int((~drafted).sum())} undrafted")
 log(f"  {'arm':<30}{'age measure':<10}{'drafted':>9}{'change':>8}{'moved $0.25M+':>15}{'undrafted':>11}{'change':>8}"
     f"   largest mover")

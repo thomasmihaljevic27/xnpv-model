@@ -87,7 +87,7 @@ from dotenv import load_dotenv
 from scipy.optimize import minimize_scalar
 from scipy.stats import norm as normal
 
-SCRIPT_VERSION = "prospect_age_discount_look.py v1.1 (2026-10-23)"   # v1.1: the one-coefficient discounted form (Thomas)
+SCRIPT_VERSION = "prospect_age_discount_look.py v1.2 (2026-11-24)"   # v1.2: rebuilt on today's model (Thomas: "Build"): the traded-values guard against prospect_age_form_look v1.2's adopted arm; v1.1: the one-coefficient discounted form (Thomas)
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 LOG = []
@@ -529,13 +529,18 @@ for arm in ARMS:
         X, _ = design(arm, arrays(x, x["past_elig"].values), g, back(arm, f["theta"]))
         v[x.index] = X @ f["b"]
     V[arm] = v
-gap_v = float((V["adopted"] - t["value_M"]).abs().max())
+# v1.2 (2026-11-24, rebuilt on today's model; Thomas: "Build"): the live value_M carries the defenceman x production term
+# (prospect_values v1.13), which this test's arms do not; the adopted arm must reproduce prospect_age_form_look v1.2's
+# adopted arm, whose own guard ties it to the live fits, and the changes are measured from it
+af = pd.read_csv(OUTPUT_DIR / "prospect_age_form_traded.csv").set_index("asset_id")["production x age (adopted)"]
+gap_v = float((V["adopted"] - t["asset_id"].map(af).values).abs().max())
 assert gap_v < 1e-6, gap_v                                                                                       # GUARD
+t["value_M"] = V["adopted"]
 fixed = pv[valued & ~prod]
 drafted, fixed_d = t["draftYear"].notna(), fixed["draftYear"].notna()
 n_dr = int(drafted.sum()) + int(fixed_d.sum())
 log(f"\nTHE TRADED PROSPECTS (prospect_values.csv; each arm fitted on all drafts; guard: the adopted arm reproduces "
-    f"value_M, largest gap {gap_v:.1e} (PASS))")
+    f"prospect_age_form_look.py's adopted arm, largest gap {gap_v:.1e} (PASS))")
 in_age = t["k_group"].isin(AGE_GROUPS)
 log(f"  {n_dr} drafted prospects valued ({int(fixed_d.sum())} goalies on draft position alone, the same under every arm), "
     f"{int((~drafted).sum())} undrafted skaters; the arms differ only for those in D+1 to D+4: "

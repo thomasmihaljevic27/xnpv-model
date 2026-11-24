@@ -4239,3 +4239,8 @@ D28 (signed extensions are part of the asset) is a player-model decision and is 
   MANIFEST row; WORK_QUEUE 0g; session log.
 - DECISION (2026-11-24, Thomas: "As exploratory"): the former top-10 pick in the findings as an exploratory result, not
   a finding; written at the next findings build. WORK_QUEUE 0g; session log.
+- REBUILD (2026-11-24; Thomas: "Build"): prospect_age_form_look v1.2, prospect_pooled_terms_look v1.1, defence_terms_look
+  v1.1, prospect_age_discount_look v1.2 on today's model (their traded-values guards re-tied to the live fits); the
+  documents' numbers.json rebuilt; prospect_values' defenceman guard and stata_export's 24 document checks PASS again. No
+  model value moved. Erik Gustafsson checked: one 2013-14 season misattributed in the forecast's data, read by no trade
+  (fix or record: Thomas). MANIFEST rows; WORK_QUEUE 4, 7; session log.

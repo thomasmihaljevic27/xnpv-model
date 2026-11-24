@@ -70,7 +70,7 @@ import statsmodels.api as sm
 from dotenv import load_dotenv
 from scipy.optimize import minimize_scalar
 
-SCRIPT_VERSION = "prospect_age_form_look.py v1.1 (2026-10-22)"   # v1.1: no no-record indicator, as prospect_values.py v1.12 (Thomas, 2026-10-21)
+SCRIPT_VERSION = "prospect_age_form_look.py v1.2 (2026-11-24)"   # v1.2: rebuilt on today's model (Thomas, 2026-11-24: "Build"): the traded-values guard replaced by one against the live fits (the adopted arm plus the defenceman x production term, prospect_values v1.13, reproduces prospect_production_fits.csv), and the traded table measured from the adopted arm (no defenceman term), as every arm here; v1.1: no no-record indicator, as prospect_values.py v1.12 (Thomas, 2026-10-21)
 load_dotenv()
 OUTPUT_DIR = Path(os.environ["OUTPUT_DIR"])
 LOG = []
@@ -83,7 +83,8 @@ def log(s=""):
 
 log(SCRIPT_VERSION)
 F = {"rows": OUTPUT_DIR / "prospect_nhle_rows.csv", "linkage": OUTPUT_DIR / "draft_pick_linkage.csv",
-     "age_scores": OUTPUT_DIR / "prospect_age_look.csv", "values": OUTPUT_DIR / "prospect_values.csv"}
+     "age_scores": OUTPUT_DIR / "prospect_age_look.csv", "values": OUTPUT_DIR / "prospect_values.csv",
+     "fits": OUTPUT_DIR / "prospect_production_fits.csv"}
 for k_, p_ in F.items():
     log(f"  input {k_}: {p_.resolve()}  (modified {pd.Timestamp(p_.stat().st_mtime, unit='s'):%Y-%m-%d %H:%M})")
 MTIME = {k_: p_.stat().st_mtime for k_, p_ in F.items()}   # checked again at the end (a chain run can rewrite them)
@@ -388,13 +389,29 @@ for arm in ARMS:
         X, _ = design(arm, arrays(x, x["past_elig"].values), g, dl)    # past_elig: prospect_values.py's, centred at 18
         v[x.index] = X @ b
     V[arm] = v
-gap_v = float((V["adopted"] - t["value_M"]).abs().max())
-assert gap_v < 1e-6, gap_v                                                                                       # GUARD
+# v1.2 GUARD: the adopted arm with the defenceman x production term added (prospect_values v1.13, after this test's arms
+# were chosen) reproduces the live model's fitted coefficients, so the rows and the adopted form are today's model
+fl = pd.read_csv(F["fits"], dtype={"k_group": str})
+fl = fl[(fl["version"] == "main") & (fl["left_out"] == "none")].set_index("k_group")
+gap_v = 0.0
+for g, x in d.groupby("k_group"):
+    cols = {"nhle82": x["nhle82"], "nhle82_sq": x["nhle82_sq"]}
+    if g in EARLY:
+        cols = {"p_star": x["p_star"], **cols}
+    if g in AGE_GROUPS:
+        cols["prod_x_age"] = x["nhle82"] * (x["age_sep15"] - x["k"] - CENTRE)
+    cols["d_x_prod"] = x["is_d"] * x["nhle82"]
+    b_ = np.linalg.lstsq(np.column_stack(list(cols.values())), x["remaining_M"].values, rcond=None)[0]
+    gap_v = max(gap_v, max(abs(b_[i] - fl.at[g, c]) for i, c in enumerate(cols)))
+assert gap_v < 1e-9, gap_v                                                                                       # GUARD
+d_effect = float((t["value_M"] - V["adopted"]).abs().max())
+t["value_M"] = V["adopted"]            # v1.2: every arm measured from the adopted form (no defenceman term)
 fixed = pv[valued & ~prod]                                 # goalies (draft position alone): the same under every arm
 drafted, fixed_d = t["draftYear"].notna(), fixed["draftYear"].notna()
 n_dr = int(drafted.sum()) + int(fixed_d.sum())
-log(f"\nTHE TRADED PROSPECTS (prospect_values.csv; each arm fitted on all drafts; guard: the adopted arm reproduces "
-    f"value_M, largest gap {gap_v:.1e} (PASS))")
+log(f"\nTHE TRADED PROSPECTS (prospect_values.csv; each arm fitted on all drafts; guard: the adopted arm plus the "
+    f"defenceman x production term reproduces the live fits, largest gap {gap_v:.1e} (PASS); changes are measured from "
+    f"the adopted arm without that term, which differs from the live value_M by at most ${d_effect:.2f}M)")
 log(f"  {n_dr} drafted prospects valued ({int(fixed_d.sum())} goalies on draft position alone, the same under every arm) "
     f"and {int((~drafted).sum())} undrafted skaters on NHL contracts")
 in_age = t["k_group"].isin(AGE_GROUPS)

@@ -62,7 +62,7 @@ import pandas as pd
 import statsmodels.api as sm
 from dotenv import load_dotenv
 
-SCRIPT_VERSION = "defence_terms_look.py v1.0 (2026-10-24)"
+SCRIPT_VERSION = "defence_terms_look.py v1.1 (2026-11-24)"   # v1.1: rebuilt on today's model (Thomas: "Build"): the traded-values guard on the + D x P arm, the live model since prospect_values v1.13
 load_dotenv(Path.cwd() / ".env")
 OUTPUT_DIR, SOURCE_DIR = Path(os.environ["OUTPUT_DIR"]), Path(os.environ["SOURCE_DIR"])
 LOG = []
@@ -313,6 +313,10 @@ miss = pos.isna() & t["nhl_id_undrafted"].notna()
 pos[miss] = t.loc[miss, "nhl_id_undrafted"].astype(int).map(pp_pos)
 assert pos.notna().all(), t.loc[pos.isna(), "player_name"].tolist()                                          # GUARD
 t["D"] = pos.astype(str).str.startswith("D").astype(float)
+# v1.1: the live model's own flag (prospect_values v1.13's is_d_model: Elite Prospects' draft page, else the linkage), so
+# the + D x P arm prices each traded prospect as the model does; the count that differs from the position above is logged
+n_pos_differ = int((t["D"] != t["is_d_model"]).sum())
+t["D"] = t["is_d_model"].astype(float)
 tg = t["k_group"].astype(str).values
 fixed = pv[valued & ~prod]
 drafted, fixed_d = t["draftYear"].notna(), fixed["draftYear"].notna()
@@ -323,13 +327,18 @@ for arm in PR_ARMS:
     X, _ = design(tg, t["p_star"].fillna(0.0).values, t["nhle82"].values.astype(float), t["past_elig"].values,
                   t["D"].values, arm)
     V[arm] = pd.Series(X @ m.params, index=t.index)
-gap_v = float((V["adopted"] - t["value_M"]).abs().max())
+# v1.1 (2026-11-24, rebuilt on today's model; Thomas: "Build"): the "+ D x P" arm IS the live model since prospect_values
+# v1.13, so it is the one that must reproduce value_M; the table's changes are still measured from the arm without it
+gap_v = float((V["+ D x P"] - t["value_M"]).abs().max())
 assert gap_v < 1e-6, gap_v                                                                                   # GUARD
+t["value_M"] = V["adopted"]
 base_d = t.loc[drafted, "value_M"].sum() + fixed.loc[fixed_d, "value_M"].sum()
 base_u = t.loc[~drafted, "value_M"].sum()
-log(f"\n  THE TRADED PROSPECTS (guard: the adopted arm reproduces value_M, largest gap {gap_v:.1e} (PASS)); {n_dr} drafted "
+log(f"\n  THE TRADED PROSPECTS (guard: the + D x P arm, the live model, reproduces value_M, largest gap {gap_v:.1e} (PASS); "
+    f"changes below are from the arm without it); {n_dr} drafted "
     f"({int(fixed_d.sum())} goaltenders on draft position alone, the same in every arm), {int((~drafted).sum())} undrafted "
-    f"(positions from PuckPedia for {int(miss.sum())}); defencemen among those valued on production: "
+    f"(positions from PuckPedia for {int(miss.sum())}; the model's defenceman flag used, differing from that position "
+    f"for {n_pos_differ}); defencemen among those valued on production: "
     f"{int(t.loc[drafted, 'D'].sum())} drafted, {int(t.loc[~drafted, 'D'].sum())} undrafted")
 log(f"  {'arm':<26}{'drafted':>9}{'change':>8}{'moved $0.25M+':>15}{'undrafted':>11}{'change':>8}   largest mover")
 trd = []
