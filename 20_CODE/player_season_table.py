@@ -63,7 +63,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import forecast_config as C
 
-SCRIPT_VERSION = "1.5"   # 1.5 (2026-10-18): integer age counted on the calendar; 1.4 (2026-10-14): age on September 15
+SCRIPT_VERSION = "1.6"   # 1.6 (2026-11-24): war_rows.relabel on WAR.csv (the b.1988 Erik Gustafsson's 2013-14 row; Thomas: "Fix it"); 1.5 (2026-10-18): integer age counted on the calendar; 1.4 (2026-10-14): age on September 15
 
 # --- Name normalisation ---------------------------------------------------
 # Reproduced from skater_value_engine.norm_name rather than imported, so this
@@ -245,7 +245,8 @@ def build(birthdate_csv: Path | None = None, verbose: bool = True,
       5. only then compute rates, shares and experience
     """
     src = C.assert_read_only_source(C.F_WAR_SKATERS)
-    w = pd.read_csv(src)
+    import war_rows                         # v1.6: the one row a name rule cannot place
+    w = war_rows.relabel(pd.read_csv(src))
     n_raw = len(w)
 
     w["syr"] = w["Season"].str.split("-").str[0].astype(int) + 2000

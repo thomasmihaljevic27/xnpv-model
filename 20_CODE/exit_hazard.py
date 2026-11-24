@@ -1,6 +1,6 @@
 """
 =============================================================================
- exit_hazard.py   v1.3                              Phase 1a (D18)
+ exit_hazard.py   v1.4                              Phase 1a (D18)
                                                      (D20, 2026-07-05)
                                           review item 1.4 (2026-07-26)
 =============================================================================
@@ -172,7 +172,8 @@ def build_transitions(war_path, age_path, name_col="Player",
         import contract_source as _CS
         war = _CS.read_goalie_war(war_path)
     else:
-        war = pd.read_csv(war_path)
+        import war_rows                     # 2026-11-24 (v1.4): the one row a name rule cannot place
+        war = war_rows.relabel(pd.read_csv(war_path))
     war["syr"] = war["Season"].str.split("-").str[0].astype(int) + 2000
     # team-split seasons collapse to one row per player-season, WAR summed
     war = (war.groupby([name_col, "syr"], as_index=False)
@@ -515,7 +516,8 @@ def main():
     # ---- sensitivity: GP >= 1 population ------------------------------------
     # (v1.0 referenced build_transitions() locals here -- NameError on any
     # standalone run; the imported builders masked it. Fixed: rebuild.)
-    w = pd.read_csv(F_WAR)
+    import war_rows
+    w = war_rows.relabel(pd.read_csv(F_WAR))
     w["syr"] = w["Season"].str.split("-").str[0].astype(int) + 2000
     w = w.groupby(["Player", "syr"], as_index=False).agg(GP=("GP", "sum"))
     present = set(zip(w["Player"], w["syr"]))

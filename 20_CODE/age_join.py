@@ -378,7 +378,9 @@ def main():
         log.append(msg)
         print(msg)
 
-    war = pd.read_csv(WAR_PATH)
+    import war_rows                         # 2026-11-24: the one WAR.csv row a name rule cannot place (Thomas: "Fix it")
+    war = war_rows.relabel(pd.read_csv(WAR_PATH))
+    record(f"  {war_rows.SCRIPT_VERSION}: {len(war_rows.ROW_RELABELS)} WAR.csv row(s) moved to their player's label")
     pp, id_bio = build_puckpedia_lookup(PUCKPEDIA_PATH)
 
     # WAR-side keys (one lookup row per distinct player)

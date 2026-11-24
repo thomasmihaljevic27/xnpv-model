@@ -1,6 +1,6 @@
 """
 =============================================================================
- skater_value_engine.py   v2.0                     helpers (2026-10-14)
+ skater_value_engine.py   v2.1                     helpers (2026-10-14)
 =============================================================================
  WHAT THIS IS NOW (v2.0, Thomas 2026-10-14: retire the 60/40 checks)
  -------------------------------------------------------------------
@@ -210,7 +210,8 @@ def build_skater_war_lookup(exclude_merged=True, prorate=True):
     prorate=True applies the D20 schedule factors; False gives the raw
     season totals (the price line's sample screen reads either: only
     which keys exist matters there)."""
-    war = pd.read_csv(F_WAR_SKATERS)
+    import war_rows                         # 2026-11-24 (v2.1): the one row a name rule cannot place
+    war = war_rows.relabel(pd.read_csv(F_WAR_SKATERS))
     war["syr"] = war["Season"].str.split("-").str[0].astype(int) + 2000
     if prorate:
         war["WAR"] = war["WAR"] * war["syr"].map(PRORATION).fillna(1.0)
@@ -268,4 +269,4 @@ def has_recent_season(key, start_yr, lut):
 
 
 if __name__ == "__main__":
-    print("skater_value_engine.py v2.0 is a library since 2026-10-14; there is nothing to run.")
+    print("skater_value_engine.py v2.1 is a library since 2026-10-14; there is nothing to run.")
