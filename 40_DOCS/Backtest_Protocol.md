@@ -837,3 +837,14 @@ prospect_values pick); every other term and row unchanged. GUARDS: the flags reb
 row, under both rules; the document's fit reproduces one_regression.csv. A finding: trade-day grade and realized value on
 WAR both p < 0.05, the same sign; Game Value and seasons played reported beside it. Nothing in the findings document
 changes unless Thomas decides it.
+
+## The former top-10 pick on the trades after 2022 (declared 2026-11-24, before it is built; Thomas: "Yes, replicate it")
+
+The replication of the top-10 swap above, on the trades the term was not chosen on. `25_TESTS/top10_replication.py`
+(report only): one_regression_replication's selection (the two-team trades after 2022-03-28, its rule for unknown
+characteristics) and fit, both rules, with the former top-10 pick in place of the top-15 exactly as top10_swap builds it.
+GUARDS: the flags rebuilt at 15 equal one_regression.frame's on every club side of every trade; the same code on the
+declared window reproduces top10_swap.csv. READING (one_regression_replication's, declared 2026-11-19): it replicates in
+full when its trade-day grade and realized WAR after 2022 both have the declared window's sign with p < 0.05; on trade day
+only when only the trade-day grade does. These trades' realized values are mostly the models' re-valuation at 2026-27, so
+the trade-day grade is the firm column.
